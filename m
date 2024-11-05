@@ -4,91 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B32B9D1CA26
-	for <linux-riscv@archiver.kernel.org>; Tue,  5 Nov 2024 05:20:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F134CD1CA30
+	for <linux-riscv@archiver.kernel.org>; Tue,  5 Nov 2024 05:55:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:To:Subject:
-	Cc:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=lYYzid7+b6G/V1n9sYUGL76qR9XU1LbkIsg9B1o7izI=; b=lth7DXbeFd54Cx
-	WDFxS18HfhT3qdZX5mUzVDFlE9HZg8l5coRqn37MfzicdYeEiGS/MZb9aBwNw2W4OIHFiAU4ixEfE
-	djWAeEstpzpa23j4i09d5R8Z8wD2JmqTl7adaOQ9Qp7F7gqqAjwYjH0QCmpvjMAu5YbChYJ6ACGHS
-	tl3iz77N+ArXZN63i2hC35RcW8Y5EC3AjRG8zPO0oNyNV1mfZwLUv1ZHvqZGYBi4sWBpouZ4CrohC
-	/CutI0dVdpqrcCttdt+yJ4v2D+p6wb1qFCjuO5OCyUNatSfvmjhIvrQu118ghGOEOR+hbSUjU2F4a
-	v8650W86s/M0fqBwyhDg==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID:
+	References:Mime-Version:In-Reply-To:Date:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Owner;
+	bh=XosAI4+Ccfc3MIL8Zff87E4wxFhhBgAjkCtWGcHFT3E=; b=1iNALigUworV9vEog/Sy9QfHen
+	/cIGZdCZIun/qow22/flaapnz2+ckqS0yYc4FF8kctIJQKIh4IrzW+2IxYq+Rh2ey3YQ7CDrQ3i6R
+	RaWI2ukKJBgfF1OXZltIjsKHVvIYX+ubgnvGEPKD8VQpIUpby4sBS8dnPxW275y49PL3DnkrWbpc2
+	EUUku7XBIWoaUo7NSIyd6GvrAQ9YgARBjhkdZ0ecgsUgSUfFgc/l94uXIQ2rfuSIc0L85nxOO/2u8
+	VuH589l5bJjb+78CcljpdU+giAyfSGNZE64qbDXhxj9S03Jn9NbG7Y2bBGdGVZZWA2S5vBP6AU23U
+	oZoCMsmw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8BzL-0000000FvkS-0aBY;
-	Tue, 05 Nov 2024 05:20:23 +0000
-Received: from mail-oi1-x241.google.com ([2607:f8b0:4864:20::241])
+	id 1t8CXV-0000000Fz3p-2JGg;
+	Tue, 05 Nov 2024 05:55:41 +0000
+Received: from mail-yw1-x1149.google.com ([2607:f8b0:4864:20::1149])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8BzJ-0000000Fvk5-01EY
+	id 1t8CVk-0000000FyYa-3SEI
 	for linux-riscv@lists.infradead.org;
-	Tue, 05 Nov 2024 05:20:22 +0000
-Received: by mail-oi1-x241.google.com with SMTP id 5614622812f47-3e5fa17a79dso2814260b6e.1
-        for <linux-riscv@lists.infradead.org>; Mon, 04 Nov 2024 21:20:20 -0800 (PST)
+	Tue, 05 Nov 2024 05:53:55 +0000
+Received: by mail-yw1-x1149.google.com with SMTP id 00721157ae682-6e38fabff35so89778167b3.0
+        for <linux-riscv@lists.infradead.org>; Mon, 04 Nov 2024 21:53:50 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1730784020; x=1731388820; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:to:subject:cc:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=OVIDqyMFPmN4cUigm8mgpzwe7aTulhrXs9SX4YLqJfs=;
-        b=i45fWien6zp5bcTccYDx34vac4MKQbSmvuJ1PaDLRKGlTCv0zAbs+rAT6DBLAC4W7C
-         Q4PRh8LBKj5gIEewK5pMpaHVKdwwAS5RGR8EWX2ddla5S90/FOuVwlWgOsf3uBX7v4bW
-         TIuJ5BlUs5UlLCV928WJqHQ1zxa6Oc1VIpAuk5ezYwTsFxDW6yaCyv5HOs0VCQ4uYYtm
-         3kJRNQGo9xuy9Q97CiZVRXYStloRKLcx7WskcUyMYwlUcESoBW90hGpRucWsN3+mMNoq
-         1iePAJNIitdMVpXwn5bSVE9kfm0RNhbqqdK92lVXxf1q/952+B1FVkeLz7Aw5XQ2L4OB
-         284g==
+        d=google.com; s=20230601; t=1730786030; x=1731390830; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:from:to:cc:subject:date:message-id:reply-to;
+        bh=o6I0lsXsH1rGJHzKMzLgK+XDkNKkWp36WmP2kFDs1jI=;
+        b=UiSu5jmxrCPFqG4AEvbwHH3d3VfWghekgqNWCcEG+JSkA3CBDgpLA//eV1r2nkkFBn
+         MoyuQz4IugR6z3ZAIb9LIRT5Ne8jwIRHplTKhpMS2vp/VbQVK5L/Q2xJOUAxIdzSi8HG
+         /NT3t+1ZO/9HFcSgKhYN4qbdxm5qk90cphbN7czUHl5tuymOqF7U/+quy6x+u+x1ZNew
+         ABYHJ6UssR0EtkWX/8Qr7hhH4ztS3+eEfBHgHr88d7FMacD3myqJFffBQADcY+YiB4fK
+         PEymEb5kOeXHZ3Ke0jsabTOSnRtHYE00KoIdw+JwDjocIMpEEcog3ecMoA26GsIzrdKB
+         MzLg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1730784020; x=1731388820;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:to:subject:cc:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=OVIDqyMFPmN4cUigm8mgpzwe7aTulhrXs9SX4YLqJfs=;
-        b=uEx+eGTYQeO2sWwRNugr9mywv6ujB57CDmvyhmv+yHRSmxEN7ZDXFibtHA7O9gpKwB
-         XMEmM5b/NuIGgRNw8SMZe6Jb7N+PIY219kps8LC/5VFyddfusTu96T9iDWshy4JBCBLL
-         mTc0ME2/QVSeLk8CD0MMw5cRcV1UbuOYTdyg675vGKLGmVtSVgQB+FSHtTc8oDLqTgoX
-         UdeztUDHBmVqYbSWEnD/51U0baQMMTMK49Dljre/MmasyzUijp3hEMrohdVQDX8GRHVc
-         8GOw5tR/0KtAvfXLLkH3SSx6Mfh8Xkd4qmixlKKB5+TbfMbRsMniR0bjeTuylgxksIbh
-         nhoA==
-X-Forwarded-Encrypted: i=1; AJvYcCU6h1tHtpPYkASC5THJzu+Z32+QU9sU7FJV1eU1QAIynfqAjDd4kNIDaK+paIxnBEi5BVEdnvFv05JDkA==@lists.infradead.org
-X-Gm-Message-State: AOJu0YxMGXnft08F7Mbr29lxzjb3q0Hneongnwo2oBa0cIeEaXl27Xhd
-	br49/BtryLYinH/z9cawM1pq3VrFpU+bZrqv8VsK05IiGchvXf+B
-X-Google-Smtp-Source: AGHT+IHoumst3uPdf4NL+OrVtBSVt4fmNllaSCy38++T/BPGlXiWWEGwidCLdjrRMdlBJygYmO+0AA==
-X-Received: by 2002:a05:6808:3a06:b0:3e6:5b8c:d95a with SMTP id 5614622812f47-3e65b8cd9cbmr17613629b6e.20.1730784019859;
-        Mon, 04 Nov 2024 21:20:19 -0800 (PST)
-Received: from [127.0.0.1] ([2602:f919:106::1b8])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-7ee459feaadsm7899842a12.69.2024.11.04.21.20.15
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 04 Nov 2024 21:20:19 -0800 (PST)
-Message-ID: <190e9d7b-daaa-4c7d-9954-ca143925a08d@gmail.com>
-Date: Tue, 5 Nov 2024 13:20:12 +0800
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Cc: troymitchell988@gmail.com, andi.shyti@kernel.org, robh@kernel.org,
- krzk+dt@kernel.org, conor+dt@kernel.org, linux-i2c@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-riscv@lists.infradead.org, Krzysztof Kozlowski <krzk@kernel.org>
-Subject: Re: [PATCH v2 1/2] dt-bindings: i2c: spacemit: add support for K1 SoC
-To: Samuel Holland <samuel.holland@sifive.com>
-References: <20241028053220.346283-1-TroyMitchell988@gmail.com>
- <20241028053220.346283-2-TroyMitchell988@gmail.com>
- <6zx3tqdc5bma2vutexwigzlir6nr6adp7arg4qwl5ieyd3avbu@5yyhv57ttwcl>
- <dbeea869-54cd-43fe-9021-783d641f1278@gmail.com>
- <ariqiukhztgziwwgaauqy6q3pghflnoeuwtag4izwkfmtvi2kh@gnlq4d7jsaw4>
- <6cce463e-25cc-4a07-971f-6260347cb581@gmail.com>
- <502b0b14-0e1f-4a59-85ad-7edeb9d3033d@kernel.org>
- <a08384bf-6747-4975-b025-f8fd3685fc30@gmail.com>
- <8a04f84b-453b-44e5-9053-204a08d38e19@sifive.com>
-Content-Language: en-US
-From: Troy Mitchell <troymitchell988@gmail.com>
-In-Reply-To: <8a04f84b-453b-44e5-9053-204a08d38e19@sifive.com>
+        d=1e100.net; s=20230601; t=1730786030; x=1731390830;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=o6I0lsXsH1rGJHzKMzLgK+XDkNKkWp36WmP2kFDs1jI=;
+        b=lJ24x7dLOyv6991r4ylvJlizCJXvSTdCFNy+z61tqTmj83XKm+kY2XW/dF/oZSE8BE
+         ThedLATcTsbBBx9lGJL5I1YJK5ldqyoXseVoDXZIt06su1ztj7Una68blgNbQjb2Htp4
+         o1BR4tUs5LTZjcgQ0Vf1fNH5dlycqyXt0dverjK1+Sdw1lZiTVH2lLz6oGRFf9AuVfnL
+         0MXQA2C0Lb7buQlHFaVmcGnxn6narUHZ7Ko910UuQEs5Zr1SsFH/jIOA88xeRf0bmJ94
+         GilKyVZ2AoSxxt/GcFseoHvykaA71zQg+s0isdSTMWv6xLCb82JlY1Dr8KxQyV6FeJtV
+         /VMw==
+X-Forwarded-Encrypted: i=1; AJvYcCVrvKcen6dFcF07OLAn5keiyF3vM/ghlxJTHUHuMwYN6d3I7vODlpDL1dKlca1Sp7MHU9kijFqiqHboUg==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw+PuB3BEY5OyC+M3w0tMrRgjMFLO31+l549gZeXHeoS7oCj/gD
+	naJnCWbBXE2LND2QiXRUgvEAxt4eBn1h/DrY/y9lNmlWBReaqfzJNLpi9WxolvECFYSCSD3IK9v
+	rVQ==
+X-Google-Smtp-Source: AGHT+IHmt5sO/CGCgduHfJxMGbReWDqaMZI7StkG46sJTWcczU8fUEuPHD4g/HJnJzDHoYjdX9OGGAkVpzc=
+X-Received: from zagreus.c.googlers.com ([fda3:e722:ac3:cc00:9d:3983:ac13:c240])
+ (user=seanjc job=sendgmr) by 2002:a05:690c:4489:b0:6db:c6eb:bae9 with SMTP id
+ 00721157ae682-6e9d898f08bmr16943867b3.2.1730786030202; Mon, 04 Nov 2024
+ 21:53:50 -0800 (PST)
+Date: Mon, 4 Nov 2024 21:53:48 -0800
+In-Reply-To: <173039503553.1508387.3074658713815866060.b4-ty@google.com>
+Mime-Version: 1.0
+References: <20241009154953.1073471-1-seanjc@google.com> <173039503553.1508387.3074658713815866060.b4-ty@google.com>
+Message-ID: <Zymy7M5dHs6dWUmu@google.com>
+Subject: Re: [PATCH v3 00/14] KVM: selftests: Morph max_guest_mem to mmu_stress
+From: Sean Christopherson <seanjc@google.com>
+To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
+	Anup Patel <anup@brainfault.org>, Paul Walmsley <paul.walmsley@sifive.com>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Paolo Bonzini <pbonzini@redhat.com>, Christian Borntraeger <borntraeger@linux.ibm.com>, 
+	Janosch Frank <frankja@linux.ibm.com>, Claudio Imbrenda <imbrenda@linux.ibm.com>
+Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
+	kvm@vger.kernel.org, kvm-riscv@lists.infradead.org, 
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	Andrew Jones <ajones@ventanamicro.com>, James Houghton <jthoughton@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241104_212021_082683_28D8A188 
-X-CRM114-Status: UNSURE (   6.97  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241104_215352_895076_A0304FE5 
+X-CRM114-Status: GOOD (  14.69  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,18 +96,61 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
-On 2024/11/5 10:50, Samuel Holland wrote:
-> One "<address size>" element is just one item. maxItems > 1 would be for
-> hardware with multiple discontiguous register ranges: <address1 size1>,
-> <address2 size2>.
-got it.I will fix it in next version.
+On Thu, Oct 31, 2024, Sean Christopherson wrote:
+> On Wed, 09 Oct 2024 08:49:39 -0700, Sean Christopherson wrote:
+> > The main purpose of this series is to convert the max_guest_memory_test
+> > into a more generic mmu_stress_test.  The basic gist of the "conversion"
+> > is to have the test do mprotect() on guest memory while vCPUs are
+> > accessing said memory, e.g. to verify KVM and mmu_notifiers are working
+> > as intended.
+> > 
+> > Patches 1-4 are a somewhat unexpected side quest.  The original plan was
+> > that patch 3 would be a single patch, but things snowballed.
+> > 
+> > [...]
 > 
-> Regards,
-> Samuel
+> Applied to kvm-x86 selftests, with the typo fixup pointed out by James.  Thanks!
+> 
+> [01/14] KVM: Move KVM_REG_SIZE() definition to common uAPI header
+>         https://github.com/kvm-x86/linux/commit/5e07fd0bf516
+> [02/14] KVM: selftests: Disable strict aliasing
+>         https://github.com/kvm-x86/linux/commit/d1ce2bcd8d2e
+> [03/14] KVM: selftests: Return a value from vcpu_get_reg() instead of using an out-param
+>         https://github.com/kvm-x86/linux/commit/5c6c7b71a45c
+> [04/14] KVM: selftests: Assert that vcpu_{g,s}et_reg() won't truncate
+>         https://github.com/kvm-x86/linux/commit/6aa2df3eb90b
+> [05/14] KVM: selftests: Check for a potential unhandled exception iff KVM_RUN succeeded
+>         https://github.com/kvm-x86/linux/commit/be9f2746d20b
+> [06/14] KVM: selftests: Rename max_guest_memory_test to mmu_stress_test
+>         https://github.com/kvm-x86/linux/commit/06694f27cfcc
+> [07/14] KVM: selftests: Only muck with SREGS on x86 in mmu_stress_test
+>         https://github.com/kvm-x86/linux/commit/8556ce365a07
+> [08/14] KVM: selftests: Compute number of extra pages needed in mmu_stress_test
+>         https://github.com/kvm-x86/linux/commit/c7b7876ac5d4
+> [09/14] KVM: sefltests: Explicitly include ucall_common.h in mmu_stress_test.c
+>         https://github.com/kvm-x86/linux/commit/a657856469e1
+> [10/14] KVM: selftests: Enable mmu_stress_test on arm64
+>         https://github.com/kvm-x86/linux/commit/1e53cde06102
+> [11/14] KVM: selftests: Use vcpu_arch_put_guest() in mmu_stress_test
+>         https://github.com/kvm-x86/linux/commit/8630563012b9
+> [12/14] KVM: selftests: Precisely limit the number of guest loops in mmu_stress_test
+>         https://github.com/kvm-x86/linux/commit/3d4585c220dc
+> [13/14] KVM: selftests: Add a read-only mprotect() phase to mmu_stress_test
+>         https://github.com/kvm-x86/linux/commit/eaafeebca75a
+> [14/14] KVM: selftests: Verify KVM correctly handles mprotect(PROT_READ)
+>         https://github.com/kvm-x86/linux/commit/a3cd5c187742
 
--- 
-Troy Mitchell
+As mentioned later in the thread[*], I dropped this series from the 6.13 queue
+and will instead target 6.14.
+
+I did however grab the no-strict-aliasing fix for 6.12, and tagged it for stable.
+There's no reason to wait to land that commit, and I definitely have no desire to
+ever debug that mess again.
+
+[02/14] KVM: selftests: Disable strict aliasing
+      https://github.com/kvm-x86/linux/commit/5b188cc4866a
+
+[*] https://lore.kernel.org/all/ZyT61FF0-g8gKZfc@google.com
 
 _______________________________________________
 linux-riscv mailing list
