@@ -4,79 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85F0AD1CA37
-	for <linux-riscv@archiver.kernel.org>; Tue,  5 Nov 2024 06:29:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 69E6DD1CA3A
+	for <linux-riscv@archiver.kernel.org>; Tue,  5 Nov 2024 06:51:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:To:Subject:
+	Cc:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=cALq5Tk8INXC8cDwKis6Ntx4aUe5iKQs05fbR1epJOc=; b=EcViMNOMYIWTjk
-	E/JWEkv9rNbTgS2wovUeIWp8+7Gv6fIPTCYkjx3G4BFodXQBlpRPlg14N98sHREf6zSu+k1QaRckC
-	o3j/jN5wfKVRJoie/XngrslZhNKS88QqVyNGampAOd258kgdT6fPKF1KHoi2mVuM6HdB64brevHZu
-	6d9gG61UZimp0Ogjs7dW20JwgmjdYFSblcu4uLsSA6po4FnUIMlXKWsPLqbY3fxpfD9Rm/EMw/8d6
-	grS075TKmgboXFaIxvNxwIJERnJx8/OhOglpUjLol6ROzFAUsPEj0lGm/1JSP1rYvooBECxGuQ3gZ
-	bBkvH3Seiit4DM65svMw==;
+	List-Owner; bh=5e/mFDC4+MP+MRF8eXXzHwdK7XJHTkSZJvKLQrZYbws=; b=jGkxgfWH68KAa2
+	iF+IMtU/ZiPrBW2LUF2R1y2/gXXOScdtHOOaiXfnEbl+FhP4l61h9Cy3XxFoRTQBZzf9GXeGuSPVl
+	YjIrtJ0DCpaT2QjC7l9pjrQoFNK6bM3SpnqfjHX9e3xss6VSVRjMjqh7LV2ZpaVYl0Flu5H2k+47R
+	mxUKPc5thl6hs28rlwobo9aHGmrIiH2CX8J0bVYMjEQmO2fK5MhOSvqqVjOJdoLBd8V4jKLCnW9eX
+	wFLweTQ2B9NigZvrh2C3RpB/dDvEFVXk/5KiTzJW8JEuO36mcEbvkxOLVtSQ24fq/MGgsdak6RDUX
+	jjO6NjHhxYhbQ7YWk/kQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8D3q-0000000G30V-0sPT;
-	Tue, 05 Nov 2024 06:29:06 +0000
-Received: from mail-il1-x135.google.com ([2607:f8b0:4864:20::135])
+	id 1t8DOu-0000000G6XH-1euy;
+	Tue, 05 Nov 2024 06:50:52 +0000
+Received: from mail-pl1-x644.google.com ([2607:f8b0:4864:20::644])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8D3n-0000000G2zi-0c3k
+	id 1t8DOr-0000000G6Wq-3hPt
 	for linux-riscv@lists.infradead.org;
-	Tue, 05 Nov 2024 06:29:04 +0000
-Received: by mail-il1-x135.google.com with SMTP id e9e14a558f8ab-3a3f8543f5eso16728455ab.0
-        for <linux-riscv@lists.infradead.org>; Mon, 04 Nov 2024 22:29:02 -0800 (PST)
+	Tue, 05 Nov 2024 06:50:51 +0000
+Received: by mail-pl1-x644.google.com with SMTP id d9443c01a7336-20c805a0753so47258045ad.0
+        for <linux-riscv@lists.infradead.org>; Mon, 04 Nov 2024 22:50:49 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=brainfault-org.20230601.gappssmtp.com; s=20230601; t=1730788142; x=1731392942; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=JQtOen+NbViJr+rRV0Q5OmCOzg2wep+9ZhzpypOP/Zc=;
-        b=qz+8AzMr0oKPmDN1t0+C5jI36owyi0brqg1PGPhYm+fGo3YQH/+2jbOhISLAG8rsPu
-         /pkeFhHkIsf4M6CwoQgVx9UvW1qTKHdHhsUrhlXSpb0vB87S7x1Cs3luP3JV2TK4ruXr
-         hYBjinURu57b1fqOZo9kiUAbP1ZzosGWgRVy99zQbdc7i+3jC8xtnt6xxjwhraAYagHs
-         NxtnIk3xvoJ6PI3fRHiWPgC1slCPDj0fxGgLwFf+UODWEfqnw0rvqQt2g/aobYEsFtAf
-         DdeVYGGjQQlMt/4Gbfc6xavomZtz3caRSHl+B/nd4ppmbTpbkjVv+uoia3afYVJaqDTy
-         7OHQ==
+        d=gmail.com; s=20230601; t=1730789449; x=1731394249; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:to:subject:cc:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=UNkZaCw/31YBcClBozl3MeNiHCGcM8jgBNaEsZtPWE8=;
+        b=mk6iWli5bsoAPMvh4k8hqOLMAtal2Txoi953nh9SW+aAIuaOzQegRZjb+DmAYT0dVN
+         r7KQl126QGCpDQrd3gkde1vpIUnz3ppL56tz1P8rAawof/QrnhvVSSaahLH2OOO6SuAQ
+         cJDxoOlFpZ4cDVvrDiH4JJSIMy8VwTO2V3gmw5ZzW6X6W8VqRz2m0qS9jQpeMZKPbOg5
+         YpXE3sBaZPs/mNxCe54BUtDOOB45E0SWuK10RyXXL9d/cyJ0ak4jjH0QwsEF/VV5GOlZ
+         haWd2OpOy4wu7WxQy3hViQkD3laQlGIItCk/3+yAefRsbFcrc4ct9g05LLTISuHp0Z8w
+         9WGA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1730788142; x=1731392942;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=JQtOen+NbViJr+rRV0Q5OmCOzg2wep+9ZhzpypOP/Zc=;
-        b=NgaZATk4CHT5XowoB9oqpU+MY8thde0pELCkIwshShHnnuelMiNM/ycl6wTXWmDgMS
-         qbM7zz39qC8T5ViagGtXB1A7PfT0PPk4xq4Ex7fJvPiuYYgfYlg4eWzhFerdXCdmdK9z
-         siiF3cgbqZIeivsMvoG3RQGc2XK6IMVEBZCg3TjqzCsTs1Qh95QCqcbI8svb6HH9N6+T
-         BBa9M0lAZRxJVQ5ENo9jDjl0gaLerO/ksb/Trlf4Od1udPjsqjL+OOyAdzlhpGHk2uza
-         HIObQO6NNe2QUxLXo4Rn+/iOwYzijJaHtU5/knmsF9uXJ6y58K8EsGNFOivKAvYr7N7R
-         FRpw==
-X-Forwarded-Encrypted: i=1; AJvYcCUX6L5oCM2O0E4LgZ1YT3l1otiViT3fNWD6ksHDFIdwd+i1tVvu5t3YnfUKjWu/2pPLIudIVLO9j4rzvA==@lists.infradead.org
-X-Gm-Message-State: AOJu0YxlptnrgsDm0yHrg7BqVoIcFiFBAUfGtxPW88HIZZf9yzy9FZeF
-	HE4ar6RyKk/pRvi04DSqzyBRLHOXcHE524uI0UP8xlj2ei63IXopZudSn5vcks6cwmgdMr/DDEW
-	JoBQoPm/umJrOWYKVIxj5xiTUxkreE/FsE4V34w==
-X-Google-Smtp-Source: AGHT+IHHjcyYFeTdVr47ib7/5t83JULMux12GPFjUaiweiWwMJfEa28WXKusTfsFvdHf6JwmvF7uMFZhMwNn7TEdrTo=
-X-Received: by 2002:a05:6e02:111:b0:3a3:637f:1012 with SMTP id
- e9e14a558f8ab-3a6aff71b31mr120478795ab.12.1730788141919; Mon, 04 Nov 2024
- 22:29:01 -0800 (PST)
+        d=1e100.net; s=20230601; t=1730789449; x=1731394249;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:to:subject:cc:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=UNkZaCw/31YBcClBozl3MeNiHCGcM8jgBNaEsZtPWE8=;
+        b=EukmnuVVTdsI8CjGTPtE7Q7jPJnA+IGua3BEG/Q+8wC8iJM6eEg9lLl8sJKnEpRg+b
+         WjVGGO9F+XWMopxL09twAyV+j5T0mIrXG2QL8Iy9+ln30Kjh8rxlICOj/ktJFVwfeV3G
+         mmSY/gOeUbIVH4v2el28ErH0uLLlVxRrbPl307T3muYrTQkSx3Bsy7ybsARXW/zZooZ2
+         edf+oLY1XZqjm3bAfPj0+syFHEmMTe+bpv1OElUoluY0SSy/ES7UYURjVT8NP/abkgZ9
+         YmW7Gjc+Ujv+8mB52hG4AYKfuaGKHUmXc62h4jJRbsLrCbEHWWPtBvtyp8EmN724aaBH
+         COxg==
+X-Forwarded-Encrypted: i=1; AJvYcCXI+07UEERlutDi4hY8kmo8zNpekDnLt/JIIjAAyloLJUuAMoaD6NqYGlKdDH6hbPGd6d/OjNpxl8De1g==@lists.infradead.org
+X-Gm-Message-State: AOJu0YyCbWoc/F0S9FjgftovtHG1q4g/tQp441xrt4jseSZjINORQ4mD
+	GqaHRcoKOcyNy7MR5Y0VP92BMJdi3BH42lMjyM6m8v/o3zZdtwlj
+X-Google-Smtp-Source: AGHT+IGTBwrP1TkZSWIk2X4RRAt1w4GHZKgD+eXUX0HaC7TrWd54lpAGhJvId49iQUorzmnQX3zI5A==
+X-Received: by 2002:a17:903:32c8:b0:20c:e2ff:4a50 with SMTP id d9443c01a7336-210c68786dfmr456157215ad.9.1730789448763;
+        Mon, 04 Nov 2024 22:50:48 -0800 (PST)
+Received: from [127.0.0.1] ([2602:f919:106::1b8])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-211057c51e8sm71623745ad.210.2024.11.04.22.50.44
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 04 Nov 2024 22:50:48 -0800 (PST)
+Message-ID: <84d07d21-54bc-45eb-b231-8f800a2afed3@gmail.com>
+Date: Tue, 5 Nov 2024 14:50:36 +0800
 MIME-Version: 1.0
-References: <20241104191503.74725-1-bjorn@kernel.org>
-In-Reply-To: <20241104191503.74725-1-bjorn@kernel.org>
-From: Anup Patel <anup@brainfault.org>
-Date: Tue, 5 Nov 2024 11:58:51 +0530
-Message-ID: <CAAhSdy1Z93TyYrFCYw+qOHh05q0FaEPRJ=ZHf4UztUEKXuphYg@mail.gmail.com>
-Subject: Re: [PATCH] riscv: kvm: Fix out-of-bounds array access
-To: =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>
-Cc: Atish Patra <atishp@atishpatra.org>, kvm@vger.kernel.org, 
-	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org, 
-	=?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@rivosinc.com>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, linux-kernel@vger.kernel.org
+User-Agent: Mozilla Thunderbird
+Cc: troymitchell988@gmail.com, linux-i2c@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-riscv@lists.infradead.org
+Subject: Re: [PATCH v2 2/2] i2c: spacemit: add support for SpacemiT K1 SoC
+To: andi.shyti@kernel.org, robh@kernel.org, krzk+dt@kernel.org,
+ conor+dt@kernel.org
+References: <20241028053220.346283-1-TroyMitchell988@gmail.com>
+ <20241028053220.346283-3-TroyMitchell988@gmail.com>
+Content-Language: en-US
+From: Troy Mitchell <troymitchell988@gmail.com>
+In-Reply-To: <20241028053220.346283-3-TroyMitchell988@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241104_222903_474277_84C70288 
-X-CRM114-Status: GOOD (  19.93  )
+X-CRM114-CacheID: sfid-20241104_225049_963617_38F18A0B 
+X-CRM114-Status: GOOD (  22.98  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,54 +92,66 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gVHVlLCBOb3YgNSwgMjAyNCBhdCAxMjo0NeKAr0FNIEJqw7ZybiBUw7ZwZWwgPGJqb3JuQGtl
-cm5lbC5vcmc+IHdyb3RlOgo+Cj4gRnJvbTogQmrDtnJuIFTDtnBlbCA8Ympvcm5Acml2b3NpbmMu
-Y29tPgo+Cj4gSW4ga3ZtX3Jpc2N2X3ZjcHVfc2JpX2luaXQoKSB0aGUgZW50cnktPmV4dF9pZHgg
-Y2FuIGNvbnRhaW4gYW4KPiBvdXQtb2YtYm91bmQgaW5kZXguIFRoaXMgaXMgdXNlZCBhcyBhIHNw
-ZWNpYWwgbWFya2VyIGZvciB0aGUgYmFzZQo+IGV4dGVuc2lvbnMsIHRoYXQgY2Fubm90IGJlIGRp
-c2FibGVkLiBIb3dldmVyLCB3aGVuIHRyYXZlcnNpbmcgdGhlCj4gZXh0ZW5zaW9ucywgdGhhdCBz
-cGVjaWFsIG1hcmtlciBpcyBub3QgY2hlY2tlZCBwcmlvciBpbmRleGluZyB0aGUKPiBhcnJheS4K
-Pgo+IEFkZCBhbiBvdXQtb2YtYm91bmRzIGNoZWNrIHRvIHRoZSBmdW5jdGlvbi4KPgo+IEZpeGVz
-OiA1NmQ4YTM4NWI2MDUgKCJSSVNDLVY6IEtWTTogQWxsb3cgc29tZSBTQkkgZXh0ZW5zaW9ucyB0
-byBiZSBkaXNhYmxlZCBieSBkZWZhdWx0IikKPiBTaWduZWQtb2ZmLWJ5OiBCasO2cm4gVMO2cGVs
-IDxiam9ybkByaXZvc2luYy5jb20+Cj4gLS0tCj4gRG9uJ3Qga25vdyBpZiBpdCBtYXR0ZXJzLCBi
-dXQgSSBoaXQgdGhpcyB3aGVuIHRyeWluZyBrdm10b29sLgoKTG9va3MgbGlrZSB0aGlzIHdlbnQg
-dW5ub3RpY2VkLiBUaGFua3MgZm9yIGNhdGNoaW5nLgoKUmV2aWV3ZWQtYnk6IEFudXAgUGF0ZWwg
-PGFudXBAYnJhaW5mYXVsdC5vcmc+CgpRdWV1ZWQgdGhpcyBwYXRjaCBmb3IgTGludXgtNi4xMy4K
-ClRoYW5rcywKQW51cAoKPgo+Cj4gQmrDtnJuCj4gLS0tCj4gYXJjaC9yaXNjdi9rdm0vdmNwdV9z
-YmkuYyB8IDExICsrKysrKystLS0tCj4gIDEgZmlsZSBjaGFuZ2VkLCA3IGluc2VydGlvbnMoKyks
-IDQgZGVsZXRpb25zKC0pCj4KPiBkaWZmIC0tZ2l0IGEvYXJjaC9yaXNjdi9rdm0vdmNwdV9zYmku
-YyBiL2FyY2gvcmlzY3Yva3ZtL3ZjcHVfc2JpLmMKPiBpbmRleCA3ZGUxMjhiZThkYjkuLjZlNzA0
-ZWQ4NmE4MyAxMDA2NDQKPiAtLS0gYS9hcmNoL3Jpc2N2L2t2bS92Y3B1X3NiaS5jCj4gKysrIGIv
-YXJjaC9yaXNjdi9rdm0vdmNwdV9zYmkuYwo+IEBAIC00ODYsMTkgKzQ4NiwyMiBAQCB2b2lkIGt2
-bV9yaXNjdl92Y3B1X3NiaV9pbml0KHN0cnVjdCBrdm1fdmNwdSAqdmNwdSkKPiAgICAgICAgIHN0
-cnVjdCBrdm1fdmNwdV9zYmlfY29udGV4dCAqc2NvbnRleHQgPSAmdmNwdS0+YXJjaC5zYmlfY29u
-dGV4dDsKPiAgICAgICAgIGNvbnN0IHN0cnVjdCBrdm1fcmlzY3Zfc2JpX2V4dGVuc2lvbl9lbnRy
-eSAqZW50cnk7Cj4gICAgICAgICBjb25zdCBzdHJ1Y3Qga3ZtX3ZjcHVfc2JpX2V4dGVuc2lvbiAq
-ZXh0Owo+IC0gICAgICAgaW50IGk7Cj4gKyAgICAgICBpbnQgaWR4LCBpOwo+Cj4gICAgICAgICBm
-b3IgKGkgPSAwOyBpIDwgQVJSQVlfU0laRShzYmlfZXh0KTsgaSsrKSB7Cj4gICAgICAgICAgICAg
-ICAgIGVudHJ5ID0gJnNiaV9leHRbaV07Cj4gICAgICAgICAgICAgICAgIGV4dCA9IGVudHJ5LT5l
-eHRfcHRyOwo+ICsgICAgICAgICAgICAgICBpZHggPSBlbnRyeS0+ZXh0X2lkeDsKPiArCj4gKyAg
-ICAgICAgICAgICAgIGlmIChpZHggPCAwIHx8IGlkeCA+PSBBUlJBWV9TSVpFKHNjb250ZXh0LT5l
-eHRfc3RhdHVzKSkKPiArICAgICAgICAgICAgICAgICAgICAgICBjb250aW51ZTsKPgo+ICAgICAg
-ICAgICAgICAgICBpZiAoZXh0LT5wcm9iZSAmJiAhZXh0LT5wcm9iZSh2Y3B1KSkgewo+IC0gICAg
-ICAgICAgICAgICAgICAgICAgIHNjb250ZXh0LT5leHRfc3RhdHVzW2VudHJ5LT5leHRfaWR4XSA9
-Cj4gLSAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBLVk1fUklTQ1ZfU0JJX0VYVF9TVEFU
-VVNfVU5BVkFJTEFCTEU7Cj4gKyAgICAgICAgICAgICAgICAgICAgICAgc2NvbnRleHQtPmV4dF9z
-dGF0dXNbaWR4XSA9IEtWTV9SSVNDVl9TQklfRVhUX1NUQVRVU19VTkFWQUlMQUJMRTsKPiAgICAg
-ICAgICAgICAgICAgICAgICAgICBjb250aW51ZTsKPiAgICAgICAgICAgICAgICAgfQo+Cj4gLSAg
-ICAgICAgICAgICAgIHNjb250ZXh0LT5leHRfc3RhdHVzW2VudHJ5LT5leHRfaWR4XSA9IGV4dC0+
-ZGVmYXVsdF9kaXNhYmxlZCA/Cj4gKyAgICAgICAgICAgICAgIHNjb250ZXh0LT5leHRfc3RhdHVz
-W2lkeF0gPSBleHQtPmRlZmF1bHRfZGlzYWJsZWQgPwo+ICAgICAgICAgICAgICAgICAgICAgICAg
-ICAgICAgICAgICAgICAgICBLVk1fUklTQ1ZfU0JJX0VYVF9TVEFUVVNfRElTQUJMRUQgOgo+ICAg
-ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBLVk1fUklTQ1ZfU0JJX0VYVF9T
-VEFUVVNfRU5BQkxFRDsKPiAgICAgICAgIH0KPgo+IGJhc2UtY29tbWl0OiA1OWI3MjNjZDJhZGJh
-YzJhMzRmYzhlMTJjNzRhZTI2YWU0NWJmMjMwCj4gLS0KPiAyLjQzLjAKPgoKX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBs
-aXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVh
-ZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
+On 2024/10/28 13:32, Troy Mitchell wrote:
+> This patch introduces basic I2C support for the SpacemiT K1 SoC,
+> utilizing interrupts for transfers.
+> 
+> The driver has been tested using i2c-tools on a Bananapi-F3 board,
+> and basic I2C read/write operations have been confirmed to work.
+> 
+> Signed-off-by: Troy Mitchell <TroyMitchell988@gmail.com>
+> ---
+>  drivers/i2c/busses/Kconfig  |  18 +
+>  drivers/i2c/busses/Makefile |   1 +
+>  drivers/i2c/busses/i2c-k1.c | 658 ++++++++++++++++++++++++++++++++++++
+>  3 files changed, 677 insertions(+)
+>  create mode 100644 drivers/i2c/busses/i2c-k1.c
+> 
+> diff --git a/drivers/i2c/busses/Kconfig b/drivers/i2c/busses/Kconfig
+> index 6b3ba7e5723a..38ebfd38dc41 100644
+> --- a/drivers/i2c/busses/Kconfig
+> +++ b/drivers/i2c/busses/Kconfig
+> @@ -779,6 +779,24 @@ config I2C_JZ4780
+>  
+>  	 If you don't know what to do here, say N.
+>  
+> +config I2C_K1
+> +	tristate "Spacemit K1 I2C adapter"
+> +	depends on HAS_IOMEM
+I think I should retain the depends on from v1, like this:
+depends on ARCH_SPACEMIT || COMPILE_TEST
+
+Krzysztof mentioned that there is no such thing as ARCH_SPACEMIT, that's because
+this patch depends on the basic DT from dlan:
+https://lore.kernel.org/all/20240730-k1-01-basic-dt-v5-0-98263aae83be@gentoo.org/
+> +	help
+> +	  This option enables support for the I2C interface on the Spacemit K1
+> +	  platform.
+> +
+> +	  If you enable this configuration, the kernel will include support for
+> +	  the I2C adapter specific to the Spacemit K1 platform. This driver ca
+> +	  be used to manage I2C bus transactions, which are necessary for
+> +	  interfacing with I2C peripherals such as sensors, EEPROMs, and other
+> +	  devices.
+> +
+> +	  This driver can also be compiled as a module. If you choose to build
+> +	  it as a module, the resulting kernel module will be named `i2c-k1`.
+> +	  Loading this module will enable the I2C functionality for the K1
+> +	  platform dynamically, without requiring a rebuild of the kernel.
+> +
+>  config I2C_KEBA
+>  	tristate "KEBA I2C controller support"
+>  	depends on HAS_IOMEM
+
+-- 
+Troy Mitchell
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
