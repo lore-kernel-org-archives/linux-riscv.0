@@ -4,90 +4,104 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 74D86D33A22
-	for <linux-riscv@archiver.kernel.org>; Tue,  5 Nov 2024 18:45:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B1803D36107
+	for <linux-riscv@archiver.kernel.org>; Tue,  5 Nov 2024 19:04:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=VmYIGgNkArafgSmcfRW0jXY0PR9gT8qQ39WRgiKXG7A=; b=iQpqsdgrdG+0N5
-	QAXXacKANB+G8YpasLXoSaUiD/cpdkTc5JrPddhyUZJaJoayQIS3d2hrOBqL5BEo7nqepUVNZJXuy
-	260At1Id66zWjojBrQDd3GP9I5Z1wB9WLtJzqFfqanuA40moZjecaSIll8w3SNb4HNfDNbkAgVu0T
-	1znbJHCQUERxioQkXw66J6liyiubs2QtQFD4xU3e+eiaUQz0LM3H5LV01Qbv1ZOeuW4yhJCSF8vr9
-	JGDQDUqay/pYONL693m6IJ7wphwdgtZz/6oN1AMoYOAN5y6Ba8nKxrwElmsuRd6f7CTNg1NL32+fV
-	sCOonqaVvjc/tOFgDB4A==;
+	List-Owner; bh=8xI9gnvzgYIMDzhxerTrh60jCc8FZ0rPGcHuA7shjnU=; b=LCbl3/RhykamsK
+	3bZMnsXC1nYyLlY0XUqPFjgNeFk2fMYg18oMwJnD8qcyC8BEbRIee+oUQTdUMwYF1ELQ2iprTOkmi
+	twWiZId5kQUOuAzRwXnT1TykI5PX8IpVyru33g78qEJgs/XuKoERt39JYvkLaVow5yYIjhN5Gz43Q
+	542eWW5CuQM+Fl1v4AY+py6opbPAmcrtjplNpZ6gU+fWVFuJnuDR50N0zEZ0n68PkinZ03edLAgzw
+	D1BAfruRNOaFxba+nOSWCP8LbUAlqJb4TkA40WTyq5BtVIA/q7ZM7sl10WOBW0wBBI4fDlSmCjNZ/
+	9As3ZGxkQ1cX5ntIvQqg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8OY0-00000000R3A-35sQ;
-	Tue, 05 Nov 2024 18:45:00 +0000
-Received: from mail-il1-x12c.google.com ([2607:f8b0:4864:20::12c])
+	id 1t8Or0-00000000V6X-1AmF;
+	Tue, 05 Nov 2024 19:04:38 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8OVi-00000000QBK-0Hdg
-	for linux-riscv@lists.infradead.org;
-	Tue, 05 Nov 2024 18:42:44 +0000
-Received: by mail-il1-x12c.google.com with SMTP id e9e14a558f8ab-3a6bf539cabso12011495ab.3
-        for <linux-riscv@lists.infradead.org>; Tue, 05 Nov 2024 10:42:36 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1730832156; x=1731436956; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=Q/5k2rLKTo7KgnD4BR9+2dIjyjzlQVVkq8ThtV9wFto=;
-        b=MzHOhaibyZhL6RpROdjkZWnt2KBGOyUm0RgOlT5FIyhsYtvh98fz1/oLNV8L52VKul
-         HtiOUlDruj9+XkS8BdpDuBcxuePmSHpz4VAU9TCAhYO0lchn5goZ7sH5qNtdQsi8FS16
-         f5IoTV2sw2Bf330uj3sYS4TIgd3KksH9m45ErvLIt6pnt1Oz4ncKPBhAhpFBCDe70rMy
-         BF+6x4o8R72qZ7KV+Yl0QCJyT24P7sQrLG/maADC5f5jFvk04My68/lZhzDu8bHB2JFQ
-         hlwuSXJsYD+ntsE+cOm5q1ZKNlLyV1/mmhZxkAtjd7+3HdJZuXttGcqC/DxVyVOM5aKK
-         oQmQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1730832156; x=1731436956;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=Q/5k2rLKTo7KgnD4BR9+2dIjyjzlQVVkq8ThtV9wFto=;
-        b=Eifyl2hHq83eu1fjqLdCYQ+z4FayiVEeD/43b9OAN/a3yOyx1CWbmWV1ExKS15t2Vg
-         k9L2opwV9vSCkzXSNA47jTVSSq1ITUK5JyIfqiueQo+7WU/qq+rx+t0zJ/B48HHVSIi7
-         2KIZulTbQdKuY9YyuIhBtodL//JX4fZ10ulLCF+5yZmJ8pm3v5MUD3n8Bc4gKDlYjj/R
-         rxzQqiAfCFFyu+ltZGPw5mBhPpNthE06S9d+jBTcjQblfjR6aPItsrbXyUK2UFvA5InF
-         b13JMRiY3VodjxcgUgzMsiLBHeOzeVS1zU6Hkw0r0Sjn/YWfAi82LIi1cxgZ0n/iAdW+
-         ZVEQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWbCorVSS+cQ0USxM3g1OudFRqvxXdiYn7iZe7kfWlVObE6me7d7bo1u0uYUbyCWfjCIohKRTBzoNYKwA==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx4eZ6FmzIW4W59TlD/KdTYxEG/P6QY7ie5IfOQpdGkCxDtJuOy
-	dNhBJA2UeRucR4dvQB35bkmOpphfPtQKsRPfcd/ZsUeFZF62GHMFAw3bULfTkPivZWqQZbp0cuj
-	3rcDhpz6Uglp37p5QLNncyYaXcrk93LlygJ4uAA==
-X-Google-Smtp-Source: AGHT+IHafiE56RLycAX61PwBNuvy4TPzSnAPrcXkk0qt/3LnY4O4q/UmngQM9Vlm/dj0VEmvvCeNfFq4tqlEFF5LAvc=
-X-Received: by 2002:a05:6e02:152e:b0:3a6:b445:dc9c with SMTP id
- e9e14a558f8ab-3a6b445decemr144631815ab.3.1730832155951; Tue, 05 Nov 2024
- 10:42:35 -0800 (PST)
+	id 1t8Oqw-00000000V4V-1WZ3;
+	Tue, 05 Nov 2024 19:04:35 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 09E375C4357;
+	Tue,  5 Nov 2024 19:03:48 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 14183C4CECF;
+	Tue,  5 Nov 2024 19:04:29 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1730833472;
+	bh=uoF4ZbISUkj3LBJVbm7mjK2pNt272UgYSEG9wAikNJE=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=ndFUDxiZpHd3P71EA4Dtdpamj3S+pD0a2NSCYEIkT703any4R0lrK0H/JhQd4Hv2S
+	 hAfH0p9N7ObDyDDis1fM3KZKbcT6xDBcyV1iwhCKpgr5eJTjsn996Jr680vAO44Otj
+	 drCVf6YoRKOceIQN9knu/aAssyHKuocecyBZr/vNKZiP9PdCl8g8D3PbpLRYGfT7S3
+	 8Jxa1hlnrGJeQdCliPqKl36JEkEIgDaJdtPl3tXojvE85kFpWmMnDAcr4PjH7oX62l
+	 V8Za49Z9doiMVqhjlWd7GWzNdgnAXYy87njYhKhjV/rXdMfHzibVSbsFtDSY64+oSA
+	 zKXctAOfMY/4A==
+Date: Tue, 5 Nov 2024 12:04:27 -0700
+From: Nathan Chancellor <nathan@kernel.org>
+To: Mike Rapoport <rppt@kernel.org>
+Cc: Andrew Morton <akpm@linux-foundation.org>,
+	Luis Chamberlain <mcgrof@kernel.org>,
+	Andreas Larsson <andreas@gaisler.com>,
+	Andy Lutomirski <luto@kernel.org>, Ard Biesheuvel <ardb@kernel.org>,
+	Arnd Bergmann <arnd@arndb.de>, Borislav Petkov <bp@alien8.de>,
+	Brian Cain <bcain@quicinc.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Christoph Hellwig <hch@infradead.org>,
+	Christophe Leroy <christophe.leroy@csgroup.eu>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	Dinh Nguyen <dinguyen@kernel.org>,
+	Geert Uytterhoeven <geert@linux-m68k.org>,
+	Guo Ren <guoren@kernel.org>, Helge Deller <deller@gmx.de>,
+	Huacai Chen <chenhuacai@kernel.org>, Ingo Molnar <mingo@redhat.com>,
+	Johannes Berg <johannes@sipsolutions.net>,
+	John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>,
+	Kent Overstreet <kent.overstreet@linux.dev>,
+	"Liam R. Howlett" <Liam.Howlett@oracle.com>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Masami Hiramatsu <mhiramat@kernel.org>,
+	Matt Turner <mattst88@gmail.com>, Max Filippov <jcmvbkbc@gmail.com>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Michal Simek <monstr@monstr.eu>, Oleg Nesterov <oleg@redhat.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Richard Weinberger <richard@nod.at>,
+	Russell King <linux@armlinux.org.uk>, Song Liu <song@kernel.org>,
+	Stafford Horne <shorne@gmail.com>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	Suren Baghdasaryan <surenb@google.com>,
+	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Uladzislau Rezki <urezki@gmail.com>,
+	Vineet Gupta <vgupta@kernel.org>, Will Deacon <will@kernel.org>,
+	bpf@vger.kernel.org, linux-alpha@vger.kernel.org,
+	linux-arch@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-csky@vger.kernel.org, linux-hexagon@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-m68k@lists.linux-m68k.org,
+	linux-mips@vger.kernel.org, linux-mm@kvack.org,
+	linux-modules@vger.kernel.org, linux-openrisc@vger.kernel.org,
+	linux-parisc@vger.kernel.org, linux-riscv@lists.infradead.org,
+	linux-sh@vger.kernel.org, linux-snps-arc@lists.infradead.org,
+	linux-trace-kernel@vger.kernel.org, linux-um@lists.infradead.org,
+	linuxppc-dev@lists.ozlabs.org, loongarch@lists.linux.dev,
+	sparclinux@vger.kernel.org, x86@kernel.org
+Subject: Re: [PATCH v7 6/8] x86/module: prepare module loading for ROX
+ allocations of text
+Message-ID: <20241105190427.GA2903209@thelio-3990X>
+References: <20241023162711.2579610-1-rppt@kernel.org>
+ <20241023162711.2579610-7-rppt@kernel.org>
+ <20241104232741.GA3843610@thelio-3990X>
+ <ZynDAhW0lKCfOqZl@kernel.org>
 MIME-Version: 1.0
-References: <20241104064650.799122-2-u.kleine-koenig@baylibre.com> <6b5b4f25-0f42-4f83-b6b5-82c1adbefe83@arm.com>
-In-Reply-To: <6b5b4f25-0f42-4f83-b6b5-82c1adbefe83@arm.com>
-From: Tomasz Jeznach <tjeznach@rivosinc.com>
-Date: Tue, 5 Nov 2024 10:42:25 -0800
-Message-ID: <CAH2o1u77TViePZ2eh+FY7oQXxFAp+SEVM38ROP1uKfeMZ9E7hg@mail.gmail.com>
-Subject: Re: [PATCH] iommu: Switch back to struct platform_driver::remove()
-To: Robin Murphy <robin.murphy@arm.com>
-Cc: =?UTF-8?Q?Uwe_Kleine=2DK=C3=B6nig?= <u.kleine-koenig@baylibre.com>, 
-	Joerg Roedel <joro@8bytes.org>, Will Deacon <will@kernel.org>, Hector Martin <marcan@marcan.st>, 
-	Sven Peter <sven@svenpeter.dev>, Alyssa Rosenzweig <alyssa@rosenzweig.io>, 
-	Rob Clark <robdclark@gmail.com>, Yong Wu <yong.wu@mediatek.com>, 
-	Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Orson Zhai <orsonzhai@gmail.com>, 
-	Baolin Wang <baolin.wang@linux.alibaba.com>, Chunyan Zhang <zhang.lyra@gmail.com>, 
-	Jason Gunthorpe <jgg@ziepe.ca>, Nicolin Chen <nicolinc@nvidia.com>, Michael Shavit <mshavit@google.com>, 
-	Mostafa Saleh <smostafa@google.com>, Lu Baolu <baolu.lu@linux.intel.com>, 
-	Georgi Djakov <quic_c_gdjako@quicinc.com>, 
-	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>, 
-	Dmitry Baryshkov <dmitry.baryshkov@linaro.org>, asahi@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev, 
-	linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org, 
-	linux-mediatek@lists.infradead.org, linux-riscv@lists.infradead.org
+Content-Disposition: inline
+In-Reply-To: <ZynDAhW0lKCfOqZl@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241105_104238_810576_C1C6A5C5 
-X-CRM114-Status: GOOD (  11.68  )
+X-CRM114-CacheID: sfid-20241105_110434_527407_99848D15 
+X-CRM114-Status: GOOD (  14.85  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,38 +118,30 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-> > diff --git a/drivers/iommu/riscv/iommu-platform.c b/drivers/iommu/riscv/iommu-platform.c
-> > index da336863f152..382ba2841849 100644
-> > --- a/drivers/iommu/riscv/iommu-platform.c
-> > +++ b/drivers/iommu/riscv/iommu-platform.c
-> > @@ -81,7 +81,7 @@ static const struct of_device_id riscv_iommu_of_match[] = {
-> >
-> >   static struct platform_driver riscv_iommu_platform_driver = {
-> >       .probe = riscv_iommu_platform_probe,
-> > -     .remove_new = riscv_iommu_platform_remove,
-> > +     .remove = riscv_iommu_platform_remove,
-> >       .driver = {
-> >               .name = "riscv,iommu",
-> >               .of_match_table = riscv_iommu_of_match,
-> > diff --git a/drivers/iommu/sprd-iommu.c b/drivers/iommu/sprd-iommu.c
-> > index a2f4ffe6d949..e84806eee281 100644
-> > --- a/drivers/iommu/sprd-iommu.c
-> > +++ b/drivers/iommu/sprd-iommu.c
-> > @@ -531,7 +531,7 @@ static struct platform_driver sprd_iommu_driver = {
-> >               .suppress_bind_attrs = true,
-> >       },
-> >       .probe  = sprd_iommu_probe,
-> > -     .remove_new = sprd_iommu_remove,
-> > +     .remove = sprd_iommu_remove,
-> >   };
-> >   module_platform_driver(sprd_iommu_driver);
-> >
-> > base-commit: c88416ba074a8913cf6d61b789dd834bbca6681c
->
+On Tue, Nov 05, 2024 at 09:02:26AM +0200, Mike Rapoport wrote:
+> There's a silly mistake in cfi_rewrite_endbr() in that commit, the patch
+> below should fix it. Can you please test?
 
-Thanks, LGTM for iommu/riscv part of the patch.
+Yup, that was it! All my machines boot with this diff applied on top of
+next-20241105, so with that fixed, I think we are all good here.
 
-Reviewed-by: Tomasz Jeznach <tjeznach@rivosinc.com>
+Tested-by: Nathan Chancellor <nathan@kernel.org>
+
+> diff --git a/arch/x86/kernel/alternative.c b/arch/x86/kernel/alternative.c
+> index 3407efc26528..243843e44e89 100644
+> --- a/arch/x86/kernel/alternative.c
+> +++ b/arch/x86/kernel/alternative.c
+> @@ -1241,7 +1241,7 @@ static void cfi_rewrite_endbr(s32 *start, s32 *end, struct module *mod)
+>  		void *addr = (void *)s + *s;
+>  		void *wr_addr = module_writable_address(mod, addr);
+>  
+> -		poison_endbr(addr+16, wr_addr, false);
+> +		poison_endbr(addr + 16, wr_addr + 16, false);
+>  	}
+>  }
+
+Cheers,
+Nathan
 
 _______________________________________________
 linux-riscv mailing list
