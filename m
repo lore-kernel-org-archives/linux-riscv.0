@@ -4,81 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5068D1266B
-	for <linux-riscv@archiver.kernel.org>; Tue,  5 Nov 2024 09:16:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64214D1266B
+	for <linux-riscv@archiver.kernel.org>; Tue,  5 Nov 2024 09:25:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
+	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=PlJ8/leLfkE7EtIuCDyPAxY+HgYaYpEA+1vA2wkciGo=; b=yeBYDmOBSwTb88
-	npJYIsTfyy9mvR1juyo9yCpMzEQQDl7QuoeBOGS39qZokksiAJ8eJFljR6JodPuIWswbCC3DI0Lqs
-	RRoodtoX7soC1E8SgwCt2BqoqxEdMH6gtDyba3c5VvjANTitDcoHNdWFe8gcA1TOTjcxT3fETMNs3
-	Qvc+C+bUEcu099ASKJJ8OrWVhDefMTxzskTSs27hWi3BWAXpStWtERlojyjZafPrNhmtAuaK31P4s
-	xntq7CEVN9CUzonfhBdDOL+kTVXL8iDN6Ovb+eF5VMqvHWnXyo2LEwJClPAONUVDnzn48oPuGw6K0
-	PuFKKxxJsq87LMWkz7vw==;
+	List-Owner; bh=YJt7gn3jXYe2qIPoLrOF46TFO+I96z9YIWqzEcx3e1E=; b=DX7kXauBlUqxXS
+	S3hcoZVqTz4Y2tXY8OUosN5Te4OF77MpKj82dXslYJy1i1QoDh1+zdPTUEbzjVpLndw8seSIAUYWl
+	HJuH+BR/zRiJH3JILyztbeIkMPP1rPjvCkhkOtoBX2P1zUK37flI5U+OD64LT5ExXQtWSGBB+OqKq
+	JLJexTHMtRTFh3jD2A52PHTj7IxNGws+UWJNIW3/7VP5Ui8c1VFmtF9B0qKDXqW5hac91WWu/7p+A
+	DoAfKy69FhYfPMjTlKlP6c9l81UEjvj0B47kUw0nzMUREo7kptQuQYiLch2iH+TsGoU3GizDm/YaD
+	rA/DqzNG+rnitsgyL6rQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8FfY-0000000GT91-1E04;
-	Tue, 05 Nov 2024 09:16:12 +0000
-Received: from mail-lj1-x230.google.com ([2a00:1450:4864:20::230])
+	id 1t8Fo5-0000000GUrq-0jMf;
+	Tue, 05 Nov 2024 09:25:01 +0000
+Received: from gandalf.ozlabs.org ([150.107.74.76] helo=mail.ozlabs.org)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8FeH-0000000GSjv-33qM
-	for linux-riscv@lists.infradead.org;
-	Tue, 05 Nov 2024 09:14:55 +0000
-Received: by mail-lj1-x230.google.com with SMTP id 38308e7fff4ca-2fb5be4381dso47898581fa.2
-        for <linux-riscv@lists.infradead.org>; Tue, 05 Nov 2024 01:14:52 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1730798091; x=1731402891; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=P4G0QFpDZpyh7jivQuglDMqb6yzlT1rpR4Jl1yN+DF0=;
-        b=TtnGLoBQS+zgfif6HzVYa5FKsvkRXfB3oLBsfW9xSUM41aSMjmZedrCbskwfQ0nyQa
-         3mKdcUWz72b/Z9dE9ZC4pxKZXnO3ggBPjt0hllh7wE37Ef7fzts25OY5ai7mvfe8jLpi
-         RBKOh9jPAPAob0vlHzcpA1nN7Y4Qk+XPxveId+wtT8K85uUH/45AnjmO4lixN8WjU/a4
-         O5s4HUV8R39jSFhRyExvcp70LTNNHtAwTrgPbPWcchvaCNMeNmnWFKMEwfyiBbXjPlvL
-         E5beeToH+PWDCb9Jlu+s/DLxJkXaZL6FRXPoY4xWHOuqhK6jXRfX6hyY9YpTU2oo0+F4
-         gWmw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1730798091; x=1731402891;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=P4G0QFpDZpyh7jivQuglDMqb6yzlT1rpR4Jl1yN+DF0=;
-        b=AechZCIdM+uECL4sbkiWH8MYkt0+pseMjSjIC2oorzgdPFpt9JpK5AK6lBW5mwqcro
-         4YXIQLc/KCa6WXnH8Qvw1aH4qPFEhHoJ8/kSE48nGvyuIF6f7S9DS385mApbKAtFXF5w
-         ufp65QcqM9ICL2F418FjmZVggwkA4X4BXBaGLX0Tt6UwdSZhLVLojS4K6QJcZJQQSgTJ
-         IablrkF+NB4/dMK2u34/D5FxTFlGloNhr1LPpPeshmhAMF+eExyjq3fWoXtu596KmBiN
-         TPbF6DeRt8AHyrpvArHrvr2q6Jls+6J1ld5KWt0j3x+r5ZvsBNYsxr0Z6SFS5cx83GDj
-         m0Bg==
-X-Forwarded-Encrypted: i=1; AJvYcCU4bTxk2dp5n4V8qk+hroW7R2xw81btgNOMxFRijvCiIOHlQnr7oZDhfsh842BzPqJK0ilDA0NyHOwDww==@lists.infradead.org
-X-Gm-Message-State: AOJu0YzGFLYieWWVD3r9jp7JeKz0KqOlsL7TNCADuJ56BO/GrqTnloLG
-	B2lkl6MDL6J36jYnzLUQz27M4ll34fnEG9wZdPJPFO5OoeCoJLKZsOBrpFsPg0w=
-X-Google-Smtp-Source: AGHT+IF89JsMTBItvysTiIBkAGPevhb1tYo18xBJg4bMSuMI6an6frnp4kuVBULT6FlhF3ie/VWuRQ==
-X-Received: by 2002:a2e:a543:0:b0:2fa:cc50:41b with SMTP id 38308e7fff4ca-2fcbdf5fa9amr179020771fa.5.1730798090168;
-        Tue, 05 Nov 2024 01:14:50 -0800 (PST)
-Received: from localhost (2001-1ae9-1c2-4c00-20f-c6b4-1e57-7965.ip6.tmcz.cz. [2001:1ae9:1c2:4c00:20f:c6b4:1e57:7965])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-431bd8e8524sm209635175e9.5.2024.11.05.01.14.49
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 05 Nov 2024 01:14:49 -0800 (PST)
-Date: Tue, 5 Nov 2024 10:14:48 +0100
-From: Andrew Jones <ajones@ventanamicro.com>
-To: =?utf-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>
-Cc: Will Deacon <will@kernel.org>, 
-	Julien Thierry <julien.thierry.kdev@gmail.com>, Anup Patel <anup@brainfault.org>, kvm@vger.kernel.org, 
-	kvm-riscv@lists.infradead.org, =?utf-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@rivosinc.com>, 
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH kvmtool] riscv: Pass correct size to snprintf()
-Message-ID: <20241105-546ce4236046e9742cf081e7@orel>
-References: <20241104192120.75841-1-bjorn@kernel.org>
+	id 1t8Fm6-0000000GUOj-1MNm;
+	Tue, 05 Nov 2024 09:23:00 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ellerman.id.au;
+	s=201909; t=1730798571;
+	bh=xG1HQhXTKL81M9467zhA4KonLLpV3fuL2upt5lJSShY=;
+	h=From:To:Cc:Subject:In-Reply-To:References:Date:From;
+	b=abc102v8sCEc4rZgo2gcKLbXmwgvq4GWFHOVFO2bCqlfFdeKKcRV4prB0lNuFM+1J
+	 +nLMWJEv9C6S0GLYT8NTq4cofEwz+d0GOszV9URcE2cm6ZF5AylDoN/Z59rll0g/Oq
+	 7WsqGbok2W4NpvuKkzkrDPAQmPNPSM6PFvziT+2hwmqDnVmGWCUcte8UycWZO0fqBM
+	 8/j6kLdVKhMd+2mHPE+WS4RXiOWy1ZCSKS371LN4mAvJuEGSKgRrakUz5kUENSDU9q
+	 PGCTVxGOMH7TPanX3MVM/rMyBsqI05mZE6yiJdVSS0qPm3mWfbV8Bv8MQn/EFJHce9
+	 0DvIPNJTjgI8A==
+Received: from authenticated.ozlabs.org (localhost [127.0.0.1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(Client did not present a certificate)
+	by mail.ozlabs.org (Postfix) with ESMTPSA id 4XjNCv5y3Wz4wcl;
+	Tue,  5 Nov 2024 20:22:51 +1100 (AEDT)
+From: Michael Ellerman <mpe@ellerman.id.au>
+To: Eric Biggers <ebiggers@kernel.org>, linux-kernel@vger.kernel.org
+Cc: linux-arch@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-crypto@vger.kernel.org, linux-ext4@vger.kernel.org,
+ linux-f2fs-devel@lists.sourceforge.net, linux-mips@vger.kernel.org,
+ linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
+ linux-scsi@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+ loongarch@lists.linux.dev, sparclinux@vger.kernel.org, x86@kernel.org, Ard
+ Biesheuvel <ardb@kernel.org>
+Subject: Re: [PATCH v3 08/18] powerpc/crc32: expose CRC32 functions through lib
+In-Reply-To: <20241103223154.136127-9-ebiggers@kernel.org>
+References: <20241103223154.136127-1-ebiggers@kernel.org>
+ <20241103223154.136127-9-ebiggers@kernel.org>
+Date: Tue, 05 Nov 2024 20:22:53 +1100
+Message-ID: <87zfme826q.fsf@mpe.ellerman.id.au>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20241104192120.75841-1-bjorn@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241105_011453_801665_CC844467 
-X-CRM114-Status: GOOD (  21.18  )
+X-CRM114-CacheID: sfid-20241105_012258_929191_6CA22533 
+X-CRM114-Status: GOOD (  19.71  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,65 +72,99 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="iso-8859-1"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Nov 04, 2024 at 08:21:19PM +0100, Bj=F6rn T=F6pel wrote:
-> From: Bj=F6rn T=F6pel <bjorn@rivosinc.com>
-> =
-
-> The snprintf() function does not get the correct size argument passed,
-> when the FDT ISA string is built. Instead of adjusting the size for
-> each extension, the full size is passed for every iteration. Doing so
-> will make __snprinf_chk() bail out on glibc.
-> =
-
-> Adjust size for each iteration.
-> =
-
-> Fixes: 8aff29e1dafe ("riscv: Append ISA extensions to the device tree")
-> Signed-off-by: Bj=F6rn T=F6pel <bjorn@rivosinc.com>
+Eric Biggers <ebiggers@kernel.org> writes:
+> From: Eric Biggers <ebiggers@google.com>
+>
+> Move the powerpc CRC32C assembly code into the lib directory and wire it
+> up to the library interface.  This allows it to be used without going
+> through the crypto API.  It remains usable via the crypto API too via
+> the shash algorithms that use the library interface.  Thus all the
+> arch-specific "shash" code becomes unnecessary and is removed.
+>
+> Note: to see the diff from arch/powerpc/crypto/crc32c-vpmsum_glue.c to
+> arch/powerpc/lib/crc32-glue.c, view this commit with 'git show -M10'.
+>
+> Reviewed-by: Ard Biesheuvel <ardb@kernel.org>
+> Signed-off-by: Eric Biggers <ebiggers@google.com>
 > ---
->  riscv/fdt.c | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
-> =
+>  arch/powerpc/Kconfig                          |   1 +
+>  arch/powerpc/configs/powernv_defconfig        |   1 -
+>  arch/powerpc/configs/ppc64_defconfig          |   1 -
+>  arch/powerpc/crypto/Kconfig                   |  15 +-
+>  arch/powerpc/crypto/Makefile                  |   2 -
+>  arch/powerpc/crypto/crc32c-vpmsum_glue.c      | 173 ------------------
+>  arch/powerpc/crypto/crct10dif-vpmsum_asm.S    |   2 +-
+>  arch/powerpc/lib/Makefile                     |   3 +
+>  arch/powerpc/lib/crc32-glue.c                 |  92 ++++++++++
+>  .../{crypto => lib}/crc32-vpmsum_core.S       |   0
+>  .../{crypto => lib}/crc32c-vpmsum_asm.S       |   0
+>  11 files changed, 98 insertions(+), 192 deletions(-)
+>  delete mode 100644 arch/powerpc/crypto/crc32c-vpmsum_glue.c
+>  create mode 100644 arch/powerpc/lib/crc32-glue.c
+>  rename arch/powerpc/{crypto => lib}/crc32-vpmsum_core.S (100%)
+>  rename arch/powerpc/{crypto => lib}/crc32c-vpmsum_asm.S (100%)
 
-> diff --git a/riscv/fdt.c b/riscv/fdt.c
-> index 8189601f46de..85c8f95604f6 100644
-> --- a/riscv/fdt.c
-> +++ b/riscv/fdt.c
-> @@ -157,7 +157,7 @@ static void generate_cpu_nodes(void *fdt, struct kvm =
-*kvm)
->  					   isa_info_arr[i].name);
->  				break;
->  			}
-> -			pos +=3D snprintf(cpu_isa + pos, CPU_ISA_MAX_LEN, "_%s",
-> +			pos +=3D snprintf(cpu_isa + pos, CPU_ISA_MAX_LEN - pos, "_%s",
+Acked-by: Michael Ellerman <mpe@ellerman.id.au> (powerpc)
 
-Just above this we confirm strlen(isa_info_arr[i].name) + pos + 1 is less
-than CPU_ISA_MAX_LEN, which means we should be able to use anything for
-size which is greater than or equal to strlen(isa_info_arr[i].name) + 1,
-as snprintf won't write more anyway. But, it's understandable that
-__snprinf_chk doesn't know that.
+...
+> deleted file mode 100644
+> index 63760b7dbb76..000000000000
+> --- a/arch/powerpc/crypto/crc32c-vpmsum_glue.c
+> +++ /dev/null
+> @@ -1,173 +0,0 @@
+> -// SPDX-License-Identifier: GPL-2.0-only
+> -
+...
+> -static int __init crc32c_vpmsum_mod_init(void)
+> -{
+> -	if (!cpu_has_feature(CPU_FTR_ARCH_207S))
+> -		return -ENODEV;
+> -
+> -	return crypto_register_shash(&alg);
+> -}
+> -
+> -static void __exit crc32c_vpmsum_mod_fini(void)
+> -{
+> -	crypto_unregister_shash(&alg);
+> -}
+> -
+> -module_cpu_feature_match(PPC_MODULE_FEATURE_VEC_CRYPTO, crc32c_vpmsum_mod_init);
+> -module_exit(crc32c_vpmsum_mod_fini);
+> -
+> -MODULE_AUTHOR("Anton Blanchard <anton@samba.org>");
+> -MODULE_DESCRIPTION("CRC32C using vector polynomial multiply-sum instructions");
+> -MODULE_LICENSE("GPL");
+> -MODULE_ALIAS_CRYPTO("crc32c");
+> -MODULE_ALIAS_CRYPTO("crc32c-vpmsum");
+...
+> new file mode 100644
+> index 000000000000..e9730f028afb
+> --- /dev/null
+> +++ b/arch/powerpc/lib/crc32-glue.c
+> @@ -0,0 +1,92 @@
+> +// SPDX-License-Identifier: GPL-2.0-only
+...
+> +
+> +static int __init crc32_powerpc_init(void)
+> +{
+> +	if (cpu_has_feature(CPU_FTR_ARCH_207S) &&
+> +	    (cur_cpu_spec->cpu_user_features2 & PPC_FEATURE2_VEC_CRYPTO))
+> +		static_branch_enable(&have_vec_crypto);
 
->  					isa_info_arr[i].name);
->  		}
->  		cpu_isa[pos] =3D '\0';
+For any other reviewers, this looks like a new cpu feature check, but
+it's not. In the old code there was a module feature check:
 
-Not part of this patch, but part of the context, so I'll comment on it
-anyway, this '\0' assignment could be removed. It looks like it's a left
-over from commit 7c9aac003925 ("riscv: Generate FDT at runtime for
-Guest/VM") which could have been removed with commit 8aff29e1dafe ("riscv:
-Append ISA extensions to the device tree")
+  module_cpu_feature_match(PPC_MODULE_FEATURE_VEC_CRYPTO, crc32c_vpmsum_mod_init);
 
-Anyway,
+And PPC_MODULE_FEATURE_VEC_CRYPTO maps to PPC_FEATURE2_VEC_CRYPTO, so
+the logic is equivalent.
 
-Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
-
-Thanks,
-drew
+cheers
 
 _______________________________________________
 linux-riscv mailing list
