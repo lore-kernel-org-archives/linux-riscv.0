@@ -4,56 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CEEF2D2B92E
-	for <linux-riscv@archiver.kernel.org>; Tue,  5 Nov 2024 13:58:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9774BD2B92E
+	for <linux-riscv@archiver.kernel.org>; Tue,  5 Nov 2024 14:32:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
 	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
 	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Y95SXFqUipWIU2Om+dX5vA2yuJUnQdjM8c4ZAXXs3uY=; b=uGZuKYa0pPVKVA
-	7aVVou7e77oVU9PaiunIYA2nt/SJCptTXF1bgvGyZhT7BBmqlbjfRrILJSCK8yu70xbqX943QDnE9
-	dDPQsLhqsHd7KHp7lwkQgzXkTnm4t7HBl1fmTK3kjYiwCuEEE55lr630gssgkV1DTGijAMzJh6p3W
-	QVon5U1vHtmi9S0CVt5+Qnr0ZGsqFD4aswN6qydgs9Vbey+6RBNxArGOyfEPvE1JYCy3X0fvDlTfs
-	+GbO4dghAqZK4/O/e767+xkrwDdSCVyNXGqaIkbwtkrcMQJWmeYmKawZsD9iaASlc+78XLxfr+2wk
-	0NGgGGBvYJHyMUE6cq/A==;
+	List-Owner; bh=y3+FKTQJUOxJTPf2l/o8C8plF4/K84yqWmgXNpyIhbY=; b=2Td0RUOIMVXM38
+	vJ8rHcMucWWaLIrfZMJateKvYie5oZ4D4k/fLAOzmqcoyKFtsdIr/UAYN9gbjtOUxSxgJQoJoxwKm
+	7FTFexiWl+jOEDV2I/sg76YyPozaCHGrpwX+BRtJCi6F6xu1ftei0aqazKWshu/0xk2QNV4Qq3VEJ
+	RYsa8+aKkonFCpPYajGnYJc4ItJYjsy1xEQaFxdUbh4gEWkeaC0CdfHlMkDF9KvzK7Or+WbJTe9nG
+	Kj0FogWI0Ri4zgMMAA4w5fN3oSDfPvlQbpXLsrr+Sw7Y6mbjs2cgSN4vFau5rHWeaQQRZZo4PXWQS
+	SvijmpSr7FFkbcgZNkhQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8K4e-0000000HBsd-2BdD;
-	Tue, 05 Nov 2024 13:58:24 +0000
-Received: from relay4-d.mail.gandi.net ([2001:4b98:dc4:8::224])
+	id 1t8KbN-0000000HHB9-2KVq;
+	Tue, 05 Nov 2024 14:32:13 +0000
+Received: from pegase2.c-s.fr ([93.17.235.10])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8K1T-0000000HBRS-1Bkt;
-	Tue, 05 Nov 2024 13:55:09 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id DFB34E0003;
-	Tue,  5 Nov 2024 13:55:01 +0000 (UTC)
-Message-ID: <e8cf563f-d840-4e33-9ca0-2fa734c9f6c2@ghiti.fr>
-Date: Tue, 5 Nov 2024 14:55:01 +0100
+	id 1t8KAl-0000000HCof-0AlK;
+	Tue, 05 Nov 2024 14:04:45 +0000
+Received: from localhost (mailhub3.si.c-s.fr [172.26.127.67])
+	by localhost (Postfix) with ESMTP id 4XjVT20D0Vz9sRr;
+	Tue,  5 Nov 2024 15:04:38 +0100 (CET)
+X-Virus-Scanned: amavisd-new at c-s.fr
+Received: from pegase2.c-s.fr ([172.26.127.65])
+	by localhost (pegase2.c-s.fr [127.0.0.1]) (amavisd-new, port 10024)
+	with ESMTP id LoXpUD9JBUwx; Tue,  5 Nov 2024 15:04:37 +0100 (CET)
+Received: from messagerie.si.c-s.fr (messagerie.si.c-s.fr [192.168.25.192])
+	by pegase2.c-s.fr (Postfix) with ESMTP id 4XjVSw68fmz9rvV;
+	Tue,  5 Nov 2024 15:04:32 +0100 (CET)
+Received: from localhost (localhost [127.0.0.1])
+	by messagerie.si.c-s.fr (Postfix) with ESMTP id BC0698B763;
+	Tue,  5 Nov 2024 15:04:32 +0100 (CET)
+X-Virus-Scanned: amavisd-new at c-s.fr
+Received: from messagerie.si.c-s.fr ([127.0.0.1])
+	by localhost (messagerie.si.c-s.fr [127.0.0.1]) (amavisd-new, port 10023)
+	with ESMTP id DUJhllzpqdGg; Tue,  5 Nov 2024 15:04:32 +0100 (CET)
+Received: from [192.168.232.44] (unknown [192.168.232.44])
+	by messagerie.si.c-s.fr (Postfix) with ESMTP id 228F48B770;
+	Tue,  5 Nov 2024 15:04:32 +0100 (CET)
+Message-ID: <e33569c8-1591-462c-9388-4a514e156bfa@csgroup.eu>
+Date: Tue, 5 Nov 2024 15:04:31 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 7/9] riscv: Align the sv39 linear map to 16 GiB
-Content-Language: en-US
-To: Samuel Holland <samuel.holland@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, linux-riscv@lists.infradead.org,
- Andrey Ryabinin <ryabinin.a.a@gmail.com>,
- Alexander Potapenko <glider@google.com>,
- Andrey Konovalov <andreyknvl@gmail.com>, Dmitry Vyukov <dvyukov@google.com>,
- Vincenzo Frascino <vincenzo.frascino@arm.com>, kasan-dev@googlegroups.com
-Cc: llvm@lists.linux.dev, Catalin Marinas <catalin.marinas@arm.com>,
- linux-kernel@vger.kernel.org, linux-mm@kvack.org,
- Alexandre Ghiti <alexghiti@rivosinc.com>, Will Deacon <will@kernel.org>,
- Evgenii Stepanov <eugenis@google.com>,
- Andrew Morton <akpm@linux-foundation.org>,
- linux-arm-kernel@lists.infradead.org
-References: <20241022015913.3524425-1-samuel.holland@sifive.com>
- <20241022015913.3524425-8-samuel.holland@sifive.com>
-From: Alexandre Ghiti <alex@ghiti.fr>
-In-Reply-To: <20241022015913.3524425-8-samuel.holland@sifive.com>
-X-GND-Sasl: alex@ghiti.fr
+Subject: Re: [PATCH 00/28] vdso: Preparations for generic data storage
+To: Thomas Gleixner <tglx@linutronix.de>,
+ =?UTF-8?Q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>,
+ Guo Ren <guoren@kernel.org>, Heiko Carstens <hca@linux.ibm.com>,
+ Vasily Gorbik <gor@linux.ibm.com>, Alexander Gordeev
+ <agordeev@linux.ibm.com>, Christian Borntraeger <borntraeger@linux.ibm.com>,
+ Sven Schnelle <svens@linux.ibm.com>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Russell King <linux@armlinux.org.uk>, Huacai Chen <chenhuacai@kernel.org>,
+ WANG Xuerui <kernel@xen0n.name>, Theodore Ts'o <tytso@mit.edu>,
+ "Jason A. Donenfeld" <Jason@zx2c4.com>,
+ Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+ Dave Hansen <dave.hansen@linux.intel.com>, Andy Lutomirski
+ <luto@kernel.org>, Peter Zijlstra <peterz@infradead.org>,
+ Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
+ x86@kernel.org, "H. Peter Anvin" <hpa@zytor.com>,
+ Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>,
+ Naveen N Rao <naveen@kernel.org>, Madhavan Srinivasan <maddy@linux.ibm.com>,
+ Vincenzo Frascino <vincenzo.frascino@arm.com>
+Cc: linux-csky@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-s390@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-riscv@lists.infradead.org, loongarch@lists.linux.dev,
+ linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+ Nam Cao <namcao@linutronix.de>
+References: <20241010-vdso-generic-base-v1-0-b64f0842d512@linutronix.de>
+ <871pzxzuny.ffs@tglx>
+Content-Language: fr-FR
+From: Christophe Leroy <christophe.leroy@csgroup.eu>
+In-Reply-To: <871pzxzuny.ffs@tglx>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241105_055507_666074_6988077B 
-X-CRM114-Status: GOOD (  15.71  )
+X-CRM114-CacheID: sfid-20241105_060443_257656_1807337C 
+X-CRM114-Status: GOOD (  11.69  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -65,79 +95,34 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="utf-8"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 22/10/2024 03:57, Samuel Holland wrote:
-> The KASAN implementation on RISC-V requires the shadow memory for the
-> vmemmap and linear map regions to be aligned to a PMD boundary (1 GiB).
-
-
-PUD boundary
-
-
-> For KASAN_GENERIC (KASAN_SHADOW_SCALE_SHIFT == 3), this enforces 8 GiB
-> alignment for the memory regions themselves. KASAN_SW_TAGS uses 16-byte
-> granules (KASAN_SHADOW_SCALE_SHIFT == 4), so now the memory regions must
-> be aligned to a 16 GiB boundary.
->
-> Signed-off-by: Samuel Holland <samuel.holland@sifive.com>
-> ---
->
-> (no changes since v1)
->
->   Documentation/arch/riscv/vm-layout.rst | 10 +++++-----
->   arch/riscv/include/asm/page.h          |  2 +-
->   2 files changed, 6 insertions(+), 6 deletions(-)
->
-> diff --git a/Documentation/arch/riscv/vm-layout.rst b/Documentation/arch/riscv/vm-layout.rst
-> index eabec99b5852..c0778c421b34 100644
-> --- a/Documentation/arch/riscv/vm-layout.rst
-> +++ b/Documentation/arch/riscv/vm-layout.rst
-> @@ -47,11 +47,11 @@ RISC-V Linux Kernel SV39
->                                                                 | Kernel-space virtual memory, shared between all processes:
->     ____________________________________________________________|___________________________________________________________
->                       |            |                  |         |
-> -   ffffffc4fea00000 | -236    GB | ffffffc4feffffff |    6 MB | fixmap
-> -   ffffffc4ff000000 | -236    GB | ffffffc4ffffffff |   16 MB | PCI io
-> -   ffffffc500000000 | -236    GB | ffffffc5ffffffff |    4 GB | vmemmap
-> -   ffffffc600000000 | -232    GB | ffffffd5ffffffff |   64 GB | vmalloc/ioremap space
-> -   ffffffd600000000 | -168    GB | fffffff5ffffffff |  128 GB | direct mapping of all physical memory
-> +   ffffffc2fea00000 | -244    GB | ffffffc2feffffff |    6 MB | fixmap
-> +   ffffffc2ff000000 | -244    GB | ffffffc2ffffffff |   16 MB | PCI io
-> +   ffffffc300000000 | -244    GB | ffffffc3ffffffff |    4 GB | vmemmap
-> +   ffffffc400000000 | -240    GB | ffffffd3ffffffff |   64 GB | vmalloc/ioremap space
-> +   ffffffd400000000 | -176    GB | fffffff3ffffffff |  128 GB | direct mapping of all physical memory
->                       |            |                  |         |
->      fffffff700000000 |  -36    GB | fffffffeffffffff |   32 GB | kasan
->     __________________|____________|__________________|_________|____________________________________________________________
-> diff --git a/arch/riscv/include/asm/page.h b/arch/riscv/include/asm/page.h
-> index 32d308a3355f..6e2f79cf77c5 100644
-> --- a/arch/riscv/include/asm/page.h
-> +++ b/arch/riscv/include/asm/page.h
-> @@ -37,7 +37,7 @@
->    * define the PAGE_OFFSET value for SV48 and SV39.
->    */
->   #define PAGE_OFFSET_L4		_AC(0xffffaf8000000000, UL)
-> -#define PAGE_OFFSET_L3		_AC(0xffffffd600000000, UL)
-> +#define PAGE_OFFSET_L3		_AC(0xffffffd400000000, UL)
->   #else
->   #define PAGE_OFFSET		_AC(CONFIG_PAGE_OFFSET, UL)
->   #endif /* CONFIG_64BIT */
-
-
-Other than the nit above (that I think should be fixed though), you can add:
-
-Reviewed-by: Alexandre Ghiti <alexghiti@rivosinc.com>
-
-Thanks,
-
-Alex
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+CgpMZSAzMC8xMC8yMDI0IMOgIDEyOjM5LCBUaG9tYXMgR2xlaXhuZXIgYSDDqWNyaXTCoDoKPiBG
+b2xrcyEKPiAKPiBPbiBUaHUsIE9jdCAxMCAyMDI0IGF0IDA5OjAxLCBUaG9tYXMgV2Vpw59zY2h1
+aCB3cm90ZToKPj4gSGlzdG9yaWNhbGx5IGVhY2ggYXJjaGl0ZWN0dXJlIGRlZmluZWQgdGhlaXIg
+b3duIGRhdGFwYWdlIHRvIHN0b3JlIHRoZQo+PiBWRFNPIGRhdGEuIFRoaXMgc3RhbmRzIGluIGNv
+bnRyYXN0IHRvIHRoZSBnZW5lcmljIG5hdHVyZSBvZiB0aGUgVkRTTwo+PiBjb2RlIGl0c2VsZi4K
+Pj4gV2UgcGxhbiB0byBpbnRyb2R1Y2UgYSBnZW5lcmljIGZyYW1ld29yayBmb3IgdGhlIG1hbmFn
+ZW1lbnQgb2YgdGhlIFZEU08KPj4gZGF0YSBzdG9yYWdlIHRoYXQgY2FuIGJlIHVzZWQgYnkgYWxs
+IGFyY2hpdGVjdHVyZXMgYW5kIHdoaWNoIHdvcmtzCj4+IHRvZ2V0aGVyIHdpdGggdGhlIGV4aXN0
+aW5nIGdlbmVyaWMgVkRTTyBjb2RlLgo+Pgo+PiBCZWZvcmUgdGhhdCBpcyBwb3NzaWJsZSBhbGln
+biB0aGUgZGlmZmVyZW50IGFyY2hpdGVjdHVyZXMgYnkKPj4gc3RhbmRhcmRpemluZyBvbiB0aGUg
+ZXhpc3RpbmcgZ2VuZXJpYyBpbmZyYXN0cnVjdHVyZSBhbmQgbW92aW5nIHRoaW5ncwo+PiBvdXQg
+b2YgdGhlIFZEU08gZGF0YSBwYWdlIHdoaWNoIGRvZXMgbm90IGJlbG9uZyB0aGVyZS4KPj4KPj4g
+UGF0Y2hlcwkgMS0gMjoJY3NreQo+PiBQYXRjaAkgICAgMzoJczM5MAo+PiBQYXRjaGVzCSA0LSA1
+Oglhcm02NAo+PiBQYXRjaAkgICAgNjoJcmlzY3YKPj4gUGF0Y2gJICAgIDc6CWFybQo+PiBQYXRj
+aAkgICAgODoJTG9vbmdBcmNoCj4+IFBhdGNoCSAgICA5OglNSVBTCj4+IFBhdGNoZXMgMTAtMjA6
+CXg4Ngo+PiBQYXRjaGVzIDIxLTI3Oglwb3dlcnBjCj4+IFBhdGNoICAgICAgMjg6IAlSZW5hbWlu
+Z3MgdG8gYXZvaWQgYSBuYW1lIGNsYXNoIHdpdGggdGhlIG5ldyBjb2RlLgo+IAo+IEFzIHRoaXMg
+aGFzIGJlZW4gc2l0dGluZyBmb3IgdHdvIHdlZWtzIG5vdyB3aXRob3V0IG1ham9yIGNvbW1lbnRz
+LCBJJ20KPiBwbGFubmluZyB0byBtZXJnZSB0aGF0IHRocm91Z2ggdGhlIHRpcCB0cmVlIHRvbW9y
+cm93LgoKVG8gYXZvaWQgYW55IGZ1dHVyZSBjb25mbGljdHMgd2l0aCBwb3dlcnBjIHRyZWUsIEkg
+c3VnZ2VzdCB5b3UgbWVyZ2UgCmh0dHBzOi8vZ2l0Lmtlcm5lbC5vcmcvcHViL3NjbS9saW51eC9r
+ZXJuZWwvZ2l0L3Bvd2VycGMvbGludXguZ2l0IAp0b3BpYy92ZHNvIGludG8geW91ciB0cmVlIGJl
+Zm9yZSBhcHBseWluZyB0aGlzIHNlcmllcy4KCkNocmlzdG9waGUKCl9fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdAps
+aW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3Jn
+L21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
