@@ -4,63 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64214D1266B
-	for <linux-riscv@archiver.kernel.org>; Tue,  5 Nov 2024 09:25:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 18CAAD12671
+	for <linux-riscv@archiver.kernel.org>; Tue,  5 Nov 2024 09:58:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
-	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=YJt7gn3jXYe2qIPoLrOF46TFO+I96z9YIWqzEcx3e1E=; b=DX7kXauBlUqxXS
-	S3hcoZVqTz4Y2tXY8OUosN5Te4OF77MpKj82dXslYJy1i1QoDh1+zdPTUEbzjVpLndw8seSIAUYWl
-	HJuH+BR/zRiJH3JILyztbeIkMPP1rPjvCkhkOtoBX2P1zUK37flI5U+OD64LT5ExXQtWSGBB+OqKq
-	JLJexTHMtRTFh3jD2A52PHTj7IxNGws+UWJNIW3/7VP5Ui8c1VFmtF9B0qKDXqW5hac91WWu/7p+A
-	DoAfKy69FhYfPMjTlKlP6c9l81UEjvj0B47kUw0nzMUREo7kptQuQYiLch2iH+TsGoU3GizDm/YaD
-	rA/DqzNG+rnitsgyL6rQ==;
+	List-Owner; bh=WfyPW+4LsId7s7NwSFJwxYTnXFDHYMVagWG3ItBWZHY=; b=QnEvk5Dg2LNW4N
+	0NugEBTKo9SILfWN9YyzHgWT80riHer+IbPxqvFSh3/2HTbpBgDod+Z230i+NFCFWemhCf7zAZowm
+	lRf3kU8D2EIBCbT+rdJsQ71YABpcOqsCV59Z1ZuqrLnl4TZ67ZdspcbzMVIbFAI1Fxba+hZXEahJ5
+	8ia8LteFoSfIrgdLxCSZWpegQgdgnxf2mhWWrlaRgbqRKcz4Tm79bIDRBoVHPMZQD+LAHrMgmV8rr
+	oiJa3Agxc7WSoZ3+N3g8NZYEM24dbx1FhlyvHVbV8btpKMuD3vWbHHTjjVPwWqJ1a7qgr/UBIUpyz
+	7CFxVqAN9suYi6dSlj0w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8Fo5-0000000GUrq-0jMf;
-	Tue, 05 Nov 2024 09:25:01 +0000
-Received: from gandalf.ozlabs.org ([150.107.74.76] helo=mail.ozlabs.org)
+	id 1t8GKd-0000000GbHs-2jC8;
+	Tue, 05 Nov 2024 09:58:39 +0000
+Received: from pegase2.c-s.fr ([93.17.235.10])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8Fm6-0000000GUOj-1MNm;
-	Tue, 05 Nov 2024 09:23:00 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ellerman.id.au;
-	s=201909; t=1730798571;
-	bh=xG1HQhXTKL81M9467zhA4KonLLpV3fuL2upt5lJSShY=;
-	h=From:To:Cc:Subject:In-Reply-To:References:Date:From;
-	b=abc102v8sCEc4rZgo2gcKLbXmwgvq4GWFHOVFO2bCqlfFdeKKcRV4prB0lNuFM+1J
-	 +nLMWJEv9C6S0GLYT8NTq4cofEwz+d0GOszV9URcE2cm6ZF5AylDoN/Z59rll0g/Oq
-	 7WsqGbok2W4NpvuKkzkrDPAQmPNPSM6PFvziT+2hwmqDnVmGWCUcte8UycWZO0fqBM
-	 8/j6kLdVKhMd+2mHPE+WS4RXiOWy1ZCSKS371LN4mAvJuEGSKgRrakUz5kUENSDU9q
-	 PGCTVxGOMH7TPanX3MVM/rMyBsqI05mZE6yiJdVSS0qPm3mWfbV8Bv8MQn/EFJHce9
-	 0DvIPNJTjgI8A==
-Received: from authenticated.ozlabs.org (localhost [127.0.0.1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(Client did not present a certificate)
-	by mail.ozlabs.org (Postfix) with ESMTPSA id 4XjNCv5y3Wz4wcl;
-	Tue,  5 Nov 2024 20:22:51 +1100 (AEDT)
-From: Michael Ellerman <mpe@ellerman.id.au>
-To: Eric Biggers <ebiggers@kernel.org>, linux-kernel@vger.kernel.org
-Cc: linux-arch@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-crypto@vger.kernel.org, linux-ext4@vger.kernel.org,
- linux-f2fs-devel@lists.sourceforge.net, linux-mips@vger.kernel.org,
- linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
- linux-scsi@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
- loongarch@lists.linux.dev, sparclinux@vger.kernel.org, x86@kernel.org, Ard
- Biesheuvel <ardb@kernel.org>
-Subject: Re: [PATCH v3 08/18] powerpc/crc32: expose CRC32 functions through lib
-In-Reply-To: <20241103223154.136127-9-ebiggers@kernel.org>
-References: <20241103223154.136127-1-ebiggers@kernel.org>
- <20241103223154.136127-9-ebiggers@kernel.org>
-Date: Tue, 05 Nov 2024 20:22:53 +1100
-Message-ID: <87zfme826q.fsf@mpe.ellerman.id.au>
+	id 1t8GIp-0000000Gas2-1vhx;
+	Tue, 05 Nov 2024 09:56:49 +0000
+Received: from localhost (mailhub3.si.c-s.fr [172.26.127.67])
+	by localhost (Postfix) with ESMTP id 4XjNyz319Qz9sPd;
+	Tue,  5 Nov 2024 10:56:43 +0100 (CET)
+X-Virus-Scanned: amavisd-new at c-s.fr
+Received: from pegase2.c-s.fr ([172.26.127.65])
+	by localhost (pegase2.c-s.fr [127.0.0.1]) (amavisd-new, port 10024)
+	with ESMTP id CpEO93zW8bQ7; Tue,  5 Nov 2024 10:56:43 +0100 (CET)
+Received: from messagerie.si.c-s.fr (messagerie.si.c-s.fr [192.168.25.192])
+	by pegase2.c-s.fr (Postfix) with ESMTP id 4XjNyz27jdz9rvV;
+	Tue,  5 Nov 2024 10:56:43 +0100 (CET)
+Received: from localhost (localhost [127.0.0.1])
+	by messagerie.si.c-s.fr (Postfix) with ESMTP id 346688B770;
+	Tue,  5 Nov 2024 10:56:43 +0100 (CET)
+X-Virus-Scanned: amavisd-new at c-s.fr
+Received: from messagerie.si.c-s.fr ([127.0.0.1])
+	by localhost (messagerie.si.c-s.fr [127.0.0.1]) (amavisd-new, port 10023)
+	with ESMTP id BXNslob-hZDZ; Tue,  5 Nov 2024 10:56:43 +0100 (CET)
+Received: from [192.168.232.44] (unknown [192.168.232.44])
+	by messagerie.si.c-s.fr (Postfix) with ESMTP id 9E0918B763;
+	Tue,  5 Nov 2024 10:56:42 +0100 (CET)
+Message-ID: <9ee9c21b-179f-49aa-8c65-304c8ef2c9a7@csgroup.eu>
+Date: Tue, 5 Nov 2024 10:56:42 +0100
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 2/2] asm-generic: add an optional pfn_valid check to
+ page_to_phys
+To: Christoph Hellwig <hch@lst.de>, Arnd Bergmann <arnd@arndb.de>
+Cc: linux-alpha@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-snps-arc@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+ linux-csky@vger.kernel.org, linux-hexagon@vger.kernel.org,
+ loongarch@lists.linux.dev, linux-m68k@lists.linux-m68k.org,
+ linux-mips@vger.kernel.org, linux-openrisc@vger.kernel.org,
+ linux-parisc@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+ linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
+ linux-sh@vger.kernel.org, sparclinux@vger.kernel.org,
+ linux-um@lists.infradead.org, linux-arch@vger.kernel.org
+References: <20241023053644.311692-1-hch@lst.de>
+ <20241023053644.311692-3-hch@lst.de>
+Content-Language: fr-FR
+From: Christophe Leroy <christophe.leroy@csgroup.eu>
+In-Reply-To: <20241023053644.311692-3-hch@lst.de>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241105_012258_929191_6CA22533 
-X-CRM114-Status: GOOD (  19.71  )
+X-CRM114-CacheID: sfid-20241105_015647_680459_520A55CC 
+X-CRM114-Status: GOOD (  14.31  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,101 +81,36 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="utf-8"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Eric Biggers <ebiggers@kernel.org> writes:
-> From: Eric Biggers <ebiggers@google.com>
->
-> Move the powerpc CRC32C assembly code into the lib directory and wire it
-> up to the library interface.  This allows it to be used without going
-> through the crypto API.  It remains usable via the crypto API too via
-> the shash algorithms that use the library interface.  Thus all the
-> arch-specific "shash" code becomes unnecessary and is removed.
->
-> Note: to see the diff from arch/powerpc/crypto/crc32c-vpmsum_glue.c to
-> arch/powerpc/lib/crc32-glue.c, view this commit with 'git show -M10'.
->
-> Reviewed-by: Ard Biesheuvel <ardb@kernel.org>
-> Signed-off-by: Eric Biggers <ebiggers@google.com>
-> ---
->  arch/powerpc/Kconfig                          |   1 +
->  arch/powerpc/configs/powernv_defconfig        |   1 -
->  arch/powerpc/configs/ppc64_defconfig          |   1 -
->  arch/powerpc/crypto/Kconfig                   |  15 +-
->  arch/powerpc/crypto/Makefile                  |   2 -
->  arch/powerpc/crypto/crc32c-vpmsum_glue.c      | 173 ------------------
->  arch/powerpc/crypto/crct10dif-vpmsum_asm.S    |   2 +-
->  arch/powerpc/lib/Makefile                     |   3 +
->  arch/powerpc/lib/crc32-glue.c                 |  92 ++++++++++
->  .../{crypto => lib}/crc32-vpmsum_core.S       |   0
->  .../{crypto => lib}/crc32c-vpmsum_asm.S       |   0
->  11 files changed, 98 insertions(+), 192 deletions(-)
->  delete mode 100644 arch/powerpc/crypto/crc32c-vpmsum_glue.c
->  create mode 100644 arch/powerpc/lib/crc32-glue.c
->  rename arch/powerpc/{crypto => lib}/crc32-vpmsum_core.S (100%)
->  rename arch/powerpc/{crypto => lib}/crc32c-vpmsum_asm.S (100%)
-
-Acked-by: Michael Ellerman <mpe@ellerman.id.au> (powerpc)
-
-...
-> deleted file mode 100644
-> index 63760b7dbb76..000000000000
-> --- a/arch/powerpc/crypto/crc32c-vpmsum_glue.c
-> +++ /dev/null
-> @@ -1,173 +0,0 @@
-> -// SPDX-License-Identifier: GPL-2.0-only
-> -
-...
-> -static int __init crc32c_vpmsum_mod_init(void)
-> -{
-> -	if (!cpu_has_feature(CPU_FTR_ARCH_207S))
-> -		return -ENODEV;
-> -
-> -	return crypto_register_shash(&alg);
-> -}
-> -
-> -static void __exit crc32c_vpmsum_mod_fini(void)
-> -{
-> -	crypto_unregister_shash(&alg);
-> -}
-> -
-> -module_cpu_feature_match(PPC_MODULE_FEATURE_VEC_CRYPTO, crc32c_vpmsum_mod_init);
-> -module_exit(crc32c_vpmsum_mod_fini);
-> -
-> -MODULE_AUTHOR("Anton Blanchard <anton@samba.org>");
-> -MODULE_DESCRIPTION("CRC32C using vector polynomial multiply-sum instructions");
-> -MODULE_LICENSE("GPL");
-> -MODULE_ALIAS_CRYPTO("crc32c");
-> -MODULE_ALIAS_CRYPTO("crc32c-vpmsum");
-...
-> new file mode 100644
-> index 000000000000..e9730f028afb
-> --- /dev/null
-> +++ b/arch/powerpc/lib/crc32-glue.c
-> @@ -0,0 +1,92 @@
-> +// SPDX-License-Identifier: GPL-2.0-only
-...
-> +
-> +static int __init crc32_powerpc_init(void)
-> +{
-> +	if (cpu_has_feature(CPU_FTR_ARCH_207S) &&
-> +	    (cur_cpu_spec->cpu_user_features2 & PPC_FEATURE2_VEC_CRYPTO))
-> +		static_branch_enable(&have_vec_crypto);
-
-For any other reviewers, this looks like a new cpu feature check, but
-it's not. In the old code there was a module feature check:
-
-  module_cpu_feature_match(PPC_MODULE_FEATURE_VEC_CRYPTO, crc32c_vpmsum_mod_init);
-
-And PPC_MODULE_FEATURE_VEC_CRYPTO maps to PPC_FEATURE2_VEC_CRYPTO, so
-the logic is equivalent.
-
-cheers
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+CgpMZSAyMy8xMC8yMDI0IMOgIDA3OjM2LCBDaHJpc3RvcGggSGVsbHdpZyBhIMOpY3JpdMKgOgo+
+IHBhZ2VfdG9fcGZuIGlzIHVzdWFsbHkgaW1wbGVtZW50ZWQgYnkgcG9pbnRlciBhcml0aG1ldGlj
+cyBvbiB0aGUgbWVtb3J5Cj4gbWFwLCB3aGljaCBtZWFucyB0aGF0IGJvZ3VzIGlucHV0IGNhbiBs
+ZWFkIHRvIGV2ZW4gbW9yZSBib2d1cyBvdXRwdXQuCj4gCj4gUG93ZXJwYyBoYWQgYSBwZm5fdmFs
+aWQgY2hlY2sgb24gdGhlIGludGVybWVkaWF0ZSBwZm4gaW4gdGhlIHBhZ2VfdG9fcGh5cwo+IGlt
+cGxlbWVudGF0aW9uIHdoZW4gQ09ORklHX0RFQlVHX1ZJUlRVQUwgaXMgZGVmaW5lZCwgd2hpY2gg
+c2VlbXMKPiBnZW5lcmFsbHkgdXNlZnVsLCBzbyBhZGQgdGhhdCB0byB0aGUgZ2VuZXJpYyB2ZXJz
+aW9uLgo+IAo+IFNpZ25lZC1vZmYtYnk6IENocmlzdG9waCBIZWxsd2lnIDxoY2hAbHN0LmRlPgo+
+IC0tLQo+ICAgaW5jbHVkZS9hc20tZ2VuZXJpYy9tZW1vcnlfbW9kZWwuaCB8IDEwICsrKysrKysr
+KysKPiAgIDEgZmlsZSBjaGFuZ2VkLCAxMCBpbnNlcnRpb25zKCspCj4gCj4gZGlmZiAtLWdpdCBh
+L2luY2x1ZGUvYXNtLWdlbmVyaWMvbWVtb3J5X21vZGVsLmggYi9pbmNsdWRlL2FzbS1nZW5lcmlj
+L21lbW9yeV9tb2RlbC5oCj4gaW5kZXggYTczYTE0MGNiZWNkLi42ZDFmYjYxNjJhYzEgMTAwNjQ0
+Cj4gLS0tIGEvaW5jbHVkZS9hc20tZ2VuZXJpYy9tZW1vcnlfbW9kZWwuaAo+ICsrKyBiL2luY2x1
+ZGUvYXNtLWdlbmVyaWMvbWVtb3J5X21vZGVsLmgKPiBAQCAtNjQsNyArNjQsMTcgQEAgc3RhdGlj
+IGlubGluZSBpbnQgcGZuX3ZhbGlkKHVuc2lnbmVkIGxvbmcgcGZuKQo+ICAgI2RlZmluZSBwYWdl
+X3RvX3BmbiBfX3BhZ2VfdG9fcGZuCj4gICAjZGVmaW5lIHBmbl90b19wYWdlIF9fcGZuX3RvX3Bh
+Z2UKPiAgIAo+ICsjaWZkZWYgQ09ORklHX0RFQlVHX1ZJUlRVQUwKPiArI2RlZmluZSBwYWdlX3Rv
+X3BoeXMocGFnZSkJCQkJCQlcCj4gKyh7CQkJCQkJCQkJXAo+ICsJdW5zaWduZWQgbG9uZyBfX3Bm
+biA9IHBhZ2VfdG9fcGZuKHBhZ2UpOwkJCVwKPiArCQkJCQkJCQkJXAo+ICsJV0FSTl9PTl9PTkNF
+KCFwZm5fdmFsaWQoX19wZm4pKTsJCQkJXAoKT24gcG93ZXJwYyBJIHRoaW5rIGl0IHdhcyBhIFdB
+Uk5fT04oKS4KCldpbGwgYSBXQVJOX09OX09OQ0UoKSBiZSBlbm91Z2ggPwoKPiArCVBGTl9QSFlT
+KF9fcGZuKTsJCQkJCQlcCj4gK30pCj4gKyNlbHNlCj4gICAjZGVmaW5lIHBhZ2VfdG9fcGh5cyhw
+YWdlKQlQRk5fUEhZUyhwYWdlX3RvX3BmbihwYWdlKSkKPiArI2VuZGlmIC8qIENPTkZJR19ERUJV
+R19WSVJUVUFMICovCj4gICAjZGVmaW5lIHBoeXNfdG9fcGFnZShwaHlzKQlwZm5fdG9fcGFnZShQ
+SFlTX1BGTihwaHlzKSkKPiAgIAo+ICAgI2VuZGlmIC8qIF9fQVNTRU1CTFlfXyAqLwoKX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFp
+bGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmlu
+ZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
