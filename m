@@ -4,67 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58F93D2B92B
-	for <linux-riscv@archiver.kernel.org>; Tue,  5 Nov 2024 13:40:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C154BD2B92B
+	for <linux-riscv@archiver.kernel.org>; Tue,  5 Nov 2024 13:47:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=CBvOsXTN1pWksSAMDeZyLAPDePP9OdCZEPQ10Yb2IF4=; b=SQs3CFTmEe6Yo3
-	8i9HKAUMR5bdBajuQ9sictFfoH5ELzUo8whWmVGijAIR/Yf9KSFOZ86Z9cXKfKdj1SwPnGDwjXkDZ
-	TRfZQN0V6FSRQg0U3owdM3zr7Khlw9CWHC70QRzHPnvcdD/JGQyLjnEp0zQrPTsbWBXIEQROObBPq
-	OMcfLtJp0o7nm7SSetinXp6K9VfRlO6oZW/cndifw3p6jd2IXyZAr/LTL7apQe7YoqY7aztQfOfip
-	PyPVma/UtmaemywqQZ4s492beQPAvLWaJdSNNlCZvPNedjoUyElV/PgtV6Av1e9D3MTanac2laws1
-	gyEqYLZsRIJCQmbXp36w==;
+	List-Owner; bh=ENpVCvmHXzGDxG+ZOlxMVO9MdjtnvKKlNkb3Y09y0jE=; b=ojFeWvGxoktP9E
+	p1OJQkjz6HC9l1C2rJJr17SExqr45DBZl+7vlrmPw/q5HMtCzegDvB4fJ3ew7Pr5mAmkjkh2Q0ab8
+	pcBrkF21/sz2wzVNzAMDGqvrWlh5Ag+wiwGk1UhHjfNpXJkjWvLkG9nR7+ZFOS4A6btJad7p6EwuK
+	3VwSYlp6ZlQ/y0jWB/binqq3M8hzzmz6fC4BfAF6je2CY7WMR+6x/ljPihcjQwrefUvmH7WrvvCRf
+	l9cvvD37hqOZPucXSYDfpJfTrqM/EhSGhwysde2jSn27g8yCHWeAFJrHfQxatKJNJo9F+GRgWMTzc
+	JHJp9lR/ho1ZvlcCFGxw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8Jnb-0000000H9qB-0u5Y;
-	Tue, 05 Nov 2024 13:40:47 +0000
-Received: from outgoing-auth-1.mit.edu ([18.9.28.11] helo=outgoing.mit.edu)
+	id 1t8JtX-0000000HARM-2L1o;
+	Tue, 05 Nov 2024 13:46:55 +0000
+Received: from relay1-d.mail.gandi.net ([2001:4b98:dc4:8::221])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8Jlm-0000000H9R4-0KZt
-	for linux-riscv@lists.infradead.org;
-	Tue, 05 Nov 2024 13:38:55 +0000
-Received: from macsyma.thunk.org (guestnat-104-133-0-100.corp.google.com [104.133.0.100] (may be forged))
-	(authenticated bits=0)
-        (User authenticated as tytso@ATHENA.MIT.EDU)
-	by outgoing.mit.edu (8.14.7/8.12.4) with ESMTP id 4A5Dccb4012098
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Tue, 5 Nov 2024 08:38:39 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mit.edu; s=outgoing;
-	t=1730813921; bh=KYeCLSsUZRIrmEOMwxGqSfD7V2RsNkns3qvfU6C43UA=;
-	h=Date:From:Subject:Message-ID:MIME-Version:Content-Type;
-	b=n0sXTzpicMGl6JI0ADkVc/HiKPojEgkGYyO1pQx2dzcrnqvXsM2RZzo+Sb5svGPgc
-	 qW0SX7zl5zqRkKltYfBmUgFXDCqUkRisSud/xR5J6Tbouah7IfPO5+X+s+0mFZ/id0
-	 KJJ0kAX4lfNE8lrvU3EBvRFI9YhbvsP4WOsZDJiCLfWkjotYwy29Ajn/HIKkTf9yE5
-	 NEeFKTWS8cZ06m1TRDAbI0VH51oFtGnGm3lMEoaaiG94ccor1fss0Fcwy+3maWrH6L
-	 KfqzubfM08EeL0DYjOq/Yn2j7aagvnHNL3UgvZEC8cQqhZOWSOz17Mgc3iRw2QINym
-	 fJUtJFR76A04Q==
-Received: by macsyma.thunk.org (Postfix, from userid 15806)
-	id 7ED14340E22; Sat, 02 Nov 2024 15:26:35 -0700 (PDT)
-Date: Sat, 2 Nov 2024 15:26:35 -0700
-From: "Theodore Ts'o" <tytso@mit.edu>
-To: Eric Biggers <ebiggers@kernel.org>
-Cc: linux-kernel@vger.kernel.org, linux-arch@vger.kernel.org,
-        linux-arm-kernel@lists.infradead.org, linux-crypto@vger.kernel.org,
-        linux-ext4@vger.kernel.org, linux-f2fs-devel@lists.sourceforge.net,
-        linux-mips@vger.kernel.org, linux-riscv@lists.infradead.org,
-        linux-s390@vger.kernel.org, linux-scsi@vger.kernel.org,
-        linuxppc-dev@lists.ozlabs.org, loongarch@lists.linux.dev,
-        sparclinux@vger.kernel.org, x86@kernel.org,
-        Ard Biesheuvel <ardb@kernel.org>
-Subject: Re: [PATCH v2 15/18] ext4: switch to using the crc32c library
-Message-ID: <20241102222635.GB455688@mit.edu>
-References: <20241025191454.72616-1-ebiggers@kernel.org>
- <20241025191454.72616-16-ebiggers@kernel.org>
+	id 1t8JrE-0000000HAEe-02SX;
+	Tue, 05 Nov 2024 13:45:10 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id 21972240006;
+	Tue,  5 Nov 2024 13:44:25 +0000 (UTC)
+Message-ID: <5dba5a49-91e5-4988-9018-63b146b5e26c@ghiti.fr>
+Date: Tue, 5 Nov 2024 14:44:25 +0100
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20241025191454.72616-16-ebiggers@kernel.org>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 5/9] riscv: mm: Log potential KASAN shadow alias
+Content-Language: en-US
+To: Samuel Holland <samuel.holland@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, linux-riscv@lists.infradead.org,
+ Andrey Ryabinin <ryabinin.a.a@gmail.com>,
+ Alexander Potapenko <glider@google.com>,
+ Andrey Konovalov <andreyknvl@gmail.com>, Dmitry Vyukov <dvyukov@google.com>,
+ Vincenzo Frascino <vincenzo.frascino@arm.com>, kasan-dev@googlegroups.com
+Cc: llvm@lists.linux.dev, Catalin Marinas <catalin.marinas@arm.com>,
+ linux-kernel@vger.kernel.org, linux-mm@kvack.org,
+ Alexandre Ghiti <alexghiti@rivosinc.com>, Will Deacon <will@kernel.org>,
+ Evgenii Stepanov <eugenis@google.com>,
+ Andrew Morton <akpm@linux-foundation.org>,
+ linux-arm-kernel@lists.infradead.org
+References: <20241022015913.3524425-1-samuel.holland@sifive.com>
+ <20241022015913.3524425-6-samuel.holland@sifive.com>
+From: Alexandre Ghiti <alex@ghiti.fr>
+In-Reply-To: <20241022015913.3524425-6-samuel.holland@sifive.com>
+X-GND-Sasl: alex@ghiti.fr
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241105_053854_377760_197D364B 
-X-CRM114-Status: GOOD (  11.07  )
+X-CRM114-CacheID: sfid-20241105_054432_235464_0FE9A525 
+X-CRM114-Status: GOOD (  16.89  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,23 +65,63 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Oct 25, 2024 at 12:14:51PM -0700, Eric Biggers wrote:
-> From: Eric Biggers <ebiggers@google.com>
-> 
-> Now that the crc32c() library function directly takes advantage of
-> architecture-specific optimizations, it is unnecessary to go through the
-> crypto API.  Just use crc32c().  This is much simpler, and it improves
-> performance due to eliminating the crypto API overhead.
-> 
-> Reviewed-by: Ard Biesheuvel <ardb@kernel.org>
-> Signed-off-by: Eric Biggers <ebiggers@google.com>
+Hi Samuel,
 
-Acked-by: Theodore Ts'o <tytso@mit.edu>
+On 22/10/2024 03:57, Samuel Holland wrote:
+> When KASAN is enabled, shadow memory is allocated and mapped for all
+> legitimate kernel addresses, but not for the entire address space. As a
+> result, the kernel can fault when accessing a shadow address computed
+> from a bogus pointer. This can be confusing, because the shadow address
+> computed for (e.g.) NULL looks nothing like a NULL pointer. To assist
+> debugging, if the faulting address might be the result of a KASAN shadow
+> memory address computation, report the range of original memory
+> addresses that would map to the faulting address.
+>
+> Signed-off-by: Samuel Holland <samuel.holland@sifive.com>
+> ---
+>
+> Changes in v2:
+>   - New patch for v2
+>
+>   arch/riscv/mm/fault.c | 3 +++
+>   1 file changed, 3 insertions(+)
+>
+> diff --git a/arch/riscv/mm/fault.c b/arch/riscv/mm/fault.c
+> index a9f2b4af8f3f..dae1131221b7 100644
+> --- a/arch/riscv/mm/fault.c
+> +++ b/arch/riscv/mm/fault.c
+> @@ -8,6 +8,7 @@
+>   
+>   
+>   #include <linux/mm.h>
+> +#include <linux/kasan.h>
+>   #include <linux/kernel.h>
+>   #include <linux/interrupt.h>
+>   #include <linux/perf_event.h>
+> @@ -30,6 +31,8 @@ static void die_kernel_fault(const char *msg, unsigned long addr,
+>   	pr_alert("Unable to handle kernel %s at virtual address " REG_FMT "\n", msg,
+>   		addr);
+>   
+> +	kasan_non_canonical_hook(addr);
+> +
+>   	bust_spinlocks(0);
+>   	die(regs, "Oops");
+>   	make_task_dead(SIGKILL);
+
+
+That's nice, I used to do that by hand :)
+
+Reviewed-by: Alexandre Ghiti <alexghiti@rivosinc.com>
+
+Thanks,
+
+Alex
+
 
 _______________________________________________
 linux-riscv mailing list
