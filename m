@@ -4,62 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A0C8D36129
-	for <linux-riscv@archiver.kernel.org>; Wed,  6 Nov 2024 02:10:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D8445D35E5D
+	for <linux-riscv@archiver.kernel.org>; Wed,  6 Nov 2024 02:13:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
 	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=X0faYw59ort9yX4o+fpBdKklKK7ork//rYsxhj4NdQo=; b=VqAxehVl86kYYe
-	OAt7LSKzZP06qK9oMmbmKVq1fiA4D6NRBYHTiCdBCHAiBubrU9kKbqrFuHPJaFrQdH2GRJlfmQPPZ
-	krxG/i/zmp67UjZ/nmGrJ/Qk+bL5nqiX9mflSunr94fmiB1/Peqqx9HBUcno04a7xVsHiae7SLSLD
-	p5e1Z7MXOrvQqaV2iEgPHD4b1x2JLmE4BCbzW8bNDxDLK5WXIYBI7Ay+LUCJXhrrA3AI6fvUGIHnz
-	dLPG+WBCWfCXq1NCo1YYTbBMAhgG048A8d+fibb4kLRbSXUPIMmA0Y6KvoTQy4M7bQxGjPYvSxvRB
-	LQWdwZC98Gxhrffs8r2w==;
+	List-Owner; bh=GnBesICE9WipM+VGM5cEMTOEDPMWB4t/TTTrfJMxYzw=; b=QIJTyo7kENFkBs
+	9wUN1McnllltavSAWkq5Q6Hoiz/9fGlysao6K7Pwhl0pHq9gTmkeQCHwYBKoy0FaZVFqgksuIF6WN
+	akc1t76oNVVXXKdchu6dLJhKNti0M4i/VEdoY9SfW86BQhJtTiNjtgwfvFYjdko2+Fyjlweip2AOD
+	Glh2wsz8vusWQUIim98P8Zs34kpubF0wWTFPOWe0A/sHvZWVwJ7/HOIUIfVD9gmWBTm/+5jhxinNK
+	zN11yMav//3w3yBUvrDjcCU5I683/TU+JZ3194iWE8LndE+8upYwQ4e+ZV4gOy74nim16cVOHlrtF
+	UDW1bIjuBWvvXFxRjjKg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8VV5-00000001PNp-1sAt;
-	Wed, 06 Nov 2024 02:10:27 +0000
+	id 1t8VY3-00000001Q8C-1143;
+	Wed, 06 Nov 2024 02:13:31 +0000
 Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8VV3-00000001PMc-10wQ
+	id 1t8VXz-00000001Q5U-1e9F
 	for linux-riscv@lists.infradead.org;
-	Wed, 06 Nov 2024 02:10:27 +0000
+	Wed, 06 Nov 2024 02:13:29 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id E97C05C1179;
-	Wed,  6 Nov 2024 02:09:39 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 69A1BC4CECF;
-	Wed,  6 Nov 2024 02:10:23 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id D1FCB5C554C;
+	Wed,  6 Nov 2024 02:12:41 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 605AAC4CED1;
+	Wed,  6 Nov 2024 02:13:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1730859024;
-	bh=CsceLskskxRqNf7IhQHhlg4wvEoqfSAsTaBmrrGjNeQ=;
+	s=k20201202; t=1730859206;
+	bh=Iya6cx9gftMjLiot4YGn/cbRbjuzRahotfTH2ArRiQI=;
 	h=From:To:Cc:Subject:Date:From;
-	b=VxHdPZ7FCXN3qD7k6/JpfYyZWc9SBFpAL5OCnouNewNRVJtOMHfjeG6tXSZFih99O
-	 DZKa66Tm65rH7sCkiVRvHgCUr7+zdtPDBJUGvB5HQRgOvPS/y8JEo9JbBZVMYBueVD
-	 tvEXooZSw8FMwDRdJisSrCskTtl8SAE+fmjuUnsyDGSuwcdEsuI+34lcy8HNJDQvc0
-	 C2D3nX+8a6ei3lwNj/E+9FLPiJSDLPPGEtyU6k955PLIV5YiQKIA4MA1DtYTwaUJu/
-	 SvFJxmgXJ4TZG6eMwzawkubHtS3rzgB2ZUCIqCNt3q/leXuuMXYaToDWI7waoYiZXu
-	 bjbSi0VY6+0xA==
+	b=Lc9lS44H0ACxY1ZjleaNpu32d45zJ1r3IVxmLtH9GTAEtDwzSkJwhj+CiHJThiUj5
+	 uIDmysjIB/9EV27Fd4Ll9ojKVj5jRVFxx3QtAKToIgzoXpQE0cqZbPj+KltvUe/SYw
+	 CBJiFaX466VEK9AOc/BqqC8T0Oj967YrDwqq7KPi1cUHc6X5jq9MVlbez0CBnIiB5g
+	 tvUx44BH4C8dJDjOxPs4andDUCcz5vfIDn+Mo6tngkLzX9WYRTdkBRLE0r5RI/Gtts
+	 6T21Jn9X3sEiC9zLOeVBIbl1CT4QvVJhZQQ0RrnUs52VvmLjcRTuDQjSqi0Z5PemXi
+	 /qlWhillcjxYg==
 From: Sasha Levin <sashal@kernel.org>
 To: stable@vger.kernel.org,
 	alexghiti@rivosinc.com
-Cc: Jason Montleon <jmontleo@redhat.com>,
+Cc: Guo Ren <guoren@kernel.org>,
 	Palmer Dabbelt <palmer@rivosinc.com>,
 	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-hardening@vger.kernel.org
-Subject: FAILED: Patch "riscv: Do not use fortify in early code" failed to apply to v6.1-stable tree
-Date: Tue,  5 Nov 2024 21:10:21 -0500
-Message-ID: <20241106021021.180341-1-sashal@kernel.org>
+	linux-kernel@vger.kernel.org
+Subject: FAILED: Patch "riscv: vdso: Prevent the compiler from inserting calls to memset()" failed to apply to v5.4-stable tree
+Date: Tue,  5 Nov 2024 21:13:23 -0500
+Message-ID: <20241106021323.183560-1-sashal@kernel.org>
 X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
 X-Patchwork-Hint: ignore
 X-stable: review
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241105_181025_695694_C752770A 
-X-CRM114-Status: GOOD (  12.90  )
+X-CRM114-CacheID: sfid-20241105_181327_702918_A22BD27E 
+X-CRM114-Status: GOOD (  10.31  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,7 +75,7 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The patch below does not apply to the v6.1-stable tree.
+The patch below does not apply to the v5.4-stable tree.
 If someone wants it applied there, or to any other stable or longterm
 tree, then please email the backport, including the original git commit
 id to <stable@vger.kernel.org>.
@@ -86,83 +85,39 @@ Sasha
 
 ------------------ original commit in Linus's tree ------------------
 
-From afedc3126e11ff1404b32e538657b68022e933ca Mon Sep 17 00:00:00 2001
+From bf40167d54d55d4b54d0103713d86a8638fb9290 Mon Sep 17 00:00:00 2001
 From: Alexandre Ghiti <alexghiti@rivosinc.com>
-Date: Wed, 9 Oct 2024 09:27:49 +0200
-Subject: [PATCH] riscv: Do not use fortify in early code
+Date: Wed, 16 Oct 2024 10:36:24 +0200
+Subject: [PATCH] riscv: vdso: Prevent the compiler from inserting calls to
+ memset()
 
-Early code designates the code executed when the MMU is not yet enabled,
-and this comes with some limitations (see
-Documentation/arch/riscv/boot.rst, section "Pre-MMU execution").
+The compiler is smart enough to insert a call to memset() in
+riscv_vdso_get_cpus(), which generates a dynamic relocation.
 
-FORTIFY_SOURCE must be disabled then since it can trigger kernel panics
-as reported in [1].
+So prevent this by using -fno-builtin option.
 
-Reported-by: Jason Montleon <jmontleo@redhat.com>
-Closes: https://lore.kernel.org/linux-riscv/CAJD_bPJes4QhmXY5f63GHV9B9HFkSCoaZjk-qCT2NGS7Q9HODg@mail.gmail.com/ [1]
-Fixes: a35707c3d850 ("riscv: add memory-type errata for T-Head")
-Fixes: 26e7aacb83df ("riscv: Allow to downgrade paging mode from the command line")
+Fixes: e2c0cdfba7f6 ("RISC-V: User-facing API")
 Cc: stable@vger.kernel.org
 Signed-off-by: Alexandre Ghiti <alexghiti@rivosinc.com>
-Link: https://lore.kernel.org/r/20241009072749.45006-1-alexghiti@rivosinc.com
+Reviewed-by: Guo Ren <guoren@kernel.org>
+Link: https://lore.kernel.org/r/20241016083625.136311-2-alexghiti@rivosinc.com
 Signed-off-by: Palmer Dabbelt <palmer@rivosinc.com>
 ---
- arch/riscv/errata/Makefile    | 6 ++++++
- arch/riscv/kernel/Makefile    | 5 +++++
- arch/riscv/kernel/pi/Makefile | 6 +++++-
- 3 files changed, 16 insertions(+), 1 deletion(-)
+ arch/riscv/kernel/vdso/Makefile | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/arch/riscv/errata/Makefile b/arch/riscv/errata/Makefile
-index 8a27394851233..f0da9d7b39c37 100644
---- a/arch/riscv/errata/Makefile
-+++ b/arch/riscv/errata/Makefile
-@@ -2,6 +2,12 @@ ifdef CONFIG_RELOCATABLE
- KBUILD_CFLAGS += -fno-pie
- endif
+diff --git a/arch/riscv/kernel/vdso/Makefile b/arch/riscv/kernel/vdso/Makefile
+index 960feb1526caa..3f1c4b2d0b064 100644
+--- a/arch/riscv/kernel/vdso/Makefile
++++ b/arch/riscv/kernel/vdso/Makefile
+@@ -18,6 +18,7 @@ obj-vdso = $(patsubst %, %.o, $(vdso-syms)) note.o
  
-+ifdef CONFIG_RISCV_ALTERNATIVE_EARLY
-+ifdef CONFIG_FORTIFY_SOURCE
-+KBUILD_CFLAGS += -D__NO_FORTIFY
-+endif
-+endif
-+
- obj-$(CONFIG_ERRATA_ANDES) += andes/
- obj-$(CONFIG_ERRATA_SIFIVE) += sifive/
- obj-$(CONFIG_ERRATA_THEAD) += thead/
-diff --git a/arch/riscv/kernel/Makefile b/arch/riscv/kernel/Makefile
-index 7f88cc4931f5c..69dc8aaab3fb3 100644
---- a/arch/riscv/kernel/Makefile
-+++ b/arch/riscv/kernel/Makefile
-@@ -36,6 +36,11 @@ KASAN_SANITIZE_alternative.o := n
- KASAN_SANITIZE_cpufeature.o := n
- KASAN_SANITIZE_sbi_ecall.o := n
- endif
-+ifdef CONFIG_FORTIFY_SOURCE
-+CFLAGS_alternative.o += -D__NO_FORTIFY
-+CFLAGS_cpufeature.o += -D__NO_FORTIFY
-+CFLAGS_sbi_ecall.o += -D__NO_FORTIFY
-+endif
- endif
+ ccflags-y := -fno-stack-protector
+ ccflags-y += -DDISABLE_BRANCH_PROFILING
++ccflags-y += -fno-builtin
  
- extra-y += vmlinux.lds
-diff --git a/arch/riscv/kernel/pi/Makefile b/arch/riscv/kernel/pi/Makefile
-index d5bf1bc7de62e..81d69d45c06c3 100644
---- a/arch/riscv/kernel/pi/Makefile
-+++ b/arch/riscv/kernel/pi/Makefile
-@@ -16,8 +16,12 @@ KBUILD_CFLAGS	:= $(filter-out $(CC_FLAGS_LTO), $(KBUILD_CFLAGS))
- KBUILD_CFLAGS	+= -mcmodel=medany
- 
- CFLAGS_cmdline_early.o += -D__NO_FORTIFY
--CFLAGS_lib-fdt_ro.o += -D__NO_FORTIFY
- CFLAGS_fdt_early.o += -D__NO_FORTIFY
-+# lib/string.c already defines __NO_FORTIFY
-+CFLAGS_ctype.o += -D__NO_FORTIFY
-+CFLAGS_lib-fdt.o += -D__NO_FORTIFY
-+CFLAGS_lib-fdt_ro.o += -D__NO_FORTIFY
-+CFLAGS_archrandom_early.o += -D__NO_FORTIFY
- 
- $(obj)/%.pi.o: OBJCOPYFLAGS := --prefix-symbols=__pi_ \
- 			       --remove-section=.note.gnu.property \
+ ifneq ($(c-gettimeofday-y),)
+   CFLAGS_vgettimeofday.o += -fPIC -include $(c-gettimeofday-y)
 -- 
 2.43.0
 
