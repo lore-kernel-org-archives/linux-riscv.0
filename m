@@ -4,64 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 01BE4D44D62
-	for <linux-riscv@archiver.kernel.org>; Wed,  6 Nov 2024 13:41:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D63ED44D62
+	for <linux-riscv@archiver.kernel.org>; Wed,  6 Nov 2024 13:41:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2QJbt7L2SAkU8I4Cm4qqDO+RsokigRzU54TOwWwaqus=; b=4dY0f0O1wLsRc7egqowWjPKvmq
-	/dvtyHJtF09T6Aup3PcYEenKYEc3QCK3yanaHRyRZuKCA7DkDlGHeN4R9THHclgEy4Gz1vdjwxJ0I
-	AO/WLH4171vPZpvip+hylf+ZsN5eyoOvMrC3oFwkwWmIVIuM7aTacSUTMqM/4b8G3xXEJ7DZkfQr7
-	DXRdFYp34gIhHytY/74cXnYXoAujj95jUimJTgcmyYT/YhIkyoEBWlwrwIC4UpPioNydorUEqcqu5
-	4njzjR4QgoEcc9HJXizilrnO4tC7WzWD0WufjzeacPJbYCMIpCRt6dokZNXDdYI8u4NyaIAuU/u7l
-	qrKtVe3A==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=QM0BjgIv030agsJPG0Z5UiFi6Cs6e5akjVs01NTx9WY=; b=RczL+HwHI6bpSW
+	oOAVmN3qddae4ISm+Di0o3vDAztsrmxQ+T+wMwEoLbUPKrv2BqSvnIjV0aA3GPiL13vgKudY43RL7
+	o37IBSGIoup2C34t0FQVXG6E2BcvEpjABTiu/JID2RtGh2srx0LGgGlJT09qVL6WjQlLSpXMaxHdu
+	GD3oGmQ5RH84iL2l03LxxJGVc3v4SC05Xq+q6tFcCfgYndAIQ6GcHpmPMBXxhN7qCLFJNx1/v77da
+	Wa0c/q7SDSYNFvJ+x1F3JOZMSBnQGBh9yibhWPpWTh/rWrKBxZaNqPFKWXRLv7oKhwkyJWdMifDOy
+	sHfY9HI9otwI5dHM97YQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8gHM-00000003SGr-0aTh;
-	Wed, 06 Nov 2024 13:41:00 +0000
+	id 1t8gHL-00000003SGY-1zNR;
+	Wed, 06 Nov 2024 13:40:59 +0000
 Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8fpk-00000003MhH-2Vd4
+	id 1t8fp4-00000003MdA-2CDl
 	for linux-riscv@lists.infradead.org;
-	Wed, 06 Nov 2024 13:13:09 +0000
+	Wed, 06 Nov 2024 13:13:07 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 642285C54E2;
+	by dfw.source.kernel.org (Postfix) with ESMTP id 128BF5C554C;
+	Wed,  6 Nov 2024 13:11:01 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BADBEC4CED5;
 	Wed,  6 Nov 2024 13:11:43 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 74AE1C4CED4;
-	Wed,  6 Nov 2024 13:12:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1730898747;
-	bh=3SfESvrKfdyPsR2Toa1m1lCX2fQeSf+A2nGffmF11BM=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=BGmwz3OAHtxzQimhPb+0ta8GU6ekMnC0Nr55rDVo5Z3eBQBSlzx2R0yCIlpqJTOug
-	 j2jouZOq2FDue45FB9L57askeLY0wQvdBhk/Gs0RrA+xfuh6r844UNGSxzP1OQXWIs
-	 WXhKJLIxD2erc+Tx9VY3wDSHDZY+JfqC87LI5/t4yCyTb2NIa+Jd6NPO6/Ndk+e/sn
-	 7wPD0pSWLEOAvVSYTLYShwVsWDCllhThbE4uSdrDpnIealbuz3ZctYPnh6JBIFnxXG
-	 77B/lfXugrwKHs9CL6LdpZVWzV+0Ah6f+DmjxZMCmxviBIoCDOqDZRF9mx6ufS7cB3
-	 YKiC40WL00LVg==
-Date: Wed, 6 Nov 2024 13:12:23 +0000
+	s=k20201202; t=1730898705;
+	bh=o8NUUAROuMdB5iMmGq2XtJYBOqpHtSMA1C8K+hzraOA=;
+	h=From:To:Cc:Subject:Date:From;
+	b=oA3GyQCvjEAS3StYeFDZ0cbFsh4iorfp7OS+tfZOIxZDDdoKgU53wTxlz1pkq6UhD
+	 X9B0dYsIvubDmd8fj8URBpkgAbsEzRkNc9AmYlb03CKx0LsgfgrdCm1XrYcGX+tFEJ
+	 JqttBdWtv5T2/CEE2BpKSLose8m/DebXsoBkyyc7iWaHmwEDyZDXubJzv/UZL/OAY4
+	 IIt4hRY2nWXO88oYttGzNCI/gax2zBMHo2FgN+UOBQTbmTh8SOuI+bqAap33O1DDD5
+	 YC0XAQOjfsP8H1gKsr0pNiEwai/OLHpngnl8DiH9QWBvrNczNDBQ+TtRX/Oc/lKg5w
+	 LVipCVCoCJZcw==
 From: Conor Dooley <conor@kernel.org>
-To: Sasha Levin <sashal@kernel.org>
-Cc: stable@vger.kernel.org, conor.dooley@microchip.com,
+To: stable@vger.kernel.org
+Cc: conor@kernel.org,
+	Conor Dooley <conor.dooley@microchip.com>,
+	linux-riscv@lists.infradead.org,
 	Jason Montleon <jmontleo@redhat.com>,
 	Miguel Ojeda <ojeda@kernel.org>,
 	Nathan Chancellor <nathan@kernel.org>,
-	Palmer Dabbelt <palmer@rivosinc.com>,
-	rust-for-linux@vger.kernel.org, linux-doc@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
-	llvm@lists.linux.dev
-Subject: Re: FAILED: Patch "RISC-V: disallow gcc + rust builds" failed to
- apply to v6.11-stable tree
-Message-ID: <20241106-undead-cupbearer-a22f27c8b9e2@spud>
-References: <20241106020840.164364-1-sashal@kernel.org>
+	Palmer Dabbelt <palmer@rivosinc.com>
+Subject: [for 6.11 PATCH] RISC-V: disallow gcc + rust builds
+Date: Wed,  6 Nov 2024 13:11:29 +0000
+Message-ID: <20241106-happily-unknotted-9984b07a414e@spud>
+X-Mailer: git-send-email 2.45.2
 MIME-Version: 1.0
-In-Reply-To: <20241106020840.164364-1-sashal@kernel.org>
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2704; i=conor.dooley@microchip.com; h=from:subject:message-id; bh=SfxwdshweJyyHwN/yk+AuvRIn3dVc1kElFVGb9Tevp8=; b=owGbwMvMwCFWscWwfUFT0iXG02pJDOna2QwT42fXMVs1Kmb/6m7b6dFdNV3HwmRLhg3DA86pF TbpBk86SlkYxDgYZMUUWRJv97VIrf/jssO55y3MHFYmkCEMXJwCMBG/AEaGZ780C97ZfEj/+frL /M08+7hjupaueH/i9Jy94UrxP9PWNzH8z54vtWW+wdS7J+decX63NHPtKxl+Xr+PgStMO4S17zy pYQUA
+X-Developer-Key: i=conor.dooley@microchip.com; a=openpgp; fpr=F9ECA03CF54F12CD01F1655722E2C55B37CF380C
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241106_051228_701627_80960CDB 
-X-CRM114-Status: GOOD (  11.09  )
+X-CRM114-CacheID: sfid-20241106_051146_674353_AFBBE722 
+X-CRM114-Status: GOOD (  10.59  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,57 +72,72 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============2228213637622721855=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+From: Conor Dooley <conor.dooley@microchip.com>
 
---===============2228213637622721855==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="T7IwLFePnUSWKnbZ"
-Content-Disposition: inline
+commit 33549fcf37ec461f398f0a41e1c9948be2e5aca4 upstream
 
+During the discussion before supporting rust on riscv, it was decided
+not to support gcc yet, due to differences in extension handling
+compared to llvm (only the version of libclang matching the c compiler
+is supported). Recently Jason Montleon reported [1] that building with
+gcc caused build issues, due to unsupported arguments being passed to
+libclang. After some discussion between myself and Miguel, it is better
+to disable gcc + rust builds to match the original intent, and
+subsequently support it when an appropriate set of extensions can be
+deduced from the version of libclang.
 
---T7IwLFePnUSWKnbZ
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+Closes: https://lore.kernel.org/all/20240917000848.720765-2-jmontleo@redhat.com/ [1]
+Link: https://lore.kernel.org/all/20240926-battering-revolt-6c6a7827413e@spud/ [2]
+Fixes: 70a57b247251a ("RISC-V: enable building 64-bit kernels with rust support")
+Cc: stable@vger.kernel.org
+Reported-by: Jason Montleon <jmontleo@redhat.com>
+Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
+Acked-by: Miguel Ojeda <ojeda@kernel.org>
+Reviewed-by: Nathan Chancellor <nathan@kernel.org>
+Link: https://lore.kernel.org/r/20241001-playlist-deceiving-16ece2f440f5@spud
+Signed-off-by: Palmer Dabbelt <palmer@rivosinc.com>
+Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
+---
+ Documentation/rust/arch-support.rst | 2 +-
+ arch/riscv/Kconfig                  | 2 +-
+ 2 files changed, 2 insertions(+), 2 deletions(-)
 
-On Tue, Nov 05, 2024 at 09:08:39PM -0500, Sasha Levin wrote:
-> The patch below does not apply to the v6.11-stable tree.
-> If someone wants it applied there, or to any other stable or longterm
-> tree, then please email the backport, including the original git commit
-> id to <stable@vger.kernel.org>.
+diff --git a/Documentation/rust/arch-support.rst b/Documentation/rust/arch-support.rst
+index 750ff371570a..54be7ddf3e57 100644
+--- a/Documentation/rust/arch-support.rst
++++ b/Documentation/rust/arch-support.rst
+@@ -17,7 +17,7 @@ Architecture   Level of support  Constraints
+ =============  ================  ==============================================
+ ``arm64``      Maintained        Little Endian only.
+ ``loongarch``  Maintained        \-
+-``riscv``      Maintained        ``riscv64`` only.
++``riscv``      Maintained        ``riscv64`` and LLVM/Clang only.
+ ``um``         Maintained        \-
+ ``x86``        Maintained        ``x86_64`` only.
+ =============  ================  ==============================================
+diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+index d11c2479d8e1..6651a5cbdc27 100644
+--- a/arch/riscv/Kconfig
++++ b/arch/riscv/Kconfig
+@@ -172,7 +172,7 @@ config RISCV
+ 	select HAVE_REGS_AND_STACK_ACCESS_API
+ 	select HAVE_RETHOOK if !XIP_KERNEL
+ 	select HAVE_RSEQ
+-	select HAVE_RUST if 64BIT
++	select HAVE_RUST if 64BIT && CC_IS_CLANG
+ 	select HAVE_SAMPLE_FTRACE_DIRECT
+ 	select HAVE_SAMPLE_FTRACE_DIRECT_MULTI
+ 	select HAVE_STACKPROTECTOR
+-- 
+2.45.2
 
-I sent 20241106-happily-unknotted-9984b07a414e@spud that should be a
-6.11 viable version of this change.
-
-Cheers,
-Conor.
-
---T7IwLFePnUSWKnbZ
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZytrNwAKCRB4tDGHoIJi
-0lrZAQDwZgrJpDCrMBOUflphmluD0ARCIvhYF9shsNzm9sAm5gEA4dQEww2rvB2W
-ETWhXsstVjfNvdt4kg8SZh+nFLTwKQc=
-=IEMP
------END PGP SIGNATURE-----
-
---T7IwLFePnUSWKnbZ--
-
-
---===============2228213637622721855==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============2228213637622721855==--
-
