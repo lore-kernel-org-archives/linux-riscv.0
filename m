@@ -4,66 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 94FC2D59F6C
-	for <linux-riscv@archiver.kernel.org>; Wed,  6 Nov 2024 19:35:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3971DD59F6C
+	for <linux-riscv@archiver.kernel.org>; Wed,  6 Nov 2024 19:48:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=nUxYOTeRM6p3p+HMgVfqt6TKWTPISL/EbBF5c+YSSCs=; b=wXs1jgHboYUw3I
-	XnUvWN0H2KPuJWGLcPfqG3i2sN24n3PqIT8UKoliIwwvxldg1yqxOrI2Y+IueTlyB7oCPksC2JSVI
-	KOP1CPWt9hcAOUC3MWC+gp65JZaScMZQElt/Euvnzw0nY0cPERPcsdJjeN5gZ1rC2ExOj8gUPSh2f
-	Dx2xplbx5e3kyRPjjZBOCpfqLKmUVTLNpv1gnuNO4z8SwbkTV80nHGTtRfmKJFDkuW6qZUJJD4gVj
-	3O9+ASbxe7n0wVPefotES/yfRh4dEoMI8ofi1ABqsTgNC+sNIBy6Y7iD2xiIbeiy4RG+bnMdZMKjR
-	9RgrZXPM6i9IPugQ2o8g==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=A+55W0oZ/fddtkknEAQuG6WkYcTbIttelOlrd/kh/+k=; b=sRf6FgJ4x5D4Hi
+	H9kaMkfPGHAjLV6oFlQtWHPG6svnGSP/ElGJGoXXcel949KN1yuU769Om45ldVc2qIU1e8jCI4SXm
+	k+twOkRiWqaewMEoYcr5IjGrR80xYshL3nyX+H/AElfHxmTXG3XKx3mWvwEAkzOs9eovjAVsIoAye
+	QT/a5VbmoBTVadj0cB9DM5yCCz+3Yzmjd3PYmiVo+966u370Rr/XW3TfnWDYz/JCipdSh1sfLWHJ3
+	4oTESjXJ3HFPpzsrD08XMXbCI4W2lVIQJv03iPF+V033qP93cmRzjuV7FbsB5xdQcgVzpCEB5mHoe
+	MOcGj3dCGRhghaafPliQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8lo1-00000004WuD-1Tei;
-	Wed, 06 Nov 2024 19:35:05 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1t8m0i-00000004aq8-0kQ7;
+	Wed, 06 Nov 2024 19:48:12 +0000
+Received: from mail-io1-xd29.google.com ([2607:f8b0:4864:20::d29])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8llS-00000004WS0-2JXU
+	id 1t8ly3-00000004a5s-0lnL
 	for linux-riscv@lists.infradead.org;
-	Wed, 06 Nov 2024 19:32:27 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id B145B5C3A71;
-	Wed,  6 Nov 2024 19:31:40 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9C13FC4CEC6;
-	Wed,  6 Nov 2024 19:32:21 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1730921545;
-	bh=IRiCpI1LAj8gdXyqpxxNEdvHCy3pSba0EOUnJCNVx8M=;
-	h=From:To:Cc:Subject:Date:From;
-	b=IueV2hAxOOeLGHIfDB/awnPMqygPKif/0VdbjeCVzO7UyD91GK/Yn+CWjK0Y9H2wH
-	 w99i2ktG2SbfFIgILZiDp6McxmHIS4d0QJeV/zNfr+AGcJhAlrFdNYbvCh1URk23lf
-	 nY9UCQcnpa0xVUK9HNxgl4/fOyu92L3m6cIsLf2DVVmt2bY/3yXMr7V7FELJqPP1ym
-	 eEsmQUIQOQW4uuY1HBSieTnr64F3MAZIJ+/lGxdZdSnxoYXd6QGC9LnZuXDtmqEKJN
-	 Tn7UR1D4Eg63nUO4MJqO1a4dIsmGP0CopeTL8WZ+qyb6MwE0j+Nhdtnu31C11oBRZO
-	 BTxU3j+H3Ig+Q==
-From: =?UTF-8?q?Bj=C3=B6rn=20T=C3=B6pel?= <bjorn@kernel.org>
-To: bpf@vger.kernel.org,
-	linux-perf-users@vger.kernel.org,
-	Alexandre Ghiti <alexghiti@rivosinc.com>,
-	Arnaldo Carvalho de Melo <acme@redhat.com>,
-	Jean-Philippe Brucker <jean-philippe@linaro.org>,
-	Quentin Monnet <qmo@kernel.org>
-Cc: =?UTF-8?q?Bj=C3=B6rn=20T=C3=B6pel?= <bjorn@rivosinc.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	David Abdurachmanov <davidlt@rivosinc.com>
-Subject: [PATCH] tools: Override makefile ARCH variable if defined, but empty
-Date: Wed,  6 Nov 2024 20:32:06 +0100
-Message-ID: <20241106193208.290067-1-bjorn@kernel.org>
-X-Mailer: git-send-email 2.45.2
+	Wed, 06 Nov 2024 19:45:28 +0000
+Received: by mail-io1-xd29.google.com with SMTP id ca18e2360f4ac-83abe4524ccso7542439f.1
+        for <linux-riscv@lists.infradead.org>; Wed, 06 Nov 2024 11:45:26 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=sifive.com; s=google; t=1730922325; x=1731527125; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:content-language:from
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=l+a2o7Ai/OLZodimKUqsQYFRlYX3rzr6bNlDYl2/9c4=;
+        b=P1R1tCDiOvQyn73dXYah5ZqZEQRh8yg7USedXcvNNtNufGPIQ4stO+jxFHf+rCsxRN
+         efkchbHlfNNL9wLnaMRuTIKhkgSQo9D1t01bksIt4sCzPK0OLvGtiXGRdwnulRk8sRFq
+         GJj8t6+gdpc0DCdUs8ZyzC7eqxz1O1WAHe7UlCh0WU1Yj5LBIDZOMmMYWF1HPA/UVsUX
+         oUkbTBPhIp99rZBENoClrr1qkQFYFuaaHgUAJG9c7JdnCvzHcYJvMqPEETIC3f/gtFBe
+         +RtFLFAxJ6dRHO9xZADPVnV+0eTYx5DdtpY0iBiQe3abmrNg1cQo/wNpTtrl9Ne6QWCd
+         qfvg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1730922325; x=1731527125;
+        h=content-transfer-encoding:in-reply-to:content-language:from
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=l+a2o7Ai/OLZodimKUqsQYFRlYX3rzr6bNlDYl2/9c4=;
+        b=YvnGSfkInpU7yA+qm5fnqMJDa5x+i+ilZfo76fMh0NAeszrIZrE4kFpiPNK58lfQwS
+         zKC3YXTDl8JXBZ2eeXBuC+Ed8ksfHL7gOjEvEQeo3dfHNosdIFA/Hw/GNXVX/crOEjMZ
+         bKP/p3YDtwXD+F3BKgjITlkkE3nkyFkxYL8OT45WRxvgTXviQ0qTLUXynpIBmMUDxLrO
+         e8LAZJoOwL+qt/rkgO4VtSCc6tARQskkMxy6cJMZiFrrw6+Bsj8Tacm1j0SspedQZrUt
+         zapk556DQTOMo0esiRU7BINOkc/SoV9zNoCjcsLjojJ5cWCRrGLD+qtoZAUhZ+ht3zD/
+         rc0A==
+X-Forwarded-Encrypted: i=1; AJvYcCWvXAGsG9WNa4cRr8Uc5wPF1oS/WtJwgki1/pWmrNv5DWUa6GzM+PD6Jd/9T4yWhDfr0ZoRJFlj+hYalA==@lists.infradead.org
+X-Gm-Message-State: AOJu0YydvvrYfSK29s/d6i8Y5peLPxamg76rF8OFfQ0urhmZajtqzNMH
+	5OUapsbCLo7bzAVCjyX4visvDP6Y1v0TNdffQnDcavAxsvXDWZ33fWRn3eMcae0=
+X-Google-Smtp-Source: AGHT+IFFkPdTuW3O6B5Kfs6P93ZzsRHCf7tesqNJ7oxewkCWmsZQaCiwBqj8i0a19PKZV/2UTcPUCQ==
+X-Received: by 2002:a05:6602:6c17:b0:83b:4c:5f70 with SMTP id ca18e2360f4ac-83b650372a9mr2467672639f.12.1730922325433;
+        Wed, 06 Nov 2024 11:45:25 -0800 (PST)
+Received: from [100.64.0.1] ([147.124.94.167])
+        by smtp.gmail.com with ESMTPSA id ca18e2360f4ac-83b67ba907esm329811139f.25.2024.11.06.11.45.23
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 06 Nov 2024 11:45:24 -0800 (PST)
+Message-ID: <d92ab280-bd1f-4145-8164-cebab1980f20@sifive.com>
+Date: Wed, 6 Nov 2024 13:45:23 -0600
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 2/2] iommu/riscv: Add support for platform msi
+To: Andrew Jones <ajones@ventanamicro.com>, iommu@lists.linux.dev,
+ linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+Cc: tjeznach@rivosinc.com, joro@8bytes.org, will@kernel.org,
+ robin.murphy@arm.com, paul.walmsley@sifive.com, palmer@dabbelt.com,
+ aou@eecs.berkeley.edu
+References: <20241106175102.219923-4-ajones@ventanamicro.com>
+ <20241106175102.219923-6-ajones@ventanamicro.com>
+From: Samuel Holland <samuel.holland@sifive.com>
+Content-Language: en-US
+In-Reply-To: <20241106175102.219923-6-ajones@ventanamicro.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241106_113226_663475_295A64A9 
-X-CRM114-Status: GOOD (  12.37  )
+X-CRM114-CacheID: sfid-20241106_114527_331273_608FD880 
+X-CRM114-Status: GOOD (  28.39  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,37 +92,190 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-RnJvbTogQmrDtnJuIFTDtnBlbCA8Ympvcm5Acml2b3NpbmMuY29tPgoKVGhlcmUgYXJlIGEgbnVt
-YmVyIG9mIHRvb2xzIChicGZ0b29sLCBzZWxmdGVzdHMpLCB0aGF0IHJlcXVpcmUgYQoiYm9vdHN0
-cmFwIiBidWlsZC4gSGVyZSwgYSBib290c3RyYXAgYnVpbGQgaXMgYSBidWlsZCBob3N0IHZhcmlh
-bnQgb2YKYSB0YXJnZXQuIEUuZy4sIGFzc3VtZSB0aGF0IHlvdSdyZSBwZXJmb3JtaW5nIGEgYnBm
-dG9vbCBjcm9zcy1idWlsZCBvbgp4ODYgdG8gcmlzY3YsIGEgYm9vdHN0cmFwIGJ1aWxkIHdvdWxk
-IHRoZW4gYmUgYW4geDg2IHZhcmlhbnQgb2YKYnBmdG9vbC4gVGhlIHR5cGljYWwgd2F5IHRvIHBl
-cmZvcm0gdGhlIGhvc3QgYnVpbGQgdmFyaWFudCwgaXMgdG8gcGFzcwoiQVJDSD0iIGluIGEgc3Vi
-LW1ha2UuIEhvd2V2ZXIsIGlmIGEgdmFyaWFibGUgaGFzIGJlZW4gc2V0IHdpdGggYQpjb21tYW5k
-IGFyZ3VtZW50LCB0aGVuIG9yZGluYXJ5IGFzc2lnbm1lbnRzIGluIHRoZSBtYWtlZmlsZSBhcmUK
-aWdub3JlZC4KClRoaXMgc2lkZS1lZmZlY3QgcmVzdWx0cyBpbiB0aGF0IEFSQ0gsIGFuZCB2YXJp
-YWJsZXMgZGVwZW5kaW5nIG9uIEFSQ0gKYXJlIG5vdCBzZXQuCgpXb3JrYXJvdW5kIGJ5IG92ZXJy
-aWRpbmcgQVJDSCB0byB0aGUgaG9zdCBhcmNoLCBpZiBBUkNIIGlzIGVtcHR5LgoKRml4ZXM6IDg4
-NTliMGRhNWFhYyAoInRvb2xzL2JwZnRvb2w6IEZpeCBjcm9zcy1idWlsZCIpClNpZ25lZC1vZmYt
-Ynk6IEJqw7ZybiBUw7ZwZWwgPGJqb3JuQHJpdm9zaW5jLmNvbT4KLS0tCiB0b29scy9zY3JpcHRz
-L01ha2VmaWxlLmFyY2ggfCA0ICsrLS0KIDEgZmlsZSBjaGFuZ2VkLCAyIGluc2VydGlvbnMoKyks
-IDIgZGVsZXRpb25zKC0pCgpkaWZmIC0tZ2l0IGEvdG9vbHMvc2NyaXB0cy9NYWtlZmlsZS5hcmNo
-IGIvdG9vbHMvc2NyaXB0cy9NYWtlZmlsZS5hcmNoCmluZGV4IGY2YTUwZjA2ZGZjNC4uZWFiZmU5
-ZjQxMWQ5IDEwMDY0NAotLS0gYS90b29scy9zY3JpcHRzL01ha2VmaWxlLmFyY2gKKysrIGIvdG9v
-bHMvc2NyaXB0cy9NYWtlZmlsZS5hcmNoCkBAIC03LDggKzcsOCBAQCBIT1NUQVJDSCA6PSAkKHNo
-ZWxsIHVuYW1lIC1tIHwgc2VkIC1lIHMvaS44Ni94ODYvIC1lIHMveDg2XzY0L3g4Ni8gXAogICAg
-ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIC1lIHMvc2hbMjM0XS4qL3NoLyAtZSBzL2Fh
-cmNoNjQuKi9hcm02NC8gXAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIC1lIHMv
-cmlzY3YuKi9yaXNjdi8gLWUgcy9sb29uZ2FyY2guKi9sb29uZ2FyY2gvKQogCi1pZm5kZWYgQVJD
-SAotQVJDSCA6PSAkKEhPU1RBUkNIKQoraWZlcSAoJChzdHJpcCAkKEFSQ0gpKSwpCitvdmVycmlk
-ZSBBUkNIIDo9ICQoSE9TVEFSQ0gpCiBlbmRpZgogCiBTUkNBUkNIIDo9ICQoQVJDSCkKCmJhc2Ut
-Y29tbWl0OiA3NzU4YjIwNjExN2RhYjk4OTRmMGJjYjgzMzNmOGU0NzMxYzUwNjVhCi0tIAoyLjQ1
-LjIKCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51
-eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRw
-Oi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+Hi Drew,
+
+On 2024-11-06 11:51 AM, Andrew Jones wrote:
+> Apply platform_device_msi_init_and_alloc_irqs() to add support for
+> MSIs when the IOMMU is a platform device.
+> 
+> Signed-off-by: Andrew Jones <ajones@ventanamicro.com>
+> ---
+>  drivers/iommu/riscv/iommu-platform.c | 102 ++++++++++++++++++++++-----
+>  1 file changed, 84 insertions(+), 18 deletions(-)
+> 
+> diff --git a/drivers/iommu/riscv/iommu-platform.c b/drivers/iommu/riscv/iommu-platform.c
+> index da336863f152..89aa622bcbde 100644
+> --- a/drivers/iommu/riscv/iommu-platform.c
+> +++ b/drivers/iommu/riscv/iommu-platform.c
+> @@ -11,18 +11,41 @@
+>   */
+>  
+>  #include <linux/kernel.h>
+> +#include <linux/of_irq.h>
+>  #include <linux/of_platform.h>
+>  #include <linux/platform_device.h>
+> +#include <linux/msi.h>
+
+If you respin, please keep these sorted.
+
+>  
+>  #include "iommu-bits.h"
+>  #include "iommu.h"
+>  
+> +static void riscv_iommu_write_msi_msg(struct msi_desc *desc, struct msi_msg *msg)
+> +{
+> +	struct device *dev = msi_desc_to_dev(desc);
+> +	struct riscv_iommu_device *iommu = dev_get_drvdata(dev);
+> +	u16 idx = desc->msi_index;
+> +	u64 addr;
+> +
+> +	addr = ((u64)msg->address_hi << 32) | msg->address_lo;
+> +
+> +	if (addr != (addr & RISCV_IOMMU_MSI_CFG_TBL_ADDR))
+> +		pr_warn_once("uh oh, the IOMMU can't send MSIs to 0x%llx, sending to 0x%llx instead\n",
+> +			     addr, addr & RISCV_IOMMU_MSI_CFG_TBL_ADDR);
+
+Can this use dev_warn_once()? And should it really be only a warning?
+Configuring the IOMMU to write to some other address seems dangerous. I guess
+there's no clean way to handle this error, since this function cannot fail, and
+irq_chip_compose_msi_msg() isn't supposed to fail either.
+
+> +
+> +	addr &= RISCV_IOMMU_MSI_CFG_TBL_ADDR;
+> +
+> +	riscv_iommu_writeq(iommu, RISCV_IOMMU_REG_MSI_CFG_TBL_ADDR(idx), addr);
+> +	riscv_iommu_writel(iommu, RISCV_IOMMU_REG_MSI_CFG_TBL_DATA(idx), msg->data);
+> +	riscv_iommu_writel(iommu, RISCV_IOMMU_REG_MSI_CFG_TBL_CTRL(idx), 0);
+> +}
+> +
+>  static int riscv_iommu_platform_probe(struct platform_device *pdev)
+>  {
+> +	enum riscv_iommu_igs_settings igs;
+>  	struct device *dev = &pdev->dev;
+>  	struct riscv_iommu_device *iommu = NULL;
+>  	struct resource *res = NULL;
+> -	int vec;
+> +	int vec, ret;
+>  
+>  	iommu = devm_kzalloc(dev, sizeof(*iommu), GFP_KERNEL);
+>  	if (!iommu)
+> @@ -40,16 +63,6 @@ static int riscv_iommu_platform_probe(struct platform_device *pdev)
+>  	iommu->caps = riscv_iommu_readq(iommu, RISCV_IOMMU_REG_CAPABILITIES);
+>  	iommu->fctl = riscv_iommu_readl(iommu, RISCV_IOMMU_REG_FCTL);
+>  
+> -	/* For now we only support WSI */
+> -	switch (FIELD_GET(RISCV_IOMMU_CAPABILITIES_IGS, iommu->caps)) {
+> -	case RISCV_IOMMU_CAPABILITIES_IGS_WSI:
+> -	case RISCV_IOMMU_CAPABILITIES_IGS_BOTH:
+> -		break;
+> -	default:
+> -		return dev_err_probe(dev, -ENODEV,
+> -				     "unable to use wire-signaled interrupts\n");
+> -	}
+> -
+>  	iommu->irqs_count = platform_irq_count(pdev);
+>  	if (iommu->irqs_count <= 0)
+>  		return dev_err_probe(dev, -ENODEV,
+> @@ -57,13 +70,60 @@ static int riscv_iommu_platform_probe(struct platform_device *pdev)
+>  	if (iommu->irqs_count > RISCV_IOMMU_INTR_COUNT)
+>  		iommu->irqs_count = RISCV_IOMMU_INTR_COUNT;
+>  
+> -	for (vec = 0; vec < iommu->irqs_count; vec++)
+> -		iommu->irqs[vec] = platform_get_irq(pdev, vec);
+> +	igs = FIELD_GET(RISCV_IOMMU_CAPABILITIES_IGS, iommu->caps);
+> +	switch (igs) {
+> +	case RISCV_IOMMU_CAPABILITIES_IGS_BOTH:
+> +	case RISCV_IOMMU_CAPABILITIES_IGS_MSI:
+> +		if (is_of_node(dev->fwnode))
+> +			of_msi_configure(dev, to_of_node(dev->fwnode));
+> +
+> +		if (!dev_get_msi_domain(dev)) {
+> +			dev_warn(dev, "failed to find an MSI domain");
+> +			goto msi_fail;
+> +		}
+> +
+> +		ret = platform_device_msi_init_and_alloc_irqs(dev, iommu->irqs_count,
+> +							      riscv_iommu_write_msi_msg);
+> +		if (ret) {
+> +			dev_warn(dev, "failed to allocate MSIs");
+> +			goto msi_fail;
+> +		}
+> +
+> +		for (vec = 0; vec < iommu->irqs_count; vec++)
+> +			iommu->irqs[vec] = msi_get_virq(dev, vec);
+> +
+> +		/* Enable message-signaled interrupts, fctl.WSI */
+> +		if (iommu->fctl & RISCV_IOMMU_FCTL_WSI) {
+> +			iommu->fctl ^= RISCV_IOMMU_FCTL_WSI;
+> +			riscv_iommu_writel(iommu, RISCV_IOMMU_REG_FCTL, iommu->fctl);
+> +		}
+> +
+> +		dev_info(dev, "using MSIs\n");
+> +		break;
+> +
+> +msi_fail:
+> +		if (igs != RISCV_IOMMU_CAPABILITIES_IGS_BOTH) {
+> +			dev_warn(dev, "\n");
+> +			return dev_err_probe(dev, -ENODEV,
+> +					     "unable to use wire-signaled interrupts\n");
+
+Is the dev_warn() just to call attention to the following error? There's no
+guarantee that these two messages will be printed adjacently.
+
+> +		}
+> +
+> +		dev_warn(dev, " - falling back to wired irqs\n");
+
+No need for the extra hyphen here.
+
+Regards,
+Samuel
+
+> +		fallthrough;
+>  
+> -	/* Enable wire-signaled interrupts, fctl.WSI */
+> -	if (!(iommu->fctl & RISCV_IOMMU_FCTL_WSI)) {
+> -		iommu->fctl |= RISCV_IOMMU_FCTL_WSI;
+> -		riscv_iommu_writel(iommu, RISCV_IOMMU_REG_FCTL, iommu->fctl);
+> +	case RISCV_IOMMU_CAPABILITIES_IGS_WSI:
+> +		for (vec = 0; vec < iommu->irqs_count; vec++)
+> +			iommu->irqs[vec] = platform_get_irq(pdev, vec);
+> +
+> +		/* Enable wire-signaled interrupts, fctl.WSI */
+> +		if (!(iommu->fctl & RISCV_IOMMU_FCTL_WSI)) {
+> +			iommu->fctl |= RISCV_IOMMU_FCTL_WSI;
+> +			riscv_iommu_writel(iommu, RISCV_IOMMU_REG_FCTL, iommu->fctl);
+> +		}
+> +		dev_info(dev, "using wire-signaled interrupts\n");
+> +		break;
+> +	default:
+> +		return dev_err_probe(dev, -ENODEV, "invalid IGS\n");
+>  	}
+>  
+>  	return riscv_iommu_init(iommu);
+> @@ -71,7 +131,13 @@ static int riscv_iommu_platform_probe(struct platform_device *pdev)
+>  
+>  static void riscv_iommu_platform_remove(struct platform_device *pdev)
+>  {
+> -	riscv_iommu_remove(dev_get_drvdata(&pdev->dev));
+> +	struct riscv_iommu_device *iommu = dev_get_drvdata(&pdev->dev);
+> +	bool msi = !(iommu->fctl & RISCV_IOMMU_FCTL_WSI);
+> +
+> +	riscv_iommu_remove(iommu);
+> +
+> +	if (msi)
+> +		platform_device_msi_free_irqs_all(&pdev->dev);
+>  };
+>  
+>  static const struct of_device_id riscv_iommu_of_match[] = {
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
