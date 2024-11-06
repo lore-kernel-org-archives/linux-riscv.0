@@ -4,65 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 980D0D59F52
-	for <linux-riscv@archiver.kernel.org>; Wed,  6 Nov 2024 16:26:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4DF0DD59F53
+	for <linux-riscv@archiver.kernel.org>; Wed,  6 Nov 2024 17:05:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CGCLdRSXUPpRUpLOp3wvDrA2Cd9Asi6r9AXjASguF9c=; b=C/lm5Zl3/SSaQ+Zei6ejqcvpUg
-	MN0v9zeFIZDAtOtWWjnqxceBmEjfGulAfhJvb6ikgMqK7cy3qaZLW+/5YmXH4FE50+fBMSV4XwiHc
-	/AONCYpqwWophwNj+VgM5y3eUqCIxRLMTSgo1JxEA0HYvo49xEMjz/UP0WpjxKk5BaWfI6dUI2pVV
-	diPdChHGABbJqLKzmts878qZDPggk0gy8dFDinJq1pQrrTrN+fTADKKRgusnZ5wA37c/s+JJ5lJ/d
-	E1dUYVKZn4HZqiy8Br7DAnBsTou7tq28lRPLtKTM0CTx7Bgoxqc5Hqlgfn7aR9fdrMeX55SH/z5CF
-	0i+fO4cQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:Subject:References:To:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=QSDGHJPFgECk1KyAgDpSgEEFBA//nTm4I6vaDJpe/fY=; b=mwytCCRap61s7y
+	daJOW1Yx/V+q0ZZLxecUFspUB5vHTGxwPJjNzWhHYPTRqJyQsvnYcooNFAkzngCYA5goBwoXXFx+n
+	LLM/UAI99NMEqLFoBWrB+jqSURoUtHBfBXfKIgX1/roeVJfFi6lwh0489+uxfGp5QloxDUPL/IKpB
+	/YTtMaz6ePo5zXFQrzqi9+th29Lm3A0lhlzfZ5m8ezpUAxG52fIev3IPdCzg4inZddhmXVdriF9cV
+	AqU0dbzB/abv9nZNaMRBnrRHcejm2EgGJEftCCI9mPvmZBV+DA6CDBXTrx7l2UCTv0mLXLJiR0dqO
+	V/BqoZL7zw6zoOLmJ95g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8irC-000000041ZC-32eY;
-	Wed, 06 Nov 2024 16:26:10 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1t8jSe-00000004861-38X4;
+	Wed, 06 Nov 2024 17:04:52 +0000
+Received: from smtp-fw-80006.amazon.com ([99.78.197.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8ir9-000000041Xv-3g7b
-	for linux-riscv@lists.infradead.org;
-	Wed, 06 Nov 2024 16:26:09 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 77EFB5C55AD;
-	Wed,  6 Nov 2024 16:25:22 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5A8D1C4CEC6;
-	Wed,  6 Nov 2024 16:26:04 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1730910366;
-	bh=SEV9bd+GX/2qf2FHLXeJIP4QQb00PuGWxAb2OJDbHH4=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=SVgvAAkqitwp3CRjcYwtzVTYcZps3/+UsLrpka7Kuzuwj0PL6LVYtp/VKr3YSx5b6
-	 W9uV5xvoZG8glsIw7QD7pVmQ+m5Jg7Dy8zkNIwLLbhpwUfqBlIzo5FR0UW9+zdC3HZ
-	 8ryHGTmawTKI37MqbBxPTWh4wVV0Wv6Lr/t8YXm1Y5l+0U3PCIRE0QdQUIxZoimvpu
-	 oCoIoDeo1bu4GSvQ+pYmFukpPYsGPMR9ulXkbxjP2dVOfDV28AYWLeAexY8MTuYCh9
-	 w/XMkqn7EdAT2u28KwDOWLfdrzjz9yThyRcyp1XraJo6d5RDmpiQHjLWtwuleyozIQ
-	 7OKq0beIoHrNA==
-Date: Wed, 6 Nov 2024 16:26:02 +0000
-From: Conor Dooley <conor@kernel.org>
-To: Bjorn Helgaas <helgaas@kernel.org>
-Cc: linux-pci@vger.kernel.org, Conor Dooley <conor.dooley@microchip.com>,
-	Daire McNamara <daire.mcnamara@microchip.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>,
-	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v5 2/2] PCI: microchip: rework reg region handing to
- support using either instance 1 or 2
-Message-ID: <20241106-eats-anthology-657e2238e271@spud>
-References: <20241104-stabilize-friday-94705c3dc244@spud>
- <20241105171828.GA1474726@bhelgaas>
+	id 1t8jSU-0000000480N-0AxA;
+	Wed, 06 Nov 2024 17:04:44 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+  d=amazon.com; i=@amazon.com; q=dns/txt; s=amazon201209;
+  t=1730912682; x=1762448682;
+  h=message-id:date:mime-version:to:cc:references:subject:
+   from:in-reply-to:content-transfer-encoding;
+  bh=45lm7teIJIgBDhR6WrM3tTb7cS3pi+iWOg5nbyI7j9s=;
+  b=e4qPUEvGSlQtJBs7vmBIYc93e42clI6pLjlzqaiZjTuarakCWtQ9G5gp
+   OFOK1AoTNDAIWEuhbBHsXi1Kg21o7tHRL61IWRP7xVFQMapMEJYFB4lu/
+   A9xf8Ykzuv+RFSOQLQ1YxdDnDyIwibqP/ikjd66izx3k5CkMcGSm6W6of
+   A=;
+X-IronPort-AV: E=Sophos;i="6.11,263,1725321600"; 
+   d="scan'208";a="2538545"
+Received: from pdx4-co-svc-p1-lb2-vlan3.amazon.com (HELO smtpout.prod.us-west-2.prod.farcaster.email.amazon.dev) ([10.25.36.214])
+  by smtp-border-fw-80006.pdx80.corp.amazon.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 06 Nov 2024 17:04:38 +0000
+Received: from EX19MTAUWC002.ant.amazon.com [10.0.38.20:42869]
+ by smtpin.naws.us-west-2.prod.farcaster.email.amazon.dev [10.0.35.42:2525] with esmtp (Farcaster)
+ id 18efcd76-237c-46fb-afb1-2dbc7d25b1d1; Wed, 6 Nov 2024 17:04:37 +0000 (UTC)
+X-Farcaster-Flow-ID: 18efcd76-237c-46fb-afb1-2dbc7d25b1d1
+Received: from EX19D003UWC002.ant.amazon.com (10.13.138.169) by
+ EX19MTAUWC002.ant.amazon.com (10.250.64.143) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.1258.34;
+ Wed, 6 Nov 2024 17:04:37 +0000
+Received: from [192.168.12.4] (10.187.171.30) by EX19D003UWC002.ant.amazon.com
+ (10.13.138.169) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.1258.35; Wed, 6 Nov 2024
+ 17:04:34 +0000
+Message-ID: <7ad5d114-3d19-4c33-bb3c-7f8940ad114e@amazon.com>
+Date: Wed, 6 Nov 2024 10:04:27 -0700
 MIME-Version: 1.0
-In-Reply-To: <20241105171828.GA1474726@bhelgaas>
+User-Agent: Mozilla Thunderbird
+To: <elena.reshetova@intel.com>
+References: <DM8PR11MB57509ED04CB0730680735AC9E7512@DM8PR11MB5750.namprd11.prod.outlook.com>
+Subject: RE: [RFC PATCH v3 0/6] Direct Map Removal for guest_memfd
+Content-Language: en-US
+From: "Manwaring, Derek" <derekmn@amazon.com>
+In-Reply-To: <DM8PR11MB57509ED04CB0730680735AC9E7512@DM8PR11MB5750.namprd11.prod.outlook.com>
+X-Originating-IP: [10.187.171.30]
+X-ClientProxiedBy: EX19D032UWB002.ant.amazon.com (10.13.139.190) To
+ EX19D003UWC002.ant.amazon.com (10.13.138.169)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241106_082608_027844_0CDCAC76 
-X-CRM114-Status: GOOD (  48.24  )
+X-CRM114-CacheID: sfid-20241106_090442_177797_774F6133 
+X-CRM114-Status: UNSURE (   5.12  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,131 +80,24 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============7858805055342992835=="
+Cc: jthoughton@google.com, canellac@amazon.at, luto@kernel.org, kvm@vger.kernel.org, david@redhat.com, peterz@infradead.org, catalin.marinas@arm.com, dave.hansen@linux.intel.com, kalyazin@amazon.com, svens@linux.ibm.com, dave.hansen@intel.com, pbonzini@redhat.com, linux-kselftest@vger.kernel.org, hpa@zytor.com, kernel@xen0n.name, shuah@kernel.org, agordeev@linux.ibm.com, linux-s390@vger.kernel.org, mlipp@amazon.at, corbet@lwn.net, will@kernel.org, chenhuacai@kernel.org, linux-riscv@lists.infradead.org, mingo@redhat.com, tabba@google.com, mathieu.desnoyers@efficios.com, gerald.schaefer@linux.ibm.com, borntraeger@linux.ibm.com, roypat@amazon.co.uk, linux-trace-kernel@vger.kernel.org, jgowans@amazon.com, aou@eecs.berkeley.edu, gor@linux.ibm.com, hca@linux.ibm.com, rostedt@goodmis.org, ackerleytng@google.com, xmarcalx@amazon.com, bp@alien8.de, loongarch@lists.linux.dev, paul.walmsley@sifive.com, tglx@linutronix.de, linux-arm-kernel@lists.infradead.org, x86@kernel.org, linux-mm@kvack.org, seanjc@google.com, derekmn@amazon.com, linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, palmer@dabbelt.com, mhiramat@kernel.org, graf@amazon.com, vannapurve@google.com, rppt@kernel.org
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On 2024-11-04 at 08:33+0000, Elena Reshetova wrote:
+> This statement *is* for integrity section. We have a separate TDX guidance
+> on side-channels (including speculative) [3] and some speculative attacks
+> that affect confidentiality (for example spectre v1) are listed as not covered
+> by TDX but remaining SW responsibility (as they are now).
 
---===============7858805055342992835==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="00d4RwnxQ06JtKcq"
-Content-Disposition: inline
+Thanks for the additional info, Elena. Given that clarification, I
+definitely see direct map removal and TDX as complementary.
 
-
---00d4RwnxQ06JtKcq
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-On Tue, Nov 05, 2024 at 11:18:28AM -0600, Bjorn Helgaas wrote:
-> On Mon, Nov 04, 2024 at 11:18:43AM +0000, Conor Dooley wrote:
-> > On Fri, Nov 01, 2024 at 02:51:29PM -0500, Bjorn Helgaas wrote:
-> > > On Wed, Aug 14, 2024 at 09:08:42AM +0100, Conor Dooley wrote:
-> > > > From: Conor Dooley <conor.dooley@microchip.com>
-> > > >=20
-> > > > The PCI host controller on PolarFire SoC has multiple "instances", =
-each
-> > > > with their own bridge and ctrl address spaces. The original binding=
- has
-> > > > an "apb" register region, and it is expected to be set to the base
-> > > > address of the host controllers register space. Defines in the driv=
-er
-> > > > were used to compute the addresses of the bridge and ctrl address r=
-anges
-> > > > corresponding to instance1. Some customers want to use instance0 ho=
-wever
-> > > > and that requires changing the defines in the driver, which is clea=
-rly
-> > > > not a portable solution.
-> > >=20
-> > > The subject mentions "instance 1 or 2".
-> > >=20
-> > > This paragraph implies adding support for "instance0" ("customers want
-> > > to use instance0").
-> > >=20
-> > > The DT patch suggests that we're adding support for "instance2"
-> > > ("customers want to use instance2").
-> > >=20
-> > > Both patches suggest that the existing support is for "instance 1".
-> > >=20
-> > > Maybe what's being added is "instance 2", and this commit log should
-> > > s/instance0/instance 2/ ?  And probably s/instance1/instance 1/ so the
-> > > style is consistent?
-> >=20
-> > Hmm no, it would be s/instance1/instance 2/ & s/instance0/instance 1/.
-> > The indices are 1-based, not 0-based.
-> >=20
-> > > Is this a "pick one or the other but not both" situation, or does this
-> > > device support two independent PCIe controllers?
-> > >=20
-> > > I first thought this driver supported a single PCIe controller, and
-> > > you were adding support for a second independent controller.
-> >=20
-> > I don't know if they are fully independent (Daire would have to confirm)
-> > but as far as the driver in linux is concerned they are. As far as I
-> > know, you could operate both instances at the same time, but I've not
-> > heard of any customer that is actually doing that nor tested it myself.
-> > Operating both instances would require another node in the devicetree,
-> > which should work fine given the private data structs are allocated at
-> > runtime. I think the config space is shared.
-> >=20
-> > > But the fact that you say "the [singular] host controller on
-> > > PolarFire", and you're not changing mc_host_probe() to call
-> > > pci_host_common_probe() more than once makes me think there is only a
-> > > single PCIe controller, and for some reason you can choose to operate
-> > > it using either register set 1 or register set 2.
-> >=20
-> > The wording I've used mostly stems from conversations with Daire. We've
-> > kinda been saying that there's a single controller with two root port
-> > instances.=20
->=20
-> If these are two separate Root Ports, can we call them "Root Ports"
-> instead of "instances"?  Common terminology makes for common
-> understanding.
-
-Sure.
-
-> > Each root port instance is connected to different IOs,
-> > they're more than just different registers for accessing the same thing.
->=20
-> Sounds like some customers use Root Port 1 and others use Root Port 2,
-> maybe based on things like which pins are more convenient to route.
-
-Aye, the user that motivated the patchset uses a very small package and
-was not able to use root port 1 for that reason.
-
-> I would very much like to reword these commit logs using as much
-> standard PCIe terminology as possible.  Most of these native PCIe
-> controller drivers have Root Complex and Root Port concepts all mixed
-> together, and anything we can do to standardize them will be a
-> benefit.
-
-I can do that tomorrow.
-
---00d4RwnxQ06JtKcq
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZyuYmgAKCRB4tDGHoIJi
-0s4TAP9ih6PFRzTbgox+CHVwQgWCULG9sxCQ63YThXWRx/E+oAD/UR0qA0IMkUcN
-5OWxK/mfq+PpID6qtsDwHr1Wd0qMogE=
-=zqeK
------END PGP SIGNATURE-----
-
---00d4RwnxQ06JtKcq--
-
-
---===============7858805055342992835==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+Derek
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============7858805055342992835==--
-
