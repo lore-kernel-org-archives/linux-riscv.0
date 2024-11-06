@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7848DD35E5D
-	for <linux-riscv@archiver.kernel.org>; Wed,  6 Nov 2024 02:08:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C010D35E5D
+	for <linux-riscv@archiver.kernel.org>; Wed,  6 Nov 2024 02:08:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
 	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=mLh3xWYWHLBkW6hV05pn/iy5wRzkTC0XrIZSsGFmcec=; b=v1s2Qfp6LDfpE4
-	+eWjOPxF7UBImonG2ucZGkDSS/H9rbp/IlEmEL9JpYFm4RTSvALvDHrY6R6I1xX4WcSsJR6AZ2NlS
-	fvePWcDsrhRl5vH9YwBzNPzZnQjW/hdNGif3Of88142MYyW/36wixRUo1q0N1MqybBisgerCeRgiV
-	8A+mpXZFmmioP9knpewn5FIh/VUlJpOYZNYmr4Hh9FvdEUTEDs3MAnURsOOjZygKaM1zOtHW2xFPo
-	j47fSYcr3Hc83Qb28ZjQ5Q1pMuo4uAHAVV5a0j+1ne/R8Zul5B0xpH/ehnG58c/aWHvury8vP4e/1
-	sXY7n3FTsI3TW+qowkcg==;
+	List-Owner; bh=mLh3xWYWHLBkW6hV05pn/iy5wRzkTC0XrIZSsGFmcec=; b=B2rSY+p80q9xnX
+	wWDPWKSyvNSLT/mCyeAPoUg7LfLfV/z13ROh42ZkRayS3FOGijaJfIZ+4as+6cW1SrroYRr9yGo7g
+	ACKKa+TLJdXBsjTs2HfxEhAlAyP7IhEPrlcdBFMdRmRb42VgMJHy0kxTU32Thp3bZ2EG68BEjbqnq
+	oVEsJOAiyb8Js0eApsW/h8eFx9FjTwFknQlsONzRI3y/3ePojXoGa3hAnpi/+JMvSI02Ir+oT7Q7d
+	Q20m2JR9dEf9MHqZwcpt1W7CHBroZCvjU++hXlVJlF8ueN3azYXyWqiPB7UotlHkI5OLMVnS4fvP+
+	aC5Taybd19pXwgRN9Bmw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8VSi-00000001OSz-1TNT;
-	Wed, 06 Nov 2024 02:08:00 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1t8VTP-00000001Ogn-11Rp;
+	Wed, 06 Nov 2024 02:08:43 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8VSJ-00000001OOD-2MLo
+	id 1t8VTM-00000001Ofu-2fQ5
 	for linux-riscv@lists.infradead.org;
-	Wed, 06 Nov 2024 02:07:37 +0000
+	Wed, 06 Nov 2024 02:08:42 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id A94F6A416F5;
-	Wed,  6 Nov 2024 02:05:39 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2B7D5C4CECF;
-	Wed,  6 Nov 2024 02:07:33 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id DF3BF5C41F0;
+	Wed,  6 Nov 2024 02:07:54 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4E546C4CECF;
+	Wed,  6 Nov 2024 02:08:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1730858854;
+	s=k20201202; t=1730858919;
 	bh=16WZozry3IWIsN9qHKE/zH8myu5XP6InRSKDu/UUqTg=;
 	h=From:To:Cc:Subject:Date:From;
-	b=VAJFT7ryTJ0n5D9qhGRyyBLWHEbEXACNi2zKXDXhR5fIoPhn9uP/1hy4p/6Yo1oGh
-	 p6Q0vaUCbmFSBq31OwCuXdFhmr2HDHPzu7iUtahW9iygYPLNWQksBCpvNB0LxYtDbD
-	 fwXYa6rglLaMegYa1fPhZtbHqqmR4L3/gr77UWvwvKilmq3Gnhvhoyuw8w/v2YeP+e
-	 MLqf8zRKnm6glEjPK77rVudRaxsLHZbx+TWp56Rh+JBPnT7jO10Ms8RD0VeCUneugf
-	 1SLjhkpKa+PvNyB0ENJPAMqK4D345jXlnB16K5jddukLWtf0adx7wduY9eitFxw/jh
-	 W1KK+FYS6dDeg==
+	b=shU7kjBvYA2U/QCdhlxDzXSurrYcAj00kcqUk8tUAYRZX1FY34mE7xS6lTQcyVST1
+	 YLhxwCSrCDxkS1b8KKPOhHqTfk4Y8yIkzVPj1CNnqtW7Yz4D0L/8QGTCMD25U7xBuZ
+	 aVjwk6oVrIpp/a/AubR4vbFDSduelfz+c/r8X/buUXrR4Fhq7AgbSkUKCcpQKGZBxF
+	 Fb/ZaeUre0qFvqQgjzFpvleo97Um0tTthMxPlN6Tr9qClzHZigmJQ+E53TAykvwCuR
+	 /x1vRSgGfCgYG6v2MHKPDDBlzygCS5vFyOxBjICB2sePBLyswUZZH61+0GtzNLMOp8
+	 tV81XoI7ab9IQ==
 From: Sasha Levin <sashal@kernel.org>
 To: stable@vger.kernel.org,
 	alexghiti@rivosinc.com
@@ -51,14 +51,14 @@ Cc: Jason Montleon <jmontleo@redhat.com>,
 	linux-kernel@vger.kernel.org,
 	linux-hardening@vger.kernel.org
 Subject: FAILED: Patch "riscv: Do not use fortify in early code" failed to apply to v6.11-stable tree
-Date: Tue,  5 Nov 2024 21:07:30 -0500
-Message-ID: <20241106020731.164192-1-sashal@kernel.org>
+Date: Tue,  5 Nov 2024 21:08:35 -0500
+Message-ID: <20241106020836.164319-1-sashal@kernel.org>
 X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
 X-Patchwork-Hint: ignore
 X-stable: review
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241105_180735_789080_5FAD20EE 
+X-CRM114-CacheID: sfid-20241105_180840_792844_1E6E6F31 
 X-CRM114-Status: GOOD (  12.90  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
