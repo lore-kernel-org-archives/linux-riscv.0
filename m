@@ -4,78 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 90B1CD44D59
-	for <linux-riscv@archiver.kernel.org>; Wed,  6 Nov 2024 13:32:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 01BE4D44D62
+	for <linux-riscv@archiver.kernel.org>; Wed,  6 Nov 2024 13:41:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
 	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
 	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=m8fsefbO909Te/xlzNngZZXqoEfcKJ/DSsji4IvKO5w=; b=eWxhYJsBHeZXiOgacWZEoG+XQa
-	JuNAMX+DdBfsUkbqhvt1mY0ET78PIABGe74x4sVtjgcA/HJavfVK5X+wpcg/vPREtG9+0x+GDRS8P
-	BDIxlm35kq3qrgxmx3/FLCjUnQwR4ZPYm2P8BqDNRBsN5BFe9qY8PcrQg/llxUNEPv6eickz2kJ7Y
-	nbY8YiJ9uqKeIkNzoq6djvKHJAUuqPiNdgKVMP1+lFSZOB36F1s0PAfRsy5IGsf8kLujroIBYFKEa
-	WMMwOBcO8opfKMIE+wmC4k4NBXdDCaw6N4/bFWw+9UVDL1gOkuXjhZFyvDeSbI8baNniyn2JaWCPv
-	+P9OOruQ==;
+	bh=2QJbt7L2SAkU8I4Cm4qqDO+RsokigRzU54TOwWwaqus=; b=4dY0f0O1wLsRc7egqowWjPKvmq
+	/dvtyHJtF09T6Aup3PcYEenKYEc3QCK3yanaHRyRZuKCA7DkDlGHeN4R9THHclgEy4Gz1vdjwxJ0I
+	AO/WLH4171vPZpvip+hylf+ZsN5eyoOvMrC3oFwkwWmIVIuM7aTacSUTMqM/4b8G3xXEJ7DZkfQr7
+	DXRdFYp34gIhHytY/74cXnYXoAujj95jUimJTgcmyYT/YhIkyoEBWlwrwIC4UpPioNydorUEqcqu5
+	4njzjR4QgoEcc9HJXizilrnO4tC7WzWD0WufjzeacPJbYCMIpCRt6dokZNXDdYI8u4NyaIAuU/u7l
+	qrKtVe3A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8g8h-00000003QXc-3Pdd;
-	Wed, 06 Nov 2024 13:32:03 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1t8gHM-00000003SGr-0aTh;
+	Wed, 06 Nov 2024 13:41:00 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8faL-00000003KiV-0Bm9;
-	Wed, 06 Nov 2024 12:56:34 +0000
+	id 1t8fpk-00000003MhH-2Vd4
+	for linux-riscv@lists.infradead.org;
+	Wed, 06 Nov 2024 13:13:09 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 45E965C490E;
-	Wed,  6 Nov 2024 12:55:47 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 427F6C4CECD;
-	Wed,  6 Nov 2024 12:56:27 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 642285C54E2;
+	Wed,  6 Nov 2024 13:11:43 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 74AE1C4CED4;
+	Wed,  6 Nov 2024 13:12:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1730897791;
-	bh=9ijZ17+hfv173zIRsOLUz+ONcBtjK1noi4xIUL4UXiM=;
+	s=k20201202; t=1730898747;
+	bh=3SfESvrKfdyPsR2Toa1m1lCX2fQeSf+A2nGffmF11BM=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=CLuSR5vlRZejmXGOTr2xkmuiFaAbNeB2RYqCYYSTohQYjkwLSSH40Ya4qJTuEZJZ/
-	 29Fz2lpnp3KTKwlbiVUCC4tzQBpHkT83M6tVoE1B9oBaE1ipSczWXKFY1+4ZYtDVTh
-	 tfgew3c/kbSscfwGdCDX2RMCOR2hvowbao+ebxr//l7iV5fYz8wm14jD8hlwTSX1n0
-	 g9LXyt+W0CWru9jjM6aIxwBt1L1Q0Pa7V7GXfM2BzFIW+NMNZJhHBwRRjxzqR7+0Jd
-	 b9k0n0NHwxSh46nojWFF01+TLtxAZNz/cCol3HBd+D7kNrGPtOMa9s/qhtVaYQF2Kq
-	 Sl6SCUCUXJi2g==
-Date: Wed, 6 Nov 2024 12:56:25 +0000
+	b=BGmwz3OAHtxzQimhPb+0ta8GU6ekMnC0Nr55rDVo5Z3eBQBSlzx2R0yCIlpqJTOug
+	 j2jouZOq2FDue45FB9L57askeLY0wQvdBhk/Gs0RrA+xfuh6r844UNGSxzP1OQXWIs
+	 WXhKJLIxD2erc+Tx9VY3wDSHDZY+JfqC87LI5/t4yCyTb2NIa+Jd6NPO6/Ndk+e/sn
+	 7wPD0pSWLEOAvVSYTLYShwVsWDCllhThbE4uSdrDpnIealbuz3ZctYPnh6JBIFnxXG
+	 77B/lfXugrwKHs9CL6LdpZVWzV+0Ah6f+DmjxZMCmxviBIoCDOqDZRF9mx6ufS7cB3
+	 YKiC40WL00LVg==
+Date: Wed, 6 Nov 2024 13:12:23 +0000
 From: Conor Dooley <conor@kernel.org>
-To: Jerome Brunet <jbrunet@baylibre.com>
-Cc: Neil Armstrong <neil.armstrong@linaro.org>,
-	linux-kernel@vger.kernel.org,
-	Conor Dooley <conor.dooley@microchip.com>,
-	Daire McNamara <daire.mcnamara@microchip.com>,
-	pierre-henry.moussay@microchip.com,
-	valentina.fernandezalanis@microchip.com,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Jassi Brar <jassisinghbrar@gmail.com>, Lee Jones <lee@kernel.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Kevin Hilman <khilman@baylibre.com>,
-	Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	linux-riscv@lists.infradead.org, linux-clk@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-amlogic@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v1 08/11] clk: move meson clk-regmap implementation to
- common code
-Message-ID: <20241106-freefall-slider-db379b05821e@spud>
-References: <20241002-private-unequal-33cfa6101338@spud>
- <20241002-hula-unwashed-1c4ddbadbec2@spud>
- <2b49c4df-a34a-42c5-8d44-9e47da630fe8@linaro.org>
- <1jwmiqsks3.fsf@starbuckisacylon.baylibre.com>
- <20241003-tacking-ladylike-dfe2b633e647@spud>
+To: Sasha Levin <sashal@kernel.org>
+Cc: stable@vger.kernel.org, conor.dooley@microchip.com,
+	Jason Montleon <jmontleo@redhat.com>,
+	Miguel Ojeda <ojeda@kernel.org>,
+	Nathan Chancellor <nathan@kernel.org>,
+	Palmer Dabbelt <palmer@rivosinc.com>,
+	rust-for-linux@vger.kernel.org, linux-doc@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+	llvm@lists.linux.dev
+Subject: Re: FAILED: Patch "RISC-V: disallow gcc + rust builds" failed to
+ apply to v6.11-stable tree
+Message-ID: <20241106-undead-cupbearer-a22f27c8b9e2@spud>
+References: <20241106020840.164364-1-sashal@kernel.org>
 MIME-Version: 1.0
-In-Reply-To: <20241003-tacking-ladylike-dfe2b633e647@spud>
+In-Reply-To: <20241106020840.164364-1-sashal@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241106_045633_198348_D0F49E05 
-X-CRM114-Status: GOOD (  44.39  )
+X-CRM114-CacheID: sfid-20241106_051228_701627_80960CDB 
+X-CRM114-Status: GOOD (  11.09  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,159 +73,48 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============6901220791816142068=="
+Content-Type: multipart/mixed; boundary="===============2228213637622721855=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
---===============6901220791816142068==
+--===============2228213637622721855==
 Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="+TLJ5hylperMRXZ0"
+	protocol="application/pgp-signature"; boundary="T7IwLFePnUSWKnbZ"
 Content-Disposition: inline
 
 
---+TLJ5hylperMRXZ0
+--T7IwLFePnUSWKnbZ
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
 
-Stephen,
+On Tue, Nov 05, 2024 at 09:08:39PM -0500, Sasha Levin wrote:
+> The patch below does not apply to the v6.11-stable tree.
+> If someone wants it applied there, or to any other stable or longterm
+> tree, then please email the backport, including the original git commit
+> id to <stable@vger.kernel.org>.
 
-On Thu, Oct 03, 2024 at 12:33:40PM +0100, Conor Dooley wrote:
-> On Wed, Oct 02, 2024 at 03:21:16PM +0200, Jerome Brunet wrote:
-> > On Wed 02 Oct 2024 at 13:20, Neil Armstrong <neil.armstrong@linaro.org>=
- wrote:
-> >=20
-> > > On 02/10/2024 12:48, Conor Dooley wrote:
-> > >> From: Conor Dooley <conor.dooley@microchip.com>
-> > >> I like this one better than qualcomms and wish to use it for the
-> > >> PolarFire SoC clock drivers.
-> > >> Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
-> > >> ---
-> > >>   drivers/clk/Kconfig                           |  4 ++
-> > >>   drivers/clk/Makefile                          |  1 +
-> > >>   drivers/clk/{meson =3D> }/clk-regmap.c          |  2 +-
-> > >>   drivers/clk/meson/Kconfig                     | 46 +++++++++------=
-----
-> > >>   drivers/clk/meson/Makefile                    |  1 -
-> > >>   drivers/clk/meson/a1-peripherals.c            |  2 +-
-> > >>   drivers/clk/meson/a1-pll.c                    |  2 +-
-> > >>   drivers/clk/meson/axg-aoclk.c                 |  2 +-
-> > >>   drivers/clk/meson/axg-audio.c                 |  2 +-
-> > >>   drivers/clk/meson/axg.c                       |  2 +-
-> > >>   drivers/clk/meson/c3-peripherals.c            |  2 +-
-> > >>   drivers/clk/meson/c3-pll.c                    |  2 +-
-> > >>   drivers/clk/meson/clk-cpu-dyndiv.c            |  2 +-
-> > >>   drivers/clk/meson/clk-dualdiv.c               |  2 +-
-> > >>   drivers/clk/meson/clk-mpll.c                  |  2 +-
-> > >>   drivers/clk/meson/clk-phase.c                 |  2 +-
-> > >>   drivers/clk/meson/clk-pll.c                   |  2 +-
-> > >>   drivers/clk/meson/g12a-aoclk.c                |  2 +-
-> > >>   drivers/clk/meson/g12a.c                      |  2 +-
-> > >>   drivers/clk/meson/gxbb-aoclk.c                |  2 +-
-> > >>   drivers/clk/meson/gxbb.c                      |  2 +-
-> > >>   drivers/clk/meson/meson-aoclk.h               |  2 +-
-> > >>   drivers/clk/meson/meson-eeclk.c               |  2 +-
-> > >>   drivers/clk/meson/meson-eeclk.h               |  2 +-
-> > >>   drivers/clk/meson/meson8-ddr.c                |  2 +-
-> > >>   drivers/clk/meson/meson8b.c                   |  2 +-
-> > >>   drivers/clk/meson/s4-peripherals.c            |  2 +-
-> > >>   drivers/clk/meson/s4-pll.c                    |  2 +-
-> > >>   drivers/clk/meson/sclk-div.c                  |  2 +-
-> > >>   drivers/clk/meson/vclk.h                      |  2 +-
-> > >>   drivers/clk/meson/vid-pll-div.c               |  2 +-
-> > >>   .../meson =3D> include/linux/clk}/clk-regmap.h  |  0
-> > >>   32 files changed, 53 insertions(+), 53 deletions(-)
-> > >>   rename drivers/clk/{meson =3D> }/clk-regmap.c (99%)
-> > >>   rename {drivers/clk/meson =3D> include/linux/clk}/clk-regmap.h (10=
-0%)
-> > >>=20
-> > > <snip>
-> > >
-> > > I don't have objections, but I think Stephen didn't like the idea
-> > > a few years ago, but perhaps it has changed...
-> > >
-> > > Anyway, take my:
-> > > Acked-by: Neil Armstrong <neil.armstrong@linaro.org>
-> >=20
-> > We had a similar discussion 3y ago indeed:
-> > https://lore.kernel.org/linux-clk/162734682512.2368309.1201587301077708=
-3014@swboyd.mtv.corp.google.com/
-> >=20
-> > There are needs for a common regmap backed clocks indeed, but allowing
-> > meson flavored regmap clocks to spread in the kernel was not really the
-> > prefered way to do it.=20
->=20
-> Cool, thanks for that link.
->=20
-> > IIRC, Stephen's idea was more the bring regmap support in clk-gate.c,
-> > clk-mux, etc ... I'm not quite sure how make iomem and regmap co-exist
-> > in a manageable/maintainable way within those drivers (without adding y=
-et
-> > another level of abstraction I mean) ? Silently creating a regmap maybe
-> > ? but that's probably a bit heavy. I did not really had time to dig more
-> > on this, I guess no one did.
->=20
-> I guess I have some motivation to looking into it at the moment. I had
-> my reservations about the Meson approach too, liking it more than
-> Qualcomm's didn't mean I completely liked it.
-> It was already my intention to implement point b of your mail, had the
-> general idea here been acceptable, cos that's a divergence from how the
-> generic clock types (that the driver in question currently uses) work.
-> And on that note, I just noticed I left the mild-annoyance variable name
-> "sigh" in the submitted driver changes, which I had used for the
-> clk_regmap struct that your point b in the link relates to.
->=20
-> > I don't really have a preference one way or the other but if it is going
-> > to be exposed in 'include/linux', we need to be sure that's how we want
-> > to do it. With clocks poping in many driver subsystems, it will
-> > difficult to change afterward.=20
->=20
-> Yeah, I agree. I didn't expect this to go in right away, and I also
-> didn't want to surge ahead on some rework of the clock types, were
-> people to hate even the reuse.
-
-Hmm, so how (in-)complete of a regmap implementation can I get away
-with? I only need clk-gate and clk-divider for this patchset...
-
-Shoving the regmap into the clk structs makes things pretty trivial as I
-don't need to do anything special in any function other than
-clk_*_readl()/clk_*_writel() and the registration code. A flag isn't
-even needed to determine if a clock is a regmap one I don't think, since
-you can just check if the regmap pointer is non-NULL. My use case doesn't
-actually need the registration code changes either as, currently, only reg
-gets set at runtime, but leaving that out is a level of incomplete I'd not
-let myself away with.
-Obviously shoving the extra members into the clk structs has the downside
-of taking up a pointer and a offset worth of memory for each clock of
-that type registered, but it is substantially easier to support devices
-with multiple regmaps that way. Probably moot though since the approach you
-suggested in the thread linked above that implements a clk_hw_get_regmap()
-has to store a pointer to the regmap's identifier which would take up an
-identical amount of memory.
-
-I don't really care which way you want it done, both are pretty easy to
-implement if I can get away with just doing so for the two standard
-clock types that I am using - is it okay to just do those two?
+I sent 20241106-happily-unknotted-9984b07a414e@spud that should be a
+6.11 viable version of this change.
 
 Cheers,
 Conor.
 
---+TLJ5hylperMRXZ0
+--T7IwLFePnUSWKnbZ
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZytneQAKCRB4tDGHoIJi
-0hKAAQCFpDV3E/AK8dWA7TkIPrTKd116nVNbF4DDHJKcPS36cAEAtymt/KGIdIPF
-koqYyHxopwgZYIbz0xbdA1kU80glwQo=
-=DxRh
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZytrNwAKCRB4tDGHoIJi
+0lrZAQDwZgrJpDCrMBOUflphmluD0ARCIvhYF9shsNzm9sAm5gEA4dQEww2rvB2W
+ETWhXsstVjfNvdt4kg8SZh+nFLTwKQc=
+=IEMP
 -----END PGP SIGNATURE-----
 
---+TLJ5hylperMRXZ0--
+--T7IwLFePnUSWKnbZ--
 
 
---===============6901220791816142068==
+--===============2228213637622721855==
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
@@ -250,5 +125,5 @@ linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
 
---===============6901220791816142068==--
+--===============2228213637622721855==--
 
