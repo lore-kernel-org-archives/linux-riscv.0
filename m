@@ -4,84 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 043B6D29FBB
-	for <linux-riscv@archiver.kernel.org>; Wed,  6 Nov 2024 08:03:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 90B1CD44D59
+	for <linux-riscv@archiver.kernel.org>; Wed,  6 Nov 2024 13:32:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:To:Subject:
-	Cc:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=fILurTbNYji3SKO/djXMGMnwuP3Kt7Sk6gnmoN4zzn4=; b=CgwRs2KUNm2kBT
-	6ByNSF+Ga1ccezOLDeA9SQEqO3W/ep9AtZCGef0XNSSRRWx7UuhFFabhDBJK9zJJULssfZfWC5nRL
-	kmHD9nMU0sdhiD9V+A77Fw8IuBVgYXrjDhtCA2e2iqUUsDt7bH2A++fJg1nbxhqnU30UZz2Y3ljO+
-	MLx78JcImI2uaTscfAKubV63nQTM69Cs11OkglMyXsIYO2SiMgwFXardQ3LtiueG3IvIrvQVRJt4w
-	sHRMoGLeaWSL0inZhhtDrRoKalMMuuo5k6o1z/nVSv09Pon/eCMYwSxCSwzJ/M2SoLKlA9uUdHQI0
-	vQIz9sGPGbmKGiU/QWTg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=m8fsefbO909Te/xlzNngZZXqoEfcKJ/DSsji4IvKO5w=; b=eWxhYJsBHeZXiOgacWZEoG+XQa
+	JuNAMX+DdBfsUkbqhvt1mY0ET78PIABGe74x4sVtjgcA/HJavfVK5X+wpcg/vPREtG9+0x+GDRS8P
+	BDIxlm35kq3qrgxmx3/FLCjUnQwR4ZPYm2P8BqDNRBsN5BFe9qY8PcrQg/llxUNEPv6eickz2kJ7Y
+	nbY8YiJ9uqKeIkNzoq6djvKHJAUuqPiNdgKVMP1+lFSZOB36F1s0PAfRsy5IGsf8kLujroIBYFKEa
+	WMMwOBcO8opfKMIE+wmC4k4NBXdDCaw6N4/bFWw+9UVDL1gOkuXjhZFyvDeSbI8baNniyn2JaWCPv
+	+P9OOruQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8b0p-00000002DIz-1FgT;
-	Wed, 06 Nov 2024 08:03:35 +0000
-Received: from mail-ot1-x344.google.com ([2607:f8b0:4864:20::344])
+	id 1t8g8h-00000003QXc-3Pdd;
+	Wed, 06 Nov 2024 13:32:03 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8avj-00000002CAJ-0hYv
-	for linux-riscv@lists.infradead.org;
-	Wed, 06 Nov 2024 07:58:20 +0000
-Received: by mail-ot1-x344.google.com with SMTP id 46e09a7af769-71822fabf4fso3469224a34.2
-        for <linux-riscv@lists.infradead.org>; Tue, 05 Nov 2024 23:58:18 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1730879897; x=1731484697; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:to:subject:cc:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=Q8psUYuHR9az8zgJ1oylNVLYOsPxn1uHhNIMrELt9TE=;
-        b=gbaY53HdIRDovseRzXshke1O2eJ2P4kR8bTFcUqlL03Arh4NLMwu7/6l97Tczj7922
-         OpqLqq77cLSBhI+JEVSDp9SZM1VwF4N4hojzZyTFsHv64mqkitKSZ3wTxCRT6ZR4yMce
-         XgTCSuIrlj0Y1JbeLW+Egeqhq7wWV9ZQDX3a60mDi2dTdVcQBXlbivyl4lvCMeovAkGI
-         8SAHCMe9MC3JMimmRI9sSKnqZn9ESGesrWh4LKR8PI85y2LmBEhxBl5wQ41ImHbeTQCa
-         Vr4M9Rp2p8qywmwuTk5upWibbLZFYLJub9Ty0VdL/ndsD/M1+yahKxzxn3BnAXPB1HcM
-         7Ucg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1730879897; x=1731484697;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:to:subject:cc:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=Q8psUYuHR9az8zgJ1oylNVLYOsPxn1uHhNIMrELt9TE=;
-        b=PB8eOL4+Cn1zgg/9NNuv/4IirUsYuWjEbrZz8gKPiM8L+U4sUwDodXmOyburdf7mLb
-         fhWSNcH0k6Bom6qXWw/MzFbyg9LXpjtXzfYmtoDhAc3xVd7w4twB4cOF3SWA77/WOhxM
-         G150dZtYB3xNEUQaPDAM4eTIuUK5SWLptKr9F9FGDRVyjecMy5znO4u+9R3LfuC8wrfU
-         eiETySkwf80Px5OTwzheaYZF4bAH9jeN3jQm4eSLcusnVY9/YrnAQvfN6w5YS9xRReOU
-         qOWfL1um9/SQ3Kp6IrufFM5KYiCwvl5Khq4SHIrTXFLob0k4Yr42F2ny1utz+Gvg5+tc
-         dLnQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUCO++fWKYyNxF2GbrEXzMFjFJ88rAEFds4ObJMjuggfW1SM0OcCUKEXvda9Lmg4BteQSekrtYH/AnXQw==@lists.infradead.org
-X-Gm-Message-State: AOJu0YyGPMYZDbmPVznb5F5KVYYEslUHkVkb3xeUd1fbMq471WG01M5A
-	fdYkcSVgnMP5WkHOf7jnesCc8jPV68ObghUuAv4KWt0Tm8vBN7ProSmC7gxD+BJWfo1806k=
-X-Google-Smtp-Source: AGHT+IFrXzaetGUAe+PmZoXe7bpi2F9Ja9fYIYo6kVRm/kL2GR7CSdjt1a7AGE7QuPTp7+nmhzcSLw==
-X-Received: by 2002:a05:6871:72b:b0:260:eb3a:1be with SMTP id 586e51a60fabf-29051db9bdcmr34104242fac.34.1730879897165;
-        Tue, 05 Nov 2024 23:58:17 -0800 (PST)
-Received: from [127.0.0.1] ([2602:f919:100::2b])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-720bc20f494sm11369627b3a.93.2024.11.05.23.58.13
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 05 Nov 2024 23:58:16 -0800 (PST)
-Message-ID: <9dfb250c-d8a1-4536-8658-48b3a2585abd@gmail.com>
-Date: Wed, 6 Nov 2024 15:58:10 +0800
+	id 1t8faL-00000003KiV-0Bm9;
+	Wed, 06 Nov 2024 12:56:34 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 45E965C490E;
+	Wed,  6 Nov 2024 12:55:47 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 427F6C4CECD;
+	Wed,  6 Nov 2024 12:56:27 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1730897791;
+	bh=9ijZ17+hfv173zIRsOLUz+ONcBtjK1noi4xIUL4UXiM=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=CLuSR5vlRZejmXGOTr2xkmuiFaAbNeB2RYqCYYSTohQYjkwLSSH40Ya4qJTuEZJZ/
+	 29Fz2lpnp3KTKwlbiVUCC4tzQBpHkT83M6tVoE1B9oBaE1ipSczWXKFY1+4ZYtDVTh
+	 tfgew3c/kbSscfwGdCDX2RMCOR2hvowbao+ebxr//l7iV5fYz8wm14jD8hlwTSX1n0
+	 g9LXyt+W0CWru9jjM6aIxwBt1L1Q0Pa7V7GXfM2BzFIW+NMNZJhHBwRRjxzqR7+0Jd
+	 b9k0n0NHwxSh46nojWFF01+TLtxAZNz/cCol3HBd+D7kNrGPtOMa9s/qhtVaYQF2Kq
+	 Sl6SCUCUXJi2g==
+Date: Wed, 6 Nov 2024 12:56:25 +0000
+From: Conor Dooley <conor@kernel.org>
+To: Jerome Brunet <jbrunet@baylibre.com>
+Cc: Neil Armstrong <neil.armstrong@linaro.org>,
+	linux-kernel@vger.kernel.org,
+	Conor Dooley <conor.dooley@microchip.com>,
+	Daire McNamara <daire.mcnamara@microchip.com>,
+	pierre-henry.moussay@microchip.com,
+	valentina.fernandezalanis@microchip.com,
+	Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Jassi Brar <jassisinghbrar@gmail.com>, Lee Jones <lee@kernel.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Kevin Hilman <khilman@baylibre.com>,
+	Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	linux-riscv@lists.infradead.org, linux-clk@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-amlogic@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v1 08/11] clk: move meson clk-regmap implementation to
+ common code
+Message-ID: <20241106-freefall-slider-db379b05821e@spud>
+References: <20241002-private-unequal-33cfa6101338@spud>
+ <20241002-hula-unwashed-1c4ddbadbec2@spud>
+ <2b49c4df-a34a-42c5-8d44-9e47da630fe8@linaro.org>
+ <1jwmiqsks3.fsf@starbuckisacylon.baylibre.com>
+ <20241003-tacking-ladylike-dfe2b633e647@spud>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Cc: troymitchell988@gmail.com, linux-i2c@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v2 1/2] dt-bindings: i2c: spacemit: add support for K1 SoC
-To: Samuel Holland <samuel.holland@sifive.com>, andi.shyti@kernel.org,
- robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org
-References: <20241028053220.346283-1-TroyMitchell988@gmail.com>
- <20241028053220.346283-2-TroyMitchell988@gmail.com>
- <846b4f2a-602e-431e-affc-0e995db5eee5@sifive.com>
-Content-Language: en-US
-From: Troy Mitchell <troymitchell988@gmail.com>
-In-Reply-To: <846b4f2a-602e-431e-affc-0e995db5eee5@sifive.com>
+In-Reply-To: <20241003-tacking-ladylike-dfe2b633e647@spud>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241105_235819_353848_B0DF1D4A 
-X-CRM114-Status: GOOD (  21.31  )
+X-CRM114-CacheID: sfid-20241106_045633_198348_D0F49E05 
+X-CRM114-Status: GOOD (  44.39  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,131 +87,168 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============6901220791816142068=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
-On 2024/11/2 11:48, Samuel Holland wrote:
-> Hi Troy,
-> 
-> On 2024-10-28 12:32 AM, Troy Mitchell wrote:
->> The I2C of K1 supports fast-speed-mode and high-speed-mode,
->> and supports FIFO transmission.
->>
->> Signed-off-by: Troy Mitchell <TroyMitchell988@gmail.com>
->> ---
->>  .../bindings/i2c/spacemit,k1-i2c.yaml         | 51 +++++++++++++++++++
->>  1 file changed, 51 insertions(+)
->>  create mode 100644 Documentation/devicetree/bindings/i2c/spacemit,k1-i2c.yaml
->>
->> diff --git a/Documentation/devicetree/bindings/i2c/spacemit,k1-i2c.yaml b/Documentation/devicetree/bindings/i2c/spacemit,k1-i2c.yaml
->> new file mode 100644
->> index 000000000000..57af66f494e7
->> --- /dev/null
->> +++ b/Documentation/devicetree/bindings/i2c/spacemit,k1-i2c.yaml
->> @@ -0,0 +1,51 @@
->> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
->> +%YAML 1.2
->> +---
->> +$id: http://devicetree.org/schemas/i2c/spacemit,k1-i2c.yaml#
->> +$schema: http://devicetree.org/meta-schemas/core.yaml#
->> +
->> +title: I2C controller embedded in SpacemiT's K1 SoC
->> +
->> +maintainers:
->> +  - Troy Mitchell <troymitchell988@gmail.com>
->> +
->> +properties:
->> +  compatible:
->> +    const: spacemit,k1-i2c
->> +
->> +  reg:
->> +    maxItems: 2
->> +
->> +  interrupts:
->> +    maxItems: 1
->> +
->> +  clocks:
->> +    maxItems: 1
-> 
-> Looking at the K1 user manual (9.1.4.77 RCPU I2C0 CLOCK RESET CONTROL
-> REGISTER(RCPU_I2C0_CLK_RST)), I see two clocks (pclk, fclk) and a reset, which
-> looks to be standard across the peripherals in this SoC. Please be sure that the
-> binding covers all resources needed to use this peripheral.RCPU stands for Real-time CPU, which is typically used for low power consumption
-applications.
-We should be using the APBC_TWSIx_CLK_RST register, but it's not listed in the
-user manual. However, you can find this register referenced in the K1 clock patch:
-https://lore.kernel.org/all/SEYPR01MB4221AA2CA9C91A695FEFA777D7602@SEYPR01MB4221.apcprd01.prod.exchangelabs.com/
+--===============6901220791816142068==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="+TLJ5hylperMRXZ0"
+Content-Disposition: inline
 
-Also, to see how to enable the I2C clock in the device tree (note that the
-spacemit,apb_clock property is unused in the driver), check out the example here:
-https://gitee.com/bianbu-linux/linux-6.1/blob/bl-v1.0.y/arch/riscv/boot/dts/spacemit/k1-x.dtsi#L1048
 
-> 
->> +
->> +  clock-frequency:
->> +    description:
->> +      Desired I2C bus clock frequency in Hz. As only fast and high-speed
->> +      modes are supported by hardware, possible values are 100000 and 400000.
->> +    enum: [100000, 400000]
-> 
-> This looks wrong. In the manual I see:
-> 
-> * Supports standard-mode operation up to 100 Kbps
-> * Supports fast-mode operation up to 400Kbps
-> * Supports high-speed mode (HS mode) slave operation up to 3.4Mbps(High-speed
-> I2C only)
-> * Supports high-speed mode (HS mode) master operation up to 3.3 Mbps (High-speed
-> I2C only)
-> 
-> So even ignoring HS mode, 100 kHz and 400 kHz are only the maximums, not fixed
-> frequencies.
-okay. I will fix it in next version.
-and should I keep to ignore high-speed mode here?
-if not, how about this:
+--+TLJ5hylperMRXZ0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-  clock-frequency:
-    description:
-      Desired I2C bus clock frequency in Hz.
-      K1 supports standard, fast, high-speed modes, from 1 to 3300000.
-    default: 100000
-    minimum: 1
-    maximum: 3300000
+Stephen,
 
-> 
-> Regards,
-> Samuel
-> 
->> +    default: 100000
->> +
->> +required:
->> +  - compatible
->> +  - reg
->> +  - interrupts
->> +  - clocks
->> +
->> +unevaluatedProperties: false
->> +
->> +examples:
->> +  - |
->> +    i2c@d4010800 {
->> +        compatible = "spacemit,k1-i2c";
->> +        reg = <0x0 0xd4010800 0x0 0x38>;
->> +        interrupt-parent = <&plic>;
->> +        interrupts = <36>;
->> +        clocks = <&ccu 90>;
->> +        clock-frequency = <100000>;
->> +    };
->> +
->> +...
-> 
+On Thu, Oct 03, 2024 at 12:33:40PM +0100, Conor Dooley wrote:
+> On Wed, Oct 02, 2024 at 03:21:16PM +0200, Jerome Brunet wrote:
+> > On Wed 02 Oct 2024 at 13:20, Neil Armstrong <neil.armstrong@linaro.org>=
+ wrote:
+> >=20
+> > > On 02/10/2024 12:48, Conor Dooley wrote:
+> > >> From: Conor Dooley <conor.dooley@microchip.com>
+> > >> I like this one better than qualcomms and wish to use it for the
+> > >> PolarFire SoC clock drivers.
+> > >> Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
+> > >> ---
+> > >>   drivers/clk/Kconfig                           |  4 ++
+> > >>   drivers/clk/Makefile                          |  1 +
+> > >>   drivers/clk/{meson =3D> }/clk-regmap.c          |  2 +-
+> > >>   drivers/clk/meson/Kconfig                     | 46 +++++++++------=
+----
+> > >>   drivers/clk/meson/Makefile                    |  1 -
+> > >>   drivers/clk/meson/a1-peripherals.c            |  2 +-
+> > >>   drivers/clk/meson/a1-pll.c                    |  2 +-
+> > >>   drivers/clk/meson/axg-aoclk.c                 |  2 +-
+> > >>   drivers/clk/meson/axg-audio.c                 |  2 +-
+> > >>   drivers/clk/meson/axg.c                       |  2 +-
+> > >>   drivers/clk/meson/c3-peripherals.c            |  2 +-
+> > >>   drivers/clk/meson/c3-pll.c                    |  2 +-
+> > >>   drivers/clk/meson/clk-cpu-dyndiv.c            |  2 +-
+> > >>   drivers/clk/meson/clk-dualdiv.c               |  2 +-
+> > >>   drivers/clk/meson/clk-mpll.c                  |  2 +-
+> > >>   drivers/clk/meson/clk-phase.c                 |  2 +-
+> > >>   drivers/clk/meson/clk-pll.c                   |  2 +-
+> > >>   drivers/clk/meson/g12a-aoclk.c                |  2 +-
+> > >>   drivers/clk/meson/g12a.c                      |  2 +-
+> > >>   drivers/clk/meson/gxbb-aoclk.c                |  2 +-
+> > >>   drivers/clk/meson/gxbb.c                      |  2 +-
+> > >>   drivers/clk/meson/meson-aoclk.h               |  2 +-
+> > >>   drivers/clk/meson/meson-eeclk.c               |  2 +-
+> > >>   drivers/clk/meson/meson-eeclk.h               |  2 +-
+> > >>   drivers/clk/meson/meson8-ddr.c                |  2 +-
+> > >>   drivers/clk/meson/meson8b.c                   |  2 +-
+> > >>   drivers/clk/meson/s4-peripherals.c            |  2 +-
+> > >>   drivers/clk/meson/s4-pll.c                    |  2 +-
+> > >>   drivers/clk/meson/sclk-div.c                  |  2 +-
+> > >>   drivers/clk/meson/vclk.h                      |  2 +-
+> > >>   drivers/clk/meson/vid-pll-div.c               |  2 +-
+> > >>   .../meson =3D> include/linux/clk}/clk-regmap.h  |  0
+> > >>   32 files changed, 53 insertions(+), 53 deletions(-)
+> > >>   rename drivers/clk/{meson =3D> }/clk-regmap.c (99%)
+> > >>   rename {drivers/clk/meson =3D> include/linux/clk}/clk-regmap.h (10=
+0%)
+> > >>=20
+> > > <snip>
+> > >
+> > > I don't have objections, but I think Stephen didn't like the idea
+> > > a few years ago, but perhaps it has changed...
+> > >
+> > > Anyway, take my:
+> > > Acked-by: Neil Armstrong <neil.armstrong@linaro.org>
+> >=20
+> > We had a similar discussion 3y ago indeed:
+> > https://lore.kernel.org/linux-clk/162734682512.2368309.1201587301077708=
+3014@swboyd.mtv.corp.google.com/
+> >=20
+> > There are needs for a common regmap backed clocks indeed, but allowing
+> > meson flavored regmap clocks to spread in the kernel was not really the
+> > prefered way to do it.=20
+>=20
+> Cool, thanks for that link.
+>=20
+> > IIRC, Stephen's idea was more the bring regmap support in clk-gate.c,
+> > clk-mux, etc ... I'm not quite sure how make iomem and regmap co-exist
+> > in a manageable/maintainable way within those drivers (without adding y=
+et
+> > another level of abstraction I mean) ? Silently creating a regmap maybe
+> > ? but that's probably a bit heavy. I did not really had time to dig more
+> > on this, I guess no one did.
+>=20
+> I guess I have some motivation to looking into it at the moment. I had
+> my reservations about the Meson approach too, liking it more than
+> Qualcomm's didn't mean I completely liked it.
+> It was already my intention to implement point b of your mail, had the
+> general idea here been acceptable, cos that's a divergence from how the
+> generic clock types (that the driver in question currently uses) work.
+> And on that note, I just noticed I left the mild-annoyance variable name
+> "sigh" in the submitted driver changes, which I had used for the
+> clk_regmap struct that your point b in the link relates to.
+>=20
+> > I don't really have a preference one way or the other but if it is going
+> > to be exposed in 'include/linux', we need to be sure that's how we want
+> > to do it. With clocks poping in many driver subsystems, it will
+> > difficult to change afterward.=20
+>=20
+> Yeah, I agree. I didn't expect this to go in right away, and I also
+> didn't want to surge ahead on some rework of the clock types, were
+> people to hate even the reuse.
 
--- 
-Troy Mitchell
+Hmm, so how (in-)complete of a regmap implementation can I get away
+with? I only need clk-gate and clk-divider for this patchset...
+
+Shoving the regmap into the clk structs makes things pretty trivial as I
+don't need to do anything special in any function other than
+clk_*_readl()/clk_*_writel() and the registration code. A flag isn't
+even needed to determine if a clock is a regmap one I don't think, since
+you can just check if the regmap pointer is non-NULL. My use case doesn't
+actually need the registration code changes either as, currently, only reg
+gets set at runtime, but leaving that out is a level of incomplete I'd not
+let myself away with.
+Obviously shoving the extra members into the clk structs has the downside
+of taking up a pointer and a offset worth of memory for each clock of
+that type registered, but it is substantially easier to support devices
+with multiple regmaps that way. Probably moot though since the approach you
+suggested in the thread linked above that implements a clk_hw_get_regmap()
+has to store a pointer to the regmap's identifier which would take up an
+identical amount of memory.
+
+I don't really care which way you want it done, both are pretty easy to
+implement if I can get away with just doing so for the two standard
+clock types that I am using - is it okay to just do those two?
+
+Cheers,
+Conor.
+
+--+TLJ5hylperMRXZ0
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZytneQAKCRB4tDGHoIJi
+0hKAAQCFpDV3E/AK8dWA7TkIPrTKd116nVNbF4DDHJKcPS36cAEAtymt/KGIdIPF
+koqYyHxopwgZYIbz0xbdA1kU80glwQo=
+=DxRh
+-----END PGP SIGNATURE-----
+
+--+TLJ5hylperMRXZ0--
+
+
+--===============6901220791816142068==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============6901220791816142068==--
+
