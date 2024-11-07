@@ -4,92 +4,184 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4356BD5AE6F
-	for <linux-riscv@archiver.kernel.org>; Thu,  7 Nov 2024 07:30:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5E86ED5AE78
+	for <linux-riscv@archiver.kernel.org>; Thu,  7 Nov 2024 09:07:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:From:Subject:References:Mime-Version
-	:Message-Id:In-Reply-To:Date:Reply-To:Cc:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Zpux1hxeW8qM1Ui8cdqLbdlB4N3WIFNl+Co4U3zUbxo=; b=YOPx9+8Iu0ZvD8
-	H/3BY28tSMb5fgntjAKsYN0SkSjr3EYlUryt/CPkLArTq2l0YsOgliR/N5PoylhbWwWm87h68gZkO
-	Lc7gRKw7F+V+sWcx1B99bQa/VIlKthy5pWkEuKoXrlgH+XjNRlJDZCALtNEnj1w/8+HyOoChrPB5E
-	4+kxf48RqNUeXMjfT1wUjMAGcyZX2j1gykboh4t+9P3Fdfr3vs3TIRE0oK/6zGDb9xFeK533xx3h1
-	Wsxq3DkGSEXcLFCHJC4+Ru9J65iB0OnhxMW8gapjQhCUfJXrRAhEkdMS1QOAyqvQGAB3mZwet77Wv
-	KNeMvpkIErpqDmqSsPkQ==;
+	List-Owner; bh=H/mKek5SmMyULHmTqrYfQdyv3Kz0jxu7nVIMIfjQYEk=; b=3k2WJv1MYKkwxo
+	089nDxielWx1qHj1F/84yOZhFm06RPDkp+0z5CUfpoA0Cnnrp/4O7eA/ZHiSAlqA4DpA1sKobTitE
+	IwfPUp+OIU4kM/N5w6FUsK4tmcL5BvOzRSVvGD8ptdTTO+19bQWal8TLM6cJ7Kl+UxGuHGj+VGEQF
+	HP1lnpSeq7nMqqEPzGmHvr0AubpWnZTAiYzgx+IVh1Wiw6/Nz4E1B7BdMg8qKs1QkLw35LTKJvfTH
+	mc6OgNLU6qI+Ksjis5UZ8yqWm5S51IPVCN/DMB2/vBO78Sm7B30LpQTpeS+IUwXJ45ff1S1hFbkoh
+	F1DEBb9rBFfX867zi0XA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8wyS-00000005zjL-2BEX;
-	Thu, 07 Nov 2024 07:30:36 +0000
-Received: from mail-yw1-x1149.google.com ([2607:f8b0:4864:20::1149])
+	id 1t8yUR-00000006FLW-3Rgw;
+	Thu, 07 Nov 2024 09:07:43 +0000
+Received: from mail-am0eur02on2061b.outbound.protection.outlook.com ([2a01:111:f403:2606::61b] helo=EUR02-AM0-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t8wke-00000005wyt-33mj
-	for linux-riscv@lists.infradead.org;
-	Thu, 07 Nov 2024 07:16:22 +0000
-Received: by mail-yw1-x1149.google.com with SMTP id 00721157ae682-6ea7cfb6e0fso14096507b3.0
-        for <linux-riscv@lists.infradead.org>; Wed, 06 Nov 2024 23:16:19 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1730963779; x=1731568579; darn=lists.infradead.org;
-        h=to:from:subject:references:mime-version:message-id:in-reply-to:date
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=Jp6Q6rsYTy2pkFfmFp9hLJ/9ui9ITiVOsHTsdSSP0vY=;
-        b=TMmn2JQlw9NzMgGl+QhfxA/tenhHU9eh0kfRvYojnNCqNtgX35CcXOR1xMjrSlRAE8
-         5hJmds9meckXF8Gbc6lyhAt1uZOg17PqCFtDttpv1W6nFfyegUOcTzZfuR7MjgLkEghw
-         zqC2NdnMQeKaeXGRNyUiOnO10FMS/dLQXRd8e6Kw1I5Itt38XlfYKzVQt+Qx8ADDm0jA
-         tfOfDTk6txV6S32yC5SXpgXAYCOfEzhNpSlD/nJJWkfSmQ4tiSLtcR+u1NtoSOr3FTwn
-         6ljoY+qoDnLeKfXguCQAiEzrwgxoAZFcskfB7iLfQHL1CMOWHoW2RkvhqUq0f8gKqHoD
-         mb9A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1730963779; x=1731568579;
-        h=to:from:subject:references:mime-version:message-id:in-reply-to:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=Jp6Q6rsYTy2pkFfmFp9hLJ/9ui9ITiVOsHTsdSSP0vY=;
-        b=AoZCXxbCn4GuYwW2OiXsfPgDkCGplW7Ps6JMxkfYk4H85ggpP6VAoUsxulExUAI2wf
-         eaW73K+cj5O7iyn0NQRsEzIHOuhE2gh3Ywr7yn6AZl505HbKe/1KoBeVeWoD+IIohR62
-         0GG3rx3ALRXIJ81DdCvCmg1CA+TxxqlLZ5T+v17SBDgFKF7fo1wDS5CicUpOXU4jaj3Q
-         ag9YtjqMfd38vp0+ohg9CWMcz9lBSen3ORoVDafThwhlQeMSwFbpnfimY8PP2ppSuFt2
-         dsI4ILE8iWMRrhmrzRFVXk9o7dlF563QGh7Qa7lGrVqxmdFrOl2a+pNXWzTim67/8c/j
-         zCVg==
-X-Forwarded-Encrypted: i=1; AJvYcCUUsg8eRQm4eU56sakYgP71n449TuQubKc2wVj+tfybxQKRpnwJqKjxoKmEmTVr6jG5Fy+FnDkohlDo0Q==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yza/J0NKiTMstLQoMousnNW3JHrUbAcvmWVgQJlHlYjEA8gvCLb
-	tkOKfDc6SC5+kMYIC3ihKotxjH6hbQGZ46P4w82KEoC/LgdILGmD+bnv9IhftLYaYkqxeZtsEc9
-	HCfjkOQ==
-X-Google-Smtp-Source: AGHT+IFjJTkBX3Ww5U3GdP9ImzIAFri1PsUtkuPx9cggbPAOvXg0q9D0jMn+HqGO7HRg6a+gW1C87/H1x3x6
-X-Received: from irogers.svl.corp.google.com ([2620:15c:2c5:11:acc7:bda:7167:18d8])
- (user=irogers job=sendgmr) by 2002:a81:a8c3:0:b0:6e3:d670:f603 with SMTP id
- 00721157ae682-6e9d8aada53mr4568187b3.3.1730963779222; Wed, 06 Nov 2024
- 23:16:19 -0800 (PST)
-Date: Wed,  6 Nov 2024 23:16:00 -0800
-In-Reply-To: <20241107071600.9082-1-irogers@google.com>
-Message-Id: <20241107071600.9082-8-irogers@google.com>
-Mime-Version: 1.0
-References: <20241107071600.9082-1-irogers@google.com>
-X-Mailer: git-send-email 2.47.0.199.ga7371fff76-goog
-Subject: [PATCH v1 7/7] perf pmu: Move pmu_metrics_table__find and remove ARM override
-From: Ian Rogers <irogers@google.com>
-To: John Garry <john.g.garry@oracle.com>, Will Deacon <will@kernel.org>, 
-	James Clark <james.clark@linaro.org>, Mike Leach <mike.leach@linaro.org>, 
-	Leo Yan <leo.yan@linux.dev>, Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
-	Arnaldo Carvalho de Melo <acme@kernel.org>, Namhyung Kim <namhyung@kernel.org>, 
-	Mark Rutland <mark.rutland@arm.com>, 
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>, Jiri Olsa <jolsa@kernel.org>, 
-	Ian Rogers <irogers@google.com>, Adrian Hunter <adrian.hunter@intel.com>, 
-	Kan Liang <kan.liang@linux.intel.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Huacai Chen <chenhuacai@kernel.org>, Bibo Mao <maobibo@loongson.cn>, 
-	Athira Rajeev <atrajeev@linux.vnet.ibm.com>, Ben Zong-You Xie <ben717@andestech.com>, 
-	Alexandre Ghiti <alexghiti@rivosinc.com>, Sandipan Das <sandipan.das@amd.com>, 
-	Benjamin Gray <bgray@linux.ibm.com>, Xu Yang <xu.yang_2@nxp.com>, 
-	Ravi Bangoria <ravi.bangoria@amd.com>, 
-	"=?UTF-8?q?Cl=C3=A9ment=20Le=20Goffic?=" <clement.legoffic@foss.st.com>, Yicong Yang <yangyicong@hisilicon.com>, 
-	"Masami Hiramatsu (Google)" <mhiramat@kernel.org>, Dima Kogan <dima@secretsauce.net>, 
-	"Dr. David Alan Gilbert" <linux@treblig.org>, linux-arm-kernel@lists.infradead.org, 
-	linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	id 1t8ySf-00000006Eyr-49Cn;
+	Thu, 07 Nov 2024 09:05:55 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=OXr2YD+YN+3j+ky7reUQJpZ66Qy2YebqGD276Q6U0XXQrp767nQJrL71D0kV4vc3tYXpbWv3N2rvtB0rM0EbDnvWjZpXNwUfG81mC7Hxj1+H0F0eOSehpvm2Qrd89Lyl1qKBPDAm+3eXoBYpP5aw92yf0jmupR/z9+3P+EQO2YivEfOSwEq+MQTqrmYZA25p5Iklx8FRGXU3hmClExdU7uGjuoR546VZPaMCkmG7isE2VJckik8Z1UtYOHsk/9OyOQgCn9oSOPRrFE93xSHWb8PqcHikCAL0up2smVF8vbtzvsmDiWVKkwpQFEY9iLkxCKZn0RI10PMJmEE0CmstmQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=F6yjQQdXEObt/4wSmn5s2D8oUUKUim4MuDwZ9UkzvL8=;
+ b=Lg4KnU7zOmYvfJ2oNavMegOWnvfvbbv+VtGEvgRtZMoZo5x8AOjFVitpEJtNeBJap69EYUzwBH4h6k+Dh9wmX9VonenbS09ZKvMHS/TGxwETfybfXNwv5x2p6TWUagrODafmJu/ObtCbyTCBjqyu69oL2NHUg13rWVr85om3LB8wfMHWjT2zp3Y6FtzFY8Y3ro8EZZZuccjvU/atrvvDlblLRe0TV68yXx/cxedmOXD550j8+/3nTsAEMCI+TZ+a/IxQpRlHUT3i6dRwMn1dJrwUdiyedxD2CYrIroSTVPbbLpUY5xE0uv9Yw9CG9E9Jfx3Oa9CDYXA3tlgAV8rJkQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=F6yjQQdXEObt/4wSmn5s2D8oUUKUim4MuDwZ9UkzvL8=;
+ b=Eaj7+m4Jmo1vEmLiTcjuNdCRb/QM4pBPPhvKGfRkeyIcBeemJVzTucYR5cm8o7M4nL8S3ui+jm7X9pVN5u9zC94WswJwPmihm60LsBPU7Mj7n7wvtk/BMufPyxnvIjYS0gvpBbNjfVkPM76VjVMgzhm2uvhg0wGWan6nPr2l3zVrO6N19cvne+YJL/546ZqIq2IdRcUzhj+4A/XriqszAAEIU7Jwf3p3IZKvyiUbHFwRPuyb8HGMMNPvA4UdkDOCkP9rGhxhBr9dc8fDvqYSX8CwzKtM1W7t3Zo2GMbV/eiFR1shCgW8SQLpmi/94phZGHx/3BE2sUqANN1IIzrVng==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from DU2PR04MB8822.eurprd04.prod.outlook.com (2603:10a6:10:2e1::11)
+ by AS8PR04MB8580.eurprd04.prod.outlook.com (2603:10a6:20b:427::9) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8137.18; Thu, 7 Nov
+ 2024 09:05:48 +0000
+Received: from DU2PR04MB8822.eurprd04.prod.outlook.com
+ ([fe80::4e24:c2c7:bd58:c5c7]) by DU2PR04MB8822.eurprd04.prod.outlook.com
+ ([fe80::4e24:c2c7:bd58:c5c7%6]) with mapi id 15.20.8137.018; Thu, 7 Nov 2024
+ 09:05:48 +0000
+Date: Thu, 7 Nov 2024 17:03:30 +0800
+From: Xu Yang <xu.yang_2@nxp.com>
+To: Ian Rogers <irogers@google.com>
+Cc: John Garry <john.g.garry@oracle.com>, Will Deacon <will@kernel.org>,
+	James Clark <james.clark@linaro.org>,
+	Mike Leach <mike.leach@linaro.org>, Leo Yan <leo.yan@linux.dev>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Ingo Molnar <mingo@redhat.com>,
+	Arnaldo Carvalho de Melo <acme@kernel.org>,
+	Namhyung Kim <namhyung@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	Jiri Olsa <jolsa@kernel.org>,
+	Adrian Hunter <adrian.hunter@intel.com>,
+	Kan Liang <kan.liang@linux.intel.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Huacai Chen <chenhuacai@kernel.org>, Bibo Mao <maobibo@loongson.cn>,
+	Athira Rajeev <atrajeev@linux.vnet.ibm.com>,
+	Ben Zong-You Xie <ben717@andestech.com>,
+	Alexandre Ghiti <alexghiti@rivosinc.com>,
+	Sandipan Das <sandipan.das@amd.com>,
+	Benjamin Gray <bgray@linux.ibm.com>,
+	Ravi Bangoria <ravi.bangoria@amd.com>,
+	=?utf-8?Q?Cl=C3=A9ment?= Le Goffic <clement.legoffic@foss.st.com>,
+	Yicong Yang <yangyicong@hisilicon.com>,
+	"Masami Hiramatsu (Google)" <mhiramat@kernel.org>,
+	Dima Kogan <dima@secretsauce.net>,
+	"Dr. David Alan Gilbert" <linux@treblig.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org,
 	linux-riscv@lists.infradead.org
+Subject: Re: [PATCH v1 0/7] Refactor cpuid and metric table lookup code
+Message-ID: <20241107082807.ipb7xzqvs24tto2e@hippo>
+References: <20241107071600.9082-1-irogers@google.com>
+Content-Disposition: inline
+In-Reply-To: <20241107071600.9082-1-irogers@google.com>
+X-ClientProxiedBy: SG2PR04CA0157.apcprd04.prod.outlook.com (2603:1096:4::19)
+ To DU2PR04MB8822.eurprd04.prod.outlook.com (2603:10a6:10:2e1::11)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DU2PR04MB8822:EE_|AS8PR04MB8580:EE_
+X-MS-Office365-Filtering-Correlation-Id: a21a1add-ff2d-49d4-480a-08dcff0b5f12
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|7416014|376014|52116014|38350700014;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?L0g2N2l5MHd5SGZDZzhCcStpaldWN0JnSTMvRU1NMVAySG9sQ2F2aDFyYWdR?=
+ =?utf-8?B?MlVNQWFIa09LWElxU1laR2tlQjV2VjExRzFUSVFwaCt3N3BRemtaaEIySURv?=
+ =?utf-8?B?dDhLRE5kb3dxMDRkVjdFSk5hdTNBUnd4R1ZUMG9CbTZET1d3WXE5WmJMK04z?=
+ =?utf-8?B?VjlhdkdiOWYxNGdmZDZmSmpjcXJFbk5aM2RFTElMaUY0UXhkV1FBeHhKMndZ?=
+ =?utf-8?B?VFVCSmJzSzJWa1JWWng1NUhzUDFEdDA3eTYzWWdtMTZ1ZG0rc1MxWjVEak13?=
+ =?utf-8?B?aFlnTE5pcGFMNzAxTmNtU3VpT2ttU2puQlZEdG1PcWZSRnplS2hLRU5UMzli?=
+ =?utf-8?B?c0VzYVlONlZhbXFiOHo4SlAvcDNhZElrZUtRL1F2eEk3Nktqdnd0b041UzhJ?=
+ =?utf-8?B?ZUduMFI5M0ZXT0NsSDhLL0VJbHVFYVpJSDBqeCtzOG8xUmJWRzE0enFvR1pR?=
+ =?utf-8?B?TURtZkNEK3Ixa3VMU0pEUG5HUjdFQ1JzRlZndFYyRHl3QThpL1RneDljaTZD?=
+ =?utf-8?B?UFIrY3k4MkdpckpmQVN5SDlSQW1JQXE1ekV2RDNURjcyUHo5MXV3ZVU0Ujhk?=
+ =?utf-8?B?anNML2V3cytocVRoeGJraC9uN21jSUVaYlNrUEtxQ0JTVHF2UmFHV1dCN3Ny?=
+ =?utf-8?B?cStTMEo3TmhiUTF4N3d1UjN3aTZTQld5VjAyOGR2eVZ0elN6NmZ2elg4c3U3?=
+ =?utf-8?B?QjBZWW1pN3pYeEg4QWwxUC95MjRQSCtiV0ltdUgxMnY3QUs2cEZDY0dKMEZh?=
+ =?utf-8?B?YnZzWHJPelQ4R0lWWUIxbHJiL0FsbG5NTHZJT1lEa1R6V3FOWVY4MUVtS1d3?=
+ =?utf-8?B?cVhvZ0V1OENzVHJyY2YySzF6MEZueFdJN3ROYzVZZ3VhYzd6ckMzOFNWdURI?=
+ =?utf-8?B?OHdlZEcxMTRpeWZ6UitYc3VyYk41anRuSGJPVWlqWEVrbmphSjN0YnJlS0w5?=
+ =?utf-8?B?cnhjOEJoMGZQc1E1OVNZbUdSY3BpQWdocGppdXRpckFxOWtGdEZ3V0xjUlN2?=
+ =?utf-8?B?azVLQkY2VDNDQm14TFNWTU85RlpReHJmZWtKSmliOHBZajJOekhiOXo5YkF6?=
+ =?utf-8?B?MVZya0pqbG9MZFY2RDlmSE92ODcwdUlyZ3prRDhyanhBZ0tyYlVpQzFDSlNE?=
+ =?utf-8?B?VmZwWGhsU3Vmb0V3TCtsUkdKVXpjQU9uQzc5SXVuVkVjbmIxUUFOOWlJR0ph?=
+ =?utf-8?B?Q2NSNDRnTjlXOHdxVUpranNFVE5tU2pmRzV0NEY0STBIdHg3cGVUdm5IMWY0?=
+ =?utf-8?B?ZGt0OVRMQmNFTjVGa2M3NWVnVjFJY1h6RDlUUzdFM3kvVnhPRXdsMng5QVRR?=
+ =?utf-8?B?ZE5Fa1k0STVkQk53dk1XMzhnOHQvejVRYktmZGg0VmNZZFpOMEl4bHB3eFQz?=
+ =?utf-8?B?dEE3N0d6bkk5MG1nRGllOXBrbzZVNHBROWtuYThTQWY3ejFJV1VodjNmVTNq?=
+ =?utf-8?B?YlRlS3hLNzhNTDZpOVIzU2xCdjdEVFJ0bHk0dmZ1SGRiK1FGSk9FN1JWaGlx?=
+ =?utf-8?B?NG5qR1ZnUVorZ0x5bmo4Z1hKNkVxTTU4MWJoWUtqbmVQdUtXc05ORWJYaTlt?=
+ =?utf-8?B?SE5nYTJDd0lEeFFhSTErcnNNSFdCSHBHUEVxZXBQMWVrczNmT0VLL3UrQVR4?=
+ =?utf-8?B?YS80ZStSSWdlRFhFS0ZBY2JmVzBuUWQweXBGV1QvVmd6OGJZRERSeVY2eFJ4?=
+ =?utf-8?B?aHVMMWwwNERmZnpSb2FaaEs2RzVIUlAxbkhQN1UzeTJZazZsQ08rZmVKVW9n?=
+ =?utf-8?B?R0VsTFB1MnY2d3BUMWlPR1FOSy9FWGhPN0pYNTZac2lidDF0d21tTE5mcWdk?=
+ =?utf-8?B?WGhzVXk5dDZ4YStJTWNhUlVqUDZybVg2b3ZDTGNNbDJjUitBbTNtMG85eWQ3?=
+ =?utf-8?Q?R3ytQkE09WGQe?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DU2PR04MB8822.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(7416014)(376014)(52116014)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?amZlZUo1K1d0VGRjcmY2YzZLNnJXd0V5TjgyL2dId0xsTkRSTFkvZG1Bbm9H?=
+ =?utf-8?B?Yi95TzFUcDllNkVKZTBGcnVLb281V3M1d0lQdks3V0k1OUhQbFVYMHJqYXZS?=
+ =?utf-8?B?YVBjbG0vNmhEei9Qd3J2OE1RSm9tTHFXY2JWUERpSWVXdXV0VjNWaWlZcVl3?=
+ =?utf-8?B?bis5eWhjYXRyUjRQb3M0RXBQbnRqTHFDMldzbHZQdW54NDVFWUdoOWpNVTU3?=
+ =?utf-8?B?aUdjT2pkTzFpOWV6bkhVZVFhMTdiTDJmTi8zd1pZSjFxZ2xBSlJlaW9CMmVS?=
+ =?utf-8?B?bkcxWUNVTlFwV0x6YXMwQzlDSFM2aWxUcXhsenYxbWUyOEE2akZiUVpaM2tZ?=
+ =?utf-8?B?eWJwSzFlR3diZk5JVjBaVENObHpUZFFXZjNpaUgyWnY0bHByVDNYcFM1Tk1a?=
+ =?utf-8?B?ZEUwUGQ5dnBVakoyWFg4bVBJQ0YybVRyYXpNY2FUVGJFVVdjYWZyOXlPMVNT?=
+ =?utf-8?B?L3U0c1k0K0cyY3A4WkxtTFEwNmYwZFdaYWtLdGtFdCszYzhrZ0dOZERWeFhY?=
+ =?utf-8?B?TW8xNDl4N2EwbDlJN3IyaHpBTWlLSUVIV3RvbmJLenNlRzJ6dkZRd09Zbks5?=
+ =?utf-8?B?OGdJbHloR0VmaXJtNFVVU21OY0M3cWRja1lXS2ZoMzErRTNOWXF2ZzBTZ3dn?=
+ =?utf-8?B?azNlS0J2TW5udFozZ0EwempVSnZhdE9ZeU5MNTg1dlZVUkNSR015VThuendK?=
+ =?utf-8?B?L29HZUdJNUpnNVZNK2dBdmJ5RWkzTkhvbkFKaWJtdjRpcjdlVUtUTHNrc1lH?=
+ =?utf-8?B?R3dtNEUwenFZWmd5TVJTS21PN2hqbTRJQnNWNUVDMTJtREhSREdleVE4QmVs?=
+ =?utf-8?B?NjhTSDF2ZzUxNERBNzc1U2ZZdnhDdGdvZ2Vhb1JpOWwyV1Z3QStXS1lTUS90?=
+ =?utf-8?B?bzRsSnI4dmZDZEZ0RjcrN1JvMDRiamdCdWJJWDNVdEVsemJhUEllaVZqY1Fv?=
+ =?utf-8?B?K0JNMzNXVjNhZDlVMFlEU0FrbUFJMU1Qc3R4UTBPaFNVSCtIUHJ2eVZDeW5v?=
+ =?utf-8?B?ejZXTlg5VkRoaWZFTmtTdjFOcXZCRlhCaE1COHFsTDZYQk5ZWVFtVHI5S2J4?=
+ =?utf-8?B?Ri9NcmNVNWNWcmd4VEdhWSsrdlJSc3pjVEtDUjFMOEt5Tlp0SldZc0xrWHI5?=
+ =?utf-8?B?ejdmb3hDNHI0U3N2TlBzNm03ZUI0TnFtakF0S2s4Y28zOEg2MFlURm9TdFYz?=
+ =?utf-8?B?bVdCcTcrREdvUEtwWVF1OVNEaGJYL0FPNUJqeHROV3YrczlMdWNwdi9kdkpv?=
+ =?utf-8?B?Z1lLSjNIRUxobFg1bDlDWmxqM1ZiUVhiVS9BNlNuNERubDg2bGg1Q2dLeXcr?=
+ =?utf-8?B?ZFF2TktueDVOWXRCZzJrVTE3YWNRTENNdGZnQURXci9keTRsTTJYQ2d6d0pQ?=
+ =?utf-8?B?dTRNV1prak43Sk9uT3gvWktiMDZrQU4yc0p2SzVPYTJIQ09UanlUV2NPMW1z?=
+ =?utf-8?B?dktJTlByZlRzakE0bmRBWWVjTGNnU3dlSnlrRFJuVTE2MlpicTJrZnlSbHZK?=
+ =?utf-8?B?M3BVenludUN3K2lHN1hFOGttWTMwbmpwVDZiam83UHppdDI0bTdDczB2YTZN?=
+ =?utf-8?B?UDZLd0tXOWMrYTdCQ0xaeFNCMmRpTDE2M0lYOXhndGRyNmRUaHRhdFZBOVQw?=
+ =?utf-8?B?NmllUFQ2OTFFcUtXWStsYkFlbkExb1dVek11cjQrcnpLSFlkOS9yR3dtMGEv?=
+ =?utf-8?B?Y3paUTh4cTk0UmxvQ29SRUIxS1AydklVa0pYR1E4QVVJR1dPQlhROHJNUCsr?=
+ =?utf-8?B?QnBGcGVNRkJZeXdIelBvUExlOWhvUStlTkYzNXAvUnltUnNSSjVBTWNZQnpR?=
+ =?utf-8?B?VWo5TnlyUm50ekEvdC8zMng5ZE5ndUI4ajVQL2xBalNPMkhtYjVUYnFvR01s?=
+ =?utf-8?B?VGhtVFVITHpkUGY5VDduZmx1TTExVDloNVNxUngwK2Q4ejArQVIzMkN3eVNJ?=
+ =?utf-8?B?WDJBSHBnbEVkZWc1cXdtWnJJNThEUXVBQ1lxNEh0R2R0OS9sdUV0djBFMGFx?=
+ =?utf-8?B?VkJnZDJpWU9iMk12UXdMMUZwdVpvN2RIYWFTVmhwYnZmd1FOQXZ6MVczNnEr?=
+ =?utf-8?B?dUlEbGdGVFhMS2NDRisvMGVWa2ZUdTg1Ry9kOEwrekpnNzJkdnk5MEFGWCtS?=
+ =?utf-8?Q?rz9LSGSRQD7UwZ4ii58D5xcrP?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: a21a1add-ff2d-49d4-480a-08dcff0b5f12
+X-MS-Exchange-CrossTenant-AuthSource: DU2PR04MB8822.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 07 Nov 2024 09:05:48.8136
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: ZalAjcX2Y5EbQ+BsiBpHGUeZ8ZPiJs/mVK3lIWzRAcwF0h+oNrjPQwucLC9a0XsySJF+HL6goB5UNVgdJkj8oA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR04MB8580
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241106_231620_845428_EA9F52FC 
-X-CRM114-Status: GOOD (  17.37  )
+X-CRM114-CacheID: sfid-20241107_010554_057076_C76D0FE4 
+X-CRM114-Status: GOOD (  18.58  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,175 +193,70 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Move pmu_metrics_table__find to the jevents.py generated pmu-events.c
-and remove indirection override for ARM. The movement removes
-perf_pmu__find_metrics_table that exists to enable the ARM
-override. The ARM override isn't necessary as just the CPUID, not PMU,
-is used in the metric table lookup. On non-ARM the CPU argument is
-just ignored for the CPUID, for ARM -1 is passed so that the CPUID for
-the first logical CPU is read.
-
-Signed-off-by: Ian Rogers <irogers@google.com>
----
- tools/perf/arch/arm64/util/pmu.c         | 20 --------------------
- tools/perf/pmu-events/empty-pmu-events.c | 20 ++++----------------
- tools/perf/pmu-events/jevents.py         | 20 ++++----------------
- tools/perf/pmu-events/pmu-events.h       |  2 +-
- tools/perf/util/pmu.c                    |  5 -----
- tools/perf/util/pmu.h                    |  1 -
- 6 files changed, 9 insertions(+), 59 deletions(-)
-
-diff --git a/tools/perf/arch/arm64/util/pmu.c b/tools/perf/arch/arm64/util/pmu.c
-index a0964b191fcb..895fb0d0610c 100644
---- a/tools/perf/arch/arm64/util/pmu.c
-+++ b/tools/perf/arch/arm64/util/pmu.c
-@@ -1,29 +1,9 @@
- // SPDX-License-Identifier: GPL-2.0
- 
--#include <internal/cpumap.h>
--#include "../../../util/cpumap.h"
--#include "../../../util/header.h"
- #include "../../../util/pmu.h"
- #include "../../../util/pmus.h"
- #include "../../../util/tool_pmu.h"
- #include <api/fs/fs.h>
--#include <math.h>
--
--const struct pmu_metrics_table *pmu_metrics_table__find(void)
--{
--	struct perf_pmu *pmu;
--
--	/* Metrics aren't currently supported on heterogeneous Arm systems */
--	if (perf_pmus__num_core_pmus() > 1)
--		return NULL;
--
--	/* Doesn't matter which one here because they'll all be the same */
--	pmu = perf_pmus__find_core_pmu();
--	if (pmu)
--		return perf_pmu__find_metrics_table(pmu);
--
--	return NULL;
--}
- 
- u64 tool_pmu__cpu_slots_per_cycle(void)
- {
-diff --git a/tools/perf/pmu-events/empty-pmu-events.c b/tools/perf/pmu-events/empty-pmu-events.c
-index 2151e8a43f16..1c7a2cfa321f 100644
---- a/tools/perf/pmu-events/empty-pmu-events.c
-+++ b/tools/perf/pmu-events/empty-pmu-events.c
-@@ -587,24 +587,12 @@ const struct pmu_events_table *perf_pmu__find_events_table(struct perf_pmu *pmu)
-         return NULL;
- }
- 
--const struct pmu_metrics_table *perf_pmu__find_metrics_table(struct perf_pmu *pmu)
-+const struct pmu_metrics_table *pmu_metrics_table__find(void)
- {
--        const struct pmu_events_map *map = map_for_pmu(pmu);
--
--        if (!map)
--                return NULL;
--
--        if (!pmu)
--                return &map->metric_table;
--
--        for (size_t i = 0; i < map->metric_table.num_pmus; i++) {
--                const struct pmu_table_entry *table_pmu = &map->metric_table.pmus[i];
--                const char *pmu_name = &big_c_string[table_pmu->pmu_name.offset];
-+        struct perf_cpu cpu = {-1};
-+        const struct pmu_events_map *map = map_for_cpu(cpu);
- 
--                if (pmu__name_match(pmu, pmu_name))
--                           return &map->metric_table;
--        }
--        return NULL;
-+        return map ? &map->metric_table : NULL;
- }
- 
- const struct pmu_events_table *find_core_events_table(const char *arch, const char *cpuid)
-diff --git a/tools/perf/pmu-events/jevents.py b/tools/perf/pmu-events/jevents.py
-index 6d6780ca0889..d781a377757a 100755
---- a/tools/perf/pmu-events/jevents.py
-+++ b/tools/perf/pmu-events/jevents.py
-@@ -1103,24 +1103,12 @@ const struct pmu_events_table *perf_pmu__find_events_table(struct perf_pmu *pmu)
-         return NULL;
- }
- 
--const struct pmu_metrics_table *perf_pmu__find_metrics_table(struct perf_pmu *pmu)
-+const struct pmu_metrics_table *pmu_metrics_table__find(void)
- {
--        const struct pmu_events_map *map = map_for_pmu(pmu);
--
--        if (!map)
--                return NULL;
--
--        if (!pmu)
--                return &map->metric_table;
--
--        for (size_t i = 0; i < map->metric_table.num_pmus; i++) {
--                const struct pmu_table_entry *table_pmu = &map->metric_table.pmus[i];
--                const char *pmu_name = &big_c_string[table_pmu->pmu_name.offset];
-+        struct perf_cpu cpu = {-1};
-+        const struct pmu_events_map *map = map_for_cpu(cpu);
- 
--                if (pmu__name_match(pmu, pmu_name))
--                           return &map->metric_table;
--        }
--        return NULL;
-+        return map ? &map->metric_table : NULL;
- }
- 
- const struct pmu_events_table *find_core_events_table(const char *arch, const char *cpuid)
-diff --git a/tools/perf/pmu-events/pmu-events.h b/tools/perf/pmu-events/pmu-events.h
-index 5435ad92180c..675562e6f770 100644
---- a/tools/perf/pmu-events/pmu-events.h
-+++ b/tools/perf/pmu-events/pmu-events.h
-@@ -103,7 +103,7 @@ int pmu_metrics_table__for_each_metric(const struct pmu_metrics_table *table, pm
- 				     void *data);
- 
- const struct pmu_events_table *perf_pmu__find_events_table(struct perf_pmu *pmu);
--const struct pmu_metrics_table *perf_pmu__find_metrics_table(struct perf_pmu *pmu);
-+const struct pmu_metrics_table *pmu_metrics_table__find(void);
- const struct pmu_events_table *find_core_events_table(const char *arch, const char *cpuid);
- const struct pmu_metrics_table *find_core_metrics_table(const char *arch, const char *cpuid);
- int pmu_for_each_core_event(pmu_event_iter_fn fn, void *data);
-diff --git a/tools/perf/util/pmu.c b/tools/perf/util/pmu.c
-index 514cb865f57b..45838651b361 100644
---- a/tools/perf/util/pmu.c
-+++ b/tools/perf/util/pmu.c
-@@ -818,11 +818,6 @@ static int is_sysfs_pmu_core(const char *name)
- 	return file_available(path);
- }
- 
--__weak const struct pmu_metrics_table *pmu_metrics_table__find(void)
--{
--	return perf_pmu__find_metrics_table(NULL);
--}
--
- /**
-  * Return the length of the PMU name not including the suffix for uncore PMUs.
-  *
-diff --git a/tools/perf/util/pmu.h b/tools/perf/util/pmu.h
-index fba3fc608b64..7b3e71194e49 100644
---- a/tools/perf/util/pmu.h
-+++ b/tools/perf/util/pmu.h
-@@ -260,7 +260,6 @@ void perf_pmu__arch_init(struct perf_pmu *pmu);
- void pmu_add_cpu_aliases_table(struct perf_pmu *pmu,
- 			       const struct pmu_events_table *table);
- 
--const struct pmu_metrics_table *pmu_metrics_table__find(void);
- bool pmu_uncore_identifier_match(const char *compat, const char *id);
- 
- int perf_pmu__convert_scale(const char *scale, char **end, double *sval);
--- 
-2.47.0.199.ga7371fff76-goog
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+SGkgSWFuIFJvZ2VycywKCk9uIFdlZCwgTm92IDA2LCAyMDI0IGF0IDExOjE1OjUzUE0gLTA4MDAs
+IElhbiBSb2dlcnMgd3JvdGU6Cj4gWHUgWWFuZyA8eHUueWFuZ18yQG54cC5jb20+IHJlcG9ydGVk
+IGlzc3VlcyB3aXRoIHRoZSBzeXN0ZW0gbWV0cmljCj4gbG9va3VwOgo+IGh0dHBzOi8vbG9yZS5r
+ZXJuZWwub3JnL2xpbnV4LXBlcmYtdXNlcnMvMjAyNDExMDYwODU0NDEuMzk0NTUwMi0xLXh1Lnlh
+bmdfMkBueHAuY29tLwo+IFRoZXNlIHBhdGNoZXMgcmVtb3ZlIGEgbG90IG9mIHRoZSBsb2dpYyBy
+ZWxhdGluZyBDUFVJRHMgdG8gUE1VcyBzbwo+IHRoYXQgdGhlIFBNVSBpc24ndCBwYXJ0IG9mIHRo
+ZSBxdWVzdGlvbiB3aGVuIGZpbmRpbmcgYSBtZXRyaWMgdGFibGUuCj4gRm9yIHRpbWUgcmVhc29u
+cywgaXQgZG9lc24ndCBnbyBhcyBmYXIgYXMgYWxsb3dpbmcgc3lzdGVtIG1ldHJpY3MKPiB3aXRo
+b3V0IGEgbWV0cmljIHRhYmxlIGFzIGEgbWV0cmljIHRhYmxlIGlzIG5lZWRlZCBmb3IgbWV0cmlj
+cyB0bwo+IHJlZmVyIHRvIG90aGVyIG1ldHJpY3MsIGFuZCB0aGUgcmVmYWN0b3Jpbmcgb2YgdGhh
+dCByZXNvbHV0aW9uIGlzIGEKPiBoYXNzbGUuCj4gCj4gSWFuIFJvZ2VycyAoNyk6Cj4gICBwZXJm
+IGhlYWRlcjogTW92ZSBpc19jcHVfb25saW5lIHRvIG51bWEgYmVuY2gKPiAgIHBlcmYgaGVhZGVy
+OiBSZWZhY3RvciBnZXRfY3B1aWQgdG8gdGFrZSBhIENQVSBmb3IgQVJNCj4gICBwZXJmIGFybTY0
+IGhlYWRlcjogVXNlIGNwdSBhcmd1bWVudCBpbiBnZXRfY3B1aWQKPiAgIHBlcmYgaGVhZGVyOiBB
+dm9pZCB0cmFuc2l0aXZlIFBNVSBpbmNsdWRlcwo+ICAgcGVyZiBoZWFkZXI6IFBhc3MgYSBwZXJm
+X2NwdSByYXRoZXIgdGhhbiBhIFBNVSB0byBnZXRfY3B1aWRfc3RyCj4gICBwZXJmIGpldmVudHM6
+IEFkZCBtYXBfZm9yX2NwdQo+ICAgcGVyZiBwbXU6IE1vdmUgcG11X21ldHJpY3NfdGFibGVfX2Zp
+bmQgYW5kIHJlbW92ZSBBUk0gb3ZlcnJpZGUKPiAKPiAgdG9vbHMvcGVyZi9hcmNoL2FybTY0L3V0
+aWwvYXJtLXNwZS5jICAgICB8IDE0ICstLS0KPiAgdG9vbHMvcGVyZi9hcmNoL2FybTY0L3V0aWwv
+aGVhZGVyLmMgICAgICB8IDczICsrKysrKysrKystLS0tLS0tLS0tLQo+ICB0b29scy9wZXJmL2Fy
+Y2gvYXJtNjQvdXRpbC9wbXUuYyAgICAgICAgIHwgMjAgLS0tLS0tCj4gIHRvb2xzL3BlcmYvYXJj
+aC9sb29uZ2FyY2gvdXRpbC9oZWFkZXIuYyAgfCAgNCArLQo+ICB0b29scy9wZXJmL2FyY2gvcG93
+ZXJwYy91dGlsL2hlYWRlci5jICAgIHwgIDQgKy0KPiAgdG9vbHMvcGVyZi9hcmNoL3Jpc2N2L3V0
+aWwvaGVhZGVyLmMgICAgICB8ICA0ICstCj4gIHRvb2xzL3BlcmYvYXJjaC9zMzkwL3V0aWwvaGVh
+ZGVyLmMgICAgICAgfCAgNiArLQo+ICB0b29scy9wZXJmL2FyY2gveDg2L3V0aWwvYXV4dHJhY2Uu
+YyAgICAgIHwgIDMgKy0KPiAgdG9vbHMvcGVyZi9hcmNoL3g4Ni91dGlsL2hlYWRlci5jICAgICAg
+ICB8ICA1ICstCj4gIHRvb2xzL3BlcmYvYmVuY2gvbnVtYS5jICAgICAgICAgICAgICAgICAgfCA1
+MSArKysrKysrKysrKysrKysKCk1lZXQgZXJyb3Igd2hlbiBidWlsZCBwZXJmIHRvb2w6CgogIEND
+ICAgICAgdXRpbC9sZXZlbnNodGVpbi5vCiAgQ0MgICAgICB0ZXN0cy9tZW0ubwogIENDICAgICAg
+dXRpbC9tbWFwLm8KYmVuY2gvbnVtYS5jOiBJbiBmdW5jdGlvbiDigJhpc19jcHVfb25saW5l4oCZ
+OgpiZW5jaC9udW1hLmM6NTUwOjIxOiBlcnJvcjogc3RvcmFnZSBzaXplIG9mIOKAmHN0YXRidWbi
+gJkgaXNu4oCZdCBrbm93bgogIDU1MCB8ICAgICAgICAgc3RydWN0IHN0YXQgc3RhdGJ1ZjsKICAg
+ICAgfCAgICAgICAgICAgICAgICAgICAgIF5+fn5+fn4KYmVuY2gvbnVtYS5jOjU1NDoxMzogZXJy
+b3I6IGltcGxpY2l0IGRlY2xhcmF0aW9uIG9mIGZ1bmN0aW9uIOKAmHN0YXTigJk7IGRpZCB5b3Ug
+bWVhbiDigJhzdHJjYXTigJk/IFstV2Vycm9yPWltcGxpY2l0LWZ1bmN0aW9uLWRlY2xhcmF0aW9u
+XQogIDU1NCB8ICAgICAgICAgaWYgKHN0YXQoYnVmLCAmc3RhdGJ1ZikgIT0gMCkKICAgICAgfCAg
+ICAgICAgICAgICBefn5+CiAgICAgIHwgICAgICAgICAgICAgc3RyY2F0CmJlbmNoL251bWEuYzo1
+Nzg6MTM6IGVycm9yOiBpbXBsaWNpdCBkZWNsYXJhdGlvbiBvZiBmdW5jdGlvbiDigJhzeXNmc19f
+cmVhZF9zdHLigJkgWy1XZXJyb3I9aW1wbGljaXQtZnVuY3Rpb24tZGVjbGFyYXRpb25dCiAgNTc4
+IHwgICAgICAgICBpZiAoc3lzZnNfX3JlYWRfc3RyKGJ1ZiwgJnN0ciwgJnN0cmxlbikgPCAwKQog
+ICAgICB8ICAgICAgICAgICAgIF5+fn5+fn5+fn5+fn5+fgpiZW5jaC9udW1hLmM6NTUwOjIxOiBl
+cnJvcjogdW51c2VkIHZhcmlhYmxlIOKAmHN0YXRidWbigJkgWy1XZXJyb3I9dW51c2VkLXZhcmlh
+YmxlXQogIDU1MCB8ICAgICAgICAgc3RydWN0IHN0YXQgc3RhdGJ1ZjsKICAgICAgfCAgICAgICAg
+ICAgICAgICAgICAgIF5+fn5+fn4KICBDQyAgICAgIHRlc3RzL2NwdW1hcC5vCiAgQ0MgICAgICB0
+ZXN0cy9zdGF0Lm8KCkFmdGVyIHJlbW92ZSB0aGVzZSBlcnJvcnMsIG15IGlzc3VlIGlzIGRpc2Fw
+cGVhcmVkLgoKVGhhbmtzLApYdSBZYW5nCgo+ICB0b29scy9wZXJmL2J1aWx0aW4ta3ZtLmMgICAg
+ICAgICAgICAgICAgIHwgIDQgKy0KPiAgdG9vbHMvcGVyZi9wbXUtZXZlbnRzL2VtcHR5LXBtdS1l
+dmVudHMuYyB8IDM5ICsrKysrKy0tLS0tCj4gIHRvb2xzL3BlcmYvcG11LWV2ZW50cy9qZXZlbnRz
+LnB5ICAgICAgICAgfCAzOSArKysrKystLS0tLQo+ICB0b29scy9wZXJmL3BtdS1ldmVudHMvcG11
+LWV2ZW50cy5oICAgICAgIHwgIDIgKy0KPiAgdG9vbHMvcGVyZi90ZXN0cy9leHByLmMgICAgICAg
+ICAgICAgICAgICB8ICA1ICstCj4gIHRvb2xzL3BlcmYvdXRpbC9lbnYuYyAgICAgICAgICAgICAg
+ICAgICAgfCAgNCArLQo+ICB0b29scy9wZXJmL3V0aWwvZXhwci5jICAgICAgICAgICAgICAgICAg
+IHwgIDYgKy0KPiAgdG9vbHMvcGVyZi91dGlsL2hlYWRlci5jICAgICAgICAgICAgICAgICB8IDgy
+ICsrKysrKysrLS0tLS0tLS0tLS0tLS0tLQo+ICB0b29scy9wZXJmL3V0aWwvaGVhZGVyLmggICAg
+ICAgICAgICAgICAgIHwgMjMgKysrLS0tLQo+ICB0b29scy9wZXJmL3V0aWwvcG11LmMgICAgICAg
+ICAgICAgICAgICAgIHwgMjUgLS0tLS0tLS0KPiAgdG9vbHMvcGVyZi91dGlsL3BtdS5oICAgICAg
+ICAgICAgICAgICAgICB8ICAyIC0KPiAgdG9vbHMvcGVyZi91dGlsL3Byb2JlLWV2ZW50LmMgICAg
+ICAgICAgICB8ICAxICsKPiAgMjIgZmlsZXMgY2hhbmdlZCwgMTg3IGluc2VydGlvbnMoKyksIDIy
+OSBkZWxldGlvbnMoLSkKPiAKPiAtLSAKPiAyLjQ3LjAuMTk5LmdhNzM3MWZmZjc2LWdvb2cKPiAK
+Cl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJp
+c2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9s
+aXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
