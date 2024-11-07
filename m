@@ -4,67 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 34EA1D43379
-	for <linux-riscv@archiver.kernel.org>; Thu,  7 Nov 2024 16:28:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3CD3BD43379
+	for <linux-riscv@archiver.kernel.org>; Thu,  7 Nov 2024 16:30:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:From:Subject:Mime-Version:Message-Id
-	:Date:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=UHsGV79mnt/H3Ech9+wtHFtLuOgCtH/+i/+myYwnM80=; b=mnEIbyjXAu9Y8O
-	chjE32vKOtsFnROB55MG1WLWZUlpl0JfYo6MXaSUuCQ4TZ0YUQ8O7sXSyFVp5y4dZD4nKrQRhMhkG
-	txjQkkSP1tf08CRE77FYpvZczHhain967WpxGTJ4hswmgJqFZHyCydqdlFuZploYsMCnN9P2UH18h
-	AEA2gvWuJJ4XmEANGAnuh2NTwKGgN5gNidAzkftD/Vxdhfsz6jrqCyCgEi2UcV+3fFsTvO5Dgcej6
-	99P8Kzt41lnNB86PqBn6nCGE9K9NZ9a3I0zDF1p6UruLulae7MfK8N9QPVu5L9DmSCo8/KJ46SfmO
-	JPBK+3lvgOlU+Ch7w4pg==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:References:
+	Mime-Version:Message-Id:In-Reply-To:Date:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Owner;
+	bh=XR72d+kGfrouasbc5atVJYW+lGvaKdca2mxxtrXqSWs=; b=ILrL3ZiVmMJV8aJpwkpKihLnGs
+	ydPenElhxh+CW0Je9YrvJoxuuSIytmiId3jF7WhRwih188TdbjgeMUW157LfD/EbA3AbBpzM/rCvF
+	/ULCFqpVYCNvv313PnPXGCKK2FhSJ8v7R0NcAkzUduO3ztxw5/uHli5/ia7NHSD1/iBNMrjPHJIF/
+	1k/pCGmkHsBDmBinbGhonIWHkEoA9pn30E7JMNRmHphuEYrqSCYCC8yFCiJNje29J/B4JS1OcwiLM
+	RuWQfmikvoBP/4Oyw1qvhfxvLLM+IU9qCsaD0BOY6ndQ+Z/cBNTrKtzHog3DZLokjCByO43RgQPz4
+	sb0PZFLg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t95ND-00000007e1P-1PzH;
-	Thu, 07 Nov 2024 16:28:43 +0000
-Received: from mail-yw1-x1149.google.com ([2607:f8b0:4864:20::1149])
+	id 1t95Ox-00000007eQ8-0IKw;
+	Thu, 07 Nov 2024 16:30:31 +0000
+Received: from mail-yw1-x114a.google.com ([2607:f8b0:4864:20::114a])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t95FS-00000007bZC-2TXL
+	id 1t95FU-00000007ba2-0GrS
 	for linux-riscv@lists.infradead.org;
-	Thu, 07 Nov 2024 16:20:44 +0000
-Received: by mail-yw1-x1149.google.com with SMTP id 00721157ae682-6ea82a5480fso22118847b3.0
-        for <linux-riscv@lists.infradead.org>; Thu, 07 Nov 2024 08:20:41 -0800 (PST)
+	Thu, 07 Nov 2024 16:20:45 +0000
+Received: by mail-yw1-x114a.google.com with SMTP id 00721157ae682-6e7e7568ed3so29038157b3.1
+        for <linux-riscv@lists.infradead.org>; Thu, 07 Nov 2024 08:20:43 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1730996441; x=1731601241; darn=lists.infradead.org;
-        h=to:from:subject:mime-version:message-id:date:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=v57hY9ptVyUkWxpU5CBHz4hqYdCeNDSYBzpW7YMhHII=;
-        b=QCWlrhEtkTxu0m+acOEHaOxNXNuICDZM79pzUvwprj01prHwqRwSgoCsJxxq8o/5RI
-         B+lWy1JBCm+OCo33hbwtI7YNAUAnTDpRrrmofTXhSULwf7K+tgrCkVbJH1hX3Q8ddfaW
-         ORV23YsI/VrAA64qIduLpjTAUKErPxnXS12b/h5/wNes6fQ9om7fPSO5GZdOYmPGtOgf
-         W5Q+kfy2wyol7mFiSvKUIKQP4kU3pIYFbLw8y5u6L44SUyAKGt1rXtgWe5xg4dr8wRc3
-         +TxBRjS/URafxIAzhQZZZ9GW42hyE4sTjiBltIl56NM7m85mciGBaaYOnG73IdzNd1bH
-         ZR1w==
+        d=google.com; s=20230601; t=1730996443; x=1731601243; darn=lists.infradead.org;
+        h=cc:to:from:subject:references:mime-version:message-id:in-reply-to
+         :date:from:to:cc:subject:date:message-id:reply-to;
+        bh=6Zi7/BGIzk4kmPbaIIn5N5Q89D8reWg5dpAnu28NGJw=;
+        b=4eZEb5YKOsCuVJyP/wxLUOH7Ob6tr1iB2puKnruaAd6sUngRbq1OaCk43BvEt98ENw
+         2TOR5CqjZAkMpHcz2kNeKsh6aDZwe1+R8YIghZ+s7E2MSLkCbZr9EAf4xqaBAKk9AOPR
+         NMAH34lGSPLmqhCI8sWyXw+GcOFdcwbxHZD2Q6Mqs6211JV12ffNZAs022/dmuPyZlFZ
+         7jOkEfGQzlEiqwHj4yit2JcQNQXSanINrIikTyvmPZWYLVm8ahQ5LlPYODGZMNnkovg3
+         suPE24g99z4NBWUxzhlws0/J0+9h8Y58D7cevCIJ+Bys+u00Hu69ktufnfs6DaS2Z8E2
+         458g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1730996441; x=1731601241;
-        h=to:from:subject:mime-version:message-id:date:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=v57hY9ptVyUkWxpU5CBHz4hqYdCeNDSYBzpW7YMhHII=;
-        b=W9IFaIFUaPmWPhdQKhBPaJuddpcxGVP2EZeSsNEa2bl5+kDaNzs6u4ecWsadIgO9F/
-         5ToboyrF03mj/h7OMI6rRWmkttZg2oP3z/hEkunwG2hq6UkoQY5ZrREXrZkXFGOEHrIW
-         e27VlarpTlxCDUSlCp+bDSRA2QdqVYZ866TAXkqXw4jw+9kOx1gSz5a1R2oC7D0xr4rz
-         b2F6AjXDZ4He7UPq0GUO9AwN+e3I6tqln5MWhVyyp4Kt3vxglc1CESnHyslTNnKdPlNr
-         eG+T8rH82k9ujtcsg8g95q7B/ahydo+cAT1mIl7pdzIZ4hxhSXn8mOLWJq3Jw9KU2a8r
-         dMVw==
-X-Forwarded-Encrypted: i=1; AJvYcCU6LaS7EXpGXYymD9Hw39Usia5sAxYgw6zemmtacz0rSoeduU3VmPpj+8LzKJ2p7JuI3dNYJ4r5D+Vd7w==@lists.infradead.org
-X-Gm-Message-State: AOJu0YytO74yXwOJUDF8+odZsytfiEIcHlJ4EXMFN1mFR8gcjZRD4AIc
-	HBSz4GHGTQ0BRVwZWaU0SaY/CAQExwK/QMVHSC5nQaHWn8hHzUTJTHqatJ/jI3RtKTm4M31atNS
-	e3P02kA==
-X-Google-Smtp-Source: AGHT+IHC0X+WZsmRaD10ygx7XOVdKB/UZb7/tV2Np4btpUBS2SgGAemSgZHBuWrvuUd2DVUs75+KuuMxxrqo
+        d=1e100.net; s=20230601; t=1730996443; x=1731601243;
+        h=cc:to:from:subject:references:mime-version:message-id:in-reply-to
+         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=6Zi7/BGIzk4kmPbaIIn5N5Q89D8reWg5dpAnu28NGJw=;
+        b=JUL8fewmXl6QdkJ1znhlz0eYtd5OVj1ixfKt/e9WZQQgKAlJ1Ak3afgExYaVEkzlMi
+         IR75JWs9Hz8tnajRfTZtVF2VAq9saJzst23iIi62IHPfDsW2JjfIS10LnWkKOHGFStp6
+         mltwZ9psBZiRmTr+90vTOQ5KJpY/m8KtJZUcrqRFNTW0yzrYdRrkDz3FmSz7HYvbEtrI
+         u/QksbDnEBzJwmi/kyRl6CVtdW+OrCUD9tPlJ1YdCcj0Mg1G6Ajlrsb1CEDdulQMJp2F
+         A+b4GPLBn4JbTFTA7tkVVtJN3WvDgPsmQbyvHFmuj42gRSNOCrIHYnefVIg0lQlva+Jd
+         MK4w==
+X-Forwarded-Encrypted: i=1; AJvYcCXfXEIphs/k9AeVHCute3uddKkAnS1rWFAlh7UCDTddAqg8uDzVM5nXkgcawlYsVe9h+gTEUagyIdzo5w==@lists.infradead.org
+X-Gm-Message-State: AOJu0YxD/Joh7PQt3LaNWjj22UndpRDPSgL+emcBMcCV9EtUUG7/qm+V
+	NEGu5SoZjIzpSlUhp+vEc1NU2pdu/zwKeReEquHZLFEO9oH9yKrmgeDU4abLP00bCG4t5/oW0iX
+	lgqQ7jw==
+X-Google-Smtp-Source: AGHT+IH0/hEWrV52DVmrj7Z6n0WIT9Ut3IVouygX8jmB/XLHKPkNRIO9up6ksFd2vuXYZmCZkrEILwBAMRRP
 X-Received: from irogers.svl.corp.google.com ([2620:15c:2c5:11:acc7:bda:7167:18d8])
- (user=irogers job=sendgmr) by 2002:a05:690c:13:b0:6ea:8651:4b27 with SMTP id
- 00721157ae682-6eadc1065acmr1207b3.5.1730996440734; Thu, 07 Nov 2024 08:20:40
+ (user=irogers job=sendgmr) by 2002:a25:d843:0:b0:e29:7454:e773 with SMTP id
+ 3f1490d57ef6-e337e1d738cmr33276.5.1730996442881; Thu, 07 Nov 2024 08:20:42
  -0800 (PST)
-Date: Thu,  7 Nov 2024 08:20:27 -0800
-Message-Id: <20241107162035.52206-1-irogers@google.com>
+Date: Thu,  7 Nov 2024 08:20:28 -0800
+In-Reply-To: <20241107162035.52206-1-irogers@google.com>
+Message-Id: <20241107162035.52206-2-irogers@google.com>
 Mime-Version: 1.0
+References: <20241107162035.52206-1-irogers@google.com>
 X-Mailer: git-send-email 2.47.0.199.ga7371fff76-goog
-Subject: [PATCH v2 0/8] Refactor cpuid and metric table lookup code
+Subject: [PATCH v2 1/8] perf jevents: fix breakage when do perf stat on system metric
 From: Ian Rogers <irogers@google.com>
 To: John Garry <john.g.garry@oracle.com>, Will Deacon <will@kernel.org>, 
 	James Clark <james.clark@linaro.org>, Mike Leach <mike.leach@linaro.org>, 
@@ -85,9 +88,10 @@ To: John Garry <john.g.garry@oracle.com>, Will Deacon <will@kernel.org>,
 	"Dr. David Alan Gilbert" <linux@treblig.org>, linux-arm-kernel@lists.infradead.org, 
 	linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org, 
 	linux-riscv@lists.infradead.org
+Cc: stable@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241107_082042_650187_6057AC3F 
-X-CRM114-Status: GOOD (  12.00  )
+X-CRM114-CacheID: sfid-20241107_082044_196311_FBAA86E3 
+X-CRM114-Status: GOOD (  15.24  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,52 +108,108 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Xu Yang <xu.yang_2@nxp.com> reported issues with the system metric
-lookup:
-https://lore.kernel.org/linux-perf-users/20241106085441.3945502-1-xu.yang_2@nxp.com/
-These patches remove a lot of the logic relating CPUIDs to PMUs so
-that the PMU isn't part of the question when finding a metric table.
-For time reasons, it doesn't go as far as allowing system metrics
-without a metric table as a metric table is needed for metrics to
-refer to other metrics, and the refactoring of that resolution is a
-hassle.
+From: Xu Yang <xu.yang_2@nxp.com>
 
-Ian Rogers (7):
-  perf header: Move is_cpu_online to numa bench
-  perf header: Refactor get_cpuid to take a CPU for ARM
-  perf arm64 header: Use cpu argument in get_cpuid
-  perf header: Avoid transitive PMU includes
-  perf header: Pass a perf_cpu rather than a PMU to get_cpuid_str
-  perf jevents: Add map_for_cpu
-  perf pmu: Move pmu_metrics_table__find and remove ARM override
+When do perf stat on sys metric, perf tool output nothing now:
+$ perf stat -a -M imx95_ddr_read.all -I 1000
+$
 
-Xu Yang (1):
-  perf jevents: fix breakage when do perf stat on system metric
+This command runs on an arm64 machine and the Soc has one DDR hw pmu
+except one armv8_cortex_a55 pmu. Their maps show as follows:
 
- tools/perf/arch/arm64/util/arm-spe.c     | 14 +---
- tools/perf/arch/arm64/util/header.c      | 73 ++++++++++-----------
- tools/perf/arch/arm64/util/pmu.c         | 20 ------
- tools/perf/arch/loongarch/util/header.c  |  4 +-
- tools/perf/arch/powerpc/util/header.c    |  4 +-
- tools/perf/arch/riscv/util/header.c      |  4 +-
- tools/perf/arch/s390/util/header.c       |  6 +-
- tools/perf/arch/x86/util/auxtrace.c      |  3 +-
- tools/perf/arch/x86/util/header.c        |  5 +-
- tools/perf/bench/numa.c                  | 53 +++++++++++++++
- tools/perf/builtin-kvm.c                 |  4 +-
- tools/perf/pmu-events/empty-pmu-events.c | 39 ++++++-----
- tools/perf/pmu-events/jevents.py         | 39 ++++++-----
- tools/perf/pmu-events/pmu-events.h       |  2 +-
- tools/perf/tests/expr.c                  |  5 +-
- tools/perf/util/env.c                    |  4 +-
- tools/perf/util/expr.c                   |  6 +-
- tools/perf/util/header.c                 | 82 ++++++++----------------
- tools/perf/util/header.h                 | 23 +++----
- tools/perf/util/pmu.c                    | 25 --------
- tools/perf/util/pmu.h                    |  2 -
- tools/perf/util/probe-event.c            |  1 +
- 22 files changed, 189 insertions(+), 229 deletions(-)
+const struct pmu_events_map pmu_events_map[] = {
+{
+	.arch = "arm64",
+	.cpuid = "0x00000000410fd050",
+	.event_table = {
+		.pmus = pmu_events__arm_cortex_a55,
+		.num_pmus = ARRAY_SIZE(pmu_events__arm_cortex_a55)
+	},
+	.metric_table = {
+		.pmus = NULL,
+		.num_pmus = 0
+	}
+},
 
+static const struct pmu_sys_events pmu_sys_event_tables[] = {
+{
+	.event_table = {
+		.pmus = pmu_events__freescale_imx95_sys,
+		.num_pmus = ARRAY_SIZE(pmu_events__freescale_imx95_sys)
+	},
+	.metric_table = {
+		.pmus = pmu_metrics__freescale_imx95_sys,
+		.num_pmus = ARRAY_SIZE(pmu_metrics__freescale_imx95_sys)
+	},
+	.name = "pmu_events__freescale_imx95_sys",
+},
+
+Currently, pmu_metrics_table__find() will return NULL when only do perf
+stat on sys metric. Then parse_groups() will never be called to parse
+sys metric_name, finally perf tool will exit directly. This should be a
+common problem. To fix the issue, this will keep the logic before commit
+f20c15d13f01 ("perf pmu-events: Remember the perf_events_map for a PMU")
+to return a empty metric table rather than a NULL pointer. This should
+be fine since the removed part just check if the table match provided
+metric_name. Without these code, the code in parse_groups() will also
+check the validity of metrci_name too.
+
+Fixes: f20c15d13f01 ("perf pmu-events: Remember the perf_events_map for a PMU")
+Cc: stable@vger.kernel.org
+Signed-off-by: Xu Yang <xu.yang_2@nxp.com>
+Acked-by: Ian Rogers <irogers@google.com>
+Signed-off-by: Ian Rogers <irogers@google.com>
+---
+ tools/perf/pmu-events/empty-pmu-events.c | 12 +-----------
+ tools/perf/pmu-events/jevents.py         | 12 +-----------
+ 2 files changed, 2 insertions(+), 22 deletions(-)
+
+diff --git a/tools/perf/pmu-events/empty-pmu-events.c b/tools/perf/pmu-events/empty-pmu-events.c
+index 2b7516946ded..b8719dab264d 100644
+--- a/tools/perf/pmu-events/empty-pmu-events.c
++++ b/tools/perf/pmu-events/empty-pmu-events.c
+@@ -585,17 +585,7 @@ const struct pmu_metrics_table *perf_pmu__find_metrics_table(struct perf_pmu *pm
+         if (!map)
+                 return NULL;
+ 
+-        if (!pmu)
+-                return &map->metric_table;
+-
+-        for (size_t i = 0; i < map->metric_table.num_pmus; i++) {
+-                const struct pmu_table_entry *table_pmu = &map->metric_table.pmus[i];
+-                const char *pmu_name = &big_c_string[table_pmu->pmu_name.offset];
+-
+-                if (pmu__name_match(pmu, pmu_name))
+-                           return &map->metric_table;
+-        }
+-        return NULL;
++	return &map->metric_table;
+ }
+ 
+ const struct pmu_events_table *find_core_events_table(const char *arch, const char *cpuid)
+diff --git a/tools/perf/pmu-events/jevents.py b/tools/perf/pmu-events/jevents.py
+index 6e71b09dbc2a..70f4fd5395fb 100755
+--- a/tools/perf/pmu-events/jevents.py
++++ b/tools/perf/pmu-events/jevents.py
+@@ -1101,17 +1101,7 @@ const struct pmu_metrics_table *perf_pmu__find_metrics_table(struct perf_pmu *pm
+         if (!map)
+                 return NULL;
+ 
+-        if (!pmu)
+-                return &map->metric_table;
+-
+-        for (size_t i = 0; i < map->metric_table.num_pmus; i++) {
+-                const struct pmu_table_entry *table_pmu = &map->metric_table.pmus[i];
+-                const char *pmu_name = &big_c_string[table_pmu->pmu_name.offset];
+-
+-                if (pmu__name_match(pmu, pmu_name))
+-                           return &map->metric_table;
+-        }
+-        return NULL;
++	return &map->metric_table;
+ }
+ 
+ const struct pmu_events_table *find_core_events_table(const char *arch, const char *cpuid)
 -- 
 2.47.0.199.ga7371fff76-goog
 
