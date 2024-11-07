@@ -4,91 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4DFF8D5D683
-	for <linux-riscv@archiver.kernel.org>; Thu,  7 Nov 2024 19:54:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E08D6D5D695
+	for <linux-riscv@archiver.kernel.org>; Thu,  7 Nov 2024 22:41:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=8a0+2p6hCVILgULf0mFGt+eW05+ckWjPFx1KvWxVLFI=; b=OvgdBwWBHc8TyP
-	Cc371lfGNSDT0wMcClArf/+0uKJtt+LKJABpdDWl2MFX1TwzF2Fq27QOly0eFwes3/HAby4Ga+7vS
-	ZDsGy6PdAk4f19bt2GlwAf7z8CeNVN35OKEk2cZl4uEJM2/Owu1qEr/lmV5TjjLW2QSzmYzIPMJv2
-	8AswCkQT62g+Fewt5Jy4LJnwjRQgAUYj1N4VZ1xRzTlgpBDwbxI2TWDqzDrPkOqzPWBgIrsIe6IHx
-	SUo36mvev1KctCP9TnV3v5mGtwZFv/+wUd02d3M8Wat2t/9HZoqgbBVEqWov9Jd4c7UkeuZs61uZh
-	CbqKs7KqEpg8xyEnnoFw==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:MIME-Version:Subject:
+	Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=rO78oNEmMzWK4autbwhxu7tytN8/AZGtawO2D2c+nY0=; b=bJirg15d6QEAoJ
+	omFcGsokgoEz9hdhlSy0Xsq6HV29NCqEQL4w6ri+El+9DNOXqAfLlnDDG7Tch3KUg7+8ztDek82oN
+	hJ+Dk33i6R3UVTi1zfEuRrUcmAyeB56pri1oKB0mIhNbZWc5zR77Llb/XCA2qnOtvIJCD6VuD8S9t
+	uRu3Hz+7O7AcRqJ8qUMQnOsQV1eEkfUx8vsfWhKOVWoArHfj3YJOpMl68t/2kdEX0wh6e+ttrBTAF
+	FEHlSYGY97Hx1sW1c1ZZemJhSgi+ImEgVbaI76DeaYeoU3n/PTAmAvU4BN5+oqemuW34Nqo0yaDXQ
+	/OXD2zFWZjYCn1gxOYZw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t98aK-000000089m7-2irq;
-	Thu, 07 Nov 2024 19:54:28 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1t9BCE-00000008ZYr-05Pa;
+	Thu, 07 Nov 2024 22:41:46 +0000
+Received: from mail-pf1-x42a.google.com ([2607:f8b0:4864:20::42a])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t98CJ-00000008515-2gSL;
-	Thu, 07 Nov 2024 19:29:41 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 60585A44A57;
-	Thu,  7 Nov 2024 19:27:43 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 64E73C4CECC;
-	Thu,  7 Nov 2024 19:29:36 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1731007777;
-	bh=pFuu4ur8ByrGcBHWxub8jqAtvOmUlbf655Tz0YWkJFk=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=ix6bpZFIcawTsaDVxd6xilVi9YAocvMDHjQpWNhprUoPIr9tqUyAx9/uIeMsj/MGd
-	 APh0azlPL6pJAizK/INSmRzTlR5Vc5gGk5bXgLN9W0CQe/hfI4hVDSpoxyZRDZsmw8
-	 JgvQlBF5eazyiBKhh5PDfcrUe/5AOdebkQ5/j1Ea46xvIkf063NSucoTTHz3yOwgqM
-	 hBWUQ3trDvDV2PZU7pbY5Y4hbIiZaJDYhs/yt2vhkdF7Sq5DIV9KWx88UiEn4SqiNq
-	 iSaKEUynI3wxWnlYwbCvcTSSxu5H4fxrVwr/qWBVMutr1/xKzoE9mVeLLLxEgR0c2v
-	 VElYg7ug/Nt7w==
-Date: Thu, 7 Nov 2024 11:29:34 -0800
-From: Namhyung Kim <namhyung@kernel.org>
-To: Ian Rogers <irogers@google.com>,
-	"Masami Hiramatsu (Google)" <mhiramat@kernel.org>
-Cc: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>,
-	Arnaldo Carvalho de Melo <acme@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Jiri Olsa <jolsa@kernel.org>,
-	Adrian Hunter <adrian.hunter@intel.com>,
-	Kan Liang <kan.liang@linux.intel.com>,
-	John Garry <john.g.garry@oracle.com>, Will Deacon <will@kernel.org>,
-	James Clark <james.clark@linaro.org>,
-	Mike Leach <mike.leach@linaro.org>, Leo Yan <leo.yan@linux.dev>,
-	Guo Ren <guoren@kernel.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Nick Terrell <terrelln@fb.com>,
-	Changbin Du <changbin.du@huawei.com>,
-	Guilherme Amadio <amadio@gentoo.org>,
-	Yang Jihong <yangjihong@bytedance.com>,
-	Aditya Gupta <adityag@linux.ibm.com>,
-	Athira Rajeev <atrajeev@linux.vnet.ibm.com>,
-	Masahiro Yamada <masahiroy@kernel.org>,
-	Bibo Mao <maobibo@loongson.cn>, Huacai Chen <chenhuacai@kernel.org>,
-	Kajol Jain <kjain@linux.ibm.com>, Atish Patra <atishp@rivosinc.com>,
-	Shenlin Liang <liangshenlin@eswincomputing.com>,
-	Anup Patel <anup@brainfault.org>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	"Steinar H. Gunderson" <sesse@google.com>,
-	"Dr. David Alan Gilbert" <linux@treblig.org>,
-	Chen Pei <cp0613@linux.alibaba.com>,
-	Dima Kogan <dima@secretsauce.net>,
-	Przemek Kitszel <przemyslaw.kitszel@intel.com>,
-	"David S. Miller" <davem@davemloft.net>,
-	Alexander Lobakin <aleksander.lobakin@intel.com>,
-	linux-kernel@vger.kernel.org, linux-perf-users@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-csky@vger.kernel.org,
-	linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v3 00/20] Remove PERF_HAVE_DWARF_REGS
-Message-ID: <Zy0VHro3wE-ZTKsq@google.com>
-References: <20241017002520.59124-1-irogers@google.com>
+	id 1t9B8y-00000008Z1R-1zyr
+	for linux-riscv@lists.infradead.org;
+	Thu, 07 Nov 2024 22:38:26 +0000
+Received: by mail-pf1-x42a.google.com with SMTP id d2e1a72fcca58-72061bfec2dso1263027b3a.2
+        for <linux-riscv@lists.infradead.org>; Thu, 07 Nov 2024 14:38:23 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1731019102; x=1731623902; darn=lists.infradead.org;
+        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
+         :date:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=p4UvGiQRb/HT4pWVa0ytwnByFfKeVrmx8fuvu8SCUmU=;
+        b=zSNYyZJ/WHddqJ4KdB/l1PU9lzkY9YWIZPyN96iVBGDTeYhRfYS5b0xSodM+/Y5nCY
+         C0iILHzbZqxotVSXfs/9gfbayYcebsGZkJ7Ziz3WMiTPjBhj2+OkcSOOB249bftU7S8M
+         MO08RVOI9HVtH53Ozz77XEliMiRm3WVPFuwq2o80Bco6rz/eV2V92azo7lJLmbn4rMPW
+         tK0XcoZavU+Pa3V6x+8oYTGYAanPFIVz+ywHRy7Bp+SD2ObKn6bwqBnE8aUqWig7VmXL
+         X8zTdUmx1Z0EmHz/NmqlYOvg94V1oTx9nxWSoEcyC9xLX5ycW0dtK6xuWoY5qkvJGzzV
+         N0Bw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1731019102; x=1731623902;
+        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
+         :date:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=p4UvGiQRb/HT4pWVa0ytwnByFfKeVrmx8fuvu8SCUmU=;
+        b=iz2SY7Fy4eO90t84GbogARMY1RUHpl407VY+mm97e3S9y93p92WmA5QQNFZaCYQ12x
+         LrPD3smGLp+MY262Qe6aKYy02dL1WO20IXFBwkw8cxFtKF76orertH5NRnI0A7x1LX+j
+         6q8miFBIGMCj2uQKkOOZF/8v4rBiyQf7xz+bPUtqvIg95qH8gBxEBk5DG292WfDsScRB
+         CCKkFx6mxD+eapSZI15XKG1eAGWtGfcQkF6hY0PxYUim8zXIc7laSmRUiMJ2P6QBCkdJ
+         WfOaWyuc1u2ThMOsN0tUpkRKceJHLSDDlDZdBODPzFLoQNDrEbess5PY16uPsvh7LCbu
+         CdAw==
+X-Forwarded-Encrypted: i=1; AJvYcCXdfLt27cdN8Q9tfhyeiaKPnKuRaQ/b+RolMJz8vwfVV9OxgjyMOyGM27bGiFMiSX7fl+LFEw+iyzv/Gg==@lists.infradead.org
+X-Gm-Message-State: AOJu0YxBHcizF40JD/ewfFiU5oPnWNYuLEaYspgFuM9O7DvJ/xe8ngOc
+	hduNHfMjBG6Cnq++lKpQbLzO+EqM1LYHau3++txdBL4pNGNJc8+UBcnG9+qNbsE=
+X-Google-Smtp-Source: AGHT+IFAGtuApDVBC1UkjKkykQeZF5MXvTyzKLNYeIltKFs6LOqDwTb8M1Xi2bDrIl1p0NkIIZMN6Q==
+X-Received: by 2002:a05:6a00:2d1d:b0:71d:f7ea:89f6 with SMTP id d2e1a72fcca58-7241337ff2cmr967888b3a.18.1731019102464;
+        Thu, 07 Nov 2024 14:38:22 -0800 (PST)
+Received: from charlie.ba.rivosinc.com ([64.71.180.162])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-7240799bae1sm2227897b3a.94.2024.11.07.14.38.20
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 07 Nov 2024 14:38:21 -0800 (PST)
+From: Charlie Jenkins <charlie@rivosinc.com>
+Date: Thu, 07 Nov 2024 14:38:03 -0800
+Subject: [PATCH for-next] riscv: Fix default misaligned access trap
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20241017002520.59124-1-irogers@google.com>
+Message-Id: <20241107-fix_handle_misaligned_load-v1-1-07d7852c9991@rivosinc.com>
+X-B4-Tracking: v=1; b=H4sIAEpBLWcC/x2MUQqDMBAFryL73UAiYoNXKSVE87QLMSmJiCDe3
+ cXPYYY5qaIwKg3NSQU7V85JwLwamn4+LVAchKnVbWeMfquZDyciRLiVq4+8JAQXsw/KjrD9NGq
+ re5AM/gVSP/MPzbmohGOj73Xdb2hvE3YAAAA=
+To: Paul Walmsley <paul.walmsley@sifive.com>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+ Jesse Taube <Mr.Bossman075@gmail.com>
+Cc: Palmer Dabbelt <palmer@rivosinc.com>, linux-riscv@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, Charlie Jenkins <charlie@rivosinc.com>
+X-Mailer: b4 0.13.0
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1457; i=charlie@rivosinc.com;
+ h=from:subject:message-id; bh=VKdNQh3bXS+51IiXDHYAOf+7QeZT+DkLAK5ZUVQq5qg=;
+ b=owGbwMvMwCHWx5hUnlvL8Y3xtFoSQ7quY3DQugNfPO5piW6yZa5ew5bzfNoD8wCj4588whYz/
+ stWcljVUcrCIMbBICumyMJzrYG59Y5+2VHRsgkwc1iZQIYwcHEKwERMzRn+SsYtWs3wxcjIbrtm
+ HStfXDZL/MX/2YH7JRg7t910+MlVwMgw+3bI/Yvh37/NmPj1uqu+18zTPV4Cf2Rqp2UesE9z83v
+ ECgA=
+X-Developer-Key: i=charlie@rivosinc.com; a=openpgp;
+ fpr=7D834FF11B1D8387E61C776FFB10D1F27D6B1354
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241107_112939_823877_04ABD6B8 
-X-CRM114-Status: GOOD (  28.42  )
+X-CRM114-CacheID: sfid-20241107_143824_757470_B2A6D6EF 
+X-CRM114-Status: UNSURE (   6.83  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,169 +104,49 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi all,
+Commit d1703dc7bc8e ("RISC-V: Detect unaligned vector accesses
+supported") removed the default handlers for handle_misaligned_load()
+and handle_misaligned_store(). When the kernel is compiled without
+RISCV_SCALAR_MISALIGNED, these handlers are never defined, causing
+compilation errors.
 
-On Wed, Oct 16, 2024 at 05:25:00PM -0700, Ian Rogers wrote:
-> These changes are on top of:
-> https://lore.kernel.org/lkml/20241017001354.56973-1-irogers@google.com/
-> 
-> Prior to these patches PERF_HAVE_DWARF_REGS indicated the presence of
-> dwarf-regs.c in the arch directory. dwarf-regs.c provided upto 4
-> functions:
-> 
-> 1) regs_query_register_offset would translate a register name into a
-> pt_regs offset and was used by BPF prologues. BPF prologues existed
-> for BPF events and support for these was removed many releases ago.
-> This code was dead and could be removed.
-> 
-> 2) get_arch_regstr duplicated get_dwarf_regstr and so it could be
-> removed.  The case for csky was a little more complicated as the ABI
-> controlled the string. The callers of get_dwarf_regstr were updated to
-> also pass the ELF flags so that on csky the ABI appropriate table
-> could be used. As the argument is only used on csky this a no-op for
-> everything else.
-> 
-> 3) get_arch_regnum translated a register name back to a dwarf number
-> and only existed on x86 where "al", "ax", "eax" and "rax" could all
-> mean register 0. This code was moved to util with similar
-> machine/flags logic to get_arch_regstr and for consistency with it.
-> 
-> 4) get_powerpc_regs a PowerPC specific function used by annotate that
-> should really be in util.
-> 
-> 2 and 3 required the wiring through of the ELF machine and flags in
-> callers to get_dwarf_regstr and get_dwarf_regnum. When these values
-> weren't dependent on an ELF file a new EM_HOST and EF_HOST were added
-> to give the host ELF machine and flags. These 2 #defines got rid of
-> the existing separate arch files and #ifdefs.
-> 
-> v3: These files were separated from the rest of the v2 libdw clean up
->     in:
-> https://lore.kernel.org/lkml/CAP-5=fVZH3L-6y_sxLwSmT8WyMXDMFnuqUksNULdQYJCPNBFYw@mail.gmail.com/
-> 
-> Ian Rogers (20):
->   perf bpf-prologue: Remove unused file
->   perf dwarf-regs: Remove PERF_HAVE_ARCH_REGS_QUERY_REGISTER_OFFSET
->   perf dwarf-regs: Add EM_HOST and EF_HOST defines
->   perf disasm: Add e_machine/e_flags to struct arch
->   perf dwarf-regs: Pass accurate disassembly machine to get_dwarf_regnum
->   perf dwarf-regs: Pass ELF flags to get_dwarf_regstr
->   perf dwarf-regs: Move x86 dwarf-regs out of arch
->   perf arm64: Remove dwarf-regs.c
->   perf arm: Remove dwarf-regs.c
->   perf dwarf-regs: Move csky dwarf-regs out of arch
->   perf loongarch: Remove dwarf-regs.c
->   perf mips: Remove dwarf-regs.c
->   perf dwarf-regs: Move powerpc dwarf-regs out of arch
->   perf riscv: Remove dwarf-regs.c and add dwarf-regs-table.h
->   perf s390: Remove dwarf-regs.c
->   perf sh: Remove dwarf-regs.c
->   perf sparc: Remove dwarf-regs.c
->   perf xtensa: Remove dwarf-regs.c
->   perf dwarf-regs: Remove get_arch_regstr code
->   perf build: Remove PERF_HAVE_DWARF_REGS
+Signed-off-by: Charlie Jenkins <charlie@rivosinc.com>
+Fixes: d1703dc7bc8e ("RISC-V: Detect unaligned vector accesses supported")
+---
+ arch/riscv/include/asm/entry-common.h | 12 ++++++++++++
+ 1 file changed, 12 insertions(+)
 
-These look all good and I'm about to apply the series.
+diff --git a/arch/riscv/include/asm/entry-common.h b/arch/riscv/include/asm/entry-common.h
+index 7b32d2b08bb6..c2808561df81 100644
+--- a/arch/riscv/include/asm/entry-common.h
++++ b/arch/riscv/include/asm/entry-common.h
+@@ -25,7 +25,19 @@ static inline void arch_exit_to_user_mode_prepare(struct pt_regs *regs,
+ void handle_page_fault(struct pt_regs *regs);
+ void handle_break(struct pt_regs *regs);
+ 
++#ifdef CONFIG_RISCV_SCALAR_MISALIGNED
+ int handle_misaligned_load(struct pt_regs *regs);
+ int handle_misaligned_store(struct pt_regs *regs);
++#else
++static inline int handle_misaligned_load(struct pt_regs *regs)
++{
++	return -1;
++}
++
++static inline int handle_misaligned_store(struct pt_regs *regs)
++{
++	return -1;
++}
++#endif
+ 
+ #endif /* _ASM_RISCV_ENTRY_COMMON_H */
 
-Masami, do you have any remaining concerns?  It'd be nice if you can
-give your Reviewed-by.
+---
+base-commit: 74741a050b79d31d8d2eeee12c77736596d0a6b2
+change-id: 20241107-fix_handle_misaligned_load-8be86cb0806e
+-- 
+- Charlie
 
-Thanks,
-Namhyug
-
-> 
->  tools/perf/Makefile.config                    |  17 +-
->  tools/perf/arch/arc/annotate/instructions.c   |   2 +
->  tools/perf/arch/arm/Makefile                  |   3 -
->  tools/perf/arch/arm/annotate/instructions.c   |   2 +
->  tools/perf/arch/arm/util/Build                |   2 -
->  tools/perf/arch/arm/util/dwarf-regs.c         |  61 -------
->  tools/perf/arch/arm64/Makefile                |   4 -
->  tools/perf/arch/arm64/annotate/instructions.c |   2 +
->  tools/perf/arch/arm64/util/Build              |   1 -
->  tools/perf/arch/arm64/util/dwarf-regs.c       |  92 -----------
->  tools/perf/arch/csky/Makefile                 |   4 -
->  tools/perf/arch/csky/annotate/instructions.c  |   7 +-
->  tools/perf/arch/csky/util/Build               |   1 -
->  tools/perf/arch/loongarch/Makefile            |   4 -
->  .../arch/loongarch/annotate/instructions.c    |   2 +
->  tools/perf/arch/loongarch/util/Build          |   1 -
->  tools/perf/arch/loongarch/util/dwarf-regs.c   |  44 -----
->  tools/perf/arch/mips/Makefile                 |   4 -
->  tools/perf/arch/mips/annotate/instructions.c  |   2 +
->  tools/perf/arch/mips/util/Build               |   1 -
->  tools/perf/arch/mips/util/dwarf-regs.c        |  38 -----
->  tools/perf/arch/powerpc/Makefile              |   5 -
->  .../perf/arch/powerpc/annotate/instructions.c |   2 +
->  tools/perf/arch/powerpc/util/Build            |   1 -
->  tools/perf/arch/powerpc/util/dwarf-regs.c     | 153 ------------------
->  tools/perf/arch/riscv/Makefile                |   5 +-
->  .../arch/riscv/include/dwarf-regs-table.h     |  42 +++++
->  tools/perf/arch/riscv/util/Build              |   1 -
->  tools/perf/arch/riscv/util/dwarf-regs.c       |  72 ---------
->  .../perf/arch/riscv64/annotate/instructions.c |   2 +
->  tools/perf/arch/s390/Makefile                 |   4 -
->  tools/perf/arch/s390/annotate/instructions.c  |   2 +
->  tools/perf/arch/s390/util/Build               |   1 -
->  tools/perf/arch/s390/util/dwarf-regs.c        |  43 -----
->  tools/perf/arch/sh/Build                      |   1 -
->  tools/perf/arch/sh/Makefile                   |   4 -
->  tools/perf/arch/sh/util/Build                 |   1 -
->  tools/perf/arch/sh/util/dwarf-regs.c          |  41 -----
->  tools/perf/arch/sparc/Build                   |   1 -
->  tools/perf/arch/sparc/Makefile                |   4 -
->  tools/perf/arch/sparc/annotate/instructions.c |   2 +
->  tools/perf/arch/sparc/util/Build              |   1 -
->  tools/perf/arch/sparc/util/dwarf-regs.c       |  39 -----
->  tools/perf/arch/x86/Makefile                  |   4 -
->  tools/perf/arch/x86/annotate/instructions.c   |   3 +-
->  tools/perf/arch/x86/util/Build                |   3 -
->  tools/perf/arch/x86/util/dwarf-regs.c         | 153 ------------------
->  tools/perf/arch/xtensa/Build                  |   1 -
->  tools/perf/arch/xtensa/Makefile               |   4 -
->  tools/perf/arch/xtensa/util/Build             |   1 -
->  tools/perf/arch/xtensa/util/dwarf-regs.c      |  21 ---
->  tools/perf/util/Build                         |   3 +
->  tools/perf/util/annotate.c                    |   6 +-
->  tools/perf/util/bpf-prologue.h                |  37 -----
->  tools/perf/util/disasm.h                      |   4 +
->  .../dwarf-regs.c => util/dwarf-regs-csky.c}   |  19 +--
->  tools/perf/util/dwarf-regs-powerpc.c          |  61 +++++++
->  tools/perf/util/dwarf-regs-x86.c              |  50 ++++++
->  tools/perf/util/dwarf-regs.c                  |  38 +++--
->  tools/perf/util/include/dwarf-regs.h          | 110 ++++++++++---
->  tools/perf/util/probe-finder.c                |  13 +-
->  tools/perf/util/probe-finder.h                |   3 +-
->  62 files changed, 328 insertions(+), 927 deletions(-)
->  delete mode 100644 tools/perf/arch/arm/util/dwarf-regs.c
->  delete mode 100644 tools/perf/arch/arm64/util/dwarf-regs.c
->  delete mode 100644 tools/perf/arch/csky/Makefile
->  delete mode 100644 tools/perf/arch/loongarch/util/dwarf-regs.c
->  delete mode 100644 tools/perf/arch/mips/util/dwarf-regs.c
->  delete mode 100644 tools/perf/arch/powerpc/util/dwarf-regs.c
->  create mode 100644 tools/perf/arch/riscv/include/dwarf-regs-table.h
->  delete mode 100644 tools/perf/arch/riscv/util/dwarf-regs.c
->  delete mode 100644 tools/perf/arch/s390/util/dwarf-regs.c
->  delete mode 100644 tools/perf/arch/sh/Build
->  delete mode 100644 tools/perf/arch/sh/Makefile
->  delete mode 100644 tools/perf/arch/sh/util/Build
->  delete mode 100644 tools/perf/arch/sh/util/dwarf-regs.c
->  delete mode 100644 tools/perf/arch/sparc/Build
->  delete mode 100644 tools/perf/arch/sparc/util/Build
->  delete mode 100644 tools/perf/arch/sparc/util/dwarf-regs.c
->  delete mode 100644 tools/perf/arch/x86/util/dwarf-regs.c
->  delete mode 100644 tools/perf/arch/xtensa/Build
->  delete mode 100644 tools/perf/arch/xtensa/Makefile
->  delete mode 100644 tools/perf/arch/xtensa/util/Build
->  delete mode 100644 tools/perf/arch/xtensa/util/dwarf-regs.c
->  delete mode 100644 tools/perf/util/bpf-prologue.h
->  rename tools/perf/{arch/csky/util/dwarf-regs.c => util/dwarf-regs-csky.c} (74%)
->  create mode 100644 tools/perf/util/dwarf-regs-powerpc.c
->  create mode 100644 tools/perf/util/dwarf-regs-x86.c
-> 
-> -- 
-> 2.47.0.105.g07ac214952-goog
-> 
 
 _______________________________________________
 linux-riscv mailing list
