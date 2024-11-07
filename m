@@ -4,94 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E4210D43370
-	for <linux-riscv@archiver.kernel.org>; Thu,  7 Nov 2024 16:02:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 34EA1D43379
+	for <linux-riscv@archiver.kernel.org>; Thu,  7 Nov 2024 16:28:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=5bKAyY5f6WKtDE76AkOtxQvTl0IkA+6aSEUvUcFD4Go=; b=jPpzplH0DZBR8N
-	jPb1/uhON+OwxoZEuxQeGSgE8Tq4XjE447ubsXpRkS0p+VnBoNs/xE4mYzvJpsD39d3/yGtU5wiQb
-	Wk6Vmdx2868TSjNxhwwfrKOBh6r344TLWUI3DA2xzmOJGTwtg29jfcjdc2H6O54e4EYDMCPRDp9Ls
-	ac1WsrxopQile4FNL5cKoimcs+66X1F5tV/wsWFaSNFo8xJhqzQQHzwsoH4n2K0ZJBhQhUIuhn3U0
-	hWOZtndnvxaSHOAFgiKOwDTgWQGkzqIIV3v8IPpfywFrRAlcERzsjuvFr3be2t0b5dzaNV4BAJ3CL
-	6TWsAdJozkvLX2x+axqg==;
+	List-Archive:List-Unsubscribe:List-Id:To:From:Subject:Mime-Version:Message-Id
+	:Date:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=UHsGV79mnt/H3Ech9+wtHFtLuOgCtH/+i/+myYwnM80=; b=mnEIbyjXAu9Y8O
+	chjE32vKOtsFnROB55MG1WLWZUlpl0JfYo6MXaSUuCQ4TZ0YUQ8O7sXSyFVp5y4dZD4nKrQRhMhkG
+	txjQkkSP1tf08CRE77FYpvZczHhain967WpxGTJ4hswmgJqFZHyCydqdlFuZploYsMCnN9P2UH18h
+	AEA2gvWuJJ4XmEANGAnuh2NTwKGgN5gNidAzkftD/Vxdhfsz6jrqCyCgEi2UcV+3fFsTvO5Dgcej6
+	99P8Kzt41lnNB86PqBn6nCGE9K9NZ9a3I0zDF1p6UruLulae7MfK8N9QPVu5L9DmSCo8/KJ46SfmO
+	JPBK+3lvgOlU+Ch7w4pg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t94xo-00000007X6d-1h6A;
-	Thu, 07 Nov 2024 16:02:28 +0000
-Received: from mail-qt1-x834.google.com ([2607:f8b0:4864:20::834])
+	id 1t95ND-00000007e1P-1PzH;
+	Thu, 07 Nov 2024 16:28:43 +0000
+Received: from mail-yw1-x1149.google.com ([2607:f8b0:4864:20::1149])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t94t4-00000007W3F-2Zt2
+	id 1t95FS-00000007bZC-2TXL
 	for linux-riscv@lists.infradead.org;
-	Thu, 07 Nov 2024 15:57:36 +0000
-Received: by mail-qt1-x834.google.com with SMTP id d75a77b69052e-4608dddaa35so363481cf.0
-        for <linux-riscv@lists.infradead.org>; Thu, 07 Nov 2024 07:57:34 -0800 (PST)
+	Thu, 07 Nov 2024 16:20:44 +0000
+Received: by mail-yw1-x1149.google.com with SMTP id 00721157ae682-6ea82a5480fso22118847b3.0
+        for <linux-riscv@lists.infradead.org>; Thu, 07 Nov 2024 08:20:41 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1730995053; x=1731599853; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=n+7ho61/oAoiWQbCyZG6AJoc8iLMZGuZ9+96uL2SaXc=;
-        b=zE1yKcORw+9mW/75rOdyG5FYTVpVLnFMwDDleuidJoInNopCP408pUsyWncQbRJCRO
-         LkzFOpN6F7yBLZDlTqjJ7wX+P+H/Nr+pPP+BYG3DDxuc+K4StkLUYsDl/v8ubQ0frq9Q
-         Xb74zsKTcR5fNx/hV6RDV+M3qOehkri4oU1NPfA39k/jFuehI0vxbfSPwOWOb24PDBMn
-         zSiHPgyW8Q8AurGrMBXeaILFX5ILYm0sSUmyUgmncJb5vpuYZ3zYacipvfWbDTDa9gQv
-         bogzkgKPa3BAOK3Sw8Wr9YGMbU+5H1AnG7NYrP5ZSPbpUA6YATGkr7dCDbxdPq3sj4ZM
-         zQpg==
+        d=google.com; s=20230601; t=1730996441; x=1731601241; darn=lists.infradead.org;
+        h=to:from:subject:mime-version:message-id:date:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=v57hY9ptVyUkWxpU5CBHz4hqYdCeNDSYBzpW7YMhHII=;
+        b=QCWlrhEtkTxu0m+acOEHaOxNXNuICDZM79pzUvwprj01prHwqRwSgoCsJxxq8o/5RI
+         B+lWy1JBCm+OCo33hbwtI7YNAUAnTDpRrrmofTXhSULwf7K+tgrCkVbJH1hX3Q8ddfaW
+         ORV23YsI/VrAA64qIduLpjTAUKErPxnXS12b/h5/wNes6fQ9om7fPSO5GZdOYmPGtOgf
+         W5Q+kfy2wyol7mFiSvKUIKQP4kU3pIYFbLw8y5u6L44SUyAKGt1rXtgWe5xg4dr8wRc3
+         +TxBRjS/URafxIAzhQZZZ9GW42hyE4sTjiBltIl56NM7m85mciGBaaYOnG73IdzNd1bH
+         ZR1w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1730995053; x=1731599853;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=n+7ho61/oAoiWQbCyZG6AJoc8iLMZGuZ9+96uL2SaXc=;
-        b=vDglplKIoezdBr4hVuiNZzpYodF7mnjNfMujq4pXim/QFb2sBeS1FKWg+NbhZicWCO
-         e3Y+baj/oI3mrmUOco4QNPiFgwFHazi+byPxS0KMi7W++MQrPeiRrjLYgVipAWa3qXb8
-         oQOB1iHF/x2DPdp3hB+7BpIWYrTnDLDnMEurjSk3UgsL1/WmO9lgtZO4SaTxOkR5nDCq
-         S9NK9B97iy3qirtmW7EiorXsREnQ0KSnCIt4kXIBhi9HRrnnaGcheZcidWcfPS3IE95M
-         ChilSyguFWNnPYs69bp2kBN1og4ur/10eYuhIjBHQUVKdxfaO309xSihRDBblUKGww52
-         tFUA==
-X-Forwarded-Encrypted: i=1; AJvYcCWhGITs2QvS7YgPV32fTvHt5mHc7TtbgYty62MKqeJw1khiaHztcqHmljdciDOaRp2mukWYoQeZa1iWjg==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw1lXJO37g3nyaf4MoqiHZGPljPlY0fP4axQpWZCbX+2GnpDST9
-	L2bzip4kR6UUdj9rIxmyCiDOklxWbUx8IiwHgja5kAwV/9A2Ho5NvdX8tIUxdYDjCVtdkmukY0v
-	J+kv+DJtD+GUQ7ToXqQclsmBr4RNzlbNk9UrX
-X-Gm-Gg: ASbGncu1TQQcay4/xDPx/X1P03Up/YqxVQAuQD/4LUKN3rSn0JmYNRV6PqZ/fApXUBc
-	IcCIsBC9aNBmBEYapD/vJC9S6pM4hBbkZT9Vjw/tMxopHSp4th/0d2Rjpk3wS9Ak=
-X-Google-Smtp-Source: AGHT+IHVKHBvB2cCzxWI5DhXsQxE1wxEcC6cL+BUBfk+cOX40yCQNgt2BOrt/ugueoPHNZE5j5DaoRIma6XSWf55aH0=
-X-Received: by 2002:a05:622a:4e8f:b0:460:3f4a:40a1 with SMTP id
- d75a77b69052e-462fa5a3211mr4869671cf.13.1730995053179; Thu, 07 Nov 2024
- 07:57:33 -0800 (PST)
-MIME-Version: 1.0
-References: <20241107071600.9082-1-irogers@google.com> <20241107082807.ipb7xzqvs24tto2e@hippo>
-In-Reply-To: <20241107082807.ipb7xzqvs24tto2e@hippo>
+        d=1e100.net; s=20230601; t=1730996441; x=1731601241;
+        h=to:from:subject:mime-version:message-id:date:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=v57hY9ptVyUkWxpU5CBHz4hqYdCeNDSYBzpW7YMhHII=;
+        b=W9IFaIFUaPmWPhdQKhBPaJuddpcxGVP2EZeSsNEa2bl5+kDaNzs6u4ecWsadIgO9F/
+         5ToboyrF03mj/h7OMI6rRWmkttZg2oP3z/hEkunwG2hq6UkoQY5ZrREXrZkXFGOEHrIW
+         e27VlarpTlxCDUSlCp+bDSRA2QdqVYZ866TAXkqXw4jw+9kOx1gSz5a1R2oC7D0xr4rz
+         b2F6AjXDZ4He7UPq0GUO9AwN+e3I6tqln5MWhVyyp4Kt3vxglc1CESnHyslTNnKdPlNr
+         eG+T8rH82k9ujtcsg8g95q7B/ahydo+cAT1mIl7pdzIZ4hxhSXn8mOLWJq3Jw9KU2a8r
+         dMVw==
+X-Forwarded-Encrypted: i=1; AJvYcCU6LaS7EXpGXYymD9Hw39Usia5sAxYgw6zemmtacz0rSoeduU3VmPpj+8LzKJ2p7JuI3dNYJ4r5D+Vd7w==@lists.infradead.org
+X-Gm-Message-State: AOJu0YytO74yXwOJUDF8+odZsytfiEIcHlJ4EXMFN1mFR8gcjZRD4AIc
+	HBSz4GHGTQ0BRVwZWaU0SaY/CAQExwK/QMVHSC5nQaHWn8hHzUTJTHqatJ/jI3RtKTm4M31atNS
+	e3P02kA==
+X-Google-Smtp-Source: AGHT+IHC0X+WZsmRaD10ygx7XOVdKB/UZb7/tV2Np4btpUBS2SgGAemSgZHBuWrvuUd2DVUs75+KuuMxxrqo
+X-Received: from irogers.svl.corp.google.com ([2620:15c:2c5:11:acc7:bda:7167:18d8])
+ (user=irogers job=sendgmr) by 2002:a05:690c:13:b0:6ea:8651:4b27 with SMTP id
+ 00721157ae682-6eadc1065acmr1207b3.5.1730996440734; Thu, 07 Nov 2024 08:20:40
+ -0800 (PST)
+Date: Thu,  7 Nov 2024 08:20:27 -0800
+Message-Id: <20241107162035.52206-1-irogers@google.com>
+Mime-Version: 1.0
+X-Mailer: git-send-email 2.47.0.199.ga7371fff76-goog
+Subject: [PATCH v2 0/8] Refactor cpuid and metric table lookup code
 From: Ian Rogers <irogers@google.com>
-Date: Thu, 7 Nov 2024 07:57:21 -0800
-Message-ID: <CAP-5=fXn3GSR88=UVqZ6zxsuv6s+ZBMGY1A0U8D-_oU4sm10kQ@mail.gmail.com>
-Subject: Re: [PATCH v1 0/7] Refactor cpuid and metric table lookup code
-To: Xu Yang <xu.yang_2@nxp.com>
-Cc: John Garry <john.g.garry@oracle.com>, Will Deacon <will@kernel.org>, 
+To: John Garry <john.g.garry@oracle.com>, Will Deacon <will@kernel.org>, 
 	James Clark <james.clark@linaro.org>, Mike Leach <mike.leach@linaro.org>, 
 	Leo Yan <leo.yan@linux.dev>, Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
 	Arnaldo Carvalho de Melo <acme@kernel.org>, Namhyung Kim <namhyung@kernel.org>, 
 	Mark Rutland <mark.rutland@arm.com>, 
 	Alexander Shishkin <alexander.shishkin@linux.intel.com>, Jiri Olsa <jolsa@kernel.org>, 
-	Adrian Hunter <adrian.hunter@intel.com>, Kan Liang <kan.liang@linux.intel.com>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Huacai Chen <chenhuacai@kernel.org>, 
-	Bibo Mao <maobibo@loongson.cn>, Athira Rajeev <atrajeev@linux.vnet.ibm.com>, 
-	Ben Zong-You Xie <ben717@andestech.com>, Alexandre Ghiti <alexghiti@rivosinc.com>, 
-	Sandipan Das <sandipan.das@amd.com>, Benjamin Gray <bgray@linux.ibm.com>, 
-	Ravi Bangoria <ravi.bangoria@amd.com>, =?UTF-8?Q?Cl=C3=A9ment_Le_Goffic?= <clement.legoffic@foss.st.com>, 
-	Yicong Yang <yangyicong@hisilicon.com>, 
+	Ian Rogers <irogers@google.com>, Adrian Hunter <adrian.hunter@intel.com>, 
+	Kan Liang <kan.liang@linux.intel.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Huacai Chen <chenhuacai@kernel.org>, Bibo Mao <maobibo@loongson.cn>, 
+	Athira Rajeev <atrajeev@linux.vnet.ibm.com>, Ben Zong-You Xie <ben717@andestech.com>, 
+	Alexandre Ghiti <alexghiti@rivosinc.com>, Sandipan Das <sandipan.das@amd.com>, 
+	Benjamin Gray <bgray@linux.ibm.com>, Xu Yang <xu.yang_2@nxp.com>, 
+	Ravi Bangoria <ravi.bangoria@amd.com>, 
+	"=?UTF-8?q?Cl=C3=A9ment=20Le=20Goffic?=" <clement.legoffic@foss.st.com>, Yicong Yang <yangyicong@hisilicon.com>, 
 	"Masami Hiramatsu (Google)" <mhiramat@kernel.org>, Dima Kogan <dima@secretsauce.net>, 
 	"Dr. David Alan Gilbert" <linux@treblig.org>, linux-arm-kernel@lists.infradead.org, 
 	linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org, 
 	linux-riscv@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241107_075734_681983_414A3E96 
-X-CRM114-Status: GOOD (  18.44  )
+X-CRM114-CacheID: sfid-20241107_082042_650187_6057AC3F 
+X-CRM114-Status: GOOD (  12.00  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,63 +99,62 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gVGh1LCBOb3YgNywgMjAyNCBhdCAxOjA14oCvQU0gWHUgWWFuZyA8eHUueWFuZ18yQG54cC5j
-b20+IHdyb3RlOgo+Cj4gSGkgSWFuIFJvZ2VycywKPgo+IE9uIFdlZCwgTm92IDA2LCAyMDI0IGF0
-IDExOjE1OjUzUE0gLTA4MDAsIElhbiBSb2dlcnMgd3JvdGU6Cj4gPiBYdSBZYW5nIDx4dS55YW5n
-XzJAbnhwLmNvbT4gcmVwb3J0ZWQgaXNzdWVzIHdpdGggdGhlIHN5c3RlbSBtZXRyaWMKPiA+IGxv
-b2t1cDoKPiA+IGh0dHBzOi8vbG9yZS5rZXJuZWwub3JnL2xpbnV4LXBlcmYtdXNlcnMvMjAyNDEx
-MDYwODU0NDEuMzk0NTUwMi0xLXh1LnlhbmdfMkBueHAuY29tLwo+ID4gVGhlc2UgcGF0Y2hlcyBy
-ZW1vdmUgYSBsb3Qgb2YgdGhlIGxvZ2ljIHJlbGF0aW5nIENQVUlEcyB0byBQTVVzIHNvCj4gPiB0
-aGF0IHRoZSBQTVUgaXNuJ3QgcGFydCBvZiB0aGUgcXVlc3Rpb24gd2hlbiBmaW5kaW5nIGEgbWV0
-cmljIHRhYmxlLgo+ID4gRm9yIHRpbWUgcmVhc29ucywgaXQgZG9lc24ndCBnbyBhcyBmYXIgYXMg
-YWxsb3dpbmcgc3lzdGVtIG1ldHJpY3MKPiA+IHdpdGhvdXQgYSBtZXRyaWMgdGFibGUgYXMgYSBt
-ZXRyaWMgdGFibGUgaXMgbmVlZGVkIGZvciBtZXRyaWNzIHRvCj4gPiByZWZlciB0byBvdGhlciBt
-ZXRyaWNzLCBhbmQgdGhlIHJlZmFjdG9yaW5nIG9mIHRoYXQgcmVzb2x1dGlvbiBpcyBhCj4gPiBo
-YXNzbGUuCj4gPgo+ID4gSWFuIFJvZ2VycyAoNyk6Cj4gPiAgIHBlcmYgaGVhZGVyOiBNb3ZlIGlz
-X2NwdV9vbmxpbmUgdG8gbnVtYSBiZW5jaAo+ID4gICBwZXJmIGhlYWRlcjogUmVmYWN0b3IgZ2V0
-X2NwdWlkIHRvIHRha2UgYSBDUFUgZm9yIEFSTQo+ID4gICBwZXJmIGFybTY0IGhlYWRlcjogVXNl
-IGNwdSBhcmd1bWVudCBpbiBnZXRfY3B1aWQKPiA+ICAgcGVyZiBoZWFkZXI6IEF2b2lkIHRyYW5z
-aXRpdmUgUE1VIGluY2x1ZGVzCj4gPiAgIHBlcmYgaGVhZGVyOiBQYXNzIGEgcGVyZl9jcHUgcmF0
-aGVyIHRoYW4gYSBQTVUgdG8gZ2V0X2NwdWlkX3N0cgo+ID4gICBwZXJmIGpldmVudHM6IEFkZCBt
-YXBfZm9yX2NwdQo+ID4gICBwZXJmIHBtdTogTW92ZSBwbXVfbWV0cmljc190YWJsZV9fZmluZCBh
-bmQgcmVtb3ZlIEFSTSBvdmVycmlkZQo+ID4KPiA+ICB0b29scy9wZXJmL2FyY2gvYXJtNjQvdXRp
-bC9hcm0tc3BlLmMgICAgIHwgMTQgKy0tLQo+ID4gIHRvb2xzL3BlcmYvYXJjaC9hcm02NC91dGls
-L2hlYWRlci5jICAgICAgfCA3MyArKysrKysrKysrLS0tLS0tLS0tLS0KPiA+ICB0b29scy9wZXJm
-L2FyY2gvYXJtNjQvdXRpbC9wbXUuYyAgICAgICAgIHwgMjAgLS0tLS0tCj4gPiAgdG9vbHMvcGVy
-Zi9hcmNoL2xvb25nYXJjaC91dGlsL2hlYWRlci5jICB8ICA0ICstCj4gPiAgdG9vbHMvcGVyZi9h
-cmNoL3Bvd2VycGMvdXRpbC9oZWFkZXIuYyAgICB8ICA0ICstCj4gPiAgdG9vbHMvcGVyZi9hcmNo
-L3Jpc2N2L3V0aWwvaGVhZGVyLmMgICAgICB8ICA0ICstCj4gPiAgdG9vbHMvcGVyZi9hcmNoL3Mz
-OTAvdXRpbC9oZWFkZXIuYyAgICAgICB8ICA2ICstCj4gPiAgdG9vbHMvcGVyZi9hcmNoL3g4Ni91
-dGlsL2F1eHRyYWNlLmMgICAgICB8ICAzICstCj4gPiAgdG9vbHMvcGVyZi9hcmNoL3g4Ni91dGls
-L2hlYWRlci5jICAgICAgICB8ICA1ICstCj4gPiAgdG9vbHMvcGVyZi9iZW5jaC9udW1hLmMgICAg
-ICAgICAgICAgICAgICB8IDUxICsrKysrKysrKysrKysrKwo+Cj4gTWVldCBlcnJvciB3aGVuIGJ1
-aWxkIHBlcmYgdG9vbDoKPgo+ICAgQ0MgICAgICB1dGlsL2xldmVuc2h0ZWluLm8KPiAgIENDICAg
-ICAgdGVzdHMvbWVtLm8KPiAgIENDICAgICAgdXRpbC9tbWFwLm8KPiBiZW5jaC9udW1hLmM6IElu
-IGZ1bmN0aW9uIOKAmGlzX2NwdV9vbmxpbmXigJk6Cj4gYmVuY2gvbnVtYS5jOjU1MDoyMTogZXJy
-b3I6IHN0b3JhZ2Ugc2l6ZSBvZiDigJhzdGF0YnVm4oCZIGlzbuKAmXQga25vd24KPiAgIDU1MCB8
-ICAgICAgICAgc3RydWN0IHN0YXQgc3RhdGJ1ZjsKPiAgICAgICB8ICAgICAgICAgICAgICAgICAg
-ICAgXn5+fn5+fgo+IGJlbmNoL251bWEuYzo1NTQ6MTM6IGVycm9yOiBpbXBsaWNpdCBkZWNsYXJh
-dGlvbiBvZiBmdW5jdGlvbiDigJhzdGF04oCZOyBkaWQgeW91IG1lYW4g4oCYc3RyY2F04oCZPyBb
-LVdlcnJvcj1pbXBsaWNpdC1mdW5jdGlvbi1kZWNsYXJhdGlvbl0KPiAgIDU1NCB8ICAgICAgICAg
-aWYgKHN0YXQoYnVmLCAmc3RhdGJ1ZikgIT0gMCkKPiAgICAgICB8ICAgICAgICAgICAgIF5+fn4K
-PiAgICAgICB8ICAgICAgICAgICAgIHN0cmNhdAo+IGJlbmNoL251bWEuYzo1Nzg6MTM6IGVycm9y
-OiBpbXBsaWNpdCBkZWNsYXJhdGlvbiBvZiBmdW5jdGlvbiDigJhzeXNmc19fcmVhZF9zdHLigJkg
-Wy1XZXJyb3I9aW1wbGljaXQtZnVuY3Rpb24tZGVjbGFyYXRpb25dCj4gICA1NzggfCAgICAgICAg
-IGlmIChzeXNmc19fcmVhZF9zdHIoYnVmLCAmc3RyLCAmc3RybGVuKSA8IDApCj4gICAgICAgfCAg
-ICAgICAgICAgICBefn5+fn5+fn5+fn5+fn4KPiBiZW5jaC9udW1hLmM6NTUwOjIxOiBlcnJvcjog
-dW51c2VkIHZhcmlhYmxlIOKAmHN0YXRidWbigJkgWy1XZXJyb3I9dW51c2VkLXZhcmlhYmxlXQo+
-ICAgNTUwIHwgICAgICAgICBzdHJ1Y3Qgc3RhdCBzdGF0YnVmOwo+ICAgICAgIHwgICAgICAgICAg
-ICAgICAgICAgICBefn5+fn5+Cj4gICBDQyAgICAgIHRlc3RzL2NwdW1hcC5vCj4gICBDQyAgICAg
-IHRlc3RzL3N0YXQubwo+Cj4gQWZ0ZXIgcmVtb3ZlIHRoZXNlIGVycm9ycywgbXkgaXNzdWUgaXMg
-ZGlzYXBwZWFyZWQuCgpUaGFua3MsIEknbGwgZml4IHRoaXMgaW4gdjIuIEknbGwgYWxzbyBhZGQg
-eW91ciBwYXRjaCB0byB0aGUgZnJvbnQgZm9yCnRoZSBzYWtlIG9mIGJhY2twb3J0IGZpeGluZy4g
-SWYgeW91IGNvdWxkIHByb3ZpZGUgdGFncyBmb3IgbXkgY2hhbmdlcwppdCB3b3VsZCBiZSBhcHBy
-ZWNpYXRlZC4KClRoYW5rcywKSWFuCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMu
-aW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZv
-L2xpbnV4LXJpc2N2Cg==
+Xu Yang <xu.yang_2@nxp.com> reported issues with the system metric
+lookup:
+https://lore.kernel.org/linux-perf-users/20241106085441.3945502-1-xu.yang_2@nxp.com/
+These patches remove a lot of the logic relating CPUIDs to PMUs so
+that the PMU isn't part of the question when finding a metric table.
+For time reasons, it doesn't go as far as allowing system metrics
+without a metric table as a metric table is needed for metrics to
+refer to other metrics, and the refactoring of that resolution is a
+hassle.
+
+Ian Rogers (7):
+  perf header: Move is_cpu_online to numa bench
+  perf header: Refactor get_cpuid to take a CPU for ARM
+  perf arm64 header: Use cpu argument in get_cpuid
+  perf header: Avoid transitive PMU includes
+  perf header: Pass a perf_cpu rather than a PMU to get_cpuid_str
+  perf jevents: Add map_for_cpu
+  perf pmu: Move pmu_metrics_table__find and remove ARM override
+
+Xu Yang (1):
+  perf jevents: fix breakage when do perf stat on system metric
+
+ tools/perf/arch/arm64/util/arm-spe.c     | 14 +---
+ tools/perf/arch/arm64/util/header.c      | 73 ++++++++++-----------
+ tools/perf/arch/arm64/util/pmu.c         | 20 ------
+ tools/perf/arch/loongarch/util/header.c  |  4 +-
+ tools/perf/arch/powerpc/util/header.c    |  4 +-
+ tools/perf/arch/riscv/util/header.c      |  4 +-
+ tools/perf/arch/s390/util/header.c       |  6 +-
+ tools/perf/arch/x86/util/auxtrace.c      |  3 +-
+ tools/perf/arch/x86/util/header.c        |  5 +-
+ tools/perf/bench/numa.c                  | 53 +++++++++++++++
+ tools/perf/builtin-kvm.c                 |  4 +-
+ tools/perf/pmu-events/empty-pmu-events.c | 39 ++++++-----
+ tools/perf/pmu-events/jevents.py         | 39 ++++++-----
+ tools/perf/pmu-events/pmu-events.h       |  2 +-
+ tools/perf/tests/expr.c                  |  5 +-
+ tools/perf/util/env.c                    |  4 +-
+ tools/perf/util/expr.c                   |  6 +-
+ tools/perf/util/header.c                 | 82 ++++++++----------------
+ tools/perf/util/header.h                 | 23 +++----
+ tools/perf/util/pmu.c                    | 25 --------
+ tools/perf/util/pmu.h                    |  2 -
+ tools/perf/util/probe-event.c            |  1 +
+ 22 files changed, 189 insertions(+), 229 deletions(-)
+
+-- 
+2.47.0.199.ga7371fff76-goog
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
