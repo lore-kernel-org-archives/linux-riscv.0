@@ -4,84 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95F28D64099
-	for <linux-riscv@archiver.kernel.org>; Fri,  8 Nov 2024 23:17:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9B13D64097
+	for <linux-riscv@archiver.kernel.org>; Fri,  8 Nov 2024 23:48:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Lg40+u15OksJbvkLmtWzBtzKGiLPD2V8Uno94i8slIg=; b=z++ol0VubwiKc6
-	X94pMaaa5uTXDELJuPWm/QWV3OC0b09xwTIxB8lvqJJhJWRjWnOc/Dt0IbviIxHHcnSEP1CdSakbT
-	/aksff4J/HE6Rzu47AGD/Jj9bVVMzf5+cBrJRcYDHKOcUEs1ZiW40jr+s9OVoG2eqnQCi0aAtHNrl
-	tN2KVBU64OMccADjcX66UbmuNUdlbu8aFu36FYHwfy6mZI4gqa18ZY8CxN9H96B/sc/psddx92XaA
-	me/K3Gb/eyP7HOb1AAYo/eWe9vg4tLBZxzks7/kiYg/SKOgcpJlx5BP5epBb0OQz4oDUADy587+V0
-	hTY0fdVft+tUayjCl8BA==;
+	List-Archive:List-Unsubscribe:List-Id:To:From:Subject:Mime-Version:Message-Id
+	:Date:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=R5ghFEHtQAVUWd3/N0Bv3MnpbjJtPrRBx/4colE8TAs=; b=RMF1I6LbRs7hF0
+	MgXia1K/W2zS0/cBgWZlgFPzISfSFiXFhUgXFY0cEeI0kBclz0XavB6yTdLdYdORfHz3hr7Y+fYPC
+	z5GdMRafXWUuFd+56Xot7VSA1GEQsYcknrDDWx5pUOmco1GLBmaSFdYZFIakgMM4UoMfI3+9nmsJu
+	JQVl72h5IXEiI02lFnjMiFhhN9TFvrjHV3IPHgdjUEATuCsGyqbZqEH0jEyK5bSq9XaFEFp8dpRan
+	TGxr/7eZ72T6SRfDJ2s3p/Tc6Up0nXDXVQK7efBd3dtaOjYa2f/iXtFH/zo5dw26/H3KDfg/3bwR1
+	5osytVtLTzv+z9FhFP+w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t9YDn-0000000CCeu-1NMa;
-	Fri, 08 Nov 2024 23:16:55 +0000
-Received: from mail-pf1-x433.google.com ([2607:f8b0:4864:20::433])
+	id 1t9Yi5-0000000CFh0-3TM1;
+	Fri, 08 Nov 2024 23:48:13 +0000
+Received: from mail-yw1-x114a.google.com ([2607:f8b0:4864:20::114a])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t9YDI-0000000CCYN-17Pn
+	id 1t9Yg8-0000000CEwM-34TI
 	for linux-riscv@lists.infradead.org;
-	Fri, 08 Nov 2024 23:16:25 +0000
-Received: by mail-pf1-x433.google.com with SMTP id d2e1a72fcca58-720aa3dbda5so2039588b3a.1
-        for <linux-riscv@lists.infradead.org>; Fri, 08 Nov 2024 15:16:23 -0800 (PST)
+	Fri, 08 Nov 2024 23:46:14 +0000
+Received: by mail-yw1-x114a.google.com with SMTP id 00721157ae682-6ea33aad097so41864297b3.0
+        for <linux-riscv@lists.infradead.org>; Fri, 08 Nov 2024 15:46:11 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1731107783; x=1731712583; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=3s19kqrmyY22Y7qqFzMaAHjUFofrm4HNgSWYVbsk21c=;
-        b=E1VMYWb86M3KrO6mRE755ZLM5T7EHZZkoJtWD/fkmwb3TE70OnDA85Rdt6SXd8jHN4
-         G4M14cvEYsAb7qn8U1Ez1YqpFC+uz+imd2+TwBFdwH0RUBjz2hkeuyi0D1r2IULNUsuC
-         DuzG3W8y4dTWQppzRsdwXOxb1++G3awlA5JE903WvNMnmzosNmlMQ+SZFnGYuWtgKsJ6
-         xwklS5sCLDPfdY9GsVY0GRfOL7ZH4AazkeWIDzpPxdUrO9TzEreSZbLVIEOQpqV4WuvC
-         ej+nINW2yvWlyxGdWI+cIU9Z8A2+6yOd57xsCw5ByWZzZzxqlQgybHlfYDQ8qZwwLerl
-         rbDw==
+        d=google.com; s=20230601; t=1731109570; x=1731714370; darn=lists.infradead.org;
+        h=to:from:subject:mime-version:message-id:date:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=Bo+XoNcfTiWt9dXZSAxdrxoaHvpnygZk759HUW2Tdtc=;
+        b=RGPdWmyMHfhtQUG/muH1GDT+oafqCdMHwVaC3pX7Xfi7oX1FH+gsEwp7EB7XGnaZ3t
+         JYohm32SkvOLOSUc7LHE0WrrrjkBNlVJJCppKdn9xGyZLEF8lvzauXJvoO2DL0WdKKgt
+         oL+jXYUDEDXyyOTsVhY2vIyLvCv2RtzfCykBRa+Z3G5WK6ZfkvDnnjCcyX5uk2cRsxDV
+         BiVxYFRrMdQEg2MbBj8fUO6lO8BjREhFY/3l6yya8+fDT6kECvMU3h22RDNcLgueYvUm
+         V83PClVaP1a0RsB02v7/nrOiQqal6KElV6m+NmeyxEC52NU+Hlw2k4dE8vUPoBHUly/f
+         gqAQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1731107783; x=1731712583;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=3s19kqrmyY22Y7qqFzMaAHjUFofrm4HNgSWYVbsk21c=;
-        b=iC6YlcAe6R2mf+Jm+wl9LI0dqddtOzGwuI9m/rm9cpkdK81oUNzD70RCNzpp0Krs3b
-         SWgi2AqiWo2T02jnlOLNm7Qt61+Qq6KVFyxSsywXfwodijMuAM3uwwo0kCVKQkQJgQPp
-         OgKiv5skSlp0MChlBc4IHId8/qZco04W82vgNbuums17gQ+AB1/Oq8B6ahnEekWMiEr+
-         YfG9qhdfzVr0AEClTwLJy3ERF2/K3yMOBN8H8dZZkviiChvmMEGdL/SsKdyopVJfnSc1
-         8XS92ExTpLsszwe46FLP3xSmD0fV/Zy40oPEVo1WjSCDnqtYxQIpVhjwwSC01aXGXc2D
-         LXwA==
-X-Forwarded-Encrypted: i=1; AJvYcCXD8F0XbyS4uYb/D+bwh53m0uBcdGfvc+GfpU/Ttgq/nS9JaQk+XG003r5conJTdh+ivd3Y3cqyYMQKww==@lists.infradead.org
-X-Gm-Message-State: AOJu0YyZY58NqgcJeGb97fACTGlwtyyk5mbuukYBxT+ghK/yDz6XGAZ4
-	JgFTFT7M2WP/v0NpDkalcAbCTHnl90q1tEhzSQ/DtK3bvmoWMnwLpoiKD4UcsOo=
-X-Google-Smtp-Source: AGHT+IHWS2zI7KGQTmBA7oV9V+N8SCN4SRWJ3iSOSny0p4gLDXp0McEBB/xZ6NoObJZivwctCIwgIQ==
-X-Received: by 2002:a17:90b:5447:b0:2d8:a672:1869 with SMTP id 98e67ed59e1d1-2e9b174807emr6165396a91.32.1731107782960;
-        Fri, 08 Nov 2024 15:16:22 -0800 (PST)
-Received: from ghost ([50.145.13.30])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-21177dc82a8sm36221385ad.28.2024.11.08.15.16.21
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 08 Nov 2024 15:16:22 -0800 (PST)
-Date: Fri, 8 Nov 2024 15:16:19 -0800
-From: Charlie Jenkins <charlie@rivosinc.com>
-To: Jesse T <mr.bossman075@gmail.com>
-Cc: Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Palmer Dabbelt <palmer@rivosinc.com>,
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH for-next] riscv: Fix default misaligned access trap
-Message-ID: <Zy6bw8Fnkxl2Q78K@ghost>
-References: <20241107-fix_handle_misaligned_load-v1-1-07d7852c9991@rivosinc.com>
- <CAJFTR8RBcoqYmWNmNe_ZixO3bv2aP-wGCbX7ieorXYxxMAa7BA@mail.gmail.com>
- <CAJFTR8Sas83NkRPSuSdbb3qtDNra=cbinPoBmpyt4_ic8R5LQg@mail.gmail.com>
-MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <CAJFTR8Sas83NkRPSuSdbb3qtDNra=cbinPoBmpyt4_ic8R5LQg@mail.gmail.com>
+        d=1e100.net; s=20230601; t=1731109570; x=1731714370;
+        h=to:from:subject:mime-version:message-id:date:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=Bo+XoNcfTiWt9dXZSAxdrxoaHvpnygZk759HUW2Tdtc=;
+        b=mi8Oc3wkxmD3xR7ySxpxYjdGd7ZO5ZnP0LFUV2ufJYB74Xd3YqOPQPcpzKaC4BPjNF
+         udmBlxKVvGhgabBfbxUmAqO/3SgFLf2HXTNMmpZk0iuxA+yedmvF+SDPx9OdGFrJuNdC
+         +413kYhakGwgYGiTlqLQ3ifNJEhyJcuWK5zjTDnqK+PvkUHHdvmhMfKBlA4TL/rHaTkF
+         OzRTgheskeTDjdiWdfR9Dokdaz0s8g9aYKh4CEIao8HzoKCtQLWuHT+eL3UTVlqOYAau
+         9uRJ6bkfGpXE2cBmeRFrA0m8b0PW+V3ZELKTSjMVtTMaUOrZc8Gg+jxwBZ5+McBqIoPL
+         Cf2A==
+X-Forwarded-Encrypted: i=1; AJvYcCV056iVYYc5dFJpc9l4TariGkCtEPQBeGnR6rlHrIoEwnZWYyQwiG89yDKFWzbcY2jg7QIvckt+YfrG5Q==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw1pbQ7yahXyc52L0tqTSsixC6VhfLgq8hgVwKQM9Ao/2beXfYK
+	Sspn4q9e4uOAXKkDcOwbzcA38gKhKPd3WXsjfmsCWM2mCYc7XLpLpR8RzZ4EnpaFBrV78H8CSvE
+	gbRPZsw==
+X-Google-Smtp-Source: AGHT+IG7nNHrZbf62YTEIFaabL+CBo69CYr9RS79+TUQD474jGBOE4r4BpO1ymNXWY8gOslRzk6deJr/eKGp
+X-Received: from irogers.svl.corp.google.com ([2620:15c:2c5:11:6fd2:1e36:6d8c:7c49])
+ (user=irogers job=sendgmr) by 2002:a25:d843:0:b0:e29:7454:e773 with SMTP id
+ 3f1490d57ef6-e337e1d738cmr20475276.5.1731109569972; Fri, 08 Nov 2024 15:46:09
+ -0800 (PST)
+Date: Fri,  8 Nov 2024 15:45:45 -0800
+Message-Id: <20241108234606.429459-1-irogers@google.com>
+Mime-Version: 1.0
+X-Mailer: git-send-email 2.47.0.277.g8800431eea-goog
+Subject: [PATCH v4 00/20] Remove PERF_HAVE_DWARF_REGS
+From: Ian Rogers <irogers@google.com>
+To: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
+	Arnaldo Carvalho de Melo <acme@kernel.org>, Namhyung Kim <namhyung@kernel.org>, 
+	Mark Rutland <mark.rutland@arm.com>, 
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>, Jiri Olsa <jolsa@kernel.org>, 
+	Ian Rogers <irogers@google.com>, Adrian Hunter <adrian.hunter@intel.com>, 
+	Kan Liang <kan.liang@linux.intel.com>, John Garry <john.g.garry@oracle.com>, 
+	Will Deacon <will@kernel.org>, James Clark <james.clark@linaro.org>, 
+	Mike Leach <mike.leach@linaro.org>, Leo Yan <leo.yan@linux.dev>, Guo Ren <guoren@kernel.org>, 
+	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, Nick Terrell <terrelln@fb.com>, 
+	"Masami Hiramatsu (Google)" <mhiramat@kernel.org>, Changbin Du <changbin.du@huawei.com>, 
+	Guilherme Amadio <amadio@gentoo.org>, Yang Jihong <yangjihong@bytedance.com>, 
+	Aditya Gupta <adityag@linux.ibm.com>, Athira Rajeev <atrajeev@linux.vnet.ibm.com>, 
+	Masahiro Yamada <masahiroy@kernel.org>, Bibo Mao <maobibo@loongson.cn>, 
+	Huacai Chen <chenhuacai@kernel.org>, Kajol Jain <kjain@linux.ibm.com>, 
+	Atish Patra <atishp@rivosinc.com>, Shenlin Liang <liangshenlin@eswincomputing.com>, 
+	Anup Patel <anup@brainfault.org>, Oliver Upton <oliver.upton@linux.dev>, 
+	"Steinar H. Gunderson" <sesse@google.com>, "Dr. David Alan Gilbert" <linux@treblig.org>, 
+	Chen Pei <cp0613@linux.alibaba.com>, Dima Kogan <dima@secretsauce.net>, 
+	Przemek Kitszel <przemyslaw.kitszel@intel.com>, "David S. Miller" <davem@davemloft.net>, 
+	Alexander Lobakin <aleksander.lobakin@intel.com>, linux-kernel@vger.kernel.org, 
+	linux-perf-users@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-csky@vger.kernel.org, linux-riscv@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241108_151624_547448_BA023E2F 
-X-CRM114-Status: GOOD (  19.72  )
+X-CRM114-CacheID: sfid-20241108_154612_805214_F05D1B9F 
+X-CRM114-Status: GOOD (  20.72  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,55 +103,166 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gRnJpLCBOb3YgMDgsIDIwMjQgYXQgMDU6MTI6MDRQTSAtMDUwMCwgSmVzc2UgVCB3cm90ZToK
-PiBPbiBGcmksIE5vdiA4LCAyMDI0IGF0IDU6MDnigK9QTSBKZXNzZSBUIDxtci5ib3NzbWFuMDc1
-QGdtYWlsLmNvbT4gd3JvdGU6Cj4gPgo+ID4gT24gVGh1LCBOb3YgNywgMjAyNCBhdCA1OjM44oCv
-UE0gQ2hhcmxpZSBKZW5raW5zIDxjaGFybGllQHJpdm9zaW5jLmNvbT4gd3JvdGU6Cj4gPiA+Cj4g
-PiA+IENvbW1pdCBkMTcwM2RjN2JjOGUgKCJSSVNDLVY6IERldGVjdCB1bmFsaWduZWQgdmVjdG9y
-IGFjY2Vzc2VzCj4gPiA+IHN1cHBvcnRlZCIpIHJlbW92ZWQgdGhlIGRlZmF1bHQgaGFuZGxlcnMg
-Zm9yIGhhbmRsZV9taXNhbGlnbmVkX2xvYWQoKQo+ID4gPiBhbmQgaGFuZGxlX21pc2FsaWduZWRf
-c3RvcmUoKS4gV2hlbiB0aGUga2VybmVsIGlzIGNvbXBpbGVkIHdpdGhvdXQKPiA+ID4gUklTQ1Zf
-U0NBTEFSX01JU0FMSUdORUQKPiA+IFRlY2huaWNhbGx5IENPTkZJR19SSVNDVl9NSVNBTElHTkVE
-Lgo+ID4gSSBhcHBhcmVudGx5IGNoYW5nZWQgYCtvYmoteSArPSB0cmFwc19taXNhbGlnbmVkLm9g
-IHRvCj4gPiBgK29iai0kKENPTkZJR19SSVNDVl9NSVNBTElHTkVEKSArPSB0cmFwc19taXNhbGln
-bmVkLm9gCj4gPiBpbiBWMiBhbmQgZGlkbid0IGNoYW5nZSB0aGF0IGNoZWNrIGJhY2sgb29wcyBz
-b3JyeS4KPiA+Cj4gPiA+ICwgdGhlc2UgaGFuZGxlcnMgYXJlIG5ldmVyIGRlZmluZWQsIGNhdXNp
-bmcKPiA+ID4gY29tcGlsYXRpb24gZXJyb3JzLgo+ID4gPgo+ID4gPiBTaWduZWQtb2ZmLWJ5OiBD
-aGFybGllIEplbmtpbnMgPGNoYXJsaWVAcml2b3NpbmMuY29tPgo+ID4gU2lnbmVkLW9mZi1ieTog
-SmVzc2UgVGF1YmUgPG1yLmJvc3NtYW4wNzVAZ21haWwuY29tPgo+ID4KPiA+ID4gRml4ZXM6IGQx
-NzAzZGM3YmM4ZSAoIlJJU0MtVjogRGV0ZWN0IHVuYWxpZ25lZCB2ZWN0b3IgYWNjZXNzZXMgc3Vw
-cG9ydGVkIikKPiA+ID4gLS0tCj4gPiA+ICBhcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL2VudHJ5LWNv
-bW1vbi5oIHwgMTIgKysrKysrKysrKysrCj4gPiA+ICAxIGZpbGUgY2hhbmdlZCwgMTIgaW5zZXJ0
-aW9ucygrKQo+ID4gPgo+ID4gPiBkaWZmIC0tZ2l0IGEvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9l
-bnRyeS1jb21tb24uaCBiL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20vZW50cnktY29tbW9uLmgKPiA+
-ID4gaW5kZXggN2IzMmQyYjA4YmI2Li5jMjgwODU2MWRmODEgMTAwNjQ0Cj4gPiA+IC0tLSBhL2Fy
-Y2gvcmlzY3YvaW5jbHVkZS9hc20vZW50cnktY29tbW9uLmgKPiA+ID4gKysrIGIvYXJjaC9yaXNj
-di9pbmNsdWRlL2FzbS9lbnRyeS1jb21tb24uaAo+ID4gPiBAQCAtMjUsNyArMjUsMTkgQEAgc3Rh
-dGljIGlubGluZSB2b2lkIGFyY2hfZXhpdF90b191c2VyX21vZGVfcHJlcGFyZShzdHJ1Y3QgcHRf
-cmVncyAqcmVncywKPiA+ID4gIHZvaWQgaGFuZGxlX3BhZ2VfZmF1bHQoc3RydWN0IHB0X3JlZ3Mg
-KnJlZ3MpOwo+ID4gPiAgdm9pZCBoYW5kbGVfYnJlYWsoc3RydWN0IHB0X3JlZ3MgKnJlZ3MpOwo+
-ID4gPgo+ID4gPiArI2lmZGVmIENPTkZJR19SSVNDVl9TQ0FMQVJfTUlTQUxJR05FRAo+IAo+IE1l
-YW50IHRvIHNheSB0byBjaGFuZ2UgdGhpcyB0byBDT05GSUdfUklTQ1ZfTUlTQUxJR05FRC4KPiBB
-cyB0aGV5IGFyZSBkZWZpbmVkIHdoZW4gQ09ORklHX1JJU0NWX1NDQUxBUl9NSVNBTElHTkVEIGlz
-IGZhbHNlCj4gYW5kIENPTkZJR19SSVNDVl9WRUNUT0VfTUlTQUxJR05FRCBpcyB0cnVlLiB0aGV5
-IGFyZSBvbmx5IG5vdCBkZWZpbmVkIHdoZW4KPiBDT05GSUdfUklTQ1ZfU0NBTEFSX01JU0FMSUdO
-RUQgaXMgZmFsc2UuCgpPaCB5ZXMsIHRoYW5rIHlvdSEKCi0gQ2hhcmxpZQoKPiAKPiA+ID4gIGlu
-dCBoYW5kbGVfbWlzYWxpZ25lZF9sb2FkKHN0cnVjdCBwdF9yZWdzICpyZWdzKTsKPiA+ID4gIGlu
-dCBoYW5kbGVfbWlzYWxpZ25lZF9zdG9yZShzdHJ1Y3QgcHRfcmVncyAqcmVncyk7Cj4gPiA+ICsj
-ZWxzZQo+ID4gPiArc3RhdGljIGlubGluZSBpbnQgaGFuZGxlX21pc2FsaWduZWRfbG9hZChzdHJ1
-Y3QgcHRfcmVncyAqcmVncykKPiA+ID4gK3sKPiA+ID4gKyAgICAgICByZXR1cm4gLTE7Cj4gPiA+
-ICt9Cj4gPiA+ICsKPiA+ID4gK3N0YXRpYyBpbmxpbmUgaW50IGhhbmRsZV9taXNhbGlnbmVkX3N0
-b3JlKHN0cnVjdCBwdF9yZWdzICpyZWdzKQo+ID4gPiArewo+ID4gPiArICAgICAgIHJldHVybiAt
-MTsKPiA+ID4gK30KPiA+ID4gKyNlbmRpZgo+ID4gPgo+ID4gPiAgI2VuZGlmIC8qIF9BU01fUklT
-Q1ZfRU5UUllfQ09NTU9OX0ggKi8KPiA+ID4KPiA+ID4gLS0tCj4gPiA+IGJhc2UtY29tbWl0OiA3
-NDc0MWEwNTBiNzlkMzFkOGQyZWVlZTEyYzc3NzM2NTk2ZDBhNmIyCj4gPiA+IGNoYW5nZS1pZDog
-MjAyNDExMDctZml4X2hhbmRsZV9taXNhbGlnbmVkX2xvYWQtOGJlODZjYjA4MDZlCj4gPiA+IC0t
-Cj4gPiA+IC0gQ2hhcmxpZQo+ID4gPgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3Rz
-LmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5m
-by9saW51eC1yaXNjdgo=
+These changes were originally on top of:
+https://lore.kernel.org/lkml/20241017001354.56973-1-irogers@google.com/
+
+Prior to these patches PERF_HAVE_DWARF_REGS indicated the presence of
+dwarf-regs.c in the arch directory. dwarf-regs.c provided upto 4
+functions:
+
+1) regs_query_register_offset would translate a register name into a
+pt_regs offset and was used by BPF prologues. BPF prologues existed
+for BPF events and support for these was removed many releases ago.
+This code was dead and could be removed.
+
+2) get_arch_regstr duplicated get_dwarf_regstr and so it could be
+removed.  The case for csky was a little more complicated as the ABI
+controlled the string. The callers of get_dwarf_regstr were updated to
+also pass the ELF flags so that on csky the ABI appropriate table
+could be used. As the argument is only used on csky this a no-op for
+everything else.
+
+3) get_arch_regnum translated a register name back to a dwarf number
+and only existed on x86 where "al", "ax", "eax" and "rax" could all
+mean register 0. This code was moved to util with similar
+machine/flags logic to get_arch_regstr and for consistency with it.
+
+4) get_powerpc_regs a PowerPC specific function used by annotate that
+should really be in util.
+
+2 and 3 required the wiring through of the ELF machine and flags in
+callers to get_dwarf_regstr and get_dwarf_regnum. When these values
+weren't dependent on an ELF file a new EM_HOST and EF_HOST were added
+to give the host ELF machine and flags. These 2 #defines got rid of
+the existing separate arch files and #ifdefs.
+
+v4: Add CSky defines to dwarf-regs.h Add reviewed-by tags from Masami.
+v3: These files were separated from the rest of the v2 libdw clean up
+    in:
+https://lore.kernel.org/lkml/CAP-5=fVZH3L-6y_sxLwSmT8WyMXDMFnuqUksNULdQYJCPNBFYw@mail.gmail.com/
+
+Ian Rogers (20):
+  perf bpf-prologue: Remove unused file
+  perf dwarf-regs: Remove PERF_HAVE_ARCH_REGS_QUERY_REGISTER_OFFSET
+  perf dwarf-regs: Add EM_HOST and EF_HOST defines
+  perf disasm: Add e_machine/e_flags to struct arch
+  perf dwarf-regs: Pass accurate disassembly machine to get_dwarf_regnum
+  perf dwarf-regs: Pass ELF flags to get_dwarf_regstr
+  perf dwarf-regs: Move x86 dwarf-regs out of arch
+  perf arm64: Remove dwarf-regs.c
+  perf arm: Remove dwarf-regs.c
+  perf dwarf-regs: Move csky dwarf-regs out of arch
+  perf loongarch: Remove dwarf-regs.c
+  perf mips: Remove dwarf-regs.c
+  perf dwarf-regs: Move powerpc dwarf-regs out of arch
+  perf riscv: Remove dwarf-regs.c and add dwarf-regs-table.h
+  perf s390: Remove dwarf-regs.c
+  perf sh: Remove dwarf-regs.c
+  perf sparc: Remove dwarf-regs.c
+  perf xtensa: Remove dwarf-regs.c
+  perf dwarf-regs: Remove get_arch_regstr code
+  perf build: Remove PERF_HAVE_DWARF_REGS
+
+ tools/perf/Makefile.config                    |  17 +-
+ tools/perf/arch/arc/annotate/instructions.c   |   2 +
+ tools/perf/arch/arm/Makefile                  |   3 -
+ tools/perf/arch/arm/annotate/instructions.c   |   2 +
+ tools/perf/arch/arm/util/Build                |   2 -
+ tools/perf/arch/arm/util/dwarf-regs.c         |  61 -------
+ tools/perf/arch/arm64/Makefile                |   4 -
+ tools/perf/arch/arm64/annotate/instructions.c |   2 +
+ tools/perf/arch/arm64/util/Build              |   1 -
+ tools/perf/arch/arm64/util/dwarf-regs.c       |  92 -----------
+ tools/perf/arch/csky/Makefile                 |   4 -
+ tools/perf/arch/csky/annotate/instructions.c  |   7 +-
+ tools/perf/arch/csky/util/Build               |   1 -
+ tools/perf/arch/loongarch/Makefile            |   4 -
+ .../arch/loongarch/annotate/instructions.c    |   2 +
+ tools/perf/arch/loongarch/util/Build          |   1 -
+ tools/perf/arch/loongarch/util/dwarf-regs.c   |  44 -----
+ tools/perf/arch/mips/Makefile                 |   4 -
+ tools/perf/arch/mips/annotate/instructions.c  |   2 +
+ tools/perf/arch/mips/util/Build               |   1 -
+ tools/perf/arch/mips/util/dwarf-regs.c        |  38 -----
+ tools/perf/arch/powerpc/Makefile              |   5 -
+ .../perf/arch/powerpc/annotate/instructions.c |   2 +
+ tools/perf/arch/powerpc/util/Build            |   1 -
+ tools/perf/arch/powerpc/util/dwarf-regs.c     | 153 ------------------
+ tools/perf/arch/riscv/Makefile                |   5 +-
+ .../arch/riscv/include/dwarf-regs-table.h     |  42 +++++
+ tools/perf/arch/riscv/util/Build              |   1 -
+ tools/perf/arch/riscv/util/dwarf-regs.c       |  72 ---------
+ .../perf/arch/riscv64/annotate/instructions.c |   2 +
+ tools/perf/arch/s390/Makefile                 |   4 -
+ tools/perf/arch/s390/annotate/instructions.c  |   2 +
+ tools/perf/arch/s390/util/Build               |   1 -
+ tools/perf/arch/s390/util/dwarf-regs.c        |  43 -----
+ tools/perf/arch/sh/Build                      |   1 -
+ tools/perf/arch/sh/Makefile                   |   4 -
+ tools/perf/arch/sh/util/Build                 |   1 -
+ tools/perf/arch/sh/util/dwarf-regs.c          |  41 -----
+ tools/perf/arch/sparc/Build                   |   1 -
+ tools/perf/arch/sparc/Makefile                |   4 -
+ tools/perf/arch/sparc/annotate/instructions.c |   2 +
+ tools/perf/arch/sparc/util/Build              |   1 -
+ tools/perf/arch/sparc/util/dwarf-regs.c       |  39 -----
+ tools/perf/arch/x86/Makefile                  |   4 -
+ tools/perf/arch/x86/annotate/instructions.c   |   3 +-
+ tools/perf/arch/x86/util/Build                |   3 -
+ tools/perf/arch/x86/util/dwarf-regs.c         | 153 ------------------
+ tools/perf/arch/xtensa/Build                  |   1 -
+ tools/perf/arch/xtensa/Makefile               |   4 -
+ tools/perf/arch/xtensa/util/Build             |   1 -
+ tools/perf/arch/xtensa/util/dwarf-regs.c      |  21 ---
+ tools/perf/util/Build                         |   3 +
+ tools/perf/util/annotate.c                    |   6 +-
+ tools/perf/util/bpf-prologue.h                |  37 -----
+ tools/perf/util/disasm.c                      |   1 +
+ tools/perf/util/disasm.h                      |   4 +
+ .../dwarf-regs.c => util/dwarf-regs-csky.c}   |  19 +--
+ tools/perf/util/dwarf-regs-powerpc.c          |  61 +++++++
+ tools/perf/util/dwarf-regs-x86.c              |  50 ++++++
+ tools/perf/util/dwarf-regs.c                  |  38 +++--
+ tools/perf/util/include/dwarf-regs.h          | 120 +++++++++++---
+ tools/perf/util/probe-finder.c                |  13 +-
+ tools/perf/util/probe-finder.h                |   3 +-
+ 63 files changed, 339 insertions(+), 927 deletions(-)
+ delete mode 100644 tools/perf/arch/arm/util/dwarf-regs.c
+ delete mode 100644 tools/perf/arch/arm64/util/dwarf-regs.c
+ delete mode 100644 tools/perf/arch/csky/Makefile
+ delete mode 100644 tools/perf/arch/loongarch/util/dwarf-regs.c
+ delete mode 100644 tools/perf/arch/mips/util/dwarf-regs.c
+ delete mode 100644 tools/perf/arch/powerpc/util/dwarf-regs.c
+ create mode 100644 tools/perf/arch/riscv/include/dwarf-regs-table.h
+ delete mode 100644 tools/perf/arch/riscv/util/dwarf-regs.c
+ delete mode 100644 tools/perf/arch/s390/util/dwarf-regs.c
+ delete mode 100644 tools/perf/arch/sh/Build
+ delete mode 100644 tools/perf/arch/sh/Makefile
+ delete mode 100644 tools/perf/arch/sh/util/Build
+ delete mode 100644 tools/perf/arch/sh/util/dwarf-regs.c
+ delete mode 100644 tools/perf/arch/sparc/Build
+ delete mode 100644 tools/perf/arch/sparc/util/Build
+ delete mode 100644 tools/perf/arch/sparc/util/dwarf-regs.c
+ delete mode 100644 tools/perf/arch/x86/util/dwarf-regs.c
+ delete mode 100644 tools/perf/arch/xtensa/Build
+ delete mode 100644 tools/perf/arch/xtensa/Makefile
+ delete mode 100644 tools/perf/arch/xtensa/util/Build
+ delete mode 100644 tools/perf/arch/xtensa/util/dwarf-regs.c
+ delete mode 100644 tools/perf/util/bpf-prologue.h
+ rename tools/perf/{arch/csky/util/dwarf-regs.c => util/dwarf-regs-csky.c} (74%)
+ create mode 100644 tools/perf/util/dwarf-regs-powerpc.c
+ create mode 100644 tools/perf/util/dwarf-regs-x86.c
+
+-- 
+2.47.0.277.g8800431eea-goog
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
