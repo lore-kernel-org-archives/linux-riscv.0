@@ -4,98 +4,168 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9084D4335C
-	for <linux-riscv@archiver.kernel.org>; Fri,  8 Nov 2024 02:36:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F0FE2D5D69F
+	for <linux-riscv@archiver.kernel.org>; Fri,  8 Nov 2024 02:59:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=SDYWzcN4snMIeln0efRg/BrI9GjL2umuytPqn500cdk=; b=sHcZKlHPbpUJZ1
-	ztthR2HyJI5MS267mfgl2KNo6szE0bA3JeeEsTBLnf3QawR9GiSvXYByPs+m0gN+qPl5TMG7aQt82
-	nPH8MdrOkXqTOEZGFcSTQvFf0pHB3NQfSDgvC6BHR1uUQ/tPzIkg2YUXFvCN5SO5dXzFXFpPt4ykj
-	gcnFCJPZjOHLXtYyaCF/kvSCDsYof49rU1VhSxhsjrAKeGP48lMDQJ/KqYWc2Rah8bbngKbp/gOBk
-	ALvngZAfByKEOUwHACp+ZswqcFzMvmh6x/nYE2V1TUfB6LSFH+6cJJypkGBPyGlZXAmZJFfwao7xs
-	DXY1xKzqFLoah61qDauA==;
+	List-Owner; bh=NddwH8FeV5U6S7P2BkuZRixXV0gMsLCXzXIHy91vW5g=; b=SXMiXjYVRkXVct
+	7XAmcqNJ995YeHgSj/daLySRziZuF8vx4/Dna7GrsCWl7ef99r6D1sivBEhdKKEfSvBlwx+oScNFr
+	pN+0VPomyz8jpEYAuLhF0nDU4u484dHQYG9rG8jVunvqjiFV2p6HOthb9Akr3QoWf38wA3Rgj+L7x
+	CdGYgYk4u+6lsAO4fnQ3aMmSksrDVgnvqENfEN7X8JBkywDvdlZIMy7HvlQra39rJ5j7Aga2HmZHk
+	HLrPyUXNjIvcQz8IEB/NtnjUjWT8ngNwST890VkhsNRkblOWPApzBS9fslez5oloBjFq4bgVRXD8p
+	y7egJMKAaoIZf7RkFIWg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t9Er6-0000000929f-47vT;
-	Fri, 08 Nov 2024 02:36:12 +0000
-Received: from mail-pf1-x430.google.com ([2607:f8b0:4864:20::430])
+	id 1t9FDx-000000094s2-3R4G;
+	Fri, 08 Nov 2024 02:59:49 +0000
+Received: from mail-am0eur02on20605.outbound.protection.outlook.com ([2a01:111:f403:2606::605] helo=EUR02-AM0-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t9Er3-0000000928W-0DIj
-	for linux-riscv@lists.infradead.org;
-	Fri, 08 Nov 2024 02:36:11 +0000
-Received: by mail-pf1-x430.google.com with SMTP id d2e1a72fcca58-71ec997ad06so1327967b3a.3
-        for <linux-riscv@lists.infradead.org>; Thu, 07 Nov 2024 18:36:08 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=pdp7-com.20230601.gappssmtp.com; s=20230601; t=1731033368; x=1731638168; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=s+jyeFz5qLcpNF1wQeUyeaIh19p1lD8bQtGka/s8n1Q=;
-        b=ic52Cr0hOiQp6pQqDrqTmSCyZNhOuAsxogdwvOA644yIgvsUsRbTSjeRdpSTFqME7s
-         X6kLHXxQcS8U8ZqPlLNWxqi5zZMTO9xlTphAIO0t5aG0QhNezwObRoAEVkBk/mlcZbnU
-         a3Rw/dXFiI0OngZnMvbplK7KgdLgLU8FgOtyx0lSJ+dGiYJVSccvbF2xx2GNGgfTaHLO
-         9uo/HeCSiRk7cw4wPnJ81zcSYEaNlWiYbHbNHLw3cuULry09oUv4FZB1+fvZ0ba74SZR
-         3+9Yjcazkr5ydrb5qoVoR9+DR8NeY+xAlRCohDwTNtsM57Jfx7Y/Pffb3V+CPaV6IuTG
-         OZ8A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1731033368; x=1731638168;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=s+jyeFz5qLcpNF1wQeUyeaIh19p1lD8bQtGka/s8n1Q=;
-        b=e8MSKURamPSOayigBk8vYag5BnVlxZsEAYld5JRHHCVnn9DXsKJyNVJ8BiE80bI14S
-         01dp81kPk2aNSupOKKoOpP/ObH3Hp9e2uaLiX6eldYn4s1Dercr6cgfVX1Newf5iiNMr
-         KxJrZUIaje5TyfHsMFT6ISoljkdZTUCwfCQC86BUI7X//8oncK0lXTPg+TOyIdsSxJ4l
-         /yQe241kklWT0/TOUN15bKYzd2WuXVHrxCPJ1TbvO3OqGF9SHMohMqOqe/4VqDUt2AA2
-         M8gtkkD1zlbI5jqRyKZ8wn7QdAYw5K4X6EdVhvYafPXHJe4yz9wLyL2DXKNZ64AbkisD
-         tboA==
-X-Forwarded-Encrypted: i=1; AJvYcCXDcdQacCLTJ1CNr5V9ff657azJstaeB8F9IBiUO039kpkOIvvBmv2PfiYdc2H1FjX2ZnhwYzdF61Yjrw==@lists.infradead.org
-X-Gm-Message-State: AOJu0YxhZX/VmCJxf0wiL1HITG1ivckEElf0FT0pp7bC4ytO7aK/9Bnm
-	0DU8F0cpl+iWNiI6loD10pCnbvS1Z+AC8zDdCmtiHchrA5T0OvCEcnPV0Tv1Yu8=
-X-Google-Smtp-Source: AGHT+IFkTBYmvuaObrf/NhsL6bgy8VSLe5N8eK2nw/1LxrZ9F9SMeNiCvMwnlaaGOCdkpjvr4IsokQ==
-X-Received: by 2002:a05:6a00:1819:b0:71d:f510:b791 with SMTP id d2e1a72fcca58-724132cd1b1mr1832008b3a.12.1731033367828;
-        Thu, 07 Nov 2024 18:36:07 -0800 (PST)
-Received: from x1 (71-34-69-82.ptld.qwest.net. [71.34.69.82])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-72407a17ed3sm2541107b3a.142.2024.11.07.18.36.06
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 07 Nov 2024 18:36:07 -0800 (PST)
-Date: Thu, 7 Nov 2024 18:36:04 -0800
-From: Drew Fustini <drew@pdp7.com>
-To: Drew Fustini <dfustini@tenstorrent.com>
-Cc: Andrew Lunn <andrew@lunn.ch>, "David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Giuseppe Cavallaro <peppe.cavallaro@st.com>,
-	Jose Abreu <joabreu@synopsys.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Emil Renner Berthing <emil.renner.berthing@canonical.com>,
-	Jisheng Zhang <jszhang@kernel.org>, Guo Ren <guoren@kernel.org>,
-	Fu Wei <wefu@redhat.com>, Paul Walmsley <paul.walmsley@sifive.com>,
+	id 1t9FCC-000000094gi-29k1;
+	Fri, 08 Nov 2024 02:58:01 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=wz36aIZIPE3uxo/x99lDh2YhRPN+tDv2MCUEdQ/nOVfycQKJj0706Ma4hsLamonl5YJjeIfAzGi3IB6TCNqmUi3y/ECYbfTc3UPAW2Tpd+e8EkrwtnsXY7tG8LRSBzSpyid9b13RX7IrAFJ5rjf51IvNrvR9X/yOEs/y8vl+XYoB9KZj8RErCl0wu36qhxiMWvK5DHr92wdo3khkBdqVCR4kZJXYXY8FhJUysYAZhTNPshwlL6Idkh/4AtpsVGD73GJ9lfgsM0oxlTY5PiMEvVNR1P7aq4H+hAqv7ygH/Q92Nljfge/KvnZOmU155nMSjz2+dSvWGwdFP6XZ4QxYhQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=oUnubRNN8AuAhGJsvv2vCjimaf0THvxM/+YCUEBpKzw=;
+ b=UkSYKN1gmrPVn1bR5AIfp+uvLwRjSYpMpw9VD+Cu1UCtQ3zOvtwTV3v8M4s0NWm0vSrcDSdfMhItx8/RkpplhSIQXK+tvrZcKdraG+e7Fe3us55/otLaWzBQHgtQD0tyjahgShS+3/6yv+IW97tzpMBvWP/pyhFEygj+CXBS7bzzqFJqn9zLWwLPFzdbjhW30iZq0SPtXcDWGtCBY/E9yguYqoJNFFXpOM9zuyHM2+NbJiH3NGo/1e1KcjgkaTwN5qMWwz9bZo4B2l1HZ5d5fhrr0cfv1XNW5Lc2aPhid2vfa6RSepUdqUU4sl12eiVdQoYuEYa0h0xYdTVX6RacEw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=oUnubRNN8AuAhGJsvv2vCjimaf0THvxM/+YCUEBpKzw=;
+ b=YRQjpR0xCv8ZCK0K123pbpPhPTGunNpfV62RnkyNq8eT3KaLxqLVjWG3kmfpk7ZbWBNGAoPl4oq6aagbI7eAgf0F4tr6KCPKSLm7wBpXlA+dXysM8HkGU95fJ/f1srIF7ALg+AyY24WzwJIi2SwSt9jb5zfCB4Q0K5z1XMaSRfMsqQY7CZay6L59SjUFOrrX7bNCFj/yXLt0+eKx8XZIOZM4ghp126lH4T6CJ82xpf1x/zU3v/93rmgQbX2S3kEWBH8iMYtVKlZN5HFSCjKEpoIRP3gmxzjTYTUy7RWdnqN1KC47SkkU6FOZOMfrOSUTYKpZQwYBmCjrOhjGSRvkFg==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from DU2PR04MB8822.eurprd04.prod.outlook.com (2603:10a6:10:2e1::11)
+ by PA4PR04MB7982.eurprd04.prod.outlook.com (2603:10a6:102:c4::9) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8137.19; Fri, 8 Nov
+ 2024 02:57:56 +0000
+Received: from DU2PR04MB8822.eurprd04.prod.outlook.com
+ ([fe80::4e24:c2c7:bd58:c5c7]) by DU2PR04MB8822.eurprd04.prod.outlook.com
+ ([fe80::4e24:c2c7:bd58:c5c7%6]) with mapi id 15.20.8137.019; Fri, 8 Nov 2024
+ 02:57:56 +0000
+Date: Fri, 8 Nov 2024 10:55:35 +0800
+From: Xu Yang <xu.yang_2@nxp.com>
+To: Ian Rogers <irogers@google.com>
+Cc: John Garry <john.g.garry@oracle.com>, Will Deacon <will@kernel.org>,
+	James Clark <james.clark@linaro.org>,
+	Mike Leach <mike.leach@linaro.org>, Leo Yan <leo.yan@linux.dev>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Ingo Molnar <mingo@redhat.com>,
+	Arnaldo Carvalho de Melo <acme@kernel.org>,
+	Namhyung Kim <namhyung@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	Jiri Olsa <jolsa@kernel.org>,
+	Adrian Hunter <adrian.hunter@intel.com>,
+	Kan Liang <kan.liang@linux.intel.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
 	Albert Ou <aou@eecs.berkeley.edu>,
-	Andrew Lunn <andrew+netdev@lunn.ch>, netdev@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	Huacai Chen <chenhuacai@kernel.org>, Bibo Mao <maobibo@loongson.cn>,
+	Athira Rajeev <atrajeev@linux.vnet.ibm.com>,
+	Ben Zong-You Xie <ben717@andestech.com>,
+	Alexandre Ghiti <alexghiti@rivosinc.com>,
+	Sandipan Das <sandipan.das@amd.com>,
+	Benjamin Gray <bgray@linux.ibm.com>,
+	Ravi Bangoria <ravi.bangoria@amd.com>,
+	=?utf-8?Q?Cl=C3=A9ment?= Le Goffic <clement.legoffic@foss.st.com>,
+	Yicong Yang <yangyicong@hisilicon.com>,
+	"Masami Hiramatsu (Google)" <mhiramat@kernel.org>,
+	Dima Kogan <dima@secretsauce.net>,
+	"Dr. David Alan Gilbert" <linux@treblig.org>,
 	linux-arm-kernel@lists.infradead.org,
-	linux-riscv@lists.infradead.org,
-	linux-stm32@st-md-mailman.stormreply.com
-Subject: Re: [PATCH net-next v4 3/3] riscv: dts: thead: Add TH1520 ethernet
- nodes
-Message-ID: <Zy15FJZrOFA2t687@x1>
-References: <20241020-th1520-dwmac-v4-0-c77acd33ccef@tenstorrent.com>
- <20241020-th1520-dwmac-v4-3-c77acd33ccef@tenstorrent.com>
-MIME-Version: 1.0
+	linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org
+Subject: Re: [PATCH v2 0/8] Refactor cpuid and metric table lookup code
+Message-ID: <20241108025535.wfhke3btch5af4fu@hippo>
+References: <20241107162035.52206-1-irogers@google.com>
 Content-Disposition: inline
-In-Reply-To: <20241020-th1520-dwmac-v4-3-c77acd33ccef@tenstorrent.com>
+In-Reply-To: <20241107162035.52206-1-irogers@google.com>
+X-ClientProxiedBy: SG2PR02CA0007.apcprd02.prod.outlook.com
+ (2603:1096:3:17::19) To DU2PR04MB8822.eurprd04.prod.outlook.com
+ (2603:10a6:10:2e1::11)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DU2PR04MB8822:EE_|PA4PR04MB7982:EE_
+X-MS-Office365-Filtering-Correlation-Id: a719aff7-2811-4cf2-c186-08dcffa12523
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|376014|52116014|7416014|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?/D1MRNc0e0Br2OcV6pwZCnoFXwDPjrEdwq0Z8AF5clKgk3yqQ77zRZeCShs/?=
+ =?us-ascii?Q?1VX1SKM7zDrW343ljP9XjlFNrGZnodhP+2TFwg5KDu5dCSX4UnrHcp8nD/Az?=
+ =?us-ascii?Q?nekxUYGjVNfsp+D6QePPikP815dWcjo4TesYZLUaJNmC0di87nI4oydkLjgd?=
+ =?us-ascii?Q?ovosxDabQArXG2JOqYLgSJNGeTkIbu/Ho5nGOC4AORkZM5EarPI2ImqVV5lb?=
+ =?us-ascii?Q?ZEbvPJ2KuPhCyIGwEY0AxkL3lVQt4zj1ZON/PNcA3vQboIAgLJMkihwosZnc?=
+ =?us-ascii?Q?sw6Rl9NwxdPF7DbszJrXf58JStUvWiCNmS8dVyP3Nptduwb8VrFu74sejfHx?=
+ =?us-ascii?Q?12hwH2JQXYtm0ehES4Row5CZ3e4ZdRn1EeXGSJI6DAez1Z4eFPi93iuOiXqm?=
+ =?us-ascii?Q?u2Ug6xhZsuOKQefGeb3iBoOo2yRiGUOR776cg2Ryl1L92mez4Eski8AEi8Ys?=
+ =?us-ascii?Q?9wOu1Qz2aaBpRFVLXyeY/ZJKBg7DMXPyMiP2alOAuyUoWntI5ZanUvfjwtC1?=
+ =?us-ascii?Q?vpJ3ES4wQS4gDGAvhSXRGSBz4XOna/XW07NG12Mb4v0F6r+Od18WD+WZ4YTz?=
+ =?us-ascii?Q?J8BfeAkBm12jsp52Sae/BLCNASJMvlH7zIWP+Ajo27WuqZqV3+C5RIG5YuHm?=
+ =?us-ascii?Q?UUylPKpCANacp+XIE/HpzLDFSMtYEae8DpjnIDOnrZAmxLT1clGpxN6CVTwv?=
+ =?us-ascii?Q?9IH6pRM1HVPOUGvTN8G/3da9c+1LhUqrBfr1L6uTEFIRRj7Su5ir0QqAIvSj?=
+ =?us-ascii?Q?256+n57ruYaWHxEEyefsP6DdA57RK4E2O93zyAk4I76RjE8Z2WkspCY+XiMC?=
+ =?us-ascii?Q?QtCoixNuSKipbbGKsqJvcVTWhLXZjK7jxbaxPm8K3w6nAymUF/XUDaq0gldv?=
+ =?us-ascii?Q?57UYdcB/BaZStyH1eCwi4Kzl513pAJxFu0/icoiyWX56cy/aE+MEKBfBvGdC?=
+ =?us-ascii?Q?k2sFxfRn1J6OA49D6VPRGttkpytXEf+TZq9D472ZuBcVzshvElLBG8AmyMjf?=
+ =?us-ascii?Q?LILc5nv9GzkY6hWUszLR0DCVhtezluwgKmH+eOBI/dqFrlRYVss/+hRfjNHe?=
+ =?us-ascii?Q?A96T+3oA5iJnmSAAj4v2ZxFvB2GWiJja1Gl9nKWkEM7eafnUkjzWvKptwx57?=
+ =?us-ascii?Q?rceQT+TjCfgYHyYbN4c2JEFwb7i4e/yHbJGJ/RKED48NuWl9H01tjn4NRU7N?=
+ =?us-ascii?Q?8A6yt3ymq9S+AACTW6+LLlqsztKiSoMoQZHxEdPrQ1zMJeeCjKPPL4RXQj/o?=
+ =?us-ascii?Q?z1QBMgWlUreYVi1xtbIW1+CKvr6GlY8B43YETnJBu4DzjdLiXhOs5SSm7xBb?=
+ =?us-ascii?Q?tSneVYGSPr1j3Wq8xowUZxYGhix3Vd415+Im2uhSenl4UmMOvXxMWdoyUIOM?=
+ =?us-ascii?Q?YKse6pc=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DU2PR04MB8822.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(376014)(52116014)(7416014)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?PSPB6/tTRKhCVoq0ntU2EDvXheywFf7GfHqMZqpMR7FaAZuqCo1/fRmk5W98?=
+ =?us-ascii?Q?xC3PFIGGbnEsEAzonRT1FgL3O0gK+02jHIDB2/grw+HbGD2roZNE44Y3rs5Q?=
+ =?us-ascii?Q?KBdSH6Apq3jftOrMH1jJ57ubKF9iqycOTYfE/HlOIcCYZ0ckew6DzzI07G2e?=
+ =?us-ascii?Q?WlAhqvlW4vDLrytxbY8sw6S6pKcrZEGTW/VpLqZU2kL+5gm12DjXUV+UsAj3?=
+ =?us-ascii?Q?rGOMyeKSFvyZVhVUlPH/IUMOQ73f9JrCFnuVDZKd4S0c60vfSOGNAtMTXkcL?=
+ =?us-ascii?Q?JnmAJa4doDDgMTcavHRudUCpAt4mXxFugmRAZlyuugupoSvK4u9GZPjBfYIN?=
+ =?us-ascii?Q?REFwsY1NGWzRPcknXAP7VPdiVZ+K7Ld24zmuBR8ZbGu0BbPn9McruCjSDhUc?=
+ =?us-ascii?Q?WA9Cq+3/SuJHIqN/wcYeUHxtcsFLh/XoGJKKvdhiVeNYKEwGQJN80Wh21SKV?=
+ =?us-ascii?Q?Ti2NZFNGqBRHDYXltKXmS54mEDKusGDz6DbiyQSbFMYkypwaGe4SKOm8d+L8?=
+ =?us-ascii?Q?uPpd/Mhl5wJNqt3TTgMwetgSR5q/wpX3qEPIbtovpXBlx3h2U0f5NkBkdNfQ?=
+ =?us-ascii?Q?ouEN+lHvbc2K9QHHhW09ef0643AXnIRW/Yk+fegNjqDygRZbZNE1SEeW0FEW?=
+ =?us-ascii?Q?d2VoOYJkF/1NjnHilIqpHeMC6q/ePyJoHaxPv18onJzp68Xm9sQI+GVPNuJt?=
+ =?us-ascii?Q?RMIw1FPd7TPDCu4n8tq54Fnj0GepDbUDVlCYRmFD+A2LwrKB2fCDzqPCVt65?=
+ =?us-ascii?Q?BET/HKrhAk4GI+0SosZNjHmmwy0BH6+cCsMSTPwEOZ5TTA+Tq6TPKqKvHuiU?=
+ =?us-ascii?Q?UGQGfLAdo9BRWQkG3hOh+TryS5yVheZEBZqiEIvqNYpIO06Vprb5Wi0yqI4C?=
+ =?us-ascii?Q?g6pfdvkdgWnZhTVGR1lfIXeIy7aktHU8+TbSVCJ9lS5fllpB60DARV7EPDo7?=
+ =?us-ascii?Q?VdbSKgq/MDO69S2I69Kpqt9ggXTewJacuMMgLG5F5cx6uW6qrUYrwBxzGv4Z?=
+ =?us-ascii?Q?7W2j5ABaFjJZJSImiu00Z0ubxlFc/PDIwMrffDl/hrD2PbiCiW39nfz2hEyx?=
+ =?us-ascii?Q?zlTNBVeRFM2UDxAun4UZuaQlQBwmIkwPQO35dYDK3U8XZ4pUSCgWVvIo2dLU?=
+ =?us-ascii?Q?mw/ta6Vvm2vP/QZW3iFqzOwkofpIRl9wxz1lDdZhKNL3SV8ah3N/b7jlKunF?=
+ =?us-ascii?Q?hsK05liOYl+VWu7n0eGTZOvS8CrIzrkoXPSoEcbaOQDUvP3ZZpvdSbEFry3u?=
+ =?us-ascii?Q?xiOsXctxOS61t22q5Fr70tToPvHTwuS61BwQTFfLRp8SDlpd8DtdrITzk0dL?=
+ =?us-ascii?Q?SYxWacy70Z3vge6zsd+5M6gZdVur3avhEzQrqF/ghOhWvO1lCA51CcjpymDS?=
+ =?us-ascii?Q?GmjLP9jtfd+l74M4M6KDgIchC4rDYHGNCJl/7u9m7A+OjQCeSessDeFUGFNW?=
+ =?us-ascii?Q?4g9FjisqEU6VnW+nq+t34bOKzHAQHde3HiGW0mIxJ5/ycP6uvWHT14lKemck?=
+ =?us-ascii?Q?pauWhyfphYpQbYWE8BUBulsYmxv5lcatREj7SlJSw4Lz2WPxJCBIniieNAif?=
+ =?us-ascii?Q?zfmhAgNbnZ+uF5Grz8E+NIz8CSsM2T81clpQTtKH?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: a719aff7-2811-4cf2-c186-08dcffa12523
+X-MS-Exchange-CrossTenant-AuthSource: DU2PR04MB8822.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 08 Nov 2024 02:57:56.0898
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: YOybxuEWfVGcoyuDIDdHOE4UM8R1/wIhDYR3SyDntewoNns/dCG3WzLCby94rNp6tdXvdVa0ae5OToMmayrb2Q==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA4PR04MB7982
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241107_183609_336228_574B33E7 
-X-CRM114-Status: GOOD (  17.33  )
+X-CRM114-CacheID: sfid-20241107_185800_609158_60EA6A1A 
+X-CRM114-Status: GOOD (  17.73  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,362 +182,63 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sun, Oct 20, 2024 at 07:36:02PM -0700, Drew Fustini wrote:
-> From: Emil Renner Berthing <emil.renner.berthing@canonical.com>
+On Thu, Nov 07, 2024 at 08:20:27AM -0800, Ian Rogers wrote:
+> Xu Yang <xu.yang_2@nxp.com> reported issues with the system metric
+> lookup:
+> https://lore.kernel.org/linux-perf-users/20241106085441.3945502-1-xu.yang_2@nxp.com/
+> These patches remove a lot of the logic relating CPUIDs to PMUs so
+> that the PMU isn't part of the question when finding a metric table.
+> For time reasons, it doesn't go as far as allowing system metrics
+> without a metric table as a metric table is needed for metrics to
+> refer to other metrics, and the refactoring of that resolution is a
+> hassle.
+
+For this patchset:
+Tested-by: Xu Yang <xu.yang_2@nxp.com>
+
+Thanks,
+Xu Yang
+
 > 
-> Add gmac, mdio, and phy nodes to enable the gigabit Ethernet ports on
-> the BeagleV Ahead and Sipeed Lichee Pi 4a boards.
+> Ian Rogers (7):
+>   perf header: Move is_cpu_online to numa bench
+>   perf header: Refactor get_cpuid to take a CPU for ARM
+>   perf arm64 header: Use cpu argument in get_cpuid
+>   perf header: Avoid transitive PMU includes
+>   perf header: Pass a perf_cpu rather than a PMU to get_cpuid_str
+>   perf jevents: Add map_for_cpu
+>   perf pmu: Move pmu_metrics_table__find and remove ARM override
 > 
-> Signed-off-by: Emil Renner Berthing <emil.renner.berthing@canonical.com>
-> [drew: change apb registers from syscon to second reg of gmac node,
->        add phy reset delay properties for beaglev ahead]
-> Signed-off-by: Drew Fustini <dfustini@tenstorrent.com>
-> ---
->  arch/riscv/boot/dts/thead/th1520-beaglev-ahead.dts |  91 ++++++++++++++++
->  .../boot/dts/thead/th1520-lichee-module-4a.dtsi    | 119 +++++++++++++++++++++
->  arch/riscv/boot/dts/thead/th1520.dtsi              |  50 +++++++++
->  3 files changed, 260 insertions(+)
+> Xu Yang (1):
+>   perf jevents: fix breakage when do perf stat on system metric
 > 
-> diff --git a/arch/riscv/boot/dts/thead/th1520-beaglev-ahead.dts b/arch/riscv/boot/dts/thead/th1520-beaglev-ahead.dts
-> index 86feb3df02c8..21c33f165ba9 100644
-> --- a/arch/riscv/boot/dts/thead/th1520-beaglev-ahead.dts
-> +++ b/arch/riscv/boot/dts/thead/th1520-beaglev-ahead.dts
-> @@ -15,6 +15,7 @@ / {
->  	compatible = "beagle,beaglev-ahead", "thead,th1520";
->  
->  	aliases {
-> +		ethernet0 = &gmac0;
->  		gpio0 = &gpio0;
->  		gpio1 = &gpio1;
->  		gpio2 = &gpio2;
-> @@ -98,6 +99,25 @@ &emmc {
->  	status = "okay";
->  };
->  
-> +&gmac0 {
-> +	pinctrl-names = "default";
-> +	pinctrl-0 = <&gmac0_pins>;
-> +	phy-handle = <&phy0>;
-> +	phy-mode = "rgmii-id";
-> +	status = "okay";
-> +};
-> +
-> +&mdio0 {
-> +	phy0: ethernet-phy@1 {
-> +		reg = <1>;
-> +		interrupt-parent = <&gpio3>;
-> +		interrupts = <22 IRQ_TYPE_LEVEL_LOW>;
-> +		reset-gpios = <&gpio3 21 GPIO_ACTIVE_LOW>;
-> +		reset-delay-us = <10000>;
-> +		reset-post-delay-us = <50000>;
-> +	};
-> +};
-> +
->  &padctrl_aosys {
->  	led_pins: led-0 {
->  		led-pins {
-> @@ -116,6 +136,77 @@ led-pins {
->  };
->  
->  &padctrl0_apsys {
-> +	gmac0_pins: gmac0-0 {
-> +		tx-pins {
-> +			pins = "GMAC0_TX_CLK",
-> +			       "GMAC0_TXEN",
-> +			       "GMAC0_TXD0",
-> +			       "GMAC0_TXD1",
-> +			       "GMAC0_TXD2",
-> +			       "GMAC0_TXD3";
-> +			function = "gmac0";
-> +			bias-disable;
-> +			drive-strength = <25>;
-> +			input-disable;
-> +			input-schmitt-disable;
-> +			slew-rate = <0>;
-> +		};
-> +
-> +		rx-pins {
-> +			pins = "GMAC0_RX_CLK",
-> +			       "GMAC0_RXDV",
-> +			       "GMAC0_RXD0",
-> +			       "GMAC0_RXD1",
-> +			       "GMAC0_RXD2",
-> +			       "GMAC0_RXD3";
-> +			function = "gmac0";
-> +			bias-disable;
-> +			drive-strength = <1>;
-> +			input-enable;
-> +			input-schmitt-disable;
-> +			slew-rate = <0>;
-> +		};
-> +
-> +		mdc-pins {
-> +			pins = "GMAC0_MDC";
-> +			function = "gmac0";
-> +			bias-disable;
-> +			drive-strength = <13>;
-> +			input-disable;
-> +			input-schmitt-disable;
-> +			slew-rate = <0>;
-> +		};
-> +
-> +		mdio-pins {
-> +			pins = "GMAC0_MDIO";
-> +			function = "gmac0";
-> +			bias-disable;
-> +			drive-strength = <13>;
-> +			input-enable;
-> +			input-schmitt-enable;
-> +			slew-rate = <0>;
-> +		};
-> +
-> +		phy-reset-pins {
-> +			pins = "GMAC0_COL"; /* GPIO3_21 */
-> +			bias-disable;
-> +			drive-strength = <3>;
-> +			input-disable;
-> +			input-schmitt-disable;
-> +			slew-rate = <0>;
-> +		};
-> +
-> +		phy-interrupt-pins {
-> +			pins = "GMAC0_CRS"; /* GPIO3_22 */
-> +			function = "gpio";
-> +			bias-pull-up;
-> +			drive-strength = <1>;
-> +			input-enable;
-> +			input-schmitt-enable;
-> +			slew-rate = <0>;
-> +		};
-> +	};
-> +
->  	uart0_pins: uart0-0 {
->  		tx-pins {
->  			pins = "UART0_TXD";
-> diff --git a/arch/riscv/boot/dts/thead/th1520-lichee-module-4a.dtsi b/arch/riscv/boot/dts/thead/th1520-lichee-module-4a.dtsi
-> index 724d9645471d..8e76b63e0100 100644
-> --- a/arch/riscv/boot/dts/thead/th1520-lichee-module-4a.dtsi
-> +++ b/arch/riscv/boot/dts/thead/th1520-lichee-module-4a.dtsi
-> @@ -11,6 +11,11 @@ / {
->  	model = "Sipeed Lichee Module 4A";
->  	compatible = "sipeed,lichee-module-4a", "thead,th1520";
->  
-> +	aliases {
-> +		ethernet0 = &gmac0;
-> +		ethernet1 = &gmac1;
-> +	};
-> +
->  	memory@0 {
->  		device_type = "memory";
->  		reg = <0x0 0x00000000 0x2 0x00000000>;
-> @@ -45,6 +50,22 @@ &emmc {
->  	status = "okay";
->  };
->  
-> +&gmac0 {
-> +	pinctrl-names = "default";
-> +	pinctrl-0 = <&gmac0_pins>, <&mdio0_pins>;
-> +	phy-handle = <&phy0>;
-> +	phy-mode = "rgmii-id";
-> +	status = "okay";
-> +};
-> +
-> +&gmac1 {
-> +	pinctrl-names = "default";
-> +	pinctrl-0 = <&gmac1_pins>;
-> +	phy-handle = <&phy1>;
-> +	phy-mode = "rgmii-id";
-> +	status = "okay";
-> +};
-> +
->  &gpio0 {
->  	gpio-line-names = "", "", "", "", "", "", "", "", "", "",
->  			  "", "", "", "", "", "", "", "", "", "",
-> @@ -78,6 +99,104 @@ &gpio3 {
->  			  "GPIO10";
->  };
->  
-> +&mdio0 {
-> +	phy0: ethernet-phy@1 {
-> +		reg = <1>;
-> +	};
-> +
-> +	phy1: ethernet-phy@2 {
-> +		reg = <2>;
-> +	};
-> +};
-> +
-> +&padctrl0_apsys {
-> +	gmac0_pins: gmac0-0 {
-> +		tx-pins {
-> +			pins = "GMAC0_TX_CLK",
-> +			       "GMAC0_TXEN",
-> +			       "GMAC0_TXD0",
-> +			       "GMAC0_TXD1",
-> +			       "GMAC0_TXD2",
-> +			       "GMAC0_TXD3";
-> +			function = "gmac0";
-> +			bias-disable;
-> +			drive-strength = <25>;
-> +			input-disable;
-> +			input-schmitt-disable;
-> +			slew-rate = <0>;
-> +		};
-> +
-> +		rx-pins {
-> +			pins = "GMAC0_RX_CLK",
-> +			       "GMAC0_RXDV",
-> +			       "GMAC0_RXD0",
-> +			       "GMAC0_RXD1",
-> +			       "GMAC0_RXD2",
-> +			       "GMAC0_RXD3";
-> +			function = "gmac0";
-> +			bias-disable;
-> +			drive-strength = <1>;
-> +			input-enable;
-> +			input-schmitt-disable;
-> +			slew-rate = <0>;
-> +		};
-> +	};
-> +
-> +	gmac1_pins: gmac1-0 {
-> +		tx-pins {
-> +			pins = "GPIO2_18", /* GMAC1_TX_CLK */
-> +			       "GPIO2_20", /* GMAC1_TXEN */
-> +			       "GPIO2_21", /* GMAC1_TXD0 */
-> +			       "GPIO2_22", /* GMAC1_TXD1 */
-> +			       "GPIO2_23", /* GMAC1_TXD2 */
-> +			       "GPIO2_24"; /* GMAC1_TXD3 */
-> +			function = "gmac1";
-> +			bias-disable;
-> +			drive-strength = <25>;
-> +			input-disable;
-> +			input-schmitt-disable;
-> +			slew-rate = <0>;
-> +		};
-> +
-> +		rx-pins {
-> +			pins = "GPIO2_19", /* GMAC1_RX_CLK */
-> +			       "GPIO2_25", /* GMAC1_RXDV */
-> +			       "GPIO2_30", /* GMAC1_RXD0 */
-> +			       "GPIO2_31", /* GMAC1_RXD1 */
-> +			       "GPIO3_0",  /* GMAC1_RXD2 */
-> +			       "GPIO3_1";  /* GMAC1_RXD3 */
-> +			function = "gmac1";
-> +			bias-disable;
-> +			drive-strength = <1>;
-> +			input-enable;
-> +			input-schmitt-disable;
-> +			slew-rate = <0>;
-> +		};
-> +	};
-> +
-> +	mdio0_pins: mdio0-0 {
-> +		mdc-pins {
-> +			pins = "GMAC0_MDC";
-> +			function = "gmac0";
-> +			bias-disable;
-> +			drive-strength = <13>;
-> +			input-disable;
-> +			input-schmitt-disable;
-> +			slew-rate = <0>;
-> +		};
-> +
-> +		mdio-pins {
-> +			pins = "GMAC0_MDIO";
-> +			function = "gmac0";
-> +			bias-disable;
-> +			drive-strength = <13>;
-> +			input-enable;
-> +			input-schmitt-enable;
-> +			slew-rate = <0>;
-> +		};
-> +	};
-> +};
-> +
->  &sdio0 {
->  	bus-width = <4>;
->  	max-frequency = <198000000>;
-> diff --git a/arch/riscv/boot/dts/thead/th1520.dtsi b/arch/riscv/boot/dts/thead/th1520.dtsi
-> index cd835aea07d2..acfe030e803a 100644
-> --- a/arch/riscv/boot/dts/thead/th1520.dtsi
-> +++ b/arch/riscv/boot/dts/thead/th1520.dtsi
-> @@ -223,6 +223,12 @@ aonsys_clk: clock-73728000 {
->  		#clock-cells = <0>;
->  	};
->  
-> +	stmmac_axi_config: stmmac-axi-config {
-> +		snps,wr_osr_lmt = <15>;
-> +		snps,rd_osr_lmt = <15>;
-> +		snps,blen = <0 0 64 32 0 0 0>;
-> +	};
-> +
->  	soc {
->  		compatible = "simple-bus";
->  		interrupt-parent = <&plic>;
-> @@ -274,6 +280,50 @@ uart0: serial@ffe7014000 {
->  			status = "disabled";
->  		};
->  
-> +		gmac1: ethernet@ffe7060000 {
-> +			compatible = "thead,th1520-gmac", "snps,dwmac-3.70a";
-> +			reg = <0xff 0xe7060000 0x0 0x2000>, <0xff 0xec004000 0x0 0x1000>;
-> +			reg-names = "dwmac", "apb";
-> +			interrupts = <67 IRQ_TYPE_LEVEL_HIGH>;
-> +			interrupt-names = "macirq";
-> +			clocks = <&clk CLK_GMAC_AXI>, <&clk CLK_GMAC1>;
-> +			clock-names = "stmmaceth", "pclk";
-> +			snps,pbl = <32>;
-> +			snps,fixed-burst;
-> +			snps,multicast-filter-bins = <64>;
-> +			snps,perfect-filter-entries = <32>;
-> +			snps,axi-config = <&stmmac_axi_config>;
-> +			status = "disabled";
-> +
-> +			mdio1: mdio {
-> +				compatible = "snps,dwmac-mdio";
-> +				#address-cells = <1>;
-> +				#size-cells = <0>;
-> +			};
-> +		};
-> +
-> +		gmac0: ethernet@ffe7070000 {
-> +			compatible = "thead,th1520-gmac", "snps,dwmac-3.70a";
-> +			reg = <0xff 0xe7070000 0x0 0x2000>, <0xff 0xec003000 0x0 0x1000>;
-> +			reg-names = "dwmac", "apb";
-> +			interrupts = <66 IRQ_TYPE_LEVEL_HIGH>;
-> +			interrupt-names = "macirq";
-> +			clocks = <&clk CLK_GMAC_AXI>, <&clk CLK_GMAC0>;
-> +			clock-names = "stmmaceth", "pclk";
-> +			snps,pbl = <32>;
-> +			snps,fixed-burst;
-> +			snps,multicast-filter-bins = <64>;
-> +			snps,perfect-filter-entries = <32>;
-> +			snps,axi-config = <&stmmac_axi_config>;
-> +			status = "disabled";
-> +
-> +			mdio0: mdio {
-> +				compatible = "snps,dwmac-mdio";
-> +				#address-cells = <1>;
-> +				#size-cells = <0>;
-> +			};
-> +		};
-> +
->  		emmc: mmc@ffe7080000 {
->  			compatible = "thead,th1520-dwcmshc";
->  			reg = <0xff 0xe7080000 0x0 0x10000>;
+>  tools/perf/arch/arm64/util/arm-spe.c     | 14 +---
+>  tools/perf/arch/arm64/util/header.c      | 73 ++++++++++-----------
+>  tools/perf/arch/arm64/util/pmu.c         | 20 ------
+>  tools/perf/arch/loongarch/util/header.c  |  4 +-
+>  tools/perf/arch/powerpc/util/header.c    |  4 +-
+>  tools/perf/arch/riscv/util/header.c      |  4 +-
+>  tools/perf/arch/s390/util/header.c       |  6 +-
+>  tools/perf/arch/x86/util/auxtrace.c      |  3 +-
+>  tools/perf/arch/x86/util/header.c        |  5 +-
+>  tools/perf/bench/numa.c                  | 53 +++++++++++++++
+>  tools/perf/builtin-kvm.c                 |  4 +-
+>  tools/perf/pmu-events/empty-pmu-events.c | 39 ++++++-----
+>  tools/perf/pmu-events/jevents.py         | 39 ++++++-----
+>  tools/perf/pmu-events/pmu-events.h       |  2 +-
+>  tools/perf/tests/expr.c                  |  5 +-
+>  tools/perf/util/env.c                    |  4 +-
+>  tools/perf/util/expr.c                   |  6 +-
+>  tools/perf/util/header.c                 | 82 ++++++++----------------
+>  tools/perf/util/header.h                 | 23 +++----
+>  tools/perf/util/pmu.c                    | 25 --------
+>  tools/perf/util/pmu.h                    |  2 -
+>  tools/perf/util/probe-event.c            |  1 +
+>  22 files changed, 189 insertions(+), 229 deletions(-)
 > 
 > -- 
-> 2.34.1
+> 2.47.0.199.ga7371fff76-goog
 > 
-
-The dwmac-thead driver and dt binding have been applied to net-next [1]
-so I have now applied this dts patch to thead-dt-for-next [2].
-
--Drew
-
-[1] https://lore.kernel.org/linux-riscv/173085843050.764350.5609116722213276708.git-patchwork-notify@kernel.org/
-[2] https://github.com/pdp7/linux/commit/7e756671a664b73b2a3c0cc37fd25abf6bcd851e
 
 _______________________________________________
 linux-riscv mailing list
