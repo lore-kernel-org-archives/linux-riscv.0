@@ -4,80 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E840AD5D699
-	for <linux-riscv@archiver.kernel.org>; Fri,  8 Nov 2024 00:02:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9084D4335C
+	for <linux-riscv@archiver.kernel.org>; Fri,  8 Nov 2024 02:36:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Mime-Version:References:In-Reply-To:
-	Message-Id:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=dh82YCfy4jFlFqwcFNE2kHhfYKtpMkTAcZmBlQWnmaE=; b=tUDkMI6wruYoXn
-	MtS1jOel+EdtHbrQXzu9RHXpyed4O5h+KBPB84n38+wHbw23iNXWgClSkPRwRpJO6pqLTczKaQbU1
-	YoWvke7J0icafLTDzHo2XikbOcFh7PJWYdvXHm6LPjk66JIGsH9KzRSIIa+aHj1ANctW4Tjb2U0FV
-	0lqyR6KKTucPHD1IbeYES88LlA9pD2RidsFo3L/myPbTIXX2nDAZWxhLBo8p9BlrWdqxYZ3pi0V3E
-	0xvrrhCSC+SjrTPx/kKd/DqpQtAmV6WjHCZZR0eCRv02uaBPuUsGxt68w31CgqS88ZJYQlZ43VbkV
-	1zE+wnaboroT/Gq/WSDA==;
+	List-Owner; bh=SDYWzcN4snMIeln0efRg/BrI9GjL2umuytPqn500cdk=; b=sHcZKlHPbpUJZ1
+	ztthR2HyJI5MS267mfgl2KNo6szE0bA3JeeEsTBLnf3QawR9GiSvXYByPs+m0gN+qPl5TMG7aQt82
+	nPH8MdrOkXqTOEZGFcSTQvFf0pHB3NQfSDgvC6BHR1uUQ/tPzIkg2YUXFvCN5SO5dXzFXFpPt4ykj
+	gcnFCJPZjOHLXtYyaCF/kvSCDsYof49rU1VhSxhsjrAKeGP48lMDQJ/KqYWc2Rah8bbngKbp/gOBk
+	ALvngZAfByKEOUwHACp+ZswqcFzMvmh6x/nYE2V1TUfB6LSFH+6cJJypkGBPyGlZXAmZJFfwao7xs
+	DXY1xKzqFLoah61qDauA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t9CSZ-00000008nUF-0GH5;
-	Fri, 08 Nov 2024 00:02:43 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1t9Er6-0000000929f-47vT;
+	Fri, 08 Nov 2024 02:36:12 +0000
+Received: from mail-pf1-x430.google.com ([2607:f8b0:4864:20::430])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t9CQk-00000008nFW-48a3;
-	Fri, 08 Nov 2024 00:00:52 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 9C5A35C5698;
-	Fri,  8 Nov 2024 00:00:04 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 75D47C4CECC;
-	Fri,  8 Nov 2024 00:00:42 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1731024048;
-	bh=A1nYBKBjEzWsfHtk4DuraLYhFByKzZ3xxQIgXdcE7YI=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=dgK1c0Gx3JpYWiutgr99uTMw0ppxTTMR2JvkRft+iLbbm+nBkVyoMxX9/SUayeOOq
-	 /B5ASGXVaOfZG4Xk2pNHYZVz57FCko1MojjWS6hHDsD/XEuBhwP3M7DVOFdZ2zEFjn
-	 T6kt6y7ivMNeo2Mhg2/dxlYoL3T62gFBnCzabCVEqoB5+hmPraY6InKaGcyPcDGP6q
-	 OcX34Y06SCEtysIq+D20N/6GvPF3s+095pzROJcYQqd7jtn8M5bPERxS/tODNTcGE0
-	 zkbLpazUOSouCV24V6po8NmwVq0CpQitrRu/1IvBUWiRg89D1jk1Tcu+8wO10sR5HN
-	 Kxl9ki5avSVtw==
-Date: Fri, 8 Nov 2024 09:00:40 +0900
-From: Masami Hiramatsu (Google) <mhiramat@kernel.org>
-To: Namhyung Kim <namhyung@kernel.org>
-Cc: Ian Rogers <irogers@google.com>, Peter Zijlstra <peterz@infradead.org>,
- Ingo Molnar <mingo@redhat.com>, Arnaldo Carvalho de Melo <acme@kernel.org>,
- Mark Rutland <mark.rutland@arm.com>, Alexander Shishkin
- <alexander.shishkin@linux.intel.com>, Jiri Olsa <jolsa@kernel.org>, Adrian
- Hunter <adrian.hunter@intel.com>, Kan Liang <kan.liang@linux.intel.com>,
- John Garry <john.g.garry@oracle.com>, Will Deacon <will@kernel.org>, James
- Clark <james.clark@linaro.org>, Mike Leach <mike.leach@linaro.org>, Leo Yan
- <leo.yan@linux.dev>, Guo Ren <guoren@kernel.org>, Paul Walmsley
- <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
- <aou@eecs.berkeley.edu>, Nick Terrell <terrelln@fb.com>, Changbin Du
- <changbin.du@huawei.com>, Guilherme Amadio <amadio@gentoo.org>, Yang Jihong
- <yangjihong@bytedance.com>, Aditya Gupta <adityag@linux.ibm.com>, Athira
- Rajeev <atrajeev@linux.vnet.ibm.com>, Masahiro Yamada
- <masahiroy@kernel.org>, Bibo Mao <maobibo@loongson.cn>, Huacai Chen
- <chenhuacai@kernel.org>, Kajol Jain <kjain@linux.ibm.com>, Atish Patra
- <atishp@rivosinc.com>, Shenlin Liang <liangshenlin@eswincomputing.com>,
- Anup Patel <anup@brainfault.org>, Oliver Upton <oliver.upton@linux.dev>,
- "Steinar H. Gunderson" <sesse@google.com>, "Dr. David Alan Gilbert"
- <linux@treblig.org>, Chen Pei <cp0613@linux.alibaba.com>, Dima Kogan
- <dima@secretsauce.net>, Przemek Kitszel <przemyslaw.kitszel@intel.com>,
- "David S. Miller" <davem@davemloft.net>, Alexander Lobakin
- <aleksander.lobakin@intel.com>, linux-kernel@vger.kernel.org,
- linux-perf-users@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-csky@vger.kernel.org, linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v3 00/20] Remove PERF_HAVE_DWARF_REGS
-Message-Id: <20241108090040.463cb3f0820e7ac22d1bb6c2@kernel.org>
-In-Reply-To: <Zy0VHro3wE-ZTKsq@google.com>
-References: <20241017002520.59124-1-irogers@google.com>
-	<Zy0VHro3wE-ZTKsq@google.com>
-X-Mailer: Sylpheed 3.8.0beta1 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
-Mime-Version: 1.0
+	id 1t9Er3-0000000928W-0DIj
+	for linux-riscv@lists.infradead.org;
+	Fri, 08 Nov 2024 02:36:11 +0000
+Received: by mail-pf1-x430.google.com with SMTP id d2e1a72fcca58-71ec997ad06so1327967b3a.3
+        for <linux-riscv@lists.infradead.org>; Thu, 07 Nov 2024 18:36:08 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=pdp7-com.20230601.gappssmtp.com; s=20230601; t=1731033368; x=1731638168; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=s+jyeFz5qLcpNF1wQeUyeaIh19p1lD8bQtGka/s8n1Q=;
+        b=ic52Cr0hOiQp6pQqDrqTmSCyZNhOuAsxogdwvOA644yIgvsUsRbTSjeRdpSTFqME7s
+         X6kLHXxQcS8U8ZqPlLNWxqi5zZMTO9xlTphAIO0t5aG0QhNezwObRoAEVkBk/mlcZbnU
+         a3Rw/dXFiI0OngZnMvbplK7KgdLgLU8FgOtyx0lSJ+dGiYJVSccvbF2xx2GNGgfTaHLO
+         9uo/HeCSiRk7cw4wPnJ81zcSYEaNlWiYbHbNHLw3cuULry09oUv4FZB1+fvZ0ba74SZR
+         3+9Yjcazkr5ydrb5qoVoR9+DR8NeY+xAlRCohDwTNtsM57Jfx7Y/Pffb3V+CPaV6IuTG
+         OZ8A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1731033368; x=1731638168;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=s+jyeFz5qLcpNF1wQeUyeaIh19p1lD8bQtGka/s8n1Q=;
+        b=e8MSKURamPSOayigBk8vYag5BnVlxZsEAYld5JRHHCVnn9DXsKJyNVJ8BiE80bI14S
+         01dp81kPk2aNSupOKKoOpP/ObH3Hp9e2uaLiX6eldYn4s1Dercr6cgfVX1Newf5iiNMr
+         KxJrZUIaje5TyfHsMFT6ISoljkdZTUCwfCQC86BUI7X//8oncK0lXTPg+TOyIdsSxJ4l
+         /yQe241kklWT0/TOUN15bKYzd2WuXVHrxCPJ1TbvO3OqGF9SHMohMqOqe/4VqDUt2AA2
+         M8gtkkD1zlbI5jqRyKZ8wn7QdAYw5K4X6EdVhvYafPXHJe4yz9wLyL2DXKNZ64AbkisD
+         tboA==
+X-Forwarded-Encrypted: i=1; AJvYcCXDcdQacCLTJ1CNr5V9ff657azJstaeB8F9IBiUO039kpkOIvvBmv2PfiYdc2H1FjX2ZnhwYzdF61Yjrw==@lists.infradead.org
+X-Gm-Message-State: AOJu0YxhZX/VmCJxf0wiL1HITG1ivckEElf0FT0pp7bC4ytO7aK/9Bnm
+	0DU8F0cpl+iWNiI6loD10pCnbvS1Z+AC8zDdCmtiHchrA5T0OvCEcnPV0Tv1Yu8=
+X-Google-Smtp-Source: AGHT+IFkTBYmvuaObrf/NhsL6bgy8VSLe5N8eK2nw/1LxrZ9F9SMeNiCvMwnlaaGOCdkpjvr4IsokQ==
+X-Received: by 2002:a05:6a00:1819:b0:71d:f510:b791 with SMTP id d2e1a72fcca58-724132cd1b1mr1832008b3a.12.1731033367828;
+        Thu, 07 Nov 2024 18:36:07 -0800 (PST)
+Received: from x1 (71-34-69-82.ptld.qwest.net. [71.34.69.82])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-72407a17ed3sm2541107b3a.142.2024.11.07.18.36.06
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 07 Nov 2024 18:36:07 -0800 (PST)
+Date: Thu, 7 Nov 2024 18:36:04 -0800
+From: Drew Fustini <drew@pdp7.com>
+To: Drew Fustini <dfustini@tenstorrent.com>
+Cc: Andrew Lunn <andrew@lunn.ch>, "David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Giuseppe Cavallaro <peppe.cavallaro@st.com>,
+	Jose Abreu <joabreu@synopsys.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Emil Renner Berthing <emil.renner.berthing@canonical.com>,
+	Jisheng Zhang <jszhang@kernel.org>, Guo Ren <guoren@kernel.org>,
+	Fu Wei <wefu@redhat.com>, Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Andrew Lunn <andrew+netdev@lunn.ch>, netdev@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-riscv@lists.infradead.org,
+	linux-stm32@st-md-mailman.stormreply.com
+Subject: Re: [PATCH net-next v4 3/3] riscv: dts: thead: Add TH1520 ethernet
+ nodes
+Message-ID: <Zy15FJZrOFA2t687@x1>
+References: <20241020-th1520-dwmac-v4-0-c77acd33ccef@tenstorrent.com>
+ <20241020-th1520-dwmac-v4-3-c77acd33ccef@tenstorrent.com>
+MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20241020-th1520-dwmac-v4-3-c77acd33ccef@tenstorrent.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241107_160051_146449_0ABEE1DF 
-X-CRM114-Status: GOOD (  37.55  )
+X-CRM114-CacheID: sfid-20241107_183609_336228_574B33E7 
+X-CRM114-Status: GOOD (  17.33  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,185 +112,362 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi,
-
-On Thu, 7 Nov 2024 11:29:34 -0800
-Namhyung Kim <namhyung@kernel.org> wrote:
-
-> Hi all,
+On Sun, Oct 20, 2024 at 07:36:02PM -0700, Drew Fustini wrote:
+> From: Emil Renner Berthing <emil.renner.berthing@canonical.com>
 > 
-> On Wed, Oct 16, 2024 at 05:25:00PM -0700, Ian Rogers wrote:
-> > These changes are on top of:
-> > https://lore.kernel.org/lkml/20241017001354.56973-1-irogers@google.com/
-> > 
-> > Prior to these patches PERF_HAVE_DWARF_REGS indicated the presence of
-> > dwarf-regs.c in the arch directory. dwarf-regs.c provided upto 4
-> > functions:
-> > 
-> > 1) regs_query_register_offset would translate a register name into a
-> > pt_regs offset and was used by BPF prologues. BPF prologues existed
-> > for BPF events and support for these was removed many releases ago.
-> > This code was dead and could be removed.
-> > 
-> > 2) get_arch_regstr duplicated get_dwarf_regstr and so it could be
-> > removed.  The case for csky was a little more complicated as the ABI
-> > controlled the string. The callers of get_dwarf_regstr were updated to
-> > also pass the ELF flags so that on csky the ABI appropriate table
-> > could be used. As the argument is only used on csky this a no-op for
-> > everything else.
-> > 
-> > 3) get_arch_regnum translated a register name back to a dwarf number
-> > and only existed on x86 where "al", "ax", "eax" and "rax" could all
-> > mean register 0. This code was moved to util with similar
-> > machine/flags logic to get_arch_regstr and for consistency with it.
-> > 
-> > 4) get_powerpc_regs a PowerPC specific function used by annotate that
-> > should really be in util.
-> > 
-> > 2 and 3 required the wiring through of the ELF machine and flags in
-> > callers to get_dwarf_regstr and get_dwarf_regnum. When these values
-> > weren't dependent on an ELF file a new EM_HOST and EF_HOST were added
-> > to give the host ELF machine and flags. These 2 #defines got rid of
-> > the existing separate arch files and #ifdefs.
-> > 
-> > v3: These files were separated from the rest of the v2 libdw clean up
-> >     in:
-> > https://lore.kernel.org/lkml/CAP-5=fVZH3L-6y_sxLwSmT8WyMXDMFnuqUksNULdQYJCPNBFYw@mail.gmail.com/
-> > 
-> > Ian Rogers (20):
-> >   perf bpf-prologue: Remove unused file
-> >   perf dwarf-regs: Remove PERF_HAVE_ARCH_REGS_QUERY_REGISTER_OFFSET
-> >   perf dwarf-regs: Add EM_HOST and EF_HOST defines
-> >   perf disasm: Add e_machine/e_flags to struct arch
-> >   perf dwarf-regs: Pass accurate disassembly machine to get_dwarf_regnum
-> >   perf dwarf-regs: Pass ELF flags to get_dwarf_regstr
-> >   perf dwarf-regs: Move x86 dwarf-regs out of arch
-> >   perf arm64: Remove dwarf-regs.c
-> >   perf arm: Remove dwarf-regs.c
-> >   perf dwarf-regs: Move csky dwarf-regs out of arch
-> >   perf loongarch: Remove dwarf-regs.c
-> >   perf mips: Remove dwarf-regs.c
-> >   perf dwarf-regs: Move powerpc dwarf-regs out of arch
-> >   perf riscv: Remove dwarf-regs.c and add dwarf-regs-table.h
-> >   perf s390: Remove dwarf-regs.c
-> >   perf sh: Remove dwarf-regs.c
-> >   perf sparc: Remove dwarf-regs.c
-> >   perf xtensa: Remove dwarf-regs.c
-> >   perf dwarf-regs: Remove get_arch_regstr code
-> >   perf build: Remove PERF_HAVE_DWARF_REGS
+> Add gmac, mdio, and phy nodes to enable the gigabit Ethernet ports on
+> the BeagleV Ahead and Sipeed Lichee Pi 4a boards.
 > 
-> These look all good and I'm about to apply the series.
+> Signed-off-by: Emil Renner Berthing <emil.renner.berthing@canonical.com>
+> [drew: change apb registers from syscon to second reg of gmac node,
+>        add phy reset delay properties for beaglev ahead]
+> Signed-off-by: Drew Fustini <dfustini@tenstorrent.com>
+> ---
+>  arch/riscv/boot/dts/thead/th1520-beaglev-ahead.dts |  91 ++++++++++++++++
+>  .../boot/dts/thead/th1520-lichee-module-4a.dtsi    | 119 +++++++++++++++++++++
+>  arch/riscv/boot/dts/thead/th1520.dtsi              |  50 +++++++++
+>  3 files changed, 260 insertions(+)
 > 
-> Masami, do you have any remaining concerns?  It'd be nice if you can
-> give your Reviewed-by.
-
-I think it looks good to me.
-
-Reviewed-by: Masami Hiramatsu (Google) <mhiramat@kernel.org>
-
-Thank you,
-
+> diff --git a/arch/riscv/boot/dts/thead/th1520-beaglev-ahead.dts b/arch/riscv/boot/dts/thead/th1520-beaglev-ahead.dts
+> index 86feb3df02c8..21c33f165ba9 100644
+> --- a/arch/riscv/boot/dts/thead/th1520-beaglev-ahead.dts
+> +++ b/arch/riscv/boot/dts/thead/th1520-beaglev-ahead.dts
+> @@ -15,6 +15,7 @@ / {
+>  	compatible = "beagle,beaglev-ahead", "thead,th1520";
+>  
+>  	aliases {
+> +		ethernet0 = &gmac0;
+>  		gpio0 = &gpio0;
+>  		gpio1 = &gpio1;
+>  		gpio2 = &gpio2;
+> @@ -98,6 +99,25 @@ &emmc {
+>  	status = "okay";
+>  };
+>  
+> +&gmac0 {
+> +	pinctrl-names = "default";
+> +	pinctrl-0 = <&gmac0_pins>;
+> +	phy-handle = <&phy0>;
+> +	phy-mode = "rgmii-id";
+> +	status = "okay";
+> +};
+> +
+> +&mdio0 {
+> +	phy0: ethernet-phy@1 {
+> +		reg = <1>;
+> +		interrupt-parent = <&gpio3>;
+> +		interrupts = <22 IRQ_TYPE_LEVEL_LOW>;
+> +		reset-gpios = <&gpio3 21 GPIO_ACTIVE_LOW>;
+> +		reset-delay-us = <10000>;
+> +		reset-post-delay-us = <50000>;
+> +	};
+> +};
+> +
+>  &padctrl_aosys {
+>  	led_pins: led-0 {
+>  		led-pins {
+> @@ -116,6 +136,77 @@ led-pins {
+>  };
+>  
+>  &padctrl0_apsys {
+> +	gmac0_pins: gmac0-0 {
+> +		tx-pins {
+> +			pins = "GMAC0_TX_CLK",
+> +			       "GMAC0_TXEN",
+> +			       "GMAC0_TXD0",
+> +			       "GMAC0_TXD1",
+> +			       "GMAC0_TXD2",
+> +			       "GMAC0_TXD3";
+> +			function = "gmac0";
+> +			bias-disable;
+> +			drive-strength = <25>;
+> +			input-disable;
+> +			input-schmitt-disable;
+> +			slew-rate = <0>;
+> +		};
+> +
+> +		rx-pins {
+> +			pins = "GMAC0_RX_CLK",
+> +			       "GMAC0_RXDV",
+> +			       "GMAC0_RXD0",
+> +			       "GMAC0_RXD1",
+> +			       "GMAC0_RXD2",
+> +			       "GMAC0_RXD3";
+> +			function = "gmac0";
+> +			bias-disable;
+> +			drive-strength = <1>;
+> +			input-enable;
+> +			input-schmitt-disable;
+> +			slew-rate = <0>;
+> +		};
+> +
+> +		mdc-pins {
+> +			pins = "GMAC0_MDC";
+> +			function = "gmac0";
+> +			bias-disable;
+> +			drive-strength = <13>;
+> +			input-disable;
+> +			input-schmitt-disable;
+> +			slew-rate = <0>;
+> +		};
+> +
+> +		mdio-pins {
+> +			pins = "GMAC0_MDIO";
+> +			function = "gmac0";
+> +			bias-disable;
+> +			drive-strength = <13>;
+> +			input-enable;
+> +			input-schmitt-enable;
+> +			slew-rate = <0>;
+> +		};
+> +
+> +		phy-reset-pins {
+> +			pins = "GMAC0_COL"; /* GPIO3_21 */
+> +			bias-disable;
+> +			drive-strength = <3>;
+> +			input-disable;
+> +			input-schmitt-disable;
+> +			slew-rate = <0>;
+> +		};
+> +
+> +		phy-interrupt-pins {
+> +			pins = "GMAC0_CRS"; /* GPIO3_22 */
+> +			function = "gpio";
+> +			bias-pull-up;
+> +			drive-strength = <1>;
+> +			input-enable;
+> +			input-schmitt-enable;
+> +			slew-rate = <0>;
+> +		};
+> +	};
+> +
+>  	uart0_pins: uart0-0 {
+>  		tx-pins {
+>  			pins = "UART0_TXD";
+> diff --git a/arch/riscv/boot/dts/thead/th1520-lichee-module-4a.dtsi b/arch/riscv/boot/dts/thead/th1520-lichee-module-4a.dtsi
+> index 724d9645471d..8e76b63e0100 100644
+> --- a/arch/riscv/boot/dts/thead/th1520-lichee-module-4a.dtsi
+> +++ b/arch/riscv/boot/dts/thead/th1520-lichee-module-4a.dtsi
+> @@ -11,6 +11,11 @@ / {
+>  	model = "Sipeed Lichee Module 4A";
+>  	compatible = "sipeed,lichee-module-4a", "thead,th1520";
+>  
+> +	aliases {
+> +		ethernet0 = &gmac0;
+> +		ethernet1 = &gmac1;
+> +	};
+> +
+>  	memory@0 {
+>  		device_type = "memory";
+>  		reg = <0x0 0x00000000 0x2 0x00000000>;
+> @@ -45,6 +50,22 @@ &emmc {
+>  	status = "okay";
+>  };
+>  
+> +&gmac0 {
+> +	pinctrl-names = "default";
+> +	pinctrl-0 = <&gmac0_pins>, <&mdio0_pins>;
+> +	phy-handle = <&phy0>;
+> +	phy-mode = "rgmii-id";
+> +	status = "okay";
+> +};
+> +
+> +&gmac1 {
+> +	pinctrl-names = "default";
+> +	pinctrl-0 = <&gmac1_pins>;
+> +	phy-handle = <&phy1>;
+> +	phy-mode = "rgmii-id";
+> +	status = "okay";
+> +};
+> +
+>  &gpio0 {
+>  	gpio-line-names = "", "", "", "", "", "", "", "", "", "",
+>  			  "", "", "", "", "", "", "", "", "", "",
+> @@ -78,6 +99,104 @@ &gpio3 {
+>  			  "GPIO10";
+>  };
+>  
+> +&mdio0 {
+> +	phy0: ethernet-phy@1 {
+> +		reg = <1>;
+> +	};
+> +
+> +	phy1: ethernet-phy@2 {
+> +		reg = <2>;
+> +	};
+> +};
+> +
+> +&padctrl0_apsys {
+> +	gmac0_pins: gmac0-0 {
+> +		tx-pins {
+> +			pins = "GMAC0_TX_CLK",
+> +			       "GMAC0_TXEN",
+> +			       "GMAC0_TXD0",
+> +			       "GMAC0_TXD1",
+> +			       "GMAC0_TXD2",
+> +			       "GMAC0_TXD3";
+> +			function = "gmac0";
+> +			bias-disable;
+> +			drive-strength = <25>;
+> +			input-disable;
+> +			input-schmitt-disable;
+> +			slew-rate = <0>;
+> +		};
+> +
+> +		rx-pins {
+> +			pins = "GMAC0_RX_CLK",
+> +			       "GMAC0_RXDV",
+> +			       "GMAC0_RXD0",
+> +			       "GMAC0_RXD1",
+> +			       "GMAC0_RXD2",
+> +			       "GMAC0_RXD3";
+> +			function = "gmac0";
+> +			bias-disable;
+> +			drive-strength = <1>;
+> +			input-enable;
+> +			input-schmitt-disable;
+> +			slew-rate = <0>;
+> +		};
+> +	};
+> +
+> +	gmac1_pins: gmac1-0 {
+> +		tx-pins {
+> +			pins = "GPIO2_18", /* GMAC1_TX_CLK */
+> +			       "GPIO2_20", /* GMAC1_TXEN */
+> +			       "GPIO2_21", /* GMAC1_TXD0 */
+> +			       "GPIO2_22", /* GMAC1_TXD1 */
+> +			       "GPIO2_23", /* GMAC1_TXD2 */
+> +			       "GPIO2_24"; /* GMAC1_TXD3 */
+> +			function = "gmac1";
+> +			bias-disable;
+> +			drive-strength = <25>;
+> +			input-disable;
+> +			input-schmitt-disable;
+> +			slew-rate = <0>;
+> +		};
+> +
+> +		rx-pins {
+> +			pins = "GPIO2_19", /* GMAC1_RX_CLK */
+> +			       "GPIO2_25", /* GMAC1_RXDV */
+> +			       "GPIO2_30", /* GMAC1_RXD0 */
+> +			       "GPIO2_31", /* GMAC1_RXD1 */
+> +			       "GPIO3_0",  /* GMAC1_RXD2 */
+> +			       "GPIO3_1";  /* GMAC1_RXD3 */
+> +			function = "gmac1";
+> +			bias-disable;
+> +			drive-strength = <1>;
+> +			input-enable;
+> +			input-schmitt-disable;
+> +			slew-rate = <0>;
+> +		};
+> +	};
+> +
+> +	mdio0_pins: mdio0-0 {
+> +		mdc-pins {
+> +			pins = "GMAC0_MDC";
+> +			function = "gmac0";
+> +			bias-disable;
+> +			drive-strength = <13>;
+> +			input-disable;
+> +			input-schmitt-disable;
+> +			slew-rate = <0>;
+> +		};
+> +
+> +		mdio-pins {
+> +			pins = "GMAC0_MDIO";
+> +			function = "gmac0";
+> +			bias-disable;
+> +			drive-strength = <13>;
+> +			input-enable;
+> +			input-schmitt-enable;
+> +			slew-rate = <0>;
+> +		};
+> +	};
+> +};
+> +
+>  &sdio0 {
+>  	bus-width = <4>;
+>  	max-frequency = <198000000>;
+> diff --git a/arch/riscv/boot/dts/thead/th1520.dtsi b/arch/riscv/boot/dts/thead/th1520.dtsi
+> index cd835aea07d2..acfe030e803a 100644
+> --- a/arch/riscv/boot/dts/thead/th1520.dtsi
+> +++ b/arch/riscv/boot/dts/thead/th1520.dtsi
+> @@ -223,6 +223,12 @@ aonsys_clk: clock-73728000 {
+>  		#clock-cells = <0>;
+>  	};
+>  
+> +	stmmac_axi_config: stmmac-axi-config {
+> +		snps,wr_osr_lmt = <15>;
+> +		snps,rd_osr_lmt = <15>;
+> +		snps,blen = <0 0 64 32 0 0 0>;
+> +	};
+> +
+>  	soc {
+>  		compatible = "simple-bus";
+>  		interrupt-parent = <&plic>;
+> @@ -274,6 +280,50 @@ uart0: serial@ffe7014000 {
+>  			status = "disabled";
+>  		};
+>  
+> +		gmac1: ethernet@ffe7060000 {
+> +			compatible = "thead,th1520-gmac", "snps,dwmac-3.70a";
+> +			reg = <0xff 0xe7060000 0x0 0x2000>, <0xff 0xec004000 0x0 0x1000>;
+> +			reg-names = "dwmac", "apb";
+> +			interrupts = <67 IRQ_TYPE_LEVEL_HIGH>;
+> +			interrupt-names = "macirq";
+> +			clocks = <&clk CLK_GMAC_AXI>, <&clk CLK_GMAC1>;
+> +			clock-names = "stmmaceth", "pclk";
+> +			snps,pbl = <32>;
+> +			snps,fixed-burst;
+> +			snps,multicast-filter-bins = <64>;
+> +			snps,perfect-filter-entries = <32>;
+> +			snps,axi-config = <&stmmac_axi_config>;
+> +			status = "disabled";
+> +
+> +			mdio1: mdio {
+> +				compatible = "snps,dwmac-mdio";
+> +				#address-cells = <1>;
+> +				#size-cells = <0>;
+> +			};
+> +		};
+> +
+> +		gmac0: ethernet@ffe7070000 {
+> +			compatible = "thead,th1520-gmac", "snps,dwmac-3.70a";
+> +			reg = <0xff 0xe7070000 0x0 0x2000>, <0xff 0xec003000 0x0 0x1000>;
+> +			reg-names = "dwmac", "apb";
+> +			interrupts = <66 IRQ_TYPE_LEVEL_HIGH>;
+> +			interrupt-names = "macirq";
+> +			clocks = <&clk CLK_GMAC_AXI>, <&clk CLK_GMAC0>;
+> +			clock-names = "stmmaceth", "pclk";
+> +			snps,pbl = <32>;
+> +			snps,fixed-burst;
+> +			snps,multicast-filter-bins = <64>;
+> +			snps,perfect-filter-entries = <32>;
+> +			snps,axi-config = <&stmmac_axi_config>;
+> +			status = "disabled";
+> +
+> +			mdio0: mdio {
+> +				compatible = "snps,dwmac-mdio";
+> +				#address-cells = <1>;
+> +				#size-cells = <0>;
+> +			};
+> +		};
+> +
+>  		emmc: mmc@ffe7080000 {
+>  			compatible = "thead,th1520-dwcmshc";
+>  			reg = <0xff 0xe7080000 0x0 0x10000>;
 > 
-> Thanks,
-> Namhyug
+> -- 
+> 2.34.1
 > 
-> > 
-> >  tools/perf/Makefile.config                    |  17 +-
-> >  tools/perf/arch/arc/annotate/instructions.c   |   2 +
-> >  tools/perf/arch/arm/Makefile                  |   3 -
-> >  tools/perf/arch/arm/annotate/instructions.c   |   2 +
-> >  tools/perf/arch/arm/util/Build                |   2 -
-> >  tools/perf/arch/arm/util/dwarf-regs.c         |  61 -------
-> >  tools/perf/arch/arm64/Makefile                |   4 -
-> >  tools/perf/arch/arm64/annotate/instructions.c |   2 +
-> >  tools/perf/arch/arm64/util/Build              |   1 -
-> >  tools/perf/arch/arm64/util/dwarf-regs.c       |  92 -----------
-> >  tools/perf/arch/csky/Makefile                 |   4 -
-> >  tools/perf/arch/csky/annotate/instructions.c  |   7 +-
-> >  tools/perf/arch/csky/util/Build               |   1 -
-> >  tools/perf/arch/loongarch/Makefile            |   4 -
-> >  .../arch/loongarch/annotate/instructions.c    |   2 +
-> >  tools/perf/arch/loongarch/util/Build          |   1 -
-> >  tools/perf/arch/loongarch/util/dwarf-regs.c   |  44 -----
-> >  tools/perf/arch/mips/Makefile                 |   4 -
-> >  tools/perf/arch/mips/annotate/instructions.c  |   2 +
-> >  tools/perf/arch/mips/util/Build               |   1 -
-> >  tools/perf/arch/mips/util/dwarf-regs.c        |  38 -----
-> >  tools/perf/arch/powerpc/Makefile              |   5 -
-> >  .../perf/arch/powerpc/annotate/instructions.c |   2 +
-> >  tools/perf/arch/powerpc/util/Build            |   1 -
-> >  tools/perf/arch/powerpc/util/dwarf-regs.c     | 153 ------------------
-> >  tools/perf/arch/riscv/Makefile                |   5 +-
-> >  .../arch/riscv/include/dwarf-regs-table.h     |  42 +++++
-> >  tools/perf/arch/riscv/util/Build              |   1 -
-> >  tools/perf/arch/riscv/util/dwarf-regs.c       |  72 ---------
-> >  .../perf/arch/riscv64/annotate/instructions.c |   2 +
-> >  tools/perf/arch/s390/Makefile                 |   4 -
-> >  tools/perf/arch/s390/annotate/instructions.c  |   2 +
-> >  tools/perf/arch/s390/util/Build               |   1 -
-> >  tools/perf/arch/s390/util/dwarf-regs.c        |  43 -----
-> >  tools/perf/arch/sh/Build                      |   1 -
-> >  tools/perf/arch/sh/Makefile                   |   4 -
-> >  tools/perf/arch/sh/util/Build                 |   1 -
-> >  tools/perf/arch/sh/util/dwarf-regs.c          |  41 -----
-> >  tools/perf/arch/sparc/Build                   |   1 -
-> >  tools/perf/arch/sparc/Makefile                |   4 -
-> >  tools/perf/arch/sparc/annotate/instructions.c |   2 +
-> >  tools/perf/arch/sparc/util/Build              |   1 -
-> >  tools/perf/arch/sparc/util/dwarf-regs.c       |  39 -----
-> >  tools/perf/arch/x86/Makefile                  |   4 -
-> >  tools/perf/arch/x86/annotate/instructions.c   |   3 +-
-> >  tools/perf/arch/x86/util/Build                |   3 -
-> >  tools/perf/arch/x86/util/dwarf-regs.c         | 153 ------------------
-> >  tools/perf/arch/xtensa/Build                  |   1 -
-> >  tools/perf/arch/xtensa/Makefile               |   4 -
-> >  tools/perf/arch/xtensa/util/Build             |   1 -
-> >  tools/perf/arch/xtensa/util/dwarf-regs.c      |  21 ---
-> >  tools/perf/util/Build                         |   3 +
-> >  tools/perf/util/annotate.c                    |   6 +-
-> >  tools/perf/util/bpf-prologue.h                |  37 -----
-> >  tools/perf/util/disasm.h                      |   4 +
-> >  .../dwarf-regs.c => util/dwarf-regs-csky.c}   |  19 +--
-> >  tools/perf/util/dwarf-regs-powerpc.c          |  61 +++++++
-> >  tools/perf/util/dwarf-regs-x86.c              |  50 ++++++
-> >  tools/perf/util/dwarf-regs.c                  |  38 +++--
-> >  tools/perf/util/include/dwarf-regs.h          | 110 ++++++++++---
-> >  tools/perf/util/probe-finder.c                |  13 +-
-> >  tools/perf/util/probe-finder.h                |   3 +-
-> >  62 files changed, 328 insertions(+), 927 deletions(-)
-> >  delete mode 100644 tools/perf/arch/arm/util/dwarf-regs.c
-> >  delete mode 100644 tools/perf/arch/arm64/util/dwarf-regs.c
-> >  delete mode 100644 tools/perf/arch/csky/Makefile
-> >  delete mode 100644 tools/perf/arch/loongarch/util/dwarf-regs.c
-> >  delete mode 100644 tools/perf/arch/mips/util/dwarf-regs.c
-> >  delete mode 100644 tools/perf/arch/powerpc/util/dwarf-regs.c
-> >  create mode 100644 tools/perf/arch/riscv/include/dwarf-regs-table.h
-> >  delete mode 100644 tools/perf/arch/riscv/util/dwarf-regs.c
-> >  delete mode 100644 tools/perf/arch/s390/util/dwarf-regs.c
-> >  delete mode 100644 tools/perf/arch/sh/Build
-> >  delete mode 100644 tools/perf/arch/sh/Makefile
-> >  delete mode 100644 tools/perf/arch/sh/util/Build
-> >  delete mode 100644 tools/perf/arch/sh/util/dwarf-regs.c
-> >  delete mode 100644 tools/perf/arch/sparc/Build
-> >  delete mode 100644 tools/perf/arch/sparc/util/Build
-> >  delete mode 100644 tools/perf/arch/sparc/util/dwarf-regs.c
-> >  delete mode 100644 tools/perf/arch/x86/util/dwarf-regs.c
-> >  delete mode 100644 tools/perf/arch/xtensa/Build
-> >  delete mode 100644 tools/perf/arch/xtensa/Makefile
-> >  delete mode 100644 tools/perf/arch/xtensa/util/Build
-> >  delete mode 100644 tools/perf/arch/xtensa/util/dwarf-regs.c
-> >  delete mode 100644 tools/perf/util/bpf-prologue.h
-> >  rename tools/perf/{arch/csky/util/dwarf-regs.c => util/dwarf-regs-csky.c} (74%)
-> >  create mode 100644 tools/perf/util/dwarf-regs-powerpc.c
-> >  create mode 100644 tools/perf/util/dwarf-regs-x86.c
-> > 
-> > -- 
-> > 2.47.0.105.g07ac214952-goog
-> > 
 
+The dwmac-thead driver and dt binding have been applied to net-next [1]
+so I have now applied this dts patch to thead-dt-for-next [2].
 
--- 
-Masami Hiramatsu (Google) <mhiramat@kernel.org>
+-Drew
+
+[1] https://lore.kernel.org/linux-riscv/173085843050.764350.5609116722213276708.git-patchwork-notify@kernel.org/
+[2] https://github.com/pdp7/linux/commit/7e756671a664b73b2a3c0cc37fd25abf6bcd851e
 
 _______________________________________________
 linux-riscv mailing list
