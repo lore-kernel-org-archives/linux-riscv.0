@@ -4,96 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D5C45D64076
-	for <linux-riscv@archiver.kernel.org>; Sat,  9 Nov 2024 00:21:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 97629D64097
+	for <linux-riscv@archiver.kernel.org>; Sat,  9 Nov 2024 00:22:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:From:Subject:References:Mime-Version
-	:Message-Id:In-Reply-To:Date:Reply-To:Cc:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Mz4mgUE+bHONr2EVMAYtDfhNl2fQLzU5CdDAJUFNq+A=; b=PwVJlsJAC0sHHi
-	3CUgLu07D3WzBRO8xWhR3EtUNMIEqti6wmrKAVLMqdgBw7MXKOcXOaIS5jVWQ41yN+/fIv2U8xZvh
-	GjiL6XeKZlcMOdLiW8pNbPQ+3rAOAVc0G69UB/44FQRHj3O/zpwe3nb50O2P39EFPKrRSmqfgYQ8V
-	vA84xMZO96ha85BqoNa9MmqQrlC/ndgFnGIfxhZK+8mHOkvwtzsUL5vbnl7zgODqn2hqaPLeNyGNQ
-	0uzEdutbPk6Q7XEsdXGxhcPWMDWgEx3vY49Mk7miSKa8EjxA+wQYiOnwAdv00tPzcVJ7xdVGdofUb
-	InYieCh8g0IxFv7M1Xag==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:MIME-Version:Subject:
+	Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=j7ZKALwKIJN3yCN2wNuJsY76vErNWDopQcBoSNlgUcU=; b=K15ETPjWrhEyLN
+	Gd65jgA1dtEh236oiBKshzwSNzkeIAqrWzDrey91MseYDWqAaD12BxPPhIIZTZNjFxFljVqSnICUx
+	hqxN5Ax24K4To8o3KF40sHRKGjBy1CELzOfpI4QJKI0G6hPqanxeL1ZzpkHMl0Ft+pAzzPwbSFL/Q
+	JTtN/QzdDwpZf95JJmoC+3GDbdQpMQC/7Rt8ENxETmkDoXN0lxyRXCa1V+3+Jq+CIW2Ovm5dynEMn
+	Ju1rmeYxwG2zPehV8q7I4Bcq5vpD3VocXcIka046H/2+BmnhkV7X7EoeBXfBVkZEUW7dTNy8QOMwp
+	k1BMC+wqejJjByquyR7g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t9ZDq-0000000CKTX-1mXP;
-	Sat, 09 Nov 2024 00:21:02 +0000
-Received: from mail-yb1-xb4a.google.com ([2607:f8b0:4864:20::b4a])
+	id 1t9ZFZ-0000000CKmV-0w4H;
+	Sat, 09 Nov 2024 00:22:49 +0000
+Received: from mail-pf1-x429.google.com ([2607:f8b0:4864:20::429])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t9Ygs-0000000CFMH-2AOY
+	id 1t9Yhl-0000000CFbT-0zqd
 	for linux-riscv@lists.infradead.org;
-	Fri, 08 Nov 2024 23:47:00 +0000
-Received: by mail-yb1-xb4a.google.com with SMTP id 3f1490d57ef6-e30cf121024so4596640276.1
-        for <linux-riscv@lists.infradead.org>; Fri, 08 Nov 2024 15:46:57 -0800 (PST)
+	Fri, 08 Nov 2024 23:47:55 +0000
+Received: by mail-pf1-x429.google.com with SMTP id d2e1a72fcca58-71e4244fdc6so2375687b3a.0
+        for <linux-riscv@lists.infradead.org>; Fri, 08 Nov 2024 15:47:52 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1731109617; x=1731714417; darn=lists.infradead.org;
-        h=to:from:subject:references:mime-version:message-id:in-reply-to:date
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=OKslcm2V1UHcqGqqi4FAiYTJwpOr2SEQn/AjeUS4EGg=;
-        b=lyGP876ixL622dd51iVDMXFdM2R5KKIIZaDuEAC+vHoQkRQ5xKYKry3+B8afNVtFdz
-         zVOuAB9ec0Yv36Fpxjm3DnKHxwlpUFth1N7J6KDTLtZVp2E95UG1fiKWRzpQQU/jvZmc
-         yqf16O6jL5FR+PYBMeFAdVEaF0f3sc/8HMxvfpMTE9lSZy68uL9WGllqmmVpUNvbpWQ3
-         L+hW/oov0ru5mZsczstZYbHGWLvh5NgtcM6xb4ofmSrVNa5dn/GlP6bohpJaHA9yLL8h
-         DkAQuSj+WtMCxIAkrw/F0E7TYf04hx3rdR2WUrOw3WqCMM0Xk1/Mvd4fjEr7TgFamO/k
-         n9bQ==
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1731109672; x=1731714472; darn=lists.infradead.org;
+        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
+         :date:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=vLT8y+Br7ZOzC38CGdRLNZ2zunKzFtQpFi1e/g4uRn0=;
+        b=sTQHS466xRA+4fpM1dkcmb15hY9HPMkI7s32hNdT1SZnUzzq8q7e57vaZB8jI1NntP
+         iN3e+0OrAodgngDRaADjqQ44QKPq0+PzhzpPJOl9HYKPiEgR0Z/UXY5SCKyuuAPQG2qk
+         WMNMl8HWi92DGGQaCk410iS2vU5qgQZGn+k+/hAkJL79NLQuxuDhncn3bR1jBRaT4a56
+         KFrMVT0+8oobP0kh011iZFSbZ3k3XD5AncdTKWv69eyJdbwbPePnIufcYuERZM6AAPKi
+         6FX0T0YCPodU3t3CFGQ7U19kyK0IGBX5uPOfTfrHcjevrV/QZcIM+hd98vfk6pJed74f
+         TS4g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1731109617; x=1731714417;
-        h=to:from:subject:references:mime-version:message-id:in-reply-to:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=OKslcm2V1UHcqGqqi4FAiYTJwpOr2SEQn/AjeUS4EGg=;
-        b=Vil5OloYMkjsRYw+Oc222qsDC0Xt0xCbb/xLjVnzy7NffysUimMy+1Im1DfU98f9E5
-         4Jlg2CKl47TjQ2iZWZKhFk6i7M29vGf7tjR2syvmForghkD4IQv2+VcIC8ga8WaM49pF
-         an7TviN+DHRPA3pE0xXhbphi2Yz56nFiEibIb8hZBKAG2ofMP3Z6ZEMH0R2kDA9rLNh3
-         sUlgnOovKmhVpVH21U42PPcmMW/YGKZjxBPOlgk+65aNzdpP8bIokJymi4yZERX3q5r9
-         qoPtmCDw5bRBqSbJqwxWZ+a0wL2B56GQM4FRvlCNb2hbJegXkb/N3nbrjfEJvl/ZVOiI
-         An3w==
-X-Forwarded-Encrypted: i=1; AJvYcCW8BaKH8RCafYQiCGaE5Xjoh49pE0aRmryy9sLnvCVwDpD7k1jEIFRhDvz45i18++3pTWd/sbWWfpBE9g==@lists.infradead.org
-X-Gm-Message-State: AOJu0YzaQghUDl7vo8sJzH3Hi1m0+mj5TuQJNO/+K8cLz2ae80gaKInT
-	Jf54AqchzNRXIN1Z7BYsKDD/XPzslS6nUNjLYI79SrKEl8kplIAspyQ8yPy4MswvHoc5I8/A23c
-	IEeer5w==
-X-Google-Smtp-Source: AGHT+IG1zx26qQHAzqiLBUtrRzJXR+kqfJstP7FYSoC2xoOMAWBu+eO7OrTp0s/Fw2wwPvD/OOi7YEUCvyL0
-X-Received: from irogers.svl.corp.google.com ([2620:15c:2c5:11:6fd2:1e36:6d8c:7c49])
- (user=irogers job=sendgmr) by 2002:a25:ae63:0:b0:e11:639b:6428 with SMTP id
- 3f1490d57ef6-e337f77f713mr8790276.0.1731109617162; Fri, 08 Nov 2024 15:46:57
- -0800 (PST)
-Date: Fri,  8 Nov 2024 15:46:05 -0800
-In-Reply-To: <20241108234606.429459-1-irogers@google.com>
-Message-Id: <20241108234606.429459-21-irogers@google.com>
-Mime-Version: 1.0
-References: <20241108234606.429459-1-irogers@google.com>
-X-Mailer: git-send-email 2.47.0.277.g8800431eea-goog
-Subject: [PATCH v4 20/20] perf build: Remove PERF_HAVE_DWARF_REGS
-From: Ian Rogers <irogers@google.com>
-To: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
-	Arnaldo Carvalho de Melo <acme@kernel.org>, Namhyung Kim <namhyung@kernel.org>, 
-	Mark Rutland <mark.rutland@arm.com>, 
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>, Jiri Olsa <jolsa@kernel.org>, 
-	Ian Rogers <irogers@google.com>, Adrian Hunter <adrian.hunter@intel.com>, 
-	Kan Liang <kan.liang@linux.intel.com>, John Garry <john.g.garry@oracle.com>, 
-	Will Deacon <will@kernel.org>, James Clark <james.clark@linaro.org>, 
-	Mike Leach <mike.leach@linaro.org>, Leo Yan <leo.yan@linux.dev>, Guo Ren <guoren@kernel.org>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Nick Terrell <terrelln@fb.com>, 
-	"Masami Hiramatsu (Google)" <mhiramat@kernel.org>, Changbin Du <changbin.du@huawei.com>, 
-	Guilherme Amadio <amadio@gentoo.org>, Yang Jihong <yangjihong@bytedance.com>, 
-	Aditya Gupta <adityag@linux.ibm.com>, Athira Rajeev <atrajeev@linux.vnet.ibm.com>, 
-	Masahiro Yamada <masahiroy@kernel.org>, Bibo Mao <maobibo@loongson.cn>, 
-	Huacai Chen <chenhuacai@kernel.org>, Kajol Jain <kjain@linux.ibm.com>, 
-	Atish Patra <atishp@rivosinc.com>, Shenlin Liang <liangshenlin@eswincomputing.com>, 
-	Anup Patel <anup@brainfault.org>, Oliver Upton <oliver.upton@linux.dev>, 
-	"Steinar H. Gunderson" <sesse@google.com>, "Dr. David Alan Gilbert" <linux@treblig.org>, 
-	Chen Pei <cp0613@linux.alibaba.com>, Dima Kogan <dima@secretsauce.net>, 
-	Przemek Kitszel <przemyslaw.kitszel@intel.com>, "David S. Miller" <davem@davemloft.net>, 
-	Alexander Lobakin <aleksander.lobakin@intel.com>, linux-kernel@vger.kernel.org, 
-	linux-perf-users@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-csky@vger.kernel.org, linux-riscv@lists.infradead.org
+        d=1e100.net; s=20230601; t=1731109672; x=1731714472;
+        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
+         :date:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=vLT8y+Br7ZOzC38CGdRLNZ2zunKzFtQpFi1e/g4uRn0=;
+        b=obld/hzlVoMuwEMOa8kn6my8jZFcrUiZsIujdPrBygt+VLegoPrvae6YSGGjN+pctw
+         ow/Y1BRRBSasXz9GUO1vagr7OkCeaSXmnY+SKhONuzY9oDG6pItswvz0HI9njlxn/hBu
+         G7hJhl/L93H8MXDdiKBz7usnkA0S1x972kc1rGNzp+Wkz0nuKoFjteIb1QSyOIXiCEPL
+         Ae+WTNQ8dBPGOBU1qC9GQ6NkOs9ImO86JnBjBkyHyr2z4ynwZLa/ZqWnvmeJgBWcepIM
+         I6afCPOeNr7ZDDUvGjIiOkVfs/mB10u7vjG5h5BEkjFqUxzEjwrU4VuvQn8KxtxfgGDu
+         WxQg==
+X-Forwarded-Encrypted: i=1; AJvYcCU9I863gK+/V+2e0k6FcOm0HHlqDGBB8N20WUgsLmjok0yozsK3+Aky9GQRbP1MZY13wHNgGnzsG7an8Q==@lists.infradead.org
+X-Gm-Message-State: AOJu0YwQjGwS5/+52Hgk1aCNouZChGbgKh/Udh4/ofzHOzwv24a4ycpN
+	ERo6qzNPUIC7hOaqbGn3YP4NB0pQBHRxScqbrZCal2m7Gc08F15sQ9B50ZnuksM=
+X-Google-Smtp-Source: AGHT+IG3/42zTy6o/j0Vb6GpHhmw+p9iTLxozbfpy14GTVUlms+HosrVJ4hPPfRbbps9yC1k8ErBoA==
+X-Received: by 2002:a05:6a00:14d2:b0:71e:cb:e7bf with SMTP id d2e1a72fcca58-724133625a2mr5595089b3a.18.1731109671901;
+        Fri, 08 Nov 2024 15:47:51 -0800 (PST)
+Received: from charlie.ba.rivosinc.com ([64.71.180.162])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-72407a56048sm4376576b3a.174.2024.11.08.15.47.50
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 08 Nov 2024 15:47:50 -0800 (PST)
+From: Charlie Jenkins <charlie@rivosinc.com>
+Date: Fri, 08 Nov 2024 15:47:36 -0800
+Subject: [PATCH for-next v2] riscv: Fix default misaligned access trap
+MIME-Version: 1.0
+Message-Id: <20241108-fix_handle_misaligned_load-v2-1-91d547ce64db@rivosinc.com>
+X-B4-Tracking: v=1; b=H4sIABejLmcC/42NQQqDMBBFryKzbkoSWhO76j2KiCajDmgiiQSLe
+ PeGnKDLz/u8d0LEQBjhVZ0QMFEk7/KQtwrM3LsJGdm8QXL5EIIrNtLRZWAX7FaK/UKTQ9stvrd
+ MD6hrM3DNa4Qs2ALmd5F/YPSBOTx2aDOZKe4+fEs1icL/CSTBBOPKKv2Upmka8Q6UfCRn7sav0
+ F7X9QPChXlO0QAAAA==
+To: Paul Walmsley <paul.walmsley@sifive.com>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+ Jesse Taube <Mr.Bossman075@gmail.com>
+Cc: Palmer Dabbelt <palmer@rivosinc.com>, linux-riscv@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, Charlie Jenkins <charlie@rivosinc.com>
+X-Mailer: b4 0.13.0
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1658; i=charlie@rivosinc.com;
+ h=from:subject:message-id; bh=ffwfWA/+f1ixyduX5KwLaumFNq5ov3RSm3STfwiajJA=;
+ b=owGbwMvMwCHWx5hUnlvL8Y3xtFoSQ7reYjnNpxUrJr++e6n/RMb6tN63Lybf3/Hl3b2V/6YzM
+ F78eCXiY0cpC4MYB4OsmCILz7UG5tY7+mVHRcsmwMxhZQIZwsDFKQATKepgZLiUezQlZf9TJ5n5
+ CsVl7Hn3JyqvfxrzZ3vAupCc6ezrvlxgZPguIMoSvefezYVpIlcFLD/xv+P/zFh0YqLzKrkny38
+ uD+YDAA==
+X-Developer-Key: i=charlie@rivosinc.com; a=openpgp;
+ fpr=7D834FF11B1D8387E61C776FFB10D1F27D6B1354
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241108_154658_729602_B6A5F009 
-X-CRM114-Status: GOOD (  15.35  )
+X-CRM114-CacheID: sfid-20241108_154753_490688_AF7D6BA6 
+X-CRM114-Status: UNSURE (   7.33  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,198 +105,53 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-PERF_HAVE_DWARF_REGS was true when an architecture had a dwarf-regs.c
-file. There are no more architecture dwarf-regs.c files, selection is
-done using constants from the ELF file rather than conditional
-compilation. When removing PERF_HAVE_DWARF_REGS was the only variable
-in the Makefile, remove the Makefile.
+Commit d1703dc7bc8e ("RISC-V: Detect unaligned vector accesses
+supported") removed the default handlers for handle_misaligned_load()
+and handle_misaligned_store(). When the kernel is compiled without
+RISCV_SCALAR_MISALIGNED, these handlers are never defined, causing
+compilation errors.
 
-Add missing SPDX for RISC-V Makefile.
-
-Reviewed-by: Masami Hiramatsu (Google) <mhiramat@kernel.org>
-Signed-off-by: Ian Rogers <irogers@google.com>
+Signed-off-by: Charlie Jenkins <charlie@rivosinc.com>
+Fixes: d1703dc7bc8e ("RISC-V: Detect unaligned vector accesses supported")
 ---
- tools/perf/Makefile.config         | 13 ++++---------
- tools/perf/arch/arm/Makefile       |  3 ---
- tools/perf/arch/arm64/Makefile     |  3 ---
- tools/perf/arch/csky/Makefile      |  4 ----
- tools/perf/arch/loongarch/Makefile |  3 ---
- tools/perf/arch/mips/Makefile      |  4 ----
- tools/perf/arch/powerpc/Makefile   |  4 ----
- tools/perf/arch/riscv/Makefile     |  4 +---
- tools/perf/arch/s390/Makefile      |  3 ---
- tools/perf/arch/sh/Makefile        |  4 ----
- tools/perf/arch/sparc/Makefile     |  4 ----
- tools/perf/arch/x86/Makefile       |  3 ---
- tools/perf/arch/xtensa/Makefile    |  4 ----
- 13 files changed, 5 insertions(+), 51 deletions(-)
- delete mode 100644 tools/perf/arch/csky/Makefile
- delete mode 100644 tools/perf/arch/sh/Makefile
- delete mode 100644 tools/perf/arch/xtensa/Makefile
+Changes in v2:
+- Change CONFIG_RISCV_SCALAR_MISALIGNED to CONFIG_RISCV_MISALIGNED
+  (Jesse)
+- Link to v1: https://lore.kernel.org/r/20241107-fix_handle_misaligned_load-v1-1-07d7852c9991@rivosinc.com
+---
+ arch/riscv/include/asm/entry-common.h | 12 ++++++++++++
+ 1 file changed, 12 insertions(+)
 
-diff --git a/tools/perf/Makefile.config b/tools/perf/Makefile.config
-index 52a216df9e2a..2916d59c88cd 100644
---- a/tools/perf/Makefile.config
-+++ b/tools/perf/Makefile.config
-@@ -559,15 +559,10 @@ ifndef NO_LIBELF
-   endif
+diff --git a/arch/riscv/include/asm/entry-common.h b/arch/riscv/include/asm/entry-common.h
+index 7b32d2b08bb6..b28ccc6cdeea 100644
+--- a/arch/riscv/include/asm/entry-common.h
++++ b/arch/riscv/include/asm/entry-common.h
+@@ -25,7 +25,19 @@ static inline void arch_exit_to_user_mode_prepare(struct pt_regs *regs,
+ void handle_page_fault(struct pt_regs *regs);
+ void handle_break(struct pt_regs *regs);
  
-   ifndef NO_LIBDW
--    ifeq ($(origin PERF_HAVE_DWARF_REGS), undefined)
--      $(warning DWARF register mappings have not been defined for architecture $(SRCARCH), DWARF support disabled)
--      NO_LIBDW := 1
--    else
--      CFLAGS += -DHAVE_LIBDW_SUPPORT $(LIBDW_CFLAGS)
--      LDFLAGS += $(LIBDW_LDFLAGS)
--      EXTLIBS += ${DWARFLIBS}
--      $(call detected,CONFIG_LIBDW)
--    endif # PERF_HAVE_DWARF_REGS
-+    CFLAGS += -DHAVE_LIBDW_SUPPORT $(LIBDW_CFLAGS)
-+    LDFLAGS += $(LIBDW_LDFLAGS)
-+    EXTLIBS += ${DWARFLIBS}
-+    $(call detected,CONFIG_LIBDW)
-   endif # NO_LIBDW
++#ifdef CONFIG_RISCV_MISALIGNED
+ int handle_misaligned_load(struct pt_regs *regs);
+ int handle_misaligned_store(struct pt_regs *regs);
++#else
++static inline int handle_misaligned_load(struct pt_regs *regs)
++{
++	return -1;
++}
++
++static inline int handle_misaligned_store(struct pt_regs *regs)
++{
++	return -1;
++}
++#endif
  
-   ifndef NO_LIBBPF
-diff --git a/tools/perf/arch/arm/Makefile b/tools/perf/arch/arm/Makefile
-index 9b164d379548..8b59ce8efb89 100644
---- a/tools/perf/arch/arm/Makefile
-+++ b/tools/perf/arch/arm/Makefile
-@@ -1,5 +1,2 @@
- # SPDX-License-Identifier: GPL-2.0-only
--ifndef NO_LIBDW
--PERF_HAVE_DWARF_REGS := 1
--endif
- PERF_HAVE_JITDUMP := 1
-diff --git a/tools/perf/arch/arm64/Makefile b/tools/perf/arch/arm64/Makefile
-index ca2e35961287..91570d5d428e 100644
---- a/tools/perf/arch/arm64/Makefile
-+++ b/tools/perf/arch/arm64/Makefile
-@@ -1,7 +1,4 @@
- # SPDX-License-Identifier: GPL-2.0
--ifndef NO_LIBDW
--PERF_HAVE_DWARF_REGS := 1
--endif
- PERF_HAVE_JITDUMP := 1
- HAVE_KVM_STAT_SUPPORT := 1
- 
-diff --git a/tools/perf/arch/csky/Makefile b/tools/perf/arch/csky/Makefile
-deleted file mode 100644
-index 119b06a64bed..000000000000
---- a/tools/perf/arch/csky/Makefile
-+++ /dev/null
-@@ -1,4 +0,0 @@
--# SPDX-License-Identifier: GPL-2.0-only
--ifndef NO_LIBDW
--PERF_HAVE_DWARF_REGS := 1
--endif
-diff --git a/tools/perf/arch/loongarch/Makefile b/tools/perf/arch/loongarch/Makefile
-index 79b432744296..52544d59245b 100644
---- a/tools/perf/arch/loongarch/Makefile
-+++ b/tools/perf/arch/loongarch/Makefile
-@@ -1,7 +1,4 @@
- # SPDX-License-Identifier: GPL-2.0
--ifndef NO_LIBDW
--PERF_HAVE_DWARF_REGS := 1
--endif
- PERF_HAVE_JITDUMP := 1
- HAVE_KVM_STAT_SUPPORT := 1
- 
-diff --git a/tools/perf/arch/mips/Makefile b/tools/perf/arch/mips/Makefile
-index 733f7b76f52d..827168f1077a 100644
---- a/tools/perf/arch/mips/Makefile
-+++ b/tools/perf/arch/mips/Makefile
-@@ -1,8 +1,4 @@
- # SPDX-License-Identifier: GPL-2.0
--ifndef NO_LIBDW
--PERF_HAVE_DWARF_REGS := 1
--endif
--
- # Syscall table generation for perf
- out    := $(OUTPUT)arch/mips/include/generated/asm
- header := $(out)/syscalls_n64.c
-diff --git a/tools/perf/arch/powerpc/Makefile b/tools/perf/arch/powerpc/Makefile
-index ae05727835d8..dc8f4fb8e324 100644
---- a/tools/perf/arch/powerpc/Makefile
-+++ b/tools/perf/arch/powerpc/Makefile
-@@ -1,8 +1,4 @@
- # SPDX-License-Identifier: GPL-2.0
--ifndef NO_LIBDW
--PERF_HAVE_DWARF_REGS := 1
--endif
--
- HAVE_KVM_STAT_SUPPORT := 1
- PERF_HAVE_JITDUMP := 1
- 
-diff --git a/tools/perf/arch/riscv/Makefile b/tools/perf/arch/riscv/Makefile
-index d83e0f32f3a8..18ad078000e2 100644
---- a/tools/perf/arch/riscv/Makefile
-+++ b/tools/perf/arch/riscv/Makefile
-@@ -1,6 +1,4 @@
--ifndef NO_LIBDW
--PERF_HAVE_DWARF_REGS := 1
--endif
-+# SPDX-License-Identifier: GPL-2.0
- PERF_HAVE_JITDUMP := 1
- HAVE_KVM_STAT_SUPPORT := 1
- 
-diff --git a/tools/perf/arch/s390/Makefile b/tools/perf/arch/s390/Makefile
-index 58e79f5b67a4..c431c21b11ef 100644
---- a/tools/perf/arch/s390/Makefile
-+++ b/tools/perf/arch/s390/Makefile
-@@ -1,7 +1,4 @@
- # SPDX-License-Identifier: GPL-2.0-only
--ifndef NO_LIBDW
--PERF_HAVE_DWARF_REGS := 1
--endif
- HAVE_KVM_STAT_SUPPORT := 1
- PERF_HAVE_JITDUMP := 1
- 
-diff --git a/tools/perf/arch/sh/Makefile b/tools/perf/arch/sh/Makefile
-deleted file mode 100644
-index 119b06a64bed..000000000000
---- a/tools/perf/arch/sh/Makefile
-+++ /dev/null
-@@ -1,4 +0,0 @@
--# SPDX-License-Identifier: GPL-2.0-only
--ifndef NO_LIBDW
--PERF_HAVE_DWARF_REGS := 1
--endif
-diff --git a/tools/perf/arch/sparc/Makefile b/tools/perf/arch/sparc/Makefile
-index 7741184894c8..8b59ce8efb89 100644
---- a/tools/perf/arch/sparc/Makefile
-+++ b/tools/perf/arch/sparc/Makefile
-@@ -1,6 +1,2 @@
- # SPDX-License-Identifier: GPL-2.0-only
--ifndef NO_LIBDW
--PERF_HAVE_DWARF_REGS := 1
--endif
--
- PERF_HAVE_JITDUMP := 1
-diff --git a/tools/perf/arch/x86/Makefile b/tools/perf/arch/x86/Makefile
-index 51cf267f4d85..a6b6e0a9308a 100644
---- a/tools/perf/arch/x86/Makefile
-+++ b/tools/perf/arch/x86/Makefile
-@@ -1,7 +1,4 @@
- # SPDX-License-Identifier: GPL-2.0
--ifndef NO_LIBDW
--PERF_HAVE_DWARF_REGS := 1
--endif
- HAVE_KVM_STAT_SUPPORT := 1
- PERF_HAVE_JITDUMP := 1
- 
-diff --git a/tools/perf/arch/xtensa/Makefile b/tools/perf/arch/xtensa/Makefile
-deleted file mode 100644
-index 119b06a64bed..000000000000
---- a/tools/perf/arch/xtensa/Makefile
-+++ /dev/null
-@@ -1,4 +0,0 @@
--# SPDX-License-Identifier: GPL-2.0-only
--ifndef NO_LIBDW
--PERF_HAVE_DWARF_REGS := 1
--endif
+ #endif /* _ASM_RISCV_ENTRY_COMMON_H */
+
+---
+base-commit: 74741a050b79d31d8d2eeee12c77736596d0a6b2
+change-id: 20241107-fix_handle_misaligned_load-8be86cb0806e
 -- 
-2.47.0.277.g8800431eea-goog
+- Charlie
 
 
 _______________________________________________
