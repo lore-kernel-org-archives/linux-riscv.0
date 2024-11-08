@@ -4,69 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 34CE1D64076
-	for <linux-riscv@archiver.kernel.org>; Sat,  9 Nov 2024 00:06:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1B29CD64097
+	for <linux-riscv@archiver.kernel.org>; Sat,  9 Nov 2024 00:08:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:To:From:Subject:References:Mime-Version
 	:Message-Id:In-Reply-To:Date:Reply-To:Cc:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=w0SFVVGFHKeUVgmxY3/JnoyZ3qIdeU5Ts9PeyWnX/EI=; b=B//qNCkUnEqDnL
-	tz/wwWZB2sUJFp7NGI5R5WZGbxjzh+6rIXAnhaiD5lLLn4sM9MQA4AxTw9N8l9m8Z5UiKiuVTU6v/
-	iNOKQ2vdGoPJuxdXWJbTJYCHMEgmZNItgKKIKuTLbMZCniLvW79pz399QoIlJDmLodNMSmI0AQs2C
-	nwGjfCcBioyOTY2s/Ay5h/OToQVbOm8wShAn63yKEdbKyBX3a/XnMPeS/V1f4H+dyjK9A+UBQDmWz
-	FbJArHXgkyVd5C941kTmPCWngAcI1dbRzZdIoduUmCdynGg4vxleP/LrqGJ+XFACJGDn4ueFTvoPe
-	GuLkgLlbv96Sfz3K+5Nw==;
+	List-Owner; bh=8vfnyJHueK1/0SQE6I0DQAFj+Ra9MHr7FpIOH8bD6x0=; b=YKxaZXaeEzHuWA
+	BcDWQBxo2Ik20F6kXOWWM5upmmmB7EjsRj5bwkJzjvlc7OLHweA7ta5qI8qU3HGrgbxmHYbQRjgUa
+	S6RlWQRH5DvJUcplnP9ppKhBxgV9VNR6XcQMBm64AFMk5aWVrzg1uD+8kogNhQddouzbzpOXVmrW+
+	xoL3vi/btyXhFWa/2KrG+u6y03jSUY+saxmb6QdjZ3qdOMFhqqjdTRWXYCm5ZF9648BOyc8mrFl/B
+	x3ymxk0H5m8mLoKvIO0A0EmAMh5M/DYf6rc06hDQBGunrlz3ZWLpUoroyTSUvfrBcH+XdtGjYwBjo
+	/Nix+wMP+bpEb2vHD3ew==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t9Yzr-0000000CITB-0Dba;
-	Sat, 09 Nov 2024 00:06:35 +0000
-Received: from mail-yb1-xb49.google.com ([2607:f8b0:4864:20::b49])
+	id 1t9Z1k-0000000CIme-12EZ;
+	Sat, 09 Nov 2024 00:08:32 +0000
+Received: from mail-yb1-xb4a.google.com ([2607:f8b0:4864:20::b4a])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t9YgW-0000000CFAU-2xoW
+	id 1t9YgZ-0000000CFBq-0Nk0
 	for linux-riscv@lists.infradead.org;
-	Fri, 08 Nov 2024 23:46:39 +0000
-Received: by mail-yb1-xb49.google.com with SMTP id 3f1490d57ef6-e297a366304so4373187276.2
-        for <linux-riscv@lists.infradead.org>; Fri, 08 Nov 2024 15:46:36 -0800 (PST)
+	Fri, 08 Nov 2024 23:46:41 +0000
+Received: by mail-yb1-xb4a.google.com with SMTP id 3f1490d57ef6-e28fc8902e6so4981434276.0
+        for <linux-riscv@lists.infradead.org>; Fri, 08 Nov 2024 15:46:38 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1731109595; x=1731714395; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1731109597; x=1731714397; darn=lists.infradead.org;
         h=to:from:subject:references:mime-version:message-id:in-reply-to:date
          :from:to:cc:subject:date:message-id:reply-to;
-        bh=azojZIK4P+JI8rufI/R8xa4D5fUVVVyAlbNpxVfvbC4=;
-        b=xi5Cj33lWic0tKyUfWzyBdvhhns6Xm3ZC9NdVbf/bcdX6OubiMoQ0kN/W9ad55gXb3
-         YwAjb2pba959TO9eAG4SM2iMCzWA3TUf/+v8kVGD3bdNzlYPI3BkEMronUDMzRfFs4Yl
-         sITN3zb5XlWiiIWm43r71OGSBCvwDzQxqW34Ph0PHWLAIiyjVvII+ROdjB+uRVQAcAMX
-         Y9ps9NqKKK9y5BB4jbtbYEGWBlt5TDzfQN1p7aXttO4+PDNh7cMgEIXT/BF02/gJqdCn
-         RvewKOdvuM94zTAYOGB3im7m1uuMAIlkuIbu8Nr5Zy3BUM6VVnma7FpuTKPdq+UIgZmL
-         C93w==
+        bh=a2OyjjDbRvyutbZalHm47RzbC3FdZ2Ys1+/kav0Gy1o=;
+        b=V3+gsCvPU36E7Ski60QmlQLXDw8+/IN6K4J5x8Cn/EQKqdRNwKEN7yK436XVywa4Il
+         bGNNx5V2leUjFUQCC/GyESn9pgn8t73bjCP+HCDPQkKPGY2HpayaHZ11mYIrGO/OZuZg
+         uBvSSnhIJYsa798sk/AfjTr3ZBEHE3+mJHbeCr72A6qTC+n0EfCgbocSU+9olS1IlNqB
+         SpSqpDNhFIW+/6LaaP66MqXOjVdT6/2hUTtDYo7i7YbQNo5blhr10tfzNZ+f3NI61MCA
+         y+AiilQeMX2k3nvWH5kqYjLhxSpLCcH2O0lGaesi+koEjaz+t+45+MDApFpsZ3FuH3hR
+         V4ww==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1731109595; x=1731714395;
+        d=1e100.net; s=20230601; t=1731109597; x=1731714397;
         h=to:from:subject:references:mime-version:message-id:in-reply-to:date
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=azojZIK4P+JI8rufI/R8xa4D5fUVVVyAlbNpxVfvbC4=;
-        b=X6yzScVIHxk0LuF8NVRHG1nsUAQMajfLubab7lb4qvAyBdNT5D0XR/GjRnVKXOoAr4
-         UIA/uVnTuEnZg3OFQPvj2mXzSuv8ZtZpGwRfi078RL3R/wM/aqKQ8X1eXtrFQzKXQDzx
-         u5yPgRC97dnG8VIQen5Uw8LmFBUpx+CCiacnVjohB4qiIJGzzqDOtdGVOaeRcSL0BGoi
-         j+3o5mUxCY+4Gwc1VJYwux4S4TYI2LftYXE4642CFLNO4cunWw/H45MKu2bhySaQdgnN
-         QG9r1+uA14zO4vS0FO6TnJqNwEHsRwgAWrTpP7ezzxb4HyVyRI6bA94rueNfkTfChcNv
-         7vrw==
-X-Forwarded-Encrypted: i=1; AJvYcCV123HP2iOlY9XHh3KuUKV/KXYePupEVBrCkoXzddVPrAzhrACOx2NrFr6Q+4LFumDhCBeKxOWxoK09hg==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw5aJ0xFnPn8A8GRAZxy5MgTwMIPA00tDuGX8yM6/BlYO/pnipM
-	XWRvKP9rUj8FsLmZRtgf1saQaUlXv1eaGc3uRlQxs7Q8fcv2xgUj9oo9i8mXEpuM02dfvTxO3A/
-	dmme/6Q==
-X-Google-Smtp-Source: AGHT+IHvxaz+IUsygm0KRuAKCEHm0Hu0ZezrckPWQ5vrrDTKrO7SMIdnfNdCCVlp0iIRJj3j38NKn+fR9CMz
+        bh=a2OyjjDbRvyutbZalHm47RzbC3FdZ2Ys1+/kav0Gy1o=;
+        b=Ltzg4r++yOM9IsedYsQlgoaVw7xiAGIQ11E0k2TxvZP/c96PaB91eu4Nncz8Y1vOiZ
+         23+1YGIdzzAU9xC0lx5c1LW7CZBgS+4LZtTPFu2jaQ4CrMeLnykQnfKugf1p/B2Q0nK2
+         ffNEB8eg0sJmL4fwPxLHTK7U4R+48gnOsYFULOipg/N8C6YxKNK5utzh47UTuWhN6vGl
+         m6Xs6HBOO7WmdvCx1OJwD7+qM1pK4aZAgGX1C4UM7toLbs7F5RhcMkIBxs4ntP5JWuCq
+         xf66I2EjojTEgOowdFUQoU3X9Ki8QxEuE4CMgRFJRvGYYkCDU+2CR18m7OtwVr55KKVq
+         C/bg==
+X-Forwarded-Encrypted: i=1; AJvYcCUlnNyEJxDor1Z42x1tpzmI+wSgRMOizRPvx3MGh3Co6QuezoZFt9dE409/DCvq/QoK62N0un4QOQMIoQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0YzuZ3PBCGD9ni8ASTsANTSqZYEClFL6L/EFbTr685G6WgYZILj7
+	PYv7vgVAl3a448BKyIbpKMPpl3sSpV348KoYMu6/vCzuNWQrScAadNWcNwkYRrhDFyrR8w2rCQ9
+	kilInLQ==
+X-Google-Smtp-Source: AGHT+IGqhTm7YFbGcx/el+7wHNXMpRCyEyd2cOJXBQ6mHFUtI003Rx1t09AGgdDw/1NDsX/UK2nFtyoLebaj
 X-Received: from irogers.svl.corp.google.com ([2620:15c:2c5:11:6fd2:1e36:6d8c:7c49])
- (user=irogers job=sendgmr) by 2002:a25:d856:0:b0:e30:c868:1eba with SMTP id
- 3f1490d57ef6-e337f845652mr9447276.2.1731109595364; Fri, 08 Nov 2024 15:46:35
+ (user=irogers job=sendgmr) by 2002:a25:c7cf:0:b0:e28:fb8b:9155 with SMTP id
+ 3f1490d57ef6-e337f8e8d9fmr8052276.9.1731109597298; Fri, 08 Nov 2024 15:46:37
  -0800 (PST)
-Date: Fri,  8 Nov 2024 15:45:56 -0800
+Date: Fri,  8 Nov 2024 15:45:57 -0800
 In-Reply-To: <20241108234606.429459-1-irogers@google.com>
-Message-Id: <20241108234606.429459-12-irogers@google.com>
+Message-Id: <20241108234606.429459-13-irogers@google.com>
 Mime-Version: 1.0
 References: <20241108234606.429459-1-irogers@google.com>
 X-Mailer: git-send-email 2.47.0.277.g8800431eea-goog
-Subject: [PATCH v4 11/20] perf loongarch: Remove dwarf-regs.c
+Subject: [PATCH v4 12/20] perf mips: Remove dwarf-regs.c
 From: Ian Rogers <irogers@google.com>
 To: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
 	Arnaldo Carvalho de Melo <acme@kernel.org>, Namhyung Kim <namhyung@kernel.org>, 
@@ -92,8 +92,8 @@ To: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>,
 	linux-perf-users@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
 	linux-csky@vger.kernel.org, linux-riscv@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241108_154636_905902_731F4AF2 
-X-CRM114-Status: GOOD (  17.43  )
+X-CRM114-CacheID: sfid-20241108_154639_271486_1C4B0611 
+X-CRM114-Status: GOOD (  20.27  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,80 +113,80 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 The file just provides the function get_arch_regstr, however, if in
 the only caller get_dwarf_regstr EM_HOST is used for the EM_NONE case
 the function can never be called. So remove as dead code. Tidy up the
-EM_NONE cases for loongarch in dwarf-regs.c.
+EM_NONE cases for mips in dwarf-regs.c.
 
 Reviewed-by: Masami Hiramatsu (Google) <mhiramat@kernel.org>
 Signed-off-by: Ian Rogers <irogers@google.com>
 ---
- tools/perf/arch/loongarch/util/Build        |  1 -
- tools/perf/arch/loongarch/util/dwarf-regs.c | 34 ---------------------
- tools/perf/util/dwarf-regs.c                |  4 +--
- tools/perf/util/include/dwarf-regs.h        |  3 +-
- 4 files changed, 4 insertions(+), 38 deletions(-)
- delete mode 100644 tools/perf/arch/loongarch/util/dwarf-regs.c
+ tools/perf/arch/mips/util/Build        |  1 -
+ tools/perf/arch/mips/util/dwarf-regs.c | 38 --------------------------
+ tools/perf/util/dwarf-regs.c           |  4 +--
+ tools/perf/util/include/dwarf-regs.h   |  2 +-
+ 4 files changed, 3 insertions(+), 42 deletions(-)
+ delete mode 100644 tools/perf/arch/mips/util/dwarf-regs.c
 
-diff --git a/tools/perf/arch/loongarch/util/Build b/tools/perf/arch/loongarch/util/Build
-index 06ff95394921..0aa31986ecb5 100644
---- a/tools/perf/arch/loongarch/util/Build
-+++ b/tools/perf/arch/loongarch/util/Build
-@@ -1,7 +1,6 @@
- perf-util-y += header.o
+diff --git a/tools/perf/arch/mips/util/Build b/tools/perf/arch/mips/util/Build
+index b328109fc16c..691fa2051958 100644
+--- a/tools/perf/arch/mips/util/Build
++++ b/tools/perf/arch/mips/util/Build
+@@ -1,3 +1,2 @@
  perf-util-y += perf_regs.o
- 
--perf-util-$(CONFIG_LIBDW)     += dwarf-regs.o
+-perf-util-$(CONFIG_LIBDW) += dwarf-regs.o
  perf-util-$(CONFIG_LOCAL_LIBUNWIND) += unwind-libunwind.o
- perf-util-$(CONFIG_LIBDW_DWARF_UNWIND) += unwind-libdw.o
- perf-util-$(CONFIG_LIBTRACEEVENT) += kvm-stat.o
-diff --git a/tools/perf/arch/loongarch/util/dwarf-regs.c b/tools/perf/arch/loongarch/util/dwarf-regs.c
+diff --git a/tools/perf/arch/mips/util/dwarf-regs.c b/tools/perf/arch/mips/util/dwarf-regs.c
 deleted file mode 100644
-index bee08fdcf2fd..000000000000
---- a/tools/perf/arch/loongarch/util/dwarf-regs.c
+index 25c13a91c2a7..000000000000
+--- a/tools/perf/arch/mips/util/dwarf-regs.c
 +++ /dev/null
-@@ -1,34 +0,0 @@
+@@ -1,38 +0,0 @@
 -// SPDX-License-Identifier: GPL-2.0
 -/*
 - * dwarf-regs.c : Mapping of DWARF debug register numbers into register names.
 - *
-- * Copyright (C) 2020-2023 Loongson Technology Corporation Limited
+- * Copyright (C) 2013 Cavium, Inc.
+- *
+- * This program is free software; you can redistribute it and/or modify
+- * it under the terms of the GNU General Public License as published by
+- * the Free Software Foundation; either version 2 of the License, or
+- * (at your option) any later version.
+- *
+- * This program is distributed in the hope that it will be useful,
+- * but WITHOUT ANY WARRANTY; without even the implied warranty of
+- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+- * GNU General Public License for more details.
+- *
 - */
 -
 -#include <stdio.h>
--#include <errno.h> /* for EINVAL */
--#include <string.h> /* for strcmp */
 -#include <dwarf-regs.h>
 -
--struct pt_regs_dwarfnum {
--	const char *name;
--	unsigned int dwarfnum;
--};
--
--static struct pt_regs_dwarfnum loongarch_gpr_table[] = {
--	{"%r0", 0}, {"%r1", 1}, {"%r2", 2}, {"%r3", 3},
--	{"%r4", 4}, {"%r5", 5}, {"%r6", 6}, {"%r7", 7},
--	{"%r8", 8}, {"%r9", 9}, {"%r10", 10}, {"%r11", 11},
--	{"%r12", 12}, {"%r13", 13}, {"%r14", 14}, {"%r15", 15},
--	{"%r16", 16}, {"%r17", 17}, {"%r18", 18}, {"%r19", 19},
--	{"%r20", 20}, {"%r21", 21}, {"%r22", 22}, {"%r23", 23},
--	{"%r24", 24}, {"%r25", 25}, {"%r26", 26}, {"%r27", 27},
--	{"%r28", 28}, {"%r29", 29}, {"%r30", 30}, {"%r31", 31},
--	{NULL, 0}
+-static const char *mips_gpr_names[32] = {
+-	"$0", "$1", "$2", "$3", "$4", "$5", "$6", "$7", "$8", "$9",
+-	"$10", "$11", "$12", "$13", "$14", "$15", "$16", "$17", "$18", "$19",
+-	"$20", "$21", "$22", "$23", "$24", "$25", "$26", "$27", "$28", "$29",
+-	"$30", "$31"
 -};
 -
 -const char *get_arch_regstr(unsigned int n)
 -{
--	n %= 32;
--	return loongarch_gpr_table[n].name;
+-	if (n < 32)
+-		return mips_gpr_names[n];
+-	if (n == 64)
+-		return "hi";
+-	if (n == 65)
+-		return "lo";
+-	return NULL;
 -}
 diff --git a/tools/perf/util/dwarf-regs.c b/tools/perf/util/dwarf-regs.c
-index 9a76f83af62c..efc41d0fbee9 100644
+index efc41d0fbee9..d536964df43c 100644
 --- a/tools/perf/util/dwarf-regs.c
 +++ b/tools/perf/util/dwarf-regs.c
 @@ -32,7 +32,7 @@
  const char *get_dwarf_regstr(unsigned int n, unsigned int machine, unsigned int flags)
  {
  #if EM_HOST == EM_X86_64 || EM_HOST == EM_386 || EM_HOST == EM_AARCH64 || EM_HOST == EM_ARM \
--    || EM_HOST == EM_CSKY
-+    || EM_HOST == EM_CSKY || EM_HOST == EM_LOONGARCH
+-    || EM_HOST == EM_CSKY || EM_HOST == EM_LOONGARCH
++    || EM_HOST == EM_CSKY || EM_HOST == EM_LOONGARCH || EM_HOST == EM_MIPS
  	if (machine == EM_NONE) {
  		/* Generic arch - use host arch */
  		machine = EM_HOST;
@@ -194,22 +194,21 @@ index 9a76f83af62c..efc41d0fbee9 100644
  #endif
  	switch (machine) {
  #if EM_HOST != EM_X86_64 && EM_HOST != EM_386 && EM_HOST != EM_AARCH64 && EM_HOST != EM_ARM \
--    && EM_HOST != EM_CSKY
-+    && EM_HOST != EM_CSKY && EM_HOST != EM_LOONGARCH
+-    && EM_HOST != EM_CSKY && EM_HOST != EM_LOONGARCH
++    && EM_HOST != EM_CSKY && EM_HOST != EM_LOONGARCH && EM_HOST != EM_MIPS
  	case EM_NONE:	/* Generic arch - use host arch */
  		return get_arch_regstr(n);
  #endif
 diff --git a/tools/perf/util/include/dwarf-regs.h b/tools/perf/util/include/dwarf-regs.h
-index 0641c2942b01..4e591379f367 100644
+index 4e591379f367..55f21d8082a2 100644
 --- a/tools/perf/util/include/dwarf-regs.h
 +++ b/tools/perf/util/include/dwarf-regs.h
-@@ -89,7 +89,8 @@
- #define DWARF_REG_FB  0xd3affb /* random number */
+@@ -90,7 +90,7 @@
  
  #ifdef HAVE_LIBDW_SUPPORT
--#if !defined(__x86_64__) && !defined(__i386__) && !defined(__aarch64__) && !defined(__arm__)
-+#if !defined(__x86_64__) && !defined(__i386__) && !defined(__aarch64__) && !defined(__arm__) \
-+    && !defined(__loongarch__)
+ #if !defined(__x86_64__) && !defined(__i386__) && !defined(__aarch64__) && !defined(__arm__) \
+-    && !defined(__loongarch__)
++    && !defined(__loongarch__) && !defined(__mips__)
  const char *get_arch_regstr(unsigned int n);
  #endif
  
