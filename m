@@ -4,91 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 97629D64097
-	for <linux-riscv@archiver.kernel.org>; Sat,  9 Nov 2024 00:22:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 86C8ED64076
+	for <linux-riscv@archiver.kernel.org>; Sat,  9 Nov 2024 01:02:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:MIME-Version:Subject:
-	Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=j7ZKALwKIJN3yCN2wNuJsY76vErNWDopQcBoSNlgUcU=; b=K15ETPjWrhEyLN
-	Gd65jgA1dtEh236oiBKshzwSNzkeIAqrWzDrey91MseYDWqAaD12BxPPhIIZTZNjFxFljVqSnICUx
-	hqxN5Ax24K4To8o3KF40sHRKGjBy1CELzOfpI4QJKI0G6hPqanxeL1ZzpkHMl0Ft+pAzzPwbSFL/Q
-	JTtN/QzdDwpZf95JJmoC+3GDbdQpMQC/7Rt8ENxETmkDoXN0lxyRXCa1V+3+Jq+CIW2Ovm5dynEMn
-	Ju1rmeYxwG2zPehV8q7I4Bcq5vpD3VocXcIka046H/2+BmnhkV7X7EoeBXfBVkZEUW7dTNy8QOMwp
-	k1BMC+wqejJjByquyR7g==;
+	List-Archive:List-Unsubscribe:List-Id:To:From:Subject:References:Mime-Version
+	:Message-Id:In-Reply-To:Date:Reply-To:Cc:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=/MLP9UdQUDsEdHUVlA/n4KzrILb8IirqJG/HnkBPMAA=; b=OrqERogzq3l92D
+	k8sNB241Um0lrEXIWB95vVgBMD3lFgN+ADqwpE6gXNa+Kt96WJqOA9E7920JUAekWx/xGjfDKDHHv
+	UlqZm/mqYikOZIBypsM/X7cMW/x5Bq0i35+2rdgGo84Oknvyib8ckMRLHX09hoCHoYa6ulPivqvUZ
+	2bLzq1crO3EPQMgGtEbGmCfFm6prW1hYz8jLKs9LvL5+nEXjYsYxBDU3WfLWGnmloB9nPdK/b1s7J
+	1S64oR+eyb0t4UNCJaeUOogsLFYlfGP4CfW8+C+uPEFf1ROOffhcqiLJ16LNlKl7EXlSBGyVqExFZ
+	6IbRpcovd7VTrNdOWKcQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t9ZFZ-0000000CKmV-0w4H;
-	Sat, 09 Nov 2024 00:22:49 +0000
-Received: from mail-pf1-x429.google.com ([2607:f8b0:4864:20::429])
+	id 1t9ZrU-0000000COVv-2UQy;
+	Sat, 09 Nov 2024 01:02:00 +0000
+Received: from mail-yb1-xb4a.google.com ([2607:f8b0:4864:20::b4a])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t9Yhl-0000000CFbT-0zqd
+	id 1t9YgJ-0000000CF1b-1kqk
 	for linux-riscv@lists.infradead.org;
-	Fri, 08 Nov 2024 23:47:55 +0000
-Received: by mail-pf1-x429.google.com with SMTP id d2e1a72fcca58-71e4244fdc6so2375687b3a.0
-        for <linux-riscv@lists.infradead.org>; Fri, 08 Nov 2024 15:47:52 -0800 (PST)
+	Fri, 08 Nov 2024 23:46:24 +0000
+Received: by mail-yb1-xb4a.google.com with SMTP id 3f1490d57ef6-e29135d1d0cso4598488276.1
+        for <linux-riscv@lists.infradead.org>; Fri, 08 Nov 2024 15:46:22 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1731109672; x=1731714472; darn=lists.infradead.org;
-        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
-         :date:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=vLT8y+Br7ZOzC38CGdRLNZ2zunKzFtQpFi1e/g4uRn0=;
-        b=sTQHS466xRA+4fpM1dkcmb15hY9HPMkI7s32hNdT1SZnUzzq8q7e57vaZB8jI1NntP
-         iN3e+0OrAodgngDRaADjqQ44QKPq0+PzhzpPJOl9HYKPiEgR0Z/UXY5SCKyuuAPQG2qk
-         WMNMl8HWi92DGGQaCk410iS2vU5qgQZGn+k+/hAkJL79NLQuxuDhncn3bR1jBRaT4a56
-         KFrMVT0+8oobP0kh011iZFSbZ3k3XD5AncdTKWv69eyJdbwbPePnIufcYuERZM6AAPKi
-         6FX0T0YCPodU3t3CFGQ7U19kyK0IGBX5uPOfTfrHcjevrV/QZcIM+hd98vfk6pJed74f
-         TS4g==
+        d=google.com; s=20230601; t=1731109582; x=1731714382; darn=lists.infradead.org;
+        h=to:from:subject:references:mime-version:message-id:in-reply-to:date
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=AVtWpsuHpFiBnlibbq5HoTF1wljBLHXYozEcDvYWBgA=;
+        b=1aw2s5uYQJf86sAYqsDWimW6j7HUJGNIA7Egm3Q0vvsx/xk7DS8HBYZb5+npc131Mq
+         sA+H6vUBapNmBsmuaaomG6xIXfoHKJ5riYRAMC6UZi+1K4WmMARS5jzyta+K1u26hObR
+         731lzeqfIpzh2uVEV/yFnwnDrcGEWpnUnzohC400cT0ZGT/qYXNxx8bshlnU6YRe/Q9I
+         F47aLLQo/xy2vXMd7HqERx3RMslycfvC//Z0/2iySxCjeUWSi7L47t1kbh3G3hQlfq1f
+         kRy6VeWE/vrIvHX2aYiE37vVfEBF351+Tkrr5L639MX05AH9tNBzaG/+031XDqHAG7X4
+         t9Vg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1731109672; x=1731714472;
-        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
-         :date:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=vLT8y+Br7ZOzC38CGdRLNZ2zunKzFtQpFi1e/g4uRn0=;
-        b=obld/hzlVoMuwEMOa8kn6my8jZFcrUiZsIujdPrBygt+VLegoPrvae6YSGGjN+pctw
-         ow/Y1BRRBSasXz9GUO1vagr7OkCeaSXmnY+SKhONuzY9oDG6pItswvz0HI9njlxn/hBu
-         G7hJhl/L93H8MXDdiKBz7usnkA0S1x972kc1rGNzp+Wkz0nuKoFjteIb1QSyOIXiCEPL
-         Ae+WTNQ8dBPGOBU1qC9GQ6NkOs9ImO86JnBjBkyHyr2z4ynwZLa/ZqWnvmeJgBWcepIM
-         I6afCPOeNr7ZDDUvGjIiOkVfs/mB10u7vjG5h5BEkjFqUxzEjwrU4VuvQn8KxtxfgGDu
-         WxQg==
-X-Forwarded-Encrypted: i=1; AJvYcCU9I863gK+/V+2e0k6FcOm0HHlqDGBB8N20WUgsLmjok0yozsK3+Aky9GQRbP1MZY13wHNgGnzsG7an8Q==@lists.infradead.org
-X-Gm-Message-State: AOJu0YwQjGwS5/+52Hgk1aCNouZChGbgKh/Udh4/ofzHOzwv24a4ycpN
-	ERo6qzNPUIC7hOaqbGn3YP4NB0pQBHRxScqbrZCal2m7Gc08F15sQ9B50ZnuksM=
-X-Google-Smtp-Source: AGHT+IG3/42zTy6o/j0Vb6GpHhmw+p9iTLxozbfpy14GTVUlms+HosrVJ4hPPfRbbps9yC1k8ErBoA==
-X-Received: by 2002:a05:6a00:14d2:b0:71e:cb:e7bf with SMTP id d2e1a72fcca58-724133625a2mr5595089b3a.18.1731109671901;
-        Fri, 08 Nov 2024 15:47:51 -0800 (PST)
-Received: from charlie.ba.rivosinc.com ([64.71.180.162])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-72407a56048sm4376576b3a.174.2024.11.08.15.47.50
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 08 Nov 2024 15:47:50 -0800 (PST)
-From: Charlie Jenkins <charlie@rivosinc.com>
-Date: Fri, 08 Nov 2024 15:47:36 -0800
-Subject: [PATCH for-next v2] riscv: Fix default misaligned access trap
-MIME-Version: 1.0
-Message-Id: <20241108-fix_handle_misaligned_load-v2-1-91d547ce64db@rivosinc.com>
-X-B4-Tracking: v=1; b=H4sIABejLmcC/42NQQqDMBBFryKzbkoSWhO76j2KiCajDmgiiQSLe
- PeGnKDLz/u8d0LEQBjhVZ0QMFEk7/KQtwrM3LsJGdm8QXL5EIIrNtLRZWAX7FaK/UKTQ9stvrd
- MD6hrM3DNa4Qs2ALmd5F/YPSBOTx2aDOZKe4+fEs1icL/CSTBBOPKKv2Upmka8Q6UfCRn7sav0
- F7X9QPChXlO0QAAAA==
-To: Paul Walmsley <paul.walmsley@sifive.com>, 
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
- Jesse Taube <Mr.Bossman075@gmail.com>
-Cc: Palmer Dabbelt <palmer@rivosinc.com>, linux-riscv@lists.infradead.org, 
- linux-kernel@vger.kernel.org, Charlie Jenkins <charlie@rivosinc.com>
-X-Mailer: b4 0.13.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1658; i=charlie@rivosinc.com;
- h=from:subject:message-id; bh=ffwfWA/+f1ixyduX5KwLaumFNq5ov3RSm3STfwiajJA=;
- b=owGbwMvMwCHWx5hUnlvL8Y3xtFoSQ7reYjnNpxUrJr++e6n/RMb6tN63Lybf3/Hl3b2V/6YzM
- F78eCXiY0cpC4MYB4OsmCILz7UG5tY7+mVHRcsmwMxhZQIZwsDFKQATKepgZLiUezQlZf9TJ5n5
- CsVl7Hn3JyqvfxrzZ3vAupCc6ezrvlxgZPguIMoSvefezYVpIlcFLD/xv+P/zFh0YqLzKrkny38
- uD+YDAA==
-X-Developer-Key: i=charlie@rivosinc.com; a=openpgp;
- fpr=7D834FF11B1D8387E61C776FFB10D1F27D6B1354
+        d=1e100.net; s=20230601; t=1731109582; x=1731714382;
+        h=to:from:subject:references:mime-version:message-id:in-reply-to:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=AVtWpsuHpFiBnlibbq5HoTF1wljBLHXYozEcDvYWBgA=;
+        b=AXqr4HdS2byDq89ThWwlEdM7a2Lk7EiiDzK+2CRKGp6S4IHzUOZ8Z0i6BpeL3ktKPL
+         3rAYjuXEvrQepSwOdjh+6yoNAJkvrSg/HOMKBDID6BqJ4cdzcO1ya3H9eDtksYHlZ6CW
+         kMQXJ6ZYMXp7s7Q44ELaDFzPSgdXu7crUh6GgaVbz3CjoogRSuMN2AaNpvWSzdrSJ7WC
+         K3xgdkwH73UbEIvDXC0CEXVG+Ar3nMDf61Upu6IuZQF0KP/S6K7T6dJoQYlqJTgc9BCG
+         9tEjbpsK+DYnK/joMZxzQmsJCKKh3d88wvABNF65AtT8OUUnUoVtSrnv9Vfc0lvZCgHo
+         UNpg==
+X-Forwarded-Encrypted: i=1; AJvYcCVwF0evwZxuzcRkDnVHli41WSvV2n34Bjw9EiY3JN6lE/6aaCqAPtwHqoFU/P6r1RjS2cFDWgbG//k8lQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx306dA5anDKcEBaoaiT3Qs4zOv0NH9sc0WSVdhDad7Q9x1CJRb
+	GtR8f9RmcFuDpmufUZg3ANZVfwzLwxGzQqf6PlBxYm3FMqneolT+d6HUX0jtaRgMgr6LrG1rYXM
+	tS5aYYw==
+X-Google-Smtp-Source: AGHT+IFq1UuJ7hc/ApetK/H2sFL5m2uMATjY+fqFwJq/WDc5NUWTV7ClaOKOd64kgsF/WFeRan59owDlPrau
+X-Received: from irogers.svl.corp.google.com ([2620:15c:2c5:11:6fd2:1e36:6d8c:7c49])
+ (user=irogers job=sendgmr) by 2002:a25:84c9:0:b0:e33:111b:c6a4 with SMTP id
+ 3f1490d57ef6-e337f81b835mr3397276.1.1731109581785; Fri, 08 Nov 2024 15:46:21
+ -0800 (PST)
+Date: Fri,  8 Nov 2024 15:45:50 -0800
+In-Reply-To: <20241108234606.429459-1-irogers@google.com>
+Message-Id: <20241108234606.429459-6-irogers@google.com>
+Mime-Version: 1.0
+References: <20241108234606.429459-1-irogers@google.com>
+X-Mailer: git-send-email 2.47.0.277.g8800431eea-goog
+Subject: [PATCH v4 05/20] perf dwarf-regs: Pass accurate disassembly machine
+ to get_dwarf_regnum
+From: Ian Rogers <irogers@google.com>
+To: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
+	Arnaldo Carvalho de Melo <acme@kernel.org>, Namhyung Kim <namhyung@kernel.org>, 
+	Mark Rutland <mark.rutland@arm.com>, 
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>, Jiri Olsa <jolsa@kernel.org>, 
+	Ian Rogers <irogers@google.com>, Adrian Hunter <adrian.hunter@intel.com>, 
+	Kan Liang <kan.liang@linux.intel.com>, John Garry <john.g.garry@oracle.com>, 
+	Will Deacon <will@kernel.org>, James Clark <james.clark@linaro.org>, 
+	Mike Leach <mike.leach@linaro.org>, Leo Yan <leo.yan@linux.dev>, Guo Ren <guoren@kernel.org>, 
+	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, Nick Terrell <terrelln@fb.com>, 
+	"Masami Hiramatsu (Google)" <mhiramat@kernel.org>, Changbin Du <changbin.du@huawei.com>, 
+	Guilherme Amadio <amadio@gentoo.org>, Yang Jihong <yangjihong@bytedance.com>, 
+	Aditya Gupta <adityag@linux.ibm.com>, Athira Rajeev <atrajeev@linux.vnet.ibm.com>, 
+	Masahiro Yamada <masahiroy@kernel.org>, Bibo Mao <maobibo@loongson.cn>, 
+	Huacai Chen <chenhuacai@kernel.org>, Kajol Jain <kjain@linux.ibm.com>, 
+	Atish Patra <atishp@rivosinc.com>, Shenlin Liang <liangshenlin@eswincomputing.com>, 
+	Anup Patel <anup@brainfault.org>, Oliver Upton <oliver.upton@linux.dev>, 
+	"Steinar H. Gunderson" <sesse@google.com>, "Dr. David Alan Gilbert" <linux@treblig.org>, 
+	Chen Pei <cp0613@linux.alibaba.com>, Dima Kogan <dima@secretsauce.net>, 
+	Przemek Kitszel <przemyslaw.kitszel@intel.com>, "David S. Miller" <davem@davemloft.net>, 
+	Alexander Lobakin <aleksander.lobakin@intel.com>, linux-kernel@vger.kernel.org, 
+	linux-perf-users@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-csky@vger.kernel.org, linux-riscv@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241108_154753_490688_AF7D6BA6 
-X-CRM114-Status: UNSURE (   7.33  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241108_154623_472006_1153F81C 
+X-CRM114-Status: GOOD (  15.88  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,53 +111,99 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Commit d1703dc7bc8e ("RISC-V: Detect unaligned vector accesses
-supported") removed the default handlers for handle_misaligned_load()
-and handle_misaligned_store(). When the kernel is compiled without
-RISCV_SCALAR_MISALIGNED, these handlers are never defined, causing
-compilation errors.
+Rather than pass 0/EM_NONE, use the value computed in the disasm
+struct arch. Switch the EM_NONE case to EM_HOST, rewriting EM_NONE if
+it were passed to get_dwarf_regnum. Pass a flags value as
+architectures like csky need the flags to determine the ABI variant.
 
-Signed-off-by: Charlie Jenkins <charlie@rivosinc.com>
-Fixes: d1703dc7bc8e ("RISC-V: Detect unaligned vector accesses supported")
+Reviewed-by: Masami Hiramatsu (Google) <mhiramat@kernel.org>
+Signed-off-by: Ian Rogers <irogers@google.com>
 ---
-Changes in v2:
-- Change CONFIG_RISCV_SCALAR_MISALIGNED to CONFIG_RISCV_MISALIGNED
-  (Jesse)
-- Link to v1: https://lore.kernel.org/r/20241107-fix_handle_misaligned_load-v1-1-07d7852c9991@rivosinc.com
----
- arch/riscv/include/asm/entry-common.h | 12 ++++++++++++
- 1 file changed, 12 insertions(+)
+ tools/perf/util/annotate.c           | 6 +++---
+ tools/perf/util/dwarf-regs.c         | 8 ++++++--
+ tools/perf/util/include/dwarf-regs.h | 5 +++--
+ 3 files changed, 12 insertions(+), 7 deletions(-)
 
-diff --git a/arch/riscv/include/asm/entry-common.h b/arch/riscv/include/asm/entry-common.h
-index 7b32d2b08bb6..b28ccc6cdeea 100644
---- a/arch/riscv/include/asm/entry-common.h
-+++ b/arch/riscv/include/asm/entry-common.h
-@@ -25,7 +25,19 @@ static inline void arch_exit_to_user_mode_prepare(struct pt_regs *regs,
- void handle_page_fault(struct pt_regs *regs);
- void handle_break(struct pt_regs *regs);
+diff --git a/tools/perf/util/annotate.c b/tools/perf/util/annotate.c
+index 37ce43c4eb8f..b1d98da79be8 100644
+--- a/tools/perf/util/annotate.c
++++ b/tools/perf/util/annotate.c
+@@ -2292,7 +2292,7 @@ static int extract_reg_offset(struct arch *arch, const char *str,
+ 	if (regname == NULL)
+ 		return -1;
  
-+#ifdef CONFIG_RISCV_MISALIGNED
- int handle_misaligned_load(struct pt_regs *regs);
- int handle_misaligned_store(struct pt_regs *regs);
-+#else
-+static inline int handle_misaligned_load(struct pt_regs *regs)
-+{
-+	return -1;
-+}
-+
-+static inline int handle_misaligned_store(struct pt_regs *regs)
-+{
-+	return -1;
-+}
-+#endif
+-	op_loc->reg1 = get_dwarf_regnum(regname, 0);
++	op_loc->reg1 = get_dwarf_regnum(regname, arch->e_machine, arch->e_flags);
+ 	free(regname);
  
- #endif /* _ASM_RISCV_ENTRY_COMMON_H */
-
----
-base-commit: 74741a050b79d31d8d2eeee12c77736596d0a6b2
-change-id: 20241107-fix_handle_misaligned_load-8be86cb0806e
+ 	/* Get the second register */
+@@ -2305,7 +2305,7 @@ static int extract_reg_offset(struct arch *arch, const char *str,
+ 		if (regname == NULL)
+ 			return -1;
+ 
+-		op_loc->reg2 = get_dwarf_regnum(regname, 0);
++		op_loc->reg2 = get_dwarf_regnum(regname, arch->e_machine, arch->e_flags);
+ 		free(regname);
+ 	}
+ 	return 0;
+@@ -2405,7 +2405,7 @@ int annotate_get_insn_location(struct arch *arch, struct disasm_line *dl,
+ 				return -1;
+ 
+ 			if (*s == arch->objdump.register_char)
+-				op_loc->reg1 = get_dwarf_regnum(s, 0);
++				op_loc->reg1 = get_dwarf_regnum(s, arch->e_machine, arch->e_flags);
+ 			else if (*s == arch->objdump.imm_char) {
+ 				op_loc->offset = strtol(s + 1, &p, 0);
+ 				if (p && p != s + 1)
+diff --git a/tools/perf/util/dwarf-regs.c b/tools/perf/util/dwarf-regs.c
+index 7c01bc4d7e5b..1321387f6948 100644
+--- a/tools/perf/util/dwarf-regs.c
++++ b/tools/perf/util/dwarf-regs.c
+@@ -70,7 +70,7 @@ __weak int get_arch_regnum(const char *name __maybe_unused)
+ }
+ 
+ /* Return DWARF register number from architecture register name */
+-int get_dwarf_regnum(const char *name, unsigned int machine)
++int get_dwarf_regnum(const char *name, unsigned int machine, unsigned int flags __maybe_unused)
+ {
+ 	char *regname = strdup(name);
+ 	int reg = -1;
+@@ -84,8 +84,12 @@ int get_dwarf_regnum(const char *name, unsigned int machine)
+ 	if (p)
+ 		*p = '\0';
+ 
++	if (machine == EM_NONE) {
++		/* Generic arch - use host arch */
++		machine = EM_HOST;
++	}
+ 	switch (machine) {
+-	case EM_NONE:	/* Generic arch - use host arch */
++	case EM_HOST:
+ 		reg = get_arch_regnum(regname);
+ 		break;
+ 	default:
+diff --git a/tools/perf/util/include/dwarf-regs.h b/tools/perf/util/include/dwarf-regs.h
+index ce9f10b3282d..3c3a908b9f36 100644
+--- a/tools/perf/util/include/dwarf-regs.h
++++ b/tools/perf/util/include/dwarf-regs.h
+@@ -103,12 +103,13 @@ int get_arch_regnum(const char *name);
+  * name: architecture register name
+  * machine: ELF machine signature (EM_*)
+  */
+-int get_dwarf_regnum(const char *name, unsigned int machine);
++int get_dwarf_regnum(const char *name, unsigned int machine, unsigned int flags);
+ 
+ #else /* HAVE_LIBDW_SUPPORT */
+ 
+ static inline int get_dwarf_regnum(const char *name __maybe_unused,
+-				   unsigned int machine __maybe_unused)
++				   unsigned int machine __maybe_unused,
++				   unsigned int flags __maybe_unused)
+ {
+ 	return -1;
+ }
 -- 
-- Charlie
+2.47.0.277.g8800431eea-goog
 
 
 _______________________________________________
