@@ -4,70 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 86C8ED64076
-	for <linux-riscv@archiver.kernel.org>; Sat,  9 Nov 2024 01:02:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B0574D64076
+	for <linux-riscv@archiver.kernel.org>; Sat,  9 Nov 2024 01:02:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:To:From:Subject:References:Mime-Version
 	:Message-Id:In-Reply-To:Date:Reply-To:Cc:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=/MLP9UdQUDsEdHUVlA/n4KzrILb8IirqJG/HnkBPMAA=; b=OrqERogzq3l92D
-	k8sNB241Um0lrEXIWB95vVgBMD3lFgN+ADqwpE6gXNa+Kt96WJqOA9E7920JUAekWx/xGjfDKDHHv
-	UlqZm/mqYikOZIBypsM/X7cMW/x5Bq0i35+2rdgGo84Oknvyib8ckMRLHX09hoCHoYa6ulPivqvUZ
-	2bLzq1crO3EPQMgGtEbGmCfFm6prW1hYz8jLKs9LvL5+nEXjYsYxBDU3WfLWGnmloB9nPdK/b1s7J
-	1S64oR+eyb0t4UNCJaeUOogsLFYlfGP4CfW8+C+uPEFf1ROOffhcqiLJ16LNlKl7EXlSBGyVqExFZ
-	6IbRpcovd7VTrNdOWKcQ==;
+	List-Owner; bh=HAvyAKW5vYZfW4BRkzv1P2GkPSZn1LND79mC6UDgulw=; b=iHg5884z2tPiWD
+	B3waa4Ok36A5R+TKbDI1DuAPGBtbNiG/daLVVl/qyBx/As8hUj3Nk5exAtTTvdPttYXtjOyF3adxL
+	84WExLIbQRpAtbB55yBM4X7weDmVE+zXT4VhkfV4yr1C7bqg9AWrceZ3pReysJw4R6EgcDV16UL4D
+	G72Aa3b/p4bWu1Q3CZR06PVxR4GQEEhf7c3Dvjp52wjttrJZQXGCYYqt0pJ+HzSEOK28HCvt7M2BZ
+	USUR14BzSm2jMe1XfPkXKuBr4W9na0RHCq2mm3//HXtUt18yozqoizqlB6N2vmdWu/SQC/BismaID
+	ba2BhmOtybx602BlvmLg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t9ZrU-0000000COVv-2UQy;
-	Sat, 09 Nov 2024 01:02:00 +0000
-Received: from mail-yb1-xb4a.google.com ([2607:f8b0:4864:20::b4a])
+	id 1t9ZrV-0000000COW3-0sKG;
+	Sat, 09 Nov 2024 01:02:01 +0000
+Received: from mail-yw1-x114a.google.com ([2607:f8b0:4864:20::114a])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t9YgJ-0000000CF1b-1kqk
+	id 1t9YgL-0000000CF37-35Lz
 	for linux-riscv@lists.infradead.org;
-	Fri, 08 Nov 2024 23:46:24 +0000
-Received: by mail-yb1-xb4a.google.com with SMTP id 3f1490d57ef6-e29135d1d0cso4598488276.1
-        for <linux-riscv@lists.infradead.org>; Fri, 08 Nov 2024 15:46:22 -0800 (PST)
+	Fri, 08 Nov 2024 23:46:27 +0000
+Received: by mail-yw1-x114a.google.com with SMTP id 00721157ae682-6ea7cfb6e0fso54809507b3.0
+        for <linux-riscv@lists.infradead.org>; Fri, 08 Nov 2024 15:46:24 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1731109582; x=1731714382; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1731109584; x=1731714384; darn=lists.infradead.org;
         h=to:from:subject:references:mime-version:message-id:in-reply-to:date
          :from:to:cc:subject:date:message-id:reply-to;
-        bh=AVtWpsuHpFiBnlibbq5HoTF1wljBLHXYozEcDvYWBgA=;
-        b=1aw2s5uYQJf86sAYqsDWimW6j7HUJGNIA7Egm3Q0vvsx/xk7DS8HBYZb5+npc131Mq
-         sA+H6vUBapNmBsmuaaomG6xIXfoHKJ5riYRAMC6UZi+1K4WmMARS5jzyta+K1u26hObR
-         731lzeqfIpzh2uVEV/yFnwnDrcGEWpnUnzohC400cT0ZGT/qYXNxx8bshlnU6YRe/Q9I
-         F47aLLQo/xy2vXMd7HqERx3RMslycfvC//Z0/2iySxCjeUWSi7L47t1kbh3G3hQlfq1f
-         kRy6VeWE/vrIvHX2aYiE37vVfEBF351+Tkrr5L639MX05AH9tNBzaG/+031XDqHAG7X4
-         t9Vg==
+        bh=pJ8FG6zy5TUWlnq+xC0331u7ZC2AgCRZ0YVucMGPpFo=;
+        b=z8DQ/NM0Y3VJejRsMq0BPoVgohqbplbfqq2eaKzDh7kLmuW9vD7tiY1Ni9BtgLG/xH
+         wv4Takhkc1EwqmU1yYW+OJXkwexJHoBlxU9ROvdiCHZMLdakgqcY6DJt+dIMfu/6aPFM
+         4jgh7bJka9Dq+S2EHOtiEMO92n6Ap5ac8NS/tccxCpd+vloZxYA4BBaEwleQuazqlWSa
+         D5mfs5Px9siRwAX//3h6G8VUdK8F/v1o75qgR5Q09Igsw5v3RYCiM1FSB4vvJArU8Aif
+         JoIpTsqi4DRWkTLtBumrlNFMRYxczpQmIcDLSRjbIJC4HEqIa06/wkDufJ8eAYtjkIkU
+         u3Ow==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1731109582; x=1731714382;
+        d=1e100.net; s=20230601; t=1731109584; x=1731714384;
         h=to:from:subject:references:mime-version:message-id:in-reply-to:date
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=AVtWpsuHpFiBnlibbq5HoTF1wljBLHXYozEcDvYWBgA=;
-        b=AXqr4HdS2byDq89ThWwlEdM7a2Lk7EiiDzK+2CRKGp6S4IHzUOZ8Z0i6BpeL3ktKPL
-         3rAYjuXEvrQepSwOdjh+6yoNAJkvrSg/HOMKBDID6BqJ4cdzcO1ya3H9eDtksYHlZ6CW
-         kMQXJ6ZYMXp7s7Q44ELaDFzPSgdXu7crUh6GgaVbz3CjoogRSuMN2AaNpvWSzdrSJ7WC
-         K3xgdkwH73UbEIvDXC0CEXVG+Ar3nMDf61Upu6IuZQF0KP/S6K7T6dJoQYlqJTgc9BCG
-         9tEjbpsK+DYnK/joMZxzQmsJCKKh3d88wvABNF65AtT8OUUnUoVtSrnv9Vfc0lvZCgHo
-         UNpg==
-X-Forwarded-Encrypted: i=1; AJvYcCVwF0evwZxuzcRkDnVHli41WSvV2n34Bjw9EiY3JN6lE/6aaCqAPtwHqoFU/P6r1RjS2cFDWgbG//k8lQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx306dA5anDKcEBaoaiT3Qs4zOv0NH9sc0WSVdhDad7Q9x1CJRb
-	GtR8f9RmcFuDpmufUZg3ANZVfwzLwxGzQqf6PlBxYm3FMqneolT+d6HUX0jtaRgMgr6LrG1rYXM
-	tS5aYYw==
-X-Google-Smtp-Source: AGHT+IFq1UuJ7hc/ApetK/H2sFL5m2uMATjY+fqFwJq/WDc5NUWTV7ClaOKOd64kgsF/WFeRan59owDlPrau
+        bh=pJ8FG6zy5TUWlnq+xC0331u7ZC2AgCRZ0YVucMGPpFo=;
+        b=U7G5byWYtioj9Ba2sFiSNrpKqWtzXeIQ++s9yImjFJlqnxqgqXNQ9XVkMx6ALXRHKh
+         0zF2rEe9X6mTsVQrAN2OrEL0Y+Inh91PV9UvoURD0APBGwrsi3pX3cbH1YrshWTEYjq/
+         XgvTM65SFDNrwCYeESKmKF4cyv8XvmjyJZzVbUjvK6hM90KWV5mcJ2iqcKtn+7fAEZrI
+         5wEVQCg9Q+x4AKgS04RuCFLMXcVp1Pcii6/EqMXwf+74VfaPyXHUuSAOH2MA0S9nycsz
+         AfG0TynWAG8Ud0tIfRKrbDv0dEvbsNtCSOhPjuWYnvSOraz2UK1RGu55Kd2uRaEeymcw
+         I0dg==
+X-Forwarded-Encrypted: i=1; AJvYcCUECfLbr8y3MwZ/6UBXxZvuKerGb/YHkcHPf8wXA0A8aYZhf1U78lWovsJmrS7a8R6ZuFu39k0BqhY3JA==@lists.infradead.org
+X-Gm-Message-State: AOJu0YyjWc4u8JOx1jVRJnml7Iqguz8Ccp8x23/FBKNmkyGSLZ9koCI5
+	7iLMobjDXKDVQOnaq/tNkVzZW6xsSqa8m7nebFFNOl+96zAQTiSKaw/xVw1RpYghaPCO9EnwMKC
+	CH5plBg==
+X-Google-Smtp-Source: AGHT+IHg4RSsHZd7KxofWdmf3WMrYAK9htxRk4zqCdhJjgG3IPf6PuCptYOSwoHmhhxh7CfReCPu0Lzm3Nqx
 X-Received: from irogers.svl.corp.google.com ([2620:15c:2c5:11:6fd2:1e36:6d8c:7c49])
- (user=irogers job=sendgmr) by 2002:a25:84c9:0:b0:e33:111b:c6a4 with SMTP id
- 3f1490d57ef6-e337f81b835mr3397276.1.1731109581785; Fri, 08 Nov 2024 15:46:21
- -0800 (PST)
-Date: Fri,  8 Nov 2024 15:45:50 -0800
+ (user=irogers job=sendgmr) by 2002:a05:690c:200f:b0:6ea:34c3:742b with SMTP
+ id 00721157ae682-6eaddfad76amr476327b3.6.1731109584191; Fri, 08 Nov 2024
+ 15:46:24 -0800 (PST)
+Date: Fri,  8 Nov 2024 15:45:51 -0800
 In-Reply-To: <20241108234606.429459-1-irogers@google.com>
-Message-Id: <20241108234606.429459-6-irogers@google.com>
+Message-Id: <20241108234606.429459-7-irogers@google.com>
 Mime-Version: 1.0
 References: <20241108234606.429459-1-irogers@google.com>
 X-Mailer: git-send-email 2.47.0.277.g8800431eea-goog
-Subject: [PATCH v4 05/20] perf dwarf-regs: Pass accurate disassembly machine
- to get_dwarf_regnum
+Subject: [PATCH v4 06/20] perf dwarf-regs: Pass ELF flags to get_dwarf_regstr
 From: Ian Rogers <irogers@google.com>
 To: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
 	Arnaldo Carvalho de Melo <acme@kernel.org>, Namhyung Kim <namhyung@kernel.org>, 
@@ -93,8 +92,8 @@ To: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>,
 	linux-perf-users@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
 	linux-csky@vger.kernel.org, linux-riscv@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241108_154623_472006_1153F81C 
-X-CRM114-Status: GOOD (  15.88  )
+X-CRM114-CacheID: sfid-20241108_154625_899859_59B4E263 
+X-CRM114-Status: GOOD (  18.32  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,97 +110,128 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Rather than pass 0/EM_NONE, use the value computed in the disasm
-struct arch. Switch the EM_NONE case to EM_HOST, rewriting EM_NONE if
-it were passed to get_dwarf_regnum. Pass a flags value as
-architectures like csky need the flags to determine the ABI variant.
+Pass a flags value as architectures like csky need the flags to
+determine the ABI variant.
 
 Reviewed-by: Masami Hiramatsu (Google) <mhiramat@kernel.org>
 Signed-off-by: Ian Rogers <irogers@google.com>
 ---
- tools/perf/util/annotate.c           | 6 +++---
- tools/perf/util/dwarf-regs.c         | 8 ++++++--
- tools/perf/util/include/dwarf-regs.h | 5 +++--
- 3 files changed, 12 insertions(+), 7 deletions(-)
+ tools/perf/util/dwarf-regs.c         |  3 ++-
+ tools/perf/util/include/dwarf-regs.h | 11 ++++++-----
+ tools/perf/util/probe-finder.c       | 13 +++++++------
+ tools/perf/util/probe-finder.h       |  3 ++-
+ 4 files changed, 17 insertions(+), 13 deletions(-)
 
-diff --git a/tools/perf/util/annotate.c b/tools/perf/util/annotate.c
-index 37ce43c4eb8f..b1d98da79be8 100644
---- a/tools/perf/util/annotate.c
-+++ b/tools/perf/util/annotate.c
-@@ -2292,7 +2292,7 @@ static int extract_reg_offset(struct arch *arch, const char *str,
- 	if (regname == NULL)
- 		return -1;
- 
--	op_loc->reg1 = get_dwarf_regnum(regname, 0);
-+	op_loc->reg1 = get_dwarf_regnum(regname, arch->e_machine, arch->e_flags);
- 	free(regname);
- 
- 	/* Get the second register */
-@@ -2305,7 +2305,7 @@ static int extract_reg_offset(struct arch *arch, const char *str,
- 		if (regname == NULL)
- 			return -1;
- 
--		op_loc->reg2 = get_dwarf_regnum(regname, 0);
-+		op_loc->reg2 = get_dwarf_regnum(regname, arch->e_machine, arch->e_flags);
- 		free(regname);
- 	}
- 	return 0;
-@@ -2405,7 +2405,7 @@ int annotate_get_insn_location(struct arch *arch, struct disasm_line *dl,
- 				return -1;
- 
- 			if (*s == arch->objdump.register_char)
--				op_loc->reg1 = get_dwarf_regnum(s, 0);
-+				op_loc->reg1 = get_dwarf_regnum(s, arch->e_machine, arch->e_flags);
- 			else if (*s == arch->objdump.imm_char) {
- 				op_loc->offset = strtol(s + 1, &p, 0);
- 				if (p && p != s + 1)
 diff --git a/tools/perf/util/dwarf-regs.c b/tools/perf/util/dwarf-regs.c
-index 7c01bc4d7e5b..1321387f6948 100644
+index 1321387f6948..86b3ef638fbb 100644
 --- a/tools/perf/util/dwarf-regs.c
 +++ b/tools/perf/util/dwarf-regs.c
-@@ -70,7 +70,7 @@ __weak int get_arch_regnum(const char *name __maybe_unused)
- }
+@@ -29,7 +29,8 @@
+ #define __get_dwarf_regstr(tbl, n) (((n) < ARRAY_SIZE(tbl)) ? (tbl)[(n)] : NULL)
  
- /* Return DWARF register number from architecture register name */
--int get_dwarf_regnum(const char *name, unsigned int machine)
-+int get_dwarf_regnum(const char *name, unsigned int machine, unsigned int flags __maybe_unused)
+ /* Return architecture dependent register string (for kprobe-tracer) */
+-const char *get_dwarf_regstr(unsigned int n, unsigned int machine)
++const char *get_dwarf_regstr(unsigned int n, unsigned int machine,
++			     unsigned int flags __maybe_unused)
  {
- 	char *regname = strdup(name);
- 	int reg = -1;
-@@ -84,8 +84,12 @@ int get_dwarf_regnum(const char *name, unsigned int machine)
- 	if (p)
- 		*p = '\0';
- 
-+	if (machine == EM_NONE) {
-+		/* Generic arch - use host arch */
-+		machine = EM_HOST;
-+	}
  	switch (machine) {
--	case EM_NONE:	/* Generic arch - use host arch */
-+	case EM_HOST:
- 		reg = get_arch_regnum(regname);
- 		break;
- 	default:
+ 	case EM_NONE:	/* Generic arch - use host arch */
 diff --git a/tools/perf/util/include/dwarf-regs.h b/tools/perf/util/include/dwarf-regs.h
-index ce9f10b3282d..3c3a908b9f36 100644
+index 3c3a908b9f36..0ef428d07bcc 100644
 --- a/tools/perf/util/include/dwarf-regs.h
 +++ b/tools/perf/util/include/dwarf-regs.h
-@@ -103,12 +103,13 @@ int get_arch_regnum(const char *name);
-  * name: architecture register name
-  * machine: ELF machine signature (EM_*)
+@@ -90,12 +90,13 @@
+ 
+ #ifdef HAVE_LIBDW_SUPPORT
+ const char *get_arch_regstr(unsigned int n);
+-/*
+- * get_dwarf_regstr - Returns ftrace register string from DWARF regnum
+- * n: DWARF register number
+- * machine: ELF machine signature (EM_*)
++/**
++ * get_dwarf_regstr() - Returns ftrace register string from DWARF regnum.
++ * @n: DWARF register number.
++ * @machine: ELF machine signature (EM_*).
++ * @flags: ELF flags for things like ABI differences.
   */
--int get_dwarf_regnum(const char *name, unsigned int machine);
-+int get_dwarf_regnum(const char *name, unsigned int machine, unsigned int flags);
+-const char *get_dwarf_regstr(unsigned int n, unsigned int machine);
++const char *get_dwarf_regstr(unsigned int n, unsigned int machine, unsigned int flags);
  
- #else /* HAVE_LIBDW_SUPPORT */
- 
- static inline int get_dwarf_regnum(const char *name __maybe_unused,
--				   unsigned int machine __maybe_unused)
-+				   unsigned int machine __maybe_unused,
-+				   unsigned int flags __maybe_unused)
+ int get_arch_regnum(const char *name);
+ /*
+diff --git a/tools/perf/util/probe-finder.c b/tools/perf/util/probe-finder.c
+index c2ca94e29aca..7f2ee0cb43ca 100644
+--- a/tools/perf/util/probe-finder.c
++++ b/tools/perf/util/probe-finder.c
+@@ -56,7 +56,7 @@ static struct probe_trace_arg_ref *alloc_trace_arg_ref(long offs)
+  */
+ static int convert_variable_location(Dwarf_Die *vr_die, Dwarf_Addr addr,
+ 				     Dwarf_Op *fb_ops, Dwarf_Die *sp_die,
+-				     unsigned int machine,
++				     const struct probe_finder *pf,
+ 				     struct probe_trace_arg *tvar)
  {
- 	return -1;
- }
+ 	Dwarf_Attribute attr;
+@@ -166,7 +166,7 @@ static int convert_variable_location(Dwarf_Die *vr_die, Dwarf_Addr addr,
+ 	if (!tvar)
+ 		return ret2;
+ 
+-	regs = get_dwarf_regstr(regn, machine);
++	regs = get_dwarf_regstr(regn, pf->e_machine, pf->e_flags);
+ 	if (!regs) {
+ 		/* This should be a bug in DWARF or this tool */
+ 		pr_warning("Mapping for the register number %u "
+@@ -451,7 +451,7 @@ static int convert_variable(Dwarf_Die *vr_die, struct probe_finder *pf)
+ 		 dwarf_diename(vr_die));
+ 
+ 	ret = convert_variable_location(vr_die, pf->addr, pf->fb_ops,
+-					&pf->sp_die, pf->machine, pf->tvar);
++					&pf->sp_die, pf, pf->tvar);
+ 	if (ret == -ENOENT && pf->skip_empty_arg)
+ 		/* This can be found in other place. skip it */
+ 		return 0;
+@@ -1134,7 +1134,8 @@ static int debuginfo__find_probes(struct debuginfo *dbg,
+ 	if (gelf_getehdr(elf, &ehdr) == NULL)
+ 		return -EINVAL;
+ 
+-	pf->machine = ehdr.e_machine;
++	pf->e_machine = ehdr.e_machine;
++	pf->e_flags = ehdr.e_flags;
+ 
+ 	do {
+ 		GElf_Shdr shdr;
+@@ -1171,7 +1172,7 @@ static int copy_variables_cb(Dwarf_Die *die_mem, void *data)
+ 	    (tag == DW_TAG_variable && vf->vars)) {
+ 		if (convert_variable_location(die_mem, vf->pf->addr,
+ 					      vf->pf->fb_ops, &pf->sp_die,
+-					      pf->machine, NULL) == 0) {
++					      pf, /*tvar=*/NULL) == 0) {
+ 			vf->args[vf->nargs].var = (char *)dwarf_diename(die_mem);
+ 			if (vf->args[vf->nargs].var == NULL) {
+ 				vf->ret = -ENOMEM;
+@@ -1402,7 +1403,7 @@ static int collect_variables_cb(Dwarf_Die *die_mem, void *data)
+ 	    tag == DW_TAG_variable) {
+ 		ret = convert_variable_location(die_mem, af->pf.addr,
+ 						af->pf.fb_ops, &af->pf.sp_die,
+-						af->pf.machine, NULL);
++						&af->pf, /*tvar=*/NULL);
+ 		if (ret == 0 || ret == -ERANGE) {
+ 			int ret2;
+ 			bool externs = !af->child;
+diff --git a/tools/perf/util/probe-finder.h b/tools/perf/util/probe-finder.h
+index dfcf8cdd9e8d..be7b46ea2460 100644
+--- a/tools/perf/util/probe-finder.h
++++ b/tools/perf/util/probe-finder.h
+@@ -68,7 +68,8 @@ struct probe_finder {
+ 	/* Call Frame Information from .debug_frame. Not owned. */
+ 	Dwarf_CFI		*cfi_dbg;
+ 	Dwarf_Op		*fb_ops;	/* Frame base attribute */
+-	unsigned int		machine;	/* Target machine arch */
++	unsigned int		e_machine;	/* ELF target machine arch */
++	unsigned int		e_flags;	/* ELF target machine flags */
+ 	struct perf_probe_arg	*pvar;		/* Current target variable */
+ 	struct probe_trace_arg	*tvar;		/* Current result variable */
+ 	bool			skip_empty_arg;	/* Skip non-exist args */
 -- 
 2.47.0.277.g8800431eea-goog
 
