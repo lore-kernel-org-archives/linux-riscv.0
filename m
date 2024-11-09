@@ -4,79 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D8B63D64099
-	for <linux-riscv@archiver.kernel.org>; Sat,  9 Nov 2024 02:44:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 53A38D5E364
+	for <linux-riscv@archiver.kernel.org>; Sat,  9 Nov 2024 10:56:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=haePJnLpQEMRR/3UTEl5DDmr/Ev/ll0HyTnRUehWAmA=; b=gvLQcXILB/iCpu
-	F3HGkXIspkTQTPTs1HJftpUrak3XtKfO98yRUDYta4TV/ahl1m0RMENjGC6koRjdvepYFy1j8vikQ
-	lnyfrqMv6KcTLXWgSUvftLjGq8HNM2ckjTAOy+HwJNWnuDB8+o9ryuiAhZlDX951S3Bg6n+oA1HgI
-	f+ungDUvVbMvFo93jx9QkOcQTebS0VPu71Kg+yWRH48twQdHI/+H2ZdtsqpaKTKGNY4fDg7dgL9WR
-	BnAoMd88AUtmlqYAprIjdVygJxMt5qIoyDMrUPPMGOcrJhoSwnjoKSq+BsJQtUnMCckeKRUmIKklq
-	AZqFd5Ad9bpQdP0TIrCw==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:
+	Message-ID:From:CC:References:To:Subject:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Owner;
+	bh=YtD06AkOr7UcNaST63Mz6DsnTNx9sDdVEefFaIhLp/c=; b=Lb+KorQY2Sfmw/oLZ061M0Xc6b
+	apB9Al9umecD8Tx8FSDBxSmF64PwzjSqoUxWGIBGtSR1xTgcYnvTWW6t8lI5O1R5M70TN8W+MsMYq
+	y0JTbY4SuWrdAvz+iKfJkiiSNIahrwPUmMR2ACNM8r7W4dRv886x17/c3AamS2/2hmxw0Xy8l5UBu
+	errTnlNdmqDvf1uhiaexuLgFQKDI96Ho1oisW/mm32nKkhnKRo6ynxKVdg23oSRI+0GUxYXmD2So/
+	dqoPHQXJcs6ljh7E4dDWorDsbruLyzwMapZp+BSo3LxJI72Uhxbg0HtJgwHvEhE5nPxCEmAFiWEij
+	IzVsemNg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1t9bSH-0000000CXE1-34Cm;
-	Sat, 09 Nov 2024 02:44:05 +0000
-Received: from mail-pl1-x632.google.com ([2607:f8b0:4864:20::632])
+	id 1t9j8p-0000000D6iz-4Ao6;
+	Sat, 09 Nov 2024 10:56:31 +0000
+Received: from szxga04-in.huawei.com ([45.249.212.190])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1t9bQg-0000000CX3s-285L
-	for linux-riscv@lists.infradead.org;
-	Sat, 09 Nov 2024 02:42:28 +0000
-Received: by mail-pl1-x632.google.com with SMTP id d9443c01a7336-20caea61132so24821115ad.2
-        for <linux-riscv@lists.infradead.org>; Fri, 08 Nov 2024 18:42:25 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=pdp7-com.20230601.gappssmtp.com; s=20230601; t=1731120145; x=1731724945; darn=lists.infradead.org;
-        h=content-disposition:mime-version:message-id:subject:cc:to:from:date
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=l/kq/jig55oiRh/bx6L5lLBF6mfYKjE94DkUXbQGw1U=;
-        b=DV7ry+IU/FpasLo7WYV0jwnsKIzP8qe80rRg2a/G2zKiIHawDS1/AF+7DfXjPgm7T9
-         th3nQIDsRPl3HdwxmuSmqYxYL/xihLDKVMosPWiNbfc4kfI1vxvGe418QPwrFcjuR8/g
-         NclT1G4LaeKH+F5XOp5Au+NSPAAs+5sk65p/iOJlFhHkgc5ptcon2+OLPSJIxAXIrEdI
-         OS4eeeEb3IRvS5/ITvaj65dp2dQEgFeu7E+BuxleuyUHTuLmW0eA1kV+1BebxWYJ9wRJ
-         SEZiT4oi1wzDIPE7PT/JGME2R+AM6FBe7S/j0InpwAuyMgaILSS1Eu7QXzPh0kgNOpwr
-         Ky4w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1731120145; x=1731724945;
-        h=content-disposition:mime-version:message-id:subject:cc:to:from:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=l/kq/jig55oiRh/bx6L5lLBF6mfYKjE94DkUXbQGw1U=;
-        b=ZMRzuJ1+YYC8dk31M7FvM+R4EkCs5ekGEFiD//l/4aCTAz7Y+KdSmFaK64W1l7jsx8
-         3ol0nvXg/I50duzs52lk2Yd3jK8SuV/ry9VYzPSOSEmWouk1e4lrJWAAQ5JiILFnCAgT
-         NNZpqFFYOxN1ToO/SsKFmLot8M8bGe766jmWbkaU9xHLpFym0qS+6nsNyr7dQvFheZ5b
-         /iuvjJqS1kZYt3R4b0xAPGJEebP6yyTGbbh2F3F0ArFraNiO5L71HXCNgrE2GIbr4WBv
-         Oq5ZoaS3rO/FJfzWWSHB/UUShrV3ZwJcOSn52qMNK8EeLNhVwapL0c4aHS/6kg//gNi1
-         Eqhw==
-X-Forwarded-Encrypted: i=1; AJvYcCXNMxOB04J2dHvlDORsUeaJCkxCrSQXPB41zQ/dpzh6U0aKRt4sssK504C+Yts1aBDNWllyDBUCdNmmUQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0YyeqUl+cOUT0hScIfxWyGTLBS14mjjpGh9lKARdDVgzs3z4hPAj
-	kGUPXfEJnLbv9EKNRqaq1AB6qp/0PquwFku02yXsodl01RWNPulk70biLH9H+XQ=
-X-Google-Smtp-Source: AGHT+IEaqnxKIzWBmEEzYyvufch5G8Tuk0X5vXmjpFy2gAQctA1w0BMtU34C3aumXJGf7VQyRyPOsg==
-X-Received: by 2002:a17:902:ecc2:b0:20c:aa41:997a with SMTP id d9443c01a7336-2118354d664mr70046865ad.34.1731120145214;
-        Fri, 08 Nov 2024 18:42:25 -0800 (PST)
-Received: from x1 (71-34-69-82.ptld.qwest.net. [71.34.69.82])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-21177e6e0acsm38035835ad.257.2024.11.08.18.42.24
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 08 Nov 2024 18:42:24 -0800 (PST)
-Date: Fri, 8 Nov 2024 18:42:22 -0800
-From: Drew Fustini <drew@pdp7.com>
-To: soc@kernel.org
-Cc: Emil Renner Berthing <emil.renner.berthing@canonical.com>,
-	Jisheng Zhang <jszhang@kernel.org>, Guo Ren <guoren@kernel.org>,
-	Fu Wei <wefu@redhat.com>, Arnd Bergmann <arnd@arndb.de>,
-	Conor Dooley <conor+dt@kernel.org>, linux-riscv@lists.infradead.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: RISC-V T-HEAD Devicetrees for v6.13, part 2
-Message-ID: <Zy7MDgtCtPkxLbjm@x1>
+	id 1t9j72-0000000D6cI-3pxo;
+	Sat, 09 Nov 2024 10:54:43 +0000
+Received: from mail.maildlp.com (unknown [172.19.162.112])
+	by szxga04-in.huawei.com (SkyGuard) with ESMTP id 4Xlt1l0RCNz2Fb3N;
+	Sat,  9 Nov 2024 18:52:43 +0800 (CST)
+Received: from kwepemd200014.china.huawei.com (unknown [7.221.188.8])
+	by mail.maildlp.com (Postfix) with ESMTPS id EEC931400DA;
+	Sat,  9 Nov 2024 18:54:27 +0800 (CST)
+Received: from [10.67.121.177] (10.67.121.177) by
+ kwepemd200014.china.huawei.com (7.221.188.8) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1258.34; Sat, 9 Nov 2024 18:54:26 +0800
+Subject: Re: [PATCH v2 8/8] perf pmu: Move pmu_metrics_table__find and remove
+ ARM override
+To: Ian Rogers <irogers@google.com>, Xu Yang <xu.yang_2@nxp.com>
+References: <20241107162035.52206-1-irogers@google.com>
+ <20241107162035.52206-9-irogers@google.com>
+CC: John Garry <john.g.garry@oracle.com>, Will Deacon <will@kernel.org>, James
+ Clark <james.clark@linaro.org>, Mike Leach <mike.leach@linaro.org>, Leo Yan
+	<leo.yan@linux.dev>, Peter Zijlstra <peterz@infradead.org>, Ingo Molnar
+	<mingo@redhat.com>, Arnaldo Carvalho de Melo <acme@kernel.org>, Namhyung Kim
+	<namhyung@kernel.org>, Mark Rutland <mark.rutland@arm.com>, Alexander
+ Shishkin <alexander.shishkin@linux.intel.com>, Jiri Olsa <jolsa@kernel.org>,
+	Adrian Hunter <adrian.hunter@intel.com>, Kan Liang
+	<kan.liang@linux.intel.com>, Paul Walmsley <paul.walmsley@sifive.com>, Palmer
+ Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Huacai Chen
+	<chenhuacai@kernel.org>, Bibo Mao <maobibo@loongson.cn>, Athira Rajeev
+	<atrajeev@linux.vnet.ibm.com>, Ben Zong-You Xie <ben717@andestech.com>,
+	Alexandre Ghiti <alexghiti@rivosinc.com>, Sandipan Das
+	<sandipan.das@amd.com>, Benjamin Gray <bgray@linux.ibm.com>, Ravi Bangoria
+	<ravi.bangoria@amd.com>, =?UTF-8?Q?Cl=c3=a9ment_Le_Goffic?=
+	<clement.legoffic@foss.st.com>, Yicong Yang <yangyicong@hisilicon.com>,
+	"Masami Hiramatsu (Google)" <mhiramat@kernel.org>, Dima Kogan
+	<dima@secretsauce.net>, "Dr. David Alan Gilbert" <linux@treblig.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-perf-users@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <linux-riscv@lists.infradead.org>, Junhao He
+	<hejunhao3@huawei.com>
+From: Yicong Yang <yangyicong@huawei.com>
+Message-ID: <5a57de7c-924e-ccd6-8981-b9fddc647465@huawei.com>
+Date: Sat, 9 Nov 2024 18:54:26 +0800
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:78.0) Gecko/20100101
+ Thunderbird/78.5.1
 MIME-Version: 1.0
-Content-Disposition: inline
+In-Reply-To: <20241107162035.52206-9-irogers@google.com>
+X-Originating-IP: [10.67.121.177]
+X-ClientProxiedBy: dggems703-chm.china.huawei.com (10.3.19.180) To
+ kwepemd200014.china.huawei.com (7.221.188.8)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241108_184226_833822_93C42BF8 
-X-CRM114-Status: UNSURE (   8.95  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241109_025441_318189_E756923E 
+X-CRM114-Status: GOOD (  23.28  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,47 +91,162 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Arnd,
+Hi,
 
-Please pull these thead dts changes. I've run W=1 dtbs_check and the
-new ethernet support has been tested in linux-next.
+On 2024/11/8 0:20, Ian Rogers wrote:
+> Move pmu_metrics_table__find to the jevents.py generated pmu-events.c
+> and remove indirection override for ARM. The movement removes
+> perf_pmu__find_metrics_table that exists to enable the ARM
+> override. The ARM override isn't necessary as just the CPUID, not PMU,
+> is used in the metric table lookup. On non-ARM the CPU argument is
+> just ignored for the CPUID, for ARM -1 is passed so that the CPUID for
+> the first logical CPU is read.
 
-Thanks,
-Drew
+Since the logic here's already been touching, is it possible to step it further to just
+ignore the CPUID matching when finding the system metrics/events tables? It's may not be
+that reasonable for finding a system metrics/events from the CPUID, since one system PMU may
+exists on different platforms with different CPU types.
 
-The following changes since commit 2a3bf75a9408c40403aab39336274c8010b4c815:
+FYI, there's a similiar problem when trying to count the system metrics but fails [1].
+I've tested with this series but the problem still exists.
 
-  riscv: dts: thead: remove enabled property for spi0 (2024-10-15 10:01:18 -0700)
+[1] https://lore.kernel.org/linux-perf-users/20241010074430.16685-1-hejunhao3@huawei.com/
 
-are available in the Git repository at:
+Thanks.
 
-  git@github.com:pdp7/linux.git tags/thead-dt-for-v6.13-p2
-
-for you to fetch changes up to 7e756671a664b73b2a3c0cc37fd25abf6bcd851e:
-
-  riscv: dts: thead: Add TH1520 ethernet nodes (2024-11-06 17:03:42 -0800)
-
-----------------------------------------------------------------
-T-HEAD Devicetrees for v6.13, part 2
-
-Add gmac, mdio, and phy nodes to enable the gigabit Ethernet ports on
-the TH1520 SoC-based BeagleV Ahead and Sipeed Lichee Pi 4a boards.
-
-The dwmac-thead driver and dt binding have been accepted by netdev and
-are in linux-next as well as the dts patch in this pull request. I have
-tested next-20241108 on the Ahead and LPi4a boards, and Ethernet works
-correctly.
-
-Signed-off-by: Drew Fustini <drew@pdp7.com>
-
-----------------------------------------------------------------
-Emil Renner Berthing (1):
-      riscv: dts: thead: Add TH1520 ethernet nodes
-
- arch/riscv/boot/dts/thead/th1520-beaglev-ahead.dts |  91 ++++++++++++++++
- .../boot/dts/thead/th1520-lichee-module-4a.dtsi    | 119 +++++++++++++++++++++
- arch/riscv/boot/dts/thead/th1520.dtsi              |  50 +++++++++
- 3 files changed, 260 insertions(+)
+> 
+> Signed-off-by: Ian Rogers <irogers@google.com>
+> ---
+>  tools/perf/arch/arm64/util/pmu.c         | 20 --------------------
+>  tools/perf/pmu-events/empty-pmu-events.c | 10 ++++------
+>  tools/perf/pmu-events/jevents.py         | 10 ++++------
+>  tools/perf/pmu-events/pmu-events.h       |  2 +-
+>  tools/perf/util/pmu.c                    |  5 -----
+>  tools/perf/util/pmu.h                    |  1 -
+>  6 files changed, 9 insertions(+), 39 deletions(-)
+> 
+> diff --git a/tools/perf/arch/arm64/util/pmu.c b/tools/perf/arch/arm64/util/pmu.c
+> index a0964b191fcb..895fb0d0610c 100644
+> --- a/tools/perf/arch/arm64/util/pmu.c
+> +++ b/tools/perf/arch/arm64/util/pmu.c
+> @@ -1,29 +1,9 @@
+>  // SPDX-License-Identifier: GPL-2.0
+>  
+> -#include <internal/cpumap.h>
+> -#include "../../../util/cpumap.h"
+> -#include "../../../util/header.h"
+>  #include "../../../util/pmu.h"
+>  #include "../../../util/pmus.h"
+>  #include "../../../util/tool_pmu.h"
+>  #include <api/fs/fs.h>
+> -#include <math.h>
+> -
+> -const struct pmu_metrics_table *pmu_metrics_table__find(void)
+> -{
+> -	struct perf_pmu *pmu;
+> -
+> -	/* Metrics aren't currently supported on heterogeneous Arm systems */
+> -	if (perf_pmus__num_core_pmus() > 1)
+> -		return NULL;
+> -
+> -	/* Doesn't matter which one here because they'll all be the same */
+> -	pmu = perf_pmus__find_core_pmu();
+> -	if (pmu)
+> -		return perf_pmu__find_metrics_table(pmu);
+> -
+> -	return NULL;
+> -}
+>  
+>  u64 tool_pmu__cpu_slots_per_cycle(void)
+>  {
+> diff --git a/tools/perf/pmu-events/empty-pmu-events.c b/tools/perf/pmu-events/empty-pmu-events.c
+> index 17306e316a3c..1c7a2cfa321f 100644
+> --- a/tools/perf/pmu-events/empty-pmu-events.c
+> +++ b/tools/perf/pmu-events/empty-pmu-events.c
+> @@ -587,14 +587,12 @@ const struct pmu_events_table *perf_pmu__find_events_table(struct perf_pmu *pmu)
+>          return NULL;
+>  }
+>  
+> -const struct pmu_metrics_table *perf_pmu__find_metrics_table(struct perf_pmu *pmu)
+> +const struct pmu_metrics_table *pmu_metrics_table__find(void)
+>  {
+> -        const struct pmu_events_map *map = map_for_pmu(pmu);
+> -
+> -        if (!map)
+> -                return NULL;
+> +        struct perf_cpu cpu = {-1};
+> +        const struct pmu_events_map *map = map_for_cpu(cpu);
+>  
+> -	return &map->metric_table;
+> +        return map ? &map->metric_table : NULL;
+>  }
+>  
+>  const struct pmu_events_table *find_core_events_table(const char *arch, const char *cpuid)
+> diff --git a/tools/perf/pmu-events/jevents.py b/tools/perf/pmu-events/jevents.py
+> index e44b72e56ac3..d781a377757a 100755
+> --- a/tools/perf/pmu-events/jevents.py
+> +++ b/tools/perf/pmu-events/jevents.py
+> @@ -1103,14 +1103,12 @@ const struct pmu_events_table *perf_pmu__find_events_table(struct perf_pmu *pmu)
+>          return NULL;
+>  }
+>  
+> -const struct pmu_metrics_table *perf_pmu__find_metrics_table(struct perf_pmu *pmu)
+> +const struct pmu_metrics_table *pmu_metrics_table__find(void)
+>  {
+> -        const struct pmu_events_map *map = map_for_pmu(pmu);
+> -
+> -        if (!map)
+> -                return NULL;
+> +        struct perf_cpu cpu = {-1};
+> +        const struct pmu_events_map *map = map_for_cpu(cpu);
+>  
+> -	return &map->metric_table;
+> +        return map ? &map->metric_table : NULL;
+>  }
+>  
+>  const struct pmu_events_table *find_core_events_table(const char *arch, const char *cpuid)
+> diff --git a/tools/perf/pmu-events/pmu-events.h b/tools/perf/pmu-events/pmu-events.h
+> index 5435ad92180c..675562e6f770 100644
+> --- a/tools/perf/pmu-events/pmu-events.h
+> +++ b/tools/perf/pmu-events/pmu-events.h
+> @@ -103,7 +103,7 @@ int pmu_metrics_table__for_each_metric(const struct pmu_metrics_table *table, pm
+>  				     void *data);
+>  
+>  const struct pmu_events_table *perf_pmu__find_events_table(struct perf_pmu *pmu);
+> -const struct pmu_metrics_table *perf_pmu__find_metrics_table(struct perf_pmu *pmu);
+> +const struct pmu_metrics_table *pmu_metrics_table__find(void);
+>  const struct pmu_events_table *find_core_events_table(const char *arch, const char *cpuid);
+>  const struct pmu_metrics_table *find_core_metrics_table(const char *arch, const char *cpuid);
+>  int pmu_for_each_core_event(pmu_event_iter_fn fn, void *data);
+> diff --git a/tools/perf/util/pmu.c b/tools/perf/util/pmu.c
+> index 514cb865f57b..45838651b361 100644
+> --- a/tools/perf/util/pmu.c
+> +++ b/tools/perf/util/pmu.c
+> @@ -818,11 +818,6 @@ static int is_sysfs_pmu_core(const char *name)
+>  	return file_available(path);
+>  }
+>  
+> -__weak const struct pmu_metrics_table *pmu_metrics_table__find(void)
+> -{
+> -	return perf_pmu__find_metrics_table(NULL);
+> -}
+> -
+>  /**
+>   * Return the length of the PMU name not including the suffix for uncore PMUs.
+>   *
+> diff --git a/tools/perf/util/pmu.h b/tools/perf/util/pmu.h
+> index fba3fc608b64..7b3e71194e49 100644
+> --- a/tools/perf/util/pmu.h
+> +++ b/tools/perf/util/pmu.h
+> @@ -260,7 +260,6 @@ void perf_pmu__arch_init(struct perf_pmu *pmu);
+>  void pmu_add_cpu_aliases_table(struct perf_pmu *pmu,
+>  			       const struct pmu_events_table *table);
+>  
+> -const struct pmu_metrics_table *pmu_metrics_table__find(void);
+>  bool pmu_uncore_identifier_match(const char *compat, const char *id);
+>  
+>  int perf_pmu__convert_scale(const char *scale, char **end, double *sval);
+> 
 
 _______________________________________________
 linux-riscv mailing list
