@@ -4,65 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 15B2ED12D6D
-	for <linux-riscv@archiver.kernel.org>; Mon, 11 Nov 2024 04:01:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF01AD12D6E
+	for <linux-riscv@archiver.kernel.org>; Mon, 11 Nov 2024 04:02:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:To:From:Reply-To:Cc:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=3UvVq5L0yF7PaMlHYtoQf3zFC1UTIlysYp3po9ic5k4=; b=TJtfKR7RYCj7fs
-	J4Vi/G5JV41y6KZGhaRl1jVqx40XM70YANGwlru4sJr2Pr5A2dIlL3A0AsZ2wHNZhebxvOjIcpM14
-	MNoHfYtKx0fixuPU0l7aJF++8xNZcFZToLtRSnAc2+l2p7mYxP7eBxiZaDgYrV1o/juUEkYKfBbXF
-	xbSUc164XLI4ftIwAGA6d8U9BDYIHC3l3WJ61OhUzbwueSm0n6nuWsYp+VLgMOFRU0ToS6VJCNm7m
-	wns+qV9ThRiq495Ag+/3jOLr7AdhucJEzXhHNgn9kl4oS7DoN6F98tuhuxc+m94IKi1VBb3Ke20wB
-	N4HzQdteq3XdXMS5vo1A==;
+	List-Owner; bh=9P+0eCfLH7DWqbuXlMblorTf+7kMDw1uPBw9rkwmXhY=; b=RVwQybg/W9JLO2
+	KszHzPXNQMAIouSAfuycQ1I8J9hE4dt0OXQ8g8M6vYB4mI0Q6JPcC8kkDSpsr6WXChOHVOLSZZqYT
+	8ymZHUrsolO/Ftdlh9lDFVwUdfe6h1sy4BclEQ6DCzK3vABdF0lpP4nV7b4RlBBjgRdSLHfSRhsKl
+	mr+Uz7sAbLBgB49a7YjAPZTf13beSMTO+ot2l6erPOgA1H8/HJdraRqayictHBaw+DpSSM5GSqEaE
+	yInHcCCLEW50VYW2/6zvPlJDvz7DSYx2KJ2SWIMkVfdc82E9YUbEk0d6jgyVwfLND6nfNyepibGfQ
+	ui8ygLZX6WOTtIAUSgmw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tALcd-0000000GGhr-0Vg1;
-	Mon, 11 Nov 2024 04:01:51 +0000
-Received: from mail-oa1-x36.google.com ([2001:4860:4864:20::36])
+	id 1tALcv-0000000GGn6-1QoV;
+	Mon, 11 Nov 2024 04:02:09 +0000
+Received: from mail-oa1-x2a.google.com ([2001:4860:4864:20::2a])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tALcZ-0000000GGhA-2v7V
+	id 1tALcs-0000000GGmQ-362n
 	for linux-riscv@lists.infradead.org;
-	Mon, 11 Nov 2024 04:01:49 +0000
-Received: by mail-oa1-x36.google.com with SMTP id 586e51a60fabf-288916b7fceso2057114fac.3
-        for <linux-riscv@lists.infradead.org>; Sun, 10 Nov 2024 20:01:46 -0800 (PST)
+	Mon, 11 Nov 2024 04:02:08 +0000
+Received: by mail-oa1-x2a.google.com with SMTP id 586e51a60fabf-288d74b3a91so2641501fac.0
+        for <linux-riscv@lists.infradead.org>; Sun, 10 Nov 2024 20:02:06 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1731297705; x=1731902505; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1731297725; x=1731902525; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:to:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=eyhBOJdbdb7U/MAw6LoCSVUFgTElIIRFybioC9VTZuM=;
-        b=OPWAG8rJrqM6xSGoGyOBTivmgNa7o00TuEQIe2VcMfVpXV34IticqZPdiGr+Hw1err
-         h1npVwnCSRIk2jISt0d+1EOqkgdbbJ5+l7TRrtr4cEUH9qTBixVNvye6WnuhhNnXdDeV
-         F1I5NcqJJzHhmyrfDNEW5f7J3rCis2CrcTxDbRqHCPHs02sVV/Wx4utvGZDDqlls9F/h
-         WopRDiK0u99+2CRk0wZTGVhG+L7tq6Dg55EL5rsYChI3Ikdi5qMzx52sOpf4Kuth71C5
-         vtyJw/gjs1APPrZzJykjduv3hguw5j6LM3S26RFmmGkFVjSiCkJciSstsl8dLIB6pr/K
-         ADyg==
+        bh=R+fPQhcktyhn766PuZ6e67L6+1wcYRMcJZUggR/XiQ0=;
+        b=i/YATcfcEnC6O1dRy4wh0PRgSjV9C+v7kvHs59GlwS+Cjb6m+7PlHn259FVpdujX7G
+         Bm909PDSWH/m1FEsuOG/N0jOyv5d63/HXbNAqZjg9jf+T/f0w8VD63bcHZK8BDM4fqYD
+         No0YPqYcnrMkuj8HohOfd7GHBRRHPTygGu6cVmOP0wkbJRfTA6x5IrNsXPwrm3mmMXcX
+         r6a9MYt9VC59zKjMSTWRO3z9AGyFt9F7XS1xCPBc2HE1x3RR8DdcFFG3eu31mbXPkDDF
+         dSncQ1UZdWPFjg9w7xJ7MbE2Vvl8UbLtwHfek4SFa6UJe4YtsvnNm1ZfG+qVqGIG2/UX
+         YBBg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1731297705; x=1731902505;
+        d=1e100.net; s=20230601; t=1731297725; x=1731902525;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=eyhBOJdbdb7U/MAw6LoCSVUFgTElIIRFybioC9VTZuM=;
-        b=l8H/l9xEsRrMW2WPKh624Ulv5jOBWzkjvyuXRxXnGIBhm9mcnB8ehJKXolqEeNvUp6
-         f89XaLLN2+ckHQP4Ujao+SJnXHyp5R/HX6wWegYmFTR/bWOqQYORzX+0X9OoVrL5Nf4G
-         6z1fW4IRYNks8UzYQeLYHjC4g3qUjBHIcSH86hs7jMW4t3HBhhbFYTu8QoEfTzhcxZ7+
-         Kwi4ovlOu94Ge5BamsdRGOqkKmeJVucxXrqYfHf8/I8h4Di3Hr1g6h/5UVVPPqOrBjJK
-         60cu2Y+F+4UAkhUGYmaEoYmrT25dqwEVbTLCSQmObleRRY0yyhKOt+jAMMC3xrqpltOl
-         d7fg==
-X-Forwarded-Encrypted: i=1; AJvYcCUFjCUkUSMD3kHVV3CkEJu9wRIWBjkkfdG4hQzc/0Nth1KLEBiewzUaAnnEcSqKeBKzj0DLCZ6C3B/3YA==@lists.infradead.org
-X-Gm-Message-State: AOJu0YzOerCGFtcv8Vr9mtUNe45mX/47tBVgEom7TcxyjWISk0v0XQ+l
-	Y/kwMSZEYU/zj0dltxvt+4cKRdQlRJrCtNxIWk647YogSA0eIPhL
-X-Google-Smtp-Source: AGHT+IExdqCVvtfANRWv9lUO362sv1gaRUggc3/UVeXpal0yMHNBYIFFnDgdeYQf/09eHGl1kDf7cg==
-X-Received: by 2002:a05:6871:7a9:b0:287:e3e1:15f2 with SMTP id 586e51a60fabf-295601585f1mr8943535fac.25.1731297705248;
-        Sun, 10 Nov 2024 20:01:45 -0800 (PST)
+        bh=R+fPQhcktyhn766PuZ6e67L6+1wcYRMcJZUggR/XiQ0=;
+        b=iZFPdqoxjDJpprQut+pmchIlNEI679i7t9TS4Bc1s8atFkfRWGX1jVb/+b6avolBGd
+         SAI2nxfQoO2xcjb4RtJCH9xDicvQ22dRTF3O1eeO3I4E7XQhCSGYyTLIIjPAM5/1blnc
+         EJDn/NFUNWDPOJ7HvRUD9hbP9kIPvdvJKLhCSp1op27B4QqY/CvHrX/8+MpxoKwD0Lk6
+         NAvgKt/rQtViLsyc1qK7egRjJk0isz56cvzrzcBrYGyC1wwzFOFBS9YHoUA/o9noinZ1
+         W/OiJkWNMuxaRvRKrKZB9cLesevjkF9XJ1liiTuSD0+I6xLvhbjIeTo64UKW7GXJwyhI
+         NQzw==
+X-Forwarded-Encrypted: i=1; AJvYcCVuwCdvUeWMnCOuhPaeIKgb6cibQknTW+gtcugcVK4oHhINS/R6n4lxUfUxi90rvDBPrt373PDzbl3Drg==@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywkf/WKTPIclTscBKGo+WEXrb84ajIx17DGBrL8hA7c3WxXDlHw
+	0g0/DgoQ9sOQ7hGjr6xeT8V1Js3V2BxnNEnwCHTzYsjXgqYkMbjC
+X-Google-Smtp-Source: AGHT+IE1+3vDt96wuzJHta3Nkt+aV05zWOrqsajEFRzvGnq1988dsLWPrG80m3LN6mFGflF/nyetBQ==
+X-Received: by 2002:a05:6870:380d:b0:277:e08a:23a0 with SMTP id 586e51a60fabf-295602fd28cmr7803476fac.41.1731297723750;
+        Sun, 10 Nov 2024 20:02:03 -0800 (PST)
 Received: from localhost.localdomain ([122.8.183.87])
-        by smtp.gmail.com with ESMTPSA id 586e51a60fabf-29546d0085csm2622580fac.22.2024.11.10.20.01.42
+        by smtp.gmail.com with ESMTPSA id 46e09a7af769-71a108e29f8sm2121721a34.47.2024.11.10.20.02.00
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 10 Nov 2024 20:01:44 -0800 (PST)
+        Sun, 10 Nov 2024 20:02:02 -0800 (PST)
 From: Chen Wang <unicornxw@gmail.com>
 To: u.kleine-koenig@baylibre.com,
 	aou@eecs.berkeley.edu,
@@ -82,16 +82,16 @@ To: u.kleine-koenig@baylibre.com,
 	chao.wei@sophgo.com,
 	xiaoguang.xing@sophgo.com,
 	fengchun.li@sophgo.com
-Subject: [PATCH 1/3] dt-bindings: interrupt-controller: Add Sophgo SG2042 MSI
-Date: Mon, 11 Nov 2024 12:01:36 +0800
-Message-Id: <5186bb9c7feebb87136eb5e5e117fb1142dba4c2.1731296803.git.unicorn_wang@outlook.com>
+Subject: [PATCH 2/3] irqchip: Add the Sophgo SG2042 MSI interrupt controller
+Date: Mon, 11 Nov 2024 12:01:55 +0800
+Message-Id: <8076fe2af9f2b007a42c986ed193ba50ff674bfa.1731296803.git.unicorn_wang@outlook.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <cover.1731296803.git.unicorn_wang@outlook.com>
 References: <cover.1731296803.git.unicorn_wang@outlook.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241110_200147_761537_8E0D2E35 
-X-CRM114-Status: GOOD (  12.14  )
+X-CRM114-CacheID: sfid-20241110_200206_817653_173E2BE0 
+X-CRM114-Status: GOOD (  25.62  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,98 +110,306 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Chen Wang <unicorn_wang@outlook.com>
 
-Add binding for Sophgo SG2042 MSI controller.
+Add driver for Sophgo SG2042 MSI interrupt controller.
 
 Signed-off-by: Chen Wang <unicorn_wang@outlook.com>
 ---
- .../sophgo,sg2042-msi.yaml                    | 78 +++++++++++++++++++
- 1 file changed, 78 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/interrupt-controller/sophgo,sg2042-msi.yaml
+ drivers/irqchip/Kconfig          |   8 +
+ drivers/irqchip/Makefile         |   1 +
+ drivers/irqchip/irq-sg2042-msi.c | 255 +++++++++++++++++++++++++++++++
+ 3 files changed, 264 insertions(+)
+ create mode 100644 drivers/irqchip/irq-sg2042-msi.c
 
-diff --git a/Documentation/devicetree/bindings/interrupt-controller/sophgo,sg2042-msi.yaml b/Documentation/devicetree/bindings/interrupt-controller/sophgo,sg2042-msi.yaml
+diff --git a/drivers/irqchip/Kconfig b/drivers/irqchip/Kconfig
+index d82bcab233a1..76a38a4d62eb 100644
+--- a/drivers/irqchip/Kconfig
++++ b/drivers/irqchip/Kconfig
+@@ -729,6 +729,14 @@ config MCHP_EIC
+ 	help
+ 	  Support for Microchip External Interrupt Controller.
+ 
++config SOPHGO_SG2042_MSI
++	bool "Sophgo SG2042 MSI controller"
++	depends on ARCH_SOPHGO || COMPILE_TEST
++	help
++	  Support for the Sophgo SG2042 MSI Controller.
++	  This on-chip interrupt controller enables MSI sources to be
++	  routed to the primary PLIC controller on SoC.
++
+ config SUNPLUS_SP7021_INTC
+ 	bool "Sunplus SP7021 interrupt controller" if COMPILE_TEST
+ 	default SOC_SP7021
+diff --git a/drivers/irqchip/Makefile b/drivers/irqchip/Makefile
+index e3679ec2b9f7..53617890268a 100644
+--- a/drivers/irqchip/Makefile
++++ b/drivers/irqchip/Makefile
+@@ -125,4 +125,5 @@ obj-$(CONFIG_WPCM450_AIC)		+= irq-wpcm450-aic.o
+ obj-$(CONFIG_IRQ_IDT3243X)		+= irq-idt3243x.o
+ obj-$(CONFIG_APPLE_AIC)			+= irq-apple-aic.o
+ obj-$(CONFIG_MCHP_EIC)			+= irq-mchp-eic.o
++obj-$(CONFIG_SOPHGO_SG2042_MSI)		+= irq-sg2042-msi.o
+ obj-$(CONFIG_SUNPLUS_SP7021_INTC)	+= irq-sp7021-intc.o
+diff --git a/drivers/irqchip/irq-sg2042-msi.c b/drivers/irqchip/irq-sg2042-msi.c
 new file mode 100644
-index 000000000000..9fe99b74c211
+index 000000000000..79449f974ed5
 --- /dev/null
-+++ b/Documentation/devicetree/bindings/interrupt-controller/sophgo,sg2042-msi.yaml
-@@ -0,0 +1,78 @@
-+# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/interrupt-controller/sophgo,sg2042-msi.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
++++ b/drivers/irqchip/irq-sg2042-msi.c
+@@ -0,0 +1,255 @@
++// SPDX-License-Identifier: GPL-2.0
++/*
++ * SG2042 MSI Controller
++ *
++ * Copyright (C) 2024 Sophgo Technology Inc.
++ * Copyright (C) 2024 Chen Wang <unicorn_wang@outlook.com>
++ */
 +
-+title: Sophgo SG2042 MSI Controller
++#include <linux/io.h>
++#include <linux/irq.h>
++#include <linux/irqdomain.h>
++#include <linux/kernel.h>
++#include <linux/module.h>
++#include <linux/msi.h>
++#include <linux/of.h>
++#include <linux/of_irq.h>
++#include <linux/of_pci.h>
++#include <linux/of_platform.h>
++#include <linux/platform_device.h>
++#include <linux/slab.h>
 +
-+maintainers:
-+  - Chen Wang <unicorn_wang@outlook.com>
++struct sg2042_msi_data {
++	void __iomem	*reg_clr; /* clear reg, see TRM, 10.1.33, GP_INTR0_CLR */
 +
-+description:
-+  This interrupt controller is in Sophgo SG2042 for transforming interrupts from
-+  PCIe MSI to PLIC interrupts.
++	u64		doorbell_addr; /* see TRM, 10.1.32, GP_INTR0_SET */
 +
-+allOf:
-+  - $ref: /schemas/interrupts.yaml#
-+  - $ref: /schemas/interrupt-controller/msi-controller.yaml#
++	u32		irq_first; /* The vector number that MSIs starts */
++	u32		num_irqs;  /* The number of vectors for MSIs */
 +
-+properties:
-+  compatible:
-+    const: sophgo,sg2042-msi
++	unsigned long	*msi_map;
++	struct mutex	msi_map_lock; /* lock for msi_map */
++};
 +
-+  reg:
-+    items:
-+      - description: clear register
++static int sg2042_msi_allocate_hwirq(struct sg2042_msi_data *priv, int num_req)
++{
++	int first;
 +
-+  reg-names:
-+    items:
-+      - const: clr
++	mutex_lock(&priv->msi_map_lock);
 +
-+  sophgo,msi-doorbell-addr:
-+    description:
-+      u64 value of the MSI doorbell address
-+    $ref: /schemas/types.yaml#/definitions/uint64
++	first = bitmap_find_free_region(priv->msi_map, priv->num_irqs,
++					get_count_order(num_req));
++	if (first < 0) {
++		mutex_unlock(&priv->msi_map_lock);
++		return -ENOSPC;
++	}
 +
-+  sophgo,msi-base-vec:
-+    description:
-+      u32 value of the base of parent PLIC vector allocated
-+      to MSI.
-+    $ref: /schemas/types.yaml#/definitions/uint32
-+    minimum: 64
-+    maximum: 95
++	mutex_unlock(&priv->msi_map_lock);
 +
-+  sophgo,msi-num-vecs:
-+    description:
-+      u32 value of the number of parent PLIC vectors allocated
-+      to MSI.
-+    $ref: /schemas/types.yaml#/definitions/uint32
-+    minimum: 1
-+    maximum: 32
++	return priv->irq_first + first;
++}
 +
-+  msi-controller: true
++static void sg2042_msi_free_hwirq(struct sg2042_msi_data *priv,
++				  int hwirq, int num_req)
++{
++	int first = hwirq - priv->irq_first;
 +
-+required:
-+  - compatible
-+  - reg
-+  - reg-names
-+  - msi-controller
-+  - sophgo,msi-doorbell-addr
-+  - sophgo,msi-base-vec
-+  - sophgo,msi-num-vecs
++	mutex_lock(&priv->msi_map_lock);
++	bitmap_release_region(priv->msi_map, first, get_count_order(num_req));
++	mutex_unlock(&priv->msi_map_lock);
++}
 +
-+additionalProperties: true
++static void sg2042_msi_irq_ack(struct irq_data *d)
++{
++	struct sg2042_msi_data *data  = irq_data_get_irq_chip_data(d);
++	int bit_off = d->hwirq - data->irq_first;
 +
-+examples:
-+  - |
-+    #include <dt-bindings/interrupt-controller/irq.h>
-+    msi: msi-controller@30000000 {
-+      compatible = "sophgo,sg2042-msi";
-+      reg = <0x30000000 0x4>;
-+      reg-names = "clr";
-+      msi-controller;
-+      sophgo,msi-doorbell-addr = <0x00000070 0x30010300>;
-+      sophgo,msi-base-vec = <64>;
-+      sophgo,msi-num-vecs = <32>;
-+      interrupt-parent = <&plic>;
-+    };
++	writel(1 << bit_off, (unsigned int *)data->reg_clr);
++
++	irq_chip_ack_parent(d);
++}
++
++static void sg2042_msi_irq_compose_msi_msg(struct irq_data *data,
++					   struct msi_msg *msg)
++{
++	struct sg2042_msi_data *priv = irq_data_get_irq_chip_data(data);
++
++	msg->address_hi = upper_32_bits(priv->doorbell_addr);
++	msg->address_lo = lower_32_bits(priv->doorbell_addr);
++	msg->data = 1 << (data->hwirq - priv->irq_first);
++
++	pr_debug("%s hwirq[%d]: address_hi[%#x], address_lo[%#x], data[%#x]\n",
++		 __func__,
++		 (int)data->hwirq, msg->address_hi, msg->address_lo, msg->data);
++}
++
++static struct irq_chip sg2042_msi_middle_irq_chip = {
++	.name			= "SG2042 MSI",
++	.irq_ack		= sg2042_msi_irq_ack,
++	.irq_mask		= irq_chip_mask_parent,
++	.irq_unmask		= irq_chip_unmask_parent,
++#ifdef CONFIG_SMP
++	.irq_set_affinity	= irq_chip_set_affinity_parent,
++#endif
++	.irq_compose_msi_msg	= sg2042_msi_irq_compose_msi_msg,
++};
++
++static int sg2042_msi_parent_domain_alloc(struct irq_domain *domain,
++					  unsigned int virq, int hwirq)
++{
++	struct irq_fwspec fwspec;
++	struct irq_data *d;
++	int ret;
++
++	fwspec.fwnode = domain->parent->fwnode;
++	fwspec.param_count = 2;
++	fwspec.param[0] = hwirq;
++	fwspec.param[1] = IRQ_TYPE_EDGE_RISING;
++
++	ret = irq_domain_alloc_irqs_parent(domain, virq, 1, &fwspec);
++	if (ret)
++		return ret;
++
++	d = irq_domain_get_irq_data(domain->parent, virq);
++	return d->chip->irq_set_type(d, IRQ_TYPE_EDGE_RISING);
++}
++
++static int sg2042_msi_middle_domain_alloc(struct irq_domain *domain,
++					  unsigned int virq,
++					  unsigned int nr_irqs, void *args)
++{
++	struct sg2042_msi_data *priv = domain->host_data;
++	int hwirq, err, i;
++
++	hwirq = sg2042_msi_allocate_hwirq(priv, nr_irqs);
++	if (hwirq < 0)
++		return hwirq;
++
++	for (i = 0; i < nr_irqs; i++) {
++		err = sg2042_msi_parent_domain_alloc(domain, virq + i, hwirq + i);
++		if (err)
++			goto err_hwirq;
++
++		pr_debug("%s: virq[%d], hwirq[%d]\n",
++			 __func__, virq + i, (int)hwirq + i);
++
++		irq_domain_set_hwirq_and_chip(domain, virq + i, hwirq + i,
++					      &sg2042_msi_middle_irq_chip, priv);
++	}
++
++	return 0;
++
++err_hwirq:
++	sg2042_msi_free_hwirq(priv, hwirq, nr_irqs);
++	irq_domain_free_irqs_parent(domain, virq, i);
++
++	return err;
++}
++
++static void sg2042_msi_middle_domain_free(struct irq_domain *domain,
++					  unsigned int virq,
++					  unsigned int nr_irqs)
++{
++	struct irq_data *d = irq_domain_get_irq_data(domain, virq);
++	struct sg2042_msi_data *priv = irq_data_get_irq_chip_data(d);
++
++	irq_domain_free_irqs_parent(domain, virq, nr_irqs);
++	sg2042_msi_free_hwirq(priv, d->hwirq, nr_irqs);
++}
++
++static const struct irq_domain_ops pch_msi_middle_domain_ops = {
++	.alloc	= sg2042_msi_middle_domain_alloc,
++	.free	= sg2042_msi_middle_domain_free,
++};
++
++static int sg2042_msi_init_domains(struct sg2042_msi_data *priv,
++				   struct device_node *node)
++{
++	struct irq_domain *plic_domain, *middle_domain;
++	struct device_node *plic_node;
++	struct fwnode_handle *fwnode = of_node_to_fwnode(node);
++
++	if (!of_find_property(node, "interrupt-parent", NULL)) {
++		pr_err("Can't find interrupt-parent!\n");
++		return -EINVAL;
++	}
++
++	plic_node = of_irq_find_parent(node);
++	if (!plic_node) {
++		pr_err("Failed to find the PLIC node!\n");
++		return -ENXIO;
++	}
++
++	plic_domain = irq_find_host(plic_node);
++	of_node_put(plic_node);
++	if (!plic_domain) {
++		pr_err("Failed to find the PLIC domain\n");
++		return -ENXIO;
++	}
++
++	middle_domain = irq_domain_create_hierarchy(plic_domain, 0, priv->num_irqs,
++						    fwnode,
++						    &pch_msi_middle_domain_ops,
++						    priv);
++	if (!middle_domain) {
++		pr_err("Failed to create the MSI middle domain\n");
++		return -ENOMEM;
++	}
++
++	return 0;
++}
++
++static int sg2042_msi_probe(struct platform_device *pdev)
++{
++	struct sg2042_msi_data *data;
++
++	data = devm_kzalloc(&pdev->dev, sizeof(struct sg2042_msi_data), GFP_KERNEL);
++	if (!data)
++		return -ENOMEM;
++
++	data->reg_clr = devm_platform_ioremap_resource_byname(pdev, "clr");
++	if (IS_ERR(data->reg_clr)) {
++		dev_err(&pdev->dev, "Failed to map clear register\n");
++		return PTR_ERR(data->reg_clr);
++	}
++
++	if (of_property_read_u64(pdev->dev.of_node, "sophgo,msi-doorbell-addr",
++				 &data->doorbell_addr)) {
++		dev_err(&pdev->dev, "Unable to parse MSI doorbell addr\n");
++		return -EINVAL;
++	}
++
++	if (of_property_read_u32(pdev->dev.of_node, "sophgo,msi-base-vec",
++				 &data->irq_first)) {
++		dev_err(&pdev->dev, "Unable to parse MSI vec base\n");
++		return -EINVAL;
++	}
++
++	if (of_property_read_u32(pdev->dev.of_node, "sophgo,msi-num-vecs",
++				 &data->num_irqs)) {
++		dev_err(&pdev->dev, "Unable to parse MSI vec number\n");
++		return -EINVAL;
++	}
++
++	mutex_init(&data->msi_map_lock);
++
++	data->msi_map = bitmap_zalloc(data->num_irqs, GFP_KERNEL);
++	if (!data->msi_map)
++		return -ENOMEM;
++
++	return sg2042_msi_init_domains(data, pdev->dev.of_node);
++}
++
++static const struct of_device_id sg2042_msi_of_match[] = {
++	{ .compatible = "sophgo,sg2042-msi" },
++	{}
++};
++
++static struct platform_driver sg2042_msi_driver = {
++	.driver = {
++		.name = "sg2042-msi",
++		.of_match_table = of_match_ptr(sg2042_msi_of_match),
++	},
++	.probe = sg2042_msi_probe,
++};
++builtin_platform_driver(sg2042_msi_driver);
 -- 
 2.34.1
 
