@@ -4,64 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CED1FD12D54
-	for <linux-riscv@archiver.kernel.org>; Mon, 11 Nov 2024 15:28:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 46870D12D61
+	for <linux-riscv@archiver.kernel.org>; Mon, 11 Nov 2024 15:50:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:Cc:References:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=A8bHnxxPe6eKTCzIiuKIrq01qfJg90ISaVXLA0ptU4k=; b=wO5d8WBAPZ6wJU
-	xvBjOl6S8puEO8LfLf+GVSpn9c6yy6fhro40HOQ7d6KsRcT/pxzIgGu52oT5CR3BBkqVoAsbnKkhb
-	rJb6nN8mnCAOrdss2+kZ6YBGQHyytfksNv05mZ8svQGCh9yeNmIy9BIMFIIZi9wsB8nRzlpOmOyUI
-	3k42Wq1X6yuJEq9kMZN4uL4B5QIigGB3ZC2L42IJ3uYwKZjTfq1TqECJcCUJvcsCy5dqNY0GrGiOY
-	+0zWxVVVIrn+u63f0s3PkiNl3mTy+vUC6hHQk3pMO/Qf8X2xe1IWExUl6RWaGvwme6c2eCZJ1ni7T
-	9uU9wwZ0RopYLQKuuo3A==;
+	List-Owner; bh=Ap8J0VVHYN4BXHIOfrerzINSjRWNTV4JdC50r2gfIiA=; b=VgXGjh/La8bMM+
+	Ww4GLLA5e9oXSgpXgVfuaoRRaxud1j2IHlcdDjXdMQoxAgdt2KSFHkAMuIY6iWx+dSKYH+J667K0c
+	S3WxAHL3YqCcbv1Yu1/jeOdzfukwnFLLuhCt5FidCpR8tu2C8Y1wtQO5xgOI9ZCkBt+24wwlxn6zg
+	sn9QUWb260Oc4FZmDSCVMzOGfFh6OjJZauAxSPvKHkQ3WFuWKfGNls4hpVLweWAhIBFj3TCFgmBrV
+	Tqy9uDWnXb/Xy4fzZ/Kv94v9+ZMCXw1DU1HsW8N6RkX0fBlKxiAtPctZgRawWYIZB17Wm5lfVwXsU
+	zlKud+22uv0w1M1D+edQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tAWKc-00000000SPz-2JSS;
-	Mon, 11 Nov 2024 15:27:58 +0000
-Received: from mta-03.yadro.com ([89.207.88.253])
+	id 1tAWfq-00000000VAU-20ca;
+	Mon, 11 Nov 2024 15:49:54 +0000
+Received: from mail-wm1-x336.google.com ([2a00:1450:4864:20::336])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tAWKZ-00000000SOC-0dMz
+	id 1tAWfn-00000000V9m-3D5q
 	for linux-riscv@lists.infradead.org;
-	Mon, 11 Nov 2024 15:27:56 +0000
-DKIM-Filter: OpenDKIM Filter v2.11.0 mta-03.yadro.com 978E9E0003
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yadro.com; s=mta-04;
-	t=1731338873; bh=WocUvkzoYetonkZ1U60cm3ayMp335OIxYY+sfT5CN7A=;
-	h=From:To:Subject:Date:Message-ID:MIME-Version:Content-Type:From;
-	b=pIxDSoE1uTAxvfm/tAncMUn1hv0n9XqKHOvFcdLhfxiqVoajbTv8Eez2GTtC0CDvo
-	 mxNDwqde9xGwpa+o3E7nXKomyjwmjsO0pYWnXus/xPw1PDVJzgiwjN6Kmd7b2Bj3K1
-	 1ibcmdBmxz+b32D347orDhdVNXe4XgTVxW7qQRwU+djB3Aoaa3HFOh9DwOIYe99soe
-	 Tz9zqrPMbuCK9td2dHjqFJKK1sllIjMDj4ziweIQTYiSozz8wgWctD7hYOWHtLXAVY
-	 krkcZO/jS+cwTSq8R67qPlk2mTgcRYzHTKmt5JtPeD0kcAp5SNGzzMl9MK4XfHCcdG
-	 00Xkno4gtrh3A==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yadro.com; s=mta-03;
-	t=1731338873; bh=WocUvkzoYetonkZ1U60cm3ayMp335OIxYY+sfT5CN7A=;
-	h=From:To:Subject:Date:Message-ID:MIME-Version:Content-Type:From;
-	b=tpdpFNlqaQEMVo6jvV66M/rFaNr94N8lm4Vt0NAkOvYVBs0qWj1edhAWBYn6ddq9H
-	 +iqtX0JTzci5kILpX2SfFVVbHdbnALqstcgzcGolHeailoenLcBDdzWPS9UVqQs2Nr
-	 JFVct7IMg+thpqalKufnBg3Pe2Z8z1ceDtldhfa4x/1j25w1Fbaz472dAHPvoEfeuS
-	 yXvWBqKcpYZG4Xzq4Pv3yFVWESt/Ok4XHv3qb7FrUj6NL3EtsCvsz//YUApwOtqJ9A
-	 Jr9wvIf5cNPMZL8wSLi4zWXDN9164GLfas2kuQo7PhYHrobQjmOdXTd8pTyATaR1IX
-	 x84+nBfUrpZEQ==
-From: Nikita Proshkin <n.proshkin@yadro.com>
-To: Green Wan <green.wan@sifive.com>, Vinod Koul <vkoul@kernel.org>
-CC: <dmaengine@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
-	<linux@yadro.com>, Nikita Proshkin <n.proshkin@yadro.com>
-Subject: [PATCH 2/2] dmaengine: sf-pdma: Fix possible double-free for descriptors
-Date: Mon, 11 Nov 2024 18:26:00 +0300
-Message-ID: <20241111152600.146912-3-n.proshkin@yadro.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20241111152600.146912-1-n.proshkin@yadro.com>
-References: <20241111152600.146912-1-n.proshkin@yadro.com>
+	Mon, 11 Nov 2024 15:49:52 +0000
+Received: by mail-wm1-x336.google.com with SMTP id 5b1f17b1804b1-4314fa33a35so37525915e9.1
+        for <linux-riscv@lists.infradead.org>; Mon, 11 Nov 2024 07:49:50 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1731340189; x=1731944989; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:cc:content-language
+         :references:to:subject:user-agent:mime-version:date:message-id:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=7ZiuG6vO285AeoXa2+/Nuxw8bBquuL6RNvtIRl6EjA8=;
+        b=Ys1t3eFZWIfxSOqCsOBar9JcMJbGE8RfaAZC92wd/ZNRbgHwluFwdd9Ic3LrE5EYKA
+         PJOHfqs6A+tMP+6y1Q9+D2HfA3UwI7sU8Iam57cFW4fhvfUABLju4n62I0Q5uUqyLgKn
+         M5WHdwuF1bDNzBcLN25rwl3buO6m4mE3lHWMx+lZq/AZiFJ/DVe+u3oLZ9DWkIq+aeg7
+         Z7jtqxjn8pbAkpaBerw8lRLKvOUVBOWnVU8r4pSVaUoeaVTTVe0F7CtoDOVPOTmOu2Hr
+         p9IQoF3MpHXABzqB2N1rA8xmqBWcHHiuQNXQVLC9YkoVv5JKnjdM1abf0KMpCLgSGmae
+         oCdw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1731340189; x=1731944989;
+        h=content-transfer-encoding:in-reply-to:from:cc:content-language
+         :references:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=7ZiuG6vO285AeoXa2+/Nuxw8bBquuL6RNvtIRl6EjA8=;
+        b=PzIJWGVySoetej6rDIco9idMhrSGmsn+9ujq/2fo75Tas7CEO/bVN8YE3NGA/ZM7lI
+         aEBatt9dQXJ7FaWxnd1+n/GEJx7aky9pLI4IQWq1etx77HQWjuDG/vQLbu1N88DbBgz7
+         zQT7WE1Hf3b4iOfOhTGy2/sfOV8AmTbuEPisfkCfJnK76OSp+le7kBb7Gk6lGsUgTPtO
+         wbZd9IEvMWgiGOA8HIRrERviqaJnDb0EILYGdPlTNMN4BccKHX5HY/ZDEEB1hfMy+JF+
+         v+xRHB/iT1bYj4gNgwIWMbwIqD5vXOXy1a+JJbpWgyAFYpTBbTCN4XoaW+O36PKPlq9g
+         8Avw==
+X-Gm-Message-State: AOJu0Yx81BI2iDeclgFkzMknF5Eg+gqmcYa+ig3GoRAqLPhZfHhSrG+N
+	Bh4PWh9jFzprMHtxthQIpMV3QZNmAYuDwsEE38Ctg5TrumHJGEpuDsut49u3jCc=
+X-Google-Smtp-Source: AGHT+IEf8ZLfYGz4Ep81ktvQnSsWEJgpx9GkGgRDp+Sp5/zXGXroLdE9Ahp4goxrI71QaW6Qs6uJlA==
+X-Received: by 2002:a05:600c:4ecc:b0:431:5a93:4e3c with SMTP id 5b1f17b1804b1-432b7507c0bmr113526115e9.16.1731340189222;
+        Mon, 11 Nov 2024 07:49:49 -0800 (PST)
+Received: from [192.168.68.163] ([145.224.90.214])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-432aa5b5fc9sm214217075e9.3.2024.11.11.07.49.47
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 11 Nov 2024 07:49:48 -0800 (PST)
+Message-ID: <7c1a0bbf-12fd-46ef-9db2-183dfa70a334@linaro.org>
+Date: Mon, 11 Nov 2024 15:49:47 +0000
 MIME-Version: 1.0
-X-ClientProxiedBy: T-EXCH-10.corp.yadro.com (172.17.11.60) To
- T-EXCH-08.corp.yadro.com (172.17.11.58)
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v1 3/4] perf record: Skip don't fail for events that don't
+ open
+To: Ian Rogers <irogers@google.com>, Atish Patra <atishp@rivosinc.com>,
+ Namhyung Kim <namhyung@kernel.org>,
+ Arnaldo Carvalho de Melo <acme@kernel.org>
+References: <20241026121758.143259-1-irogers@google.com>
+ <20241026121758.143259-4-irogers@google.com>
+Content-Language: en-US
+Cc: linux-riscv@lists.infradead.org, beeman@rivosinc.com,
+ Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>,
+ Mark Rutland <mark.rutland@arm.com>,
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+ Jiri Olsa <jolsa@kernel.org>, Adrian Hunter <adrian.hunter@intel.com>,
+ Kan Liang <kan.liang@linux.intel.com>, Ze Gao <zegao2021@gmail.com>,
+ Weilin Wang <weilin.wang@intel.com>, Ben Gainey <ben.gainey@arm.com>,
+ Dominique Martinet <asmadeus@codewreck.org>, Junhao He
+ <hejunhao3@huawei.com>, linux-perf-users@vger.kernel.org,
+ linux-kernel@vger.kernel.org
+From: James Clark <james.clark@linaro.org>
+In-Reply-To: <20241026121758.143259-4-irogers@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241111_072755_555747_1BA6EF70 
-X-CRM114-Status: GOOD (  12.87  )
+X-CRM114-CacheID: sfid-20241111_074951_818404_0E83EE96 
+X-CRM114-Status: GOOD (  46.81  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,83 +100,197 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-sf_pdma_issue_pending() sets pointer to the currently being processed
-dma descriptor in struct sf_pdma_chan, but this descriptor remains a part
-of the desc_issued list from the struct virt_dma_chan.
 
-Descriptor is correctly deleted from the list and freed in done tasklet,
-but stays in place in case of an error during dma processing, waiting for
-sf_pdma_terminate_all() to be called.
 
-If the pointer to the descriptor is valid in struct sf_pdma_chan,
-sf_pdma_terminate_all() first frees this descriptor directly, but later
-uses it again in the vchan_dma_desc_free_list(), leading to mem management
-errors (double-free, use-after-free).
+On 26/10/2024 1:17 pm, Ian Rogers wrote:
+> Whilst for many tools it is an expected behavior that failure to open
+> a perf event is a failure, ARM decided to name PMU events the same as
+> legacy events and then failed to rename such events on a server uncore
+> SLC PMU. As perf's default behavior when no PMU is specified is to
+> open the event on all PMUs that advertise/"have" the event, this
+> yielded failures when trying to make the priority of legacy and
+> sysfs/json events uniform - something requested by RISC-V and ARM. A
+> legacy event user on ARM hardware may find their event opened on an
+> uncore PMU which for perf record will fail. Arnaldo suggested skipping
+> such events which this patch implements. Rather than have the skipping
+> conditional on running on ARM, the skipping is done on all
+> architectures as such a fundamental behavioral difference could lead
+> to problems with tools built/depending on perf.
+> 
+> An example of perf record failing to open events on x86 is:
+> ```
+> $ perf record -e data_read,cycles,LLC-prefetch-read -a sleep 0.1
+> Error:
+> Failure to open event 'data_read' on PMU 'uncore_imc_free_running_0' which will be removed.
+> The sys_perf_event_open() syscall returned with 22 (Invalid argument) for event (data_read).
+> "dmesg | grep -i perf" may provide additional information.
+> 
+> Error:
+> Failure to open event 'data_read' on PMU 'uncore_imc_free_running_1' which will be removed.
+> The sys_perf_event_open() syscall returned with 22 (Invalid argument) for event (data_read).
+> "dmesg | grep -i perf" may provide additional information.
+> 
 
-Signed-off-by: Nikita Proshkin <n.proshkin@yadro.com>
----
- drivers/dma/sf-pdma/sf-pdma.c | 13 +++++++------
- 1 file changed, 7 insertions(+), 6 deletions(-)
+This makes me wonder if this message was overly wordy to begin with. 
+This line is fine:
 
-diff --git a/drivers/dma/sf-pdma/sf-pdma.c b/drivers/dma/sf-pdma/sf-pdma.c
-index 55b7c57eeec9..8fec11ad4f0b 100644
---- a/drivers/dma/sf-pdma/sf-pdma.c
-+++ b/drivers/dma/sf-pdma/sf-pdma.c
-@@ -145,7 +145,6 @@ static void sf_pdma_free_chan_resources(struct dma_chan *dchan)
- 
- 	spin_lock_irqsave(&chan->vchan.lock, flags);
- 	sf_pdma_disable_request(chan);
--	kfree(chan->desc);
- 	chan->desc = NULL;
- 	vchan_get_all_descriptors(&chan->vchan, &head);
- 	sf_pdma_disclaim_chan(chan);
-@@ -192,7 +191,6 @@ static int sf_pdma_terminate_all(struct dma_chan *dchan)
- 
- 	spin_lock_irqsave(&chan->vchan.lock, flags);
- 	sf_pdma_disable_request(chan);
--	kfree(chan->desc);
- 	chan->desc = NULL;
- 	vchan_get_all_descriptors(&chan->vchan, &head);
- 	spin_unlock_irqrestore(&chan->vchan.lock, flags);
-@@ -279,8 +277,10 @@ static void sf_pdma_donebh_tasklet(struct tasklet_struct *t)
- 	spin_lock_irqsave(&chan->vchan.lock, flags);
- 	chan->status = DMA_COMPLETE;
- 
--	list_del(&chan->desc->vdesc.node);
--	vchan_cookie_complete(&chan->desc->vdesc);
-+	if (chan->desc) {
-+		list_del(&chan->desc->vdesc.node);
-+		vchan_cookie_complete(&chan->desc->vdesc);
-+	}
- 
- 	chan->desc = sf_pdma_get_first_pending_desc(chan);
- 	if (chan->desc)
-@@ -295,7 +295,8 @@ static void sf_pdma_errbh_tasklet(struct tasklet_struct *t)
- 	unsigned long flags;
- 
- 	spin_lock_irqsave(&chan->vchan.lock, flags);
--	dmaengine_desc_get_callback_invoke(chan->desc->async_tx, NULL);
-+	if (chan->desc)
-+		dmaengine_desc_get_callback_invoke(chan->desc->async_tx, NULL);
- 	chan->status = DMA_ERROR;
- 	spin_unlock_irqrestore(&chan->vchan.lock, flags);
- }
-@@ -310,7 +311,7 @@ static irqreturn_t sf_pdma_done_isr(int irq, void *dev_id)
- 	writel((readl(regs->ctrl)) & ~PDMA_DONE_STATUS_MASK, regs->ctrl);
- 	residue = readq(regs->residue);
- 
--	if (!residue) {
-+	if (!residue || !chan->desc) {
- 		tasklet_hi_schedule(&chan->done_tasklet);
- 	} else {
- 		/* submit next trascatioin if possible */
--- 
-2.34.1
+  Failure to open event 'data_read' on PMU 'uncore_imc_free_running_0'
+  which will be removed.
+
+The next bit about the syscall just repeats. The exit code could be 
+included on the previous line. And the dmesg bit is general advice that 
+could possibly be printed once at the end.
+
+> Error:
+> Failure to open event 'LLC-prefetch-read' on PMU 'cpu' which will be removed.
+> The LLC-prefetch-read event is not supported.
+> [ perf record: Woken up 1 times to write data ]
+> [ perf record: Captured and wrote 2.188 MB perf.data (87 samples) ]
+> 
+> $ perf report --stats
+> Aggregated stats:
+>                 TOTAL events:      17255
+>                  MMAP events:        284  ( 1.6%)
+>                  COMM events:       1961  (11.4%)
+>                  EXIT events:          1  ( 0.0%)
+>                  FORK events:       1960  (11.4%)
+>                SAMPLE events:         87  ( 0.5%)
+>                 MMAP2 events:      12836  (74.4%)
+>               KSYMBOL events:         83  ( 0.5%)
+>             BPF_EVENT events:         36  ( 0.2%)
+>        FINISHED_ROUND events:          2  ( 0.0%)
+>              ID_INDEX events:          1  ( 0.0%)
+>            THREAD_MAP events:          1  ( 0.0%)
+>               CPU_MAP events:          1  ( 0.0%)
+>             TIME_CONV events:          1  ( 0.0%)
+>         FINISHED_INIT events:          1  ( 0.0%)
+> cycles stats:
+>                SAMPLE events:         87
+> ```
+> 
+> Note, if all events fail to open then the data file will contain no
+> samples. This is deliberate as at the point the events are opened
+> there are other events, such as the dummy event for sideband data, and
+> these events will succeed in opening even if the user specified ones
+
+Is a file with only sideband events useful? Is it possible to fail the 
+record command if the event doesn't open anywhere?
+
+I noticed this leads to some different behavior and a libperf warning 
+when you have paranoid=3:
+
+   $ perf record -e cycles -C 0 -- true
+
+   Error:
+   Failure to open event 'cpu_atom/cycles/u' on PMU 'cpu_atom' which will
+   be removed.
+   ...
+   Consider adjusting /proc/sys/kernel/perf_event_paranoid setting
+   ...
+   libperf: Miscounted nr_mmaps 0 vs 28
+   WARNING: No sample_id_all support, falling back to unordered
+   processing
+   [ perf record: Woken up 1 times to write data ]
+   [ perf record: Captured and wrote 0.021 MB perf.data ]
+
+
+> don't. Having a mix of open and broken events leads to a problem of
+> identifying different sources of events.
+ >
+
+In my basic test I saw that the opened event was identified correctly in 
+perf report, unless you have an example that you encountered that we 
+should fix?
+
+One place I saw an issue was with auxtrace events. If there's an event 
+name clash then you're likely to not be able to open the file afterwards 
+because the auxtrace code can't handle an event that didn't open. But I 
+don't know of any name clashes there (I just faked one for testing), and 
+maybe that could be fixed up later in the auxtrace code if there is ever 
+a real one.
+
+Other than the above it does seem to work ok.
+
+> The issue with legacy events is that on RISC-V they want the driver to
+> not have mappings from legacy to non-legacy config encodings for each
+> vendor/model due to size, complexity and difficulty to update. It was
+> reported that on ARM Apple-M? CPUs the legacy mapping in the driver
+> was broken and the sysfs/json events should always take precedent,
+> however, it isn't clear this is still the case. It is the case that
+> without working around this issue a legacy event like cycles without a
+> PMU can encode differently than when specified with a PMU - the
+> non-PMU version favoring legacy encodings, the PMU one avoiding legacy
+> encodings.
+> 
+> The patch removes events and then adjusts the idx value for each
+> evsel. This is done so that the dense xyarrays used for file
+> descriptors, etc. don't contain broken entries. As event opening
+> happens relatively late in the record process, use of the idx value
+> before the open will have become corrupted, so it is expected there
+> are latent bugs hidden behind this change - the change is best
+> effort. As the only vendor that has broken event names is ARM, this
+> will principally effect ARM users. They will also experience warning
+> messages like those above because of the uncore PMU advertising legacy
+> event names.
+
+
+
+> 
+> Suggested-by: Arnaldo Carvalho de Melo <acme@kernel.org>
+> Signed-off-by: Ian Rogers <irogers@google.com>
+> ---
+>   tools/perf/builtin-record.c | 22 +++++++++++++++++-----
+>   1 file changed, 17 insertions(+), 5 deletions(-)
+> 
+> diff --git a/tools/perf/builtin-record.c b/tools/perf/builtin-record.c
+> index f83252472921..7e99743f7e42 100644
+> --- a/tools/perf/builtin-record.c
+> +++ b/tools/perf/builtin-record.c
+> @@ -1364,6 +1364,7 @@ static int record__open(struct record *rec)
+>   	struct perf_session *session = rec->session;
+>   	struct record_opts *opts = &rec->opts;
+>   	int rc = 0;
+> +	bool skipped = false;
+>   
+>   	evlist__for_each_entry(evlist, pos) {
+>   try_again:
+> @@ -1379,15 +1380,26 @@ static int record__open(struct record *rec)
+>   			        pos = evlist__reset_weak_group(evlist, pos, true);
+>   				goto try_again;
+>   			}
+> -			rc = -errno;
+>   			evsel__open_strerror(pos, &opts->target, errno, msg, sizeof(msg));
+> -			ui__error("%s\n", msg);
+> -			goto out;
+> +			ui__error("Failure to open event '%s' on PMU '%s' which will be removed.\n%s\n",
+> +				  evsel__name(pos), evsel__pmu_name(pos), msg);
+> +			pos->skippable = true;
+> +			skipped = true;
+> +		} else {
+> +			pos->supported = true;
+>   		}
+> -
+> -		pos->supported = true;
+>   	}
+>   
+> +	if (skipped) {
+> +		struct evsel *tmp;
+> +		int idx = 0;
+> +
+> +		evlist__for_each_entry_safe(evlist, tmp, pos) {
+> +			if (pos->skippable)
+> +				evlist__remove(evlist, pos);
+> +			pos->core.idx = idx++;
+> +		}
+> +	}
+>   	if (symbol_conf.kptr_restrict && !evlist__exclude_kernel(evlist)) {
+>   		pr_warning(
+>   "WARNING: Kernel address maps (/proc/{kallsyms,modules}) are restricted,\n"
 
 
 _______________________________________________
