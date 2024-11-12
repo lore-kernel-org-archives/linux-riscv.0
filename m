@@ -4,105 +4,158 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 23502D42B8E
-	for <linux-riscv@archiver.kernel.org>; Tue, 12 Nov 2024 14:56:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CD39AD42B8E
+	for <linux-riscv@archiver.kernel.org>; Tue, 12 Nov 2024 14:58:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=FNjI/rD6y3oOwiiXfzl6kzph24eqgBxs8nxYMRKTM44=; b=pz0KLNBgq0bpLs
-	tCl+1qB9dLfGPA+7B2HpM9HeWZba3fa+T8gp2hmSz5XqGXmvYItoELZj1ebhExVoucQ2DKjz8lYjV
-	Q+DiURmunApDUd+BNLLe4d7DgG1N4GkI06TEyCRGM5+tYJ6D7CzQifKD+qynuKiIbN5iypSck8pBo
-	Sqk5gLyO0X/H6CtRBDXnEWFGxyjeBnJjWMlcG3X2MprBzcyC4QEmQx3khYqKRPgwLNBhZbE4ztglA
-	cU21/WBMdhFQ5gOu1lbbvCgAZJ8sEF+jGkl/VrshCyBmjIVzovMHLaKuADiftJPLXJMeY4K/wgD0B
-	h6tKvmK2SN2RdlMHyaNA==;
+	List-Owner; bh=d6IMKKXBrV2EdHhDyYoiuAVNM550pe/Tv+7SHvob6ps=; b=FwYcnCgLuvtkdJ
+	Bp4ZOnJJ49x4IX8dXQ4pbk0sYOovSI7W4LLvMYEsKbyQcDEasH3SazBCFjoYWWmZCq6F/W5spVBCw
+	NxQJXUD2bgnu38Sznao44uE+jaqVAjDFhgg3CTNm1xoUM4+0roNUk10E68ojLek5lf65X3jn8Rtkw
+	+VNwSws6urMVlM5srH0o3bbCV2a2RHAnwPJVFXVVyEI+pTIPRIQSME5+TCoRlOTDBiaKpk315YHns
+	dTc8cTWJp4MiI2PzPcoVSbtdDfWgiyZvxM5RUjg2+v6HVNj8AzHXuWRzkaHv3P87VgC2zdfJaJpAu
+	XHWm+zeIexIa9MWhbxrQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tAsJj-00000003qXe-00w9;
-	Tue, 12 Nov 2024 14:56:31 +0000
-Received: from smtp-fw-33001.amazon.com ([207.171.190.10])
+	id 1tAsLV-00000003qzQ-3lBN;
+	Tue, 12 Nov 2024 14:58:21 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tAsCe-00000003ots-2I6Y;
-	Tue, 12 Nov 2024 14:49:14 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-  d=amazon.co.uk; i=@amazon.co.uk; q=dns/txt;
-  s=amazon201209; t=1731422953; x=1762958953;
-  h=message-id:date:mime-version:subject:to:cc:references:
-   from:in-reply-to:content-transfer-encoding;
-  bh=jmAWYVWTItYY6sYiriVLXoFyHZtABKNORDlLDv0YA8o=;
-  b=eftSeqtAHquxUn222RRkgQdn4Di4itqbY3B42T0O+k6S+nXLZ76jJV1e
-   3UKGmzkWUNOsfaEyQqdAJxmS1l8DfrwZVJiJGAL0bwzsqSNNRPu7Rk4cb
-   2Chw5kbgzB2uBPuhER+MFy0pboo40n1pI8gaCvpPZ4Vbj8VUaX3C+8ZVh
-   Y=;
-X-IronPort-AV: E=Sophos;i="6.12,148,1728950400"; 
-   d="scan'208";a="384565955"
-Received: from pdx4-co-svc-p1-lb2-vlan2.amazon.com (HELO smtpout.prod.us-west-2.prod.farcaster.email.amazon.dev) ([10.25.36.210])
-  by smtp-border-fw-33001.sea14.amazon.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 12 Nov 2024 14:49:07 +0000
-Received: from EX19MTAEUB002.ant.amazon.com [10.0.10.100:13328]
- by smtpin.naws.eu-west-1.prod.farcaster.email.amazon.dev [10.0.18.131:2525] with esmtp (Farcaster)
- id 10c75058-a729-46eb-ac89-a0cf40349664; Tue, 12 Nov 2024 14:49:05 +0000 (UTC)
-X-Farcaster-Flow-ID: 10c75058-a729-46eb-ac89-a0cf40349664
-Received: from EX19D030EUC001.ant.amazon.com (10.252.61.228) by
- EX19MTAEUB002.ant.amazon.com (10.252.51.79) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.1258.34;
- Tue, 12 Nov 2024 14:48:58 +0000
-Received: from EX19MTAUEB002.ant.amazon.com (10.252.135.47) by
- EX19D030EUC001.ant.amazon.com (10.252.61.228) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.1258.34;
- Tue, 12 Nov 2024 14:48:58 +0000
-Received: from email-imr-corp-prod-pdx-all-2c-619df93b.us-west-2.amazon.com
- (10.124.125.2) by mail-relay.amazon.com (10.252.135.97) with Microsoft SMTP
- Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id
- 15.2.1258.34 via Frontend Transport; Tue, 12 Nov 2024 14:48:57 +0000
-Received: from [127.0.0.1] (dev-dsk-roypat-1c-dbe2a224.eu-west-1.amazon.com [172.19.88.180])
-	by email-imr-corp-prod-pdx-all-2c-619df93b.us-west-2.amazon.com (Postfix) with ESMTPS id 842D1402F3;
-	Tue, 12 Nov 2024 14:48:49 +0000 (UTC)
-Message-ID: <bb534fec-b45d-4ff8-aa55-7201766936b5@amazon.co.uk>
-Date: Tue, 12 Nov 2024 14:48:48 +0000
+	id 1tAsGS-00000003pmR-1his
+	for linux-riscv@lists.infradead.org;
+	Tue, 12 Nov 2024 14:53:11 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1731423187;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
+	bh=0gJGIdsoCUz3ckQL83q6kRW+jiBXvU5rpWKRHe1/m98=;
+	b=E2ELblc+c4fjf3P6s28NWBl6xMahIzC9UhoG1FjR32LAJXVpuWZx0nymZphNh/KawQvR8T
+	Xj4CH9bE7lTRvW5fjQgGhkU6Hx6As8nXkmW+9yeC8o6sUKdRDqx0ndfR+Av6T0O6HnFmaz
+	jh6VZ1IsmyJytFP7i9N1TZth9bktVC4=
+Received: from mail-lf1-f69.google.com (mail-lf1-f69.google.com
+ [209.85.167.69]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-678-v_SVLthOMSm9PY0I7kxuBA-1; Tue, 12 Nov 2024 09:53:04 -0500
+X-MC-Unique: v_SVLthOMSm9PY0I7kxuBA-1
+X-Mimecast-MFC-AGG-ID: v_SVLthOMSm9PY0I7kxuBA
+Received: by mail-lf1-f69.google.com with SMTP id 2adb3069b0e04-53a017bc09dso3953280e87.0
+        for <linux-riscv@lists.infradead.org>; Tue, 12 Nov 2024 06:53:04 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1731423183; x=1732027983;
+        h=content-transfer-encoding:in-reply-to:organization:autocrypt
+         :content-language:from:references:cc:to:subject:user-agent
+         :mime-version:date:message-id:x-gm-message-state:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=0gJGIdsoCUz3ckQL83q6kRW+jiBXvU5rpWKRHe1/m98=;
+        b=CTBUkkQFoeeqP5Xnl89lqxz4Ms3ScaeKWPN70/S/PB/0AqmYiaMvUJdp9ejCsLlj/H
+         9jlnX8UsPsJ/CQlbZafNeVhe6x3ze/fm2UW17pX1N5NgG0xENp58KA1bJzBb8JOaK0Kc
+         FrQO0kas+ym++3urQwDSGrBgHwxM9dUSjSf7sTT7in/58fC3t7Siec9lYK2jMZbgKFdo
+         Bl27nbjbOfVaqbDYlz0FSqr+oqCrckoOlSAHsA4q98qCxbwDCW5UgiZMfHId3o7EdUoC
+         2JmpHEWU/WNs6DXUCCbAZFcCo9tvdWZKfcCErLxFSZOvLG8aB5TLgIQRXDDd4QrC3/ZY
+         eQhw==
+X-Forwarded-Encrypted: i=1; AJvYcCX8qytB8U/vOSp0gAvyQcBpvjwmhbN4fPDRIH94OB+IvwKt2+v+IMgpfMJqzxwxZoryPKlZvPZPDqN5Gw==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw2evZ3TufTQZjv9fSrBjnBx+ViUtZ3EKCbCo8PrwAU207aSBC+
+	FMLRWw+y3QVdlOJOA0WfI5W9CJCsDZvk6pCOn0EEhc0NNtHsvK7lk5PA5v1lnjtLywIjsqkBvld
+	2wYZrvbVfDnefAYVmR3Xlm6sNY3we1yfqDgLTppiCfRWTctppBg7OIOLuyxKpzaSD3Q==
+X-Received: by 2002:a05:6512:130e:b0:539:896e:46c9 with SMTP id 2adb3069b0e04-53d862be340mr8794152e87.45.1731423182721;
+        Tue, 12 Nov 2024 06:53:02 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IGWbnpbXzRLMvOa0UtrtzbmtKcDGrKbBby1v5EU8Z2y9SKUzZkouXaYSPO+sb/cLeasmpm09Q==
+X-Received: by 2002:a05:6512:130e:b0:539:896e:46c9 with SMTP id 2adb3069b0e04-53d862be340mr8794102e87.45.1731423182255;
+        Tue, 12 Nov 2024 06:53:02 -0800 (PST)
+Received: from ?IPV6:2003:cb:c739:8e00:7a46:1b8c:8b13:d3d? (p200300cbc7398e007a461b8c8b130d3d.dip0.t-ipconnect.de. [2003:cb:c739:8e00:7a46:1b8c:8b13:d3d])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-432b05e5b96sm220710455e9.41.2024.11.12.06.52.59
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 12 Nov 2024 06:53:00 -0800 (PST)
+Message-ID: <f4c5d0a6-a582-44e3-8949-c199cc0bfba7@redhat.com>
+Date: Tue, 12 Nov 2024 15:52:58 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH v3 1/6] arch: introduce set_direct_map_valid_noflush()
-To: Vlastimil Babka <vbabka@suse.cz>, David Hildenbrand <david@redhat.com>,
-	<tabba@google.com>, <quic_eberman@quicinc.com>, <seanjc@google.com>,
-	<pbonzini@redhat.com>, <jthoughton@google.com>, <ackerleytng@google.com>,
-	<vannapurve@google.com>, <rppt@kernel.org>
-CC: <graf@amazon.com>, <jgowans@amazon.com>, <derekmn@amazon.com>,
-	<kalyazin@amazon.com>, <xmarcalx@amazon.com>, <linux-mm@kvack.org>,
-	<corbet@lwn.net>, <catalin.marinas@arm.com>, <will@kernel.org>,
-	<chenhuacai@kernel.org>, <kernel@xen0n.name>, <paul.walmsley@sifive.com>,
-	<palmer@dabbelt.com>, <aou@eecs.berkeley.edu>, <hca@linux.ibm.com>,
-	<gor@linux.ibm.com>, <agordeev@linux.ibm.com>, <borntraeger@linux.ibm.com>,
-	<svens@linux.ibm.com>, <gerald.schaefer@linux.ibm.com>, <tglx@linutronix.de>,
-	<mingo@redhat.com>, <bp@alien8.de>, <dave.hansen@linux.intel.com>,
-	<x86@kernel.org>, <hpa@zytor.com>, <luto@kernel.org>, <peterz@infradead.org>,
-	<rostedt@goodmis.org>, <mhiramat@kernel.org>,
-	<mathieu.desnoyers@efficios.com>, <shuah@kernel.org>, <kvm@vger.kernel.org>,
-	<linux-doc@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <loongarch@lists.linux.dev>,
-	<linux-riscv@lists.infradead.org>, <linux-s390@vger.kernel.org>,
-	<linux-trace-kernel@vger.kernel.org>, <linux-kselftest@vger.kernel.org>
+Subject: Re: [RFC PATCH v3 0/6] Direct Map Removal for guest_memfd
+To: Patrick Roy <roypat@amazon.co.uk>, tabba@google.com,
+ quic_eberman@quicinc.com, seanjc@google.com, pbonzini@redhat.com,
+ jthoughton@google.com, ackerleytng@google.com, vannapurve@google.com,
+ rppt@kernel.org
+Cc: graf@amazon.com, jgowans@amazon.com, derekmn@amazon.com,
+ kalyazin@amazon.com, xmarcalx@amazon.com, linux-mm@kvack.org,
+ corbet@lwn.net, catalin.marinas@arm.com, will@kernel.org,
+ chenhuacai@kernel.org, kernel@xen0n.name, paul.walmsley@sifive.com,
+ palmer@dabbelt.com, aou@eecs.berkeley.edu, hca@linux.ibm.com,
+ gor@linux.ibm.com, agordeev@linux.ibm.com, borntraeger@linux.ibm.com,
+ svens@linux.ibm.com, gerald.schaefer@linux.ibm.com, tglx@linutronix.de,
+ mingo@redhat.com, bp@alien8.de, dave.hansen@linux.intel.com, x86@kernel.org,
+ hpa@zytor.com, luto@kernel.org, peterz@infradead.org, rostedt@goodmis.org,
+ mhiramat@kernel.org, mathieu.desnoyers@efficios.com, shuah@kernel.org,
+ kvm@vger.kernel.org, linux-doc@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ loongarch@lists.linux.dev, linux-riscv@lists.infradead.org,
+ linux-s390@vger.kernel.org, linux-trace-kernel@vger.kernel.org,
+ linux-kselftest@vger.kernel.org, faresx@amazon.com
 References: <20241030134912.515725-1-roypat@amazon.co.uk>
- <20241030134912.515725-2-roypat@amazon.co.uk>
- <a774e13e-0616-4d96-bb51-bac0fcb2cb9b@redhat.com>
- <440b2682-dbfb-4a5c-927c-2397413a7f9c@suse.cz>
-From: Patrick Roy <roypat@amazon.co.uk>
+ <4aa0ccf4-ebbe-4244-bc85-8bc8dcd14e74@redhat.com>
+ <27646c08-f724-49f7-9f45-d03bad500219@amazon.co.uk>
+ <d1a69eb7-85d5-4ffa-88e2-f4841713c1d7@redhat.com>
+ <90c9d8c0-814e-4c86-86ef-439cb5552cb6@amazon.co.uk>
+ <10e4d078-3cdb-4d1c-a1a3-80e91b247217@redhat.com>
+ <02f77d32-e2a1-431b-bb67-33d36c06acd3@amazon.co.uk>
+From: David Hildenbrand <david@redhat.com>
+Autocrypt: addr=david@redhat.com; keydata=
+ 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
+ WNyWQQ==
+Organization: Red Hat
+In-Reply-To: <02f77d32-e2a1-431b-bb67-33d36c06acd3@amazon.co.uk>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: I1jfr09rxivm2sh-ygTkXd87czdCTLOLia4b6Vk3TZQ_1731423183
+X-Mimecast-Originator: redhat.com
 Content-Language: en-US
-Autocrypt: addr=roypat@amazon.co.uk; keydata=
- xjMEY0UgYhYJKwYBBAHaRw8BAQdA7lj+ADr5b96qBcdINFVJSOg8RGtKthL5x77F2ABMh4PN
- NVBhdHJpY2sgUm95IChHaXRodWIga2V5IGFtYXpvbikgPHJveXBhdEBhbWF6b24uY28udWs+
- wpMEExYKADsWIQQ5DAcjaM+IvmZPLohVg4tqeAbEAgUCY0UgYgIbAwULCQgHAgIiAgYVCgkI
- CwIEFgIDAQIeBwIXgAAKCRBVg4tqeAbEAmQKAQC1jMl/KT9pQHEdALF7SA1iJ9tpA5ppl1J9
- AOIP7Nr9SwD/fvIWkq0QDnq69eK7HqW14CA7AToCF6NBqZ8r7ksi+QLOOARjRSBiEgorBgEE
- AZdVAQUBAQdAqoMhGmiXJ3DMGeXrlaDA+v/aF/ah7ARbFV4ukHyz+CkDAQgHwngEGBYKACAW
- IQQ5DAcjaM+IvmZPLohVg4tqeAbEAgUCY0UgYgIbDAAKCRBVg4tqeAbEAtjHAQDkh5jZRIsZ
- 7JMNkPMSCd5PuSy0/Gdx8LGgsxxPMZwePgEAn5Tnh4fVbf00esnoK588bYQgJBioXtuXhtom
- 8hlxFQM=
-In-Reply-To: <440b2682-dbfb-4a5c-927c-2397413a7f9c@suse.cz>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241112_064912_699890_1F0F946C 
-X-CRM114-Status: GOOD (  24.28  )
+X-CRM114-CacheID: sfid-20241112_065308_632976_08E950AF 
+X-CRM114-Status: GOOD (  24.71  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,91 +167,78 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
-
-On Mon, 2024-11-11 at 12:12 +0000, Vlastimil Babka wrote:
-> On 10/31/24 10:57, David Hildenbrand wrote:
->> On 30.10.24 14:49, Patrick Roy wrote:
->>> From: "Mike Rapoport (Microsoft)" <rppt@kernel.org>
->>>
->>> From: Mike Rapoport (Microsoft) <rppt@kernel.org>
->>>
->>> Add an API that will allow updates of the direct/linear map for a set of
->>> physically contiguous pages.
->>>
->>> It will be used in the following patches.
->>>
->>> Signed-off-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
->>> Signed-off-by: Patrick Roy <roypat@amazon.co.uk>
->>
->>
->> [...]
->>
->>>   #ifdef CONFIG_DEBUG_PAGEALLOC
->>>   void __kernel_map_pages(struct page *page, int numpages, int enable)
->>>   {
->>> diff --git a/include/linux/set_memory.h b/include/linux/set_memory.h
->>> index e7aec20fb44f1..3030d9245f5ac 100644
->>> --- a/include/linux/set_memory.h
->>> +++ b/include/linux/set_memory.h
->>> @@ -34,6 +34,12 @@ static inline int set_direct_map_default_noflush(struct page *page)
->>>      return 0;
->>>   }
->>>
->>> +static inline int set_direct_map_valid_noflush(struct page *page,
->>> +                                           unsigned nr, bool valid)
->>
->> I recall that "unsigned" is frowned upon; "unsigned int".
->>
->>> +{
->>> +    return 0;
->>> +}
->>
->> Can we add some kernel doc for this?
->>
->> In particular
->>
->> (a) What does it mean when we return 0? That it worked? Then, this
+On 12.11.24 15:40, Patrick Roy wrote:
 > 
-> Seems so.
+> Hi David,
 > 
->>      dummy function looks wrong. Or this it return the
+> sorry for the late response, I ended up catching the flu last week and
+> was out of commission for a while :(
 > 
-> That's !CONFIG_ARCH_HAS_SET_DIRECT_MAP and other functions around do it the
-> same way. Looks like the current callers can only exist with the CONFIG_
-> enabled in the first place.
-
-Yeah, it looks a bit weird, but these functions seem to generally return
-0 if the operation is not supported. ARM specifically has 
-
-	if (!can_set_direct_map())
-		return 0;
-
-inside `set_direct_map_invalid_{noflush,default}`. Documenting this
-definitely cannot hurt, I'll keep it on my todo list for the next
-iteration :)
-
->>      number of processed entries? Then we'd have a possible "int" vs.
->>      "unsigned int" inconsistency.
+> On Mon, 2024-11-04 at 21:30 +0000, David Hildenbrand wrote:
+>>>> We talked about shared (faultable) vs. private (unfaultable), and how it
+>>>> would interact with the directmap patches here.
+>>>>
+>>>> As discussed, having private (unfaultable) memory with the direct-map
+>>>> removed and shared (faultable) memory with the direct-mapping can make
+>>>> sense for non-TDX/AMD-SEV/... non-CoCo use cases. Not sure about CoCo,
+>>>> the discussion here seems to indicate that it might currently not be
+>>>> required.
+>>>>
+>>>> So one thing we could do is that shared (faultable) will have a direct
+>>>> mapping and be gup-able and private (unfaultable) memory will not have a
+>>>> direct mapping and is, by design, not gup-able.>
+>>>> Maybe it could make sense to not have a direct map for all guest_memfd
+>>>> memory, making it behave like secretmem (and it would be easy to
+>>>> implement)? But I'm not sure if that is really desirable in VM context.
+>>>
+>>> This would work for us (in this scenario, the swiotlb areas would be
+>>> "traditional" memory, e.g. set to shared via mem attributes instead of
+>>> "shared" inside KVM), it's kinda what I had prototyped in my v1 of this
+>>> series (well, we'd need to figure out how to get the mappings of gmem
+>>> back into KVM, since in this setup, short-circuiting it into
+>>> userspace_addr wouldn't work, unless we banish swiotlb into a different
+>>> memslot altogether somehow).
 >>
->> (b) What are the semantics when we fail halfway through the operation
->>      when processing nr > 1? Is it "all or nothing"?
+>> Right.
 > 
-> Looking at x86 implementation it seems like it can just bail out in the
-> middle, but then I'm not sure if it can really fail in the middle, hmm...
+> "right" as in, "yes we could do that"? :p
 
-If I understood Mike correctly when talking about this at LPC, then it
-can only fail if during break-up of huge mappings, it fails to allocate
-page tables to hold the lower-granularity mappings (which happens before
-any present bits are modified).
+"right" as in "I see how that could work" :)
 
-Best,
-Patrick
+[...]
+
+> 
+> I remember talking to someone at some point about whether we could reuse
+> the proc-local stuff for guest memory, but I cannot remember the outcome
+> of that discussion... (or maybe I just wanted to have a discussion about
+> it, but forgot to follow up on that thought?).  I guess we wouldn't use
+> proc-local _allocations_, but rather just set up proc-local mappings of
+> the gmem allocations that have been removed from the direct map.
+
+Yes. And likely only for memory we really access / try access, if possible.
+
+> 
+> I'm wondering, where exactly would be the differences to Sean's idea
+> about messing with the CR3 register inside KVM to temporarily install
+> page tables that contain all the gmem stuff, conceptually? Wouldn't we
+> run into the same interrupt problems that Sean foresaw for the CR3
+> stuff? (which, admittedly, I still don't quite follow what these are :(
+> ).
+
+I'd need some more details on that. If anything would rely on the direct 
+mapping (from IRQ context?) than ... we obviously cannot remove the 
+direct mapping :)
+
+-- 
+Cheers,
+
+David / dhildenb
+
 
 _______________________________________________
 linux-riscv mailing list
