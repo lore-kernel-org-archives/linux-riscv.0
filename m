@@ -4,85 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7BCB0D32D9A
-	for <linux-riscv@archiver.kernel.org>; Tue, 12 Nov 2024 11:51:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CFECDD32D9A
+	for <linux-riscv@archiver.kernel.org>; Tue, 12 Nov 2024 11:51:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=8XtI30BXIzhzlG/0au2JEh0iim6Mmnp8+dBJpXh2Ldc=; b=XJ8w4HQtsOhRKJ
-	T/ffUF1hEQzcxSunAJchv3DvIpTiVCZmoW50HNMyLBRJp6+Y0wVCDgTVTaRhGvfhU6FRmaz5jsHpi
-	bSpo+sxaH3cAq51ddGx2puJcETSidNu2xeWyQHBE/ffu5C2prsRiZm8Yc+SMRSauV0qO/H4xWTENz
-	Q41x6hkCvkmNnibp04pQlHBS7ydT8f/TIJ5cXE+vOTYLJQY/ly12jodEs78CXFWrE0Xwo2iuo6LRz
-	KNDWKSk0JHOze4NgU6mCm6xrWLQ6e2BH4IaKmgVwO6OXJNR539/WKKZY3AUT0W7lKLo1x+4I/7a7A
-	4Y+c1K1Zdojtm6qVmPFA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
+	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=5EEq4yiD5eDwd2ILklOECMeB9QnWEPGBUcumxBlyQBY=; b=BJEuONj318PXsU
+	W8pkQxVg6XL+k8ofDh1jubVGdqeksqoCYutccZh0jrsqO4Awn1YOamV/ZJ00FXsK2siftkZPdaBrY
+	Bf4b8ZL0+POyt2c2XLgrcWqQN6SfbJwsRtgDaZ3UsRNF84Hhe+tzZ4z9NTwIy21+FYIoGp+JYRUid
+	EgkipTN1X/wX1rjYqXp09t5Tn/dqa6ab3q+VyhYEnbqWtHiR1gN6MZIoa0UlxDvYFGN4C1x/O8Af7
+	tfFlwnUrcy0urGSmI+tNyHBj9GrBDDeRjcm+f1q1dKqZdzaqeg5c2B1xTR47sJApK8bgeIOoVA+/X
+	1fuZl+xazT9/NL6id1Mg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tApQN-00000003IGv-2lE7;
-	Tue, 12 Nov 2024 11:51:11 +0000
-Received: from mail-wm1-x32e.google.com ([2a00:1450:4864:20::32e])
+	id 1tApQY-00000003IJf-10IG;
+	Tue, 12 Nov 2024 11:51:22 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tApAA-00000003F8O-3Mrk
+	id 1tApCa-00000003Fae-2YCZ
 	for linux-riscv@lists.infradead.org;
-	Tue, 12 Nov 2024 11:34:28 +0000
-Received: by mail-wm1-x32e.google.com with SMTP id 5b1f17b1804b1-4314b316495so46054205e9.2
-        for <linux-riscv@lists.infradead.org>; Tue, 12 Nov 2024 03:34:26 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1731411265; x=1732016065; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=XUe71YecPH7XQ8UJJ5yU95TDCXx24YG8e7+/RrAak7Y=;
-        b=RrcZKdnWprdn5pHqx6LEDNjUvwCDOZG53m5NZy8WdImV9n684eeGAS81/t4O5JR8nR
-         nrJsZ7IQqueeCbF7pIF2FwZ7HZg8hyM5kHK234AEv4XbxmY+a4RXaTREwhzyxuwR4Eo9
-         wtkOoT866LGZ5O1E3NC0A+Mkl/qyfCmjBw2tLwp5uZmT6xz2JwzjCQsOZik0Vw1r0L2a
-         wM2mU/lfT18bLujJnCZJS6qqLrIE+fJsxuo/DWLU2gbpN7GKqWK0h5GyoNOm/28yXmOk
-         leiaq8luVs+POXQJuOrxl6/P4gPY6lezGobS977uRss08QPpmHvJayuCx+6sbFd4WMXi
-         1Ccw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1731411265; x=1732016065;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=XUe71YecPH7XQ8UJJ5yU95TDCXx24YG8e7+/RrAak7Y=;
-        b=Jqu8QKKvEV9/1J/61M9n7V94l8jDkFawxh+j2XTnOx4uA6mX3e5Np8a5o2XOyD2+FO
-         QiKGnkfBWChAWOMqdq5IPJDXtPp3YOAnW+1JG2IoqEQ5lcDkWjsqA/CFaXCPJZUlHruE
-         Sc4zNdY9iaELq1KROih6FJaSZNwkUpaXKu4QpgOPhG3APZWKCjzgI1b+49Se7Wtyosr8
-         PxPXRJJVZ+vaBH0S/qcb9fIJgcQWJu7yUi1IGk/n2Ned4Va2ECJwrjd28t7o6DwjeFia
-         k6EVICTKDclvicVvriLJgi+YmoiLci48NTWeXJy1UjnpQJ+mfXHxSitPPnn0bQpfKcYZ
-         8kRQ==
-X-Forwarded-Encrypted: i=1; AJvYcCX1xn4eP6WQXJlRN0gNKmSJWJbdY7Ew7JcaMoyAFfniG9vF1c5wmO88NmOZahgXB03FxqebiAW5n2UM0w==@lists.infradead.org
-X-Gm-Message-State: AOJu0YxOK4cJn5GycnaL5Oj2N3yYD013wqSIJzmKfNySzHSgVtd87r30
-	pmzlLvN3tmo3LBrf+D67m0l6vhaivBvE6sWrTRaBPhWk5o22P42pZSBiJE/+k5M=
-X-Google-Smtp-Source: AGHT+IH7M/UX7fkmVreC1luerEEXE6GOHNSoZB9sCqED65rS6AXsEUNqfA2l6fwGjpmBaETaxjbK2Q==
-X-Received: by 2002:a5d:6c69:0:b0:37d:94d6:5e20 with SMTP id ffacd0b85a97d-381f17261d6mr14681736f8f.4.1731411264652;
-        Tue, 12 Nov 2024 03:34:24 -0800 (PST)
-Received: from alex-rivos.home (lfbn-lyo-1-472-36.w2-7.abo.wanadoo.fr. [2.7.62.36])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-381ed97fe9bsm15071138f8f.35.2024.11.12.03.34.23
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 12 Nov 2024 03:34:24 -0800 (PST)
-From: Alexandre Ghiti <alexghiti@rivosinc.com>
-To: Atish Patra <atishp@atishpatra.org>,
-	Anup Patel <anup@brainfault.org>,
-	Will Deacon <will@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	linux-riscv@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Cc: Alexandre Ghiti <alexghiti@rivosinc.com>,
-	Atish Patra <atishp@rivosinc.com>
-Subject: [PATCH -fixes] drivers: perf: Fix wrong put_cpu() placement
-Date: Tue, 12 Nov 2024 12:34:22 +0100
-Message-Id: <20241112113422.617954-1-alexghiti@rivosinc.com>
-X-Mailer: git-send-email 2.39.2
+	Tue, 12 Nov 2024 11:36:58 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 524DC5C4A09;
+	Tue, 12 Nov 2024 11:36:11 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0539BC4CECD;
+	Tue, 12 Nov 2024 11:36:54 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1731411415;
+	bh=+50FJGKdMdt7/QBZZo9VkQ5mGbZlOo68kDdHC+pjOa8=;
+	h=From:To:Cc:Subject:In-Reply-To:References:Date:From;
+	b=T+jFAjy52Z8t8R5fvwoK+XP6rKli9GFcPqJA38QvFmbllvWaJNkLV+ryiioUi8csq
+	 LDr5ctH6/dxkIehO0px6gixHtAdIduiNObraFQPQ8bbOREjhhR0YZRp99dxNDUz7Mc
+	 vLtS6pJnK2oKgMagVZwPXWo9s0pRPAmp1+dexz+aY/9rgky/hbq1jj1mKzGte+QyJS
+	 +2vmrffmodqalD+QMGHRlz0iW1C0zu1/3MCUmLd2AAIvYYX1Sl2I5rbAioHJHMkbwj
+	 oM3PQjwLSdjEsw9e2u6feWrAR8ci6xd7aYSmRtkm7g2p/sRRF5dGEWcJSnpuNIu8ze
+	 Zp6cHHT0VMCcg==
+From: =?utf-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>
+To: Andreas Schwab <schwab@suse.de>, Alexandre Ghiti <alex@ghiti.fr>, Palmer
+ Dabbelt <palmer@dabbelt.com>, Andrii Nakryiko <andrii.nakryiko@gmail.com>
+Cc: linux-riscv@lists.infradead.org, =?utf-8?B?QmrDtnJuIFTDtnBlbA==?=
+ <bjorn@rivosinc.com>,
+ Charlie Jenkins <charlie@rivosinc.com>, Paul Walmsley
+ <paul.walmsley@sifive.com>, Albert
+ Ou <aou@eecs.berkeley.edu>, Andrea Parri <parri.andrea@gmail.com>,
+ linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] tools: add forwarding header for
+ arch/riscv/include/asm/fence.h
+In-Reply-To: <mvmbjymxdsc.fsf@suse.de>
+References: <mvm5xq44bqh.fsf@suse.de>
+ <d380fd10-ebc4-4d66-becb-13995372d41a@ghiti.fr> <mvmfrnyxg2n.fsf@suse.de>
+ <26452229-7461-48aa-987a-28444ace4f28@ghiti.fr> <mvmbjymxdsc.fsf@suse.de>
+Date: Tue, 12 Nov 2024 12:36:51 +0100
+Message-ID: <87h68cu1ik.fsf@all.your.base.are.belong.to.us>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241112_033427_087955_121D009D 
-X-CRM114-Status: GOOD (  12.24  )
+X-CRM114-CacheID: sfid-20241112_033656_706112_8BD2D58A 
+X-CRM114-Status: UNSURE (   7.67  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,51 +75,28 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Unfortunately, the wrong patch version was merged which places the
-put_cpu() after enabling a static key, which is not safe as pointed by
-Will [1], so move put_cpu() before to avoid this.
-
-Fixes: 2840dadf0dde ("drivers: perf: Fix smp_processor_id() use in preemptible code")
-Reported-by: Atish Patra <atishp@rivosinc.com>
-Link: https://lore.kernel.org/all/20240827125335.GD4772@willie-the-truck/ [1]
-Signed-off-by: Alexandre Ghiti <alexghiti@rivosinc.com>
----
- drivers/perf/riscv_pmu_sbi.c | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
-
-diff --git a/drivers/perf/riscv_pmu_sbi.c b/drivers/perf/riscv_pmu_sbi.c
-index 391ca1422cae..1aa303f76cc7 100644
---- a/drivers/perf/riscv_pmu_sbi.c
-+++ b/drivers/perf/riscv_pmu_sbi.c
-@@ -1393,8 +1393,9 @@ static int pmu_sbi_device_probe(struct platform_device *pdev)
- 			goto out_unregister;
- 
- 		cpu = get_cpu();
--
- 		ret = pmu_sbi_snapshot_setup(pmu, cpu);
-+		put_cpu();
-+
- 		if (ret) {
- 			/* Snapshot is an optional feature. Continue if not available */
- 			pmu_sbi_snapshot_free(pmu);
-@@ -1408,7 +1409,6 @@ static int pmu_sbi_device_probe(struct platform_device *pdev)
- 			 */
- 			static_branch_enable(&sbi_pmu_snapshot_available);
- 		}
--		put_cpu();
- 	}
- 
- 	register_sysctl("kernel", sbi_pmu_sysctl_table);
--- 
-2.39.2
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+QW5kcmVhcyBTY2h3YWIgPHNjaHdhYkBzdXNlLmRlPiB3cml0ZXM6Cgo+IE9uIE5vdiAxMSAyMDI0
+LCBBbGV4YW5kcmUgR2hpdGkgd3JvdGU6Cj4KPj4gSW5kZWVkLCBCam9ybidzIHBhdGNoZXMgZGlk
+IG5vdCBtYWtlIGl0IGludG8gcmM3Li4uCj4KPiBUaGF0IG5lZWRzIHRvIGJlIGZpeGVkIEFTQVAh
+CgpPaywgaWYgd2Ugd2FudCB0byB1bmJyZWFrIHRoZSB0b29scyBidWlsZHMsIHR3byBzZXJpZXMg
+YXJlIHJlcXVpcmVkIGZvcgo2LjEyLgoKWzFdIHdoaWNoIGFkZHJlc3NlcyB0aGUgYXNtL2ZlbmNl
+LmggcGF0aCBpc3N1ZQpbMl0gd2hpY2ggYWRkcmVzc2VzIHRoZSBzYW1lIGlzc3VlLCBidXQgZm9y
+IG5vbi1jcm9zcyBidWlsZHMKClsyXSBjYW4gYmUgcHVsbGVkIHRvIFJJU0MtViBmaXhlcywgYnV0
+IFsxXSByZXNpZGUgaW4gdGhlIGJwZi1uZXh0IHRyZWUKKHRhcmdldCA2LjEzKS4gRGV0YWlscyBo
+ZXJlOiBbM10uCgpUbyByZWl0ZXJhdGUgd2hhdCBJIGFza2VkIEFuZHJpaSwgYnV0IGZvciBSSVND
+LVYgZml4ZXM6IFdvdWxkIGl0IGJlCnBvc3NpYmxlIHRvIHB1bGwgdGhlc2UgcGF0Y2hlcyBbMl0g
+aW50byB0aGUgUklTQy1WIHRyZWUsIGhhdmluZyBhCmR1cGxpY2F0ZSBzZXQgaW4gYnBmLW5leHQ/
+IE9yIGFyZSB3ZSBzdHVjayB3aXRoIHN0YWJsZSBiYWNrcG9ydGluZywgYXMKQW5kcmlpIHN1Z2dl
+c3RzPwoKCkJqw7ZybgoKWzFdIGh0dHBzOi8vbG9yZS5rZXJuZWwub3JnL2xpbnV4LXJpc2N2LzIw
+MjQwOTI3MTMxMzU1LjM1MDkxOC0xLWJqb3JuQGtlcm5lbC5vcmcvClsyXSBodHRwczovL2xvcmUu
+a2VybmVsLm9yZy9saW51eC1yaXNjdi8yMDI0MTEwNjE5MzIwOC4yOTAwNjctMS1iam9ybkBrZXJu
+ZWwub3JnLwpbM10gaHR0cHM6Ly9sb3JlLmtlcm5lbC5vcmcvbGludXgtcmlzY3YvQ0FFZjRCelpi
+cTlPd1NHaTRwZGI1X3E4WWtFcmZGaVFGS1lYZzNnMXJqcGRlamFmeCtRQG1haWwuZ21haWwuY29t
+LwoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgt
+cmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDov
+L2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
