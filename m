@@ -4,41 +4,41 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A7223D32D81
-	for <linux-riscv@archiver.kernel.org>; Tue, 12 Nov 2024 18:40:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C4BCBD32D81
+	for <linux-riscv@archiver.kernel.org>; Tue, 12 Nov 2024 18:57:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
 	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=OL6Qhj2xFFcqEBFnv1ChgW9Mw2dZ4quwCRfzIJxyXc4=; b=hMNU45RDDYOWdo
-	Z5+X85dPtqearSmbJgn/okHdXu7yaZOAKzLw7k27nwBkrH2gfTXp2PtpYRWj/0ajJPJ/ZYWDMpAdE
-	lt1Y0ta3jI9EPeXSBstol39ltl/F6hU/qrbOhNLcuUW1PAOED62ZsU9/WLdCB3q5DXKv6sQGF8s5i
-	sS55XspfYQpo4WLXIU6KkY4WUUoRUUXFlCciDPhtYtscnp89NdmrILFsYQZzGNJ07cFVKB7DeuOQ6
-	4tvk6WURBxFW4UVXS02iUKBRiIdTQYw6alQKunVeEqCGxRFPHfjBplAfdj6DoGtZUghHEKx/0VTnb
-	Brfvuc9HAWq7r7WHHixQ==;
+	List-Owner; bh=OL6Qhj2xFFcqEBFnv1ChgW9Mw2dZ4quwCRfzIJxyXc4=; b=C4tDkPV9gUwdMH
+	yL3c3wrkVpC7BqA5jVKW62NnfSvYIfIWBAgHqgit2JNv+9848QrfqPDpXzwTvtotXsuGMH7cHIuzG
+	xGXl/4R/jx4bZEJgz2i24CYJ3xb7KrHz/2SiEZsZ/6pz+bKx7yxsZsAU99ByMcsLa9d+uyS+6jzCY
+	EeABiljAWNOqFgrkKRfIyvMA/a2Zsm50WI1rlQfY/jU7KJgIjdu30clBYVj8SA6nggAACYBLi4Zv0
+	Bil2zp5TQnK/Ashefdpd7XHQLzT+GkZhnNOhd2den2pZpbL7bhfzJtRPLNjHzlvDGEecfIvnGvUTc
+	1dDjqN9Rdm7Oj93Fihxw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tAvnx-00000004aU1-31oM;
-	Tue, 12 Nov 2024 18:39:57 +0000
-Received: from andre.telenet-ops.be ([2a02:1800:120:4::f00:15])
+	id 1tAw5E-00000004dK7-0Rih;
+	Tue, 12 Nov 2024 18:57:48 +0000
+Received: from laurent.telenet-ops.be ([2a02:1800:110:4::f00:19])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tAvnu-00000004aTA-3UIX
+	id 1tAw19-00000004cmO-04Gq
 	for linux-riscv@lists.infradead.org;
-	Tue, 12 Nov 2024 18:39:56 +0000
+	Tue, 12 Nov 2024 18:53:36 +0000
 Received: from ramsan.of.borg ([IPv6:2a02:1810:ac12:ed80:78de:3cf6:79c5:d375])
-	by andre.telenet-ops.be with cmsmtp
-	id bufo2D00E4mJWgD01ufoi4; Tue, 12 Nov 2024 19:39:51 +0100
+	by laurent.telenet-ops.be with cmsmtp
+	id butW2D00D4mJWgD01utWax; Tue, 12 Nov 2024 19:53:31 +0100
 Received: from rox.of.borg ([192.168.97.57])
 	by ramsan.of.borg with esmtp (Exim 4.95)
 	(envelope-from <geert@linux-m68k.org>)
-	id 1tAvnS-006uOO-K9;
-	Tue, 12 Nov 2024 19:39:48 +0100
+	id 1tAw0i-006uOe-Tm;
+	Tue, 12 Nov 2024 19:53:30 +0100
 Received: from geert by rox.of.borg with local (Exim 4.95)
 	(envelope-from <geert@linux-m68k.org>)
-	id 1tAvno-001t4x-1E;
-	Tue, 12 Nov 2024 19:39:48 +0100
+	id 1tAw14-001tcq-Bf;
+	Tue, 12 Nov 2024 19:53:30 +0100
 From: Geert Uytterhoeven <geert+renesas@glider.be>
 To: Oreoluwa Babatunde <quic_obabatun@quicinc.com>,
 	Rob Herring <robh@kernel.org>,
@@ -46,17 +46,17 @@ To: Oreoluwa Babatunde <quic_obabatun@quicinc.com>,
 	Marek Szyprowski <m.szyprowski@samsung.com>,
 	Robin Murphy <robin.murphy@arm.com>
 Cc: iommu@lists.linux.dev,
-	linux-renesas-soc@lists.infradead.org,
+	linux-renesas-soc@vger.kernel.org,
 	linux-riscv@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	Geert Uytterhoeven <geert+renesas@glider.be>
 Subject: [PATCH] dma-mapping: Save base/size instead of pointer to shared DMA pool
-Date: Tue, 12 Nov 2024 19:39:37 +0100
-Message-Id: <f8cef6845a6141f0277e31a71fe153612daae776.1731436631.git.geert+renesas@glider.be>
+Date: Tue, 12 Nov 2024 19:53:22 +0100
+Message-ID: <f8cef6845a6141f0277e31a71fe153612daae776.1731436631.git.geert+renesas@glider.be>
 X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241112_103955_033524_3E719FA9 
+X-CRM114-CacheID: sfid-20241112_105335_204431_0519880D 
 X-CRM114-Status: GOOD (  12.97  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -73,6 +73,7 @@ Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
+Message-ID: <20241112185322.WVsxmWgB_qPRaX35dDqc32psx0XG7CyEEetfBY0XnKI@z>
 
 On RZ/Five, which is non-coherent, and uses CONFIG_DMA_GLOBAL_POOL=y:
 
