@@ -4,65 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 17FE9D597A5
-	for <linux-riscv@archiver.kernel.org>; Tue, 12 Nov 2024 21:21:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C4FDDD597AA
+	for <linux-riscv@archiver.kernel.org>; Tue, 12 Nov 2024 22:24:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
-	List-Owner; bh=+xPsIX8FZC5Xv5UaheTQzCXOFsGMUfTaaOIwnS8u6qw=; b=J54j4JHoPYNqlo
-	Lm5qgsuw9MhVvj0YMv+uIv50SHVrqUhcXGXD4xyyYjdu3mc+IamJakN63XnaIYSQQrarr0E6V7mPR
-	QfjA6YQRCOVQge0MynQ/METQn0eExNzyn3pF4NCNJoYh0Tn7K34tS32RAmlQzcdy8igC7HVL6fcbl
-	mmZe4swxDMr17G9IIYApdlzC26H5FH7lP0vdyD9q+Tme0JJzP5EQpGt78qoYTO9nv7NBDFYtk9gaY
-	unI8rn62T6OX1WvU/dy+q4msxgPI8d86pAq/TWX6gN8cB6l1BvqLecjj7LqEYkI5xWmLf0FC8dMSg
-	Atst6RL3Ei2myIOFT3fg==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=0wy2kSVssHncDz4S/4PW+bt42vNyDg4Gs8QmToJ5rYU=; b=XCx5/v4uhxCeLT
+	yxhk5mQCsb95FCSnm8jQufxrb78Z3F9g6vRGlBdvc447Rw0L+a3DqYHN6nr3A9db6UQRoy439B2ba
+	VwOE4vHxjvjxCMbYoXsoYcqCNTPmwmGarUySgiD06UD2wDbBWnL/fe9Ziy/pZaxckB2JJmzH7CPe3
+	gtqJNUs1y4xBkyty9VW/JH10hHW3K1dKpJcJ5pi1+eOpqPxzgpP/7w61bq0E3EBijTXBnI0koSmvQ
+	repwDDt3+mgBw51kN0+3A+na3khE0eGrhAsj1aXdNRJopFcPbeyhN4mMu3qrbF97qzdyhTsluvalw
+	GIjQ9x4GVZNRDIpAtZ6A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tAyJp-00000004zh3-2W7y;
-	Tue, 12 Nov 2024 21:21:01 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1tAzJH-000000058dL-24Hk;
+	Tue, 12 Nov 2024 22:24:31 +0000
+Received: from mail-pl1-x633.google.com ([2607:f8b0:4864:20::633])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tAyJm-00000004zgV-0GPd
+	id 1tAzJD-000000058bl-2uK3
 	for linux-riscv@lists.infradead.org;
-	Tue, 12 Nov 2024 21:20:59 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 0971FA420F0;
-	Tue, 12 Nov 2024 21:19:03 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A9F14C4CECD;
-	Tue, 12 Nov 2024 21:20:56 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1731446456;
-	bh=IFMZFZBhCUNYubCEPHGSu+s7QSSDpO5QvnNKF/M3GBk=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:From;
-	b=EiP7BQL/7uLAyNeuD0fnQfqRAeBkMgGuHkg9XAN4B4CEMfAc2ZydJdiOQPGH1oZZf
-	 pku+3Z/JMt/27JrCJL7jvZpy6e3QxaBo5HLBXdMbSg3v7UT41aBRGkYHMPTB8qaQGW
-	 3ucBaaQYU+u5F0IzLn5kfy4eWJpIrJLLON/A9/OFLQNH7aG8rIaltjhIDcphYNF/zK
-	 j3+/dIKSGClBSVdLEejcdedTcUu5fz4oHbliAgGYs80FuIpnbKJmvhNNaGSw9/4LQi
-	 JJTrnWyTZL39Qe91uDyDMz7PPif+ks4J/vEu/ycuPSsv7TKlxLBWi8HboP3j7mMMxQ
-	 s05gy9gBpCLqw==
-Date: Tue, 12 Nov 2024 15:20:55 -0600
-From: Bjorn Helgaas <helgaas@kernel.org>
-To: Chen Wang <unicornxw@gmail.com>
-Cc: kw@linux.com, u.kleine-koenig@baylibre.com, aou@eecs.berkeley.edu,
-	arnd@arndb.de, bhelgaas@google.com, unicorn_wang@outlook.com,
-	conor+dt@kernel.org, guoren@kernel.org, inochiama@outlook.com,
-	krzk+dt@kernel.org, lee@kernel.org, lpieralisi@kernel.org,
-	manivannan.sadhasivam@linaro.org, palmer@dabbelt.com,
-	paul.walmsley@sifive.com, pbrobinson@gmail.com, robh@kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-pci@vger.kernel.org, linux-riscv@lists.infradead.org,
-	chao.wei@sophgo.com, xiaoguang.xing@sophgo.com,
-	fengchun.li@sophgo.com
-Subject: Re: [PATCH 2/5] PCI: sg2042: Add Sophgo SG2042 PCIe driver
-Message-ID: <20241112212055.GA1859446@bhelgaas>
+	Tue, 12 Nov 2024 22:24:30 +0000
+Received: by mail-pl1-x633.google.com with SMTP id d9443c01a7336-20ca03687fdso61275ad.0
+        for <linux-riscv@lists.infradead.org>; Tue, 12 Nov 2024 14:24:27 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1731450266; x=1732055066; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=XrbUWlz/10HI8HCWywPHxZR9oOzLRJKPdLGJRk3v8wY=;
+        b=AFApxChcN33crCimCyfpEPV0gOAPtWQpmSjTG3ShiKQoXbliExkqAdJl8eVU4rMt+5
+         1+HL7231REaKKGK0Vvvt8TmSZd8TAnHegAnFlryJKaPq1oy7kPsTDNEBaaxJmY0G1tZY
+         IEPUgPmPdj+GYowzurT0EdoowRHm9wEXiYigpzhMAooiDwYCxjBczg3lC+8JboztIQzE
+         9Q+X6B0lpDsqJ5qE2hq8xiGABp9s5Bp9O+crnJduq1f4Cp3QF5y4zRBpJbJTkNoonazI
+         YUxIKRNAWi0L2eCTa4YMXyGYQi+FA8S6K0UDVjOzvJTI8eTX+6KTeRSV/ZDiKG+M849o
+         9pWQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1731450266; x=1732055066;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=XrbUWlz/10HI8HCWywPHxZR9oOzLRJKPdLGJRk3v8wY=;
+        b=vRPVEZ7B4kUl7WFE3mMc1F/AdfnZD0xsbt8yQvZJOuw4Q6IxPu2UX6DOzgA5xs5oBd
+         hNB8PSa2EyKkw3Jtx3Mz1TmbNfQfnU8wt9611nIgWhRoNgaDw2/iz1Y2Elsk/xWmOJ2L
+         qwwbwqe8i+L7DwjZTSoB9wmyH+z6MK3nT6yUmrFi4SI2Zskh1dMBhML9dc9W33AUlFo8
+         ME/yytzIw2uI5xQZMVEUyYD4FhEH0VwsBN6o6cFYSbnY7tzyy3U/j6A3G5mwPvM2wTbY
+         EWXZsZh7R+eQIRXjDPYs3E5XrSAEzXxYHkKLaMAp+NaneYQJp3lEDZNO6b/uLYiwxouh
+         /EUQ==
+X-Forwarded-Encrypted: i=1; AJvYcCU3sAyfe6LTiyo9exssOj0R0KL7C0pneqg1c3cf2SSlG28iJhLZ2FANrlnltzqllMe3PJRw4vDaWlQZxg==@lists.infradead.org
+X-Gm-Message-State: AOJu0YwhfoxCoZ8cIdtThQiNTpNuK8dagQvrlONUkIZU3+EfZn2w1LtS
+	ZU4dMMOb/UmMjVgLjK/GJzEn9/XPm/q9QaSqsDKBLE1NRRBs7qCQNclk8pkDkGI4zC9u+D7b6hy
+	Dv93xqO8tGfaGpLzKW81WXbCfydfnSIaTZw1I
+X-Gm-Gg: ASbGnctTdNFGg0iKgPWMeje0vGTvl9VPli9dpVsv8rQifvnsS1U4MwNQqvNUYjO1QqM
+	koIxt33dBMAzMOViq2MsH2mVU2YpnU7Ux/4UhtLsud/J2yEKlnOoOrpMSoYQUBcM=
+X-Google-Smtp-Source: AGHT+IHVjOXDPek3bTfzpcjqhyl6dO+VgXJqAYZyQMTiOm5YzMnjDVAcfOTw1GP054zeGixwaVYPsd6ThcCJdKkbUoY=
+X-Received: by 2002:a17:903:2449:b0:20b:81bb:4a81 with SMTP id
+ d9443c01a7336-211b70725d1mr132885ad.7.1731450266232; Tue, 12 Nov 2024
+ 14:24:26 -0800 (PST)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <5051f2375ff6218e7d44ce0c298efd5f9ee56964.1731303328.git.unicorn_wang@outlook.com>
+References: <20241026121758.143259-1-irogers@google.com> <20241026121758.143259-4-irogers@google.com>
+ <20241112195343.GA404636@e132581.arm.com>
+In-Reply-To: <20241112195343.GA404636@e132581.arm.com>
+From: Ian Rogers <irogers@google.com>
+Date: Tue, 12 Nov 2024 14:24:15 -0800
+Message-ID: <CAP-5=fXuyZbn3Jiq=RQaLTqybgji50Ko8jrpsinFqo+OOPBeRw@mail.gmail.com>
+Subject: Re: [PATCH v1 3/4] perf record: Skip don't fail for events that don't open
+To: Leo Yan <leo.yan@arm.com>
+Cc: Atish Patra <atishp@rivosinc.com>, linux-riscv@lists.infradead.org, 
+	beeman@rivosinc.com, Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
+	Arnaldo Carvalho de Melo <acme@kernel.org>, Namhyung Kim <namhyung@kernel.org>, 
+	Mark Rutland <mark.rutland@arm.com>, 
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>, Jiri Olsa <jolsa@kernel.org>, 
+	Adrian Hunter <adrian.hunter@intel.com>, Kan Liang <kan.liang@linux.intel.com>, 
+	James Clark <james.clark@linaro.org>, Ze Gao <zegao2021@gmail.com>, 
+	Weilin Wang <weilin.wang@intel.com>, Ben Gainey <ben.gainey@arm.com>, 
+	Dominique Martinet <asmadeus@codewreck.org>, Junhao He <hejunhao3@huawei.com>, 
+	linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241112_132058_264110_66C9E279 
-X-CRM114-Status: GOOD (  37.17  )
+X-CRM114-CacheID: sfid-20241112_142427_855249_FEE49F2C 
+X-CRM114-Status: GOOD (  22.62  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,400 +96,119 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Nov 11, 2024 at 01:59:56PM +0800, Chen Wang wrote:
-> From: Chen Wang <unicorn_wang@outlook.com>
-> 
-> Add support for PCIe controller in SG2042 SoC. The controller
-> uses the Cadence PCIe core programmed by pcie-cadence*.c. The
-> PCIe controller will work in host mode only.
-
-> +++ b/drivers/pci/controller/cadence/Kconfig
-> @@ -67,4 +67,15 @@ config PCI_J721E_EP
->  	  Say Y here if you want to support the TI J721E PCIe platform
->  	  controller in endpoint mode. TI J721E PCIe controller uses Cadence PCIe
->  	  core.
-> +
-> +config PCIE_SG2042
-> +	bool "Sophgo SG2042 PCIe controller (host mode)"
-> +	depends on ARCH_SOPHGO || COMPILE_TEST
-> +	depends on OF
-> +	select PCIE_CADENCE_HOST
-> +	help
-> +	  Say Y here if you want to support the Sophgo SG2042 PCIe platform
-> +	  controller in host mode. Sophgo SG2042 PCIe controller uses Cadence
-> +	  PCIe core.
-
-Reorder to keep these menu items in alphabetical order by vendor.
-
-> +++ b/drivers/pci/controller/cadence/pcie-sg2042.c
-
-> + * SG2042 PCIe controller supports two ways to report MSI:
-> + * - Method A, the PICe controller implements an MSI interrupt controller inside,
-> + *   and connect to PLIC upward through one interrupt line. Provides
-> + *   memory-mapped msi address, and by programming the upper 32 bits of the
-> + *   address to zero, it can be compatible with old pcie devices that only
-> + *   support 32-bit msi address.
-> + * - Method B, the PICe controller connects to PLIC upward through an
-> + *   independent MSI controller "sophgo,sg2042-msi" on the SOC. The MSI
-> + *   controller provides multiple(up to 32) interrupt sources to PLIC.
-> + *   Compared with the first method, the advantage is that the interrupt source
-> + *   is expanded, but because for SG2042, the msi address provided by the MSI
-> + *   controller is fixed and only supports 64-bit address(> 2^32), it is not
-> + *   compatible with old pcie devices that only support 32-bit msi address.
-> + * Method A & B can be configured in DTS with property "sophgo,internal-msi",
-> + * default is Method B.
-
-s/PICe/PCIe/ (multiple)
-s/msi/MSI/ (multiple)
-s/pcie/PCIe/ (multiple)
-
-Wrap comment (and code below) to fit in 80 columns.  Add blank lines
-between paragraphs.
-
-> +#define SG2042_CDNS_PLAT_CPU_TO_BUS_ADDR	0xCFFFFFFFFF
-
-Remove (see below).
-
-> +static void sg2042_pcie_msi_irq_compose_msi_msg(struct irq_data *d,
-> +						struct msi_msg *msg)
-> +{
-> +	struct sg2042_pcie *pcie = irq_data_get_irq_chip_data(d);
-> +	struct device *dev = pcie->cdns_pcie->dev;
-> +
-> +	msg->address_lo = lower_32_bits(pcie->msi_phys) + BYTE_NUM_PER_MSI_VEC * d->hwirq;
-> +	msg->address_hi = upper_32_bits(pcie->msi_phys);
-> +	msg->data = 1;
-> +
-> +	pcie->num_applied_vecs = d->hwirq;
-
-This looks questionable.  How do you know d->hwirq increases every
-time this is called?
-
-> +	dev_info(dev, "compose msi msg hwirq[%d] address_hi[%#x] address_lo[%#x]\n",
-> +		 (int)d->hwirq, msg->address_hi, msg->address_lo);
-
-This seems too verbose to be a dev_info().  Maybe a dev_dbg() or
-remove it altogether.
-
-> + * We use the usual two domain structure, the top one being a generic PCI/MSI
-> + * domain, the bottom one being SG2042-specific and handling the actual HW
-> + * interrupt allocation.
-> + * At the same time, for internal MSI controller(Method A), bottom chip uses a
-> + * chained handler to handle the controller's MSI IRQ edge triggered.
-
-Add blank line between paragraphs.
-
-> +static int sg2042_pcie_setup_msi_external(struct sg2042_pcie *pcie)
-> +{
-> +	struct device *dev = pcie->cdns_pcie->dev;
-> +	struct device_node *np = dev->of_node;
-> +	struct irq_domain *parent_domain;
-> +	struct device_node *parent_np;
-> +
-> +	if (!of_find_property(np, "interrupt-parent", NULL)) {
-> +		dev_err(dev, "Can't find interrupt-parent!\n");
-> +		return -EINVAL;
-> +	}
-> +
-> +	parent_np = of_irq_find_parent(np);
-> +	if (!parent_np) {
-> +		dev_err(dev, "Can't find node of interrupt-parent!\n");
-
-Can you use some kind of %pOF format to include more information here?
-https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/Documentation/core-api/printk-formats.rst?id=v6.11#n463
-
-> +		return -ENXIO;
-> +	}
-> +
-> +	parent_domain = irq_find_host(parent_np);
-> +	of_node_put(parent_np);
-> +	if (!parent_domain) {
-> +		dev_err(dev, "Can't find domain of interrupt-parent!\n");
-
-And here?
-
-> +		return -ENXIO;
-> +	}
-> +
-> +	return sg2042_pcie_create_msi_domain(pcie, parent_domain);
-> +}
-
-> +static int sg2042_pcie_init_msi_data(struct sg2042_pcie *pcie)
-> +{
-> +	struct device *dev = pcie->cdns_pcie->dev;
-> +	u32 value;
-> +	int ret;
-> +
-> +	raw_spin_lock_init(&pcie->lock);
-> +
-> +	/*
-> +	 * Though the PCIe controller can address >32-bit address space, to
-> +	 * facilitate endpoints that support only 32-bit MSI target address,
-> +	 * the mask is set to 32-bit to make sure that MSI target address is
-> +	 * always a 32-bit address
-> +	 */
-> +	ret = dma_set_coherent_mask(dev, DMA_BIT_MASK(32));
-> +	if (ret < 0)
-> +		return ret;
-> +
-> +	pcie->msi_virt = dma_alloc_coherent(dev, BYTE_NUM_PER_MSI_VEC * MAX_MSI_IRQS,
-> +					    &pcie->msi_phys, GFP_KERNEL);
-> +	if (!pcie->msi_virt)
-> +		return -ENOMEM;
-> +
-> +	/* Program the msi address and size */
-
-s/msi/MSI/
-
-> +	if (pcie->link_id == 1) {
-> +		regmap_write(pcie->syscon, REG_LINK1_MSI_ADDR_LOW,
-> +			     lower_32_bits(pcie->msi_phys));
-> +		regmap_write(pcie->syscon, REG_LINK1_MSI_ADDR_HIGH,
-> +			     upper_32_bits(pcie->msi_phys));
-> +
-> +		regmap_read(pcie->syscon, REG_LINK1_MSI_ADDR_SIZE, &value);
-> +		value = (value & REG_LINK1_MSI_ADDR_SIZE_MASK) | MAX_MSI_IRQS;
-> +		regmap_write(pcie->syscon, REG_LINK1_MSI_ADDR_SIZE, value);
-> +	} else {
-> +		regmap_write(pcie->syscon, REG_LINK0_MSI_ADDR_LOW,
-> +			     lower_32_bits(pcie->msi_phys));
-> +		regmap_write(pcie->syscon, REG_LINK0_MSI_ADDR_HIGH,
-> +			     upper_32_bits(pcie->msi_phys));
-> +
-> +		regmap_read(pcie->syscon, REG_LINK0_MSI_ADDR_SIZE, &value);
-> +		value = (value & REG_LINK0_MSI_ADDR_SIZE_MASK) | (MAX_MSI_IRQS << 16);
-> +		regmap_write(pcie->syscon, REG_LINK0_MSI_ADDR_SIZE, value);
-> +	}
-
-Lot of pcie->link_id checking going on here.  Consider saving these
-offsets in the struct sg2042_pcie so you don't need to test
-everywhere.
-
-> +	return 0;
-> +}
-
-> +static int sg2042_pcie_setup_msi(struct sg2042_pcie *pcie, struct platform_device *pdev)
-> +{
-> +	struct device *dev = pcie->cdns_pcie->dev;
-> +	struct fwnode_handle *fwnode = of_node_to_fwnode(dev->of_node);
-> +	struct irq_domain *parent_domain;
-> +	int ret = 0;
-> +
-> +	parent_domain = irq_domain_create_linear(fwnode, MSI_DEF_NUM_VECTORS,
-> +						 &sg2042_pcie_msi_domain_ops, pcie);
-> +	if (!parent_domain) {
-> +		dev_err(dev, "Failed to create IRQ domain\n");
-> +		return -ENOMEM;
-> +	}
-> +	irq_domain_update_bus_token(parent_domain, DOMAIN_BUS_NEXUS);
-> +
-> +	ret = sg2042_pcie_create_msi_domain(pcie, parent_domain);
-> +	if (ret) {
-> +		irq_domain_remove(parent_domain);
-> +		return ret;
-> +	}
-> +
-> +	ret = sg2042_pcie_init_msi_data(pcie);
-> +	if (ret) {
-> +		dev_err(dev, "Failed to initialize msi data!\n");
-
-s/msi/MSI/
-
-> +		return ret;
-> +	}
-> +
-> +	ret = platform_get_irq_byname(pdev, "msi");
-> +	if (ret <= 0) {
-> +		dev_err(dev, "failed to get MSI irq\n");
-> +		return ret;
-> +	}
-> +	pcie->msi_irq = ret;
-> +
-> +	irq_set_chained_handler_and_data(pcie->msi_irq,
-> +					 sg2042_pcie_msi_chained_isr, pcie);
-> +
-> +	return 0;
-> +}
-> +
-> +static void sg2042_pcie_free_msi(struct sg2042_pcie *pcie)
-> +{
-> +	struct device *dev = pcie->cdns_pcie->dev;
-> +
-> +	if (pcie->msi_irq)
-> +		irq_set_chained_handler_and_data(pcie->msi_irq, NULL, NULL);
-> +
-> +	if (pcie->msi_virt)
-> +		dma_free_coherent(dev, BYTE_NUM_PER_MSI_VEC * MAX_MSI_IRQS,
-> +				  pcie->msi_virt, pcie->msi_phys);
-> +}
-> +
-> +static u64 sg2042_cdns_pcie_cpu_addr_fixup(struct cdns_pcie *pcie, u64 cpu_addr)
-> +{
-> +	return cpu_addr & SG2042_CDNS_PLAT_CPU_TO_BUS_ADDR;
-> +}
-
-Remove.  This translation between CPU and PCI bus addresses should be
-described in the DT "ranges" property of the PCI host bridge.
-
-See
-https://lore.kernel.org/linux-pci/20241029-pci_fixup_addr-v7-3-8310dc24fb7c@nxp.com/
-for a similar fix.
-
-> +static const struct cdns_pcie_ops sg2042_cdns_pcie_ops = {
-> +	.cpu_addr_fixup = sg2042_cdns_pcie_cpu_addr_fixup,
-> +};
-> +
-> +/*
-> + * SG2042 only support 4-byte aligned access, so for the rootbus (i.e. to read
-> + * the PCIe controller itself, read32 is required. For non-rootbus (i.e. to read
-> + * the PCIe peripheral registers, supports 1/2/4 byte aligned access, so
-> + * directly use read should be fine.
-> + * The same is true for write.
-
-Add blank line between paragraphs or rewrap into a single paragraph.
-
-> +static int sg2042_pcie_probe(struct platform_device *pdev)
-> +{
-> +	struct device *dev = &pdev->dev;
-> +	struct device_node *np = dev->of_node;
-> +	struct pci_host_bridge *bridge;
-> +	struct device_node *np_syscon;
-> +	struct cdns_pcie *cdns_pcie;
-> +	struct sg2042_pcie *pcie;
-> +	struct cdns_pcie_rc *rc;
-> +	struct regmap *syscon;
-> +	int ret;
-> +
-> +	if (!IS_ENABLED(CONFIG_PCIE_CADENCE_HOST))
-> +		return -ENODEV;
-> +
-> +	pcie = devm_kzalloc(dev, sizeof(*pcie), GFP_KERNEL);
-> +	if (!pcie)
-> +		return -ENOMEM;
-> +
-> +	bridge = devm_pci_alloc_host_bridge(dev, sizeof(*rc));
-> +	if (!bridge) {
-> +		dev_err(dev, "Failed to alloc host bridge!\n");
-> +		return -ENOMEM;
-> +	}
-
-Add blank line.
-
-> +	bridge->ops = &sg2042_pcie_host_ops;
-> +
-> +	rc = pci_host_bridge_priv(bridge);
-> +	cdns_pcie = &rc->pcie;
-> +	cdns_pcie->dev = dev;
-> +	cdns_pcie->ops = &sg2042_cdns_pcie_ops;
-> +	pcie->cdns_pcie = cdns_pcie;
-> +
-> +	np_syscon = of_parse_phandle(np, "sophgo,syscon-pcie-ctrl", 0);
-> +	if (!np_syscon) {
-> +		dev_err(dev, "Failed to get syscon node\n");
-> +		return -ENOMEM;
-> +	}
-> +	syscon = syscon_node_to_regmap(np_syscon);
-> +	if (IS_ERR(syscon)) {
-> +		dev_err(dev, "Failed to get regmap for syscon\n");
-> +		return -ENOMEM;
-> +	}
-> +	pcie->syscon = syscon;
-> +
-> +	if (of_property_read_u32(np, "sophgo,link-id", &pcie->link_id)) {
-> +		dev_err(dev, "Unable to parse link ID\n");
-> +		return -EINVAL;
-> +	}
-> +
-> +	pcie->internal_msi = 0;
-> +	if (of_property_read_bool(np, "sophgo,internal-msi"))
-> +		pcie->internal_msi = 1;
-> +
-> +	platform_set_drvdata(pdev, pcie);
-> +
-> +	pm_runtime_enable(dev);
-> +
-> +	ret = pm_runtime_get_sync(dev);
-> +	if (ret < 0) {
-> +		dev_err(dev, "pm_runtime_get_sync failed\n");
-> +		goto err_get_sync;
-> +	}
-> +
-> +	if (pcie->internal_msi) {
-> +		ret = sg2042_pcie_setup_msi(pcie, pdev);
-> +		if (ret < 0)
-> +			goto err_setup_msi;
-> +	} else {
-> +		ret = sg2042_pcie_setup_msi_external(pcie);
-> +		if (ret < 0)
-> +			goto err_setup_msi;
-> +	}
-> +
-> +	ret = cdns_pcie_init_phy(dev, cdns_pcie);
-> +	if (ret) {
-> +		dev_err(dev, "Failed to init phy!\n");
-> +		goto err_setup_msi;
-> +	}
-> +
-> +	ret = cdns_pcie_host_setup(rc);
-> +	if (ret < 0) {
-> +		dev_err(dev, "Failed to setup host!\n");
-> +		goto err_host_setup;
-> +	}
-> +
-> +	return 0;
-> +
-> +err_host_setup:
-> +	cdns_pcie_disable_phy(cdns_pcie);
-> +
-> +err_setup_msi:
-> +	sg2042_pcie_free_msi(pcie);
-> +
-> +err_get_sync:
-> +	pm_runtime_put(dev);
-> +	pm_runtime_disable(dev);
-> +
-> +	return ret;
-> +}
-> +
-> +static void sg2042_pcie_shutdown(struct platform_device *pdev)
-> +{
-> +	struct sg2042_pcie *pcie = platform_get_drvdata(pdev);
-> +	struct cdns_pcie *cdns_pcie = pcie->cdns_pcie;
-> +	struct device *dev = &pdev->dev;
-> +
-> +	sg2042_pcie_free_msi(pcie);
-> +
-> +	cdns_pcie_disable_phy(cdns_pcie);
-> +
-> +	pm_runtime_put(dev);
-> +	pm_runtime_disable(dev);
-> +}
-> +
-> +static const struct of_device_id sg2042_pcie_of_match[] = {
-> +	{ .compatible = "sophgo,sg2042-pcie-host" },
-> +	{},
-> +};
-> +
-> +static struct platform_driver sg2042_pcie_driver = {
-> +	.driver = {
-> +		.name		= "sg2042-pcie",
-> +		.of_match_table	= sg2042_pcie_of_match,
-> +		.pm		= &cdns_pcie_pm_ops,
-> +	},
-> +	.probe		= sg2042_pcie_probe,
-> +	.shutdown	= sg2042_pcie_shutdown,
-> +};
-> +builtin_platform_driver(sg2042_pcie_driver);
-> -- 
-> 2.34.1
-> 
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gVHVlLCBOb3YgMTIsIDIwMjQgYXQgMTE6NTPigK9BTSBMZW8gWWFuIDxsZW8ueWFuQGFybS5j
+b20+IHdyb3RlOgo+Cj4gT24gU2F0LCBPY3QgMjYsIDIwMjQgYXQgMDU6MTc6NTdBTSAtMDcwMCwg
+SWFuIFJvZ2VycyB3cm90ZToKPiA+Cj4gPiBXaGlsc3QgZm9yIG1hbnkgdG9vbHMgaXQgaXMgYW4g
+ZXhwZWN0ZWQgYmVoYXZpb3IgdGhhdCBmYWlsdXJlIHRvIG9wZW4KPiA+IGEgcGVyZiBldmVudCBp
+cyBhIGZhaWx1cmUsIEFSTSBkZWNpZGVkIHRvIG5hbWUgUE1VIGV2ZW50cyB0aGUgc2FtZSBhcwo+
+ID4gbGVnYWN5IGV2ZW50cyBhbmQgdGhlbiBmYWlsZWQgdG8gcmVuYW1lIHN1Y2ggZXZlbnRzIG9u
+IGEgc2VydmVyIHVuY29yZQo+ID4gU0xDIFBNVS4gQXMgcGVyZidzIGRlZmF1bHQgYmVoYXZpb3Ig
+d2hlbiBubyBQTVUgaXMgc3BlY2lmaWVkIGlzIHRvCj4gPiBvcGVuIHRoZSBldmVudCBvbiBhbGwg
+UE1VcyB0aGF0IGFkdmVydGlzZS8iaGF2ZSIgdGhlIGV2ZW50LCB0aGlzCj4gPiB5aWVsZGVkIGZh
+aWx1cmVzIHdoZW4gdHJ5aW5nIHRvIG1ha2UgdGhlIHByaW9yaXR5IG9mIGxlZ2FjeSBhbmQKPiA+
+IHN5c2ZzL2pzb24gZXZlbnRzIHVuaWZvcm0gLSBzb21ldGhpbmcgcmVxdWVzdGVkIGJ5IFJJU0Mt
+ViBhbmQgQVJNLiBBCj4gPiBsZWdhY3kgZXZlbnQgdXNlciBvbiBBUk0gaGFyZHdhcmUgbWF5IGZp
+bmQgdGhlaXIgZXZlbnQgb3BlbmVkIG9uIGFuCj4gPiB1bmNvcmUgUE1VIHdoaWNoIGZvciBwZXJm
+IHJlY29yZCB3aWxsIGZhaWwuIEFybmFsZG8gc3VnZ2VzdGVkIHNraXBwaW5nCj4gPiBzdWNoIGV2
+ZW50cyB3aGljaCB0aGlzIHBhdGNoIGltcGxlbWVudHMuIFJhdGhlciB0aGFuIGhhdmUgdGhlIHNr
+aXBwaW5nCj4gPiBjb25kaXRpb25hbCBvbiBydW5uaW5nIG9uIEFSTSwgdGhlIHNraXBwaW5nIGlz
+IGRvbmUgb24gYWxsCj4gPiBhcmNoaXRlY3R1cmVzIGFzIHN1Y2ggYSBmdW5kYW1lbnRhbCBiZWhh
+dmlvcmFsIGRpZmZlcmVuY2UgY291bGQgbGVhZAo+ID4gdG8gcHJvYmxlbXMgd2l0aCB0b29scyBi
+dWlsdC9kZXBlbmRpbmcgb24gcGVyZi4KPiA+Cj4gPiBBbiBleGFtcGxlIG9mIHBlcmYgcmVjb3Jk
+IGZhaWxpbmcgdG8gb3BlbiBldmVudHMgb24geDg2IGlzOgo+ID4gYGBgCj4gPiAkIHBlcmYgcmVj
+b3JkIC1lIGRhdGFfcmVhZCxjeWNsZXMsTExDLXByZWZldGNoLXJlYWQgLWEgc2xlZXAgMC4xCj4g
+PiBFcnJvcjoKPiA+IEZhaWx1cmUgdG8gb3BlbiBldmVudCAnZGF0YV9yZWFkJyBvbiBQTVUgJ3Vu
+Y29yZV9pbWNfZnJlZV9ydW5uaW5nXzAnIHdoaWNoIHdpbGwgYmUgcmVtb3ZlZC4KPiA+IFRoZSBz
+eXNfcGVyZl9ldmVudF9vcGVuKCkgc3lzY2FsbCByZXR1cm5lZCB3aXRoIDIyIChJbnZhbGlkIGFy
+Z3VtZW50KSBmb3IgZXZlbnQgKGRhdGFfcmVhZCkuCj4gPiAiZG1lc2cgfCBncmVwIC1pIHBlcmYi
+IG1heSBwcm92aWRlIGFkZGl0aW9uYWwgaW5mb3JtYXRpb24uCj4gPgo+ID4gRXJyb3I6Cj4gPiBG
+YWlsdXJlIHRvIG9wZW4gZXZlbnQgJ2RhdGFfcmVhZCcgb24gUE1VICd1bmNvcmVfaW1jX2ZyZWVf
+cnVubmluZ18xJyB3aGljaCB3aWxsIGJlIHJlbW92ZWQuCj4gPiBUaGUgc3lzX3BlcmZfZXZlbnRf
+b3BlbigpIHN5c2NhbGwgcmV0dXJuZWQgd2l0aCAyMiAoSW52YWxpZCBhcmd1bWVudCkgZm9yIGV2
+ZW50IChkYXRhX3JlYWQpLgo+ID4gImRtZXNnIHwgZ3JlcCAtaSBwZXJmIiBtYXkgcHJvdmlkZSBh
+ZGRpdGlvbmFsIGluZm9ybWF0aW9uLgo+ID4KPiA+IEVycm9yOgo+ID4gRmFpbHVyZSB0byBvcGVu
+IGV2ZW50ICdMTEMtcHJlZmV0Y2gtcmVhZCcgb24gUE1VICdjcHUnIHdoaWNoIHdpbGwgYmUgcmVt
+b3ZlZC4KPiA+IFRoZSBMTEMtcHJlZmV0Y2gtcmVhZCBldmVudCBpcyBub3Qgc3VwcG9ydGVkLgo+
+ID4gWyBwZXJmIHJlY29yZDogV29rZW4gdXAgMSB0aW1lcyB0byB3cml0ZSBkYXRhIF0KPiA+IFsg
+cGVyZiByZWNvcmQ6IENhcHR1cmVkIGFuZCB3cm90ZSAyLjE4OCBNQiBwZXJmLmRhdGEgKDg3IHNh
+bXBsZXMpIF0KPiA+Cj4gPiAkIHBlcmYgcmVwb3J0IC0tc3RhdHMKPiA+IEFnZ3JlZ2F0ZWQgc3Rh
+dHM6Cj4gPiAgICAgICAgICAgICAgICBUT1RBTCBldmVudHM6ICAgICAgMTcyNTUKPiA+ICAgICAg
+ICAgICAgICAgICBNTUFQIGV2ZW50czogICAgICAgIDI4NCAgKCAxLjYlKQo+ID4gICAgICAgICAg
+ICAgICAgIENPTU0gZXZlbnRzOiAgICAgICAxOTYxICAoMTEuNCUpCj4gPiAgICAgICAgICAgICAg
+ICAgRVhJVCBldmVudHM6ICAgICAgICAgIDEgICggMC4wJSkKPiA+ICAgICAgICAgICAgICAgICBG
+T1JLIGV2ZW50czogICAgICAgMTk2MCAgKDExLjQlKQo+ID4gICAgICAgICAgICAgICBTQU1QTEUg
+ZXZlbnRzOiAgICAgICAgIDg3ICAoIDAuNSUpCj4gPiAgICAgICAgICAgICAgICBNTUFQMiBldmVu
+dHM6ICAgICAgMTI4MzYgICg3NC40JSkKPiA+ICAgICAgICAgICAgICBLU1lNQk9MIGV2ZW50czog
+ICAgICAgICA4MyAgKCAwLjUlKQo+ID4gICAgICAgICAgICBCUEZfRVZFTlQgZXZlbnRzOiAgICAg
+ICAgIDM2ICAoIDAuMiUpCj4gPiAgICAgICBGSU5JU0hFRF9ST1VORCBldmVudHM6ICAgICAgICAg
+IDIgICggMC4wJSkKPiA+ICAgICAgICAgICAgIElEX0lOREVYIGV2ZW50czogICAgICAgICAgMSAg
+KCAwLjAlKQo+ID4gICAgICAgICAgIFRIUkVBRF9NQVAgZXZlbnRzOiAgICAgICAgICAxICAoIDAu
+MCUpCj4gPiAgICAgICAgICAgICAgQ1BVX01BUCBldmVudHM6ICAgICAgICAgIDEgICggMC4wJSkK
+PiA+ICAgICAgICAgICAgVElNRV9DT05WIGV2ZW50czogICAgICAgICAgMSAgKCAwLjAlKQo+ID4g
+ICAgICAgIEZJTklTSEVEX0lOSVQgZXZlbnRzOiAgICAgICAgICAxICAoIDAuMCUpCj4gPiBjeWNs
+ZXMgc3RhdHM6Cj4gPiAgICAgICAgICAgICAgIFNBTVBMRSBldmVudHM6ICAgICAgICAgODcKPiA+
+IGBgYAo+Cj4gVGhhbmtzIGZvciBKYW1lcyByZW1pbmRpbmcgbWUuICBUZXN0ZWQgb24gQVZBIHBs
+YXRmb3JtOgo+Cj4gIyB0cmVlIC9zeXMvYnVzL2V2ZW50X3NvdXJjZS9kZXZpY2VzL2FybV9kc3Vf
+Ki9ldmVudHMKPiAgIC4uLgo+ICAgL3N5cy9idXMvZXZlbnRfc291cmNlL2RldmljZXMvYXJtX2Rz
+dV85L2V2ZW50cwo+ICAg4pSc4pSA4pSAIGJ1c19hY2Nlc3MKPiAgIOKUnOKUgOKUgCBidXNfY3lj
+bGVzCj4gICDilJzilIDilIAgY3ljbGVzCj4gICDilJzilIDilIAgbDNkX2NhY2hlCj4gICDilJzi
+lIDilIAgbDNkX2NhY2hlX2FsbG9jYXRlCj4gICDilJzilIDilIAgbDNkX2NhY2hlX3JlZmlsbAo+
+ICAg4pSc4pSA4pSAIGwzZF9jYWNoZV93Ygo+ICAg4pSU4pSA4pSAIG1lbW9yeV9lcnJvcgo+Cj4g
+IyAuL3BlcmYgcmVjb3JkIC0tIHNsZWVwIDAuMQo+ICBFcnJvcjoKPiAgRmFpbHVyZSB0byBvcGVu
+IGV2ZW50ICdjeWNsZXM6UEgnIG9uIFBNVSAnYXJtX2RzdV8wJyB3aGljaCB3aWxsIGJlCj4gIHJl
+bW92ZWQuCj4gIGN5Y2xlczpQSDogUE1VIEhhcmR3YXJlIGRvZXNuJ3Qgc3VwcG9ydCBzYW1wbGlu
+Zy9vdmVyZmxvdy1pbnRlcnJ1cHRzLgo+ICBUcnkgJ3BlcmYgc3RhdCcKPiAgRXJyb3I6Cj4gIEZh
+aWx1cmUgdG8gb3BlbiBldmVudCAnY3ljbGVzOlBIJyBvbiBQTVUgJ2FybV9kc3VfMScgd2hpY2gg
+d2lsbCBiZQo+ICByZW1vdmVkLgo+ICBjeWNsZXM6UEg6IFBNVSBIYXJkd2FyZSBkb2Vzbid0IHN1
+cHBvcnQgc2FtcGxpbmcvb3ZlcmZsb3ctaW50ZXJydXB0cy4KPiAgVHJ5ICdwZXJmIHN0YXQnCj4g
+IC4uLgo+ICBFcnJvcjoKPiAgRmFpbHVyZSB0byBvcGVuIGV2ZW50ICdjeWNsZXM6UEgnIG9uIFBN
+VSAnYXJtX2RzdV8xNScgd2hpY2ggd2lsbCBiZQo+ICByZW1vdmVkLgo+ICBjeWNsZXM6UEg6IFBN
+VSBIYXJkd2FyZSBkb2Vzbid0IHN1cHBvcnQgc2FtcGxpbmcvb3ZlcmZsb3ctaW50ZXJydXB0cy4K
+PiAgVHJ5ICdwZXJmIHN0YXQnCj4gIFsgcGVyZiByZWNvcmQ6IFdva2VuIHVwIDEgdGltZXMgdG8g
+d3JpdGUgZGF0YSBdCj4gIFsgcGVyZiByZWNvcmQ6IENhcHR1cmVkIGFuZCB3cm90ZSAwLjAwOCBN
+QiBwZXJmLmRhdGEgKDggc2FtcGxlcykgXQo+Cj4gIyAuL3BlcmYgcmVwb3J0IC0tc3RhdHMKPgo+
+ICBBZ2dyZWdhdGVkIHN0YXRzOgo+ICAgICAgICAgICAgICAgICBUT1RBTCBldmVudHM6ICAgICAg
+ICAgNjcKPiAgICAgICAgICAgICAgICAgIE1NQVAgZXZlbnRzOiAgICAgICAgIDQwICAoNTkuNyUp
+Cj4gICAgICAgICAgICAgICAgICBDT01NIGV2ZW50czogICAgICAgICAgMSAgKCAxLjUlKQo+ICAg
+ICAgICAgICAgICAgIFNBTVBMRSBldmVudHM6ICAgICAgICAgIDggICgxMS45JSkKPiAgICAgICAg
+ICAgICAgIEtTWU1CT0wgZXZlbnRzOiAgICAgICAgICA2ICAoIDkuMCUpCj4gICAgICAgICAgICAg
+QlBGX0VWRU5UIGV2ZW50czogICAgICAgICAgNiAgKCA5LjAlKQo+ICAgICAgICBGSU5JU0hFRF9S
+T1VORCBldmVudHM6ICAgICAgICAgIDEgICggMS41JSkKPiAgICAgICAgICAgICAgSURfSU5ERVgg
+ZXZlbnRzOiAgICAgICAgICAxICAoIDEuNSUpCj4gICAgICAgICAgICBUSFJFQURfTUFQIGV2ZW50
+czogICAgICAgICAgMSAgKCAxLjUlKQo+ICAgICAgICAgICAgICAgQ1BVX01BUCBldmVudHM6ICAg
+ICAgICAgIDEgICggMS41JSkKPiAgICAgICAgICAgICBUSU1FX0NPTlYgZXZlbnRzOiAgICAgICAg
+ICAxICAoIDEuNSUpCj4gICAgICAgICBGSU5JU0hFRF9JTklUIGV2ZW50czogICAgICAgICAgMSAg
+KCAxLjUlKQo+ICBjeWNsZXM6UCBzdGF0czoKPiAgICAgICAgICAgICAgICBTQU1QTEUgZXZlbnRz
+OiAgICAgICAgICA4Cj4KPiAjIC4vcGVyZiBzdGF0IC0tIHNsZWVwIDAuMQo+Cj4gIFBlcmZvcm1h
+bmNlIGNvdW50ZXIgc3RhdHMgZm9yICdzbGVlcCAwLjEnOgo+Cj4gICAgICAgICAgICAgICAwLjg3
+IG1zZWMgdGFzay1jbG9jayAgICAgICAgICAgICAgICAgICAgICAgIyAgICAwLjAwOSBDUFVzIHV0
+aWxpemVkCj4gICAgICAgICAgICAgICAgICAxICAgICAgY29udGV4dC1zd2l0Y2hlcyAgICAgICAg
+ICAgICAgICAgIyAgICAxLjE0OCBLL3NlYwo+ICAgICAgICAgICAgICAgICAgMCAgICAgIGNwdS1t
+aWdyYXRpb25zICAgICAgICAgICAgICAgICAgICMgICAgMC4wMDAgL3NlYwo+ICAgICAgICAgICAg
+ICAgICA1MiAgICAgIHBhZ2UtZmF1bHRzICAgICAgICAgICAgICAgICAgICAgICMgICA1OS42ODUg
+Sy9zZWMKPiAgICAgICAgICAgIDg3Nyw4MzUgICAgICBpbnN0cnVjdGlvbnMgICAgICAgICAgICAg
+ICAgICAgICAjICAgIDEuMTQgIGluc24gcGVyIGN5Y2xlCj4gICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAjICAgIDAuMjUgIHN0YWxsZWQgY3ljbGVzIHBl
+ciBpbnNuCj4gICAgICAgICAgICA3NzIsMTAyICAgICAgY3ljbGVzICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgIyAgODg2LjIxMCBNL3NlYwo+ICAgICAgICAgICAgMTkxLDkxNCAgICAgIHN0YWxs
+ZWQtY3ljbGVzLWZyb250ZW5kICAgICAgICAgICMgICAyNC44NiUgZnJvbnRlbmQgY3ljbGVzIGlk
+bGUKPiAgICAgICAgICAgIDIxOSwxODMgICAgICBzdGFsbGVkLWN5Y2xlcy1iYWNrZW5kICAgICAg
+ICAgICAjICAgMjguMzklIGJhY2tlbmQgY3ljbGVzIGlkbGUKPiAgICAgICAgICAgIDE4NCwwOTkg
+ICAgICBicmFuY2hlcyAgICAgICAgICAgICAgICAgICAgICAgICAjICAyMTEuMzA3IE0vc2VjCj4g
+ICAgICAgICAgICAgIDgsNTQ4ICAgICAgYnJhbmNoLW1pc3NlcyAgICAgICAgICAgICAgICAgICAg
+IyAgICA0LjY0JSBvZiBhbGwgYnJhbmNoZXMKPgo+ICAgICAgICAwLjEwMTYyMzUyOSBzZWNvbmRz
+IHRpbWUgZWxhcHNlZAo+Cj4gICAgICAgIDAuMDAxNjQ1MDAwIHNlY29uZHMgdXNlcgo+ICAgICAg
+ICAwLjAwMDAwMDAwMCBzZWNvbmRzIHN5cwo+Cj4gVGVzdGVkLWJ5OiBMZW8gWWFuIDxsZW8ueWFu
+QGFybS5jb20+CgpUaGFua3MgTGVvISBBcyB0aGUgVGVzdGVkLWJ5IG1ha2VzIHNlbnNlIG9ubHkg
+aWYgeW91J3ZlIGFwcGxpZWQgYWxsIDQKcGF0Y2hlcywgd2hpY2ggeW91ciB0ZXN0aW5nIGFuZCBK
+YW1lcycgdGVzdGluZyBzaG93cyB5b3UndmUgYm90aCBkb25lLApJJ2xsIGFkZCB0aGUgdGFncyB0
+byBhbGwgNCBwYXRjaGVzLiBJJ2xsIGRvIGxpa2V3aXNlIHdpdGggQXRpc2gsCnJlYmFzZSBhbmQg
+cmVzZW5kIHRoZSBwYXRjaGVzLgoKVGhhbmtzLApJYW4KCl9fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1y
+aXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxt
+YW4vbGlzdGluZm8vbGludXgtcmlzY3YK
