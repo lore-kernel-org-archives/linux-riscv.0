@@ -4,85 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B0C0CD637A0
-	for <linux-riscv@archiver.kernel.org>; Wed, 13 Nov 2024 17:37:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EE16ED637A3
+	for <linux-riscv@archiver.kernel.org>; Wed, 13 Nov 2024 18:03:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=2MXdjElWbL4ZaKI11+BXE45/8iGuwN2HRF6vMtmU3Wg=; b=GNlicZaYajg5QH
-	cxD58X+EVWaQzEPU1+EHpFSuFOgP80/7Xdkdf7HC4nft57DUSuQER03I6AmPZ8Q1CxZnqlPCd0FdC
-	tC/GOVVtfpAgsNp21+AgHdAJ9XWTfi4n+WgzQdsndUUmsUffzYYOHiuUlbzrP8M/+ee4Wat9Jw3/L
-	pWoJMNp1eDcktzCzyjf3QvPKgvBq3viud3cGMKV2YEaAuZdrhDuVJnH3IR5HcbDGNm/Z9bMjA9um+
-	0Y1XMEd/IKRf5afjzzjPeg+oFaVvp7HHOr2Vmc75tnFfjPBdLf7c1s29QsRMK1q8zciZUBRmPPCNn
-	Ub56dqyCOFjaaTaUjW9A==;
+	List-Owner; bh=XI2/09mfck/C+bZtGQPTEXRBPusnujntYAulYhihGpU=; b=zKXXNyJld0cyBy
+	qZA6wmzawdvOf96x0F9N8qRLSfDEehWzFVaDglLAxQx0Cbfq9uwfa17ztqrcETmcEjtFrLm3X6gsP
+	JTueuOTNhmpTiJTTTdyrtYwvLmlG4OVBqIZTOKQextPQ/j+BQmS/3JNVkpCOVoE5TqFfyRRwGpdX/
+	kNf+FU1xatWmd6Rt73pUdGLdtzDZBdm1CJV9FR9ko2Zc+ZuYDbZFp0asYxT8YqDCmFDTqpFG0F7fc
+	nChCb/8hX5FwrzQo+Uhn9P4k5mbrqcKBcgIUSOW/MK+8xAa9BRwdq9slKlRdVpAUMqeXPFOH6xtum
+	TQmlpURh4S6LPTA4Vl3w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tBHIu-00000007aJt-12Uj;
-	Wed, 13 Nov 2024 17:37:20 +0000
-Received: from mail-wr1-x435.google.com ([2a00:1450:4864:20::435])
+	id 1tBHhw-00000007eJ8-2wg5;
+	Wed, 13 Nov 2024 18:03:12 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tBHIr-00000007aJE-3RSX
+	id 1tBHht-00000007eIK-2a7U
 	for linux-riscv@lists.infradead.org;
-	Wed, 13 Nov 2024 17:37:19 +0000
-Received: by mail-wr1-x435.google.com with SMTP id ffacd0b85a97d-37d462c91a9so4548624f8f.2
-        for <linux-riscv@lists.infradead.org>; Wed, 13 Nov 2024 09:37:16 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1731519435; x=1732124235; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=im7VLv5kLVhNsb/0wE3S9j1YXytxDziWmwsT4UuEatg=;
-        b=SajJAGd7dKRUmD1W7fYwFYwhmdvW21WpqFyXFaqbcE0+alZ+Hs3nZ2SZyvRTgMZtTQ
-         cpmn6GvfuvbtQzkUtxF3CUo74bvSOkyoF8pMw6RYj6RasjoaKsVeqRVk1Y/mvJKIgFfo
-         L28WoIUDJamc7E0mAV5ztYDGLrccpvEm+aPIxLA0ksr/tDdO0gRYEfGexBAF79Lj0AyV
-         /YNuBTGUcugKsy2rFRkHuqHVgoCHk10Bx7WM+tfCVtuZ8HfGxntXmZjl7jkwQzj6RDuj
-         7AtbuD/nGHHgyyoLURB7BouqHfXpDvLRFFjfCRSGGxAe7bIGvxNPGSCntKgA5zXN7bWs
-         6ffg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1731519435; x=1732124235;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=im7VLv5kLVhNsb/0wE3S9j1YXytxDziWmwsT4UuEatg=;
-        b=VGyesMfUE2bhLuXrHJ1aWsxkiCbKhtuziFCFpkI+aCfyqiyMz+pYRBjKmyuWPUoTiW
-         rUJEKiPCpdGxb2LOcgVUuAgAfVXyE2J9CjclTQf7l4HTHs94PN0HH1OGb78rtrlb2GYN
-         N2r1uhj5LRI7u9EWG6GislEuy39YftXeVuW2837374PJcKOU/7WxfQdLyCSHhdaSl4Nd
-         vsCDtiLMCFw26DuGInqdbnN1x/xcVS97Z6uSs5KURcfNiNM4uvj8MPHIItWCGG99utT8
-         g5/CBtoqUb+sLnKDMDfbffZKNeKVRVURLxBh+Spzxr6d+txAo5seLQlp3+Kh6W3PChFe
-         I/fg==
-X-Forwarded-Encrypted: i=1; AJvYcCVU4hT5hcTcerWxlZ2KOXx23esjwQVn7y69PdCl7qViJ5MTiWNhvJ5BhDaYh0AmslaXLq6aAkQpl8lkEA==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz/lawP0lrxsZ9Sc8OAP7v0PjLcl6YkaYVGgdD8vpoTqUJFPnte
-	vvijEtAW4wI0XCAdSn+gCoZnLfjSC1BWiPvTqZrpYn9ar/DpOUlmD6JLMjOkm6k=
-X-Google-Smtp-Source: AGHT+IHzCwgR6nFayq9lZx6OFJtGnWn41SZ9+6i/I4rcB92bwXQ2Y7Ixz67I/Gp1Z88zhbCsztRx1w==
-X-Received: by 2002:a05:6000:691:b0:37d:36f2:e2cb with SMTP id ffacd0b85a97d-382080817d9mr6391621f8f.0.1731519435006;
-        Wed, 13 Nov 2024 09:37:15 -0800 (PST)
-Received: from localhost (cst2-173-13.cust.vodafone.cz. [31.30.173.13])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-381eda036afsm19222464f8f.86.2024.11.13.09.37.14
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 13 Nov 2024 09:37:14 -0800 (PST)
-Date: Wed, 13 Nov 2024 18:37:13 +0100
-From: Andrew Jones <ajones@ventanamicro.com>
-To: yunhui cui <cuiyunhui@bytedance.com>
-Cc: Jessica Clarke <jrtc27@jrtc27.com>, Conor Dooley <conor@kernel.org>, 
-	punit.agrawal@bytedance.com, paul.walmsley@sifive.com, palmer@dabbelt.com, 
-	aou@eecs.berkeley.edu, cleger@rivosinc.com, charlie@rivosinc.com, evan@rivosinc.com, 
-	samuel.holland@sifive.com, andybnac@gmail.com, linux-riscv@lists.infradead.org, 
-	linux-kernel@vger.kernel.org
-Subject: Re: [External] Re: [PATCH] RISC-V: Enable Zicbom in usermode
-Message-ID: <20241113-ec9f91d62f4845df79bb21f3@orel>
-References: <20241025091527.57825-1-cuiyunhui@bytedance.com>
- <20241025-puritan-sank-b8a828ef5872@spud>
- <3CCBB0AB-169D-4677-9A44-53E4148908D5@jrtc27.com>
- <CAEEQ3wmn9W8A5y37aFisQqd=8Ke7Lt6nY6am99j0O2cNbsVj-A@mail.gmail.com>
+	Wed, 13 Nov 2024 18:03:11 +0000
+Received: from pps.filterd (m0279870.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 4ADH1ZEi025412;
+	Wed, 13 Nov 2024 18:03:00 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	bYtOOA3mW6Ph2dWGJf/8a1jSF1QmnYitbVPB+AORG4w=; b=aLL26I2bikDogtDH
+	fT2fQU1ZA8fAFhtHvZPGG6AeVPFCzKj9hL5xUnzqo0Bj0gqJHGYaHOUdHKmASg+4
+	DjHSV6tbbp7v8dyqqMvVtRqFtztapVjIBjC9PoHLB7B4HHhkF7zNX9x7U24Gdf0+
+	DvO6YZXxZ0DnFHx8FVOmp+78fmurjaOR4QDfPGhvahPmQnJo03MCQy2VBUOsuNQi
+	Sj2QYrZB6vMelIH8iq5X8jZet++FEYrDczdM6RLL0CyXPImAfJfQhM5vgupdjhq7
+	r7WJDUsCDp26+j3qm7ZcYJ3/zWcfMnMlIXyTEa+yfmf5PGc9dj466iE5hF2bB4aZ
+	ps7G7A==
+Received: from nalasppmta05.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 42vgqqtqwr-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 13 Nov 2024 18:03:00 +0000 (GMT)
+Received: from nalasex01b.na.qualcomm.com (nalasex01b.na.qualcomm.com [10.47.209.197])
+	by NALASPPMTA05.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 4ADI2wk7004079
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 13 Nov 2024 18:02:58 GMT
+Received: from [10.71.109.85] (10.80.80.8) by nalasex01b.na.qualcomm.com
+ (10.47.209.197) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.9; Wed, 13 Nov
+ 2024 10:02:58 -0800
+Message-ID: <6a8ba993-9413-40ad-8c91-0cf268798585@quicinc.com>
+Date: Wed, 13 Nov 2024 10:02:49 -0800
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <CAEEQ3wmn9W8A5y37aFisQqd=8Ke7Lt6nY6am99j0O2cNbsVj-A@mail.gmail.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] dma-mapping: Save base/size instead of pointer to shared
+ DMA pool
+To: Geert Uytterhoeven <geert+renesas@glider.be>,
+        Rob Herring
+	<robh@kernel.org>, Christoph Hellwig <hch@lst.de>,
+        Marek Szyprowski
+	<m.szyprowski@samsung.com>,
+        Robin Murphy <robin.murphy@arm.com>
+CC: <iommu@lists.linux.dev>, <linux-renesas-soc@lists.infradead.org>,
+        <linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>
+References: <f8cef6845a6141f0277e31a71fe153612daae776.1731436631.git.geert+renesas@glider.be>
+Content-Language: en-US
+From: Oreoluwa Babatunde <quic_obabatun@quicinc.com>
+In-Reply-To: <f8cef6845a6141f0277e31a71fe153612daae776.1731436631.git.geert+renesas@glider.be>
+X-Originating-IP: [10.80.80.8]
+X-ClientProxiedBy: nasanex01a.na.qualcomm.com (10.52.223.231) To
+ nalasex01b.na.qualcomm.com (10.47.209.197)
+X-QCInternal: smtphost
+X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
+X-Proofpoint-ORIG-GUID: eu28F4D7NQKeyjXetHBQsxyFMsnBtuw5
+X-Proofpoint-GUID: eu28F4D7NQKeyjXetHBQsxyFMsnBtuw5
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1039,Hydra:6.0.680,FMLib:17.12.60.29
+ definitions=2024-09-06_09,2024-09-06_01,2024-09-02_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 mlxscore=0 clxscore=1011
+ impostorscore=0 lowpriorityscore=0 suspectscore=0 spamscore=0
+ priorityscore=1501 phishscore=0 malwarescore=0 mlxlogscore=999
+ adultscore=0 bulkscore=0 classifier=spam adjust=0 reason=mlx scancount=1
+ engine=8.19.0-2409260000 definitions=main-2411130149
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241113_093717_888790_1B5A5E00 
-X-CRM114-Status: GOOD (  37.08  )
+X-CRM114-CacheID: sfid-20241113_100309_822230_808DA6EA 
+X-CRM114-Status: GOOD (  24.64  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,72 +99,113 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gVGh1LCBPY3QgMzEsIDIwMjQgYXQgMDQ6Mjk6NDlQTSArMDgwMCwgeXVuaHVpIGN1aSB3cm90
-ZToKPiBIaSBKZXNzaWNhLAo+IAo+IE9uIFNhdCwgT2N0IDI2LCAyMDI0IGF0IDEyOjMy4oCvQU0g
-SmVzc2ljYSBDbGFya2UgPGpydGMyN0BqcnRjMjcuY29tPiB3cm90ZToKPiA+Cj4gPiBPbiAyNSBP
-Y3QgMjAyNCwgYXQgMTE6MTYsIENvbm9yIERvb2xleSA8Y29ub3JAa2VybmVsLm9yZz4gd3JvdGU6
-Cj4gPiA+IE9uIEZyaSwgT2N0IDI1LCAyMDI0IGF0IDA1OjE1OjI3UE0gKzA4MDAsIFl1bmh1aSBD
-dWkgd3JvdGU6Cj4gPiA+PiBMaWtlIFppY2JveiwgYnkgZW5hYmxpbmcgdGhlIGNvcnJlc3BvbmRp
-bmcgYml0cyBvZiBzZW52Y2ZnLAo+ID4gPj4gdGhlIGluc3RydWN0aW9ucyBjYm8uY2xlYW4sIGNi
-by5mbHVzaCwgYW5kIGNiby5pbnZhbCBjYW4gYmUKPiA+ID4+IGV4ZWN1dGVkIG5vcm1hbGx5IGlu
-IHVzZXIgbW9kZS4KPiA+ID4+Cj4gPiA+PiBTaWduZWQtb2ZmLWJ5OiBZdW5odWkgQ3VpIDxjdWl5
-dW5odWlAYnl0ZWRhbmNlLmNvbT4KPiA+ID4+IC0tLQo+ID4gPj4gYXJjaC9yaXNjdi9rZXJuZWwv
-Y3B1ZmVhdHVyZS5jIHwgMiArLQo+ID4gPj4gMSBmaWxlIGNoYW5nZWQsIDEgaW5zZXJ0aW9uKCsp
-LCAxIGRlbGV0aW9uKC0pCj4gPiA+Pgo+ID4gPj4gZGlmZiAtLWdpdCBhL2FyY2gvcmlzY3Yva2Vy
-bmVsL2NwdWZlYXR1cmUuYyBiL2FyY2gvcmlzY3Yva2VybmVsL2NwdWZlYXR1cmUuYwo+ID4gPj4g
-aW5kZXggMTk5MmVhNjQ3ODZlLi5iYzg1MDUxOGFiNDEgMTAwNjQ0Cj4gPiA+PiAtLS0gYS9hcmNo
-L3Jpc2N2L2tlcm5lbC9jcHVmZWF0dXJlLmMKPiA+ID4+ICsrKyBiL2FyY2gvcmlzY3Yva2VybmVs
-L2NwdWZlYXR1cmUuYwo+ID4gPj4gQEAgLTkyNCw3ICs5MjQsNyBAQCB1bnNpZ25lZCBsb25nIHJp
-c2N2X2dldF9lbGZfaHdjYXAodm9pZCkKPiA+ID4+IHZvaWQgX19pbml0IHJpc2N2X3VzZXJfaXNh
-X2VuYWJsZSh2b2lkKQo+ID4gPj4gewo+ID4gPj4gaWYgKHJpc2N2X2hhc19leHRlbnNpb25fdW5s
-aWtlbHkoUklTQ1ZfSVNBX0VYVF9aSUNCT1opKQo+ID4gPj4gLSBjdXJyZW50LT50aHJlYWQuZW52
-Y2ZnIHw9IEVOVkNGR19DQlpFOwo+ID4gPj4gKyBjdXJyZW50LT50aHJlYWQuZW52Y2ZnIHw9IEVO
-VkNGR19DQklFIHwgRU5WQ0ZHX0NCQ0ZFIHwgRU5WQ0ZHX0NCWkU7Cj4gPiA+Cj4gPiA+IEkgYmVs
-aWV2ZSB3ZSBwcmV2aW91c2x5IGRlY2lkZWQgdGhhdCB1c2Vyc3BhY2Ugc2hvdWxkIG5vdCBiZSBh
-bGxvd2VkIHRvCj4gPiA+IHVzZSB6aWNib20sIGJ1dCB0aGF0IG5vdCB3aXRoc3RhbmRpbmcgLSB0
-aGlzIGlzIHdyb25nLiBJdCBzaG91bGQgYmUKPiA+ID4gY2hlY2tpbmcgZm9yIFppY2JvbSwgbm90
-IFppY2Jvei4KPiA+Cj4gPiBBbGxvd2luZyBjbGVhbi9mbHVzaCBpcyBzYWZlIGJ1dCBoYXMgdGhl
-IHNhbWUgcHJvYmxlbXMgYXMgZmVuY2UuaSB3aXRoCj4gPiByZWdhcmRzIHRvIG1pZ3JhdGluZyBi
-ZXR3ZWVuIGhhcnRzLiBBbGxvd2luZyBpbnZhbGlkYXRlLCB1bmxlc3MgbWFwcGVkCj4gPiB0byBm
-bHVzaCwgaXMgbm90IHNhZmUgaW4gZ2VuZXJhbCB1bmxlc3MgdGhlIGtlcm5lbCBkb2VzIGEgbG90
-IG9mCj4gPiBmbHVzaGluZyB0byBhdm9pZCB1c2Vyc3BhY2UgYWNjZXNzaW5nIGRhdGEgaXQgc2hv
-dWxkbuKAmXQgYmUgYWJsZSB0byBzZWUuCj4gPgo+ID4gQWxzbywgRU5WQ0ZHX0NCSUUgaXMgYSBt
-YXNrIGZvciBhIG11bHRpLWJpdCBmaWVsZCwgd2hpY2ggaGFwcGVucyB0bwo+ID4gaGF2ZSB0aGUg
-c2FtZSB2YWx1ZSBhcyBFTlZDRkdfQ0JJRV9JTlYgKGkuZS4gcmVhbGx5IGlzIG1ha2luZyBjYm8u
-aW52YWwKPiA+IGJlIGFuIGludmFsaWRhdGUpLiBJIG5vdGUgdGhhdCB0aGUgS1ZNIGNvZGUsIHdo
-aWNoIHRoaXMgbGlrZWx5IGNvcGllZAo+ID4gZnJvbSg/KSwgbWFrZXMgdGhlIHNhbWUgbWlzdGFr
-ZSwgYnV0IHRoZXJlIHRoYXQgaXMgdGhlIGludGVuZGVkCj4gPiBiZWhhdmlvdXIsIGlmIG1pc2xl
-YWRpbmcgYWJvdXQgd2hhdCB0aGUgZmllbGQgcmVhbGx5IGlzLgo+ID4KPiA+IFNvLCB3aXRoIHN1
-aXRhYmxlIGNhdmVhdHMsIGFsbG93aW5nIGNsZWFuL2ZsdXNoIGNvdWxkIGJlIGEgcmVhc29uYWJs
-ZQo+ID4gdGhpbmcgdG8gZG8gKG1heWJlIHVzZWZ1bCBmb3IgdXNlcnNwYWNlIGRyaXZlcnMgc28g
-bG9uZyBhcyB0aGV5IHBpbgo+ID4gdGhlbXNlbHZlcyB0byBhIHNwZWNpZmljIGhhcnQ/KSwgYnV0
-IGludmFsaWRhdGUgc2hvdWxkIG9ubHkgZXZlciBiZQo+ID4gYWxsb3dlZCBpZiBtYXBwZWQgdG8g
-Zmx1c2guCj4gPgo+ID4gSmVzcwo+ID4KPiBZZXMuIFRoZSBvcmlnaW5hbCBpbnRlbnRpb24gaXMg
-dG8gZW5hYmxlIGNsZWFuL2ZsdXNoL2ludmFsaWQuIFNvCj4gRU5WQ0ZHX0NCSUUgfCBFTlZDRkdf
-Q0JDRkUgaXMgYWRkZWQuIFdoZW4gb25lIGNvcmUgaW5pdGlhdGVzIGFuCj4gaW52YWxpZGF0aW9u
-LCBvdGhlciBjb3JlcyB3aWxsIGFsc28gaW52YWxpZGF0ZSB0aGUgY29ycmVzcG9uZGluZyBjYWNo
-ZQo+IGxpbmUuIFNvIGRvIHdlIG5vdCBuZWVkIHRvIHdvcnJ5IGFib3V0IHRoaXMgcHJvYmxlbT8g
-TW9yZW92ZXIsCj4gaW52YWxpZGF0aW9uIGlzIG5vdCBmb3VuZCBpbiB0aGUgbG9naWMgb2YgZGlz
-YWJsaW5nIHByZWVtcHRpb24gaW4gdGhlCj4ga2VybmVsLiBPciBwZXJoYXBzIGJpbmRpbmcgY29y
-ZXMgYmVsb25ncyB0byB0aGUgdXNlci1zcGFjZSdzIG93bgo+IGxvZ2ljLiBDYW4gdGhpcyBwYXRj
-aCBiZSBmaXhlZCBhcyBSSVNDVl9JU0FfRVhUX1pJQ0JPTSBhbmQgdGhlbiBhIHYyCj4gYmUgc2Vu
-dD8KCkplc3NpY2EgcG9pbnRzIG91dCB0aGF0IENCSUUgc2hvdWxkIG9ubHkgYmUgc2V0IGlmIGl0
-J3MgMGIwMSBidXQgaXQncwpjdXJyZW50bHkgMGIxMSwgc28ganVzdCBjaGFuZ2luZyBSSVNDVl9J
-U0FfRVhUX1pJQ0JPTSBpcyBpbnN1ZmZpY2llbnQKZm9yIHYyLgoKSXMgdGhlcmUgYSB1c2UgY2Fz
-ZSBmb3IgdXNlcm1vZGUgdG8gaGF2ZSBhbiBpbnZhbGlkYXRlIHdpdGhvdXQgYSBjbGVhbj8KSWYg
-c28sIHRoZW4gaXMgdGhhdCB1c2UgY2FzZSBub3QgcHJlc2VudCBvbiBBcm0gcGxhdGZvcm1zIG9y
-IGlzIHRoZXJlIGEKd29ya2Fyb3VuZCBmb3IgQXJtIHBsYXRmb3Jtcz8gQmVjYXVzZSBBcm0ncyAn
-REMgSVZBQycgaXMgb25seSBhbGxvd2VkIGZvcgpFTDEgYW5kIGhpZ2hlci4gVG8gYmUgY29uc2lz
-dGVudCB3aXRoIEFybSB3ZSBjYW4gYWRkIGNiby5mbHVzaCBhbmQKY2JvLmNsZWFuIChDQkNGRSkg
-c2luY2UgQXJtIGRvZXMgYWxsb3cgZXhwb3NpbmcgJ0RDIENJVkFDJyBhbmQgJ0RDIENWQUMnCnRv
-IEVMMC4gU2luY2UgaXQgbG9va3MgbGlrZSBDQklFPTBiMDEgd291bGQganVzdCBtYWtlIGNiby5p
-bnZhbCBhbiBhbGlhcwpvZiBjYm8uZmx1c2gsIHRoZW4gSSdtIG5vdCBzdXJlIGl0IG1ha2VzIHNl
-bnNlIHRvIHNldCBpdCwgaW4gZmFjdCBpdCBtYXkKanVzdCBjb25mdXNlIHRoaW5ncy4KClRoYW5r
-cywKZHJldwoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18K
-bGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcK
-aHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
+
+On 11/12/2024 10:39 AM, Geert Uytterhoeven wrote:
+> On RZ/Five, which is non-coherent, and uses CONFIG_DMA_GLOBAL_POOL=y:
+>
+>     Oops - store (or AMO) access fault [#1]
+>     CPU: 0 UID: 0 PID: 1 Comm: swapper Not tainted 6.12.0-rc1-00015-g8a6e02d0c00e #201
+>     Hardware name: Renesas SMARC EVK based on r9a07g043f01 (DT)
+>     epc : __memset+0x60/0x100
+>      ra : __dma_alloc_from_coherent+0x150/0x17a
+>     epc : ffffffff8062d2bc ra : ffffffff80053a94 sp : ffffffc60000ba20
+>      gp : ffffffff812e9938 tp : ffffffd601920000 t0 : ffffffc6000d0000
+>      t1 : 0000000000000000 t2 : ffffffffe9600000 s0 : ffffffc60000baa0
+>      s1 : ffffffc6000d0000 a0 : ffffffc6000d0000 a1 : 0000000000000000
+>      a2 : 0000000000001000 a3 : ffffffc6000d1000 a4 : 0000000000000000
+>      a5 : 0000000000000000 a6 : ffffffd601adacc0 a7 : ffffffd601a841a8
+>      s2 : ffffffd6018573c0 s3 : 0000000000001000 s4 : ffffffd6019541e0
+>      s5 : 0000000200000022 s6 : ffffffd6018f8410 s7 : ffffffd6018573e8
+>      s8 : 0000000000000001 s9 : 0000000000000001 s10: 0000000000000010
+>      s11: 0000000000000000 t3 : 0000000000000000 t4 : ffffffffdefe62d1
+>      t5 : 000000001cd6a3a9 t6 : ffffffd601b2aad6
+>     status: 0000000200000120 badaddr: ffffffc6000d0000 cause: 0000000000000007
+>     [<ffffffff8062d2bc>] __memset+0x60/0x100
+>     [<ffffffff80053e1a>] dma_alloc_from_global_coherent+0x1c/0x28
+>     [<ffffffff80053056>] dma_direct_alloc+0x98/0x112
+>     [<ffffffff8005238c>] dma_alloc_attrs+0x78/0x86
+>     [<ffffffff8035fdb4>] rz_dmac_probe+0x3f6/0x50a
+>     [<ffffffff803a0694>] platform_probe+0x4c/0x8a
+>
+> If CONFIG_DMA_GLOBAL_POOL=y, the reserved_mem structure passed to
+> rmem_dma_setup() is saved for later use, by saving the passed pointer.
+> However, when dma_init_reserved_memory() is called later, the pointer
+> has become stale, causing a crash.
+>
+> E.g. in the RZ/Five case, the referenced memory now contains the
+> reserved_mem structure for the "mmode_resv0@30000" node (with base
+> 0x30000 and size 0x10000), instead of the correct "pma_resv0@58000000"
+> node (with base 0x58000000 and size 0x8000000).
+>
+> Fix this by saving the needed reserved_mem structure's contents instead.
+>
+> Fixes: 8a6e02d0c00e7b62 ("of: reserved_mem: Restructure how the reserved memory regions are processed")
+> Signed-off-by: Geert Uytterhoeven <geert+renesas@glider.be>
+Reviewed-by: Oreoluwa Babatunde <quic_obabatun@quicinc.com>
+> ---
+>  kernel/dma/coherent.c | 14 ++++++++------
+>  1 file changed, 8 insertions(+), 6 deletions(-)
+>
+> diff --git a/kernel/dma/coherent.c b/kernel/dma/coherent.c
+> index ff5683a57f77126d..3b2bdca9f1d4b027 100644
+> --- a/kernel/dma/coherent.c
+> +++ b/kernel/dma/coherent.c
+> @@ -330,7 +330,8 @@ int dma_init_global_coherent(phys_addr_t phys_addr, size_t size)
+>  #include <linux/of_reserved_mem.h>
+>  
+>  #ifdef CONFIG_DMA_GLOBAL_POOL
+> -static struct reserved_mem *dma_reserved_default_memory __initdata;
+> +static phys_addr_t dma_reserved_default_memory_base __initdata;
+> +static phys_addr_t dma_reserved_default_memory_size __initdata;
+>  #endif
+>  
+>  static int rmem_dma_device_init(struct reserved_mem *rmem, struct device *dev)
+> @@ -376,9 +377,10 @@ static int __init rmem_dma_setup(struct reserved_mem *rmem)
+>  
+>  #ifdef CONFIG_DMA_GLOBAL_POOL
+>  	if (of_get_flat_dt_prop(node, "linux,dma-default", NULL)) {
+> -		WARN(dma_reserved_default_memory,
+> +		WARN(dma_reserved_default_memory_size,
+>  		     "Reserved memory: region for default DMA coherent area is redefined\n");
+> -		dma_reserved_default_memory = rmem;
+> +		dma_reserved_default_memory_base = rmem->base;
+> +		dma_reserved_default_memory_size = rmem->size;
+>  	}
+>  #endif
+>  
+> @@ -391,10 +393,10 @@ static int __init rmem_dma_setup(struct reserved_mem *rmem)
+>  #ifdef CONFIG_DMA_GLOBAL_POOL
+>  static int __init dma_init_reserved_memory(void)
+>  {
+> -	if (!dma_reserved_default_memory)
+> +	if (!dma_reserved_default_memory_size)
+>  		return -ENOMEM;
+> -	return dma_init_global_coherent(dma_reserved_default_memory->base,
+> -					dma_reserved_default_memory->size);
+> +	return dma_init_global_coherent(dma_reserved_default_memory_base,
+> +					dma_reserved_default_memory_size);
+>  }
+>  core_initcall(dma_init_reserved_memory);
+>  #endif /* CONFIG_DMA_GLOBAL_POOL */
+Hi Geert,
+
+Thanks for providing a fix!
+
+I also looked around more to see if there are more places that
+could store a stale reference to rmem but I didn't see any others,
+so I think we are good!
+
+I have given my "reviewed-by" tag as well.
+
+Thank you!
+Oreoluwa
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
