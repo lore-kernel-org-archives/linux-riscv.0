@@ -4,71 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 225F1D41C27
-	for <linux-riscv@archiver.kernel.org>; Wed, 13 Nov 2024 10:07:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A81D2D41C2F
+	for <linux-riscv@archiver.kernel.org>; Wed, 13 Nov 2024 10:28:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ZEHCShypuUULqK6BJzmzsp+OcXXqZlgjp8q51CF6F2I=; b=r7XNCQZvQSNEMA
-	bx2kWhpjz2ZKXHXiWwP49CJyBOG2zoEBawj2bNyCIP9xwwdglahMr64q2RK8kBjK63/KayUrdrjKT
-	G6t9ksSw71s1xpBOHw21UbsQFw3Y1D6Yp6sDsGxJPn7uvkYd305LXrjhdvJnhkvd+8mkejE3SJZqw
-	oHpXOnRMJOUAje1TdplhWc3DlA9wMGvv3MVnfyt6c1/8tdP5ZQnaf+/KVFyVuDapSHjPPUFFcgs3j
-	aqnOr629zcokLPeNajvR4zcS19RRSTPyrKRIY9SmnxO9gfj88HnkQHjDkR+Bs1JaRUHbIcJ5PHqCn
-	jfDkMZ8FZkk6U5o/cy5w==;
+	List-Owner; bh=COHOSZqSz3edt3ude9DvbydLW27RKCrwT/2UozfNd8U=; b=UbK1qsSh5egNyV
+	WIdJl/W6BZG84RiuWla1RveQLQuRKPb4oCJPIxA+EnWygaMOPBvaMj/UYwrLIBRnJFN0H7DT4W43Y
+	qxnblu9Ve4JM5UaBisvoBPPiIy0FdznsOIlCwKho3ErBS1Cz88ZO4xIZBq+C9hbbgNuC7U3CM3G8F
+	O/pF4szouJEA6iKFtWEzV542WSqjArNxgOgs7Ek5q58hrHHhux4AERjqOq6wfRPn0nefcLUmBGjBJ
+	+cuYqZseqFywH4JPKc6ZhS+Dcnn3MDy8pMUT4OSZT6QBMr6Zr2SeKVqHfq/IZGB1B/TpoHAnWVqoY
+	BNESoNUz/sdiXfDhT11w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tBAHR-00000006NEV-2kxS;
-	Wed, 13 Nov 2024 10:07:21 +0000
-Received: from smtp84.cstnet.cn ([159.226.251.84] helo=cstnet.cn)
+	id 1tBAbS-00000006RS7-1I7t;
+	Wed, 13 Nov 2024 10:28:02 +0000
+Received: from mail-lf1-x131.google.com ([2a00:1450:4864:20::131])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tBAGC-00000006Mz8-2049
+	id 1tBAMp-00000006Ogm-0PZ5
 	for linux-riscv@lists.infradead.org;
-	Wed, 13 Nov 2024 10:07:19 +0000
-Received: from ubt.. (unknown [210.73.53.31])
-	by APP-05 (Coremail) with SMTP id zQCowADHr7p4eDRnlmI4Ag--.57753S4;
-	Wed, 13 Nov 2024 17:59:22 +0800 (CST)
-From: Chunyan Zhang <zhangchunyan@iscas.ac.cn>
-To: Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	Andrew Morton <akpm@linux-foundation.org>
-Cc: linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Chunyan Zhang <zhang.lyra@gmail.com>
-Subject: [PATCH V5 2/3] riscv: mm: Add soft-dirty page tracking support
-Date: Wed, 13 Nov 2024 17:58:32 +0800
-Message-Id: <20241113095833.1805746-3-zhangchunyan@iscas.ac.cn>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20241113095833.1805746-1-zhangchunyan@iscas.ac.cn>
-References: <20241113095833.1805746-1-zhangchunyan@iscas.ac.cn>
+	Wed, 13 Nov 2024 10:12:56 +0000
+Received: by mail-lf1-x131.google.com with SMTP id 2adb3069b0e04-53da3545908so100930e87.1
+        for <linux-riscv@lists.infradead.org>; Wed, 13 Nov 2024 02:12:54 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ventanamicro.com; s=google; t=1731492773; x=1732097573; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=9Yk33hxQ8pXLz/rgooBZgy2xgA/bFgiodLJzSUupZzc=;
+        b=nGL1xdj2VylzHqDForoLEZgHyaWSFeOpo3X+GBl9wyC7G41yyGSTeuS/iJH3gapUlg
+         PeqjUVe7KlW/XSn0c+yUwNiwEujO+YDzrRSCM4xAfrmaXhTpWqMvSeYTve1LhMf/pPL8
+         LGdz/khviWlw0hG458z3ZeVuuOEs/H/h7MhHam5gHa0vhc9c4C4w5I/k/RiYstq7vyD5
+         rdZHvETRBX6A98cjbApFny7cy0qw09VO10ITu9ndbKZO0qjvtCLSJdc0QZtpyEw7lS1X
+         9+Mwk1FX5YYS+JNNJcI2krfwtt9Ktb0KQ7+OsjrZ89DIgyDKAeiwPQVongM/ugF2KcQ2
+         Oi8Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1731492773; x=1732097573;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=9Yk33hxQ8pXLz/rgooBZgy2xgA/bFgiodLJzSUupZzc=;
+        b=wwQqIUi3BmMsJfjmX87+ZKI/oibvgR40FI2++JvpKlzBqB5T/DkiVjoguYgNkPZ2XS
+         sl33MAIsiHBdwav8XtJk465VDdaKcNzyZ1KvQpp0+fh/xeRUVPwIxwUi0H6LgqqQXGWe
+         c8eRLye+vFEnjJdKhvtX0X2ipZ3UlCQ5oxHN6ag8GDA3Sjij22CgCzaP6BXrOoHrEi8G
+         CNzJzG/YlJNvehhqxz6nvNb9gFi3YoZbCQTI6n7TlgnfraYU1to5rUrsqmzvTpYQotbo
+         9ddTm5FS9u2l9K05cu1+AXEn8NmIc1eJY621UrOn6Xpowcd5OFFhbWZkfmaanJPGtVfC
+         rv6w==
+X-Gm-Message-State: AOJu0YxMVIXewzbhTYt28B/40NfCu+Uv8opsJaI5AbVjVHO4O0EwhL1T
+	AdtexFiO6uS3GWhtKRu6cq7JX39kb/cxbYo28FU6Q6xIEymmjSwaZcAVl+1asFRTnw/TGfb/gHP
+	vCyU=
+X-Google-Smtp-Source: AGHT+IG9exkIP5QMhjPUONuni8MjnzqLWYBvEl2g1ACHJSMUZumkZ7wkVGO1F4n2zYUS1sdGd2vL4A==
+X-Received: by 2002:a05:6512:3d89:b0:539:d870:9a51 with SMTP id 2adb3069b0e04-53d86302f33mr9424096e87.48.1731492772870;
+        Wed, 13 Nov 2024 02:12:52 -0800 (PST)
+Received: from localhost (cst2-173-13.cust.vodafone.cz. [31.30.173.13])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-432d55108f0sm18942605e9.36.2024.11.13.02.12.52
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 13 Nov 2024 02:12:52 -0800 (PST)
+Date: Wed, 13 Nov 2024 11:12:51 +0100
+From: Andrew Jones <ajones@ventanamicro.com>
+To: Ben Dooks <ben.dooks@codethink.co.uk>
+Cc: linux-riscv@lists.infradead.org, palmer@dabbelt.com, alex@ghiti.fr
+Subject: Re: [PATCH 1/3] riscv: ptrace: add regs_set_register()
+Message-ID: <20241113-58aebadd1b4916382031abaa@orel>
+References: <20241113091703.3133017-1-ben.dooks@codethink.co.uk>
+ <20241113091703.3133017-2-ben.dooks@codethink.co.uk>
 MIME-Version: 1.0
-X-CM-TRANSID: zQCowADHr7p4eDRnlmI4Ag--.57753S4
-X-Coremail-Antispam: 1UD129KBjvJXoW3AF4fXF13Cr4rKw1kWry5XFb_yoW7ZrWDpF
-	s5GF1rZayFyFn3Kayftr4qgrWYywn3Way5Xry3Ca1kJayUGrWUXFZ0gr13X345XFykZa4f
-	ZrZ5Kay5CrsrJr7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUPFb7Iv0xC_tr1lb4IE77IF4wAFF20E14v26rWj6s0DM7CY07I2
-	0VC2zVCF04k26cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28IrcIa0xkI8VA2jI
-	8067AKxVWUXwA2048vs2IY020Ec7CjxVAFwI0_Gr0_Xr1l8cAvFVAK0II2c7xJM28CjxkF
-	64kEwVA0rcxSw2x7M28EF7xvwVC0I7IYx2IY67AKxVWUCVW8JwA2z4x0Y4vE2Ix0cI8IcV
-	CY1x0267AKxVW8JVWxJwA2z4x0Y4vEx4A2jsIE14v26F4UJVW0owA2z4x0Y4vEx4A2jsIE
-	c7CjxVAFwI0_GcCE3s1le2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xvF2IEw4CE5I
-	8CrVC2j2WlYx0E2Ix0cI8IcVAFwI0_Jr0_Jr4lYx0Ex4A2jsIE14v26r4j6F4UMcvjeVCF
-	s4IE7xkEbVWUJVW8JwACjcxG0xvY0x0EwIxGrwCY1x0262kKe7AKxVWUAVWUtwCY02Avz4
-	vE14v_GFWl42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x0Yz7v_Jr0_Gr1lx2IqxVAqx4xG
-	67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2zVAF1VAY17CE14v26r1q6r43MI
-	IYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF4lIxAIcVC0I7IYx2IY6xkF7I0E
-	14v26r4j6F4UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWUCwCI42IY6I8E87Iv67AKxVWUJV
-	W8JwCI42IY6I8E87Iv6xkF7I0E14v26r4j6r4UJbIYCTnIWIevJa73UjIFyTuYvjxU37PE
-	UUUUU
-X-Originating-IP: [210.73.53.31]
-X-CM-SenderInfo: x2kd0wxfkx051dq6x2xfdvhtffof0/1tbiBwkAB2c0ciEVcgAAsu
+Content-Disposition: inline
+In-Reply-To: <20241113091703.3133017-2-ben.dooks@codethink.co.uk>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241113_020604_910981_0EE943EB 
-X-CRM114-Status: GOOD (  14.85  )
+X-CRM114-CacheID: sfid-20241113_021255_173827_A9DF29F7 
+X-CRM114-Status: GOOD (  21.23  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,194 +92,62 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The PTE bit(9) is reserved for software, now used by devmap,
-this patch reuses bit(9) for soft-dirty which is enabled only
-if !CONFIG_ARCH_HAS_PTE_DEVMAP, in other words, soft-dirty
-and devmap will be mutually exclusive on RISC-V.
+On Wed, Nov 13, 2024 at 09:17:01AM +0000, Ben Dooks wrote:
+> Since we have regs_get_register() and we could use the set counterpart
+> for things like fixing up traps, add regs_set_register() to set a pt_regs
+> value from offset.
+> 
+> Signed-off-by: Ben Dooks <ben.dooks@codethink.co.uk>
+> ---
+>  arch/riscv/include/asm/ptrace.h | 20 ++++++++++++++++++++
+>  1 file changed, 20 insertions(+)
+> 
+> diff --git a/arch/riscv/include/asm/ptrace.h b/arch/riscv/include/asm/ptrace.h
+> index b5b0adcc85c1..66fc1795141d 100644
+> --- a/arch/riscv/include/asm/ptrace.h
+> +++ b/arch/riscv/include/asm/ptrace.h
+> @@ -143,6 +143,26 @@ static inline unsigned long regs_get_register(struct pt_regs *regs,
+>  	return *(unsigned long *)((unsigned long)regs + offset);
+>  }
+>  
+> +/**
+> + * regs_set_register() - set register value from its offset
 
-To add swap PTE soft-dirty tracking, we borrow bit(4) which is
-available for swap PTEs on RISC-V systems.
+s/from/at/
 
-Reviewed-by: Alexandre Ghiti <alexghiti@rivosinc.com>
-Signed-off-by: Chunyan Zhang <zhangchunyan@iscas.ac.cn>
----
- arch/riscv/Kconfig                    | 27 ++++++++++-
- arch/riscv/include/asm/pgtable-bits.h | 12 +++++
- arch/riscv/include/asm/pgtable.h      | 69 ++++++++++++++++++++++++++-
- 3 files changed, 106 insertions(+), 2 deletions(-)
+> + * @regs:	pt_regs from which register value is gotten
 
-diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-index f4c570538d55..3bccdcae9445 100644
---- a/arch/riscv/Kconfig
-+++ b/arch/riscv/Kconfig
-@@ -40,7 +40,6 @@ config RISCV
- 	select ARCH_HAS_NON_OVERLAPPING_ADDRESS_SPACE
- 	select ARCH_HAS_PMEM_API
- 	select ARCH_HAS_PREPARE_SYNC_CORE_CMD
--	select ARCH_HAS_PTE_DEVMAP if 64BIT && MMU
- 	select ARCH_HAS_PTE_SPECIAL
- 	select ARCH_HAS_SET_DIRECT_MAP if MMU
- 	select ARCH_HAS_SET_MEMORY if MMU
-@@ -966,6 +965,32 @@ config RANDOMIZE_BASE
- 
-           If unsure, say N.
- 
-+choice
-+	prompt "PTE RSW bit(9) usage"
-+	default RISCV_HAS_PTE_DEVMAP
-+	depends on MMU && 64BIT
-+	help
-+	  RISC-V PTE bit(9) is reserved for software, and used by more than
-+	  one kernel feature which cannot be supported at the same time.
-+	  So we have to select one for it.
-+
-+config RISCV_HAS_PTE_DEVMAP
-+	bool "devmap"
-+	select ARCH_HAS_PTE_DEVMAP
-+	help
-+	  The PTE bit(9) is used for devmap mark. ZONE_DEVICE pages need devmap
-+	  PTEs support to function.
-+
-+	  So if you want to use ZONE_DEVICE, select this.
-+
-+config RISCV_HAS_SOFT_DIRTY
-+	bool "soft-dirty"
-+	select HAVE_ARCH_SOFT_DIRTY
-+	help
-+	  The PTE bit(9) is used for soft-dirty tracking.
-+
-+endchoice
-+
- endmenu # "Kernel features"
- 
- menu "Boot options"
-diff --git a/arch/riscv/include/asm/pgtable-bits.h b/arch/riscv/include/asm/pgtable-bits.h
-index 5bcc73430829..c6d51fe9fc6f 100644
---- a/arch/riscv/include/asm/pgtable-bits.h
-+++ b/arch/riscv/include/asm/pgtable-bits.h
-@@ -26,6 +26,18 @@
- #define _PAGE_DEVMAP	0
- #endif /* CONFIG_ARCH_HAS_PTE_DEVMAP */
- 
-+#ifdef CONFIG_MEM_SOFT_DIRTY
-+#define _PAGE_SOFT_DIRTY	(1 << 9)    /* RSW: 0x2 for software dirty tracking */
-+/*
-+ * BIT 4 is not involved into swap entry computation, so we
-+ * can borrow it for swap page soft-dirty tracking.
-+ */
-+#define _PAGE_SWP_SOFT_DIRTY	_PAGE_USER
-+#else
-+#define _PAGE_SOFT_DIRTY	0
-+#define _PAGE_SWP_SOFT_DIRTY	0
-+#endif /* CONFIG_MEM_SOFT_DIRTY */
-+
- #define _PAGE_TABLE     _PAGE_PRESENT
- 
- /*
-diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
-index e79f15293492..1779eae5cb49 100644
---- a/arch/riscv/include/asm/pgtable.h
-+++ b/arch/riscv/include/asm/pgtable.h
-@@ -424,7 +424,7 @@ static inline pte_t pte_mkwrite_novma(pte_t pte)
- 
- static inline pte_t pte_mkdirty(pte_t pte)
- {
--	return __pte(pte_val(pte) | _PAGE_DIRTY);
-+	return __pte(pte_val(pte) | _PAGE_DIRTY | _PAGE_SOFT_DIRTY);
- }
- 
- static inline pte_t pte_mkclean(pte_t pte)
-@@ -457,6 +457,38 @@ static inline pte_t pte_mkhuge(pte_t pte)
- 	return pte;
- }
- 
-+#ifdef CONFIG_HAVE_ARCH_SOFT_DIRTY
-+static inline int pte_soft_dirty(pte_t pte)
-+{
-+	return pte_val(pte) & _PAGE_SOFT_DIRTY;
-+}
-+
-+static inline pte_t pte_mksoft_dirty(pte_t pte)
-+{
-+	return __pte(pte_val(pte) | _PAGE_SOFT_DIRTY);
-+}
-+
-+static inline pte_t pte_clear_soft_dirty(pte_t pte)
-+{
-+	return __pte(pte_val(pte) & ~(_PAGE_SOFT_DIRTY));
-+}
-+
-+static inline int pte_swp_soft_dirty(pte_t pte)
-+{
-+	return pte_val(pte) & _PAGE_SWP_SOFT_DIRTY;
-+}
-+
-+static inline pte_t pte_swp_mksoft_dirty(pte_t pte)
-+{
-+	return __pte(pte_val(pte) | _PAGE_SWP_SOFT_DIRTY);
-+}
-+
-+static inline pte_t pte_swp_clear_soft_dirty(pte_t pte)
-+{
-+	return __pte(pte_val(pte) & ~(_PAGE_SWP_SOFT_DIRTY));
-+}
-+#endif /* CONFIG_HAVE_ARCH_SOFT_DIRTY */
-+
- #ifdef CONFIG_RISCV_ISA_SVNAPOT
- #define pte_leaf_size(pte)	(pte_napot(pte) ?				\
- 					napot_cont_size(napot_cont_order(pte)) :\
-@@ -757,6 +789,40 @@ static inline pmd_t pmd_mkdevmap(pmd_t pmd)
- 	return pte_pmd(pte_mkdevmap(pmd_pte(pmd)));
- }
- 
-+#ifdef CONFIG_HAVE_ARCH_SOFT_DIRTY
-+static inline int pmd_soft_dirty(pmd_t pmd)
-+{
-+	return pte_soft_dirty(pmd_pte(pmd));
-+}
-+
-+static inline pmd_t pmd_mksoft_dirty(pmd_t pmd)
-+{
-+	return pte_pmd(pte_mksoft_dirty(pmd_pte(pmd)));
-+}
-+
-+static inline pmd_t pmd_clear_soft_dirty(pmd_t pmd)
-+{
-+	return pte_pmd(pte_clear_soft_dirty(pmd_pte(pmd)));
-+}
-+
-+#ifdef CONFIG_ARCH_ENABLE_THP_MIGRATION
-+static inline int pmd_swp_soft_dirty(pmd_t pmd)
-+{
-+	return pte_swp_soft_dirty(pmd_pte(pmd));
-+}
-+
-+static inline pmd_t pmd_swp_mksoft_dirty(pmd_t pmd)
-+{
-+	return pte_pmd(pte_swp_mksoft_dirty(pmd_pte(pmd)));
-+}
-+
-+static inline pmd_t pmd_swp_clear_soft_dirty(pmd_t pmd)
-+{
-+	return pte_pmd(pte_swp_clear_soft_dirty(pmd_pte(pmd)));
-+}
-+#endif /* CONFIG_ARCH_ENABLE_THP_MIGRATION */
-+#endif /* CONFIG_HAVE_ARCH_SOFT_DIRTY */
-+
- static inline void set_pmd_at(struct mm_struct *mm, unsigned long addr,
- 				pmd_t *pmdp, pmd_t pmd)
- {
-@@ -847,6 +913,7 @@ extern pmd_t pmdp_collapse_flush(struct vm_area_struct *vma,
-  * Format of swap PTE:
-  *	bit            0:	_PAGE_PRESENT (zero)
-  *	bit       1 to 3:       _PAGE_LEAF (zero)
-+ *	bit	       4:	_PAGE_SWP_SOFT_DIRTY
-  *	bit            5:	_PAGE_PROT_NONE (zero)
-  *	bit            6:	exclusive marker
-  *	bits      7 to 11:	swap type
--- 
-2.34.1
+s/gotten/set/
 
+> + * @offset:	offset of the register.
+> + * @to:		value to set register to
+
+Can we name this 'value' instead of 'to'?
+
+> + *
+> + * regs_set_register sets the value @to to a register whose offset from @regs.
+> + * The @offset is the offset of the register in struct pt_regs.
+> + * If @offset is bigger than MAX_REG_OFFSET, this will ignore the write.
+> + */
+> +static inline void regs_set_register(struct pt_regs *regs,
+> +				     unsigned int offset,
+> +				     unsigned long to)
+> +{
+> +	if (unlikely(offset > MAX_REG_OFFSET))
+> +		return;
+> +
+> +	*(unsigned long *)((unsigned long)regs + offset) = to;
+> +}
+> +
+>  /**
+>   * regs_get_kernel_argument() - get Nth function argument in kernel
+>   * @regs:       pt_regs of that context
+> -- 
+> 2.37.2.352.g3c44437643
+>
+
+Thanks,
+drew
 
 _______________________________________________
 linux-riscv mailing list
