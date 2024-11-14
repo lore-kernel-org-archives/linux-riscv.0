@@ -4,80 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB1F0D65C64
-	for <linux-riscv@archiver.kernel.org>; Thu, 14 Nov 2024 09:38:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9A07D68B32
+	for <linux-riscv@archiver.kernel.org>; Thu, 14 Nov 2024 15:33:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=8/jHG7GedDjY4HqeR7Pl3DHS5gZzo/BNRLQUZ82Zsgw=; b=tiEAlXh201Y9g6
-	sIF82HZ65Tq/ZN08bJc411XgUlDqTc00z9lYVBtQts70pYMEi/iFzb0PH7K+ze78g3KWHpptO8q+5
-	nEjSm0ktP7DGfC9vldQCJCP09xiMw3IG342UQuWmEYAWgu5M2CWLX+V7Sf3lAiGxS96+ZWVAvVnyK
-	DkNGGmQE66qH9TBKmpGXGrt+moOizI/WrAagaUWFM3XJR5pKGwTkus8CMjmHj4QTwyqm30TBIpMRc
-	KVNbv76lETPqRiK+JjnDD4jxWr+M6izXGlCdC4szLoMnNmOw/q7ToOU1K/z6CPr8SWnjbPdilOPor
-	uuDKFGIt9NftCm5+Bb7Q==;
+	List-Owner; bh=wJLwIAT9xTibarjhiddKvGiV3NFP5sTSB45p6Ntb8TA=; b=tM/7dWoag/lei4
+	f0okoCqlsibgdPLbEZ4JppB2UllB/hFXJ+S1Rn88VqdZOiM1Tod/5cH8v8akUjCsgb6L6K3ihHEWc
+	afSb14j9qP/KWtg81zdOa6WaijQaBicp9GcZIzGYhNXr//JMYPKiGaryYBIr8tswugeDtOI1eycq9
+	kqrGH6DnoUfBp3mueWrCuEwAdbNDVUPjqv71ueGlApXAAhWTe4VIt+dZdC/FSkExnnz2pYXcNw6n/
+	o5LOV443SHuIFprLaR1HmhoXaePsxmQPiuaA7eiA1tPPEx3TsmYtthM184SnjeQPrmh2fdfgC5snx
+	PuIWzPHjv3YLMQt8Okjw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tBWJ0-00000009OKA-3hmD;
-	Thu, 14 Nov 2024 09:38:26 +0000
-Received: from mail-ua1-x932.google.com ([2607:f8b0:4864:20::932])
+	id 1tBbqj-000000000Zq-1VjX;
+	Thu, 14 Nov 2024 15:33:37 +0000
+Received: from mail-pl1-x62b.google.com ([2607:f8b0:4864:20::62b])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tBWIP-00000009O8J-1D1u
+	id 1tBb5s-0000000AFSg-19wM
 	for linux-riscv@lists.infradead.org;
-	Thu, 14 Nov 2024 09:37:50 +0000
-Received: by mail-ua1-x932.google.com with SMTP id a1e0cc1a2514c-84fb1225a89so193006241.2;
-        Thu, 14 Nov 2024 01:37:48 -0800 (PST)
+	Thu, 14 Nov 2024 14:45:13 +0000
+Received: by mail-pl1-x62b.google.com with SMTP id d9443c01a7336-20c8b557f91so7456485ad.2
+        for <linux-riscv@lists.infradead.org>; Thu, 14 Nov 2024 06:45:11 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1731577067; x=1732181867; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
+        d=gmail.com; s=20230601; t=1731595510; x=1732200310; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=ehGB6dTMf4LXNmabx+6xsT2G4N4oRc0A26QJig4YDNQ=;
-        b=LOtpRFLCa5weY917lMyXgyVAhZHqpnGl22Zl1FxgSfAIbQfXwGhIYuXf9VYvlAYXtU
-         hdyIozSvEuyr8sQD9jUAvuSvX0VdVsEREJXvQjMsL3pG5dxLoo+qPFrIbBF5zwjZyF10
-         /8FxGItl0NN1a4y3wR2kLP1A588h0+PQP9qAp2LwxngsyhFfTwvk4F6QncWK5AU8O8LX
-         LHf0q0U9UTBTdl4LzZQnSF/tvGY/fTHOTtfjiTG1qh2twn86xowUmbR2CSQt4D6oKsXo
-         8RJM9Sj17RW4AtQRu1AzW3TwxOpQHAPS71WYUaDII26S2UnbpQYXceBXLB+wju8CuSo7
-         56Bg==
+        bh=P4N/miMj+TGmWS0ohyBPlFx+ca8H6wpyxHTxDzJvgeM=;
+        b=KqrzDyXIvilWf5OqQZvf9owkwBDe7rGPV4cUx3yhWO4a3T9l7bSuICWosKhaenIyna
+         tV0xVIyCbBIOaYL/OLVoeYHQJmA/cctw7ytGn2VFbLS9diF8HYsxAUiIqlbL8Qf6ztHH
+         0I8A1bZ5rB/Fu8d0U6UA6Ud4HuI+yF7M0HeGKn+FutYBH2Wn/ruS2N4GXb7Put0DtXQ6
+         796vZyyHIrLQymVDtPJZKCDwxCiq6Yv9UKT/Z62n2qe1kDp7PzLXHVMZiCO/PKqDo3Zu
+         X5eD8mluiftgSrrE/dryT0vQkAhn2LHLSW3v/xzbaxHVBNHS5U1cV8EkvRjiq1p3+JZ0
+         YnvA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1731577067; x=1732181867;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+        d=1e100.net; s=20230601; t=1731595510; x=1732200310;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=ehGB6dTMf4LXNmabx+6xsT2G4N4oRc0A26QJig4YDNQ=;
-        b=Xd97G3Ponxbk068rinad72SnrCgOSISqAeVIvirAd+DkPt9VIBN+9R/KWcha97sQ81
-         uoZWccxOpqZ1dR9N9RczpPxR5bTqcOrNNF+XNOzv39rTj7jsR+ls9FgXbrXugBW2Cun7
-         C3XniEv6MV1g5YvJpB3SUwM/IeIvpGyIJexJ6V0sLx9j9axqITmEuqSR33e6WhB4SaQg
-         mFCPVQXL3CpRy/8fHhRRjVe1WQRWD1uUu0ECD5+BmmLxC7/8jR7KylEyItGX68fN71f/
-         nHTTUIt4kXo2CBmXxgVDFhicBC41nL9zKVcY26WmYIpXNmC9Eg1JBH/njgxCRLy6LR3T
-         BS+g==
-X-Forwarded-Encrypted: i=1; AJvYcCUA7MmOzQ8p+8yuNffPedkvbCUbBZTlAuW+I04JrcRFNbSCxC/ApgH909g9p5qD7UMc05RQ0qGvbVLpTxgu6ZPV6Q==@lists.infradead.org, AJvYcCVFwNdMgSxncyFgeGwb05g3fI/B3fp+gFUGWlnyxSbP/Gz8NPX31PsPhNZNzO7IVMbfttaWqWnLPK6KWuk=@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz4xJLaPnLYx1equOA+Ip+Xmcl+bbSu+zctBrG15RJEF/koWeTK
-	73w8Y4Es8ZT4Ao+Bl4qrMNlWuKvvbKOM2q+iqxFfjmcdAF5aary8nwSKfAoN6EjBkC1lOhGOqbT
-	hAsaiavEpjrMMa1loVLJyn6RV8YM=
-X-Google-Smtp-Source: AGHT+IHI15hqHssAzfGGtyXPf31+1ZqoEAtir3h7D+FOXfOCfYcI4E+WZhvgG1S5uTZEAKfrOixmorXSlStST/rghQ8=
-X-Received: by 2002:a05:6102:32cf:b0:4a3:c6f3:89c9 with SMTP id
- ada2fe7eead31-4aae138dcccmr23911356137.11.1731577066793; Thu, 14 Nov 2024
- 01:37:46 -0800 (PST)
+        bh=P4N/miMj+TGmWS0ohyBPlFx+ca8H6wpyxHTxDzJvgeM=;
+        b=uxNz9v1suxiTiibXr3Eo1Li+WZm3O+tMgT5eNQNWSUx2d8sDYFyqbB02Y3LXcMwcoi
+         AYQnh24EIrFo9UUM2hf6U0rj1XlZkFpkXdPPANlzL6m00a73WwK7cTO6fAXtpZ+BmnZ4
+         BhqE4HSj7p045g5UFCLXieSXAzDqdqSjIAGo5Y6FDreNyW2zFYl0lAySmL//9lT3UWgu
+         Auq/MK5fqhgMdKtFtDj9a0W/kyt06CkxhrThfrT8ecXG6AK6tJJV1QDvOc3kv5+UYzyK
+         96SA2xtZYfucb9vwafTwzerNrvSL1OZecorQoxFjNZD7Hv43IB4wMD9izRxmiFYqs3LT
+         YQhQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWkxZYB/7Sg/HaTC8JXvwjOewJfUkLFnclaTVUwfELhIktmu51pbB2dhhLDByHHT2iC6Xjjl6SwpCfdNg==@lists.infradead.org
+X-Gm-Message-State: AOJu0YwwWwkRv0SALpIGwrPmIJI7hdtghZFS4XpqRHS+V779EGAf7Z3k
+	qqAYdp0gl+rKAEU4kqU3pHvWQzWbuV7QOqRE4Te8vzfwlOBHu+CJ
+X-Google-Smtp-Source: AGHT+IE0999Q/8nTfXBkwDEyF3u/q1q6CgeFE9IcqTQLQIHnJWjElF7feqrBmFwff1OpG8xeosJmrg==
+X-Received: by 2002:a17:902:e945:b0:20c:a175:1943 with SMTP id d9443c01a7336-21183d67aa0mr353917955ad.40.1731595510408;
+        Thu, 14 Nov 2024 06:45:10 -0800 (PST)
+Received: from localhost.localdomain ([45.137.180.202])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-211c7c2d38bsm11588055ad.41.2024.11.14.06.45.07
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 14 Nov 2024 06:45:10 -0800 (PST)
+From: Zhihang Shao <zhihang.shao.iscas@gmail.com>
+To: zhangchunyan@iscas.ac.cn,
+	ebiggers@kernel.org
+Cc: akpm@linux-foundation.org,
+	aou@eecs.berkeley.edu,
+	davem@davemloft.net,
+	herbert@gondor.apana.org.au,
+	linux-crypto@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	palmer@dabbelt.com,
+	paul.walmsley@sifive.com,
+	zhihang.shao.iscas@gmail.com
+Subject: [PATCH v2] riscv: Optimize crct10dif with zbc extension
+Date: Thu, 14 Nov 2024 14:42:04 +0000
+Message-Id: <20241114144204.427915-1-zhihang.shao.iscas@gmail.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20241113134655.GA794@quark.localdomain>
+References: <20241113134655.GA794@quark.localdomain>
 MIME-Version: 1.0
-References: <f8cef6845a6141f0277e31a71fe153612daae776.1731436631.git.geert+renesas@glider.be>
-In-Reply-To: <f8cef6845a6141f0277e31a71fe153612daae776.1731436631.git.geert+renesas@glider.be>
-From: "Lad, Prabhakar" <prabhakar.csengg@gmail.com>
-Date: Thu, 14 Nov 2024 09:37:20 +0000
-Message-ID: <CA+V-a8sdSBFin=edpj+p5k4KZU4aen+k0acJVTD35YxTbE1qYQ@mail.gmail.com>
-Subject: Re: [PATCH] dma-mapping: Save base/size instead of pointer to shared
- DMA pool
-To: Geert Uytterhoeven <geert+renesas@glider.be>
-Cc: Oreoluwa Babatunde <quic_obabatun@quicinc.com>, Rob Herring <robh@kernel.org>, 
-	Christoph Hellwig <hch@lst.de>, Marek Szyprowski <m.szyprowski@samsung.com>, 
-	Robin Murphy <robin.murphy@arm.com>, iommu@lists.linux.dev, 
-	linux-renesas-soc@lists.infradead.org, linux-riscv@lists.infradead.org, 
-	linux-kernel@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241114_013749_360150_23EEF758 
-X-CRM114-Status: GOOD (  14.55  )
+X-CRM114-CacheID: sfid-20241114_064512_350908_027171E2 
+X-CRM114-Status: GOOD (  18.51  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,57 +97,272 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gVHVlLCBOb3YgMTIsIDIwMjQgYXQgNjo0MeKAr1BNIEdlZXJ0IFV5dHRlcmhvZXZlbgo8Z2Vl
-cnQrcmVuZXNhc0BnbGlkZXIuYmU+IHdyb3RlOgo+Cj4gT24gUlovRml2ZSwgd2hpY2ggaXMgbm9u
-LWNvaGVyZW50LCBhbmQgdXNlcyBDT05GSUdfRE1BX0dMT0JBTF9QT09MPXk6Cj4KPiAgICAgT29w
-cyAtIHN0b3JlIChvciBBTU8pIGFjY2VzcyBmYXVsdCBbIzFdCj4gICAgIENQVTogMCBVSUQ6IDAg
-UElEOiAxIENvbW06IHN3YXBwZXIgTm90IHRhaW50ZWQgNi4xMi4wLXJjMS0wMDAxNS1nOGE2ZTAy
-ZDBjMDBlICMyMDEKPiAgICAgSGFyZHdhcmUgbmFtZTogUmVuZXNhcyBTTUFSQyBFVksgYmFzZWQg
-b24gcjlhMDdnMDQzZjAxIChEVCkKPiAgICAgZXBjIDogX19tZW1zZXQrMHg2MC8weDEwMAo+ICAg
-ICAgcmEgOiBfX2RtYV9hbGxvY19mcm9tX2NvaGVyZW50KzB4MTUwLzB4MTdhCj4gICAgIGVwYyA6
-IGZmZmZmZmZmODA2MmQyYmMgcmEgOiBmZmZmZmZmZjgwMDUzYTk0IHNwIDogZmZmZmZmYzYwMDAw
-YmEyMAo+ICAgICAgZ3AgOiBmZmZmZmZmZjgxMmU5OTM4IHRwIDogZmZmZmZmZDYwMTkyMDAwMCB0
-MCA6IGZmZmZmZmM2MDAwZDAwMDAKPiAgICAgIHQxIDogMDAwMDAwMDAwMDAwMDAwMCB0MiA6IGZm
-ZmZmZmZmZTk2MDAwMDAgczAgOiBmZmZmZmZjNjAwMDBiYWEwCj4gICAgICBzMSA6IGZmZmZmZmM2
-MDAwZDAwMDAgYTAgOiBmZmZmZmZjNjAwMGQwMDAwIGExIDogMDAwMDAwMDAwMDAwMDAwMAo+ICAg
-ICAgYTIgOiAwMDAwMDAwMDAwMDAxMDAwIGEzIDogZmZmZmZmYzYwMDBkMTAwMCBhNCA6IDAwMDAw
-MDAwMDAwMDAwMDAKPiAgICAgIGE1IDogMDAwMDAwMDAwMDAwMDAwMCBhNiA6IGZmZmZmZmQ2MDFh
-ZGFjYzAgYTcgOiBmZmZmZmZkNjAxYTg0MWE4Cj4gICAgICBzMiA6IGZmZmZmZmQ2MDE4NTczYzAg
-czMgOiAwMDAwMDAwMDAwMDAxMDAwIHM0IDogZmZmZmZmZDYwMTk1NDFlMAo+ICAgICAgczUgOiAw
-MDAwMDAwMjAwMDAwMDIyIHM2IDogZmZmZmZmZDYwMThmODQxMCBzNyA6IGZmZmZmZmQ2MDE4NTcz
-ZTgKPiAgICAgIHM4IDogMDAwMDAwMDAwMDAwMDAwMSBzOSA6IDAwMDAwMDAwMDAwMDAwMDEgczEw
-OiAwMDAwMDAwMDAwMDAwMDEwCj4gICAgICBzMTE6IDAwMDAwMDAwMDAwMDAwMDAgdDMgOiAwMDAw
-MDAwMDAwMDAwMDAwIHQ0IDogZmZmZmZmZmZkZWZlNjJkMQo+ICAgICAgdDUgOiAwMDAwMDAwMDFj
-ZDZhM2E5IHQ2IDogZmZmZmZmZDYwMWIyYWFkNgo+ICAgICBzdGF0dXM6IDAwMDAwMDAyMDAwMDAx
-MjAgYmFkYWRkcjogZmZmZmZmYzYwMDBkMDAwMCBjYXVzZTogMDAwMDAwMDAwMDAwMDAwNwo+ICAg
-ICBbPGZmZmZmZmZmODA2MmQyYmM+XSBfX21lbXNldCsweDYwLzB4MTAwCj4gICAgIFs8ZmZmZmZm
-ZmY4MDA1M2UxYT5dIGRtYV9hbGxvY19mcm9tX2dsb2JhbF9jb2hlcmVudCsweDFjLzB4MjgKPiAg
-ICAgWzxmZmZmZmZmZjgwMDUzMDU2Pl0gZG1hX2RpcmVjdF9hbGxvYysweDk4LzB4MTEyCj4gICAg
-IFs8ZmZmZmZmZmY4MDA1MjM4Yz5dIGRtYV9hbGxvY19hdHRycysweDc4LzB4ODYKPiAgICAgWzxm
-ZmZmZmZmZjgwMzVmZGI0Pl0gcnpfZG1hY19wcm9iZSsweDNmNi8weDUwYQo+ICAgICBbPGZmZmZm
-ZmZmODAzYTA2OTQ+XSBwbGF0Zm9ybV9wcm9iZSsweDRjLzB4OGEKPgo+IElmIENPTkZJR19ETUFf
-R0xPQkFMX1BPT0w9eSwgdGhlIHJlc2VydmVkX21lbSBzdHJ1Y3R1cmUgcGFzc2VkIHRvCj4gcm1l
-bV9kbWFfc2V0dXAoKSBpcyBzYXZlZCBmb3IgbGF0ZXIgdXNlLCBieSBzYXZpbmcgdGhlIHBhc3Nl
-ZCBwb2ludGVyLgo+IEhvd2V2ZXIsIHdoZW4gZG1hX2luaXRfcmVzZXJ2ZWRfbWVtb3J5KCkgaXMg
-Y2FsbGVkIGxhdGVyLCB0aGUgcG9pbnRlcgo+IGhhcyBiZWNvbWUgc3RhbGUsIGNhdXNpbmcgYSBj
-cmFzaC4KPgo+IEUuZy4gaW4gdGhlIFJaL0ZpdmUgY2FzZSwgdGhlIHJlZmVyZW5jZWQgbWVtb3J5
-IG5vdyBjb250YWlucyB0aGUKPiByZXNlcnZlZF9tZW0gc3RydWN0dXJlIGZvciB0aGUgIm1tb2Rl
-X3Jlc3YwQDMwMDAwIiBub2RlICh3aXRoIGJhc2UKPiAweDMwMDAwIGFuZCBzaXplIDB4MTAwMDAp
-LCBpbnN0ZWFkIG9mIHRoZSBjb3JyZWN0ICJwbWFfcmVzdjBANTgwMDAwMDAiCj4gbm9kZSAod2l0
-aCBiYXNlIDB4NTgwMDAwMDAgYW5kIHNpemUgMHg4MDAwMDAwKS4KPgo+IEZpeCB0aGlzIGJ5IHNh
-dmluZyB0aGUgbmVlZGVkIHJlc2VydmVkX21lbSBzdHJ1Y3R1cmUncyBjb250ZW50cyBpbnN0ZWFk
-Lgo+Cj4gRml4ZXM6IDhhNmUwMmQwYzAwZTdiNjIgKCJvZjogcmVzZXJ2ZWRfbWVtOiBSZXN0cnVj
-dHVyZSBob3cgdGhlIHJlc2VydmVkIG1lbW9yeSByZWdpb25zIGFyZSBwcm9jZXNzZWQiKQo+IFNp
-Z25lZC1vZmYtYnk6IEdlZXJ0IFV5dHRlcmhvZXZlbiA8Z2VlcnQrcmVuZXNhc0BnbGlkZXIuYmU+
-Cj4gLS0tCj4gIGtlcm5lbC9kbWEvY29oZXJlbnQuYyB8IDE0ICsrKysrKysrLS0tLS0tCj4gIDEg
-ZmlsZSBjaGFuZ2VkLCA4IGluc2VydGlvbnMoKyksIDYgZGVsZXRpb25zKC0pCj4KVGVzdGVkLWJ5
-OiBMYWQgUHJhYmhha2FyIDxwcmFiaGFrYXIubWFoYWRldi1sYWQucmpAYnAucmVuZXNhcy5jb20+
-CgpDaGVlcnMsClByYWJoYWthcgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmlu
-ZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9s
-aW51eC1yaXNjdgo=
+The current CRC-T10DIF algorithm is based on table-lookup optimization.
+Given the previous work on optimizing crc32 calculations with zbc
+extension, it is believed that this will be equally effective for
+accelerating crc-t10dif.
+Therefore, this patch offers an implementation of crc-t10dif using zbc
+extension. This can detect whether the current runtime environment
+supports zbc feature and, if so, uses it to accelerate crc-t10dif
+calculations.
+
+This patch is tested on QEMU VM with the crypto self-tests both rv64 and
+rv32.
+
+Signed-off-by: Zhihang Shao <zhihang.shao.iscas@gmail.com>
+
+---
+v2:
+- Use crypto self-tests instead. (Eric)
+- Fix some format errors in arch/riscv/crypto/Kconfig. (Chunyan)
+---
+ arch/riscv/crypto/Kconfig               |  13 ++
+ arch/riscv/crypto/Makefile              |   4 +
+ arch/riscv/crypto/crct10dif-riscv-zbc.c | 182 ++++++++++++++++++++++++
+ 3 files changed, 199 insertions(+)
+ create mode 100644 arch/riscv/crypto/crct10dif-riscv-zbc.c
+
+diff --git a/arch/riscv/crypto/Kconfig b/arch/riscv/crypto/Kconfig
+index ad58dad9a580..12107bc50bb1 100644
+--- a/arch/riscv/crypto/Kconfig
++++ b/arch/riscv/crypto/Kconfig
+@@ -29,6 +29,19 @@ config CRYPTO_CHACHA_RISCV64
+ 	  Architecture: riscv64 using:
+ 	  - Zvkb vector crypto extension
+ 
++config CRYPTO_CRCT10DIF_RISCV
++	tristate "Checksum: CRCT10DIF"
++	depends on TOOLCHAIN_HAS_ZBC
++	depends on MMU
++	depends on RISCV_ALTERNATIVE
++	default y
++	help
++	  CRCT10DIF checksum with Zbc extension optimized
++	  To accelerate CRCT10DIF checksum, choose Y here.
++
++	  Architecture: riscv using:
++	  - Zbc extension
++
+ config CRYPTO_GHASH_RISCV64
+ 	tristate "Hash functions: GHASH"
+ 	depends on 64BIT && RISCV_ISA_V && TOOLCHAIN_HAS_VECTOR_CRYPTO
+diff --git a/arch/riscv/crypto/Makefile b/arch/riscv/crypto/Makefile
+index 247c7bc7288c..6f849f4dc4cc 100644
+--- a/arch/riscv/crypto/Makefile
++++ b/arch/riscv/crypto/Makefile
+@@ -7,6 +7,9 @@ aes-riscv64-y := aes-riscv64-glue.o aes-riscv64-zvkned.o \
+ obj-$(CONFIG_CRYPTO_CHACHA_RISCV64) += chacha-riscv64.o
+ chacha-riscv64-y := chacha-riscv64-glue.o chacha-riscv64-zvkb.o
+ 
++obj-$(CONFIG_CRYPTO_CRCT10DIF_RISCV) += crct10dif-riscv.o
++crct10dif-riscv-y := crct10dif-riscv-zbc.o
++
+ obj-$(CONFIG_CRYPTO_GHASH_RISCV64) += ghash-riscv64.o
+ ghash-riscv64-y := ghash-riscv64-glue.o ghash-riscv64-zvkg.o
+ 
+@@ -21,3 +24,4 @@ sm3-riscv64-y := sm3-riscv64-glue.o sm3-riscv64-zvksh-zvkb.o
+ 
+ obj-$(CONFIG_CRYPTO_SM4_RISCV64) += sm4-riscv64.o
+ sm4-riscv64-y := sm4-riscv64-glue.o sm4-riscv64-zvksed-zvkb.o
++
+diff --git a/arch/riscv/crypto/crct10dif-riscv-zbc.c b/arch/riscv/crypto/crct10dif-riscv-zbc.c
+new file mode 100644
+index 000000000000..01571b4286f1
+--- /dev/null
++++ b/arch/riscv/crypto/crct10dif-riscv-zbc.c
+@@ -0,0 +1,182 @@
++// SPDX-License-Identifier: GPL-2.0-only
++/*
++ * Accelerated CRC-T10DIF implementation with RISC-V Zbc extension.
++ *
++ * Copyright (C) 2024 Institute of Software, CAS.
++ */
++
++#include <asm/alternative-macros.h>
++#include <asm/byteorder.h>
++#include <asm/hwcap.h>
++
++#include <crypto/internal/hash.h>
++
++#include <linux/byteorder/generic.h>
++#include <linux/crc-t10dif.h>
++#include <linux/minmax.h>
++#include <linux/module.h>
++#include <linux/types.h>
++
++static u16 crc_t10dif_generic_zbc(u16 crc, unsigned char const *p, size_t len);
++
++#define CRCT10DIF_POLY 0x8bb7
++
++#if __riscv_xlen == 64
++#define STEP_ORDER 3
++
++#define CRCT10DIF_POLY_QT_BE 0xf65a57f81d33a48a
++
++static inline u64 crct10dif_prep(u16 crc, unsigned long const *ptr)
++{
++	return ((u64)crc << 48) ^ (__force u64)__cpu_to_be64(*ptr);
++}
++
++#elif __riscv_xlen == 32
++#define STEP_ORDER 2
++#define CRCT10DIF_POLY_QT_BE 0xf65a57f8
++
++static inline u32 crct10dif_prep(u16 crc, unsigned long const *ptr)
++{
++	return ((u32)crc << 16) ^ (__force u32)__cpu_to_be32(*ptr);
++}
++
++#else
++#error "Unexpected __riscv_xlen"
++#endif
++
++static inline u16 crct10dif_zbc(unsigned long s)
++{
++	u16 crc;
++
++	asm volatile   (".option push\n"
++			".option arch,+zbc\n"
++			"clmulh %0, %1, %2\n"
++			"xor    %0, %0, %1\n"
++			"clmul  %0, %0, %3\n"
++			".option pop\n"
++			: "=&r" (crc)
++			: "r"(s),
++			  "r"(CRCT10DIF_POLY_QT_BE),
++			  "r"(CRCT10DIF_POLY)
++			:);
++
++	return crc;
++}
++
++#define STEP (1 << STEP_ORDER)
++#define OFFSET_MASK (STEP - 1)
++
++static inline u16 crct10dif_unaligned(u16 crc, unsigned char const *p, size_t len)
++{
++	size_t bits = len * 8;
++	unsigned long s = 0;
++	u16 crc_low = 0;
++
++	for (int i = 0; i < len; i++)
++		s = *p++ | (s << 8);
++
++	if (len < sizeof(u16)) {
++		s ^= crc >> (16 - bits);
++		crc_low = crc << bits;
++	} else {
++		s ^= (unsigned long)crc << (bits - 16);
++	}
++
++	crc = crct10dif_zbc(s);
++	crc ^= crc_low;
++
++	return crc;
++}
++
++static u16 crc_t10dif_generic_zbc(u16 crc, unsigned char const *p, size_t len)
++{
++	size_t offset, head_len, tail_len;
++	unsigned long const *p_ul;
++	unsigned long s;
++
++	offset = (unsigned long)p & OFFSET_MASK;
++	if (offset && len) {
++		head_len = min(STEP - offset, len);
++		crc = crct10dif_unaligned(crc, p, head_len);
++		p += head_len;
++		len -= head_len;
++	}
++
++	tail_len = len & OFFSET_MASK;
++	len = len >> STEP_ORDER;
++	p_ul = (unsigned long const *)p;
++
++	for (int i = 0; i < len; i++) {
++		s = crct10dif_prep(crc, p_ul);
++		crc = crct10dif_zbc(s);
++		p_ul++;
++	}
++
++	p = (unsigned char const *)p_ul;
++	if (tail_len)
++		crc = crct10dif_unaligned(crc, p, tail_len);
++
++	return crc;
++}
++
++static int crc_t10dif_init(struct shash_desc *desc)
++{
++	u16 *crc = shash_desc_ctx(desc);
++
++	*crc = 0;
++
++	return 0;
++}
++
++static int crc_t10dif_final(struct shash_desc *desc, u8 *out)
++{
++	u16 *crc = shash_desc_ctx(desc);
++
++	*(u16 *)out = *crc;
++
++	return 0;
++}
++
++static int crc_t10dif_update_zbc(struct shash_desc *desc, const u8 *data,
++				unsigned int length)
++{
++	u16 *crc = shash_desc_ctx(desc);
++
++	*crc = crc_t10dif_generic_zbc(*crc, data, length);
++
++	return 0;
++}
++
++static struct shash_alg crc_t10dif_alg = {
++	.digestsize		= CRC_T10DIF_DIGEST_SIZE,
++	.init			= crc_t10dif_init,
++	.update			= crc_t10dif_update_zbc,
++	.final			= crc_t10dif_final,
++	.descsize		= CRC_T10DIF_DIGEST_SIZE,
++
++	.base.cra_name		= "crct10dif",
++	.base.cra_driver_name	= "crct10dif-riscv-zbc",
++	.base.cra_priority	= 150,
++	.base.cra_blocksize	= CRC_T10DIF_BLOCK_SIZE,
++	.base.cra_module	= THIS_MODULE,
++};
++
++static int __init crc_t10dif_mod_init(void)
++{
++	if (riscv_isa_extension_available(NULL, ZBC))
++		return crypto_register_shash(&crc_t10dif_alg);
++
++	return -ENODEV;
++}
++
++static void __exit crc_t10dif_mod_exit(void)
++{
++	crypto_unregister_shash(&crc_t10dif_alg);
++}
++
++module_init(crc_t10dif_mod_init);
++module_exit(crc_t10dif_mod_exit);
++
++MODULE_DESCRIPTION("CRC-T10DIF using RISC-V ZBC Extension");
++MODULE_ALIAS_CRYPTO("crct10dif");
++MODULE_LICENSE("GPL");
+-- 
+2.34.1
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
