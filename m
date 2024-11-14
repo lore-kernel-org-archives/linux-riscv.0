@@ -4,97 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C071D637D6
-	for <linux-riscv@archiver.kernel.org>; Thu, 14 Nov 2024 02:25:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 55F7AD637D9
+	for <linux-riscv@archiver.kernel.org>; Thu, 14 Nov 2024 02:45:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=S8jFT5pBGotwua4Pmn7kuXYROWEGfLdkRoYNrNIQZ3o=; b=bMhzCrso8LgYiZ
-	zSw0WQ0+pzUqIydpE+uoJCqlPeL+KuZ7Yy68meezlXG23xFGIOJpjLAAeY9Am8S99wQSMYokIDR2z
-	V94bE1oX37J/rKq3URQC6gPElwYZJ286qmlBjChMZROrVn3WYKqwoxbmmR82cgXHwiANwhk4BrAVK
-	lFrqkBlB3bjP37GsKZ45sgW4JxJdVkkYHXc/fjm/OFL0og83DZ+//ZWiwEots+pm+aHk/0/3q5jp8
-	83b7IvES7cpdSt+Oxm8RAT0cOtoa5juVKW9ZiseCsuHgiwm5u9jycRe7IixesE4YF3dMFZ0uZGUR7
-	63Ia19o0IkMOiU3EWNow==;
+	List-Owner; bh=GyyN5uj1wAJvlXVCoKTazPRNqg2NupyBtJVBZeqYl8s=; b=wJm2JVRGOdgAjd
+	5fB7fy8nEbQQfM7cWSFnpk29qo7bl4vV6oFhSSIiWrsxsf1B5QQM+EbBd3JPqFj7v9+WXEre3BDAE
+	BnELEm50To5zMSwOJyIXAqnvcyC8SnKws/XnxyU6sKXUPmv/O3R/Y6Ea2qroY6xNUiJJ7lkrYRSEA
+	6WHmNJbyCoHGizrT8y+4R8R8e1Z4wDPG9Wbbqcbt3QSmARt+yOsnosgvGp8Se20YgkBODL51Kn2Xt
+	A/7jUDCoe7E+/zBvpOa+GZ7dvhQ4L/q5Jf/FEmBV92w1EZ8Pi7UjX1IYzjH5r+m4yQ+Bp8nsHNDKD
+	3tdaq9jEsrvKnA/qeu5Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tBPXS-00000008XpT-1DQz;
-	Thu, 14 Nov 2024 02:24:54 +0000
-Received: from mail-pl1-x633.google.com ([2607:f8b0:4864:20::633])
+	id 1tBPqu-00000008aZf-1wpX;
+	Thu, 14 Nov 2024 02:45:00 +0000
+Received: from mail-pl1-x630.google.com ([2607:f8b0:4864:20::630])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tBPXO-00000008XnB-1tWG
+	id 1tBPqr-00000008aZC-0ySG
 	for linux-riscv@lists.infradead.org;
-	Thu, 14 Nov 2024 02:24:52 +0000
-Received: by mail-pl1-x633.google.com with SMTP id d9443c01a7336-20c693b68f5so862105ad.1
-        for <linux-riscv@lists.infradead.org>; Wed, 13 Nov 2024 18:24:50 -0800 (PST)
+	Thu, 14 Nov 2024 02:44:58 +0000
+Received: by mail-pl1-x630.google.com with SMTP id d9443c01a7336-20c8b557f91so797565ad.2
+        for <linux-riscv@lists.infradead.org>; Wed, 13 Nov 2024 18:44:57 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1731551089; x=1732155889; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=bOcIjTHmkKYE/MldB59+Mp7THVJA1dMXMhLp3+u7Zpk=;
-        b=iP99BbOz56ErSDvLKZ5rQy5NbZ8Ued2wlGvIxWRKS4nOsT90lLdtjw95RjnIoAGyxo
-         PBxI1gi7nYHpOdjrqDBBUGsqSGHX4O1j+l7Ae0OETBcPJX5vmTyH++myss5SnP/fq2GC
-         xue/Xtcg1pRbeX3psfKcrjmWmEr9PKVvkPbsyoz22F/77jc925NIpHksmLCAwrQUq9UC
-         Y7jbLPkNvYKlVTivfgqmVvNDf+3NFC+L5FLFGMHl7iko1GPGmfDv5xkRAyQ8cNN5SKp2
-         ZJxXq5aAx3FROcLybAGrGOHZRRXuu69l5bAOl/rSuSY+Lw5r1EpIPZjJPGUM+QqCodiw
-         i6eA==
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1731552296; x=1732157096; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=WdcMkjrb+r2dQccNRSrDbaweDAz3Ck5sldx466oumbU=;
+        b=dn4lX7xraOjiYhNWm8rTlwZEpdk7uPkBYbu0pV1G7fNJJiIWWJr70ctHWvXDMhc1w+
+         QpaqOj2Osjai4qUyH7xms42X96QYJ5U4+U1UktQt+BJHUnmZWm+/Bb0MZqUdeOFWMrhO
+         kzjHsI67kCDuIozQeHfQIjJPqQv6CE9JM840nC983Qjt0ea4qsdmEZ13/gHDpC6r2iOu
+         5y3E3yWWJqpsXMbe5pFwhSrWbgbtqpHUNYcMj9TcmJUCOosOYAYFKwQpPkVeqDrLYd9g
+         P91CLLQkGc+kVGnlHemwvt0qS4OWNBQ5DtjdIinDeyo/L5YD6I18YanJp2oqzMSQk8+K
+         7wJQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1731551089; x=1732155889;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=bOcIjTHmkKYE/MldB59+Mp7THVJA1dMXMhLp3+u7Zpk=;
-        b=EQzatul90dhXTGdXfZ5PCacYhwUenxKas1I3EM7wAPrE18ctzDBEV6VKXY6uCCdoVd
-         bgloSGZ9dVD8TgB0QABs+9gpO4KripacoFadbEcu7S7M2l6IoNfd/CPDG1dAu24i0BRD
-         mXhkAcY9nS4ZqS/mQM4E8y2U2Y82tknpFXItERWRkbWknMw7xOu4ve4aWKRPFaSqAW7r
-         /047aUQ8OsmG6ILjKPex0booHrMN/OJsbxJpVmhVd5xVkeKynFgUMB0tStCwzIcKANwd
-         BBFpccx+6iXWZOQzHOzEZdOdv1oEJYQafMEeuPexyc7/cKUmGVZJPjVdCqSg2MWhn8rR
-         5gRw==
-X-Forwarded-Encrypted: i=1; AJvYcCXCnx/eLgQUq/tOraoZRjK5p1re5w9YTJiEkgDoIHxgFuMvAiEo1tTkz8lDYc1Mi339ljAlDz1oVCyXOg==@lists.infradead.org
-X-Gm-Message-State: AOJu0YxWcItgbMR6rLEK3AeqlzAyYZKEFetmdRMvnJyojPiy2DsveiFE
-	TyBsHh+DrNz6bwpXpaHtEIJ7iY3xLKaTbrFVuErLXSGvZ7dj6trCedoxwkC5ei8=
-X-Google-Smtp-Source: AGHT+IFIy/N8ljrKihYLsmstk+E2hofbr+iVsyyNJcXN7lh1fccE1mzDgwapJOQoIdXEKN3f21A9eg==
-X-Received: by 2002:a17:903:2a8e:b0:20b:6d71:4140 with SMTP id d9443c01a7336-211b5d2a3b4mr74048485ad.44.1731551089470;
-        Wed, 13 Nov 2024 18:24:49 -0800 (PST)
+        d=1e100.net; s=20230601; t=1731552296; x=1732157096;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=WdcMkjrb+r2dQccNRSrDbaweDAz3Ck5sldx466oumbU=;
+        b=J33ZLVW6MJ7GTqlFRs9xPBJfrITaFUqriWM0n9VqmAavGkoj9IsUDleLNegMtfdSUX
+         Cuf9Rrip7KqjO4/m1PsEFW6V4sg67/0/Jgt2gFW6FpFZ2B8YHNWuZhKW0smUEw/xTCLS
+         et1CYPY//aXRnr5K3qmHnz+oi2hxsLsCGpf8ZoIEkmz6HPQTUkOJmp9S1MF2jYQFERlO
+         BOheEC/ji5KJmoBewgTVf6Pp3fPfajpm8e7MwnBhBeSnmqofdyoImoTexk4FeH7L4MWD
+         HMnoeJi/6gPVJQCuRGmG2C1WGYIqTxAnN9bdmdbvPuV0n7MLcIG555U5SaeYXNw+0xCU
+         os5Q==
+X-Forwarded-Encrypted: i=1; AJvYcCXOqVG5kC3vvYq3/dbOLS884uwWcp+HsX8eHYPIQEEhn2NdkvboRQJmSpkE95qS1PQTqhvpFHeFWv4UGg==@lists.infradead.org
+X-Gm-Message-State: AOJu0YxDAzaiVBNvoEMGQ6fgnvLMbbzn5J6PACswWwuJ5QVi3wo41m/M
+	L+7/Kg0M8beHXsPeQGycuF15qSIY7VnSU85yRaRqoGdFwesfx1lQnWyiQw8CXzI=
+X-Google-Smtp-Source: AGHT+IH6Xs4lgFv1oaN0XsNLzEkI58lA2wWDcm8+Ghq4CJS+XaUEnnYNsa0MMfbyvikgvl0OdnFK+A==
+X-Received: by 2002:a17:902:cf02:b0:20c:af07:a816 with SMTP id d9443c01a7336-21183d087c7mr317119425ad.31.1731552296485;
+        Wed, 13 Nov 2024 18:44:56 -0800 (PST)
 Received: from ghost ([50.145.13.30])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-211c7c2d520sm439875ad.29.2024.11.13.18.24.47
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-211c7d395acsm525455ad.271.2024.11.13.18.44.54
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 13 Nov 2024 18:24:48 -0800 (PST)
-Date: Wed, 13 Nov 2024 18:24:45 -0800
+        Wed, 13 Nov 2024 18:44:55 -0800 (PST)
+Date: Wed, 13 Nov 2024 18:44:53 -0800
 From: Charlie Jenkins <charlie@rivosinc.com>
-To: Yangyu Chen <cyy@cyyself.name>
-Cc: Conor Dooley <conor@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Jisheng Zhang <jszhang@kernel.org>, Chen-Yu Tsai <wens@csie.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>,
-	Samuel Holland <samuel.holland@sifive.com>,
-	Jonathan Corbet <corbet@lwn.net>, Shuah Khan <shuah@kernel.org>,
-	Guo Ren <guoren@kernel.org>, Evan Green <evan@rivosinc.com>,
-	Andy Chiu <andy.chiu@sifive.com>,
-	Jessica Clarke <jrtc27@jrtc27.com>,
+To: Aoba K <nexp_0x17@outlook.com>
+Cc: Albert Ou <aou@eecs.berkeley.edu>, Andy Chiu <andy.chiu@sifive.com>,
 	Andrew Jones <ajones@ventanamicro.com>,
-	linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-sunxi@lists.linux.dev,
-	linux-doc@vger.kernel.org, linux-kselftest@vger.kernel.org,
-	Conor Dooley <conor.dooley@microchip.com>
-Subject: Re: [PATCH v10 05/14] riscv: vector: Use vlenb from DT for thead
-Message-ID: <ZzVfbS8-NizjKkst@ghost>
+	Conor Dooley <conor@kernel.org>, Jonathan Corbet <corbet@lwn.net>,
+	Conor Dooley <conor.dooley@microchip.com>,
+	Evan Green <evan@rivosinc.com>, Guo Ren <guoren@kernel.org>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Jessica Clarke <jrtc27@jrtc27.com>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Jisheng Zhang <jszhang@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Rob Herring <robh@kernel.org>,
+	Samuel Holland <samuel.holland@sifive.com>,
+	Samuel Holland <samuel@sholland.org>, Shuah Khan <shuah@kernel.org>,
+	Chen-Yu Tsai <wens@csie.org>, linux-riscv@lists.infradead.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-sunxi@lists.linux.dev, linux-doc@vger.kernel.org,
+	linux-kselftest@vger.kernel.org
+Subject: Re: [PATCH v10 00/14] riscv: Add support for xtheadvector
+Message-ID: <ZzVkJd1lGy0TsjlW@ghost>
 References: <20240911-xtheadvector-v10-0-8d3930091246@rivosinc.com>
- <20240911-xtheadvector-v10-5-8d3930091246@rivosinc.com>
- <tencent_2EF88DF37C4B82B2DA0B8E49B85C312E2108@qq.com>
+ <CH0PR20MB393254369E401BF068005C7FCE752@CH0PR20MB3932.namprd20.prod.outlook.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <tencent_2EF88DF37C4B82B2DA0B8E49B85C312E2108@qq.com>
+In-Reply-To: <CH0PR20MB393254369E401BF068005C7FCE752@CH0PR20MB3932.namprd20.prod.outlook.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241113_182450_663007_2B5D1ED2 
-X-CRM114-Status: GOOD (  27.56  )
+X-CRM114-CacheID: sfid-20241113_184457_303000_CEB96769 
+X-CRM114-Status: GOOD (  41.26  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,114 +105,212 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gU3VuLCBOb3YgMTAsIDIwMjQgYXQgMDM6MzQ6NTRBTSArMDgwMCwgWWFuZ3l1IENoZW4gd3Jv
-dGU6Cj4gSGkgQ2hhcmxpZSwKPiAKPiBJIGhhdmUgdGVzdGVkIHRoaXMgcGF0Y2hzZXQgd2l0aCBn
-aG9zdHdyaXRlIHJlYmFzZWQgdG8gbGludXggY29tbWl0IGRhNDM3M2ZiY2YgKCJNZXJnZSB0YWcg
-J3RoZXJtYWwtNi4xMi1yYzcnIG9mIGdpdDovL2dpdC5rZXJuZWwub3JnL3B1Yi9zY20vbGludXgv
-a2VybmVsL2dpdC9yYWZhZWwvbGludXgtcG0iKSBbMV0gb24gbXkgRDEgTmV6aGEgYm9hcmQsIHdp
-dGggZGVmY29uZmlnICsgQ09ORklHX0VSUkFUQV9USEVBRF9HSE9TVFdSSVRFPW4sIEkgZ290IHRo
-aXMgbWVzc2FnZSBkdXJpbmcgYm9vdDoKPiAKPiBbICAgIDAuMDI3NTg0XSBLZXJuZWwgcGFuaWMg
-LSBub3Qgc3luY2luZzogX19rbWVtX2NhY2hlX2NyZWF0ZV9hcmdzOiBGYWlsZWQgdG8gY3JlYXRl
-IHNsYWIgJ3Jpc2N2X3ZlY3Rvcl9jdHgnLiBFcnJvciAtMjIKPiBbICAgIDAuMDM4MDU3XSBDUFU6
-IDAgVUlEOiAwIFBJRDogMCBDb21tOiBzd2FwcGVyLzAgTm90IHRhaW50ZWQgNi4xMi4wLXJjNi0w
-MDMxMC1nYjI3NmNmNjlkZjI0LWRpcnR5ICMxMQo+IFsgICAgMC4wNDcyNDBdIEhhcmR3YXJlIG5h
-bWU6IEFsbHdpbm5lciBEMSBOZXpoYSAoRFQpCj4gWyAgICAwLjA1MjAwN10gQ2FsbCBUcmFjZToK
-PiBbICAgIDAuMDU0NDM0XSBbPGZmZmZmZmZmODAwMDcxNzI+XSBkdW1wX2JhY2t0cmFjZSsweDFj
-LzB4MjQKPiBbICAgIDAuMDU5ODA2XSBbPGZmZmZmZmZmODA5ZjY4MzQ+XSBzaG93X3N0YWNrKzB4
-MmMvMHgzOAo+IFsgICAgMC4wNjQ4MzNdIFs8ZmZmZmZmZmY4MGEwNDBmMD5dIGR1bXBfc3RhY2tf
-bHZsKzB4NTIvMHg3NAo+IFsgICAgMC4wNzAyMDZdIFs8ZmZmZmZmZmY4MGEwNDEyNj5dIGR1bXBf
-c3RhY2srMHgxNC8weDFjCj4gWyAgICAwLjA3NTIzM10gWzxmZmZmZmZmZjgwOWY2ZGI2Pl0gcGFu
-aWMrMHgxMGMvMHgzMDAKPiBbICAgIDAuMDgwMDAwXSBbPGZmZmZmZmZmODAxN2I1YTA+XSBfX2tt
-ZW1fY2FjaGVfY3JlYXRlX2FyZ3MrMHgyNGEvMHgyYjYKPiBbICAgIDAuMDg2NDEzXSBbPGZmZmZm
-ZmZmODBjMDRjNjg+XSByaXNjdl92X3NldHVwX2N0eF9jYWNoZSsweDU2LzB4ODQKPiBbICAgIDAu
-MDkyNTY2XSBbPGZmZmZmZmZmODBjMDQyODg+XSBhcmNoX3Rhc2tfY2FjaGVfaW5pdCsweDEwLzB4
-MWMKPiBbICAgIDAuMDk4NDYwXSBbPGZmZmZmZmZmODBjMDdkMDI+XSBmb3JrX2luaXQrMHg2OC8w
-eDFhOAo+IFsgICAgMC4xMDM0ODZdIFs8ZmZmZmZmZmY4MGMwMGVkMj5dIHN0YXJ0X2tlcm5lbCsw
-eDc3ZS8weDgyMgo+IFsgICAgMC4xMDg4NzBdIC0tLVsgZW5kIEtlcm5lbCBwYW5pYyAtIG5vdCBz
-eW5jaW5nOiBfX2ttZW1fY2FjaGVfY3JlYXRlX2FyZ3M6IEZhaWxlZCB0byBjcmVhdGUgc2xhYiAn
-cmlzY3ZfdmVjdG9yX2N0eCcuIEVycm9yIC0yMiBdLS0tCj4gCj4gWzFdIGh0dHBzOi8vZ2l0aHVi
-LmNvbS9jeXlzZWxmL2xpbnV4L3RyZWUveHRoZWFkdmVjdG9yXzIwMjQxMTEwCj4gCj4gT24gOS8x
-Mi8yNCAxMzo1NSwgQ2hhcmxpZSBKZW5raW5zIHdyb3RlOgo+ID4gIGRpZmYgLS1naXQgYS9hcmNo
-L3Jpc2N2L2tlcm5lbC92ZWN0b3IuYyBiL2FyY2gvcmlzY3Yva2VybmVsL3ZlY3Rvci5jCj4gPiBp
-bmRleCA2ODJiM2ZlZWU0NTEuLjk3NzVkNmE5YzhlZSAxMDA2NDQKPiA+IC0tLSBhL2FyY2gvcmlz
-Y3Yva2VybmVsL3ZlY3Rvci5jCj4gPiArKysgYi9hcmNoL3Jpc2N2L2tlcm5lbC92ZWN0b3IuYwo+
-ID4gQEAgLTMzLDcgKzMzLDE3IEBAIGludCByaXNjdl92X3NldHVwX3ZzaXplKHZvaWQpCj4gPiAg
-ewo+ID4gIAl1bnNpZ25lZCBsb25nIHRoaXNfdnNpemU7Cj4gPiAgLQkvKiBUaGVyZSBhcmUgMzIg
-dmVjdG9yIHJlZ2lzdGVycyB3aXRoIHZsZW5iIGxlbmd0aC4gKi8KPiA+ICsJLyoKPiA+ICsJICog
-VGhlcmUgYXJlIDMyIHZlY3RvciByZWdpc3RlcnMgd2l0aCB2bGVuYiBsZW5ndGguCj4gPiArCSAq
-Cj4gPiArCSAqIElmIHRoZSB0aGVhZCx2bGVuYiBwcm9wZXJ0eSB3YXMgcHJvdmlkZWQgYnkgdGhl
-IGZpcm13YXJlLCB1c2UgdGhhdAo+ID4gKwkgKiBpbnN0ZWFkIG9mIHByb2JpbmcgdGhlIENTUnMu
-Cj4gPiArCSAqLwo+ID4gKwlpZiAodGhlYWRfdmxlbmJfb2YpIHsKPiA+ICsJCXRoaXNfdnNpemUg
-PSB0aGVhZF92bGVuYl9vZiAqIDMyOwo+IAo+IFRoZW4sIEkgcGF0Y2hlZCBoZXJlIHdoaWNoIHJl
-cGxhY2VzICJ0aGlzX3ZzaXplIiB3aXRoICJyaXNjdl92X3ZzaXplIi4gVGhlIGtlcm5lbCBib290
-cyBub3JtYWxseSBhbmQgSSBjYW4gc2VlIOKAnHh0aGVhZHZlY3RvciIgaW4gL3Byb2MvY3B1aW5m
-by4KPiAKPiBIb3dldmVyLCB3aGVuIEkgdHJ5IHRvIHJ1biB0aGUgInZfZXhlY19pbml0dmFsX25v
-bGliYyIgdGVzdCwgdGhlIGtlcm5lbCBwYW5pY3Mgd2l0aCB0aGVzZSBvdXRwdXRzOgo+IAo+IFsg
-IDk3OC43ODg4NzhdIE9vcHMgLSBpbGxlZ2FsIGluc3RydWN0aW9uIFsjMV0KPiBbICA5NzguNzg4
-ODk3XSBNb2R1bGVzIGxpbmtlZCBpbjoKPiBbICA5NzguNzg4OTA4XSBDUFU6IDAgVUlEOiAxMDAw
-IFBJRDogNDYxIENvbW06IHZfZXhlY19pbml0dmFsXyBOb3QgdGFpbnRlZCA2LjEyLjAtcmM2LTAw
-MzEwLWdiMjc2Y2Y2OWRmMjQtZGlydHkgIzEyCj4gWyAgOTc4Ljc4ODkyNF0gSGFyZHdhcmUgbmFt
-ZTogQWxsd2lubmVyIEQxIE5lemhhIChEVCkKPiBbICA5NzguNzg4OTI5XSBlcGMgOiBkb190cmFw
-X2VjYWxsX3UrMHg1Ni8weDIwYQo+IFsgIDk3OC43ODg5NTZdICByYSA6IF9uZXdfdm1hbGxvY19y
-ZXN0b3JlX2NvbnRleHRfYTArMHhjMi8weGNlCj4gWyAgOTc4Ljc4ODk3NF0gZXBjIDogZmZmZmZm
-ZmY4MGEwNGFmZSByYSA6IGZmZmZmZmZmODBhMGU3NDIgc3AgOiBmZmZmZmZjNjAwM2ZiZWIwCj4g
-WyAgOTc4Ljc4ODk4M10gIGdwIDogZmZmZmZmZmY4MTcxNzA4MCB0cCA6IGZmZmZmZmQ2MDcyM2Iz
-MDAgdDAgOiBmZmZmZmZmZjgxMDAxMjY4Cj4gWyAgOTc4Ljc4ODk5MV0gIHQxIDogZmZmZmZmZmY4
-MGEwNGFhOCB0MiA6IGZmZmZmZmZmODEwMDEyYTggczAgOiBmZmZmZmZjNjAwM2ZiZWUwCj4gWyAg
-OTc4Ljc4OTAwMF0gIHMxIDogZmZmZmZmYzYwMDNmYmVlMCBhMCA6IGZmZmZmZmM2MDAzZmJlZTAg
-YTEgOiAwMDAwMDAwMDAwMDAwMDVkCj4gWyAgOTc4Ljc4OTAwN10gIGEyIDogMDAwMDAwMDAwMDAw
-MDAwMCBhMyA6IGZmZmZmZmZmZmZmZmZmZGEgYTQgOiAwMDAwMDAwMDAwMDAwMDAzCj4gWyAgOTc4
-Ljc4OTAxNV0gIGE1IDogMDAwMDAwMDAwMDAwMDAwMCBhNiA6IDAwMDAwMDAwMDJhZGI1ZmUgYTcg
-OiAwMDAwMDAwMDAwMDAwMDVkCj4gWyAgOTc4Ljc4OTAyMl0gIHMyIDogMDAwMDAwMDAwMDAxMDhh
-OCBzMyA6IDAwMDAwMDAwMDAwMDAwMDAgczQgOiAwMDAwMDAwMDAwMDAwMDA4Cj4gWyAgOTc4Ljc4
-OTAzMF0gIHM1IDogMDAwMDAwM2ZiNDJhYjc4MCBzNiA6IDAwMDAwMDJhZGI1ZmU0MjAgczcgOiAw
-MDAwMDAyYWRiNWZiOWUwCj4gWyAgOTc4Ljc4OTAzOF0gIHM4IDogMDAwMDAwMmFkYjVmZTQ0MCBz
-OSA6IDAwMDAwMDJhZGI1ZmU0MjAgczEwOiAwMDAwMDAyYWRiNTcyYWQ0Cj4gWyAgOTc4Ljc4OTA0
-Nl0gIHMxMTogMDAwMDAwMmFkYjU3MmFkMCB0MyA6IDAwMDAwMDNmYjQzYzVlM2MgdDQgOiA2MjJm
-NzI3Mzc1MmYzZDVmCj4gWyAgOTc4Ljc4OTA1M10gIHQ1IDogMDAwMDAwMmFkYjVmZDVhMSB0NiA6
-IDAwMDAwMDAwMDJhZGI1ZmYKPiBbICA5NzguNzg5MDYwXSBzdGF0dXM6IDgwMDAwMDAyMDE4MDAx
-MDAgYmFkYWRkcjogMDAwMDAwMDA1ZTBmYjA1NyBjYXVzZTogMDAwMDAwMDAwMDAwMDAwMgo+IFsg
-IDk3OC43ODkwNjldIFs8ZmZmZmZmZmY4MGEwNGFmZT5dIGRvX3RyYXBfZWNhbGxfdSsweDU2LzB4
-MjBhCj4gWyAgOTc4Ljc4OTA4Nl0gWzxmZmZmZmZmZjgwYTBlNzQyPl0gX25ld192bWFsbG9jX3Jl
-c3RvcmVfY29udGV4dF9hMCsweGMyLzB4Y2UKPiBbICA5NzguNzg5MTEzXSBDb2RlOiBhMDczIDEw
-MDcgMDA2ZiAxYTYwIDcwNTcgMGMzMCA1N2ZkIDE3ZmUgNzdkNyAwYzMwIChiMDU3KSA1ZTBmCj4g
-WyAgOTc4Ljc4OTEyM10gLS0tWyBlbmQgdHJhY2UgMDAwMDAwMDAwMDAwMDAwMCBdLS0tCj4gWyAg
-OTc4Ljc4OTEzMV0gS2VybmVsIHBhbmljIC0gbm90IHN5bmNpbmc6IEZhdGFsIGV4Y2VwdGlvbiBp
-biBpbnRlcnJ1cHQKPiBbICA5NzguOTM3MTU4XSAtLS1bIGVuZCBLZXJuZWwgcGFuaWMgLSBub3Qg
-c3luY2luZzogRmF0YWwgZXhjZXB0aW9uIGluIGludGVycnVwdCBdLS0tCj4gCj4gSXMgc29tZXRo
-aW5nIHdyb25nIHdpdGggbXkgc2V0dXA/CgpUaGFua3MgZm9yIHJlcG9ydGluZyB0aGlzISBJIGp1
-c3Qgc2VudCBvdXQgYSBuZXcgdmVyc2lvbiB3aXRoIHRoZSBmaXguClNvbWV0aGluZyB3ZW50IHdy
-b25nIHdpdGggdGhlIF9fcmlzY3Zfdl92c3RhdGVfZGlzY2FyZCgpIGFuZCB3YXMKdHJpZ2dlcmlu
-ZyB0aGlzIGZhaWx1cmUuIEkgaGF2ZSB0ZXN0ZWQgdGhhdCB0aGlzIG5ldyB2ZXJzaW9uIGlzIGFi
-bGUgdG8KcGFzcyB0aGUgdGVzdGNhc2UuCgpodHRwczovL2xvcmUua2VybmVsLm9yZy9saW51eC1y
-aXNjdi8yMDI0MTExMy14dGhlYWR2ZWN0b3ItdjExLTAtMjM2YzIyNzkxZWY5QHJpdm9zaW5jLmNv
-bS9ULyN0CgotIENoYXJsaWUKCj4gCj4gVGhhbmtzLAo+IFlhbmd5dSBDaGVuCj4gCj4gPiArCQly
-ZXR1cm4gMDsKPiA+ICsJfQo+ID4gKwo+ID4gIAlyaXNjdl92X2VuYWJsZSgpOwo+ID4gIAl0aGlz
-X3ZzaXplID0gY3NyX3JlYWQoQ1NSX1ZMRU5CKSAqIDMyOwo+ID4gIAlyaXNjdl92X2Rpc2FibGUo
-KTsKPiA+IGRpZmYgLS1naXQgYS9hcmNoL3Jpc2N2L2tlcm5lbC92ZW5kb3JfZXh0ZW5zaW9ucy90
-aGVhZC5jIGIvYXJjaC9yaXNjdi9rZXJuZWwvdmVuZG9yX2V4dGVuc2lvbnMvdGhlYWQuYwo+ID4g
-aW5kZXggMGYyN2JhZjhkMjQ1Li41MTlkYmY3MDcxMGEgMTAwNjQ0Cj4gPiAtLS0gYS9hcmNoL3Jp
-c2N2L2tlcm5lbC92ZW5kb3JfZXh0ZW5zaW9ucy90aGVhZC5jCj4gPiArKysgYi9hcmNoL3Jpc2N2
-L2tlcm5lbC92ZW5kb3JfZXh0ZW5zaW9ucy90aGVhZC5jCj4gPiBAQCAtNSw2ICs1LDcgQEAKPiA+
-ICAjaW5jbHVkZSA8YXNtL3ZlbmRvcl9leHRlbnNpb25zL3RoZWFkLmg+Cj4gPiAgICAjaW5jbHVk
-ZSA8bGludXgvYXJyYXlfc2l6ZS5oPgo+ID4gKyNpbmNsdWRlIDxsaW51eC9jcHVtYXNrLmg+Cj4g
-PiAgI2luY2x1ZGUgPGxpbnV4L3R5cGVzLmg+Cj4gPiAgICAvKiBBbGwgVC1IZWFkIHZlbmRvciBl
-eHRlbnNpb25zIHN1cHBvcnRlZCBpbiBMaW51eCAqLwo+ID4gQEAgLTE2LDMgKzE3LDEzIEBAIHN0
-cnVjdCByaXNjdl9pc2FfdmVuZG9yX2V4dF9kYXRhX2xpc3QgcmlzY3ZfaXNhX3ZlbmRvcl9leHRf
-bGlzdF90aGVhZCA9IHsKPiA+ICAJLmV4dF9kYXRhX2NvdW50ID0gQVJSQVlfU0laRShyaXNjdl9p
-c2FfdmVuZG9yX2V4dF90aGVhZCksCj4gPiAgCS5leHRfZGF0YSA9IHJpc2N2X2lzYV92ZW5kb3Jf
-ZXh0X3RoZWFkLAo+ID4gIH07Cj4gPiArCj4gPiArdm9pZCBkaXNhYmxlX3h0aGVhZHZlY3Rvcih2
-b2lkKQo+ID4gK3sKPiA+ICsJaW50IGNwdTsKPiA+ICsKPiA+ICsJZm9yX2VhY2hfcG9zc2libGVf
-Y3B1KGNwdSkKPiA+ICsJCWNsZWFyX2JpdChSSVNDVl9JU0FfVkVORE9SX0VYVF9YVEhFQURWRUNU
-T1IsIHJpc2N2X2lzYV92ZW5kb3JfZXh0X2xpc3RfdGhlYWQucGVyX2hhcnRfaXNhX2JpdG1hcFtj
-cHVdLmlzYSk7Cj4gPiArCj4gPiArCWNsZWFyX2JpdChSSVNDVl9JU0FfVkVORE9SX0VYVF9YVEhF
-QURWRUNUT1IsIHJpc2N2X2lzYV92ZW5kb3JfZXh0X2xpc3RfdGhlYWQuYWxsX2hhcnRzX2lzYV9i
-aXRtYXAuaXNhKTsKPiA+ICt9Cj4gCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMu
-aW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZv
-L2xpbnV4LXJpc2N2Cg==
+On Mon, Sep 30, 2024 at 12:07:23AM +0800, Aoba K wrote:
+> 
+> On 2024/9/12 13:55, Charlie Jenkins wrote:
+> > xtheadvector is a custom extension that is based upon riscv vector
+> > version 0.7.1 [1]. All of the vector routines have been modified to
+> > support this alternative vector version based upon whether xtheadvector
+> > was determined to be supported at boot.
+> > 
+> > vlenb is not supported on the existing xtheadvector hardware, so a
+> > devicetree property thead,vlenb is added to provide the vlenb to Linux.
+> > 
+> > There is a new hwprobe key RISCV_HWPROBE_KEY_VENDOR_EXT_THEAD_0 that is
+> > used to request which thead vendor extensions are supported on the
+> > current platform. This allows future vendors to allocate hwprobe keys
+> > for their vendor.
+> > 
+> > Support for xtheadvector is also added to the vector kselftests.
+> > 
+> > Signed-off-by: Charlie Jenkins <charlie@rivosinc.com>
+> > 
+> > [1] https://github.com/T-head-Semi/thead-extension-spec/blob/95358cb2cca9489361c61d335e03d3134b14133f/xtheadvector.adoc
+> > 
+> > ---
+> > This series is a continuation of a different series that was fragmented
+> > into two other series in an attempt to get part of it merged in the 6.10
+> > merge window. The split-off series did not get merged due to a NAK on
+> > the series that added the generic riscv,vlenb devicetree entry. This
+> > series has converted riscv,vlenb to thead,vlenb to remedy this issue.
+> > 
+> > The original series is titled "riscv: Support vendor extensions and
+> > xtheadvector" [3].
+> > 
+> > The series titled "riscv: Extend cpufeature.c to detect vendor
+> > extensions" is still under development and this series is based on that
+> > series! [4]
+> > 
+> > I have tested this with an Allwinner Nezha board. I used SkiffOS [1] to
+> > manage building the image, but upgraded the U-Boot version to Samuel
+> > Holland's more up-to-date version [2] and changed out the device tree
+> > used by U-Boot with the device trees that are present in upstream linux
+> > and this series. Thank you Samuel for all of the work you did to make
+> > this task possible.
+> > 
+> > [1] https://github.com/skiffos/SkiffOS/tree/master/configs/allwinner/nezha
+> > [2] https://github.com/smaeul/u-boot/commit/2e89b706f5c956a70c989cd31665f1429e9a0b48
+> > [3] https://lore.kernel.org/all/20240503-dev-charlie-support_thead_vector_6_9-v6-0-cb7624e65d82@rivosinc.com/
+> > [4] https://lore.kernel.org/lkml/20240719-support_vendor_extensions-v3-4-0af7587bbec0@rivosinc.com/T/
+> > 
+> > ---
+> > Changes in v10:
+> > - In DT probing disable vector with new function to clear vendor
+> >    extension bits for xtheadvector
+> > - Add ghostwrite mitigations for c9xx CPUs. This disables xtheadvector
+> >    unless mitigations=off is set as a kernel boot arg
+> > - Link to v9: https://lore.kernel.org/r/20240806-xtheadvector-v9-0-62a56d2da5d0@rivosinc.com
+> > 
+> > Changes in v9:
+> > - Rebase onto palmer's for-next
+> > - Fix sparse error in arch/riscv/kernel/vendor_extensions/thead.c
+> > - Fix maybe-uninitialized warning in arch/riscv/include/asm/vendor_extensions/vendor_hwprobe.h
+> > - Wrap some long lines
+> > - Link to v8: https://lore.kernel.org/r/20240724-xtheadvector-v8-0-cf043168e137@rivosinc.com
+> > 
+> > Changes in v8:
+> > - Rebase onto palmer's for-next
+> > - Link to v7: https://lore.kernel.org/r/20240724-xtheadvector-v7-0-b741910ada3e@rivosinc.com
+> > 
+> > Changes in v7:
+> > - Add defs for has_xtheadvector_no_alternatives() and has_xtheadvector()
+> >    when vector disabled. (Palmer)
+> > - Link to v6: https://lore.kernel.org/r/20240722-xtheadvector-v6-0-c9af0130fa00@rivosinc.com
+> > 
+> > Changes in v6:
+> > - Fix return type of is_vector_supported()/is_xthead_supported() to be bool
+> > - Link to v5: https://lore.kernel.org/r/20240719-xtheadvector-v5-0-4b485fc7d55f@rivosinc.com
+> > 
+> > Changes in v5:
+> > - Rebase on for-next
+> > - Link to v4: https://lore.kernel.org/r/20240702-xtheadvector-v4-0-2bad6820db11@rivosinc.com
+> > 
+> > Changes in v4:
+> > - Replace inline asm with C (Samuel)
+> > - Rename VCSRs to CSRs (Samuel)
+> > - Replace .insn directives with .4byte directives
+> > - Link to v3: https://lore.kernel.org/r/20240619-xtheadvector-v3-0-bff39eb9668e@rivosinc.com
+> > 
+> > Changes in v3:
+> > - Add back Heiko's signed-off-by (Conor)
+> > - Mark RISCV_HWPROBE_KEY_VENDOR_EXT_THEAD_0 as a bitmask
+> > - Link to v2: https://lore.kernel.org/r/20240610-xtheadvector-v2-0-97a48613ad64@rivosinc.com
+> > 
+> > Changes in v2:
+> > - Removed extraneous references to "riscv,vlenb" (Jess)
+> > - Moved declaration of "thead,vlenb" into cpus.yaml and added
+> >    restriction that it's only applicable to thead cores (Conor)
+> > - Check CONFIG_RISCV_ISA_XTHEADVECTOR instead of CONFIG_RISCV_ISA_V for
+> >    thead,vlenb (Jess)
+> > - Fix naming of hwprobe variables (Evan)
+> > - Link to v1: https://lore.kernel.org/r/20240609-xtheadvector-v1-0-3fe591d7f109@rivosinc.com
+> > 
+> > ---
+> > Charlie Jenkins (13):
+> >        dt-bindings: riscv: Add xtheadvector ISA extension description
+> >        dt-bindings: cpus: add a thead vlen register length property
+> >        riscv: dts: allwinner: Add xtheadvector to the D1/D1s devicetree
+> >        riscv: Add thead and xtheadvector as a vendor extension
+> >        riscv: vector: Use vlenb from DT for thead
+> >        riscv: csr: Add CSR encodings for CSR_VXRM/CSR_VXSAT
+> >        riscv: Add xtheadvector instruction definitions
+> >        riscv: vector: Support xtheadvector save/restore
+> >        riscv: hwprobe: Add thead vendor extension probing
+> >        riscv: hwprobe: Document thead vendor extensions and xtheadvector extension
+> >        selftests: riscv: Fix vector tests
+> >        selftests: riscv: Support xtheadvector in vector tests
+> >        riscv: Add ghostwrite vulnerability
+> > 
+> > Heiko Stuebner (1):
+> >        RISC-V: define the elements of the VCSR vector CSR
+> > 
+> >   Documentation/arch/riscv/hwprobe.rst               |  10 +
+> >   Documentation/devicetree/bindings/riscv/cpus.yaml  |  19 ++
+> >   .../devicetree/bindings/riscv/extensions.yaml      |  10 +
+> >   arch/riscv/Kconfig.errata                          |  11 +
+> >   arch/riscv/Kconfig.vendor                          |  26 ++
+> >   arch/riscv/boot/dts/allwinner/sun20i-d1s.dtsi      |   3 +-
+> >   arch/riscv/errata/thead/errata.c                   |  28 ++
+> >   arch/riscv/include/asm/bugs.h                      |  22 ++
+> >   arch/riscv/include/asm/cpufeature.h                |   2 +
+> >   arch/riscv/include/asm/csr.h                       |  15 +
+> >   arch/riscv/include/asm/errata_list.h               |   3 +-
+> >   arch/riscv/include/asm/hwprobe.h                   |   3 +-
+> >   arch/riscv/include/asm/switch_to.h                 |   2 +-
+> >   arch/riscv/include/asm/vector.h                    | 225 +++++++++++----
+> >   arch/riscv/include/asm/vendor_extensions/thead.h   |  48 ++++
+> >   .../include/asm/vendor_extensions/thead_hwprobe.h  |  19 ++
+> >   .../include/asm/vendor_extensions/vendor_hwprobe.h |  37 +++
+> >   arch/riscv/include/uapi/asm/hwprobe.h              |   3 +-
+> >   arch/riscv/include/uapi/asm/vendor/thead.h         |   3 +
+> >   arch/riscv/kernel/Makefile                         |   2 +
+> >   arch/riscv/kernel/bugs.c                           |  55 ++++
+> >   arch/riscv/kernel/cpufeature.c                     |  58 +++-
+> >   arch/riscv/kernel/kernel_mode_vector.c             |   8 +-
+> >   arch/riscv/kernel/process.c                        |   4 +-
+> >   arch/riscv/kernel/signal.c                         |   6 +-
+> >   arch/riscv/kernel/sys_hwprobe.c                    |   5 +
+> >   arch/riscv/kernel/vector.c                         |  24 +-
+> >   arch/riscv/kernel/vendor_extensions.c              |  10 +
+> >   arch/riscv/kernel/vendor_extensions/Makefile       |   2 +
+> >   arch/riscv/kernel/vendor_extensions/thead.c        |  29 ++
+> >   .../riscv/kernel/vendor_extensions/thead_hwprobe.c |  19 ++
+> >   drivers/base/cpu.c                                 |   3 +
+> >   include/linux/cpu.h                                |   1 +
+> >   tools/testing/selftests/riscv/vector/.gitignore    |   3 +-
+> >   tools/testing/selftests/riscv/vector/Makefile      |  17 +-
+> >   .../selftests/riscv/vector/v_exec_initval_nolibc.c |  94 +++++++
+> >   tools/testing/selftests/riscv/vector/v_helpers.c   |  68 +++++
+> >   tools/testing/selftests/riscv/vector/v_helpers.h   |   8 +
+> >   tools/testing/selftests/riscv/vector/v_initval.c   |  22 ++
+> >   .../selftests/riscv/vector/v_initval_nolibc.c      |  68 -----
+> >   .../selftests/riscv/vector/vstate_exec_nolibc.c    |  20 +-
+> >   .../testing/selftests/riscv/vector/vstate_prctl.c  | 305 +++++++++++++--------
+> >   42 files changed, 1048 insertions(+), 272 deletions(-)
+> > ---
+> > base-commit: 0e3f3649d44bf1b388a7613ade14c29cbdedf075
+> > change-id: 20240530-xtheadvector-833d3d17b423
+> 
+> 
+> Hello Charlie,
+> 
+> 
+> Apologize for the last email, when dealing with pastebin it deleted the last
+> version...
+> 
+> tl,dr for the last email: Patches not boot on Sipeed Lichee RV Dock (with
+> same D1 SoC).
+> 
+> Logs here:
+> 
+> https://fars.ee/XFzR
+> 
+> (the board resets without kernel panic)
+
+Apologies, this thread slipped by me. This looks to be the same issue as was experienced here [1] and fixed here [2].
+
+[1] https://lore.kernel.org/linux-riscv/ZoydV7vad5JWIcZb@ghost/
+[2] https://lore.kernel.org/linux-riscv/20240820034850.3189912-1-apatel@ventanamicro.com/
+
+Since you are on 6.11-rc2 that patch is probably not in your tree, as it
+was merged in 6.11-rc4 unfortunately. Can you try updating your kernel
+to include that patch?
+
+- Charlie
+
+
+> 
+> 
+> Cheers,
+> 
+> Aoba K
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
