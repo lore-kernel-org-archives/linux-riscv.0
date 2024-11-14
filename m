@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8F00AD68B35
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7D0D3D68B33
 	for <linux-riscv@archiver.kernel.org>; Thu, 14 Nov 2024 16:18:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -12,57 +12,57 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=jODMrcLKqc7FmpfEjAWJd5wWxoJdPIoFhCnafgTVH1s=; b=1dkOXhYC4UB91l
-	Orao9bt7F3MSgRHC6t1ZXPOTcJn1F5ox3mR4/BgFQHMtp6r4aQcU6bu8IYT8zSxBn+g3lvhuIwEai
-	QsXqvvTX14qDno/AwclJwIW2QzuVEGEQh31laBEl3UOyKLY0FMhmUpCAlUQYHsXLys2EROs3PAJ+y
-	aXTg2vi7N72SYAsrf3BCAd44Q891l1XDBjXuhkhDjaLBUWJbz/1QgCZejiVAr832zkhOLHHof11BD
-	fxhJNbPKJTo2SFnMhDilKNPYFkuuHwyztIIwUTcWLPg9rh64bQh0oY0ooHjuJvvDFdEgkaAkFUq/A
-	j8S7m0PRLfS6tmANACUQ==;
+	List-Owner; bh=NX1Bz8GLcBpLRbZdC0Two43FSUpfmuTLCqHQsJUuSa8=; b=rglNsH20m5Viww
+	royhjnLsGNT8Ji30HfXZOldeqxzrPJU+G4MI14rW1grCnKu7EeDOkJgBMMnEuJIduT4XQi31/LjTk
+	kccbfiLG9ZPi+xp0eE90Yx9oiL5rAB34liLNoDxX70SaHxBYBlIky+C9iU9eaUJMG+4CbYMg/tgi7
+	UNoh1dSLlb2jgWs2HmbyIdEdxSp/Djih9IDhiS3cVm36rQiz7bJRqH2+VWtu7YMlOC65/ss7yJhlK
+	zuc5oW2Dd3k70CS0LqwvVdHC9Phmv0KT67tXi66nMJvTW1aAGXwFckxUVJT4eiT7BTQiNzfr31iNm
+	g3TjLxNrf74iqK9Lc1FQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tBcYZ-000000004sP-0WQf;
-	Thu, 14 Nov 2024 16:18:55 +0000
-Received: from mail-wm1-x336.google.com ([2a00:1450:4864:20::336])
+	id 1tBcYX-000000004qn-3o6S;
+	Thu, 14 Nov 2024 16:18:53 +0000
+Received: from mail-wm1-x32f.google.com ([2a00:1450:4864:20::32f])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tBcYV-000000004nT-2eFC
+	id 1tBcYU-000000004mn-1Qrs
 	for linux-riscv@lists.infradead.org;
-	Thu, 14 Nov 2024 16:18:52 +0000
-Received: by mail-wm1-x336.google.com with SMTP id 5b1f17b1804b1-432d9b8558aso6033235e9.0
-        for <linux-riscv@lists.infradead.org>; Thu, 14 Nov 2024 08:18:50 -0800 (PST)
+	Thu, 14 Nov 2024 16:18:51 +0000
+Received: by mail-wm1-x32f.google.com with SMTP id 5b1f17b1804b1-43158625112so7703775e9.3
+        for <linux-riscv@lists.infradead.org>; Thu, 14 Nov 2024 08:18:49 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1731601130; x=1732205930; darn=lists.infradead.org;
+        d=ventanamicro.com; s=google; t=1731601128; x=1732205928; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=4sV1q1LQk/q83S2J2BpeMk7gg4mJdAxo4Zufy5rZGAM=;
-        b=hjuM3tjDXnRRTFOHuqyytMJkNqoCyGbz/jj20wlh2OBQ3/zQzGCwO+KtqSpATC/Es1
-         a66ceADmXmhv2M6s5gTymizi8Sn7P1hfGFqKd3W6iiybgvgKDRulvG22YwUNnZETfb+m
-         gFP4ytRy4/lqGJ6ODvXNQAUFq6vGk/We4hvqlbanM07KGTYRwZeYtWol6hNKEq3QSSF7
-         TBTnyv+9cNaAu0NDQnuzi2Lw45VSolfhafzK5IYl3SBs6OE7NcrM3LLTlGXA3h0xVM87
-         Yzqy7f5p3PfUazpLBkaOiC3obz22OO+KRYGxXMHVNY+tvqWY6FfArP7DZkNhlBwrI7Eb
-         NJNg==
+        bh=D3ezq2WAE13GAqwSlX07T0LyNCWtPpuH6EoHFe0wCHg=;
+        b=fXuGTM44jDhdUwAiHOdExJ6pFi+HjHaIHPwdoe66vog4yis+QSwDqE0/1poGgrt9Ia
+         LafaKaI45QKTRLlWfustd30TVr8GoPxnVnxVHILYvFqXYU5WeUa4b0wC26pXbqWblA3P
+         z27SgJAkU1od4hKoXeIjIEQhJRRlUm/9+7J4mym0KBWzGHCJS3P/GtlL+CwmiVdJYg4S
+         +7/DPyoFHpe/XkdlAeS/PAT60A2tm500wieWBu35gIE6sycjhZFkR4j94bfpYah3dMgZ
+         AnJ1yRa3enJVHlgTqWi4JRg2Peig1GOPHPxRifXjNmbNP4nMX8kAjozhfmp+2XiueCjM
+         qIiw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1731601130; x=1732205930;
+        d=1e100.net; s=20230601; t=1731601128; x=1732205928;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=4sV1q1LQk/q83S2J2BpeMk7gg4mJdAxo4Zufy5rZGAM=;
-        b=dzhulGM2cs/w9s1Ass6EIMrGj7qQ9d/mXogy3SvSLyxvlMSZ7mGehF9K/yxN+YATg8
-         tSHT6+5uq8NXh2UAZwHCpUqVVqKCS6UYCQWbJia5wlpEWhjwN+5Ma05cI4LgXr8MhViU
-         oDI8fY4CoOCTALLYkCi5VMYA4LMZUYwgeBnRGipaefWFOvDJcxZRy049Vtc/wIDQWuqV
-         5oIZKKRnKHV0Qp8tVoJDaswRg+96w1SkhZoA/LxSeW8fQ+UEI9j3oyx6UDywN6VMm/GX
-         go2JxRtlBkcxSvu31q0yCNI2cRa5yAUXyipaZBexX13rNB2F2o/bPqpQHNIbugDzGLu1
-         YjSQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUrVaK+dDumx3ITYIavKEO4aAyUfE0nyJb+c2KqNd4ZcUmcLjrrZGJcDSYNBYZPECr9ltOTjsCwBK0njg==@lists.infradead.org
-X-Gm-Message-State: AOJu0YzUhE08x05Jw8qvpaEjkt9+9blpYjMS4HsEOLBJJMcOeoXty1oJ
-	7sGU71X71FF+ltuOKYEQHkuB4ObCvFwCcBOBJ6FGJbp7M1xHnayM/oFCzYy4GiU=
-X-Google-Smtp-Source: AGHT+IG+PIdlvaNPVTcrNev34iOeURvR6kwzzOllPVjWxdCbuE/GqDAX+WoRpo6pTqFd8njujj53Ow==
-X-Received: by 2002:a05:6000:2a10:b0:382:2084:19b3 with SMTP id ffacd0b85a97d-38220844ac9mr1324585f8f.22.1731601129621;
-        Thu, 14 Nov 2024 08:18:49 -0800 (PST)
+        bh=D3ezq2WAE13GAqwSlX07T0LyNCWtPpuH6EoHFe0wCHg=;
+        b=CMLNu7HvzFZpFs8aY64GIgZbWbtDjolbXDsRyYAuv5+LghFfL6DYLVegi9ZrJ8Q2LZ
+         qF7GIlME6Qeh2V1SFt9G3KG6EdtdbJLq4PNjzfZOe/bVXsJXH3x+2ZppOSXkyHZhq0GN
+         LmGwncgQ3F3NOGg4TmkVhTv84p6/nFXUKjwwXirsJVxoDFslsJfSOEPkIrfDWx9QsUY7
+         /8Q19a5TiMsuE6GTnqrRgOhSnGd0FXe+a5FJpoo7Z6wNPnViwPrZ2SO9clgPwGnoUBOp
+         2NCeuam4j+NQVWgAh+mMluakRtzQU9NYOUBex9t8QADSi9TCMBD9o6lJygWBIp8tINwv
+         NArg==
+X-Forwarded-Encrypted: i=1; AJvYcCVnwUAcNzyXXXMQJHDe6nRbJkUvoByFlChYLIIQWcfJBUl0Rg4T6ZghrfxErtW6dMFmL0Q5aA++aL1IVA==@lists.infradead.org
+X-Gm-Message-State: AOJu0YzJ2Fqqtl9aOtOHRCTz+eFAYNwlTo4A990Ww7vpAYHzFC0ncICt
+	Cbft1RkWohHYoXZ2QLnJep5FIcjllaM7fwVTqQzCt41IYzsaol944ihbnZFO1eA=
+X-Google-Smtp-Source: AGHT+IGL/aKw/LZ1JTJ7uKMa5kImPbRP3wDn7MPyUSWssqMaT5McjPD8vLFqR2fLEptCKYdvhP3z0A==
+X-Received: by 2002:a05:600c:1d1c:b0:426:6308:e2f0 with SMTP id 5b1f17b1804b1-432da7cbcefmr23145865e9.26.1731601128138;
+        Thu, 14 Nov 2024 08:18:48 -0800 (PST)
 Received: from localhost (2001-1ae9-1c2-4c00-20f-c6b4-1e57-7965.ip6.tmcz.cz. [2001:1ae9:1c2:4c00:20f:c6b4:1e57:7965])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-432da265c45sm28633555e9.11.2024.11.14.08.18.48
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-432da2800absm28573255e9.25.2024.11.14.08.18.47
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 14 Nov 2024 08:18:49 -0800 (PST)
+        Thu, 14 Nov 2024 08:18:47 -0800 (PST)
 From: Andrew Jones <ajones@ventanamicro.com>
 To: iommu@lists.linux.dev,
 	kvm-riscv@lists.infradead.org,
@@ -81,17 +81,16 @@ Cc: tjeznach@rivosinc.com,
 	paul.walmsley@sifive.com,
 	palmer@dabbelt.com,
 	aou@eecs.berkeley.edu
-Subject: [RFC PATCH 02/15] genirq/msi: Provide DOMAIN_BUS_MSI_REMAP
-Date: Thu, 14 Nov 2024 17:18:47 +0100
-Message-ID: <20241114161845.502027-19-ajones@ventanamicro.com>
+Subject: [RFC PATCH 01/15] irqchip/riscv-imsic: Use hierarchy to reach irq_set_affinity
+Date: Thu, 14 Nov 2024 17:18:46 +0100
+Message-ID: <20241114161845.502027-18-ajones@ventanamicro.com>
 X-Mailer: git-send-email 2.47.0
 In-Reply-To: <20241114161845.502027-17-ajones@ventanamicro.com>
 References: <20241114161845.502027-17-ajones@ventanamicro.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241114_081851_677087_4A68FB26 
-X-CRM114-Status: UNSURE (   8.71  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241114_081850_387854_F19EE333 
+X-CRM114-Status: GOOD (  11.84  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,29 +107,67 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Provide a domain bus token for the upcoming support for the RISC-V
-IOMMU interrupt remapping domain, which needs to be distinguished
-from NEXUS domains. The new token name is generic, as the only
-information that needs to be conveyed is that the IRQ domain will
-remap MSIs, i.e. there's nothing RISC-V specific to convey.
+In order to support IRQ domains which reside between the leaf domains
+and IMSIC, put the IMSIC implementation of irq_set_affinity into its
+chip.
 
 Signed-off-by: Andrew Jones <ajones@ventanamicro.com>
 ---
- include/linux/irqdomain_defs.h | 1 +
- 1 file changed, 1 insertion(+)
+ drivers/irqchip/irq-riscv-imsic-platform.c | 16 +++++++++-------
+ 1 file changed, 9 insertions(+), 7 deletions(-)
 
-diff --git a/include/linux/irqdomain_defs.h b/include/linux/irqdomain_defs.h
-index 36653e2ee1c9..676eca8147ae 100644
---- a/include/linux/irqdomain_defs.h
-+++ b/include/linux/irqdomain_defs.h
-@@ -27,6 +27,7 @@ enum irq_domain_bus_token {
- 	DOMAIN_BUS_AMDVI,
- 	DOMAIN_BUS_DEVICE_MSI,
- 	DOMAIN_BUS_WIRED_TO_MSI,
-+	DOMAIN_BUS_MSI_REMAP,
- };
+diff --git a/drivers/irqchip/irq-riscv-imsic-platform.c b/drivers/irqchip/irq-riscv-imsic-platform.c
+index c708780e8760..5d7c30ad8855 100644
+--- a/drivers/irqchip/irq-riscv-imsic-platform.c
++++ b/drivers/irqchip/irq-riscv-imsic-platform.c
+@@ -96,9 +96,8 @@ static int imsic_irq_set_affinity(struct irq_data *d, const struct cpumask *mask
+ 				  bool force)
+ {
+ 	struct imsic_vector *old_vec, *new_vec;
+-	struct irq_data *pd = d->parent_data;
  
- #endif /* _LINUX_IRQDOMAIN_DEFS_H */
+-	old_vec = irq_data_get_irq_chip_data(pd);
++	old_vec = irq_data_get_irq_chip_data(d);
+ 	if (WARN_ON(!old_vec))
+ 		return -ENOENT;
+ 
+@@ -116,13 +115,13 @@ static int imsic_irq_set_affinity(struct irq_data *d, const struct cpumask *mask
+ 		return -ENOSPC;
+ 
+ 	/* Point device to the new vector */
+-	imsic_msi_update_msg(d, new_vec);
++	imsic_msi_update_msg(irq_get_irq_data(d->irq), new_vec);
+ 
+ 	/* Update irq descriptors with the new vector */
+-	pd->chip_data = new_vec;
++	d->chip_data = new_vec;
+ 
+-	/* Update effective affinity of parent irq data */
+-	irq_data_update_effective_affinity(pd, cpumask_of(new_vec->cpu));
++	/* Update effective affinity */
++	irq_data_update_effective_affinity(d, cpumask_of(new_vec->cpu));
+ 
+ 	/* Move state of the old vector to the new vector */
+ 	imsic_vector_move(old_vec, new_vec);
+@@ -135,6 +134,9 @@ static struct irq_chip imsic_irq_base_chip = {
+ 	.name			= "IMSIC",
+ 	.irq_mask		= imsic_irq_mask,
+ 	.irq_unmask		= imsic_irq_unmask,
++#ifdef CONFIG_SMP
++	.irq_set_affinity	= imsic_irq_set_affinity,
++#endif
+ 	.irq_retrigger		= imsic_irq_retrigger,
+ 	.irq_compose_msi_msg	= imsic_irq_compose_msg,
+ 	.flags			= IRQCHIP_SKIP_SET_WAKE |
+@@ -245,7 +247,7 @@ static bool imsic_init_dev_msi_info(struct device *dev,
+ 		if (WARN_ON_ONCE(domain != real_parent))
+ 			return false;
+ #ifdef CONFIG_SMP
+-		info->chip->irq_set_affinity = imsic_irq_set_affinity;
++		info->chip->irq_set_affinity = irq_chip_set_affinity_parent;
+ #endif
+ 		break;
+ 	default:
 -- 
 2.47.0
 
