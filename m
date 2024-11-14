@@ -4,65 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9937D68B33
-	for <linux-riscv@archiver.kernel.org>; Thu, 14 Nov 2024 16:19:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7D4ED68B35
+	for <linux-riscv@archiver.kernel.org>; Thu, 14 Nov 2024 16:19:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=EmCiIXIfYwNbKG3QxZltF195sD/SlA0tHhGzL/3eWzA=; b=Z748JnDUK2CJaM
-	wdbrS6S3KVB629TzYHIyWU/O7CuLjXYp8616DhzRF+9HkNe0D4CKxaL5fN9fk2iiGA+f4r92uVHqg
-	TXbvcyqRiz7ckJEPxBR4/SnKgIBkZaLhib6SlAgss4orykpVgLDE5J591XraFwtqkPRQhwVnWEH3j
-	qrH/lcSWWdGTUUcLOMnCLwAT2iQxLNuwiONHAZ35muoQuMc+hl7yp/agxQ1nf6W7iNCzpq8ESe19v
-	hWP9jz7djWJ0gRsjjDTYxK2Nkrc52R3s8tIjQQAg1ONGeFzZDsBlfV8zqvF3gRm9sUerzaVz3+C+1
-	2P46civG2nzWTfskwLyg==;
+	List-Owner; bh=Z8GjQfztaKOsY8sKSnDSLD7JgqNpChQbAuiDP1B14ws=; b=L63n4cvcUExEuQ
+	OlG3S4jxoqp2+hh6Hf4/IxiF8uKcrad/POYeQzZ796PN4LsAuzRtiCz3SeYRr1yfFimXpehkp6Nv3
+	7iTnamtxgpkCRSx80p4o1yT+8RP4SthqOqGxAzGNGmD29JWobzoZ5F7UIIJBZQ7W89kg+osaetr55
+	W1nlHp5OR4rHiriHqXWfU4XmlVz2UcciX2Q9E3njnS6DGop0g0UQ5lOkOy5S76oRoo1T/GWNeoDZY
+	Zr9SsBzudRpnMryeinO0LgxYiPN3owCvIOxzDOf/lyXrifjRBXwx9DLx89GDXx1bBu+hJft8wtAtE
+	3HqAucIv+iYAAJxQ0PIA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tBcYt-000000005SV-43sf;
-	Thu, 14 Nov 2024 16:19:16 +0000
-Received: from mail-wr1-x433.google.com ([2a00:1450:4864:20::433])
+	id 1tBcYv-000000005Vv-24hc;
+	Thu, 14 Nov 2024 16:19:17 +0000
+Received: from mail-wm1-x32e.google.com ([2a00:1450:4864:20::32e])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tBcYn-000000005E8-387Q
+	id 1tBcYo-000000005Ge-2FOh
 	for linux-riscv@lists.infradead.org;
 	Thu, 14 Nov 2024 16:19:11 +0000
-Received: by mail-wr1-x433.google.com with SMTP id ffacd0b85a97d-37d6a2aa748so499810f8f.1
-        for <linux-riscv@lists.infradead.org>; Thu, 14 Nov 2024 08:19:08 -0800 (PST)
+Received: by mail-wm1-x32e.google.com with SMTP id 5b1f17b1804b1-43167ff0f91so7197305e9.1
+        for <linux-riscv@lists.infradead.org>; Thu, 14 Nov 2024 08:19:10 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1731601147; x=1732205947; darn=lists.infradead.org;
+        d=ventanamicro.com; s=google; t=1731601149; x=1732205949; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=+uTuyHOKGUnE3VHWBJ7LYW/wszuVbaF5PQNKaXjnEr8=;
-        b=EfIrSNV3hLkjtjLS/HB5+Krl6LlKnQYhRqILNODVPWw3oomWoEySn/qlvdBHIKKXwZ
-         iCnHABT4le1BpGUuinvS51CN/gBSpd+Xo9HZ/BbsmQumZjNyJIKG81ciHV7qAOxf8Rhn
-         cq2Bel6XZnUTMjkhalNAZVtla64ZqADhcDrvmdua0uNA1qUo1PLmsV5j9ksZEJF24D9s
-         zuJzQlRwd1ATGqmzsSI+AkgOxB39QngCEDij2PFzRr9Qkc9w9UHLNP5yU9u/WPc1gUvK
-         gMQUPLwSNyitwbBz+tvajbkavgX3MrdEb8dbDDlHov/2ipqF30LLzx4r8VGQd6sR+Ox1
-         Ov8w==
+        bh=pFFBRicSLcryUXTcW4czNg2bW4hUi+sNV0Va2EAONJ0=;
+        b=J63P6Iu3Xx9C0kUpKwVtKPntZDviRzlNVMYuDadWrpY8S4DRYO8MT03W3lVckFmOB1
+         ZXX5ZXpUBULvRIxZk61SlWztykhynKEP4RApPnb8jMFOhNQbMkN6yx6IKQ0Ltwiz24W9
+         8Z0Dz3CeJXOS6yHUndSY+bdII+1R0lt99eC+QcdOCE+j3mG9CYu3MDJowVSG5la95Qys
+         C17h/D3lqI9WcvuRROgPKOyRWI1WIIdCt8OF6f5+StMJFIBJ4sbVwtBxjZFEW3NnHNva
+         pz81qcWLSCOCd//zB46GRbCuLLmbYn3xrH6CrFyxgDrj7xBXrRUGCUktX3ip6JO7+HZh
+         s/zQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1731601147; x=1732205947;
+        d=1e100.net; s=20230601; t=1731601149; x=1732205949;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=+uTuyHOKGUnE3VHWBJ7LYW/wszuVbaF5PQNKaXjnEr8=;
-        b=vL7S6ue93mTwUo814ihKfbANaWFuBSYmT8t34LOUYJCYkQ/HWvT9A9PR94cuK3bQqC
-         PWjOIqWr9TJ5hBaAz0u1fNmIOBraXpuoW2GjMwmGM/jTtM9ZlLQ2qAL4yP5GtwURgz/d
-         RZEvZ2I0ZyIR+Ik5sK0TQnIUrx3gWClIAZHh2t+M/wg0iInhQSvS2TV3v0H2i++Q7ASQ
-         kQbKUWe8kNsMaqCJ1AhkRsV/NtqbMFcQ9Z78vMoZ8SCIMCNV276CzWo+ZS00NoRdxcuX
-         GWgfvEoXAIgFT976hFv3wLC1HiOhelKO99+KxKYKmgpFybi0l7JaiFO4+/B39QphjLqH
-         bgiQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVAgcM+5scqiLyyLs40s3VRK3TkZNHZryt4LYmAJQ693MRve+I0sYHPXieDmzv9ZADUpiM4opzzqSaWLg==@lists.infradead.org
-X-Gm-Message-State: AOJu0YzcOQwTSnvYIJv3PeEV6ir0WGtOpASZKZgC7GT0+3ndUuvCSs/V
-	Cb0leJxAHBhdapJADRoTgbnfKjwnta/aL6qPTuyffKFI11ct9YngJ3gD0QCjld4=
-X-Google-Smtp-Source: AGHT+IF+dux3jioiQujAjXbkRVUUE8HYuaL/Pb+N/XvgW2ONJ3mvlvI5/3yMLnI7JF+vXby3PurS7Q==
-X-Received: by 2002:a05:6000:156b:b0:37d:498a:a233 with SMTP id ffacd0b85a97d-382185391demr2252298f8f.43.1731601147550;
-        Thu, 14 Nov 2024 08:19:07 -0800 (PST)
+        bh=pFFBRicSLcryUXTcW4czNg2bW4hUi+sNV0Va2EAONJ0=;
+        b=jan9wiFwFUvyysjUkxJxd/TdOoAbyfKl73EYQnsEmYbhBP2Y3Tk6jAkrqo3Z9CrAlZ
+         lTkZznsch2f9+TtYM7HkLTMpzL+s0wWwgak0dJoW3W5CouKQSLXoy6wHWKD49gmqOl9Q
+         Sd5IjB8NFfoAX8Cd4dWe+Nn5kvwfzHPZcFTKzpWYkoCqkICb5pchusqGCJ3hExE0kNZ5
+         en0PwB4kzB/pZfyVhAdZoBS8C6Kv0FbxyVdol5yM1hPtzpWW1Q4iaGqRVhqVxJfhnFCj
+         yYqv8/SdiUlywMJzsDiVaoyb45pE/Rs94WTbVN+JRhfScnELl4uL3ej+zkwX4rp0cxok
+         FCiw==
+X-Forwarded-Encrypted: i=1; AJvYcCXXalC2y8X/BdS1WY/BMdEOlhVJUAZRbMqNYsxIG0CE9BymeFlmsNN1DE7En2qe3UafGDYDGBxIM1uoXw==@lists.infradead.org
+X-Gm-Message-State: AOJu0YzWQS2Lk6ujwBSLhfv1hbIwGzbbtZSlw624x/OQKZc9rVO3MCxJ
+	rr88GQB8RD7e/nkE2DuqkVm4yyzpmhxLuOMuzqiVgNR04f+gtTM0BVcFCg7uUmmdNX8K/RuUXW2
+	DCAI=
+X-Google-Smtp-Source: AGHT+IFGPNdzokCF0Smmz2HXrxBVONdHjbl61VaRzcWcWTFU5SBB8vXJqki1qLp7dZUHNDK1wlI75g==
+X-Received: by 2002:a05:600c:a48:b0:431:5f1c:8359 with SMTP id 5b1f17b1804b1-432d4ab9134mr73117815e9.15.1731601149016;
+        Thu, 14 Nov 2024 08:19:09 -0800 (PST)
 Received: from localhost (2001-1ae9-1c2-4c00-20f-c6b4-1e57-7965.ip6.tmcz.cz. [2001:1ae9:1c2:4c00:20f:c6b4:1e57:7965])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3821ada4076sm1858965f8f.16.2024.11.14.08.19.06
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-432da28b76fsm29185835e9.28.2024.11.14.08.19.08
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 14 Nov 2024 08:19:07 -0800 (PST)
+        Thu, 14 Nov 2024 08:19:08 -0800 (PST)
 From: Andrew Jones <ajones@ventanamicro.com>
 To: iommu@lists.linux.dev,
 	kvm-riscv@lists.infradead.org,
@@ -81,16 +82,16 @@ Cc: tjeznach@rivosinc.com,
 	paul.walmsley@sifive.com,
 	palmer@dabbelt.com,
 	aou@eecs.berkeley.edu
-Subject: [RFC PATCH 12/15] iommu/riscv: Add guest file irqbypass support
-Date: Thu, 14 Nov 2024 17:18:57 +0100
-Message-ID: <20241114161845.502027-29-ajones@ventanamicro.com>
+Subject: [RFC PATCH 13/15] RISC-V: KVM: Add guest file irqbypass support
+Date: Thu, 14 Nov 2024 17:18:58 +0100
+Message-ID: <20241114161845.502027-30-ajones@ventanamicro.com>
 X-Mailer: git-send-email 2.47.0
 In-Reply-To: <20241114161845.502027-17-ajones@ventanamicro.com>
 References: <20241114161845.502027-17-ajones@ventanamicro.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241114_081909_861291_6BFDAFF3 
-X-CRM114-Status: GOOD (  22.06  )
+X-CRM114-CacheID: sfid-20241114_081910_642200_F93664FA 
+X-CRM114-Status: GOOD (  18.23  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,221 +108,206 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Implement irq_set_vcpu_affinity() in the RISCV IOMMU driver.
-irq_set_vcpu_affinity() is the channel from a hypervisor to the
-IOMMU needed to ensure that assigned devices which direct MSIs to
-guest IMSIC addresses will have those MSI writes redirected to
-their corresponding guest interrupt files.
+Implement kvm_arch_update_irqfd_routing() which makes
+irq_set_vcpu_affinity() calls whenever the assigned device updates
+its target addresses and whenever the hypervisor has migrated a
+VCPU to another CPU (which requires changing the guest interrupt
+file).
 
 Signed-off-by: Andrew Jones <ajones@ventanamicro.com>
 ---
- drivers/iommu/riscv/iommu-ir.c | 151 +++++++++++++++++++++++++++++++++
- drivers/iommu/riscv/iommu.c    |   4 +-
- drivers/iommu/riscv/iommu.h    |   3 +
- 3 files changed, 156 insertions(+), 2 deletions(-)
+ arch/riscv/kvm/aia_imsic.c | 132 ++++++++++++++++++++++++++++++++++++-
+ arch/riscv/kvm/vm.c        |   2 +-
+ 2 files changed, 130 insertions(+), 4 deletions(-)
 
-diff --git a/drivers/iommu/riscv/iommu-ir.c b/drivers/iommu/riscv/iommu-ir.c
-index c177e064b205..958270450ec1 100644
---- a/drivers/iommu/riscv/iommu-ir.c
-+++ b/drivers/iommu/riscv/iommu-ir.c
-@@ -7,6 +7,8 @@
- #include <linux/irqdomain.h>
- #include <linux/msi.h>
- 
+diff --git a/arch/riscv/kvm/aia_imsic.c b/arch/riscv/kvm/aia_imsic.c
+index 64b1f3713dd5..6a7c23e25f79 100644
+--- a/arch/riscv/kvm/aia_imsic.c
++++ b/arch/riscv/kvm/aia_imsic.c
+@@ -11,11 +11,13 @@
+ #include <linux/bitmap.h>
+ #include <linux/irqchip/riscv-imsic.h>
+ #include <linux/kvm_host.h>
++#include <linux/kvm_irqfd.h>
+ #include <linux/math.h>
+ #include <linux/spinlock.h>
+ #include <linux/swab.h>
+ #include <kvm/iodev.h>
+ #include <asm/csr.h>
 +#include <asm/irq.h>
-+
- #include "../iommu-pages.h"
- #include "iommu.h"
  
-@@ -52,10 +54,159 @@ static size_t riscv_iommu_ir_nr_msiptes(struct riscv_iommu_domain *domain)
- 	return max_idx + 1;
+ #define IMSIC_MAX_EIX	(IMSIC_MAX_ID / BITS_PER_TYPE(u64))
+ 
+@@ -676,6 +678,14 @@ static void imsic_swfile_update(struct kvm_vcpu *vcpu,
+ 	imsic_swfile_extirq_update(vcpu);
  }
  
-+static void riscv_iommu_ir_msitbl_inval(struct riscv_iommu_domain *domain,
-+					struct riscv_iommu_msipte *pte)
++static u64 kvm_riscv_aia_msi_addr_mask(struct kvm_aia *aia)
 +{
-+	struct riscv_iommu_bond *bond;
-+	struct riscv_iommu_device *iommu, *prev;
-+	struct riscv_iommu_command cmd;
-+	u64 addr;
++	u64 group_mask = BIT(aia->nr_group_bits) - 1;
 +
-+	addr = pfn_to_phys(FIELD_GET(RISCV_IOMMU_MSIPTE_PPN, pte->pte));
-+	riscv_iommu_cmd_inval_gvma(&cmd);
-+	riscv_iommu_cmd_inval_set_addr(&cmd, addr);
-+
-+	/* Like riscv_iommu_iotlb_inval(), synchronize with riscv_iommu_bond_link() */
-+	smp_mb();
-+
-+	rcu_read_lock();
-+
-+	prev = NULL;
-+	list_for_each_entry_rcu(bond, &domain->bonds, list) {
-+		iommu = dev_to_iommu(bond->dev);
-+
-+		if (iommu == prev)
-+			continue;
-+
-+		riscv_iommu_cmd_send(iommu, &cmd);
-+		riscv_iommu_cmd_sync(iommu, RISCV_IOMMU_IOTINVAL_TIMEOUT);
-+		prev = iommu;
-+	}
-+
-+	rcu_read_unlock();
++	return (group_mask << (aia->nr_group_shift - IMSIC_MMIO_PAGE_SHIFT)) |
++	       (BIT(aia->nr_hart_bits + aia->nr_guest_bits) - 1);
 +}
 +
-+static void riscv_iommu_ir_msitbl_update(struct riscv_iommu_domain *domain,
-+					 struct riscv_iommu_msiptp_state *msiptp)
-+{
-+	struct riscv_iommu_bond *bond;
-+	struct riscv_iommu_device *iommu, *prev;
-+	struct riscv_iommu_command cmd;
-+	struct iommu_fwspec *fwspec;
-+	struct riscv_iommu_dc *dc;
-+	int i;
+ void kvm_riscv_vcpu_aia_imsic_release(struct kvm_vcpu *vcpu)
+ {
+ 	unsigned long flags;
+@@ -730,7 +740,120 @@ void kvm_riscv_vcpu_aia_imsic_release(struct kvm_vcpu *vcpu)
+ int kvm_arch_update_irqfd_routing(struct kvm *kvm, unsigned int host_irq,
+ 				  uint32_t guest_irq, bool set)
+ {
+-	return -ENXIO;
++	struct irq_data *irqdata = irq_get_irq_data(host_irq);
++	struct kvm_irq_routing_table *irq_rt;
++	struct kvm_vcpu *vcpu;
++	unsigned long tmp, flags;
++	int idx, ret = -ENXIO;
 +
-+	/* Like riscv_iommu_ir_msitbl_inval(), synchronize with riscv_iommu_bond_link() */
-+	smp_mb();
-+	rcu_read_lock();
++	if (!set)
++		return irq_set_vcpu_affinity(host_irq, NULL);
 +
-+	prev = NULL;
-+	list_for_each_entry_rcu(bond, &domain->bonds, list) {
-+		iommu = dev_to_iommu(bond->dev);
-+		fwspec = dev_iommu_fwspec_get(bond->dev);
++	idx = srcu_read_lock(&kvm->irq_srcu);
++	irq_rt = srcu_dereference(kvm->irq_routing, &kvm->irq_srcu);
++	if (guest_irq >= irq_rt->nr_rt_entries ||
++	    hlist_empty(&irq_rt->map[guest_irq])) {
++		pr_warn_once("no route for guest_irq %u/%u (broken user space?)\n",
++			     guest_irq, irq_rt->nr_rt_entries);
++		goto out;
++	}
 +
-+		for (i = 0; i < fwspec->num_ids; i++) {
-+			dc = riscv_iommu_get_dc(iommu, fwspec->ids[i]);
-+			WRITE_ONCE(dc->msiptp, msiptp->msiptp);
-+			WRITE_ONCE(dc->msi_addr_mask, msiptp->msi_addr_mask);
-+			WRITE_ONCE(dc->msi_addr_pattern, msiptp->msi_addr_pattern);
++	kvm_for_each_vcpu(tmp, vcpu, kvm) {
++		struct imsic *imsic = vcpu->arch.aia_context.imsic_state;
++		gpa_t ippn = vcpu->arch.aia_context.imsic_addr >> IMSIC_MMIO_PAGE_SHIFT;
++		struct kvm_aia *aia = &kvm->arch.aia;
++		struct kvm_kernel_irq_routing_entry *e;
++
++		hlist_for_each_entry(e, &irq_rt->map[guest_irq], link) {
++			struct msi_msg msg[2] = {
++			{
++				.address_hi = e->msi.address_hi,
++				.address_lo = e->msi.address_lo,
++				.data = e->msi.data,
++			},
++			};
++			struct riscv_iommu_vcpu_info vcpu_info = {
++				.msi_addr_mask = kvm_riscv_aia_msi_addr_mask(aia),
++				.group_index_bits = aia->nr_group_bits,
++				.group_index_shift = aia->nr_group_shift,
++			};
++			gpa_t target, tppn;
++
++			if (e->type != KVM_IRQ_ROUTING_MSI)
++				continue;
++
++			target = ((gpa_t)e->msi.address_hi << 32) | e->msi.address_lo;
++			tppn = target >> IMSIC_MMIO_PAGE_SHIFT;
++
++			WARN_ON(target & (IMSIC_MMIO_PAGE_SZ - 1));
++
++			if (ippn != tppn)
++				continue;
++
++			vcpu_info.msi_addr_pattern = tppn & ~vcpu_info.msi_addr_mask;
++			vcpu_info.gpa = target;
++
++			read_lock_irqsave(&imsic->vsfile_lock, flags);
++
++			if (WARN_ON_ONCE(imsic->vsfile_cpu < 0)) {
++				read_unlock_irqrestore(&imsic->vsfile_lock, flags);
++				goto out;
++			}
++
++			vcpu_info.hpa = imsic->vsfile_pa;
++
++			ret = irq_set_vcpu_affinity(host_irq, &vcpu_info);
++			if (ret) {
++				read_unlock_irqrestore(&imsic->vsfile_lock, flags);
++				goto out;
++			}
++
++			irq_data_get_irq_chip(irqdata)->irq_write_msi_msg(irqdata, msg);
++
++			read_unlock_irqrestore(&imsic->vsfile_lock, flags);
 +		}
-+
-+		dma_wmb();
-+
-+		if (iommu == prev)
-+			continue;
-+
-+		riscv_iommu_cmd_inval_gvma(&cmd);
-+		riscv_iommu_cmd_send(iommu, &cmd);
-+		riscv_iommu_cmd_sync(iommu, RISCV_IOMMU_IOTINVAL_TIMEOUT);
-+		prev = iommu;
-+	}
-+
-+	rcu_read_unlock();
-+}
-+
-+static int riscv_iommu_ir_msitbl_init(struct riscv_iommu_domain *domain,
-+				      struct riscv_iommu_vcpu_info *vcpu_info)
-+{
-+	domain->msiptp.msi_addr_pattern = vcpu_info->msi_addr_pattern;
-+	domain->msiptp.msi_addr_mask = vcpu_info->msi_addr_mask;
-+	domain->group_index_bits = vcpu_info->group_index_bits;
-+	domain->group_index_shift = vcpu_info->group_index_shift;
-+
-+	if (riscv_iommu_ir_nr_msiptes(domain) * sizeof(*domain->msi_root) > PAGE_SIZE * 2)
-+		return -ENOMEM;
-+
-+	domain->msiptp.msiptp = virt_to_pfn(domain->msi_root) |
-+				FIELD_PREP(RISCV_IOMMU_DC_MSIPTP_MODE,
-+					   RISCV_IOMMU_DC_MSIPTP_MODE_FLAT);
-+
-+	riscv_iommu_ir_msitbl_update(domain, &domain->msiptp);
-+
-+	return 0;
-+}
-+
-+static int riscv_iommu_irq_set_vcpu_affinity(struct irq_data *data, void *info)
-+{
-+	struct riscv_iommu_vcpu_info *vcpu_info = info;
-+	struct riscv_iommu_domain *domain = data->domain->host_data;
-+	struct riscv_iommu_msipte *pte;
-+	int ret = -EINVAL;
-+	u64 pteval;
-+
-+	if (WARN_ON(domain->domain.type != IOMMU_DOMAIN_UNMANAGED))
-+		return ret;
-+
-+	spin_lock(&domain->msi_lock);
-+
-+	if (!domain->msiptp.msiptp) {
-+		if (WARN_ON(!vcpu_info))
-+			goto out_unlock;
-+
-+		ret = riscv_iommu_ir_msitbl_init(domain, vcpu_info);
-+		if (ret)
-+			goto out_unlock;
-+	} else if (!vcpu_info) {
-+		/*
-+		 * Nothing to do here since we don't track host_irq <=> msipte mappings
-+		 * nor reference count the ptes. If we did do that tracking then we would
-+		 * decrement the reference count of the pte for the host_irq and possibly
-+		 * clear its valid bit if it was the last one mapped.
-+		 */
-+		ret = 0;
-+		goto out_unlock;
-+	} else if (WARN_ON(vcpu_info->msi_addr_pattern != domain->msiptp.msi_addr_pattern ||
-+			   vcpu_info->msi_addr_mask != domain->msiptp.msi_addr_mask ||
-+			   vcpu_info->group_index_bits != domain->group_index_bits ||
-+			   vcpu_info->group_index_shift != domain->group_index_shift)) {
-+		goto out_unlock;
-+	}
-+
-+	pte = riscv_iommu_ir_get_msipte(domain, vcpu_info->gpa);
-+	if (!pte)
-+		goto out_unlock;
-+
-+	pteval = FIELD_PREP(RISCV_IOMMU_MSIPTE_M, 3) |
-+		 riscv_iommu_phys_to_ppn(vcpu_info->hpa) |
-+		 FIELD_PREP(RISCV_IOMMU_MSIPTE_V, 1);
-+
-+	if (pte->pte != pteval) {
-+		pte->pte = pteval;
-+		riscv_iommu_ir_msitbl_inval(domain, pte);
 +	}
 +
 +	ret = 0;
-+
-+out_unlock:
-+	spin_unlock(&domain->msi_lock);
++out:
++	srcu_read_unlock(&kvm->irq_srcu, idx);
 +	return ret;
 +}
 +
- static struct irq_chip riscv_iommu_irq_chip = {
- 	.name			= "IOMMU-IR",
- 	.irq_mask		= irq_chip_mask_parent,
- 	.irq_unmask		= irq_chip_unmask_parent,
-+	.irq_set_vcpu_affinity	= riscv_iommu_irq_set_vcpu_affinity,
- };
- 
- static int riscv_iommu_irq_domain_alloc_irqs(struct irq_domain *irqdomain,
-diff --git a/drivers/iommu/riscv/iommu.c b/drivers/iommu/riscv/iommu.c
-index c4a47b21c58f..46ac228ba7ac 100644
---- a/drivers/iommu/riscv/iommu.c
-+++ b/drivers/iommu/riscv/iommu.c
-@@ -544,8 +544,8 @@ static irqreturn_t riscv_iommu_fltq_process(int irq, void *data)
++static int kvm_riscv_vcpu_irq_update(struct kvm_vcpu *vcpu)
++{
++	struct kvm *kvm = vcpu->kvm;
++	struct imsic *imsic = vcpu->arch.aia_context.imsic_state;
++	struct kvm_aia *aia = &kvm->arch.aia;
++	u64 mask = kvm_riscv_aia_msi_addr_mask(aia);
++	u64 target = vcpu->arch.aia_context.imsic_addr;
++	struct riscv_iommu_vcpu_info vcpu_info = {
++		.msi_addr_pattern = (target >> IMSIC_MMIO_PAGE_SHIFT) & ~mask,
++		.msi_addr_mask = mask,
++		.group_index_bits = aia->nr_group_bits,
++		.group_index_shift = aia->nr_group_shift,
++		.gpa = target,
++		.hpa = imsic->vsfile_pa,
++	};
++	struct kvm_kernel_irqfd *irqfd;
++	int host_irq, ret;
++
++	spin_lock_irq(&kvm->irqfds.lock);
++
++	list_for_each_entry(irqfd, &kvm->irqfds.items, list) {
++		if (!irqfd->producer)
++			continue;
++		host_irq = irqfd->producer->irq;
++		ret = irq_set_vcpu_affinity(host_irq, &vcpu_info);
++		if (ret) {
++			spin_unlock_irq(&kvm->irqfds.lock);
++			return ret;
++		}
++	}
++
++	spin_unlock_irq(&kvm->irqfds.lock);
++
++	return 0;
  }
  
- /* Lookup and initialize device context info structure. */
--static struct riscv_iommu_dc *riscv_iommu_get_dc(struct riscv_iommu_device *iommu,
--						 unsigned int devid)
-+struct riscv_iommu_dc *riscv_iommu_get_dc(struct riscv_iommu_device *iommu,
-+					  unsigned int devid)
- {
- 	const bool base_format = !(iommu->caps & RISCV_IOMMU_CAPABILITIES_MSI_FLAT);
- 	unsigned int depth;
-diff --git a/drivers/iommu/riscv/iommu.h b/drivers/iommu/riscv/iommu.h
-index 6ce71095781c..2ca76edf48f5 100644
---- a/drivers/iommu/riscv/iommu.h
-+++ b/drivers/iommu/riscv/iommu.h
-@@ -127,6 +127,9 @@ struct riscv_iommu_bond {
- int riscv_iommu_init(struct riscv_iommu_device *iommu);
- void riscv_iommu_remove(struct riscv_iommu_device *iommu);
+ int kvm_riscv_vcpu_aia_imsic_update(struct kvm_vcpu *vcpu)
+@@ -797,14 +920,17 @@ int kvm_riscv_vcpu_aia_imsic_update(struct kvm_vcpu *vcpu)
+ 	if (ret)
+ 		goto fail_free_vsfile_hgei;
  
-+struct riscv_iommu_dc *riscv_iommu_get_dc(struct riscv_iommu_device *iommu,
-+					  unsigned int devid);
+-	/* TODO: Update the IOMMU mapping ??? */
+-
+ 	/* Update new IMSIC VS-file details in IMSIC context */
+ 	write_lock_irqsave(&imsic->vsfile_lock, flags);
 +
- void riscv_iommu_cmd_send(struct riscv_iommu_device *iommu,
- 			  struct riscv_iommu_command *cmd);
- void riscv_iommu_cmd_sync(struct riscv_iommu_device *iommu,
+ 	imsic->vsfile_hgei = new_vsfile_hgei;
+ 	imsic->vsfile_cpu = vcpu->cpu;
+ 	imsic->vsfile_va = new_vsfile_va;
+ 	imsic->vsfile_pa = new_vsfile_pa;
++
++	/* Update the IOMMU mapping */
++	kvm_riscv_vcpu_irq_update(vcpu);
++
+ 	write_unlock_irqrestore(&imsic->vsfile_lock, flags);
+ 
+ 	/*
+diff --git a/arch/riscv/kvm/vm.c b/arch/riscv/kvm/vm.c
+index 9c5837518c1a..5f697d9a37da 100644
+--- a/arch/riscv/kvm/vm.c
++++ b/arch/riscv/kvm/vm.c
+@@ -78,7 +78,7 @@ EXPORT_SYMBOL_GPL(kvm_arch_has_assigned_device);
+ 
+ bool kvm_arch_has_irq_bypass(void)
+ {
+-	return false;
++	return true;
+ }
+ 
+ int kvm_arch_irq_bypass_add_producer(struct irq_bypass_consumer *cons,
 -- 
 2.47.0
 
