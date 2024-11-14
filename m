@@ -4,65 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 86776D68B36
-	for <linux-riscv@archiver.kernel.org>; Thu, 14 Nov 2024 16:19:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E813D68B34
+	for <linux-riscv@archiver.kernel.org>; Thu, 14 Nov 2024 16:19:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=KvBGJR5fycL12D2M320EM1Ty5TEAv7N9T8v0ArpL6nM=; b=P5+j1QS3EpgA/Y
-	yOU3e7xmYbK2Xf7Hx8H/pzCkxKBfw7GqJg3axpGH8F/oUuBPp7kFdw5yZEOEjpSjzwD62aPKdyUUW
-	I43bEcFNs/ptoGTPT002o7U4ew2L72PHiZawdN15OD3v+Y07iWRdw0WcVXzUW2QA4hndL2wu+R4aF
-	shpU0NlEicUUFVAMlLQc1gpRKtRzQYfvOqFykBHrZgO0uHNRFZ2HnlLXdpEuPPXgHIdY4MZ9SlieG
-	79IP9KkiG8BUetwbplxx/BrEr/59tq5sZphoC4nMOY9HzirZfpbuKUOZteA68GJ+uWuerP6d5X5nm
-	XvqXG75hq/hycjPUdZ6Q==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=dx06Q72weQvVi0E1A+Z03mP90Z65QGbO75Z6QrBRH88=; b=HoJWPdEURbBngg
+	I/XFbMpolaWiSYCvqua+6ASgTJ1XJa0/kpz+QKpYhvVOozGn2YGbS+o01kmH3IK3zcIcZfoJUcgEk
+	ZDjzZln2ucKRo/Vd0JPiKc0RVtfZ1wpfvUFLjDKidB17F7a284zpoE6JBD8V7p10QT04xyVheAUSx
+	TsPfZTMrgv1JdM6ncWXkCeN+FngYA9m2w2cMKE7nruou0z2jYjwLZ7rY9KhL4IV56wXhER9CrE0eC
+	en4NYs70QBZ37FeOY92RHPEj7aL5GeikxBvmZr7wGZYhzIC57BtP+a5JQLq4uMgAMqTW7nJ6U31tc
+	umf0o6fCoxUgoAMOIMiQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tBcYa-000000004tb-0eSX;
-	Thu, 14 Nov 2024 16:18:56 +0000
-Received: from mail-lf1-x134.google.com ([2a00:1450:4864:20::134])
+	id 1tBcYW-000000004pJ-03GM;
+	Thu, 14 Nov 2024 16:18:52 +0000
+Received: from mail-wm1-x32c.google.com ([2a00:1450:4864:20::32c])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tBcYX-000000004pK-1eO9
+	id 1tBcYS-000000004m3-3yuq
 	for linux-riscv@lists.infradead.org;
-	Thu, 14 Nov 2024 16:18:54 +0000
-Received: by mail-lf1-x134.google.com with SMTP id 2adb3069b0e04-539e8607c2aso849834e87.3
-        for <linux-riscv@lists.infradead.org>; Thu, 14 Nov 2024 08:18:52 -0800 (PST)
+	Thu, 14 Nov 2024 16:18:50 +0000
+Received: by mail-wm1-x32c.google.com with SMTP id 5b1f17b1804b1-4315e9e9642so7298275e9.0
+        for <linux-riscv@lists.infradead.org>; Thu, 14 Nov 2024 08:18:48 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1731601131; x=1732205931; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=EgkdpOYsLIOn0iKAKl5fgt6eXL8Mzl+XIucJ8fWc9TA=;
-        b=HMk4PUosQnNRSmgX82JVY7cDKQtXa0/z4ZNqrK/iYyLV7q3xp44EkzDh5DgUpe7cL0
-         r7fr4yCTFZUXJXHN8ZhMuvWCvwgWLlpUlt5EfACyBaBZDd2L2NrC+xBcIRT21uA3sMjb
-         qutlGpfeMA4HeVbrNfXzRzXGFQjBm/p1pzfarq+UsdpC1+L1sg0ZVF44hn7dd9qBoi7/
-         Seh9v3pOW5K7/ZfbCfCiP/M7eeMSr4MMsGzuh60Qcl4+xQqoX2xDrAa3FFFoUjzYi5lQ
-         LbUBvtjDFWbrum2qGz/n5cMroo6lgoV0ZUMJip2FNl4pUD7phutmjQSOvt2gWvnJsrry
-         B6uQ==
+        d=ventanamicro.com; s=google; t=1731601127; x=1732205927; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=c7BJqdeVq7UVKuF/HMX90zKjA2XSvBJJooO0qYOgVYo=;
+        b=nl1oDLz3AGYdKPVZBY0hOsTgVXAoBdv68swmiP5swBKLBhv9rdlBlThSe2s2qByW4j
+         QYGwho4RXVdlYyrVoxudDQDF0JvtdOz3UolCqDkpoXmEGv3dAgTYakGijqcRlDb+3reh
+         AbNL6vf4Z4H0iN7JeP/uQRRkxGa5f370d3inpfWP+x3kWK7dyjRi1SqUBDggo24aSTNw
+         hvYMTWwFXL0D5IwXhJE+y1aB+NDhXW/U2JVE0QcR9hJteq2I68jbjo72kWCCJEoInGSD
+         vrsP7ZoQmNFqNo5xW14DIyRU/W4fSvsP3ekEAc0FsgGAz7oNKEyRAKEU35REnDxgniV7
+         OFuQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1731601131; x=1732205931;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=EgkdpOYsLIOn0iKAKl5fgt6eXL8Mzl+XIucJ8fWc9TA=;
-        b=PPXpfKEqdRZB62Rhgi64L3/msXMKmpBq4n5/SvaOst5NhNQ4ic6WbZcKPgGimiBGKb
-         ggGQ3gWdAYw7B3UGAgW7+Ie+ecvVgMGyASub5UXr0uQ+JAck+GRsLTTgOXpjUkDWdA+L
-         n0BEbU7AmQ1LsJEfnpXhPl7GcMTxaDy4E3+Lj6dRaLNK2C3unHN/e6ySkyQpcZpUiud3
-         G+ojX+idwhQddOTKujxL+3vB1fBWlaUu4Jr5W9KonwhutFz9GXWvtuPpPbKyUr9t68xF
-         VEuYtBt2TDnbVS3iWJH/XmkDcs3bP5gazJNtSFsv4nFI/Vl7oP2y99yc3bvN6u5Nf+e5
-         krWA==
-X-Forwarded-Encrypted: i=1; AJvYcCXL378QoDrG+C2cN8seQHHuv5lcRKN1g6SC2q5P47Wl9LdvOO2/GfADjmA1U5g7Qt8sqqySmeDhvr8HyA==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz9eKhy1zNaluePJMEoufXzBIgsrkp4Ma5VncRyPLDY9Lm7XfU5
-	fzuhoavhyzsny10EmzJuu3hu7ZmAYY9mdXiB5GhKaphGGmKuJNJIotepkxkpo9Q=
-X-Google-Smtp-Source: AGHT+IFd0CnkIMN5l0Pz4D+G0QBgRZi3KYTDXcb5xA9gQJqvW8wTertCqu9+xj4IWnW1G55hIkNGVw==
-X-Received: by 2002:a05:6512:3ca5:b0:539:f607:1d2b with SMTP id 2adb3069b0e04-53d862b45e5mr14144215e87.7.1731601131046;
-        Thu, 14 Nov 2024 08:18:51 -0800 (PST)
+        d=1e100.net; s=20230601; t=1731601127; x=1732205927;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=c7BJqdeVq7UVKuF/HMX90zKjA2XSvBJJooO0qYOgVYo=;
+        b=bfOjcYP4BQTVrmJPL+NyhWqks+XABHgy1fvycMBd1wDQyK2izph16GKZDtbFnL6YiM
+         t0Qha17ZQoy08nwQ1uPxjnKqyTPDQoFbTVfo88AvdzuSRi4EjXZ4jXflJT4pvuGmEMGz
+         esS5hz3ej3Y3hiKbpuU9BQYd7Qt2Kqfoptorq0eI/4JlVzGCTBpRq8aHTkKxwHOtmHRO
+         /YDppJR2UYKqsMNvj0k/ltNyccBEs5RD71T1lFodJmq9982lres7ARjxJwtte4Z4l0f2
+         EYidZV4NwCGC7/54M85G9EvMvOp7gWo5p8qSI+yOcJAtjFe5q37MHtELNza3pkMEjJh1
+         J8fQ==
+X-Forwarded-Encrypted: i=1; AJvYcCW61gLQGGPqA4QzHC//dpDw6N0WPbV+wVfZXA3P7tGkDujl2vf/MVhBl4NSuUQfxKjcBfuyOew3soHJPA==@lists.infradead.org
+X-Gm-Message-State: AOJu0YyIsVRI6xlyzut/E1NXXhWeCxc/eRTS8uOrCTzT1X81xPMPz5JM
+	TYih2bRlvIrHlXd149MmepIgfMl5zO24pWtesAqmhb6G7fRVojhjdyTg7usWFoA=
+X-Google-Smtp-Source: AGHT+IGmsJWy6Z+mGpYkwKc89nKAhzRkstEPPTX+iWcGxi/SAriHdno919nTAwdEP/fS42LcKsW+QA==
+X-Received: by 2002:a05:600c:1d88:b0:431:5a27:839c with SMTP id 5b1f17b1804b1-432d4a98364mr70171705e9.5.1731601126807;
+        Thu, 14 Nov 2024 08:18:46 -0800 (PST)
 Received: from localhost (2001-1ae9-1c2-4c00-20f-c6b4-1e57-7965.ip6.tmcz.cz. [2001:1ae9:1c2:4c00:20f:c6b4:1e57:7965])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-432dac1f409sm24906005e9.37.2024.11.14.08.18.50
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-432da265f28sm28998355e9.17.2024.11.14.08.18.45
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 14 Nov 2024 08:18:50 -0800 (PST)
+        Thu, 14 Nov 2024 08:18:46 -0800 (PST)
 From: Andrew Jones <ajones@ventanamicro.com>
 To: iommu@lists.linux.dev,
 	kvm-riscv@lists.infradead.org,
@@ -81,17 +80,14 @@ Cc: tjeznach@rivosinc.com,
 	paul.walmsley@sifive.com,
 	palmer@dabbelt.com,
 	aou@eecs.berkeley.edu
-Subject: [RFC PATCH 03/15] irqchip/riscv-imsic: Add support for DOMAIN_BUS_MSI_REMAP
-Date: Thu, 14 Nov 2024 17:18:48 +0100
-Message-ID: <20241114161845.502027-20-ajones@ventanamicro.com>
+Subject: [RFC PATCH 00/15] iommu/riscv: Add irqbypass support
+Date: Thu, 14 Nov 2024 17:18:45 +0100
+Message-ID: <20241114161845.502027-17-ajones@ventanamicro.com>
 X-Mailer: git-send-email 2.47.0
-In-Reply-To: <20241114161845.502027-17-ajones@ventanamicro.com>
-References: <20241114161845.502027-17-ajones@ventanamicro.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241114_081853_446600_416F332B 
-X-CRM114-Status: UNSURE (   9.99  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241114_081848_996261_ED0673AC 
+X-CRM114-Status: GOOD (  12.84  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,34 +104,72 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Unlike a child of an MSI NEXUS domain, a child of an MSI_REMAP domain
-will not invoke init_dev_msi_info() with 'domain' equal to
-'msi_parent_domain'. This is because the MSI_REMAP domain implements
-init_dev_msi_info() with msi_parent_init_dev_msi_info(), which makes
-'domain' point to the NEXUS (IMSIC) domain, while keeping
-'msi_parent_domain' pointing to itself. The rest of the IMSIC
-init_dev_msi_info() implementation works for MSI_REMAP domains,
-though, so there's nothing to do to add support except accept the
-token.
+Platforms with implementations of the RISC-V IOMMU and AIA support
+directly delivering MSIs of devices assigned to guests to the VCPUs.
+VFIO and KVM have a framework to enable such support, which is called
+irqbypass. This series enables irqbypass for devices assigned to KVM
+guests when all VCPUs are allocated guest interrupt files. The RISC-V
+IOMMU and AIA also support MRIFs (memory-resident interrupt files),
+but support for those will be posted as a follow-on to this series.
 
-Signed-off-by: Andrew Jones <ajones@ventanamicro.com>
----
- drivers/irqchip/irq-riscv-imsic-platform.c | 2 ++
- 1 file changed, 2 insertions(+)
+The patches are organized as follows:
+  1-3:  Prepare to create an MSI remapping irqdomain parented by the IMSIC
+  4-6:  Prepare the IOMMU driver for VFIO domains which will use a single
+        stage of translation, but G-stage instead of the first stage
+  7-8:  Add support to the IOMMU driver for creating irqdomains
+  9-10: Prepare KVM to enable irqbypass
+ 11-13: Add irqbypass support to the IOMMU driver and KVM
+ 14-15: Enable VFIO by default
 
-diff --git a/drivers/irqchip/irq-riscv-imsic-platform.c b/drivers/irqchip/irq-riscv-imsic-platform.c
-index 5d7c30ad8855..6a7d7fefda6a 100644
---- a/drivers/irqchip/irq-riscv-imsic-platform.c
-+++ b/drivers/irqchip/irq-riscv-imsic-platform.c
-@@ -246,6 +246,8 @@ static bool imsic_init_dev_msi_info(struct device *dev,
- 	case DOMAIN_BUS_NEXUS:
- 		if (WARN_ON_ONCE(domain != real_parent))
- 			return false;
-+		fallthrough;
-+	case DOMAIN_BUS_MSI_REMAP:
- #ifdef CONFIG_SMP
- 		info->chip->irq_set_affinity = irq_chip_set_affinity_parent;
- #endif
+This series is also available here [1] and may be tested with QEMU recent
+enough to have the IOMMU model.
+
+Based on linux-next commit 28955f4fa282 ("Add linux-next specific files for 20241112")
+
+[1] https://github.com/jones-drew/linux/commits/riscv/iommu-irqbypass-rfc-v1/
+
+Thanks,
+drew
+
+
+Andrew Jones (10):
+  irqchip/riscv-imsic: Use hierarchy to reach irq_set_affinity
+  genirq/msi: Provide DOMAIN_BUS_MSI_REMAP
+  irqchip/riscv-imsic: Add support for DOMAIN_BUS_MSI_REMAP
+  iommu/riscv: Move definitions to iommu.h
+  iommu/riscv: Add IRQ domain for interrupt remapping
+  RISC-V: KVM: Add irqbypass skeleton
+  RISC-V: Define irqbypass vcpu_info
+  iommu/riscv: Add guest file irqbypass support
+  RISC-V: KVM: Add guest file irqbypass support
+  RISC-V: defconfig: Add VFIO modules
+
+Tomasz Jeznach (3):
+  iommu/riscv: report iommu capabilities
+  RISC-V: KVM: Enable KVM_VFIO interfaces on RISC-V arch
+  vfio: enable IOMMU_TYPE1 for RISC-V
+
+Zong Li (2):
+  iommu/riscv: use data structure instead of individual values
+  iommu/riscv: support GSCID and GVMA invalidation command
+
+ arch/riscv/configs/defconfig               |   2 +
+ arch/riscv/include/asm/irq.h               |   9 +
+ arch/riscv/include/asm/kvm_host.h          |   3 +
+ arch/riscv/kvm/Kconfig                     |   3 +
+ arch/riscv/kvm/aia_imsic.c                 | 136 +++++++-
+ arch/riscv/kvm/vm.c                        |  60 ++++
+ drivers/iommu/riscv/Makefile               |   2 +-
+ drivers/iommu/riscv/iommu-bits.h           |  11 +
+ drivers/iommu/riscv/iommu-ir.c             | 360 +++++++++++++++++++++
+ drivers/iommu/riscv/iommu.c                | 183 ++++++-----
+ drivers/iommu/riscv/iommu.h                |  78 +++++
+ drivers/irqchip/irq-riscv-imsic-platform.c |  18 +-
+ drivers/vfio/Kconfig                       |   2 +-
+ include/linux/irqdomain_defs.h             |   1 +
+ 14 files changed, 776 insertions(+), 92 deletions(-)
+ create mode 100644 drivers/iommu/riscv/iommu-ir.c
+
 -- 
 2.47.0
 
