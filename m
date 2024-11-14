@@ -4,86 +4,47 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D5068D65C46
-	for <linux-riscv@archiver.kernel.org>; Thu, 14 Nov 2024 06:37:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 114BBD65C48
+	for <linux-riscv@archiver.kernel.org>; Thu, 14 Nov 2024 06:50:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	MIME-Version:Date:References:In-Reply-To:Subject:Cc:To:From:Message-ID:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lQpTaty5qHa5lG/M5CGkkqBIYrOS1USBr5Cyw2zyZ/g=; b=ZenI7XnEki4DBmY7wF25nza4vW
-	sW2FsroxY8fMJmk65kCgNHfIecRKWBOnVTH5rvXMhk1SujGaXdN5XCnhV7+72Kh3cVex4nj3Uugvp
-	XyBT5BNWsnPFYzFVHeHl+odhC9W1XwB0dU7FtIvoRAN5GMCMZMaCZg4rzW2c3kQdJXycJXvsAuXjO
-	UyMx+QHKny6s6ZnYtxFbXatN74NXTiKXJTWgrHofXF6xdlBxVy09uJ2aKWJlhBin6epMAqTxRZbrM
-	kh5d8avz3zs5D7cIMNbeAuTIxrOT4wm2bHbGoUJAJli5NY8u28+0NQjKMCv3VC31cJfMmlA5Y95r1
-	vos3nUgA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=ibbJ/j7fSosXUQ/Vm+pxwrnNupj9oLYy8gFiCVIN59U=; b=3BzXax6UaoroPJ
+	xUkUvZCMPfo4erFiy/GkRRBD+EFoEl7QUlc4yHdYGrH96hAXIn0lL7j4dGUwovyihIDFDDfXBjlai
+	MQxl4JVfWCEc+WmGewUDZgyGc7U97wpnv+XQc5BueyQaPo6mE/eWTky+NfU6tY9ITQwcCctChk9jG
+	Pxi+pq4bfYGOmN5D0gezq08f7sNCI7ctnHGjOHFNJA/CuVWj4YlXucy3v2EDHtgA7p23U849Is/wf
+	psAudVZ9yVy6D3A3PkhSsUluwVU9smRv7S0AluIcjlLj2BKducKp0pPVuIG3TL/S1rVCct793JU42
+	AqhsP6GUgP2w72mtCtcw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tBTTt-00000008yLp-0ghi;
-	Thu, 14 Nov 2024 06:37:29 +0000
-Received: from mail-wm1-x32b.google.com ([2a00:1450:4864:20::32b])
+	id 1tBTfv-00000008zTv-0kPT;
+	Thu, 14 Nov 2024 06:49:55 +0000
+Received: from smtp.gentoo.org ([2001:470:ea4a:1:5054:ff:fec7:86e4])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tBTTq-00000008yKg-04Wr
+	id 1tBTfr-00000008zTM-0YMI
 	for linux-riscv@lists.infradead.org;
-	Thu, 14 Nov 2024 06:37:27 +0000
-Received: by mail-wm1-x32b.google.com with SMTP id 5b1f17b1804b1-4316f3d3c21so2431325e9.3
-        for <linux-riscv@lists.infradead.org>; Wed, 13 Nov 2024 22:37:24 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1731566243; x=1732171043; darn=lists.infradead.org;
-        h=mime-version:date:user-agent:references:organization:in-reply-to
-         :subject:cc:to:from:message-id:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=OzA2oQZMAdaKXqd5iiIFp8MvCWhHHpRVX4RNggE14po=;
-        b=Fas6edM+0Rg44qQ194hH8p5ELcxrKrEEMlmsepQXHx/CvOtXV5UlQoHis7RDOscTJP
-         POw3vMszS8S3h2ydUy1Fc/I7/mK4xg/wd7UIXZ+JFAYiWnXUOGPMEDVd1MT0W82se8Qn
-         vLJ0iCA7HGks7ufDFLczDrZsye4h8c+x3h2Cwq38d8FnONO8qs7tjlN+HZsL8AQBGa5U
-         ojkYisnZlGQnXAu+AmnN4Xkoi5xknR42gk9H3jvbZboH3IElCC8sIJ081xNxjy05/eq5
-         yyurakBROU38mA/uCt7pwNSVM7VkhiNYgkqnqJrc4K2GfU8IXtRP6o0Wy3dQdDY3waJ/
-         usqA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1731566243; x=1732171043;
-        h=mime-version:date:user-agent:references:organization:in-reply-to
-         :subject:cc:to:from:message-id:x-gm-message-state:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=OzA2oQZMAdaKXqd5iiIFp8MvCWhHHpRVX4RNggE14po=;
-        b=GGXeUI4amcVj+KrWh+idBTOYDfM7oiFEGS8zKUvVbr8HvbNm5Mmghu17rh1gsdVFha
-         251tZh+7NH5oIvZAO0UsxsMmVLhXnAaX2PpzNoSN8f0XhdPapynRrBZ+zKIxW5Z+V4c7
-         LIP1ZQ5KQQdOupweL379vzBLrAjigQqJHjCLzmz0yMD9NxRUEFLSVBNCxA4j/0pUXgXl
-         ZUtQBWnLvC9uwaxCFetnaaFhw05/yrstx1oEgncKSdSJr2R36a9sN6J3NnqrX7yIwVFD
-         O2PcBmJVlUSDz9qbkr3KaQRo24nflZ7TlRPnIMNJgdhSQSLR62GiZnbMnpdgc7rtTm3P
-         p9Gg==
-X-Forwarded-Encrypted: i=1; AJvYcCWO9AZzid67nIGk/U12Jb8szZqU3gffKj56wi8J9Gxw0DXjQSDB/H6lG5ffQecifu8BhcC0CCq2D2NjOw==@lists.infradead.org
-X-Gm-Message-State: AOJu0YzN3WKb6auE+xAgaGZPPwdYNttK/uAD/fMZYAfD8yQuxMJxQhal
-	aThFH+U8vqmfVmRt+4S50Wh1tCrbj3Ro9r1h5hVjmqopvgQjk7j3
-X-Google-Smtp-Source: AGHT+IF2q3VqNO6Ts4z+fwKPab8GgAycbFF5/LX6gjOIErWMjr82/KJwaZJbaL4+i+amj2qWDxcl7Q==
-X-Received: by 2002:a05:600c:3b93:b0:431:2460:5574 with SMTP id 5b1f17b1804b1-432cd47d785mr74090465e9.27.1731566243334;
-        Wed, 13 Nov 2024 22:37:23 -0800 (PST)
-Received: from localhost ([37.72.3.43])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-432da28b76fsm12031765e9.28.2024.11.13.22.37.21
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 13 Nov 2024 22:37:22 -0800 (PST)
-Message-ID: <67359aa2.050a0220.cc412.2c60@mx.google.com>
-X-Google-Original-Message-ID: <87y11m5nj3.fsf@>
-From: =?utf-8?Q?Miquel_Sabat=C3=A9_Sol=C3=A0?= <mikisabate@gmail.com>
-To: paul.walmsley@sifive.com
-Cc: palmer@dabbelt.com,  aou@eecs.berkeley.edu,
-  linux-riscv@lists.infradead.org,  linux-kernel@vger.kernel.org,  Jesse
- Taube <jesse@rivosinc.com>,  Conor Dooley <conor.dooley@microchip.com>
-Subject: Re: [RESEND PATCH v2] riscv: hwprobe: export Zicntr and Zihpm
- extensions
-In-Reply-To: <66f1cc93.050a0220.bf7a0.30f3@mx.google.com> ("Miquel
- =?utf-8?Q?Sabat=C3=A9=09Sol=C3=A0=22's?= message of "Mon, 23 Sep 2024
- 22:16:17 +0200")
-Organization: Linux Private Site
-References: <20240913051324.8176-1-mikisabate@gmail.com>
-	<66f1cc93.050a0220.bf7a0.30f3@mx.google.com>
-User-Agent: mu4e 1.12.7; emacs 29.4
-Date: Thu, 14 Nov 2024 07:37:20 +0100
+	Thu, 14 Nov 2024 06:49:53 +0000
+Date: Thu, 14 Nov 2024 14:49:43 +0800
+From: Yixun Lan <dlan@gentoo.org>
+To: Troy Mitchell <troymitchell988@gmail.com>
+Cc: Andi Shyti <andi.shyti@kernel.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, linux-riscv@lists.infradead.org,
+	linux-i2c@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v3 2/2] i2c: spacemit: add support for SpacemiT K1 SoC
+Message-ID: <20241114064943-GYA998060@gentoo>
+References: <20241112-k1-i2c-master-v3-0-5005b70dc208@gmail.com>
+ <20241112-k1-i2c-master-v3-2-5005b70dc208@gmail.com>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20241112-k1-i2c-master-v3-2-5005b70dc208@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241113_223726_082020_C89A39ED 
-X-CRM114-Status: GOOD (  17.76  )
+X-CRM114-CacheID: sfid-20241113_224951_274951_C0E59328 
+X-CRM114-Status: GOOD (  40.76  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,163 +56,758 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============0667992736098116979=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
---===============0667992736098116979==
-Content-Type: multipart/signed; boundary="=-=-=";
-	micalg=pgp-sha512; protocol="application/pgp-signature"
+On 11:07 Tue 12 Nov     , Troy Mitchell wrote:
+> From: Troy Mitchell <troymitchell988@gmail.com>
+> 
+> This patch introduces basic I2C support for the SpacemiT K1 SoC,
+> utilizing interrupts for transfers.
+> 
+> The driver has been tested using i2c-tools on a Bananapi-F3 board,
+> and basic I2C read/write operations have been confirmed to work.
+> 
+> Signed-off-by: Troy Mitchell <TroyMitchell988@gmail.com>
+> ---
+>  drivers/i2c/busses/Kconfig  |  19 ++
+>  drivers/i2c/busses/Makefile |   1 +
+>  drivers/i2c/busses/i2c-k1.c | 656 ++++++++++++++++++++++++++++++++++++++++++++
+>  3 files changed, 676 insertions(+)
+> 
+> diff --git a/drivers/i2c/busses/Kconfig b/drivers/i2c/busses/Kconfig
+> index 6b3ba7e5723a..91630f55667f 100644
+> --- a/drivers/i2c/busses/Kconfig
+> +++ b/drivers/i2c/busses/Kconfig
+> @@ -779,6 +779,25 @@ config I2C_JZ4780
+>  
+>  	 If you don't know what to do here, say N.
+>  
+> +config I2C_K1
+> +	tristate "Spacemit K1 I2C adapter"
+> +	depends on ARCH_SPACEMIT || COMPILE_TEST
+> +	depends on OF
+> +	help
+> +	  This option enables support for the I2C interface on the Spacemit K1
+> +	  platform.
+> +
+> +	  If you enable this configuration, the kernel will include support for
+> +	  the I2C adapter specific to the Spacemit K1 platform. This driver ca
+> +	  be used to manage I2C bus transactions, which are necessary for
+> +	  interfacing with I2C peripherals such as sensors, EEPROMs, and other
+> +	  devices.
+> +
+> +	  This driver can also be compiled as a module. If you choose to build
+> +	  it as a module, the resulting kernel module will be named `i2c-k1`.
+> +	  Loading this module will enable the I2C functionality for the K1
+> +	  platform dynamically, without requiring a rebuild of the kernel.
+> +
+>  config I2C_KEBA
+>  	tristate "KEBA I2C controller support"
+>  	depends on HAS_IOMEM
+> diff --git a/drivers/i2c/busses/Makefile b/drivers/i2c/busses/Makefile
+> index ecc07c50f2a0..9744b0e58598 100644
+> --- a/drivers/i2c/busses/Makefile
+> +++ b/drivers/i2c/busses/Makefile
+> @@ -76,6 +76,7 @@ obj-$(CONFIG_I2C_IMX)		+= i2c-imx.o
+>  obj-$(CONFIG_I2C_IMX_LPI2C)	+= i2c-imx-lpi2c.o
+>  obj-$(CONFIG_I2C_IOP3XX)	+= i2c-iop3xx.o
+>  obj-$(CONFIG_I2C_JZ4780)	+= i2c-jz4780.o
+> +obj-$(CONFIG_I2C_K1)		+= i2c-k1.o
+>  obj-$(CONFIG_I2C_KEBA)		+= i2c-keba.o
+>  obj-$(CONFIG_I2C_KEMPLD)	+= i2c-kempld.o
+>  obj-$(CONFIG_I2C_LPC2K)		+= i2c-lpc2k.o
+> diff --git a/drivers/i2c/busses/i2c-k1.c b/drivers/i2c/busses/i2c-k1.c
+> new file mode 100644
+> index 000000000000..12bb71625e0a
+> --- /dev/null
+> +++ b/drivers/i2c/busses/i2c-k1.c
+> @@ -0,0 +1,656 @@
+> +// SPDX-License-Identifier: GPL-2.0-only
+> +/*
+> + * Copyright (C) 2024 Troy Mitchell <troymitchell988@gmail.com>
+> + */
+> +
+> + #include <linux/clk.h>
+> + #include <linux/i2c.h>
+> + #include <linux/iopoll.h>
+> + #include <linux/module.h>
+> + #include <linux/of_address.h>
+> + #include <linux/platform_device.h>
+> +
+> +/* spacemit i2c registers */
+> +#define ICR          0x0		/* Control Register */
+> +#define ISR          0x4		/* Status Register */
+> +#define ISAR         0x8		/* Slave Address Register */
+> +#define IDBR         0xc		/* Data Buffer Register */
+> +#define ILCR         0x10		/* Load Count Register */
+> +#define IWCR         0x14		/* Wait Count Register */
+> +#define IRST_CYC     0x18		/* Bus reset cycle counter */
+> +#define IBMR         0x1c		/* Bus monitor register */
+> +#define IWFIFO       0x20		/* Write FIFO Register */
+> +#define IWFIFO_WPTR  0x24		/* Write FIFO Write Pointer Register */
+> +#define IWFIFO_RPTR  0x28		/* Write FIFO Read Pointer Register */
+> +#define IRFIFO       0x2c		/* Read FIFO Register */
+> +#define IRFIFO_WPTR  0x30		/* Read FIFO Write Pointer Register */
+> +#define IRFIFO_RPTR  0x34		/* Read FIFO Read Pointer Register */
+> +
+> +/* register ICR fields */
+> +#define CR_START        BIT(0)		/* start bit */
+> +#define CR_STOP         BIT(1)		/* stop bit */
+> +#define CR_ACKNAK       BIT(2)		/* send ACK(0) or NAK(1) */
+> +#define CR_TB           BIT(3)		/* transfer byte bit */
+> +#define CR_TXBEGIN      BIT(4)		/* transaction begin */
+> +#define CR_FIFOEN       BIT(5)		/* enable FIFO mode */
+> +#define CR_GPIOEN       BIT(6)		/* enable GPIO mode for SCL in HS */
+> +#define CR_DMAEN        BIT(7)		/* enable DMA for TX and RX FIFOs */
+> +#define CR_MODE_FAST    BIT(8)		/* bus mode (master operation) */
+> +#define CR_MODE_HIGH    BIT(9)		/* bus mode (master operation) */
+> +#define CR_UR           BIT(10)		/* unit reset */
+> +#define CR_RSTREQ       BIT(11)		/* i2c bus reset request */
+> +#define CR_MA           BIT(12)		/* master abort */
+> +#define CR_SCLE         BIT(13)		/* master clock enable */
+> +#define CR_IUE          BIT(14)		/* unit enable */
+> +#define CR_HS_STRETCH   BIT(16)		/* I2C hs stretch */
+> +#define CR_ALDIE        BIT(18)		/* enable arbitration interrupt */
+> +#define CR_DTEIE        BIT(19)		/* enable tx interrupts */
+> +#define CR_DRFIE        BIT(20)		/* enable rx interrupts */
+> +#define CR_GCD          BIT(21)		/* general call disable */
+> +#define CR_BEIE         BIT(22)		/* enable bus error ints */
+> +#define CR_SADIE        BIT(23)		/* slave address detected int enable */
+> +#define CR_SSDIE        BIT(24)		/* slave STOP detected int enable */
+> +#define CR_MSDIE        BIT(25)		/* master STOP detected int enable */
+> +#define CR_MSDE         BIT(26)		/* master STOP detected enable */
+> +#define CR_TXDONEIE     BIT(27)		/* transaction done int enable */
+> +#define CR_TXEIE        BIT(28)		/* transmit FIFO empty int enable */
+> +#define CR_RXHFIE       BIT(29)		/* receive FIFO half-full int enable */
+> +#define CR_RXFIE        BIT(30)		/* receive FIFO full int enable */
+> +#define CR_RXOVIE       BIT(31)		/* receive FIFO overrun int enable */
+> +
+> +/* register ISR fields */
+> +#define SR_RWM          BIT(13)		/* read/write mode */
+> +#define SR_ACKNAK       BIT(14)		/* ACK/NACK status */
+> +#define SR_UB           BIT(15)		/* unit busy */
+> +#define SR_IBB          BIT(16)		/* i2c bus busy */
+> +#define SR_EBB          BIT(17)		/* early bus busy */
+> +#define SR_ALD          BIT(18)		/* arbitration loss detected */
+> +#define SR_ITE          BIT(19)		/* tx buffer empty */
+> +#define SR_IRF          BIT(20)		/* rx buffer full */
+> +#define SR_GCAD         BIT(21)		/* general call address detected */
+> +#define SR_BED          BIT(22)		/* bus error no ACK/NAK */
+> +#define SR_SAD          BIT(23)		/* slave address detected */
+> +#define SR_SSD          BIT(24)		/* slave stop detected */
+> +#define SR_MSD          BIT(26)		/* master stop detected */
+> +#define SR_TXDONE       BIT(27)		/* transaction done */
+> +#define SR_TXE          BIT(28)		/* tx FIFO empty */
+> +#define SR_RXHF         BIT(29)		/* rx FIFO half-full */
+> +#define SR_RXF          BIT(30)		/* rx FIFO full */
+> +#define SR_RXOV         BIT(31)		/* RX FIFO overrun */
+> +
+> +/* register ILCR fields */
+> +#define LCR_SLV         0x000001FF	/* SLV: bit[8:0] */
+> +#define LCR_FLV         0x0003FE00	/* FLV: bit[17:9] */
+> +#define LCR_HLVH        0x07FC0000	/* HLVH: bit[26:18] */
+> +#define LCR_HLVL        0xF8000000	/* HLVL: bit[31:27] */
+> +
+> +/* register IWCR fields */
+> +#define WCR_COUNT       0x0000001F	/* COUNT: bit[4:0] */
+> +#define WCR_COUNT1      0x000003E0	/* HS_COUNT1: bit[9:5] */
+> +#define WCR_COUNT2      0x00007C00	/* HS_COUNT2: bit[14:10] */
+> +
+> +/* register IBMR fields */
+> +#define BMR_SDA         BIT(0)		/* SDA line level */
+> +#define BMR_SCL         BIT(1)		/* SCL line level */
+> +
+> +/* register IWFIFO fields */
+> +#define WFIFO_DATA_MSK      0x000000FF  /* data: bit[7:0] */
+> +#define WFIFO_CTRL_MSK      0x000003E0  /* control: bit[11:8] */
+> +#define WFIFO_CTRL_START    BIT(8)      /* start bit */
+> +#define WFIFO_CTRL_STOP     BIT(9)      /* stop bit */
+> +#define WFIFO_CTRL_ACKNAK   BIT(10)     /* send ACK(0) or NAK(1) */
+> +#define WFIFO_CTRL_TB       BIT(11)     /* transfer byte bit */
+> +
+> +/* status register init value */
+> +#define I2C_INT_STATUS_MASK    0xfffc0000  /* SR bits[31:18] */
+> +#define I2C_INT_CTRL_MASK      (CR_ALDIE | CR_DTEIE | CR_DRFIE | \
+> +				CR_BEIE | CR_TXDONEIE | CR_TXEIE | \
+> +				CR_RXHFIE | CR_RXFIE | CR_RXOVIE | \
+> +				CR_MSDIE)
+> +
+> +/* i2c bus recover timeout: us */
+> +#define I2C_BUS_RECOVER_TIMEOUT		(100000)
+> +
+> +#define I2C_FAST_MODE_FREQ		(400000)
+> +
+> +enum spacemit_i2c_state {
+> +	STATE_IDLE,
+> +	STATE_START,
+> +	STATE_READ,
+> +	STATE_WRITE,
+> +};
+> +
+> +enum spacemit_i2c_dir {
+> +	DIR_WRITE,
+> +	DIR_READ
+> +};
+> +
+> +/* i2c-spacemit driver's main struct */
+> +struct spacemit_i2c_dev {
+> +	struct device *dev;
+> +	struct i2c_adapter adapt;
+> +
+> +	/* hardware resources */
+> +	void __iomem *base;
+> +	int irq;
+> +
+> +	struct i2c_msg *msgs;
+> +	int msg_num;
+> +	struct i2c_msg *cur_msg;
+> +
+> +	/* index of the current message being processed */
+> +	int msg_idx;
+> +	u8 *msg_buf;
+> +	/* the number of unprocessed bytes remaining in each message  */
+> +	size_t unprocessed;
+> +
+> +	enum spacemit_i2c_state state;
+> +	enum spacemit_i2c_dir dir;
+> +	struct completion complete;
+> +	u32 status;
+> +	u32 err;
+> +};
+> +
+> +static void spacemit_i2c_enable(struct spacemit_i2c_dev *i2c)
+> +{
+> +	u32 val;
+> +
+> +	val = readl(i2c->base + ICR);
+> +	writel(val | CR_IUE, i2c->base + ICR);
+> +}
+> +
+> +static void spacemit_i2c_disable(struct spacemit_i2c_dev *i2c)
+> +{
+> +	u32 val;
+> +
+> +	val = readl(i2c->base + ICR);
+> +	val &= ~CR_IUE;
+> +	writel(val, i2c->base + ICR);
+> +}
+> +
+> +static void spacemit_i2c_reset(struct spacemit_i2c_dev *i2c)
+> +{
+> +	writel(CR_UR, i2c->base + ICR);
+> +	udelay(5);
+> +	writel(0, i2c->base + ICR);
+> +}
+> +
+> +static int spacemit_i2c_handle_err(struct spacemit_i2c_dev *i2c);
+> +
+> +static void spacemit_i2c_bus_reset(struct spacemit_i2c_dev *i2c)
+> +{
+> +	u32 status;
+> +
+> +	/* if bus is locked, reset unit. 0: locked */
+> +	status = readl(i2c->base + IBMR);
+> +	if ((status & BMR_SDA) && (status & BMR_SCL))
+> +		return;
+> +
+> +	spacemit_i2c_reset(i2c);
+> +	usleep_range(10, 20);
+> +
+> +	/* check scl status again */
+> +	status = readl(i2c->base + IBMR);
+> +	if (!(status & BMR_SCL))
+> +		dev_warn_ratelimited(i2c->dev, "unit reset failed\n");
+> +}
+> +
+> +static int spacemit_i2c_recover_bus_busy(struct spacemit_i2c_dev *i2c)
+> +{
+> +	int ret = 0;
+> +	u32 val;
+> +
+> +	val = readl(i2c->base + ISR);
+> +	if (likely(!(val & (SR_UB | SR_IBB))))
+> +		return 0;
+> +
+> +	ret = readl_poll_timeout(i2c->base + ISR, val, !(val & (SR_UB | SR_IBB)),
+> +				 1500, I2C_BUS_RECOVER_TIMEOUT);
+> +	if (unlikely(ret)) {
+> +		spacemit_i2c_reset(i2c);
+> +		ret = -EAGAIN;
+> +	}
+> +
+> +	return ret;
+> +}
+> +
+> +static void spacemit_i2c_check_bus_release(struct spacemit_i2c_dev *i2c)
+> +{
+> +	/* in case bus is not released after transfer completes */
+> +	if (unlikely(readl(i2c->base + ISR) & SR_EBB)) {
+> +		spacemit_i2c_bus_reset(i2c);
+> +		usleep_range(90, 150);
+> +	}
+> +}
+> +
+> +static void spacemit_i2c_init(struct spacemit_i2c_dev *i2c)
+> +{
+> +	u32 val = 0;
+> +
+> +	/*
+> +	 * Unmask interrupt bits for all xfer mode:
+> +	 * bus error, arbitration loss detected.
+> +	 * For transaction complete signal, we use master stop
+> +	 * interrupt, so we don't need to unmask CR_TXDONEIE.
+> +	 */
+> +	val |= CR_BEIE | CR_ALDIE;
+> +
+> +	/*
+> +	 * Unmask interrupt bits for interrupt xfer mode:
+> +	 * DBR rx full.
+> +	 * For tx empty interrupt CR_DTEIE, we only
+> +	 * need to enable when trigger byte transfer to start
+> +	 * data sending.
+> +	 */
+> +	val |= CR_DRFIE;
+> +
+> +	/* set speed bits: default fast mode */
+> +	val |= CR_MODE_FAST;
+> +
+> +	/* disable response to general call */
+> +	val |= CR_GCD;
+> +
+> +	/* enable SCL clock output */
+> +	val |= CR_SCLE;
+> +
+> +	/* enable master stop detected */
+> +	val |= CR_MSDE | CR_MSDIE;
+> +
+> +	writel(val, i2c->base + ICR);
+> +}
+> +
+> +static inline void
+> +spacemit_i2c_clear_int_status(struct spacemit_i2c_dev *i2c, u32 mask)
+> +{
+> +	writel(mask & I2C_INT_STATUS_MASK, i2c->base + ISR);
+> +}
+> +
+> +static void spacemit_i2c_start(struct spacemit_i2c_dev *i2c)
+> +{
+> +	u32 slave_addr_rw, val;
+> +
+> +	i2c->dir = i2c->cur_msg->flags & I2C_M_RD;
+> +	i2c->state = STATE_START;
+> +
+> +	if (i2c->cur_msg->flags & I2C_M_RD)
+> +		slave_addr_rw = ((i2c->cur_msg->addr & 0x7f) << 1) | 1;
+> +	else
+> +		slave_addr_rw = (i2c->cur_msg->addr & 0x7f) << 1;
+> +
+> +	writel(slave_addr_rw, i2c->base + IDBR);
+> +
+> +	val = readl(i2c->base + ICR);
+> +
+> +	/* send start pulse */
+> +	val &= ~CR_STOP;
+> +	val |= CR_START | CR_TB | CR_DTEIE;
+> +	writel(val, i2c->base + ICR);
+> +}
+> +
+> +static void spacemit_i2c_stop(struct spacemit_i2c_dev *i2c)
+> +{
+> +	u32 val;
+> +
+> +	val = readl(i2c->base + ICR);
+> +
+> +	val |= CR_STOP | CR_ALDIE | CR_TB;
+> +
+> +	if (i2c->dir == DIR_READ)
+> +		val |= CR_ACKNAK;
+> +
+> +	writel(val, i2c->base + ICR);
+> +}
+> +
+> +static int spacemit_i2c_xfer_msg(struct spacemit_i2c_dev *i2c)
+> +{
+> +	unsigned long time_left;
+> +
+> +	for (i2c->msg_idx = 0; i2c->msg_idx < i2c->msg_num; i2c->msg_idx++) {
+> +		i2c->cur_msg = i2c->msgs + i2c->msg_idx;
+> +		i2c->msg_buf = i2c->cur_msg->buf;
+> +		i2c->err = 0;
+> +		i2c->status = 0;
+> +		i2c->unprocessed = i2c->cur_msg->len;
+> +
+> +		reinit_completion(&i2c->complete);
+> +
+> +		spacemit_i2c_start(i2c);
+> +
+> +		time_left = wait_for_completion_timeout(&i2c->complete,
+> +							i2c->adapt.timeout);
+> +		if (unlikely(time_left == 0)) {
+> +			dev_alert(i2c->dev, "msg completion timeout\n");
+> +			spacemit_i2c_bus_reset(i2c);
+> +			spacemit_i2c_reset(i2c);
+> +			return -ETIMEDOUT;
+> +		}
+> +
+> +		if (unlikely(i2c->err))
+> +			return spacemit_i2c_handle_err(i2c);
+> +	}
+> +
+> +	return 0;
+> +}
+> +
+> +static int spacemit_i2c_is_last_msg(struct spacemit_i2c_dev *i2c)
+> +{
+> +	if (i2c->dir == DIR_READ) {
+> +		if (i2c->unprocessed == 1 && i2c->msg_idx == i2c->msg_num - 1)
+> +			return 1;
+> +	} else if (i2c->dir == DIR_WRITE) {
+> +		if (!i2c->unprocessed && i2c->msg_idx == i2c->msg_num - 1)
+> +			return 1;
+> +	}
+> +
+> +	return 0;
+> +}
+> +
+> +static void spacemit_i2c_handle_write(struct spacemit_i2c_dev *i2c)
+> +{
+> +	/* if transfer completes, ISR will handle it */
+> +	if (i2c->status & SR_MSD)
+> +		return;
+> +
+> +	if (i2c->unprocessed) {
+> +		writel(*i2c->msg_buf++, i2c->base + IDBR);
+> +		i2c->unprocessed--;
+> +		return;
+> +	}
+> +
+> +	/* STATE_IDLE avoids trigger next byte */
+> +	i2c->state = STATE_IDLE;
+> +	complete(&i2c->complete);
+> +}
+> +
+> +static void spacemit_i2c_handle_read(struct spacemit_i2c_dev *i2c)
+> +{
+> +	if (i2c->unprocessed) {
+> +		*i2c->msg_buf++ = readl(i2c->base + IDBR);
+> +		i2c->unprocessed--;
+> +	}
+> +
+> +	/* if transfer completes, ISR will handle it */
+> +	if (i2c->status & (SR_MSD | SR_ACKNAK))
+> +		return;
+> +
+> +	/* it has to append stop bit in icr that read last byte */
+> +	if (i2c->unprocessed)
+> +		return;
+> +
+> +	/* STATE_IDLE avoids trigger next byte */
+> +	i2c->state = STATE_IDLE;
+> +	complete(&i2c->complete);
+> +}
+> +
+> +static void spacemit_i2c_handle_start(struct spacemit_i2c_dev *i2c)
+> +{
+> +	if (i2c->dir == DIR_READ) {
+> +		i2c->state = STATE_READ;
+> +		return;
+> +	}
+> +
+> +	if (i2c->dir == DIR_WRITE) {
+> +		i2c->state = STATE_WRITE;
+> +		spacemit_i2c_handle_write(i2c);
+> +	}
+> +}
+> +
+> +static int spacemit_i2c_handle_err(struct spacemit_i2c_dev *i2c)
+> +{
+> +	if (!i2c->err)
+> +		return 0;
+> +
+> +	dev_dbg(i2c->dev, "i2c error status: 0x%08x\n",	i2c->status);
+> +
+> +	if (i2c->err & (SR_BED | SR_ALD))
+> +		spacemit_i2c_reset(i2c);
+> +
+> +	if (i2c->err & (SR_RXOV | SR_ALD))
+> +		return -EAGAIN;
+> +
+> +	return (i2c->status & SR_ACKNAK) ? -ENXIO : -EIO;
+> +}
+> +
+> +static void spacemit_i2c_err_check(struct spacemit_i2c_dev *i2c)
+> +{
+> +	u32 val;
+> +	/*
+> +	 * send transaction complete signal:
+> +	 * error happens, detect master stop
+> +	 */
+> +	if (likely(i2c->err || (i2c->status & SR_MSD))) {
+> +		/*
+> +		 * Here the transaction is already done, we don't need any
+> +		 * other interrupt signals from now, in case any interrupt
+> +		 * happens before spacemit_i2c_xfer to disable irq and i2c unit,
+> +		 * we mask all the interrupt signals and clear the interrupt
+> +		 * status.
+> +		 */
+> +		val = readl(i2c->base + ICR);
+> +		val &= ~I2C_INT_CTRL_MASK;
+> +		writel(val, i2c->base + ICR);
+> +
+> +		spacemit_i2c_clear_int_status(i2c, I2C_INT_STATUS_MASK);
+> +
+> +		i2c->state = STATE_IDLE;
+> +		complete(&i2c->complete);
+> +	}
+> +}
+> +
+> +static irqreturn_t spacemit_i2c_irq_handler(int irq, void *devid)
+> +{
+> +	struct spacemit_i2c_dev *i2c = devid;
+> +	u32 status, val;
+> +
+> +	status = readl(i2c->base + ISR);
+> +	if (!status)
+> +		return IRQ_HANDLED;
+> +
+> +	i2c->status = status;
+> +
+> +	i2c->err = status & (SR_BED | SR_RXOV | SR_ALD);
+> +
+> +	spacemit_i2c_clear_int_status(i2c, status);
+> +
+> +	if (unlikely(i2c->err))
+> +		goto err_out;
+> +
+> +	val = readl(i2c->base + ICR);
+> +
+> +	val &= ~(CR_TB | CR_ACKNAK | CR_STOP | CR_START);
+> +	writel(val, i2c->base + ICR);
+> +
+> +	switch (i2c->state) {
+> +	case STATE_START:
+> +		spacemit_i2c_handle_start(i2c);
+> +		break;
+> +	case STATE_READ:
+> +		spacemit_i2c_handle_read(i2c);
+> +		break;
+> +	case STATE_WRITE:
+> +		spacemit_i2c_handle_write(i2c);
+> +		break;
+> +	default:
+> +		break;
+> +	}
+> +
+> +	if (i2c->state != STATE_IDLE) {
+> +		if (spacemit_i2c_is_last_msg(i2c)) {
+> +			/* trigger next byte with stop */
+> +			spacemit_i2c_stop(i2c);
+> +		} else {
+> +			/* trigger next byte */
+> +			val |= CR_ALDIE | CR_TB;
+> +			writel(val, i2c->base + ICR);
+> +		}
+> +	}
+> +
+> +err_out:
+> +	spacemit_i2c_err_check(i2c);
+> +	return IRQ_HANDLED;
+> +}
+> +
+> +static void spacemit_i2c_calc_timeout(struct spacemit_i2c_dev *i2c)
+> +{
+> +	unsigned long timeout;
+> +	int idx = 0, cnt = 0, freq;
+> +
+> +	while (idx < i2c->msg_num) {
+> +		cnt += (i2c->msgs + idx)->len + 1;
+> +		idx++;
+> +	}
+> +
+> +	freq = I2C_FAST_MODE_FREQ;
+so this will set frequency to fast mode (400K), this contradict with PATCH[1/2] which
+says default clock-frequency is 100000, either you need to change the code? or
+update the dt-binding?
 
---=-=-=
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
+> +	/*
+> +	 * multiply by 9 because each byte in I2C transmission requires
+> +	 * 9 clock cycles: 8 bits of data plus 1 ACK/NACK bit.
+> +	 */
+> +	timeout = cnt * 9 * USEC_PER_SEC / freq;
+> +
+> +	i2c->adapt.timeout = usecs_to_jiffies(timeout + USEC_PER_SEC / 2) / i2c->msg_num;
+> +}
+> +
+> +static inline int spacemit_i2c_xfer_core(struct spacemit_i2c_dev *i2c)
+drop inline? IMO, it isn't worth here for long function
 
-On dl., de set. 23 2024, Miquel Sabat=C3=A9 Sol=C3=A0 wrote:
+> +{
+> +	int ret = 0;
+no need to initilize to 0
+> +
+> +	spacemit_i2c_reset(i2c);
+> +
+> +	spacemit_i2c_calc_timeout(i2c);
+> +
+> +	spacemit_i2c_init(i2c);
+> +
+> +	spacemit_i2c_enable(i2c);
+> +	enable_irq(i2c->irq);
+> +
+> +	/* i2c wait for bus busy */
+> +	ret = spacemit_i2c_recover_bus_busy(i2c);
+> +	if (unlikely(ret))
+> +		return ret;
+> +
+> +	ret = spacemit_i2c_xfer_msg(i2c);
+> +	if (unlikely(ret < 0)) {
+> +		dev_dbg(i2c->dev, "i2c transfer error\n");
+> +		/* timeout error should not be overridden, and the transfer
+> +		 * error will be confirmed by err handle function latter,
+> +		 * the reset should be invalid argument error.
+> +		 */
+> +		if (ret != -ETIMEDOUT)
+> +			ret = -EINVAL;
+> +	}
+> +
+> +	return ret;
+> +}
+> +
+> +static int
+> +spacemit_i2c_xfer(struct i2c_adapter *adapt, struct i2c_msg msgs[], int num)
+no need to wrap the line, it makes the code a little bit weird..
 
-> On dv., de set. 13 2024, Miquel Sabat=C3=A9 Sol=C3=A0 wrote:
->
->> Export Zicntr and Zihpm ISA extensions through the hwprobe syscall.
->>
->> Signed-off-by: Miquel Sabat=C3=A9 Sol=C3=A0 <mikisabate@gmail.com>
->> Acked-by: Jesse Taube <jesse@rivosinc.com>
->> Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
->> ---
->> This is a resend because I sent v2 as a reply to the original thread and
->> it most probably was lost by most people. Fortunately Conor picked it up
->> and gave it a review.
->>
->> I am resending this so it can be properly applied. Thank you for your ti=
-me and
->> sorry for the inconvenience.
->>
->> Changes since v1 [1]: the EXT_KEY instructions have been written in orde=
-r.
->>
->> [1] https://lore.kernel.org/linux-riscv/20240817075629.262318-1-mikisaba=
-te@gmail.com/
->>
->>  Documentation/arch/riscv/hwprobe.rst  | 6 ++++++
->>  arch/riscv/include/uapi/asm/hwprobe.h | 2 ++
->>  arch/riscv/kernel/sys_hwprobe.c       | 2 ++
->>  3 files changed, 10 insertions(+)
->>
->> diff --git a/Documentation/arch/riscv/hwprobe.rst b/Documentation/arch/r=
-iscv/hwprobe.rst
->> index 3db60a0911df..cfd2929d0562 100644
->> --- a/Documentation/arch/riscv/hwprobe.rst
->> +++ b/Documentation/arch/riscv/hwprobe.rst
->> @@ -183,6 +183,9 @@ The following keys are defined:
->>         defined in the Atomic Compare-and-Swap (CAS) instructions manual=
- starting
->>         from commit 5059e0ca641c ("update to ratified").
->>
->> +  * :c:macro:`RISCV_HWPROBE_EXT_ZICNTR`: The Zicntr extension version 2=
-.0
->> +       is supported as defined in the RISC-V ISA manual.
->> +
->>    * :c:macro:`RISCV_HWPROBE_EXT_ZICOND`: The Zicond extension is suppor=
-ted as
->>         defined in the RISC-V Integer Conditional (Zicond) operations ex=
-tension
->>         manual starting from commit 95cf1f9 ("Add changes requested by V=
-ed
->> @@ -192,6 +195,9 @@ The following keys are defined:
->>         supported as defined in the RISC-V ISA manual starting from comm=
-it
->>         d8ab5c78c207 ("Zihintpause is ratified").
->>
->> +  * :c:macro:`RISCV_HWPROBE_EXT_ZIHPM`: The Zihpm extension version 2.0
->> +       is supported as defined in the RISC-V ISA manual.
->> +
->>    * :c:macro:`RISCV_HWPROBE_EXT_ZVE32X`: The Vector sub-extension Zve32=
-x is
->>      supported, as defined by version 1.0 of the RISC-V Vector extension=
- manual.
->>
->> diff --git a/arch/riscv/include/uapi/asm/hwprobe.h b/arch/riscv/include/=
-uapi/asm/hwprobe.h
->> index b706c8e47b02..098a815b3fd4 100644
->> --- a/arch/riscv/include/uapi/asm/hwprobe.h
->> +++ b/arch/riscv/include/uapi/asm/hwprobe.h
->> @@ -72,6 +72,8 @@ struct riscv_hwprobe {
->>  #define		RISCV_HWPROBE_EXT_ZCF		(1ULL << 46)
->>  #define		RISCV_HWPROBE_EXT_ZCMOP		(1ULL << 47)
->>  #define		RISCV_HWPROBE_EXT_ZAWRS		(1ULL << 48)
->> +#define		RISCV_HWPROBE_EXT_ZICNTR	(1ULL << 49)
->> +#define		RISCV_HWPROBE_EXT_ZIHPM		(1ULL << 50)
->>  #define RISCV_HWPROBE_KEY_CPUPERF_0	5
->>  #define		RISCV_HWPROBE_MISALIGNED_UNKNOWN	(0 << 0)
->>  #define		RISCV_HWPROBE_MISALIGNED_EMULATED	(1 << 0)
->> diff --git a/arch/riscv/kernel/sys_hwprobe.c b/arch/riscv/kernel/sys_hwp=
-robe.c
->> index 8d1b5c35d2a7..910b41b6a7ab 100644
->> --- a/arch/riscv/kernel/sys_hwprobe.c
->> +++ b/arch/riscv/kernel/sys_hwprobe.c
->> @@ -107,9 +107,11 @@ static void hwprobe_isa_ext0(struct riscv_hwprobe *=
-pair,
->>  		EXT_KEY(ZCB);
->>  		EXT_KEY(ZCMOP);
->>  		EXT_KEY(ZICBOZ);
->> +		EXT_KEY(ZICNTR);
->>  		EXT_KEY(ZICOND);
->>  		EXT_KEY(ZIHINTNTL);
->>  		EXT_KEY(ZIHINTPAUSE);
->> +		EXT_KEY(ZIHPM);
->>  		EXT_KEY(ZIMOP);
->>  		EXT_KEY(ZKND);
->>  		EXT_KEY(ZKNE);
->
-> Hello,
->
-> Gently ping :) Can we get this merged for 6.12?
->
-> Thanks!
-> Miquel
+current policy increase to 100characters, the old 80-column is not enforced
+https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=bdc48fa11e46f867ea4d75fa59ee87a7f48be144
 
-Hello,
+> +{
+> +	struct spacemit_i2c_dev *i2c = i2c_get_adapdata(adapt);
+> +	int ret;
+> +
+> +	i2c->msgs = msgs;
+> +	i2c->msg_num = num;
+> +
+> +	ret = spacemit_i2c_xfer_core(i2c);
+> +	if (likely(!ret))
+> +		spacemit_i2c_check_bus_release(i2c);
+> +
+> +	disable_irq(i2c->irq);
+> +
+> +	spacemit_i2c_disable(i2c);
+> +
+> +	if (unlikely((ret == -ETIMEDOUT || ret == -EAGAIN)))
+> +		dev_alert(i2c->dev, "i2c transfer failed, ret %d err 0x%x\n", ret, i2c->err);
+> +
+> +	return ret < 0 ? ret : num;
+> +}
+> +
+> +static u32 spacemit_i2c_func(struct i2c_adapter *adap)
+> +{
+> +	return I2C_FUNC_I2C | (I2C_FUNC_SMBUS_EMUL & ~I2C_FUNC_SMBUS_QUICK);
+> +}
+> +
+> +static const struct i2c_algorithm spacemit_i2c_algo = {
+> +	.xfer = spacemit_i2c_xfer,
+> +	.functionality = spacemit_i2c_func,
+> +};
+> +
+> +static int spacemit_i2c_probe(struct platform_device *pdev)
+> +{
+> +	struct spacemit_i2c_dev *i2c;
+> +	struct device_node *of_node = pdev->dev.of_node;
+> +	struct clk *clk;
+> +	int ret = 0;
+> +
+> +	i2c = devm_kzalloc(&pdev->dev, sizeof(*i2c), GFP_KERNEL);
+> +	if (!i2c)
+> +		return -ENOMEM;
+> +
+> +	i2c->dev = &pdev->dev;
+> +
+> +	i2c->base = devm_platform_ioremap_resource(pdev, 0);
+> +	if (IS_ERR(i2c->base))
+> +		return dev_err_probe(&pdev->dev, PTR_ERR(i2c->base), "failed to do ioremap");
+> +
+> +	i2c->irq = platform_get_irq(pdev, 0);
+> +	if (i2c->irq < 0)
+> +		return dev_err_probe(&pdev->dev, i2c->irq, "failed to get irq resource");
+> +
+> +	ret = devm_request_irq(i2c->dev, i2c->irq, spacemit_i2c_irq_handler,
+> +			       IRQF_NO_SUSPEND | IRQF_ONESHOT, dev_name(i2c->dev), i2c);
+> +	if (ret)
+> +		return dev_err_probe(&pdev->dev, ret, "failed to request irq");
+> +
+> +	disable_irq(i2c->irq);
+> +
+> +	clk = devm_clk_get_enabled(&pdev->dev, NULL);
+> +	if (IS_ERR(clk))
+> +		return dev_err_probe(&pdev->dev, PTR_ERR(clk), "failed to enable clock");
+> +
+I'd suggest also to handle pin request here, since pinctrl driver is merged
 
-Gently ping :)
+https://lore.kernel.org/all/CACRpkdYnaJsKKfcdhHeMGTTp86M+wNODzZx2e=OYbxQ4Jc4Rjw@mail.gmail.com/
 
-This will certainly not be included for 6.12, but is there a chance to
-get it for 6.13?
+> +	i2c_set_adapdata(&i2c->adapt, i2c);
+> +	i2c->adapt.owner = THIS_MODULE;
+> +	i2c->adapt.algo = &spacemit_i2c_algo;
+> +	i2c->adapt.dev.parent = i2c->dev;
+> +	i2c->adapt.nr = pdev->id;
+> +
+> +	i2c->adapt.dev.of_node = of_node;
+> +	i2c->adapt.algo_data = i2c;
+> +
+> +	strscpy(i2c->adapt.name, "spacemit-i2c-adapter", sizeof(i2c->adapt.name));
+> +
+> +	init_completion(&i2c->complete);
+> +
+> +	ret = i2c_add_numbered_adapter(&i2c->adapt);
+> +	if (ret)
+> +		return dev_err_probe(&pdev->dev, ret, "failed to add i2c adapter");
+> +
+> +	platform_set_drvdata(pdev, i2c);
+> +
+> +	return 0;
+> +}
+> +
+> +static void spacemit_i2c_remove(struct platform_device *pdev)
+> +{
+> +	struct spacemit_i2c_dev *i2c = platform_get_drvdata(pdev);
+> +
+> +	i2c_del_adapter(&i2c->adapt);
+> +}
+> +
+> +static const struct of_device_id spacemit_i2c_of_match[] = {
+> +	{ .compatible = "spacemit,k1-i2c", },
+> +	{ /* sentinel */ }
+> +};
+> +MODULE_DEVICE_TABLE(of, spacemit_i2c_of_match);
+> +
+> +static struct platform_driver spacemit_i2c_driver = {
+> +	.probe = spacemit_i2c_probe,
+> +	.remove = spacemit_i2c_remove,
+> +	.driver = {
+> +		.name = "i2c-k1",
+> +		.of_match_table = spacemit_i2c_of_match,
+> +	},
+> +};
+> +module_platform_driver(spacemit_i2c_driver);
+> +
+> +MODULE_LICENSE("GPL");
+> +MODULE_DESCRIPTION("I2C bus driver for SpacemiT K1 SoC");
+> 
+> -- 
+> 2.34.1
+> 
 
-Thanks,
-Miquel
-
---=-=-=
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQJJBAEBCgAzFiEEG6U8esk9yirP39qXlr6Mb9idZWUFAmc1mqAVHG1pa2lzYWJh
-dGVAZ21haWwuY29tAAoJEJa+jG/YnWVlV4wP/j4y+PeqDrmHtMXHGYzlooujiz2X
-JtyKFhrkaPEhQMfTtA8DCoCWIVEsM66UL/waok64NO0/K8fCRRXzAcfJCiweSj4r
-mb5T0YqqFdUEKmaxJBPnEW7yTcTspBI+zj1A4iE7MMqR+3OKTnI0bhSKBjobLyTj
-HYSZj5RiLcdl/hAxiQ7j3L32l2OrIO32aXzte3zy5IRmt/y875OJgThdrlG8fFC7
-AcyyxatezTcmcZW3j2xybWlkEh6/uOqUJeVbYT1XEa+gkUTNJyqrw/jVo3GYzmYL
-OZP5BiWqdt93eAs55r7uCTQf1lO8dWUOEdx1Ebti33vjj2LSfRHq6XYSmdtTFgSU
-qlz6UTSSrYepyHf5N9KzEXbBdZKzUFxq+Nql3tgIh2r1H0q/Un6F33Xfjjyuu/21
-cTyD/wRSHt0D6za+/7heAZTOMVFD2OhpcUhONmxZ8l8RB3a1JYiLXiZkJ2PebKVb
-Ls6ZG4XSVYeqMiQhjdYsT9Y0fnTuO2bSu2rYHHwjXSI9rx9w2CHT9b/tKrb6/o9G
-FV9qj7rPZd2NBeRiOtTxqEXrcfKaB4tm7OnUcXWhoEgtuEgowKGyo+rMHjgcPBQv
-shdBDyp07hm459wWGOV/Xza38P/QROfvwhrGZU++smBruoMQT4ZlNMcduXs72tej
-/uQblIPKbMoQuaBE
-=s9HY
------END PGP SIGNATURE-----
---=-=-=--
-
-
---===============0667992736098116979==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+-- 
+Yixun Lan (dlan)
+Gentoo Linux Developer
+GPG Key ID AABEFD55
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============0667992736098116979==--
-
