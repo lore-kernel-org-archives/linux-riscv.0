@@ -4,85 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1072BD6A230
-	for <linux-riscv@archiver.kernel.org>; Thu, 14 Nov 2024 21:29:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 59B5AD6A248
+	for <linux-riscv@archiver.kernel.org>; Thu, 14 Nov 2024 22:09:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=mcI58KA2fx/PeEeeVsj5Erp18133N4UA0xo9zCda/Qs=; b=uGWtmutttSzRyV
-	YgZaSmbo2UjWh1IMp7YeY/voUZwDbss2ZwC899Xak7ghbgULwOKhvPdd9CecrBOpr8syOxQLLhCCO
-	CtUMV2NPqrP02b53OfUjWL4xiRFeGr1+3ci335vm0EKCt2Shn4XLvYoaAC0O9Vle2dkUG4auE+j1X
-	F1R0ErXKQ8w3iP6TmFyRfCmZqjASGFEm2GmVUzYSKinmbJ1tr70NUcawxOqHwwjNMyaSVv0NquanX
-	rRxScsDwHet2JQ3FWfclRtX9pgjQ6g9lNMjQbfoJjhkRswn33+r6+CCRNMCT7nckmOP5DpEWjwWOa
-	JF8iHynGhTqfdSzsIXZg==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=PK+CU2+eHffUwV4ub8RxBbFlVTTDkSZItdY714O9U2I=; b=vseDrAp6w8lNnC
+	S5LuHogN+hEXyr/MBtO8+/6lLXRAKj3RvKk7wSF3RF6Ph8ohP4dIaIXG2Ua/s82afhJkocYXigIBO
+	lI+eVB/bGThAc6q1dTpIA5cAruhF2YekyNRr4+rLey9QrxC5PeKRx05D6i5+7zOUJxnbVdnSNlZrl
+	XfKDLzPvC/5luCklBH23DNHrK6HtOkNfRQ9gmcQmo3leSZGGeblTLBC98LkWVsR7tRXXUlyVo4sZG
+	8oJJuVv+i9fA1a9CaFSYvsBQKvMA3YXjMOSBvBTyeNPpFe/nWu5xbkBBM6OX76HtjJ6GApbNurTeH
+	8D6/JVZpZxnNWI1omegQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tBhP3-00000000skn-1WaJ;
-	Thu, 14 Nov 2024 21:29:25 +0000
-Received: from mail-pl1-x62e.google.com ([2607:f8b0:4864:20::62e])
+	id 1tBi1H-00000000xE6-0ST6;
+	Thu, 14 Nov 2024 22:08:55 +0000
+Received: from mail-pf1-x436.google.com ([2607:f8b0:4864:20::436])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tBhP1-00000000skN-1Abr
+	id 1tBi1E-00000000xDj-3Biz
 	for linux-riscv@lists.infradead.org;
-	Thu, 14 Nov 2024 21:29:24 +0000
-Received: by mail-pl1-x62e.google.com with SMTP id d9443c01a7336-20caccadbeeso171575ad.2
-        for <linux-riscv@lists.infradead.org>; Thu, 14 Nov 2024 13:29:22 -0800 (PST)
+	Thu, 14 Nov 2024 22:08:54 +0000
+Received: by mail-pf1-x436.google.com with SMTP id d2e1a72fcca58-7242f559a9fso1100951b3a.1
+        for <linux-riscv@lists.infradead.org>; Thu, 14 Nov 2024 14:08:51 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1731619762; x=1732224562; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=EuHFw6q03XCp7lup6jLddcHFjKtqe3X8eorkDm7w/hA=;
-        b=N195HkiNQZReQyM59XQef5DnqGq1Ba2IKVb3pmrDkwPZOeujqnstB3nbAEK6972htv
-         7ViRpCEWD4hqJu2UVspHhYWnctrQGJ9IxsnM46HJIAYNrMCSKA9HUORhcrUm3KAgP0OI
-         c9V3eUf1Yx+u/xgtRTlY/XP+ghbpZc0vep6vZ+LiOfxAGE7UNqQPp0XMMITPZlvzYSWp
-         H6HzcjueDGRi2eJHxnSGY6028BbBbfMAVnSY63VERlGK7qSlr9tepkkK9fRFRMjp+yW9
-         CP6rUKnHcakRLoZad1ZE+ChP/9sk+PVd+6n1RVy5IYa8cqCkyiIo5ew00Sgqsvthr+Cx
-         5GFA==
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1731622131; x=1732226931; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=xUDNvzxgF3VndexH2nVKPNcxZzxJAzZDJlThFbFobgE=;
+        b=WDQeb3kO9DaleatKmJukgDlF9lqJQV2moRXFZA3K41WxDrod0SfxnCXXMalUSAuEob
+         sgs8RrWdS466ID7UI1h16YQn9a5pKTWjrSxFYQnAv27R/3FB+T0L9hy/21PjlNlm1ICy
+         yQcL3hDtSgj10iB5X4BRW7jCXQFJ8E5UcrupVxNqWSuR/odjkvJiVy5PyKkRMIROfTmE
+         fjI9kPQ/3EoHUxcqO3zhjWCZbxoB8U7KUZXwQcnk6/jgSSzFH+XFXfdW2qAZZiH7ZuXy
+         bI/kgUcniJn6DRz4tID+NnEDt3G/0tOkNveP3QdiddQTIrrgbOL7Lk6dyMX7AesqYL/E
+         a+oQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1731619762; x=1732224562;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=EuHFw6q03XCp7lup6jLddcHFjKtqe3X8eorkDm7w/hA=;
-        b=XZ2p7iL/7IzVFA81dvrW0nML7eI0zB+E9kAQyKTRSleyC3VsYrWG6SeDs9HVG+qaaO
-         RUdTdRuIIJ0b5QyTSdQBdLwTlV58q6c4/DwHDWB7blcMhOJUJh8vtQqAF6cYcfE2v3jg
-         8AtGoDTdwA55h9shikeuMZVP3EdnbCtFf5We1IEi3i0NbBpJX5IYxf1GPkkFIazNJwSB
-         xx6V+VyhV00mlyDz1SYRIfrE7Ia2xwX7tvxQHB1kY22aIO4Z1uoqtnEdLVzCxeIyB9fp
-         aLxgwltSQx6fEVB6wG3K8F0j9YYiiKfvRGnO4D1wljKnCVErlHP6niu8Y3JCQYLRABBG
-         RWwg==
-X-Forwarded-Encrypted: i=1; AJvYcCUaD4tQae4Xq5z15TxAwLjX6bSjQdlMLmhIGLa2hMQQsq+vRaSSnF//yK/3GcBDh2Eu2ZIdYrAMbFKGVQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0YxpJtCFQ3sLc3VHEioyG+R9oBs3mABRCZLgx4aSnmEeQNUcqxmo
-	jaxXRBkyCHTdBUlRPfU4/+uqF+Q/o421qGUBqF+DnYBj519GZrD0
-X-Google-Smtp-Source: AGHT+IFyJEUxPZNPdrNl3tzCmtz/Zc9PrJDCThXArRtOM55/LgUVKGi1XczAzWCBjI9vkEB7+knyCw==
-X-Received: by 2002:a17:903:2a8e:b0:20c:bbac:2013 with SMTP id d9443c01a7336-211d0ecead8mr5050745ad.48.1731619761915;
-        Thu, 14 Nov 2024 13:29:21 -0800 (PST)
-Received: from newslab-Z390-AORUS-ELITE.. (pc51.csie.ntu.edu.tw. [140.112.31.242])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-211d0f45641sm832945ad.177.2024.11.14.13.29.19
+        d=1e100.net; s=20230601; t=1731622131; x=1732226931;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=xUDNvzxgF3VndexH2nVKPNcxZzxJAzZDJlThFbFobgE=;
+        b=rjAkHszhOCGFFiCmdMuT0V5Yo4gmpCtA1VzDrsry2cJLYOvRlNuZSDvXMhXc4LSSX1
+         MUxzggBJ8IRq3zjVV3CqwqIU45Y3w1ng2zcMvNtiPWMpz0Td3NFCnSCWgTHbeSaSQdVZ
+         frB4KOS97vaAT/V5cBIWTgFD5CzbRhPQkqM36+XoPC41RTVKnGi1NrmKkjMlUjlw3g9J
+         GJKk5AzCBVbVx1t8fYS9lUAyjk7FxqvzShlAQbWu1I++hfysShHbIvHikX6UUpJ+Nw/q
+         CMnEhI1PztSqai+Afvz5+CQx6+6m+X/LBABIhRPGf7+1HKw3lLDKQwb4MRiaYbUvPwGY
+         bX5g==
+X-Forwarded-Encrypted: i=1; AJvYcCUmGIN2Fa8fYLpUSKhhQkS/8ff/jnJZcQsKCUwfSuUbRM0tWyTmgImfHWVJqmctgWuG9Avu/Jhhagmlow==@lists.infradead.org
+X-Gm-Message-State: AOJu0YwbQsHPve1CpqXkAZ2raQz14gYPmLyQIf5FYDeIxSWMSp8pWOpp
+	cceMV1Ydat8hzqzIHS37XCDY1AGlLutwDMu5un4DKjHRZjePAquQmOoGcheItRw=
+X-Google-Smtp-Source: AGHT+IFYyHyPSValRNfz1mg6pjq8qNxWBVPCofM9xYXccK+5syKbhxhGgqPtxHsSDUH+ph5ZigbeKg==
+X-Received: by 2002:a05:6a00:3905:b0:71e:5a1d:ecdc with SMTP id d2e1a72fcca58-72476d17636mr525035b3a.17.1731622130787;
+        Thu, 14 Nov 2024 14:08:50 -0800 (PST)
+Received: from ghost ([2601:647:6700:64d0:8011:b5fc:6663:cd73])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-7247711cdfbsm132024b3a.58.2024.11.14.14.08.49
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 14 Nov 2024 13:29:21 -0800 (PST)
-From: Chin Yik Ming <yikming2222@gmail.com>
-To: palmer@dabbelt.com
-Cc: paul.walmsley@sifive.com,
-	aou@eecs.berkeley.edu,
-	alexghiti@rivosinc.com,
-	samuel.holland@sifive.com,
-	parri.andrea@gmail.com,
-	atishp@rivosinc.com,
-	charlie@rivosinc.com,
-	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Chin Yik Ming <yikming2222@gmail.com>
-Subject: [PATCH] riscv: Fix a comment typo in set_mm_asid()
-Date: Fri, 15 Nov 2024 05:27:25 +0800
-Message-Id: <20241114212725.4172401-1-yikming2222@gmail.com>
-X-Mailer: git-send-email 2.34.1
+        Thu, 14 Nov 2024 14:08:50 -0800 (PST)
+Date: Thu, 14 Nov 2024 14:08:47 -0800
+From: Charlie Jenkins <charlie@rivosinc.com>
+To: Chin Yik Ming <yikming2222@gmail.com>
+Cc: palmer@dabbelt.com, paul.walmsley@sifive.com, aou@eecs.berkeley.edu,
+	alexghiti@rivosinc.com, samuel.holland@sifive.com,
+	parri.andrea@gmail.com, atishp@rivosinc.com,
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] riscv: Fix a comment typo in set_mm_asid()
+Message-ID: <ZzZ072CMku0fsW2x@ghost>
+References: <20241114212725.4172401-1-yikming2222@gmail.com>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20241114212725.4172401-1-yikming2222@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241114_132923_318105_A5E29729 
-X-CRM114-Status: UNSURE (   9.91  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241114_140853_061268_44855F75 
+X-CRM114-Status: GOOD (  16.18  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,28 +94,34 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-s/verion/version
+On Fri, Nov 15, 2024 at 05:27:25AM +0800, Chin Yik Ming wrote:
+> s/verion/version
+> 
+> Signed-off-by: Chin Yik Ming <yikming2222@gmail.com>
+> ---
+>  arch/riscv/mm/context.c | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+> 
+> diff --git a/arch/riscv/mm/context.c b/arch/riscv/mm/context.c
+> index 4abe3de23225..55c20ad1f744 100644
+> --- a/arch/riscv/mm/context.c
+> +++ b/arch/riscv/mm/context.c
+> @@ -158,7 +158,7 @@ static void set_mm_asid(struct mm_struct *mm, unsigned int cpu)
+>  	 *
+>  	 * - We get a zero back from the cmpxchg and end up waiting on the
+>  	 *   lock. Taking the lock synchronises with the rollover and so
+> -	 *   we are forced to see the updated verion.
+> +	 *   we are forced to see the updated version.
+>  	 *
+>  	 * - We get a valid context back from the cmpxchg then we continue
+>  	 *   using old ASID because __flush_context() would have marked ASID
+> -- 
+> 2.34.1
+> 
 
-Signed-off-by: Chin Yik Ming <yikming2222@gmail.com>
----
- arch/riscv/mm/context.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+Thanks,
 
-diff --git a/arch/riscv/mm/context.c b/arch/riscv/mm/context.c
-index 4abe3de23225..55c20ad1f744 100644
---- a/arch/riscv/mm/context.c
-+++ b/arch/riscv/mm/context.c
-@@ -158,7 +158,7 @@ static void set_mm_asid(struct mm_struct *mm, unsigned int cpu)
- 	 *
- 	 * - We get a zero back from the cmpxchg and end up waiting on the
- 	 *   lock. Taking the lock synchronises with the rollover and so
--	 *   we are forced to see the updated verion.
-+	 *   we are forced to see the updated version.
- 	 *
- 	 * - We get a valid context back from the cmpxchg then we continue
- 	 *   using old ASID because __flush_context() would have marked ASID
--- 
-2.34.1
+Reviewed-by: Charlie Jenkins <charlie@rivosinc.com>
 
 
 _______________________________________________
