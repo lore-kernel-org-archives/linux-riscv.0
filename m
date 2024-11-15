@@ -4,80 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 59B5AD6A248
-	for <linux-riscv@archiver.kernel.org>; Thu, 14 Nov 2024 22:09:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A10EDD6A225
+	for <linux-riscv@archiver.kernel.org>; Fri, 15 Nov 2024 01:31:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Date:To:Cc:From:Subject:References:
+	In-Reply-To:MIME-Version:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=PK+CU2+eHffUwV4ub8RxBbFlVTTDkSZItdY714O9U2I=; b=vseDrAp6w8lNnC
-	S5LuHogN+hEXyr/MBtO8+/6lLXRAKj3RvKk7wSF3RF6Ph8ohP4dIaIXG2Ua/s82afhJkocYXigIBO
-	lI+eVB/bGThAc6q1dTpIA5cAruhF2YekyNRr4+rLey9QrxC5PeKRx05D6i5+7zOUJxnbVdnSNlZrl
-	XfKDLzPvC/5luCklBH23DNHrK6HtOkNfRQ9gmcQmo3leSZGGeblTLBC98LkWVsR7tRXXUlyVo4sZG
-	8oJJuVv+i9fA1a9CaFSYvsBQKvMA3YXjMOSBvBTyeNPpFe/nWu5xbkBBM6OX76HtjJ6GApbNurTeH
-	8D6/JVZpZxnNWI1omegQ==;
+	List-Owner; bh=7/Ha1wLDbkSe5jA03/bu5Owr1o++7s/LDHx+WBlrsmc=; b=wbiS12TnBcWm+L
+	eLFBWLRgVTNt3B2EmrM/2HzBRZf7SBb71ftWMfkmZme+//Hn5ujYz+3avy9uBCXKpMa/GORaamsS+
+	2+ojhITMDNIoTa9lMBmOLWPcDB9YauS9XOkdKgqeLaC/5M6S78f4YIXc1b6NTl0tmVb9O8G5axj5S
+	ir4c5X0+jWJxKMXjJdbFXYNcNCk1NgroM1Z7hNKum0dY437BYV7bqwUwhuyYEy4z2sUkgPrn2L91i
+	rO+DijJiYjdTxk/U1VWzmG5zpYJcew13JmwmOmHQRRDgQBnDRL0135mUPt/1OaO5vCtj11Cu4UTPs
+	LdEEeyO+mJvmBJxcRlXA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tBi1H-00000000xE6-0ST6;
-	Thu, 14 Nov 2024 22:08:55 +0000
-Received: from mail-pf1-x436.google.com ([2607:f8b0:4864:20::436])
+	id 1tBlAm-00000001JLM-3vL5;
+	Fri, 15 Nov 2024 01:30:56 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tBi1E-00000000xDj-3Biz
-	for linux-riscv@lists.infradead.org;
-	Thu, 14 Nov 2024 22:08:54 +0000
-Received: by mail-pf1-x436.google.com with SMTP id d2e1a72fcca58-7242f559a9fso1100951b3a.1
-        for <linux-riscv@lists.infradead.org>; Thu, 14 Nov 2024 14:08:51 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1731622131; x=1732226931; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=xUDNvzxgF3VndexH2nVKPNcxZzxJAzZDJlThFbFobgE=;
-        b=WDQeb3kO9DaleatKmJukgDlF9lqJQV2moRXFZA3K41WxDrod0SfxnCXXMalUSAuEob
-         sgs8RrWdS466ID7UI1h16YQn9a5pKTWjrSxFYQnAv27R/3FB+T0L9hy/21PjlNlm1ICy
-         yQcL3hDtSgj10iB5X4BRW7jCXQFJ8E5UcrupVxNqWSuR/odjkvJiVy5PyKkRMIROfTmE
-         fjI9kPQ/3EoHUxcqO3zhjWCZbxoB8U7KUZXwQcnk6/jgSSzFH+XFXfdW2qAZZiH7ZuXy
-         bI/kgUcniJn6DRz4tID+NnEDt3G/0tOkNveP3QdiddQTIrrgbOL7Lk6dyMX7AesqYL/E
-         a+oQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1731622131; x=1732226931;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=xUDNvzxgF3VndexH2nVKPNcxZzxJAzZDJlThFbFobgE=;
-        b=rjAkHszhOCGFFiCmdMuT0V5Yo4gmpCtA1VzDrsry2cJLYOvRlNuZSDvXMhXc4LSSX1
-         MUxzggBJ8IRq3zjVV3CqwqIU45Y3w1ng2zcMvNtiPWMpz0Td3NFCnSCWgTHbeSaSQdVZ
-         frB4KOS97vaAT/V5cBIWTgFD5CzbRhPQkqM36+XoPC41RTVKnGi1NrmKkjMlUjlw3g9J
-         GJKk5AzCBVbVx1t8fYS9lUAyjk7FxqvzShlAQbWu1I++hfysShHbIvHikX6UUpJ+Nw/q
-         CMnEhI1PztSqai+Afvz5+CQx6+6m+X/LBABIhRPGf7+1HKw3lLDKQwb4MRiaYbUvPwGY
-         bX5g==
-X-Forwarded-Encrypted: i=1; AJvYcCUmGIN2Fa8fYLpUSKhhQkS/8ff/jnJZcQsKCUwfSuUbRM0tWyTmgImfHWVJqmctgWuG9Avu/Jhhagmlow==@lists.infradead.org
-X-Gm-Message-State: AOJu0YwbQsHPve1CpqXkAZ2raQz14gYPmLyQIf5FYDeIxSWMSp8pWOpp
-	cceMV1Ydat8hzqzIHS37XCDY1AGlLutwDMu5un4DKjHRZjePAquQmOoGcheItRw=
-X-Google-Smtp-Source: AGHT+IFYyHyPSValRNfz1mg6pjq8qNxWBVPCofM9xYXccK+5syKbhxhGgqPtxHsSDUH+ph5ZigbeKg==
-X-Received: by 2002:a05:6a00:3905:b0:71e:5a1d:ecdc with SMTP id d2e1a72fcca58-72476d17636mr525035b3a.17.1731622130787;
-        Thu, 14 Nov 2024 14:08:50 -0800 (PST)
-Received: from ghost ([2601:647:6700:64d0:8011:b5fc:6663:cd73])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-7247711cdfbsm132024b3a.58.2024.11.14.14.08.49
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 14 Nov 2024 14:08:50 -0800 (PST)
-Date: Thu, 14 Nov 2024 14:08:47 -0800
-From: Charlie Jenkins <charlie@rivosinc.com>
-To: Chin Yik Ming <yikming2222@gmail.com>
-Cc: palmer@dabbelt.com, paul.walmsley@sifive.com, aou@eecs.berkeley.edu,
-	alexghiti@rivosinc.com, samuel.holland@sifive.com,
-	parri.andrea@gmail.com, atishp@rivosinc.com,
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] riscv: Fix a comment typo in set_mm_asid()
-Message-ID: <ZzZ072CMku0fsW2x@ghost>
-References: <20241114212725.4172401-1-yikming2222@gmail.com>
+	id 1tBl9p-00000001JCO-3tlV;
+	Fri, 15 Nov 2024 01:29:59 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 1150BA41D43;
+	Fri, 15 Nov 2024 01:28:03 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 946C1C4CECD;
+	Fri, 15 Nov 2024 01:29:56 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1731634196;
+	bh=F7vjyos0o0cMAhq/QgY+/gErSw+KDdiVVSrnj53mNpI=;
+	h=In-Reply-To:References:Subject:From:Cc:To:Date:From;
+	b=U3jc+NoYqih9t4XYPl8bBhd15QLfcgEeksTy//Rp2d2nGRctt9Dcp23AQ8BO4mQwM
+	 xNRvSiTJEENI7Ju7D5OuVF+l31xIJM1E5r29OiugiXvikQNAqDS7UUq+yPYcgfsx85
+	 sfwpG/xQ9zYmXw3vWRxe6AmxJZTgHS1j6kAbOhkkV6xVzWsyWNyCcDH4U78ZNXf3lN
+	 y8RjonQ9d0H14CuP2XgNuiRZWUcrcLPx9HlNl1fG4DbnjXx917CI3E3FJIN3PrvfVf
+	 V1JJGpMDtUg2Gs+F2KhYqNKwtm+VLet5xVzlMoyAmqXSvyX3g8pOLnVm1cYWz99pVo
+	 DOCosyyQ6rDag==
+Message-ID: <430bde3b35382e640843e32a9f351326.sboyd@kernel.org>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20241114212725.4172401-1-yikming2222@gmail.com>
+In-Reply-To: <20241106-freefall-slider-db379b05821e@spud>
+References: <20241002-private-unequal-33cfa6101338@spud> <20241002-hula-unwashed-1c4ddbadbec2@spud> <2b49c4df-a34a-42c5-8d44-9e47da630fe8@linaro.org> <1jwmiqsks3.fsf@starbuckisacylon.baylibre.com> <20241003-tacking-ladylike-dfe2b633e647@spud> <20241106-freefall-slider-db379b05821e@spud>
+Subject: Re: [PATCH v1 08/11] clk: move meson clk-regmap implementation to common code
+From: Stephen Boyd <sboyd@kernel.org>
+Cc: Neil Armstrong <neil.armstrong@linaro.org>, linux-kernel@vger.kernel.org, Conor Dooley <conor.dooley@microchip.com>, Daire McNamara <daire.mcnamara@microchip.com>, pierre-henry.moussay@microchip.com, valentina.fernandezalanis@microchip.com, Michael Turquette <mturquette@baylibre.com>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Jassi Brar <jassisinghbrar@gmail.com>, Lee Jones <lee@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Kevin Hilman <khilman@baylibre.com>, Martin Blumenstingl <martin.blumenstingl@googlemail.com>, Philipp Zabel <p.zabel@pengutronix.de>, linux-riscv@lists.infradead.org, linux-clk@vger.kernel.org, devicetree@vger.kernel.org, linux-amlogic@lists.infradead.org, linux-arm-kernel@lists.infradead.org
+To: Conor Dooley <conor@kernel.org>, Jerome Brunet <jbrunet@baylibre.com>
+Date: Thu, 14 Nov 2024 17:29:54 -0800
+User-Agent: alot/0.12.dev1+gaa8c22fdeedb
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241114_140853_061268_44855F75 
-X-CRM114-Status: GOOD (  16.18  )
+X-CRM114-CacheID: sfid-20241114_172958_192211_6B1BCD13 
+X-CRM114-Status: GOOD (  47.54  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,35 +70,137 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Nov 15, 2024 at 05:27:25AM +0800, Chin Yik Ming wrote:
-> s/verion/version
+Quoting Conor Dooley (2024-11-06 04:56:25)
+> On Thu, Oct 03, 2024 at 12:33:40PM +0100, Conor Dooley wrote:
+> > > IIRC, Stephen's idea was more the bring regmap support in clk-gate.c,
+> > > clk-mux, etc ... I'm not quite sure how make iomem and regmap co-exist
+> > > in a manageable/maintainable way within those drivers (without adding yet
+> > > another level of abstraction I mean) ? Silently creating a regmap maybe
+> > > ? but that's probably a bit heavy. I did not really had time to dig more
+> > > on this, I guess no one did.
+> > 
+> > I guess I have some motivation to looking into it at the moment. I had
+> > my reservations about the Meson approach too, liking it more than
+> > Qualcomm's didn't mean I completely liked it.
+> > It was already my intention to implement point b of your mail, had the
+> > general idea here been acceptable, cos that's a divergence from how the
+> > generic clock types (that the driver in question currently uses) work.
+> > And on that note, I just noticed I left the mild-annoyance variable name
+> > "sigh" in the submitted driver changes, which I had used for the
+> > clk_regmap struct that your point b in the link relates to.
+> > 
+> > > I don't really have a preference one way or the other but if it is going
+> > > to be exposed in 'include/linux', we need to be sure that's how we want
+> > > to do it. With clocks poping in many driver subsystems, it will
+> > > difficult to change afterward. 
+> > 
+> > Yeah, I agree. I didn't expect this to go in right away, and I also
+> > didn't want to surge ahead on some rework of the clock types, were
+> > people to hate even the reuse.
 > 
-> Signed-off-by: Chin Yik Ming <yikming2222@gmail.com>
-> ---
->  arch/riscv/mm/context.c | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
+> Hmm, so how (in-)complete of a regmap implementation can I get away
+> with? I only need clk-gate and clk-divider for this patchset...
 > 
-> diff --git a/arch/riscv/mm/context.c b/arch/riscv/mm/context.c
-> index 4abe3de23225..55c20ad1f744 100644
-> --- a/arch/riscv/mm/context.c
-> +++ b/arch/riscv/mm/context.c
-> @@ -158,7 +158,7 @@ static void set_mm_asid(struct mm_struct *mm, unsigned int cpu)
->  	 *
->  	 * - We get a zero back from the cmpxchg and end up waiting on the
->  	 *   lock. Taking the lock synchronises with the rollover and so
-> -	 *   we are forced to see the updated verion.
-> +	 *   we are forced to see the updated version.
->  	 *
->  	 * - We get a valid context back from the cmpxchg then we continue
->  	 *   using old ASID because __flush_context() would have marked ASID
-> -- 
-> 2.34.1
+> Shoving the regmap into the clk structs makes things pretty trivial as I
+> don't need to do anything special in any function other than
+> clk_*_readl()/clk_*_writel() and the registration code. A flag isn't
+> even needed to determine if a clock is a regmap one I don't think, since
+> you can just check if the regmap pointer is non-NULL.
+
+For the basic clk types I think it would be good to leave the old stuff
+alone. We have already split the logic out into helpers, so I wonder if
+we can do this better by making kernel modules for the different basic
+regmap clk types and exposing registration APIs. If we force drivers
+that use the basic regmap types to 'select' the module then we'll make
+it so that we don't include code that isn't used anywhere. That's one of
+the problems with the basic clk types, it's always built. It also lets
+us avoid making regmap a dependency for the clk framework at large.
+
+Doing that would also let us avoid the flag because it will be explicit
+in any registration API, clk_register_divider() vs.
+clk_register_regmap_divider(). Yes we duplicate some boiler plate logic
+around read-only and registration paths, but this is alright as long as
+we can share most of the code and gain the advantage of removing the
+code entirely when it isn't used.
+
+I wonder if we can even make a regmap on the fly for the iomem pointers
+so that clk_divider_readl() can always use the regmap API to access the
+hardware. Sounds wasteful but maybe it would work.
+
+> My use case doesn't
+> actually need the registration code changes either as, currently, only reg
+> gets set at runtime, but leaving that out is a level of incomplete I'd not
+> let myself away with.
+> Obviously shoving the extra members into the clk structs has the downside
+> of taking up a pointer and a offset worth of memory for each clock of
+> that type registered, but it is substantially easier to support devices
+> with multiple regmaps that way. Probably moot though since the approach you
+> suggested in the thread linked above that implements a clk_hw_get_regmap()
+> has to store a pointer to the regmap's identifier which would take up an
+> identical amount of memory.
+
+We don't need to store the regmap identifier in the struct clk. We can
+store it in the 'struct clk_init_data' with some new field, and only do
+that when/if we actually need to. We would need to pass the init data to
+the clk_ops::init() callback though. We currently knock that out during
+registration so that clk_hw->init is NULL. Probably we can just set that
+to NULL after the init routine runs in __clk_core_init().
+
+Long story short, don't add something to 'struct clk_core', 'struct
+clk', or 'struct clk_hw' for these details. We can have a 'struct
+clk_regmap_hw' that everyone else can build upon:
+
+  struct clk_regmap_hw {
+        struct regmap *regmap;
+        struct clk_hw hw;
+  };
+
+and then set the regmap pointer during registration in
+clk_hw_init_regmap().
+
+int clk_hw_init_regmap(struct clk_hw *hw)
+{
+	struct device *dev;
+	struct regmap *regmap;
+	struct clk_regmap_hw *rhw;
+
+	rhw = clk_hw_to_clk_regmap_hw(hw);
+
+	dev = clk_hw_get_dev(hw);
+	if (!dev)
+		return -EINVAL;
+
+	regmap = dev_get_regmap(dev, hw->init->regmap_name);
+	if (!regmap)
+		return -EINVAL; // Print helpful message
+	rhw->regmap = regmap;
+
+	return 0;
+}
+
+or we can even make it so that there's clk_hw_init_regmap() and
+clk_hw_init_regmap_name() so that drivers can have multiple functions if
+the clks need different regmaps.
+
+int my_init_regmap(struct clk_hw *hw)
+{
+	int ret;
+
+	ret = clk_hw_init_regmap_name(hw, "my_name");
+	...
+}
+
+If you don't need the multiple regmap support then it's fine to punt
+here until later.
+
+> 
+> I don't really care which way you want it done, both are pretty easy to
+> implement if I can get away with just doing so for the two standard
+> clock types that I am using - is it okay to just do those two?
 > 
 
-Thanks,
-
-Reviewed-by: Charlie Jenkins <charlie@rivosinc.com>
-
+Of course, doing only what is minimally required is better than changing
+everything if you're not sure the approach is going to land.
 
 _______________________________________________
 linux-riscv mailing list
