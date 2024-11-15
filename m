@@ -4,82 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 70450D6DDD8
-	for <linux-riscv@archiver.kernel.org>; Fri, 15 Nov 2024 13:05:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BADBCD6DDFA
+	for <linux-riscv@archiver.kernel.org>; Fri, 15 Nov 2024 13:24:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ipGoBsnsPFh7iMN2eRjfaFSwXXrC7dOu3OvHAmkU2QY=; b=UGLkDm1NjwZ8PQ
-	MNhZUNBTnGB+0p+Ov1FXvLMcWmAtJSKD4DjG4gnzjOqQ9yekaoKJ/Z3ox58o5rclTYywZIkyAERJu
-	RRrmu5qtK1I4iTa6MwFJbUr3c13WX4RtlNpTHtX0nSDlK8g4U8/QG1i4vfmZIPORyUJPX1JI6WzMM
-	9r1JFkAE3xXbcnPqIiolT9ocki5CWgfO8JfpMdxCBe1IRkZzc4WsVBTuYav3EqeQWXpVrxJ8uPi9q
-	bTFp/scb3GM0kZmjzMKUvR3hFbZvW7KuxWwbNxvLxznnTVb8aq2YZz53t0l/Eif1dmQ59NcKDFzCW
-	fWa71fOuCSGh4pd6mTkA==;
+	List-Owner; bh=PfPNu7A/AYXTRk/CFag9+SfSu9w6gv+AlL1sh5pDWP4=; b=HBPdjL2HQ56ROY
+	ZKPXAP6QfIvJ6Tl3tF977YATdeIGS6hg8BF0ydP8K0OT0H3yHKGe32HnZTSDk+NLeUPj12q+b4IXt
+	adCgx9QdyEwD3ds7HLiNcG5c9mGF9GOeajCZ1b34umgB1MnKLPNBJU2mUxOv00QH2Tf1gQGW4d2Lo
+	aA+vOYcJpSSkJVBbVkHxXy0nc2n3DGHiDrGvzPUJDxb8ltJlxS2GwVKyylhfV9PRfdS2vKeCZvGRD
+	wdtg9oy/OlBD2IiY91BV6hmoxyplreORmRXmWB8s8mdHJ6eeIj23yEULdkO6ti32qqnJDWpZLlkkw
+	TQR2m4Aab4dnvnPbokeg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tBw14-00000002kOY-1hbg;
-	Fri, 15 Nov 2024 13:05:38 +0000
-Received: from mail-wm1-x32d.google.com ([2a00:1450:4864:20::32d])
+	id 1tBwJZ-00000002msx-0MtA;
+	Fri, 15 Nov 2024 13:24:45 +0000
+Received: from mail-wm1-x32e.google.com ([2a00:1450:4864:20::32e])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tBw11-00000002kNU-1PWG
+	id 1tBwJI-00000002mnk-2mkS
 	for linux-riscv@lists.infradead.org;
-	Fri, 15 Nov 2024 13:05:36 +0000
-Received: by mail-wm1-x32d.google.com with SMTP id 5b1f17b1804b1-43167ff0f91so5490075e9.1
-        for <linux-riscv@lists.infradead.org>; Fri, 15 Nov 2024 05:05:34 -0800 (PST)
+	Fri, 15 Nov 2024 13:24:29 +0000
+Received: by mail-wm1-x32e.google.com with SMTP id 5b1f17b1804b1-43158625112so16052215e9.3
+        for <linux-riscv@lists.infradead.org>; Fri, 15 Nov 2024 05:24:27 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1731675933; x=1732280733; darn=lists.infradead.org;
+        d=ventanamicro.com; s=google; t=1731677066; x=1732281866; darn=lists.infradead.org;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=2iRJDtsWqL/piKJhgDPwUvSiSVRYQD6fYDgRKmvQlho=;
-        b=mN2S7wTXzt352It5Ai4zTgo2rk+Ia5aRVh8Y/BpZbp1W7PcbjCWMoYsA+Fw8CRUv8I
-         ZqWM99JeqqWyxNiqW4WGZ7EY0GbR9QZJ6HiNgaHGpE05z3BroneBt5kRKXKobzuHUDZO
-         f/rIaHFG0prolRPA/t+f/FKwrq9Rz0IfCOB6qVJiOUNHS47Wv05gPzS9lLGlOPozZ8BH
-         ic5FN+3YzV5rJdzLEQuT0/RQS4XlElZeNjYovCH8NEwE1T/LUiMdOcIyBklzt1KUZ+Ja
-         jj7QW8IxOiIg/ahE58nJ7HDiTnWkviA3TYrLMMvGf86wAfsAvpUR1QZn3WcNFFwCAH38
-         hgIA==
+        bh=JsmYkfI9SAlOdysNsS4+loYZlaU4nZ+pAyan3DcICaY=;
+        b=hhWrXZKZgw7HPat5wrJgXEZ4o70D0xpHKDJjpGxBYVjaL+0hpr4HFWs84R402jHrNn
+         xJ/0qw7zCUdOMWqeiGSYiVIixU0IaPl4D0pbsB6OfFew6jOqsRslU7WyLrXx+HNus2PN
+         Ak2OufHxztxwdsekbg7lhwvNuIzAK5v1moIBlzaP6mRWbnWF16ZKYkVKuCj9zbkpYUAR
+         UeaSzd93dHaTtgMnJC5MYhcLf1a3r5+PZGw4FYccQBcGbr9/iRezITU3FN4NMe+712P1
+         QcCrDSxq5JonM+hFJNUSqQzyC6rBwfEvAkafw7yfnRwTj4giYH2gbEXyWJeD56gwnfWg
+         4lKg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1731675933; x=1732280733;
+        d=1e100.net; s=20230601; t=1731677066; x=1732281866;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=2iRJDtsWqL/piKJhgDPwUvSiSVRYQD6fYDgRKmvQlho=;
-        b=oUXMimgSFFkWZnSgUlnxCsDuwdw5cRf3yBYmczszetZBGdd58h4SrPMif9nenXayXA
-         84il092jJU6/ZlhE3MBQVjJu077QZivY3YOJ63eXUX0CJCguSnTlUVDtZ12pqAm9B5zF
-         cNqRnWtKv6kiGpwamB7z0hAufxQ98O0ZnISbNxzijMHi011rzNcAgwiOsxZSRpKNG4hl
-         BzM9qVgVxec4LDN1gjhxynwy3thLg9dZRWZ2nro0CYuM7uT/8cwCIL8BZ8An5phyUHVC
-         CiLq65jyE0HIZezfJG3IBIBTUJVRtzwWhQii6Pqv7Ok+3siK/Jw6eNuJsjpSzlivrBO8
-         bACw==
-X-Forwarded-Encrypted: i=1; AJvYcCWTF5rnP/Al4QS6Nvp+Z81trSmeAbZBd3Q9bk1bheMAjw361RDVuMvekcoI5+vSxBILyYcn5wf9+GrxFg==@lists.infradead.org
-X-Gm-Message-State: AOJu0YzWV/xb7asP79zL/jBYazgsxLf9L+QMku0apFuzcfnjf3loSurD
-	hx/Y1bPsvUBxnl90EGNYR2vaTLd+GLzZuF0lAbqFqXmhlhvornX7aQNlsq0N7z8=
-X-Google-Smtp-Source: AGHT+IFDp8PKpaQGVUAOAXQCxAUj6XSIILVhyKbCpLBYq5g/YknCPV3knkGIUqTxSWKWzG3K7rZY6Q==
-X-Received: by 2002:a05:600c:46c8:b0:431:58cd:b259 with SMTP id 5b1f17b1804b1-432df790731mr21679875e9.31.1731675933284;
-        Fri, 15 Nov 2024 05:05:33 -0800 (PST)
+        bh=JsmYkfI9SAlOdysNsS4+loYZlaU4nZ+pAyan3DcICaY=;
+        b=VbmBwUWkSx+FWg+YNwQA7oeKqt5bd0dLJZ569Kg1O2zM0ZVZoeN7y+SlLZcO0C2nO0
+         u+2R/uEFOo2/jlSi2mmIBh7jTU3zGhxFhhcGkVx+2bV+EKhqZ6jlPf9Z5YVDyCw6P7K6
+         SmQ0faRELAeNdwbGLQODs/v1lx3yq6gubB+fs19W/+6bdx4CTVPhFg/uD3dS3su9kua3
+         6gR+Dmy2cg4y6ZjfHY9QblJa9s3jxSZctQ/Ib8kk3Z2OH8zbmOAIIqh7ikkXpgUe6pFx
+         /4waXUZ2LhtVn5G4V7MAeDLkNhAYz5s0zBZn2u7nj5SGdWhrrADPnC1msRvlHKCUQ3lh
+         gXzg==
+X-Forwarded-Encrypted: i=1; AJvYcCV7VENY4QNuZA1Y0i7aO/Utj77iFVgxvsilI8sf4Qri0mBXMhQwm3y6iKN4pAHAiGGAIZUR705yj2EC5A==@lists.infradead.org
+X-Gm-Message-State: AOJu0YyvmVWpsAFvrVGQCl9nGMxfTBmt8cmYexGoCgnKLCw3Ru25Z5zX
+	1lqAL3UJATzCA7GdBAGNOiHKH1wcqG9mh8RnZ0+1M9ZeSBt4XCjXUs0QvFCmIJE=
+X-Google-Smtp-Source: AGHT+IF7XUW+P100edaXbGSm//he90Ln1D8fWPVA6iuq6Xwn8rQ18Ry0V4E1cmRJmi1XGnVwJ/UreQ==
+X-Received: by 2002:a5d:598d:0:b0:37d:4e80:516 with SMTP id ffacd0b85a97d-38225a2163cmr2191863f8f.34.1731677066346;
+        Fri, 15 Nov 2024 05:24:26 -0800 (PST)
 Received: from localhost (2001-1ae9-1c2-4c00-20f-c6b4-1e57-7965.ip6.tmcz.cz. [2001:1ae9:1c2:4c00:20f:c6b4:1e57:7965])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-432dab80a28sm53496875e9.24.2024.11.15.05.05.32
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3821d0ea3e2sm4023804f8f.109.2024.11.15.05.24.25
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 15 Nov 2024 05:05:32 -0800 (PST)
-Date: Fri, 15 Nov 2024 14:05:32 +0100
+        Fri, 15 Nov 2024 05:24:25 -0800 (PST)
+Date: Fri, 15 Nov 2024 14:24:24 +0100
 From: Andrew Jones <ajones@ventanamicro.com>
-To: Samuel Holland <samuel.holland@sifive.com>
-Cc: Palmer Dabbelt <palmer@dabbelt.com>, linux-riscv@lists.infradead.org, 
-	Conor Dooley <conor@kernel.org>, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	Alexandre Ghiti <alexghiti@rivosinc.com>, Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>, 
-	Emil Renner Berthing <kernel@esmil.dk>, Rob Herring <robh+dt@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>
-Subject: Re: [PATCH 08/11] riscv: alternative: Add an ALTERNATIVE_3 macro
-Message-ID: <20241115-1c2467159f117132dc94db26@orel>
-References: <20241102000843.1301099-1-samuel.holland@sifive.com>
- <20241102000843.1301099-9-samuel.holland@sifive.com>
+To: Javier Carrasco <javier.carrasco.cruz@gmail.com>
+Cc: Anup Patel <anup@brainfault.org>, 
+	"Rafael J. Wysocki" <rafael@kernel.org>, Daniel Lezcano <daniel.lezcano@linaro.org>, 
+	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, Atish Patra <atishp@rivosinc.com>, 
+	Palmer Dabbelt <palmer@rivosinc.com>, linux-pm@vger.kernel.org, linux-riscv@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2] cpuidle: riscv-sbi: fix device node release in early
+ exit of for_each_possible_cpu
+Message-ID: <20241115-20b5e02dd05173bfdc3a7d7f@orel>
+References: <20241031-cpuidle-riscv-sbi-cleanup-v2-1-aae62d383118@gmail.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20241102000843.1301099-9-samuel.holland@sifive.com>
+In-Reply-To: <20241031-cpuidle-riscv-sbi-cleanup-v2-1-aae62d383118@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241115_050535_374114_AEC35373 
-X-CRM114-Status: GOOD (  20.09  )
+X-CRM114-CacheID: sfid-20241115_052428_710462_2DDEFF5D 
+X-CRM114-Status: GOOD (  22.74  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,119 +97,59 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Nov 01, 2024 at 05:08:02PM -0700, Samuel Holland wrote:
-> ALT_FIXUP_PMA() is already using ALTERNATIVE_2(), but needs to be
-> extended to handle a fourth case. Add ALTERNATIVE_3(), which extends
-> ALTERNATIVE_2() with another block of new content.
+On Thu, Oct 31, 2024 at 01:21:17PM +0100, Javier Carrasco wrote:
+> The 'np' device_node is initialized via of_cpu_device_node_get(), which
+> requires explicit calls to of_node_put() when it is no longer required
+> to avoid leaking the resource.
 > 
-> Signed-off-by: Samuel Holland <samuel.holland@sifive.com>
+> Instead of adding the missing calls to of_node_put() in all execution
+> paths, use the cleanup attribute for 'np' by means of the __free()
+> macro, which automatically calls of_node_put() when the variable goes
+> out of scope. Given that 'np' is only used within the
+> for_each_possible_cpu(), reduce its scope to release the nood after
+> every iteration of the loop.
+> 
+> Fixes: 6abf32f1d9c5 ("cpuidle: Add RISC-V SBI CPU idle driver")
+> Signed-off-by: Javier Carrasco <javier.carrasco.cruz@gmail.com>
 > ---
+> Changes in v2:
+> - Squash patches for mainline solution without intermediate steps.
+> - Link to v1: https://lore.kernel.org/r/20241030-cpuidle-riscv-sbi-cleanup-v1-0-5e08a22c9409@gmail.com
+> ---
+>  drivers/cpuidle/cpuidle-riscv-sbi.c | 5 +++--
+>  1 file changed, 3 insertions(+), 2 deletions(-)
 > 
->  arch/riscv/include/asm/alternative-macros.h | 45 ++++++++++++++++++---
->  1 file changed, 40 insertions(+), 5 deletions(-)
+> diff --git a/drivers/cpuidle/cpuidle-riscv-sbi.c b/drivers/cpuidle/cpuidle-riscv-sbi.c
+> index 14462c092039..3a78d6b7598b 100644
+> --- a/drivers/cpuidle/cpuidle-riscv-sbi.c
+> +++ b/drivers/cpuidle/cpuidle-riscv-sbi.c
+> @@ -504,12 +504,13 @@ static int sbi_cpuidle_probe(struct platform_device *pdev)
+>  	int cpu, ret;
+>  	struct cpuidle_driver *drv;
+>  	struct cpuidle_device *dev;
+> -	struct device_node *np, *pds_node;
+> +	struct device_node *pds_node;
+>  
+>  	/* Detect OSI support based on CPU DT nodes */
+>  	sbi_cpuidle_use_osi = true;
+>  	for_each_possible_cpu(cpu) {
+> -		np = of_cpu_device_node_get(cpu);
+> +		struct device_node *np __free(device_node) =
+> +			of_cpu_device_node_get(cpu);
+
+nit: wrapping the line is unnecessary, we have 100 char width.
+
+>  		if (np &&
+>  		    of_property_present(np, "power-domains") &&
+>  		    of_property_present(np, "power-domain-names")) {
 > 
-> diff --git a/arch/riscv/include/asm/alternative-macros.h b/arch/riscv/include/asm/alternative-macros.h
-> index 721ec275ce57..b6027a8b6b50 100644
-> --- a/arch/riscv/include/asm/alternative-macros.h
-> +++ b/arch/riscv/include/asm/alternative-macros.h
-> @@ -50,8 +50,17 @@
->  	ALT_NEW_CONTENT \vendor_id_2, \patch_id_2, \enable_2, "\new_c_2"
->  .endm
->  
-> +.macro ALTERNATIVE_CFG_3 old_c, new_c_1, vendor_id_1, patch_id_1, enable_1,	\
-> +				new_c_2, vendor_id_2, patch_id_2, enable_2,	\
-> +				new_c_3, vendor_id_3, patch_id_3, enable_3
-> +	ALTERNATIVE_CFG_2 "\old_c", "\new_c_1", \vendor_id_1, \patch_id_1, \enable_1 \
-> +				    "\new_c_2", \vendor_id_2, \patch_id_2, \enable_2 \
-
-We don't want the '\' on the end of the above line.
-
-> +	ALT_NEW_CONTENT \vendor_id_3, \patch_id_3, \enable_3, "\new_c_3"
-> +.endm
-> +
->  #define __ALTERNATIVE_CFG(...)		ALTERNATIVE_CFG __VA_ARGS__
->  #define __ALTERNATIVE_CFG_2(...)	ALTERNATIVE_CFG_2 __VA_ARGS__
-> +#define __ALTERNATIVE_CFG_3(...)	ALTERNATIVE_CFG_3 __VA_ARGS__
->  
->  #else /* !__ASSEMBLY__ */
->  
-> @@ -98,6 +107,13 @@
->  	__ALTERNATIVE_CFG(old_c, new_c_1, vendor_id_1, patch_id_1, enable_1)	\
->  	ALT_NEW_CONTENT(vendor_id_2, patch_id_2, enable_2, new_c_2)
->  
-> +#define __ALTERNATIVE_CFG_3(old_c, new_c_1, vendor_id_1, patch_id_1, enable_1,	\
-> +				   new_c_2, vendor_id_2, patch_id_2, enable_2,	\
-> +				   new_c_3, vendor_id_3, patch_id_3, enable_3)	\
-> +	__ALTERNATIVE_CFG_2(old_c, new_c_1, vendor_id_1, patch_id_1, enable_1,	\
-> +				   new_c_2, vendor_id_2, patch_id_2, enable_2)	\
-> +	ALT_NEW_CONTENT(vendor_id_3, patch_id_3, enable_3, new_c_3)
-> +
->  #endif /* __ASSEMBLY__ */
->  
->  #define _ALTERNATIVE_CFG(old_c, new_c, vendor_id, patch_id, CONFIG_k)	\
-> @@ -108,6 +124,13 @@
->  	__ALTERNATIVE_CFG_2(old_c, new_c_1, vendor_id_1, patch_id_1, IS_ENABLED(CONFIG_k_1),	\
->  				   new_c_2, vendor_id_2, patch_id_2, IS_ENABLED(CONFIG_k_2))
->  
-> +#define _ALTERNATIVE_CFG_3(old_c, new_c_1, vendor_id_1, patch_id_1, CONFIG_k_1,		\
-> +				  new_c_2, vendor_id_2, patch_id_2, CONFIG_k_2,		\
-> +				  new_c_3, vendor_id_3, patch_id_3, CONFIG_k_3)		\
-> +	__ALTERNATIVE_CFG_3(old_c, new_c_1, vendor_id_1, patch_id_1, IS_ENABLED(CONFIG_k_1),	\
-> +				   new_c_2, vendor_id_2, patch_id_2, IS_ENABLED(CONFIG_k_2),	\
-> +				   new_c_3, vendor_id_3, patch_id_3, IS_ENABLED(CONFIG_k_3))
-> +
->  #else /* CONFIG_RISCV_ALTERNATIVE */
->  #ifdef __ASSEMBLY__
->  
-> @@ -121,6 +144,9 @@
->  #define _ALTERNATIVE_CFG_2(old_c, ...)	\
->  	ALTERNATIVE_CFG old_c
->  
-> +#define _ALTERNATIVE_CFG_3(old_c, ...)	\
-> +	ALTERNATIVE_CFG old_c
-> +
->  #else /* !__ASSEMBLY__ */
->  
->  #define __ALTERNATIVE_CFG(old_c)	\
-> @@ -132,6 +158,9 @@
->  #define _ALTERNATIVE_CFG_2(old_c, ...)	\
->  	__ALTERNATIVE_CFG(old_c)
->  
-> +#define _ALTERNATIVE_CFG_3(old_c, ...)	\
-> +	__ALTERNATIVE_CFG(old_c)
-> +
->  #endif /* __ASSEMBLY__ */
->  #endif /* CONFIG_RISCV_ALTERNATIVE */
->  
-> @@ -152,15 +181,21 @@
->  	_ALTERNATIVE_CFG(old_content, new_content, vendor_id, patch_id, CONFIG_k)
->  
->  /*
-> - * A vendor wants to replace an old_content, but another vendor has used
-> - * ALTERNATIVE() to patch its customized content at the same location. In
-> - * this case, this vendor can create a new macro ALTERNATIVE_2() based
-> - * on the following sample code and then replace ALTERNATIVE() with
-> - * ALTERNATIVE_2() to append its customized content.
-> + * Variant of ALTERNATIVE() that supports two sets of replacement content.
->   */
->  #define ALTERNATIVE_2(old_content, new_content_1, vendor_id_1, patch_id_1, CONFIG_k_1,		\
->  				   new_content_2, vendor_id_2, patch_id_2, CONFIG_k_2)		\
->  	_ALTERNATIVE_CFG_2(old_content, new_content_1, vendor_id_1, patch_id_1, CONFIG_k_1,	\
->  					new_content_2, vendor_id_2, patch_id_2, CONFIG_k_2)
->  
-> +/*
-> + * Variant of ALTERNATIVE() that supports three sets of replacement content.
-> + */
-> +#define ALTERNATIVE_3(old_content, new_content_1, vendor_id_1, patch_id_1, CONFIG_k_1,		\
-> +				   new_content_2, vendor_id_2, patch_id_2, CONFIG_k_2,		\
-> +				   new_content_3, vendor_id_3, patch_id_3, CONFIG_k_3)		\
-> +	_ALTERNATIVE_CFG_3(old_content, new_content_1, vendor_id_1, patch_id_1, CONFIG_k_1,	\
-> +					new_content_2, vendor_id_2, patch_id_2, CONFIG_k_2,	\
-> +					new_content_3, vendor_id_3, patch_id_3, CONFIG_k_3)
-> +
->  #endif
+> ---
+> base-commit: 6fb2fa9805c501d9ade047fc511961f3273cdcb5
+> change-id: 20241029-cpuidle-riscv-sbi-cleanup-e9b3cb96e16d
+> 
+> Best regards,
 > -- 
-> 2.45.1
+> Javier Carrasco <javier.carrasco.cruz@gmail.com>
 >
 
 Otherwise,
