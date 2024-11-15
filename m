@@ -4,93 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E288ED68BD9
-	for <linux-riscv@archiver.kernel.org>; Fri, 15 Nov 2024 21:50:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 42AB0D68BDA
+	for <linux-riscv@archiver.kernel.org>; Fri, 15 Nov 2024 23:32:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=e63oBLseH3s1WoWAlB5HbTd1Ff8bKAn0sxysKeFHwxc=; b=Mgkz8Tuuy8DQx4
-	HO0gjTvKDvMgkhclJ9lIY6iYPC1uTrmOl3c3XYmSodU7bun8PF2bVOKku6lA39W3d8sutHOYg0KXU
-	LdOki8NZQYRjKlQq5hLooypSurJfoVkTqp4Zkg2mziUUggOAjYgdkf2I++I2acIvL+PSeP021LFCE
-	1MQ05wB4sRCcgysZQxBzmavFMSxgCzII46PjwIpz2RBzBIsdEGaFOHLTNJXHij95OO6A+WKDxUiYm
-	PkAbJxVV0LA9bWVaVvVjuAloZHsAg9qM1xPbIbLkiMyFQNyRTAqIRjHrjwE3Qnp81gkIdTk0h3cQ8
-	g8uWEjq3QXaPjvyANXiw==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:MIME-Version:Subject:
+	Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=2zlJOGbyPViMbSfs31YVsXWmAwA5p7SUXwF/UWDrmwE=; b=qKinNXDZDuFpwg
+	OxtDXUGH/JEPIgqreJNtbAV17CHI0u5pR/GLlRjfPj3ayf0n+e9aRDHfdkCaGTQOj/9hB5qsDhumG
+	e1XjhEpZPHP1c+eTbJ4qbHVdioBJty8YMeN8kDmXGivy1dRZ0FtGnV6pP1LqB67kwRUhCXPNeUsC4
+	gk2Vcxe0NIYoCWB67LOagWZjCHtf0l6k+1dR7erfWxzog7YbJE6ZhIVtDOp/NOjdyKQ9cDhes+xJI
+	tdmUQ8YqMKeufWqyy4d5JISCBIzAPGPkLdSvITVybTi4J5v6Sf229BNp6PgBa6zprIQDEhqjsG/IJ
+	K9dt93kI6A7QysIPIFfw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tC4CR-00000004Hqt-3fT3;
-	Fri, 15 Nov 2024 21:49:55 +0000
-Received: from hall.aurel32.net ([2001:bc8:30d7:100::1])
+	id 1tC5o2-00000004ZAj-0VPv;
+	Fri, 15 Nov 2024 23:32:50 +0000
+Received: from mail-wr1-x42c.google.com ([2a00:1450:4864:20::42c])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tC4CO-00000004Hns-3oRc
+	id 1tC5nz-00000004ZAF-0jYI
 	for linux-riscv@lists.infradead.org;
-	Fri, 15 Nov 2024 21:49:54 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=aurel32.net
-	; s=202004.hall; h=In-Reply-To:Content-Transfer-Encoding:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:From:Reply-To:
-	Subject:Content-ID:Content-Description:X-Debbugs-Cc;
-	bh=prMCeiS3C5eJ4JUpUHzaK1wSkzL+Nfbek9oMDzah4h0=; b=QDaSXODWgq8n0WBjsGY9mufYRE
-	TprfLoI9CPd0FjQsYPK2yfUZzgi1tSu29V5Et0dXxfSrwlpnjVXwSdgVxuOcNaDT+B99oKycmjsmB
-	DAABnDWgi07vWpOjFBUvxdqQ5eR3afnCJXEwU7k4FqxuQnDpot0lExyWy/eWu/KAqnGYpHkkW1HwM
-	uylRomXHgYBtXoB6tACZYx/mNUrZ8SedBZSQqQrO19ColuLE/x9NgtXDJsy3Etgxj0mjJxwXTdMnW
-	nhLSuiNcEworCLm/4gF1muA7o4RXFgXaC525GxvuC7BZ56mRTvSOlCbXWgiNhGFN+8m6bGS8lowou
-	wlzpax5A==;
-Received: from ohm.aurel32.net ([2001:bc8:30d7:111::2] helo=ohm.rr44.fr)
-	by hall.aurel32.net with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <aurelien@aurel32.net>)
-	id 1tC4Bl-00D5ON-36;
-	Fri, 15 Nov 2024 22:49:13 +0100
-Date: Fri, 15 Nov 2024 22:49:12 +0100
-From: Aurelien Jarno <aurelien@aurel32.net>
-To: =?utf-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>
-Cc: Thomas Gleixner <tglx@linutronix.de>,
-	Celeste Liu <coelacanthushex@gmail.com>,
-	Celeste Liu via B4 Relay <devnull+CoelacanthusHex.gmail.com@kernel.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	=?utf-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@rivosinc.com>,
-	Palmer Dabbelt <palmer@rivosinc.com>,
-	Alexandre Ghiti <alex@ghiti.fr>, "Dmitry V. Levin" <ldv@strace.io>,
-	Andrea Bolognani <abologna@redhat.com>,
-	Felix Yan <felixonmars@archlinux.org>,
-	Ruizhe Pan <c141028@gmail.com>,
-	Shiqi Zhang <shiqi@isrc.iscas.ac.cn>, Guo Ren <guoren@kernel.org>,
-	Yao Zi <ziyao@disroot.org>, Han Gao <gaohan@iscas.ac.cn>,
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org
-Subject: Re: [PATCH] riscv/entry: get correct syscall number from
- syscall_get_nr()
-Message-ID: <ZzfB2LfsD0ATjLMv@aurel32.net>
-Mail-Followup-To: =?utf-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Celeste Liu <coelacanthushex@gmail.com>,
-	Celeste Liu via B4 Relay <devnull+CoelacanthusHex.gmail.com@kernel.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	=?utf-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@rivosinc.com>,
-	Palmer Dabbelt <palmer@rivosinc.com>,
-	Alexandre Ghiti <alex@ghiti.fr>, "Dmitry V. Levin" <ldv@strace.io>,
-	Andrea Bolognani <abologna@redhat.com>,
-	Felix Yan <felixonmars@archlinux.org>,
-	Ruizhe Pan <c141028@gmail.com>,
-	Shiqi Zhang <shiqi@isrc.iscas.ac.cn>, Guo Ren <guoren@kernel.org>,
-	Yao Zi <ziyao@disroot.org>, Han Gao <gaohan@iscas.ac.cn>,
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org
-References: <87ldya4nv0.ffs@tglx>
- <87sesgftng.fsf@all.your.base.are.belong.to.us>
+	Fri, 15 Nov 2024 23:32:48 +0000
+Received: by mail-wr1-x42c.google.com with SMTP id ffacd0b85a97d-382026ba43eso1482212f8f.1
+        for <linux-riscv@lists.infradead.org>; Fri, 15 Nov 2024 15:32:46 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1731713565; x=1732318365; darn=lists.infradead.org;
+        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
+         :date:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=Bh6tDwODnq8Uz0ftqgMQifASUmQBQRHrNSlc/NxcVPs=;
+        b=IedupwF1ZBhlB1zDhhD8UjldGoEf8I+LteZyP+AcrFiGJt396JY2rJnSvtym6aE4U2
+         aQz/7Azo/frqQlGQZRCZBLTeolzjJr35mmKORCTb3a8CjEro04ans3P4fwGKQG/aoxSm
+         gY4ArP14q0nxNEBdOlker16uIYeRLBpeZkBHAtfZU3L6gdC7YjyfY/90AbykremiQkmg
+         XXy3YJYDChAJAYbtcGat1pc+n56VokShVeJA2oR6Cw3s59ZLdMmjLdCW9KEL/y2qX0HC
+         FeWu4ZflC+6YT157AY6iiGGfMc5cjWLHq7uYPUkDq+rGD3yaSbfyD/jQe6OF9s3N0gHJ
+         2WvA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1731713565; x=1732318365;
+        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
+         :date:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=Bh6tDwODnq8Uz0ftqgMQifASUmQBQRHrNSlc/NxcVPs=;
+        b=UtBgXNIM+9rYf+UGRo17JTpLnL5TAhLNOathodBUPcEvVVMlhJ2f/W/UmJXcKCJmez
+         zpAY9wmAd6eMUVsFqZ3hCZNKO5K3M4c12G5PN/Mm/LlmcwCwIJ28xj5lDVTXillwlR0B
+         M0+GIkLLhxJuwDn5z6S0Hb77e4LaexVdKgmWzkurhWhjjqoeOhhRFDxxBfC5eiI+lDR+
+         uK4KqJNbMQvTWZ2RWe5+k/uWUuTuatBeXAeepHBqEsod1CZV4RxnBJsdkZG1QoqgoiNR
+         C5Mvbl8FDDfGB6SBo53NfgIzUYR/IjbpZzItvY/LGO8qXXYU4572vYnz+Tsxk6Ty3wGI
+         xp4g==
+X-Forwarded-Encrypted: i=1; AJvYcCUV4MhQR64E80rBmCZkUpJ1fxQ1F/1tx6pIkWW48kk/JGFIffS9bJC/D5QV8Df20wRqU5LfS67w+mCGOw==@lists.infradead.org
+X-Gm-Message-State: AOJu0YypO9/iN3WinJY5hFaMTavbzVDYE84dh17TtQs8PggALfQj9OFy
+	dQ1c2ZRLGXpFU7KhTLXXnTwqWbEqKuQyj+Wn68HbSMaf6e8L9gfd
+X-Google-Smtp-Source: AGHT+IF+13KXSUbKCa1sqaGVFC2eXYP/XSlFhfc3SaEKJ5GBSoOKuGlI1jesZSuVgFdztcKkZo8ZSQ==
+X-Received: by 2002:a5d:64c8:0:b0:382:2276:c93c with SMTP id ffacd0b85a97d-38225a8a36cmr4291816f8f.44.1731713565042;
+        Fri, 15 Nov 2024 15:32:45 -0800 (PST)
+Received: from [127.0.1.1] (2a02-8389-41cf-e200-58e8-a69e-d502-6c71.cable.dynamic.v6.surfer.at. [2a02:8389:41cf:e200:58e8:a69e:d502:6c71])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-382247849b0sm3617373f8f.97.2024.11.15.15.32.42
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 15 Nov 2024 15:32:43 -0800 (PST)
+From: Javier Carrasco <javier.carrasco.cruz@gmail.com>
+Date: Sat, 16 Nov 2024 00:32:39 +0100
+Subject: [PATCH v3] cpuidle: riscv-sbi: fix device node release in early
+ exit of for_each_possible_cpu
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <87sesgftng.fsf@all.your.base.are.belong.to.us>
-User-Agent: Mutt/2.2.13 (2024-03-09)
+Message-Id: <20241116-cpuidle-riscv-sbi-cleanup-v3-1-a3a46372ce08@gmail.com>
+X-B4-Tracking: v=1; b=H4sIABbaN2cC/33NTQ6CMBCG4auYrh3TTpFQV97DuCjtCJPwl1YaD
+ eHuAnHBiuX7JfPMJCIFpihup0kEShy575bQ55Nwte0qAvZLC5SYKYkG3DCybwgCR5cglgyuIdu
+ NA5AptStNTir3YrkfAr34s9mP59I1x3cfvturpNb1r2p5oCYFEq4kC4voTCbNvWotNxfXt2JVE
+ +4ldSQhKLCWcvS60EoVe2me5x9SPvP8DAEAAA==
+To: Anup Patel <anup@brainfault.org>, 
+ "Rafael J. Wysocki" <rafael@kernel.org>, 
+ Daniel Lezcano <daniel.lezcano@linaro.org>, 
+ Paul Walmsley <paul.walmsley@sifive.com>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+ Atish Patra <atishp@rivosinc.com>
+Cc: Palmer Dabbelt <palmer@rivosinc.com>, linux-pm@vger.kernel.org, 
+ linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Andrew Jones <ajones@ventanamicro.com>, 
+ Javier Carrasco <javier.carrasco.cruz@gmail.com>
+X-Mailer: b4 0.14-dev
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1731713562; l=2176;
+ i=javier.carrasco.cruz@gmail.com; s=20240312; h=from:subject:message-id;
+ bh=OSD+oIIobbkjTj3wZizfrrejaW10Hs0ipasM8FAF5aE=;
+ b=CgLScY+fBx01z2OhvbnOitrjuXIF70J+E1fl1CA/E6YXlP/Lrjz6NKa4IET03JPGbMxO2h4kN
+ 4GLGXY52VRbAV2+a6go6DR6Y9mafHIFep3P44cBsfzvKGgTNaPxW6nm
+X-Developer-Key: i=javier.carrasco.cruz@gmail.com; a=ed25519;
+ pk=lzSIvIzMz0JhJrzLXI0HAdPwsNPSSmEn6RbS+PTS9aQ=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241115_134953_398596_AD6E8379 
-X-CRM114-Status: GOOD (  13.06  )
+X-CRM114-CacheID: sfid-20241115_153247_220057_5D546841 
+X-CRM114-Status: GOOD (  13.70  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,41 +104,67 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gMjAyNC0xMC0yOCAwMjo0NSwgQmrDtnJuIFTDtnBlbCB3cm90ZToKPiBUaGFua3MgZm9yIGhl
-bHBpbmcgb3V0IHRvIGRpc3NlY3QgdGhpcyEgTXVjaCBhcHByZWNpYXRlZCEKPiAKPiBUaG9tYXMg
-R2xlaXhuZXIgPHRnbHhAbGludXRyb25peC5kZT4gd3JpdGVzOgo+IAo+ID4gTGV0IG1lIGxvb2sg
-YXQgeW91ciBmYWlsdXJlIGFuYWx5c2lzIGZyb20geW91ciBmaXJzdCByZXBseToKPiA+Cj4gPj4g
-IDEuIHN0cmFjZSAidHJhY2luZyI6IFJlcXVpcmVzIHRoYXQgcmVncy0+YTAgaXMgbm90IHRhbXBl
-cmVkIHdpdGggcHJpb3IKPiA+PiAgICAgcHRyYWNlIG5vdGlmaWNhdGlvbgo+ID4+IAo+ID4+ICAg
-ICBFLmcuOgo+ID4+ICAgICB8ICMgLi9zdHJhY2UgLwo+ID4+ICAgICB8IGV4ZWN2ZSgiLyIsIFsi
-LyJdLCAweDdmZmZmYWFjMzg5MCAvKiAyMSB2YXJzICovKSA9IC0xIEVBQ0NFUyAoUGVybWlzc2lv
-biBkZW5pZWQpCj4gPj4gICAgIHwgLi9zdHJhY2U6IGV4ZWM6IFBlcm1pc3Npb24gZGVuaWVkCj4g
-Pj4gICAgIHwgKysrIGV4aXRlZCB3aXRoIDEgKysrCj4gPj4gICAgIHwgIyAuL2Rpc2FibGVfcHRy
-YWNlX2dldF9zeXNjYWxsX2luZm8gLi9zdHJhY2UgLwo+ID4+ICAgICB8IGV4ZWN2ZSgweGZmZmZm
-ZmZmZmZmZmZmZGEsIFsiLyJdLCAweDdmZmZkODkzY2UxMCAvKiAyMSB2YXJzICovKSA9IC0xIEVB
-Q0NFUyAoUGVybWlzc2lvbiBkZW5pZWQpCj4gPj4gICAgIHwgLi9zdHJhY2U6IGV4ZWM6IFBlcm1p
-c3Npb24gZGVuaWVkCj4gPj4gICAgIHwgKysrIGV4aXRlZCB3aXRoIDEgKysrCj4gPj4gCj4gPj4g
-ICAgIEluIHRoZSBzZWNvbmQgY2FzZSwgYXJnMCBpcyBwcmVtYXR1cmVseSBzZXQgdG8gLUVOT1NZ
-Uwo+ID4+ICAgICAoMHhmZmZmZmZmZmZmZmZmZmRhKS4KPiA+Cj4gPiBUaGF0J3MgZXhwZWN0ZWQg
-aWYgcHRyYWNlX2dldF9zeXNjYWxsX2luZm8oKSBpcyBub3QgdXNlZC4gUGxhaW4gZHVtcGluZwo+
-ID4gcmVnaXN0ZXJzIHdpbGwgZ2l2ZSB5b3UgdGhlIGN1cnJlbnQgdmFsdWUgb24gYWxsIGFyY2hp
-dGVjdHVyZXMuCj4gPiBwdHJhY2VfZ2V0X3N5c2NhbGxfaW5mbygpIGV4aXN0IGV4YWN0bHkgZm9y
-IHRoYXQgcmVhc29uLgo+IAo+IE5vdGVkISBTbyB0aGlzIHNob3VsZG4ndCBiZSBjb25zaWRlcmVk
-IGFzIGEgcmVncmVzc2lvbi4gSU9XLCB0aGUKPiBleGlzdGluZyB1cHN0cmVhbSBjb2RlIGlzIE9L
-IGZvciB0aGlzIHNjZW5hcmlvLgoKTm90IGhvd2V2ZXIgdGhhdCBpdCBicmVha3Mgc29tZSBwcm9n
-cmFtcywgZm9yIGluc3RhbmNlIEkgYXJyaXZlZCBvbiB0aGlzCnRocmVhZCBieSBkZWJ1Z2dpbmcg
-cHl0aG9uLXB0cmFjZS4gSSdsbCB0cnkgdG8gbG9vayBhdCBhZGRpbmcgc3VwcG9ydApmb3IgcHRy
-YWNlX2dldF9zeXNjYWxsX2luZm8oKSwgYnV0IEkgYW0gYWZyYWlkIHdlIHdpbGwgZmluZCBtb3Jl
-IGJyb2tlbgpwcm9ncmFtcy4KClJlZ2FyZHMKQXVyZWxpZW4KClsxXSBodHRwczovL2J1aWxkZC5k
-ZWJpYW4ub3JnL3N0YXR1cy9mZXRjaC5waHA/cGtnPXB5dGhvbi1wdHJhY2UmYXJjaD1yaXNjdjY0
-JnZlcj0wLjkuOS0wLjElMkJiMiZzdGFtcD0xNzMxNTQ3MDg4JnJhdz0wCgotLSAKQXVyZWxpZW4g
-SmFybm8gICAgICAgICAgICAgICAgICAgICAgICAgIEdQRzogNDA5NlIvMURERDhDOUIKYXVyZWxp
-ZW5AYXVyZWwzMi5uZXQgICAgICAgICAgICAgICAgICAgICBodHRwOi8vYXVyZWwzMi5uZXQKCl9f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2
-IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0
-cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+The 'np' device_node is initialized via of_cpu_device_node_get(), which
+requires explicit calls to of_node_put() when it is no longer required
+to avoid leaking the resource.
+
+Instead of adding the missing calls to of_node_put() in all execution
+paths, use the cleanup attribute for 'np' by means of the __free()
+macro, which automatically calls of_node_put() when the variable goes
+out of scope. Given that 'np' is only used within the
+for_each_possible_cpu(), reduce its scope to release the nood after
+every iteration of the loop.
+
+Fixes: 6abf32f1d9c5 ("cpuidle: Add RISC-V SBI CPU idle driver")
+Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
+Signed-off-by: Javier Carrasco <javier.carrasco.cruz@gmail.com>
+---
+Changes in v3:
+- Unwrap line (100 char width).
+- Link to v2: https://lore.kernel.org/r/20241031-cpuidle-riscv-sbi-cleanup-v2-1-aae62d383118@gmail.com
+
+Changes in v2:
+- Squash patches for mainline solution without intermediate steps.
+- Link to v1: https://lore.kernel.org/r/20241030-cpuidle-riscv-sbi-cleanup-v1-0-5e08a22c9409@gmail.com
+---
+ drivers/cpuidle/cpuidle-riscv-sbi.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/drivers/cpuidle/cpuidle-riscv-sbi.c b/drivers/cpuidle/cpuidle-riscv-sbi.c
+index 14462c092039..0c92a628bbd4 100644
+--- a/drivers/cpuidle/cpuidle-riscv-sbi.c
++++ b/drivers/cpuidle/cpuidle-riscv-sbi.c
+@@ -504,12 +504,12 @@ static int sbi_cpuidle_probe(struct platform_device *pdev)
+ 	int cpu, ret;
+ 	struct cpuidle_driver *drv;
+ 	struct cpuidle_device *dev;
+-	struct device_node *np, *pds_node;
++	struct device_node *pds_node;
+ 
+ 	/* Detect OSI support based on CPU DT nodes */
+ 	sbi_cpuidle_use_osi = true;
+ 	for_each_possible_cpu(cpu) {
+-		np = of_cpu_device_node_get(cpu);
++		struct device_node *np __free(device_node) = of_cpu_device_node_get(cpu);
+ 		if (np &&
+ 		    of_property_present(np, "power-domains") &&
+ 		    of_property_present(np, "power-domain-names")) {
+
+---
+base-commit: 744cf71b8bdfcdd77aaf58395e068b7457634b2c
+change-id: 20241029-cpuidle-riscv-sbi-cleanup-e9b3cb96e16d
+
+Best regards,
+-- 
+Javier Carrasco <javier.carrasco.cruz@gmail.com>
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
