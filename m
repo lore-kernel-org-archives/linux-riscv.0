@@ -4,84 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A7CE8D68BC6
-	for <linux-riscv@archiver.kernel.org>; Fri, 15 Nov 2024 15:44:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 97B01D68BC8
+	for <linux-riscv@archiver.kernel.org>; Fri, 15 Nov 2024 15:44:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=0hn+tR0KsQfkW8eAVT9XFYxGul31cx1FlzgeKDvRaj0=; b=NEL6LuUsNelQfD
-	pY0dkC2cEBLLpCOBUhk+ubossqIM3WIIfzF2zdHFxlXGiauf2dAHSdMfUAQj1nPrpbp1KjZGk70Dw
-	ZvZJ6WOdAqTiOWJnncZnDoaZQX8SNtFHDO1nPJofGw3ZOgbBqQD3PmSTBNufwCe5MQJ+UBHIQt/Lo
-	YhjFmDP+oLSdLDnQTKLWna8NJRjj41WJAkSIyMvvuZyDK9SAh0OB1lALXLyPyxYTuJ9bGCi6YeMX+
-	0qh2S2lJzLsta/7GLDwcOsjdHvarQKjvCshBnNtV5V6mgpz00L+l3pRgBagr9qhfgMs0FPisFZRWI
-	EuSm1hjzS/dd8KxEw7qw==;
+	List-Owner; bh=CDlzeMFB0hG7nFLpj2Q4ZQVW+2/vtVZZNBUo5JkGccE=; b=ZBFYJpJccBCwnj
+	4XelqPG1/lN2vMNU06CEE8sJIVcFXKeDjws/X2NKA82KHStODKbDOTQrIYESbN3Z+cH6ZVjGs28bY
+	osdMd1ahiWduasX+gCVlEbF7b8msTY2yCb388o0F8gLcLmbj6mBFf3w3Pn3p9CtdHaLL6n28qORN+
+	ZODSVXCQENUqrziwq1UyT4ZUH3JZJIYJal7An+qXKd5zw73mTxh7OsLxBb2RH2Mky97CMmCMxVhkz
+	/U6urXVS3iBsE/tafAW5pt7QZFn1KU3Sdmc2IYUU2tDh1RCHjok0W8bKMXXKeFG5a6Gh0FEzoaNiz
+	/7s55g0BDu4uISgFQooA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tByUR-00000003Dgc-3Kqj;
-	Fri, 15 Nov 2024 15:44:07 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1tByUS-00000003Dgs-1YaX;
+	Fri, 15 Nov 2024 15:44:08 +0000
+Received: from mail-lf1-x12c.google.com ([2a00:1450:4864:20::12c])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tByTV-00000003DSz-1S1m;
-	Fri, 15 Nov 2024 15:43:10 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 95EACA42A0C;
-	Fri, 15 Nov 2024 15:41:14 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AD7FBC4CECF;
-	Fri, 15 Nov 2024 15:43:07 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1731685388;
-	bh=/dcFxhHKBWLL34nz7gEKNRpldABlavWv3YKIJYlie4s=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Qm1PMV7mxCVMp40wyrDL58hCCRzwWaEgCxfDMIQCylAkVlFcaqG1PQjKLkYZ6T4w6
-	 PtrbyzmY7Cr+ZCdNByLnjTLya3JOwjOUvKFYKJSssn4qvV3m6aVcopLdRF4dOe1plP
-	 KiUnUk70zxZU1VrcbybGJoZHHZXv1tVy+Akx3aZkmpsfa9Ts+RLnyLg/pG7GT7ckII
-	 nXdO4J9hI0hHh6rRSUMdn9ybG5cO2a8tvRxWI1yBwVKP8olyJbokl1crJTE9P7Gndk
-	 2v0KRcW1+Mmueo1wMvdR7lEN9Y71VQKa9jw6CORkFBmpD8dUp87BNaMYrqS0UtiRDm
-	 qLeAuWMKjMXBQ==
-Date: Fri, 15 Nov 2024 12:43:05 -0300
-From: Arnaldo Carvalho de Melo <acme@kernel.org>
-To: James Clark <james.clark@linaro.org>
-Cc: Ian Rogers <irogers@google.com>, Xu Yang <xu.yang_2@nxp.com>,
-	John Garry <john.g.garry@oracle.com>, Will Deacon <will@kernel.org>,
-	Mike Leach <mike.leach@linaro.org>, Leo Yan <leo.yan@linux.dev>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Ingo Molnar <mingo@redhat.com>, Namhyung Kim <namhyung@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Jiri Olsa <jolsa@kernel.org>,
-	Adrian Hunter <adrian.hunter@intel.com>,
-	Kan Liang <kan.liang@linux.intel.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Huacai Chen <chenhuacai@kernel.org>, Bibo Mao <maobibo@loongson.cn>,
-	Athira Rajeev <atrajeev@linux.vnet.ibm.com>,
-	Ben Zong-You Xie <ben717@andestech.com>,
-	Alexandre Ghiti <alexghiti@rivosinc.com>,
-	Sandipan Das <sandipan.das@amd.com>,
-	Benjamin Gray <bgray@linux.ibm.com>,
-	Ravi Bangoria <ravi.bangoria@amd.com>,
-	=?iso-8859-1?Q?Cl=E9ment?= Le Goffic <clement.legoffic@foss.st.com>,
-	Yicong Yang <yangyicong@hisilicon.com>,
-	"Masami Hiramatsu (Google)" <mhiramat@kernel.org>,
-	Dima Kogan <dima@secretsauce.net>,
-	"Dr. David Alan Gilbert" <linux@treblig.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v2 0/8] Refactor cpuid and metric table lookup code
-Message-ID: <ZzdsCWpAULCe839R@x1>
-References: <20241107162035.52206-1-irogers@google.com>
- <215ca9a2-0a63-4d0c-8402-5cb1f2bb0794@linaro.org>
+	id 1tByTY-00000003DUA-3hJP
+	for linux-riscv@lists.infradead.org;
+	Fri, 15 Nov 2024 15:43:14 +0000
+Received: by mail-lf1-x12c.google.com with SMTP id 2adb3069b0e04-539f8490856so854193e87.2
+        for <linux-riscv@lists.infradead.org>; Fri, 15 Nov 2024 07:43:11 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ventanamicro.com; s=google; t=1731685390; x=1732290190; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=puWIlMfcycA4zPDYvHHQRG8tUppNKYPJEXaGKwVLLjk=;
+        b=lIQm3CY5IMa5SXr/dilR7O1CZniAqkF9aOCPUfAn/EQuMIIDxsq7Nq3wx5xPRgM5jB
+         8EHMP+T8+Hzq6LYgAIMwFNUpSFLDDP+M4oKe1wjsSK+oeg8gYrCUsWlQ5hlbR9MwrwQq
+         1akvKjhH+tBeXWTt3xXEu4E1UqECfo+tzWXJ59fpVsgOvaD2ufAL53ne5yKp8L5TwgwU
+         BoOfC/gf8QfeRVQQpmk3oQ9RRZSwx/mfo751UqArunYdoOOPRJbiHx3Qho8rywBbPSyK
+         h/uzRBJgxLDNgw7h8RHi7IBH5TOA5b3RLKG6FYMyduR7kfyHuN2sYRin9pGS6VsQU9W+
+         aiUg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1731685390; x=1732290190;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=puWIlMfcycA4zPDYvHHQRG8tUppNKYPJEXaGKwVLLjk=;
+        b=b6nObsy1huoXviOwY0QJy9NavJLnruRzsMZe5htQ1bkzcIyPQJ+YpmBvkUcymwj5hx
+         aE1rT8pAkVkhad+XC9JOBBqf/pg3WUpHqObQqaTKkoJRRbUgY0LVBPHkTTeJlR4PHFzs
+         QF7D0tK7JsL5wHJFfkmBifUTcw1eyU8tX3bBzWr1bxK3ATvIuAJkx6pPgddgBnxObEni
+         n8rkeYsE3K5GAK5n7kqlK9RnpmJHZ638OMgpr3ch3qNasJmIFdml9iDQzG9L96tOPGq2
+         NrHA9U+cPYoaGj0HZsb8LRceoyYZ3SbaNEdAMJ9GK2YPrG8ZRSEabC9wSiilVjNwHj3D
+         ix6A==
+X-Forwarded-Encrypted: i=1; AJvYcCVwRtVP4pJuNKcUV0xWMWLrhTCdv9McXYLBb8eRRV64eQTQgAdYl6Xjd/8gcqscxeVp0v3pAbmMkOJ13g==@lists.infradead.org
+X-Gm-Message-State: AOJu0YxflZtM9WI73vp9FRTekf2VeiXSUYDO2Zz/AF+9FOgNvwhJIIdJ
+	TTj/WOVCeTFKSp0PAg/rHhi2gUMrTEuRDkr0PPVqlzJGcskid33ERftlDm4m8FO5GPobMR0aheV
+	QvpXf6Vkvyad5QDEPxhrsfAkqGkiR+Uwkt6tetQ==
+X-Google-Smtp-Source: AGHT+IGh6mrAa6jyGwF34tEwKQHXYbfcXfXM2tI9rQsPmNWrKq6I6ma5gBd835+q9M2zm5lVI5W52ISSAAlPrvmUzLc=
+X-Received: by 2002:a05:6512:128d:b0:53d:a077:1d0b with SMTP id
+ 2adb3069b0e04-53dab3bc61cmr1714211e87.44.1731685390293; Fri, 15 Nov 2024
+ 07:43:10 -0800 (PST)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <215ca9a2-0a63-4d0c-8402-5cb1f2bb0794@linaro.org>
+References: <20241114200133.3069460-1-samuel.holland@sifive.com>
+In-Reply-To: <20241114200133.3069460-1-samuel.holland@sifive.com>
+From: Anup Patel <apatel@ventanamicro.com>
+Date: Fri, 15 Nov 2024 21:12:58 +0530
+Message-ID: <CAK9=C2UyfmHqtYYK-WeSRk3=6bjs5nzDmw9ntudbCnPOYxLtXg@mail.gmail.com>
+Subject: Re: [PATCH] irqchip/riscv-aplic: Fix crash when MSI domain is missing
+To: Samuel Holland <samuel.holland@sifive.com>
+Cc: Anup Patel <anup@brainfault.org>, Thomas Gleixner <tglx@linutronix.de>, 
+	Albert Ou <aou@eecs.berkeley.edu>, =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@rivosinc.com>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241115_074309_513321_D321B3C8 
-X-CRM114-Status: GOOD (  19.41  )
+X-CRM114-CacheID: sfid-20241115_074312_918860_251F3FF8 
+X-CRM114-Status: GOOD (  21.44  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,72 +87,58 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Nov 15, 2024 at 03:35:55PM +0000, James Clark wrote:
-> 
-> 
-> On 07/11/2024 4:20 pm, Ian Rogers wrote:
-> > Xu Yang <xu.yang_2@nxp.com> reported issues with the system metric
-> > lookup:
-> > https://lore.kernel.org/linux-perf-users/20241106085441.3945502-1-xu.yang_2@nxp.com/
-> > These patches remove a lot of the logic relating CPUIDs to PMUs so
-> > that the PMU isn't part of the question when finding a metric table.
-> > For time reasons, it doesn't go as far as allowing system metrics
-> > without a metric table as a metric table is needed for metrics to
-> > refer to other metrics, and the refactoring of that resolution is a
-> > hassle.
-> > 
-> > Ian Rogers (7):
-> >    perf header: Move is_cpu_online to numa bench
-> >    perf header: Refactor get_cpuid to take a CPU for ARM
-> >    perf arm64 header: Use cpu argument in get_cpuid
-> >    perf header: Avoid transitive PMU includes
-> >    perf header: Pass a perf_cpu rather than a PMU to get_cpuid_str
-> >    perf jevents: Add map_for_cpu
-> >    perf pmu: Move pmu_metrics_table__find and remove ARM override
-> > 
-> > Xu Yang (1):
-> >    perf jevents: fix breakage when do perf stat on system metric
-> > 
-> >   tools/perf/arch/arm64/util/arm-spe.c     | 14 +---
-> >   tools/perf/arch/arm64/util/header.c      | 73 ++++++++++-----------
-> >   tools/perf/arch/arm64/util/pmu.c         | 20 ------
-> >   tools/perf/arch/loongarch/util/header.c  |  4 +-
-> >   tools/perf/arch/powerpc/util/header.c    |  4 +-
-> >   tools/perf/arch/riscv/util/header.c      |  4 +-
-> >   tools/perf/arch/s390/util/header.c       |  6 +-
-> >   tools/perf/arch/x86/util/auxtrace.c      |  3 +-
-> >   tools/perf/arch/x86/util/header.c        |  5 +-
-> >   tools/perf/bench/numa.c                  | 53 +++++++++++++++
-> >   tools/perf/builtin-kvm.c                 |  4 +-
-> >   tools/perf/pmu-events/empty-pmu-events.c | 39 ++++++-----
-> >   tools/perf/pmu-events/jevents.py         | 39 ++++++-----
-> >   tools/perf/pmu-events/pmu-events.h       |  2 +-
-> >   tools/perf/tests/expr.c                  |  5 +-
-> >   tools/perf/util/env.c                    |  4 +-
-> >   tools/perf/util/expr.c                   |  6 +-
-> >   tools/perf/util/header.c                 | 82 ++++++++----------------
-> >   tools/perf/util/header.h                 | 23 +++----
-> >   tools/perf/util/pmu.c                    | 25 --------
-> >   tools/perf/util/pmu.h                    |  2 -
-> >   tools/perf/util/probe-event.c            |  1 +
-> >   22 files changed, 189 insertions(+), 229 deletions(-)
-> > 
-> 
-> Reviewed-by: James Clark <james.clark@linaro.org>
-
-Thanks for reviewing James, I'm doing a round of tests to push what I
-have in tmp.perf-tools-next to perf-tools-next so that it gets test
-merged on linux-next and later today I'll escape from the holiday and
-take a last look on this series, apply and test.
-
-- Arnaldo
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gRnJpLCBOb3YgMTUsIDIwMjQgYXQgMTozMeKAr0FNIFNhbXVlbCBIb2xsYW5kCjxzYW11ZWwu
+aG9sbGFuZEBzaWZpdmUuY29tPiB3cm90ZToKPgo+IElmIHRoZSBBUExJQyBkcml2ZXIgaXMgcHJv
+YmVkIGJlZm9yZSB0aGUgSU1TSUMgZHJpdmVyLCB0aGUgcGFyZW50IE1TSQo+IGRvbWFpbiB3aWxs
+IGJlIG1pc3NpbmcsIHdoaWNoIGNhdXNlcyBhIE5VTEwgcG9pbnRlciBkZXJlZmVyZW5jZSBpbgo+
+IG1zaV9jcmVhdGVfZGV2aWNlX2lycV9kb21haW4oKS4gQXZvaWQgdGhpcyBieSBkZWZlcnJpbmcg
+cHJvYmUgdW50aWwgdGhlCj4gcGFyZW50IE1TSSBkb21haW4gaXMgYXZhaWxhYmxlLiBVc2UgZGV2
+X2Vycl9wcm9iZSgpIHRvIGF2b2lkIHByaW50aW5nIGFuCj4gZXJyb3IgbWVzc2FnZSB3aGVuIHJl
+dHVybmluZyAtRVBST0JFX0RFRkVSLgoKVGhlIC1FUFJPQkVfREVGRVIgaXMgbm90IG5lZWRlZCBi
+ZWNhdXNlIHdlIGV4cGVjdCB0aGF0IHBsYXRmb3JtcyB0bwp1c2UgIm1zaS1wYXJlbnQiIERUIHBy
+b3BlcnR5IGluIEFQTElDIERUIG5vZGUgd2hpY2ggaW4tdHVybiBhbGxvd3MgTGludXgKREQgZnJh
+bWV3b3JrIHRvIHJlLW9yZGVyIHByb2JpbmcgYmFzZWQgb24gZndfZGV2bGluayBkZXBlbmRlbmNp
+ZXMuIFRoZQpBUExJQyBEVCBiaW5kaW5ncyBtYW5kYXRlcyB0aGF0IGFueSBvZiAiaW50ZXJydXB0
+LWV4dGVuZGVkIiBvciAibXNpLXBhcmVudCIKRFQgcHJvcGVydGllcyBNVVNUIGJlIHByZXNlbnQu
+CgpDYW4geW91IGVsYWJvcmF0ZSBhIGJpdCBtb3JlIG9uIGhvdyB5b3UgYXJlIGhpdHRpbmcgdGhp
+cyBpc3N1ZSA/CgpSZWdhcmRzLApBbnVwCgo+Cj4gRml4ZXM6IGNhOGRmOTdmZTY3OSAoImlycWNo
+aXAvcmlzY3YtYXBsaWM6IEFkZCBzdXBwb3J0IGZvciBNU0ktbW9kZSIpCj4gU2lnbmVkLW9mZi1i
+eTogU2FtdWVsIEhvbGxhbmQgPHNhbXVlbC5ob2xsYW5kQHNpZml2ZS5jb20+Cj4gLS0tCj4KPiAg
+ZHJpdmVycy9pcnFjaGlwL2lycS1yaXNjdi1hcGxpYy1tYWluLmMgfCAzICsrLQo+ICBkcml2ZXJz
+L2lycWNoaXAvaXJxLXJpc2N2LWFwbGljLW1zaS5jICB8IDMgKysrCj4gIDIgZmlsZXMgY2hhbmdl
+ZCwgNSBpbnNlcnRpb25zKCspLCAxIGRlbGV0aW9uKC0pCj4KPiBkaWZmIC0tZ2l0IGEvZHJpdmVy
+cy9pcnFjaGlwL2lycS1yaXNjdi1hcGxpYy1tYWluLmMgYi9kcml2ZXJzL2lycWNoaXAvaXJxLXJp
+c2N2LWFwbGljLW1haW4uYwo+IGluZGV4IDkwMGU3MjU0MWRiOS4uOTNlN2M1MWY5NDRhIDEwMDY0
+NAo+IC0tLSBhL2RyaXZlcnMvaXJxY2hpcC9pcnEtcmlzY3YtYXBsaWMtbWFpbi5jCj4gKysrIGIv
+ZHJpdmVycy9pcnFjaGlwL2lycS1yaXNjdi1hcGxpYy1tYWluLmMKPiBAQCAtMjA3LDcgKzIwNyw4
+IEBAIHN0YXRpYyBpbnQgYXBsaWNfcHJvYmUoc3RydWN0IHBsYXRmb3JtX2RldmljZSAqcGRldikK
+PiAgICAgICAgIGVsc2UKPiAgICAgICAgICAgICAgICAgcmMgPSBhcGxpY19kaXJlY3Rfc2V0dXAo
+ZGV2LCByZWdzKTsKPiAgICAgICAgIGlmIChyYykKPiAtICAgICAgICAgICAgICAgZGV2X2Vycihk
+ZXYsICJmYWlsZWQgdG8gc2V0dXAgQVBMSUMgaW4gJXMgbW9kZVxuIiwgbXNpX21vZGUgPyAiTVNJ
+IiA6ICJkaXJlY3QiKTsKPiArICAgICAgICAgICAgICAgZGV2X2Vycl9wcm9iZShkZXYsIHJjLCAi
+ZmFpbGVkIHRvIHNldHVwIEFQTElDIGluICVzIG1vZGVcbiIsCj4gKyAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgbXNpX21vZGUgPyAiTVNJIiA6ICJkaXJlY3QiKTsKPgo+ICAjaWZkZWYgQ09O
+RklHX0FDUEkKPiAgICAgICAgIGlmICghYWNwaV9kaXNhYmxlZCkKPiBkaWZmIC0tZ2l0IGEvZHJp
+dmVycy9pcnFjaGlwL2lycS1yaXNjdi1hcGxpYy1tc2kuYyBiL2RyaXZlcnMvaXJxY2hpcC9pcnEt
+cmlzY3YtYXBsaWMtbXNpLmMKPiBpbmRleCA5NDViZmYyODI2NWMuLmZiOGQxODM4NjA5ZiAxMDA2
+NDQKPiAtLS0gYS9kcml2ZXJzL2lycWNoaXAvaXJxLXJpc2N2LWFwbGljLW1zaS5jCj4gKysrIGIv
+ZHJpdmVycy9pcnFjaGlwL2lycS1yaXNjdi1hcGxpYy1tc2kuYwo+IEBAIC0yNjYsNiArMjY2LDkg
+QEAgaW50IGFwbGljX21zaV9zZXR1cChzdHJ1Y3QgZGV2aWNlICpkZXYsIHZvaWQgX19pb21lbSAq
+cmVncykKPiAgICAgICAgICAgICAgICAgICAgICAgICBpZiAobXNpX2RvbWFpbikKPiAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgIGRldl9zZXRfbXNpX2RvbWFpbihkZXYsIG1zaV9kb21h
+aW4pOwo+ICAgICAgICAgICAgICAgICB9Cj4gKwo+ICsgICAgICAgICAgICAgICBpZiAoIWRldl9n
+ZXRfbXNpX2RvbWFpbihkZXYpKQo+ICsgICAgICAgICAgICAgICAgICAgICAgIHJldHVybiAtRVBS
+T0JFX0RFRkVSOwo+ICAgICAgICAgfQo+Cj4gICAgICAgICBpZiAoIW1zaV9jcmVhdGVfZGV2aWNl
+X2lycV9kb21haW4oZGV2LCBNU0lfREVGQVVMVF9ET01BSU4sICZhcGxpY19tc2lfdGVtcGxhdGUs
+Cj4gLS0KPiAyLjQ1LjEKPgo+Cj4gX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX18KPiBsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKPiBsaW51eC1yaXNjdkBsaXN0
+cy5pbmZyYWRlYWQub3JnCj4gaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0
+aW5mby9saW51eC1yaXNjdgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJh
+ZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51
+eC1yaXNjdgo=
