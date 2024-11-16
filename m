@@ -4,85 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 39D9AD68BE7
-	for <linux-riscv@archiver.kernel.org>; Sat, 16 Nov 2024 19:48:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 12C95D68BF1
+	for <linux-riscv@archiver.kernel.org>; Sat, 16 Nov 2024 21:33:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:Mime-Version
+	:References:In-Reply-To:From:Reply-To:Cc:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=8tYnZ9IGOiXETdEROe7Z4hkwd/A2AR5XTTxLUJEz7Dw=; b=Chz3qX5oHiWnoi
-	bDdAh5e79Z+KvEnucEuqBv9W2Xqg5AkvVHkePnMg8fYMDg/0R+hWGalW9CZysYF72L2A6m2791W9Q
-	vNi9n4xOwWXLA6PAyedRrFUGWkQy6Hxoc03cIatfmB97VtzWV5f8oAVApd70YGnTk/nXny+h2oCB3
-	jtxZZ3sm5fbWuKgkE/k0L6iPMxpda/UVtPa8Rr/bQN/9PaM6W8lfzkxEkOMujomDj9MtyhhFjCsmN
-	oxRvG5JjWlFE2i6yLiStO57l/eUlYf6lOCV8/CMHMldrj7rC8Ig4WhGSulIFkZ3Wf1219jeo5oFo5
-	7IQonc+Fd91ZqXySzw+A==;
+	List-Owner; bh=QqwvJrPWFU4q+VoKz93odOHCjenQPtEMKq7to2ykgZs=; b=mDnkIhVDHcQYwa
+	Jf0Rwahkhxmpjc5O6ZV+G8960Tb1BTNKEsTe0qb+itPtBiJNxqk12+Z9zcszQTlpA5oQKiG7wj60W
+	lpUY6vYqR1FZeo7NJE8Lt2yngvQ3mpAL39+Q/TNaFw6k1auH/go+m+2IolYPDPwR2G6b75OEWC6NF
+	kD0gdB06rrwg9vlnnbB4OMFDL5eP074bo5MmydnPS7abEqT3w6V0VZixIoFMwvn+Fnv+38rmoWomh
+	w9nXkMrVoSe1pYAM9nE0mRmENHQ273du8BWsQ2VgG53s4loAusRsX30AW7yHwci1JdBDN3BW89WDt
+	3yG+GHhE8ziaBl111HwA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tCOmA-0000000681R-2Nbz;
-	Sat, 16 Nov 2024 19:48:10 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1tCQPd-00000006FXf-0Irt;
+	Sat, 16 Nov 2024 21:33:01 +0000
+Received: from smtp-relay-internal-1.canonical.com ([185.125.188.123])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tCOlE-000000067wj-08OU;
-	Sat, 16 Nov 2024 19:47:13 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 8CA4FA4023C;
-	Sat, 16 Nov 2024 19:45:16 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3692FC4CEC3;
-	Sat, 16 Nov 2024 19:47:09 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1731786429;
-	bh=A4qVV9tDRxaJPJNkj5ZNN9jdW4qqoLjHW6sCHUJGmwY=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=lijy5qYMACLMDKO9zLfN0EkUShWwPvHiK09RgoEfqUrA8nMuZ7wyyw/8HkACqdJ+S
-	 TJUHv8WjeYrvvCtGH+bVLgQ1Agx3sMYv7duG84oLFfVYvH45N0x/W0iugVmeJVF2QA
-	 t9Xr3baoXf3AIxJqQmaooeMHwalOVSm7qArFZ2Ou2vlXcBBT3BlUwWWKELqs14CO0W
-	 80v3SUgVLwghFBhUbEQ7g2fe3Sss95jMEYnw3d8uyVLMtkg+lZxd1IpNzLg4974WOK
-	 M/XemHAqU5tdfQnwUWQdbx4bwRg/FqYNYv3qwat4mMhVEYwj6ReOMEpMQZiqtv3EXr
-	 bYq4/SrnQZ+WQ==
-Date: Sat, 16 Nov 2024 16:47:06 -0300
-From: Arnaldo Carvalho de Melo <acme@kernel.org>
-To: James Clark <james.clark@linaro.org>
-Cc: Ian Rogers <irogers@google.com>, Xu Yang <xu.yang_2@nxp.com>,
-	John Garry <john.g.garry@oracle.com>, Will Deacon <will@kernel.org>,
-	Mike Leach <mike.leach@linaro.org>, Leo Yan <leo.yan@linux.dev>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Ingo Molnar <mingo@redhat.com>, Namhyung Kim <namhyung@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Jiri Olsa <jolsa@kernel.org>,
-	Adrian Hunter <adrian.hunter@intel.com>,
-	Kan Liang <kan.liang@linux.intel.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Huacai Chen <chenhuacai@kernel.org>, Bibo Mao <maobibo@loongson.cn>,
-	Athira Rajeev <atrajeev@linux.vnet.ibm.com>,
-	Ben Zong-You Xie <ben717@andestech.com>,
-	Alexandre Ghiti <alexghiti@rivosinc.com>,
-	Sandipan Das <sandipan.das@amd.com>,
-	Benjamin Gray <bgray@linux.ibm.com>,
-	Ravi Bangoria <ravi.bangoria@amd.com>,
-	=?iso-8859-1?Q?Cl=E9ment?= Le Goffic <clement.legoffic@foss.st.com>,
-	Yicong Yang <yangyicong@hisilicon.com>,
-	"Masami Hiramatsu (Google)" <mhiramat@kernel.org>,
-	Dima Kogan <dima@secretsauce.net>,
-	"Dr. David Alan Gilbert" <linux@treblig.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v2 0/8] Refactor cpuid and metric table lookup code
-Message-ID: <Zzj2usdkgdyZ9Z8I@x1>
-References: <20241107162035.52206-1-irogers@google.com>
- <215ca9a2-0a63-4d0c-8402-5cb1f2bb0794@linaro.org>
- <ZzdsCWpAULCe839R@x1>
-MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <ZzdsCWpAULCe839R@x1>
+	id 1tCQPZ-00000006FX9-07JM
+	for linux-riscv@lists.infradead.org;
+	Sat, 16 Nov 2024 21:32:59 +0000
+Received: from mail-oa1-f69.google.com (mail-oa1-f69.google.com [209.85.160.69])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by smtp-relay-internal-1.canonical.com (Postfix) with ESMTPS id D51D03F29B
+	for <linux-riscv@lists.infradead.org>; Sat, 16 Nov 2024 21:32:52 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
+	s=20210705; t=1731792772;
+	bh=fmAemAqFyetLPXFFHnZ9TzZGuiy7HXnbjCZZxtYlmL8=;
+	h=From:In-Reply-To:References:Mime-Version:Date:Message-ID:Subject:
+	 To:Content-Type;
+	b=P9vuK5oy2+n3g/nHUrIadMeLC6YiJboFQrTn7HWr6LXcT/uA44RG16CE9p5pqKq/M
+	 Ftm8hfDaJHY6/kyCX7ZJqpUyz8x1sZBJqyK8luAOH7gdv/+C/QZmlifdLtMfOfbm0d
+	 RqG4Z76SiZv/e+yIJbIgSkI35q6Nno/a0c1MEiZUJ1ucTAHGyR53YF7O81aaIW0mqG
+	 jOxjrCbj9y1fp+cNnCHH+PiXD8jnb7vp+QO4HjIH2svF/rP3vlVt1gRy2jFHF+Vtq+
+	 AVbH9oEyhlHjlKKkpOE/05Q6CniZfCwPEuZsTANkrf8vaBPO6cEMQ4vxPKhGiYNSqt
+	 CNjhGydaxZ/hw==
+Received: by mail-oa1-f69.google.com with SMTP id 586e51a60fabf-286efde9783so514268fac.0
+        for <linux-riscv@lists.infradead.org>; Sat, 16 Nov 2024 13:32:52 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1731792771; x=1732397571;
+        h=to:subject:message-id:date:mime-version:references:in-reply-to:from
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=fmAemAqFyetLPXFFHnZ9TzZGuiy7HXnbjCZZxtYlmL8=;
+        b=EzelYb6ZX6+zdeTOzEan8PYNQ+fLJ7pD+Zi8v7eL4SEdsHHN5RN22CpafqFA7RlIAd
+         b7eqVocll/D1V4k/a7/r5rUGlqHWk10eEZ2aPHg8s06QD4lzfqj1v2SopeCC7wmIN8cA
+         xoEul6J4fP45GajpffEw/RUe/WxTH8ViE8GQnc3zZljZGfk4pHznW+Kd+/6X1xu7MpqB
+         MGlxMwcZ425CoPgPmzEVvOV4N/TnIru1v5ecJND0QiquPyxuq1r4BpUG+JWYCOrUPVwP
+         LGOuUiOoOGVQDlZUuySamZB0D3vtnIeS+TbOI9j4tpau71HRqznsZhbEKAg8b5eThasa
+         75AA==
+X-Forwarded-Encrypted: i=1; AJvYcCXwtUiyIXqYKqd/Y657hhhE0CqUK1Ky+YHbEP86oRCbO5/+YBZeHS4+hIjo86reFCHAVoaW6n54xt+3PA==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy7EeH9dbR17Bt+qUKT26Szho07FnRAgHkZSaJiO0AkU7VAefBP
+	pf3KT3zxl2xShrcOt/VJfKsd/EjI/si9/DqgG1oi9gN20JpAtoA8SE+OM1Zktagd/EvQAYd6TIR
+	bATn4qqeqphwhC076Uoni1DuUiYsBKvVg5evzqncPUfP85qg4WDgu2A/ijDP6k4W45x/X2zr04B
+	JvcI928fPznk/GRwz+yzNM6qqDGU3JLQWxa1KYvfaSXb9JMYIr4VLxGYbd
+X-Received: by 2002:a05:6870:75c8:b0:254:affe:5a05 with SMTP id 586e51a60fabf-2962dedb297mr6559787fac.21.1731792771131;
+        Sat, 16 Nov 2024 13:32:51 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IELtO4V2RHfs6Yj+eIbaX82LviojGiiluYE09Wmg5o0ei8JG6pU9J+XS5YGYrQ2jHlSSLFj13Doph221IgSbgk=
+X-Received: by 2002:a05:6870:75c8:b0:254:affe:5a05 with SMTP id
+ 586e51a60fabf-2962dedb297mr6559770fac.21.1731792770837; Sat, 16 Nov 2024
+ 13:32:50 -0800 (PST)
+Received: from 348282803490 named unknown by gmailapi.google.com with
+ HTTPREST; Sat, 16 Nov 2024 16:32:50 -0500
+From: Emil Renner Berthing <emil.renner.berthing@canonical.com>
+In-Reply-To: <20241113184333.829716-1-drew@pdp7.com>
+References: <20241113184333.829716-1-drew@pdp7.com>
+Mime-Version: 1.0
+Date: Sat, 16 Nov 2024 16:32:50 -0500
+Message-ID: <CAJM55Z_RchO-Ke1aXXAaB5f-OJEYcHU6n+MVtBTCUSXrHOQp1Q@mail.gmail.com>
+Subject: Re: [PATCH v2] riscv: defconfig: enable pinctrl and dwmac support for TH1520
+To: Drew Fustini <drew@pdp7.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Conor Dooley <conor.dooley@microchip.com>, Inochi Amaoto <inochiama@gmail.com>, 
+	Guo Ren <guoren@kernel.org>, Yangyu Chen <cyy@cyyself.name>, 
+	Sunil V L <sunilvl@ventanamicro.com>, Hal Feng <hal.feng@starfivetech.com>, 
+	Chen Wang <unicorn_wang@outlook.com>, Geert Uytterhoeven <geert+renesas@glider.be>, 
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241116_114712_205227_4DCC1000 
-X-CRM114-Status: GOOD (  22.03  )
+X-CRM114-CacheID: sfid-20241116_133257_624117_CA1C9086 
+X-CRM114-Status: GOOD (  12.57  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,84 +103,50 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Nov 15, 2024 at 12:43:05PM -0300, Arnaldo Carvalho de Melo wrote:
-> On Fri, Nov 15, 2024 at 03:35:55PM +0000, James Clark wrote:
-> > 
-> > 
-> > On 07/11/2024 4:20 pm, Ian Rogers wrote:
-> > > Xu Yang <xu.yang_2@nxp.com> reported issues with the system metric
-> > > lookup:
-> > > https://lore.kernel.org/linux-perf-users/20241106085441.3945502-1-xu.yang_2@nxp.com/
-> > > These patches remove a lot of the logic relating CPUIDs to PMUs so
-> > > that the PMU isn't part of the question when finding a metric table.
-> > > For time reasons, it doesn't go as far as allowing system metrics
-> > > without a metric table as a metric table is needed for metrics to
-> > > refer to other metrics, and the refactoring of that resolution is a
-> > > hassle.
-> > > 
-> > > Ian Rogers (7):
-> > >    perf header: Move is_cpu_online to numa bench
-> > >    perf header: Refactor get_cpuid to take a CPU for ARM
-> > >    perf arm64 header: Use cpu argument in get_cpuid
-> > >    perf header: Avoid transitive PMU includes
-> > >    perf header: Pass a perf_cpu rather than a PMU to get_cpuid_str
-> > >    perf jevents: Add map_for_cpu
-> > >    perf pmu: Move pmu_metrics_table__find and remove ARM override
-> > > 
-> > > Xu Yang (1):
-> > >    perf jevents: fix breakage when do perf stat on system metric
-> > > 
-> > >   tools/perf/arch/arm64/util/arm-spe.c     | 14 +---
-> > >   tools/perf/arch/arm64/util/header.c      | 73 ++++++++++-----------
-> > >   tools/perf/arch/arm64/util/pmu.c         | 20 ------
-> > >   tools/perf/arch/loongarch/util/header.c  |  4 +-
-> > >   tools/perf/arch/powerpc/util/header.c    |  4 +-
-> > >   tools/perf/arch/riscv/util/header.c      |  4 +-
-> > >   tools/perf/arch/s390/util/header.c       |  6 +-
-> > >   tools/perf/arch/x86/util/auxtrace.c      |  3 +-
-> > >   tools/perf/arch/x86/util/header.c        |  5 +-
-> > >   tools/perf/bench/numa.c                  | 53 +++++++++++++++
-> > >   tools/perf/builtin-kvm.c                 |  4 +-
-> > >   tools/perf/pmu-events/empty-pmu-events.c | 39 ++++++-----
-> > >   tools/perf/pmu-events/jevents.py         | 39 ++++++-----
-> > >   tools/perf/pmu-events/pmu-events.h       |  2 +-
-> > >   tools/perf/tests/expr.c                  |  5 +-
-> > >   tools/perf/util/env.c                    |  4 +-
-> > >   tools/perf/util/expr.c                   |  6 +-
-> > >   tools/perf/util/header.c                 | 82 ++++++++----------------
-> > >   tools/perf/util/header.h                 | 23 +++----
-> > >   tools/perf/util/pmu.c                    | 25 --------
-> > >   tools/perf/util/pmu.h                    |  2 -
-> > >   tools/perf/util/probe-event.c            |  1 +
-> > >   22 files changed, 189 insertions(+), 229 deletions(-)
-> > > 
-> > 
-> > Reviewed-by: James Clark <james.clark@linaro.org>
-> 
-> Thanks for reviewing James, I'm doing a round of tests to push what I
-> have in tmp.perf-tools-next to perf-tools-next so that it gets test
-> merged on linux-next and later today I'll escape from the holiday and
-> take a last look on this series, apply and test.
+Drew Fustini wrote:
+> Enable pinctrl and ethernet dwmac driver for the TH1520 SoC boards like
+> the BeagleV Ahead and the Sipeed LicheePi 4A.
+>
+> Signed-off-by: Drew Fustini <drew@pdp7.com>
 
-Applied locally, pushing to tmp.perf-tools-next as I'm still testing the
-hwmon case, building it on an 32-bit ARM machine:
+Reviewed-by: Emil Renner Berthing <emil.renner.berthing@canonical.com>
 
-processor	: 3
-model name	: ARMv7 Processor rev 4 (v7l)
-BogoMIPS	: 38.40
-Features	: half thumb fastmult vfp edsp neon vfpv3 tls vfpv4 idiva idivt vfpd32 lpae evtstrm crc32 
-CPU implementer	: 0x41
-CPU architecture: 7
-CPU variant	: 0x0
-CPU part	: 0xd03
-CPU revision	: 4
-
-Hardware	: BCM2835
-Revision	: a020d3
-Serial		: 00000000783939e0
-Model		: Raspberry Pi 3 Model B Plus Rev 1.3
-
-- Arnaldo
+> ---
+> Changes in v2:
+>  - Switch CONFIG_DWMAC_THEAD from built-in to module
+>
+>
+>  arch/riscv/configs/defconfig | 2 ++
+>  1 file changed, 2 insertions(+)
+>
+> diff --git a/arch/riscv/configs/defconfig b/arch/riscv/configs/defconfig
+> index b4a37345703e..d26e670404b6 100644
+> --- a/arch/riscv/configs/defconfig
+> +++ b/arch/riscv/configs/defconfig
+> @@ -167,6 +167,7 @@ CONFIG_PINCTRL_SOPHGO_CV1800B=y
+>  CONFIG_PINCTRL_SOPHGO_CV1812H=y
+>  CONFIG_PINCTRL_SOPHGO_SG2000=y
+>  CONFIG_PINCTRL_SOPHGO_SG2002=y
+> +CONFIG_PINCTRL_TH1520=y
+>  CONFIG_GPIO_DWAPB=y
+>  CONFIG_GPIO_SIFIVE=y
+>  CONFIG_POWER_RESET_GPIO_RESTART=y
+> @@ -242,6 +243,7 @@ CONFIG_RTC_DRV_SUN6I=y
+>  CONFIG_DMADEVICES=y
+>  CONFIG_DMA_SUN6I=m
+>  CONFIG_DW_AXI_DMAC=y
+> +CONFIG_DWMAC_THEAD=m
+>  CONFIG_VIRTIO_PCI=y
+>  CONFIG_VIRTIO_BALLOON=y
+>  CONFIG_VIRTIO_INPUT=y
+> --
+> 2.34.1
+>
+>
+> _______________________________________________
+> linux-riscv mailing list
+> linux-riscv@lists.infradead.org
+> http://lists.infradead.org/mailman/listinfo/linux-riscv
 
 _______________________________________________
 linux-riscv mailing list
