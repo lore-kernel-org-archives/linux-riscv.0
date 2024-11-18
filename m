@@ -4,69 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 22D13D43FF5
-	for <linux-riscv@archiver.kernel.org>; Mon, 18 Nov 2024 09:13:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C25DD49206
+	for <linux-riscv@archiver.kernel.org>; Mon, 18 Nov 2024 09:44:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=dEGrtMO55ywwlcjR6K2rrawgKf5OFbrp5A1ryFWLn4g=; b=RgRMUtj1ngKD4f
-	taqleoAkLI/6dUE8S88SZ8fP8xyCOaH22MUJ/whzoq/p0e2S16Qrr0W+yz6K/Oi/9eNzVwNvfhkIb
-	btn8lPBZhzTyfuddJbjJZsDzz2u6EqlLbYgWhmsHMUiedKSDTv6mmDH53z0IMEYZeWGJ4URoGAj9E
-	8utsnBLl9FyR/9aXFwONS2xYDkA6uaHCa3eG90RbLOhxev5UU0eBqkYNPjQ9c2dPaZ/nN4cVY3KkW
-	DBzS2ncdncxNWo7sHxzDI8WtDjGjVzPw7JvQ4sTn2eydC2PeY3b//zZKrvNZ/6yc5+Dd3EIKjhuTk
-	jCtr5wOo5UNQXtkc8sFg==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=JC2yKD30VMCw8Gf1Hf4/0Lt9wl8GXtGIR0FYtVoINfw=; b=VSna8a/lWEtgUM
+	6BFnOd7NrYVfaQ74m94BC4Xhaslg8lgSGzqDvWQnuKO4iVQoks0noZYgfMvmwy8QkALXAJHkxw90/
+	qsk4Oh3omeWd7IEl83RaeSfaXhhClTlUEcmYsb2JvHIi9mstkwSxacjUtRUGDl8NmdtQRl/EnZc1U
+	A6jJUcziLU1RBVOsF5sO+Cu6w0XX0t5mWzg1gYb8tZpLZOALUP3cYvHG0/iCLIXfU/viT3aq8FuXZ
+	E5S6rlYbKRHVP194WkMETO4xMO7od2aXmyb6cHHCv/zhdCJDUKFkb0IsxMCR58cRrdTF/E1PT+IDT
+	qR6ckl/2c8+nBIfRc9HA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tCxpO-00000008scc-1ULG;
-	Mon, 18 Nov 2024 09:13:50 +0000
-Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
+	id 1tCyIj-00000008xD8-3V6t;
+	Mon, 18 Nov 2024 09:44:09 +0000
+Received: from mgamail.intel.com ([192.198.163.18])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tCxpM-00000008scC-2PjR
-	for linux-riscv@lists.infradead.org;
-	Mon, 18 Nov 2024 09:13:49 +0000
-From: Nam Cao <namcao@linutronix.de>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1731921224;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=HI6ICxNO251mFq7pISkNdCLNFU5x6e6AXXpGTS7HZc0=;
-	b=RKPTA0abGvFnwDXfRW/uUJWtjKOZ+xjrs2u+OgXgAdzNwucwCLQ0fXvjhHZUL/gvGqhPOg
-	g5Ot6j2uTspH8X9rNQnjHM3ZlrYxmPFhTOQp0X+yCqgRevHcgpynx4dbdsMhgPxqd6TUv5
-	sJxqooT3Z6rHWuJUOacIFn2y+RMkKjzC417zrWWKu6V93WmONC5FuSdKOYWAck16BMs+cg
-	1SulMIrrp0zKXXns//wfu/gZ9gxDK/eBzNl1Ev39KYMHcAKyUVYaSAmq+Zs1PHz6x7RDbe
-	CPnotlwa+4niu3t60XQOCXR/S9nfYJHklmOVwWP8RhAVcl78iUOiKsGFXP1bDA==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1731921224;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=HI6ICxNO251mFq7pISkNdCLNFU5x6e6AXXpGTS7HZc0=;
-	b=uxCf6/VUuoVknnRagY75tS1zS4IW8eP4kWbJo6q+ctC4rYf085yIrDVYhPQxhX9k9Ox3tG
-	CjbuQjXKPL4hlwAg==
-To: Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	=?UTF-8?q?Bj=C3=B6rn=20T=C3=B6pel?= <bjorn@rivosinc.com>,
-	Nam Cao <namcao@linutronix.de>,
-	Andreas Schwab <schwab@suse.de>,
-	Song Shuai <songshuaishuai@tinylab.org>,
-	Celeste Liu <coelacanthushex@gmail.com>,
-	Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
-	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Cc: stable@vger.kernel.org
-Subject: [PATCH] riscv: Fix sleeping in invalid context in die()
-Date: Mon, 18 Nov 2024 10:13:33 +0100
-Message-Id: <20241118091333.1185288-1-namcao@linutronix.de>
+	id 1tCyHn-00000008x5H-2N62;
+	Mon, 18 Nov 2024 09:43:12 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1731922991; x=1763458991;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=2m33SZvlePmlt6YGusHzLVJNac4WE8TIk+QuRV1Woeo=;
+  b=Mkgajf2UZ/DsLMtISpjpRgLrU+CwVRLFqk7GK4Rvbfb6SURHtSplKsgA
+   CEfH/9Stut01evJCUeyw9IXbQf2AQVKRVSJeuP4Of5YxmcvW5uoJAM/qh
+   5cNedrwK4AbOHiLcp2sdycFCdsL1NfJXXanWIL0sRX9koTpio9isRSrDw
+   stQuDX2We8lotnUMFLNjj46/elDn/6SrqKa2mjxk6YIQzJyiKMNPUwxTq
+   72PlOjc1F0C8QTDmc6+t6p6lgVoFdtsduilzan3sCcLTVM5S+mCyVj1e5
+   Uh0vBETuETxI7lQGjIcITwckk1kpQjvLswgakyH5+C/eLUOhWqOm/hYbW
+   w==;
+X-CSE-ConnectionGUID: ZiQmeF1wTvqCGJZMNcmBGg==
+X-CSE-MsgGUID: XsUnU1r3S4iRKAqIp36D2A==
+X-IronPort-AV: E=McAfee;i="6700,10204,11259"; a="31246884"
+X-IronPort-AV: E=Sophos;i="6.12,163,1728975600"; 
+   d="scan'208";a="31246884"
+Received: from fmviesa004.fm.intel.com ([10.60.135.144])
+  by fmvoesa112.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 18 Nov 2024 01:43:09 -0800
+X-CSE-ConnectionGUID: 47+CdCU3R/Kuq822McxOBw==
+X-CSE-MsgGUID: jI1nU6ebSQmW/RTXAG2Z6w==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.12,163,1728975600"; 
+   d="scan'208";a="93996397"
+Received: from black.fi.intel.com ([10.237.72.28])
+  by fmviesa004.fm.intel.com with ESMTP; 18 Nov 2024 01:43:03 -0800
+Received: by black.fi.intel.com (Postfix, from userid 1000)
+	id 30C9F277; Mon, 18 Nov 2024 11:43:02 +0200 (EET)
+Date: Mon, 18 Nov 2024 11:43:02 +0200
+From: "Kirill A. Shutemov" <kirill.shutemov@linux.intel.com>
+To: Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>, 
+	Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org, 
+	"H. Peter Anvin" <hpa@zytor.com>, Andy Lutomirski <luto@kernel.org>
+Cc: Albert Ou <aou@eecs.berkeley.edu>, Alexei Starovoitov <ast@kernel.org>, 
+	Andrea Parri <parri.andrea@gmail.com>, Arnd Bergmann <arnd@arndb.de>, 
+	Daniel Borkmann <daniel@iogearbox.net>, Eric Chan <ericchancf@google.com>, 
+	Jason Gunthorpe <jgg@ziepe.ca>, Kai Huang <kai.huang@intel.com>, 
+	Kefeng Wang <wangkefeng.wang@huawei.com>, Kent Overstreet <kent.overstreet@linux.dev>, 
+	Palmer Dabbelt <palmer@rivosinc.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
+	Russell King <linux@armlinux.org.uk>, Samuel Holland <samuel.holland@sifive.com>, 
+	Suren Baghdasaryan <surenb@google.com>, Yuntao Wang <ytcoode@gmail.com>, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
+Subject: Re: [PATCHv2 0/2] x86/mm: Make memremap(MEMREMAP_WB) map memory as
+ encrypted by default
+Message-ID: <oh7zs7c4drl7i35dt3bxunqhlefrmcej7yd2bjxvdzpnqgtyk6@qkl6vvipa54d>
+References: <20241021105723.2707507-1-kirill.shutemov@linux.intel.com>
+ <j54jizfjzubkejbkobyryl33i4ejhoek4ynshtethkiidkx7le@2p22g3fxxedz>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <j54jizfjzubkejbkobyryl33i4ejhoek4ynshtethkiidkx7le@2p22g3fxxedz>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241118_011348_755283_38A7B328 
-X-CRM114-Status: UNSURE (   8.22  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241118_014311_658717_7EA32F0E 
+X-CRM114-Status: GOOD (  10.23  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,75 +96,19 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-die() can be called in exception handler, and therefore cannot sleep.
-However, die() takes spinlock_t which can sleep with PREEMPT_RT enabled.
-That causes the following warning:
+On Tue, Oct 29, 2024 at 05:11:26PM +0200, Kirill A. Shutemov wrote:
+> On Mon, Oct 21, 2024 at 01:57:21PM +0300, Kirill A. Shutemov wrote:
+> > Make memremap(MEMREMAP_WB) produce encrypted/private mapping by default
+> > unless MEMREMAP_DEC is specified.
+> > 
+> > It fixes crash on kexec in TDX guests if CONFIG_EISA is enabled.
+> 
+> Ping? Any feedback is welcome.
 
-BUG: sleeping function called from invalid context at kernel/locking/spinlock_rt.c:48
-in_atomic(): 1, irqs_disabled(): 1, non_block: 0, pid: 285, name: mutex
-preempt_count: 110001, expected: 0
-RCU nest depth: 0, expected: 0
-CPU: 0 UID: 0 PID: 285 Comm: mutex Not tainted 6.12.0-rc7-00022-ge19049cf7d56-dirty #234
-Hardware name: riscv-virtio,qemu (DT)
-Call Trace:
-    dump_backtrace+0x1c/0x24
-    show_stack+0x2c/0x38
-    dump_stack_lvl+0x5a/0x72
-    dump_stack+0x14/0x1c
-    __might_resched+0x130/0x13a
-    rt_spin_lock+0x2a/0x5c
-    die+0x24/0x112
-    do_trap_insn_illegal+0xa0/0xea
-    _new_vmalloc_restore_context_a0+0xcc/0xd8
-Oops - illegal instruction [#1]
+The patchset fixes crash. Please consider applying.
 
-Switch to use raw_spinlock_t, which does not sleep even with PREEMPT_RT
-enabled.
-
-Fixes: 76d2a0493a17 ("RISC-V: Init and Halt Code")
-Signed-off-by: Nam Cao <namcao@linutronix.de>
-Cc: stable@vger.kernel.org
----
-stable backport is probably not needed for versions earlier than 6.12
-because PREEMPT_RT is not enabled. But it doesn't hurt..
----
- arch/riscv/kernel/traps.c | 6 +++---
- 1 file changed, 3 insertions(+), 3 deletions(-)
-
-diff --git a/arch/riscv/kernel/traps.c b/arch/riscv/kernel/traps.c
-index 51ebfd23e007..8ff8e8b36524 100644
---- a/arch/riscv/kernel/traps.c
-+++ b/arch/riscv/kernel/traps.c
-@@ -35,7 +35,7 @@
- 
- int show_unhandled_signals = 1;
- 
--static DEFINE_SPINLOCK(die_lock);
-+static DEFINE_RAW_SPINLOCK(die_lock);
- 
- static int copy_code(struct pt_regs *regs, u16 *val, const u16 *insns)
- {
-@@ -81,7 +81,7 @@ void die(struct pt_regs *regs, const char *str)
- 
- 	oops_enter();
- 
--	spin_lock_irqsave(&die_lock, flags);
-+	raw_spin_lock_irqsave(&die_lock, flags);
- 	console_verbose();
- 	bust_spinlocks(1);
- 
-@@ -100,7 +100,7 @@ void die(struct pt_regs *regs, const char *str)
- 
- 	bust_spinlocks(0);
- 	add_taint(TAINT_DIE, LOCKDEP_NOW_UNRELIABLE);
--	spin_unlock_irqrestore(&die_lock, flags);
-+	raw_spin_unlock_irqrestore(&die_lock, flags);
- 	oops_exit();
- 
- 	if (in_interrupt())
 -- 
-2.39.5
-
+  Kiryl Shutsemau / Kirill A. Shutemov
 
 _______________________________________________
 linux-riscv mailing list
