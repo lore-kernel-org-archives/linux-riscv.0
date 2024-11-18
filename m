@@ -4,101 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4E2FAD591AC
-	for <linux-riscv@archiver.kernel.org>; Mon, 18 Nov 2024 18:40:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DBB23D591A9
+	for <linux-riscv@archiver.kernel.org>; Mon, 18 Nov 2024 18:43:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=iz4SnPSP8fv3/qx3RC5A+2hKyIYD3TuVhCMxm+XpbPE=; b=N4gyenPd7/wsT8
-	V5htYTVaXsH12Z0QIi4BpRhsYDpOAd+f/mZYm312BvSPIJZofcuAox2UHwOGDN0WRlKaGerB8KXD2
-	owtSIeSdJv8e17hFvyLHvKczPgHxaKkqYyoWuhhZDRsUxASiDWDLn02mAuQi92if7QMezl94n77Pt
-	waYmdsAAQN9GlBJmQvL+c6iGZd8z+6eDVqVnHacEavawV0irj099foQ+KSqF48vQK+0F/3ciYO+UM
-	BULI45VNib7YpIJRKm4zFFcZmlU2CGj9JUreARYsabK9BLraUJcKEMyK1+95i/Ja80Av9tibAvHwt
-	Uodlzi7kLjM9poczfT6A==;
+	List-Owner; bh=q06E/6lOjoxFSARicys2IOT8lJ+EUGxsnrGnCe1iyJk=; b=oKmjzGrSFY6mbF
+	UPM6L8vs/7EvMd5Dmr/j3HT6gUJ/n77Ca3xNvbCBtIcUfe9rVLLTK1oQAGYttraC1RWWAxrIlpf3/
+	9IiuAccgK9DNDLXFO+OB74/dztRoyeuzFxLhlDV68yGDqCKdEh3aWhUMNsTpk4EOt0a+o6GlAdY2L
+	6/x37jhIt9Vi28xD9rhI8OwMLYETrsSD/TkuSew0mNNVr7zqgiJtKOxsayKyxEwkpLs89gb/YR0TL
+	i4QzcCMqUc8RRB7vKCUm00yiRKIFPPCWaVAYc8JTvYHWKcNSVOh/W3GOvpzMiBfH6XW+Y3WkeeU8+
+	XscNCR+7/op0FnRRyIuQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tD6fq-0000000AMhq-3QpX;
-	Mon, 18 Nov 2024 18:40:34 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1tD6ir-0000000ANDi-2Zc0;
+	Mon, 18 Nov 2024 18:43:41 +0000
+Received: from mail-qk1-x731.google.com ([2607:f8b0:4864:20::731])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tD6fn-0000000AMfh-251t;
-	Mon, 18 Nov 2024 18:40:32 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 11F02A419F2;
-	Mon, 18 Nov 2024 18:38:36 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3A5AEC4CECC;
-	Mon, 18 Nov 2024 18:40:28 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1731955229;
-	bh=PgWfk6zhBX25rXxPAwmwUJeghk+GajLkQHlk+OfGUQc=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=GeOY29szPjdxa0xm+vV9DTg2e5TPlxk7huuBMuJbtT+hTn5kPCdRWZ2oKgkC8UpSt
-	 VKEpF1/SK1ceIDW9rYbK4e2lrKnmmaewrajrem/5hOE+eL2aJiJwe2Mq1uUh3lhZ50
-	 bF8KJonZOhyM89MpbuLHVivYouTUSuZbDmGNuIIUU6Sz4PBRF7AffgUgRIMQ22WWof
-	 8/hSFdkboAANibLeqfLmV82IhRXIdNitXrU+lzbag6jN3GbbRMHw4voatyzJmOaEVn
-	 LYCc2cjDCBvkB/fCKjeR1Y3G/eBzyCxZ8foJEVKOfJ+JG689X8AaWtSJSKfiAkucWY
-	 LfgB8UgFNVmrQ==
-Date: Mon, 18 Nov 2024 10:40:26 -0800
-From: Mike Rapoport <rppt@kernel.org>
-To: Steven Rostedt <rostedt@goodmis.org>
-Cc: Andrew Morton <akpm@linux-foundation.org>,
-	Luis Chamberlain <mcgrof@kernel.org>,
-	Andreas Larsson <andreas@gaisler.com>,
-	Andy Lutomirski <luto@kernel.org>, Ard Biesheuvel <ardb@kernel.org>,
-	Arnd Bergmann <arnd@arndb.de>, Borislav Petkov <bp@alien8.de>,
-	Brian Cain <bcain@quicinc.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Christoph Hellwig <hch@infradead.org>,
-	Christophe Leroy <christophe.leroy@csgroup.eu>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	Dinh Nguyen <dinguyen@kernel.org>,
-	Geert Uytterhoeven <geert@linux-m68k.org>,
-	Guo Ren <guoren@kernel.org>, Helge Deller <deller@gmx.de>,
-	Huacai Chen <chenhuacai@kernel.org>, Ingo Molnar <mingo@redhat.com>,
-	Johannes Berg <johannes@sipsolutions.net>,
-	John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>,
-	Kent Overstreet <kent.overstreet@linux.dev>,
-	"Liam R. Howlett" <Liam.Howlett@oracle.com>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Masami Hiramatsu <mhiramat@kernel.org>,
-	Matt Turner <mattst88@gmail.com>, Max Filippov <jcmvbkbc@gmail.com>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Michal Simek <monstr@monstr.eu>, Oleg Nesterov <oleg@redhat.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Richard Weinberger <richard@nod.at>,
-	Russell King <linux@armlinux.org.uk>, Song Liu <song@kernel.org>,
-	Stafford Horne <shorne@gmail.com>,
-	Suren Baghdasaryan <surenb@google.com>,
-	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Uladzislau Rezki <urezki@gmail.com>,
-	Vineet Gupta <vgupta@kernel.org>, Will Deacon <will@kernel.org>,
-	bpf@vger.kernel.org, linux-alpha@vger.kernel.org,
-	linux-arch@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-csky@vger.kernel.org, linux-hexagon@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-m68k@lists.linux-m68k.org,
-	linux-mips@vger.kernel.org, linux-mm@kvack.org,
-	linux-modules@vger.kernel.org, linux-openrisc@vger.kernel.org,
-	linux-parisc@vger.kernel.org, linux-riscv@lists.infradead.org,
-	linux-sh@vger.kernel.org, linux-snps-arc@lists.infradead.org,
-	linux-trace-kernel@vger.kernel.org, linux-um@lists.infradead.org,
-	linuxppc-dev@lists.ozlabs.org, loongarch@lists.linux.dev,
-	sparclinux@vger.kernel.org, x86@kernel.org
-Subject: Re: [PATCH v7 0/8] x86/module: use large ROX pages for text
- allocations
-Message-ID: <ZzuKGoj99rIuMaBE@kernel.org>
-References: <20241023162711.2579610-1-rppt@kernel.org>
- <20241118132501.4eddb46c@gandalf.local.home>
+	id 1tD6ip-0000000ANCA-1Thg
+	for linux-riscv@lists.infradead.org;
+	Mon, 18 Nov 2024 18:43:40 +0000
+Received: by mail-qk1-x731.google.com with SMTP id af79cd13be357-7b152a23e9aso5400885a.0
+        for <linux-riscv@lists.infradead.org>; Mon, 18 Nov 2024 10:43:38 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ziepe.ca; s=google; t=1731955417; x=1732560217; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=aiGoxS9y5bO8WAr6g5LjnG9Zf3/IZMgtxFJaSmFRzL8=;
+        b=FYyH1PVHQcCScGXnsQcZ/ppumJTrp04m8TirSM0FTu6wy6JsM6z4XjitiaurQtdNHX
+         +dZOfVbKikKXMC0XYxoEgSIWXlE78XDQIWx0afMWTwM79sVo8kRhYFbrrQEVYSGWRJAc
+         EA/EVLbFeiRykkBph0eoWUZauIvtDztblf3K1WMuUj8//cje0gPRG/Jnq/3vXWbASsnr
+         SOOf/8qAEzIC6iZ1/G7SPBikxe4tpncLmfamn7gOXA48qRZDGUgjaHvZx43+D3dRemd9
+         DBIp5ha9Ued/BQ99WL5E4TCrDbekVZZrjBmgqpSwMJyOrA2/uDIva76rOERSQRRsHeWj
+         D91Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1731955417; x=1732560217;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=aiGoxS9y5bO8WAr6g5LjnG9Zf3/IZMgtxFJaSmFRzL8=;
+        b=s55ctcnEIlA8gyIYNSFvxz7mTcByAZ65XlQfLhcdvBRZAH0jPnFM7Glyl20giimwQS
+         m4w5VAPvJrmCQEr6h+ww1qrxlLJOEbON090rii/TW0hSP3+ngkbkyr2ryqhHSOEcMR5P
+         XVGF01jbIQ52Sp9s1k9/SdLLNiLCyyHOJYiwEyPtfYIQJEVejGeKJuW/sou6kMp4y5vj
+         4lY2JQqrx3y89aphifJUEjOBRKbOeNY0qE+3JUF4Wqy5uNbpyzEvsUJIb8Qc4n3aUKTT
+         EBls7YoJtE6m5ZbuYHTIKykvlZvK2m6CdVVHfNShrYjnVLrnyYlbV3LlKkmHT/359gJK
+         +BWQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWsnJE1n5FjVSxnNAJq4CRaCTi54I4/eOH1Fcvd6lqficiRI65k0FX8SK4YXcf0tqf12A+lDzpzt0jIPA==@lists.infradead.org
+X-Gm-Message-State: AOJu0YzoooeabkFSsyNH7Le7bU0/ImAV9Lf7DUiC3E9kKrBvHkw65Xug
+	W2yRecy9InzQQT75ElIKMPKEE/ELs+p55XAB5KzRwyaGfyhvnb78rPUBKiwWB3w=
+X-Google-Smtp-Source: AGHT+IGAvD7jve9I99GoT/BKI80P6y8fMglPCbeBoUgHhPAkZfkRJUQQV//W1VAPjwl3J6cuHo9G2g==
+X-Received: by 2002:ad4:5cef:0:b0:6d4:12c:c6cc with SMTP id 6a1803df08f44-6d4012ccda3mr213242956d6.25.1731955417599;
+        Mon, 18 Nov 2024 10:43:37 -0800 (PST)
+Received: from ziepe.ca (hlfxns017vw-142-68-128-5.dhcp-dynamic.fibreop.ns.bellaliant.net. [142.68.128.5])
+        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-6d40dc41b4fsm38829916d6.59.2024.11.18.10.43.36
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 18 Nov 2024 10:43:36 -0800 (PST)
+Received: from jgg by wakko with local (Exim 4.97)
+	(envelope-from <jgg@ziepe.ca>)
+	id 1tD6im-000000037qC-1a8F;
+	Mon, 18 Nov 2024 14:43:36 -0400
+Date: Mon, 18 Nov 2024 14:43:36 -0400
+From: Jason Gunthorpe <jgg@ziepe.ca>
+To: Andrew Jones <ajones@ventanamicro.com>
+Cc: iommu@lists.linux.dev, kvm-riscv@lists.infradead.org,
+	kvm@vger.kernel.org, linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org, tjeznach@rivosinc.com,
+	zong.li@sifive.com, joro@8bytes.org, will@kernel.org,
+	robin.murphy@arm.com, anup@brainfault.org, atishp@atishpatra.org,
+	tglx@linutronix.de, alex.williamson@redhat.com,
+	paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu
+Subject: Re: [RFC PATCH 08/15] iommu/riscv: Add IRQ domain for interrupt
+ remapping
+Message-ID: <20241118184336.GB559636@ziepe.ca>
+References: <20241114161845.502027-17-ajones@ventanamicro.com>
+ <20241114161845.502027-25-ajones@ventanamicro.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20241118132501.4eddb46c@gandalf.local.home>
+In-Reply-To: <20241114161845.502027-25-ajones@ventanamicro.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241118_104031_660471_ECACB938 
-X-CRM114-Status: GOOD (  24.69  )
+X-CRM114-CacheID: sfid-20241118_104339_497007_4867A7F8 
+X-CRM114-Status: GOOD (  13.44  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,99 +103,50 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Nov 18, 2024 at 01:25:01PM -0500, Steven Rostedt wrote:
-> On Wed, 23 Oct 2024 19:27:03 +0300
-> Mike Rapoport <rppt@kernel.org> wrote:
-> 
-> > From: "Mike Rapoport (Microsoft)" <rppt@kernel.org>
-> > 
-> > Hi,
-> > 
-> > This is an updated version of execmem ROX caches.
-> > 
-> 
-> FYI, I booted a kernel before and after applying these patches with my
-> change:
-> 
->   https://lore.kernel.org/20241017113105.1edfa943@gandalf.local.home
-> 
-> Before these patches:
-> 
->  # cat /sys/kernel/tracing/dyn_ftrace_total_info
-> 57695 pages:231 groups: 9
-> ftrace boot update time = 14733459 (ns)
-> ftrace module total update time = 449016 (ns)
-> 
-> After:
-> 
->  # cat /sys/kernel/tracing/dyn_ftrace_total_info
-> 57708 pages:231 groups: 9
-> ftrace boot update time = 47195374 (ns)
-> ftrace module total update time = 592080 (ns)
-> 
-> Which caused boot time to slowdown by over 30ms. That may not seem like
-> much, but we are very concerned about boot time and are fighting every ms
-> we can get.
+On Thu, Nov 14, 2024 at 05:18:53PM +0100, Andrew Jones wrote:
+> @@ -1276,10 +1279,30 @@ static int riscv_iommu_attach_paging_domain(struct iommu_domain *iommu_domain,
+>  	struct riscv_iommu_device *iommu = dev_to_iommu(dev);
+>  	struct riscv_iommu_info *info = dev_iommu_priv_get(dev);
+>  	struct riscv_iommu_dc dc = {0};
+> +	int ret;
+>  
+>  	if (!riscv_iommu_pt_supported(iommu, domain->pgd_mode))
+>  		return -ENODEV;
+>  
+> +	if (riscv_iommu_bond_link(domain, dev))
+> +		return -ENOMEM;
+> +
+> +	if (iommu_domain->type == IOMMU_DOMAIN_UNMANAGED) {
 
-Hmm, looks like this change was lost in rebase :/
+Drivers should not be making tests like this.
 
-@Andrew, should I send it as a patch on top of mm-stable?
+> +		domain->gscid = ida_alloc_range(&riscv_iommu_gscids, 1,
+> +						RISCV_IOMMU_MAX_GSCID, GFP_KERNEL);
+> +		if (domain->gscid < 0) {
+> +			riscv_iommu_bond_unlink(domain, dev);
+> +			return -ENOMEM;
+> +		}
+> +
+> +		ret = riscv_iommu_irq_domain_create(domain, dev);
+> +		if (ret) {
+> +			riscv_iommu_bond_unlink(domain, dev);
+> +			ida_free(&riscv_iommu_gscids, domain->gscid);
+> +			return ret;
+> +		}
+> +	}
 
-diff --git a/arch/x86/kernel/ftrace.c b/arch/x86/kernel/ftrace.c
-index 8da0e66ca22d..859902dd06fc 100644
---- a/arch/x86/kernel/ftrace.c
-+++ b/arch/x86/kernel/ftrace.c
-@@ -111,17 +111,22 @@ static int ftrace_verify_code(unsigned long ip, const char *old_code)
-  */
- static int __ref
- ftrace_modify_code_direct(unsigned long ip, const char *old_code,
--			  const char *new_code)
-+			  const char *new_code, struct module *mod)
- {
- 	int ret = ftrace_verify_code(ip, old_code);
- 	if (ret)
- 		return ret;
- 
- 	/* replace the text with the new text */
--	if (ftrace_poke_late)
-+	if (ftrace_poke_late) {
- 		text_poke_queue((void *)ip, new_code, MCOUNT_INSN_SIZE, NULL);
--	else
-+	} else if (!mod) {
- 		text_poke_early((void *)ip, new_code, MCOUNT_INSN_SIZE);
-+	} else {
-+		mutex_lock(&text_mutex);
-+		text_poke((void *)ip, new_code, MCOUNT_INSN_SIZE);
-+		mutex_unlock(&text_mutex);
-+	}
- 	return 0;
- }
- 
-@@ -142,7 +147,7 @@ int ftrace_make_nop(struct module *mod, struct dyn_ftrace *rec, unsigned long ad
- 	 * just modify the code directly.
- 	 */
- 	if (addr == MCOUNT_ADDR)
--		return ftrace_modify_code_direct(ip, old, new);
-+		return ftrace_modify_code_direct(ip, old, new, mod);
- 
- 	/*
- 	 * x86 overrides ftrace_replace_code -- this function will never be used
-@@ -161,7 +166,7 @@ int ftrace_make_call(struct dyn_ftrace *rec, unsigned long addr)
- 	new = ftrace_call_replace(ip, addr);
- 
- 	/* Should only be called when module is loaded */
--	return ftrace_modify_code_direct(rec->ip, old, new);
-+	return ftrace_modify_code_direct(rec->ip, old, new, NULL);
- }
- 
- /*
+What are you trying to do? Make something behave different for VFIO?
+That isn't OK, we are trying to remove all the hacky VFIO special
+cases in drivers.
 
+What is the HW issue here? It is very very strange (and probably not
+going to work right) that the irq domains change when domain
+attachment changes.
 
-> -- Steve
+The IRQ setup should really be fixed before any device drivers probe
+onto the device.
 
--- 
-Sincerely yours,
-Mike.
+Jason
 
 _______________________________________________
 linux-riscv mailing list
