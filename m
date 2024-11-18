@@ -4,64 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B2F73D60CFC
-	for <linux-riscv@archiver.kernel.org>; Mon, 18 Nov 2024 23:01:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4B7DDD60CFE
+	for <linux-riscv@archiver.kernel.org>; Mon, 18 Nov 2024 23:01:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=uBUrMERK4IerC+944gzQ3TjVte9GTkCHfPQYExe32g8=; b=b+3dVmyMx5DI6S
-	ZInIV58u1rlw3SE0487tWueO9yxnQF4psG6tp2UDpedwHUqU9MzJ6MD4TcK4VBmhaC6atyMrt+OV6
-	+OTAcAu32XjRq60AYkHxnjno9BVC8uzQM5yr7ramjrO8k3Wyw0MURbE7jFITw/wvrQS378JISdQOn
-	RAt5AQJOw8sUPlqHjfdLdFTKKYVT+tky9BkvOd9+eMVbZQjzINWYyhe9auoaRKilpVaYxWQ6ah3gZ
-	Hw6tDSniyY+fCltiEsHfLj729BRB3R9MqpUus9aCGICTsPhTG8rRCx2wjQVfR9CTz2nh4kWbFtdcl
-	rYCU2gkLSCak5UUycoFw==;
+	List-Owner; bh=Een/mWArbvDR8ZFfTk5Sq0trLh3n+ElGNjiJ1+7o3Bs=; b=dsrqEW2gunR6u1
+	sN6wBiLPVxUThirTape70fS4jMq9ut7VTnPW4YmjXjO6RC5lzsLGCcpV74I7ac0ODvAK0SyvRnP5K
+	tlrI+WlPYgwHhic3PgvoA0bK8NVsJh3vrBCzrsiXphukFM/4AjFsbZ5GHWSCkgQf/jc812tRYvcLx
+	qqpRBOlKQeW7mOP9I1sQpe+pBsg2E33T2FeCUbDXEw7yE2FpqiyXC3XsPseOMyiFJ8TplxcY4/E+R
+	2UOupekYp60lVMqnpRqtAduHv8UjRRFkLAr31vOAYR82pBIX5gYwdvbuKLSvbOK4os8xTXPcfyYXM
+	GlC2XceSGKbjBW3f+wYA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tDAkf-0000000AoKd-33sU;
-	Mon, 18 Nov 2024 23:01:49 +0000
-Received: from mail-il1-x133.google.com ([2607:f8b0:4864:20::133])
+	id 1tDAkh-0000000AoLn-020l;
+	Mon, 18 Nov 2024 23:01:51 +0000
+Received: from mail-qk1-x732.google.com ([2607:f8b0:4864:20::732])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tDAkL-0000000AoEa-3fwf
+	id 1tDAkO-0000000AoFS-49aD
 	for linux-riscv@lists.infradead.org;
-	Mon, 18 Nov 2024 23:01:32 +0000
-Received: by mail-il1-x133.google.com with SMTP id e9e14a558f8ab-3a775b207b4so2576525ab.1
-        for <linux-riscv@lists.infradead.org>; Mon, 18 Nov 2024 15:01:29 -0800 (PST)
+	Mon, 18 Nov 2024 23:01:34 +0000
+Received: by mail-qk1-x732.google.com with SMTP id af79cd13be357-7b15d330ce1so266195985a.1
+        for <linux-riscv@lists.infradead.org>; Mon, 18 Nov 2024 15:01:32 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=tenstorrent.com; s=google; t=1731970889; x=1732575689; darn=lists.infradead.org;
+        d=tenstorrent.com; s=google; t=1731970892; x=1732575692; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=YFqjIC8plnN7ShAhD1wilwVRTqQH/DMgtflcfXOVYkY=;
-        b=MtTg7WVT8w8wFQu9Ef74vo2KDuj1zh51xj3u1UGaCGLDKUIKo/teU6K/8B2DSsUGE5
-         afdWSZTy4WNSyDswsULAgEtwAnO7p9ixaJPN14NcjJhNUe15X3WO1VDoMZAlIUAfoHD1
-         zLb6tceU+H+1bsw+PUiVjF+L+VMR5ztLldaqRVSnlvCzm3DBuicQ+AgLvRRZEEqpVZtm
-         XvSLOzxQCQVfAK+fZMNLTP4UKD2HkuGs0JvLbFIVhxa5FaT2YjEpTOMd3/Ous0b4iFSR
-         2wvRokzr0H1nw9vYOyN3sUmLgUm6HrUNpBZ+OXVIsaS2+VJtMkBOcJTdLZKZEDjEDTDB
-         ILNA==
+        bh=fwX5scsTVfAnPzy5utpE8/PcuRTXCsQPKfCiUnW9jEk=;
+        b=B1T47ot1gDcxxgfO/a4g22hM1q3+TfhWE47uzrsHDrLEvKVdn9pCU2Fruf74/ysYIb
+         oYgPBa+Dk77gtTIaSgYmyu48RKAo44HyI6CLgECGEcRJbHJoySxX/YPG7P3aBywb6+5u
+         MWu5OqMUktk+yLVb5bcesC2tZAyBcPUc/Es1kzvIBsN4ni99KD3yuPlclD+53OXH7Yy9
+         ljzU2jMqW0WjLq+kBZCqh0O10DAAvgydZqd+aQ64pa/4pmo/ZvtysQ8dJBJjyyEokGKm
+         82wuX90UYubvMbHlKmQOWbh6kMOG64KWNbK2gPUuxdoG3tl9LsAZDzKKW1qjN7YFPMBL
+         8/gA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1731970889; x=1732575689;
+        d=1e100.net; s=20230601; t=1731970892; x=1732575692;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=YFqjIC8plnN7ShAhD1wilwVRTqQH/DMgtflcfXOVYkY=;
-        b=wegKlGgLwH1wRK/1meVoP+E43AEet6RnNxBHBxOPdLu6yJFR9p2j9urA4cqbvCPtYu
-         nGPvWBy5xXAr5LdKswIld4b/vIOUki4SsVGDeBgv1C9aMNto98NhXYVkCAlDk8HEUDjX
-         rp3jFtAplM1TkSzMsRSWCQrjm+Y4Lfg9EgurMOvI0tGzy+9TiDtp3DylimmT+yFyq/+5
-         QCTRXgdJL+QWU4LjO2+J0E5xwfjfe9s85BMWXala9qUUkBgRmsccuOhfMEaicojed+/L
-         thJkGDteS10jHn7wkpZb1goiE04PJIYKBdzyPMngzCwpb3EP5o7BwHOeeleLzEpfJTFo
-         rYOg==
-X-Gm-Message-State: AOJu0YzLdff/iXZb2MIX3JHREEpeqHneWTF40PlQdEpv1d3JXVUaTdE+
-	RpNoAVYXbcpBz2WKFmvVHXnD3cBxASkHkdnCujmRahDuSOVHt5W5oDDMN7gSfg==
-X-Google-Smtp-Source: AGHT+IFvCHXxvHQVpV+bK5VdC3xSTjSvs5zHAHvFSeEEYYdE9811W5YkCAlHdEbeZSHxbdsnrW17KA==
-X-Received: by 2002:a05:6e02:1949:b0:3a0:5642:c78 with SMTP id e9e14a558f8ab-3a748082c35mr142193715ab.15.1731970888729;
-        Mon, 18 Nov 2024 15:01:28 -0800 (PST)
+        bh=fwX5scsTVfAnPzy5utpE8/PcuRTXCsQPKfCiUnW9jEk=;
+        b=lHB/4d8HnnTFwyCC8ZA7lGM0XaBFvPvw5u7Ib+cup3ZUtR7/LPZBLgHxih/Yr7Im3Q
+         9K8YbbGBorg4KwZIUi63rd+Z/yfFl8YIMVLFlJM2VPMaiaRFyok3dMi1NKVUQLbouWTY
+         MKHeGZtgw4Lba9eWdL0bGqlUyDWqAx0bfG/S41jqqEWG2nL2FdLMzL9FJYApEJjdEcWJ
+         TJk96QSQzY+JaMoSDd2cSqauVSDvMwjCY5SQ7a0cU9qaWsERuzr0+DPZCS8egZAj306a
+         DD8iPwtg2DQnNDP0Of4g6PkQYby/wybPOagbB+P8oYesMiocgRz7kSVzVODg11TuJQ20
+         Up3Q==
+X-Gm-Message-State: AOJu0YwwL/MPwcubCcvSzTGTT6AdwRmVKmr4qWjAxJkHYq3J0qUFSg2k
+	DQI1rX344fOVrXWRNYbihqxUCA0WyQldXlYAvnMEQyIRyrkPQ02R3pbOZX4C9pT3HMxaeLuIJS+
+	rYQ==
+X-Google-Smtp-Source: AGHT+IFmUQ6Alw6TgMZvuOtrCvlZCP/drMIJBLXEykYvSL6Eocpr3m7d3KptR1usfQOxg1R4KAxCyg==
+X-Received: by 2002:a05:620a:4714:b0:7b1:8e09:5119 with SMTP id af79cd13be357-7b3622a57e4mr1938760285a.2.1731970891735;
+        Mon, 18 Nov 2024 15:01:31 -0800 (PST)
 Received: from aus-ird.local.tenstorrent.com ([38.104.49.66])
-        by smtp.gmail.com with ESMTPSA id af79cd13be357-7b37a897eebsm35344185a.94.2024.11.18.15.01.27
+        by smtp.gmail.com with ESMTPSA id af79cd13be357-7b37a897eebsm35344185a.94.2024.11.18.15.01.30
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 18 Nov 2024 15:01:27 -0800 (PST)
+        Mon, 18 Nov 2024 15:01:31 -0800 (PST)
 From: Cyril Bur <cyrilbur@tenstorrent.com>
 To: palmer@dabbelt.com,
 	aou@eecs.berkeley.edu,
@@ -69,16 +70,16 @@ To: palmer@dabbelt.com,
 Cc: linux-riscv@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	Jisheng Zhang <jszhang@kernel.org>
-Subject: [PATCH v2 1/4] riscv: implement user_access_begin and families
-Date: Mon, 18 Nov 2024 23:01:09 +0000
-Message-Id: <20241118230112.2872978-2-cyrilbur@tenstorrent.com>
+Subject: [PATCH v2 3/4] riscv: uaccess: use 'asm goto' for put_user()
+Date: Mon, 18 Nov 2024 23:01:11 +0000
+Message-Id: <20241118230112.2872978-4-cyrilbur@tenstorrent.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20241118230112.2872978-1-cyrilbur@tenstorrent.com>
 References: <20241118230112.2872978-1-cyrilbur@tenstorrent.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241118_150130_157210_877899F5 
-X-CRM114-Status: GOOD (  14.80  )
+X-CRM114-CacheID: sfid-20241118_150133_028548_51FEACC8 
+X-CRM114-Status: GOOD (  11.35  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,102 +98,149 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Jisheng Zhang <jszhang@kernel.org>
 
-Currently, when a function like strncpy_from_user() is called,
-the userspace access protection is disabled and enabled
-for every word read.
-
-By implementing user_access_begin and families, the protection
-is disabled at the beginning of the copy and enabled at the end.
-
-The __inttype macro is borrowed from x86 implementation.
+'asm goto' generates noticeably better code since we don't need to
+test the error etc, the exception just jumps to the error handling
+directly.
 
 Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
 Signed-off-by: Cyril Bur <cyrilbur@tenstorrent.com>
 ---
- arch/riscv/include/asm/uaccess.h | 63 ++++++++++++++++++++++++++++++++
- 1 file changed, 63 insertions(+)
+ arch/riscv/include/asm/uaccess.h | 70 +++++++++++++++-----------------
+ 1 file changed, 33 insertions(+), 37 deletions(-)
 
 diff --git a/arch/riscv/include/asm/uaccess.h b/arch/riscv/include/asm/uaccess.h
-index 72ec1d9bd3f3..09d4ca37522c 100644
+index 84b084e388a7..916df594ef3c 100644
 --- a/arch/riscv/include/asm/uaccess.h
 +++ b/arch/riscv/include/asm/uaccess.h
-@@ -28,6 +28,19 @@
- #define __disable_user_access()							\
- 	__asm__ __volatile__ ("csrc sstatus, %0" : : "r" (SR_SUM) : "memory")
+@@ -181,61 +181,66 @@ do {								\
+ 		((x) = (__force __typeof__(x))0, -EFAULT);	\
+ })
  
-+/*
-+ * This is the smallest unsigned integer type that can fit a value
-+ * (up to 'long long')
-+ */
-+#define __inttype(x) __typeof__(		\
-+	__typefits(x,char,			\
-+	  __typefits(x,short,			\
-+	    __typefits(x,int,			\
-+	      __typefits(x,long,0ULL)))))
-+
-+#define __typefits(x,type,not) \
-+	__builtin_choose_expr(sizeof(x)<=sizeof(type),(unsigned type)0,not)
-+
- /*
-  * The exception table consists of pairs of addresses: the first is the
-  * address of an instruction that is allowed to fault, and the second is
-@@ -335,6 +348,56 @@ do {									\
- 		goto err_label;						\
+-#define __put_user_asm(insn, x, ptr, err)			\
++#define __put_user_asm(insn, x, ptr, label)			\
+ do {								\
+ 	__typeof__(*(ptr)) __x = x;				\
+-	__asm__ __volatile__ (					\
++	asm goto(						\
+ 		"1:\n"						\
+-		"	" insn " %z1, %2\n"			\
+-		"2:\n"						\
+-		_ASM_EXTABLE_UACCESS_ERR(1b, 2b, %0)		\
+-		: "+r" (err)			\
+-		: "rJ" (__x), "m"(*(ptr)));					\
++		"	" insn " %z0, %1\n"			\
++		_ASM_EXTABLE(1b, %l2)				\
++		: : "rJ" (__x), "m"(*(ptr)) : : label);		\
  } while (0)
  
-+static __must_check __always_inline bool user_access_begin(const void __user *ptr, size_t len)
-+{
-+	if (unlikely(!access_ok(ptr,len)))
-+		return 0;
-+	__enable_user_access();
-+	return 1;
-+}
-+#define user_access_begin(a,b)	user_access_begin(a,b)
-+#define user_access_end()	__disable_user_access();
-+
-+static inline unsigned long user_access_save(void) { return 0UL; }
-+static inline void user_access_restore(unsigned long enabled) { }
-+
-+#define unsafe_put_user(x, ptr, label)	do {				\
-+	long __kr_err = 0;						\
-+	__put_user_nocheck(x, (ptr), __kr_err);				\
-+	if (__kr_err) goto label;					\
+ #ifdef CONFIG_64BIT
+-#define __put_user_8(x, ptr, err) \
+-	__put_user_asm("sd", x, ptr, err)
++#define __put_user_8(x, ptr, label) \
++	__put_user_asm("sd", x, ptr, label)
+ #else /* !CONFIG_64BIT */
+-#define __put_user_8(x, ptr, err)				\
++#define __put_user_8(x, ptr, label)				\
+ do {								\
+ 	u32 __user *__ptr = (u32 __user *)(ptr);		\
+ 	u64 __x = (__typeof__((x)-(x)))(x);			\
+-	__asm__ __volatile__ (					\
++	asm goto(						\
+ 		"1:\n"						\
+-		"	sw %z1, %3\n"				\
++		"	sw %z0, %2\n"				\
+ 		"2:\n"						\
+-		"	sw %z2, %4\n"				\
+-		"3:\n"						\
+-		_ASM_EXTABLE_UACCESS_ERR(1b, 3b, %0)		\
+-		_ASM_EXTABLE_UACCESS_ERR(2b, 3b, %0)		\
+-		: "+r" (err)					\
+-		: "rJ" (__x), "rJ" (__x >> 32),			\
++		"	sw %z1, %3\n"				\
++		_ASM_EXTABLE(1b, %l4)				\
++		_ASM_EXTABLE(2b, %l4)				\
++		: : "rJ" (__x), "rJ" (__x >> 32),		\
+ 			"m" (__ptr[__LSW]),			\
+-			"m" (__ptr[__MSW]));			\
++			"m" (__ptr[__MSW]) : : label);		\
+ } while (0)
+ #endif /* CONFIG_64BIT */
+ 
+-#define __put_user_nocheck(x, __gu_ptr, __pu_err)					\
++#define __put_user_nocheck(x, __gu_ptr, label)			\
+ do {								\
+ 	switch (sizeof(*__gu_ptr)) {				\
+ 	case 1:							\
+-		__put_user_asm("sb", (x), __gu_ptr, __pu_err);	\
++		__put_user_asm("sb", (x), __gu_ptr, label);	\
+ 		break;						\
+ 	case 2:							\
+-		__put_user_asm("sh", (x), __gu_ptr, __pu_err);	\
++		__put_user_asm("sh", (x), __gu_ptr, label);	\
+ 		break;						\
+ 	case 4:							\
+-		__put_user_asm("sw", (x), __gu_ptr, __pu_err);	\
++		__put_user_asm("sw", (x), __gu_ptr, label);	\
+ 		break;						\
+ 	case 8:							\
+-		__put_user_8((x), __gu_ptr, __pu_err);	\
++		__put_user_8((x), __gu_ptr, label);		\
+ 		break;						\
+ 	default:						\
+ 		BUILD_BUG();					\
+ 	}							\
+ } while (0)
+ 
++#define __put_user_error(x, ptr, err)				\
++do {								\
++	__label__ err_label;					\
++	__put_user_nocheck(x, ptr, err_label);			\
++	break;							\
++err_label:							\
++	(err) = -EFAULT;					\
 +} while (0)
 +
-+#define unsafe_get_user(x, ptr, label)	do {				\
-+	long __kr_err = 0;						\
-+	__inttype(*(ptr)) __gu_val;					\
-+	__get_user_nocheck(__gu_val, (ptr), __kr_err);			\
-+	(x) = (__force __typeof__(*(ptr)))__gu_val;			\
-+	if (__kr_err) goto label;					\
-+} while (0)
-+
-+/*
-+ * We want the unsafe accessors to always be inlined and use
-+ * the error labels - thus the macro games.
-+ */
-+#define unsafe_copy_loop(dst, src, len, type, label)				\
-+	while (len >= sizeof(type)) {						\
-+		unsafe_put_user(*(type *)(src),(type __user *)(dst),label);	\
-+		dst += sizeof(type);						\
-+		src += sizeof(type);						\
-+		len -= sizeof(type);						\
-+	}
-+
-+#define unsafe_copy_to_user(_dst,_src,_len,label)			\
-+do {									\
-+	char __user *__ucu_dst = (_dst);				\
-+	const char *__ucu_src = (_src);					\
-+	size_t __ucu_len = (_len);					\
-+	unsafe_copy_loop(__ucu_dst, __ucu_src, __ucu_len, u64, label);	\
-+	unsafe_copy_loop(__ucu_dst, __ucu_src, __ucu_len, u32, label);	\
-+	unsafe_copy_loop(__ucu_dst, __ucu_src, __ucu_len, u16, label);	\
-+	unsafe_copy_loop(__ucu_dst, __ucu_src, __ucu_len, u8, label);	\
-+} while (0)
-+
- #else /* CONFIG_MMU */
- #include <asm-generic/uaccess.h>
- #endif /* CONFIG_MMU */
+ /**
+  * __put_user: - Write a simple value into user space, with less checking.
+  * @x:   Value to copy to user space.
+@@ -266,7 +271,7 @@ do {								\
+ 	__chk_user_ptr(__gu_ptr);				\
+ 								\
+ 	__enable_user_access();					\
+-	__put_user_nocheck(__val, __gu_ptr, __pu_err);		\
++	__put_user_error(__val, __gu_ptr, __pu_err);		\
+ 	__disable_user_access();				\
+ 								\
+ 	__pu_err;						\
+@@ -340,13 +345,7 @@ do {									\
+ } while (0)
+ 
+ #define __put_kernel_nofault(dst, src, type, err_label)			\
+-do {									\
+-	long __kr_err = 0;						\
+-									\
+-	__put_user_nocheck(*((type *)(src)), (type *)(dst), __kr_err);	\
+-	if (unlikely(__kr_err))						\
+-		goto err_label;						\
+-} while (0)
++	__put_user_nocheck(*((type *)(src)), (type *)(dst), err_label);
+ 
+ static __must_check __always_inline bool user_access_begin(const void __user *ptr, size_t len)
+ {
+@@ -361,11 +360,8 @@ static __must_check __always_inline bool user_access_begin(const void __user *pt
+ static inline unsigned long user_access_save(void) { return 0UL; }
+ static inline void user_access_restore(unsigned long enabled) { }
+ 
+-#define unsafe_put_user(x, ptr, label)	do {				\
+-	long __kr_err = 0;						\
+-	__put_user_nocheck(x, (ptr), __kr_err);				\
+-	if (__kr_err) goto label;					\
+-} while (0)
++#define unsafe_put_user(x, ptr, label)					\
++	__put_user_nocheck(x, (ptr), label);
+ 
+ #define unsafe_get_user(x, ptr, label)	do {				\
+ 	long __kr_err = 0;						\
 -- 
 2.34.1
 
