@@ -4,89 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 12C95D68BF1
-	for <linux-riscv@archiver.kernel.org>; Sat, 16 Nov 2024 21:33:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9EE3D10F57
+	for <linux-riscv@archiver.kernel.org>; Mon, 18 Nov 2024 03:47:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:Mime-Version
-	:References:In-Reply-To:From:Reply-To:Cc:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=QqwvJrPWFU4q+VoKz93odOHCjenQPtEMKq7to2ykgZs=; b=mDnkIhVDHcQYwa
-	Jf0Rwahkhxmpjc5O6ZV+G8960Tb1BTNKEsTe0qb+itPtBiJNxqk12+Z9zcszQTlpA5oQKiG7wj60W
-	lpUY6vYqR1FZeo7NJE8Lt2yngvQ3mpAL39+Q/TNaFw6k1auH/go+m+2IolYPDPwR2G6b75OEWC6NF
-	kD0gdB06rrwg9vlnnbB4OMFDL5eP074bo5MmydnPS7abEqT3w6V0VZixIoFMwvn+Fnv+38rmoWomh
-	w9nXkMrVoSe1pYAM9nE0mRmENHQ273du8BWsQ2VgG53s4loAusRsX30AW7yHwci1JdBDN3BW89WDt
-	3yG+GHhE8ziaBl111HwA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=nHQ6j/Qr/CQ5UK2v7p2NNfOWcyRXUJP1jZkoxpwXvss=; b=yNs4s0mdkYed2G
+	5u3EGr2+c1FxhVYRLjXHCREC7UatCUCA1YFPdGiRS8661wEBWcrjo6rJBmoH/DlVLn9tElSmNvzlj
+	1hOpVXgBj4GDR48kg55r+oO0qJDy/iz4uYC5AWIuBq1WGJT5ebZANUHVmIYqAxffqPEXxrspVi27Q
+	5a/sCRdYbRGqFVecyAwUXp0CSrQ5SiqKWs6sK1/hckF3qS1vFhloRzthyQfjyju0U/t4KFzD2mars
+	QkMMPiOfQyj7u9cbgypc4Bf4lJmtcTCYUGXW5QjOe2uhE6AVdl5adHn151Dq5CQ4j4b+1SjbFgI+T
+	2dvaAZNM/Tr2+eDkyU3w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tCQPd-00000006FXf-0Irt;
-	Sat, 16 Nov 2024 21:33:01 +0000
-Received: from smtp-relay-internal-1.canonical.com ([185.125.188.123])
+	id 1tCsjv-00000008Fyv-1oHM;
+	Mon, 18 Nov 2024 03:47:51 +0000
+Received: from freeshell.de ([2a01:4f8:231:482b::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tCQPZ-00000006FX9-07JM
+	id 1tCsjs-00000008FyO-1rkm
 	for linux-riscv@lists.infradead.org;
-	Sat, 16 Nov 2024 21:32:59 +0000
-Received: from mail-oa1-f69.google.com (mail-oa1-f69.google.com [209.85.160.69])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by smtp-relay-internal-1.canonical.com (Postfix) with ESMTPS id D51D03F29B
-	for <linux-riscv@lists.infradead.org>; Sat, 16 Nov 2024 21:32:52 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
-	s=20210705; t=1731792772;
-	bh=fmAemAqFyetLPXFFHnZ9TzZGuiy7HXnbjCZZxtYlmL8=;
-	h=From:In-Reply-To:References:Mime-Version:Date:Message-ID:Subject:
-	 To:Content-Type;
-	b=P9vuK5oy2+n3g/nHUrIadMeLC6YiJboFQrTn7HWr6LXcT/uA44RG16CE9p5pqKq/M
-	 Ftm8hfDaJHY6/kyCX7ZJqpUyz8x1sZBJqyK8luAOH7gdv/+C/QZmlifdLtMfOfbm0d
-	 RqG4Z76SiZv/e+yIJbIgSkI35q6Nno/a0c1MEiZUJ1ucTAHGyR53YF7O81aaIW0mqG
-	 jOxjrCbj9y1fp+cNnCHH+PiXD8jnb7vp+QO4HjIH2svF/rP3vlVt1gRy2jFHF+Vtq+
-	 AVbH9oEyhlHjlKKkpOE/05Q6CniZfCwPEuZsTANkrf8vaBPO6cEMQ4vxPKhGiYNSqt
-	 CNjhGydaxZ/hw==
-Received: by mail-oa1-f69.google.com with SMTP id 586e51a60fabf-286efde9783so514268fac.0
-        for <linux-riscv@lists.infradead.org>; Sat, 16 Nov 2024 13:32:52 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1731792771; x=1732397571;
-        h=to:subject:message-id:date:mime-version:references:in-reply-to:from
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=fmAemAqFyetLPXFFHnZ9TzZGuiy7HXnbjCZZxtYlmL8=;
-        b=EzelYb6ZX6+zdeTOzEan8PYNQ+fLJ7pD+Zi8v7eL4SEdsHHN5RN22CpafqFA7RlIAd
-         b7eqVocll/D1V4k/a7/r5rUGlqHWk10eEZ2aPHg8s06QD4lzfqj1v2SopeCC7wmIN8cA
-         xoEul6J4fP45GajpffEw/RUe/WxTH8ViE8GQnc3zZljZGfk4pHznW+Kd+/6X1xu7MpqB
-         MGlxMwcZ425CoPgPmzEVvOV4N/TnIru1v5ecJND0QiquPyxuq1r4BpUG+JWYCOrUPVwP
-         LGOuUiOoOGVQDlZUuySamZB0D3vtnIeS+TbOI9j4tpau71HRqznsZhbEKAg8b5eThasa
-         75AA==
-X-Forwarded-Encrypted: i=1; AJvYcCXwtUiyIXqYKqd/Y657hhhE0CqUK1Ky+YHbEP86oRCbO5/+YBZeHS4+hIjo86reFCHAVoaW6n54xt+3PA==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy7EeH9dbR17Bt+qUKT26Szho07FnRAgHkZSaJiO0AkU7VAefBP
-	pf3KT3zxl2xShrcOt/VJfKsd/EjI/si9/DqgG1oi9gN20JpAtoA8SE+OM1Zktagd/EvQAYd6TIR
-	bATn4qqeqphwhC076Uoni1DuUiYsBKvVg5evzqncPUfP85qg4WDgu2A/ijDP6k4W45x/X2zr04B
-	JvcI928fPznk/GRwz+yzNM6qqDGU3JLQWxa1KYvfaSXb9JMYIr4VLxGYbd
-X-Received: by 2002:a05:6870:75c8:b0:254:affe:5a05 with SMTP id 586e51a60fabf-2962dedb297mr6559787fac.21.1731792771131;
-        Sat, 16 Nov 2024 13:32:51 -0800 (PST)
-X-Google-Smtp-Source: AGHT+IELtO4V2RHfs6Yj+eIbaX82LviojGiiluYE09Wmg5o0ei8JG6pU9J+XS5YGYrQ2jHlSSLFj13Doph221IgSbgk=
-X-Received: by 2002:a05:6870:75c8:b0:254:affe:5a05 with SMTP id
- 586e51a60fabf-2962dedb297mr6559770fac.21.1731792770837; Sat, 16 Nov 2024
- 13:32:50 -0800 (PST)
-Received: from 348282803490 named unknown by gmailapi.google.com with
- HTTPREST; Sat, 16 Nov 2024 16:32:50 -0500
-From: Emil Renner Berthing <emil.renner.berthing@canonical.com>
-In-Reply-To: <20241113184333.829716-1-drew@pdp7.com>
-References: <20241113184333.829716-1-drew@pdp7.com>
-Mime-Version: 1.0
-Date: Sat, 16 Nov 2024 16:32:50 -0500
-Message-ID: <CAJM55Z_RchO-Ke1aXXAaB5f-OJEYcHU6n+MVtBTCUSXrHOQp1Q@mail.gmail.com>
-Subject: Re: [PATCH v2] riscv: defconfig: enable pinctrl and dwmac support for TH1520
-To: Drew Fustini <drew@pdp7.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Conor Dooley <conor.dooley@microchip.com>, Inochi Amaoto <inochiama@gmail.com>, 
-	Guo Ren <guoren@kernel.org>, Yangyu Chen <cyy@cyyself.name>, 
-	Sunil V L <sunilvl@ventanamicro.com>, Hal Feng <hal.feng@starfivetech.com>, 
-	Chen Wang <unicorn_wang@outlook.com>, Geert Uytterhoeven <geert+renesas@glider.be>, 
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+	Mon, 18 Nov 2024 03:47:50 +0000
+Received: from hay.lan. (unknown [IPv6:2605:59c8:31de:bf00:6ecf:39ff:fe00:8375])
+	(Authenticated sender: e)
+	by freeshell.de (Postfix) with ESMTPSA id B6601B4B0646;
+	Mon, 18 Nov 2024 04:47:39 +0100 (CET)
+From: E Shattow <e@freeshell.de>
+To: Jisheng Zhang <jszhang@kernel.org>
+Cc: E Shattow <e@freeshell.de>,
+	Conor Dooley <conor@kernel.org>,
+	Emil Renner Berthing <kernel@esmil.dk>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	linux-riscv@lists.infradead.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v3 0/1] riscv: dts: starfive: jh7110-milkv-mars: enable usb0 host function
+Date: Sun, 17 Nov 2024 19:45:07 -0800
+Message-ID: <20241118034558.43226-2-e@freeshell.de>
+X-Mailer: git-send-email 2.45.2
+MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241116_133257_624117_CA1C9086 
-X-CRM114-Status: GOOD (  12.57  )
+X-CRM114-CacheID: sfid-20241117_194748_650148_AD31BE91 
+X-CRM114-Status: UNSURE (   7.46  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,50 +69,35 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Drew Fustini wrote:
-> Enable pinctrl and ethernet dwmac driver for the TH1520 SoC boards like
-> the BeagleV Ahead and the Sipeed LicheePi 4A.
->
-> Signed-off-by: Drew Fustini <drew@pdp7.com>
+Enable host mode JH7110 on-chip USB for Milk-V Mars by setting host mode
+and connect vbus pinctrl.
 
-Reviewed-by: Emil Renner Berthing <emil.renner.berthing@canonical.com>
+This functionality depends on setting the USB over-current register to disable at bootloader phase, for example U-Boot:
+https://patchwork.ozlabs.org/project/uboot/patch/20241012031328.4268-6-minda.chen@starfivetech.com/
 
-> ---
-> Changes in v2:
->  - Switch CONFIG_DWMAC_THEAD from built-in to module
->
->
->  arch/riscv/configs/defconfig | 2 ++
->  1 file changed, 2 insertions(+)
->
-> diff --git a/arch/riscv/configs/defconfig b/arch/riscv/configs/defconfig
-> index b4a37345703e..d26e670404b6 100644
-> --- a/arch/riscv/configs/defconfig
-> +++ b/arch/riscv/configs/defconfig
-> @@ -167,6 +167,7 @@ CONFIG_PINCTRL_SOPHGO_CV1800B=y
->  CONFIG_PINCTRL_SOPHGO_CV1812H=y
->  CONFIG_PINCTRL_SOPHGO_SG2000=y
->  CONFIG_PINCTRL_SOPHGO_SG2002=y
-> +CONFIG_PINCTRL_TH1520=y
->  CONFIG_GPIO_DWAPB=y
->  CONFIG_GPIO_SIFIVE=y
->  CONFIG_POWER_RESET_GPIO_RESTART=y
-> @@ -242,6 +243,7 @@ CONFIG_RTC_DRV_SUN6I=y
->  CONFIG_DMADEVICES=y
->  CONFIG_DMA_SUN6I=m
->  CONFIG_DW_AXI_DMAC=y
-> +CONFIG_DWMAC_THEAD=m
->  CONFIG_VIRTIO_PCI=y
->  CONFIG_VIRTIO_BALLOON=y
->  CONFIG_VIRTIO_INPUT=y
-> --
-> 2.34.1
->
->
-> _______________________________________________
-> linux-riscv mailing list
-> linux-riscv@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-riscv
+If the over-current register is not prepared for us then the result is no
+change in functional outcome with this patch applied; there is an error
+visible to the user and this additional usb configuration fails (same as
+it is now). The existing three VL805 connected USB ports via PCIe on
+Milk-V Mars are not affected.
+
+Changes since v2:
+ - Rebase on 6.12
+
+Changes since v1:
+ - series name (was "[PATCH] riscv: dts: starfive: jh7110-milkv-mars: set host mode and vbus pin for on-chip USB 2.0")
+ - adjust pin label to obey dtschema
+ - use cover letter
+
+E Shattow (1):
+  riscv: dts: starfive: jh7110-milkv-mars: enable usb0 host function
+
+ .../boot/dts/starfive/jh7110-milkv-mars.dts   | 21 +++++++++++++++++++
+ 1 file changed, 21 insertions(+)
+
+-- 
+2.45.2
+
 
 _______________________________________________
 linux-riscv mailing list
