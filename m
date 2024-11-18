@@ -4,68 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7D438D4923C
-	for <linux-riscv@archiver.kernel.org>; Mon, 18 Nov 2024 15:54:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5927DD591A5
+	for <linux-riscv@archiver.kernel.org>; Mon, 18 Nov 2024 16:48:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:CC
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=+GLMp4E87b2x5txJ68XYin/c0J3rnoE22XIKeg0lnhw=; b=xhg3fcAH6TcaAw
-	WW66EQhODexxcPuSamEl2CDQ0zHAyKWI0NQxXbSKGIBYo1oUgfNui/JSqxiePmilWXGhzAEGrNKqe
-	T4RXkkKuBclhqbHktn2fA7TXOH3FKteVtKtgZuKjEZbgzinhzWItieGjhrcki0SSZziwXJnb+YCwd
-	0RQYQaD8k/2r+nZpYYqoRH83oSgmXqYaPAGmeUyYXKV2inl2XRTbpsDN9iBeOV9h/j2Oc8J3xC4EG
-	6ijx7PbTTDw7+b6wOaFlSIodvrAvCfYp+hdJ4B68ybIZ7vJQHE89VPfenmC0sLtAVOVigOIORy8wb
-	f1HCcaTRX8e5sNHzFV4Q==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=CNBd5mp1NK3FWW71xoNiVS7lT7WKio+ZMPPTKO7XTC0=; b=zqvK2Xjq6infcw
+	uS4wWT7pPu+Z20IJrtknDVzqS7DlS+jouEdriUa/vUlKrDozo4iY7JB4m5gNlo6I1uvrK4KEmhbgC
+	RAUeesFvEGUz/n8DGogeBqp3yvIl15PwdmkyxDFvidEvh0VI8/gZBpeNyiZePrr7LEoeOoJIM9zlF
+	d9187mh+N2uypvWXBxG5anjhqP1Nx1p3emOPQ+2Mz2yetrt+wbzUerNMdOz2JWwIXx747lpFbKi8w
+	fRienIWz6Ymn9mUlzxvgop7+YOEanJRDHg+TqNnlX6+Y/ualxLcswcyb8UXPBXQKOU/dCrKH4JfzB
+	HBnwIVRUtJhvwdHx35vw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tD45F-00000009ylh-3C4o;
-	Mon, 18 Nov 2024 15:54:37 +0000
-Received: from esa.microchip.iphmx.com ([68.232.153.233])
+	id 1tD4v4-0000000A6sb-2PtP;
+	Mon, 18 Nov 2024 16:48:10 +0000
+Received: from mail.alien8.de ([65.109.113.108])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tD45D-00000009yl6-2LkM
-	for linux-riscv@lists.infradead.org;
-	Mon, 18 Nov 2024 15:54:37 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1731945276; x=1763481276;
-  h=from:to:cc:subject:date:message-id:mime-version:
-   content-transfer-encoding;
-  bh=EkXsvnXYvHDBrDyWxzREH6UlYXBi0F9oMvLf4SjdGAI=;
-  b=fkg73wdeLW2/wFgkW/uHJDCvszWdlTT2fuajk0TiBfyIZttEQjF4duW/
-   0yxAL0UEcd+SMVVS8ix6gsVgNMvkzh5IlcapUGPmqMNyufjTTS7Xa/SIF
-   zFkVKCi6Wmmx0/l7Jj6vTRliN5AoXLEHXMomRWqcD5agKrgLH3TqoSOXk
-   QSz0Z/clkRCBKgx2C3LDZoQn3ZYULqgFQfomAwxo/93lFH3i5/+RO4VCM
-   Tt4WovIdP8sKwWUAjM7986ejEslsXQ0vPpWUnkB2hhMgQVOvp5OClVCB0
-   nC3la6xmcl5bjxAGrRDHQrcOGeQJ6QHZrjzXYfo9O0SvsfGWZHzwrT322
-   g==;
-X-CSE-ConnectionGUID: qvuwS+dsTduap8NKwvql5Q==
-X-CSE-MsgGUID: yVFQ8QXBQTGLlWUbI6XDRg==
-X-IronPort-AV: E=Sophos;i="6.12,164,1728975600"; 
-   d="scan'208";a="34460916"
-X-Amp-Result: SKIPPED(no attachment in message)
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa3.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 18 Nov 2024 08:54:34 -0700
-Received: from chn-vm-ex04.mchp-main.com (10.10.85.152) by
- chn-vm-ex02.mchp-main.com (10.10.85.144) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.35; Mon, 18 Nov 2024 08:54:22 -0700
-Received: from valentina.microchip.com (10.10.85.11) by
- chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server id
- 15.1.2507.35 via Frontend Transport; Mon, 18 Nov 2024 08:54:21 -0700
-From: Valentina Fernandez <valentina.fernandezalanis@microchip.com>
-To: <conor.dooley@microchip.com>, <daire.mcnamara@microchip.com>,
-	<valentina.fernandezalanis@microchip.com>
-CC: <linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>
-Subject: [PATCH v1] firmware: microchip: fix UL_IAP lock check in mpfs_auto_update_state()
-Date: Mon, 18 Nov 2024 15:53:54 +0000
-Message-ID: <20241118155354.697411-1-valentina.fernandezalanis@microchip.com>
-X-Mailer: git-send-email 2.34.1
+	id 1tD4u8-0000000A6ct-005L;
+	Mon, 18 Nov 2024 16:47:13 +0000
+Received: from localhost (localhost.localdomain [127.0.0.1])
+	by mail.alien8.de (SuperMail on ZX Spectrum 128k) with ESMTP id 3CC8340E019C;
+	Mon, 18 Nov 2024 16:46:56 +0000 (UTC)
+X-Virus-Scanned: Debian amavisd-new at mail.alien8.de
+Authentication-Results: mail.alien8.de (amavisd-new); dkim=pass (4096-bit key)
+	header.d=alien8.de
+Received: from mail.alien8.de ([127.0.0.1])
+	by localhost (mail.alien8.de [127.0.0.1]) (amavisd-new, port 10026)
+	with ESMTP id c6v2K22B5Tnb; Mon, 18 Nov 2024 16:46:52 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=alien8.de; s=alien8;
+	t=1731948411; bh=rPDV0OJuPMZjYOAxC/88k5DmzxXHqcjOOoFuf/a7xM0=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=Cc9tbCWXLsXSrJi7c1OfRXsQ2qSLXZmGyrD6Ue1nlLUTcaY/vtPzAd8MPRX5vxnmb
+	 9ZPBWH22VFOSy107g8yT7ZaHuJaiBzgNuSySoZ2LvQ8Iz/mv5q0cQzkGrILcMx3tpM
+	 N5u/p2XCUd7YVYW4WMtcUwToF86Sw8IbCNA6AVzOMCEsPWEXhZg1P2U8MFPk9sBZTl
+	 TiPhEeHJh27yOHn8ghqJ2Ph/aMgEDBxGB7NFxSsOQE3oPf8d4ntpH3Gw1Dm4PP9qSE
+	 H1mHy8auOJQYKFPFAZsnr7lug81DkxaDgkg/wJO1jsHNud9MxEfHEgUEA//v14tV40
+	 I5N3K5PWKjmhbEWdDlRCcEF2GXQNiMu0rZ+GBH3OPXkwAYP6XR/VB1rBeu4o60p7By
+	 OOBUtZeL9JVb8w4kwMRllAUQ0VZxDq1Fq0Z9XfmV6Hg+hU5vSAEFf5OxuvswXuMihj
+	 YILuCMQ6eyThHcDMGwKPbRRei+FexB+brIHyWwX8yG6OMDtGSHd6jCGM0Ug9aK3vT/
+	 2yjMZu8Q42ewHmKMKqPf2daKWoZbiyDN+PqwhsiaAXS2nCKMKjY/TVPvSivoQcvZOE
+	 EkMDd+mSyQnvE4qJBtHrURoQqMvMjvfOH488j6ZRiVpzI5AwQkR90P0uA5jRlcA6QF
+	 xw5MBqcn5hwajMKsV0d1eX7g=
+Received: from zn.tnic (pd9530b86.dip0.t-ipconnect.de [217.83.11.134])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (P-256) server-signature ECDSA (P-256) server-digest SHA256)
+	(No client certificate requested)
+	by mail.alien8.de (SuperMail on ZX Spectrum 128k) with ESMTPSA id 47B9840E0163;
+	Mon, 18 Nov 2024 16:46:22 +0000 (UTC)
+Date: Mon, 18 Nov 2024 17:46:16 +0100
+From: Borislav Petkov <bp@alien8.de>
+To: "Kirill A. Shutemov" <kirill.shutemov@linux.intel.com>
+Cc: Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>,
+	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
+	"H. Peter Anvin" <hpa@zytor.com>, Andy Lutomirski <luto@kernel.org>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Alexei Starovoitov <ast@kernel.org>,
+	Andrea Parri <parri.andrea@gmail.com>,
+	Arnd Bergmann <arnd@arndb.de>,
+	Daniel Borkmann <daniel@iogearbox.net>,
+	Eric Chan <ericchancf@google.com>, Jason Gunthorpe <jgg@ziepe.ca>,
+	Kai Huang <kai.huang@intel.com>,
+	Kefeng Wang <wangkefeng.wang@huawei.com>,
+	Kent Overstreet <kent.overstreet@linux.dev>,
+	Palmer Dabbelt <palmer@rivosinc.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Russell King <linux@armlinux.org.uk>,
+	Samuel Holland <samuel.holland@sifive.com>,
+	Suren Baghdasaryan <surenb@google.com>,
+	Yuntao Wang <ytcoode@gmail.com>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	Tom Lendacky <thomas.lendacky@amd.com>,
+	Ashish Kalra <ashish.kalra@amd.com>,
+	"Maciej W. Rozycki" <macro@orcam.me.uk>
+Subject: Re: [PATCHv2 2/2] x86/mm: Make memremap(MEMREMAP_WB) map memory as
+ encrypted by default
+Message-ID: <20241118164616.GAZztvWGs9cOV8t20_@fat_crate.local>
+References: <20241021105723.2707507-1-kirill.shutemov@linux.intel.com>
+ <20241021105723.2707507-3-kirill.shutemov@linux.intel.com>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20241021105723.2707507-3-kirill.shutemov@linux.intel.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241118_075435_663982_E4323E95 
-X-CRM114-Status: GOOD (  12.45  )
+X-CRM114-CacheID: sfid-20241118_084712_184705_B5A03AFF 
+X-CRM114-Status: UNSURE (   7.33  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,45 +109,29 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-To verify that Auto Update is possible, the mpfs_auto_update_state()
-function performs a "Query Security Service Request" to the system
-controller.
+On Mon, Oct 21, 2024 at 01:57:23PM +0300, Kirill A. Shutemov wrote:
+> It fixes crash on kexec in TDX guests if CONFIG_EISA is enabled.
 
-Previously, the check was performed on the first element of the
-response message, which was accessed using a 32-bit pointer. This
-caused the bitwise operation to reference incorrect data, as the
-response should be inspected at the byte level. Fixed this by casting
-the response to a  u8 * pointer, ensuring the check correctly inspects
-the appropriate byte of the response message.
+Do TDX guests even need EISA?
 
-Additionally, rename "UL_Auto Update" to "UL_IAP" to match the
-PolarFire Family System Services User Guide.
+"The EISA bus saw limited use between 1988 and 1995 when it was made obsolete
+by the PCI bus."
 
-Signed-off-by: Valentina Fernandez <valentina.fernandezalanis@microchip.com>
----
- drivers/firmware/microchip/mpfs-auto-update.c | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+Sounds like no to me.
 
-diff --git a/drivers/firmware/microchip/mpfs-auto-update.c b/drivers/firmware/microchip/mpfs-auto-update.c
-index 0f7ec8848202..df1d69bdc1d7 100644
---- a/drivers/firmware/microchip/mpfs-auto-update.c
-+++ b/drivers/firmware/microchip/mpfs-auto-update.c
-@@ -402,10 +402,10 @@ static int mpfs_auto_update_available(struct mpfs_auto_update_priv *priv)
- 		return -EIO;
- 
- 	/*
--	 * Bit 5 of byte 1 is "UL_Auto Update" & if it is set, Auto Update is
-+	 * Bit 5 of byte 1 is "UL_IAP" & if it is set, Auto Update is
- 	 * not possible.
- 	 */
--	if (response_msg[1] & AUTO_UPDATE_FEATURE_ENABLED)
-+	if ((((u8 *)response_msg)[1] & AUTO_UPDATE_FEATURE_ENABLED))
- 		return -EPERM;
- 
- 	return 0;
+We usually simply stop coco guests from touching such legacy ranges:
+
+f30470c190c2 ("x86/boot: Skip video memory access in the decompressor for SEV-ES/SNP")
+
+so can you do that too?
+
+Thx.
+
 -- 
-2.34.1
+Regards/Gruss,
+    Boris.
 
+https://people.kernel.org/tglx/notes-about-netiquette
 
 _______________________________________________
 linux-riscv mailing list
