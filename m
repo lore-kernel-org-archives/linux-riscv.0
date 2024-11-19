@@ -4,91 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 824E8D4415E
-	for <linux-riscv@archiver.kernel.org>; Tue, 19 Nov 2024 14:01:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 53A39D4415E
+	for <linux-riscv@archiver.kernel.org>; Tue, 19 Nov 2024 14:12:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=uPs6ZmaW+xM/iRnxIBqTjsjXaW31Cp41g+mqKCwqUjg=; b=gH8wppmju9vdqH
-	5iWvkbIVmlVeSqKj3HVxbKrjH6QBTcgbbcvGEg2sO2DWQtZip/oQc1mFs8CZAUUh/Zydihc0wENAy
-	Y1Z6J1Lmo9VMG5tMDRct7UdMTu0xTGaGYMp5Z15I9ilsR1TV8GLqlx1qg38ddCpKFRHj7URZW/xi+
-	IY3ZAEFnLJap00hmGEyaELU+vV0qBfeGF0ZL2xKRQalTdKWpxt3kUt80DK1CIFGjmZ1W6/ZqW9R3T
-	T0DtOkQO2cop6AKSDAXOBIQLpNqXFZWm+qTi/XpausO1qlYuap8A9Uol6CP9OTWOX4wdVO+WaaV6N
-	IxXHH+4UkyZXlBY76XcQ==;
+	List-Owner; bh=aUQXw5HBYYZF1s07IgqKO9LbmUoa1d4OJ32VG6+w7hw=; b=QKvs1T93vI3xo0
+	MuASVKr5Ogv+bYdUp49DY9Z2VlCZvirm3H0ERis7fnxyM+TRSUmUdMyMe88brIstIs0D2Cz74MtZS
+	UY4azX+1V62hhhqbXlmv4jhskHFUHsLr+nzVQKmHNP+jzchx0NRbkjUUGm5lwH1KmDN61HQILxEXR
+	srT6kAWAnX+SvkGGvxBbBKTlMdu1kBzWt7bCFq+e6ah+jqmk1vMwCrDddrPtlnrG5X9ZLRhFgdBnc
+	6GzQdu+EDP4lRp4rx84M16S5pdBJh1K9gM1rFDIC+0lvb4IudmxjR/UklJISHsBDA/wDgURj+lK8D
+	V3/czurGh9riVw9sJ9DA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tDOmj-0000000CcFf-2dvx;
-	Tue, 19 Nov 2024 14:00:53 +0000
-Received: from mail-qt1-x82c.google.com ([2607:f8b0:4864:20::82c])
+	id 1tDOyA-0000000CdhH-0xVv;
+	Tue, 19 Nov 2024 14:12:42 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tDOmg-0000000CcEX-374M
+	id 1tDOy7-0000000Cdgl-2Z2n
 	for linux-riscv@lists.infradead.org;
-	Tue, 19 Nov 2024 14:00:52 +0000
-Received: by mail-qt1-x82c.google.com with SMTP id d75a77b69052e-460b16d4534so5638981cf.3
-        for <linux-riscv@lists.infradead.org>; Tue, 19 Nov 2024 06:00:50 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ziepe.ca; s=google; t=1732024849; x=1732629649; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=utcZjeJ4axtWtuvENXsYE5WdR2pTF/ksB5rq4r17jag=;
-        b=apd4Q8MNMQMfrU+1yKGXjYBh6jFLKa4jezwEYy6yVzQy65YWKHuZPIrTWFmk7JYe2B
-         F0uBGbpjkWkPsKQQWN5Ye5NuDQDqep6/vcMX77sEYwH3IJPYmFKcwKD14uxpWePKlBpz
-         gEPYWEOug08IwGwgrkliWJ4NVypIU1va/tVLp86C7LcWxyvPOIU0D+e6qoWG3wisUOLb
-         wyTPueaTa/OLRGaaJzzGyaqiM5kHOke/DDGR+aNAWR80F4j69kq6g38eRL9O7fX9dOB0
-         BwbXockLieSrCX6jtmlzIgIRyXBzyzlnCP2+GZ0vYDfmHqGPjKzBZp2tewrjJprq71b3
-         oVaw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1732024849; x=1732629649;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=utcZjeJ4axtWtuvENXsYE5WdR2pTF/ksB5rq4r17jag=;
-        b=TNv6q10PfGBu75H8DJUqS+f6Qb0nl1z+TtpspbjPtW7haSdfDnaEsVVS2LhzM6uj09
-         1m5aeZvpe6pC3pUSN5lsAgU6GAt8HjCB4qovLkemr1yr1fUFDJeXoH1ncBoNONFBid8F
-         mB8w4DCpkpUSvK/2l5fVHLSQa5Pi5NxoQ8kP0UYWLRNtrD4kxKSvTpo+NhGiEiYRMPjA
-         4NviqYf3RI4j9Mwx3L4MPW6YKYoIddm4NPKEjl7zFNhrelwoRCXIFTnK1OW31wHZI9ro
-         U1EhYX6x4zTanGrfyGSEJRWvJn/7o1oRZ+6eTXcjOZYOL+LWO9MwWn3QQGcafVwefvx3
-         cryg==
-X-Forwarded-Encrypted: i=1; AJvYcCVFOlDTLXJKxh98LJJiTuzBmjBg3iDzsLG4dvc9LeEKDJvo5zs32L6P8r3e9Tb8Q3w7LU7Eas3/uuTLUQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0YxQ18CPc1Y9+edUBP5rrBr8BuwpXe0PEVBZtAyXiKoqsQDe7wzR
-	ZnGYrkZOICaWMclO4xlXIFkIbS/iuLfN6O1fwrlgC1e9PdHGksGdOOPtKH9NxdA=
-X-Google-Smtp-Source: AGHT+IHKbzbz2zzGHIA7vNzQrKdrVbH22etzYZttFKms0g8ZJKuTulmGaSp4Zqq0m5k19nTsP7U0iw==
-X-Received: by 2002:a05:622a:10f:b0:45f:788:b1b1 with SMTP id d75a77b69052e-46363e2f7d2mr196949061cf.25.1732024849064;
-        Tue, 19 Nov 2024 06:00:49 -0800 (PST)
-Received: from ziepe.ca (hlfxns017vw-142-68-128-5.dhcp-dynamic.fibreop.ns.bellaliant.net. [142.68.128.5])
-        by smtp.gmail.com with ESMTPSA id d75a77b69052e-46392c3c22fsm11239771cf.86.2024.11.19.06.00.48
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 19 Nov 2024 06:00:48 -0800 (PST)
-Received: from jgg by wakko with local (Exim 4.97)
-	(envelope-from <jgg@ziepe.ca>)
-	id 1tDOmd-00000003DsE-272U;
-	Tue, 19 Nov 2024 10:00:47 -0400
-Date: Tue, 19 Nov 2024 10:00:47 -0400
-From: Jason Gunthorpe <jgg@ziepe.ca>
-To: Andrew Jones <ajones@ventanamicro.com>
-Cc: iommu@lists.linux.dev, kvm-riscv@lists.infradead.org,
-	kvm@vger.kernel.org, linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org, tjeznach@rivosinc.com,
-	zong.li@sifive.com, joro@8bytes.org, will@kernel.org,
-	robin.murphy@arm.com, anup@brainfault.org, atishp@atishpatra.org,
-	tglx@linutronix.de, alex.williamson@redhat.com,
-	paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu
-Subject: Re: [RFC PATCH 08/15] iommu/riscv: Add IRQ domain for interrupt
- remapping
-Message-ID: <20241119140047.GC559636@ziepe.ca>
-References: <20241114161845.502027-17-ajones@ventanamicro.com>
- <20241114161845.502027-25-ajones@ventanamicro.com>
- <20241118184336.GB559636@ziepe.ca>
- <20241119-62ff49fc1eedba051838dba2@orel>
+	Tue, 19 Nov 2024 14:12:41 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 467DDA42A6F;
+	Tue, 19 Nov 2024 14:10:45 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 50A0EC4CECF;
+	Tue, 19 Nov 2024 14:12:38 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1732025558;
+	bh=rXCnaTBFJsUj4p87piDnz1IdGPw72XgEh5Shigy8KTo=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=iFAUn4uKil31Xr8W5g4SPX+hS+fvldjhduKvdrXkoXHhE13OEyUSgmb1974VH/i72
+	 Cak01s9lh62m8cdiZEWbgWbcQhBFAI04GKllE4IdS2TSY8E1Kf7Ctl9QUShvWOpo/g
+	 Tvlkz4XpybiTRcRrRLONPsXXPjGid6TrlxDf4P4XuyYtBeybdR2RRkzZhtsJwheWzF
+	 2bkwMd3VG7NWSQIenWnM994CPxLsyuVQagiqkciL/JkGRHTP9WoaYtcycaMy0tx4C3
+	 unkerhhRZfAnJQGjRxD0rixUNCSCZTFky67Ommv+0TE6kJMXC3QlW2ZrSY+jrDflUE
+	 3JdIaIV6sExww==
+Date: Tue, 19 Nov 2024 08:12:36 -0600
+From: Rob Herring <robh@kernel.org>
+To: Valentina Fernandez <valentina.fernandezalanis@microchip.com>
+Cc: paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
+	ycliang@andestech.com, prabhakar.mahadev-lad.rj@bp.renesas.com,
+	peterlin@andestech.com, samuel.holland@sifive.com,
+	conor.dooley@microchip.com, alexghiti@rivosinc.com,
+	ruanjinjie@huawei.com, takakura@valinux.co.jp, conor+dt@kernel.org,
+	jassisinghbrar@gmail.com, krzk+dt@kernel.org,
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org
+Subject: Re: [PATCH v3 3/4] dt-bindings: mailbox: add binding for Microchip
+ IPC mailbox controller
+Message-ID: <20241119141236.GA1099946-robh@kernel.org>
+References: <20241105183513.1358736-1-valentina.fernandezalanis@microchip.com>
+ <20241105183513.1358736-4-valentina.fernandezalanis@microchip.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20241119-62ff49fc1eedba051838dba2@orel>
+In-Reply-To: <20241105183513.1358736-4-valentina.fernandezalanis@microchip.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241119_060050_886443_70835E7A 
-X-CRM114-Status: GOOD (  36.06  )
+X-CRM114-CacheID: sfid-20241119_061239_784474_278EB6F3 
+X-CRM114-Status: GOOD (  24.81  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,107 +75,95 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Nov 19, 2024 at 08:49:37AM +0100, Andrew Jones wrote:
-> On Mon, Nov 18, 2024 at 02:43:36PM -0400, Jason Gunthorpe wrote:
-> > On Thu, Nov 14, 2024 at 05:18:53PM +0100, Andrew Jones wrote:
-> > > @@ -1276,10 +1279,30 @@ static int riscv_iommu_attach_paging_domain(struct iommu_domain *iommu_domain,
-> > >  	struct riscv_iommu_device *iommu = dev_to_iommu(dev);
-> > >  	struct riscv_iommu_info *info = dev_iommu_priv_get(dev);
-> > >  	struct riscv_iommu_dc dc = {0};
-> > > +	int ret;
-> > >  
-> > >  	if (!riscv_iommu_pt_supported(iommu, domain->pgd_mode))
-> > >  		return -ENODEV;
-> > >  
-> > > +	if (riscv_iommu_bond_link(domain, dev))
-> > > +		return -ENOMEM;
-> > > +
-> > > +	if (iommu_domain->type == IOMMU_DOMAIN_UNMANAGED) {
-> > 
-> > Drivers should not be making tests like this.
-> > 
-> > > +		domain->gscid = ida_alloc_range(&riscv_iommu_gscids, 1,
-> > > +						RISCV_IOMMU_MAX_GSCID, GFP_KERNEL);
-> > > +		if (domain->gscid < 0) {
-> > > +			riscv_iommu_bond_unlink(domain, dev);
-> > > +			return -ENOMEM;
-> > > +		}
-> > > +
-> > > +		ret = riscv_iommu_irq_domain_create(domain, dev);
-> > > +		if (ret) {
-> > > +			riscv_iommu_bond_unlink(domain, dev);
-> > > +			ida_free(&riscv_iommu_gscids, domain->gscid);
-> > > +			return ret;
-> > > +		}
-> > > +	}
-> > 
-> > What are you trying to do? Make something behave different for VFIO?
-> > That isn't OK, we are trying to remove all the hacky VFIO special
-> > cases in drivers.
-> > 
-> > What is the HW issue here? It is very very strange (and probably not
-> > going to work right) that the irq domains change when domain
-> > attachment changes.
-> > 
-> > The IRQ setup should really be fixed before any device drivers probe
-> > onto the device.
-> 
-> I can't disagree with the statement that this looks hacky, but considering
-> a VFIO domain needs to use the g-stage for its single-stage translation
-> and a paging domain for the host would use s-stage, then it seems we need
-> to identify the VFIO domains for their special treatment.
-
-This is the wrong thinking entirely. There is no such thing as a "VFIO
-domain".
-
-Default VFIO created domains should act excatly the same as a DMA API
-domain.
-
-If you want your system to have irq remapping, then it should be on by
-default and DMA API gets remapping too. There would need to be a very
-strong reason not to do that in order to make something special for
-riscv. If so you'd need to add some kind of flag to select it.
-
-Until you reach nested translation there is no "need" for VFIO to use
-any particular stage. The design is that default VFIO uses the same
-stage as the DMA API because it is doing the same basic default
-translation function.
-
-Nested translation has a control to select the stage, and you can
-then force the g-stage for VFIO users at that point.
-
-Regardless, you must not use UNMANAGED as some indication of VFIO,
-that is not what it means, that is not what it is for.
-
-> Is there an example of converting VFIO special casing in other
-> drivers to something cleaner that you can point me at?
-
-Nobody has had an issue where they want interrupt remapping on/off
-depending on VFIO. I think that is inherently wrong.
-
-> The IRQ domain will only be useful for device assignment, as that's when
-> an MSI translation will be needed. I can't think of any problems that
-> could arise from only creating the IRQ domain when probing assigned
-> devices, but I could certainly be missing something. Do you have some
-> potential problems in mind?
-
-I'm not an expert in the interrupt subsystem, but my understanding was
-we expect the interrupt domains/etc to be static once a device driver
-is probed. Changing things during iommu domain attach is after drivers
-are probed. I don't really expect it to work correctly in all corner
-cases.
-
-VFIO is allowed to change the translation as it operates and we expect
-that interrupts are not disturbed.
-
-Jason
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gVHVlLCBOb3YgMDUsIDIwMjQgYXQgMDY6MzU6MTJQTSArMDAwMCwgVmFsZW50aW5hIEZlcm5h
+bmRleiB3cm90ZToKPiBBZGQgYSBkdC1iaW5kaW5nIGZvciB0aGUgTWljcm9jaGlwIEludGVyLVBy
+b2Nlc3NvciBDb21tdW5pY2F0aW9uIChJUEMpCj4gbWFpbGJveCBjb250cm9sbGVyLgo+IAo+IFNp
+Z25lZC1vZmYtYnk6IFZhbGVudGluYSBGZXJuYW5kZXogPHZhbGVudGluYS5mZXJuYW5kZXphbGFu
+aXNAbWljcm9jaGlwLmNvbT4KPiAtLS0KPiAgLi4uL2JpbmRpbmdzL21haWxib3gvbWljcm9jaGlw
+LHNiaS1pcGMueWFtbCAgIHwgMTE3ICsrKysrKysrKysrKysrKysrKwo+ICAxIGZpbGUgY2hhbmdl
+ZCwgMTE3IGluc2VydGlvbnMoKykKPiAgY3JlYXRlIG1vZGUgMTAwNjQ0IERvY3VtZW50YXRpb24v
+ZGV2aWNldHJlZS9iaW5kaW5ncy9tYWlsYm94L21pY3JvY2hpcCxzYmktaXBjLnlhbWwKPiAKPiBk
+aWZmIC0tZ2l0IGEvRG9jdW1lbnRhdGlvbi9kZXZpY2V0cmVlL2JpbmRpbmdzL21haWxib3gvbWlj
+cm9jaGlwLHNiaS1pcGMueWFtbCBiL0RvY3VtZW50YXRpb24vZGV2aWNldHJlZS9iaW5kaW5ncy9t
+YWlsYm94L21pY3JvY2hpcCxzYmktaXBjLnlhbWwKPiBuZXcgZmlsZSBtb2RlIDEwMDY0NAo+IGlu
+ZGV4IDAwMDAwMDAwMDAwMC4uOWU2N2MwOWU0YmVhCj4gLS0tIC9kZXYvbnVsbAo+ICsrKyBiL0Rv
+Y3VtZW50YXRpb24vZGV2aWNldHJlZS9iaW5kaW5ncy9tYWlsYm94L21pY3JvY2hpcCxzYmktaXBj
+LnlhbWwKPiBAQCAtMCwwICsxLDExNyBAQAo+ICsjIFNQRFgtTGljZW5zZS1JZGVudGlmaWVyOiAo
+R1BMLTIuMC1vbmx5IE9SIEJTRC0yLUNsYXVzZSkKPiArJVlBTUwgMS4yCj4gKy0tLQo+ICskaWQ6
+IGh0dHA6Ly9kZXZpY2V0cmVlLm9yZy9zY2hlbWFzL21haWxib3gvbWljcm9jaGlwLHNiaS1pcGMu
+eWFtbCMKPiArJHNjaGVtYTogaHR0cDovL2RldmljZXRyZWUub3JnL21ldGEtc2NoZW1hcy9jb3Jl
+LnlhbWwjCj4gKwo+ICt0aXRsZTogTWljcm9jaGlwIEludGVyLXByb2Nlc3NvciBjb21tdW5pY2F0
+aW9uIChJUEMpIG1haWxib3ggY29udHJvbGxlcgo+ICsKPiArbWFpbnRhaW5lcnM6Cj4gKyAgLSBW
+YWxlbnRpbmEgRmVybmFuZGV6IDx2YWxlbnRpbmEuZmVybmFuZGV6YWxhbmlzQG1pY3JvY2hpcC5j
+b20+Cj4gKwo+ICtkZXNjcmlwdGlvbjoKPiArICBUaGUgTWljcm9jaGlwIEludGVyLXByb2Nlc3Nv
+ciBDb21tdW5pY2F0aW9uIChJUEMpIGZhY2lsaXRhdGVzCj4gKyAgbWVzc2FnZSBwYXNzaW5nIGJl
+dHdlZW4gcHJvY2Vzc29ycyB1c2luZyBhbiBpbnRlcnJ1cHQgc2lnbmFsaW5nCj4gKyAgbWVjaGFu
+aXNtLgo+ICsKPiArcHJvcGVydGllczoKPiArICBjb21wYXRpYmxlOgo+ICsgICAgb25lT2Y6Cj4g
+KyAgICAgIC0gZGVzY3JpcHRpb246Cj4gKyAgICAgICAgICBJbnRlbmRlZCBmb3IgdXNlIGJ5IHNv
+ZnR3YXJlIHJ1bm5pbmcgaW4gc3VwZXJ2aXNvciBwcml2aWxlZ2VkCj4gKyAgICAgICAgICBtb2Rl
+IChzLW1vZGUpLiBUaGlzIFNCSSBpbnRlcmZhY2UgaXMgY29tcGF0aWJsZSB3aXRoIHRoZSBNaS1W
+Cj4gKyAgICAgICAgICBJbnRlci1oYXJ0IENvbW11bmljYXRpb24gKElIQykgSVAuCj4gKyAgICAg
+ICAgaXRlbXM6Cj4gKyAgICAgICAgICAtIGNvbnN0OiBtaWNyb2NoaXAsc2JpLWlwYwo+ICsKPiAr
+ICAgICAgLSBkZXNjcmlwdGlvbjoKPiArICAgICAgICAgIFNvQy1zcGVjaWZpYyBjb21wYXRpYmxl
+LCBpbnRlbmRlZCBmb3IgdXNlIGJ5IHRoZSBTQkkKPiArICAgICAgICAgIGltcGxlbWVudGF0aW9u
+IGluIG1hY2hpbmUgbW9kZSAobS1tb2RlKS4KPiArICAgICAgICBpdGVtczoKPiArICAgICAgICAg
+IC0gY29uc3Q6IG1pY3JvY2hpcCxtaXYtaWhjLXJ0bC12MgoKVXN1YWxseSBTb0Mgc3BlY2lmaWMg
+Y29tcGF0aWJsZXMgZG9uJ3QgaGF2ZSB2ZXJzaW9uIG51bWJlcnMuIEFuZCBhbGwgCmhhcmR3YXJl
+IGluIGFuIFNvQyBpcyBSVEwgYXQgc29tZSBwb2ludC4gU28gbWljcm9jaGlwLG1pdi1paGMgc2hv
+dWxkIGJlIApzdWZmaWNpZW50IGlmICdtaXYnIGlzIGFuIFNvQy4KCj4gKwo+ICsgIHJlZzoKPiAr
+ICAgIG1heEl0ZW1zOiAxCj4gKwo+ICsgIGludGVycnVwdHM6Cj4gKyAgICBtaW5JdGVtczogMQo+
+ICsgICAgbWF4SXRlbXM6IDUKPiArCj4gKyAgaW50ZXJydXB0LW5hbWVzOgo+ICsgICAgbWluSXRl
+bXM6IDEKPiArICAgIG1heEl0ZW1zOiA1Cj4gKyAgICBpdGVtczoKPiArICAgICAgcGF0dGVybjog
+Il5oYXJ0LVswLTVdKyQiCj4gKwo+ICsgICIjbWJveC1jZWxscyI6Cj4gKyAgICBkZXNjcmlwdGlv
+bjogPgo+ICsgICAgICBGb3IgdGhlIFNCSSAiZGV2aWNlIiwgdGhlIGNlbGwgcmVwcmVzZW50cyB0
+aGUgZ2xvYmFsICJsb2dpY2FsIiBjaGFubmVsIElEcy4KPiArICAgICAgVGhlIG1lYW5pbmcgb2Yg
+Y2hhbm5lbCBJRHMgYXJlIHBsYXRmb3JtIGZpcm13YXJlIGRlcGVuZGVudC4KPiArCj4gKyAgICAg
+IEZvciB0aGUgU29DLXNwZWNpZmljIGNvbXBhdGlibGUgc3RyaW5nLCB0aGUgY2VsbCByZXByZXNl
+bnRzIHRoZSBwaHlzaWNhbAo+ICsgICAgICBjaGFubmVsIGFuZCBkb2VzIG5vdCB2YXJ5IGJhc2Vk
+IG9uIHRoZSBwbGF0Zm9ybSBmaXJtd2FyZS4KPiArICAgIGNvbnN0OiAxCj4gKwo+ICsgIG1pY3Jv
+Y2hpcCxpaGMtY2hhbi1kaXNhYmxlZC1tYXNrOgo+ICsgICAgZGVzY3JpcHRpb246ID4KPiArICAg
+ICAgUmVwcmVzZW50cyB0aGUgZW5hYmxlL2Rpc2FibGUgc3RhdGUgb2YgdGhlIGJpLWRpcmVjdGlv
+bmFsIElIQwo+ICsgICAgICBjaGFubmVscyB3aXRoaW4gdGhlIE1JVi1JSEMgSVAgY29uZmlndXJh
+dGlvbi4KPiArCj4gKyAgICAgIFRoZSBtYXNrIGlzIGEgMTYtYml0IHZhbHVlLCBidXQgb25seSB0
+aGUgZmlyc3QgMTUgYml0cyBhcmUgdXRpbGl6ZWQuCj4gKyAgICAgIEVhY2ggb2YgdGhlIGJpdHMg
+Y29ycmVzcG9uZHMgdG8gb25lIG9mIHRoZSAxNSBJSEMgY2hhbm5lbHMuCgpUaGF0IGNhbiBiZSBl
+eHByZXNzZWQgYXMgYSBjb25zdHJhaW50OgoKbWF4aW11bTogMHg3ZmZmCgpUaGVuIHlvdSBjYW4g
+ZHJvcCB0aGlzIHBhcmFncmFwaC4KCj4gKwo+ICsgICAgICBBIGJpdCBzZXQgdG8gJzEnIGluZGlj
+YXRlcyB0aGF0IHRoZSBjb3JyZXNwb25kaW5nIGNoYW5uZWwgaXMgZGlzYWJsZWQsCj4gKyAgICAg
+IGFuZCBhbnkgcmVhZCBvciB3cml0ZSBvcGVyYXRpb25zIHRvIHRoYXQgY2hhbm5lbCB3aWxsIHJl
+dHVybiB6ZXJvLgo+ICsKPiArICAgICAgQSBiaXQgc2V0IHRvICcwJyBpbmRpY2F0ZXMgdGhhdCB0
+aGUgY29ycmVzcG9uZGluZyBjaGFubmVsIGlzIGVuYWJsZWQKPiArICAgICAgYW5kIHdpbGwgYmUg
+YWNjZXNzaWJsZSB0aHJvdWdoIGl0cyBkZWRpY2F0ZWQgYWRkcmVzcyByYW5nZSByZWdpc3RlcnMu
+Cj4gKwo+ICsgICAgICBUaGUgcmVtYWluaW5nIGJpdCBvZiB0aGUgMTYtYml0IG1hc2sgaXMgcmVz
+ZXJ2ZWQgYW5kIHNob3VsZCBiZSBpZ25vcmVkLgoKQW5kIGRyb3AgdGhpcyBvbmUuCgo+ICsKPiAr
+ICAgICAgVGhlIGFjdHVhbCBlbmFibGUvZGlzYWJsZSBzdGF0ZSBvZiBlYWNoIGNoYW5uZWwgaXMg
+ZGV0ZXJtaW5lZCBieSB0aGUKPiArICAgICAgSVAgYmxvY2vigJlzIGNvbmZpZ3VyYXRpb24uCj4g
+KyAgICAkcmVmOiAvc2NoZW1hcy90eXBlcy55YW1sIy9kZWZpbml0aW9ucy91aW50MTYKPiArICAg
+IGRlZmF1bHQ6IDAKPiArCj4gK3JlcXVpcmVkOgo+ICsgIC0gY29tcGF0aWJsZQo+ICsgIC0gaW50
+ZXJydXB0cwo+ICsgIC0gaW50ZXJydXB0LW5hbWVzCj4gKyAgLSAiI21ib3gtY2VsbHMiCj4gKwo+
+ICthZGRpdGlvbmFsUHJvcGVydGllczogZmFsc2UKPiArCj4gK2FsbE9mOgo+ICsgIC0gaWY6Cj4g
+KyAgICAgIHByb3BlcnRpZXM6Cj4gKyAgICAgICAgY29tcGF0aWJsZToKPiArICAgICAgICAgIGNv
+bnRhaW5zOgo+ICsgICAgICAgICAgICBjb25zdDogbWljcm9jaGlwLHNiaS1pcGMKPiArICAgIHRo
+ZW46Cj4gKyAgICAgIHByb3BlcnRpZXM6Cj4gKyAgICAgICAgcmVnOiBmYWxzZQo+ICsgICAgICAg
+IG1pY3JvY2hpcCxpaGMtY2hhbi1kaXNhYmxlZC1tYXNrOiBmYWxzZQo+ICsgICAgZWxzZToKPiAr
+ICAgICAgcmVxdWlyZWQ6Cj4gKyAgICAgICAgLSByZWcKPiArICAgICAgICAtIG1pY3JvY2hpcCxp
+aGMtY2hhbi1kaXNhYmxlZC1tYXNrCj4gKwo+ICtleGFtcGxlczoKPiArICAtIHwKPiArICAgIG1h
+aWxib3ggewo+ICsgICAgICBjb21wYXRpYmxlID0gIm1pY3JvY2hpcCxzYmktaXBjIjsKPiArICAg
+ICAgaW50ZXJydXB0LXBhcmVudCA9IDwmcGxpYz47Cj4gKyAgICAgIGludGVycnVwdHMgPSA8MTgw
+PiwgPDE3OT4sIDwxNzg+Owo+ICsgICAgICBpbnRlcnJ1cHQtbmFtZXMgPSAiaGFydC0xIiwgImhh
+cnQtMiIsICJoYXJ0LTMiOwo+ICsgICAgICAjbWJveC1jZWxscyA9IDwxPjsKPiArICAgIH07Cj4g
+KyAgLSB8Cj4gKyAgICBtYWlsYm94QDUwMDAwMDAwIHsKPiArICAgICAgY29tcGF0aWJsZSA9ICJt
+aWNyb2NoaXAsbWl2LWloYy1ydGwtdjIiOwo+ICsgICAgICBtaWNyb2NoaXAsaWhjLWNoYW4tZGlz
+YWJsZWQtbWFzayA9IC9iaXRzLyAxNiA8MD47Cj4gKyAgICAgIHJlZyA9IDwweDUwMDAwMDAwIDB4
+MUMwMDA+Owo+ICsgICAgICBpbnRlcnJ1cHQtcGFyZW50ID0gPCZwbGljPjsKPiArICAgICAgaW50
+ZXJydXB0cyA9IDwxODA+LCA8MTc5PiwgPDE3OD47Cj4gKyAgICAgIGludGVycnVwdC1uYW1lcyA9
+ICJoYXJ0LTEiLCAiaGFydC0yIiwgImhhcnQtMyI7Cj4gKyAgICAgICNtYm94LWNlbGxzID0gPDE+
+Owo+ICsgICAgfTsKPiAtLSAKPiAyLjM0LjEKPiAKCl9fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNj
+dkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4v
+bGlzdGluZm8vbGludXgtcmlzY3YK
