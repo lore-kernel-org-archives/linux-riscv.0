@@ -4,79 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A61D2D6C299
-	for <linux-riscv@archiver.kernel.org>; Tue, 19 Nov 2024 20:39:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0666DD6C2AF
+	for <linux-riscv@archiver.kernel.org>; Tue, 19 Nov 2024 21:47:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
+	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=5l8TQZ9sAHoJe8bSFKlg2dk4rU1wE+sQDSFcr86X1jM=; b=qYCV7FRy6ATjPU
-	jVm1apqNIhzd6zsUsHtKem/hV4vhFFFPgQ8usp0YA92wypVNKSd+thuzPqNx2LjExggNEy2/vnomX
-	jyXpk8Vwo2H9QKcbP3+U3acYSWT9xmaDzej2uk/jo1jnkvMyAkXmyxAo/A/GBX9LECsTsljcC5HXK
-	ZWmiELilmCFhxoEZLEg6MZXs8Xu1Gg71+yEO/IWNXGry9GwGyRs07on4lZ4t+ChS9mvwp6j3XeWx9
-	1btWV1z/H/pvx1CDcx43X5ZiNlw87TUg43optFtx0DboZ8HVBqwOx7/ScutInybjbFuqUqStG0oYa
-	WEagl9hX0TQd36yFAw+Q==;
+	List-Owner; bh=lXI9izDCM1+RCdzW4KP9lwQXXmPU5BPrDioAkQ6VgGI=; b=380JzDAtvfuCKG
+	L2uJJRJolQcwggsN+ieqRFI0lddzYjdhZF0jv2aW9QD2Xg+EIYIEXApAoaKk5JUD2JfYVN+e/aeIY
+	rujL/62uBkCnaagqALphMlFphk8qMUNeeyrz5ndAh9oHXLZeQbVGiMgrqHIggue7s1b3KX/eTag1X
+	W0MgEJNcr69fToy5H5612WeKeWHROXqYKlpOKIn5ntz0yS9FSsmBiUceh7zOyQEeCabj9HbZr59jf
+	t+uzRvDtoJYzR7HNk+dHznO+bhiCWVR5n6pkSJxZHf+SFxw1pHpe3F09MAew7vHB46OHDzpTwnbmV
+	aFaWAHo5B2KAhCmwsZNQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tDV0Z-0000000DjlZ-2ZRM;
-	Tue, 19 Nov 2024 20:39:35 +0000
-Received: from mail-lf1-x129.google.com ([2a00:1450:4864:20::129])
+	id 1tDW3w-0000000Dpy7-3R5J;
+	Tue, 19 Nov 2024 21:47:08 +0000
+Received: from mail-pl1-x62b.google.com ([2607:f8b0:4864:20::62b])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tDUts-0000000Dhl8-162x
+	id 1tDUsE-0000000Dh4y-0Ay2
 	for linux-riscv@lists.infradead.org;
-	Tue, 19 Nov 2024 20:32:41 +0000
-Received: by mail-lf1-x129.google.com with SMTP id 2adb3069b0e04-53a097aa3daso3432379e87.1
-        for <linux-riscv@lists.infradead.org>; Tue, 19 Nov 2024 12:32:39 -0800 (PST)
+	Tue, 19 Nov 2024 20:30:59 +0000
+Received: by mail-pl1-x62b.google.com with SMTP id d9443c01a7336-21269c8df64so1899275ad.2
+        for <linux-riscv@lists.infradead.org>; Tue, 19 Nov 2024 12:30:57 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=atishpatra.org; s=google; t=1732048358; x=1732653158; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=hWYEkOWioHzgVeGfpq57ujDZosgAfTiRf1WJliLcrIk=;
-        b=mIjbvnCzzrGZKMCLXy5/6gXwG/7ZA0TLbXwC8XXsbQKx8YCVIYqBghK/k7q/AvrX+h
-         SPJf0tWp68vVuRd6huRD/h46lueS0M3tPDvSBy5da943zx67Xj+CdSeiFV5Om2BLiLiN
-         zdnVE4VC7WrO6q3WxE5h3p4/AHjL3MzRfeXSQ=
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1732048257; x=1732653057; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=bs99zjzT6d12gvM6MWyIJ6XWCfETAhHft1AvWE2UFvk=;
+        b=QbaO1ltNH38dL/h1ymHazE9QJLCEcGTMkuCFX8obZtZ7gu7P2zUcrsS/RWFiPlGmL6
+         h2j+gnS4B1yFQFvQTdEU69Ysk/27aA1AkFIRSkTzzbFNkK1HVddckj9TgqS838Mtclu7
+         oafdheyBdZ/AM0zKLg5/7NKBg5OG5rCv42spWk6QCwsF2mDZjrOnIsPC7ne5BTIEoE79
+         OQsIX9bb29r6PSRkyC7pJdwKXrRJmiX69ntyXdrIE1DIiWrd/1/jHWH2rPWuAT7ko3+3
+         chkPA+PCtgfHsW45T2vbeZUhkjPZH4A5NEZeYE90RiYnTRLVKDzFX0tl8BWr+sA/JbxW
+         R80g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1732048358; x=1732653158;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+        d=1e100.net; s=20230601; t=1732048257; x=1732653057;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=hWYEkOWioHzgVeGfpq57ujDZosgAfTiRf1WJliLcrIk=;
-        b=XwxlBVC2KuZSJK5Hmwg4zf6RSfMRwe6W8EkOfJS9rhWmgAG4RkIsc/UnM/600uZbTk
-         EaFKAL+mFQLHQfJQScFQrlQVes76Kl9QbUF2mGGe+F9WxOIHYffDwDzg9jp177i9W6hp
-         g9SKnEURAUpl24V5tJDWyE10Mu9okn5iCKw7X0pXOsqzV3nVID5WCTb+QHpxiubXOTfx
-         SHgPKCicIjuZWY4Z7hSgnKYHLdTO2saLETam180LZacK+65sSAdWS7tRAM7HzkUVnFQ2
-         loXoL38jsCQrTIjg48sxDmouI+cw4oeLWmgjX4n624Wtzmtcxu93ggyE1NlNyZweyEOe
-         BvWQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUBBaish3O8GJBLFukUCsqL9kLfQuZ3WPVgB4yhOVvsr8HFemisVNhebfMaYbxl9V6dKlpbv0Oo6DgKhg==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw40zFlacEszpTMveng3FoajhRA5M37gBaxdaLmjfDo9/04Di3B
-	QFrpznj+8hv6q+RA4yAWs7fYF2C5EHPsyx0ZBj5hYtQ7XzrUtoINAXLoLm7wDWa01uprClLVlH2
-	NeEttEL1PYoWaghDBV5+cw4rEyPfItaHAUN9z
-X-Google-Smtp-Source: AGHT+IHehrUYEzEiAX5rp04UBz9YHJyIrQz3EVW0EutgehQKYe+7DHzI9LMwa0xr58vt5qaV/wiuwXsHZJodWJ94xHY=
-X-Received: by 2002:a05:6512:2347:b0:52e:98f6:c21f with SMTP id
- 2adb3069b0e04-53dc13338a9mr32181e87.16.1732048357488; Tue, 19 Nov 2024
- 12:32:37 -0800 (PST)
+        bh=bs99zjzT6d12gvM6MWyIJ6XWCfETAhHft1AvWE2UFvk=;
+        b=qmK4qtMf5jvEVy6jUs0azHyBKBpDQk8GjWR1iguae+S4WJD86pjIrkg/1KvcciZkF3
+         /8//jRPFe1Ovha5rBVqLJz+i4heZUd0uQegOI0CWO/vZ9sBxX3KwVu2LbmvY1voOmSKJ
+         LkW5x5s40EAhtdoOy0purvA/wRVVXtSnzdrvbacRCLjHlHV6tN5mey6kSw+cD0lNjwc/
+         r7j4qi2YxG1mkotwqkR6LihTIDHWqa8PwhPTUSUQHY/ny63KZVMuIOZLOmyCmoJ3e+QJ
+         wY8pjIhFfkDqkP0QRKsEcb/8oaL83ZfKhdqGB+utyH29nXGK+fYytIpyg/LyqgPCuQpa
+         BzrA==
+X-Gm-Message-State: AOJu0Ywf/qu0lhRirfi+bhbXTpkCvP3yxyKI5X8/KVD5FNSZN4gLn5S0
+	yejIMKs/smsyEF8lsyYUd4CI/ujHFUxsei7aflYvYVA5mkOjrJ2WmYitP59ay2w=
+X-Google-Smtp-Source: AGHT+IESHBYfIB+Rw/ycY/laHoMRI9Uw6Iu8jOPbVMITks5jvKXyAK0AlmSBcZiVndbkDkPBOO2Y/A==
+X-Received: by 2002:a17:903:230d:b0:211:ee35:830c with SMTP id d9443c01a7336-2126a34d311mr3124645ad.15.1732048256798;
+        Tue, 19 Nov 2024 12:30:56 -0800 (PST)
+Received: from atishp.ba.rivosinc.com ([64.71.180.162])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-211d0f34f2fsm79001315ad.159.2024.11.19.12.30.55
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 19 Nov 2024 12:30:56 -0800 (PST)
+From: Atish Patra <atishp@rivosinc.com>
+Date: Tue, 19 Nov 2024 12:29:55 -0800
+Subject: [PATCH 7/8] RISC-V: KVM: Implement get event info function
 MIME-Version: 1.0
-References: <20241105183513.1358736-1-valentina.fernandezalanis@microchip.com>
- <20241105183513.1358736-3-valentina.fernandezalanis@microchip.com> <20241111215220.GA1993016-robh@kernel.org>
-In-Reply-To: <20241111215220.GA1993016-robh@kernel.org>
-From: Atish Patra <atishp@atishpatra.org>
-Date: Tue, 19 Nov 2024 12:32:26 -0800
-Message-ID: <CAOnJCU+ac07aT9jLf5zqB+HnzHyqLMZE-Mz+cJDTdMAkS6LRTg@mail.gmail.com>
-Subject: Re: [PATCH v3 2/4] riscv: export __cpuid_to_hartid_map
-To: Rob Herring <robh@kernel.org>
-Cc: Valentina Fernandez <valentina.fernandezalanis@microchip.com>, paul.walmsley@sifive.com, 
-	palmer@dabbelt.com, aou@eecs.berkeley.edu, ycliang@andestech.com, 
-	prabhakar.mahadev-lad.rj@bp.renesas.com, peterlin@andestech.com, 
-	samuel.holland@sifive.com, conor.dooley@microchip.com, alexghiti@rivosinc.com, 
-	ruanjinjie@huawei.com, takakura@valinux.co.jp, conor+dt@kernel.org, 
-	jassisinghbrar@gmail.com, krzk+dt@kernel.org, linux-riscv@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org
+Message-Id: <20241119-pmu_event_info-v1-7-a4f9691421f8@rivosinc.com>
+References: <20241119-pmu_event_info-v1-0-a4f9691421f8@rivosinc.com>
+In-Reply-To: <20241119-pmu_event_info-v1-0-a4f9691421f8@rivosinc.com>
+To: Anup Patel <anup@brainfault.org>, Will Deacon <will@kernel.org>, 
+ Mark Rutland <mark.rutland@arm.com>, 
+ Paul Walmsley <paul.walmsley@sifive.com>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, 
+ Mayuresh Chitale <mchitale@ventanamicro.com>
+Cc: linux-riscv@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, Palmer Dabbelt <palmer@rivosinc.com>, 
+ kvm@vger.kernel.org, kvm-riscv@lists.infradead.org, 
+ Atish Patra <atishp@rivosinc.com>
+X-Mailer: b4 0.15-dev-13183
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241119_123240_400305_76101DCB 
-X-CRM114-Status: GOOD (  16.31  )
+X-CRM114-CacheID: sfid-20241119_123058_100897_901669BB 
+X-CRM114-Status: GOOD (  15.24  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,34 +93,135 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gTW9uLCBOb3YgMTEsIDIwMjQgYXQgMTo1MuKAr1BNIFJvYiBIZXJyaW5nIDxyb2JoQGtlcm5l
-bC5vcmc+IHdyb3RlOgo+Cj4gT24gVHVlLCBOb3YgMDUsIDIwMjQgYXQgMDY6MzU6MTFQTSArMDAw
-MCwgVmFsZW50aW5hIEZlcm5hbmRleiB3cm90ZToKPiA+IEVYUE9SVF9TWU1CT0xfR1BMKCkgaXMg
-bWlzc2luZyBmb3IgX19jcHVpZF90b19oYXJ0aWRfbWFwIGFycmF5Lgo+ID4gRXhwb3J0IHRoaXMg
-c3ltYm9sIHRvIGFsbG93IGRyaXZlcnMgY29tcGlsZWQgYXMgbW9kdWxlcyB0byB1c2UKPiA+IGNw
-dWlkX3RvX2hhcnRpZF9tYXAoKS4KPiA+Cj4gPiBTaWduZWQtb2ZmLWJ5OiBWYWxlbnRpbmEgRmVy
-bmFuZGV6IDx2YWxlbnRpbmEuZmVybmFuZGV6YWxhbmlzQG1pY3JvY2hpcC5jb20+Cj4gPiAtLS0K
-PiA+ICBhcmNoL3Jpc2N2L2tlcm5lbC9zbXAuYyB8IDEgKwo+ID4gIDEgZmlsZSBjaGFuZ2VkLCAx
-IGluc2VydGlvbigrKQo+ID4KPiA+IGRpZmYgLS1naXQgYS9hcmNoL3Jpc2N2L2tlcm5lbC9zbXAu
-YyBiL2FyY2gvcmlzY3Yva2VybmVsL3NtcC5jCj4gPiBpbmRleCBjMTgwYTY0N2EzMGUuLmQ1OGI1
-ZTc1MTI4NiAxMDA2NDQKPiA+IC0tLSBhL2FyY2gvcmlzY3Yva2VybmVsL3NtcC5jCj4gPiArKysg
-Yi9hcmNoL3Jpc2N2L2tlcm5lbC9zbXAuYwo+ID4gQEAgLTQzLDYgKzQzLDcgQEAgZW51bSBpcGlf
-bWVzc2FnZV90eXBlIHsKPiA+ICB1bnNpZ25lZCBsb25nIF9fY3B1aWRfdG9faGFydGlkX21hcFtO
-Ul9DUFVTXSBfX3JvX2FmdGVyX2luaXQgPSB7Cj4gPiAgICAgICBbMCAuLi4gTlJfQ1BVUy0xXSA9
-IElOVkFMSURfSEFSVElECj4gPiAgfTsKPiA+ICtFWFBPUlRfU1lNQk9MX0dQTChfX2NwdWlkX3Rv
-X2hhcnRpZF9tYXApOwo+Cj4gV2h5IGNhbid0IHJpc2N2IGltcGxlbWVudCBjcHVfbG9naWNhbF9t
-YXAoKSBsaWtlIG90aGVyIGFyY2hlcz8KPgoKV2UgY2FuIGFuZCB3ZSBzaG91bGQgOikKCj4gV2Ug
-cmVhbGx5IHNob3VsZCBoYXZlIGEgY29tbW9uIGltcGxlbWVudGF0aW9uIHRvbywgYnV0IHRoYXQn
-cyBwcm9iYWJseQo+IHRvbyBtdWNoIHRvIGFzayBJIGd1ZXNzLgo+Cj4gUm9iCj4KPgo+IF9fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCj4gbGludXgtcmlzY3Yg
-bWFpbGluZyBsaXN0Cj4gbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwo+IGh0dHA6Ly9s
-aXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YKCgoKLS0gClJl
-Z2FyZHMsCkF0aXNoCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFk
-Lm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJp
-c2N2Cg==
+The new get_event_info funciton allows the guest to query the presence
+of multiple events with single SBI call. Currently, the perf driver
+in linux guest invokes it for all the standard SBI PMU events. Support
+the SBI function implementation in KVM as well.
+
+Signed-off-by: Atish Patra <atishp@rivosinc.com>
+---
+ arch/riscv/include/asm/kvm_vcpu_pmu.h |  3 ++
+ arch/riscv/kvm/vcpu_pmu.c             | 67 +++++++++++++++++++++++++++++++++++
+ arch/riscv/kvm/vcpu_sbi_pmu.c         |  3 ++
+ 3 files changed, 73 insertions(+)
+
+diff --git a/arch/riscv/include/asm/kvm_vcpu_pmu.h b/arch/riscv/include/asm/kvm_vcpu_pmu.h
+index 1d85b6617508..9a930afc8f57 100644
+--- a/arch/riscv/include/asm/kvm_vcpu_pmu.h
++++ b/arch/riscv/include/asm/kvm_vcpu_pmu.h
+@@ -98,6 +98,9 @@ void kvm_riscv_vcpu_pmu_init(struct kvm_vcpu *vcpu);
+ int kvm_riscv_vcpu_pmu_snapshot_set_shmem(struct kvm_vcpu *vcpu, unsigned long saddr_low,
+ 				      unsigned long saddr_high, unsigned long flags,
+ 				      struct kvm_vcpu_sbi_return *retdata);
++int kvm_riscv_vcpu_pmu_event_info(struct kvm_vcpu *vcpu, unsigned long saddr_low,
++				  unsigned long saddr_high, unsigned long num_events,
++				  unsigned long flags, struct kvm_vcpu_sbi_return *retdata);
+ void kvm_riscv_vcpu_pmu_deinit(struct kvm_vcpu *vcpu);
+ void kvm_riscv_vcpu_pmu_reset(struct kvm_vcpu *vcpu);
+ 
+diff --git a/arch/riscv/kvm/vcpu_pmu.c b/arch/riscv/kvm/vcpu_pmu.c
+index efd66835c2b8..a30f7ec31479 100644
+--- a/arch/riscv/kvm/vcpu_pmu.c
++++ b/arch/riscv/kvm/vcpu_pmu.c
+@@ -456,6 +456,73 @@ int kvm_riscv_vcpu_pmu_snapshot_set_shmem(struct kvm_vcpu *vcpu, unsigned long s
+ 	return 0;
+ }
+ 
++int kvm_riscv_vcpu_pmu_event_info(struct kvm_vcpu *vcpu, unsigned long saddr_low,
++				  unsigned long saddr_high, unsigned long num_events,
++				  unsigned long flags, struct kvm_vcpu_sbi_return *retdata)
++{
++	unsigned long hva;
++	struct riscv_pmu_event_info *einfo;
++	int shmem_size = num_events * sizeof(*einfo);
++	bool writable;
++	gpa_t shmem;
++	u32 eidx, etype;
++	u64 econfig;
++	int ret;
++
++	if (flags != 0 || (saddr_low & (SZ_16 - 1))) {
++		ret = SBI_ERR_INVALID_PARAM;
++		goto out;
++	}
++
++	shmem = saddr_low;
++	if (saddr_high != 0) {
++		if (IS_ENABLED(CONFIG_32BIT)) {
++			shmem |= ((gpa_t)saddr_high << 32);
++		} else {
++			ret = SBI_ERR_INVALID_ADDRESS;
++			goto out;
++		}
++	}
++
++	hva = kvm_vcpu_gfn_to_hva_prot(vcpu, shmem >> PAGE_SHIFT, &writable);
++	if (kvm_is_error_hva(hva) || !writable) {
++		ret = SBI_ERR_INVALID_ADDRESS;
++		goto out;
++	}
++
++	einfo = kzalloc(shmem_size, GFP_KERNEL);
++	if (!einfo)
++		return -ENOMEM;
++
++	ret = kvm_vcpu_read_guest(vcpu, shmem, einfo, shmem_size);
++	if (ret) {
++		ret = SBI_ERR_FAILURE;
++		goto free_mem;
++	}
++
++	for (int i = 0; i < num_events; i++) {
++		eidx = einfo[i].event_idx;
++		etype = kvm_pmu_get_perf_event_type(eidx);
++		econfig = kvm_pmu_get_perf_event_config(eidx, einfo[i].event_data);
++		ret = riscv_pmu_get_event_info(etype, econfig, NULL);
++		if (ret > 0)
++			einfo[i].output = 1;
++	}
++
++	kvm_vcpu_write_guest(vcpu, shmem, einfo, shmem_size);
++	if (ret) {
++		ret = SBI_ERR_FAILURE;
++		goto free_mem;
++	}
++
++free_mem:
++	kfree(einfo);
++out:
++	retdata->err_val = ret;
++
++	return 0;
++}
++
+ int kvm_riscv_vcpu_pmu_num_ctrs(struct kvm_vcpu *vcpu,
+ 				struct kvm_vcpu_sbi_return *retdata)
+ {
+diff --git a/arch/riscv/kvm/vcpu_sbi_pmu.c b/arch/riscv/kvm/vcpu_sbi_pmu.c
+index e4be34e03e83..a020d979d179 100644
+--- a/arch/riscv/kvm/vcpu_sbi_pmu.c
++++ b/arch/riscv/kvm/vcpu_sbi_pmu.c
+@@ -73,6 +73,9 @@ static int kvm_sbi_ext_pmu_handler(struct kvm_vcpu *vcpu, struct kvm_run *run,
+ 	case SBI_EXT_PMU_SNAPSHOT_SET_SHMEM:
+ 		ret = kvm_riscv_vcpu_pmu_snapshot_set_shmem(vcpu, cp->a0, cp->a1, cp->a2, retdata);
+ 		break;
++	case SBI_EXT_PMU_EVENT_GET_INFO:
++		ret = kvm_riscv_vcpu_pmu_event_info(vcpu, cp->a0, cp->a1, cp->a2, cp->a3, retdata);
++		break;
+ 	default:
+ 		retdata->err_val = SBI_ERR_NOT_SUPPORTED;
+ 	}
+
+-- 
+2.34.1
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
