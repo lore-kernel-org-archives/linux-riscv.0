@@ -4,93 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5BE81D44173
-	for <linux-riscv@archiver.kernel.org>; Tue, 19 Nov 2024 15:36:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 03F6FD591A5
+	for <linux-riscv@archiver.kernel.org>; Tue, 19 Nov 2024 17:07:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=c+tXSqds+bRnEp1jVc9c7GSNkCOJW5a8ylKvGHhcfrY=; b=TVIvP89Ju63l5X
-	1z616Umz6+2vTGeUuLkB89wnKqJQpUlO8qkhQxSgDAS1pHyFJ+IpCBzQ6Y/d/mzMIkN0PRku9yK1Q
-	t3Z/H2OLO0dYJRwkf85Y0iVqLGs/DpFmX8hiHHoDgvRUt6AGGdfIhnDUzRdFoleOajv9qUeKNbhKY
-	NY2wkfERWdEKYtcJRREni8q+FTMI3nnLUaGKwLyei6MuU3rm00Q/zjOfxsN0JBV5CYeg+SSJ2DBpM
-	1+nuD0b0OAC2LPWpvzp6ZCa9Wmb39SYXj7cn+u73f++7mU2U6JGIvOVCgNDtorr+NKMr2gUXyyLYC
-	qJGVIHWGyrBlesxa6v3A==;
+	List-Owner; bh=cVEzZdWb4GUp5h89BCNOHJCKS9/Me02bGb7M9UimbU0=; b=s3EAWEXBjHgR4t
+	vJsFfUmw+/KxxxR3m7Zck80AIaukBUWH8wpplmvEyFo3cN/aXlL4tEDY0EQflbfe8tLTErMnMUGdq
+	4KuwjTUfen4kpTNGE0c/chZniYXVt6bHqzyGEJfMtOXqnVIqGokdodpgNZ6vZAHju6+ghmZu0I0G/
+	EeAknCFFfBPb9frWPrx5Y9lKwNiNAUs0XtUKAuYDnw+1Bdtnb6NiNvFopZTYWvV+O2L76f8IDg1o6
+	B4gchD1LU9g3ODKpVsLU6fScrHzTT4oSeX4q2yFayJGi0yOkhbvZPgMuab9ahBMV9Na/TRWkOxOfm
+	KuARzw6hiopM2vIZ9s9A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tDQHE-0000000CsOT-0Cn9;
-	Tue, 19 Nov 2024 15:36:28 +0000
-Received: from mail-qk1-x731.google.com ([2607:f8b0:4864:20::731])
+	id 1tDRgy-0000000DA44-1AIi;
+	Tue, 19 Nov 2024 17:07:08 +0000
+Received: from mail-pl1-x632.google.com ([2607:f8b0:4864:20::632])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tDQHB-0000000CsLs-0a54
+	id 1tDRXq-0000000D7vB-2Ca5
 	for linux-riscv@lists.infradead.org;
-	Tue, 19 Nov 2024 15:36:27 +0000
-Received: by mail-qk1-x731.google.com with SMTP id af79cd13be357-7b14443a71eso293396285a.1
-        for <linux-riscv@lists.infradead.org>; Tue, 19 Nov 2024 07:36:24 -0800 (PST)
+	Tue, 19 Nov 2024 16:57:44 +0000
+Received: by mail-pl1-x632.google.com with SMTP id d9443c01a7336-21210eaa803so28008865ad.2
+        for <linux-riscv@lists.infradead.org>; Tue, 19 Nov 2024 08:57:41 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ziepe.ca; s=google; t=1732030583; x=1732635383; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=3mHQxzFmFKlA+b0zYZcHoo+aU2zGMKGJLF0Y2reUtOA=;
-        b=S/5LR5+C+lJL4GV5Y0XweXiU6lUdkCOi64lfAIAoikIgWTcb/1S5QeV3fpRJEhcqPJ
-         Vv7AsqrrqlIzXE90xcv3FLE2wBfnJQFvIFhmK4iF7AYJWqQ9Py/37Ne5vvLt/ojDunDh
-         y/Rya2qldadWYgcQHg9qYpICNn+Iu98/l8kjddzZZQzjpnKlW8GhixJzlAUOJ9xamwVy
-         dWuh4I36qxz4hc0Ds1tz3X/FZc+GEWNR285GV89OsT6QrFgpe+QKT2ZNdk3pg/H1uEgl
-         yIZkR0e8K+aOuDleodnBhMzXMBHGCoY566s6WaUKm2UvUU7gei7HlDUWMHday7tlZZH1
-         9y9g==
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1732035461; x=1732640261; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=zIM5C3U9SgKHG2ejtKJVceWgRiY5n+HYVGt81nCAm3w=;
+        b=19XLquf/6sWPMtE6SXB7RXhXytQhPYwd4gyWBsuG41N4QuPx7/0jxFD5kKjm9Jcmd0
+         S2Gzl+SK5b/SrkrBhZqqhlkL91n57Wmo7sUuuUQDfkUJnRSCg3FqYdCsZrr6ga0a8Qia
+         v6vnr71TSjvLRPatqj0UPu0gZQwhKWwqRx6X7FXxxuL7WPCATku9wBuio06/uNc5mjL9
+         vOUaLdVtt80OIhDAQxSBoD2HXWfU7wa6GioEAAhwzsR+dVMOiilWw+hn/hNrzGN7X3ao
+         khnm84a/qYAg/J7uyGxi1MFqGzmgZsF7TABOZVDh1c/wYFSuLP0UYkAubg7JEupWKP7g
+         NGZQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1732030583; x=1732635383;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=3mHQxzFmFKlA+b0zYZcHoo+aU2zGMKGJLF0Y2reUtOA=;
-        b=IhpRLXj15Ch/lST7bxg+RD4PzFAS/kt3wvzjg0+nMGuq6S7w+fv3ias/dDPXQ+2jUC
-         N0mqWb5EaI1rtGihmIdqoUSjsXOa89zNlVzahpl/vzNDZhbhd+BHkf9HwvNSSrIBr3i0
-         Ees2NEMCPTxxn7yOmnyMSiF0bPpKwy5cF+rYBQhVY/7kHJbYmSkCkv44u0Wee2A8ymjJ
-         +atJ8+ubEwK7zrcwbZ6ZnAw2hZq4IaJX/G1HCZ0gOfup32yZ/t9fRYo1A1B+MzW1mHb3
-         XWQA4mHyh7UJkt0WYL/0j1gp+ChCkwxARM1U9EZu0gNuVwOMMBjHHk7+zZ5Az5nqXTwi
-         EtZg==
-X-Forwarded-Encrypted: i=1; AJvYcCV7eiinl9h/Fp9xgsS0RweBgL8DziUmkwgKkuL9XSUVS0EtV+UkP8zUiqGXFWtOaoXlcfW+rLnN12UlDA==@lists.infradead.org
-X-Gm-Message-State: AOJu0YwJuVG5xVe0QOZuj8CZm/GhRwfyFthTDmdXBCvng4zW5YbHPHdU
-	R61GL5apshC0s0665EW0F1t54BVRs3P8wXE6aXdFwDVff6ghnO2yq6RdhqJ0as8=
-X-Google-Smtp-Source: AGHT+IH4/mgl4haITeaqcVAP0uJ0PicTb/W5vrOpJN7LD+UFoRrLptgSOiQTXdZYlGY+OxnTFThNlg==
-X-Received: by 2002:a05:620a:28d1:b0:7ac:b04e:34c6 with SMTP id af79cd13be357-7b362363c62mr1842987085a.50.1732030583616;
-        Tue, 19 Nov 2024 07:36:23 -0800 (PST)
-Received: from ziepe.ca (hlfxns017vw-142-68-128-5.dhcp-dynamic.fibreop.ns.bellaliant.net. [142.68.128.5])
-        by smtp.gmail.com with ESMTPSA id af79cd13be357-7b37a89fc13sm102554185a.109.2024.11.19.07.36.22
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 19 Nov 2024 07:36:22 -0800 (PST)
-Received: from jgg by wakko with local (Exim 4.97)
-	(envelope-from <jgg@ziepe.ca>)
-	id 1tDQH8-00000003ErC-0NkI;
-	Tue, 19 Nov 2024 11:36:22 -0400
-Date: Tue, 19 Nov 2024 11:36:22 -0400
-From: Jason Gunthorpe <jgg@ziepe.ca>
-To: Andrew Jones <ajones@ventanamicro.com>
-Cc: iommu@lists.linux.dev, kvm-riscv@lists.infradead.org,
-	kvm@vger.kernel.org, linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org, tjeznach@rivosinc.com,
-	zong.li@sifive.com, joro@8bytes.org, will@kernel.org,
-	robin.murphy@arm.com, anup@brainfault.org, atishp@atishpatra.org,
-	tglx@linutronix.de, alex.williamson@redhat.com,
-	paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu
-Subject: Re: [RFC PATCH 08/15] iommu/riscv: Add IRQ domain for interrupt
- remapping
-Message-ID: <20241119153622.GD559636@ziepe.ca>
-References: <20241114161845.502027-17-ajones@ventanamicro.com>
- <20241114161845.502027-25-ajones@ventanamicro.com>
- <20241118184336.GB559636@ziepe.ca>
- <20241119-62ff49fc1eedba051838dba2@orel>
- <20241119140047.GC559636@ziepe.ca>
- <DE13E1DF-7C68-461D-ADCD-8141B1ACEA5E@ventanamicro.com>
+        d=1e100.net; s=20230601; t=1732035461; x=1732640261;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=zIM5C3U9SgKHG2ejtKJVceWgRiY5n+HYVGt81nCAm3w=;
+        b=u6JocenAPSwTinJuGMtF3LZ0YHvhJtuuHpcQhpGzZmwhgjv9RNynJuacdoElYsTe6Q
+         gveXS38zvbPntgEB0OOK4bDherKd8X91JAs7E5E02yqpH+2kzlzH4RA7yDTRhFLXa7UA
+         ITETrwLa4/tCfLce94kP+2TWFQu5lp7JPZuMhGmR/TZh4bQoQkGyc6RvoQysDvE8IDUu
+         HIcEBDuGUWVKwgrjq/zxp33ZQiKXiNXgMnbTmkLUZDaOhD8To9UTPURh3d5MuDCttQZu
+         KsbNZtFX5uzKOrdikRh4Tb86P5yaAcOn8ZjdB/EVao+mGVX51jXaKmPEIrUkOyCyy/iT
+         jwHw==
+X-Forwarded-Encrypted: i=1; AJvYcCVAw+IZGhu70mBH9p2my0+oCBoyTfHiCrFpO2BpNp1jIlWFUup+Y8D7mlMhCO7zGZ8uGF48Giu9ef/ETw==@lists.infradead.org
+X-Gm-Message-State: AOJu0YxpCpw1DelowBy+UgN3x9lsJQRDsrFg2G18bBp82Wx001sH9ec2
+	rBqhOgHCXGFR+pSeexDqFqWUawMDaLGFt9Fi6A+roQgLEAhz+IkJcgdXQ4VaAWk=
+X-Google-Smtp-Source: AGHT+IG4kkUTi/c5CZ92Iiptcoo64JT2r4oVJmh+qSFIGjvkOyirSO0mJ0D9m90WudNodnVcPjFy/w==
+X-Received: by 2002:a17:903:946:b0:212:4cfa:ba78 with SMTP id d9443c01a7336-2124cfabbfbmr49230275ad.52.1732035460759;
+        Tue, 19 Nov 2024 08:57:40 -0800 (PST)
+Received: from ?IPV6:2a01:e0a:e17:9700:16d2:7456:6634:9626? ([2a01:e0a:e17:9700:16d2:7456:6634:9626])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-211d0f346cbsm77340865ad.118.2024.11.19.08.57.36
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 19 Nov 2024 08:57:40 -0800 (PST)
+Message-ID: <ffcdbcbe-a5f6-48f4-a0a3-0d35c6c80050@rivosinc.com>
+Date: Tue, 19 Nov 2024 17:57:36 +0100
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <DE13E1DF-7C68-461D-ADCD-8141B1ACEA5E@ventanamicro.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] riscv: fix memory leakage in
+ process_accumulated_relocations
+To: zhangkai@iscas.ac.cn, Walmsley <paul.walmsley@sifive.com>,
+ Dabbelt <palmer@dabbelt.com>, Ou <aou@eecs.berkeley.edu>,
+ linux-riscv@lists.infradead.org
+Cc: linux-kernel@vger.kernel.org
+References: <35cab46a.6d145.19334919ed0.Coremail.zhangkai@iscas.ac.cn>
+Content-Language: en-US
+From: =?UTF-8?B?Q2zDqW1lbnQgTMOpZ2Vy?= <cleger@rivosinc.com>
+In-Reply-To: <35cab46a.6d145.19334919ed0.Coremail.zhangkai@iscas.ac.cn>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241119_073625_203699_53D0375A 
-X-CRM114-Status: GOOD (  40.96  )
+X-CRM114-CacheID: sfid-20241119_085742_765260_7671D101 
+X-CRM114-Status: GOOD (  14.83  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,112 +91,49 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Nov 19, 2024 at 04:03:05PM +0100, Andrew Jones wrote:
-
-> >This is the wrong thinking entirely. There is no such thing as a "VFIO
-> >domain".
-> >
-> >Default VFIO created domains should act excatly the same as a DMA API
-> >domain.
-> >
-> >If you want your system to have irq remapping, then it should be on by
-> >default and DMA API gets remapping too. There would need to be a very
-> >strong reason not to do that in order to make something special for
-> >riscv. If so you'd need to add some kind of flag to select it.
-> >
-> >Until you reach nested translation there is no "need" for VFIO to use
-> >any particular stage. The design is that default VFIO uses the same
-> >stage as the DMA API because it is doing the same basic default
-> >translation function.
-> 
-> The RISC-V IOMMU needs to use g-stage for device assignment, if we
-> also want to enable irqbypass, because the IOMMU is specified to
-> only look at the MSI table when g-stage is in use. This is actually
-> another reason the irq domain only makes sense for device
-> assignment.
-
-Most HW has enablable interrupt remapping and typically Linux just
-turns it always on.
-
-Is there a reason the DMA API shouldn't use this translation mode too?
-That seems to be the main issue here, you are trying to avoid
-interrupt remapping for DMA API and use it only for VFIO, and haven't
-explained why we need such complexity. Just use it always?
-
-> >Nested translation has a control to select the stage, and you can
-> >then force the g-stage for VFIO users at that point.
-> 
-> We could force riscv device assignment to always be nested, and when
-> not providing an iommu to the guest, it will still be single-stage,
-> but g-stage, but I don't think that's currently possible with VFIO,
-> is it?
-
-That isn't what I mean, I mean you should not be forcing the kind of
-domain being created until you get to special cases like nested.
-
-Default VFIO should work the same as the DMA API.
-
-> >> The IRQ domain will only be useful for device assignment, as that's when
-> >> an MSI translation will be needed. I can't think of any problems that
-> >> could arise from only creating the IRQ domain when probing assigned
-> >> devices, but I could certainly be missing something. Do you have some
-> >> potential problems in mind?
-> >
-> >I'm not an expert in the interrupt subsystem, but my understanding was
-> >we expect the interrupt domains/etc to be static once a device driver
-> >is probed. Changing things during iommu domain attach is after drivers
-> >are probed. I don't really expect it to work correctly in all corner
-> >cases.
-> 
-> With VFIO the iommu domain attach comes after an unbind/bind, so the
-> new driver is probed.
-
-That's the opposite of what I mean. The irq domain should be setup
-*before* VFIO binds to the driver.
-
-Changing the active irq_domain while VFIO is already probed to the
-device is highly unlikely to work right in all cases.
-
-> I think that's a safe time. However, if there
-> could be cases where the attach does not follow an unbind/bind, then
-> I agree that wouldn't be safe.
-
-These cases exist.
-
-> I'll consider always creating an IRQ
-> domain, even if it won't provide any additional functionality unless
-> the device is assigned.
-
-That isn't ideal, the translation under the IRQs shouldn't really be
-changing as the translation under the IOMMU changes.
-
-Further, VFIO assumes iommu_group_has_isolated_msi(), ie
-IRQ_DOMAIN_FLAG_ISOLATED_MSI, is fixed while it is is bound. Will that
-be true if the iommu is flapping all about? What will you do when VFIO
-has it attached to a blocked domain?
-
-It just doesn't make sense to change something so fundamental as the
-interrupt path on an iommu domain attachement. :\
-
-> >VFIO is allowed to change the translation as it operates and we expect
-> >that interrupts are not disturbed.
-> 
-> The IRQ domain stays the same during operation, the only changes are
-> the mappings from what the guest believes are its s-mode interrupt
-> files to the hypervisor selected guest interrupt files, and these
-> changes are made possible by the IRQ domain's vcpu-affinity support.
-
-That is only the case when talking about kvm, this all still has to
-work fully for non-kvm VFIO uses cases too.
-
-Jason
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+CgpPbiAxNi8xMS8yMDI0IDExOjQyLCB6aGFuZ2thaUBpc2Nhcy5hYy5jbiB3cm90ZToKPiBXaGVu
+IG1vZHVsZSByZWxvY2F0aW9uIGlzIGRvbmUsIHByb2Nlc3NfYWNjdW11bGF0ZWRfcmVsb2NhdGlv
+bnMoKQo+IGZyZWVzIGFsbCBkeW5hbWljIGFsbG9jYXRlZCBtZW1vcnkuIHJlbF9oZWFkX2l0ZXIt
+Jmd0O3JlbF9lbnRyeSBpcwo+IG1pc3NlZCB0byBmcmVlIHRoYXQga21lbWxlYWsgbWlnaHQgcmVw
+b3J0Ogo+IAo+IHVucmVmZXJlbmNlZCBvYmplY3QgMHhmZmZmZmZkODgwYzVmYzQwIChzaXplIDE2
+KToKPiAgIGNvbW0gImluc21vZCIsIHBpZCAxMTAxLCBqaWZmaWVzIDQyOTUwNDUxMzgKPiAgIGhl
+eCBkdW1wIChmaXJzdCAxNiBieXRlcyk6Cj4gICAgIGUwIGMwIGY1IDg3IGQ4IGZmIGZmIGZmIDYw
+IGM1IGY1IDg3IGQ4IGZmIGZmIGZmICAuLi4uLi4uLmAuLi4uLi4uCj4gICBiYWNrdHJhY2UgKGNy
+YyBkMmVjYjIwYyk6Cj4gICAgIFsmbHQ7MDAwMDAwMDBiMDE2NTVmNiZndDtdIGttYWxsb2NfdHJh
+Y2Vfbm9wcm9mKzB4MjY4LzB4MmY2Cj4gICAgIFsmbHQ7MDAwMDAwMDA2ZGMwMDY3YSZndDtdIGFk
+ZF9yZWxvY2F0aW9uX3RvX2FjY3VtdWxhdGUuY29uc3Rwcm9wLjArMHhmMi8weDFhYQo+ICAgICBb
+Jmx0OzAwMDAwMDAwZTFiMjlhMzYmZ3Q7XSBhcHBseV9yZWxvY2F0ZV9hZGQrMHgxM2MvMHgzNmUK
+PiAgICAgWyZsdDswMDAwMDAwMDc1NDNmMWZiJmd0O10gbG9hZF9tb2R1bGUrMHg1YzYvMHg4M2UK
+PiAgICAgWyZsdDswMDAwMDAwMGFiY2UxMmU4Jmd0O10gaW5pdF9tb2R1bGVfZnJvbV9maWxlKzB4
+NzQvMHhhYQo+ICAgICBbJmx0OzAwMDAwMDAwNDk0MTNlM2QmZ3Q7XSBpZGVtcG90ZW50X2luaXRf
+bW9kdWxlKzB4MTE2LzB4MjJlCj4gICAgIFsmbHQ7MDAwMDAwMDBmOWI5OGI4NSZndDtdIF9fcmlz
+Y3Zfc3lzX2Zpbml0X21vZHVsZSsweDYyLzB4YWUKPiAKPiBTaWduZWQtb2ZmLWJ5OiBLYWkgWmhh
+bmcgPHpoYW5na2FpQGlzY2FzLmFjLmNuPgo+IC0tLQo+ICBhcmNoL3Jpc2N2L2tlcm5lbC9tb2R1
+bGUuYyB8IDEgKwo+ICAxIGZpbGUgY2hhbmdlZCwgMSBpbnNlcnRpb24oKykKPiAKPiBkaWZmIC0t
+Z2l0IGEvYXJjaC9yaXNjdi9rZXJuZWwvbW9kdWxlLmMgYi9hcmNoL3Jpc2N2L2tlcm5lbC9tb2R1
+bGUuYwo+IGluZGV4IDFjZDQ2MWYzZDg3Li5mOGMzYzRiNDdkYyAxMDA2NDQKPiAtLS0gYS9hcmNo
+L3Jpc2N2L2tlcm5lbC9tb2R1bGUuYwo+ICsrKyBiL2FyY2gvcmlzY3Yva2VybmVsL21vZHVsZS5j
+Cj4gQEAgLTY0Myw2ICs2NDMsNyBAQCBwcm9jZXNzX2FjY3VtdWxhdGVkX3JlbG9jYXRpb25zKHN0
+cnVjdCBtb2R1bGUgKm1lLAo+ICAgICAgICAgICAgICAgICAgICAgICAgIH0KPiAgICAgICAgICAg
+ICAgICAgICAgICAgICByZWxvY19oYW5kbGVyc1tjdXJyX3R5cGVdLmFjY3VtdWxhdGVfaGFuZGxl
+cigKPiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIG1lLCBsb2NhdGlvbiwgYnVmZmVy
+KTsKPiArICAgICAgICAgICAgICAgICAgICAgICBrZnJlZShyZWxfaGVhZF9pdGVyLSZndDtyZWxf
+ZW50cnkpOwoKSGV5IEthaSwKCllvdXIgcGF0Y2ggb3V0cHV0IGlzIG1lc3NlZCB1cCBwcm9iYWJs
+eSBkdWUgdG8gc29tZSBlbmNvZGluZyBpc3N1ZS4KCkJ1dCBsb29rbmlnIGF0IGl0IGFuZCB0aGUg
+bW9kdWxlIGNvZGUsIGl0IHNlZW1zIGxpa2UgcmVsX2VudHJ5IGRvZXMgbm90Cm5lZWQgdG8gYmUg
+YSBwb2ludGVyLiBJdCBjYW4gYmUgYSBwbGFpbiAic3RydWN0IGxpc3RfaGVhZCByZWxfZW50cnki
+IGFuZAp0aGVuIHNpbXBseSBwYXNzIHRoZSBsaXN0X2hlYWQgcG9pbnRlciByYXRoZXIgdGhhbiBh
+bGxvY2F0aW5nL2ZyZWVpbmcKaXQuIFRoYXQgcmVtb3ZlIGFuIGFsbG9jYXRpb24gYXMgd2VsbCBh
+cyBzb21lIG1lbW9yeSBsZWFrLgoKQlRXLCBmb3IgZml4ZXMsIHlvdSBzaG91bGQgYWRkIGEgRml4
+ZXM6IHRhZyB3aXRoIHRoZSBvcmlnaW5hbCBjb21taXQKc2hhMSB0aGF0IGludHJvZHVjZWQgdGhl
+IGJ1Zy4KClRoYW5rcywKCkNsw6ltZW50Cgo+ICAgICAgICAgICAgICAgICAgICAgICAgIGtmcmVl
+KHJlbF9oZWFkX2l0ZXIpOwo+ICAgICAgICAgICAgICAgICB9Cj4gICAgICAgICAgICAgICAgIGtm
+cmVlKGJ1Y2tldF9pdGVyKTsKCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5m
+cmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xp
+bnV4LXJpc2N2Cg==
