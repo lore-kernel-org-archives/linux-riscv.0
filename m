@@ -4,84 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0666DD6C2AF
-	for <linux-riscv@archiver.kernel.org>; Tue, 19 Nov 2024 21:47:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30199D6E2DD
+	for <linux-riscv@archiver.kernel.org>; Wed, 20 Nov 2024 08:50:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
-	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=lXI9izDCM1+RCdzW4KP9lwQXXmPU5BPrDioAkQ6VgGI=; b=380JzDAtvfuCKG
-	L2uJJRJolQcwggsN+ieqRFI0lddzYjdhZF0jv2aW9QD2Xg+EIYIEXApAoaKk5JUD2JfYVN+e/aeIY
-	rujL/62uBkCnaagqALphMlFphk8qMUNeeyrz5ndAh9oHXLZeQbVGiMgrqHIggue7s1b3KX/eTag1X
-	W0MgEJNcr69fToy5H5612WeKeWHROXqYKlpOKIn5ntz0yS9FSsmBiUceh7zOyQEeCabj9HbZr59jf
-	t+uzRvDtoJYzR7HNk+dHznO+bhiCWVR5n6pkSJxZHf+SFxw1pHpe3F09MAew7vHB46OHDzpTwnbmV
-	aFaWAHo5B2KAhCmwsZNQ==;
+	List-Owner; bh=8Su4nWOnQqcjYGakNwOG3UDnhr2dFkABr7Wg+Pvi4BE=; b=UPh6iTiZ0kb3YX
+	dfJVR5kxq8VgTmPDJIXLp5opXkkTLuCHP7noTCFIjZyyswGMnLcxWgI6/4aEem+3Jlyn9As7j5TJV
+	9KCi4o8VRCjaOGGGcfAlOciTAVhr9qybhqrYyNFCImk1f7vl8r+hai0WuyVoOTkx9zljrH+kB1Nk/
+	7fNvGiwN4qQuH4lzsYipi17tjruA7/V8CG04QTjtDUW16/lJsnxp2Qj8zDTOerDwA0se7s3UjKKAW
+	GwZ9z/6iq2WlgLoeiWhBJJ+7caroBB10ovc/6fb2i3WJXu2MnVHBqLAb3y6W47AzVT65C2kdc6bE8
+	USOompRVq3j23svHY2Hw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tDW3w-0000000Dpy7-3R5J;
-	Tue, 19 Nov 2024 21:47:08 +0000
-Received: from mail-pl1-x62b.google.com ([2607:f8b0:4864:20::62b])
+	id 1tDgQG-0000000EoJA-2gCP;
+	Wed, 20 Nov 2024 08:50:52 +0000
+Received: from galois.linutronix.de ([193.142.43.55])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tDUsE-0000000Dh4y-0Ay2
+	id 1tDgQE-0000000EoHn-123g
 	for linux-riscv@lists.infradead.org;
-	Tue, 19 Nov 2024 20:30:59 +0000
-Received: by mail-pl1-x62b.google.com with SMTP id d9443c01a7336-21269c8df64so1899275ad.2
-        for <linux-riscv@lists.infradead.org>; Tue, 19 Nov 2024 12:30:57 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1732048257; x=1732653057; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=bs99zjzT6d12gvM6MWyIJ6XWCfETAhHft1AvWE2UFvk=;
-        b=QbaO1ltNH38dL/h1ymHazE9QJLCEcGTMkuCFX8obZtZ7gu7P2zUcrsS/RWFiPlGmL6
-         h2j+gnS4B1yFQFvQTdEU69Ysk/27aA1AkFIRSkTzzbFNkK1HVddckj9TgqS838Mtclu7
-         oafdheyBdZ/AM0zKLg5/7NKBg5OG5rCv42spWk6QCwsF2mDZjrOnIsPC7ne5BTIEoE79
-         OQsIX9bb29r6PSRkyC7pJdwKXrRJmiX69ntyXdrIE1DIiWrd/1/jHWH2rPWuAT7ko3+3
-         chkPA+PCtgfHsW45T2vbeZUhkjPZH4A5NEZeYE90RiYnTRLVKDzFX0tl8BWr+sA/JbxW
-         R80g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1732048257; x=1732653057;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=bs99zjzT6d12gvM6MWyIJ6XWCfETAhHft1AvWE2UFvk=;
-        b=qmK4qtMf5jvEVy6jUs0azHyBKBpDQk8GjWR1iguae+S4WJD86pjIrkg/1KvcciZkF3
-         /8//jRPFe1Ovha5rBVqLJz+i4heZUd0uQegOI0CWO/vZ9sBxX3KwVu2LbmvY1voOmSKJ
-         LkW5x5s40EAhtdoOy0purvA/wRVVXtSnzdrvbacRCLjHlHV6tN5mey6kSw+cD0lNjwc/
-         r7j4qi2YxG1mkotwqkR6LihTIDHWqa8PwhPTUSUQHY/ny63KZVMuIOZLOmyCmoJ3e+QJ
-         wY8pjIhFfkDqkP0QRKsEcb/8oaL83ZfKhdqGB+utyH29nXGK+fYytIpyg/LyqgPCuQpa
-         BzrA==
-X-Gm-Message-State: AOJu0Ywf/qu0lhRirfi+bhbXTpkCvP3yxyKI5X8/KVD5FNSZN4gLn5S0
-	yejIMKs/smsyEF8lsyYUd4CI/ujHFUxsei7aflYvYVA5mkOjrJ2WmYitP59ay2w=
-X-Google-Smtp-Source: AGHT+IESHBYfIB+Rw/ycY/laHoMRI9Uw6Iu8jOPbVMITks5jvKXyAK0AlmSBcZiVndbkDkPBOO2Y/A==
-X-Received: by 2002:a17:903:230d:b0:211:ee35:830c with SMTP id d9443c01a7336-2126a34d311mr3124645ad.15.1732048256798;
-        Tue, 19 Nov 2024 12:30:56 -0800 (PST)
-Received: from atishp.ba.rivosinc.com ([64.71.180.162])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-211d0f34f2fsm79001315ad.159.2024.11.19.12.30.55
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 19 Nov 2024 12:30:56 -0800 (PST)
-From: Atish Patra <atishp@rivosinc.com>
-Date: Tue, 19 Nov 2024 12:29:55 -0800
-Subject: [PATCH 7/8] RISC-V: KVM: Implement get event info function
+	Wed, 20 Nov 2024 08:50:51 +0000
+Date: Wed, 20 Nov 2024 09:50:45 +0100
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1732092647;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=5Oe9wHru8jR91xqwNVUEM0jNj172x93463fWxP69UVU=;
+	b=IBZejzyXTEybKdyqYcth8IMRNhFugumdnp9FOv6mFRVSH1+XfGomM0HOBlsB8/VZ5FanSq
+	KBakqRuuJwjqMLFjzVuqFDJom//QDTQIgvzFlCP81srSGVhIwzv+qX8EQTAh6aKnzNNbfm
+	NMKQkYvP3ZQaBPr/xoSXu+r3tK4FG7fEYBllTp1H94LxDZEb7J/hGu9mPh+HhL2HqczE0/
+	loi3mC4WEfy5p9Wn5nl3qieXyLNYpltAAFR6THGHUtBeezXvc6/m3TYBjSV4kWT69lzDap
+	Kz1tcALMSNTFFMrmIgz1Z4P2WjMmJHf3pdj1fgi0Ex1/o4+inQw44iHDr9w3WQ==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1732092647;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=5Oe9wHru8jR91xqwNVUEM0jNj172x93463fWxP69UVU=;
+	b=3SFs9zG/TnFK0RNywoKEqmPzmDkdUJiG2BU+LsI5+xY0wE3dHr2tHuesls1xJuOHaAzI8E
+	Su+TrfWHvfvQ+YBQ==
+From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
+To: Nam Cao <namcao@linutronix.de>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	=?utf-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@rivosinc.com>,
+	Andreas Schwab <schwab@suse.de>,
+	Song Shuai <songshuaishuai@tinylab.org>,
+	Celeste Liu <coelacanthushex@gmail.com>,
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org
+Subject: Re: [PATCH] riscv: Fix sleeping in invalid context in die()
+Message-ID: <20241120085045.LJ5b7oh9@linutronix.de>
+References: <20241118091333.1185288-1-namcao@linutronix.de>
 MIME-Version: 1.0
-Message-Id: <20241119-pmu_event_info-v1-7-a4f9691421f8@rivosinc.com>
-References: <20241119-pmu_event_info-v1-0-a4f9691421f8@rivosinc.com>
-In-Reply-To: <20241119-pmu_event_info-v1-0-a4f9691421f8@rivosinc.com>
-To: Anup Patel <anup@brainfault.org>, Will Deacon <will@kernel.org>, 
- Mark Rutland <mark.rutland@arm.com>, 
- Paul Walmsley <paul.walmsley@sifive.com>, 
- Palmer Dabbelt <palmer@dabbelt.com>, 
- Mayuresh Chitale <mchitale@ventanamicro.com>
-Cc: linux-riscv@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
- linux-kernel@vger.kernel.org, Palmer Dabbelt <palmer@rivosinc.com>, 
- kvm@vger.kernel.org, kvm-riscv@lists.infradead.org, 
- Atish Patra <atishp@rivosinc.com>
-X-Mailer: b4 0.15-dev-13183
+Content-Disposition: inline
+In-Reply-To: <20241118091333.1185288-1-namcao@linutronix.de>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241119_123058_100897_901669BB 
-X-CRM114-Status: GOOD (  15.24  )
+X-CRM114-CacheID: sfid-20241120_005050_420254_B73CAC68 
+X-CRM114-Status: UNSURE (   9.05  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,128 +84,43 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The new get_event_info funciton allows the guest to query the presence
-of multiple events with single SBI call. Currently, the perf driver
-in linux guest invokes it for all the standard SBI PMU events. Support
-the SBI function implementation in KVM as well.
+On 2024-11-18 10:13:33 [+0100], Nam Cao wrote:
+> die() can be called in exception handler, and therefore cannot sleep.
+> However, die() takes spinlock_t which can sleep with PREEMPT_RT enabled.
+> That causes the following warning:
+> 
+> BUG: sleeping function called from invalid context at kernel/locking/spinlock_rt.c:48
+> in_atomic(): 1, irqs_disabled(): 1, non_block: 0, pid: 285, name: mutex
+> preempt_count: 110001, expected: 0
+> RCU nest depth: 0, expected: 0
+> CPU: 0 UID: 0 PID: 285 Comm: mutex Not tainted 6.12.0-rc7-00022-ge19049cf7d56-dirty #234
+> Hardware name: riscv-virtio,qemu (DT)
+> Call Trace:
+>     dump_backtrace+0x1c/0x24
+>     show_stack+0x2c/0x38
+>     dump_stack_lvl+0x5a/0x72
+>     dump_stack+0x14/0x1c
+>     __might_resched+0x130/0x13a
+>     rt_spin_lock+0x2a/0x5c
+>     die+0x24/0x112
+>     do_trap_insn_illegal+0xa0/0xea
+>     _new_vmalloc_restore_context_a0+0xcc/0xd8
+> Oops - illegal instruction [#1]
+> 
+> Switch to use raw_spinlock_t, which does not sleep even with PREEMPT_RT
+> enabled.
+> 
+> Fixes: 76d2a0493a17 ("RISC-V: Init and Halt Code")
+> Signed-off-by: Nam Cao <namcao@linutronix.de>
+> Cc: stable@vger.kernel.org
 
-Signed-off-by: Atish Patra <atishp@rivosinc.com>
----
- arch/riscv/include/asm/kvm_vcpu_pmu.h |  3 ++
- arch/riscv/kvm/vcpu_pmu.c             | 67 +++++++++++++++++++++++++++++++++++
- arch/riscv/kvm/vcpu_sbi_pmu.c         |  3 ++
- 3 files changed, 73 insertions(+)
+Reviewed-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 
-diff --git a/arch/riscv/include/asm/kvm_vcpu_pmu.h b/arch/riscv/include/asm/kvm_vcpu_pmu.h
-index 1d85b6617508..9a930afc8f57 100644
---- a/arch/riscv/include/asm/kvm_vcpu_pmu.h
-+++ b/arch/riscv/include/asm/kvm_vcpu_pmu.h
-@@ -98,6 +98,9 @@ void kvm_riscv_vcpu_pmu_init(struct kvm_vcpu *vcpu);
- int kvm_riscv_vcpu_pmu_snapshot_set_shmem(struct kvm_vcpu *vcpu, unsigned long saddr_low,
- 				      unsigned long saddr_high, unsigned long flags,
- 				      struct kvm_vcpu_sbi_return *retdata);
-+int kvm_riscv_vcpu_pmu_event_info(struct kvm_vcpu *vcpu, unsigned long saddr_low,
-+				  unsigned long saddr_high, unsigned long num_events,
-+				  unsigned long flags, struct kvm_vcpu_sbi_return *retdata);
- void kvm_riscv_vcpu_pmu_deinit(struct kvm_vcpu *vcpu);
- void kvm_riscv_vcpu_pmu_reset(struct kvm_vcpu *vcpu);
- 
-diff --git a/arch/riscv/kvm/vcpu_pmu.c b/arch/riscv/kvm/vcpu_pmu.c
-index efd66835c2b8..a30f7ec31479 100644
---- a/arch/riscv/kvm/vcpu_pmu.c
-+++ b/arch/riscv/kvm/vcpu_pmu.c
-@@ -456,6 +456,73 @@ int kvm_riscv_vcpu_pmu_snapshot_set_shmem(struct kvm_vcpu *vcpu, unsigned long s
- 	return 0;
- }
- 
-+int kvm_riscv_vcpu_pmu_event_info(struct kvm_vcpu *vcpu, unsigned long saddr_low,
-+				  unsigned long saddr_high, unsigned long num_events,
-+				  unsigned long flags, struct kvm_vcpu_sbi_return *retdata)
-+{
-+	unsigned long hva;
-+	struct riscv_pmu_event_info *einfo;
-+	int shmem_size = num_events * sizeof(*einfo);
-+	bool writable;
-+	gpa_t shmem;
-+	u32 eidx, etype;
-+	u64 econfig;
-+	int ret;
-+
-+	if (flags != 0 || (saddr_low & (SZ_16 - 1))) {
-+		ret = SBI_ERR_INVALID_PARAM;
-+		goto out;
-+	}
-+
-+	shmem = saddr_low;
-+	if (saddr_high != 0) {
-+		if (IS_ENABLED(CONFIG_32BIT)) {
-+			shmem |= ((gpa_t)saddr_high << 32);
-+		} else {
-+			ret = SBI_ERR_INVALID_ADDRESS;
-+			goto out;
-+		}
-+	}
-+
-+	hva = kvm_vcpu_gfn_to_hva_prot(vcpu, shmem >> PAGE_SHIFT, &writable);
-+	if (kvm_is_error_hva(hva) || !writable) {
-+		ret = SBI_ERR_INVALID_ADDRESS;
-+		goto out;
-+	}
-+
-+	einfo = kzalloc(shmem_size, GFP_KERNEL);
-+	if (!einfo)
-+		return -ENOMEM;
-+
-+	ret = kvm_vcpu_read_guest(vcpu, shmem, einfo, shmem_size);
-+	if (ret) {
-+		ret = SBI_ERR_FAILURE;
-+		goto free_mem;
-+	}
-+
-+	for (int i = 0; i < num_events; i++) {
-+		eidx = einfo[i].event_idx;
-+		etype = kvm_pmu_get_perf_event_type(eidx);
-+		econfig = kvm_pmu_get_perf_event_config(eidx, einfo[i].event_data);
-+		ret = riscv_pmu_get_event_info(etype, econfig, NULL);
-+		if (ret > 0)
-+			einfo[i].output = 1;
-+	}
-+
-+	kvm_vcpu_write_guest(vcpu, shmem, einfo, shmem_size);
-+	if (ret) {
-+		ret = SBI_ERR_FAILURE;
-+		goto free_mem;
-+	}
-+
-+free_mem:
-+	kfree(einfo);
-+out:
-+	retdata->err_val = ret;
-+
-+	return 0;
-+}
-+
- int kvm_riscv_vcpu_pmu_num_ctrs(struct kvm_vcpu *vcpu,
- 				struct kvm_vcpu_sbi_return *retdata)
- {
-diff --git a/arch/riscv/kvm/vcpu_sbi_pmu.c b/arch/riscv/kvm/vcpu_sbi_pmu.c
-index e4be34e03e83..a020d979d179 100644
---- a/arch/riscv/kvm/vcpu_sbi_pmu.c
-+++ b/arch/riscv/kvm/vcpu_sbi_pmu.c
-@@ -73,6 +73,9 @@ static int kvm_sbi_ext_pmu_handler(struct kvm_vcpu *vcpu, struct kvm_run *run,
- 	case SBI_EXT_PMU_SNAPSHOT_SET_SHMEM:
- 		ret = kvm_riscv_vcpu_pmu_snapshot_set_shmem(vcpu, cp->a0, cp->a1, cp->a2, retdata);
- 		break;
-+	case SBI_EXT_PMU_EVENT_GET_INFO:
-+		ret = kvm_riscv_vcpu_pmu_event_info(vcpu, cp->a0, cp->a1, cp->a2, cp->a3, retdata);
-+		break;
- 	default:
- 		retdata->err_val = SBI_ERR_NOT_SUPPORTED;
- 	}
+The die_lock() is probably do let one CPU die at a time. On x86 there is
+support for for recursive die so if it happens, you don't spin on the
+die_lock and see nothing. Not sure if this is a thing.
 
--- 
-2.34.1
-
+Sebastian
 
 _______________________________________________
 linux-riscv mailing list
