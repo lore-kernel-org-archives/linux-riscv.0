@@ -4,96 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2982FD6ED0E
-	for <linux-riscv@archiver.kernel.org>; Thu, 21 Nov 2024 11:52:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 69A75D6ED21
+	for <linux-riscv@archiver.kernel.org>; Thu, 21 Nov 2024 12:56:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=m7Avb7EkOzGWll9+phkVb3y3og5pOTkLM/Ronsjgi+g=; b=Ucy0Vtdmk8yNa2
-	vSfbOUK/JjfCv0TlS8Rdul/emSp/uP74Rh+qr8ZT2s+0CsBSIYLJPj/0G5ar4pHCrTJdaNRofedeH
-	SKaKeRqrorSGSNk/MGzNpAo95BvX5s2/RemimHLjKauprgcXDV+iOiLtWDiA3SEYEQFfD+IA7CMdH
-	/mTFTFi79TKXOJ6+MaNhvqfwnHKetQbDKZmiaJkayJ0BwGBXC9irYzJ8FEwyUsyYmu+FqVoTqAmY0
-	p+GQpVy+AFRN9cJBy3hBMdqxKOCbz17ltpKf+itf9kmKOlw/veURM5bSKUCS4Sj7PWjniGwKwspfd
-	nRmR7vZ76kvKV4gIVH7A==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=BZ6Z7f/IIz23S0l34UCQt2l3PQJ7FtEPYZGCcnWvGkQ=; b=gSvHKMlrbJrps3
+	A0etb59UaXg0H/sFKW7tspqq+mLv3pgVykqthM0v7/F3s8agwJcM02ZxCNV7r+GApBzLJrGBnbqSf
+	CL2m8kF7UYOet8GtAacf2Zp24Wifw9bALmiG7sw+mOSjwJLrBj3WE9R7ceR6gVLeoW9/TY+M8lZdt
+	0fNzw086bRZzrcT1WGdbu8AMmlC5h/RG25GOHpbU6JXhBk9bpNJkT7XuYpEscuiAT6f5IcnmhcC5s
+	kCgdQ7FbwqjzhEMgConu80QvljCm+RROE2tVkRzFf4Z5o+nchPMLntX0NPO76ANowri3/kVwKlOyf
+	NDE97FKZFE8vL5BQSBPg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tE5j0-0000000HWrF-2f1F;
-	Thu, 21 Nov 2024 11:51:54 +0000
-Received: from mail.alien8.de ([65.109.113.108])
+	id 1tE6iv-000000002jY-2H3m;
+	Thu, 21 Nov 2024 12:55:53 +0000
+Received: from mail-io1-xd2c.google.com ([2607:f8b0:4864:20::d2c])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tE5hk-0000000HWgp-3ICE;
-	Thu, 21 Nov 2024 11:50:38 +0000
-Received: from localhost (localhost.localdomain [127.0.0.1])
-	by mail.alien8.de (SuperMail on ZX Spectrum 128k) with ESMTP id 3D41B40E0263;
-	Thu, 21 Nov 2024 11:50:34 +0000 (UTC)
-X-Virus-Scanned: Debian amavisd-new at mail.alien8.de
-Authentication-Results: mail.alien8.de (amavisd-new); dkim=pass (4096-bit key)
-	header.d=alien8.de
-Received: from mail.alien8.de ([127.0.0.1])
-	by localhost (mail.alien8.de [127.0.0.1]) (amavisd-new, port 10026)
-	with ESMTP id fLpGkduEaatw; Thu, 21 Nov 2024 11:50:30 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=alien8.de; s=alien8;
-	t=1732189827; bh=17zSb8aYTcL4k10y5LSBGllYzpPsKz6juvWhNwQyQnY=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=jCciykZIaXcSfax2oTiL/AHDcWp/6zwpmpENlLcBtPJi4PhXm3OzfyymJmZP+KPu/
-	 FmkdsQpwEdzIB2K7HgMtHJj7h2xdGnhI/w/TZHxKtsqrfWiOjY6xVLTmzdjuqL8ZxQ
-	 DpMNwJVWwxoU2C5sH7hcS27WezIsgqbQm2B7o60Qdl3h4bk4A6nVgbEF+vQl45pJ32
-	 CUE0uNWztqnGHzq1M4OLof7vd+cuZSLAYdrExlyjLzPxVisP3nSUexKbTCPJrrYgGX
-	 UifPUBFhiJhKORCt1X9TXfPYZI0r1a7ZeCr9DyV8muro6qDM48ykAeR45akz43MtoX
-	 htNzCC+eCOE/d5r7HFAG1yGuOuuPtrxAJBXupgGBMPAFrakPz7v/jTkF2m9AzXPh0N
-	 6DQC6aFSqVIxQVHHP5wCZKnETSsS3mzLbzcU4LTpXGiH49yyf0WDNarDcLarM178xG
-	 oZyLDGO/7CJkIepMILrLDw79TFda3NH95waLQm4hUzTRvbMWA0VW7BukvQzO9Xl/9L
-	 XX/EzBe84rC1FljjBmbKKqv8r9lyF3+Nf40N70ddYxs99pr346ng6730Bab/Rv1v5B
-	 j21YIHV4iQBdDe64pBeSp4bAoF2xTBThj2c/5cDggmsZK65+M0YhYgh5Y6yCFNLh6U
-	 BAAIlDE8V00NgOkoIWryTe2M=
-Received: from zn.tnic (p200300ea9736a1a8329c23fffea6a903.dip0.t-ipconnect.de [IPv6:2003:ea:9736:a1a8:329c:23ff:fea6:a903])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (P-256) server-signature ECDSA (P-256) server-digest SHA256)
-	(No client certificate requested)
-	by mail.alien8.de (SuperMail on ZX Spectrum 128k) with ESMTPSA id 9954940E015F;
-	Thu, 21 Nov 2024 11:49:57 +0000 (UTC)
-Date: Thu, 21 Nov 2024 12:49:52 +0100
-From: Borislav Petkov <bp@alien8.de>
-To: "Kirill A. Shutemov" <kirill.shutemov@linux.intel.com>
-Cc: Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>,
-	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
-	"H. Peter Anvin" <hpa@zytor.com>, Andy Lutomirski <luto@kernel.org>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Alexei Starovoitov <ast@kernel.org>,
-	Andrea Parri <parri.andrea@gmail.com>,
-	Arnd Bergmann <arnd@arndb.de>,
-	Daniel Borkmann <daniel@iogearbox.net>,
-	Eric Chan <ericchancf@google.com>, Jason Gunthorpe <jgg@ziepe.ca>,
-	Kai Huang <kai.huang@intel.com>,
-	Kefeng Wang <wangkefeng.wang@huawei.com>,
-	Kent Overstreet <kent.overstreet@linux.dev>,
-	Palmer Dabbelt <palmer@rivosinc.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Russell King <linux@armlinux.org.uk>,
-	Samuel Holland <samuel.holland@sifive.com>,
-	Suren Baghdasaryan <surenb@google.com>,
-	Yuntao Wang <ytcoode@gmail.com>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	Tom Lendacky <thomas.lendacky@amd.com>,
-	Ashish Kalra <ashish.kalra@amd.com>,
-	"Maciej W. Rozycki" <macro@orcam.me.uk>
-Subject: Re: [PATCHv2 2/2] x86/mm: Make memremap(MEMREMAP_WB) map memory as
- encrypted by default
-Message-ID: <20241121114952.GCZz8eYEVa3yubYQzO@fat_crate.local>
-References: <20241021105723.2707507-1-kirill.shutemov@linux.intel.com>
- <20241021105723.2707507-3-kirill.shutemov@linux.intel.com>
- <20241118164616.GAZztvWGs9cOV8t20_@fat_crate.local>
- <s4frmqwtuvclinuu7ttyzfpe7bj7hju5xgt6sxzy3gyt3prr62@rrgvhkv4lgwv>
+	id 1tE6is-000000002iv-3iqh
+	for linux-riscv@lists.infradead.org;
+	Thu, 21 Nov 2024 12:55:52 +0000
+Received: by mail-io1-xd2c.google.com with SMTP id ca18e2360f4ac-83a9be2c028so29182939f.1
+        for <linux-riscv@lists.infradead.org>; Thu, 21 Nov 2024 04:55:50 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=brainfault-org.20230601.gappssmtp.com; s=20230601; t=1732193749; x=1732798549; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:mime-version:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=4OPqzXMUHnyZ1Qfz8WKePkWvYvx6EvXlEnQMdWX7vBk=;
+        b=few12TdPQeW+6O9lrhDj7WzdQnD+ljznOWGvY2MoUBerEOCJk37pMljnoyPOIkVSsd
+         12C1LLMlW5iw7AyFlGOe+1eY2JvuUhuj8J49MkghrGysW2DNhQLOQb6f4gHLLvZFbpf2
+         f0cZxiZeSlux+SNl+wq14vFKbczB2RJeJNa026poCrnNtW9Ph0scFJQ0s8LhtKMSq9ke
+         oPFzYRpP9F4TP8AKEZZiwS5MQVWW81VgkRXUwI6KF2wF85Trgh05Tg6LrWR/4NtjHAVb
+         Z60wYUvthECdRKecDyEi8DP0jJsuxmspsysexzZ3iPw7+ov0z+o+QPqnEkZ5JIMjzseo
+         d+nA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1732193749; x=1732798549;
+        h=cc:to:subject:message-id:date:from:mime-version:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=4OPqzXMUHnyZ1Qfz8WKePkWvYvx6EvXlEnQMdWX7vBk=;
+        b=qQDzxZHx/zX5ctmv+JDTZ0ouENLW6zQj119xIIWqDX+CbkEYqR7BgHJfA1hGdDcz6R
+         iIxi+BqsvM9KyxCzh79Ji6iu3b8Ci8cUiMnnAnHqEMHaqQno1O7L7Ce2NOzf5C3gIG9Z
+         mmY0C9NVHNImLPhk6p/X5/+2VBWyiWp/e/nXOFPICFPYEP4ih8T5xrQrXCGJNxc2y4NP
+         g8EJzd5hWOjisT08EOi9H1WocoblXtXwEEYgIUxR7L03X7FkbZDy2sWb4kVNaaGeln9V
+         CjduQeUbPTxI+VbSj46ZMai0rFgupmPN2K8QGesB6ycLPK5AEYr2+KrWGn15IqJYZO8L
+         le0g==
+X-Forwarded-Encrypted: i=1; AJvYcCV3Sa4mwU56vE5MNMzAulfu/MH8G/f9cWeINsufhLtmujAaQD2opT126leUbNee4pfxJR1QJrKZA/+IUA==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzpzpx6HaRFteIVLyEFWacpMuKbhG77qgqh7PEVAWdlyQWdwB5G
+	7aVMUFaFyhg4e7+8+zMbyiXqRwWccsBN7yuMxIoFO5i1NZgpbJiYuBYSrVmHHs8VzHZwS+4QaOn
+	NImkcYQ88YEdN/cGNzii9mDJ8QpdqCYUA+gk6ZA==
+X-Gm-Gg: ASbGncvO52OHLnOE/F9zsIclb3+mP8BLAfGefkb7hBHLTdQjvvi0tUitCFGCOok0igI
+	fq7JoPkfnDE2Lv9dorVN0SdT76cBiquBs
+X-Google-Smtp-Source: AGHT+IFzME82wtFhiLZQ0596FmC/IrmouUnXxIXvNfGhgZBmJbZiykpTW4VRwU84h8kkvIZO3+9/SLoaGrJsnt6/bD4=
+X-Received: by 2002:a05:6602:15cd:b0:83a:a305:d9f3 with SMTP id
+ ca18e2360f4ac-83eb6028fb1mr880276339f.12.1732193749094; Thu, 21 Nov 2024
+ 04:55:49 -0800 (PST)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <s4frmqwtuvclinuu7ttyzfpe7bj7hju5xgt6sxzy3gyt3prr62@rrgvhkv4lgwv>
+From: Anup Patel <anup@brainfault.org>
+Date: Thu, 21 Nov 2024 18:25:38 +0530
+Message-ID: <CAAhSdy2mLBzE63wpQrOaHtOV0rwqkaxTUMBA9oMZsk68o0EHMg@mail.gmail.com>
+Subject: [GIT PULL] KVM/riscv changes for 6.13, part #2
+To: Paolo Bonzini <pbonzini@redhat.com>
+Cc: Palmer Dabbelt <palmer@rivosinc.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Andrew Jones <ajones@ventanamicro.com>, Atish Patra <atishp@rivosinc.com>, 
+	Atish Patra <atishp@atishpatra.org>, 
+	"open list:KERNEL VIRTUAL MACHINE FOR RISC-V (KVM/riscv)" <kvm-riscv@lists.infradead.org>, KVM General <kvm@vger.kernel.org>, 
+	linux-riscv <linux-riscv@lists.infradead.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241121_035036_976033_8862B871 
-X-CRM114-Status: GOOD (  11.58  )
+X-CRM114-CacheID: sfid-20241121_045551_185610_29DFCFCC 
+X-CRM114-Status: UNSURE (   7.87  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,41 +92,56 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Nov 19, 2024 at 10:21:05AM +0200, Kirill A. Shutemov wrote:
-> Sure, we can workaround every place that touches such ranges.
+Hi Paolo,
 
-Every place? Which every place? I thought this is only an EISA issue?
+As mentioned in the last PR, here are the remaining KVM RISC-V
+changes for 6.13 which mainly consists of Svade/Svadu extension
+support for Host and Guest/VM.
 
-Then clearly your changelogs need to expand considerably more what we're
-*really* addressing here.
+Please note that Palmer has not yet sent the RISC-V PR for 6.13
+so these patches will conflict with the RISC-V tree.
 
-> Or we can address problem at the root and make creating decrypted/shared
-> mappings explicit.
+Please pull.
 
-What is the problem? That KVM implicitly converts memory to shared? Why does
-KVM do that an can it be fixed not to?
+Regards,
+Anup
 
-Doesn't sound like the guest's problem.
+The following changes since commit 332fa4a802b16ccb727199da685294f85f9880cb:
 
-Or maybe this needs a lot more explanation what we're fixing here.
+  riscv: kvm: Fix out-of-bounds array access (2024-11-05 13:27:32 +0530)
 
-> Such mappings have both functional (as we see here) and security
-> implications (VMM can manipulate the guest memory range). We should not
-> create decrypted mappings by default on legacy interfaces.
+are available in the Git repository at:
 
-So we're getting closer.
+  https://github.com/kvm-riscv/linux.git tags/kvm-riscv-6.13-2
 
-The changes themselves are fine but your text is missing a lot about what
-we're fixing here. When I asked, I barely scratched the surface. So can we
-elaborate here pls?
+for you to fetch changes up to c74bfe4ffe8c1ca94e3d60ec7af06cf679e23583:
 
-Thx.
+  KVM: riscv: selftests: Add Svade and Svadu Extension to get-reg-list
+test (2024-11-21 17:40:16 +0530)
 
--- 
-Regards/Gruss,
-    Boris.
+----------------------------------------------------------------
+KVM/riscv changes for 6.13 part #2
 
-https://people.kernel.org/tglx/notes-about-netiquette
+- Svade and Svadu extension support for Host and Guest/VM
+
+----------------------------------------------------------------
+Yong-Xuan Wang (4):
+      RISC-V: Add Svade and Svadu Extensions Support
+      dt-bindings: riscv: Add Svade and Svadu Entries
+      RISC-V: KVM: Add Svade and Svadu Extensions Support for Guest/VM
+      KVM: riscv: selftests: Add Svade and Svadu Extension to get-reg-list test
+
+ .../devicetree/bindings/riscv/extensions.yaml      | 28 ++++++++++++++++++++++
+ arch/riscv/Kconfig                                 |  1 +
+ arch/riscv/include/asm/csr.h                       |  1 +
+ arch/riscv/include/asm/hwcap.h                     |  2 ++
+ arch/riscv/include/asm/pgtable.h                   | 13 +++++++++-
+ arch/riscv/include/uapi/asm/kvm.h                  |  2 ++
+ arch/riscv/kernel/cpufeature.c                     | 12 ++++++++++
+ arch/riscv/kvm/vcpu.c                              |  4 ++++
+ arch/riscv/kvm/vcpu_onereg.c                       | 15 ++++++++++++
+ tools/testing/selftests/kvm/riscv/get-reg-list.c   |  8 +++++++
+ 10 files changed, 85 insertions(+), 1 deletion(-)
 
 _______________________________________________
 linux-riscv mailing list
