@@ -4,88 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 00AF9D78768
-	for <linux-riscv@archiver.kernel.org>; Thu, 21 Nov 2024 14:26:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35F03E64039
+	for <linux-riscv@archiver.kernel.org>; Thu, 21 Nov 2024 22:41:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
-	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:MIME-Version
-	:Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=Zy70fqR+3EdpJmKz7UyGpB7pcpsaJYYP+UbNUk57gFc=; b=VqRmvHN97ZZo1m
-	mi6DQL8KZCoVNl/SpYb9lj0/9BrFouG4zbxoGm2l110uSnxMsoCxWKGX0JlYvzKDRcWpGkqW9FstC
-	0W8D3SdJvSW36xewNB5vZPtRs2hh8/GGJ1EBso5z8EfOffSuGsneBLKSltQ60CUthaui6AQnX8i5g
-	GN3jU7CxXEDjPBrSSU1P7th98HLE2NvYfXjs3MA6hDTE38nM07Vz19KlkTbgMkgLsUZyWT0zSRq86
-	GPdVGuw1tCL3CVCSWMPIA3n7/0ZDvZ/Tb3qURFIgXL4c/7vlIrUfb/yrORYMDSJfa9BHkpzrzWXR0
-	eygPyRjvOWA1oDB8nnLQ==;
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=bzJuZ7+/g4maCB2VUfzGn26mAKhk3jpbQrb4UMpq7Ns=; b=iYgUap4yVntRBp
+	0Bn/wf7FiEazxZ8snSRaHS3MJ7RjsXX+5lDzvBwyIIHugplyEUmg3BCiIHH7QeXqNX/IS1qt7qCFg
+	KH5YcXkOwT2JWwbsTmNZ0P3AmEdaUvVNzzvHuyigdkZcQKzziM+T8PWJi4OvI68E20vux9S3qd6h+
+	4utnq7knHaYD1V1c0fb8E/Mo3MZD4MdoQG7Dh7rvxYA4Sh11d3eEyx+NwlSSvsCf7DEDjl1JVcFZj
+	KIKL92NGRxbHr2mxuD7EZlKUY1GYSjTgtq8JU643Etfn1+RhZxzQqTJ4rvW3vtmBwy+iZDot2rUDZ
+	n8GhQ0KmnhJP25AhAsng==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tE88g-00000000Czh-0jKm;
-	Thu, 21 Nov 2024 14:26:34 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1tEFrL-000000015H7-1iWx;
+	Thu, 21 Nov 2024 22:41:11 +0000
+Received: from mail-il1-x12e.google.com ([2607:f8b0:4864:20::12e])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tE87j-00000000Csf-15zk;
-	Thu, 21 Nov 2024 14:25:36 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 8B328A40A98;
-	Thu, 21 Nov 2024 14:23:40 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 84C73C4CECC;
-	Thu, 21 Nov 2024 14:25:33 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1732199133;
-	bh=IOPiUmb3wXj+j2xu3fhXd0yPSBEGQDEtT0cSG6Ufbq8=;
-	h=From:Date:Subject:To:Cc:Reply-To:From;
-	b=WzB25KaVHPuJ3qADwxJKa9Rj1ythejzWtD6i9s/OxjeP4iJ3r763aF0SF9H0bvMRd
-	 ug6MjqNcoVqDKXRXb2ReUfTUOqQ8mYC7oaTY06FJ5bevlG/NP8WUYLE04Ss5lQGrgH
-	 qDaQPP7AJkEAau+gQg5XFBc68MnNOO0BLnRYMz25fi0dBd+O/G1d8NZv5vKLjcADEB
-	 6R/Zp8kvI9vCV7ui0vS+WWUqg04e8LupYYEhIfS1o2Vccw+jGgxdheB2v3Ky+gbKqC
-	 QFyx4/m5OtV0niCJc9CgXrjFKMyYjIOO0Y1s1YFfkkUwb4hinhNdUL7YDitjj6msTQ
-	 o8CD7g4R7j+rw==
-Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 73134D78768;
-	Thu, 21 Nov 2024 14:25:33 +0000 (UTC)
-From: Miao Wang via B4 Relay <devnull+shankerwangmiao.gmail.com@kernel.org>
-Date: Thu, 21 Nov 2024 22:25:21 +0800
-Subject: [PATCH v4] ACPI: introduce acpi_arch_init
+	id 1tEFrI-000000015Gj-46It
+	for linux-riscv@lists.infradead.org;
+	Thu, 21 Nov 2024 22:41:10 +0000
+Received: by mail-il1-x12e.google.com with SMTP id e9e14a558f8ab-3a789d422bcso5614605ab.1
+        for <linux-riscv@lists.infradead.org>; Thu, 21 Nov 2024 14:41:07 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=sifive.com; s=google; t=1732228867; x=1732833667; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:content-language:from
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=G0nFhOWS85+b5e0Y+BADc2JfWMqvmPiOUR6rVphXxW0=;
+        b=FIbfILklOnBiEEyIhorQXxQcwJbgIhlaTAq/hxxaiua+g3+Z2fDrR+vnDLhqSukPHy
+         oqOyS28E72Tu4tji+7J8xoltPj29n1i3ln17VgDQuh/Rx7ifQKjmG9HhRLZtnE5UrBmt
+         pGDlAyvAtW+9x5WuhmilIGRPXE8UWzrW7aaV/qHSoR75bOQO4/Pq2h2qaa97QpTL2T1D
+         RUObVeg/mkj2PCEl4l7T1u9LA1cnoiI9sZGn83yIfrdJ2+ztLAkdLEjBffyq/IsqQxVq
+         UGbz1JcPhxNi4iANPSIIW3vI84QbYFJcZ3Wddhj+jX4PfmEQ6/dT/7EBzhPGQ21hBaMl
+         jjbQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1732228867; x=1732833667;
+        h=content-transfer-encoding:in-reply-to:content-language:from
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=G0nFhOWS85+b5e0Y+BADc2JfWMqvmPiOUR6rVphXxW0=;
+        b=SYbyDkt4Z7nriDdUWgaGP/A84JHvZTB1i04nnmk2ujQ5XXq111a5nFQnGVQaguk/Rj
+         Gy8FzSBfZ/b2LesSxd8XwRLkqNuivy9IoI1v55SXv0ecXTocChpJoGqRRzrDrKQLsrIL
+         jUjfXLteMJjszdd3HwFWGn2m/uruMtsR1+f63ZWbjJs0mH3qyOjNDclUxIxI4/kPbTj9
+         sFMad49xfksxp7czrc7CRmgfF/HGdXmABEepwZ3LadJeF7mhmuwxa/++dQSQ8vu1gwDo
+         pSp18cW+vYI2AvTgHdK6WEDidaU+b+2cGIssDO0tinHsYf8KRFwXMV3PahVvB+p0sb39
+         U+Og==
+X-Forwarded-Encrypted: i=1; AJvYcCVfXWSBwRUu7gYpEWbEp7veJhJ26VnWTy9blxDPzmzdmgXNkW+CanhkL6ZQakH0dpPMoV6pDC+VxOcQCg==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxv6QxDEr97cLN5JwvpOOMJ2DCbGTnPijvLgmuRQlzAWbZH3ztn
+	RH6icQzcSeEDlDvPKz/B7K/B5axjLKYRaD+xFSUuSXE/8wMgytGt9i/XP3QI+UU=
+X-Gm-Gg: ASbGncs1MZhzTMqiI6pRRyuKpzdLcPgQX3bNa61K481HDEPetoWs52+FgGxjs9SxwXY
+	cMTfIz/8hmxKQ7t0Kd2XRUkDEcmWSscvh5IIZlEa3f0g+Ocm1s/p7ogHzAvPybSATbdc/UUPKZ0
+	BL6LoNEgXp2WSU3JPh1qVcgwrqNJ5LhAOmOirybqDtIvCXwmKFTUK5kzpiud9LaAvmXHqxI9mBy
+	kb6O9gOkPoBRCGyMwi9XW4lTPk82LrdHCSGDGwhEiXd+gH4Hsj2wCQ5n12I4gzzwmsgwb+VAAg=
+X-Google-Smtp-Source: AGHT+IFtYm7+InIzE8NYWnE5on5jRcQ1LiNxm3OAKBXi9wWhDfkAhDCnGw+SZnH/vFb1Xp+/slpCBw==
+X-Received: by 2002:a05:6602:608a:b0:83a:b188:7a4d with SMTP id ca18e2360f4ac-83ecdb38114mr88002539f.0.1732228867257;
+        Thu, 21 Nov 2024 14:41:07 -0800 (PST)
+Received: from [100.64.0.1] ([147.124.94.167])
+        by smtp.gmail.com with ESMTPSA id ca18e2360f4ac-83ecd418010sm18407939f.42.2024.11.21.14.41.05
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 21 Nov 2024 14:41:06 -0800 (PST)
+Message-ID: <4141beba-3310-49a0-9163-538b89c0e6fb@sifive.com>
+Date: Thu, 21 Nov 2024 16:41:05 -0600
 MIME-Version: 1.0
-Message-Id: <20241121-intro-acpi-arch-init-v4-1-b1fb517e7d8b@gmail.com>
-X-B4-Tracking: v=1; b=H4sIANBCP2cC/4XNQQ6CMBCF4auYrq1ppyDUlfcwLkqZwiRCSUsaD
- eHuFlZsjMv/JfPNwiIGwshup4UFTBTJjzmK84nZ3owdcmpzMxBQiFpUnMY5eG7sRNwE2+emmTu
- rtUOl8Aoty6dTQEfvnX08c/cUZx8++5cE2/oHTMAl16AkgjJVBfLeDYZeF+sHtoFJHZH6B6Iy0
- phSirrUjXHuiKzr+gUBRyTj/QAAAA==
-X-Change-ID: 20240807-intro-acpi-arch-init-fc99fe33e62d
-To: Hanjun Guo <guohanjun@huawei.com>, 
- "Rafael J. Wysocki" <rafael@kernel.org>, Len Brown <lenb@kernel.org>, 
- Sunil V L <sunilvl@ventanamicro.com>, Sudeep Holla <sudeep.holla@arm.com>, 
- Lorenzo Pieralisi <lpieralisi@kernel.org>, 
- Paul Walmsley <paul.walmsley@sifive.com>, 
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>
-Cc: linux-acpi@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-riscv@lists.infradead.org, Miao Wang <shankerwangmiao@gmail.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=3611;
- i=shankerwangmiao@gmail.com; h=from:subject:message-id;
- bh=Jl9aXTAyOwV80IxKtP6Gua28eCTN9Fr/tbA9iL0gCVo=;
- b=owEBbQKS/ZANAwAKAbAx48p7/tluAcsmYgBnP0Lbcf9PkzbBl6oc3sU4YtPr5VeRoXj99DkCl
- d0CRuCkc0KJAjMEAAEKAB0WIQREqPWPgPJBxluezBOwMePKe/7ZbgUCZz9C2wAKCRCwMePKe/7Z
- bpz2EAC9hdUoauiIhwZ41G6gzCpymFr9rJ4nwpqKCvLyOGfcEE8bTMTXxFb2Ms1anYnrPedeb2+
- ex9XY+8zVBkswP7VYOC2wKs6bQzoqkrRz9PfsMlmkxn/NVn4jI570uVVFjV+ad+TQt/ZhjRPptY
- b8epvh4sxKfhvB3K3/gqFlMHqh7cjA0FKTEsooBFeW0KUXhdNcjXVIvQXFBOlEeouEnFOGg4zLr
- yrX6rNFwKVHxmfjR1c1RcL6ghFr0+jTDdCpghP6Bp8bLlCjW3V+cPk3XiG2yLYsqFygZ1OZCVQQ
- n3C0btlKgxDAjRky5OCqkZ8O3O+o9QJT42X6eziQu4fj1YftCWzhUS/C1ZOPPf8J5u6uvnWxsal
- GZ7M3fDUybkuVwMhxny3MpkKZ8QEhg7pif4vszPts03u1zu22ePxckKdIBmLFjcb1OKvLzfIeVd
- f9eSyY7GD8Rc1iqa2vu49AuFlGAh8DpElw8t03wTRDrUV6+Dcy+nsAF6U+UINpLMyW2WOLDW/ig
- sj0NRHc6HGFRtRJAMOrjvaE9jPyXgT4uO6ypThNoqukknZwzpfkJbpELnbptK/RVSbqOni6lqft
- lBw880LaIK772r8VFO7eDwWigLlMEF8UfZIp/PiYQza8FXA7MfeVbBarS+FhReg+e/oMh0XCNwq
- CdhzVutnQBC+Dvg==
-X-Developer-Key: i=shankerwangmiao@gmail.com; a=openpgp;
- fpr=6FAEFF06B7D212A774C60BFDFA0D166D6632EF4A
-X-Endpoint-Received: by B4 Relay for shankerwangmiao@gmail.com/default with
- auth_id=189
-X-Original-From: Miao Wang <shankerwangmiao@gmail.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2] riscv: Call secondary mmu notifier when flushing the
+ tlb
+To: Alexandre Ghiti <alex@ghiti.fr>, Andrew Jones <ajones@ventanamicro.com>,
+ Alexandre Ghiti <alexghiti@rivosinc.com>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20240328073838.8776-1-alexghiti@rivosinc.com>
+ <20241121-e97820f8c09de9bcedfe885d@orel>
+ <0456b6b4-1453-444d-8cd8-38715dc9f845@ghiti.fr>
+From: Samuel Holland <samuel.holland@sifive.com>
+Content-Language: en-US
+In-Reply-To: <0456b6b4-1453-444d-8cd8-38715dc9f845@ghiti.fr>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241121_062535_436501_264AE40A 
-X-CRM114-Status: GOOD (  12.56  )
+X-CRM114-CacheID: sfid-20241121_144109_039446_F12B00C3 
+X-CRM114-Status: GOOD (  10.50  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,128 +98,27 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Reply-To: shankerwangmiao@gmail.com
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Miao Wang <shankerwangmiao@gmail.com>
-
-To avoid arch-specific code in general ACPI initialization flow,
-we introduce a weak symbol acpi_arch_init. Currently, arm64 and
-riscv can utillize this to insert their arch-specific flow. In
-the future, other architectures can also have chance to define
-their own arch-specific acpi initialization process if necessary.
-
-Reviewed-by: Sunil V L <sunilvl@ventanamicro.com>
-Reviewed-by: Sudeep Holla <sudeep.holla@arm.com>
-Acked-by: Hanjun Guo <guohanjun@huawei.com>
-Signed-off-by: Miao Wang <shankerwangmiao@gmail.com>
----
-Changes from v1
-- Change acpi_arch_init from a static inline stub to a weak function
-  according to Haijun Guo's advice
----
-Changes from v2:
-- Add __init attribute to the weak acpi_arch_init stub
-- Link to v2: https://lore.kernel.org/r/20240807-intro-acpi-arch-init-v2-1-9231e23a7721@gmail.com
----
-Changes in v4:
-- Rebased to recent Linus's tree
-- Consolidate acpi_arm_init and acpi_riscv_init into acpi_arch_init
-- Link to v3: https://lore.kernel.org/r/20240808-intro-acpi-arch-init-v3-1-ba510859baff@gmail.com
----
- drivers/acpi/arm64/init.c |  2 +-
- drivers/acpi/bus.c        |  5 +++--
- drivers/acpi/riscv/init.c |  2 +-
- include/linux/acpi.h      | 12 +-----------
- 4 files changed, 6 insertions(+), 15 deletions(-)
-
-diff --git a/drivers/acpi/arm64/init.c b/drivers/acpi/arm64/init.c
-index d0c8aed90fd16f9a7fe62b8c551c0cd091cb91ec..7a47d8095a7dd5f3dac6e0754d6271bf6de269ff 100644
---- a/drivers/acpi/arm64/init.c
-+++ b/drivers/acpi/arm64/init.c
-@@ -2,7 +2,7 @@
- #include <linux/acpi.h>
- #include "init.h"
- 
--void __init acpi_arm_init(void)
-+void __init acpi_arch_init(void)
- {
- 	if (IS_ENABLED(CONFIG_ACPI_AGDI))
- 		acpi_agdi_init();
-diff --git a/drivers/acpi/bus.c b/drivers/acpi/bus.c
-index 16917dc3ad604cc537d05bb2c0034ff5a9181fd0..058910af82bca689577909e8967073ca3198b3c8 100644
---- a/drivers/acpi/bus.c
-+++ b/drivers/acpi/bus.c
-@@ -1434,6 +1434,8 @@ static int __init acpi_bus_init(void)
- struct kobject *acpi_kobj;
- EXPORT_SYMBOL_GPL(acpi_kobj);
- 
-+void __weak __init acpi_arch_init(void) { }
-+
- static int __init acpi_init(void)
- {
- 	int result;
-@@ -1461,8 +1463,7 @@ static int __init acpi_init(void)
- 	acpi_viot_early_init();
- 	acpi_hest_init();
- 	acpi_ghes_init();
--	acpi_arm_init();
--	acpi_riscv_init();
-+	acpi_arch_init();
- 	acpi_scan_init();
- 	acpi_ec_init();
- 	acpi_debugfs_init();
-diff --git a/drivers/acpi/riscv/init.c b/drivers/acpi/riscv/init.c
-index 5ef97905a72759ea2aab3195e56b7ee580eded96..673e4d5dd752719ae7ed0017c8b5b1c688cf9b4b 100644
---- a/drivers/acpi/riscv/init.c
-+++ b/drivers/acpi/riscv/init.c
-@@ -7,7 +7,7 @@
- #include <linux/acpi.h>
- #include "init.h"
- 
--void __init acpi_riscv_init(void)
-+void __init acpi_arch_init(void)
- {
- 	riscv_acpi_init_gsi_mapping();
- }
-diff --git a/include/linux/acpi.h b/include/linux/acpi.h
-index 7dd24acd9ffeedbe47ac392bd939309408c0afa3..05f39fbfa4856d2e6b7d45d9580cc82963764d55 100644
---- a/include/linux/acpi.h
-+++ b/include/linux/acpi.h
-@@ -1530,17 +1530,7 @@ static inline int find_acpi_cpu_topology_hetero_id(unsigned int cpu)
- }
- #endif
- 
--#ifdef CONFIG_ARM64
--void acpi_arm_init(void);
--#else
--static inline void acpi_arm_init(void) { }
--#endif
--
--#ifdef CONFIG_RISCV
--void acpi_riscv_init(void);
--#else
--static inline void acpi_riscv_init(void) { }
--#endif
-+void acpi_arch_init(void);
- 
- #ifdef CONFIG_ACPI_PCC
- void acpi_init_pcc(void);
-
----
-base-commit: 43fb83c17ba2d63dfb798f0be7453ed55ca3f9c2
-change-id: 20240807-intro-acpi-arch-init-fc99fe33e62d
-
-Best regards,
--- 
-Miao Wang <shankerwangmiao@gmail.com>
-
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+SGkgQWxleCwKCk9uIDIwMjQtMTEtMjEgNDozNiBBTSwgQWxleGFuZHJlIEdoaXRpIHdyb3RlOgo+
+IEhpIEFuZHJldywKPiAKPiBPbiAyMS8xMS8yMDI0IDEwOjMyLCBBbmRyZXcgSm9uZXMgd3JvdGU6
+Cj4+IE9uIFRodSwgTWFyIDI4LCAyMDI0IGF0IDA4OjM4OjM4QU0gKzAxMDAsIEFsZXhhbmRyZSBH
+aGl0aSB3cm90ZToKPj4+IFRoaXMgaXMgcmVxdWlyZWQgdG8gYWxsb3cgdGhlIElPTU1VIGRyaXZl
+ciB0byBjb3JyZWN0bHkgZmx1c2ggaXRzIG93bgo+Pj4gVExCLgo+Pj4KPj4+IFNpZ25lZC1vZmYt
+Ynk6IEFsZXhhbmRyZSBHaGl0aSA8YWxleGdoaXRpQHJpdm9zaW5jLmNvbT4KPj4+IC0tLQo+Pj4K
+Pj4+IENoYW5nZXMgaW4gdjI6Cj4+PiAtIFJlYmFzZSBvbiB0b3Agb2YgNi45LXJjMQo+Pj4KPj4+
+IMKgIGFyY2gvcmlzY3YvbW0vdGxiZmx1c2guYyB8IDM5ICsrKysrKysrKysrKysrKysrKysrKysr
+LS0tLS0tLS0tLS0tLS0tLQo+Pj4gwqAgMSBmaWxlIGNoYW5nZWQsIDIzIGluc2VydGlvbnMoKyks
+IDE2IGRlbGV0aW9ucygtKQo+Pj4KPj4gSGkgQWxleCwKPj4KPj4gSXMgdGhpcyBwYXRjaCBzdGls
+bCBzb21ldGhpbmcgd2UgbmVlZD8KPj4KPj4gVGhhbmtzLAo+PiBkcmV3Cj4gCj4gCj4gWWVzIEkg
+dGhpbmsgc28sIGhvcGVmdWxseSBpdCBnZXRzIG1lcmdlZC4KClBsZWFzZSByZWJhc2UgYW5kIHJl
+c2VuZCB0aGlzIHBhdGNoLiBJdCBjb25mbGljdHMgd2l0aCB0d28gb3RoZXIgY2hhbmdlcyBtZXJn
+ZWQKc2luY2UgeW91IHNlbnQgdjIgKDAzOGFjMThhYWU5MyBhbmQgZjU4ZTVkYzQ1ZmE5KSwgaW4g
+YWRkaXRpb24gdG8gdGhlIG9uZSB5b3UKc2VudCB0aGUgcmVzb2x1dGlvbiBmb3IuCgpSZWdhcmRz
+LApTYW11ZWwKCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+XwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9y
+ZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2
+Cg==
