@@ -4,78 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 69A75D6ED21
-	for <linux-riscv@archiver.kernel.org>; Thu, 21 Nov 2024 12:56:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 00AF9D78768
+	for <linux-riscv@archiver.kernel.org>; Thu, 21 Nov 2024 14:26:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
+	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:MIME-Version
+	:Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=BZ6Z7f/IIz23S0l34UCQt2l3PQJ7FtEPYZGCcnWvGkQ=; b=gSvHKMlrbJrps3
-	A0etb59UaXg0H/sFKW7tspqq+mLv3pgVykqthM0v7/F3s8agwJcM02ZxCNV7r+GApBzLJrGBnbqSf
-	CL2m8kF7UYOet8GtAacf2Zp24Wifw9bALmiG7sw+mOSjwJLrBj3WE9R7ceR6gVLeoW9/TY+M8lZdt
-	0fNzw086bRZzrcT1WGdbu8AMmlC5h/RG25GOHpbU6JXhBk9bpNJkT7XuYpEscuiAT6f5IcnmhcC5s
-	kCgdQ7FbwqjzhEMgConu80QvljCm+RROE2tVkRzFf4Z5o+nchPMLntX0NPO76ANowri3/kVwKlOyf
-	NDE97FKZFE8vL5BQSBPg==;
+	List-Owner; bh=Zy70fqR+3EdpJmKz7UyGpB7pcpsaJYYP+UbNUk57gFc=; b=VqRmvHN97ZZo1m
+	mi6DQL8KZCoVNl/SpYb9lj0/9BrFouG4zbxoGm2l110uSnxMsoCxWKGX0JlYvzKDRcWpGkqW9FstC
+	0W8D3SdJvSW36xewNB5vZPtRs2hh8/GGJ1EBso5z8EfOffSuGsneBLKSltQ60CUthaui6AQnX8i5g
+	GN3jU7CxXEDjPBrSSU1P7th98HLE2NvYfXjs3MA6hDTE38nM07Vz19KlkTbgMkgLsUZyWT0zSRq86
+	GPdVGuw1tCL3CVCSWMPIA3n7/0ZDvZ/Tb3qURFIgXL4c/7vlIrUfb/yrORYMDSJfa9BHkpzrzWXR0
+	eygPyRjvOWA1oDB8nnLQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tE6iv-000000002jY-2H3m;
-	Thu, 21 Nov 2024 12:55:53 +0000
-Received: from mail-io1-xd2c.google.com ([2607:f8b0:4864:20::d2c])
+	id 1tE88g-00000000Czh-0jKm;
+	Thu, 21 Nov 2024 14:26:34 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tE6is-000000002iv-3iqh
-	for linux-riscv@lists.infradead.org;
-	Thu, 21 Nov 2024 12:55:52 +0000
-Received: by mail-io1-xd2c.google.com with SMTP id ca18e2360f4ac-83a9be2c028so29182939f.1
-        for <linux-riscv@lists.infradead.org>; Thu, 21 Nov 2024 04:55:50 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=brainfault-org.20230601.gappssmtp.com; s=20230601; t=1732193749; x=1732798549; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:mime-version:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=4OPqzXMUHnyZ1Qfz8WKePkWvYvx6EvXlEnQMdWX7vBk=;
-        b=few12TdPQeW+6O9lrhDj7WzdQnD+ljznOWGvY2MoUBerEOCJk37pMljnoyPOIkVSsd
-         12C1LLMlW5iw7AyFlGOe+1eY2JvuUhuj8J49MkghrGysW2DNhQLOQb6f4gHLLvZFbpf2
-         f0cZxiZeSlux+SNl+wq14vFKbczB2RJeJNa026poCrnNtW9Ph0scFJQ0s8LhtKMSq9ke
-         oPFzYRpP9F4TP8AKEZZiwS5MQVWW81VgkRXUwI6KF2wF85Trgh05Tg6LrWR/4NtjHAVb
-         Z60wYUvthECdRKecDyEi8DP0jJsuxmspsysexzZ3iPw7+ov0z+o+QPqnEkZ5JIMjzseo
-         d+nA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1732193749; x=1732798549;
-        h=cc:to:subject:message-id:date:from:mime-version:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=4OPqzXMUHnyZ1Qfz8WKePkWvYvx6EvXlEnQMdWX7vBk=;
-        b=qQDzxZHx/zX5ctmv+JDTZ0ouENLW6zQj119xIIWqDX+CbkEYqR7BgHJfA1hGdDcz6R
-         iIxi+BqsvM9KyxCzh79Ji6iu3b8Ci8cUiMnnAnHqEMHaqQno1O7L7Ce2NOzf5C3gIG9Z
-         mmY0C9NVHNImLPhk6p/X5/+2VBWyiWp/e/nXOFPICFPYEP4ih8T5xrQrXCGJNxc2y4NP
-         g8EJzd5hWOjisT08EOi9H1WocoblXtXwEEYgIUxR7L03X7FkbZDy2sWb4kVNaaGeln9V
-         CjduQeUbPTxI+VbSj46ZMai0rFgupmPN2K8QGesB6ycLPK5AEYr2+KrWGn15IqJYZO8L
-         le0g==
-X-Forwarded-Encrypted: i=1; AJvYcCV3Sa4mwU56vE5MNMzAulfu/MH8G/f9cWeINsufhLtmujAaQD2opT126leUbNee4pfxJR1QJrKZA/+IUA==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzpzpx6HaRFteIVLyEFWacpMuKbhG77qgqh7PEVAWdlyQWdwB5G
-	7aVMUFaFyhg4e7+8+zMbyiXqRwWccsBN7yuMxIoFO5i1NZgpbJiYuBYSrVmHHs8VzHZwS+4QaOn
-	NImkcYQ88YEdN/cGNzii9mDJ8QpdqCYUA+gk6ZA==
-X-Gm-Gg: ASbGncvO52OHLnOE/F9zsIclb3+mP8BLAfGefkb7hBHLTdQjvvi0tUitCFGCOok0igI
-	fq7JoPkfnDE2Lv9dorVN0SdT76cBiquBs
-X-Google-Smtp-Source: AGHT+IFzME82wtFhiLZQ0596FmC/IrmouUnXxIXvNfGhgZBmJbZiykpTW4VRwU84h8kkvIZO3+9/SLoaGrJsnt6/bD4=
-X-Received: by 2002:a05:6602:15cd:b0:83a:a305:d9f3 with SMTP id
- ca18e2360f4ac-83eb6028fb1mr880276339f.12.1732193749094; Thu, 21 Nov 2024
- 04:55:49 -0800 (PST)
+	id 1tE87j-00000000Csf-15zk;
+	Thu, 21 Nov 2024 14:25:36 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 8B328A40A98;
+	Thu, 21 Nov 2024 14:23:40 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 84C73C4CECC;
+	Thu, 21 Nov 2024 14:25:33 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1732199133;
+	bh=IOPiUmb3wXj+j2xu3fhXd0yPSBEGQDEtT0cSG6Ufbq8=;
+	h=From:Date:Subject:To:Cc:Reply-To:From;
+	b=WzB25KaVHPuJ3qADwxJKa9Rj1ythejzWtD6i9s/OxjeP4iJ3r763aF0SF9H0bvMRd
+	 ug6MjqNcoVqDKXRXb2ReUfTUOqQ8mYC7oaTY06FJ5bevlG/NP8WUYLE04Ss5lQGrgH
+	 qDaQPP7AJkEAau+gQg5XFBc68MnNOO0BLnRYMz25fi0dBd+O/G1d8NZv5vKLjcADEB
+	 6R/Zp8kvI9vCV7ui0vS+WWUqg04e8LupYYEhIfS1o2Vccw+jGgxdheB2v3Ky+gbKqC
+	 QFyx4/m5OtV0niCJc9CgXrjFKMyYjIOO0Y1s1YFfkkUwb4hinhNdUL7YDitjj6msTQ
+	 o8CD7g4R7j+rw==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 73134D78768;
+	Thu, 21 Nov 2024 14:25:33 +0000 (UTC)
+From: Miao Wang via B4 Relay <devnull+shankerwangmiao.gmail.com@kernel.org>
+Date: Thu, 21 Nov 2024 22:25:21 +0800
+Subject: [PATCH v4] ACPI: introduce acpi_arch_init
 MIME-Version: 1.0
-From: Anup Patel <anup@brainfault.org>
-Date: Thu, 21 Nov 2024 18:25:38 +0530
-Message-ID: <CAAhSdy2mLBzE63wpQrOaHtOV0rwqkaxTUMBA9oMZsk68o0EHMg@mail.gmail.com>
-Subject: [GIT PULL] KVM/riscv changes for 6.13, part #2
-To: Paolo Bonzini <pbonzini@redhat.com>
-Cc: Palmer Dabbelt <palmer@rivosinc.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Andrew Jones <ajones@ventanamicro.com>, Atish Patra <atishp@rivosinc.com>, 
-	Atish Patra <atishp@atishpatra.org>, 
-	"open list:KERNEL VIRTUAL MACHINE FOR RISC-V (KVM/riscv)" <kvm-riscv@lists.infradead.org>, KVM General <kvm@vger.kernel.org>, 
-	linux-riscv <linux-riscv@lists.infradead.org>
+Message-Id: <20241121-intro-acpi-arch-init-v4-1-b1fb517e7d8b@gmail.com>
+X-B4-Tracking: v=1; b=H4sIANBCP2cC/4XNQQ6CMBCF4auYrq1ppyDUlfcwLkqZwiRCSUsaD
+ eHuFlZsjMv/JfPNwiIGwshup4UFTBTJjzmK84nZ3owdcmpzMxBQiFpUnMY5eG7sRNwE2+emmTu
+ rtUOl8Aoty6dTQEfvnX08c/cUZx8++5cE2/oHTMAl16AkgjJVBfLeDYZeF+sHtoFJHZH6B6Iy0
+ phSirrUjXHuiKzr+gUBRyTj/QAAAA==
+X-Change-ID: 20240807-intro-acpi-arch-init-fc99fe33e62d
+To: Hanjun Guo <guohanjun@huawei.com>, 
+ "Rafael J. Wysocki" <rafael@kernel.org>, Len Brown <lenb@kernel.org>, 
+ Sunil V L <sunilvl@ventanamicro.com>, Sudeep Holla <sudeep.holla@arm.com>, 
+ Lorenzo Pieralisi <lpieralisi@kernel.org>, 
+ Paul Walmsley <paul.walmsley@sifive.com>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>
+Cc: linux-acpi@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-riscv@lists.infradead.org, Miao Wang <shankerwangmiao@gmail.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=3611;
+ i=shankerwangmiao@gmail.com; h=from:subject:message-id;
+ bh=Jl9aXTAyOwV80IxKtP6Gua28eCTN9Fr/tbA9iL0gCVo=;
+ b=owEBbQKS/ZANAwAKAbAx48p7/tluAcsmYgBnP0Lbcf9PkzbBl6oc3sU4YtPr5VeRoXj99DkCl
+ d0CRuCkc0KJAjMEAAEKAB0WIQREqPWPgPJBxluezBOwMePKe/7ZbgUCZz9C2wAKCRCwMePKe/7Z
+ bpz2EAC9hdUoauiIhwZ41G6gzCpymFr9rJ4nwpqKCvLyOGfcEE8bTMTXxFb2Ms1anYnrPedeb2+
+ ex9XY+8zVBkswP7VYOC2wKs6bQzoqkrRz9PfsMlmkxn/NVn4jI570uVVFjV+ad+TQt/ZhjRPptY
+ b8epvh4sxKfhvB3K3/gqFlMHqh7cjA0FKTEsooBFeW0KUXhdNcjXVIvQXFBOlEeouEnFOGg4zLr
+ yrX6rNFwKVHxmfjR1c1RcL6ghFr0+jTDdCpghP6Bp8bLlCjW3V+cPk3XiG2yLYsqFygZ1OZCVQQ
+ n3C0btlKgxDAjRky5OCqkZ8O3O+o9QJT42X6eziQu4fj1YftCWzhUS/C1ZOPPf8J5u6uvnWxsal
+ GZ7M3fDUybkuVwMhxny3MpkKZ8QEhg7pif4vszPts03u1zu22ePxckKdIBmLFjcb1OKvLzfIeVd
+ f9eSyY7GD8Rc1iqa2vu49AuFlGAh8DpElw8t03wTRDrUV6+Dcy+nsAF6U+UINpLMyW2WOLDW/ig
+ sj0NRHc6HGFRtRJAMOrjvaE9jPyXgT4uO6ypThNoqukknZwzpfkJbpELnbptK/RVSbqOni6lqft
+ lBw880LaIK772r8VFO7eDwWigLlMEF8UfZIp/PiYQza8FXA7MfeVbBarS+FhReg+e/oMh0XCNwq
+ CdhzVutnQBC+Dvg==
+X-Developer-Key: i=shankerwangmiao@gmail.com; a=openpgp;
+ fpr=6FAEFF06B7D212A774C60BFDFA0D166D6632EF4A
+X-Endpoint-Received: by B4 Relay for shankerwangmiao@gmail.com/default with
+ auth_id=189
+X-Original-From: Miao Wang <shankerwangmiao@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241121_045551_185610_29DFCFCC 
-X-CRM114-Status: UNSURE (   7.87  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241121_062535_436501_264AE40A 
+X-CRM114-Status: GOOD (  12.56  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,61 +97,126 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Reply-To: shankerwangmiao@gmail.com
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Paolo,
+From: Miao Wang <shankerwangmiao@gmail.com>
 
-As mentioned in the last PR, here are the remaining KVM RISC-V
-changes for 6.13 which mainly consists of Svade/Svadu extension
-support for Host and Guest/VM.
+To avoid arch-specific code in general ACPI initialization flow,
+we introduce a weak symbol acpi_arch_init. Currently, arm64 and
+riscv can utillize this to insert their arch-specific flow. In
+the future, other architectures can also have chance to define
+their own arch-specific acpi initialization process if necessary.
 
-Please note that Palmer has not yet sent the RISC-V PR for 6.13
-so these patches will conflict with the RISC-V tree.
+Reviewed-by: Sunil V L <sunilvl@ventanamicro.com>
+Reviewed-by: Sudeep Holla <sudeep.holla@arm.com>
+Acked-by: Hanjun Guo <guohanjun@huawei.com>
+Signed-off-by: Miao Wang <shankerwangmiao@gmail.com>
+---
+Changes from v1
+- Change acpi_arch_init from a static inline stub to a weak function
+  according to Haijun Guo's advice
+---
+Changes from v2:
+- Add __init attribute to the weak acpi_arch_init stub
+- Link to v2: https://lore.kernel.org/r/20240807-intro-acpi-arch-init-v2-1-9231e23a7721@gmail.com
+---
+Changes in v4:
+- Rebased to recent Linus's tree
+- Consolidate acpi_arm_init and acpi_riscv_init into acpi_arch_init
+- Link to v3: https://lore.kernel.org/r/20240808-intro-acpi-arch-init-v3-1-ba510859baff@gmail.com
+---
+ drivers/acpi/arm64/init.c |  2 +-
+ drivers/acpi/bus.c        |  5 +++--
+ drivers/acpi/riscv/init.c |  2 +-
+ include/linux/acpi.h      | 12 +-----------
+ 4 files changed, 6 insertions(+), 15 deletions(-)
 
-Please pull.
+diff --git a/drivers/acpi/arm64/init.c b/drivers/acpi/arm64/init.c
+index d0c8aed90fd16f9a7fe62b8c551c0cd091cb91ec..7a47d8095a7dd5f3dac6e0754d6271bf6de269ff 100644
+--- a/drivers/acpi/arm64/init.c
++++ b/drivers/acpi/arm64/init.c
+@@ -2,7 +2,7 @@
+ #include <linux/acpi.h>
+ #include "init.h"
+ 
+-void __init acpi_arm_init(void)
++void __init acpi_arch_init(void)
+ {
+ 	if (IS_ENABLED(CONFIG_ACPI_AGDI))
+ 		acpi_agdi_init();
+diff --git a/drivers/acpi/bus.c b/drivers/acpi/bus.c
+index 16917dc3ad604cc537d05bb2c0034ff5a9181fd0..058910af82bca689577909e8967073ca3198b3c8 100644
+--- a/drivers/acpi/bus.c
++++ b/drivers/acpi/bus.c
+@@ -1434,6 +1434,8 @@ static int __init acpi_bus_init(void)
+ struct kobject *acpi_kobj;
+ EXPORT_SYMBOL_GPL(acpi_kobj);
+ 
++void __weak __init acpi_arch_init(void) { }
++
+ static int __init acpi_init(void)
+ {
+ 	int result;
+@@ -1461,8 +1463,7 @@ static int __init acpi_init(void)
+ 	acpi_viot_early_init();
+ 	acpi_hest_init();
+ 	acpi_ghes_init();
+-	acpi_arm_init();
+-	acpi_riscv_init();
++	acpi_arch_init();
+ 	acpi_scan_init();
+ 	acpi_ec_init();
+ 	acpi_debugfs_init();
+diff --git a/drivers/acpi/riscv/init.c b/drivers/acpi/riscv/init.c
+index 5ef97905a72759ea2aab3195e56b7ee580eded96..673e4d5dd752719ae7ed0017c8b5b1c688cf9b4b 100644
+--- a/drivers/acpi/riscv/init.c
++++ b/drivers/acpi/riscv/init.c
+@@ -7,7 +7,7 @@
+ #include <linux/acpi.h>
+ #include "init.h"
+ 
+-void __init acpi_riscv_init(void)
++void __init acpi_arch_init(void)
+ {
+ 	riscv_acpi_init_gsi_mapping();
+ }
+diff --git a/include/linux/acpi.h b/include/linux/acpi.h
+index 7dd24acd9ffeedbe47ac392bd939309408c0afa3..05f39fbfa4856d2e6b7d45d9580cc82963764d55 100644
+--- a/include/linux/acpi.h
++++ b/include/linux/acpi.h
+@@ -1530,17 +1530,7 @@ static inline int find_acpi_cpu_topology_hetero_id(unsigned int cpu)
+ }
+ #endif
+ 
+-#ifdef CONFIG_ARM64
+-void acpi_arm_init(void);
+-#else
+-static inline void acpi_arm_init(void) { }
+-#endif
+-
+-#ifdef CONFIG_RISCV
+-void acpi_riscv_init(void);
+-#else
+-static inline void acpi_riscv_init(void) { }
+-#endif
++void acpi_arch_init(void);
+ 
+ #ifdef CONFIG_ACPI_PCC
+ void acpi_init_pcc(void);
 
-Regards,
-Anup
+---
+base-commit: 43fb83c17ba2d63dfb798f0be7453ed55ca3f9c2
+change-id: 20240807-intro-acpi-arch-init-fc99fe33e62d
 
-The following changes since commit 332fa4a802b16ccb727199da685294f85f9880cb:
+Best regards,
+-- 
+Miao Wang <shankerwangmiao@gmail.com>
 
-  riscv: kvm: Fix out-of-bounds array access (2024-11-05 13:27:32 +0530)
 
-are available in the Git repository at:
-
-  https://github.com/kvm-riscv/linux.git tags/kvm-riscv-6.13-2
-
-for you to fetch changes up to c74bfe4ffe8c1ca94e3d60ec7af06cf679e23583:
-
-  KVM: riscv: selftests: Add Svade and Svadu Extension to get-reg-list
-test (2024-11-21 17:40:16 +0530)
-
-----------------------------------------------------------------
-KVM/riscv changes for 6.13 part #2
-
-- Svade and Svadu extension support for Host and Guest/VM
-
-----------------------------------------------------------------
-Yong-Xuan Wang (4):
-      RISC-V: Add Svade and Svadu Extensions Support
-      dt-bindings: riscv: Add Svade and Svadu Entries
-      RISC-V: KVM: Add Svade and Svadu Extensions Support for Guest/VM
-      KVM: riscv: selftests: Add Svade and Svadu Extension to get-reg-list test
-
- .../devicetree/bindings/riscv/extensions.yaml      | 28 ++++++++++++++++++++++
- arch/riscv/Kconfig                                 |  1 +
- arch/riscv/include/asm/csr.h                       |  1 +
- arch/riscv/include/asm/hwcap.h                     |  2 ++
- arch/riscv/include/asm/pgtable.h                   | 13 +++++++++-
- arch/riscv/include/uapi/asm/kvm.h                  |  2 ++
- arch/riscv/kernel/cpufeature.c                     | 12 ++++++++++
- arch/riscv/kvm/vcpu.c                              |  4 ++++
- arch/riscv/kvm/vcpu_onereg.c                       | 15 ++++++++++++
- tools/testing/selftests/kvm/riscv/get-reg-list.c   |  8 +++++++
- 10 files changed, 85 insertions(+), 1 deletion(-)
 
 _______________________________________________
 linux-riscv mailing list
