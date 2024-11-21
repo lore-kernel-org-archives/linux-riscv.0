@@ -4,70 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE61DD6ED0E
-	for <linux-riscv@archiver.kernel.org>; Thu, 21 Nov 2024 11:30:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2982FD6ED0E
+	for <linux-riscv@archiver.kernel.org>; Thu, 21 Nov 2024 11:52:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=fwVo2N1vhA0XRo98oCNOvE4VU1u8d/kZ+Rmgtd8YIKE=; b=Di0Cs/sr/u4Aq8
-	xf0DvGyNRpMPzK7gu2w957pRU/Hwss4CBGqdAXP5Tmq0kX+R9bXmidtnR0DSPax83iGVxl+Lxtc3A
-	rlZQfDi2e8BcxheMIzbDN0bDXoCeb5dlRSnWbf3B0pLu5NbHDneQN6yfET8CYNTgc7WIWzyJq0YDl
-	9xZQ1JtVGNGDxgT6ZzDvVUjbDgzqb5m4obRdGPeKxbejIN3KmrpWCooE2TFpvjUT6PRTy/xPLMRX9
-	HSjbQulU/MMaLk5xzABOWZkMccwfvN8t6fTdnSXOFq1uMEDG5O3bNgwNhNg8r0kEwOBka3mjWZIYI
-	wqxE2MDbBjLiBR0UeV7Q==;
+	List-Owner; bh=m7Avb7EkOzGWll9+phkVb3y3og5pOTkLM/Ronsjgi+g=; b=Ucy0Vtdmk8yNa2
+	vSfbOUK/JjfCv0TlS8Rdul/emSp/uP74Rh+qr8ZT2s+0CsBSIYLJPj/0G5ar4pHCrTJdaNRofedeH
+	SKaKeRqrorSGSNk/MGzNpAo95BvX5s2/RemimHLjKauprgcXDV+iOiLtWDiA3SEYEQFfD+IA7CMdH
+	/mTFTFi79TKXOJ6+MaNhvqfwnHKetQbDKZmiaJkayJ0BwGBXC9irYzJ8FEwyUsyYmu+FqVoTqAmY0
+	p+GQpVy+AFRN9cJBy3hBMdqxKOCbz17ltpKf+itf9kmKOlw/veURM5bSKUCS4Sj7PWjniGwKwspfd
+	nRmR7vZ76kvKV4gIVH7A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tE5Nw-0000000HTtE-2hpG;
-	Thu, 21 Nov 2024 11:30:08 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1tE5j0-0000000HWrF-2f1F;
+	Thu, 21 Nov 2024 11:51:54 +0000
+Received: from mail.alien8.de ([65.109.113.108])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tE5Nu-0000000HTsN-0f25
-	for linux-riscv@lists.infradead.org;
-	Thu, 21 Nov 2024 11:30:07 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 974C8A40567;
-	Thu, 21 Nov 2024 11:28:11 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A5165C4CECC;
-	Thu, 21 Nov 2024 11:30:01 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1732188604;
-	bh=/BU9PGY932wn21LtjDKae9aH7zv26C720CtlUCkyHBw=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=Zd4eyciMfSEaozRhA8GrXfvxk/aawYnsgpbdId8ex/F2P5cMSVLEpBJLigXkya97V
-	 djqpFuXYoVJerVXHKtA+a865Ns5S8uAZthRmIRWlBkcArma7p7PCJUXXMdfwiNb8q/
-	 NvOX3JtOeN4ssfiyvcRW8T0NQC4qRG50bjHIO750IJhA7nyr0Yp1frG95VjXxXg+Em
-	 R+LuDdfWhEx4xb7K3ht5h8sebQJs47l28dLF5qc6qfXyDuwOmES3doxI+lr21EzOqI
-	 G4iXjnKg6nN4uwHikFbGEG7H0fD4xTpCKkPI6OlZomHEEDAJAqaFiFjynv9MVyrdvq
-	 aVyNf7zGd+2kw==
-Message-ID: <6a960374-0cd2-4de9-8fc6-c8fe21097b6b@kernel.org>
-Date: Thu, 21 Nov 2024 11:29:59 +0000
+	id 1tE5hk-0000000HWgp-3ICE;
+	Thu, 21 Nov 2024 11:50:38 +0000
+Received: from localhost (localhost.localdomain [127.0.0.1])
+	by mail.alien8.de (SuperMail on ZX Spectrum 128k) with ESMTP id 3D41B40E0263;
+	Thu, 21 Nov 2024 11:50:34 +0000 (UTC)
+X-Virus-Scanned: Debian amavisd-new at mail.alien8.de
+Authentication-Results: mail.alien8.de (amavisd-new); dkim=pass (4096-bit key)
+	header.d=alien8.de
+Received: from mail.alien8.de ([127.0.0.1])
+	by localhost (mail.alien8.de [127.0.0.1]) (amavisd-new, port 10026)
+	with ESMTP id fLpGkduEaatw; Thu, 21 Nov 2024 11:50:30 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=alien8.de; s=alien8;
+	t=1732189827; bh=17zSb8aYTcL4k10y5LSBGllYzpPsKz6juvWhNwQyQnY=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=jCciykZIaXcSfax2oTiL/AHDcWp/6zwpmpENlLcBtPJi4PhXm3OzfyymJmZP+KPu/
+	 FmkdsQpwEdzIB2K7HgMtHJj7h2xdGnhI/w/TZHxKtsqrfWiOjY6xVLTmzdjuqL8ZxQ
+	 DpMNwJVWwxoU2C5sH7hcS27WezIsgqbQm2B7o60Qdl3h4bk4A6nVgbEF+vQl45pJ32
+	 CUE0uNWztqnGHzq1M4OLof7vd+cuZSLAYdrExlyjLzPxVisP3nSUexKbTCPJrrYgGX
+	 UifPUBFhiJhKORCt1X9TXfPYZI0r1a7ZeCr9DyV8muro6qDM48ykAeR45akz43MtoX
+	 htNzCC+eCOE/d5r7HFAG1yGuOuuPtrxAJBXupgGBMPAFrakPz7v/jTkF2m9AzXPh0N
+	 6DQC6aFSqVIxQVHHP5wCZKnETSsS3mzLbzcU4LTpXGiH49yyf0WDNarDcLarM178xG
+	 oZyLDGO/7CJkIepMILrLDw79TFda3NH95waLQm4hUzTRvbMWA0VW7BukvQzO9Xl/9L
+	 XX/EzBe84rC1FljjBmbKKqv8r9lyF3+Nf40N70ddYxs99pr346ng6730Bab/Rv1v5B
+	 j21YIHV4iQBdDe64pBeSp4bAoF2xTBThj2c/5cDggmsZK65+M0YhYgh5Y6yCFNLh6U
+	 BAAIlDE8V00NgOkoIWryTe2M=
+Received: from zn.tnic (p200300ea9736a1a8329c23fffea6a903.dip0.t-ipconnect.de [IPv6:2003:ea:9736:a1a8:329c:23ff:fea6:a903])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (P-256) server-signature ECDSA (P-256) server-digest SHA256)
+	(No client certificate requested)
+	by mail.alien8.de (SuperMail on ZX Spectrum 128k) with ESMTPSA id 9954940E015F;
+	Thu, 21 Nov 2024 11:49:57 +0000 (UTC)
+Date: Thu, 21 Nov 2024 12:49:52 +0100
+From: Borislav Petkov <bp@alien8.de>
+To: "Kirill A. Shutemov" <kirill.shutemov@linux.intel.com>
+Cc: Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>,
+	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
+	"H. Peter Anvin" <hpa@zytor.com>, Andy Lutomirski <luto@kernel.org>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Alexei Starovoitov <ast@kernel.org>,
+	Andrea Parri <parri.andrea@gmail.com>,
+	Arnd Bergmann <arnd@arndb.de>,
+	Daniel Borkmann <daniel@iogearbox.net>,
+	Eric Chan <ericchancf@google.com>, Jason Gunthorpe <jgg@ziepe.ca>,
+	Kai Huang <kai.huang@intel.com>,
+	Kefeng Wang <wangkefeng.wang@huawei.com>,
+	Kent Overstreet <kent.overstreet@linux.dev>,
+	Palmer Dabbelt <palmer@rivosinc.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Russell King <linux@armlinux.org.uk>,
+	Samuel Holland <samuel.holland@sifive.com>,
+	Suren Baghdasaryan <surenb@google.com>,
+	Yuntao Wang <ytcoode@gmail.com>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	Tom Lendacky <thomas.lendacky@amd.com>,
+	Ashish Kalra <ashish.kalra@amd.com>,
+	"Maciej W. Rozycki" <macro@orcam.me.uk>
+Subject: Re: [PATCHv2 2/2] x86/mm: Make memremap(MEMREMAP_WB) map memory as
+ encrypted by default
+Message-ID: <20241121114952.GCZz8eYEVa3yubYQzO@fat_crate.local>
+References: <20241021105723.2707507-1-kirill.shutemov@linux.intel.com>
+ <20241021105723.2707507-3-kirill.shutemov@linux.intel.com>
+ <20241118164616.GAZztvWGs9cOV8t20_@fat_crate.local>
+ <s4frmqwtuvclinuu7ttyzfpe7bj7hju5xgt6sxzy3gyt3prr62@rrgvhkv4lgwv>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] tools: Override makefile ARCH variable if defined, but
- empty
-To: Namhyung Kim <namhyung@kernel.org>, =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?=
- <bjorn@kernel.org>
-Cc: bpf@vger.kernel.org, linux-perf-users@vger.kernel.org,
- Alexandre Ghiti <alexghiti@rivosinc.com>,
- Arnaldo Carvalho de Melo <acme@redhat.com>,
- Jean-Philippe Brucker <jean-philippe@linaro.org>,
- Palmer Dabbelt <palmer@dabbelt.com>, =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?=
- <bjorn@rivosinc.com>, Paul Walmsley <paul.walmsley@sifive.com>,
- Albert Ou <aou@eecs.berkeley.edu>, linux-riscv@lists.infradead.org,
- linux-kernel@vger.kernel.org, David Abdurachmanov <davidlt@rivosinc.com>,
- Daniel Borkmann <daniel@iogearbox.net>, Alexei Starovoitov <ast@kernel.org>,
- Andrii Nakryiko <andrii@kernel.org>, Martin KaFai Lau <martin.lau@linux.dev>
-References: <20241106193208.290067-1-bjorn@kernel.org>
- <87r076nikd.fsf@all.your.base.are.belong.to.us> <Zz7Ng9CzrF_ciAz-@google.com>
-From: Quentin Monnet <qmo@kernel.org>
-Content-Language: en-GB
-In-Reply-To: <Zz7Ng9CzrF_ciAz-@google.com>
+Content-Disposition: inline
+In-Reply-To: <s4frmqwtuvclinuu7ttyzfpe7bj7hju5xgt6sxzy3gyt3prr62@rrgvhkv4lgwv>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241121_033006_259683_71C64536 
-X-CRM114-Status: GOOD (  13.25  )
+X-CRM114-CacheID: sfid-20241121_035036_976033_8862B871 
+X-CRM114-Status: GOOD (  11.58  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,39 +105,48 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-MjAyNC0xMS0yMCAyMjowNCBVVEMtMDgwMCB+IE5hbWh5dW5nIEtpbSA8bmFtaHl1bmdAa2VybmVs
-Lm9yZz4KPiBPbiBXZWQsIE5vdiAyMCwgMjAyNCBhdCAwMjoyNToyMlBNICswMTAwLCBCasO2cm4g
-VMO2cGVsIHdyb3RlOgo+PiBCasO2cm4gVMO2cGVsIDxiam9ybkBrZXJuZWwub3JnPiB3cml0ZXM6
-Cj4+Cj4+PiBGcm9tOiBCasO2cm4gVMO2cGVsIDxiam9ybkByaXZvc2luYy5jb20+Cj4+Pgo+Pj4g
-VGhlcmUgYXJlIGEgbnVtYmVyIG9mIHRvb2xzIChicGZ0b29sLCBzZWxmdGVzdHMpLCB0aGF0IHJl
-cXVpcmUgYQo+Pj4gImJvb3RzdHJhcCIgYnVpbGQuIEhlcmUsIGEgYm9vdHN0cmFwIGJ1aWxkIGlz
-IGEgYnVpbGQgaG9zdCB2YXJpYW50IG9mCj4+PiBhIHRhcmdldC4gRS5nLiwgYXNzdW1lIHRoYXQg
-eW91J3JlIHBlcmZvcm1pbmcgYSBicGZ0b29sIGNyb3NzLWJ1aWxkIG9uCj4+PiB4ODYgdG8gcmlz
-Y3YsIGEgYm9vdHN0cmFwIGJ1aWxkIHdvdWxkIHRoZW4gYmUgYW4geDg2IHZhcmlhbnQgb2YKPj4+
-IGJwZnRvb2wuIFRoZSB0eXBpY2FsIHdheSB0byBwZXJmb3JtIHRoZSBob3N0IGJ1aWxkIHZhcmlh
-bnQsIGlzIHRvIHBhc3MKPj4+ICJBUkNIPSIgaW4gYSBzdWItbWFrZS4gSG93ZXZlciwgaWYgYSB2
-YXJpYWJsZSBoYXMgYmVlbiBzZXQgd2l0aCBhCj4+PiBjb21tYW5kIGFyZ3VtZW50LCB0aGVuIG9y
-ZGluYXJ5IGFzc2lnbm1lbnRzIGluIHRoZSBtYWtlZmlsZSBhcmUKPj4+IGlnbm9yZWQuCj4+Pgo+
-Pj4gVGhpcyBzaWRlLWVmZmVjdCByZXN1bHRzIGluIHRoYXQgQVJDSCwgYW5kIHZhcmlhYmxlcyBk
-ZXBlbmRpbmcgb24gQVJDSAo+Pj4gYXJlIG5vdCBzZXQuCj4+Pgo+Pj4gV29ya2Fyb3VuZCBieSBv
-dmVycmlkaW5nIEFSQ0ggdG8gdGhlIGhvc3QgYXJjaCwgaWYgQVJDSCBpcyBlbXB0eS4KPj4+Cj4+
-PiBGaXhlczogODg1OWIwZGE1YWFjICgidG9vbHMvYnBmdG9vbDogRml4IGNyb3NzLWJ1aWxkIikK
-Pj4+IFNpZ25lZC1vZmYtYnk6IEJqw7ZybiBUw7ZwZWwgPGJqb3JuQHJpdm9zaW5jLmNvbT4KPiAK
-PiBSZXZpZXdlZC1ieTogTmFtaHl1bmcgS2ltIDxuYW1oeXVuZ0BrZXJuZWwub3JnPgoKCkFja2Vk
-LWJ5OiBRdWVudGluIE1vbm5ldCA8cW1vQGtlcm5lbC5vcmc+CgoKPj4gQXJuYWxkby9QYWxtZXIv
-UXVlbnRpbjoKPj4KPj4gQSBiaXQgdW5zdXJlIHdoYXQgdHJlZSB0aGlzIHBhdGNoIHNob3VsZCBn
-by4gSXQncyB2ZXJ5IGltcG9ydGFudCBmb3IgdGhlCj4+IFJJU0MtViBidWlsZHMsIHNvIG1heWJl
-IHZpYSBQYWxtZXIncyBSSVNDLVYgdHJlZT8KPiAKPiBJIHRoaW5rIGl0J2QgYmUgYmVzdCB0byBy
-b3V0ZSB0aGlzIHRocm91Z2ggdGhlIGJwZiB0cmVlIGFzIGl0IHNlZW1zIHRoZQo+IG1haW4gdGFy
-Z2V0IGlzIGJwZnRvb2wuICBCdXQgZ2l2ZW4gdGhlIHNpemUgYW5kIHRoZSBzY29wZSBvZiB0aGUg
-Y2hhbmdlLAo+IGl0IHNob3VsZCBiZSBmaW5lIHdpdGggcGVyZi10b29scyBvciBSSVNDLVYgdHJl
-ZS4KCgpUaGUgYnBmIHRyZWUgd291bGQgbWFrZSBzZW5zZSB0byBtZSBhcyB3ZWxsIChidXQgSSBk
-b24ndCBtZXJnZSBwYXRjaGVzCm15c2VsZjsgbGV0IG1lIENjIEJQRiBtYWludGFpbmVycykuCgpR
-dWVudGluCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwps
-aW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpo
-dHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+On Tue, Nov 19, 2024 at 10:21:05AM +0200, Kirill A. Shutemov wrote:
+> Sure, we can workaround every place that touches such ranges.
+
+Every place? Which every place? I thought this is only an EISA issue?
+
+Then clearly your changelogs need to expand considerably more what we're
+*really* addressing here.
+
+> Or we can address problem at the root and make creating decrypted/shared
+> mappings explicit.
+
+What is the problem? That KVM implicitly converts memory to shared? Why does
+KVM do that an can it be fixed not to?
+
+Doesn't sound like the guest's problem.
+
+Or maybe this needs a lot more explanation what we're fixing here.
+
+> Such mappings have both functional (as we see here) and security
+> implications (VMM can manipulate the guest memory range). We should not
+> create decrypted mappings by default on legacy interfaces.
+
+So we're getting closer.
+
+The changes themselves are fine but your text is missing a lot about what
+we're fixing here. When I asked, I barely scratched the surface. So can we
+elaborate here pls?
+
+Thx.
+
+-- 
+Regards/Gruss,
+    Boris.
+
+https://people.kernel.org/tglx/notes-about-netiquette
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
