@@ -4,81 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D6382E668BC
-	for <linux-riscv@archiver.kernel.org>; Sun, 24 Nov 2024 19:19:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CFE37E69187
+	for <linux-riscv@archiver.kernel.org>; Sun, 24 Nov 2024 22:15:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=TNASlEZuLMtt3OLrye66Yhke0JZv9z0cv7pMj9RFSAw=; b=UG+Hv0A2NkRu0A
-	UzJ/2jQAkiK8aGks/izBwcbgX2PhK0dMnOZ7izo7g9UZMDuW20SANg90E4zIfOjhh0vyORnWetjt1
-	jOSXU6A5i4rNA1EWdQSWK1URMI1szmy59iS+b5gKyqE4duq3LRdMUuhwjODbr5n+nXNrXJ+gHZ1vR
-	OJk2ams+ptZM8kq/wILjZqUcv97qjBtTVOBUI7EU6ymY+LxdMJSwA34aKEtNTlMZgHpT3k0L8MEs2
-	pFljVCV642fHxuabbiZ56w/W9WTW0oAbw3pBl2kb75+njBbGWv8B8PG4EUFqKuKIUUU+HZYUn0ZxT
-	e/mwiQxUGQMgMPrgDFFQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=lPJfRrjQhbzpuame54ZdwF2HPR/jgipuchkRuafxIc8=; b=sadteq8omWF+VU
+	qSqDHJuNk2B0axyISclCdBH5OgwxdzK456PW/Rz87B/FuffvTYfJ8xyF3PWJuXOjRZ6g/4e7w396T
+	iCUSGT9p1KiaAmaYojDctjZVzrzOMq0fjmjbADkpVqPeFk8Epjq6pLQ3c8OHtUeNSz3A+7RqwsXL+
+	fca2bSiEsnbVyfWjNPyLVYlzIhdXM52ooqK/rw0e1GdAa6Y4SDe/IKGtEOZGYXJv/r4QGcl9NXLDN
+	QJXUqj3uWLZYnvnvbQfPjb0wmsSltILmzvaOvzbTrlgEa6m36b2b1IYj/EyDOrxgaXRCioXCOJVZj
+	MGnwMSzRLs0DgSX4Ft8Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tFI8l-00000006ZDQ-1Bhs;
-	Sun, 24 Nov 2024 19:19:27 +0000
-Received: from bayard.4d2.org ([5.78.89.93])
+	id 1tFKsx-00000006hAU-3aig;
+	Sun, 24 Nov 2024 22:15:19 +0000
+Received: from mail-qt1-x830.google.com ([2607:f8b0:4864:20::830])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tFI8i-00000006ZCp-1gho
+	id 1tFKsv-00000006h9o-3ePI
 	for linux-riscv@lists.infradead.org;
-	Sun, 24 Nov 2024 19:19:26 +0000
-Received: from bayard.4d2.org (bayard.4d2.org [127.0.0.1])
-	by bayard.4d2.org (Postfix) with ESMTP id 4BD95122FE1E;
-	Sun, 24 Nov 2024 11:19:20 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=4d2.org; s=mail;
-	t=1732475960; bh=edW6FblLRPc/971JbOeZphqmTOk6PouWc9UbeBAp+ow=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=LkAlmgzbY871ngRwWpBpZ6TKn9VRzeinUPamUqhsoCNZGfiQ0e4DrlxxK/JZopBPF
-	 uMuUKvA7RWCwshtLdaSurQlrMmwzD5p2O1Z8PEhszDbirdMx3aB8yBxFFI0DZKeY2p
-	 xbEBqg2vcqL7rnVjnXULmP7GQXN4dZA1gISosmpX3rlZ9zPiKcmwJ3yQryI1HFBI4q
-	 9CUMk95qsgA81qKhLSaw+DHJoKVZpshKAFV7yO9sxF+Gio3EGJGvNReen+Wbk/Y3HF
-	 ATJLo6KTIgfYLLh12Icjaf/HFLJHshI8HkbyieDfZJrnrR96vPgLFTUxKFNlI79DhN
-	 qjmpc6yjQmnrw==
-X-Virus-Scanned: amavisd-new at 4d2.org
-Received: from bayard.4d2.org ([127.0.0.1])
- by bayard.4d2.org (bayard.4d2.org [127.0.0.1]) (amavisd-new, port 10024)
- with ESMTP id Mx06GAu6XvGk; Sun, 24 Nov 2024 11:19:13 -0800 (PST)
-Received: from ketchup (unknown [119.39.112.187])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: heylenay@4d2.org)
-	by bayard.4d2.org (Postfix) with ESMTPSA id 01A3B122FE1A;
-	Sun, 24 Nov 2024 11:19:09 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=4d2.org; s=mail;
-	t=1732475953; bh=edW6FblLRPc/971JbOeZphqmTOk6PouWc9UbeBAp+ow=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=ARcZ6UjozqyNxpmFO2lRHOJiJ+gpPng0A1BKWVFv8hOzAjxDqC3qGeEsIeiNG2yh1
-	 ICymzkx7+BbQljgdF/O22T3D0l8m9mDjwhD3rSgMcEYa/NGevyJD3IFeBktL328YTV
-	 m73tZyW/VZalh1wGpFWXkASURv8ZvQiKyPzvUprU7lfI4z45SbivaV/yTob07x5/AI
-	 DAvrXGEhTTeOjokCdPLSNFufXDai0LivMO2hNlJnKXZJv8wALSr84wjxKOyCvFz96v
-	 NqL/y/0o3BS51PeQJGRVHJ5VzuOYwTS14ZZ2EUsbikMRNKq8/79kpN3iOKNO/eiuGy
-	 oZSOOR6Qy9qvw==
-Date: Sun, 24 Nov 2024 19:18:59 +0000
-From: Haylen Chu <heylenay@4d2.org>
-To: Samuel Holland <samuel.holland@sifive.com>,
-	Troy Mitchell <troymitchell988@gmail.com>, andi.shyti@kernel.org,
-	robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org
-Cc: linux-i2c@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v2 1/2] dt-bindings: i2c: spacemit: add support for K1 SoC
-Message-ID: <Z0N8I2zv2vl9f8Y1@ketchup>
-References: <20241028053220.346283-1-TroyMitchell988@gmail.com>
- <20241028053220.346283-2-TroyMitchell988@gmail.com>
- <846b4f2a-602e-431e-affc-0e995db5eee5@sifive.com>
- <9dfb250c-d8a1-4536-8658-48b3a2585abd@gmail.com>
- <a9f59ffb-23e9-4c83-8d44-4c766e32b3bf@sifive.com>
+	Sun, 24 Nov 2024 22:15:19 +0000
+Received: by mail-qt1-x830.google.com with SMTP id d75a77b69052e-46101120e70so28427921cf.1
+        for <linux-riscv@lists.infradead.org>; Sun, 24 Nov 2024 14:15:16 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=tenstorrent.com; s=google; t=1732486515; x=1733091315; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=AoCz/NHoJ9MNwkbztrznoUUGmYlxHga44YuBKiYrkmM=;
+        b=dUVppPu5mw8P9W2mu8X9YpwbXezy0kax8bOecB7upaRFR9Ct2H6Plr1w3PS+Y9G+Hg
+         xKjn5t9CvbI3GVfdme6ijQGdqmVX6ZRUR/0+qMqMM6HbnY3bpskeFEMtAAgjca9u9Sl3
+         CRUYzqcfPilPnNmtjWtbHh8KhL7UbtCFoUyPncl7QlKlEkP98xKLW6w2S/tiFhOjlA2u
+         E/c5eObnwBb/aWC66eJH1ASs7AB5J/RnezdUBzkqRpijkHpK4lnxAnGrU7nxAIADwXtJ
+         JDrptedMwu2gn8VuSBAgvLWB7XvdJdiIgDabPJrLa8hguPQy8/IGkGKgZUCTM6ABB/Gj
+         Ag4g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1732486515; x=1733091315;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=AoCz/NHoJ9MNwkbztrznoUUGmYlxHga44YuBKiYrkmM=;
+        b=dvDSlLmVZXzTls14E0XJPUrlAnTU+OJSo04ahOuQIdzhE4RGM8he3KciyLzwDVEqy0
+         YADo1LjzTPY9K0F5Mbe/v7/02PdyZPSbRXRH1ze8cLGKBet5yeVr/LameCr352xzh1Aq
+         jT/1qaPemB7JBUWTx+dH0mNBvgydjj1ckYGzWN9n6au/vp6dHki0XWOsReEbbTXisfs3
+         sv163Id6mr6YebyzjrTgxHwCAcc7h4GNoMyvMAyvKgtt1CAnNJCwpEjOpEPEBvDO6xmJ
+         QLasLqeW7Kosu0YNjRgJKsLH15XnW8FnIl/WasYGIrI6uC3I0B6H7x3bwkTvg1TLQSI4
+         ufrA==
+X-Gm-Message-State: AOJu0YxRrEGnyc6M0pqYbT/hzLgaq3hvB1WXx14D5ITA9wpQxy8HTCXr
+	DT/CANA5dVwjc4/QAh8eKS6mulq6wVBXBGzBuNcIItyyMt1Ca8WRRSOGfqs+Iww=
+X-Gm-Gg: ASbGncv9UVzVQ7nK1o+hGy0Aedn4lPG65EyuW51Aj43gmg5mvlmm02Msn3xUZHasivY
+	Jy4ZiIwBwwkdbGWkr6Np+CgBppp1KV6EXzzGSW++am4XVUNCgaX4N/AKDnE5LbJ2u/HPcu4ru6I
+	1LzVXVr/LNEIRKGJ7//y1Ldgq1wN9H1f/IwF4ToPw/48by1qgLFAt4b2ulzkFFmDtBCJ3/7n0SY
+	sGIquLNq1hU4zg2THChKFex7a43vMQQNktLaFZJQkzA/yZviAeX++djGdJKJHA1phTxTrWpCu6L
+	tQLMS9gU8QY=
+X-Google-Smtp-Source: AGHT+IGcTShMZFhzOvUyddACYJm4B/igCOHKOqjdvOFOiZIKBbGE0ZK9b5jP9lHAeNlpC9LdfWo0pg==
+X-Received: by 2002:a05:622a:13:b0:466:9671:bd7e with SMTP id d75a77b69052e-4669671c06dmr6951831cf.42.1732486515349;
+        Sun, 24 Nov 2024 14:15:15 -0800 (PST)
+Received: from ird-aus2.local.tenstorrent.com ([38.104.49.66])
+        by smtp.gmail.com with ESMTPSA id d75a77b69052e-465b0d5c7e9sm35033751cf.59.2024.11.24.14.15.14
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 24 Nov 2024 14:15:14 -0800 (PST)
+From: Michael Neuling <michaelneuling@tenstorrent.com>
+To: anup@brainfault.org
+Cc: linux-riscv@lists.infradead.org,
+	kvm-riscv@lists.infradead.org,
+	palmer@dabbelt.com,
+	mikey@neuling.org,
+	Michael Neuling <michaelneuling@tenstorrent.com>
+Subject: [PATCH] RISC-V: KVM: Fix csr_write -> csr_set for HVIEN PMU overflow bit
+Date: Sun, 24 Nov 2024 22:14:58 +0000
+Message-Id: <20241124221458.347464-1-michaelneuling@tenstorrent.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <a9f59ffb-23e9-4c83-8d44-4c766e32b3bf@sifive.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241124_111924_724346_646DA671 
-X-CRM114-Status: GOOD (  29.67  )
+X-CRM114-CacheID: sfid-20241124_141517_919861_3304D476 
+X-CRM114-Status: UNSURE (   8.83  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,94 +98,30 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Nov 06, 2024 at 06:29:56PM -0600, Samuel Holland wrote:
-Hi Samuel,
+This doesn't cause a problem currently as HVIEN isn't used elsewhere
+yet. Found by inspection.
 
-I'm working on the clock driver for Spacemit K1.
+Signed-off-by: Michael Neuling <michaelneuling@tenstorrent.com>
+---
+ arch/riscv/kvm/aia.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-> On 2024-11-06 1:58 AM, Troy Mitchell wrote:
-> > On 2024/11/2 11:48, Samuel Holland wrote:
-> >> On 2024-10-28 12:32 AM, Troy Mitchell wrote:
-> >>> The I2C of K1 supports fast-speed-mode and high-speed-mode,
-> >>> and supports FIFO transmission.
-> >>>
-> >>> Signed-off-by: Troy Mitchell <TroyMitchell988@gmail.com>
-> >>> ---
-> >>>  .../bindings/i2c/spacemit,k1-i2c.yaml         | 51 +++++++++++++++++++
-> >>>  1 file changed, 51 insertions(+)
-> >>>  create mode 100644 Documentation/devicetree/bindings/i2c/spacemit,k1-i2c.yaml
-> >>>
-> >>> diff --git a/Documentation/devicetree/bindings/i2c/spacemit,k1-i2c.yaml b/Documentation/devicetree/bindings/i2c/spacemit,k1-i2c.yaml
-> >>> new file mode 100644
-> >>> index 000000000000..57af66f494e7
-> >>> --- /dev/null
-> >>> +++ b/Documentation/devicetree/bindings/i2c/spacemit,k1-i2c.yaml
-> >>> @@ -0,0 +1,51 @@
-> >>> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> >>> +%YAML 1.2
-> >>> +---
-> >>> +$id: http://devicetree.org/schemas/i2c/spacemit,k1-i2c.yaml#
-> >>> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> >>> +
-> >>> +title: I2C controller embedded in SpacemiT's K1 SoC
-> >>> +
-> >>> +maintainers:
-> >>> +  - Troy Mitchell <troymitchell988@gmail.com>
-> >>> +
-> >>> +properties:
-> >>> +  compatible:
-> >>> +    const: spacemit,k1-i2c
-> >>> +
-> >>> +  reg:
-> >>> +    maxItems: 2
-> >>> +
-> >>> +  interrupts:
-> >>> +    maxItems: 1
-> >>> +
-> >>> +  clocks:
-> >>> +    maxItems: 1
-> >>
-> >> Looking at the K1 user manual (9.1.4.77 RCPU I2C0 CLOCK RESET CONTROL
-> >> REGISTER(RCPU_I2C0_CLK_RST)), I see two clocks (pclk, fclk) and a reset, which
-> >> looks to be standard across the peripherals in this SoC. Please be sure that the
-> >> binding covers all resources needed to use this peripheral.
-> >
-> > RCPU stands for Real-time CPU, which is typically used for low power consumption
-> > applications.
-> > We should be using the APBC_TWSIx_CLK_RST register, but it's not listed in the
-> > user manual.
+diff --git a/arch/riscv/kvm/aia.c b/arch/riscv/kvm/aia.c
+index 2967d305c4..9f3b527596 100644
+--- a/arch/riscv/kvm/aia.c
++++ b/arch/riscv/kvm/aia.c
+@@ -552,7 +552,7 @@ void kvm_riscv_aia_enable(void)
+ 	csr_set(CSR_HIE, BIT(IRQ_S_GEXT));
+ 	/* Enable IRQ filtering for overflow interrupt only if sscofpmf is present */
+ 	if (__riscv_isa_extension_available(NULL, RISCV_ISA_EXT_SSCOFPMF))
+-		csr_write(CSR_HVIEN, BIT(IRQ_PMU_OVF));
++		csr_set(CSR_HVIEN, BIT(IRQ_PMU_OVF));
+ }
+ 
+ void kvm_riscv_aia_disable(void)
+-- 
+2.34.1
 
-The vendor missed the register definition of APBC_TWSIx_CLK_RST in the
-documentation. There'll be an update soon.
-
-> > However, you can find this register referenced in the K1 clock patch:
-> > https://lore.kernel.org/all/SEYPR01MB4221AA2CA9C91A695FEFA777D7602@SEYPR01MB4221.apcprd01.prod.exchangelabs.com/
-> 
-> Ah, well that driver is missing most of the bus clocks. For example, from a
-> quick comparison with the manual, the driver includes sdh_axi_aclk, but misses
-> all of the PWM APB clocks at APBC_PWMx_CLK_RST bit 0.
-
-Thanks for pointing this out. Indeeded, the v2 of clock driver is
-missing some bus clocks. I'm fixing them and working for a v3.
-
-As for the I2C controller, I've confirmed with the vendor that both bus
-and function clocks are required for normal operation. This applies for
-all I2C controllers on the SoC, regardless of the region it belongs to
-(RCPU/APBC).
-
-> 
-> If the clock gate exists in the hardware, even if it is enabled by default, it
-> needs to be modeled in the devicetree.
-> 
-> > Also, to see how to enable the I2C clock in the device tree (note that the
-> > spacemit,apb_clock property is unused in the driver), check out the example here:
-> > https://gitee.com/bianbu-linux/linux-6.1/blob/bl-v1.0.y/arch/riscv/boot/dts/spacemit/k1-x.dtsi#L1048
-> 
-> The devicetree describes the hardware, irrespective of which features the driver
-> may or may not use.
-
-Best regards,
-Haylen Chu
 
 _______________________________________________
 linux-riscv mailing list
