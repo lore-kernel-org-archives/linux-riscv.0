@@ -4,49 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3BDE9E668B9
-	for <linux-riscv@archiver.kernel.org>; Sun, 24 Nov 2024 15:32:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D6382E668BC
+	for <linux-riscv@archiver.kernel.org>; Sun, 24 Nov 2024 19:19:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=+CdiGL1Re/cDI2rny8FPANdDWMlZ5VKRN1GOL9/67D8=; b=PlNuAiNhO/i99G
-	HSFriDyGpkZFV2AgBGaCzryztY1UdWqMO22UNlXC0MmgoIGhqtQyb0fGnNBTsfpz1uB3iWC3QHbDw
-	3HrYG4r8rAC+jeqGwyPy1OwkAu71AlzKy/maEmNUJlSHQy53zAY7D9fkr+vVXEiWm3IHKLfe/sYYV
-	bsCGYKNiAbUNGKe75cOWCRwS/I5cUrFYe42I4w/A3/XUjhkgP9rlI/d3KmMU3zXYngwbFt61rVbAK
-	mzoxP6HxMUsFIz6zihx9mRKKS+aXNG79fcGM5l2tiGXwvc4qKltpgUWriOTnLxAk6D2uPCbpK0F3S
-	UVklluSUxxFMzJYKQNjA==;
+	List-Owner; bh=TNASlEZuLMtt3OLrye66Yhke0JZv9z0cv7pMj9RFSAw=; b=UG+Hv0A2NkRu0A
+	UzJ/2jQAkiK8aGks/izBwcbgX2PhK0dMnOZ7izo7g9UZMDuW20SANg90E4zIfOjhh0vyORnWetjt1
+	jOSXU6A5i4rNA1EWdQSWK1URMI1szmy59iS+b5gKyqE4duq3LRdMUuhwjODbr5n+nXNrXJ+gHZ1vR
+	OJk2ams+ptZM8kq/wILjZqUcv97qjBtTVOBUI7EU6ymY+LxdMJSwA34aKEtNTlMZgHpT3k0L8MEs2
+	pFljVCV642fHxuabbiZ56w/W9WTW0oAbw3pBl2kb75+njBbGWv8B8PG4EUFqKuKIUUU+HZYUn0ZxT
+	e/mwiQxUGQMgMPrgDFFQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tFEb7-00000006GGL-2XSO;
-	Sun, 24 Nov 2024 15:32:29 +0000
-Received: from mail.gentoo.org ([2001:470:ea4a:1:5054:ff:fec7:86e4] helo=smtp.gentoo.org)
+	id 1tFI8l-00000006ZDQ-1Bhs;
+	Sun, 24 Nov 2024 19:19:27 +0000
+Received: from bayard.4d2.org ([5.78.89.93])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tFEb5-00000006GF7-0hU1
+	id 1tFI8i-00000006ZCp-1gho
 	for linux-riscv@lists.infradead.org;
-	Sun, 24 Nov 2024 15:32:28 +0000
-Date: Sun, 24 Nov 2024 23:32:13 +0800
-From: Yixun Lan <dlan@gentoo.org>
-To: Troy Mitchell <troymitchell988@gmail.com>
-Cc: Andi Shyti <andi.shyti@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, linux-riscv@lists.infradead.org,
-	linux-i2c@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3 2/2] i2c: spacemit: add support for SpacemiT K1 SoC
-Message-ID: <20241124153213-GYA3212048@gentoo>
-References: <20241112-k1-i2c-master-v3-0-5005b70dc208@gmail.com>
- <20241112-k1-i2c-master-v3-2-5005b70dc208@gmail.com>
- <20241114064943-GYA998060@gentoo>
- <46a81098-3092-44a0-a625-bd17b4ba0e2b@gmail.com>
+	Sun, 24 Nov 2024 19:19:26 +0000
+Received: from bayard.4d2.org (bayard.4d2.org [127.0.0.1])
+	by bayard.4d2.org (Postfix) with ESMTP id 4BD95122FE1E;
+	Sun, 24 Nov 2024 11:19:20 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=4d2.org; s=mail;
+	t=1732475960; bh=edW6FblLRPc/971JbOeZphqmTOk6PouWc9UbeBAp+ow=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=LkAlmgzbY871ngRwWpBpZ6TKn9VRzeinUPamUqhsoCNZGfiQ0e4DrlxxK/JZopBPF
+	 uMuUKvA7RWCwshtLdaSurQlrMmwzD5p2O1Z8PEhszDbirdMx3aB8yBxFFI0DZKeY2p
+	 xbEBqg2vcqL7rnVjnXULmP7GQXN4dZA1gISosmpX3rlZ9zPiKcmwJ3yQryI1HFBI4q
+	 9CUMk95qsgA81qKhLSaw+DHJoKVZpshKAFV7yO9sxF+Gio3EGJGvNReen+Wbk/Y3HF
+	 ATJLo6KTIgfYLLh12Icjaf/HFLJHshI8HkbyieDfZJrnrR96vPgLFTUxKFNlI79DhN
+	 qjmpc6yjQmnrw==
+X-Virus-Scanned: amavisd-new at 4d2.org
+Received: from bayard.4d2.org ([127.0.0.1])
+ by bayard.4d2.org (bayard.4d2.org [127.0.0.1]) (amavisd-new, port 10024)
+ with ESMTP id Mx06GAu6XvGk; Sun, 24 Nov 2024 11:19:13 -0800 (PST)
+Received: from ketchup (unknown [119.39.112.187])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: heylenay@4d2.org)
+	by bayard.4d2.org (Postfix) with ESMTPSA id 01A3B122FE1A;
+	Sun, 24 Nov 2024 11:19:09 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=4d2.org; s=mail;
+	t=1732475953; bh=edW6FblLRPc/971JbOeZphqmTOk6PouWc9UbeBAp+ow=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=ARcZ6UjozqyNxpmFO2lRHOJiJ+gpPng0A1BKWVFv8hOzAjxDqC3qGeEsIeiNG2yh1
+	 ICymzkx7+BbQljgdF/O22T3D0l8m9mDjwhD3rSgMcEYa/NGevyJD3IFeBktL328YTV
+	 m73tZyW/VZalh1wGpFWXkASURv8ZvQiKyPzvUprU7lfI4z45SbivaV/yTob07x5/AI
+	 DAvrXGEhTTeOjokCdPLSNFufXDai0LivMO2hNlJnKXZJv8wALSr84wjxKOyCvFz96v
+	 NqL/y/0o3BS51PeQJGRVHJ5VzuOYwTS14ZZ2EUsbikMRNKq8/79kpN3iOKNO/eiuGy
+	 oZSOOR6Qy9qvw==
+Date: Sun, 24 Nov 2024 19:18:59 +0000
+From: Haylen Chu <heylenay@4d2.org>
+To: Samuel Holland <samuel.holland@sifive.com>,
+	Troy Mitchell <troymitchell988@gmail.com>, andi.shyti@kernel.org,
+	robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org
+Cc: linux-i2c@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
+Subject: Re: [PATCH v2 1/2] dt-bindings: i2c: spacemit: add support for K1 SoC
+Message-ID: <Z0N8I2zv2vl9f8Y1@ketchup>
+References: <20241028053220.346283-1-TroyMitchell988@gmail.com>
+ <20241028053220.346283-2-TroyMitchell988@gmail.com>
+ <846b4f2a-602e-431e-affc-0e995db5eee5@sifive.com>
+ <9dfb250c-d8a1-4536-8658-48b3a2585abd@gmail.com>
+ <a9f59ffb-23e9-4c83-8d44-4c766e32b3bf@sifive.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <46a81098-3092-44a0-a625-bd17b4ba0e2b@gmail.com>
+In-Reply-To: <a9f59ffb-23e9-4c83-8d44-4c766e32b3bf@sifive.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241124_073227_237158_4C6BAA5F 
-X-CRM114-Status: GOOD (  23.61  )
+X-CRM114-CacheID: sfid-20241124_111924_724346_646DA671 
+X-CRM114-Status: GOOD (  29.67  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -63,134 +95,94 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Troy:
+On Wed, Nov 06, 2024 at 06:29:56PM -0600, Samuel Holland wrote:
+Hi Samuel,
 
-On 12:11 Thu 21 Nov     , Troy Mitchell wrote:
-> Hi, Yixun. thanks for ur review.
+I'm working on the clock driver for Spacemit K1.
+
+> On 2024-11-06 1:58 AM, Troy Mitchell wrote:
+> > On 2024/11/2 11:48, Samuel Holland wrote:
+> >> On 2024-10-28 12:32 AM, Troy Mitchell wrote:
+> >>> The I2C of K1 supports fast-speed-mode and high-speed-mode,
+> >>> and supports FIFO transmission.
+> >>>
+> >>> Signed-off-by: Troy Mitchell <TroyMitchell988@gmail.com>
+> >>> ---
+> >>>  .../bindings/i2c/spacemit,k1-i2c.yaml         | 51 +++++++++++++++++++
+> >>>  1 file changed, 51 insertions(+)
+> >>>  create mode 100644 Documentation/devicetree/bindings/i2c/spacemit,k1-i2c.yaml
+> >>>
+> >>> diff --git a/Documentation/devicetree/bindings/i2c/spacemit,k1-i2c.yaml b/Documentation/devicetree/bindings/i2c/spacemit,k1-i2c.yaml
+> >>> new file mode 100644
+> >>> index 000000000000..57af66f494e7
+> >>> --- /dev/null
+> >>> +++ b/Documentation/devicetree/bindings/i2c/spacemit,k1-i2c.yaml
+> >>> @@ -0,0 +1,51 @@
+> >>> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> >>> +%YAML 1.2
+> >>> +---
+> >>> +$id: http://devicetree.org/schemas/i2c/spacemit,k1-i2c.yaml#
+> >>> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> >>> +
+> >>> +title: I2C controller embedded in SpacemiT's K1 SoC
+> >>> +
+> >>> +maintainers:
+> >>> +  - Troy Mitchell <troymitchell988@gmail.com>
+> >>> +
+> >>> +properties:
+> >>> +  compatible:
+> >>> +    const: spacemit,k1-i2c
+> >>> +
+> >>> +  reg:
+> >>> +    maxItems: 2
+> >>> +
+> >>> +  interrupts:
+> >>> +    maxItems: 1
+> >>> +
+> >>> +  clocks:
+> >>> +    maxItems: 1
+> >>
+> >> Looking at the K1 user manual (9.1.4.77 RCPU I2C0 CLOCK RESET CONTROL
+> >> REGISTER(RCPU_I2C0_CLK_RST)), I see two clocks (pclk, fclk) and a reset, which
+> >> looks to be standard across the peripherals in this SoC. Please be sure that the
+> >> binding covers all resources needed to use this peripheral.
+> >
+> > RCPU stands for Real-time CPU, which is typically used for low power consumption
+> > applications.
+> > We should be using the APBC_TWSIx_CLK_RST register, but it's not listed in the
+> > user manual.
+
+The vendor missed the register definition of APBC_TWSIx_CLK_RST in the
+documentation. There'll be an update soon.
+
+> > However, you can find this register referenced in the K1 clock patch:
+> > https://lore.kernel.org/all/SEYPR01MB4221AA2CA9C91A695FEFA777D7602@SEYPR01MB4221.apcprd01.prod.exchangelabs.com/
 > 
-> On 2024/11/14 14:49, Yixun Lan wrote:
-> > On 11:07 Tue 12 Nov     , Troy Mitchell wrote:
-> >> From: Troy Mitchell <troymitchell988@gmail.com>
-> >>
-> >> This patch introduces basic I2C support for the SpacemiT K1 SoC,
-> >> utilizing interrupts for transfers.
-> >>
-> >> The driver has been tested using i2c-tools on a Bananapi-F3 board,
-> >> and basic I2C read/write operations have been confirmed to work.
-> >>
-> >> Signed-off-by: Troy Mitchell <TroyMitchell988@gmail.com>
-> >> ---
-> >>  drivers/i2c/busses/Kconfig  |  19 ++
-> >>  drivers/i2c/busses/Makefile |   1 +
-> >>  drivers/i2c/busses/i2c-k1.c | 656 ++++++++++++++++++++++++++++++++++++++++++++
-> >>  3 files changed, 676 insertions(+)
-> >>
-...
-> >> +
-> >> +static int spacemit_i2c_probe(struct platform_device *pdev)
-> >> +{
-> >> +	struct spacemit_i2c_dev *i2c;
-> >> +	struct device_node *of_node = pdev->dev.of_node;
-> >> +	struct clk *clk;
-> >> +	int ret = 0;
-> >> +
-> >> +	i2c = devm_kzalloc(&pdev->dev, sizeof(*i2c), GFP_KERNEL);
-> >> +	if (!i2c)
-> >> +		return -ENOMEM;
-> >> +
-> >> +	i2c->dev = &pdev->dev;
-> >> +
-> >> +	i2c->base = devm_platform_ioremap_resource(pdev, 0);
-> >> +	if (IS_ERR(i2c->base))
-> >> +		return dev_err_probe(&pdev->dev, PTR_ERR(i2c->base), "failed to do ioremap");
-> >> +
-> >> +	i2c->irq = platform_get_irq(pdev, 0);
-> >> +	if (i2c->irq < 0)
-> >> +		return dev_err_probe(&pdev->dev, i2c->irq, "failed to get irq resource");
-> >> +
-> >> +	ret = devm_request_irq(i2c->dev, i2c->irq, spacemit_i2c_irq_handler,
-> >> +			       IRQF_NO_SUSPEND | IRQF_ONESHOT, dev_name(i2c->dev), i2c);
-> >> +	if (ret)
-> >> +		return dev_err_probe(&pdev->dev, ret, "failed to request irq");
-> >> +
-> >> +	disable_irq(i2c->irq);
-> >> +
-> >> +	clk = devm_clk_get_enabled(&pdev->dev, NULL);
-> >> +	if (IS_ERR(clk))
-> >> +		return dev_err_probe(&pdev->dev, PTR_ERR(clk), "failed to enable clock");
-> >> +
-> > I'd suggest also to handle pin request here, since pinctrl driver is merged
-> > 
-> > https://lore.kernel.org/all/CACRpkdYnaJsKKfcdhHeMGTTp86M+wNODzZx2e=OYbxQ4Jc4Rjw@mail.gmail.com/
-> sry, I don't understand what pin I need to request?
-> > 
+> Ah, well that driver is missing most of the bus clocks. For example, from a
+> quick comparison with the manual, the driver includes sdh_axi_aclk, but misses
+> all of the PWM APB clocks at APBC_PWMx_CLK_RST bit 0.
 
-I was suggesting to add devm_pinctrl_get(), but after checking,
-this is not needed anymore since it's already handled by device core,
-so no need to change here..
+Thanks for pointing this out. Indeeded, the v2 of clock driver is
+missing some bus clocks. I'm fixing them and working for a v3.
 
-check drivers/core/pinctrl.c -> pinctrl_bind_pins()
+As for the I2C controller, I've confirmed with the vendor that both bus
+and function clocks are required for normal operation. This applies for
+all I2C controllers on the SoC, regardless of the region it belongs to
+(RCPU/APBC).
 
-> >> +	i2c_set_adapdata(&i2c->adapt, i2c);
-> >> +	i2c->adapt.owner = THIS_MODULE;
-> >> +	i2c->adapt.algo = &spacemit_i2c_algo;
-> >> +	i2c->adapt.dev.parent = i2c->dev;
-> >> +	i2c->adapt.nr = pdev->id;
-> >> +
-> >> +	i2c->adapt.dev.of_node = of_node;
-> >> +	i2c->adapt.algo_data = i2c;
-> >> +
-> >> +	strscpy(i2c->adapt.name, "spacemit-i2c-adapter", sizeof(i2c->adapt.name));
-> >> +
-> >> +	init_completion(&i2c->complete);
-> >> +
-> >> +	ret = i2c_add_numbered_adapter(&i2c->adapt);
-> >> +	if (ret)
-> >> +		return dev_err_probe(&pdev->dev, ret, "failed to add i2c adapter");
-> >> +
-> >> +	platform_set_drvdata(pdev, i2c);
-> >> +
-> >> +	return 0;
-> >> +}
-> >> +
-> >> +static void spacemit_i2c_remove(struct platform_device *pdev)
-> >> +{
-> >> +	struct spacemit_i2c_dev *i2c = platform_get_drvdata(pdev);
-> >> +
-> >> +	i2c_del_adapter(&i2c->adapt);
-> >> +}
-> >> +
-> >> +static const struct of_device_id spacemit_i2c_of_match[] = {
-> >> +	{ .compatible = "spacemit,k1-i2c", },
-> >> +	{ /* sentinel */ }
-> >> +};
-> >> +MODULE_DEVICE_TABLE(of, spacemit_i2c_of_match);
-> >> +
-> >> +static struct platform_driver spacemit_i2c_driver = {
-> >> +	.probe = spacemit_i2c_probe,
-> >> +	.remove = spacemit_i2c_remove,
-> >> +	.driver = {
-> >> +		.name = "i2c-k1",
-> >> +		.of_match_table = spacemit_i2c_of_match,
-> >> +	},
-> >> +};
-> >> +module_platform_driver(spacemit_i2c_driver);
-> >> +
-> >> +MODULE_LICENSE("GPL");
-> >> +MODULE_DESCRIPTION("I2C bus driver for SpacemiT K1 SoC");
-> >>
-> >> -- 
-> >> 2.34.1
-> >>
-> > 
 > 
-> -- 
-> Troy Mitchell
+> If the clock gate exists in the hardware, even if it is enabled by default, it
+> needs to be modeled in the devicetree.
+> 
+> > Also, to see how to enable the I2C clock in the device tree (note that the
+> > spacemit,apb_clock property is unused in the driver), check out the example here:
+> > https://gitee.com/bianbu-linux/linux-6.1/blob/bl-v1.0.y/arch/riscv/boot/dts/spacemit/k1-x.dtsi#L1048
+> 
+> The devicetree describes the hardware, irrespective of which features the driver
+> may or may not use.
 
--- 
-Yixun Lan (dlan)
-Gentoo Linux Developer
-GPG Key ID AABEFD55
+Best regards,
+Haylen Chu
 
 _______________________________________________
 linux-riscv mailing list
