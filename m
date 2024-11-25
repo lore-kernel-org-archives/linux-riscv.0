@@ -4,88 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 13F38D3B7FC
-	for <linux-riscv@archiver.kernel.org>; Mon, 25 Nov 2024 10:18:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 57863D5806E
+	for <linux-riscv@archiver.kernel.org>; Mon, 25 Nov 2024 12:09:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:To:Subject:
-	Cc:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=e5ciM1vZmlz0DdVffhJ8ci9EpOFOVUIMn73FY1KQsvQ=; b=sr4Qq4kjcNj0FB
-	o+BegKmdgiCjF8HPVwSnxNI4X7kQZuBxQJr6qSkEPA5g2hOEC3yj1LEYLAZGU2kck6RP1uUvgzS1g
-	Ff1ehyVS5g3M6wj7FJAa3gD1xkB0S6eALXJZ5KMsyLSZ4gb4G1pzogGxR4A2e+OgOKrw2Cchr5119
-	BMwUxH/uCBX3g8qjRwIIfgVp8RsgFf+JFiFcZQ/1wRGtQm+QFz98Bw7Mzrd+I2Z227ACySsGRvLuV
-	X2ZBrxMFUCpDUEBpiVSi3x9/WNtqypxtRigvZofXtIkm6xyxcfr23iiS93CzzWfCZU3kgLPpciCg8
-	gDCtU6ON2KJyGOrAZcmg==;
+	List-Owner; bh=7cVUlvt35+CBoOh3CHrARx+kQtGrF2BQjLIri2jHvr8=; b=D9DtxMd8s1wDHq
+	WdLZONoaxhDib9CTTeL2Ymq5TZOQA1ITeDVhBLTdTgYYD0qAE54X7nGNEDnO5IWlaaPyagTSEqHlQ
+	ma15db5BrFTjmI8DEBpJLrN+6qv+2dgSQiPWcU175l0peGStGvvGwkpB3Z+jzJoAX6lardxZJsxjX
+	jHbULR2HAr5hyVjr2lNehV9AtVDPRMlHyXNotqn8fActVjRnyE/KAi9bCyzRh9cqdEc+8m7aM6cRm
+	wYPWeGxdV7zJL6Nzc9UVNWAL+xNf0wz8N7oFPOQQT+6ggfD8Z28DBki+T5YR1utNBEsWz2H3e8AkN
+	znCMeRuKZvXvk0XxwU1w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tFWAJ-00000007iR8-3Usd;
-	Mon, 25 Nov 2024 10:17:59 +0000
-Received: from mail-pl1-x643.google.com ([2607:f8b0:4864:20::643])
+	id 1tFXtd-00000007yVH-0Cv1;
+	Mon, 25 Nov 2024 12:08:53 +0000
+Received: from mail-wm1-x333.google.com ([2a00:1450:4864:20::333])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tFVyy-00000007g0B-2lI0
+	id 1tFXta-00000007yUM-3QXQ
 	for linux-riscv@lists.infradead.org;
-	Mon, 25 Nov 2024 10:06:17 +0000
-Received: by mail-pl1-x643.google.com with SMTP id d9443c01a7336-21145812538so33572575ad.0
-        for <linux-riscv@lists.infradead.org>; Mon, 25 Nov 2024 02:06:16 -0800 (PST)
+	Mon, 25 Nov 2024 12:08:51 +0000
+Received: by mail-wm1-x333.google.com with SMTP id 5b1f17b1804b1-434a099ba95so5356785e9.0
+        for <linux-riscv@lists.infradead.org>; Mon, 25 Nov 2024 04:08:49 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1732529176; x=1733133976; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:to:subject:cc:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=+3NtaabvUmPRFjMjNpaL6YcolhVFVdItTli/OILgxGw=;
-        b=fvNUXdao9w9Be7quBiUNWJgauXvwT2AOevmOBZOyNYFhI8AeCkMP9WzGAD1CkwaogQ
-         KnVnFo54xDw5/yvnRdSv6AAIJ67AosteQ4vv/HAwibha/Z/lBS+m6snqnQjOsNn9ICBP
-         Y0MGvPYtfPo1zbgo0iw/Aijn4kVmh6KAwJmOmdPCSArRV1+b0EPsfXrLGTL5ImCVXoII
-         dR/xN/jATYwBAKkL6Cf9T47auZF/Nc05/wCuoa64jtPJSo+xuQcAbAlLdSJ3Sv0Af/ka
-         0cdpNExGCFJ5ZWfCLujVyxVvi09ZTnf03wK8jwMrc4qEusSwzxWUgCqgmyGkO5hPl/EA
-         xkuA==
+        d=ventanamicro.com; s=google; t=1732536528; x=1733141328; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=rtGYra4ZiucyLvI8CA3+YqcIlZT99r5pBwc2AIGV96M=;
+        b=MSW4FTFz4fMRL4PGpiGurwXwI9GWAVRkh6Sj4TdcFBvfL2CQtz/qQ2VrkdJ8FXC5iJ
+         bTpDCGiY3MsksGh0fcYOphwjfVTq8VopnP5UU8TS8PEyn8uQnR6Eezp7l20dy5wxE82C
+         iIAJnBtVDyHdrualKqZgW93FH40NkchjTabLlCNeSM+6x8HA9/r/g1h3O2TEaK/4f8Nh
+         mPDXnrdCrPEqG+eF6oJuYzcGEDuz2+2Dl9ALekLSw++mPaf7KEjDslIfAThpV9uFQ+2P
+         Xjga2K53/MSIJgzSkkuK9a4rHNT8Eh24EcREnJg+8f+Ea6eX3DSHAZZMf2WgQg0/1KYq
+         i89A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1732529176; x=1733133976;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:to:subject:cc:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=+3NtaabvUmPRFjMjNpaL6YcolhVFVdItTli/OILgxGw=;
-        b=PuJo8Syy6zzNUrWkM8xsZIuP3dzmMmY8lme+gp1wJQ4hE+q8manJteBzH3C1PI4FGg
-         d396h+viC1MTuQVQeHk+2qkSMH87g9rId3zErYti86ezo0lGrmD4cPCsEEmTnzgfkjmN
-         pTiU28d1A2KNlw7Sk8GMxiRx0KPEaFcx67U/fB854i1XbqEPcx8IZLLbr8WtZDLlabqk
-         geLrfykpRtVRp0a5AeM4gLCeAID0Ps3hIAss/sdmpkxaIcTto+V1Y+lcu/rHdyFkxj2l
-         u2n15r924OPOWCRcfDjTNliyz4mxnxcxz6hg9BQSiUd5yook8c/3mTr0AH5HGrXEObyZ
-         nLTA==
-X-Forwarded-Encrypted: i=1; AJvYcCVglnsyDkhAJgodOxnaZG6TWa6aAZbsrviCRiQ+JJ9m0A7TqZ+bMQn+XH9H1Roug+sJ5jCmeS6j8Es5Nw==@lists.infradead.org
-X-Gm-Message-State: AOJu0YxfGLfg9GkGMOX1oDWEoLuTDCNEcWJw4vN3ZN6zCGuYcdM9wNKe
-	4DCuuNxN93y2JQtZjFw7vAPAe9z/r2P68uju/5RUSDhNvCBwiWYcyZSWIlbN7GQrWRKBz0Y=
-X-Gm-Gg: ASbGncsDCmW+moldUreDXTKWnT26c/gyNHbonTx72RgX9GZbbuq0tfAPgdgba3TYJOn
-	p47k/v6KO2U4ZLwhv2v2n9OOPCDsg0cQPCVwFL89WOnpQGZULY+jaqLMuJfS/mSxPGrjH1ixmc0
-	TXh+85gyYoEaxRg3jcLT9meczD4HuJhOJP7/55tUkoaRiVDmtqYteEM3zduP8vFCp96n+7cex67
-	ZO9PWyv/pf3BeH6+XEUl037l9erNWTknw==
-X-Google-Smtp-Source: AGHT+IEkrIBkU0kksKhlyCcZZn5FcNKqYFGe1JjIsnZSYTKhWsKjEk+jkzD+EU534TMoVqDbZ2NxhQ==
-X-Received: by 2002:a17:902:e741:b0:211:fb2b:7053 with SMTP id d9443c01a7336-2129fd240ffmr164761745ad.33.1732529175741;
-        Mon, 25 Nov 2024 02:06:15 -0800 (PST)
-Received: from [127.0.0.1] ([2a0d:2683:c100::bf])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2129dc13239sm60710905ad.177.2024.11.25.02.06.11
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 25 Nov 2024 02:06:15 -0800 (PST)
-Message-ID: <062192c5-4482-4c83-b127-fae0942ab114@gmail.com>
-Date: Mon, 25 Nov 2024 18:05:58 +0800
+        d=1e100.net; s=20230601; t=1732536528; x=1733141328;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=rtGYra4ZiucyLvI8CA3+YqcIlZT99r5pBwc2AIGV96M=;
+        b=QublkYi9kllGSDEkOQQVAgoHyWyxksPhl5Q+0Ju7eMZNC58WYHuTbNf8WZr1AqIeti
+         P3oqnsqCRJKDFjt8L4EHdZKOXUEoT4ZoBQRUvsBq4jYIaPN1QZnHkg4OQzwiFCMEWxkV
+         RMaJ+I4tkzp/qkHuJQ9HmNlVAzqJQVVFttULfEnvB28gEuKUBEZgN0qPrsESTXGEnAZz
+         GFkmY1jhDd5iIGSNWfvryt+GA0jDHdAYibeZxuhF8i4fxrKpqsqEEMEhbs3NCF3++cnw
+         PbT1ExirjhWQwB/nDaBoOpAqseMi8K0rYM2wmEr0dV3MKUEvs0J8XLRMPzBxjz2Gjf7G
+         KdXg==
+X-Forwarded-Encrypted: i=1; AJvYcCXX1abm6Dr6u8yXpSL1+vUMapq6Jmeat4rQKTFlrRL8r+QNhA3BgT2nrqEuJlyGg68MMrF3Iur7OF9gbA==@lists.infradead.org
+X-Gm-Message-State: AOJu0YxQiI1D1YWUxgXJg81z1rNH3TPn7XHufbiruMLzTD/9x8lW3IMQ
+	MPtIlrkMsyQBqRTr0/Fbvw8MZnIGwJ9g+kBdWG4i4ladUTJ3R5CK/3eYUIps+cLw2Sdu+qjiqaL
+	p048=
+X-Gm-Gg: ASbGncs7TWv8+zRbxmmVl6TKfxvb22Cco9k8CgmWOkfAD62igMrN711CoSP+OmE83E5
+	+LDz/E/xArvxoxvDTvaK2hO8MDRl75DMw2+m2490dVz3HCD1K2bCuoPAqsKfRVAd3Kxl50xrZSv
+	UJj7IVvmZZvemvJdrh0RNDIASzME5RcK/ujfPfV/z68y+I6MR72r03E2QpA2EtBZrzDlvQ8Gbtk
+	s4dNfT3S3QZx9k9JTRsD3g1NaCaW1+y5YnrFT35xb2f2ALIDUxcK1Im27sTLWggJeKaSJniQeaa
+	9Zm7KF4ZVmadXDOIdfEPV/eP5yWepkpZ0iQ=
+X-Google-Smtp-Source: AGHT+IEcHSdgJj5nANfMThAU2OGxyIx79hhPO8lC6bsUu2hPonUhJGs8xsqe5h4w4zgbyjw1N3+XCw==
+X-Received: by 2002:a7b:ce91:0:b0:434:9de2:b101 with SMTP id 5b1f17b1804b1-4349de2b333mr40945755e9.2.1732536528430;
+        Mon, 25 Nov 2024 04:08:48 -0800 (PST)
+Received: from localhost (2001-1ae9-1c2-4c00-20f-c6b4-1e57-7965.ip6.tmcz.cz. [2001:1ae9:1c2:4c00:20f:c6b4:1e57:7965])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-434a02f2ea1sm29588115e9.34.2024.11.25.04.08.47
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 25 Nov 2024 04:08:48 -0800 (PST)
+Date: Mon, 25 Nov 2024 13:08:47 +0100
+From: Andrew Jones <ajones@ventanamicro.com>
+To: Max Hsu <max.hsu@sifive.com>
+Cc: Conor Dooley <conor@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Anup Patel <anup@brainfault.org>, Atish Patra <atishp@atishpatra.org>, 
+	Palmer Dabbelt <palmer@sifive.com>, linux-riscv@lists.infradead.org, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, kvm@vger.kernel.org, kvm-riscv@lists.infradead.org, 
+	Samuel Holland <samuel.holland@sifive.com>
+Subject: Re: [PATCH RFC v3 3/3] riscv: KVM: Add Svukte extension support for
+ Guest/VM
+Message-ID: <20241125-7cfad4185ec1a66fa08ff0f0@orel>
+References: <20241120-dev-maxh-svukte-v3-v3-0-1e533d41ae15@sifive.com>
+ <20241120-dev-maxh-svukte-v3-v3-3-1e533d41ae15@sifive.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Cc: troymitchell988@gmail.com, linux-riscv@lists.infradead.org,
- linux-i2c@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v4 0/2] riscv: spacemit: add i2c support to K1 SoC
-To: Krzysztof Kozlowski <krzk@kernel.org>, Andi Shyti
- <andi.shyti@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>
-References: <20241125-k1-i2c-master-v4-0-0f3d5886336b@gmail.com>
- <5d69e1db-2ec5-445d-9336-9345c918722a@kernel.org>
-Content-Language: en-US
-From: Troy Mitchell <troymitchell988@gmail.com>
-In-Reply-To: <5d69e1db-2ec5-445d-9336-9345c918722a@kernel.org>
+Content-Disposition: inline
+In-Reply-To: <20241120-dev-maxh-svukte-v3-v3-3-1e533d41ae15@sifive.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241125_020616_699147_20B834A3 
-X-CRM114-Status: GOOD (  21.82  )
+X-CRM114-CacheID: sfid-20241125_040850_859225_D2F60C33 
+X-CRM114-Status: GOOD (  18.45  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,55 +105,56 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On Wed, Nov 20, 2024 at 10:09:34PM +0800, Max Hsu wrote:
+> Add KVM_RISCV_ISA_EXT_SVUKTE for VMM to detect the enablement
+> or disablement the Svukte extension for Guest/VM
+> 
+> Reviewed-by: Samuel Holland <samuel.holland@sifive.com>
+> Signed-off-by: Max Hsu <max.hsu@sifive.com>
+> ---
+>  arch/riscv/include/uapi/asm/kvm.h | 1 +
+>  arch/riscv/kvm/vcpu_onereg.c      | 1 +
+>  2 files changed, 2 insertions(+)
+> 
+> diff --git a/arch/riscv/include/uapi/asm/kvm.h b/arch/riscv/include/uapi/asm/kvm.h
+> index 4f24201376b17215315cf1fb8888d0a562dc76ac..158f9253658c4c28a533b2bda179fb48bf41e1fc 100644
+> --- a/arch/riscv/include/uapi/asm/kvm.h
+> +++ b/arch/riscv/include/uapi/asm/kvm.h
+> @@ -177,6 +177,7 @@ enum KVM_RISCV_ISA_EXT_ID {
+>  	KVM_RISCV_ISA_EXT_ZAWRS,
+>  	KVM_RISCV_ISA_EXT_SMNPM,
+>  	KVM_RISCV_ISA_EXT_SSNPM,
+> +	KVM_RISCV_ISA_EXT_SVUKTE,
+>  	KVM_RISCV_ISA_EXT_MAX,
+>  };
+>  
+> diff --git a/arch/riscv/kvm/vcpu_onereg.c b/arch/riscv/kvm/vcpu_onereg.c
+> index 5b68490ad9b75fef6a18289d8c5cf9291594e01e..4c3a77cdeed0956e21e53d1ab4e948a170ac5c5c 100644
+> --- a/arch/riscv/kvm/vcpu_onereg.c
+> +++ b/arch/riscv/kvm/vcpu_onereg.c
+> @@ -43,6 +43,7 @@ static const unsigned long kvm_isa_ext_arr[] = {
+>  	KVM_ISA_EXT_ARR(SVINVAL),
+>  	KVM_ISA_EXT_ARR(SVNAPOT),
+>  	KVM_ISA_EXT_ARR(SVPBMT),
+> +	KVM_ISA_EXT_ARR(SVUKTE),
+>  	KVM_ISA_EXT_ARR(ZACAS),
+>  	KVM_ISA_EXT_ARR(ZAWRS),
+>  	KVM_ISA_EXT_ARR(ZBA),
+> 
+> -- 
+> 2.43.2
 
-On 2024/11/25 16:06, Krzysztof Kozlowski wrote:
-> On 25/11/2024 07:49, Troy Mitchell wrote:
->> Hi all,
->>
->> This patch implements I2C driver for the SpacemiT K1 SoC,
->> providing basic support for I2C read/write communication which
->> compatible with standard I2C bus specifications.
->>
->> In this version, the driver defaults to use fast-speed-mode and
->> interrupts for transmission, and does not support DMA, high-speed mode, or FIFO.
->>
->> The docs of I2C can be found here, in chapter 16.1 I2C [1]
->>
->> Link: https://developer.spacemit.com/documentation?token=Rn9Kw3iFHirAMgkIpTAcV2Arnkf#part5 [1]
->> ---
->> Change in v4:
->> - Patch #1:
->> 	- Change the default value of clock-frequency from 100000 to
->> 	  400000. This is to correspond to the driver's default value.
->> 	- Drop the minimum of clock-frequency
->> 	- Modify the description of clock-frequency
-> 
-> Explain why do you request re-review.
-> 
-> <form letter>
-> This is a friendly reminder during the review process.
-> 
-> It looks like you received a tag and forgot to add it.
-> 
-> If you do not know the process, here is a short explanation:
-> Please add Acked-by/Reviewed-by/Tested-by tags when posting new
-> versions, under or above your Signed-off-by tag. Tag is "received", when
-> provided in a message replied to you on the mailing list. Tools like b4
-> can help here. However, there's no need to repost patches *only* to add
-> the tags. The upstream maintainer will do that for tags received on the
-> version they apply.
-> 
-> https://elixir.bootlin.com/linux/v6.5-rc3/source/Documentation/process/submitting-patches.rst#L577
-> 
-> If a tag was not added on purpose, please state why and what changed.
-> </form letter>
-> 
-> Best regards,
-> Krzysztof
-Thank you, I accidentally forgot to add it, and it was not intentional.
+Anup raised the missing entry in kvm_riscv_vcpu_isa_disable_allowed() in
+the last review. An additional paragraph was added to the cover letter for
+this review, but I think there's still a misunderstanding. If the guest
+can always use the extension (whether it's advertised in its ISA string
+or not), then that means it cannot be disabled from the perspective of
+the VMM. The only ISA extensions which may be disabled are the ones that
+trap on their use, allowing KVM to emulate responses which a physical hart
+without the extension would produce.
 
--- 
-Troy Mitchell
+Thanks,
+drew
 
 _______________________________________________
 linux-riscv mailing list
