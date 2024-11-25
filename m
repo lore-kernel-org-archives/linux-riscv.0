@@ -4,74 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CADD6D58D74
-	for <linux-riscv@archiver.kernel.org>; Mon, 25 Nov 2024 17:59:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C974FD58D7B
+	for <linux-riscv@archiver.kernel.org>; Mon, 25 Nov 2024 19:11:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:CC
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
 	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=fwDy1Tj9UALB9ijTTVkrJZS5hw615L6D6A5OkaK3ksg=; b=pw4JJmFm2xfe75
-	kWDrbp+8yY/M9uwneCpXQpabeH7r85nMTmqXHI8UTz5GGGP8IZydjb7EjLyB3AstKxkotLm+57lyU
-	mG7KPQxxSOaYMSQeG+bkXIDLGVc3JorFVUMWwRK0LmzG04YwsPJzKwuh9NkQE0cdiW4+D9goR6B8e
-	bDJErkMS7DQZ8giStiNXLH7CkCJDRU/GXu8usIFNSPpay8WLis2FIOtv6d0HvppJdM2jJGxx3nDXY
-	jc4eEDZoARBmxoelZuP9jJ+Kz2tOBNnzRGA/d0XPSjDJGpmSexWEOUBsCQlJ8SWlYXRaMVcbZKIGU
-	D8uN7nLr3MCstXh0eBJw==;
+	List-Owner; bh=dpbCw8u/u/TjuBmfqPyqlRbrt6+AwGF8F9SG7Dn+weA=; b=A7hscVEMIq4Hj1
+	wz1SHty1OWwRJ0NLFeoXyuJjxCvuGQk2x7oV3f9IfY05wmQFsB7r49yDfQ0nwJXeuMdq7gqciLlXs
+	JKTnwMAbmEwsR4L89a31uRvR/WFYcQ7SvF2hU0V9nq2GS6+xTfY6UizIuokuhdj/kf3c93lAgkk1d
+	Q077LK8n/VHHErHuAc8Rxq81kr6j2nb+I2e3pamR5Cv+Xe11MwFBTp8q1xtGaJj3QVz2lEwqMQp/b
+	6Vha5mvOrvGm9kk0I8fyg666dYF/bUSN5bOej2aPXZZ16arUE7csxkadfYbel/JP9/+vzf5H28fCP
+	anRuCD2vBj+XF7gvHR3g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tFdMS-00000008o3M-2mlE;
-	Mon, 25 Nov 2024 17:59:00 +0000
-Received: from esa.microchip.iphmx.com ([68.232.153.233])
+	id 1tFeUB-00000008vig-22XD;
+	Mon, 25 Nov 2024 19:11:03 +0000
+Received: from mail-pl1-x632.google.com ([2607:f8b0:4864:20::632])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tFdMP-00000008o1j-3KBZ
+	id 1tFeTg-00000008vde-17Ee
 	for linux-riscv@lists.infradead.org;
-	Mon, 25 Nov 2024 17:58:59 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1732557537; x=1764093537;
-  h=from:to:cc:subject:date:message-id:mime-version:
-   content-transfer-encoding;
-  bh=n8qNvPhIENuhEkCNGBgzMSTobgwxXDh174nIOMaxw5o=;
-  b=YWL/QgZPVn6h7FORGGIHYkLCmvx0DAZJxjWK9ndgpD+PQZWM9OA5KTWb
-   TCehr96vjev5txXPdY5uxwdc66AF9c8rrYWZCVSgGvOLOadHZrB3LKXJh
-   bO9YwNIQt4FZlyC708wHfTTAxvWE6fx6OBq+lNlLuiHAYcW+HNlEy/wn4
-   wZs7PE61dJkXkt1QGvmCx1DG/At/4wL0OCU55D13mdhtV0VV3jKJ9fFQg
-   nUPlopUPhhr2O4gI3xEPto2GU9c3b7QwpbmDybNuNWgDX/iV0TjE0Ejf8
-   1IO7x28ljCpIWM3dVHXHX2Ls5TVIkgnYoCgpStTT0kn5D0f+jOTMxNnlE
-   A==;
-X-CSE-ConnectionGUID: QcIy3zy5RLCJ7zVSqoxwVg==
-X-CSE-MsgGUID: s+nZnrjkQmqtK/1xBE7ywA==
-X-IronPort-AV: E=Sophos;i="6.12,183,1728975600"; 
-   d="scan'208";a="38361993"
-X-Amp-Result: SKIPPED(no attachment in message)
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa1.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 25 Nov 2024 10:58:51 -0700
-Received: from chn-vm-ex02.mchp-main.com (10.10.85.144) by
- chn-vm-ex01.mchp-main.com (10.10.85.143) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.35; Mon, 25 Nov 2024 10:58:35 -0700
-Received: from valentina.microchip.com (10.10.85.11) by
- chn-vm-ex02.mchp-main.com (10.10.85.144) with Microsoft SMTP Server id
- 15.1.2507.35 via Frontend Transport; Mon, 25 Nov 2024 10:58:32 -0700
-From: Valentina Fernandez <valentina.fernandezalanis@microchip.com>
-To: <paul.walmsley@sifive.com>, <palmer@dabbelt.com>, <aou@eecs.berkeley.edu>,
-	<ycliang@andestech.com>, <prabhakar.mahadev-lad.rj@bp.renesas.com>,
-	<peterlin@andestech.com>, <samuel.holland@sifive.com>,
-	<conor.dooley@microchip.com>, <alexghiti@rivosinc.com>,
-	<ruanjinjie@huawei.com>, <takakura@valinux.co.jp>, <conor+dt@kernel.org>,
-	<jassisinghbrar@gmail.com>, <robh@kernel.org>, <krzk+dt@kernel.org>,
-	<valentina.fernandezalanis@microchip.com>
-CC: <linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	<devicetree@vger.kernel.org>
-Subject: [PATCH v4 0/4] Add Microchip IPC mailbox
-Date: Mon, 25 Nov 2024 17:58:14 +0000
-Message-ID: <20241125175818.213108-1-valentina.fernandezalanis@microchip.com>
+	Mon, 25 Nov 2024 19:10:33 +0000
+Received: by mail-pl1-x632.google.com with SMTP id d9443c01a7336-21260cfc918so33970465ad.0
+        for <linux-riscv@lists.infradead.org>; Mon, 25 Nov 2024 11:10:31 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1732561830; x=1733166630; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=Q78q1OoQNcZ98znvtV4ozluwpFdzLILnURvHrjKkDmM=;
+        b=hz/jzbtyWBgD8LY7HvciPi/N0bUQs3H9dBvuo17zjpJTapOA1CfWSENCZ6FpknY93I
+         i0fYWom8tLJaPyEICTysNH8vzH143cgLXlMfjKTsh/bH6acSH0xqhuoPKfRTnt/D/xf3
+         3FEbSebp2wA+Q1OeYE4Umwy+hXVe8My2rX3DXBuIWs4bYA4OVMU/t4XVoQcqPjp+2+2S
+         Fv8JaXT6SjfrqnANeB6eHKDj91viR/X7JLh3OWCfSzYNsd6lyzQAfOAPhNRlBMvqUJWu
+         ia0x7VZhmBifcoMSF7gwYDG1mcG6yIb+p3YFa5VCat9R7qIJthzgl8aT8BBsjM7J4nng
+         4ETQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1732561830; x=1733166630;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=Q78q1OoQNcZ98znvtV4ozluwpFdzLILnURvHrjKkDmM=;
+        b=kWo0Vd3GIzXPdQuOOApYq70nBGG7hGssp2ohlNscPHZTOybRzVSwBSEkIkBqIBVLp0
+         Eje+4bahSvR6yCQxoXWFz4FOvBoBiEKJVOzIz8HhP5WQt4BgDX35IMSWBHXVPXWvt4eI
+         Va7CrH9o5qwCsyuSAZLQ4coZWx7LxlM2HKrTonZ5XmzNBzz1znjDdKnmoS9+fOsxRM/o
+         SGvl+i1EN8pnGuJ63fuwHjblehRBz8t0fBlmOVnVm9TWAddIQULDTwktFuFYel/PNKj2
+         ymqfnpiWHjMnYJs2i4ud7xx3NiH2HMFPDhkfAKDsirlK6//U2C/zx4ZSmz7Se1p5zlIR
+         xQ1w==
+X-Gm-Message-State: AOJu0YzG9tcKC9W/eyXNJJo9wvAlTvSeeLaSXz0i54sp9XboBvJzYlgU
+	RKV6ELf7uxIQ0jmFIOcib5GmkNpf669QC8W+h+E7FVnVfZ2K3SBtnO2PDyeY
+X-Gm-Gg: ASbGncuglT6DrmUttGMXqx+R2cy86KRkPo31HpEEByXcs67aoVx4Toqi5BH23qBZgtB
+	pU68yewtDgRr8lQLpfvPqk9G78QjGAQH/zoZ+97KXZanbWmZqrFKvOi36X+nAOfx4d1bXKHiAAF
+	SbLOd3OdK7whWcg4KZ+aoteXcFe9LEMS2IDYFvA7gFbVLalvN0otRCO62YRLDU+SO49vKdqF3Qn
+	v/+hJ/UBLdoBIuVWk5BVMWj/Yn89ucy1p/gNKsXCaKCJUKPiCT2FBS3Fc2XTBSJgg==
+X-Google-Smtp-Source: AGHT+IHCxmfZgBVj+1qygDHPsmou0yVLe20pxtiugxO94Cqk8ljgQAN2f+cO5yXaAJdG8vF2YDDb9A==
+X-Received: by 2002:a17:902:ccc5:b0:211:6b21:73d9 with SMTP id d9443c01a7336-2129f81e8a5mr211338415ad.37.1732561830341;
+        Mon, 25 Nov 2024 11:10:30 -0800 (PST)
+Received: from advait-kdeneon.. ([2405:201:1e:f1d5:8701:62b0:6f84:ac3d])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2129dc20ae9sm68428745ad.240.2024.11.25.11.10.26
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 25 Nov 2024 11:10:29 -0800 (PST)
+From: Advait Dhamorikar <advaitdhamorikar@gmail.com>
+To: Drew Fustini <drew@pdp7.com>,
+	Guo Ren <guoren@kernel.org>,
+	Fu Wei <wefu@redhat.com>,
+	Jassi Brar <jassisinghbrar@gmail.com>
+Cc: linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Advait Dhamorikar <advaitdhamorikar@gmail.com>
+Subject: [PATCH-next] mailbox: th1520: Fix out of bounds write
+Date: Tue, 26 Nov 2024 00:40:09 +0530
+Message-Id: <20241125191009.28535-1-advaitdhamorikar@gmail.com>
 X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241125_095857_970266_8CEAE41F 
-X-CRM114-Status: GOOD (  17.59  )
+X-CRM114-CacheID: sfid-20241125_111032_303964_71C37470 
+X-CRM114-Status: GOOD (  10.45  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,84 +97,31 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hello all,
+The loop in the function iterates up to `TH_1520_MBOX_CHANS`,
+but the `ctx->intr_mask` array only has 3 elements. When 
+`TH_1520_MBOX_CHANS` is set to a value larger than 3, this
+causes an out-of-bounds write at `ctx->intr_mask[3]`.
+This could cause an immediate crash or incorrect computations.
 
-This series adds support for the Microchip Inter-Processor Communication
-(IPC) mailbox driver.
+Signed-off-by: Advait Dhamorikar <advaitdhamorikar@gmail.com>
+---
+ drivers/mailbox/mailbox-th1520.c | 3 +++
+ 1 file changed, 3 insertions(+)
 
-Microchip's family of RISC-V SoCs typically has one or more clusters
-that can be configured to run in Asymmetric Multi-Processing (AMP) mode.
-
-The Microchip IPC is used to send messages between processors using
-an interrupt signaling mechanism. The driver uses the RISC-V Supervisor
-Binary Interface (SBI) to communicate with software running in machine
-mode (M-mode) to access the IPC hardware block.
-
-Additional details on the Microchip vendor extension and the IPC
-function IDs described in the driver can be found in the following
-documentation:
-
-https://github.com/linux4microchip/microchip-sbi-ecall-extension
-
-The PIC64GX MPU has a Mi-V IHC block, this will be added to the PIC64GX
-dts after the initial upstreaming [1].
-
-[1] https://patchwork.kernel.org/project/linux-riscv/patch/20240725121609.13101-18-pierre-henry.moussay@microchip.com/
-
-Changes in v4:
-- specify that microchip,miv-ihc-rtl-v2 is intended for use with MIV IHC Soft IP
-- drop items array and use const value for compatible strings
-- add a contraint to microchip,ihc-chan-disabled-mask property
-- minor improvements to "'#mbox-cells' description
-
-Changes in v3:
-- Fix incorrent formatting around '=' in dt binding examples
-- Add per compatible descriptions in dt binding
-- Add '>' in certain dt binding descriptions to keep paragraphs maintained
-- export __cpuid_to_hartid_map to compile mailbox driver as module
-- Drop unused enum ipc_irq_type
-- rename struct mchp_ipc_probe to mchp_ipc_mbox_info
-- rename struct ipc_chan_info to mchp_ipc_sbi_chan
-- rename struct microchip_ipc to mchp_ipc_sbi_mbox
-- use phys_addr_t for __pa()
-- drop mchp_ipc_get_chan_id function
-- use num_chans in mbox_controller
-- Fix buf_base_tx and buf_base_rx sizes using max and kmalloc
-
-Changes in v2:
-- use kmalloc and __pa() instead of DMA API
-- fix size of buf_base to avoid potential buffer overflow
-- add kernel doc for exported functions (mchp_ipc_get_chan_id)
-- use EXPORT_SYMBOL_GPL instead of EXPORT_SYMBOL
-- drop unnecessary blank line and fix alignment issues
-- drop of_match_ptr
-- move MODULE_DEVICE_TABLE next to the definition
-- reword subject from riscv: asm: vendorid_list to riscv: sbi: vendorid_list
-- remove the word "driver" from dt-binding commit subject
-- make interrupt-names a required property for all cases
-- add dependency on COMPILE_TEST and ARCH_MICROCHIP
-
-Regards,
-Valentina
-
-Valentina Fernandez (4):
-  riscv: sbi: vendorid_list: Add Microchip Technology to the vendor list
-  riscv: export __cpuid_to_hartid_map
-  dt-bindings: mailbox: add binding for Microchip IPC mailbox controller
-  mailbox: add Microchip IPC support
-
- .../bindings/mailbox/microchip,sbi-ipc.yaml   | 111 ++++
- arch/riscv/include/asm/vendorid_list.h        |   1 +
- arch/riscv/kernel/smp.c                       |   1 +
- drivers/mailbox/Kconfig                       |  13 +
- drivers/mailbox/Makefile                      |   2 +
- drivers/mailbox/mailbox-mchp-ipc-sbi.c        | 504 ++++++++++++++++++
- include/linux/mailbox/mchp-ipc.h              |  33 ++
- 7 files changed, 665 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/mailbox/microchip,sbi-ipc.yaml
- create mode 100644 drivers/mailbox/mailbox-mchp-ipc-sbi.c
- create mode 100644 include/linux/mailbox/mchp-ipc.h
-
+diff --git a/drivers/mailbox/mailbox-th1520.c b/drivers/mailbox/mailbox-th1520.c
+index 4e84640ac3b8..759634a4fb72 100644
+--- a/drivers/mailbox/mailbox-th1520.c
++++ b/drivers/mailbox/mailbox-th1520.c
+@@ -532,6 +532,9 @@ static int __maybe_unused th1520_mbox_suspend_noirq(struct device *dev)
+ 	 * INFO data all assumed to be lost.
+ 	 */
+ 	for (i = 0; i < TH_1520_MBOX_CHANS; i++) {
++		if (i >= ARRAY_SIZE(ctx->intr_mask))
++			break;
++
+ 		ctx->intr_mask[i] =
+ 			ioread32(priv->local_icu[i] + TH_1520_MBOX_MASK);
+ 	}
 -- 
 2.34.1
 
