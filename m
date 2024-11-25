@@ -4,84 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CFE37E69187
-	for <linux-riscv@archiver.kernel.org>; Sun, 24 Nov 2024 22:15:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 09F5CD3B7D2
+	for <linux-riscv@archiver.kernel.org>; Mon, 25 Nov 2024 04:32:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=lPJfRrjQhbzpuame54ZdwF2HPR/jgipuchkRuafxIc8=; b=sadteq8omWF+VU
-	qSqDHJuNk2B0axyISclCdBH5OgwxdzK456PW/Rz87B/FuffvTYfJ8xyF3PWJuXOjRZ6g/4e7w396T
-	iCUSGT9p1KiaAmaYojDctjZVzrzOMq0fjmjbADkpVqPeFk8Epjq6pLQ3c8OHtUeNSz3A+7RqwsXL+
-	fca2bSiEsnbVyfWjNPyLVYlzIhdXM52ooqK/rw0e1GdAa6Y4SDe/IKGtEOZGYXJv/r4QGcl9NXLDN
-	QJXUqj3uWLZYnvnvbQfPjb0wmsSltILmzvaOvzbTrlgEa6m36b2b1IYj/EyDOrxgaXRCioXCOJVZj
-	MGnwMSzRLs0DgSX4Ft8Q==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=bjRPGaKTyF6DrEvcgtAXGM71s7rbPrGehkyyxQ5haP0=; b=xsSD86BOXUKnMH
+	0Ci2p498yzoc+7hY+Fa8KI2o77HzsfWQ6ntQ1xRctxecMfqYodCTzBktWuwbJpkOqHBYmTDWGlqHn
+	JL1jLH4z4pPvdxJ46yHDOnvBgW4PmDxpU4dYO42U6th4kdwVc5umFHT1Pngy8jlOLJk1JNVQ9/vJP
+	12oTIk12P6+xQ9+u1CF+fcLhnVpfgV29DGOPSi3HTGntThw0aaneUk5CG2hMpJ0aufXBbJCpLVma7
+	Cf6bRmnUh2Mp++yLCD6m1fMjMPQGur17OowAJrpnBHfSXKGcgaqc7tBKYMQGmq88sg/uOLCYAYi5C
+	FkK1jlBC+p6TD2ZpK9ng==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tFKsx-00000006hAU-3aig;
-	Sun, 24 Nov 2024 22:15:19 +0000
-Received: from mail-qt1-x830.google.com ([2607:f8b0:4864:20::830])
+	id 1tFQm3-000000072KS-07P4;
+	Mon, 25 Nov 2024 04:32:35 +0000
+Received: from mail-il1-x12e.google.com ([2607:f8b0:4864:20::12e])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tFKsv-00000006h9o-3ePI
+	id 1tFQm0-000000072Je-1olk
 	for linux-riscv@lists.infradead.org;
-	Sun, 24 Nov 2024 22:15:19 +0000
-Received: by mail-qt1-x830.google.com with SMTP id d75a77b69052e-46101120e70so28427921cf.1
-        for <linux-riscv@lists.infradead.org>; Sun, 24 Nov 2024 14:15:16 -0800 (PST)
+	Mon, 25 Nov 2024 04:32:33 +0000
+Received: by mail-il1-x12e.google.com with SMTP id e9e14a558f8ab-3a761e21ddeso15117995ab.3
+        for <linux-riscv@lists.infradead.org>; Sun, 24 Nov 2024 20:32:31 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=tenstorrent.com; s=google; t=1732486515; x=1733091315; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=AoCz/NHoJ9MNwkbztrznoUUGmYlxHga44YuBKiYrkmM=;
-        b=dUVppPu5mw8P9W2mu8X9YpwbXezy0kax8bOecB7upaRFR9Ct2H6Plr1w3PS+Y9G+Hg
-         xKjn5t9CvbI3GVfdme6ijQGdqmVX6ZRUR/0+qMqMM6HbnY3bpskeFEMtAAgjca9u9Sl3
-         CRUYzqcfPilPnNmtjWtbHh8KhL7UbtCFoUyPncl7QlKlEkP98xKLW6w2S/tiFhOjlA2u
-         E/c5eObnwBb/aWC66eJH1ASs7AB5J/RnezdUBzkqRpijkHpK4lnxAnGrU7nxAIADwXtJ
-         JDrptedMwu2gn8VuSBAgvLWB7XvdJdiIgDabPJrLa8hguPQy8/IGkGKgZUCTM6ABB/Gj
-         Ag4g==
+        d=brainfault-org.20230601.gappssmtp.com; s=20230601; t=1732509151; x=1733113951; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=WuP71Y6DNMRZn5Z/NIHYONj3bIPsmDbwbNxhp9KsWsI=;
+        b=Qy5V2Hay3vP0ACzRbCwSlOyEuejdYIlBhE779HRLN/ZBzcif8wWOSlnChWOl58uICT
+         PF0aUQTILZCkjg0lbjL2BB7AOAzDt+IKscuT+QnbnkWs0WjAdJ7Hhh8ly4ci4xLl6Oix
+         n165C99e5Owm5iIG6Mxv9XM+s3gOAnEvuNCeUEzq/7lcyeAgmgDdZJhWzx18cNael2ha
+         Vwt/8SUnNAgx2XTlXTxzGBt2ey24gSsVBYUrzseKYQbMj3CHEuLB0Iwt7p3q/vbc3cS9
+         p0rXw4o2yBcvBS88galGXpd5Gp2J9140EQE4zy1MNcdLmBPN3tw3Y4ZMqxhfOVF3goGG
+         mvOg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1732486515; x=1733091315;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=AoCz/NHoJ9MNwkbztrznoUUGmYlxHga44YuBKiYrkmM=;
-        b=dvDSlLmVZXzTls14E0XJPUrlAnTU+OJSo04ahOuQIdzhE4RGM8he3KciyLzwDVEqy0
-         YADo1LjzTPY9K0F5Mbe/v7/02PdyZPSbRXRH1ze8cLGKBet5yeVr/LameCr352xzh1Aq
-         jT/1qaPemB7JBUWTx+dH0mNBvgydjj1ckYGzWN9n6au/vp6dHki0XWOsReEbbTXisfs3
-         sv163Id6mr6YebyzjrTgxHwCAcc7h4GNoMyvMAyvKgtt1CAnNJCwpEjOpEPEBvDO6xmJ
-         QLasLqeW7Kosu0YNjRgJKsLH15XnW8FnIl/WasYGIrI6uC3I0B6H7x3bwkTvg1TLQSI4
-         ufrA==
-X-Gm-Message-State: AOJu0YxRrEGnyc6M0pqYbT/hzLgaq3hvB1WXx14D5ITA9wpQxy8HTCXr
-	DT/CANA5dVwjc4/QAh8eKS6mulq6wVBXBGzBuNcIItyyMt1Ca8WRRSOGfqs+Iww=
-X-Gm-Gg: ASbGncv9UVzVQ7nK1o+hGy0Aedn4lPG65EyuW51Aj43gmg5mvlmm02Msn3xUZHasivY
-	Jy4ZiIwBwwkdbGWkr6Np+CgBppp1KV6EXzzGSW++am4XVUNCgaX4N/AKDnE5LbJ2u/HPcu4ru6I
-	1LzVXVr/LNEIRKGJ7//y1Ldgq1wN9H1f/IwF4ToPw/48by1qgLFAt4b2ulzkFFmDtBCJ3/7n0SY
-	sGIquLNq1hU4zg2THChKFex7a43vMQQNktLaFZJQkzA/yZviAeX++djGdJKJHA1phTxTrWpCu6L
-	tQLMS9gU8QY=
-X-Google-Smtp-Source: AGHT+IGcTShMZFhzOvUyddACYJm4B/igCOHKOqjdvOFOiZIKBbGE0ZK9b5jP9lHAeNlpC9LdfWo0pg==
-X-Received: by 2002:a05:622a:13:b0:466:9671:bd7e with SMTP id d75a77b69052e-4669671c06dmr6951831cf.42.1732486515349;
-        Sun, 24 Nov 2024 14:15:15 -0800 (PST)
-Received: from ird-aus2.local.tenstorrent.com ([38.104.49.66])
-        by smtp.gmail.com with ESMTPSA id d75a77b69052e-465b0d5c7e9sm35033751cf.59.2024.11.24.14.15.14
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 24 Nov 2024 14:15:14 -0800 (PST)
-From: Michael Neuling <michaelneuling@tenstorrent.com>
-To: anup@brainfault.org
-Cc: linux-riscv@lists.infradead.org,
-	kvm-riscv@lists.infradead.org,
-	palmer@dabbelt.com,
-	mikey@neuling.org,
-	Michael Neuling <michaelneuling@tenstorrent.com>
-Subject: [PATCH] RISC-V: KVM: Fix csr_write -> csr_set for HVIEN PMU overflow bit
-Date: Sun, 24 Nov 2024 22:14:58 +0000
-Message-Id: <20241124221458.347464-1-michaelneuling@tenstorrent.com>
-X-Mailer: git-send-email 2.34.1
+        d=1e100.net; s=20230601; t=1732509151; x=1733113951;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=WuP71Y6DNMRZn5Z/NIHYONj3bIPsmDbwbNxhp9KsWsI=;
+        b=WexcOzfMZdDwfMFwWfA9hTGiLhQt7kJ0C3emNs/UCL5wP7EMr9yuNFxFqvQrm+y/sm
+         YoJoDAKeMKh6BJBIipc0UmdJ8h/Gr0D2KEGYy3grVH29NjOkyctTaa3qQa3+lNhu8C0m
+         jP2qA1pG58cvsGT6bHQdUPopObGnqXiYrB/KWVV2YVM21b0l3oUFHevAaDmZKzA3BOcE
+         Ngmti+HYfGxtUle98oa2iRwwvIt1dChcJzu7IV0Ntp+yhXE1h3IqX4Z7mcVgcImXYEuv
+         l3wffd55KmgiL2Blvx1rwsyCpT98ldmSGz1s9+sQTyiKfMnwqrllKRb88IsmR5lsCn4v
+         Uy1g==
+X-Gm-Message-State: AOJu0YzCml65lCgd3qxSDzcQPGbNI+DhTpLdrhNJhu/kK4TejaCRm3HA
+	+oX5ndAdkxgE6YPudnf88kDikxOkwLJ4m6v26ShwyfNfcLy09WW1hlNhyAiXzhzNfyZ4V8+8vck
+	HNuMwhf4WYvmnfCUOUSIeM2BwCxwlXqMz/OfzOmcxcX5XbFx6
+X-Gm-Gg: ASbGncsWd60I30wodobefzyWjyFvj3mz5HIGnomSEotZOmb/Mk1dutK1QJOYjIRQkrs
+	81MLWiWPr19tzQP2UcAG/fE9OHtR59wqO
+X-Google-Smtp-Source: AGHT+IE0XgK4cCIGwVFLckTXIbnG7ckY0QK1kEizBDP2hOJwie9buVoHmF7NwplyFHtsm5kZBiOvnP0znmn0ysFd5ps=
+X-Received: by 2002:a05:6602:608a:b0:82c:ddfc:c57b with SMTP id
+ ca18e2360f4ac-83ecdc5d8damr1342017439f.5.1732509150836; Sun, 24 Nov 2024
+ 20:32:30 -0800 (PST)
 MIME-Version: 1.0
+References: <20241124221458.347464-1-michaelneuling@tenstorrent.com>
+In-Reply-To: <20241124221458.347464-1-michaelneuling@tenstorrent.com>
+From: Anup Patel <anup@brainfault.org>
+Date: Mon, 25 Nov 2024 10:02:19 +0530
+Message-ID: <CAAhSdy2Qq61qSLkuFkgiT2o5wXNDp3qO=U40AU1CFkcY6iNYhw@mail.gmail.com>
+Subject: Re: [PATCH] RISC-V: KVM: Fix csr_write -> csr_set for HVIEN PMU
+ overflow bit
+To: Michael Neuling <michaelneuling@tenstorrent.com>
+Cc: linux-riscv@lists.infradead.org, kvm-riscv@lists.infradead.org, 
+	palmer@dabbelt.com, mikey@neuling.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241124_141517_919861_3304D476 
-X-CRM114-Status: UNSURE (   8.83  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241124_203232_674127_340BE82D 
+X-CRM114-Status: GOOD (  14.55  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,37 +87,30 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This doesn't cause a problem currently as HVIEN isn't used elsewhere
-yet. Found by inspection.
-
-Signed-off-by: Michael Neuling <michaelneuling@tenstorrent.com>
----
- arch/riscv/kvm/aia.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
-
-diff --git a/arch/riscv/kvm/aia.c b/arch/riscv/kvm/aia.c
-index 2967d305c4..9f3b527596 100644
---- a/arch/riscv/kvm/aia.c
-+++ b/arch/riscv/kvm/aia.c
-@@ -552,7 +552,7 @@ void kvm_riscv_aia_enable(void)
- 	csr_set(CSR_HIE, BIT(IRQ_S_GEXT));
- 	/* Enable IRQ filtering for overflow interrupt only if sscofpmf is present */
- 	if (__riscv_isa_extension_available(NULL, RISCV_ISA_EXT_SSCOFPMF))
--		csr_write(CSR_HVIEN, BIT(IRQ_PMU_OVF));
-+		csr_set(CSR_HVIEN, BIT(IRQ_PMU_OVF));
- }
- 
- void kvm_riscv_aia_disable(void)
--- 
-2.34.1
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gTW9uLCBOb3YgMjUsIDIwMjQgYXQgMzo0NeKAr0FNIE1pY2hhZWwgTmV1bGluZwo8bWljaGFl
+bG5ldWxpbmdAdGVuc3RvcnJlbnQuY29tPiB3cm90ZToKPgo+IFRoaXMgZG9lc24ndCBjYXVzZSBh
+IHByb2JsZW0gY3VycmVudGx5IGFzIEhWSUVOIGlzbid0IHVzZWQgZWxzZXdoZXJlCj4geWV0LiBG
+b3VuZCBieSBpbnNwZWN0aW9uLgo+CgpGaXhlcyB0YWcgPwoKPiBTaWduZWQtb2ZmLWJ5OiBNaWNo
+YWVsIE5ldWxpbmcgPG1pY2hhZWxuZXVsaW5nQHRlbnN0b3JyZW50LmNvbT4KCk90aGVyd2lzZSBp
+dCBsb29rcyBnb29kIHRvIG1lLgoKUmV2aWV3ZWQtYnk6IEFudXAgUGF0ZWwgPGFudXBAYnJhaW5m
+YXVsdC5vcmc+CgpSZWdhcmRzLApBbnVwCgo+IC0tLQo+ICBhcmNoL3Jpc2N2L2t2bS9haWEuYyB8
+IDIgKy0KPiAgMSBmaWxlIGNoYW5nZWQsIDEgaW5zZXJ0aW9uKCspLCAxIGRlbGV0aW9uKC0pCj4K
+PiBkaWZmIC0tZ2l0IGEvYXJjaC9yaXNjdi9rdm0vYWlhLmMgYi9hcmNoL3Jpc2N2L2t2bS9haWEu
+Ywo+IGluZGV4IDI5NjdkMzA1YzQuLjlmM2I1Mjc1OTYgMTAwNjQ0Cj4gLS0tIGEvYXJjaC9yaXNj
+di9rdm0vYWlhLmMKPiArKysgYi9hcmNoL3Jpc2N2L2t2bS9haWEuYwo+IEBAIC01NTIsNyArNTUy
+LDcgQEAgdm9pZCBrdm1fcmlzY3ZfYWlhX2VuYWJsZSh2b2lkKQo+ICAgICAgICAgY3NyX3NldChD
+U1JfSElFLCBCSVQoSVJRX1NfR0VYVCkpOwo+ICAgICAgICAgLyogRW5hYmxlIElSUSBmaWx0ZXJp
+bmcgZm9yIG92ZXJmbG93IGludGVycnVwdCBvbmx5IGlmIHNzY29mcG1mIGlzIHByZXNlbnQgKi8K
+PiAgICAgICAgIGlmIChfX3Jpc2N2X2lzYV9leHRlbnNpb25fYXZhaWxhYmxlKE5VTEwsIFJJU0NW
+X0lTQV9FWFRfU1NDT0ZQTUYpKQo+IC0gICAgICAgICAgICAgICBjc3Jfd3JpdGUoQ1NSX0hWSUVO
+LCBCSVQoSVJRX1BNVV9PVkYpKTsKPiArICAgICAgICAgICAgICAgY3NyX3NldChDU1JfSFZJRU4s
+IEJJVChJUlFfUE1VX09WRikpOwo+ICB9Cj4KPiAgdm9pZCBrdm1fcmlzY3ZfYWlhX2Rpc2FibGUo
+dm9pZCkKPiAtLQo+IDIuMzQuMQo+CgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMu
+aW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZv
+L2xpbnV4LXJpc2N2Cg==
