@@ -4,33 +4,33 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C258CD5A6EC
-	for <linux-riscv@archiver.kernel.org>; Tue, 26 Nov 2024 08:00:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61F41D5A6EC
+	for <linux-riscv@archiver.kernel.org>; Tue, 26 Nov 2024 08:00:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=3VCn3zP0ktx2DySI/9zZyWTqpI6ET2yPim1gxWP1C+Q=; b=hXhSbFLqU2iSbx
-	FJsUetjm0psV7Yc8Y1Pod+MZEb/ktXnLL5FTt9Wpvm/mod98YP1e5pNZsji+dbj0nPp+2rZvux+Iv
-	2SaKxRRlwWywyqhkNl7GFJkUfc+nnDJXzdnCFLITXuAlcw8PKRsw6kYvzSxM4sBokybESmj/3BKgU
-	lqfy2/2twamaX2lNsbtqQjs99c5zB6O0KBa9WISwbD1FsOfbWD3/5zNfBVT3UBw7OPEFv+d5/23c/
-	F71lsGnM3hvaqFhTHmpNXHMG6aNJNIQihP/TriuJd0LQcxRLhJR0aS9YlF/Z9Asb4p1GgRdETT8CY
-	G9D7vpCqmo1EwE9GUing==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=3UPFQRRWVQXxOBeauSiOsFEk2iVEG1V94qG/oX8kNa4=; b=revTahKu2Loj/Z
+	mJSJ7geVofLuRDjbIpGeUlHYpAq1rpVrLQjPCv5RTCBBoJygCU3MNM+JB/OGhQUapkPAs680UEfMv
+	6NtM3mL1GkOz6XHCzn7aNfleDNt6sU/Kw4J/ZH5VVZdz5CtvJwlnhs4P1Z6KOXYCQxl80TVfXA+wj
+	rJ621Z7gA+aIxWaO4Bz5/hoSjN4DW8Fv4w7pMy3+5XmMa5wB88pN4qoeEeI2r9/LnIHxJS1ArQosG
+	uiEGTMC9Xd/Rli2ucHBXd3BaMZq9iigj7+DJunY1QF5zIHo0ePC7fuKbEbRRDpdIcs8yV5JLr38XF
+	WIIeKhg3NZnnAQCI8qnw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tFqUp-00000009uJB-3Cnl;
-	Tue, 26 Nov 2024 08:00:31 +0000
+	id 1tFqUq-00000009uJb-1WrR;
+	Tue, 26 Nov 2024 08:00:32 +0000
 Received: from freeshell.de ([2a01:4f8:231:482b::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tFqSJ-00000009tVd-1mIX
+	id 1tFqSM-00000009tXT-2egH
 	for linux-riscv@lists.infradead.org;
-	Tue, 26 Nov 2024 07:57:57 +0000
+	Tue, 26 Nov 2024 07:58:00 +0000
 Received: from hay.lan. (unknown [IPv6:2605:59c8:31de:bf00:6ecf:39ff:fe00:8375])
 	(Authenticated sender: e)
-	by freeshell.de (Postfix) with ESMTPSA id 98EC7B4B1D7C;
-	Tue, 26 Nov 2024 08:57:50 +0100 (CET)
+	by freeshell.de (Postfix) with ESMTPSA id 15F92B4B1D80;
+	Tue, 26 Nov 2024 08:57:54 +0100 (CET)
 From: E Shattow <e@freeshell.de>
 To: Jisheng Zhang <jszhang@kernel.org>
 Cc: E Shattow <e@freeshell.de>,
@@ -44,14 +44,16 @@ Cc: E Shattow <e@freeshell.de>,
 	linux-riscv@lists.infradead.org,
 	devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH v5 0/1] riscv: dts: starfive: jh7110-milkv-mars: enable usb0 host function
-Date: Mon, 25 Nov 2024 23:57:24 -0800
-Message-ID: <20241126075740.17419-1-e@freeshell.de>
+Subject: [PATCH v5 1/1] riscv: dts: starfive: jh7110-milkv-mars: enable usb0 host function
+Date: Mon, 25 Nov 2024 23:57:25 -0800
+Message-ID: <20241126075740.17419-2-e@freeshell.de>
 X-Mailer: git-send-email 2.45.2
+In-Reply-To: <20241126075740.17419-1-e@freeshell.de>
+References: <20241126075740.17419-1-e@freeshell.de>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241125_235755_601908_8EDF4F3F 
-X-CRM114-Status: UNSURE (   8.06  )
+X-CRM114-CacheID: sfid-20241125_235758_808956_FE608196 
+X-CRM114-Status: UNSURE (   7.67  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -69,35 +71,42 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Enable host mode JH7110 on-chip USB for Milk-V Mars by setting host mode
-and connect vbus pinctrl.
+Milk-V Mars set JH7110 on-chip USB host mode and vbus pin assignment
 
-This functionality depends on setting the USB over-current register to 
-disable at bootloader phase, for example U-Boot:
-https://patchwork.ozlabs.org/project/uboot/patch/20241012031328.4268-6-minda.chen@starfivetech.com/
-
-If the over-current register is not prepared for us then the result is no 
-change in functional outcome with this patch applied; there is an error 
-visible to the user and this additional usb configuration fails (same as
-it is now). On Milk-V Mars with four USB-A ports this applies to one of the 
-ports and the remaining three VL805-connected ports via PCIe are not changed.
-
-Changes since v4:
- - Rebase on latest master
-
-Changes since v3:
- - Rebase on linux-next/master
- - use tabs for code indent
-
-Changes since v2:
- - Rebase on 6.12
-
-E Shattow (1):
-  riscv: dts: starfive: jh7110-milkv-mars: enable usb0 host function
-
+Signed-off-by: E Shattow <e@freeshell.de>
+---
  .../boot/dts/starfive/jh7110-milkv-mars.dts    | 18 +++++++++++++++++-
  1 file changed, 17 insertions(+), 1 deletion(-)
 
+diff --git a/arch/riscv/boot/dts/starfive/jh7110-milkv-mars.dts b/arch/riscv/boot/dts/starfive/jh7110-milkv-mars.dts
+index 0d248b671d4b..3bd62ab78523 100644
+--- a/arch/riscv/boot/dts/starfive/jh7110-milkv-mars.dts
++++ b/arch/riscv/boot/dts/starfive/jh7110-milkv-mars.dts
+@@ -53,7 +53,23 @@ &spi0 {
+ 	status = "okay";
+ };
+ 
++&sysgpio {
++	usb0_pins: usb0-0 {
++		vbus-pins {
++			pinmux = <GPIOMUX(25, GPOUT_SYS_USB_DRIVE_VBUS,
++					      GPOEN_ENABLE,
++					      GPI_NONE)>;
++			bias-disable;
++			input-disable;
++			input-schmitt-disable;
++			slew-rate = <0>;
++		};
++	};
++};
++
+ &usb0 {
+-	dr_mode = "peripheral";
++	dr_mode = "host";
++	pinctrl-names = "default";
++	pinctrl-0 = <&usb0_pins>;
+ 	status = "okay";
+ };
 -- 
 2.45.2
 
