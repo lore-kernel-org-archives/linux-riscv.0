@@ -4,50 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D0659D3B996
-	for <linux-riscv@archiver.kernel.org>; Tue, 26 Nov 2024 14:48:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8854D3B9AC
+	for <linux-riscv@archiver.kernel.org>; Tue, 26 Nov 2024 15:51:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
 	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=U8dn2p9AcSiQfLHOH247Xrj2l5KqFGZj8xEj/SdPTQ4=; b=KVpaYLqFGY5aRq
-	CY0RszJ2NtRFKdr8qlr3Jkfg7dxpKI5UhymRbh2qz9oj7pD/vQnxPpxIwtW6thlqnsZnhNBBLtK5N
-	MaPmV3Uh5oMGSVWkJb0c9iSyE0/iCvtU6U4n8VoTfrSJmls5K26OLtCyMmcK9SHZgF+dgsYmfPu0d
-	IrlsbKHec8GZrC3dFuOJ3amUza03J6XfI0XHUoGxsASFwbBHwSLcL9iZpEq48nuacmtYg7fTTpkLz
-	bFzCCNzBT7xyjaoDNqpb8YKd5C0hOE0M1xT7ZMbMrxWNjda5coPF8ycFLd/SZfkIZJBjpeAnsEIvs
-	MR4nG6uoy1Z7mOr37p9w==;
+	List-Owner; bh=2zNDBGOvTKzJkL2Z519jO4GtsrUtI2sdauW5hzVKcaM=; b=0m3x8Lgxb3TLkp
+	JuIdIs2L2exOAU6dCnzyF98no6Ip+EU+wigWEykV+J/fnMYIDIPI69/zCRcUzClAUgxjgVd8z8Hjc
+	78slIFNMyRtJJ98lFfuNhK0CbqOixmg288aFqgd2Re+Iu8ozzTQ5nGIxszRVRJ0d9Zw+4HV0R6Maq
+	TsgeGssxQpLakDihL+FSOxvq/qCOCQ3A2OcND6WJ+gfRSX9nRfsD5sOkZetPwbPLyYlyxKt3LL0PE
+	jHmnFxhYEVYSAWCGz3UlbcErVhxicIrin/fH5Ywa6bfECrC0Yn2QmOcrlUTkKtUWPlKCFxoT03WV+
+	eLGSrFCKU+FrRUvPYfwg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tFwrp-0000000AulB-1sOY;
-	Tue, 26 Nov 2024 14:48:41 +0000
+	id 1tFxqs-0000000B3be-3Osh;
+	Tue, 26 Nov 2024 15:51:46 +0000
 Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tFwrn-0000000AukO-0MP9
+	id 1tFwtf-0000000Av9Q-3o7M
 	for linux-riscv@lists.infradead.org;
-	Tue, 26 Nov 2024 14:48:40 +0000
+	Tue, 26 Nov 2024 14:50:37 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 0CF295C4D4E;
-	Tue, 26 Nov 2024 14:47:55 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2C9ADC4CECF;
-	Tue, 26 Nov 2024 14:48:35 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 0A98F5C5C6B;
+	Tue, 26 Nov 2024 14:49:52 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4E5D8C4CED3;
+	Tue, 26 Nov 2024 14:50:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1732632518;
-	bh=UWMmLOb48Cslo60AINMqs75+15z/Wodb7L/G+tl2Wv8=;
+	s=k20201202; t=1732632635;
+	bh=i9SV05dkevmKXvAdd7JUzuAFpeqs0xHM3L5wHG258AM=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=CxNbk1Ii4ro6NglDuQN89WyHwk+nQlPCJ6vYcEOLlSktW4qAzbsOR74hd9CB2Kk1Y
-	 0DSfBidSV9t9i9gftZsjLcfTzLZgzU5TbL77cjxdlmzZ5ELAwCIw3Z6BkyUq8Gi9Me
-	 nLV3Mo7HLL3+Qwf4O1G8YW8BgSxprULQK6zWYXJM5zpQIQN/A2aDqIcPaCwvg+rJsu
-	 Iwe/NRySAmdUhMXHkcr+LR489LFJ1vQCtZURJ414KOAvhvNwMxIGLIWGb8wLvseDdY
-	 uX8P3KKxMDra9qODsu9/SsRb3vqrHejJyHXJRM7aDr/Wxu8/bEQn2ZR0H52Kh2TZcw
-	 eznDa/zxgeUnQ==
-Message-ID: <64bf96a3-e28c-4c47-b7b3-e227bbaa7aee@kernel.org>
-Date: Tue, 26 Nov 2024 15:48:33 +0100
+	b=aAm7CCuLhrXigkkUfQOL4N5x+deJQ9uf1CgqVWelfHSNtAM+iVCyIWN8ZW5I7dUG3
+	 egxsKLBXc/cK65JvKSC+NZtlh1dM2dVvHg15dtpV59o1/SeNbYhfUinZwaKOTEpfUj
+	 3QBpA2nll6j3zfQ4ADBHyfpUsrPck++2epVbpKTh1+e8IGZZHM/k/Ey+oVEYspBX7v
+	 pChgS6GnjKLkv6cLqxLmxOd9Jyhvzm0MNC5ChYjsZXbXbXfXrKDckrzZSN3ojO8TiR
+	 v/85Jern0rqH01Kpk56x5bCI/1wkKrIBm0kO7oMNbVo/KdgwLUwIafILIY8uMfofSj
+	 Xq+mgxNoerOTw==
+Message-ID: <711362cf-5f4c-49e3-b771-38dfb441bc4c@kernel.org>
+Date: Tue, 26 Nov 2024 15:50:30 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 1/3] dt-bindings: clock: spacemit: Add clock
- controllers of Spacemit K1 SoC
+Subject: Re: [PATCH v3 2/3] dt-bindings: soc: spacemit: Add spacemit,k1-syscon
 To: Haylen Chu <heylenay@4d2.org>, Michael Turquette
  <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>,
  Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
@@ -57,7 +56,7 @@ Cc: linux-riscv@lists.infradead.org, linux-clk@vger.kernel.org,
  Inochi Amaoto <inochiama@outlook.com>, Chen Wang <unicornxdotw@foxmail.com>,
  Jisheng Zhang <jszhang@kernel.org>
 References: <20241126143125.9980-2-heylenay@4d2.org>
- <20241126143125.9980-3-heylenay@4d2.org>
+ <20241126143125.9980-5-heylenay@4d2.org>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -103,10 +102,10 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  uZwJCLykjad45hsWcOGk3OcaAGQS6NDlfhM6O9aYNwGL6tGt/6BkRikNOs7VDEa4/HlbaSJo
  7FgndGw1kWmkeL6oQh7wBvYll2buKod4qYntmNKEicoHGU+x91Gcan8mCoqhJkbqrL7+nXG2
  5Q/GS5M9RFWS+nYyJh+c3OcfKqVcZQNANItt7+ULzdNJuhvTRRdC3g9hmCEuNSr+CLMdnRBY fv0=
-In-Reply-To: <20241126143125.9980-3-heylenay@4d2.org>
+In-Reply-To: <20241126143125.9980-5-heylenay@4d2.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241126_064839_221184_F2CE50BA 
-X-CRM114-Status: UNSURE (   6.43  )
+X-CRM114-CacheID: sfid-20241126_065036_031661_24D32C69 
+X-CRM114-Status: UNSURE (   6.57  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -125,35 +124,38 @@ Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 On 26/11/2024 15:31, Haylen Chu wrote:
+> +examples:
+> +  - |
+> +    osc_32k: clock-32k {
+> +        compatible = "fixed-clock";
+> +        clock-frequency = <32000>;
+> +        clock-output-names = "osc_32k";
+> +        #clock-cells = <0>;
+> +    };
 > +
-> +properties:
-> +  compatible:
-> +    enum:
-> +      - spacemit,k1-ccu-apbs
-> +      - spacemit,k1-ccu-mpmu
-> +      - spacemit,k1-ccu-apbc
-> +      - spacemit,k1-ccu-apmu
+> +    vctcxo_1m: clock-1m {
+> +        compatible = "fixed-clock";
+> +        clock-frequency = <1000000>;
+> +        clock-output-names = "vctcxo_1m";
+> +        #clock-cells = <0>;
+> +    };
 > +
-> +  clocks:
-> +    maxItems: 4
+> +    vctcxo_3m: clock-3m {
+> +        compatible = "fixed-clock";
+> +        clock-frequency = <3000000>;
+> +        clock-output-names = "vctcxo_3m";
+> +        #clock-cells = <0>;
+> +    };
 > +
-> +  clock-names:
-> +    items:
-> +      - const: osc_32k
+> +    vctcxo_24m: clock-24m {
+> +        compatible = "fixed-clock";
+> +        clock-frequency = <24000000>;
+> +        clock-output-names = "vctcxo_24m";
+> +        #clock-cells = <0>;
+> +    };
 
-osc
-
-> +      - const: vctcxo_1m
-> +      - const: vctcxo_3m
-> +      - const: vctcxo_24m
-> +
-> +  spacemit,mpmu:
-> +    $ref: /schemas/types.yaml#/definitions/phandle
-> +    description:
-> +      Phandle to the syscon managing "Main PMU (MPMU)" registers. It is used to
-> +      check PLL lock status.
-
-Why your example does not have it? Example code is supposed to be complete.
+Drop all above. Your changelog is poor - does not explain this at all.
+Write changelogs which detail what you did and why.
 
 Best regards,
 Krzysztof
