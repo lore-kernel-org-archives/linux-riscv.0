@@ -4,49 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5A7D2D3B996
-	for <linux-riscv@archiver.kernel.org>; Tue, 26 Nov 2024 14:44:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8EB68D3B996
+	for <linux-riscv@archiver.kernel.org>; Tue, 26 Nov 2024 14:46:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
 	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=2VIQ+VmuuJsOMp0Nvbk3nORcgy7jOjITECVI6Sg01JY=; b=CiSfh4hF6H6Pm7
-	F52oUbtd0GbtGQY3gAnFqXyedkN9Bw/o1pdeNL5R5yol7qoN5N0p+ABM/8YF1uq/fG5gQXHjUJos3
-	AFyZvd9Qo6Pcy/htvnW/znMkCkBvZMl4Rhsj3bbBhSh7LINtXOTttLAog8JgOkLxZ2qOku44pVmx3
-	MgxCyjMTG6fnX9LSA3xs28g+k1n8cvgqJb0GJo+exBGE4lCEG+CvRpk6CzO7VkSDe519Ego63wLVF
-	mKMG1ppldgZVZcKtmjLqRNRjFdON4NvsGjOYKF8P1Z7m9rrWarfQ8n+KkEQNznSUTlnXSC3XsdbUf
-	IBxzoEbQJQuJrV1t4X3Q==;
+	List-Owner; bh=zi+GQoMSmgnRj9mt7oEQc0SlOj6oPC44tQ9mWu6NDW4=; b=SvygPLhU5pVT95
+	K39DjdL2aF1X1rDNNkCMVswBJJFJhBgh5Yn0fd196XQxmWADVVVToww7+KwXLJUWlsGV4FEtBwRUH
+	MeKK1yCqT5Oyo9uUUygVGfpTby3oQe16B8/prs6t4lQzC/aSSvSPHWtomg7IfkRiWjfzV5VYXITaa
+	hBZhh4ZAbHCBK1Cyldkto4xXkZiQ1vUL4AUoOfKlQcQqfLE6IbnEljq0LVE2Xj2R1V10xPC5ZqO61
+	37E/jccQ8ThIzzfHXFKcWDHgRxgTQX0AjsDajYt2GymafueSfk0NmbzSRt5PG+2sQ9KkC5fltqMpm
+	dNK8PZgaDcgOFhN1+3CA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tFwnl-0000000Au73-2qtM;
-	Tue, 26 Nov 2024 14:44:31 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tFwpi-0000000AuPE-3XuZ;
+	Tue, 26 Nov 2024 14:46:30 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tFwni-0000000Au6R-1or9
+	id 1tFwph-0000000AuOn-0hnD
 	for linux-riscv@lists.infradead.org;
-	Tue, 26 Nov 2024 14:44:27 +0000
+	Tue, 26 Nov 2024 14:46:30 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 504515C5787;
-	Tue, 26 Nov 2024 14:43:42 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7A59EC4CECF;
-	Tue, 26 Nov 2024 14:44:22 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 654C7A41DD8;
+	Tue, 26 Nov 2024 14:44:35 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 135C3C4CECF;
+	Tue, 26 Nov 2024 14:46:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1732632265;
-	bh=XYzOG08t1vD7d1OJKr/DTskWOi8KsmwLcNSz/fcdhCk=;
+	s=k20201202; t=1732632388;
+	bh=NpNbGj2wCM4uMUQYVG23W3gG/IV2i2QDerO7ztqkj/0=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=uTHUZbr785vhaP9Sn348E5w4ewf8XKs3G3poomBuYD2lj/vTZ/LZKTXD0Lc+Hef3r
-	 qEkGst4+Cd5BgdiWI6Wl6TkNDau828baWloNKjG95axZ5E/SZIef5CSCBuDO69IvCp
-	 vQmCdthNb5dU48GWOfrU07HR0wDKBe6h+7Be0u7IZkINUIkuBXafCrm0TBSkrfFGZ1
-	 oOSONZgh+TAwSjv/DGeRuWu5E85FKue7u1SE/CpBzYzSID+uj1XikZyC4uTqA/DGgC
-	 QM66B2eI6YJRBCsfHDiec0JKS/CYcZbECSYLVpZw0m697mHoEsGLwT00R424+Eh4Lv
-	 CETf6qDUmyz/w==
-Message-ID: <015ca99c-e3bd-4e45-8d92-0e0f4de6aacc@kernel.org>
-Date: Tue, 26 Nov 2024 15:44:20 +0100
+	b=m318xW/1yhki4YyczvznEGKEG0kad3EBI59+7rVvvWWMSOnH7ZMNR4VtN9AWD2AAp
+	 mtZuflRw93LCnE0i103tlXOdNizq9H4C3HveCpFLdhgCRx76z12DLPqLCGNZOFD9ks
+	 3iXn5MWL4MP4VS5piKrOLbq6THdlF9K5ydUr0J+BrJ2JROiF/m87mzip5bd2Yk5BKu
+	 5fFP0+Swb10LgM8c5zvxHiGXQlucismDguf4vbHPXz5OL2i4Tvf20FN/jw/cyMKe+M
+	 T6GFePJrzcmYwj/FKSePYG9PjX9KW16xBXFIZHy6JSv8+WDUZdhvXL6UnKxjfgOoJ5
+	 8g6JfLUtPqEzQ==
+Message-ID: <550d80c9-3a7a-4db4-96fa-758cb34dc746@kernel.org>
+Date: Tue, 26 Nov 2024 15:46:23 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 0/3] Add clock controller support for Spacemit K1
+Subject: Re: [PATCH v3 2/3] dt-bindings: soc: spacemit: Add spacemit,k1-syscon
 To: Haylen Chu <heylenay@4d2.org>, Michael Turquette
  <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>,
  Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
@@ -56,6 +56,7 @@ Cc: linux-riscv@lists.infradead.org, linux-clk@vger.kernel.org,
  Inochi Amaoto <inochiama@outlook.com>, Chen Wang <unicornxdotw@foxmail.com>,
  Jisheng Zhang <jszhang@kernel.org>
 References: <20241126143125.9980-2-heylenay@4d2.org>
+ <20241126143125.9980-5-heylenay@4d2.org>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -101,10 +102,10 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  uZwJCLykjad45hsWcOGk3OcaAGQS6NDlfhM6O9aYNwGL6tGt/6BkRikNOs7VDEa4/HlbaSJo
  7FgndGw1kWmkeL6oQh7wBvYll2buKod4qYntmNKEicoHGU+x91Gcan8mCoqhJkbqrL7+nXG2
  5Q/GS5M9RFWS+nYyJh+c3OcfKqVcZQNANItt7+ULzdNJuhvTRRdC3g9hmCEuNSr+CLMdnRBY fv0=
-In-Reply-To: <20241126143125.9980-2-heylenay@4d2.org>
+In-Reply-To: <20241126143125.9980-5-heylenay@4d2.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241126_064426_558415_0FF6AD41 
-X-CRM114-Status: GOOD (  11.37  )
+X-CRM114-CacheID: sfid-20241126_064629_337653_802E0A5B 
+X-CRM114-Status: GOOD (  14.87  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,27 +123,70 @@ Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 On 26/11/2024 15:31, Haylen Chu wrote:
-> The clock tree of Spacemit K1 is managed by several independent
-> controllers in different SoC parts. In this series, all clock hardwares
-> in APBS, MPMU, APBC and APMU, are implemented. With some changes to UART
-> driver, CPU cores and UARTs could be brought up (see below). More clocks
-> will be implemented later soon.
+> Add documentation to describe Spacemit K1 system controller registers.
 > 
-> No device tree changes are included since Spacemit K1 UART needs two
-> clocks to operate, but for now the driver gets only one. I would like to
-> defer the changes until this is resolved.
+> Signed-off-by: Haylen Chu <heylenay@4d2.org>
+> ---
+>  .../soc/spacemit/spacemit,k1-syscon.yaml      | 86 +++++++++++++++++++
+>  1 file changed, 86 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/soc/spacemit/spacemit,k1-syscon.yaml
 > 
-> This driver has been tested on BananaPi-F3 board and successfully
-> brought up I2C, RTC, mmc and ethernet controllers. A clock tree dump
-> could be obtained here[1].
-> 
-> [1]: https://gist.github.com/heylenayy/ebc6316692dd3aff56575dbf0eb4f1a9
-> 
-> Link: https://developer.spacemit.com/documentation?token=LCrKwWDasiJuROkVNusc2pWTnEb
-> 
-> Changed from v2
-> - dt-binding fixes
-What fixes? Be specific, what did you change?
+> diff --git a/Documentation/devicetree/bindings/soc/spacemit/spacemit,k1-syscon.yaml b/Documentation/devicetree/bindings/soc/spacemit/spacemit,k1-syscon.yaml
+> new file mode 100644
+> index 000000000000..b9f20190a70a
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/soc/spacemit/spacemit,k1-syscon.yaml
+> @@ -0,0 +1,86 @@
+> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/soc/spacemit/spacemit,k1-syscon.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: Spacemit K1 SoC System Controller
+> +
+> +maintainers:
+> +  - Haylen Chu <heylenay@4d2.org>
+> +
+> +description:
+> +  The Spacemit K1 SoC system controller provides access to shared register files
+> +  for related SoC modules, such as clock controller and reset controller.
+> +
+> +properties:
+> +  compatible:
+> +    items:
+> +      - enum:
+> +          - spacemit,k1-apbc-syscon
+> +          - spacemit,k1-apbs-syscon
+> +          - spacemit,k1-apmu-syscon
+> +          - spacemit,k1-mpmu-syscon
+> +      - const: syscon
+> +      - const: simple-mfd
+> +
+> +  reg:
+> +    maxItems: 1
+> +
+> +  clock-controller:
+> +    $ref: /schemas/clock/spacemit,k1-ccu.yaml#
+> +    type: object
+> +
+> +  "#address-cells":
+> +    const: 1
+> +
+> +  "#size-cells":
+> +    const: 1
+Nothing improved. That's a no-go.
+
+<form letter>
+This is a friendly reminder during the review process.
+
+It seems my or other reviewer's previous comments were not fully
+addressed. Maybe the feedback got lost between the quotes, maybe you
+just forgot to apply it. Please go back to the previous discussion and
+either implement all requested changes or keep discussing them.
+
+Thank you.
+</form letter>
 
 Best regards,
 Krzysztof
