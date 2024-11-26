@@ -4,49 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8EB68D3B996
-	for <linux-riscv@archiver.kernel.org>; Tue, 26 Nov 2024 14:46:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D0659D3B996
+	for <linux-riscv@archiver.kernel.org>; Tue, 26 Nov 2024 14:48:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
 	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=zi+GQoMSmgnRj9mt7oEQc0SlOj6oPC44tQ9mWu6NDW4=; b=SvygPLhU5pVT95
-	K39DjdL2aF1X1rDNNkCMVswBJJFJhBgh5Yn0fd196XQxmWADVVVToww7+KwXLJUWlsGV4FEtBwRUH
-	MeKK1yCqT5Oyo9uUUygVGfpTby3oQe16B8/prs6t4lQzC/aSSvSPHWtomg7IfkRiWjfzV5VYXITaa
-	hBZhh4ZAbHCBK1Cyldkto4xXkZiQ1vUL4AUoOfKlQcQqfLE6IbnEljq0LVE2Xj2R1V10xPC5ZqO61
-	37E/jccQ8ThIzzfHXFKcWDHgRxgTQX0AjsDajYt2GymafueSfk0NmbzSRt5PG+2sQ9KkC5fltqMpm
-	dNK8PZgaDcgOFhN1+3CA==;
+	List-Owner; bh=U8dn2p9AcSiQfLHOH247Xrj2l5KqFGZj8xEj/SdPTQ4=; b=KVpaYLqFGY5aRq
+	CY0RszJ2NtRFKdr8qlr3Jkfg7dxpKI5UhymRbh2qz9oj7pD/vQnxPpxIwtW6thlqnsZnhNBBLtK5N
+	MaPmV3Uh5oMGSVWkJb0c9iSyE0/iCvtU6U4n8VoTfrSJmls5K26OLtCyMmcK9SHZgF+dgsYmfPu0d
+	IrlsbKHec8GZrC3dFuOJ3amUza03J6XfI0XHUoGxsASFwbBHwSLcL9iZpEq48nuacmtYg7fTTpkLz
+	bFzCCNzBT7xyjaoDNqpb8YKd5C0hOE0M1xT7ZMbMrxWNjda5coPF8ycFLd/SZfkIZJBjpeAnsEIvs
+	MR4nG6uoy1Z7mOr37p9w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tFwpi-0000000AuPE-3XuZ;
-	Tue, 26 Nov 2024 14:46:30 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1tFwrp-0000000AulB-1sOY;
+	Tue, 26 Nov 2024 14:48:41 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tFwph-0000000AuOn-0hnD
+	id 1tFwrn-0000000AukO-0MP9
 	for linux-riscv@lists.infradead.org;
-	Tue, 26 Nov 2024 14:46:30 +0000
+	Tue, 26 Nov 2024 14:48:40 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 654C7A41DD8;
-	Tue, 26 Nov 2024 14:44:35 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 135C3C4CECF;
-	Tue, 26 Nov 2024 14:46:24 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 0CF295C4D4E;
+	Tue, 26 Nov 2024 14:47:55 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2C9ADC4CECF;
+	Tue, 26 Nov 2024 14:48:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1732632388;
-	bh=NpNbGj2wCM4uMUQYVG23W3gG/IV2i2QDerO7ztqkj/0=;
+	s=k20201202; t=1732632518;
+	bh=UWMmLOb48Cslo60AINMqs75+15z/Wodb7L/G+tl2Wv8=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=m318xW/1yhki4YyczvznEGKEG0kad3EBI59+7rVvvWWMSOnH7ZMNR4VtN9AWD2AAp
-	 mtZuflRw93LCnE0i103tlXOdNizq9H4C3HveCpFLdhgCRx76z12DLPqLCGNZOFD9ks
-	 3iXn5MWL4MP4VS5piKrOLbq6THdlF9K5ydUr0J+BrJ2JROiF/m87mzip5bd2Yk5BKu
-	 5fFP0+Swb10LgM8c5zvxHiGXQlucismDguf4vbHPXz5OL2i4Tvf20FN/jw/cyMKe+M
-	 T6GFePJrzcmYwj/FKSePYG9PjX9KW16xBXFIZHy6JSv8+WDUZdhvXL6UnKxjfgOoJ5
-	 8g6JfLUtPqEzQ==
-Message-ID: <550d80c9-3a7a-4db4-96fa-758cb34dc746@kernel.org>
-Date: Tue, 26 Nov 2024 15:46:23 +0100
+	b=CxNbk1Ii4ro6NglDuQN89WyHwk+nQlPCJ6vYcEOLlSktW4qAzbsOR74hd9CB2Kk1Y
+	 0DSfBidSV9t9i9gftZsjLcfTzLZgzU5TbL77cjxdlmzZ5ELAwCIw3Z6BkyUq8Gi9Me
+	 nLV3Mo7HLL3+Qwf4O1G8YW8BgSxprULQK6zWYXJM5zpQIQN/A2aDqIcPaCwvg+rJsu
+	 Iwe/NRySAmdUhMXHkcr+LR489LFJ1vQCtZURJ414KOAvhvNwMxIGLIWGb8wLvseDdY
+	 uX8P3KKxMDra9qODsu9/SsRb3vqrHejJyHXJRM7aDr/Wxu8/bEQn2ZR0H52Kh2TZcw
+	 eznDa/zxgeUnQ==
+Message-ID: <64bf96a3-e28c-4c47-b7b3-e227bbaa7aee@kernel.org>
+Date: Tue, 26 Nov 2024 15:48:33 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 2/3] dt-bindings: soc: spacemit: Add spacemit,k1-syscon
+Subject: Re: [PATCH v3 1/3] dt-bindings: clock: spacemit: Add clock
+ controllers of Spacemit K1 SoC
 To: Haylen Chu <heylenay@4d2.org>, Michael Turquette
  <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>,
  Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
@@ -56,7 +57,7 @@ Cc: linux-riscv@lists.infradead.org, linux-clk@vger.kernel.org,
  Inochi Amaoto <inochiama@outlook.com>, Chen Wang <unicornxdotw@foxmail.com>,
  Jisheng Zhang <jszhang@kernel.org>
 References: <20241126143125.9980-2-heylenay@4d2.org>
- <20241126143125.9980-5-heylenay@4d2.org>
+ <20241126143125.9980-3-heylenay@4d2.org>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -102,10 +103,11 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  uZwJCLykjad45hsWcOGk3OcaAGQS6NDlfhM6O9aYNwGL6tGt/6BkRikNOs7VDEa4/HlbaSJo
  7FgndGw1kWmkeL6oQh7wBvYll2buKod4qYntmNKEicoHGU+x91Gcan8mCoqhJkbqrL7+nXG2
  5Q/GS5M9RFWS+nYyJh+c3OcfKqVcZQNANItt7+ULzdNJuhvTRRdC3g9hmCEuNSr+CLMdnRBY fv0=
-In-Reply-To: <20241126143125.9980-5-heylenay@4d2.org>
+In-Reply-To: <20241126143125.9980-3-heylenay@4d2.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241126_064629_337653_802E0A5B 
-X-CRM114-Status: GOOD (  14.87  )
+X-CRM114-CacheID: sfid-20241126_064839_221184_F2CE50BA 
+X-CRM114-Status: UNSURE (   6.43  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,70 +125,35 @@ Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 On 26/11/2024 15:31, Haylen Chu wrote:
-> Add documentation to describe Spacemit K1 system controller registers.
-> 
-> Signed-off-by: Haylen Chu <heylenay@4d2.org>
-> ---
->  .../soc/spacemit/spacemit,k1-syscon.yaml      | 86 +++++++++++++++++++
->  1 file changed, 86 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/soc/spacemit/spacemit,k1-syscon.yaml
-> 
-> diff --git a/Documentation/devicetree/bindings/soc/spacemit/spacemit,k1-syscon.yaml b/Documentation/devicetree/bindings/soc/spacemit/spacemit,k1-syscon.yaml
-> new file mode 100644
-> index 000000000000..b9f20190a70a
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/soc/spacemit/spacemit,k1-syscon.yaml
-> @@ -0,0 +1,86 @@
-> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/soc/spacemit/spacemit,k1-syscon.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: Spacemit K1 SoC System Controller
-> +
-> +maintainers:
-> +  - Haylen Chu <heylenay@4d2.org>
-> +
-> +description:
-> +  The Spacemit K1 SoC system controller provides access to shared register files
-> +  for related SoC modules, such as clock controller and reset controller.
 > +
 > +properties:
 > +  compatible:
+> +    enum:
+> +      - spacemit,k1-ccu-apbs
+> +      - spacemit,k1-ccu-mpmu
+> +      - spacemit,k1-ccu-apbc
+> +      - spacemit,k1-ccu-apmu
+> +
+> +  clocks:
+> +    maxItems: 4
+> +
+> +  clock-names:
 > +    items:
-> +      - enum:
-> +          - spacemit,k1-apbc-syscon
-> +          - spacemit,k1-apbs-syscon
-> +          - spacemit,k1-apmu-syscon
-> +          - spacemit,k1-mpmu-syscon
-> +      - const: syscon
-> +      - const: simple-mfd
-> +
-> +  reg:
-> +    maxItems: 1
-> +
-> +  clock-controller:
-> +    $ref: /schemas/clock/spacemit,k1-ccu.yaml#
-> +    type: object
-> +
-> +  "#address-cells":
-> +    const: 1
-> +
-> +  "#size-cells":
-> +    const: 1
-Nothing improved. That's a no-go.
+> +      - const: osc_32k
 
-<form letter>
-This is a friendly reminder during the review process.
+osc
 
-It seems my or other reviewer's previous comments were not fully
-addressed. Maybe the feedback got lost between the quotes, maybe you
-just forgot to apply it. Please go back to the previous discussion and
-either implement all requested changes or keep discussing them.
+> +      - const: vctcxo_1m
+> +      - const: vctcxo_3m
+> +      - const: vctcxo_24m
+> +
+> +  spacemit,mpmu:
+> +    $ref: /schemas/types.yaml#/definitions/phandle
+> +    description:
+> +      Phandle to the syscon managing "Main PMU (MPMU)" registers. It is used to
+> +      check PLL lock status.
 
-Thank you.
-</form letter>
+Why your example does not have it? Example code is supposed to be complete.
 
 Best regards,
 Krzysztof
