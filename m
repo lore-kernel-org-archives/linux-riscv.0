@@ -4,75 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BE6EBD6ACF9
-	for <linux-riscv@archiver.kernel.org>; Wed, 27 Nov 2024 17:30:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9725CD6ACF7
+	for <linux-riscv@archiver.kernel.org>; Wed, 27 Nov 2024 17:30:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=A9k91n/2uKtNjtcucJhzthGZEuknWJJoBpLRwAipMgo=; b=zrc7EW5rcWQ6M/
-	+1et48NtvBdy0AOFGrEgKBGD79fEwloPFgNcRyqSdHdWT1yf1jYUHLutaC1Cnw+BVu6AjPMmmbxRy
-	/ojnZ47YD/hxNsz28DbsY2cucW9y/tiziKd4QhNciaffh8EEmmI4y6vIgSOtMDYopBz5ynhLzHhsv
-	iB/GWoh33TdQD+wewtKGZoo5E6YH3ecmD7YixTWNZ6DJOLj7fGIxhpiOrX2mB6xkpTK9sGYGiR8LQ
-	b7My8mw4PYyiKkSMEjt/0pyY1eBY+v+eG4NTrlww3Ck+7jIPLvooXcMorXGdSWx5MlxOlVIcyIjPM
-	ye1GUKxdZcS2+9ooBc4Q==;
+	List-Owner; bh=mNGI6LV1h7hIo1JYa+ANlFNEl44e46ywhR/mUIhMsoo=; b=IIvRzNb5n3wYBo
+	PtSwcwshaPBv6DkfQOlTEPJ5e7fViNbdaJWlbwUlZ3/k8/SuqOWzOIsw78jf4IluxwCqzJAQd7YGy
+	0K7XEBKDg5K/WLuipQ8vaueDbLoBra9PgORvpkrW5TAEwWbM1g1t+K7u4Ki4xeHGwdhRGT7R0nb/t
+	pw9pciPrBxaf/jeQXhYKzaMoISCpRW+0oMNxcEj/R8CwK5i8I26wloVtaxnkpwbK2Qj/iCh099tC7
+	LjztGE2m5BNdXKpOnOmkRJDK+pFRO0OP9QfWRjxwq0iKwICFSWc62nDTI383LXje9LKS+J8OU6ATc
+	6gwE5WnuF/Rr+U7/Sosw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tGLrU-0000000DkQO-2O2a;
-	Wed, 27 Nov 2024 17:30:00 +0000
-Received: from mail-pg1-x532.google.com ([2607:f8b0:4864:20::532])
+	id 1tGLrb-0000000DkTf-0s4p;
+	Wed, 27 Nov 2024 17:30:07 +0000
+Received: from mail-ot1-x32d.google.com ([2607:f8b0:4864:20::32d])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tGLrS-0000000DkPK-3GKc
+	id 1tGLrY-0000000DkSZ-3WFa
 	for linux-riscv@lists.infradead.org;
-	Wed, 27 Nov 2024 17:30:00 +0000
-Received: by mail-pg1-x532.google.com with SMTP id 41be03b00d2f7-7ee7e87f6e4so5797203a12.2
-        for <linux-riscv@lists.infradead.org>; Wed, 27 Nov 2024 09:29:58 -0800 (PST)
+	Wed, 27 Nov 2024 17:30:05 +0000
+Received: by mail-ot1-x32d.google.com with SMTP id 46e09a7af769-71d5eabaec6so1027171a34.1
+        for <linux-riscv@lists.infradead.org>; Wed, 27 Nov 2024 09:30:04 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1732728598; x=1733333398; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1732728603; x=1733333403; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=oUtTSvLb/awnb4pf5MloBg9/ARoAYzcuulYeAOWZ3lk=;
-        b=gVo4XzzxU0i8UYKuCxxZH8XpaP+Ymf5SxLagcPzx70mly9Ou+jnZm8KuQM6XeLJGqM
-         sZtbRDSYdnuZ0LroGfe7lT+Jgu/0PEbHtgwZmCZPBJkcFY7briI06MaEmH90gCaeU4F5
-         tud6v4nZWt4dadcgQc2HIJy0753WT5+p98Eyj6ZYfzlj5x8vsnc29GdH04psvgu7Gldv
-         z7PjFYlp3vA6s2LfPcyojEWOPwJX5bZzA4M3Ay54NCvMYeakNhYlPhEEKPtIMchOyBvV
-         1UaHIsgkGVWsPUwqagCt6LXESs4xkBt2nZqDvt7EHrFWrn4b51a2smw7qnHa6Dmi1IvN
-         etWg==
+        bh=1IR7fJnOIGqt6b1nWAQZJYrqcHCadpu+itzDI+rPODg=;
+        b=MN+xatMcjx0YbB08WOm3XFldnQGu9YlJKazCoVt3v5aK5DUHjZuea/Tm8MxkMvPru8
+         FYpI42qxygd+f7MdepK6JuRdom33qZl5ZtNnixUypmMh1YmcHkP6D8e0s9U9OyZkWFcw
+         4Z8wcLcPYNdkA/WPs4FWWLqS/zuYkaH4tqjNk7sJqM0OGuBOs/R9MzR7kXmJHA1MJM6H
+         QmGMKmgSIJ5WSwnJtMbkWp7+FFe3uTMARDGvN79P6q713SAcGiefWVSR1lkPMx0zwkxz
+         K4fThntWBnNAE8MxJP/N8U3GW8YPq+5ctZVHtGVpePii/5U674NT99XyAH85HMJpZPcO
+         LCfQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1732728598; x=1733333398;
+        d=1e100.net; s=20230601; t=1732728603; x=1733333403;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=oUtTSvLb/awnb4pf5MloBg9/ARoAYzcuulYeAOWZ3lk=;
-        b=WJocFrdh1o7g9o0mjpdfNxcI7OeZazf5mKSvTbru69Q8RkSBpK82i7hY91nuSk8wJy
-         8rJJaSMabA/WNheioweUA4vhARGc4QknxSpUCHB1o2c6stMwmFYeR6IxlMQUsIu7ksCD
-         mmX+W4unGt37KyIhcrMyHLBjdF5XEA9Dfqn8Qk0wJwvi/D+s7M05/7ky4GUNVABmhAa0
-         b0FXEdxJ6wQ9zWddV3DgqvE8VZ9IE6BuVqSbsL00LeB2kzu9JOV8dRcvzdvsaj+WNFb9
-         oT6EP2K/daP6Smp5B0OVxQdJZGvFsNeJmsUWMLQLPEx8Za5yGM2TBxkDrSG+Hf2MNKu5
-         I7Aw==
-X-Gm-Message-State: AOJu0Yxa2PiKu1A6JFhtlPlfRFG1ck7CtNrn6Z0/vBh2SOuG+5UrosxS
-	7Ws+A0s3vHDMW/9+uMi43kjEIDpY2ntxrTTMus0mN4VVjQA9mXQX
-X-Gm-Gg: ASbGncu42PAQLO9pwzlXnbHg0js59Ng9+nk+2r6IKvCVXuqNqg4H16GbwKP7/NSbM46
-	xNNeH3LZpXQ4mfA9/AwPiE4iECk8BgLmuzPTI8BZuEGA4YEc7mJwTkmT3wmmEHr+6UhWBLOAoBE
-	5RKC+u2wrl/NDvNpQYf5tbr3xGlxcK7INEoIPgoOoM4i9/pEQKcuaMj7qgTnLx8Dk9n9ObfjZpr
-	GG2659f9uFBCkaQNrU2AE+GAVz51W/PK+teBDVYaU5Kj5oN0JzwSSUNrGZVZdq3Gu/5y/GzRVuq
-	IdcejUecri+WgqeLIKFOgkV0gjqJ
-X-Google-Smtp-Source: AGHT+IGZTrwY9TsRiJj+/2qS9smtrrSi2Kd6N3yOUCcWlvOO+wK88Dm28z0bcTIf0ysSO3Z6//fqeQ==
-X-Received: by 2002:a05:6a20:6a09:b0:1e0:cfa5:e32e with SMTP id adf61e73a8af0-1e0e0b8b8eemr5787909637.44.1732728598105;
-        Wed, 27 Nov 2024 09:29:58 -0800 (PST)
+        bh=1IR7fJnOIGqt6b1nWAQZJYrqcHCadpu+itzDI+rPODg=;
+        b=uEiAA03Pv04Cj2HBSZxWy0ijNgC/ce2UBHyY+hpmlwhqR+w9tOi7c/JzTtYfkwRPG6
+         rAqCsQ9hX0x2+xIJ07kYB5YmsTWbiVd8GT164rLQCcVZfvGLu1u+CTDhKYQqoYVPlmVu
+         /yNgW4YQ5wNxAjVTqp5wb18eNr0Lb41p2ZSLK5ohgSCuNWX7leWFJ8pR7RV9LG7JHR1x
+         EhGJ9c3g/1Q9VY/W+CpSIBh/pq4/pRBeu6l97oZXI/gmqD0fHWclSXiMeHf45Te9xluh
+         J6tYD6hym3wiyWiz4aNMvdqy5v9NZaCkt1mNaXjuHP1yg2hUm0xsYfCd873cws5wTm/l
+         a0gQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUZd9CrUxI8ZYSx2iI5uMOBpioETLgyLIq9gCRrJmIEP6+MaQl7TnYZmNO/SftudqUf8kae4jOcyOa4MQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz0KV68+I0C1iBkhUqha601Oe//C1HrXj137SDksgkLVWmRRw97
+	3v6/+ml8EMpFvQ4f4Mn9PCeXlvCm0D7RQ1OdningV8gYPOutgcTp
+X-Gm-Gg: ASbGnct6FrxkqEu8iGWZriIM8Vr1gxnrhRUSRIB1oCFY5o7Rcv8SiuOFmVK7j+Yn65p
+	V1hZvXpGd/roG5uWQc3fXWxVs45X0hKRB7oZ8aZedrHQP4J6QCVB33noxOonvu2kHDD/pLNiWiS
+	kHzwO042aEDx5rGFXo+h3N2n3zrDMzUHgj+GxvBrt/MgryREYBkkPbcKY+F5rpzrtU3sq6WNM5s
+	rva7Z+8Woa9nFneiDCvmAC+/wafghXts6wztyBjLOMTjZlAPluM//aen3iRVFJj4oQX6tPcLvBv
+	xHIdp5TQwPjJXswX4Sqqt89syMAU
+X-Google-Smtp-Source: AGHT+IHruXTFUTfiaojyTMlhAizY2Drw8OyNcxeu1vFbTUarM1m1Pec3RyTRvOVVRoAzScO0flWjxQ==
+X-Received: by 2002:a05:6830:6e90:b0:71d:4bd9:8b98 with SMTP id 46e09a7af769-71d65d07e94mr4292715a34.25.1732728603299;
+        Wed, 27 Nov 2024 09:30:03 -0800 (PST)
 Received: from localhost.localdomain (1-171-29-17.dynamic-ip.hinet.net. [1.171.29.17])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-7fbcc1e3fdbsm9359582a12.30.2024.11.27.09.29.55
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-7fbcc1e3fdbsm9359582a12.30.2024.11.27.09.29.59
         (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Wed, 27 Nov 2024 09:29:57 -0800 (PST)
+        Wed, 27 Nov 2024 09:30:02 -0800 (PST)
 From: Andy Chiu <andybnac@gmail.com>
-To: Paul Walmsley <paul.walmsley@sifive.com>,
+To: Steven Rostedt <rostedt@goodmis.org>,
+	Masami Hiramatsu <mhiramat@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
 	Albert Ou <aou@eecs.berkeley.edu>
-Cc: linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
+Cc: linux-kernel@vger.kernel.org,
+	linux-trace-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
 	bjorn@rivosinc.com,
 	puranjay12@gmail.com,
 	alexghiti@rivosinc.com,
@@ -85,16 +90,16 @@ Cc: linux-riscv@lists.infradead.org,
 	viccent.chen@sifive.com,
 	zong.li@sifive.com,
 	samuel.holland@sifive.com
-Subject: [PATCH v3 2/7] riscv: ftrace: align patchable functions to 4 Byte boundary
-Date: Thu, 28 Nov 2024 01:29:03 +0800
-Message-Id: <20241127172908.17149-3-andybnac@gmail.com>
+Subject: [PATCH v3 3/7] riscv: ftrace: prepare ftrace for atomic code patching
+Date: Thu, 28 Nov 2024 01:29:04 +0800
+Message-Id: <20241127172908.17149-4-andybnac@gmail.com>
 X-Mailer: git-send-email 2.39.3 (Apple Git-145)
 In-Reply-To: <20241127172908.17149-1-andybnac@gmail.com>
 References: <20241127172908.17149-1-andybnac@gmail.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241127_092958_814011_FCBA2765 
-X-CRM114-Status: GOOD (  11.84  )
+X-CRM114-CacheID: sfid-20241127_093004_880823_7A02B329 
+X-CRM114-Status: GOOD (  21.93  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,44 +111,244 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-RnJvbTogQW5keSBDaGl1IDxhbmR5LmNoaXVAc2lmaXZlLmNvbT4KCldlIGFyZSBjaGFuZ2luZyBm
-dHJhY2UgY29kZSBwYXRjaGluZyBpbiBvcmRlciB0byByZW1vdmUgZGVwZW5kZW5jeSBmcm9tCnN0
-b3BfbWFjaGluZSgpIGFuZCBlbmFibGUga2VybmVsIHByZWVtcHRpb24uIFRoaXMgcmVxdWlyZXMg
-dXMgdG8gYWxpZ24KZnVuY3Rpb25zIGVudHJ5IGF0IGEgNC1CIGFsaWduIGFkZHJlc3MuCgpIb3dl
-dmVyLCAtZmFsaWduLWZ1bmN0aW9ucyBvbiBvbGRlciB2ZXJzaW9ucyBvZiBHQ0MgYWxvbmUgd2Fz
-IG5vdCBzdHJvbmcKZW5vdW5naCB0byBhbGlnbiBhbGwgZnVuY3Rpb25zLiBJbiBmYWN0LCBjb2xk
-IGZ1bmN0aW9ucyBhcmUgbm90IGFsaWduZWQKYWZ0ZXIgdHVybmluZyBvbiBvcHRpbWl6YXRpb25z
-LiBXZSBjb25zaWRlciB0aGlzIGlzIGEgYnVnIGluIEdDQyBhbmQKdHVybiBvZmYgZ3Vlc3MtYnJh
-bmNoLXByb2JpbGl0eSBhcyBhIHdvcmthcm91bmQgdG8gYWxpZ24gYWxsIGZ1bmN0aW9ucy4KCkdD
-QyBidWcgaWQ6IGh0dHBzOi8vZ2NjLmdudS5vcmcvYnVnemlsbGEvc2hvd19idWcuY2dpP2lkPTg4
-MzQ1CgpUaGUgb3B0aW9uIC1mbWluLWZ1bmN0aW9uLWFsaWdubWVudCBpcyBhYmxlIHRvIGFsaWdu
-IGFsbCBmdW5jdGlvbnMKcHJvcGVybHkgb24gbmV3ZXIgdmVyc2lvbnMgb2YgZ2NjLiBTbywgd2Ug
-YWRkIGEgY2Mtb3B0aW9uIHRvIHRlc3QgaWYKdGhlIHRvb2xjaGFpbiBzdXBwb3J0cyBpdC4KClN1
-Z2dlc3RlZC1ieTogRXZnZW5paSBTaGF0b2toaW4gPGUuc2hhdG9raGluQHlhZHJvLmNvbT4KU2ln
-bmVkLW9mZi1ieTogQW5keSBDaGl1IDxhbmR5LmNoaXVAc2lmaXZlLmNvbT4KUmV2aWV3ZWQtYnk6
-IEJqw7ZybiBUw7ZwZWwgPGJqb3JuQHJpdm9zaW5jLmNvbT4KLS0tCiBhcmNoL3Jpc2N2L0tjb25m
-aWcgfCAyICsrCiAxIGZpbGUgY2hhbmdlZCwgMiBpbnNlcnRpb25zKCspCgpkaWZmIC0tZ2l0IGEv
-YXJjaC9yaXNjdi9LY29uZmlnIGIvYXJjaC9yaXNjdi9LY29uZmlnCmluZGV4IDViZGRhODZhZGEz
-Ny4uNzVhNWViZGU0NDI3IDEwMDY0NAotLS0gYS9hcmNoL3Jpc2N2L0tjb25maWcKKysrIGIvYXJj
-aC9yaXNjdi9LY29uZmlnCkBAIC0xNDIsNiArMTQyLDcgQEAgY29uZmlnIFJJU0NWCiAJc2VsZWN0
-IEhBVkVfREVCVUdfS01FTUxFQUsKIAlzZWxlY3QgSEFWRV9ETUFfQ09OVElHVU9VUyBpZiBNTVUK
-IAlzZWxlY3QgSEFWRV9EWU5BTUlDX0ZUUkFDRSBpZiAhWElQX0tFUk5FTCAmJiBNTVUgJiYgKENM
-QU5HX1NVUFBPUlRTX0RZTkFNSUNfRlRSQUNFIHx8IEdDQ19TVVBQT1JUU19EWU5BTUlDX0ZUUkFD
-RSkKKwlzZWxlY3QgRlVOQ1RJT05fQUxJR05NRU5UXzRCIGlmIEhBVkVfRFlOQU1JQ19GVFJBQ0Ug
-JiYgUklTQ1ZfSVNBX0MKIAlzZWxlY3QgSEFWRV9EWU5BTUlDX0ZUUkFDRV9XSVRIX0RJUkVDVF9D
-QUxMUwogCXNlbGVjdCBIQVZFX0RZTkFNSUNfRlRSQUNFX1dJVEhfQVJHUyBpZiBIQVZFX0RZTkFN
-SUNfRlRSQUNFCiAJc2VsZWN0IEhBVkVfRlRSQUNFX01DT1VOVF9SRUNPUkQgaWYgIVhJUF9LRVJO
-RUwKQEAgLTIyNiw2ICsyMjcsNyBAQCBjb25maWcgQ0xBTkdfU1VQUE9SVFNfRFlOQU1JQ19GVFJB
-Q0UKIGNvbmZpZyBHQ0NfU1VQUE9SVFNfRFlOQU1JQ19GVFJBQ0UKIAlkZWZfYm9vbCBDQ19JU19H
-Q0MKIAlkZXBlbmRzIG9uICQoY2Mtb3B0aW9uLC1mcGF0Y2hhYmxlLWZ1bmN0aW9uLWVudHJ5PTgp
-CisJZGVwZW5kcyBvbiBDQ19IQVNfTUlOX0ZVTkNUSU9OX0FMSUdOTUVOVCB8fCAhUklTQ1ZfSVNB
-X0MKIAogY29uZmlnIEhBVkVfU0hBRE9XX0NBTExfU1RBQ0sKIAlkZWZfYm9vbCAkKGNjLW9wdGlv
-biwtZnNhbml0aXplPXNoYWRvdy1jYWxsLXN0YWNrKQotLSAKMi4zOS4zIChBcHBsZSBHaXQtMTQ1
-KQoKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4
-LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6
-Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+From: Andy Chiu <andy.chiu@sifive.com>
+
+We use an AUIPC+JALR pair to jump into a ftrace trampoline. Since
+instruction fetch can break down to 4 byte at a time, it is impossible
+to update two instructions without a race. In order to mitigate it, we
+initialize the patchable entry to AUIPC + NOP4. Then, the run-time code
+patching can change NOP4 to JALR to eable/disable ftrcae from a
+function. This limits the reach of each ftrace entry to +-2KB displacing
+from ftrace_caller.
+
+Starting from the trampoline, we add a level of indirection for it to
+reach ftrace caller target. Now, it loads the target address from a
+memory location, then perform the jump. This enable the kernel to update
+the target atomically.
+
+The ordering of reading/updating the targert address should be guarded
+by generic ftrace code, where it sends smp_rmb ipi.
+
+Signed-off-by: Andy Chiu <andy.chiu@sifive.com>
+---
+ arch/riscv/include/asm/ftrace.h |  4 ++
+ arch/riscv/kernel/ftrace.c      | 80 +++++++++++++++++++++------------
+ arch/riscv/kernel/mcount-dyn.S  |  9 ++--
+ 3 files changed, 62 insertions(+), 31 deletions(-)
+
+diff --git a/arch/riscv/include/asm/ftrace.h b/arch/riscv/include/asm/ftrace.h
+index 4ca7ce7f34d7..36734d285aad 100644
+--- a/arch/riscv/include/asm/ftrace.h
++++ b/arch/riscv/include/asm/ftrace.h
+@@ -80,6 +80,7 @@ struct dyn_arch_ftrace {
+ #define JALR_T0			(0x000282e7)
+ #define AUIPC_T0		(0x00000297)
+ #define NOP4			(0x00000013)
++#define JALR_RANGE		(JALR_SIGN_MASK - 1)
+ 
+ #define to_jalr_t0(offset)						\
+ 	(((offset & JALR_OFFSET_MASK) << JALR_SHIFT) | JALR_T0)
+@@ -117,6 +118,9 @@ do {									\
+  * Let auipc+jalr be the basic *mcount unit*, so we make it 8 bytes here.
+  */
+ #define MCOUNT_INSN_SIZE 8
++#define MCOUNT_AUIPC_SIZE	4
++#define MCOUNT_JALR_SIZE	4
++#define MCOUNT_NOP4_SIZE	4
+ 
+ #ifndef __ASSEMBLY__
+ struct dyn_ftrace;
+diff --git a/arch/riscv/kernel/ftrace.c b/arch/riscv/kernel/ftrace.c
+index 4b95c574fd04..5ebe412280ef 100644
+--- a/arch/riscv/kernel/ftrace.c
++++ b/arch/riscv/kernel/ftrace.c
+@@ -64,42 +64,64 @@ static int ftrace_check_current_call(unsigned long hook_pos,
+ 	return 0;
+ }
+ 
+-static int __ftrace_modify_call(unsigned long hook_pos, unsigned long target,
+-				bool enable, bool ra)
++static int __ftrace_modify_call(unsigned long hook_pos, unsigned long target, bool validate)
+ {
+ 	unsigned int call[2];
+-	unsigned int nops[2] = {NOP4, NOP4};
++	unsigned int replaced[2];
++
++	make_call_t0(hook_pos, target, call);
+ 
+-	if (ra)
+-		make_call_ra(hook_pos, target, call);
+-	else
+-		make_call_t0(hook_pos, target, call);
++	if (validate) {
++		/*
++		 * Read the text we want to modify;
++		 * return must be -EFAULT on read error
++		 */
++		if (copy_from_kernel_nofault(replaced, (void *)hook_pos,
++					     MCOUNT_INSN_SIZE))
++			return -EFAULT;
++
++		if (replaced[0] != call[0]) {
++			pr_err("%p: expected (%08x) but got (%08x)\n",
++			       (void *)hook_pos, call[0], replaced[0]);
++			return -EINVAL;
++		}
++	}
+ 
+-	/* Replace the auipc-jalr pair at once. Return -EPERM on write error. */
+-	if (patch_insn_write((void *)hook_pos, enable ? call : nops, MCOUNT_INSN_SIZE))
++	/* Replace the jalr at once. Return -EPERM on write error. */
++	if (patch_insn_write((void *)(hook_pos + MCOUNT_AUIPC_SIZE), call + 1, MCOUNT_JALR_SIZE))
+ 		return -EPERM;
+ 
+ 	return 0;
+ }
+ 
+-int ftrace_make_call(struct dyn_ftrace *rec, unsigned long addr)
++static int __ftrace_modify_call_site(ftrace_func_t *hook_pos, ftrace_func_t target, bool enable)
+ {
+-	unsigned int call[2];
++	ftrace_func_t call = target;
++	ftrace_func_t nops = &ftrace_stub;
+ 
+-	make_call_t0(rec->ip, addr, call);
+-
+-	if (patch_insn_write((void *)rec->ip, call, MCOUNT_INSN_SIZE))
+-		return -EPERM;
++	WRITE_ONCE(*hook_pos, enable ? call : nops);
+ 
+ 	return 0;
+ }
+ 
++int ftrace_make_call(struct dyn_ftrace *rec, unsigned long addr)
++{
++	unsigned long distance, orig_addr;
++
++	orig_addr = (unsigned long)&ftrace_caller;
++	distance = addr > orig_addr ? addr - orig_addr : orig_addr - addr;
++	if (distance > JALR_RANGE)
++		return -EINVAL;
++
++	return __ftrace_modify_call(rec->ip, addr, false);
++}
++
+ int ftrace_make_nop(struct module *mod, struct dyn_ftrace *rec,
+ 		    unsigned long addr)
+ {
+-	unsigned int nops[2] = {NOP4, NOP4};
++	unsigned int nops[1] = {NOP4};
+ 
+-	if (patch_insn_write((void *)rec->ip, nops, MCOUNT_INSN_SIZE))
++	if (patch_insn_write((void *)(rec->ip + MCOUNT_AUIPC_SIZE), nops, MCOUNT_NOP4_SIZE))
+ 		return -EPERM;
+ 
+ 	return 0;
+@@ -114,21 +136,23 @@ int ftrace_make_nop(struct module *mod, struct dyn_ftrace *rec,
+  */
+ int ftrace_init_nop(struct module *mod, struct dyn_ftrace *rec)
+ {
++	unsigned int nops[2];
+ 	int out;
+ 
++	make_call_t0(rec->ip, &ftrace_caller, nops);
++	nops[1] = NOP4;
++
+ 	mutex_lock(&text_mutex);
+-	out = ftrace_make_nop(mod, rec, MCOUNT_ADDR);
++	out = patch_insn_write((void *)rec->ip, nops, MCOUNT_INSN_SIZE);
+ 	mutex_unlock(&text_mutex);
+ 
+ 	return out;
+ }
+ 
++ftrace_func_t ftrace_call_dest = ftrace_stub;
+ int ftrace_update_ftrace_func(ftrace_func_t func)
+ {
+-	int ret = __ftrace_modify_call((unsigned long)&ftrace_call,
+-				       (unsigned long)func, true, true);
+-
+-	return ret;
++	return __ftrace_modify_call_site(&ftrace_call_dest, func, true);
+ }
+ 
+ struct ftrace_modify_param {
+@@ -182,7 +206,7 @@ int ftrace_modify_call(struct dyn_ftrace *rec, unsigned long old_addr,
+ 	if (ret)
+ 		return ret;
+ 
+-	return __ftrace_modify_call(caller, addr, true, false);
++	return __ftrace_modify_call(caller, addr, true);
+ }
+ #endif
+ 
+@@ -217,17 +241,17 @@ void ftrace_graph_func(unsigned long ip, unsigned long parent_ip,
+ 	prepare_ftrace_return(&fregs->ra, ip, fregs->s0);
+ }
+ #else /* CONFIG_DYNAMIC_FTRACE_WITH_ARGS */
+-extern void ftrace_graph_call(void);
++ftrace_func_t ftrace_graph_call_dest = ftrace_stub;
+ int ftrace_enable_ftrace_graph_caller(void)
+ {
+-	return __ftrace_modify_call((unsigned long)&ftrace_graph_call,
+-				    (unsigned long)&prepare_ftrace_return, true, true);
++	return __ftrace_modify_call_site(&ftrace_graph_call_dest,
++					 &prepare_ftrace_return, true);
+ }
+ 
+ int ftrace_disable_ftrace_graph_caller(void)
+ {
+-	return __ftrace_modify_call((unsigned long)&ftrace_graph_call,
+-				    (unsigned long)&prepare_ftrace_return, false, true);
++	return __ftrace_modify_call_site(&ftrace_graph_call_dest,
++					 &prepare_ftrace_return, false);
+ }
+ #endif /* CONFIG_DYNAMIC_FTRACE_WITH_ARGS */
+ #endif /* CONFIG_DYNAMIC_FTRACE */
+diff --git a/arch/riscv/kernel/mcount-dyn.S b/arch/riscv/kernel/mcount-dyn.S
+index e988bd26b28b..bc06e8ab81cf 100644
+--- a/arch/riscv/kernel/mcount-dyn.S
++++ b/arch/riscv/kernel/mcount-dyn.S
+@@ -162,7 +162,8 @@ SYM_FUNC_START(ftrace_caller)
+ 	mv	a3, sp
+ 
+ SYM_INNER_LABEL(ftrace_call, SYM_L_GLOBAL)
+-	call	ftrace_stub
++	REG_L	ra, ftrace_call_dest
++	jalr	0(ra)
+ 
+ #ifdef CONFIG_FUNCTION_GRAPH_TRACER
+ 	addi	a0, sp, ABI_RA
+@@ -172,7 +173,8 @@ SYM_INNER_LABEL(ftrace_call, SYM_L_GLOBAL)
+ 	mv	a2, s0
+ #endif
+ SYM_INNER_LABEL(ftrace_graph_call, SYM_L_GLOBAL)
+-	call	ftrace_stub
++	REG_L	ra, ftrace_graph_call_dest
++	jalr	0(ra)
+ #endif
+ 	RESTORE_ABI
+ 	jr	t0
+@@ -185,7 +187,8 @@ SYM_FUNC_START(ftrace_caller)
+ 	PREPARE_ARGS
+ 
+ SYM_INNER_LABEL(ftrace_call, SYM_L_GLOBAL)
+-	call	ftrace_stub
++	REG_L	ra, ftrace_call_dest
++	jalr	0(ra)
+ 
+ 	RESTORE_ABI_REGS
+ 	bnez	t1, .Ldirect
+-- 
+2.39.3 (Apple Git-145)
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
