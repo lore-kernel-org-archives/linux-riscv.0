@@ -4,60 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1D53D6ACE5
-	for <linux-riscv@archiver.kernel.org>; Wed, 27 Nov 2024 15:20:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B440CD6ACE9
+	for <linux-riscv@archiver.kernel.org>; Wed, 27 Nov 2024 15:23:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
-	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=16EHSly3WjYjiKr9voi+cyfRSYFd0fLchq+cmFkaaUQ=; b=Rj3/u/SSLM5Vpf
-	f+b7onro8Xbxz+l3ZEfQ7pKp9oUBdVL72TTLdON2JJx2XoavLOyit9kVjFcU+pYpHNUiO6YssE2PK
-	41pzGSruw1RGh/E45dHMpgB5j+/BDIDqzOnYFPKsx2q/uK9qlDb6QQ2XPcmkVZ0+x0BVcPUs7XXKE
-	vyBygrVZ8F5VYMmmr5u8RHOoLMGMW8m+gmlNAggpE1gPQVzJTGNHrd7bnsjJVtSgyyVEmOJCo5JjY
-	bFQ6eZeJR7A86wSuGrGcc5BSQm0N8LUeEpO1AXICEdPqM2XXvIHTWYXeoHpzY/PnEHQZBLgqoxsx2
-	dYkGkfGRyxGZGRlV8ZWw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:CC
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=GbXjamBa1xrwMswqXPOOkBqUW/PdFOHJ/yc7Fq0+RTs=; b=K9Iqi7ikPVt9gM
+	ENAGR9HLqskISwC4SDt9SNzmV3rADNTrZLND1YcYLxS2gLlMOjQhjm9vA9eRTMXsop0LSKBiOzZeX
+	9rVXWFWN3eHUDYXNIa58qM49xUi0sdohijb99h8PEGK2LPDLhKg/zQjzINH/FqpVFXOoIwJ7ZNkB9
+	iJKPSxK9WgAfA5mRSxSB06XQamS+v0Ig1B2+aV0saJ/yN0sNwUKyRBM9q80u2sf4eiiCmQWlzCKva
+	anlCijum2w8tb3T4qlKU7QxoiOlHVSuKXZ+r9zz8j0e7apCJKRMHkzaFCJrs0E0EOdndejnXxJigL
+	cpGoimM7mjd+ughtJ1mw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tGJq5-0000000DUO6-2h6p;
-	Wed, 27 Nov 2024 15:20:25 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1tGJtJ-0000000DUzb-02Wx;
+	Wed, 27 Nov 2024 15:23:45 +0000
+Received: from smtp-fw-80008.amazon.com ([99.78.197.219])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tGJq2-0000000DUMu-3o9q
-	for linux-riscv@lists.infradead.org;
-	Wed, 27 Nov 2024 15:20:24 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id B36805C5928;
-	Wed, 27 Nov 2024 15:19:38 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BC883C4CECC;
-	Wed, 27 Nov 2024 15:20:21 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1732720821;
-	bh=2A6lYm4lcxMAozaqa5wnqv2VAnVxMtFpR7XNjikNDzM=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=L0VPnin/Q6ee95IxoYpSIaAStH7ztVhReKJYeWIjKDWjBces7sQwYGQ+kng2GSIkx
-	 RXN6Z+DNbHCDFPgjYdJvrvzALfNVioq92+lEdCP5Wu7ZPNNShh7/lYFb9Am4LOL0W5
-	 Z9lkU/saWYTOTjKwfprtGxQkJOMzp6AEi34eabj8eFD8LS06zEeBlAtL4ZbrV0ey1u
-	 0JE4TWv9ZnQ1eG+aPr4/1tdJBqILcd/qik8rYFZa0lQwDv/Z/1yuAWnYFV0uX0vIU1
-	 +FFVQdKITqmcSK800EcSSKMJKIhIgWvP2Y5wxMmbdELhpmdgv69DeD26iUpmYJaM5Q
-	 1JQnt3Ga4wHVA==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id EC0DD3809A00;
-	Wed, 27 Nov 2024 15:20:35 +0000 (UTC)
+	id 1tGJsJ-0000000DUrb-0c2v;
+	Wed, 27 Nov 2024 15:22:44 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+  d=amazon.com; i=@amazon.com; q=dns/txt; s=amazon201209;
+  t=1732720963; x=1764256963;
+  h=from:to:cc:subject:date:message-id:mime-version:
+   content-transfer-encoding;
+  bh=NvBWtev1slrWXhkVcMmhNUJ2tEXO/H0E7EXWBQ0mv08=;
+  b=dfXM2K7W1ann49CDovlt4tmfhJUqOJERZ/2WJhgMnHlaipmYT3HJimaC
+   hQGX5e63SnuTArgspf8dcRYN+NTa8mADuUcapq8ZJS9Rxgz+yMhRoGviZ
+   Ig5ESzqHpk773g9iwbHQ36/cmC3pcfSjvjUHqQlERUe3USNcgiXqYvB0y
+   c=;
+X-IronPort-AV: E=Sophos;i="6.12,189,1728950400"; 
+   d="scan'208";a="148444442"
+Received: from pdx4-co-svc-p1-lb2-vlan3.amazon.com (HELO smtpout.prod.us-west-2.prod.farcaster.email.amazon.dev) ([10.25.36.214])
+  by smtp-border-fw-80008.pdx80.corp.amazon.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 27 Nov 2024 15:22:38 +0000
+Received: from EX19MTAUWB002.ant.amazon.com [10.0.38.20:4762]
+ by smtpin.naws.us-west-2.prod.farcaster.email.amazon.dev [10.0.10.101:2525] with esmtp (Farcaster)
+ id 090d255a-bd4e-4b8c-9604-9659de410a04; Wed, 27 Nov 2024 15:22:38 +0000 (UTC)
+X-Farcaster-Flow-ID: 090d255a-bd4e-4b8c-9604-9659de410a04
+Received: from EX19D013UWB003.ant.amazon.com (10.13.138.111) by
+ EX19MTAUWB002.ant.amazon.com (10.250.64.231) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.1258.34;
+ Wed, 27 Nov 2024 15:22:37 +0000
+Received: from EX19MTAUWC001.ant.amazon.com (10.250.64.145) by
+ EX19D013UWB003.ant.amazon.com (10.13.138.111) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.1258.34;
+ Wed, 27 Nov 2024 15:22:37 +0000
+Received: from email-imr-corp-prod-iad-all-1a-93a35fb4.us-east-1.amazon.com
+ (10.25.36.210) by mail-relay.amazon.com (10.250.64.145) with Microsoft SMTP
+ Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id
+ 15.2.1258.34 via Frontend Transport; Wed, 27 Nov 2024 15:22:37 +0000
+Received: from dev-dsk-farbere-1a-46ecabed.eu-west-1.amazon.com (dev-dsk-farbere-1a-46ecabed.eu-west-1.amazon.com [172.19.116.181])
+	by email-imr-corp-prod-iad-all-1a-93a35fb4.us-east-1.amazon.com (Postfix) with ESMTP id C4BC640610;
+	Wed, 27 Nov 2024 15:22:36 +0000 (UTC)
+Received: by dev-dsk-farbere-1a-46ecabed.eu-west-1.amazon.com (Postfix, from userid 14301484)
+	id 7AFF345B; Wed, 27 Nov 2024 15:22:36 +0000 (UTC)
+From: Eliav Farber <farbere@amazon.com>
+To: <linux@armlinux.org.uk>, <catalin.marinas@arm.com>, <will@kernel.org>,
+	<mpe@ellerman.id.au>, <npiggin@gmail.com>, <christophe.leroy@csgroup.eu>,
+	<naveen@kernel.org>, <maddy@linux.ibm.com>, <paul.walmsley@sifive.com>,
+	<palmer@dabbelt.com>, <aou@eecs.berkeley.edu>, <tglx@linutronix.de>,
+	<akpm@linux-foundation.org>, <bhe@redhat.com>, <farbere@amazon.com>,
+	<hbathini@linux.ibm.com>, <adityag@linux.ibm.com>,
+	<songshuaishuai@tinylab.org>, <takakura@valinux.co.jp>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	<linuxppc-dev@lists.ozlabs.org>, <linux-riscv@lists.infradead.org>
+CC: <jonnyc@amazon.com>
+Subject: [PATCH v2] arm64: kexec: Check if IRQ is already masked before masking
+Date: Wed, 27 Nov 2024 15:22:36 +0000
+Message-ID: <20241127152236.26122-1-farbere@amazon.com>
+X-Mailer: git-send-email 2.40.1
 MIME-Version: 1.0
-Subject: Re: [PATCH] RISC-V: Remove unnecessary include from compat.h
-From: patchwork-bot+linux-riscv@kernel.org
-Message-Id: <173272083479.1118426.4000843629538344289.git-patchwork-notify@kernel.org>
-Date: Wed, 27 Nov 2024 15:20:34 +0000
-References: <20241126143250.29708-1-palmer@rivosinc.com>
-In-Reply-To: <20241126143250.29708-1-palmer@rivosinc.com>
-To: Palmer Dabbelt <palmer@rivosinc.com>
-Cc: linux-riscv@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241127_072023_037347_DD28552F 
-X-CRM114-Status: UNSURE (   8.37  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241127_072243_236987_5D321905 
+X-CRM114-Status: GOOD (  16.50  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,62 +91,178 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-SGVsbG86CgpUaGlzIHBhdGNoIHdhcyBhcHBsaWVkIHRvIHJpc2N2L2xpbnV4LmdpdCAoZm9yLW5l
-eHQpCmJ5IFBhbG1lciBEYWJiZWx0IDxwYWxtZXJAcml2b3NpbmMuY29tPjoKCk9uIFR1ZSwgMjYg
-Tm92IDIwMjQgMDY6MzI6NTAgLTA4MDAgeW91IHdyb3RlOgo+IFdpdGhvdXQgdGhpcyBJIGdldCBh
-IGJ1bmNoIG9mIGJ1aWxkIGVycm9ycyBsaWtlCj4gCj4gICAgIEluIGZpbGUgaW5jbHVkZWQgZnJv
-bSAuL2luY2x1ZGUvbGludXgvc2NoZWQvdGFza19zdGFjay5oOjEyLAo+ICAgICAgICAgICAgICAg
-ICAgICAgIGZyb20gLi9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL2NvbXBhdC5oOjEyLAo+ICAgICAg
-ICAgICAgICAgICAgICAgIGZyb20gLi9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL3BndGFibGUuaDox
-MTUsCj4gICAgICAgICAgICAgICAgICAgICAgZnJvbSAuL2luY2x1ZGUvbGludXgvcGd0YWJsZS5o
-OjYsCj4gICAgICAgICAgICAgICAgICAgICAgZnJvbSAuL2luY2x1ZGUvbGludXgvbW0uaDozMCwK
-PiAgICAgICAgICAgICAgICAgICAgICBmcm9tIGFyY2gvcmlzY3Yva2VybmVsL2FzbS1vZmZzZXRz
-LmM6ODoKPiAgICAgLi9pbmNsdWRlL2xpbnV4L2thc2FuLmg6NTA6Mzc6IGVycm9yOiDigJhNQVhf
-UFRSU19QRVJfUFRF4oCZIHVuZGVjbGFyZWQgaGVyZSAobm90IGluIGEgZnVuY3Rpb24pOyBkaWQg
-eW91IG1lYW4g4oCYUFRSU19QRVJfUFRF4oCZPwo+ICAgICAgICA1MCB8IGV4dGVybiBwdGVfdCBr
-YXNhbl9lYXJseV9zaGFkb3dfcHRlW01BWF9QVFJTX1BFUl9QVEUgKyBQVEVfSFdUQUJMRV9QVFJT
-XTsKPiAgICAgICAgICAgfCAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBefn5+
-fn5+fn5+fn5+fn5+Cj4gICAgICAgICAgIHwgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
-ICAgICAgUFRSU19QRVJfUFRFCj4gICAgIC4vaW5jbHVkZS9saW51eC9rYXNhbi5oOjUxOjg6IGVy
-cm9yOiB1bmtub3duIHR5cGUgbmFtZSDigJhwbWRfdOKAmTsgZGlkIHlvdSBtZWFuIOKAmHBnZF90
-4oCZPwo+ICAgICAgICA1MSB8IGV4dGVybiBwbWRfdCBrYXNhbl9lYXJseV9zaGFkb3dfcG1kW01B
-WF9QVFJTX1BFUl9QTURdOwo+ICAgICAgICAgICB8ICAgICAgICBefn5+fgo+ICAgICAgICAgICB8
-ICAgICAgICBwZ2RfdAo+ICAgICAuL2luY2x1ZGUvbGludXgva2FzYW4uaDo1MTozNzogZXJyb3I6
-IOKAmE1BWF9QVFJTX1BFUl9QTUTigJkgdW5kZWNsYXJlZCBoZXJlIChub3QgaW4gYSBmdW5jdGlv
-bik7IGRpZCB5b3UgbWVhbiDigJhQVFJTX1BFUl9QR0TigJk/Cj4gICAgICAgIDUxIHwgZXh0ZXJu
-IHBtZF90IGthc2FuX2Vhcmx5X3NoYWRvd19wbWRbTUFYX1BUUlNfUEVSX1BNRF07Cj4gICAgICAg
-ICAgIHwgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgXn5+fn5+fn5+fn5+fn5+
-fgo+ICAgICAgICAgICB8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIFBUUlNf
-UEVSX1BHRAo+ICAgICAuL2luY2x1ZGUvbGludXgva2FzYW4uaDo1Mjo4OiBlcnJvcjogdW5rbm93
-biB0eXBlIG5hbWUg4oCYcHVkX3TigJk7IGRpZCB5b3UgbWVhbiDigJhwZ2RfdOKAmT8KPiAgICAg
-ICAgNTIgfCBleHRlcm4gcHVkX3Qga2FzYW5fZWFybHlfc2hhZG93X3B1ZFtNQVhfUFRSU19QRVJf
-UFVEXTsKPiAgICAgICAgICAgfCAgICAgICAgXn5+fn4KPiAgICAgICAgICAgfCAgICAgICAgcGdk
-X3QKPiAgICAgLi9pbmNsdWRlL2xpbnV4L2thc2FuLmg6NTI6Mzc6IGVycm9yOiDigJhNQVhfUFRS
-U19QRVJfUFVE4oCZIHVuZGVjbGFyZWQgaGVyZSAobm90IGluIGEgZnVuY3Rpb24pOyBkaWQgeW91
-IG1lYW4g4oCYUFRSU19QRVJfUEdE4oCZPwo+ICAgICAgICA1MiB8IGV4dGVybiBwdWRfdCBrYXNh
-bl9lYXJseV9zaGFkb3dfcHVkW01BWF9QVFJTX1BFUl9QVURdOwo+ICAgICAgICAgICB8ICAgICAg
-ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIF5+fn5+fn5+fn5+fn5+fn4KPiAgICAgICAg
-ICAgfCAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBQVFJTX1BFUl9QR0QKPiAg
-ICAgLi9pbmNsdWRlL2xpbnV4L2thc2FuLmg6NTM6ODogZXJyb3I6IHVua25vd24gdHlwZSBuYW1l
-IOKAmHA0ZF904oCZOyBkaWQgeW91IG1lYW4g4oCYcGdkX3TigJk/Cj4gICAgICAgIDUzIHwgZXh0
-ZXJuIHA0ZF90IGthc2FuX2Vhcmx5X3NoYWRvd19wNGRbTUFYX1BUUlNfUEVSX1A0RF07Cj4gICAg
-ICAgICAgIHwgICAgICAgIF5+fn5+Cj4gICAgICAgICAgIHwgICAgICAgIHBnZF90Cj4gICAgIC4v
-aW5jbHVkZS9saW51eC9rYXNhbi5oOjUzOjM3OiBlcnJvcjog4oCYTUFYX1BUUlNfUEVSX1A0ROKA
-mSB1bmRlY2xhcmVkIGhlcmUgKG5vdCBpbiBhIGZ1bmN0aW9uKTsgZGlkIHlvdSBtZWFuIOKAmFBU
-UlNfUEVSX1BHROKAmT8KPiAgICAgICAgNTMgfCBleHRlcm4gcDRkX3Qga2FzYW5fZWFybHlfc2hh
-ZG93X3A0ZFtNQVhfUFRSU19QRVJfUDREXTsKPiAgICAgICAgICAgfCAgICAgICAgICAgICAgICAg
-ICAgICAgICAgICAgICAgICAgICBefn5+fn5+fn5+fn5+fn5+Cj4gICAgICAgICAgIHwgICAgICAg
-ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgUFRSU19QRVJfUEdECj4gCj4gWy4uLl0KCkhl
-cmUgaXMgdGhlIHN1bW1hcnkgd2l0aCBsaW5rczoKICAtIFJJU0MtVjogUmVtb3ZlIHVubmVjZXNz
-YXJ5IGluY2x1ZGUgZnJvbSBjb21wYXQuaAogICAgaHR0cHM6Ly9naXQua2VybmVsLm9yZy9yaXNj
-di9jLzhkNGYxZTA1ZmY4MgoKWW91IGFyZSBhd2Vzb21lLCB0aGFuayB5b3UhCi0tIApEZWV0LWRv
-b3QtZG90LCBJIGFtIGEgYm90LgpodHRwczovL2tvcmcuZG9jcy5rZXJuZWwub3JnL3BhdGNod29y
-ay9wd2JvdC5odG1sCgoKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRl
-YWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgt
-cmlzY3YK
+During machine kexec, the function machine_kexec_mask_interrupts() is
+responsible for disabling or masking all interrupts. While the
+irq_disable hook ensures that an already-disabled IRQ is not disabled
+again, the current implementation unconditionally invokes the irq_mask()
+function for every interrupt descriptor, even when the interrupt is
+already masked.
+
+A specific issue was observed in the crash kernel flow after unbinding a
+device (prior to kexec) that used a GPIO as an IRQ source. The warning
+was triggered by the gpiochip_disable_irq() function, which attempted to
+clear the FLAG_IRQ_IS_ENABLED flag when FLAG_USED_AS_IRQ was not set:
+
+```
+void gpiochip_disable_irq(struct gpio_chip *gc, unsigned int offset)
+{
+	struct gpio_desc *desc = gpiochip_get_desc(gc, offset);
+
+	if (!IS_ERR(desc) &&
+	    !WARN_ON(!test_bit(FLAG_USED_AS_IRQ, &desc->flags)))
+		clear_bit(FLAG_IRQ_IS_ENABLED, &desc->flags);
+}
+```
+
+The issue emerged after commit a8173820f441 ("gpio: gpiolib: Allow GPIO
+IRQs to lazy disable"), which introduced lazy disablement for GPIO IRQs
+by replacing disable/enable hooks with mask/unmask hooks in some cases.
+While irq_disable guarded against redundant operations, the unguarded
+irq_mask in machine_kexec_mask_interrupts() led to warnings when invoked
+on already-masked IRQs.
+
+When a GPIO-IRQ-using driver is unbound, the IRQ is released, invoking
+__irq_disable() and irq_state_set_masked(). A subsequent call to
+machine_kexec_mask_interrupts() reinvoked chip->irq_mask(), leading to a
+call chain that included gpiochip_irq_mask() and gpiochip_disable_irq().
+Because FLAG_USED_AS_IRQ was cleared earlier, a warning was printed.
+
+This patch replaces the direct invocation of the irq_mask() and
+irq_disable() hooks with simplified code that leverages the
+irq_disable() kernel infrastructure. This higher-level function checks
+the interrupt's state to prevent redundant operations. Additionally, the
+IRQ_DISABLE_UNLAZY status flag is set to ensure that, for interrupt
+chips lacking an irq_disable callback, the disable operation is handled
+using the lazy approach.
+
+As part of this change, the irq_disable() declaration was moved from
+kernel/irq/internals.h to include/linux/irq.h to make it accessible
+outside the kernel/irq/ directory, as the former can only be included
+within that directory.
+
+Signed-off-by: Eliav Farber <farbere@amazon.com>
+---
+V1 -> V2:
+- Implement an alternative solution by utilizing the kernel's
+  irq_disable() infrastructure.
+- Apply the fix to additional architectures, including ARM, PowerPC,
+  and RISC-V.
+---
+ arch/arm/kernel/machine_kexec.c   | 7 ++-----
+ arch/arm64/kernel/machine_kexec.c | 7 ++-----
+ arch/powerpc/kexec/core.c         | 7 ++-----
+ arch/riscv/kernel/machine_kexec.c | 7 ++-----
+ include/linux/irq.h               | 2 ++
+ kernel/irq/internals.h            | 1 -
+ 6 files changed, 10 insertions(+), 21 deletions(-)
+
+diff --git a/arch/arm/kernel/machine_kexec.c b/arch/arm/kernel/machine_kexec.c
+index 80ceb5bd2680..54d0bd1bd449 100644
+--- a/arch/arm/kernel/machine_kexec.c
++++ b/arch/arm/kernel/machine_kexec.c
+@@ -142,11 +142,8 @@ static void machine_kexec_mask_interrupts(void)
+ 		if (chip->irq_eoi && irqd_irq_inprogress(&desc->irq_data))
+ 			chip->irq_eoi(&desc->irq_data);
+ 
+-		if (chip->irq_mask)
+-			chip->irq_mask(&desc->irq_data);
+-
+-		if (chip->irq_disable && !irqd_irq_disabled(&desc->irq_data))
+-			chip->irq_disable(&desc->irq_data);
++		irq_set_status_flags(i, IRQ_DISABLE_UNLAZY);
++		irq_disable(desc);
+ 	}
+ }
+ 
+diff --git a/arch/arm64/kernel/machine_kexec.c b/arch/arm64/kernel/machine_kexec.c
+index 82e2203d86a3..9b48d952df3e 100644
+--- a/arch/arm64/kernel/machine_kexec.c
++++ b/arch/arm64/kernel/machine_kexec.c
+@@ -230,11 +230,8 @@ static void machine_kexec_mask_interrupts(void)
+ 		    chip->irq_eoi)
+ 			chip->irq_eoi(&desc->irq_data);
+ 
+-		if (chip->irq_mask)
+-			chip->irq_mask(&desc->irq_data);
+-
+-		if (chip->irq_disable && !irqd_irq_disabled(&desc->irq_data))
+-			chip->irq_disable(&desc->irq_data);
++		irq_set_status_flags(i, IRQ_DISABLE_UNLAZY);
++		irq_disable(desc);
+ 	}
+ }
+ 
+diff --git a/arch/powerpc/kexec/core.c b/arch/powerpc/kexec/core.c
+index b8333a49ea5d..3489e50f5017 100644
+--- a/arch/powerpc/kexec/core.c
++++ b/arch/powerpc/kexec/core.c
+@@ -36,11 +36,8 @@ void machine_kexec_mask_interrupts(void) {
+ 		if (chip->irq_eoi && irqd_irq_inprogress(&desc->irq_data))
+ 			chip->irq_eoi(&desc->irq_data);
+ 
+-		if (chip->irq_mask)
+-			chip->irq_mask(&desc->irq_data);
+-
+-		if (chip->irq_disable && !irqd_irq_disabled(&desc->irq_data))
+-			chip->irq_disable(&desc->irq_data);
++		irq_set_status_flags(i, IRQ_DISABLE_UNLAZY);
++		irq_disable(desc);
+ 	}
+ }
+ 
+diff --git a/arch/riscv/kernel/machine_kexec.c b/arch/riscv/kernel/machine_kexec.c
+index 3c830a6f7ef4..a9df80e0602c 100644
+--- a/arch/riscv/kernel/machine_kexec.c
++++ b/arch/riscv/kernel/machine_kexec.c
+@@ -129,11 +129,8 @@ static void machine_kexec_mask_interrupts(void)
+ 		if (chip->irq_eoi && irqd_irq_inprogress(&desc->irq_data))
+ 			chip->irq_eoi(&desc->irq_data);
+ 
+-		if (chip->irq_mask)
+-			chip->irq_mask(&desc->irq_data);
+-
+-		if (chip->irq_disable && !irqd_irq_disabled(&desc->irq_data))
+-			chip->irq_disable(&desc->irq_data);
++		irq_set_status_flags(i, IRQ_DISABLE_UNLAZY);
++		irq_disable(desc);
+ 	}
+ }
+ 
+diff --git a/include/linux/irq.h b/include/linux/irq.h
+index fa711f80957b..176a7f671409 100644
+--- a/include/linux/irq.h
++++ b/include/linux/irq.h
+@@ -600,6 +600,8 @@ enum {
+ 
+ #define IRQ_DEFAULT_INIT_FLAGS	ARCH_IRQ_INIT_FLAGS
+ 
++extern void irq_disable(struct irq_desc *desc);
++
+ struct irqaction;
+ extern int setup_percpu_irq(unsigned int irq, struct irqaction *new);
+ extern void remove_percpu_irq(unsigned int irq, struct irqaction *act);
+diff --git a/kernel/irq/internals.h b/kernel/irq/internals.h
+index fe0272cd84a5..d9104d2b26b4 100644
+--- a/kernel/irq/internals.h
++++ b/kernel/irq/internals.h
+@@ -91,7 +91,6 @@ extern int irq_startup(struct irq_desc *desc, bool resend, bool force);
+ extern void irq_shutdown(struct irq_desc *desc);
+ extern void irq_shutdown_and_deactivate(struct irq_desc *desc);
+ extern void irq_enable(struct irq_desc *desc);
+-extern void irq_disable(struct irq_desc *desc);
+ extern void irq_percpu_enable(struct irq_desc *desc, unsigned int cpu);
+ extern void irq_percpu_disable(struct irq_desc *desc, unsigned int cpu);
+ extern void mask_irq(struct irq_desc *desc);
+-- 
+2.40.1
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
