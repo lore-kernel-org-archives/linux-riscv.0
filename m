@@ -4,94 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7C66D6ACF4
-	for <linux-riscv@archiver.kernel.org>; Wed, 27 Nov 2024 17:00:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DBC9CD6ACF9
+	for <linux-riscv@archiver.kernel.org>; Wed, 27 Nov 2024 17:30:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ISe2ThIniuEuHosZmxn+O/aVdwvnL5CrRyeG5fySWl8=; b=EP+A+5DHasYBxi
-	2xt09FzpKBxKxmQOtCtt++koD+K02MLicVvKXviMOdHeQDlPvNAki7vNcekRX4B5Wl56i71eKc4l4
-	PNTcuXGYBbkMCpP9A6XfuTL0VmhgFzY41pv1sPrJPT+I9AMXlH7MCY8OEEm7uXb8fbhufKO4N1q/x
-	/H01dqbSv0T8F9XbX2TpfFQ4fvVXX4D6iwVzz4p8SVRgLk5s0mM/NawvlsM3cgVfpJ9Qs0y9i6Utl
-	qfvJMnwYTeafjQRQpGv2+wWts11cMQegXTg+WK7LREQcmHTazVDK6vyvmT5eL4Vq7ev0BNKrcKpNI
-	pwlRLWuoCv2h98CApirA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=KKIeHWN1lzbwh2iJ4waoi0LgV2JrVtbElyb2d2fk/ls=; b=0p6+CgF6LyPHMe
+	I1woYF0rKxv4UFO4dg/WO4R+xx9VyraBoUtCgVeAbytV4fuKF+RxDMuPIcyZLgNhqRHTpmENUfYky
+	f/W247UfqIMd0adfW+p5BLkr/k4lukRFwnNDEZSyHHgTCof4fVffMrve0WJ+OFi03SlUgIWOAiEV4
+	ScafoHcKNU0umIVq7mL+0ri7oa9hJHx9NeUuQBxcBcvnEX8N5ZTR2e6q0kFXJ13JbHNWJv+HiuXA7
+	QKCalq7NjB64mligsqDN/hTgUDdL1Ar7d207mHj00SeNbvg66CLZ1xhFBjHpV3laoMuiA/jU33FZF
+	EDa6yBwJ6W1eRpexSytg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tGLOg-0000000Di7b-1gF9;
-	Wed, 27 Nov 2024 17:00:14 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1tGLrN-0000000DkNS-1uHg;
+	Wed, 27 Nov 2024 17:29:53 +0000
+Received: from mail-pg1-x532.google.com ([2607:f8b0:4864:20::532])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tGLOe-0000000Di6Y-0Hzj
+	id 1tGLrK-0000000DkMe-0y2b
 	for linux-riscv@lists.infradead.org;
-	Wed, 27 Nov 2024 17:00:13 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1732726811;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=jJR3B0odsZQHf7sVwTNPbyRTbyljXTxWTLBZbD2FzwQ=;
-	b=czPSKx4lzC9VW0gCVdn2DJ4fOy24cnG7jQnHJeBir2U9voojg48zcvibiNY/awqZQzAOss
-	aNEWq0WGeukpIjThBalEEX9YvjRgBLAhPz7l6bk1AcaeO2YRVxTqXcB381h86M6RzpsCCV
-	AwxNvPTMbC299nBNCcta9jvgYQLudF4=
-Received: from mail-wm1-f70.google.com (mail-wm1-f70.google.com
- [209.85.128.70]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-64-5q2t02-LMPekUFNgoreWIg-1; Wed, 27 Nov 2024 12:00:09 -0500
-X-MC-Unique: 5q2t02-LMPekUFNgoreWIg-1
-X-Mimecast-MFC-AGG-ID: 5q2t02-LMPekUFNgoreWIg
-Received: by mail-wm1-f70.google.com with SMTP id 5b1f17b1804b1-434a876d15cso5588945e9.0
-        for <linux-riscv@lists.infradead.org>; Wed, 27 Nov 2024 09:00:09 -0800 (PST)
+	Wed, 27 Nov 2024 17:29:51 +0000
+Received: by mail-pg1-x532.google.com with SMTP id 41be03b00d2f7-7e9e38dd5f1so5960209a12.0
+        for <linux-riscv@lists.infradead.org>; Wed, 27 Nov 2024 09:29:49 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1732728589; x=1733333389; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=P4sIOmxt+6E3SUjl0OKh9ltYG/Wh+OnpptrG+2+4Agg=;
+        b=PKhohIpsPgvJZmcRgRqxFTtTEw+n41P3y+GeyMGgV/PLA8tsRQSvj2kwr3CGsjuOGW
+         osWkmTpDGn62AMNv+jq6pz9v/uxC819TdkNF9G+mOlnIUuWE7X8KgwgTcB6F75Q6GQds
+         /Cstime1nkO337NPm2g0A/7ZQI0vt+dplxzVChYwiq7tgnHjCnwWQtf72pTaXLK3LG0T
+         bEwifJhZGYo3pmV4qJhbOJhke4I2VpHRcbdaKMOmIKnZA/hk0W+tuBcQ+xXdtwTHVPYD
+         MOmPyTj4R/uakyWd+tPNlAFYcMehjR3U7pTPZezb59z7dKTBfDtA4CncWnSw9xLae4Ah
+         jevA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1732726808; x=1733331608;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=jJR3B0odsZQHf7sVwTNPbyRTbyljXTxWTLBZbD2FzwQ=;
-        b=mffRTbJCEfz7YN+9HJS4N3QduHrm3fgTapT8vHVjPOhd31mxscs44aJLfRCKyZvQVK
-         oykDSagnraufdiS69tJd7CvMmttu8QfdvzZ9/7S0PEjqTQ0MFRXtxlBIbPnJYbfMNqbL
-         2LMOBrEQP16dzD9mtNSLHNc5M9RY7pR4s+kpICk0MmPa3uQNg0ryDqjh6iC7qtOnNr55
-         rb+ze/BNXx0/t50IoOK86x8cayWi4T6tax9WCtiQ5BleQZRXw5Do7tGFJR51JrO+yeim
-         xUMAtw+f1/JvZE+4MeVF6jI7NNJrRJMlqRrpifauWTLlH+0NNONvXoLSkh3zMxBcG5aG
-         QOnw==
-X-Forwarded-Encrypted: i=1; AJvYcCUr3ANcdzbpo5LLOqE5U0pjITVJSQl1UcbmOodTyk7i5Hd5hdl1GfRQk1Tdbw+oLYO44FsPEroFu4YSTA==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy6aljxudoFdUS5W9qnwQVUkqATjGrCWew0tn0WBgB38JNU3V7t
-	fg8kvNSqVcbZHUsP8dGYvuLKDreGak05E78k2kTGT0upaJMzoqkg6CN1SyXS+qQM4ItsGXGVBd4
-	PXGiBuKgBJXmjwuiTLX5mwzAbthtf+gwtlWeEm6edbEqkCDQzqgrSJPTFDFqsEz0QYP7GpPCF3Q
-	7qR5eEyYctLqnFYstfsQz09mZ1vfdVs+0Yb1kNwEnqiah58S4SJtU=
-X-Gm-Gg: ASbGncsJiHZVDI+SdMUiljo/TCvSagnxCiLNQuXxnFIbMWVqixCHltgxzBRcdlSXay8
-	II6dyRNpq17fPM0VUXCtmmA+ttgLLC0yU
-X-Received: by 2002:a05:600c:4fcc:b0:42c:b67b:816b with SMTP id 5b1f17b1804b1-434afb8dea4mr965155e9.1.1732726806766;
-        Wed, 27 Nov 2024 09:00:06 -0800 (PST)
-X-Google-Smtp-Source: AGHT+IGsYftJoVLH6XXc7eLyOZ8Xs3Ne7AzojxCTrGoIVZMgf+087kJMy68qK3SgXjDP+ni5zf++bz5A32H+CqPJmDs=
-X-Received: by 2002:a05:600c:4fcc:b0:42c:b67b:816b with SMTP id
- 5b1f17b1804b1-434afb8dea4mr963975e9.1.1732726804984; Wed, 27 Nov 2024
- 09:00:04 -0800 (PST)
+        d=1e100.net; s=20230601; t=1732728589; x=1733333389;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=P4sIOmxt+6E3SUjl0OKh9ltYG/Wh+OnpptrG+2+4Agg=;
+        b=IKhif0NWBEp5OwGuX6/jiEeR1B1c5AMMo3V+X1a4gFTwjI/VcUTgGZCkRYrMVNVwYQ
+         bQ6qYi4XpsFKV2+gkfVCQVL2GBAoEoBKEp1Bk0ZQafKYtfPFKJ5ivn1KfxDXT4Yfq1cs
+         iOluQzyAF9N5tnOWEMff69TU9hGjnM1tBk4Etbin+DQXR/sdeZ8hhlndXz2uOLztSXuo
+         4iHbAloxH1KGFTsjRbwi2N+Layij8GirtxVlO3XZIsYmKn24idBVO00CbyLyjL/Agg3E
+         xx5BkxX0AUBSdMItNdB+if9eEx7xwXmnO6KUNfLHD205z0DM0I7pGPwVfoTugk5OqbIC
+         vqkA==
+X-Forwarded-Encrypted: i=1; AJvYcCWCBic93QBt7+EoCtLwgBgESr9qovUf/hw+56Qe4/0IzcvyVBHofAT+4cC3BznV/3M7M9PtiHyt4lxCdA==@lists.infradead.org
+X-Gm-Message-State: AOJu0YwVjYCHQ51lAs8Mb9GtleMue/k5uDroxjs5k02TsCA08XIF95mW
+	ky/TU8I+nAtaQ3WtKyvGSc4l3t0NGT8MZ7wvczohF4nYHvCvDUpv
+X-Gm-Gg: ASbGncuxMmAbOBLExX7blgXOJi4SmgCsiT/IkIb62ce5CtLPSR4ZleyYyQiZPTo6C0b
+	3l0+cbg3Lujec+vIiM7dXFOffVx6lCdLJ1+/Uwi+wTwEdQyR/Q+fXxCXyY0sdHc3cJJMjVVPjw9
+	xpf/ys0MmOmMcixFWnCL7jxkIjuj+tS9VBNpGN7+zXBroqMtr8sSR0LSYA3nJ/DLyYGcGqZ+m+E
+	HTU8M2nXHrUzHekC6Na/ZICOK4Alr6YVbAZmPSY+GtUt57eAuniW64FyvBrnjIOYDzNStaI3nSj
+	QOn7IbEtcw7LfbqlzFHzj3sb9Mdp
+X-Google-Smtp-Source: AGHT+IEQBpzMXh5yXkAktk+B4Le1RfAy/+Rf/KVUrppFxoUQ2qNw97WYZSZiNYXgYFn+fzg6vo950g==
+X-Received: by 2002:a05:6a21:2d84:b0:1d9:c6e8:60fc with SMTP id adf61e73a8af0-1e0e0ab4692mr5782140637.6.1732728588569;
+        Wed, 27 Nov 2024 09:29:48 -0800 (PST)
+Received: from localhost.localdomain (1-171-29-17.dynamic-ip.hinet.net. [1.171.29.17])
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-7fbcc1e3fdbsm9359582a12.30.2024.11.27.09.29.44
+        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
+        Wed, 27 Nov 2024 09:29:47 -0800 (PST)
+From: Andy Chiu <andybnac@gmail.com>
+To: Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Nathan Chancellor <nathan@kernel.org>,
+	Nick Desaulniers <ndesaulniers@google.com>,
+	Bill Wendling <morbo@google.com>,
+	Justin Stitt <justinstitt@google.com>
+Cc: linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	llvm@lists.linux.dev,
+	bjorn@rivosinc.com,
+	puranjay12@gmail.com,
+	alexghiti@rivosinc.com,
+	yongxuan.wang@sifive.com,
+	greentime.hu@sifive.com,
+	nick.hu@sifive.com,
+	nylon.chen@sifive.com,
+	tommy.wu@sifive.com,
+	eric.lin@sifive.com,
+	viccent.chen@sifive.com,
+	zong.li@sifive.com,
+	samuel.holland@sifive.com
+Subject: [PATCH v3 0/7] riscv: ftrace: atmoic patching and preempt improvements
+Date: Thu, 28 Nov 2024 01:29:01 +0800
+Message-Id: <20241127172908.17149-1-andybnac@gmail.com>
+X-Mailer: git-send-email 2.39.3 (Apple Git-145)
 MIME-Version: 1.0
-References: <CAAhSdy2mLBzE63wpQrOaHtOV0rwqkaxTUMBA9oMZsk68o0EHMg@mail.gmail.com>
- <CABgObfacuB-8KN1+Czt5DaXQbaiw9=jP5zYGatw6CGooLnz9Sg@mail.gmail.com>
- <CAAhSdy1eYZc__ynDrF8sQCk8Rj+CRj+LBBbGnV+Hc4qHfYiEOA@mail.gmail.com>
- <CABgObfbKYc0Dqcq36dHsV=uopV+TAGu9-SuZF+QP=u6x0uMiHg@mail.gmail.com> <CAAhSdy1QCeg82kQsPHJx1+Oc=L7BoOUTpeLUNoeApao8rZDE+Q@mail.gmail.com>
-In-Reply-To: <CAAhSdy1QCeg82kQsPHJx1+Oc=L7BoOUTpeLUNoeApao8rZDE+Q@mail.gmail.com>
-From: Paolo Bonzini <pbonzini@redhat.com>
-Date: Wed, 27 Nov 2024 17:59:52 +0100
-Message-ID: <CABgObfZ1iqNGqb+MW84_tgZEnSoAjMqzXFcoq0s58iTZDPMKgg@mail.gmail.com>
-Subject: Re: [GIT PULL] KVM/riscv changes for 6.13, part #2
-To: Anup Patel <anup@brainfault.org>
-Cc: Palmer Dabbelt <palmer@rivosinc.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Andrew Jones <ajones@ventanamicro.com>, Atish Patra <atishp@rivosinc.com>, 
-	Atish Patra <atishp@atishpatra.org>, 
-	"open list:KERNEL VIRTUAL MACHINE FOR RISC-V (KVM/riscv)" <kvm-riscv@lists.infradead.org>, KVM General <kvm@vger.kernel.org>, 
-	linux-riscv <linux-riscv@lists.infradead.org>, samuel.holland@sifive.com
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: Jip9iWEz5-FfrauNBV-AqOrPJT8nHqLR02IB1ikd4jc_1732726809
-X-Mimecast-Originator: redhat.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241127_090012_173652_BCD97982 
-X-CRM114-Status: GOOD (  16.32  )
+X-CRM114-CacheID: sfid-20241127_092950_269539_D4371983 
+X-CRM114-Status: GOOD (  19.87  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,36 +109,92 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gV2VkLCBOb3YgMjcsIDIwMjQgYXQgNTo1MeKAr1BNIEFudXAgUGF0ZWwgPGFudXBAYnJhaW5m
-YXVsdC5vcmc+IHdyb3RlOgo+ID4gT2ssIHdpbGwgZG8uIEJ1dCBJJ2QgbGlrZSB0byB1bmRlcnN0
-YW5kIGlmIEtWTSBwYXRjaGVzIG5lZWRlZCB0aGUgYmFyZQo+ID4gbWV0YWwgc3VwcG9ydC4gSWYg
-bm90LCBhbmQgdGhlIG9ubHkgcmVhc29uIHRvIHNraXAgaXQgaW4gNi4xMiB3YXMgdGhlCj4gPiBo
-d2NhcC5oIGNvbnN0YW50cywgdGhlbiB0aGVyZSB3YXMgbm8gcmVhc29uIHRvIGRlbGF5IGl0LiBK
-dXN0IHNlbmQgdGhlCj4gPiBod2NhcC5oIHVwZGF0ZSBhcyBhIHB1bGwgcmVxdWVzdCB0byBib3Ro
-IG1lIGFuZCBQYWxtZXIsIGFuZCB3ZSdsbAo+ID4gbWVyZ2UgaXQgZnJvbSB0aGUgc2FtZSBjb21t
-aXQgaW50byBvdXIgdHJlZXMuCj4KPiBJdCB3YXMgc2tpcHBlZCBpbiA2LjEyIGR1ZSB0byBjb25m
-dXNpb24gYmV0d2VlbiBteXNlbGYgYW5kIFBhbG1lcgo+IGFib3V0IHdoaWNoIHRyZWUgdGhlc2Ug
-cGF0Y2hlcyB3aWxsIGdvIHRocm91Z2ggYW5kIHdlIGRpZCBub3QgcmVzb2x2ZQo+IHRoaXMgaW4g
-dGltZS4KCkkgc3RpbGwgZG9uJ3QgdW5kZXJzdGFuZCBpZiBLVk0gcGF0Y2hlcyBuZWVkIGFueSBi
-YXJlIG1ldGFsIGNvZGUgdGhvdWdoLiA6KQoKSXQncyBhbHNvIHVuY2xlYXIgdG8gbWUgd2h5ICJS
-SVNDLVY6IEtWTTogQWxsb3cgU21ucG0gYW5kIFNzbnBtCmV4dGVuc2lvbnMgZm9yIGd1ZXN0cyIg
-Y2FtZSB0aHJvdWdoIHRoZSBSSVNDLVYgdHJlZSwgdGh1cyBjYXVzaW5nCmNvbmZsaWN0cyBpbiB0
-aGUgS1ZNX1JJU0NWX0lTQV9FWFRfSUQgZW51bS4gIEl0IGRvZXNuJ3Qgc2VlbSB0byBuZWVkCmJh
-cmUgbWV0YWwgc3VwcG9ydCwgc28gaXQgc2hvdWxkIGhhdmUgY29tZSB0aHJvdWdoIHlvdXIgdHJl
-ZS4KClRoaXMgc3BsaXQgYmV0d2VlbiBwYXRjaGVzIHRoYXQgeW91IHNlbmQgdG8gbWUgYW5kIHRo
-b3NlIHRoYXQgb3RoZXJzCnNlbmQgdG8gc29tZW9uZSBlbHNlIGlzIG5vdCB5b3VyIGZhdWx0IGJ1
-dCBpdCdzIGEgbWVzcywgYW5kIHRoZSBSSVNDLVYKbWFpbnRhaW5lcnMgc2hvdWxkIG5vdCBoYXZl
-IGdvbmUgZm9yIHRoZSBsZWFzdC13b3JrIG9wdGlvbi4gSWYKYW55dGhpbmcgaGFzIGEgYmFyZSBt
-ZXRhbCBhbmQgYSBLVk0gcGFydCBpdCdzIHRvdGFsbHkgb2theSB0aGF0IHlvdQpzZW5kIGl0IHRv
-IG1lIGFzIGEgc2VwYXJhdGUgcHVsbCByZXF1ZXN0LCBidXQgdGhlIHJpZ2h0IHdheSB0byBkbyBp
-dAppcyB0byAqaW5jbHVkZSBhIHRvcGljIGJyYW5jaCBmcm9tIHRoZSBSSVNDLVYgdHJlZSogYW5k
-IGJhc2UgdGhlIEtWTQpjaGFuZ2VzIG9uIHRvcC4gTm90IHRvIGxldCBMaW51cyBhbmQgbXlzZWxm
-IHNvcnQgb3V0IHRoZSBjb25mbGljdHMuCgpQYW9sbwoKCl9fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1y
-aXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxt
-YW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+This series makes atmoic code patching possible in riscv ftrace. A
+direct benefit of this is that we can get rid of stop_machine() when
+patching function entries. This also makes it possible to run ftrace
+with full kernel preemption. Before this series, the kernel initializes
+patchable function entries to NOP4 + NOP4. To start tracing, it updates
+entries to AUIPC + JALR while holding other cores in stop_machine.
+stop_machine() is required because it is impossible to update 2
+instructions, and be seen atomically. And preemption must have to be
+prevented, as kernel preemption allows process to be scheduled out while
+executing on one of these instruction pairs.
+
+This series addresses the problem by initializing the first NOP4 to
+AUIPC. So, atmoic patching is possible because the kernel only has to
+update one instruction. As long as the instruction is naturally aligned,
+then it is expected to be updated atomically.
+
+However, the address range of the ftrace trampoline is limited to +-2K
+from ftrace_caller after appplying this series. This issue is expected
+to be solved by Puranjay's CALL_OPS, where it adds 8B naturally align
+data in front of pacthable functions and can  use it to direct execution
+out to any custom trampolines.
+
+The series is composed by three parts. The first part cleans up the
+existing issues when the kernel is compiled with clang.The second part
+modifies the ftrace code patching mechanism (2-4) as mentioned above.
+Then prepare ftrace to be able to run with kernel preemption (5,6)
+
+An ongoing fix:
+
+Since there is no room for marking *kernel_text_address as notrace[1] at
+source code level, there is a significant performance regression when
+using function_graph with TRACE_IRQFLAGS enabled. There can be as much as
+8 graph handler being called in each function-entry. The current
+workaround requires us echo "*kernel_text_address" into
+set_ftrace_notrace before starting the trace. However, we observed that
+the kernel still enables the patch site in some cases even with
+*kernel_text_address properly added in the file While the root cause is
+still under investagtion, we consider that it should not be the reason
+for holding back the code patching, in order to unblock the call_ops
+part.
+
+[1]: https://lore.kernel.org/linux-riscv/20240613093233.0b349ed0@rorschach.local.home/
+
+Changes in v3:
+- Add a fix tag for patch 1
+- Add a data fence before sending out remote fence.i (6)
+- Link to v2: https://lore.kernel.org/all/20240628-dev-andyc-dyn-ftrace-v4-v2-0-1e5f4cb1f049@sifive.com/
+
+Changes in v2:
+- Drop patch 1 as it is merged through fixes.
+- Drop patch 2, which converts kernel_text_address into notrace. As
+  users can prevent tracing it by configuring the tracefs.
+- Use a more generic way in kconfig to align functions.
+- Link to v1: https://lore.kernel.org/r/20240613-dev-andyc-dyn-ftrace-v4-v1-0-1a538e12c01e@sifive.com
+
+
+Andy Chiu (7):
+  riscv: ftrace: support fastcc in Clang for WITH_ARGS
+  riscv: ftrace: align patchable functions to 4 Byte boundary
+  riscv: ftrace: prepare ftrace for atomic code patching
+  riscv: ftrace: do not use stop_machine to update code
+  riscv: vector: Support calling schedule() for preemptible Vector
+  riscv: add a data fence for CMODX in the kernel mode
+  riscv: ftrace: support PREEMPT
+
+ arch/riscv/Kconfig                 |   4 +-
+ arch/riscv/include/asm/ftrace.h    |  11 +++
+ arch/riscv/include/asm/processor.h |   5 ++
+ arch/riscv/include/asm/vector.h    |  22 ++++-
+ arch/riscv/kernel/asm-offsets.c    |   7 ++
+ arch/riscv/kernel/ftrace.c         | 133 ++++++++++++-----------------
+ arch/riscv/kernel/mcount-dyn.S     |  25 ++++--
+ arch/riscv/mm/cacheflush.c         |  15 +++-
+ 8 files changed, 135 insertions(+), 87 deletions(-)
+---
+base-commit: 0eb512779d642b21ced83778287a0f7a3ca8f2a1
+-- 
+2.39.3 (Apple Git-145)
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
