@@ -4,87 +4,117 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8F9ACD6D227
-	for <linux-riscv@archiver.kernel.org>; Wed, 27 Nov 2024 19:18:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EDA1FD6D231
+	for <linux-riscv@archiver.kernel.org>; Wed, 27 Nov 2024 19:34:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Subject:Cc:To:From:Message-ID:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ixda70/nLHNWGx0Y/DQ9CbNyFtduMeE5KDIFk0MrIvA=; b=TGTV09DeV4H7if
-	T9ttAYMg7rDE2noHp14Gdn2bIyoJJ2x3M98cgxaXr2CWe4JXXBZcE1xcA7/P2WDWf5sdvahuRtiqA
-	x3sBkAZNiCIc5NUpmM+7jLH7/lsKQ5TDxLhCe+JBtiSflmrrvzB8f4oNmCP/Cnz5/3ncIAKBW4Z3p
-	aGykwa/IyUtvENWCRVAMOcwxt+ognt4Yu7o0mDpXhFIIlmbSoJIxQJqVB0Qg6t7GzseDQgch34+gf
-	1JTtOQk4BK1vjeJpzlvr80PHvGM2oYmQdI0hFtdtH6sAM3zXnEUaZU3AIJ+XwPpCue4r63oSYLxE6
-	2YGCe91yZp6/+rw20Fxw==;
+	List-Owner; bh=yyq78bBs6QSFypU323KCfz+fCWQyP8KaKkGXbEcs2lo=; b=qlzY6qY+auPOMz
+	qZJRp+EKoFMVad5mbtfsTw3PZ5Vo/Ahzx0XeOA+rZPrLqBMOM0QPeHpdYuN+Wja41uvpxziZjzFZJ
+	Gv0kzzk0kfwCX7ZABDkO7SY5Gi0WI7DmxdpXttZECLlstFhUkJdTT/07Zo6fgR2bgTiKcXo/4M0ro
+	oTBWydPPu+lbSU0Y10162XZxgKBatIdGug7/do3xCFhH+bO2eQ8o9/0NqajZmn9q1L34HvQ9foq95
+	O7BFW+YaB6+PWA2aLo8430yQDvv4eU2CQPkQztGc3z9CkEffNAUK7Y34nDDEPFtD+ljq0mYAu/g2C
+	3RsPxpxWn+blrv+ML1ng==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tGNYd-0000000Dula-0x9O;
-	Wed, 27 Nov 2024 19:18:39 +0000
-Received: from mail-pj1-x102d.google.com ([2607:f8b0:4864:20::102d])
+	id 1tGNnh-0000000Dx3o-3Ufv;
+	Wed, 27 Nov 2024 19:34:13 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tGNYb-0000000Dukq-0DVl
-	for linux-riscv@lists.infradead.org;
-	Wed, 27 Nov 2024 19:18:38 +0000
-Received: by mail-pj1-x102d.google.com with SMTP id 98e67ed59e1d1-2ea1e5fc65bso94694a91.3
-        for <linux-riscv@lists.infradead.org>; Wed, 27 Nov 2024 11:18:36 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1732735116; x=1733339916; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=vB7+zX/eMQEZVkQdJuvLGtE/WTXbmTPbcZWyGfuE/hw=;
-        b=iGgS+frmnCJkcDo+Q8sbEPka4B6vy9rpnEm4wnELHiUxH01S13IecW5x2w8i/3YBJS
-         T08dcciVHe4cdy2qfogRce0kvlPQC/GV4vHArh/Q3smTkQenKdKETwzR+KUEzTUEKQbN
-         ssweY18E/LbyKDaiFr+o+PRQ/wbuNgSg93sliSat2nM08YCq/Ad9E5f3DFXnSndCxOie
-         ICwpzDZ42q1HckI0H/uZ8fDHcTWkKbPJOWN3yXkk/LEMeJchGUPzoTvxmC8LGFFTI5+Q
-         PQqAbRSxAxc9AtZdLf9OEyRNBeBN/dse1a7U3Z3bsScZJKlzwdl69st9nOJ1WtlCcDiR
-         mo8Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1732735116; x=1733339916;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=vB7+zX/eMQEZVkQdJuvLGtE/WTXbmTPbcZWyGfuE/hw=;
-        b=THgRRc7Mjk5g0T3eo4Lpy2Ojdfl1vwHknY2PxQLybPam4HDUe5huaXRUgUJMOQ2ULz
-         v+xkDbAo3ckYzC9HFmFe+XMZF9R9aZMjjNnkYirCufEQ72s8Er9SsElrMHR5Ks/sMYvz
-         T0Q3XWBdnAws7ADOQcf2xCm5Et2aNpRTPnVRucWAcTGhJiVDoDzuLVukHx21lDpjSIDl
-         LJBupI75UbhqKCMB1hPTSAZiyKXj352Bo1hsVeR9vBQepQ/KuExn9YdXtBcrXEePXs4u
-         d6RYVaWfPPlnZzHFWtQrn79G+jIYfegnm4haHZira4UyS3F2J8svuO+WATYrLDSarbcO
-         LzuA==
-X-Forwarded-Encrypted: i=1; AJvYcCUOm1Fg4/DSKiLbQFFTeEASk1x0PpkwvpG4EgrdWWf7xWL4ED2WGa429z9xJVB6kHyqzuoVy8TMhuPenA==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yyaj6ICLqVzQXvJCql/zF6GiC9zEaPUFsfmo1M/iR6bw1T2oU3O
-	sHEtNWOD+XckpCbjtkP8kovLaW/3WcCwLhr3Hy3cf9l0pAqpuQH6H3+3IZ00LRE=
-X-Gm-Gg: ASbGncuS5LkZc699B3a3mW9+3YvplN2Kmh/o5SHUfiPUtamAB/bPfAcMnA58uxLi+Fc
-	cfaVdF+6jkEWJmr/TncnWQAoyDixuPG7K/zrwg7ht7KTT4Bodu3WK7p7eLchWhIffSAo8nIa0F+
-	HmRh7Va+985JYVVFPBqty12fzE23k7vW3/ClvUihXv+UElFNZm15ghWBBggsRDKd6IBXMATHfGT
-	o6bUZi41/yh7IDhbtSbwDnUIsRxHmpsNcm47KGDKXo=
-X-Google-Smtp-Source: AGHT+IGwVibQFz/HfTnBYJFj3BlQooBTbScjEPx6pkFCrKgYZmTcrR9P+ao05cm4glAwREsdCh+uFQ==
-X-Received: by 2002:a17:90b:4d0d:b0:2eb:140d:f6df with SMTP id 98e67ed59e1d1-2ee08e9bd21mr5224356a91.1.1732735115685;
-        Wed, 27 Nov 2024 11:18:35 -0800 (PST)
-Received: from ghost ([2601:647:6700:64d0:1259:e59d:e348:e0])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-2ee0fa33374sm1960698a91.4.2024.11.27.11.18.34
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 27 Nov 2024 11:18:35 -0800 (PST)
-Date: Wed, 27 Nov 2024 11:18:32 -0800
-From: Charlie Jenkins <charlie@rivosinc.com>
-To: =?iso-8859-1?Q?Cl=E9ment_L=E9ger?= <cleger@rivosinc.com>
-Cc: Paul Walmsley <paul.walmsley@sifive.com>,
+	id 1tGNlk-0000000DwhB-0X5k;
+	Wed, 27 Nov 2024 19:32:13 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 25421A439F3;
+	Wed, 27 Nov 2024 19:30:18 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7BD69C4CED2;
+	Wed, 27 Nov 2024 19:32:10 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1732735930;
+	bh=xrciW+EMhZ5UEofbJw9NwB4YNk6WJ7ZsUg3ugalAKtY=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=X2BtrIqNGPOvV+49M5YnEnvMfq90m+ylhD7PzWNtlQWXRcWLiIC9o7ibIu7Z+6NCF
+	 kcXzlV4NXbHYexopnI8wyMqZtXl1aARG1Kv+1kHo2QdWtEH8r51A6kx0Z+b8YMEuGQ
+	 KkVWB5pfPFETZ3jygkOvTt1oTUJ7ox8ovqX6d1E+iA+5p2Dg3oRun7qGKNbz7lmsz9
+	 P2yGA8boYanYTYFxQR6QsePoSp98SjRizDnHD/Y6HoJ2E4HX1u+AiXq7pnGqhQjajY
+	 UFL0t9n5dlc0Yh9Rql7BGoHCScG0i7PhlQ+71XDRGrapyLXfaRB16QrJ7c3W0qJT2C
+	 zsuLVCEMA8n/A==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1tGNlf-00GLsr-Kw;
+	Wed, 27 Nov 2024 19:32:07 +0000
+Date: Wed, 27 Nov 2024 19:32:06 +0000
+Message-ID: <867c8ov5ft.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Mike Rapoport <rppt@kernel.org>
+Cc: linux-kernel@vger.kernel.org,
+	Alexander Gordeev <agordeev@linux.ibm.com>,
+	Andreas Larsson <andreas@gaisler.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Arnd Bergmann <arnd@arndb.de>,
+	Borislav Petkov <bp@alien8.de>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Christophe Leroy <christophe.leroy@csgroup.eu>,
+	Dan Williams <dan.j.williams@intel.com>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	David Hildenbrand <david@redhat.com>,
+	"David S. Miller" <davem@davemloft.net>,
+	Davidlohr Bueso <dave@stgolabs.net>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Heiko Carstens <hca@linux.ibm.com>,
+	Huacai Chen <chenhuacai@kernel.org>,
+	Ingo Molnar <mingo@redhat.com>,
+	Jiaxun Yang <jiaxun.yang@flygoat.com>,
+	John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>,
+	Jonathan Cameron <jonathan.cameron@huawei.com>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Michael Ellerman <mpe@ellerman.id.au>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org, Kai Zhang <zhangkai@iscas.ac.cn>,
-	Andrew Jones <ajones@ventanamicro.com>
-Subject: Re: [PATCH v2] riscv: module: use a plain variable for list_head
- instead of a pointer
-Message-ID: <Z0dwiIUThatX1H_X@ghost>
-References: <20241127142519.3038691-1-cleger@rivosinc.com>
-MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20241127142519.3038691-1-cleger@rivosinc.com>
+	"Rafael J. Wysocki" <rafael@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Samuel Holland <samuel.holland@sifive.com>,
+	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Vasily Gorbik <gor@linux.ibm.com>,
+	Will Deacon <will@kernel.org>,
+	Zi Yan <ziy@nvidia.com>,
+	devicetree@vger.kernel.org,
+	linux-acpi@vger.kernel.org,
+	linux-arch@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-cxl@vger.kernel.org,
+	linux-doc@vger.kernel.org,
+	linux-mips@vger.kernel.org,
+	linux-mm@kvack.org,
+	linux-riscv@lists.infradead.org,
+	linux-s390@vger.kernel.org,
+	linux-sh@vger.kernel.org,
+	linuxppc-dev@lists.ozlabs.org,
+	loongarch@lists.linux.dev,
+	nvdimm@lists.linux.dev,
+	sparclinux@vger.kernel.org,
+	x86@kernel.org,
+	Jonathan Cameron <Jonathan.Cameron@huawei.com>
+Subject: Re: [PATCH v4 24/26] arch_numa: switch over to numa_memblks
+In-Reply-To: <20240807064110.1003856-25-rppt@kernel.org>
+References: <20240807064110.1003856-1-rppt@kernel.org>
+	<20240807064110.1003856-25-rppt@kernel.org>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: rppt@kernel.org, linux-kernel@vger.kernel.org, agordeev@linux.ibm.com, andreas@gaisler.com, akpm@linux-foundation.org, arnd@arndb.de, bp@alien8.de, catalin.marinas@arm.com, christophe.leroy@csgroup.eu, dan.j.williams@intel.com, dave.hansen@linux.intel.com, david@redhat.com, davem@davemloft.net, dave@stgolabs.net, gregkh@linuxfoundation.org, hca@linux.ibm.com, chenhuacai@kernel.org, mingo@redhat.com, jiaxun.yang@flygoat.com, glaubitz@physik.fu-berlin.de, jonathan.cameron@huawei.com, corbet@lwn.net, mpe@ellerman.id.au, palmer@dabbelt.com, rafael@kernel.org, robh@kernel.org, samuel.holland@sifive.com, tsbogend@alpha.franken.de, tglx@linutronix.de, gor@linux.ibm.com, will@kernel.org, ziy@nvidia.com, devicetree@vger.kernel.org, linux-acpi@vger.kernel.org, linux-arch@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-cxl@vger.kernel.org, linux-doc@vger.kernel.org, linux-mips@vger.kernel.org, linux-mm@kvack.org, linux-riscv@lists.infradead.org, linux-s390@vger.k
+ ernel.org, linux-sh@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, loongarch@lists.linux.dev, nvdimm@lists.linux.dev, sparclinux@vger.kernel.org, x86@kernel.org, Jonathan.Cameron@huawei.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241127_111837_351605_205EE5CE 
-X-CRM114-Status: GOOD (  19.45  )
+X-CRM114-CacheID: sfid-20241127_113212_293313_E0EA8184 
+X-CRM114-Status: GOOD (  25.63  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,111 +126,85 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="iso-8859-1"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Nov 27, 2024 at 03:25:17PM +0100, Cl=E9ment L=E9ger wrote:
-> rel_head's list_head member, rel_entry, doesn't need to be allocated,
-> its storage can just be part of the allocated rel_head. Remove the
-> pointer which allows to get rid of the allocation as well as an existing
-> memory leak found by Kai Zang using kmemleak.
-> =
+Hi Mike,
 
-> Reported-by: Kai Zhang <zhangkai@iscas.ac.cn>
-> Signed-off-by: Cl=E9ment L=E9ger <cleger@rivosinc.com>
-> Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
+Sorry for reviving a rather old thread.
 
-Thanks for looking into this!
-
-Reviewed-by: Charlie Jenkins <charlie@rivosinc.com>
-Tested-by: Charlie Jenkins <charlie@rivosinc.com>
-
+On Wed, 07 Aug 2024 07:41:08 +0100,
+Mike Rapoport <rppt@kernel.org> wrote:
+> 
+> From: "Mike Rapoport (Microsoft)" <rppt@kernel.org>
+> 
+> Until now arch_numa was directly translating firmware NUMA information
+> to memblock.
+> 
+> Using numa_memblks as an intermediate step has a few advantages:
+> * alignment with more battle tested x86 implementation
+> * availability of NUMA emulation
+> * maintaining node information for not yet populated memory
+> 
+> Adjust a few places in numa_memblks to compile with 32-bit phys_addr_t
+> and replace current functionality related to numa_add_memblk() and
+> __node_distance() in arch_numa with the implementation based on
+> numa_memblks and add functions required by numa_emulation.
+> 
+> Signed-off-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
+> Tested-by: Zi Yan <ziy@nvidia.com> # for x86_64 and arm64
+> Reviewed-by: Jonathan Cameron <Jonathan.Cameron@huawei.com>
+> Tested-by: Jonathan Cameron <Jonathan.Cameron@huawei.com> [arm64 + CXL via QEMU]
+> Acked-by: Dan Williams <dan.j.williams@intel.com>
+> Acked-by: David Hildenbrand <david@redhat.com>
 > ---
-> =
+>  drivers/base/Kconfig       |   1 +
+>  drivers/base/arch_numa.c   | 201 +++++++++++--------------------------
+>  include/asm-generic/numa.h |   6 +-
+>  mm/numa_memblks.c          |  17 ++--
+>  4 files changed, 75 insertions(+), 150 deletions(-)
+>
 
-> V2:
->  - Add Kai Reported-by
->  - Reword the commit description (Andrew)
-> =
+[...]
 
-> ---
->  arch/riscv/kernel/module.c | 18 ++++--------------
->  1 file changed, 4 insertions(+), 14 deletions(-)
-> =
-
-> diff --git a/arch/riscv/kernel/module.c b/arch/riscv/kernel/module.c
-> index 1cd461f3d872..47d0ebeec93c 100644
-> --- a/arch/riscv/kernel/module.c
-> +++ b/arch/riscv/kernel/module.c
-> @@ -23,7 +23,7 @@ struct used_bucket {
->  =
-
->  struct relocation_head {
->  	struct hlist_node node;
-> -	struct list_head *rel_entry;
-> +	struct list_head rel_entry;
->  	void *location;
->  };
->  =
-
-> @@ -634,7 +634,7 @@ process_accumulated_relocations(struct module *me,
->  			location =3D rel_head_iter->location;
->  			list_for_each_entry_safe(rel_entry_iter,
->  						 rel_entry_iter_tmp,
-> -						 rel_head_iter->rel_entry,
-> +						 &rel_head_iter->rel_entry,
->  						 head) {
->  				curr_type =3D rel_entry_iter->type;
->  				reloc_handlers[curr_type].reloc_handler(
-> @@ -704,16 +704,7 @@ static int add_relocation_to_accumulate(struct modul=
-e *me, int type,
->  			return -ENOMEM;
->  		}
->  =
-
-> -		rel_head->rel_entry =3D
-> -			kmalloc(sizeof(struct list_head), GFP_KERNEL);
+>  static int __init numa_register_nodes(void)
+>  {
+>  	int nid;
+> -	struct memblock_region *mblk;
 > -
-> -		if (!rel_head->rel_entry) {
-> -			kfree(entry);
-> -			kfree(rel_head);
-> -			return -ENOMEM;
+> -	/* Check that valid nid is set to memblks */
+> -	for_each_mem_region(mblk) {
+> -		int mblk_nid = memblock_get_region_node(mblk);
+> -		phys_addr_t start = mblk->base;
+> -		phys_addr_t end = mblk->base + mblk->size - 1;
+> -
+> -		if (mblk_nid == NUMA_NO_NODE || mblk_nid >= MAX_NUMNODES) {
+> -			pr_warn("Warning: invalid memblk node %d [mem %pap-%pap]\n",
+> -				mblk_nid, &start, &end);
+> -			return -EINVAL;
 > -		}
-> -
-> -		INIT_LIST_HEAD(rel_head->rel_entry);
-> +		INIT_LIST_HEAD(&rel_head->rel_entry);
->  		rel_head->location =3D location;
->  		INIT_HLIST_NODE(&rel_head->node);
->  		if (!current_head->first) {
-> @@ -722,7 +713,6 @@ static int add_relocation_to_accumulate(struct module=
- *me, int type,
->  =
+> -	}
+>  
 
->  			if (!bucket) {
->  				kfree(entry);
-> -				kfree(rel_head->rel_entry);
->  				kfree(rel_head);
->  				return -ENOMEM;
->  			}
-> @@ -735,7 +725,7 @@ static int add_relocation_to_accumulate(struct module=
- *me, int type,
->  	}
->  =
+This hunk has the unfortunate side effect of killing my ThunderX
+extremely early at boot time, as this sorry excuse for a machine
+really relies on the kernel recognising that whatever NUMA information
+the FW offers is BS.
 
->  	/* Add relocation to head of discovered rel_head */
-> -	list_add_tail(&entry->head, rel_head->rel_entry);
-> +	list_add_tail(&entry->head, &rel_head->rel_entry);
->  =
+Reverting this hunk restores happiness (sort of).
 
->  	return 0;
->  }
-> -- =
+FWIW, I've posted a patch with such revert at [1].
 
-> 2.45.2
-> =
+Thanks,
 
+	M.
+
+[1] https://lore.kernel.org/r/20241127193000.3702637-1-maz@kernel.org
+
+-- 
+Without deviation from the norm, progress is not possible.
 
 _______________________________________________
 linux-riscv mailing list
