@@ -4,117 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EDA1FD6D231
-	for <linux-riscv@archiver.kernel.org>; Wed, 27 Nov 2024 19:34:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 877E0D6D227
+	for <linux-riscv@archiver.kernel.org>; Wed, 27 Nov 2024 19:37:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Subject:Cc:To:From:Message-ID:Date:Reply-To:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:List-Subscribe:List-Help:
+	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Date:Message-Id:
+	References:In-Reply-To:From:Subject:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=yyq78bBs6QSFypU323KCfz+fCWQyP8KaKkGXbEcs2lo=; b=qlzY6qY+auPOMz
-	qZJRp+EKoFMVad5mbtfsTw3PZ5Vo/Ahzx0XeOA+rZPrLqBMOM0QPeHpdYuN+Wja41uvpxziZjzFZJ
-	Gv0kzzk0kfwCX7ZABDkO7SY5Gi0WI7DmxdpXttZECLlstFhUkJdTT/07Zo6fgR2bgTiKcXo/4M0ro
-	oTBWydPPu+lbSU0Y10162XZxgKBatIdGug7/do3xCFhH+bO2eQ8o9/0NqajZmn9q1L34HvQ9foq95
-	O7BFW+YaB6+PWA2aLo8430yQDvv4eU2CQPkQztGc3z9CkEffNAUK7Y34nDDEPFtD+ljq0mYAu/g2C
-	3RsPxpxWn+blrv+ML1ng==;
+	List-Owner; bh=xDxI3po2zEtJ77FFvfIwi4cDbzkMmI2U4N6mmOYQdJY=; b=R8rphZAWrghoE7
+	9Q2ER6aS/dgMFB+Umh6ogSnENnG1+NjXPLdt4OQuOKz0jIQLTD7q3B4DmeLGFVwWamntCQzQuPh8N
+	FqDy4yio29/dQitkX+sP9VOUdU3dArsHd7sQgHJTSxn2X1uGWSWqVWFkzCxGOkyBuDZvaYBx4vEb/
+	v0sZMK2aASx6oIS80MIVllALB7+VEqx105yY9GMfW5nHMqKrVX0wIoCbmvgcCxYqkTGlGQv/yfTQi
+	5r/LrJwhZeGF+VD7t9B1pAUMYx6UzeXXeBZswsGAOYGysRVbBqvbamIDwAZS2V+r1l0LeZp9sAvQq
+	kq7/ph4uVpraYwxR0Gdw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tGNnh-0000000Dx3o-3Ufv;
-	Wed, 27 Nov 2024 19:34:13 +0000
+	id 1tGNqp-0000000DxZa-1ACb;
+	Wed, 27 Nov 2024 19:37:27 +0000
 Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tGNlk-0000000DwhB-0X5k;
-	Wed, 27 Nov 2024 19:32:13 +0000
+	id 1tGNqO-0000000DxT4-1hqx
+	for linux-riscv@lists.infradead.org;
+	Wed, 27 Nov 2024 19:37:01 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 25421A439F3;
-	Wed, 27 Nov 2024 19:30:18 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7BD69C4CED2;
-	Wed, 27 Nov 2024 19:32:10 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id DE6A6A439EA;
+	Wed, 27 Nov 2024 19:35:06 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 609C7C4CECC;
+	Wed, 27 Nov 2024 19:36:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1732735930;
-	bh=xrciW+EMhZ5UEofbJw9NwB4YNk6WJ7ZsUg3ugalAKtY=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=X2BtrIqNGPOvV+49M5YnEnvMfq90m+ylhD7PzWNtlQWXRcWLiIC9o7ibIu7Z+6NCF
-	 kcXzlV4NXbHYexopnI8wyMqZtXl1aARG1Kv+1kHo2QdWtEH8r51A6kx0Z+b8YMEuGQ
-	 KkVWB5pfPFETZ3jygkOvTt1oTUJ7ox8ovqX6d1E+iA+5p2Dg3oRun7qGKNbz7lmsz9
-	 P2yGA8boYanYTYFxQR6QsePoSp98SjRizDnHD/Y6HoJ2E4HX1u+AiXq7pnGqhQjajY
-	 UFL0t9n5dlc0Yh9Rql7BGoHCScG0i7PhlQ+71XDRGrapyLXfaRB16QrJ7c3W0qJT2C
-	 zsuLVCEMA8n/A==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.95)
-	(envelope-from <maz@kernel.org>)
-	id 1tGNlf-00GLsr-Kw;
-	Wed, 27 Nov 2024 19:32:07 +0000
-Date: Wed, 27 Nov 2024 19:32:06 +0000
-Message-ID: <867c8ov5ft.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Mike Rapoport <rppt@kernel.org>
-Cc: linux-kernel@vger.kernel.org,
-	Alexander Gordeev <agordeev@linux.ibm.com>,
-	Andreas Larsson <andreas@gaisler.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Arnd Bergmann <arnd@arndb.de>,
-	Borislav Petkov <bp@alien8.de>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Christophe Leroy <christophe.leroy@csgroup.eu>,
-	Dan Williams <dan.j.williams@intel.com>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	David Hildenbrand <david@redhat.com>,
-	"David S. Miller" <davem@davemloft.net>,
-	Davidlohr Bueso <dave@stgolabs.net>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Heiko Carstens <hca@linux.ibm.com>,
-	Huacai Chen <chenhuacai@kernel.org>,
-	Ingo Molnar <mingo@redhat.com>,
-	Jiaxun Yang <jiaxun.yang@flygoat.com>,
-	John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>,
-	Jonathan Cameron <jonathan.cameron@huawei.com>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	"Rafael J. Wysocki" <rafael@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Samuel Holland <samuel.holland@sifive.com>,
-	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Vasily Gorbik <gor@linux.ibm.com>,
-	Will Deacon <will@kernel.org>,
-	Zi Yan <ziy@nvidia.com>,
-	devicetree@vger.kernel.org,
-	linux-acpi@vger.kernel.org,
-	linux-arch@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-cxl@vger.kernel.org,
-	linux-doc@vger.kernel.org,
-	linux-mips@vger.kernel.org,
-	linux-mm@kvack.org,
-	linux-riscv@lists.infradead.org,
-	linux-s390@vger.kernel.org,
-	linux-sh@vger.kernel.org,
-	linuxppc-dev@lists.ozlabs.org,
-	loongarch@lists.linux.dev,
-	nvdimm@lists.linux.dev,
-	sparclinux@vger.kernel.org,
-	x86@kernel.org,
-	Jonathan Cameron <Jonathan.Cameron@huawei.com>
-Subject: Re: [PATCH v4 24/26] arch_numa: switch over to numa_memblks
-In-Reply-To: <20240807064110.1003856-25-rppt@kernel.org>
-References: <20240807064110.1003856-1-rppt@kernel.org>
-	<20240807064110.1003856-25-rppt@kernel.org>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: rppt@kernel.org, linux-kernel@vger.kernel.org, agordeev@linux.ibm.com, andreas@gaisler.com, akpm@linux-foundation.org, arnd@arndb.de, bp@alien8.de, catalin.marinas@arm.com, christophe.leroy@csgroup.eu, dan.j.williams@intel.com, dave.hansen@linux.intel.com, david@redhat.com, davem@davemloft.net, dave@stgolabs.net, gregkh@linuxfoundation.org, hca@linux.ibm.com, chenhuacai@kernel.org, mingo@redhat.com, jiaxun.yang@flygoat.com, glaubitz@physik.fu-berlin.de, jonathan.cameron@huawei.com, corbet@lwn.net, mpe@ellerman.id.au, palmer@dabbelt.com, rafael@kernel.org, robh@kernel.org, samuel.holland@sifive.com, tsbogend@alpha.franken.de, tglx@linutronix.de, gor@linux.ibm.com, will@kernel.org, ziy@nvidia.com, devicetree@vger.kernel.org, linux-acpi@vger.kernel.org, linux-arch@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-cxl@vger.kernel.org, linux-doc@vger.kernel.org, linux-mips@vger.kernel.org, linux-mm@kvack.org, linux-riscv@lists.infradead.org, linux-s390@vger.k
- ernel.org, linux-sh@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, loongarch@lists.linux.dev, nvdimm@lists.linux.dev, sparclinux@vger.kernel.org, x86@kernel.org, Jonathan.Cameron@huawei.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	s=k20201202; t=1732736219;
+	bh=ZzX7oKXy2Tdp/Dmbid7+UFmOK72Wd7W9l1+Q2D83x7o=;
+	h=Subject:From:In-Reply-To:References:Date:To:Cc:From;
+	b=EbmRD5LXDAgDQHIvFlqudUM0R6quL2TGkZ8P+fphFPjwQ96iz9ie1gMFZaG2Fg9RP
+	 bQSdPcit6iGL2p2czFpl0unt0zFVHM0mJ3na/7wUhV372f2bCHQwicSBc+2wMR6ath
+	 iQUxtxVv724HqsFIr7B9rrRxrbUqXS214hzRfHRUQKuEoRIraAPub/xPsFGfktV/dU
+	 F2JM2ylC+phYxKEldtzeFKWBKjdOzxGOB/01NkbOaZTJhgU8wuj4V3ykqSdRbSsI/I
+	 JNlGuUh4XMcVGiUEzBF/Lup4HkVsX9LUTj0cS9E+sQ0FwTEdVh99ftFhVklpowxUNc
+	 8W0P55JiddsGA==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id ADEC0380A944;
+	Wed, 27 Nov 2024 19:37:13 +0000 (UTC)
+Subject: Re: [GIT PULL] RISC-V Paches for the 6.13 Merge Window, Part 1
+From: pr-tracker-bot@kernel.org
+In-Reply-To: <mhng-5c0ea89d-908b-4009-ba23-e4fac45618b4@palmer-ri-x1c9>
+References: <mhng-5c0ea89d-908b-4009-ba23-e4fac45618b4@palmer-ri-x1c9>
+X-PR-Tracked-List-Id: <linux-riscv.lists.infradead.org>
+X-PR-Tracked-Message-Id: <mhng-5c0ea89d-908b-4009-ba23-e4fac45618b4@palmer-ri-x1c9>
+X-PR-Tracked-Remote: git://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux.git tags/riscv-for-linus-6.13-mw1
+X-PR-Tracked-Commit-Id: 8d4f1e05ff821a5d59116ab8c3a30fcae81d8597
+X-PR-Merge-Tree: torvalds/linux.git
+X-PR-Merge-Refname: refs/heads/master
+X-PR-Merge-Commit-Id: 91dbbe6c9ffe5eded9a3e75d773ff92da8d2bc57
+Message-Id: <173273623222.1191875.109864199559601828.pr-tracker-bot@kernel.org>
+Date: Wed, 27 Nov 2024 19:37:12 +0000
+To: Palmer Dabbelt <palmer@rivosinc.com>
+Cc: Linus Torvalds <torvalds@linux-foundation.org>, linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241127_113212_293313_E0EA8184 
-X-CRM114-Status: GOOD (  25.63  )
+X-CRM114-CacheID: sfid-20241127_113700_502419_CE5F9EAF 
+X-CRM114-Status: UNSURE (   3.51  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,85 +75,24 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Mike,
+The pull request you sent on Wed, 27 Nov 2024 07:30:53 -0800 (PST):
 
-Sorry for reviving a rather old thread.
+> git://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux.git tags/riscv-for-linus-6.13-mw1
 
-On Wed, 07 Aug 2024 07:41:08 +0100,
-Mike Rapoport <rppt@kernel.org> wrote:
-> 
-> From: "Mike Rapoport (Microsoft)" <rppt@kernel.org>
-> 
-> Until now arch_numa was directly translating firmware NUMA information
-> to memblock.
-> 
-> Using numa_memblks as an intermediate step has a few advantages:
-> * alignment with more battle tested x86 implementation
-> * availability of NUMA emulation
-> * maintaining node information for not yet populated memory
-> 
-> Adjust a few places in numa_memblks to compile with 32-bit phys_addr_t
-> and replace current functionality related to numa_add_memblk() and
-> __node_distance() in arch_numa with the implementation based on
-> numa_memblks and add functions required by numa_emulation.
-> 
-> Signed-off-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
-> Tested-by: Zi Yan <ziy@nvidia.com> # for x86_64 and arm64
-> Reviewed-by: Jonathan Cameron <Jonathan.Cameron@huawei.com>
-> Tested-by: Jonathan Cameron <Jonathan.Cameron@huawei.com> [arm64 + CXL via QEMU]
-> Acked-by: Dan Williams <dan.j.williams@intel.com>
-> Acked-by: David Hildenbrand <david@redhat.com>
-> ---
->  drivers/base/Kconfig       |   1 +
->  drivers/base/arch_numa.c   | 201 +++++++++++--------------------------
->  include/asm-generic/numa.h |   6 +-
->  mm/numa_memblks.c          |  17 ++--
->  4 files changed, 75 insertions(+), 150 deletions(-)
->
+has been merged into torvalds/linux.git:
+https://git.kernel.org/torvalds/c/91dbbe6c9ffe5eded9a3e75d773ff92da8d2bc57
 
-[...]
-
->  static int __init numa_register_nodes(void)
->  {
->  	int nid;
-> -	struct memblock_region *mblk;
-> -
-> -	/* Check that valid nid is set to memblks */
-> -	for_each_mem_region(mblk) {
-> -		int mblk_nid = memblock_get_region_node(mblk);
-> -		phys_addr_t start = mblk->base;
-> -		phys_addr_t end = mblk->base + mblk->size - 1;
-> -
-> -		if (mblk_nid == NUMA_NO_NODE || mblk_nid >= MAX_NUMNODES) {
-> -			pr_warn("Warning: invalid memblk node %d [mem %pap-%pap]\n",
-> -				mblk_nid, &start, &end);
-> -			return -EINVAL;
-> -		}
-> -	}
->  
-
-This hunk has the unfortunate side effect of killing my ThunderX
-extremely early at boot time, as this sorry excuse for a machine
-really relies on the kernel recognising that whatever NUMA information
-the FW offers is BS.
-
-Reverting this hunk restores happiness (sort of).
-
-FWIW, I've posted a patch with such revert at [1].
-
-Thanks,
-
-	M.
-
-[1] https://lore.kernel.org/r/20241127193000.3702637-1-maz@kernel.org
+Thank you!
 
 -- 
-Without deviation from the norm, progress is not possible.
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/prtracker.html
 
 _______________________________________________
 linux-riscv mailing list
