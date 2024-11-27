@@ -4,82 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B440CD6ACE9
-	for <linux-riscv@archiver.kernel.org>; Wed, 27 Nov 2024 15:23:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7F167D6ACEB
+	for <linux-riscv@archiver.kernel.org>; Wed, 27 Nov 2024 15:31:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:CC
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:List-Subscribe:List-Help:
+	List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:To:From:CC:Subject
+	:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=GbXjamBa1xrwMswqXPOOkBqUW/PdFOHJ/yc7Fq0+RTs=; b=K9Iqi7ikPVt9gM
-	ENAGR9HLqskISwC4SDt9SNzmV3rADNTrZLND1YcYLxS2gLlMOjQhjm9vA9eRTMXsop0LSKBiOzZeX
-	9rVXWFWN3eHUDYXNIa58qM49xUi0sdohijb99h8PEGK2LPDLhKg/zQjzINH/FqpVFXOoIwJ7ZNkB9
-	iJKPSxK9WgAfA5mRSxSB06XQamS+v0Ig1B2+aV0saJ/yN0sNwUKyRBM9q80u2sf4eiiCmQWlzCKva
-	anlCijum2w8tb3T4qlKU7QxoiOlHVSuKXZ+r9zz8j0e7apCJKRMHkzaFCJrs0E0EOdndejnXxJigL
-	cpGoimM7mjd+ughtJ1mw==;
+	List-Owner; bh=pNkFgjayxSl6aaoGlx4ayArFiE1U0ix7z9N7Jjck1gM=; b=ztv8iZFMw4Jj1s
+	63/jl+tcB92UWkgONShKhA3KPChAYBzdO7lzARRIMXQXe9+TYHC7oHY8+PE+7jCiFICZ7rVLHlXS9
+	V0k0a2yrKpJdAKHts5Imbs8+68irQJLksU3sxGXZEGq9zLmIh8a90kpsrBEYwlrTz5Zd0eSv1Z02O
+	heEQAt8EDrKTztRjZV+H8RdZOmhu570YEZnpRSkwbaQS68YusSgXaQ8XRx/xkxK3KMQU3UQ62Qr/i
+	KiqIEzj+mu4EjJRsU1zY+n+KMNwbsy2byvbS/sCsWu+l723YRv4rUQRXFgzQ+ncRgiXsJ5r7CFoJl
+	JB97t9OL/DVbU/VpfXDA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tGJtJ-0000000DUzb-02Wx;
-	Wed, 27 Nov 2024 15:23:45 +0000
-Received: from smtp-fw-80008.amazon.com ([99.78.197.219])
+	id 1tGK0R-0000000DVyj-40tm;
+	Wed, 27 Nov 2024 15:31:07 +0000
+Received: from mail-pl1-x630.google.com ([2607:f8b0:4864:20::630])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tGJsJ-0000000DUrb-0c2v;
-	Wed, 27 Nov 2024 15:22:44 +0000
+	id 1tGK0G-0000000DVvy-0d7O
+	for linux-riscv@lists.infradead.org;
+	Wed, 27 Nov 2024 15:30:57 +0000
+Received: by mail-pl1-x630.google.com with SMTP id d9443c01a7336-21290973bcbso66404515ad.3
+        for <linux-riscv@lists.infradead.org>; Wed, 27 Nov 2024 07:30:55 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-  d=amazon.com; i=@amazon.com; q=dns/txt; s=amazon201209;
-  t=1732720963; x=1764256963;
-  h=from:to:cc:subject:date:message-id:mime-version:
-   content-transfer-encoding;
-  bh=NvBWtev1slrWXhkVcMmhNUJ2tEXO/H0E7EXWBQ0mv08=;
-  b=dfXM2K7W1ann49CDovlt4tmfhJUqOJERZ/2WJhgMnHlaipmYT3HJimaC
-   hQGX5e63SnuTArgspf8dcRYN+NTa8mADuUcapq8ZJS9Rxgz+yMhRoGviZ
-   Ig5ESzqHpk773g9iwbHQ36/cmC3pcfSjvjUHqQlERUe3USNcgiXqYvB0y
-   c=;
-X-IronPort-AV: E=Sophos;i="6.12,189,1728950400"; 
-   d="scan'208";a="148444442"
-Received: from pdx4-co-svc-p1-lb2-vlan3.amazon.com (HELO smtpout.prod.us-west-2.prod.farcaster.email.amazon.dev) ([10.25.36.214])
-  by smtp-border-fw-80008.pdx80.corp.amazon.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 27 Nov 2024 15:22:38 +0000
-Received: from EX19MTAUWB002.ant.amazon.com [10.0.38.20:4762]
- by smtpin.naws.us-west-2.prod.farcaster.email.amazon.dev [10.0.10.101:2525] with esmtp (Farcaster)
- id 090d255a-bd4e-4b8c-9604-9659de410a04; Wed, 27 Nov 2024 15:22:38 +0000 (UTC)
-X-Farcaster-Flow-ID: 090d255a-bd4e-4b8c-9604-9659de410a04
-Received: from EX19D013UWB003.ant.amazon.com (10.13.138.111) by
- EX19MTAUWB002.ant.amazon.com (10.250.64.231) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.1258.34;
- Wed, 27 Nov 2024 15:22:37 +0000
-Received: from EX19MTAUWC001.ant.amazon.com (10.250.64.145) by
- EX19D013UWB003.ant.amazon.com (10.13.138.111) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.1258.34;
- Wed, 27 Nov 2024 15:22:37 +0000
-Received: from email-imr-corp-prod-iad-all-1a-93a35fb4.us-east-1.amazon.com
- (10.25.36.210) by mail-relay.amazon.com (10.250.64.145) with Microsoft SMTP
- Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id
- 15.2.1258.34 via Frontend Transport; Wed, 27 Nov 2024 15:22:37 +0000
-Received: from dev-dsk-farbere-1a-46ecabed.eu-west-1.amazon.com (dev-dsk-farbere-1a-46ecabed.eu-west-1.amazon.com [172.19.116.181])
-	by email-imr-corp-prod-iad-all-1a-93a35fb4.us-east-1.amazon.com (Postfix) with ESMTP id C4BC640610;
-	Wed, 27 Nov 2024 15:22:36 +0000 (UTC)
-Received: by dev-dsk-farbere-1a-46ecabed.eu-west-1.amazon.com (Postfix, from userid 14301484)
-	id 7AFF345B; Wed, 27 Nov 2024 15:22:36 +0000 (UTC)
-From: Eliav Farber <farbere@amazon.com>
-To: <linux@armlinux.org.uk>, <catalin.marinas@arm.com>, <will@kernel.org>,
-	<mpe@ellerman.id.au>, <npiggin@gmail.com>, <christophe.leroy@csgroup.eu>,
-	<naveen@kernel.org>, <maddy@linux.ibm.com>, <paul.walmsley@sifive.com>,
-	<palmer@dabbelt.com>, <aou@eecs.berkeley.edu>, <tglx@linutronix.de>,
-	<akpm@linux-foundation.org>, <bhe@redhat.com>, <farbere@amazon.com>,
-	<hbathini@linux.ibm.com>, <adityag@linux.ibm.com>,
-	<songshuaishuai@tinylab.org>, <takakura@valinux.co.jp>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	<linuxppc-dev@lists.ozlabs.org>, <linux-riscv@lists.infradead.org>
-CC: <jonnyc@amazon.com>
-Subject: [PATCH v2] arm64: kexec: Check if IRQ is already masked before masking
-Date: Wed, 27 Nov 2024 15:22:36 +0000
-Message-ID: <20241127152236.26122-1-farbere@amazon.com>
-X-Mailer: git-send-email 2.40.1
-MIME-Version: 1.0
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1732721454; x=1733326254; darn=lists.infradead.org;
+        h=message-id:to:from:cc:subject:date:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=cbxIRZel9T5dkqcntCDk2OqqDHeP3vTzFbFWVMrRR0k=;
+        b=W3poiIvr7mrEdqQAjKRsuWKCoI80YT+4GgaiZYDX/Pxn17xtXyJomOby+814nRmPkR
+         ihmjRGH+lYP1/4H4qu2NDIFkgl4eAU9jpO+oDY+oVmr3miVMT5tLLr4169v6VrGqYTQ2
+         7dsm0ewslj5c02+Ie63q+AlRmGuSVkYEwetZatF1iTxVUkYyDSMj/QhewN4fnwKqRFF6
+         fKncls0mxQTWoqvfVVSK4Ih+8YPFR5QKg/WmV21L0CLDqIFvucB/gk2y7Yh+mgMElBEQ
+         OT4F7Q+pEWDKkTDTIbiwGUo93ztPWIApm4WIjkk2o81l5WrD8UhBzAimDG845NuPpGYc
+         7nLQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1732721454; x=1733326254;
+        h=message-id:to:from:cc:subject:date:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=cbxIRZel9T5dkqcntCDk2OqqDHeP3vTzFbFWVMrRR0k=;
+        b=eEyUgNeUH+QaUH3T+O6GGCW0Agw+qodzBgf+fz22p8dxcgml4Nt5GZEA4mv3eFpRYG
+         +/pCdiZZ2HZdcsAnpZQaw3DSMrzElayMJSwot+8xzurfzZCRghuVa7gifk0kmL1PEvfh
+         8lE33vl4QHdEARsU6Hf6iXXWEzNxgviyZkP8eqQhm8LfTojX2+VbTZftzxFoNCgIpBm1
+         DYXjGRWBrPgQD3CSO1n0Or64dy+U1Z5OtFoiY/sQ5U+X3t1EmQGIPHEasaIMxFeG19JZ
+         iijN1TdZ1xOopcvO54E2J6bo7r32AXlUALy/unQwwlMUqgVHCzVItxWeBwKx0FVSEX1d
+         37VA==
+X-Gm-Message-State: AOJu0Ywm9moBtCErbnpxuXaIFKfa6K003eKQwFWTvEFqRH6W7dfD+HrS
+	bOcR5xeROy+Hp/09YPFpTNSbHDQF1/X3BrKfBvZHzkON1sShU7dNYSUYdFAEDXL9RD7dKDyOhwH
+	P
+X-Gm-Gg: ASbGncsXK6MtkM8gDHN9yPHQQNM4lqbHqpSeJ/ek+0ccMWUybt8BwnIL+ULGNCTwMgx
+	kMgsURNZFm5OKIZi+pPS2QBk5Unr0DQ56Lzf267yhJEypN3qIMVaYR+XFQKBiIUlc6dfuynWVK3
+	h8bB9TSXVqlV9iXJoC3kUmwcG/qRQr9FXpDUpj+3syHJjiCFNkfSnV3SB/vVteIU/pj4UI0ZZk8
+	JU02QwSg3Dl/VZFvd0bj4e2pme/joERMxh5LXwWdoYRYfR9
+X-Google-Smtp-Source: AGHT+IEKS5ruBNsykjv4PxtNLKybCyk+nwPxsnSoJG0AQq9IJovlSaXdZw4IhgtETh8O+QYsxFfo1w==
+X-Received: by 2002:a17:903:22c2:b0:211:f335:ac8 with SMTP id d9443c01a7336-21501385201mr36815565ad.29.1732721454111;
+        Wed, 27 Nov 2024 07:30:54 -0800 (PST)
+Received: from localhost ([192.184.165.199])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2129db8c7aesm104109355ad.55.2024.11.27.07.30.53
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 27 Nov 2024 07:30:53 -0800 (PST)
+Date: Wed, 27 Nov 2024 07:30:53 -0800 (PST)
+X-Google-Original-Date: Wed, 27 Nov 2024 07:21:06 PST (-0800)
+Subject: [GIT PULL] RISC-V Paches for the 6.13 Merge Window, Part 1
+CC: linux-riscv@lists.infradead.org,        linux-kernel@vger.kernel.org
+From: Palmer Dabbelt <palmer@rivosinc.com>
+To: Linus Torvalds <torvalds@linux-foundation.org>
+Message-ID: <mhng-5c0ea89d-908b-4009-ba23-e4fac45618b4@palmer-ri-x1c9>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241127_072243_236987_5D321905 
-X-CRM114-Status: GOOD (  16.50  )
+X-CRM114-CacheID: sfid-20241127_073056_393726_34F17F98 
+X-CRM114-Status: GOOD (  15.13  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,176 +86,159 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-During machine kexec, the function machine_kexec_mask_interrupts() is
-responsible for disabling or masking all interrupts. While the
-irq_disable hook ensures that an already-disabled IRQ is not disabled
-again, the current implementation unconditionally invokes the irq_mask()
-function for every interrupt descriptor, even when the interrupt is
-already masked.
+The following changes since commit 81983758430957d9a5cb3333fe324fd70cf63e7e:
 
-A specific issue was observed in the crash kernel flow after unbinding a
-device (prior to kexec) that used a GPIO as an IRQ source. The warning
-was triggered by the gpiochip_disable_irq() function, which attempted to
-clear the FLAG_IRQ_IS_ENABLED flag when FLAG_USED_AS_IRQ was not set:
+  Linux 6.12-rc5 (2024-10-27 12:52:02 -1000)
 
-```
-void gpiochip_disable_irq(struct gpio_chip *gc, unsigned int offset)
-{
-	struct gpio_desc *desc = gpiochip_get_desc(gc, offset);
+are available in the Git repository at:
 
-	if (!IS_ERR(desc) &&
-	    !WARN_ON(!test_bit(FLAG_USED_AS_IRQ, &desc->flags)))
-		clear_bit(FLAG_IRQ_IS_ENABLED, &desc->flags);
-}
-```
+  git://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux.git tags/riscv-for-linus-6.13-mw1
 
-The issue emerged after commit a8173820f441 ("gpio: gpiolib: Allow GPIO
-IRQs to lazy disable"), which introduced lazy disablement for GPIO IRQs
-by replacing disable/enable hooks with mask/unmask hooks in some cases.
-While irq_disable guarded against redundant operations, the unguarded
-irq_mask in machine_kexec_mask_interrupts() led to warnings when invoked
-on already-masked IRQs.
+for you to fetch changes up to 8d4f1e05ff821a5d59116ab8c3a30fcae81d8597:
 
-When a GPIO-IRQ-using driver is unbound, the IRQ is released, invoking
-__irq_disable() and irq_state_set_masked(). A subsequent call to
-machine_kexec_mask_interrupts() reinvoked chip->irq_mask(), leading to a
-call chain that included gpiochip_irq_mask() and gpiochip_disable_irq().
-Because FLAG_USED_AS_IRQ was cleared earlier, a warning was printed.
+  RISC-V: Remove unnecessary include from compat.h (2024-11-26 11:48:53 -0800)
 
-This patch replaces the direct invocation of the irq_mask() and
-irq_disable() hooks with simplified code that leverages the
-irq_disable() kernel infrastructure. This higher-level function checks
-the interrupt's state to prevent redundant operations. Additionally, the
-IRQ_DISABLE_UNLAZY status flag is set to ensure that, for interrupt
-chips lacking an irq_disable callback, the disable operation is handled
-using the lazy approach.
+----------------------------------------------------------------
+RISC-V Paches for the 6.13 Merge Window, Part 1
 
-As part of this change, the irq_disable() declaration was moved from
-kernel/irq/internals.h to include/linux/irq.h to make it accessible
-outside the kernel/irq/ directory, as the former can only be included
-within that directory.
+* Support for pointer masking in userspace,
+* Support for probing vector misaligned access performance.
+* Support for qspinlock on systems with Zacas and Zabha.
 
-Signed-off-by: Eliav Farber <farbere@amazon.com>
----
-V1 -> V2:
-- Implement an alternative solution by utilizing the kernel's
-  irq_disable() infrastructure.
-- Apply the fix to additional architectures, including ARM, PowerPC,
-  and RISC-V.
----
- arch/arm/kernel/machine_kexec.c   | 7 ++-----
- arch/arm64/kernel/machine_kexec.c | 7 ++-----
- arch/powerpc/kexec/core.c         | 7 ++-----
- arch/riscv/kernel/machine_kexec.c | 7 ++-----
- include/linux/irq.h               | 2 ++
- kernel/irq/internals.h            | 1 -
- 6 files changed, 10 insertions(+), 21 deletions(-)
+----------------------------------------------------------------
+There's a handful of fixes working through other trees (the wait/wound lockdep
+failures and a tools build fix), but aside from those everything is clean on my
+end.  I don't plan on having a part 2, unless there's something else in flight
+that blows up.
 
-diff --git a/arch/arm/kernel/machine_kexec.c b/arch/arm/kernel/machine_kexec.c
-index 80ceb5bd2680..54d0bd1bd449 100644
---- a/arch/arm/kernel/machine_kexec.c
-+++ b/arch/arm/kernel/machine_kexec.c
-@@ -142,11 +142,8 @@ static void machine_kexec_mask_interrupts(void)
- 		if (chip->irq_eoi && irqd_irq_inprogress(&desc->irq_data))
- 			chip->irq_eoi(&desc->irq_data);
- 
--		if (chip->irq_mask)
--			chip->irq_mask(&desc->irq_data);
--
--		if (chip->irq_disable && !irqd_irq_disabled(&desc->irq_data))
--			chip->irq_disable(&desc->irq_data);
-+		irq_set_status_flags(i, IRQ_DISABLE_UNLAZY);
-+		irq_disable(desc);
- 	}
- }
- 
-diff --git a/arch/arm64/kernel/machine_kexec.c b/arch/arm64/kernel/machine_kexec.c
-index 82e2203d86a3..9b48d952df3e 100644
---- a/arch/arm64/kernel/machine_kexec.c
-+++ b/arch/arm64/kernel/machine_kexec.c
-@@ -230,11 +230,8 @@ static void machine_kexec_mask_interrupts(void)
- 		    chip->irq_eoi)
- 			chip->irq_eoi(&desc->irq_data);
- 
--		if (chip->irq_mask)
--			chip->irq_mask(&desc->irq_data);
--
--		if (chip->irq_disable && !irqd_irq_disabled(&desc->irq_data))
--			chip->irq_disable(&desc->irq_data);
-+		irq_set_status_flags(i, IRQ_DISABLE_UNLAZY);
-+		irq_disable(desc);
- 	}
- }
- 
-diff --git a/arch/powerpc/kexec/core.c b/arch/powerpc/kexec/core.c
-index b8333a49ea5d..3489e50f5017 100644
---- a/arch/powerpc/kexec/core.c
-+++ b/arch/powerpc/kexec/core.c
-@@ -36,11 +36,8 @@ void machine_kexec_mask_interrupts(void) {
- 		if (chip->irq_eoi && irqd_irq_inprogress(&desc->irq_data))
- 			chip->irq_eoi(&desc->irq_data);
- 
--		if (chip->irq_mask)
--			chip->irq_mask(&desc->irq_data);
--
--		if (chip->irq_disable && !irqd_irq_disabled(&desc->irq_data))
--			chip->irq_disable(&desc->irq_data);
-+		irq_set_status_flags(i, IRQ_DISABLE_UNLAZY);
-+		irq_disable(desc);
- 	}
- }
- 
-diff --git a/arch/riscv/kernel/machine_kexec.c b/arch/riscv/kernel/machine_kexec.c
-index 3c830a6f7ef4..a9df80e0602c 100644
---- a/arch/riscv/kernel/machine_kexec.c
-+++ b/arch/riscv/kernel/machine_kexec.c
-@@ -129,11 +129,8 @@ static void machine_kexec_mask_interrupts(void)
- 		if (chip->irq_eoi && irqd_irq_inprogress(&desc->irq_data))
- 			chip->irq_eoi(&desc->irq_data);
- 
--		if (chip->irq_mask)
--			chip->irq_mask(&desc->irq_data);
--
--		if (chip->irq_disable && !irqd_irq_disabled(&desc->irq_data))
--			chip->irq_disable(&desc->irq_data);
-+		irq_set_status_flags(i, IRQ_DISABLE_UNLAZY);
-+		irq_disable(desc);
- 	}
- }
- 
-diff --git a/include/linux/irq.h b/include/linux/irq.h
-index fa711f80957b..176a7f671409 100644
---- a/include/linux/irq.h
-+++ b/include/linux/irq.h
-@@ -600,6 +600,8 @@ enum {
- 
- #define IRQ_DEFAULT_INIT_FLAGS	ARCH_IRQ_INIT_FLAGS
- 
-+extern void irq_disable(struct irq_desc *desc);
-+
- struct irqaction;
- extern int setup_percpu_irq(unsigned int irq, struct irqaction *new);
- extern void remove_percpu_irq(unsigned int irq, struct irqaction *act);
-diff --git a/kernel/irq/internals.h b/kernel/irq/internals.h
-index fe0272cd84a5..d9104d2b26b4 100644
---- a/kernel/irq/internals.h
-+++ b/kernel/irq/internals.h
-@@ -91,7 +91,6 @@ extern int irq_startup(struct irq_desc *desc, bool resend, bool force);
- extern void irq_shutdown(struct irq_desc *desc);
- extern void irq_shutdown_and_deactivate(struct irq_desc *desc);
- extern void irq_enable(struct irq_desc *desc);
--extern void irq_disable(struct irq_desc *desc);
- extern void irq_percpu_enable(struct irq_desc *desc, unsigned int cpu);
- extern void irq_percpu_disable(struct irq_desc *desc, unsigned int cpu);
- extern void mask_irq(struct irq_desc *desc);
--- 
-2.40.1
+----------------------------------------------------------------
+Alexandre Ghiti (12):
+      riscv: Check that vdso does not contain any dynamic relocations
+      riscv: Move cpufeature.h macros into their own header
+      riscv: Do not fail to build on byte/halfword operations with Zawrs
+      riscv: Implement cmpxchg32/64() using Zacas
+      dt-bindings: riscv: Add Zabha ISA extension description
+      riscv: Implement cmpxchg8/16() using Zabha
+      riscv: Improve zacas fully-ordered cmpxchg()
+      riscv: Implement arch_cmpxchg128() using Zacas
+      riscv: Implement xchg8/16() using Zabha
+      riscv: Add ISA extension parsing for Ziccrse
+      dt-bindings: riscv: Add Ziccrse ISA extension description
+      riscv: Add qspinlock support
 
+Charlie Jenkins (1):
+      riscv: Fix default misaligned access trap
+
+Drew Fustini (1):
+      riscv: defconfig: enable gpio support for TH1520
+
+Guo Ren (2):
+      asm-generic: ticket-lock: Reuse arch_spinlock_t of qspinlock
+      asm-generic: ticket-lock: Add separate ticket-lock.h
+
+Jesse Taube (6):
+      RISC-V: Check scalar unaligned access on all CPUs
+      RISC-V: Scalar unaligned access emulated on hotplug CPUs
+      RISC-V: Replace RISCV_MISALIGNED with RISCV_SCALAR_MISALIGNED
+      RISC-V: Detect unaligned vector accesses supported
+      RISC-V: Report vector unaligned access speed hwprobe
+      RISC-V: hwprobe: Document unaligned vector perf key
+
+Nick Hu (2):
+      cpuidle: riscv-sbi: Move sbi_cpuidle_init to arch_initcall
+      cpuidle: riscv-sbi: Add cpuidle_disabled() check
+
+Palmer Dabbelt (7):
+      Merge patch series "riscv: Per-thread envcfg CSR support"
+      Merge patch series "cpuidle: riscv-sbi: Allow cpuidle pd used by other devices"
+      Merge patch series "RISC-V: Detect and report speed of unaligned vector accesses"
+      Merge patch series "Prevent dynamic relocations in vDSO"
+      Merge patch series "riscv: Userspace pointer masking and tagged address ABI"
+      Merge patch series "Zacas/Zabha support and qspinlocks"
+      RISC-V: Remove unnecessary include from compat.h
+
+Samuel Holland (13):
+      riscv: Enable cbo.zero only when all harts support Zicboz
+      riscv: Add support for per-thread envcfg CSR values
+      riscv: Call riscv_user_isa_enable() only on the boot hart
+      dt-bindings: riscv: Add pointer masking ISA extensions
+      riscv: Add ISA extension parsing for pointer masking
+      riscv: Add CSR definitions for pointer masking
+      riscv: Add support for userspace pointer masking
+      riscv: Add support for the tagged address ABI
+      riscv: Allow ptrace control of the tagged address ABI
+      riscv: selftests: Add a pointer masking test
+      riscv: hwprobe: Export the Supm ISA extension
+      RISC-V: KVM: Allow Smnpm and Ssnpm extensions for guests
+      KVM: riscv: selftests: Add Smnpm and Ssnpm to get-reg-list test
+
+ Documentation/arch/riscv/hwprobe.rst               |  19 ++
+ Documentation/arch/riscv/uabi.rst                  |  16 +
+ .../devicetree/bindings/riscv/extensions.yaml      |  30 ++
+ .../locking/queued-spinlocks/arch-support.txt      |   2 +-
+ arch/riscv/Kconfig                                 | 138 ++++++++-
+ arch/riscv/Makefile                                |   6 +
+ arch/riscv/configs/defconfig                       |   1 +
+ arch/riscv/include/asm/Kbuild                      |   4 +-
+ arch/riscv/include/asm/cmpxchg.h                   | 286 +++++++++++++-----
+ arch/riscv/include/asm/compat.h                    |   1 -
+ arch/riscv/include/asm/cpufeature-macros.h         |  66 ++++
+ arch/riscv/include/asm/cpufeature.h                |  73 +----
+ arch/riscv/include/asm/csr.h                       |  16 +
+ arch/riscv/include/asm/entry-common.h              |   1 +
+ arch/riscv/include/asm/hwcap.h                     |   7 +
+ arch/riscv/include/asm/hwprobe.h                   |   2 +-
+ arch/riscv/include/asm/mmu.h                       |   7 +
+ arch/riscv/include/asm/mmu_context.h               |  13 +
+ arch/riscv/include/asm/processor.h                 |   9 +
+ arch/riscv/include/asm/spinlock.h                  |  47 +++
+ arch/riscv/include/asm/switch_to.h                 |  19 ++
+ arch/riscv/include/asm/uaccess.h                   |  43 ++-
+ arch/riscv/include/asm/vector.h                    |   2 +
+ arch/riscv/include/uapi/asm/hwprobe.h              |   6 +
+ arch/riscv/include/uapi/asm/kvm.h                  |   2 +
+ arch/riscv/kernel/Makefile                         |   3 +-
+ arch/riscv/kernel/copy-unaligned.h                 |   5 +
+ arch/riscv/kernel/cpufeature.c                     |  16 +-
+ arch/riscv/kernel/fpu.S                            |   4 +-
+ arch/riscv/kernel/process.c                        | 154 ++++++++++
+ arch/riscv/kernel/ptrace.c                         |  42 +++
+ arch/riscv/kernel/setup.c                          |  37 +++
+ arch/riscv/kernel/smpboot.c                        |   2 -
+ arch/riscv/kernel/suspend.c                        |   4 +-
+ arch/riscv/kernel/sys_hwprobe.c                    |  44 +++
+ arch/riscv/kernel/traps_misaligned.c               | 139 ++++++++-
+ arch/riscv/kernel/unaligned_access_speed.c         | 156 +++++++++-
+ arch/riscv/kernel/vdso/Makefile                    |  10 +-
+ arch/riscv/kernel/vec-copy-unaligned.S             |  58 ++++
+ arch/riscv/kernel/vector.c                         |   2 +-
+ arch/riscv/kvm/vcpu_onereg.c                       |   4 +
+ drivers/cpuidle/cpuidle-riscv-sbi.c                |  11 +-
+ include/asm-generic/qspinlock.h                    |   2 +
+ include/asm-generic/spinlock.h                     |  87 +-----
+ include/asm-generic/spinlock_types.h               |  12 +-
+ include/asm-generic/ticket_spinlock.h              | 105 +++++++
+ include/uapi/linux/elf.h                           |   1 +
+ include/uapi/linux/prctl.h                         |   5 +-
+ tools/testing/selftests/kvm/riscv/get-reg-list.c   |   8 +
+ tools/testing/selftests/riscv/Makefile             |   2 +-
+ tools/testing/selftests/riscv/abi/.gitignore       |   1 +
+ tools/testing/selftests/riscv/abi/Makefile         |  10 +
+ .../testing/selftests/riscv/abi/pointer_masking.c  | 332 +++++++++++++++++++++
+ 53 files changed, 1790 insertions(+), 282 deletions(-)
+ create mode 100644 arch/riscv/include/asm/cpufeature-macros.h
+ create mode 100644 arch/riscv/include/asm/spinlock.h
+ create mode 100644 arch/riscv/kernel/vec-copy-unaligned.S
+ create mode 100644 include/asm-generic/ticket_spinlock.h
+ create mode 100644 tools/testing/selftests/riscv/abi/.gitignore
+ create mode 100644 tools/testing/selftests/riscv/abi/Makefile
+ create mode 100644 tools/testing/selftests/riscv/abi/pointer_masking.c
 
 _______________________________________________
 linux-riscv mailing list
