@@ -4,74 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 363AFD6ACF9
-	for <linux-riscv@archiver.kernel.org>; Wed, 27 Nov 2024 17:30:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35426D6ACFD
+	for <linux-riscv@archiver.kernel.org>; Wed, 27 Nov 2024 18:37:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=NKAr+qfLEKd7pDLeyY5HKm4InZv655DnEZsuCwfFNIs=; b=Oln3Znz3dtFQk9
-	HjTF1DVFiVT5phLUlR99uQZTMYsfsG24Om6JYE3DEfHC+X4uoAM/SlFCB9zR2S6UYN7SapmLQstyy
-	bYJv0cDC1hl/vMUWehwMsqm58qh0ATEc+xs+E9S9hd5K+cPP0DoHly+dyUb3MMtID0uRWCfl/4dK5
-	teygVR9zrZuqyrFnB3LODOHnDvXWn180rl29nxyR+o3cPQQePCMQlKcF6QeLvN3zWCMc7BAGgvOgf
-	GNAmBQsuPWWX7o1S8+n0Yi6qjDaSoTuEfucJqtGXEMgQ8mVymFLffQ9IMGN9jfi/w0LgfN0lsuMrX
-	iq0heKfM6RRehM8Ium9w==;
+	List-Owner; bh=lGJV8v39eSl1B0IihMBCQQJrpXtbSGpSZATWzfBVDas=; b=Bti1KkpUduE8GV
+	4pBI5O37atBKtOq5acVhL58II3Ns5gXveawwtkMDV+tdQTQlwqdWLUzylw8MmwGh8DiudaAIatBNd
+	YYm4c6N//9ZlSRzPBWykroV4z2olKCL3zm2jqmTL/HtCsUNMKM66mubeS2Gl3EtVtIVBuiKjSOhZr
+	VPVwiyQ1W4kH5PGXtFUrDaZ7My2IIUkJsyJpzghkoV2IjAi+9BMw9RtLzCvpFmMrqWK5TFRFZ89Af
+	uwE4DCFsqSyJc2IpYrinCWmgpFWcvd94sOW4I4swPP32l61DNyBWNhuF64D73RxLqlI866rLfWeS+
+	7sqbCFVAnQHpWT/vUOUA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tGLrl-0000000DkaF-1nRW;
-	Wed, 27 Nov 2024 17:30:17 +0000
-Received: from mail-pg1-x534.google.com ([2607:f8b0:4864:20::534])
+	id 1tGMuF-0000000DqNG-2L7c;
+	Wed, 27 Nov 2024 18:36:55 +0000
+Received: from mail-pg1-x536.google.com ([2607:f8b0:4864:20::536])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tGLrh-0000000DkXF-0ccb
+	id 1tGLrl-0000000Dka3-1BKW
 	for linux-riscv@lists.infradead.org;
-	Wed, 27 Nov 2024 17:30:15 +0000
-Received: by mail-pg1-x534.google.com with SMTP id 41be03b00d2f7-7fbbe0fb0b8so5465226a12.0
-        for <linux-riscv@lists.infradead.org>; Wed, 27 Nov 2024 09:30:12 -0800 (PST)
+	Wed, 27 Nov 2024 17:30:18 +0000
+Received: by mail-pg1-x536.google.com with SMTP id 41be03b00d2f7-7e6cbf6cd1dso4788464a12.3
+        for <linux-riscv@lists.infradead.org>; Wed, 27 Nov 2024 09:30:16 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1732728612; x=1733333412; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1732728616; x=1733333416; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=Hlixj4dxi1hv7t1eaE352YtuPYrxmNR32TDpbYYyUtI=;
-        b=MJDsib9WBTdRvwrCNKHy99DUyuFr27l2kM8/Rop0rdJGH4fLiTDTALS0GSrQ55peu8
-         JjXZe7iCjw50x1eicKd0N+wC2ZEL8qYmvVrjBwGERoj1nbtBgvtpUbHW5ALiABVsgCN0
-         QnLpF0LoMtLozy2ytWnsmV/+dfdCajvh8zzd264TUzMzUg4tMorq5zQJ8toHFl4Rsli9
-         nFEZDs5Gm0yYsigMps48VXJ2/2gXKbEq3ri+19ZI8GS1dKkkBGUJ8U86acH1Zxnr1XYd
-         EzxwsiUz7sK8ogHl4LW542bJt+L3Nb9VEQS3ny0yZmmpT3nPl4A+4Nci6eVm+H8pGmZv
-         g0jg==
+        bh=VbG7sBq4g0QTtfrKwDeWenWGnth2OE1nZlbtmRTgTgY=;
+        b=kEfI91GajQCLiJxkWk3ZE0TW0w4cd56lm7PxiKmyY6ddMiRZsGEYQzjGxPib44OICv
+         Np8WXFCRjInRqNzM/bGODog731yubxk9wK5lXlsSMdT4tndDz/kd826SNk8v/YAmkMoq
+         g/jj+vxComKQjCqaZ9O95kba2tqYwQ/McVRkz0fHkodi34h2gIHgd752FTUwM25bIUz8
+         Ipn8VirbN8jcsuFm5EJTTDeQCa8nFkmvYzcJvQyB9lL99cAX2stXKFYuuBanrrkVClwU
+         wVpQlaIjoftBSKyM7gixGwtxkSuaqNqYBomD+9j5qWq62W5DCAryRCRCFrlJ/qDciFhs
+         mq2g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1732728612; x=1733333412;
+        d=1e100.net; s=20230601; t=1732728616; x=1733333416;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=Hlixj4dxi1hv7t1eaE352YtuPYrxmNR32TDpbYYyUtI=;
-        b=KQop1Ns1YwUOly8TlPEeVb/8sKQjA+XvLrEI14kmjpeKZSnRKz8HqSZ4xUZjkIJk+h
-         tQmGw8FR66+BQ/LymoyO3cJyVl5XXuw2xLItpspH9qW6SPSqYX2Im08h+3HKu6WZPeeb
-         tlCjwXr3tRA1b7x2xxZP06nhW24wrxtf6lLOKKq09MrSuAxUZMDsCCj4iy2YYAYuE2Fh
-         LbFulFcJRFQpvWozUszocvdAUS9jSo49xS0VZajPL4Lk5MJ1JE3qAg3upF9F97WgA+ET
-         tPs0vAnLq+BaZ5QiwOoeJfjOlvE7ybAZArtZC69LcPxLmMu4tBWWId/6MFCC7JqvBUnU
-         borA==
-X-Gm-Message-State: AOJu0Ywf5Yivzh7+OhY6aFCRaMw4gSxCayGbitIzmMYRswxyarBKAdIZ
-	B8FT9z8Y2Xe0qiesEC/5hfg0vkKCIZolDNFjh0HgjpZdX2HhUliVq1OeZrFJ
-X-Gm-Gg: ASbGncuTmnaTDNdrY2X2DKyLQO07136gdIidsbfrFpfZXdOr34yF0GRhGgaEiuI6DDD
-	yo34c99GQVpP8CysQ+5Tcd7Qip3nZRwcgrtmU2hZDGe2vmOnvOenOd5QJoejstsU4YuApmxDRKY
-	1+qhBYXy7oMGDxf5LISuJCuLPYIx+RWMCAPbCde4EET6NLIMYxMvXZmgbYnPGZx7clHSYWIoAbp
-	5oDiISJnJMsHrniBA5JnHHmtm7Zlth7voGwnm++g4Rx5tYlXlZWNV619zb6HubZ+PagxZeUV5M6
-	6K/HISV+MwizYHth+NX6D4bpx6vs
-X-Google-Smtp-Source: AGHT+IG4NurKvJEqxA2cpsneqQG887+tFx88JjKBx3q3M02mZmw0BTNFpg0m60820Xm5RX2iTEn9oA==
-X-Received: by 2002:a05:6a21:e8c:b0:1e0:c56f:7da8 with SMTP id adf61e73a8af0-1e0e0aa83camr5657700637.4.1732728611949;
-        Wed, 27 Nov 2024 09:30:11 -0800 (PST)
+        bh=VbG7sBq4g0QTtfrKwDeWenWGnth2OE1nZlbtmRTgTgY=;
+        b=KilMsLo7MkJFa3E6+WZtX/vrFtFT2d2UrohoKaaKSChKevcgWfiXqtccBaDkH8RHLt
+         DTXs3TjOnCpIJfeHoQ7hF3+I/+ESx97O/ybN/zLMohcZnsxKSlCp2GcsPvqJeATiz2Wt
+         TyvPiALCq6n/yE4K+CAt0tLs9NHoB+JqGe6i1efEurz/U0kSXmze651gPwP3sPXgYWKq
+         TCsR1dgftifpZA56IOJ7PGsMelIap2YNLoXKYX7/mjtLU12PKkYXwcesoctYTYDorWq6
+         AQkMhNsdJUTITYejFYXY/ow+RSHk2MA0LGAxNbFunpTE+0S7DnSaMeP5UFkd6GZHw75M
+         xu+w==
+X-Forwarded-Encrypted: i=1; AJvYcCUAmaqfQZEu4m5xfldMroY+PnPDMROkybbEx7tX3zFdybgYY5xE3t+kcLWX6A5+2aIwVr5mFcuF4KqcQQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0YzW2y1FMYumKwko19HbkJ8qA5B9hpR+1OebZKcUBPn6irrX+ykB
+	++5abik+ixwfcnSqS5fBXbL6/WKnty8Bap8tiRA5F0Q5kI+JM1NI
+X-Gm-Gg: ASbGncuRN0HoRqdq7UxWLZzZA+mUvmhxUXtSUotwr/RTMtuep5luzVuUp3WxOPmpk7B
+	uMvyaDPvoryvF+fHJ0cAGafqVRYvI1vlyaU9rstubC4n1Bw/1zVma0usFxd0F5c0KjYq5UQ8Ml4
+	RvNW+TuKwJlPpzr3nvA+y+cYqo1sFFNROACInlTYYq56qxIM9muCHan+JqVuboWq4fqQWj8pvyR
+	sC5I9rwBH/VspN6PCiBQzyWuhvRnccN7QEBEI6WexQmyyh90QAyY59Zntv6rQGcYxY/StR1MFo5
+	JtDQYwqRU2gNiYI16KL/Y8xgb8yr
+X-Google-Smtp-Source: AGHT+IGTKYhqvbNwHQrWIr6lxxlwHTKRDAW2bOpNEEsjIU38gWo2Z6YtRqdQ+jNZ7IFsVssJEcCwIg==
+X-Received: by 2002:a05:6a21:3997:b0:1e0:ce11:b0ce with SMTP id adf61e73a8af0-1e0e0b90f7bmr8440657637.35.1732728616138;
+        Wed, 27 Nov 2024 09:30:16 -0800 (PST)
 Received: from localhost.localdomain (1-171-29-17.dynamic-ip.hinet.net. [1.171.29.17])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-7fbcc1e3fdbsm9359582a12.30.2024.11.27.09.30.09
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-7fbcc1e3fdbsm9359582a12.30.2024.11.27.09.30.13
         (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Wed, 27 Nov 2024 09:30:11 -0800 (PST)
+        Wed, 27 Nov 2024 09:30:15 -0800 (PST)
 From: Andy Chiu <andybnac@gmail.com>
 To: Paul Walmsley <paul.walmsley@sifive.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
 	Albert Ou <aou@eecs.berkeley.edu>
-Cc: linux-riscv@lists.infradead.org,
+Cc: Andy Chiu <andybnac@gmail.com>,
+	linux-riscv@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	bjorn@rivosinc.com,
 	puranjay12@gmail.com,
@@ -85,16 +87,16 @@ Cc: linux-riscv@lists.infradead.org,
 	viccent.chen@sifive.com,
 	zong.li@sifive.com,
 	samuel.holland@sifive.com
-Subject: [PATCH v3 5/7] riscv: vector: Support calling schedule() for preemptible Vector
-Date: Thu, 28 Nov 2024 01:29:06 +0800
-Message-Id: <20241127172908.17149-6-andybnac@gmail.com>
+Subject: [PATCH v3 6/7] riscv: add a data fence for CMODX in the kernel mode
+Date: Thu, 28 Nov 2024 01:29:07 +0800
+Message-Id: <20241127172908.17149-7-andybnac@gmail.com>
 X-Mailer: git-send-email 2.39.3 (Apple Git-145)
 In-Reply-To: <20241127172908.17149-1-andybnac@gmail.com>
 References: <20241127172908.17149-1-andybnac@gmail.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241127_093013_184760_6E3B02D5 
-X-CRM114-Status: GOOD (  15.16  )
+X-CRM114-CacheID: sfid-20241127_093017_882488_85D4DF85 
+X-CRM114-Status: GOOD (  13.17  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,93 +113,47 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Andy Chiu <andy.chiu@sifive.com>
+RISC-V spec explicitly calls out that a local fence.i is not enough for
+the code modification to be visble from a remote hart. In fact, it
+states:
 
-Each function entry implies a call to ftrace infrastructure. And it may
-call into schedule in some cases. So, it is possible for preemptible
-kernel-mode Vector to implicitly call into schedule. Since all V-regs
-are caller-saved, it is possible to drop all V context when a thread
-voluntarily call schedule(). Besides, we currently don't pass argument
-through vector register, so we don't have to save/restore V-regs in
-ftrace trampoline.
+To make a store to instruction memory visible to all RISC-V harts, the
+writing hart also has to execute a data FENCE before requesting that all
+remote RISC-V harts execute a FENCE.I.
 
-Signed-off-by: Andy Chiu <andy.chiu@sifive.com>
+Thus, add a fence here to order data writes before making the IPI.
+
+Signed-off-by: Andy Chiu <andybnac@gmail.com>
 ---
- arch/riscv/include/asm/processor.h |  5 +++++
- arch/riscv/include/asm/vector.h    | 22 +++++++++++++++++++---
- 2 files changed, 24 insertions(+), 3 deletions(-)
+ arch/riscv/mm/cacheflush.c | 15 ++++++++++++++-
+ 1 file changed, 14 insertions(+), 1 deletion(-)
 
-diff --git a/arch/riscv/include/asm/processor.h b/arch/riscv/include/asm/processor.h
-index 5f56eb9d114a..9c1cc716b891 100644
---- a/arch/riscv/include/asm/processor.h
-+++ b/arch/riscv/include/asm/processor.h
-@@ -79,6 +79,10 @@ struct pt_regs;
-  *       Thus, the task does not own preempt_v. Any use of Vector will have to
-  *       save preempt_v, if dirty, and fallback to non-preemptible kernel-mode
-  *       Vector.
-+ *  - bit 29: The thread voluntarily calls schedule() while holding an active
-+ *    preempt_v. All preempt_v context should be dropped in such case because
-+ *    V-regs are caller-saved. Only sstatus.VS=ON is persisted across a
-+ *    schedule() call.
-  *  - bit 30: The in-kernel preempt_v context is saved, and requries to be
-  *    restored when returning to the context that owns the preempt_v.
-  *  - bit 31: The in-kernel preempt_v context is dirty, as signaled by the
-@@ -93,6 +97,7 @@ struct pt_regs;
- #define RISCV_PREEMPT_V			0x00000100
- #define RISCV_PREEMPT_V_DIRTY		0x80000000
- #define RISCV_PREEMPT_V_NEED_RESTORE	0x40000000
-+#define RISCV_PREEMPT_V_IN_SCHEDULE	0x20000000
+diff --git a/arch/riscv/mm/cacheflush.c b/arch/riscv/mm/cacheflush.c
+index b81672729887..b2e4b81763f8 100644
+--- a/arch/riscv/mm/cacheflush.c
++++ b/arch/riscv/mm/cacheflush.c
+@@ -24,7 +24,20 @@ void flush_icache_all(void)
  
- /* CPU-specific state of a task */
- struct thread_struct {
-diff --git a/arch/riscv/include/asm/vector.h b/arch/riscv/include/asm/vector.h
-index c7c023afbacd..c5b6070db99f 100644
---- a/arch/riscv/include/asm/vector.h
-+++ b/arch/riscv/include/asm/vector.h
-@@ -76,6 +76,11 @@ static __always_inline void riscv_v_disable(void)
- 	csr_clear(CSR_SSTATUS, SR_VS);
- }
- 
-+static __always_inline bool riscv_v_is_on(void)
-+{
-+	return !!(csr_read(CSR_SSTATUS) & SR_VS);
-+}
+ 	if (num_online_cpus() < 2)
+ 		return;
+-	else if (riscv_use_sbi_for_rfence())
 +
- static __always_inline void __vstate_csr_save(struct __riscv_v_ext_state *dest)
- {
- 	asm volatile (
-@@ -244,6 +249,11 @@ static inline void __switch_to_vector(struct task_struct *prev,
- 	struct pt_regs *regs;
- 
- 	if (riscv_preempt_v_started(prev)) {
-+		if (riscv_v_is_on()) {
-+			WARN_ON(prev->thread.riscv_v_flags & RISCV_V_CTX_DEPTH_MASK);
-+			riscv_v_disable();
-+			prev->thread.riscv_v_flags |= RISCV_PREEMPT_V_IN_SCHEDULE;
-+		}
- 		if (riscv_preempt_v_dirty(prev)) {
- 			__riscv_v_vstate_save(&prev->thread.kernel_vstate,
- 					      prev->thread.kernel_vstate.datap);
-@@ -254,10 +264,16 @@ static inline void __switch_to_vector(struct task_struct *prev,
- 		riscv_v_vstate_save(&prev->thread.vstate, regs);
- 	}
- 
--	if (riscv_preempt_v_started(next))
--		riscv_preempt_v_set_restore(next);
--	else
-+	if (riscv_preempt_v_started(next)) {
-+		if (next->thread.riscv_v_flags & RISCV_PREEMPT_V_IN_SCHEDULE) {
-+			next->thread.riscv_v_flags &= ~RISCV_PREEMPT_V_IN_SCHEDULE;
-+			riscv_v_enable();
-+		} else {
-+			riscv_preempt_v_set_restore(next);
-+		}
-+	} else {
- 		riscv_v_vstate_set_restore(next, task_pt_regs(next));
-+	}
- }
- 
- void riscv_v_vstate_ctrl_init(struct task_struct *tsk);
++	/*
++	 * Make sure all previous writes to the D$ are ordered before making
++	 * the IPI. The RISC-V spec states that a hart must execute a data fence
++	 * before triggering a remote fence.i in order to make the modification
++	 * visable for remote harts.
++	 *
++	 * IPIs on RISC-V are triggered by MMIO writes to either CLINT or
++	 * S-IMSIC, so the fence ensures previous data writes "happen before"
++	 * the MMIO.
++	 */
++	RISCV_FENCE(w, o);
++
++	if (riscv_use_sbi_for_rfence())
+ 		sbi_remote_fence_i(NULL);
+ 	else
+ 		on_each_cpu(ipi_remote_fence_i, NULL, 1);
 -- 
 2.39.3 (Apple Git-145)
 
