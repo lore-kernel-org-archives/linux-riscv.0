@@ -4,86 +4,136 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 25E3AD6D251
-	for <linux-riscv@archiver.kernel.org>; Thu, 28 Nov 2024 01:10:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 857BCD6D251
+	for <linux-riscv@archiver.kernel.org>; Thu, 28 Nov 2024 01:31:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
-	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID
-	:References:Mime-Version:In-Reply-To:Date:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=yc0h1Muy1mtSwK/Wmo/sce8dn/MDThMSG9/9G1btR0Y=; b=aunTk2EMOXHzVn
-	Hixbsb9aRwmWJg6hH6WS3NlvcA/tlgF7zUwKkw7dffCefVIEqZNMXXSkp6QqfmxVs3Cyh08qWxuNW
-	xOF2A3rCSxely5I2rsIjTMze6qfMpeeTHi4TMV4hwGEizpyUVwSoeweYMjc5CXoebifOYgTlxinxI
-	rbBrSUIc0JVhWDFiGwHF3pJoKH50qG2AY1UR4QWttuYAmqcqbs2DsLV6x9FM1q/D/I/SwAMGW1L4Z
-	U7d23aEPmvVf9xfLYWT2KUEHNCIb0GVihhGdorTKiiDNXKFxSyo8AOPzAoxRrAgJYKvhSRBq8Um8r
-	PJKgvkTy7Ju2MbiQ4qbg==;
+	List-Owner; bh=xs/NgPDjltwupa5llW6xyBgpdAuFecp7Z8W9gvPuw/w=; b=TmiTkt1nhHgHO9
+	L45S8AMOvHpE5ZcXY93CT9c75w9Uh/j9SvFezr0V/afjcl3bRxdmwHjkI4wirgYAWEo9XA9VlcPsh
+	qXLeGmKYbfPDNT3UEb8jp4MVxeOJZ01uET6HTxjztLzJe2qXqhbj0ZC8xMyBqflpvmjJpMvVPHXdu
+	wpKkE5/SlVrOwOyiVM4F1XjDnuCSzYY9ysNy44Dn5unlFX1V5+GoBGHf/s2++dHtqWSvrdfkb5fQn
+	iSgAibIUY2klCl/lM5+KUbpTYyS0af36mpseajxazwtn9Z6bWvjssr7vgXOirNrjdFp7h+z9psDpk
+	8wvsBOSwpFuya3qreOVw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tGT2a-0000000EPSF-1aj5;
-	Thu, 28 Nov 2024 01:09:56 +0000
-Received: from mail-pj1-x104a.google.com ([2607:f8b0:4864:20::104a])
+	id 1tGTN3-0000000ER1B-0suK;
+	Thu, 28 Nov 2024 01:31:05 +0000
+Received: from mail-bjschn02on20731.outbound.protection.partner.outlook.cn ([2406:e500:4440:2::731] helo=CHN02-BJS-obe.outbound.protection.partner.outlook.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tGSpL-0000000EM33-180p
+	id 1tGTMy-0000000ER0U-3Urh
 	for linux-riscv@lists.infradead.org;
-	Thu, 28 Nov 2024 00:56:17 +0000
-Received: by mail-pj1-x104a.google.com with SMTP id 98e67ed59e1d1-2ea3c9178f6so327983a91.1
-        for <linux-riscv@lists.infradead.org>; Wed, 27 Nov 2024 16:56:14 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1732755374; x=1733360174; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:reply-to:from:to:cc:subject:date:message-id:reply-to;
-        bh=XhuytzFJxmZiXnZr+Cx3gH9LsZh3rYTr1gj7XdrVAQ0=;
-        b=PAbtgkXr9C8USSaBgcwXc0lLcURbsX302nE5fWdRxO0bkdKCGK/7mP66faEN8O6HYl
-         uDfZbHBiBSBd4v0bnDkplBmiPncjPgjLZSd176ZCFxK05I/fmek3E0BtR+uzXLegY5RD
-         3fP8agadzlMfGB2b8uiHSD41IKt6Ojq/ufPzrUXHBO5xx3g5zy/6+sODylaZYhVlf17y
-         uXOuGvmE0lOPxZb77vuOsPmMckRTs2GFwwC0v2i+Gg1yEgBcv1F4LMDyGOPlMrA7SVap
-         YP9R3ovumMAahfw5buanwDwQFi3RD/40G19o9OzQ4XHV/OU9RHDQ5i8uSjtFa6ArX9nA
-         j6Pg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1732755374; x=1733360174;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:reply-to:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=XhuytzFJxmZiXnZr+Cx3gH9LsZh3rYTr1gj7XdrVAQ0=;
-        b=oI7GLU8szpUXjcoL69DSndC2Pd7LIFZHLdJepwRQjz1pAu7lj0w0E5etA5rWq9BZV7
-         H1os/9E58eFCzTFSTZY3SUHWHSVVLitrMGqQHQP9oc6DGHDzjkFEUUlIJ6SA6DoO7wQ7
-         3UlMurX3ll/j80EM62FidRX1GQz6WAGCnfS+eNOxgU4lllEWQP0XAfQ+lw4AUN/GTduv
-         fywzfiUCMi8TI94ue+bKS7Ip8R/ThDmwCd6nXBz3cIdf5R1Rv7KXN3uBcNXokHopYuQ7
-         pcMqPwBtcvGNRfr1XmVXeYjNU3OGJqhO8sqPaC3sXJ6NAo8rLkB8BwcgjvK9PpUJZzIH
-         OnIQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWV/ri8z2FNLDkYpWNW/RFklPI0Gk2QbEhPgf9QwXLnw1nXFePvzqf93RrY7HeBdHF/HDhmFOybmTt7Tg==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy+m72qKFgrvhyvn2JzT7qmNYVuWuL/l23zzyNHE1MYu08eVPX7
-	zgSNdLP99Czd6Ls3Rw+0zbt+OjmgLF0J0zSCH9imOKY4gb4lGheUZKgvjGClOSfGM6KReHRUj3X
-	xkA==
-X-Google-Smtp-Source: AGHT+IHUy8OzdApyttdItTpAg4xwFUeu4Y/zt4zaa/RhFSwTqk6FRmwhgtP56GKbkbL+lyHu8tVo76OXOsg=
-X-Received: from pjbsn5.prod.google.com ([2002:a17:90b:2e85:b0:2da:5868:311c])
- (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:90b:3a8c:b0:2eb:12df:caab
- with SMTP id 98e67ed59e1d1-2ee08ecd80dmr6738243a91.17.1732755374247; Wed, 27
- Nov 2024 16:56:14 -0800 (PST)
-Date: Wed, 27 Nov 2024 16:55:45 -0800
-In-Reply-To: <20241128005547.4077116-1-seanjc@google.com>
-Mime-Version: 1.0
-References: <20241128005547.4077116-1-seanjc@google.com>
-X-Mailer: git-send-email 2.47.0.338.g60cca15819-goog
-Message-ID: <20241128005547.4077116-15-seanjc@google.com>
-Subject: [PATCH v4 14/16] KVM: selftests: Provide empty 'all' and 'clean'
- targets for unsupported ARCHs
-From: Sean Christopherson <seanjc@google.com>
-To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
-	Anup Patel <anup@brainfault.org>, Paul Walmsley <paul.walmsley@sifive.com>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Paolo Bonzini <pbonzini@redhat.com>, Christian Borntraeger <borntraeger@linux.ibm.com>, 
-	Janosch Frank <frankja@linux.ibm.com>, Claudio Imbrenda <imbrenda@linux.ibm.com>, 
-	Sean Christopherson <seanjc@google.com>
-Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
-	kvm@vger.kernel.org, kvm-riscv@lists.infradead.org, 
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	Andrew Jones <ajones@ventanamicro.com>, James Houghton <jthoughton@google.com>, 
-	Muhammad Usama Anjum <usama.anjum@collabora.com>
+	Thu, 28 Nov 2024 01:31:04 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=TKV1vJr6KM5mEPW8whMdYciznY86XDll2iFIB74nqxSodZ/XrGxipOUVIsWv8ev/jATDvhlUbCfD4YDJpZlzybsWHm7z4r4JC9pPw9x5CY/vsagpBvsdOPGfshupV5aWyelovWoUaY32r1g/XdR0eeaBb+ui9tmjDEqqgEshRM9Cyv192LCe1tH3iBYSYCPZe5hEYWhyyeWF6Kif1qYxv3TeZA6vp3CL267e9dwyD1jphUS6UVmiaHSBObb6dLblpGOar2yIYTcC4hcmX/4BuONj680Q08vWix1z9p23wpGBfsk9SeSroRq7M47ErkFoeELG99jwztw51TzN0jb5ZQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=Bf5Cb/LeDIRwvu3jTmWJ700f3MHu6ShchTtpWKA8pv8=;
+ b=I/UNmntafLnY2jdbKeVvP9k+/DWHjCLAQSQuoCTuiw7+Mer5q3YVNWaU1JOQdk1mMuw07ifVvvhS2s9hSjzoFLHP2/isHVd2AGtFSzcCqlc5OLpnkSyC6fU3XHgb3DVR6Tt778WDX3VnaX3kmwqJRHIg0UA0P/K1DfdBvxE8V+TAmbc3FLVIYTwVz2QOlzZ2FG3WWAPJz3HN8ce8mHtXvcPHD6s2jjIDINOjRq43URX1e+ZdXAKHA2lff5oBgibqseAturhozsj3a53ZuKQganzC8IgftUeM8vUaJmVjw6Mqy6DH4LqpjzxCODgQrYHD6JmdPjMDMQ6D66/UWp1SxA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=starfivetech.com; dmarc=pass action=none
+ header.from=starfivetech.com; dkim=pass header.d=starfivetech.com; arc=none
+Received: from SHXPR01MB0863.CHNPR01.prod.partner.outlook.cn
+ (2406:e500:c311:25::15) by SHXPR01MB0766.CHNPR01.prod.partner.outlook.cn
+ (2406:e500:c311:25::18) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8182.22; Thu, 28 Nov
+ 2024 01:31:04 +0000
+Received: from SHXPR01MB0863.CHNPR01.prod.partner.outlook.cn
+ ([fe80::3f35:8db2:7fdf:9ffb]) by
+ SHXPR01MB0863.CHNPR01.prod.partner.outlook.cn ([fe80::3f35:8db2:7fdf:9ffb%5])
+ with mapi id 15.20.8158.024; Thu, 28 Nov 2024 01:31:04 +0000
+From: Minda Chen <minda.chen@starfivetech.com>
+To: Emil Renner Berthing <emil.renner.berthing@canonical.com>, E Shattow
+	<e@freeshell.de>, Jisheng Zhang <jszhang@kernel.org>
+CC: Emil Renner Berthing <kernel@esmil.dk>, Conor Dooley <conor@kernel.org>,
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Paul
+ Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, "linux-riscv@lists.infradead.org"
+	<linux-riscv@lists.infradead.org>, "devicetree@vger.kernel.org"
+	<devicetree@vger.kernel.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, Hal Feng <hal.feng@starfivetech.com>
+Subject: Re: [PATCH v5 0/1] riscv: dts: starfive: jh7110-milkv-mars: enable
+ usb0 host function
+Thread-Topic: [PATCH v5 0/1] riscv: dts: starfive: jh7110-milkv-mars: enable
+ usb0 host function
+Thread-Index: AQHbQMLfDfZzD0SJ20qNmmZxwfIJNrLLG7qAgADNAjA=
+Date: Thu, 28 Nov 2024 01:31:04 +0000
+Message-ID: <SHXPR01MB086308813C0B311845FDA2C7E629A@SHXPR01MB0863.CHNPR01.prod.partner.outlook.cn>
+References: <20241126075740.17419-1-e@freeshell.de>
+ <CAJM55Z9wWCaS+FxZ=Gg_RfXXafNEJZC1zHZoPWQ2Y9QYDf9OyA@mail.gmail.com>
+ <eb06c8e0-ebda-47b9-94f6-6e6eca21097d@freeshell.de>
+ <CAJM55Z_Cy2aAfWY-6csKBuv3AJ44h4fCCvJ0ZSbLOYcKw6g=bA@mail.gmail.com>
+In-Reply-To: <CAJM55Z_Cy2aAfWY-6csKBuv3AJ44h4fCCvJ0ZSbLOYcKw6g=bA@mail.gmail.com>
+Accept-Language: en-US
+Content-Language: zh-CN
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=starfivetech.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: SHXPR01MB0863:EE_|SHXPR01MB0766:EE_
+x-ms-office365-filtering-correlation-id: 85d97fc4-e999-433e-d7c6-08dd0f4c5300
+x-ms-exchange-senderadcheck: 1
+x-microsoft-antispam: BCL:0;ARA:13230040|7416014|366016|1800799024|41320700013|38070700018;
+x-microsoft-antispam-message-info: IDS96x6dpR9dr4kydCrmqkINlSx8E3iBqvvayGWXNGqtbpgKhilliohvStQd+ZuXAnldE7fT+GDY+hlym22Cwjj/o/P5Mg4OhU5W4WR601rctskpAgcltZSNxZ/DCAe4i9mr/y7fRRoMWT46EP0FE0KfCLwh6uZAPvLIAw5ZCD1QhR1YUVAlERnXko5bK+uUSxUUg1RN75fsuCWpq4GiJhiJ0k+TBuMzxexzQsFJAVvjQA7ycl+hNAUccTf0rcbzxtLf1PtJCM3Eli0M9vvXiHLNdtEysZgBfe6If2+Xi5tVAR3zGCAnsRV3AxBm2sh7mu/FhE6z+rNK1dvP0Jto4gGLcwZJEzcNoF4RJT/j4/pqzvUtXuTUxB69NoRdrCxX8I7tLnu+aIr/iCamNC2fEoC3djtb3I39mLWSZsd4gV+dRrENBI+1fWiKYj+FnL3cfp6VQZpeju67zUv9LJfDcs74HpSyv2Hs1uQEihmx/gHDAxyu/uvkaZlhO+9gGgFiOOFQ+z9VdWnRtGix/Rfmn9hs4VzcR1JWrOd11PdVWs1uMC2AEO81hwArdQc92x3EM1qVvjIHaKVfjjIZxCgx68atQxWzIEkcCKv1avg8SoyluX9wYd+6/7eMEH//ZLUr
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:zh-cn;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SHXPR01MB0863.CHNPR01.prod.partner.outlook.cn;PTR:;CAT:NONE;SFS:(13230040)(7416014)(366016)(1800799024)(41320700013)(38070700018);DIR:OUT;SFP:1102;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?utf-8?B?a0NQVnMyOG05SDVVNlhRUkdBL0xVTjR0SWNua2JzRFI0UTVCMXR1ZWNOQ2h3?=
+ =?utf-8?B?QzgzS0xKYnJPMHdMaTNlWEtNRzlNRDVVOWV5czljdFNyRU1kNkhhZEV0Rmxh?=
+ =?utf-8?B?RGZQUmEwSy9ZNEhnK2ttNDVmU2M0TGpBeitkWmNIWi8yVzliSXJOR1poSmY1?=
+ =?utf-8?B?SGM4djgvZ2xGWlVvQWZzalMyZXhDamhiSG9qVHZVY01XU1ljNFhBV1NBY1U0?=
+ =?utf-8?B?T053V3Nqd3BKbHgrTHJyUnU1dkdhVTArM2YwT3hMRGRvN3JOV2JWUEVxNHpT?=
+ =?utf-8?B?TWcrOUp2ZitJWThzK0lieHNzbXBlSUVUVjVrTWszN25BT1NlRy8wSzhjVGto?=
+ =?utf-8?B?Tmk4cURMdmE1cU04UWM2MDRiTGFxTjI4OW5WVkFnekp3QmVQaXdSZ3RnV3hv?=
+ =?utf-8?B?Zll2cWc2NG8xZVlBRHJtMXBDL1c4LzBoQzRoeldiNnJTbVpMYVVqa1h3RHRR?=
+ =?utf-8?B?SDRDdDBMVllEd1RDYndCY3o2cmVoeXYxNm5BeGc0eDhLN01YdkVuMlJDSC9j?=
+ =?utf-8?B?dDhBdVMyZllWL1VCYWJlYWhnRUtHZ0FaZmtEcTJEWnlrMHh1Lzc5NWd3WENW?=
+ =?utf-8?B?bXl5MTVySkpPTmdsRnNlVnhoS2I5TmI3SUdEb3AwZ2RLNHFoZXZ5TjM4UWJW?=
+ =?utf-8?B?ZzFJQ1pHV1Q0UUdSSWM3LzZwWUpoa0pBWkRPT1VNNjIvbVc1L2ZmcFFhYzN3?=
+ =?utf-8?B?amtQWGdSNy8yT0UvVGZQdTdUL0FpK3lJL0YvTG9XNFd5Szd4ODlQMFJaZTM2?=
+ =?utf-8?B?eGdBYXBQYzIvRk5ZMmd0L0hMTjlMaHdPSERNYi9lN3BEQlhOc1RFbGQxNlBJ?=
+ =?utf-8?B?dVQ0OFZnRHZidUNqN1BpcUlsMEFGcHY0anQ5cXp3UDFTMHFXcWRoMXBGT0VS?=
+ =?utf-8?B?WStscTVzMkx3b3ZvQkxnNzFrUFBHZGJrN2RDWFVDL1RiOUJ5anRLOU5oenVs?=
+ =?utf-8?B?UjFENnZyN0ltZnM2eXoyajRqV3hseWZZTGhtdFdBQnJobWczNUZBenZSUTJi?=
+ =?utf-8?B?UWhMejUwMWlYNE5CNlVOMCtVK3prT1NvUHNyTGdVVE9WWWVKaHRKdHg0ZGZo?=
+ =?utf-8?B?VUZ0MkxlZWtDTmJ1QjlPYW9uRDBzUHpNQzdQcG1MbUwveUFoR1FWYWRQbXRY?=
+ =?utf-8?B?TFh0YlhzQStCQlRVcUZoWWo0elNJREVJS1JEcEpWNGJQRHMvSG9tZUk5Sklw?=
+ =?utf-8?B?Z2JVaGVqNUpOMjM4anVwWnhMMDlaQ2xtZDBHRG9xZW9jYTBxQ21lcUN4YUlZ?=
+ =?utf-8?B?TTBuaG9sYkhqTFNoMWliMDl0QzhHUXIvVXdtTUN0THR1WmZySDFQanBZek1U?=
+ =?utf-8?B?enNVcVRkREcxdU5iM3AyMXpsTVkrQUFyRlc2ditLamlmU1I4UjNSWWMxSTdk?=
+ =?utf-8?B?Q1AxSmxDYXlENVUvS05zQWE5ZjVzUTg5UjhwMGVSbFBjc2ZIU1ZBa25DQ0xn?=
+ =?utf-8?B?cFZ1Q2RRZCttKyswL2xEWkw3WVhWNXFiN1I1dXFyRW1Zb1gyaG9DVHJUSUNv?=
+ =?utf-8?B?YWVMejF5Nkl0K3pLemZTUGhici93ZVJQeW4yTDdJa0pJTGtXN1pxQnZtanpC?=
+ =?utf-8?B?bGluSENaanprWFZ6bVNMZTNFU0FmVTBORFZncEg4ZXo2NjhZOGsrSVpqaUVC?=
+ =?utf-8?B?N3Y1QnpEcXVnYmJTMjYvK1lsNGg2akV0ME5uN2QwTjFHaDZCczVwSDB4ZnV3?=
+ =?utf-8?B?WkpVU0w1aWxlOTdUcGh2T1ZCeDdGQVp1cTJOQkoyY2VUSk9SZmpvVzBpSE1j?=
+ =?utf-8?B?YXZxeCtLczFKR0VsVmt6TmU3NllaL1FydkhOaDE0Rm9YVGh3VE1pcjlKdEdK?=
+ =?utf-8?B?ZFA4Qzc5N0RiZ1pFOThjWTdwY2xQUFhjYkI0RWJ1V2RZRitzL0ROdnBXOUhj?=
+ =?utf-8?B?YTkxMUJsS3Ria2pBVDY5VzhGKzluL0pJVFBvQUFvWUMrZHVpOVRUTmltOVQ1?=
+ =?utf-8?B?TGJxT0lLREpoZS9TdVZmeW1ON3BWUXZJdmdnSk1LeU94TmZXVTdkbGtOVks4?=
+ =?utf-8?B?UnpJSTRSdU5FMlJ5OC9FVUF6MWZDeVY3M05rZGF6YmdJcFdCNXR4THFjWGF1?=
+ =?utf-8?B?Wm41U1pIZ2lVbzkxOTJFemxkV3JSc0UvOVVvWUNUVytjbGpTUXR0d2VsbEZn?=
+ =?utf-8?B?MkJKVkdtenQ3RldFdnNKQ0NETFJFd1ljdnNHT3JhUnVnWG9QemZ0MG9IRVpD?=
+ =?utf-8?B?amc9PQ==?=
+MIME-Version: 1.0
+X-OriginatorOrg: starfivetech.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: SHXPR01MB0863.CHNPR01.prod.partner.outlook.cn
+X-MS-Exchange-CrossTenant-Network-Message-Id: 85d97fc4-e999-433e-d7c6-08dd0f4c5300
+X-MS-Exchange-CrossTenant-originalarrivaltime: 28 Nov 2024 01:31:04.0817
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 06fe3fa3-1221-43d3-861b-5a4ee687a85c
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: oo2xI+Mm069B/sMRPQcuHk+G6T8XmcYjfLV3iq9+jAzzGfIlPamFOWTKxQk8a0yJB+sFvyx05e2OQLh45/eHG4OwkZtX7Y51D//RZY0kjjc=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SHXPR01MB0766
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241127_165615_344967_261FB53C 
-X-CRM114-Status: GOOD (  10.54  )
+X-CRM114-CacheID: sfid-20241127_173101_026245_FCFE8E87 
+X-CRM114-Status: GOOD (  49.58  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,741 +145,114 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Reply-To: Sean Christopherson <seanjc@google.com>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Provide empty targets for KVM selftests if the target architecture is
-unsupported to make it obvious which architectures are supported, and so
-that various side effects don't fail and/or do weird things, e.g. as is,
-"mkdir -p $(sort $(dir $(TEST_GEN_PROGS)))" fails due to a missing operand,
-and conversely, "$(shell mkdir -p $(sort $(OUTPUT)/$(ARCH_DIR) ..." will
-create an empty, useless directory for the unsupported architecture.
-
-Move the guts of the Makefile to Makefile.kvm so that it's easier to see
-that the if-statement effectively guards all of KVM selftests.
-
-Reported-by: Muhammad Usama Anjum <usama.anjum@collabora.com>
-Signed-off-by: Sean Christopherson <seanjc@google.com>
----
- tools/testing/selftests/kvm/.gitignore   |   1 +
- tools/testing/selftests/kvm/Makefile     | 336 +----------------------
- tools/testing/selftests/kvm/Makefile.kvm | 334 ++++++++++++++++++++++
- 3 files changed, 340 insertions(+), 331 deletions(-)
- create mode 100644 tools/testing/selftests/kvm/Makefile.kvm
-
-diff --git a/tools/testing/selftests/kvm/.gitignore b/tools/testing/selftests/kvm/.gitignore
-index 7f57abf936e7..1d41a046a7bf 100644
---- a/tools/testing/selftests/kvm/.gitignore
-+++ b/tools/testing/selftests/kvm/.gitignore
-@@ -9,3 +9,4 @@
- !config
- !settings
- !Makefile
-+!Makefile.kvm
-\ No newline at end of file
-diff --git a/tools/testing/selftests/kvm/Makefile b/tools/testing/selftests/kvm/Makefile
-index c59a337cd4da..7b33464bf8cc 100644
---- a/tools/testing/selftests/kvm/Makefile
-+++ b/tools/testing/selftests/kvm/Makefile
-@@ -1,12 +1,9 @@
- # SPDX-License-Identifier: GPL-2.0-only
--include ../../../build/Build.include
--
--all:
--
- top_srcdir = ../../../..
- include $(top_srcdir)/scripts/subarch.include
- ARCH            ?= $(SUBARCH)
- 
-+ifeq ($(ARCH),$(filter $(ARCH),arm64 s390 riscv x86 x86_64))
- ifeq ($(ARCH),x86)
- 	ARCH_DIR := x86_64
- else ifeq ($(ARCH),arm64)
-@@ -17,332 +14,9 @@ else
- 	ARCH_DIR := $(ARCH)
- endif
- 
--LIBKVM += lib/assert.c
--LIBKVM += lib/elf.c
--LIBKVM += lib/guest_modes.c
--LIBKVM += lib/io.c
--LIBKVM += lib/kvm_util.c
--LIBKVM += lib/memstress.c
--LIBKVM += lib/guest_sprintf.c
--LIBKVM += lib/rbtree.c
--LIBKVM += lib/sparsebit.c
--LIBKVM += lib/test_util.c
--LIBKVM += lib/ucall_common.c
--LIBKVM += lib/userfaultfd_util.c
--
--LIBKVM_STRING += lib/string_override.c
--
--LIBKVM_x86_64 += lib/x86_64/apic.c
--LIBKVM_x86_64 += lib/x86_64/handlers.S
--LIBKVM_x86_64 += lib/x86_64/hyperv.c
--LIBKVM_x86_64 += lib/x86_64/memstress.c
--LIBKVM_x86_64 += lib/x86_64/pmu.c
--LIBKVM_x86_64 += lib/x86_64/processor.c
--LIBKVM_x86_64 += lib/x86_64/sev.c
--LIBKVM_x86_64 += lib/x86_64/svm.c
--LIBKVM_x86_64 += lib/x86_64/ucall.c
--LIBKVM_x86_64 += lib/x86_64/vmx.c
--
--LIBKVM_aarch64 += lib/aarch64/gic.c
--LIBKVM_aarch64 += lib/aarch64/gic_v3.c
--LIBKVM_aarch64 += lib/aarch64/gic_v3_its.c
--LIBKVM_aarch64 += lib/aarch64/handlers.S
--LIBKVM_aarch64 += lib/aarch64/processor.c
--LIBKVM_aarch64 += lib/aarch64/spinlock.c
--LIBKVM_aarch64 += lib/aarch64/ucall.c
--LIBKVM_aarch64 += lib/aarch64/vgic.c
--
--LIBKVM_s390x += lib/s390x/diag318_test_handler.c
--LIBKVM_s390x += lib/s390x/processor.c
--LIBKVM_s390x += lib/s390x/ucall.c
--LIBKVM_s390x += lib/s390x/facility.c
--
--LIBKVM_riscv += lib/riscv/handlers.S
--LIBKVM_riscv += lib/riscv/processor.c
--LIBKVM_riscv += lib/riscv/ucall.c
--
--# Non-compiled test targets
--TEST_PROGS_x86_64 += x86_64/nx_huge_pages_test.sh
--
--# Compiled test targets
--TEST_GEN_PROGS_x86_64 = x86_64/cpuid_test
--TEST_GEN_PROGS_x86_64 += x86_64/cr4_cpuid_sync_test
--TEST_GEN_PROGS_x86_64 += x86_64/dirty_log_page_splitting_test
--TEST_GEN_PROGS_x86_64 += x86_64/feature_msrs_test
--TEST_GEN_PROGS_x86_64 += x86_64/exit_on_emulation_failure_test
--TEST_GEN_PROGS_x86_64 += x86_64/fix_hypercall_test
--TEST_GEN_PROGS_x86_64 += x86_64/hwcr_msr_test
--TEST_GEN_PROGS_x86_64 += x86_64/hyperv_clock
--TEST_GEN_PROGS_x86_64 += x86_64/hyperv_cpuid
--TEST_GEN_PROGS_x86_64 += x86_64/hyperv_evmcs
--TEST_GEN_PROGS_x86_64 += x86_64/hyperv_extended_hypercalls
--TEST_GEN_PROGS_x86_64 += x86_64/hyperv_features
--TEST_GEN_PROGS_x86_64 += x86_64/hyperv_ipi
--TEST_GEN_PROGS_x86_64 += x86_64/hyperv_svm_test
--TEST_GEN_PROGS_x86_64 += x86_64/hyperv_tlb_flush
--TEST_GEN_PROGS_x86_64 += x86_64/kvm_clock_test
--TEST_GEN_PROGS_x86_64 += x86_64/kvm_pv_test
--TEST_GEN_PROGS_x86_64 += x86_64/monitor_mwait_test
--TEST_GEN_PROGS_x86_64 += x86_64/nested_exceptions_test
--TEST_GEN_PROGS_x86_64 += x86_64/platform_info_test
--TEST_GEN_PROGS_x86_64 += x86_64/pmu_counters_test
--TEST_GEN_PROGS_x86_64 += x86_64/pmu_event_filter_test
--TEST_GEN_PROGS_x86_64 += x86_64/private_mem_conversions_test
--TEST_GEN_PROGS_x86_64 += x86_64/private_mem_kvm_exits_test
--TEST_GEN_PROGS_x86_64 += x86_64/set_boot_cpu_id
--TEST_GEN_PROGS_x86_64 += x86_64/set_sregs_test
--TEST_GEN_PROGS_x86_64 += x86_64/smaller_maxphyaddr_emulation_test
--TEST_GEN_PROGS_x86_64 += x86_64/smm_test
--TEST_GEN_PROGS_x86_64 += x86_64/state_test
--TEST_GEN_PROGS_x86_64 += x86_64/vmx_preemption_timer_test
--TEST_GEN_PROGS_x86_64 += x86_64/svm_vmcall_test
--TEST_GEN_PROGS_x86_64 += x86_64/svm_int_ctl_test
--TEST_GEN_PROGS_x86_64 += x86_64/svm_nested_shutdown_test
--TEST_GEN_PROGS_x86_64 += x86_64/svm_nested_soft_inject_test
--TEST_GEN_PROGS_x86_64 += x86_64/tsc_scaling_sync
--TEST_GEN_PROGS_x86_64 += x86_64/sync_regs_test
--TEST_GEN_PROGS_x86_64 += x86_64/ucna_injection_test
--TEST_GEN_PROGS_x86_64 += x86_64/userspace_io_test
--TEST_GEN_PROGS_x86_64 += x86_64/userspace_msr_exit_test
--TEST_GEN_PROGS_x86_64 += x86_64/vmx_apic_access_test
--TEST_GEN_PROGS_x86_64 += x86_64/vmx_close_while_nested_test
--TEST_GEN_PROGS_x86_64 += x86_64/vmx_dirty_log_test
--TEST_GEN_PROGS_x86_64 += x86_64/vmx_exception_with_invalid_guest_state
--TEST_GEN_PROGS_x86_64 += x86_64/vmx_msrs_test
--TEST_GEN_PROGS_x86_64 += x86_64/vmx_invalid_nested_guest_state
--TEST_GEN_PROGS_x86_64 += x86_64/vmx_set_nested_state_test
--TEST_GEN_PROGS_x86_64 += x86_64/vmx_tsc_adjust_test
--TEST_GEN_PROGS_x86_64 += x86_64/vmx_nested_tsc_scaling_test
--TEST_GEN_PROGS_x86_64 += x86_64/apic_bus_clock_test
--TEST_GEN_PROGS_x86_64 += x86_64/xapic_ipi_test
--TEST_GEN_PROGS_x86_64 += x86_64/xapic_state_test
--TEST_GEN_PROGS_x86_64 += x86_64/xcr0_cpuid_test
--TEST_GEN_PROGS_x86_64 += x86_64/xss_msr_test
--TEST_GEN_PROGS_x86_64 += x86_64/debug_regs
--TEST_GEN_PROGS_x86_64 += x86_64/tsc_msrs_test
--TEST_GEN_PROGS_x86_64 += x86_64/vmx_pmu_caps_test
--TEST_GEN_PROGS_x86_64 += x86_64/xen_shinfo_test
--TEST_GEN_PROGS_x86_64 += x86_64/xen_vmcall_test
--TEST_GEN_PROGS_x86_64 += x86_64/sev_init2_tests
--TEST_GEN_PROGS_x86_64 += x86_64/sev_migrate_tests
--TEST_GEN_PROGS_x86_64 += x86_64/sev_smoke_test
--TEST_GEN_PROGS_x86_64 += x86_64/amx_test
--TEST_GEN_PROGS_x86_64 += x86_64/max_vcpuid_cap_test
--TEST_GEN_PROGS_x86_64 += x86_64/triple_fault_event_test
--TEST_GEN_PROGS_x86_64 += x86_64/recalc_apic_map_test
--TEST_GEN_PROGS_x86_64 += access_tracking_perf_test
--TEST_GEN_PROGS_x86_64 += coalesced_io_test
--TEST_GEN_PROGS_x86_64 += demand_paging_test
--TEST_GEN_PROGS_x86_64 += dirty_log_test
--TEST_GEN_PROGS_x86_64 += dirty_log_perf_test
--TEST_GEN_PROGS_x86_64 += guest_memfd_test
--TEST_GEN_PROGS_x86_64 += guest_print_test
--TEST_GEN_PROGS_x86_64 += hardware_disable_test
--TEST_GEN_PROGS_x86_64 += kvm_create_max_vcpus
--TEST_GEN_PROGS_x86_64 += kvm_page_table_test
--TEST_GEN_PROGS_x86_64 += mmu_stress_test
--TEST_GEN_PROGS_x86_64 += memslot_modification_stress_test
--TEST_GEN_PROGS_x86_64 += memslot_perf_test
--TEST_GEN_PROGS_x86_64 += rseq_test
--TEST_GEN_PROGS_x86_64 += set_memory_region_test
--TEST_GEN_PROGS_x86_64 += steal_time
--TEST_GEN_PROGS_x86_64 += kvm_binary_stats_test
--TEST_GEN_PROGS_x86_64 += system_counter_offset_test
--TEST_GEN_PROGS_x86_64 += pre_fault_memory_test
--
--# Compiled outputs used by test targets
--TEST_GEN_PROGS_EXTENDED_x86_64 += x86_64/nx_huge_pages_test
--
--TEST_GEN_PROGS_aarch64 += aarch64/aarch32_id_regs
--TEST_GEN_PROGS_aarch64 += aarch64/arch_timer_edge_cases
--TEST_GEN_PROGS_aarch64 += aarch64/debug-exceptions
--TEST_GEN_PROGS_aarch64 += aarch64/hypercalls
--TEST_GEN_PROGS_aarch64 += aarch64/mmio_abort
--TEST_GEN_PROGS_aarch64 += aarch64/page_fault_test
--TEST_GEN_PROGS_aarch64 += aarch64/psci_test
--TEST_GEN_PROGS_aarch64 += aarch64/set_id_regs
--TEST_GEN_PROGS_aarch64 += aarch64/smccc_filter
--TEST_GEN_PROGS_aarch64 += aarch64/vcpu_width_config
--TEST_GEN_PROGS_aarch64 += aarch64/vgic_init
--TEST_GEN_PROGS_aarch64 += aarch64/vgic_irq
--TEST_GEN_PROGS_aarch64 += aarch64/vgic_lpi_stress
--TEST_GEN_PROGS_aarch64 += aarch64/vpmu_counter_access
--TEST_GEN_PROGS_aarch64 += aarch64/no-vgic-v3
--TEST_GEN_PROGS_aarch64 += access_tracking_perf_test
--TEST_GEN_PROGS_aarch64 += arch_timer
--TEST_GEN_PROGS_aarch64 += coalesced_io_test
--TEST_GEN_PROGS_aarch64 += demand_paging_test
--TEST_GEN_PROGS_aarch64 += dirty_log_test
--TEST_GEN_PROGS_aarch64 += dirty_log_perf_test
--TEST_GEN_PROGS_aarch64 += guest_print_test
--TEST_GEN_PROGS_aarch64 += get-reg-list
--TEST_GEN_PROGS_aarch64 += kvm_create_max_vcpus
--TEST_GEN_PROGS_aarch64 += kvm_page_table_test
--TEST_GEN_PROGS_aarch64 += memslot_modification_stress_test
--TEST_GEN_PROGS_aarch64 += memslot_perf_test
--TEST_GEN_PROGS_aarch64 += mmu_stress_test
--TEST_GEN_PROGS_aarch64 += rseq_test
--TEST_GEN_PROGS_aarch64 += set_memory_region_test
--TEST_GEN_PROGS_aarch64 += steal_time
--TEST_GEN_PROGS_aarch64 += kvm_binary_stats_test
--
--TEST_GEN_PROGS_s390x = s390x/memop
--TEST_GEN_PROGS_s390x += s390x/resets
--TEST_GEN_PROGS_s390x += s390x/sync_regs_test
--TEST_GEN_PROGS_s390x += s390x/tprot
--TEST_GEN_PROGS_s390x += s390x/cmma_test
--TEST_GEN_PROGS_s390x += s390x/debug_test
--TEST_GEN_PROGS_s390x += s390x/cpumodel_subfuncs_test
--TEST_GEN_PROGS_s390x += s390x/shared_zeropage_test
--TEST_GEN_PROGS_s390x += s390x/ucontrol_test
--TEST_GEN_PROGS_s390x += demand_paging_test
--TEST_GEN_PROGS_s390x += dirty_log_test
--TEST_GEN_PROGS_s390x += guest_print_test
--TEST_GEN_PROGS_s390x += kvm_create_max_vcpus
--TEST_GEN_PROGS_s390x += kvm_page_table_test
--TEST_GEN_PROGS_s390x += rseq_test
--TEST_GEN_PROGS_s390x += set_memory_region_test
--TEST_GEN_PROGS_s390x += kvm_binary_stats_test
--
--TEST_GEN_PROGS_riscv += riscv/sbi_pmu_test
--TEST_GEN_PROGS_riscv += riscv/ebreak_test
--TEST_GEN_PROGS_riscv += arch_timer
--TEST_GEN_PROGS_riscv += coalesced_io_test
--TEST_GEN_PROGS_riscv += demand_paging_test
--TEST_GEN_PROGS_riscv += dirty_log_test
--TEST_GEN_PROGS_riscv += get-reg-list
--TEST_GEN_PROGS_riscv += guest_print_test
--TEST_GEN_PROGS_riscv += kvm_binary_stats_test
--TEST_GEN_PROGS_riscv += kvm_create_max_vcpus
--TEST_GEN_PROGS_riscv += kvm_page_table_test
--TEST_GEN_PROGS_riscv += set_memory_region_test
--TEST_GEN_PROGS_riscv += steal_time
--
--SPLIT_TESTS += arch_timer
--SPLIT_TESTS += get-reg-list
--
--TEST_PROGS += $(TEST_PROGS_$(ARCH_DIR))
--TEST_GEN_PROGS += $(TEST_GEN_PROGS_$(ARCH_DIR))
--TEST_GEN_PROGS_EXTENDED += $(TEST_GEN_PROGS_EXTENDED_$(ARCH_DIR))
--LIBKVM += $(LIBKVM_$(ARCH_DIR))
--
--OVERRIDE_TARGETS = 1
--
--# lib.mak defines $(OUTPUT), prepends $(OUTPUT)/ to $(TEST_GEN_PROGS), and most
--# importantly defines, i.e. overwrites, $(CC) (unless `make -e` or `make CC=`,
--# which causes the environment variable to override the makefile).
--include ../lib.mk
--
--INSTALL_HDR_PATH = $(top_srcdir)/usr
--LINUX_HDR_PATH = $(INSTALL_HDR_PATH)/include/
--LINUX_TOOL_INCLUDE = $(top_srcdir)/tools/include
--ifeq ($(ARCH),x86_64)
--LINUX_TOOL_ARCH_INCLUDE = $(top_srcdir)/tools/arch/x86/include
-+include Makefile.kvm
- else
--LINUX_TOOL_ARCH_INCLUDE = $(top_srcdir)/tools/arch/$(ARCH)/include
-+# Empty targets for unsupported architectures
-+all:
-+clean:
- endif
--CFLAGS += -Wall -Wstrict-prototypes -Wuninitialized -O2 -g -std=gnu99 \
--	-Wno-gnu-variable-sized-type-not-at-end -MD -MP -DCONFIG_64BIT \
--	-fno-builtin-memcmp -fno-builtin-memcpy \
--	-fno-builtin-memset -fno-builtin-strnlen \
--	-fno-stack-protector -fno-PIE -fno-strict-aliasing \
--	-I$(LINUX_TOOL_INCLUDE) -I$(LINUX_TOOL_ARCH_INCLUDE) \
--	-I$(LINUX_HDR_PATH) -Iinclude -I$(<D) -Iinclude/$(ARCH_DIR) \
--	-I ../rseq -I.. $(EXTRA_CFLAGS) $(KHDR_INCLUDES)
--ifeq ($(ARCH),s390)
--	CFLAGS += -march=z10
--endif
--ifeq ($(ARCH),x86)
--ifeq ($(shell echo "void foo(void) { }" | $(CC) -march=x86-64-v2 -x c - -c -o /dev/null 2>/dev/null; echo "$$?"),0)
--	CFLAGS += -march=x86-64-v2
--endif
--endif
--ifeq ($(ARCH),arm64)
--tools_dir := $(top_srcdir)/tools
--arm64_tools_dir := $(tools_dir)/arch/arm64/tools/
--
--ifneq ($(abs_objdir),)
--arm64_hdr_outdir := $(abs_objdir)/tools/
--else
--arm64_hdr_outdir := $(tools_dir)/
--endif
--
--GEN_HDRS := $(arm64_hdr_outdir)arch/arm64/include/generated/
--CFLAGS += -I$(GEN_HDRS)
--
--$(GEN_HDRS): $(wildcard $(arm64_tools_dir)/*)
--	$(MAKE) -C $(arm64_tools_dir) OUTPUT=$(arm64_hdr_outdir)
--endif
--
--no-pie-option := $(call try-run, echo 'int main(void) { return 0; }' | \
--        $(CC) -Werror $(CFLAGS) -no-pie -x c - -o "$$TMP", -no-pie)
--
--# On s390, build the testcases KVM-enabled
--pgste-option = $(call try-run, echo 'int main(void) { return 0; }' | \
--	$(CC) -Werror -Wl$(comma)--s390-pgste -x c - -o "$$TMP",-Wl$(comma)--s390-pgste)
--
--LDLIBS += -ldl
--LDFLAGS += -pthread $(no-pie-option) $(pgste-option)
--
--LIBKVM_C := $(filter %.c,$(LIBKVM))
--LIBKVM_S := $(filter %.S,$(LIBKVM))
--LIBKVM_C_OBJ := $(patsubst %.c, $(OUTPUT)/%.o, $(LIBKVM_C))
--LIBKVM_S_OBJ := $(patsubst %.S, $(OUTPUT)/%.o, $(LIBKVM_S))
--LIBKVM_STRING_OBJ := $(patsubst %.c, $(OUTPUT)/%.o, $(LIBKVM_STRING))
--LIBKVM_OBJS = $(LIBKVM_C_OBJ) $(LIBKVM_S_OBJ) $(LIBKVM_STRING_OBJ)
--SPLIT_TEST_GEN_PROGS := $(patsubst %, $(OUTPUT)/%, $(SPLIT_TESTS))
--SPLIT_TEST_GEN_OBJ := $(patsubst %, $(OUTPUT)/$(ARCH_DIR)/%.o, $(SPLIT_TESTS))
--
--TEST_GEN_OBJ = $(patsubst %, %.o, $(TEST_GEN_PROGS))
--TEST_GEN_OBJ += $(patsubst %, %.o, $(TEST_GEN_PROGS_EXTENDED))
--TEST_DEP_FILES = $(patsubst %.o, %.d, $(TEST_GEN_OBJ))
--TEST_DEP_FILES += $(patsubst %.o, %.d, $(LIBKVM_OBJS))
--TEST_DEP_FILES += $(patsubst %.o, %.d, $(SPLIT_TEST_GEN_OBJ))
---include $(TEST_DEP_FILES)
--
--$(shell mkdir -p $(sort $(OUTPUT)/$(ARCH_DIR) $(dir $(LIBKVM_C_OBJ) $(LIBKVM_S_OBJ))))
--
--$(filter-out $(SPLIT_TEST_GEN_PROGS), $(TEST_GEN_PROGS)) \
--$(TEST_GEN_PROGS_EXTENDED): %: %.o
--	$(CC) $(CFLAGS) $(CPPFLAGS) $(LDFLAGS) $(TARGET_ARCH) $< $(LIBKVM_OBJS) $(LDLIBS) -o $@
--$(TEST_GEN_OBJ): $(OUTPUT)/%.o: %.c
--	$(CC) $(CFLAGS) $(CPPFLAGS) $(TARGET_ARCH) -c $< -o $@
--
--$(SPLIT_TEST_GEN_PROGS): $(OUTPUT)/%: $(OUTPUT)/%.o $(OUTPUT)/$(ARCH_DIR)/%.o
--	$(CC) $(CFLAGS) $(CPPFLAGS) $(LDFLAGS) $(TARGET_ARCH) $^ $(LDLIBS) -o $@
--$(SPLIT_TEST_GEN_OBJ): $(OUTPUT)/$(ARCH_DIR)/%.o: $(ARCH_DIR)/%.c
--	$(CC) $(CFLAGS) $(CPPFLAGS) $(TARGET_ARCH) -c $< -o $@
--
--EXTRA_CLEAN += $(GEN_HDRS) \
--	       $(LIBKVM_OBJS) \
--	       $(SPLIT_TEST_GEN_OBJ) \
--	       $(TEST_DEP_FILES) \
--	       $(TEST_GEN_OBJ) \
--	       cscope.*
--
--$(LIBKVM_C_OBJ): $(OUTPUT)/%.o: %.c $(GEN_HDRS)
--	$(CC) $(CFLAGS) $(CPPFLAGS) $(TARGET_ARCH) -c $< -o $@
--
--$(LIBKVM_S_OBJ): $(OUTPUT)/%.o: %.S $(GEN_HDRS)
--	$(CC) $(CFLAGS) $(CPPFLAGS) $(TARGET_ARCH) -c $< -o $@
--
--# Compile the string overrides as freestanding to prevent the compiler from
--# generating self-referential code, e.g. without "freestanding" the compiler may
--# "optimize" memcmp() by invoking memcmp(), thus causing infinite recursion.
--$(LIBKVM_STRING_OBJ): $(OUTPUT)/%.o: %.c
--	$(CC) $(CFLAGS) $(CPPFLAGS) $(TARGET_ARCH) -c -ffreestanding $< -o $@
--
--$(shell mkdir -p $(sort $(dir $(TEST_GEN_PROGS))))
--$(SPLIT_TEST_GEN_OBJ): $(GEN_HDRS)
--$(TEST_GEN_PROGS): $(LIBKVM_OBJS)
--$(TEST_GEN_PROGS_EXTENDED): $(LIBKVM_OBJS)
--$(TEST_GEN_OBJ): $(GEN_HDRS)
--
--cscope: include_paths = $(LINUX_TOOL_INCLUDE) $(LINUX_HDR_PATH) include lib ..
--cscope:
--	$(RM) cscope.*
--	(find $(include_paths) -name '*.h' \
--		-exec realpath --relative-base=$(PWD) {} \;; \
--	find . -name '*.c' \
--		-exec realpath --relative-base=$(PWD) {} \;) | sort -u > cscope.files
--	cscope -b
-diff --git a/tools/testing/selftests/kvm/Makefile.kvm b/tools/testing/selftests/kvm/Makefile.kvm
-new file mode 100644
-index 000000000000..e988a72f8c20
---- /dev/null
-+++ b/tools/testing/selftests/kvm/Makefile.kvm
-@@ -0,0 +1,334 @@
-+# SPDX-License-Identifier: GPL-2.0-only
-+include ../../../build/Build.include
-+
-+all:
-+
-+LIBKVM += lib/assert.c
-+LIBKVM += lib/elf.c
-+LIBKVM += lib/guest_modes.c
-+LIBKVM += lib/io.c
-+LIBKVM += lib/kvm_util.c
-+LIBKVM += lib/memstress.c
-+LIBKVM += lib/guest_sprintf.c
-+LIBKVM += lib/rbtree.c
-+LIBKVM += lib/sparsebit.c
-+LIBKVM += lib/test_util.c
-+LIBKVM += lib/ucall_common.c
-+LIBKVM += lib/userfaultfd_util.c
-+
-+LIBKVM_STRING += lib/string_override.c
-+
-+LIBKVM_x86_64 += lib/x86_64/apic.c
-+LIBKVM_x86_64 += lib/x86_64/handlers.S
-+LIBKVM_x86_64 += lib/x86_64/hyperv.c
-+LIBKVM_x86_64 += lib/x86_64/memstress.c
-+LIBKVM_x86_64 += lib/x86_64/pmu.c
-+LIBKVM_x86_64 += lib/x86_64/processor.c
-+LIBKVM_x86_64 += lib/x86_64/sev.c
-+LIBKVM_x86_64 += lib/x86_64/svm.c
-+LIBKVM_x86_64 += lib/x86_64/ucall.c
-+LIBKVM_x86_64 += lib/x86_64/vmx.c
-+
-+LIBKVM_aarch64 += lib/aarch64/gic.c
-+LIBKVM_aarch64 += lib/aarch64/gic_v3.c
-+LIBKVM_aarch64 += lib/aarch64/gic_v3_its.c
-+LIBKVM_aarch64 += lib/aarch64/handlers.S
-+LIBKVM_aarch64 += lib/aarch64/processor.c
-+LIBKVM_aarch64 += lib/aarch64/spinlock.c
-+LIBKVM_aarch64 += lib/aarch64/ucall.c
-+LIBKVM_aarch64 += lib/aarch64/vgic.c
-+
-+LIBKVM_s390x += lib/s390x/diag318_test_handler.c
-+LIBKVM_s390x += lib/s390x/processor.c
-+LIBKVM_s390x += lib/s390x/ucall.c
-+LIBKVM_s390x += lib/s390x/facility.c
-+
-+LIBKVM_riscv += lib/riscv/handlers.S
-+LIBKVM_riscv += lib/riscv/processor.c
-+LIBKVM_riscv += lib/riscv/ucall.c
-+
-+# Non-compiled test targets
-+TEST_PROGS_x86_64 += x86_64/nx_huge_pages_test.sh
-+
-+# Compiled test targets
-+TEST_GEN_PROGS_x86_64 = x86_64/cpuid_test
-+TEST_GEN_PROGS_x86_64 += x86_64/cr4_cpuid_sync_test
-+TEST_GEN_PROGS_x86_64 += x86_64/dirty_log_page_splitting_test
-+TEST_GEN_PROGS_x86_64 += x86_64/feature_msrs_test
-+TEST_GEN_PROGS_x86_64 += x86_64/exit_on_emulation_failure_test
-+TEST_GEN_PROGS_x86_64 += x86_64/fix_hypercall_test
-+TEST_GEN_PROGS_x86_64 += x86_64/hwcr_msr_test
-+TEST_GEN_PROGS_x86_64 += x86_64/hyperv_clock
-+TEST_GEN_PROGS_x86_64 += x86_64/hyperv_cpuid
-+TEST_GEN_PROGS_x86_64 += x86_64/hyperv_evmcs
-+TEST_GEN_PROGS_x86_64 += x86_64/hyperv_extended_hypercalls
-+TEST_GEN_PROGS_x86_64 += x86_64/hyperv_features
-+TEST_GEN_PROGS_x86_64 += x86_64/hyperv_ipi
-+TEST_GEN_PROGS_x86_64 += x86_64/hyperv_svm_test
-+TEST_GEN_PROGS_x86_64 += x86_64/hyperv_tlb_flush
-+TEST_GEN_PROGS_x86_64 += x86_64/kvm_clock_test
-+TEST_GEN_PROGS_x86_64 += x86_64/kvm_pv_test
-+TEST_GEN_PROGS_x86_64 += x86_64/monitor_mwait_test
-+TEST_GEN_PROGS_x86_64 += x86_64/nested_exceptions_test
-+TEST_GEN_PROGS_x86_64 += x86_64/platform_info_test
-+TEST_GEN_PROGS_x86_64 += x86_64/pmu_counters_test
-+TEST_GEN_PROGS_x86_64 += x86_64/pmu_event_filter_test
-+TEST_GEN_PROGS_x86_64 += x86_64/private_mem_conversions_test
-+TEST_GEN_PROGS_x86_64 += x86_64/private_mem_kvm_exits_test
-+TEST_GEN_PROGS_x86_64 += x86_64/set_boot_cpu_id
-+TEST_GEN_PROGS_x86_64 += x86_64/set_sregs_test
-+TEST_GEN_PROGS_x86_64 += x86_64/smaller_maxphyaddr_emulation_test
-+TEST_GEN_PROGS_x86_64 += x86_64/smm_test
-+TEST_GEN_PROGS_x86_64 += x86_64/state_test
-+TEST_GEN_PROGS_x86_64 += x86_64/vmx_preemption_timer_test
-+TEST_GEN_PROGS_x86_64 += x86_64/svm_vmcall_test
-+TEST_GEN_PROGS_x86_64 += x86_64/svm_int_ctl_test
-+TEST_GEN_PROGS_x86_64 += x86_64/svm_nested_shutdown_test
-+TEST_GEN_PROGS_x86_64 += x86_64/svm_nested_soft_inject_test
-+TEST_GEN_PROGS_x86_64 += x86_64/tsc_scaling_sync
-+TEST_GEN_PROGS_x86_64 += x86_64/sync_regs_test
-+TEST_GEN_PROGS_x86_64 += x86_64/ucna_injection_test
-+TEST_GEN_PROGS_x86_64 += x86_64/userspace_io_test
-+TEST_GEN_PROGS_x86_64 += x86_64/userspace_msr_exit_test
-+TEST_GEN_PROGS_x86_64 += x86_64/vmx_apic_access_test
-+TEST_GEN_PROGS_x86_64 += x86_64/vmx_close_while_nested_test
-+TEST_GEN_PROGS_x86_64 += x86_64/vmx_dirty_log_test
-+TEST_GEN_PROGS_x86_64 += x86_64/vmx_exception_with_invalid_guest_state
-+TEST_GEN_PROGS_x86_64 += x86_64/vmx_msrs_test
-+TEST_GEN_PROGS_x86_64 += x86_64/vmx_invalid_nested_guest_state
-+TEST_GEN_PROGS_x86_64 += x86_64/vmx_set_nested_state_test
-+TEST_GEN_PROGS_x86_64 += x86_64/vmx_tsc_adjust_test
-+TEST_GEN_PROGS_x86_64 += x86_64/vmx_nested_tsc_scaling_test
-+TEST_GEN_PROGS_x86_64 += x86_64/apic_bus_clock_test
-+TEST_GEN_PROGS_x86_64 += x86_64/xapic_ipi_test
-+TEST_GEN_PROGS_x86_64 += x86_64/xapic_state_test
-+TEST_GEN_PROGS_x86_64 += x86_64/xcr0_cpuid_test
-+TEST_GEN_PROGS_x86_64 += x86_64/xss_msr_test
-+TEST_GEN_PROGS_x86_64 += x86_64/debug_regs
-+TEST_GEN_PROGS_x86_64 += x86_64/tsc_msrs_test
-+TEST_GEN_PROGS_x86_64 += x86_64/vmx_pmu_caps_test
-+TEST_GEN_PROGS_x86_64 += x86_64/xen_shinfo_test
-+TEST_GEN_PROGS_x86_64 += x86_64/xen_vmcall_test
-+TEST_GEN_PROGS_x86_64 += x86_64/sev_init2_tests
-+TEST_GEN_PROGS_x86_64 += x86_64/sev_migrate_tests
-+TEST_GEN_PROGS_x86_64 += x86_64/sev_smoke_test
-+TEST_GEN_PROGS_x86_64 += x86_64/amx_test
-+TEST_GEN_PROGS_x86_64 += x86_64/max_vcpuid_cap_test
-+TEST_GEN_PROGS_x86_64 += x86_64/triple_fault_event_test
-+TEST_GEN_PROGS_x86_64 += x86_64/recalc_apic_map_test
-+TEST_GEN_PROGS_x86_64 += access_tracking_perf_test
-+TEST_GEN_PROGS_x86_64 += coalesced_io_test
-+TEST_GEN_PROGS_x86_64 += demand_paging_test
-+TEST_GEN_PROGS_x86_64 += dirty_log_test
-+TEST_GEN_PROGS_x86_64 += dirty_log_perf_test
-+TEST_GEN_PROGS_x86_64 += guest_memfd_test
-+TEST_GEN_PROGS_x86_64 += guest_print_test
-+TEST_GEN_PROGS_x86_64 += hardware_disable_test
-+TEST_GEN_PROGS_x86_64 += kvm_create_max_vcpus
-+TEST_GEN_PROGS_x86_64 += kvm_page_table_test
-+TEST_GEN_PROGS_x86_64 += mmu_stress_test
-+TEST_GEN_PROGS_x86_64 += memslot_modification_stress_test
-+TEST_GEN_PROGS_x86_64 += memslot_perf_test
-+TEST_GEN_PROGS_x86_64 += rseq_test
-+TEST_GEN_PROGS_x86_64 += set_memory_region_test
-+TEST_GEN_PROGS_x86_64 += steal_time
-+TEST_GEN_PROGS_x86_64 += kvm_binary_stats_test
-+TEST_GEN_PROGS_x86_64 += system_counter_offset_test
-+TEST_GEN_PROGS_x86_64 += pre_fault_memory_test
-+
-+# Compiled outputs used by test targets
-+TEST_GEN_PROGS_EXTENDED_x86_64 += x86_64/nx_huge_pages_test
-+
-+TEST_GEN_PROGS_aarch64 += aarch64/aarch32_id_regs
-+TEST_GEN_PROGS_aarch64 += aarch64/arch_timer_edge_cases
-+TEST_GEN_PROGS_aarch64 += aarch64/debug-exceptions
-+TEST_GEN_PROGS_aarch64 += aarch64/hypercalls
-+TEST_GEN_PROGS_aarch64 += aarch64/mmio_abort
-+TEST_GEN_PROGS_aarch64 += aarch64/page_fault_test
-+TEST_GEN_PROGS_aarch64 += aarch64/psci_test
-+TEST_GEN_PROGS_aarch64 += aarch64/set_id_regs
-+TEST_GEN_PROGS_aarch64 += aarch64/smccc_filter
-+TEST_GEN_PROGS_aarch64 += aarch64/vcpu_width_config
-+TEST_GEN_PROGS_aarch64 += aarch64/vgic_init
-+TEST_GEN_PROGS_aarch64 += aarch64/vgic_irq
-+TEST_GEN_PROGS_aarch64 += aarch64/vgic_lpi_stress
-+TEST_GEN_PROGS_aarch64 += aarch64/vpmu_counter_access
-+TEST_GEN_PROGS_aarch64 += aarch64/no-vgic-v3
-+TEST_GEN_PROGS_aarch64 += access_tracking_perf_test
-+TEST_GEN_PROGS_aarch64 += arch_timer
-+TEST_GEN_PROGS_aarch64 += coalesced_io_test
-+TEST_GEN_PROGS_aarch64 += demand_paging_test
-+TEST_GEN_PROGS_aarch64 += dirty_log_test
-+TEST_GEN_PROGS_aarch64 += dirty_log_perf_test
-+TEST_GEN_PROGS_aarch64 += guest_print_test
-+TEST_GEN_PROGS_aarch64 += get-reg-list
-+TEST_GEN_PROGS_aarch64 += kvm_create_max_vcpus
-+TEST_GEN_PROGS_aarch64 += kvm_page_table_test
-+TEST_GEN_PROGS_aarch64 += memslot_modification_stress_test
-+TEST_GEN_PROGS_aarch64 += memslot_perf_test
-+TEST_GEN_PROGS_aarch64 += mmu_stress_test
-+TEST_GEN_PROGS_aarch64 += rseq_test
-+TEST_GEN_PROGS_aarch64 += set_memory_region_test
-+TEST_GEN_PROGS_aarch64 += steal_time
-+TEST_GEN_PROGS_aarch64 += kvm_binary_stats_test
-+
-+TEST_GEN_PROGS_s390x = s390x/memop
-+TEST_GEN_PROGS_s390x += s390x/resets
-+TEST_GEN_PROGS_s390x += s390x/sync_regs_test
-+TEST_GEN_PROGS_s390x += s390x/tprot
-+TEST_GEN_PROGS_s390x += s390x/cmma_test
-+TEST_GEN_PROGS_s390x += s390x/debug_test
-+TEST_GEN_PROGS_s390x += s390x/cpumodel_subfuncs_test
-+TEST_GEN_PROGS_s390x += s390x/shared_zeropage_test
-+TEST_GEN_PROGS_s390x += s390x/ucontrol_test
-+TEST_GEN_PROGS_s390x += demand_paging_test
-+TEST_GEN_PROGS_s390x += dirty_log_test
-+TEST_GEN_PROGS_s390x += guest_print_test
-+TEST_GEN_PROGS_s390x += kvm_create_max_vcpus
-+TEST_GEN_PROGS_s390x += kvm_page_table_test
-+TEST_GEN_PROGS_s390x += rseq_test
-+TEST_GEN_PROGS_s390x += set_memory_region_test
-+TEST_GEN_PROGS_s390x += kvm_binary_stats_test
-+
-+TEST_GEN_PROGS_riscv += riscv/sbi_pmu_test
-+TEST_GEN_PROGS_riscv += riscv/ebreak_test
-+TEST_GEN_PROGS_riscv += arch_timer
-+TEST_GEN_PROGS_riscv += coalesced_io_test
-+TEST_GEN_PROGS_riscv += demand_paging_test
-+TEST_GEN_PROGS_riscv += dirty_log_test
-+TEST_GEN_PROGS_riscv += get-reg-list
-+TEST_GEN_PROGS_riscv += guest_print_test
-+TEST_GEN_PROGS_riscv += kvm_binary_stats_test
-+TEST_GEN_PROGS_riscv += kvm_create_max_vcpus
-+TEST_GEN_PROGS_riscv += kvm_page_table_test
-+TEST_GEN_PROGS_riscv += set_memory_region_test
-+TEST_GEN_PROGS_riscv += steal_time
-+
-+SPLIT_TESTS += arch_timer
-+SPLIT_TESTS += get-reg-list
-+
-+TEST_PROGS += $(TEST_PROGS_$(ARCH_DIR))
-+TEST_GEN_PROGS += $(TEST_GEN_PROGS_$(ARCH_DIR))
-+TEST_GEN_PROGS_EXTENDED += $(TEST_GEN_PROGS_EXTENDED_$(ARCH_DIR))
-+LIBKVM += $(LIBKVM_$(ARCH_DIR))
-+
-+OVERRIDE_TARGETS = 1
-+
-+# lib.mak defines $(OUTPUT), prepends $(OUTPUT)/ to $(TEST_GEN_PROGS), and most
-+# importantly defines, i.e. overwrites, $(CC) (unless `make -e` or `make CC=`,
-+# which causes the environment variable to override the makefile).
-+include ../lib.mk
-+
-+INSTALL_HDR_PATH = $(top_srcdir)/usr
-+LINUX_HDR_PATH = $(INSTALL_HDR_PATH)/include/
-+LINUX_TOOL_INCLUDE = $(top_srcdir)/tools/include
-+ifeq ($(ARCH),x86_64)
-+LINUX_TOOL_ARCH_INCLUDE = $(top_srcdir)/tools/arch/x86/include
-+else
-+LINUX_TOOL_ARCH_INCLUDE = $(top_srcdir)/tools/arch/$(ARCH)/include
-+endif
-+CFLAGS += -Wall -Wstrict-prototypes -Wuninitialized -O2 -g -std=gnu99 \
-+	-Wno-gnu-variable-sized-type-not-at-end -MD -MP -DCONFIG_64BIT \
-+	-fno-builtin-memcmp -fno-builtin-memcpy \
-+	-fno-builtin-memset -fno-builtin-strnlen \
-+	-fno-stack-protector -fno-PIE -fno-strict-aliasing \
-+	-I$(LINUX_TOOL_INCLUDE) -I$(LINUX_TOOL_ARCH_INCLUDE) \
-+	-I$(LINUX_HDR_PATH) -Iinclude -I$(<D) -Iinclude/$(ARCH_DIR) \
-+	-I ../rseq -I.. $(EXTRA_CFLAGS) $(KHDR_INCLUDES)
-+ifeq ($(ARCH),s390)
-+	CFLAGS += -march=z10
-+endif
-+ifeq ($(ARCH),x86)
-+ifeq ($(shell echo "void foo(void) { }" | $(CC) -march=x86-64-v2 -x c - -c -o /dev/null 2>/dev/null; echo "$$?"),0)
-+	CFLAGS += -march=x86-64-v2
-+endif
-+endif
-+ifeq ($(ARCH),arm64)
-+tools_dir := $(top_srcdir)/tools
-+arm64_tools_dir := $(tools_dir)/arch/arm64/tools/
-+
-+ifneq ($(abs_objdir),)
-+arm64_hdr_outdir := $(abs_objdir)/tools/
-+else
-+arm64_hdr_outdir := $(tools_dir)/
-+endif
-+
-+GEN_HDRS := $(arm64_hdr_outdir)arch/arm64/include/generated/
-+CFLAGS += -I$(GEN_HDRS)
-+
-+$(GEN_HDRS): $(wildcard $(arm64_tools_dir)/*)
-+	$(MAKE) -C $(arm64_tools_dir) OUTPUT=$(arm64_hdr_outdir)
-+endif
-+
-+no-pie-option := $(call try-run, echo 'int main(void) { return 0; }' | \
-+        $(CC) -Werror $(CFLAGS) -no-pie -x c - -o "$$TMP", -no-pie)
-+
-+# On s390, build the testcases KVM-enabled
-+pgste-option = $(call try-run, echo 'int main(void) { return 0; }' | \
-+	$(CC) -Werror -Wl$(comma)--s390-pgste -x c - -o "$$TMP",-Wl$(comma)--s390-pgste)
-+
-+LDLIBS += -ldl
-+LDFLAGS += -pthread $(no-pie-option) $(pgste-option)
-+
-+LIBKVM_C := $(filter %.c,$(LIBKVM))
-+LIBKVM_S := $(filter %.S,$(LIBKVM))
-+LIBKVM_C_OBJ := $(patsubst %.c, $(OUTPUT)/%.o, $(LIBKVM_C))
-+LIBKVM_S_OBJ := $(patsubst %.S, $(OUTPUT)/%.o, $(LIBKVM_S))
-+LIBKVM_STRING_OBJ := $(patsubst %.c, $(OUTPUT)/%.o, $(LIBKVM_STRING))
-+LIBKVM_OBJS = $(LIBKVM_C_OBJ) $(LIBKVM_S_OBJ) $(LIBKVM_STRING_OBJ)
-+SPLIT_TEST_GEN_PROGS := $(patsubst %, $(OUTPUT)/%, $(SPLIT_TESTS))
-+SPLIT_TEST_GEN_OBJ := $(patsubst %, $(OUTPUT)/$(ARCH_DIR)/%.o, $(SPLIT_TESTS))
-+
-+TEST_GEN_OBJ = $(patsubst %, %.o, $(TEST_GEN_PROGS))
-+TEST_GEN_OBJ += $(patsubst %, %.o, $(TEST_GEN_PROGS_EXTENDED))
-+TEST_DEP_FILES = $(patsubst %.o, %.d, $(TEST_GEN_OBJ))
-+TEST_DEP_FILES += $(patsubst %.o, %.d, $(LIBKVM_OBJS))
-+TEST_DEP_FILES += $(patsubst %.o, %.d, $(SPLIT_TEST_GEN_OBJ))
-+-include $(TEST_DEP_FILES)
-+
-+$(shell mkdir -p $(sort $(OUTPUT)/$(ARCH_DIR) $(dir $(LIBKVM_C_OBJ) $(LIBKVM_S_OBJ))))
-+
-+$(filter-out $(SPLIT_TEST_GEN_PROGS), $(TEST_GEN_PROGS)) \
-+$(TEST_GEN_PROGS_EXTENDED): %: %.o
-+	$(CC) $(CFLAGS) $(CPPFLAGS) $(LDFLAGS) $(TARGET_ARCH) $< $(LIBKVM_OBJS) $(LDLIBS) -o $@
-+$(TEST_GEN_OBJ): $(OUTPUT)/%.o: %.c
-+	$(CC) $(CFLAGS) $(CPPFLAGS) $(TARGET_ARCH) -c $< -o $@
-+
-+$(SPLIT_TEST_GEN_PROGS): $(OUTPUT)/%: $(OUTPUT)/%.o $(OUTPUT)/$(ARCH_DIR)/%.o
-+	$(CC) $(CFLAGS) $(CPPFLAGS) $(LDFLAGS) $(TARGET_ARCH) $^ $(LDLIBS) -o $@
-+$(SPLIT_TEST_GEN_OBJ): $(OUTPUT)/$(ARCH_DIR)/%.o: $(ARCH_DIR)/%.c
-+	$(CC) $(CFLAGS) $(CPPFLAGS) $(TARGET_ARCH) -c $< -o $@
-+
-+EXTRA_CLEAN += $(GEN_HDRS) \
-+	       $(LIBKVM_OBJS) \
-+	       $(SPLIT_TEST_GEN_OBJ) \
-+	       $(TEST_DEP_FILES) \
-+	       $(TEST_GEN_OBJ) \
-+	       cscope.*
-+
-+$(LIBKVM_C_OBJ): $(OUTPUT)/%.o: %.c $(GEN_HDRS)
-+	$(CC) $(CFLAGS) $(CPPFLAGS) $(TARGET_ARCH) -c $< -o $@
-+
-+$(LIBKVM_S_OBJ): $(OUTPUT)/%.o: %.S $(GEN_HDRS)
-+	$(CC) $(CFLAGS) $(CPPFLAGS) $(TARGET_ARCH) -c $< -o $@
-+
-+# Compile the string overrides as freestanding to prevent the compiler from
-+# generating self-referential code, e.g. without "freestanding" the compiler may
-+# "optimize" memcmp() by invoking memcmp(), thus causing infinite recursion.
-+$(LIBKVM_STRING_OBJ): $(OUTPUT)/%.o: %.c
-+	$(CC) $(CFLAGS) $(CPPFLAGS) $(TARGET_ARCH) -c -ffreestanding $< -o $@
-+
-+$(shell mkdir -p $(sort $(dir $(TEST_GEN_PROGS))))
-+$(SPLIT_TEST_GEN_OBJ): $(GEN_HDRS)
-+$(TEST_GEN_PROGS): $(LIBKVM_OBJS)
-+$(TEST_GEN_PROGS_EXTENDED): $(LIBKVM_OBJS)
-+$(TEST_GEN_OBJ): $(GEN_HDRS)
-+
-+cscope: include_paths = $(LINUX_TOOL_INCLUDE) $(LINUX_HDR_PATH) include lib ..
-+cscope:
-+	$(RM) cscope.*
-+	(find $(include_paths) -name '*.h' \
-+		-exec realpath --relative-base=$(PWD) {} \;; \
-+	find . -name '*.c' \
-+		-exec realpath --relative-base=$(PWD) {} \;) | sort -u > cscope.files
-+	cscope -b
--- 
-2.47.0.338.g60cca15819-goog
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+DQoNCj4gDQo+IEUgU2hhdHRvdyB3cm90ZToNCj4gPiBIaSBFbWlsLCB0aGFua3MgZm9yIHRha2lu
+ZyB0aW1lIHRvIHJldmlldyENCj4gPg0KPiA+IEFkZGVkIENDOiBNaW5kYSBDaGVuLCBIYWwgRmVu
+Zw0KPiA+DQo+ID4gUGxlYXNlIE1pbmRhIGFuZCBIYWwgY2FuIHlvdSBmb2xsb3ctdXAgb24gRW1p
+bCdzIGNvbW1lbnRzIGFzIHdlbGw/DQo+ID4NCj4gPiBPbiAxMS8yNy8yNCAwMzowMCwgRW1pbCBS
+ZW5uZXIgQmVydGhpbmcgd3JvdGU6DQo+ID4gPiBFIFNoYXR0b3cgd3JvdGU6DQo+ID4gPj4gRW5h
+YmxlIGhvc3QgbW9kZSBKSDcxMTAgb24tY2hpcCBVU0IgZm9yIE1pbGstViBNYXJzIGJ5IHNldHRp
+bmcgaG9zdA0KPiA+ID4+IG1vZGUgYW5kIGNvbm5lY3QgdmJ1cyBwaW5jdHJsLg0KPiA+ID4+DQo+
+ID4gPj4gVGhpcyBmdW5jdGlvbmFsaXR5IGRlcGVuZHMgb24gc2V0dGluZyB0aGUgVVNCIG92ZXIt
+Y3VycmVudCByZWdpc3Rlcg0KPiA+ID4+IHRvIGRpc2FibGUgYXQgYm9vdGxvYWRlciBwaGFzZSwg
+Zm9yIGV4YW1wbGUgVS1Cb290Og0KPiA+ID4+IGh0dHBzOi8vcGF0Y2h3b3JrLm96bGFicy5vcmcv
+cHJvamVjdC91Ym9vdC9wYXRjaC8yMDI0MTAxMjAzMTMyOC40MjYNCj4gPiA+PiA4LTYtbWluZGEu
+Y2hlbkBzdGFyZml2ZXRlY2guY29tLw0KPiA+ID4gSGkgRSwNCj4gPiA+DQo+ID4gPiBJZGVhbGx5
+IHRoZSBKSDcxMTAgcGluY3RybCBkcml2ZXIgd291bGQgYmUgdXBkYXRlZCwgc28gTGludXggY2Fu
+IGRvDQo+ID4gPiB0aGlzIGl0c2VsZiBhbmQgZG9lc24ndCBuZWVkIHRvIHJlbHkgb24gdS1ib290
+IGRvaW5nIGl0LiBJIGFscmVhZHkgYXNrZWQgZm9yIHRoaXMNCj4gaGVyZToNCj4gPiA+DQo+ID4g
+Pg0KPiBodHRwczovL2xvcmUua2VybmVsLm9yZy9hbGwvQ0FKTTU1Wi0rQ3hkZWJjbjRNTFhmUWRP
+Vmh4NGMyU1Erek1IOGNqbg0KPiA+ID4gLVlxMzV4TzhnMEFAbWFpbC5nbWFpbC5jb20vDQo+ID4N
+Cj4gPiBZZXMsIEkgYWdyZWUsIGFuZCBMaW51eCBpcyBub3QgdGhlIG9ubHkgY29uc3VtZXIgb2Yg
+ZGV2aWNldHJlZS4gSQ0KPiA+IHdvdWxkIGxpa2UgVVNCIGZ1bmN0aW9uIHRvIHdvcmsgZm9yIHVz
+ZXJzIG9mIExpbnV4IGFuZCBVLUJvb3Qgb24gdGhlc2UNCj4gPiBib2FyZHMgYnkgY29weWluZyB3
+aGF0IHRoZSB2ZW5kb3IgQm9hcmQgU3VwcG9ydCBQYWNrYWdlIGRvZXMgd2hhdCBpcw0KPiA+IHNo
+aXBwZWQgd2l0aCB0aGUgcHJvZHVjdHMuIElmIGl0IGlzIG1vcmUgaW4tZGVwdGggdGhhbiB0aGlz
+IEkgd2lsbA0KPiA+IGRlZmVyIHRvIEhhbCBvciBNaW5kYS4NCj4gPg0KPiA+DQo+ID4gRm9yIHNv
+bWUgd2lkZXIgY29udGV4dCwgdXBzdHJlYW0gVS1Cb290IGlzIGFib3V0IHRvIGFkb3B0IHRoZQ0K
+PiA+IGR0LXJlYmFzaW5nIHZpYSBIYWwncyBPRl9VUFNUUkVBTSBmb3IgSkg3MTEwIGJvYXJkcyBz
+ZXJpZXMgYW5kIHRoZW4NCj4gPiBhbHNvIHRoZXJlIGlzIGEgcGF0Y2ggc2V0IGZyb20gTWluZGEg
+Q2hlbiB0byBhZGQgdGhlIG9uLWNoaXAgSkg3MTEwDQo+ID4gVVNCIHN1cHBvcnQgdG8gVS1Cb290
+LCBhbmQgc28gdGhlbiBhbmQgdGhlcmUgaXQgd2lsbCBkZXBlbmQgb24gdGhlc2UNCj4gPiBkdHMg
+Y2hhbmdlcy4gSWYgeW91IGhhdmUgTWlsay1WIE1hcnMgdGhlbiBhbHJlYWR5IHRoZXJlIGFyZSB0
+aHJlZSBvZg0KPiA+IGZvdXIgVVNCLUEgcmVjZXB0YWNsZSBwb3J0cyB3aGljaCBhcmUgZnVuY3Rp
+b25hbCBvbiBQQ0llLWNvbm5lY3RlZA0KPiA+IFZMODA1IFVTQiBjaGlwc2V0Lg0KPiA+DQo+ID4g
+Pg0KPiA+ID4+IElmIHRoZSBvdmVyLWN1cnJlbnQgcmVnaXN0ZXIgaXMgbm90IHByZXBhcmVkIGZv
+ciB1cyB0aGVuIHRoZSByZXN1bHQNCj4gPiA+PiBpcyBubyBjaGFuZ2UgaW4gZnVuY3Rpb25hbCBv
+dXRjb21lIHdpdGggdGhpcyBwYXRjaCBhcHBsaWVkOyB0aGVyZQ0KPiA+ID4+IGlzIGFuIGVycm9y
+IHZpc2libGUgdG8gdGhlIHVzZXIgYW5kIHRoaXMgYWRkaXRpb25hbCB1c2INCj4gPiA+PiBjb25m
+aWd1cmF0aW9uIGZhaWxzIChzYW1lIGFzIGl0IGlzIG5vdykuIE9uIE1pbGstViBNYXJzIHdpdGgg
+Zm91cg0KPiA+ID4+IFVTQi1BIHBvcnRzIHRoaXMgYXBwbGllcyB0byBvbmUgb2YgdGhlIHBvcnRz
+IGFuZCB0aGUgcmVtYWluaW5nIHRocmVlDQo+IFZMODA1LWNvbm5lY3RlZCBwb3J0cyB2aWEgUENJ
+ZSBhcmUgbm90IGNoYW5nZWQuDQo+ID4gPiBUaGFua3MgZm9yIHRoZSBwYXRjaGVzLiBJIGRvbid0
+IHF1aXRlIHVuZGVyc3RhbmQgd2hlbiB5b3Ugd3JpdGUgIm5vDQo+ID4gPiBjaGFuZ2UgaW4gZnVu
+Y3Rpb25hbCBvdXRjb21lIHdpdGggdGhpcyBwYXRjaCBhcHBsaWVkIi4gVGhlIFVTQi1DDQo+ID4g
+PiBwb3J0IGlzIGFscmVhZHkgY29uZmlndXJlZCBhcyBhIHBlcmlwaGVyYWwsIGFuZCBJIGp1c3Qg
+dHJpZWQgc2V0dGluZw0KPiA+ID4gdXAgYW4gZXRoZXJuZXQgZ2FkZ2V0IG9uIG15IFZGMiBydW5u
+aW5nIDYuMTIgYW5kIHRoYXQgd29ya3MgcXVpdGUNCj4gPiA+IHdlbGwuIERvZXMgaXQgbm90IHdv
+cmsgb24gdGhlIE1pbGstViBNYXJzIGJvYXJkPyBJZiBpdCBkb2VzIHRoZW4gdGhlc2UNCj4gcGF0
+Y2hlcyB3b3VsZCBicmVhayB0aGF0IGZ1bmN0aW9uYWxpdHkuDQo+ID4gPg0KPiA+ID4gSGVyZSBp
+cyB0aGUgc2NyaXB0IEkgdXNlZCBmb3IgdGhhdDoNCj4gPiA+IGh0dHBzOi8vcGFzdGUuYy1uZXQu
+b3JnL0JyYXZvTG9uZWx5DQo+ID4gPg0KPiA+ID4gQXQgdGhlIHZlcnkgbGVhc3QgeW91J2xsIG5l
+ZWQgdG8gZXhwbGFpbiBpbiB0aGUgY29tbWl0IG1lc3NhZ2UNCj4gPiA+IGl0c2VsZiB3aHkgY2hh
+bmdpbmcgdGhlIFVTQi1DIHBvcnQgZnJvbSBwZXJpcGhlcmFsIG1vZGUgdG8gaG9zdCBtb2RlDQo+
+ID4gPiBpcyBPSy4gQnV0IGlkZWFsbHkgbWF5YmUgeW91IGNvdWxkIG1ha2UgaXQgd29yayBpbiBP
+VEcgbW9kZSwgc28NCj4gPiA+IHVzZXJzcGFjZSBjYW4gY2hvb3NlIGhvdyB0aGV5IHdhbnQgdG8g
+dXNlIHRoZSBwb3J0LiBUaGUgc2FtZSBnb2VzIGZvciB0aGUNCj4gUElORTY0IGJvYXJkIHRvby4N
+Cj4gPiA+DQo+ID4gPiAvRW1pbA0KPiA+DQo+ID4gVVNCLUMgcG9ydCBvbiBNYXJzIGlzIG5vdCB3
+aXJlZCBmb3IgZGF0YSBoZXJlLCB0aGF0IGlzIG9ubHkgdHJ1ZSBmb3INCj4gPiBWaXNpb25GaXZl
+Mi4gSWYgdGhlIHVzZXIgd2FudHMgdG8gdXNlIHRoZWlyIFVTQi1BIHJlY2VwdGFjbGUgYXMgT1RH
+DQo+ID4gcG9ydCBJIHdpbGwgbm90IG9iamVjdCB0byBhIGZ1dHVyZSBpbXByb3ZlbWVudCwgYnV0
+IGhlcmUgd2Ugd2FudCB0aGUNCj4gPiBiYXNpYyBleHBlY3RhdGlvbnMgb2YgdXNlcnMgY292ZXJl
+ZCB0aGF0IHRoZXkgc2hvdWxkIGhhdmUgZm91ciB3b3JraW5nDQo+ID4gVVNCLUEgcmVjZXB0YWNs
+ZSBwb3J0cyBpbiBVLUJvb3QgKGFuZCBwb3NzaWJseSBpbiBMaW51eCwgZGVwZW5kaW5nIG9uDQo+
+ID4gdGhlIG92ZXJjdXJyZW50IHJlZ2lzdGVyIHdoZXJldmVyIGl0IGlzIHNldCkuIFRoaXMgaXMg
+d2hhdCBJIGFtDQo+ID4gbWVhbmluZywgdGhlcmUgbWF5IGJlIHNvbWVib2R5IHVzaW5nIGEgbWFs
+ZS1tYWxlIFVTQi1BIFVTQi1BIGNhYmxlIGZvcg0KPiA+IE9URyBidXQgbW9yZSBsaWtlbHkgaXMg
+dGhhdCBwZW9wbGUganVzdCB3YW50IHRvIHBsdWcgaW4gVVNCDQo+ID4gcGVyaXBoZXJhbHMgdG8g
+aG9zdCBwb3J0cyBhbmQgdXNlIHRoZWlyIG1vdXNlIC8ga2V5Ym9hcmQgLyBmbGFzaCBtZW1vcnks
+IEkNCj4gdGhpbmsuDQo+IA0KPiBZb3UncmUgcmlnaHQsIHNvcnJ5LiBJJ20gc28gdXNlZCB0byB0
+aGUgSkg3MTEwIGJvYXJkcyBiZWluZyBzaW1pbGFyLCBidXQgdGhpcyBpcw0KPiBhY3R1YWxseSBv
+bmUgb2YgdGhlIGZldyBkaWZmZXJlbmNlcyBiZXR3ZWVuIHRoZSBNYXJzIGFuZCBWRjIgdGhhdCB3
+YXMgbm90DQo+IGNhdWdodCB3aGVuIHRoZSBNYXJzIGR0cyB3YXMgZmlyc3QgdXBzdHJlYW1lZC4N
+Cj4gDQo+IFllcywgd2l0aCA0IHNpbWlsYXIgVVNCLUEgcG9ydHMgeW91J2QgZGVmaW5pdGVseSBl
+eHBlY3QgYWxsIG9mIHRoZW0gdG8gd29yayBpbiBob3N0DQo+IG1vZGUuIFdpdGggYW4gZXhwbGFu
+YXRpb24gbGlrZSB0aGUgYWJvdmUgaW4gdGhlIGNvbW1pdCBtZXNzYWdlIEkgKG5vdykgdGhpbmsN
+Cj4geW91ciBjaGFuZ2VzIG1ha2VzIHNlbnNlLg0KPiANCj4gVGhhbmtzIQ0KPiAvRW1pbA0KPiAN
+ClRoYW5rcy4gRSBTaGFkb3cNCg0KVGhlIFVTQiBhbmQgUENJZTAgc2V0dGluZyBpbiBzb21lIEpI
+NzExMCBib2FyZHMuDQogICAgICAgICAgICAgICAgIFBDSWUwICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICBjYWRlbmNlIFVTQiBjb250cm9sbGVyDQpWRjI6ICAgICAgIGNvbm5l
+Y3Qgd2l0aCBWTDgwNSBVU0IzLjAgKCA0IFVTQiAzLjAgdHlwZSBBIHBvcnRzKSAgICAgICAoVVNC
+IDIuMClUeXBlIEMgcG9ydChyb2xlOiBwZXJpcGhlcmFsKQ0KTWlsa3YgbWFycyAgY29ubmVjdCB3
+aXRoIFZMODA1IFVTQjMuMCAoIDMgVVNCIDMuMCB0eXBlIEEgcG9ydHMpICAgICAgIChVU0IgMi4w
+KTEgVHlwZSBBIHBvcnQgKHJvbGU6aG9zdCkNCk1pbGt2IGNtICAgIFBDSWUgc2xvdAkJCQkJCQkJ
+CQkJKFVTQiAyLjApbWljcm8gQiBwb3J0IChyb2xlOmhvc3QpDQpTdGFyNjQgICAgICAgZGlzYWJs
+ZWTvvIhwY2llIFBIWTAgY29ubmVjdCB0byBjYWRlbmNlIFVTQu+8iSAgICAgICAgIDEgdXNiIDMu
+MCBwb3J0ICsgVVNCIDIuMCBodWIgKHJvbGU6aG9zdCkNCg0KSCBFIFNoYWRvdw0KSSBzZWUgeW91
+IGFsc28gYWRkIHN0YXI2NCBVU0IgY29uZmlndXJhdGlvbi4gSSBob3BlIGFsc28gYWRkIHRoaXMg
+dG8gc3RhcjY0IGJvYXJkIGR0cyBiYXNlIG9uDQpWNi4xMy1yYzEuIFRoYW5rcy4NCg0KJnBjaWUw
+IHsNCglzdGF0dXMgPSAiZGlzYWJsZWQiOw0KfTsNCg0KJnBjaWVwaHkwIHsNCglzdGFyZml2ZSxz
+eXMtc3lzY29uID0gPCZzeXNfc3lzY29uIDB4MTg+Ow0KCXN0YXJmaXZlLHN0Zy1zeXNjb24gPSA8
+JnN0Z19zeXNjb24gMHgxNDggMHgxZjQ+Ow0KCXN0YXR1cyA9ICJva2F5IjsNCn07DQoNCiZ1c2Iw
+IHsNCglwaW5jdHJsLW5hbWVzID0gImRlZmF1bHQiOw0KCXBpbmN0cmwtMCA9IDwmdXNiX3BpbnM+
+Ow0KCWRyX21vZGUgPSAiaG9zdCI7DQoJc3RhdHVzID0gIm9rYXkiOw0KfTsNCg0KJnVzYl9jZG5z
+MyB7DQoJcGh5cyA9IDwmdXNicGh5MD4sIDwmcGNpZXBoeTA+Ow0KCXBoeS1uYW1lcyA9ICJjZG5z
+Myx1c2IyLXBoeSIsICJjZG5zMyx1c2IzLXBoeSI7DQp9Ow0KDQo+ID4NCj4gPg0KPiA+IFRoZXJl
+IGlzIG5vIFVTQi1DIHBvcnQgb24gU3RhcjY0Lg0KPiA+DQo+ID4gPg0KPiA+ID4+IENoYW5nZXMg
+c2luY2UgdjQ6DQo+ID4gPj4gICAtIFJlYmFzZSBvbiBsYXRlc3QgbWFzdGVyDQo+ID4gPj4NCj4g
+PiA+PiBDaGFuZ2VzIHNpbmNlIHYzOg0KPiA+ID4+ICAgLSBSZWJhc2Ugb24gbGludXgtbmV4dC9t
+YXN0ZXINCj4gPiA+PiAgIC0gdXNlIHRhYnMgZm9yIGNvZGUgaW5kZW50DQo+ID4gPj4NCj4gPiA+
+PiBDaGFuZ2VzIHNpbmNlIHYyOg0KPiA+ID4+ICAgLSBSZWJhc2Ugb24gNi4xMg0KPiA+ID4+DQo+
+ID4gPj4gRSBTaGF0dG93ICgxKToNCj4gPiA+PiAgICByaXNjdjogZHRzOiBzdGFyZml2ZTogamg3
+MTEwLW1pbGt2LW1hcnM6IGVuYWJsZSB1c2IwIGhvc3QNCj4gPiA+PiBmdW5jdGlvbg0KPiA+ID4+
+DQo+ID4gPj4gICAuLi4vYm9vdC9kdHMvc3RhcmZpdmUvamg3MTEwLW1pbGt2LW1hcnMuZHRzICAg
+IHwgMTgNCj4gKysrKysrKysrKysrKysrKystDQo+ID4gPj4gICAxIGZpbGUgY2hhbmdlZCwgMTcg
+aW5zZXJ0aW9ucygrKSwgMSBkZWxldGlvbigtKQ0KPiA+ID4+DQo+ID4gPj4gLS0NCj4gPiA+PiAy
+LjQ1LjINCj4gPiA+Pg0KPiA+IFRoYW5rcyBhZ2FpbiBFbWlsLsKgIC1FDQo+ID4NCl9fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxp
+bmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZy
+YWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
