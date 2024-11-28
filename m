@@ -4,76 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 80650D78333
-	for <linux-riscv@archiver.kernel.org>; Mon,  2 Dec 2024 16:30:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EEA67D78337
+	for <linux-riscv@archiver.kernel.org>; Mon,  2 Dec 2024 17:07:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=h4ZtcLd+F0gNzmeI3jTtgi/dDd+SEwuU4JdzbxDFtR0=; b=ih1CP36Nmro76T
-	3XVp2xexTE9c/7Jc6hp+mxLZ95eithunuHT2JSX+1Zq/UFXjH4wkxizrL9bftnxP79KyJ0F8GoMGf
-	M9xeU84FBCQlQbzkkbSjQ1uViwAlsJrBV4wMp/B9MDddP83b137MMlH9YpWsIAHk2qKHDAPp/kSh7
-	wpWO9Ple6c7TxrgPRMV58RE5+9/jPVQL+lcl+56sFR/O8NgOT7Im7hTtVyrLH0yRieCMA+joxZNky
-	RfeCPoHl2hXGr6HNJRmuOXCOlFJiA4DZMrUy+8Vexb3RkeHx5OlLC7eZPJsOoq/WOdBb2vHjL91jN
-	+acflrigmLokGO9pAKgA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:CC
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=XngOXG2JuDo3wjkB5z0n/Jir114OftWJNPyQiUhqyVw=; b=VBv/aCWP5loKQH
+	ppeHEEw/WGzIuR2JchmkWe3YYUokqPWuO9uoZIkLECgBl/xMb1hI910qETafH2myOf8K/kEqB19zh
+	1qZs6653o8VII6KrN7A7Le1ptrvxHb0NORlDkyy99h+OVau8HUSaid9NyWjwQrgpu1roFWV4KrIC7
+	TQXictkZTpCqNyzuJSz0CZr3LrLf8kt+JV6HrDTizkFzyTXRqjVies0wurqvaUuDB5KTbSJlCYX6C
+	K8mILxI19dNr0AeLHykuGglqfwJ+b1GKacsXYeP7NXAYni24u3C1fk1rACcEl6ojtMV36OLCnk3YT
+	DyJh7kcmAdTaudKzro6w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tI9J5-00000006qsz-1wRk;
-	Mon, 02 Dec 2024 16:29:55 +0000
-Received: from mgamail.intel.com ([198.175.65.16])
+	id 1tI9t7-00000006xtm-0qAC;
+	Mon, 02 Dec 2024 17:07:09 +0000
+Received: from smtp-fw-52005.amazon.com ([52.119.213.156])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tI96F-00000006oId-3DBN
-	for linux-riscv@lists.infradead.org;
-	Mon, 02 Dec 2024 16:16:41 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1733156199; x=1764692199;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=hBjULFugZtlPqAODKe5EOPqdZoFuU9oDax92d1MVL4E=;
-  b=kziCWNnIW5v2xeZeGLU3fYPDkGY8tn7cOW4hcS6o9xkCcaMZEGcM+4IU
-   9s4ALSGaB5HqJ3Mn41MF7U7KD0zFXNsK3VvK6bvmh2ymVT7RA8ef8TiwX
-   FYDsaF2LdO3gL0nvpZg7I7FDTe3YEbs4llDM0cXlvNSIJkHhiBtSpv50Q
-   5Ko6z0g6x/i6NbVXjMmaIoM3TGoTwtbX2js6UdYKH5R4w+ZDWdgZAeaa2
-   Tkqztysim7ZK1NEL2xVmWmXHKEkZ3O6QfGf7U1V9nDIcgylCEkBlpALmU
-   kC6/Yx/u/fypaP1hLoXbw13blFsnNC3EfMWBvtonO9EaHVoEKjd6QT58F
-   A==;
-X-CSE-ConnectionGUID: k+b/p7kGQbGdMw7y3kXRjA==
-X-CSE-MsgGUID: TCcpxZ3yQ+OxsTE1Owpg4A==
-X-IronPort-AV: E=McAfee;i="6700,10204,11274"; a="33466685"
-X-IronPort-AV: E=Sophos;i="6.12,202,1728975600"; 
-   d="scan'208";a="33466685"
-Received: from fmviesa008.fm.intel.com ([10.60.135.148])
-  by orvoesa108.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 02 Dec 2024 08:16:38 -0800
-X-CSE-ConnectionGUID: IGMRNMWsTxOQdaPuxoo3sA==
-X-CSE-MsgGUID: MCpR2xj9RRyZFU/yPp/1OA==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.12,202,1728975600"; 
-   d="scan'208";a="93317340"
-Received: from lkp-server02.sh.intel.com (HELO 36a1563c48ff) ([10.239.97.151])
-  by fmviesa008.fm.intel.com with ESMTP; 02 Dec 2024 08:16:37 -0800
-Received: from kbuild by 36a1563c48ff with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1tI95y-0002a5-2e;
-	Mon, 02 Dec 2024 16:16:23 +0000
-Date: Tue, 3 Dec 2024 00:15:30 +0800
-From: kernel test robot <lkp@intel.com>
-To: Xu Lu <luxu.kernel@bytedance.com>, paul.walmsley@sifive.com,
-	palmer@dabbelt.com, aou@eecs.berkeley.edu
-Cc: oe-kbuild-all@lists.linux.dev, lihangjing@bytedance.com,
-	xieyongji@bytedance.com, linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org, Xu Lu <luxu.kernel@bytedance.com>
-Subject: Re: [PATCH] riscv: mm: Fix alignment of phys_ram_base
-Message-ID: <202412022337.YEieoR2g-lkp@intel.com>
-References: <20241202101601.48284-1-luxu.kernel@bytedance.com>
+	id 1tGko2-0000000GKEm-468b;
+	Thu, 28 Nov 2024 20:08:08 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+  d=amazon.com; i=@amazon.com; q=dns/txt; s=amazon201209;
+  t=1732824487; x=1764360487;
+  h=from:to:cc:subject:date:message-id:
+   content-transfer-encoding:mime-version;
+  bh=OqkEOPg1Ntw5OzjoKV6qV13YxrudUL0x8D+JX5oOx/Q=;
+  b=WY1Boq3A/rdqoEOenAWiqQvPH8rAXu4b1X8ss1IYCxCiurasfPnJghJ0
+   LHYPno8C4tEpe5qTmH1t/jmlfR3q9DiRT5WLd3/5wH4iFdFm0p8+2N4T0
+   ETn3Ft1NfQqKP08+UWEE3incMAZhu+J9OmQOaadM6NFGcJs3gE+NxR6Im
+   M=;
+X-IronPort-AV: E=Sophos;i="6.12,193,1728950400"; 
+   d="scan'208";a="699037645"
+Received: from iad6-co-svc-p1-lb1-vlan3.amazon.com (HELO smtpout.prod.us-east-1.prod.farcaster.email.amazon.dev) ([10.124.125.6])
+  by smtp-border-fw-52005.iad7.amazon.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 28 Nov 2024 20:07:59 +0000
+Received: from EX19MTAEUA002.ant.amazon.com [10.0.10.100:44286]
+ by smtpin.naws.eu-west-1.prod.farcaster.email.amazon.dev [10.0.34.163:2525] with esmtp (Farcaster)
+ id 092245c2-527c-4203-87c5-e650bdd3ad53; Thu, 28 Nov 2024 20:07:58 +0000 (UTC)
+X-Farcaster-Flow-ID: 092245c2-527c-4203-87c5-e650bdd3ad53
+Received: from EX19D018EUA004.ant.amazon.com (10.252.50.85) by
+ EX19MTAEUA002.ant.amazon.com (10.252.50.124) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.1258.35;
+ Thu, 28 Nov 2024 20:07:58 +0000
+Received: from EX19D018EUA004.ant.amazon.com (10.252.50.85) by
+ EX19D018EUA004.ant.amazon.com (10.252.50.85) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.1258.34;
+ Thu, 28 Nov 2024 20:07:58 +0000
+Received: from EX19D018EUA004.ant.amazon.com ([fe80::e53:84f8:3456:a97d]) by
+ EX19D018EUA004.ant.amazon.com ([fe80::e53:84f8:3456:a97d%3]) with mapi id
+ 15.02.1258.034; Thu, 28 Nov 2024 20:07:58 +0000
+From: "Farber, Eliav" <farbere@amazon.com>
+To: Thomas Gleixner <tglx@linutronix.de>, "linux@armlinux.org.uk"
+	<linux@armlinux.org.uk>, "catalin.marinas@arm.com" <catalin.marinas@arm.com>,
+	"will@kernel.org" <will@kernel.org>, "mpe@ellerman.id.au"
+	<mpe@ellerman.id.au>, "npiggin@gmail.com" <npiggin@gmail.com>,
+	"christophe.leroy@csgroup.eu" <christophe.leroy@csgroup.eu>,
+	"naveen@kernel.org" <naveen@kernel.org>, "maddy@linux.ibm.com"
+	<maddy@linux.ibm.com>, "paul.walmsley@sifive.com" <paul.walmsley@sifive.com>,
+	"palmer@dabbelt.com" <palmer@dabbelt.com>, "aou@eecs.berkeley.edu"
+	<aou@eecs.berkeley.edu>, "akpm@linux-foundation.org"
+	<akpm@linux-foundation.org>, "bhe@redhat.com" <bhe@redhat.com>,
+	"hbathini@linux.ibm.com" <hbathini@linux.ibm.com>, "adityag@linux.ibm.com"
+	<adityag@linux.ibm.com>, "songshuaishuai@tinylab.org"
+	<songshuaishuai@tinylab.org>, "takakura@valinux.co.jp"
+	<takakura@valinux.co.jp>, "linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "linuxppc-dev@lists.ozlabs.org"
+	<linuxppc-dev@lists.ozlabs.org>, "linux-riscv@lists.infradead.org"
+	<linux-riscv@lists.infradead.org>
+CC: "Chocron, Jonathan" <jonnyc@amazon.com>
+Subject: RE: [PATCH v2] arm64: kexec: Check if IRQ is already masked before
+ masking
+Thread-Topic: [PATCH v2] arm64: kexec: Check if IRQ is already masked before
+ masking
+Thread-Index: AdtB0CLnH24qyvw6Ek+EUcflLj/BEA==
+Date: Thu, 28 Nov 2024 20:07:57 +0000
+Message-ID: <3a499ecdfa5042f8b6e8834c47cdb2d9@amazon.com>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+x-originating-ip: [10.85.143.173]
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20241202101601.48284-1-luxu.kernel@bytedance.com>
+X-Bad-Reply: 'Re:' in Subject but no References or In-Reply-To headers
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241202_081639_853539_043795A8 
-X-CRM114-Status: GOOD (  14.33  )
+X-CRM114-CacheID: sfid-20241128_120807_339974_D3E895FD 
+X-CRM114-Status: GOOD (  14.49  )
+X-Mailman-Approved-At: Mon, 02 Dec 2024 09:07:07 -0800
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,131 +109,45 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Xu,
+On 11/28/2024 12:39 PM, Thomas Gleixner wrote:
+> This is just wrong. If the interrupt was torn down, then its state is deactivated and it was masked already. So the EOI handling and the mask/disable dance are neither required nor make sense.
+>
+> So this whole thing should be:
+>
+>                 chip = irq_desc_get_chip(desc);
+> -               if (!chip)
+> +               if (!chip || !irqd_is_started(&desc->irq_data))
+>                         continue;
+ACK. Will be done this way in V3.
 
-kernel test robot noticed the following build errors:
+> But what's worse is that we have 4 almost identical variants of the same code.
+>
+> So instead of exposing core functionality and "fixing" up four variants, can we please have a consolidated version of this function in the core
+> code:
+>                 struct irq_chip *chip;
+>                 int check_eoi = 1;
+>
+>                 chip = irq_desc_get_chip(desc);
+>                 if (!chip || !irqd_is_started(&desc->irq_data))
+>                         continue;
+>
+>                 if (IS_ENABLED(CONFIG_.....)) {
+>                         /*
+>                          * Add a sensible comment which explains this.
+>                          */
+>                         check_eoi = irq_set_irqchip_state(....);
+>                 }
+>
+>                 if (check_eoi && ....)
+>                         chip->irq_eoi(&desc->irq_data);
+>
+>                 irq_shutdown(desc);
+>
+> No?
+In V3 I will add a preliminary patch that will remove the four variants
+and instead add a common implementations to the kexec core.
 
-[auto build test ERROR on linus/master]
-[also build test ERROR on v6.13-rc1 next-20241128]
-[If your patch is applied to the wrong git tree, kindly drop us a note.
-And when submitting patch, we suggest to use '--base' as documented in
-https://git-scm.com/docs/git-format-patch#_base_tree_information]
-
-url:    https://github.com/intel-lab-lkp/linux/commits/Xu-Lu/riscv-mm-Fix-alignment-of-phys_ram_base/20241202-183801
-base:   linus/master
-patch link:    https://lore.kernel.org/r/20241202101601.48284-1-luxu.kernel%40bytedance.com
-patch subject: [PATCH] riscv: mm: Fix alignment of phys_ram_base
-config: riscv-allnoconfig (https://download.01.org/0day-ci/archive/20241202/202412022337.YEieoR2g-lkp@intel.com/config)
-compiler: riscv64-linux-gcc (GCC) 14.2.0
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20241202/202412022337.YEieoR2g-lkp@intel.com/reproduce)
-
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202412022337.YEieoR2g-lkp@intel.com/
-
-All errors (new ones prefixed by >>):
-
-   In file included from include/linux/kernel.h:27,
-                    from include/linux/cpumask.h:11,
-                    from arch/riscv/include/asm/processor.h:55,
-                    from arch/riscv/include/asm/thread_info.h:42,
-                    from include/linux/thread_info.h:60,
-                    from include/asm-generic/preempt.h:5,
-                    from ./arch/riscv/include/generated/asm/preempt.h:1,
-                    from include/linux/preempt.h:79,
-                    from include/linux/spinlock.h:56,
-                    from include/linux/mmzone.h:8,
-                    from include/linux/gfp.h:7,
-                    from include/linux/mm.h:7,
-                    from arch/riscv/mm/init.c:10:
-   arch/riscv/mm/init.c: In function 'setup_bootmem':
->> arch/riscv/mm/init.c:62:41: error: 'SECTION_SIZE_BITS' undeclared (first use in this function)
-      62 | #define RISCV_MEMSTART_ALIGN    (1UL << SECTION_SIZE_BITS)
-         |                                         ^~~~~~~~~~~~~~~~~
-   include/linux/math.h:15:46: note: in definition of macro '__round_mask'
-      15 | #define __round_mask(x, y) ((__typeof__(x))((y)-1))
-         |                                              ^
-   arch/riscv/mm/init.c:246:33: note: in expansion of macro 'round_down'
-     246 |                 phys_ram_base = round_down(memblock_start_of_DRAM(),
-         |                                 ^~~~~~~~~~
-   arch/riscv/mm/init.c:247:44: note: in expansion of macro 'RISCV_MEMSTART_ALIGN'
-     247 |                                            RISCV_MEMSTART_ALIGN);
-         |                                            ^~~~~~~~~~~~~~~~~~~~
-   arch/riscv/mm/init.c:62:41: note: each undeclared identifier is reported only once for each function it appears in
-      62 | #define RISCV_MEMSTART_ALIGN    (1UL << SECTION_SIZE_BITS)
-         |                                         ^~~~~~~~~~~~~~~~~
-   include/linux/math.h:15:46: note: in definition of macro '__round_mask'
-      15 | #define __round_mask(x, y) ((__typeof__(x))((y)-1))
-         |                                              ^
-   arch/riscv/mm/init.c:246:33: note: in expansion of macro 'round_down'
-     246 |                 phys_ram_base = round_down(memblock_start_of_DRAM(),
-         |                                 ^~~~~~~~~~
-   arch/riscv/mm/init.c:247:44: note: in expansion of macro 'RISCV_MEMSTART_ALIGN'
-     247 |                                            RISCV_MEMSTART_ALIGN);
-         |                                            ^~~~~~~~~~~~~~~~~~~~
-
-
-vim +/SECTION_SIZE_BITS +62 arch/riscv/mm/init.c
-
-  > 10	#include <linux/mm.h>
-    11	#include <linux/memblock.h>
-    12	#include <linux/initrd.h>
-    13	#include <linux/swap.h>
-    14	#include <linux/swiotlb.h>
-    15	#include <linux/sizes.h>
-    16	#include <linux/of_fdt.h>
-    17	#include <linux/of_reserved_mem.h>
-    18	#include <linux/libfdt.h>
-    19	#include <linux/set_memory.h>
-    20	#include <linux/dma-map-ops.h>
-    21	#include <linux/crash_dump.h>
-    22	#include <linux/hugetlb.h>
-    23	#ifdef CONFIG_RELOCATABLE
-    24	#include <linux/elf.h>
-    25	#endif
-    26	#include <linux/kfence.h>
-    27	#include <linux/execmem.h>
-    28	
-    29	#include <asm/fixmap.h>
-    30	#include <asm/io.h>
-    31	#include <asm/kasan.h>
-    32	#include <asm/numa.h>
-    33	#include <asm/pgtable.h>
-    34	#include <asm/sections.h>
-    35	#include <asm/soc.h>
-    36	#include <asm/tlbflush.h>
-    37	
-    38	#include "../kernel/head.h"
-    39	
-    40	u64 new_vmalloc[NR_CPUS / sizeof(u64) + 1];
-    41	
-    42	struct kernel_mapping kernel_map __ro_after_init;
-    43	EXPORT_SYMBOL(kernel_map);
-    44	#ifdef CONFIG_XIP_KERNEL
-    45	#define kernel_map	(*(struct kernel_mapping *)XIP_FIXUP(&kernel_map))
-    46	#endif
-    47	
-    48	#ifdef CONFIG_64BIT
-    49	u64 satp_mode __ro_after_init = !IS_ENABLED(CONFIG_XIP_KERNEL) ? SATP_MODE_57 : SATP_MODE_39;
-    50	#else
-    51	u64 satp_mode __ro_after_init = SATP_MODE_32;
-    52	#endif
-    53	EXPORT_SYMBOL(satp_mode);
-    54	
-    55	#ifdef CONFIG_64BIT
-    56	bool pgtable_l4_enabled __ro_after_init = !IS_ENABLED(CONFIG_XIP_KERNEL);
-    57	bool pgtable_l5_enabled __ro_after_init = !IS_ENABLED(CONFIG_XIP_KERNEL);
-    58	EXPORT_SYMBOL(pgtable_l4_enabled);
-    59	EXPORT_SYMBOL(pgtable_l5_enabled);
-    60	#endif
-    61	
-  > 62	#define RISCV_MEMSTART_ALIGN	(1UL << SECTION_SIZE_BITS)
-    63	
-
--- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+Thanks, Eliav
 
 _______________________________________________
 linux-riscv mailing list
