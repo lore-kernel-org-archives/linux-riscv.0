@@ -4,70 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A7ECD6D250
-	for <linux-riscv@archiver.kernel.org>; Thu, 28 Nov 2024 01:05:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9DA5FD6D251
+	for <linux-riscv@archiver.kernel.org>; Thu, 28 Nov 2024 01:09:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
 	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID
 	:References:Mime-Version:In-Reply-To:Date:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=1MuBP5plYRmW7W9AX+S7naglUhHQyxa9l8ftvJTSBGM=; b=Cg/sh8ZuhOzdy9
-	KZJzXiW76+hXBRNF+C47aJ6Kdn+BdLXFaxkbRLsqSE7tDx4QaTDt0twE1u433x0Ts8ADyHcCFiYgr
-	Ion0/sTML82zJG9podW/IpSZ8tq6yG2TB0XFYzcjMN5nun0qkago3br9czxyhSpxDyIQpVKn1YAzT
-	W0z9/IIZ4S7jeHaOMEAaQQxlRoxaPS9+AJkN9bgDtawIPzMfRJCU4Dut5GMlZlQ649EH1XjN0T16d
-	AlceQQK+HwmXQo21KpcwZtpc02i0D1/LaE5IYTeCu2Owh06DlJgl1V+SZIxBtxJUHV9pcas08s/pZ
-	I6z+S0tVbCbCbajOn07w==;
+	List-Owner; bh=+0OSIXSc3NS0mnsla4VJs8bafO5eQDxXqWLTJnV7ax0=; b=NQee5AdG97p+lu
+	zKUUDJsGTJYnhR9utUq5c7io12NjjBO2scC2xMbulFeXqOAdnJFX8973lOln+bqnDrsPJEmQSdcQR
+	wSIG80SAVd3LQcOIoRdPhBiBaYhU8H4SeTNPgLTUCQ4da9is5envtYeV4fiZIOzfhuiwWQgt/Bi2E
+	BLBw+yPmtuIRnRn7/pUPehjgZEUO1Tg99GAmjY05zYcp561gUNzPy5OR6fZG4V51OgNZFiqwQ8woj
+	cSSaazSVqxe31d5UlYkWvxV0UA+1cXJBfo9Z0yAJe4csEdB1WB3qpucD7pA6kGg2jyZpzRRY6N0Cm
+	GV38NDC3Sk0CdZIJhxag==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tGSyb-0000000EOrc-1xY9;
-	Thu, 28 Nov 2024 01:05:49 +0000
-Received: from mail-pj1-x104a.google.com ([2607:f8b0:4864:20::104a])
+	id 1tGT1c-0000000EPHC-2XP3;
+	Thu, 28 Nov 2024 01:08:56 +0000
+Received: from mail-pg1-x549.google.com ([2607:f8b0:4864:20::549])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tGSpE-0000000ELww-0UHj
+	id 1tGSpJ-0000000EM15-1mzQ
 	for linux-riscv@lists.infradead.org;
-	Thu, 28 Nov 2024 00:56:09 +0000
-Received: by mail-pj1-x104a.google.com with SMTP id 98e67ed59e1d1-2edeef8a994so350354a91.2
-        for <linux-riscv@lists.infradead.org>; Wed, 27 Nov 2024 16:56:07 -0800 (PST)
+	Thu, 28 Nov 2024 00:56:15 +0000
+Received: by mail-pg1-x549.google.com with SMTP id 41be03b00d2f7-7ea8c2b257bso201871a12.1
+        for <linux-riscv@lists.infradead.org>; Wed, 27 Nov 2024 16:56:12 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1732755367; x=1733360167; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1732755372; x=1733360172; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:reply-to:from:to:cc:subject:date:message-id:reply-to;
-        bh=Agu6M4WZdSaan2rYdaSmo6PpiQZ+ciRGpotTGWqZBGc=;
-        b=sshUH0dWouhLM1oGMZu6iUtsXuqxSm1z6/S7fwfMxF4GQxJYTa6s5xbGSMAn3K3aI0
-         44zBw04Co86oAbDKAxiCkJU8+544Vpu13uGoe3UtgBk0h1oqScbTIAfoxDqw+oUrwD1t
-         wk8f+Fro82E6KMwkL7Ij4pWf4ZstepNfAClnO898kPk/WGnkqB0cIYZcJtROKKaIdC7M
-         jh9abs2CrBqBttvW4TrBSW2pCP/l7oFr74SIbonIqrx/oOTsy4qx12h66PSbrWGV94Fq
-         pyyGfW7xsfEJU4M4JBZTU7rKLL0YRAir4SvK7q7aW5xcB0UkMuWx+SRrXJTzqPy7awR4
-         2CZw==
+        bh=XPdOPo1b4SKFKQSHegYD/Ajgnk0S0WQ/8A/Yy7v0mTM=;
+        b=Qk5gDR+b11QGAplPxAGpfMMrlsAp+9/jG9NYQOlyWad2TkQ4b8NxP/Fx7DCtt978dN
+         9AiAjmJpFi7s+IKeCgKFzuerATJA3Z/ie6kT64wWXD0sau1gun/886b2R5mDlGR7oQ/5
+         JLTGUJJPrCzh2cMo0XENgihdpoFYGgprTg4KpLT8q4uhd3TIj5DY+9ZWncg5Knq3P2g4
+         qmjgvbnMTvqKsmPJrS9HnmFYtW7ExOsZZkBUz7HoK5Y7VaCc6MFtVPzIxEr20y6XppBx
+         URHpaFYKFgHv/7wn79LTlL4x1MGJmsg7KnAeMzgvBUjEt8OEKP1QCIYr4Of84CoyH1cr
+         m7vQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1732755367; x=1733360167;
+        d=1e100.net; s=20230601; t=1732755372; x=1733360172;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:reply-to:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=Agu6M4WZdSaan2rYdaSmo6PpiQZ+ciRGpotTGWqZBGc=;
-        b=Ny6BW80HopKcmvIeEOwjbOhb7Jlvl9dtMmTgeuaO7PDMdi0F9cpjsgnSW0tuAF6D8+
-         lAZeRfK2X4VVKtr1uGvSoocHlh/zsouOwtuAMMC5EuLV3aZdfh31lrM4CygpTSYbiwkz
-         QR/9oCgS4TMV1O3ywETqNNU5M/4KHx8UiQ/+diTePoB7d+aY45FkZm9PtFgRikckw840
-         elApCDjPhW/kxgwjPDYG0g1u13iw7SkwvsiCJFK2/UwcqK3Ho6IexAY+ULn4LhouUC16
-         WwKaiRm92RgHgIsqMmzYqPPlEhD8jzxUSmqsNBjup8+esL04o/zTyZgXg63IpJeZWc6R
-         Ni4g==
-X-Forwarded-Encrypted: i=1; AJvYcCXxzZsT1hmMJde8RC87NoUy0tpF2UxC9dOdB2tiALUaiuZa1C57mx37kPHVeknVwGHBkuR+kTbuaikvqQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0YyxuEWjr///PvtVDRloRNJEFRfP5xCKXYTvS/ZiImC4dO4lpCJw
-	TzOmQ+/F06/DhQFJJ17TTxyjxrSfrOjF5LqPrjI4dq/Gh4sJk3cY8BbMw5Uyl7FDl3OGEEZMy6G
-	MZw==
-X-Google-Smtp-Source: AGHT+IHzlIPOR1Dozv2+kADz6uvilkOgvJy6Ih7MLR3sUMAMwXrp/UBNznMIvAz/TeA8dqsISkWCfiSMkjQ=
-X-Received: from pjbcz13.prod.google.com ([2002:a17:90a:d44d:b0:2ea:63a6:d869])
- (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:90b:4c04:b0:2ea:7329:43
- with SMTP id 98e67ed59e1d1-2ee08e97ff9mr6674171a91.6.1732755367252; Wed, 27
- Nov 2024 16:56:07 -0800 (PST)
-Date: Wed, 27 Nov 2024 16:55:41 -0800
+        bh=XPdOPo1b4SKFKQSHegYD/Ajgnk0S0WQ/8A/Yy7v0mTM=;
+        b=UFOqVy8/2K8YdCxVJbMdLpeVG7N9X2Avc2yzpkwYeDDdqWriZ/qkxwaSCncY392iqu
+         SqRGKUtTqiqEId9UVC5iAxVjlWV5rK9mdMeQrpUCod49YzMThFdXpScg64HRhRZ7P0vR
+         HMuqAimXu0ajK1Ouzs2V+mq41d1OHr0frf6j79hJA8+TQ/i+QvzT1/oYAqkYbkMsZ5JN
+         /ZsMkEs2uoDJA+X4gl4RZZ4Qyr9wC+RIznfkWmAqI1Ltk41iZu0zNJVuibVhmuCIzC2R
+         zdM2pYX4rSAECm5HRtRh7Cy15bf8Xd/GCDszVr+p9csJrchYg6vtHQr4yZmD4mgGFwpk
+         qSxA==
+X-Forwarded-Encrypted: i=1; AJvYcCVlwqdFAlffMKTQk6NOOfX/Xgpbyu7um5oQWHccQEWb4VhXWbize3mQfJ6PMpO/k7qolBmm3UTnc3RptA==@lists.infradead.org
+X-Gm-Message-State: AOJu0YzoDUCJ/iE4IoNEj43TkEIASPYsFtnK4ulznHypxo0/KS8iwq8C
+	Y/GdekQi5tgMiaWGLz7T8mX6hQ62VWzjsHsm2EwJ71BKfbXcbwCM54tLCoFF4mqxF0aC8m8A7yb
+	4zg==
+X-Google-Smtp-Source: AGHT+IF9c9BZlswGZi0etgSQ5KCNJj2OyH3UwmpvQEnlX/diiMpr3XRQbr6nF80wsA0CHS1H0/HXdIsKW9o=
+X-Received: from pfbcj22.prod.google.com ([2002:a05:6a00:2996:b0:724:f614:656f])
+ (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6a21:33a1:b0:1db:ddba:8795
+ with SMTP id adf61e73a8af0-1e0e0b7d919mr7994888637.36.1732755372410; Wed, 27
+ Nov 2024 16:56:12 -0800 (PST)
+Date: Wed, 27 Nov 2024 16:55:44 -0800
 In-Reply-To: <20241128005547.4077116-1-seanjc@google.com>
 Mime-Version: 1.0
 References: <20241128005547.4077116-1-seanjc@google.com>
 X-Mailer: git-send-email 2.47.0.338.g60cca15819-goog
-Message-ID: <20241128005547.4077116-11-seanjc@google.com>
-Subject: [PATCH v4 10/16] KVM: selftests: Use vcpu_arch_put_guest() in mmu_stress_test
+Message-ID: <20241128005547.4077116-14-seanjc@google.com>
+Subject: [PATCH v4 13/16] KVM: selftests: Verify KVM correctly handles mprotect(PROT_READ)
 From: Sean Christopherson <seanjc@google.com>
 To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
 	Anup Patel <anup@brainfault.org>, Paul Walmsley <paul.walmsley@sifive.com>, 
@@ -81,9 +81,8 @@ Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
 	Andrew Jones <ajones@ventanamicro.com>, James Houghton <jthoughton@google.com>, 
 	Muhammad Usama Anjum <usama.anjum@collabora.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241127_165608_155728_1BEFD4E8 
-X-CRM114-Status: UNSURE (   9.09  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241127_165613_516624_59063AF0 
+X-CRM114-Status: GOOD (  17.42  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,29 +100,182 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Use vcpu_arch_put_guest() to write memory from the guest in
-mmu_stress_test as an easy way to provide a bit of extra coverage.
+Add two phases to mmu_stress_test to verify that KVM correctly handles
+guest memory that was writable, and then made read-only in the primary MMU,
+and then made writable again.
 
-Reviewed-by: James Houghton <jthoughton@google.com>
-Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
+Add bonus coverage for x86 and arm64 to verify that all of guest memory was
+marked read-only.  Making forward progress (without making memory writable)
+requires arch specific code to skip over the faulting instruction, but the
+test can at least verify each vCPU's starting page was made read-only for
+other architectures.
+
 Signed-off-by: Sean Christopherson <seanjc@google.com>
 ---
- tools/testing/selftests/kvm/mmu_stress_test.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ tools/testing/selftests/kvm/mmu_stress_test.c | 104 +++++++++++++++++-
+ 1 file changed, 101 insertions(+), 3 deletions(-)
 
 diff --git a/tools/testing/selftests/kvm/mmu_stress_test.c b/tools/testing/selftests/kvm/mmu_stress_test.c
-index fbb693428a82..656a837c7f49 100644
+index 0918fade9267..d9c76b4c0d88 100644
 --- a/tools/testing/selftests/kvm/mmu_stress_test.c
 +++ b/tools/testing/selftests/kvm/mmu_stress_test.c
-@@ -23,7 +23,7 @@ static void guest_code(uint64_t start_gpa, uint64_t end_gpa, uint64_t stride)
+@@ -17,6 +17,8 @@
+ #include "processor.h"
+ #include "ucall_common.h"
  
- 	for (;;) {
- 		for (gpa = start_gpa; gpa < end_gpa; gpa += stride)
--			*((volatile uint64_t *)gpa) = gpa;
++static bool mprotect_ro_done;
++
+ static void guest_code(uint64_t start_gpa, uint64_t end_gpa, uint64_t stride)
+ {
+ 	uint64_t gpa;
+@@ -32,6 +34,42 @@ static void guest_code(uint64_t start_gpa, uint64_t end_gpa, uint64_t stride)
+ 		*((volatile uint64_t *)gpa);
+ 	GUEST_SYNC(2);
+ 
++	/*
++	 * Write to the region while mprotect(PROT_READ) is underway.  Keep
++	 * looping until the memory is guaranteed to be read-only, otherwise
++	 * vCPUs may complete their writes and advance to the next stage
++	 * prematurely.
++	 *
++	 * For architectures that support skipping the faulting instruction,
++	 * generate the store via inline assembly to ensure the exact length
++	 * of the instruction is known and stable (vcpu_arch_put_guest() on
++	 * fixed-length architectures should work, but the cost of paranoia
++	 * is low in this case).  For x86, hand-code the exact opcode so that
++	 * there is no room for variability in the generated instruction.
++	 */
++	do {
++		for (gpa = start_gpa; gpa < end_gpa; gpa += stride)
++#ifdef __x86_64__
++			asm volatile(".byte 0x48,0x89,0x00" :: "a"(gpa) : "memory"); /* mov %rax, (%rax) */
++#elif defined(__aarch64__)
++			asm volatile("str %0, [%0]" :: "r" (gpa) : "memory");
++#else
 +			vcpu_arch_put_guest(*((volatile uint64_t *)gpa), gpa);
- 		GUEST_SYNC(0);
- 	}
++#endif
++	} while (!READ_ONCE(mprotect_ro_done));
++
++	/*
++	 * Only architectures that write the entire range can explicitly sync,
++	 * as other architectures will be stuck on the write fault.
++	 */
++#if defined(__x86_64__) || defined(__aarch64__)
++	GUEST_SYNC(3);
++#endif
++
++	for (gpa = start_gpa; gpa < end_gpa; gpa += stride)
++		vcpu_arch_put_guest(*((volatile uint64_t *)gpa), gpa);
++	GUEST_SYNC(4);
++
+ 	GUEST_ASSERT(0);
  }
+ 
+@@ -79,6 +117,7 @@ static void *vcpu_worker(void *data)
+ 	struct vcpu_info *info = data;
+ 	struct kvm_vcpu *vcpu = info->vcpu;
+ 	struct kvm_vm *vm = vcpu->vm;
++	int r;
+ 
+ 	vcpu_args_set(vcpu, 3, info->start_gpa, info->end_gpa, vm->page_size);
+ 
+@@ -101,6 +140,57 @@ static void *vcpu_worker(void *data)
+ 
+ 	/* Stage 2, read all of guest memory, which is now read-only. */
+ 	run_vcpu(vcpu, 2);
++
++	/*
++	 * Stage 3, write guest memory and verify KVM returns -EFAULT for once
++	 * the mprotect(PROT_READ) lands.  Only architectures that support
++	 * validating *all* of guest memory sync for this stage, as vCPUs will
++	 * be stuck on the faulting instruction for other architectures.  Go to
++	 * stage 3 without a rendezvous
++	 */
++	do {
++		r = _vcpu_run(vcpu);
++	} while (!r);
++	TEST_ASSERT(r == -1 && errno == EFAULT,
++		    "Expected EFAULT on write to RO memory, got r = %d, errno = %d", r, errno);
++
++#if defined(__x86_64__) || defined(__aarch64__)
++	/*
++	 * Verify *all* writes from the guest hit EFAULT due to the VMA now
++	 * being read-only.  x86 and arm64 only at this time as skipping the
++	 * instruction that hits the EFAULT requires advancing the program
++	 * counter, which is arch specific and relies on inline assembly.
++	 */
++#ifdef __x86_64__
++	vcpu->run->kvm_valid_regs = KVM_SYNC_X86_REGS;
++#endif
++	for (;;) {
++		r = _vcpu_run(vcpu);
++		if (!r)
++			break;
++		TEST_ASSERT_EQ(errno, EFAULT);
++#if defined(__x86_64__)
++		WRITE_ONCE(vcpu->run->kvm_dirty_regs, KVM_SYNC_X86_REGS);
++		vcpu->run->s.regs.regs.rip += 3;
++#elif defined(__aarch64__)
++		vcpu_set_reg(vcpu, ARM64_CORE_REG(regs.pc),
++			     vcpu_get_reg(vcpu, ARM64_CORE_REG(regs.pc)) + 4);
++#endif
++
++	}
++	assert_sync_stage(vcpu, 3);
++#endif /* __x86_64__ || __aarch64__ */
++	rendezvous_with_boss();
++
++	/*
++	 * Stage 4.  Run to completion, waiting for mprotect(PROT_WRITE) to
++	 * make the memory writable again.
++	 */
++	do {
++		r = _vcpu_run(vcpu);
++	} while (r && errno == EFAULT);
++	TEST_ASSERT_EQ(r, 0);
++	assert_sync_stage(vcpu, 4);
+ 	rendezvous_with_boss();
+ 
+ 	return NULL;
+@@ -183,7 +273,7 @@ int main(int argc, char *argv[])
+ 	const uint64_t start_gpa = SZ_4G;
+ 	const int first_slot = 1;
+ 
+-	struct timespec time_start, time_run1, time_reset, time_run2, time_ro;
++	struct timespec time_start, time_run1, time_reset, time_run2, time_ro, time_rw;
+ 	uint64_t max_gpa, gpa, slot_size, max_mem, i;
+ 	int max_slots, slot, opt, fd;
+ 	bool hugepages = false;
+@@ -288,19 +378,27 @@ int main(int argc, char *argv[])
+ 	rendezvous_with_vcpus(&time_run2, "run 2");
+ 
+ 	mprotect(mem, slot_size, PROT_READ);
++	usleep(10);
++	mprotect_ro_done = true;
++	sync_global_to_guest(vm, mprotect_ro_done);
++
+ 	rendezvous_with_vcpus(&time_ro, "mprotect RO");
++	mprotect(mem, slot_size, PROT_READ | PROT_WRITE);
++	rendezvous_with_vcpus(&time_rw, "mprotect RW");
+ 
++	time_rw    = timespec_sub(time_rw,     time_ro);
+ 	time_ro    = timespec_sub(time_ro,     time_run2);
+ 	time_run2  = timespec_sub(time_run2,   time_reset);
+ 	time_reset = timespec_sub(time_reset,  time_run1);
+ 	time_run1  = timespec_sub(time_run1,   time_start);
+ 
+ 	pr_info("run1 = %ld.%.9lds, reset = %ld.%.9lds, run2 = %ld.%.9lds, "
+-		"ro = %ld.%.9lds\n",
++		"ro = %ld.%.9lds, rw = %ld.%.9lds\n",
+ 		time_run1.tv_sec, time_run1.tv_nsec,
+ 		time_reset.tv_sec, time_reset.tv_nsec,
+ 		time_run2.tv_sec, time_run2.tv_nsec,
+-		time_ro.tv_sec, time_ro.tv_nsec);
++		time_ro.tv_sec, time_ro.tv_nsec,
++		time_rw.tv_sec, time_rw.tv_nsec);
+ 
+ 	/*
+ 	 * Delete even numbered slots (arbitrary) and unmap the first half of
 -- 
 2.47.0.338.g60cca15819-goog
 
