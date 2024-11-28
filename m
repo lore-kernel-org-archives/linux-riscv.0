@@ -4,104 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A4237D69107
-	for <linux-riscv@archiver.kernel.org>; Thu, 28 Nov 2024 13:09:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 382BFD69107
+	for <linux-riscv@archiver.kernel.org>; Thu, 28 Nov 2024 13:12:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
-	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=6kiG48WVYraGGP1lMCT4lVxYdr9xBpUJlo4HcnHyE+E=; b=GRLAQ+Ww69zDCk
-	0qD/155jmjZiBfAJfKOu8T18Q6jafnouEM3+iqlAthF04Tibqa3v6MrUwUu0SdbPzH4WIuiaGBhCv
-	L/W7bW0FT+2ngnosTPjKGlwXuNlkX5Oj3BqDbdb+i4pFtumu9RvmSuGN2ArdKNA9B20krd8kMyLUR
-	jSgbZnEO8zTQAXtcPrP763Ym4nhfkpYuDhRsvka3I+vgL38fB5rRM9hNYhNjErSBUwMmbUMkjIfiB
-	CeYlhfLagX3WcEtLCMx/ceMvoET8YvXRt28cpcLqY3rH+I1TsMh4kPO2f8oHb76wKgGnQbWfZjEio
-	NghKEcjcTz3JhKDtZ3Ig==;
+	List-Owner; bh=ihAwPxGK9MtL+3aaV4s2Zc1sPa4+bTZ+XomNf+q4HSY=; b=GReVDFLr6OrdUU
+	wic+mwSIkuTgujG2DLp+cSLXGUsfIk+0w9oExCigSc9GnHSedPGOhTy2DgRfUiVx6FQk0i3XN4/jb
+	w10t/UH9olpaf/Ez9ibvR0aEDk6/MEfhjaODkog0RhLDlqV5DuAIljXkqID0BI4AVdEi3HFBMQKaz
+	qY6aWqt8H7aW/e6+tFqKAXDMPDBGDA2rTY1ou6Wr1tcP5ozlN+CPe7LTPBLyVXMi9r2ewGyfGP+jh
+	5IK3jee6V6Vgzj37UVBD+UYDkRYWZC8DlhlT5XlAmoeGA3MgdpAwkkbPgiiY4Ot+862ta83ncZCnA
+	aOeGN/WGbBNgcdbx9omQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tGeGX-0000000Faj8-2Ntl;
-	Thu, 28 Nov 2024 13:09:05 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1tGeJL-0000000Fb9O-3M5J;
+	Thu, 28 Nov 2024 13:11:59 +0000
+Received: from relay3-d.mail.gandi.net ([217.70.183.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tGeGV-0000000Faim-138b
-	for linux-riscv@lists.infradead.org;
-	Thu, 28 Nov 2024 13:09:04 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1732799341;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=cAXH3dA3hXdD9DhMWQf4k+asQ47TKDyVsQWDK1csVME=;
-	b=UejjZqRboFfAejGVkCnv91RvlJV9Gyg3GNjheB8DU29YmtwekYxEXB1K3Y2bsX+23Gh3Tk
-	wLcAUUGQSwYfFj7gbxJ7G/qvfBtHtH6riQeOY3RHZk+4RN84ElTIIbJuj6lVNimPl7oXZ9
-	C3euA3nMUSJNHWpbvdBXY3/bPdlZHbQ=
-Received: from mail-wm1-f72.google.com (mail-wm1-f72.google.com
- [209.85.128.72]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-288-2XMpOYPtO1m0JgMJJzavYg-1; Thu, 28 Nov 2024 08:07:24 -0500
-X-MC-Unique: 2XMpOYPtO1m0JgMJJzavYg-1
-X-Mimecast-MFC-AGG-ID: 2XMpOYPtO1m0JgMJJzavYg
-Received: by mail-wm1-f72.google.com with SMTP id 5b1f17b1804b1-434a04437cdso6353005e9.2
-        for <linux-riscv@lists.infradead.org>; Thu, 28 Nov 2024 05:07:23 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1732799243; x=1733404043;
-        h=content-transfer-encoding:mime-version:message-id:date:references
-         :in-reply-to:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=cAXH3dA3hXdD9DhMWQf4k+asQ47TKDyVsQWDK1csVME=;
-        b=kubGTzaJnV56YYE9Fb5iGjy4+TotZPKCsANKnCpgOHM2DSJMv4IVpRASlxE7njuOV9
-         zBS7HGeGGIv5gf7Pde2GQNBcYywxpnnA0ZuDa0XvKi3PEnAdYlmy9GGjfoNhfX130vdX
-         xMPn450PTXMO/i51iKBYQFx4/5gqS+Mregy2NP0TSp1lWkgq9QufMcEptFJqIjkeIGEn
-         h3Qi6B6VOGb5OSIjudzYrXupW+qfEsqnVV4jDDYLGxD2M/xY3IkPS+s4Gjvtb4mXeB8x
-         kQbo1vYm4ybSaF8JaV0fuFYXATSNha1M2bT1aPPWU2LAOjs3XhBUUZ6tjEX0+CLBAEKU
-         oBaw==
-X-Forwarded-Encrypted: i=1; AJvYcCXnQG9I9gydVGE8H1/c+OsDlE7y5f1OrDoExgK/t9ld3jKSmIjYd72hr90mey/guqEmpYqv5waKfcGHKA==@lists.infradead.org
-X-Gm-Message-State: AOJu0YxZcuMhAagSmYvTsYyNqO922HAmL/pgm2wMpoG1pNY0nLh5rn6i
-	df+mqjFOViVWCOPGWXEMnAo7AgWkBn/qT769P+RC9NdGLd6g41wF+gGZIFz/z0i2WFHwtQk0734
-	HZ3OaHAy7a+glf2TmBAqePceJb2gqcMtbAp9J8S8h8KHoV2klGBYavbLW2GGLvBBjrg==
-X-Gm-Gg: ASbGncupGQw9n/6qpOV+cytTEGp8gmYUc6Tgf1s0VF49MBVQhxTfguiedzq4OxTFGXK
-	4AXZyNPCrTovRNtNMehwmNXoRDV4b9jivm7MTryVdVBoJBGzSvSRPeBjzbFXnwK8C0oyhY+2TFe
-	xa/97iltpaXgPOArDHfbs14zOmWWqF51qnNvrrqGiMX0HDo5C/a9pw9rVTM6+7pq591lX8rnPi4
-	nosTqiGnkx4dInnPBXzJWJgSbuj04lSDj8+GshDWwy6OL4aVridYsJy0bQ8WWnUHfr6dAepouc=
-X-Received: by 2002:a05:600c:4e8a:b0:431:5e3c:2ff0 with SMTP id 5b1f17b1804b1-434a9dc5003mr65339395e9.8.1732799242815;
-        Thu, 28 Nov 2024 05:07:22 -0800 (PST)
-X-Google-Smtp-Source: AGHT+IG2psrPhjev3bJrjSIB+JHRV7XwXM7FdQVe1Lk4BWmEHa6+pF1hXmW+7huHZUP0OGwp9t/s8w==
-X-Received: by 2002:a05:600c:4e8a:b0:431:5e3c:2ff0 with SMTP id 5b1f17b1804b1-434a9dc5003mr65339055e9.8.1732799242505;
-        Thu, 28 Nov 2024 05:07:22 -0800 (PST)
-Received: from alrua-x1.borgediget.toke.dk ([45.145.92.2])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-385ccd367f9sm1582466f8f.31.2024.11.28.05.07.21
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 28 Nov 2024 05:07:21 -0800 (PST)
-Received: by alrua-x1.borgediget.toke.dk (Postfix, from userid 1000)
-	id D262C164E1A8; Thu, 28 Nov 2024 14:07:20 +0100 (CET)
-From: Toke =?utf-8?Q?H=C3=B8iland-J=C3=B8rgensen?= <toke@redhat.com>
-To: =?utf-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>,
- bpf@vger.kernel.org,
- linux-perf-users@vger.kernel.org, Alexandre Ghiti
- <alexghiti@rivosinc.com>, Arnaldo Carvalho de Melo <acme@redhat.com>,
- Jean-Philippe Brucker <jean-philippe@linaro.org>, Quentin Monnet
- <qmo@kernel.org>, Andrii Nakryiko <andrii.nakryiko@gmail.com>
-Cc: =?utf-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@rivosinc.com>, Paul Walmsley
- <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
- <aou@eecs.berkeley.edu>, linux-riscv@lists.infradead.org,
- linux-kernel@vger.kernel.org, David Abdurachmanov <davidlt@rivosinc.com>,
- Namhyung Kim <namhyung@kernel.org>
-Subject: Re: [PATCH bpf v2] tools: Override makefile ARCH variable if
- defined, but empty
-In-Reply-To: <20241127101748.165693-1-bjorn@kernel.org>
-References: <20241127101748.165693-1-bjorn@kernel.org>
-X-Clacks-Overhead: GNU Terry Pratchett
-Date: Thu, 28 Nov 2024 14:07:20 +0100
-Message-ID: <87o71zik1j.fsf@toke.dk>
+	id 1tGeIM-0000000Fb1C-3YLL;
+	Thu, 28 Nov 2024 13:11:00 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id B3B1E60003;
+	Thu, 28 Nov 2024 13:10:53 +0000 (UTC)
+Message-ID: <77b7b44f-e05a-4845-8d45-0e0d831bb8e7@ghiti.fr>
+Date: Thu, 28 Nov 2024 14:10:53 +0100
 MIME-Version: 1.0
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: aIPR1Sa0D2je3ZEGVhuovicyseyJCJmI_2fzydu-mNA_1732799243
-X-Mimecast-Originator: redhat.com
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 2/8] drivers/perf: riscv: Fix Platform firmware event data
+Content-Language: en-US
+To: Atish Patra <atishp@rivosinc.com>, Anup Patel <anup@brainfault.org>,
+ Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Mayuresh Chitale <mchitale@ventanamicro.com>
+Cc: linux-riscv@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, Palmer Dabbelt <palmer@rivosinc.com>,
+ kvm@vger.kernel.org, kvm-riscv@lists.infradead.org
+References: <20241119-pmu_event_info-v1-0-a4f9691421f8@rivosinc.com>
+ <20241119-pmu_event_info-v1-2-a4f9691421f8@rivosinc.com>
+From: Alexandre Ghiti <alex@ghiti.fr>
+In-Reply-To: <20241119-pmu_event_info-v1-2-a4f9691421f8@rivosinc.com>
+X-GND-Sasl: alex@ghiti.fr
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241128_050903_349457_5E1BF6A2 
-X-CRM114-Status: GOOD (  13.05  )
+X-CRM114-CacheID: sfid-20241128_051059_148007_E1A14116 
+X-CRM114-Status: GOOD (  21.24  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,31 +60,102 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-QmrDtnJuIFTDtnBlbCA8Ympvcm5Aa2VybmVsLm9yZz4gd3JpdGVzOgoKPiBGcm9tOiBCasO2cm4g
-VMO2cGVsIDxiam9ybkByaXZvc2luYy5jb20+Cj4KPiBUaGVyZSBhcmUgYSBudW1iZXIgb2YgdG9v
-bHMgKGJwZnRvb2wsIHNlbGZ0ZXN0cyksIHRoYXQgcmVxdWlyZSBhCj4gImJvb3RzdHJhcCIgYnVp
-bGQuIEhlcmUsIGEgYm9vdHN0cmFwIGJ1aWxkIGlzIGEgYnVpbGQgaG9zdCB2YXJpYW50IG9mCj4g
-YSB0YXJnZXQuIEUuZy4sIGFzc3VtZSB0aGF0IHlvdSdyZSBwZXJmb3JtaW5nIGEgYnBmdG9vbCBj
-cm9zcy1idWlsZCBvbgo+IHg4NiB0byByaXNjdiwgYSBib290c3RyYXAgYnVpbGQgd291bGQgdGhl
-biBiZSBhbiB4ODYgdmFyaWFudCBvZgo+IGJwZnRvb2wuIFRoZSB0eXBpY2FsIHdheSB0byBwZXJm
-b3JtIHRoZSBob3N0IGJ1aWxkIHZhcmlhbnQsIGlzIHRvIHBhc3MKPiAiQVJDSD0iIGluIGEgc3Vi
-LW1ha2UuIEhvd2V2ZXIsIGlmIGEgdmFyaWFibGUgaGFzIGJlZW4gc2V0IHdpdGggYQo+IGNvbW1h
-bmQgYXJndW1lbnQsIHRoZW4gb3JkaW5hcnkgYXNzaWdubWVudHMgaW4gdGhlIG1ha2VmaWxlIGFy
-ZQo+IGlnbm9yZWQuCj4KPiBUaGlzIHNpZGUtZWZmZWN0IHJlc3VsdHMgaW4gdGhhdCBBUkNILCBh
-bmQgdmFyaWFibGVzIGRlcGVuZGluZyBvbiBBUkNICj4gYXJlIG5vdCBzZXQuCj4KPiBXb3JrYXJv
-dW5kIGJ5IG92ZXJyaWRpbmcgQVJDSCB0byB0aGUgaG9zdCBhcmNoLCBpZiBBUkNIIGlzIGVtcHR5
-Lgo+Cj4gRml4ZXM6IDg4NTliMGRhNWFhYyAoInRvb2xzL2JwZnRvb2w6IEZpeCBjcm9zcy1idWls
-ZCIpCj4gUmV2aWV3ZWQtYnk6IEplYW4tUGhpbGlwcGUgQnJ1Y2tlciA8amVhbi1waGlsaXBwZUBs
-aW5hcm8ub3JnPgo+IFRlc3RlZC1ieTogQWxleGFuZHJlIEdoaXRpIDxhbGV4Z2hpdGlAcml2b3Np
-bmMuY29tPgo+IFJldmlld2VkLWJ5OiBOYW1oeXVuZyBLaW0gPG5hbWh5dW5nQGtlcm5lbC5vcmc+
-Cj4gQWNrZWQtYnk6IFF1ZW50aW4gTW9ubmV0IDxxbW9Aa2VybmVsLm9yZz4KPiBTaWduZWQtb2Zm
-LWJ5OiBCasO2cm4gVMO2cGVsIDxiam9ybkByaXZvc2luYy5jb20+CgpSZXZpZXdlZC1ieTogVG9r
-ZSBIw7hpbGFuZC1Kw7hyZ2Vuc2VuIDx0b2tlQHJlZGhhdC5jb20+CgoKX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0
-CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5v
-cmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
+Hi Atish,
+
+On 19/11/2024 21:29, Atish Patra wrote:
+> Platform firmware event data field is allowed to be 62 bits for
+> Linux as uppper most two bits are reserved to indicate SBI fw or
+> platform specific firmware events.
+> However, the event data field is masked as per the hardware raw
+> event mask which is not correct.
+>
+> Fix the platform firmware event data field with proper mask.
+>
+> Fixes: f0c9363db2dd ("perf/riscv-sbi: Add platform specific firmware event handling")
+>
+> Signed-off-by: Atish Patra <atishp@rivosinc.com>
+> ---
+>   arch/riscv/include/asm/sbi.h |  1 +
+>   drivers/perf/riscv_pmu_sbi.c | 12 +++++-------
+>   2 files changed, 6 insertions(+), 7 deletions(-)
+>
+> diff --git a/arch/riscv/include/asm/sbi.h b/arch/riscv/include/asm/sbi.h
+> index 98f631b051db..9be38b05f4ad 100644
+> --- a/arch/riscv/include/asm/sbi.h
+> +++ b/arch/riscv/include/asm/sbi.h
+> @@ -158,6 +158,7 @@ struct riscv_pmu_snapshot_data {
+>   };
+>   
+>   #define RISCV_PMU_RAW_EVENT_MASK GENMASK_ULL(47, 0)
+> +#define RISCV_PMU_PLAT_FW_EVENT_MASK GENMASK_ULL(61, 0)
+>   #define RISCV_PMU_RAW_EVENT_IDX 0x20000
+>   #define RISCV_PLAT_FW_EVENT	0xFFFF
+>   
+> diff --git a/drivers/perf/riscv_pmu_sbi.c b/drivers/perf/riscv_pmu_sbi.c
+> index cb98efa9b106..50cbdbf66bb7 100644
+> --- a/drivers/perf/riscv_pmu_sbi.c
+> +++ b/drivers/perf/riscv_pmu_sbi.c
+> @@ -508,7 +508,6 @@ static int pmu_sbi_event_map(struct perf_event *event, u64 *econfig)
+>   {
+>   	u32 type = event->attr.type;
+>   	u64 config = event->attr.config;
+> -	u64 raw_config_val;
+>   	int ret;
+>   
+>   	/*
+> @@ -529,21 +528,20 @@ static int pmu_sbi_event_map(struct perf_event *event, u64 *econfig)
+>   	case PERF_TYPE_RAW:
+>   		/*
+>   		 * As per SBI specification, the upper 16 bits must be unused
+> -		 * for a raw event.
+> +		 * for a hardware raw event.
+>   		 * Bits 63:62 are used to distinguish between raw events
+>   		 * 00 - Hardware raw event
+>   		 * 10 - SBI firmware events
+>   		 * 11 - Risc-V platform specific firmware event
+>   		 */
+> -		raw_config_val = config & RISCV_PMU_RAW_EVENT_MASK;
+> +
+>   		switch (config >> 62) {
+>   		case 0:
+>   			ret = RISCV_PMU_RAW_EVENT_IDX;
+> -			*econfig = raw_config_val;
+> +			*econfig = config & RISCV_PMU_RAW_EVENT_MASK;
+>   			break;
+>   		case 2:
+> -			ret = (raw_config_val & 0xFFFF) |
+> -				(SBI_PMU_EVENT_TYPE_FW << 16);
+> +			ret = (config & 0xFFFF) | (SBI_PMU_EVENT_TYPE_FW << 16);
+>   			break;
+>   		case 3:
+>   			/*
+> @@ -552,7 +550,7 @@ static int pmu_sbi_event_map(struct perf_event *event, u64 *econfig)
+>   			 * Event data - raw event encoding
+>   			 */
+>   			ret = SBI_PMU_EVENT_TYPE_FW << 16 | RISCV_PLAT_FW_EVENT;
+> -			*econfig = raw_config_val;
+> +			*econfig = config & RISCV_PMU_PLAT_FW_EVENT_MASK;
+>   			break;
+>   		}
+>   		break;
+>
+
+It seems independent from the other patches, so I guess we should take 
+it for 6.13 rcX.
+
+Let me know if that's not the case.
+
+Thanks,
+
+Alex
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
