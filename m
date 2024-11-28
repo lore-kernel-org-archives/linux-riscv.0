@@ -4,70 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EAC1FD690ED
-	for <linux-riscv@archiver.kernel.org>; Thu, 28 Nov 2024 08:42:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B34F1D690EC
+	for <linux-riscv@archiver.kernel.org>; Thu, 28 Nov 2024 08:43:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=611m27siQ72Q/mx/pKzeoO9SR6mYsJ/fESp443cbH3Y=; b=aIm8HboPyIR9/0
-	Tplw5uWL3U7DTIWb3eoBTvK8HzVEYk4Rtwj782owBWYQkO9eGW8S/9guE45gAiSzOjGXWS/EmqFnj
-	f19tZiF1ESlJfFsJGW3QXYQyRuODOG2fiSF0+IAU7LdMyPyWZPmyQAejstwIO2V/RJ29UJJn3BsfG
-	PCt8VWPr16BbCOhIhkhRMf4moLRNIf2L06PA89tZC4mdNW4HPIgFC5syEyCao4HKgS7E3SIFi0yNl
-	yOQ0aJECHyNRfYCfKenvPbdWXcR0BxEXGx053pxkFbG0Ot2XKcdarOkkH1XPyZPQZhYq32OVGog1p
-	bSX7UQjpXPF7CSwXFsUQ==;
+	List-Owner; bh=t3CBsPw20WXDlHAj+nuNjxzJN3cjYSRexEq9sEYPbj4=; b=sBsKUQxNVWuXg6
+	DPKN7bv2j9QgEWHdaoL/mUaHUoLviWXcEcWVET9kVX3tuqFxf2exn/9CUIDDjW9lsS5fvAkOw2FMs
+	EvVvcI4Z600GAkQAmSixFIJDS7RCjmlo0Id8kaFLFfCLlB8F5m9yl+6zJpxhOAAXgcVNv5THqqADU
+	UjfB/1IKnBRBZu1z4fpcnZ8icN959gC/gZAahygAAxnKiziVR+LcAnkTnSnR8PIfcM3Gg+5MeuNe1
+	w1eragZuhPbAQkz117HT4wJCJSAFGhB3uqGDo06fKGBk4Lr/38j4rD9+E+0oMV8McBW0Uz/lOF4qY
+	leW7riSqM1jbNupChgnw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tGa6o-0000000F2Xu-3m7t;
-	Thu, 28 Nov 2024 08:42:46 +0000
-Received: from mail-ej1-x633.google.com ([2a00:1450:4864:20::633])
+	id 1tGa7n-0000000F2mB-2ghv;
+	Thu, 28 Nov 2024 08:43:47 +0000
+Received: from mail-ej1-x62e.google.com ([2a00:1450:4864:20::62e])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tGa6m-0000000F2Wb-34yG
+	id 1tGa7D-0000000F2ej-0HOz
 	for linux-riscv@lists.infradead.org;
-	Thu, 28 Nov 2024 08:42:45 +0000
-Received: by mail-ej1-x633.google.com with SMTP id a640c23a62f3a-aa535eed875so76348466b.3
-        for <linux-riscv@lists.infradead.org>; Thu, 28 Nov 2024 00:42:44 -0800 (PST)
+	Thu, 28 Nov 2024 08:43:12 +0000
+Received: by mail-ej1-x62e.google.com with SMTP id a640c23a62f3a-aa531a70416so35871166b.0
+        for <linux-riscv@lists.infradead.org>; Thu, 28 Nov 2024 00:43:10 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1732783363; x=1733388163; darn=lists.infradead.org;
+        d=ventanamicro.com; s=google; t=1732783389; x=1733388189; darn=lists.infradead.org;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=pqNO4mcpLsB6nl6y5oYnZ+p9PNe/HBxDvPKQfTS22pA=;
-        b=pIPcKW2brdjmCIQDDEAU2hLOpuH452KGc9Bq2wy8Nsw45dj5p3/CLWyqutusJYeYyc
-         WHbhlrszhxJ54y8UrdFMKExzjYlpI3dkHrm7w70d6tSyBj1yc7rzQbZWXDSSI4LuTSk4
-         fTMQy/1HVlPxTTuThbzhi7pDJRa7os0tj8VHKmlg9Z4h7QJKjWv0Fzq05PRVBCTiXPy8
-         pRnhIEC66K7us84dDC+gINKRljAVx2cKQOLCRZuQsJQFRSgN3OVJqYo1mrxp4hH7o4ic
-         QNllwtRcj9SoKqEwu4657hXC5aJ0l/JfvqJKQc2zsx1tIwAcKc9mz9ZpFrOG9BgSoLxW
-         rt1A==
+        bh=tMHb2Kr+9Gyds+XTGzQnx6NFjRgDvoBkrYDD0zxb/+k=;
+        b=gEv9fwwBLLgc3n82gzNYlMbvI73Zd1iN5ka4usp9t5jt9PKsCXNGnJR8hIqeYKbie9
+         1uXQaTvbcrRrBvUsKEyT6W1G1GLTDji+/f8/98JdoYPNwK8dy4DphLqId5N6ByIG4t9z
+         wo43sJspUSoPV1ou1uJBOyjPI+2ETVBdDvyjhAR1G8mU865q2ay9hO1bFe5gFLbNOFua
+         7NYTn/C2kjrzDhD5t1RCtm9/5BdRc6r4yO7nbAhugmAOXNTuwpqJx8aX0jNlx3EihNE6
+         52cQb89ndGa7V/J4tl17lJVFqzg3t8TJAr1m3ejZtUSC4JMZR6hOFJXNtE9a8r+KxtPt
+         z6CA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1732783363; x=1733388163;
+        d=1e100.net; s=20230601; t=1732783389; x=1733388189;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=pqNO4mcpLsB6nl6y5oYnZ+p9PNe/HBxDvPKQfTS22pA=;
-        b=oVSy2Kia9BuWihfgHmlNmmM3CJ4tTJEUjUcVaVD4mymNKS08nOWIwHSMuOOqn8ao5D
-         JrGiJwzlEU5q8wKC/i7qfgJrmb71XIMG9mU8c8ZpUcCs6iYsHgSEcsHbuKN70K4/E/+X
-         JDo9c60HiPzKEYOMDGua5YMPp0gTqhNG6Jl2X3dkMysE7Tgd6lNm93DUGhA2z6ts6EuF
-         hdzes1Ev8kD1PUGLOEsMQ3RWsbOl+ytKpptmH9pvq1bR1n/dXpAnyBzJWUS7s5zMVhUg
-         Xj1ZOalT5rxrqlVApol0UUvbHUZK6sKbXyQrvV1AyMLte4ZF4hvmuGKgg5Zt1mfkxMZc
-         MEOA==
-X-Forwarded-Encrypted: i=1; AJvYcCWs3H1xBqAF4izJEKz3xvXXb89gZi8syoVQFtpczT1LPNKY3eniVBGMsPl5p3ysqwf17edcySggu8bPBQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0YwHg082xUUMJANqNyWb4IYpFzRAftFwd53rxkfG1m7LFiKjf+yx
-	YI/3N1oMbNjdnPUO/YLWp03Qw8iZKs6NfZBIC2YUWyQ8nAXQxMZmr9RnzKG72/I=
-X-Gm-Gg: ASbGncv3VX3IDfpEWpTLOyqQcwV6jFv5CXNHorLg+F8o//NMnK/PBj+91cFawKeA5Fm
-	/rox5+N/vf4W/RSJH9ya7mrV0504slhVm+MfztxzU+ZeK8NA73UwTpCcRbFfW78/SPtcTrxpK95
-	SXoCafjO7S4TxJYjAjuiP3TNKzYtkYSlVZZS56kqiKr6m5gd/NFSQOgq/2S3H/brPIHdGRcBGiH
-	OxUnhas/ZLM2A7Q2YkTX0yOAbMRVVXTSf3mYWl+mu+fs8OCefKwVVUuMmTYoB0wU/I6awnwXESw
-	pjagd+545HHeD+Lmf5kal/ryv9aJwLFdosM=
-X-Google-Smtp-Source: AGHT+IEtMpQZWj4endJlLK3Ilr+mbQxtLK9EL+/Wn1Pn2YYjrHxtBwEvTjmbyjJN4oWe/ENTW6ynRg==
-X-Received: by 2002:a17:907:688f:b0:aa5:d1c:3dac with SMTP id a640c23a62f3a-aa580fdd57emr475064966b.36.1732783362949;
-        Thu, 28 Nov 2024 00:42:42 -0800 (PST)
+        bh=tMHb2Kr+9Gyds+XTGzQnx6NFjRgDvoBkrYDD0zxb/+k=;
+        b=T+KfTWktlCFvqN80hK+7pwXM5t7bVG5gsgIJlSKxgf3SxzxsSEpC+h55yFAnYMKbLC
+         97ope0W1zxKvO/e4+LSLbP57s1eS+4w8+WNlKrd1ExRSZWeYUqraK0DSq/N1e9tm3jqC
+         6l2ePS3KgYg8HhkIEJDNUS2bmsGBlGT6W8ENpdiQmiVo7XTGMQ9eGOE68FGUTS/hen8L
+         DpC4jtKvf412BmfsVwOYCRQHPH2v1H1ls2SePjg4+BIS1QE2WTSUBzmdYzzHZIDGdzlI
+         NNsEDEIevtYSRbdjsZkUaGaYFyGSm4PFG2hMwNb4OZZW9OWOBC9tI3I0mlrVV3iNTNzJ
+         mWuQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXF9Hwj/UvapuxhTUnZ71qeElhVuZ/hxT6eS5jp1xTYBWxuDPrxrsB0vqFKGf4SrU08yQfsZ9E6eon7HA==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw/Dn+lfwsuMg735qeCv+ezxlyx7lF4y246fcDkUZCxhWiaUc0D
+	Zlx8i10na+AtbQY6qnbP3yEvGA0iCiGsALPFMqRGwQYRZx3Nx5Kmiqz8aP8uQCk=
+X-Gm-Gg: ASbGncsBA9SsvZ0r+XLgIWxxLFYbYEHhRD30y/6xmcHTXiYkGPJ0+Yf2hpN0uZ7XjAp
+	q1/KdLjuZdCTY32uSDZwZJ64gW6kjW+Wtmt3SvtMwzshpxFTGJ8w6L6dR7/xupsZHe8lWr1ZCow
+	E7E0NuHgPFqPr0N4HVf/YMXfScCX/suZ4XnNow/Lf/SAQZNv5vgf0oBBI3ucfYrP3i0tupkmEy2
+	IbdKUWkdclvObEE+jx9PQa1UbNn5dqj8inIuNVOmBva3SZQa7lIw+x3r9uew6Qbtt066f+oKGRT
+	tGqZ+JawmPFsmLZmK0+S/Hd8soZiQRC2uRI=
+X-Google-Smtp-Source: AGHT+IE91WdNXINf1ttfiGq0DeG9vnUXdI7yQdKbewyZQW5Jp/++7K5EDj28/C2AmS8X01ObB7bPuA==
+X-Received: by 2002:aa7:cfd4:0:b0:5d0:8225:aa19 with SMTP id 4fb4d7f45d1cf-5d08225aa9cmr4768526a12.2.1732783388739;
+        Thu, 28 Nov 2024 00:43:08 -0800 (PST)
 Received: from localhost (2001-1ae9-1c2-4c00-20f-c6b4-1e57-7965.ip6.tmcz.cz. [2001:1ae9:1c2:4c00:20f:c6b4:1e57:7965])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-aa5997ffc1bsm41610466b.83.2024.11.28.00.42.42
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-5d097e8f649sm493828a12.59.2024.11.28.00.43.07
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 28 Nov 2024 00:42:42 -0800 (PST)
-Date: Thu, 28 Nov 2024 09:42:41 +0100
+        Thu, 28 Nov 2024 00:43:07 -0800 (PST)
+Date: Thu, 28 Nov 2024 09:43:06 +0100
 From: Andrew Jones <ajones@ventanamicro.com>
 To: Sean Christopherson <seanjc@google.com>
 Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
@@ -78,17 +78,17 @@ Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>,
 	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, kvm@vger.kernel.org, 
 	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
 	James Houghton <jthoughton@google.com>, Muhammad Usama Anjum <usama.anjum@collabora.com>
-Subject: Re: [PATCH v4 14/16] KVM: selftests: Provide empty 'all' and 'clean'
- targets for unsupported ARCHs
-Message-ID: <20241128-24a975e227dd4b86393f21ed@orel>
+Subject: Re: [PATCH v4 15/16] KVM: selftests: Use canonical $(ARCH) paths for
+ KVM selftests directories
+Message-ID: <20241128-d7a5061ce8160000cd5260bd@orel>
 References: <20241128005547.4077116-1-seanjc@google.com>
- <20241128005547.4077116-15-seanjc@google.com>
+ <20241128005547.4077116-16-seanjc@google.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20241128005547.4077116-15-seanjc@google.com>
+In-Reply-To: <20241128005547.4077116-16-seanjc@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241128_004244_770437_D61CCFEB 
-X-CRM114-Status: GOOD (  12.58  )
+X-CRM114-CacheID: sfid-20241128_004311_113775_225F0B70 
+X-CRM114-Status: GOOD (  10.54  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,26 +105,22 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Nov 27, 2024 at 04:55:45PM -0800, Sean Christopherson wrote:
-> Provide empty targets for KVM selftests if the target architecture is
-> unsupported to make it obvious which architectures are supported, and so
-> that various side effects don't fail and/or do weird things, e.g. as is,
-> "mkdir -p $(sort $(dir $(TEST_GEN_PROGS)))" fails due to a missing operand,
-> and conversely, "$(shell mkdir -p $(sort $(OUTPUT)/$(ARCH_DIR) ..." will
-> create an empty, useless directory for the unsupported architecture.
+On Wed, Nov 27, 2024 at 04:55:46PM -0800, Sean Christopherson wrote:
+> Use the kernel's canonical $(ARCH) paths instead of the raw target triple
+> for KVM selftests directories.  KVM selftests are quite nearly the only
+> place in the entire kernel that using the target triple for directories,
+> tools/testing/selftests/drivers/s390x being the lone holdout.
 > 
-> Move the guts of the Makefile to Makefile.kvm so that it's easier to see
-> that the if-statement effectively guards all of KVM selftests.
+> Using the kernel's preferred nomenclature eliminates the minor, but
+> annoying, friction of having to translate to KVM's selftests directories,
+> e.g. for pattern matching, opening files, running selftests, etc.
 > 
-> Reported-by: Muhammad Usama Anjum <usama.anjum@collabora.com>
+> Opportunsitically delete file comments that reference the full path of the
+> file, as they are obviously prone to becoming stale, and serve no known
+> purpose.
+> 
 > Signed-off-by: Sean Christopherson <seanjc@google.com>
 > ---
->  tools/testing/selftests/kvm/.gitignore   |   1 +
->  tools/testing/selftests/kvm/Makefile     | 336 +----------------------
->  tools/testing/selftests/kvm/Makefile.kvm | 334 ++++++++++++++++++++++
->  3 files changed, 340 insertions(+), 331 deletions(-)
->  create mode 100644 tools/testing/selftests/kvm/Makefile.kvm
->
 
 Acked-by: Andrew Jones <ajones@ventanamicro.com>
 
