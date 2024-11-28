@@ -4,87 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B1546D6D255
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DDA85D6D256
 	for <linux-riscv@archiver.kernel.org>; Thu, 28 Nov 2024 02:22:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
-	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID
-	:References:Mime-Version:In-Reply-To:Date:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Date:Cc:To:From:Subject:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=jtKwRHV5qxAEYSxcyJNJ2D7noOlsnRI3cy+0LP+UohA=; b=cMJ5s3CfrdEFWJ
-	FnqA1c4XhLHKsG0v0pznRbeBm8NQQ3MK5o7S+GsezVmg4aOwofwOHFtYlSDhHuH+6rMa/at4hqdYe
-	lvPWCqMRiz8SkE8sbl2NJNeiAuwkNNfWDkTnOdEV7XX9bHxeXLP+FIl9r89MjdgFDxSm6InAmuLX6
-	Jy2C7r+6i5mwuz3Ld72QSk6ULF8xDwxhaqdSr5Q36juLrZ9Sc73JyS9tY9Pvx4WLWnNN2vcNUG9vm
-	nZJkc+p8TjUfzScIlkt4LvpK2iqOFL9ee/VzyEJnaQkS1fPgG8PmA/jy0xTKuv+jauOzwT3UTgNG4
-	jtho83sKdwhe4m1T5vYA==;
+	List-Owner; bh=YuQslHvCVajuzqDWgChHQpPRi1ye6h8o5JT5t/AIA+w=; b=OHKkfs533dFKEW
+	YqGf9EsiI6l2o2Zz+9rjaQN2Iyr8Qba/V6Gf++iYcdzrD6zerGu4WDptVQGRKqofYVfHuC8O4wxw6
+	/RVpndfKkWQ/zBd5KJ06fq8uLT56uY8q9E2Z/zfoEZ6tP0xIXaXScMfE7Mn2WE4FSae4nivQqBS6p
+	18TI8pEjPxXaWv2xWxT7cwj5zH2MHD/4sUnNbREj0tGpc9qqWfmdBADXZRMavQ1P03Z2xZ3U5FKnK
+	KoYA40aDS64DT+PFtzjAgH2aLHx5VwkvaOP+Zh92un4zYBK9vnCACLReyRo04AdH6YrTZAPeD8b5x
+	D0vdCTGx/2Lr1IyYexrA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tGUAN-0000000EWmM-3NHQ;
-	Thu, 28 Nov 2024 02:22:03 +0000
-Received: from mail-pj1-x1049.google.com ([2607:f8b0:4864:20::1049])
+	id 1tGUAO-0000000EWml-1jq0;
+	Thu, 28 Nov 2024 02:22:04 +0000
+Received: from smtp81.cstnet.cn ([159.226.251.81] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tGSpP-0000000EM5y-0Twk
+	id 1tGSuy-0000000EO63-2Cfj
 	for linux-riscv@lists.infradead.org;
-	Thu, 28 Nov 2024 00:56:21 +0000
-Received: by mail-pj1-x1049.google.com with SMTP id 98e67ed59e1d1-2ea1c9416fcso251317a91.1
-        for <linux-riscv@lists.infradead.org>; Wed, 27 Nov 2024 16:56:18 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1732755378; x=1733360178; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:reply-to:from:to:cc:subject:date:message-id:reply-to;
-        bh=SIrOHFdLU07PpaXHI/YgxGMl42ASMs52y5wmlleZ1JI=;
-        b=M6vk/+wtzRQ9mJsAu5jModq/HTmYYPJ3NKHx2tQ9fA0ScmnfgodZXVzRsWeWQngD4o
-         pWAn0D6OylHcr7gaqzykIH4LFCLjfHy/FlMpKcf30+CJbTa4E3eZJr+SE1OSpUupaZtn
-         /QioM8hhDwpOLRmx+9yGyzWcJe6PqCYYqBy9sY+yoTwX+rGHXaB8TUwezlJORM+MjKde
-         DfZU+usdfqYsFFvLvATr8kSy7r4CehguZUkfajr3l5zhgqiKIeT56npspwoXmYHJSH7Z
-         Lm/LNTaEUta7bA5TxgP8P9xdFQSLtxmdob2BhlK126os/my3j21G/hMUcPZFuiycaHH7
-         QxwA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1732755378; x=1733360178;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:reply-to:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=SIrOHFdLU07PpaXHI/YgxGMl42ASMs52y5wmlleZ1JI=;
-        b=T7LbrtCUiQgCo8VAkeJda4Tvaor9LMFEE6FmoKwcXvrILhl0QYxizsyGViHKIXtjya
-         c/0Oma3NTn9WdUo2cUCQ1wW7c0WmVv395zHqD079XvUOxDusUVKBRKMyKPOf8GLBBs8s
-         XmO+iv739/O2XG9JPEbsN3CTWQQVU4YI4t2d/Po+1G9YgbJiveu+Gdu32DSGslCn7Ifl
-         651Zhuecw8D3ppXKzaHGUrNQWLZzp2kUjbHFAJ3VZEFPWY9cmsBIYx5mUxTFnJLqVT8B
-         eP6QSsT/Z/793ok1EJES2vBr0dTnAbiduCZkFDPKht+64fG4oDuZLah63J453psX7Ovh
-         X4Rw==
-X-Forwarded-Encrypted: i=1; AJvYcCWZHrR59LZx8KVsCWJGXOZEBBi586Vw3FRWTwDDZC0gvjOPq+PGqMqJdX/q2HpOqWpUF2hAFGDAs6gfpA==@lists.infradead.org
-X-Gm-Message-State: AOJu0YwvgntN50LkskyN3+NVT2wOTeJMlpavsye2mutt8N/RRuPaSX4k
-	7JH1sa2UojvVkyR2MKpCC82aVzM6nEO5H0QNdxGKbk/Bg89gTe0Iv8hEtDpVOx/55//qWNs4uHs
-	KRw==
-X-Google-Smtp-Source: AGHT+IEWNoqxkKJEuSCYYZMRl85uBIjfdRzypvum78dwg9LOBi3REl5p9HlxVwSIxD2wnWKazGYBZqWzZwk=
-X-Received: from pjbst14.prod.google.com ([2002:a17:90b:1fce:b0:2ea:9d23:79a0])
- (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:90a:9f93:b0:2ea:5658:9ed6
- with SMTP id 98e67ed59e1d1-2ee25b38db4mr2121026a91.12.1732755377809; Wed, 27
- Nov 2024 16:56:17 -0800 (PST)
-Date: Wed, 27 Nov 2024 16:55:47 -0800
-In-Reply-To: <20241128005547.4077116-1-seanjc@google.com>
-Mime-Version: 1.0
-References: <20241128005547.4077116-1-seanjc@google.com>
-X-Mailer: git-send-email 2.47.0.338.g60cca15819-goog
-Message-ID: <20241128005547.4077116-17-seanjc@google.com>
-Subject: [PATCH v4 16/16] KVM: selftests: Override ARCH for x86_64 instead of
- using ARCH_DIR
-From: Sean Christopherson <seanjc@google.com>
-To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
-	Anup Patel <anup@brainfault.org>, Paul Walmsley <paul.walmsley@sifive.com>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Paolo Bonzini <pbonzini@redhat.com>, Christian Borntraeger <borntraeger@linux.ibm.com>, 
-	Janosch Frank <frankja@linux.ibm.com>, Claudio Imbrenda <imbrenda@linux.ibm.com>, 
-	Sean Christopherson <seanjc@google.com>
-Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
-	kvm@vger.kernel.org, kvm-riscv@lists.infradead.org, 
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	Andrew Jones <ajones@ventanamicro.com>, James Houghton <jthoughton@google.com>, 
-	Muhammad Usama Anjum <usama.anjum@collabora.com>
+	Thu, 28 Nov 2024 01:02:06 +0000
+Received: from [192.168.2.4] (unknown [60.17.12.134])
+	by APP-03 (Coremail) with SMTP id rQCowACXduwAwUdnELH7BQ--.8969S2;
+	Thu, 28 Nov 2024 09:01:54 +0800 (CST)
+Message-ID: <980b98978ab4ee912b37cb101ad43bce20b56dcb.camel@iscas.ac.cn>
+Subject: Re: [PATCH v2] riscv: module: use a plain variable for list_head
+ instead of a pointer
+From: laokz <zhangkai@iscas.ac.cn>
+To: =?ISO-8859-1?Q?Cl=E9ment_L=E9ger?= <cleger@rivosinc.com>, Paul Walmsley
+	 <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
+	 <aou@eecs.berkeley.edu>, linux-riscv@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
+Cc: Charlie Jenkins <charlie@rivosinc.com>, Andrew Jones
+	 <ajones@ventanamicro.com>
+Date: Thu, 28 Nov 2024 09:01:52 +0800
+In-Reply-To: <20241127142519.3038691-1-cleger@rivosinc.com>
+References: <20241127142519.3038691-1-cleger@rivosinc.com>
+User-Agent: Evolution 3.46.4-2 
+MIME-Version: 1.0
+X-CM-TRANSID: rQCowACXduwAwUdnELH7BQ--.8969S2
+X-Coremail-Antispam: 1UD129KBjvJXoWxCw45ur1rAF4kAF13ur45Wrg_yoWruFWkpF
+	18Jr1UJryUJr1xJr1UJr1UXryUJr1UJw1UJr1UXF1UJr17Jr10qr1UXr1jgr1UJr48Jr1U
+	Jr1Utr1UZr1UJrUanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUBab7Iv0xC_tr1lb4IE77IF4wAFF20E14v26r4j6ryUM7CY07I2
+	0VC2zVCF04k26cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rw
+	A2F7IY1VAKz4vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Gr0_Xr1l84ACjcxK6xII
+	jxv20xvEc7CjxVAFwI0_Gr0_Cr1l84ACjcxK6I8E87Iv67AKxVW8JVWxJwA2z4x0Y4vEx4
+	A2jsIEc7CjxVAFwI0_Gr0_Gr1UM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI
+	64kE6c02F40Ex7xfMcIj6xIIjxv20xvE14v26r1j6r18McIj6I8E87Iv67AKxVWUJVW8Jw
+	Am72CE4IkC6x0Yz7v_Jr0_Gr1lF7xvr2IY64vIr41lFcxC0VAYjxAxZF0Ew4CEw7xC0wAC
+	Y4xI67k04243AVC20s07MxkF7I0En4kS14v26r126r1DMxAIw28IcxkI7VAKI48JMxC20s
+	026xCaFVCjc4AY6r1j6r4UMI8I3I0E5I8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_
+	JrI_JrWlx4CE17CEb7AF67AKxVWUtVW8ZwCIc40Y0x0EwIxGrwCI42IY6xIIjxv20xvE14
+	v26r1j6r1xMIIF0xvE2Ix0cI8IcVCY1x0267AKxVWUJVW8JwCI42IY6xAIw20EY4v20xva
+	j40_Jr0_JF4lIxAIcVC2z280aVAFwI0_Jr0_Gr1lIxAIcVC2z280aVCY1x0267AKxVWUJV
+	W8JwCE64xvF2IEb7IF0Fy7YxBIdaVFxhVjvjDU0xZFpf9x07jYwZcUUUUU=
+X-Originating-IP: [60.17.12.134]
+X-CM-SenderInfo: x2kd0wxndlqxpvfd2hldfou0/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241127_165619_158697_48031980 
-X-CRM114-Status: UNSURE (   7.95  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241127_170204_935367_C8897258 
+X-CRM114-Status: GOOD (  16.84  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,115 +78,85 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Reply-To: Sean Christopherson <seanjc@google.com>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Now that KVM selftests uses the kernel's canonical arch paths, directly
-override ARCH to 'x86' when targeting x86_64 instead of defining ARCH_DIR
-to redirect to appropriate paths.  ARCH_DIR was originally added to deal
-with KVM selftests using the target triple ARCH for directories, e.g.
-s390x and aarch64; keeping it around just to deal with the one-off alias
-from x86_64=>x86 is unnecessary and confusing.
-
-Note, even when selftests are built from the top-level Makefile, ARCH is
-scoped to KVM's makefiles, i.e. overriding ARCH won't trip up some other
-selftests that (somehow) expects x86_64 and can't work with x86.
-
-Signed-off-by: Sean Christopherson <seanjc@google.com>
----
- tools/testing/selftests/kvm/Makefile     |  4 +---
- tools/testing/selftests/kvm/Makefile.kvm | 20 ++++++++++----------
- 2 files changed, 11 insertions(+), 13 deletions(-)
-
-diff --git a/tools/testing/selftests/kvm/Makefile b/tools/testing/selftests/kvm/Makefile
-index 9bc2eba1af1c..20af35a91d6f 100644
---- a/tools/testing/selftests/kvm/Makefile
-+++ b/tools/testing/selftests/kvm/Makefile
-@@ -6,9 +6,7 @@ ARCH            ?= $(SUBARCH)
- ifeq ($(ARCH),$(filter $(ARCH),arm64 s390 riscv x86 x86_64))
- # Top-level selftests allows ARCH=x86_64 :-(
- ifeq ($(ARCH),x86_64)
--	ARCH_DIR := x86
--else
--	ARCH_DIR := $(ARCH)
-+	ARCH := x86
- endif
- include Makefile.kvm
- else
-diff --git a/tools/testing/selftests/kvm/Makefile.kvm b/tools/testing/selftests/kvm/Makefile.kvm
-index 9888dd6bb483..4277b983cace 100644
---- a/tools/testing/selftests/kvm/Makefile.kvm
-+++ b/tools/testing/selftests/kvm/Makefile.kvm
-@@ -207,10 +207,10 @@ TEST_GEN_PROGS_riscv += steal_time
- SPLIT_TESTS += arch_timer
- SPLIT_TESTS += get-reg-list
- 
--TEST_PROGS += $(TEST_PROGS_$(ARCH_DIR))
--TEST_GEN_PROGS += $(TEST_GEN_PROGS_$(ARCH_DIR))
--TEST_GEN_PROGS_EXTENDED += $(TEST_GEN_PROGS_EXTENDED_$(ARCH_DIR))
--LIBKVM += $(LIBKVM_$(ARCH_DIR))
-+TEST_PROGS += $(TEST_PROGS_$(ARCH))
-+TEST_GEN_PROGS += $(TEST_GEN_PROGS_$(ARCH))
-+TEST_GEN_PROGS_EXTENDED += $(TEST_GEN_PROGS_EXTENDED_$(ARCH))
-+LIBKVM += $(LIBKVM_$(ARCH))
- 
- OVERRIDE_TARGETS = 1
- 
-@@ -222,14 +222,14 @@ include ../lib.mk
- INSTALL_HDR_PATH = $(top_srcdir)/usr
- LINUX_HDR_PATH = $(INSTALL_HDR_PATH)/include/
- LINUX_TOOL_INCLUDE = $(top_srcdir)/tools/include
--LINUX_TOOL_ARCH_INCLUDE = $(top_srcdir)/tools/arch/$(ARCH_DIR)/include
-+LINUX_TOOL_ARCH_INCLUDE = $(top_srcdir)/tools/arch/$(ARCH)/include
- CFLAGS += -Wall -Wstrict-prototypes -Wuninitialized -O2 -g -std=gnu99 \
- 	-Wno-gnu-variable-sized-type-not-at-end -MD -MP -DCONFIG_64BIT \
- 	-fno-builtin-memcmp -fno-builtin-memcpy \
- 	-fno-builtin-memset -fno-builtin-strnlen \
- 	-fno-stack-protector -fno-PIE -fno-strict-aliasing \
- 	-I$(LINUX_TOOL_INCLUDE) -I$(LINUX_TOOL_ARCH_INCLUDE) \
--	-I$(LINUX_HDR_PATH) -Iinclude -I$(<D) -Iinclude/$(ARCH_DIR) \
-+	-I$(LINUX_HDR_PATH) -Iinclude -I$(<D) -Iinclude/$(ARCH) \
- 	-I ../rseq -I.. $(EXTRA_CFLAGS) $(KHDR_INCLUDES)
- ifeq ($(ARCH),s390)
- 	CFLAGS += -march=z10
-@@ -273,7 +273,7 @@ LIBKVM_S_OBJ := $(patsubst %.S, $(OUTPUT)/%.o, $(LIBKVM_S))
- LIBKVM_STRING_OBJ := $(patsubst %.c, $(OUTPUT)/%.o, $(LIBKVM_STRING))
- LIBKVM_OBJS = $(LIBKVM_C_OBJ) $(LIBKVM_S_OBJ) $(LIBKVM_STRING_OBJ)
- SPLIT_TEST_GEN_PROGS := $(patsubst %, $(OUTPUT)/%, $(SPLIT_TESTS))
--SPLIT_TEST_GEN_OBJ := $(patsubst %, $(OUTPUT)/$(ARCH_DIR)/%.o, $(SPLIT_TESTS))
-+SPLIT_TEST_GEN_OBJ := $(patsubst %, $(OUTPUT)/$(ARCH)/%.o, $(SPLIT_TESTS))
- 
- TEST_GEN_OBJ = $(patsubst %, %.o, $(TEST_GEN_PROGS))
- TEST_GEN_OBJ += $(patsubst %, %.o, $(TEST_GEN_PROGS_EXTENDED))
-@@ -282,7 +282,7 @@ TEST_DEP_FILES += $(patsubst %.o, %.d, $(LIBKVM_OBJS))
- TEST_DEP_FILES += $(patsubst %.o, %.d, $(SPLIT_TEST_GEN_OBJ))
- -include $(TEST_DEP_FILES)
- 
--$(shell mkdir -p $(sort $(OUTPUT)/$(ARCH_DIR) $(dir $(LIBKVM_C_OBJ) $(LIBKVM_S_OBJ))))
-+$(shell mkdir -p $(sort $(OUTPUT)/$(ARCH) $(dir $(LIBKVM_C_OBJ) $(LIBKVM_S_OBJ))))
- 
- $(filter-out $(SPLIT_TEST_GEN_PROGS), $(TEST_GEN_PROGS)) \
- $(TEST_GEN_PROGS_EXTENDED): %: %.o
-@@ -290,9 +290,9 @@ $(TEST_GEN_PROGS_EXTENDED): %: %.o
- $(TEST_GEN_OBJ): $(OUTPUT)/%.o: %.c
- 	$(CC) $(CFLAGS) $(CPPFLAGS) $(TARGET_ARCH) -c $< -o $@
- 
--$(SPLIT_TEST_GEN_PROGS): $(OUTPUT)/%: $(OUTPUT)/%.o $(OUTPUT)/$(ARCH_DIR)/%.o
-+$(SPLIT_TEST_GEN_PROGS): $(OUTPUT)/%: $(OUTPUT)/%.o $(OUTPUT)/$(ARCH)/%.o
- 	$(CC) $(CFLAGS) $(CPPFLAGS) $(LDFLAGS) $(TARGET_ARCH) $^ $(LDLIBS) -o $@
--$(SPLIT_TEST_GEN_OBJ): $(OUTPUT)/$(ARCH_DIR)/%.o: $(ARCH_DIR)/%.c
-+$(SPLIT_TEST_GEN_OBJ): $(OUTPUT)/$(ARCH)/%.o: $(ARCH)/%.c
- 	$(CC) $(CFLAGS) $(CPPFLAGS) $(TARGET_ARCH) -c $< -o $@
- 
- EXTRA_CLEAN += $(GEN_HDRS) \
--- 
-2.47.0.338.g60cca15819-goog
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gV2VkLCAyMDI0LTExLTI3IGF0IDE1OjI1ICswMTAwLCBDbMOpbWVudCBMw6lnZXIgd3JvdGU6
+Cj4gcmVsX2hlYWQncyBsaXN0X2hlYWQgbWVtYmVyLCByZWxfZW50cnksIGRvZXNuJ3QgbmVlZCB0
+byBiZSBhbGxvY2F0ZWQsCj4gaXRzIHN0b3JhZ2UgY2FuIGp1c3QgYmUgcGFydCBvZiB0aGUgYWxs
+b2NhdGVkIHJlbF9oZWFkLiBSZW1vdmUgdGhlCgpPaCBteSBwb29yIEVuZ2xpc2guIE9LLCBpdCdz
+IG1vcmUgYmV0dGVyIHRoYW4ganVzdCBhZGQgdGhlIGxvc3Qga2ZyZWUuCgo+IHBvaW50ZXIgd2hp
+Y2ggYWxsb3dzIHRvIGdldCByaWQgb2YgdGhlIGFsbG9jYXRpb24gYXMgd2VsbCBhcyBhbgo+IGV4
+aXN0aW5nCj4gbWVtb3J5IGxlYWsgZm91bmQgYnkgS2FpIFphbmcgdXNpbmcga21lbWxlYWsuCiAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICBeCiAgICAgICAgICAgICAgICAgICAgICAgICAgIFpo
+YW5nCgpCVFcuIERvZXNuJ3QgaXQgbmVlZCBhIGZpeGVzIHRhZyBsaWtlIHdoYXQgeW91IHN1Z2dl
+c3RlZD8gKFRoZSBidWcKbWlnaHQgY29tZSBmcm9tIDYuNykKCj4gCj4gUmVwb3J0ZWQtYnk6IEth
+aSBaaGFuZyA8emhhbmdrYWlAaXNjYXMuYWMuY24+Cj4gU2lnbmVkLW9mZi1ieTogQ2zDqW1lbnQg
+TMOpZ2VyIDxjbGVnZXJAcml2b3NpbmMuY29tPgo+IFJldmlld2VkLWJ5OiBBbmRyZXcgSm9uZXMg
+PGFqb25lc0B2ZW50YW5hbWljcm8uY29tPgo+IC0tLQo+IAo+IFYyOgo+IMKgLSBBZGQgS2FpIFJl
+cG9ydGVkLWJ5Cj4gwqAtIFJld29yZCB0aGUgY29tbWl0IGRlc2NyaXB0aW9uIChBbmRyZXcpCj4g
+Cj4gLS0tCj4gwqBhcmNoL3Jpc2N2L2tlcm5lbC9tb2R1bGUuYyB8IDE4ICsrKystLS0tLS0tLS0t
+LS0tLQo+IMKgMSBmaWxlIGNoYW5nZWQsIDQgaW5zZXJ0aW9ucygrKSwgMTQgZGVsZXRpb25zKC0p
+Cj4gCj4gZGlmZiAtLWdpdCBhL2FyY2gvcmlzY3Yva2VybmVsL21vZHVsZS5jIGIvYXJjaC9yaXNj
+di9rZXJuZWwvbW9kdWxlLmMKPiBpbmRleCAxY2Q0NjFmM2Q4NzIuLjQ3ZDBlYmVlYzkzYyAxMDA2
+NDQKPiAtLS0gYS9hcmNoL3Jpc2N2L2tlcm5lbC9tb2R1bGUuYwo+ICsrKyBiL2FyY2gvcmlzY3Yv
+a2VybmVsL21vZHVsZS5jCj4gQEAgLTIzLDcgKzIzLDcgQEAgc3RydWN0IHVzZWRfYnVja2V0IHsK
+PiDCoAo+IMKgc3RydWN0IHJlbG9jYXRpb25faGVhZCB7Cj4gwqDCoMKgwqDCoMKgwqDCoHN0cnVj
+dCBobGlzdF9ub2RlIG5vZGU7Cj4gLcKgwqDCoMKgwqDCoMKgc3RydWN0IGxpc3RfaGVhZCAqcmVs
+X2VudHJ5Owo+ICvCoMKgwqDCoMKgwqDCoHN0cnVjdCBsaXN0X2hlYWQgcmVsX2VudHJ5Owo+IMKg
+wqDCoMKgwqDCoMKgwqB2b2lkICpsb2NhdGlvbjsKPiDCoH07Cj4gwqAKPiBAQCAtNjM0LDcgKzYz
+NCw3IEBAIHByb2Nlc3NfYWNjdW11bGF0ZWRfcmVsb2NhdGlvbnMoc3RydWN0IG1vZHVsZQo+ICpt
+ZSwKPiDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqBsb2Nh
+dGlvbiA9IHJlbF9oZWFkX2l0ZXItPmxvY2F0aW9uOwo+IMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
+oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoGxpc3RfZm9yX2VhY2hfZW50cnlfc2FmZShyZWxfZW50
+cnlfaXRlciwKPiDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
+wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAgcmVsX2Vu
+dHJ5X2l0ZXJfdG1wLAo+IC3CoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
+wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIHJl
+bF9oZWFkX2l0ZXItCj4gPnJlbF9lbnRyeSwKPiArwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
+oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
+wqDCoMKgwqDCoCAmcmVsX2hlYWRfaXRlci0KPiA+cmVsX2VudHJ5LAo+IMKgwqDCoMKgwqDCoMKg
+wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
+oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCBoZWFkKSB7Cj4gwqDCoMKgwqDCoMKgwqDCoMKgwqDC
+oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoGN1cnJfdHlwZSA9IHJl
+bF9lbnRyeV9pdGVyLT50eXBlOwo+IMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
+oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqByZWxvY19oYW5kbGVyc1tjdXJyX3R5cGVdLnJl
+bG9jX2hhbmRsCj4gZXIoCj4gQEAgLTcwNCwxNiArNzA0LDcgQEAgc3RhdGljIGludCBhZGRfcmVs
+b2NhdGlvbl90b19hY2N1bXVsYXRlKHN0cnVjdAo+IG1vZHVsZSAqbWUsIGludCB0eXBlLAo+IMKg
+wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoHJldHVybiAtRU5P
+TUVNOwo+IMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgfQo+IMKgCj4gLcKgwqDCoMKg
+wqDCoMKgwqDCoMKgwqDCoMKgwqDCoHJlbF9oZWFkLT5yZWxfZW50cnkgPQo+IC3CoMKgwqDCoMKg
+wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKga21hbGxvYyhzaXplb2Yoc3RydWN0
+IGxpc3RfaGVhZCksCj4gR0ZQX0tFUk5FTCk7Cj4gLQo+IC3CoMKgwqDCoMKgwqDCoMKgwqDCoMKg
+wqDCoMKgwqBpZiAoIXJlbF9oZWFkLT5yZWxfZW50cnkpIHsKPiAtwqDCoMKgwqDCoMKgwqDCoMKg
+wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoGtmcmVlKGVudHJ5KTsKPiAtwqDCoMKgwqDCoMKg
+wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoGtmcmVlKHJlbF9oZWFkKTsKPiAtwqDC
+oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoHJldHVybiAtRU5PTUVN
+Owo+IC3CoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqB9Cj4gLQo+IC3CoMKgwqDCoMKgwqDC
+oMKgwqDCoMKgwqDCoMKgwqBJTklUX0xJU1RfSEVBRChyZWxfaGVhZC0+cmVsX2VudHJ5KTsKPiAr
+wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgSU5JVF9MSVNUX0hFQUQoJnJlbF9oZWFkLT5y
+ZWxfZW50cnkpOwo+IMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgcmVsX2hlYWQtPmxv
+Y2F0aW9uID0gbG9jYXRpb247Cj4gwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqBJTklU
+X0hMSVNUX05PREUoJnJlbF9oZWFkLT5ub2RlKTsKPiDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
+oMKgwqDCoGlmICghY3VycmVudF9oZWFkLT5maXJzdCkgewo+IEBAIC03MjIsNyArNzEzLDYgQEAg
+c3RhdGljIGludCBhZGRfcmVsb2NhdGlvbl90b19hY2N1bXVsYXRlKHN0cnVjdAo+IG1vZHVsZSAq
+bWUsIGludCB0eXBlLAo+IMKgCj4gwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
+wqDCoMKgwqDCoMKgaWYgKCFidWNrZXQpIHsKPiDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
+wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKga2ZyZWUoZW50cnkpOwo+IC3CoMKg
+wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
+oGtmcmVlKHJlbF9oZWFkLT5yZWxfZW50cnkpOwo+IMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
+wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqBrZnJlZShyZWxfaGVhZCk7Cj4g
+wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
+oMKgwqDCoHJldHVybiAtRU5PTUVNOwo+IMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
+wqDCoMKgwqDCoMKgwqDCoH0KPiBAQCAtNzM1LDcgKzcyNSw3IEBAIHN0YXRpYyBpbnQgYWRkX3Jl
+bG9jYXRpb25fdG9fYWNjdW11bGF0ZShzdHJ1Y3QKPiBtb2R1bGUgKm1lLCBpbnQgdHlwZSwKPiDC
+oMKgwqDCoMKgwqDCoMKgfQo+IMKgCj4gwqDCoMKgwqDCoMKgwqDCoC8qIEFkZCByZWxvY2F0aW9u
+IHRvIGhlYWQgb2YgZGlzY292ZXJlZCByZWxfaGVhZCAqLwo+IC3CoMKgwqDCoMKgwqDCoGxpc3Rf
+YWRkX3RhaWwoJmVudHJ5LT5oZWFkLCByZWxfaGVhZC0+cmVsX2VudHJ5KTsKPiArwqDCoMKgwqDC
+oMKgwqBsaXN0X2FkZF90YWlsKCZlbnRyeS0+aGVhZCwgJnJlbF9oZWFkLT5yZWxfZW50cnkpOwo+
+IMKgCj4gwqDCoMKgwqDCoMKgwqDCoHJldHVybiAwOwo+IMKgfQoKX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0Cmxp
+bnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcv
+bWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
