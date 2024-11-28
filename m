@@ -4,84 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B2E24D66BAD
-	for <linux-riscv@archiver.kernel.org>; Thu, 28 Nov 2024 06:51:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DDE61D690E3
+	for <linux-riscv@archiver.kernel.org>; Thu, 28 Nov 2024 07:36:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=vJnm2ItyDOt6bM9Tw9wnhR0O+33wzX/piWTVSJ9J1d4=; b=QlBlcYvG/Jn4xc
-	eGxz8FZ4fW5Ue4QNCBq+sMtsJ9Ir8kIQVQYqQAGR2sn5Szas3dPCyyU6GmGhF0u3B71GUbld6tuHw
-	oWj7zlHsTcgz3/NwM9ruuCBimHSR72bu/rdfP32Sg2pDeL+cyiZCpdkbMP7TrxpFZ5sdyCGO2U6l4
-	hphufstPUwvxU5mIxd3iETzt9w67ofyweZBMv0fs0zI0TEp7+BsfVPYYfNuUOfp5H8e7ZmwHBgp+3
-	3FPh0Mfm0Q13MFdLOnbWsyfyQC7rwfrG81m68QlrWlKB88vOVsr6vvlgynqc0XVQg4ZgzLLRQnYCi
-	rOwl5RIgv5YsUdSPMcnQ==;
+	List-Owner; bh=0Mn6636NRROERNeMgBUDvFk5L3rFohkzNb+cnL8MrpI=; b=Um2kExuaZwKI9b
+	1vWA8sDeKkxAtnwYp1haRJaMtRX0LKRFkSjEXDGGMoO0PZDxkchTzTXuUXqQzXTOdql8MTaIzFmmx
+	edirN9sh4K0ksH82j7LyWY3D29HcmBI6INx0k2dz4X/2XYrOV4+JdAqDHmzs73fUOAwAv6rfDWpUt
+	s8datkBJVhkSUOD6W1ojJIGbRe2bq2r/ywvmuQ1qFdckXTpC7dyQ5KP9vqKEBNBZoM8JueiTU6ncz
+	cDJn4NsQPtFNS3XPpFDgiNBJ0QVXJ0fr80Tg6Y+42Nc97JWQ8kGvnV2G6tZHzn2zC2ihiTzYfu2qt
+	m/5BRTnxodLfEXfyS82g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tGYMs-0000000EpaW-0i9G;
-	Thu, 28 Nov 2024 06:51:14 +0000
-Received: from mgamail.intel.com ([192.198.163.16])
+	id 1tGZ4M-0000000EtSW-3R44;
+	Thu, 28 Nov 2024 07:36:10 +0000
+Received: from mail-wr1-x431.google.com ([2a00:1450:4864:20::431])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tGYMo-0000000EpZQ-336i
+	id 1tGZ4J-0000000EtS4-2Ibs
 	for linux-riscv@lists.infradead.org;
-	Thu, 28 Nov 2024 06:51:12 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1732776671; x=1764312671;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=r79SPOuhZdVFBIeBPeECtG57hYszo3FLyqaYO+yACxk=;
-  b=DWM4laoq9PQpAgU1kOZjl+aikDx0wYbLoVyHeCXJlvbUPGw9Q4vGH4ye
-   qQ9Fkyu4ttjdD7st9kI3+gWn4kLpcEH+s3NDtcowViUrsaesF1Pgkb/+f
-   Gl8lTg9Q8Mhm29snBPpl5uGEh9CnESp4/9sctQC0JGfNRH8CtPXl0QHjl
-   rW6OkcbmqfrgSoBsb+SvaVhDlTUuwbE9vU3EiyDNwS+hDQvHFWEVBO/w4
-   LovtN7Eh20yfFvCPQVIOWY5AG23lUKZckxPAULIGoPRpgVQnqFJUG380n
-   C58tWOWo3Qxw9yilbK2T5H2feSFXWTYu8wU17VKx3wxpO+gHJm92+PDI2
-   g==;
-X-CSE-ConnectionGUID: USzjsxr/SJeA+mI5YcJEFQ==
-X-CSE-MsgGUID: STLCTq1mSh2Om9Qi4hcCdg==
-X-IronPort-AV: E=McAfee;i="6700,10204,11269"; a="20590441"
-X-IronPort-AV: E=Sophos;i="6.12,191,1728975600"; 
-   d="scan'208";a="20590441"
-Received: from orviesa005.jf.intel.com ([10.64.159.145])
-  by fmvoesa110.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 27 Nov 2024 22:51:07 -0800
-X-CSE-ConnectionGUID: JPKvsDA2RHC8HzUqgFeW6w==
-X-CSE-MsgGUID: 4lhVcWE2Tkie8QKkASZ24Q==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.12,191,1728975600"; 
-   d="scan'208";a="97111216"
-Received: from lkp-server01.sh.intel.com (HELO 8122d2fc1967) ([10.239.97.150])
-  by orviesa005.jf.intel.com with ESMTP; 27 Nov 2024 22:51:03 -0800
-Received: from kbuild by 8122d2fc1967 with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1tGYMe-0009Cd-1Q;
-	Thu, 28 Nov 2024 06:51:00 +0000
-Date: Thu, 28 Nov 2024 14:50:05 +0800
-From: kernel test robot <lkp@intel.com>
-To: Haylen Chu <heylenay@4d2.org>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Haylen Chu <heylenay@outlook.com>
-Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
-	linux-riscv@lists.infradead.org, linux-clk@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	Inochi Amaoto <inochiama@outlook.com>,
-	Chen Wang <unicornxdotw@foxmail.com>,
-	Jisheng Zhang <jszhang@kernel.org>
-Subject: Re: [PATCH v3 3/3] clk: spacemit: Add clock support for Spacemit K1
- SoC
-Message-ID: <202411281451.lC2FKL6C-lkp@intel.com>
-References: <20241126143125.9980-7-heylenay@4d2.org>
+	Thu, 28 Nov 2024 07:36:09 +0000
+Received: by mail-wr1-x431.google.com with SMTP id ffacd0b85a97d-3823eb7ba72so353542f8f.0
+        for <linux-riscv@lists.infradead.org>; Wed, 27 Nov 2024 23:36:07 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1732779366; x=1733384166; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=UnP0d5lLaGKuLe5nnz6rtVePQG9JUXHbtqcoMrzTGKk=;
+        b=k8htuccCRnJjvbLlUVHqdwfI85XTFwIbc76xhmk2BDrH+5V+i4LchGAU5TcQqd4/CO
+         5PxQPm8GV/L68X9zHR9zcODBjqqVwxG6lqHbQXebKsHRG/yY1dZkGQi0u+6w7DWHqNpF
+         uVpmErqYru33dMerK++MupPYmzjmFYNiAOSssUZoVZgXEO7MgWHnXmoKTnCXyw9IgATY
+         6ZnPazNtkNmR76S0dC+ECoHIONPMlTC9w0A9kLzmjX52tE+3kIvOoR6hUz0m72s0Rwfn
+         yJ09JtjxUBDFxEZI5AC7Fz+c7u24VoObrxTXO8w19MmyxsxrvOHKXNPVcWHNrx/van8L
+         9a7w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1732779366; x=1733384166;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=UnP0d5lLaGKuLe5nnz6rtVePQG9JUXHbtqcoMrzTGKk=;
+        b=VUlVoPRH/+4F2JAkdVtBcKI+Hjdqsdt+cPgYxB1ekUgwNjV/PBAEIspRmF0YhjbijR
+         dnxCV0tVB9c2iE450aHCwvVj01ETJPT4pTIGhb1PY2eV+CoylbTGJvTtV3LWeEK3eAnT
+         uaLoTtidser8apaVt2+kESj8SM9RxyJBRieyOW1viExH2rud3Bia/1ilM8jM1jkGS31Z
+         nm8CZOuQZWi0wBhqaUwqwEDjIUvuTXlx35hrUFsZrDtoB0wtACGwvHuaG8syB6vBxkMu
+         gx3TlvxIVWiL3VVCUSe6Wm4O0SA2XzT9tSQ6RbWV74LfYQKxUhe5cGOLD2JC8Pf5kNnc
+         tIIw==
+X-Forwarded-Encrypted: i=1; AJvYcCXM07TQRa7WkrlA3mVSYAt1rAvfdrl6DubXDe8ubaEdEXMKnCZWv8Y7CbMb8uax9MxRpDHM5ihk6s6bog==@lists.infradead.org
+X-Gm-Message-State: AOJu0YxzJuzkbX99xtWOOjUuIluF4JXSyvkn/IQHBvZhNNuXzljOOB1x
+	OTM4dtsrpLDXtbzyxPCMKVLBkJz0j7Borab+AxgGsmytrj6ZnUr89EudVv1rv3k=
+X-Gm-Gg: ASbGnctRwY89/XoySq2QfIbSVJGR2uziAsToSqOTX28eSZlMMS/4NsWv8s2SojgWRSa
+	Owi2zKXmOVFGN7NM5Fw62kJt9JLxC5uf6U20xtqj5mj2lDCOsLMkMmIbO9wtn6V2dxb+6BJ2OsK
+	Ukgqrflna26rDHbsfoV37DzGY8VhJE+aKDxe6DXJ6AgoB86Fy9Khrki+FjZc/vAewXW9KBtB7HK
+	YuP6CJqZQOM0qp46Fr9/3QrWU1KJxZwiCrIDB7nI6ezIqidAtuSnAn4l9tiCIheEdQOc9we5GwE
+	hx2YgNY3LmvXhtMWPA4=
+X-Google-Smtp-Source: AGHT+IF3J7odguyMKE1/ovbU5qS7/OmybMDWgQ8ajnj5B4Q2mJyalCBlUl0W8XhZiD/NB2/U6PEc/Q==
+X-Received: by 2002:a05:6000:1865:b0:382:4a3b:5139 with SMTP id ffacd0b85a97d-385c6ef598emr4607072f8f.59.1732779365868;
+        Wed, 27 Nov 2024 23:36:05 -0800 (PST)
+Received: from ?IPV6:2a01:e0a:e17:9700:16d2:7456:6634:9626? ([2a01:e0a:e17:9700:16d2:7456:6634:9626])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-434aa7d22d4sm43904045e9.27.2024.11.27.23.36.04
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 27 Nov 2024 23:36:05 -0800 (PST)
+Message-ID: <ba0f252c-345e-4988-8d4f-36116708f19e@rivosinc.com>
+Date: Thu, 28 Nov 2024 08:36:04 +0100
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20241126143125.9980-7-heylenay@4d2.org>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2] riscv: module: use a plain variable for list_head
+ instead of a pointer
+To: laokz <zhangkai@iscas.ac.cn>, Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+Cc: Charlie Jenkins <charlie@rivosinc.com>,
+ Andrew Jones <ajones@ventanamicro.com>
+References: <20241127142519.3038691-1-cleger@rivosinc.com>
+ <980b98978ab4ee912b37cb101ad43bce20b56dcb.camel@iscas.ac.cn>
+Content-Language: en-US
+From: =?UTF-8?B?Q2zDqW1lbnQgTMOpZ2Vy?= <cleger@rivosinc.com>
+In-Reply-To: <980b98978ab4ee912b37cb101ad43bce20b56dcb.camel@iscas.ac.cn>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241127_225111_111709_3796F9E3 
-X-CRM114-Status: GOOD (  13.29  )
+X-CRM114-CacheID: sfid-20241127_233607_796289_58CC0C75 
+X-CRM114-Status: GOOD (  18.87  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,117 +98,93 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Haylen,
-
-kernel test robot noticed the following build warnings:
-
-[auto build test WARNING on 2d5404caa8c7bb5c4e0435f94b28834ae5456623]
-
-url:    https://github.com/intel-lab-lkp/linux/commits/Haylen-Chu/dt-bindings-clock-spacemit-Add-clock-controllers-of-Spacemit-K1-SoC/20241128-101248
-base:   2d5404caa8c7bb5c4e0435f94b28834ae5456623
-patch link:    https://lore.kernel.org/r/20241126143125.9980-7-heylenay%404d2.org
-patch subject: [PATCH v3 3/3] clk: spacemit: Add clock support for Spacemit K1 SoC
-config: arm-randconfig-001-20241128 (https://download.01.org/0day-ci/archive/20241128/202411281451.lC2FKL6C-lkp@intel.com/config)
-compiler: clang version 20.0.0git (https://github.com/llvm/llvm-project 592c0fe55f6d9a811028b5f3507be91458ab2713)
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20241128/202411281451.lC2FKL6C-lkp@intel.com/reproduce)
-
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202411281451.lC2FKL6C-lkp@intel.com/
-
-All warnings (new ones prefixed by >>):
-
-   drivers/clk/spacemit/ccu_pll.c:128:16: warning: variable 'old_rate' set but not used [-Wunused-but-set-variable]
-     128 |         unsigned long old_rate;
-         |                       ^
->> drivers/clk/spacemit/ccu_pll.c:152:2: warning: variable 'val' is uninitialized when used here [-Wuninitialized]
-     152 |         val |= entry->reg5 << PLL_SWCR1_REG5_OFF;
-         |         ^~~
-   drivers/clk/spacemit/ccu_pll.c:130:15: note: initialize the variable 'val' to silence this warning
-     130 |         u32 mask, val;
-         |                      ^
-         |                       = 0
->> drivers/clk/spacemit/ccu_pll.c:141:14: warning: variable 'entry' is used uninitialized whenever 'for' loop exits because its condition is false [-Wsometimes-uninitialized]
-     141 |         for (i = 0; i < params->tbl_size; i++) {
-         |                     ^~~~~~~~~~~~~~~~~~~~
-   drivers/clk/spacemit/ccu_pll.c:152:9: note: uninitialized use occurs here
-     152 |         val |= entry->reg5 << PLL_SWCR1_REG5_OFF;
-         |                ^~~~~
-   drivers/clk/spacemit/ccu_pll.c:141:14: note: remove the condition if it is always true
-     141 |         for (i = 0; i < params->tbl_size; i++) {
-         |                     ^~~~~~~~~~~~~~~~~~~~
-   drivers/clk/spacemit/ccu_pll.c:127:32: note: initialize the variable 'entry' to silence this warning
-     127 |         struct ccu_pll_rate_tbl *entry;
-         |                                       ^
-         |                                        = NULL
-   3 warnings generated.
-
-
-vim +/val +152 drivers/clk/spacemit/ccu_pll.c
-
-   115	
-   116	/*
-   117	 * pll rate change requires sequence:
-   118	 * clock off -> change rate setting -> clock on
-   119	 * This function doesn't really change rate, but cache the config
-   120	 */
-   121	static int ccu_pll_set_rate(struct clk_hw *hw, unsigned long rate,
-   122				       unsigned long parent_rate)
-   123	{
-   124		struct ccu_pll *p = hw_to_ccu_pll(hw);
-   125		struct ccu_common *common = &p->common;
-   126		struct ccu_pll_config *params = &p->pll;
-   127		struct ccu_pll_rate_tbl *entry;
- > 128		unsigned long old_rate;
-   129		bool found = false;
-   130		u32 mask, val;
-   131		int i;
-   132	
-   133		if (ccu_pll_is_enabled(hw)) {
-   134			pr_err("%s %s is enabled, ignore the setrate!\n",
-   135			       __func__, __clk_get_name(hw->clk));
-   136			return 0;
-   137		}
-   138	
-   139		old_rate = __get_vco_freq(hw);
-   140	
- > 141		for (i = 0; i < params->tbl_size; i++) {
-   142			if (rate == params->rate_tbl[i].rate) {
-   143				found = true;
-   144				entry = &params->rate_tbl[i];
-   145				break;
-   146			}
-   147		}
-   148		WARN_ON_ONCE(!found);
-   149	
-   150		mask = PLL_SWCR1_REG5_MASK | PLL_SWCR1_REG6_MASK;
-   151		mask |= PLL_SWCR1_REG7_MASK | PLL_SWCR1_REG8_MASK;
- > 152		val |= entry->reg5 << PLL_SWCR1_REG5_OFF;
-   153		val |= entry->reg6 << PLL_SWCR1_REG6_OFF;
-   154		val |= entry->reg7 << PLL_SWCR1_REG7_OFF;
-   155		val |= entry->reg8 << PLL_SWCR1_REG8_OFF;
-   156		ccu_update(swcr1, common, mask, val);
-   157	
-   158		mask = PLL_SWCR3_DIV_INT_MASK | PLL_SWCR3_DIV_FRC_MASK;
-   159		val = entry->div_int << PLL_SWCR3_DIV_INT_OFF;
-   160		val |= entry->div_frac << PLL_SWCR3_DIV_FRC_OFF;
-   161		ccu_update(swcr3, common, mask, val);
-   162	
-   163		return 0;
-   164	}
-   165	
-
--- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+CgpPbiAyOC8xMS8yMDI0IDAyOjAxLCBsYW9reiB3cm90ZToKPiBPbiBXZWQsIDIwMjQtMTEtMjcg
+YXQgMTU6MjUgKzAxMDAsIENsw6ltZW50IEzDqWdlciB3cm90ZToKPj4gcmVsX2hlYWQncyBsaXN0
+X2hlYWQgbWVtYmVyLCByZWxfZW50cnksIGRvZXNuJ3QgbmVlZCB0byBiZSBhbGxvY2F0ZWQsCj4+
+IGl0cyBzdG9yYWdlIGNhbiBqdXN0IGJlIHBhcnQgb2YgdGhlIGFsbG9jYXRlZCByZWxfaGVhZC4g
+UmVtb3ZlIHRoZQo+IAo+IE9oIG15IHBvb3IgRW5nbGlzaC4gT0ssIGl0J3MgbW9yZSBiZXR0ZXIg
+dGhhbiBqdXN0IGFkZCB0aGUgbG9zdCBrZnJlZS4KPiAKPj4gcG9pbnRlciB3aGljaCBhbGxvd3Mg
+dG8gZ2V0IHJpZCBvZiB0aGUgYWxsb2NhdGlvbiBhcyB3ZWxsIGFzIGFuCj4+IGV4aXN0aW5nCj4+
+IG1lbW9yeSBsZWFrIGZvdW5kIGJ5IEthaSBaYW5nIHVzaW5nIGttZW1sZWFrLgo+ICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICBeCj4gICAgICAgICAgICAgICAgICAgICAgICAgICAgWmhhbmcK
+PiAKPiBCVFcuIERvZXNuJ3QgaXQgbmVlZCBhIGZpeGVzIHRhZyBsaWtlIHdoYXQgeW91IHN1Z2dl
+c3RlZD8gKFRoZSBidWcKPiBtaWdodCBjb21lIGZyb20gNi43KQoKSGV5IEthaSwKCkFwb2xvZ2ll
+cyBmb3IgbWlzc3BlbGxpbmcgeW91ciBuYW1lLCBJJ2xsIGZpeCB0aGF0ICEKClRoYXQncyBhIGdv
+b2QgcXVlc3Rpb24sIEkgZ3Vlc3MgSSBjb3VsZCBoYXZlIGFkZGVkIGl0IGluZGVlZCBidXQgc2lu
+Y2UKaXQgd2FzIHJhdGhlciBhIHJld29yaywgSSBsZWZ0IGl0IG91dC4gQnV0IGl0J3MgcHJvYmFi
+bHkgYmV0dGVyIHRvIGFkZAppdCBhbnl3YXkuIEknbGwgc2VuZCBhIFYzIHdpdGggdGhlIEZpeGVz
+IHRhZyBhcyB3ZWxsIGFzIGZpeGluZyB5b3VyIG5hbWUKc3BlbGxpbmcuCgpUaGFua3MsCgpDbMOp
+bWVudAoKPiAKPj4KPj4gUmVwb3J0ZWQtYnk6IEthaSBaaGFuZyA8emhhbmdrYWlAaXNjYXMuYWMu
+Y24+Cj4+IFNpZ25lZC1vZmYtYnk6IENsw6ltZW50IEzDqWdlciA8Y2xlZ2VyQHJpdm9zaW5jLmNv
+bT4KPj4gUmV2aWV3ZWQtYnk6IEFuZHJldyBKb25lcyA8YWpvbmVzQHZlbnRhbmFtaWNyby5jb20+
+Cj4+IC0tLQo+Pgo+PiBWMjoKPj4gwqAtIEFkZCBLYWkgUmVwb3J0ZWQtYnkKPj4gwqAtIFJld29y
+ZCB0aGUgY29tbWl0IGRlc2NyaXB0aW9uIChBbmRyZXcpCj4+Cj4+IC0tLQo+PiDCoGFyY2gvcmlz
+Y3Yva2VybmVsL21vZHVsZS5jIHwgMTggKysrKy0tLS0tLS0tLS0tLS0tCj4+IMKgMSBmaWxlIGNo
+YW5nZWQsIDQgaW5zZXJ0aW9ucygrKSwgMTQgZGVsZXRpb25zKC0pCj4+Cj4+IGRpZmYgLS1naXQg
+YS9hcmNoL3Jpc2N2L2tlcm5lbC9tb2R1bGUuYyBiL2FyY2gvcmlzY3Yva2VybmVsL21vZHVsZS5j
+Cj4+IGluZGV4IDFjZDQ2MWYzZDg3Mi4uNDdkMGViZWVjOTNjIDEwMDY0NAo+PiAtLS0gYS9hcmNo
+L3Jpc2N2L2tlcm5lbC9tb2R1bGUuYwo+PiArKysgYi9hcmNoL3Jpc2N2L2tlcm5lbC9tb2R1bGUu
+Ywo+PiBAQCAtMjMsNyArMjMsNyBAQCBzdHJ1Y3QgdXNlZF9idWNrZXQgewo+PiDCoAo+PiDCoHN0
+cnVjdCByZWxvY2F0aW9uX2hlYWQgewo+PiDCoMKgwqDCoMKgwqDCoMKgc3RydWN0IGhsaXN0X25v
+ZGUgbm9kZTsKPj4gLcKgwqDCoMKgwqDCoMKgc3RydWN0IGxpc3RfaGVhZCAqcmVsX2VudHJ5Owo+
+PiArwqDCoMKgwqDCoMKgwqBzdHJ1Y3QgbGlzdF9oZWFkIHJlbF9lbnRyeTsKPj4gwqDCoMKgwqDC
+oMKgwqDCoHZvaWQgKmxvY2F0aW9uOwo+PiDCoH07Cj4+IMKgCj4+IEBAIC02MzQsNyArNjM0LDcg
+QEAgcHJvY2Vzc19hY2N1bXVsYXRlZF9yZWxvY2F0aW9ucyhzdHJ1Y3QgbW9kdWxlCj4+ICptZSwK
+Pj4gwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgbG9jYXRp
+b24gPSByZWxfaGVhZF9pdGVyLT5sb2NhdGlvbjsKPj4gwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
+wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgbGlzdF9mb3JfZWFjaF9lbnRyeV9zYWZlKHJlbF9lbnRy
+eV9pdGVyLAo+PiDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
+wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAgcmVsX2Vu
+dHJ5X2l0ZXJfdG1wLAo+PiAtwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
+oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCBy
+ZWxfaGVhZF9pdGVyLQo+Pj4gcmVsX2VudHJ5LAo+PiArwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
+wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
+oMKgwqDCoMKgwqDCoCAmcmVsX2hlYWRfaXRlci0KPj4+IHJlbF9lbnRyeSwKPj4gwqDCoMKgwqDC
+oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
+wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIGhlYWQpIHsKPj4gwqDCoMKgwqDCoMKgwqDC
+oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoGN1cnJfdHlw
+ZSA9IHJlbF9lbnRyeV9pdGVyLT50eXBlOwo+PiDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
+wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgcmVsb2NfaGFuZGxlcnNbY3Vycl90
+eXBlXS5yZWxvY19oYW5kbAo+PiBlcigKPj4gQEAgLTcwNCwxNiArNzA0LDcgQEAgc3RhdGljIGlu
+dCBhZGRfcmVsb2NhdGlvbl90b19hY2N1bXVsYXRlKHN0cnVjdAo+PiBtb2R1bGUgKm1lLCBpbnQg
+dHlwZSwKPj4gwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
+cmV0dXJuIC1FTk9NRU07Cj4+IMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgfQo+PiDC
+oAo+PiAtwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgcmVsX2hlYWQtPnJlbF9lbnRyeSA9
+Cj4+IC3CoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKga21hbGxv
+YyhzaXplb2Yoc3RydWN0IGxpc3RfaGVhZCksCj4+IEdGUF9LRVJORUwpOwo+PiAtCj4+IC3CoMKg
+wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqBpZiAoIXJlbF9oZWFkLT5yZWxfZW50cnkpIHsKPj4g
+LcKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqBrZnJlZShlbnRy
+eSk7Cj4+IC3CoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKga2Zy
+ZWUocmVsX2hlYWQpOwo+PiAtwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
+oMKgwqDCoHJldHVybiAtRU5PTUVNOwo+PiAtwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
+fQo+PiAtCj4+IC3CoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqBJTklUX0xJU1RfSEVBRChy
+ZWxfaGVhZC0+cmVsX2VudHJ5KTsKPj4gK8KgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoElO
+SVRfTElTVF9IRUFEKCZyZWxfaGVhZC0+cmVsX2VudHJ5KTsKPj4gwqDCoMKgwqDCoMKgwqDCoMKg
+wqDCoMKgwqDCoMKgwqByZWxfaGVhZC0+bG9jYXRpb24gPSBsb2NhdGlvbjsKPj4gwqDCoMKgwqDC
+oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqBJTklUX0hMSVNUX05PREUoJnJlbF9oZWFkLT5ub2RlKTsK
+Pj4gwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqBpZiAoIWN1cnJlbnRfaGVhZC0+Zmly
+c3QpIHsKPj4gQEAgLTcyMiw3ICs3MTMsNiBAQCBzdGF0aWMgaW50IGFkZF9yZWxvY2F0aW9uX3Rv
+X2FjY3VtdWxhdGUoc3RydWN0Cj4+IG1vZHVsZSAqbWUsIGludCB0eXBlLAo+PiDCoAo+PiDCoMKg
+wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqBpZiAoIWJ1Y2tldCkg
+ewo+PiDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
+wqDCoMKgwqDCoMKga2ZyZWUoZW50cnkpOwo+PiAtwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
+oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqBrZnJlZShyZWxfaGVhZC0+cmVsX2Vu
+dHJ5KTsKPj4gwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
+wqDCoMKgwqDCoMKgwqDCoGtmcmVlKHJlbF9oZWFkKTsKPj4gwqDCoMKgwqDCoMKgwqDCoMKgwqDC
+oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoHJldHVybiAtRU5PTUVN
+Owo+PiDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqB9Cj4+
+IEBAIC03MzUsNyArNzI1LDcgQEAgc3RhdGljIGludCBhZGRfcmVsb2NhdGlvbl90b19hY2N1bXVs
+YXRlKHN0cnVjdAo+PiBtb2R1bGUgKm1lLCBpbnQgdHlwZSwKPj4gwqDCoMKgwqDCoMKgwqDCoH0K
+Pj4gwqAKPj4gwqDCoMKgwqDCoMKgwqDCoC8qIEFkZCByZWxvY2F0aW9uIHRvIGhlYWQgb2YgZGlz
+Y292ZXJlZCByZWxfaGVhZCAqLwo+PiAtwqDCoMKgwqDCoMKgwqBsaXN0X2FkZF90YWlsKCZlbnRy
+eS0+aGVhZCwgcmVsX2hlYWQtPnJlbF9lbnRyeSk7Cj4+ICvCoMKgwqDCoMKgwqDCoGxpc3RfYWRk
+X3RhaWwoJmVudHJ5LT5oZWFkLCAmcmVsX2hlYWQtPnJlbF9lbnRyeSk7Cj4+IMKgCj4+IMKgwqDC
+oMKgwqDCoMKgwqByZXR1cm4gMDsKPj4gwqB9Cj4gCgoKX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJp
+c2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1h
+bi9saXN0aW5mby9saW51eC1yaXNjdgo=
