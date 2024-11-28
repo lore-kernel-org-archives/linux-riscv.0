@@ -4,86 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91474D690ED
-	for <linux-riscv@archiver.kernel.org>; Thu, 28 Nov 2024 09:00:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E1562D690ED
+	for <linux-riscv@archiver.kernel.org>; Thu, 28 Nov 2024 09:37:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=1Hv63w+WtYlnSSEWzgkCzMnvpAbFOMn2JI4EhLzqUoE=; b=vO8EvNvz2rmjmn
-	z3wxHGW+6iqKHJVvjz9rUT3OSLwa83VFdTT/UuHIeHDAYeeEFWpa17CXZDVZw2qFlNPKKvV1ltkBs
-	NK62J09L4kxFDyjxyB5YU/uQV+Q4lJjXx4eeJfBPe2rkyBb3yUQJ03e36mhaNasvggkicw/xAK3dg
-	5FJt6Pwq1fbceU5ypOR3KNocnTaBRhiMAr5yz8gXS0GpKpZzI9LDLyqzPdfRWYsT5WcfOwqNUkkd6
-	sG3hAt06UCEDkJrPv24wyxGUYQEKmXRLcd9CXrD86Dgl3vBzRqtzpz3Nn1SFJ5e2ZZOeABLkmdiVS
-	7icCtDL2Cb4m4lYq+5NA==;
+	List-Owner; bh=SfTWT4ik8XD4bNiPuwD6pQiAb8Xu47Lvc8mfoOP/mIg=; b=Pwt1iNdFadNDD+
+	JX65UJEFpD0e8LsR994yiUbAQemaHWIQj1mYpNArP+esnE5pX6u9HfWokKRYqhFLBUYGnCKsNz582
+	/mc2IV8GnYHqKPJhTL7yqz/t/qSf/3U+tk+J1PdmHzvmdBPen497yL2rX52UtGU43Wjy++6H57xXD
+	E+SHVxv1r1sf2Ku1K/uTb+Sh7F3zkMmkLY8QMpjaBDvsZjZToiQiiTV7PJx+Q5Ba4QcnvyapMNusR
+	FjqQZ5s18fOoKr82KGPjKMHdMcL64uW7EKoNvGQLLJYC7GznnpYkKx07vnAl+KMBMx7YMoCWM6ygQ
+	7A0RudllFzv9OyagPEZQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tGaNc-0000000F60b-2PbQ;
-	Thu, 28 Nov 2024 09:00:08 +0000
-Received: from mail-lf1-x132.google.com ([2a00:1450:4864:20::132])
+	id 1tGaxK-0000000F9rb-0bqg;
+	Thu, 28 Nov 2024 09:37:02 +0000
+Received: from mail-wm1-x333.google.com ([2a00:1450:4864:20::333])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tGaNZ-0000000F5zU-38nC
+	id 1tGZwk-0000000F0qg-2OK2
 	for linux-riscv@lists.infradead.org;
-	Thu, 28 Nov 2024 09:00:06 +0000
-Received: by mail-lf1-x132.google.com with SMTP id 2adb3069b0e04-53dd9e853ccso468157e87.1
-        for <linux-riscv@lists.infradead.org>; Thu, 28 Nov 2024 01:00:05 -0800 (PST)
+	Thu, 28 Nov 2024 08:32:23 +0000
+Received: by mail-wm1-x333.google.com with SMTP id 5b1f17b1804b1-43494a20379so4813805e9.0
+        for <linux-riscv@lists.infradead.org>; Thu, 28 Nov 2024 00:32:22 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1732784404; x=1733389204; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=oRwUYsVAjpoLFct6AU+sl41M7ai7g8VdSrVmZPLTLdY=;
-        b=IQVF2DokTwr1tKXJ6O8twgB5dwd9pEyX/tmqeWOORJM4RYmntYYzy+Yq0nxS6W8vFi
-         wN6l4USwY8H6gKT5SoLL657NXyoGsZQo8UMgU0b2pVCs8t38AP1WOMcGW8QloZnXTWNF
-         va3ZN7pNa/QU0Qbur1/n8NPcFLDmKL1Xt2k5Ftltvn/GDr7NYRdtRod60CKxCwUJAyJW
-         DKvuttU4nbRhWR0NTZbO/+J+Kl/gbWOHrlUPl+lpnzKjMZTAGzRpoRDmCLDM1yAB27C0
-         IE8KS4S386mfrTFb0UpGgJHuhL3YyEGfoe6/U+Ne/w5Rp0+5hEEVhRUI2mPTVpzJ8PQ7
-         9Twg==
+        d=ventanamicro.com; s=google; t=1732782741; x=1733387541; darn=lists.infradead.org;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=IkmUTsVLQMvFKC/acbiNHMDNlfrO4VJGSOdTD+kFhvk=;
+        b=Z19eL4/6nT7g9B3JbTVMcdYQwZ/fTc/yaTheToF8pR9pqPylIVQAdla8kKnPaa5i1P
+         1Svp0sep6N3prywhc8G7ILrIGY6Pjod5jP2cFcpwtVfx2f4I55IGPcvzBU795jzs1Bt3
+         NitiYHir4dUifN+PXy7U60FcQc845UTDhIchD/2a82Sarqs7i7QsnBOEfeGa4xhxrUl3
+         /VfXKumtom+2s8uuyEpAMSQw2VnlzbjD6V0A2pfqJrt1EaM2q5IGfR62VK/ewr2VMwQ0
+         JMduA5dy5jzajLtBRh7rRuU6S5Vu8SZ/ahny6LEF8JjWXTXnr41gM2wcyaVhRYrClmpW
+         fKOw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1732784404; x=1733389204;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=oRwUYsVAjpoLFct6AU+sl41M7ai7g8VdSrVmZPLTLdY=;
-        b=jKmZdHQqtftd9f8iOFQpA22Tpde2RoIZ8BRUq2rGpbnuARXSzr8ud5gSSCiqfZhk4A
-         Z+3KynbaCbSRa9AQqtgaYPKEoASoxEgap34m8dkAU5n4nkQRBwPJWEiNwZC3ZhcFKkfj
-         H2R+9EaJnsh1evEs9U3nB5qA+RY2myvS8vmJXIZZBIfpjkInr0Nq8MBd8a3TD2vpR/Hg
-         YTMdD/7mbXUN7tIIeFGRsw9tCCrajWk56f2huqpnJX7eD0dBRRgZnmCIU4yZvCAOr1NQ
-         T2SVqSSwX+ybGeWkKeDUtHgyMRbvv5yQSJX+okImonAaW39FhhH06W5PEpji3hjRiIr3
-         VHBA==
-X-Forwarded-Encrypted: i=1; AJvYcCUr+urssW+xusefrCfc5v82pUk57dzyZCBIZwmthzvNqu++4/c8itdlrFLHX9IQaV0VnyiFakFjOcua+Q==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz+s421TEp1Pj0S4UiofYiMbB9FTs2u3V04V58gai6Tp7mDmbNl
-	igBatFaGGAgdatWQI9/1cVscgJGc/IZaYupm8U44qhvA55X1GK1dIbS4Zc8HWX0=
-X-Gm-Gg: ASbGncvTXYOuNLh+gKZ6nWMFQut1+ALLs9fE3puI+OhujWLeeIj3jnIEKeKZY5kLjhQ
-	5COPO2PXZ6APYfF0QC/BAh43FLblVqtx7p6nYpnOZ8DqG+XC5/JFsmJ8j8P1sQlZZv4S+fLSp+p
-	TyJl8jqZIhYZDvPIrdHt/reDaKaaAa7226mlDusQyibwthgrl711xmmMtIcuekKT6KxLTQOQckP
-	+F3SWNov2sK7bKt7DBSLremD33TWXKx7XhjbRbKqaAY5XzDFQobOmJcaBZLV2a4wfKiqTy+KSgA
-	hUXmy6s62k4NwX/23iHP1DzzDl77adjcBKo=
-X-Google-Smtp-Source: AGHT+IFvUjDbauPTmEibS/pMaTmIPzKett7QupGp+AywDNDr/16hkqdHs/Gybk1MALYq8E3o2q+udg==
-X-Received: by 2002:a05:6512:3b25:b0:53d:d12c:2f02 with SMTP id 2adb3069b0e04-53df00d1b38mr3726286e87.18.1732784403699;
-        Thu, 28 Nov 2024 01:00:03 -0800 (PST)
+        d=1e100.net; s=20230601; t=1732782741; x=1733387541;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=IkmUTsVLQMvFKC/acbiNHMDNlfrO4VJGSOdTD+kFhvk=;
+        b=FUcvJCe7W7PGJZZVFwHBkaRlHwHegb78lAIJGvnYksJ/utMpLTgMy4wmQRMuayDsVk
+         0MwHLobUCqkQCgC1hkSZWosQkWWFCqohinV2LmaSFElU7h4rQ78DOI+a0bjw1mSh5F8t
+         3FAXZuwmKDJuvzWitq7rgONv4hIo+nLC6g03/5/Km76XvMWrq1xB79611dl8hR2wG8JV
+         hmvmE6xOvs2seBMZbK9Sf27DODK8yt7t667Hb0efpbKPem0F1q1Fq7vHgeCJ8osGEN9g
+         jt29xPLNIwQTXKI8vZvFQwmifACGEVDdrBRPEjLLjI1tBP4XUVWwWbNihYbpz/IWcAmI
+         P2Eg==
+X-Forwarded-Encrypted: i=1; AJvYcCX++yoBjvyDEIcUC/Fngeld1mjwudf01GJ7qPaUF1rDqjEM2FwSAJLDukWJnaXv6ygQM/3YjSfGkUscmw==@lists.infradead.org
+X-Gm-Message-State: AOJu0YwDaYJjIDVCdhnysAdSFIeD09hpp0k/qHwWizscnWAO2hfoWHhB
+	L1siFPQbtiH6f3IP0dy7l2SloFc3z6eAWhR5KhM+ap38H7OOyTwa5lz6iETtaps=
+X-Gm-Gg: ASbGncvifGfznEc3v9+e8Jqu8dnoUKD67lRinySi8nwGaG82bzf5qVcMyoxxkT80rVy
+	nlmyzaadmFbFq7GMmHob938vzz5gVQJK8IpTT7uMzmyE05vEVa0B6teCzhNoAtT2c5O2EjSp7L8
+	Rv7lICIZKf/KiY+A91E0dJdpDEYZYierQq+XPU0Nt7pcl4qX2/uqoH2o94F4CfOLu0zg+hLvSgk
+	oKR+9CWIf7Y6X/96qumWbfY6SpqVJXS6eXAZF55KHuKxrjyhSqYZY3YFYkBAt80Sqm4jBcOmeWn
+	NRxoy69UXZGsP7uIpgAIReJ67Vg97m90QjI=
+X-Google-Smtp-Source: AGHT+IEwQd4MULG9+vfOa2qsE3UwH6o+SBFQmY81KWSmVFdtfK+f0e5Zt6kIK2SbhEhkH97nvavxlg==
+X-Received: by 2002:a05:600c:46c9:b0:434:a4a6:51ee with SMTP id 5b1f17b1804b1-434a9dd0060mr63116095e9.16.1732782740536;
+        Thu, 28 Nov 2024 00:32:20 -0800 (PST)
 Received: from localhost (2001-1ae9-1c2-4c00-20f-c6b4-1e57-7965.ip6.tmcz.cz. [2001:1ae9:1c2:4c00:20f:c6b4:1e57:7965])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-434b0dbf95fsm15201885e9.15.2024.11.28.01.00.03
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-385ccd3729esm1033907f8f.44.2024.11.28.00.32.19
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 28 Nov 2024 01:00:03 -0800 (PST)
-Date: Thu, 28 Nov 2024 10:00:02 +0100
+        Thu, 28 Nov 2024 00:32:20 -0800 (PST)
+Date: Thu, 28 Nov 2024 09:32:19 +0100
 From: Andrew Jones <ajones@ventanamicro.com>
-To: zhouquan@iscas.ac.cn
-Cc: anup@brainfault.org, atishp@atishpatra.org, paul.walmsley@sifive.com, 
-	palmer@dabbelt.com, aou@eecs.berkeley.edu, linux-kernel@vger.kernel.org, 
-	linux-riscv@lists.infradead.org, kvm@vger.kernel.org, kvm-riscv@lists.infradead.org
-Subject: Re: [PATCH 4/4] KVM: riscv: selftests: Add Svvptc/Zabha/Ziccrse exts
- to get-reg-list test
-Message-ID: <20241128-846f2b5fdfda9e1aa9e373ee@orel>
-References: <cover.1732762121.git.zhouquan@iscas.ac.cn>
- <21d3a5314a9cd6ac5b3aa445060ae2679a44c792.1732762121.git.zhouquan@iscas.ac.cn>
+To: laokz <zhangkai@iscas.ac.cn>
+Cc: =?utf-8?B?Q2zDqW1lbnQgTMOpZ2Vy?= <cleger@rivosinc.com>, 
+	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	Charlie Jenkins <charlie@rivosinc.com>
+Subject: Re: [PATCH v2] riscv: module: use a plain variable for list_head
+ instead of a pointer
+Message-ID: <20241128-0e953467c518d79d12dbf202@orel>
+References: <20241127142519.3038691-1-cleger@rivosinc.com>
+ <980b98978ab4ee912b37cb101ad43bce20b56dcb.camel@iscas.ac.cn>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <21d3a5314a9cd6ac5b3aa445060ae2679a44c792.1732762121.git.zhouquan@iscas.ac.cn>
+In-Reply-To: <980b98978ab4ee912b37cb101ad43bce20b56dcb.camel@iscas.ac.cn>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241128_010005_781452_8F112CC6 
-X-CRM114-Status: GOOD (  14.04  )
+X-CRM114-CacheID: sfid-20241128_003222_610506_6FAA48AC 
+X-CRM114-Status: GOOD (  12.71  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,121 +97,27 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Nov 28, 2024 at 11:22:14AM +0800, zhouquan@iscas.ac.cn wrote:
-> From: Quan Zhou <zhouquan@iscas.ac.cn>
-> 
-> The KVM RISC-V allows Svvptc/Zabha/Ziccrse extensions for Guest/VM
-> so add them to get-reg-list test.
-> 
-> Signed-off-by: Quan Zhou <zhouquan@iscas.ac.cn>
-> ---
->  tools/testing/selftests/kvm/riscv/get-reg-list.c | 12 ++++++++++++
->  1 file changed, 12 insertions(+)
-> 
-> diff --git a/tools/testing/selftests/kvm/riscv/get-reg-list.c b/tools/testing/selftests/kvm/riscv/get-reg-list.c
-> index 54ab484d0000..a697db1ff411 100644
-> --- a/tools/testing/selftests/kvm/riscv/get-reg-list.c
-> +++ b/tools/testing/selftests/kvm/riscv/get-reg-list.c
-> @@ -48,8 +48,10 @@ bool filter_reg(__u64 reg)
->  	case KVM_REG_RISCV_ISA_EXT | KVM_REG_RISCV_ISA_SINGLE | KVM_RISCV_ISA_EXT_SSNPM:
->  	case KVM_REG_RISCV_ISA_EXT | KVM_REG_RISCV_ISA_SINGLE | KVM_RISCV_ISA_EXT_SSTC:
->  	case KVM_REG_RISCV_ISA_EXT | KVM_REG_RISCV_ISA_SINGLE | KVM_RISCV_ISA_EXT_SVINVAL:
-> +	case KVM_REG_RISCV_ISA_EXT | KVM_REG_RISCV_ISA_SINGLE | KVM_RISCV_ISA_EXT_SVVPTC:
+On Thu, Nov 28, 2024 at 09:01:52AM +0800, laokz wrote:
+> On Wed, 2024-11-27 at 15:25 +0100, Cl=E9ment L=E9ger wrote:
+> > rel_head's list_head member, rel_entry, doesn't need to be allocated,
+> > its storage can just be part of the allocated rel_head. Remove the
+> =
 
-Alphabetic order, please.
+> Oh my poor English. OK, it's more better than just add the lost kfree.
+>
 
->  	case KVM_REG_RISCV_ISA_EXT | KVM_REG_RISCV_ISA_SINGLE | KVM_RISCV_ISA_EXT_SVNAPOT:
->  	case KVM_REG_RISCV_ISA_EXT | KVM_REG_RISCV_ISA_SINGLE | KVM_RISCV_ISA_EXT_SVPBMT:
-> +	case KVM_REG_RISCV_ISA_EXT | KVM_REG_RISCV_ISA_SINGLE | KVM_RISCV_ISA_EXT_ZABHA:
->  	case KVM_REG_RISCV_ISA_EXT | KVM_REG_RISCV_ISA_SINGLE | KVM_RISCV_ISA_EXT_ZACAS:
->  	case KVM_REG_RISCV_ISA_EXT | KVM_REG_RISCV_ISA_SINGLE | KVM_RISCV_ISA_EXT_ZAWRS:
->  	case KVM_REG_RISCV_ISA_EXT | KVM_REG_RISCV_ISA_SINGLE | KVM_RISCV_ISA_EXT_ZBA:
-> @@ -69,6 +71,7 @@ bool filter_reg(__u64 reg)
->  	case KVM_REG_RISCV_ISA_EXT | KVM_REG_RISCV_ISA_SINGLE | KVM_RISCV_ISA_EXT_ZFHMIN:
->  	case KVM_REG_RISCV_ISA_EXT | KVM_REG_RISCV_ISA_SINGLE | KVM_RISCV_ISA_EXT_ZICBOM:
->  	case KVM_REG_RISCV_ISA_EXT | KVM_REG_RISCV_ISA_SINGLE | KVM_RISCV_ISA_EXT_ZICBOZ:
-> +	case KVM_REG_RISCV_ISA_EXT | KVM_REG_RISCV_ISA_SINGLE | KVM_RISCV_ISA_EXT_ZICCRSE:
->  	case KVM_REG_RISCV_ISA_EXT | KVM_REG_RISCV_ISA_SINGLE | KVM_RISCV_ISA_EXT_ZICNTR:
->  	case KVM_REG_RISCV_ISA_EXT | KVM_REG_RISCV_ISA_SINGLE | KVM_RISCV_ISA_EXT_ZICOND:
->  	case KVM_REG_RISCV_ISA_EXT | KVM_REG_RISCV_ISA_SINGLE | KVM_RISCV_ISA_EXT_ZICSR:
-> @@ -423,8 +426,10 @@ static const char *isa_ext_single_id_to_str(__u64 reg_off)
->  		KVM_ISA_EXT_ARR(SSNPM),
->  		KVM_ISA_EXT_ARR(SSTC),
->  		KVM_ISA_EXT_ARR(SVINVAL),
-> +		KVM_ISA_EXT_ARR(SVVPTC),
-
-Same comment as above.
-
->  		KVM_ISA_EXT_ARR(SVNAPOT),
->  		KVM_ISA_EXT_ARR(SVPBMT),
-> +		KVM_ISA_EXT_ARR(ZABHA),
->  		KVM_ISA_EXT_ARR(ZACAS),
->  		KVM_ISA_EXT_ARR(ZAWRS),
->  		KVM_ISA_EXT_ARR(ZBA),
-> @@ -444,6 +449,7 @@ static const char *isa_ext_single_id_to_str(__u64 reg_off)
->  		KVM_ISA_EXT_ARR(ZFHMIN),
->  		KVM_ISA_EXT_ARR(ZICBOM),
->  		KVM_ISA_EXT_ARR(ZICBOZ),
-> +		KVM_ISA_EXT_ARR(ZICCRSE),
->  		KVM_ISA_EXT_ARR(ZICNTR),
->  		KVM_ISA_EXT_ARR(ZICOND),
->  		KVM_ISA_EXT_ARR(ZICSR),
-> @@ -956,8 +962,10 @@ KVM_ISA_EXT_SIMPLE_CONFIG(sscofpmf, SSCOFPMF);
->  KVM_ISA_EXT_SIMPLE_CONFIG(ssnpm, SSNPM);
->  KVM_ISA_EXT_SIMPLE_CONFIG(sstc, SSTC);
->  KVM_ISA_EXT_SIMPLE_CONFIG(svinval, SVINVAL);
-> +KVM_ISA_EXT_SIMPLE_CONFIG(svvptc, SVVPTC);
-
-Same comment as above.
-
->  KVM_ISA_EXT_SIMPLE_CONFIG(svnapot, SVNAPOT);
->  KVM_ISA_EXT_SIMPLE_CONFIG(svpbmt, SVPBMT);
-> +KVM_ISA_EXT_SIMPLE_CONFIG(zabha, ZABHA);
->  KVM_ISA_EXT_SIMPLE_CONFIG(zacas, ZACAS);
->  KVM_ISA_EXT_SIMPLE_CONFIG(zawrs, ZAWRS);
->  KVM_ISA_EXT_SIMPLE_CONFIG(zba, ZBA);
-> @@ -977,6 +985,7 @@ KVM_ISA_EXT_SIMPLE_CONFIG(zfh, ZFH);
->  KVM_ISA_EXT_SIMPLE_CONFIG(zfhmin, ZFHMIN);
->  KVM_ISA_EXT_SUBLIST_CONFIG(zicbom, ZICBOM);
->  KVM_ISA_EXT_SUBLIST_CONFIG(zicboz, ZICBOZ);
-> +KVM_ISA_EXT_SIMPLE_CONFIG(ziccrse, ZICCRSE);
->  KVM_ISA_EXT_SIMPLE_CONFIG(zicntr, ZICNTR);
->  KVM_ISA_EXT_SIMPLE_CONFIG(zicond, ZICOND);
->  KVM_ISA_EXT_SIMPLE_CONFIG(zicsr, ZICSR);
-> @@ -1021,8 +1030,10 @@ struct vcpu_reg_list *vcpu_configs[] = {
->  	&config_ssnpm,
->  	&config_sstc,
->  	&config_svinval,
-> +	&config_svvptc,
-
-Same comment as above.
-
->  	&config_svnapot,
->  	&config_svpbmt,
-> +	&config_zabha,
->  	&config_zacas,
->  	&config_zawrs,
->  	&config_zba,
-> @@ -1042,6 +1053,7 @@ struct vcpu_reg_list *vcpu_configs[] = {
->  	&config_zfhmin,
->  	&config_zicbom,
->  	&config_zicboz,
-> +	&config_ziccrse,
->  	&config_zicntr,
->  	&config_zicond,
->  	&config_zicsr,
-> -- 
-> 2.34.1
-> 
-
-Otherwise,
-
-Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
+It wasn't the English I was correcting. That was fine, but just saying
+the object could be "a plain variable" wasn't giving any justification
+for the change and, to me, even implied that rel_entry was locally
+scoped. So, when I first skimmed the patch and saw that it was getting
+appended to a list, I almost stated the patch was wrong. It was clear
+after looking closer, but it could have been clear the first time
+through if the commit message had better guided me.
 
 Thanks,
 drew
