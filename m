@@ -4,77 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F089D70DE3
-	for <linux-riscv@archiver.kernel.org>; Thu, 28 Nov 2024 16:19:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF364D70DED
+	for <linux-riscv@archiver.kernel.org>; Thu, 28 Nov 2024 20:11:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3UlmhgSdfHnM8SYR8mWeLbf8HUnlRg+7CePjBivw94s=; b=Nk4FUqF3Lxp2cP0HGI+sEIUu/k
-	ywfgJiuTkk4qO8RnlDAFaWvts8FT6nIZjIGYtKqrJ7jxe4+y9rSSniPAM4NxhKLlH3MkD6YIsxtkA
-	xOmMA5RDX1Yh5iiJ3vA3KCcD4nYUTlnUWrSOumks1bQJjErybGFwZ5Kgdn7oRTJHtqs+qZyLYupCp
-	reXaxWEVCMyC5slqHXDkkrhkQgiZ3ba/nvGsX0C+ha3036cFRW8ubPiXXZT6eE3GLdCwFo6uawHWp
-	ZbRYtSB37JpkSXRfvmi5Nbv95haBMPyTowZeaVcO9XtqKz4wdyJAR7+9hOQ5iwe2a8Z8ymY+/x3mh
-	CXWk728w==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=iTz58oT5OqL2at12WW3RUnTB/yrR0duIUSr2QwKqOBc=; b=nBw5k5LpzxhMjV
+	cFvouhLb+XqgZtEmR6yn6AAAMa2R0x9xTwc6+OBbBvzTHSgmc9TQ3XAFqwFncmRhhRN2s3RBOtr3v
+	3L3cXTxkDKUXbdV/AnmCTA46UCvNIJEFfQ1WgVUbuStA1pyvz8iJqEiIrOnLMALH0KgmBSdVXUQy7
+	x9AV+pEkw/GQn4QQGbhqGj4Jud9FQ7ctHN6ruOyMNAPpJvnYZnL6z+ItdI8L6CepPwieGvVLtvE4K
+	zAEHBs/CVssNLUjZAEtQPCSnVsZNNUN89dVnjcmvZ2CVDPSZWYvN5A5zgv34IdmDQjq94fZBpCrtw
+	QjMw7N+ZDQZM9xtv2WTQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tGhFA-0000000FzLn-0E5X;
-	Thu, 28 Nov 2024 16:19:52 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1tGkrX-0000000GKiD-0R7b;
+	Thu, 28 Nov 2024 20:11:43 +0000
+Received: from smtp-fw-6002.amazon.com ([52.95.49.90])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tGhEx-0000000FzH7-3xQM
-	for linux-riscv@lists.infradead.org;
-	Thu, 28 Nov 2024 16:19:41 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 3AB685C5DBC;
-	Thu, 28 Nov 2024 16:18:55 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B64C5C4CED8;
-	Thu, 28 Nov 2024 16:19:33 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1732810778;
-	bh=nEZXX9r4I+3lLA88i41U/AY9TcXT/12vFkdTWOyG4xI=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=rBGvF6iIzlMfrVCWFfRuqRY68PuACexWLsSIi4vPhKoTAmbWmEgytvUw8NIxdrySo
-	 oBbzFDTKzqjkSZmR0VmPqLijIuGewzIjTNtBJg4hOjie3MAnJUNwP333AD7zxke38i
-	 zATm7rFx6FUIpMed3FVSLbfc0oujJPn5IV2+SN+P5arIGpg7o2/fD4ZvVjlDeTOSrm
-	 navaTPgEmoIBYDTk7lzR/JzWeKr8aZrFrRA52FltjIL6R93aI3PGtNsEdNUQTxM/gV
-	 FbhonukyLqiiyCKkW1Z3S7fH/yGUY0gQjYo7n+7AWFyNficWllSK5EnKEIKEsqN/XT
-	 lXzLaGMUTerTw==
-Date: Thu, 28 Nov 2024 16:19:31 +0000
-From: Conor Dooley <conor@kernel.org>
-To: Alexandre Ghiti <alex@ghiti.fr>
-Cc: Conor Dooley <conor.dooley@microchip.com>,
-	Will Deacon <will@kernel.org>,
-	Alexandre Ghiti <alexghiti@rivosinc.com>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Andrea Parri <parri.andrea@gmail.com>,
-	Nathan Chancellor <nathan@kernel.org>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Ingo Molnar <mingo@redhat.com>, Waiman Long <longman@redhat.com>,
-	Boqun Feng <boqun.feng@gmail.com>, Arnd Bergmann <arnd@arndb.de>,
-	Leonardo Bras <leobras@redhat.com>, Guo Ren <guoren@kernel.org>,
-	linux-doc@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
-	linux-arch@vger.kernel.org
-Subject: Re: [PATCH v6 13/13] riscv: Add qspinlock support
-Message-ID: <20241128-goggles-laundry-d94c23ab39a4@spud>
-References: <20241103145153.105097-1-alexghiti@rivosinc.com>
- <20241103145153.105097-14-alexghiti@rivosinc.com>
- <20241128-whoever-wildfire-2a3110c5fd46@wendy>
- <20241128134135.GA3460@willie-the-truck>
- <20241128-uncivil-removed-4e105d1397c9@wendy>
- <90533aa9-186a-4f75-b3c5-d93d6682056b@ghiti.fr>
+	id 1tGkqV-0000000GKTi-1VOc;
+	Thu, 28 Nov 2024 20:10:40 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+  d=amazon.com; i=@amazon.com; q=dns/txt; s=amazon201209;
+  t=1732824639; x=1764360639;
+  h=from:to:cc:subject:date:message-id:in-reply-to:
+   references:mime-version:content-transfer-encoding;
+  bh=l86XJw2zl5RMCsAJYGRzrxx2y2yPBRK+02pPUOrN8FA=;
+  b=o57eNaycWkpO53n2mc8aeACAp0pcH4QPS9oCpNYhbRnSJaOdEga5X/CC
+   gqES+3o1kg2K0ptZWCzfrdvjrInqm3mrOxBP9tL+z59dMFB/jZKw87vJ2
+   EJIGtJjtjOdlevlopbgu5xShKAsBlXV/zf32kxJS6mkaGnafaomG7/DWr
+   Q=;
+X-IronPort-AV: E=Sophos;i="6.12,193,1728950400"; 
+   d="scan'208";a="452016254"
+Received: from iad6-co-svc-p1-lb1-vlan3.amazon.com (HELO smtpout.prod.us-west-2.prod.farcaster.email.amazon.dev) ([10.124.125.6])
+  by smtp-border-fw-6002.iad6.amazon.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 28 Nov 2024 20:10:30 +0000
+Received: from EX19MTAUWA001.ant.amazon.com [10.0.7.35:54823]
+ by smtpin.naws.us-west-2.prod.farcaster.email.amazon.dev [10.0.22.41:2525] with esmtp (Farcaster)
+ id 7d845fb6-a2a4-4ba0-b994-ec63e5a88ad3; Thu, 28 Nov 2024 20:10:29 +0000 (UTC)
+X-Farcaster-Flow-ID: 7d845fb6-a2a4-4ba0-b994-ec63e5a88ad3
+Received: from EX19D013UWA001.ant.amazon.com (10.13.138.253) by
+ EX19MTAUWA001.ant.amazon.com (10.250.64.204) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.1258.34;
+ Thu, 28 Nov 2024 20:10:28 +0000
+Received: from EX19MTAUWC001.ant.amazon.com (10.250.64.145) by
+ EX19D013UWA001.ant.amazon.com (10.13.138.253) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.1258.34;
+ Thu, 28 Nov 2024 20:10:28 +0000
+Received: from email-imr-corp-prod-iad-all-1a-6ea42a62.us-east-1.amazon.com
+ (10.25.36.210) by mail-relay.amazon.com (10.250.64.145) with Microsoft SMTP
+ Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id
+ 15.2.1258.34 via Frontend Transport; Thu, 28 Nov 2024 20:10:28 +0000
+Received: from dev-dsk-farbere-1a-46ecabed.eu-west-1.amazon.com (dev-dsk-farbere-1a-46ecabed.eu-west-1.amazon.com [172.19.116.181])
+	by email-imr-corp-prod-iad-all-1a-6ea42a62.us-east-1.amazon.com (Postfix) with ESMTP id 82B3F40490;
+	Thu, 28 Nov 2024 20:10:27 +0000 (UTC)
+Received: by dev-dsk-farbere-1a-46ecabed.eu-west-1.amazon.com (Postfix, from userid 14301484)
+	id 421392481; Thu, 28 Nov 2024 20:10:27 +0000 (UTC)
+From: Eliav Farber <farbere@amazon.com>
+To: <linux@armlinux.org.uk>, <catalin.marinas@arm.com>, <will@kernel.org>,
+	<mpe@ellerman.id.au>, <npiggin@gmail.com>, <christophe.leroy@csgroup.eu>,
+	<naveen@kernel.org>, <maddy@linux.ibm.com>, <paul.walmsley@sifive.com>,
+	<palmer@dabbelt.com>, <aou@eecs.berkeley.edu>, <tglx@linutronix.de>,
+	<ebiederm@xmission.com>, <akpm@linux-foundation.org>, <bhe@redhat.com>,
+	<farbere@amazon.com>, <hbathini@linux.ibm.com>, <sourabhjain@linux.ibm.com>,
+	<adityag@linux.ibm.com>, <songshuaishuai@tinylab.org>,
+	<takakura@valinux.co.jp>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>, <linuxppc-dev@lists.ozlabs.org>,
+	<linux-riscv@lists.infradead.org>, <kexec@lists.infradead.org>
+CC: <jonnyc@amazon.com>
+Subject: [PATCH v3 1/2] kexec: Consolidate machine_kexec_mask_interrupts() implementation
+Date: Thu, 28 Nov 2024 20:10:26 +0000
+Message-ID: <20241128201027.10396-2-farbere@amazon.com>
+X-Mailer: git-send-email 2.40.1
+In-Reply-To: <20241128201027.10396-1-farbere@amazon.com>
+References: <20241128201027.10396-1-farbere@amazon.com>
 MIME-Version: 1.0
-In-Reply-To: <90533aa9-186a-4f75-b3c5-d93d6682056b@ghiti.fr>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241128_081940_079436_FF651FD5 
-X-CRM114-Status: GOOD (  32.39  )
+X-CRM114-CacheID: sfid-20241128_121039_555455_667F91A9 
+X-CRM114-Status: GOOD (  17.83  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,338 +94,247 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============7524492462424634627=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+Move the machine_kexec_mask_interrupts function to a common location in
+kernel/kexec_core.c, removing duplicate implementations from architecture
+specific files (arch/arm, arch/arm64, arch/powerpc, and arch/riscv).
 
---===============7524492462424634627==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="i1DJKPzC9+fIuycd"
-Content-Disposition: inline
+This consolidation reduces code duplication and improves maintainability.
 
+The unified function includes an architecture-specific behavior for
+CONFIG_ARM64 by conditionally clearing the active interrupt state before
+handling other interrupt masking operations.
 
---i1DJKPzC9+fIuycd
-Content-Type: multipart/mixed; boundary="5ktj1xFXjJv7HfIy"
-Content-Disposition: inline
+Signed-off-by: Eliav Farber <farbere@amazon.com>
+---
+V2 -> V3: This patch is new and didn't exist in V2.
 
+ arch/arm/kernel/machine_kexec.c   | 23 ----------------------
+ arch/arm64/kernel/machine_kexec.c | 31 ------------------------------
+ arch/powerpc/include/asm/kexec.h  |  1 -
+ arch/powerpc/kexec/core.c         | 22 ---------------------
+ arch/riscv/kernel/machine_kexec.c | 23 ----------------------
+ include/linux/kexec.h             |  2 ++
+ kernel/kexec_core.c               | 32 +++++++++++++++++++++++++++++++
+ 7 files changed, 34 insertions(+), 100 deletions(-)
 
---5ktj1xFXjJv7HfIy
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+diff --git a/arch/arm/kernel/machine_kexec.c b/arch/arm/kernel/machine_kexec.c
+index 80ceb5bd2680..dd430477e7c1 100644
+--- a/arch/arm/kernel/machine_kexec.c
++++ b/arch/arm/kernel/machine_kexec.c
+@@ -127,29 +127,6 @@ void crash_smp_send_stop(void)
+ 	cpus_stopped = 1;
+ }
+ 
+-static void machine_kexec_mask_interrupts(void)
+-{
+-	unsigned int i;
+-	struct irq_desc *desc;
+-
+-	for_each_irq_desc(i, desc) {
+-		struct irq_chip *chip;
+-
+-		chip = irq_desc_get_chip(desc);
+-		if (!chip)
+-			continue;
+-
+-		if (chip->irq_eoi && irqd_irq_inprogress(&desc->irq_data))
+-			chip->irq_eoi(&desc->irq_data);
+-
+-		if (chip->irq_mask)
+-			chip->irq_mask(&desc->irq_data);
+-
+-		if (chip->irq_disable && !irqd_irq_disabled(&desc->irq_data))
+-			chip->irq_disable(&desc->irq_data);
+-	}
+-}
+-
+ void machine_crash_shutdown(struct pt_regs *regs)
+ {
+ 	local_irq_disable();
+diff --git a/arch/arm64/kernel/machine_kexec.c b/arch/arm64/kernel/machine_kexec.c
+index 82e2203d86a3..6f121a0164a4 100644
+--- a/arch/arm64/kernel/machine_kexec.c
++++ b/arch/arm64/kernel/machine_kexec.c
+@@ -207,37 +207,6 @@ void machine_kexec(struct kimage *kimage)
+ 	BUG(); /* Should never get here. */
+ }
+ 
+-static void machine_kexec_mask_interrupts(void)
+-{
+-	unsigned int i;
+-	struct irq_desc *desc;
+-
+-	for_each_irq_desc(i, desc) {
+-		struct irq_chip *chip;
+-		int ret;
+-
+-		chip = irq_desc_get_chip(desc);
+-		if (!chip)
+-			continue;
+-
+-		/*
+-		 * First try to remove the active state. If this
+-		 * fails, try to EOI the interrupt.
+-		 */
+-		ret = irq_set_irqchip_state(i, IRQCHIP_STATE_ACTIVE, false);
+-
+-		if (ret && irqd_irq_inprogress(&desc->irq_data) &&
+-		    chip->irq_eoi)
+-			chip->irq_eoi(&desc->irq_data);
+-
+-		if (chip->irq_mask)
+-			chip->irq_mask(&desc->irq_data);
+-
+-		if (chip->irq_disable && !irqd_irq_disabled(&desc->irq_data))
+-			chip->irq_disable(&desc->irq_data);
+-	}
+-}
+-
+ /**
+  * machine_crash_shutdown - shutdown non-crashing cpus and save registers
+  */
+diff --git a/arch/powerpc/include/asm/kexec.h b/arch/powerpc/include/asm/kexec.h
+index 270ee93a0f7d..601e569303e1 100644
+--- a/arch/powerpc/include/asm/kexec.h
++++ b/arch/powerpc/include/asm/kexec.h
+@@ -61,7 +61,6 @@ struct pt_regs;
+ extern void kexec_smp_wait(void);	/* get and clear naca physid, wait for
+ 					  master to copy new code to 0 */
+ extern void default_machine_kexec(struct kimage *image);
+-extern void machine_kexec_mask_interrupts(void);
+ 
+ void relocate_new_kernel(unsigned long indirection_page, unsigned long reboot_code_buffer,
+ 			 unsigned long start_address) __noreturn;
+diff --git a/arch/powerpc/kexec/core.c b/arch/powerpc/kexec/core.c
+index b8333a49ea5d..58a930a47422 100644
+--- a/arch/powerpc/kexec/core.c
++++ b/arch/powerpc/kexec/core.c
+@@ -22,28 +22,6 @@
+ #include <asm/setup.h>
+ #include <asm/firmware.h>
+ 
+-void machine_kexec_mask_interrupts(void) {
+-	unsigned int i;
+-	struct irq_desc *desc;
+-
+-	for_each_irq_desc(i, desc) {
+-		struct irq_chip *chip;
+-
+-		chip = irq_desc_get_chip(desc);
+-		if (!chip)
+-			continue;
+-
+-		if (chip->irq_eoi && irqd_irq_inprogress(&desc->irq_data))
+-			chip->irq_eoi(&desc->irq_data);
+-
+-		if (chip->irq_mask)
+-			chip->irq_mask(&desc->irq_data);
+-
+-		if (chip->irq_disable && !irqd_irq_disabled(&desc->irq_data))
+-			chip->irq_disable(&desc->irq_data);
+-	}
+-}
+-
+ #ifdef CONFIG_CRASH_DUMP
+ void machine_crash_shutdown(struct pt_regs *regs)
+ {
+diff --git a/arch/riscv/kernel/machine_kexec.c b/arch/riscv/kernel/machine_kexec.c
+index 3c830a6f7ef4..2306ce3e5f22 100644
+--- a/arch/riscv/kernel/machine_kexec.c
++++ b/arch/riscv/kernel/machine_kexec.c
+@@ -114,29 +114,6 @@ void machine_shutdown(void)
+ #endif
+ }
+ 
+-static void machine_kexec_mask_interrupts(void)
+-{
+-	unsigned int i;
+-	struct irq_desc *desc;
+-
+-	for_each_irq_desc(i, desc) {
+-		struct irq_chip *chip;
+-
+-		chip = irq_desc_get_chip(desc);
+-		if (!chip)
+-			continue;
+-
+-		if (chip->irq_eoi && irqd_irq_inprogress(&desc->irq_data))
+-			chip->irq_eoi(&desc->irq_data);
+-
+-		if (chip->irq_mask)
+-			chip->irq_mask(&desc->irq_data);
+-
+-		if (chip->irq_disable && !irqd_irq_disabled(&desc->irq_data))
+-			chip->irq_disable(&desc->irq_data);
+-	}
+-}
+-
+ /*
+  * machine_crash_shutdown - Prepare to kexec after a kernel crash
+  *
+diff --git a/include/linux/kexec.h b/include/linux/kexec.h
+index f0e9f8eda7a3..9dac0524c0be 100644
+--- a/include/linux/kexec.h
++++ b/include/linux/kexec.h
+@@ -375,6 +375,8 @@ extern void machine_kexec(struct kimage *image);
+ extern int machine_kexec_prepare(struct kimage *image);
+ extern void machine_kexec_cleanup(struct kimage *image);
+ extern int kernel_kexec(void);
++extern void machine_kexec_mask_interrupts(void);
++
+ extern struct page *kimage_alloc_control_pages(struct kimage *image,
+ 						unsigned int order);
+ 
+diff --git a/kernel/kexec_core.c b/kernel/kexec_core.c
+index c0caa14880c3..6e1e420946e0 100644
+--- a/kernel/kexec_core.c
++++ b/kernel/kexec_core.c
+@@ -1072,3 +1072,35 @@ int kernel_kexec(void)
+ 	kexec_unlock();
+ 	return error;
+ }
++
++void machine_kexec_mask_interrupts(void)
++{
++	unsigned int i;
++	struct irq_desc *desc;
++
++	for_each_irq_desc(i, desc) {
++		struct irq_chip *chip;
++		int check_eoi = 1;
++
++		chip = irq_desc_get_chip(desc);
++		if (!chip)
++			continue;
++
++		if (IS_ENABLED(CONFIG_ARM64)) {
++			/*
++			 * First try to remove the active state. If this fails, try to EOI the
++			 * interrupt.
++			 */
++			check_eoi = irq_set_irqchip_state(i, IRQCHIP_STATE_ACTIVE, false);
++		}
++
++		if (check_eoi && chip->irq_eoi && irqd_irq_inprogress(&desc->irq_data))
++			chip->irq_eoi(&desc->irq_data);
++
++		if (chip->irq_mask)
++			chip->irq_mask(&desc->irq_data);
++
++		if (chip->irq_disable && !irqd_irq_disabled(&desc->irq_data))
++			chip->irq_disable(&desc->irq_data);
++	}
++}
+-- 
+2.40.1
 
-On Thu, Nov 28, 2024 at 03:50:09PM +0100, Alexandre Ghiti wrote:
-> On 28/11/2024 15:14, Conor Dooley wrote:
-> > On Thu, Nov 28, 2024 at 01:41:36PM +0000, Will Deacon wrote:
-> > > On Thu, Nov 28, 2024 at 12:56:55PM +0000, Conor Dooley wrote:
-> > > > On Sun, Nov 03, 2024 at 03:51:53PM +0100, Alexandre Ghiti wrote:
-> > > > > In order to produce a generic kernel, a user can select
-> > > > > CONFIG_COMBO_SPINLOCKS which will fallback at runtime to the tick=
-et
-> > > > > spinlock implementation if Zabha or Ziccrse are not present.
-> > > > >=20
-> > > > > Note that we can't use alternatives here because the discovery of
-> > > > > extensions is done too late and we need to start with the qspinlo=
-ck
-> > > > > implementation because the ticket spinlock implementation would p=
-ollute
-> > > > > the spinlock value, so let's use static keys.
-> > > > >=20
-> > > > > This is largely based on Guo's work and Leonardo reviews at [1].
-> > > > >=20
-> > > > > Link: https://lore.kernel.org/linux-riscv/20231225125847.2778638-=
-1-guoren@kernel.org/ [1]
-> > > > > Signed-off-by: Guo Ren <guoren@kernel.org>
-> > > > > Signed-off-by: Alexandre Ghiti <alexghiti@rivosinc.com>
-> > > > This patch (now commit ab83647fadae2 ("riscv: Add qspinlock support=
-"))
-> > > > breaks boot on polarfire soc. It dies before outputting anything to=
- the
-> > > > console. My .config has:
-> > > >=20
-> > > > # CONFIG_RISCV_TICKET_SPINLOCKS is not set
-> > > > # CONFIG_RISCV_QUEUED_SPINLOCKS is not set
-> > > > CONFIG_RISCV_COMBO_SPINLOCKS=3Dy
-> > > I pointed out some of the fragility during review:
-> > >=20
-> > > https://lore.kernel.org/all/20241111164259.GA20042@willie-the-truck/
-> > >=20
-> > > so I'm kinda surprised it got merged tbh :/
-> > Maybe it could be reverted rather than having a broken boot with the
-> > default settings in -rc1.
->=20
->=20
-> No need to rush before we know what's happening,I guess you bisected to t=
-his
-> commit right?
-
-The symptom is a failure to boot, without any console output, of course
-I bisected it before blaming something specific. But I don't think it is
-"rushing" as having -rc1 broken with an option's default is a massive pain
-in the arse when it comes to testing.
-
-> I don't have this soc, so can you provide $stval/$sepc/$scause, a config,=
- a
-> kernel, anything?
-
-I don't have the former cos it died immediately on boot. config is
-attached. It reproduces in QEMU so you don't need any hardware.
-
-> Does the polarfire soc provide Ziccrse?
-
-I don't think that is relevant because ziccrse is not listed in the dts,
-so the kernel should not be assuming that LR/SC has a forward progress
-guarantee. It's not even getting as far as riscv_spinlock_init() given
-several things before that should be emitting logs, so it doesn't even
-get to make any decisions about Ziccrse.
-
---5ktj1xFXjJv7HfIy
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: attachment; filename=qspinlocks_config
-
-CONFIG_SYSVIPC=y
-CONFIG_POSIX_MQUEUE=y
-CONFIG_GENERIC_IRQ_DEBUGFS=y
-CONFIG_NO_HZ_IDLE=y
-CONFIG_HIGH_RES_TIMERS=y
-CONFIG_BPF_SYSCALL=y
-CONFIG_PREEMPT_RT=y
-CONFIG_IKCONFIG=y
-CONFIG_IKCONFIG_PROC=y
-CONFIG_CGROUPS=y
-CONFIG_CGROUP_SCHED=y
-CONFIG_CFS_BANDWIDTH=y
-CONFIG_CGROUP_BPF=y
-CONFIG_NAMESPACES=y
-CONFIG_USER_NS=y
-CONFIG_CHECKPOINT_RESTORE=y
-CONFIG_BLK_DEV_INITRD=y
-CONFIG_EXPERT=y
-# CONFIG_SYSFS_SYSCALL is not set
-CONFIG_PROFILING=y
-CONFIG_KEXEC=y
-CONFIG_KEXEC_FILE=y
-CONFIG_ARCH_MICROCHIP=y
-CONFIG_ARCH_RENESAS=y
-CONFIG_ARCH_SOPHGO=y
-CONFIG_SOC_STARFIVE=y
-CONFIG_ARCH_THEAD=y
-CONFIG_ARCH_VIRT=y
-CONFIG_NONPORTABLE=y
-CONFIG_SMP=y
-CONFIG_RANDOMIZE_BASE=y
-CONFIG_CMDLINE="earlycon keep_bootcon reboot=cold"
-CONFIG_HIBERNATION=y
-CONFIG_CPU_FREQ=y
-CONFIG_VIRTUALIZATION=y
-CONFIG_KVM=m
-CONFIG_ACPI=y
-CONFIG_JUMP_LABEL=y
-CONFIG_MODULES=y
-CONFIG_MODULE_UNLOAD=y
-CONFIG_SPARSEMEM_MANUAL=y
-CONFIG_NET=y
-CONFIG_PACKET=y
-CONFIG_IP_MULTICAST=y
-CONFIG_IP_ADVANCED_ROUTER=y
-CONFIG_IP_PNP=y
-CONFIG_IP_PNP_DHCP=y
-CONFIG_IP_PNP_BOOTP=y
-CONFIG_IP_PNP_RARP=y
-CONFIG_NETLINK_DIAG=y
-CONFIG_NET_9P=y
-CONFIG_NET_9P_VIRTIO=y
-CONFIG_PCI=y
-CONFIG_PCIEPORTBUS=y
-CONFIG_PCI_HOST_GENERIC=y
-CONFIG_PCIE_XILINX=y
-CONFIG_PCIE_MICROCHIP_HOST=y
-CONFIG_DEVTMPFS=y
-CONFIG_DEVTMPFS_MOUNT=y
-CONFIG_FW_LOADER_USER_HELPER=y
-CONFIG_DEBUG_DRIVER=y
-CONFIG_AX45MP_L2_CACHE=y
-CONFIG_SIFIVE_CCACHE=y
-CONFIG_EFI_ZBOOT=y
-CONFIG_MTD=y
-CONFIG_MTD_CMDLINE_PARTS=y
-CONFIG_MTD_CFI=y
-CONFIG_MTD_JEDECPROBE=y
-CONFIG_MTD_SPI_NAND=y
-CONFIG_MTD_SPI_NOR=y
-# CONFIG_MTD_SPI_NOR_USE_4K_SECTORS is not set
-CONFIG_OF_OVERLAY=y
-CONFIG_ZRAM=y
-CONFIG_ZRAM_MEMORY_TRACKING=y
-CONFIG_BLK_DEV_LOOP=y
-CONFIG_VIRTIO_BLK=y
-CONFIG_BLK_DEV_NVME=y
-CONFIG_BLK_DEV_SD=y
-CONFIG_BLK_DEV_SR=y
-CONFIG_SCSI_VIRTIO=y
-CONFIG_ATA=y
-CONFIG_SATA_AHCI=y
-CONFIG_SATA_AHCI_PLATFORM=y
-CONFIG_NETDEVICES=y
-CONFIG_VIRTIO_NET=y
-CONFIG_MACB=y
-CONFIG_E1000E=y
-CONFIG_R8169=y
-CONFIG_MICROSEMI_PHY=y
-CONFIG_VITESSE_PHY=y
-CONFIG_INPUT_MOUSEDEV=y
-CONFIG_INPUT_JOYDEV=m
-CONFIG_INPUT_JOYSTICK=y
-CONFIG_JOYSTICK_SENSEHAT=m
-CONFIG_SERIAL_8250=y
-CONFIG_SERIAL_8250_CONSOLE=y
-CONFIG_SERIAL_OF_PLATFORM=y
-CONFIG_VIRTIO_CONSOLE=y
-CONFIG_HW_RANDOM=y
-CONFIG_HW_RANDOM_VIRTIO=y
-CONFIG_HW_RANDOM_POLARFIRE_SOC=y
-CONFIG_I2C=y
-CONFIG_I2C_CHARDEV=y
-CONFIG_I2C_MICROCHIP_CORE=y
-CONFIG_SPI=y
-CONFIG_SPI_MICROCHIP_CORE=y
-CONFIG_SPI_MICROCHIP_CORE_QSPI=y
-CONFIG_SPI_SIFIVE=y
-# CONFIG_PTP_1588_CLOCK is not set
-CONFIG_GPIO_SYSFS=y
-CONFIG_GPIO_POLARFIRE_SOC=y
-CONFIG_GPIO_SIFIVE=y
-CONFIG_AUXDISPLAY=y
-CONFIG_FB=y
-CONFIG_FRAMEBUFFER_CONSOLE=y
-CONFIG_SOUND=y
-CONFIG_SND=y
-CONFIG_SND_SOC=y
-CONFIG_SND_SOC_MAX9867=y
-CONFIG_USB=y
-CONFIG_USB_XHCI_HCD=y
-CONFIG_USB_XHCI_PLATFORM=y
-CONFIG_USB_EHCI_HCD=y
-CONFIG_USB_EHCI_HCD_PLATFORM=y
-CONFIG_USB_OHCI_HCD=y
-CONFIG_USB_OHCI_HCD_PLATFORM=y
-CONFIG_USB_STORAGE=y
-CONFIG_USB_UAS=y
-CONFIG_USB_MUSB_HDRC=y
-CONFIG_USB_MUSB_POLARFIRE_SOC=y
-CONFIG_USB_INVENTRA_DMA=y
-CONFIG_NOP_USB_XCEIV=y
-CONFIG_MMC=y
-CONFIG_MMC_SDHCI=y
-CONFIG_MMC_SDHCI_PLTFM=y
-CONFIG_MMC_SDHCI_CADENCE=y
-CONFIG_MMC_SPI=y
-CONFIG_NEW_LEDS=y
-CONFIG_LEDS_CLASS=y
-CONFIG_LEDS_GPIO=y
-CONFIG_LEDS_PWM=y
-CONFIG_RTC_CLASS=y
-CONFIG_RTC_DRV_PCF2123=y
-CONFIG_DMADEVICES=y
-CONFIG_SF_PDMA=y
-CONFIG_VIRTIO_PCI=y
-CONFIG_VIRTIO_BALLOON=y
-CONFIG_VIRTIO_INPUT=y
-CONFIG_VIRTIO_MMIO=y
-CONFIG_MAILBOX=y
-CONFIG_POLARFIRE_SOC_MAILBOX=y
-CONFIG_RPMSG_CHAR=y
-CONFIG_RPMSG_CTRL=y
-CONFIG_RPMSG_VIRTIO=y
-CONFIG_POLARFIRE_SOC_SYS_CTRL=y
-CONFIG_IIO=y
-CONFIG_ADXL345_SPI=y
-CONFIG_MCP320X=y
-CONFIG_MCP3564=y
-CONFIG_PAC1934=y
-CONFIG_SD_ADC_MODULATOR=y
-CONFIG_HTS221=m
-CONFIG_IIO_ST_LSM6DSX=m
-CONFIG_IIO_ST_MAGN_3AXIS=m
-CONFIG_IIO_ST_PRESS=m
-CONFIG_PWM=y
-CONFIG_PWM_DEBUG=y
-CONFIG_PWM_MICROCHIP_CORE=y
-CONFIG_LIBNVDIMM=y
-CONFIG_FPGA=y
-CONFIG_FPGA_BRIDGE=y
-CONFIG_FPGA_REGION=y
-CONFIG_FPGA_MGR_MICROCHIP_SPI=y
-CONFIG_EXT4_FS=y
-CONFIG_EXT4_FS_POSIX_ACL=y
-CONFIG_MSDOS_FS=y
-CONFIG_VFAT_FS=y
-CONFIG_TMPFS=y
-CONFIG_TMPFS_POSIX_ACL=y
-CONFIG_HUGETLBFS=y
-CONFIG_NFS_FS=y
-CONFIG_NFS_V3_ACL=y
-CONFIG_NFS_V4=y
-CONFIG_NFS_V4_1=y
-CONFIG_NFS_V4_2=y
-CONFIG_NFS_V4_1_MIGRATION=y
-CONFIG_ROOT_NFS=y
-CONFIG_9P_FS=y
-CONFIG_NLS_CODEPAGE_437=y
-CONFIG_NLS_ISO8859_1=m
-CONFIG_CRYPTO_DEFLATE=y
-CONFIG_CRYPTO_ZSTD=y
-CONFIG_CRYPTO_USER_API_HASH=y
-CONFIG_CRYPTO_DEV_VIRTIO=y
-CONFIG_PRINTK_TIME=y
-CONFIG_DYNAMIC_DEBUG=y
-CONFIG_MAGIC_SYSRQ=y
-CONFIG_DEBUG_FS=y
-CONFIG_DEBUG_PAGEALLOC=y
-CONFIG_SCHED_STACK_END_CHECK=y
-CONFIG_DEBUG_VM=y
-CONFIG_DEBUG_VM_PGFLAGS=y
-CONFIG_DEBUG_MEMORY_INIT=y
-CONFIG_DEBUG_PER_CPU_MAPS=y
-CONFIG_SOFTLOCKUP_DETECTOR=y
-CONFIG_WQ_WATCHDOG=y
-CONFIG_PROVE_LOCKING=y
-CONFIG_DEBUG_ATOMIC_SLEEP=y
-CONFIG_DEBUG_LIST=y
-CONFIG_DEBUG_PLIST=y
-CONFIG_DEBUG_SG=y
-# CONFIG_RCU_TRACE is not set
-CONFIG_RCU_EQS_DEBUG=y
-CONFIG_SAMPLES=y
-CONFIG_MEMTEST=y
-
---5ktj1xFXjJv7HfIy--
-
---i1DJKPzC9+fIuycd
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZ0iYEwAKCRB4tDGHoIJi
-0owsAP4tkPf+mQWb2+8rmLKvlz1xX1WZmn2PVYJPZ9u+xeDFeQD/Za5OsgbFTVE9
-S1aLg96XP9AnvFSeUE8vpsoc6aFIHA0=
-=1mQX
------END PGP SIGNATURE-----
-
---i1DJKPzC9+fIuycd--
-
-
---===============7524492462424634627==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============7524492462424634627==--
-
