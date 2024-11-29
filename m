@@ -4,65 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ADFE8D729E9
-	for <linux-riscv@archiver.kernel.org>; Fri, 29 Nov 2024 16:20:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 09C6BD729E9
+	for <linux-riscv@archiver.kernel.org>; Fri, 29 Nov 2024 16:29:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
-	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=AFIDdj/A/NeZN2JJ535oqmeW/UNaiOOpNGNwGVFMwdw=; b=EiyvjXKLiXrRa2
-	f8Zpu/dYu1sov+Ubfk8F3zFy9nMFEZvY8B7fzmi7p4fOhkRYMyZKntWBWHMeygQubLG3BAFAhZxF6
-	0rg6v+WaD0bB5op23TbI3I5hrMEhUu2yDMeP+jPefvCgqTDog+QDf7tkQAgrRcpOzVySaOTxBh9jK
-	uDhu/8UDZQBg6aflokdVEm3AFrg4v8R5oyglwfiN2dNkpF9HSJ495DRVr7TNzWkwmzGthczqTMKgM
-	Je1n4nfao4Xxb+MJnlPxL8f6MygyPftq5+j4Xaf7G0Bg0txiuq8qFH2J5t6mgTNrkhmiySD13vXcm
-	rq4i2vji72IvaQH1CPog==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=jb80xpxQ5L59552riBSO9+2maFc6k88rw+fUFEiKdrI=; b=FaGMsSidy30ncMuxY7CAcZPB3+
+	6CQeoMXqptbqFCaL0wSC8cBlaE3fpZVq3MdWk9a1iL1bRmMmjHKGC2WwZtMyPO17cQQUOfho49zmg
+	JpJZmHbVodiPmbCyRW4X5ols5zw4Hta694nB2hAAJfE6Mg89AQsizeTTigNCgSMZPUUrLWoNXnwSK
+	jGXHdKSBdC+VsgoUmcw3wkmmz9fnRScKhaehWWcDWlGGXKpL9FdO62S/vunOh5YQqp9vITDsHg4Dn
+	K1aCNoKEcgYuIKonxnvqY9goAg59v7bobjlpsY+eqxxTLhcfHlP68yTVLMtcfdo2tE+B7EzUWbnkn
+	zHhgtpPw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tH3jA-00000000a7t-0nmZ;
-	Fri, 29 Nov 2024 16:20:20 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1tH3rw-00000000bTl-42Pl;
+	Fri, 29 Nov 2024 16:29:24 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tH3j8-00000000a7F-0RAT
+	id 1tH3rt-00000000bSL-3ted
 	for linux-riscv@lists.infradead.org;
-	Fri, 29 Nov 2024 16:20:19 +0000
+	Fri, 29 Nov 2024 16:29:23 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 22208A4019F;
-	Fri, 29 Nov 2024 16:18:24 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8FEC7C4CECF;
-	Fri, 29 Nov 2024 16:20:16 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 8202C5C5B55;
+	Fri, 29 Nov 2024 16:28:37 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 319F3C4CECF;
+	Fri, 29 Nov 2024 16:29:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1732897216;
-	bh=euN+eAhlu9UIjsZJy6+2NNI8i9i1qM3tGs8d5y8GE9U=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=vOUtq4HoFWjFonhi/D+d+uFXfo5g9tWybrvvz8U5M3uRSm8hKeRshXzM/t+R8sS+b
-	 AAKWamZ4vuPsJUg/LFB7Lu5m02yk1MdsQeD2cArQfng9dptMbfOQGhFn+CTjuu4FjI
-	 ES5k6tsf1XeJnz7K/NbQctCewXqfAVcUsnx5EREY9T6gQyM6dmpWI8yVXzemPMnJ3o
-	 mPPtwGymJzwFNioSfCxnoQBq5u+/JWTJ0vKcg2VKEe1eYVahwtVFt9kO/jBK+2DMlQ
-	 8hg5mjfvXexsYX3XcFuwAHod/ww0j+rPZlplWKVvsoORo4qD4pLRjaTvxmh59jTgGJ
-	 VJwLDGUqLpWaQ==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 33E4F380A944;
-	Fri, 29 Nov 2024 16:20:31 +0000 (UTC)
+	s=k20201202; t=1732897760;
+	bh=a+JXksBolTe4J4hQL4bPo5qxtspU7rydl4gWOzG4f1U=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=mF/4ioTrQsHHDuHLfI+AbccmnbJPHxnpOgSbt/2TW6RDhC1Z4nlssBu+qc+zRhNuf
+	 azpb9VplKB5TKLxwhjrQjVOpxsfwi5JGCEdbXjOWeeetItaqhRmP0hm8TYP63EC/HU
+	 B9qjeMvij5IqZNUc0xoOccuZ8DlsQ0gXArvgwl0O+NhgyyCAWzJsK772O2GkH7/6uC
+	 SaGtY9AdB+eRNIgnZMBY93KnfDPJfRYv9swo9a7GhHV1WT9E1ePZaPlCymS3ierTKF
+	 KETz7i+QSiwgyD8lwhGAUa34J3QM5JGuF+/7S9pF9QTqCqy80/HqYAs4gs2ljcxov8
+	 4XPcNebPs9M6g==
+Date: Fri, 29 Nov 2024 16:29:14 +0000
+From: Conor Dooley <conor@kernel.org>
+To: Aleksandar Rikalo <arikalo@gmail.com>
+Cc: linux-riscv@lists.infradead.org,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Will Deacon <will@kernel.org>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Boqun Feng <boqun.feng@gmail.com>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Yury Norov <yury.norov@gmail.com>,
+	Rasmus Villemoes <linux@rasmusvillemoes.dk>,
+	Andrea Parri <parri.andrea@gmail.com>,
+	Leonardo Bras <leobras@redhat.com>, Guo Ren <guoren@kernel.org>,
+	Samuel Holland <samuel.holland@sifive.com>,
+	Eric Chan <ericchancf@google.com>, linux-kernel@vger.kernel.org,
+	Djordje Todorovic <djordje.todorovic@htecgroup.com>
+Subject: Re: [PATCH] riscv: Rewrite AMO instructions via lr and sc.
+Message-ID: <20241129-antivirus-blunderer-efcbd49cfeb6@spud>
+References: <20241129144319.74257-1-arikalo@gmail.com>
 MIME-Version: 1.0
-Subject: Re: [PATCH bpf v2] tools: Override makefile ARCH variable if defined,
- but empty
-From: patchwork-bot+netdevbpf@kernel.org
-Message-Id: <173289723001.2112878.15562925301764191816.git-patchwork-notify@kernel.org>
-Date: Fri, 29 Nov 2024 16:20:30 +0000
-References: <20241127101748.165693-1-bjorn@kernel.org>
-In-Reply-To: <20241127101748.165693-1-bjorn@kernel.org>
-To: =?utf-8?b?QmrDtnJuIFTDtnBlbCA8Ympvcm5Aa2VybmVsLm9yZz4=?=@aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org
-Cc: bpf@vger.kernel.org, linux-perf-users@vger.kernel.org,
- alexghiti@rivosinc.com, acme@redhat.com, jean-philippe@linaro.org,
- qmo@kernel.org, andrii.nakryiko@gmail.com, bjorn@rivosinc.com,
- paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
- linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
- davidlt@rivosinc.com, namhyung@kernel.org
+In-Reply-To: <20241129144319.74257-1-arikalo@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241129_082018_208091_2ABBA751 
-X-CRM114-Status: GOOD (  11.70  )
+X-CRM114-CacheID: sfid-20241129_082922_054970_C0B7E158 
+X-CRM114-Status: GOOD (  23.44  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,28 +78,103 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: multipart/mixed; boundary="===============2584845513453022369=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-SGVsbG86CgpUaGlzIHBhdGNoIHdhcyBhcHBsaWVkIHRvIGJwZi9icGYuZ2l0IChtYXN0ZXIpCmJ5
-IERhbmllbCBCb3JrbWFubiA8ZGFuaWVsQGlvZ2VhcmJveC5uZXQ+OgoKT24gV2VkLCAyNyBOb3Yg
-MjAyNCAxMToxNzo0NiArMDEwMCB5b3Ugd3JvdGU6Cj4gRnJvbTogQmrDtnJuIFTDtnBlbCA8Ympv
-cm5Acml2b3NpbmMuY29tPgo+IAo+IFRoZXJlIGFyZSBhIG51bWJlciBvZiB0b29scyAoYnBmdG9v
-bCwgc2VsZnRlc3RzKSwgdGhhdCByZXF1aXJlIGEKPiAiYm9vdHN0cmFwIiBidWlsZC4gSGVyZSwg
-YSBib290c3RyYXAgYnVpbGQgaXMgYSBidWlsZCBob3N0IHZhcmlhbnQgb2YKPiBhIHRhcmdldC4g
-RS5nLiwgYXNzdW1lIHRoYXQgeW91J3JlIHBlcmZvcm1pbmcgYSBicGZ0b29sIGNyb3NzLWJ1aWxk
-IG9uCj4geDg2IHRvIHJpc2N2LCBhIGJvb3RzdHJhcCBidWlsZCB3b3VsZCB0aGVuIGJlIGFuIHg4
-NiB2YXJpYW50IG9mCj4gYnBmdG9vbC4gVGhlIHR5cGljYWwgd2F5IHRvIHBlcmZvcm0gdGhlIGhv
-c3QgYnVpbGQgdmFyaWFudCwgaXMgdG8gcGFzcwo+ICJBUkNIPSIgaW4gYSBzdWItbWFrZS4gSG93
-ZXZlciwgaWYgYSB2YXJpYWJsZSBoYXMgYmVlbiBzZXQgd2l0aCBhCj4gY29tbWFuZCBhcmd1bWVu
-dCwgdGhlbiBvcmRpbmFyeSBhc3NpZ25tZW50cyBpbiB0aGUgbWFrZWZpbGUgYXJlCj4gaWdub3Jl
-ZC4KPiAKPiBbLi4uXQoKSGVyZSBpcyB0aGUgc3VtbWFyeSB3aXRoIGxpbmtzOgogIC0gW2JwZix2
-Ml0gdG9vbHM6IE92ZXJyaWRlIG1ha2VmaWxlIEFSQ0ggdmFyaWFibGUgaWYgZGVmaW5lZCwgYnV0
-IGVtcHR5CiAgICBodHRwczovL2dpdC5rZXJuZWwub3JnL2JwZi9icGYvYy81MzdhMjUyNWVhZjcK
-CllvdSBhcmUgYXdlc29tZSwgdGhhbmsgeW91IQotLSAKRGVldC1kb290LWRvdCwgSSBhbSBhIGJv
-dC4KaHR0cHM6Ly9rb3JnLmRvY3Mua2VybmVsLm9yZy9wYXRjaHdvcmsvcHdib3QuaHRtbAoKCgpf
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNj
-diBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlz
-dHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+
+--===============2584845513453022369==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="vVGz3+wDfGrf1ixl"
+Content-Disposition: inline
+
+
+--vVGz3+wDfGrf1ixl
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+Hey,
+
+On Fri, Nov 29, 2024 at 03:43:19PM +0100, Aleksandar Rikalo wrote:
+> From: Chao-ying Fu <cfu@mips.com>
+>=20
+> Use lr and sc to implement all atomic functions. Some CPUs have
+> native support for lr and sc, but emulate AMO instructions through
+> trap handlers that are slow.
+>=20
+> Add config RISCV_ISA_ZALRSC_ONLY.
+>=20
+> Signed-off-by: Chao-ying Fu <cfu@mips.com>
+> Signed-off-by: Aleksandar Rikalo <arikalo@gmail.com>
+> ---
+>  arch/riscv/Kconfig               | 10 ++++++
+>  arch/riscv/include/asm/atomic.h  | 52 +++++++++++++++++++++++++++++++-
+>  arch/riscv/include/asm/bitops.h  | 45 +++++++++++++++++++++++++++
+>  arch/riscv/include/asm/cmpxchg.h | 16 ++++++++++
+>  arch/riscv/include/asm/futex.h   | 46 ++++++++++++++++++++++++++++
+>  5 files changed, 168 insertions(+), 1 deletion(-)
+>=20
+> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+> index cc63aef41e94..767538c27875 100644
+> --- a/arch/riscv/Kconfig
+> +++ b/arch/riscv/Kconfig
+> @@ -715,6 +715,16 @@ config RISCV_ISA_ZACAS
+> =20
+>  	  If you don't know what to do here, say Y.
+> =20
+> +config RISCV_ISA_ZALRSC_ONLY
+> +	bool "Zalrsc extension support only"
+
+I don't agree with the naming of and description for this option.
+=46rom the description below I'd imagine that you only care about a
+platform where use of AMO instructions is only undesirable, but overall
+the option implies that it can be used to build a kernel that can be
+used on systems that only implement Zalrsc, which, even with your patch
+applied, it cannot. I think, if we are going to merge something like this,
+we should go the whole way and permit platforms that don't even emulate
+the a extension. If not, the Kconfig option should be explicitly clear
+that the a extension is still mandatory.
+
+> +	default n
+
+"default n" is the default, you shouldn't need this line.
+
+> +	help
+> +	   Use lr and sc to build all atomic functions. Some CPUs have
+> +	   native support for lr and sc, but emulate amo instructions through
+> +	   trap handlers that are slow.
+
+Since you mention trap handlers here, it sounds like it may not be the
+CPU itself that emulates it, but rather firmware?
+
+Cheers,
+Conor.
+
+--vVGz3+wDfGrf1ixl
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZ0nr2gAKCRB4tDGHoIJi
+0oDIAQC22X6HOobFscDmH2YDTVKivr2V+8UnvrWq6oOIysNcywD+KCxJG6vXWGFX
+6Raj5sGgp+Rrb5dVs50w6j0woXcWwgk=
+=Yjqj
+-----END PGP SIGNATURE-----
+
+--vVGz3+wDfGrf1ixl--
+
+
+--===============2584845513453022369==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============2584845513453022369==--
+
