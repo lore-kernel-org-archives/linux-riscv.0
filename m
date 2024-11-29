@@ -4,85 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 605FFD6EC00
-	for <linux-riscv@archiver.kernel.org>; Fri, 29 Nov 2024 11:34:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C104D6EBFF
+	for <linux-riscv@archiver.kernel.org>; Fri, 29 Nov 2024 11:44:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=xjVpazQ9c2U4tZItNOgbnZCBmaUl9062EflU/dXICog=; b=Rvw3hYXVbuunZc
-	VEHpsuz7T0+LecoNhY6H9ibnOCmJo/OL8sPSiC0837u9u7Rq9nkYu6I03AODkpDV9Bgy7zLwNkHMq
-	S4A4KFMssn8a4FeqVmafDmP1MAdzXxA3ZHYst8l4e2/3RD4EYjFYWqoVZeYKwtpAJaO34hzuOMdaE
-	ZX2asPrcD5PNp0to8+7p3G5vqCZ9e/3G/VahkhyhIPrH/mfsznCmD2dOZeojkcMNjeN1kAoVjt8IP
-	MJlnLcJaQJMtfBsWuWdiZn8zrEvkRVO1hRhs6R6nkMLrbGAzaKWvQIEgzGTuMHT5bzWEfTr8YcF+4
-	DpciKzuGa6tbgq/LeglA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ksJhgpPfcQ9YLr+JCTJmbzBgb4rrRpSB+4ND6/p3lL4=; b=d1MSCQgbfPi4//EOSIeixL1Ejh
+	lGZxOkOD0qayPz9jQzKH6rFh+GYKEzksMWUGPCbhcz7U/0hkFbZXOwqpAG8kkm1MKj6MkcaPPmWLd
+	deYPOkb+ZB/byaXL7zv8DdeHmI8FP1/nGKHASxe7HrEN17U+v1P7B/GIOpWmPqvA3NGJ33VkcwbvS
+	5TJaj2OupdJWcikAp8LMsGIicxTmuAunwlESZ+Kv7Eha6M8a7fRGmi+opCMKxlYIBdLqif08JfGof
+	RdVMRMXf8pnVNPS6NLjzk/se/0TuuO1SPKbCvqPsG/iNpuSMtESqhSv5PLb9AxBoj8bdqe7yZbbP/
+	5ahidmWA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tGzGk-0000000HZ4o-0TEG;
-	Fri, 29 Nov 2024 11:34:42 +0000
-Received: from smtp-fw-6001.amazon.com ([52.95.48.154])
+	id 1tGzPe-0000000Ha0Q-3GPE;
+	Fri, 29 Nov 2024 11:43:54 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tGzDi-0000000HYLb-2LB8;
-	Fri, 29 Nov 2024 11:31:35 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-  d=amazon.com; i=@amazon.com; q=dns/txt; s=amazon201209;
-  t=1732879894; x=1764415894;
-  h=from:to:cc:subject:date:message-id:in-reply-to:
-   references:mime-version:content-transfer-encoding;
-  bh=PxmNV7GjQJp/WjqJilccpNw4h74oTGMlOElZP81PE90=;
-  b=cOsO/MkDQPh3dyMOBUuEbdVAf9a+xokNOHehvBnm0P8xDqUugrWHfpgF
-   l57ZEqnaJ0Kmo5V7qjzvt7DtMp9aijEjOvC9Y3dISeWEY93ikElT4cdxB
-   YBFAfuKNHZwlcWxPGRJ/Dnu2LEX0fIuA50SmNaCejm+VExuao2Z088Slp
-   Y=;
-X-IronPort-AV: E=Sophos;i="6.12,195,1728950400"; 
-   d="scan'208";a="441793920"
-Received: from iad6-co-svc-p1-lb1-vlan2.amazon.com (HELO smtpout.prod.us-west-2.prod.farcaster.email.amazon.dev) ([10.124.125.2])
-  by smtp-border-fw-6001.iad6.amazon.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 29 Nov 2024 11:31:24 +0000
-Received: from EX19MTAUWB002.ant.amazon.com [10.0.38.20:62811]
- by smtpin.naws.us-west-2.prod.farcaster.email.amazon.dev [10.0.32.230:2525] with esmtp (Farcaster)
- id 7f123ea5-1e55-4e73-b57a-c0691d28a7da; Fri, 29 Nov 2024 11:31:24 +0000 (UTC)
-X-Farcaster-Flow-ID: 7f123ea5-1e55-4e73-b57a-c0691d28a7da
-Received: from EX19D013UWA002.ant.amazon.com (10.13.138.210) by
- EX19MTAUWB002.ant.amazon.com (10.250.64.231) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.1258.34;
- Fri, 29 Nov 2024 11:31:20 +0000
-Received: from EX19MTAUWC001.ant.amazon.com (10.250.64.145) by
- EX19D013UWA002.ant.amazon.com (10.13.138.210) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.1258.34;
- Fri, 29 Nov 2024 11:31:19 +0000
-Received: from email-imr-corp-prod-pdx-all-2c-785684ef.us-west-2.amazon.com
- (10.25.36.210) by mail-relay.amazon.com (10.250.64.145) with Microsoft SMTP
- Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id
- 15.2.1258.34 via Frontend Transport; Fri, 29 Nov 2024 11:31:19 +0000
-Received: from dev-dsk-farbere-1a-46ecabed.eu-west-1.amazon.com (dev-dsk-farbere-1a-46ecabed.eu-west-1.amazon.com [172.19.116.181])
-	by email-imr-corp-prod-pdx-all-2c-785684ef.us-west-2.amazon.com (Postfix) with ESMTP id A0A2DA02BC;
-	Fri, 29 Nov 2024 11:31:19 +0000 (UTC)
-Received: by dev-dsk-farbere-1a-46ecabed.eu-west-1.amazon.com (Postfix, from userid 14301484)
-	id 37ADB2ED2; Fri, 29 Nov 2024 11:31:19 +0000 (UTC)
-From: Eliav Farber <farbere@amazon.com>
-To: <linux@armlinux.org.uk>, <catalin.marinas@arm.com>, <will@kernel.org>,
-	<mpe@ellerman.id.au>, <npiggin@gmail.com>, <christophe.leroy@csgroup.eu>,
-	<naveen@kernel.org>, <maddy@linux.ibm.com>, <paul.walmsley@sifive.com>,
-	<palmer@dabbelt.com>, <aou@eecs.berkeley.edu>, <tglx@linutronix.de>,
-	<ebiederm@xmission.com>, <akpm@linux-foundation.org>, <bhe@redhat.com>,
-	<farbere@amazon.com>, <hbathini@linux.ibm.com>, <sourabhjain@linux.ibm.com>,
-	<adityag@linux.ibm.com>, <songshuaishuai@tinylab.org>,
-	<takakura@valinux.co.jp>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>, <linuxppc-dev@lists.ozlabs.org>,
-	<linux-riscv@lists.infradead.org>, <kexec@lists.infradead.org>
-CC: <jonnyc@amazon.com>
-Subject: [PATCH v4 1/2] kexec: Consolidate machine_kexec_mask_interrupts() implementation
-Date: Fri, 29 Nov 2024 11:31:18 +0000
-Message-ID: <20241129113119.26669-2-farbere@amazon.com>
-X-Mailer: git-send-email 2.40.1
-In-Reply-To: <20241129113119.26669-1-farbere@amazon.com>
-References: <20241129113119.26669-1-farbere@amazon.com>
+	id 1tGzPc-0000000HZzk-133q
+	for linux-riscv@lists.infradead.org;
+	Fri, 29 Nov 2024 11:43:53 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 9D13BA43A4D;
+	Fri, 29 Nov 2024 11:41:58 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B8FFCC4CECF;
+	Fri, 29 Nov 2024 11:43:46 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1732880631;
+	bh=G8AqFc5LTGVRkR33K28gNMbFNkTaSvsrBPfqjLlcbIw=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=JCjtqdNXg1krrgxHf2mBsdQhVDpla/aVvVui+wZDI9zoGYHVF3/y8QqGyfouDAi8E
+	 /D+Khlly2aitpzq7ehMzMCrvXEEXdI7wJSADwfDXK10ij2MyUjkdDawWKTAvZwQizP
+	 DcdEeGlNfxNFo5OYiIc3dYhv7+6/F2Hr3+QGoiN2swjlv1kKDzVzUaDowLtWIv25on
+	 hw1AWKFTuQpVGNU/zc1QyOOcMP3m0f9m85TmguPkZ2YzwwSnzMV6GPcsw73sCp70HK
+	 x5nr6tgtBwh+Nger6WvXAnp/nrE6SfLfT3jJ8ErIMquODntqKfJHJrOgz4IgiKz02F
+	 i9EvL2T1/sgvw==
+Date: Fri, 29 Nov 2024 11:43:44 +0000
+From: Conor Dooley <conor@kernel.org>
+To: Alexandre Ghiti <alexghiti@rivosinc.com>
+Cc: Guo Ren <guoren@kernel.org>, Alexandre Ghiti <alex@ghiti.fr>,
+	Conor Dooley <conor.dooley@microchip.com>,
+	Will Deacon <will@kernel.org>, Jonathan Corbet <corbet@lwn.net>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Andrea Parri <parri.andrea@gmail.com>,
+	Nathan Chancellor <nathan@kernel.org>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Ingo Molnar <mingo@redhat.com>, Waiman Long <longman@redhat.com>,
+	Boqun Feng <boqun.feng@gmail.com>, Arnd Bergmann <arnd@arndb.de>,
+	Leonardo Bras <leobras@redhat.com>, linux-doc@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org, linux-arch@vger.kernel.org
+Subject: Re: [PATCH v6 13/13] riscv: Add qspinlock support
+Message-ID: <20241129-clay-trimester-91a0f281a95d@spud>
+References: <20241128-whoever-wildfire-2a3110c5fd46@wendy>
+ <20241128134135.GA3460@willie-the-truck>
+ <20241128-uncivil-removed-4e105d1397c9@wendy>
+ <90533aa9-186a-4f75-b3c5-d93d6682056b@ghiti.fr>
+ <20241128-goggles-laundry-d94c23ab39a4@spud>
+ <CAJF2gTST0kduYpuqd4mX0byetWMRJT-AAyH0GGiaysZG64Byhw@mail.gmail.com>
+ <CAJF2gTRQg=w3sGN0Sdzf+_adRo44z4H6Zd6=C6qXq+ARR5BjSg@mail.gmail.com>
+ <CAJF2gTSX82rGp-9xZHvg1Y3SpO516YCcqSBLKFgWEQ5G-iWR4A@mail.gmail.com>
+ <CAHVXubgXiD5Bi6ytyDHXXOONovWHZTSvr4+oADCvuic5ObGXpQ@mail.gmail.com>
+ <20241129-encrust-thumping-b6c6a3399b98@spud>
 MIME-Version: 1.0
+In-Reply-To: <20241129-encrust-thumping-b6c6a3399b98@spud>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241129_033134_752666_740CC4CF 
-X-CRM114-Status: GOOD (  17.55  )
+X-CRM114-CacheID: sfid-20241129_034352_427312_D87FDDFD 
+X-CRM114-Status: GOOD (  57.92  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,255 +88,324 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============7397733902272130404=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Move the machine_kexec_mask_interrupts function to a common location in
-kernel/kexec_core.c, removing duplicate implementations from architecture
-specific files (arch/arm, arch/arm64, arch/powerpc, and arch/riscv).
 
-This consolidation reduces code duplication and improves maintainability.
+--===============7397733902272130404==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="8D3RDN+sWC/y/ujQ"
+Content-Disposition: inline
 
-The unified function includes an architecture-specific behavior for
-CONFIG_ARM64 by conditionally clearing the active interrupt state before
-handling other interrupt masking operations.
 
-Signed-off-by: Eliav Farber <farbere@amazon.com>
----
-V4 -> V3: Add missing <linux/irqdec.h> include.
+--8D3RDN+sWC/y/ujQ
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
- arch/arm/kernel/machine_kexec.c   | 23 ---------------------
- arch/arm64/kernel/machine_kexec.c | 31 -----------------------------
- arch/powerpc/include/asm/kexec.h  |  1 -
- arch/powerpc/kexec/core.c         | 22 ---------------------
- arch/riscv/kernel/machine_kexec.c | 23 ---------------------
- include/linux/kexec.h             |  2 ++
- kernel/kexec_core.c               | 33 +++++++++++++++++++++++++++++++
- 7 files changed, 35 insertions(+), 100 deletions(-)
+On Fri, Nov 29, 2024 at 11:18:24AM +0000, Conor Dooley wrote:
+> On Fri, Nov 29, 2024 at 11:31:44AM +0100, Alexandre Ghiti wrote:
+> > Hi everyone,
+> >=20
+> > On Fri, Nov 29, 2024 at 7:28=E2=80=AFAM Guo Ren <guoren@kernel.org> wro=
+te:
+> > >
+> > > Hi Conor & Alexandre,
+> > >
+> > > On Fri, Nov 29, 2024 at 10:58=E2=80=AFAM Guo Ren <guoren@kernel.org> =
+wrote:
+> > > >
+> > > > On Fri, Nov 29, 2024 at 8:55=E2=80=AFAM Guo Ren <guoren@kernel.org>=
+ wrote:
+> > > > >
+> > > > > On Fri, Nov 29, 2024 at 12:19=E2=80=AFAM Conor Dooley <conor@kern=
+el.org> wrote:
+> > > > > >
+> > > > > > On Thu, Nov 28, 2024 at 03:50:09PM +0100, Alexandre Ghiti wrote:
+> > > > > > > On 28/11/2024 15:14, Conor Dooley wrote:
+> > > > > > > > On Thu, Nov 28, 2024 at 01:41:36PM +0000, Will Deacon wrote:
+> > > > > > > > > On Thu, Nov 28, 2024 at 12:56:55PM +0000, Conor Dooley wr=
+ote:
+> > > > > > > > > > On Sun, Nov 03, 2024 at 03:51:53PM +0100, Alexandre Ghi=
+ti wrote:
+> > > > > > > > > > > In order to produce a generic kernel, a user can sele=
+ct
+> > > > > > > > > > > CONFIG_COMBO_SPINLOCKS which will fallback at runtime=
+ to the ticket
+> > > > > > > > > > > spinlock implementation if Zabha or Ziccrse are not p=
+resent.
+> > > > > > > > > > >
+> > > > > > > > > > > Note that we can't use alternatives here because the =
+discovery of
+> > > > > > > > > > > extensions is done too late and we need to start with=
+ the qspinlock
+> > > > > > > > > > > implementation because the ticket spinlock implementa=
+tion would pollute
+> > > > > > > > > > > the spinlock value, so let's use static keys.
+> > > > > > > > > > >
+> > > > > > > > > > > This is largely based on Guo's work and Leonardo revi=
+ews at [1].
+> > > > > > > > > > >
+> > > > > > > > > > > Link: https://lore.kernel.org/linux-riscv/20231225125=
+847.2778638-1-guoren@kernel.org/ [1]
+> > > > > > > > > > > Signed-off-by: Guo Ren <guoren@kernel.org>
+> > > > > > > > > > > Signed-off-by: Alexandre Ghiti <alexghiti@rivosinc.co=
+m>
+> > > > > > > > > > This patch (now commit ab83647fadae2 ("riscv: Add qspin=
+lock support"))
+> > > > > > > > > > breaks boot on polarfire soc. It dies before outputting=
+ anything to the
+> > > > > > > > > > console. My .config has:
+> > > > > > > > > >
+> > > > > > > > > > # CONFIG_RISCV_TICKET_SPINLOCKS is not set
+> > > > > > > > > > # CONFIG_RISCV_QUEUED_SPINLOCKS is not set
+> > > > > > > > > > CONFIG_RISCV_COMBO_SPINLOCKS=3Dy
+> > > > > > > > > I pointed out some of the fragility during review:
+> > > > > > > > >
+> > > > > > > > > https://lore.kernel.org/all/20241111164259.GA20042@willie=
+-the-truck/
+> > > > > > > > >
+> > > > > > > > > so I'm kinda surprised it got merged tbh :/
+> > > > > > > > Maybe it could be reverted rather than having a broken boot=
+ with the
+> > > > > > > > default settings in -rc1.
+> > > > > > >
+> > > > > > >
+> > > > > > > No need to rush before we know what's happening,I guess you b=
+isected to this
+> > > > > > > commit right?
+> > > > > >
+> > > > > > The symptom is a failure to boot, without any console output, o=
+f course
+> > > > > > I bisected it before blaming something specific. But I don't th=
+ink it is
+> > > > > > "rushing" as having -rc1 broken with an option's default is a m=
+assive pain
+> > > > > > in the arse when it comes to testing.
+> > > > > >
+> > > > > > > I don't have this soc, so can you provide $stval/$sepc/$scaus=
+e, a config, a
+> > > > > > > kernel, anything?
+> > > > > >
+> > > > > > I don't have the former cos it died immediately on boot. config=
+ is
+> > > > > > attached. It reproduces in QEMU so you don't need any hardware.
+> > > > > If QEMU could reproduce, could you provide a dmesg by the below m=
+ethod?
+> > > > >
+> > > > > Qemu cmd append: -s -S
+> > > > > ref: https://qemu-project.gitlab.io/qemu/system/gdb.html
+> > > > >
+> > > > > Connect gdb and in console:
+> > > > > 1. file vmlinux
+> > > > > 2. source ./Documentation/admin-guide/kdump/gdbmacros.txt
+> > > > > 3. dmesg
+> > > > >
+> > > > > Then, we could get the kernel's early boot logs from memory.
+> > > > I've reproduced it on qemu, thx for the config.
+> > > >
+> > > > Reading symbols from ../build-rv64lp64/vmlinux...
+> > > > (gdb) tar rem:1234
+> > > > Remote debugging using :1234
+> > > > ticket_spin_lock (lock=3D0xffffffff81b9a5b8 <text_mutex>) at
+> > > > /home/guoren/source/kernel/linux/include/asm-generic/ticket_spinloc=
+k.h:49
+> > > > 49              atomic_cond_read_acquire(&lock->val, ticket =3D=3D =
+(u16)VAL);
+> > > > (gdb) bt
+> > > > #0  ticket_spin_lock (lock=3D0xffffffff81b9a5b8 <text_mutex>) at
+> > > > /home/guoren/source/kernel/linux/include/asm-generic/ticket_spinloc=
+k.h:49
+> > > > #1  arch_spin_lock (lock=3D0xffffffff81b9a5b8 <text_mutex>) at
+> > > > /home/guoren/source/kernel/linux/arch/riscv/include/asm/spinlock.h:=
+28
+> > > > #2  do_raw_spin_lock (lock=3Dlock@entry=3D0xffffffff81b9a5b8 <text_=
+mutex>)
+> > > > at /home/guoren/source/kernel/linux/kernel/locking/spinlock_debug.c=
+:116
+> > > > #3  0xffffffff80b2ea0e in __raw_spin_lock_irqsave
+> > > > (lock=3D0xffffffff81b9a5b8 <text_mutex>) at
+> > > > /home/guoren/source/kernel/linux/include/linux/spinlock_api_smp.h:1=
+11
+> > > > #4  _raw_spin_lock_irqsave (lock=3Dlock@entry=3D0xffffffff81b9a5b8
+> > > > <text_mutex>) at
+> > > > /home/guoren/source/kernel/linux/kernel/locking/spinlock.c:162
+> > > > #5  0xffffffff80b27c54 in rt_mutex_slowtrylock
+> > > > (lock=3D0xffffffff81b9a5b8 <text_mutex>) at
+> > > > /home/guoren/source/kernel/linux/kernel/locking/rtmutex.c:1393
+> > > > #6  0xffffffff80b295ea in rt_mutex_try_acquire
+> > > > (lock=3D0xffffffff81b9a5b8 <text_mutex>) at
+> > > > /home/guoren/source/kernel/linux/kernel/locking/rtmutex.c:319
+> > > > #7  __rt_mutex_lock (state=3D2, lock=3D0xffffffff81b9a5b8 <text_mut=
+ex>) at
+> > > > /home/guoren/source/kernel/linux/kernel/locking/rtmutex.c:1805
+> > > > #8  __mutex_lock_common (ip=3D18446744071562135170, nest_lock=3D0x0,
+> > > > subclass=3D0, state=3D2, lock=3D0xffffffff81b9a5b8 <text_mutex>) at
+> > > > /home/guoren/source/kernel/linux/kernel/locking/rtmutex_api.c:518
+> > > > #9  mutex_lock_nested (lock=3D0xffffffff81b9a5b8 <text_mutex>,
+> > > > subclass=3Dsubclass@entry=3D0) at
+> > > > /home/guoren/source/kernel/linux/kernel/locking/rtmutex_api.c:529
+> > > > #10 0xffffffff80010682 in arch_jump_label_transform_queue
+> > > > (entry=3Dentry@entry=3D0xffffffff8158da28, type=3D<optimized out>) =
+at
+> > > > /home/guoren/source/kernel/linux/arch/riscv/kernel/jump_label.c:39
+> > > > #11 0xffffffff801d86b2 in __jump_label_update
+> > > > (key=3Dkey@entry=3D0xffffffff81a1abb0 <qspinlock_key>,
+> > > > entry=3D0xffffffff8158da28, stop=3Dstop@entry=3D0xffffffff815a5e68
+> > > > <__tracepoint_ptr_initcall_finish>, init=3Dinit@entry=3Dtrue)
+> > > >     at /home/guoren/source/kernel/linux/kernel/jump_label.c:513
+> > > > #12 0xffffffff801d890c in jump_label_update
+> > > > (key=3Dkey@entry=3D0xffffffff81a1abb0 <qspinlock_key>) at
+> > > > /home/guoren/source/kernel/linux/kernel/jump_label.c:920
+> > > > #13 0xffffffff801d8be8 in static_key_disable_cpuslocked
+> > > > (key=3Dkey@entry=3D0xffffffff81a1abb0 <qspinlock_key>) at
+> > > > /home/guoren/source/kernel/linux/kernel/jump_label.c:240
+> > > > #14 0xffffffff801d8c04 in static_key_disable
+> > > > (key=3Dkey@entry=3D0xffffffff81a1abb0 <qspinlock_key>) at
+> > > > /home/guoren/source/kernel/linux/kernel/jump_label.c:248
+> > > > #15 0xffffffff80c04a1a in riscv_spinlock_init () at
+> > > > /home/guoren/source/kernel/linux/arch/riscv/kernel/setup.c:271
+> > > > #16 setup_arch (cmdline_p=3Dcmdline_p@entry=3D0xffffffff81a03e88) at
+> > > > /home/guoren/source/kernel/linux/arch/riscv/kernel/setup.c:336
+> > > > #17 0xffffffff80c007a2 in start_kernel () at
+> > > > /home/guoren/source/kernel/linux/init/main.c:922
+> > > > #18 0xffffffff80001164 in _start_kernel ()
+> > > > Backtrace stopped: frame did not save the PC
+> > > > (gdb) p /x lock
+> > > > $1 =3D 0xffffffff81b9a5b8
+> > > > (gdb) p /x *lock
+> > > > $2 =3D {{val =3D {counter =3D 0x20000}, {locked =3D 0x0, pending =
+=3D 0x0},
+> > > > {locked_pending =3D 0x0, tail =3D 0x2}}}
+> > >
+> > > I have for you here a fast fixup for reference. (PS: I'm digging into
+> > > the root cause mentioned by Will Deacon.)
+> > >
+> > > diff --git a/arch/riscv/include/asm/text-patching.h
+> > > b/arch/riscv/include/asm/text-patching.h
+> > > index 7228e266b9a1..0439609f1cff 100644
+> > > --- a/arch/riscv/include/asm/text-patching.h
+> > > +++ b/arch/riscv/include/asm/text-patching.h
+> > > @@ -12,5 +12,6 @@ int patch_text_set_nosync(void *addr, u8 c, size_t =
+len);
+> > >  int patch_text(void *addr, u32 *insns, size_t len);
+> > >
+> > >  extern int riscv_patch_in_stop_machine;
+> > > +extern int riscv_patch_in_spinlock_init;
+> > >
+> > >  #endif /* _ASM_RISCV_PATCH_H */
+> > > diff --git a/arch/riscv/kernel/jump_label.c b/arch/riscv/kernel/jump_=
+label.c
+> > > index 6eee6f736f68..d9a5a5c1933d 100644
+> > > --- a/arch/riscv/kernel/jump_label.c
+> > > +++ b/arch/riscv/kernel/jump_label.c
+> > > @@ -36,9 +36,11 @@ bool arch_jump_label_transform_queue(struct
+> > > jump_entry *entry,
+> > >                 insn =3D RISCV_INSN_NOP;
+> > >         }
+> > >
+> > > -       mutex_lock(&text_mutex);
+> > > +       if (!riscv_patch_in_spinlock_init)
+> > > +               mutex_lock(&text_mutex);
+> > >         patch_insn_write(addr, &insn, sizeof(insn));
+> > > -       mutex_unlock(&text_mutex);
+> > > +       if (!riscv_patch_in_spinlock_init)
+> > > +               mutex_unlock(&text_mutex);
+> > >
+> > >         return true;
+> > >  }
+> > > diff --git a/arch/riscv/kernel/patch.c b/arch/riscv/kernel/patch.c
+> > > index db13c9ddf9e3..ab009cf855c2 100644
+> > > --- a/arch/riscv/kernel/patch.c
+> > > +++ b/arch/riscv/kernel/patch.c
+> > > @@ -24,6 +24,7 @@ struct patch_insn {
+> > >  };
+> > >
+> > >  int riscv_patch_in_stop_machine =3D false;
+> > > +int riscv_patch_in_spinlock_init =3D false;
+> > >
+> > >  #ifdef CONFIG_MMU
+> > >
+> > > @@ -131,7 +132,7 @@ static int __patch_insn_write(void *addr, const
+> > > void *insn, size_t len)
+> > >          * safe but triggers a lockdep failure, so just elide it for =
+that
+> > >          * specific case.
+> > >          */
+> > > -       if (!riscv_patch_in_stop_machine)
+> > > +       if (!riscv_patch_in_stop_machine && !riscv_patch_in_spinlock_=
+init)
+> > >                 lockdep_assert_held(&text_mutex);
+> > >
+> > >         preempt_disable();
+> > > diff --git a/arch/riscv/kernel/setup.c b/arch/riscv/kernel/setup.c
+> > > index 016b48fcd6f2..87ddf1702be4 100644
+> > > --- a/arch/riscv/kernel/setup.c
+> > > +++ b/arch/riscv/kernel/setup.c
+> > > @@ -268,7 +268,9 @@ static void __init riscv_spinlock_init(void)
+> > >         }
+> > >  #if defined(CONFIG_RISCV_COMBO_SPINLOCKS)
+> > >         else {
+> > > +               riscv_patch_in_spinlock_init =3D 1;
+> > >                 static_branch_disable(&qspinlock_key);
+> > > +               riscv_patch_in_spinlock_init =3D 0;
+> > >                 pr_info("Ticket spinlock: enabled\n");
+> > >                 return;
+> > >         }
+> > >
+> > >
+> > >
+> > > --
+> > > Best Regards
+> > >  Guo Ren
+> >=20
+> > Thanks Guo for looking into this.
+> >=20
+> > Your solution is not very pretty but I don't have anything better :/
+> > Unless introducing a static_branch_XXX_nolock() API? I gave it a try
+> > and it fixes the issue, but not sure this will be accepted.
+> >=20
+> > The thing is the usage of static branches is temporary, we'll use
+> > alternatives when I finish working on getting the extensions very
+> > early from the ACPI tables (I have a poc that works, just needs some
+> > cleaning).
+> >=20
+> > So let's say that I make this early extension parsing my priority for
+> > 6.14, can we live with Guo's hack in this release? Or should we revert
+> > this commit?
+>=20
+> I tried this diff, and it doesn't actually fix the problem - either in
+> QEMU or in hardware. I'll do some more poking.
 
-diff --git a/arch/arm/kernel/machine_kexec.c b/arch/arm/kernel/machine_kexec.c
-index 80ceb5bd2680..dd430477e7c1 100644
---- a/arch/arm/kernel/machine_kexec.c
-+++ b/arch/arm/kernel/machine_kexec.c
-@@ -127,29 +127,6 @@ void crash_smp_send_stop(void)
- 	cpus_stopped = 1;
- }
- 
--static void machine_kexec_mask_interrupts(void)
--{
--	unsigned int i;
--	struct irq_desc *desc;
--
--	for_each_irq_desc(i, desc) {
--		struct irq_chip *chip;
--
--		chip = irq_desc_get_chip(desc);
--		if (!chip)
--			continue;
--
--		if (chip->irq_eoi && irqd_irq_inprogress(&desc->irq_data))
--			chip->irq_eoi(&desc->irq_data);
--
--		if (chip->irq_mask)
--			chip->irq_mask(&desc->irq_data);
--
--		if (chip->irq_disable && !irqd_irq_disabled(&desc->irq_data))
--			chip->irq_disable(&desc->irq_data);
--	}
--}
--
- void machine_crash_shutdown(struct pt_regs *regs)
- {
- 	local_irq_disable();
-diff --git a/arch/arm64/kernel/machine_kexec.c b/arch/arm64/kernel/machine_kexec.c
-index 82e2203d86a3..6f121a0164a4 100644
---- a/arch/arm64/kernel/machine_kexec.c
-+++ b/arch/arm64/kernel/machine_kexec.c
-@@ -207,37 +207,6 @@ void machine_kexec(struct kimage *kimage)
- 	BUG(); /* Should never get here. */
- }
- 
--static void machine_kexec_mask_interrupts(void)
--{
--	unsigned int i;
--	struct irq_desc *desc;
--
--	for_each_irq_desc(i, desc) {
--		struct irq_chip *chip;
--		int ret;
--
--		chip = irq_desc_get_chip(desc);
--		if (!chip)
--			continue;
--
--		/*
--		 * First try to remove the active state. If this
--		 * fails, try to EOI the interrupt.
--		 */
--		ret = irq_set_irqchip_state(i, IRQCHIP_STATE_ACTIVE, false);
--
--		if (ret && irqd_irq_inprogress(&desc->irq_data) &&
--		    chip->irq_eoi)
--			chip->irq_eoi(&desc->irq_data);
--
--		if (chip->irq_mask)
--			chip->irq_mask(&desc->irq_data);
--
--		if (chip->irq_disable && !irqd_irq_disabled(&desc->irq_data))
--			chip->irq_disable(&desc->irq_data);
--	}
--}
--
- /**
-  * machine_crash_shutdown - shutdown non-crashing cpus and save registers
-  */
-diff --git a/arch/powerpc/include/asm/kexec.h b/arch/powerpc/include/asm/kexec.h
-index 270ee93a0f7d..601e569303e1 100644
---- a/arch/powerpc/include/asm/kexec.h
-+++ b/arch/powerpc/include/asm/kexec.h
-@@ -61,7 +61,6 @@ struct pt_regs;
- extern void kexec_smp_wait(void);	/* get and clear naca physid, wait for
- 					  master to copy new code to 0 */
- extern void default_machine_kexec(struct kimage *image);
--extern void machine_kexec_mask_interrupts(void);
- 
- void relocate_new_kernel(unsigned long indirection_page, unsigned long reboot_code_buffer,
- 			 unsigned long start_address) __noreturn;
-diff --git a/arch/powerpc/kexec/core.c b/arch/powerpc/kexec/core.c
-index b8333a49ea5d..58a930a47422 100644
---- a/arch/powerpc/kexec/core.c
-+++ b/arch/powerpc/kexec/core.c
-@@ -22,28 +22,6 @@
- #include <asm/setup.h>
- #include <asm/firmware.h>
- 
--void machine_kexec_mask_interrupts(void) {
--	unsigned int i;
--	struct irq_desc *desc;
--
--	for_each_irq_desc(i, desc) {
--		struct irq_chip *chip;
--
--		chip = irq_desc_get_chip(desc);
--		if (!chip)
--			continue;
--
--		if (chip->irq_eoi && irqd_irq_inprogress(&desc->irq_data))
--			chip->irq_eoi(&desc->irq_data);
--
--		if (chip->irq_mask)
--			chip->irq_mask(&desc->irq_data);
--
--		if (chip->irq_disable && !irqd_irq_disabled(&desc->irq_data))
--			chip->irq_disable(&desc->irq_data);
--	}
--}
--
- #ifdef CONFIG_CRASH_DUMP
- void machine_crash_shutdown(struct pt_regs *regs)
- {
-diff --git a/arch/riscv/kernel/machine_kexec.c b/arch/riscv/kernel/machine_kexec.c
-index 3c830a6f7ef4..2306ce3e5f22 100644
---- a/arch/riscv/kernel/machine_kexec.c
-+++ b/arch/riscv/kernel/machine_kexec.c
-@@ -114,29 +114,6 @@ void machine_shutdown(void)
- #endif
- }
- 
--static void machine_kexec_mask_interrupts(void)
--{
--	unsigned int i;
--	struct irq_desc *desc;
--
--	for_each_irq_desc(i, desc) {
--		struct irq_chip *chip;
--
--		chip = irq_desc_get_chip(desc);
--		if (!chip)
--			continue;
--
--		if (chip->irq_eoi && irqd_irq_inprogress(&desc->irq_data))
--			chip->irq_eoi(&desc->irq_data);
--
--		if (chip->irq_mask)
--			chip->irq_mask(&desc->irq_data);
--
--		if (chip->irq_disable && !irqd_irq_disabled(&desc->irq_data))
--			chip->irq_disable(&desc->irq_data);
--	}
--}
--
- /*
-  * machine_crash_shutdown - Prepare to kexec after a kernel crash
-  *
-diff --git a/include/linux/kexec.h b/include/linux/kexec.h
-index f0e9f8eda7a3..9dac0524c0be 100644
---- a/include/linux/kexec.h
-+++ b/include/linux/kexec.h
-@@ -375,6 +375,8 @@ extern void machine_kexec(struct kimage *image);
- extern int machine_kexec_prepare(struct kimage *image);
- extern void machine_kexec_cleanup(struct kimage *image);
- extern int kernel_kexec(void);
-+extern void machine_kexec_mask_interrupts(void);
-+
- extern struct page *kimage_alloc_control_pages(struct kimage *image,
- 						unsigned int order);
- 
-diff --git a/kernel/kexec_core.c b/kernel/kexec_core.c
-index c0caa14880c3..777191458544 100644
---- a/kernel/kexec_core.c
-+++ b/kernel/kexec_core.c
-@@ -40,6 +40,7 @@
- #include <linux/hugetlb.h>
- #include <linux/objtool.h>
- #include <linux/kmsg_dump.h>
-+#include <linux/irqdesc.h>
- 
- #include <asm/page.h>
- #include <asm/sections.h>
-@@ -1072,3 +1073,35 @@ int kernel_kexec(void)
- 	kexec_unlock();
- 	return error;
- }
-+
-+void machine_kexec_mask_interrupts(void)
-+{
-+	unsigned int i;
-+	struct irq_desc *desc;
-+
-+	for_each_irq_desc(i, desc) {
-+		struct irq_chip *chip;
-+		int check_eoi = 1;
-+
-+		chip = irq_desc_get_chip(desc);
-+		if (!chip)
-+			continue;
-+
-+		if (IS_ENABLED(CONFIG_ARM64)) {
-+			/*
-+			 * First try to remove the active state. If this fails, try to EOI the
-+			 * interrupt.
-+			 */
-+			check_eoi = irq_set_irqchip_state(i, IRQCHIP_STATE_ACTIVE, false);
-+		}
-+
-+		if (check_eoi && chip->irq_eoi && irqd_irq_inprogress(&desc->irq_data))
-+			chip->irq_eoi(&desc->irq_data);
-+
-+		if (chip->irq_mask)
-+			chip->irq_mask(&desc->irq_data);
-+
-+		if (chip->irq_disable && !irqd_irq_disabled(&desc->irq_data))
-+			chip->irq_disable(&desc->irq_data);
-+	}
-+}
--- 
-2.40.1
+Looks like it might have been my fault, typo while hand-applying the
+diff pasted above cos it was corrupted :/ Rebuilding..
 
+
+--8D3RDN+sWC/y/ujQ
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZ0mo8AAKCRB4tDGHoIJi
+0q26APwK38frDwHBEPG1LVhfSrxH2viC9XJIFs1SeoRddcrkKAEAz2yoRk3oBdSG
+7i00W5kraUTFBYZaVj1lxtNJRmDqHgw=
+=aEjS
+-----END PGP SIGNATURE-----
+
+--8D3RDN+sWC/y/ujQ--
+
+
+--===============7397733902272130404==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============7397733902272130404==--
+
