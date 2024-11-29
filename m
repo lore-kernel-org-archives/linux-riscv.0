@@ -4,79 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C2122D6EC00
-	for <linux-riscv@archiver.kernel.org>; Fri, 29 Nov 2024 11:55:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4DC69D6EC05
+	for <linux-riscv@archiver.kernel.org>; Fri, 29 Nov 2024 12:20:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=psrTBYS97JfYFxJM0i7QSTyu8jMutH4GNKrsqzhAIsU=; b=hRRyZHidJjPZPB6kACa7jsf8Ox
-	jw63GVc5qVk8yIvHjMW/CkzhveWm1ylD6YSGxMHyLvTWz0k9cDhpNELx1/OiwBFWh6iT0CBcw5NH0
-	VAEWQ9zZNywZbyFMn+z6kE6WZXnug8m85GJp1KfaQvqa9PqF87ucnfbA76eM04JJlbjwN31hgadXs
-	dA9TmQLtB4eHTsFdpyomf4XEn6+4cNuZM6Rzi2wuW9bQEpZ71/7l3Wiino2nmZmpECsCOdPksSw5b
-	uqqV2Uq/zoCah2O5Whk1ucXzT8xozxBzQzQf0U6M3MK5ftkW6Wf991R+5HJwevs9ZBTOhN1nEdQ5p
-	toxnQw1g==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=xH/KaTZmNBtSRbHbuEY27KMHPTTLz4q1w74AIJMMPmA=; b=yEt2COViZDoDku
+	KFFj9W4P4hcnIiLq6L5fxUopN7ynrHvpvk7ZBHbQdfuw9jHLLlw5Uos5fr6i4h7rh04us0Qzgtddt
+	8tqce73yzdliBuLL5ps2QpaJI/3Cr320ajEezRrAegsaBRYJASgOdZtXJ6QbLySk75PIvybCEolFy
+	vu81WhYFy3GjSDDCQzJ+b0DZDKFVoHYB+sDWMfnN76xbtXUR/wjgdzLiqaadE1ZPqWl3EPKTM4u3h
+	K3FYO+fpuxf/SDG3jtT1w1fSEf6THKej+xe2uEtL74vUAS8Z96leM79rkABeMZOR3pgg+HkM6LXO5
+	+CSJauDA0dO7l+BUV48g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tGzaw-000000000dg-3KYL;
-	Fri, 29 Nov 2024 11:55:34 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1tGzyV-000000003e1-3RW6;
+	Fri, 29 Nov 2024 12:19:55 +0000
+Received: from galois.linutronix.de ([193.142.43.55])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tGzau-000000000cf-1lKF
+	id 1tGzyT-000000003cX-2ZGQ
 	for linux-riscv@lists.infradead.org;
-	Fri, 29 Nov 2024 11:55:33 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id E6817A43E5B;
-	Fri, 29 Nov 2024 11:53:38 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3271BC4CECF;
-	Fri, 29 Nov 2024 11:55:26 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1732881331;
-	bh=PCwTZksW8jw/sIiLZC5grod741cJ0Qggc5kuzZnMjc4=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=IenEB1RUjTD2vJ2SdbTKEJqOBiPEdSJOudSSe17Uuf887IXYRMO3EYFhPG9pf2wmA
-	 xjPPTBEzYLBJvZ9vx7XesuEoyDj9Z0uroTq3sAGGIxa5j38JUy5yrf98bTvklzvGI3
-	 I7XH8S0gcprBYOl8xdwWkqDT3TIlN2IFWPzAmlrD1DmS1duYfpuryieGcKf2Bl8JPQ
-	 BMkVbXNuT4qdiurJdAnb7ohcDXf9x8WII8Ww4N5z1Eyaw7JadxvrikcXT7k7Qt3kbx
-	 leByzmM5MtgFlHrVFv5yJvx7+Ab6oownwSp1z+WF+gnHndKOtXioZWVy7YwOgOpdeN
-	 2HZMXs9vgM9Sg==
-Date: Fri, 29 Nov 2024 11:55:24 +0000
-From: Conor Dooley <conor@kernel.org>
-To: Alexandre Ghiti <alexghiti@rivosinc.com>
-Cc: Guo Ren <guoren@kernel.org>, Alexandre Ghiti <alex@ghiti.fr>,
-	Conor Dooley <conor.dooley@microchip.com>,
-	Will Deacon <will@kernel.org>, Jonathan Corbet <corbet@lwn.net>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
+	Fri, 29 Nov 2024 12:19:54 +0000
+Date: Fri, 29 Nov 2024 19:19:29 +0700
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1732882790;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=194Dl+Ndd5fhcCTGY5CqE8SBD4dv8kTBgN0LNYowsjM=;
+	b=X9nr8zOJWF6bBVz9rngb5ykLjOrZOhPXw2tNOEJaDM+zHtaI/XRDT01NS9jAlwprCxgncC
+	woiZmqBZajLS3k/bsTs5oKGSyLMkY2NhnJfVDn4HnDnocAgrDpe1atKzVhyon0Mr8P6mbg
+	Vj/OHIuxKgfPd5NR2jEgFYdvXvJ3El0X1QTvfLGjHud94bvOUBOSol9d8Q9hJzAMHvuVw2
+	KdHB/2nL5kN5XGiM1r6C/M6RuiiDgzymeFpJ7OP3ofFzn3gd4ewwIcSkS8lWOZBVYXg0e+
+	vT0fP/Aq3G9Z1gULIJnUap0FIM7XAwd1p+coazJwd9ib4WmrJCFzAkmYMknNDQ==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1732882790;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=194Dl+Ndd5fhcCTGY5CqE8SBD4dv8kTBgN0LNYowsjM=;
+	b=qtmVVG8xie1wpdQ1GBPd2eSy/fK/mjWvICrZ5Wmu1NcIFQjS+NpOVFlPFT3mjCGLsWkJSQ
+	y1mP4KaZHY88bmDg==
+From: Nam Cao <namcao@linutronix.de>
+To: Alexandre Ghiti <alex@ghiti.fr>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Andrea Parri <parri.andrea@gmail.com>,
-	Nathan Chancellor <nathan@kernel.org>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Ingo Molnar <mingo@redhat.com>, Waiman Long <longman@redhat.com>,
-	Boqun Feng <boqun.feng@gmail.com>, Arnd Bergmann <arnd@arndb.de>,
-	Leonardo Bras <leobras@redhat.com>, linux-doc@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org, linux-arch@vger.kernel.org
-Subject: Re: [PATCH v6 13/13] riscv: Add qspinlock support
-Message-ID: <20241129-proxy-mantra-f58352723906@spud>
-References: <20241128134135.GA3460@willie-the-truck>
- <20241128-uncivil-removed-4e105d1397c9@wendy>
- <90533aa9-186a-4f75-b3c5-d93d6682056b@ghiti.fr>
- <20241128-goggles-laundry-d94c23ab39a4@spud>
- <CAJF2gTST0kduYpuqd4mX0byetWMRJT-AAyH0GGiaysZG64Byhw@mail.gmail.com>
- <CAJF2gTRQg=w3sGN0Sdzf+_adRo44z4H6Zd6=C6qXq+ARR5BjSg@mail.gmail.com>
- <CAJF2gTSX82rGp-9xZHvg1Y3SpO516YCcqSBLKFgWEQ5G-iWR4A@mail.gmail.com>
- <CAHVXubgXiD5Bi6ytyDHXXOONovWHZTSvr4+oADCvuic5ObGXpQ@mail.gmail.com>
- <20241129-encrust-thumping-b6c6a3399b98@spud>
- <20241129-clay-trimester-91a0f281a95d@spud>
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Samuel Holland <samuel.holland@sifive.com>,
+	=?iso-8859-1?Q?Bj=F6rn_T=F6pel?= <bjorn@rivosinc.com>,
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+	John Ogness <john.ogness@linutronix.de>, stable@vger.kernel.org
+Subject: Re: [PATCH] riscv: kprobes: Fix incorrect address calculation
+Message-ID: <20241129121929.tOHlWxwS@linutronix.de>
+References: <20241119111056.2554419-1-namcao@linutronix.de>
+ <7662be43-16e6-4695-9bc4-077e1dd3ba12@ghiti.fr>
 MIME-Version: 1.0
-In-Reply-To: <20241129-clay-trimester-91a0f281a95d@spud>
+Content-Disposition: inline
+In-Reply-To: <7662be43-16e6-4695-9bc4-077e1dd3ba12@ghiti.fr>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241129_035532_543213_7475713B 
-X-CRM114-Status: GOOD (  13.22  )
+X-CRM114-CacheID: sfid-20241129_041953_787364_5AACF955 
+X-CRM114-Status: UNSURE (   8.81  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,59 +78,29 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============6615137841130364658=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+Hi Alex,
 
---===============6615137841130364658==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="B3rY1u54z6BEJe5L"
-Content-Disposition: inline
+On Thu, Nov 28, 2024 at 02:02:40PM +0100, Alexandre Ghiti wrote:
+> On 19/11/2024 12:10, Nam Cao wrote:
+> > p->ainsn.api.insn is a pointer to u32, therefore arithmetic operations are
+> > multiplied by four. This is clearly undesirable for this case.
+> > 
+> > Cast it to (void *) first before any calculation.
+...
+> This looks good to me, how did you find this issue?
 
+I found it while working on RV monitors (Documentation/trace/rv) which
+use kprobes. The monitors exploded on riscv.
 
---B3rY1u54z6BEJe5L
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-On Fri, Nov 29, 2024 at 11:43:44AM +0000, Conor Dooley wrote:
-> On Fri, Nov 29, 2024 at 11:18:24AM +0000, Conor Dooley wrote:
-> >=20
-> > I tried this diff, and it doesn't actually fix the problem - either in
-> > QEMU or in hardware. I'll do some more poking.
->=20
-> Looks like it might have been my fault, typo while hand-applying the
-> diff pasted above cos it was corrupted :/ Rebuilding..
-
-
-sans-typo, the diff does make it boot, my bad.
-
-
---B3rY1u54z6BEJe5L
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZ0mrrAAKCRB4tDGHoIJi
-0o2cAP9wDMq1AIQu+yNhsWztBDTj6piw+4PfqFq1bQAAh9U/EwEAkLXlNZGUGStI
-QBEc03DcU7n3hnf7FTsBRSBls8a6WQE=
-=dKan
------END PGP SIGNATURE-----
-
---B3rY1u54z6BEJe5L--
-
-
---===============6615137841130364658==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+Best regards,
+Nam
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============6615137841130364658==--
-
