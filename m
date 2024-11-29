@@ -4,81 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C613D70E09
-	for <linux-riscv@archiver.kernel.org>; Fri, 29 Nov 2024 02:59:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75960D70E1A
+	for <linux-riscv@archiver.kernel.org>; Fri, 29 Nov 2024 04:32:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Be3AymrevauttniEEk45s7qhy9+Ype3SpbkkJVHBCxg=; b=UqYPfnbKGymCIm
-	cCbWxVljAN9SMNRYq94c68xUIzRE3wCsjhfxs8WvlJBxnCHcq0vnKrcGGpsEwSQArv8DlIzM+xcfb
-	RPAiEDyogutyO6Fl8VqXOw1c7suqx2Y5fvjZC99vTLdp0tM1o9WdIXQ33Sj/NpuheF2lPfWeovS1D
-	xZU1QIfU+9WyLhu0mA82R18iT1hyGfClJ+9yarD9/EeQOz8OU2NjiRmE2FuETRRut7odt9gmGZWqJ
-	/8HFtMZfBU9bZUSoYrykWFhowfvrlUL+fH97AUXZRL2JAQXSjoTgqQ891j9jkZ2XQ3vw4O/zBOQ/B
-	IGrsSZSnboeG58cooyxg==;
+	List-Owner; bh=c5r46b29+ru8AIR0+EkRspsnjAq8ywC4bg0x9PmPMSo=; b=ecORIRvFXILbxY
+	v+9Ny9XUp6zmCWJlvWZBJxa7BEbQKY5Z8awtt8M44KXZHSAXvnXoRojvAVliXpFLjf1+h9JsoULLI
+	ELp5vNtAP6qr808ntTxZO3yGL24cQwuMnMPRGbJf8MqGKwmHQetrZpMYcSZTTll3NyCGfEJxHFAiX
+	wi5BrbebgUhD5M0miJGEfNdQFVZ72IjEY6C47QHMXpMbNyJfTAHbZZS4Km7KEB7Jh3tbLpbW4ywVl
+	VlazcUYK7x4Kprdapug4EmSnyiqZ/cprrySENpkZuPC3B65g2Ber8D9+UP7TxHDKdER26L2DYUXMI
+	s3Mbh2UI/QNifUIdv2Iw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tGrDp-0000000GmOy-1mPW;
-	Fri, 29 Nov 2024 02:59:09 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1tGsg3-0000000GrsF-37qU;
+	Fri, 29 Nov 2024 04:32:23 +0000
+Received: from mgamail.intel.com ([192.198.163.7])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tGrDm-0000000GmOF-1zRK
-	for linux-riscv@lists.infradead.org;
-	Fri, 29 Nov 2024 02:59:08 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id DEC43A43C71
-	for <linux-riscv@lists.infradead.org>; Fri, 29 Nov 2024 02:57:12 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3DB94C4CED7
-	for <linux-riscv@lists.infradead.org>; Fri, 29 Nov 2024 02:59:05 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1732849145;
-	bh=7lawv7c93Ol7bC0uQMx7VkSwmiXWsn3NufyEJ2i4Osc=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=QtmXh4ZERNLb6OPcYstFEG8tBw26vHjAhoFHmc0TzfMaqbJV/2j8pLHHoXuCbgSVD
-	 1tLQf1ENdZ31gloI2qXj2KmcV/93GH9RT5TBT05TxNHspZDBSkTa8l8Rfjc5LG6S7I
-	 2PKN3VNuw1yG7EUIAz0VcXzlZCvSXUOkLAHtHisBgOP0xH2DD88ugHrmP6MUfMv89G
-	 CWJNT2Rih3Ll542SyDcAV/Ln3qFHAnH2akt/Yqz4/Ha42r6mVwvfWj/fiB5E88eY+i
-	 z6nwX1cfdt1Y03gSh8TTrBc+tAxvtZy+6TYXSradBrXszXbM+F+LXH/Ov3bacn2L1U
-	 dlme0SCcyJJug==
-Received: by mail-ej1-f44.google.com with SMTP id a640c23a62f3a-a9a0ef5179dso180614366b.1
-        for <linux-riscv@lists.infradead.org>; Thu, 28 Nov 2024 18:59:05 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCWeHQ5XCPi1rfpUKsyKzmQndRLAcfRsAvNtfx9d3ZG7TysO9JHK9xvjavGffJEN9xR9oULfqfS77H3Aaw==@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywpn+83QlxDb99RJ78LUa6qKosRaP16JP3V6fZjM5mB8XMEJqgz
-	ZnLAI0DOauTPE5ulQuS/8MMM7+bS9QbBJrCDObTLZkwWMHk+6B1fXbx1/4rJeJi6pZN+BevEkDW
-	K6kNxZLJa3QE/hUoxSZjPNDg8++U=
-X-Google-Smtp-Source: AGHT+IGXsWIz6S7Gj9hihXsycLLkKYBZfM/UOHTMWk0SKqAkGs9hEWvOWwJ4jUCAj8QeutXTl4Ighsgfm18qf4wpZQ8=
-X-Received: by 2002:a17:907:7711:b0:aa5:2ec5:369b with SMTP id
- a640c23a62f3a-aa580f0f12fmr777882366b.17.1732849143643; Thu, 28 Nov 2024
- 18:59:03 -0800 (PST)
+	id 1tGsf3-0000000Grlo-3ugl;
+	Fri, 29 Nov 2024 04:31:23 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1732854681; x=1764390681;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=nhVJ2KsFTU6vdZyrFjJy+CpqJVuOIfZcG0UnLygKl20=;
+  b=bGMNGHiyF6CV/wxdYjIn0HaTpf/JRt6T37G1u2jKJ7WaURoJA747NaJ7
+   6ZaJG32+rqSFqWyFDiA7OxJiycVX4GzhwNdJ2azBS5k6bD4CbaiaqInFZ
+   cUCumSkzvn0DMFQKzELXkROhyuEae+BlRK0gOcooTUZmF/cVxElgAE6b7
+   TrTDLLW2XEAwnL4gC+j43AP+RexBGGz/rf04/iT8dzqHD7hbeJu6sIUzS
+   CNEBu6hP2f7mCIbOlp4Z0Ho1cY8lyDj5DtYdqtFpgIPYdjm1/fCEiEFf3
+   tTlNISmyPJdzlnAbAWdAmEuOf9DScTUr2RNWcSZgKOGLaoESbm9dcH0wO
+   w==;
+X-CSE-ConnectionGUID: wtCjyDhdQsm0ffSoBHSSrA==
+X-CSE-MsgGUID: AXmQEnVsSoa3STS0IN5Qww==
+X-IronPort-AV: E=McAfee;i="6700,10204,11270"; a="58495749"
+X-IronPort-AV: E=Sophos;i="6.12,194,1728975600"; 
+   d="scan'208";a="58495749"
+Received: from fmviesa007.fm.intel.com ([10.60.135.147])
+  by fmvoesa101.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 28 Nov 2024 20:31:15 -0800
+X-CSE-ConnectionGUID: 7+ctehuyTaqXPs1MF1yt2g==
+X-CSE-MsgGUID: 8udd5Dm+TGClDUig78Zgfw==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.12,194,1728975600"; 
+   d="scan'208";a="92193838"
+Received: from lkp-server01.sh.intel.com (HELO 8122d2fc1967) ([10.239.97.150])
+  by fmviesa007.fm.intel.com with ESMTP; 28 Nov 2024 20:31:09 -0800
+Received: from kbuild by 8122d2fc1967 with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1tGsep-000AL9-0P;
+	Fri, 29 Nov 2024 04:31:07 +0000
+Date: Fri, 29 Nov 2024 12:30:58 +0800
+From: kernel test robot <lkp@intel.com>
+To: Eliav Farber <farbere@amazon.com>, linux@armlinux.org.uk,
+	catalin.marinas@arm.com, will@kernel.org, mpe@ellerman.id.au,
+	npiggin@gmail.com, christophe.leroy@csgroup.eu, naveen@kernel.org,
+	maddy@linux.ibm.com, paul.walmsley@sifive.com, palmer@dabbelt.com,
+	aou@eecs.berkeley.edu, tglx@linutronix.de, ebiederm@xmission.com,
+	akpm@linux-foundation.org, bhe@redhat.com, hbathini@linux.ibm.com,
+	sourabhjain@linux.ibm.com, adityag@linux.ibm.com,
+	songshuaishuai@tinylab.org, takakura@valinux.co.jp,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
+	kexec@lists.infradead.org
+Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev, jonnyc@amazon.com
+Subject: Re: [PATCH v3 1/2] kexec: Consolidate
+ machine_kexec_mask_interrupts() implementation
+Message-ID: <202411291225.18ZMjZcQ-lkp@intel.com>
+References: <20241128201027.10396-2-farbere@amazon.com>
 MIME-Version: 1.0
-References: <20241103145153.105097-1-alexghiti@rivosinc.com>
- <20241103145153.105097-14-alexghiti@rivosinc.com> <20241128-whoever-wildfire-2a3110c5fd46@wendy>
- <20241128134135.GA3460@willie-the-truck> <20241128-uncivil-removed-4e105d1397c9@wendy>
- <90533aa9-186a-4f75-b3c5-d93d6682056b@ghiti.fr> <20241128-goggles-laundry-d94c23ab39a4@spud>
- <CAJF2gTST0kduYpuqd4mX0byetWMRJT-AAyH0GGiaysZG64Byhw@mail.gmail.com>
-In-Reply-To: <CAJF2gTST0kduYpuqd4mX0byetWMRJT-AAyH0GGiaysZG64Byhw@mail.gmail.com>
-From: Guo Ren <guoren@kernel.org>
-Date: Fri, 29 Nov 2024 10:58:52 +0800
-X-Gmail-Original-Message-ID: <CAJF2gTRQg=w3sGN0Sdzf+_adRo44z4H6Zd6=C6qXq+ARR5BjSg@mail.gmail.com>
-Message-ID: <CAJF2gTRQg=w3sGN0Sdzf+_adRo44z4H6Zd6=C6qXq+ARR5BjSg@mail.gmail.com>
-Subject: Re: [PATCH v6 13/13] riscv: Add qspinlock support
-To: Conor Dooley <conor@kernel.org>
-Cc: Alexandre Ghiti <alex@ghiti.fr>, Conor Dooley <conor.dooley@microchip.com>, 
-	Will Deacon <will@kernel.org>, Alexandre Ghiti <alexghiti@rivosinc.com>, 
-	Jonathan Corbet <corbet@lwn.net>, Paul Walmsley <paul.walmsley@sifive.com>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Andrea Parri <parri.andrea@gmail.com>, Nathan Chancellor <nathan@kernel.org>, 
-	Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
-	Waiman Long <longman@redhat.com>, Boqun Feng <boqun.feng@gmail.com>, Arnd Bergmann <arnd@arndb.de>, 
-	Leonardo Bras <leobras@redhat.com>, linux-doc@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
-	linux-arch@vger.kernel.org
+Content-Disposition: inline
+In-Reply-To: <20241128201027.10396-2-farbere@amazon.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241128_185906_671416_D3B6DFBF 
-X-CRM114-Status: GOOD (  36.58  )
+X-CRM114-CacheID: sfid-20241128_203121_989475_A33F4DF5 
+X-CRM114-Status: GOOD (  14.16  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,133 +92,174 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gRnJpLCBOb3YgMjksIDIwMjQgYXQgODo1NeKAr0FNIEd1byBSZW4gPGd1b3JlbkBrZXJuZWwu
-b3JnPiB3cm90ZToKPgo+IE9uIEZyaSwgTm92IDI5LCAyMDI0IGF0IDEyOjE54oCvQU0gQ29ub3Ig
-RG9vbGV5IDxjb25vckBrZXJuZWwub3JnPiB3cm90ZToKPiA+Cj4gPiBPbiBUaHUsIE5vdiAyOCwg
-MjAyNCBhdCAwMzo1MDowOVBNICswMTAwLCBBbGV4YW5kcmUgR2hpdGkgd3JvdGU6Cj4gPiA+IE9u
-IDI4LzExLzIwMjQgMTU6MTQsIENvbm9yIERvb2xleSB3cm90ZToKPiA+ID4gPiBPbiBUaHUsIE5v
-diAyOCwgMjAyNCBhdCAwMTo0MTozNlBNICswMDAwLCBXaWxsIERlYWNvbiB3cm90ZToKPiA+ID4g
-PiA+IE9uIFRodSwgTm92IDI4LCAyMDI0IGF0IDEyOjU2OjU1UE0gKzAwMDAsIENvbm9yIERvb2xl
-eSB3cm90ZToKPiA+ID4gPiA+ID4gT24gU3VuLCBOb3YgMDMsIDIwMjQgYXQgMDM6NTE6NTNQTSAr
-MDEwMCwgQWxleGFuZHJlIEdoaXRpIHdyb3RlOgo+ID4gPiA+ID4gPiA+IEluIG9yZGVyIHRvIHBy
-b2R1Y2UgYSBnZW5lcmljIGtlcm5lbCwgYSB1c2VyIGNhbiBzZWxlY3QKPiA+ID4gPiA+ID4gPiBD
-T05GSUdfQ09NQk9fU1BJTkxPQ0tTIHdoaWNoIHdpbGwgZmFsbGJhY2sgYXQgcnVudGltZSB0byB0
-aGUgdGlja2V0Cj4gPiA+ID4gPiA+ID4gc3BpbmxvY2sgaW1wbGVtZW50YXRpb24gaWYgWmFiaGEg
-b3IgWmljY3JzZSBhcmUgbm90IHByZXNlbnQuCj4gPiA+ID4gPiA+ID4KPiA+ID4gPiA+ID4gPiBO
-b3RlIHRoYXQgd2UgY2FuJ3QgdXNlIGFsdGVybmF0aXZlcyBoZXJlIGJlY2F1c2UgdGhlIGRpc2Nv
-dmVyeSBvZgo+ID4gPiA+ID4gPiA+IGV4dGVuc2lvbnMgaXMgZG9uZSB0b28gbGF0ZSBhbmQgd2Ug
-bmVlZCB0byBzdGFydCB3aXRoIHRoZSBxc3BpbmxvY2sKPiA+ID4gPiA+ID4gPiBpbXBsZW1lbnRh
-dGlvbiBiZWNhdXNlIHRoZSB0aWNrZXQgc3BpbmxvY2sgaW1wbGVtZW50YXRpb24gd291bGQgcG9s
-bHV0ZQo+ID4gPiA+ID4gPiA+IHRoZSBzcGlubG9jayB2YWx1ZSwgc28gbGV0J3MgdXNlIHN0YXRp
-YyBrZXlzLgo+ID4gPiA+ID4gPiA+Cj4gPiA+ID4gPiA+ID4gVGhpcyBpcyBsYXJnZWx5IGJhc2Vk
-IG9uIEd1bydzIHdvcmsgYW5kIExlb25hcmRvIHJldmlld3MgYXQgWzFdLgo+ID4gPiA+ID4gPiA+
-Cj4gPiA+ID4gPiA+ID4gTGluazogaHR0cHM6Ly9sb3JlLmtlcm5lbC5vcmcvbGludXgtcmlzY3Yv
-MjAyMzEyMjUxMjU4NDcuMjc3ODYzOC0xLWd1b3JlbkBrZXJuZWwub3JnLyBbMV0KPiA+ID4gPiA+
-ID4gPiBTaWduZWQtb2ZmLWJ5OiBHdW8gUmVuIDxndW9yZW5Aa2VybmVsLm9yZz4KPiA+ID4gPiA+
-ID4gPiBTaWduZWQtb2ZmLWJ5OiBBbGV4YW5kcmUgR2hpdGkgPGFsZXhnaGl0aUByaXZvc2luYy5j
-b20+Cj4gPiA+ID4gPiA+IFRoaXMgcGF0Y2ggKG5vdyBjb21taXQgYWI4MzY0N2ZhZGFlMiAoInJp
-c2N2OiBBZGQgcXNwaW5sb2NrIHN1cHBvcnQiKSkKPiA+ID4gPiA+ID4gYnJlYWtzIGJvb3Qgb24g
-cG9sYXJmaXJlIHNvYy4gSXQgZGllcyBiZWZvcmUgb3V0cHV0dGluZyBhbnl0aGluZyB0byB0aGUK
-PiA+ID4gPiA+ID4gY29uc29sZS4gTXkgLmNvbmZpZyBoYXM6Cj4gPiA+ID4gPiA+Cj4gPiA+ID4g
-PiA+ICMgQ09ORklHX1JJU0NWX1RJQ0tFVF9TUElOTE9DS1MgaXMgbm90IHNldAo+ID4gPiA+ID4g
-PiAjIENPTkZJR19SSVNDVl9RVUVVRURfU1BJTkxPQ0tTIGlzIG5vdCBzZXQKPiA+ID4gPiA+ID4g
-Q09ORklHX1JJU0NWX0NPTUJPX1NQSU5MT0NLUz15Cj4gPiA+ID4gPiBJIHBvaW50ZWQgb3V0IHNv
-bWUgb2YgdGhlIGZyYWdpbGl0eSBkdXJpbmcgcmV2aWV3Ogo+ID4gPiA+ID4KPiA+ID4gPiA+IGh0
-dHBzOi8vbG9yZS5rZXJuZWwub3JnL2FsbC8yMDI0MTExMTE2NDI1OS5HQTIwMDQyQHdpbGxpZS10
-aGUtdHJ1Y2svCj4gPiA+ID4gPgo+ID4gPiA+ID4gc28gSSdtIGtpbmRhIHN1cnByaXNlZCBpdCBn
-b3QgbWVyZ2VkIHRiaCA6Lwo+ID4gPiA+IE1heWJlIGl0IGNvdWxkIGJlIHJldmVydGVkIHJhdGhl
-ciB0aGFuIGhhdmluZyBhIGJyb2tlbiBib290IHdpdGggdGhlCj4gPiA+ID4gZGVmYXVsdCBzZXR0
-aW5ncyBpbiAtcmMxLgo+ID4gPgo+ID4gPgo+ID4gPiBObyBuZWVkIHRvIHJ1c2ggYmVmb3JlIHdl
-IGtub3cgd2hhdCdzIGhhcHBlbmluZyxJIGd1ZXNzIHlvdSBiaXNlY3RlZCB0byB0aGlzCj4gPiA+
-IGNvbW1pdCByaWdodD8KPiA+Cj4gPiBUaGUgc3ltcHRvbSBpcyBhIGZhaWx1cmUgdG8gYm9vdCwg
-d2l0aG91dCBhbnkgY29uc29sZSBvdXRwdXQsIG9mIGNvdXJzZQo+ID4gSSBiaXNlY3RlZCBpdCBi
-ZWZvcmUgYmxhbWluZyBzb21ldGhpbmcgc3BlY2lmaWMuIEJ1dCBJIGRvbid0IHRoaW5rIGl0IGlz
-Cj4gPiAicnVzaGluZyIgYXMgaGF2aW5nIC1yYzEgYnJva2VuIHdpdGggYW4gb3B0aW9uJ3MgZGVm
-YXVsdCBpcyBhIG1hc3NpdmUgcGFpbgo+ID4gaW4gdGhlIGFyc2Ugd2hlbiBpdCBjb21lcyB0byB0
-ZXN0aW5nLgo+ID4KPiA+ID4gSSBkb24ndCBoYXZlIHRoaXMgc29jLCBzbyBjYW4geW91IHByb3Zp
-ZGUgJHN0dmFsLyRzZXBjLyRzY2F1c2UsIGEgY29uZmlnLCBhCj4gPiA+IGtlcm5lbCwgYW55dGhp
-bmc/Cj4gPgo+ID4gSSBkb24ndCBoYXZlIHRoZSBmb3JtZXIgY29zIGl0IGRpZWQgaW1tZWRpYXRl
-bHkgb24gYm9vdC4gY29uZmlnIGlzCj4gPiBhdHRhY2hlZC4gSXQgcmVwcm9kdWNlcyBpbiBRRU1V
-IHNvIHlvdSBkb24ndCBuZWVkIGFueSBoYXJkd2FyZS4KPiBJZiBRRU1VIGNvdWxkIHJlcHJvZHVj
-ZSwgY291bGQgeW91IHByb3ZpZGUgYSBkbWVzZyBieSB0aGUgYmVsb3cgbWV0aG9kPwo+Cj4gUWVt
-dSBjbWQgYXBwZW5kOiAtcyAtUwo+IHJlZjogaHR0cHM6Ly9xZW11LXByb2plY3QuZ2l0bGFiLmlv
-L3FlbXUvc3lzdGVtL2dkYi5odG1sCj4KPiBDb25uZWN0IGdkYiBhbmQgaW4gY29uc29sZToKPiAx
-LiBmaWxlIHZtbGludXgKPiAyLiBzb3VyY2UgLi9Eb2N1bWVudGF0aW9uL2FkbWluLWd1aWRlL2tk
-dW1wL2dkYm1hY3Jvcy50eHQKPiAzLiBkbWVzZwo+Cj4gVGhlbiwgd2UgY291bGQgZ2V0IHRoZSBr
-ZXJuZWwncyBlYXJseSBib290IGxvZ3MgZnJvbSBtZW1vcnkuCkkndmUgcmVwcm9kdWNlZCBpdCBv
-biBxZW11LCB0aHggZm9yIHRoZSBjb25maWcuCgpSZWFkaW5nIHN5bWJvbHMgZnJvbSAuLi9idWls
-ZC1ydjY0bHA2NC92bWxpbnV4Li4uCihnZGIpIHRhciByZW06MTIzNApSZW1vdGUgZGVidWdnaW5n
-IHVzaW5nIDoxMjM0CnRpY2tldF9zcGluX2xvY2sgKGxvY2s9MHhmZmZmZmZmZjgxYjlhNWI4IDx0
-ZXh0X211dGV4PikgYXQKL2hvbWUvZ3VvcmVuL3NvdXJjZS9rZXJuZWwvbGludXgvaW5jbHVkZS9h
-c20tZ2VuZXJpYy90aWNrZXRfc3BpbmxvY2suaDo0OQo0OSAgICAgICAgICAgICAgYXRvbWljX2Nv
-bmRfcmVhZF9hY3F1aXJlKCZsb2NrLT52YWwsIHRpY2tldCA9PSAodTE2KVZBTCk7CihnZGIpIGJ0
-CiMwICB0aWNrZXRfc3Bpbl9sb2NrIChsb2NrPTB4ZmZmZmZmZmY4MWI5YTViOCA8dGV4dF9tdXRl
-eD4pIGF0Ci9ob21lL2d1b3Jlbi9zb3VyY2Uva2VybmVsL2xpbnV4L2luY2x1ZGUvYXNtLWdlbmVy
-aWMvdGlja2V0X3NwaW5sb2NrLmg6NDkKIzEgIGFyY2hfc3Bpbl9sb2NrIChsb2NrPTB4ZmZmZmZm
-ZmY4MWI5YTViOCA8dGV4dF9tdXRleD4pIGF0Ci9ob21lL2d1b3Jlbi9zb3VyY2Uva2VybmVsL2xp
-bnV4L2FyY2gvcmlzY3YvaW5jbHVkZS9hc20vc3BpbmxvY2suaDoyOAojMiAgZG9fcmF3X3NwaW5f
-bG9jayAobG9jaz1sb2NrQGVudHJ5PTB4ZmZmZmZmZmY4MWI5YTViOCA8dGV4dF9tdXRleD4pCmF0
-IC9ob21lL2d1b3Jlbi9zb3VyY2Uva2VybmVsL2xpbnV4L2tlcm5lbC9sb2NraW5nL3NwaW5sb2Nr
-X2RlYnVnLmM6MTE2CiMzICAweGZmZmZmZmZmODBiMmVhMGUgaW4gX19yYXdfc3Bpbl9sb2NrX2ly
-cXNhdmUKKGxvY2s9MHhmZmZmZmZmZjgxYjlhNWI4IDx0ZXh0X211dGV4PikgYXQKL2hvbWUvZ3Vv
-cmVuL3NvdXJjZS9rZXJuZWwvbGludXgvaW5jbHVkZS9saW51eC9zcGlubG9ja19hcGlfc21wLmg6
-MTExCiM0ICBfcmF3X3NwaW5fbG9ja19pcnFzYXZlIChsb2NrPWxvY2tAZW50cnk9MHhmZmZmZmZm
-ZjgxYjlhNWI4Cjx0ZXh0X211dGV4PikgYXQKL2hvbWUvZ3VvcmVuL3NvdXJjZS9rZXJuZWwvbGlu
-dXgva2VybmVsL2xvY2tpbmcvc3BpbmxvY2suYzoxNjIKIzUgIDB4ZmZmZmZmZmY4MGIyN2M1NCBp
-biBydF9tdXRleF9zbG93dHJ5bG9jawoobG9jaz0weGZmZmZmZmZmODFiOWE1YjggPHRleHRfbXV0
-ZXg+KSBhdAovaG9tZS9ndW9yZW4vc291cmNlL2tlcm5lbC9saW51eC9rZXJuZWwvbG9ja2luZy9y
-dG11dGV4LmM6MTM5MwojNiAgMHhmZmZmZmZmZjgwYjI5NWVhIGluIHJ0X211dGV4X3RyeV9hY3F1
-aXJlCihsb2NrPTB4ZmZmZmZmZmY4MWI5YTViOCA8dGV4dF9tdXRleD4pIGF0Ci9ob21lL2d1b3Jl
-bi9zb3VyY2Uva2VybmVsL2xpbnV4L2tlcm5lbC9sb2NraW5nL3J0bXV0ZXguYzozMTkKIzcgIF9f
-cnRfbXV0ZXhfbG9jayAoc3RhdGU9MiwgbG9jaz0weGZmZmZmZmZmODFiOWE1YjggPHRleHRfbXV0
-ZXg+KSBhdAovaG9tZS9ndW9yZW4vc291cmNlL2tlcm5lbC9saW51eC9rZXJuZWwvbG9ja2luZy9y
-dG11dGV4LmM6MTgwNQojOCAgX19tdXRleF9sb2NrX2NvbW1vbiAoaXA9MTg0NDY3NDQwNzE1NjIx
-MzUxNzAsIG5lc3RfbG9jaz0weDAsCnN1YmNsYXNzPTAsIHN0YXRlPTIsIGxvY2s9MHhmZmZmZmZm
-ZjgxYjlhNWI4IDx0ZXh0X211dGV4PikgYXQKL2hvbWUvZ3VvcmVuL3NvdXJjZS9rZXJuZWwvbGlu
-dXgva2VybmVsL2xvY2tpbmcvcnRtdXRleF9hcGkuYzo1MTgKIzkgIG11dGV4X2xvY2tfbmVzdGVk
-IChsb2NrPTB4ZmZmZmZmZmY4MWI5YTViOCA8dGV4dF9tdXRleD4sCnN1YmNsYXNzPXN1YmNsYXNz
-QGVudHJ5PTApIGF0Ci9ob21lL2d1b3Jlbi9zb3VyY2Uva2VybmVsL2xpbnV4L2tlcm5lbC9sb2Nr
-aW5nL3J0bXV0ZXhfYXBpLmM6NTI5CiMxMCAweGZmZmZmZmZmODAwMTA2ODIgaW4gYXJjaF9qdW1w
-X2xhYmVsX3RyYW5zZm9ybV9xdWV1ZQooZW50cnk9ZW50cnlAZW50cnk9MHhmZmZmZmZmZjgxNThk
-YTI4LCB0eXBlPTxvcHRpbWl6ZWQgb3V0PikgYXQKL2hvbWUvZ3VvcmVuL3NvdXJjZS9rZXJuZWwv
-bGludXgvYXJjaC9yaXNjdi9rZXJuZWwvanVtcF9sYWJlbC5jOjM5CiMxMSAweGZmZmZmZmZmODAx
-ZDg2YjIgaW4gX19qdW1wX2xhYmVsX3VwZGF0ZQooa2V5PWtleUBlbnRyeT0weGZmZmZmZmZmODFh
-MWFiYjAgPHFzcGlubG9ja19rZXk+LAplbnRyeT0weGZmZmZmZmZmODE1OGRhMjgsIHN0b3A9c3Rv
-cEBlbnRyeT0weGZmZmZmZmZmODE1YTVlNjgKPF9fdHJhY2Vwb2ludF9wdHJfaW5pdGNhbGxfZmlu
-aXNoPiwgaW5pdD1pbml0QGVudHJ5PXRydWUpCiAgICBhdCAvaG9tZS9ndW9yZW4vc291cmNlL2tl
-cm5lbC9saW51eC9rZXJuZWwvanVtcF9sYWJlbC5jOjUxMwojMTIgMHhmZmZmZmZmZjgwMWQ4OTBj
-IGluIGp1bXBfbGFiZWxfdXBkYXRlCihrZXk9a2V5QGVudHJ5PTB4ZmZmZmZmZmY4MWExYWJiMCA8
-cXNwaW5sb2NrX2tleT4pIGF0Ci9ob21lL2d1b3Jlbi9zb3VyY2Uva2VybmVsL2xpbnV4L2tlcm5l
-bC9qdW1wX2xhYmVsLmM6OTIwCiMxMyAweGZmZmZmZmZmODAxZDhiZTggaW4gc3RhdGljX2tleV9k
-aXNhYmxlX2NwdXNsb2NrZWQKKGtleT1rZXlAZW50cnk9MHhmZmZmZmZmZjgxYTFhYmIwIDxxc3Bp
-bmxvY2tfa2V5PikgYXQKL2hvbWUvZ3VvcmVuL3NvdXJjZS9rZXJuZWwvbGludXgva2VybmVsL2p1
-bXBfbGFiZWwuYzoyNDAKIzE0IDB4ZmZmZmZmZmY4MDFkOGMwNCBpbiBzdGF0aWNfa2V5X2Rpc2Fi
-bGUKKGtleT1rZXlAZW50cnk9MHhmZmZmZmZmZjgxYTFhYmIwIDxxc3BpbmxvY2tfa2V5PikgYXQK
-L2hvbWUvZ3VvcmVuL3NvdXJjZS9rZXJuZWwvbGludXgva2VybmVsL2p1bXBfbGFiZWwuYzoyNDgK
-IzE1IDB4ZmZmZmZmZmY4MGMwNGExYSBpbiByaXNjdl9zcGlubG9ja19pbml0ICgpIGF0Ci9ob21l
-L2d1b3Jlbi9zb3VyY2Uva2VybmVsL2xpbnV4L2FyY2gvcmlzY3Yva2VybmVsL3NldHVwLmM6Mjcx
-CiMxNiBzZXR1cF9hcmNoIChjbWRsaW5lX3A9Y21kbGluZV9wQGVudHJ5PTB4ZmZmZmZmZmY4MWEw
-M2U4OCkgYXQKL2hvbWUvZ3VvcmVuL3NvdXJjZS9rZXJuZWwvbGludXgvYXJjaC9yaXNjdi9rZXJu
-ZWwvc2V0dXAuYzozMzYKIzE3IDB4ZmZmZmZmZmY4MGMwMDdhMiBpbiBzdGFydF9rZXJuZWwgKCkg
-YXQKL2hvbWUvZ3VvcmVuL3NvdXJjZS9rZXJuZWwvbGludXgvaW5pdC9tYWluLmM6OTIyCiMxOCAw
-eGZmZmZmZmZmODAwMDExNjQgaW4gX3N0YXJ0X2tlcm5lbCAoKQpCYWNrdHJhY2Ugc3RvcHBlZDog
-ZnJhbWUgZGlkIG5vdCBzYXZlIHRoZSBQQwooZ2RiKSBwIC94IGxvY2sKJDEgPSAweGZmZmZmZmZm
-ODFiOWE1YjgKKGdkYikgcCAveCAqbG9jawokMiA9IHt7dmFsID0ge2NvdW50ZXIgPSAweDIwMDAw
-fSwge2xvY2tlZCA9IDB4MCwgcGVuZGluZyA9IDB4MH0sCntsb2NrZWRfcGVuZGluZyA9IDB4MCwg
-dGFpbCA9IDB4Mn19fQoKPgo+ID4KPiA+ID4gRG9lcyB0aGUgcG9sYXJmaXJlIHNvYyBwcm92aWRl
-IFppY2Nyc2U/Cj4gPgo+ID4gSSBkb24ndCB0aGluayB0aGF0IGlzIHJlbGV2YW50IGJlY2F1c2Ug
-emljY3JzZSBpcyBub3QgbGlzdGVkIGluIHRoZSBkdHMsCj4gPiBzbyB0aGUga2VybmVsIHNob3Vs
-ZCBub3QgYmUgYXNzdW1pbmcgdGhhdCBMUi9TQyBoYXMgYSBmb3J3YXJkIHByb2dyZXNzCj4gPiBn
-dWFyYW50ZWUuIEl0J3Mgbm90IGV2ZW4gZ2V0dGluZyBhcyBmYXIgYXMgcmlzY3Zfc3BpbmxvY2tf
-aW5pdCgpIGdpdmVuCj4gPiBzZXZlcmFsIHRoaW5ncyBiZWZvcmUgdGhhdCBzaG91bGQgYmUgZW1p
-dHRpbmcgbG9ncywgc28gaXQgZG9lc24ndCBldmVuCj4gPiBnZXQgdG8gbWFrZSBhbnkgZGVjaXNp
-b25zIGFib3V0IFppY2Nyc2UuCj4KPgo+Cj4gLS0KPiBCZXN0IFJlZ2FyZHMKPiAgR3VvIFJlbgoK
-CgotLSAKQmVzdCBSZWdhcmRzCiBHdW8gUmVuCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZA
-bGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xp
-c3RpbmZvL2xpbnV4LXJpc2N2Cg==
+Hi Eliav,
+
+kernel test robot noticed the following build errors:
+
+[auto build test ERROR on powerpc/next]
+[also build test ERROR on powerpc/fixes tip/irq/core arm64/for-next/core linus/master v6.12 next-20241128]
+[If your patch is applied to the wrong git tree, kindly drop us a note.
+And when submitting patch, we suggest to use '--base' as documented in
+https://git-scm.com/docs/git-format-patch#_base_tree_information]
+
+url:    https://github.com/intel-lab-lkp/linux/commits/Eliav-Farber/kexec-Consolidate-machine_kexec_mask_interrupts-implementation/20241129-041259
+base:   https://git.kernel.org/pub/scm/linux/kernel/git/powerpc/linux.git next
+patch link:    https://lore.kernel.org/r/20241128201027.10396-2-farbere%40amazon.com
+patch subject: [PATCH v3 1/2] kexec: Consolidate machine_kexec_mask_interrupts() implementation
+config: x86_64-kexec (https://download.01.org/0day-ci/archive/20241129/202411291225.18ZMjZcQ-lkp@intel.com/config)
+compiler: clang version 19.1.3 (https://github.com/llvm/llvm-project ab51eccf88f5321e7c60591c5546b254b6afab99)
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20241129/202411291225.18ZMjZcQ-lkp@intel.com/reproduce)
+
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202411291225.18ZMjZcQ-lkp@intel.com/
+
+All errors (new ones prefixed by >>):
+
+   In file included from kernel/kexec_core.c:9:
+   In file included from include/linux/btf.h:8:
+   In file included from include/linux/bpfptr.h:6:
+   In file included from include/linux/mm.h:2223:
+   include/linux/vmstat.h:504:43: warning: arithmetic between different enumeration types ('enum zone_stat_item' and 'enum numa_stat_item') [-Wenum-enum-conversion]
+     504 |         return vmstat_text[NR_VM_ZONE_STAT_ITEMS +
+         |                            ~~~~~~~~~~~~~~~~~~~~~ ^
+     505 |                            item];
+         |                            ~~~~
+   include/linux/vmstat.h:511:43: warning: arithmetic between different enumeration types ('enum zone_stat_item' and 'enum numa_stat_item') [-Wenum-enum-conversion]
+     511 |         return vmstat_text[NR_VM_ZONE_STAT_ITEMS +
+         |                            ~~~~~~~~~~~~~~~~~~~~~ ^
+     512 |                            NR_VM_NUMA_EVENT_ITEMS +
+         |                            ~~~~~~~~~~~~~~~~~~~~~~
+   include/linux/vmstat.h:518:36: warning: arithmetic between different enumeration types ('enum node_stat_item' and 'enum lru_list') [-Wenum-enum-conversion]
+     518 |         return node_stat_name(NR_LRU_BASE + lru) + 3; // skip "nr_"
+         |                               ~~~~~~~~~~~ ^ ~~~
+   include/linux/vmstat.h:524:43: warning: arithmetic between different enumeration types ('enum zone_stat_item' and 'enum numa_stat_item') [-Wenum-enum-conversion]
+     524 |         return vmstat_text[NR_VM_ZONE_STAT_ITEMS +
+         |                            ~~~~~~~~~~~~~~~~~~~~~ ^
+     525 |                            NR_VM_NUMA_EVENT_ITEMS +
+         |                            ~~~~~~~~~~~~~~~~~~~~~~
+>> kernel/kexec_core.c:1085:10: error: call to undeclared function 'irq_desc_get_chip'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+    1085 |                 chip = irq_desc_get_chip(desc);
+         |                        ^
+>> kernel/kexec_core.c:1085:8: error: incompatible integer to pointer conversion assigning to 'struct irq_chip *' from 'int' [-Wint-conversion]
+    1085 |                 chip = irq_desc_get_chip(desc);
+         |                      ^ ~~~~~~~~~~~~~~~~~~~~~~~
+>> kernel/kexec_core.c:1097:24: error: incomplete definition of type 'struct irq_chip'
+    1097 |                 if (check_eoi && chip->irq_eoi && irqd_irq_inprogress(&desc->irq_data))
+         |                                  ~~~~^
+   kernel/kexec_core.c:1082:10: note: forward declaration of 'struct irq_chip'
+    1082 |                 struct irq_chip *chip;
+         |                        ^
+>> kernel/kexec_core.c:1097:37: error: call to undeclared function 'irqd_irq_inprogress'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+    1097 |                 if (check_eoi && chip->irq_eoi && irqd_irq_inprogress(&desc->irq_data))
+         |                                                   ^
+>> kernel/kexec_core.c:1097:62: error: incomplete definition of type 'struct irq_desc'
+    1097 |                 if (check_eoi && chip->irq_eoi && irqd_irq_inprogress(&desc->irq_data))
+         |                                                                        ~~~~^
+   include/linux/irqnr.h:10:15: note: forward declaration of 'struct irq_desc'
+      10 | extern struct irq_desc *irq_to_desc(unsigned int irq);
+         |               ^
+   kernel/kexec_core.c:1098:8: error: incomplete definition of type 'struct irq_chip'
+    1098 |                         chip->irq_eoi(&desc->irq_data);
+         |                         ~~~~^
+   kernel/kexec_core.c:1082:10: note: forward declaration of 'struct irq_chip'
+    1082 |                 struct irq_chip *chip;
+         |                        ^
+   kernel/kexec_core.c:1098:23: error: incomplete definition of type 'struct irq_desc'
+    1098 |                         chip->irq_eoi(&desc->irq_data);
+         |                                        ~~~~^
+   include/linux/irqnr.h:10:15: note: forward declaration of 'struct irq_desc'
+      10 | extern struct irq_desc *irq_to_desc(unsigned int irq);
+         |               ^
+   kernel/kexec_core.c:1100:11: error: incomplete definition of type 'struct irq_chip'
+    1100 |                 if (chip->irq_mask)
+         |                     ~~~~^
+   kernel/kexec_core.c:1082:10: note: forward declaration of 'struct irq_chip'
+    1082 |                 struct irq_chip *chip;
+         |                        ^
+   kernel/kexec_core.c:1101:8: error: incomplete definition of type 'struct irq_chip'
+    1101 |                         chip->irq_mask(&desc->irq_data);
+         |                         ~~~~^
+   kernel/kexec_core.c:1082:10: note: forward declaration of 'struct irq_chip'
+    1082 |                 struct irq_chip *chip;
+         |                        ^
+   kernel/kexec_core.c:1101:24: error: incomplete definition of type 'struct irq_desc'
+    1101 |                         chip->irq_mask(&desc->irq_data);
+         |                                         ~~~~^
+   include/linux/irqnr.h:10:15: note: forward declaration of 'struct irq_desc'
+      10 | extern struct irq_desc *irq_to_desc(unsigned int irq);
+         |               ^
+   kernel/kexec_core.c:1103:11: error: incomplete definition of type 'struct irq_chip'
+    1103 |                 if (chip->irq_disable && !irqd_irq_disabled(&desc->irq_data))
+         |                     ~~~~^
+   kernel/kexec_core.c:1082:10: note: forward declaration of 'struct irq_chip'
+    1082 |                 struct irq_chip *chip;
+         |                        ^
+   kernel/kexec_core.c:1103:29: error: call to undeclared function 'irqd_irq_disabled'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+    1103 |                 if (chip->irq_disable && !irqd_irq_disabled(&desc->irq_data))
+         |                                           ^
+   kernel/kexec_core.c:1103:29: note: did you mean 'arch_irqs_disabled'?
+   arch/x86/include/asm/irqflags.h:145:28: note: 'arch_irqs_disabled' declared here
+     145 | static __always_inline int arch_irqs_disabled(void)
+         |                            ^
+   kernel/kexec_core.c:1103:52: error: incomplete definition of type 'struct irq_desc'
+    1103 |                 if (chip->irq_disable && !irqd_irq_disabled(&desc->irq_data))
+         |                                                              ~~~~^
+   include/linux/irqnr.h:10:15: note: forward declaration of 'struct irq_desc'
+      10 | extern struct irq_desc *irq_to_desc(unsigned int irq);
+         |               ^
+   kernel/kexec_core.c:1104:8: error: incomplete definition of type 'struct irq_chip'
+    1104 |                         chip->irq_disable(&desc->irq_data);
+         |                         ~~~~^
+   kernel/kexec_core.c:1082:10: note: forward declaration of 'struct irq_chip'
+    1082 |                 struct irq_chip *chip;
+         |                        ^
+   kernel/kexec_core.c:1104:27: error: incomplete definition of type 'struct irq_desc'
+    1104 |                         chip->irq_disable(&desc->irq_data);
+         |                                            ~~~~^
+   include/linux/irqnr.h:10:15: note: forward declaration of 'struct irq_desc'
+      10 | extern struct irq_desc *irq_to_desc(unsigned int irq);
+         |               ^
+   4 warnings and 15 errors generated.
+
+
+vim +/irq_desc_get_chip +1085 kernel/kexec_core.c
+
+  1075	
+  1076	void machine_kexec_mask_interrupts(void)
+  1077	{
+  1078		unsigned int i;
+  1079		struct irq_desc *desc;
+  1080	
+  1081		for_each_irq_desc(i, desc) {
+  1082			struct irq_chip *chip;
+  1083			int check_eoi = 1;
+  1084	
+> 1085			chip = irq_desc_get_chip(desc);
+  1086			if (!chip)
+  1087				continue;
+  1088	
+  1089			if (IS_ENABLED(CONFIG_ARM64)) {
+  1090				/*
+  1091				 * First try to remove the active state. If this fails, try to EOI the
+  1092				 * interrupt.
+  1093				 */
+  1094				check_eoi = irq_set_irqchip_state(i, IRQCHIP_STATE_ACTIVE, false);
+  1095			}
+  1096	
+> 1097			if (check_eoi && chip->irq_eoi && irqd_irq_inprogress(&desc->irq_data))
+
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
