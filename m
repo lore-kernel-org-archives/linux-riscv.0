@@ -4,99 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F1E2D729EC
-	for <linux-riscv@archiver.kernel.org>; Fri, 29 Nov 2024 16:37:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C3BFED729FE
+	for <linux-riscv@archiver.kernel.org>; Fri, 29 Nov 2024 19:50:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Qifxkf9BKNVi1ZpdpbHlftVRRWoLtzrNXnMcxNQb4hI=; b=IqSDs6FcW4zTy+
-	O4xuwKq/7nENWeJ1BkKQhZAL/UFEh7n+CtNBMvwdLwWRSRu6ij3hhjEr2I8l10BoBcyqJ8VOK7sn0
-	jKODTFOkZNSzt99QA/1L4/ou8OxlFhspzUV90rIGXMkL/0AOAZ/lx4SfEulLm1CV7oCIfDVKK6awu
-	xeldlaeVdAUIUf1dJbLy2vGfzk8NhqS/lP+8Mf/ZkNAt56v1lf2JuBAxWheiyGoMIzk32Ui8o2cD3
-	hYeVIZFQjE8dBdQXjs+s/gSEEyMelETXzA8ytOiHNMgO9poeGMlYI26Ykt93PYQkDLtzf5QB+2qzC
-	ZfrXHiu97VXX4EsO3eLg==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
+	List-Owner; bh=p7CuQCMl2dgsoZb9tOQQuBVVUT/Nz8+8FsqloobcK9o=; b=s4dmTpW8VB5dvi
+	BrALl733LTfG/2j5i6oD1aQsHzxwdBiNKHXYQxfTR/P1iJU1HUgfNF+YJuj8VtfXOF4SoYUWzLOWc
+	1ErcV0dHt3oOESCjdPSX9sPm+1TwyWVTq/ysiPa7t5Aoij1gp15EcSsgTBNyLSsKHFyvQWVfbUN9Q
+	6LsebhDi8gv8qi+RtEARYCRIIPblfcI0NjPUIiq3LsbCEmopbEODBzlZWN6wpo2zeLR5YVpryD9q8
+	tDCJ/10o8zSQAPuDVzwwhQyiEzUnJMPRJ/H90qjKgdTE6flkcfa0J9ERfsqdAYMIJQBZ+3bWtZ8OG
+	BQ1xbMIcu/6B45sXZTCw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tH3zT-00000000d7t-0zhO;
-	Fri, 29 Nov 2024 16:37:11 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1tH70A-00000000rmy-2cgV;
+	Fri, 29 Nov 2024 19:50:06 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tH2yu-00000000SaE-0rKO
-	for linux-riscv@bombadil.infradead.org;
-	Fri, 29 Nov 2024 15:32:32 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=WUYYF+Y2GBUI83uYWpw63SBwlZnL7LO43+Hrf6Bj5/4=; b=nj52WVQNWkxLjfsL04KbZpwUZz
-	G5lPUxwr+5a7g6jEXLGAL0LYSz01wgouiIajrgoC5gLO59rrepl6dxcu1wTqTHif5TTK6qFTbM0Zt
-	3hhUFcFrHnQUcgVMT8OcefKajGkMz6yJ+1kH0VPQog1/61l+8Jv0Os7zUaT2LSlJO3e2JCWNf73A/
-	b9nu5J7Bh0xk/QzdLKD1j1VcjXDlTldeg8H6inDznHjZgaKWkQeYUS6h1HDV+IjhQikXO/3H2gWTs
-	IqOx7BDtha3tWvEuiHrtY2Qrjd9VeYk0+RXjOcDIlfd4q+P/8CT7HKSCFZ4AP/zYY8fD5KbxmnMf3
-	PguDBXLw==;
-Received: from mgamail.intel.com ([192.198.163.12])
-	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tH2yq-00000001l2n-17uk
+	id 1tH708-00000000rmS-0P5M
 	for linux-riscv@lists.infradead.org;
-	Fri, 29 Nov 2024 15:32:30 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1732894348; x=1764430348;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=VORdR2oTefI9Q07TPIcBdkIpcos+5okYlhQ1JFze8e4=;
-  b=QB/MWSZ+bjB0D5R5ResebENr5ko++Zgqeuuinir8W7YLINa7gSSjNcJr
-   nGDkPS9bPtj4EI7RRGpMbQdvB5ND3LK/ztazU/w61HO7gpsoLFS5TNU7p
-   WiKJZakL4xupzcxBspZsZ7ku9jLsUdddV1DVdsZPdIs7jYGkKiZFMVViG
-   Rt3ZUa1X25X6dzm1gwIhrDOBzTliXX38Aszwcq3miPMFRgUAO1LeDnPim
-   3UnyURQnyKzUMRlONAHqA61Adyxq96FzCymbh3e8LeseRmMhRwDdQSx18
-   o61pVeY2EhPjAPAmYr5qDAtQ7MojflanbUPFwuqerRVzc4RywqjW+Sbct
-   A==;
-X-CSE-ConnectionGUID: 2O+qfhkCTJyEyPWLrIHiyQ==
-X-CSE-MsgGUID: mqtsBWYTQCWmjwGXHvl8bA==
-X-IronPort-AV: E=McAfee;i="6700,10204,11271"; a="37066651"
-X-IronPort-AV: E=Sophos;i="6.12,195,1728975600"; 
-   d="scan'208";a="37066651"
-Received: from orviesa002.jf.intel.com ([10.64.159.142])
-  by fmvoesa106.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 29 Nov 2024 07:32:19 -0800
-X-CSE-ConnectionGUID: PihCXGuDQu6h1LwuDv3v0A==
-X-CSE-MsgGUID: MmX9NisoSsWTwkpO78HDdg==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.12,195,1728975600"; 
-   d="scan'208";a="123379883"
-Received: from lkp-server01.sh.intel.com (HELO 5e2646291792) ([10.239.97.150])
-  by orviesa002.jf.intel.com with ESMTP; 29 Nov 2024 07:32:16 -0800
-Received: from kbuild by 5e2646291792 with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1tH2yb-0000SV-12;
-	Fri, 29 Nov 2024 15:32:13 +0000
-Date: Fri, 29 Nov 2024 23:31:50 +0800
-From: kernel test robot <lkp@intel.com>
-To: Haylen Chu <heylenay@4d2.org>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Haylen Chu <heylenay@outlook.com>
-Cc: oe-kbuild-all@lists.linux.dev, linux-riscv@lists.infradead.org,
-	linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, Inochi Amaoto <inochiama@outlook.com>,
-	Chen Wang <unicornxdotw@foxmail.com>,
-	Jisheng Zhang <jszhang@kernel.org>
-Subject: Re: [PATCH v3 3/3] clk: spacemit: Add clock support for Spacemit K1
- SoC
-Message-ID: <202411292351.6EVdr1rF-lkp@intel.com>
-References: <20241126143125.9980-7-heylenay@4d2.org>
+	Fri, 29 Nov 2024 19:50:05 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 2C8BC5C5D39;
+	Fri, 29 Nov 2024 19:49:19 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C627EC4CECF;
+	Fri, 29 Nov 2024 19:50:01 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1732909802;
+	bh=oRzBt4nPMu99Ci+wT4DlAwimuDa54cGJKx/M3usRIKg=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:From;
+	b=pub/LeizZgMYiJGOjc4mtj9HeGJ2vGWzjTJP1QZvQTg8T3Wb0tTXOhsLsqHttqRI9
+	 9AaEtGxfrs3/6KSj26ZNjKN/e9IiAFlAxWt1LBaCUCHTHrO/2LAYmZ4XrPrWjchmt5
+	 ljwlc4w2cWTwHGlEmHIaX5rkIbp0hAzEWNsaWkY4vBAjfBmjgWV+jukztINfZFFUfX
+	 r4I6K887CdLk2W3z9l6tyLI1dH+qrxvUxUYdnmjmTJzQvAIoxZOBFFwVFgH/bSC/2p
+	 /h2WBlKtTJA5o+4KkXN/7m3aXIyezj0WHy0zB+R0lLMvcpm3dNdwk3sRlhOJHq28Nd
+	 uzqIOaJXt8j0Q==
+Date: Fri, 29 Nov 2024 13:50:00 -0600
+From: Bjorn Helgaas <helgaas@kernel.org>
+To: Chen Wang <unicorn_wang@outlook.com>
+Cc: kw@linux.com, u.kleine-koenig@baylibre.com, aou@eecs.berkeley.edu,
+	arnd@arndb.de, bhelgaas@google.com, conor+dt@kernel.org,
+	guoren@kernel.org, inochiama@outlook.com, krzk+dt@kernel.org,
+	lee@kernel.org, lpieralisi@kernel.org,
+	manivannan.sadhasivam@linaro.org, palmer@dabbelt.com,
+	paul.walmsley@sifive.com, pbrobinson@gmail.com, robh@kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-pci@vger.kernel.org, linux-riscv@lists.infradead.org,
+	chao.wei@sophgo.com, xiaoguang.xing@sophgo.com,
+	fengchun.li@sophgo.com
+Subject: Re: [PATCH 2/5] PCI: sg2042: Add Sophgo SG2042 PCIe driver
+Message-ID: <20241129195000.GA2770247@bhelgaas>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20241126143125.9980-7-heylenay@4d2.org>
+In-Reply-To: <MAXPR01MB3984C307B163E615811A25AAFE2A2@MAXPR01MB3984.INDPRD01.PROD.OUTLOOK.COM>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241129_153228_750685_79BDF495 
-X-CRM114-Status: UNSURE (   9.35  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241129_115004_222176_98EEA7B4 
+X-CRM114-Status: GOOD (  23.75  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,47 +74,75 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Haylen,
-
-kernel test robot noticed the following build errors:
-
-[auto build test ERROR on 2d5404caa8c7bb5c4e0435f94b28834ae5456623]
-
-url:    https://github.com/intel-lab-lkp/linux/commits/Haylen-Chu/dt-bindings-clock-spacemit-Add-clock-controllers-of-Spacemit-K1-SoC/20241128-101248
-base:   2d5404caa8c7bb5c4e0435f94b28834ae5456623
-patch link:    https://lore.kernel.org/r/20241126143125.9980-7-heylenay%404d2.org
-patch subject: [PATCH v3 3/3] clk: spacemit: Add clock support for Spacemit K1 SoC
-config: parisc-allmodconfig (https://download.01.org/0day-ci/archive/20241129/202411292351.6EVdr1rF-lkp@intel.com/config)
-compiler: hppa-linux-gcc (GCC) 14.2.0
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20241129/202411292351.6EVdr1rF-lkp@intel.com/reproduce)
-
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202411292351.6EVdr1rF-lkp@intel.com/
-
-All errors (new ones prefixed by >>, old ones prefixed by <<):
-
-ERROR: modpost: missing MODULE_LICENSE() in drivers/clk/spacemit/ccu_pll.o
-WARNING: modpost: missing MODULE_DESCRIPTION() in drivers/clk/spacemit/ccu_pll.o
-ERROR: modpost: missing MODULE_LICENSE() in drivers/clk/spacemit/ccu_mix.o
-WARNING: modpost: missing MODULE_DESCRIPTION() in drivers/clk/spacemit/ccu_mix.o
-ERROR: modpost: missing MODULE_LICENSE() in drivers/clk/spacemit/ccu_ddn.o
-WARNING: modpost: missing MODULE_DESCRIPTION() in drivers/clk/spacemit/ccu_ddn.o
->> ERROR: modpost: "spacemit_ccu_mix_ops" [drivers/clk/spacemit/ccu-k1.ko] undefined!
->> ERROR: modpost: "spacemit_ccu_ddn_ops" [drivers/clk/spacemit/ccu-k1.ko] undefined!
->> ERROR: modpost: "spacemit_ccu_pll_ops" [drivers/clk/spacemit/ccu-k1.ko] undefined!
-
--- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gRnJpLCBOb3YgMjksIDIwMjQgYXQgMDU6NTE6MzlQTSArMDgwMCwgQ2hlbiBXYW5nIHdyb3Rl
+Ogo+IE9uIDIwMjQvMTEvMTMgNToyMCwgQmpvcm4gSGVsZ2FhcyB3cm90ZToKPiA+IE9uIE1vbiwg
+Tm92IDExLCAyMDI0IGF0IDAxOjU5OjU2UE0gKzA4MDAsIENoZW4gV2FuZyB3cm90ZToKPiA+ID4g
+RnJvbTogQ2hlbiBXYW5nIDx1bmljb3JuX3dhbmdAb3V0bG9vay5jb20+Cj4gPiA+IAo+ID4gPiBB
+ZGQgc3VwcG9ydCBmb3IgUENJZSBjb250cm9sbGVyIGluIFNHMjA0MiBTb0MuIFRoZSBjb250cm9s
+bGVyCj4gPiA+IHVzZXMgdGhlIENhZGVuY2UgUENJZSBjb3JlIHByb2dyYW1tZWQgYnkgcGNpZS1j
+YWRlbmNlKi5jLiBUaGUKPiA+ID4gUENJZSBjb250cm9sbGVyIHdpbGwgd29yayBpbiBob3N0IG1v
+ZGUgb25seS4KPiA+ID4gKysrIGIvZHJpdmVycy9wY2kvY29udHJvbGxlci9jYWRlbmNlL0tjb25m
+aWcKPiA+ID4gQEAgLTY3LDQgKzY3LDE1IEBAIGNvbmZpZyBQQ0lfSjcyMUVfRVAKPiA+ID4gICAJ
+ICBTYXkgWSBoZXJlIGlmIHlvdSB3YW50IHRvIHN1cHBvcnQgdGhlIFRJIEo3MjFFIFBDSWUgcGxh
+dGZvcm0KPiA+ID4gICAJICBjb250cm9sbGVyIGluIGVuZHBvaW50IG1vZGUuIFRJIEo3MjFFIFBD
+SWUgY29udHJvbGxlciB1c2VzIENhZGVuY2UgUENJZQo+ID4gPiAgIAkgIGNvcmUuCj4gPiA+ICsK
+PiA+ID4gK2NvbmZpZyBQQ0lFX1NHMjA0Mgo+ID4gPiArCWJvb2wgIlNvcGhnbyBTRzIwNDIgUENJ
+ZSBjb250cm9sbGVyIChob3N0IG1vZGUpIgo+ID4gPiArCWRlcGVuZHMgb24gQVJDSF9TT1BIR08g
+fHwgQ09NUElMRV9URVNUCj4gPiA+ICsJZGVwZW5kcyBvbiBPRgo+ID4gPiArCXNlbGVjdCBQQ0lF
+X0NBREVOQ0VfSE9TVAo+ID4gPiArCWhlbHAKPiA+ID4gKwkgIFNheSBZIGhlcmUgaWYgeW91IHdh
+bnQgdG8gc3VwcG9ydCB0aGUgU29waGdvIFNHMjA0MiBQQ0llIHBsYXRmb3JtCj4gPiA+ICsJICBj
+b250cm9sbGVyIGluIGhvc3QgbW9kZS4gU29waGdvIFNHMjA0MiBQQ0llIGNvbnRyb2xsZXIgdXNl
+cyBDYWRlbmNlCj4gPiA+ICsJICBQQ0llIGNvcmUuCj4gPgo+ID4gUmVvcmRlciB0byBrZWVwIHRo
+ZXNlIG1lbnUgaXRlbXMgaW4gYWxwaGFiZXRpY2FsIG9yZGVyIGJ5IHZlbmRvci4KPiAKPiBTb3Jy
+eSwgSSBkb24ndCB1bmRlcnN0YW5kIHlvdXIgcXVlc3Rpb24uIEkgdGhpbmsgdGhlIG1lbnUgaXRl
+bXMgaW4gdGhpcwo+IEtjb25maWcgZmlsZSBhcmUgYWxyZWFkeSBzb3J0ZWQgYWxwaGFiZXRpY2Fs
+bHkuCgpIZXJlJ3Mgd2hhdCBtZW51Y29uZmlnIGxvb2tzIGxpa2UgYWZ0ZXIgdGhpcyBwYXRjaDoK
+CiAgWypdIENhZGVuY2UgcGxhdGZvcm0gUENJZSBjb250cm9sbGVyIChob3N0IG1vZGUpCiAgWypd
+IENhZGVuY2UgcGxhdGZvcm0gUENJZSBjb250cm9sbGVyIChlbmRwb2ludCBtb2RlKQogIFsqXSBU
+SSBKNzIxRSBQQ0llIGNvbnRyb2xsZXIgKGhvc3QgbW9kZSkKICBbKl0gVEkgSjcyMUUgUENJZSBj
+b250cm9sbGVyIChlbmRwb2ludCBtb2RlKQogIFsgXSBTb3BoZ28gU0cyMDQyIFBDSWUgY29udHJv
+bGxlciAoaG9zdCBtb2RlKSAoTkVXKQoKIlNvcGhnbyIgc29ydHMgKmJlZm9yZSogIlRJIi4KCj4g
+PiA+ICsJaWYgKHBjaWUtPmxpbmtfaWQgPT0gMSkgewo+ID4gPiArCQlyZWdtYXBfd3JpdGUocGNp
+ZS0+c3lzY29uLCBSRUdfTElOSzFfTVNJX0FERFJfTE9XLAo+ID4gPiArCQkJICAgICBsb3dlcl8z
+Ml9iaXRzKHBjaWUtPm1zaV9waHlzKSk7Cj4gPiA+ICsJCXJlZ21hcF93cml0ZShwY2llLT5zeXNj
+b24sIFJFR19MSU5LMV9NU0lfQUREUl9ISUdILAo+ID4gPiArCQkJICAgICB1cHBlcl8zMl9iaXRz
+KHBjaWUtPm1zaV9waHlzKSk7Cj4gPiA+ICsKPiA+ID4gKwkJcmVnbWFwX3JlYWQocGNpZS0+c3lz
+Y29uLCBSRUdfTElOSzFfTVNJX0FERFJfU0laRSwgJnZhbHVlKTsKPiA+ID4gKwkJdmFsdWUgPSAo
+dmFsdWUgJiBSRUdfTElOSzFfTVNJX0FERFJfU0laRV9NQVNLKSB8IE1BWF9NU0lfSVJRUzsKPiA+
+ID4gKwkJcmVnbWFwX3dyaXRlKHBjaWUtPnN5c2NvbiwgUkVHX0xJTksxX01TSV9BRERSX1NJWkUs
+IHZhbHVlKTsKPiA+ID4gKwl9IGVsc2Ugewo+ID4gPiArCQlyZWdtYXBfd3JpdGUocGNpZS0+c3lz
+Y29uLCBSRUdfTElOSzBfTVNJX0FERFJfTE9XLAo+ID4gPiArCQkJICAgICBsb3dlcl8zMl9iaXRz
+KHBjaWUtPm1zaV9waHlzKSk7Cj4gPiA+ICsJCXJlZ21hcF93cml0ZShwY2llLT5zeXNjb24sIFJF
+R19MSU5LMF9NU0lfQUREUl9ISUdILAo+ID4gPiArCQkJICAgICB1cHBlcl8zMl9iaXRzKHBjaWUt
+Pm1zaV9waHlzKSk7Cj4gPiA+ICsKPiA+ID4gKwkJcmVnbWFwX3JlYWQocGNpZS0+c3lzY29uLCBS
+RUdfTElOSzBfTVNJX0FERFJfU0laRSwgJnZhbHVlKTsKPiA+ID4gKwkJdmFsdWUgPSAodmFsdWUg
+JiBSRUdfTElOSzBfTVNJX0FERFJfU0laRV9NQVNLKSB8IChNQVhfTVNJX0lSUVMgPDwgMTYpOwo+
+ID4gPiArCQlyZWdtYXBfd3JpdGUocGNpZS0+c3lzY29uLCBSRUdfTElOSzBfTVNJX0FERFJfU0la
+RSwgdmFsdWUpOwo+ID4gPiArCX0KPiA+Cj4gPiBMb3Qgb2YgcGNpZS0+bGlua19pZCBjaGVja2lu
+ZyBnb2luZyBvbiBoZXJlLiAgQ29uc2lkZXIgc2F2aW5nIHRoZXNlCj4gPiBvZmZzZXRzIGluIHRo
+ZSBzdHJ1Y3Qgc2cyMDQyX3BjaWUgc28geW91IGRvbid0IG5lZWQgdG8gdGVzdAo+ID4gZXZlcnl3
+aGVyZS4KPiAKPiBBY3R1YWxseSwgdGhlcmUgYXJlIG5vdCBtYW55IHBsYWNlcyBpbiB0aGUgY29k
+ZSB0byBjaGVjayBsaW5rX2lkLiBJZiB0byBhZGQKPiBzdG9yYWdlIGluZm9ybWF0aW9uIGluIHN0
+cnVjdCBzZzIwNDJfcGNpZSwgYXQgbGVhc3QgZm91csKgIHUzMiBhcmUgbmVlZGVkLgo+IEFuZCB0
+aGlzIGxvZ2ljIHdpbGwgb25seSBiZSBjYWxsZWQgb25lIHRpbWUgaW4gdGhlIHByb2JlLiBTbyBJ
+IHRoaW5rIGl0IGlzCj4gYmV0dGVyIHRvIGtlZXAgdGhlIGN1cnJlbnQgbWV0aG9kLiBXaGF0IGRv
+IHlvdSB0aGluaz8KCjEpIEkgZG9uJ3QgdGhpbmsgImxpbmtfaWQiIGlzIGEgdmVyeSBnb29kIG5h
+bWUgc2luY2UgaXQgYXBwZWFycyB0bwpyZWZlciB0byBvbmUgb2YgdHdvIFBDSWUgUm9vdCBQb3J0
+cy4gIG12ZWJ1IHVzZXMgIm1hcnZlbGwscGNpZS1wb3J0Igp3aGljaCBsb29rcyBsaWtlIGEgc2lt
+aWxhciB1c2FnZSwgYWx0aG91Z2ggdW5uZWNlc3NhcmlseQpNYXJ2ZWxsLXNwZWNpZmljLiAgQW5k
+IGFyY2gvYXJtL2Jvb3QvZHRzL21hcnZlbGwvYXJtYWRhLTM3MC1kYi5kdHMgaGFzCnNlcGFyYXRl
+IHN0YW56YXMgZm9yIHR3byBSb290IFBvcnRzLCB3aXRob3V0IG5lZWRpbmcgYSBwcm9wZXJ0eSB0
+bwpkaXN0aW5ndWlzaCB0aGVtLCB3aGljaCB3b3VsZCBiZSBldmVuIGJldHRlci4gIEknbSBub3Qg
+c3VyZSB3aHkKYXJjaC9hcm0vYm9vdC9kdHMvbWFydmVsbC9hcm1hZGEtMzcwLmR0c2kgbmVlZHMg
+Im1hcnZlbGwscGNpZS1wb3J0IgpldmVuIHRob3VnaCBpdCBhbHNvIGhhcyBzZXBhcmF0ZSBzdGFu
+emFzLgoKMikgSSB0aGluayBjaGVja2luZyBwY2llLT5saW5rX2lkIGlzIGxpa2VseSB0byBiZSBo
+YXJkZXIgdG8gbWFpbnRhaW4KaW4gdGhlIGZ1dHVyZSwgZS5nLiwgaWYgYSBuZXcgY2hpcCBhZGRz
+IG1vcmUgUm9vdCBQb3J0cywgeW91J2xsIGhhdmUKdG8gdG91Y2ggZWFjaCB1c2UuCgpCam9ybgoK
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlz
+Y3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xp
+c3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
