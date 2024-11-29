@@ -4,83 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A915ED729E9
-	for <linux-riscv@archiver.kernel.org>; Fri, 29 Nov 2024 15:54:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1BAA1D729E7
+	for <linux-riscv@archiver.kernel.org>; Fri, 29 Nov 2024 16:05:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=bkD/wHGlB5zQvbrrWtoMpFQpDKHWsjMeCKrYhXJ70VI=; b=XRwp52mwnXflo5
-	w+PcUCmrQAinQO/Lg+fLUjozyKAuoXU6p3ExPGRDkXW4TRENFkNo20fX0EqyaoB7RgtyZF5ASl1H8
-	pGp0Yq6wxNrVxI0MmtEG+Rh/cpQA6wVxahqG4vBJH3oxWIwFxyXRUgw7d0MYuBy+UxLHXwTOg2DDI
-	HCtpsxzEIjlo4ewSJc0PPOBP2poFBKi8OKkMQf7PpFUGRlS1j5Cc2AeOf4VlUwYd/zcvtmxQ4QhSI
-	Eh+ybc9ni1VTTWlb3SOee8o2/S4PlpxSuyK3yBb2YoIn0+M96kWoP59biWZ6wppi2dgU0o2jxcHIn
-	o8tmBVPH3ezvLuqnBRDg==;
+	List-Owner; bh=olON0Mu9r/HY0eBdCW1+FpDdCIsmVFufSAS6EENnRP8=; b=TlAatgI1FkwcG7
+	9/NNQD04xX8KOIXH/KqWoBqDePy9ZWfUguZbTBmm6g5lS2fQeMMV9EvWP1wcw404akh8XbLjA2yj9
+	e6tD68NyfJ5vfCMpfTh8CS+TVfaKwLkZhEuiClZsjeVo+LkUBX80V04x9gACZJpm/Cwl812AI5RCn
+	J6IDnTliu2LyK/+TnGhsHnFyNns3CJPVOYoiCxOwoNtTva++lO7y2LJjPLnTZpa7gsadPj0AyVjCJ
+	TMBTOSM5iacxaLv7vr5CztoS5W+nGHhaEcsWBh+U7lUt2blBo4g1dO8SnIFoVbnuNyNwcgDsn+snn
+	1M5W+iE56W2+kaDXFK6A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tH3K7-00000000WXq-1GCr;
-	Fri, 29 Nov 2024 15:54:27 +0000
-Received: from mgamail.intel.com ([198.175.65.15])
+	id 1tH3V7-00000000YQv-0tWY;
+	Fri, 29 Nov 2024 16:05:49 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tH3J7-00000000WS3-49xR;
-	Fri, 29 Nov 2024 15:53:27 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1732895607; x=1764431607;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=X8kdzcem7IoN9L8/nNtQOwRxzQErlTl262LyjmQLTLs=;
-  b=NEPK2aQIKyAyQxfqkhk7tkZlIhk1npuEVXbXSkmV6ihmp5Uj/EOvNx6l
-   zPnbSn3uhcmHkjYdICiXPh12gjoG/KabZNKAMH8fJA9tynIM1aX7KVIRV
-   MXqtUSMwXJnajw6AVzfqEbKu9bfHxxborQQtLQEGlL7wiHdM5WPzOr1Ve
-   huigqsyuzfPOkrO2QiVO0/Pq5IGA9RpueQeuSN0pTDZXMRZSVVaGW3+Dn
-   qgliMk6fDnTUfbaxV8Ma408H68uxnLFovrjWEvs7pHcNDDnQl5cqTwc2/
-   vWEqQ22l2bdCkkFk80iyRYSMHQ7WVR+aSGrwxP08G6HvxKQRqq3ha5Vx+
-   Q==;
-X-CSE-ConnectionGUID: AWYoiErfRo6z++YdoUlzvA==
-X-CSE-MsgGUID: vdFrEWnlQUyiy8WT5N4gNw==
-X-IronPort-AV: E=McAfee;i="6700,10204,11271"; a="36802610"
-X-IronPort-AV: E=Sophos;i="6.12,195,1728975600"; 
-   d="scan'208";a="36802610"
-Received: from fmviesa003.fm.intel.com ([10.60.135.143])
-  by orvoesa107.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 29 Nov 2024 07:53:25 -0800
-X-CSE-ConnectionGUID: 7//IIXS5QRGX+aRBQ6lUBQ==
-X-CSE-MsgGUID: tJhAP9U8QW+LzJR0JKxV6A==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.12,196,1728975600"; 
-   d="scan'208";a="96596770"
-Received: from lkp-server01.sh.intel.com (HELO 5e2646291792) ([10.239.97.150])
-  by fmviesa003.fm.intel.com with ESMTP; 29 Nov 2024 07:53:17 -0800
-Received: from kbuild by 5e2646291792 with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1tH3Ix-0000TX-0E;
-	Fri, 29 Nov 2024 15:53:15 +0000
-Date: Fri, 29 Nov 2024 23:53:07 +0800
-From: kernel test robot <lkp@intel.com>
-To: Eliav Farber <farbere@amazon.com>, linux@armlinux.org.uk,
-	catalin.marinas@arm.com, will@kernel.org, mpe@ellerman.id.au,
-	npiggin@gmail.com, christophe.leroy@csgroup.eu, naveen@kernel.org,
-	maddy@linux.ibm.com, paul.walmsley@sifive.com, palmer@dabbelt.com,
-	aou@eecs.berkeley.edu, tglx@linutronix.de, ebiederm@xmission.com,
-	akpm@linux-foundation.org, bhe@redhat.com, hbathini@linux.ibm.com,
-	sourabhjain@linux.ibm.com, adityag@linux.ibm.com,
-	songshuaishuai@tinylab.org, takakura@valinux.co.jp,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
-	kexec@lists.infradead.org
-Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev, jonnyc@amazon.com
-Subject: Re: [PATCH v4 1/2] kexec: Consolidate
- machine_kexec_mask_interrupts() implementation
-Message-ID: <202411292312.KnEWhcVS-lkp@intel.com>
-References: <20241129113119.26669-2-farbere@amazon.com>
+	id 1tH3V4-00000000YQ3-1lwf
+	for linux-riscv@lists.infradead.org;
+	Fri, 29 Nov 2024 16:05:47 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id DBE3BA40829
+	for <linux-riscv@lists.infradead.org>; Fri, 29 Nov 2024 16:03:52 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D26BAC4CEDB
+	for <linux-riscv@lists.infradead.org>; Fri, 29 Nov 2024 16:05:44 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1732896344;
+	bh=vWX2C3S/nEHNyXaJT/PxOASBWRe0mlf7pjzxaZlTS+8=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=GO0oOTK6Ae1ksvuT9rJFEl+KlHcPKTrlcTIUObFWOhPEKD9Rt3PU+SvnXYde4DdCO
+	 OBacq3t/5+c2sUOcuYf4pzJhYbA3mJG/boTW6IZZcxx+BBvt9spYtLWSPtpVqJPoSw
+	 ZfRwB+qwyCSz4IusdhFnAx+JyHlvTPew5pHQQ+RNan4REOfMfM2/tJEmhRqQiNN8BD
+	 LCu/xTNLmmjrD4MywxkPJYWNQNbtxqlxLUInwEKRHIUJ2oU4BozPzwEp64VxEVHTTg
+	 26e8vct8dugxy7Pg/NDlvXCVXVHalgmpu1Cbm1cVh0nrYmXH68UG1gWOdDoLiEgEj+
+	 HtmIBQ1pMZXDg==
+Received: by mail-ed1-f49.google.com with SMTP id 4fb4d7f45d1cf-5cedf5fe237so2242588a12.3
+        for <linux-riscv@lists.infradead.org>; Fri, 29 Nov 2024 08:05:44 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCWiZtOCpOqhkGzQRCwhy7Ryy4jFcSxmJTcji7M8sxdGiBmMqjFqk86KkUSybxj4X4fbF0XiaKTATsdFMg==@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywd9aKswPLyaDH/2v6FEGElbx3E5lYsSWGXggv11ZwWdHJPV0kp
+	YGph/dzYxHC8N1L2zWad5oO5rT2bW28T3/S256hbulJIgcTst0ttoTCvOUsRFY7rKkO3ZLSzioH
+	8jwOi+hT8Ai5U05Lsbwxk0I1AL6U=
+X-Google-Smtp-Source: AGHT+IE7XqHdmIiC7UVgD9zzEnxwQDH15BHXfIbNp1H57Uk3+F2NAMnIVttyGGVIf2xNB9TyUuz6KM2ZmynHdL7i7mM=
+X-Received: by 2002:a17:906:311b:b0:aa5:b1b9:5d6a with SMTP id
+ a640c23a62f3a-aa5b1b96013mr233133166b.54.1732896343078; Fri, 29 Nov 2024
+ 08:05:43 -0800 (PST)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20241129113119.26669-2-farbere@amazon.com>
+References: <20241103145153.105097-1-alexghiti@rivosinc.com>
+ <20241103145153.105097-14-alexghiti@rivosinc.com> <20241128-whoever-wildfire-2a3110c5fd46@wendy>
+ <20241128134135.GA3460@willie-the-truck> <20241128-uncivil-removed-4e105d1397c9@wendy>
+ <90533aa9-186a-4f75-b3c5-d93d6682056b@ghiti.fr> <20241128-goggles-laundry-d94c23ab39a4@spud>
+ <CAJF2gTST0kduYpuqd4mX0byetWMRJT-AAyH0GGiaysZG64Byhw@mail.gmail.com>
+ <CAJF2gTRQg=w3sGN0Sdzf+_adRo44z4H6Zd6=C6qXq+ARR5BjSg@mail.gmail.com>
+ <CAJF2gTSX82rGp-9xZHvg1Y3SpO516YCcqSBLKFgWEQ5G-iWR4A@mail.gmail.com>
+ <CAHVXubgXiD5Bi6ytyDHXXOONovWHZTSvr4+oADCvuic5ObGXpQ@mail.gmail.com> <CAJF2gTR8qhnjv0VNCy+DeWck84MioeAZ3iEuNqSjM81KigNEwA@mail.gmail.com>
+In-Reply-To: <CAJF2gTR8qhnjv0VNCy+DeWck84MioeAZ3iEuNqSjM81KigNEwA@mail.gmail.com>
+From: Guo Ren <guoren@kernel.org>
+Date: Sat, 30 Nov 2024 00:05:31 +0800
+X-Gmail-Original-Message-ID: <CAJF2gTQKS7F+_6F+zTLtHWcBQZxDUsuoP8=ithxdAav6mhpz4Q@mail.gmail.com>
+Message-ID: <CAJF2gTQKS7F+_6F+zTLtHWcBQZxDUsuoP8=ithxdAav6mhpz4Q@mail.gmail.com>
+Subject: Re: [PATCH v6 13/13] riscv: Add qspinlock support
+To: Alexandre Ghiti <alexghiti@rivosinc.com>
+Cc: Conor Dooley <conor@kernel.org>, Alexandre Ghiti <alex@ghiti.fr>, 
+	Conor Dooley <conor.dooley@microchip.com>, Will Deacon <will@kernel.org>, 
+	Jonathan Corbet <corbet@lwn.net>, Paul Walmsley <paul.walmsley@sifive.com>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Andrea Parri <parri.andrea@gmail.com>, Nathan Chancellor <nathan@kernel.org>, 
+	Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
+	Waiman Long <longman@redhat.com>, Boqun Feng <boqun.feng@gmail.com>, Arnd Bergmann <arnd@arndb.de>, 
+	Leonardo Bras <leobras@redhat.com>, linux-doc@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
+	linux-arch@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241129_075326_147346_E6472C24 
-X-CRM114-Status: GOOD (  13.86  )
+X-CRM114-CacheID: sfid-20241129_080546_585905_ABC390A6 
+X-CRM114-Status: GOOD (  54.12  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,418 +93,245 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Eliav,
-
-kernel test robot noticed the following build errors:
-
-[auto build test ERROR on powerpc/next]
-[also build test ERROR on powerpc/fixes tip/irq/core arm64/for-next/core linus/master v6.12 next-20241128]
-[If your patch is applied to the wrong git tree, kindly drop us a note.
-And when submitting patch, we suggest to use '--base' as documented in
-https://git-scm.com/docs/git-format-patch#_base_tree_information]
-
-url:    https://github.com/intel-lab-lkp/linux/commits/Eliav-Farber/kexec-Consolidate-machine_kexec_mask_interrupts-implementation/20241129-193342
-base:   https://git.kernel.org/pub/scm/linux/kernel/git/powerpc/linux.git next
-patch link:    https://lore.kernel.org/r/20241129113119.26669-2-farbere%40amazon.com
-patch subject: [PATCH v4 1/2] kexec: Consolidate machine_kexec_mask_interrupts() implementation
-config: i386-buildonly-randconfig-002-20241129 (https://download.01.org/0day-ci/archive/20241129/202411292312.KnEWhcVS-lkp@intel.com/config)
-compiler: clang version 19.1.3 (https://github.com/llvm/llvm-project ab51eccf88f5321e7c60591c5546b254b6afab99)
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20241129/202411292312.KnEWhcVS-lkp@intel.com/reproduce)
-
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202411292312.KnEWhcVS-lkp@intel.com/
-
-All errors (new ones prefixed by >>):
-
-   In file included from kernel/kexec_core.c:9:
-   In file included from include/linux/btf.h:8:
-   In file included from include/linux/bpfptr.h:6:
-   In file included from include/linux/mm.h:2223:
-   include/linux/vmstat.h:518:36: warning: arithmetic between different enumeration types ('enum node_stat_item' and 'enum lru_list') [-Wenum-enum-conversion]
-     518 |         return node_stat_name(NR_LRU_BASE + lru) + 3; // skip "nr_"
-         |                               ~~~~~~~~~~~ ^ ~~~
-   In file included from kernel/kexec_core.c:43:
->> include/linux/irqdesc.h:68:25: error: field has incomplete type 'struct irq_common_data'
-      68 |         struct irq_common_data  irq_common_data;
-         |                                 ^
-   include/linux/irqdesc.h:68:9: note: forward declaration of 'struct irq_common_data'
-      68 |         struct irq_common_data  irq_common_data;
-         |                ^
->> include/linux/irqdesc.h:69:19: error: field has incomplete type 'struct irq_data'
-      69 |         struct irq_data         irq_data;
-         |                                 ^
-   include/linux/irqdesc.h:69:9: note: forward declaration of 'struct irq_data'
-      69 |         struct irq_data         irq_data;
-         |                ^
-   include/linux/irqdesc.h:71:2: error: unknown type name 'irq_flow_handler_t'; did you mean 'irq_handler_t'?
-      71 |         irq_flow_handler_t      handle_irq;
-         |         ^~~~~~~~~~~~~~~~~~
-         |         irq_handler_t
-   include/linux/interrupt.h:104:23: note: 'irq_handler_t' declared here
-     104 | typedef irqreturn_t (*irq_handler_t)(int, void *);
-         |                       ^
-   In file included from kernel/kexec_core.c:43:
->> include/linux/irqdesc.h:139:26: error: incomplete definition of type 'struct irq_data'
-     139 |         return container_of(data->common, struct irq_desc, irq_common_data);
-         |                             ~~~~^
-   include/linux/container_of.h:19:26: note: expanded from macro 'container_of'
-      19 |         void *__mptr = (void *)(ptr);                                   \
-         |                                 ^~~
-   include/linux/irqdesc.h:69:9: note: forward declaration of 'struct irq_data'
-      69 |         struct irq_data         irq_data;
-         |                ^
->> include/linux/irqdesc.h:139:26: error: incomplete definition of type 'struct irq_data'
-     139 |         return container_of(data->common, struct irq_desc, irq_common_data);
-         |                             ~~~~^
-   include/linux/container_of.h:20:30: note: expanded from macro 'container_of'
-      20 |         static_assert(__same_type(*(ptr), ((type *)0)->member) ||       \
-         |                                     ^~~
-   include/linux/compiler_types.h:464:63: note: expanded from macro '__same_type'
-     464 | #define __same_type(a, b) __builtin_types_compatible_p(typeof(a), typeof(b))
-         |                                                               ^
-   include/linux/build_bug.h:77:50: note: expanded from macro 'static_assert'
-      77 | #define static_assert(expr, ...) __static_assert(expr, ##__VA_ARGS__, #expr)
-         |                                                  ^~~~
-   include/linux/build_bug.h:78:56: note: expanded from macro '__static_assert'
-      78 | #define __static_assert(expr, msg, ...) _Static_assert(expr, msg)
-         |                                                        ^~~~
-   include/linux/irqdesc.h:69:9: note: forward declaration of 'struct irq_data'
-      69 |         struct irq_data         irq_data;
-         |                ^
->> include/linux/irqdesc.h:139:26: error: incomplete definition of type 'struct irq_data'
-     139 |         return container_of(data->common, struct irq_desc, irq_common_data);
-         |                             ~~~~^
-   include/linux/container_of.h:21:23: note: expanded from macro 'container_of'
-      21 |                       __same_type(*(ptr), void),                        \
-         |                                     ^~~
-   include/linux/compiler_types.h:464:63: note: expanded from macro '__same_type'
-     464 | #define __same_type(a, b) __builtin_types_compatible_p(typeof(a), typeof(b))
-         |                                                               ^
-   include/linux/build_bug.h:77:50: note: expanded from macro 'static_assert'
-      77 | #define static_assert(expr, ...) __static_assert(expr, ##__VA_ARGS__, #expr)
-         |                                                  ^~~~
-   include/linux/build_bug.h:78:56: note: expanded from macro '__static_assert'
-      78 | #define __static_assert(expr, msg, ...) _Static_assert(expr, msg)
-         |                                                        ^~~~
-   include/linux/irqdesc.h:69:9: note: forward declaration of 'struct irq_data'
-      69 |         struct irq_data         irq_data;
-         |                ^
->> include/linux/irqdesc.h:173:23: error: too few arguments to function call, expected 2, have 1
-     173 |         desc->handle_irq(desc);
-         |         ~~~~~~~~~~~~~~~~     ^
-   include/linux/irqdesc.h:208:8: error: unknown type name 'irq_flow_handler_t'; did you mean 'irq_handler_t'?
-     208 |                                           irq_flow_handler_t handler)
-         |                                           ^~~~~~~~~~~~~~~~~~
-         |                                           irq_handler_t
-   include/linux/interrupt.h:104:23: note: 'irq_handler_t' declared here
-     104 | typedef irqreturn_t (*irq_handler_t)(int, void *);
-         |                       ^
-   In file included from kernel/kexec_core.c:43:
-   include/linux/irqdesc.h:230:6: error: unknown type name 'irq_flow_handler_t'; did you mean 'irq_handler_t'?
-     230 |                                  irq_flow_handler_t handler, const char *name)
-         |                                  ^~~~~~~~~~~~~~~~~~
-         |                                  irq_handler_t
-   include/linux/interrupt.h:104:23: note: 'irq_handler_t' declared here
-     104 | typedef irqreturn_t (*irq_handler_t)(int, void *);
-         |                       ^
-   In file included from kernel/kexec_core.c:43:
-   include/linux/irqdesc.h:236:6: error: incomplete definition of type 'struct irq_data'
-     236 |         data->chip = (struct irq_chip *)chip;
-         |         ~~~~^
-   include/linux/irqdesc.h:69:9: note: forward declaration of 'struct irq_data'
-      69 |         struct irq_data         irq_data;
-         |                ^
->> include/linux/irqdesc.h:243:35: error: use of undeclared identifier 'IRQ_NO_BALANCING_MASK'
-     243 |         return irq_check_status_bit(irq, IRQ_NO_BALANCING_MASK);
-         |                                          ^
->> include/linux/irqdesc.h:248:35: error: use of undeclared identifier 'IRQ_PER_CPU'; did you mean 'MEM_PERCPU'?
-     248 |         return irq_check_status_bit(irq, IRQ_PER_CPU);
-         |                                          ^~~~~~~~~~~
-         |                                          MEM_PERCPU
-   include/linux/bpf.h:650:2: note: 'MEM_PERCPU' declared here
-     650 |         MEM_PERCPU              = BIT(4 + BPF_BASE_TYPE_BITS),
-         |         ^
-   In file included from kernel/kexec_core.c:43:
->> include/linux/irqdesc.h:253:35: error: use of undeclared identifier 'IRQ_PER_CPU_DEVID'
-     253 |         return irq_check_status_bit(irq, IRQ_PER_CPU_DEVID);
-         |                                          ^
-   kernel/kexec_core.c:1098:24: error: incomplete definition of type 'struct irq_chip'
-    1098 |                 if (check_eoi && chip->irq_eoi && irqd_irq_inprogress(&desc->irq_data))
-         |                                  ~~~~^
-   include/linux/irqdesc.h:152:22: note: forward declaration of 'struct irq_chip'
-     152 | static inline struct irq_chip *irq_desc_get_chip(struct irq_desc *desc)
-         |                      ^
-   kernel/kexec_core.c:1098:37: error: call to undeclared function 'irqd_irq_inprogress'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
-    1098 |                 if (check_eoi && chip->irq_eoi && irqd_irq_inprogress(&desc->irq_data))
-         |                                                   ^
-   kernel/kexec_core.c:1099:8: error: incomplete definition of type 'struct irq_chip'
-    1099 |                         chip->irq_eoi(&desc->irq_data);
-         |                         ~~~~^
-   include/linux/irqdesc.h:152:22: note: forward declaration of 'struct irq_chip'
-     152 | static inline struct irq_chip *irq_desc_get_chip(struct irq_desc *desc)
-         |                      ^
-   kernel/kexec_core.c:1101:11: error: incomplete definition of type 'struct irq_chip'
-    1101 |                 if (chip->irq_mask)
-         |                     ~~~~^
-   include/linux/irqdesc.h:152:22: note: forward declaration of 'struct irq_chip'
-     152 | static inline struct irq_chip *irq_desc_get_chip(struct irq_desc *desc)
-         |                      ^
-   kernel/kexec_core.c:1102:8: error: incomplete definition of type 'struct irq_chip'
-    1102 |                         chip->irq_mask(&desc->irq_data);
-         |                         ~~~~^
-   include/linux/irqdesc.h:152:22: note: forward declaration of 'struct irq_chip'
-     152 | static inline struct irq_chip *irq_desc_get_chip(struct irq_desc *desc)
-         |                      ^
-   kernel/kexec_core.c:1104:11: error: incomplete definition of type 'struct irq_chip'
-    1104 |                 if (chip->irq_disable && !irqd_irq_disabled(&desc->irq_data))
-         |                     ~~~~^
-   include/linux/irqdesc.h:152:22: note: forward declaration of 'struct irq_chip'
-     152 | static inline struct irq_chip *irq_desc_get_chip(struct irq_desc *desc)
-         |                      ^
-   fatal error: too many errors emitted, stopping now [-ferror-limit=]
-   1 warning and 20 errors generated.
-
-
-vim +68 include/linux/irqdesc.h
-
-86d2a2f51fbada Bitao Hu                  2024-04-11   31  
-e144710b302525 Thomas Gleixner           2010-10-01   32  /**
-e144710b302525 Thomas Gleixner           2010-10-01   33   * struct irq_desc - interrupt descriptor
-0d0b4c866bcce6 Jiang Liu                 2015-06-01   34   * @irq_common_data:	per irq and chip data passed down to chip functions
-e144710b302525 Thomas Gleixner           2010-10-01   35   * @kstat_irqs:		irq stats per cpu
-770767787c2304 Geert Uytterhoeven        2011-04-10   36   * @handle_irq:		highlevel irq-events handler
-e144710b302525 Thomas Gleixner           2010-10-01   37   * @action:		the irq action chain
-80ebc420ec59a7 Yunfeng Ye                2019-09-18   38   * @status_use_accessors: status information
-dbec07bac614a6 Thomas Gleixner           2011-02-07   39   * @core_internal_state__do_not_mess_with_it: core internal status information
-e144710b302525 Thomas Gleixner           2010-10-01   40   * @depth:		disable-depth, for nested irq_disable() calls
-0911f124bf5535 Geert Uytterhoeven        2011-04-10   41   * @wake_depth:		enable depth, for multiple irq_set_irq_wake() callers
-030fc443aef663 Waiman Long               2019-02-12   42   * @tot_count:		stats field for non-percpu irqs
-e144710b302525 Thomas Gleixner           2010-10-01   43   * @irq_count:		stats field to detect stalled irqs
-e144710b302525 Thomas Gleixner           2010-10-01   44   * @last_unhandled:	aging timer for unhandled count
-e144710b302525 Thomas Gleixner           2010-10-01   45   * @irqs_unhandled:	stats field for spurious unhandled interrupts
-1e77d0a1ed7417 Thomas Gleixner           2013-03-07   46   * @threads_handled:	stats field for deferred spurious detection of threaded handlers
-a359f757965aaf Ingo Molnar               2021-03-22   47   * @threads_handled_last: comparator field for deferred spurious detection of threaded handlers
-e144710b302525 Thomas Gleixner           2010-10-01   48   * @lock:		locking for SMP
-770767787c2304 Geert Uytterhoeven        2011-04-10   49   * @affinity_hint:	hint to user space for preferred irq affinity
-cd7eab44e9946c Ben Hutchings             2011-01-19   50   * @affinity_notify:	context for notification of affinity changes
-e144710b302525 Thomas Gleixner           2010-10-01   51   * @pending_mask:	pending rebalanced interrupts
-b5faba21a6805c Thomas Gleixner           2011-02-23   52   * @threads_oneshot:	bitfield to handle shared oneshot threads
-e144710b302525 Thomas Gleixner           2010-10-01   53   * @threads_active:	number of irqaction threads currently running
-e144710b302525 Thomas Gleixner           2010-10-01   54   * @wait_for_threads:	wait queue for sync_irq to wait for threaded handlers
-cab303be91dc47 Thomas Gleixner           2014-08-28   55   * @nr_actions:		number of installed actions on this descriptor
-cab303be91dc47 Thomas Gleixner           2014-08-28   56   * @no_suspend_depth:	number of irqactions on a irq descriptor with
-cab303be91dc47 Thomas Gleixner           2014-08-28   57   *			IRQF_NO_SUSPEND set
-cab303be91dc47 Thomas Gleixner           2014-08-28   58   * @force_resume_depth:	number of irqactions on a irq descriptor with
-cab303be91dc47 Thomas Gleixner           2014-08-28   59   *			IRQF_FORCE_RESUME set
-425a5072dcd1bd Thomas Gleixner           2015-12-13   60   * @rcu:		rcu head for delayed free
-ecb3f394c5dba8 Craig Gallek              2016-09-13   61   * @kobj:		kobject used to represent this struct in sysfs
-9114014cf4e6df Thomas Gleixner           2017-06-29   62   * @request_mutex:	mutex to protect request/free before locking desc->lock
-e144710b302525 Thomas Gleixner           2010-10-01   63   * @dir:		/proc/irq/ procfs entry
-087cdfb662ae50 Thomas Gleixner           2017-06-20   64   * @debugfs_file:	dentry for the debugfs file
-e144710b302525 Thomas Gleixner           2010-10-01   65   * @name:		flow handler name for /proc/interrupts output
-e144710b302525 Thomas Gleixner           2010-10-01   66   */
-e144710b302525 Thomas Gleixner           2010-10-01   67  struct irq_desc {
-0d0b4c866bcce6 Jiang Liu                 2015-06-01  @68  	struct irq_common_data	irq_common_data;
-e144710b302525 Thomas Gleixner           2010-10-01  @69  	struct irq_data		irq_data;
-86d2a2f51fbada Bitao Hu                  2024-04-11   70  	struct irqstat __percpu	*kstat_irqs;
-e144710b302525 Thomas Gleixner           2010-10-01  @71  	irq_flow_handler_t	handle_irq;
-e144710b302525 Thomas Gleixner           2010-10-01   72  	struct irqaction	*action;	/* IRQ action list */
-a6967caf00ebbb Thomas Gleixner           2011-02-10   73  	unsigned int		status_use_accessors;
-dbec07bac614a6 Thomas Gleixner           2011-02-07   74  	unsigned int		core_internal_state__do_not_mess_with_it;
-e144710b302525 Thomas Gleixner           2010-10-01   75  	unsigned int		depth;		/* nested irq disables */
-e144710b302525 Thomas Gleixner           2010-10-01   76  	unsigned int		wake_depth;	/* nested wake enables */
-1136b072896990 Thomas Gleixner           2019-02-08   77  	unsigned int		tot_count;
-e144710b302525 Thomas Gleixner           2010-10-01   78  	unsigned int		irq_count;	/* For detecting broken IRQs */
-e144710b302525 Thomas Gleixner           2010-10-01   79  	unsigned long		last_unhandled;	/* Aging timer for unhandled count */
-e144710b302525 Thomas Gleixner           2010-10-01   80  	unsigned int		irqs_unhandled;
-1e77d0a1ed7417 Thomas Gleixner           2013-03-07   81  	atomic_t		threads_handled;
-1e77d0a1ed7417 Thomas Gleixner           2013-03-07   82  	int			threads_handled_last;
-e144710b302525 Thomas Gleixner           2010-10-01   83  	raw_spinlock_t		lock;
-31d9d9b6d83030 Marc Zyngier              2011-09-23   84  	struct cpumask		*percpu_enabled;
-222df54fd8b764 Marc Zyngier              2016-04-11   85  	const struct cpumask	*percpu_affinity;
-e144710b302525 Thomas Gleixner           2010-10-01   86  #ifdef CONFIG_SMP
-e144710b302525 Thomas Gleixner           2010-10-01   87  	const struct cpumask	*affinity_hint;
-cd7eab44e9946c Ben Hutchings             2011-01-19   88  	struct irq_affinity_notify *affinity_notify;
-e144710b302525 Thomas Gleixner           2010-10-01   89  #ifdef CONFIG_GENERIC_PENDING_IRQ
-e144710b302525 Thomas Gleixner           2010-10-01   90  	cpumask_var_t		pending_mask;
-e144710b302525 Thomas Gleixner           2010-10-01   91  #endif
-e144710b302525 Thomas Gleixner           2010-10-01   92  #endif
-b5faba21a6805c Thomas Gleixner           2011-02-23   93  	unsigned long		threads_oneshot;
-e144710b302525 Thomas Gleixner           2010-10-01   94  	atomic_t		threads_active;
-e144710b302525 Thomas Gleixner           2010-10-01   95  	wait_queue_head_t       wait_for_threads;
-cab303be91dc47 Thomas Gleixner           2014-08-28   96  #ifdef CONFIG_PM_SLEEP
-cab303be91dc47 Thomas Gleixner           2014-08-28   97  	unsigned int		nr_actions;
-cab303be91dc47 Thomas Gleixner           2014-08-28   98  	unsigned int		no_suspend_depth;
-17f480342026e5 Rafael J. Wysocki         2015-02-27   99  	unsigned int		cond_suspend_depth;
-cab303be91dc47 Thomas Gleixner           2014-08-28  100  	unsigned int		force_resume_depth;
-cab303be91dc47 Thomas Gleixner           2014-08-28  101  #endif
-e144710b302525 Thomas Gleixner           2010-10-01  102  #ifdef CONFIG_PROC_FS
-e144710b302525 Thomas Gleixner           2010-10-01  103  	struct proc_dir_entry	*dir;
-425a5072dcd1bd Thomas Gleixner           2015-12-13  104  #endif
-087cdfb662ae50 Thomas Gleixner           2017-06-20  105  #ifdef CONFIG_GENERIC_IRQ_DEBUGFS
-087cdfb662ae50 Thomas Gleixner           2017-06-20  106  	struct dentry		*debugfs_file;
-07557ccb8c83f3 Thomas Gleixner           2017-09-13  107  	const char		*dev_name;
-087cdfb662ae50 Thomas Gleixner           2017-06-20  108  #endif
-425a5072dcd1bd Thomas Gleixner           2015-12-13  109  #ifdef CONFIG_SPARSE_IRQ
-425a5072dcd1bd Thomas Gleixner           2015-12-13  110  	struct rcu_head		rcu;
-ecb3f394c5dba8 Craig Gallek              2016-09-13  111  	struct kobject		kobj;
-e144710b302525 Thomas Gleixner           2010-10-01  112  #endif
-9114014cf4e6df Thomas Gleixner           2017-06-29  113  	struct mutex		request_mutex;
-293a7a0a165c4f Thomas Gleixner           2012-10-16  114  	int			parent_irq;
-b6873807a7143b Sebastian Andrzej Siewior 2011-07-11  115  	struct module		*owner;
-e144710b302525 Thomas Gleixner           2010-10-01  116  	const char		*name;
-bc06a9e0874239 Shanker Donthineni        2023-05-19  117  #ifdef CONFIG_HARDIRQS_SW_RESEND
-bc06a9e0874239 Shanker Donthineni        2023-05-19  118  	struct hlist_node	resend_node;
-bc06a9e0874239 Shanker Donthineni        2023-05-19  119  #endif
-e144710b302525 Thomas Gleixner           2010-10-01  120  } ____cacheline_internodealigned_in_smp;
-e144710b302525 Thomas Gleixner           2010-10-01  121  
-a899418167264c Thomas Gleixner           2015-07-05  122  #ifdef CONFIG_SPARSE_IRQ
-a899418167264c Thomas Gleixner           2015-07-05  123  extern void irq_lock_sparse(void);
-a899418167264c Thomas Gleixner           2015-07-05  124  extern void irq_unlock_sparse(void);
-a899418167264c Thomas Gleixner           2015-07-05  125  #else
-a899418167264c Thomas Gleixner           2015-07-05  126  static inline void irq_lock_sparse(void) { }
-a899418167264c Thomas Gleixner           2015-07-05  127  static inline void irq_unlock_sparse(void) { }
-e144710b302525 Thomas Gleixner           2010-10-01  128  extern struct irq_desc irq_desc[NR_IRQS];
-e144710b302525 Thomas Gleixner           2010-10-01  129  #endif
-e144710b302525 Thomas Gleixner           2010-10-01  130  
-501e2db67fa426 Thomas Gleixner           2020-12-10  131  static inline unsigned int irq_desc_kstat_cpu(struct irq_desc *desc,
-501e2db67fa426 Thomas Gleixner           2020-12-10  132  					      unsigned int cpu)
-501e2db67fa426 Thomas Gleixner           2020-12-10  133  {
-86d2a2f51fbada Bitao Hu                  2024-04-11  134  	return desc->kstat_irqs ? per_cpu(desc->kstat_irqs->cnt, cpu) : 0;
-501e2db67fa426 Thomas Gleixner           2020-12-10  135  }
-501e2db67fa426 Thomas Gleixner           2020-12-10  136  
-7bbf1dd24b17b9 Jiang Liu                 2015-06-01  137  static inline struct irq_desc *irq_data_to_desc(struct irq_data *data)
-7bbf1dd24b17b9 Jiang Liu                 2015-06-01  138  {
-755d119a620497 Thomas Gleixner           2015-09-16 @139  	return container_of(data->common, struct irq_desc, irq_common_data);
-7bbf1dd24b17b9 Jiang Liu                 2015-06-01  140  }
-7bbf1dd24b17b9 Jiang Liu                 2015-06-01  141  
-304adf8a8fff97 Jiang Liu                 2015-06-04  142  static inline unsigned int irq_desc_get_irq(struct irq_desc *desc)
-304adf8a8fff97 Jiang Liu                 2015-06-04  143  {
-304adf8a8fff97 Jiang Liu                 2015-06-04  144  	return desc->irq_data.irq;
-304adf8a8fff97 Jiang Liu                 2015-06-04  145  }
-304adf8a8fff97 Jiang Liu                 2015-06-04  146  
-d9936bb3952a08 Thomas Gleixner           2011-03-11  147  static inline struct irq_data *irq_desc_get_irq_data(struct irq_desc *desc)
-d9936bb3952a08 Thomas Gleixner           2011-03-11  148  {
-d9936bb3952a08 Thomas Gleixner           2011-03-11  149  	return &desc->irq_data;
-d9936bb3952a08 Thomas Gleixner           2011-03-11  150  }
-d9936bb3952a08 Thomas Gleixner           2011-03-11  151  
-a0cd9ca2b907d7 Thomas Gleixner           2011-02-10  152  static inline struct irq_chip *irq_desc_get_chip(struct irq_desc *desc)
-a0cd9ca2b907d7 Thomas Gleixner           2011-02-10  153  {
-a0cd9ca2b907d7 Thomas Gleixner           2011-02-10  154  	return desc->irq_data.chip;
-a0cd9ca2b907d7 Thomas Gleixner           2011-02-10  155  }
-a0cd9ca2b907d7 Thomas Gleixner           2011-02-10  156  
-a0cd9ca2b907d7 Thomas Gleixner           2011-02-10  157  static inline void *irq_desc_get_chip_data(struct irq_desc *desc)
-a0cd9ca2b907d7 Thomas Gleixner           2011-02-10  158  {
-a0cd9ca2b907d7 Thomas Gleixner           2011-02-10  159  	return desc->irq_data.chip_data;
-a0cd9ca2b907d7 Thomas Gleixner           2011-02-10  160  }
-a0cd9ca2b907d7 Thomas Gleixner           2011-02-10  161  
-a0cd9ca2b907d7 Thomas Gleixner           2011-02-10  162  static inline void *irq_desc_get_handler_data(struct irq_desc *desc)
-a0cd9ca2b907d7 Thomas Gleixner           2011-02-10  163  {
-af7080e040d223 Jiang Liu                 2015-06-01  164  	return desc->irq_common_data.handler_data;
-a0cd9ca2b907d7 Thomas Gleixner           2011-02-10  165  }
-a0cd9ca2b907d7 Thomas Gleixner           2011-02-10  166  
-e144710b302525 Thomas Gleixner           2010-10-01  167  /*
-e144710b302525 Thomas Gleixner           2010-10-01  168   * Architectures call this to let the generic IRQ layer
-6584d84c3e504c Huang Shijie              2015-09-01  169   * handle an interrupt.
-e144710b302525 Thomas Gleixner           2010-10-01  170   */
-bd0b9ac405e179 Thomas Gleixner           2015-09-14  171  static inline void generic_handle_irq_desc(struct irq_desc *desc)
-e144710b302525 Thomas Gleixner           2010-10-01  172  {
-bd0b9ac405e179 Thomas Gleixner           2015-09-14 @173  	desc->handle_irq(desc);
-e144710b302525 Thomas Gleixner           2010-10-01  174  }
-e144710b302525 Thomas Gleixner           2010-10-01  175  
-a3016b26ee6ee1 Marc Zyngier              2021-05-04  176  int handle_irq_desc(struct irq_desc *desc);
-fe12bc2c996d3e Thomas Gleixner           2011-05-18  177  int generic_handle_irq(unsigned int irq);
-509853f9e1e7b1 Sebastian Andrzej Siewior 2022-02-11  178  int generic_handle_irq_safe(unsigned int irq);
-e144710b302525 Thomas Gleixner           2010-10-01  179  
-e1c054918c6c7a Marc Zyngier              2021-05-12  180  #ifdef CONFIG_IRQ_DOMAIN
-76ba59f8366f2d Marc Zyngier              2014-08-26  181  /*
-76ba59f8366f2d Marc Zyngier              2014-08-26  182   * Convert a HW interrupt number to a logical one using a IRQ domain,
-76ba59f8366f2d Marc Zyngier              2014-08-26  183   * and handle the result interrupt number. Return -EINVAL if
-9626d18a20e166 Marc Zyngier              2021-05-04  184   * conversion failed.
-76ba59f8366f2d Marc Zyngier              2014-08-26  185   */
-8240ef50d48643 Marc Zyngier              2021-05-12  186  int generic_handle_domain_irq(struct irq_domain *domain, unsigned int hwirq);
-6a164c64699984 Sebastian Andrzej Siewior 2022-05-09  187  int generic_handle_domain_irq_safe(struct irq_domain *domain, unsigned int hwirq);
-0953fb263714e1 Mark Rutland              2021-10-20  188  int generic_handle_domain_nmi(struct irq_domain *domain, unsigned int hwirq);
-76ba59f8366f2d Marc Zyngier              2014-08-26  189  #endif
-76ba59f8366f2d Marc Zyngier              2014-08-26  190  
-e144710b302525 Thomas Gleixner           2010-10-01  191  /* Test to see if a driver has successfully requested an irq */
-f61ae4fb66a4f7 Thomas Gleixner           2015-08-02  192  static inline int irq_desc_has_action(struct irq_desc *desc)
-e144710b302525 Thomas Gleixner           2010-10-01  193  {
-a313357e704f26 Thomas Gleixner           2020-12-10  194  	return desc && desc->action != NULL;
-f61ae4fb66a4f7 Thomas Gleixner           2015-08-02  195  }
-f61ae4fb66a4f7 Thomas Gleixner           2015-08-02  196  
-bbc9d21fc0071c Thomas Gleixner           2015-06-23  197  /**
-bbc9d21fc0071c Thomas Gleixner           2015-06-23  198   * irq_set_handler_locked - Set irq handler from a locked region
-bbc9d21fc0071c Thomas Gleixner           2015-06-23  199   * @data:	Pointer to the irq_data structure which identifies the irq
-bbc9d21fc0071c Thomas Gleixner           2015-06-23  200   * @handler:	Flow control handler function for this interrupt
-bbc9d21fc0071c Thomas Gleixner           2015-06-23  201   *
-bbc9d21fc0071c Thomas Gleixner           2015-06-23  202   * Sets the handler in the irq descriptor associated to @data.
-bbc9d21fc0071c Thomas Gleixner           2015-06-23  203   *
-bbc9d21fc0071c Thomas Gleixner           2015-06-23  204   * Must be called with irq_desc locked and valid parameters. Typical
-bbc9d21fc0071c Thomas Gleixner           2015-06-23  205   * call site is the irq_set_type() callback.
-bbc9d21fc0071c Thomas Gleixner           2015-06-23  206   */
-bbc9d21fc0071c Thomas Gleixner           2015-06-23  207  static inline void irq_set_handler_locked(struct irq_data *data,
-bbc9d21fc0071c Thomas Gleixner           2015-06-23  208  					  irq_flow_handler_t handler)
-bbc9d21fc0071c Thomas Gleixner           2015-06-23  209  {
-bbc9d21fc0071c Thomas Gleixner           2015-06-23  210  	struct irq_desc *desc = irq_data_to_desc(data);
-bbc9d21fc0071c Thomas Gleixner           2015-06-23  211  
-bbc9d21fc0071c Thomas Gleixner           2015-06-23  212  	desc->handle_irq = handler;
-bbc9d21fc0071c Thomas Gleixner           2015-06-23  213  }
-bbc9d21fc0071c Thomas Gleixner           2015-06-23  214  
-bbc9d21fc0071c Thomas Gleixner           2015-06-23  215  /**
-bbc9d21fc0071c Thomas Gleixner           2015-06-23  216   * irq_set_chip_handler_name_locked - Set chip, handler and name from a locked region
-bbc9d21fc0071c Thomas Gleixner           2015-06-23  217   * @data:	Pointer to the irq_data structure for which the chip is set
-bbc9d21fc0071c Thomas Gleixner           2015-06-23  218   * @chip:	Pointer to the new irq chip
-bbc9d21fc0071c Thomas Gleixner           2015-06-23  219   * @handler:	Flow control handler function for this interrupt
-bbc9d21fc0071c Thomas Gleixner           2015-06-23  220   * @name:	Name of the interrupt
-bbc9d21fc0071c Thomas Gleixner           2015-06-23  221   *
-bbc9d21fc0071c Thomas Gleixner           2015-06-23  222   * Replace the irq chip at the proper hierarchy level in @data and
-bbc9d21fc0071c Thomas Gleixner           2015-06-23  223   * sets the handler and name in the associated irq descriptor.
-bbc9d21fc0071c Thomas Gleixner           2015-06-23  224   *
-bbc9d21fc0071c Thomas Gleixner           2015-06-23  225   * Must be called with irq_desc locked and valid parameters.
-bbc9d21fc0071c Thomas Gleixner           2015-06-23  226   */
-bbc9d21fc0071c Thomas Gleixner           2015-06-23  227  static inline void
-ef6e5d61eb7a0a Michael Walle             2022-07-06  228  irq_set_chip_handler_name_locked(struct irq_data *data,
-ef6e5d61eb7a0a Michael Walle             2022-07-06  229  				 const struct irq_chip *chip,
-bbc9d21fc0071c Thomas Gleixner           2015-06-23  230  				 irq_flow_handler_t handler, const char *name)
-bbc9d21fc0071c Thomas Gleixner           2015-06-23  231  {
-bbc9d21fc0071c Thomas Gleixner           2015-06-23  232  	struct irq_desc *desc = irq_data_to_desc(data);
-bbc9d21fc0071c Thomas Gleixner           2015-06-23  233  
-bbc9d21fc0071c Thomas Gleixner           2015-06-23  234  	desc->handle_irq = handler;
-bbc9d21fc0071c Thomas Gleixner           2015-06-23  235  	desc->name = name;
-ef6e5d61eb7a0a Michael Walle             2022-07-06 @236  	data->chip = (struct irq_chip *)chip;
-bbc9d21fc0071c Thomas Gleixner           2015-06-23  237  }
-bbc9d21fc0071c Thomas Gleixner           2015-06-23  238  
-fdd029630434b4 Thomas Gleixner           2020-12-10  239  bool irq_check_status_bit(unsigned int irq, unsigned int bitmask);
-fdd029630434b4 Thomas Gleixner           2020-12-10  240  
-4ce413d1840b25 Will Deacon               2017-12-01  241  static inline bool irq_balancing_disabled(unsigned int irq)
-e144710b302525 Thomas Gleixner           2010-10-01  242  {
-fdd029630434b4 Thomas Gleixner           2020-12-10 @243  	return irq_check_status_bit(irq, IRQ_NO_BALANCING_MASK);
-e144710b302525 Thomas Gleixner           2010-10-01  244  }
-781295762defc7 Thomas Gleixner           2011-02-10  245  
-4ce413d1840b25 Will Deacon               2017-12-01  246  static inline bool irq_is_percpu(unsigned int irq)
-7f4a8e7b1943c1 Vinayak Kale              2013-12-04  247  {
-fdd029630434b4 Thomas Gleixner           2020-12-10 @248  	return irq_check_status_bit(irq, IRQ_PER_CPU);
-7f4a8e7b1943c1 Vinayak Kale              2013-12-04  249  }
-7f4a8e7b1943c1 Vinayak Kale              2013-12-04  250  
-4ce413d1840b25 Will Deacon               2017-12-01  251  static inline bool irq_is_percpu_devid(unsigned int irq)
-08395c7f4d9f58 Julien Thierry            2017-10-13  252  {
-fdd029630434b4 Thomas Gleixner           2020-12-10 @253  	return irq_check_status_bit(irq, IRQ_PER_CPU_DEVID);
-08395c7f4d9f58 Julien Thierry            2017-10-13  254  }
-08395c7f4d9f58 Julien Thierry            2017-10-13  255  
-
--- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+SGkgQWxleGFuZHJlICYgQ29ub3IKCk9uIEZyaSwgTm92IDI5LCAyMDI0IGF0IDg6NTDigK9QTSBH
+dW8gUmVuIDxndW9yZW5Aa2VybmVsLm9yZz4gd3JvdGU6Cj4KPiBPbiBGcmksIE5vdiAyOSwgMjAy
+NCBhdCA2OjMy4oCvUE0gQWxleGFuZHJlIEdoaXRpIDxhbGV4Z2hpdGlAcml2b3NpbmMuY29tPiB3
+cm90ZToKPiA+Cj4gPiBIaSBldmVyeW9uZSwKPiA+Cj4gPiBPbiBGcmksIE5vdiAyOSwgMjAyNCBh
+dCA3OjI44oCvQU0gR3VvIFJlbiA8Z3VvcmVuQGtlcm5lbC5vcmc+IHdyb3RlOgo+ID4gPgo+ID4g
+PiBIaSBDb25vciAmIEFsZXhhbmRyZSwKPiA+ID4KPiA+ID4gT24gRnJpLCBOb3YgMjksIDIwMjQg
+YXQgMTA6NTjigK9BTSBHdW8gUmVuIDxndW9yZW5Aa2VybmVsLm9yZz4gd3JvdGU6Cj4gPiA+ID4K
+PiA+ID4gPiBPbiBGcmksIE5vdiAyOSwgMjAyNCBhdCA4OjU14oCvQU0gR3VvIFJlbiA8Z3VvcmVu
+QGtlcm5lbC5vcmc+IHdyb3RlOgo+ID4gPiA+ID4KPiA+ID4gPiA+IE9uIEZyaSwgTm92IDI5LCAy
+MDI0IGF0IDEyOjE54oCvQU0gQ29ub3IgRG9vbGV5IDxjb25vckBrZXJuZWwub3JnPiB3cm90ZToK
+PiA+ID4gPiA+ID4KPiA+ID4gPiA+ID4gT24gVGh1LCBOb3YgMjgsIDIwMjQgYXQgMDM6NTA6MDlQ
+TSArMDEwMCwgQWxleGFuZHJlIEdoaXRpIHdyb3RlOgo+ID4gPiA+ID4gPiA+IE9uIDI4LzExLzIw
+MjQgMTU6MTQsIENvbm9yIERvb2xleSB3cm90ZToKPiA+ID4gPiA+ID4gPiA+IE9uIFRodSwgTm92
+IDI4LCAyMDI0IGF0IDAxOjQxOjM2UE0gKzAwMDAsIFdpbGwgRGVhY29uIHdyb3RlOgo+ID4gPiA+
+ID4gPiA+ID4gPiBPbiBUaHUsIE5vdiAyOCwgMjAyNCBhdCAxMjo1Njo1NVBNICswMDAwLCBDb25v
+ciBEb29sZXkgd3JvdGU6Cj4gPiA+ID4gPiA+ID4gPiA+ID4gT24gU3VuLCBOb3YgMDMsIDIwMjQg
+YXQgMDM6NTE6NTNQTSArMDEwMCwgQWxleGFuZHJlIEdoaXRpIHdyb3RlOgo+ID4gPiA+ID4gPiA+
+ID4gPiA+ID4gSW4gb3JkZXIgdG8gcHJvZHVjZSBhIGdlbmVyaWMga2VybmVsLCBhIHVzZXIgY2Fu
+IHNlbGVjdAo+ID4gPiA+ID4gPiA+ID4gPiA+ID4gQ09ORklHX0NPTUJPX1NQSU5MT0NLUyB3aGlj
+aCB3aWxsIGZhbGxiYWNrIGF0IHJ1bnRpbWUgdG8gdGhlIHRpY2tldAo+ID4gPiA+ID4gPiA+ID4g
+PiA+ID4gc3BpbmxvY2sgaW1wbGVtZW50YXRpb24gaWYgWmFiaGEgb3IgWmljY3JzZSBhcmUgbm90
+IHByZXNlbnQuCj4gPiA+ID4gPiA+ID4gPiA+ID4gPgo+ID4gPiA+ID4gPiA+ID4gPiA+ID4gTm90
+ZSB0aGF0IHdlIGNhbid0IHVzZSBhbHRlcm5hdGl2ZXMgaGVyZSBiZWNhdXNlIHRoZSBkaXNjb3Zl
+cnkgb2YKPiA+ID4gPiA+ID4gPiA+ID4gPiA+IGV4dGVuc2lvbnMgaXMgZG9uZSB0b28gbGF0ZSBh
+bmQgd2UgbmVlZCB0byBzdGFydCB3aXRoIHRoZSBxc3BpbmxvY2sKPiA+ID4gPiA+ID4gPiA+ID4g
+PiA+IGltcGxlbWVudGF0aW9uIGJlY2F1c2UgdGhlIHRpY2tldCBzcGlubG9jayBpbXBsZW1lbnRh
+dGlvbiB3b3VsZCBwb2xsdXRlCj4gPiA+ID4gPiA+ID4gPiA+ID4gPiB0aGUgc3BpbmxvY2sgdmFs
+dWUsIHNvIGxldCdzIHVzZSBzdGF0aWMga2V5cy4KPiA+ID4gPiA+ID4gPiA+ID4gPiA+Cj4gPiA+
+ID4gPiA+ID4gPiA+ID4gPiBUaGlzIGlzIGxhcmdlbHkgYmFzZWQgb24gR3VvJ3Mgd29yayBhbmQg
+TGVvbmFyZG8gcmV2aWV3cyBhdCBbMV0uCj4gPiA+ID4gPiA+ID4gPiA+ID4gPgo+ID4gPiA+ID4g
+PiA+ID4gPiA+ID4gTGluazogaHR0cHM6Ly9sb3JlLmtlcm5lbC5vcmcvbGludXgtcmlzY3YvMjAy
+MzEyMjUxMjU4NDcuMjc3ODYzOC0xLWd1b3JlbkBrZXJuZWwub3JnLyBbMV0KPiA+ID4gPiA+ID4g
+PiA+ID4gPiA+IFNpZ25lZC1vZmYtYnk6IEd1byBSZW4gPGd1b3JlbkBrZXJuZWwub3JnPgo+ID4g
+PiA+ID4gPiA+ID4gPiA+ID4gU2lnbmVkLW9mZi1ieTogQWxleGFuZHJlIEdoaXRpIDxhbGV4Z2hp
+dGlAcml2b3NpbmMuY29tPgo+ID4gPiA+ID4gPiA+ID4gPiA+IFRoaXMgcGF0Y2ggKG5vdyBjb21t
+aXQgYWI4MzY0N2ZhZGFlMiAoInJpc2N2OiBBZGQgcXNwaW5sb2NrIHN1cHBvcnQiKSkKPiA+ID4g
+PiA+ID4gPiA+ID4gPiBicmVha3MgYm9vdCBvbiBwb2xhcmZpcmUgc29jLiBJdCBkaWVzIGJlZm9y
+ZSBvdXRwdXR0aW5nIGFueXRoaW5nIHRvIHRoZQo+ID4gPiA+ID4gPiA+ID4gPiA+IGNvbnNvbGUu
+IE15IC5jb25maWcgaGFzOgo+ID4gPiA+ID4gPiA+ID4gPiA+Cj4gPiA+ID4gPiA+ID4gPiA+ID4g
+IyBDT05GSUdfUklTQ1ZfVElDS0VUX1NQSU5MT0NLUyBpcyBub3Qgc2V0Cj4gPiA+ID4gPiA+ID4g
+PiA+ID4gIyBDT05GSUdfUklTQ1ZfUVVFVUVEX1NQSU5MT0NLUyBpcyBub3Qgc2V0Cj4gPiA+ID4g
+PiA+ID4gPiA+ID4gQ09ORklHX1JJU0NWX0NPTUJPX1NQSU5MT0NLUz15Cj4gPiA+ID4gPiA+ID4g
+PiA+IEkgcG9pbnRlZCBvdXQgc29tZSBvZiB0aGUgZnJhZ2lsaXR5IGR1cmluZyByZXZpZXc6Cj4g
+PiA+ID4gPiA+ID4gPiA+Cj4gPiA+ID4gPiA+ID4gPiA+IGh0dHBzOi8vbG9yZS5rZXJuZWwub3Jn
+L2FsbC8yMDI0MTExMTE2NDI1OS5HQTIwMDQyQHdpbGxpZS10aGUtdHJ1Y2svCj4gPiA+ID4gPiA+
+ID4gPiA+Cj4gPiA+ID4gPiA+ID4gPiA+IHNvIEknbSBraW5kYSBzdXJwcmlzZWQgaXQgZ290IG1l
+cmdlZCB0YmggOi8KPiA+ID4gPiA+ID4gPiA+IE1heWJlIGl0IGNvdWxkIGJlIHJldmVydGVkIHJh
+dGhlciB0aGFuIGhhdmluZyBhIGJyb2tlbiBib290IHdpdGggdGhlCj4gPiA+ID4gPiA+ID4gPiBk
+ZWZhdWx0IHNldHRpbmdzIGluIC1yYzEuCj4gPiA+ID4gPiA+ID4KPiA+ID4gPiA+ID4gPgo+ID4g
+PiA+ID4gPiA+IE5vIG5lZWQgdG8gcnVzaCBiZWZvcmUgd2Uga25vdyB3aGF0J3MgaGFwcGVuaW5n
+LEkgZ3Vlc3MgeW91IGJpc2VjdGVkIHRvIHRoaXMKPiA+ID4gPiA+ID4gPiBjb21taXQgcmlnaHQ/
+Cj4gPiA+ID4gPiA+Cj4gPiA+ID4gPiA+IFRoZSBzeW1wdG9tIGlzIGEgZmFpbHVyZSB0byBib290
+LCB3aXRob3V0IGFueSBjb25zb2xlIG91dHB1dCwgb2YgY291cnNlCj4gPiA+ID4gPiA+IEkgYmlz
+ZWN0ZWQgaXQgYmVmb3JlIGJsYW1pbmcgc29tZXRoaW5nIHNwZWNpZmljLiBCdXQgSSBkb24ndCB0
+aGluayBpdCBpcwo+ID4gPiA+ID4gPiAicnVzaGluZyIgYXMgaGF2aW5nIC1yYzEgYnJva2VuIHdp
+dGggYW4gb3B0aW9uJ3MgZGVmYXVsdCBpcyBhIG1hc3NpdmUgcGFpbgo+ID4gPiA+ID4gPiBpbiB0
+aGUgYXJzZSB3aGVuIGl0IGNvbWVzIHRvIHRlc3RpbmcuCj4gPiA+ID4gPiA+Cj4gPiA+ID4gPiA+
+ID4gSSBkb24ndCBoYXZlIHRoaXMgc29jLCBzbyBjYW4geW91IHByb3ZpZGUgJHN0dmFsLyRzZXBj
+LyRzY2F1c2UsIGEgY29uZmlnLCBhCj4gPiA+ID4gPiA+ID4ga2VybmVsLCBhbnl0aGluZz8KPiA+
+ID4gPiA+ID4KPiA+ID4gPiA+ID4gSSBkb24ndCBoYXZlIHRoZSBmb3JtZXIgY29zIGl0IGRpZWQg
+aW1tZWRpYXRlbHkgb24gYm9vdC4gY29uZmlnIGlzCj4gPiA+ID4gPiA+IGF0dGFjaGVkLiBJdCBy
+ZXByb2R1Y2VzIGluIFFFTVUgc28geW91IGRvbid0IG5lZWQgYW55IGhhcmR3YXJlLgo+ID4gPiA+
+ID4gSWYgUUVNVSBjb3VsZCByZXByb2R1Y2UsIGNvdWxkIHlvdSBwcm92aWRlIGEgZG1lc2cgYnkg
+dGhlIGJlbG93IG1ldGhvZD8KPiA+ID4gPiA+Cj4gPiA+ID4gPiBRZW11IGNtZCBhcHBlbmQ6IC1z
+IC1TCj4gPiA+ID4gPiByZWY6IGh0dHBzOi8vcWVtdS1wcm9qZWN0LmdpdGxhYi5pby9xZW11L3N5
+c3RlbS9nZGIuaHRtbAo+ID4gPiA+ID4KPiA+ID4gPiA+IENvbm5lY3QgZ2RiIGFuZCBpbiBjb25z
+b2xlOgo+ID4gPiA+ID4gMS4gZmlsZSB2bWxpbnV4Cj4gPiA+ID4gPiAyLiBzb3VyY2UgLi9Eb2N1
+bWVudGF0aW9uL2FkbWluLWd1aWRlL2tkdW1wL2dkYm1hY3Jvcy50eHQKPiA+ID4gPiA+IDMuIGRt
+ZXNnCj4gPiA+ID4gPgo+ID4gPiA+ID4gVGhlbiwgd2UgY291bGQgZ2V0IHRoZSBrZXJuZWwncyBl
+YXJseSBib290IGxvZ3MgZnJvbSBtZW1vcnkuCj4gPiA+ID4gSSd2ZSByZXByb2R1Y2VkIGl0IG9u
+IHFlbXUsIHRoeCBmb3IgdGhlIGNvbmZpZy4KPiA+ID4gPgo+ID4gPiA+IFJlYWRpbmcgc3ltYm9s
+cyBmcm9tIC4uL2J1aWxkLXJ2NjRscDY0L3ZtbGludXguLi4KPiA+ID4gPiAoZ2RiKSB0YXIgcmVt
+OjEyMzQKPiA+ID4gPiBSZW1vdGUgZGVidWdnaW5nIHVzaW5nIDoxMjM0Cj4gPiA+ID4gdGlja2V0
+X3NwaW5fbG9jayAobG9jaz0weGZmZmZmZmZmODFiOWE1YjggPHRleHRfbXV0ZXg+KSBhdAo+ID4g
+PiA+IC9ob21lL2d1b3Jlbi9zb3VyY2Uva2VybmVsL2xpbnV4L2luY2x1ZGUvYXNtLWdlbmVyaWMv
+dGlja2V0X3NwaW5sb2NrLmg6NDkKPiA+ID4gPiA0OSAgICAgICAgICAgICAgYXRvbWljX2NvbmRf
+cmVhZF9hY3F1aXJlKCZsb2NrLT52YWwsIHRpY2tldCA9PSAodTE2KVZBTCk7Cj4gPiA+ID4gKGdk
+YikgYnQKPiA+ID4gPiAjMCAgdGlja2V0X3NwaW5fbG9jayAobG9jaz0weGZmZmZmZmZmODFiOWE1
+YjggPHRleHRfbXV0ZXg+KSBhdAo+ID4gPiA+IC9ob21lL2d1b3Jlbi9zb3VyY2Uva2VybmVsL2xp
+bnV4L2luY2x1ZGUvYXNtLWdlbmVyaWMvdGlja2V0X3NwaW5sb2NrLmg6NDkKPiA+ID4gPiAjMSAg
+YXJjaF9zcGluX2xvY2sgKGxvY2s9MHhmZmZmZmZmZjgxYjlhNWI4IDx0ZXh0X211dGV4PikgYXQK
+PiA+ID4gPiAvaG9tZS9ndW9yZW4vc291cmNlL2tlcm5lbC9saW51eC9hcmNoL3Jpc2N2L2luY2x1
+ZGUvYXNtL3NwaW5sb2NrLmg6MjgKPiA+ID4gPiAjMiAgZG9fcmF3X3NwaW5fbG9jayAobG9jaz1s
+b2NrQGVudHJ5PTB4ZmZmZmZmZmY4MWI5YTViOCA8dGV4dF9tdXRleD4pCj4gPiA+ID4gYXQgL2hv
+bWUvZ3VvcmVuL3NvdXJjZS9rZXJuZWwvbGludXgva2VybmVsL2xvY2tpbmcvc3BpbmxvY2tfZGVi
+dWcuYzoxMTYKPiA+ID4gPiAjMyAgMHhmZmZmZmZmZjgwYjJlYTBlIGluIF9fcmF3X3NwaW5fbG9j
+a19pcnFzYXZlCj4gPiA+ID4gKGxvY2s9MHhmZmZmZmZmZjgxYjlhNWI4IDx0ZXh0X211dGV4Pikg
+YXQKPiA+ID4gPiAvaG9tZS9ndW9yZW4vc291cmNlL2tlcm5lbC9saW51eC9pbmNsdWRlL2xpbnV4
+L3NwaW5sb2NrX2FwaV9zbXAuaDoxMTEKPiA+ID4gPiAjNCAgX3Jhd19zcGluX2xvY2tfaXJxc2F2
+ZSAobG9jaz1sb2NrQGVudHJ5PTB4ZmZmZmZmZmY4MWI5YTViOAo+ID4gPiA+IDx0ZXh0X211dGV4
+PikgYXQKPiA+ID4gPiAvaG9tZS9ndW9yZW4vc291cmNlL2tlcm5lbC9saW51eC9rZXJuZWwvbG9j
+a2luZy9zcGlubG9jay5jOjE2Mgo+ID4gPiA+ICM1ICAweGZmZmZmZmZmODBiMjdjNTQgaW4gcnRf
+bXV0ZXhfc2xvd3RyeWxvY2sKPiA+ID4gPiAobG9jaz0weGZmZmZmZmZmODFiOWE1YjggPHRleHRf
+bXV0ZXg+KSBhdAo+ID4gPiA+IC9ob21lL2d1b3Jlbi9zb3VyY2Uva2VybmVsL2xpbnV4L2tlcm5l
+bC9sb2NraW5nL3J0bXV0ZXguYzoxMzkzCj4gPiA+ID4gIzYgIDB4ZmZmZmZmZmY4MGIyOTVlYSBp
+biBydF9tdXRleF90cnlfYWNxdWlyZQo+ID4gPiA+IChsb2NrPTB4ZmZmZmZmZmY4MWI5YTViOCA8
+dGV4dF9tdXRleD4pIGF0Cj4gPiA+ID4gL2hvbWUvZ3VvcmVuL3NvdXJjZS9rZXJuZWwvbGludXgv
+a2VybmVsL2xvY2tpbmcvcnRtdXRleC5jOjMxOQo+ID4gPiA+ICM3ICBfX3J0X211dGV4X2xvY2sg
+KHN0YXRlPTIsIGxvY2s9MHhmZmZmZmZmZjgxYjlhNWI4IDx0ZXh0X211dGV4PikgYXQKPiA+ID4g
+PiAvaG9tZS9ndW9yZW4vc291cmNlL2tlcm5lbC9saW51eC9rZXJuZWwvbG9ja2luZy9ydG11dGV4
+LmM6MTgwNQo+ID4gPiA+ICM4ICBfX211dGV4X2xvY2tfY29tbW9uIChpcD0xODQ0Njc0NDA3MTU2
+MjEzNTE3MCwgbmVzdF9sb2NrPTB4MCwKPiA+ID4gPiBzdWJjbGFzcz0wLCBzdGF0ZT0yLCBsb2Nr
+PTB4ZmZmZmZmZmY4MWI5YTViOCA8dGV4dF9tdXRleD4pIGF0Cj4gPiA+ID4gL2hvbWUvZ3VvcmVu
+L3NvdXJjZS9rZXJuZWwvbGludXgva2VybmVsL2xvY2tpbmcvcnRtdXRleF9hcGkuYzo1MTgKPiA+
+ID4gPiAjOSAgbXV0ZXhfbG9ja19uZXN0ZWQgKGxvY2s9MHhmZmZmZmZmZjgxYjlhNWI4IDx0ZXh0
+X211dGV4PiwKPiA+ID4gPiBzdWJjbGFzcz1zdWJjbGFzc0BlbnRyeT0wKSBhdAo+ID4gPiA+IC9o
+b21lL2d1b3Jlbi9zb3VyY2Uva2VybmVsL2xpbnV4L2tlcm5lbC9sb2NraW5nL3J0bXV0ZXhfYXBp
+LmM6NTI5Cj4gPiA+ID4gIzEwIDB4ZmZmZmZmZmY4MDAxMDY4MiBpbiBhcmNoX2p1bXBfbGFiZWxf
+dHJhbnNmb3JtX3F1ZXVlCj4gPiA+ID4gKGVudHJ5PWVudHJ5QGVudHJ5PTB4ZmZmZmZmZmY4MTU4
+ZGEyOCwgdHlwZT08b3B0aW1pemVkIG91dD4pIGF0Cj4gPiA+ID4gL2hvbWUvZ3VvcmVuL3NvdXJj
+ZS9rZXJuZWwvbGludXgvYXJjaC9yaXNjdi9rZXJuZWwvanVtcF9sYWJlbC5jOjM5Cj4gPiA+ID4g
+IzExIDB4ZmZmZmZmZmY4MDFkODZiMiBpbiBfX2p1bXBfbGFiZWxfdXBkYXRlCj4gPiA+ID4gKGtl
+eT1rZXlAZW50cnk9MHhmZmZmZmZmZjgxYTFhYmIwIDxxc3BpbmxvY2tfa2V5PiwKPiA+ID4gPiBl
+bnRyeT0weGZmZmZmZmZmODE1OGRhMjgsIHN0b3A9c3RvcEBlbnRyeT0weGZmZmZmZmZmODE1YTVl
+NjgKPiA+ID4gPiA8X190cmFjZXBvaW50X3B0cl9pbml0Y2FsbF9maW5pc2g+LCBpbml0PWluaXRA
+ZW50cnk9dHJ1ZSkKPiA+ID4gPiAgICAgYXQgL2hvbWUvZ3VvcmVuL3NvdXJjZS9rZXJuZWwvbGlu
+dXgva2VybmVsL2p1bXBfbGFiZWwuYzo1MTMKPiA+ID4gPiAjMTIgMHhmZmZmZmZmZjgwMWQ4OTBj
+IGluIGp1bXBfbGFiZWxfdXBkYXRlCj4gPiA+ID4gKGtleT1rZXlAZW50cnk9MHhmZmZmZmZmZjgx
+YTFhYmIwIDxxc3BpbmxvY2tfa2V5PikgYXQKPiA+ID4gPiAvaG9tZS9ndW9yZW4vc291cmNlL2tl
+cm5lbC9saW51eC9rZXJuZWwvanVtcF9sYWJlbC5jOjkyMAo+ID4gPiA+ICMxMyAweGZmZmZmZmZm
+ODAxZDhiZTggaW4gc3RhdGljX2tleV9kaXNhYmxlX2NwdXNsb2NrZWQKPiA+ID4gPiAoa2V5PWtl
+eUBlbnRyeT0weGZmZmZmZmZmODFhMWFiYjAgPHFzcGlubG9ja19rZXk+KSBhdAo+ID4gPiA+IC9o
+b21lL2d1b3Jlbi9zb3VyY2Uva2VybmVsL2xpbnV4L2tlcm5lbC9qdW1wX2xhYmVsLmM6MjQwCj4g
+PiA+ID4gIzE0IDB4ZmZmZmZmZmY4MDFkOGMwNCBpbiBzdGF0aWNfa2V5X2Rpc2FibGUKPiA+ID4g
+PiAoa2V5PWtleUBlbnRyeT0weGZmZmZmZmZmODFhMWFiYjAgPHFzcGlubG9ja19rZXk+KSBhdAo+
+ID4gPiA+IC9ob21lL2d1b3Jlbi9zb3VyY2Uva2VybmVsL2xpbnV4L2tlcm5lbC9qdW1wX2xhYmVs
+LmM6MjQ4Cj4gPiA+ID4gIzE1IDB4ZmZmZmZmZmY4MGMwNGExYSBpbiByaXNjdl9zcGlubG9ja19p
+bml0ICgpIGF0Cj4gPiA+ID4gL2hvbWUvZ3VvcmVuL3NvdXJjZS9rZXJuZWwvbGludXgvYXJjaC9y
+aXNjdi9rZXJuZWwvc2V0dXAuYzoyNzEKPiA+ID4gPiAjMTYgc2V0dXBfYXJjaCAoY21kbGluZV9w
+PWNtZGxpbmVfcEBlbnRyeT0weGZmZmZmZmZmODFhMDNlODgpIGF0Cj4gPiA+ID4gL2hvbWUvZ3Vv
+cmVuL3NvdXJjZS9rZXJuZWwvbGludXgvYXJjaC9yaXNjdi9rZXJuZWwvc2V0dXAuYzozMzYKPiA+
+ID4gPiAjMTcgMHhmZmZmZmZmZjgwYzAwN2EyIGluIHN0YXJ0X2tlcm5lbCAoKSBhdAo+ID4gPiA+
+IC9ob21lL2d1b3Jlbi9zb3VyY2Uva2VybmVsL2xpbnV4L2luaXQvbWFpbi5jOjkyMgo+ID4gPiA+
+ICMxOCAweGZmZmZmZmZmODAwMDExNjQgaW4gX3N0YXJ0X2tlcm5lbCAoKQo+ID4gPiA+IEJhY2t0
+cmFjZSBzdG9wcGVkOiBmcmFtZSBkaWQgbm90IHNhdmUgdGhlIFBDCj4gPiA+ID4gKGdkYikgcCAv
+eCBsb2NrCj4gPiA+ID4gJDEgPSAweGZmZmZmZmZmODFiOWE1YjgKPiA+ID4gPiAoZ2RiKSBwIC94
+ICpsb2NrCj4gPiA+ID4gJDIgPSB7e3ZhbCA9IHtjb3VudGVyID0gMHgyMDAwMH0sIHtsb2NrZWQg
+PSAweDAsIHBlbmRpbmcgPSAweDB9LAo+ID4gPiA+IHtsb2NrZWRfcGVuZGluZyA9IDB4MCwgdGFp
+bCA9IDB4Mn19fQo+ID4gPgo+ID4gPiBJIGhhdmUgZm9yIHlvdSBoZXJlIGEgZmFzdCBmaXh1cCBm
+b3IgcmVmZXJlbmNlLiAoUFM6IEknbSBkaWdnaW5nIGludG8KPiA+ID4gdGhlIHJvb3QgY2F1c2Ug
+bWVudGlvbmVkIGJ5IFdpbGwgRGVhY29uLikKPiA+ID4KPiA+ID4gZGlmZiAtLWdpdCBhL2FyY2gv
+cmlzY3YvaW5jbHVkZS9hc20vdGV4dC1wYXRjaGluZy5oCj4gPiA+IGIvYXJjaC9yaXNjdi9pbmNs
+dWRlL2FzbS90ZXh0LXBhdGNoaW5nLmgKPiA+ID4gaW5kZXggNzIyOGUyNjZiOWExLi4wNDM5NjA5
+ZjFjZmYgMTAwNjQ0Cj4gPiA+IC0tLSBhL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20vdGV4dC1wYXRj
+aGluZy5oCj4gPiA+ICsrKyBiL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20vdGV4dC1wYXRjaGluZy5o
+Cj4gPiA+IEBAIC0xMiw1ICsxMiw2IEBAIGludCBwYXRjaF90ZXh0X3NldF9ub3N5bmModm9pZCAq
+YWRkciwgdTggYywgc2l6ZV90IGxlbik7Cj4gPiA+ICBpbnQgcGF0Y2hfdGV4dCh2b2lkICphZGRy
+LCB1MzIgKmluc25zLCBzaXplX3QgbGVuKTsKPiA+ID4KPiA+ID4gIGV4dGVybiBpbnQgcmlzY3Zf
+cGF0Y2hfaW5fc3RvcF9tYWNoaW5lOwo+ID4gPiArZXh0ZXJuIGludCByaXNjdl9wYXRjaF9pbl9z
+cGlubG9ja19pbml0Owo+ID4gPgo+ID4gPiAgI2VuZGlmIC8qIF9BU01fUklTQ1ZfUEFUQ0hfSCAq
+Lwo+ID4gPiBkaWZmIC0tZ2l0IGEvYXJjaC9yaXNjdi9rZXJuZWwvanVtcF9sYWJlbC5jIGIvYXJj
+aC9yaXNjdi9rZXJuZWwvanVtcF9sYWJlbC5jCj4gPiA+IGluZGV4IDZlZWU2ZjczNmY2OC4uZDlh
+NWE1YzE5MzNkIDEwMDY0NAo+ID4gPiAtLS0gYS9hcmNoL3Jpc2N2L2tlcm5lbC9qdW1wX2xhYmVs
+LmMKPiA+ID4gKysrIGIvYXJjaC9yaXNjdi9rZXJuZWwvanVtcF9sYWJlbC5jCj4gPiA+IEBAIC0z
+Niw5ICszNiwxMSBAQCBib29sIGFyY2hfanVtcF9sYWJlbF90cmFuc2Zvcm1fcXVldWUoc3RydWN0
+Cj4gPiA+IGp1bXBfZW50cnkgKmVudHJ5LAo+ID4gPiAgICAgICAgICAgICAgICAgaW5zbiA9IFJJ
+U0NWX0lOU05fTk9QOwo+ID4gPiAgICAgICAgIH0KPiA+ID4KPiA+ID4gLSAgICAgICBtdXRleF9s
+b2NrKCZ0ZXh0X211dGV4KTsKPiA+ID4gKyAgICAgICBpZiAoIXJpc2N2X3BhdGNoX2luX3NwaW5s
+b2NrX2luaXQpCj4gPiA+ICsgICAgICAgICAgICAgICBtdXRleF9sb2NrKCZ0ZXh0X211dGV4KTsK
+PiA+ID4gICAgICAgICBwYXRjaF9pbnNuX3dyaXRlKGFkZHIsICZpbnNuLCBzaXplb2YoaW5zbikp
+Owo+ID4gPiAtICAgICAgIG11dGV4X3VubG9jaygmdGV4dF9tdXRleCk7Cj4gPiA+ICsgICAgICAg
+aWYgKCFyaXNjdl9wYXRjaF9pbl9zcGlubG9ja19pbml0KQo+ID4gPiArICAgICAgICAgICAgICAg
+bXV0ZXhfdW5sb2NrKCZ0ZXh0X211dGV4KTsKPiA+ID4KPiA+ID4gICAgICAgICByZXR1cm4gdHJ1
+ZTsKPiA+ID4gIH0KPiA+ID4gZGlmZiAtLWdpdCBhL2FyY2gvcmlzY3Yva2VybmVsL3BhdGNoLmMg
+Yi9hcmNoL3Jpc2N2L2tlcm5lbC9wYXRjaC5jCj4gPiA+IGluZGV4IGRiMTNjOWRkZjllMy4uYWIw
+MDljZjg1NWMyIDEwMDY0NAo+ID4gPiAtLS0gYS9hcmNoL3Jpc2N2L2tlcm5lbC9wYXRjaC5jCj4g
+PiA+ICsrKyBiL2FyY2gvcmlzY3Yva2VybmVsL3BhdGNoLmMKPiA+ID4gQEAgLTI0LDYgKzI0LDcg
+QEAgc3RydWN0IHBhdGNoX2luc24gewo+ID4gPiAgfTsKPiA+ID4KPiA+ID4gIGludCByaXNjdl9w
+YXRjaF9pbl9zdG9wX21hY2hpbmUgPSBmYWxzZTsKPiA+ID4gK2ludCByaXNjdl9wYXRjaF9pbl9z
+cGlubG9ja19pbml0ID0gZmFsc2U7Cj4gPiA+Cj4gPiA+ICAjaWZkZWYgQ09ORklHX01NVQo+ID4g
+Pgo+ID4gPiBAQCAtMTMxLDcgKzEzMiw3IEBAIHN0YXRpYyBpbnQgX19wYXRjaF9pbnNuX3dyaXRl
+KHZvaWQgKmFkZHIsIGNvbnN0Cj4gPiA+IHZvaWQgKmluc24sIHNpemVfdCBsZW4pCj4gPiA+ICAg
+ICAgICAgICogc2FmZSBidXQgdHJpZ2dlcnMgYSBsb2NrZGVwIGZhaWx1cmUsIHNvIGp1c3QgZWxp
+ZGUgaXQgZm9yIHRoYXQKPiA+ID4gICAgICAgICAgKiBzcGVjaWZpYyBjYXNlLgo+ID4gPiAgICAg
+ICAgICAqLwo+ID4gPiAtICAgICAgIGlmICghcmlzY3ZfcGF0Y2hfaW5fc3RvcF9tYWNoaW5lKQo+
+ID4gPiArICAgICAgIGlmICghcmlzY3ZfcGF0Y2hfaW5fc3RvcF9tYWNoaW5lICYmICFyaXNjdl9w
+YXRjaF9pbl9zcGlubG9ja19pbml0KQo+ID4gPiAgICAgICAgICAgICAgICAgbG9ja2RlcF9hc3Nl
+cnRfaGVsZCgmdGV4dF9tdXRleCk7Cj4gPiA+Cj4gPiA+ICAgICAgICAgcHJlZW1wdF9kaXNhYmxl
+KCk7Cj4gPiA+IGRpZmYgLS1naXQgYS9hcmNoL3Jpc2N2L2tlcm5lbC9zZXR1cC5jIGIvYXJjaC9y
+aXNjdi9rZXJuZWwvc2V0dXAuYwo+ID4gPiBpbmRleCAwMTZiNDhmY2Q2ZjIuLjg3ZGRmMTcwMmJl
+NCAxMDA2NDQKPiA+ID4gLS0tIGEvYXJjaC9yaXNjdi9rZXJuZWwvc2V0dXAuYwo+ID4gPiArKysg
+Yi9hcmNoL3Jpc2N2L2tlcm5lbC9zZXR1cC5jCj4gPiA+IEBAIC0yNjgsNyArMjY4LDkgQEAgc3Rh
+dGljIHZvaWQgX19pbml0IHJpc2N2X3NwaW5sb2NrX2luaXQodm9pZCkKPiA+ID4gICAgICAgICB9
+Cj4gPiA+ICAjaWYgZGVmaW5lZChDT05GSUdfUklTQ1ZfQ09NQk9fU1BJTkxPQ0tTKQo+ID4gPiAg
+ICAgICAgIGVsc2Ugewo+ID4gPiArICAgICAgICAgICAgICAgcmlzY3ZfcGF0Y2hfaW5fc3Bpbmxv
+Y2tfaW5pdCA9IDE7Cj4gPiA+ICAgICAgICAgICAgICAgICBzdGF0aWNfYnJhbmNoX2Rpc2FibGUo
+JnFzcGlubG9ja19rZXkpOwo+ID4gPiArICAgICAgICAgICAgICAgcmlzY3ZfcGF0Y2hfaW5fc3Bp
+bmxvY2tfaW5pdCA9IDA7Cj4gPiA+ICAgICAgICAgICAgICAgICBwcl9pbmZvKCJUaWNrZXQgc3Bp
+bmxvY2s6IGVuYWJsZWRcbiIpOwo+ID4gPiAgICAgICAgICAgICAgICAgcmV0dXJuOwo+ID4gPiAg
+ICAgICAgIH0KPiA+ID4KPiA+ID4KPiA+ID4KPiA+ID4gLS0KPiA+ID4gQmVzdCBSZWdhcmRzCj4g
+PiA+ICBHdW8gUmVuCj4gPgo+ID4gVGhhbmtzIEd1byBmb3IgbG9va2luZyBpbnRvIHRoaXMuCj4g
+Pgo+ID4gWW91ciBzb2x1dGlvbiBpcyBub3QgdmVyeSBwcmV0dHkgYnV0IEkgZG9uJ3QgaGF2ZSBh
+bnl0aGluZyBiZXR0ZXIgOi8KPiA+IFVubGVzcyBpbnRyb2R1Y2luZyBhIHN0YXRpY19icmFuY2hf
+WFhYX25vbG9jaygpIEFQST8gSSBnYXZlIGl0IGEgdHJ5Cj4gPiBhbmQgaXQgZml4ZXMgdGhlIGlz
+c3VlLCBidXQgbm90IHN1cmUgdGhpcyB3aWxsIGJlIGFjY2VwdGVkLgo+ID4KPiA+IFRoZSB0aGlu
+ZyBpcyB0aGUgdXNhZ2Ugb2Ygc3RhdGljIGJyYW5jaGVzIGlzIHRlbXBvcmFyeSwgd2UnbGwgdXNl
+Cj4gPiBhbHRlcm5hdGl2ZXMgd2hlbiBJIGZpbmlzaCB3b3JraW5nIG9uIGdldHRpbmcgdGhlIGV4
+dGVuc2lvbnMgdmVyeQo+ID4gZWFybHkgZnJvbSB0aGUgQUNQSSB0YWJsZXMgKEkgaGF2ZSBhIHBv
+YyB0aGF0IHdvcmtzLCBqdXN0IG5lZWRzIHNvbWUKPiA+IGNsZWFuaW5nKS4KPiA+Cj4gPiBTbyBs
+ZXQncyBzYXkgdGhhdCBJIG1ha2UgdGhpcyBlYXJseSBleHRlbnNpb24gcGFyc2luZyBteSBwcmlv
+cml0eSBmb3IKPiA+IDYuMTQsIGNhbiB3ZSBsaXZlIHdpdGggR3VvJ3MgaGFjayBpbiB0aGlzIHJl
+bGVhc2U/IE9yIHNob3VsZCB3ZSByZXZlcnQKPiA+IHRoaXMgY29tbWl0Pwo+IEkgYWxtb3N0IGdl
+dCB0aGUgcm9vdCBjYXVzZS4gUGxlYXNlIGdpdmUgbWUgYSB3aGlsZS4KSGVyZSBpcyB0aGUgcm9v
+dCBjYXVzZSAoQ09ORklHX1JUX01VVEVYRVM9eSk6CgpXaGVuIENPTkZJR19SVF9NVVRFWEVTPXks
+IHJ0X211dGV4X3RyeV9hY3F1aXJlIHdvdWxkIGNoYW5nZSBmcm9tCnJ0X211dGV4X2NtcHhjaGdf
+YWNxdWlyZSB0byBydF9tdXRleF9zbG93dHJ5bG9jay4KCnJ0X211dGV4X3Nsb3d0cnlsb2NrKCkK
+ICAgICAgICAqcmF3X3NwaW5fbG9ja19pcnFzYXZlKCZsb2NrLT53YWl0X2xvY2ssIGZsYWdzKTsq
+CiAgICAgICAgcmV0ID0gX19ydF9tdXRleF9zbG93dHJ5bG9jayhsb2NrKTsKICAgICAgICAqcmF3
+X3NwaW5fdW5sb2NrX2lycXJlc3RvcmUoJmxvY2stPndhaXRfbG9jaywgZmxhZ3MpOyoKCkJlY2F1
+c2UgcXVldWVkX3NwaW5fI29wcyB0byB0aWNrZXRfI29wcyBpcyBjaGFuZ2VkIG9uZSBieSBvbmUg
+YnkKanVtcF9sYWJlbCwgc3BpbmxvY2sgdXNhZ2Ugd291bGQgY2F1c2UgYSBkZWFkbG9jayBkdXJp
+bmcgdGhlIGNoYW5nZS4KClRoYXQgbWVhbnMgaW4gYXJjaC9yaXNjdi9rZXJuZWwvanVtcF9sYWJl
+bC5jOgphcmNoX2p1bXBfbGFiZWxfdHJhbnNmb3JtX3F1ZXVlKCkgLT4KbXV0ZXhfbG9jaygmdGV4
+dF9tdXRleCk7IC0+IHJhd19zcGluX2xvY2sgIC0+IHF1ZXVlZF9zcGluX2xvY2sKICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICB8IC0+IHJhd19zcGluX3VubG9jayAtPgpx
+dWV1ZWRfc3Bpbl91bmxvY2sKcGF0Y2hfaW5zbl93cml0ZSAtPiBjaGFuZ2UgdGhlIHJhd19zcGlu
+X2xvY2sgdG8gdGlja2V0X2xvY2sKbXV0ZXhfdW5sb2NrKCZ0ZXh0X211dGV4KTsKLi4uCmFyY2hf
+anVtcF9sYWJlbF90cmFuc2Zvcm1fcXVldWUoKSAtPgptdXRleF9sb2NrKCZ0ZXh0X211dGV4KTsg
+LT4gcmF3X3NwaW5fbG9jayAtPiB0aWNrZXRfbG9jawogICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgIHwgLT4gcmF3X3NwaW5fdW5sb2NrOyAtPgpxdWV1ZWRfc3Bpbl91bmxv
+Y2sgLy8gKmNhdXNlIHRoZSBwcm9ibGVtKgpwYXRjaF9pbnNuX3dyaXRlICAtPiAgY2hhbmdlIHRo
+ZSByYXdfc3Bpbl91bmxvY2sgdG8gdGlja2V0X3VubG9jawptdXRleF91bmxvY2soJnRleHRfbXV0
+ZXgpOwouLi4KYXJjaF9qdW1wX2xhYmVsX3RyYW5zZm9ybV9xdWV1ZSgpIC0+Cm11dGV4X2xvY2so
+JnRleHRfbXV0ZXgpOyAtPiByYXdfc3Bpbl9sb2NrIC0+IHRpY2tldF9sb2NrIC8vICpkZWFkbG9j
+ayoKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICB8IC0+IHJhd19zcGlu
+X3VubG9jayAtPiB0aWNrZXRfdW5sb2NrCnBhdGNoX2luc25fd3JpdGUgLT4gY2hhbmdlIG90aGVy
+IHJhd19zcGluXyNvcCAtPiB0aWNrZXRfI29wCm11dGV4X3VubG9jaygmdGV4dF9tdXRleCk7CgpT
+bywgdGhlIHNvbHV0aW9uIGlzIHRvIGRpc2FibGUgbXV0ZXggdXNhZ2Ugb2YKYXJjaF9qdW1wX2xh
+YmVsX3RyYW5zZm9ybV9xdWV1ZSgpIGR1cmluZyBzcGlubG9ja19pbml0LCBqdXN0IGxpa2Ugd2UK
+aGF2ZSBkb25lIGZvciBzdG9wX21hY2hpbmUuCgpQczoKVGhlIHBsYW4gb2YgaW1wcm92ZW1lbnQg
+KHJlbW92ZSB0aGUganVtcF9sYWJlbCk6ClVzZSB0aGUgQWx0ZXJuYXRpdmUgdG8gaW1wcm92ZSB0
+aGUgcGVyZm9ybWFuY2Ugb2YgY29tYm9fc3BpbmxvY2sncwp0aWNrZXRfbG9jayAodGhlcmUgaXMg
+bm8gYnJhbmNoIGp1bXAgZm9yIHRpY2tldF9sb2NrKSBhbmQgcmVkdWNlIGl0cwpjb2RlIHNpemUu
+CgotLQpCZXN0IFJlZ2FyZHMKIEd1byBSZW4KCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBs
+aXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlz
+dGluZm8vbGludXgtcmlzY3YK
