@@ -4,85 +4,121 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D641D7360D
-	for <linux-riscv@archiver.kernel.org>; Sat, 30 Nov 2024 20:14:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E71C1D7360E
+	for <linux-riscv@archiver.kernel.org>; Sat, 30 Nov 2024 21:48:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=SrN3Bp+zAmCYUnw/5mwCPW0rID2ztLQtq7DjHHiARrk=; b=KLiVMFr4J5Av2k
-	YDb1SckBNt6xrEfUwCwmdy5HjS5p9XwvblOSeqFM5gDIkFnKLyRrTXaC0k4vDSZKZG5rY2GBAai7m
-	mTw/qMC3QGpxdY+XlnSbu2BiqV9ErMSL/6DJgOqHHVdC6ZSYMLTXu3E0XxVUxyXdfyG3OGaJMOOA6
-	olkbTTBCljPDmkXsvSr62YnrFVazoQWUr0aDwLsfPmpK2WGgHu79+ifDQl024ehIz/1ZNd3qlp+h9
-	4J7xv1Unc3A9LPcrrqP9IFZKDUrm0kNtpMUSJSYF55Y4BrQJuq0VNnf/Sid2fS1LqSRbCSKLr720V
-	f88IDn9eHMBUtsHpXBnA==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:MIME-Version:Subject:
+	Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=Jy8p4VDxOLTsRp+qqyq3UaG3kmKn+CUavRHQ6yW6xq4=; b=OcjNHFy49IchgU
+	/zDl1yMZIXuT4XPiqD1URQakIdFPqJwZujH9oEhOQNbY/rHLrra/2Fk5dfQBsDpcFwXcxR1TLs5g/
+	SqhxvlKCq4bkQSNcZsvrPaHps6zRoMw8bDuPMefoDEQWNlH3eAZZyVl1nN1gEq4lMKSErtBgoHUoY
+	NuO2knmDyjp2Fo47kCBQvdw7v3V5b9/Uf7JdpEUYYMZmGdMTwtLcHZhd+T7gysUwmkZdkE8NsxhRv
+	Kkg1rCXJJjkoIrh7uZtq7loT4mSSMwEcHfi1EoiXS3cpGjvJ9KuL5oFwjEU+cgUNzUMVt1byB5TpX
+	B4fjgp+ZqklY8O2KIlYQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tHTre-00000002WUj-1zW6;
-	Sat, 30 Nov 2024 20:14:50 +0000
-Received: from smtp-fw-2101.amazon.com ([72.21.196.25])
+	id 1tHVJh-00000002caj-0Adj;
+	Sat, 30 Nov 2024 21:47:53 +0000
+Received: from flow-a8-smtp.messagingengine.com ([103.168.172.143])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tHToo-00000002Vv2-3pNR;
-	Sat, 30 Nov 2024 20:11:56 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-  d=amazon.com; i=@amazon.com; q=dns/txt; s=amazon201209;
-  t=1732997515; x=1764533515;
-  h=from:to:cc:subject:date:message-id:in-reply-to:
-   references:mime-version:content-transfer-encoding;
-  bh=zoZ/+qDc221WdsVhvoxlHSC6W9U8KUsHn4lZh61HM1Y=;
-  b=JRaoZ/aKsQXXtXy+x7uwDNs9T0bzx+25VcyoKLkDwAR0yZaePhUVu4de
-   mA5/eWJ0gxYpGzDe1FkhqoQXsAmNHIQH8CENhXIMAYKkwnRJLkNKJAjcW
-   HFcC+Pu2YIRVgny4DvPxJtFng+BRbr3Q4P2+p2AD0ovo6rg7XQRlOsZv8
-   k=;
-X-IronPort-AV: E=Sophos;i="6.12,199,1728950400"; 
-   d="scan'208";a="447165625"
-Received: from iad6-co-svc-p1-lb1-vlan3.amazon.com (HELO smtpout.prod.us-west-2.prod.farcaster.email.amazon.dev) ([10.124.125.6])
-  by smtp-border-fw-2101.iad2.amazon.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 30 Nov 2024 20:11:50 +0000
-Received: from EX19MTAUWA002.ant.amazon.com [10.0.21.151:19230]
- by smtpin.naws.us-west-2.prod.farcaster.email.amazon.dev [10.0.32.230:2525] with esmtp (Farcaster)
- id a6a52d1b-8c83-4dfa-ade4-e0f66ee20537; Sat, 30 Nov 2024 20:11:48 +0000 (UTC)
-X-Farcaster-Flow-ID: a6a52d1b-8c83-4dfa-ade4-e0f66ee20537
-Received: from EX19D013UWB003.ant.amazon.com (10.13.138.111) by
- EX19MTAUWA002.ant.amazon.com (10.250.64.202) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.1258.34;
- Sat, 30 Nov 2024 20:11:44 +0000
-Received: from EX19MTAUWB001.ant.amazon.com (10.250.64.248) by
- EX19D013UWB003.ant.amazon.com (10.13.138.111) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.1258.34;
- Sat, 30 Nov 2024 20:11:44 +0000
-Received: from email-imr-corp-prod-iad-all-1a-47ca2651.us-east-1.amazon.com
- (10.25.36.214) by mail-relay.amazon.com (10.250.64.254) with Microsoft SMTP
- Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id
- 15.2.1258.34 via Frontend Transport; Sat, 30 Nov 2024 20:11:44 +0000
-Received: from dev-dsk-farbere-1a-46ecabed.eu-west-1.amazon.com (dev-dsk-farbere-1a-46ecabed.eu-west-1.amazon.com [172.19.116.181])
-	by email-imr-corp-prod-iad-all-1a-47ca2651.us-east-1.amazon.com (Postfix) with ESMTP id D7D6F404CE;
-	Sat, 30 Nov 2024 20:11:43 +0000 (UTC)
-Received: by dev-dsk-farbere-1a-46ecabed.eu-west-1.amazon.com (Postfix, from userid 14301484)
-	id 96751719D; Sat, 30 Nov 2024 20:11:43 +0000 (UTC)
-From: Eliav Farber <farbere@amazon.com>
-To: <linux@armlinux.org.uk>, <catalin.marinas@arm.com>, <will@kernel.org>,
-	<mpe@ellerman.id.au>, <npiggin@gmail.com>, <christophe.leroy@csgroup.eu>,
-	<naveen@kernel.org>, <maddy@linux.ibm.com>, <paul.walmsley@sifive.com>,
-	<palmer@dabbelt.com>, <aou@eecs.berkeley.edu>, <tglx@linutronix.de>,
-	<akpm@linux-foundation.org>, <bhe@redhat.com>, <farbere@amazon.com>,
-	<hbathini@linux.ibm.com>, <sourabhjain@linux.ibm.com>,
-	<adityag@linux.ibm.com>, <songshuaishuai@tinylab.org>,
-	<takakura@valinux.co.jp>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>, <linuxppc-dev@lists.ozlabs.org>,
-	<linux-riscv@lists.infradead.org>
-CC: <jonnyc@amazon.com>
-Subject: [PATCH v5 2/2] kexec: Prevent redundant IRQ masking by checking state before shutdown
-Date: Sat, 30 Nov 2024 20:11:43 +0000
-Message-ID: <20241130201143.48808-3-farbere@amazon.com>
-X-Mailer: git-send-email 2.40.1
-In-Reply-To: <20241130201143.48808-1-farbere@amazon.com>
-References: <20241130201143.48808-1-farbere@amazon.com>
+	id 1tHVJe-00000002cZb-0Nmv
+	for linux-riscv@lists.infradead.org;
+	Sat, 30 Nov 2024 21:47:51 +0000
+Received: from phl-compute-05.internal (phl-compute-05.phl.internal [10.202.2.45])
+	by mailflow.phl.internal (Postfix) with ESMTP id AE3CC2004D6;
+	Sat, 30 Nov 2024 16:47:46 -0500 (EST)
+Received: from phl-mailfrontend-02 ([10.202.2.163])
+  by phl-compute-05.internal (MEProxy); Sat, 30 Nov 2024 16:47:46 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	coelacanthus.name; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:from:from:in-reply-to
+	:message-id:mime-version:reply-to:subject:subject:to:to; s=fm2;
+	 t=1733003266; x=1733006866; bh=Ug6noMxJx4D0HoGkjMXTBxp/QR93meFj
+	QxG2sTCVytQ=; b=s88kO2ydw0gUoGi6fFxuPvR48rCYB3tFg/sjJaKqsyrIc3fd
+	gnXoRVp6n3e3b5NgXRiXawcjxmyVHctiNpDX4KoxOn97RTWUK8vjdfz15oFCDbAq
+	VpRbtESgpl2t6uNSEbLtPNWS+7KBMX0bWs2FR6aJHXBjX/O9t3/OLmK8TUipYgT4
+	cWC4YpjG1PyTKpS4GpDlJ3nFfjffP95ZLOdw9dk6JMVF9SvClSMfzHqUH+tzuZhD
+	eg0781XkO51wBjQTzG1rEyc3JdKQzRzcomLehnPf9WH+oBY9H1vU714Uy80cEicV
+	83vJhNQEcyiLuY84gw9U5uJje0OL4Vo8xUX0hQ==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:message-id:mime-version:reply-to:subject
+	:subject:to:to:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=
+	fm1; t=1733003266; x=1733006866; bh=Ug6noMxJx4D0HoGkjMXTBxp/QR93
+	meFjQxG2sTCVytQ=; b=g/y39pAydNgDkiGRZAQbYD5gYCCvFAB5Ija8HT/8PLr9
+	otNL/G+UlSvp3vDkKxY1DjfG/TVqjUPMNNAtlHDUChfxgb8JA0jryLtOfLO3Yyne
+	x1l4NmhVHGU4sgqtNYLayVXp2QEH8PStVP/hktZHdCKHkGFaf5lchQA2EUf+KkZs
+	bYE3qQZWJsL5xj50QzblhXYunA4PSbI58hWbKSePiFHcofAe/dxicya1+D616hok
+	+UFu7+4OuTJPLDq+DLbT6HATHGika7XxEOXmd4B/ECru2FLfs0s0ItkAN6+n/BSU
+	rFJb8TKPyinCtffcSMDXGEpaSTm+xeok4RY0D81Q8Q==
+X-ME-Sender: <xms:_4dLZ7AkowSsgEKX5WlTd9qkkDkkNQENdt8I-XLbgNfwWnTMQ8V9lw>
+    <xme:_4dLZxjbokabgT_HfRgCt8ByjWmFgvWiTcoP_8kARMpAjXv70zQzyHtk7RKf3Wev6
+    WgjMe5Mhfn3gMhwXOQ>
+X-ME-Received: <xmr:_4dLZ2kxryVu1S3PKbaWUF2_MUIfkVpPMUhsrKUvGlF2D8AqjbiPavTjBaNIWQ>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefuddrheehgdduhedtucetufdoteggodetrfdotf
+    fvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdggtfgfnhhsuhgsshgtrhhisggvpdfu
+    rfetoffkrfgpnffqhgenuceurghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnh
+    htshculddquddttddmnecujfgurhephfffufggtgfgkffvvefosehtjeertdertdejnecu
+    hfhrohhmpeevvghlvghsthgvucfnihhuuceouhifuhestghovghlrggtrghnthhhuhhsrd
+    hnrghmvgeqnecuggftrfgrthhtvghrnhepjeffleetjeeigfehfeeghfdugedtjeekledu
+    heetudejffdtveevueeuffejfeefnecuffhomhgrihhnpehkvghrnhgvlhdrohhrghenuc
+    evlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepmhgrihhlfhhrohhmpehufihusegt
+    ohgvlhgrtggrnhhthhhushdrnhgrmhgvpdhnsggprhgtphhtthhopedvfedpmhhouggvpe
+    hsmhhtphhouhhtpdhrtghpthhtohepthhglhigsehlihhnuhhtrhhonhhigidruggvpdhr
+    tghpthhtoheplhhinhhugidqrhhishgtvheslhhishhtshdrihhnfhhrrgguvggrugdroh
+    hrghdprhgtphhtthhopeholhgvghesrhgvughhrghtrdgtohhmpdhrtghpthhtohepghhu
+    ohhrvghnsehkvghrnhgvlhdrohhrghdprhgtphhtthhopehshhhiqhhisehishhrtgdrih
+    hstggrshdrrggtrdgtnhdprhgtphhtthhopehufihusegtohgvlhgrtggrnhhthhhushdr
+    nhgrmhgvpdhrtghpthhtohepiihihigrohesughishhrohhothdrohhrghdprhgtphhtth
+    hopehlihhnuhigqdhmmheskhhvrggtkhdrohhrghdprhgtphhtthhopegvsghivgguvghr
+    mhesgihmihhsshhiohhnrdgtohhm
+X-ME-Proxy: <xmx:_4dLZ9zLq1Fc35MwqNxMX-c9o-ZJ3TXvvlzphSm5U1GMUZAZJXnLCw>
+    <xmx:_4dLZwQ5YRLMkzkZ20rb6u7oqwJlJZ3VRovcqED8mWotxWcgn4gBMw>
+    <xmx:_4dLZwZ7NbX5bQLW-Kh3_vkoHCnl43FmyIZD22jGYnIVYAd3OvVrjg>
+    <xmx:_4dLZxRXckSL8v1n_RPxk_NxdKlL7rosEdxrOVcUsbycqC2yrz0J2g>
+    <xmx:AohLZ5Qz8JKjHzyVraZXD67Pqg1EqfEc3fdN-jXqT-lX7P8CvSXNz6e9>
+Feedback-ID: i95c648bc:Fastmail
+Received: by mail.messagingengine.com (Postfix) with ESMTPA; Sat,
+ 30 Nov 2024 16:47:42 -0500 (EST)
+From: Celeste Liu <uwu@coelacanthus.name>
+Date: Sun, 01 Dec 2024 05:47:13 +0800
+Subject: [PATCH] riscv/ptrace: add new regset to get original a0 register
 MIME-Version: 1.0
+Message-Id: <20241201-riscv-new-regset-v1-1-c83c58abcc7b@coelacanthus.name>
+X-B4-Tracking: v=1; b=H4sIAOCHS2cC/x3MMQqAMAxA0atIZgNt0KFeRRzUxpqlSiIqiHe3O
+ L7h/weMVdigqx5QPsVkywW+rmBex5wYJRYDOWo8OY8qNp+Y+ULlZHxgbClMoaUxuggl25UXuf9
+ lP7zvB7f1anFiAAAA
+X-Change-ID: 20241201-riscv-new-regset-d529b952ad0d
+To: Oleg Nesterov <oleg@redhat.com>, 
+ Paul Walmsley <paul.walmsley@sifive.com>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+ Eric Biederman <ebiederm@xmission.com>, Kees Cook <kees@kernel.org>
+Cc: Alexandre Ghiti <alex@ghiti.fr>, "Dmitry V. Levin" <ldv@strace.io>, 
+ Andrea Bolognani <abologna@redhat.com>, 
+ =?utf-8?q?Bj=C3=B6rn_T=C3=B6pel?= <bjorn@kernel.org>, 
+ Thomas Gleixner <tglx@linutronix.de>, Ron Economos <re@w6rz.net>, 
+ Felix Yan <felixonmars@archlinux.org>, Ruizhe Pan <c141028@gmail.com>, 
+ Shiqi Zhang <shiqi@isrc.iscas.ac.cn>, Guo Ren <guoren@kernel.org>, 
+ Yao Zi <ziyao@disroot.org>, Han Gao <gaohan@iscas.ac.cn>, 
+ linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ linux-mm@kvack.org, stable@vger.kernel.org, 
+ Celeste Liu <uwu@coelacanthus.name>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=3224; i=uwu@coelacanthus.name;
+ h=from:subject:message-id; bh=tgFlapvT7VwQsZiO6n4iEi3XFX6DBlZjgTPZF2GhaDs=;
+ b=owJ4nJvAy8zAJeafov85RWVtBeNptSSGdO/27+ejT67U17uYOJXz/fmPjJbrjI9p7nS4Ghh+I
+ OvZwwgJVqeOUhYGMS4GWTFFlrwSlp+cl8527+3Y3gUzh5UJZAgDF6cATOTCe4b/mc2h98Ufndho
+ syS/aQlXObP6vhNPbXcoqUzXOZr2OXAnB8P/4kuX7G7s7O9s/NO72mx2j+n+jpB2o1bBCWsCbxg
+ vF9nGBwChJ0wk
+X-Developer-Key: i=uwu@coelacanthus.name; a=openpgp;
+ fpr=892EBC7DC392DFF9C9C03F1D15F4180E73787863
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241130_121155_111946_6951C894 
-X-CRM114-Status: GOOD (  16.07  )
+X-CRM114-CacheID: sfid-20241130_134750_401024_D0BCFE92 
+X-CRM114-Status: GOOD (  12.36  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,78 +135,97 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-During machine kexec, the function machine_kexec_mask_interrupts() is
-responsible for disabling or masking all interrupts. While the irq_disable
-hook ensures that an already-disabled IRQ is not disabled again, the
-current implementation unconditionally invokes the irq_mask() function for
-every interrupt descriptor, even when the interrupt is already masked.
+The orig_a0 is missing in struct user_regs_struct of riscv, and there is
+no way to add it without breaking UAPI. (See Link tag below)
 
-A specific issue was observed in the crash kernel flow after unbinding a
-device (prior to kexec) that used a GPIO as an IRQ source. The warning was
-triggered by the gpiochip_disable_irq() function, which attempted to clear
-the FLAG_IRQ_IS_ENABLED flag when FLAG_USED_AS_IRQ was not set:
+Like NT_ARM_SYSTEM_CALL do, we add a new regset name NT_RISCV_ORIG_A0 to
+access original a0 register from userspace via ptrace API.
 
-```
-void gpiochip_disable_irq(struct gpio_chip *gc, unsigned int offset)
-{
-	struct gpio_desc *desc = gpiochip_get_desc(gc, offset);
-
-	if (!IS_ERR(desc) &&
-	    !WARN_ON(!test_bit(FLAG_USED_AS_IRQ, &desc->flags)))
-		clear_bit(FLAG_IRQ_IS_ENABLED, &desc->flags);
-}
-```
-
-This issue surfaced after commit a8173820f441 ("gpio: gpiolib: Allow GPIO
-IRQs to lazy disable") introduced lazy disablement for GPIO IRQs. It
-replaced disable/enable hooks with mask/unmask hooks. Unlike the disable
-hook, the mask hook doesn't handle already-masked IRQs.
-
-When a GPIO-IRQ driver is unbound, the IRQ is released, triggering
-__irq_disable() and irq_state_set_masked(). A subsequent call to
-machine_kexec_mask_interrupts() re-invokes chip->irq_mask(). This results
-in a call chain, including gpiochip_irq_mask() and gpiochip_disable_irq().
-Since FLAG_USED_AS_IRQ was cleared earlier, a warning occurs.
-
-Replace calls to irq_mask() and irq_disable() hooks with a simplified call
-to irq_shutdown(), and check if the interrupt is started (irqd_is_started)
-before calling the shutdown.
-
-Signed-off-by: Eliav Farber <farbere@amazon.com>
+Link: https://lore.kernel.org/all/59505464-c84a-403d-972f-d4b2055eeaac@gmail.com/
+Signed-off-by: Celeste Liu <uwu@coelacanthus.name>
 ---
-V4 -> V5:
- - The phrase 'This patch' has been removed from the commit message.
+ arch/riscv/kernel/ptrace.c | 33 +++++++++++++++++++++++++++++++++
+ include/uapi/linux/elf.h   |  1 +
+ 2 files changed, 34 insertions(+)
 
- kernel/irq/kexec.c | 8 ++------
- 1 file changed, 2 insertions(+), 6 deletions(-)
-
-diff --git a/kernel/irq/kexec.c b/kernel/irq/kexec.c
-index 0f9548c1708d..1a3deffe6b5b 100644
---- a/kernel/irq/kexec.c
-+++ b/kernel/irq/kexec.c
-@@ -17,7 +17,7 @@ void machine_kexec_mask_interrupts(void)
- 		int check_eoi = 1;
+diff --git a/arch/riscv/kernel/ptrace.c b/arch/riscv/kernel/ptrace.c
+index ea67e9fb7a583683b922fe2c017ea61f3bc848db..faa46de9000376eb445a32d43a40210d7b846844 100644
+--- a/arch/riscv/kernel/ptrace.c
++++ b/arch/riscv/kernel/ptrace.c
+@@ -31,6 +31,7 @@ enum riscv_regset {
+ #ifdef CONFIG_RISCV_ISA_SUPM
+ 	REGSET_TAGGED_ADDR_CTRL,
+ #endif
++	REGSET_ORIG_A0,
+ };
  
- 		chip = irq_desc_get_chip(desc);
--		if (!chip)
-+		if (!chip || !irqd_is_started(&desc->irq_data))
- 			continue;
- 
- 		if (IS_ENABLED(CONFIG_GENERIC_IRQ_KEXEC_CLEAR_VM_FORWARD)) {
-@@ -31,10 +31,6 @@ void machine_kexec_mask_interrupts(void)
- 		if (check_eoi && chip->irq_eoi && irqd_irq_inprogress(&desc->irq_data))
- 			chip->irq_eoi(&desc->irq_data);
- 
--		if (chip->irq_mask)
--			chip->irq_mask(&desc->irq_data);
--
--		if (chip->irq_disable && !irqd_irq_disabled(&desc->irq_data))
--			chip->irq_disable(&desc->irq_data);
-+		irq_shutdown(desc);
- 	}
+ static int riscv_gpr_get(struct task_struct *target,
+@@ -184,6 +185,30 @@ static int tagged_addr_ctrl_set(struct task_struct *target,
  }
+ #endif
+ 
++static int riscv_orig_a0_get(struct task_struct *target,
++			     const struct user_regset *regset,
++			     struct membuf to)
++{
++	return membuf_store(&to, task_pt_regs(target)->orig_a0);
++}
++
++static int riscv_orig_a0_set(struct task_struct *target,
++			     const struct user_regset *regset,
++			     unsigned int pos, unsigned int count,
++			     const void *kbuf, const void __user *ubuf)
++{
++	int orig_a0 = task_pt_regs(target)->orig_a0;
++	int ret;
++
++	ret = user_regset_copyin(&pos, &count, &kbuf, &ubuf, &orig_a0, 0, -1);
++	if (ret)
++		return ret;
++
++	task_pt_regs(target)->orig_a0 = orig_a0;
++	return ret;
++}
++
++
+ static const struct user_regset riscv_user_regset[] = {
+ 	[REGSET_X] = {
+ 		.core_note_type = NT_PRSTATUS,
+@@ -224,6 +249,14 @@ static const struct user_regset riscv_user_regset[] = {
+ 		.set = tagged_addr_ctrl_set,
+ 	},
+ #endif
++	[REGSET_ORIG_A0] = {
++		.core_note_type = NT_RISCV_ORIG_A0,
++		.n = 1,
++		.size = sizeof(elf_greg_t),
++		.align = sizeof(elf_greg_t),
++		.regset_get = riscv_orig_a0_get,
++		.set = riscv_orig_a0_set,
++	},
+ };
+ 
+ static const struct user_regset_view riscv_user_native_view = {
+diff --git a/include/uapi/linux/elf.h b/include/uapi/linux/elf.h
+index b44069d29cecc0f9de90ee66bfffd2137f4275a8..390060229601631da2fb27030d9fa2142e676c14 100644
+--- a/include/uapi/linux/elf.h
++++ b/include/uapi/linux/elf.h
+@@ -452,6 +452,7 @@ typedef struct elf64_shdr {
+ #define NT_RISCV_CSR	0x900		/* RISC-V Control and Status Registers */
+ #define NT_RISCV_VECTOR	0x901		/* RISC-V vector registers */
+ #define NT_RISCV_TAGGED_ADDR_CTRL 0x902	/* RISC-V tagged address control (prctl()) */
++#define NT_RISCV_ORIG_A0	  0x903	/* RISC-V original a0 register */
+ #define NT_LOONGARCH_CPUCFG	0xa00	/* LoongArch CPU config registers */
+ #define NT_LOONGARCH_CSR	0xa01	/* LoongArch control and status registers */
+ #define NT_LOONGARCH_LSX	0xa02	/* LoongArch Loongson SIMD Extension registers */
+
+---
+base-commit: 0e287d31b62bb53ad81d5e59778384a40f8b6f56
+change-id: 20241201-riscv-new-regset-d529b952ad0d
+
+Best regards,
 -- 
-2.40.1
+Celeste Liu <uwu@coelacanthus.name>
 
 
 _______________________________________________
