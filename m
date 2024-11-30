@@ -4,71 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 26340D73606
-	for <linux-riscv@archiver.kernel.org>; Sat, 30 Nov 2024 15:36:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 15F5CD7360D
+	for <linux-riscv@archiver.kernel.org>; Sat, 30 Nov 2024 20:12:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=IMstODbjXKtU9LascqViIdb+ykwYWVi9pbidGOTOq8Q=; b=VTw7uJfq65rI9H
-	C9JJz3fI/cFnLpFiibtHSdiziudVk8hPAyVnHUuNboiukWH+kDkil/WBVNBNihQ2nkDCXZN8v+qzn
-	mk2Oa8XS0Dqorj4jDmtBrf1a/nPjSLOKSq3AjMI/f15LWOFmRVt0VdSTQQj3MAQqCFT/614mOwIIb
-	+cvLdjkXM9sicMhUWSzM9reafosO9cV3Fe3zZrkaaq1JZ0HcwivL7DTGCrXeW+iYwPkJrSaWXztro
-	CAJp1u6nUOu8mT837717Ft+UM+Jdq0t700E1thk7NwEBQjnclGUqmQUL8dqp41/Z4DezDoQwM8hdA
-	ypb7sVk4HoLRxDLhVTyA==;
+	List-Owner; bh=cEh+uJJ0nzBVcAUl2gqE/fXE7Q1p9ODrFwU5d4vDOs4=; b=umC2PQr24YcfJ3
+	7GpLW5kqv8Y8gf9R939nQwTPSr+vDnexQD6ufK2+mTRppK8PndFBgA+F8shRIyDWV9GXDENjHgLEc
+	1pC78xx0/6tb+xGnNoMdHjWbgQgMoxP7t0gyKaO424SYNV1gmyHXOYzqyf+goSv1v3CgPBy1MdIZZ
+	fVQR8bwKvF0gMzaolefoJHEw+/pQMKykfI1EDlNKaPF2hD2KqWUwqhuUqdaOVFOcB9z08zdpOXQT6
+	xkW/ekfS0JU32uX4Vvvf55GDxGiFH2mX4EOsAVSrzty1t5eu4Erf4Ow7+Icuzlr43NmjS/amdeVKi
+	NUUvKWAIFxSZanjM7v7A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tHPWL-00000002Equ-1Xzz;
-	Sat, 30 Nov 2024 15:36:33 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1tHTpj-00000002W69-3ZNM;
+	Sat, 30 Nov 2024 20:12:51 +0000
+Received: from smtp-fw-80009.amazon.com ([99.78.197.220])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tHPWH-00000002Eos-3Dmx
-	for linux-riscv@lists.infradead.org;
-	Sat, 30 Nov 2024 15:36:31 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 520A4A40328
-	for <linux-riscv@lists.infradead.org>; Sat, 30 Nov 2024 15:34:36 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8C3D6C4CECC
-	for <linux-riscv@lists.infradead.org>; Sat, 30 Nov 2024 15:36:28 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1732980988;
-	bh=i2wtbIqmpawPaNp5Btdx5Ar7zkC857Xk8v4whaZ01vs=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=CiO7CeS2vsEIgTLlls4gOdNxdqWDV6mk4yi8iXoCspP3vDrRwMQfReixKraH7cjeI
-	 0FHLGd+mi4RaTkM/mneIM+9rCreIJPnOf7+9eDCPeA36bhQV0qWFrJ6ENgTjS/foMm
-	 WFF3cKrpqN0fa3OZsaR4LplpY3GTK1lJopKyws07napUANn9AnKOBXeKaVP5yrPqX4
-	 G5lPmcSWpLP083O5ydfiY/B4s4w7RxN/9BCjVHuKK3AJVSW+XU5nVt7rWR33p3U02E
-	 H+YnY4Kq+j3mwH1bDPYoRAxYixrpjK7AgaDdhn+ZdjJIkkO7dyrHZg2zx4B1+bRD6g
-	 CNd5qmx1DW1HA==
-Received: by mail-ej1-f52.google.com with SMTP id a640c23a62f3a-aa545dc7105so408970866b.3
-        for <linux-riscv@lists.infradead.org>; Sat, 30 Nov 2024 07:36:28 -0800 (PST)
-X-Gm-Message-State: AOJu0Yzd1+VM4jcc6LQRaAufA08jUXZ3OUTM6UNRPZXSTdWAUUzVuPoD
-	z/RTxsL8X+zma2uFXTsh3oTnkNCWN4TuaYOuM22ylfWCt7XUpaBUC5JOg1eiNfWT70RYJ60zSeE
-	hno5IJder5+uPxNYO06K5ZG1mVxs=
-X-Google-Smtp-Source: AGHT+IFCbSZTXAOHJScz3jShbtoC55XaWETe6KCUxwT/Fq9CLf8JLid4BoIIEkr2VsAivDhAk3kDfg+Q5MIIOdO5iyI=
-X-Received: by 2002:a17:906:c4d5:b0:aa5:392a:f5a7 with SMTP id
- a640c23a62f3a-aa581066f35mr1161420066b.57.1732980987180; Sat, 30 Nov 2024
- 07:36:27 -0800 (PST)
+	id 1tHToj-00000002Vu5-1pAI;
+	Sat, 30 Nov 2024 20:11:50 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+  d=amazon.com; i=@amazon.com; q=dns/txt; s=amazon201209;
+  t=1732997509; x=1764533509;
+  h=from:to:cc:subject:date:message-id:in-reply-to:
+   references:mime-version:content-transfer-encoding;
+  bh=Z1q0O9SSc3WE7X9Ea2bgfI7o8XhiztyuqmdWRMZ6pzk=;
+  b=ojb++cOdVL/C8+Jf0SIHHKJaD8spgY+M3gXQmTREYoUKfEeliRjAUECM
+   Qt8/W1DI4IAobwteT1XbCctMsyJbXyCtLAAqdPItZ6k+F/rG1L7rilAPW
+   1XF9Z5XShISb7RmudL1ixxWQp6Yx2GfseuL/d1qzDfRe0NoZPQ/axGo+M
+   E=;
+X-IronPort-AV: E=Sophos;i="6.12,199,1728950400"; 
+   d="scan'208";a="152030536"
+Received: from pdx4-co-svc-p1-lb2-vlan2.amazon.com (HELO smtpout.prod.us-west-2.prod.farcaster.email.amazon.dev) ([10.25.36.210])
+  by smtp-border-fw-80009.pdx80.corp.amazon.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 30 Nov 2024 20:11:45 +0000
+Received: from EX19MTAUWB001.ant.amazon.com [10.0.7.35:55483]
+ by smtpin.naws.us-west-2.prod.farcaster.email.amazon.dev [10.0.38.94:2525] with esmtp (Farcaster)
+ id 301daaf0-25e9-43d5-85f9-905c59d2ccf4; Sat, 30 Nov 2024 20:11:45 +0000 (UTC)
+X-Farcaster-Flow-ID: 301daaf0-25e9-43d5-85f9-905c59d2ccf4
+Received: from EX19D013UWA004.ant.amazon.com (10.13.138.207) by
+ EX19MTAUWB001.ant.amazon.com (10.250.64.248) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.1258.34;
+ Sat, 30 Nov 2024 20:11:45 +0000
+Received: from EX19MTAUEB002.ant.amazon.com (10.252.135.47) by
+ EX19D013UWA004.ant.amazon.com (10.13.138.207) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.1258.34;
+ Sat, 30 Nov 2024 20:11:44 +0000
+Received: from email-imr-corp-prod-pdx-all-2c-475d797d.us-west-2.amazon.com
+ (10.124.125.2) by mail-relay.amazon.com (10.252.135.97) with Microsoft SMTP
+ Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id
+ 15.2.1258.34 via Frontend Transport; Sat, 30 Nov 2024 20:11:44 +0000
+Received: from dev-dsk-farbere-1a-46ecabed.eu-west-1.amazon.com (dev-dsk-farbere-1a-46ecabed.eu-west-1.amazon.com [172.19.116.181])
+	by email-imr-corp-prod-pdx-all-2c-475d797d.us-west-2.amazon.com (Postfix) with ESMTP id 0642CA0544;
+	Sat, 30 Nov 2024 20:11:44 +0000 (UTC)
+Received: by dev-dsk-farbere-1a-46ecabed.eu-west-1.amazon.com (Postfix, from userid 14301484)
+	id 924766F9F; Sat, 30 Nov 2024 20:11:43 +0000 (UTC)
+From: Eliav Farber <farbere@amazon.com>
+To: <linux@armlinux.org.uk>, <catalin.marinas@arm.com>, <will@kernel.org>,
+	<mpe@ellerman.id.au>, <npiggin@gmail.com>, <christophe.leroy@csgroup.eu>,
+	<naveen@kernel.org>, <maddy@linux.ibm.com>, <paul.walmsley@sifive.com>,
+	<palmer@dabbelt.com>, <aou@eecs.berkeley.edu>, <tglx@linutronix.de>,
+	<akpm@linux-foundation.org>, <bhe@redhat.com>, <farbere@amazon.com>,
+	<hbathini@linux.ibm.com>, <sourabhjain@linux.ibm.com>,
+	<adityag@linux.ibm.com>, <songshuaishuai@tinylab.org>,
+	<takakura@valinux.co.jp>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>, <linuxppc-dev@lists.ozlabs.org>,
+	<linux-riscv@lists.infradead.org>
+CC: <jonnyc@amazon.com>
+Subject: [PATCH v5 1/2] kexec: Consolidate machine_kexec_mask_interrupts() implementation
+Date: Sat, 30 Nov 2024 20:11:42 +0000
+Message-ID: <20241130201143.48808-2-farbere@amazon.com>
+X-Mailer: git-send-email 2.40.1
+In-Reply-To: <20241130201143.48808-1-farbere@amazon.com>
+References: <20241130201143.48808-1-farbere@amazon.com>
 MIME-Version: 1.0
-References: <20241130115355.3316160-1-guoren@kernel.org> <CAJF2gTQhfr-wsj2VZwwP7sWq=yp9HtT_kzzr68xh1VpKLSbybQ@mail.gmail.com>
-In-Reply-To: <CAJF2gTQhfr-wsj2VZwwP7sWq=yp9HtT_kzzr68xh1VpKLSbybQ@mail.gmail.com>
-From: Guo Ren <guoren@kernel.org>
-Date: Sat, 30 Nov 2024 23:36:15 +0800
-X-Gmail-Original-Message-ID: <CAJF2gTRcaZhHdETFk9KbL1rUdO-U4dX8Ydta7ViAUQ3unrbScg@mail.gmail.com>
-Message-ID: <CAJF2gTRcaZhHdETFk9KbL1rUdO-U4dX8Ydta7ViAUQ3unrbScg@mail.gmail.com>
-Subject: Re: [PATCH] riscv: Fixup boot failure when CONFIG_RT_MUTEXES=y
-To: paul.walmsley@sifive.com, palmer@dabbelt.com, guoren@kernel.org, 
-	bjorn@rivosinc.com, conor@kernel.org, leobras@redhat.com, 
-	peterz@infradead.org, parri.andrea@gmail.com, will@kernel.org, 
-	longman@redhat.com, boqun.feng@gmail.com, arnd@arndb.de, 
-	alexghiti@rivosinc.com
-Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	Guo Ren <guoren@linux.alibaba.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241130_073629_955241_91575911 
-X-CRM114-Status: GOOD (  22.57  )
+X-CRM114-CacheID: sfid-20241130_121149_534345_B91927DF 
+X-CRM114-Status: GOOD (  27.16  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,75 +94,322 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gU2F0LCBOb3YgMzAsIDIwMjQgYXQgODowMuKAr1BNIEd1byBSZW4gPGd1b3JlbkBrZXJuZWwu
-b3JnPiB3cm90ZToKPgo+IE9uIFNhdCwgTm92IDMwLCAyMDI0IGF0IDc6NTTigK9QTSA8Z3VvcmVu
-QGtlcm5lbC5vcmc+IHdyb3RlOgo+ID4KPiA+IEZyb206IEd1byBSZW4gPGd1b3JlbkBsaW51eC5h
-bGliYWJhLmNvbT4KPiA+Cj4gPiBXaGVuIENPTkZJR19SVF9NVVRFWEVTPXksIG11dGV4X2xvY2st
-PnJ0X211dGV4X3RyeV9hY3F1aXJlIHdvdWxkCj4gQ29ycmVjdDogQ09ORklHX0RFQlVHX1JUX01V
-VEVYRVM9eQpBYmFuZG9uZWQuCgpIZXJlIGlzIHRoZSBSRVNFTkQgUEFUQ0g6Cmh0dHBzOi8vbG9y
-ZS5rZXJuZWwub3JnL2xpbnV4LXJpc2N2LzIwMjQxMTMwMTUzMzEwLjMzNDk0ODQtMS1ndW9yZW5A
-a2VybmVsLm9yZy8KCj4KPiA+IGNoYW5nZSBmcm9tIHJ0X211dGV4X2NtcHhjaGdfYWNxdWlyZSB0
-byBydF9tdXRleF9zbG93dHJ5bG9jaygpOgo+ID4gICAgICAgICByYXdfc3Bpbl9sb2NrX2lycXNh
-dmUoJmxvY2stPndhaXRfbG9jaywgZmxhZ3MpOwo+ID4gICAgICAgICByZXQgPSBfX3J0X211dGV4
-X3Nsb3d0cnlsb2NrKGxvY2spOwo+ID4gICAgICAgICByYXdfc3Bpbl91bmxvY2tfaXJxcmVzdG9y
-ZSgmbG9jay0+d2FpdF9sb2NrLCBmbGFncyk7Cj4gPgo+ID4gQmVjYXVzZSBxdWV1ZWRfc3Bpbl8j
-b3BzIHRvIHRpY2tldF8jb3BzIGlzIGNoYW5nZWQgb25lIGJ5IG9uZSBieQo+ID4ganVtcF9sYWJl
-bCwgcmF3X3NwaW5fbG9jay91bmxvY2sgd291bGQgY2F1c2UgYSBkZWFkbG9jayBkdXJpbmcgdGhl
-Cj4gPiBjaGFuZ2luZy4KPiA+Cj4gPiBUaGF0IG1lYW5zIGluIGFyY2gvcmlzY3Yva2VybmVsL2p1
-bXBfbGFiZWwuYzoKPiA+IDEuCj4gPiBhcmNoX2p1bXBfbGFiZWxfdHJhbnNmb3JtX3F1ZXVlKCkg
-LT4KPiA+IG11dGV4X2xvY2soJnRleHRfbXV0ZXgpOyArLT4gcmF3X3NwaW5fbG9jayAgLT4gcXVl
-dWVkX3NwaW5fbG9jawo+ID4gICAgICAgICAgICAgICAgICAgICAgICAgIHwtPiByYXdfc3Bpbl91
-bmxvY2sgLT4gcXVldWVkX3NwaW5fdW5sb2NrCj4gPiBwYXRjaF9pbnNuX3dyaXRlIC0+IGNoYW5n
-ZSB0aGUgcmF3X3NwaW5fbG9jayB0byB0aWNrZXRfbG9jawo+ID4gbXV0ZXhfdW5sb2NrKCZ0ZXh0
-X211dGV4KTsKPiA+IC4uLgo+ID4KPiA+IDIuIC8qIERpcnR5IHRoZSBsb2NrIHZhbHVlICovCj4g
-PiBhcmNoX2p1bXBfbGFiZWxfdHJhbnNmb3JtX3F1ZXVlKCkgLT4KPiA+IG11dGV4X2xvY2soJnRl
-eHRfbXV0ZXgpOyArLT4gcmF3X3NwaW5fbG9jayAtPiAqdGlja2V0X2xvY2sqCj4gPiAgICAgICAg
-ICAgICAgICAgICAgICAgICAgfC0+IHJhd19zcGluX3VubG9jayAtPiAqcXVldWVkX3NwaW5fdW5s
-b2NrKgo+ID4gICAgICAgICAgICAgICAgICAgICAgICAgICAvKiBCVUc6IHRpY2tldF9sb2NrIHdp
-dGggcXVldWVkX3NwaW5fdW5sb2NrICovCj4gPiBwYXRjaF9pbnNuX3dyaXRlICAtPiAgY2hhbmdl
-IHRoZSByYXdfc3Bpbl91bmxvY2sgdG8gdGlja2V0X3VubG9jawo+ID4gbXV0ZXhfdW5sb2NrKCZ0
-ZXh0X211dGV4KTsKPiA+IC4uLgo+ID4KPiA+IDMuIC8qIERlYWQgbG9jayAqLwo+ID4gYXJjaF9q
-dW1wX2xhYmVsX3RyYW5zZm9ybV9xdWV1ZSgpIC0+Cj4gPiBtdXRleF9sb2NrKCZ0ZXh0X211dGV4
-KTsgKy0+IHJhd19zcGluX2xvY2sgLT4gdGlja2V0X2xvY2sgLyogZGVhZGxvY2shICovCj4gPiAg
-ICAgICAgICAgICAgICAgICAgICAgICAgfC0+IHJhd19zcGluX3VubG9jayAtPiB0aWNrZXRfdW5s
-b2NrCj4gPiBwYXRjaF9pbnNuX3dyaXRlIC0+IGNoYW5nZSBvdGhlciByYXdfc3Bpbl8jb3AgLT4g
-dGlja2V0XyNvcAo+ID4gbXV0ZXhfdW5sb2NrKCZ0ZXh0X211dGV4KTsKPiA+Cj4gPiBTbywgdGhl
-IHNvbHV0aW9uIGlzIHRvIGRpc2FibGUgbXV0ZXggdXNhZ2Ugb2YKPiA+IGFyY2hfanVtcF9sYWJl
-bF90cmFuc2Zvcm1fcXVldWUoKSBkdXJpbmcgZWFybHlfYm9vdF9pcnFzX2Rpc2FibGVkLCBqdXN0
-Cj4gPiBsaWtlIHdlIGhhdmUgZG9uZSBmb3Igc3RvcF9tYWNoaW5lLgo+ID4KPiA+IFJlcG9ydGVk
-LWJ5OiBDb25vciBEb29sZXkgPGNvbm9yQGtlcm5lbC5vcmc+Cj4gPiBTaWduZWQtb2ZmLWJ5OiBH
-dW8gUmVuIDxndW9yZW5AbGludXguYWxpYmFiYS5jb20+Cj4gPiBTaWduZWQtb2ZmLWJ5OiBHdW8g
-UmVuIDxndW9yZW5Aa2VybmVsLm9yZz4KPiA+IEZpeGVzOiBhYjgzNjQ3ZmFkYWUgKCJyaXNjdjog
-QWRkIHFzcGlubG9jayBzdXBwb3J0IikKPiA+IExpbms6IGh0dHBzOi8vbG9yZS5rZXJuZWwub3Jn
-L2xpbnV4LXJpc2N2L0NBSkYyZ1RRd1lUR2luQm1DU2dWVW9QdjBfcTRFUHRfK1dpeWZVQTFIVmlB
-S2dVenhBZ0BtYWlsLmdtYWlsLmNvbS9ULyNtZjQ4OGU2MzQ3ODE3ZmNhMDNiYjkzYTdkMzRkZjMz
-ZDg2MTViMzc3NQo+ID4gQ2M6IFBhbG1lciBEYWJiZWx0IDxwYWxtZXJAZGFiYmVsdC5jb20+Cj4g
-PiBDYzogQWxleGFuZHJlIEdoaXRpIDxhbGV4Z2hpdGlAcml2b3NpbmMuY29tPgo+ID4gLS0tCj4g
-PiAgYXJjaC9yaXNjdi9rZXJuZWwvanVtcF9sYWJlbC5jIHwgMTIgKysrKysrKysrLS0tCj4gPiAg
-MSBmaWxlIGNoYW5nZWQsIDkgaW5zZXJ0aW9ucygrKSwgMyBkZWxldGlvbnMoLSkKPiA+Cj4gPiBk
-aWZmIC0tZ2l0IGEvYXJjaC9yaXNjdi9rZXJuZWwvanVtcF9sYWJlbC5jIGIvYXJjaC9yaXNjdi9r
-ZXJuZWwvanVtcF9sYWJlbC5jCj4gPiBpbmRleCA2ZWVlNmY3MzZmNjguLjY1NGVkMTU5YzgzMCAx
-MDA2NDQKPiA+IC0tLSBhL2FyY2gvcmlzY3Yva2VybmVsL2p1bXBfbGFiZWwuYwo+ID4gKysrIGIv
-YXJjaC9yaXNjdi9rZXJuZWwvanVtcF9sYWJlbC5jCj4gPiBAQCAtMzYsOSArMzYsMTUgQEAgYm9v
-bCBhcmNoX2p1bXBfbGFiZWxfdHJhbnNmb3JtX3F1ZXVlKHN0cnVjdCBqdW1wX2VudHJ5ICplbnRy
-eSwKPiA+ICAgICAgICAgICAgICAgICBpbnNuID0gUklTQ1ZfSU5TTl9OT1A7Cj4gPiAgICAgICAg
-IH0KPiA+Cj4gPiAtICAgICAgIG11dGV4X2xvY2soJnRleHRfbXV0ZXgpOwo+ID4gLSAgICAgICBw
-YXRjaF9pbnNuX3dyaXRlKGFkZHIsICZpbnNuLCBzaXplb2YoaW5zbikpOwo+ID4gLSAgICAgICBt
-dXRleF91bmxvY2soJnRleHRfbXV0ZXgpOwo+ID4gKyAgICAgICBpZiAoZWFybHlfYm9vdF9pcnFz
-X2Rpc2FibGVkKSB7Cj4gPiArICAgICAgICAgICAgICAgcmlzY3ZfcGF0Y2hfaW5fc3RvcF9tYWNo
-aW5lID0gMTsKPiA+ICsgICAgICAgICAgICAgICBwYXRjaF9pbnNuX3dyaXRlKGFkZHIsICZpbnNu
-LCBzaXplb2YoaW5zbikpOwo+ID4gKyAgICAgICAgICAgICAgIHJpc2N2X3BhdGNoX2luX3N0b3Bf
-bWFjaGluZSA9IDA7Cj4gPiArICAgICAgIH0gZWxzZSB7Cj4gPiArICAgICAgICAgICAgICAgbXV0
-ZXhfbG9jaygmdGV4dF9tdXRleCk7Cj4gPiArICAgICAgICAgICAgICAgcGF0Y2hfaW5zbl93cml0
-ZShhZGRyLCAmaW5zbiwgc2l6ZW9mKGluc24pKTsKPiA+ICsgICAgICAgICAgICAgICBtdXRleF91
-bmxvY2soJnRleHRfbXV0ZXgpOwo+ID4gKyAgICAgICB9Cj4gPgo+ID4gICAgICAgICByZXR1cm4g
-dHJ1ZTsKPiA+ICB9Cj4gPiAtLQo+ID4gMi40MC4xCj4gPgo+Cj4KPiAtLQo+IEJlc3QgUmVnYXJk
-cwo+ICBHdW8gUmVuCgoKCi0tIApCZXN0IFJlZ2FyZHMKIEd1byBSZW4KCl9fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlz
-dApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQu
-b3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+Consolidate the machine_kexec_mask_interrupts implementation into a common
+function located in a new file: kernel/irq/kexec.c. This removes duplicate
+implementations from architecture-specific files in arch/arm, arch/arm64,
+arch/powerpc, and arch/riscv, reducing code duplication and improving
+maintainability.
+
+The new implementation retains architecture-specific behavior for
+CONFIG_GENERIC_IRQ_KEXEC_CLEAR_VM_FORWARD, which was previously implemented
+for ARM64. When enabled (currently for ARM64), it clears the active state
+of interrupts forwarded to virtual machines (VMs) before handling other
+interrupt masking operations.
+
+Signed-off-by: Eliav Farber <farbere@amazon.com>
+---
+V4 -> V5:
+ - The function machine_kexec_mask_interrupts() has been moved
+   from kernel/kexec_core.c to a new file kernel/irq/kexec.c.
+ - A new configuration option, GENERIC_IRQ_KEXEC_CLEAR_VM_FORWARD, has been
+   added.
+ - The parameters for the machine_kexec_mask_interrupts() function have
+   been defined in reverse Christmas Tree style.
+ - The comment explaining the call to irq_set_irqchip_state() has been
+   improved for clarity.
+
+ arch/arm/kernel/machine_kexec.c   | 23 ------------------
+ arch/arm64/Kconfig                |  1 +
+ arch/arm64/kernel/machine_kexec.c | 31 ------------------------
+ arch/powerpc/include/asm/kexec.h  |  1 -
+ arch/powerpc/kexec/core.c         | 22 -----------------
+ arch/powerpc/kexec/core_32.c      |  1 +
+ arch/riscv/kernel/machine_kexec.c | 23 ------------------
+ include/linux/irq.h               |  3 +++
+ kernel/irq/Kconfig                |  9 +++++++
+ kernel/irq/Makefile               |  2 +-
+ kernel/irq/kexec.c                | 40 +++++++++++++++++++++++++++++++
+ 11 files changed, 55 insertions(+), 101 deletions(-)
+ create mode 100644 kernel/irq/kexec.c
+
+diff --git a/arch/arm/kernel/machine_kexec.c b/arch/arm/kernel/machine_kexec.c
+index 80ceb5bd2680..dd430477e7c1 100644
+--- a/arch/arm/kernel/machine_kexec.c
++++ b/arch/arm/kernel/machine_kexec.c
+@@ -127,29 +127,6 @@ void crash_smp_send_stop(void)
+ 	cpus_stopped = 1;
+ }
+ 
+-static void machine_kexec_mask_interrupts(void)
+-{
+-	unsigned int i;
+-	struct irq_desc *desc;
+-
+-	for_each_irq_desc(i, desc) {
+-		struct irq_chip *chip;
+-
+-		chip = irq_desc_get_chip(desc);
+-		if (!chip)
+-			continue;
+-
+-		if (chip->irq_eoi && irqd_irq_inprogress(&desc->irq_data))
+-			chip->irq_eoi(&desc->irq_data);
+-
+-		if (chip->irq_mask)
+-			chip->irq_mask(&desc->irq_data);
+-
+-		if (chip->irq_disable && !irqd_irq_disabled(&desc->irq_data))
+-			chip->irq_disable(&desc->irq_data);
+-	}
+-}
+-
+ void machine_crash_shutdown(struct pt_regs *regs)
+ {
+ 	local_irq_disable();
+diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
+index d743737bf9ce..359b9dcb35b9 100644
+--- a/arch/arm64/Kconfig
++++ b/arch/arm64/Kconfig
+@@ -150,6 +150,7 @@ config ARM64
+ 	select GENERIC_IDLE_POLL_SETUP
+ 	select GENERIC_IOREMAP
+ 	select GENERIC_IRQ_IPI
++	select GENERIC_IRQ_KEXEC_CLEAR_VM_FORWARD
+ 	select GENERIC_IRQ_PROBE
+ 	select GENERIC_IRQ_SHOW
+ 	select GENERIC_IRQ_SHOW_LEVEL
+diff --git a/arch/arm64/kernel/machine_kexec.c b/arch/arm64/kernel/machine_kexec.c
+index 82e2203d86a3..6f121a0164a4 100644
+--- a/arch/arm64/kernel/machine_kexec.c
++++ b/arch/arm64/kernel/machine_kexec.c
+@@ -207,37 +207,6 @@ void machine_kexec(struct kimage *kimage)
+ 	BUG(); /* Should never get here. */
+ }
+ 
+-static void machine_kexec_mask_interrupts(void)
+-{
+-	unsigned int i;
+-	struct irq_desc *desc;
+-
+-	for_each_irq_desc(i, desc) {
+-		struct irq_chip *chip;
+-		int ret;
+-
+-		chip = irq_desc_get_chip(desc);
+-		if (!chip)
+-			continue;
+-
+-		/*
+-		 * First try to remove the active state. If this
+-		 * fails, try to EOI the interrupt.
+-		 */
+-		ret = irq_set_irqchip_state(i, IRQCHIP_STATE_ACTIVE, false);
+-
+-		if (ret && irqd_irq_inprogress(&desc->irq_data) &&
+-		    chip->irq_eoi)
+-			chip->irq_eoi(&desc->irq_data);
+-
+-		if (chip->irq_mask)
+-			chip->irq_mask(&desc->irq_data);
+-
+-		if (chip->irq_disable && !irqd_irq_disabled(&desc->irq_data))
+-			chip->irq_disable(&desc->irq_data);
+-	}
+-}
+-
+ /**
+  * machine_crash_shutdown - shutdown non-crashing cpus and save registers
+  */
+diff --git a/arch/powerpc/include/asm/kexec.h b/arch/powerpc/include/asm/kexec.h
+index 270ee93a0f7d..601e569303e1 100644
+--- a/arch/powerpc/include/asm/kexec.h
++++ b/arch/powerpc/include/asm/kexec.h
+@@ -61,7 +61,6 @@ struct pt_regs;
+ extern void kexec_smp_wait(void);	/* get and clear naca physid, wait for
+ 					  master to copy new code to 0 */
+ extern void default_machine_kexec(struct kimage *image);
+-extern void machine_kexec_mask_interrupts(void);
+ 
+ void relocate_new_kernel(unsigned long indirection_page, unsigned long reboot_code_buffer,
+ 			 unsigned long start_address) __noreturn;
+diff --git a/arch/powerpc/kexec/core.c b/arch/powerpc/kexec/core.c
+index b8333a49ea5d..58a930a47422 100644
+--- a/arch/powerpc/kexec/core.c
++++ b/arch/powerpc/kexec/core.c
+@@ -22,28 +22,6 @@
+ #include <asm/setup.h>
+ #include <asm/firmware.h>
+ 
+-void machine_kexec_mask_interrupts(void) {
+-	unsigned int i;
+-	struct irq_desc *desc;
+-
+-	for_each_irq_desc(i, desc) {
+-		struct irq_chip *chip;
+-
+-		chip = irq_desc_get_chip(desc);
+-		if (!chip)
+-			continue;
+-
+-		if (chip->irq_eoi && irqd_irq_inprogress(&desc->irq_data))
+-			chip->irq_eoi(&desc->irq_data);
+-
+-		if (chip->irq_mask)
+-			chip->irq_mask(&desc->irq_data);
+-
+-		if (chip->irq_disable && !irqd_irq_disabled(&desc->irq_data))
+-			chip->irq_disable(&desc->irq_data);
+-	}
+-}
+-
+ #ifdef CONFIG_CRASH_DUMP
+ void machine_crash_shutdown(struct pt_regs *regs)
+ {
+diff --git a/arch/powerpc/kexec/core_32.c b/arch/powerpc/kexec/core_32.c
+index c95f96850c9e..deb28eb44f30 100644
+--- a/arch/powerpc/kexec/core_32.c
++++ b/arch/powerpc/kexec/core_32.c
+@@ -7,6 +7,7 @@
+  * Copyright (C) 2005 IBM Corporation.
+  */
+ 
++#include <linux/irq.h>
+ #include <linux/kexec.h>
+ #include <linux/mm.h>
+ #include <linux/string.h>
+diff --git a/arch/riscv/kernel/machine_kexec.c b/arch/riscv/kernel/machine_kexec.c
+index 3c830a6f7ef4..2306ce3e5f22 100644
+--- a/arch/riscv/kernel/machine_kexec.c
++++ b/arch/riscv/kernel/machine_kexec.c
+@@ -114,29 +114,6 @@ void machine_shutdown(void)
+ #endif
+ }
+ 
+-static void machine_kexec_mask_interrupts(void)
+-{
+-	unsigned int i;
+-	struct irq_desc *desc;
+-
+-	for_each_irq_desc(i, desc) {
+-		struct irq_chip *chip;
+-
+-		chip = irq_desc_get_chip(desc);
+-		if (!chip)
+-			continue;
+-
+-		if (chip->irq_eoi && irqd_irq_inprogress(&desc->irq_data))
+-			chip->irq_eoi(&desc->irq_data);
+-
+-		if (chip->irq_mask)
+-			chip->irq_mask(&desc->irq_data);
+-
+-		if (chip->irq_disable && !irqd_irq_disabled(&desc->irq_data))
+-			chip->irq_disable(&desc->irq_data);
+-	}
+-}
+-
+ /*
+  * machine_crash_shutdown - Prepare to kexec after a kernel crash
+  *
+diff --git a/include/linux/irq.h b/include/linux/irq.h
+index fa711f80957b..25f51bf3c351 100644
+--- a/include/linux/irq.h
++++ b/include/linux/irq.h
+@@ -694,6 +694,9 @@ extern int irq_chip_request_resources_parent(struct irq_data *data);
+ extern void irq_chip_release_resources_parent(struct irq_data *data);
+ #endif
+ 
++/* Disable or mask interrupts during a kernel kexec */
++extern void machine_kexec_mask_interrupts(void);
++
+ /* Handling of unhandled and spurious interrupts: */
+ extern void note_interrupt(struct irq_desc *desc, irqreturn_t action_ret);
+ 
+diff --git a/kernel/irq/Kconfig b/kernel/irq/Kconfig
+index 529adb1f5859..5967accb8e87 100644
+--- a/kernel/irq/Kconfig
++++ b/kernel/irq/Kconfig
+@@ -154,3 +154,12 @@ config DEPRECATED_IRQ_CPU_ONOFFLINE
+ 	bool
+ 	depends on CAVIUM_OCTEON_SOC
+ 	default CAVIUM_OCTEON_SOC
++
++config GENERIC_IRQ_KEXEC_CLEAR_VM_FORWARD
++	bool "Clear forwarded VM interrupts during kexec"
++	default n
++	help
++	  When enabled, this option allows the kernel to clear the active state
++	  of interrupts that are forwarded to virtual machines (VMs) during a
++	  machine kexec. For interrupts that are not forwarded, if supported,
++	  the kernel will attempt to trigger an End of Interrupt (EOI).
+diff --git a/kernel/irq/Makefile b/kernel/irq/Makefile
+index f19d3080bf11..c0f44c06d69d 100644
+--- a/kernel/irq/Makefile
++++ b/kernel/irq/Makefile
+@@ -1,6 +1,6 @@
+ # SPDX-License-Identifier: GPL-2.0
+ 
+-obj-y := irqdesc.o handle.o manage.o spurious.o resend.o chip.o dummychip.o devres.o
++obj-y := irqdesc.o handle.o manage.o spurious.o resend.o chip.o dummychip.o devres.o kexec.o
+ obj-$(CONFIG_IRQ_TIMINGS) += timings.o
+ ifeq ($(CONFIG_TEST_IRQ_TIMINGS),y)
+ 	CFLAGS_timings.o += -DDEBUG
+diff --git a/kernel/irq/kexec.c b/kernel/irq/kexec.c
+new file mode 100644
+index 000000000000..0f9548c1708d
+--- /dev/null
++++ b/kernel/irq/kexec.c
+@@ -0,0 +1,40 @@
++// SPDX-License-Identifier: GPL-2.0
++
++#include <linux/interrupt.h>
++#include <linux/irq.h>
++#include <linux/irqdesc.h>
++#include <linux/irqnr.h>
++
++#include "internals.h"
++
++void machine_kexec_mask_interrupts(void)
++{
++	struct irq_desc *desc;
++	unsigned int i;
++
++	for_each_irq_desc(i, desc) {
++		struct irq_chip *chip;
++		int check_eoi = 1;
++
++		chip = irq_desc_get_chip(desc);
++		if (!chip)
++			continue;
++
++		if (IS_ENABLED(CONFIG_GENERIC_IRQ_KEXEC_CLEAR_VM_FORWARD)) {
++			/*
++			 * First try to remove the active state from an interrupt which is forwarded
++			 * to a VM. If the interrupt is not forwarded, try to EOI the interrupt.
++			 */
++			check_eoi = irq_set_irqchip_state(i, IRQCHIP_STATE_ACTIVE, false);
++		}
++
++		if (check_eoi && chip->irq_eoi && irqd_irq_inprogress(&desc->irq_data))
++			chip->irq_eoi(&desc->irq_data);
++
++		if (chip->irq_mask)
++			chip->irq_mask(&desc->irq_data);
++
++		if (chip->irq_disable && !irqd_irq_disabled(&desc->irq_data))
++			chip->irq_disable(&desc->irq_data);
++	}
++}
+-- 
+2.40.1
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
