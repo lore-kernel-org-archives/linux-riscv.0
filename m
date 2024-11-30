@@ -4,57 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0838FD78333
-	for <linux-riscv@archiver.kernel.org>; Mon,  2 Dec 2024 17:07:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4CFC5D78337
+	for <linux-riscv@archiver.kernel.org>; Mon,  2 Dec 2024 17:07:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:CC
 	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=ZynjPnCyn4WEp/qe6WRkg7Oy6R0cVdbIPx+ReSUlUIo=; b=CPgMW+gDRVZbRR
-	32tkNHw8eESVDIZu4jj2NJwjDjeoqdHu3LS7IpQK/STLx5LiAzCKisfVrKA3wdsI6J3ypmq9s98IS
-	YS9eyor6kQcPR/0qNhxkTGAnjL4o5BKjHu2fwBL2PTZMnI/5ntXHvb0GUc5Q43l3eB/MZtYytFDMA
-	FaqymZyJUivd8IpI4gqo7jI6iSKzESOFqsPM5hpjTS5qEMY1jRaCDpXxOwCGyfC4sFPb0xdP5sAGm
-	SaFmaBxoZVWxbZd+viaVcqeOHn4W4dp2E6UM3AXGv66n1oPOadCgFgS6dla0Ej42G/g7HtA2zAQT2
-	VTN+AnOdsOxExmrH4Olw==;
+	List-Owner; bh=Px1Q+a4QhFjb4p9RTniGPsAMsEE4bIFa27EC6Cg3gtU=; b=e7cwZXab4bBdk3
+	I4b67jj2KX03JQo98Kr4AM1VX7XHDJ4zQWjijvStPjSfbECrTToSdtWjniPzNeV9TQClhBbmwDG7w
+	nMrkQFzzXKtXRlNYe1hwLg8BaUCdKt1WAXgeDHFDDT6+JZvdUgSeajwBZjcgnWeycYAagzmtNs4Mu
+	uH5FkSHAPYijnFMEMHJIp0xErjTbrYt9CahV7wU/fJwZZw4EykaczcK4i3XlLro79spN05Wk3gX/U
+	NZ8HnOa0lCbY3QgsblL7y+D4zsP52n6TJ+pobZAToLBEWHP5B6/3JZ6ao7LQNOayEK+vHzigk78V4
+	pPmFRkKXQIFgoUps7S+g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tI9t7-00000006xts-3e9D;
-	Mon, 02 Dec 2024 17:07:09 +0000
-Received: from smtp-fw-9106.amazon.com ([207.171.188.206])
+	id 1tI9t8-00000006xu5-1s7N;
+	Mon, 02 Dec 2024 17:07:10 +0000
+Received: from smtp-fw-52005.amazon.com ([52.119.213.156])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tHTlw-00000002VVK-3nCu;
-	Sat, 30 Nov 2024 20:08:58 +0000
+	id 1tHTo4-00000002Vlz-0f0v;
+	Sat, 30 Nov 2024 20:11:09 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
   d=amazon.com; i=@amazon.com; q=dns/txt; s=amazon201209;
-  t=1732997338; x=1764533338;
+  t=1732997468; x=1764533468;
   h=from:to:cc:subject:date:message-id:
    content-transfer-encoding:mime-version;
-  bh=AhSV92xctZtOIuDX4XdK6Ka318O9z4zvPM7btw6h77c=;
-  b=XxsQxaG83u3kcaIEol2oSzKW29PsjOXxIx71oO0fxcayfD2HYTFmu25d
-   /WG9d5KC9YlTOjvW3MgufBKV5e0CRpxfHQjjjoiI8TL8BJwgS3hRCepNI
-   5zh73d2eohXOFgmkRN/eB33W/Ma2djysGSBh3E8BkeHQM04sFEN/2NzTj
-   Q=;
+  bh=is582WBBi937WdWYFufHhkkhP+21AhVYgF4uiSgdXuo=;
+  b=TZZeCmk/s8NmYk/qCEF2p74m5GMpRI9BEJdaTVy/zTjABhI01IBc0lao
+   Wf4roLsCTLrvbslNNPa1+bUVLuQpgPl36v/1IH9kX9nltkINa7ihnqX7m
+   68QCSdI/vONiiSqw465xZOGyAForR9aM7Sk8oLfSi5eVSZBeTfKE7gneN
+   k=;
 X-IronPort-AV: E=Sophos;i="6.12,199,1728950400"; 
-   d="scan'208";a="779857217"
-Received: from pdx4-co-svc-p1-lb2-vlan2.amazon.com (HELO smtpout.prod.us-east-1.prod.farcaster.email.amazon.dev) ([10.25.36.210])
-  by smtp-border-fw-9106.sea19.amazon.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 30 Nov 2024 20:08:48 +0000
-Received: from EX19MTAEUA002.ant.amazon.com [10.0.10.100:15968]
+   d="scan'208";a="699401236"
+Received: from iad6-co-svc-p1-lb1-vlan3.amazon.com (HELO smtpout.prod.us-west-2.prod.farcaster.email.amazon.dev) ([10.124.125.6])
+  by smtp-border-fw-52005.iad7.amazon.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 30 Nov 2024 20:11:01 +0000
+Received: from EX19MTAEUC001.ant.amazon.com [10.0.10.100:31389]
  by smtpin.naws.eu-west-1.prod.farcaster.email.amazon.dev [10.0.11.83:2525] with esmtp (Farcaster)
- id 6ac350d1-00ea-4165-8f54-56833500c432; Sat, 30 Nov 2024 20:08:45 +0000 (UTC)
-X-Farcaster-Flow-ID: 6ac350d1-00ea-4165-8f54-56833500c432
+ id 120978b2-243c-4482-ad00-e4a375ddd09f; Sat, 30 Nov 2024 20:11:00 +0000 (UTC)
+X-Farcaster-Flow-ID: 120978b2-243c-4482-ad00-e4a375ddd09f
 Received: from EX19D018EUA004.ant.amazon.com (10.252.50.85) by
- EX19MTAEUA002.ant.amazon.com (10.252.50.126) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.1258.35;
- Sat, 30 Nov 2024 20:08:45 +0000
+ EX19MTAEUC001.ant.amazon.com (10.252.51.155) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.1258.34;
+ Sat, 30 Nov 2024 20:11:00 +0000
 Received: from EX19D018EUA004.ant.amazon.com (10.252.50.85) by
  EX19D018EUA004.ant.amazon.com (10.252.50.85) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.1258.34;
- Sat, 30 Nov 2024 20:08:44 +0000
+ Sat, 30 Nov 2024 20:10:59 +0000
 Received: from EX19D018EUA004.ant.amazon.com ([fe80::e53:84f8:3456:a97d]) by
  EX19D018EUA004.ant.amazon.com ([fe80::e53:84f8:3456:a97d%3]) with mapi id
- 15.02.1258.034; Sat, 30 Nov 2024 20:08:44 +0000
+ 15.02.1258.034; Sat, 30 Nov 2024 20:10:59 +0000
 From: "Farber, Eliav" <farbere@amazon.com>
 To: Thomas Gleixner <tglx@linutronix.de>, "linux@armlinux.org.uk"
 	<linux@armlinux.org.uk>, "catalin.marinas@arm.com" <catalin.marinas@arm.com>,
@@ -75,15 +75,15 @@ To: Thomas Gleixner <tglx@linutronix.de>, "linux@armlinux.org.uk"
 	<linux-kernel@vger.kernel.org>, "linuxppc-dev@lists.ozlabs.org"
 	<linuxppc-dev@lists.ozlabs.org>, "linux-riscv@lists.infradead.org"
 	<linux-riscv@lists.infradead.org>, "kexec@lists.infradead.org"
-	<kexec@lists.infradead.org>, Marc Zyngier <maz@kernel.org>
+	<kexec@lists.infradead.org>
 CC: "Chocron, Jonathan" <jonnyc@amazon.com>
-Subject: RE: [PATCH v4 1/2] kexec: Consolidate machine_kexec_mask_interrupts()
- implementation
-Thread-Topic: [PATCH v4 1/2] kexec: Consolidate
- machine_kexec_mask_interrupts() implementation
-Thread-Index: AdtDYtCFjQWQn9I6QGW+NnB/V7SCxQ==
-Date: Sat, 30 Nov 2024 20:08:44 +0000
-Message-ID: <cd8809e379dc4dd089350ec2d1f8c210@amazon.com>
+Subject: RE: [PATCH v4 2/2] kexec: Prevent redundant IRQ masking by checking
+ state before shutdown
+Thread-Topic: [PATCH v4 2/2] kexec: Prevent redundant IRQ masking by checking
+ state before shutdown
+Thread-Index: AdtDY+7g3Mjx3Vru6kGTSk5UpEUWVw==
+Date: Sat, 30 Nov 2024 20:10:59 +0000
+Message-ID: <0e467b4c2bc34eb59c8f23f36a9a6956@amazon.com>
 Accept-Language: en-US
 Content-Language: en-US
 X-MS-Has-Attach: 
@@ -92,8 +92,9 @@ x-originating-ip: [10.85.143.175]
 MIME-Version: 1.0
 X-Bad-Reply: 'Re:' in Subject but no References or In-Reply-To headers
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241130_120857_309280_64859C35 
-X-CRM114-Status: GOOD (  25.16  )
+X-CRM114-CacheID: sfid-20241130_121108_466579_70F8B2DF 
+X-CRM114-Status: UNSURE (   5.90  )
+X-CRM114-Notice: Please train this message.
 X-Mailman-Approved-At: Mon, 02 Dec 2024 09:07:07 -0800
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -111,79 +112,11 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 11/29/2024 3:30 PM, Thomas Gleixner wrote:
->> Move the machine_kexec_mask_interrupts function to a common location in
->> kernel/kexec_core.c, removing duplicate implementations from architecture
->> specific files (arch/arm, arch/arm64, arch/powerpc, and arch/riscv).
+On 11/29/2024 3:32 PM, Thomas Gleixner wrote:
+>> This patch addresses the issue by:
 >
-> Can you please move this into kernel/irq/kexec.c?
->
-> It's pure interrupt core internal code and there is no point to make
-> core internal functions visible to random other code just because.
+> Again:  git grep 'This patch' Documentation/process/
 Done (in v5 series)
-
->> +void machine_kexec_mask_interrupts(void)
->> +{
->> +     unsigned int i;
->> +     struct irq_desc *desc;
->
->         struct irq_desc *desc;
->         unsigned int i;
->
-> please
-Done (in v5 series)
-
->> +     for_each_irq_desc(i, desc) {
->> +             struct irq_chip *chip;
->> +             int check_eoi = 1;
->> +
->> +             chip = irq_desc_get_chip(desc);
->> +             if (!chip)
->> +                     continue;
->> +
->> +             if (IS_ENABLED(CONFIG_ARM64)) {
->
-> This should not be CONFIG_ARM64. Add something like:
->
-> config GENERIC_IRQ_KEXEC_CLEAR_VM_FORWARD
->         bool
->
-> and select this from ARM64?
-Done (in v5 series)
-
->> +                     /*
->> +                      * First try to remove the active state. If this fails, try to EOI the
->> +                      * interrupt.
->
-> This comment does not really explain what this is about. I know you
-> copied it from the ARM64 implementation, but it should explain what this
-> actually means. Something like:
->
->          First try to remove the active state from an interrupt which is
->          forwarded to a VM. If the interrupt is not forwarded, try to
->          EOI the interrupt.
->
-> or something like that.
-Done (in v5 series)
-
->> +                      */
->> +                     check_eoi = irq_set_irqchip_state(i, IRQCHIP_STATE_ACTIVE, false);
->
-> Looking deeper. This function actually cannot be called from this
-> context. It does:
->
->           irq_get_desc_buslock(irq, &flags, 0);
->
-> which means for any interrupt which has an actual buslock implementation
-> it will end up in a sleepable function and deadlock in the worst case.
->
-> Marc?
-I will wait for Marc's response regarding this issue.
-Regardless, if any changes are required, I believe it would be better
-to address them in a separate patch, as this behavior existed before my
-modification.
-
-Thanks, Eliav
 
 _______________________________________________
 linux-riscv mailing list
