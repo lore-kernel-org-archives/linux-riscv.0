@@ -4,121 +4,120 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E71C1D7360E
-	for <linux-riscv@archiver.kernel.org>; Sat, 30 Nov 2024 21:48:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4E131D7360F
+	for <linux-riscv@archiver.kernel.org>; Sat, 30 Nov 2024 22:40:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:MIME-Version:Subject:
-	Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=Jy8p4VDxOLTsRp+qqyq3UaG3kmKn+CUavRHQ6yW6xq4=; b=OcjNHFy49IchgU
-	/zDl1yMZIXuT4XPiqD1URQakIdFPqJwZujH9oEhOQNbY/rHLrra/2Fk5dfQBsDpcFwXcxR1TLs5g/
-	SqhxvlKCq4bkQSNcZsvrPaHps6zRoMw8bDuPMefoDEQWNlH3eAZZyVl1nN1gEq4lMKSErtBgoHUoY
-	NuO2knmDyjp2Fo47kCBQvdw7v3V5b9/Uf7JdpEUYYMZmGdMTwtLcHZhd+T7gysUwmkZdkE8NsxhRv
-	Kkg1rCXJJjkoIrh7uZtq7loT4mSSMwEcHfi1EoiXS3cpGjvJ9KuL5oFwjEU+cgUNzUMVt1byB5TpX
-	B4fjgp+ZqklY8O2KIlYQ==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=Q+/v2D//tc7iSbblea1WSAdMMarbNazhh/EX4oeiK0w=; b=lbOPF1wZNjL2oS
+	HAT/8VXoAES8fzqCwIKYcXGR9J0c4v5QZZqEVGMoij1Z5IAURO+lzw+7w265GFdLz4FcGHHWw/VzQ
+	UmsQOENDaJaLit2Y4N6v2A8qN0HL8JrSpUp3HbaV6obRZBMhZPAp2g/nFDJoNvnvcq+Gvcugz7z4L
+	2uQasot3sosMjKxPkW+E5VhFt9OUd1Ggft1HdOsb0nH1okKGTB0Hi+Ezm2QUP5flJMv+3kfBms84b
+	9c1zBKGLDKtXB5MsPTVyWPr8cxqEbgarlYAfrP4BnJxHSNiV16BC0knJWhpk6zMLNhpp5MajjXI6H
+	7fBIBJlGBzraXLjL5n2w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tHVJh-00000002caj-0Adj;
-	Sat, 30 Nov 2024 21:47:53 +0000
+	id 1tHW8C-00000002gIZ-070H;
+	Sat, 30 Nov 2024 22:40:04 +0000
 Received: from flow-a8-smtp.messagingengine.com ([103.168.172.143])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tHVJe-00000002cZb-0Nmv
+	id 1tHW89-00000002gHz-0xjJ
 	for linux-riscv@lists.infradead.org;
-	Sat, 30 Nov 2024 21:47:51 +0000
-Received: from phl-compute-05.internal (phl-compute-05.phl.internal [10.202.2.45])
-	by mailflow.phl.internal (Postfix) with ESMTP id AE3CC2004D6;
-	Sat, 30 Nov 2024 16:47:46 -0500 (EST)
-Received: from phl-mailfrontend-02 ([10.202.2.163])
-  by phl-compute-05.internal (MEProxy); Sat, 30 Nov 2024 16:47:46 -0500
+	Sat, 30 Nov 2024 22:40:02 +0000
+Received: from phl-compute-08.internal (phl-compute-08.phl.internal [10.202.2.48])
+	by mailflow.phl.internal (Postfix) with ESMTP id 04D882004EB;
+	Sat, 30 Nov 2024 17:40:00 -0500 (EST)
+Received: from phl-mailfrontend-01 ([10.202.2.162])
+  by phl-compute-08.internal (MEProxy); Sat, 30 Nov 2024 17:40:00 -0500
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
 	coelacanthus.name; h=cc:cc:content-transfer-encoding
 	:content-type:content-type:date:date:from:from:in-reply-to
-	:message-id:mime-version:reply-to:subject:subject:to:to; s=fm2;
-	 t=1733003266; x=1733006866; bh=Ug6noMxJx4D0HoGkjMXTBxp/QR93meFj
-	QxG2sTCVytQ=; b=s88kO2ydw0gUoGi6fFxuPvR48rCYB3tFg/sjJaKqsyrIc3fd
-	gnXoRVp6n3e3b5NgXRiXawcjxmyVHctiNpDX4KoxOn97RTWUK8vjdfz15oFCDbAq
-	VpRbtESgpl2t6uNSEbLtPNWS+7KBMX0bWs2FR6aJHXBjX/O9t3/OLmK8TUipYgT4
-	cWC4YpjG1PyTKpS4GpDlJ3nFfjffP95ZLOdw9dk6JMVF9SvClSMfzHqUH+tzuZhD
-	eg0781XkO51wBjQTzG1rEyc3JdKQzRzcomLehnPf9WH+oBY9H1vU714Uy80cEicV
-	83vJhNQEcyiLuY84gw9U5uJje0OL4Vo8xUX0hQ==
+	:in-reply-to:message-id:mime-version:references:reply-to:subject
+	:subject:to:to; s=fm2; t=1733006399; x=1733009999; bh=o3iUlzvotb
+	/Rr05MqC6b2VUSP+54UyQ/zj70KE8KR3M=; b=WdUb1XFM/KpugBP8gLO7T0L2jT
+	CsZf64i0LPzasyoO2kiwLKxkgJF6VuxKaEb3hZOyRi+HKSx8t/MkOmBZMsx1MbsQ
+	1SFmBZn73ScaEhTPmLPRbvkHMB8/hwFIIkznCSRupri8M0WStW7QNm8kHTpaaphQ
+	6BUEBtrKlwCc/301SOjrjxt1vCdAefSAVkXS72NgnxDhVkWo9ieOUkQbyWa0dDyX
+	rkLgjo53unecAIDIdDFpr42OV+M4yRepXfpG3vSUeWLPqyssqzm3tR93x34oIbfa
+	tYiAt0YaZ10ZwQ00eZ5hHiVb6ts3UWJqCNd7CGSpzr/FfE4VM/f3n3KVaWYQ==
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
 	messagingengine.com; h=cc:cc:content-transfer-encoding
 	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:message-id:mime-version:reply-to:subject
-	:subject:to:to:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=
-	fm1; t=1733003266; x=1733006866; bh=Ug6noMxJx4D0HoGkjMXTBxp/QR93
-	meFjQxG2sTCVytQ=; b=g/y39pAydNgDkiGRZAQbYD5gYCCvFAB5Ija8HT/8PLr9
-	otNL/G+UlSvp3vDkKxY1DjfG/TVqjUPMNNAtlHDUChfxgb8JA0jryLtOfLO3Yyne
-	x1l4NmhVHGU4sgqtNYLayVXp2QEH8PStVP/hktZHdCKHkGFaf5lchQA2EUf+KkZs
-	bYE3qQZWJsL5xj50QzblhXYunA4PSbI58hWbKSePiFHcofAe/dxicya1+D616hok
-	+UFu7+4OuTJPLDq+DLbT6HATHGika7XxEOXmd4B/ECru2FLfs0s0ItkAN6+n/BSU
-	rFJb8TKPyinCtffcSMDXGEpaSTm+xeok4RY0D81Q8Q==
-X-ME-Sender: <xms:_4dLZ7AkowSsgEKX5WlTd9qkkDkkNQENdt8I-XLbgNfwWnTMQ8V9lw>
-    <xme:_4dLZxjbokabgT_HfRgCt8ByjWmFgvWiTcoP_8kARMpAjXv70zQzyHtk7RKf3Wev6
-    WgjMe5Mhfn3gMhwXOQ>
-X-ME-Received: <xmr:_4dLZ2kxryVu1S3PKbaWUF2_MUIfkVpPMUhsrKUvGlF2D8AqjbiPavTjBaNIWQ>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefuddrheehgdduhedtucetufdoteggodetrfdotf
-    fvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdggtfgfnhhsuhgsshgtrhhisggvpdfu
-    rfetoffkrfgpnffqhgenuceurghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnh
-    htshculddquddttddmnecujfgurhephfffufggtgfgkffvvefosehtjeertdertdejnecu
-    hfhrohhmpeevvghlvghsthgvucfnihhuuceouhifuhestghovghlrggtrghnthhhuhhsrd
-    hnrghmvgeqnecuggftrfgrthhtvghrnhepjeffleetjeeigfehfeeghfdugedtjeekledu
-    heetudejffdtveevueeuffejfeefnecuffhomhgrihhnpehkvghrnhgvlhdrohhrghenuc
-    evlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepmhgrihhlfhhrohhmpehufihusegt
-    ohgvlhgrtggrnhhthhhushdrnhgrmhgvpdhnsggprhgtphhtthhopedvfedpmhhouggvpe
-    hsmhhtphhouhhtpdhrtghpthhtohepthhglhigsehlihhnuhhtrhhonhhigidruggvpdhr
-    tghpthhtoheplhhinhhugidqrhhishgtvheslhhishhtshdrihhnfhhrrgguvggrugdroh
-    hrghdprhgtphhtthhopeholhgvghesrhgvughhrghtrdgtohhmpdhrtghpthhtohepghhu
-    ohhrvghnsehkvghrnhgvlhdrohhrghdprhgtphhtthhopehshhhiqhhisehishhrtgdrih
-    hstggrshdrrggtrdgtnhdprhgtphhtthhopehufihusegtohgvlhgrtggrnhhthhhushdr
-    nhgrmhgvpdhrtghpthhtohepiihihigrohesughishhrohhothdrohhrghdprhgtphhtth
-    hopehlihhnuhigqdhmmheskhhvrggtkhdrohhrghdprhgtphhtthhopegvsghivgguvghr
-    mhesgihmihhsshhiohhnrdgtohhm
-X-ME-Proxy: <xmx:_4dLZ9zLq1Fc35MwqNxMX-c9o-ZJ3TXvvlzphSm5U1GMUZAZJXnLCw>
-    <xmx:_4dLZwQ5YRLMkzkZ20rb6u7oqwJlJZ3VRovcqED8mWotxWcgn4gBMw>
-    <xmx:_4dLZwZ7NbX5bQLW-Kh3_vkoHCnl43FmyIZD22jGYnIVYAd3OvVrjg>
-    <xmx:_4dLZxRXckSL8v1n_RPxk_NxdKlL7rosEdxrOVcUsbycqC2yrz0J2g>
-    <xmx:AohLZ5Qz8JKjHzyVraZXD67Pqg1EqfEc3fdN-jXqT-lX7P8CvSXNz6e9>
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm1; t=1733006399; x=
+	1733009999; bh=o3iUlzvotb/Rr05MqC6b2VUSP+54UyQ/zj70KE8KR3M=; b=n
+	nOw1jLqZL6iDP6T0pSZstvaGvtkHrJkZohaUJXL70Qj7c0/4P4CvqAXXvD/gZsuf
+	nCKptGZBef1ZSfREHsLyla7UjzXhavlemzaIcSD3DrFm7bQuic1Mn8hlvNuPPuPG
+	+iqmmM96CIIBhiMmp5W6tRMxYu+AFCZoPiHCfgzhZgBzq+EYtm+qXjBBL8+3SRg3
+	DejaZhjslCs5QDwCR0p555MtQaU+1hNPdRXFaj0SMrTkCltt5YnCsK3qDBqTIivv
+	xaPHNJd0+zAbx3lBexMwQUJYVScBsEEv6AYa3cyRy8MPQnwHJqEZxNV3YzwqBDzn
+	J4gZXYY2UERWF+iJBu4ag==
+X-ME-Sender: <xms:PZRLZ44BM0NqHsemyQZ8rSnu4Y6Y_-rpC-etXC4GpYGMdMqtMamAMA>
+    <xme:PZRLZ55Z-0otXHGaMg5rM4fEnCQ3WDcgxk8gTA-28vfFVf7-CBAEpZIACpfYF5lsv
+    hvT3D4x6fM5de-w6Bc>
+X-ME-Received: <xmr:PZRLZ3d0kVhJ5VuH37g8EMBRjsnwPjiBiK8bSHFHUmU0PCstOXSSQ8ktdldL4UJ0>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefuddrheeigddtvdcutefuodetggdotefrodftvf
+    curfhrohhfihhlvgemucfhrghsthforghilhdpggftfghnshhusghstghrihgsvgdpuffr
+    tefokffrpgfnqfghnecuuegrihhlohhuthemuceftddtnecusecvtfgvtghiphhivghnth
+    hsucdlqddutddtmdenucfjughrpefkffggfgfuvfevfhfhjggtgfesthekredttddvjeen
+    ucfhrhhomhepvegvlhgvshhtvgcunfhiuhcuoehufihusegtohgvlhgrtggrnhhthhhush
+    drnhgrmhgvqeenucggtffrrghtthgvrhhnpeefffdujedtleetieffleehjeffudetfeeg
+    hfdtieeiheevueeggfeuiefgvdekvdenucffohhmrghinhepkhgvrhhnvghlrdhorhhgne
+    cuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehmrghilhhfrhhomhepuhifuhes
+    tghovghlrggtrghnthhhuhhsrdhnrghmvgdpnhgspghrtghpthhtohepvdefpdhmohguvg
+    epshhmthhpohhuthdprhgtphhtthhopegsjhhorhhnsehkvghrnhgvlhdrohhrghdprhgt
+    phhtthhopegtohgvlhgrtggrnhhthhhushhhvgigsehgmhgrihhlrdgtohhmpdhrtghpth
+    htoheprhgvseifiehriidrnhgvthdprhgtphhtthhopehtghhlgieslhhinhhuthhrohhn
+    ihigrdguvgdprhgtphhtthhopeguvghvnhhulhhlodgtohgvlhgrtggrnhhthhhushhhvg
+    igrdhgmhgrihhlrdgtohhmsehkvghrnhgvlhdrohhrghdprhgtphhtthhopehprghulhdr
+    figrlhhmshhlvgihsehsihhfihhvvgdrtghomhdprhgtphhtthhopehprghlmhgvrhesug
+    grsggsvghlthdrtghomhdprhgtphhtthhopegrohhusegvvggtshdrsggvrhhkvghlvgih
+    rdgvughupdhrtghpthhtohepsghjohhrnhesrhhivhhoshhinhgtrdgtohhm
+X-ME-Proxy: <xmx:PZRLZ9LsKDnd3zwzXG_oydPRE9Vl3FcBs0s-08XbWCUiMOCjK9dUGw>
+    <xmx:PZRLZ8JFDcXE754foOQ2mVxv8Zx6q05zKiTRMnRRIdTL_2bPU5pOPA>
+    <xmx:PZRLZ-ybEd-ONBIvyp4lqaXAQv53Hj62dIdsAVIY00nuuiqtfq0_XQ>
+    <xmx:PZRLZwL9wqQ4RyfnVCVUc_f6FxburZn_3BVAPy7PVByINWOcU3xSCQ>
+    <xmx:P5RLZ8Iwm9_S1rbZG9AaCFcj6zKXtjTSjf1NNs3rmqnAYhkwLZ8OZkL6>
 Feedback-ID: i95c648bc:Fastmail
 Received: by mail.messagingengine.com (Postfix) with ESMTPA; Sat,
- 30 Nov 2024 16:47:42 -0500 (EST)
-From: Celeste Liu <uwu@coelacanthus.name>
-Date: Sun, 01 Dec 2024 05:47:13 +0800
-Subject: [PATCH] riscv/ptrace: add new regset to get original a0 register
+ 30 Nov 2024 17:39:49 -0500 (EST)
+Message-ID: <bded8cfb-c881-4c78-a8a8-1e0c8abe327f@coelacanthus.name>
+Date: Sun, 1 Dec 2024 06:39:45 +0800
 MIME-Version: 1.0
-Message-Id: <20241201-riscv-new-regset-v1-1-c83c58abcc7b@coelacanthus.name>
-X-B4-Tracking: v=1; b=H4sIAOCHS2cC/x3MMQqAMAxA0atIZgNt0KFeRRzUxpqlSiIqiHe3O
- L7h/weMVdigqx5QPsVkywW+rmBex5wYJRYDOWo8OY8qNp+Y+ULlZHxgbClMoaUxuggl25UXuf9
- lP7zvB7f1anFiAAAA
-X-Change-ID: 20241201-riscv-new-regset-d529b952ad0d
-To: Oleg Nesterov <oleg@redhat.com>, 
- Paul Walmsley <paul.walmsley@sifive.com>, 
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
- Eric Biederman <ebiederm@xmission.com>, Kees Cook <kees@kernel.org>
-Cc: Alexandre Ghiti <alex@ghiti.fr>, "Dmitry V. Levin" <ldv@strace.io>, 
- Andrea Bolognani <abologna@redhat.com>, 
- =?utf-8?q?Bj=C3=B6rn_T=C3=B6pel?= <bjorn@kernel.org>, 
- Thomas Gleixner <tglx@linutronix.de>, Ron Economos <re@w6rz.net>, 
- Felix Yan <felixonmars@archlinux.org>, Ruizhe Pan <c141028@gmail.com>, 
- Shiqi Zhang <shiqi@isrc.iscas.ac.cn>, Guo Ren <guoren@kernel.org>, 
- Yao Zi <ziyao@disroot.org>, Han Gao <gaohan@iscas.ac.cn>, 
- linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
- linux-mm@kvack.org, stable@vger.kernel.org, 
- Celeste Liu <uwu@coelacanthus.name>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=3224; i=uwu@coelacanthus.name;
- h=from:subject:message-id; bh=tgFlapvT7VwQsZiO6n4iEi3XFX6DBlZjgTPZF2GhaDs=;
- b=owJ4nJvAy8zAJeafov85RWVtBeNptSSGdO/27+ejT67U17uYOJXz/fmPjJbrjI9p7nS4Ghh+I
- OvZwwgJVqeOUhYGMS4GWTFFlrwSlp+cl8527+3Y3gUzh5UJZAgDF6cATOTCe4b/mc2h98Ufndho
- syS/aQlXObP6vhNPbXcoqUzXOZr2OXAnB8P/4kuX7G7s7O9s/NO72mx2j+n+jpB2o1bBCWsCbxg
- vF9nGBwChJ0wk
-X-Developer-Key: i=uwu@coelacanthus.name; a=openpgp;
- fpr=892EBC7DC392DFF9C9C03F1D15F4180E73787863
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] riscv/entry: get correct syscall number from
+ syscall_get_nr()
+Content-Language: en-GB-large
+To: =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>,
+ Celeste Liu <coelacanthushex@gmail.com>
+Cc: Ron Economos <re@w6rz.net>, Thomas Gleixner <tglx@linutronix.de>,
+ Celeste Liu via B4 Relay <devnull+CoelacanthusHex.gmail.com@kernel.org>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@rivosinc.com>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Palmer Dabbelt <palmer@rivosinc.com>, Alexandre Ghiti <alex@ghiti.fr>,
+ "Dmitry V. Levin" <ldv@strace.io>, Andrea Bolognani <abologna@redhat.com>,
+ Felix Yan <felixonmars@archlinux.org>, Ruizhe Pan <c141028@gmail.com>,
+ Shiqi Zhang <shiqi@isrc.iscas.ac.cn>, Guo Ren <guoren@kernel.org>,
+ Yao Zi <ziyao@disroot.org>, Han Gao <gaohan@iscas.ac.cn>,
+ linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+ stable@vger.kernel.org
+References: <87ldya4nv0.ffs@tglx>
+ <3dc10d89-6c0c-4654-95ed-dd6f19efbad4@gmail.com> <87a5ep4k0n.ffs@tglx>
+ <2b1a96b1-dbc5-40ed-b1b6-2c82d3df9eb2@gmail.com> <877c9t43jw.ffs@tglx>
+ <81afb4bf-084b-e061-8ce4-90b76da16256@w6rz.net>
+ <109afaab-05c0-4228-8ea0-1dc1aabe904f@gmail.com>
+ <CAJ+HfNj4d8_Ow1GyA3uX+2f79V8173e9RWfcX6_KjTPfinZCiw@mail.gmail.com>
+From: Celeste Liu <uwu@coelacanthus.name>
+In-Reply-To: <CAJ+HfNj4d8_Ow1GyA3uX+2f79V8173e9RWfcX6_KjTPfinZCiw@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241130_134750_401024_D0BCFE92 
-X-CRM114-Status: GOOD (  12.36  )
+X-CRM114-CacheID: sfid-20241130_144001_352317_13A6D4D5 
+X-CRM114-Status: GOOD (  11.18  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -130,105 +129,33 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The orig_a0 is missing in struct user_regs_struct of riscv, and there is
-no way to add it without breaking UAPI. (See Link tag below)
-
-Like NT_ARM_SYSTEM_CALL do, we add a new regset name NT_RISCV_ORIG_A0 to
-access original a0 register from userspace via ptrace API.
-
-Link: https://lore.kernel.org/all/59505464-c84a-403d-972f-d4b2055eeaac@gmail.com/
-Signed-off-by: Celeste Liu <uwu@coelacanthus.name>
----
- arch/riscv/kernel/ptrace.c | 33 +++++++++++++++++++++++++++++++++
- include/uapi/linux/elf.h   |  1 +
- 2 files changed, 34 insertions(+)
-
-diff --git a/arch/riscv/kernel/ptrace.c b/arch/riscv/kernel/ptrace.c
-index ea67e9fb7a583683b922fe2c017ea61f3bc848db..faa46de9000376eb445a32d43a40210d7b846844 100644
---- a/arch/riscv/kernel/ptrace.c
-+++ b/arch/riscv/kernel/ptrace.c
-@@ -31,6 +31,7 @@ enum riscv_regset {
- #ifdef CONFIG_RISCV_ISA_SUPM
- 	REGSET_TAGGED_ADDR_CTRL,
- #endif
-+	REGSET_ORIG_A0,
- };
- 
- static int riscv_gpr_get(struct task_struct *target,
-@@ -184,6 +185,30 @@ static int tagged_addr_ctrl_set(struct task_struct *target,
- }
- #endif
- 
-+static int riscv_orig_a0_get(struct task_struct *target,
-+			     const struct user_regset *regset,
-+			     struct membuf to)
-+{
-+	return membuf_store(&to, task_pt_regs(target)->orig_a0);
-+}
-+
-+static int riscv_orig_a0_set(struct task_struct *target,
-+			     const struct user_regset *regset,
-+			     unsigned int pos, unsigned int count,
-+			     const void *kbuf, const void __user *ubuf)
-+{
-+	int orig_a0 = task_pt_regs(target)->orig_a0;
-+	int ret;
-+
-+	ret = user_regset_copyin(&pos, &count, &kbuf, &ubuf, &orig_a0, 0, -1);
-+	if (ret)
-+		return ret;
-+
-+	task_pt_regs(target)->orig_a0 = orig_a0;
-+	return ret;
-+}
-+
-+
- static const struct user_regset riscv_user_regset[] = {
- 	[REGSET_X] = {
- 		.core_note_type = NT_PRSTATUS,
-@@ -224,6 +249,14 @@ static const struct user_regset riscv_user_regset[] = {
- 		.set = tagged_addr_ctrl_set,
- 	},
- #endif
-+	[REGSET_ORIG_A0] = {
-+		.core_note_type = NT_RISCV_ORIG_A0,
-+		.n = 1,
-+		.size = sizeof(elf_greg_t),
-+		.align = sizeof(elf_greg_t),
-+		.regset_get = riscv_orig_a0_get,
-+		.set = riscv_orig_a0_set,
-+	},
- };
- 
- static const struct user_regset_view riscv_user_native_view = {
-diff --git a/include/uapi/linux/elf.h b/include/uapi/linux/elf.h
-index b44069d29cecc0f9de90ee66bfffd2137f4275a8..390060229601631da2fb27030d9fa2142e676c14 100644
---- a/include/uapi/linux/elf.h
-+++ b/include/uapi/linux/elf.h
-@@ -452,6 +452,7 @@ typedef struct elf64_shdr {
- #define NT_RISCV_CSR	0x900		/* RISC-V Control and Status Registers */
- #define NT_RISCV_VECTOR	0x901		/* RISC-V vector registers */
- #define NT_RISCV_TAGGED_ADDR_CTRL 0x902	/* RISC-V tagged address control (prctl()) */
-+#define NT_RISCV_ORIG_A0	  0x903	/* RISC-V original a0 register */
- #define NT_LOONGARCH_CPUCFG	0xa00	/* LoongArch CPU config registers */
- #define NT_LOONGARCH_CSR	0xa01	/* LoongArch control and status registers */
- #define NT_LOONGARCH_LSX	0xa02	/* LoongArch Loongson SIMD Extension registers */
-
----
-base-commit: 0e287d31b62bb53ad81d5e59778384a40f8b6f56
-change-id: 20241201-riscv-new-regset-d529b952ad0d
-
-Best regards,
--- 
-Celeste Liu <uwu@coelacanthus.name>
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+Ck9uIDIwMjQtMTAtMjkgMDM6MzMsIEJqw7ZybiBUw7ZwZWwgd3JvdGU6Cj4gT24gTW9uLCAyOCBP
+Y3QgMjAyNCBhdCAxNzoyNiwgQ2VsZXN0ZSBMaXUgPGNvZWxhY2FudGh1c2hleEBnbWFpbC5jb20+
+IHdyb3RlOgo+Pgo+Pgo+PiBPbiAyMDI0LTEwLTI4IDA4OjE3LCBSb24gRWNvbm9tb3Mgd3JvdGU6
+Cj4+PiBPbiAxMC8yNy8yNCAyOjUyIFBNLCBUaG9tYXMgR2xlaXhuZXIgd3JvdGU6Cj4+Pj4gT24g
+TW9uLCBPY3QgMjggMjAyNCBhdCAwMTowMSwgQ2VsZXN0ZSBMaXUgd3JvdGU6Cj4+Pj4+IE9uIDIw
+MjQtMTAtMjcgMjM6NTYsIFRob21hcyBHbGVpeG5lciB3cm90ZToKPj4+Pj4+IEVxdWl2YWxlbnRs
+eSB5b3UgbmVlZCB0byBiZSBhYmxlIHRvIG1vZGlmeSBvcmlnX2EwIGZvciBjaGFuZ2luZyBhcmcw
+LAo+Pj4+Pj4gbm8/Cj4+Pj4+IE9rLgo+Pj4+Pgo+Pj4+PiBHcmVnLCBjb3VsZCB5b3UgYWNjZXB0
+IGEgYmFja3BvcnQgYSBuZXcgQVBJIHBhcmFtZXRlciBmb3IKPj4+Pj4gUFRSQUNFX0dFVFJFR1NF
+VC9QVFJBQ0VfU0VUUkVHU0VUIHRvIDQuMTkgTFRTIGJyYW5jaD8KPj4+PiBGaXggdGhlIHByb2Js
+ZW0gcHJvcGVybHkgYW5kIHB1dCBhIHByb3BlciBGaXhlcyB0YWcgb24gaXQgYW5kIHdvcnJ5Cj4+
+Pj4gYWJvdXQgdGhlIGJhY2twb3J0IGxhdGVyLgo+Pj4+Cj4+Pj4gVGhhbmtzLAo+Pj4+Cj4+Pj4g
+ICAgICAgICAgdGdseAo+Pj4+Cj4+PiBJIHdvdWxkbid0IHdvcnJ5IGFib3V0IGJhY2twb3J0aW5n
+IHRvIHRoZSA0LjE5IGtlcm5lbC4gSXQncyBlc3NlbnRpYWxseSBwcmVoaXN0b3JpYyBmb3IgUklT
+Qy1WLiBUaGVyZSdzIG5vIGRldmljZSB0cmVlIHN1cHBvcnQgZm9yIGFueSBoYXJkd2FyZS4gQWxz
+bywgNC4xOSB3aWxsIGJlIGdvaW5nIEVPTCB2ZXJ5IHNvb24gKERlY2VtYmVyIDIwMjQpLgo+Pgo+
+PiBPaywgSSB3aWxsIHdvcmsgb24gcHJlcGFyaW5nIGEgbmV3IHBhdGNoIHRvIGFkZCBhIG5ldyBz
+ZXQgaW4KPj4gUFRSQUNFX0dFVFJFR1NFVC9QVFJBQ0VfU0VUUkVHU0VULgo+IAo+IFRoYW5rcyBm
+b3Igd29ya2luZy9maW5kaW5nIHdvcmtpbmcgb24gdGhpcyEgTG9va2luZyBmb3J3YXJkIHRvIHRo
+ZSBwYXRjaCEKClRoZSBwYXRjaCB0byBhZGQgbmV3IHJlZ3NldCBoYXMgYmVlbiBzZW50LgpTZWUg
+aHR0cHM6Ly9sb3JlLmtlcm5lbC5vcmcvbGttbC8yMDI0MTIwMS1yaXNjdi1uZXctcmVnc2V0LXYx
+LTEtYzgzYzU4YWJjYzdiQGNvZWxhY2FudGh1cy5uYW1lL1QvCgoKX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0Cmxp
+bnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcv
+bWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
