@@ -4,84 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0413AD73602
-	for <linux-riscv@archiver.kernel.org>; Sat, 30 Nov 2024 12:34:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4B3C9D73606
+	for <linux-riscv@archiver.kernel.org>; Sat, 30 Nov 2024 15:33:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:Subject:References:Cc:
-	To:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=J5bIQjyLHiSF0bfz/0Vj5Wog6gf/5EIDrvRYAxnSNU4=; b=NEU1glI0W/CiLb
-	4+grGh+cG/7VR4/m79LrkYYqz52L1hQnq6jn3nv1i0FFw+MzuoGOoqCCCzR0qRFhGGGiU4qVigu1E
-	wEwr0jBJpTLsvOEB3LGFnvupNoR2gl1YcESYqdn3gAK9vrU1uJNzvBM1Ye8XTJg6+cTjN4QI3T2OZ
-	CTSqylkTpRHFIwchqrtRylEQfWnQGDxyMuIomcNjIMokp4NnS7c8mEbnzafWI1Rt/G1gxwgHdOMq/
-	ko9nu9C3efFg8UtEsOAes9ODMfXC8xhMBucxMXbRKtQ4rZog263mw5x7PYx/K4NWfoQADItob5FL5
-	VcETyzhFMoijKuivNC4w==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=HwKq5iKvmnMuyu6TLfeAGSuSVOuIlm4TO0BloC2Hkg4=; b=Bfr+LbTDGc5LNU
+	2sSvG+rhvzd9hP4FCEoItFFuPwas1gsVUuWWfkVqNYt1x9JkAjXSTmiv3bxOGHF2C0M+xIZEoPJlt
+	VVJbwzxwZ1d07ADlGZK48D9gn8KGaJq+paSCGf8hea4NcdZ2ev9eP9XEY6t7egptRY1SiJ5xQp3D+
+	o8dzTnEvQX6dqoYhM8rKIosyPtB/cv3bSwf9VgWOm0LyEshCmwkvqq+9Rav+IsAYWyuNKP8Cg+H56
+	s3UlxKzfalzfwy10eYsOeR+cZtSpeJfP8VWbxqhnN4jc5iJRNn55Ky+w9OIOJEqJHpsuPzgdLvDGD
+	hSip+xxNas2cl2NWIyMw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tHMgR-000000021kz-0BgH;
-	Sat, 30 Nov 2024 12:34:47 +0000
-Received: from mout.web.de ([217.72.192.78])
+	id 1tHPTQ-00000002EUQ-1u2F;
+	Sat, 30 Nov 2024 15:33:32 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tHMgN-000000021kL-45LU
+	id 1tHPTM-00000002ETe-1qrR
 	for linux-riscv@lists.infradead.org;
-	Sat, 30 Nov 2024 12:34:46 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=web.de;
-	s=s29768273; t=1732970067; x=1733574867; i=markus.elfring@web.de;
-	bh=EKTFWHVdKPv4zouKlHIVlvi8TUgd1IyhKWUXdDSdmnY=;
-	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:To:Cc:References:
-	 Subject:From:In-Reply-To:Content-Type:Content-Transfer-Encoding:
-	 cc:content-transfer-encoding:content-type:date:from:message-id:
-	 mime-version:reply-to:subject:to;
-	b=V2xPQZWPLXe9pEFCtvBynTKYWcTalBPohQYBL6ON+lgniy3okqcdHc0J/hzVuIAA
-	 2oeYoWAl5nPoULV/vu0P9YBOa9GnduWTxnfozb1NYnXmzaQ10I1JmPYCBFPdgfjzj
-	 gR0rpvwNpgA68gnJgMy7rOi42KxTazX7TwcCJknQkeGeYKCsJycxML/+ONJ6iKqni
-	 wP4Bzg0Xh1hl7MJryCR7XZZJimOmuYq7+KVOr7oNJlBI1uYiqy0OkLHwWsBubB6tO
-	 s9iYK4OkVSWBI9s1oRUn+senIO0CXhg/4Hcs63DUUm+2xMjwONRZn17hN7fQoIUxX
-	 4uKBV0X3qge8lGCHlA==
-X-UI-Sender-Class: 814a7b36-bfc1-4dae-8640-3722d8ec6cd6
-Received: from [192.168.178.21] ([94.31.91.95]) by smtp.web.de (mrweb105
- [213.165.67.124]) with ESMTPSA (Nemesis) id 1N79N8-1tlKEZ0D3E-017cg7; Sat, 30
- Nov 2024 13:34:27 +0100
-Message-ID: <6fd72d7d-8a6d-46b0-a7aa-08111093738a@web.de>
-Date: Sat, 30 Nov 2024 13:34:23 +0100
+	Sat, 30 Nov 2024 15:33:30 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 488E05C5BB2;
+	Sat, 30 Nov 2024 15:32:44 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 64EFCC4CECC;
+	Sat, 30 Nov 2024 15:33:23 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1732980807;
+	bh=aym/4A9156Bez914Qw2rtg50lJsSoqpPIIeg7OlOfh4=;
+	h=From:To:Cc:Subject:Date:From;
+	b=mhUhvnU0H52swI1Xu8cVLSMTZRRh+VKLWDPNChBm8tNEYkDzvoYWQUB1Ii0/ncyAR
+	 vDYblsR5DGRzRZbIH0P1KyjE5Td08JUD8bVyYACG8e8lVuswJDxsttBB4E2aE8WEJ9
+	 AKJtolzSYDARWN9bmxRSWejocd5Ob5KmRUV8J6pHTc/RirYH9HCMMwjkXkVXwRJpLC
+	 lKABmc/j6AS0/KTcgZwU7fkROseu9S/icCxwDvP6OfCN7dABMqyEG/eOF+z8BhyTKZ
+	 iCld/GsjmC0x3On5DsflD9dCFvISc6Qgvzfry/WhfgpBWwE3Z7FIhlDvpBfmKGY920
+	 RRiHeiZAEgoNg==
+From: guoren@kernel.org
+To: paul.walmsley@sifive.com,
+	palmer@dabbelt.com,
+	guoren@kernel.org,
+	bjorn@rivosinc.com,
+	conor@kernel.org,
+	leobras@redhat.com,
+	peterz@infradead.org,
+	parri.andrea@gmail.com,
+	will@kernel.org,
+	longman@redhat.com,
+	boqun.feng@gmail.com,
+	arnd@arndb.de,
+	alexghiti@rivosinc.com
+Cc: linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Guo Ren <guoren@linux.alibaba.com>
+Subject: [RESEND PATCH] riscv: Fixup boot failure when CONFIG_DEBUG_RT_MUTEXES=y
+Date: Sat, 30 Nov 2024 10:33:10 -0500
+Message-Id: <20241130153310.3349484-1-guoren@kernel.org>
+X-Mailer: git-send-email 2.40.1
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-To: Dan Carpenter <dan.carpenter@linaro.org>,
- linux-riscv@lists.infradead.org, Michal Wilczynski <m.wilczynski@samsung.com>
-Cc: kernel-janitors@vger.kernel.org, LKML <linux-kernel@vger.kernel.org>,
- Drew Fustini <drew@pdp7.com>, Fu Wei <wefu@redhat.com>,
- Guo Ren <guoren@kernel.org>, Jassi Brar <jassisinghbrar@gmail.com>
-References: <bda05d7b-5a6e-4f57-a124-ba56f51da031@stanley.mountain>
-Subject: Re: [PATCH] mailbox: th1520: Fix a NULL vs IS_ERR() bug
-Content-Language: en-GB
-From: Markus Elfring <Markus.Elfring@web.de>
-In-Reply-To: <bda05d7b-5a6e-4f57-a124-ba56f51da031@stanley.mountain>
-X-Provags-ID: V03:K1:uxeDcr6BH8BxBkN6tuLsL50ywJWugil/p7X9C1bf7AWIfWPi0zi
- rsYjH2uwJEDsogJzQcV+vk9mn57E2LNDPOMkVHbcx7Y9LNHnb6WoY+1RM67VXs4o+bS3KN0
- tqbxL8QzDJbDfQO+NsnFMDiksz00Fgue3xjDETmMqdsI5Lpn9JxbTJbGD0/pcVkovoVvumY
- AusXQqaPnE6C6ZgXG3p1g==
-UI-OutboundReport: notjunk:1;M01:P0:V0SMgdf1a7k=;WA/kuaWxdjyIv3fUoke2JJqcdTM
- 0T18UrQgQ2yfyPRY7tJwuKhWtjE3whwJVbdlAvOsxeYym3jtii8/pdkw39fpw9tU3EYuk5k10
- CKcEyo1jKTdbduccRKXb/CIf+wDsm3+260wehGpXgpBG3um5tK33HrcGNETcI7VPIHqa7Y+I7
- zvorhSoh92Zxe0AjWbQD6OSMBNKaTuXMITyoODIxfaArzqTuGFF0TUslqp9zF5vTRjLNviR40
- oU7kuhYvD6nvlkSotIU6sNrkdAB+EzZIN+VxZKiwtrDlCXgR70iax3HpF5icjyJ4vLm3YX5h5
- kmLayr7nVTqgXDnGq6e5UV6/A1j3n7GYNmJefgRkKv5t3u47WNNRArEPF9YODS1YdLGCkeYyx
- 3ZVAQaoWg0J0bsJev03t4oulO7AqTUe4nJ0L5DplvRlXXEQLuZUIusdeTipF3nvCy26sxlWja
- 4f+Dz13kSU+kKfLM3E2qHtuy4QJlV3c1rJSEXIMtr6jqPA4livJVcIu8QtD0nLLteb3yAgr18
- 8ZDEt05pfgjlxOjs10RekH6or0U2W35oMPgs4eXgHa896kiE5z+czjpOcKcsqjc6AHIf7y9Ve
- muag1vpxlhZN8To8QxVdCvJWX/QiYOLubmiF4nHfp3vD0SO7GeXfIrtCZE6tp1ItOEbrqSPkQ
- +HUt6M8jU2YoTXcS8v7YtRM72Hl/cQBr0uainDDjEb0WYzHhQPLB91sjTjHCbwdzoxSfYMKfR
- Z2X1WeSFJIlzuY8QDDM1MhlWJ39Bev6lh4Z8EeU/cb2HSMyPaCVmGlleRmG8AuN1kktQNQjGl
- 1zAobMVWngetpqmqFfn3DfwPnAhReBui7Hyuj3jjHWD8E87lMe1zmedwWoTXJhyVvnguQa/BD
- edpwwzTJaZKmQt9AjaT0IzmvJ1m4BQUXbZUJ0UimDc7qS6se9pwBXma5l/W22Dj1icKLivjTl
- xcQlntQnkfIueMQKJ3i3KXTxpt3M8rv/5BRrl9RNa8ROQijas75dGaY6i4Gu+LPzdjRixeQSq
- c3bxXawLN/sG7Qc6AyIOKxbT0iNmkJDtLKSVj43ywiJ9+bJgIvpsoSda8xUt6JIoY3bzT29OQ
- QSAJwH3Kc=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241130_043444_388489_B2FB7125 
-X-CRM114-Status: UNSURE (   3.52  )
+X-CRM114-CacheID: sfid-20241130_073328_590243_94D07469 
+X-CRM114-Status: UNSURE (   9.46  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -99,14 +84,85 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-> The devm_ioremap() function doesn't return error pointers, it returns
-> NULL.  Update the error checking to match.
+From: Guo Ren <guoren@linux.alibaba.com>
 
-  on execution failure?
+When CONFIG_DEBUG_RT_MUTEXES=y, mutex_lock->rt_mutex_try_acquire
+would change from rt_mutex_cmpxchg_acquire to
+rt_mutex_slowtrylock():
+	raw_spin_lock_irqsave(&lock->wait_lock, flags);
+	ret = __rt_mutex_slowtrylock(lock);
+	raw_spin_unlock_irqrestore(&lock->wait_lock, flags);
 
+Because queued_spin_#ops to ticket_#ops is changed one by one by
+jump_label, raw_spin_lock/unlock would cause a deadlock during the
+changing.
 
-Regards,
-Markus
+That means in arch/riscv/kernel/jump_label.c:
+1.
+arch_jump_label_transform_queue() ->
+mutex_lock(&text_mutex); +-> raw_spin_lock  -> queued_spin_lock
+			 |-> raw_spin_unlock -> queued_spin_unlock
+patch_insn_write -> change the raw_spin_lock to ticket_lock
+mutex_unlock(&text_mutex);
+...
+
+2. /* Dirty the lock value */
+arch_jump_label_transform_queue() ->
+mutex_lock(&text_mutex); +-> raw_spin_lock -> *ticket_lock*
+                         |-> raw_spin_unlock -> *queued_spin_unlock*
+			  /* BUG: ticket_lock with queued_spin_unlock */
+patch_insn_write  ->  change the raw_spin_unlock to ticket_unlock
+mutex_unlock(&text_mutex);
+...
+
+3. /* Dead lock */
+arch_jump_label_transform_queue() ->
+mutex_lock(&text_mutex); +-> raw_spin_lock -> ticket_lock /* deadlock! */
+                         |-> raw_spin_unlock -> ticket_unlock
+patch_insn_write -> change other raw_spin_#op -> ticket_#op
+mutex_unlock(&text_mutex);
+
+So, the solution is to disable mutex usage of
+arch_jump_label_transform_queue() during early_boot_irqs_disabled, just
+like we have done for stop_machine.
+
+Reported-by: Conor Dooley <conor@kernel.org>
+Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
+Signed-off-by: Guo Ren <guoren@kernel.org>
+Fixes: ab83647fadae ("riscv: Add qspinlock support")
+Link: https://lore.kernel.org/linux-riscv/CAJF2gTQwYTGinBmCSgVUoPv0_q4EPt_+WiyfUA1HViAKgUzxAg@mail.gmail.com/T/#mf488e6347817fca03bb93a7d34df33d8615b3775
+Cc: Palmer Dabbelt <palmer@dabbelt.com>
+Cc: Alexandre Ghiti <alexghiti@rivosinc.com>
+---
+ arch/riscv/kernel/jump_label.c | 12 +++++++++---
+ 1 file changed, 9 insertions(+), 3 deletions(-)
+
+diff --git a/arch/riscv/kernel/jump_label.c b/arch/riscv/kernel/jump_label.c
+index 6eee6f736f68..654ed159c830 100644
+--- a/arch/riscv/kernel/jump_label.c
++++ b/arch/riscv/kernel/jump_label.c
+@@ -36,9 +36,15 @@ bool arch_jump_label_transform_queue(struct jump_entry *entry,
+ 		insn = RISCV_INSN_NOP;
+ 	}
+ 
+-	mutex_lock(&text_mutex);
+-	patch_insn_write(addr, &insn, sizeof(insn));
+-	mutex_unlock(&text_mutex);
++	if (early_boot_irqs_disabled) {
++		riscv_patch_in_stop_machine = 1;
++		patch_insn_write(addr, &insn, sizeof(insn));
++		riscv_patch_in_stop_machine = 0;
++	} else {
++		mutex_lock(&text_mutex);
++		patch_insn_write(addr, &insn, sizeof(insn));
++		mutex_unlock(&text_mutex);
++	}
+ 
+ 	return true;
+ }
+-- 
+2.40.1
+
 
 _______________________________________________
 linux-riscv mailing list
