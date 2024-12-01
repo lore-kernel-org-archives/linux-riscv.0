@@ -4,63 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4ED0FD49761
-	for <linux-riscv@archiver.kernel.org>; Sun,  1 Dec 2024 10:28:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 42C02D49763
+	for <linux-riscv@archiver.kernel.org>; Sun,  1 Dec 2024 11:20:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
+	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=v8OQAfZyQNbK2nc/8vRYmXGsLl5eHEYtf/CgqsSUVv0=; b=Si3PdgLlMiVqmj
-	s2G0z1TFxIa6+VUiM56fysLvB6/oCS7hs2D9QkAiidF4vmy3s5O1pxX3tEu313vqBX649m89MIfEd
-	KZe4264KLcOl0O5iJwBYwA+WQvfvuqbGy/sAaIRuL7sggm6+Iq5AQOQEa0FKElPvX6ZAfgyKxLCW4
-	qSPETHc87ewmWTayoq1vexmWKaCJU+ZUsRvQd4o+25B53aMxCoe4o8gRXd4fWDjcKr7y1emtu2VPY
-	nEU8HvFydqSw+7RT/jcI5bhYjwzTCyuQprWqJLMi2J/k/ufxs3hOfZbfNFrnAcpoQL91dsQUMEhPe
-	fZhPkGH8LeNvLZxSZUWg==;
+	List-Owner; bh=w4/2d1ckVFJKES6DTpVQ6UPz8JM3EM+mU7ac8jTHDGs=; b=a2RS5POGAnf8BR
+	CtjWTxiVt/2dS4kuupl97369n1h6v6/JxN5gIBl48tto1niyQYPrbB8ye6DRwYU7Eq1wgczUWVu6o
+	05QZDJlYI57b7/O9Jhm9ZDjoxnvSzZJtxp2N5AY6ywT2bGxBGvlSigC78dycDZJvxsCWwv/4HKenW
+	XDvhW48fjjS4ZAjegvbZl47teE+4QN/YzIcY49lrKMOISYT9qL01E5yENMKr5O3M8dJypNbn7gJsI
+	Hd9KjP7yc+VbPTjBk9APNoSjEj3IXiYPrKAXZXFQ/5UNlZwSvJAdU0gbBz+3CFGVog20o/r0h7TSG
+	Ci0sUd3LpQ27IT0f5VEw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tHhBT-00000003INg-26eL;
-	Sun, 01 Dec 2024 10:28:11 +0000
-Received: from imap5.colo.codethink.co.uk ([78.40.148.171])
+	id 1tHi0F-00000003LwY-095U;
+	Sun, 01 Dec 2024 11:20:39 +0000
+Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tHhBQ-00000003IMK-3IVO
-	for linux-riscv@lists.infradead.org;
-	Sun, 01 Dec 2024 10:28:09 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=codethink.co.uk; s=imap5-20230908; h=Sender:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
-	List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=nfGXRLkquFvg92946tM0Zd0jB72ZUCP2hBvLATnXeSA=; b=oJAVQ4A5087W7FUIdboGYQ6WJ9
-	9jRF7VWrg+c17zvdIMUMes2L8z3zBFzGxiqaheP2cbQFIxZvNIF7J/6w3OOBEDJbALml+jqtLpbK9
-	eTOURTIl2nTFEXwXrt3jYlTWUvkexSiryhiS89rlKFwhIXzi1y7IlBMUH+RF7Rs/p6hcbWgeA8tp8
-	mI3+f3E0QNmtXBoePzWlLP+NLTtiVCT+fHrXBQbEpuc21OATvdA0TXbg5acmVvNwiU+5tqJyiYskK
-	I4IwEwzhTHxW6x8SkXroGe4v30884IRIyZBWW+dvr8lYegyGYU0p/aQl4RY+P4RlhSS2Jb3VTDIq4
-	bvNP1T2A==;
-Received: from [167.98.27.226] (helo=rainbowdash)
-	by imap5.colo.codethink.co.uk with esmtpsa  (Exim 4.94.2 #2 (Debian))
-	id 1tHhBJ-00FjrQ-1n; Sun, 01 Dec 2024 10:28:02 +0000
-Received: from ben by rainbowdash with local (Exim 4.98)
-	(envelope-from <ben@rainbowdash>)
-	id 1tHhBJ-00000000vYv-3XqN;
-	Sun, 01 Dec 2024 10:28:01 +0000
-From: Ben Dooks <ben.dooks@codethink.co.uk>
-To: linux-riscv@lists.infradead.org
-Cc: ajones@ventanamicro.com,
-	palmer@dabbelt.com,
-	Ben Dooks <ben.dooks@codethink.co.uk>
-Subject: [PATCH v2 3/3] riscv: insn: add RV_EXTRACT_FUNCT3()
-Date: Sun,  1 Dec 2024 10:27:59 +0000
-Message-Id: <20241201102759.221176-4-ben.dooks@codethink.co.uk>
-X-Mailer: git-send-email 2.37.2.352.g3c44437643
-In-Reply-To: <20241201102759.221176-1-ben.dooks@codethink.co.uk>
-References: <20241201102759.221176-1-ben.dooks@codethink.co.uk>
+	id 1tHhzE-00000003Lnr-1f7h;
+	Sun, 01 Dec 2024 11:19:37 +0000
+From: Thomas Gleixner <tglx@linutronix.de>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1733051975;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=WDyHPlNEUnQgzVFHMrpiQsLtL9Qxe5uHkWbmpd0Bcaw=;
+	b=ZwIwIPeWzc5fJpnBy3tPkmLGRBSLhA0IhvVbKfuB3pCaqDtPBSoXPSSPzHJj5lqePQJXZh
+	saw2tyB35caaY1WRFOOTDakG87Rac2CiBdgcnEsVaETGUZ2LIkmO1J6YwGTSL60CTVkkH8
+	UPQytJ5nue8MzA2ECyCa5/jfb7zj3bdluniKiU5Dg6qFv7r0CF0BTSTzCVR2/kbHECM+qi
+	2dm1pSbgrZliexsj8Vvshwtgchh9EWLqZOT6d2lnwBtk5lNDOLeJPTs/ncJW8sQH6Q4ezl
+	X9WB+Csibt8PBhXoLKo6jpbXp4JW7Odw5JyXpzF67j4AGfJ9SoYaAWroXh/eFg==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1733051975;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=WDyHPlNEUnQgzVFHMrpiQsLtL9Qxe5uHkWbmpd0Bcaw=;
+	b=Qpo34jtob1LbosMBtAl47/xmhuQNsC1tJXAj85I8Uxf5h6BuaXY+7PhCcNAx7cLLndI2rx
+	VgnJuardsEMXGrDw==
+To: "Farber, Eliav" <farbere@amazon.com>, "linux@armlinux.org.uk"
+ <linux@armlinux.org.uk>, "catalin.marinas@arm.com"
+ <catalin.marinas@arm.com>, "will@kernel.org" <will@kernel.org>,
+ "mpe@ellerman.id.au" <mpe@ellerman.id.au>, "npiggin@gmail.com"
+ <npiggin@gmail.com>, "christophe.leroy@csgroup.eu"
+ <christophe.leroy@csgroup.eu>, "naveen@kernel.org" <naveen@kernel.org>,
+ "maddy@linux.ibm.com" <maddy@linux.ibm.com>, "paul.walmsley@sifive.com"
+ <paul.walmsley@sifive.com>, "palmer@dabbelt.com" <palmer@dabbelt.com>,
+ "aou@eecs.berkeley.edu" <aou@eecs.berkeley.edu>, "ebiederm@xmission.com"
+ <ebiederm@xmission.com>, "akpm@linux-foundation.org"
+ <akpm@linux-foundation.org>, "bhe@redhat.com" <bhe@redhat.com>,
+ "hbathini@linux.ibm.com" <hbathini@linux.ibm.com>,
+ "sourabhjain@linux.ibm.com" <sourabhjain@linux.ibm.com>,
+ "adityag@linux.ibm.com" <adityag@linux.ibm.com>,
+ "songshuaishuai@tinylab.org" <songshuaishuai@tinylab.org>,
+ "takakura@valinux.co.jp" <takakura@valinux.co.jp>,
+ "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
+ <linux-kernel@vger.kernel.org>, "linuxppc-dev@lists.ozlabs.org"
+ <linuxppc-dev@lists.ozlabs.org>, "linux-riscv@lists.infradead.org"
+ <linux-riscv@lists.infradead.org>, "kexec@lists.infradead.org"
+ <kexec@lists.infradead.org>, Marc Zyngier <maz@kernel.org>
+Cc: "Chocron, Jonathan" <jonnyc@amazon.com>
+Subject: RE: [PATCH v4 1/2] kexec: Consolidate
+ machine_kexec_mask_interrupts() implementation
+In-Reply-To: <cd8809e379dc4dd089350ec2d1f8c210@amazon.com>
+References: <cd8809e379dc4dd089350ec2d1f8c210@amazon.com>
+Date: Sun, 01 Dec 2024 12:19:34 +0100
+Message-ID: <87frn7wszd.ffs@tglx>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241201_022808_902661_272C651C 
-X-CRM114-Status: UNSURE (   8.01  )
+X-CRM114-CacheID: sfid-20241201_031936_573594_FDDE4E78 
+X-CRM114-Status: UNSURE (   9.85  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -78,36 +96,23 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add extraction for the func3 field of most instructions
-for use with anyone who needs it.
+On Sat, Nov 30 2024 at 20:08, Eliav Farber wrote:
+> On 11/29/2024 3:30 PM, Thomas Gleixner wrote:
+>> Looking deeper. This function actually cannot be called from this
+>> context. It does:
+>>
+>>           irq_get_desc_buslock(irq, &flags, 0);
+>>
+>> which means for any interrupt which has an actual buslock implementation
+>> it will end up in a sleepable function and deadlock in the worst case.
+>>
+>> Marc?
+> I will wait for Marc's response regarding this issue.
+> Regardless, if any changes are required, I believe it would be better
+> to address them in a separate patch, as this behavior existed before my
+> modification.
 
-Note, added this for decoding of CSR accesses for
-work we did looking at the RDCYCLE v RDTIME calls.
-
-Signed-off-by: Ben Dooks <ben.dooks@codethink.co.uk>
-Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
----
- arch/riscv/include/asm/insn.h | 4 ++++
- 1 file changed, 4 insertions(+)
-
-diff --git a/arch/riscv/include/asm/insn.h b/arch/riscv/include/asm/insn.h
-index 09fde95a5e8f..c67f44ff2066 100644
---- a/arch/riscv/include/asm/insn.h
-+++ b/arch/riscv/include/asm/insn.h
-@@ -299,6 +299,10 @@ static __always_inline bool riscv_insn_is_c_jalr(u32 code)
- 	({typeof(x) x_ = (x); \
- 	(RV_X(x_, RVG_RD_OPOFF, RVG_RD_MASK)); })
- 
-+#define RV_EXTRACT_FUNCT3(x) \
-+	({typeof(x) x_ = (x); \
-+	(RV_X(x_, RV_INSN_FUNCT3_OPOFF, RV_INSN_FUNCT3_MASK)); })
-+
- #define RV_EXTRACT_UTYPE_IMM(x) \
- 	({typeof(x) x_ = (x); \
- 	(RV_X(x_, RV_U_IMM_31_12_OPOFF, RV_U_IMM_31_12_MASK)); })
--- 
-2.37.2.352.g3c44437643
-
+Correct.
 
 _______________________________________________
 linux-riscv mailing list
