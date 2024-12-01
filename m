@@ -4,82 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 42C02D49763
-	for <linux-riscv@archiver.kernel.org>; Sun,  1 Dec 2024 11:20:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9AB8DD49776
+	for <linux-riscv@archiver.kernel.org>; Sun,  1 Dec 2024 15:31:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
-	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=w4/2d1ckVFJKES6DTpVQ6UPz8JM3EM+mU7ac8jTHDGs=; b=a2RS5POGAnf8BR
-	CtjWTxiVt/2dS4kuupl97369n1h6v6/JxN5gIBl48tto1niyQYPrbB8ye6DRwYU7Eq1wgczUWVu6o
-	05QZDJlYI57b7/O9Jhm9ZDjoxnvSzZJtxp2N5AY6ywT2bGxBGvlSigC78dycDZJvxsCWwv/4HKenW
-	XDvhW48fjjS4ZAjegvbZl47teE+4QN/YzIcY49lrKMOISYT9qL01E5yENMKr5O3M8dJypNbn7gJsI
-	Hd9KjP7yc+VbPTjBk9APNoSjEj3IXiYPrKAXZXFQ/5UNlZwSvJAdU0gbBz+3CFGVog20o/r0h7TSG
-	Ci0sUd3LpQ27IT0f5VEw==;
+	List-Owner; bh=zkWu5bdr2m5U/mFWuoxuKEE3rdWTQo7t8P/UyF8etFU=; b=3k9cFrOzuCsS9R
+	FUbuBAx4yhQuT6XrWR/HMdZgBeZCNobeUWo2wT/Eaydg7JhaC8YWHFHtBhG+xisLzjTrTxw6dC85N
+	xFEEbp0L7t1qDCcM+35gG9QKo9Otah8jspbabb5n1MBFXruzd06n+Qa+ik9sPnqOuZKiXBl0mR6Dl
+	W7xzZvgWD29hW3H0E8ps/l/egi4jeOdudOboKPacUgwVhd1O2VnXgLhqyyPYUKtp2a3vcxqNByCz2
+	qyER3EPNTSwy+dU3sNGLuIbZJ/Nd8cusUSwACZOgbPcVW4INuoJdoJIsnuUsH3xIiUOQcdA3yrR/x
+	2OLnl/NTrDuVUA8tiZuA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tHi0F-00000003LwY-095U;
-	Sun, 01 Dec 2024 11:20:39 +0000
-Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
+	id 1tHlum-00000003yPQ-1o9J;
+	Sun, 01 Dec 2024 15:31:16 +0000
+Received: from mta-03.yadro.com ([89.207.88.253])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tHhzE-00000003Lnr-1f7h;
-	Sun, 01 Dec 2024 11:19:37 +0000
-From: Thomas Gleixner <tglx@linutronix.de>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1733051975;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=WDyHPlNEUnQgzVFHMrpiQsLtL9Qxe5uHkWbmpd0Bcaw=;
-	b=ZwIwIPeWzc5fJpnBy3tPkmLGRBSLhA0IhvVbKfuB3pCaqDtPBSoXPSSPzHJj5lqePQJXZh
-	saw2tyB35caaY1WRFOOTDakG87Rac2CiBdgcnEsVaETGUZ2LIkmO1J6YwGTSL60CTVkkH8
-	UPQytJ5nue8MzA2ECyCa5/jfb7zj3bdluniKiU5Dg6qFv7r0CF0BTSTzCVR2/kbHECM+qi
-	2dm1pSbgrZliexsj8Vvshwtgchh9EWLqZOT6d2lnwBtk5lNDOLeJPTs/ncJW8sQH6Q4ezl
-	X9WB+Csibt8PBhXoLKo6jpbXp4JW7Odw5JyXpzF67j4AGfJ9SoYaAWroXh/eFg==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1733051975;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=WDyHPlNEUnQgzVFHMrpiQsLtL9Qxe5uHkWbmpd0Bcaw=;
-	b=Qpo34jtob1LbosMBtAl47/xmhuQNsC1tJXAj85I8Uxf5h6BuaXY+7PhCcNAx7cLLndI2rx
-	VgnJuardsEMXGrDw==
-To: "Farber, Eliav" <farbere@amazon.com>, "linux@armlinux.org.uk"
- <linux@armlinux.org.uk>, "catalin.marinas@arm.com"
- <catalin.marinas@arm.com>, "will@kernel.org" <will@kernel.org>,
- "mpe@ellerman.id.au" <mpe@ellerman.id.au>, "npiggin@gmail.com"
- <npiggin@gmail.com>, "christophe.leroy@csgroup.eu"
- <christophe.leroy@csgroup.eu>, "naveen@kernel.org" <naveen@kernel.org>,
- "maddy@linux.ibm.com" <maddy@linux.ibm.com>, "paul.walmsley@sifive.com"
- <paul.walmsley@sifive.com>, "palmer@dabbelt.com" <palmer@dabbelt.com>,
- "aou@eecs.berkeley.edu" <aou@eecs.berkeley.edu>, "ebiederm@xmission.com"
- <ebiederm@xmission.com>, "akpm@linux-foundation.org"
- <akpm@linux-foundation.org>, "bhe@redhat.com" <bhe@redhat.com>,
- "hbathini@linux.ibm.com" <hbathini@linux.ibm.com>,
- "sourabhjain@linux.ibm.com" <sourabhjain@linux.ibm.com>,
- "adityag@linux.ibm.com" <adityag@linux.ibm.com>,
- "songshuaishuai@tinylab.org" <songshuaishuai@tinylab.org>,
- "takakura@valinux.co.jp" <takakura@valinux.co.jp>,
- "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
- <linux-kernel@vger.kernel.org>, "linuxppc-dev@lists.ozlabs.org"
- <linuxppc-dev@lists.ozlabs.org>, "linux-riscv@lists.infradead.org"
- <linux-riscv@lists.infradead.org>, "kexec@lists.infradead.org"
- <kexec@lists.infradead.org>, Marc Zyngier <maz@kernel.org>
-Cc: "Chocron, Jonathan" <jonnyc@amazon.com>
-Subject: RE: [PATCH v4 1/2] kexec: Consolidate
- machine_kexec_mask_interrupts() implementation
-In-Reply-To: <cd8809e379dc4dd089350ec2d1f8c210@amazon.com>
-References: <cd8809e379dc4dd089350ec2d1f8c210@amazon.com>
-Date: Sun, 01 Dec 2024 12:19:34 +0100
-Message-ID: <87frn7wszd.ffs@tglx>
+	id 1tHluj-00000003yOQ-0jVn
+	for linux-riscv@lists.infradead.org;
+	Sun, 01 Dec 2024 15:31:15 +0000
+DKIM-Filter: OpenDKIM Filter v2.11.0 mta-03.yadro.com 29222E0008
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yadro.com; s=mta-04;
+	t=1733067065; bh=Rk4mscyhtODXOoZtND+S+9aETGqegjWDO/UcHkuTmgI=;
+	h=Message-ID:Date:MIME-Version:Subject:To:From:Content-Type:From;
+	b=MgkYVtSN293oTUIjbbJqxqONNowdN4QqN1FqM3nHbYZpy25m7/Y97lRFP2bHuFHb5
+	 WifpssSe/McUAgkMlMh0hQocqRe9/6UK2pcTRcYDc8uH46uzjkxWqJspAp9Bnc33yj
+	 zIiwCTq9SFMU9T+aTpgg4gG+QfiwZRrDwkg0YBh8ETbesLiGoDQdbtSOAVkZNOY5ws
+	 QR5cgm58Rt140uJx3dg5ypfRZs6Med79F+FS3ZuwOp4X0ohaTRd8KDfR5uS+4OJhxs
+	 zk+kpC0sk7X86VGa7UQSIaCJbM3Q7bs2qpLs/DfLnCG29R3AAvtBmN556duRLgPY7w
+	 88Wl52Wyr7Egw==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yadro.com; s=mta-03;
+	t=1733067065; bh=Rk4mscyhtODXOoZtND+S+9aETGqegjWDO/UcHkuTmgI=;
+	h=Message-ID:Date:MIME-Version:Subject:To:From:Content-Type:From;
+	b=vSInmEBQjOunc3kSw9zLl0Nikb4nl+yFmWBYBH6N1RoEZDagW3Ny+ZIQHtkdEAFEt
+	 3gkJhKWynUwsO+2s36AeKzOXFCmAGVl7NnqwGPCr86PKbp64NHRp8zWTv4CF4NCMVS
+	 xpP8BrV+0uKfDDaOOh2WGrFCZQUBuDt1w+SR71PsOqZBHrzU4W6bgAHnOpWkJymFbz
+	 wqNlzp8+vTTlU7cj8f4UctP90CgT/NBoZSYSrpQ4wQdYZO98W7MNKCUe1B+Cj+bL7K
+	 jWDESxagqYFHqyxA1GFv3JlW/2cwn4mBQ3H/FiQ/xeDlv4kQ0YbW4Umu0YdA0bRm4L
+	 K6T2iIct021oQ==
+Message-ID: <12e8b66b-5a6e-435e-b927-18a3ce2216e3@yadro.com>
+Date: Sun, 1 Dec 2024 18:31:03 +0300
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 3/7] riscv: ftrace: prepare ftrace for atomic code
+ patching
+To: Andy Chiu <andybnac@gmail.com>
+CC: Albert Ou <aou@eecs.berkeley.edu>, Palmer Dabbelt <palmer@dabbelt.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>, Mark Rutland
+	<mark.rutland@arm.com>, Masami Hiramatsu <mhiramat@kernel.org>, Steven
+ Rostedt <rostedt@goodmis.org>, <linux-kernel@vger.kernel.org>,
+	<linux-trace-kernel@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
+	<bjorn@rivosinc.com>, <puranjay12@gmail.com>, <alexghiti@rivosinc.com>,
+	<yongxuan.wang@sifive.com>, <greentime.hu@sifive.com>, <nick.hu@sifive.com>,
+	<nylon.chen@sifive.com>, <tommy.wu@sifive.com>, <eric.lin@sifive.com>,
+	<viccent.chen@sifive.com>, <zong.li@sifive.com>, <samuel.holland@sifive.com>,
+	<linux@yadro.com>
+References: <20241127172908.17149-1-andybnac@gmail.com>
+ <20241127172908.17149-4-andybnac@gmail.com>
+Content-Language: en-US
+From: Evgenii Shatokhin <e.shatokhin@yadro.com>
+In-Reply-To: <20241127172908.17149-4-andybnac@gmail.com>
+X-ClientProxiedBy: T-EXCH-10.corp.yadro.com (172.17.11.60) To
+ T-EXCH-10.corp.yadro.com (172.17.11.60)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241201_031936_573594_FDDE4E78 
-X-CRM114-Status: UNSURE (   9.85  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241201_073114_092333_2831B567 
+X-CRM114-Status: GOOD (  35.42  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,28 +84,272 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sat, Nov 30 2024 at 20:08, Eliav Farber wrote:
-> On 11/29/2024 3:30 PM, Thomas Gleixner wrote:
->> Looking deeper. This function actually cannot be called from this
->> context. It does:
->>
->>           irq_get_desc_buslock(irq, &flags, 0);
->>
->> which means for any interrupt which has an actual buslock implementation
->> it will end up in a sleepable function and deadlock in the worst case.
->>
->> Marc?
-> I will wait for Marc's response regarding this issue.
-> Regardless, if any changes are required, I believe it would be better
-> to address them in a separate patch, as this behavior existed before my
-> modification.
+Hi Andy,
 
-Correct.
+First of all, thank you for working on this series.
+
+On 27.11.2024 20:29, Andy Chiu wrote:
+> From: Andy Chiu <andy.chiu@sifive.com>
+> 
+> We use an AUIPC+JALR pair to jump into a ftrace trampoline. Since
+> instruction fetch can break down to 4 byte at a time, it is impossible
+> to update two instructions without a race. In order to mitigate it, we
+> initialize the patchable entry to AUIPC + NOP4. Then, the run-time code
+> patching can change NOP4 to JALR to eable/disable ftrcae from a
+> function. This limits the reach of each ftrace entry to +-2KB displacing
+> from ftrace_caller.
+> 
+> Starting from the trampoline, we add a level of indirection for it to
+> reach ftrace caller target. Now, it loads the target address from a
+> memory location, then perform the jump. This enable the kernel to update
+> the target atomically.
+> 
+> The ordering of reading/updating the targert address should be guarded
+> by generic ftrace code, where it sends smp_rmb ipi.
+> 
+> Signed-off-by: Andy Chiu <andy.chiu@sifive.com>
+> ---
+>   arch/riscv/include/asm/ftrace.h |  4 ++
+>   arch/riscv/kernel/ftrace.c      | 80 +++++++++++++++++++++------------
+>   arch/riscv/kernel/mcount-dyn.S  |  9 ++--
+>   3 files changed, 62 insertions(+), 31 deletions(-)
+> 
+> diff --git a/arch/riscv/include/asm/ftrace.h b/arch/riscv/include/asm/ftrace.h
+> index 4ca7ce7f34d7..36734d285aad 100644
+> --- a/arch/riscv/include/asm/ftrace.h
+> +++ b/arch/riscv/include/asm/ftrace.h
+> @@ -80,6 +80,7 @@ struct dyn_arch_ftrace {
+>   #define JALR_T0                        (0x000282e7)
+>   #define AUIPC_T0               (0x00000297)
+>   #define NOP4                   (0x00000013)
+> +#define JALR_RANGE             (JALR_SIGN_MASK - 1)
+> 
+>   #define to_jalr_t0(offset)                                             \
+>          (((offset & JALR_OFFSET_MASK) << JALR_SHIFT) | JALR_T0)
+> @@ -117,6 +118,9 @@ do {                                                                        \
+>    * Let auipc+jalr be the basic *mcount unit*, so we make it 8 bytes here.
+>    */
+>   #define MCOUNT_INSN_SIZE 8
+> +#define MCOUNT_AUIPC_SIZE      4
+> +#define MCOUNT_JALR_SIZE       4
+> +#define MCOUNT_NOP4_SIZE       4
+> 
+>   #ifndef __ASSEMBLY__
+>   struct dyn_ftrace;
+> diff --git a/arch/riscv/kernel/ftrace.c b/arch/riscv/kernel/ftrace.c
+> index 4b95c574fd04..5ebe412280ef 100644
+> --- a/arch/riscv/kernel/ftrace.c
+> +++ b/arch/riscv/kernel/ftrace.c
+> @@ -64,42 +64,64 @@ static int ftrace_check_current_call(unsigned long hook_pos,
+>          return 0;
+>   }
+> 
+> -static int __ftrace_modify_call(unsigned long hook_pos, unsigned long target,
+> -                               bool enable, bool ra)
+> +static int __ftrace_modify_call(unsigned long hook_pos, unsigned long target, bool validate)
+>   {
+>          unsigned int call[2];
+> -       unsigned int nops[2] = {NOP4, NOP4};
+> +       unsigned int replaced[2];
+> +
+> +       make_call_t0(hook_pos, target, call);
+> 
+> -       if (ra)
+> -               make_call_ra(hook_pos, target, call);
+> -       else
+> -               make_call_t0(hook_pos, target, call);
+> +       if (validate) {
+> +               /*
+> +                * Read the text we want to modify;
+> +                * return must be -EFAULT on read error
+> +                */
+> +               if (copy_from_kernel_nofault(replaced, (void *)hook_pos,
+> +                                            MCOUNT_INSN_SIZE))
+> +                       return -EFAULT;
+> +
+> +               if (replaced[0] != call[0]) {
+> +                       pr_err("%p: expected (%08x) but got (%08x)\n",
+> +                              (void *)hook_pos, call[0], replaced[0]);
+> +                       return -EINVAL;
+> +               }
+> +       }
+> 
+> -       /* Replace the auipc-jalr pair at once. Return -EPERM on write error. */
+> -       if (patch_insn_write((void *)hook_pos, enable ? call : nops, MCOUNT_INSN_SIZE))
+> +       /* Replace the jalr at once. Return -EPERM on write error. */
+> +       if (patch_insn_write((void *)(hook_pos + MCOUNT_AUIPC_SIZE), call + 1, MCOUNT_JALR_SIZE))
+>                  return -EPERM;
+> 
+>          return 0;
+>   }
+> 
+> -int ftrace_make_call(struct dyn_ftrace *rec, unsigned long addr)
+> +static int __ftrace_modify_call_site(ftrace_func_t *hook_pos, ftrace_func_t target, bool enable)
+>   {
+> -       unsigned int call[2];
+> +       ftrace_func_t call = target;
+> +       ftrace_func_t nops = &ftrace_stub;
+> 
+> -       make_call_t0(rec->ip, addr, call);
+> -
+> -       if (patch_insn_write((void *)rec->ip, call, MCOUNT_INSN_SIZE))
+> -               return -EPERM;
+> +       WRITE_ONCE(*hook_pos, enable ? call : nops);
+> 
+>          return 0;
+>   }
+> 
+> +int ftrace_make_call(struct dyn_ftrace *rec, unsigned long addr)
+> +{
+> +       unsigned long distance, orig_addr;
+> +
+> +       orig_addr = (unsigned long)&ftrace_caller;
+> +       distance = addr > orig_addr ? addr - orig_addr : orig_addr - addr;
+> +       if (distance > JALR_RANGE)
+> +               return -EINVAL;
+
+If I understand it correctly, it is not the range itself that matters 
+here, but rather, that AUIPC instruction remains the same for the 
+address of ftrace_caller and for the new addr.
+
+For the displacements like 0xfabcd000 and 0xfabccf00, for example, the 
+distance is 0x100, which is within JALR range. However, the higher 20 
+bits differ, so the AUIPC instructions will differ too. 
+__ftrace_modify_call() would catch this though ("if (replaced[0] != 
+call[0]) ...").
+
+I'd suggest checking the higher 20 bits explicitly instead, something 
+like this:
+
+if ((orig_addr & AUIPC_OFFSET_MASK) != (addr & AUIPC_OFFSET_MASK))
+         return -EINVAL;
+
+What do you think?
+
+> +
+> +       return __ftrace_modify_call(rec->ip, addr, false);
+> +}
+> +
+>   int ftrace_make_nop(struct module *mod, struct dyn_ftrace *rec,
+>                      unsigned long addr)
+>   {
+> -       unsigned int nops[2] = {NOP4, NOP4};
+> +       unsigned int nops[1] = {NOP4};
+> 
+> -       if (patch_insn_write((void *)rec->ip, nops, MCOUNT_INSN_SIZE))
+> +       if (patch_insn_write((void *)(rec->ip + MCOUNT_AUIPC_SIZE), nops, MCOUNT_NOP4_SIZE))
+>                  return -EPERM;
+> 
+>          return 0;
+> @@ -114,21 +136,23 @@ int ftrace_make_nop(struct module *mod, struct dyn_ftrace *rec,
+>    */
+>   int ftrace_init_nop(struct module *mod, struct dyn_ftrace *rec)
+>   {
+> +       unsigned int nops[2];
+>          int out;
+> 
+> +       make_call_t0(rec->ip, &ftrace_caller, nops);
+> +       nops[1] = NOP4;
+> +
+>          mutex_lock(&text_mutex);
+> -       out = ftrace_make_nop(mod, rec, MCOUNT_ADDR);
+> +       out = patch_insn_write((void *)rec->ip, nops, MCOUNT_INSN_SIZE);
+>          mutex_unlock(&text_mutex);
+> 
+>          return out;
+>   }
+> 
+> +ftrace_func_t ftrace_call_dest = ftrace_stub;
+>   int ftrace_update_ftrace_func(ftrace_func_t func)
+>   {
+> -       int ret = __ftrace_modify_call((unsigned long)&ftrace_call,
+> -                                      (unsigned long)func, true, true);
+> -
+> -       return ret;
+> +       return __ftrace_modify_call_site(&ftrace_call_dest, func, true);
+>   }
+> 
+>   struct ftrace_modify_param {
+> @@ -182,7 +206,7 @@ int ftrace_modify_call(struct dyn_ftrace *rec, unsigned long old_addr,
+>          if (ret)
+>                  return ret;
+> 
+> -       return __ftrace_modify_call(caller, addr, true, false);
+> +       return __ftrace_modify_call(caller, addr, true);
+>   }
+>   #endif
+> 
+> @@ -217,17 +241,17 @@ void ftrace_graph_func(unsigned long ip, unsigned long parent_ip,
+>          prepare_ftrace_return(&fregs->ra, ip, fregs->s0);
+>   }
+>   #else /* CONFIG_DYNAMIC_FTRACE_WITH_ARGS */
+> -extern void ftrace_graph_call(void);
+> +ftrace_func_t ftrace_graph_call_dest = ftrace_stub;
+>   int ftrace_enable_ftrace_graph_caller(void)
+>   {
+> -       return __ftrace_modify_call((unsigned long)&ftrace_graph_call,
+> -                                   (unsigned long)&prepare_ftrace_return, true, true);
+> +       return __ftrace_modify_call_site(&ftrace_graph_call_dest,
+> +                                        &prepare_ftrace_return, true);
+>   }
+> 
+>   int ftrace_disable_ftrace_graph_caller(void)
+>   {
+> -       return __ftrace_modify_call((unsigned long)&ftrace_graph_call,
+> -                                   (unsigned long)&prepare_ftrace_return, false, true);
+> +       return __ftrace_modify_call_site(&ftrace_graph_call_dest,
+> +                                        &prepare_ftrace_return, false);
+>   }
+>   #endif /* CONFIG_DYNAMIC_FTRACE_WITH_ARGS */
+>   #endif /* CONFIG_DYNAMIC_FTRACE */
+> diff --git a/arch/riscv/kernel/mcount-dyn.S b/arch/riscv/kernel/mcount-dyn.S
+> index e988bd26b28b..bc06e8ab81cf 100644
+> --- a/arch/riscv/kernel/mcount-dyn.S
+> +++ b/arch/riscv/kernel/mcount-dyn.S
+> @@ -162,7 +162,8 @@ SYM_FUNC_START(ftrace_caller)
+>          mv      a3, sp
+> 
+>   SYM_INNER_LABEL(ftrace_call, SYM_L_GLOBAL)
+> -       call    ftrace_stub
+> +       REG_L   ra, ftrace_call_dest
+> +       jalr    0(ra)
+> 
+>   #ifdef CONFIG_FUNCTION_GRAPH_TRACER
+>          addi    a0, sp, ABI_RA
+> @@ -172,7 +173,8 @@ SYM_INNER_LABEL(ftrace_call, SYM_L_GLOBAL)
+>          mv      a2, s0
+>   #endif
+>   SYM_INNER_LABEL(ftrace_graph_call, SYM_L_GLOBAL)
+> -       call    ftrace_stub
+> +       REG_L   ra, ftrace_graph_call_dest
+> +       jalr    0(ra)
+>   #endif
+>          RESTORE_ABI
+>          jr      t0
+> @@ -185,7 +187,8 @@ SYM_FUNC_START(ftrace_caller)
+>          PREPARE_ARGS
+> 
+>   SYM_INNER_LABEL(ftrace_call, SYM_L_GLOBAL)
+> -       call    ftrace_stub
+> +       REG_L   ra, ftrace_call_dest
+> +       jalr    0(ra)
+> 
+>          RESTORE_ABI_REGS
+>          bnez    t1, .Ldirect
+> --
+> 2.39.3 (Apple Git-145)
+> 
+> 
+> _______________________________________________
+> linux-riscv mailing list
+> linux-riscv@lists.infradead.org
+> http://lists.infradead.org/mailman/listinfo/linux-riscv
+
 
 _______________________________________________
 linux-riscv mailing list
