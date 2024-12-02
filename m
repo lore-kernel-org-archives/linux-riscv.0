@@ -4,67 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1879D78332
-	for <linux-riscv@archiver.kernel.org>; Mon,  2 Dec 2024 15:44:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 80650D78333
+	for <linux-riscv@archiver.kernel.org>; Mon,  2 Dec 2024 16:30:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
-	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=sECEwQVZwI69QyRU/omsS4xI7I6OrS80q8GRbE2L2yk=; b=Z8sOF7pUa9jvkw
-	5/UhTuI/eHoGkZOiqyQpMIX8RuDZaSuH8eRcCmj59A3ELkoVSyk/arLhkyFmd7SmKg/F2A1DZYaMM
-	x31/KsHYAKkfy4x92wYB99L0YWgLijUjjq54QHa6q/OkzWxJ6rUWIOy7+HuKovncG0yBoSIbFlJQ6
-	uNHNceDoP7dpirV0vkxSt5pXE0HjwqvKPLXzuzO5OtDKd3PcaesqCURD3GxopoZKg4ExgGAKCCdVa
-	8OypZBHXtXOQwT+gg1Gh0g3qtO4HNcJ3WCoT4IyPNAGX3Z9mc/bj9D4Z02nPo2KS8mcybWmwna4Tj
-	xekjl5FUa1D/DQUqsKrw==;
+	List-Owner; bh=h4ZtcLd+F0gNzmeI3jTtgi/dDd+SEwuU4JdzbxDFtR0=; b=ih1CP36Nmro76T
+	3XVp2xexTE9c/7Jc6hp+mxLZ95eithunuHT2JSX+1Zq/UFXjH4wkxizrL9bftnxP79KyJ0F8GoMGf
+	M9xeU84FBCQlQbzkkbSjQ1uViwAlsJrBV4wMp/B9MDddP83b137MMlH9YpWsIAHk2qKHDAPp/kSh7
+	wpWO9Ple6c7TxrgPRMV58RE5+9/jPVQL+lcl+56sFR/O8NgOT7Im7hTtVyrLH0yRieCMA+joxZNky
+	RfeCPoHl2hXGr6HNJRmuOXCOlFJiA4DZMrUy+8Vexb3RkeHx5OlLC7eZPJsOoq/WOdBb2vHjL91jN
+	+acflrigmLokGO9pAKgA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tI8b7-00000006hfC-3x5f;
-	Mon, 02 Dec 2024 15:44:29 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1tI9J5-00000006qsz-1wRk;
+	Mon, 02 Dec 2024 16:29:55 +0000
+Received: from mgamail.intel.com ([198.175.65.16])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tI8b5-00000006heJ-1Ddh
+	id 1tI96F-00000006oId-3DBN
 	for linux-riscv@lists.infradead.org;
-	Mon, 02 Dec 2024 15:44:28 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 92822A40E07;
-	Mon,  2 Dec 2024 15:42:32 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0547AC4CED1;
-	Mon,  2 Dec 2024 15:44:23 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1733154264;
-	bh=DyHkmcoK/rPOrpLfO3N9/3ZQGexPIlejeLIDNVhReJo=;
-	h=From:To:Cc:Subject:In-Reply-To:References:Date:From;
-	b=dOUNGcF+mdb56CEPrlHyw39sLJ6Cpw3nwWs37XYq/5PCKaYPjmRFAKpj3U6FKB9qL
-	 ZDraECnj/6CO8AT1hvqhljlFzcSXwo+/r2HbYd3en7lr5Lrcs8vwB2jgVLcBaNGH+W
-	 3sIwJ6ex6jiS97vYpH3a+BLXNZjMncZACtVsgaI/uKjzAkuH9GzrBSiGp6zofqafe7
-	 yzC3rep21BA4jxNecS1y4iug1WbwCSwjoUGkjCQPhtOV/vi8PXhp0REkXSdFToGYm3
-	 MgBjhLvwIAq7I9xcIh0TUkDGhodZMeTojoiqnpM4+ieY+9Az+7a6Pv9s9tzAqVi4BL
-	 8d1jUMElH1/IQ==
-From: =?utf-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>
-To: Celeste Liu <uwu@coelacanthus.name>, Oleg Nesterov <oleg@redhat.com>,
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Eric Biederman
- <ebiederm@xmission.com>, Kees Cook <kees@kernel.org>
-Cc: Alexandre Ghiti <alex@ghiti.fr>, "Dmitry V. Levin" <ldv@strace.io>,
- Andrea Bolognani <abologna@redhat.com>, Thomas Gleixner
- <tglx@linutronix.de>, Ron Economos <re@w6rz.net>, Felix Yan
- <felixonmars@archlinux.org>, Ruizhe Pan <c141028@gmail.com>, Shiqi Zhang
- <shiqi@isrc.iscas.ac.cn>, Guo Ren <guoren@kernel.org>, Yao Zi
- <ziyao@disroot.org>, Han Gao <gaohan@iscas.ac.cn>,
- linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-mm@kvack.org, stable@vger.kernel.org, Celeste Liu
- <uwu@coelacanthus.name>
-Subject: Re: [PATCH] riscv/ptrace: add new regset to get original a0 register
-In-Reply-To: <20241201-riscv-new-regset-v1-1-c83c58abcc7b@coelacanthus.name>
-References: <20241201-riscv-new-regset-v1-1-c83c58abcc7b@coelacanthus.name>
-Date: Mon, 02 Dec 2024 16:44:21 +0100
-Message-ID: <87v7w22ip6.fsf@all.your.base.are.belong.to.us>
+	Mon, 02 Dec 2024 16:16:41 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1733156199; x=1764692199;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=hBjULFugZtlPqAODKe5EOPqdZoFuU9oDax92d1MVL4E=;
+  b=kziCWNnIW5v2xeZeGLU3fYPDkGY8tn7cOW4hcS6o9xkCcaMZEGcM+4IU
+   9s4ALSGaB5HqJ3Mn41MF7U7KD0zFXNsK3VvK6bvmh2ymVT7RA8ef8TiwX
+   FYDsaF2LdO3gL0nvpZg7I7FDTe3YEbs4llDM0cXlvNSIJkHhiBtSpv50Q
+   5Ko6z0g6x/i6NbVXjMmaIoM3TGoTwtbX2js6UdYKH5R4w+ZDWdgZAeaa2
+   Tkqztysim7ZK1NEL2xVmWmXHKEkZ3O6QfGf7U1V9nDIcgylCEkBlpALmU
+   kC6/Yx/u/fypaP1hLoXbw13blFsnNC3EfMWBvtonO9EaHVoEKjd6QT58F
+   A==;
+X-CSE-ConnectionGUID: k+b/p7kGQbGdMw7y3kXRjA==
+X-CSE-MsgGUID: TCcpxZ3yQ+OxsTE1Owpg4A==
+X-IronPort-AV: E=McAfee;i="6700,10204,11274"; a="33466685"
+X-IronPort-AV: E=Sophos;i="6.12,202,1728975600"; 
+   d="scan'208";a="33466685"
+Received: from fmviesa008.fm.intel.com ([10.60.135.148])
+  by orvoesa108.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 02 Dec 2024 08:16:38 -0800
+X-CSE-ConnectionGUID: IGMRNMWsTxOQdaPuxoo3sA==
+X-CSE-MsgGUID: MCpR2xj9RRyZFU/yPp/1OA==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.12,202,1728975600"; 
+   d="scan'208";a="93317340"
+Received: from lkp-server02.sh.intel.com (HELO 36a1563c48ff) ([10.239.97.151])
+  by fmviesa008.fm.intel.com with ESMTP; 02 Dec 2024 08:16:37 -0800
+Received: from kbuild by 36a1563c48ff with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1tI95y-0002a5-2e;
+	Mon, 02 Dec 2024 16:16:23 +0000
+Date: Tue, 3 Dec 2024 00:15:30 +0800
+From: kernel test robot <lkp@intel.com>
+To: Xu Lu <luxu.kernel@bytedance.com>, paul.walmsley@sifive.com,
+	palmer@dabbelt.com, aou@eecs.berkeley.edu
+Cc: oe-kbuild-all@lists.linux.dev, lihangjing@bytedance.com,
+	xieyongji@bytedance.com, linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org, Xu Lu <luxu.kernel@bytedance.com>
+Subject: Re: [PATCH] riscv: mm: Fix alignment of phys_ram_base
+Message-ID: <202412022337.YEieoR2g-lkp@intel.com>
+References: <20241202101601.48284-1-luxu.kernel@bytedance.com>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20241202101601.48284-1-luxu.kernel@bytedance.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241202_074427_453556_B6994D65 
-X-CRM114-Status: GOOD (  16.59  )
+X-CRM114-CacheID: sfid-20241202_081639_853539_043795A8 
+X-CRM114-Status: GOOD (  14.33  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,53 +85,138 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-VGhhbmtzIGZvciB3b3JraW5nIG9uIHRoaXMhCgpDZWxlc3RlIExpdSA8dXd1QGNvZWxhY2FudGh1
-cy5uYW1lPiB3cml0ZXM6Cgo+IFRoZSBvcmlnX2EwIGlzIG1pc3NpbmcgaW4gc3RydWN0IHVzZXJf
-cmVnc19zdHJ1Y3Qgb2YgcmlzY3YsIGFuZCB0aGVyZSBpcwo+IG5vIHdheSB0byBhZGQgaXQgd2l0
-aG91dCBicmVha2luZyBVQVBJLiAoU2VlIExpbmsgdGFnIGJlbG93KQo+Cj4gTGlrZSBOVF9BUk1f
-U1lTVEVNX0NBTEwgZG8sIHdlIGFkZCBhIG5ldyByZWdzZXQgbmFtZSBOVF9SSVNDVl9PUklHX0Ew
-IHRvCj4gYWNjZXNzIG9yaWdpbmFsIGEwIHJlZ2lzdGVyIGZyb20gdXNlcnNwYWNlIHZpYSBwdHJh
-Y2UgQVBJLgo+Cj4gTGluazogaHR0cHM6Ly9sb3JlLmtlcm5lbC5vcmcvYWxsLzU5NTA1NDY0LWM4
-NGEtNDAzZC05NzJmLWQ0YjIwNTVlZWFhY0BnbWFpbC5jb20vCj4gU2lnbmVkLW9mZi1ieTogQ2Vs
-ZXN0ZSBMaXUgPHV3dUBjb2VsYWNhbnRodXMubmFtZT4KPiAtLS0KPiAgYXJjaC9yaXNjdi9rZXJu
-ZWwvcHRyYWNlLmMgfCAzMyArKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysKPiAgaW5j
-bHVkZS91YXBpL2xpbnV4L2VsZi5oICAgfCAgMSArCj4gIDIgZmlsZXMgY2hhbmdlZCwgMzQgaW5z
-ZXJ0aW9ucygrKQo+Cj4gZGlmZiAtLWdpdCBhL2FyY2gvcmlzY3Yva2VybmVsL3B0cmFjZS5jIGIv
-YXJjaC9yaXNjdi9rZXJuZWwvcHRyYWNlLmMKPiBpbmRleCBlYTY3ZTlmYjdhNTgzNjgzYjkyMmZl
-MmMwMTdlYTYxZjNiYzg0OGRiLi5mYWE0NmRlOTAwMDM3NmViNDQ1YTMyZDQzYTQwMjEwZDdiODQ2
-ODQ0IDEwMDY0NAo+IC0tLSBhL2FyY2gvcmlzY3Yva2VybmVsL3B0cmFjZS5jCj4gKysrIGIvYXJj
-aC9yaXNjdi9rZXJuZWwvcHRyYWNlLmMKPiBAQCAtMzEsNiArMzEsNyBAQCBlbnVtIHJpc2N2X3Jl
-Z3NldCB7Cj4gICNpZmRlZiBDT05GSUdfUklTQ1ZfSVNBX1NVUE0KPiAgCVJFR1NFVF9UQUdHRURf
-QUREUl9DVFJMLAo+ICAjZW5kaWYKPiArCVJFR1NFVF9PUklHX0EwLAo+ICB9Owo+ICAKPiAgc3Rh
-dGljIGludCByaXNjdl9ncHJfZ2V0KHN0cnVjdCB0YXNrX3N0cnVjdCAqdGFyZ2V0LAo+IEBAIC0x
-ODQsNiArMTg1LDMwIEBAIHN0YXRpYyBpbnQgdGFnZ2VkX2FkZHJfY3RybF9zZXQoc3RydWN0IHRh
-c2tfc3RydWN0ICp0YXJnZXQsCj4gIH0KPiAgI2VuZGlmCj4gIAo+ICtzdGF0aWMgaW50IHJpc2N2
-X29yaWdfYTBfZ2V0KHN0cnVjdCB0YXNrX3N0cnVjdCAqdGFyZ2V0LAo+ICsJCQkgICAgIGNvbnN0
-IHN0cnVjdCB1c2VyX3JlZ3NldCAqcmVnc2V0LAo+ICsJCQkgICAgIHN0cnVjdCBtZW1idWYgdG8p
-CgpVc2UgZnVsbCAxMDAgY2hhcnMhCgo+ICt7Cj4gKwlyZXR1cm4gbWVtYnVmX3N0b3JlKCZ0bywg
-dGFza19wdF9yZWdzKHRhcmdldCktPm9yaWdfYTApOwo+ICt9Cj4gKwo+ICtzdGF0aWMgaW50IHJp
-c2N2X29yaWdfYTBfc2V0KHN0cnVjdCB0YXNrX3N0cnVjdCAqdGFyZ2V0LAo+ICsJCQkgICAgIGNv
-bnN0IHN0cnVjdCB1c2VyX3JlZ3NldCAqcmVnc2V0LAo+ICsJCQkgICAgIHVuc2lnbmVkIGludCBw
-b3MsIHVuc2lnbmVkIGludCBjb3VudCwKPiArCQkJICAgICBjb25zdCB2b2lkICprYnVmLCBjb25z
-dCB2b2lkIF9fdXNlciAqdWJ1ZikKCkRpdG8hCgo+ICt7Cj4gKwlpbnQgb3JpZ19hMCA9IHRhc2tf
-cHRfcmVncyh0YXJnZXQpLT5vcmlnX2EwOwoKNjRiIHJlZ3Mgb24gUlY2NC4KCj4gKwlpbnQgcmV0
-Owo+ICsKPiArCXJldCA9IHVzZXJfcmVnc2V0X2NvcHlpbigmcG9zLCAmY291bnQsICZrYnVmLCAm
-dWJ1ZiwgJm9yaWdfYTAsIDAsIC0xKTsKPiArCWlmIChyZXQpCj4gKwkJcmV0dXJuIHJldDsKPiAr
-Cj4gKwl0YXNrX3B0X3JlZ3ModGFyZ2V0KS0+b3JpZ19hMCA9IG9yaWdfYTA7Cj4gKwlyZXR1cm4g
-cmV0Owo+ICt9Cj4gKwo+ICsKCk11bHRpcGxlIGJsYW5rcy4KCj4gIHN0YXRpYyBjb25zdCBzdHJ1
-Y3QgdXNlcl9yZWdzZXQgcmlzY3ZfdXNlcl9yZWdzZXRbXSA9IHsKPiAgCVtSRUdTRVRfWF0gPSB7
-Cj4gIAkJLmNvcmVfbm90ZV90eXBlID0gTlRfUFJTVEFUVVMsCj4gQEAgLTIyNCw2ICsyNDksMTQg
-QEAgc3RhdGljIGNvbnN0IHN0cnVjdCB1c2VyX3JlZ3NldCByaXNjdl91c2VyX3JlZ3NldFtdID0g
-ewo+ICAJCS5zZXQgPSB0YWdnZWRfYWRkcl9jdHJsX3NldCwKPiAgCX0sCj4gICNlbmRpZgo+ICsJ
-W1JFR1NFVF9PUklHX0EwXSA9IHsKPiArCQkuY29yZV9ub3RlX3R5cGUgPSBOVF9SSVNDVl9PUklH
-X0EwLAo+ICsJCS5uID0gMSwKPiArCQkuc2l6ZSA9IHNpemVvZihlbGZfZ3JlZ190KSwKPiArCQku
-YWxpZ24gPSBzaXplb2YoZWxmX2dyZWdfdCksCgouLi5hbmQgc2l6ZW9mKGVsZl9ncmVnX3QpIGlz
-IDY0YiBpbiBSVjY0IC0tIG1pc21hdGNoIGFib3ZlLgoKCkJqw7ZybgoKX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0
-CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5v
-cmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
+Hi Xu,
+
+kernel test robot noticed the following build errors:
+
+[auto build test ERROR on linus/master]
+[also build test ERROR on v6.13-rc1 next-20241128]
+[If your patch is applied to the wrong git tree, kindly drop us a note.
+And when submitting patch, we suggest to use '--base' as documented in
+https://git-scm.com/docs/git-format-patch#_base_tree_information]
+
+url:    https://github.com/intel-lab-lkp/linux/commits/Xu-Lu/riscv-mm-Fix-alignment-of-phys_ram_base/20241202-183801
+base:   linus/master
+patch link:    https://lore.kernel.org/r/20241202101601.48284-1-luxu.kernel%40bytedance.com
+patch subject: [PATCH] riscv: mm: Fix alignment of phys_ram_base
+config: riscv-allnoconfig (https://download.01.org/0day-ci/archive/20241202/202412022337.YEieoR2g-lkp@intel.com/config)
+compiler: riscv64-linux-gcc (GCC) 14.2.0
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20241202/202412022337.YEieoR2g-lkp@intel.com/reproduce)
+
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202412022337.YEieoR2g-lkp@intel.com/
+
+All errors (new ones prefixed by >>):
+
+   In file included from include/linux/kernel.h:27,
+                    from include/linux/cpumask.h:11,
+                    from arch/riscv/include/asm/processor.h:55,
+                    from arch/riscv/include/asm/thread_info.h:42,
+                    from include/linux/thread_info.h:60,
+                    from include/asm-generic/preempt.h:5,
+                    from ./arch/riscv/include/generated/asm/preempt.h:1,
+                    from include/linux/preempt.h:79,
+                    from include/linux/spinlock.h:56,
+                    from include/linux/mmzone.h:8,
+                    from include/linux/gfp.h:7,
+                    from include/linux/mm.h:7,
+                    from arch/riscv/mm/init.c:10:
+   arch/riscv/mm/init.c: In function 'setup_bootmem':
+>> arch/riscv/mm/init.c:62:41: error: 'SECTION_SIZE_BITS' undeclared (first use in this function)
+      62 | #define RISCV_MEMSTART_ALIGN    (1UL << SECTION_SIZE_BITS)
+         |                                         ^~~~~~~~~~~~~~~~~
+   include/linux/math.h:15:46: note: in definition of macro '__round_mask'
+      15 | #define __round_mask(x, y) ((__typeof__(x))((y)-1))
+         |                                              ^
+   arch/riscv/mm/init.c:246:33: note: in expansion of macro 'round_down'
+     246 |                 phys_ram_base = round_down(memblock_start_of_DRAM(),
+         |                                 ^~~~~~~~~~
+   arch/riscv/mm/init.c:247:44: note: in expansion of macro 'RISCV_MEMSTART_ALIGN'
+     247 |                                            RISCV_MEMSTART_ALIGN);
+         |                                            ^~~~~~~~~~~~~~~~~~~~
+   arch/riscv/mm/init.c:62:41: note: each undeclared identifier is reported only once for each function it appears in
+      62 | #define RISCV_MEMSTART_ALIGN    (1UL << SECTION_SIZE_BITS)
+         |                                         ^~~~~~~~~~~~~~~~~
+   include/linux/math.h:15:46: note: in definition of macro '__round_mask'
+      15 | #define __round_mask(x, y) ((__typeof__(x))((y)-1))
+         |                                              ^
+   arch/riscv/mm/init.c:246:33: note: in expansion of macro 'round_down'
+     246 |                 phys_ram_base = round_down(memblock_start_of_DRAM(),
+         |                                 ^~~~~~~~~~
+   arch/riscv/mm/init.c:247:44: note: in expansion of macro 'RISCV_MEMSTART_ALIGN'
+     247 |                                            RISCV_MEMSTART_ALIGN);
+         |                                            ^~~~~~~~~~~~~~~~~~~~
+
+
+vim +/SECTION_SIZE_BITS +62 arch/riscv/mm/init.c
+
+  > 10	#include <linux/mm.h>
+    11	#include <linux/memblock.h>
+    12	#include <linux/initrd.h>
+    13	#include <linux/swap.h>
+    14	#include <linux/swiotlb.h>
+    15	#include <linux/sizes.h>
+    16	#include <linux/of_fdt.h>
+    17	#include <linux/of_reserved_mem.h>
+    18	#include <linux/libfdt.h>
+    19	#include <linux/set_memory.h>
+    20	#include <linux/dma-map-ops.h>
+    21	#include <linux/crash_dump.h>
+    22	#include <linux/hugetlb.h>
+    23	#ifdef CONFIG_RELOCATABLE
+    24	#include <linux/elf.h>
+    25	#endif
+    26	#include <linux/kfence.h>
+    27	#include <linux/execmem.h>
+    28	
+    29	#include <asm/fixmap.h>
+    30	#include <asm/io.h>
+    31	#include <asm/kasan.h>
+    32	#include <asm/numa.h>
+    33	#include <asm/pgtable.h>
+    34	#include <asm/sections.h>
+    35	#include <asm/soc.h>
+    36	#include <asm/tlbflush.h>
+    37	
+    38	#include "../kernel/head.h"
+    39	
+    40	u64 new_vmalloc[NR_CPUS / sizeof(u64) + 1];
+    41	
+    42	struct kernel_mapping kernel_map __ro_after_init;
+    43	EXPORT_SYMBOL(kernel_map);
+    44	#ifdef CONFIG_XIP_KERNEL
+    45	#define kernel_map	(*(struct kernel_mapping *)XIP_FIXUP(&kernel_map))
+    46	#endif
+    47	
+    48	#ifdef CONFIG_64BIT
+    49	u64 satp_mode __ro_after_init = !IS_ENABLED(CONFIG_XIP_KERNEL) ? SATP_MODE_57 : SATP_MODE_39;
+    50	#else
+    51	u64 satp_mode __ro_after_init = SATP_MODE_32;
+    52	#endif
+    53	EXPORT_SYMBOL(satp_mode);
+    54	
+    55	#ifdef CONFIG_64BIT
+    56	bool pgtable_l4_enabled __ro_after_init = !IS_ENABLED(CONFIG_XIP_KERNEL);
+    57	bool pgtable_l5_enabled __ro_after_init = !IS_ENABLED(CONFIG_XIP_KERNEL);
+    58	EXPORT_SYMBOL(pgtable_l4_enabled);
+    59	EXPORT_SYMBOL(pgtable_l5_enabled);
+    60	#endif
+    61	
+  > 62	#define RISCV_MEMSTART_ALIGN	(1UL << SECTION_SIZE_BITS)
+    63	
+
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
