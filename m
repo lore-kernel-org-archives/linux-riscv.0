@@ -4,116 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F04AAD73619
-	for <linux-riscv@archiver.kernel.org>; Mon,  2 Dec 2024 10:06:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 86604D78301
+	for <linux-riscv@archiver.kernel.org>; Mon,  2 Dec 2024 10:16:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:References:MIME-Version:Message-Id:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
-	List-Owner; bh=Y87iib6U8NMpd/kvBSz/7vjCIrVuWRV7P0gzBreKPLI=; b=fvuW+1w9i3Ev4C
-	sPeBrpFmh32AjqNLEgcYpiSI+klarn7cz5UI1rNrKCFg21HyKcv7I0Uf0Kxu96RutVKMLPpI+YMNa
-	eLKwDca4Q8g1l3F4qCoNGBS8OC1ntbzBVqyEb/c02teBs0lHOZesKsZvnvb8s1iAGpgnqerQQCtf0
-	xXB8Nt1YdpTp1ZQzuYQIFHhG96Ad6YCmw89zzvWv5Zaa7SUofMgFdTh2PV3uwCt0seU6soxyyE6of
-	8p55V2/lHNsCiykCrRBB4SauRO9XKdHMGuVQHOBp6nsSlk9t5dIHdXFFUhZ6u0PQ3vHPyrO3vz7BR
-	/7wziDdTwvgcFCZO0edA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=OnRoDMxQrBtedeLJL8sw4jRRoA6ylFlroL3uC9wiWHI=; b=X+z3MLyjKLfh3w
+	GlfqbSCyNIT/Sgq7rAsWzgERyNKO0DJmLt2xALJNE1hriRA6pP3acVuuT10H4EDCeEH/PA4I6B+Vp
+	ejOXTsAPa/3JTVHNFx04Z1/MJemm1qW6ZtTdIP8nOxxzmOH/cyW5skEPB9zpfXzYReJl47OEOeT13
+	5gMz/om/hYYTRPkzpfMriR9JdYDGSrpuruoE3xx8rreKXtVwhZIv4jnb2xc8bcsM6JT4mQa8b0f/U
+	NQz6VmA1USsxev8RoDTj59+Qar+KZhoAPOf0mFxehxe7M+2jmhUuPPtgYBUd1AcAKjmSeYIV2/TS/
+	IUMczHyZf11175e3ki7g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tI3KH-00000005fFb-1O4b;
-	Mon, 02 Dec 2024 10:06:45 +0000
-Received: from mailout2.w1.samsung.com ([210.118.77.12])
+	id 1tI3TU-00000005hNh-1986;
+	Mon, 02 Dec 2024 10:16:16 +0000
+Received: from mail-pl1-x62a.google.com ([2607:f8b0:4864:20::62a])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tI3KD-00000005fDe-4ALa
+	id 1tI3TR-00000005hMF-3gXt
 	for linux-riscv@lists.infradead.org;
-	Mon, 02 Dec 2024 10:06:43 +0000
-Received: from eucas1p2.samsung.com (unknown [182.198.249.207])
-	by mailout2.w1.samsung.com (KnoxPortal) with ESMTP id 20241202100634euoutp02ac078938d904c0d336a0c51623555fd0~NVC9k2uNt2564225642euoutp02B
-	for <linux-riscv@lists.infradead.org>; Mon,  2 Dec 2024 10:06:34 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.w1.samsung.com 20241202100634euoutp02ac078938d904c0d336a0c51623555fd0~NVC9k2uNt2564225642euoutp02B
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1733133994;
-	bh=qVpMuOOnV5mqA9o7w8bajv2jlHubixQgYsTmr9HLtvc=;
-	h=From:To:Cc:Subject:Date:References:From;
-	b=qSLLUWBBvQBOGcNW2xALK9KgggA/m6o7+YfUzMMzD3ogzm+TvMyOMmMUyysy5ld5h
-	 HIxvh9ipVdkG+8ndDTPN/JXqzjjxJqbNYYYlkBKmMPIRQGALczEdrr+zqP/toKU0GI
-	 a59NfwTgz8Xr+9MH01wkKNH4RP7ba+BA4DqZre50=
-Received: from eusmges2new.samsung.com (unknown [203.254.199.244]) by
-	eucas1p2.samsung.com (KnoxPortal) with ESMTP id
-	20241202100633eucas1p2e58d546d8c6deb8f28386c45730d4a27~NVC9SPvDP0554905549eucas1p2c;
-	Mon,  2 Dec 2024 10:06:33 +0000 (GMT)
-Received: from eucas1p1.samsung.com ( [182.198.249.206]) by
-	eusmges2new.samsung.com (EUCPMTA) with SMTP id 00.A7.20409.9A68D476; Mon,  2
-	Dec 2024 10:06:33 +0000 (GMT)
-Received: from eusmtrp1.samsung.com (unknown [182.198.249.138]) by
-	eucas1p2.samsung.com (KnoxPortal) with ESMTPA id
-	20241202100633eucas1p2a615523beaa41bac328f413e13ce471d~NVC9AUYvm3092530925eucas1p2q;
-	Mon,  2 Dec 2024 10:06:33 +0000 (GMT)
-Received: from eusmgms2.samsung.com (unknown [182.198.249.180]) by
-	eusmtrp1.samsung.com (KnoxPortal) with ESMTP id
-	20241202100633eusmtrp160f716c93c5a8cad6adcd888132908f6~NVC8-o2MP1982619826eusmtrp1Q;
-	Mon,  2 Dec 2024 10:06:33 +0000 (GMT)
-X-AuditID: cbfec7f4-c0df970000004fb9-d8-674d86a90e51
-Received: from eusmtip1.samsung.com ( [203.254.199.221]) by
-	eusmgms2.samsung.com (EUCPMTA) with SMTP id 0A.E0.19654.9A68D476; Mon,  2
-	Dec 2024 10:06:33 +0000 (GMT)
-Received: from AMDC4942.home (unknown [106.210.136.40]) by
-	eusmtip1.samsung.com (KnoxPortal) with ESMTPA id
-	20241202100632eusmtip1630ed766a899c4b712d2ec46d9aaf5fe~NVC8eNjjO1051810518eusmtip1l;
-	Mon,  2 Dec 2024 10:06:32 +0000 (GMT)
-From: Michal Wilczynski <m.wilczynski@samsung.com>
-To: drew@pdp7.com, guoren@kernel.org, wefu@redhat.com,
-	jassisinghbrar@gmail.com
-Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, Michal
-	Wilczynski <m.wilczynski@samsung.com>, Dan Carpenter
-	<dan.carpenter@linaro.org>
-Subject: [PATCH] mailbox: th1520: Fix memory corruption due to incorrect
- array size
-Date: Mon,  2 Dec 2024 11:05:35 +0100
-Message-Id: <20241202100535.1359134-1-m.wilczynski@samsung.com>
-X-Mailer: git-send-email 2.34.1
+	Mon, 02 Dec 2024 10:16:15 +0000
+Received: by mail-pl1-x62a.google.com with SMTP id d9443c01a7336-21527bb7eb0so26363725ad.3
+        for <linux-riscv@lists.infradead.org>; Mon, 02 Dec 2024 02:16:10 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=bytedance.com; s=google; t=1733134569; x=1733739369; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=AqdyYnh7L9JzbifPNftANkk0KPlnXsX4tMHkyCxaZPo=;
+        b=DJZhrXDq36GG0XpgrtfOt4NQtE6xipsN+fvWJg+fNVn2UhvaFFYp2jbvkd+mhszkkD
+         IvEbT4q1Hzg0VeHWRF2p0RUK1WTlLQTXBMwRfIuU9wMjibHsDaUV/T4i54ilBULr/0cC
+         ipuzQP5gTHo0XqQmxGR1Gxkc+EbA9lca1xCpjE3QaINTxRTOGtsFDfV20qNm/ksue+zj
+         UeEE6669kp70Kp4ma8acipkin563T25qRIDjyxmrt+ld7IE++BMfsFnxJ6sPGz77tUr3
+         GtpyiYkNByULzGDPX4DgbkauftgBQxOYsuXplvV6G4AskeomVpg4BlRagtbS1bzdMK/p
+         RrUQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1733134570; x=1733739370;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=AqdyYnh7L9JzbifPNftANkk0KPlnXsX4tMHkyCxaZPo=;
+        b=sKfG6vZeJ6aY+8Rwh/q8D6tuM9izxuhOKLarRuPOroAT7Wt/Q9L0x3YnZwEz1BiCWJ
+         l6SCW4bNRTvo9VhzlOxE9c6eh4WvQczRs0gvEnJaVGIJN9Jxxt/+mDsez4XiMU5/oTbA
+         hm9JiBvKCRT1x+/pWHcB/NqqCH19RLq1PNW3iuxX3gOnH7/DgogUtkg0RGyAUkuVBPgG
+         Xae2z057VmExcZ0SD9XvvEFoWg2G1oig8YqJ/jAToewXAdVFpIMvjOoHcaEtgc/gVYgh
+         3MGVuT5NxJa8abRM/dTqCp+9QH5PGkREGR0wh9/zKq/LXfMDL5itVbzkTGXNL1mHpXJq
+         MWOQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVb0j+gTdU/hSrxqx2kYed0CPnj7/FfaD2ziqf+DT0fZxIZs3Jwnk9OgXw1bQTiNH//2CSEbtzVAyWUww==@lists.infradead.org
+X-Gm-Message-State: AOJu0YxggceqQn16aRrsksYRrxzrFYppzco0q1kSA/JxNajJcS8KheDt
+	iLwDhmhp5dvgLi9L7K2ELmgk2l4cyoPVOhkkUCFAG10cJu+MuCZbQ3y0qT8EPko=
+X-Gm-Gg: ASbGncvhyhFSRzshxZbT9WzeYsc+RbbpIs1vxK19hkV220mWS5Ecs7EqlnUBnZ8Dlbt
+	ilgwEZsUeen8YNS9RFlwSSK07pUyZN2f+/34JJKEYhWxlwT4U9E2sBl8Op+R8ZbgovIJQMSiPVY
+	YphRiHQb21IRC6PKWf1IJWIEq1099ut+MkXNK6QiyoGJ6xLDZiahbnpCgLwSzLqcoEhMwfS7JRK
+	qGrxCJ5VlcSmlxN8c/n0XyU446Eckc90YGR7BxMY29l/Ak4uUp0TNmB/WX0rJ9FNgnLM6MdPWEP
+	H1O3rbjrD8phyuAtAqujtfK+PzPaDWoP
+X-Google-Smtp-Source: AGHT+IH1+6Y2xOPT53z5KOINjW/eib1XXOUom5+MdqN7SgnYZHlbvRTsSjFLdTYt0jzINpPmKZcGeA==
+X-Received: by 2002:a17:902:e541:b0:215:58f0:2606 with SMTP id d9443c01a7336-21558f02c9emr128817145ad.2.1733134569664;
+        Mon, 02 Dec 2024 02:16:09 -0800 (PST)
+Received: from J9GPGXL7NT.bytedance.net ([61.213.176.55])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-21521969e59sm73097425ad.146.2024.12.02.02.16.06
+        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
+        Mon, 02 Dec 2024 02:16:09 -0800 (PST)
+From: Xu Lu <luxu.kernel@bytedance.com>
+To: paul.walmsley@sifive.com,
+	palmer@dabbelt.com,
+	aou@eecs.berkeley.edu
+Cc: lihangjing@bytedance.com,
+	xieyongji@bytedance.com,
+	linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Xu Lu <luxu.kernel@bytedance.com>
+Subject: [PATCH] riscv: mm: Fix alignment of phys_ram_base
+Date: Mon,  2 Dec 2024 18:16:01 +0800
+Message-Id: <20241202101601.48284-1-luxu.kernel@bytedance.com>
+X-Mailer: git-send-email 2.39.5 (Apple Git-154)
 MIME-Version: 1.0
-X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFlrEKsWRmVeSWpSXmKPExsWy7djPc7or23zTDT7d0bf4MK+V3eLepS1M
-	Fi/2NrJYXFsxl93i8q45bBbbPrewWaz/Op/JomX/FBYHDo+ds+6ye2xa1cnmcefaHjaPzUvq
-	PVrWHmPyeL/vKptH35ZVjB6fN8kFcERx2aSk5mSWpRbp2yVwZdya95G1YBpXRduJe4wNjI84
-	uhg5OCQETCTmHQjrYuTkEBJYwSix/GxVFyMXkP2FUWJu6wZGCOczo8SzzvdMIFUgDV0/VjFD
-	JJYzSnxYNQvKecMoMXXlSVaQKjYBI4kHy+ezgqwQEQiU2LqgHqSGWWAuo8Sj5hnMIDXCAqES
-	M5Y9YASxWQRUJbZ+vQEW5xWwl5j/4THUNnmJ/QfPQsUFJU7OfMICYjMDxZu3zgZbLCGwh0Pi
-	zsdZjBANLhJbFqxmg7CFJV4d38IOYctInJ7cwwJh50s82PqJGcKukdjZcxzKtpa4c+4XG8jR
-	zAKaEut36UOEHSU+fHjBBgkuPokbbwUhTuCTmLRtOjNEmFeio00IolpNYmpPL9zScyu2QX3i
-	IbHr0j8WSEjHSnz6/JNtAqPCLCSPzULy2CyEGxYwMq9iFE8tLc5NTy02ykst1ytOzC0uzUvX
-	S87P3cQITEan/x3/soNx+auPeocYmTgYDzFKcDArifAuX++dLsSbklhZlVqUH19UmpNafIhR
-	moNFSZxXNUU+VUggPbEkNTs1tSC1CCbLxMEp1cBUo6pf8KckfOK8qUzCIsr//S/HPzz9Qnn/
-	glsdByW/PZ6a9KF98wq/zSJTZ2WsKmut7V5sFWGhYbHomfnkfbtW97QFOO1L8JJUuPI+U/DE
-	Qo/FC79x7F658POnk53Hd7t9PyLYUf5HaOWiRcobryZ1ypUFaT6f9+3v9RuaOZypUz5+1zLW
-	8Qy4IpAyr+tCn8GB7+uMBWZn3rvocJlph5qextSqTQmCq315ONmt057+y7d8Es0dLz5jYeQx
-	2aRw36PcycyBWsEM821D/vDZ39KMPvblk/ajApa8R37CEgvt+T/MEPsypUZdYmnQ//zXz3X+
-	r1p2LGmu2wlJU8He/RNaNsbIzF5etq1P/PfsfLUtSizFGYmGWsxFxYkAKmq+p7UDAAA=
-X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFvrDLMWRmVeSWpSXmKPExsVy+t/xu7or23zTDeYvlLL4MK+V3eLepS1M
-	Fi/2NrJYXFsxl93i8q45bBbbPrewWaz/Op/JomX/FBYHDo+ds+6ye2xa1cnmcefaHjaPzUvq
-	PVrWHmPyeL/vKptH35ZVjB6fN8kFcETp2RTll5akKmTkF5fYKkUbWhjpGVpa6BmZWOoZGpvH
-	WhmZKunb2aSk5mSWpRbp2yXoZdya95G1YBpXRduJe4wNjI84uhg5OSQETCS6fqxi7mLk4hAS
-	WMooMa3lNBNEQkbiWvdLFghbWOLPtS42iKJXjBLT9x9iB0mwCRhJPFg+nxXEFhEIlbj0+gkj
-	SBGzwHygSedbwSYJCwRL3N1+jBHEZhFQldj69QYziM0rYC8x/8NjqG3yEvsPnoWKC0qcnPkE
-	bDMzULx562zmCYx8s5CkZiFJLWBkWsUoklpanJueW2ykV5yYW1yal66XnJ+7iREYDduO/dyy
-	g3Hlq496hxiZOBgPMUpwMCuJ8C5f750uxJuSWFmVWpQfX1Sak1p8iNEU6L6JzFKiyfnAeMwr
-	iTc0MzA1NDGzNDC1NDNWEudlu3I+TUggPbEkNTs1tSC1CKaPiYNTqoGJzeP7q0kbfi248dmV
-	fdIdswdr5tWxqMge4jnwcsKssD0WTtWKUz8aKF2/+Ua4qy688NOj9Matz3Jqjh8PmLPa08JF
-	2PAX00vD6+KvucO+yTw5+rGVOe/yxo0n5eJLlNquPXDa5NFye/O2nvvxO4Q589Uz7zyXy8j1
-	nVth1qz8/vZx26VdvXNLTSbw3fNiXR0ialR+6sxWcY9idvVtQUmW3OL2Xglf3hsUPDql/OVh
-	3JmCFs9Jr/bPFPTvX+bf6xXZKMkt9H3NzLdBRZU8latOG1Xv2hWrrhnTq3jAN4lB+aFyafCq
-	TQ6XHr9WbGI5WhFp8unr7y3FZcFSN2rlemz760JztCoDpZ6u9mstElZiKc5INNRiLipOBABN
-	RcvbDwMAAA==
-X-CMS-MailID: 20241202100633eucas1p2a615523beaa41bac328f413e13ce471d
-X-Msg-Generator: CA
-X-RootMTR: 20241202100633eucas1p2a615523beaa41bac328f413e13ce471d
-X-EPHeader: CA
-CMS-TYPE: 201P
-X-CMS-RootMailID: 20241202100633eucas1p2a615523beaa41bac328f413e13ce471d
-References: <CGME20241202100633eucas1p2a615523beaa41bac328f413e13ce471d@eucas1p2.samsung.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241202_020642_526216_99274DA3 
-X-CRM114-Status: GOOD (  12.10  )
+X-CRM114-CacheID: sfid-20241202_021613_921759_CF9C2487 
+X-CRM114-Status: GOOD (  12.87  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -130,38 +100,56 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The functions th1520_mbox_suspend_noirq and th1520_mbox_resume_noirq are
-intended to save and restore the interrupt mask registers in the MBOX
-ICU0. However, the array used to store these registers was incorrectly
-sized, leading to memory corruption when accessing all four registers.
+This commit fixes the alignment of phys_ram_base in RISC-V.
 
-This commit corrects the array size to accommodate all four interrupt
-mask registers, preventing memory corruption during suspend and resume
-operations.
+In sparse vmemmap model, the virtual address of vmemmap is calculated as:
+'(struct page *)VMEMMAP_START - (phys_ram_base >> PAGE_SHIFT)'.
+And the struct page's va can be calculated with an offset:
+'vmemmap + (pfn)'.
 
-Fixes: 5d4d263e1c6b ("mailbox: Introduce support for T-head TH1520 Mailbox driver")
-Reported-by: Dan Carpenter <dan.carpenter@linaro.org>
-Closes: https://lore.kernel.org/all/a99e72be-8490-4960-ad26-cbfef6af238f@stanley.mountain/
-Signed-off-by: Michal Wilczynski <m.wilczynski@samsung.com>
+However, when initializing struct pages, kernel actually starts from the
+first page from the same section that phys_ram_base belongs to. If the
+first page's physical address is not 'phys_ram_base >> PAGE_SHIFT', then
+we get an va below VMEMMAP_START when calculating va for it's struct page.
+
+For example, if phys_ram_base starts from 0x82000000 with pfn 0x82000, the
+first page in the same section is actually pfn 0x80000. During
+init_unavailage_range, we will initialize struct page for pfn 0x80000
+with virtual address '(struct page *)VMEMMAP_START - 0x2000', which is
+below VMEMMAP_START as well as PCI_IO_END.
+
+This commit fixes this bug by aligning phys_ram_base with SECTION_SIZE.
+
+Signed-off-by: Xu Lu <luxu.kernel@bytedance.com>
 ---
- drivers/mailbox/mailbox-th1520.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ arch/riscv/mm/init.c | 5 ++++-
+ 1 file changed, 4 insertions(+), 1 deletion(-)
 
-diff --git a/drivers/mailbox/mailbox-th1520.c b/drivers/mailbox/mailbox-th1520.c
-index 4e84640ac3b8..0d95e1898702 100644
---- a/drivers/mailbox/mailbox-th1520.c
-+++ b/drivers/mailbox/mailbox-th1520.c
-@@ -41,7 +41,7 @@
- #ifdef CONFIG_PM_SLEEP
- /* store MBOX context across system-wide suspend/resume transitions */
- struct th1520_mbox_context {
--	u32 intr_mask[TH_1520_MBOX_CHANS - 1];
-+	u32 intr_mask[TH_1520_MBOX_CHANS];
- };
+diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
+index 0e8c20adcd98..9866de267b74 100644
+--- a/arch/riscv/mm/init.c
++++ b/arch/riscv/mm/init.c
+@@ -59,6 +59,8 @@ EXPORT_SYMBOL(pgtable_l4_enabled);
+ EXPORT_SYMBOL(pgtable_l5_enabled);
  #endif
  
++#define RISCV_MEMSTART_ALIGN	(1UL << SECTION_SIZE_BITS)
++
+ phys_addr_t phys_ram_base __ro_after_init;
+ EXPORT_SYMBOL(phys_ram_base);
+ 
+@@ -241,7 +243,8 @@ static void __init setup_bootmem(void)
+ 	 * at worst, we map the linear mapping with PMD mappings.
+ 	 */
+ 	if (!IS_ENABLED(CONFIG_XIP_KERNEL))
+-		phys_ram_base = memblock_start_of_DRAM() & PMD_MASK;
++		phys_ram_base = round_down(memblock_start_of_DRAM(),
++					   RISCV_MEMSTART_ALIGN);
+ 
+ 	/*
+ 	 * In 64-bit, any use of __va/__pa before this point is wrong as we
 -- 
-2.34.1
+2.20.1
 
 
 _______________________________________________
