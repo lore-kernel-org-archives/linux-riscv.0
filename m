@@ -4,31 +4,31 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3CC93D4979D
-	for <linux-riscv@archiver.kernel.org>; Mon,  2 Dec 2024 03:31:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1E812D49795
+	for <linux-riscv@archiver.kernel.org>; Mon,  2 Dec 2024 03:31:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=8qyy9U9rEmv1Im/voCdJHGeeWcY1mzdo4MAs2vFbUEA=; b=VO1qEisCXNidxL
-	JFkjlKoeefDBLez1vcIqH10h6//B/MFQUGLHKF4pt7qUjHD6p5Oy35O35epGZKrnAKGHpQco1oovp
-	T/HWi6NeWWtnE423rum0dzxf8lYBXOKnUEhkVE/3xiiuhXkpBMhw9UB9TYgO5g8lGL4sRxMddyYdA
-	KJVeP2o9RV4IXqolE0bZE7CCbMTjg01WdBSs52FTqxk0B/tKeThV0poYPIwmqIECRPBuni8GGT7u6
-	T5W34NtEM4hve147H7/9z701TYoi+MWZrEynGM6aUqby3g2nL1GZUNQDNp7ekkkuZlZi56TdKss3e
-	ve/H3tYrB6rLwpWpehZg==;
+	List-Owner; bh=zRbXok4gbdWFPmgZvjAZj+hLAQW99OGzYoa2vn1quIw=; b=Y/JA51MHV2QAGt
+	uIfiuR+IbjgRfj5Od15B2mU79p/PBbtq6Odlnva59ajBbrmNFlSrp84i63d6jtj2NJJYSO9zborCC
+	HIs6psXHlWbEAW4gXUZZZUj/9ScrEtJD/3r19u3idAFTtDtSDjcDFEF9eznWJAdLrJSbsplRPjS7j
+	3JlhGJoI/bQmcE2wfrfzRReHRLCTdva7dz0jBATYDNlckM8CRnJs1bdxP45fNfpQRi/UPmdh6oETT
+	odWXqaS/vJFvlZaidouMw2FyWk2/26W7r1RhO7EctuI6CwjhK/Pvph03OLhS4tsUzZUr+RSEbLAtX
+	ISPSY12FdfIdCx+18NwA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tHx9p-00000004xMt-3KVv;
-	Mon, 02 Dec 2024 03:31:33 +0000
+	id 1tHx9n-00000004xK4-2VOd;
+	Mon, 02 Dec 2024 03:31:31 +0000
 Received: from smtp84.cstnet.cn ([159.226.251.84] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tHx2s-00000004vjU-2FxY;
-	Mon, 02 Dec 2024 03:24:23 +0000
+	id 1tHx2V-00000004veH-2b74;
+	Mon, 02 Dec 2024 03:24:01 +0000
 Received: from zq-Legion-Y7000.. (unknown [180.111.103.148])
-	by APP-05 (Coremail) with SMTP id zQCowACXO8lgKE1nVN4uBw--.45337S2;
-	Mon, 02 Dec 2024 11:24:17 +0800 (CST)
+	by APP-05 (Coremail) with SMTP id zQCowACXfrlJKE1n6tguBw--.44803S2;
+	Mon, 02 Dec 2024 11:23:53 +0800 (CST)
 From: zhouquan@iscas.ac.cn
 To: anup@brainfault.org,
 	ajones@ventanamicro.com,
@@ -41,35 +41,35 @@ Cc: linux-kernel@vger.kernel.org,
 	kvm@vger.kernel.org,
 	kvm-riscv@lists.infradead.org,
 	Quan Zhou <zhouquan@iscas.ac.cn>
-Subject: [PATCH v2 3/4] RISC-V: KVM: Allow Ziccrse extension for Guest/VM
-Date: Mon,  2 Dec 2024 11:22:01 +0800
-Message-Id: <d10e746d165074174f830aa3d89bf3c92017acee.1732854096.git.zhouquan@iscas.ac.cn>
+Subject: [PATCH v2 1/4] RISC-V: KVM: Allow Svvptc extension for Guest/VM
+Date: Mon,  2 Dec 2024 11:21:38 +0800
+Message-Id: <133509ffe5783b62cf95e8f675cc3e327bee402e.1732854096.git.zhouquan@iscas.ac.cn>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <cover.1732854096.git.zhouquan@iscas.ac.cn>
 References: <cover.1732854096.git.zhouquan@iscas.ac.cn>
 MIME-Version: 1.0
-X-CM-TRANSID: zQCowACXO8lgKE1nVN4uBw--.45337S2
-X-Coremail-Antispam: 1UD129KBjvJXoW7Cry8GFWxZr45AFW8ZFy5Jwb_yoW8WFyfpr
-	s5CFZxCr4rA3s3u392y3s8ur48W3y5Wws0k3y7ur4xXFy0yry8JFn0ka47JF1DJay0qr1k
-	uF1fWr1Fva15Ar7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+X-CM-TRANSID: zQCowACXfrlJKE1n6tguBw--.44803S2
+X-Coremail-Antispam: 1UD129KBjvJXoWxJr43CFW8CFW8Aw15Xr1kXwb_yoW8WFy5pr
+	s5CFZ3CrWru3s3u392yryDur18G3y5Wws0k3y7ur4xJryjyry8J3WkA3W3GF1DJay0qryI
+	gF1fWr1F9w4Yyr7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
 	9KBjDU0xBIdaVrnRJUUUB014x267AKxVW8JVW5JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
 	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
 	1l84ACjcxK6xIIjxv20xvE14v26ryj6F1UM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26F4j
 	6r4UJwA2z4x0Y4vEx4A2jsIE14v26r4UJVWxJr1l84ACjcxK6I8E87Iv6xkF7I0E14v26F
 	4UJVW0owAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG6I80ewAv
-	7VC0I7IYx2IY67AKxVWUAVWUtwAv7VC2z280aVAFwI0_Gr0_Cr1lOx8S6xCaFVCjc4AY6r
+	7VC0I7IYx2IY67AKxVWUXVWUAwAv7VC2z280aVAFwI0_Gr0_Cr1lOx8S6xCaFVCjc4AY6r
 	1j6r4UM4x0Y48IcxkI7VAKI48JM4x0x7Aq67IIx4CEVc8vx2IErcIFxwACI402YVCY1x02
 	628vn2kIc2xKxwAKzVCY07xG64k0F24lc7CjxVAaw2AFwI0_Jw0_GFyl42xK82IYc2Ij64
 	vIr41l4I8I3I0E4IkC6x0Yz7v_Jr0_Gr1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s026x8G
 	jcxK67AKxVWUGVWUWwC2zVAF1VAY17CE14v26r1q6r43MIIYrxkI7VAKI48JMIIF0xvE2I
 	x0cI8IcVAFwI0_Jr0_JF4lIxAIcVC0I7IYx2IY6xkF7I0E14v26r4j6F4UMIIF0xvE42xK
 	8VAvwI8IcIk0rVWUJVWUCwCI42IY6I8E87Iv67AKxVWUJVW8JwCI42IY6I8E87Iv6xkF7I
-	0E14v26r4j6r4UJbIYCTnIWIevJa73UjIFyTuYvjfUeZ2-DUUUU
+	0E14v26r4j6r4UJbIYCTnIWIevJa73UjIFyTuYvjfU55l8UUUUU
 X-Originating-IP: [180.111.103.148]
-X-CM-SenderInfo: 52kr31xxdqqxpvfd2hldfou0/1tbiDAgTBmdNBhKdTAAAs+
+X-CM-SenderInfo: 52kr31xxdqqxpvfd2hldfou0/1tbiCRATBmdNBpCZcgAAsb
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241201_192422_955330_73CA518A 
-X-CRM114-Status: UNSURE (   7.02  )
+X-CRM114-CacheID: sfid-20241201_192400_022003_04AE86CF 
+X-CRM114-Status: UNSURE (   6.81  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -90,7 +90,7 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 From: Quan Zhou <zhouquan@iscas.ac.cn>
 
 Extend the KVM ISA extension ONE_REG interface to allow KVM user space
-to detect and enable Ziccrse extension for Guest/VM.
+to detect and enable Svvptc extension for Guest/VM.
 
 Signed-off-by: Quan Zhou <zhouquan@iscas.ac.cn>
 Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
@@ -100,37 +100,37 @@ Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
  2 files changed, 3 insertions(+)
 
 diff --git a/arch/riscv/include/uapi/asm/kvm.h b/arch/riscv/include/uapi/asm/kvm.h
-index 340618131249..f7afb4267148 100644
+index 4f24201376b1..9db33f52f56e 100644
 --- a/arch/riscv/include/uapi/asm/kvm.h
 +++ b/arch/riscv/include/uapi/asm/kvm.h
-@@ -179,6 +179,7 @@ enum KVM_RISCV_ISA_EXT_ID {
+@@ -177,6 +177,7 @@ enum KVM_RISCV_ISA_EXT_ID {
+ 	KVM_RISCV_ISA_EXT_ZAWRS,
+ 	KVM_RISCV_ISA_EXT_SMNPM,
  	KVM_RISCV_ISA_EXT_SSNPM,
- 	KVM_RISCV_ISA_EXT_SVVPTC,
- 	KVM_RISCV_ISA_EXT_ZABHA,
-+	KVM_RISCV_ISA_EXT_ZICCRSE,
++	KVM_RISCV_ISA_EXT_SVVPTC,
  	KVM_RISCV_ISA_EXT_MAX,
  };
  
 diff --git a/arch/riscv/kvm/vcpu_onereg.c b/arch/riscv/kvm/vcpu_onereg.c
-index 25d9e4c29cec..a1e7a44696b9 100644
+index 5b68490ad9b7..a87609c731f0 100644
 --- a/arch/riscv/kvm/vcpu_onereg.c
 +++ b/arch/riscv/kvm/vcpu_onereg.c
-@@ -64,6 +64,7 @@ static const unsigned long kvm_isa_ext_arr[] = {
- 	KVM_ISA_EXT_ARR(ZFHMIN),
- 	KVM_ISA_EXT_ARR(ZICBOM),
- 	KVM_ISA_EXT_ARR(ZICBOZ),
-+	KVM_ISA_EXT_ARR(ZICCRSE),
- 	KVM_ISA_EXT_ARR(ZICNTR),
- 	KVM_ISA_EXT_ARR(ZICOND),
- 	KVM_ISA_EXT_ARR(ZICSR),
-@@ -157,6 +158,7 @@ static bool kvm_riscv_vcpu_isa_disable_allowed(unsigned long ext)
- 	case KVM_RISCV_ISA_EXT_ZFA:
- 	case KVM_RISCV_ISA_EXT_ZFH:
- 	case KVM_RISCV_ISA_EXT_ZFHMIN:
-+	case KVM_RISCV_ISA_EXT_ZICCRSE:
- 	case KVM_RISCV_ISA_EXT_ZICNTR:
- 	case KVM_RISCV_ISA_EXT_ZICOND:
- 	case KVM_RISCV_ISA_EXT_ZICSR:
+@@ -43,6 +43,7 @@ static const unsigned long kvm_isa_ext_arr[] = {
+ 	KVM_ISA_EXT_ARR(SVINVAL),
+ 	KVM_ISA_EXT_ARR(SVNAPOT),
+ 	KVM_ISA_EXT_ARR(SVPBMT),
++	KVM_ISA_EXT_ARR(SVVPTC),
+ 	KVM_ISA_EXT_ARR(ZACAS),
+ 	KVM_ISA_EXT_ARR(ZAWRS),
+ 	KVM_ISA_EXT_ARR(ZBA),
+@@ -136,6 +137,7 @@ static bool kvm_riscv_vcpu_isa_disable_allowed(unsigned long ext)
+ 	case KVM_RISCV_ISA_EXT_SSTC:
+ 	case KVM_RISCV_ISA_EXT_SVINVAL:
+ 	case KVM_RISCV_ISA_EXT_SVNAPOT:
++	case KVM_RISCV_ISA_EXT_SVVPTC:
+ 	case KVM_RISCV_ISA_EXT_ZACAS:
+ 	case KVM_RISCV_ISA_EXT_ZAWRS:
+ 	case KVM_RISCV_ISA_EXT_ZBA:
 -- 
 2.34.1
 
