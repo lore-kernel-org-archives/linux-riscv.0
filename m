@@ -4,118 +4,116 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8376AD10DCF
-	for <linux-riscv@archiver.kernel.org>; Mon,  2 Dec 2024 09:31:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F04AAD73619
+	for <linux-riscv@archiver.kernel.org>; Mon,  2 Dec 2024 10:06:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:References:In-Reply-To:From:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=6neCPrIGEKIh1567mO+FmY1ngNGlIfcTH3FosrC8YRg=; b=dk0HQRF0KQqEyT
-	Y/l5aqUXigI2Gfw4MQVPxngmggDpBxn7wjRxwiFIH1YIeYQye3XYWNAveD7pMh7oT5HCcOZihpvqu
-	R1TQQCIEk0ieIZ15XIAS5S7vlTAcGgAMe4GJ7V0SioUkDHwl9DL077ePSAyR7qpzsHwJj41T8ttV4
-	E2bh9qq166H6Fa8kI2duModsvqBmehboAYTt21INKfv8QLK9ixJeZSizzB4uSKhu+iIyQQSCZq5JZ
-	pfKQahyQXV8ywTacSmp8lkXjtRRkQBcZsjVVMPGsTpRAv11o00yoyHMepyNbXPOKVi7re2rdm7dul
-	YlrTtl0T8vprhAbP6spA==;
+	List-Archive:List-Unsubscribe:List-Id:References:MIME-Version:Message-Id:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
+	List-Owner; bh=Y87iib6U8NMpd/kvBSz/7vjCIrVuWRV7P0gzBreKPLI=; b=fvuW+1w9i3Ev4C
+	sPeBrpFmh32AjqNLEgcYpiSI+klarn7cz5UI1rNrKCFg21HyKcv7I0Uf0Kxu96RutVKMLPpI+YMNa
+	eLKwDca4Q8g1l3F4qCoNGBS8OC1ntbzBVqyEb/c02teBs0lHOZesKsZvnvb8s1iAGpgnqerQQCtf0
+	xXB8Nt1YdpTp1ZQzuYQIFHhG96Ad6YCmw89zzvWv5Zaa7SUofMgFdTh2PV3uwCt0seU6soxyyE6of
+	8p55V2/lHNsCiykCrRBB4SauRO9XKdHMGuVQHOBp6nsSlk9t5dIHdXFFUhZ6u0PQ3vHPyrO3vz7BR
+	/7wziDdTwvgcFCZO0edA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tI2m8-00000005ZyI-0ll7;
-	Mon, 02 Dec 2024 09:31:28 +0000
+	id 1tI3KH-00000005fFb-1O4b;
+	Mon, 02 Dec 2024 10:06:45 +0000
 Received: from mailout2.w1.samsung.com ([210.118.77.12])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tI2m4-00000005Zuw-2RVA
+	id 1tI3KD-00000005fDe-4ALa
 	for linux-riscv@lists.infradead.org;
-	Mon, 02 Dec 2024 09:31:26 +0000
-Received: from eucas1p1.samsung.com (unknown [182.198.249.206])
-	by mailout2.w1.samsung.com (KnoxPortal) with ESMTP id 20241202093119euoutp0200b2e3261170dac314832809622b1bd5~NUkMJPckh1720617206euoutp02q
-	for <linux-riscv@lists.infradead.org>; Mon,  2 Dec 2024 09:31:19 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.w1.samsung.com 20241202093119euoutp0200b2e3261170dac314832809622b1bd5~NUkMJPckh1720617206euoutp02q
+	Mon, 02 Dec 2024 10:06:43 +0000
+Received: from eucas1p2.samsung.com (unknown [182.198.249.207])
+	by mailout2.w1.samsung.com (KnoxPortal) with ESMTP id 20241202100634euoutp02ac078938d904c0d336a0c51623555fd0~NVC9k2uNt2564225642euoutp02B
+	for <linux-riscv@lists.infradead.org>; Mon,  2 Dec 2024 10:06:34 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.w1.samsung.com 20241202100634euoutp02ac078938d904c0d336a0c51623555fd0~NVC9k2uNt2564225642euoutp02B
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1733131879;
-	bh=bNLCIvm+oM39D/4v5xSquqtfCBDIka5GUXMW3ab8YE8=;
-	h=Date:Subject:To:Cc:From:In-Reply-To:References:From;
-	b=bP9QtALFsYvKT8G2e0oTRFB+f6QQNkuKUwQIMox3RhDDbbs4GW8TPMvjzCsZOuCRF
-	 ILAqAaOk46YRrCoHuvMqCyiI4ffilK84J2rELA7gQv2VCGO/YO+9vNeuP8UV1Ws5fp
-	 4tLUMpXjcc94BZKeEwBdJ/afqizssuIkhW8G0fN0=
-Received: from eusmges3new.samsung.com (unknown [203.254.199.245]) by
+	s=mail20170921; t=1733133994;
+	bh=qVpMuOOnV5mqA9o7w8bajv2jlHubixQgYsTmr9HLtvc=;
+	h=From:To:Cc:Subject:Date:References:From;
+	b=qSLLUWBBvQBOGcNW2xALK9KgggA/m6o7+YfUzMMzD3ogzm+TvMyOMmMUyysy5ld5h
+	 HIxvh9ipVdkG+8ndDTPN/JXqzjjxJqbNYYYlkBKmMPIRQGALczEdrr+zqP/toKU0GI
+	 a59NfwTgz8Xr+9MH01wkKNH4RP7ba+BA4DqZre50=
+Received: from eusmges2new.samsung.com (unknown [203.254.199.244]) by
 	eucas1p2.samsung.com (KnoxPortal) with ESMTP id
-	20241202093119eucas1p2ff26482687ca1648e9faf9e0327d0c87~NUkMCbzCQ2770627706eucas1p2P;
-	Mon,  2 Dec 2024 09:31:19 +0000 (GMT)
+	20241202100633eucas1p2e58d546d8c6deb8f28386c45730d4a27~NVC9SPvDP0554905549eucas1p2c;
+	Mon,  2 Dec 2024 10:06:33 +0000 (GMT)
 Received: from eucas1p1.samsung.com ( [182.198.249.206]) by
-	eusmges3new.samsung.com (EUCPMTA) with SMTP id 43.20.20397.76E7D476; Mon,  2
-	Dec 2024 09:31:19 +0000 (GMT)
+	eusmges2new.samsung.com (EUCPMTA) with SMTP id 00.A7.20409.9A68D476; Mon,  2
+	Dec 2024 10:06:33 +0000 (GMT)
 Received: from eusmtrp1.samsung.com (unknown [182.198.249.138]) by
-	eucas1p1.samsung.com (KnoxPortal) with ESMTPA id
-	20241202093119eucas1p1b14d09e2f688812cafb71c1fba5ebaa0~NUkLuHU2W2786627866eucas1p1k;
-	Mon,  2 Dec 2024 09:31:19 +0000 (GMT)
-Received: from eusmgms1.samsung.com (unknown [182.198.249.179]) by
+	eucas1p2.samsung.com (KnoxPortal) with ESMTPA id
+	20241202100633eucas1p2a615523beaa41bac328f413e13ce471d~NVC9AUYvm3092530925eucas1p2q;
+	Mon,  2 Dec 2024 10:06:33 +0000 (GMT)
+Received: from eusmgms2.samsung.com (unknown [182.198.249.180]) by
 	eusmtrp1.samsung.com (KnoxPortal) with ESMTP id
-	20241202093119eusmtrp1449739753e480deb07af0e5ec7592f07~NUkLthy512968429684eusmtrp1u;
-	Mon,  2 Dec 2024 09:31:19 +0000 (GMT)
-X-AuditID: cbfec7f5-e59c770000004fad-40-674d7e67ac12
+	20241202100633eusmtrp160f716c93c5a8cad6adcd888132908f6~NVC8-o2MP1982619826eusmtrp1Q;
+	Mon,  2 Dec 2024 10:06:33 +0000 (GMT)
+X-AuditID: cbfec7f4-c0df970000004fb9-d8-674d86a90e51
 Received: from eusmtip1.samsung.com ( [203.254.199.221]) by
-	eusmgms1.samsung.com (EUCPMTA) with SMTP id 8B.DB.19920.66E7D476; Mon,  2
-	Dec 2024 09:31:18 +0000 (GMT)
-Received: from [192.168.1.44] (unknown [106.210.136.40]) by
+	eusmgms2.samsung.com (EUCPMTA) with SMTP id 0A.E0.19654.9A68D476; Mon,  2
+	Dec 2024 10:06:33 +0000 (GMT)
+Received: from AMDC4942.home (unknown [106.210.136.40]) by
 	eusmtip1.samsung.com (KnoxPortal) with ESMTPA id
-	20241202093118eusmtip1c9c3819652fa5a9227c7491196233cb9~NUkLOnZ0v1680416804eusmtip1g;
-	Mon,  2 Dec 2024 09:31:18 +0000 (GMT)
-Message-ID: <90d4515c-835f-4aaa-8c9f-263f23bdfdb2@samsung.com>
-Date: Mon, 2 Dec 2024 10:31:18 +0100
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] mailbox: th1520: Fix a NULL vs IS_ERR() bug
-To: Dan Carpenter <dan.carpenter@linaro.org>
-Cc: Drew Fustini <drew@pdp7.com>, Guo Ren <guoren@kernel.org>, Fu Wei
-	<wefu@redhat.com>, Jassi Brar <jassisinghbrar@gmail.com>,
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
-	kernel-janitors@vger.kernel.org
-Content-Language: en-US
+	20241202100632eusmtip1630ed766a899c4b712d2ec46d9aaf5fe~NVC8eNjjO1051810518eusmtip1l;
+	Mon,  2 Dec 2024 10:06:32 +0000 (GMT)
 From: Michal Wilczynski <m.wilczynski@samsung.com>
-In-Reply-To: <bda05d7b-5a6e-4f57-a124-ba56f51da031@stanley.mountain>
-X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFlrBKsWRmVeSWpSXmKPExsWy7djPc7rpdb7pBh0PBC0+zGtlt7h3aQuT
-	xYu9jSwW11bMZbfYekva4vKuOWwW2z63sFm07J/C4sDhsXPWXXaPTas62TzuXNvD5rF5Sb1H
-	y9pjTB7v911l8/i8SS6APYrLJiU1J7MstUjfLoEr487h+ewFJzgqjtx/wN7A2M7excjJISFg
-	IrH//kEgm4tDSGAFo8S/o7NZIZwvjBJTdx9mgXA+M0ps2PeOGabl24rZTBCJ5YwSz54fg3Le
-	Mko0/N7PBlLFK2An8W9dAwuIzSKgInHmyxMWiLigxMmZELaogLzE/VszgJZzcAgLOEisWFIK
-	EhYR0JH493cy2GZmgSeMEp23joJtZhYQl7j1ZD4TiM0mYCTxYPl8VhCbU8BF4mnfTDaIGnmJ
-	7W/nQF36hUNixvEQkPkSQDWrvrpBhIUlXh3fAvW/jMTpyT0sEHa+xIOtn6BaayR29hyHsq0l
-	7pz7xQYyhllAU2L9Ln2IsKPEkvczWSCm80nceCsIcQCfxKRt05khwrwSHW1CENVqElN7euGW
-	nluxjWkCo9IspCCZheTFWUhemYWwdwEjyypG8dTS4tz01GLjvNRyveLE3OLSvHS95PzcTYzA
-	xHT63/GvOxhXvPqod4iRiYPxEKMEB7OSCO/y9d7pQrwpiZVVqUX58UWlOanFhxilOViUxHlV
-	U+RThQTSE0tSs1NTC1KLYLJMHJxSDUx5b2akvQgr0+zUsapbu+bX2XN7AkN1BTwXSdwrUYqc
-	Krvho9VVdz77O7dVKyNn/HyZ98Y48oK5XjbfofoJiS8blryZlbI/64mmdFVXzTSmLasVRA6s
-	YN00dV+J/subD864+BcI9O3/aRF9dO6Bipab57PvMm123X+n4ZuM1sckSZE+hjqbCsHjX35L
-	ND8pku5hizxfcnbt1V9Z13O7fB/d2r/vq/RNwa+7pmxOFV2dJmByt9xX+GVZp1wXX4/G8b3r
-	mR015q6c88Y7XtVOX0pb70X2562OzYe8d696z1i6d2voKb1YpomR2mrPIlZoJCQZt6vv2OcX
-	eP2R4JQfdXZX52+O9uU7HmXzfEmlUYMSS3FGoqEWc1FxIgAwr73WuwMAAA==
-X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFtrNIsWRmVeSWpSXmKPExsVy+t/xu7ppdb7pBt3HLS0+zGtlt7h3aQuT
-	xYu9jSwW11bMZbfYekva4vKuOWwW2z63sFm07J/C4sDhsXPWXXaPTas62TzuXNvD5rF5Sb1H
-	y9pjTB7v911l8/i8SS6APUrPpii/tCRVISO/uMRWKdrQwkjP0NJCz8jEUs/Q2DzWyshUSd/O
-	JiU1J7MstUjfLkEv487h+ewFJzgqjtx/wN7A2M7excjJISFgIvFtxWwmEFtIYCmjxNTL+hBx
-	GYlr3S9ZIGxhiT/Xuti6GLmAal4zSnzYMAcswStgJ/FvXQOYzSKgInHmyxOouKDEyZkQtqiA
-	vMT9WzOAlnFwCAs4SKxYUgoSFhHQkfj3dzILyExmgSeMEg+bmlggFkxnlLg87ykzSBWzgLjE
-	rSfzwa5jEzCSeLB8PiuIzSngIvG0byYbyFBmAXWJ9fOEIMrlJba/ncM8gVFoFpIzZiGZNAuh
-	YxaSjgWMLKsYRVJLi3PTc4sN9YoTc4tL89L1kvNzNzECY3HbsZ+bdzDOe/VR7xAjEwfjIUYJ
-	DmYlEd7l673ThXhTEiurUovy44tKc1KLDzGaAoNiIrOUaHI+MBnklcQbmhmYGpqYWRqYWpoZ
-	K4nzul0+nyYkkJ5YkpqdmlqQWgTTx8TBKdXANHe/7T/HiP1uLzcWnQhpXBYkoXT2SviTdie2
-	aSv+OH8VSryitfLKrDkX4057vC+qTnd+tMWJt8Q38+1how+KX8/lFvZeyJaSmJ5yQczRZFL3
-	47zlKyUKPbJK2cw8gvQn3ru3c/5RzXOFh/4ITjqov+LHsn/i67/phi8ymLs/3PDVl4JpKzon
-	fy+cL9tjZ5Mv457z5m7wzAsJq5llFJkFY7zjpzr96mz5tfDFz79f0j3/5nxokHP9UK23Menn
-	KbE92r+UhfezmTUmbJr5omzdQ50D2VJV26vXzhSbs/pL4dYrQWnWZocY1pycs3k+j6BG9smg
-	kJMlhifSAjfsTFkq8kSrWuVCt/d2h2UbLN4buiqxFGckGmoxFxUnAgDocfa9TgMAAA==
-X-CMS-MailID: 20241202093119eucas1p1b14d09e2f688812cafb71c1fba5ebaa0
+To: drew@pdp7.com, guoren@kernel.org, wefu@redhat.com,
+	jassisinghbrar@gmail.com
+Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, Michal
+	Wilczynski <m.wilczynski@samsung.com>, Dan Carpenter
+	<dan.carpenter@linaro.org>
+Subject: [PATCH] mailbox: th1520: Fix memory corruption due to incorrect
+ array size
+Date: Mon,  2 Dec 2024 11:05:35 +0100
+Message-Id: <20241202100535.1359134-1-m.wilczynski@samsung.com>
+X-Mailer: git-send-email 2.34.1
+MIME-Version: 1.0
+X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFlrEKsWRmVeSWpSXmKPExsWy7djPc7or23zTDT7d0bf4MK+V3eLepS1M
+	Fi/2NrJYXFsxl93i8q45bBbbPrewWaz/Op/JomX/FBYHDo+ds+6ye2xa1cnmcefaHjaPzUvq
+	PVrWHmPyeL/vKptH35ZVjB6fN8kFcERx2aSk5mSWpRbp2yVwZdya95G1YBpXRduJe4wNjI84
+	uhg5OCQETCTmHQjrYuTkEBJYwSix/GxVFyMXkP2FUWJu6wZGCOczo8SzzvdMIFUgDV0/VjFD
+	JJYzSnxYNQvKecMoMXXlSVaQKjYBI4kHy+ezgqwQEQiU2LqgHqSGWWAuo8Sj5hnMIDXCAqES
+	M5Y9YASxWQRUJbZ+vQEW5xWwl5j/4THUNnmJ/QfPQsUFJU7OfMICYjMDxZu3zgZbLCGwh0Pi
+	zsdZjBANLhJbFqxmg7CFJV4d38IOYctInJ7cwwJh50s82PqJGcKukdjZcxzKtpa4c+4XG8jR
+	zAKaEut36UOEHSU+fHjBBgkuPokbbwUhTuCTmLRtOjNEmFeio00IolpNYmpPL9zScyu2QX3i
+	IbHr0j8WSEjHSnz6/JNtAqPCLCSPzULy2CyEGxYwMq9iFE8tLc5NTy02ykst1ytOzC0uzUvX
+	S87P3cQITEan/x3/soNx+auPeocYmTgYDzFKcDArifAuX++dLsSbklhZlVqUH19UmpNafIhR
+	moNFSZxXNUU+VUggPbEkNTs1tSC1CCbLxMEp1cBUo6pf8KckfOK8qUzCIsr//S/HPzz9Qnn/
+	glsdByW/PZ6a9KF98wq/zSJTZ2WsKmut7V5sFWGhYbHomfnkfbtW97QFOO1L8JJUuPI+U/DE
+	Qo/FC79x7F658POnk53Hd7t9PyLYUf5HaOWiRcobryZ1ypUFaT6f9+3v9RuaOZypUz5+1zLW
+	8Qy4IpAyr+tCn8GB7+uMBWZn3rvocJlph5qextSqTQmCq315ONmt057+y7d8Es0dLz5jYeQx
+	2aRw36PcycyBWsEM821D/vDZ39KMPvblk/ajApa8R37CEgvt+T/MEPsypUZdYmnQ//zXz3X+
+	r1p2LGmu2wlJU8He/RNaNsbIzF5etq1P/PfsfLUtSizFGYmGWsxFxYkAKmq+p7UDAAA=
+X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFvrDLMWRmVeSWpSXmKPExsVy+t/xu7or23zTDeYvlLL4MK+V3eLepS1M
+	Fi/2NrJYXFsxl93i8q45bBbbPrewWaz/Op/JomX/FBYHDo+ds+6ye2xa1cnmcefaHjaPzUvq
+	PVrWHmPyeL/vKptH35ZVjB6fN8kFcETp2RTll5akKmTkF5fYKkUbWhjpGVpa6BmZWOoZGpvH
+	WhmZKunb2aSk5mSWpRbp2yXoZdya95G1YBpXRduJe4wNjI84uhg5OSQETCS6fqxi7mLk4hAS
+	WMooMa3lNBNEQkbiWvdLFghbWOLPtS42iKJXjBLT9x9iB0mwCRhJPFg+nxXEFhEIlbj0+gkj
+	SBGzwHygSedbwSYJCwRL3N1+jBHEZhFQldj69QYziM0rYC8x/8NjqG3yEvsPnoWKC0qcnPkE
+	bDMzULx562zmCYx8s5CkZiFJLWBkWsUoklpanJueW2ykV5yYW1yal66XnJ+7iREYDduO/dyy
+	g3Hlq496hxiZOBgPMUpwMCuJ8C5f750uxJuSWFmVWpQfX1Sak1p8iNEU6L6JzFKiyfnAeMwr
+	iTc0MzA1NDGzNDC1NDNWEudlu3I+TUggPbEkNTs1tSC1CKaPiYNTqoGJzeP7q0kbfi248dmV
+	fdIdswdr5tWxqMge4jnwcsKssD0WTtWKUz8aKF2/+Ua4qy688NOj9Matz3Jqjh8PmLPa08JF
+	2PAX00vD6+KvucO+yTw5+rGVOe/yxo0n5eJLlNquPXDa5NFye/O2nvvxO4Q589Uz7zyXy8j1
+	nVth1qz8/vZx26VdvXNLTSbw3fNiXR0ialR+6sxWcY9idvVtQUmW3OL2Xglf3hsUPDql/OVh
+	3JmCFs9Jr/bPFPTvX+bf6xXZKMkt9H3NzLdBRZU8latOG1Xv2hWrrhnTq3jAN4lB+aFyafCq
+	TQ6XHr9WbGI5WhFp8unr7y3FZcFSN2rlemz760JztCoDpZ6u9mstElZiKc5INNRiLipOBABN
+	RcvbDwMAAA==
+X-CMS-MailID: 20241202100633eucas1p2a615523beaa41bac328f413e13ce471d
 X-Msg-Generator: CA
-X-RootMTR: 20241130100751eucas1p25283ed89679b086be2863092149236b8
+X-RootMTR: 20241202100633eucas1p2a615523beaa41bac328f413e13ce471d
 X-EPHeader: CA
 CMS-TYPE: 201P
-X-CMS-RootMailID: 20241130100751eucas1p25283ed89679b086be2863092149236b8
-References: <CGME20241130100751eucas1p25283ed89679b086be2863092149236b8@eucas1p2.samsung.com>
-	<bda05d7b-5a6e-4f57-a124-ba56f51da031@stanley.mountain>
+X-CMS-RootMailID: 20241202100633eucas1p2a615523beaa41bac328f413e13ce471d
+References: <CGME20241202100633eucas1p2a615523beaa41bac328f413e13ce471d@eucas1p2.samsung.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241202_013125_118249_6236D770 
-X-CRM114-Status: GOOD (  15.00  )
+X-CRM114-CacheID: sfid-20241202_020642_526216_99274DA3 
+X-CRM114-Status: GOOD (  12.10  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -132,38 +130,39 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+The functions th1520_mbox_suspend_noirq and th1520_mbox_resume_noirq are
+intended to save and restore the interrupt mask registers in the MBOX
+ICU0. However, the array used to store these registers was incorrectly
+sized, leading to memory corruption when accessing all four registers.
 
+This commit corrects the array size to accommodate all four interrupt
+mask registers, preventing memory corruption during suspend and resume
+operations.
 
-On 11/30/24 11:07, Dan Carpenter wrote:
-> The devm_ioremap() function doesn't return error pointers, it returns
-> NULL.  Update the error checking to match.
-> 
-> Fixes: 5d4d263e1c6b ("mailbox: Introduce support for T-head TH1520 Mailbox driver")
-> Signed-off-by: Dan Carpenter <dan.carpenter@linaro.org>
-> ---
->  drivers/mailbox/mailbox-th1520.c | 4 +++-
->  1 file changed, 3 insertions(+), 1 deletion(-)
-> 
-> diff --git a/drivers/mailbox/mailbox-th1520.c b/drivers/mailbox/mailbox-th1520.c
-> index 4e84640ac3b8..e16e7c85ee3c 100644
-> --- a/drivers/mailbox/mailbox-th1520.c
-> +++ b/drivers/mailbox/mailbox-th1520.c
-> @@ -387,8 +387,10 @@ static void __iomem *th1520_map_mmio(struct platform_device *pdev,
->  
->  	mapped = devm_ioremap(&pdev->dev, res->start + offset,
->  			      resource_size(res) - offset);
-> -	if (IS_ERR(mapped))
-> +	if (!mapped) {
->  		dev_err(&pdev->dev, "Failed to map resource: %s\n", res_name);
-> +		return ERR_PTR(-ENOMEM);
-> +	}
->  
->  	return mapped;
->  }
+Fixes: 5d4d263e1c6b ("mailbox: Introduce support for T-head TH1520 Mailbox driver")
+Reported-by: Dan Carpenter <dan.carpenter@linaro.org>
+Closes: https://lore.kernel.org/all/a99e72be-8490-4960-ad26-cbfef6af238f@stanley.mountain/
+Signed-off-by: Michal Wilczynski <m.wilczynski@samsung.com>
+---
+ drivers/mailbox/mailbox-th1520.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
+diff --git a/drivers/mailbox/mailbox-th1520.c b/drivers/mailbox/mailbox-th1520.c
+index 4e84640ac3b8..0d95e1898702 100644
+--- a/drivers/mailbox/mailbox-th1520.c
++++ b/drivers/mailbox/mailbox-th1520.c
+@@ -41,7 +41,7 @@
+ #ifdef CONFIG_PM_SLEEP
+ /* store MBOX context across system-wide suspend/resume transitions */
+ struct th1520_mbox_context {
+-	u32 intr_mask[TH_1520_MBOX_CHANS - 1];
++	u32 intr_mask[TH_1520_MBOX_CHANS];
+ };
+ #endif
+ 
+-- 
+2.34.1
 
-Looks good, thanks !
-Reviewed-by: Michal Wilczynski <m.wilczynski@samsung.com>
 
 _______________________________________________
 linux-riscv mailing list
