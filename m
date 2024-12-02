@@ -4,75 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9AB8DD49776
-	for <linux-riscv@archiver.kernel.org>; Sun,  1 Dec 2024 15:31:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 751BDD49793
+	for <linux-riscv@archiver.kernel.org>; Mon,  2 Dec 2024 01:10:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=zkWu5bdr2m5U/mFWuoxuKEE3rdWTQo7t8P/UyF8etFU=; b=3k9cFrOzuCsS9R
-	FUbuBAx4yhQuT6XrWR/HMdZgBeZCNobeUWo2wT/Eaydg7JhaC8YWHFHtBhG+xisLzjTrTxw6dC85N
-	xFEEbp0L7t1qDCcM+35gG9QKo9Otah8jspbabb5n1MBFXruzd06n+Qa+ik9sPnqOuZKiXBl0mR6Dl
-	W7xzZvgWD29hW3H0E8ps/l/egi4jeOdudOboKPacUgwVhd1O2VnXgLhqyyPYUKtp2a3vcxqNByCz2
-	qyER3EPNTSwy+dU3sNGLuIbZJ/Nd8cusUSwACZOgbPcVW4INuoJdoJIsnuUsH3xIiUOQcdA3yrR/x
-	2OLnl/NTrDuVUA8tiZuA==;
+	List-Owner; bh=j0qJwFkwpmUnkGqGUu3rjcmbQEWcxdHvMwIOuVVakz4=; b=aUCjXOrYr3E3IE
+	Ri0cOYblFjVXY6uYbN4xSDUTrc6/14PiNswSSCbksZcggVBfl0wTi82tmgOCzt0LufSEQ6lmW0xa9
+	JSaQfGfOTQwLd4k46EBR//3JT3RNihAqlsIviX2rNU2vhr/s+Ir2srECtcHL8kuktFTvJ2dMmQrN9
+	S+W/hsWucxQ11g4AoVc/Szlapu0DjAF1gYnhJ2h+EYlmxgja2U1aK3AMhLN6Zvmd5H7LdOqec963T
+	2gB3JzQWul7JNdQVHhKUvEXy/+dxfj/b4MBXUHRVR1l57SJId8srlH3GB1ie2haYafXPHl8cgj1D8
+	u/9538QhxWqiZb0Oqd8Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tHlum-00000003yPQ-1o9J;
-	Sun, 01 Dec 2024 15:31:16 +0000
-Received: from mta-03.yadro.com ([89.207.88.253])
+	id 1tHuxP-00000004eHJ-2scF;
+	Mon, 02 Dec 2024 01:10:35 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tHluj-00000003yOQ-0jVn
-	for linux-riscv@lists.infradead.org;
-	Sun, 01 Dec 2024 15:31:15 +0000
-DKIM-Filter: OpenDKIM Filter v2.11.0 mta-03.yadro.com 29222E0008
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yadro.com; s=mta-04;
-	t=1733067065; bh=Rk4mscyhtODXOoZtND+S+9aETGqegjWDO/UcHkuTmgI=;
-	h=Message-ID:Date:MIME-Version:Subject:To:From:Content-Type:From;
-	b=MgkYVtSN293oTUIjbbJqxqONNowdN4QqN1FqM3nHbYZpy25m7/Y97lRFP2bHuFHb5
-	 WifpssSe/McUAgkMlMh0hQocqRe9/6UK2pcTRcYDc8uH46uzjkxWqJspAp9Bnc33yj
-	 zIiwCTq9SFMU9T+aTpgg4gG+QfiwZRrDwkg0YBh8ETbesLiGoDQdbtSOAVkZNOY5ws
-	 QR5cgm58Rt140uJx3dg5ypfRZs6Med79F+FS3ZuwOp4X0ohaTRd8KDfR5uS+4OJhxs
-	 zk+kpC0sk7X86VGa7UQSIaCJbM3Q7bs2qpLs/DfLnCG29R3AAvtBmN556duRLgPY7w
-	 88Wl52Wyr7Egw==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yadro.com; s=mta-03;
-	t=1733067065; bh=Rk4mscyhtODXOoZtND+S+9aETGqegjWDO/UcHkuTmgI=;
-	h=Message-ID:Date:MIME-Version:Subject:To:From:Content-Type:From;
-	b=vSInmEBQjOunc3kSw9zLl0Nikb4nl+yFmWBYBH6N1RoEZDagW3Ny+ZIQHtkdEAFEt
-	 3gkJhKWynUwsO+2s36AeKzOXFCmAGVl7NnqwGPCr86PKbp64NHRp8zWTv4CF4NCMVS
-	 xpP8BrV+0uKfDDaOOh2WGrFCZQUBuDt1w+SR71PsOqZBHrzU4W6bgAHnOpWkJymFbz
-	 wqNlzp8+vTTlU7cj8f4UctP90CgT/NBoZSYSrpQ4wQdYZO98W7MNKCUe1B+Cj+bL7K
-	 jWDESxagqYFHqyxA1GFv3JlW/2cwn4mBQ3H/FiQ/xeDlv4kQ0YbW4Umu0YdA0bRm4L
-	 K6T2iIct021oQ==
-Message-ID: <12e8b66b-5a6e-435e-b927-18a3ce2216e3@yadro.com>
-Date: Sun, 1 Dec 2024 18:31:03 +0300
+	id 1tHuwN-00000004dc7-2z3A;
+	Mon, 02 Dec 2024 01:09:32 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id BA66FA40C11;
+	Mon,  2 Dec 2024 01:07:37 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6C9FCC4CEDB;
+	Mon,  2 Dec 2024 01:09:29 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1733101769;
+	bh=XJXyC/yKrtf0cLSncQGVE0nBCNxCm4pnDJzkPxa1c0Q=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=XxPCGhEmpdyeNVnHGt3GgFgOcPCXZxE2kuvYX4ud1TqfMLMu4sDiD0hJWPXiw4koy
+	 IpcUpPa78d4mlPODJXyz5cD16bl6m01Jh1uCPRzwIHAj/hbnmGFNhmLjkrJj3+LQwY
+	 3DYoCgPoOiPRPQKwi2NDdfLeRFYCA5gChP5Dr55+9up6IihP1Ij/knWu57VXeFri/w
+	 ZfbEOZuSpLWXGGWjxYhfYiFlRZDtliva/NuNnNRIf1DzhOQukwMzICDpCU4eGvyfrC
+	 WaWwsSf+gr2NC8a90JZmccy5weLHlTkOHWZRURdxM5sgx5pLD+yGYStW4yPdOW3or3
+	 +a76tKyJ//laA==
+From: Eric Biggers <ebiggers@kernel.org>
+To: linux-kernel@vger.kernel.org
+Cc: linux-arch@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-crypto@vger.kernel.org,
+	linux-ext4@vger.kernel.org,
+	linux-f2fs-devel@lists.sourceforge.net,
+	linux-mips@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	linux-s390@vger.kernel.org,
+	linux-scsi@vger.kernel.org,
+	linuxppc-dev@lists.ozlabs.org,
+	loongarch@lists.linux.dev,
+	sparclinux@vger.kernel.org,
+	x86@kernel.org,
+	Ard Biesheuvel <ardb@kernel.org>
+Subject: [PATCH v4 01/19] lib/crc32: drop leading underscores from __crc32c_le_base
+Date: Sun,  1 Dec 2024 17:08:26 -0800
+Message-ID: <20241202010844.144356-2-ebiggers@kernel.org>
+X-Mailer: git-send-email 2.47.1
+In-Reply-To: <20241202010844.144356-1-ebiggers@kernel.org>
+References: <20241202010844.144356-1-ebiggers@kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 3/7] riscv: ftrace: prepare ftrace for atomic code
- patching
-To: Andy Chiu <andybnac@gmail.com>
-CC: Albert Ou <aou@eecs.berkeley.edu>, Palmer Dabbelt <palmer@dabbelt.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>, Mark Rutland
-	<mark.rutland@arm.com>, Masami Hiramatsu <mhiramat@kernel.org>, Steven
- Rostedt <rostedt@goodmis.org>, <linux-kernel@vger.kernel.org>,
-	<linux-trace-kernel@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
-	<bjorn@rivosinc.com>, <puranjay12@gmail.com>, <alexghiti@rivosinc.com>,
-	<yongxuan.wang@sifive.com>, <greentime.hu@sifive.com>, <nick.hu@sifive.com>,
-	<nylon.chen@sifive.com>, <tommy.wu@sifive.com>, <eric.lin@sifive.com>,
-	<viccent.chen@sifive.com>, <zong.li@sifive.com>, <samuel.holland@sifive.com>,
-	<linux@yadro.com>
-References: <20241127172908.17149-1-andybnac@gmail.com>
- <20241127172908.17149-4-andybnac@gmail.com>
-Content-Language: en-US
-From: Evgenii Shatokhin <e.shatokhin@yadro.com>
-In-Reply-To: <20241127172908.17149-4-andybnac@gmail.com>
-X-ClientProxiedBy: T-EXCH-10.corp.yadro.com (172.17.11.60) To
- T-EXCH-10.corp.yadro.com (172.17.11.60)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241201_073114_092333_2831B567 
-X-CRM114-Status: GOOD (  35.42  )
+X-CRM114-CacheID: sfid-20241201_170931_908410_1075A0FD 
+X-CRM114-Status: GOOD (  12.70  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,271 +78,149 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Andy,
+From: Eric Biggers <ebiggers@google.com>
 
-First of all, thank you for working on this series.
+Remove the leading underscores from __crc32c_le_base().
 
-On 27.11.2024 20:29, Andy Chiu wrote:
-> From: Andy Chiu <andy.chiu@sifive.com>
-> 
-> We use an AUIPC+JALR pair to jump into a ftrace trampoline. Since
-> instruction fetch can break down to 4 byte at a time, it is impossible
-> to update two instructions without a race. In order to mitigate it, we
-> initialize the patchable entry to AUIPC + NOP4. Then, the run-time code
-> patching can change NOP4 to JALR to eable/disable ftrcae from a
-> function. This limits the reach of each ftrace entry to +-2KB displacing
-> from ftrace_caller.
-> 
-> Starting from the trampoline, we add a level of indirection for it to
-> reach ftrace caller target. Now, it loads the target address from a
-> memory location, then perform the jump. This enable the kernel to update
-> the target atomically.
-> 
-> The ordering of reading/updating the targert address should be guarded
-> by generic ftrace code, where it sends smp_rmb ipi.
-> 
-> Signed-off-by: Andy Chiu <andy.chiu@sifive.com>
-> ---
->   arch/riscv/include/asm/ftrace.h |  4 ++
->   arch/riscv/kernel/ftrace.c      | 80 +++++++++++++++++++++------------
->   arch/riscv/kernel/mcount-dyn.S  |  9 ++--
->   3 files changed, 62 insertions(+), 31 deletions(-)
-> 
-> diff --git a/arch/riscv/include/asm/ftrace.h b/arch/riscv/include/asm/ftrace.h
-> index 4ca7ce7f34d7..36734d285aad 100644
-> --- a/arch/riscv/include/asm/ftrace.h
-> +++ b/arch/riscv/include/asm/ftrace.h
-> @@ -80,6 +80,7 @@ struct dyn_arch_ftrace {
->   #define JALR_T0                        (0x000282e7)
->   #define AUIPC_T0               (0x00000297)
->   #define NOP4                   (0x00000013)
-> +#define JALR_RANGE             (JALR_SIGN_MASK - 1)
-> 
->   #define to_jalr_t0(offset)                                             \
->          (((offset & JALR_OFFSET_MASK) << JALR_SHIFT) | JALR_T0)
-> @@ -117,6 +118,9 @@ do {                                                                        \
->    * Let auipc+jalr be the basic *mcount unit*, so we make it 8 bytes here.
->    */
->   #define MCOUNT_INSN_SIZE 8
-> +#define MCOUNT_AUIPC_SIZE      4
-> +#define MCOUNT_JALR_SIZE       4
-> +#define MCOUNT_NOP4_SIZE       4
-> 
->   #ifndef __ASSEMBLY__
->   struct dyn_ftrace;
-> diff --git a/arch/riscv/kernel/ftrace.c b/arch/riscv/kernel/ftrace.c
-> index 4b95c574fd04..5ebe412280ef 100644
-> --- a/arch/riscv/kernel/ftrace.c
-> +++ b/arch/riscv/kernel/ftrace.c
-> @@ -64,42 +64,64 @@ static int ftrace_check_current_call(unsigned long hook_pos,
->          return 0;
->   }
-> 
-> -static int __ftrace_modify_call(unsigned long hook_pos, unsigned long target,
-> -                               bool enable, bool ra)
-> +static int __ftrace_modify_call(unsigned long hook_pos, unsigned long target, bool validate)
->   {
->          unsigned int call[2];
-> -       unsigned int nops[2] = {NOP4, NOP4};
-> +       unsigned int replaced[2];
-> +
-> +       make_call_t0(hook_pos, target, call);
-> 
-> -       if (ra)
-> -               make_call_ra(hook_pos, target, call);
-> -       else
-> -               make_call_t0(hook_pos, target, call);
-> +       if (validate) {
-> +               /*
-> +                * Read the text we want to modify;
-> +                * return must be -EFAULT on read error
-> +                */
-> +               if (copy_from_kernel_nofault(replaced, (void *)hook_pos,
-> +                                            MCOUNT_INSN_SIZE))
-> +                       return -EFAULT;
-> +
-> +               if (replaced[0] != call[0]) {
-> +                       pr_err("%p: expected (%08x) but got (%08x)\n",
-> +                              (void *)hook_pos, call[0], replaced[0]);
-> +                       return -EINVAL;
-> +               }
-> +       }
-> 
-> -       /* Replace the auipc-jalr pair at once. Return -EPERM on write error. */
-> -       if (patch_insn_write((void *)hook_pos, enable ? call : nops, MCOUNT_INSN_SIZE))
-> +       /* Replace the jalr at once. Return -EPERM on write error. */
-> +       if (patch_insn_write((void *)(hook_pos + MCOUNT_AUIPC_SIZE), call + 1, MCOUNT_JALR_SIZE))
->                  return -EPERM;
-> 
->          return 0;
->   }
-> 
-> -int ftrace_make_call(struct dyn_ftrace *rec, unsigned long addr)
-> +static int __ftrace_modify_call_site(ftrace_func_t *hook_pos, ftrace_func_t target, bool enable)
->   {
-> -       unsigned int call[2];
-> +       ftrace_func_t call = target;
-> +       ftrace_func_t nops = &ftrace_stub;
-> 
-> -       make_call_t0(rec->ip, addr, call);
-> -
-> -       if (patch_insn_write((void *)rec->ip, call, MCOUNT_INSN_SIZE))
-> -               return -EPERM;
-> +       WRITE_ONCE(*hook_pos, enable ? call : nops);
-> 
->          return 0;
->   }
-> 
-> +int ftrace_make_call(struct dyn_ftrace *rec, unsigned long addr)
-> +{
-> +       unsigned long distance, orig_addr;
-> +
-> +       orig_addr = (unsigned long)&ftrace_caller;
-> +       distance = addr > orig_addr ? addr - orig_addr : orig_addr - addr;
-> +       if (distance > JALR_RANGE)
-> +               return -EINVAL;
+This is in preparation for adding crc32c_le_arch() and eventually
+renaming __crc32c_le() to crc32c_le().
 
-If I understand it correctly, it is not the range itself that matters 
-here, but rather, that AUIPC instruction remains the same for the 
-address of ftrace_caller and for the new addr.
+Reviewed-by: Ard Biesheuvel <ardb@kernel.org>
+Signed-off-by: Eric Biggers <ebiggers@google.com>
+---
+ arch/arm64/lib/crc32-glue.c | 2 +-
+ arch/riscv/lib/crc32.c      | 2 +-
+ crypto/crc32c_generic.c     | 8 ++++----
+ include/linux/crc32.h       | 2 +-
+ lib/crc32.c                 | 4 ++--
+ 5 files changed, 9 insertions(+), 9 deletions(-)
 
-For the displacements like 0xfabcd000 and 0xfabccf00, for example, the 
-distance is 0x100, which is within JALR range. However, the higher 20 
-bits differ, so the AUIPC instructions will differ too. 
-__ftrace_modify_call() would catch this though ("if (replaced[0] != 
-call[0]) ...").
-
-I'd suggest checking the higher 20 bits explicitly instead, something 
-like this:
-
-if ((orig_addr & AUIPC_OFFSET_MASK) != (addr & AUIPC_OFFSET_MASK))
-         return -EINVAL;
-
-What do you think?
-
-> +
-> +       return __ftrace_modify_call(rec->ip, addr, false);
-> +}
-> +
->   int ftrace_make_nop(struct module *mod, struct dyn_ftrace *rec,
->                      unsigned long addr)
->   {
-> -       unsigned int nops[2] = {NOP4, NOP4};
-> +       unsigned int nops[1] = {NOP4};
-> 
-> -       if (patch_insn_write((void *)rec->ip, nops, MCOUNT_INSN_SIZE))
-> +       if (patch_insn_write((void *)(rec->ip + MCOUNT_AUIPC_SIZE), nops, MCOUNT_NOP4_SIZE))
->                  return -EPERM;
-> 
->          return 0;
-> @@ -114,21 +136,23 @@ int ftrace_make_nop(struct module *mod, struct dyn_ftrace *rec,
->    */
->   int ftrace_init_nop(struct module *mod, struct dyn_ftrace *rec)
->   {
-> +       unsigned int nops[2];
->          int out;
-> 
-> +       make_call_t0(rec->ip, &ftrace_caller, nops);
-> +       nops[1] = NOP4;
-> +
->          mutex_lock(&text_mutex);
-> -       out = ftrace_make_nop(mod, rec, MCOUNT_ADDR);
-> +       out = patch_insn_write((void *)rec->ip, nops, MCOUNT_INSN_SIZE);
->          mutex_unlock(&text_mutex);
-> 
->          return out;
->   }
-> 
-> +ftrace_func_t ftrace_call_dest = ftrace_stub;
->   int ftrace_update_ftrace_func(ftrace_func_t func)
->   {
-> -       int ret = __ftrace_modify_call((unsigned long)&ftrace_call,
-> -                                      (unsigned long)func, true, true);
-> -
-> -       return ret;
-> +       return __ftrace_modify_call_site(&ftrace_call_dest, func, true);
->   }
-> 
->   struct ftrace_modify_param {
-> @@ -182,7 +206,7 @@ int ftrace_modify_call(struct dyn_ftrace *rec, unsigned long old_addr,
->          if (ret)
->                  return ret;
-> 
-> -       return __ftrace_modify_call(caller, addr, true, false);
-> +       return __ftrace_modify_call(caller, addr, true);
->   }
->   #endif
-> 
-> @@ -217,17 +241,17 @@ void ftrace_graph_func(unsigned long ip, unsigned long parent_ip,
->          prepare_ftrace_return(&fregs->ra, ip, fregs->s0);
->   }
->   #else /* CONFIG_DYNAMIC_FTRACE_WITH_ARGS */
-> -extern void ftrace_graph_call(void);
-> +ftrace_func_t ftrace_graph_call_dest = ftrace_stub;
->   int ftrace_enable_ftrace_graph_caller(void)
->   {
-> -       return __ftrace_modify_call((unsigned long)&ftrace_graph_call,
-> -                                   (unsigned long)&prepare_ftrace_return, true, true);
-> +       return __ftrace_modify_call_site(&ftrace_graph_call_dest,
-> +                                        &prepare_ftrace_return, true);
->   }
-> 
->   int ftrace_disable_ftrace_graph_caller(void)
->   {
-> -       return __ftrace_modify_call((unsigned long)&ftrace_graph_call,
-> -                                   (unsigned long)&prepare_ftrace_return, false, true);
-> +       return __ftrace_modify_call_site(&ftrace_graph_call_dest,
-> +                                        &prepare_ftrace_return, false);
->   }
->   #endif /* CONFIG_DYNAMIC_FTRACE_WITH_ARGS */
->   #endif /* CONFIG_DYNAMIC_FTRACE */
-> diff --git a/arch/riscv/kernel/mcount-dyn.S b/arch/riscv/kernel/mcount-dyn.S
-> index e988bd26b28b..bc06e8ab81cf 100644
-> --- a/arch/riscv/kernel/mcount-dyn.S
-> +++ b/arch/riscv/kernel/mcount-dyn.S
-> @@ -162,7 +162,8 @@ SYM_FUNC_START(ftrace_caller)
->          mv      a3, sp
-> 
->   SYM_INNER_LABEL(ftrace_call, SYM_L_GLOBAL)
-> -       call    ftrace_stub
-> +       REG_L   ra, ftrace_call_dest
-> +       jalr    0(ra)
-> 
->   #ifdef CONFIG_FUNCTION_GRAPH_TRACER
->          addi    a0, sp, ABI_RA
-> @@ -172,7 +173,8 @@ SYM_INNER_LABEL(ftrace_call, SYM_L_GLOBAL)
->          mv      a2, s0
->   #endif
->   SYM_INNER_LABEL(ftrace_graph_call, SYM_L_GLOBAL)
-> -       call    ftrace_stub
-> +       REG_L   ra, ftrace_graph_call_dest
-> +       jalr    0(ra)
->   #endif
->          RESTORE_ABI
->          jr      t0
-> @@ -185,7 +187,8 @@ SYM_FUNC_START(ftrace_caller)
->          PREPARE_ARGS
-> 
->   SYM_INNER_LABEL(ftrace_call, SYM_L_GLOBAL)
-> -       call    ftrace_stub
-> +       REG_L   ra, ftrace_call_dest
-> +       jalr    0(ra)
-> 
->          RESTORE_ABI_REGS
->          bnez    t1, .Ldirect
-> --
-> 2.39.3 (Apple Git-145)
-> 
-> 
-> _______________________________________________
-> linux-riscv mailing list
-> linux-riscv@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-riscv
+diff --git a/arch/arm64/lib/crc32-glue.c b/arch/arm64/lib/crc32-glue.c
+index 295ae3e6b997..ad015223d15d 100644
+--- a/arch/arm64/lib/crc32-glue.c
++++ b/arch/arm64/lib/crc32-glue.c
+@@ -42,11 +42,11 @@ u32 __pure crc32_le(u32 crc, unsigned char const *p, size_t len)
+ }
+ 
+ u32 __pure __crc32c_le(u32 crc, unsigned char const *p, size_t len)
+ {
+ 	if (!alternative_has_cap_likely(ARM64_HAS_CRC32))
+-		return __crc32c_le_base(crc, p, len);
++		return crc32c_le_base(crc, p, len);
+ 
+ 	if (len >= min_len && cpu_have_named_feature(PMULL) && crypto_simd_usable()) {
+ 		kernel_neon_begin();
+ 		crc = crc32c_le_arm64_4way(crc, p, len);
+ 		kernel_neon_end();
+diff --git a/arch/riscv/lib/crc32.c b/arch/riscv/lib/crc32.c
+index d7dc599af3ef..333fb7af1192 100644
+--- a/arch/riscv/lib/crc32.c
++++ b/arch/riscv/lib/crc32.c
+@@ -224,11 +224,11 @@ u32 __pure crc32_le(u32 crc, unsigned char const *p, size_t len)
+ }
+ 
+ u32 __pure __crc32c_le(u32 crc, unsigned char const *p, size_t len)
+ {
+ 	return crc32_le_generic(crc, p, len, CRC32C_POLY_LE,
+-				CRC32C_POLY_QT_LE, __crc32c_le_base);
++				CRC32C_POLY_QT_LE, crc32c_le_base);
+ }
+ 
+ static inline u32 crc32_be_unaligned(u32 crc, unsigned char const *p,
+ 				     size_t len)
+ {
+diff --git a/crypto/crc32c_generic.c b/crypto/crc32c_generic.c
+index 7c2357c30fdf..635599b255ec 100644
+--- a/crypto/crc32c_generic.c
++++ b/crypto/crc32c_generic.c
+@@ -83,11 +83,11 @@ static int chksum_setkey(struct crypto_shash *tfm, const u8 *key,
+ static int chksum_update(struct shash_desc *desc, const u8 *data,
+ 			 unsigned int length)
+ {
+ 	struct chksum_desc_ctx *ctx = shash_desc_ctx(desc);
+ 
+-	ctx->crc = __crc32c_le_base(ctx->crc, data, length);
++	ctx->crc = crc32c_le_base(ctx->crc, data, length);
+ 	return 0;
+ }
+ 
+ static int chksum_update_arch(struct shash_desc *desc, const u8 *data,
+ 			      unsigned int length)
+@@ -106,11 +106,11 @@ static int chksum_final(struct shash_desc *desc, u8 *out)
+ 	return 0;
+ }
+ 
+ static int __chksum_finup(u32 *crcp, const u8 *data, unsigned int len, u8 *out)
+ {
+-	put_unaligned_le32(~__crc32c_le_base(*crcp, data, len), out);
++	put_unaligned_le32(~crc32c_le_base(*crcp, data, len), out);
+ 	return 0;
+ }
+ 
+ static int __chksum_finup_arch(u32 *crcp, const u8 *data, unsigned int len,
+ 			       u8 *out)
+@@ -198,16 +198,16 @@ static struct shash_alg algs[] = {{
+ }};
+ 
+ static int __init crc32c_mod_init(void)
+ {
+ 	/* register the arch flavor only if it differs from the generic one */
+-	return crypto_register_shashes(algs, 1 + (&__crc32c_le != &__crc32c_le_base));
++	return crypto_register_shashes(algs, 1 + (&__crc32c_le != &crc32c_le_base));
+ }
+ 
+ static void __exit crc32c_mod_fini(void)
+ {
+-	crypto_unregister_shashes(algs, 1 + (&__crc32c_le != &__crc32c_le_base));
++	crypto_unregister_shashes(algs, 1 + (&__crc32c_le != &crc32c_le_base));
+ }
+ 
+ subsys_initcall(crc32c_mod_init);
+ module_exit(crc32c_mod_fini);
+ 
+diff --git a/include/linux/crc32.h b/include/linux/crc32.h
+index 87f788c0d607..5b07fc9081c4 100644
+--- a/include/linux/crc32.h
++++ b/include/linux/crc32.h
+@@ -37,11 +37,11 @@ static inline u32 crc32_le_combine(u32 crc1, u32 crc2, size_t len2)
+ {
+ 	return crc32_le_shift(crc1, len2) ^ crc2;
+ }
+ 
+ u32 __pure __crc32c_le(u32 crc, unsigned char const *p, size_t len);
+-u32 __pure __crc32c_le_base(u32 crc, unsigned char const *p, size_t len);
++u32 __pure crc32c_le_base(u32 crc, unsigned char const *p, size_t len);
+ 
+ /**
+  * __crc32c_le_combine - Combine two crc32c check values into one. For two
+  * 			 sequences of bytes, seq1 and seq2 with lengths len1
+  * 			 and len2, __crc32c_le() check values were calculated
+diff --git a/lib/crc32.c b/lib/crc32.c
+index ff587fee3893..c67059b0082b 100644
+--- a/lib/crc32.c
++++ b/lib/crc32.c
+@@ -205,12 +205,12 @@ EXPORT_SYMBOL(crc32_le);
+ EXPORT_SYMBOL(__crc32c_le);
+ 
+ u32 __pure crc32_le_base(u32, unsigned char const *, size_t) __alias(crc32_le);
+ EXPORT_SYMBOL(crc32_le_base);
+ 
+-u32 __pure __crc32c_le_base(u32, unsigned char const *, size_t) __alias(__crc32c_le);
+-EXPORT_SYMBOL(__crc32c_le_base);
++u32 __pure crc32c_le_base(u32, unsigned char const *, size_t) __alias(__crc32c_le);
++EXPORT_SYMBOL(crc32c_le_base);
+ 
+ u32 __pure crc32_be_base(u32, unsigned char const *, size_t) __alias(crc32_be);
+ 
+ /*
+  * This multiplies the polynomials x and y modulo the given modulus.
+-- 
+2.47.1
 
 
 _______________________________________________
