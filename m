@@ -4,86 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 86604D78301
-	for <linux-riscv@archiver.kernel.org>; Mon,  2 Dec 2024 10:16:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C2C7D7830D
+	for <linux-riscv@archiver.kernel.org>; Mon,  2 Dec 2024 11:32:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=OnRoDMxQrBtedeLJL8sw4jRRoA6ylFlroL3uC9wiWHI=; b=X+z3MLyjKLfh3w
-	GlfqbSCyNIT/Sgq7rAsWzgERyNKO0DJmLt2xALJNE1hriRA6pP3acVuuT10H4EDCeEH/PA4I6B+Vp
-	ejOXTsAPa/3JTVHNFx04Z1/MJemm1qW6ZtTdIP8nOxxzmOH/cyW5skEPB9zpfXzYReJl47OEOeT13
-	5gMz/om/hYYTRPkzpfMriR9JdYDGSrpuruoE3xx8rreKXtVwhZIv4jnb2xc8bcsM6JT4mQa8b0f/U
-	NQz6VmA1USsxev8RoDTj59+Qar+KZhoAPOf0mFxehxe7M+2jmhUuPPtgYBUd1AcAKjmSeYIV2/TS/
-	IUMczHyZf11175e3ki7g==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=CpNwm0YmrRQsty5hBEvz+L7DT1XRvDAPWC0ST/LBOho=; b=GyMpKA2v7Q9FR6tDF/qzN9Oa3F
+	Zdq2B6m6q1+Z8CPErI7aGUiPMCS76BxwmPr9D2P7ac3CkAoYNtpgeb9LT6WQD37FLqa0W6AX4/3E1
+	K4EhpjtMzSOjfAswHOCqInmXLHEpyd8LWhxZCUl1qyRKh/1ICeISON3ztdMdceQUdnPMc/CPcDBbg
+	e2XT1xTwC2WJfbKywZKRTy+qBKVRsvx+EdeiwMVNY1mGjM5yRoYzBafuzMgeF7idAAXDHtDbNTjr2
+	ZRKfzUQ1hKQ46iQ6YMjSbyFe5hNzsJ65Bq0gx07mdYxU+/Ei660m4/FYFlQHRZKVkzb40UDsg5Y+Z
+	py5YOF1g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tI3TU-00000005hNh-1986;
-	Mon, 02 Dec 2024 10:16:16 +0000
-Received: from mail-pl1-x62a.google.com ([2607:f8b0:4864:20::62a])
+	id 1tI4f3-00000005uPk-28v9;
+	Mon, 02 Dec 2024 11:32:17 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tI3TR-00000005hMF-3gXt
+	id 1tI4VE-00000005s6b-44bs
 	for linux-riscv@lists.infradead.org;
-	Mon, 02 Dec 2024 10:16:15 +0000
-Received: by mail-pl1-x62a.google.com with SMTP id d9443c01a7336-21527bb7eb0so26363725ad.3
-        for <linux-riscv@lists.infradead.org>; Mon, 02 Dec 2024 02:16:10 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bytedance.com; s=google; t=1733134569; x=1733739369; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=AqdyYnh7L9JzbifPNftANkk0KPlnXsX4tMHkyCxaZPo=;
-        b=DJZhrXDq36GG0XpgrtfOt4NQtE6xipsN+fvWJg+fNVn2UhvaFFYp2jbvkd+mhszkkD
-         IvEbT4q1Hzg0VeHWRF2p0RUK1WTlLQTXBMwRfIuU9wMjibHsDaUV/T4i54ilBULr/0cC
-         ipuzQP5gTHo0XqQmxGR1Gxkc+EbA9lca1xCpjE3QaINTxRTOGtsFDfV20qNm/ksue+zj
-         UeEE6669kp70Kp4ma8acipkin563T25qRIDjyxmrt+ld7IE++BMfsFnxJ6sPGz77tUr3
-         GtpyiYkNByULzGDPX4DgbkauftgBQxOYsuXplvV6G4AskeomVpg4BlRagtbS1bzdMK/p
-         RrUQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1733134570; x=1733739370;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=AqdyYnh7L9JzbifPNftANkk0KPlnXsX4tMHkyCxaZPo=;
-        b=sKfG6vZeJ6aY+8Rwh/q8D6tuM9izxuhOKLarRuPOroAT7Wt/Q9L0x3YnZwEz1BiCWJ
-         l6SCW4bNRTvo9VhzlOxE9c6eh4WvQczRs0gvEnJaVGIJN9Jxxt/+mDsez4XiMU5/oTbA
-         hm9JiBvKCRT1x+/pWHcB/NqqCH19RLq1PNW3iuxX3gOnH7/DgogUtkg0RGyAUkuVBPgG
-         Xae2z057VmExcZ0SD9XvvEFoWg2G1oig8YqJ/jAToewXAdVFpIMvjOoHcaEtgc/gVYgh
-         3MGVuT5NxJa8abRM/dTqCp+9QH5PGkREGR0wh9/zKq/LXfMDL5itVbzkTGXNL1mHpXJq
-         MWOQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVb0j+gTdU/hSrxqx2kYed0CPnj7/FfaD2ziqf+DT0fZxIZs3Jwnk9OgXw1bQTiNH//2CSEbtzVAyWUww==@lists.infradead.org
-X-Gm-Message-State: AOJu0YxggceqQn16aRrsksYRrxzrFYppzco0q1kSA/JxNajJcS8KheDt
-	iLwDhmhp5dvgLi9L7K2ELmgk2l4cyoPVOhkkUCFAG10cJu+MuCZbQ3y0qT8EPko=
-X-Gm-Gg: ASbGncvhyhFSRzshxZbT9WzeYsc+RbbpIs1vxK19hkV220mWS5Ecs7EqlnUBnZ8Dlbt
-	ilgwEZsUeen8YNS9RFlwSSK07pUyZN2f+/34JJKEYhWxlwT4U9E2sBl8Op+R8ZbgovIJQMSiPVY
-	YphRiHQb21IRC6PKWf1IJWIEq1099ut+MkXNK6QiyoGJ6xLDZiahbnpCgLwSzLqcoEhMwfS7JRK
-	qGrxCJ5VlcSmlxN8c/n0XyU446Eckc90YGR7BxMY29l/Ak4uUp0TNmB/WX0rJ9FNgnLM6MdPWEP
-	H1O3rbjrD8phyuAtAqujtfK+PzPaDWoP
-X-Google-Smtp-Source: AGHT+IH1+6Y2xOPT53z5KOINjW/eib1XXOUom5+MdqN7SgnYZHlbvRTsSjFLdTYt0jzINpPmKZcGeA==
-X-Received: by 2002:a17:902:e541:b0:215:58f0:2606 with SMTP id d9443c01a7336-21558f02c9emr128817145ad.2.1733134569664;
-        Mon, 02 Dec 2024 02:16:09 -0800 (PST)
-Received: from J9GPGXL7NT.bytedance.net ([61.213.176.55])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-21521969e59sm73097425ad.146.2024.12.02.02.16.06
-        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Mon, 02 Dec 2024 02:16:09 -0800 (PST)
-From: Xu Lu <luxu.kernel@bytedance.com>
-To: paul.walmsley@sifive.com,
-	palmer@dabbelt.com,
-	aou@eecs.berkeley.edu
-Cc: lihangjing@bytedance.com,
-	xieyongji@bytedance.com,
-	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Xu Lu <luxu.kernel@bytedance.com>
-Subject: [PATCH] riscv: mm: Fix alignment of phys_ram_base
-Date: Mon,  2 Dec 2024 18:16:01 +0800
-Message-Id: <20241202101601.48284-1-luxu.kernel@bytedance.com>
-X-Mailer: git-send-email 2.39.5 (Apple Git-154)
+	Mon, 02 Dec 2024 11:22:10 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 6DDB6A40B03;
+	Mon,  2 Dec 2024 11:20:15 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D4627C4CED1;
+	Mon,  2 Dec 2024 11:22:04 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1733138527;
+	bh=aKC5m8Te3KxTEdZNz2E/rO1mlGWhjourLbO6QpI5uH0=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=c87NugaEjNKKTPM/z0lz9VdoOrDqtpqOTBEC8jUCWTMoK0S2qJsJP3NzuKbW5TJsC
+	 D1Glbqrc0nYR1ID+fmI1ciPx7PUfvYtOzPiTytdAE/fBqYv7Qr2VGTxfbzEWnsVChY
+	 HxrwOPGLYFP1wmPJx/JyYAFewQbBX63RfFltsEWNT8gNe4w7bqfsv8RiVi1iQwMgw+
+	 CrLk7qGQTP+ujusSnnzVEL6tisVVYR/g7TzMsWGhPoNWNK2uqgWPlEpQJwdxhjHcUc
+	 b2ZLoQj5Y+aOG2kxU+t9jNZDHV42G2fSaswlIs7ImaMGxwKV+NB0l8PMwKA+ChL2Y/
+	 RqTMYKQuWq54A==
+Date: Mon, 2 Dec 2024 11:22:02 +0000
+From: Conor Dooley <conor@kernel.org>
+To: guoren@kernel.org
+Cc: paul.walmsley@sifive.com, palmer@dabbelt.com, bjorn@rivosinc.com,
+	leobras@redhat.com, peterz@infradead.org, parri.andrea@gmail.com,
+	will@kernel.org, longman@redhat.com, boqun.feng@gmail.com,
+	arnd@arndb.de, alexghiti@rivosinc.com,
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Guo Ren <guoren@linux.alibaba.com>
+Subject: Re: [RESEND PATCH] riscv: Fixup boot failure when
+ CONFIG_DEBUG_RT_MUTEXES=y
+Message-ID: <20241202-vertigo-dreamboat-4bf6b61a4ef6@spud>
+References: <20241130153310.3349484-1-guoren@kernel.org>
 MIME-Version: 1.0
+In-Reply-To: <20241130153310.3349484-1-guoren@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241202_021613_921759_CF9C2487 
-X-CRM114-Status: GOOD (  12.87  )
+X-CRM114-CacheID: sfid-20241202_032209_308915_2954E17B 
+X-CRM114-Status: GOOD (  11.61  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,64 +71,96 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============3124972203304772719=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This commit fixes the alignment of phys_ram_base in RISC-V.
 
-In sparse vmemmap model, the virtual address of vmemmap is calculated as:
-'(struct page *)VMEMMAP_START - (phys_ram_base >> PAGE_SHIFT)'.
-And the struct page's va can be calculated with an offset:
-'vmemmap + (pfn)'.
+--===============3124972203304772719==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="PNVedD9oKqNR10oc"
+Content-Disposition: inline
 
-However, when initializing struct pages, kernel actually starts from the
-first page from the same section that phys_ram_base belongs to. If the
-first page's physical address is not 'phys_ram_base >> PAGE_SHIFT', then
-we get an va below VMEMMAP_START when calculating va for it's struct page.
 
-For example, if phys_ram_base starts from 0x82000000 with pfn 0x82000, the
-first page in the same section is actually pfn 0x80000. During
-init_unavailage_range, we will initialize struct page for pfn 0x80000
-with virtual address '(struct page *)VMEMMAP_START - 0x2000', which is
-below VMEMMAP_START as well as PCI_IO_END.
+--PNVedD9oKqNR10oc
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-This commit fixes this bug by aligning phys_ram_base with SECTION_SIZE.
+On Sat, Nov 30, 2024 at 10:33:10AM -0500, guoren@kernel.org wrote:
+> From: Guo Ren <guoren@linux.alibaba.com>
+>=20
+> When CONFIG_DEBUG_RT_MUTEXES=3Dy, mutex_lock->rt_mutex_try_acquire
+> would change from rt_mutex_cmpxchg_acquire to
+> rt_mutex_slowtrylock():
+> 	raw_spin_lock_irqsave(&lock->wait_lock, flags);
+> 	ret =3D __rt_mutex_slowtrylock(lock);
+> 	raw_spin_unlock_irqrestore(&lock->wait_lock, flags);
+>=20
+> Because queued_spin_#ops to ticket_#ops is changed one by one by
+> jump_label, raw_spin_lock/unlock would cause a deadlock during the
+> changing.
+>=20
+> That means in arch/riscv/kernel/jump_label.c:
+> 1.
+> arch_jump_label_transform_queue() ->
+> mutex_lock(&text_mutex); +-> raw_spin_lock  -> queued_spin_lock
+> 			 |-> raw_spin_unlock -> queued_spin_unlock
+> patch_insn_write -> change the raw_spin_lock to ticket_lock
+> mutex_unlock(&text_mutex);
+> ...
+>=20
+> 2. /* Dirty the lock value */
+> arch_jump_label_transform_queue() ->
+> mutex_lock(&text_mutex); +-> raw_spin_lock -> *ticket_lock*
+>                          |-> raw_spin_unlock -> *queued_spin_unlock*
+> 			  /* BUG: ticket_lock with queued_spin_unlock */
+> patch_insn_write  ->  change the raw_spin_unlock to ticket_unlock
+> mutex_unlock(&text_mutex);
+> ...
+>=20
+> 3. /* Dead lock */
+> arch_jump_label_transform_queue() ->
+> mutex_lock(&text_mutex); +-> raw_spin_lock -> ticket_lock /* deadlock! */
+>                          |-> raw_spin_unlock -> ticket_unlock
+> patch_insn_write -> change other raw_spin_#op -> ticket_#op
+> mutex_unlock(&text_mutex);
+>=20
+> So, the solution is to disable mutex usage of
+> arch_jump_label_transform_queue() during early_boot_irqs_disabled, just
+> like we have done for stop_machine.
+>=20
+> Reported-by: Conor Dooley <conor@kernel.org>
 
-Signed-off-by: Xu Lu <luxu.kernel@bytedance.com>
----
- arch/riscv/mm/init.c | 5 ++++-
- 1 file changed, 4 insertions(+), 1 deletion(-)
+Tested-by: Conor Dooley <conor.dooley@microchip.com>
 
-diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
-index 0e8c20adcd98..9866de267b74 100644
---- a/arch/riscv/mm/init.c
-+++ b/arch/riscv/mm/init.c
-@@ -59,6 +59,8 @@ EXPORT_SYMBOL(pgtable_l4_enabled);
- EXPORT_SYMBOL(pgtable_l5_enabled);
- #endif
- 
-+#define RISCV_MEMSTART_ALIGN	(1UL << SECTION_SIZE_BITS)
-+
- phys_addr_t phys_ram_base __ro_after_init;
- EXPORT_SYMBOL(phys_ram_base);
- 
-@@ -241,7 +243,8 @@ static void __init setup_bootmem(void)
- 	 * at worst, we map the linear mapping with PMD mappings.
- 	 */
- 	if (!IS_ENABLED(CONFIG_XIP_KERNEL))
--		phys_ram_base = memblock_start_of_DRAM() & PMD_MASK;
-+		phys_ram_base = round_down(memblock_start_of_DRAM(),
-+					   RISCV_MEMSTART_ALIGN);
- 
- 	/*
- 	 * In 64-bit, any use of __va/__pa before this point is wrong as we
--- 
-2.20.1
+Thanks,
+Conor.
 
+--PNVedD9oKqNR10oc
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZ02YOAAKCRB4tDGHoIJi
+0u4tAQD6SZZZiL32ZYOosf6OYXIcB58LwhhQx8q9rpkdOJ83MwEAz5fGQp47QqnL
+p4h17qAfQMMQncnXded5i6hV9r39kQo=
+=MpJM
+-----END PGP SIGNATURE-----
+
+--PNVedD9oKqNR10oc--
+
+
+--===============3124972203304772719==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============3124972203304772719==--
+
