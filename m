@@ -4,60 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AACF1D78310
-	for <linux-riscv@archiver.kernel.org>; Mon,  2 Dec 2024 12:12:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B692FD78321
+	for <linux-riscv@archiver.kernel.org>; Mon,  2 Dec 2024 14:11:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0b8clxGX2UV79pxFB1pZbBtXhRciTBZwaJlYRSVP7UI=; b=d4MUIHOFapDVSNJI0PdmsG1nUc
-	yiNdxAXYnZKp35uuWm4dPFfBS9NNcm/k/HJa1RrHWZA4LEquSLeBet5bAfaqJki06txDBUldCggah
-	CdX9JTldUzE5nHT16W0Rf9DbgszzG/eqk2iTGvWiEgcibAuscK0ESyCPKydT/NEo+8lJXZx1BPOsS
-	f/1Wb1n4GAdPPrTDF0i05gv3NtbnTwoYNAdim4tqpDtbsgDbqq8xHrL57/53ZCbX48bDfcW+UnbOZ
-	LAIB9NDOI7jnIIqigHNfSDwTD10eFhzf1NRRkQvQusrROLu2sM2TnQ1u8XD0I86+wZx7tA0mOmW0T
-	+IxjW8Hw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=xxh0ShkSXMjjDKYghrq2ZFVrMogJeDxOdkeC6oF6cnc=; b=amOaW99dU/jDPb
+	HWrQiraxtZOE4xbrlTpNI6XbAttvNLk7unTidg2tfXfUNncCBP7k4NCVRtLBbGWW7pNPhzuzAA6pq
+	V/eorRrZkU2Uij9P+cnXKdo5ZwkAdPgU1Er0fWmKJ2szt+2FianCOSwsykOqTNWZLHyxSZ4BTcupZ
+	Ae+d2pxjhYViq0H567LAOotZe5wVeBS2PLBIIUTEWh4eYWHX7tHKz0n0SFqS4XkDooRfRr/zROlJf
+	V70p7q0tAb2zDVdfphfhuw1IzBBcFwmsA1YztyMeTG86kXUlkawamh4/fy/QaL3pW+BsGez0PAibf
+	MpZN4GIweU4uKSVQOlCQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tI5He-0000000620y-0QKh;
-	Mon, 02 Dec 2024 12:12:10 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1tI78s-00000006NGR-0ZHb;
+	Mon, 02 Dec 2024 14:11:14 +0000
+Received: from esa.microchip.iphmx.com ([68.232.153.233])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tI5Ge-000000061ml-2Ib5
+	id 1tI78p-00000006NFI-36GO
 	for linux-riscv@lists.infradead.org;
-	Mon, 02 Dec 2024 12:11:09 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 51103A40B71;
-	Mon,  2 Dec 2024 12:09:15 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E99FFC4CED1;
-	Mon,  2 Dec 2024 12:11:05 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1733141467;
-	bh=LsP9CgzJ+Y+sKgxaLMOV69iCWU+C4h7rrlW1sun0Wq0=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=DtVsEOnEymQbCqj0nMkRW/4Me25USsUS1i7F5u90FS8KklyW0ISsUt8taa/mJ3+zn
-	 YEYXz5ty08tFwVYji1+LqnHz+LaVfCtbegVLplbhGsw+Pb7/hindKs9HjfJPcWBkRR
-	 UtanJH3XNygwsHcVpQJ1klAstg4WZDrvA3dHD2IITloeQqprq0GawNqtw7AIS/SBtE
-	 QZFnXGvHyWUffsMU5tnclRjUWj72FXVebFG8D/IZTquoEAlj39tSxDKs5YnvWAt6+A
-	 5NsUFMA+D5HkBTpqCD/ocM/Sv3+PKAJheuZfvwZuQnVr9NQWX+nsVjSyeYFf8LU/fR
-	 3Bj4fE2asM/Qg==
-Date: Mon, 2 Dec 2024 12:11:03 +0000
-From: Conor Dooley <conor@kernel.org>
-To: Dan Carpenter <dan.carpenter@linaro.org>
-Cc: Conor Dooley <conor.dooley@microchip.com>,
-	Daire McNamara <daire.mcnamara@microchip.com>,
-	Jassi Brar <jassisinghbrar@gmail.com>,
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
-	kernel-janitors@vger.kernel.org
-Subject: Re: [PATCH] mailbox: mpfs: fix copy and paste bug in probe
-Message-ID: <20241202-given-elite-bcff7bdc290d@spud>
-References: <9e760329-80ed-4bf7-8d4f-dbb16a736497@stanley.mountain>
+	Mon, 02 Dec 2024 14:11:12 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1733148672; x=1764684672;
+  h=from:to:cc:subject:date:message-id:in-reply-to:
+   references:mime-version:content-transfer-encoding;
+  bh=z6u/32qG+4VOxWxyQMcxtikghEw3g/GuPpIgKl24hiQ=;
+  b=tiIbQBRKDrO2QtgHraz3fyryDSs21pubOy1bduAYUXgQUAuYLSxNwlxh
+   9h0maQNIsvLm4Ielt8UDGttBXzlX8UO8YcWBtIpoZbcurnJsfkFAiJvy1
+   ILNw5TK59gjDQxvgGz1agcMLtiG/+z8zEnwBpkKh0bFeLwAqwxw9pk8d+
+   wCWo9R6/1nkjhqROL6bYo41IeeT7ywkWl3oCWKNYese+Cxi6WvX9aERcl
+   YoTBI+rpViZTPCU99+k0JtB7qHYt0159VhBBvhh41igWmyc1Qo6CNEyYW
+   l5HekKASTU3RV/lyWyyQFzIZosve/bgvYUm14BNv+flKy6I4FdTh1Mwcj
+   g==;
+X-CSE-ConnectionGUID: 2KutSU5NQueuFpBXpCyxJA==
+X-CSE-MsgGUID: G43RZOjTRM2h8K5I5CB4+g==
+X-IronPort-AV: E=Sophos;i="6.12,202,1728975600"; 
+   d="scan'208";a="266205959"
+X-Amp-Result: SKIPPED(no attachment in message)
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa5.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 02 Dec 2024 07:11:08 -0700
+Received: from chn-vm-ex01.mchp-main.com (10.10.85.143) by
+ chn-vm-ex01.mchp-main.com (10.10.85.143) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.35; Mon, 2 Dec 2024 07:10:55 -0700
+Received: from valentina.microchip.com (10.10.85.11) by
+ chn-vm-ex01.mchp-main.com (10.10.85.143) with Microsoft SMTP Server id
+ 15.1.2507.35 via Frontend Transport; Mon, 2 Dec 2024 07:10:53 -0700
+From: Valentina Fernandez <valentina.fernandezalanis@microchip.com>
+To: <paul.walmsley@sifive.com>, <palmer@dabbelt.com>,
+	<conor.dooley@microchip.com>, <conor+dt@kernel.org>,
+	<jassisinghbrar@gmail.com>, <robh@kernel.org>, <krzk+dt@kernel.org>,
+	<valentina.fernandezalanis@microchip.com>
+CC: <linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	<devicetree@vger.kernel.org>
+Subject: [PATCH v5 2/4] riscv: export __cpuid_to_hartid_map
+Date: Mon, 2 Dec 2024 14:11:05 +0000
+Message-ID: <20241202141107.193809-3-valentina.fernandezalanis@microchip.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20241202141107.193809-1-valentina.fernandezalanis@microchip.com>
+References: <20241202141107.193809-1-valentina.fernandezalanis@microchip.com>
 MIME-Version: 1.0
-In-Reply-To: <9e760329-80ed-4bf7-8d4f-dbb16a736497@stanley.mountain>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241202_041108_652552_565B20C9 
-X-CRM114-Status: GOOD (  17.88  )
+X-CRM114-CacheID: sfid-20241202_061111_794899_B3D90A65 
+X-CRM114-Status: UNSURE (   6.95  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,88 +83,37 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============7389576846657815684=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+EXPORT_SYMBOL_GPL() is missing for __cpuid_to_hartid_map array.
+Export this symbol to allow drivers compiled as modules to use
+cpuid_to_hartid_map().
 
---===============7389576846657815684==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="c+C96bfMaMmx84Ld"
-Content-Disposition: inline
+Signed-off-by: Valentina Fernandez <valentina.fernandezalanis@microchip.com>
+---
+ arch/riscv/kernel/smp.c | 1 +
+ 1 file changed, 1 insertion(+)
 
+diff --git a/arch/riscv/kernel/smp.c b/arch/riscv/kernel/smp.c
+index c180a647a30e..d58b5e751286 100644
+--- a/arch/riscv/kernel/smp.c
++++ b/arch/riscv/kernel/smp.c
+@@ -43,6 +43,7 @@ enum ipi_message_type {
+ unsigned long __cpuid_to_hartid_map[NR_CPUS] __ro_after_init = {
+ 	[0 ... NR_CPUS-1] = INVALID_HARTID
+ };
++EXPORT_SYMBOL_GPL(__cpuid_to_hartid_map);
+ 
+ void __init smp_setup_processor_id(void)
+ {
+-- 
+2.34.1
 
---c+C96bfMaMmx84Ld
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-On Sat, Nov 30, 2024 at 01:07:23PM +0300, Dan Carpenter wrote:
-> This code accidentally checks ->ctrl_base instead of ->mbox_base so the
-> error handling can never be triggered.
->=20
-> Fixes: a4123ffab9ec ("mailbox: mpfs: support new, syscon based, devicetre=
-e configuration")
-
-This got merged? Would have been nice to know about it Jassi, you
-really should adopt some mechanism of informing people that you applied
-their patches.
-
-I had added a fix for this locally Dan after we discussed it previously,
-but since this made it in without that:
-Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
-
-Thanks,
-Conor.
-
-> Signed-off-by: Dan Carpenter <dan.carpenter@linaro.org>
-> ---
->  drivers/mailbox/mailbox-mpfs.c | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
->=20
-> diff --git a/drivers/mailbox/mailbox-mpfs.c b/drivers/mailbox/mailbox-mpf=
-s.c
-> index 4df546e3b7ea..d5d9effece97 100644
-> --- a/drivers/mailbox/mailbox-mpfs.c
-> +++ b/drivers/mailbox/mailbox-mpfs.c
-> @@ -251,7 +251,7 @@ static inline int mpfs_mbox_syscon_probe(struct mpfs_=
-mbox *mbox, struct platform
->  		return PTR_ERR(mbox->sysreg_scb);
-> =20
->  	mbox->mbox_base =3D devm_platform_ioremap_resource(pdev, 0);
-> -	if (IS_ERR(mbox->ctrl_base))
-> +	if (IS_ERR(mbox->mbox_base))
->  		return PTR_ERR(mbox->mbox_base);
-> =20
->  	return 0;
-> --=20
-> 2.45.2
->=20
-
---c+C96bfMaMmx84Ld
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZ02j1wAKCRB4tDGHoIJi
-0p/nAP0T1+p5CcIFqSqdwkulKIE1dpZGe7o3wJ9GOEDok8e//QEA7HDMHVJ1wuBg
-teJIyHLOc627VuGVFCijuhJTIPYo3Q0=
-=ekih
------END PGP SIGNATURE-----
-
---c+C96bfMaMmx84Ld--
-
-
---===============7389576846657815684==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============7389576846657815684==--
-
