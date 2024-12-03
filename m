@@ -4,129 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 46C76E64A9E
-	for <linux-riscv@archiver.kernel.org>; Tue,  3 Dec 2024 13:42:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A3288E64AA6
+	for <linux-riscv@archiver.kernel.org>; Tue,  3 Dec 2024 13:53:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:References:MIME-Version:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
+	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=HWpGx6JsQY1jCnDiMaTwdMFk1tvsUz5gljf2OjqwcNs=; b=PLvquYWnVrFUE2
-	wxhB7ERBmqL8PA+7gMfbaLm4fTDYToQ/lDp9EeocM74qPwr/a4ily+K/1RnwuNuiVz5ZJl7x6PCDe
-	jmtiuZPXeIkq5DjhTa1Sk9Eechjmgbdlsdq7bTeucH95jq6uGzFZnPHxfx9QI2YYX3agK26WPL8vG
-	Qzx3VgXEPa7ER66jePRUeOMp/dQDRx75boikYQn9gaAotIIIrp9FJwswe3hODLC/rMC2tkFmyUx3r
-	Mvpp49Yx4HQmfJB8X8aa42uZnpe8ba81Pu8Nsgqbv9bGXPMxVaVuwVc1/qWV3MA36OrD5rej10nwL
-	zZlbZbdK/Cy/kU1RIoBA==;
+	List-Owner; bh=GrKxOlXeoH5Lm7g6E/Qdtwb8uHVxTmWcdaP7Sd5pUko=; b=3cWZGu6BdyVlDn
+	qb/q8iPNIY9tzEiReXqlSA4tlHJnpqVGoPrr07UbofDHddX1j01fBK2f5I47pip6innX9OYHTWGhc
+	AZZ72F7vjc2AmDZH8LuF/P1znxyqrLnrcghK70q2PDdFizfZucDER0dTziD8qfJIV+BLkACYYxN25
+	N4SRYAHTpro3POZMrHZvyE81rM05jy/kC7w+zwLe5Gj2cBWiWLxl9/pG/wvVZXPm9wSa2DX5POjiN
+	Goo1jj96VllzwZJlFq+CGYsaOdwE5EKdU6I4Q93lDvpmwTJCT86+sbdqqIaQf3q23i8GM72T2ddH6
+	zWVLgF725ZZBz64NN4DA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tITAJ-00000009eMf-45p6;
-	Tue, 03 Dec 2024 13:42:11 +0000
-Received: from mailout2.w1.samsung.com ([210.118.77.12])
+	id 1tITLc-00000009h1b-2ECT;
+	Tue, 03 Dec 2024 13:53:52 +0000
+Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tITAH-00000009eH5-2dis
-	for linux-riscv@lists.infradead.org;
-	Tue, 03 Dec 2024 13:42:11 +0000
-Received: from eucas1p1.samsung.com (unknown [182.198.249.206])
-	by mailout2.w1.samsung.com (KnoxPortal) with ESMTP id 20241203134208euoutp028faf5718b39b60a99642e14c09aca936~Nroduibwe0153001530euoutp02M
-	for <linux-riscv@lists.infradead.org>; Tue,  3 Dec 2024 13:42:08 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.w1.samsung.com 20241203134208euoutp028faf5718b39b60a99642e14c09aca936~Nroduibwe0153001530euoutp02M
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1733233328;
-	bh=asLRQbzZayMb9yjHqxeg3uy1MkPJO2HP86mTn2EInqs=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=LzKmSEpZlf1ut93GLgZgZkL5DvwA9/s4Z4tXQvpfizc1ptHHgyzvlvncYlfq23/kH
-	 koSmiIRIpYqjRAwjaBCHioczuiP5BFvOXVnOeS6DKnKMjxEEZZQlXAbLP71fAOB5w5
-	 2dIsgkMX7v142vE668YZEtP1iuEE35338SBxkwes=
-Received: from eusmges3new.samsung.com (unknown [203.254.199.245]) by
-	eucas1p2.samsung.com (KnoxPortal) with ESMTP id
-	20241203134207eucas1p2192873d281269b06d9a62beceeba8f3d~NrodRG3hq2525825258eucas1p2T;
-	Tue,  3 Dec 2024 13:42:07 +0000 (GMT)
-Received: from eucas1p2.samsung.com ( [182.198.249.207]) by
-	eusmges3new.samsung.com (EUCPMTA) with SMTP id EA.61.20397.FAA0F476; Tue,  3
-	Dec 2024 13:42:07 +0000 (GMT)
-Received: from eusmtrp1.samsung.com (unknown [182.198.249.138]) by
-	eucas1p2.samsung.com (KnoxPortal) with ESMTPA id
-	20241203134207eucas1p29a2d095c527858729ae706d2a9027a5c~NrocvXTNQ0681706817eucas1p27;
-	Tue,  3 Dec 2024 13:42:07 +0000 (GMT)
-Received: from eusmgms2.samsung.com (unknown [182.198.249.180]) by
-	eusmtrp1.samsung.com (KnoxPortal) with ESMTP id
-	20241203134207eusmtrp1bbfbc45095ec0d11460c41a654f8dea7~NrocuVBR50888908889eusmtrp1h;
-	Tue,  3 Dec 2024 13:42:07 +0000 (GMT)
-X-AuditID: cbfec7f5-e59c770000004fad-5e-674f0aaf06f9
-Received: from eusmtip2.samsung.com ( [203.254.199.222]) by
-	eusmgms2.samsung.com (EUCPMTA) with SMTP id FA.07.19654.FAA0F476; Tue,  3
-	Dec 2024 13:42:07 +0000 (GMT)
-Received: from AMDC4942.home (unknown [106.210.136.40]) by
-	eusmtip2.samsung.com (KnoxPortal) with ESMTPA id
-	20241203134205eusmtip25691c9bf5366d4112ecb39c2227629f5~Nrobfx7Vv3160631606eusmtip2L;
-	Tue,  3 Dec 2024 13:42:05 +0000 (GMT)
-From: Michal Wilczynski <m.wilczynski@samsung.com>
-To: mturquette@baylibre.com, sboyd@kernel.org, robh@kernel.org,
-	krzk+dt@kernel.org, conor+dt@kernel.org, drew@pdp7.com, guoren@kernel.org,
-	wefu@redhat.com, jassisinghbrar@gmail.com, paul.walmsley@sifive.com,
-	palmer@dabbelt.com, aou@eecs.berkeley.edu, frank.binns@imgtec.com,
-	matt.coster@imgtec.com, maarten.lankhorst@linux.intel.com,
-	mripard@kernel.org, tzimmermann@suse.de, airlied@gmail.com, simona@ffwll.ch,
-	ulf.hansson@linaro.org, jszhang@kernel.org, m.szyprowski@samsung.com
-Cc: linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
-	dri-devel@lists.freedesktop.org, linux-pm@vger.kernel.org, Michal Wilczynski
-	<m.wilczynski@samsung.com>
-Subject: [RFC PATCH v1 14/14] riscv: dts: Add GPU node to TH1520 device tree
-Date: Tue,  3 Dec 2024 14:41:37 +0100
-Message-Id: <20241203134137.2114847-15-m.wilczynski@samsung.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20241203134137.2114847-1-m.wilczynski@samsung.com>
+	id 1tITLY-00000009gza-3sFj;
+	Tue, 03 Dec 2024 13:53:50 +0000
+From: Thomas Gleixner <tglx@linutronix.de>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1733234025;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=OimwqB/r3Nk8nQ65+nIw8ce4/cpQcWXc94E5L47e94w=;
+	b=ggEBgtSDOAy4LGfQ9NiI/Qt5eSz6BNxrbNAqvxl4riEe6EMaG2q2IA/j1xhQT4mh+dS39i
+	i2qmcRXm2ALdLKY4AnBWIdvfItpSIt1SwCDdPZfKqJICvh0/xPFvTgUbmQvGpUOAGD2KOW
+	FcFFB7pUW6h2LUShktZyAch90lxBoNEreUlVhvhkf1M8cyg6kGPzkGeuw3KDnbsAUD8y4G
+	/Y8aG9iv6WuG/5mBDSqjGZfHvMErwfUhvon/EikhzOVAKHLu5wKvhAZmbibkZlWi866xd7
+	CXQ29aSmAAvNuUuLnaWlu2NjwihWDLOFaO/38WBWMLzddGzrA+AmXc6z8SNqWA==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1733234025;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=OimwqB/r3Nk8nQ65+nIw8ce4/cpQcWXc94E5L47e94w=;
+	b=iVaNrvhl9p04kXc772sB0Sf1jrTkbKLTmAbfzBVZIIdreUvY3FXCwWRknD7EcMGavum43P
+	h8Dl4WJqEmSStwAQ==
+To: Andrew Jones <ajones@ventanamicro.com>, iommu@lists.linux.dev,
+ kvm-riscv@lists.infradead.org, kvm@vger.kernel.org,
+ linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+Cc: tjeznach@rivosinc.com, zong.li@sifive.com, joro@8bytes.org,
+ will@kernel.org, robin.murphy@arm.com, anup@brainfault.org,
+ atishp@atishpatra.org, alex.williamson@redhat.com,
+ paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu
+Subject: Re: [RFC PATCH 01/15] irqchip/riscv-imsic: Use hierarchy to reach
+ irq_set_affinity
+In-Reply-To: <20241114161845.502027-18-ajones@ventanamicro.com>
+References: <20241114161845.502027-17-ajones@ventanamicro.com>
+ <20241114161845.502027-18-ajones@ventanamicro.com>
+Date: Tue, 03 Dec 2024 14:53:45 +0100
+Message-ID: <87mshcub2u.ffs@tglx>
 MIME-Version: 1.0
-X-Brightmail-Tracker: H4sIAAAAAAAAA02Sf1CTdRzH7/s8z55nWzd6GJjfdMRBJ3cSoQjFlzSlu8qn1My6wyv/sBFP
-	g+KHt4ml0AXxQwdT1MXQgfLzxkLmANnip+C2YyoG6nQCAZFJBix2gOwuMojxWPnf6/t+vz/3
-	+XFfPi5uJNfwk1IPsvJUaXIwKSTMPX/2v2wU7pZttLrC0NV7VRgy/aWlUH1nH4bKbX08NHq7
-	GUN35t0kujh+k0K/d2YTyKk/R6GcHiOJJrSjJJpRjfKQo62MRHPHbQCZ53JJZLCNUMg4X46h
-	yhkTgWpa2gDKV+p46Nb1t9CEQ4WjfO2zaKmjhUKLzkYClU53UajZdYqH7Ia9KLfrOyI2gHEP
-	5FGMa2KCYKzHHlFMp6eCYFq1IxSjar0BmKY6JckMOztI5vy1PczPhXaMuVTzDZNr6MEY9+W7
-	JHOiuQ4wt3PuUcyl3oz3fT8Wbklgk5MOsfINWz8RJi643MSBxWe+0tU/BllgXlAABHxIR8Gs
-	kiZQAIR8Ma0H8IZRQ3kNMf0IwG9toZwxB+BpXf6ywV+psDiiOb0WwJs9lST3cAHYPraEeatJ
-	ehMcqy3neQ1/egqHA/ODKymcfgig+UEZ6U350TthSdEQ8DJBr4PnbIsrLKJj4W/TwzxuwEDY
-	deVH3MuCZX2quIDHZXzhtbMPCC/jy5kcUynubQDp74Uwz9aAc8VvQtP9LMCxH5y0N1McS2Cv
-	WkVwnAbHTLNP8pmwVWV/wpvhcN8C6d0Zp9dDY9sGTn4DapU5PO4UPnDgD19uBB942lyCc7II
-	HssXc+kQWKw6/l/TPr0Z45iBP3kawEkQpH1qGe1Ty2j/71sB8Dqwmk1XpMhYRWQq+2W4Qpqi
-	SE+VhX+altIEln9176J9vgXoJ2fCLQDjAwuAfDzYX1Rr3CETixKkh4+w8rT98vRkVmEBa/lE
-	8GrRuoRAVkzLpAfZL1j2ACv/18X4gjVZWAw5npy5R22K9OiqPI4GZcogDxktiWyRRZtR2K0+
-	HFKl+XBG927IZ5c/Oro9MiT+6rZSkTM2Ptr6nr9j1vP2viPmM1vW9jddeG0pu6Px632FqyL4
-	1ovZuqXNSUPMc67uU8UT1RF+kib3xvCzC2EvadSBZb/MWarPKKdiVlX7Lr3op38n6EKFtT4v
-	UdJQ5KwRZRCS9hfuB1yJuivatd41XTwlid5bF58XFxfwOTa+/+/z2300/duU7A+e0nrDkDa/
-	Ky7q+SqX5PXqyhL1bLs6raMxc2T40C3HY81kdOjI1lFBN3N999HkXTHWQcP0naCwE8WvOj/Y
-	9DA37pXYX7vaRgf9M4IJRaI0IhSXK6T/AGsy6TFEBAAA
-X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFlrIKsWRmVeSWpSXmKPExsVy+t/xe7rrufzTDeY+57Q4cX0Rk8XW37PY
-	LdbsPcdkMf/IOVaLe5e2MFlc+fqezWLd0wvsFi/2NrJYXFsxl92i+dh6NouXs+6xWXzsucdq
-	cXnXHDaLz71HGC22fW5hs1h75C67xfqv85ksFn7cymKxZMcuRou2zmWsFhdPuVq8vNzDbNE2
-	i9/i/54d7Bb/rm1ksZj9bj+7xZY3E1ktjq8Nt2jZP4XFQdbj/Y1Wdo83L1+yeBzu+MLusffb
-	AhaPnbPusnv07DzD6LFpVSebx51re9g85p0M9LjffZzJY/OSeo+WtceYPN7vu8rm0bdlFaPH
-	pebr7B6bT1cHCEbp2RTll5akKmTkF5fYKkUbWhjpGVpa6BmZWOoZGpvHWhmZKunb2aSk5mSW
-	pRbp2yXoZfx6856l4B93xbI1fxgbGL9ydjFycEgImEgcumzexcjFISSwlFHix9Jeli5GTqC4
-	jMS17pdQtrDEn2tdbBBFrxglXp+cA5ZgEzCSeLB8PitIQkSgk0Xi7ea1jCAOs8BbRonrMzeC
-	VQkL+EhM77/FCGKzCKhKzD3yD8zmFXCQePbuDivECnmJ/QfPMoPYnEDx11O7wOJCAvYSO/4e
-	ZoWoF5Q4OfMJ2ExmoPrmrbOZJzAKzEKSmoUktYCRaRWjSGppcW56brGRXnFibnFpXrpecn7u
-	JkZgWtl27OeWHYwrX33UO8TIxMF4iFGCg1lJhHf5eu90Id6UxMqq1KL8+KLSnNTiQ4ymQHdP
-	ZJYSTc4HJra8knhDMwNTQxMzSwNTSzNjJXFetivn04QE0hNLUrNTUwtSi2D6mDg4pRqYNmlv
-	imsyitncuSiw/uS3jUEn5/Wtli65ePHAZrdDclxBhg4Fc68G2Ehnvk7lYTQxnLk4ifn0iuMH
-	bvHn5Zd/sv8XNV1fjFFqn9prPr5ZTDYTPF0W83/TtVNdkjmtQmHe5jkbsz81P87eOcPa3yT6
-	oM8Ocau+Yvc6G9am75ct5PN1Er4z6qRxnpo6ifv15FyTyA/7ijbqWUzo6TtYoXGQb5maxe4V
-	mY415refeZ3bf10v9aZT0859Uttn7zRi3Ls08dprE+27nL//fPsS039LvS7lk2TiDnW9d9MP
-	H536Sb1MSsvhhcf7GYesXKoV+Yu4DNokFqxIV1ZUapA50bArUfuM1uzD63Mrtl9zl+ZTYinO
-	SDTUYi4qTgQACEKcjLQDAAA=
-X-CMS-MailID: 20241203134207eucas1p29a2d095c527858729ae706d2a9027a5c
-X-Msg-Generator: CA
-X-RootMTR: 20241203134207eucas1p29a2d095c527858729ae706d2a9027a5c
-X-EPHeader: CA
-CMS-TYPE: 201P
-X-CMS-RootMailID: 20241203134207eucas1p29a2d095c527858729ae706d2a9027a5c
-References: <20241203134137.2114847-1-m.wilczynski@samsung.com>
-	<CGME20241203134207eucas1p29a2d095c527858729ae706d2a9027a5c@eucas1p2.samsung.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241203_054209_953129_FCC1A0E0 
-X-CRM114-Status: GOOD (  12.53  )
+X-CRM114-CacheID: sfid-20241203_055349_247921_69DBE4DF 
+X-CRM114-Status: GOOD (  26.21  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -143,49 +80,384 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add a device tree node for the IMG BXM-4-64 GPU present in the T-HEAD
-TH1520 SoC used by the Lichee Pi 4A board. This node enables support for
-the GPU using the drm/imagination driver.
+On Thu, Nov 14 2024 at 17:18, Andrew Jones wrote:
+> @@ -96,9 +96,8 @@ static int imsic_irq_set_affinity(struct irq_data *d, const struct cpumask *mask
+>  				  bool force)
+>  {
+>  	struct imsic_vector *old_vec, *new_vec;
+> -	struct irq_data *pd = d->parent_data;
+>  
+> -	old_vec = irq_data_get_irq_chip_data(pd);
+> +	old_vec = irq_data_get_irq_chip_data(d);
+>  	if (WARN_ON(!old_vec))
+>  		return -ENOENT;
+>  
+> @@ -116,13 +115,13 @@ static int imsic_irq_set_affinity(struct irq_data *d, const struct cpumask *mask
+>  		return -ENOSPC;
+>  
+>  	/* Point device to the new vector */
+> -	imsic_msi_update_msg(d, new_vec);
+> +	imsic_msi_update_msg(irq_get_irq_data(d->irq), new_vec);
 
-By adding this node, the kernel can recognize and initialize the GPU,
-providing graphics acceleration capabilities on the Lichee Pi 4A and
-other boards based on the TH1520 SoC.
+This looks more than fishy. See below.
 
-This commit is following convention introduced here [1].
+> @@ -245,7 +247,7 @@ static bool imsic_init_dev_msi_info(struct device *dev,
+>  		if (WARN_ON_ONCE(domain != real_parent))
+>  			return false;
+>  #ifdef CONFIG_SMP
+> -		info->chip->irq_set_affinity = imsic_irq_set_affinity;
+> +		info->chip->irq_set_affinity = irq_chip_set_affinity_parent;
 
-Link: https://lore.kernel.org/all/20241118-sets-bxs-4-64-patch-v1-v2-1-3fd45d9fb0cf@imgtec.com/ [1]
+This should use msi_domain_set_affinity(), which does the right thing:
 
-Signed-off-by: Michal Wilczynski <m.wilczynski@samsung.com>
+  1) It invokes the irq_set_affinity() callback of the parent domain
+
+  2) It composes the message via the hierarchy
+
+  3) It writes the message with the msi_write_msg() callback of the top
+     level domain
+
+Sorry, I missed that when reviewing the original IMSIC MSI support.
+
+The whole IMSIC MSI support can be moved over to MSI LIB which makes all
+of this indirection go away and your intermediate domain will just fit
+in.
+
+Uncompiled patch below. If that works, it needs to be split up properly.
+
+Note, this removes the setup of the irq_retrigger callback, but that's
+fine because on hierarchical domains irq_chip_retrigger_hierarchy() is
+invoked anyway. See try_retrigger().
+
+Thanks,
+
+        tglx
 ---
- arch/riscv/boot/dts/thead/th1520.dtsi | 12 ++++++++++++
- 1 file changed, 12 insertions(+)
+ drivers/irqchip/Kconfig                    |    1 
+ drivers/irqchip/irq-gic-v2m.c              |    1 
+ drivers/irqchip/irq-imx-mu-msi.c           |    1 
+ drivers/irqchip/irq-msi-lib.c              |   11 +-
+ drivers/irqchip/irq-mvebu-gicp.c           |    1 
+ drivers/irqchip/irq-mvebu-odmi.c           |    1 
+ drivers/irqchip/irq-mvebu-sei.c            |    1 
+ drivers/irqchip/irq-riscv-imsic-platform.c |  131 +----------------------------
+ include/linux/msi.h                        |   11 ++
+ 9 files changed, 32 insertions(+), 127 deletions(-)
 
-diff --git a/arch/riscv/boot/dts/thead/th1520.dtsi b/arch/riscv/boot/dts/thead/th1520.dtsi
-index 58f93ad3eb6e..5023c0c29168 100644
---- a/arch/riscv/boot/dts/thead/th1520.dtsi
-+++ b/arch/riscv/boot/dts/thead/th1520.dtsi
-@@ -500,6 +500,18 @@ clk: clock-controller@ffef010000 {
- 			#clock-cells = <1>;
- 		};
+--- a/drivers/irqchip/Kconfig
++++ b/drivers/irqchip/Kconfig
+@@ -587,6 +587,7 @@ config RISCV_IMSIC
+ 	select IRQ_DOMAIN_HIERARCHY
+ 	select GENERIC_IRQ_MATRIX_ALLOCATOR
+ 	select GENERIC_MSI_IRQ
++	select IRQ_MSI_LIB
  
-+		gpu: gpu@ffef400000 {
-+			compatible = "img,img-bxm-4-64", "img,img-rogue";
-+			reg = <0xff 0xef400000 0x0 0x100000>;
-+			interrupt-parent = <&plic>;
-+			interrupts = <102 IRQ_TYPE_LEVEL_HIGH>;
-+			clocks = <&vosys_clk CLK_GPU_CORE>,
-+				 <&vosys_clk CLK_GPU_CFG_ACLK>;
-+			clock-names = "core", "sys";
-+			power-domains = <&pd TH1520_AON_GPU_PD>;
-+			status = "okay";
-+		};
+ config RISCV_IMSIC_PCI
+ 	bool
+--- a/drivers/irqchip/irq-gic-v2m.c
++++ b/drivers/irqchip/irq-gic-v2m.c
+@@ -255,6 +255,7 @@ static void __init gicv2m_teardown(void)
+ static struct msi_parent_ops gicv2m_msi_parent_ops = {
+ 	.supported_flags	= GICV2M_MSI_FLAGS_SUPPORTED,
+ 	.required_flags		= GICV2M_MSI_FLAGS_REQUIRED,
++	.chip_flags		= MSI_CHIP_FLAG_SET_EOI | MSI_CHIP_FLAG_SET_ACK,
+ 	.bus_select_token	= DOMAIN_BUS_NEXUS,
+ 	.bus_select_mask	= MATCH_PCI_MSI | MATCH_PLATFORM_MSI,
+ 	.prefix			= "GICv2m-",
+--- a/drivers/irqchip/irq-imx-mu-msi.c
++++ b/drivers/irqchip/irq-imx-mu-msi.c
+@@ -214,6 +214,7 @@ static void imx_mu_msi_irq_handler(struc
+ static const struct msi_parent_ops imx_mu_msi_parent_ops = {
+ 	.supported_flags	= IMX_MU_MSI_FLAGS_SUPPORTED,
+ 	.required_flags		= IMX_MU_MSI_FLAGS_REQUIRED,
++	.chip_flags		= MSI_CHIP_FLAG_SET_EOI | MSI_CHIP_FLAG_SET_ACK,
+ 	.bus_select_token       = DOMAIN_BUS_NEXUS,
+ 	.bus_select_mask	= MATCH_PLATFORM_MSI,
+ 	.prefix			= "MU-MSI-",
+--- a/drivers/irqchip/irq-msi-lib.c
++++ b/drivers/irqchip/irq-msi-lib.c
+@@ -28,6 +28,7 @@ bool msi_lib_init_dev_msi_info(struct de
+ 			       struct msi_domain_info *info)
+ {
+ 	const struct msi_parent_ops *pops = real_parent->msi_parent_ops;
++	struct irq_chip *chip = info->chip;
+ 	u32 required_flags;
+ 
+ 	/* Parent ops available? */
+@@ -92,10 +93,10 @@ bool msi_lib_init_dev_msi_info(struct de
+ 	info->flags			|= required_flags;
+ 
+ 	/* Chip updates for all child bus types */
+-	if (!info->chip->irq_eoi)
+-		info->chip->irq_eoi	= irq_chip_eoi_parent;
+-	if (!info->chip->irq_ack)
+-		info->chip->irq_ack	= irq_chip_ack_parent;
++	if (!chip->irq_eoi && (pops->chip_flags & MSI_CHIP_FLAG_SET_EOI))
++		chip->irq_eoi		= irq_chip_eoi_parent;
++	if (!chip->irq_ack && (pops->chip_flags & MSI_CHIP_FLAG_SET_ACK))
++		chip->irq_ack		= irq_chip_ack_parent;
+ 
+ 	/*
+ 	 * The device MSI domain can never have a set affinity callback. It
+@@ -105,7 +106,7 @@ bool msi_lib_init_dev_msi_info(struct de
+ 	 * device MSI domain aside of mask/unmask which is provided e.g. by
+ 	 * PCI/MSI device domains.
+ 	 */
+-	info->chip->irq_set_affinity	= msi_domain_set_affinity;
++	chip->irq_set_affinity		= msi_domain_set_affinity;
+ 	return true;
+ }
+ EXPORT_SYMBOL_GPL(msi_lib_init_dev_msi_info);
+--- a/drivers/irqchip/irq-mvebu-gicp.c
++++ b/drivers/irqchip/irq-mvebu-gicp.c
+@@ -161,6 +161,7 @@ static const struct irq_domain_ops gicp_
+ static const struct msi_parent_ops gicp_msi_parent_ops = {
+ 	.supported_flags	= GICP_MSI_FLAGS_SUPPORTED,
+ 	.required_flags		= GICP_MSI_FLAGS_REQUIRED,
++	.chip_flags		= MSI_CHIP_FLAG_SET_EOI | MSI_CHIP_FLAG_SET_ACK,
+ 	.bus_select_token       = DOMAIN_BUS_GENERIC_MSI,
+ 	.bus_select_mask	= MATCH_PLATFORM_MSI,
+ 	.prefix			= "GICP-",
+--- a/drivers/irqchip/irq-mvebu-odmi.c
++++ b/drivers/irqchip/irq-mvebu-odmi.c
+@@ -157,6 +157,7 @@ static const struct irq_domain_ops odmi_
+ static const struct msi_parent_ops odmi_msi_parent_ops = {
+ 	.supported_flags	= ODMI_MSI_FLAGS_SUPPORTED,
+ 	.required_flags		= ODMI_MSI_FLAGS_REQUIRED,
++	.chip_flags		= MSI_CHIP_FLAG_SET_EOI | MSI_CHIP_FLAG_SET_ACK,
+ 	.bus_select_token	= DOMAIN_BUS_GENERIC_MSI,
+ 	.bus_select_mask	= MATCH_PLATFORM_MSI,
+ 	.prefix			= "ODMI-",
+--- a/drivers/irqchip/irq-mvebu-sei.c
++++ b/drivers/irqchip/irq-mvebu-sei.c
+@@ -356,6 +356,7 @@ static void mvebu_sei_reset(struct mvebu
+ static const struct msi_parent_ops sei_msi_parent_ops = {
+ 	.supported_flags	= SEI_MSI_FLAGS_SUPPORTED,
+ 	.required_flags		= SEI_MSI_FLAGS_REQUIRED,
++	.chip_flags		= MSI_CHIP_FLAG_SET_EOI | MSI_CHIP_FLAG_SET_ACK,
+ 	.bus_select_mask	= MATCH_PLATFORM_MSI,
+ 	.bus_select_token	= DOMAIN_BUS_GENERIC_MSI,
+ 	.prefix			= "SEI-",
+--- a/drivers/irqchip/irq-riscv-imsic-platform.c
++++ b/drivers/irqchip/irq-riscv-imsic-platform.c
+@@ -21,6 +21,7 @@
+ #include <linux/smp.h>
+ 
+ #include "irq-riscv-imsic-state.h"
++#include "irq-msi-lib.h"
+ 
+ static bool imsic_cpu_page_phys(unsigned int cpu, unsigned int guest_index,
+ 				phys_addr_t *out_msi_pa)
+@@ -84,19 +85,10 @@ static void imsic_irq_compose_msg(struct
+ }
+ 
+ #ifdef CONFIG_SMP
+-static void imsic_msi_update_msg(struct irq_data *d, struct imsic_vector *vec)
+-{
+-	struct msi_msg msg = { };
+-
+-	imsic_irq_compose_vector_msg(vec, &msg);
+-	irq_data_get_irq_chip(d)->irq_write_msi_msg(d, &msg);
+-}
+-
+ static int imsic_irq_set_affinity(struct irq_data *d, const struct cpumask *mask_val,
+ 				  bool force)
+ {
+ 	struct imsic_vector *old_vec, *new_vec;
+-	struct irq_data *pd = d->parent_data;
+ 
+ 	old_vec = irq_data_get_irq_chip_data(pd);
+ 	if (WARN_ON(!old_vec))
+@@ -115,14 +107,11 @@ static int imsic_irq_set_affinity(struct
+ 	if (!new_vec)
+ 		return -ENOSPC;
+ 
+-	/* Point device to the new vector */
+-	imsic_msi_update_msg(d, new_vec);
+-
+ 	/* Update irq descriptors with the new vector */
+-	pd->chip_data = new_vec;
++	d->chip_data = new_vec;
+ 
+ 	/* Update effective affinity of parent irq data */
+-	irq_data_update_effective_affinity(pd, cpumask_of(new_vec->cpu));
++	irq_data_update_effective_affinity(d, cpumask_of(new_vec->cpu));
+ 
+ 	/* Move state of the old vector to the new vector */
+ 	imsic_vector_move(old_vec, new_vec);
+@@ -137,6 +126,9 @@ static struct irq_chip imsic_irq_base_ch
+ 	.irq_unmask		= imsic_irq_unmask,
+ 	.irq_retrigger		= imsic_irq_retrigger,
+ 	.irq_compose_msi_msg	= imsic_irq_compose_msg,
++#ifdef CONFIG_SMP
++	.irq_set_affinity	= imsic_irq_set_affinity,
++#endif
+ 	.flags			= IRQCHIP_SKIP_SET_WAKE |
+ 				  IRQCHIP_MASK_ON_SUSPEND,
+ };
+@@ -172,22 +164,6 @@ static void imsic_irq_domain_free(struct
+ 	irq_domain_free_irqs_parent(domain, virq, nr_irqs);
+ }
+ 
+-static int imsic_irq_domain_select(struct irq_domain *domain, struct irq_fwspec *fwspec,
+-				   enum irq_domain_bus_token bus_token)
+-{
+-	const struct msi_parent_ops *ops = domain->msi_parent_ops;
+-	u32 busmask = BIT(bus_token);
+-
+-	if (fwspec->fwnode != domain->fwnode || fwspec->param_count != 0)
+-		return 0;
+-
+-	/* Handle pure domain searches */
+-	if (bus_token == ops->bus_select_token)
+-		return 1;
+-
+-	return !!(ops->bus_select_mask & busmask);
+-}
+-
+ #ifdef CONFIG_GENERIC_IRQ_DEBUGFS
+ static void imsic_irq_debug_show(struct seq_file *m, struct irq_domain *d,
+ 				 struct irq_data *irqd, int ind)
+@@ -210,104 +186,15 @@ static const struct irq_domain_ops imsic
+ #endif
+ };
+ 
+-#ifdef CONFIG_RISCV_IMSIC_PCI
+-
+-static void imsic_pci_mask_irq(struct irq_data *d)
+-{
+-	pci_msi_mask_irq(d);
+-	irq_chip_mask_parent(d);
+-}
+-
+-static void imsic_pci_unmask_irq(struct irq_data *d)
+-{
+-	irq_chip_unmask_parent(d);
+-	pci_msi_unmask_irq(d);
+-}
+-
+-#define MATCH_PCI_MSI		BIT(DOMAIN_BUS_PCI_MSI)
+-
+-#else
+-
+-#define MATCH_PCI_MSI		0
+-
+-#endif
+-
+-static bool imsic_init_dev_msi_info(struct device *dev,
+-				    struct irq_domain *domain,
+-				    struct irq_domain *real_parent,
+-				    struct msi_domain_info *info)
+-{
+-	const struct msi_parent_ops *pops = real_parent->msi_parent_ops;
+-
+-	/* MSI parent domain specific settings */
+-	switch (real_parent->bus_token) {
+-	case DOMAIN_BUS_NEXUS:
+-		if (WARN_ON_ONCE(domain != real_parent))
+-			return false;
+-#ifdef CONFIG_SMP
+-		info->chip->irq_set_affinity = imsic_irq_set_affinity;
+-#endif
+-		break;
+-	default:
+-		WARN_ON_ONCE(1);
+-		return false;
+-	}
+-
+-	/* Is the target supported? */
+-	switch (info->bus_token) {
+-#ifdef CONFIG_RISCV_IMSIC_PCI
+-	case DOMAIN_BUS_PCI_DEVICE_MSI:
+-	case DOMAIN_BUS_PCI_DEVICE_MSIX:
+-		info->chip->irq_mask = imsic_pci_mask_irq;
+-		info->chip->irq_unmask = imsic_pci_unmask_irq;
+-		break;
+-#endif
+-	case DOMAIN_BUS_DEVICE_MSI:
+-		/*
+-		 * Per-device MSI should never have any MSI feature bits
+-		 * set. It's sole purpose is to create a dumb interrupt
+-		 * chip which has a device specific irq_write_msi_msg()
+-		 * callback.
+-		 */
+-		if (WARN_ON_ONCE(info->flags))
+-			return false;
+-
+-		/* Core managed MSI descriptors */
+-		info->flags |= MSI_FLAG_ALLOC_SIMPLE_MSI_DESCS |
+-			       MSI_FLAG_FREE_MSI_DESCS;
+-		break;
+-	case DOMAIN_BUS_WIRED_TO_MSI:
+-		break;
+-	default:
+-		WARN_ON_ONCE(1);
+-		return false;
+-	}
+-
+-	/* Use hierarchial chip operations re-trigger */
+-	info->chip->irq_retrigger = irq_chip_retrigger_hierarchy;
+-
+-	/*
+-	 * Mask out the domain specific MSI feature flags which are not
+-	 * supported by the real parent.
+-	 */
+-	info->flags &= pops->supported_flags;
+-
+-	/* Enforce the required flags */
+-	info->flags |= pops->required_flags;
+-
+-	return true;
+-}
+-
+-#define MATCH_PLATFORM_MSI		BIT(DOMAIN_BUS_PLATFORM_MSI)
+-
+ static const struct msi_parent_ops imsic_msi_parent_ops = {
+ 	.supported_flags	= MSI_GENERIC_FLAGS_MASK |
+ 				  MSI_FLAG_PCI_MSIX,
+ 	.required_flags		= MSI_FLAG_USE_DEF_DOM_OPS |
+-				  MSI_FLAG_USE_DEF_CHIP_OPS,
++				  MSI_FLAG_USE_DEF_CHIP_OPS |
++				  MSI_FLAG_PCI_MSI_MASK_PARENT,
+ 	.bus_select_token	= DOMAIN_BUS_NEXUS,
+ 	.bus_select_mask	= MATCH_PCI_MSI | MATCH_PLATFORM_MSI,
+-	.init_dev_msi_info	= imsic_init_dev_msi_info,
++	.init_dev_msi_info	= msi_lib_init_dev_msi_info,
+ };
+ 
+ int imsic_irqdomain_init(void)
+--- a/include/linux/msi.h
++++ b/include/linux/msi.h
+@@ -558,11 +558,21 @@ enum {
+ 	MSI_FLAG_NO_AFFINITY		= (1 << 21),
+ };
+ 
++/*
++ * Flags for msi_parent_ops::chip_flags
++ */
++enum {
++	MSI_CHIP_FLAG_SET_EOI		= (1 << 0),
++	MSI_CHIP_FLAG_SET_ACK		= (1 << 1),
++};
 +
- 		vosys_clk: clock-controller {
- 			compatible = "thead,th1520-clk-vo";
- 			thead,vosys-regmap = <&vosys_reg>;
--- 
-2.34.1
-
+ /**
+  * struct msi_parent_ops - MSI parent domain callbacks and configuration info
+  *
+  * @supported_flags:	Required: The supported MSI flags of the parent domain
+  * @required_flags:	Optional: The required MSI flags of the parent MSI domain
++ * @chip_flags:		Optional: Select MSI chip callbacks to update with defaults
++ *			in msi_lib_init_dev_msi_info().
+  * @bus_select_token:	Optional: The bus token of the real parent domain for
+  *			irq_domain::select()
+  * @bus_select_mask:	Optional: A mask of supported BUS_DOMAINs for
+@@ -575,6 +585,7 @@ enum {
+ struct msi_parent_ops {
+ 	u32		supported_flags;
+ 	u32		required_flags;
++	u32		chip_flags;
+ 	u32		bus_select_token;
+ 	u32		bus_select_mask;
+ 	const char	*prefix;
 
 _______________________________________________
 linux-riscv mailing list
