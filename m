@@ -4,93 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E4722E6C5EA
-	for <linux-riscv@archiver.kernel.org>; Tue,  3 Dec 2024 02:40:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 092C3E6C608
+	for <linux-riscv@archiver.kernel.org>; Tue,  3 Dec 2024 05:37:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=vvJcb3BKGsWKu64THSEPu0MAoEIUbB1j9K3FguXHoFw=; b=XFpMobMCJpQELt
-	Y67EA6mGUo1j74BXSW6JvqNEINa1YH2v1hG1yBhYTfgDIF9J/dAgKyBjm/jR2F/fIVz05smAthpI1
-	2HSv7B8vRuQgOoArBjyxlqJ8UNkglxYjjb6RucG0081sSt6VePBhndY6R5Jef79VN+Nhi++buesYU
-	S2qYYlLdBVPLFB5O9WYCWgv1KNKkG7J9y7HB5XvrW+D4pEwfMeM/yzswJQZEWrINct5ABa6q08EVV
-	GVNJ+j36WtWX2oYS6xhDGEAm/PDZvgOLbFFliDyWQX8WQ7h4YUnfn7iUgKfsXLVVdjhXlaHUo/awr
-	T9qiFCot2C7412DOt6BA==;
+	List-Owner; bh=kh6T2XTwyxf8Jhf/4zXOs2d4D/Vm8liqLmVMv4hmOGo=; b=rWfZNsBHFIb7/N
+	pqIRVc36MeLCzDFEU6vTFHt8KMCDgOmuGZURjd/mN684Th8szuya+de0ffrLAB7OGFSujKvzZcxSR
+	UtYx2JNWyIFZGBH/rXUaYnmPcs9VpynPy+FyLkfo0IqOfLbzCwToDn0Ar83SRrlQtFynkBjxiF+wN
+	MCV4xNoAmvw9maVSsjI8lHJ3Yjp1iJZ2ZuSlYhBGoapZKhbphYUBH5kuUXypq1gBPITh5IZ6DAQEx
+	hOpp8IvyxhHdPXMjuLfkWI5NqzuTbDyvh5WAZnyRpZpQxALQKO5mLu8Jb5FufryK4GRSo9+eXuRNl
+	nnF/vyXVgbwCQ9u6SMSw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIIps-000000082aD-3Gkb;
-	Tue, 03 Dec 2024 02:40:24 +0000
-Received: from mail-io1-xd2d.google.com ([2607:f8b0:4864:20::d2d])
+	id 1tILaz-00000008Ku6-4AR7;
+	Tue, 03 Dec 2024 05:37:13 +0000
+Received: from mail-pj1-x102e.google.com ([2607:f8b0:4864:20::102e])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIIoq-000000082Lr-3JLG
+	id 1tILaw-00000008KtN-0tu3
 	for linux-riscv@lists.infradead.org;
-	Tue, 03 Dec 2024 02:39:22 +0000
-Received: by mail-io1-xd2d.google.com with SMTP id ca18e2360f4ac-8419f5baedcso154720139f.2
-        for <linux-riscv@lists.infradead.org>; Mon, 02 Dec 2024 18:39:20 -0800 (PST)
+	Tue, 03 Dec 2024 05:37:12 +0000
+Received: by mail-pj1-x102e.google.com with SMTP id 98e67ed59e1d1-2ee3737d2b5so3241100a91.1
+        for <linux-riscv@lists.infradead.org>; Mon, 02 Dec 2024 21:37:09 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sifive.com; s=google; t=1733193559; x=1733798359; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:content-language:from
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=807AMPvhV08hQjY+W9FqkSX3XWvObJEHMlCsMJUuV3g=;
-        b=l7DH4jP/JZ9MNG2vyU69y2HJoI11BEclxe3jpotcbw6dKhxuQkFaC0C8gyuWmg0TtS
-         C1hPAmRle15N2dfKCzAEEBsF/aVXiBiNzUvuqwLZywFVR/6lnO9g6VsVaVcpdNNbq+DS
-         isIAWErZxx7V0NS0xrFeE3bCdNe7aeFFzfMcLfjecT4zKNpR8IqaL1y4ySWU4JNZoVEK
-         zlE2CLSiGwZ98e0oo40BuEBeYi6QxE+qHc36amEqo8YJdUZAmX/CFECuucuHZGOYqYMm
-         GuGM6P3TkuuAxKkcy2MDTkBu+aWrlvDYfHeN8U4U9mRsPTgZrFyxrU3O4tRVZLlrxrqv
-         fs4A==
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1733204229; x=1733809029; darn=lists.infradead.org;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=vSXjh3hiBldNNK5MEJhxrZDpPGH+8giPIA6kOty2v+Y=;
+        b=TKV2Rchg5XdvelS/4HSzsYW0JLknrq84uG0p8ytcDbjIDUMUggZ3gpTlYgLUSuDmqE
+         kB3Hai3eUO00bNAdhEujyZ93RZfM+LB/uQ6iEodRCjaWPsAdbIS9DL5FR1XiodZLqtl+
+         41k5mMETtXmxaN/5I2o0cCfOARFL9cin3ZLLLVNeoB2436nupel3xyJH3aVw69oBiENw
+         Y4OhRgWCIVhPPzWv8OKz2bk14AlY9qyAaBkOUOYdWc8zmQ865UQdZg3b+z9reRXrtXMV
+         IgKyPQ+JoOxB+tk/UtZJFwsxHYyDWchtNxUXuK7O17wefRRjvCN9ueWNoM4qkSZnbFs7
+         q5Jg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1733193559; x=1733798359;
-        h=content-transfer-encoding:in-reply-to:content-language:from
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
+        d=1e100.net; s=20230601; t=1733204229; x=1733809029;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=807AMPvhV08hQjY+W9FqkSX3XWvObJEHMlCsMJUuV3g=;
-        b=sOa7uhOtk+WffkKRno2noJzNOuG8ttAdtxtVG8EnHFie/6SxQ6Gcn0svOxVmApHpfa
-         s9TFUZWmyUp3/gB+tJLZwo8eYb7sQRPYM64M/MEeICl7Emg7579zCmeQjlAHub73g1IW
-         z3gWRN5AWwFaECgWF7PDc5TqT4LnHCzovHIabYKnfRCyiXnTJ6MQ8ww/k2+01a6VmbJi
-         6HYmynOSqDH2RkKYcN5Szc6fwTfBWpToHMBY5yQnWJb+P1paRShUAvV8xMIpEfOhGHOU
-         aYX+X2B2dj45qeXc06PkA8fas1CHXYkdfVNJQ2fwkpmv9mTtQadZ+GCieUSKyIkejVye
-         /1RA==
-X-Forwarded-Encrypted: i=1; AJvYcCXNsvkJ6jnrnKfv0Z3xL0ZyrIx9GZP0ZOI6MExT7as5RZUNPnE5y7VohdMqMHzcQ6xXlDyOmCq6Rg6r+w==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx1yFAE1XzCJyU1wqYqArifUp7e/ddBCySodsJoXmruKO7D3gB6
-	5NQsh0IWfDWj9E4FdDeu68nj8X2AaG6J1gybgJ8YjeL0dCQ2oISXPWe2+RNdBDM7z0Kq6QHpBI0
-	9
-X-Gm-Gg: ASbGnctBgaEPi2SIv7HCFnLAUmG+4bhouFckPNjzz3K94UByiENW+/dgsBCsj4AYQ5K
-	u9BhtnLra0k06EjPkAZVGfYUJWUsqgXPJapAHjIelhXMh2gCuHllYRVJ1AroK2mJXvXVBO/XX4Q
-	a+zTYNgpc84Yf35p6Lf3HiC0S/Cn+DR7Q3qxmDUAv779TZPkktPouAWAFTY1xKPZCbRD40GZw6c
-	+UQCY2EPall0fVV2iqFvPuyJm3oHM5vZmmGWjSAic2Qw7xjF3+paM2780ASwKYu0GSgseCH40g=
-X-Google-Smtp-Source: AGHT+IHd7BOnDkCqoWQpQn9axYX9LaHCjBDlODl0yRpMhp5QCmkH+d5KKW0iQf5wP+UEGLbQlYkP4Q==
-X-Received: by 2002:a05:6602:3405:b0:841:a1c0:c058 with SMTP id ca18e2360f4ac-8445b577d49mr152097239f.9.1733193559650;
-        Mon, 02 Dec 2024 18:39:19 -0800 (PST)
-Received: from [100.64.0.1] ([147.124.94.167])
-        by smtp.gmail.com with ESMTPSA id 8926c6da1cb9f-4e230da8f03sm2387687173.17.2024.12.02.18.39.17
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 02 Dec 2024 18:39:18 -0800 (PST)
-Message-ID: <b48c4319-1fbc-4703-88d2-6f495af9c24e@sifive.com>
-Date: Mon, 2 Dec 2024 20:39:17 -0600
+        bh=vSXjh3hiBldNNK5MEJhxrZDpPGH+8giPIA6kOty2v+Y=;
+        b=vGgDMCHp6NCf0NcRXNijFZl9qC1vF9QfwQFylWabdtamp03mRXMA9HOR8SlxMo4lXH
+         vX6YXBXZBE5NkGQMvsAyzzhhOwYqQffzkIlRDQgkHvkM4KFxkNe9p6yhIG4k/yvWhEap
+         U3eEhndQaOXJr8sZEslhNtswH6oNtBiaoT5GfpTecYkhTLmCfo5EiRnHszQWvuaqruw1
+         JSQjR4P4376pTQXkc6LNMjbKxtqg8tDG4HRvBZntak/R0CVBhONHatHC5bnqJ0A/z2YU
+         YMRwEfS0qD/1Nr3Sc9viBex4qyU2CDcbLlomD1JjF5sIzP5ZYRzq+TDZV9NymTCqDdvG
+         TfIQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWtRQSzFESHfcuYtyE8muZ/4//7nyifECsFOOOISdk2xxXOJvzLlR24+mKq1nYYwg8VRlNtG8fvqPzyhw==@lists.infradead.org
+X-Gm-Message-State: AOJu0YzsbcKhk4A4IBmQNyOhptC/wuwXBP7JkFmhU6+bqyzuC1xCfbx7
+	HT2VxW7VqP69iCgQPRFkZsMp5eBGOokrLK+OkLpHtEFFnGkxBMB4+BWJ7b/4tRQ=
+X-Gm-Gg: ASbGnctu4WHEPHLAesiRbjmwb/BulRIduJlqSBqk7jxNstvcuAdPT2P5PF0GQTrIf6V
+	G5XHRSZ+Axm07Um00taKKeMTDUJ3Tl3yeN/hEZc02MwzaJe+SET000N+o6K7q+NJYY77O3bN449
+	FYRDiSio6Ii+xViGH9wZDskPT1OTdqEtAzPnxIJa4RvJS0EXafGvZA56KeYKL4aFNTBP5FO2Y8m
+	wIKSwxrloxpiADh2cxrlxJcqnb/QAE0st2wKtSf4ELqqQ==
+X-Google-Smtp-Source: AGHT+IGS9ziRjAIA8V4lsdHNGlH70wznvS7wfFk2e2BDUXAOOqVLzGGRJVECNcRpYwLUrZIk5c8bog==
+X-Received: by 2002:a17:90b:4a4e:b0:2ee:dd9b:e402 with SMTP id 98e67ed59e1d1-2ef011fb97bmr2306174a91.12.1733204228773;
+        Mon, 02 Dec 2024 21:37:08 -0800 (PST)
+Received: from ghost ([2601:647:6700:64d0:4f56:309d:bf87:2589])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-2eecd83914csm2806157a91.0.2024.12.02.21.37.06
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 02 Dec 2024 21:37:07 -0800 (PST)
+Date: Mon, 2 Dec 2024 21:37:04 -0800
+From: Charlie Jenkins <charlie@rivosinc.com>
+To: Celeste Liu <uwu@coelacanthus.name>
+Cc: Oleg Nesterov <oleg@redhat.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Eric Biederman <ebiederm@xmission.com>, Kees Cook <kees@kernel.org>,
+	Alexandre Ghiti <alex@ghiti.fr>, "Dmitry V. Levin" <ldv@strace.io>,
+	Andrea Bolognani <abologna@redhat.com>,
+	=?iso-8859-1?Q?Bj=F6rn_T=F6pel?= <bjorn@kernel.org>,
+	Thomas Gleixner <tglx@linutronix.de>, Ron Economos <re@w6rz.net>,
+	Felix Yan <felixonmars@archlinux.org>,
+	Ruizhe Pan <c141028@gmail.com>,
+	Shiqi Zhang <shiqi@isrc.iscas.ac.cn>, Guo Ren <guoren@kernel.org>,
+	Yao Zi <ziyao@disroot.org>, Han Gao <gaohan@iscas.ac.cn>,
+	Quan Zhou <zhouquan@iscas.ac.cn>, linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org, linux-mm@kvack.org,
+	stable@vger.kernel.org
+Subject: Re: [PATCH] riscv/ptrace: add new regset to get original a0 register
+Message-ID: <Z06ZAP-_4J4-6aK_@ghost>
+References: <20241201-riscv-new-regset-v1-1-c83c58abcc7b@coelacanthus.name>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 3/8] drivers/perf: riscv: Add raw event v2 support
-To: Atish Kumar Patra <atishp@rivosinc.com>
-Cc: Anup Patel <anup@brainfault.org>, Will Deacon <will@kernel.org>,
- Mark Rutland <mark.rutland@arm.com>, Paul Walmsley
- <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>,
- Mayuresh Chitale <mchitale@ventanamicro.com>,
- linux-riscv@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, Palmer Dabbelt <palmer@rivosinc.com>,
- kvm@vger.kernel.org, kvm-riscv@lists.infradead.org
-References: <20241119-pmu_event_info-v1-0-a4f9691421f8@rivosinc.com>
- <20241119-pmu_event_info-v1-3-a4f9691421f8@rivosinc.com>
- <e124c532-7a08-4788-843d-345827e35f5f@sifive.com>
- <CAHBxVyEwkPUcut0L7K9eewcmhOOidU16WnGRiPiP3D7-OS7HvQ@mail.gmail.com>
-From: Samuel Holland <samuel.holland@sifive.com>
-Content-Language: en-US
-In-Reply-To: <CAHBxVyEwkPUcut0L7K9eewcmhOOidU16WnGRiPiP3D7-OS7HvQ@mail.gmail.com>
+Content-Disposition: inline
+In-Reply-To: <20241201-riscv-new-regset-v1-1-c83c58abcc7b@coelacanthus.name>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241202_183920_885053_66B937A0 
-X-CRM114-Status: GOOD (  19.94  )
+X-CRM114-CacheID: sfid-20241202_213710_533107_E4EB3E2A 
+X-CRM114-Status: GOOD (  50.48  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,89 +106,370 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-SGkgQXRpc2gsCgpPbiAyMDI0LTEyLTAyIDY6MTUgUE0sIEF0aXNoIEt1bWFyIFBhdHJhIHdyb3Rl
-Ogo+IE9uIE1vbiwgRGVjIDIsIDIwMjQgYXQgMjozN+KAr1BNIFNhbXVlbCBIb2xsYW5kIDxzYW11
-ZWwuaG9sbGFuZEBzaWZpdmUuY29tPiB3cm90ZToKPj4gT24gMjAyNC0xMS0xOSAyOjI5IFBNLCBB
-dGlzaCBQYXRyYSB3cm90ZToKPj4+IFNCSSB2My4wIGludHJvZHVjZWQgYSBuZXcgcmF3IGV2ZW50
-IHR5cGUgdGhhdCBhbGxvd3Mgd2lkZXIKPj4+IG1ocG1ldmVudFggd2lkdGggdG8gYmUgcHJvZ3Jh
-bW1lZCB2aWEgQ0ZHX01BVENILgo+Pj4KPj4+IFVzZSB0aGUgcmF3IGV2ZW50IHYyIGlmIFNCSSB2
-My4wIGlzIGF2YWlsYWJsZS4KPj4+Cj4+PiBTaWduZWQtb2ZmLWJ5OiBBdGlzaCBQYXRyYSA8YXRp
-c2hwQHJpdm9zaW5jLmNvbT4KPj4+IC0tLQo+Pj4gIGFyY2gvcmlzY3YvaW5jbHVkZS9hc20vc2Jp
-LmggfCAgNCArKysrCj4+PiAgZHJpdmVycy9wZXJmL3Jpc2N2X3BtdV9zYmkuYyB8IDE4ICsrKysr
-KysrKysrKy0tLS0tLQo+Pj4gIDIgZmlsZXMgY2hhbmdlZCwgMTYgaW5zZXJ0aW9ucygrKSwgNiBk
-ZWxldGlvbnMoLSkKPj4+Cj4+PiBkaWZmIC0tZ2l0IGEvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9z
-YmkuaCBiL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20vc2JpLmgKPj4+IGluZGV4IDliZTM4YjA1ZjRh
-ZC4uM2VlOWJmYTVlNzdjIDEwMDY0NAo+Pj4gLS0tIGEvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9z
-YmkuaAo+Pj4gKysrIGIvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9zYmkuaAo+Pj4gQEAgLTE1OSw3
-ICsxNTksMTAgQEAgc3RydWN0IHJpc2N2X3BtdV9zbmFwc2hvdF9kYXRhIHsKPj4+Cj4+PiAgI2Rl
-ZmluZSBSSVNDVl9QTVVfUkFXX0VWRU5UX01BU0sgR0VOTUFTS19VTEwoNDcsIDApCj4+PiAgI2Rl
-ZmluZSBSSVNDVl9QTVVfUExBVF9GV19FVkVOVF9NQVNLIEdFTk1BU0tfVUxMKDYxLCAwKQo+Pj4g
-Ky8qIFNCSSB2My4wIGFsbG93cyBleHRlbmRlZCBocG1ldmVudFggd2lkdGggdmFsdWUgKi8KPj4+
-ICsjZGVmaW5lIFJJU0NWX1BNVV9SQVdfRVZFTlRfVjJfTUFTSyBHRU5NQVNLX1VMTCg1NSwgMCkK
-Pj4+ICAjZGVmaW5lIFJJU0NWX1BNVV9SQVdfRVZFTlRfSURYIDB4MjAwMDAKPj4+ICsjZGVmaW5l
-IFJJU0NWX1BNVV9SQVdfRVZFTlRfVjJfSURYIDB4MzAwMDAKPj4+ICAjZGVmaW5lIFJJU0NWX1BM
-QVRfRldfRVZFTlQgIDB4RkZGRgo+Pj4KPj4+ICAvKiogR2VuZXJhbCBwbXUgZXZlbnQgY29kZXMg
-c3BlY2lmaWVkIGluIFNCSSBQTVUgZXh0ZW5zaW9uICovCj4+PiBAQCAtMjE3LDYgKzIyMCw3IEBA
-IGVudW0gc2JpX3BtdV9ldmVudF90eXBlIHsKPj4+ICAgICAgIFNCSV9QTVVfRVZFTlRfVFlQRV9I
-VyA9IDB4MCwKPj4+ICAgICAgIFNCSV9QTVVfRVZFTlRfVFlQRV9DQUNIRSA9IDB4MSwKPj4+ICAg
-ICAgIFNCSV9QTVVfRVZFTlRfVFlQRV9SQVcgPSAweDIsCj4+PiArICAgICBTQklfUE1VX0VWRU5U
-X1RZUEVfUkFXX1YyID0gMHgzLAo+Pj4gICAgICAgU0JJX1BNVV9FVkVOVF9UWVBFX0ZXID0gMHhm
-LAo+Pj4gIH07Cj4+Pgo+Pj4gZGlmZiAtLWdpdCBhL2RyaXZlcnMvcGVyZi9yaXNjdl9wbXVfc2Jp
-LmMgYi9kcml2ZXJzL3BlcmYvcmlzY3ZfcG11X3NiaS5jCj4+PiBpbmRleCA1MGNiZGJmNjZiYjcu
-LmYwZTg0NWZmNmI3OSAxMDA2NDQKPj4+IC0tLSBhL2RyaXZlcnMvcGVyZi9yaXNjdl9wbXVfc2Jp
-LmMKPj4+ICsrKyBiL2RyaXZlcnMvcGVyZi9yaXNjdl9wbXVfc2JpLmMKPj4+IEBAIC01OSw3ICs1
-OSw3IEBAIGFzbSB2b2xhdGlsZShBTFRFUk5BVElWRSggICAgICAgICAgICAgICAgICAgICAgICAg
-ICAgICAgICAgICAgICAgICAgXAo+Pj4gICNkZWZpbmUgUEVSRl9FVkVOVF9GTEFHX1VTRVJfQUND
-RVNTICBCSVQoU1lTQ1RMX1VTRVJfQUNDRVNTKQo+Pj4gICNkZWZpbmUgUEVSRl9FVkVOVF9GTEFH
-X0xFR0FDWSAgICAgICAgICAgICAgIEJJVChTWVNDVExfTEVHQUNZKQo+Pj4KPj4+IC1QTVVfRk9S
-TUFUX0FUVFIoZXZlbnQsICJjb25maWc6MC00NyIpOwo+Pj4gK1BNVV9GT1JNQVRfQVRUUihldmVu
-dCwgImNvbmZpZzowLTU1Iik7Cj4+PiAgUE1VX0ZPUk1BVF9BVFRSKGZpcm13YXJlLCAiY29uZmln
-OjYyLTYzIik7Cj4+Pgo+Pj4gIHN0YXRpYyBib29sIHNiaV92Ml9hdmFpbGFibGU7Cj4+PiBAQCAt
-NTI3LDE4ICs1MjcsMjQgQEAgc3RhdGljIGludCBwbXVfc2JpX2V2ZW50X21hcChzdHJ1Y3QgcGVy
-Zl9ldmVudCAqZXZlbnQsIHU2NCAqZWNvbmZpZykKPj4+ICAgICAgICAgICAgICAgYnJlYWs7Cj4+
-PiAgICAgICBjYXNlIFBFUkZfVFlQRV9SQVc6Cj4+PiAgICAgICAgICAgICAgIC8qCj4+PiAtICAg
-ICAgICAgICAgICAqIEFzIHBlciBTQkkgc3BlY2lmaWNhdGlvbiwgdGhlIHVwcGVyIDE2IGJpdHMg
-bXVzdCBiZSB1bnVzZWQKPj4+IC0gICAgICAgICAgICAgICogZm9yIGEgaGFyZHdhcmUgcmF3IGV2
-ZW50Lgo+Pj4gKyAgICAgICAgICAgICAgKiBBcyBwZXIgU0JJIHYwLjMgc3BlY2lmaWNhdGlvbiwK
-Pj4+ICsgICAgICAgICAgICAgICogIC0tIHRoZSB1cHBlciAxNiBiaXRzIG11c3QgYmUgdW51c2Vk
-IGZvciBhIGhhcmR3YXJlIHJhdyBldmVudC4KPj4+ICsgICAgICAgICAgICAgICogQXMgcGVyIFNC
-SSB2My4wIHNwZWNpZmljYXRpb24sCj4+PiArICAgICAgICAgICAgICAqICAtLSB0aGUgdXBwZXIg
-OCBiaXRzIG11c3QgYmUgdW51c2VkIGZvciBhIGhhcmR3YXJlIHJhdyBldmVudC4KPj4+ICAgICAg
-ICAgICAgICAgICogQml0cyA2Mzo2MiBhcmUgdXNlZCB0byBkaXN0aW5ndWlzaCBiZXR3ZWVuIHJh
-dyBldmVudHMKPj4+ICAgICAgICAgICAgICAgICogMDAgLSBIYXJkd2FyZSByYXcgZXZlbnQKPj4+
-ICAgICAgICAgICAgICAgICogMTAgLSBTQkkgZmlybXdhcmUgZXZlbnRzCj4+PiAgICAgICAgICAg
-ICAgICAqIDExIC0gUmlzYy1WIHBsYXRmb3JtIHNwZWNpZmljIGZpcm13YXJlIGV2ZW50Cj4+PiAg
-ICAgICAgICAgICAgICAqLwo+Pj4gLQo+Pj4gICAgICAgICAgICAgICBzd2l0Y2ggKGNvbmZpZyA+
-PiA2Mikgewo+Pj4gICAgICAgICAgICAgICBjYXNlIDA6Cj4+PiAtICAgICAgICAgICAgICAgICAg
-ICAgcmV0ID0gUklTQ1ZfUE1VX1JBV19FVkVOVF9JRFg7Cj4+PiAtICAgICAgICAgICAgICAgICAg
-ICAgKmVjb25maWcgPSBjb25maWcgJiBSSVNDVl9QTVVfUkFXX0VWRU5UX01BU0s7Cj4+PiArICAg
-ICAgICAgICAgICAgICAgICAgaWYgKHNiaV92M19hdmFpbGFibGUpIHsKPj4+ICsgICAgICAgICAg
-ICAgICAgICAgICAgICAgICAgICplY29uZmlnID0gY29uZmlnICYgUklTQ1ZfUE1VX1JBV19FVkVO
-VF9WMl9NQVNLOwo+Pj4gKyAgICAgICAgICAgICAgICAgICAgICAgICAgICAgcmV0ID0gUklTQ1Zf
-UE1VX1JBV19FVkVOVF9WMl9JRFg7Cj4+PiArICAgICAgICAgICAgICAgICAgICAgfSBlbHNlIHsK
-Pj4+ICsgICAgICAgICAgICAgICAgICAgICAgICAgICAgICplY29uZmlnID0gY29uZmlnICYgUklT
-Q1ZfUE1VX1JBV19FVkVOVF9NQVNLOwo+Pj4gKyAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
-cmV0ID0gUklTQ1ZfUE1VX1JBV19FVkVOVF9JRFg7Cj4+Cj4+IFNob3VsZG4ndCB3ZSBjaGVjayB0
-byBzZWUgaWYgYW55IG9mIGJpdHMgNDgtNTUgYXJlIHNldCBhbmQgcmV0dXJuIGFuIGVycm9yLAo+
-PiBpbnN0ZWFkIG9mIHNpbGVudGx5IHJlcXVlc3RpbmcgdGhlIHdyb25nIGV2ZW50Pwo+Pgo+IAo+
-IFdlIGNhbi4gSSBkaWQgbm90IGFkZCBpdCBvcmlnaW5hbGx5IGFzIHdlIGNhbid0IGRvIG11Y2gg
-dmFsaWRhdGlvbiBmb3IKPiB0aGUgcmF3IGV2ZW50cyBmb3IgYW55d2F5cy4KPiBJZiB0aGUgZW5j
-b2RpbmcgaXMgbm90IHN1cHBvcnRlZCB0aGUgdXNlciB3aWxsIGdldCB0aGUgZXJyb3IgYW55d2F5
-cwo+IGFzIGl0IGNhbid0IGZpbmQgYSBjb3VudGVyLgo+IFdlIHdpbGwganVzdCBzYXZlIDEgU0JJ
-IGNhbGwgaWYgdGhlIGtlcm5lbCBkb2Vzbid0IGFsbG93IHJlcXVlc3RpbmcgYW4KPiBldmVudCBp
-ZiBiaXRzIDQ4LTU1IGFyZSBzZXQuCgpUaGUgc2NlbmFyaW8gSSdtIGNvbmNlcm5lZCBhYm91dCBp
-cyB3aGVyZSBtYXNraW5nIG9mZiBiaXRzIDQ4LTU1IHJlc3VsdHMgaW4gYQp2YWxpZCwgc3VwcG9y
-dGVkIGVuY29kaW5nIGZvciBhIGRpZmZlcmVudCBldmVudC4gRm9yIGV4YW1wbGUsIGluIHRoZSBI
-UE0gZXZlbnQKZW5jb2Rpbmcgc2NoZW1lIHVzZWQgYnkgUm9ja2V0IGFuZCBpbmhlcml0ZWQgYnkg
-U2lGaXZlIGNvcmVzLCBiaXRzIDgtNTUgYXJlIGEKYml0bWFwLiBTbyBtYXNraW5nIG9mZiBzb21l
-IG9mIHRob3NlIGJpdHMgd2lsbCBleGNsdWRlIHNvbWUgZXZlbnRzLCBidXQgd2lsbCBub3QKY3Jl
-YXRlIGFuIGludmFsaWQgZW5jb2RpbmcuIFRoaXMgY291bGQgYmUgdmVyeSBjb25mdXNpbmcgZm9y
-IHVzZXJzLgoKUmVnYXJkcywKU2FtdWVsCgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxp
-c3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0
-aW5mby9saW51eC1yaXNjdgo=
+On Sun, Dec 01, 2024 at 05:47:13AM +0800, Celeste Liu wrote:
+> The orig_a0 is missing in struct user_regs_struct of riscv, and there is
+> no way to add it without breaking UAPI. (See Link tag below)
+
+We have had a patch sitting on the lists for a very long time to do this
+which I guess didn't get enough attention. I am glad that we have more
+eyes on this problem now so it can actually be fixed :) [1].
+
+However that patch has the problem that it modifies the
+user_regs_struct. It is super unfortunate that riscv didn't have the
+foresight of loongarch to add padding.
+
+There is a nice test case in there that would be great to get added
+alongside this commit with the appropriate changes. [2]
+
+[1] https://lore.kernel.org/linux-riscv/cover.1719408040.git.zhouquan@iscas=
+.ac.cn/
+[2] https://lore.kernel.org/linux-riscv/1e9cbab1b0badc05592fce4671741893007=
+6a6ae.1719408040.git.zhouquan@iscas.ac.cn/
+
+
+Since I am familiar with the code I have gone ahead and made the
+appropriate changes. Here is the diff:
+
+From f35184467cc7b319c2a5c5c034d18119c46f54c2 Mon Sep 17 00:00:00 2001
+From: Charlie Jenkins <charlie@rivosinc.com>
+Date: Mon, 2 Dec 2024 21:19:13 -0800
+Subject: [PATCH] riscv: selftests: Add a ptrace test to verify syscall
+ parameter modification
+
+This test checks that orig_a0 allows a syscall argument to be modified,
+and that changing a0 does not change the syscall argument.
+
+Co-developed-by: Quan Zhou <zhouquan@iscas.ac.cn>
+Signed-off-by: Charlie Jenkins <charlie@rivosinc.com>
+---
+ arch/riscv/kernel/ptrace.c                   |   2 +-
+ tools/testing/selftests/riscv/abi/.gitignore |   1 +
+ tools/testing/selftests/riscv/abi/Makefile   |   5 +-
+ tools/testing/selftests/riscv/abi/ptrace.c   | 133 +++++++++++++++++++
+ 4 files changed, 139 insertions(+), 2 deletions(-)
+ create mode 100644 tools/testing/selftests/riscv/abi/ptrace.c
+
+diff --git a/arch/riscv/kernel/ptrace.c b/arch/riscv/kernel/ptrace.c
+index faa46de90003..025c22894d32 100644
+--- a/arch/riscv/kernel/ptrace.c
++++ b/arch/riscv/kernel/ptrace.c
+@@ -197,7 +197,7 @@ static int riscv_orig_a0_set(struct task_struct *target,
+ 			     unsigned int pos, unsigned int count,
+ 			     const void *kbuf, const void __user *ubuf)
+ {
+-	int orig_a0 =3D task_pt_regs(target)->orig_a0;
++	unsigned long orig_a0 =3D task_pt_regs(target)->orig_a0;
+ 	int ret;
+
+ 	ret =3D user_regset_copyin(&pos, &count, &kbuf, &ubuf, &orig_a0, 0, -1);
+diff --git a/tools/testing/selftests/riscv/abi/.gitignore b/tools/testing/s=
+elftests/riscv/abi/.gitignore
+index b38358f91c4d..378c605919a3 100644
+--- a/tools/testing/selftests/riscv/abi/.gitignore
++++ b/tools/testing/selftests/riscv/abi/.gitignore
+@@ -1 +1,2 @@
+ pointer_masking
++ptrace
+diff --git a/tools/testing/selftests/riscv/abi/Makefile b/tools/testing/sel=
+ftests/riscv/abi/Makefile
+index ed82ff9c664e..3f74d059dfdc 100644
+--- a/tools/testing/selftests/riscv/abi/Makefile
++++ b/tools/testing/selftests/riscv/abi/Makefile
+@@ -2,9 +2,12 @@
+
+ CFLAGS +=3D -I$(top_srcdir)/tools/include
+
+-TEST_GEN_PROGS :=3D pointer_masking
++TEST_GEN_PROGS :=3D pointer_masking ptrace
+
+ include ../../lib.mk
+
+ $(OUTPUT)/pointer_masking: pointer_masking.c
+ 	$(CC) -static -o$@ $(CFLAGS) $(LDFLAGS) $^
++
++$(OUTPUT)/ptrace: ptrace.c
++	$(CC) -static -o$@ $(CFLAGS) $(LDFLAGS) $^
+diff --git a/tools/testing/selftests/riscv/abi/ptrace.c b/tools/testing/sel=
+ftests/riscv/abi/ptrace.c
+new file mode 100644
+index 000000000000..1c3ce40d6a34
+--- /dev/null
++++ b/tools/testing/selftests/riscv/abi/ptrace.c
+@@ -0,0 +1,133 @@
++// SPDX-License-Identifier: GPL-2.0-only
++#include <stdio.h>
++#include <stdlib.h>
++#include <string.h>
++#include <unistd.h>
++#include <fcntl.h>
++#include <signal.h>
++#include <errno.h>
++#include <sys/types.h>
++#include <sys/ptrace.h>
++#include <sys/stat.h>
++#include <sys/user.h>
++#include <sys/wait.h>
++#include <sys/uio.h>
++#include <linux/elf.h>
++#include <linux/unistd.h>
++#include <asm/ptrace.h>
++
++#include "../../kselftest_harness.h"
++
++#define ORIG_A0_MODIFY      0x01
++#define A0_MODIFY           0x02
++#define A0_OLD              0x03
++#define A0_NEW              0x04
++
++#define perr_and_exit(fmt, ...)						\
++	({								\
++		char buf[256];						\
++		snprintf(buf, sizeof(buf), "%s:%d:" fmt ": %m\n",	\
++			__func__, __LINE__, ##__VA_ARGS__);		\
++		perror(buf);						\
++		exit(-1);						\
++	})
++
++static inline void resume_and_wait_tracee(pid_t pid, int flag)
++{
++	int status;
++
++	if (ptrace(flag, pid, 0, 0))
++		perr_and_exit("failed to resume the tracee %d\n", pid);
++
++	if (waitpid(pid, &status, 0) !=3D pid)
++		perr_and_exit("failed to wait for the tracee %d\n", pid);
++}
++
++static void ptrace_test(int opt, int *result)
++{
++	int status;
++	pid_t pid;
++	struct user_regs_struct regs;
++	struct iovec iov =3D {
++		.iov_base =3D &regs,
++		.iov_len =3D sizeof(regs),
++	};
++
++	unsigned long orig_a0;
++	struct iovec a0_iov =3D {
++		.iov_base =3D &orig_a0,
++		.iov_len =3D sizeof(orig_a0),
++	};
++
++	pid =3D fork();
++	if (pid =3D=3D 0) {
++		/* Mark oneself being traced */
++		long val =3D ptrace(PTRACE_TRACEME, 0, 0, 0);
++		if (val)
++			perr_and_exit("failed to request for tracer to trace me: %ld\n", val);
++
++		kill(getpid(), SIGSTOP);
++
++		/* Perform exit syscall that will be intercepted */
++		exit(A0_OLD);
++	}
++
++	if (pid < 0)
++		exit(1);
++
++	if (waitpid(pid, &status, 0) !=3D pid)
++		perr_and_exit("failed to wait for the tracee %d\n", pid);
++
++	/* Stop at the entry point of the syscall */
++	resume_and_wait_tracee(pid, PTRACE_SYSCALL);
++
++	/* Check tracee regs before the syscall */
++	if (ptrace(PTRACE_GETREGSET, pid, NT_PRSTATUS, &iov))
++		perr_and_exit("failed to get tracee registers\n");
++	if (ptrace(PTRACE_GETREGSET, pid, NT_RISCV_ORIG_A0, &a0_iov))
++		perr_and_exit("failed to get tracee registers\n");
++	if (orig_a0 !=3D A0_OLD)
++		perr_and_exit("unexpected orig_a0: 0x%lx\n", orig_a0);
++
++	/* Modify a0/orig_a0 for the syscall */
++	switch (opt) {
++	case A0_MODIFY:
++		regs.a0 =3D A0_NEW;
++		break;
++	case ORIG_A0_MODIFY:
++		orig_a0 =3D A0_NEW;
++		break;
++	}
++
++	if (ptrace(PTRACE_SETREGSET, pid, NT_RISCV_ORIG_A0, &a0_iov))
++		perr_and_exit("failed to set tracee registers\n");
++
++	/* Resume the tracee */
++	ptrace(PTRACE_CONT, pid, 0, 0);
++	if (waitpid(pid, &status, 0) !=3D pid)
++		perr_and_exit("failed to wait for the tracee\n");
++
++	*result =3D WEXITSTATUS(status);
++}
++
++TEST(ptrace_modify_a0)
++{
++	int result;
++
++	ptrace_test(A0_MODIFY, &result);
++
++	/* The modification of a0 cannot affect the first argument of the syscall=
+ */
++	EXPECT_EQ(A0_OLD, result);
++}
++
++TEST(ptrace_modify_orig_a0)
++{
++	int result;
++
++	ptrace_test(ORIG_A0_MODIFY, &result);
++
++	/* Only modify orig_a0 to change the first argument of the syscall */
++	EXPECT_EQ(A0_NEW, result);
++}
++
++TEST_HARNESS_MAIN
+--
+2.34.1
+
+
+> =
+
+> Like NT_ARM_SYSTEM_CALL do, we add a new regset name NT_RISCV_ORIG_A0 to
+> access original a0 register from userspace via ptrace API.
+> =
+
+> Link: https://lore.kernel.org/all/59505464-c84a-403d-972f-d4b2055eeaac@gm=
+ail.com/
+> Signed-off-by: Celeste Liu <uwu@coelacanthus.name>
+> ---
+>  arch/riscv/kernel/ptrace.c | 33 +++++++++++++++++++++++++++++++++
+>  include/uapi/linux/elf.h   |  1 +
+>  2 files changed, 34 insertions(+)
+> =
+
+> diff --git a/arch/riscv/kernel/ptrace.c b/arch/riscv/kernel/ptrace.c
+> index ea67e9fb7a583683b922fe2c017ea61f3bc848db..faa46de9000376eb445a32d43=
+a40210d7b846844 100644
+> --- a/arch/riscv/kernel/ptrace.c
+> +++ b/arch/riscv/kernel/ptrace.c
+> @@ -31,6 +31,7 @@ enum riscv_regset {
+>  #ifdef CONFIG_RISCV_ISA_SUPM
+>  	REGSET_TAGGED_ADDR_CTRL,
+>  #endif
+> +	REGSET_ORIG_A0,
+>  };
+>  =
+
+>  static int riscv_gpr_get(struct task_struct *target,
+> @@ -184,6 +185,30 @@ static int tagged_addr_ctrl_set(struct task_struct *=
+target,
+>  }
+>  #endif
+>  =
+
+> +static int riscv_orig_a0_get(struct task_struct *target,
+> +			     const struct user_regset *regset,
+> +			     struct membuf to)
+> +{
+> +	return membuf_store(&to, task_pt_regs(target)->orig_a0);
+> +}
+> +
+> +static int riscv_orig_a0_set(struct task_struct *target,
+> +			     const struct user_regset *regset,
+> +			     unsigned int pos, unsigned int count,
+> +			     const void *kbuf, const void __user *ubuf)
+> +{
+> +	int orig_a0 =3D task_pt_regs(target)->orig_a0;
+
+The testcase above highlights that this should be of type "unsigned
+long" instead of int! Otherwise 64-bit systems will only be able to set
+the first 32 bits (as Bj=F6rn pointed out in the other thread) :)
+
+This issue was found because the test case tries to set all 64 bits and
+succeeds, but the extra bits corrupt the stack. Maybe the code here
+should enforce that the count is equal to the size of an unsigned long?
+Fortunately the extra bits ended up in the stack so it was determined to
+be corrupted, but I suppose that will not necessarily always be the case
+depending on kernel compiler optimizations and user_regset_copyin()
+could end up overwritting other data in this function undetected.
+
+- Charlie
+
+> +	int ret;
+> +
+> +	ret =3D user_regset_copyin(&pos, &count, &kbuf, &ubuf, &orig_a0, 0, -1);
+> +	if (ret)
+> +		return ret;
+> +
+> +	task_pt_regs(target)->orig_a0 =3D orig_a0;
+> +	return ret;
+> +}
+> +
+> +
+>  static const struct user_regset riscv_user_regset[] =3D {
+>  	[REGSET_X] =3D {
+>  		.core_note_type =3D NT_PRSTATUS,
+> @@ -224,6 +249,14 @@ static const struct user_regset riscv_user_regset[] =
+=3D {
+>  		.set =3D tagged_addr_ctrl_set,
+>  	},
+>  #endif
+> +	[REGSET_ORIG_A0] =3D {
+> +		.core_note_type =3D NT_RISCV_ORIG_A0,
+> +		.n =3D 1,
+> +		.size =3D sizeof(elf_greg_t),
+> +		.align =3D sizeof(elf_greg_t),
+> +		.regset_get =3D riscv_orig_a0_get,
+> +		.set =3D riscv_orig_a0_set,
+> +	},
+>  };
+>  =
+
+>  static const struct user_regset_view riscv_user_native_view =3D {
+> diff --git a/include/uapi/linux/elf.h b/include/uapi/linux/elf.h
+> index b44069d29cecc0f9de90ee66bfffd2137f4275a8..390060229601631da2fb27030=
+d9fa2142e676c14 100644
+> --- a/include/uapi/linux/elf.h
+> +++ b/include/uapi/linux/elf.h
+> @@ -452,6 +452,7 @@ typedef struct elf64_shdr {
+>  #define NT_RISCV_CSR	0x900		/* RISC-V Control and Status Registers */
+>  #define NT_RISCV_VECTOR	0x901		/* RISC-V vector registers */
+>  #define NT_RISCV_TAGGED_ADDR_CTRL 0x902	/* RISC-V tagged address control=
+ (prctl()) */
+> +#define NT_RISCV_ORIG_A0	  0x903	/* RISC-V original a0 register */
+>  #define NT_LOONGARCH_CPUCFG	0xa00	/* LoongArch CPU config registers */
+>  #define NT_LOONGARCH_CSR	0xa01	/* LoongArch control and status registers=
+ */
+>  #define NT_LOONGARCH_LSX	0xa02	/* LoongArch Loongson SIMD Extension regi=
+sters */
+> =
+
+> ---
+> base-commit: 0e287d31b62bb53ad81d5e59778384a40f8b6f56
+> change-id: 20241201-riscv-new-regset-d529b952ad0d
+> =
+
+> Best regards,
+> -- =
+
+> Celeste Liu <uwu@coelacanthus.name>
+> =
+
+> =
+
+> _______________________________________________
+> linux-riscv mailing list
+> linux-riscv@lists.infradead.org
+> http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
