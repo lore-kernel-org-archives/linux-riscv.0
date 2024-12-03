@@ -4,63 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7AECDE64A9E
-	for <linux-riscv@archiver.kernel.org>; Tue,  3 Dec 2024 13:42:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B18C0E64AA3
+	for <linux-riscv@archiver.kernel.org>; Tue,  3 Dec 2024 13:42:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:References:MIME-Version:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=RmRj+F3b5mapD/Xpo0+dQa6sv5BardhGnisSzIqfrkg=; b=qSnjIyj2dH2b2U
-	6cukRBKhw8ce2dHrBOmZK67OEHBcAZP1MPQazhc1gawYrj9H8gedJX/9sZWcHiW3ncjpTyA2wP0G7
-	DFCBwgPM94kJa2GvoxQx/ToQ364OMjrMRHzzy7Dq6iXiJ/ab7lAioanEyGo3Qg8l4d2Oc6fL5CNHD
-	1P/HnxMBK/q4sq/Qapxs47NOQ2BOGSmZgCejx1jVmJ29sCSccwykTnr+s+BS8j1JFjUY/dqad0jjF
-	rhgvxTz1yie/7yZ7gxZ7FRLd7tiZ2L9E7YMGYY4JxzWA3Fn2hBkV0bS8v4MHYGEwXA1Ek4WHQE/Md
-	Ndprd0gm/jQ1lrV+NCOw==;
+	List-Owner; bh=vE7oRQpwK+hpLO8kW2yQFEpej1plqVzKjw5nYGvbvaw=; b=kHShtJkSh6AZGG
+	aNqGtGlTpDBxWw2/N9GzqK2WJ4igQn2VKCdPoymulBB3d/50yLr09bjVla7Bb6R3lMwJpX0Y4fZrl
+	r79B5wepPYA1MOCpmrSQW2ta4BJoHXSjqCCej/bnNL0hX1tvZV6265HK/LuRxbVN5qF/JN8zZKL/e
+	saXWpR1ztVJpBVLizftM8QgUgZlrE/IVJOERT3dhM9fV3w6pW8UoPakGZ2u2TwaKwnKtuGP5WRlur
+	6GWkmvNZJmYWY1D/8i8mnLZnWz5FlTjU1WdfoQvyOB0vrtom0qTi8ZOs2U7HO/RvMlPdHNAI6YDua
+	7Vl16n3JUbc5sEimIeXA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tITA7-00000009e4K-45Nf;
-	Tue, 03 Dec 2024 13:41:59 +0000
-Received: from [210.118.77.11] (helo=mailout1.w1.samsung.com)
+	id 1tITAB-00000009e88-1Jl5;
+	Tue, 03 Dec 2024 13:42:03 +0000
+Received: from [210.118.77.12] (helo=mailout2.w1.samsung.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tITA5-00000009e11-2DuU
+	id 1tITA8-00000009e2Y-1qN0
 	for linux-riscv@lists.infradead.org;
-	Tue, 03 Dec 2024 13:41:59 +0000
+	Tue, 03 Dec 2024 13:42:02 +0000
 Received: from eucas1p1.samsung.com (unknown [182.198.249.206])
-	by mailout1.w1.samsung.com (KnoxPortal) with ESMTP id 20241203134156euoutp01de85a2f303d6b4adb3fef8788abc7855~NroSl8Tid2570425704euoutp01I
-	for <linux-riscv@lists.infradead.org>; Tue,  3 Dec 2024 13:41:56 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout1.w1.samsung.com 20241203134156euoutp01de85a2f303d6b4adb3fef8788abc7855~NroSl8Tid2570425704euoutp01I
+	by mailout2.w1.samsung.com (KnoxPortal) with ESMTP id 20241203134157euoutp0211e8a9373d967a16c2e20469044ad6a3~NroT3SojS3029430294euoutp02e
+	for <linux-riscv@lists.infradead.org>; Tue,  3 Dec 2024 13:41:57 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.w1.samsung.com 20241203134157euoutp0211e8a9373d967a16c2e20469044ad6a3~NroT3SojS3029430294euoutp02e
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1733233316;
-	bh=oC+R2AH5wsqjet5ieb6+rxFp1u3nZ9Z07QmkpORzdC0=;
+	s=mail20170921; t=1733233317;
+	bh=5rBePMS44xnD+OwXpDSSPcmNCrh1lKWMdJ1IYE/6SpA=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=dPo+T0rdkn45cMrQ0jm8Wk68x/51nKYFsWCfxjcXwXzxO8hNluqZ+bNekjTxg25M2
-	 b2A4WmUf/rNntP1/Pfdt5buqOCP3Y/0sCrjq3OJIxrnKhNtpj/h+qzAxKS21P7QA1N
-	 jT0OfDLgP79B2U62XG8Ruds92UaGgh9b6y80zIkU=
-Received: from eusmges1new.samsung.com (unknown [203.254.199.242]) by
+	b=aznlbACLHvSNxstEGzxKWl2jAngBf1qfe63+gZ89x5jroyRBtIF7tpXQdsJ2vHVVH
+	 F4nwZ6NHcr5fNqnPbMGkCJrVbujeizc/V65Qkt2BZAPZEdelVkFa1TS1Z1pV1FlngL
+	 g1xUCclib6E0AjJ1RpdJ3I4YIspJR0PdsfWumnAs=
+Received: from eusmges3new.samsung.com (unknown [203.254.199.245]) by
 	eucas1p2.samsung.com (KnoxPortal) with ESMTP id
-	20241203134155eucas1p294a7b3f321d9cfa02c1aad2d8fa8d87e~NroSMRyE71760217602eucas1p2r;
-	Tue,  3 Dec 2024 13:41:55 +0000 (GMT)
+	20241203134157eucas1p2b259dbaaa19422fc4d713764e4c39d94~NroTVhodu0738707387eucas1p2s;
+	Tue,  3 Dec 2024 13:41:57 +0000 (GMT)
 Received: from eucas1p1.samsung.com ( [182.198.249.206]) by
-	eusmges1new.samsung.com (EUCPMTA) with SMTP id 56.CA.20821.3AA0F476; Tue,  3
-	Dec 2024 13:41:55 +0000 (GMT)
-Received: from eusmtrp1.samsung.com (unknown [182.198.249.138]) by
-	eucas1p1.samsung.com (KnoxPortal) with ESMTPA id
-	20241203134155eucas1p1e90c71c4f8eb5da41d2cc8a500f54dc7~NroRwtF5v1266212662eucas1p1w;
-	Tue,  3 Dec 2024 13:41:55 +0000 (GMT)
-Received: from eusmgms2.samsung.com (unknown [182.198.249.180]) by
-	eusmtrp1.samsung.com (KnoxPortal) with ESMTP id
-	20241203134155eusmtrp1407a8f487afcd4c15fd63225fc616274~NroRv7CKL0888908889eusmtrp1C;
-	Tue,  3 Dec 2024 13:41:55 +0000 (GMT)
-X-AuditID: cbfec7f2-b11c470000005155-6b-674f0aa3a1bb
+	eusmges3new.samsung.com (EUCPMTA) with SMTP id 7D.51.20397.5AA0F476; Tue,  3
+	Dec 2024 13:41:57 +0000 (GMT)
+Received: from eusmtrp2.samsung.com (unknown [182.198.249.139]) by
+	eucas1p2.samsung.com (KnoxPortal) with ESMTPA id
+	20241203134156eucas1p2326d84fcef2ee0914586122520b18dcc~NroS8-_QU1693616936eucas1p2b;
+	Tue,  3 Dec 2024 13:41:56 +0000 (GMT)
+Received: from eusmgms1.samsung.com (unknown [182.198.249.179]) by
+	eusmtrp2.samsung.com (KnoxPortal) with ESMTP id
+	20241203134156eusmtrp2bf0d371dc92520a7b853fc19affbb0ad~NroS7316B3035030350eusmtrp2z;
+	Tue,  3 Dec 2024 13:41:56 +0000 (GMT)
+X-AuditID: cbfec7f5-e59c770000004fad-3a-674f0aa55bf7
 Received: from eusmtip2.samsung.com ( [203.254.199.222]) by
-	eusmgms2.samsung.com (EUCPMTA) with SMTP id 8C.F6.19654.3AA0F476; Tue,  3
-	Dec 2024 13:41:55 +0000 (GMT)
+	eusmgms1.samsung.com (EUCPMTA) with SMTP id 6F.C8.19920.4AA0F476; Tue,  3
+	Dec 2024 13:41:56 +0000 (GMT)
 Received: from AMDC4942.home (unknown [106.210.136.40]) by
 	eusmtip2.samsung.com (KnoxPortal) with ESMTPA id
-	20241203134153eusmtip2eceb173357aae7426c9f6aa66d4a47de~NroQX2oFo3160631606eusmtip2D;
-	Tue,  3 Dec 2024 13:41:53 +0000 (GMT)
+	20241203134155eusmtip23d5cc2bd36f9dc0fb0e7adc5825ec3a0~NroRnuaU93133331333eusmtip2d;
+	Tue,  3 Dec 2024 13:41:55 +0000 (GMT)
 From: Michal Wilczynski <m.wilczynski@samsung.com>
 To: mturquette@baylibre.com, sboyd@kernel.org, robh@kernel.org,
 	krzk+dt@kernel.org, conor+dt@kernel.org, drew@pdp7.com, guoren@kernel.org,
@@ -73,61 +73,61 @@ Cc: linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
 	dri-devel@lists.freedesktop.org, linux-pm@vger.kernel.org, Michal Wilczynski
 	<m.wilczynski@samsung.com>
-Subject: [RFC PATCH v1 05/14] dt-bindings: clock: thead,th1520: Add support
- for Video Output subsystem
-Date: Tue,  3 Dec 2024 14:41:28 +0100
-Message-Id: <20241203134137.2114847-6-m.wilczynski@samsung.com>
+Subject: [RFC PATCH v1 06/14] dt-bindings: clock: thead,th1520: Rename YAML
+ schema file
+Date: Tue,  3 Dec 2024 14:41:29 +0100
+Message-Id: <20241203134137.2114847-7-m.wilczynski@samsung.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20241203134137.2114847-1-m.wilczynski@samsung.com>
 MIME-Version: 1.0
-X-Brightmail-Tracker: H4sIAAAAAAAAA01Sa0xTZxjed87pOaVZ8VBc+qXg2FgwMjIuuixfcDKmgx2iCc4sIdsypIyz
-	YsbFtCAgJkOLTKDdxi3MUi4OFNaAXbFlXMpQ6KhaYBsqoAHGiHWrIKRctilaRjl189/zvs/z
-	vO/7fPn4uMhASvhHMrJYeYY0LZAUEB2DD0deaxTEy8JPd4Wjq+PfYsi0pqFQa+8IhuotIzw0
-	PWrE0M3VRRJdtP9CoT97TxJorKWWQspBPYkcmmkSOVXTPHSjW0uiZbUFoI7lQhK1WaYopF+t
-	x9A5p4lATZ3dABUVX+ChX6/HIMcNFY6KNFvQurmTQq4xA4FqFvooZJwv4yFrWwIq7Kskorcx
-	ixOnKWbe4SCYgTMrFNP7VwPBdGmmKEbVNQSYdl0xyUyOmUmm7tp7zG+lVoy51PQ5U9g2iDGL
-	P94imS+NOsCMKscp5pIt/6DPh4I3U9i0I8dYeVhUkiB13TZKHB0Q51aNv1EAbolKgBcf0q/D
-	ldovyBIg4IvoFgAHrWbAFSsAunoWPcwygCvLp6inFofGRXBEM4DlP9+juGIewK4a86aKpHfC
-	meZ6npvYSs/hcGL19uYsnP4DwI67WtKt8qVTYcmAGndjgg6Clkn7pltIvwXtlx+Q3L4A2Hdl
-	eFPjRUfDuaoSHqfxgdfO3iXcGN/QKE01OKf/TgAbe2I5/A78qu5vjMO+8L7V6MngD20VKoLD
-	mXDGtOTxnoBdKqsH74aTI482buBvzA+G+u4wrv02vGptodxtSHvDiQc+3AXesLyjGufaQnim
-	yPO+22GVSv3f0pGWDs8xDJz93kR8DV7WPJNF80wWzf97GwCuA2I2W5EuYxURGWxOqEKarsjO
-	kIV+kpneDjZ+tc1lXeoEtfedof0A44N+APl44FZhs36/TCRMkeYdZ+WZh+XZaayiH/jxiUCx
-	MCglgBXRMmkW+xnLHmXlT1mM7yUpwKIPTVrL/Cr+8Y/cgxmS/WNOCYy7vGOX7IlbYkPq3p15
-	nDeaElBaY26/rd/jzYq1zkRFTLfA8jtmM79iUDfk6lZlF5+futxn3dFZoRM/UkaF1xlCatVr
-	5uIDzav4wrG4A5LI7ezZ+DzJc+qChW/27aoc+DSo3y/HmnCubN/JO1l7g2201+E7ZtHazQR1
-	clRd2GNV8pNWOKsaiqh+QRzXnrtCz+y990GO7sRPwT/EzWEP4z/edl63Yy0yxDksm9dW98Y7
-	9OUN8Pr+vHw62Tk6bJpPtw+dj5ndqe12ReTnv3iwuicpqfUJeyW7MtFXqbV81ERKjlONhvXd
-	yCeotPGl9wMJRao04lVcrpD+C1022ddEBAAA
-X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFprHKsWRmVeSWpSXmKPExsVy+t/xe7qLufzTDf7eELQ4cX0Rk8XW37PY
+X-Brightmail-Tracker: H4sIAAAAAAAAA02SfUxbZRTGfe+9vfdSU7iUTd5At4U60GnskBXzOsnAZMabzAQ1i5MNlSpX
+	NuRjaYHNwQRXRD4K2ZYxt1KgLGArGdaND2kD8illsBaBjbXKgBm2UehE6Fh0LiDlMt1/v3PO
+	8z7POclL4+IfyCD6UFoGp0xTpEhJIdHS97f9pTphbFJ4l16A+m9cwFDzP1oKXWy3Y6i61y5A
+	EyNNGLq2NE+i72//QqGZ9i8JNGaspJC6z0Qil3aCRAuaCQEatehI5CntBajFk0+iht6bFDIt
+	VWOoZqGZQLWtFoAKir4VoOGBN5BrVIOjAq0fWmlrpdDy2CUCVfzRQaEm9ykBsjbsQ/kdZ4iY
+	Tey84yuKdbtcBNtTeJ9i2x/oCdasvUmxGvNVwF6uLyLZ8bE2kq268g47WWLF2MbaXDa/oQ9j
+	53+6TrJlTfWAHVHfoNjGwey3/fcLoxK5lENZnHL7rgThwaLhrYcLxUd1HhueB371KwY+NGTk
+	sMBxEi8GQlrMGAG81TdH8MV9AKea1OuFB8DhqjLy8ZN+o5rkBwYAf/7Ts164V59Y7AKvimQi
+	4JShWuAdbGDmcOhYcq6pcOYugC3TujWvACYONvaXrjJNE0wobHyU622LmGg4OFMO+LgtsKPL
+	hnvZh4mBc+XFAl7jD6+cnya8jK9q1M0Va1dA5jshHBgwE15PyOyGt64n8D4BcNbaRPEsgSvm
+	aozndDjVvIjznAPNGus6vwbH7Q/XVsOZbdBk2c63X4ejlmKSd/eFjnv+/Aa+8HTLNzjfFsHC
+	AjGvDoPlmtL/Qu3GlvVQFva4e7GTIET7xC3aJ27R/p+rB3g9COQyValJnGpHGndEplKkqjLT
+	kmSfpKdeBqufenDZutQKjLMLsm6A0aAbQBqXbhAZTHuSxKJExefHOGX6R8rMFE7VDYJpQhoo
+	Ck3cwomZJEUG9xnHHeaUj6cY7ROUh7HZmqyttWfbIsNLyg+AjtyKyuL5nj553FObsuTHlyLu
+	2nrC74SqK6ej9HXSjt8kVRLRSuV71wjHqaG8t44snE7xnFi2fZER+WLAPZ1kZ4hub4OtzDmq
+	B+Gd88fuhIVN+Fhdw+aC1geN0RFRF3aEbm4dkXWWRJ4Iqskx7fpx+dy2+Nqjzzsl8mTD3kvR
+	UrDTsni85vyjuCwUfO7ieHxwXbb+tmRjHRE/m6Ytiv1QEvr1w/3v25wJbosiZuDq7k+NnQMo
+	+5Vu35BJv+cCZXv+MkwOHXi6x/nBDEu7kmf31X1MWoZ+dxgDn3k2SJr76sZY7WZdd9GbTNcZ
+	/bs5ZxflyeauGimhOqh4+QVcqVL8CyvUVdlDBAAA
+X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFlrAKsWRmVeSWpSXmKPExsVy+t/xe7pLuPzTDU7dVLU4cX0Rk8XW37PY
 	LdbsPcdkMf/IOVaLe5e2MFlc+fqezWLd0wvsFi/2NrJYXFsxl92i+dh6NouXs+6xWXzsucdq
 	cXnXHDaLz71HGC22fW5hs1h75C67xfqv85ksFn7cymKxZMcuRou2zmWsFhdPuVq8vNzDbNE2
 	i9/i/54d7Bb/rm1ksZj9bj+7xZY3E1ktjq8Nt2jZP4XFQdbj/Y1Wdo83L1+yeBzu+MLusffb
 	AhaPnbPusnv07DzD6LFpVSebx51re9g85p0M9LjffZzJY/OSeo+WtceYPN7vu8rm0bdlFaPH
 	pebr7B6bT1cHCEbp2RTll5akKmTkF5fYKkUbWhjpGVpa6BmZWOoZGpvHWhmZKunb2aSk5mSW
-	pRbp2yXoZfw/fYml4LB4xdTrZg2MV4W6GDk5JARMJF7O+scCYgsJLGWU+LZPFSIuI3Gt+yUL
-	hC0s8edaFxtEzStGidY/NSA2m4CRxIPl81m7GLk4RAQ6WSTebl7LCOIwC7xllLg+cyNQNweH
-	sECaxI79kiANLAKqEkfuPGUHsXkF7CWeHnjLBrFAXmL/wbPMIDangIPE66ldrBDL7CV2/D3M
-	ClEvKHFy5hOwg5iB6pu3zmaewCgwC0lqFpLUAkamVYwiqaXFuem5xUZ6xYm5xaV56XrJ+bmb
-	GIEJZduxn1t2MK589VHvECMTB+MhRgkOZiUR3uXrvdOFeFMSK6tSi/Lji0pzUosPMZoC3T2R
-	WUo0OR+Y0vJK4g3NDEwNTcwsDUwtzYyVxHnZrpxPExJITyxJzU5NLUgtgulj4uCUamBqsePT
-	dIlyDRQ8P2ObSqDNrp2asydliV4uOs2wWfngNKvpxc22HlwRa2u3pcQmntfh/Lrg0fzJJ73D
-	7LR1fkuYhu97rmrPlh6461fMQRdfgyO3uhb6PeVKbnrL1XrROWSWUWD3vFL5KMEtaVPb7rQy
-	Ktfa/mSY3ZW9XHf5nHczvc/UKoqf232KU99cp6Vp/q4SQfeqzz/OehVLaj6cIMIbYXOa41+q
-	m8/S26ubcn5Eqs9Ie3Uh8ATfk5kaa3Jk91qJrZq8O8GSP8A609MzJnfXEitdoaaPz60u622y
-	Dln+1XWB88OtG2/52F48O/X0qWlmleEc3Q0Pl//0iF+4SUTp0alP6ySf7j/fJD7lbrESS3FG
-	oqEWc1FxIgDl0upfsQMAAA==
-X-CMS-MailID: 20241203134155eucas1p1e90c71c4f8eb5da41d2cc8a500f54dc7
+	pRbp2yXoZXReVCnoEKqY8/kscwPjLf4uRk4OCQETiRMrmtm6GLk4hASWMkpM6tjICpGQkbjW
+	/ZIFwhaW+HOtC6roFaPEpeOtzCAJNgEjiQfL57OCJEQEOlkk3m5eywjiMAu8ZZS4PnMjWLuw
+	QLjEu0fTmboYOThYBFQlNv+pBwnzCthLnH4xlRFig7zE/oNnwYZyCjhIvJ7aBXaFEFDNjr+H
+	WSHqBSVOznwCNpIZqL5562zmCYwCs5CkZiFJLWBkWsUoklpanJueW2yoV5yYW1yal66XnJ+7
+	iRGYVLYd+7l5B+O8Vx/1DjEycTAeYpTgYFYS4V2+3jtdiDclsbIqtSg/vqg0J7X4EKMp0NkT
+	maVEk/OBaS2vJN7QzMDU0MTM0sDU0sxYSZzX7fL5NCGB9MSS1OzU1ILUIpg+Jg5OqQYmptks
+	DJPNDUP0/zr0fmcKWPTOT9csyPaZ3OPp0zKsDjR/VljNWZ358RDvwtqWvyUN82X2Bj5fwhmz
+	ZlHPF9OYuF0LClfOVc14/8TUJXqXaE3v8ZB70bU/Fv03L05SDwteHjtVsk+pi7XZaYVhhpVL
+	WdTR26Znv1SGLuF/1OT2v4N1W/4PG39tiQmcm6rPZ8ge55stxpHqPMv7uNACf5dN1nLVRlt4
+	d4qWTWRa59x4RDBTMt8t58Ks3Y2lm/qNNnx/7hf+MJX5zoIfi7wLGGJzWX+98PU+O/eaUPWM
+	U/yPeeYLV35bXad5tYEx32bbDJslgk8XdKTcSy+YPnXHsYVPag3k9CoU/juKfot8Z6LEUpyR
+	aKjFXFScCADRXE+gswMAAA==
+X-CMS-MailID: 20241203134156eucas1p2326d84fcef2ee0914586122520b18dcc
 X-Msg-Generator: CA
-X-RootMTR: 20241203134155eucas1p1e90c71c4f8eb5da41d2cc8a500f54dc7
+X-RootMTR: 20241203134156eucas1p2326d84fcef2ee0914586122520b18dcc
 X-EPHeader: CA
 CMS-TYPE: 201P
-X-CMS-RootMailID: 20241203134155eucas1p1e90c71c4f8eb5da41d2cc8a500f54dc7
+X-CMS-RootMailID: 20241203134156eucas1p2326d84fcef2ee0914586122520b18dcc
 References: <20241203134137.2114847-1-m.wilczynski@samsung.com>
-	<CGME20241203134155eucas1p1e90c71c4f8eb5da41d2cc8a500f54dc7@eucas1p1.samsung.com>
+	<CGME20241203134156eucas1p2326d84fcef2ee0914586122520b18dcc@eucas1p2.samsung.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241203_054157_834857_C72CFA86 
-X-CRM114-Status: GOOD (  14.48  )
+X-CRM114-CacheID: sfid-20241203_054200_759744_7A0A6D4E 
+X-CRM114-Status: GOOD (  11.53  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -144,89 +144,52 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The device tree bindings for the T-Head TH1520 SoC clocks currently
-support only the Application Processor (AP) subsystem. This commit
-extends the bindings to include the Video Output (VO) subsystem clocks.
+As support for clocks from new subsystems is being added to the T-Head
+TH1520 SoC, the Device Tree binding YAML schema file name should reflect
+this broader scope.  The existing schema file 'thead,th1520-clk-ap.yaml'
+includes the '-ap' suffix, indicating it's specific to the Application
+Processor (AP) subsystem.
 
-Update the YAML schema to define the VO subsystem clocks, allowing the
-clock driver to configure and manage these clocks appropriately. This
-addition is necessary to enable the proper operation of the video output
-features on the TH1520 SoC.
+Rename the YAML schema file to 'thead,th1520-clk.yaml' to generalize it
+for all subsystems. Update all references to this schema file
+accordingly.
 
 Signed-off-by: Michal Wilczynski <m.wilczynski@samsung.com>
 ---
- .../bindings/clock/thead,th1520-clk-ap.yaml   | 31 +++++++++++++++----
- 1 file changed, 25 insertions(+), 6 deletions(-)
+ .../clock/{thead,th1520-clk-ap.yaml => thead,th1520-clk.yaml}   | 2 +-
+ MAINTAINERS                                                     | 2 +-
+ 2 files changed, 2 insertions(+), 2 deletions(-)
+ rename Documentation/devicetree/bindings/clock/{thead,th1520-clk-ap.yaml => thead,th1520-clk.yaml} (96%)
 
-diff --git a/Documentation/devicetree/bindings/clock/thead,th1520-clk-ap.yaml b/Documentation/devicetree/bindings/clock/thead,th1520-clk-ap.yaml
-index 4a0806af2bf9..5a8f1041f766 100644
+diff --git a/Documentation/devicetree/bindings/clock/thead,th1520-clk-ap.yaml b/Documentation/devicetree/bindings/clock/thead,th1520-clk.yaml
+similarity index 96%
+rename from Documentation/devicetree/bindings/clock/thead,th1520-clk-ap.yaml
+rename to Documentation/devicetree/bindings/clock/thead,th1520-clk.yaml
+index 5a8f1041f766..416c8882942e 100644
 --- a/Documentation/devicetree/bindings/clock/thead,th1520-clk-ap.yaml
-+++ b/Documentation/devicetree/bindings/clock/thead,th1520-clk-ap.yaml
-@@ -4,11 +4,13 @@
- $id: http://devicetree.org/schemas/clock/thead,th1520-clk-ap.yaml#
++++ b/Documentation/devicetree/bindings/clock/thead,th1520-clk.yaml
+@@ -1,7 +1,7 @@
+ # SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause
+ %YAML 1.2
+ ---
+-$id: http://devicetree.org/schemas/clock/thead,th1520-clk-ap.yaml#
++$id: http://devicetree.org/schemas/clock/thead,th1520-clk.yaml#
  $schema: http://devicetree.org/meta-schemas/core.yaml#
  
--title: T-HEAD TH1520 AP sub-system clock controller
-+title: T-HEAD TH1520 sub-systems clock controller
- 
- description: |
--  The T-HEAD TH1520 AP sub-system clock controller configures the
--  CPU, DPU, GMAC and TEE PLLs.
-+  The T-HEAD TH1520 sub-systems clock controller configures the
-+  CPU, DPU, GMAC and TEE PLLs for the AP subsystem. For the VO
-+  subsystem clock gates can be configured for the HDMI, MIPI and
-+  the GPU.
- 
-   SoC reference manual
-   https://openbeagle.org/beaglev-ahead/beaglev-ahead/-/blob/main/docs/TH1520%20System%20User%20Manual.pdf
-@@ -20,7 +22,9 @@ maintainers:
- 
- properties:
-   compatible:
--    const: thead,th1520-clk-ap
-+    enum:
-+      - thead,th1520-clk-ap
-+      - thead,th1520-clk-vo
- 
-   reg:
-     maxItems: 1
-@@ -29,6 +33,17 @@ properties:
-     items:
-       - description: main oscillator (24MHz)
- 
-+  thead,vosys-regmap:
-+    $ref: /schemas/types.yaml#/definitions/phandle
-+    description: |
-+      Phandle to a syscon node representing the shared register
-+      space of the VO (Video Output) subsystem. This register space
-+      includes both clock control registers and other control
-+      registers used for operations like resetting the GPU. Since
-+      these registers reside in the same address space, access to
-+      them is coordinated through a shared syscon regmap provided by
-+      the specified syscon node.
-+
-   "#clock-cells":
-     const: 1
-     description:
-@@ -36,8 +51,6 @@ properties:
- 
- required:
-   - compatible
--  - reg
--  - clocks
-   - "#clock-cells"
- 
- additionalProperties: false
-@@ -51,3 +64,9 @@ examples:
-         clocks = <&osc>;
-         #clock-cells = <1>;
-     };
-+
-+    clock-controller-vo {
-+        compatible = "thead,th1520-clk-vo";
-+        thead,vosys-regmap = <&vosys_regmap>;
-+        #clock-cells = <1>;
-+    };
+ title: T-HEAD TH1520 sub-systems clock controller
+diff --git a/MAINTAINERS b/MAINTAINERS
+index bd4bbf07d588..2f8f529e6a31 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -20183,7 +20183,7 @@ M:	Fu Wei <wefu@redhat.com>
+ L:	linux-riscv@lists.infradead.org
+ S:	Maintained
+ T:	git https://github.com/pdp7/linux.git
+-F:	Documentation/devicetree/bindings/clock/thead,th1520-clk-ap.yaml
++F:	Documentation/devicetree/bindings/clock/thead,th1520-clk.yaml
+ F:	Documentation/devicetree/bindings/mailbox/thead,th1520-mbox.yaml
+ F:	Documentation/devicetree/bindings/net/thead,th1520-gmac.yaml
+ F:	Documentation/devicetree/bindings/pinctrl/thead,th1520-pinctrl.yaml
 -- 
 2.34.1
 
