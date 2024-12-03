@@ -4,69 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 09A09E64AB3
-	for <linux-riscv@archiver.kernel.org>; Tue,  3 Dec 2024 14:25:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1385AE64AB6
+	for <linux-riscv@archiver.kernel.org>; Tue,  3 Dec 2024 14:44:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:References:
-	In-Reply-To:To:Cc:From:MIME-Version:Date:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=ytBQqS02Rt1o50zPRs0c1tTNM/CncjaMzVUlcguhcY0=; b=4SIv5cgXk5JZAtGiGoOkuUmkXX
-	0Q3iox2a5dwcmKYFRIXqfk/HE0vO2Ayj2nCMyNuR2quQ8Xm/4awAA4FyJTbvEmYEaZCZCk1+USiWK
-	LO5lNZAh1hDRA73eW4ZYRKbn18/Ufvok8XAOJm1JFAj8TjtfsRPiMgsODbhz/sGKAZfjQ6YEKQtqx
-	wURzglr9Di61ecqnD60lQ/2m6HtRFTwr2W1yY6Kqsl9lcbHkaXKwVKDFwx50pnBRSsKjwOXeOCrvw
-	14vQbunDjolWcRcVmZYU9kyS/KeeH+2138mb/LVBmYGB20WBjcShT7+0c/ofLxyhmLreltVlDcU6B
-	rE5uecIQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=9V55lBFnFFRT7a+r1HEeUPBLLhg5qFZPGL/mNiaDwqQ=; b=yGRnWj5qXdoNOI
+	w9J7Sbi5Lv9o2nfq5dmR859eMygX4w9+/MyMegNPaMDEf9xK25FnsNkPEig5H9JO1I94CmqVZuKlV
+	JxqkvskKXpPSt9cKxI/ekgCqm4KkFnLwlgL5UKqncf8tXuAOPGJrqbzi5aYZKHuTFVwTpFo2W0DHH
+	8TnAqGmomN5lJv37RD4OCzsrpEF2WFSUbR1oUVng9dUXRBsNbTFdQTZQWAiU7KmDWctxpTn4cgqW2
+	0xDcHUQePxJ0/I3rKLWqraiFTLJvJzdG9xR9LV0ayJNPffFHVRaQEPmXjRaksINnjvfLDcxoZ9zi0
+	wEHtztxNetG8Dp9LbpTQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tITpr-00000009la3-263w;
-	Tue, 03 Dec 2024 14:25:07 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tIU8l-00000009oo7-0VoP;
+	Tue, 03 Dec 2024 14:44:39 +0000
+Received: from mta-03.yadro.com ([89.207.88.253])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tITpn-00000009lXM-1xwT
+	id 1tIU8h-00000009on4-1qSq
 	for linux-riscv@lists.infradead.org;
-	Tue, 03 Dec 2024 14:25:04 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id EA7735C61F0;
-	Tue,  3 Dec 2024 14:24:19 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 82C3FC4CED8;
-	Tue,  3 Dec 2024 14:25:02 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1733235902;
-	bh=3TKmXmpGABry9oSTFFXvSq6pX10XyahRQRIHFkooJ9U=;
-	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
-	b=ViPykzP+sBvHyHt7Xd0oRVDSF+xonpAPnOrijJ+0Pbp26DGv0Cdvrht8+TIpc2sWE
-	 kJPD2rafQfO3kcF4UuE4GtuYKOBXphzyGjrTTwcTXAmzC3ez56j+n4MDHUjiRbWSTf
-	 96usMdwPzLVCKTZq9txbogysHjFofNHPuVnJ2Sknt4qwn1kbHYr5WqRPrDI6Pdqqap
-	 yRkFb5eMkdEvzsZMUdKUxD7ExbAkQ5KaFqhtfpAyH2PjJjxPeldOyIfhRbJEkI0ms0
-	 b/FWkBWN6+yyPWtmW3TD2UAYGwaHNxr8r8j/dGsRMFF1dS/O3IbqfkMSn0Md3+C9WO
-	 PHgCOkz0SFcsQ==
-Date: Tue, 03 Dec 2024 08:25:00 -0600
+	Tue, 03 Dec 2024 14:44:37 +0000
+DKIM-Filter: OpenDKIM Filter v2.11.0 mta-03.yadro.com 47C23E0002
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yadro.com; s=mta-04;
+	t=1733237067; bh=yZe/rHto/yJINXzpM0VYaXBnEXiTAtPyuKao0ifLMUM=;
+	h=Message-ID:Date:MIME-Version:Subject:To:From:Content-Type:From;
+	b=F/xs/DWxB9Q2xFJTiRE+BRDiKHj8Xg2JNDNpNKatEFAPn6Sq07CSqnIlkmho4PfwY
+	 i4n8ckL5a3UEcYTNOdpkqLXDKZBfkd7+wWE0mfifon8WjKC8MyRJDp03drsPHit5qs
+	 YQ9JnPohpFjFSsvMm/cRC4ssbK1H5e16wHHOhNFvdjZdWNGq1Um3S0RFtcZhc9MLLx
+	 JI6jMOpobs78O2XmE6kLtD4ZuLeOTprjTa1H/Bj57GLN36L35e6RvCsN1uEfiK+MmH
+	 xw0PDm5poqRVGxc5JxpvzQd/rZMdMmLU2C+NBl1lHNHgIe0+HD+RrzjY70tqcVWiiQ
+	 4I9yvZTO/OnBQ==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yadro.com; s=mta-03;
+	t=1733237067; bh=yZe/rHto/yJINXzpM0VYaXBnEXiTAtPyuKao0ifLMUM=;
+	h=Message-ID:Date:MIME-Version:Subject:To:From:Content-Type:From;
+	b=fWTohsPr10f9KWPbfxCVvIwt69HevffSbsXqEZwu0WmT/iJSr6Wx4XOMh6Tw4Ad+T
+	 q5eZ4Qizq7Ej1Yh2GCmzHd3vuVmhdLUhUkUpFEGb1BNl1+/gC7sjTpWuMv1FRKZXEk
+	 lvtHtuet3zGS8CLJjXx3dc/4KJ1DhZTBy7XOFhii3mdZNcrDl+JORThtZRey7sxPIa
+	 ElFPQLxavdFMRreKNyLlsIV+jRBOXPYHkmHEGB2PyhLbKxMQihpOo+SnmtNBOSg7a3
+	 SjEGQJVx/l1YViUNgBV2f9s43som2T4UPePX0ueYyz1oFITpw/l1a2GcyHg2MwNnAg
+	 Cx9inGVCixcLg==
+Message-ID: <7e5ce1ce-e30a-46c5-80fb-eb52e59e4dc2@yadro.com>
+Date: Tue, 3 Dec 2024 17:44:25 +0300
 MIME-Version: 1.0
-From: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: mripard@kernel.org, frank.binns@imgtec.com, aou@eecs.berkeley.edu, 
- jszhang@kernel.org, sboyd@kernel.org, guoren@kernel.org, 
- m.szyprowski@samsung.com, dri-devel@lists.freedesktop.org, 
- maarten.lankhorst@linux.intel.com, wefu@redhat.com, 
- jassisinghbrar@gmail.com, simona@ffwll.ch, conor+dt@kernel.org, 
- devicetree@vger.kernel.org, mturquette@baylibre.com, 
- linux-kernel@vger.kernel.org, linux-clk@vger.kernel.org, krzk+dt@kernel.org, 
- ulf.hansson@linaro.org, palmer@dabbelt.com, paul.walmsley@sifive.com, 
- linux-riscv@lists.infradead.org, tzimmermann@suse.de, drew@pdp7.com, 
- airlied@gmail.com, matt.coster@imgtec.com, linux-pm@vger.kernel.org
-To: Michal Wilczynski <m.wilczynski@samsung.com>
-In-Reply-To: <20241203134137.2114847-7-m.wilczynski@samsung.com>
-References: <20241203134137.2114847-1-m.wilczynski@samsung.com>
- <CGME20241203134156eucas1p2326d84fcef2ee0914586122520b18dcc@eucas1p2.samsung.com>
- <20241203134137.2114847-7-m.wilczynski@samsung.com>
-Message-Id: <173323589751.1743555.13494050245769190862.robh@kernel.org>
-Subject: Re: [RFC PATCH v1 06/14] dt-bindings: clock: thead,th1520: Rename
- YAML schema file
+User-Agent: Mozilla Thunderbird
+Subject: Re: Re: [PATCH v3 1/7] riscv: ftrace: support fastcc in Clang for
+ WITH_ARGS
+To: =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>
+CC: Bill Wendling <morbo@google.com>, Justin Stitt <justinstitt@google.com>,
+	Nick Desaulniers <ndesaulniers@google.com>, Nathan Chancellor
+	<nathan@kernel.org>, Albert Ou <aou@eecs.berkeley.edu>, Palmer Dabbelt
+	<palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, Mark Rutland
+	<mark.rutland@arm.com>, Masami Hiramatsu <mhiramat@kernel.org>, Steven
+ Rostedt <rostedt@goodmis.org>, Andy Chiu <andybnac@gmail.com>,
+	<linux-kernel@vger.kernel.org>, <linux-trace-kernel@vger.kernel.org>,
+	<linux-riscv@lists.infradead.org>, <llvm@lists.linux.dev>,
+	<bjorn@rivosinc.com>, <puranjay12@gmail.com>, <alexghiti@rivosinc.com>,
+	<yongxuan.wang@sifive.com>, <greentime.hu@sifive.com>, <nick.hu@sifive.com>,
+	<nylon.chen@sifive.com>, <tommy.wu@sifive.com>, <eric.lin@sifive.com>,
+	<viccent.chen@sifive.com>, <zong.li@sifive.com>, <samuel.holland@sifive.com>
+References: <20241127172908.17149-1-andybnac@gmail.com>
+ <20241127172908.17149-2-andybnac@gmail.com>
+ <87wmghotth.fsf@all.your.base.are.belong.to.us>
+Content-Language: en-US
+From: Evgenii Shatokhin <e.shatokhin@yadro.com>
+In-Reply-To: <87wmghotth.fsf@all.your.base.are.belong.to.us>
+X-ClientProxiedBy: T-Exch-05.corp.yadro.com (172.17.10.109) To
+ T-EXCH-10.corp.yadro.com (172.17.11.60)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241203_062503_554907_423A048A 
-X-CRM114-Status: GOOD (  11.89  )
+X-CRM114-CacheID: sfid-20241203_064436_335148_C89D5E0F 
+X-CRM114-Status: UNSURE (   9.35  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,57 +88,34 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="utf-8"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
-On Tue, 03 Dec 2024 14:41:29 +0100, Michal Wilczynski wrote:
-> As support for clocks from new subsystems is being added to the T-Head
-> TH1520 SoC, the Device Tree binding YAML schema file name should reflect
-> this broader scope.  The existing schema file 'thead,th1520-clk-ap.yaml'
-> includes the '-ap' suffix, indicating it's specific to the Application
-> Processor (AP) subsystem.
-> 
-> Rename the YAML schema file to 'thead,th1520-clk.yaml' to generalize it
-> for all subsystems. Update all references to this schema file
-> accordingly.
-> 
-> Signed-off-by: Michal Wilczynski <m.wilczynski@samsung.com>
-> ---
->  .../clock/{thead,th1520-clk-ap.yaml => thead,th1520-clk.yaml}   | 2 +-
->  MAINTAINERS                                                     | 2 +-
->  2 files changed, 2 insertions(+), 2 deletions(-)
->  rename Documentation/devicetree/bindings/clock/{thead,th1520-clk-ap.yaml => thead,th1520-clk.yaml} (96%)
-> 
-
-My bot found errors running 'make dt_binding_check' on your patch:
-
-yamllint warnings/errors:
-
-dtschema/dtc warnings/errors:
-
-
-doc reference errors (make refcheckdocs):
-
-See https://patchwork.ozlabs.org/project/devicetree-bindings/patch/20241203134137.2114847-7-m.wilczynski@samsung.com
-
-The base for the series is generally the latest rc1. A different dependency
-should be noted in *this* patch.
-
-If you already ran 'make dt_binding_check' and didn't see the above
-error(s), then make sure 'yamllint' is installed and dt-schema is up to
-date:
-
-pip3 install dtschema --upgrade
-
-Please check and re-submit after running the above command yourself. Note
-that DT_SCHEMA_FILES can be set to your schema file to speed up checking
-your schema. However, it must be unset to test all examples with your schema.
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+SGksCgpPbiAwMy4xMi4yMDI0IDE1OjA1LCBCasO2cm4gVMO2cGVsIHdyb3RlOgo+IAo+IEFuZHkg
+Q2hpdSA8YW5keWJuYWNAZ21haWwuY29tPiB3cml0ZXM6Cj4gCj4+IEZyb206IEFuZHkgQ2hpdSA8
+YW5keS5jaGl1QHNpZml2ZS5jb20+Cj4+Cj4+IFNvbWUgY2FsbGVyLXNhdmVkIHJlZ2lzdGVycyB3
+aGljaCBhcmUgbm90IGRlZmluZWQgYXMgZnVuY3Rpb24gYXJndW1lbnRzCj4+IGluIHRoZSBBQkkg
+Y2FuIHN0aWxsIGJlIHBhc3NlZCBhcyBhcmd1bWVudHMgd2hlbiB0aGUga2VybmVsIGlzIGNvbXBp
+bGVkCj4+IHdpdGggQ2xhbmcuIEFzIGEgcmVzdWx0LCB3ZSBtdXN0IHNhdmUgYW5kIHJlc3RvcmUg
+dGhvc2UgcmVnaXN0ZXJzIHRvCj4+IHByZXZlbnQgZnRyYWNlIGZyb20gY2xvYmJlcmluZyB0aGVt
+Lgo+Pgo+PiAtIFsxXTogaHR0cHM6Ly9yZXZpZXdzLmxsdm0ub3JnL0Q2ODU1OQo+Pgo+PiBSZXBv
+cnRlZC1ieTogRXZnZW5paSBTaGF0b2toaW4gPGUuc2hhdG9raGluQHlhZHJvLmNvbT4KPj4gQ2xv
+c2VzOiBodHRwczovL2xvcmUua2VybmVsLm9yZy9saW51eC1yaXNjdi83ZTdjNzkxNC00NDVkLTQy
+NmQtODlhMC01OWE5MTk5YzQ1YjFAeWFkcm8uY29tLwo+PiBBY2tlZC1ieTogTmF0aGFuIENoYW5j
+ZWxsb3IgPG5hdGhhbkBrZXJuZWwub3JnPgo+PiBTaWduZWQtb2ZmLWJ5OiBBbmR5IENoaXUgPGFu
+ZHkuY2hpdUBzaWZpdmUuY29tPgo+IAo+IEZpeGVzIHRhZz8KCkFzIGZhciBhcyBJIHVuZGVyc3Rh
+bmQgaXQsIEZ0cmFjZSBmb3IgUklTQy1WIGhhcyBoYWQgdGhpcyBwcm9ibGVtIHNpbmNlIApzdXBw
+b3J0IGZvciBGVFJBQ0VfV0lUSF9SRUdTIHdhcyBhZGRlZC4gRlRSQUNFX1dJVEhfQVJHUyBpbmhl
+cml0ZWQgaXQuCgpTbywgaXQgc2hvdWxkIHByb2JhYmx5IGJlIGFzIGZvbGxvd3M6CgpGaXhlczog
+YWVhNGM2NzFmYjk4ICgicmlzY3YvZnRyYWNlOiBBZGQgRFlOQU1JQ19GVFJBQ0VfV0lUSF9SRUdT
+IHN1cHBvcnQiKQoKSXQgaXMgbW9yZSBvZiBhIHdvcmthcm91bmQgcmF0aGVyIHRoYW4gYSBmaXgg
+dGhvdWdoLCBiZWNhdXNlIGl0IGlzIHN0aWxsIAp1bmRlY2lkZWQgd2hlcmUgdGhlIHByb2JsZW0g
+aXMsIGluIHRoZSBrZXJuZWwgb3IgaW4gTExWTS9jbGFuZy4gVGhhdCAKZGlzY3Vzc2lvbiB3ZW50
+IG5vd2hlcmUsIHVuZm9ydHVuYXRlbHksIHNvIGl0IGlzIGJldHRlciB0byB1c2UgYSAKd29ya2Fy
+b3VuZCBhbmQgbW92ZSBvbiwgSU1PLgoKPiAKPiBSZXZpZXdlZC1ieTogQmrDtnJuIFTDtnBlbCA8
+Ympvcm5Acml2b3NpbmMuY29tPgo+IAoKUmVnYXJkcywKRXZnZW5paQoKCl9fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlz
+dApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQu
+b3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
