@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EE8D2E69EAF
-	for <linux-riscv@archiver.kernel.org>; Tue,  3 Dec 2024 15:50:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F3EBEE74AC1
+	for <linux-riscv@archiver.kernel.org>; Tue,  3 Dec 2024 15:50:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
 	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=7dMstALC5/dja/0Fcyxk788FBLoq/n/usStEnyn79QY=; b=E1SYVbMrM0JUiE
-	UGOfM2SJY/hulTLZVyTSNvSEcsp4fCxjTIUWyNVY5SqIkANNfxQmqchhtww3ZQlQiDIexdf3xFtGR
-	6hHDFMAa92vxnGcwG1ymhtazzqxSSpSAqB0tPJwvLTqJnQ//8SJhV9xewznV/RW70vgCDIJIxqOqv
-	RL6zJQ96hVqRyVoEMmLhkhhUevtilItMdzIX4ZW5TVU0g1fAPuSBOqH8wFJkyrM2YnjWCf4KF7Oeh
-	UkMuXSk/JH0GqPsbebaNhdIre5BrLFZAq0TOAFUPr7/s9m88Zwe9665dx3y+tmMFQ6bztzyGUaKW1
-	IkrAhte6nwmgvevW19ig==;
+	List-Owner; bh=FntBbgwDw3paUNThVMFtOMuIpO1qBfUPqbUC+hMaZcs=; b=QbXtQYvLSsE01N
+	dqPtzJt7fvJOBDmlPk1AQLidc9nicOVDrkx5AgvqKwBfY6NLfOlxcgt79k0xmUkMEV/xvE/7LqgFI
+	lkTs2b6wcN5+FIXaJQ8o8/gNL0VdvhHZvnnVuEHW4CgJW1GEcEhNeXTXQSUpauMyWy9JWXQdgE/K9
+	UcaFhSrrUlk8oZQRWDdIzz23D+0XsdogcITHkl4mpGsoYrfj1l5bfSQ4Wauw32QfchtqLx8bMCF/E
+	ZQSo3L1fPMw82Tlo0OoCDrNlqF7y+Pg7mq462HfILa8JLj8MMZk6e/w+H6kWAHRc3zeQTyTLKwMU9
+	tUo/qgzkabQmeMgWYkNw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIVA0-00000009zlY-2zyF;
-	Tue, 03 Dec 2024 15:50:00 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1tIVAp-00000009zx2-2TvZ;
+	Tue, 03 Dec 2024 15:50:51 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIV9y-00000009zk0-1bcm
+	id 1tIVAn-00000009zwN-0A0e
 	for linux-riscv@lists.infradead.org;
-	Tue, 03 Dec 2024 15:49:59 +0000
+	Tue, 03 Dec 2024 15:50:50 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id D0B625C0267;
-	Tue,  3 Dec 2024 15:49:14 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2CDDDC4CECF;
-	Tue,  3 Dec 2024 15:49:47 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 830BE5C5F37;
+	Tue,  3 Dec 2024 15:50:05 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 46A14C4CECF;
+	Tue,  3 Dec 2024 15:50:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1733240997;
-	bh=mo2eNlwmx704hDWUW46aIuAMajnwh8WGQqvrFgIwYgc=;
+	s=k20201202; t=1733241048;
+	bh=n570EuIKkUoOlNy2/evG9Hp7xcrgmKhixIkmq6odSOk=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=r1dypc95hlsb7L7JFQUACDi2B9hUki7rh4OVT6W38L7/aN8P86pv0goz2IXeUaVwI
-	 QdByPHqG3MqS8xFenSsBFgerb/ms6TpLOlK8ANXXXdDSDNTX+dFxw8lRwkor7VxlMg
-	 yopbD7M8pzGCjddiK8cl9ETKROr3ziUo4DCs1bJ77FBaoNztkmjzag7ELSppU9jRa0
-	 +BGrH+F4e0dOqUS3KADCJLlp0LFoft5TOL4GEQw9RSXMhoqR6ms3CwqgvgUp+IjlD+
-	 N7GuNRLyNPns99c8cZT3ZuW0BI2PyRGHAJaFfAp3TgQVU91GBZOZL6uMQV7zLpQv8c
-	 GKcZ564Pvxmvw==
-Message-ID: <37b65029-8310-48d1-bb6e-de5e47b2a403@kernel.org>
-Date: Tue, 3 Dec 2024 16:49:45 +0100
+	b=DVIq3Jb9WNnCnWE+4MjokfsdEdsdVthLx80K0FNxA9Y5NyCIQdrJsKKgqO8/Qb8cB
+	 dqxEZ3cjofXHsdxsEWGQQ/wyqom0G2srbFzbNGKKntbDRfIn11xovzS4MEBrVxyRWN
+	 KFWXLDvwRwN4dIw2eQ16uVslgLJF+rRKbf9Tqi4se//x9I0JjNZxzGqzfQDZpgSlfW
+	 TOBiY06rvErj1N77Dr/RMSj6yq8ZqqQMkDZ4mfiYejedThybvlmIS+VA3a+037XyVm
+	 H43pD97ZHm3cZALD+7r6DQfGVXkQ/avEWTKHHbeBF4CnREfvV4xR98meNMzCh7ot0k
+	 6jE1s+gDVz1yQ==
+Message-ID: <2b6ffc5a-4021-459d-ae4c-b2c472960c60@kernel.org>
+Date: Tue, 3 Dec 2024 16:50:34 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH v1 10/14] drm/imagination: Add support for IMG
- BXM-4-64 GPU
+Subject: Re: [RFC PATCH v1 12/14] riscv: dts: Add Video Output clock and
+ syscon regmap nodes
 To: Michal Wilczynski <m.wilczynski@samsung.com>, mturquette@baylibre.com,
  sboyd@kernel.org, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
  drew@pdp7.com, guoren@kernel.org, wefu@redhat.com, jassisinghbrar@gmail.com,
@@ -60,8 +60,8 @@ Cc: linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
  linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
  dri-devel@lists.freedesktop.org, linux-pm@vger.kernel.org
 References: <20241203134137.2114847-1-m.wilczynski@samsung.com>
- <CGME20241203134202eucas1p26bdcec486ee42440ded94ff801678ba0@eucas1p2.samsung.com>
- <20241203134137.2114847-11-m.wilczynski@samsung.com>
+ <CGME20241203134204eucas1p1d0df90a265637542f0652fd407dc7989@eucas1p1.samsung.com>
+ <20241203134137.2114847-13-m.wilczynski@samsung.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -107,10 +107,10 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  uZwJCLykjad45hsWcOGk3OcaAGQS6NDlfhM6O9aYNwGL6tGt/6BkRikNOs7VDEa4/HlbaSJo
  7FgndGw1kWmkeL6oQh7wBvYll2buKod4qYntmNKEicoHGU+x91Gcan8mCoqhJkbqrL7+nXG2
  5Q/GS5M9RFWS+nYyJh+c3OcfKqVcZQNANItt7+ULzdNJuhvTRRdC3g9hmCEuNSr+CLMdnRBY fv0=
-In-Reply-To: <20241203134137.2114847-11-m.wilczynski@samsung.com>
+In-Reply-To: <20241203134137.2114847-13-m.wilczynski@samsung.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241203_074958_512820_7A7D7427 
-X-CRM114-Status: GOOD (  17.55  )
+X-CRM114-CacheID: sfid-20241203_075049_167708_D91F5541 
+X-CRM114-Status: GOOD (  13.77  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -128,42 +128,56 @@ Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 On 03/12/2024 14:41, Michal Wilczynski wrote:
-> The IMG BXM-4-64 GPU is integrated into the T-Head TH1520 SoC. This
-> commit adds the compatible string "img,img-bxm-4-64" to the device tree
-> match table in the drm/imagination driver, enabling support for this
-> GPU.
+> The address space controlling the Video Output (VO) subsystem clocks
+> also contains control registers for GPU resets. To properly synchronize
+> access to this shared address space, create a syscon Device Tree node
+> for the VO registers and reference it in the clock controller node.
 > 
-> By including this GPU in the compatible devices list, the driver can
-> initialize and manage the BXM-4-64 GPU on the TH1520 SoC, providing
-> graphics acceleration capabilities upstream.
-> 
-> This commit doesn't touch the img,powervr-rogue.yaml on purpose, as the
-> new dt-bindings schema was proposed [1], but not merged yet.
-
-
-That's not related to the commit. This commit *cannot ever* touch the
-bindings.
-
-> 
-> Link: https://lore.kernel.org/all/20241118-sets-bxs-4-64-patch-v1-v2-1-3fd45d9fb0cf@imgtec.com/ [1]
+> This change ensures coordinated access to the VO registers between the
+> clock controller and other drivers, preventing conflicts and maintaining
+> system stability.
 > 
 > Signed-off-by: Michal Wilczynski <m.wilczynski@samsung.com>
 > ---
->  drivers/gpu/drm/imagination/pvr_drv.c | 1 +
->  1 file changed, 1 insertion(+)
+>  arch/riscv/boot/dts/thead/th1520.dtsi | 12 ++++++++++++
+>  1 file changed, 12 insertions(+)
 > 
-> diff --git a/drivers/gpu/drm/imagination/pvr_drv.c b/drivers/gpu/drm/imagination/pvr_drv.c
-> index 85ee9abd1811..8633a3a315b7 100644
-> --- a/drivers/gpu/drm/imagination/pvr_drv.c
-> +++ b/drivers/gpu/drm/imagination/pvr_drv.c
-> @@ -1475,6 +1475,7 @@ static void pvr_remove(struct platform_device *plat_dev)
+> diff --git a/arch/riscv/boot/dts/thead/th1520.dtsi b/arch/riscv/boot/dts/thead/th1520.dtsi
+> index dc2d554b4a71..39d39059160d 100644
+> --- a/arch/riscv/boot/dts/thead/th1520.dtsi
+> +++ b/arch/riscv/boot/dts/thead/th1520.dtsi
+> @@ -489,6 +489,18 @@ clk: clock-controller@ffef010000 {
+>  			#clock-cells = <1>;
+>  		};
 >  
->  static const struct of_device_id dt_match[] = {
->  	{ .compatible = "img,img-axe", .data = NULL },
-> +	{ .compatible = "img,img-bxm-4-64", .data = NULL },
+> +		vosys_clk: clock-controller {
 
-Undocumented compatible. Combine relevant patches into one patchsets, so
-we see entire picture.
+Missing address space. You cannot have here nodes without unit address.
+
+It does not look like you tested the DTS against bindings. Please run
+`make dtbs_check W=1` (see
+Documentation/devicetree/bindings/writing-schema.rst or
+https://www.linaro.org/blog/tips-and-tricks-for-validating-devicetree-sources-with-the-devicetree-schema/
+for instructions).
+
+> +			compatible = "thead,th1520-clk-vo";
+> +			thead,vosys-regmap = <&vosys_reg>;
+> +			#clock-cells = <1>;
+> +		};
+> +
+> +		vosys_reg: vosys@ffef528000 {
+
+Node names should be generic. See also an explanation and list of
+examples (not exhaustive) in DT specification:
+https://devicetree-specification.readthedocs.io/en/latest/chapter2-devicetree-basics.html#generic-names-recommendation
+
+
+
+> +			compatible = "thead,th1520-vosys", "syscon";
+> +			reg = <0xff 0xef528000 0x0 0x1000>;
+> +			status = "okay";
+
+Where is it disabled? Drop.
 
 Best regards,
 Krzysztof
