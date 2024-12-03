@@ -4,61 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BAA93E74AC1
-	for <linux-riscv@archiver.kernel.org>; Tue,  3 Dec 2024 16:16:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3106CE74AC2
+	for <linux-riscv@archiver.kernel.org>; Tue,  3 Dec 2024 16:38:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=PETBwkVw2idWXaBUdcqH8eqWqwzNuMD9qErYySj/E2o=; b=lrwExXuNuN4AK9
-	2VeiA3taThW1CLyN3BkJ5THwOf9T1fYondSNLyLFh3ZGcIiKO7N7L5b4sx93xquNlbdEYzEN8+xWr
-	Nu0MwoPweabf8ocN4FM9Cu39rqjDuGQd+cXqQWEjZc0YROJYYQtKWnzO8axjTR9cyjW2SBcZ2DN9M
-	UDUaiihHjBMwyTz8dyA25LoXI3zMyPxHeXtqGl9tK/3MUbquxw4ghuZfAQ02goXkaR27OtfHhfxfJ
-	bFeSKnsl2Xxzk+ipizuG54vIXTlySNj9VngV36ixX3QozQ5BLRYEDPOidchiTtLbAao1J67ziAwot
-	1T/sPaNeWTFOBZPKAOlQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
+	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=JlLrVqT73ygCmqQ1RWbNSfzRnswZAhVZFYm4Uaay7dA=; b=BHp0bm3OX1/XOr
+	UFOW/S9nD97opERWzA88xbxtrlLOFooNAfzPl399s8NrEuhDKuXyNjcxMW1mJiw2Fij/xluhhrjbu
+	51Y/2IhNmqSx/+eh1Hzdp/3CFyslUsuBYwlujJvCYW4bCj/VKAmBHi2hWrvEDiLdBm1XBtLvmeyrk
+	dWjQ0YehjNtZS1upXQ5b6JJuyVnUIPWkZmVwlu4o54tFhrNtXUCyI6Aw38ycPMlE3mCm8nSxfQC1e
+	SKHlbYKZWRxN/S+rX2iJgfyYgY6snPoaMIJZB8KLGZVYecGIweQ1oXINw6tkd/ouhSgLh8FxVcVKR
+	U+nSuR1MqXtq2YJXkswQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIVZE-0000000A452-2Loy;
-	Tue, 03 Dec 2024 16:16:04 +0000
-Received: from andre.telenet-ops.be ([2a02:1800:120:4::f00:15])
+	id 1tIVuW-0000000A7Pi-3JYk;
+	Tue, 03 Dec 2024 16:38:04 +0000
+Received: from galois.linutronix.de ([193.142.43.55])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIVZB-0000000A44I-09Mo
-	for linux-riscv@lists.infradead.org;
-	Tue, 03 Dec 2024 16:16:02 +0000
-Received: from ramsan.of.borg ([IPv6:2a02:1810:ac12:ed80:829d:a1e7:5b32:5d8e])
-	by andre.telenet-ops.be with cmsmtp
-	id kGFw2D0013sLyzB01GFwsi; Tue, 03 Dec 2024 17:15:56 +0100
-Received: from rox.of.borg ([192.168.97.57])
-	by ramsan.of.borg with esmtp (Exim 4.95)
-	(envelope-from <geert@linux-m68k.org>)
-	id 1tIVZ5-000DLE-T6;
-	Tue, 03 Dec 2024 17:15:55 +0100
-Received: from geert by rox.of.borg with local (Exim 4.95)
-	(envelope-from <geert@linux-m68k.org>)
-	id 1tIVZ5-00AGsi-Q0;
-	Tue, 03 Dec 2024 17:15:55 +0100
-From: Geert Uytterhoeven <geert+renesas@glider.be>
-To: Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Damien Le Moal <dlemoal@kernel.org>,
-	Anup Patel <anup@brainfault.org>,
-	Atish Patra <atishp@atishpatra.org>
-Cc: linux-riscv@lists.infradead.org,
-	kvm@vger.kernel.org,
-	kvm-riscv@lists.infradead.org,
-	Geert Uytterhoeven <geert+renesas@glider.be>
-Subject: [PATCH] riscv: Remove duplicate CLINT_TIMER selections
-Date: Tue,  3 Dec 2024 17:15:53 +0100
-Message-Id: <448dba3309fe341f4095b227b75ae5fc6b05f51a.1733242214.git.geert+renesas@glider.be>
-X-Mailer: git-send-email 2.34.1
+	id 1tIVtV-0000000A7E3-391c;
+	Tue, 03 Dec 2024 16:37:02 +0000
+From: Thomas Gleixner <tglx@linutronix.de>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1733243819;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=HxF1YtbxctjOgLe3e+5LAqOGqmoJ7n+8c9ePfvewlDs=;
+	b=ZFy87LnXgxMe5bIwTwB4SVdDCSlcxqDM5Dwg3iZ8DiJODrOVGAZoQBBdLtoXDjt7JG0wKP
+	mTN7fvMltxJ83iJSbYgKO8MderplffT0fOTfQB2/Wtntej162k8sEI5zkBAjxQi2zIHnl8
+	BxFPwripxKWqXWIELnCObC6BQbbFI8mURLp0hdAxRn8umpG/RD/LZ0fbGMRkbRKIvp6ddC
+	57glirNfQobi0tK8mH+8iNULQWU1v1HVw88nIrYfvKEwkDgKvrtvlvZOlafyDfnHl4x77X
+	Quw8iMqSljd30mOQ7x1HQpzooupKG8wmDhqSOvDvriiZLNSWQdTg8cuMFNk8ZQ==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1733243819;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=HxF1YtbxctjOgLe3e+5LAqOGqmoJ7n+8c9ePfvewlDs=;
+	b=51K1fTOkCTCXZgTFGRDR/uHKZh8KeFOlAsYai8RG5Iq9JQAuG5x/cvB3XaojGxxMqrjr49
+	ScBrmG+vuWWtr/Cg==
+To: "Farber, Eliav" <farbere@amazon.com>, "linux@armlinux.org.uk"
+ <linux@armlinux.org.uk>, "catalin.marinas@arm.com"
+ <catalin.marinas@arm.com>, "will@kernel.org" <will@kernel.org>,
+ "mpe@ellerman.id.au" <mpe@ellerman.id.au>, "npiggin@gmail.com"
+ <npiggin@gmail.com>, "christophe.leroy@csgroup.eu"
+ <christophe.leroy@csgroup.eu>, "naveen@kernel.org" <naveen@kernel.org>,
+ "maddy@linux.ibm.com" <maddy@linux.ibm.com>, "paul.walmsley@sifive.com"
+ <paul.walmsley@sifive.com>, "palmer@dabbelt.com" <palmer@dabbelt.com>,
+ "aou@eecs.berkeley.edu" <aou@eecs.berkeley.edu>,
+ "akpm@linux-foundation.org" <akpm@linux-foundation.org>, "bhe@redhat.com"
+ <bhe@redhat.com>, "hbathini@linux.ibm.com" <hbathini@linux.ibm.com>,
+ "sourabhjain@linux.ibm.com" <sourabhjain@linux.ibm.com>,
+ "adityag@linux.ibm.com" <adityag@linux.ibm.com>,
+ "songshuaishuai@tinylab.org" <songshuaishuai@tinylab.org>,
+ "takakura@valinux.co.jp" <takakura@valinux.co.jp>,
+ "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
+ <linux-kernel@vger.kernel.org>, "linuxppc-dev@lists.ozlabs.org"
+ <linuxppc-dev@lists.ozlabs.org>, "linux-riscv@lists.infradead.org"
+ <linux-riscv@lists.infradead.org>
+Cc: "Chocron, Jonathan" <jonnyc@amazon.com>
+Subject: RE: [PATCH v5 1/2] kexec: Consolidate
+ machine_kexec_mask_interrupts() implementation
+In-Reply-To: <077908c5f02545f0a9e02ae77cbd771c@amazon.com>
+References: <077908c5f02545f0a9e02ae77cbd771c@amazon.com>
+Date: Tue, 03 Dec 2024 17:36:59 +0100
+Message-ID: <87ed2ou3is.ffs@tglx>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241203_081601_212961_94924A8B 
-X-CRM114-Status: UNSURE (   6.73  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241203_083701_923749_4D1E5E95 
+X-CRM114-Status: GOOD (  13.59  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,37 +93,38 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Since commit f862bbf4cdca696e ("riscv: Allow NOMMU kernels to run in
-S-mode") in v6.10, CLINT_TIMER is selected by the main RISCV symbol when
-RISCV_M_MODE is enabled.
+On Tue, Dec 03 2024 at 12:55, Eliav Farber wrote:
+> On 12/3/2024 1:04 PM, Thomas Gleixner wrote:
+>>> +
+>>> +config GENERIC_IRQ_KEXEC_CLEAR_VM_FORWARD
+>>> +     bool "Clear forwarded VM interrupts during kexec"
+>>
+>> This should not be user selectable. Just keep it as:
+>>
+>> config GENERIC_IRQ_KEXEC_CLEAR_VM_FORWARD
+>>         bool
+>>
+>> which defaults to 'n'. Just add a comment what this is about like it's
+>> done with the other options in that file which are only selectable.
+> Question: Should this new configuration option be placed inside or
+> outside the following section:
+> ```
+> menu "IRQ subsystem"
+>
+>
+> endmenu
+> ```
+> In my patch, I have added the new configuration option at the end of
+> the file, outside the "IRQ subsystem" section.
 
-Signed-off-by: Geert Uytterhoeven <geert+renesas@glider.be>
----
- arch/riscv/Kconfig.socs | 2 --
- 1 file changed, 2 deletions(-)
+It does not really matter when the option is silent, but keeping it in
+the menu section as the others is the most intuitive IMO.
 
-diff --git a/arch/riscv/Kconfig.socs b/arch/riscv/Kconfig.socs
-index f51bb24bc84c6e47..d4ea91cdb2b138b2 100644
---- a/arch/riscv/Kconfig.socs
-+++ b/arch/riscv/Kconfig.socs
-@@ -53,7 +53,6 @@ config ARCH_THEAD
- 
- config ARCH_VIRT
- 	bool "QEMU Virt Machine"
--	select CLINT_TIMER if RISCV_M_MODE
- 	select POWER_RESET
- 	select POWER_RESET_SYSCON
- 	select POWER_RESET_SYSCON_POWEROFF
-@@ -73,7 +72,6 @@ config ARCH_CANAAN
- config SOC_CANAAN_K210
- 	bool "Canaan Kendryte K210 SoC"
- 	depends on !MMU && ARCH_CANAAN
--	select CLINT_TIMER if RISCV_M_MODE
- 	select ARCH_HAS_RESET_CONTROLLER
- 	select PINCTRL
- 	select COMMON_CLK
--- 
-2.34.1
+Thanks,
+
+        tglx
+
+
 
 
 _______________________________________________
