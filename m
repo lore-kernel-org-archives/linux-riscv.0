@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BDCA5E69EAF
-	for <linux-riscv@archiver.kernel.org>; Tue,  3 Dec 2024 15:48:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EE8D2E69EAF
+	for <linux-riscv@archiver.kernel.org>; Tue,  3 Dec 2024 15:50:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
 	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=tDbGfH1ZHQ27DKjfGN+vH3QpOrBRYCHrh1gWjX5uKE8=; b=UEBdFvvXvW61Cp
-	wantqrPTOhw5UwnX1eR7/2wxrGz0hGKAnvMwhFsiFbshUe9ifKwDU9AVuaSUcdHkvUSdgPK/Z/Z0F
-	2pDW4LaVQDRImd6editT8ARYhuW4gq9nQoTeILMdbziRxHZs8VjxASqcgMLCq0NddYg9eqeRNxQm8
-	F6RDqWS3KTY30nWAs7gW8GGWmlr3/9SIbT6zH7OV+cbvJcwmuMfJmaYycRUPsjXWvxuD+wh1Rs/+p
-	qlioLQvBh0nNv+eX0ydxhlgAENly9wwLIZq0G6y7lyARIwugrjbFEZGeVa5zfdP979md4/C3QAh+u
-	UY7LIhzOkU6MGpby3n9g==;
+	List-Owner; bh=7dMstALC5/dja/0Fcyxk788FBLoq/n/usStEnyn79QY=; b=E1SYVbMrM0JUiE
+	UGOfM2SJY/hulTLZVyTSNvSEcsp4fCxjTIUWyNVY5SqIkANNfxQmqchhtww3ZQlQiDIexdf3xFtGR
+	6hHDFMAa92vxnGcwG1ymhtazzqxSSpSAqB0tPJwvLTqJnQ//8SJhV9xewznV/RW70vgCDIJIxqOqv
+	RL6zJQ96hVqRyVoEMmLhkhhUevtilItMdzIX4ZW5TVU0g1fAPuSBOqH8wFJkyrM2YnjWCf4KF7Oeh
+	UkMuXSk/JH0GqPsbebaNhdIre5BrLFZAq0TOAFUPr7/s9m88Zwe9665dx3y+tmMFQ6bztzyGUaKW1
+	IkrAhte6nwmgvevW19ig==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIV8d-00000009zY0-0Hfw;
-	Tue, 03 Dec 2024 15:48:35 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tIVA0-00000009zlY-2zyF;
+	Tue, 03 Dec 2024 15:50:00 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIV8a-00000009zXE-0NLn
+	id 1tIV9y-00000009zk0-1bcm
 	for linux-riscv@lists.infradead.org;
-	Tue, 03 Dec 2024 15:48:33 +0000
+	Tue, 03 Dec 2024 15:49:59 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 1D2E75C63E9;
-	Tue,  3 Dec 2024 15:47:48 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DC72EC4CECF;
-	Tue,  3 Dec 2024 15:48:21 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id D0B625C0267;
+	Tue,  3 Dec 2024 15:49:14 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2CDDDC4CECF;
+	Tue,  3 Dec 2024 15:49:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1733240910;
-	bh=09cm8DxTfRGPy1cHmrwjDq3tedMQqJBJD51px4SlHfA=;
+	s=k20201202; t=1733240997;
+	bh=mo2eNlwmx704hDWUW46aIuAMajnwh8WGQqvrFgIwYgc=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=SDWDWe3pWpl9SEY6EIx/nTRd9INAcofCe162CsaUchQXOQjXwrGfDop7Rmz81WKYm
-	 tUDI+TbvNUpF5P6TV8umf3Gd13W34QQAhdWoZh1Y4GnCpXQNEUapfceltSb9qOSiXi
-	 p+vdMCSZt5QiXxSc5wXkQcb8WuusGpVetS52lQu+MUuAudXQkXta99SKPVGQKKunt9
-	 H1a7UYwxGpjDFYLa4Og6AIt4r11NWfQ39WLZlTwj2w5KDLLhKc6/vdo/sL6qumcW45
-	 isUAi7kauWR+RW7V5q5DwI9+H/KvCrlZbJji8pTb61WjUcQ8HJo8HWm3gk+GpxCQ9Y
-	 qG40V6uyau05A==
-Message-ID: <e7af04b0-7c87-42da-9a3d-152a87aea81d@kernel.org>
-Date: Tue, 3 Dec 2024 16:48:19 +0100
+	b=r1dypc95hlsb7L7JFQUACDi2B9hUki7rh4OVT6W38L7/aN8P86pv0goz2IXeUaVwI
+	 QdByPHqG3MqS8xFenSsBFgerb/ms6TpLOlK8ANXXXdDSDNTX+dFxw8lRwkor7VxlMg
+	 yopbD7M8pzGCjddiK8cl9ETKROr3ziUo4DCs1bJ77FBaoNztkmjzag7ELSppU9jRa0
+	 +BGrH+F4e0dOqUS3KADCJLlp0LFoft5TOL4GEQw9RSXMhoqR6ms3CwqgvgUp+IjlD+
+	 N7GuNRLyNPns99c8cZT3ZuW0BI2PyRGHAJaFfAp3TgQVU91GBZOZL6uMQV7zLpQv8c
+	 GKcZ564Pvxmvw==
+Message-ID: <37b65029-8310-48d1-bb6e-de5e47b2a403@kernel.org>
+Date: Tue, 3 Dec 2024 16:49:45 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH v1 08/14] dt-bindings: power: thead,th1520: Add
- support for power domains
+Subject: Re: [RFC PATCH v1 10/14] drm/imagination: Add support for IMG
+ BXM-4-64 GPU
 To: Michal Wilczynski <m.wilczynski@samsung.com>, mturquette@baylibre.com,
  sboyd@kernel.org, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
  drew@pdp7.com, guoren@kernel.org, wefu@redhat.com, jassisinghbrar@gmail.com,
@@ -60,8 +60,8 @@ Cc: linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
  linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
  dri-devel@lists.freedesktop.org, linux-pm@vger.kernel.org
 References: <20241203134137.2114847-1-m.wilczynski@samsung.com>
- <CGME20241203134159eucas1p1eafefef0dfe7f2b6343a639733012bcf@eucas1p1.samsung.com>
- <20241203134137.2114847-9-m.wilczynski@samsung.com>
+ <CGME20241203134202eucas1p26bdcec486ee42440ded94ff801678ba0@eucas1p2.samsung.com>
+ <20241203134137.2114847-11-m.wilczynski@samsung.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -107,10 +107,10 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  uZwJCLykjad45hsWcOGk3OcaAGQS6NDlfhM6O9aYNwGL6tGt/6BkRikNOs7VDEa4/HlbaSJo
  7FgndGw1kWmkeL6oQh7wBvYll2buKod4qYntmNKEicoHGU+x91Gcan8mCoqhJkbqrL7+nXG2
  5Q/GS5M9RFWS+nYyJh+c3OcfKqVcZQNANItt7+ULzdNJuhvTRRdC3g9hmCEuNSr+CLMdnRBY fv0=
-In-Reply-To: <20241203134137.2114847-9-m.wilczynski@samsung.com>
+In-Reply-To: <20241203134137.2114847-11-m.wilczynski@samsung.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241203_074832_216881_3CE943C9 
-X-CRM114-Status: GOOD (  11.04  )
+X-CRM114-CacheID: sfid-20241203_074958_512820_7A7D7427 
+X-CRM114-Status: GOOD (  17.55  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -128,70 +128,42 @@ Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 On 03/12/2024 14:41, Michal Wilczynski wrote:
-> +
-> +title: T-HEAD TH1520 Power Domain Controller
-> +
-> +maintainers:
-> +  - Michal Wilczynski <m.wilczynski@samsung.com>
-> +
-> +description: |
-> +  The T-HEAD TH1520 SoC includes a power domain controller responsible for
-> +  managing the power states of various hardware domains such as the GPU.
-> +
-> +  This binding describes the power domain controller node, which can be used by
-
-Do not describe the binding. Describe the hardware. Entire paragraph
-feels pointless.
-
-> +  devices to manage their power domains.
-> +
-> +properties:
-> +  compatible:
-> +    const: "thead,th1520-pd"
+> The IMG BXM-4-64 GPU is integrated into the T-Head TH1520 SoC. This
+> commit adds the compatible string "img,img-bxm-4-64" to the device tree
+> match table in the drm/imagination driver, enabling support for this
+> GPU.
+> 
+> By including this GPU in the compatible devices list, the driver can
+> initialize and manage the BXM-4-64 GPU on the TH1520 SoC, providing
+> graphics acceleration capabilities upstream.
+> 
+> This commit doesn't touch the img,powervr-rogue.yaml on purpose, as the
+> new dt-bindings schema was proposed [1], but not merged yet.
 
 
-You never tested the code you sent. Drop quotes. Limited review follows.
+That's not related to the commit. This commit *cannot ever* touch the
+bindings.
 
-> +
-> +  thead,vosys-regmap:
+> 
+> Link: https://lore.kernel.org/all/20241118-sets-bxs-4-64-patch-v1-v2-1-3fd45d9fb0cf@imgtec.com/ [1]
+> 
+> Signed-off-by: Michal Wilczynski <m.wilczynski@samsung.com>
+> ---
+>  drivers/gpu/drm/imagination/pvr_drv.c | 1 +
+>  1 file changed, 1 insertion(+)
+> 
+> diff --git a/drivers/gpu/drm/imagination/pvr_drv.c b/drivers/gpu/drm/imagination/pvr_drv.c
+> index 85ee9abd1811..8633a3a315b7 100644
+> --- a/drivers/gpu/drm/imagination/pvr_drv.c
+> +++ b/drivers/gpu/drm/imagination/pvr_drv.c
+> @@ -1475,6 +1475,7 @@ static void pvr_remove(struct platform_device *plat_dev)
+>  
+>  static const struct of_device_id dt_match[] = {
+>  	{ .compatible = "img,img-axe", .data = NULL },
+> +	{ .compatible = "img,img-bxm-4-64", .data = NULL },
 
-NAK.
-
-'reg' is for this.
-
-
-> +    $ref: /schemas/types.yaml#/definitions/phandle
-> +    description: |
-> +      Phandle to a syscon node representing the shared register space of the VO (Video Output) subsystem.
-
-Please wrap code according to coding style (checkpatch is not a coding
-style description, but only a tool).
-
-
-> +      This register space includes both clock control registers and other control registers used for
-> +      operations like resetting the GPU. Since these registers reside in the same address space,
-> +      access to them is coordinated through a shared syscon regmap provided by the specified syscon node.
-> +
-> +  '#power-domain-cells':
-> +    const: 1
-> +
-> +required:
-> +  - compatible
-> +  - thead,vosys-regmap
-> +  - '#power-domain-cells'
-> +
-> +additionalProperties: false
-> +
-> +examples:
-> +  - |
-> +    vosys_regmap: vosys@ffef528000 {
-> +        compatible = "syscon";
-> +        reg = <0xff 0xef528000 0x0 0x1000>;
-> +    };
-
-Drop, not related.
-
-
+Undocumented compatible. Combine relevant patches into one patchsets, so
+we see entire picture.
 
 Best regards,
 Krzysztof
