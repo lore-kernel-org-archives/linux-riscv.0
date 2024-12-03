@@ -4,83 +4,105 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66ED0E74AC4
-	for <linux-riscv@archiver.kernel.org>; Tue,  3 Dec 2024 16:38:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 86F73E74AC3
+	for <linux-riscv@archiver.kernel.org>; Tue,  3 Dec 2024 17:29:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Kmmgq/uWToU/KkXNKv2tsxWKNtUKCifAONm2ax1Ad3g=; b=BkIxbiXXKVgO83
-	JGHLiw2/FPjS8wYlnGnD7BCoM7cek1lbYfAkg91aY0MoC83c1ND44lqdrd0G31YB39ClIA2klOWmR
-	IiPifgf+gXj6/D6jFWInABwxio+Up0v0CRHX0QV5K9XP+2v2t99oh6SLoAnCigPyxipN3y7QtC/dK
-	MYOiQimPMOkjbuvOGo9uJBwOGsK5l7GHzyRvzgt4I8oPLnDxa0PQYadad1qVY1uUFLN6049blswLO
-	rQW0F5ux56UeFPdscgt7eE13oZojVHGrtm6UyNOuNMHy05SBxbGQEYjJdfnWFjsr/YGl2sD6tr6lw
-	nzwXNzvLdwRrU2K56PhA==;
+	List-Owner; bh=bxASqOxalBuKvFW1Fzi83UJQY/6fVYbiQjlY+DrWXlM=; b=CQalI5rjsuZhT+
+	LmMOy2jRM9iXe6EYJbqRgOwzr/3n9TWkTbLaEXvJTnfCcfWAXtLHMhGUc3t3HWAF1H8zadtSWFBep
+	QLa5bIwCq9DW0zN07TOfcpqtA0yZdglR1Johqd/B/JKYiDuhKmTnQ/bgdDbwUh8dGnqNFbpBNkwb9
+	TnIpCEHCAPHXkaUgSuwcW+V2vXFzAsQ5rqnWxd1t7XdZXVFG9ftYjuhNYxgVyE7O57+qV8V1C/g/u
+	OeGAiXKXI7fZnMeXFSd7Fq/kDUL02OkH0QISOerscUs8OvNB+IS4A2f8VfR6j6ryQKD/MJ1AizGs6
+	J9URZqMLq3kMCfmusSQQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIVuX-0000000A7Q3-1Z60;
-	Tue, 03 Dec 2024 16:38:05 +0000
-Received: from mail-io1-xd35.google.com ([2607:f8b0:4864:20::d35])
+	id 1tIWhj-0000000AFe6-1CJW;
+	Tue, 03 Dec 2024 17:28:55 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIVuG-0000000A7KP-0y2D
+	id 1tIVkD-0000000A5m1-2tmw
+	for linux-riscv@bombadil.infradead.org;
+	Tue, 03 Dec 2024 16:27:25 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=KupetNXY4u45/xmKXxyRB+jVlLoly3QUtfmqm/1xvDw=; b=OMHYlXgc2O2g35W/YkyXT5fxge
+	vOoa35ngj6Lp1pKaqvPa4XyqQj7+jhJZmP0oq88O17vET5R9xJAZ1IKFjE8n+btZVuCGi1MHhv71i
+	FSZpeqgV3MdjoVBICEA1kXJh/NFinqnug4k8uuSwG7/qZcQx3SnXDNoLeGWZ/GqgtOiSmyXKATa4N
+	6I7N7jTE20v4rYTVWALZiZ+vxwj9TupHnLOZDt2Qm6fH4ijdDI/QgbVSlW3NH6zwhG7iJbodkwlvX
+	HrXqXaOfKxLo+qd+xlE/9dy6cULnyS77MfPrgX70ovBlv74waR/Hjw+RTIzZDvFLs7FkRJm3YAZzp
+	r+kFyDig==;
+Received: from mail-ed1-x52a.google.com ([2a00:1450:4864:20::52a])
+	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tIVkA-00000002Q9p-1he8
 	for linux-riscv@lists.infradead.org;
-	Tue, 03 Dec 2024 16:37:49 +0000
-Received: by mail-io1-xd35.google.com with SMTP id ca18e2360f4ac-841d8dec299so218332539f.3
-        for <linux-riscv@lists.infradead.org>; Tue, 03 Dec 2024 08:37:47 -0800 (PST)
+	Tue, 03 Dec 2024 16:27:24 +0000
+Received: by mail-ed1-x52a.google.com with SMTP id 4fb4d7f45d1cf-5d0f6fa6f8bso2523638a12.0
+        for <linux-riscv@lists.infradead.org>; Tue, 03 Dec 2024 08:27:20 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=brainfault-org.20230601.gappssmtp.com; s=20230601; t=1733243866; x=1733848666; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=SVEw9Z9xC+e2116o+1WJfODi8M47QRe9C2e4ZFiB9Qs=;
-        b=mBhhHs5UYLh8zYoRq0q4dnAdrJHqulDdk0pJEDBXgQohvA8yuOwzoYe2fayw6Mtni2
-         WcgFCiFL8FfZyD1iaXmyWO6ASgDb6qampLpQhiSyWMjR0cC2KPJgXcn9vq60b0irydci
-         6AE5gxmZW6OEdBkaRzstC10sKhc+sQFFsSNoaxF2tLto0WTJsMZdhe8pmxjjMKydHgJF
-         SYb8Khb0PtqtYMDNCaE92bw9I20Bz8Q/8zy7ntXPRVeivfr/4PnWX61E6wQ8KrN8Qi+5
-         +NTYqBXrGzCViQpZSwVBHGGqCUMEK6Etz/+PcRwLVtX+ZU47mgGQsarXSHEDEQ2FCxaa
-         LQQA==
+        d=ventanamicro.com; s=google; t=1733243239; x=1733848039; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=KupetNXY4u45/xmKXxyRB+jVlLoly3QUtfmqm/1xvDw=;
+        b=FuPdKmQip/eL90zkO46GU/l3sf/4Ahh6XMtxRBYf1lldL7Jlj01JL1B/WEJbCg0C7P
+         VXppEmorcirHgcCJZc8MJswVh8By0E7wWmHY74KRK8QvSxS3Yxxer6gSnvAT56AUsyPJ
+         g/scbOoAW6uhgsyULpDjYAGw/QmKWv2FZc6To/ZjVZLBMINVb0sECqhdWVyHjAAf/I8q
+         jKZjOJy2Lt0ewinrLBLovzC2QxTahyo4kHpcxE393WxowXc9nzQmEE61J9F7fcnIepYM
+         x4pJvyGBRg8Jih3LtdyMBl/38CW7xGTVbJ8vkAWEN3WuarYEWwFy5/zoFgSSqfgxv9ey
+         SS1w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1733243866; x=1733848666;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=SVEw9Z9xC+e2116o+1WJfODi8M47QRe9C2e4ZFiB9Qs=;
-        b=kxMoBvy1SQb26XqxkLQvyLSTHOtrFijVE0zEJaCQwmkTzLo0WLwFeju8m1KyGwB7w6
-         ouPNv7b8WbRBS5EPxRDGcIv98yTqsC2KKmXv5Pbsxk79KQk+zPmWee2omRt7bNfEHFlu
-         d1Dg15+CiOpJbkmIMEtQUIWTKux+2oMKfQKU92j/iPudHKH8J8Ie5jgDlJ4KKwHz5zeQ
-         l/apZKfHVoLHI0GjezW9gP0f8/jtapGwcxEmmPJJcxQIqqeEkHeCv5+rMl/HraWVCZPl
-         ZM/lekyXtpf8F2ppZOu1hboTxgKY1ybA4Aeyw0bYXoMyY9eaXEHGpOJ0RHXTELxnLsy/
-         ODhA==
-X-Forwarded-Encrypted: i=1; AJvYcCWphaC4MDKuysjCx8V4PFCHL17+/wdjHU8WZYLZX/KJwZLFY3NCnSyUEFSZWg7JF66kO7ug1LzWL9l6rA==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw/TL34cnZg+GtiPx88lrXpIUZ+w8p5oirUHu8fJAde4g+R+qvI
-	tcDjVgEaU3EpKlLiMHVDpU2HAhog352caNjBQXCCv5ZHUSRpQ+Bgn1g0vH2HxzW6wMD9UscJYBS
-	kK0WwssJstOV1xl2mFFGKkSyGUUG4gZboqtJIjA==
-X-Gm-Gg: ASbGncs4FPFFPGoppoGOd9NLE5NuQ5O7rg0djHoVwPKo7iXdT6OKoCsxNmQ+sNxY/tV
-	9PZ6Wo5vc2fmlAu3cHc77BS5i5V60D5yUwg==
-X-Google-Smtp-Source: AGHT+IEZS46Tt3F60SbyrRtm2o2atDwxxLqUtooVOzxuLEORF7+J61E8/7nJWNy4oOtVonZIMZTW80oPYgYr7U4CpuY=
-X-Received: by 2002:a05:6602:1593:b0:843:e11e:e7e1 with SMTP id
- ca18e2360f4ac-8445b6da045mr370006839f.14.1733243866405; Tue, 03 Dec 2024
- 08:37:46 -0800 (PST)
-MIME-Version: 1.0
-References: <20241114161845.502027-17-ajones@ventanamicro.com>
- <20241114161845.502027-18-ajones@ventanamicro.com> <87mshcub2u.ffs@tglx>
-In-Reply-To: <87mshcub2u.ffs@tglx>
-From: Anup Patel <anup@brainfault.org>
-Date: Tue, 3 Dec 2024 22:07:35 +0530
-Message-ID: <CAAhSdy08gi998HsTkGpaV+bTWczVSL6D8c7EmuTQqovo63oXDw@mail.gmail.com>
-Subject: Re: [RFC PATCH 01/15] irqchip/riscv-imsic: Use hierarchy to reach irq_set_affinity
+        d=1e100.net; s=20230601; t=1733243239; x=1733848039;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=KupetNXY4u45/xmKXxyRB+jVlLoly3QUtfmqm/1xvDw=;
+        b=dOAMYTLTZ1lT/Pf+AFJDz4+fU0TcBqHLUvDgDblmwGPkcVaP1L8sDA25TygawImxyx
+         cYmcHLbILCOfqKKuKO/QII9iXGLHpyR/hZt7Sqf06Ub0GU6lj07OiwT0Hn5Qrmm9TVRh
+         +AenamqJTLDZQdUIzGb8in2uOubBAJE/6Pu0DGDyrYxGbme6zKydoQZsSJbvSP2nrdol
+         P2cNvK0922frozRFfk3XPx04TSEzSe3cz8lnUZNX4nmsPFuaGIVM1t0oeM3N/F4gotaR
+         SHhCo1uJTVgmE7sdCilMWPsFvpBXuz6P8UN4yt3CU5lk5YmOCMgRYauT+h0tZg9VN9wE
+         58OA==
+X-Forwarded-Encrypted: i=1; AJvYcCVQ9kYSzhoQJiWv8cIKzbe02wmDuQL6kUkB6sKPSTTixDUi4WUA5r46nmgSzakrSGQd19rC4amqnCesMQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0YysT2QO4It4Udi3IkCNORzVxaNLCNXcRFN4oasudx3P131YsKun
+	9l0daPjZVpPNIuA5NotphVIVZRwxPn1TA8nVlD0T4aAflVGs2LOofOVdEg54nA4=
+X-Gm-Gg: ASbGncvenbZ07pRXpWEc9ngmKGlHaHnWfYFhA4fYx5tPLuqRAoUevGBYqXaHgjOyRI+
+	uyHrMOJr+NWLJ/AICWvZyy9n5hmC2psKIVaqkCyO34UymOtEcentXP0umh5+/lo+Ggi3JmeSLco
+	K1vqkQv1BZPKT8JlAhI8R/TrJRDfTS1esqQ+HYof7ptxj+rJvI9ih/YmjXNKWOjLyNDE700fw7b
+	Uca4dASzhdxUeqIPlvbNFHtwW+G6PXBr4llEQWFFDh/4N60spmZ2QSg6ck989V3HvxfL95xmz1c
+	3MdPKJ9fhGyMuniYlo3xwnmB+odVOPSr9RM=
+X-Google-Smtp-Source: AGHT+IHdd79PQPZ7+iToSs0C8fvEmrGY0++TLJ6JZXZMdw2nkdTXtkpt3KyVtShFY/vLe5kG+lOIUw==
+X-Received: by 2002:a05:6402:524f:b0:5d0:81f3:18bc with SMTP id 4fb4d7f45d1cf-5d10cb4e3b7mr2985799a12.1.1733243237964;
+        Tue, 03 Dec 2024 08:27:17 -0800 (PST)
+Received: from localhost (2001-1ae9-1c2-4c00-20f-c6b4-1e57-7965.ip6.tmcz.cz. [2001:1ae9:1c2:4c00:20f:c6b4:1e57:7965])
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-5d0eb2d116csm2464485a12.61.2024.12.03.08.27.17
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 03 Dec 2024 08:27:17 -0800 (PST)
+Date: Tue, 3 Dec 2024 17:27:16 +0100
+From: Andrew Jones <ajones@ventanamicro.com>
 To: Thomas Gleixner <tglx@linutronix.de>
-Cc: Andrew Jones <ajones@ventanamicro.com>, iommu@lists.linux.dev, 
-	kvm-riscv@lists.infradead.org, kvm@vger.kernel.org, 
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
+Cc: iommu@lists.linux.dev, kvm-riscv@lists.infradead.org, 
+	kvm@vger.kernel.org, linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
 	tjeznach@rivosinc.com, zong.li@sifive.com, joro@8bytes.org, will@kernel.org, 
-	robin.murphy@arm.com, atishp@atishpatra.org, alex.williamson@redhat.com, 
-	paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu
+	robin.murphy@arm.com, anup@brainfault.org, atishp@atishpatra.org, 
+	alex.williamson@redhat.com, paul.walmsley@sifive.com, palmer@dabbelt.com, 
+	aou@eecs.berkeley.edu
+Subject: Re: [RFC PATCH 01/15] irqchip/riscv-imsic: Use hierarchy to reach
+ irq_set_affinity
+Message-ID: <20241203-1cadc72be6883bc2d77a8050@orel>
+References: <20241114161845.502027-17-ajones@ventanamicro.com>
+ <20241114161845.502027-18-ajones@ventanamicro.com>
+ <87mshcub2u.ffs@tglx>
+MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <87mshcub2u.ffs@tglx>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241203_083748_542198_6B9E90AA 
-X-CRM114-Status: GOOD (  29.26  )
+X-CRM114-CacheID: sfid-20241203_162722_596449_393FAECE 
+X-CRM114-Status: GOOD (  33.49  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,286 +114,401 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gVHVlLCBEZWMgMywgMjAyNCBhdCA3OjIz4oCvUE0gVGhvbWFzIEdsZWl4bmVyIDx0Z2x4QGxp
-bnV0cm9uaXguZGU+IHdyb3RlOgo+Cj4gT24gVGh1LCBOb3YgMTQgMjAyNCBhdCAxNzoxOCwgQW5k
-cmV3IEpvbmVzIHdyb3RlOgo+ID4gQEAgLTk2LDkgKzk2LDggQEAgc3RhdGljIGludCBpbXNpY19p
-cnFfc2V0X2FmZmluaXR5KHN0cnVjdCBpcnFfZGF0YSAqZCwgY29uc3Qgc3RydWN0IGNwdW1hc2sg
-Km1hc2sKPiA+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgYm9vbCBmb3JjZSkKPiA+
-ICB7Cj4gPiAgICAgICBzdHJ1Y3QgaW1zaWNfdmVjdG9yICpvbGRfdmVjLCAqbmV3X3ZlYzsKPiA+
-IC0gICAgIHN0cnVjdCBpcnFfZGF0YSAqcGQgPSBkLT5wYXJlbnRfZGF0YTsKPiA+Cj4gPiAtICAg
-ICBvbGRfdmVjID0gaXJxX2RhdGFfZ2V0X2lycV9jaGlwX2RhdGEocGQpOwo+ID4gKyAgICAgb2xk
-X3ZlYyA9IGlycV9kYXRhX2dldF9pcnFfY2hpcF9kYXRhKGQpOwo+ID4gICAgICAgaWYgKFdBUk5f
-T04oIW9sZF92ZWMpKQo+ID4gICAgICAgICAgICAgICByZXR1cm4gLUVOT0VOVDsKPiA+Cj4gPiBA
-QCAtMTE2LDEzICsxMTUsMTMgQEAgc3RhdGljIGludCBpbXNpY19pcnFfc2V0X2FmZmluaXR5KHN0
-cnVjdCBpcnFfZGF0YSAqZCwgY29uc3Qgc3RydWN0IGNwdW1hc2sgKm1hc2sKPiA+ICAgICAgICAg
-ICAgICAgcmV0dXJuIC1FTk9TUEM7Cj4gPgo+ID4gICAgICAgLyogUG9pbnQgZGV2aWNlIHRvIHRo
-ZSBuZXcgdmVjdG9yICovCj4gPiAtICAgICBpbXNpY19tc2lfdXBkYXRlX21zZyhkLCBuZXdfdmVj
-KTsKPiA+ICsgICAgIGltc2ljX21zaV91cGRhdGVfbXNnKGlycV9nZXRfaXJxX2RhdGEoZC0+aXJx
-KSwgbmV3X3ZlYyk7Cj4KPiBUaGlzIGxvb2tzIG1vcmUgdGhhbiBmaXNoeS4gU2VlIGJlbG93Lgo+
-Cj4gPiBAQCAtMjQ1LDcgKzI0Nyw3IEBAIHN0YXRpYyBib29sIGltc2ljX2luaXRfZGV2X21zaV9p
-bmZvKHN0cnVjdCBkZXZpY2UgKmRldiwKPiA+ICAgICAgICAgICAgICAgaWYgKFdBUk5fT05fT05D
-RShkb21haW4gIT0gcmVhbF9wYXJlbnQpKQo+ID4gICAgICAgICAgICAgICAgICAgICAgIHJldHVy
-biBmYWxzZTsKPiA+ICAjaWZkZWYgQ09ORklHX1NNUAo+ID4gLSAgICAgICAgICAgICBpbmZvLT5j
-aGlwLT5pcnFfc2V0X2FmZmluaXR5ID0gaW1zaWNfaXJxX3NldF9hZmZpbml0eTsKPiA+ICsgICAg
-ICAgICAgICAgaW5mby0+Y2hpcC0+aXJxX3NldF9hZmZpbml0eSA9IGlycV9jaGlwX3NldF9hZmZp
-bml0eV9wYXJlbnQ7Cj4KPiBUaGlzIHNob3VsZCB1c2UgbXNpX2RvbWFpbl9zZXRfYWZmaW5pdHko
-KSwgd2hpY2ggZG9lcyB0aGUgcmlnaHQgdGhpbmc6Cj4KPiAgIDEpIEl0IGludm9rZXMgdGhlIGly
-cV9zZXRfYWZmaW5pdHkoKSBjYWxsYmFjayBvZiB0aGUgcGFyZW50IGRvbWFpbgo+Cj4gICAyKSBJ
-dCBjb21wb3NlcyB0aGUgbWVzc2FnZSB2aWEgdGhlIGhpZXJhcmNoeQo+Cj4gICAzKSBJdCB3cml0
-ZXMgdGhlIG1lc3NhZ2Ugd2l0aCB0aGUgbXNpX3dyaXRlX21zZygpIGNhbGxiYWNrIG9mIHRoZSB0
-b3AKPiAgICAgIGxldmVsIGRvbWFpbgo+Cj4gU29ycnksIEkgbWlzc2VkIHRoYXQgd2hlbiByZXZp
-ZXdpbmcgdGhlIG9yaWdpbmFsIElNU0lDIE1TSSBzdXBwb3J0Lgo+Cj4gVGhlIHdob2xlIElNU0lD
-IE1TSSBzdXBwb3J0IGNhbiBiZSBtb3ZlZCBvdmVyIHRvIE1TSSBMSUIgd2hpY2ggbWFrZXMgYWxs
-Cj4gb2YgdGhpcyBpbmRpcmVjdGlvbiBnbyBhd2F5IGFuZCB5b3VyIGludGVybWVkaWF0ZSBkb21h
-aW4gd2lsbCBqdXN0IGZpdAo+IGluLgo+Cj4gVW5jb21waWxlZCBwYXRjaCBiZWxvdy4gSWYgdGhh
-dCB3b3JrcywgaXQgbmVlZHMgdG8gYmUgc3BsaXQgdXAgcHJvcGVybHkuCj4KPiBOb3RlLCB0aGlz
-IHJlbW92ZXMgdGhlIHNldHVwIG9mIHRoZSBpcnFfcmV0cmlnZ2VyIGNhbGxiYWNrLCBidXQgdGhh
-dCdzCj4gZmluZSBiZWNhdXNlIG9uIGhpZXJhcmNoaWNhbCBkb21haW5zIGlycV9jaGlwX3JldHJp
-Z2dlcl9oaWVyYXJjaHkoKSBpcwo+IGludm9rZWQgYW55d2F5LiBTZWUgdHJ5X3JldHJpZ2dlcigp
-LgoKVGhlIElNU0lDIGRyaXZlciB3YXMgbWVyZ2VkIG9uZSBrZXJuZWwgcmVsZWFzZSBiZWZvcmUg
-Y29tbW9uCk1TSSBMSUIgd2FzIG1lcmdlZC4KCldlIHNob3VsZCBkZWZpbml0ZWx5IHVwZGF0ZSB0
-aGUgSU1TSUMgZHJpdmVyIHRvIHVzZSBNU0kgTElCLCBJIHdpbGwKdHJ5IHlvdXIgc3VnZ2VzdGVk
-IGNoYW5nZXMgKGJlbG93KSBhbmQgcG9zdCBhIHNlcGFyYXRlIHNlcmllcy4KClRoYW5rcywKQW51
-cAoKPgo+IFRoYW5rcywKPgo+ICAgICAgICAgdGdseAo+IC0tLQo+ICBkcml2ZXJzL2lycWNoaXAv
-S2NvbmZpZyAgICAgICAgICAgICAgICAgICAgfCAgICAxCj4gIGRyaXZlcnMvaXJxY2hpcC9pcnEt
-Z2ljLXYybS5jICAgICAgICAgICAgICB8ICAgIDEKPiAgZHJpdmVycy9pcnFjaGlwL2lycS1pbXgt
-bXUtbXNpLmMgICAgICAgICAgIHwgICAgMQo+ICBkcml2ZXJzL2lycWNoaXAvaXJxLW1zaS1saWIu
-YyAgICAgICAgICAgICAgfCAgIDExICstCj4gIGRyaXZlcnMvaXJxY2hpcC9pcnEtbXZlYnUtZ2lj
-cC5jICAgICAgICAgICB8ICAgIDEKPiAgZHJpdmVycy9pcnFjaGlwL2lycS1tdmVidS1vZG1pLmMg
-ICAgICAgICAgIHwgICAgMQo+ICBkcml2ZXJzL2lycWNoaXAvaXJxLW12ZWJ1LXNlaS5jICAgICAg
-ICAgICAgfCAgICAxCj4gIGRyaXZlcnMvaXJxY2hpcC9pcnEtcmlzY3YtaW1zaWMtcGxhdGZvcm0u
-YyB8ICAxMzEgKy0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0KPiAgaW5jbHVkZS9saW51eC9t
-c2kuaCAgICAgICAgICAgICAgICAgICAgICAgIHwgICAxMSArKwo+ICA5IGZpbGVzIGNoYW5nZWQs
-IDMyIGluc2VydGlvbnMoKyksIDEyNyBkZWxldGlvbnMoLSkKPgo+IC0tLSBhL2RyaXZlcnMvaXJx
-Y2hpcC9LY29uZmlnCj4gKysrIGIvZHJpdmVycy9pcnFjaGlwL0tjb25maWcKPiBAQCAtNTg3LDYg
-KzU4Nyw3IEBAIGNvbmZpZyBSSVNDVl9JTVNJQwo+ICAgICAgICAgc2VsZWN0IElSUV9ET01BSU5f
-SElFUkFSQ0hZCj4gICAgICAgICBzZWxlY3QgR0VORVJJQ19JUlFfTUFUUklYX0FMTE9DQVRPUgo+
-ICAgICAgICAgc2VsZWN0IEdFTkVSSUNfTVNJX0lSUQo+ICsgICAgICAgc2VsZWN0IElSUV9NU0lf
-TElCCj4KPiAgY29uZmlnIFJJU0NWX0lNU0lDX1BDSQo+ICAgICAgICAgYm9vbAo+IC0tLSBhL2Ry
-aXZlcnMvaXJxY2hpcC9pcnEtZ2ljLXYybS5jCj4gKysrIGIvZHJpdmVycy9pcnFjaGlwL2lycS1n
-aWMtdjJtLmMKPiBAQCAtMjU1LDYgKzI1NSw3IEBAIHN0YXRpYyB2b2lkIF9faW5pdCBnaWN2Mm1f
-dGVhcmRvd24odm9pZCkKPiAgc3RhdGljIHN0cnVjdCBtc2lfcGFyZW50X29wcyBnaWN2Mm1fbXNp
-X3BhcmVudF9vcHMgPSB7Cj4gICAgICAgICAuc3VwcG9ydGVkX2ZsYWdzICAgICAgICA9IEdJQ1Yy
-TV9NU0lfRkxBR1NfU1VQUE9SVEVELAo+ICAgICAgICAgLnJlcXVpcmVkX2ZsYWdzICAgICAgICAg
-PSBHSUNWMk1fTVNJX0ZMQUdTX1JFUVVJUkVELAo+ICsgICAgICAgLmNoaXBfZmxhZ3MgICAgICAg
-ICAgICAgPSBNU0lfQ0hJUF9GTEFHX1NFVF9FT0kgfCBNU0lfQ0hJUF9GTEFHX1NFVF9BQ0ssCj4g
-ICAgICAgICAuYnVzX3NlbGVjdF90b2tlbiAgICAgICA9IERPTUFJTl9CVVNfTkVYVVMsCj4gICAg
-ICAgICAuYnVzX3NlbGVjdF9tYXNrICAgICAgICA9IE1BVENIX1BDSV9NU0kgfCBNQVRDSF9QTEFU
-Rk9STV9NU0ksCj4gICAgICAgICAucHJlZml4ICAgICAgICAgICAgICAgICA9ICJHSUN2Mm0tIiwK
-PiAtLS0gYS9kcml2ZXJzL2lycWNoaXAvaXJxLWlteC1tdS1tc2kuYwo+ICsrKyBiL2RyaXZlcnMv
-aXJxY2hpcC9pcnEtaW14LW11LW1zaS5jCj4gQEAgLTIxNCw2ICsyMTQsNyBAQCBzdGF0aWMgdm9p
-ZCBpbXhfbXVfbXNpX2lycV9oYW5kbGVyKHN0cnVjCj4gIHN0YXRpYyBjb25zdCBzdHJ1Y3QgbXNp
-X3BhcmVudF9vcHMgaW14X211X21zaV9wYXJlbnRfb3BzID0gewo+ICAgICAgICAgLnN1cHBvcnRl
-ZF9mbGFncyAgICAgICAgPSBJTVhfTVVfTVNJX0ZMQUdTX1NVUFBPUlRFRCwKPiAgICAgICAgIC5y
-ZXF1aXJlZF9mbGFncyAgICAgICAgID0gSU1YX01VX01TSV9GTEFHU19SRVFVSVJFRCwKPiArICAg
-ICAgIC5jaGlwX2ZsYWdzICAgICAgICAgICAgID0gTVNJX0NISVBfRkxBR19TRVRfRU9JIHwgTVNJ
-X0NISVBfRkxBR19TRVRfQUNLLAo+ICAgICAgICAgLmJ1c19zZWxlY3RfdG9rZW4gICAgICAgPSBE
-T01BSU5fQlVTX05FWFVTLAo+ICAgICAgICAgLmJ1c19zZWxlY3RfbWFzayAgICAgICAgPSBNQVRD
-SF9QTEFURk9STV9NU0ksCj4gICAgICAgICAucHJlZml4ICAgICAgICAgICAgICAgICA9ICJNVS1N
-U0ktIiwKPiAtLS0gYS9kcml2ZXJzL2lycWNoaXAvaXJxLW1zaS1saWIuYwo+ICsrKyBiL2RyaXZl
-cnMvaXJxY2hpcC9pcnEtbXNpLWxpYi5jCj4gQEAgLTI4LDYgKzI4LDcgQEAgYm9vbCBtc2lfbGli
-X2luaXRfZGV2X21zaV9pbmZvKHN0cnVjdCBkZQo+ICAgICAgICAgICAgICAgICAgICAgICAgICAg
-ICAgICBzdHJ1Y3QgbXNpX2RvbWFpbl9pbmZvICppbmZvKQo+ICB7Cj4gICAgICAgICBjb25zdCBz
-dHJ1Y3QgbXNpX3BhcmVudF9vcHMgKnBvcHMgPSByZWFsX3BhcmVudC0+bXNpX3BhcmVudF9vcHM7
-Cj4gKyAgICAgICBzdHJ1Y3QgaXJxX2NoaXAgKmNoaXAgPSBpbmZvLT5jaGlwOwo+ICAgICAgICAg
-dTMyIHJlcXVpcmVkX2ZsYWdzOwo+Cj4gICAgICAgICAvKiBQYXJlbnQgb3BzIGF2YWlsYWJsZT8g
-Ki8KPiBAQCAtOTIsMTAgKzkzLDEwIEBAIGJvb2wgbXNpX2xpYl9pbml0X2Rldl9tc2lfaW5mbyhz
-dHJ1Y3QgZGUKPiAgICAgICAgIGluZm8tPmZsYWdzICAgICAgICAgICAgICAgICAgICAgfD0gcmVx
-dWlyZWRfZmxhZ3M7Cj4KPiAgICAgICAgIC8qIENoaXAgdXBkYXRlcyBmb3IgYWxsIGNoaWxkIGJ1
-cyB0eXBlcyAqLwo+IC0gICAgICAgaWYgKCFpbmZvLT5jaGlwLT5pcnFfZW9pKQo+IC0gICAgICAg
-ICAgICAgICBpbmZvLT5jaGlwLT5pcnFfZW9pICAgICA9IGlycV9jaGlwX2VvaV9wYXJlbnQ7Cj4g
-LSAgICAgICBpZiAoIWluZm8tPmNoaXAtPmlycV9hY2spCj4gLSAgICAgICAgICAgICAgIGluZm8t
-PmNoaXAtPmlycV9hY2sgICAgID0gaXJxX2NoaXBfYWNrX3BhcmVudDsKPiArICAgICAgIGlmICgh
-Y2hpcC0+aXJxX2VvaSAmJiAocG9wcy0+Y2hpcF9mbGFncyAmIE1TSV9DSElQX0ZMQUdfU0VUX0VP
-SSkpCj4gKyAgICAgICAgICAgICAgIGNoaXAtPmlycV9lb2kgICAgICAgICAgID0gaXJxX2NoaXBf
-ZW9pX3BhcmVudDsKPiArICAgICAgIGlmICghY2hpcC0+aXJxX2FjayAmJiAocG9wcy0+Y2hpcF9m
-bGFncyAmIE1TSV9DSElQX0ZMQUdfU0VUX0FDSykpCj4gKyAgICAgICAgICAgICAgIGNoaXAtPmly
-cV9hY2sgICAgICAgICAgID0gaXJxX2NoaXBfYWNrX3BhcmVudDsKPgo+ICAgICAgICAgLyoKPiAg
-ICAgICAgICAqIFRoZSBkZXZpY2UgTVNJIGRvbWFpbiBjYW4gbmV2ZXIgaGF2ZSBhIHNldCBhZmZp
-bml0eSBjYWxsYmFjay4gSXQKPiBAQCAtMTA1LDcgKzEwNiw3IEBAIGJvb2wgbXNpX2xpYl9pbml0
-X2Rldl9tc2lfaW5mbyhzdHJ1Y3QgZGUKPiAgICAgICAgICAqIGRldmljZSBNU0kgZG9tYWluIGFz
-aWRlIG9mIG1hc2svdW5tYXNrIHdoaWNoIGlzIHByb3ZpZGVkIGUuZy4gYnkKPiAgICAgICAgICAq
-IFBDSS9NU0kgZGV2aWNlIGRvbWFpbnMuCj4gICAgICAgICAgKi8KPiAtICAgICAgIGluZm8tPmNo
-aXAtPmlycV9zZXRfYWZmaW5pdHkgICAgPSBtc2lfZG9tYWluX3NldF9hZmZpbml0eTsKPiArICAg
-ICAgIGNoaXAtPmlycV9zZXRfYWZmaW5pdHkgICAgICAgICAgPSBtc2lfZG9tYWluX3NldF9hZmZp
-bml0eTsKPiAgICAgICAgIHJldHVybiB0cnVlOwo+ICB9Cj4gIEVYUE9SVF9TWU1CT0xfR1BMKG1z
-aV9saWJfaW5pdF9kZXZfbXNpX2luZm8pOwo+IC0tLSBhL2RyaXZlcnMvaXJxY2hpcC9pcnEtbXZl
-YnUtZ2ljcC5jCj4gKysrIGIvZHJpdmVycy9pcnFjaGlwL2lycS1tdmVidS1naWNwLmMKPiBAQCAt
-MTYxLDYgKzE2MSw3IEBAIHN0YXRpYyBjb25zdCBzdHJ1Y3QgaXJxX2RvbWFpbl9vcHMgZ2ljcF8K
-PiAgc3RhdGljIGNvbnN0IHN0cnVjdCBtc2lfcGFyZW50X29wcyBnaWNwX21zaV9wYXJlbnRfb3Bz
-ID0gewo+ICAgICAgICAgLnN1cHBvcnRlZF9mbGFncyAgICAgICAgPSBHSUNQX01TSV9GTEFHU19T
-VVBQT1JURUQsCj4gICAgICAgICAucmVxdWlyZWRfZmxhZ3MgICAgICAgICA9IEdJQ1BfTVNJX0ZM
-QUdTX1JFUVVJUkVELAo+ICsgICAgICAgLmNoaXBfZmxhZ3MgICAgICAgICAgICAgPSBNU0lfQ0hJ
-UF9GTEFHX1NFVF9FT0kgfCBNU0lfQ0hJUF9GTEFHX1NFVF9BQ0ssCj4gICAgICAgICAuYnVzX3Nl
-bGVjdF90b2tlbiAgICAgICA9IERPTUFJTl9CVVNfR0VORVJJQ19NU0ksCj4gICAgICAgICAuYnVz
-X3NlbGVjdF9tYXNrICAgICAgICA9IE1BVENIX1BMQVRGT1JNX01TSSwKPiAgICAgICAgIC5wcmVm
-aXggICAgICAgICAgICAgICAgID0gIkdJQ1AtIiwKPiAtLS0gYS9kcml2ZXJzL2lycWNoaXAvaXJx
-LW12ZWJ1LW9kbWkuYwo+ICsrKyBiL2RyaXZlcnMvaXJxY2hpcC9pcnEtbXZlYnUtb2RtaS5jCj4g
-QEAgLTE1Nyw2ICsxNTcsNyBAQCBzdGF0aWMgY29uc3Qgc3RydWN0IGlycV9kb21haW5fb3BzIG9k
-bWlfCj4gIHN0YXRpYyBjb25zdCBzdHJ1Y3QgbXNpX3BhcmVudF9vcHMgb2RtaV9tc2lfcGFyZW50
-X29wcyA9IHsKPiAgICAgICAgIC5zdXBwb3J0ZWRfZmxhZ3MgICAgICAgID0gT0RNSV9NU0lfRkxB
-R1NfU1VQUE9SVEVELAo+ICAgICAgICAgLnJlcXVpcmVkX2ZsYWdzICAgICAgICAgPSBPRE1JX01T
-SV9GTEFHU19SRVFVSVJFRCwKPiArICAgICAgIC5jaGlwX2ZsYWdzICAgICAgICAgICAgID0gTVNJ
-X0NISVBfRkxBR19TRVRfRU9JIHwgTVNJX0NISVBfRkxBR19TRVRfQUNLLAo+ICAgICAgICAgLmJ1
-c19zZWxlY3RfdG9rZW4gICAgICAgPSBET01BSU5fQlVTX0dFTkVSSUNfTVNJLAo+ICAgICAgICAg
-LmJ1c19zZWxlY3RfbWFzayAgICAgICAgPSBNQVRDSF9QTEFURk9STV9NU0ksCj4gICAgICAgICAu
-cHJlZml4ICAgICAgICAgICAgICAgICA9ICJPRE1JLSIsCj4gLS0tIGEvZHJpdmVycy9pcnFjaGlw
-L2lycS1tdmVidS1zZWkuYwo+ICsrKyBiL2RyaXZlcnMvaXJxY2hpcC9pcnEtbXZlYnUtc2VpLmMK
-PiBAQCAtMzU2LDYgKzM1Niw3IEBAIHN0YXRpYyB2b2lkIG12ZWJ1X3NlaV9yZXNldChzdHJ1Y3Qg
-bXZlYnUKPiAgc3RhdGljIGNvbnN0IHN0cnVjdCBtc2lfcGFyZW50X29wcyBzZWlfbXNpX3BhcmVu
-dF9vcHMgPSB7Cj4gICAgICAgICAuc3VwcG9ydGVkX2ZsYWdzICAgICAgICA9IFNFSV9NU0lfRkxB
-R1NfU1VQUE9SVEVELAo+ICAgICAgICAgLnJlcXVpcmVkX2ZsYWdzICAgICAgICAgPSBTRUlfTVNJ
-X0ZMQUdTX1JFUVVJUkVELAo+ICsgICAgICAgLmNoaXBfZmxhZ3MgICAgICAgICAgICAgPSBNU0lf
-Q0hJUF9GTEFHX1NFVF9FT0kgfCBNU0lfQ0hJUF9GTEFHX1NFVF9BQ0ssCj4gICAgICAgICAuYnVz
-X3NlbGVjdF9tYXNrICAgICAgICA9IE1BVENIX1BMQVRGT1JNX01TSSwKPiAgICAgICAgIC5idXNf
-c2VsZWN0X3Rva2VuICAgICAgID0gRE9NQUlOX0JVU19HRU5FUklDX01TSSwKPiAgICAgICAgIC5w
-cmVmaXggICAgICAgICAgICAgICAgID0gIlNFSS0iLAo+IC0tLSBhL2RyaXZlcnMvaXJxY2hpcC9p
-cnEtcmlzY3YtaW1zaWMtcGxhdGZvcm0uYwo+ICsrKyBiL2RyaXZlcnMvaXJxY2hpcC9pcnEtcmlz
-Y3YtaW1zaWMtcGxhdGZvcm0uYwo+IEBAIC0yMSw2ICsyMSw3IEBACj4gICNpbmNsdWRlIDxsaW51
-eC9zbXAuaD4KPgo+ICAjaW5jbHVkZSAiaXJxLXJpc2N2LWltc2ljLXN0YXRlLmgiCj4gKyNpbmNs
-dWRlICJpcnEtbXNpLWxpYi5oIgo+Cj4gIHN0YXRpYyBib29sIGltc2ljX2NwdV9wYWdlX3BoeXMo
-dW5zaWduZWQgaW50IGNwdSwgdW5zaWduZWQgaW50IGd1ZXN0X2luZGV4LAo+ICAgICAgICAgICAg
-ICAgICAgICAgICAgICAgICAgICAgcGh5c19hZGRyX3QgKm91dF9tc2lfcGEpCj4gQEAgLTg0LDE5
-ICs4NSwxMCBAQCBzdGF0aWMgdm9pZCBpbXNpY19pcnFfY29tcG9zZV9tc2coc3RydWN0Cj4gIH0K
-Pgo+ICAjaWZkZWYgQ09ORklHX1NNUAo+IC1zdGF0aWMgdm9pZCBpbXNpY19tc2lfdXBkYXRlX21z
-ZyhzdHJ1Y3QgaXJxX2RhdGEgKmQsIHN0cnVjdCBpbXNpY192ZWN0b3IgKnZlYykKPiAtewo+IC0g
-ICAgICAgc3RydWN0IG1zaV9tc2cgbXNnID0geyB9Owo+IC0KPiAtICAgICAgIGltc2ljX2lycV9j
-b21wb3NlX3ZlY3Rvcl9tc2codmVjLCAmbXNnKTsKPiAtICAgICAgIGlycV9kYXRhX2dldF9pcnFf
-Y2hpcChkKS0+aXJxX3dyaXRlX21zaV9tc2coZCwgJm1zZyk7Cj4gLX0KPiAtCj4gIHN0YXRpYyBp
-bnQgaW1zaWNfaXJxX3NldF9hZmZpbml0eShzdHJ1Y3QgaXJxX2RhdGEgKmQsIGNvbnN0IHN0cnVj
-dCBjcHVtYXNrICptYXNrX3ZhbCwKPiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
-Ym9vbCBmb3JjZSkKPiAgewo+ICAgICAgICAgc3RydWN0IGltc2ljX3ZlY3RvciAqb2xkX3ZlYywg
-Km5ld192ZWM7Cj4gLSAgICAgICBzdHJ1Y3QgaXJxX2RhdGEgKnBkID0gZC0+cGFyZW50X2RhdGE7
-Cj4KPiAgICAgICAgIG9sZF92ZWMgPSBpcnFfZGF0YV9nZXRfaXJxX2NoaXBfZGF0YShwZCk7Cj4g
-ICAgICAgICBpZiAoV0FSTl9PTighb2xkX3ZlYykpCj4gQEAgLTExNSwxNCArMTA3LDExIEBAIHN0
-YXRpYyBpbnQgaW1zaWNfaXJxX3NldF9hZmZpbml0eShzdHJ1Y3QKPiAgICAgICAgIGlmICghbmV3
-X3ZlYykKPiAgICAgICAgICAgICAgICAgcmV0dXJuIC1FTk9TUEM7Cj4KPiAtICAgICAgIC8qIFBv
-aW50IGRldmljZSB0byB0aGUgbmV3IHZlY3RvciAqLwo+IC0gICAgICAgaW1zaWNfbXNpX3VwZGF0
-ZV9tc2coZCwgbmV3X3ZlYyk7Cj4gLQo+ICAgICAgICAgLyogVXBkYXRlIGlycSBkZXNjcmlwdG9y
-cyB3aXRoIHRoZSBuZXcgdmVjdG9yICovCj4gLSAgICAgICBwZC0+Y2hpcF9kYXRhID0gbmV3X3Zl
-YzsKPiArICAgICAgIGQtPmNoaXBfZGF0YSA9IG5ld192ZWM7Cj4KPiAgICAgICAgIC8qIFVwZGF0
-ZSBlZmZlY3RpdmUgYWZmaW5pdHkgb2YgcGFyZW50IGlycSBkYXRhICovCj4gLSAgICAgICBpcnFf
-ZGF0YV91cGRhdGVfZWZmZWN0aXZlX2FmZmluaXR5KHBkLCBjcHVtYXNrX29mKG5ld192ZWMtPmNw
-dSkpOwo+ICsgICAgICAgaXJxX2RhdGFfdXBkYXRlX2VmZmVjdGl2ZV9hZmZpbml0eShkLCBjcHVt
-YXNrX29mKG5ld192ZWMtPmNwdSkpOwo+Cj4gICAgICAgICAvKiBNb3ZlIHN0YXRlIG9mIHRoZSBv
-bGQgdmVjdG9yIHRvIHRoZSBuZXcgdmVjdG9yICovCj4gICAgICAgICBpbXNpY192ZWN0b3JfbW92
-ZShvbGRfdmVjLCBuZXdfdmVjKTsKPiBAQCAtMTM3LDYgKzEyNiw5IEBAIHN0YXRpYyBzdHJ1Y3Qg
-aXJxX2NoaXAgaW1zaWNfaXJxX2Jhc2VfY2gKPiAgICAgICAgIC5pcnFfdW5tYXNrICAgICAgICAg
-ICAgID0gaW1zaWNfaXJxX3VubWFzaywKPiAgICAgICAgIC5pcnFfcmV0cmlnZ2VyICAgICAgICAg
-ID0gaW1zaWNfaXJxX3JldHJpZ2dlciwKPiAgICAgICAgIC5pcnFfY29tcG9zZV9tc2lfbXNnICAg
-ID0gaW1zaWNfaXJxX2NvbXBvc2VfbXNnLAo+ICsjaWZkZWYgQ09ORklHX1NNUAo+ICsgICAgICAg
-LmlycV9zZXRfYWZmaW5pdHkgICAgICAgPSBpbXNpY19pcnFfc2V0X2FmZmluaXR5LAo+ICsjZW5k
-aWYKPiAgICAgICAgIC5mbGFncyAgICAgICAgICAgICAgICAgID0gSVJRQ0hJUF9TS0lQX1NFVF9X
-QUtFIHwKPiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgSVJRQ0hJUF9NQVNLX09O
-X1NVU1BFTkQsCj4gIH07Cj4gQEAgLTE3MiwyMiArMTY0LDYgQEAgc3RhdGljIHZvaWQgaW1zaWNf
-aXJxX2RvbWFpbl9mcmVlKHN0cnVjdAo+ICAgICAgICAgaXJxX2RvbWFpbl9mcmVlX2lycXNfcGFy
-ZW50KGRvbWFpbiwgdmlycSwgbnJfaXJxcyk7Cj4gIH0KPgo+IC1zdGF0aWMgaW50IGltc2ljX2ly
-cV9kb21haW5fc2VsZWN0KHN0cnVjdCBpcnFfZG9tYWluICpkb21haW4sIHN0cnVjdCBpcnFfZndz
-cGVjICpmd3NwZWMsCj4gLSAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBlbnVtIGly
-cV9kb21haW5fYnVzX3Rva2VuIGJ1c190b2tlbikKPiAtewo+IC0gICAgICAgY29uc3Qgc3RydWN0
-IG1zaV9wYXJlbnRfb3BzICpvcHMgPSBkb21haW4tPm1zaV9wYXJlbnRfb3BzOwo+IC0gICAgICAg
-dTMyIGJ1c21hc2sgPSBCSVQoYnVzX3Rva2VuKTsKPiAtCj4gLSAgICAgICBpZiAoZndzcGVjLT5m
-d25vZGUgIT0gZG9tYWluLT5md25vZGUgfHwgZndzcGVjLT5wYXJhbV9jb3VudCAhPSAwKQo+IC0g
-ICAgICAgICAgICAgICByZXR1cm4gMDsKPiAtCj4gLSAgICAgICAvKiBIYW5kbGUgcHVyZSBkb21h
-aW4gc2VhcmNoZXMgKi8KPiAtICAgICAgIGlmIChidXNfdG9rZW4gPT0gb3BzLT5idXNfc2VsZWN0
-X3Rva2VuKQo+IC0gICAgICAgICAgICAgICByZXR1cm4gMTsKPiAtCj4gLSAgICAgICByZXR1cm4g
-ISEob3BzLT5idXNfc2VsZWN0X21hc2sgJiBidXNtYXNrKTsKPiAtfQo+IC0KPiAgI2lmZGVmIENP
-TkZJR19HRU5FUklDX0lSUV9ERUJVR0ZTCj4gIHN0YXRpYyB2b2lkIGltc2ljX2lycV9kZWJ1Z19z
-aG93KHN0cnVjdCBzZXFfZmlsZSAqbSwgc3RydWN0IGlycV9kb21haW4gKmQsCj4gICAgICAgICAg
-ICAgICAgICAgICAgICAgICAgICAgICAgc3RydWN0IGlycV9kYXRhICppcnFkLCBpbnQgaW5kKQo+
-IEBAIC0yMTAsMTA0ICsxODYsMTUgQEAgc3RhdGljIGNvbnN0IHN0cnVjdCBpcnFfZG9tYWluX29w
-cyBpbXNpYwo+ICAjZW5kaWYKPiAgfTsKPgo+IC0jaWZkZWYgQ09ORklHX1JJU0NWX0lNU0lDX1BD
-SQo+IC0KPiAtc3RhdGljIHZvaWQgaW1zaWNfcGNpX21hc2tfaXJxKHN0cnVjdCBpcnFfZGF0YSAq
-ZCkKPiAtewo+IC0gICAgICAgcGNpX21zaV9tYXNrX2lycShkKTsKPiAtICAgICAgIGlycV9jaGlw
-X21hc2tfcGFyZW50KGQpOwo+IC19Cj4gLQo+IC1zdGF0aWMgdm9pZCBpbXNpY19wY2lfdW5tYXNr
-X2lycShzdHJ1Y3QgaXJxX2RhdGEgKmQpCj4gLXsKPiAtICAgICAgIGlycV9jaGlwX3VubWFza19w
-YXJlbnQoZCk7Cj4gLSAgICAgICBwY2lfbXNpX3VubWFza19pcnEoZCk7Cj4gLX0KPiAtCj4gLSNk
-ZWZpbmUgTUFUQ0hfUENJX01TSSAgICAgICAgICBCSVQoRE9NQUlOX0JVU19QQ0lfTVNJKQo+IC0K
-PiAtI2Vsc2UKPiAtCj4gLSNkZWZpbmUgTUFUQ0hfUENJX01TSSAgICAgICAgICAwCj4gLQo+IC0j
-ZW5kaWYKPiAtCj4gLXN0YXRpYyBib29sIGltc2ljX2luaXRfZGV2X21zaV9pbmZvKHN0cnVjdCBk
-ZXZpY2UgKmRldiwKPiAtICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBzdHJ1Y3Qg
-aXJxX2RvbWFpbiAqZG9tYWluLAo+IC0gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
-IHN0cnVjdCBpcnFfZG9tYWluICpyZWFsX3BhcmVudCwKPiAtICAgICAgICAgICAgICAgICAgICAg
-ICAgICAgICAgICAgICBzdHJ1Y3QgbXNpX2RvbWFpbl9pbmZvICppbmZvKQo+IC17Cj4gLSAgICAg
-ICBjb25zdCBzdHJ1Y3QgbXNpX3BhcmVudF9vcHMgKnBvcHMgPSByZWFsX3BhcmVudC0+bXNpX3Bh
-cmVudF9vcHM7Cj4gLQo+IC0gICAgICAgLyogTVNJIHBhcmVudCBkb21haW4gc3BlY2lmaWMgc2V0
-dGluZ3MgKi8KPiAtICAgICAgIHN3aXRjaCAocmVhbF9wYXJlbnQtPmJ1c190b2tlbikgewo+IC0g
-ICAgICAgY2FzZSBET01BSU5fQlVTX05FWFVTOgo+IC0gICAgICAgICAgICAgICBpZiAoV0FSTl9P
-Tl9PTkNFKGRvbWFpbiAhPSByZWFsX3BhcmVudCkpCj4gLSAgICAgICAgICAgICAgICAgICAgICAg
-cmV0dXJuIGZhbHNlOwo+IC0jaWZkZWYgQ09ORklHX1NNUAo+IC0gICAgICAgICAgICAgICBpbmZv
-LT5jaGlwLT5pcnFfc2V0X2FmZmluaXR5ID0gaW1zaWNfaXJxX3NldF9hZmZpbml0eTsKPiAtI2Vu
-ZGlmCj4gLSAgICAgICAgICAgICAgIGJyZWFrOwo+IC0gICAgICAgZGVmYXVsdDoKPiAtICAgICAg
-ICAgICAgICAgV0FSTl9PTl9PTkNFKDEpOwo+IC0gICAgICAgICAgICAgICByZXR1cm4gZmFsc2U7
-Cj4gLSAgICAgICB9Cj4gLQo+IC0gICAgICAgLyogSXMgdGhlIHRhcmdldCBzdXBwb3J0ZWQ/ICov
-Cj4gLSAgICAgICBzd2l0Y2ggKGluZm8tPmJ1c190b2tlbikgewo+IC0jaWZkZWYgQ09ORklHX1JJ
-U0NWX0lNU0lDX1BDSQo+IC0gICAgICAgY2FzZSBET01BSU5fQlVTX1BDSV9ERVZJQ0VfTVNJOgo+
-IC0gICAgICAgY2FzZSBET01BSU5fQlVTX1BDSV9ERVZJQ0VfTVNJWDoKPiAtICAgICAgICAgICAg
-ICAgaW5mby0+Y2hpcC0+aXJxX21hc2sgPSBpbXNpY19wY2lfbWFza19pcnE7Cj4gLSAgICAgICAg
-ICAgICAgIGluZm8tPmNoaXAtPmlycV91bm1hc2sgPSBpbXNpY19wY2lfdW5tYXNrX2lycTsKPiAt
-ICAgICAgICAgICAgICAgYnJlYWs7Cj4gLSNlbmRpZgo+IC0gICAgICAgY2FzZSBET01BSU5fQlVT
-X0RFVklDRV9NU0k6Cj4gLSAgICAgICAgICAgICAgIC8qCj4gLSAgICAgICAgICAgICAgICAqIFBl
-ci1kZXZpY2UgTVNJIHNob3VsZCBuZXZlciBoYXZlIGFueSBNU0kgZmVhdHVyZSBiaXRzCj4gLSAg
-ICAgICAgICAgICAgICAqIHNldC4gSXQncyBzb2xlIHB1cnBvc2UgaXMgdG8gY3JlYXRlIGEgZHVt
-YiBpbnRlcnJ1cHQKPiAtICAgICAgICAgICAgICAgICogY2hpcCB3aGljaCBoYXMgYSBkZXZpY2Ug
-c3BlY2lmaWMgaXJxX3dyaXRlX21zaV9tc2coKQo+IC0gICAgICAgICAgICAgICAgKiBjYWxsYmFj
-ay4KPiAtICAgICAgICAgICAgICAgICovCj4gLSAgICAgICAgICAgICAgIGlmIChXQVJOX09OX09O
-Q0UoaW5mby0+ZmxhZ3MpKQo+IC0gICAgICAgICAgICAgICAgICAgICAgIHJldHVybiBmYWxzZTsK
-PiAtCj4gLSAgICAgICAgICAgICAgIC8qIENvcmUgbWFuYWdlZCBNU0kgZGVzY3JpcHRvcnMgKi8K
-PiAtICAgICAgICAgICAgICAgaW5mby0+ZmxhZ3MgfD0gTVNJX0ZMQUdfQUxMT0NfU0lNUExFX01T
-SV9ERVNDUyB8Cj4gLSAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIE1TSV9GTEFHX0ZSRUVf
-TVNJX0RFU0NTOwo+IC0gICAgICAgICAgICAgICBicmVhazsKPiAtICAgICAgIGNhc2UgRE9NQUlO
-X0JVU19XSVJFRF9UT19NU0k6Cj4gLSAgICAgICAgICAgICAgIGJyZWFrOwo+IC0gICAgICAgZGVm
-YXVsdDoKPiAtICAgICAgICAgICAgICAgV0FSTl9PTl9PTkNFKDEpOwo+IC0gICAgICAgICAgICAg
-ICByZXR1cm4gZmFsc2U7Cj4gLSAgICAgICB9Cj4gLQo+IC0gICAgICAgLyogVXNlIGhpZXJhcmNo
-aWFsIGNoaXAgb3BlcmF0aW9ucyByZS10cmlnZ2VyICovCj4gLSAgICAgICBpbmZvLT5jaGlwLT5p
-cnFfcmV0cmlnZ2VyID0gaXJxX2NoaXBfcmV0cmlnZ2VyX2hpZXJhcmNoeTsKPiAtCj4gLSAgICAg
-ICAvKgo+IC0gICAgICAgICogTWFzayBvdXQgdGhlIGRvbWFpbiBzcGVjaWZpYyBNU0kgZmVhdHVy
-ZSBmbGFncyB3aGljaCBhcmUgbm90Cj4gLSAgICAgICAgKiBzdXBwb3J0ZWQgYnkgdGhlIHJlYWwg
-cGFyZW50Lgo+IC0gICAgICAgICovCj4gLSAgICAgICBpbmZvLT5mbGFncyAmPSBwb3BzLT5zdXBw
-b3J0ZWRfZmxhZ3M7Cj4gLQo+IC0gICAgICAgLyogRW5mb3JjZSB0aGUgcmVxdWlyZWQgZmxhZ3Mg
-Ki8KPiAtICAgICAgIGluZm8tPmZsYWdzIHw9IHBvcHMtPnJlcXVpcmVkX2ZsYWdzOwo+IC0KPiAt
-ICAgICAgIHJldHVybiB0cnVlOwo+IC19Cj4gLQo+IC0jZGVmaW5lIE1BVENIX1BMQVRGT1JNX01T
-SSAgICAgICAgICAgICBCSVQoRE9NQUlOX0JVU19QTEFURk9STV9NU0kpCj4gLQo+ICBzdGF0aWMg
-Y29uc3Qgc3RydWN0IG1zaV9wYXJlbnRfb3BzIGltc2ljX21zaV9wYXJlbnRfb3BzID0gewo+ICAg
-ICAgICAgLnN1cHBvcnRlZF9mbGFncyAgICAgICAgPSBNU0lfR0VORVJJQ19GTEFHU19NQVNLIHwK
-PiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgTVNJX0ZMQUdfUENJX01TSVgsCj4g
-ICAgICAgICAucmVxdWlyZWRfZmxhZ3MgICAgICAgICA9IE1TSV9GTEFHX1VTRV9ERUZfRE9NX09Q
-UyB8Cj4gLSAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIE1TSV9GTEFHX1VTRV9ERUZf
-Q0hJUF9PUFMsCj4gKyAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIE1TSV9GTEFHX1VT
-RV9ERUZfQ0hJUF9PUFMgfAo+ICsgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBNU0lf
-RkxBR19QQ0lfTVNJX01BU0tfUEFSRU5ULAo+ICAgICAgICAgLmJ1c19zZWxlY3RfdG9rZW4gICAg
-ICAgPSBET01BSU5fQlVTX05FWFVTLAo+ICAgICAgICAgLmJ1c19zZWxlY3RfbWFzayAgICAgICAg
-PSBNQVRDSF9QQ0lfTVNJIHwgTUFUQ0hfUExBVEZPUk1fTVNJLAo+IC0gICAgICAgLmluaXRfZGV2
-X21zaV9pbmZvICAgICAgPSBpbXNpY19pbml0X2Rldl9tc2lfaW5mbywKPiArICAgICAgIC5pbml0
-X2Rldl9tc2lfaW5mbyAgICAgID0gbXNpX2xpYl9pbml0X2Rldl9tc2lfaW5mbywKPiAgfTsKPgo+
-ICBpbnQgaW1zaWNfaXJxZG9tYWluX2luaXQodm9pZCkKPiAtLS0gYS9pbmNsdWRlL2xpbnV4L21z
-aS5oCj4gKysrIGIvaW5jbHVkZS9saW51eC9tc2kuaAo+IEBAIC01NTgsMTEgKzU1OCwyMSBAQCBl
-bnVtIHsKPiAgICAgICAgIE1TSV9GTEFHX05PX0FGRklOSVRZICAgICAgICAgICAgPSAoMSA8PCAy
-MSksCj4gIH07Cj4KPiArLyoKPiArICogRmxhZ3MgZm9yIG1zaV9wYXJlbnRfb3BzOjpjaGlwX2Zs
-YWdzCj4gKyAqLwo+ICtlbnVtIHsKPiArICAgICAgIE1TSV9DSElQX0ZMQUdfU0VUX0VPSSAgICAg
-ICAgICAgPSAoMSA8PCAwKSwKPiArICAgICAgIE1TSV9DSElQX0ZMQUdfU0VUX0FDSyAgICAgICAg
-ICAgPSAoMSA8PCAxKSwKPiArfTsKPiArCj4gIC8qKgo+ICAgKiBzdHJ1Y3QgbXNpX3BhcmVudF9v
-cHMgLSBNU0kgcGFyZW50IGRvbWFpbiBjYWxsYmFja3MgYW5kIGNvbmZpZ3VyYXRpb24gaW5mbwo+
-ICAgKgo+ICAgKiBAc3VwcG9ydGVkX2ZsYWdzOiAgIFJlcXVpcmVkOiBUaGUgc3VwcG9ydGVkIE1T
-SSBmbGFncyBvZiB0aGUgcGFyZW50IGRvbWFpbgo+ICAgKiBAcmVxdWlyZWRfZmxhZ3M6ICAgIE9w
-dGlvbmFsOiBUaGUgcmVxdWlyZWQgTVNJIGZsYWdzIG9mIHRoZSBwYXJlbnQgTVNJIGRvbWFpbgo+
-ICsgKiBAY2hpcF9mbGFnczogICAgICAgICAgICAgICAgT3B0aW9uYWw6IFNlbGVjdCBNU0kgY2hp
-cCBjYWxsYmFja3MgdG8gdXBkYXRlIHdpdGggZGVmYXVsdHMKPiArICogICAgICAgICAgICAgICAg
-ICAgICBpbiBtc2lfbGliX2luaXRfZGV2X21zaV9pbmZvKCkuCj4gICAqIEBidXNfc2VsZWN0X3Rv
-a2VuOiAgT3B0aW9uYWw6IFRoZSBidXMgdG9rZW4gb2YgdGhlIHJlYWwgcGFyZW50IGRvbWFpbiBm
-b3IKPiAgICogICAgICAgICAgICAgICAgICAgICBpcnFfZG9tYWluOjpzZWxlY3QoKQo+ICAgKiBA
-YnVzX3NlbGVjdF9tYXNrOiAgIE9wdGlvbmFsOiBBIG1hc2sgb2Ygc3VwcG9ydGVkIEJVU19ET01B
-SU5zIGZvcgo+IEBAIC01NzUsNiArNTg1LDcgQEAgZW51bSB7Cj4gIHN0cnVjdCBtc2lfcGFyZW50
-X29wcyB7Cj4gICAgICAgICB1MzIgICAgICAgICAgICAgc3VwcG9ydGVkX2ZsYWdzOwo+ICAgICAg
-ICAgdTMyICAgICAgICAgICAgIHJlcXVpcmVkX2ZsYWdzOwo+ICsgICAgICAgdTMyICAgICAgICAg
-ICAgIGNoaXBfZmxhZ3M7Cj4gICAgICAgICB1MzIgICAgICAgICAgICAgYnVzX3NlbGVjdF90b2tl
-bjsKPiAgICAgICAgIHUzMiAgICAgICAgICAgICBidXNfc2VsZWN0X21hc2s7Cj4gICAgICAgICBj
-b25zdCBjaGFyICAgICAgKnByZWZpeDsKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0
-cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGlu
-Zm8vbGludXgtcmlzY3YK
+On Tue, Dec 03, 2024 at 02:53:45PM +0100, Thomas Gleixner wrote:
+> On Thu, Nov 14 2024 at 17:18, Andrew Jones wrote:
+> > @@ -96,9 +96,8 @@ static int imsic_irq_set_affinity(struct irq_data *d, const struct cpumask *mask
+> >  				  bool force)
+> >  {
+> >  	struct imsic_vector *old_vec, *new_vec;
+> > -	struct irq_data *pd = d->parent_data;
+> >  
+> > -	old_vec = irq_data_get_irq_chip_data(pd);
+> > +	old_vec = irq_data_get_irq_chip_data(d);
+> >  	if (WARN_ON(!old_vec))
+> >  		return -ENOENT;
+> >  
+> > @@ -116,13 +115,13 @@ static int imsic_irq_set_affinity(struct irq_data *d, const struct cpumask *mask
+> >  		return -ENOSPC;
+> >  
+> >  	/* Point device to the new vector */
+> > -	imsic_msi_update_msg(d, new_vec);
+> > +	imsic_msi_update_msg(irq_get_irq_data(d->irq), new_vec);
+> 
+> This looks more than fishy. See below.
+> 
+> > @@ -245,7 +247,7 @@ static bool imsic_init_dev_msi_info(struct device *dev,
+> >  		if (WARN_ON_ONCE(domain != real_parent))
+> >  			return false;
+> >  #ifdef CONFIG_SMP
+> > -		info->chip->irq_set_affinity = imsic_irq_set_affinity;
+> > +		info->chip->irq_set_affinity = irq_chip_set_affinity_parent;
+> 
+> This should use msi_domain_set_affinity(), which does the right thing:
+> 
+>   1) It invokes the irq_set_affinity() callback of the parent domain
+> 
+>   2) It composes the message via the hierarchy
+> 
+>   3) It writes the message with the msi_write_msg() callback of the top
+>      level domain
+> 
+> Sorry, I missed that when reviewing the original IMSIC MSI support.
+> 
+> The whole IMSIC MSI support can be moved over to MSI LIB which makes all
+> of this indirection go away and your intermediate domain will just fit
+> in.
+> 
+> Uncompiled patch below. If that works, it needs to be split up properly.
+
+Thanks Thomas. I gave your patch below a go, but we now fail to have an
+msi domain set up when probing devices which go through aplic_msi_setup(),
+resulting in an immediate NULL deference in
+msi_create_device_irq_domain(). I'll look closer tomorrow.
+
+Thanks,
+drew
+
+> 
+> Note, this removes the setup of the irq_retrigger callback, but that's
+> fine because on hierarchical domains irq_chip_retrigger_hierarchy() is
+> invoked anyway. See try_retrigger().
+> 
+> Thanks,
+> 
+>         tglx
+> ---
+>  drivers/irqchip/Kconfig                    |    1 
+>  drivers/irqchip/irq-gic-v2m.c              |    1 
+>  drivers/irqchip/irq-imx-mu-msi.c           |    1 
+>  drivers/irqchip/irq-msi-lib.c              |   11 +-
+>  drivers/irqchip/irq-mvebu-gicp.c           |    1 
+>  drivers/irqchip/irq-mvebu-odmi.c           |    1 
+>  drivers/irqchip/irq-mvebu-sei.c            |    1 
+>  drivers/irqchip/irq-riscv-imsic-platform.c |  131 +----------------------------
+>  include/linux/msi.h                        |   11 ++
+>  9 files changed, 32 insertions(+), 127 deletions(-)
+> 
+> --- a/drivers/irqchip/Kconfig
+> +++ b/drivers/irqchip/Kconfig
+> @@ -587,6 +587,7 @@ config RISCV_IMSIC
+>  	select IRQ_DOMAIN_HIERARCHY
+>  	select GENERIC_IRQ_MATRIX_ALLOCATOR
+>  	select GENERIC_MSI_IRQ
+> +	select IRQ_MSI_LIB
+>  
+>  config RISCV_IMSIC_PCI
+>  	bool
+> --- a/drivers/irqchip/irq-gic-v2m.c
+> +++ b/drivers/irqchip/irq-gic-v2m.c
+> @@ -255,6 +255,7 @@ static void __init gicv2m_teardown(void)
+>  static struct msi_parent_ops gicv2m_msi_parent_ops = {
+>  	.supported_flags	= GICV2M_MSI_FLAGS_SUPPORTED,
+>  	.required_flags		= GICV2M_MSI_FLAGS_REQUIRED,
+> +	.chip_flags		= MSI_CHIP_FLAG_SET_EOI | MSI_CHIP_FLAG_SET_ACK,
+>  	.bus_select_token	= DOMAIN_BUS_NEXUS,
+>  	.bus_select_mask	= MATCH_PCI_MSI | MATCH_PLATFORM_MSI,
+>  	.prefix			= "GICv2m-",
+> --- a/drivers/irqchip/irq-imx-mu-msi.c
+> +++ b/drivers/irqchip/irq-imx-mu-msi.c
+> @@ -214,6 +214,7 @@ static void imx_mu_msi_irq_handler(struc
+>  static const struct msi_parent_ops imx_mu_msi_parent_ops = {
+>  	.supported_flags	= IMX_MU_MSI_FLAGS_SUPPORTED,
+>  	.required_flags		= IMX_MU_MSI_FLAGS_REQUIRED,
+> +	.chip_flags		= MSI_CHIP_FLAG_SET_EOI | MSI_CHIP_FLAG_SET_ACK,
+>  	.bus_select_token       = DOMAIN_BUS_NEXUS,
+>  	.bus_select_mask	= MATCH_PLATFORM_MSI,
+>  	.prefix			= "MU-MSI-",
+> --- a/drivers/irqchip/irq-msi-lib.c
+> +++ b/drivers/irqchip/irq-msi-lib.c
+> @@ -28,6 +28,7 @@ bool msi_lib_init_dev_msi_info(struct de
+>  			       struct msi_domain_info *info)
+>  {
+>  	const struct msi_parent_ops *pops = real_parent->msi_parent_ops;
+> +	struct irq_chip *chip = info->chip;
+>  	u32 required_flags;
+>  
+>  	/* Parent ops available? */
+> @@ -92,10 +93,10 @@ bool msi_lib_init_dev_msi_info(struct de
+>  	info->flags			|= required_flags;
+>  
+>  	/* Chip updates for all child bus types */
+> -	if (!info->chip->irq_eoi)
+> -		info->chip->irq_eoi	= irq_chip_eoi_parent;
+> -	if (!info->chip->irq_ack)
+> -		info->chip->irq_ack	= irq_chip_ack_parent;
+> +	if (!chip->irq_eoi && (pops->chip_flags & MSI_CHIP_FLAG_SET_EOI))
+> +		chip->irq_eoi		= irq_chip_eoi_parent;
+> +	if (!chip->irq_ack && (pops->chip_flags & MSI_CHIP_FLAG_SET_ACK))
+> +		chip->irq_ack		= irq_chip_ack_parent;
+>  
+>  	/*
+>  	 * The device MSI domain can never have a set affinity callback. It
+> @@ -105,7 +106,7 @@ bool msi_lib_init_dev_msi_info(struct de
+>  	 * device MSI domain aside of mask/unmask which is provided e.g. by
+>  	 * PCI/MSI device domains.
+>  	 */
+> -	info->chip->irq_set_affinity	= msi_domain_set_affinity;
+> +	chip->irq_set_affinity		= msi_domain_set_affinity;
+>  	return true;
+>  }
+>  EXPORT_SYMBOL_GPL(msi_lib_init_dev_msi_info);
+> --- a/drivers/irqchip/irq-mvebu-gicp.c
+> +++ b/drivers/irqchip/irq-mvebu-gicp.c
+> @@ -161,6 +161,7 @@ static const struct irq_domain_ops gicp_
+>  static const struct msi_parent_ops gicp_msi_parent_ops = {
+>  	.supported_flags	= GICP_MSI_FLAGS_SUPPORTED,
+>  	.required_flags		= GICP_MSI_FLAGS_REQUIRED,
+> +	.chip_flags		= MSI_CHIP_FLAG_SET_EOI | MSI_CHIP_FLAG_SET_ACK,
+>  	.bus_select_token       = DOMAIN_BUS_GENERIC_MSI,
+>  	.bus_select_mask	= MATCH_PLATFORM_MSI,
+>  	.prefix			= "GICP-",
+> --- a/drivers/irqchip/irq-mvebu-odmi.c
+> +++ b/drivers/irqchip/irq-mvebu-odmi.c
+> @@ -157,6 +157,7 @@ static const struct irq_domain_ops odmi_
+>  static const struct msi_parent_ops odmi_msi_parent_ops = {
+>  	.supported_flags	= ODMI_MSI_FLAGS_SUPPORTED,
+>  	.required_flags		= ODMI_MSI_FLAGS_REQUIRED,
+> +	.chip_flags		= MSI_CHIP_FLAG_SET_EOI | MSI_CHIP_FLAG_SET_ACK,
+>  	.bus_select_token	= DOMAIN_BUS_GENERIC_MSI,
+>  	.bus_select_mask	= MATCH_PLATFORM_MSI,
+>  	.prefix			= "ODMI-",
+> --- a/drivers/irqchip/irq-mvebu-sei.c
+> +++ b/drivers/irqchip/irq-mvebu-sei.c
+> @@ -356,6 +356,7 @@ static void mvebu_sei_reset(struct mvebu
+>  static const struct msi_parent_ops sei_msi_parent_ops = {
+>  	.supported_flags	= SEI_MSI_FLAGS_SUPPORTED,
+>  	.required_flags		= SEI_MSI_FLAGS_REQUIRED,
+> +	.chip_flags		= MSI_CHIP_FLAG_SET_EOI | MSI_CHIP_FLAG_SET_ACK,
+>  	.bus_select_mask	= MATCH_PLATFORM_MSI,
+>  	.bus_select_token	= DOMAIN_BUS_GENERIC_MSI,
+>  	.prefix			= "SEI-",
+> --- a/drivers/irqchip/irq-riscv-imsic-platform.c
+> +++ b/drivers/irqchip/irq-riscv-imsic-platform.c
+> @@ -21,6 +21,7 @@
+>  #include <linux/smp.h>
+>  
+>  #include "irq-riscv-imsic-state.h"
+> +#include "irq-msi-lib.h"
+>  
+>  static bool imsic_cpu_page_phys(unsigned int cpu, unsigned int guest_index,
+>  				phys_addr_t *out_msi_pa)
+> @@ -84,19 +85,10 @@ static void imsic_irq_compose_msg(struct
+>  }
+>  
+>  #ifdef CONFIG_SMP
+> -static void imsic_msi_update_msg(struct irq_data *d, struct imsic_vector *vec)
+> -{
+> -	struct msi_msg msg = { };
+> -
+> -	imsic_irq_compose_vector_msg(vec, &msg);
+> -	irq_data_get_irq_chip(d)->irq_write_msi_msg(d, &msg);
+> -}
+> -
+>  static int imsic_irq_set_affinity(struct irq_data *d, const struct cpumask *mask_val,
+>  				  bool force)
+>  {
+>  	struct imsic_vector *old_vec, *new_vec;
+> -	struct irq_data *pd = d->parent_data;
+>  
+>  	old_vec = irq_data_get_irq_chip_data(pd);
+>  	if (WARN_ON(!old_vec))
+> @@ -115,14 +107,11 @@ static int imsic_irq_set_affinity(struct
+>  	if (!new_vec)
+>  		return -ENOSPC;
+>  
+> -	/* Point device to the new vector */
+> -	imsic_msi_update_msg(d, new_vec);
+> -
+>  	/* Update irq descriptors with the new vector */
+> -	pd->chip_data = new_vec;
+> +	d->chip_data = new_vec;
+>  
+>  	/* Update effective affinity of parent irq data */
+> -	irq_data_update_effective_affinity(pd, cpumask_of(new_vec->cpu));
+> +	irq_data_update_effective_affinity(d, cpumask_of(new_vec->cpu));
+>  
+>  	/* Move state of the old vector to the new vector */
+>  	imsic_vector_move(old_vec, new_vec);
+> @@ -137,6 +126,9 @@ static struct irq_chip imsic_irq_base_ch
+>  	.irq_unmask		= imsic_irq_unmask,
+>  	.irq_retrigger		= imsic_irq_retrigger,
+>  	.irq_compose_msi_msg	= imsic_irq_compose_msg,
+> +#ifdef CONFIG_SMP
+> +	.irq_set_affinity	= imsic_irq_set_affinity,
+> +#endif
+>  	.flags			= IRQCHIP_SKIP_SET_WAKE |
+>  				  IRQCHIP_MASK_ON_SUSPEND,
+>  };
+> @@ -172,22 +164,6 @@ static void imsic_irq_domain_free(struct
+>  	irq_domain_free_irqs_parent(domain, virq, nr_irqs);
+>  }
+>  
+> -static int imsic_irq_domain_select(struct irq_domain *domain, struct irq_fwspec *fwspec,
+> -				   enum irq_domain_bus_token bus_token)
+> -{
+> -	const struct msi_parent_ops *ops = domain->msi_parent_ops;
+> -	u32 busmask = BIT(bus_token);
+> -
+> -	if (fwspec->fwnode != domain->fwnode || fwspec->param_count != 0)
+> -		return 0;
+> -
+> -	/* Handle pure domain searches */
+> -	if (bus_token == ops->bus_select_token)
+> -		return 1;
+> -
+> -	return !!(ops->bus_select_mask & busmask);
+> -}
+> -
+>  #ifdef CONFIG_GENERIC_IRQ_DEBUGFS
+>  static void imsic_irq_debug_show(struct seq_file *m, struct irq_domain *d,
+>  				 struct irq_data *irqd, int ind)
+> @@ -210,104 +186,15 @@ static const struct irq_domain_ops imsic
+>  #endif
+>  };
+>  
+> -#ifdef CONFIG_RISCV_IMSIC_PCI
+> -
+> -static void imsic_pci_mask_irq(struct irq_data *d)
+> -{
+> -	pci_msi_mask_irq(d);
+> -	irq_chip_mask_parent(d);
+> -}
+> -
+> -static void imsic_pci_unmask_irq(struct irq_data *d)
+> -{
+> -	irq_chip_unmask_parent(d);
+> -	pci_msi_unmask_irq(d);
+> -}
+> -
+> -#define MATCH_PCI_MSI		BIT(DOMAIN_BUS_PCI_MSI)
+> -
+> -#else
+> -
+> -#define MATCH_PCI_MSI		0
+> -
+> -#endif
+> -
+> -static bool imsic_init_dev_msi_info(struct device *dev,
+> -				    struct irq_domain *domain,
+> -				    struct irq_domain *real_parent,
+> -				    struct msi_domain_info *info)
+> -{
+> -	const struct msi_parent_ops *pops = real_parent->msi_parent_ops;
+> -
+> -	/* MSI parent domain specific settings */
+> -	switch (real_parent->bus_token) {
+> -	case DOMAIN_BUS_NEXUS:
+> -		if (WARN_ON_ONCE(domain != real_parent))
+> -			return false;
+> -#ifdef CONFIG_SMP
+> -		info->chip->irq_set_affinity = imsic_irq_set_affinity;
+> -#endif
+> -		break;
+> -	default:
+> -		WARN_ON_ONCE(1);
+> -		return false;
+> -	}
+> -
+> -	/* Is the target supported? */
+> -	switch (info->bus_token) {
+> -#ifdef CONFIG_RISCV_IMSIC_PCI
+> -	case DOMAIN_BUS_PCI_DEVICE_MSI:
+> -	case DOMAIN_BUS_PCI_DEVICE_MSIX:
+> -		info->chip->irq_mask = imsic_pci_mask_irq;
+> -		info->chip->irq_unmask = imsic_pci_unmask_irq;
+> -		break;
+> -#endif
+> -	case DOMAIN_BUS_DEVICE_MSI:
+> -		/*
+> -		 * Per-device MSI should never have any MSI feature bits
+> -		 * set. It's sole purpose is to create a dumb interrupt
+> -		 * chip which has a device specific irq_write_msi_msg()
+> -		 * callback.
+> -		 */
+> -		if (WARN_ON_ONCE(info->flags))
+> -			return false;
+> -
+> -		/* Core managed MSI descriptors */
+> -		info->flags |= MSI_FLAG_ALLOC_SIMPLE_MSI_DESCS |
+> -			       MSI_FLAG_FREE_MSI_DESCS;
+> -		break;
+> -	case DOMAIN_BUS_WIRED_TO_MSI:
+> -		break;
+> -	default:
+> -		WARN_ON_ONCE(1);
+> -		return false;
+> -	}
+> -
+> -	/* Use hierarchial chip operations re-trigger */
+> -	info->chip->irq_retrigger = irq_chip_retrigger_hierarchy;
+> -
+> -	/*
+> -	 * Mask out the domain specific MSI feature flags which are not
+> -	 * supported by the real parent.
+> -	 */
+> -	info->flags &= pops->supported_flags;
+> -
+> -	/* Enforce the required flags */
+> -	info->flags |= pops->required_flags;
+> -
+> -	return true;
+> -}
+> -
+> -#define MATCH_PLATFORM_MSI		BIT(DOMAIN_BUS_PLATFORM_MSI)
+> -
+>  static const struct msi_parent_ops imsic_msi_parent_ops = {
+>  	.supported_flags	= MSI_GENERIC_FLAGS_MASK |
+>  				  MSI_FLAG_PCI_MSIX,
+>  	.required_flags		= MSI_FLAG_USE_DEF_DOM_OPS |
+> -				  MSI_FLAG_USE_DEF_CHIP_OPS,
+> +				  MSI_FLAG_USE_DEF_CHIP_OPS |
+> +				  MSI_FLAG_PCI_MSI_MASK_PARENT,
+>  	.bus_select_token	= DOMAIN_BUS_NEXUS,
+>  	.bus_select_mask	= MATCH_PCI_MSI | MATCH_PLATFORM_MSI,
+> -	.init_dev_msi_info	= imsic_init_dev_msi_info,
+> +	.init_dev_msi_info	= msi_lib_init_dev_msi_info,
+>  };
+>  
+>  int imsic_irqdomain_init(void)
+> --- a/include/linux/msi.h
+> +++ b/include/linux/msi.h
+> @@ -558,11 +558,21 @@ enum {
+>  	MSI_FLAG_NO_AFFINITY		= (1 << 21),
+>  };
+>  
+> +/*
+> + * Flags for msi_parent_ops::chip_flags
+> + */
+> +enum {
+> +	MSI_CHIP_FLAG_SET_EOI		= (1 << 0),
+> +	MSI_CHIP_FLAG_SET_ACK		= (1 << 1),
+> +};
+> +
+>  /**
+>   * struct msi_parent_ops - MSI parent domain callbacks and configuration info
+>   *
+>   * @supported_flags:	Required: The supported MSI flags of the parent domain
+>   * @required_flags:	Optional: The required MSI flags of the parent MSI domain
+> + * @chip_flags:		Optional: Select MSI chip callbacks to update with defaults
+> + *			in msi_lib_init_dev_msi_info().
+>   * @bus_select_token:	Optional: The bus token of the real parent domain for
+>   *			irq_domain::select()
+>   * @bus_select_mask:	Optional: A mask of supported BUS_DOMAINs for
+> @@ -575,6 +585,7 @@ enum {
+>  struct msi_parent_ops {
+>  	u32		supported_flags;
+>  	u32		required_flags;
+> +	u32		chip_flags;
+>  	u32		bus_select_token;
+>  	u32		bus_select_mask;
+>  	const char	*prefix;
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
