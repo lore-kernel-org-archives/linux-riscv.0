@@ -4,8 +4,8 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 190D0E64AB4
-	for <linux-riscv@archiver.kernel.org>; Tue,  3 Dec 2024 14:25:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 09A09E64AB3
+	for <linux-riscv@archiver.kernel.org>; Tue,  3 Dec 2024 14:25:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
@@ -13,61 +13,60 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	In-Reply-To:To:Cc:From:MIME-Version:Date:Reply-To:Content-ID:
 	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
 	:Resent-Message-ID:List-Owner;
-	bh=5oBM/okqgLAYlK7a8PYWSctauy3SQETEqCg+TcL8FBI=; b=SMbrm3EP8NH8a2SD6ytvKU0IQ8
-	FDK7S92yem+gahL2XRZmJyP1cLI5d8EL24eWCn5CV8fTeIofq6nRA2x9ZcnKf1On9W75NfonLTo14
-	ky9wDbxsgujZ8z643egiZ3Ced3qEf0uCah+O+RV+GNW/aWsK+jAw47liWOdSSGjrRCPWawABN3FGS
-	YA/uTF7ECltg5r07WMxjq8tmh2fsFZ1cQfgBQbHz10bzag9ymMlqcYEihwUE0CbDsI0FCAp81OaX6
-	qa1PQDsHC4ngSJAHE/9mtySzY8g/vhM3h54RnFxFMPzD/PzSrPOcRyOTePVOWIvx3W5/tBybMANj9
-	c0GkoiJA==;
+	bh=ytBQqS02Rt1o50zPRs0c1tTNM/CncjaMzVUlcguhcY0=; b=4SIv5cgXk5JZAtGiGoOkuUmkXX
+	0Q3iox2a5dwcmKYFRIXqfk/HE0vO2Ayj2nCMyNuR2quQ8Xm/4awAA4FyJTbvEmYEaZCZCk1+USiWK
+	LO5lNZAh1hDRA73eW4ZYRKbn18/Ufvok8XAOJm1JFAj8TjtfsRPiMgsODbhz/sGKAZfjQ6YEKQtqx
+	wURzglr9Di61ecqnD60lQ/2m6HtRFTwr2W1yY6Kqsl9lcbHkaXKwVKDFwx50pnBRSsKjwOXeOCrvw
+	14vQbunDjolWcRcVmZYU9kyS/KeeH+2138mb/LVBmYGB20WBjcShT7+0c/ofLxyhmLreltVlDcU6B
+	rE5uecIQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tITpn-00000009lXS-1IYp;
-	Tue, 03 Dec 2024 14:25:03 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1tITpr-00000009la3-263w;
+	Tue, 03 Dec 2024 14:25:07 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tITpk-00000009lVm-3N31
+	id 1tITpn-00000009lXM-1xwT
 	for linux-riscv@lists.infradead.org;
-	Tue, 03 Dec 2024 14:25:02 +0000
+	Tue, 03 Dec 2024 14:25:04 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id B09225C275C;
-	Tue,  3 Dec 2024 14:24:16 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2BD77C4CED8;
-	Tue,  3 Dec 2024 14:24:59 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id EA7735C61F0;
+	Tue,  3 Dec 2024 14:24:19 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 82C3FC4CED8;
+	Tue,  3 Dec 2024 14:25:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1733235899;
-	bh=DKmOU7vnkUqoQgoBcoXntMTXjpSRQwhxPRgQDZ5KdtU=;
+	s=k20201202; t=1733235902;
+	bh=3TKmXmpGABry9oSTFFXvSq6pX10XyahRQRIHFkooJ9U=;
 	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
-	b=Co2V7fSy5ZfdLr+VU+LEXPhBV1RGVb3XC0N4BvcXmZle40bb/bDgxXKxbL8EWyEgX
-	 ehTkv5t4EHupg8b3wg66x51JtG/jCwgDNrNZadsTi2ZHt+lWO0+3bto9DKBEj3O7GW
-	 h1OSEnLghbB8E9MbSCd4qA0YanTnWyeS0RrZFPBPpupM4RpbLRB8IoS4HTXDRLiH6G
-	 ehB7Cu1myEGkH9U9L/laOJ7tr+D2U6Al15ozJGDl8ZO/kXyYtRPi8xbClkPoHEUOOI
-	 PdGnXBIcuYwNFgQlMDAprEzCI4d1xtIgq7EdQaHMRhzw3Vhp8aI1B+zL8bYZC5+dxT
-	 yVOXtExy4DzyA==
-Date: Tue, 03 Dec 2024 08:24:57 -0600
+	b=ViPykzP+sBvHyHt7Xd0oRVDSF+xonpAPnOrijJ+0Pbp26DGv0Cdvrht8+TIpc2sWE
+	 kJPD2rafQfO3kcF4UuE4GtuYKOBXphzyGjrTTwcTXAmzC3ez56j+n4MDHUjiRbWSTf
+	 96usMdwPzLVCKTZq9txbogysHjFofNHPuVnJ2Sknt4qwn1kbHYr5WqRPrDI6Pdqqap
+	 yRkFb5eMkdEvzsZMUdKUxD7ExbAkQ5KaFqhtfpAyH2PjJjxPeldOyIfhRbJEkI0ms0
+	 b/FWkBWN6+yyPWtmW3TD2UAYGwaHNxr8r8j/dGsRMFF1dS/O3IbqfkMSn0Md3+C9WO
+	 PHgCOkz0SFcsQ==
+Date: Tue, 03 Dec 2024 08:25:00 -0600
 MIME-Version: 1.0
 From: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: mripard@kernel.org, m.szyprowski@samsung.com, 
- maarten.lankhorst@linux.intel.com, mturquette@baylibre.com, 
- aou@eecs.berkeley.edu, tzimmermann@suse.de, frank.binns@imgtec.com, 
- simona@ffwll.ch, wefu@redhat.com, jszhang@kernel.org, 
- linux-pm@vger.kernel.org, drew@pdp7.com, guoren@kernel.org, 
- palmer@dabbelt.com, linux-riscv@lists.infradead.org, 
- devicetree@vger.kernel.org, paul.walmsley@sifive.com, 
- linux-clk@vger.kernel.org, ulf.hansson@linaro.org, 
- linux-kernel@vger.kernel.org, krzk+dt@kernel.org, sboyd@kernel.org, 
- dri-devel@lists.freedesktop.org, matt.coster@imgtec.com, airlied@gmail.com, 
- jassisinghbrar@gmail.com, conor+dt@kernel.org
+Cc: mripard@kernel.org, frank.binns@imgtec.com, aou@eecs.berkeley.edu, 
+ jszhang@kernel.org, sboyd@kernel.org, guoren@kernel.org, 
+ m.szyprowski@samsung.com, dri-devel@lists.freedesktop.org, 
+ maarten.lankhorst@linux.intel.com, wefu@redhat.com, 
+ jassisinghbrar@gmail.com, simona@ffwll.ch, conor+dt@kernel.org, 
+ devicetree@vger.kernel.org, mturquette@baylibre.com, 
+ linux-kernel@vger.kernel.org, linux-clk@vger.kernel.org, krzk+dt@kernel.org, 
+ ulf.hansson@linaro.org, palmer@dabbelt.com, paul.walmsley@sifive.com, 
+ linux-riscv@lists.infradead.org, tzimmermann@suse.de, drew@pdp7.com, 
+ airlied@gmail.com, matt.coster@imgtec.com, linux-pm@vger.kernel.org
 To: Michal Wilczynski <m.wilczynski@samsung.com>
-In-Reply-To: <20241203134137.2114847-3-m.wilczynski@samsung.com>
+In-Reply-To: <20241203134137.2114847-7-m.wilczynski@samsung.com>
 References: <20241203134137.2114847-1-m.wilczynski@samsung.com>
- <CGME20241203134151eucas1p18edf7fb37cd8f30983a559d7481f560b@eucas1p1.samsung.com>
- <20241203134137.2114847-3-m.wilczynski@samsung.com>
-Message-Id: <173323589571.1743485.13611709278152187222.robh@kernel.org>
-Subject: Re: [RFC PATCH v1 02/14] dt-bindings: clock: thead,th1520: Rename
- header file
+ <CGME20241203134156eucas1p2326d84fcef2ee0914586122520b18dcc@eucas1p2.samsung.com>
+ <20241203134137.2114847-7-m.wilczynski@samsung.com>
+Message-Id: <173323589751.1743555.13494050245769190862.robh@kernel.org>
+Subject: Re: [RFC PATCH v1 06/14] dt-bindings: clock: thead,th1520: Rename
+ YAML schema file
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241203_062500_931540_56FB587C 
-X-CRM114-Status: GOOD (  14.29  )
+X-CRM114-CacheID: sfid-20241203_062503_554907_423A048A 
+X-CRM114-Status: GOOD (  11.89  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,25 +84,23 @@ Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
-On Tue, 03 Dec 2024 14:41:25 +0100, Michal Wilczynski wrote:
+On Tue, 03 Dec 2024 14:41:29 +0100, Michal Wilczynski wrote:
 > As support for clocks from new subsystems is being added to the T-Head
-> TH1520 SoC, the header file name should reflect this broader scope. The
-> existing header file 'thead,th1520-clk-ap.h' includes the '-ap' suffix,
-> indicating it's specific to the Application Processor (AP) subsystem.
+> TH1520 SoC, the Device Tree binding YAML schema file name should reflect
+> this broader scope.  The existing schema file 'thead,th1520-clk-ap.yaml'
+> includes the '-ap' suffix, indicating it's specific to the Application
+> Processor (AP) subsystem.
 > 
-> Rename the header file to 'thead,th1520-clk.h' to generalize it for all
-> subsystems.  Update all references to this header file accordingly.
+> Rename the YAML schema file to 'thead,th1520-clk.yaml' to generalize it
+> for all subsystems. Update all references to this schema file
+> accordingly.
 > 
 > Signed-off-by: Michal Wilczynski <m.wilczynski@samsung.com>
 > ---
->  .../devicetree/bindings/clock/thead,th1520-clk-ap.yaml        | 4 ++--
->  .../devicetree/bindings/mailbox/thead,th1520-mbox.yaml        | 2 +-
->  MAINTAINERS                                                   | 2 +-
->  arch/riscv/boot/dts/thead/th1520.dtsi                         | 2 +-
->  drivers/clk/thead/clk-th1520.h                                | 2 +-
->  .../clock/{thead,th1520-clk-ap.h => thead,th1520-clk.h}       | 0
->  6 files changed, 6 insertions(+), 6 deletions(-)
->  rename include/dt-bindings/clock/{thead,th1520-clk-ap.h => thead,th1520-clk.h} (100%)
+>  .../clock/{thead,th1520-clk-ap.yaml => thead,th1520-clk.yaml}   | 2 +-
+>  MAINTAINERS                                                     | 2 +-
+>  2 files changed, 2 insertions(+), 2 deletions(-)
+>  rename Documentation/devicetree/bindings/clock/{thead,th1520-clk-ap.yaml => thead,th1520-clk.yaml} (96%)
 > 
 
 My bot found errors running 'make dt_binding_check' on your patch:
@@ -111,23 +108,11 @@ My bot found errors running 'make dt_binding_check' on your patch:
 yamllint warnings/errors:
 
 dtschema/dtc warnings/errors:
-Documentation/devicetree/bindings/mailbox/thead,th1520-mbox.example.dts:24:18: fatal error: dt-bindings/clock/thead,th1520-clk.h: No such file or directory
-   24 |         #include <dt-bindings/clock/thead,th1520-clk.h>
-      |                  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-compilation terminated.
-make[2]: *** [scripts/Makefile.dtbs:131: Documentation/devicetree/bindings/mailbox/thead,th1520-mbox.example.dtb] Error 1
-make[2]: *** Waiting for unfinished jobs....
-Documentation/devicetree/bindings/clock/thead,th1520-clk-ap.example.dts:18:18: fatal error: dt-bindings/clock/thead,th1520-clk.h: No such file or directory
-   18 |         #include <dt-bindings/clock/thead,th1520-clk.h>
-      |                  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-compilation terminated.
-make[2]: *** [scripts/Makefile.dtbs:131: Documentation/devicetree/bindings/clock/thead,th1520-clk-ap.example.dtb] Error 1
-make[1]: *** [/builds/robherring/dt-review-ci/linux/Makefile:1506: dt_binding_check] Error 2
-make: *** [Makefile:251: __sub-make] Error 2
+
 
 doc reference errors (make refcheckdocs):
 
-See https://patchwork.ozlabs.org/project/devicetree-bindings/patch/20241203134137.2114847-3-m.wilczynski@samsung.com
+See https://patchwork.ozlabs.org/project/devicetree-bindings/patch/20241203134137.2114847-7-m.wilczynski@samsung.com
 
 The base for the series is generally the latest rc1. A different dependency
 should be noted in *this* patch.
