@@ -4,71 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 15C02E74AD5
-	for <linux-riscv@archiver.kernel.org>; Tue,  3 Dec 2024 20:55:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 695AFE77166
+	for <linux-riscv@archiver.kernel.org>; Tue,  3 Dec 2024 22:51:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
-	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Date:To:Cc:From:Subject:References:
+	In-Reply-To:MIME-Version:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=klMLRdkHThxxCbvsDzQlo6navUCq4pUVOgQR0dCCyHI=; b=pspSYpxx8/FSma
-	qLCn8r5aX//P+Si7CPtDYjb0D76RiW4aEjGl+OGaVCgJA8YWxzqciqb7iaLy3bokwdTCCKwc4IgGQ
-	jJ3ymfHXYw7zgRoBdRfS03cfTIDJ84L5pqqrOcMzQ9uHShAlK/RwO9J4ZA7IFifQKStPKm8BOLzyD
-	6iSQciejE/52VFxUNwXK1WlcX98lIxFBYhrl08QqVRsDzYaHpZgKezC3yMmY6R2zglkS3oKTV8WI9
-	4LFIzP3UD8Os2Gz16M9pwd0xEJu0y1gx7pBv8hFd9bAEoM5IZzropSXFg9Ls66E8cQb0eT1aiYIOV
-	/zOHqsBRXS/YJK7H1qpg==;
+	List-Owner; bh=i7WDrKVhDmzEaCjP0/4rO9a/rFC7IkIJeRaJPzN3hvg=; b=YjBj95ZgOvMER5
+	+oE8PwbFIyG6i2xEErP2xsov01/eYJS+wg9uFHagZQ/X5dZYf6adAMbQnUoT1vuhzPFzdjN5T2epT
+	1P/hJkPKpHmURrpQTV3ZdNi9D9ooXF5GLLVVO+Z4qr27LMkxAgjIeJSIRSV9qHzoklbjoC4o5O/Lj
+	JAZ3EkxwgwZPI7nmHvzw6qly/ksMFHsAVePGTWQ56FfjeG5o6UOBw5yO1d/ZWHXvIef0mNSBbv3/5
+	gBSuFA7cHHC1/SSUix9TAWb/au6meq8dw/oBeTxHdfTePfmcgbFUykcN/8r2k0V7NetYJnEY7lqIQ
+	XHyPI0+gr2Iqx01ZnuYA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIZvo-0000000AhP3-3wcP;
-	Tue, 03 Dec 2024 20:55:40 +0000
-Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
+	id 1tIbk2-0000000AxpQ-4C4A;
+	Tue, 03 Dec 2024 22:51:39 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIZvl-0000000AhNg-2kdK;
-	Tue, 03 Dec 2024 20:55:38 +0000
-From: Thomas Gleixner <tglx@linutronix.de>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1733259333;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=1Vw7nq1aQDtWvQcv5ozrIWgauqOHp4Xst17oCDS5tdk=;
-	b=j3xZ7ZWFy2hL7pxYlVg9MJz3602gMHQLlOCSB5IFE2hYgwHiCmqq6cOGP61nFHziKbygNE
-	7i/hkkxMjJQOQoOleLMCdadQNQwZBqWFs5xKvdodhd/CIeHlKTZIeeZlIs86hDBKoSKmDC
-	u2HfN+VZPWy8mWBSBGZf9bBfGroISFgy4ikLuqlwQ9BIQ5asnEoDD8TxIjhK2jEUXdBSLn
-	06fypEp/Dcj14ZildKSQ3yIGDGBX8FXAJdPnrtKBiUJZ4PtzWoeKq+g0YNMdBJ6LwMYn9/
-	A2YrNMvXJpddF5IkFNxflgI62NoBk+vmQh1Yooegqi4Ibubo1nM5Yv9LN5pPjg==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1733259333;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=1Vw7nq1aQDtWvQcv5ozrIWgauqOHp4Xst17oCDS5tdk=;
-	b=uAjTjd9Bdv3Hyb9oR+zF04wYQT7dpe7EddPHw1ftQ1vQ22n9XQU/tWMXhzuhbQ9TYsAtQ/
-	3NcMtY0zXJK2JSCg==
-To: Anup Patel <anup@brainfault.org>
-Cc: Andrew Jones <ajones@ventanamicro.com>, iommu@lists.linux.dev,
- kvm-riscv@lists.infradead.org, kvm@vger.kernel.org,
- linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
- tjeznach@rivosinc.com, zong.li@sifive.com, joro@8bytes.org,
- will@kernel.org, robin.murphy@arm.com, atishp@atishpatra.org,
- alex.williamson@redhat.com, paul.walmsley@sifive.com, palmer@dabbelt.com,
- aou@eecs.berkeley.edu
-Subject: Re: [RFC PATCH 01/15] irqchip/riscv-imsic: Use hierarchy to reach
- irq_set_affinity
-In-Reply-To: <CAAhSdy08gi998HsTkGpaV+bTWczVSL6D8c7EmuTQqovo63oXDw@mail.gmail.com>
-References: <20241114161845.502027-17-ajones@ventanamicro.com>
- <20241114161845.502027-18-ajones@ventanamicro.com> <87mshcub2u.ffs@tglx>
- <CAAhSdy08gi998HsTkGpaV+bTWczVSL6D8c7EmuTQqovo63oXDw@mail.gmail.com>
-Date: Tue, 03 Dec 2024 21:55:32 +0100
-Message-ID: <874j3ktrjv.ffs@tglx>
+	id 1tIbj1-0000000Axek-1CDu;
+	Tue, 03 Dec 2024 22:50:36 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 2C38C5C62A4;
+	Tue,  3 Dec 2024 22:49:51 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 91FA6C4CEDC;
+	Tue,  3 Dec 2024 22:50:33 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1733266233;
+	bh=xpMyFwhRCnmcEjI08hn/SUz/O7fqhnlbsjpYSWl1Yyk=;
+	h=In-Reply-To:References:Subject:From:Cc:To:Date:From;
+	b=UoF4aw4glikqFASKrgnnQeNUaYaK2nGi+qG3uJhjUbFSmdhPCSOFdMl4VNP0uGqmM
+	 AeX4wnePyKZcjYaFJ8o493ncSfpEYtU/1zEfyhDdAl95+lHnSLhLlVJOUMGTbgjvWb
+	 QBLcz6e1JlHzT0fvu9CqMMCqNcazkUOOSp1/ooSsCl4A7PJsK58ErCEcyDfpXEJzDi
+	 00luS40McWXBhczuJ/a06nHx0BJgVkJCZpJCVdxm3awwX7a84iGD47CUmAuuSjfzZa
+	 zK2As/Gl88QPG1lP/w3WMqeHqCG4VrWJGXcSMK9SNv24pHiysPTD9tVAHyJpgR+Ygf
+	 ssofq1Ym2x4kg==
+Message-ID: <e53adbf9fdf6e3f142083b0d40d074ca.sboyd@kernel.org>
 MIME-Version: 1.0
+In-Reply-To: <20241128-monstrous-embargo-a665d921410d@wendy>
+References: <20241002-private-unequal-33cfa6101338@spud> <20241002-hula-unwashed-1c4ddbadbec2@spud> <2b49c4df-a34a-42c5-8d44-9e47da630fe8@linaro.org> <1jwmiqsks3.fsf@starbuckisacylon.baylibre.com> <20241003-tacking-ladylike-dfe2b633e647@spud> <20241106-freefall-slider-db379b05821e@spud> <430bde3b35382e640843e32a9f351326.sboyd@kernel.org> <20241128-monstrous-embargo-a665d921410d@wendy>
+Subject: Re: [PATCH v1 08/11] clk: move meson clk-regmap implementation to common code
+From: Stephen Boyd <sboyd@kernel.org>
+Cc: Conor Dooley <conor@kernel.org>, Jerome Brunet <jbrunet@baylibre.com>, Neil Armstrong <neil.armstrong@linaro.org>, linux-kernel@vger.kernel.org, Daire McNamara <daire.mcnamara@microchip.com>, pierre-henry.moussay@microchip.com, valentina.fernandezalanis@microchip.com, Michael Turquette <mturquette@baylibre.com>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Jassi Brar <jassisinghbrar@gmail.com>, Lee Jones <lee@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Kevin Hilman <khilman@baylibre.com>, Martin Blumenstingl <martin.blumenstingl@googlemail.com>, Philipp Zabel <p.zabel@pengutronix.de>, linux-riscv@lists.infradead.org, linux-clk@vger.kernel.org, devicetree@vger.kernel.org, linux-amlogic@lists.infradead.org, linux-arm-kernel@lists.infradead.org
+To: Conor Dooley <conor.dooley@microchip.com>
+Date: Tue, 03 Dec 2024 14:50:31 -0800
+User-Agent: alot/0.12.dev1+gaa8c22fdeedb
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241203_125537_833669_0D3711B2 
-X-CRM114-Status: UNSURE (   9.46  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241203_145035_406039_27EF5225 
+X-CRM114-Status: GOOD (  25.00  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,27 +65,52 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gVHVlLCBEZWMgMDMgMjAyNCBhdCAyMjowNywgQW51cCBQYXRlbCB3cm90ZToKPiBPbiBUdWUs
-IERlYyAzLCAyMDI0IGF0IDc6MjPigK9QTSBUaG9tYXMgR2xlaXhuZXIgPHRnbHhAbGludXRyb25p
-eC5kZT4gd3JvdGU6Cj4+IFNvcnJ5LCBJIG1pc3NlZCB0aGF0IHdoZW4gcmV2aWV3aW5nIHRoZSBv
-cmlnaW5hbCBJTVNJQyBNU0kgc3VwcG9ydC4KPj4KPj4gVGhlIHdob2xlIElNU0lDIE1TSSBzdXBw
-b3J0IGNhbiBiZSBtb3ZlZCBvdmVyIHRvIE1TSSBMSUIgd2hpY2ggbWFrZXMgYWxsCj4+IG9mIHRo
-aXMgaW5kaXJlY3Rpb24gZ28gYXdheSBhbmQgeW91ciBpbnRlcm1lZGlhdGUgZG9tYWluIHdpbGwg
-anVzdCBmaXQKPj4gaW4uCj4+Cj4+IFVuY29tcGlsZWQgcGF0Y2ggYmVsb3cuIElmIHRoYXQgd29y
-a3MsIGl0IG5lZWRzIHRvIGJlIHNwbGl0IHVwIHByb3Blcmx5Lgo+Pgo+PiBOb3RlLCB0aGlzIHJl
-bW92ZXMgdGhlIHNldHVwIG9mIHRoZSBpcnFfcmV0cmlnZ2VyIGNhbGxiYWNrLCBidXQgdGhhdCdz
-Cj4+IGZpbmUgYmVjYXVzZSBvbiBoaWVyYXJjaGljYWwgZG9tYWlucyBpcnFfY2hpcF9yZXRyaWdn
-ZXJfaGllcmFyY2h5KCkgaXMKPj4gaW52b2tlZCBhbnl3YXkuIFNlZSB0cnlfcmV0cmlnZ2VyKCku
-Cj4KPiBUaGUgSU1TSUMgZHJpdmVyIHdhcyBtZXJnZWQgb25lIGtlcm5lbCByZWxlYXNlIGJlZm9y
-ZSBjb21tb24KPiBNU0kgTElCIHdhcyBtZXJnZWQuCgpBaCBpbmRlZWQuCgo+IFdlIHNob3VsZCBk
-ZWZpbml0ZWx5IHVwZGF0ZSB0aGUgSU1TSUMgZHJpdmVyIHRvIHVzZSBNU0kgTElCLCBJIHdpbGwK
-PiB0cnkgeW91ciBzdWdnZXN0ZWQgY2hhbmdlcyAoYmVsb3cpIGFuZCBwb3N0IGEgc2VwYXJhdGUg
-c2VyaWVzLgoKUGljayB1cCB0aGUgZGVsdGEgcGF0Y2ggSSBnYXZlIEFuZHJldy4uLgoKX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFp
-bGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmlu
-ZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
+Quoting Conor Dooley (2024-11-28 02:36:16)
+> On Thu, Nov 14, 2024 at 05:29:54PM -0800, Stephen Boyd wrote:
+> > Quoting Conor Dooley (2024-11-06 04:56:25)
+> > > My use case doesn't
+> > > actually need the registration code changes either as, currently, only reg
+> > > gets set at runtime, but leaving that out is a level of incomplete I'd not
+> > > let myself away with.
+> > > Obviously shoving the extra members into the clk structs has the downside
+> > > of taking up a pointer and a offset worth of memory for each clock of
+> > > that type registered, but it is substantially easier to support devices
+> > > with multiple regmaps that way. Probably moot though since the approach you
+> > > suggested in the thread linked above that implements a clk_hw_get_regmap()
+> > > has to store a pointer to the regmap's identifier which would take up an
+> > > identical amount of memory.
+> > 
+> > We don't need to store the regmap identifier in the struct clk. We can
+> > store it in the 'struct clk_init_data' with some new field, and only do
+> > that when/if we actually need to. We would need to pass the init data to
+> > the clk_ops::init() callback though. We currently knock that out during
+> > registration so that clk_hw->init is NULL. Probably we can just set that
+> > to NULL after the init routine runs in __clk_core_init().
+> > 
+> > Long story short, don't add something to 'struct clk_core', 'struct
+> > clk', or 'struct clk_hw' for these details. We can have a 'struct
+> > clk_regmap_hw' that everyone else can build upon:
+> > 
+> >   struct clk_regmap_hw {
+> >         struct regmap *regmap;
+> >         struct clk_hw hw;
+> >   };
+> 
+> What's the point of this? I don't understand why you want to do this over
+> what clk_divider et al already do, where clk_hw and the iomem pointer
+> are in the struct itself.
+
+Can you give an example? I don't understand what you're suggesting. I
+prefer a struct clk_regmap_hw like above so that the existing struct
+clk_hw in the kernel aren't increased by a pointer. SoC drivers can use
+the same struct as a replacement for their struct clk_hw member today.
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
