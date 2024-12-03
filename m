@@ -4,70 +4,114 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50D84E64ABB
-	for <linux-riscv@archiver.kernel.org>; Tue,  3 Dec 2024 15:25:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 36771E69EA6
+	for <linux-riscv@archiver.kernel.org>; Tue,  3 Dec 2024 15:42:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:References:
-	In-Reply-To:To:Cc:From:MIME-Version:Date:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=yDQZlqJebhvQpJbE550892L2OKKc9s1DhgSzf1wWlhA=; b=mguFqUdMI5o+Q3IXdQ4q4YN/qW
-	ZQHxni0PKrzSOsO0VAX3rB16XsvdOXsO+c36OGgthFb319ugUiakPUeC0yJTMbPs0Qp1M/7HkQQJI
-	KBliIURVBqbwLR5wuIqlP0P8w+uC9fod/gklIrVlZJpEtlsOgJnxA+C9NWThtP3q2QRY5E9ztRu4K
-	xdRJZB9xz6LHiBs6T/0ntKNcqJQ3R2MQEPeBSTR9jzPQPVH5LFQMW8ruz8QSWmb4l8QtbMWf4OfCH
-	bQNkLGQsyjB99T3dznym2DEN817KuUAa67QdnmenNo28JBCyPsotWXTzFgtGOO0HIAUrbRDFcWrAK
-	lqhAzwnA==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=rckDBFMFyPmdYOnnvNU7VsIXjNEjzWRMBQgvoJTS7RE=; b=BkmAUrGxw5gWxT
+	TcZhlbarYId7jHWj2PydXs8IASJvyhAURrVVjGfPP/6Gn8m75NTonRXyuHA7q/Lmaz4adHbViFW66
+	Qmag7P+dSbvxq4AiLlJ760Fk3IUB9sijEE9KMoJw+JuP/FlFLvNbgsRiA7rpRzpEKtYqQNbs1mg0E
+	L+UCnXiC3POKivIdYgCN7IVGX2wxH7LBuQcLyMF+NgihvGls+oQd19ckh+8fWGN5z9ewtyeHP4USd
+	ATdlFzf5MfUCcIP//M1pbWC57dcXsdoKOfMrjUqlUqwrOqRup4ZPAwAC7ijTc6XUQgK+HkHXDvpA0
+	2iCWfJg90Jw+QrOQjJKg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIUm9-00000009v1u-3b0Y;
-	Tue, 03 Dec 2024 15:25:21 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1tIV2C-00000009yO9-3BhI;
+	Tue, 03 Dec 2024 15:41:56 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIUm7-00000009v13-0959
+	id 1tIV29-00000009yNF-3Fd7
 	for linux-riscv@lists.infradead.org;
-	Tue, 03 Dec 2024 15:25:20 +0000
+	Tue, 03 Dec 2024 15:41:54 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 16E54A416B5;
-	Tue,  3 Dec 2024 15:23:26 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C4D98C4CECF;
-	Tue,  3 Dec 2024 15:25:17 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 2FDAF5C649F;
+	Tue,  3 Dec 2024 15:41:10 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5B0B7C4CED6;
+	Tue,  3 Dec 2024 15:41:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1733239518;
-	bh=X/PwEvQP5tU0vB8EoXqX3xfn/sW++pmyf4vXD3OCWfI=;
-	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
-	b=BibNDSdIxD5dJNes1vJ7140QWABbcfK++KnAHPuRH34JJyltkmOovhdFy1ythpMcf
-	 Jgt+X0vAfjdECQevLJNkTTtUM9aIJAefQRcN5aRk2mOXcIzItQZYV+TYYf9kHkbMsN
-	 JB43bQz718szORF+xGZB1wrbaN6402z/7dJ/e1OMHJI4QMRkr2M/Wup8ldZAAW0bHL
-	 arhJtg9HrfmdBNiCy15xVrQcxPODNLdMDZXsFOpjw4CqjZyn88aCXAoj1G/CVJOTCa
-	 OLhJ7kNSWUAGXTiDqyC6R2x/C0ATmOvC9ytIP2sxvUPXMX5LD7v2D0pMT91r9TTHee
-	 kco2TN/wiPeGg==
-Date: Tue, 03 Dec 2024 09:25:16 -0600
+	s=k20201202; t=1733240512;
+	bh=VyAdMxSYG+cl45PhOpWPbrnYSr+SfukqYZMo12P6x78=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=YvHU+quh/Q3xeeBQ3KUKeCqM8UWiDuQYe0SqnXFhj94mQ2T3rM2ELnQXjJJburTcH
+	 B8ngd0ILz4lRv5abztXP4x37jqbg4U/yqVxdNL2ib9d7/+Z62VHW998vYIawPO5MhG
+	 9Zty7IDG05pIHd3RiuWBGfzwaOgaJbxH87GmdkblKHN1J38XTnYP5qvN9CNNtBYvqR
+	 ETouzXeRIkebGiJhpSSAG6ICCt7jdCPKwM+R5O47ZNao8NhZe4yPYkaO+nZKg4HcVn
+	 CER1WGmX2q38uOrTf78XbytTRdE2NNt65a9NkL46lgYQeRFziUWG+eem9zMoCExiVe
+	 PQ/9uIc1eU4Yw==
+Message-ID: <1954a13a-6102-45cd-a8a4-0aa8939b7e0e@kernel.org>
+Date: Tue, 3 Dec 2024 16:41:41 +0100
 MIME-Version: 1.0
-From: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: m.szyprowski@samsung.com, frank.binns@imgtec.com, 
- linux-kernel@vger.kernel.org, maarten.lankhorst@linux.intel.com, 
- paul.walmsley@sifive.com, jszhang@kernel.org, 
- linux-riscv@lists.infradead.org, ulf.hansson@linaro.org, 
- mturquette@baylibre.com, wefu@redhat.com, conor+dt@kernel.org, 
- dri-devel@lists.freedesktop.org, linux-pm@vger.kernel.org, 
- airlied@gmail.com, aou@eecs.berkeley.edu, matt.coster@imgtec.com, 
- guoren@kernel.org, devicetree@vger.kernel.org, linux-clk@vger.kernel.org, 
- sboyd@kernel.org, simona@ffwll.ch, drew@pdp7.com, krzk+dt@kernel.org, 
- jassisinghbrar@gmail.com, mripard@kernel.org, palmer@dabbelt.com, 
- tzimmermann@suse.de
-To: Michal Wilczynski <m.wilczynski@samsung.com>
-In-Reply-To: <20241203134137.2114847-9-m.wilczynski@samsung.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFC PATCH v1 02/14] dt-bindings: clock: thead,th1520: Rename
+ header file
+To: Michal Wilczynski <m.wilczynski@samsung.com>, mturquette@baylibre.com,
+ sboyd@kernel.org, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+ drew@pdp7.com, guoren@kernel.org, wefu@redhat.com, jassisinghbrar@gmail.com,
+ paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
+ frank.binns@imgtec.com, matt.coster@imgtec.com,
+ maarten.lankhorst@linux.intel.com, mripard@kernel.org, tzimmermann@suse.de,
+ airlied@gmail.com, simona@ffwll.ch, ulf.hansson@linaro.org,
+ jszhang@kernel.org, m.szyprowski@samsung.com
+Cc: linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+ dri-devel@lists.freedesktop.org, linux-pm@vger.kernel.org
 References: <20241203134137.2114847-1-m.wilczynski@samsung.com>
- <CGME20241203134159eucas1p1eafefef0dfe7f2b6343a639733012bcf@eucas1p1.samsung.com>
- <20241203134137.2114847-9-m.wilczynski@samsung.com>
-Message-Id: <173323951617.1836905.12806289628083482638.robh@kernel.org>
-Subject: Re: [RFC PATCH v1 08/14] dt-bindings: power: thead,th1520: Add
- support for power domains
+ <CGME20241203134151eucas1p18edf7fb37cd8f30983a559d7481f560b@eucas1p1.samsung.com>
+ <20241203134137.2114847-3-m.wilczynski@samsung.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 fv0=
+In-Reply-To: <20241203134137.2114847-3-m.wilczynski@samsung.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241203_072519_198734_517351FE 
-X-CRM114-Status: GOOD (  10.99  )
+X-CRM114-CacheID: sfid-20241203_074153_910232_A5A14236 
+X-CRM114-Status: UNSURE (   8.94  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,47 +128,33 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On 03/12/2024 14:41, Michal Wilczynski wrote:
+> As support for clocks from new subsystems is being added to the T-Head
+> TH1520 SoC, the header file name should reflect this broader scope. The
 
-On Tue, 03 Dec 2024 14:41:31 +0100, Michal Wilczynski wrote:
-> Add power domain support to the Thead TH1520 clock controller bindings.
-> This enables devices to specify their power domain dependencies,
-> improving power management for components like the GPU.
+No, there is no such rule, so "should" is not appropriate.
+
+
+> existing header file 'thead,th1520-clk-ap.h' includes the '-ap' suffix,
+> indicating it's specific to the Application Processor (AP) subsystem.
+> 
+> Rename the header file to 'thead,th1520-clk.h' to generalize it for all
+> subsystems.  Update all references to this header file accordingly.
 > 
 > Signed-off-by: Michal Wilczynski <m.wilczynski@samsung.com>
 > ---
->  .../bindings/power/thead,th1520-power.yaml    | 52 +++++++++++++++++++
->  MAINTAINERS                                   |  1 +
->  2 files changed, 53 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/power/thead,th1520-power.yaml
-> 
+>  .../devicetree/bindings/clock/thead,th1520-clk-ap.yaml        | 4 ++--
+>  .../devicetree/bindings/mailbox/thead,th1520-mbox.yaml        | 2 +-
+>  MAINTAINERS                                                   | 2 +-
+>  arch/riscv/boot/dts/thead/th1520.dtsi                         | 2 +-
+>  drivers/clk/thead/clk-th1520.h                                | 2 +-
+>  .../clock/{thead,th1520-clk-ap.h => thead,th1520-clk.h}       | 0
 
-My bot found errors running 'make dt_binding_check' on your patch:
+Don't mix driver, bindings and DTS. See checkpatch warning. Don't rename
+files just because you prefer other names.
 
-yamllint warnings/errors:
-
-dtschema/dtc warnings/errors:
-/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/power/thead,th1520-power.example.dtb: vosys@ffef528000: compatible: ['syscon'] is too short
-	from schema $id: http://devicetree.org/schemas/mfd/syscon-common.yaml#
-/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/power/thead,th1520-power.example.dtb: vosys@ffef528000: reg: [[255, 4015161344], [0, 4096]] is too long
-	from schema $id: http://devicetree.org/schemas/mfd/syscon-common.yaml#
-
-doc reference errors (make refcheckdocs):
-
-See https://patchwork.ozlabs.org/project/devicetree-bindings/patch/20241203134137.2114847-9-m.wilczynski@samsung.com
-
-The base for the series is generally the latest rc1. A different dependency
-should be noted in *this* patch.
-
-If you already ran 'make dt_binding_check' and didn't see the above
-error(s), then make sure 'yamllint' is installed and dt-schema is up to
-date:
-
-pip3 install dtschema --upgrade
-
-Please check and re-submit after running the above command yourself. Note
-that DT_SCHEMA_FILES can be set to your schema file to speed up checking
-your schema. However, it must be unset to test all examples with your schema.
-
+Best regards,
+Krzysztof
 
 _______________________________________________
 linux-riscv mailing list
