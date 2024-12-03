@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7501AE69EA6
-	for <linux-riscv@archiver.kernel.org>; Tue,  3 Dec 2024 15:46:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BDCA5E69EAF
+	for <linux-riscv@archiver.kernel.org>; Tue,  3 Dec 2024 15:48:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
 	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=BL2p8jHzdgI89h7MA4RIVLKnoh1qN5NNnEPy+T6AIbk=; b=uNPZiJO/YCMr5U
-	m3AnpKojiVpTVA0onEKYM6ThP+PrKaAh7Wq1wPATFxaOjfnFQAi732l0HpXZfDQwIMFhg3Q++U31u
-	U/nxzDa+sHSLVoymuW2IHxFEYiUKmnQr9Te2m6P0Mhm8kYZ9XE6Aewq7NIVR2H9ysPX37sKmC8tPV
-	VRTAIhxsjd0a15V4XimXqeELTfmZ8bhWScMadwZQTceLCRJ/VstWc50MZ8+XMNE6R0XTrVVDjzz8s
-	GRToFiRZr+Jp+R3j4Y0C+RGJG5GbctHzysXSc0eHGgoVweU2za/P2f8Z9bLlLPBeUoHKTB+oEG2Rb
-	twhEvfbbrpwb9NQVLFbw==;
+	List-Owner; bh=tDbGfH1ZHQ27DKjfGN+vH3QpOrBRYCHrh1gWjX5uKE8=; b=UEBdFvvXvW61Cp
+	wantqrPTOhw5UwnX1eR7/2wxrGz0hGKAnvMwhFsiFbshUe9ifKwDU9AVuaSUcdHkvUSdgPK/Z/Z0F
+	2pDW4LaVQDRImd6editT8ARYhuW4gq9nQoTeILMdbziRxHZs8VjxASqcgMLCq0NddYg9eqeRNxQm8
+	F6RDqWS3KTY30nWAs7gW8GGWmlr3/9SIbT6zH7OV+cbvJcwmuMfJmaYycRUPsjXWvxuD+wh1Rs/+p
+	qlioLQvBh0nNv+eX0ydxhlgAENly9wwLIZq0G6y7lyARIwugrjbFEZGeVa5zfdP979md4/C3QAh+u
+	UY7LIhzOkU6MGpby3n9g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIV6L-00000009zCx-1Dqy;
-	Tue, 03 Dec 2024 15:46:13 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1tIV8d-00000009zY0-0Hfw;
+	Tue, 03 Dec 2024 15:48:35 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIV6J-00000009zBY-1Vdr
+	id 1tIV8a-00000009zXE-0NLn
 	for linux-riscv@lists.infradead.org;
-	Tue, 03 Dec 2024 15:46:12 +0000
+	Tue, 03 Dec 2024 15:48:33 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 3CD4DA413F9;
-	Tue,  3 Dec 2024 15:44:18 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 960D9C4CECF;
-	Tue,  3 Dec 2024 15:46:01 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 1D2E75C63E9;
+	Tue,  3 Dec 2024 15:47:48 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DC72EC4CECF;
+	Tue,  3 Dec 2024 15:48:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1733240770;
-	bh=dn8LjBbhrt8WWvRtmZ7EWYAwQ3mVvCiOwBxFtAvZTX4=;
+	s=k20201202; t=1733240910;
+	bh=09cm8DxTfRGPy1cHmrwjDq3tedMQqJBJD51px4SlHfA=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=dHMpibXaqK0yq9OaoKSg9V16Zdq1zQ3wAMLefrf1cYqT7huFlQ+U3kiz/5KoJl1eU
-	 Go9vBhDJxi8arAFFrZG4QTojSLxGFvuB8Jh/JlFLTjZki6ZKgPYq+v879eAyePbtVT
-	 DXuQ1gq+ljCtJsUnlbNF6syZeE3Qe+feqpLSykxk5dIjE6WyIV92mD6d1Hmicj+FUv
-	 e8DZWuXUAidrrrIZuPrhTWZLAG6s4oM5IzYpU5K09GhcYBMwgbczGPBYSg9pBKUOmD
-	 rU5+cnxz/NpbjS+Uyu+M8goAFRk+wHN2U8mKljZT+BUYsxoOtTQMM4DByPsG6yMfaI
-	 GOH6bl1gm7bcg==
-Message-ID: <7d09f311-b9a2-4c40-9fca-4b5d0acc112d@kernel.org>
-Date: Tue, 3 Dec 2024 16:45:59 +0100
+	b=SDWDWe3pWpl9SEY6EIx/nTRd9INAcofCe162CsaUchQXOQjXwrGfDop7Rmz81WKYm
+	 tUDI+TbvNUpF5P6TV8umf3Gd13W34QQAhdWoZh1Y4GnCpXQNEUapfceltSb9qOSiXi
+	 p+vdMCSZt5QiXxSc5wXkQcb8WuusGpVetS52lQu+MUuAudXQkXta99SKPVGQKKunt9
+	 H1a7UYwxGpjDFYLa4Og6AIt4r11NWfQ39WLZlTwj2w5KDLLhKc6/vdo/sL6qumcW45
+	 isUAi7kauWR+RW7V5q5DwI9+H/KvCrlZbJji8pTb61WjUcQ8HJo8HWm3gk+GpxCQ9Y
+	 qG40V6uyau05A==
+Message-ID: <e7af04b0-7c87-42da-9a3d-152a87aea81d@kernel.org>
+Date: Tue, 3 Dec 2024 16:48:19 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH v1 06/14] dt-bindings: clock: thead,th1520: Rename
- YAML schema file
+Subject: Re: [RFC PATCH v1 08/14] dt-bindings: power: thead,th1520: Add
+ support for power domains
 To: Michal Wilczynski <m.wilczynski@samsung.com>, mturquette@baylibre.com,
  sboyd@kernel.org, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
  drew@pdp7.com, guoren@kernel.org, wefu@redhat.com, jassisinghbrar@gmail.com,
@@ -60,8 +60,8 @@ Cc: linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
  linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
  dri-devel@lists.freedesktop.org, linux-pm@vger.kernel.org
 References: <20241203134137.2114847-1-m.wilczynski@samsung.com>
- <CGME20241203134156eucas1p2326d84fcef2ee0914586122520b18dcc@eucas1p2.samsung.com>
- <20241203134137.2114847-7-m.wilczynski@samsung.com>
+ <CGME20241203134159eucas1p1eafefef0dfe7f2b6343a639733012bcf@eucas1p1.samsung.com>
+ <20241203134137.2114847-9-m.wilczynski@samsung.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -107,11 +107,10 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  uZwJCLykjad45hsWcOGk3OcaAGQS6NDlfhM6O9aYNwGL6tGt/6BkRikNOs7VDEa4/HlbaSJo
  7FgndGw1kWmkeL6oQh7wBvYll2buKod4qYntmNKEicoHGU+x91Gcan8mCoqhJkbqrL7+nXG2
  5Q/GS5M9RFWS+nYyJh+c3OcfKqVcZQNANItt7+ULzdNJuhvTRRdC3g9hmCEuNSr+CLMdnRBY fv0=
-In-Reply-To: <20241203134137.2114847-7-m.wilczynski@samsung.com>
+In-Reply-To: <20241203134137.2114847-9-m.wilczynski@samsung.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241203_074611_527608_0DE40D2A 
-X-CRM114-Status: UNSURE (   7.65  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241203_074832_216881_3CE943C9 
+X-CRM114-Status: GOOD (  11.04  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -129,23 +128,70 @@ Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 On 03/12/2024 14:41, Michal Wilczynski wrote:
-> As support for clocks from new subsystems is being added to the T-Head
-> TH1520 SoC, the Device Tree binding YAML schema file name should reflect
-> this broader scope.  The existing schema file 'thead,th1520-clk-ap.yaml'
-> includes the '-ap' suffix, indicating it's specific to the Application
-> Processor (AP) subsystem.
-> 
-> Rename the YAML schema file to 'thead,th1520-clk.yaml' to generalize it
-> for all subsystems. Update all references to this schema file
-> accordingly.
-> 
-> Signed-off-by: Michal Wilczynski <m.wilczynski@samsung.com>
-> ---
->  .../clock/{thead,th1520-clk-ap.yaml => thead,th1520-clk.yaml}   | 2 +-
->  MAINTAINERS                                                     | 2 +-
+> +
+> +title: T-HEAD TH1520 Power Domain Controller
+> +
+> +maintainers:
+> +  - Michal Wilczynski <m.wilczynski@samsung.com>
+> +
+> +description: |
+> +  The T-HEAD TH1520 SoC includes a power domain controller responsible for
+> +  managing the power states of various hardware domains such as the GPU.
+> +
+> +  This binding describes the power domain controller node, which can be used by
 
-NAK, don't rename just because you added one more compatible (and anyway
-never a separate patch).
+Do not describe the binding. Describe the hardware. Entire paragraph
+feels pointless.
+
+> +  devices to manage their power domains.
+> +
+> +properties:
+> +  compatible:
+> +    const: "thead,th1520-pd"
+
+
+You never tested the code you sent. Drop quotes. Limited review follows.
+
+> +
+> +  thead,vosys-regmap:
+
+NAK.
+
+'reg' is for this.
+
+
+> +    $ref: /schemas/types.yaml#/definitions/phandle
+> +    description: |
+> +      Phandle to a syscon node representing the shared register space of the VO (Video Output) subsystem.
+
+Please wrap code according to coding style (checkpatch is not a coding
+style description, but only a tool).
+
+
+> +      This register space includes both clock control registers and other control registers used for
+> +      operations like resetting the GPU. Since these registers reside in the same address space,
+> +      access to them is coordinated through a shared syscon regmap provided by the specified syscon node.
+> +
+> +  '#power-domain-cells':
+> +    const: 1
+> +
+> +required:
+> +  - compatible
+> +  - thead,vosys-regmap
+> +  - '#power-domain-cells'
+> +
+> +additionalProperties: false
+> +
+> +examples:
+> +  - |
+> +    vosys_regmap: vosys@ffef528000 {
+> +        compatible = "syscon";
+> +        reg = <0xff 0xef528000 0x0 0x1000>;
+> +    };
+
+Drop, not related.
+
+
 
 Best regards,
 Krzysztof
