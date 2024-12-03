@@ -4,66 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A3288E64AA6
-	for <linux-riscv@archiver.kernel.org>; Tue,  3 Dec 2024 13:53:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E2B82E64AB1
+	for <linux-riscv@archiver.kernel.org>; Tue,  3 Dec 2024 14:25:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
-	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=GrKxOlXeoH5Lm7g6E/Qdtwb8uHVxTmWcdaP7Sd5pUko=; b=3cWZGu6BdyVlDn
-	qb/q8iPNIY9tzEiReXqlSA4tlHJnpqVGoPrr07UbofDHddX1j01fBK2f5I47pip6innX9OYHTWGhc
-	AZZ72F7vjc2AmDZH8LuF/P1znxyqrLnrcghK70q2PDdFizfZucDER0dTziD8qfJIV+BLkACYYxN25
-	N4SRYAHTpro3POZMrHZvyE81rM05jy/kC7w+zwLe5Gj2cBWiWLxl9/pG/wvVZXPm9wSa2DX5POjiN
-	Goo1jj96VllzwZJlFq+CGYsaOdwE5EKdU6I4Q93lDvpmwTJCT86+sbdqqIaQf3q23i8GM72T2ddH6
-	zWVLgF725ZZBz64NN4DA==;
+	List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:References:
+	In-Reply-To:To:Cc:From:MIME-Version:Date:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Owner;
+	bh=B10BEVxlUEz6zo/vGx2OQmtmktUs06c2W8rp4x5o3D0=; b=vkZd03aESJ8iHSd8MSozOGje6R
+	HP4W/UPc4FYoaDhTDakXRx0w/zwL9OtJBjod0xFk3Qk1uznvoKXy3oPIdxVkaowO0U3yymMNyGumI
+	pN6qc0/P9tqW+iFEsr9vkoa2fRL+dNh5rbksSi1+rNGhOr3Jjowv9n7tBC6Fpm5VhQ0B9w+0BuV+H
+	4sSH0zSS3l/Ajl2IXBWqvEU5g2L4roDLZi7936trsMcCXzDb1rVlWJPkVzgPP6Xz5V5XmlwVLBtaM
+	kHmzgMqLGHVCsLT2w3XX9S1fHOitd/QrNg165cj5iKo/xrd8V/S+Ak7SeELYWgVLKVZZymmDbPCbd
+	ZI0AFeKw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tITLc-00000009h1b-2ECT;
-	Tue, 03 Dec 2024 13:53:52 +0000
-Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
+	id 1tITpo-00000009lYE-3kw4;
+	Tue, 03 Dec 2024 14:25:04 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tITLY-00000009gza-3sFj;
-	Tue, 03 Dec 2024 13:53:50 +0000
-From: Thomas Gleixner <tglx@linutronix.de>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1733234025;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=OimwqB/r3Nk8nQ65+nIw8ce4/cpQcWXc94E5L47e94w=;
-	b=ggEBgtSDOAy4LGfQ9NiI/Qt5eSz6BNxrbNAqvxl4riEe6EMaG2q2IA/j1xhQT4mh+dS39i
-	i2qmcRXm2ALdLKY4AnBWIdvfItpSIt1SwCDdPZfKqJICvh0/xPFvTgUbmQvGpUOAGD2KOW
-	FcFFB7pUW6h2LUShktZyAch90lxBoNEreUlVhvhkf1M8cyg6kGPzkGeuw3KDnbsAUD8y4G
-	/Y8aG9iv6WuG/5mBDSqjGZfHvMErwfUhvon/EikhzOVAKHLu5wKvhAZmbibkZlWi866xd7
-	CXQ29aSmAAvNuUuLnaWlu2NjwihWDLOFaO/38WBWMLzddGzrA+AmXc6z8SNqWA==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1733234025;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=OimwqB/r3Nk8nQ65+nIw8ce4/cpQcWXc94E5L47e94w=;
-	b=iVaNrvhl9p04kXc772sB0Sf1jrTkbKLTmAbfzBVZIIdreUvY3FXCwWRknD7EcMGavum43P
-	h8Dl4WJqEmSStwAQ==
-To: Andrew Jones <ajones@ventanamicro.com>, iommu@lists.linux.dev,
- kvm-riscv@lists.infradead.org, kvm@vger.kernel.org,
- linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-Cc: tjeznach@rivosinc.com, zong.li@sifive.com, joro@8bytes.org,
- will@kernel.org, robin.murphy@arm.com, anup@brainfault.org,
- atishp@atishpatra.org, alex.williamson@redhat.com,
- paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu
-Subject: Re: [RFC PATCH 01/15] irqchip/riscv-imsic: Use hierarchy to reach
- irq_set_affinity
-In-Reply-To: <20241114161845.502027-18-ajones@ventanamicro.com>
-References: <20241114161845.502027-17-ajones@ventanamicro.com>
- <20241114161845.502027-18-ajones@ventanamicro.com>
-Date: Tue, 03 Dec 2024 14:53:45 +0100
-Message-ID: <87mshcub2u.ffs@tglx>
+	id 1tITpl-00000009lWZ-3vOT
+	for linux-riscv@lists.infradead.org;
+	Tue, 03 Dec 2024 14:25:03 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 1B5995C61C2;
+	Tue,  3 Dec 2024 14:24:18 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 74ECAC4CECF;
+	Tue,  3 Dec 2024 14:25:00 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1733235900;
+	bh=2YzBw+E/SaxJ/Xhevrp8m+nYUF9iMZkfbG7PMPw8nWI=;
+	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
+	b=P1QUk00RJ2PQq+Qud5Wj6Mzq39OAz31Fl9JSjIedmjs2mJ5LYOEWDr9s8NMXluet/
+	 SS/ffNdlXggtzaImkIfGRdUEWBUUpQDQZP/g/a37xT8spsdDDvWreHJHAdROhfznQM
+	 nVCIfbP+cvg2lAud0q8TOme+5AzThCyB6tr3k1+0akaLGEPOdMr+FXUBc67yNp49+M
+	 1MCOAP/YHePnW+FLTlivfy7VPudy/TpYmHlo0YbMwK6Q0NnwQu/auewyxZT0LWN3F/
+	 Jm2Mc62VpmD/14mm30U5n0xjHkbldkxTaQgc3g9swouxv/61KjDqFLTsEVYEul4DFz
+	 jJvsOi0VhCcYg==
+Date: Tue, 03 Dec 2024 08:24:59 -0600
 MIME-Version: 1.0
+From: "Rob Herring (Arm)" <robh@kernel.org>
+Cc: maarten.lankhorst@linux.intel.com, aou@eecs.berkeley.edu, 
+ wefu@redhat.com, jassisinghbrar@gmail.com, jszhang@kernel.org, 
+ mturquette@baylibre.com, dri-devel@lists.freedesktop.org, 
+ devicetree@vger.kernel.org, ulf.hansson@linaro.org, mripard@kernel.org, 
+ linux-kernel@vger.kernel.org, frank.binns@imgtec.com, 
+ matt.coster@imgtec.com, linux-riscv@lists.infradead.org, 
+ linux-pm@vger.kernel.org, guoren@kernel.org, sboyd@kernel.org, 
+ linux-clk@vger.kernel.org, m.szyprowski@samsung.com, drew@pdp7.com, 
+ krzk+dt@kernel.org, palmer@dabbelt.com, paul.walmsley@sifive.com, 
+ airlied@gmail.com, simona@ffwll.ch, tzimmermann@suse.de, 
+ conor+dt@kernel.org
+To: Michal Wilczynski <m.wilczynski@samsung.com>
+In-Reply-To: <20241203134137.2114847-6-m.wilczynski@samsung.com>
+References: <20241203134137.2114847-1-m.wilczynski@samsung.com>
+ <CGME20241203134155eucas1p1e90c71c4f8eb5da41d2cc8a500f54dc7@eucas1p1.samsung.com>
+ <20241203134137.2114847-6-m.wilczynski@samsung.com>
+Message-Id: <173323589655.1743530.2406812042403623910.robh@kernel.org>
+Subject: Re: [RFC PATCH v1 05/14] dt-bindings: clock: thead,th1520: Add
+ support for Video Output subsystem
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241203_055349_247921_69DBE4DF 
-X-CRM114-Status: GOOD (  26.21  )
+X-CRM114-CacheID: sfid-20241203_062502_014207_3F385676 
+X-CRM114-Status: GOOD (  11.60  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,384 +84,47 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Nov 14 2024 at 17:18, Andrew Jones wrote:
-> @@ -96,9 +96,8 @@ static int imsic_irq_set_affinity(struct irq_data *d, const struct cpumask *mask
->  				  bool force)
->  {
->  	struct imsic_vector *old_vec, *new_vec;
-> -	struct irq_data *pd = d->parent_data;
->  
-> -	old_vec = irq_data_get_irq_chip_data(pd);
-> +	old_vec = irq_data_get_irq_chip_data(d);
->  	if (WARN_ON(!old_vec))
->  		return -ENOENT;
->  
-> @@ -116,13 +115,13 @@ static int imsic_irq_set_affinity(struct irq_data *d, const struct cpumask *mask
->  		return -ENOSPC;
->  
->  	/* Point device to the new vector */
-> -	imsic_msi_update_msg(d, new_vec);
-> +	imsic_msi_update_msg(irq_get_irq_data(d->irq), new_vec);
 
-This looks more than fishy. See below.
+On Tue, 03 Dec 2024 14:41:28 +0100, Michal Wilczynski wrote:
+> The device tree bindings for the T-Head TH1520 SoC clocks currently
+> support only the Application Processor (AP) subsystem. This commit
+> extends the bindings to include the Video Output (VO) subsystem clocks.
+> 
+> Update the YAML schema to define the VO subsystem clocks, allowing the
+> clock driver to configure and manage these clocks appropriately. This
+> addition is necessary to enable the proper operation of the video output
+> features on the TH1520 SoC.
+> 
+> Signed-off-by: Michal Wilczynski <m.wilczynski@samsung.com>
+> ---
+>  .../bindings/clock/thead,th1520-clk-ap.yaml   | 31 +++++++++++++++----
+>  1 file changed, 25 insertions(+), 6 deletions(-)
+> 
 
-> @@ -245,7 +247,7 @@ static bool imsic_init_dev_msi_info(struct device *dev,
->  		if (WARN_ON_ONCE(domain != real_parent))
->  			return false;
->  #ifdef CONFIG_SMP
-> -		info->chip->irq_set_affinity = imsic_irq_set_affinity;
-> +		info->chip->irq_set_affinity = irq_chip_set_affinity_parent;
+My bot found errors running 'make dt_binding_check' on your patch:
 
-This should use msi_domain_set_affinity(), which does the right thing:
+yamllint warnings/errors:
 
-  1) It invokes the irq_set_affinity() callback of the parent domain
+dtschema/dtc warnings/errors:
 
-  2) It composes the message via the hierarchy
 
-  3) It writes the message with the msi_write_msg() callback of the top
-     level domain
+doc reference errors (make refcheckdocs):
 
-Sorry, I missed that when reviewing the original IMSIC MSI support.
+See https://patchwork.ozlabs.org/project/devicetree-bindings/patch/20241203134137.2114847-6-m.wilczynski@samsung.com
 
-The whole IMSIC MSI support can be moved over to MSI LIB which makes all
-of this indirection go away and your intermediate domain will just fit
-in.
+The base for the series is generally the latest rc1. A different dependency
+should be noted in *this* patch.
 
-Uncompiled patch below. If that works, it needs to be split up properly.
+If you already ran 'make dt_binding_check' and didn't see the above
+error(s), then make sure 'yamllint' is installed and dt-schema is up to
+date:
 
-Note, this removes the setup of the irq_retrigger callback, but that's
-fine because on hierarchical domains irq_chip_retrigger_hierarchy() is
-invoked anyway. See try_retrigger().
+pip3 install dtschema --upgrade
 
-Thanks,
+Please check and re-submit after running the above command yourself. Note
+that DT_SCHEMA_FILES can be set to your schema file to speed up checking
+your schema. However, it must be unset to test all examples with your schema.
 
-        tglx
----
- drivers/irqchip/Kconfig                    |    1 
- drivers/irqchip/irq-gic-v2m.c              |    1 
- drivers/irqchip/irq-imx-mu-msi.c           |    1 
- drivers/irqchip/irq-msi-lib.c              |   11 +-
- drivers/irqchip/irq-mvebu-gicp.c           |    1 
- drivers/irqchip/irq-mvebu-odmi.c           |    1 
- drivers/irqchip/irq-mvebu-sei.c            |    1 
- drivers/irqchip/irq-riscv-imsic-platform.c |  131 +----------------------------
- include/linux/msi.h                        |   11 ++
- 9 files changed, 32 insertions(+), 127 deletions(-)
-
---- a/drivers/irqchip/Kconfig
-+++ b/drivers/irqchip/Kconfig
-@@ -587,6 +587,7 @@ config RISCV_IMSIC
- 	select IRQ_DOMAIN_HIERARCHY
- 	select GENERIC_IRQ_MATRIX_ALLOCATOR
- 	select GENERIC_MSI_IRQ
-+	select IRQ_MSI_LIB
- 
- config RISCV_IMSIC_PCI
- 	bool
---- a/drivers/irqchip/irq-gic-v2m.c
-+++ b/drivers/irqchip/irq-gic-v2m.c
-@@ -255,6 +255,7 @@ static void __init gicv2m_teardown(void)
- static struct msi_parent_ops gicv2m_msi_parent_ops = {
- 	.supported_flags	= GICV2M_MSI_FLAGS_SUPPORTED,
- 	.required_flags		= GICV2M_MSI_FLAGS_REQUIRED,
-+	.chip_flags		= MSI_CHIP_FLAG_SET_EOI | MSI_CHIP_FLAG_SET_ACK,
- 	.bus_select_token	= DOMAIN_BUS_NEXUS,
- 	.bus_select_mask	= MATCH_PCI_MSI | MATCH_PLATFORM_MSI,
- 	.prefix			= "GICv2m-",
---- a/drivers/irqchip/irq-imx-mu-msi.c
-+++ b/drivers/irqchip/irq-imx-mu-msi.c
-@@ -214,6 +214,7 @@ static void imx_mu_msi_irq_handler(struc
- static const struct msi_parent_ops imx_mu_msi_parent_ops = {
- 	.supported_flags	= IMX_MU_MSI_FLAGS_SUPPORTED,
- 	.required_flags		= IMX_MU_MSI_FLAGS_REQUIRED,
-+	.chip_flags		= MSI_CHIP_FLAG_SET_EOI | MSI_CHIP_FLAG_SET_ACK,
- 	.bus_select_token       = DOMAIN_BUS_NEXUS,
- 	.bus_select_mask	= MATCH_PLATFORM_MSI,
- 	.prefix			= "MU-MSI-",
---- a/drivers/irqchip/irq-msi-lib.c
-+++ b/drivers/irqchip/irq-msi-lib.c
-@@ -28,6 +28,7 @@ bool msi_lib_init_dev_msi_info(struct de
- 			       struct msi_domain_info *info)
- {
- 	const struct msi_parent_ops *pops = real_parent->msi_parent_ops;
-+	struct irq_chip *chip = info->chip;
- 	u32 required_flags;
- 
- 	/* Parent ops available? */
-@@ -92,10 +93,10 @@ bool msi_lib_init_dev_msi_info(struct de
- 	info->flags			|= required_flags;
- 
- 	/* Chip updates for all child bus types */
--	if (!info->chip->irq_eoi)
--		info->chip->irq_eoi	= irq_chip_eoi_parent;
--	if (!info->chip->irq_ack)
--		info->chip->irq_ack	= irq_chip_ack_parent;
-+	if (!chip->irq_eoi && (pops->chip_flags & MSI_CHIP_FLAG_SET_EOI))
-+		chip->irq_eoi		= irq_chip_eoi_parent;
-+	if (!chip->irq_ack && (pops->chip_flags & MSI_CHIP_FLAG_SET_ACK))
-+		chip->irq_ack		= irq_chip_ack_parent;
- 
- 	/*
- 	 * The device MSI domain can never have a set affinity callback. It
-@@ -105,7 +106,7 @@ bool msi_lib_init_dev_msi_info(struct de
- 	 * device MSI domain aside of mask/unmask which is provided e.g. by
- 	 * PCI/MSI device domains.
- 	 */
--	info->chip->irq_set_affinity	= msi_domain_set_affinity;
-+	chip->irq_set_affinity		= msi_domain_set_affinity;
- 	return true;
- }
- EXPORT_SYMBOL_GPL(msi_lib_init_dev_msi_info);
---- a/drivers/irqchip/irq-mvebu-gicp.c
-+++ b/drivers/irqchip/irq-mvebu-gicp.c
-@@ -161,6 +161,7 @@ static const struct irq_domain_ops gicp_
- static const struct msi_parent_ops gicp_msi_parent_ops = {
- 	.supported_flags	= GICP_MSI_FLAGS_SUPPORTED,
- 	.required_flags		= GICP_MSI_FLAGS_REQUIRED,
-+	.chip_flags		= MSI_CHIP_FLAG_SET_EOI | MSI_CHIP_FLAG_SET_ACK,
- 	.bus_select_token       = DOMAIN_BUS_GENERIC_MSI,
- 	.bus_select_mask	= MATCH_PLATFORM_MSI,
- 	.prefix			= "GICP-",
---- a/drivers/irqchip/irq-mvebu-odmi.c
-+++ b/drivers/irqchip/irq-mvebu-odmi.c
-@@ -157,6 +157,7 @@ static const struct irq_domain_ops odmi_
- static const struct msi_parent_ops odmi_msi_parent_ops = {
- 	.supported_flags	= ODMI_MSI_FLAGS_SUPPORTED,
- 	.required_flags		= ODMI_MSI_FLAGS_REQUIRED,
-+	.chip_flags		= MSI_CHIP_FLAG_SET_EOI | MSI_CHIP_FLAG_SET_ACK,
- 	.bus_select_token	= DOMAIN_BUS_GENERIC_MSI,
- 	.bus_select_mask	= MATCH_PLATFORM_MSI,
- 	.prefix			= "ODMI-",
---- a/drivers/irqchip/irq-mvebu-sei.c
-+++ b/drivers/irqchip/irq-mvebu-sei.c
-@@ -356,6 +356,7 @@ static void mvebu_sei_reset(struct mvebu
- static const struct msi_parent_ops sei_msi_parent_ops = {
- 	.supported_flags	= SEI_MSI_FLAGS_SUPPORTED,
- 	.required_flags		= SEI_MSI_FLAGS_REQUIRED,
-+	.chip_flags		= MSI_CHIP_FLAG_SET_EOI | MSI_CHIP_FLAG_SET_ACK,
- 	.bus_select_mask	= MATCH_PLATFORM_MSI,
- 	.bus_select_token	= DOMAIN_BUS_GENERIC_MSI,
- 	.prefix			= "SEI-",
---- a/drivers/irqchip/irq-riscv-imsic-platform.c
-+++ b/drivers/irqchip/irq-riscv-imsic-platform.c
-@@ -21,6 +21,7 @@
- #include <linux/smp.h>
- 
- #include "irq-riscv-imsic-state.h"
-+#include "irq-msi-lib.h"
- 
- static bool imsic_cpu_page_phys(unsigned int cpu, unsigned int guest_index,
- 				phys_addr_t *out_msi_pa)
-@@ -84,19 +85,10 @@ static void imsic_irq_compose_msg(struct
- }
- 
- #ifdef CONFIG_SMP
--static void imsic_msi_update_msg(struct irq_data *d, struct imsic_vector *vec)
--{
--	struct msi_msg msg = { };
--
--	imsic_irq_compose_vector_msg(vec, &msg);
--	irq_data_get_irq_chip(d)->irq_write_msi_msg(d, &msg);
--}
--
- static int imsic_irq_set_affinity(struct irq_data *d, const struct cpumask *mask_val,
- 				  bool force)
- {
- 	struct imsic_vector *old_vec, *new_vec;
--	struct irq_data *pd = d->parent_data;
- 
- 	old_vec = irq_data_get_irq_chip_data(pd);
- 	if (WARN_ON(!old_vec))
-@@ -115,14 +107,11 @@ static int imsic_irq_set_affinity(struct
- 	if (!new_vec)
- 		return -ENOSPC;
- 
--	/* Point device to the new vector */
--	imsic_msi_update_msg(d, new_vec);
--
- 	/* Update irq descriptors with the new vector */
--	pd->chip_data = new_vec;
-+	d->chip_data = new_vec;
- 
- 	/* Update effective affinity of parent irq data */
--	irq_data_update_effective_affinity(pd, cpumask_of(new_vec->cpu));
-+	irq_data_update_effective_affinity(d, cpumask_of(new_vec->cpu));
- 
- 	/* Move state of the old vector to the new vector */
- 	imsic_vector_move(old_vec, new_vec);
-@@ -137,6 +126,9 @@ static struct irq_chip imsic_irq_base_ch
- 	.irq_unmask		= imsic_irq_unmask,
- 	.irq_retrigger		= imsic_irq_retrigger,
- 	.irq_compose_msi_msg	= imsic_irq_compose_msg,
-+#ifdef CONFIG_SMP
-+	.irq_set_affinity	= imsic_irq_set_affinity,
-+#endif
- 	.flags			= IRQCHIP_SKIP_SET_WAKE |
- 				  IRQCHIP_MASK_ON_SUSPEND,
- };
-@@ -172,22 +164,6 @@ static void imsic_irq_domain_free(struct
- 	irq_domain_free_irqs_parent(domain, virq, nr_irqs);
- }
- 
--static int imsic_irq_domain_select(struct irq_domain *domain, struct irq_fwspec *fwspec,
--				   enum irq_domain_bus_token bus_token)
--{
--	const struct msi_parent_ops *ops = domain->msi_parent_ops;
--	u32 busmask = BIT(bus_token);
--
--	if (fwspec->fwnode != domain->fwnode || fwspec->param_count != 0)
--		return 0;
--
--	/* Handle pure domain searches */
--	if (bus_token == ops->bus_select_token)
--		return 1;
--
--	return !!(ops->bus_select_mask & busmask);
--}
--
- #ifdef CONFIG_GENERIC_IRQ_DEBUGFS
- static void imsic_irq_debug_show(struct seq_file *m, struct irq_domain *d,
- 				 struct irq_data *irqd, int ind)
-@@ -210,104 +186,15 @@ static const struct irq_domain_ops imsic
- #endif
- };
- 
--#ifdef CONFIG_RISCV_IMSIC_PCI
--
--static void imsic_pci_mask_irq(struct irq_data *d)
--{
--	pci_msi_mask_irq(d);
--	irq_chip_mask_parent(d);
--}
--
--static void imsic_pci_unmask_irq(struct irq_data *d)
--{
--	irq_chip_unmask_parent(d);
--	pci_msi_unmask_irq(d);
--}
--
--#define MATCH_PCI_MSI		BIT(DOMAIN_BUS_PCI_MSI)
--
--#else
--
--#define MATCH_PCI_MSI		0
--
--#endif
--
--static bool imsic_init_dev_msi_info(struct device *dev,
--				    struct irq_domain *domain,
--				    struct irq_domain *real_parent,
--				    struct msi_domain_info *info)
--{
--	const struct msi_parent_ops *pops = real_parent->msi_parent_ops;
--
--	/* MSI parent domain specific settings */
--	switch (real_parent->bus_token) {
--	case DOMAIN_BUS_NEXUS:
--		if (WARN_ON_ONCE(domain != real_parent))
--			return false;
--#ifdef CONFIG_SMP
--		info->chip->irq_set_affinity = imsic_irq_set_affinity;
--#endif
--		break;
--	default:
--		WARN_ON_ONCE(1);
--		return false;
--	}
--
--	/* Is the target supported? */
--	switch (info->bus_token) {
--#ifdef CONFIG_RISCV_IMSIC_PCI
--	case DOMAIN_BUS_PCI_DEVICE_MSI:
--	case DOMAIN_BUS_PCI_DEVICE_MSIX:
--		info->chip->irq_mask = imsic_pci_mask_irq;
--		info->chip->irq_unmask = imsic_pci_unmask_irq;
--		break;
--#endif
--	case DOMAIN_BUS_DEVICE_MSI:
--		/*
--		 * Per-device MSI should never have any MSI feature bits
--		 * set. It's sole purpose is to create a dumb interrupt
--		 * chip which has a device specific irq_write_msi_msg()
--		 * callback.
--		 */
--		if (WARN_ON_ONCE(info->flags))
--			return false;
--
--		/* Core managed MSI descriptors */
--		info->flags |= MSI_FLAG_ALLOC_SIMPLE_MSI_DESCS |
--			       MSI_FLAG_FREE_MSI_DESCS;
--		break;
--	case DOMAIN_BUS_WIRED_TO_MSI:
--		break;
--	default:
--		WARN_ON_ONCE(1);
--		return false;
--	}
--
--	/* Use hierarchial chip operations re-trigger */
--	info->chip->irq_retrigger = irq_chip_retrigger_hierarchy;
--
--	/*
--	 * Mask out the domain specific MSI feature flags which are not
--	 * supported by the real parent.
--	 */
--	info->flags &= pops->supported_flags;
--
--	/* Enforce the required flags */
--	info->flags |= pops->required_flags;
--
--	return true;
--}
--
--#define MATCH_PLATFORM_MSI		BIT(DOMAIN_BUS_PLATFORM_MSI)
--
- static const struct msi_parent_ops imsic_msi_parent_ops = {
- 	.supported_flags	= MSI_GENERIC_FLAGS_MASK |
- 				  MSI_FLAG_PCI_MSIX,
- 	.required_flags		= MSI_FLAG_USE_DEF_DOM_OPS |
--				  MSI_FLAG_USE_DEF_CHIP_OPS,
-+				  MSI_FLAG_USE_DEF_CHIP_OPS |
-+				  MSI_FLAG_PCI_MSI_MASK_PARENT,
- 	.bus_select_token	= DOMAIN_BUS_NEXUS,
- 	.bus_select_mask	= MATCH_PCI_MSI | MATCH_PLATFORM_MSI,
--	.init_dev_msi_info	= imsic_init_dev_msi_info,
-+	.init_dev_msi_info	= msi_lib_init_dev_msi_info,
- };
- 
- int imsic_irqdomain_init(void)
---- a/include/linux/msi.h
-+++ b/include/linux/msi.h
-@@ -558,11 +558,21 @@ enum {
- 	MSI_FLAG_NO_AFFINITY		= (1 << 21),
- };
- 
-+/*
-+ * Flags for msi_parent_ops::chip_flags
-+ */
-+enum {
-+	MSI_CHIP_FLAG_SET_EOI		= (1 << 0),
-+	MSI_CHIP_FLAG_SET_ACK		= (1 << 1),
-+};
-+
- /**
-  * struct msi_parent_ops - MSI parent domain callbacks and configuration info
-  *
-  * @supported_flags:	Required: The supported MSI flags of the parent domain
-  * @required_flags:	Optional: The required MSI flags of the parent MSI domain
-+ * @chip_flags:		Optional: Select MSI chip callbacks to update with defaults
-+ *			in msi_lib_init_dev_msi_info().
-  * @bus_select_token:	Optional: The bus token of the real parent domain for
-  *			irq_domain::select()
-  * @bus_select_mask:	Optional: A mask of supported BUS_DOMAINs for
-@@ -575,6 +585,7 @@ enum {
- struct msi_parent_ops {
- 	u32		supported_flags;
- 	u32		required_flags;
-+	u32		chip_flags;
- 	u32		bus_select_token;
- 	u32		bus_select_mask;
- 	const char	*prefix;
 
 _______________________________________________
 linux-riscv mailing list
