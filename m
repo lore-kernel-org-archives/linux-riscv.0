@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F3EBEE74AC1
-	for <linux-riscv@archiver.kernel.org>; Tue,  3 Dec 2024 15:50:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C226DE74AC0
+	for <linux-riscv@archiver.kernel.org>; Tue,  3 Dec 2024 15:52:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
 	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=FntBbgwDw3paUNThVMFtOMuIpO1qBfUPqbUC+hMaZcs=; b=QbXtQYvLSsE01N
-	dqPtzJt7fvJOBDmlPk1AQLidc9nicOVDrkx5AgvqKwBfY6NLfOlxcgt79k0xmUkMEV/xvE/7LqgFI
-	lkTs2b6wcN5+FIXaJQ8o8/gNL0VdvhHZvnnVuEHW4CgJW1GEcEhNeXTXQSUpauMyWy9JWXQdgE/K9
-	UcaFhSrrUlk8oZQRWDdIzz23D+0XsdogcITHkl4mpGsoYrfj1l5bfSQ4Wauw32QfchtqLx8bMCF/E
-	ZQSo3L1fPMw82Tlo0OoCDrNlqF7y+Pg7mq462HfILa8JLj8MMZk6e/w+H6kWAHRc3zeQTyTLKwMU9
-	tUo/qgzkabQmeMgWYkNw==;
+	List-Owner; bh=k1CbNrqi32i3OkTtEtVNpo0WC2BgXAydzkKD+QIwa9s=; b=zxvf8EL+gIkGrJ
+	OYGIRREhMLPexpqzORCGpBK6LUkAUvxR2sUq+s+cDA9kHeMP992r0+Bbglju+lLzNM4YK/QW1kUv2
+	NCl8eEUxyfSpClVsKtQpNPPrE4tN2cciYP9E9Ppw6agXC7HeYuwKOoDUtrlT7CEVqEzB5TRxqTvKA
+	Vgmvswz/5XP5S/KMlM++NsnG6jvjkFLMDAMGhYzeRNLACN/I9s2F0U5FIMY0KdAGqOxG9g0DOXqQF
+	nSQL/IRKEsypGyNoAt+/W680ZiZbOhcC3Hn5+uYhAueo99ioSGQl8VdQwXlUHVye+0oSeGjLW7Ea4
+	+v2m72fjL90Ab67xS6lA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIVAp-00000009zx2-2TvZ;
-	Tue, 03 Dec 2024 15:50:51 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tIVCL-0000000A0Cy-15Kk;
+	Tue, 03 Dec 2024 15:52:25 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIVAn-00000009zwN-0A0e
+	id 1tIVCI-0000000A0C0-1Jum
 	for linux-riscv@lists.infradead.org;
-	Tue, 03 Dec 2024 15:50:50 +0000
+	Tue, 03 Dec 2024 15:52:23 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 830BE5C5F37;
-	Tue,  3 Dec 2024 15:50:05 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 46A14C4CECF;
-	Tue,  3 Dec 2024 15:50:36 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 54C61A41716;
+	Tue,  3 Dec 2024 15:50:29 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0AE76C4CED8;
+	Tue,  3 Dec 2024 15:52:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1733241048;
-	bh=n570EuIKkUoOlNy2/evG9Hp7xcrgmKhixIkmq6odSOk=;
+	s=k20201202; t=1733241141;
+	bh=FYpuZ7M75XFZtU4U2WzA4RoO5TkD4mkTleBoMRb21J0=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=DVIq3Jb9WNnCnWE+4MjokfsdEdsdVthLx80K0FNxA9Y5NyCIQdrJsKKgqO8/Qb8cB
-	 dqxEZ3cjofXHsdxsEWGQQ/wyqom0G2srbFzbNGKKntbDRfIn11xovzS4MEBrVxyRWN
-	 KFWXLDvwRwN4dIw2eQ16uVslgLJF+rRKbf9Tqi4se//x9I0JjNZxzGqzfQDZpgSlfW
-	 TOBiY06rvErj1N77Dr/RMSj6yq8ZqqQMkDZ4mfiYejedThybvlmIS+VA3a+037XyVm
-	 H43pD97ZHm3cZALD+7r6DQfGVXkQ/avEWTKHHbeBF4CnREfvV4xR98meNMzCh7ot0k
-	 6jE1s+gDVz1yQ==
-Message-ID: <2b6ffc5a-4021-459d-ae4c-b2c472960c60@kernel.org>
-Date: Tue, 3 Dec 2024 16:50:34 +0100
+	b=Ur8tpAL4nMvOz8B2yfcknfGTels999eI+ZNZQwFLzYyh8W6aPkIX/X2NvOyfCATz4
+	 Mrm3gJN8+VpJKwKsb9s1vLLjI6caKziiz2qJoudxI3sOJyzQVB2ruR3tZ6PPTOgQ2A
+	 zQoO7H1OXBXpcBIyVJk2fKPktlAovykWYLBtlNTmEkIx/Olz8g/zxxZ/Bvt9qXYoyP
+	 q9zzCalP9499TSqZpU6ZHmerBY5V3mNOBJAiQObCYpOnwuygEDSERC5MGvK5cw0sSf
+	 A9Xqfl8mDg+EoAlQbaGYnPHvwFXccnJ9GTgh3oAhttVh5GAPydzWQyDMeMwDz5kYLr
+	 nP2FX0R5JN19Q==
+Message-ID: <9b75bc06-2a28-4c16-8e2b-90f824f7f79f@kernel.org>
+Date: Tue, 3 Dec 2024 16:52:09 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH v1 12/14] riscv: dts: Add Video Output clock and
- syscon regmap nodes
+Subject: Re: [RFC PATCH v1 13/14] riscv: dts: Introduce power domain node with
+ simple-bus compatible
 To: Michal Wilczynski <m.wilczynski@samsung.com>, mturquette@baylibre.com,
  sboyd@kernel.org, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
  drew@pdp7.com, guoren@kernel.org, wefu@redhat.com, jassisinghbrar@gmail.com,
@@ -60,8 +60,8 @@ Cc: linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
  linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
  dri-devel@lists.freedesktop.org, linux-pm@vger.kernel.org
 References: <20241203134137.2114847-1-m.wilczynski@samsung.com>
- <CGME20241203134204eucas1p1d0df90a265637542f0652fd407dc7989@eucas1p1.samsung.com>
- <20241203134137.2114847-13-m.wilczynski@samsung.com>
+ <CGME20241203134206eucas1p10ca2d7bb12afbd082d5f8a9ad85f94bd@eucas1p1.samsung.com>
+ <20241203134137.2114847-14-m.wilczynski@samsung.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -107,10 +107,10 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  uZwJCLykjad45hsWcOGk3OcaAGQS6NDlfhM6O9aYNwGL6tGt/6BkRikNOs7VDEa4/HlbaSJo
  7FgndGw1kWmkeL6oQh7wBvYll2buKod4qYntmNKEicoHGU+x91Gcan8mCoqhJkbqrL7+nXG2
  5Q/GS5M9RFWS+nYyJh+c3OcfKqVcZQNANItt7+ULzdNJuhvTRRdC3g9hmCEuNSr+CLMdnRBY fv0=
-In-Reply-To: <20241203134137.2114847-13-m.wilczynski@samsung.com>
+In-Reply-To: <20241203134137.2114847-14-m.wilczynski@samsung.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241203_075049_167708_D91F5541 
-X-CRM114-Status: GOOD (  13.77  )
+X-CRM114-CacheID: sfid-20241203_075222_486766_1F3A4E39 
+X-CRM114-Status: GOOD (  20.46  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -128,56 +128,54 @@ Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 On 03/12/2024 14:41, Michal Wilczynski wrote:
-> The address space controlling the Video Output (VO) subsystem clocks
-> also contains control registers for GPU resets. To properly synchronize
-> access to this shared address space, create a syscon Device Tree node
-> for the VO registers and reference it in the clock controller node.
+> The DRM Imagination GPU requires a power-domain driver, but the driver
+> for "thead,th1520-aon" is not yet available. To ensure that the 'aon'
+> node and its child 'pd' node are properly recognized and probed by the
+> kernel, add "simple-bus" to the compatible property of the 'aon' node.
 > 
-> This change ensures coordinated access to the VO registers between the
-> clock controller and other drivers, preventing conflicts and maintaining
-> system stability.
+> This change allows the kernel to treat the 'aon' node as a simple bus,
+> enabling the child nodes to be probed and initialized independently. It
+> ensures that the power domain can be managed appropriately until the
+> specific AON driver is developed.
+> 
+> This commit introduces some errors while running dtbs_check, as the aon
+> doesn't have the dt-bindings yet.
 > 
 > Signed-off-by: Michal Wilczynski <m.wilczynski@samsung.com>
 > ---
->  arch/riscv/boot/dts/thead/th1520.dtsi | 12 ++++++++++++
->  1 file changed, 12 insertions(+)
+>  arch/riscv/boot/dts/thead/th1520.dtsi | 11 +++++++++++
+>  1 file changed, 11 insertions(+)
 > 
 > diff --git a/arch/riscv/boot/dts/thead/th1520.dtsi b/arch/riscv/boot/dts/thead/th1520.dtsi
-> index dc2d554b4a71..39d39059160d 100644
+> index 39d39059160d..58f93ad3eb6e 100644
 > --- a/arch/riscv/boot/dts/thead/th1520.dtsi
 > +++ b/arch/riscv/boot/dts/thead/th1520.dtsi
-> @@ -489,6 +489,18 @@ clk: clock-controller@ffef010000 {
->  			#clock-cells = <1>;
->  		};
+> @@ -6,6 +6,7 @@
 >  
-> +		vosys_clk: clock-controller {
+>  #include <dt-bindings/interrupt-controller/irq.h>
+>  #include <dt-bindings/clock/thead,th1520-clk.h>
+> +#include <dt-bindings/power/thead,th1520-power.h>
+>  
+>  / {
+>  	compatible = "thead,th1520";
+> @@ -229,6 +230,16 @@ stmmac_axi_config: stmmac-axi-config {
+>  		snps,blen = <0 0 64 32 0 0 0>;
+>  	};
+>  
+> +	aon {
+> +		compatible = "thead,th1520-aon", "simple-bus";
 
-Missing address space. You cannot have here nodes without unit address.
+1. No, that's not a bus.
+2. Please run scripts/checkpatch.pl and fix reported warnings. Then
+please run `scripts/checkpatch.pl --strict` and (probably) fix more
+warnings. Some warnings can be ignored, especially from --strict run,
+but the code here looks like it needs a fix. Feel free to get in touch
+if the warning is not clear.
 
-It does not look like you tested the DTS against bindings. Please run
-`make dtbs_check W=1` (see
-Documentation/devicetree/bindings/writing-schema.rst or
-https://www.linaro.org/blog/tips-and-tricks-for-validating-devicetree-sources-with-the-devicetree-schema/
-for instructions).
-
-> +			compatible = "thead,th1520-clk-vo";
-> +			thead,vosys-regmap = <&vosys_reg>;
-> +			#clock-cells = <1>;
-> +		};
-> +
-> +		vosys_reg: vosys@ffef528000 {
-
-Node names should be generic. See also an explanation and list of
-examples (not exhaustive) in DT specification:
-https://devicetree-specification.readthedocs.io/en/latest/chapter2-devicetree-basics.html#generic-names-recommendation
-
-
-
-> +			compatible = "thead,th1520-vosys", "syscon";
-> +			reg = <0xff 0xef528000 0x0 0x1000>;
-> +			status = "okay";
-
-Where is it disabled? Drop.
+Sorry, this patchset is not ready, unless by RFC you meant - do not
+review, because it is not ready. Then it is fine. But then *clearly
+express* this in cover letter, so we know what you expect from us (and I
+would not waste my time to go through all this).
 
 Best regards,
 Krzysztof
