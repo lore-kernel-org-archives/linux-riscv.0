@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61FB8E69EA6
-	for <linux-riscv@archiver.kernel.org>; Tue,  3 Dec 2024 15:45:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7501AE69EA6
+	for <linux-riscv@archiver.kernel.org>; Tue,  3 Dec 2024 15:46:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
 	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=5SMudaD7YpuHoPvJHkVbT78xexehP0OMrNTFSWccoWk=; b=s4yMXbAoA2t2k/
-	Dc2kTt1UE/T7HugMAHmzs2zmLRltZGQXr/gtAEY6VOcCITUcAjZy+7eAqtHYh43HOFW/5i4yneg8q
-	TGZiQvtgOJrj6PNn+kQLm8NRt3CDnDL0wwcEXn74kHMhFem6xDl/ooWqTEodhUY2f8qrR4KrJ7kWJ
-	spYdHsifcT2Vsjt+NGp3AOLsA0ME7Zfr+lhRyzhcS5WYOTh6Fkq2rhXdZuDJE7Nt7rMix9Lspf5DH
-	h8jKQGQuRwrqDX806fxWFJGUIbScI5lVtvUv79bWs2j3cTtrGTgxensBMxhICFAArMsfXeF91wvZ5
-	WzmxN/dH0z7S8rap3GHg==;
+	List-Owner; bh=BL2p8jHzdgI89h7MA4RIVLKnoh1qN5NNnEPy+T6AIbk=; b=uNPZiJO/YCMr5U
+	m3AnpKojiVpTVA0onEKYM6ThP+PrKaAh7Wq1wPATFxaOjfnFQAi732l0HpXZfDQwIMFhg3Q++U31u
+	U/nxzDa+sHSLVoymuW2IHxFEYiUKmnQr9Te2m6P0Mhm8kYZ9XE6Aewq7NIVR2H9ysPX37sKmC8tPV
+	VRTAIhxsjd0a15V4XimXqeELTfmZ8bhWScMadwZQTceLCRJ/VstWc50MZ8+XMNE6R0XTrVVDjzz8s
+	GRToFiRZr+Jp+R3j4Y0C+RGJG5GbctHzysXSc0eHGgoVweU2za/P2f8Z9bLlLPBeUoHKTB+oEG2Rb
+	twhEvfbbrpwb9NQVLFbw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIV5n-00000009z4b-2wmp;
-	Tue, 03 Dec 2024 15:45:39 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tIV6L-00000009zCx-1Dqy;
+	Tue, 03 Dec 2024 15:46:13 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIV5l-00000009z3q-0RG0
+	id 1tIV6J-00000009zBY-1Vdr
 	for linux-riscv@lists.infradead.org;
-	Tue, 03 Dec 2024 15:45:38 +0000
+	Tue, 03 Dec 2024 15:46:12 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 8A0DC5C571D;
-	Tue,  3 Dec 2024 15:44:53 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B2824C4CECF;
-	Tue,  3 Dec 2024 15:45:27 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 3CD4DA413F9;
+	Tue,  3 Dec 2024 15:44:18 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 960D9C4CECF;
+	Tue,  3 Dec 2024 15:46:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1733240736;
-	bh=gJLaMBCWG0wnreX4DAS74R8/G1cJslP9O/B4BmtUUGw=;
+	s=k20201202; t=1733240770;
+	bh=dn8LjBbhrt8WWvRtmZ7EWYAwQ3mVvCiOwBxFtAvZTX4=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=upjQkMmJOOx4J0Wfa3JbNSb8KeypVj2zz+5Qx+rDSXZIXF/sBKk+Qagsq1vHaFOoN
-	 0mw3v+/15/29ZpS/6HtennTCV7fGYa73XxjZtvyi1r4GqAT+OrIZZlSPLbEpOC2JEe
-	 xkyPpURpiIfGPs+V48X6KZ/f0R5o8tJoAGUk16mm9pb1Q/Iyjrlf4QRmiyPh5AMEz0
-	 kC0krFwX38YCJTIEnx3RomSlX2Dm2N/MS20QoXkCvNmeTCo3VYZ4urJP3+IXfYmQ4g
-	 lkUE2qx6OL/ZT9hdzIV9+pCtYU7HrCPkGNYFu+8vAjFCD8GBN599rB+0KHz/OwbYNM
-	 z2xnLR7AfJx6g==
-Message-ID: <f21ffd12-167b-4d10-9017-33041ec322b0@kernel.org>
-Date: Tue, 3 Dec 2024 16:45:25 +0100
+	b=dHMpibXaqK0yq9OaoKSg9V16Zdq1zQ3wAMLefrf1cYqT7huFlQ+U3kiz/5KoJl1eU
+	 Go9vBhDJxi8arAFFrZG4QTojSLxGFvuB8Jh/JlFLTjZki6ZKgPYq+v879eAyePbtVT
+	 DXuQ1gq+ljCtJsUnlbNF6syZeE3Qe+feqpLSykxk5dIjE6WyIV92mD6d1Hmicj+FUv
+	 e8DZWuXUAidrrrIZuPrhTWZLAG6s4oM5IzYpU5K09GhcYBMwgbczGPBYSg9pBKUOmD
+	 rU5+cnxz/NpbjS+Uyu+M8goAFRk+wHN2U8mKljZT+BUYsxoOtTQMM4DByPsG6yMfaI
+	 GOH6bl1gm7bcg==
+Message-ID: <7d09f311-b9a2-4c40-9fca-4b5d0acc112d@kernel.org>
+Date: Tue, 3 Dec 2024 16:45:59 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH v1 05/14] dt-bindings: clock: thead,th1520: Add
- support for Video Output subsystem
+Subject: Re: [RFC PATCH v1 06/14] dt-bindings: clock: thead,th1520: Rename
+ YAML schema file
 To: Michal Wilczynski <m.wilczynski@samsung.com>, mturquette@baylibre.com,
  sboyd@kernel.org, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
  drew@pdp7.com, guoren@kernel.org, wefu@redhat.com, jassisinghbrar@gmail.com,
@@ -60,8 +60,8 @@ Cc: linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
  linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
  dri-devel@lists.freedesktop.org, linux-pm@vger.kernel.org
 References: <20241203134137.2114847-1-m.wilczynski@samsung.com>
- <CGME20241203134155eucas1p1e90c71c4f8eb5da41d2cc8a500f54dc7@eucas1p1.samsung.com>
- <20241203134137.2114847-6-m.wilczynski@samsung.com>
+ <CGME20241203134156eucas1p2326d84fcef2ee0914586122520b18dcc@eucas1p2.samsung.com>
+ <20241203134137.2114847-7-m.wilczynski@samsung.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -107,10 +107,11 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  uZwJCLykjad45hsWcOGk3OcaAGQS6NDlfhM6O9aYNwGL6tGt/6BkRikNOs7VDEa4/HlbaSJo
  7FgndGw1kWmkeL6oQh7wBvYll2buKod4qYntmNKEicoHGU+x91Gcan8mCoqhJkbqrL7+nXG2
  5Q/GS5M9RFWS+nYyJh+c3OcfKqVcZQNANItt7+ULzdNJuhvTRRdC3g9hmCEuNSr+CLMdnRBY fv0=
-In-Reply-To: <20241203134137.2114847-6-m.wilczynski@samsung.com>
+In-Reply-To: <20241203134137.2114847-7-m.wilczynski@samsung.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241203_074537_234689_0FE54F16 
-X-CRM114-Status: GOOD (  20.70  )
+X-CRM114-CacheID: sfid-20241203_074611_527608_0DE40D2A 
+X-CRM114-Status: UNSURE (   7.65  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -128,116 +129,23 @@ Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 On 03/12/2024 14:41, Michal Wilczynski wrote:
-> The device tree bindings for the T-Head TH1520 SoC clocks currently
-> support only the Application Processor (AP) subsystem. This commit
-> extends the bindings to include the Video Output (VO) subsystem clocks.
+> As support for clocks from new subsystems is being added to the T-Head
+> TH1520 SoC, the Device Tree binding YAML schema file name should reflect
+> this broader scope.  The existing schema file 'thead,th1520-clk-ap.yaml'
+> includes the '-ap' suffix, indicating it's specific to the Application
+> Processor (AP) subsystem.
 > 
-> Update the YAML schema to define the VO subsystem clocks, allowing the
-> clock driver to configure and manage these clocks appropriately. This
-> addition is necessary to enable the proper operation of the video output
-> features on the TH1520 SoC.
+> Rename the YAML schema file to 'thead,th1520-clk.yaml' to generalize it
+> for all subsystems. Update all references to this schema file
+> accordingly.
 > 
 > Signed-off-by: Michal Wilczynski <m.wilczynski@samsung.com>
 > ---
->  .../bindings/clock/thead,th1520-clk-ap.yaml   | 31 +++++++++++++++----
->  1 file changed, 25 insertions(+), 6 deletions(-)
-> 
-> diff --git a/Documentation/devicetree/bindings/clock/thead,th1520-clk-ap.yaml b/Documentation/devicetree/bindings/clock/thead,th1520-clk-ap.yaml
-> index 4a0806af2bf9..5a8f1041f766 100644
-> --- a/Documentation/devicetree/bindings/clock/thead,th1520-clk-ap.yaml
-> +++ b/Documentation/devicetree/bindings/clock/thead,th1520-clk-ap.yaml
-> @@ -4,11 +4,13 @@
->  $id: http://devicetree.org/schemas/clock/thead,th1520-clk-ap.yaml#
->  $schema: http://devicetree.org/meta-schemas/core.yaml#
->  
-> -title: T-HEAD TH1520 AP sub-system clock controller
-> +title: T-HEAD TH1520 sub-systems clock controller
->  
->  description: |
-> -  The T-HEAD TH1520 AP sub-system clock controller configures the
-> -  CPU, DPU, GMAC and TEE PLLs.
-> +  The T-HEAD TH1520 sub-systems clock controller configures the
-> +  CPU, DPU, GMAC and TEE PLLs for the AP subsystem. For the VO
-> +  subsystem clock gates can be configured for the HDMI, MIPI and
-> +  the GPU.
->  
->    SoC reference manual
->    https://openbeagle.org/beaglev-ahead/beaglev-ahead/-/blob/main/docs/TH1520%20System%20User%20Manual.pdf
-> @@ -20,7 +22,9 @@ maintainers:
->  
->  properties:
->    compatible:
-> -    const: thead,th1520-clk-ap
-> +    enum:
-> +      - thead,th1520-clk-ap
-> +      - thead,th1520-clk-vo
->  
->    reg:
->      maxItems: 1
-> @@ -29,6 +33,17 @@ properties:
->      items:
->        - description: main oscillator (24MHz)
->  
-> +  thead,vosys-regmap:
-> +    $ref: /schemas/types.yaml#/definitions/phandle
-> +    description: |
-> +      Phandle to a syscon node representing the shared register
-> +      space of the VO (Video Output) subsystem. This register space
-> +      includes both clock control registers and other control
-> +      registers used for operations like resetting the GPU. Since
+>  .../clock/{thead,th1520-clk-ap.yaml => thead,th1520-clk.yaml}   | 2 +-
+>  MAINTAINERS                                                     | 2 +-
 
-
-It seems you wanted to implement reset controller...
-
-> +      these registers reside in the same address space, access to
-> +      them is coordinated through a shared syscon regmap provided by
-> +      the specified syscon node.
-
-Drop last sentence. syscon regmap is a Linux term, not hardware one.
-
-Anyway, this needs to be constrained per variant.
-
-> +
->    "#clock-cells":
->      const: 1
->      description:
-> @@ -36,8 +51,6 @@ properties:
->  
->  required:
->    - compatible
-> -  - reg
-
-No, that's a clear NAK. You claim you have no address space but in the
-same time you have address space via regmap.
-
-> -  - clocks
-
-Nope, not explained, unless you wanted to make it different per variants.
-
->    - "#clock-cells"
->  
->  additionalProperties: false
-> @@ -51,3 +64,9 @@ examples:
->          clocks = <&osc>;
->          #clock-cells = <1>;
->      };
-> +
-> +    clock-controller-vo {
-
-Node names should be generic. See also an explanation and list of
-examples (not exhaustive) in DT specification:
-https://devicetree-specification.readthedocs.io/en/latest/chapter2-devicetree-basics.html#generic-names-recommendation
-
-
-> +        compatible = "thead,th1520-clk-vo";
-> +        thead,vosys-regmap = <&vosys_regmap>;
-
-That's a "reg" property. Do not encode address space as something else.
-
-
-> +        #clock-cells = <1>;
-> +    };
-
+NAK, don't rename just because you added one more compatible (and anyway
+never a separate patch).
 
 Best regards,
 Krzysztof
