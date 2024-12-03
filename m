@@ -4,67 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4E483E64A85
-	for <linux-riscv@archiver.kernel.org>; Tue,  3 Dec 2024 12:26:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 943F0E64A85
+	for <linux-riscv@archiver.kernel.org>; Tue,  3 Dec 2024 12:27:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
-	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=pKDVRs2FeC7VWbyFZ461kxzC9OV26icFyyb1Vaa13Xw=; b=SL3HTZ9RP9K21j
-	cu0CoSdRPa2x/CgZdZNjSzOYDppR2fs0bBgPkzrO4tqe0uzxmJFWukQ2GSPOFwLcHjZ5nCtBJKxJO
-	4h7Uad3hOsW26kPf7528eVeuRF+FncKSR8Q5o9yLclYwO6I4O6adMoI4kdAR7PGtX645vjWfxCO07
-	a0ZV/i5ytKqxcJCAxc2qL9zPfp/s6H5DV/+YMR6hzmCWy1Zn5MZK2ETVhFO3tb9BEulur+ucW36kV
-	JGVCHAIqzyZjT+HmTTzBu0xWQKy6e4CkzhRhzB9t1hDn4ATOpbRIn+1q6IE7w9fc1PoY53qxoahny
-	rsq4Env/PbPj1GdcjL6w==;
+	List-Owner; bh=gfJR9aIigcHrWbMdxqgEIrndxTQbjwgZPRTWQWJ0CaU=; b=cX1IszBIzhEd+S
+	RTwAyYceBosboNhN/CpWaDHJYDzesjbaPMrZxk/uWwBueeMV1U4PFTtlHZISUUp4OyPl2eualJ1QL
+	OssPrkjxjmEQR5hvYjgLKN5qL4cB+ngIzFOVUFh1405vh2dOqwHv2dmG53ApQPMwJ/BQ9wHMYO+K2
+	yBk4n312aDP8uQELG7Sjr+7kDOFcnbc+wlRueWDFS1tVl84CvVtsah0LDH1XxY8wPIALzFE5EHQUW
+	pr2DdtDejoAt6h/3bwMXOaYkbZpqkObFy1cx7mBCYUADEI3DJA5fCxWzf1nE5oi8z9P8hsG99sS8S
+	5KwSQ5n49twd6nSuN8HA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIRyb-00000009QIy-1keQ;
-	Tue, 03 Dec 2024 12:26:01 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIRra-00000009Ot8-2XGV
+	id 1tIRza-00000009QT1-10A9;
+	Tue, 03 Dec 2024 12:27:02 +0000
+Received: from vmicros1.altlinux.org ([194.107.17.57])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tIRse-00000009P7f-3EkB
 	for linux-riscv@lists.infradead.org;
-	Tue, 03 Dec 2024 12:18:47 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 8244EA40C49;
-	Tue,  3 Dec 2024 12:16:53 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C7AFBC4CECF;
-	Tue,  3 Dec 2024 12:18:44 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1733228325;
-	bh=IEtpKOaFTNjK4bo/3qCtbbXfWyGOChEHYH6Pc2ZfG2k=;
-	h=From:To:Cc:Subject:In-Reply-To:References:Date:From;
-	b=VkKRXHfpGU9lQpEUTyPA4wwKD+7pb6cX+nCRssjT7tViAi+XrfMbWeVHP3/qIn4nu
-	 uATX5WESQIyruzZZ40JVQWrokQU8Bq2g/SKKPEqR4wm9YdXhgMpx34d9WxzTQpDtA4
-	 3oEEc58NlRjDKTBsV+oDoLCHpqytjw4JjCWdN9rvm4bbQwIDlooCULFl1ZSbemfJfE
-	 6oOjOoHXieUrgo6AVAsWFVoxqFkgEoNZyktOxMCamPq5l7Aw5KP3o5O2GQkQhyXcCv
-	 ptW59TlXfcy882dXBtvoJADOOhsYgKmTQCqpWsFE0xwG4QBFipU7xpgubPIWRfc85s
-	 gdWZh6VoU5wNg==
-From: =?utf-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>
-To: Andy Chiu <andybnac@gmail.com>, Paul Walmsley
- <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
- <aou@eecs.berkeley.edu>, Nathan Chancellor <nathan@kernel.org>, Nick
- Desaulniers <ndesaulniers@google.com>, Bill Wendling <morbo@google.com>,
- Justin Stitt <justinstitt@google.com>
-Cc: linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
- llvm@lists.linux.dev, bjorn@rivosinc.com, puranjay12@gmail.com,
- alexghiti@rivosinc.com, yongxuan.wang@sifive.com, greentime.hu@sifive.com,
- nick.hu@sifive.com, nylon.chen@sifive.com, tommy.wu@sifive.com,
- eric.lin@sifive.com, viccent.chen@sifive.com, zong.li@sifive.com,
- samuel.holland@sifive.com
-Subject: Re: [PATCH v3 0/7] riscv: ftrace: atmoic patching and preempt
- improvements
-In-Reply-To: <20241127172908.17149-1-andybnac@gmail.com>
-References: <20241127172908.17149-1-andybnac@gmail.com>
-Date: Tue, 03 Dec 2024 13:18:41 +0100
-Message-ID: <87ldwxot7i.fsf@all.your.base.are.belong.to.us>
+	Tue, 03 Dec 2024 12:19:54 +0000
+Received: from mua.local.altlinux.org (mua.local.altlinux.org [192.168.1.14])
+	by vmicros1.altlinux.org (Postfix) with ESMTP id F264772C97D;
+	Tue,  3 Dec 2024 15:19:48 +0300 (MSK)
+Received: by mua.local.altlinux.org (Postfix, from userid 508)
+	id E68127CCB3A; Tue,  3 Dec 2024 14:19:48 +0200 (IST)
+Date: Tue, 3 Dec 2024 14:19:48 +0200
+From: "Dmitry V. Levin" <ldv@strace.io>
+To: Charlie Jenkins <charlie@rivosinc.com>
+Cc: Celeste Liu <uwu@coelacanthus.name>, Oleg Nesterov <oleg@redhat.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Eric Biederman <ebiederm@xmission.com>, Kees Cook <kees@kernel.org>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	Andrea Bolognani <abologna@redhat.com>,
+	=?utf-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>,
+	Thomas Gleixner <tglx@linutronix.de>, Ron Economos <re@w6rz.net>,
+	Felix Yan <felixonmars@archlinux.org>,
+	Ruizhe Pan <c141028@gmail.com>,
+	Shiqi Zhang <shiqi@isrc.iscas.ac.cn>, Guo Ren <guoren@kernel.org>,
+	Yao Zi <ziyao@disroot.org>, Han Gao <gaohan@iscas.ac.cn>,
+	Quan Zhou <zhouquan@iscas.ac.cn>, linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org, linux-mm@kvack.org
+Subject: Re: [PATCH] riscv/ptrace: add new regset to get original a0 register
+Message-ID: <20241203121948.GA18179@strace.io>
+References: <20241201-riscv-new-regset-v1-1-c83c58abcc7b@coelacanthus.name>
+ <Z06ZAP-_4J4-6aK_@ghost>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <Z06ZAP-_4J4-6aK_@ghost>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241203_041846_706748_280FEFE0 
-X-CRM114-Status: UNSURE (   6.19  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241203_041952_971381_6FD92AD1 
+X-CRM114-Status: GOOD (  17.34  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,22 +71,89 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-QW5keSEKCiJhdG9taWMiIHNwZWxsaW5nIGluIHRoZSBTdWJqZWN0IGxpbmUuCgpBbmR5IENoaXUg
-PGFuZHlibmFjQGdtYWlsLmNvbT4gd3JpdGVzOgoKPiBDaGFuZ2VzIGluIHYzOgo+IC0gQWRkIGEg
-Zml4IHRhZyBmb3IgcGF0Y2ggMQo+IC0gQWRkIGEgZGF0YSBmZW5jZSBiZWZvcmUgc2VuZGluZyBv
-dXQgcmVtb3RlIGZlbmNlLmkgKDYpCj4gLSBMaW5rIHRvIHYyOiBodHRwczovL2xvcmUua2VybmVs
-Lm9yZy9hbGwvMjAyNDA2MjgtZGV2LWFuZHljLWR5bi1mdHJhY2UtdjQtdjItMC0xZTVmNGNiMWYw
-NDlAc2lmaXZlLmNvbS8KCkhtbSwgdGhlIGZpeGVzIHRhZyB3YXMgbm90IGluY2x1ZGVkLgoKQWxz
-bywgdGhlcmUgd2FzIGEgbG90IG9mIGNvbW1lbnRzIGZyb20gdjIgdGhhdCB3YXMgbm90IGFkZHJl
-c3NlZDoKCiAqIE1pbm9yIHNwZWxsaW5nIG5pdHMKICogQnJlYWtpbmcgRElSRUNUX0NBTEwsIGFu
-ZCBpbmNsdWRlIFB1cmFuamF5J3MgQ0FMTF9PUFMgd29yayBpbiB0aGUKICAgc2FtZSBzZXJpZXMg
-Zm9yIERJUkVDVF9DQUxMLCB0byBhdm9pZCBicmVha2FnZS4KCkknbGwgaGF2ZSBhIGxvb2sgYXQg
-dGhlIGJhcnJpZXJzICh3aGljaCBjYW1lIHVwIGF0IHBsdW1iZXJzKSEKCgpDaGVlcnMsCkJqw7Zy
-bgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgt
-cmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDov
-L2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
+On Mon, Dec 02, 2024 at 09:37:04PM -0800, Charlie Jenkins wrote:
+[...]
+> +static void ptrace_test(int opt, int *result)
+> +{
+> +	int status;
+> +	pid_t pid;
+> +	struct user_regs_struct regs;
+> +	struct iovec iov = {
+> +		.iov_base = &regs,
+> +		.iov_len = sizeof(regs),
+> +	};
+> +
+> +	unsigned long orig_a0;
+> +	struct iovec a0_iov = {
+> +		.iov_base = &orig_a0,
+> +		.iov_len = sizeof(orig_a0),
+> +	};
+> +
+> +	pid = fork();
+> +	if (pid == 0) {
+> +		/* Mark oneself being traced */
+> +		long val = ptrace(PTRACE_TRACEME, 0, 0, 0);
+> +		if (val)
+> +			perr_and_exit("failed to request for tracer to trace me: %ld\n", val);
+> +
+> +		kill(getpid(), SIGSTOP);
+> +
+> +		/* Perform exit syscall that will be intercepted */
+> +		exit(A0_OLD);
+> +	}
+> +
+> +	if (pid < 0)
+> +		exit(1);
+> +
+> +	if (waitpid(pid, &status, 0) != pid)
+> +		perr_and_exit("failed to wait for the tracee %d\n", pid);
+> +
+> +	/* Stop at the entry point of the syscall */
+> +	resume_and_wait_tracee(pid, PTRACE_SYSCALL);
+> +
+> +	/* Check tracee regs before the syscall */
+> +	if (ptrace(PTRACE_GETREGSET, pid, NT_PRSTATUS, &iov))
+> +		perr_and_exit("failed to get tracee registers\n");
+> +	if (ptrace(PTRACE_GETREGSET, pid, NT_RISCV_ORIG_A0, &a0_iov))
+> +		perr_and_exit("failed to get tracee registers\n");
+> +	if (orig_a0 != A0_OLD)
+> +		perr_and_exit("unexpected orig_a0: 0x%lx\n", orig_a0);
+> +
+> +	/* Modify a0/orig_a0 for the syscall */
+> +	switch (opt) {
+> +	case A0_MODIFY:
+> +		regs.a0 = A0_NEW;
+> +		break;
+
+Did you mean applying the modified user_regs_struct using PTRACE_SETREGSET?
+If yes, then there should be an appropriate PTRACE_SETREGSET NT_PRSTATUS call.
+If no, then regs is ignored, so why would you change it in the first place?
+
+> +	case ORIG_A0_MODIFY:
+> +		orig_a0 = A0_NEW;
+> +		break;
+> +	}
+> +
+> +	if (ptrace(PTRACE_SETREGSET, pid, NT_RISCV_ORIG_A0, &a0_iov))
+> +		perr_and_exit("failed to set tracee registers\n");
+> +
+> +	/* Resume the tracee */
+> +	ptrace(PTRACE_CONT, pid, 0, 0);
+> +	if (waitpid(pid, &status, 0) != pid)
+> +		perr_and_exit("failed to wait for the tracee\n");
+> +
+> +	*result = WEXITSTATUS(status);
+> +}
+
+-- 
+ldv
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
