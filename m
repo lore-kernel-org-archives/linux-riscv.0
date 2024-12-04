@@ -4,49 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0061DE7716E
-	for <linux-riscv@archiver.kernel.org>; Wed,  4 Dec 2024 12:58:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 18C3CE77173
+	for <linux-riscv@archiver.kernel.org>; Wed,  4 Dec 2024 12:58:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=f9vxktdYGwIIz1q1jgtLwI3oD6QAGCagQsivXY/sAA0=; b=0OkOTtrZGSS3jj
-	kpvmqlG66dcSZXvzTMBiPvwhJMyJNWY+oUsvYdaLEi/e4STb4qJ0EEks+svOWWSi2J7prN3vNVTvL
-	xmpwiU9jcBC2/T2xqbcQExfOdKecmgkaogw5p0FptR8xcrnXYXoYuSRch38x2ynjYcovzCZGRjWNs
-	EAvHYtvhGcqiMIxvSJx/xZWpw+gsXbIZ/UoSJJ27DQv/7PlEOunysOUce4UvhU3QnsvlmIgafOMUS
-	Oz0u7zwwDbRc+WYiqYKjDxC5/5kGPAk8bx0beZLz/VqwGMpKM1Yz6+bJQKHo43/+KOAX3YvFu2Ve4
-	VnRP28NGhFCbu3DnkvSQ==;
+	List-Owner; bh=U9OeWpxeCModcWF7gPnbTmiFzj0ivy0HOly5UBqROfk=; b=KEYuyBm/90u/H6
+	WhvBrjD8yw6f2/CJHerT7T0RepsntBA6CxMZ71jWvlC+hvrqI8qvQnigock7KzeXRGlAQ9x1M2jsh
+	BHQKU+wo8p/kbl0r5f2A+atcxXs7c8/ntTJIs71T2MxaIOduKxytLbFrGaCMB9nIZXlld2SYw1ah1
+	Dds4H5KKdfVrCtkxn/cswSCePGDyBVZKTEoIwCXnF+VPkY1BstlCto7YPciaiUKdIk8Mnc2DXD7+F
+	e1xmO2k2hdrsTHcOu7dIGLRYp6/8l/DhtmdVjmnexfOF0mO8j9d51DYS99D5cdBhuY1Hq/dUR04NA
+	MHCJJ7jKvtoqBZNK/Yig==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIoxQ-0000000CaxS-1bXM;
-	Wed, 04 Dec 2024 12:58:20 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1tIoxR-0000000Caz0-2uN3;
+	Wed, 04 Dec 2024 12:58:21 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIold-0000000CYRw-1Hao;
-	Wed, 04 Dec 2024 12:46:11 +0000
+	id 1tIold-0000000CYSW-3APW;
+	Wed, 04 Dec 2024 12:46:12 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 57EB15C6E38;
-	Wed,  4 Dec 2024 12:45:25 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B88DEC19422;
-	Wed,  4 Dec 2024 12:46:07 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 779C6A4165E;
+	Wed,  4 Dec 2024 12:44:16 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 31B93C4CEFA;
+	Wed,  4 Dec 2024 12:46:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1733316367;
-	bh=J2h79k3WbUC/sq2bIkNgbuUFrP/AJSlM4EuxmyTYCv0=;
+	s=k20201202; t=1733316368;
+	bh=dBlxdtKKIDXUcPL3xGhsmTLyyToka/SogTL+AHvkSKo=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=Vr62k5+wqB1Fqc1D6aPCpoufZJluao/kLQZNfg84/LfpHrKbYN828AKSTqqKeQaCv
-	 3qu8CJlgV0P0DphhuHV0RXZl4YlD5GanSbvvlMu2BizRaUa0Hiyflsbn0JCFsPYFlm
-	 P1gkyNmR285x7ujGi1/X7nvkGtakgj9ob+HawHpkN/gsJhbfR7sLIxfJqf6ilYEPbn
-	 0z1kYl4YMoWLS5wILpt7MSOKNaSISK55Ihf7zQNlQF4KCFvvTCP1K5JjOoLEXJFQAh
-	 YqxtoRQYloKWZvBp/HFxKoEC7jmafjvBxIyDNWdKmnde0t3aJ5QRBubvIAF4uuPuwA
-	 pJo0WFkL1wwLw==
+	b=AvvE2bmFyi4ii+jCYmLHcpmKKMRJEfg0hBoi+/2HyuZoB3HV1+mlNJeuh7g450CiD
+	 U03dL7MjZ4ID/ghfz07pzmH43kDP3IwFCEQJ3g2E+Zmp+Rum2T2sKaSLb0K7Cdb/6g
+	 3mCZwrKf9V8Bm0i6PFcfQ61qerHrXkqy7vKoYNrrarzCxXvXm1lDfeQDmXPb62aho0
+	 Q+6OnSJXvHtwl8+aexKkXpagX4X3QqMAKhp+8W2Qgo+Rg0mptwfEncNomGNxk1e4wv
+	 Kxl859SUjsHr2Gbff15WCbnodlWTwo0XDzN5gmPwAMuOmpzZQW2y9O/7ETlJzAKrn8
+	 fy3lHnX61HaTQ==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.95)
 	(envelope-from <maz@kernel.org>)
-	id 1tIolZ-000RHy-MI;
-	Wed, 04 Dec 2024 12:46:05 +0000
+	id 1tIola-000RHy-3u;
+	Wed, 04 Dec 2024 12:46:06 +0000
 From: Marc Zyngier <maz@kernel.org>
 To: iommu@lists.linux.dev,
 	linux-kernel@vger.kernel.org,
@@ -78,9 +78,9 @@ Cc: Joerg Roedel <joro@8bytes.org>,
 	Bjorn Helgaas <bhelgaas@google.com>,
 	Toan Le <toan@os.amperecomputing.com>,
 	Alyssa Rosenzweig <alyssa@rosenzweig.io>
-Subject: [PATCH 05/11] irqchip/riscv-imsic: Convert to msi_create_parent_irq_domain() helper
-Date: Wed,  4 Dec 2024 12:45:43 +0000
-Message-Id: <20241204124549.607054-6-maz@kernel.org>
+Subject: [PATCH 06/11] irqchip/imx-mu-msi: Convert to msi_create_parent_irq_domain() helper
+Date: Wed,  4 Dec 2024 12:45:44 +0000
+Message-Id: <20241204124549.607054-7-maz@kernel.org>
 X-Mailer: git-send-email 2.39.2
 In-Reply-To: <20241204124549.607054-1-maz@kernel.org>
 References: <20241204124549.607054-1-maz@kernel.org>
@@ -90,8 +90,8 @@ X-SA-Exim-Rcpt-To: iommu@lists.linux.dev, linux-kernel@vger.kernel.org, linux-ar
 X-SA-Exim-Mail-From: maz@kernel.org
 X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241204_044609_443196_249FDE3D 
-X-CRM114-Status: GOOD (  11.73  )
+X-CRM114-CacheID: sfid-20241204_044609_926495_DD3320EE 
+X-CRM114-Status: GOOD (  12.67  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,39 +109,38 @@ Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 Now that we have a concise helper to create an MSI parent domain,
-switch the RISC-V letter soup over to that.
+switch the IMX letter soup over to that.
 
 Signed-off-by: Marc Zyngier <maz@kernel.org>
 ---
- drivers/irqchip/irq-riscv-imsic-platform.c | 11 +++++------
- 1 file changed, 5 insertions(+), 6 deletions(-)
+ drivers/irqchip/irq-imx-mu-msi.c | 8 +++-----
+ 1 file changed, 3 insertions(+), 5 deletions(-)
 
-diff --git a/drivers/irqchip/irq-riscv-imsic-platform.c b/drivers/irqchip/irq-riscv-imsic-platform.c
-index c708780e8760f..3fbc3a8eb3be8 100644
---- a/drivers/irqchip/irq-riscv-imsic-platform.c
-+++ b/drivers/irqchip/irq-riscv-imsic-platform.c
-@@ -325,16 +325,15 @@ int imsic_irqdomain_init(void)
- 	}
+diff --git a/drivers/irqchip/irq-imx-mu-msi.c b/drivers/irqchip/irq-imx-mu-msi.c
+index b3f656c6e7708..b73968423bb9f 100644
+--- a/drivers/irqchip/irq-imx-mu-msi.c
++++ b/drivers/irqchip/irq-imx-mu-msi.c
+@@ -226,17 +226,15 @@ static int imx_mu_msi_domains_init(struct imx_mu_msi *msi_data, struct device *d
+ 	struct irq_domain *parent;
  
- 	/* Create Base IRQ domain */
--	imsic->base_domain = irq_domain_create_tree(imsic->fwnode,
--						    &imsic_base_domain_ops, imsic);
-+	imsic->base_domain = msi_create_parent_irq_domain(imsic->fwnode,
-+							  &imsic_msi_parent_ops,
-+							  &imsic_base_domain_ops,
-+							  0, 0, imsic, NULL);
-+	
- 	if (!imsic->base_domain) {
- 		pr_err("%pfwP: failed to create IMSIC base domain\n", imsic->fwnode);
+ 	/* Initialize MSI domain parent */
+-	parent = irq_domain_create_linear(fwnodes, IMX_MU_CHANS,
+-					  &imx_mu_msi_domain_ops, msi_data);
++	parent = msi_create_parent_irq_domain(fwnodes, &imx_mu_msi_parent_ops,
++					      &imx_mu_msi_domain_ops, 0,
++					      IMX_MU_CHANS, msi_data, NULL);
+ 	if (!parent) {
+ 		dev_err(dev, "failed to create IRQ domain\n");
  		return -ENOMEM;
  	}
--	imsic->base_domain->flags |= IRQ_DOMAIN_FLAG_MSI_PARENT;
--	imsic->base_domain->msi_parent_ops = &imsic_msi_parent_ops;
--
--	irq_domain_update_bus_token(imsic->base_domain, DOMAIN_BUS_NEXUS);
  
- 	global = &imsic->global;
- 	pr_info("%pfwP:  hart-index-bits: %d,  guest-index-bits: %d\n",
+-	irq_domain_update_bus_token(parent, DOMAIN_BUS_NEXUS);
+ 	parent->dev = parent->pm_dev = dev;
+-	parent->flags |= IRQ_DOMAIN_FLAG_MSI_PARENT;
+-	parent->msi_parent_ops = &imx_mu_msi_parent_ops;
+ 	return 0;
+ }
+ 
 -- 
 2.39.2
 
