@@ -4,92 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 53336E7716B
-	for <linux-riscv@archiver.kernel.org>; Wed,  4 Dec 2024 11:15:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 08C42E7716B
+	for <linux-riscv@archiver.kernel.org>; Wed,  4 Dec 2024 11:54:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=Xs/RGtukC3oNSHPnGZFNr+Q/G9XSG7RiNDJUFFCqk6o=; b=zWBp9t7AnECjMe
-	mQ27broZLE+G9tcUCjLD1OKZ+aKGN5TVhvLyHI/ja48HwZCpQ9s/Zv+Swf0NScpi6+7+5kTI+Gpuq
-	kvIsbE39Jir0SPhTT1jIz3B/B2GdOO8RpXj0PAd4ZHgFZx3LPPmOytlJrS3n0Z2LCarj/ww2UroHM
-	OGp6dy/7DWX7hltd9qaZbbVe+84wRyWABI681CecTgIHqUmidf78EZt3e9f1kipy59VNzJFSY70d9
-	34tKjRVaNwPQwlF+RP2bHpJj7uEocpezlSxVLKLn0nOuC+qBQKwMCnJW3nnd5UQmXotem06kzmK2y
-	RSn7TXU2vNh5B92uHKCA==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:
+	Mime-Version:References:In-Reply-To:From:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Owner;
+	bh=5p1rk/9MGbFdlph1dOpS4vecSvyuzRb9cj7AOXPN7Lg=; b=ngN7vanCmPMS3eoxa/w2L4OZW6
+	N3FJXFYAvJXOEx625Ktvt8kGoUYuXl1gH+Qb8RUTM5OeQXZRRf2zfdvVyDay79tKdTpy+fDSue4+F
+	JyQZ/2GZGa/8ygvg1B+ySYEuIq2af+r3UYL8P8yNo5K3TvC9/1VjnrGCTIrYt0ylckFyTuQxGgMD3
+	n7UOEj9JnDltahra19hijH9o/C1xEOVLQX8MEMQ8oou7t+POojncFG3oG4jno7VEPB3z8Zceid5Qb
+	PWweiuf6FFcuFQBQgJ+DVofWinVPtITdQEWsrWSs2djXBiNW9K89Z5eskasQ+LInb1zZa6Xw0BzeO
+	uIdNdrBA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tInLY-0000000CLLk-3JZm;
-	Wed, 04 Dec 2024 11:15:08 +0000
-Received: from mail-lf1-x12e.google.com ([2a00:1450:4864:20::12e])
+	id 1tInxj-0000000CRt5-49GY;
+	Wed, 04 Dec 2024 11:54:35 +0000
+Received: from smtp-relay-internal-1.canonical.com ([185.125.188.123])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tInLW-0000000CLL0-3UTZ
+	id 1tInxg-0000000CRsg-3A8F
 	for linux-riscv@lists.infradead.org;
-	Wed, 04 Dec 2024 11:15:07 +0000
-Received: by mail-lf1-x12e.google.com with SMTP id 2adb3069b0e04-53df7f6a133so6751553e87.3
-        for <linux-riscv@lists.infradead.org>; Wed, 04 Dec 2024 03:15:06 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1733310904; x=1733915704; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=Xbp3m6Cn2heC+155S7bxZ4ivlSk42YF62OspC6ro8GA=;
-        b=XrgoFtd15sjWVPGvFAtFy7Wc6nqvJux6jb5kj2ut05ciZQtGSck5WT79v3me2LoUhT
-         krjNmZYx+rJuuiBfDczgZwsmvfTIg7m6M59NnBMEDnLRyxQdWXqiKCE7hFasehT6fl6w
-         EnqgwiRsvkcJCTXc5jBXXXnlwHS1AI2YI+K6pfKp1PNUnEn6WAQ8R0/ogFlejMYBGyVG
-         Ezn2pBptf3b30tDyR3wjANdHST8UAxDYeFXzMwwuoKoDpp24PP9RONsa9LctO7i+LjPp
-         T49/33cyouEKkGCq9OSM94bjBTlQC9r6pfcBbsWI+6oDO8oCXHUovtapSfzeGQBqGP21
-         X34Q==
+	Wed, 04 Dec 2024 11:54:34 +0000
+Received: from mail-oa1-f69.google.com (mail-oa1-f69.google.com [209.85.160.69])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by smtp-relay-internal-1.canonical.com (Postfix) with ESMTPS id E87EE3F763
+	for <linux-riscv@lists.infradead.org>; Wed,  4 Dec 2024 11:54:27 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
+	s=20210705; t=1733313267;
+	bh=ZZ0KuXCkwVIsgqmnVBvqG5NLt7HlyOEZfYjDmvMmLyo=;
+	h=From:In-Reply-To:References:Mime-Version:Date:Message-ID:Subject:
+	 To:Cc:Content-Type;
+	b=cE2j7htDZmzYRn/9l8iH9MpxMb3IOgJbLcUThR98BK2dp7k4pF3LmwKwTRYjTD1Mn
+	 NUrJrzyYZWmCdK++u9IZxEPK1HOS0MYfQreY1udJKZNnyeXpYunLzPwCXgskpex/nC
+	 B19q95phFHFI0R/7agXn63GrACzyHF7dPQv/+7YsWUiOOM3AavDsP0GOrRgJyBYS7H
+	 JPLXrhvZ6ZtggToMUfaTV2T3DFG93PeGhxiG80C3Vn/cl/1nFs+G7mD6H+PGMOr6N2
+	 BdrSYxDgYDTyQroUCSaJqRNcOfrHXVgjeo7K9YWkzDePP7Xnr+yyU69O6exk0Ww/2H
+	 wJJyE0saQgGTg==
+Received: by mail-oa1-f69.google.com with SMTP id 586e51a60fabf-29e8910b87cso1709698fac.2
+        for <linux-riscv@lists.infradead.org>; Wed, 04 Dec 2024 03:54:27 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1733310904; x=1733915704;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=Xbp3m6Cn2heC+155S7bxZ4ivlSk42YF62OspC6ro8GA=;
-        b=tXQRVEozax2u9wtDs92Felfx5W3+B8Y90QlDwSU8LBd+9S6M6DZ+ewStC7ZBroMI63
-         Odx6YadDjsZUsvzJAT4H2Kh532oFQDRF49x3OG9A2Vj0reY+jqFG6t1Hh0nKmEWcUH/4
-         pWkJhW+y4p75nyD7maMW1eum+4WDfJnky2+r4sUziBzJaxrgi/aPstxioLu2D2CpIZFB
-         Vc1AWItm1mlU+z2My3/n6jjgzalB3GGsCV1B6epbBl4bp46DqbVVpz3zJlMYdXLTyaoI
-         NE+h6vfCSpj00jajf9I/ZLOf6TEQ0CnabmFdhhInKCSDJv7RxOSonfwb7TPwGseDIxHG
-         XlHA==
-X-Forwarded-Encrypted: i=1; AJvYcCXwz46qn6o8UuexGPBjNNVe927iZkDf2kR6psCauF0DEus/QAtL6u8E5+f0UQN9rCJr/aWRc4t3yuk+kQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw79HZ8VfwweV3wCGum1htK3otm4z3FsdnaV9MlBrbBDeC/qh4/
-	+o1hty/swQC/KMEZzempQG/5r2mnT6gx47meFPX1Ph74Bv0B/GVZ
-X-Gm-Gg: ASbGncsZMYKyGJyF5HU6Q7QNFpoK3WoJUV66X3S0N/hC38Y/oFUaSMCm9VQKP8wHRoG
-	2bchcuaNSBu9DqGEgIbiy2boBvzEFs4tUrUzJ4NxzEuy2K+kDB8GkzF+xoswu8tMLUGOEN077Yk
-	3oFuipxY+ENWm/X6LwZV7y07UodhTU+ZlTfxC4Woft5N8OIqSJ9hYamY5WHamXJCQOu/3TF1EEk
-	+3T3EUFeBXZ1eS+bX1WrqKr3auFbK+pgU7E2WREx2OFCBC5x39hn2+VD+mlCZOHZT2ynQdA+wuI
-	8cU0t5s=
-X-Google-Smtp-Source: AGHT+IF8VqagoVcsT3PrjFrHxvDph9cZFCYIL4WHBAhaQL6GIgucsdHTtT8Sn/F7Qa4T5hbQ2dudAg==
-X-Received: by 2002:a05:6512:3b27:b0:53d:eef4:8acf with SMTP id 2adb3069b0e04-53e12a2d5dfmr2237633e87.45.1733310904141;
-        Wed, 04 Dec 2024 03:15:04 -0800 (PST)
-Received: from wpc.yadro.com (host-93-124-60-94.dsl.sura.ru. [93.124.60.94])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-53e18b2df6csm455727e87.8.2024.12.04.03.15.02
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 04 Dec 2024 03:15:03 -0800 (PST)
-From: bigunclemax@gmail.com
-To: 
-Cc: bigunclemax@gmail.com,
-	Drew Fustini <drew@pdp7.com>,
-	Guo Ren <guoren@kernel.org>,
-	Fu Wei <wefu@redhat.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	linux-riscv@lists.infradead.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v1] riscv: dts: thead: Fix TH1520 emmc and shdci clock rate
-Date: Wed,  4 Dec 2024 14:14:23 +0300
-Message-ID: <20241204111424.263055-1-bigunclemax@gmail.com>
-X-Mailer: git-send-email 2.45.2
-MIME-Version: 1.0
+        d=1e100.net; s=20230601; t=1733313266; x=1733918066;
+        h=cc:to:subject:message-id:date:mime-version:references:in-reply-to
+         :from:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=ZZ0KuXCkwVIsgqmnVBvqG5NLt7HlyOEZfYjDmvMmLyo=;
+        b=sJGNybJAsPgfzeiM5eA2BXomvBIcs2WDTN90BOtaaPe5AggAd9/iulkmqDxJ7vPVD9
+         4e6QIaHXJzrazq3g3MRKhI3HMUWCN97XHrSwLpvzkbx3DWgHQYs/6kjpVCJHpoNvwBzZ
+         oiiJuLd5Q8zMT3XTRMkAHKUR9RhyjVMYd1yOuIOAeY0k4flPHXKevdwA1pW1VzmaXkbZ
+         9K+ojEp7NSPstNQAGfpCdQrs/c3UZfsZii+8/uC0mekSJvYTnO8351N1oN1cT0a2xA/v
+         YY+mnCrdXsgpTdaOcyQV49hnLiz/n1/FWlSKQCQ1f69B1OTVPKC38vXAX+LL5UX6XmHR
+         Xzng==
+X-Gm-Message-State: AOJu0Yy5ByTazbpvISsmoD5EAzaxO33HgFTKcci4X4nCfpMGZXv4mGx/
+	pFYJDQzEPsMPm8r3JPbNvWGy/Lj/ApxUDDAZ4WWP0LnXSuVf03XFBtG0CJc3zCBahWNCVOuQd8e
+	rpPr+dpwtEKjEs39d9XrYWdpAjDc11kVdN8APYWw109PO2flhBbCXao/GSbyfOQk2Vq7GKE9d/5
+	GlfwPwxZL4w81aP2lRA3Q/SS56nOazo5qxAmR4ocRurLNg5EUb1FryS9OO
+X-Gm-Gg: ASbGncsQtKl+XFGy50we9ZZMnsKBnhiEPrD+l/aLiNZgPBHx81yMDlELCtzQdllPnOT
+	Hlfo8K1uMp2147hHhzJRdoaH7+LTJNnk6pIIj+/f4bUkDT/YCPt4et9rG9sEd
+X-Received: by 2002:a05:6870:96a7:b0:29e:509c:3711 with SMTP id 586e51a60fabf-29e88611583mr5475016fac.15.1733313266396;
+        Wed, 04 Dec 2024 03:54:26 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IEwNtBRj1a6Oig1wQNPMOX7J3gElLahKM+e/WFt9W2DcJnKUJX69cF+v6/fGKa1JigCuGVZtni+R40UsicskUU=
+X-Received: by 2002:a05:6870:96a7:b0:29e:509c:3711 with SMTP id
+ 586e51a60fabf-29e88611583mr5475008fac.15.1733313266148; Wed, 04 Dec 2024
+ 03:54:26 -0800 (PST)
+Received: from 348282803490 named unknown by gmailapi.google.com with
+ HTTPREST; Wed, 4 Dec 2024 03:54:25 -0800
+From: Emil Renner Berthing <emil.renner.berthing@canonical.com>
+In-Reply-To: <20241126143125.9980-2-heylenay@4d2.org>
+References: <20241126143125.9980-2-heylenay@4d2.org>
+Mime-Version: 1.0
+Date: Wed, 4 Dec 2024 03:54:25 -0800
+Message-ID: <CAJM55Z88=jq4brJeDuXF37yAHqQKCCs7L8gVOdHQhjVT7r-eZA@mail.gmail.com>
+Subject: Re: [PATCH v3 0/3] Add clock controller support for Spacemit K1
+To: Haylen Chu <heylenay@4d2.org>, Michael Turquette <mturquette@baylibre.com>, 
+	Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Haylen Chu <heylenay@outlook.com>
+Cc: linux-riscv@lists.infradead.org, linux-clk@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	Inochi Amaoto <inochiama@outlook.com>, Chen Wang <unicornxdotw@foxmail.com>, 
+	Jisheng Zhang <jszhang@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241204_031506_873227_2DD21656 
-X-CRM114-Status: GOOD (  11.83  )
+X-CRM114-CacheID: sfid-20241204_035433_049056_36E09B7D 
+X-CRM114-Status: GOOD (  18.40  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,83 +106,104 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Maksim Kiselev <bigunclemax@gmail.com>
+Haylen Chu wrote:
+> The clock tree of Spacemit K1 is managed by several independent
+> controllers in different SoC parts. In this series, all clock hardwares
+> in APBS, MPMU, APBC and APMU, are implemented. With some changes to UART
+> driver, CPU cores and UARTs could be brought up (see below). More clocks
+> will be implemented later soon.
+>
+> No device tree changes are included since Spacemit K1 UART needs two
+> clocks to operate, but for now the driver gets only one. I would like to
+> defer the changes until this is resolved.
 
-In accordance with LicheePi 4A BSP the clock that comes to emmc/sdhci
-is 198Mhz.
+Hi,
 
-But changing from fixed-clock to CLK_EMMC_SDIO leads to increasing input
-clock from 198Mhz to 792Mhz. Because the CLK_EMMC_SDIO is actually 792Mhz.
+Do you have a git tree with these dt changes though? It's impossible to test
+this patchset without them.
 
-Therefore calculation of output SDCLK is incorrect now.
-The mmc driver sets the divisor to 4 times larger than it should be
-and emmc/sd works 4 times slower.
+/Emil
 
-This can be confirmed with fio test:
-Sequential read of emmc with fixed 198Mz clock:
-READ: bw=289MiB/s (303MB/s)
-
-Sequential read with CLK_EMMC_SDIO clock:
-READ: bw=82.6MiB/s (86.6MB/s)
-
-Let's fix this issue by providing fixed-factor-clock that divides
-CLK_EMMC_SDIO by 4 for emmc/sd nodes.
-
-Fixes: 03a20182e1e0 ("riscv: dts: thead: change TH1520 mmc nodes to use clock controller")
-Signed-off-by: Maksim Kiselev <bigunclemax@gmail.com>
----
- arch/riscv/boot/dts/thead/th1520.dtsi | 14 +++++++++++---
- 1 file changed, 11 insertions(+), 3 deletions(-)
-
-diff --git a/arch/riscv/boot/dts/thead/th1520.dtsi b/arch/riscv/boot/dts/thead/th1520.dtsi
-index acfe030e803a..6c20965cd10c 100644
---- a/arch/riscv/boot/dts/thead/th1520.dtsi
-+++ b/arch/riscv/boot/dts/thead/th1520.dtsi
-@@ -229,6 +229,14 @@ stmmac_axi_config: stmmac-axi-config {
- 		snps,blen = <0 0 64 32 0 0 0>;
- 	};
- 
-+	sdhci_clk: sdhci-clock {
-+		compatible = "fixed-factor-clock";
-+		clocks = <&clk CLK_EMMC_SDIO>;
-+		#clock-cells = <0>;
-+		clock-div = <4>;
-+		clock-mult = <1>;
-+	};
-+
- 	soc {
- 		compatible = "simple-bus";
- 		interrupt-parent = <&plic>;
-@@ -328,7 +336,7 @@ emmc: mmc@ffe7080000 {
- 			compatible = "thead,th1520-dwcmshc";
- 			reg = <0xff 0xe7080000 0x0 0x10000>;
- 			interrupts = <62 IRQ_TYPE_LEVEL_HIGH>;
--			clocks = <&clk CLK_EMMC_SDIO>;
-+			clocks = <&sdhci_clk>;
- 			clock-names = "core";
- 			status = "disabled";
- 		};
-@@ -337,7 +345,7 @@ sdio0: mmc@ffe7090000 {
- 			compatible = "thead,th1520-dwcmshc";
- 			reg = <0xff 0xe7090000 0x0 0x10000>;
- 			interrupts = <64 IRQ_TYPE_LEVEL_HIGH>;
--			clocks = <&clk CLK_EMMC_SDIO>;
-+			clocks = <&sdhci_clk>;
- 			clock-names = "core";
- 			status = "disabled";
- 		};
-@@ -346,7 +354,7 @@ sdio1: mmc@ffe70a0000 {
- 			compatible = "thead,th1520-dwcmshc";
- 			reg = <0xff 0xe70a0000 0x0 0x10000>;
- 			interrupts = <71 IRQ_TYPE_LEVEL_HIGH>;
--			clocks = <&clk CLK_EMMC_SDIO>;
-+			clocks = <&sdhci_clk>;
- 			clock-names = "core";
- 			status = "disabled";
- 		};
--- 
-2.45.2
-
+>
+> This driver has been tested on BananaPi-F3 board and successfully
+> brought up I2C, RTC, mmc and ethernet controllers. A clock tree dump
+> could be obtained here[1].
+>
+> [1]: https://gist.github.com/heylenayy/ebc6316692dd3aff56575dbf0eb4f1a9
+>
+> Link: https://developer.spacemit.com/documentation?token=LCrKwWDasiJuROkVNusc2pWTnEb
+>
+> Changed from v2
+> - dt-binding fixes
+> - misc improvements in code
+> - drop unnecessary spinlock in the driver
+> - implement missing bus clocks
+> - Link to v2: https://lore.kernel.org/all/SEYPR01MB4221829A2CD4D4C1704BABD7D7602@SEYPR01MB4221.apcprd01.prod.exchangelabs.com/
+>
+> Changed from v1
+> - add SoC prefix (k1)
+> - relicense dt-binding header
+> - misc fixes and style improvements for dt-binding
+> - document spacemit,k1-syscon
+> - implement all APBS, MPMU, APBC and APMU clocks
+> - code cleanup
+> - Link to v1: https://lore.kernel.org/all/SEYPR01MB4221B3178F5233EAB5149E41D7902@SEYPR01MB4221.apcprd01.prod.exchangelabs.com/
+>
+> Haylen Chu (3):
+>   dt-bindings: clock: spacemit: Add clock controllers of Spacemit K1 SoC
+>   dt-bindings: soc: spacemit: Add spacemit,k1-syscon
+>   clk: spacemit: Add clock support for Spacemit K1 SoC
+>
+>  .../bindings/clock/spacemit,k1-ccu.yaml       |   57 +
+>  .../soc/spacemit/spacemit,k1-syscon.yaml      |   86 +
+>  drivers/clk/Kconfig                           |    1 +
+>  drivers/clk/Makefile                          |    1 +
+>  drivers/clk/spacemit/Kconfig                  |   20 +
+>  drivers/clk/spacemit/Makefile                 |    5 +
+>  drivers/clk/spacemit/ccu-k1.c                 | 1747 +++++++++++++++++
+>  drivers/clk/spacemit/ccu_common.h             |   62 +
+>  drivers/clk/spacemit/ccu_ddn.c                |  146 ++
+>  drivers/clk/spacemit/ccu_ddn.h                |   85 +
+>  drivers/clk/spacemit/ccu_mix.c                |  296 +++
+>  drivers/clk/spacemit/ccu_mix.h                |  336 ++++
+>  drivers/clk/spacemit/ccu_pll.c                |  198 ++
+>  drivers/clk/spacemit/ccu_pll.h                |   80 +
+>  include/dt-bindings/clock/spacemit,k1-ccu.h   |  246 +++
+>  15 files changed, 3366 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/clock/spacemit,k1-ccu.yaml
+>  create mode 100644 Documentation/devicetree/bindings/soc/spacemit/spacemit,k1-syscon.yaml
+>  create mode 100644 drivers/clk/spacemit/Kconfig
+>  create mode 100644 drivers/clk/spacemit/Makefile
+>  create mode 100644 drivers/clk/spacemit/ccu-k1.c
+>  create mode 100644 drivers/clk/spacemit/ccu_common.h
+>  create mode 100644 drivers/clk/spacemit/ccu_ddn.c
+>  create mode 100644 drivers/clk/spacemit/ccu_ddn.h
+>  create mode 100644 drivers/clk/spacemit/ccu_mix.c
+>  create mode 100644 drivers/clk/spacemit/ccu_mix.h
+>  create mode 100644 drivers/clk/spacemit/ccu_pll.c
+>  create mode 100644 drivers/clk/spacemit/ccu_pll.h
+>  create mode 100644 include/dt-bindings/clock/spacemit,k1-ccu.h
+>
+>
+> base-commit: 2d5404caa8c7bb5c4e0435f94b28834ae5456623
+> prerequisite-patch-id: 47dcf6861f7d434d25855b379e6d7ef4ce369c9c
+> prerequisite-patch-id: 77787fe82911923aff15ccf565e8fa451538c3a6
+> prerequisite-patch-id: b0bdb1742d96c5738f05262c3b0059102761390b
+> prerequisite-patch-id: 3927d39d8d77e35d5bfe53d9950da574ff8f2054
+> prerequisite-patch-id: a98039136a4796252a6029e474f03906f2541643
+> prerequisite-patch-id: c95f6dc0547a2a63a76e3cba0cf5c623b212b4e6
+> prerequisite-patch-id: 66e750e438ee959ddc2a6f0650814a2d8c989139
+> prerequisite-patch-id: 29a0fd8c36c1a4340f0d0b68a4c34d2b8abfb1ab
+> prerequisite-patch-id: 0bdfff661c33c380d1cf00a6c68688e05f88c0b3
+> prerequisite-patch-id: 99f15718e0bfbb7ed1a96dfa19f35841b004dae9
+> --
+> 2.47.0
+>
+>
+> _______________________________________________
+> linux-riscv mailing list
+> linux-riscv@lists.infradead.org
+> http://lists.infradead.org/mailman/listinfo/linux-riscv
 
 _______________________________________________
 linux-riscv mailing list
