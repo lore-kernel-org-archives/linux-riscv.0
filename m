@@ -4,133 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2831FE7716B
-	for <linux-riscv@archiver.kernel.org>; Wed,  4 Dec 2024 10:11:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33FA4E7716D
+	for <linux-riscv@archiver.kernel.org>; Wed,  4 Dec 2024 10:45:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:References:In-Reply-To:From:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=cf+TTKnNPLK4nf8S4WvGH3vs9WEhHTES2HHKJg6p9cw=; b=HhWpCW26wJU8b+
-	pSDL4G1SDLvLrmoBlQRFIIihb//5iRPbqTw+7EYT7I7X4yI8csDWa8G0hIaa0UL4MLBYxeUh+mIg1
-	ryHhP4nfOWfLem8nF22EyrPkjMGbIUW9hstSWJei7sPutNSFKNpADI2mRMRMA8dMsGo1/uMyW5Klw
-	ue5UBSqeor5OrVScksAj59obzC/0OOOcu7weaS6AO7G2fu4qsRPCC1MPTTpd7tvSy6YMNxVaLoo/c
-	9cuzaKdBlnbtqCLKqjwxlPsTQLjjLRunHFnoTKRqF6uYxspO67qbLthIjBCVDjZUJNkveuxgtaNDJ
-	5MtmOfTy94zzxNjARvpw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:CC:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=/YSgN8Q0R8AZ//jBLbKqlXzZsXoW1kUZbTU0MBEvBYM=; b=o5Hzi5uNJXw8BPVqOPyDybPlEj
+	ZgY+61qSHio3caboAH9tlqiXhS1gWmKRpveSg70P2cVE4YMYoDOuDQMUsR9VoZH/7KHnP7X2RcVQc
+	wu6xSQdSzimI5EMMUkuEDhbxl5lVTOGjvVqzTZa9f/FNsCsa0RKWznYMuZHjQtL73VQOwjSlNB5xR
+	7WlLTfLOd8PaFFRpgUqA1PCegkp+yLGdBTQ4qJunVBn8rM/64kRkc40yzkdzaR8gfFsMX4wwSQWYI
+	7XwvWwsm6d88VfEy2q3N9ZA81lvcNvregrMBFg+cTfedVxj7QVywglPFmIqaOXi+re16/Fxd2Xn1X
+	EnpC813g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tImM2-0000000CAZp-0D1w;
-	Wed, 04 Dec 2024 10:11:34 +0000
-Received: from mailout1.w1.samsung.com ([210.118.77.11])
+	id 1tImtB-0000000CG0r-01Qs;
+	Wed, 04 Dec 2024 10:45:49 +0000
+Received: from esa.microchip.iphmx.com ([68.232.153.233])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tImLz-0000000CAZJ-1PJl
-	for linux-riscv@lists.infradead.org;
-	Wed, 04 Dec 2024 10:11:33 +0000
-Received: from eucas1p2.samsung.com (unknown [182.198.249.207])
-	by mailout1.w1.samsung.com (KnoxPortal) with ESMTP id 20241204101129euoutp0130e532b8d42f54d55a30938aa99fc3ac~N8Z0urJ-e1163511635euoutp01x
-	for <linux-riscv@lists.infradead.org>; Wed,  4 Dec 2024 10:11:29 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout1.w1.samsung.com 20241204101129euoutp0130e532b8d42f54d55a30938aa99fc3ac~N8Z0urJ-e1163511635euoutp01x
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1733307089;
-	bh=EuqndAqdKmSf/8miGqIK4IlylxV/hAtKHgomM2ekQI8=;
-	h=Date:Subject:To:Cc:From:In-Reply-To:References:From;
-	b=EtuoIiIbzEqQ8wkOHLVPpRNuS5W/VZRes35ei/vkIPze8hssoCOj3yMgplxVkeO3g
-	 eZ9FzTdhXEdEJ9X5QKKK4aNPXKVsjam6kxIiNJA84xQ/8bo/9B+ewFOaQG7/pCcO2I
-	 3uHWtRDQ1GE3pGmIwlFc8+46pBe3/HIsTVrTyMps=
-Received: from eusmges3new.samsung.com (unknown [203.254.199.245]) by
-	eucas1p2.samsung.com (KnoxPortal) with ESMTP id
-	20241204101128eucas1p25ef8b2a4716d2cb3bee6e1f1b8884e1b~N8Z0JlD4D0619706197eucas1p2v;
-	Wed,  4 Dec 2024 10:11:28 +0000 (GMT)
-Received: from eucas1p2.samsung.com ( [182.198.249.207]) by
-	eusmges3new.samsung.com (EUCPMTA) with SMTP id 82.E8.20397.0DA20576; Wed,  4
-	Dec 2024 10:11:28 +0000 (GMT)
-Received: from eusmtrp1.samsung.com (unknown [182.198.249.138]) by
-	eucas1p1.samsung.com (KnoxPortal) with ESMTPA id
-	20241204101127eucas1p179dcc956b027a7b919043a4c65c04a71~N8ZzvXPbA1897018970eucas1p1-;
-	Wed,  4 Dec 2024 10:11:27 +0000 (GMT)
-Received: from eusmgms2.samsung.com (unknown [182.198.249.180]) by
-	eusmtrp1.samsung.com (KnoxPortal) with ESMTP id
-	20241204101127eusmtrp1e121421c025121a497c41359c15ff375~N8ZzueqwA2729527295eusmtrp1j;
-	Wed,  4 Dec 2024 10:11:27 +0000 (GMT)
-X-AuditID: cbfec7f5-e59c770000004fad-f6-67502ad0bd06
-Received: from eusmtip2.samsung.com ( [203.254.199.222]) by
-	eusmgms2.samsung.com (EUCPMTA) with SMTP id E5.B6.19654.FCA20576; Wed,  4
-	Dec 2024 10:11:27 +0000 (GMT)
-Received: from [192.168.1.44] (unknown [106.210.136.40]) by
-	eusmtip2.samsung.com (KnoxPortal) with ESMTPA id
-	20241204101126eusmtip2a89da49f3dc9db1702403a20dc33d885~N8Zyb6hBh1974719747eusmtip2t;
-	Wed,  4 Dec 2024 10:11:26 +0000 (GMT)
-Message-ID: <07bfb02a-1df3-4a03-83bb-d7edc540739d@samsung.com>
-Date: Wed, 4 Dec 2024 11:11:26 +0100
+	id 1tImf8-0000000CCwS-1V9p;
+	Wed, 04 Dec 2024 10:31:19 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1733308278; x=1764844278;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=r0YdPCfkW3WmeY7CSxvYSy9ijT0JApNn+evb9OV6AyY=;
+  b=YbXZroQg0KGuraEXMV0zEkl+DGicdPTCJeAoggwG4oMK2eBdmYR1B+//
+   mP5Negjmh32+otw2earBxEm9x1BGq4iTfpueInbH761DK1YjZdt1S/lMp
+   MLUPxDAR/cG3uZagVyeEk5N+c+VRzkvEGzbAGqtrTmBRnWp+MRMyiOex2
+   xlPC9gFZMvs2qEK1Burs7NuIr3BVyy8LxO53aIz2fMLm4nEHIzwZGd6Rj
+   M0rT/dXUvA9u1Rx4owCoSF2vBcD94IxX8WFI6Rkuw0tiI6PT2AU7VHiXv
+   +a/YH97ZsnhIkE2WSabNdSquIxv60WTX23qzaXA3tnne7AUwwIwHaY7UM
+   w==;
+X-CSE-ConnectionGUID: CZPZjHfUTDSgQz0WJMX9AQ==
+X-CSE-MsgGUID: C7yECW8eSqCGXf/l/TDPkQ==
+X-IronPort-AV: E=Sophos;i="6.12,207,1728975600"; 
+   d="asc'?scan'208";a="38772663"
+X-Amp-Result: UNKNOWN
+X-Amp-Original-Verdict: FILE UNKNOWN
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa1.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 04 Dec 2024 03:31:16 -0700
+Received: from chn-vm-ex03.mchp-main.com (10.10.85.151) by
+ chn-vm-ex02.mchp-main.com (10.10.85.144) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.35; Wed, 4 Dec 2024 03:31:14 -0700
+Received: from wendy (10.10.85.11) by chn-vm-ex03.mchp-main.com (10.10.85.151)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.35 via Frontend
+ Transport; Wed, 4 Dec 2024 03:31:12 -0700
+Date: Wed, 4 Dec 2024 10:30:44 +0000
+From: Conor Dooley <conor.dooley@microchip.com>
+To: Geert Uytterhoeven <geert+renesas@glider.be>
+CC: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+	<palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Damien Le Moal
+	<dlemoal@kernel.org>, Anup Patel <anup@brainfault.org>, Atish Patra
+	<atishp@atishpatra.org>, <linux-riscv@lists.infradead.org>,
+	<kvm@vger.kernel.org>, <kvm-riscv@lists.infradead.org>
+Subject: Re: [PATCH] riscv: Remove duplicate CLINT_TIMER selections
+Message-ID: <20241204-aliens-cover-66b60e058ca4@wendy>
+References: <448dba3309fe341f4095b227b75ae5fc6b05f51a.1733242214.git.geert+renesas@glider.be>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH v1 05/14] dt-bindings: clock: thead,th1520: Add
- support for Video Output subsystem
-To: Krzysztof Kozlowski <krzk@kernel.org>, mturquette@baylibre.com,
-	sboyd@kernel.org, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
-	drew@pdp7.com, guoren@kernel.org, wefu@redhat.com, jassisinghbrar@gmail.com,
-	paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
-	frank.binns@imgtec.com, matt.coster@imgtec.com,
-	maarten.lankhorst@linux.intel.com, mripard@kernel.org, tzimmermann@suse.de,
-	airlied@gmail.com, simona@ffwll.ch, ulf.hansson@linaro.org,
-	jszhang@kernel.org, m.szyprowski@samsung.com
-Cc: linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
-	dri-devel@lists.freedesktop.org, linux-pm@vger.kernel.org
-Content-Language: en-US
-From: Michal Wilczynski <m.wilczynski@samsung.com>
-In-Reply-To: <f21ffd12-167b-4d10-9017-33041ec322b0@kernel.org>
-X-Brightmail-Tracker: H4sIAAAAAAAAA01Se0xTVxzeub2999JavC06TpgLoXFugsNNxJxMQ+ZeuYlZBnMZGS7DZr0W
-	x8u0wDaECdIRxGp0SJidAiKTBocMKOVRXitIKUVaYTwm5eEGhJIyZCApI7JRL278933f7/H9
-	vpND8STNhB91MiGJVSbI4qSEADd0rthetQeGK15bbhejrqESDNWuakn0U3Mvhoo6evlorE+P
-	oV8fzxPozpSdRDPNmTga1F0nUVZnJYGc2jEC2Ww/k2hBM8ZH/Y3XCLR4oQMgw6KaQBUdoyS6
-	sVCLo9L6RoCyz93io/vd7yJnv4aHsrVb0T9N9SRaG6zC0Q9/tpJI77rMR+aKSKRuvYK/+SIz
-	P/wtybicTpxpz1kimeblYpxp0I6SjKahBzDV5ecIxjHYRDCFlghm/LwZY2pKzzDqik6MmW8Z
-	IJiL+nLA9GUNkUyN9XS4OEpwSM7GnUxhlXvDjgtisqbt+Km2kK/qa6v4GeBSYC7woiC9Hy5l
-	DpO5QEBJaB2AroLCDbIE4MTZIowjiwCevTjAezbS/uPfBFcoA3DlyV3AkTkAF7vKgKdLRIfB
-	343FuAfj9E5oHGnjcboYWq5OPtW30/5w/MH3pAf70HHwF9co7lm0jb6CQ3dJ89MBHl0HYFeP
-	iMO+8MGk5yYviqD3wYmyIr4He62b1ebPAq7HH9bNXeN5FkHaIoDuhzfWHah18g60OQ9xEXzg
-	rFlPcngHtOZpcA4nwonavzZipsEGjXkDH4SOXk9kan3/bljZuJeTD8Mus25juzccnhNzF3jD
-	7wwFPE4WwZxsCde9C+ZrLvxn2qszYJeAVLvpUbSbMmo3ZdH+71sM8HLgyyar4hWsKiSB/TJY
-	JYtXJScogj9PjK8G6z/cumZ+XA90swvBJoBRwAQgxZNuE0WUfqCQiOSyr1NZZWK0MjmOVZnA
-	CxQu9RW9JPdnJbRClsTGsuwpVvmsilFefhnYpy8nNR3ufiXeaG7zTXFuXziin//M+/33hvIi
-	R1SpX8TsUDe99caJOrZyfE0+ZSRZvFSxJ+25rGkiShPijj4TkGlUTOYIhEF+W3QR/eYnzzta
-	9kdbRjJK7E3qkunIb65+VFghf9t1TOe4n71TEXrb5ZcSJAw4feKow+pzQBy69chq2prwetZI
-	0L3qsYf5q5/MpEf+MWOuOX4719Rd128LNMFoiyLAfmyg0tJVmGEIe3SULmrfc15YYre7w5Me
-	fVzQmmeo0t05cAs7aFjuaEmyzsTs/m2qLN2ZvhJap5zKDupQm/uGVnsCqA/FKNUWuyWANd7r
-	dcndVNTdEeHNfbGXpbgqRvZ6IE+pkv0Ldt9DKVAEAAA=
-X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFjrPKsWRmVeSWpSXmKPExsVy+t/xe7rntQLSDV73G1qcuL6IyWLr71ns
-	Fmv2nmOymH/kHKvFvUtbmCyufH3PZrHu6QV2ixd7G1ksrq2Yy27RfGw9m8XLWffYLM6f38Bu
-	8bHnHqvF5V1z2Cw+9x5htNj2uYXNYu2Ru+wWCz9uZbFYsmMXo0Vb5zJWi4unXC1eXu5htmib
-	xW/xf88Odot/1zayWMx+t5/dYsubiawWx9eGW7Tsn8LiIOvx/kYru8ebly9ZPA53fGH32Ptt
-	AYvHzll32T16dp5h9Ni0qpPN4861PWwe804GetzvPs7ksXlJvUfL2mNMHu/3XWXz6NuyitHj
-	UvN1do/Np6sDBKP0bIryS0tSFTLyi0tslaINLYz0DC0t9IxMLPUMjc1jrYxMlfTtbFJSczLL
-	Uov07RL0MpqfXWApOGBcsWPrRtYGxglaXYycHBICJhKHl/5iA7GFBJYySvS8zIaIy0hc637J
-	AmELS/y51gVV85pR4tI+KRCbV8BO4tHuBWA1LAIqErtvH2CGiAtKnJz5BCwuKiAvcf/WDHYQ
-	W1ggR+Lgm7tAcS4OEYEpLBKrH/1jBnGYBbYzSmyYOZURxBES+Mso8bR1Btg6ZgFxiVtP5jOB
-	2GwCRhIPls9nBbE5gVZvnfoKqIEDqEZdYv08IYhyeYntb+cwT2AUmoXkkFlIJs1C6JiFpGMB
-	I8sqRpHU0uLc9NxiI73ixNzi0rx0veT83E2MwJS17djPLTsYV776qHeIkYmD8RCjBAezkghv
-	4BL/dCHelMTKqtSi/Pii0pzU4kOMpsDAmMgsJZqcD0yaeSXxhmYGpoYmZpYGppZmxkrivGxX
-	zqcJCaQnlqRmp6YWpBbB9DFxcEo1MPFc+e8Xvi17e2vg2X9VbB/ykletedhqbrw5aLNl19Y4
-	K7PM+tkreyWiYhjq74fs/OHE91y0cI7L5GitmCy2ojdPZk+dr9C2in/dTJGlNcKO+RymD5PD
-	5780+MBybvsHjzeVaSfcytMPbZs0927DgSTxz4f3/Fp17Kg1262iyTzOa22FZjsppW6aYhrZ
-	fYTTST4pLOP+p6743JQrH7IYMnbfnrTmwfFd97wkG2V3CURtXLesOOLPtD8xrddVdPrOBAau
-	ki34Yym+bsfCGUsVMgy00+XfFa3T2y0k+SBl+yTjk32CFzlCE7kU3LJmnlmSKcedM+uzZbA4
-	s3hOgMpjB/sSFpPvIcfY+66fDvzIoMRSnJFoqMVcVJwIADEy7ZviAwAA
-X-CMS-MailID: 20241204101127eucas1p179dcc956b027a7b919043a4c65c04a71
-X-Msg-Generator: CA
-X-RootMTR: 20241203134155eucas1p1e90c71c4f8eb5da41d2cc8a500f54dc7
-X-EPHeader: CA
-CMS-TYPE: 201P
-X-CMS-RootMailID: 20241203134155eucas1p1e90c71c4f8eb5da41d2cc8a500f54dc7
-References: <20241203134137.2114847-1-m.wilczynski@samsung.com>
-	<CGME20241203134155eucas1p1e90c71c4f8eb5da41d2cc8a500f54dc7@eucas1p1.samsung.com>
-	<20241203134137.2114847-6-m.wilczynski@samsung.com>
-	<f21ffd12-167b-4d10-9017-33041ec322b0@kernel.org>
+In-Reply-To: <448dba3309fe341f4095b227b75ae5fc6b05f51a.1733242214.git.geert+renesas@glider.be>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241204_021131_646117_7D4A3659 
-X-CRM114-Status: GOOD (  30.08  )
+X-CRM114-CacheID: sfid-20241204_023118_483514_8EE10ACB 
+X-CRM114-Status: GOOD (  13.59  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -142,179 +82,86 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============7543044292795084887=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+--===============7543044292795084887==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="g2aKOaNiiQhFm06t"
+Content-Disposition: inline
+
+--g2aKOaNiiQhFm06t
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+On Tue, Dec 03, 2024 at 05:15:53PM +0100, Geert Uytterhoeven wrote:
+> Since commit f862bbf4cdca696e ("riscv: Allow NOMMU kernels to run in
+> S-mode") in v6.10, CLINT_TIMER is selected by the main RISCV symbol when
+> RISCV_M_MODE is enabled.
+>=20
+> Signed-off-by: Geert Uytterhoeven <geert+renesas@glider.be>
+
+Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
+and in case Palmer isn't sure if he should apply it or not:
+Acked-by: Conor Dooley <conor.dooley@microchip.com>
+
+Cheers,
+Conor.
+
+> ---
+>  arch/riscv/Kconfig.socs | 2 --
+>  1 file changed, 2 deletions(-)
+>=20
+> diff --git a/arch/riscv/Kconfig.socs b/arch/riscv/Kconfig.socs
+> index f51bb24bc84c6e47..d4ea91cdb2b138b2 100644
+> --- a/arch/riscv/Kconfig.socs
+> +++ b/arch/riscv/Kconfig.socs
+> @@ -53,7 +53,6 @@ config ARCH_THEAD
+> =20
+>  config ARCH_VIRT
+>  	bool "QEMU Virt Machine"
+> -	select CLINT_TIMER if RISCV_M_MODE
+>  	select POWER_RESET
+>  	select POWER_RESET_SYSCON
+>  	select POWER_RESET_SYSCON_POWEROFF
+> @@ -73,7 +72,6 @@ config ARCH_CANAAN
+>  config SOC_CANAAN_K210
+>  	bool "Canaan Kendryte K210 SoC"
+>  	depends on !MMU && ARCH_CANAAN
+> -	select CLINT_TIMER if RISCV_M_MODE
+>  	select ARCH_HAS_RESET_CONTROLLER
+>  	select PINCTRL
+>  	select COMMON_CLK
+> --=20
+> 2.34.1
+>=20
+
+--g2aKOaNiiQhFm06t
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZ1AvNAAKCRB4tDGHoIJi
+0vHtAQC82qG49EDSoaB2PeTLrfhjmint5mOs27szHVRiwtSjhgD8CTPFKDSZQ/N0
+ltKkzalZOnfOWfs44+mL9vkAJURnBwQ=
+=yxzy
+-----END PGP SIGNATURE-----
+
+--g2aKOaNiiQhFm06t--
 
 
-On 12/3/24 16:45, Krzysztof Kozlowski wrote:
-> On 03/12/2024 14:41, Michal Wilczynski wrote:
->> The device tree bindings for the T-Head TH1520 SoC clocks currently
->> support only the Application Processor (AP) subsystem. This commit
->> extends the bindings to include the Video Output (VO) subsystem clocks.
->>
->> Update the YAML schema to define the VO subsystem clocks, allowing the
->> clock driver to configure and manage these clocks appropriately. This
->> addition is necessary to enable the proper operation of the video output
->> features on the TH1520 SoC.
->>
->> Signed-off-by: Michal Wilczynski <m.wilczynski@samsung.com>
->> ---
->>  .../bindings/clock/thead,th1520-clk-ap.yaml   | 31 +++++++++++++++----
->>  1 file changed, 25 insertions(+), 6 deletions(-)
->>
->> diff --git a/Documentation/devicetree/bindings/clock/thead,th1520-clk-ap.yaml b/Documentation/devicetree/bindings/clock/thead,th1520-clk-ap.yaml
->> index 4a0806af2bf9..5a8f1041f766 100644
->> --- a/Documentation/devicetree/bindings/clock/thead,th1520-clk-ap.yaml
->> +++ b/Documentation/devicetree/bindings/clock/thead,th1520-clk-ap.yaml
->> @@ -4,11 +4,13 @@
->>  $id: https://protect2.fireeye.com/v1/url?k=f595e769-941ef222-f5946c26-74fe485fb305-6d0b73471bbfc1a2&q=1&e=6b918e4d-d81f-4b44-8516-776d7b4f9dae&u=http%3A%2F%2Fdevicetree.org%2Fschemas%2Fclock%2Fthead%2Cth1520-clk-ap.yaml%23
->>  $schema: https://protect2.fireeye.com/v1/url?k=5b94114b-3a1f0400-5b959a04-74fe485fb305-0e2c50f5c24cf3e9&q=1&e=6b918e4d-d81f-4b44-8516-776d7b4f9dae&u=http%3A%2F%2Fdevicetree.org%2Fmeta-schemas%2Fcore.yaml%23
->>  
->> -title: T-HEAD TH1520 AP sub-system clock controller
->> +title: T-HEAD TH1520 sub-systems clock controller
->>  
->>  description: |
->> -  The T-HEAD TH1520 AP sub-system clock controller configures the
->> -  CPU, DPU, GMAC and TEE PLLs.
->> +  The T-HEAD TH1520 sub-systems clock controller configures the
->> +  CPU, DPU, GMAC and TEE PLLs for the AP subsystem. For the VO
->> +  subsystem clock gates can be configured for the HDMI, MIPI and
->> +  the GPU.
->>  
->>    SoC reference manual
->>    https://protect2.fireeye.com/v1/url?k=cceb6120-ad60746b-cceaea6f-74fe485fb305-b294b70f1b52a5ab&q=1&e=6b918e4d-d81f-4b44-8516-776d7b4f9dae&u=https%3A%2F%2Fopenbeagle.org%2Fbeaglev-ahead%2Fbeaglev-ahead%2F-%2Fblob%2Fmain%2Fdocs%2FTH1520%2520System%2520User%2520Manual.pdf
->> @@ -20,7 +22,9 @@ maintainers:
->>  
->>  properties:
->>    compatible:
->> -    const: thead,th1520-clk-ap
->> +    enum:
->> +      - thead,th1520-clk-ap
->> +      - thead,th1520-clk-vo
->>  
->>    reg:
->>      maxItems: 1
->> @@ -29,6 +33,17 @@ properties:
->>      items:
->>        - description: main oscillator (24MHz)
->>  
->> +  thead,vosys-regmap:
->> +    $ref: /schemas/types.yaml#/definitions/phandle
->> +    description: |
->> +      Phandle to a syscon node representing the shared register
->> +      space of the VO (Video Output) subsystem. This register space
->> +      includes both clock control registers and other control
->> +      registers used for operations like resetting the GPU. Since
-> 
-> 
-> It seems you wanted to implement reset controller...
-
-Thank you for your feedback.
-
-I understand your concern about the reset controller. In the TH1520 SoC,
-the GPU doesn't have its own reset controller. Instead, its reset is
-managed through the power domain's registers as part of the power-up
-sequence.
-
-According to the Video Image Processing Manual 1.4.1 [1], the GPU
-requires the following steps to power up:
-
-1) Enable the GPU clock gate.
-2) After 32 core clock cycles, release the GPU soft reset
-
-Since these steps are closely tied to power management, I implemented
-the reset functionality within the power-domain driver.
-
-Because the GPU doesn't support the resets property, introducing a reset
-controller wouldn't align with the existing device tree well.
-
-[1] - https://openbeagle.org/beaglev-ahead/beaglev-ahead/-/blob/main/docs/TH1520%20Video%20Image%20Processing%20User%20Manual.pdf
-> 
->> +      these registers reside in the same address space, access to
->> +      them is coordinated through a shared syscon regmap provided by
->> +      the specified syscon node.
-> 
-> Drop last sentence. syscon regmap is a Linux term, not hardware one.
-> 
-> Anyway, this needs to be constrained per variant.
-> 
->> +
->>    "#clock-cells":
->>      const: 1
->>      description:
->> @@ -36,8 +51,6 @@ properties:
->>  
->>  required:
->>    - compatible
->> -  - reg
-> 
-> No, that's a clear NAK. You claim you have no address space but in the
-> same time you have address space via regmap.
-
-I see your concern. The VOSYS subsystem's address space includes
-registers for various components, such as clock gates and reset
-controls, which are scattered throughout the address space as specified
-in the manual 4.4.1 [2]. Initially, I attempted to use a shared syscon
-regmap for access, but I realize this might not be the best approach.
-
-To address this, I'll specify the 'reg' property in each node to define
-the address ranges explicitly fragmenting the address space for the VOSYS
-manually.
-
-vosys_clk: clock-controller@ffef528050 {
-	compatible = "thead,th1520-clk-vo";
-	reg = <0xff 0xef528050 0x0 0x8>;
-	#clock-cells = <1>;
-};
-
-pd: power-domain@ffef528000 {
-	compatible = "thead,th1520-pd";
-	reg = <0xff 0xef528000 0x0 0x8>;
-	#power-domain-cells = <1>;
-};
-
-I would be happy to proceed like this if that's okay.
-
-[2] - https://openbeagle.org/beaglev-ahead/beaglev-ahead/-/blob/main/docs/TH1520%20System%20User%20Manual.pdf
-
-> 
->> -  - clocks
-> 
-> Nope, not explained, unless you wanted to make it different per variants.
-> 
->>    - "#clock-cells"
->>  
->>  additionalProperties: false
->> @@ -51,3 +64,9 @@ examples:
->>          clocks = <&osc>;
->>          #clock-cells = <1>;
->>      };
->> +
->> +    clock-controller-vo {
-> 
-> Node names should be generic. See also an explanation and list of
-> examples (not exhaustive) in DT specification:
-> https://protect2.fireeye.com/v1/url?k=1e9cac96-7f17b9dd-1e9d27d9-74fe485fb305-f0538482114df941&q=1&e=6b918e4d-d81f-4b44-8516-776d7b4f9dae&u=https%3A%2F%2Fdevicetree-specification.readthedocs.io%2Fen%2Flatest%2Fchapter2-devicetree-basics.html%23generic-names-recommendation
-> 
-> 
->> +        compatible = "thead,th1520-clk-vo";
->> +        thead,vosys-regmap = <&vosys_regmap>;
-> 
-> That's a "reg" property. Do not encode address space as something else.
-> 
-> 
->> +        #clock-cells = <1>;
->> +    };
-> 
-> 
-> Best regards,
-> Krzysztof
-> 
+--===============7543044292795084887==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============7543044292795084887==--
+
