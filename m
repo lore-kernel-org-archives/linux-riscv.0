@@ -4,86 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9F5FE7716D
-	for <linux-riscv@archiver.kernel.org>; Wed,  4 Dec 2024 04:46:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AEA4EE7716D
+	for <linux-riscv@archiver.kernel.org>; Wed,  4 Dec 2024 08:27:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:References:Cc:Date:In-Reply-To:From:
-	Subject:Mime-Version:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=eP1DgZtUmufs0gWm3vdkpQm1xht7KzZYHb6Nzjgw9K4=; b=NuZNXqafWh/Du6
-	QnN5T4oFPOh6esa/iC6k+mnabFvQI5iAZCbXDDnwkmVokf1b9E+pjRat2Tw065wVPG2tI6HR7wAEp
-	1mNIYpJdTU3F1fhOr9wKjXQbL7lqsV+P4/DtRYcCQaJI7rg+8qWsl/03tzf4VKTEhl7KOJDRiamCU
-	jaogUJeNhGYJyLL7cyJcd0ay54e1W29Hhefq6QfmTO4BsaFAXoSThb9WkBew+z24XwF4KnJcnlIUG
-	RZG2FIFDMAPLKtpGNPC1NEvZdjF3b53FDJ1ZGJ/1ljSzOHJbluFiKlJRD7kyYIrNHkEGt1RWIOKpH
-	aWMi8ApW7+GVroACVfww==;
+	List-Owner; bh=TBYjiP3KumSgg8sLmM2AkJ7bA8audbHQ3+MtJ6PO7Uk=; b=VdwEysSLEvQEdi
+	CnOT1I7pflsVDVZWhaW0ds0/1gtOewXD+S13hj6w2XMRvM9fNGR7fUrqr5Hzrf2qfmApMewNBwQAU
+	NGzOeunu18s1L6T1jin6U6g9JZ1IY6fdYVYtFxZl5whiq0xKKeCs/pcPHfwngZKFN7aGbyLkYTttp
+	onTPUOzq27VmDYcM+KKhsvrRaHHYszNrLh6zhPnHVRR3e6vik05esGU/QOWTI4LSCt7YmfdUSQutE
+	zopWLswpdgABS94MzIB0x2fsi2Xz7J1a4bsbTbbXiUPyU28/Sl3Otjru0MntXXNsZTRofDdNn/0kU
+	UpS24Jy0ehTveD2Mikug==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIhGv-0000000BTTZ-0QuD;
-	Wed, 04 Dec 2024 04:45:57 +0000
-Received: from out162-62-57-49.mail.qq.com ([162.62.57.49])
+	id 1tIkj2-0000000Bscq-2b34;
+	Wed, 04 Dec 2024 08:27:12 +0000
+Received: from relay3-d.mail.gandi.net ([217.70.183.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIhGr-0000000BTRu-2GBo
+	id 1tIkiz-0000000Bsbu-1toz
 	for linux-riscv@lists.infradead.org;
-	Wed, 04 Dec 2024 04:45:55 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qq.com; s=s201512;
-	t=1733287534; bh=U239pY3v8KPxGhdBjoNQzmm5zyQwq19JmuP2wUPnm2U=;
-	h=Subject:From:In-Reply-To:Date:Cc:References:To;
-	b=y6qtfIEb2b7kzbfXCUkjnY9q2vWdg/9RnEQJvUrzlhjDiIvwksbjAv46uFKxGy8Yh
-	 iAjNhUrvg8aq6Rrbyw4RkXGz7E4xWfEef6v7BTwfIakHG6aej7rHPmzV0uTzFRVaij
-	 YRmKm+jUquAZF65P95Eb2U5pc85tY86tHSZywa4A=
-Received: from smtpclient.apple ([2408:8207:18a1:fd2f:c2c:ade3:99d6:a00])
-	by newxmesmtplogicsvrsza29-0.qq.com (NewEsmtp) with SMTP
-	id B5DAC603; Wed, 04 Dec 2024 12:45:29 +0800
-X-QQ-mid: xmsmtpt1733287529t5la5omw5
-Message-ID: <tencent_249C769EA3122E4F0C45084863109F83A006@qq.com>
-X-QQ-XMAILINFO: OOEWBQXMvCdj1LJL0D5mNDaEjpPBd3fUDyoL0Ui/QFCqvZ9eHyNaX4U3EHPa6F
-	 vN7iMrMS5O11M+04+iJothjzoD2gry39TGs2ngCTzlYtGwJIT57p8MLpP3QVpcl3CTrGea7S2pez
-	 EQW2oZbt1WEbbtW0YK4F99bKThj+7DGpnhtw+7Lw79vAbPZMA5C6kf1xENUYt9Sp0kCfPieRBQ04
-	 HjuAijD+ruvGQM4OGWmpgneKP0e5ryzsGh71kg/4a40AhAjN2Sr1Rx1sqylpGu8klfK/GkxRpjGs
-	 GC5Cu0vSf7KR8Xgg6fb9HW9ERf2sdxLqBtv0ZkFQyYLVbF6WtIzV5MyLOUNtiHslq2hQHkzvaUuB
-	 dwB7M7Ao00pZJARYVauy4XVe8IC07GKZIYxJE9suc6gsaIZ6NwG6fIkYtKdhHStmBeyLpfCqmoQk
-	 qMKxf+qPWtrAW4rJE7rQ4lhpY2ERRHdEFndDRFRfFXyI7IdFUva+z9EDNyHx2QkSgnZBwelB/3MD
-	 gSYSlr2q3hqErGtXul1F2R60llRkiASTMofSIhnKP1EQ3vaoRJOujvYcgbEZVuIpJel+cwaCVp49
-	 fINBdi09Y+SM8wnoCHwGcuBj248Jzjhn3sxmNwRD1nrpHFfTExSXQTHg8pyIYpSnzn2tR6IT8Bsv
-	 u2PrNtjghXVcJ4FGl8VnZYG7LwXKU9/H30ahCrYfDl7Pgyv45RZvGBHC7Q3/VuwTfAu1BsoAYGIC
-	 xxyYucP8c0FTDpneCRkgZ93eqaQQ2A36sqtr4uZ8OyHi8jhv2Qv58iJq7ZD2dybfaLSUecbQ6M1R
-	 Hee9N99T/hRWp/J9YZrEBDvVCkilr6Hf8czjE/0jPUap782mJCcug2FKj7hCoO5Xj4AR60bACuuY
-	 NbgpHFXUwZyJ+DLgeqq4sVTYEi2n70RVmkcJccPGI8FGsfO6FcOyhx1PmoZW38Nm19MGtV9Z+iwc
-	 LiaTsifmHp1QtraSHDMA==
-X-QQ-XMRINFO: MSVp+SPm3vtS1Vd6Y4Mggwc=
-Mime-Version: 1.0 (Mac OS X Mail 16.0 \(3826.200.121\))
-Subject: Re: [PATCH] riscv: Fix vector state restore in rt_sigreturn()
-From: Yangyu Chen <cyy@cyyself.name>
-In-Reply-To: <20240403072638.567446-1-bjorn@kernel.org>
-Date: Wed, 4 Dec 2024 12:45:19 +0800
-Cc: =?utf-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@rivosinc.com>,
- Conor Dooley <conor.dooley@microchip.com>,
- Heiko Stuebner <heiko@sntech.de>,
- Vincent Chen <vincent.chen@sifive.com>,
- Ben Dooks <ben.dooks@codethink.co.uk>,
- Greentime Hu <greentime.hu@sifive.com>,
- Haorong Lu <ancientmodern4@gmail.com>,
- Jerry Shih <jerry.shih@sifive.com>,
- Nick Knight <nick.knight@sifive.com>,
- linux-kernel@vger.kernel.org,
- Vineet Gupta <vineetg@rivosinc.com>,
- Charlie Jenkins <charlie@rivosinc.com>,
- Vineet Gupta <vgupta@kernel.org>,
- stable@vger.kernel.org
-X-OQ-MSGID: <1D423665-AF23-480D-8B68-414A54222F2B@cyyself.name>
-References: <20240403072638.567446-1-bjorn@kernel.org>
-To: =?utf-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>,
- Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>,
- Albert Ou <aou@eecs.berkeley.edu>,
- Andy Chiu <andy.chiu@sifive.com>,
- linux-riscv@lists.infradead.org
-X-Mailer: Apple Mail (2.3826.200.121)
+	Wed, 04 Dec 2024 08:27:11 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id 5A3DC60007;
+	Wed,  4 Dec 2024 08:27:01 +0000 (UTC)
+Message-ID: <7e93d7a9-caa8-40c4-997a-d96ad94dbe94@ghiti.fr>
+Date: Wed, 4 Dec 2024 09:27:00 +0100
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RESEND PATCH] riscv: Fixup boot failure when
+ CONFIG_DEBUG_RT_MUTEXES=y
+Content-Language: en-US
+To: guoren@kernel.org, paul.walmsley@sifive.com, palmer@dabbelt.com,
+ bjorn@rivosinc.com, conor@kernel.org, leobras@redhat.com,
+ peterz@infradead.org, parri.andrea@gmail.com, will@kernel.org,
+ longman@redhat.com, boqun.feng@gmail.com, arnd@arndb.de,
+ alexghiti@rivosinc.com
+Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+ Guo Ren <guoren@linux.alibaba.com>
+References: <20241130153310.3349484-1-guoren@kernel.org>
+From: Alexandre Ghiti <alex@ghiti.fr>
+In-Reply-To: <20241130153310.3349484-1-guoren@kernel.org>
+X-GND-Sasl: alex@ghiti.fr
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241203_204554_198822_B3741617 
-X-CRM114-Status: GOOD (  29.72  )
+X-CRM114-CacheID: sfid-20241204_002709_757108_385D2C06 
+X-CRM114-Status: GOOD (  20.49  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,87 +61,112 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-SSB0aGluayB0aGlzIHBhdGNoIHNob3VsZCBhbHNvIGJlIGJhY2twb3J0ZWQgdG8gdGhlIHY2LjYg
-TFRTIHRyZWUuClNpbmNlIGl0IHNob3VsZCByZWNvbG9uaXplIGFzIEZpeGVzOiA4ZWUwYjQxODk4
-ICgicmlzY3Y6IHNpZ25hbDoKQWRkIHNpZ2NvbnRleHQgc2F2ZS9yZXN0b3JlIGZvciB2ZWN0b3Ii
-KSBhbmQgdGhhdCBjb21taXQgZmlyc3QKYXBwZWFycyBzaW5jZSB2Ni41LXJjMSBhbmQgdGhpcyBw
-YXRjaCBsYW5kIHRvIG1hc3RlciBicmFuY2ggc2luY2UKdjYuOS1yYzMKClRoYW5rcywKWWFuZ3l1
-IENoZW4KCk9uIDQvMy8yNCAxNToyNiwgQmrDtnJuIFTDtnBlbCB3cm90ZToKPiBGcm9tOiBCasO2
-cm4gVMO2cGVsIDxiam9ybkByaXZvc2luYy5jb20+Cj4gVGhlIFJJU0MtViBWZWN0b3Igc3BlY2lm
-aWNhdGlvbiBzdGF0ZXMgaW4gIkFwcGVuZGl4IEQ6IENhbGxpbmcKPiBDb252ZW50aW9uIGZvciBW
-ZWN0b3IgU3RhdGUiIFsxXSB0aGF0ICJFeGVjdXRpbmcgYSBzeXN0ZW0gY2FsbCBjYXVzZXMKPiBh
-bGwgY2FsbGVyLXNhdmVkIHZlY3RvciByZWdpc3RlcnMgKHYwLXYzMSwgdmwsIHZ0eXBlKSBhbmQg
-dnN0YXJ0IHRvCj4gYmVjb21lIHVuc3BlY2lmaWVkLiIuIEluIHRoZSBSSVNDLVYga2VybmVsIHRo
-aXMgaXMgY2FsbGVkICJkaXNjYXJkaW5nCj4gdGhlIHZzdGF0ZSIuCj4gUmV0dXJuaW5nIGZyb20g
-YSBzaWduYWwgaGFuZGxlciB2aWEgdGhlIHJ0X3NpZ3JldHVybigpIHN5c2NhbGwsIHZlY3Rvcgo+
-IGRpc2NhcmQgaXMgYWxzbyBwZXJmb3JtZWQuIEhvd2V2ZXIsIHRoaXMgaXMgbm90IGFuIGlzc3Vl
-IHNpbmNlIHRoZQo+IHZlY3RvciBzdGF0ZSBzaG91bGQgYmUgcmVzdG9yZWQgZnJvbSB0aGUgc2ln
-Y29udGV4dCwgYW5kIHRoZXJlZm9yZSBub3QKPiBjYXJlIGFib3V0IHRoZSB2ZWN0b3IgZGlzY2Fy
-ZC4KPiBUaGUgImxpdmUgc3RhdGUiIGlzIHRoZSBhY3R1YWwgdmVjdG9yIHJlZ2lzdGVyIGluIHRo
-ZSBydW5uaW5nIGNvbnRleHQsCj4gYW5kIHRoZSAidnN0YXRlIiBpcyB0aGUgdmVjdG9yIHN0YXRl
-IG9mIHRoZSB0YXNrLiBBIGRpcnR5IGxpdmUgc3RhdGUsCj4gbWVhbnMgdGhhdCB0aGUgdnN0YXRl
-IGFuZCBsaXZlIHN0YXRlIGFyZSBub3QgaW4gc3luY2guCj4gV2hlbiB2ZWN0b3JpemVkIHVzZXJf
-ZnJvbV9jb3B5KCkgd2FzIGludHJvZHVjZWQsIGFuIGJ1ZyBzbmVha2VkIGluIGF0Cj4gdGhlIHJl
-c3RvcmF0aW9uIGNvZGUsIHJlbGF0ZWQgdG8gdGhlIGRpc2NhcmQgb2YgdGhlIGxpdmUgc3RhdGUu
-Cj4gQW4gZXhhbXBsZSB3aGVuIHRoaXMgZ28gd3Jvbmc6Cj4gICAxLiBBIHVzZXJsYW5kIGFwcGxp
-Y2F0aW9uIGlzIGV4ZWN1dGluZyB2ZWN0b3IgY29kZQo+ICAgMi4gVGhlIGFwcGxpY2F0aW9uIHJl
-Y2VpdmVzIGEgc2lnbmFsLCBhbmQgdGhlIHNpZ25hbCBoYW5kbGVyIGlzCj4gICAgICBlbnRlcmVk
-Lgo+ICAgMy4gVGhlIGFwcGxpY2F0aW9uIHJldHVybnMgZnJvbSB0aGUgc2lnbmFsIGhhbmRsZXIs
-IHVzaW5nIHRoZQo+ICAgICAgcnRfc2lncmV0dXJuKCkgc3lzY2FsbC4KPiAgIDQuIFRoZSBsaXZl
-IHZlY3RvciBzdGF0ZSBpcyBkaXNjYXJkZWQgdXBvbiBlbnRlcmluZyB0aGUKPiAgICAgIHJ0X3Np
-Z3JldHVybigpLCBhbmQgdGhlIGxpdmUgc3RhdGUgaXMgbWFya2VkIGFzICJkaXJ0eSIsIGluZGlj
-YXRpbmcKPiAgICAgIHRoYXQgdGhlIGxpdmUgc3RhdGUgbmVlZCB0byBiZSBzeW5jaHJvbml6ZWQg
-d2l0aCB0aGUgY3VycmVudAo+ICAgICAgdnN0YXRlLgo+ICAgNS4gcnRfc2lncmV0dXJuKCkgcmVz
-dG9yZXMgdGhlIHZzdGF0ZSwgZXhjZXB0IHRoZSBWZWN0b3IgcmVnaXN0ZXJzLAo+ICAgICAgZnJv
-bSB0aGUgc2lnY29udGV4dAo+ICAgNi4gcnRfc2lncmV0dXJuKCkgcmVzdG9yZXMgdGhlIFZlY3Rv
-ciByZWdpc3RlcnMsIGZyb20gdGhlIHNpZ2NvbnRleHQsCj4gICAgICBhbmQgbm93IHRoZSB2ZWN0
-b3JpemVkIHVzZXJfZnJvbV9jb3B5KCkgaXMgdXNlZC4gVGhlIGRpcnR5IGxpdmUKPiAgICAgIHN0
-YXRlIGZyb20gdGhlIGRpc2NhcmQgaXMgc2F2ZWQgdG8gdGhlIHZzdGF0ZSwgbWFraW5nIHRoZSB2
-c3RhdGUKPiAgICAgIGNvcnJ1cHQuCj4gICA3LiBydF9zaWdyZXR1cm4oKSByZXR1cm5zIHRvIHRo
-ZSBhcHBsaWNhdGlvbiwgd2hpY2ggY3Jhc2hlcyBkdWUgdG8KPiAgICAgIGNvcnJ1cHRlZCB2c3Rh
-dGUuCj4gTm90ZSB0aGF0IHRoZSB2ZWN0b3JpemVkIHVzZXJfZnJvbV9jb3B5KCkgaXMgaW52b2tl
-ZCBkZXBlbmRpbmcgb24gdGhlCj4gdmFsdWUgb2YgQ09ORklHX1JJU0NWX0lTQV9WX1VDT1BZX1RI
-UkVTSE9MRC4gRGVmYXVsdCBpcyA3NjgsIHdoaWNoCj4gbWVhbnMgdGhhdCB2bGVuIGhhcyB0byBi
-ZSBsYXJnZXIgdGhhbiAxMjhiIGZvciB0aGlzIGJ1ZyB0byB0cmlnZ2VyLgo+IFRoZSBmaXggaXMg
-c2ltcGx5IHRvIG1hcmsgdGhlIGxpdmUgc3RhdGUgYXMgbm9uLWRpcnR5L2NsZWFuIHByaW9yCj4g
-cGVyZm9ybWluZyB0aGUgdnN0YXRlIHJlc3RvcmUuCj4gTGluazogaHR0cHM6Ly9naXRodWIuY29t
-L3Jpc2N2L3Jpc2N2LWlzYS1tYW51YWwvcmVsZWFzZXMvZG93bmxvYWQvcmlzY3YtaXNhLXJlbGVh
-c2UtOGFiZGI0MS0yMDI0LTAzLTI2L3VucHJpdi1pc2EtYXNjaWlkb2MucGRmICMgWzFdCj4gUmVw
-b3J0ZWQtYnk6IENoYXJsaWUgSmVua2lucyA8Y2hhcmxpZUByaXZvc2luYy5jb20+Cj4gUmVwb3J0
-ZWQtYnk6IFZpbmVldCBHdXB0YSA8dmd1cHRhQGtlcm5lbC5vcmc+Cj4gRml4ZXM6IGMyYTY1OGQ0
-MTkyNCAoInJpc2N2OiBsaWI6IHZlY3Rvcml6ZSBjb3B5X3RvX3VzZXIvY29weV9mcm9tX3VzZXIi
-KQo+IFNpZ25lZC1vZmYtYnk6IEJqw7ZybiBUw7ZwZWwgPGJqb3JuQHJpdm9zaW5jLmNvbT4KPiAt
-LS0KPiAgYXJjaC9yaXNjdi9rZXJuZWwvc2lnbmFsLmMgfCAxNSArKysrKysrKy0tLS0tLS0KPiAg
-MSBmaWxlIGNoYW5nZWQsIDggaW5zZXJ0aW9ucygrKSwgNyBkZWxldGlvbnMoLSkKPiBkaWZmIC0t
-Z2l0IGEvYXJjaC9yaXNjdi9rZXJuZWwvc2lnbmFsLmMgYi9hcmNoL3Jpc2N2L2tlcm5lbC9zaWdu
-YWwuYwo+IGluZGV4IDUwMWU2NmRlYmY2OS4uNWEyZWRkN2YwMjdlIDEwMDY0NAo+IC0tLSBhL2Fy
-Y2gvcmlzY3Yva2VybmVsL3NpZ25hbC5jCj4gKysrIGIvYXJjaC9yaXNjdi9rZXJuZWwvc2lnbmFs
-LmMKPiBAQCAtMTE5LDYgKzExOSwxMyBAQCBzdGF0aWMgbG9uZyBfX3Jlc3RvcmVfdl9zdGF0ZShz
-dHJ1Y3QgcHRfcmVncyAqcmVncywgdm9pZCBfX3VzZXIgKnNjX3ZlYykKPiAgCXN0cnVjdCBfX3Nj
-X3Jpc2N2X3Zfc3RhdGUgX191c2VyICpzdGF0ZSA9IHNjX3ZlYzsKPiAgCXZvaWQgX191c2VyICpk
-YXRhcDsKPiAgKwkvKgo+ICsJICogTWFyayB0aGUgdnN0YXRlIGFzIGNsZWFuIHByaW9yIHBlcmZv
-cm1pbmcgdGhlIGFjdHVhbCBjb3B5LAo+ICsJICogdG8gYXZvaWQgZ2V0dGluZyB0aGUgdnN0YXRl
-IGluY29ycmVjdGx5IGNsb2JiZXJlZCBieSB0aGUKPiArCSAqICBkaXNjYXJkZWQgdmVjdG9yIHN0
-YXRlLgo+ICsJICovCj4gKwlyaXNjdl92X3ZzdGF0ZV9zZXRfcmVzdG9yZShjdXJyZW50LCByZWdz
-KTsKPiArCj4gIAkvKiBDb3B5IGV2ZXJ5dGhpbmcgb2YgX19zY19yaXNjdl92X3N0YXRlIGV4Y2Vw
-dCBkYXRhcC4gKi8KPiAgCWVyciA9IF9fY29weV9mcm9tX3VzZXIoJmN1cnJlbnQtPnRocmVhZC52
-c3RhdGUsICZzdGF0ZS0+dl9zdGF0ZSwKPiAgCQkJICAgICAgIG9mZnNldG9mKHN0cnVjdCBfX3Jp
-c2N2X3ZfZXh0X3N0YXRlLCBkYXRhcCkpOwo+IEBAIC0xMzMsMTMgKzE0MCw3IEBAIHN0YXRpYyBs
-b25nIF9fcmVzdG9yZV92X3N0YXRlKHN0cnVjdCBwdF9yZWdzICpyZWdzLCB2b2lkIF9fdXNlciAq
-c2NfdmVjKQo+ICAJICogQ29weSB0aGUgd2hvbGUgdmVjdG9yIGNvbnRlbnQgZnJvbSB1c2VyIHNw
-YWNlIGRhdGFwLiBVc2UKPiAgCSAqIGNvcHlfZnJvbV91c2VyIHRvIHByZXZlbnQgaW5mb3JtYXRp
-b24gbGVhay4KPiAgCSAqLwo+IC0JZXJyID0gY29weV9mcm9tX3VzZXIoY3VycmVudC0+dGhyZWFk
-LnZzdGF0ZS5kYXRhcCwgZGF0YXAsIHJpc2N2X3ZfdnNpemUpOwo+IC0JaWYgKHVubGlrZWx5KGVy
-cikpCj4gLQkJcmV0dXJuIGVycjsKPiAtCj4gLQlyaXNjdl92X3ZzdGF0ZV9zZXRfcmVzdG9yZShj
-dXJyZW50LCByZWdzKTsKPiAtCj4gLQlyZXR1cm4gZXJyOwo+ICsJcmV0dXJuIGNvcHlfZnJvbV91
-c2VyKGN1cnJlbnQtPnRocmVhZC52c3RhdGUuZGF0YXAsIGRhdGFwLCByaXNjdl92X3ZzaXplKTsK
-PiAgfQo+ICAjZWxzZQo+ICAjZGVmaW5lIHNhdmVfdl9zdGF0ZSh0YXNrLCByZWdzKSAoMCkKPiBi
-YXNlLWNvbW1pdDogNzExNWZmNGE4YmZlZDNiOTI5NGJhZDJlMTExNzQ0ZTZhYmVhZGYxYQoKCl9f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2
-IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0
-cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+Hi Guo,
+
+On 30/11/2024 16:33, guoren@kernel.org wrote:
+> From: Guo Ren <guoren@linux.alibaba.com>
+>
+> When CONFIG_DEBUG_RT_MUTEXES=y, mutex_lock->rt_mutex_try_acquire
+> would change from rt_mutex_cmpxchg_acquire to
+> rt_mutex_slowtrylock():
+> 	raw_spin_lock_irqsave(&lock->wait_lock, flags);
+> 	ret = __rt_mutex_slowtrylock(lock);
+> 	raw_spin_unlock_irqrestore(&lock->wait_lock, flags);
+>
+> Because queued_spin_#ops to ticket_#ops is changed one by one by
+> jump_label, raw_spin_lock/unlock would cause a deadlock during the
+> changing.
+>
+> That means in arch/riscv/kernel/jump_label.c:
+> 1.
+> arch_jump_label_transform_queue() ->
+> mutex_lock(&text_mutex); +-> raw_spin_lock  -> queued_spin_lock
+> 			 |-> raw_spin_unlock -> queued_spin_unlock
+> patch_insn_write -> change the raw_spin_lock to ticket_lock
+> mutex_unlock(&text_mutex);
+> ...
+>
+> 2. /* Dirty the lock value */
+> arch_jump_label_transform_queue() ->
+> mutex_lock(&text_mutex); +-> raw_spin_lock -> *ticket_lock*
+>                           |-> raw_spin_unlock -> *queued_spin_unlock*
+> 			  /* BUG: ticket_lock with queued_spin_unlock */
+> patch_insn_write  ->  change the raw_spin_unlock to ticket_unlock
+> mutex_unlock(&text_mutex);
+> ...
+>
+> 3. /* Dead lock */
+> arch_jump_label_transform_queue() ->
+> mutex_lock(&text_mutex); +-> raw_spin_lock -> ticket_lock /* deadlock! */
+>                           |-> raw_spin_unlock -> ticket_unlock
+> patch_insn_write -> change other raw_spin_#op -> ticket_#op
+> mutex_unlock(&text_mutex);
+>
+> So, the solution is to disable mutex usage of
+> arch_jump_label_transform_queue() during early_boot_irqs_disabled, just
+> like we have done for stop_machine.
+>
+> Reported-by: Conor Dooley <conor@kernel.org>
+> Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
+> Signed-off-by: Guo Ren <guoren@kernel.org>
+> Fixes: ab83647fadae ("riscv: Add qspinlock support")
+> Link: https://lore.kernel.org/linux-riscv/CAJF2gTQwYTGinBmCSgVUoPv0_q4EPt_+WiyfUA1HViAKgUzxAg@mail.gmail.com/T/#mf488e6347817fca03bb93a7d34df33d8615b3775
+> Cc: Palmer Dabbelt <palmer@dabbelt.com>
+> Cc: Alexandre Ghiti <alexghiti@rivosinc.com>
+> ---
+>   arch/riscv/kernel/jump_label.c | 12 +++++++++---
+>   1 file changed, 9 insertions(+), 3 deletions(-)
+>
+> diff --git a/arch/riscv/kernel/jump_label.c b/arch/riscv/kernel/jump_label.c
+> index 6eee6f736f68..654ed159c830 100644
+> --- a/arch/riscv/kernel/jump_label.c
+> +++ b/arch/riscv/kernel/jump_label.c
+> @@ -36,9 +36,15 @@ bool arch_jump_label_transform_queue(struct jump_entry *entry,
+>   		insn = RISCV_INSN_NOP;
+>   	}
+>   
+> -	mutex_lock(&text_mutex);
+> -	patch_insn_write(addr, &insn, sizeof(insn));
+> -	mutex_unlock(&text_mutex);
+> +	if (early_boot_irqs_disabled) {
+> +		riscv_patch_in_stop_machine = 1;
+> +		patch_insn_write(addr, &insn, sizeof(insn));
+> +		riscv_patch_in_stop_machine = 0;
+> +	} else {
+> +		mutex_lock(&text_mutex);
+> +		patch_insn_write(addr, &insn, sizeof(insn));
+> +		mutex_unlock(&text_mutex);
+> +	}
+>   
+>   	return true;
+>   }
+
+
+Sorry for the late answer, I've been sick lately!
+
+Thank you very much for looking into this and finding this not-so-bad 
+solution! I remind everyone that this is a temporary solution until we 
+can use an alternative instead of a static key.
+
+You can add:
+
+Reviewed-by: Alexandre Ghiti <alexghiti@rivosinc.com>
+Tested-by: Alexandre Ghiti <alexghiti@rivosinc.com>
+
+The revert is still on the table IMO, let's Palmer decide.
+
+Thank you again Guo, really appreciate you took the time to find this 
+solution!
+
+Alex
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
