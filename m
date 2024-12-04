@@ -4,49 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 18C3CE77173
-	for <linux-riscv@archiver.kernel.org>; Wed,  4 Dec 2024 12:58:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82173E7716E
+	for <linux-riscv@archiver.kernel.org>; Wed,  4 Dec 2024 12:58:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=U9OeWpxeCModcWF7gPnbTmiFzj0ivy0HOly5UBqROfk=; b=KEYuyBm/90u/H6
-	WhvBrjD8yw6f2/CJHerT7T0RepsntBA6CxMZ71jWvlC+hvrqI8qvQnigock7KzeXRGlAQ9x1M2jsh
-	BHQKU+wo8p/kbl0r5f2A+atcxXs7c8/ntTJIs71T2MxaIOduKxytLbFrGaCMB9nIZXlld2SYw1ah1
-	Dds4H5KKdfVrCtkxn/cswSCePGDyBVZKTEoIwCXnF+VPkY1BstlCto7YPciaiUKdIk8Mnc2DXD7+F
-	e1xmO2k2hdrsTHcOu7dIGLRYp6/8l/DhtmdVjmnexfOF0mO8j9d51DYS99D5cdBhuY1Hq/dUR04NA
-	MHCJJ7jKvtoqBZNK/Yig==;
+	List-Owner; bh=MInvQQoWfHEVm6z7HK8D32E6wYW7SceBHyqQyLKqI/I=; b=Ws2nw2LviBwrjg
+	bBGdFl/6s1Yvpj8uuf2HBmoGYadvRne27BMPBOQvvk3zbYbiKe3O5r+Dl1mS/QuDskbNLtr/Ydwgh
+	59AROXOwzZ0UM/G6LxDMcNVQ8VsPnnbcbScjrQatxPCGCFAJVu9mTXrys/OSbe0KmIFt1nqYE7TAV
+	U6Q2aLVzIpFp4A0ZfcF9K8sqgXJknhneyR6xSF/bs2MvwN6f7UNy9vAy1Lrga4zIP7n2ENUKuSEX7
+	yGhLfNqd0yDBcCr2bHwe3JE94S0+IFD3GdWASEPWQ8c963yzWmq34DYpSMkB3Img22ZD999tPQUC+
+	q+vwXeWuQSJ4NDzyWzOg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIoxR-0000000Caz0-2uN3;
-	Wed, 04 Dec 2024 12:58:21 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1tIoxV-0000000Cb5U-1aOT;
+	Wed, 04 Dec 2024 12:58:25 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIold-0000000CYSW-3APW;
-	Wed, 04 Dec 2024 12:46:12 +0000
+	id 1tIole-0000000CYVq-48fp;
+	Wed, 04 Dec 2024 12:46:13 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 779C6A4165E;
-	Wed,  4 Dec 2024 12:44:16 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 31B93C4CEFA;
-	Wed,  4 Dec 2024 12:46:08 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 49C4BA4155E;
+	Wed,  4 Dec 2024 12:44:17 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 35A20C4CED1;
+	Wed,  4 Dec 2024 12:46:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1733316368;
-	bh=dBlxdtKKIDXUcPL3xGhsmTLyyToka/SogTL+AHvkSKo=;
+	s=k20201202; t=1733316369;
+	bh=jTOd4yz8gsuLBweIwiSBdwKwzbJR5VQQ29Mpm+esKEo=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=AvvE2bmFyi4ii+jCYmLHcpmKKMRJEfg0hBoi+/2HyuZoB3HV1+mlNJeuh7g450CiD
-	 U03dL7MjZ4ID/ghfz07pzmH43kDP3IwFCEQJ3g2E+Zmp+Rum2T2sKaSLb0K7Cdb/6g
-	 3mCZwrKf9V8Bm0i6PFcfQ61qerHrXkqy7vKoYNrrarzCxXvXm1lDfeQDmXPb62aho0
-	 Q+6OnSJXvHtwl8+aexKkXpagX4X3QqMAKhp+8W2Qgo+Rg0mptwfEncNomGNxk1e4wv
-	 Kxl859SUjsHr2Gbff15WCbnodlWTwo0XDzN5gmPwAMuOmpzZQW2y9O/7ETlJzAKrn8
-	 fy3lHnX61HaTQ==
+	b=CULY6W2hnlcApn+/5dZASAOALgPuZhsI6jjUFBPT/KJ4ZfGZ8cg2cY0v2WPWXw6nj
+	 UEqSb8sUxBAWecBR7EgPWt8x6JmNdKSKaJ482+PLQOIbe6e6zESQlFhbfh7CNVGVvK
+	 sEgJAGLobF58pVXznkLg/CSHhKgTYqLHVRs297eOuTbEbhnl5rRYTHyTwLA7bCo8W2
+	 08KIz3JsqETuv5CRfMHuLcVVYQujMbTCjqTnxFqwH7Aza2uyvJFK3v3LpYL7d5jPq8
+	 kjrDyCmIO55v8pnz+xj/oPioY43885lOvqe/shfmGGL7/wUwpDCB/tsrnxjic4aflv
+	 Ll+SNoL+RA3wQ==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.95)
 	(envelope-from <maz@kernel.org>)
-	id 1tIola-000RHy-3u;
-	Wed, 04 Dec 2024 12:46:06 +0000
+	id 1tIolb-000RHy-BS;
+	Wed, 04 Dec 2024 12:46:07 +0000
 From: Marc Zyngier <maz@kernel.org>
 To: iommu@lists.linux.dev,
 	linux-kernel@vger.kernel.org,
@@ -78,9 +78,9 @@ Cc: Joerg Roedel <joro@8bytes.org>,
 	Bjorn Helgaas <bhelgaas@google.com>,
 	Toan Le <toan@os.amperecomputing.com>,
 	Alyssa Rosenzweig <alyssa@rosenzweig.io>
-Subject: [PATCH 06/11] irqchip/imx-mu-msi: Convert to msi_create_parent_irq_domain() helper
-Date: Wed,  4 Dec 2024 12:45:44 +0000
-Message-Id: <20241204124549.607054-7-maz@kernel.org>
+Subject: [PATCH 09/11] iommu/intel: Convert to msi_create_parent_irq_domain() helper
+Date: Wed,  4 Dec 2024 12:45:47 +0000
+Message-Id: <20241204124549.607054-10-maz@kernel.org>
 X-Mailer: git-send-email 2.39.2
 In-Reply-To: <20241204124549.607054-1-maz@kernel.org>
 References: <20241204124549.607054-1-maz@kernel.org>
@@ -90,8 +90,8 @@ X-SA-Exim-Rcpt-To: iommu@lists.linux.dev, linux-kernel@vger.kernel.org, linux-ar
 X-SA-Exim-Mail-From: maz@kernel.org
 X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241204_044609_926495_DD3320EE 
-X-CRM114-Status: GOOD (  12.67  )
+X-CRM114-CacheID: sfid-20241204_044611_174266_53A924C3 
+X-CRM114-Status: GOOD (  13.09  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,38 +109,52 @@ Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 Now that we have a concise helper to create an MSI parent domain,
-switch the IMX letter soup over to that.
+switch the Intel IOMMU remapping over to that.
 
 Signed-off-by: Marc Zyngier <maz@kernel.org>
 ---
- drivers/irqchip/irq-imx-mu-msi.c | 8 +++-----
- 1 file changed, 3 insertions(+), 5 deletions(-)
+ drivers/iommu/intel/irq_remapping.c | 16 ++++++----------
+ 1 file changed, 6 insertions(+), 10 deletions(-)
 
-diff --git a/drivers/irqchip/irq-imx-mu-msi.c b/drivers/irqchip/irq-imx-mu-msi.c
-index b3f656c6e7708..b73968423bb9f 100644
---- a/drivers/irqchip/irq-imx-mu-msi.c
-+++ b/drivers/irqchip/irq-imx-mu-msi.c
-@@ -226,17 +226,15 @@ static int imx_mu_msi_domains_init(struct imx_mu_msi *msi_data, struct device *d
- 	struct irq_domain *parent;
+diff --git a/drivers/iommu/intel/irq_remapping.c b/drivers/iommu/intel/irq_remapping.c
+index 466c1412dd456..7ca3ee4c985c9 100644
+--- a/drivers/iommu/intel/irq_remapping.c
++++ b/drivers/iommu/intel/irq_remapping.c
+@@ -557,21 +557,16 @@ static int intel_setup_irq_remapping(struct intel_iommu *iommu)
+ 	if (!fn)
+ 		goto out_free_bitmap;
  
- 	/* Initialize MSI domain parent */
--	parent = irq_domain_create_linear(fwnodes, IMX_MU_CHANS,
--					  &imx_mu_msi_domain_ops, msi_data);
-+	parent = msi_create_parent_irq_domain(fwnodes, &imx_mu_msi_parent_ops,
-+					      &imx_mu_msi_domain_ops, 0,
-+					      IMX_MU_CHANS, msi_data, NULL);
- 	if (!parent) {
- 		dev_err(dev, "failed to create IRQ domain\n");
- 		return -ENOMEM;
+-	iommu->ir_domain =
+-		irq_domain_create_hierarchy(arch_get_ir_parent_domain(),
+-					    0, INTR_REMAP_TABLE_ENTRIES,
+-					    fn, &intel_ir_domain_ops,
+-					    iommu);
++	iommu->ir_domain = msi_create_parent_irq_domain(fn, &dmar_msi_parent_ops,
++							&intel_ir_domain_ops,
++							IRQ_DOMAIN_FLAG_ISOLATED_MSI,
++							INTR_REMAP_TABLE_ENTRIES,
++							iommu, arch_get_ir_parent_domain());
+ 	if (!iommu->ir_domain) {
+ 		pr_err("IR%d: failed to allocate irqdomain\n", iommu->seq_id);
+ 		goto out_free_fwnode;
  	}
  
--	irq_domain_update_bus_token(parent, DOMAIN_BUS_NEXUS);
- 	parent->dev = parent->pm_dev = dev;
--	parent->flags |= IRQ_DOMAIN_FLAG_MSI_PARENT;
--	parent->msi_parent_ops = &imx_mu_msi_parent_ops;
- 	return 0;
- }
+-	irq_domain_update_bus_token(iommu->ir_domain,  DOMAIN_BUS_DMAR);
+-	iommu->ir_domain->flags |= IRQ_DOMAIN_FLAG_MSI_PARENT |
+-				   IRQ_DOMAIN_FLAG_ISOLATED_MSI;
+-	iommu->ir_domain->msi_parent_ops = &dmar_msi_parent_ops;
+-
+ 	ir_table->base = ir_table_base;
+ 	ir_table->bitmap = bitmap;
+ 	iommu->ir_table = ir_table;
+@@ -1522,6 +1517,7 @@ static const struct irq_domain_ops intel_ir_domain_ops = {
  
+ static const struct msi_parent_ops dmar_msi_parent_ops = {
+ 	.supported_flags	= X86_VECTOR_MSI_FLAGS_SUPPORTED | MSI_FLAG_MULTI_PCI_MSI,
++	.bus_token		= DOMAIN_BUS_DMAR,
+ 	.prefix			= "IR-",
+ 	.init_dev_msi_info	= msi_parent_init_dev_msi_info,
+ };
 -- 
 2.39.2
 
