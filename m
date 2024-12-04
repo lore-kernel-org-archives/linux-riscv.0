@@ -4,48 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1C5AE77173
-	for <linux-riscv@archiver.kernel.org>; Wed,  4 Dec 2024 12:58:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B179EE77178
+	for <linux-riscv@archiver.kernel.org>; Wed,  4 Dec 2024 12:58:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Pw+CWW6TH4fgLrMcMnDpSAjCly/PK/Vg3lECkAtG3+w=; b=b/Z0mcZud5aq16
-	LQdtx0EaGiPg0I504GZcFRsq8s5Jew+4Tp+PpAwuwo4QtBy3KckFMUs91EW50OPAZL1Aq0uoTxzmT
-	CjVWAvHMpAkSUlI2GKN6dasFynd5PZUcfXw4DP30uEJ21In75Eb4sOdfE9uV711UQxh2QmQpO6Tgg
-	JoInevBjB6chKOZ38VpULG6t3hsuUTZZFJoapfgw1i5QUIyOfr8kFYBfqdyxRcecu6qobbsM2Syk8
-	DrbDlu5LxAKEY0Ljg6ehqQ1p/tDVznHJ7RbXCuXfVSMw6PgeMWOXnUnSwem/NXjS87v4TAFsI10h6
-	wD1Sdu9AaS1zw/aZY1WA==;
+	List-Owner; bh=uuy0wOmIHKmF34FQyG2F6jRPORajrt4JVpBuy++/sy0=; b=VHXBxKdJWXS3Nt
+	UniZo0S7U2b6cMi9lMeOHm9ow3X+y80HOxtQ8W5SsN0bXud2V0eUzlU9Uin/Vp3q7zikNWEj1Rue5
+	Pu8em2Z0dVemyrpThafzayDJMT2hQZKfGWMNH0UzWMNML4TlWHKQHOjfYwfLEqvj3suyIzjofRCKU
+	9oqOqRgSwGyvRdl8ZcaI4QyRG5Qi01pDARTBf8+150Cw5T00ykLgS3Hv4M+mkeJNVD89YmKum5Fc7
+	UwvKha7V34xvFRSN32DEwKohxwzvymk42yOE3wIKxyaGJ++qpKd2xW17NbAUGcmDvcug6fC8bbTJG
+	pR5q3yAoNoXnOTpclPxA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIoxW-0000000Cb6o-15xT;
-	Wed, 04 Dec 2024 12:58:26 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1tIoxZ-0000000CbDy-2fhb;
+	Wed, 04 Dec 2024 12:58:29 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIolf-0000000CYW2-0s2v;
-	Wed, 04 Dec 2024 12:46:13 +0000
+	id 1tIolk-0000000CYaX-1xPk;
+	Wed, 04 Dec 2024 12:46:16 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=kdd8u5wjfE9hm8ngWpX4H/X2z68nPKRah5OeOMFt95M=; b=F4M4FVmUywmsurrd4DRzffGPD2
+	YN3HAtmtVjDckHTwNUI95M9KR6C2qAZ8g4eBdM78RbLbfHhDzgUCg5qyH64it6QPXDZPwFss+ifqu
+	JjulpdV1SPDh0xYQSn09WF33EszDA7q2gobSNj8p83pQ/D0nMVoQnwdXRvuz92u3LYb73ke78HcEB
+	jJ7CyMRPxRGjJWUPX4JLs8OIZY/AEFqBl4PNwybqidm3YCtasjEc9JaQCqAlQtV3GWulydhvi7/CW
+	DIoHPP3fTnqAlhOJIQxDrHpFncYAHIro0ixeE0zse+IlreEDOwOLn2F9jLA4857+Qgx6ARsvCRi48
+	ajArsHuA==;
+Received: from nyc.source.kernel.org ([147.75.193.91])
+	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tIolh-00000002b0x-1QyL;
+	Wed, 04 Dec 2024 12:46:15 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id DF5B1A41514;
+	by nyc.source.kernel.org (Postfix) with ESMTP id 1AB83A4156E;
 	Wed,  4 Dec 2024 12:44:17 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D1725C4CED1;
-	Wed,  4 Dec 2024 12:46:09 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id F2D11C4CEF0;
+	Wed,  4 Dec 2024 12:46:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1733316369;
-	bh=NPW6c3VDoAyeTY2GD72s1RHlrmv8mP4Sc8+nycqjNi0=;
+	bh=fe7lcwYFLHBQlBhA2vl7mVVQ+yJKY96ww+J3jQMWUMQ=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=oH0f2cxu4cUugaMlPmlrMOH4WJ9Txnq2Om4S/PUMZ7gqWsBpfd31BNo2+D5CQPQEy
-	 dnTbWFfSmKjndLUMMfBStG1oIOjipJEk+6FHdC5prmrPjIyxsBIPJA6/PIXCx94QM9
-	 CTQ1Nf63DOUSZyV1WuQWhgCQ06tgKDEueZ9Vqr9tUB7enSAtn1glTLM04gzGBRhJ8m
-	 y9zngyF4C03gp/uBeYetGUxCSxHPeHtAghHNYT8S4byu3a/DrXzxCBHLOMpO2fNmN6
-	 7CDZmMIX2CqYDE4H0PvXsy8tp1IRWatyHOUo9xT4OdTYKBG0OC4lkK8naVHBWy3Tnu
-	 vkl/q66P9HunA==
+	b=aZ8F6XZ1jy1YAPBfD0GJUsQfKs6WAGdDjBmy3WMPnZtsAOCQ09o2+zJ5+/IDfupxX
+	 1CvoqQzxawCkVsfT7HcPKGBI1tnwRDx85aq0+g+9EbLcAUUoWyCQ+bsZ0Z7sEmv5sk
+	 yJamHY22kaLLJUh3a2rWo8wAvoyHW9PIECOuzBN1R1evqkNSpfceaZvmBRQ6qUI7aG
+	 GBL7GPwGgWnPaSvBmW5idoJAlN7ZRIXpR+K05xjuskL4r4TORFFgtNrQu/80ZaS/y5
+	 izlQSB47BVmpM2FhAtgm3J+7AX4EBTSqy8jlbkWiN9p00N1bHtROHf/8UKFDWnY8tB
+	 lPjqOGdodVZFg==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.95)
 	(envelope-from <maz@kernel.org>)
-	id 1tIolb-000RHy-Ns;
+	id 1tIola-000RHy-VH;
 	Wed, 04 Dec 2024 12:46:07 +0000
 From: Marc Zyngier <maz@kernel.org>
 To: iommu@lists.linux.dev,
@@ -78,9 +92,9 @@ Cc: Joerg Roedel <joro@8bytes.org>,
 	Bjorn Helgaas <bhelgaas@google.com>,
 	Toan Le <toan@os.amperecomputing.com>,
 	Alyssa Rosenzweig <alyssa@rosenzweig.io>
-Subject: [PATCH 10/11] PCI: apple: Convert to MSI parent infrastructure
-Date: Wed,  4 Dec 2024 12:45:48 +0000
-Message-Id: <20241204124549.607054-11-maz@kernel.org>
+Subject: [PATCH 08/11] iommu/amd: Convert to msi_create_parent_irq_domain() helper
+Date: Wed,  4 Dec 2024 12:45:46 +0000
+Message-Id: <20241204124549.607054-9-maz@kernel.org>
 X-Mailer: git-send-email 2.39.2
 In-Reply-To: <20241204124549.607054-1-maz@kernel.org>
 References: <20241204124549.607054-1-maz@kernel.org>
@@ -90,8 +104,8 @@ X-SA-Exim-Rcpt-To: iommu@lists.linux.dev, linux-kernel@vger.kernel.org, linux-ar
 X-SA-Exim-Mail-From: maz@kernel.org
 X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241204_044611_385978_F9620FEC 
-X-CRM114-Status: GOOD (  20.02  )
+X-CRM114-CacheID: sfid-20241204_124613_727762_B0A38DC6 
+X-CRM114-Status: GOOD (  13.18  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,142 +122,49 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-In an effort to move arm64 away from the legacy MSI setup,
-convert the apple PCIe driver to the MSI-parent infrastructure
-and let each device have its own MSI domain.
+Now that we have a concise helper to create an MSI parent domain,
+switch the AMD IOMMU remapping over to that.
 
 Signed-off-by: Marc Zyngier <maz@kernel.org>
 ---
- drivers/pci/controller/Kconfig      |  1 +
- drivers/pci/controller/pcie-apple.c | 57 ++++++++---------------------
- 2 files changed, 17 insertions(+), 41 deletions(-)
+ drivers/iommu/amd/iommu.c | 12 +++++-------
+ 1 file changed, 5 insertions(+), 7 deletions(-)
 
-diff --git a/drivers/pci/controller/Kconfig b/drivers/pci/controller/Kconfig
-index 9800b76810540..98a62f4559dfd 100644
---- a/drivers/pci/controller/Kconfig
-+++ b/drivers/pci/controller/Kconfig
-@@ -40,6 +40,7 @@ config PCIE_APPLE
- 	depends on OF
- 	depends on PCI_MSI
- 	select PCI_HOST_COMMON
-+	select IRQ_MSI_LIB
- 	help
- 	  Say Y here if you want to enable PCIe controller support on Apple
- 	  system-on-chips, like the Apple M1. This is required for the USB
-diff --git a/drivers/pci/controller/pcie-apple.c b/drivers/pci/controller/pcie-apple.c
-index fefab2758a064..945070ac31cf8 100644
---- a/drivers/pci/controller/pcie-apple.c
-+++ b/drivers/pci/controller/pcie-apple.c
-@@ -22,6 +22,7 @@
- #include <linux/kernel.h>
- #include <linux/iopoll.h>
- #include <linux/irqchip/chained_irq.h>
-+#include <linux/irqchip/irq-msi-lib.h>
- #include <linux/irqdomain.h>
- #include <linux/list.h>
- #include <linux/module.h>
-@@ -134,7 +135,6 @@ struct apple_pcie {
- 	struct mutex		lock;
- 	struct device		*dev;
- 	void __iomem            *base;
--	struct irq_domain	*domain;
- 	unsigned long		*bitmap;
- 	struct list_head	ports;
- 	struct completion	event;
-@@ -163,27 +163,6 @@ static void rmw_clear(u32 clr, void __iomem *addr)
- 	writel_relaxed(readl_relaxed(addr) & ~clr, addr);
- }
+diff --git a/drivers/iommu/amd/iommu.c b/drivers/iommu/amd/iommu.c
+index 3f691e1fd22ce..8137674aca51d 100644
+--- a/drivers/iommu/amd/iommu.c
++++ b/drivers/iommu/amd/iommu.c
+@@ -3807,6 +3807,7 @@ static struct irq_chip amd_ir_chip = {
  
--static void apple_msi_top_irq_mask(struct irq_data *d)
--{
--	pci_msi_mask_irq(d);
--	irq_chip_mask_parent(d);
--}
--
--static void apple_msi_top_irq_unmask(struct irq_data *d)
--{
--	pci_msi_unmask_irq(d);
--	irq_chip_unmask_parent(d);
--}
--
--static struct irq_chip apple_msi_top_chip = {
--	.name			= "PCIe MSI",
--	.irq_mask		= apple_msi_top_irq_mask,
--	.irq_unmask		= apple_msi_top_irq_unmask,
--	.irq_eoi		= irq_chip_eoi_parent,
--	.irq_set_affinity	= irq_chip_set_affinity_parent,
--	.irq_set_type		= irq_chip_set_type_parent,
--};
--
- static void apple_msi_compose_msg(struct irq_data *data, struct msi_msg *msg)
- {
- 	msg->address_hi = upper_32_bits(DOORBELL_ADDR);
-@@ -227,8 +206,7 @@ static int apple_msi_domain_alloc(struct irq_domain *domain, unsigned int virq,
- 
- 	for (i = 0; i < nr_irqs; i++) {
- 		irq_domain_set_hwirq_and_chip(domain, virq + i, hwirq + i,
--					      &apple_msi_bottom_chip,
--					      domain->host_data);
-+					      &apple_msi_bottom_chip, pcie);
- 	}
- 
- 	return 0;
-@@ -252,12 +230,6 @@ static const struct irq_domain_ops apple_msi_domain_ops = {
- 	.free	= apple_msi_domain_free,
+ static const struct msi_parent_ops amdvi_msi_parent_ops = {
+ 	.supported_flags	= X86_VECTOR_MSI_FLAGS_SUPPORTED | MSI_FLAG_MULTI_PCI_MSI,
++	.bus_token		= DOMAIN_BUS_AMDVI,
+ 	.prefix			= "IR-",
+ 	.init_dev_msi_info	= msi_parent_init_dev_msi_info,
  };
- 
--static struct msi_domain_info apple_msi_info = {
--	.flags	= (MSI_FLAG_USE_DEF_DOM_OPS | MSI_FLAG_USE_DEF_CHIP_OPS |
--		   MSI_FLAG_MULTI_PCI_MSI | MSI_FLAG_PCI_MSIX),
--	.chip	= &apple_msi_top_chip,
--};
--
- static void apple_port_irq_mask(struct irq_data *data)
- {
- 	struct apple_pcie_port *port = irq_data_get_irq_chip_data(data);
-@@ -596,6 +568,17 @@ static int apple_pcie_setup_port(struct apple_pcie *pcie,
- 	return 0;
- }
- 
-+static const struct msi_parent_ops apple_msi_parent_ops = {
-+	.supported_flags	= (MSI_GENERIC_FLAGS_MASK	|
-+				   MSI_FLAG_PCI_MSIX		|
-+				   MSI_FLAG_MULTI_PCI_MSI),
-+	.required_flags		= (MSI_FLAG_USE_DEF_DOM_OPS	|
-+				   MSI_FLAG_USE_DEF_CHIP_OPS	|
-+				   MSI_FLAG_PCI_MSI_MASK_PARENT),
-+	.bus_select_token	= DOMAIN_BUS_PCI_MSI,
-+	.init_dev_msi_info	= msi_lib_init_dev_msi_info,
-+};
-+
- static int apple_msi_init(struct apple_pcie *pcie)
- {
- 	struct fwnode_handle *fwnode = dev_fwnode(pcie->dev);
-@@ -626,21 +609,13 @@ static int apple_msi_init(struct apple_pcie *pcie)
- 		return -ENXIO;
- 	}
- 
--	parent = irq_domain_create_hierarchy(parent, 0, pcie->nvecs, fwnode,
--					     &apple_msi_domain_ops, pcie);
-+	parent = msi_create_parent_irq_domain(fwnode, &apple_msi_parent_ops,
-+					      &apple_msi_domain_ops, 0,
-+					      pcie->nvecs, pcie, parent);
- 	if (!parent) {
- 		dev_err(pcie->dev, "failed to create IRQ domain\n");
+@@ -3818,18 +3819,15 @@ int amd_iommu_create_irq_domain(struct amd_iommu *iommu)
+ 	fn = irq_domain_alloc_named_id_fwnode("AMD-IR", iommu->index);
+ 	if (!fn)
+ 		return -ENOMEM;
+-	iommu->ir_domain = irq_domain_create_hierarchy(arch_get_ir_parent_domain(), 0, 0,
+-						       fn, &amd_ir_domain_ops, iommu);
++	iommu->ir_domain = msi_create_parent_irq_domain(fn, &amdvi_msi_parent_ops,
++							&amd_ir_domain_ops,
++							IRQ_DOMAIN_FLAG_ISOLATED_MSI, 0,
++							iommu, arch_get_ir_parent_domain());
+ 	if (!iommu->ir_domain) {
+ 		irq_domain_free_fwnode(fn);
  		return -ENOMEM;
  	}
--	irq_domain_update_bus_token(parent, DOMAIN_BUS_NEXUS);
--
--	pcie->domain = pci_msi_create_irq_domain(fwnode, &apple_msi_info,
--						 parent);
--	if (!pcie->domain) {
--		dev_err(pcie->dev, "failed to create MSI domain\n");
--		irq_domain_remove(parent);
--		return -ENOMEM;
--	}
  
+-	irq_domain_update_bus_token(iommu->ir_domain,  DOMAIN_BUS_AMDVI);
+-	iommu->ir_domain->flags |= IRQ_DOMAIN_FLAG_MSI_PARENT |
+-				   IRQ_DOMAIN_FLAG_ISOLATED_MSI;
+-	iommu->ir_domain->msi_parent_ops = &amdvi_msi_parent_ops;
+-
  	return 0;
  }
+ 
 -- 
 2.39.2
 
