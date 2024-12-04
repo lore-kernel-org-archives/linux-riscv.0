@@ -4,108 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4DD01E77179
-	for <linux-riscv@archiver.kernel.org>; Wed,  4 Dec 2024 12:58:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 87713E7716E
+	for <linux-riscv@archiver.kernel.org>; Wed,  4 Dec 2024 13:59:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
+	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=n11OEHFRtNMAnTVN3hoZ+yJ07+g3LSCVYRlwDSFc1GM=; b=FAWIIHVo+yG3x2
-	LCIffaC/I5dwkgsVQoB4qDbZMhtB/97f6E73MoBgRO4WSA91GpEIVdGp50xWds82hZc2mP3wTTtel
-	4c7Xg6NfJ9vfar3q5v5zLTEIODD8u4nBuLE7HcJ68ePeOiLvpV+HbAxUKpxgVIT4LsudQF1bmNAsp
-	3kAieMq6lnEr+vI1wKH8/nP5O3zCH0NIRDAYHwP2qPfJmkv9fEXllN8yP0ju6EGJmXswLam8TGYR/
-	7H462Xvi6L+sUL8zd2zWrmg5Uek08JCfNqCtMs2r5bsuLHZIGIQ4xhebf8er4THdGoRP4v6N7IX69
-	Z+JrxtKa4fYBpiVSejIA==;
+	List-Owner; bh=VKMhC1gVJF5D1pRiOAoKOWp6Cm9hnxxI6zGaGBTUMXs=; b=4BKZ59xlK8ig5e
+	1Ji0kl0HC2galq8/cgfOHnG8zWk/0l99bmQrlKUfqHWxDDXOT9R1xB4ewhHod7/XapsYFTWIHWMIB
+	cHQ9urf9bmQxueRY/YhetybypSgIlZ8GYD+Z/DomscUHyMSEovENSKvqI6gvq7M11C18aBq6X9AIC
+	rFgqg0JXsBTunQGvhnzr9kNN7WsJlhu4PsEiCdthXjeOxJaan9HQRGv9eW5s6WJWZij7d/99siBYo
+	eO35Dd7NQJPYREzq0kcKsv6NKK43kw35ynjCzz1M4PBi6YqZ5W9RC4zMyZwcWW++kaZKB0b/lHeQL
+	DQIiYUtTeZSQFthRN6cQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIoxb-0000000CbJM-2z90;
-	Wed, 04 Dec 2024 12:58:31 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1tIpud-0000000Cjzj-16GJ;
+	Wed, 04 Dec 2024 13:59:31 +0000
+Received: from galois.linutronix.de ([193.142.43.55])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIolk-0000000CYab-2qXx;
-	Wed, 04 Dec 2024 12:46:16 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=KTlyoZd0Z8X3Ax+8OlWTkIefIPquaGyJJBQOFPH0lCo=; b=BiLilogvHdarUqJNzyyqKwPwMi
-	aGFvMMjzpm0yDfXaXgrAh/464Ajo6ka+/LylWQ3wKtuAFi96U8GNOIn5ib61u2TcwjgPs51s/A2iA
-	Kk1bkGQioSkqgFPA5Hvq7+xOEfAEr7XkOZA15JSCACRKcYGcvjrWdPu7ii1e1encl7krsdYTEPwrU
-	09J9lsCwh7blpzOZkvYY3QLEBJIPsXfggR8B2rotrVEcqXr+2FYIL2dHOkEsfJMW94E8yQlCGamiD
-	KajVUKr35nJbVnpsGlPNy2qTj+vziuvS9TRI3ugjkO23VwgfP1z7KUGGE6e9ITp++IYU0E2jn7ezr
-	yJ8OpWag==;
-Received: from nyc.source.kernel.org ([147.75.193.91])
-	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIolh-00000002b10-353m;
-	Wed, 04 Dec 2024 12:46:15 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 1B9EEA416F5;
-	Wed,  4 Dec 2024 12:44:18 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0D740C4CEE4;
-	Wed,  4 Dec 2024 12:46:10 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1733316370;
-	bh=WovDOhGvJI34dfRdwLOil5noAJ5CREZZX4oJMEsuV3c=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=eUOAOGxDdJCpu9CKizY2dme6+QjXgFdhMgbIAtu+zIYKisA9lS0WvyerxS1fXCxPY
-	 t3j55q66bUY9eCYymATDsBvYYd+IqYHPtn1e7vQx3RJyDLiWiiZcmWyYHYRa/Yb0Ln
-	 MP23MO1U0GrTvYw679XpCjcEmsS67z6gvNhik4vdE+Epv3wWWPgKxGcKHztdtZTY8F
-	 N9Gp8NbO7A3+t5/Kz0j7J765cEhdqVSHzFEjI6t+yuOY4AYcZ2dLyldBbRb0UGDIw9
-	 fuFJc9P29p0HnKXgUxtCjZp6djxgFRjuSXkSuWYGjCHcqcKpWMnMXvvqIlIh5EjUI1
-	 7fYhjW87yzjFQ==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.95)
-	(envelope-from <maz@kernel.org>)
-	id 1tIolc-000RHy-5S;
-	Wed, 04 Dec 2024 12:46:08 +0000
-From: Marc Zyngier <maz@kernel.org>
-To: iommu@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	loongarch@lists.linux.dev,
-	linux-riscv@lists.infradead.org,
-	linux-pci@vger.kernel.org
-Cc: Joerg Roedel <joro@8bytes.org>,
-	Suravee Suthikulpanit <suravee.suthikulpanit@amd.com>,
-	David Woodhouse <dwmw2@infradead.org>,
-	Lu Baolu <baolu.lu@linux.intel.com>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Huacai Chen <chenhuacai@kernel.org>,
-	WANG Xuerui <kernel@xen0n.name>,
-	Jiaxun Yang <jiaxun.yang@flygoat.com>,
-	Andrew Lunn <andrew@lunn.ch>,
-	Gregory Clement <gregory.clement@bootlin.com>,
-	Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>,
-	Anup Patel <anup@brainfault.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	=?UTF-8?q?Krzysztof=20Wilczy=C5=84ski?= <kw@linux.com>,
-	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
-	Bjorn Helgaas <bhelgaas@google.com>,
-	Toan Le <toan@os.amperecomputing.com>,
-	Alyssa Rosenzweig <alyssa@rosenzweig.io>
-Subject: [PATCH 11/11] PCI: xgene: Convert to MSI parent infrastructure
-Date: Wed,  4 Dec 2024 12:45:49 +0000
-Message-Id: <20241204124549.607054-12-maz@kernel.org>
-X-Mailer: git-send-email 2.39.2
-In-Reply-To: <20241204124549.607054-1-maz@kernel.org>
+	id 1tIpt0-0000000CjiW-11jQ;
+	Wed, 04 Dec 2024 13:57:51 +0000
+From: Thomas Gleixner <tglx@linutronix.de>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1733320668;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=O8gMBaIWat/OC+daKLF/DrYEDK3rTNp+SHrrdeWTGo4=;
+	b=AJk6yCS77aWTtXPj71xsZCYeiYnNwSK2NZH6NgU8rogWhB7l+4kXbG2yjdyy/qPGJc8Ze0
+	mKRQe3OE1a47NDP0V45qudfLKpaT1KqOZDV7H8C6ByYt+1ZiDGIW7MDma09IFxwvjuPf1T
+	ZqOojKm+3WDjW6/pj7k2y5/dC/Y/9TY4B7Uom4cb4L8EE4HjQ+PbNWH4CFVKIc5hM1QX/K
+	/YxRHheXIFzTxU+OvGkI9ji6FfN7pzVgZRcKJmuNaUl3NRGc25GXOy3iSMr//2WG14bJZQ
+	KmJWaSOKlo3ogqipLJ3wbih/xb68hACAlIm0C3tAtfB5uziMiaWDMZrDepa9TQ==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1733320668;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=O8gMBaIWat/OC+daKLF/DrYEDK3rTNp+SHrrdeWTGo4=;
+	b=Qc5JYu1O1PkVaW+DC6Z5efyRWpKu6lebzkvOwpsmta3x4Bq25zwtdPx1O9s1NNfh2BTVXe
+	06TjE52LP4Ai7uDQ==
+To: Marc Zyngier <maz@kernel.org>, iommu@lists.linux.dev,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ loongarch@lists.linux.dev, linux-riscv@lists.infradead.org,
+ linux-pci@vger.kernel.org
+Cc: Joerg Roedel <joro@8bytes.org>, Suravee Suthikulpanit
+ <suravee.suthikulpanit@amd.com>, David Woodhouse <dwmw2@infradead.org>, Lu
+ Baolu <baolu.lu@linux.intel.com>, Shawn Guo <shawnguo@kernel.org>, Sascha
+ Hauer <s.hauer@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, Huacai
+ Chen <chenhuacai@kernel.org>, WANG Xuerui <kernel@xen0n.name>, Jiaxun Yang
+ <jiaxun.yang@flygoat.com>, Andrew Lunn <andrew@lunn.ch>, Gregory Clement
+ <gregory.clement@bootlin.com>, Sebastian Hesselbarth
+ <sebastian.hesselbarth@gmail.com>, Anup Patel <anup@brainfault.org>, Paul
+ Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Albert Ou <aou@eecs.berkeley.edu>, Lorenzo Pieralisi
+ <lpieralisi@kernel.org>, Krzysztof =?utf-8?Q?Wilczy=C5=84ski?=
+ <kw@linux.com>, Manivannan
+ Sadhasivam <manivannan.sadhasivam@linaro.org>, Bjorn Helgaas
+ <bhelgaas@google.com>, Toan Le <toan@os.amperecomputing.com>, Alyssa
+ Rosenzweig <alyssa@rosenzweig.io>
+Subject: Re: [PATCH 02/11] genirq/msi: Add helper for creating MSI-parent
+ irq domains
+In-Reply-To: <20241204124549.607054-3-maz@kernel.org>
 References: <20241204124549.607054-1-maz@kernel.org>
+ <20241204124549.607054-3-maz@kernel.org>
+Date: Wed, 04 Dec 2024 14:57:47 +0100
+Message-ID: <878qsvsg84.ffs@tglx>
 MIME-Version: 1.0
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: iommu@lists.linux.dev, linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, loongarch@lists.linux.dev, linux-riscv@lists.infradead.org, linux-pci@vger.kernel.org, joro@8bytes.org, suravee.suthikulpanit@amd.com, dwmw2@infradead.org, baolu.lu@linux.intel.com, tglx@linutronix.de, shawnguo@kernel.org, s.hauer@pengutronix.de, festevam@gmail.com, chenhuacai@kernel.org, kernel@xen0n.name, jiaxun.yang@flygoat.com, andrew@lunn.ch, gregory.clement@bootlin.com, sebastian.hesselbarth@gmail.com, anup@brainfault.org, paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu, lpieralisi@kernel.org, kw@linux.com, manivannan.sadhasivam@linaro.org, bhelgaas@google.com, toan@os.amperecomputing.com, alyssa@rosenzweig.io
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241204_124614_088860_CDFC33E4 
-X-CRM114-Status: GOOD (  17.46  )
+X-CRM114-CacheID: sfid-20241204_055750_562551_99F3E799 
+X-CRM114-Status: GOOD (  27.44  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,120 +92,208 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-In an effort to move arm64 away from the legacy MSI setup,
-convert the xgene PCIe driver to the MSI-parent infrastructure
-and let each device have its own MSI domain.
+On Wed, Dec 04 2024 at 12:45, Marc Zyngier wrote:
+> Creating an irq domain that serves as an MSI parent requires
+> a substantial amount of esoteric boiler-plate code, some of
+> which is often provided twice (such as the bus token).
+>
+> To make things a bit simpler for the unsuspecting MSI tinkerer,
+> provide a helper that does it for them, and serves as documentation
+> of what needs to be provided.
+>
+> Signed-off-by: Marc Zyngier <maz@kernel.org>
+> ---
+>  include/linux/msi.h |  7 +++++++
+>  kernel/irq/msi.c    | 40 ++++++++++++++++++++++++++++++++++++++++
+>  2 files changed, 47 insertions(+)
+>
+> diff --git a/include/linux/msi.h b/include/linux/msi.h
+> index b10093c4d00ea..f08d14cf07103 100644
+> --- a/include/linux/msi.h
+> +++ b/include/linux/msi.h
+> @@ -594,6 +594,13 @@ struct irq_domain *msi_create_irq_domain(struct fwnode_handle *fwnode,
+>  					 struct msi_domain_info *info,
+>  					 struct irq_domain *parent);
+>  
+> +struct irq_domain *msi_create_parent_irq_domain(struct fwnode_handle *fwnode,
+> +						const struct msi_parent_ops *msi_parent_ops,
+> +						const struct irq_domain_ops *ops,
+> +						unsigned long flags, unsigned long size,
+> +						void *host_data,
+> +						struct irq_domain *parent);
 
-Signed-off-by: Marc Zyngier <maz@kernel.org>
+Can we please make this a template based interface similar to
+msi_create_device_irq_domain()?
+
+> +/**
+> + * msi_create_parent_irq_domain - Create an MSI-parent interrupt domain
+> + * @fwnode:		Optional fwnode of the interrupt controller
+> + * @msi_parent_ops:	MSI parent callbacks and configuration
+> + * @ops:		Interrupt domain ballbacks
+> + * @flags:		Interrupt domain flags
+> + * @size:		Interrupt domain size (0 if arbitrarily large)
+> + * @host_data:		Interrupt domain private data
+> + * @parent:		Parent irq domain
+> + *
+> + * Return: pointer to the created &struct irq_domain or %NULL on failure
+> + */
+> +struct irq_domain *msi_create_parent_irq_domain(struct fwnode_handle *fwnode,
+> +						const struct msi_parent_ops *msi_parent_ops,
+> +						const struct irq_domain_ops *ops,
+> +						unsigned long flags, unsigned long size,
+> +						void *host_data,
+> +						struct irq_domain *parent)
+> +{
+> +	struct irq_domain_info info = {
+> +		.fwnode		= fwnode,
+> +		.size		= size,
+> +		.hwirq_max	= size,
+> +		.ops		= ops,
+> +		.host_data	= host_data,
+> +		.domain_flags	= flags | IRQ_DOMAIN_FLAG_MSI_PARENT,
+> +		.parent		= parent,
+> +		.bus_token	= msi_parent_ops->bus_select_token,
+> +	};
+
+Instead of hiding the template in the function?
+
+We've been burnt with interfaces which might require extensions over
+time before and I just converted the GIC patch (3/11) over to a template
+at call site model. It results in the same code size reduction at the
+call sites, but allows us to expand the template without touching any
+existing driver in the future. See below.
+
+It might be a good idea to have a specific msi_irq_domain_info template
+which only contains the information required instead of reusing and
+expanding irq_domain_info.
+
+Hmm?
+
+Thanks,
+
+        tglx
 ---
- drivers/pci/controller/Kconfig         |  1 +
- drivers/pci/controller/pci-xgene-msi.c | 44 +++++++++-----------------
- 2 files changed, 16 insertions(+), 29 deletions(-)
-
-diff --git a/drivers/pci/controller/Kconfig b/drivers/pci/controller/Kconfig
-index 98a62f4559dfd..205e0e365c6b1 100644
---- a/drivers/pci/controller/Kconfig
-+++ b/drivers/pci/controller/Kconfig
-@@ -304,6 +304,7 @@ config PCI_XGENE_MSI
- 	bool "X-Gene v1 PCIe MSI feature"
- 	depends on PCI_XGENE
- 	depends on PCI_MSI
-+	select IRQ_MSI_LIB
- 	default y
- 	help
- 	  Say Y here if you want PCIe MSI support for the APM X-Gene v1 SoC.
-diff --git a/drivers/pci/controller/pci-xgene-msi.c b/drivers/pci/controller/pci-xgene-msi.c
-index 88c0977bc41a4..d9e4d1e136f77 100644
---- a/drivers/pci/controller/pci-xgene-msi.c
-+++ b/drivers/pci/controller/pci-xgene-msi.c
-@@ -12,6 +12,7 @@
- #include <linux/module.h>
- #include <linux/msi.h>
- #include <linux/irqchip/chained_irq.h>
-+#include <linux/irqchip/irq-msi-lib.h>
- #include <linux/pci.h>
- #include <linux/platform_device.h>
- #include <linux/of_pci.h>
-@@ -32,7 +33,6 @@ struct xgene_msi_group {
- struct xgene_msi {
- 	struct device_node	*node;
- 	struct irq_domain	*inner_domain;
--	struct irq_domain	*msi_domain;
- 	u64			msi_addr;
- 	void __iomem		*msi_regs;
- 	unsigned long		*bitmap;
-@@ -44,20 +44,6 @@ struct xgene_msi {
- /* Global data */
- static struct xgene_msi xgene_msi_ctrl;
+--- a/drivers/irqchip/irq-gic-v2m.c
++++ b/drivers/irqchip/irq-gic-v2m.c
+@@ -263,24 +263,25 @@ static struct msi_parent_ops gicv2m_msi_
  
--static struct irq_chip xgene_msi_top_irq_chip = {
--	.name		= "X-Gene1 MSI",
--	.irq_enable	= pci_msi_unmask_irq,
--	.irq_disable	= pci_msi_mask_irq,
--	.irq_mask	= pci_msi_mask_irq,
--	.irq_unmask	= pci_msi_unmask_irq,
--};
--
--static struct  msi_domain_info xgene_msi_domain_info = {
--	.flags	= (MSI_FLAG_USE_DEF_DOM_OPS | MSI_FLAG_USE_DEF_CHIP_OPS |
--		  MSI_FLAG_PCI_MSIX),
--	.chip	= &xgene_msi_top_irq_chip,
--};
--
- /*
-  * X-Gene v1 has 16 groups of MSI termination registers MSInIRx, where
-  * n is group number (0..F), x is index of registers in each group (0..7)
-@@ -235,34 +221,34 @@ static void xgene_irq_domain_free(struct irq_domain *domain,
- 	irq_domain_free_irqs_parent(domain, virq, nr_irqs);
- }
- 
--static const struct irq_domain_ops msi_domain_ops = {
-+static const struct irq_domain_ops xgene_msi_domain_ops = {
- 	.alloc  = xgene_irq_domain_alloc,
- 	.free   = xgene_irq_domain_free,
- };
- 
-+static const struct msi_parent_ops xgene_msi_parent_ops = {
-+	.supported_flags	= (MSI_GENERIC_FLAGS_MASK	|
-+				   MSI_FLAG_PCI_MSIX),
-+	.required_flags		= (MSI_FLAG_USE_DEF_DOM_OPS	|
-+				   MSI_FLAG_USE_DEF_CHIP_OPS),
-+	.bus_select_token	= DOMAIN_BUS_PCI_MSI,
-+	.init_dev_msi_info	= msi_lib_init_dev_msi_info,
-+};
-+
- static int xgene_allocate_domains(struct xgene_msi *msi)
+ static __init int gicv2m_allocate_domains(struct irq_domain *parent)
  {
--	msi->inner_domain = irq_domain_add_linear(NULL, NR_MSI_VEC,
--						  &msi_domain_ops, msi);
-+	msi->inner_domain = msi_create_parent_irq_domain(of_node_to_fwnode(msi->node),
-+							 &xgene_msi_parent_ops,
-+							 &xgene_msi_domain_ops,
-+							 0, NR_MSI_VEC, msi, NULL);
- 	if (!msi->inner_domain)
- 		return -ENOMEM;
+-	struct irq_domain *inner_domain;
+ 	struct v2m_data *v2m;
++	struct irq_domain_info info = {
++		.ops		= &gic2m_domain_ops,
++		.parent		= parent,
++		.msi_parent_ops = &gicv2m_msi_parent_ops,
++	};
  
--	msi->msi_domain = pci_msi_create_irq_domain(of_node_to_fwnode(msi->node),
--						    &xgene_msi_domain_info,
--						    msi->inner_domain);
--
--	if (!msi->msi_domain) {
--		irq_domain_remove(msi->inner_domain);
+ 	v2m = list_first_entry_or_null(&v2m_nodes, struct v2m_data, entry);
+ 	if (!v2m)
+ 		return 0;
+ 
+-	inner_domain = irq_domain_create_hierarchy(parent, 0, 0, v2m->fwnode,
+-						   &gicv2m_domain_ops, v2m);
+-	if (!inner_domain) {
+-		pr_err("Failed to create GICv2m domain\n");
 -		return -ENOMEM;
 -	}
 -
- 	return 0;
+-	irq_domain_update_bus_token(inner_domain, DOMAIN_BUS_NEXUS);
+-	inner_domain->flags |= IRQ_DOMAIN_FLAG_MSI_PARENT;
+-	inner_domain->msi_parent_ops = &gicv2m_msi_parent_ops;
+-	return 0;
++	info->fwnode = v2m->fwnode;
++	info->host_data = v2m;
++
++	if (msi_create_parent_irq_domain(&info))
++		return 0;
++
++	pr_err("Failed to create GICv2m domain\n");
++	return -ENOMEM;
  }
  
- static void xgene_free_domains(struct xgene_msi *msi)
+ static int __init gicv2m_init_one(struct fwnode_handle *fwnode,
+--- a/drivers/irqchip/irq-gic-v3-its.c
++++ b/drivers/irqchip/irq-gic-v3-its.c
+@@ -5076,31 +5076,27 @@ static void __init __iomem *its_map_one(
+ 
+ static int its_init_domain(struct its_node *its)
  {
--	if (msi->msi_domain)
--		irq_domain_remove(msi->msi_domain);
- 	if (msi->inner_domain)
- 		irq_domain_remove(msi->inner_domain);
+-	struct irq_domain *inner_domain;
+-	struct msi_domain_info *info;
++	struct msi_domain_info *msi_info;
++	struct irq_domain_info info = {
++		.fwnode		= its->fwnode_handle,
++		.ops		= &its_domain_ops,
++		.parent		= its_parent,
++		.msi_parent_ops = &gic_v3_its_msi_parent_ops,
++		.flags		= its->msi_domain_flags,
++	};
+ 
+-	info = kzalloc(sizeof(*info), GFP_KERNEL);
+-	if (!info)
++	msi_info = kzalloc(sizeof(*info), GFP_KERNEL);
++	if (!msi_info)
+ 		return -ENOMEM;
+ 
+-	info->ops = &its_msi_domain_ops;
+-	info->data = its;
+-
+-	inner_domain = irq_domain_create_hierarchy(its_parent,
+-						   its->msi_domain_flags, 0,
+-						   its->fwnode_handle, &its_domain_ops,
+-						   info);
+-	if (!inner_domain) {
+-		kfree(info);
+-		return -ENOMEM;
+-	}
+-
+-	irq_domain_update_bus_token(inner_domain, DOMAIN_BUS_NEXUS);
+-
+-	inner_domain->msi_parent_ops = &gic_v3_its_msi_parent_ops;
+-	inner_domain->flags |= IRQ_DOMAIN_FLAG_MSI_PARENT;
+-
+-	return 0;
++	msi_info->ops = &its_msi_domain_ops;
++	msi_info->data = its;
++	info.host_data = msi_info;
++
++	if (msi_create_parent_irq_domain(&info))
++		return 0;
++	kfree(info);
++	return -ENOMEM;
  }
--- 
-2.39.2
+ 
+ static int its_init_vpe_domain(void)
+--- a/drivers/irqchip/irq-gic-v3-mbi.c
++++ b/drivers/irqchip/irq-gic-v3-mbi.c
+@@ -209,17 +209,14 @@ static const struct msi_parent_ops gic_v
+ 
+ static int mbi_allocate_domain(struct irq_domain *parent)
+ {
+-	struct irq_domain *nexus_domain;
++	struct irq_domain_info info = {
++		.fwnode		= parent->fwnode,
++		.ops		= &mbi_domain_ops,
++		.parent		= parent,
++		.msi_parent_ops = &gic_v3_mbi_msi_parent_ops,
++	};
+ 
+-	nexus_domain = irq_domain_create_hierarchy(parent, 0, 0, parent->fwnode,
+-						   &mbi_domain_ops, NULL);
+-	if (!nexus_domain)
+-		return -ENOMEM;
+-
+-	irq_domain_update_bus_token(nexus_domain, DOMAIN_BUS_NEXUS);
+-	nexus_domain->flags |= IRQ_DOMAIN_FLAG_MSI_PARENT;
+-	nexus_domain->msi_parent_ops = &gic_v3_mbi_msi_parent_ops;
+-	return 0;
++	return msi_create_parent_irq_domain(&info) ? 0 : -ENOMEM;
+ }
+ 
+ int __init mbi_init(struct fwnode_handle *fwnode, struct irq_domain *parent)
+
+
 
 
 _______________________________________________
