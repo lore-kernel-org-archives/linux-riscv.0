@@ -4,91 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B059AE7716E
-	for <linux-riscv@archiver.kernel.org>; Wed,  4 Dec 2024 15:19:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DB683E7716D
+	for <linux-riscv@archiver.kernel.org>; Wed,  4 Dec 2024 16:29:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:
-	Mime-Version:References:In-Reply-To:From:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=jsUFSw8BQ3W21nIOZUlHdf+vLlLUTS7HbDM87nC6LRE=; b=Gh+Pf3Si2BKu5HHkJ+rs4oynx+
-	MwiRIl5CNpXOQtoidUydVgDaBZyRDGDMzFqm8M2uY+R/aBR/AMaut18HNpCgQwmICJxlcYTNdg49m
-	3/NUgowqXJLk8cioQ7KvmV6vF/uFy8av9x7YaYIwy65GuIVE/JYoCF96KmI2YFW4YdMtgkSUBpkG/
-	z+pm3O6cXOqQ1x1VrL9EHkvsZk9uCS6HGXgcGd6SxC2o7Mk26bRCPNKuYkw5jEjlMtVSrPAFmSzGL
-	YUeHfJCf2zsoYNeCsuLgsuiTTNNz95P2gUVC7IQTppThkppoXPr+dV06UyWQJR2227WxUeRbq+kRT
-	MTD3aQHQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=IuCsb2E9NoSHs+y/Lej0Dy08dNsbn/biBT8gT5CQ1jQ=; b=lnUaviIb+X0c3q
+	PmccwPbmKNSFAWyT39y4jI7bK9qEXKEY2K/3QmAQ5SBThaiuhdxzZgwVDB4FrWZWHKOFiAmyeFdi2
+	JKjMF7TnqYNKjfkQKxzYM2dDsbgfRdQHldb7RLn2sgg1ubVNP3N6R+GjQn4fzFLOvOILWEWG3RvGG
+	KPFJGXLu86CmR+7k2dHNGDFkfqqSSo4mMtYESrNnVIynzTpzGB1pJLN47rG/y0FiVyoCkSv1FRBcN
+	y90MEh0dT6K8REBxPXxNTQCkSrAsOCn8G28f063lCl0J9QMOi/DVPx9KqU5EHu1Ko8EcJnonW8JYh
+	5PsM9XN9kACE4gjoBDrg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIrAG-0000000CyQo-3Uqz;
-	Wed, 04 Dec 2024 15:19:44 +0000
-Received: from smtp-relay-internal-0.canonical.com ([185.125.188.122])
+	id 1tIsFK-0000000DBq6-46ET;
+	Wed, 04 Dec 2024 16:29:02 +0000
+Received: from smtp-fw-2101.amazon.com ([72.21.196.25])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tIrAD-0000000CyP9-0NXB
-	for linux-riscv@lists.infradead.org;
-	Wed, 04 Dec 2024 15:19:43 +0000
-Received: from mail-oo1-f70.google.com (mail-oo1-f70.google.com [209.85.161.70])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by smtp-relay-internal-0.canonical.com (Postfix) with ESMTPS id 3ED7840CE4
-	for <linux-riscv@lists.infradead.org>; Wed,  4 Dec 2024 15:19:31 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
-	s=20210705; t=1733325571;
-	bh=mT6saqI3kUrpS1by1WPPwkqD7keXMeGTbVJLvZHkNkU=;
-	h=From:In-Reply-To:References:Mime-Version:Date:Message-ID:Subject:
-	 To:Cc:Content-Type;
-	b=HB1iovpUhdyYSP+mSpkG6x/61vpv+abUxfnQwq5GQpPa/GrcAKHa/26g7Uzk0YK4z
-	 9RofIy83jhFsXI7tQr2C5T0FFfxEwpHTLrvQ5AmTET3f8EpmgwkMfi4iPBY7clmOBl
-	 map6YFqCjuhH0C+ZGNsfqEGD/2yVJ3LWIt6e1sjZZ1+FS9ooDYpUKAmX+dDAHk3sqb
-	 sL2kkGFMtSKrOIiQYdCgTOwqd3bNiK9gKnIKwVx+In+3f7RjZWjZZoceAFjXV/1UDP
-	 tjU36YRbtnsharZpAQFUjBzLMmgTH6q/AyMy5jC/xND0dzXr/umjnvJQ4p/ewxmlKc
-	 dB8jvMDB/+lXA==
-Received: by mail-oo1-f70.google.com with SMTP id 006d021491bc7-5f1e9fac321so810656eaf.1
-        for <linux-riscv@lists.infradead.org>; Wed, 04 Dec 2024 07:19:31 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1733325569; x=1733930369;
-        h=cc:to:subject:message-id:date:mime-version:references:in-reply-to
-         :from:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=mT6saqI3kUrpS1by1WPPwkqD7keXMeGTbVJLvZHkNkU=;
-        b=e5UgwhFCHpSgNj+zWFi0BHRXnnsO7sYi2dYM6gWKhFcFGAkQIHBV0DbgZPpXSxHlNS
-         691bgTO2Sr+iiCaLf5XMmDFrhI7X8s0XPYeczSEYRMxHmUCWWr5KOBO87evxmWMi7FqQ
-         81W0zS2o8cGG2cSOYKBMojrcm/CmaxhtaFHYEiWG4rVC9eak0fxFs3HvPM9UJviV9lmS
-         l+7ml68sOXXJ+VaL5j8l0WaVBwRGxiNh8LI1OnLOz129By2o7dQ4n2r7auZocPfaIUEH
-         JKCqcJyLs/O+yLWhqhTBuq84c7EVxt2SxoJm/pLt2AdGKwYEZA0qf+yQ0jiHufXrMCWE
-         de4Q==
-X-Forwarded-Encrypted: i=1; AJvYcCXRSFIiSn3QZ+2jcR4lc2G33xFD5ITPEpTI01yqTQc7emUcya29ajDFW4eC4mrvNsjVtmMCuIgNiZSCmA==@lists.infradead.org
-X-Gm-Message-State: AOJu0YxWNFub7LtO76AE9s8iAMlfIk1tkQ/i5z8x4kzxtcqL35fgy1sv
-	Ua4Tk8AFqHDBIqiQU9WKMetxRzU0sYNEHiu3b+7cdSeFkck9vopTzIdWS+GnX1dv1ps1kVpCOi+
-	qlbmTx0JrCFimrbQjjJ3/MmGSxiJ7xSgw6nTclz7FTm4tzH6ucBmfJmgBi+B9a8Xi39z7Co4VV/
-	q3CRdQysL5Du/P5SgUmG5eeTWPO1xz2Ni0xmhQhjapNzl4uLttigTXtAZc
-X-Gm-Gg: ASbGncvfjwBHWJNvZxXZZw6Dw99GTaD9JBZevRJHGu+cgjui2d3PaGRIrboAepEE7T8
-	Nt720ADAxNeOLwhtp7nxUbpz7QLwHgfAoLWvyAmXgA/CdAfUzSMqzB1BrV6I/
-X-Received: by 2002:a05:6820:1e10:b0:5f1:dc89:fa85 with SMTP id 006d021491bc7-5f25b131ff8mr4435724eaf.3.1733325569641;
-        Wed, 04 Dec 2024 07:19:29 -0800 (PST)
-X-Google-Smtp-Source: AGHT+IEYwLk9Qr3DA7xA9lz+xOHZPQK14U34Jh9h4Le9KlnSbh+Bl4LotmHax0+v3W1xjiGt64wfnRfDdpr4eIKywwE=
-X-Received: by 2002:a05:6820:1e10:b0:5f1:dc89:fa85 with SMTP id
- 006d021491bc7-5f25b131ff8mr4435690eaf.3.1733325569341; Wed, 04 Dec 2024
- 07:19:29 -0800 (PST)
-Received: from 348282803490 named unknown by gmailapi.google.com with
- HTTPREST; Wed, 4 Dec 2024 15:19:28 +0000
-From: Emil Renner Berthing <emil.renner.berthing@canonical.com>
-In-Reply-To: <20241204111424.263055-1-bigunclemax@gmail.com>
-References: <20241204111424.263055-1-bigunclemax@gmail.com>
-Mime-Version: 1.0
-Date: Wed, 4 Dec 2024 15:19:28 +0000
-Message-ID: <CAJM55Z-YAMtRN=K5KxCH1+++Xw4uMM_c49z8tGzi3snU+-KrYA@mail.gmail.com>
-Subject: Re: [PATCH v1] riscv: dts: thead: Fix TH1520 emmc and shdci clock rate
-To: bigunclemax@gmail.com
-Cc: Drew Fustini <drew@pdp7.com>, Guo Ren <guoren@kernel.org>, Fu Wei <wefu@redhat.com>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, linux-riscv@lists.infradead.org, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
+	id 1tIqEk-0000000CoTt-3y5l;
+	Wed, 04 Dec 2024 14:20:20 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+  d=amazon.com; i=@amazon.com; q=dns/txt; s=amazon201209;
+  t=1733322020; x=1764858020;
+  h=from:to:cc:subject:date:message-id:in-reply-to:
+   references:mime-version:content-transfer-encoding;
+  bh=S1AhySqT4pJxQzL6Bs9QeBO73gCqFnu+5rMGSzQjSew=;
+  b=a1RzgDfVFCv9yERA8nhD/YNLzEwpq+Dx3JUF16JfNNnLRyM9dLGxo8eb
+   LjBB7qvgO6/oU5NOWLnB0CMGjfA4R7IT+rgUHybf32r5FmoYuhN0o7MP0
+   0BrBkUX1nME4Cq9DbB7K3ZVtgI4qDo+ZGrfW3v/deYrAP0h2Rc+os4dA5
+   I=;
+X-IronPort-AV: E=Sophos;i="6.12,207,1728950400"; 
+   d="scan'208";a="448083499"
+Received: from iad6-co-svc-p1-lb1-vlan3.amazon.com (HELO smtpout.prod.us-west-2.prod.farcaster.email.amazon.dev) ([10.124.125.6])
+  by smtp-border-fw-2101.iad2.amazon.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 04 Dec 2024 14:20:08 +0000
+Received: from EX19MTAUWB002.ant.amazon.com [10.0.21.151:50300]
+ by smtpin.naws.us-west-2.prod.farcaster.email.amazon.dev [10.0.31.190:2525] with esmtp (Farcaster)
+ id 791171cc-77a9-4386-9fcb-ee54dd886ad0; Wed, 4 Dec 2024 14:20:06 +0000 (UTC)
+X-Farcaster-Flow-ID: 791171cc-77a9-4386-9fcb-ee54dd886ad0
+Received: from EX19D013UWA002.ant.amazon.com (10.13.138.210) by
+ EX19MTAUWB002.ant.amazon.com (10.250.64.231) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.1258.34;
+ Wed, 4 Dec 2024 14:20:04 +0000
+Received: from EX19MTAUWA001.ant.amazon.com (10.250.64.204) by
+ EX19D013UWA002.ant.amazon.com (10.13.138.210) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.1258.34;
+ Wed, 4 Dec 2024 14:20:04 +0000
+Received: from email-imr-corp-prod-iad-all-1b-af42e9ba.us-east-1.amazon.com
+ (10.25.36.214) by mail-relay.amazon.com (10.250.64.204) with Microsoft SMTP
+ Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id
+ 15.2.1258.34 via Frontend Transport; Wed, 4 Dec 2024 14:20:04 +0000
+Received: from dev-dsk-farbere-1a-46ecabed.eu-west-1.amazon.com (dev-dsk-farbere-1a-46ecabed.eu-west-1.amazon.com [172.19.116.181])
+	by email-imr-corp-prod-iad-all-1b-af42e9ba.us-east-1.amazon.com (Postfix) with ESMTP id DCA6442966;
+	Wed,  4 Dec 2024 14:20:03 +0000 (UTC)
+Received: by dev-dsk-farbere-1a-46ecabed.eu-west-1.amazon.com (Postfix, from userid 14301484)
+	id 9C3477592; Wed,  4 Dec 2024 14:20:03 +0000 (UTC)
+From: Eliav Farber <farbere@amazon.com>
+To: <linux@armlinux.org.uk>, <catalin.marinas@arm.com>, <will@kernel.org>,
+	<mpe@ellerman.id.au>, <npiggin@gmail.com>, <christophe.leroy@csgroup.eu>,
+	<naveen@kernel.org>, <maddy@linux.ibm.com>, <paul.walmsley@sifive.com>,
+	<palmer@dabbelt.com>, <aou@eecs.berkeley.edu>, <tglx@linutronix.de>,
+	<akpm@linux-foundation.org>, <bhe@redhat.com>, <farbere@amazon.com>,
+	<hbathini@linux.ibm.com>, <sourabhjain@linux.ibm.com>,
+	<adityag@linux.ibm.com>, <songshuaishuai@tinylab.org>,
+	<takakura@valinux.co.jp>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>, <linuxppc-dev@lists.ozlabs.org>,
+	<linux-riscv@lists.infradead.org>
+CC: <jonnyc@amazon.com>
+Subject: [PATCH v6 1/2] kexec: Consolidate machine_kexec_mask_interrupts() implementation
+Date: Wed, 4 Dec 2024 14:20:02 +0000
+Message-ID: <20241204142003.32859-2-farbere@amazon.com>
+X-Mailer: git-send-email 2.40.1
+In-Reply-To: <20241204142003.32859-1-farbere@amazon.com>
+References: <20241204142003.32859-1-farbere@amazon.com>
+MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241204_071941_454623_76A799BA 
-X-CRM114-Status: GOOD (  23.64  )
+X-CRM114-CacheID: sfid-20241204_062019_128858_0C39A1EA 
+X-CRM114-Status: GOOD (  27.06  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,105 +99,308 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-bigunclemax@ wrote:
-> From: Maksim Kiselev <bigunclemax@gmail.com>
->
-> In accordance with LicheePi 4A BSP the clock that comes to emmc/sdhci
-> is 198Mhz.
->
-> But changing from fixed-clock to CLK_EMMC_SDIO leads to increasing input
-> clock from 198Mhz to 792Mhz. Because the CLK_EMMC_SDIO is actually 792Mhz.
->
-> Therefore calculation of output SDCLK is incorrect now.
-> The mmc driver sets the divisor to 4 times larger than it should be
-> and emmc/sd works 4 times slower.
->
-> This can be confirmed with fio test:
-> Sequential read of emmc with fixed 198Mz clock:
-> READ: bw=289MiB/s (303MB/s)
->
-> Sequential read with CLK_EMMC_SDIO clock:
-> READ: bw=82.6MiB/s (86.6MB/s)
->
-> Let's fix this issue by providing fixed-factor-clock that divides
-> CLK_EMMC_SDIO by 4 for emmc/sd nodes.
+Consolidate the machine_kexec_mask_interrupts implementation into a common
+function located in a new file: kernel/irq/kexec.c. This removes duplicate
+implementations from architecture-specific files in arch/arm, arch/arm64,
+arch/powerpc, and arch/riscv, reducing code duplication and improving
+maintainability.
 
-Thanks for finding this bug!
+The new implementation retains architecture-specific behavior for
+CONFIG_GENERIC_IRQ_KEXEC_CLEAR_VM_FORWARD, which was previously implemented
+for ARM64. When enabled (currently for ARM64), it clears the active state
+of interrupts forwarded to virtual machines (VMs) before handling other
+interrupt masking operations.
 
-However, this feels like a work-around for a bug in the clock driver, and even
-if there is a fixed factor divider somewhere this should probably be modelled
-by the clock driver. Did you look into the documentation[1] and try to figure
-out where eMMC clock comes from and where the /4 is missing?
+Signed-off-by: Eliav Farber <farbere@amazon.com>
+---
+V5 -> V6:
+ - Change GENERIC_IRQ_KEXEC_CLEAR_VM_FORWARD to not be user selectable.
 
-There is also a vendor tree somewhere with a much more complete clock driver.
-Drew do you remember where it is? Maybe it's worth looking at how that driver
-models the eMMC clocks.
+ arch/arm/kernel/machine_kexec.c   | 23 ------------------
+ arch/arm64/Kconfig                |  1 +
+ arch/arm64/kernel/machine_kexec.c | 31 ------------------------
+ arch/powerpc/include/asm/kexec.h  |  1 -
+ arch/powerpc/kexec/core.c         | 22 -----------------
+ arch/powerpc/kexec/core_32.c      |  1 +
+ arch/riscv/kernel/machine_kexec.c | 23 ------------------
+ include/linux/irq.h               |  3 +++
+ kernel/irq/Kconfig                |  6 +++++
+ kernel/irq/Makefile               |  2 +-
+ kernel/irq/kexec.c                | 40 +++++++++++++++++++++++++++++++
+ 11 files changed, 52 insertions(+), 101 deletions(-)
+ create mode 100644 kernel/irq/kexec.c
 
-[1]: https://openbeagle.org/beaglev-ahead/beaglev-ahead/-/blob/main/docs/TH1520%20System%20User%20Manual.pdf
+diff --git a/arch/arm/kernel/machine_kexec.c b/arch/arm/kernel/machine_kexec.c
+index 80ceb5bd2680..dd430477e7c1 100644
+--- a/arch/arm/kernel/machine_kexec.c
++++ b/arch/arm/kernel/machine_kexec.c
+@@ -127,29 +127,6 @@ void crash_smp_send_stop(void)
+ 	cpus_stopped = 1;
+ }
+ 
+-static void machine_kexec_mask_interrupts(void)
+-{
+-	unsigned int i;
+-	struct irq_desc *desc;
+-
+-	for_each_irq_desc(i, desc) {
+-		struct irq_chip *chip;
+-
+-		chip = irq_desc_get_chip(desc);
+-		if (!chip)
+-			continue;
+-
+-		if (chip->irq_eoi && irqd_irq_inprogress(&desc->irq_data))
+-			chip->irq_eoi(&desc->irq_data);
+-
+-		if (chip->irq_mask)
+-			chip->irq_mask(&desc->irq_data);
+-
+-		if (chip->irq_disable && !irqd_irq_disabled(&desc->irq_data))
+-			chip->irq_disable(&desc->irq_data);
+-	}
+-}
+-
+ void machine_crash_shutdown(struct pt_regs *regs)
+ {
+ 	local_irq_disable();
+diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
+index 100570a048c5..dcc3551cf6c2 100644
+--- a/arch/arm64/Kconfig
++++ b/arch/arm64/Kconfig
+@@ -149,6 +149,7 @@ config ARM64
+ 	select GENERIC_IDLE_POLL_SETUP
+ 	select GENERIC_IOREMAP
+ 	select GENERIC_IRQ_IPI
++	select GENERIC_IRQ_KEXEC_CLEAR_VM_FORWARD
+ 	select GENERIC_IRQ_PROBE
+ 	select GENERIC_IRQ_SHOW
+ 	select GENERIC_IRQ_SHOW_LEVEL
+diff --git a/arch/arm64/kernel/machine_kexec.c b/arch/arm64/kernel/machine_kexec.c
+index 82e2203d86a3..6f121a0164a4 100644
+--- a/arch/arm64/kernel/machine_kexec.c
++++ b/arch/arm64/kernel/machine_kexec.c
+@@ -207,37 +207,6 @@ void machine_kexec(struct kimage *kimage)
+ 	BUG(); /* Should never get here. */
+ }
+ 
+-static void machine_kexec_mask_interrupts(void)
+-{
+-	unsigned int i;
+-	struct irq_desc *desc;
+-
+-	for_each_irq_desc(i, desc) {
+-		struct irq_chip *chip;
+-		int ret;
+-
+-		chip = irq_desc_get_chip(desc);
+-		if (!chip)
+-			continue;
+-
+-		/*
+-		 * First try to remove the active state. If this
+-		 * fails, try to EOI the interrupt.
+-		 */
+-		ret = irq_set_irqchip_state(i, IRQCHIP_STATE_ACTIVE, false);
+-
+-		if (ret && irqd_irq_inprogress(&desc->irq_data) &&
+-		    chip->irq_eoi)
+-			chip->irq_eoi(&desc->irq_data);
+-
+-		if (chip->irq_mask)
+-			chip->irq_mask(&desc->irq_data);
+-
+-		if (chip->irq_disable && !irqd_irq_disabled(&desc->irq_data))
+-			chip->irq_disable(&desc->irq_data);
+-	}
+-}
+-
+ /**
+  * machine_crash_shutdown - shutdown non-crashing cpus and save registers
+  */
+diff --git a/arch/powerpc/include/asm/kexec.h b/arch/powerpc/include/asm/kexec.h
+index 270ee93a0f7d..601e569303e1 100644
+--- a/arch/powerpc/include/asm/kexec.h
++++ b/arch/powerpc/include/asm/kexec.h
+@@ -61,7 +61,6 @@ struct pt_regs;
+ extern void kexec_smp_wait(void);	/* get and clear naca physid, wait for
+ 					  master to copy new code to 0 */
+ extern void default_machine_kexec(struct kimage *image);
+-extern void machine_kexec_mask_interrupts(void);
+ 
+ void relocate_new_kernel(unsigned long indirection_page, unsigned long reboot_code_buffer,
+ 			 unsigned long start_address) __noreturn;
+diff --git a/arch/powerpc/kexec/core.c b/arch/powerpc/kexec/core.c
+index b8333a49ea5d..58a930a47422 100644
+--- a/arch/powerpc/kexec/core.c
++++ b/arch/powerpc/kexec/core.c
+@@ -22,28 +22,6 @@
+ #include <asm/setup.h>
+ #include <asm/firmware.h>
+ 
+-void machine_kexec_mask_interrupts(void) {
+-	unsigned int i;
+-	struct irq_desc *desc;
+-
+-	for_each_irq_desc(i, desc) {
+-		struct irq_chip *chip;
+-
+-		chip = irq_desc_get_chip(desc);
+-		if (!chip)
+-			continue;
+-
+-		if (chip->irq_eoi && irqd_irq_inprogress(&desc->irq_data))
+-			chip->irq_eoi(&desc->irq_data);
+-
+-		if (chip->irq_mask)
+-			chip->irq_mask(&desc->irq_data);
+-
+-		if (chip->irq_disable && !irqd_irq_disabled(&desc->irq_data))
+-			chip->irq_disable(&desc->irq_data);
+-	}
+-}
+-
+ #ifdef CONFIG_CRASH_DUMP
+ void machine_crash_shutdown(struct pt_regs *regs)
+ {
+diff --git a/arch/powerpc/kexec/core_32.c b/arch/powerpc/kexec/core_32.c
+index c95f96850c9e..deb28eb44f30 100644
+--- a/arch/powerpc/kexec/core_32.c
++++ b/arch/powerpc/kexec/core_32.c
+@@ -7,6 +7,7 @@
+  * Copyright (C) 2005 IBM Corporation.
+  */
+ 
++#include <linux/irq.h>
+ #include <linux/kexec.h>
+ #include <linux/mm.h>
+ #include <linux/string.h>
+diff --git a/arch/riscv/kernel/machine_kexec.c b/arch/riscv/kernel/machine_kexec.c
+index 3c830a6f7ef4..2306ce3e5f22 100644
+--- a/arch/riscv/kernel/machine_kexec.c
++++ b/arch/riscv/kernel/machine_kexec.c
+@@ -114,29 +114,6 @@ void machine_shutdown(void)
+ #endif
+ }
+ 
+-static void machine_kexec_mask_interrupts(void)
+-{
+-	unsigned int i;
+-	struct irq_desc *desc;
+-
+-	for_each_irq_desc(i, desc) {
+-		struct irq_chip *chip;
+-
+-		chip = irq_desc_get_chip(desc);
+-		if (!chip)
+-			continue;
+-
+-		if (chip->irq_eoi && irqd_irq_inprogress(&desc->irq_data))
+-			chip->irq_eoi(&desc->irq_data);
+-
+-		if (chip->irq_mask)
+-			chip->irq_mask(&desc->irq_data);
+-
+-		if (chip->irq_disable && !irqd_irq_disabled(&desc->irq_data))
+-			chip->irq_disable(&desc->irq_data);
+-	}
+-}
+-
+ /*
+  * machine_crash_shutdown - Prepare to kexec after a kernel crash
+  *
+diff --git a/include/linux/irq.h b/include/linux/irq.h
+index fa711f80957b..25f51bf3c351 100644
+--- a/include/linux/irq.h
++++ b/include/linux/irq.h
+@@ -694,6 +694,9 @@ extern int irq_chip_request_resources_parent(struct irq_data *data);
+ extern void irq_chip_release_resources_parent(struct irq_data *data);
+ #endif
+ 
++/* Disable or mask interrupts during a kernel kexec */
++extern void machine_kexec_mask_interrupts(void);
++
+ /* Handling of unhandled and spurious interrupts: */
+ extern void note_interrupt(struct irq_desc *desc, irqreturn_t action_ret);
+ 
+diff --git a/kernel/irq/Kconfig b/kernel/irq/Kconfig
+index 529adb1f5859..875f25ed6f71 100644
+--- a/kernel/irq/Kconfig
++++ b/kernel/irq/Kconfig
+@@ -141,6 +141,12 @@ config GENERIC_IRQ_DEBUGFS
+ 
+ 	  If you don't know what to do here, say N.
+ 
++# Clear forwarded VM interrupts during kexec.
++# This option ensures the kernel clears active states for interrupts
++# forwarded to virtual machines (VMs) during a machine kexec.
++config GENERIC_IRQ_KEXEC_CLEAR_VM_FORWARD
++	bool
++
+ endmenu
+ 
+ config GENERIC_IRQ_MULTI_HANDLER
+diff --git a/kernel/irq/Makefile b/kernel/irq/Makefile
+index f19d3080bf11..c0f44c06d69d 100644
+--- a/kernel/irq/Makefile
++++ b/kernel/irq/Makefile
+@@ -1,6 +1,6 @@
+ # SPDX-License-Identifier: GPL-2.0
+ 
+-obj-y := irqdesc.o handle.o manage.o spurious.o resend.o chip.o dummychip.o devres.o
++obj-y := irqdesc.o handle.o manage.o spurious.o resend.o chip.o dummychip.o devres.o kexec.o
+ obj-$(CONFIG_IRQ_TIMINGS) += timings.o
+ ifeq ($(CONFIG_TEST_IRQ_TIMINGS),y)
+ 	CFLAGS_timings.o += -DDEBUG
+diff --git a/kernel/irq/kexec.c b/kernel/irq/kexec.c
+new file mode 100644
+index 000000000000..0f9548c1708d
+--- /dev/null
++++ b/kernel/irq/kexec.c
+@@ -0,0 +1,40 @@
++// SPDX-License-Identifier: GPL-2.0
++
++#include <linux/interrupt.h>
++#include <linux/irq.h>
++#include <linux/irqdesc.h>
++#include <linux/irqnr.h>
++
++#include "internals.h"
++
++void machine_kexec_mask_interrupts(void)
++{
++	struct irq_desc *desc;
++	unsigned int i;
++
++	for_each_irq_desc(i, desc) {
++		struct irq_chip *chip;
++		int check_eoi = 1;
++
++		chip = irq_desc_get_chip(desc);
++		if (!chip)
++			continue;
++
++		if (IS_ENABLED(CONFIG_GENERIC_IRQ_KEXEC_CLEAR_VM_FORWARD)) {
++			/*
++			 * First try to remove the active state from an interrupt which is forwarded
++			 * to a VM. If the interrupt is not forwarded, try to EOI the interrupt.
++			 */
++			check_eoi = irq_set_irqchip_state(i, IRQCHIP_STATE_ACTIVE, false);
++		}
++
++		if (check_eoi && chip->irq_eoi && irqd_irq_inprogress(&desc->irq_data))
++			chip->irq_eoi(&desc->irq_data);
++
++		if (chip->irq_mask)
++			chip->irq_mask(&desc->irq_data);
++
++		if (chip->irq_disable && !irqd_irq_disabled(&desc->irq_data))
++			chip->irq_disable(&desc->irq_data);
++	}
++}
+-- 
+2.40.1
 
-/Emil
-
->
-> Fixes: 03a20182e1e0 ("riscv: dts: thead: change TH1520 mmc nodes to use clock controller")
-> Signed-off-by: Maksim Kiselev <bigunclemax@gmail.com>
-> ---
->  arch/riscv/boot/dts/thead/th1520.dtsi | 14 +++++++++++---
->  1 file changed, 11 insertions(+), 3 deletions(-)
->
-> diff --git a/arch/riscv/boot/dts/thead/th1520.dtsi b/arch/riscv/boot/dts/thead/th1520.dtsi
-> index acfe030e803a..6c20965cd10c 100644
-> --- a/arch/riscv/boot/dts/thead/th1520.dtsi
-> +++ b/arch/riscv/boot/dts/thead/th1520.dtsi
-> @@ -229,6 +229,14 @@ stmmac_axi_config: stmmac-axi-config {
->  		snps,blen = <0 0 64 32 0 0 0>;
->  	};
->
-> +	sdhci_clk: sdhci-clock {
-> +		compatible = "fixed-factor-clock";
-> +		clocks = <&clk CLK_EMMC_SDIO>;
-> +		#clock-cells = <0>;
-> +		clock-div = <4>;
-> +		clock-mult = <1>;
-> +	};
-> +
->  	soc {
->  		compatible = "simple-bus";
->  		interrupt-parent = <&plic>;
-> @@ -328,7 +336,7 @@ emmc: mmc@ffe7080000 {
->  			compatible = "thead,th1520-dwcmshc";
->  			reg = <0xff 0xe7080000 0x0 0x10000>;
->  			interrupts = <62 IRQ_TYPE_LEVEL_HIGH>;
-> -			clocks = <&clk CLK_EMMC_SDIO>;
-> +			clocks = <&sdhci_clk>;
->  			clock-names = "core";
->  			status = "disabled";
->  		};
-> @@ -337,7 +345,7 @@ sdio0: mmc@ffe7090000 {
->  			compatible = "thead,th1520-dwcmshc";
->  			reg = <0xff 0xe7090000 0x0 0x10000>;
->  			interrupts = <64 IRQ_TYPE_LEVEL_HIGH>;
-> -			clocks = <&clk CLK_EMMC_SDIO>;
-> +			clocks = <&sdhci_clk>;
->  			clock-names = "core";
->  			status = "disabled";
->  		};
-> @@ -346,7 +354,7 @@ sdio1: mmc@ffe70a0000 {
->  			compatible = "thead,th1520-dwcmshc";
->  			reg = <0xff 0xe70a0000 0x0 0x10000>;
->  			interrupts = <71 IRQ_TYPE_LEVEL_HIGH>;
-> -			clocks = <&clk CLK_EMMC_SDIO>;
-> +			clocks = <&sdhci_clk>;
->  			clock-names = "core";
->  			status = "disabled";
->  		};
-> --
-> 2.45.2
->
->
-> _______________________________________________
-> linux-riscv mailing list
-> linux-riscv@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-riscv
 
 _______________________________________________
 linux-riscv mailing list
