@@ -4,96 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D09F1E7716D
-	for <linux-riscv@archiver.kernel.org>; Wed,  4 Dec 2024 17:49:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D019E77170
+	for <linux-riscv@archiver.kernel.org>; Wed,  4 Dec 2024 20:21:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:CC
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=18tcX4hycOvmY9/ulEfPVBmD/3XYyWbElT/oYdytj5U=; b=iw/2o0jx7vMipL
-	nNVjH8SCnMB9K5uObysWGnN2QetgVkn0QNFeKUE9bgmc5ljHgFaxQ6rp88hQnF7XleAxRH6YCwDRZ
-	Tncb89aUWh0dmsih1HbrxTkk1qsIRNSuXt0QolHJUkwgHcuU5jyf3kG5s8uqwicwWh0wP39UGAg4G
-	hPQK7T7sxXSy2RNM2Saty2QZa7NMICRKmQiBluq7Ea50Q1zFwliK8djRBoayye7ZgXJILAG4hdeBI
-	YoMgVLDOH7lfIKPQtzM+ieWyvKWPg3yJ1glgY5iDfFghHv4PGbwWzkRDQLng7eNigx155kfROhFfL
-	KaxcZ7IKOaOFhGLZkplw==;
+	List-Archive:List-Unsubscribe:List-Id:Date:To:Cc:From:Subject:References:
+	In-Reply-To:MIME-Version:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=3xzfwThrVslWoqdZKNK7UkHiZeASPoJk0sZpNL9h7gc=; b=bZzhP+PF1rGsGv
+	ePEUs6FWwzszI+gUS8vB2NRbPN5ToSYNyFHu6VAAnvMOGD6nFZAbeCkjQGQNbkgU/5JHUOoZdr3G5
+	4gri6uUG0Lipz90FLHQDUx4Zq04C25KJKQIlNfC4ASYm/Ow/ClnXARZFcWK5DQTP1zjwqfR5wZnK2
+	viLfEjJqY4dyrAxLGUx/upcC3vYp/P4J6btrNrj+3uauUQGY2SqBczoT9pi/4mUc1K1nmGbGp2TZG
+	5S4MigOFBVHq/Y2atN1P5W564/pGzA3Nx9icH83CKbkPeLgEbR8Xdd4TSLq0u49UM6ekbEcwn2iJ7
+	d7Vw3jEanYludtHf5h6g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tItVN-0000000DQta-3lCk;
-	Wed, 04 Dec 2024 17:49:41 +0000
-Received: from smtp-fw-9102.amazon.com ([207.171.184.29])
+	id 1tIvs6-0000000Dn4d-0Ige;
+	Wed, 04 Dec 2024 20:21:18 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tInkf-0000000CPqi-1R2i;
-	Wed, 04 Dec 2024 11:41:07 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-  d=amazon.com; i=@amazon.com; q=dns/txt; s=amazon201209;
-  t=1733312466; x=1764848466;
-  h=from:to:cc:subject:date:message-id:
-   content-transfer-encoding:mime-version;
-  bh=L3N4xnB4hpUkX70oEIl5ay7oOHjK5rWVH5VO26SBMRE=;
-  b=UO/tm47s00ne6mK89oZltuzCB5p6jjyEPHhHVvRgfuI29sftogbwKg3G
-   wpwlV6UvfJS3JsKr4zxAlg65kThmr5azehCDfE/XmDTY5q97IBfSbrnp5
-   QHlOpAMN7tk78+aXQG07OXu8AUgBJ9gqxWMx6a+mFKKYYOySROpk/yt59
-   4=;
-X-IronPort-AV: E=Sophos;i="6.12,207,1728950400"; 
-   d="scan'208";a="475378494"
-Received: from pdx4-co-svc-p1-lb2-vlan3.amazon.com (HELO smtpout.prod.us-west-2.prod.farcaster.email.amazon.dev) ([10.25.36.214])
-  by smtp-border-fw-9102.sea19.amazon.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 04 Dec 2024 11:40:58 +0000
-Received: from EX19MTAEUA002.ant.amazon.com [10.0.17.79:59262]
- by smtpin.naws.eu-west-1.prod.farcaster.email.amazon.dev [10.0.10.207:2525] with esmtp (Farcaster)
- id 52e49eb4-420c-4db9-a56f-779f9c594c75; Wed, 4 Dec 2024 11:40:55 +0000 (UTC)
-X-Farcaster-Flow-ID: 52e49eb4-420c-4db9-a56f-779f9c594c75
-Received: from EX19D018EUA004.ant.amazon.com (10.252.50.85) by
- EX19MTAEUA002.ant.amazon.com (10.252.50.124) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.1258.35;
- Wed, 4 Dec 2024 11:40:55 +0000
-Received: from EX19D018EUA004.ant.amazon.com (10.252.50.85) by
- EX19D018EUA004.ant.amazon.com (10.252.50.85) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.1258.34;
- Wed, 4 Dec 2024 11:40:55 +0000
-Received: from EX19D018EUA004.ant.amazon.com ([fe80::e53:84f8:3456:a97d]) by
- EX19D018EUA004.ant.amazon.com ([fe80::e53:84f8:3456:a97d%3]) with mapi id
- 15.02.1258.034; Wed, 4 Dec 2024 11:40:55 +0000
-From: "Farber, Eliav" <farbere@amazon.com>
-To: Jiri Slaby <jirislaby@kernel.org>, "linux@armlinux.org.uk"
-	<linux@armlinux.org.uk>, "catalin.marinas@arm.com" <catalin.marinas@arm.com>,
-	"will@kernel.org" <will@kernel.org>, "mpe@ellerman.id.au"
-	<mpe@ellerman.id.au>, "npiggin@gmail.com" <npiggin@gmail.com>,
-	"christophe.leroy@csgroup.eu" <christophe.leroy@csgroup.eu>,
-	"naveen@kernel.org" <naveen@kernel.org>, "maddy@linux.ibm.com"
-	<maddy@linux.ibm.com>, "paul.walmsley@sifive.com" <paul.walmsley@sifive.com>,
-	"palmer@dabbelt.com" <palmer@dabbelt.com>, "aou@eecs.berkeley.edu"
-	<aou@eecs.berkeley.edu>, "tglx@linutronix.de" <tglx@linutronix.de>,
-	"akpm@linux-foundation.org" <akpm@linux-foundation.org>, "bhe@redhat.com"
-	<bhe@redhat.com>, "hbathini@linux.ibm.com" <hbathini@linux.ibm.com>,
-	"sourabhjain@linux.ibm.com" <sourabhjain@linux.ibm.com>,
-	"adityag@linux.ibm.com" <adityag@linux.ibm.com>, "songshuaishuai@tinylab.org"
-	<songshuaishuai@tinylab.org>, "takakura@valinux.co.jp"
-	<takakura@valinux.co.jp>, "linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, "linuxppc-dev@lists.ozlabs.org"
-	<linuxppc-dev@lists.ozlabs.org>, "linux-riscv@lists.infradead.org"
-	<linux-riscv@lists.infradead.org>
-CC: "Chocron, Jonathan" <jonnyc@amazon.com>
-Subject: RE: [PATCH v5 1/2] kexec: Consolidate machine_kexec_mask_interrupts()
- implementation
-Thread-Topic: [PATCH v5 1/2] kexec: Consolidate
- machine_kexec_mask_interrupts() implementation
-Thread-Index: AdtGQRkhPCy0bAvuc0C5GQef/95iog==
-Date: Wed, 4 Dec 2024 11:40:55 +0000
-Message-ID: <4192766c8f02494a82db68f5732c6dd2@amazon.com>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-x-originating-ip: [10.85.143.173]
+	id 1tIvs3-0000000Dn41-2bs7
+	for linux-riscv@lists.infradead.org;
+	Wed, 04 Dec 2024 20:21:16 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 941C85C6F92;
+	Wed,  4 Dec 2024 20:20:31 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id F3121C4CED1;
+	Wed,  4 Dec 2024 20:21:13 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1733343674;
+	bh=Fvm8TjgK6dJo9sv6O3H2+X+LOIwV0o7fADFI/iSpstQ=;
+	h=In-Reply-To:References:Subject:From:Cc:To:Date:From;
+	b=M2cEbKOwrwNXj/0EW5nPs7opxCoG9ZxUJ6pP+Ao0yOfCpW+0b/QRhU8GIo5XzO2/W
+	 9giaByRFWJLRCKWF+ueHmf5tSkYX+aLu1kM497LHq/lAmlcprxdbRz5hpOO0tGip7o
+	 96tH3N7Uk9Ysb3154VA1c0Sz7UAO6ShuCbkTz2qrRdU5IdGIsjWk0uV/X9m4N/QUDY
+	 DlI2mpNybcduhZDH6L0P2JeKABEKKCjy1VKIaDs9fIzq/2Jb8T0cjjvf3UY00zfjHo
+	 KaXAy0e0iK83A/Sj08R7/R/wbpxfrgce6lLjgfTH0BIwk+1sHHR13uWFBKMtJUZ3nj
+	 EdkVwnlbvWKAg==
+Message-ID: <1b05b11b2a8287c0ff4b6bdd079988c7.sboyd@kernel.org>
 MIME-Version: 1.0
-X-Bad-Reply: 'Re:' in Subject but no References or In-Reply-To headers
+In-Reply-To: <07bfb02a-1df3-4a03-83bb-d7edc540739d@samsung.com>
+References: <20241203134137.2114847-1-m.wilczynski@samsung.com> <CGME20241203134155eucas1p1e90c71c4f8eb5da41d2cc8a500f54dc7@eucas1p1.samsung.com> <20241203134137.2114847-6-m.wilczynski@samsung.com> <f21ffd12-167b-4d10-9017-33041ec322b0@kernel.org> <07bfb02a-1df3-4a03-83bb-d7edc540739d@samsung.com>
+Subject: Re: [RFC PATCH v1 05/14] dt-bindings: clock: thead,th1520: Add support for Video Output subsystem
+From: Stephen Boyd <sboyd@kernel.org>
+Cc: linux-clk@vger.kernel.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, dri-devel@lists.freedesktop.org, linux-pm@vger.kernel.org
+To: Krzysztof Kozlowski <krzk@kernel.org>, Michal Wilczynski <m.wilczynski@samsung.com>, airlied@gmail.com, aou@eecs.berkeley.edu, conor+dt@kernel.org, drew@pdp7.com, frank.binns@imgtec.com, guoren@kernel.org, jassisinghbrar@gmail.com, jszhang@kernel.org, krzk+dt@kernel.org, m.szyprowski@samsung.com, maarten.lankhorst@linux.intel.com, matt.coster@imgtec.com, mripard@kernel.org, mturquette@baylibre.com, palmer@dabbelt.com, paul.walmsley@sifive.com, robh@kernel.org, simona@ffwll.ch, tzimmermann@suse.de, ulf.hansson@linaro.org, wefu@redhat.com
+Date: Wed, 04 Dec 2024 12:21:11 -0800
+User-Agent: alot/0.12.dev1+gaa8c22fdeedb
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241204_034105_594502_02D50B68 
-X-CRM114-Status: GOOD (  13.05  )
-X-Mailman-Approved-At: Wed, 04 Dec 2024 09:49:40 -0800
+X-CRM114-CacheID: sfid-20241204_122115_746618_F5BC4771 
+X-CRM114-Status: GOOD (  16.61  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,39 +71,64 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 12/4/2024 1:02 PM, Jiri Slaby wrote:
->> +
->> +config GENERIC_IRQ_KEXEC_CLEAR_VM_FORWARD
->> +     bool "Clear forwarded VM interrupts during kexec"
->> +     default n
->> +     help
->> +       When enabled, this option allows the kernel to clear the active state
->> +       of interrupts that are forwarded to virtual machines (VMs) during a
->> +       machine kexec. For interrupts that are not forwarded, if supported,
->> +       the kernel will attempt to trigger an End of Interrupt (EOI).
->
-> This caught my attention. It looks like you want to allow people toggling it? I believe only arch code should turn it on as you do by "select", not users.
+Quoting Michal Wilczynski (2024-12-04 02:11:26)
+> On 12/3/24 16:45, Krzysztof Kozlowski wrote:
+> > On 03/12/2024 14:41, Michal Wilczynski wrote:
+> 
+> [1] - https://openbeagle.org/beaglev-ahead/beaglev-ahead/-/blob/main/docs/TH1520%20Video%20Image%20Processing%20User%20Manual.pdf
+> > 
+> >> +      these registers reside in the same address space, access to
+> >> +      them is coordinated through a shared syscon regmap provided by
+> >> +      the specified syscon node.
+> > 
+> > Drop last sentence. syscon regmap is a Linux term, not hardware one.
+> > 
+> > Anyway, this needs to be constrained per variant.
+> > 
+> >> +
+> >>    "#clock-cells":
+> >>      const: 1
+> >>      description:
+> >> @@ -36,8 +51,6 @@ properties:
+> >>  
+> >>  required:
+> >>    - compatible
+> >> -  - reg
+> > 
+> > No, that's a clear NAK. You claim you have no address space but in the
+> > same time you have address space via regmap.
+> 
+> I see your concern. The VOSYS subsystem's address space includes
+> registers for various components, such as clock gates and reset
+> controls, which are scattered throughout the address space as specified
+> in the manual 4.4.1 [2]. Initially, I attempted to use a shared syscon
+> regmap for access, but I realize this might not be the best approach.
+> 
+> To address this, I'll specify the 'reg' property in each node to define
+> the address ranges explicitly fragmenting the address space for the VOSYS
+> manually.
+> 
+> vosys_clk: clock-controller@ffef528050 {
+>         compatible = "thead,th1520-clk-vo";
+>         reg = <0xff 0xef528050 0x0 0x8>;
+>         #clock-cells = <1>;
+> };
+> 
+> pd: power-domain@ffef528000 {
+>         compatible = "thead,th1520-pd";
+>         reg = <0xff 0xef528000 0x0 0x8>;
+>         #power-domain-cells = <1>;
+> };
 
-Thomas Gleixner has also commented about it:
-"
-This should not be user selectable. Just keep it as:
+You should have one node:
 
-config GENERIC_IRQ_KEXEC_CLEAR_VM_FORWARD
-        bool
+    clock-controller@ffef528000 {
+      compatible = "thead,th1520-vo";
+      reg = <0xff 0xef528050 0x0 0x1a04>;
+      #clock-cells = <1>;
+      #power-domain-cells = <1>;
+    };
 
-which defaults to 'n'. Just add a comment what this is about like it's done with the other options in that file which are only selectable.
-"
-
-I will fix it in v6.
-I'm just waiting for a reply if the new configuration option should be
-placed inside or after the following section:
-```
-menu "IRQ subsystem"
-
-endmenu
-```
-
-Thanks, Eliav
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
