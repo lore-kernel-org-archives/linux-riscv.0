@@ -4,70 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5E7A0E77170
-	for <linux-riscv@archiver.kernel.org>; Thu,  5 Dec 2024 10:45:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D968DE77175
+	for <linux-riscv@archiver.kernel.org>; Thu,  5 Dec 2024 10:45:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Q5EaP7/K1wkDb6/G48sRR+TuuxTYmjZzHE3x3TeAPK4=; b=EfG9VpDwC4++7a
-	I2iWg7gGiLtHfHFzLG+TNG1KOUovgl7sxhqagopJbw3PQbqBwq3s5FFd07aDb4w02uQWTLSduCpMG
-	WZ9i6c/uqwNVHA1qgnYabjpsM6f0wZ+h46WVgfn+Ncw4GWt+FLnjmBcyQk4lnQmdlCsJyCdHFrLM8
-	9fexQRERJh13nQsV08HO823FDC4gavz5a53zLIJ+4EY4WQSHU/fnz5CUw18tExb0THb+v1PdFSmYm
-	ZfV/8tbo0ycAaftm6dUKH0KdcbSPKmf2ferOzj+S5AhOW3AnwPbojlU0bZ6Gn6m97HifOYuBaw5PF
-	Buy7SiFuVRbmJk/t2p8Q==;
+	List-Owner; bh=4Y9/fLh37lv3hXSep5yvmnOkTbtgJpAL5Gh/BQtb95I=; b=cXq9zYgEz06dNi
+	jbQ9UdZx4rjw8dN0f42OC7HdpEGRcr6UcW0akORMwP+gFI34QcHkFqZ31q0sRCIAlaKO0RLY8tKzZ
+	AgiT51IpN7dfSFnwr5AZlILxcx4ygr8vDVLkqKKkL29fCzvxQi6h2OC2J+bmXkmk7+udqAbwQ5GM7
+	UeZWPDKtXYUEWpbkIe27+RQAQRN85XVGLl5ElefWVDshaXnlXwPXg8U3DwPJ89+Xml0NE5SzFvwut
+	KviQY/I5GOKDKEdf0x9UpVNGyc4lUxs+mvfK5lgxJsbN5PTpXWnE+ILPf07Y/C1CqNxzFTn4tSOXS
+	wJISiaW2mZs4325tAcVw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJ9M1-0000000Fagq-3n8g;
-	Thu, 05 Dec 2024 10:45:05 +0000
-Received: from mail-pg1-x536.google.com ([2607:f8b0:4864:20::536])
+	id 1tJ9M2-0000000Faiu-3jRl;
+	Thu, 05 Dec 2024 10:45:06 +0000
+Received: from mail-pf1-x42a.google.com ([2607:f8b0:4864:20::42a])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJ9G0-0000000FYPq-3tU9
+	id 1tJ9G4-0000000FYRJ-2hgj
 	for linux-riscv@lists.infradead.org;
-	Thu, 05 Dec 2024 10:38:54 +0000
-Received: by mail-pg1-x536.google.com with SMTP id 41be03b00d2f7-7fcc00285a9so834647a12.2
-        for <linux-riscv@lists.infradead.org>; Thu, 05 Dec 2024 02:38:52 -0800 (PST)
+	Thu, 05 Dec 2024 10:38:57 +0000
+Received: by mail-pf1-x42a.google.com with SMTP id d2e1a72fcca58-723f37dd76cso684749b3a.0
+        for <linux-riscv@lists.infradead.org>; Thu, 05 Dec 2024 02:38:56 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bytedance.com; s=google; t=1733395132; x=1733999932; darn=lists.infradead.org;
+        d=bytedance.com; s=google; t=1733395136; x=1733999936; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=6fWC9OQ8fDv8IwsAqd/wbk191tCVh4tSTxqplFbmaYk=;
-        b=CKN0SMZ7Kx78PrJw1bMMomfDIPq0CqjvdYbzF289ETyDLd2I8NFUHjYlGztX2X1o7R
-         SUSDxm4VVkbvswhuR9TtRH+DVU9Vo2B0ZGqFzNNZX3VSbo+7ijhaIWfcbThFxmRztbLd
-         Wyw09zJ6BaHGItBgIhF1iwL9rvxQfXmYpS5o2rUWBc/IcfiLZxwqYX14pl1CNEkBs9kU
-         2RypXiCuiy/taRZFS4Kr1C5OobGuoIevgppG5uhA9C/AICF6STNGy4JNBD0M9VKmBYF4
-         g6Xlsmf9jUTjcvwkTUcatQEAfDE6b6+TfZNu5b3Gd0x/5Fpg28dfmt2NUw5L/RWXFAHN
-         UlKA==
+        bh=VfDjQEoTxdpd9iDlK1ps7bFltPFhkJicFLVtDzgiM9U=;
+        b=bOmv9/Re517JUb59ziGDBgPZV15rgzsI1DhD/pj3CDqaJi2s5jPyQltyUfcJSva+VN
+         gj6wT/SQsrR9hld2dHAC4ltpnS7wm/dZQw7a4hZn+jnLtr8Y03y5+4TNcPzy+M0pHWDa
+         iVOGFsEK4jrO5/JvpSrBz0v6XlH10UfoUKxQ3OWfGg+kIBi4jOZr4SNdCT3LffizwizI
+         3cXxVpQnY5SNfCc81qiL0gHXtfdmHiEXzmE5rQSsu2d5HWyGvyxFlFx7pexM9i71BFYb
+         tG23ExU2+D9ElPjmAjEAR7+0hp0UBF6X11OE1y/6Xqy0UIEmsA8/a2U7RNlVYsrmVLCW
+         vZRw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1733395132; x=1733999932;
+        d=1e100.net; s=20230601; t=1733395136; x=1733999936;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=6fWC9OQ8fDv8IwsAqd/wbk191tCVh4tSTxqplFbmaYk=;
-        b=IRWq62m1ue5Xl1dv35IGcIAdvnHexZENi17wcbEHckidOwwJeYG/l5sQxsa7k4HRek
-         7yLxiIOjkd5/sBeK8qsMT5vlX+NOYbd+676SKXXpwEkydTefMJ7HvXmCfmYWsbY1gpxM
-         Thq0KkmGr4/RuuJwhp2GmBDTyTHKOW7K23BGelIYCLYy9Qg9DnlW+8PiDVHqp9AZsSd8
-         V1fXCNXNZCNIh3WQ+j01LVuaWm6jfFjWeHGWN6dXjwsWDX33Qzq88yoNfxKMFRr2pb5v
-         +uHTUH+wbE+7uLooVRz9becO1qBza4xtSZBWX8B2y9bhSBguwy10J+6lNLndAfPh7HJh
-         GcqA==
-X-Forwarded-Encrypted: i=1; AJvYcCWLZgxdXhPFja0OUF72JqrsXScN2DJyhPcOTAVJrbvzl2RhXHYh24QXIYOx1HxBPfAHS1T4ZP+QHEJBwQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0YwH/nGDA0U+Xqil8gy0NED/ngWxtg+D0O/Dz9JFCs7VdvaDIQJL
-	GFawmvdxj3jfP7//aJnLCogqsMGy1arFYcTpcFraWnt8HuITWyCn2hddrFg+dic=
-X-Gm-Gg: ASbGncviorIeTn13XuAkJw7IiKKNnB2srOz50V1ahjuwnqWKZpYGwiFrkrb2wiwiY5w
-	PxgTLuhohyr5/qI2ai3MhsPtUpV5GErQ0gy1bVmV1eP2QODfmiIdlcWHZFccCDs4s6RI+9egX3x
-	+wPVuWkKQxyDOC2vxyrw+eOu52ZFOnse/+7sKHHwfOm/6ziKg3h7FZO/VCXbikatQ729HK008Jl
-	PbO1NB6Q+qJrLaU0RdH0sm3v54RymTAe0fYqyQP+yJ1qT9L0E/JhtYMk6XdYP78JVke/XSTqWq8
-	hTnALF3yegFOjRLcQ5tj2vP4Vs7/nD0g
-X-Google-Smtp-Source: AGHT+IEXD1d9VHmdEfHzDn4iIzGpKroyoIRBm9V8GpOCRUVEQI3tEWlF/wbQq82AYL+CFEewTt8KjA==
-X-Received: by 2002:a05:6a20:7350:b0:1db:ff9d:1560 with SMTP id adf61e73a8af0-1e1653bb992mr16055868637.18.1733395132079;
-        Thu, 05 Dec 2024 02:38:52 -0800 (PST)
+        bh=VfDjQEoTxdpd9iDlK1ps7bFltPFhkJicFLVtDzgiM9U=;
+        b=jYs4mwsdIWelEw5w7/uPywlrrjXyTVowzr1zlrpSkyggaP0shBz3O7fi4fTIW6ojhE
+         uPGZ4Pn29IZCM8WK/5+OdlL2ioW3+SDz88FlSdMnVYULJOrm346RIQRiWU91jiCUiISQ
+         nwBrC9nykPFshBoXIIGAk6C0oZjccMGN0JcrjTX9AgstgV7m1ZAQ6V8eKC4WGvEYsLEz
+         Kj0Own+KOSGmJi4X6B6xfTu45pjorl6lNEq9utSdMbwAGXTNEPuYvl7Wkq4P0PNTrId8
+         Q5hyoS9Apk4Xh5OUp5qMP7k9+PlF3KZwQSXx9CF47250eDBXYERr2N/T+C8HvCtMCCpE
+         JOMw==
+X-Forwarded-Encrypted: i=1; AJvYcCWnj+Zv3h1VArtCAfVx0wI7okQeEygk6270Lhw/3oM7ofDClW/PthIiNhnSjxJWsPpPAYiXWVCX2G1/3g==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx97DIKnghKoh8qO2UUhGb8yTxrfL/2jgESfB37Grc0OckW6ikE
+	/g+0y2ZlV45fo8FNMMyrXzih6mkRDGWVSaBq4kXijmCneBrkZFgH+bPk/FXgUx8=
+X-Gm-Gg: ASbGncvbN6Qqrlo1EoghAaPHRnnpV66i47OSHHhzd6tjm/5wFEiefQMyMzYS1RV+Rzy
+	PwfwUCG7PhMZNAhCxiC0C1+L6I9/mQ6PhBIwX3SOGkl4gDLQfx010I0YUsr7a37Vo8QXyn6QhqX
+	Comy8Ae6i5oJrEQrSeP+JhyZRBH6pOOGyS4SamWbKyQATKY4ejjnCdSFriQQjQvvaq9bwajme7Z
+	0ZVbMHmjYZI4oLvx1ZOFnLJnV2hvN02bigKcTRVPo1Ku+EDQzccm5yqUaGigXWlpz7Uj5CQ6v72
+	o3xHgdzhoHueelNnOd1BFO/AgwlBehjQ
+X-Google-Smtp-Source: AGHT+IHmLj1p53xhXYUvBEpMrjDW3Wg1vBwEcbP7EM0jf/sz5snayXz0eteUjpLhTi1nk0wWuAYigw==
+X-Received: by 2002:a05:6a00:1703:b0:725:3bd4:9b52 with SMTP id d2e1a72fcca58-7257fa5a308mr13643770b3a.3.1733395136132;
+        Thu, 05 Dec 2024 02:38:56 -0800 (PST)
 Received: from J9GPGXL7NT.bytedance.net ([61.213.176.56])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-7fd156f048csm886826a12.39.2024.12.05.02.38.48
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-7fd156f048csm886826a12.39.2024.12.05.02.38.52
         (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Thu, 05 Dec 2024 02:38:51 -0800 (PST)
+        Thu, 05 Dec 2024 02:38:55 -0800 (PST)
 From: Xu Lu <luxu.kernel@bytedance.com>
 To: paul.walmsley@sifive.com,
 	palmer@dabbelt.com,
@@ -81,16 +81,16 @@ Cc: xieyongji@bytedance.com,
 	linux-kernel@vger.kernel.org,
 	linux-riscv@lists.infradead.org,
 	Xu Lu <luxu.kernel@bytedance.com>
-Subject: [RFC PATCH v2 18/21] riscv: Kconfig: Introduce 64K page size
-Date: Thu,  5 Dec 2024 18:37:26 +0800
-Message-Id: <20241205103729.14798-19-luxu.kernel@bytedance.com>
+Subject: [RFC PATCH v2 19/21] riscv: Kconfig: Adjust mmap rnd bits for 64K Page
+Date: Thu,  5 Dec 2024 18:37:27 +0800
+Message-Id: <20241205103729.14798-20-luxu.kernel@bytedance.com>
 X-Mailer: git-send-email 2.39.5 (Apple Git-154)
 In-Reply-To: <20241205103729.14798-1-luxu.kernel@bytedance.com>
 References: <20241205103729.14798-1-luxu.kernel@bytedance.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241205_023852_965711_3B0B365A 
-X-CRM114-Status: UNSURE (   8.10  )
+X-CRM114-CacheID: sfid-20241205_023856_683373_557841C5 
+X-CRM114-Status: UNSURE (   5.80  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -108,57 +108,22 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This patch introduces new config to control whether enabling the 64K
-base page feature on RISC-V.
-
-The 64K config will set software page size as 64K and automatically use
-svnapot to accelerate basic page mapping.
-
 Signed-off-by: Xu Lu <luxu.kernel@bytedance.com>
 ---
- arch/riscv/Kconfig | 23 ++++++++++++++++++++++-
- 1 file changed, 22 insertions(+), 1 deletion(-)
+ arch/riscv/Kconfig | 1 +
+ 1 file changed, 1 insertion(+)
 
 diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-index 2c0cb175a92a..592eb5766029 100644
+index 592eb5766029..9dfe95a12890 100644
 --- a/arch/riscv/Kconfig
 +++ b/arch/riscv/Kconfig
-@@ -167,7 +167,6 @@ config RISCV
- 	select HAVE_LD_DEAD_CODE_DATA_ELIMINATION if !LD_IS_LLD
- 	select HAVE_MOVE_PMD
- 	select HAVE_MOVE_PUD
--	select HAVE_PAGE_SIZE_4KB
- 	select HAVE_PCI
- 	select HAVE_PERF_EVENTS
- 	select HAVE_PERF_REGS
-@@ -885,6 +884,28 @@ config RISCV_BOOT_SPINWAIT
- 
- 	  If unsure what to do here, say N.
- 
-+choice
-+	prompt "Page size"
-+	default RISCV_4K_PAGES
-+	help
-+	  Page size (translation granule) configuration.
-+
-+config RISCV_4K_PAGES
-+	bool "4KB"
-+	select HAVE_PAGE_SIZE_4KB
-+	help
-+	  This feature enables 4KB pages support.
-+
-+config RISCV_64K_PAGES
-+	bool "64KB"
-+	depends on RISCV_ISA_SVNAPOT && 64BIT
-+	select HAVE_PAGE_SIZE_64KB
-+	select RISCV_USE_SW_PAGE
-+	help
-+	  This feature enables 64KB pages support.
-+
-+endchoice
-+
- config ARCH_SUPPORTS_KEXEC
- 	def_bool y
+@@ -253,6 +253,7 @@ config ARCH_MMAP_RND_COMPAT_BITS_MIN
+ # max bits determined by the following formula:
+ #  VA_BITS - PAGE_SHIFT - 3
+ config ARCH_MMAP_RND_BITS_MAX
++	default 20 if 64BIT && RISCV_64K_PAGES # SV39 based
+ 	default 24 if 64BIT # SV39 based
+ 	default 17
  
 -- 
 2.20.1
