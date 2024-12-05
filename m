@@ -4,60 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE594E7716E
-	for <linux-riscv@archiver.kernel.org>; Thu,  5 Dec 2024 17:41:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37F63E7716E
+	for <linux-riscv@archiver.kernel.org>; Thu,  5 Dec 2024 18:13:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=F+lP3wDMVbkvP3OTPlmG0kmqMH9ExaqMyXsceLY4lGs=; b=Ut3wIIREQmqR8M
-	v4YQz0yPSg6Z0SQp8m6In0wYMEfPUjLcS2EFk1DjPD8bqLym/ZpoA9AcR5EUBbv24Zs5lVpTn4IZI
-	FE/4NXA14TLylrtG24n+ODOh3ojhxV7+GA0BDqN0fsv1p9hFVmleNwUkFUbspBniIvot3gVPBHoX5
-	bkZjQVnbOOQ7sofnN9HahcsS6reZqY8Ol/bIDJArU/r9Sp3OiZ3FMC1E/7dVLAZ+VUqGrSfHzr6SF
-	TgbkQ2EHTIZOY81JAKKDJnbLre16rifx11d4NgAMUakzZJiDnAJTa4ijnqGoHf7pb1pL/mVg2MOBn
-	W1jcbnnLbLXYW/hio6Qw==;
+	List-Owner; bh=YYtrOrCUrZSnkjhEQSRuGhRBJN4DzpA2EuzcYmPfuCE=; b=OMleT70tTp5hsA
+	NbcG4ZBYpawLEaacNUUrk9weGUHbuZyTL22tY9i0tYbXY+WtMVuSckwSxh05C76LmJuAcLJjR2vVl
+	jcXiN5eRwueucS29NB1JRbfH+UdXxsAriw926Mt4qq5/HPtzwSfLfm8ixBnYRC0rRNH3al3/XUqe8
+	BdkIpS6WhQUX0gXrNY0pzazjyZkWkP5tEWl/70AZdK2EmzEjIF1pLEInAu+CepVnmR3/Zshrwx578
+	l9rR2pRd+grQaDtuvg+Yn1UNSR2nflNfrFpJNauxSsNfi6VjwlETzYnxdFAv5CSW1CJADSM5enaPn
+	qLprrSpkbQFt2YG4UE5w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJFqX-0000000GzF0-32Sn;
-	Thu, 05 Dec 2024 17:41:01 +0000
-Received: from relay8-d.mail.gandi.net ([217.70.183.201])
+	id 1tJGLs-0000000H5LC-0fUq;
+	Thu, 05 Dec 2024 18:13:24 +0000
+Received: from mail-pj1-x102c.google.com ([2607:f8b0:4864:20::102c])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJFqT-0000000GzCw-12Oe
+	id 1tJGKR-0000000H4pp-0cDf
 	for linux-riscv@lists.infradead.org;
-	Thu, 05 Dec 2024 17:40:59 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id 236B51BF203;
-	Thu,  5 Dec 2024 17:40:45 +0000 (UTC)
-Message-ID: <528505d0-e0ba-414b-ad9d-bc78c07464a1@ghiti.fr>
-Date: Thu, 5 Dec 2024 18:40:44 +0100
+	Thu, 05 Dec 2024 18:11:56 +0000
+Received: by mail-pj1-x102c.google.com with SMTP id 98e67ed59e1d1-2eeb2e749c5so1101992a91.0
+        for <linux-riscv@lists.infradead.org>; Thu, 05 Dec 2024 10:11:53 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=pdp7-com.20230601.gappssmtp.com; s=20230601; t=1733422313; x=1734027113; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=2MUjUIXHE2bJtGuB7BkRXXqw/hOym15VxRARXET8bls=;
+        b=csabldNiyBPA0VUf0x4x6hL0a8Vvqd4FNjqz+CdwiOZnuFudAQSN63lVOAQHuPTnPp
+         3r9qgJqLqH2cYQR+tSKux1s5Tqnr/Ij7+k70mBGcw3PgOpxyW74txk3AnZPBo+MO2ZUJ
+         vJHV73Eq5ZL3P9kbC87Gk8zQ9L9HWTBIIw0o/5OXQ3/4KJZGvPp/UX7swmNLGygQPvYR
+         6mRa90xNy3voNJO6v3sC8lePQE328odTyA8cue6ujnk+BlACvBHctyQw/pfQUhy2JpbC
+         FLe2wPTq5f9lNdgKsI8Crj3HV0PJExzk/4eNoWIhpc9Bcbj+/u4C1hMUHUQXmk3XUE6y
+         07Fg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1733422313; x=1734027113;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=2MUjUIXHE2bJtGuB7BkRXXqw/hOym15VxRARXET8bls=;
+        b=o7sBh1o/H9VG0x1YFj+leFHQKjE3+HPMAKRLpOQ3PvxOPPJz8mecFTBxOC7joIv16Z
+         LM/DrL5r4Nain/H/rekR0peLRnhLBIYh8BNqCM8q4yfJ82L3WN7F8jC8X0buyG4xpNLZ
+         iNEyn2EMPXNcebU8ldU/Q7SyX7GQj6kh9POa0a6X54/PEtPeWqlMz6N1U8iROB7xox05
+         jUoXp4utjGIwiPm5g5Hh7T3D7eGcKS4LKQA4sUUVvCzne5MFEocRY/dtKl1GDcKnOV/C
+         OBaLyhPdmqM1GgqcpApIPuVAueLtNoCGE4WLX+FbeEqXV9inSEqToP2EApnJpoVr33IX
+         EaWg==
+X-Forwarded-Encrypted: i=1; AJvYcCUZdb2ILZCXKU5nLVEM7qdehkRK98fZ9JIJE0rl1I2axg3E+lQ2MEszsX4XRopf8jhDjiSeBIUTfCUPVg==@lists.infradead.org
+X-Gm-Message-State: AOJu0YzdPut47543bS/uUN7mHbZmjhPMNLxPk52VHcFMZg53xveA5gZI
+	pOf2rN/MNKgvxAoB3gqijn4KkpKkBy4ZBAGOCBAW4cSibi8GrZoBBXrIbnTzcjU=
+X-Gm-Gg: ASbGncuCpCp9EuZO5zYxQrgC+lpZGQZK04DWJBr2bYZ7sPusJI8dXRL1P/XYJ38WV4g
+	RLmmBIGPCTNZu37QUaaIRgJrNJsVZKy1PVykoRFB0RSnYCF+nlcUikviaJAujeCmQS9gfos3xvK
+	GtDmp4v44CtLFvTSpT3OzxJ/Kghrv+WODkT/JH5rjgznKNpGgkV7YWlZFdF0m+rKX4oSVqhvFi0
+	bppYi1CUjGi6a0TG4vqWdVR+TFnluQ=
+X-Google-Smtp-Source: AGHT+IH9Qxre7SaXJmwLVox5H0UwU/C+KDg/si4WFNP6RN/USaZJmdrSMdvHNGZqEVGV0+rIUHI/aw==
+X-Received: by 2002:a17:90b:5448:b0:2ef:2d9f:8e58 with SMTP id 98e67ed59e1d1-2ef6ab29c49mr113446a91.34.1733422313419;
+        Thu, 05 Dec 2024 10:11:53 -0800 (PST)
+Received: from x1 ([192.210.17.121])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-2ef26ffb6f5sm3584572a91.6.2024.12.05.10.11.51
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 05 Dec 2024 10:11:53 -0800 (PST)
+Date: Thu, 5 Dec 2024 10:11:50 -0800
+From: Drew Fustini <drew@pdp7.com>
+To: Emil Renner Berthing <emil.renner.berthing@canonical.com>
+Cc: bigunclemax@gmail.com, Guo Ren <guoren@kernel.org>,
+	Fu Wei <wefu@redhat.com>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, linux-riscv@lists.infradead.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v1] riscv: dts: thead: Fix TH1520 emmc and shdci clock
+ rate
+Message-ID: <Z1Hs5smgFV4C6c90@x1>
+References: <20241204111424.263055-1-bigunclemax@gmail.com>
+ <CAJM55Z-YAMtRN=K5KxCH1+++Xw4uMM_c49z8tGzi3snU+-KrYA@mail.gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 1/2] riscv/ptrace: add new regset to access original a0
- register
-Content-Language: en-US
-To: Celeste Liu <uwu@coelacanthus.name>, Oleg Nesterov <oleg@redhat.com>,
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Eric Biederman <ebiederm@xmission.com>, Kees Cook <kees@kernel.org>,
- Shuah Khan <shuah@kernel.org>
-Cc: "Dmitry V. Levin" <ldv@strace.io>, Andrea Bolognani
- <abologna@redhat.com>, =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>,
- Thomas Gleixner <tglx@linutronix.de>, Ron Economos <re@w6rz.net>,
- Charlie Jenkins <charlie@rivosinc.com>, Quan Zhou <zhouquan@iscas.ac.cn>,
- Felix Yan <felixonmars@archlinux.org>, Ruizhe Pan <c141028@gmail.com>,
- Shiqi Zhang <shiqi@isrc.iscas.ac.cn>, Guo Ren <guoren@kernel.org>,
- Yao Zi <ziyao@disroot.org>, Han Gao <gaohan@iscas.ac.cn>,
- linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-mm@kvack.org, stable@vger.kernel.org, linux-kselftest@vger.kernel.org
-References: <20241203-riscv-new-regset-v2-0-d37da8c0cba6@coelacanthus.name>
- <20241203-riscv-new-regset-v2-1-d37da8c0cba6@coelacanthus.name>
-From: Alexandre Ghiti <alex@ghiti.fr>
-In-Reply-To: <20241203-riscv-new-regset-v2-1-d37da8c0cba6@coelacanthus.name>
-X-GND-Sasl: alex@ghiti.fr
+Content-Disposition: inline
+In-Reply-To: <CAJM55Z-YAMtRN=K5KxCH1+++Xw4uMM_c49z8tGzi3snU+-KrYA@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241205_094057_538141_E3C7DABA 
-X-CRM114-Status: GOOD (  19.46  )
+X-CRM114-CacheID: sfid-20241205_101155_451073_1C932B33 
+X-CRM114-Status: GOOD (  23.24  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,108 +99,75 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Celeste,
+On Wed, Dec 04, 2024 at 03:19:28PM +0000, Emil Renner Berthing wrote:
+> bigunclemax@ wrote:
+> > From: Maksim Kiselev <bigunclemax@gmail.com>
+> >
+> > In accordance with LicheePi 4A BSP the clock that comes to emmc/sdhci
+> > is 198Mhz.
+> >
+> > But changing from fixed-clock to CLK_EMMC_SDIO leads to increasing input
+> > clock from 198Mhz to 792Mhz. Because the CLK_EMMC_SDIO is actually 792Mhz.
+> >
+> > Therefore calculation of output SDCLK is incorrect now.
+> > The mmc driver sets the divisor to 4 times larger than it should be
+> > and emmc/sd works 4 times slower.
+> >
+> > This can be confirmed with fio test:
+> > Sequential read of emmc with fixed 198Mz clock:
+> > READ: bw=289MiB/s (303MB/s)
+> >
+> > Sequential read with CLK_EMMC_SDIO clock:
+> > READ: bw=82.6MiB/s (86.6MB/s)
+> >
+> > Let's fix this issue by providing fixed-factor-clock that divides
+> > CLK_EMMC_SDIO by 4 for emmc/sd nodes.
+> 
+> Thanks for finding this bug!
+> 
+> However, this feels like a work-around for a bug in the clock driver, and even
+> if there is a fixed factor divider somewhere this should probably be modelled
+> by the clock driver. Did you look into the documentation[1] and try to figure
+> out where eMMC clock comes from and where the /4 is missing?
+> 
+> There is also a vendor tree somewhere with a much more complete clock driver.
+> Drew do you remember where it is? Maybe it's worth looking at how that driver
+> models the eMMC clocks.
 
-On 03/12/2024 10:30, Celeste Liu wrote:
-> The orig_a0 is missing in struct user_regs_struct of riscv, and there is
-> no way to add it without breaking UAPI. (See Link tag below)
->
-> Like NT_ARM_SYSTEM_CALL do, we add a new regset name NT_RISCV_ORIG_A0 to
-> access original a0 register from userspace via ptrace API.
->
-> Link: https://lore.kernel.org/all/59505464-c84a-403d-972f-d4b2055eeaac@gmail.com/
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Celeste Liu <uwu@coelacanthus.name>
-> ---
->   arch/riscv/kernel/ptrace.c | 32 ++++++++++++++++++++++++++++++++
->   include/uapi/linux/elf.h   |  1 +
->   2 files changed, 33 insertions(+)
->
-> diff --git a/arch/riscv/kernel/ptrace.c b/arch/riscv/kernel/ptrace.c
-> index ea67e9fb7a583683b922fe2c017ea61f3bc848db..18ce07ffb27bb1180667769eed800f6fdf96c083 100644
-> --- a/arch/riscv/kernel/ptrace.c
-> +++ b/arch/riscv/kernel/ptrace.c
-> @@ -31,6 +31,7 @@ enum riscv_regset {
->   #ifdef CONFIG_RISCV_ISA_SUPM
->   	REGSET_TAGGED_ADDR_CTRL,
->   #endif
-> +	REGSET_ORIG_A0,
->   };
->   
->   static int riscv_gpr_get(struct task_struct *target,
-> @@ -184,6 +185,29 @@ static int tagged_addr_ctrl_set(struct task_struct *target,
->   }
->   #endif
->   
-> +static int riscv_orig_a0_get(struct task_struct *target,
-> +			     const struct user_regset *regset,
-> +			     struct membuf to)
-> +{
-> +	return membuf_store(&to, task_pt_regs(target)->orig_a0);
-> +}
-> +
-> +static int riscv_orig_a0_set(struct task_struct *target,
-> +			     const struct user_regset *regset,
-> +			     unsigned int pos, unsigned int count,
-> +			     const void *kbuf, const void __user *ubuf)
-> +{
-> +	unsigned long orig_a0 = task_pt_regs(target)->orig_a0;
-> +	int ret;
-> +
-> +	ret = user_regset_copyin(&pos, &count, &kbuf, &ubuf, &orig_a0, 0, -1);
-> +	if (ret)
-> +		return ret;
-> +
-> +	task_pt_regs(target)->orig_a0 = orig_a0;
-> +	return ret;
-> +}
-> +
->   static const struct user_regset riscv_user_regset[] = {
->   	[REGSET_X] = {
->   		.core_note_type = NT_PRSTATUS,
-> @@ -224,6 +248,14 @@ static const struct user_regset riscv_user_regset[] = {
->   		.set = tagged_addr_ctrl_set,
->   	},
->   #endif
-> +	[REGSET_ORIG_A0] = {
-> +		.core_note_type = NT_RISCV_ORIG_A0,
-> +		.n = 1,
-> +		.size = sizeof(elf_greg_t),
-> +		.align = sizeof(elf_greg_t),
-> +		.regset_get = riscv_orig_a0_get,
-> +		.set = riscv_orig_a0_set,
-> +	},
->   };
->   
->   static const struct user_regset_view riscv_user_native_view = {
-> diff --git a/include/uapi/linux/elf.h b/include/uapi/linux/elf.h
-> index b44069d29cecc0f9de90ee66bfffd2137f4275a8..390060229601631da2fb27030d9fa2142e676c14 100644
-> --- a/include/uapi/linux/elf.h
-> +++ b/include/uapi/linux/elf.h
-> @@ -452,6 +452,7 @@ typedef struct elf64_shdr {
->   #define NT_RISCV_CSR	0x900		/* RISC-V Control and Status Registers */
->   #define NT_RISCV_VECTOR	0x901		/* RISC-V vector registers */
->   #define NT_RISCV_TAGGED_ADDR_CTRL 0x902	/* RISC-V tagged address control (prctl()) */
-> +#define NT_RISCV_ORIG_A0	  0x903	/* RISC-V original a0 register */
->   #define NT_LOONGARCH_CPUCFG	0xa00	/* LoongArch CPU config registers */
->   #define NT_LOONGARCH_CSR	0xa01	/* LoongArch control and status registers */
->   #define NT_LOONGARCH_LSX	0xa02	/* LoongArch Loongson SIMD Extension registers */
->
+Sorry for the delay, I'm travelling until tomorrow.
 
-Do you know how far this should be backported? Does the following fixes 
-tag make sense?
+Maksim, thanks for finding this issue and sending a patch.
 
-Fixes: e2c0cdfba7f6 ("RISC-V: User-facing API")
+That is a good point about checking the thead vendor kernel. I normally
+look at revy's thead-kernel repo [1] which is 5.10. revy also has a 6.6
+lts branch in th1520-linux-kernel [2].
+
+https://github.com/revyos/thead-kernel/tree/lpi4a/drivers/clk/thead
+
+
+Looking at line 454 in drivers/clk/thead/clk-light-fm.c [3]:
+
+  clks[EMMC_SDIO_REF_CLK] =
+  thead_light_clk_fixed_factor("emmc_sdio_ref_clk",
+                               "video_pll_foutpostdiv", 1, 4)
+                               /* Note: base clk is div 4 to 198M*/
+
+Which derives from line 373:
+
+  clks[VIDEO_PLL_FOUTPOSTDIV] =
+  thead_clk_fixed("video_pll_foutpostdiv", 792000000);
 
 Thanks,
+Drew
 
-Alex
-
+[1] https://github.com/revyos/thead-kernel
+[2] https://github.com/revyos/th1520-linux-kernel
+[3] https://github.com/revyos/thead-kernel/blob/lpi4a/drivers/clk/thead/clk-light-fm.c
 
 _______________________________________________
 linux-riscv mailing list
