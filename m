@@ -4,55 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 69205E7716C
-	for <linux-riscv@archiver.kernel.org>; Thu,  5 Dec 2024 07:28:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DCC82E77171
+	for <linux-riscv@archiver.kernel.org>; Thu,  5 Dec 2024 07:31:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
 	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=kYuBM/rtjrrXgp5PbAv4mVvkXzhSdIssFBvbFz8kDuE=; b=U7zA7SyDCg+vo2
-	/iyBLVITCs09Q69DBkRxDow0wS5Ki3raCOUE8R7FGRqBvX+nvWTc7mMCTUO/osmkfk1O3gr+4In2I
-	Ua3hwgIbl9RGE4SKVVEsFTbzKfcbXiT6OHnr/X+iBkMAn4O2yh4JIy7hAo583bHOkaI00VSgrKGA/
-	PS9zUTXmIQF8kZB8w95gSwQLwWoTSIJzC5VfBkBOXWOoz+dpIzp0xoY/1q8Rrh/SPkmppZd2UTwhx
-	4tLb+VtokGBcsNVsWjMOtQypGyxGI6I4ymVE3b2hDvBpOPZSmHQcMNs/ReFfJqg8j0cYpPNQTSCyh
-	xx82TnQ5MEtoxik90REw==;
+	List-Owner; bh=YQXmPJw2hTOkXlqE2jt68++PnH0PWnUTDL2K3cshL70=; b=jV91bEWbdLZHR3
+	a5Lt/hgpZiq24caIE+FfXGPtIVFOts6peqrwdJxh/Vv4qOJcxtw0LkhzHTCfK3Tqlv1Jkjos984xK
+	ur7UBGr7NB7VCTVLQYSl3rHb3z0JvluxS2bqpUHZmLwwuWVCOCH7FvB6k1d4NIukCGe/zGplWb1Vq
+	EVL0l+K4n1/yv2jl9bZlLEXX5WEDNjW0ayRjr949Ljagaj3Mnqbebp9QgbQWD/F6XN/OpDlbF0k8h
+	MOdPSiTNrDu42ny3RfBTLFPc4OZVQAGYZdNSYFT82I75/tEKOg3HHZqWdQfn0cwF/bpjxvc4UqiV3
+	ZSS4SoqYWO+H9NXrYH0w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJ6I3-0000000F0O3-1Ku5;
-	Thu, 05 Dec 2024 07:28:47 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1tJ6Ki-0000000F15e-3C8l;
+	Thu, 05 Dec 2024 07:31:32 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJ6I0-0000000F0Mz-1M8y
+	id 1tJ6Kf-0000000F14N-2VDc
 	for linux-riscv@lists.infradead.org;
-	Thu, 05 Dec 2024 07:28:45 +0000
+	Thu, 05 Dec 2024 07:31:30 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 02DB95C6FF6;
-	Thu,  5 Dec 2024 07:28:01 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4DAF0C4CED1;
-	Thu,  5 Dec 2024 07:28:33 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 3347B5C563A;
+	Thu,  5 Dec 2024 07:30:46 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BC662C4CED1;
+	Thu,  5 Dec 2024 07:31:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1733383723;
-	bh=d9RVmBnjc+7Rz3EcXgbJd1R8pcShtevZX/vVfoCaVQU=;
+	s=k20201202; t=1733383888;
+	bh=tl7z5khqHwgfmMC1yiN0DCsWW590Zda7OF1raNXX9wo=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=TWT2MG99jaEORtLsTyEL3B9M/HfBcFMyu2Bev/rYVVZCVc6ioluM1uxEhxbTGBdJu
-	 +MFp2D9GDPlS/S58wskAkM0Fg0LDVM3e7hjxlEjx7mbqf+ORRlg/J/xlwmHXBkXjn8
-	 CZRFnAsyvbI0CL84iO4OoH1EXf/WDJGUhCNDSsfQ1YcOD4YrcK15BWYUUDJxRdN0Sa
-	 8KaAZnE/oAy6cWdLIqFWqoLx2r7UcRw0/cbVFqwPIK8RfKgZVQSFmQepxQhvmbHBqW
-	 Hyxho/G7aVGP6z2ujouWY/iBGV+4m/infSyrmY/++9sJ9lnoiVr31Q8+JA7KHhNCeN
-	 vhmoY2TLiGnfg==
-Message-ID: <2842aa7b-e369-4c80-b651-a3a9b09d17ff@kernel.org>
-Date: Thu, 5 Dec 2024 08:28:32 +0100
+	b=e4S6usSuH5khmzNH0uwBG77QC78odPh/2kq0qMDeGd/ANo+7o2nuziV3Jq2mSUKpf
+	 dYh0PvwQehqhnJyfTH3JzGBmNODJ3u2eAe148ta1ZpfjuBKmVMLPV4NocVHUKWoVjq
+	 47LRw2chq/03glgPtpgZXYl56+3EnT6q6xyJn9sTqzfZ48rgWzZmnLyyw4+uiPb8Z3
+	 8bee0JOBwaP+qne5ecQ3OM4X//OzcNyaQoh8nCp1Qan5gXLNjtt4b1rpc52tBzQ9OD
+	 5o1V2PKEQhmjkiZvIZH3ExgEzAXYvfmGOHDhvJiqDnUjXCX2xfcJdJyJ+DQQSyx7c2
+	 QzyjbZrPQP62g==
+Message-ID: <5206c6a1-0473-40c2-b651-5dbca1204729@kernel.org>
+Date: Thu, 5 Dec 2024 08:31:17 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH v1 05/14] dt-bindings: clock: thead,th1520: Add
- support for Video Output subsystem
-To: Stephen Boyd <sboyd@kernel.org>,
- Michal Wilczynski <m.wilczynski@samsung.com>, airlied@gmail.com,
- aou@eecs.berkeley.edu, conor+dt@kernel.org, drew@pdp7.com,
- frank.binns@imgtec.com, guoren@kernel.org, jassisinghbrar@gmail.com,
- jszhang@kernel.org, krzk+dt@kernel.org, m.szyprowski@samsung.com,
+Subject: Re: [RFC PATCH v1 01/14] clk: thead: Refactor TH1520 clock driver to
+ share common code
+To: Michal Wilczynski <m.wilczynski@samsung.com>,
+ Stephen Boyd <sboyd@kernel.org>, airlied@gmail.com, aou@eecs.berkeley.edu,
+ conor+dt@kernel.org, drew@pdp7.com, frank.binns@imgtec.com,
+ guoren@kernel.org, jassisinghbrar@gmail.com, jszhang@kernel.org,
+ krzk+dt@kernel.org, m.szyprowski@samsung.com,
  maarten.lankhorst@linux.intel.com, matt.coster@imgtec.com,
  mripard@kernel.org, mturquette@baylibre.com, palmer@dabbelt.com,
  paul.walmsley@sifive.com, robh@kernel.org, simona@ffwll.ch,
@@ -61,11 +61,10 @@ Cc: linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
  linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
  dri-devel@lists.freedesktop.org, linux-pm@vger.kernel.org
 References: <20241203134137.2114847-1-m.wilczynski@samsung.com>
- <CGME20241203134155eucas1p1e90c71c4f8eb5da41d2cc8a500f54dc7@eucas1p1.samsung.com>
- <20241203134137.2114847-6-m.wilczynski@samsung.com>
- <f21ffd12-167b-4d10-9017-33041ec322b0@kernel.org>
- <07bfb02a-1df3-4a03-83bb-d7edc540739d@samsung.com>
- <1b05b11b2a8287c0ff4b6bdd079988c7.sboyd@kernel.org>
+ <CGME20241203134150eucas1p24ba8d2fbf2af5b8f9abe503b4334127d@eucas1p2.samsung.com>
+ <20241203134137.2114847-2-m.wilczynski@samsung.com>
+ <94a57c718a09a20d148101884bf2e5f2.sboyd@kernel.org>
+ <94356242-7c94-4da5-a9ad-684d03ddedd6@samsung.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -111,10 +110,10 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  uZwJCLykjad45hsWcOGk3OcaAGQS6NDlfhM6O9aYNwGL6tGt/6BkRikNOs7VDEa4/HlbaSJo
  7FgndGw1kWmkeL6oQh7wBvYll2buKod4qYntmNKEicoHGU+x91Gcan8mCoqhJkbqrL7+nXG2
  5Q/GS5M9RFWS+nYyJh+c3OcfKqVcZQNANItt7+ULzdNJuhvTRRdC3g9hmCEuNSr+CLMdnRBY fv0=
-In-Reply-To: <1b05b11b2a8287c0ff4b6bdd079988c7.sboyd@kernel.org>
+In-Reply-To: <94356242-7c94-4da5-a9ad-684d03ddedd6@samsung.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241204_232844_453195_CC6B2242 
-X-CRM114-Status: GOOD (  10.46  )
+X-CRM114-CacheID: sfid-20241204_233129_721098_2B214BF7 
+X-CRM114-Status: GOOD (  16.12  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,56 +125,74 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 04/12/2024 21:21, Stephen Boyd wrote:
->>> No, that's a clear NAK. You claim you have no address space but in the
->>> same time you have address space via regmap.
->>
->> I see your concern. The VOSYS subsystem's address space includes
->> registers for various components, such as clock gates and reset
->> controls, which are scattered throughout the address space as specified
->> in the manual 4.4.1 [2]. Initially, I attempted to use a shared syscon
->> regmap for access, but I realize this might not be the best approach.
->>
->> To address this, I'll specify the 'reg' property in each node to define
->> the address ranges explicitly fragmenting the address space for the VOSYS
->> manually.
->>
->> vosys_clk: clock-controller@ffef528050 {
->>         compatible = "thead,th1520-clk-vo";
->>         reg = <0xff 0xef528050 0x0 0x8>;
->>         #clock-cells = <1>;
->> };
->>
->> pd: power-domain@ffef528000 {
->>         compatible = "thead,th1520-pd";
->>         reg = <0xff 0xef528000 0x0 0x8>;
->>         #power-domain-cells = <1>;
->> };
-> 
-> You should have one node:
-> 
->     clock-controller@ffef528000 {
->       compatible = "thead,th1520-vo";
->       reg = <0xff 0xef528050 0x0 0x1a04>;
-
-Yes, obviously, but probably entire block:
-
-<0xff 0xef528000 0x0 0x1000>;
-
->       #clock-cells = <1>;
->       #power-domain-cells = <1>;
->     };
-
-
-Best regards,
-Krzysztof
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gMDQvMTIvMjAyNCAxNDo1NCwgTWljaGFsIFdpbGN6eW5za2kgd3JvdGU6Cj4gCj4gCj4gT24g
+MTIvMy8yNCAyMDo1NiwgU3RlcGhlbiBCb3lkIHdyb3RlOgo+PiBRdW90aW5nIE1pY2hhbCBXaWxj
+enluc2tpICgyMDI0LTEyLTAzIDA1OjQxOjI0KQo+Pj4gZGlmZiAtLWdpdCBhL2RyaXZlcnMvY2xr
+L3RoZWFkL01ha2VmaWxlIGIvZHJpdmVycy9jbGsvdGhlYWQvTWFrZWZpbGUKPj4+IGluZGV4IDdl
+ZTBiZWMxZjI1MS4uZDdjZjg4MzkwYjY5IDEwMDY0NAo+Pj4gLS0tIGEvZHJpdmVycy9jbGsvdGhl
+YWQvTWFrZWZpbGUKPj4+ICsrKyBiL2RyaXZlcnMvY2xrL3RoZWFkL01ha2VmaWxlCj4+PiBAQCAt
+MSwyICsxLDIgQEAKPj4+ICAjIFNQRFgtTGljZW5zZS1JZGVudGlmaWVyOiBHUEwtMi4wCj4+PiAt
+b2JqLSQoQ09ORklHX0NMS19USEVBRF9USDE1MjBfQVApICs9IGNsay10aDE1MjAtYXAubwo+Pj4g
+K29iai0kKENPTkZJR19DTEtfVEhFQURfVEgxNTIwX0FQKSArPSBjbGstdGgxNTIwLm8gY2xrLXRo
+MTUyMC1hcC5vCj4+Cj4+IENhbiB0aGUgLWFwIGRyaXZlciBiZSBleHRlbmRlZCBpbnN0ZWFkPyBP
+ciBhcmUgdGhlIGNsa3MgaW4gYSBkaWZmZXJlbnQKPj4gSU8gcmVnaW9uPwo+IAo+IFRoZSBWaWRl
+byBPdXRwdXQgKFZPKSBjbG9ja3MgcmVzaWRlIGluIGEgZGlmZmVyZW50IGFkZHJlc3Mgc3BhY2Ug
+YXMKPiBkZWZpbmVkIGluIHRoZSBULUhFQUQgbWFudWFsIDQuNC4xIFsxXS4gVGhlcmVmb3JlLCBj
+cmVhdGluZyBhIHNlcGFyYXRlCj4gZHJpdmVyIG1hZGUgc2Vuc2UgdG8gbWFpbnRhaW4gY2xhcml0
+eSBhbmQgYWRoZXJlIHRvIHRoZSBleGlzdGluZwoKVGhlcmUgaXMgbm8gc3VjaCBydWxlLCBubyBj
+b252ZW50aW9uIGV2ZW4uIEJ1dCB0aGVyZSBpcyBhIHJ1bGUgYW5kCmNvbnZlbnRpb24gb2YgcmUt
+dXNpbmcgZHJpdmVycy4KCj4gY29udmVudGlvbiBvZiBoYXZpbmcgb25lIGRyaXZlciBwZXIgc3Vi
+c3lzdGVtLCBzaW1pbGFyIHRvIHRoZQoKWW91IGhhdmUgaGVyZSB0d28gZHJpdmVycyBwZXIgc3Vi
+c3lzdGVtLCBzbyBldmVuIGlmIHRoZXJlIHdhcyBzdWNoIGEKcnVsZSwgeW91IGp1c3QgYnJva2Ug
+aXQuCgo+IEFQLXNwZWNpZmljIGRyaXZlci4KPiAKPiBbMV0gLSBodHRwczovL29wZW5iZWFnbGUu
+b3JnL2JlYWdsZXYtYWhlYWQvYmVhZ2xldi1haGVhZC8tL2Jsb2IvbWFpbi9kb2NzL1RIMTUyMCUy
+MFN5c3RlbSUyMFVzZXIlMjBNYW51YWwucGRmCj4+Cj4+PiBkaWZmIC0tZ2l0IGEvZHJpdmVycy9j
+bGsvdGhlYWQvY2xrLXRoMTUyMC1hcC5jIGIvZHJpdmVycy9jbGsvdGhlYWQvY2xrLXRoMTUyMC1h
+cC5jCj4+PiBpbmRleCAxN2UzMmFlMDg3MjAuLmE2MDE1ODA1Yjg1OSAxMDA2NDQKPj4+IC0tLSBh
+L2RyaXZlcnMvY2xrL3RoZWFkL2Nsay10aDE1MjAtYXAuYwo+Pj4gKysrIGIvZHJpdmVycy9jbGsv
+dGhlYWQvY2xrLXRoMTUyMC1hcC5jCj4+PiBAQCAtNSwyOTcgKzUsOSBAQAo+Pj4gICAqICBBdXRo
+b3JzOiBZYW5ndGFvIExpIDxmcmFuay5saUB2aXZvLmNvbT4KPj4+ICAgKi8KPj4+ICAKPj4+IC0j
+aW5jbHVkZSA8ZHQtYmluZGluZ3MvY2xvY2svdGhlYWQsdGgxNTIwLWNsay1hcC5oPgo+Pgo+PiBQ
+cmVzdW1hYmx5IHRoaXMgc2hvdWxkIHN0YXkgaGVyZS4KPj4KPj4+IC0jaW5jbHVkZSA8bGludXgv
+Yml0ZmllbGQuaD4KPj4+IC0jaW5jbHVkZSA8bGludXgvY2xrLXByb3ZpZGVyLmg+Cj4+PiAtI2lu
+Y2x1ZGUgPGxpbnV4L2RldmljZS5oPgo+Pj4gLSNpbmNsdWRlIDxsaW51eC9tb2R1bGUuaD4KPj4+
+IC0jaW5jbHVkZSA8bGludXgvcGxhdGZvcm1fZGV2aWNlLmg+Cj4+PiAtI2luY2x1ZGUgPGxpbnV4
+L3JlZ21hcC5oPgo+PgoKLi4uCgo+Pj4gK3N0YXRpYyBpbmxpbmUgc3RydWN0IGNjdV9jb21tb24g
+Kmh3X3RvX2NjdV9jb21tb24oc3RydWN0IGNsa19odyAqaHcpCj4+PiArewo+Pj4gKyAgICAgICBy
+ZXR1cm4gY29udGFpbmVyX29mKGh3LCBzdHJ1Y3QgY2N1X2NvbW1vbiwgaHcpOwo+Pj4gK30KPj4+
+ICsKPj4+ICtzdGF0aWMgaW5saW5lIHN0cnVjdCBjY3VfbXV4ICpod190b19jY3VfbXV4KHN0cnVj
+dCBjbGtfaHcgKmh3KQo+Pj4gK3sKPj4+ICsgICAgICAgc3RydWN0IGNjdV9jb21tb24gKmNvbW1v
+biA9IGh3X3RvX2NjdV9jb21tb24oaHcpOwo+Pj4gKwo+Pj4gKyAgICAgICByZXR1cm4gY29udGFp
+bmVyX29mKGNvbW1vbiwgc3RydWN0IGNjdV9tdXgsIGNvbW1vbik7Cj4+PiArfQo+Pj4gKwo+Pj4g
+K3N0YXRpYyBpbmxpbmUgc3RydWN0IGNjdV9wbGwgKmh3X3RvX2NjdV9wbGwoc3RydWN0IGNsa19o
+dyAqaHcpCj4+PiArewo+Pj4gKyAgICAgICBzdHJ1Y3QgY2N1X2NvbW1vbiAqY29tbW9uID0gaHdf
+dG9fY2N1X2NvbW1vbihodyk7Cj4+PiArCj4+PiArICAgICAgIHJldHVybiBjb250YWluZXJfb2Yo
+Y29tbW9uLCBzdHJ1Y3QgY2N1X3BsbCwgY29tbW9uKTsKPj4+ICt9Cj4+PiArCj4+PiArc3RhdGlj
+IGlubGluZSBzdHJ1Y3QgY2N1X2RpdiAqaHdfdG9fY2N1X2RpdihzdHJ1Y3QgY2xrX2h3ICpodykK
+Pj4+ICt7Cj4+PiArICAgICAgIHN0cnVjdCBjY3VfY29tbW9uICpjb21tb24gPSBod190b19jY3Vf
+Y29tbW9uKGh3KTsKPj4+ICsKPj4+ICsgICAgICAgcmV0dXJuIGNvbnRhaW5lcl9vZihjb21tb24s
+IHN0cnVjdCBjY3VfZGl2LCBjb21tb24pOwo+Pj4gK30KPj4+ICsKPj4+ICtzdGF0aWMgaW5saW5l
+IHN0cnVjdCBjY3VfZ2F0ZSAqaHdfdG9fY2N1X2dhdGUoc3RydWN0IGNsa19odyAqaHcpCj4+PiAr
+ewo+Pj4gKyAgICAgICBzdHJ1Y3QgY2N1X2NvbW1vbiAqY29tbW9uID0gaHdfdG9fY2N1X2NvbW1v
+bihodyk7Cj4+PiArCj4+PiArICAgICAgIHJldHVybiBjb250YWluZXJfb2YoY29tbW9uLCBzdHJ1
+Y3QgY2N1X2dhdGUsIGNvbW1vbik7Cj4+PiArfQo+Pj4gKwo+Pj4gK2V4dGVybiBjb25zdCBzdHJ1
+Y3QgY2xrX29wcyBjY3VfZGl2X29wczsKPj4+ICtleHRlcm4gY29uc3Qgc3RydWN0IGNsa19vcHMg
+Y2xrX3BsbF9vcHM7Cj4+PiArZXh0ZXJuIGNvbnN0IHN0cnVjdCByZWdtYXBfY29uZmlnIHRoMTUy
+MF9jbGtfcmVnbWFwX2NvbmZpZzsKPj4KPj4gV2h5IGlzIHRoZSByZWdtYXAgY29uZmlnIGV4cG9y
+dGVkPwo+IAo+IFRoZSByZWdtYXBfY29uZmlnIGlzIGV4cG9ydGVkIHRvIGFsbG93IHJldXNlIGFj
+cm9zcyBtdWx0aXBsZSBkcml2ZXJzLgo+IEluaXRpYWxseSwgSSBwYXNzZWQgdGhlIGNsb2NrIFZP
+U1lTIGFkZHJlc3Mgc3BhY2UgdXNpbmcgdGhlIHJlZyBwcm9wZXJ0eQo+IGFuZCBjcmVhdGVkIHRo
+ZSByZWdtYXAgZnJvbSBpdCwgZW5hYmxpbmcgb3RoZXIgZHJpdmVycyB0byB1dGlsaXplIHRoZQo+
+IHNhbWUgY29uZmlndXJhdGlvbi4gTGF0ZXIsIEkgc3dpdGNoZWQgdG8gYSByZWdtYXAtYmFzZWQg
+c3lzY29uIGFwcHJvYWNoCj4gYnV0IGhhdmVu4oCZdCBtb3ZlZCB0aGUgcmVnbWFwX2NvbmZpZyBi
+YWNrIHRvIHRoZSBBUCBkcml2ZXIuCgoKSXQgYW55d2F5IGluIHlvdXIgb3JpZ2luYWwgY29kZSBj
+YW5ub3QgYmUgZXhwb3J0ZWQuIElmIHlvdSB3YW50IHRvIHVzZQpzeXNjb24sIHRoZW4gdXNlIHN5
+c2Nvbiwgbm90IGV4cG9ydGluZyByZWdtYXBzIG1hbnVhbGx5LgoKCgoKQmVzdCByZWdhcmRzLApL
+cnp5c3p0b2YKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+CmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3Jn
+Cmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
