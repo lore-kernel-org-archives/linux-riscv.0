@@ -4,63 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D4DE5E77173
-	for <linux-riscv@archiver.kernel.org>; Fri,  6 Dec 2024 11:48:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 401A1E77173
+	for <linux-riscv@archiver.kernel.org>; Fri,  6 Dec 2024 12:10:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IshmmBCDx0OdNVyj9G6ab13lMk0XQpboXMHz8ytz2Lc=; b=a2728JNlK2eSJY2pbUaTsqMWm7
-	d/FxQ4Jbn9skpk/hLhKgEjrrvhXtCU+HkV0Ovljw8Bz0M7vIJG+TobZ3BXTEzR0ASWZthLh69/h1w
-	W6PG7e4eYzQIz4jdxyKD24aU0fsCL1FwyuZwKFQdOF4pLfC2KCEsoQNx5w+D9xTyz/phDRI3XAXPi
-	eJ1bMvNjbBlqiwvrGH0G8lEyw4urP+W6JwuxgqO5wn3AH/Q9m+hoGamHsyxYXdbVulgHl4fqp+DfM
-	c0n8CmDa4+d2ov83cEwgn1K/EtpcoraT6EAuyr6IQHOpgn4nN4P5/BRNXBvLZbgQTnsfXoqRQnB0v
-	rfpFB5Lg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:From:Cc:To
+	:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=4YvrWFknXGcvOENpf1yd6PfLcdc3es9xIlaxhtGy/j4=; b=dORDG5Kj7qgLvP
+	X3k3fAAYyu00gWGjMh10saybRQI6986+TTNAoW1O1A719IzNFtaodlUbOmfyVq/br0LyFnjgOSTgR
+	r3pObBRTcWm+uAA9RLvqEDkMW8amzyRmU3Uku6F2Y6sVVramdSMKatdGerdDwrTRdckql4Pr+vkpv
+	CNuKVE6vQHLa4CkDrF5C061BuDBLfIrBIuCZ9somnLlZH2oAcO7uBFhLBnFq/n7FBE9cs75+UPYRf
+	U4SAVyY7szK5urky4xbzgdn5GZKXjd1a7xpDOFPtwMqf7Rv7IkpFlEuabCE9H6CwAOar3xFN+yKAw
+	iEFTBe03EMwb+8iAXYXA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJWoi-00000001UfL-1Rbr;
-	Fri, 06 Dec 2024 11:48:16 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tJX9l-00000001Wsr-0Hrj;
+	Fri, 06 Dec 2024 12:10:01 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tJWoe-00000001Uel-33ib
-	for linux-riscv@lists.infradead.org;
-	Fri, 06 Dec 2024 11:48:14 +0000
+	id 1tJX8h-00000001Wlc-3Q5E;
+	Fri, 06 Dec 2024 12:08:58 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 529A55C5FE4;
-	Fri,  6 Dec 2024 11:47:29 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A6A25C4CED1;
-	Fri,  6 Dec 2024 11:48:09 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1733485691;
-	bh=qEiT145v+mmmXz/X9So4yw/RdnpSM6fmg8D+g80PLnA=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=EOAAfRfFmhScD8M4YKfBg2hzYH8fYRKO6PP8IZIL7Ra22OCa9M499fbQ+fQZ715Uu
-	 FvFVlvEe+fXm9svkgmCugWUW+noYen6B/6nWguggGORGE+7XAqjE1pNL1N3uKDzd5y
-	 n6G2Z1exSB00BxTvr1sardR1LSMTqkhupS1IMTBJyiNMoYszJ8E8fDp7Jbyxmr+zhI
-	 UYKFa6qjWlvv61+6eSrwexgt2y1Y7Ljs50KL8opS0XeRCvwTXn/SbMEUqF+kTlyaj+
-	 ryKUFjVCrbYt524ZClofRwD/yxQmIxoyiqmdmGk+tuGzQuNdqdKa98fXWxB+YsATBW
-	 opKuZyDIwvP7g==
-Date: Fri, 6 Dec 2024 11:48:07 +0000
-From: Conor Dooley <conor@kernel.org>
-To: Wolfram Sang <wsa+renesas@sang-engineering.com>
-Cc: linux-i2c@vger.kernel.org, Conor Dooley <conor.dooley@microchip.com>,
-	Daire McNamara <daire.mcnamara@microchip.com>,
-	Andi Shyti <andi.shyti@kernel.org>, Wolfram Sang <wsa@kernel.org>,
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
-	valentina.fernandezalanis@microchip.com
-Subject: Re: [PATCH v1] i2c: microchip-core: actually use repeated sends
-Message-ID: <20241206-random-spectacle-9de88d412653@spud>
-References: <20240930-uneasy-dorsal-1acda9227b0d@spud>
- <Zvu38H2Y-pRryFFQ@shikoro>
- <20241001-haphazard-fineness-ac536ff4ae96@spud>
- <20241024-snagged-elated-d168d0d6bf35@spud>
+	by nyc.source.kernel.org (Postfix) with ESMTP id 8ABCBA411D1;
+	Fri,  6 Dec 2024 12:07:02 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 964E7C4CEDE;
+	Fri,  6 Dec 2024 12:08:53 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linuxfoundation.org;
+	s=korg; t=1733486934;
+	bh=9K6GHCZMrxbO9GvnHCeqOPFlq+CzNBqgiuCnhr67PNg=;
+	h=Subject:To:Cc:From:Date:From;
+	b=bczx4L1PZwB96R37jqIEdxv9XqTsQxV5apl0ZHiibhlsdIRpUFlNjBHCnPIYWoXAZ
+	 arrQ7pKYSI84xUjkaILVl/YG7qDIs5EQIQGUOTnjqHvQlu/3qkHaK5x7EMwSUxLtfK
+	 cR9kW+zolfwDBssCTFOE9p11KAinTz1CxjGBTI9M=
+Subject: Patch "perf jevents: fix breakage when do perf stat on system metric" has been added to the 6.12-stable tree
+To: acme@redhat.com,adrian.hunter@intel.com,alexander.shishkin@linux.intel.com,alexghiti@rivosinc.com,aou@eecs.berkeley.edu,atrajeev@linux.vnet.ibm.com,ben717@andestech.com,bgray@linux.ibm.com,chenhuacai@kernel.org,clement.legoffic@foss.st.com,dima@secretsauce.net,gregkh@linuxfoundation.org,irogers@google.com,james.clark@linaro.org,john.g.garry@oracle.com,jolsa@kernel.org,kan.liang@linux.intel.com,leo.yan@linux.dev,linux-arm-kernel@lists.infradead.org,linux-riscv@lists.infradead.org,linux@treblig.org,maobibo@loongson.cn,mark.rutland@arm.com,mhiramat@kernel.org,mike.leach@linaro.org,mingo@redhat.com,namhyung@kernel.org,palmer@dabbelt.com,paul.walmsley@sifive.com,peterz@infradead.org,ravi.bangoria@amd.com,sandipan.das@amd.com,will@kernel.org,xu.yang_2@nxp.com,yangyicong@hisilicon.com
+Cc: <stable-commits@vger.kernel.org>
+From: <gregkh@linuxfoundation.org>
+Date: Fri, 06 Dec 2024 13:08:06 +0100
+Message-ID: <2024120606-nearly-arousal-e45f@gregkh>
 MIME-Version: 1.0
-In-Reply-To: <20241024-snagged-elated-d168d0d6bf35@spud>
+X-stable: commit
+X-Patchwork-Hint: ignore 
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241206_034812_858351_E1B8F02A 
-X-CRM114-Status: GOOD (  55.00  )
+X-CRM114-CacheID: sfid-20241206_040855_979755_24DE0378 
+X-CRM114-Status: GOOD (  19.22  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,177 +61,118 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============1912652785397487647=="
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
---===============1912652785397487647==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="2o2i0BUpv0Ef1SLM"
-Content-Disposition: inline
-
-
---2o2i0BUpv0Ef1SLM
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-Hey Wolfram,
-
-On Thu, Oct 24, 2024 at 10:36:33AM +0100, Conor Dooley wrote:
-> On Tue, Oct 01, 2024 at 11:16:24AM +0100, Conor Dooley wrote:
-> > On Tue, Oct 01, 2024 at 10:50:56AM +0200, Wolfram Sang wrote:
-> > > > At present, where repeated sends are intended to be used, the
-> > > > i2c-microchip-core driver sends a stop followed by a start. Lots of=
- i2c
-> > >=20
-> > > Oh, this is wrong. Was this just overlooked or was maybe older hardwa=
-re
-> > > not able to generated correct repeated-starts?
-> >=20
-> > Overlooked, because the devices that had been used until recently didn't
-> > care about whether they got a repeated start or stop + start. The bare
-> > metal driver upon which the Linux one was originally based had a trivial
-> > time of supporting repeated starts because it only allows specific sorts
-> > of transfers. I kinda doubt you care, but the bare metal implementation
-> > is here:
-> > https://github.com/polarfire-soc/polarfire-soc-bare-metal-library/blob/=
-614a67abb3023ba47ea6d1b8d7b9a9997353e007/src/platform/drivers/mss/mss_i2c/m=
-ss_i2c.c#L737
-> >=20
-> > It just must have been missed that the bare metal method was not replac=
-ed.
-> >=20
-> > > > devices must not malfunction in the face of this behaviour, because=
- the
-> > > > driver has operated like this for years! Try to keep track of wheth=
-er or
-> > > > not a repeated send is required, and suppress sending a stop in the=
-se
-> > > > cases.
-> > >=20
-> > > ? I don't get that argument. If the driver is expected to do a repeat=
-ed
-> > > start, it should do a repeated start. If it didn't, it was a bug and =
-you
-> > > were lucky that the targets could handle this. Because most controlle=
-rs
-> > > can do repeated starts correctly, we can also argue that this works f=
-or
-> > > most targets for years. In the unlikely event that a target fails aft=
-er
-> > > converting this driver to proper repeated starts, the target is buggy
-> > > and needs fixing. It would not work with the majority of other
-> > > controllers this way.
-> > >=20
-> > > I didn't look at the code but reading "keeping track whether rep start
-> > > is required" looks wrong from a high level perspective.
-> >=20
-> > I think if you had looked at the code, you'd (hopefully) understand what
-> > I meant w.r.t. tracking that.
-> > The design of this IP is pretty old, and intended for use with other
-> > logic implemented in FPGA fabric where each interrupt generated by
-> > the core would be the stimulus for the state machine controlling it to
-> > transition state. Cos of that, when controlling it from software, the
-> > interrupt handler assumes the role of that state machine. When I talk
-> > about tracking whether or not a repeated send is required, that's
-> > whether or not a particular message in a transfer requires it, not
-> > whether or not the target device requires them or not.
-> >=20
-> > Currently the driver operates by iterating over a list of messages in a
-> > transfer, and calling send() for each one, and then effectively "loopin=
-g"
-> > in the interrupt handler until the message has been sent. By looking at
-> > the current code, you can see that the completion's "lifecycle" matches
-> > that. Currently, at the end of each message being sent
-> > 	static irqreturn_t mchp_corei2c_handle_isr(struct mchp_corei2c_dev *id=
-ev)
-> > 	{
-> > =09
-> > 		<snip>
-> > =09
-> > 		/* On the last byte to be transmitted, send STOP */
-> > 		if (last_byte)
-> > 			mchp_corei2c_stop(idev);
-> > =09
-> > 		if (last_byte || finished)
-> > 			complete(&idev->msg_complete);
-> > =09
-> > 		return IRQ_HANDLED;
-> > 	}
-> > a stop is put on the bus, unless !last_byte, which is only true in error
-> > cases. Clearly I don't need to explain why that is a problem to you...
-> > You'd think that we could do something like moving the stop out of the
-> > interrupt handler, and to the loop in mchp_corei2c_xfer(), where we have
-> > access to the transfer's message list and can check if a stop should be
-> > sent or not - that's not really possible with the hardware we have.
-> >=20
-> > When the interrupt handler completes, it clears the interrupt bit in the
-> > IP, as you might expect. The controller IP uses that as the trigger to
-> > transition state in its state machine, which is detailed in
-> > https://ww1.microchip.com/downloads/aemDocuments/documents/FPGA/Product=
-Documents/UserGuides/ip_cores/directcores/CoreI2C_HB.pdf
-> > On page 23, row 0x28, you can see the case that (IIRC) is the
-> > problematic one. It is impossible to leave this state without triggering
-> > some sort of action.
-> > The only way that I could see to make this work correctly was to get the
-> > driver track whether or not the next message required a repeated start =
-or
-> > not, so as to transition out of state 0x28 correctly.
-> >=20
-> > Unfortunately, then the clearing of the interrupt bit causing state
-> > transitions kicked in again - after sending a repeated start, it will
-> > immediately attempt to act (see state 0x10 on page 23). Without
-> > reworking the driver to send entire transfers "in one go" (where the
-> > completion is that of the transfer rather than the message as it
-> > currently is) the controller will re-send the last target address +
-> > read/write command it sent, instead of the next one. That's why there's
-> > so many changes outside of the interrupt handler and so many additional
-> > members in the controller's private data structure.
-> >=20
-> > I hope that that at least makes some sense..
-> >=20
-> > > The driver
-> > > should do repeated start when it should do repeated start.
-> >=20
-> > Yup, that's what I'm trying to do here :)
->=20
-> I'd like to get this fix in, and Andi only had some minor comments that
-> didn't require a respin. I don't want to respin or resend while this
-> conversation remains unresolved.
-
-Could you please respond to this thread? I don't want to respin without
-resolving this conversation since I feel like we'd just end up having it
-all over again.
-
-Thanks,
-Conor.
-
---2o2i0BUpv0Ef1SLM
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZ1LkdwAKCRB4tDGHoIJi
-0m1XAQCdwXDfHtbOt/o2xFRN6ijk2Q9nmrqhXvVgFV7mO2qxswD7BTQa1bc4lUaZ
-wcUgcQzSvYG39FZbjfGmB8Hf2jCKPAM=
-=TYme
------END PGP SIGNATURE-----
-
---2o2i0BUpv0Ef1SLM--
-
-
---===============1912652785397487647==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============1912652785397487647==--
-
+ClRoaXMgaXMgYSBub3RlIHRvIGxldCB5b3Uga25vdyB0aGF0IEkndmUganVzdCBhZGRlZCB0aGUg
+cGF0Y2ggdGl0bGVkCgogICAgcGVyZiBqZXZlbnRzOiBmaXggYnJlYWthZ2Ugd2hlbiBkbyBwZXJm
+IHN0YXQgb24gc3lzdGVtIG1ldHJpYwoKdG8gdGhlIDYuMTItc3RhYmxlIHRyZWUgd2hpY2ggY2Fu
+IGJlIGZvdW5kIGF0OgogICAgaHR0cDovL3d3dy5rZXJuZWwub3JnL2dpdC8/cD1saW51eC9rZXJu
+ZWwvZ2l0L3N0YWJsZS9zdGFibGUtcXVldWUuZ2l0O2E9c3VtbWFyeQoKVGhlIGZpbGVuYW1lIG9m
+IHRoZSBwYXRjaCBpczoKICAgICBwZXJmLWpldmVudHMtZml4LWJyZWFrYWdlLXdoZW4tZG8tcGVy
+Zi1zdGF0LW9uLXN5c3RlbS1tZXRyaWMucGF0Y2gKYW5kIGl0IGNhbiBiZSBmb3VuZCBpbiB0aGUg
+cXVldWUtNi4xMiBzdWJkaXJlY3RvcnkuCgpJZiB5b3UsIG9yIGFueW9uZSBlbHNlLCBmZWVscyBp
+dCBzaG91bGQgbm90IGJlIGFkZGVkIHRvIHRoZSBzdGFibGUgdHJlZSwKcGxlYXNlIGxldCA8c3Rh
+YmxlQHZnZXIua2VybmVsLm9yZz4ga25vdyBhYm91dCBpdC4KCgpGcm9tIDRhMTU5ZTYwNDlmMzE5
+YmVmNmY5ZTZkMmNjZGQzMjJmNTdkMjQ4MzAgTW9uIFNlcCAxNyAwMDowMDowMCAyMDAxCkZyb206
+IFh1IFlhbmcgPHh1LnlhbmdfMkBueHAuY29tPgpEYXRlOiBUaHUsIDcgTm92IDIwMjQgMDg6MjA6
+MjggLTA4MDAKU3ViamVjdDogcGVyZiBqZXZlbnRzOiBmaXggYnJlYWthZ2Ugd2hlbiBkbyBwZXJm
+IHN0YXQgb24gc3lzdGVtIG1ldHJpYwpNSU1FLVZlcnNpb246IDEuMApDb250ZW50LVR5cGU6IHRl
+eHQvcGxhaW47IGNoYXJzZXQ9VVRGLTgKQ29udGVudC1UcmFuc2Zlci1FbmNvZGluZzogOGJpdAoK
+RnJvbTogWHUgWWFuZyA8eHUueWFuZ18yQG54cC5jb20+Cgpjb21taXQgNGExNTllNjA0OWYzMTli
+ZWY2ZjllNmQyY2NkZDMyMmY1N2QyNDgzMCB1cHN0cmVhbS4KCldoZW4gZG8gcGVyZiBzdGF0IG9u
+IHN5cyBtZXRyaWMsIHBlcmYgdG9vbCBvdXRwdXQgbm90aGluZyBub3c6CgogICQgcGVyZiBzdGF0
+IC1hIC1NIGlteDk1X2Rkcl9yZWFkLmFsbCAtSSAxMDAwCiAgJAoKVGhpcyBjb21tYW5kIHJ1bnMg
+b24gYW4gYXJtNjQgbWFjaGluZSBhbmQgdGhlIFNvYyBoYXMgb25lIEREUiBodyBwbXUKZXhjZXB0
+IG9uZSBhcm12OF9jb3J0ZXhfYTU1IHBtdS4gVGhlaXIgbWFwcyBzaG93IGFzIGZvbGxvd3M6Cgpj
+b25zdCBzdHJ1Y3QgcG11X2V2ZW50c19tYXAgcG11X2V2ZW50c19tYXBbXSA9IHsKewoJLmFyY2gg
+PSAiYXJtNjQiLAoJLmNwdWlkID0gIjB4MDAwMDAwMDA0MTBmZDA1MCIsCgkuZXZlbnRfdGFibGUg
+PSB7CgkJLnBtdXMgPSBwbXVfZXZlbnRzX19hcm1fY29ydGV4X2E1NSwKCQkubnVtX3BtdXMgPSBB
+UlJBWV9TSVpFKHBtdV9ldmVudHNfX2FybV9jb3J0ZXhfYTU1KQoJfSwKCS5tZXRyaWNfdGFibGUg
+PSB7CgkJLnBtdXMgPSBOVUxMLAoJCS5udW1fcG11cyA9IDAKCX0KfSwKCnN0YXRpYyBjb25zdCBz
+dHJ1Y3QgcG11X3N5c19ldmVudHMgcG11X3N5c19ldmVudF90YWJsZXNbXSA9IHsKewoJLmV2ZW50
+X3RhYmxlID0gewoJCS5wbXVzID0gcG11X2V2ZW50c19fZnJlZXNjYWxlX2lteDk1X3N5cywKCQku
+bnVtX3BtdXMgPSBBUlJBWV9TSVpFKHBtdV9ldmVudHNfX2ZyZWVzY2FsZV9pbXg5NV9zeXMpCgl9
+LAoJLm1ldHJpY190YWJsZSA9IHsKCQkucG11cyA9IHBtdV9tZXRyaWNzX19mcmVlc2NhbGVfaW14
+OTVfc3lzLAoJCS5udW1fcG11cyA9IEFSUkFZX1NJWkUocG11X21ldHJpY3NfX2ZyZWVzY2FsZV9p
+bXg5NV9zeXMpCgl9LAoJLm5hbWUgPSAicG11X2V2ZW50c19fZnJlZXNjYWxlX2lteDk1X3N5cyIs
+Cn0sCgpDdXJyZW50bHksIHBtdV9tZXRyaWNzX3RhYmxlX19maW5kKCkgd2lsbCByZXR1cm4gTlVM
+TCB3aGVuIG9ubHkgZG8gcGVyZgpzdGF0IG9uIHN5cyBtZXRyaWMuIFRoZW4gcGFyc2VfZ3JvdXBz
+KCkgd2lsbCBuZXZlciBiZSBjYWxsZWQgdG8gcGFyc2UKc3lzIG1ldHJpY19uYW1lLCBmaW5hbGx5
+IHBlcmYgdG9vbCB3aWxsIGV4aXQgZGlyZWN0bHkuIFRoaXMgc2hvdWxkIGJlIGEKY29tbW9uIHBy
+b2JsZW0uCgpUbyBmaXggdGhlIGlzc3VlLCB0aGlzIHdpbGwga2VlcCB0aGUgbG9naWMgYmVmb3Jl
+IGNvbW1pdCBmMjBjMTVkMTNmMDEKKCJwZXJmIHBtdS1ldmVudHM6IFJlbWVtYmVyIHRoZSBwZXJm
+X2V2ZW50c19tYXAgZm9yIGEgUE1VIikgdG8gcmV0dXJuIGEKZW1wdHkgbWV0cmljIHRhYmxlIHJh
+dGhlciB0aGFuIGEgTlVMTCBwb2ludGVyLgoKVGhpcyBzaG91bGQgYmUgZmluZSBzaW5jZSB0aGUg
+cmVtb3ZlZCBwYXJ0IGp1c3QgY2hlY2sgaWYgdGhlIHRhYmxlIG1hdGNoCnByb3ZpZGVkIG1ldHJp
+Y19uYW1lLiAgV2l0aG91dCB0aGVzZSBjb2RlLCB0aGUgY29kZSBpbiBwYXJzZV9ncm91cHMoKQp3
+aWxsIGFsc28gY2hlY2sgdGhlIHZhbGlkaXR5IG9mIG1ldHJjaV9uYW1lIHRvby4KCkZpeGVzOiBm
+MjBjMTVkMTNmMDE3ZDRiICgicGVyZiBwbXUtZXZlbnRzOiBSZW1lbWJlciB0aGUgcGVyZl9ldmVu
+dHNfbWFwIGZvciBhIFBNVSIpClJldmlld2VkLWJ5OiBKYW1lcyBDbGFyayA8amFtZXMuY2xhcmtA
+bGluYXJvLm9yZz4KU2lnbmVkLW9mZi1ieTogWHUgWWFuZyA8eHUueWFuZ18yQG54cC5jb20+ClRl
+c3RlZC1ieTogWHUgWWFuZyA8eHUueWFuZ18yQG54cC5jb20+CkFja2VkLWJ5OiBJYW4gUm9nZXJz
+IDxpcm9nZXJzQGdvb2dsZS5jb20+CkNjOiBBZHJpYW4gSHVudGVyIDxhZHJpYW4uaHVudGVyQGlu
+dGVsLmNvbT4KQ2M6IEFsYmVydCBPdSA8YW91QGVlY3MuYmVya2VsZXkuZWR1PgpDYzogQWxleGFu
+ZGVyIFNoaXNoa2luIDxhbGV4YW5kZXIuc2hpc2hraW5AbGludXguaW50ZWwuY29tPgpDYzogQWxl
+eGFuZHJlIEdoaXRpIDxhbGV4Z2hpdGlAcml2b3NpbmMuY29tPgpDYzogQXRoaXJhIFJhamVldiA8
+YXRyYWplZXZAbGludXgudm5ldC5pYm0uY29tPgpDYzogQmVuamFtaW4gR3JheSA8YmdyYXlAbGlu
+dXguaWJtLmNvbT4KQ2M6IEJlbiBab25nLVlvdSBYaWUgPGJlbjcxN0BhbmRlc3RlY2guY29tPgpD
+YzogQmlibyBNYW8gPG1hb2JpYm9AbG9vbmdzb24uY24+CkNjOiBDbMOpbWVudCBMZSBHb2ZmaWMg
+PGNsZW1lbnQubGVnb2ZmaWNAZm9zcy5zdC5jb20+CkNjOiBEaW1hIEtvZ2FuIDxkaW1hQHNlY3Jl
+dHNhdWNlLm5ldD4KQ2M6IERyLiBEYXZpZCBBbGFuIEdpbGJlcnQgPGxpbnV4QHRyZWJsaWcub3Jn
+PgpDYzogSHVhY2FpIENoZW4gPGNoZW5odWFjYWlAa2VybmVsLm9yZz4KQ2M6IEluZ28gTW9sbmFy
+IDxtaW5nb0ByZWRoYXQuY29tPgpDYzogSmlyaSBPbHNhIDxqb2xzYUBrZXJuZWwub3JnPgpDYzog
+Sm9obiBHYXJyeSA8am9obi5nLmdhcnJ5QG9yYWNsZS5jb20+CkNjOiBLYW4gTGlhbmcgPGthbi5s
+aWFuZ0BsaW51eC5pbnRlbC5jb20+CkNjOiBMZW8gWWFuIDxsZW8ueWFuQGxpbnV4LmRldj4KQ2M6
+IE1hcmsgUnV0bGFuZCA8bWFyay5ydXRsYW5kQGFybS5jb20+CkNjOiBNYXNhbWkgSGlyYW1hdHN1
+IDxtaGlyYW1hdEBrZXJuZWwub3JnPgpDYzogTWlrZSBMZWFjaCA8bWlrZS5sZWFjaEBsaW5hcm8u
+b3JnPgpDYzogTmFtaHl1bmcgS2ltIDxuYW1oeXVuZ0BrZXJuZWwub3JnPgpDYzogUGFsbWVyIERh
+YmJlbHQgPHBhbG1lckBkYWJiZWx0LmNvbT4KQ2M6IFBhdWwgV2FsbXNsZXkgPHBhdWwud2FsbXNs
+ZXlAc2lmaXZlLmNvbT4KQ2M6IFBldGVyIFppamxzdHJhIDxwZXRlcnpAaW5mcmFkZWFkLm9yZz4K
+Q2M6IFJhdmkgQmFuZ29yaWEgPHJhdmkuYmFuZ29yaWFAYW1kLmNvbT4KQ2M6IFNhbmRpcGFuIERh
+cyA8c2FuZGlwYW4uZGFzQGFtZC5jb20+CkNjOiBXaWxsIERlYWNvbiA8d2lsbEBrZXJuZWwub3Jn
+PgpDYzogWWljb25nIFlhbmcgPHlhbmd5aWNvbmdAaGlzaWxpY29uLmNvbT4KQ2M6IGxpbnV4LWFy
+bS1rZXJuZWxAbGlzdHMuaW5mcmFkZWFkLm9yZwpDYzogbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFk
+ZWFkLm9yZwpDYzogc3RhYmxlQHZnZXIua2VybmVsLm9yZwpMaW5rOiBodHRwczovL2xvcmUua2Vy
+bmVsLm9yZy9yLzIwMjQxMTA3MTYyMDM1LjUyMjA2LTItaXJvZ2Vyc0Bnb29nbGUuY29tClNpZ25l
+ZC1vZmYtYnk6IElhbiBSb2dlcnMgPGlyb2dlcnNAZ29vZ2xlLmNvbT4KU2lnbmVkLW9mZi1ieTog
+QXJuYWxkbyBDYXJ2YWxobyBkZSBNZWxvIDxhY21lQHJlZGhhdC5jb20+ClNpZ25lZC1vZmYtYnk6
+IEdyZWcgS3JvYWgtSGFydG1hbiA8Z3JlZ2toQGxpbnV4Zm91bmRhdGlvbi5vcmc+Ci0tLQogdG9v
+bHMvcGVyZi9wbXUtZXZlbnRzL2VtcHR5LXBtdS1ldmVudHMuYyB8ICAgMTIgKy0tLS0tLS0tLS0t
+CiB0b29scy9wZXJmL3BtdS1ldmVudHMvamV2ZW50cy5weSAgICAgICAgIHwgICAxMiArLS0tLS0t
+LS0tLS0KIDIgZmlsZXMgY2hhbmdlZCwgMiBpbnNlcnRpb25zKCspLCAyMiBkZWxldGlvbnMoLSkK
+Ci0tLSBhL3Rvb2xzL3BlcmYvcG11LWV2ZW50cy9lbXB0eS1wbXUtZXZlbnRzLmMKKysrIGIvdG9v
+bHMvcGVyZi9wbXUtZXZlbnRzL2VtcHR5LXBtdS1ldmVudHMuYwpAQCAtNTM5LDE3ICs1MzksNyBA
+QCBjb25zdCBzdHJ1Y3QgcG11X21ldHJpY3NfdGFibGUgKnBlcmZfcG11CiAgICAgICAgIGlmICgh
+bWFwKQogICAgICAgICAgICAgICAgIHJldHVybiBOVUxMOwogCi0gICAgICAgIGlmICghcG11KQot
+ICAgICAgICAgICAgICAgIHJldHVybiAmbWFwLT5tZXRyaWNfdGFibGU7Ci0KLSAgICAgICAgZm9y
+IChzaXplX3QgaSA9IDA7IGkgPCBtYXAtPm1ldHJpY190YWJsZS5udW1fcG11czsgaSsrKSB7Ci0g
+ICAgICAgICAgICAgICAgY29uc3Qgc3RydWN0IHBtdV90YWJsZV9lbnRyeSAqdGFibGVfcG11ID0g
+Jm1hcC0+bWV0cmljX3RhYmxlLnBtdXNbaV07Ci0gICAgICAgICAgICAgICAgY29uc3QgY2hhciAq
+cG11X25hbWUgPSAmYmlnX2Nfc3RyaW5nW3RhYmxlX3BtdS0+cG11X25hbWUub2Zmc2V0XTsKLQot
+ICAgICAgICAgICAgICAgIGlmIChwbXVfX25hbWVfbWF0Y2gocG11LCBwbXVfbmFtZSkpCi0gICAg
+ICAgICAgICAgICAgICAgICAgICAgICByZXR1cm4gJm1hcC0+bWV0cmljX3RhYmxlOwotICAgICAg
+ICB9Ci0gICAgICAgIHJldHVybiBOVUxMOworCXJldHVybiAmbWFwLT5tZXRyaWNfdGFibGU7CiB9
+CiAKIGNvbnN0IHN0cnVjdCBwbXVfZXZlbnRzX3RhYmxlICpmaW5kX2NvcmVfZXZlbnRzX3RhYmxl
+KGNvbnN0IGNoYXIgKmFyY2gsIGNvbnN0IGNoYXIgKmNwdWlkKQotLS0gYS90b29scy9wZXJmL3Bt
+dS1ldmVudHMvamV2ZW50cy5weQorKysgYi90b29scy9wZXJmL3BtdS1ldmVudHMvamV2ZW50cy5w
+eQpAQCAtMTA4OSwxNyArMTA4OSw3IEBAIGNvbnN0IHN0cnVjdCBwbXVfbWV0cmljc190YWJsZSAq
+cGVyZl9wbXUKICAgICAgICAgaWYgKCFtYXApCiAgICAgICAgICAgICAgICAgcmV0dXJuIE5VTEw7
+CiAKLSAgICAgICAgaWYgKCFwbXUpCi0gICAgICAgICAgICAgICAgcmV0dXJuICZtYXAtPm1ldHJp
+Y190YWJsZTsKLQotICAgICAgICBmb3IgKHNpemVfdCBpID0gMDsgaSA8IG1hcC0+bWV0cmljX3Rh
+YmxlLm51bV9wbXVzOyBpKyspIHsKLSAgICAgICAgICAgICAgICBjb25zdCBzdHJ1Y3QgcG11X3Rh
+YmxlX2VudHJ5ICp0YWJsZV9wbXUgPSAmbWFwLT5tZXRyaWNfdGFibGUucG11c1tpXTsKLSAgICAg
+ICAgICAgICAgICBjb25zdCBjaGFyICpwbXVfbmFtZSA9ICZiaWdfY19zdHJpbmdbdGFibGVfcG11
+LT5wbXVfbmFtZS5vZmZzZXRdOwotCi0gICAgICAgICAgICAgICAgaWYgKHBtdV9fbmFtZV9tYXRj
+aChwbXUsIHBtdV9uYW1lKSkKLSAgICAgICAgICAgICAgICAgICAgICAgICAgIHJldHVybiAmbWFw
+LT5tZXRyaWNfdGFibGU7Ci0gICAgICAgIH0KLSAgICAgICAgcmV0dXJuIE5VTEw7CisJcmV0dXJu
+ICZtYXAtPm1ldHJpY190YWJsZTsKIH0KIAogY29uc3Qgc3RydWN0IHBtdV9ldmVudHNfdGFibGUg
+KmZpbmRfY29yZV9ldmVudHNfdGFibGUoY29uc3QgY2hhciAqYXJjaCwgY29uc3QgY2hhciAqY3B1
+aWQpCgoKUGF0Y2hlcyBjdXJyZW50bHkgaW4gc3RhYmxlLXF1ZXVlIHdoaWNoIG1pZ2h0IGJlIGZy
+b20geHUueWFuZ18yQG54cC5jb20gYXJlCgpxdWV1ZS02LjEyL3BlcmYtamV2ZW50cy1maXgtYnJl
+YWthZ2Utd2hlbi1kby1wZXJmLXN0YXQtb24tc3lzdGVtLW1ldHJpYy5wYXRjaAoKX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGlu
+ZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJh
+ZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
