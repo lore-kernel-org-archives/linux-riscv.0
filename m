@@ -4,67 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A029AE7717F
-	for <linux-riscv@archiver.kernel.org>; Sun,  8 Dec 2024 00:36:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A982FE77173
+	for <linux-riscv@archiver.kernel.org>; Sun,  8 Dec 2024 15:08:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=M8ofnqbaR8rnQG3aiwAJwsDcgB4e733uJAuSF2Frdlk=; b=V61GU4S6qkn7Ge
-	vRtSf2zRc300u6DAmBxsT6NzuSObcOY5RAMgdiRoGCmQOldzOsxaJlblP2+Ds1E3y5E27tNKV6Z/p
-	sj8mO1knC9l3smkyg5k/0xWbgcZTLz68ZcvWFncWXSqqL4NLoRjyIDQZwJtvfNxIh50+afLQiRNuH
-	nTsGfdMdAgBAzsinPNTGbGU3Cjtc2j4durMdenVNCOz2ZYY1fqi7Tbvpb9rV1oYD6uy2CJyhi08Bx
-	jUYC4HuJRPK2sGqcafIbQTZ/sgUt3b0V5d6pIH9IGvu4RGjitxU1+RM3az8b/uTqejznXaW16+8ne
-	3ugmjlYnB+xlirMzbTAQ==;
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:To
+	:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=XEnAayLz4wP7k0W9FUnKMoBK41SWNfhRhW29UpNoXSA=; b=cTdEQI3FBCAzMn
+	DfOUuuR/qHGaSvCjSoZanVpsMg+ZkOu7htZRX2PDb3gpLEg+zIkgnnA4l1vCGhywJd2rTTxYf40fa
+	cSYZacqbNFf7sr/GUeuM11Bn4iakvSnmOtSxuutCTHNFRULfPN56IIZz0Gxc5Jb4Prj/J9Q8lCheT
+	BoXjKeLysHMwI8L8RwqNAL4IRaPW5LY+sCun+IEQeM769rIgTv9RjacXqOVUFWWwFem2bKN+9r2Gh
+	3qxyXyFzdzIKPT61YPH6Bdeng871waCQOjnO3tdk0McXsdezkJhC0uHE0RGg7yzDUFg+HTlqePVzh
+	ukSv1itiw9jLR6i77Tgg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tK5H8-00000004d3t-04yI;
-	Sun, 08 Dec 2024 00:35:54 +0000
-Received: from galois.linutronix.de ([193.142.43.55])
+	id 1tKIta-00000005QK2-2hDL;
+	Sun, 08 Dec 2024 15:08:30 +0000
+Received: from mail-pl1-x636.google.com ([2607:f8b0:4864:20::636])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tK5H5-00000004d30-08kd
+	id 1tKIsW-00000005Q3w-1Yj7
 	for linux-riscv@lists.infradead.org;
-	Sun, 08 Dec 2024 00:35:52 +0000
-Date: Sun, 8 Dec 2024 07:35:23 +0700
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1733618146;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=hQSDHmZlOf90U5CrXTl/6j/p+tmRLqohyZBHy+85kAI=;
-	b=qxMy/8+fV0epzUv08Xqt7R9FAmLkCHMdmkSBdYJBEPwvkzTO10RPbSkvNI0cwtzlHgvTDN
-	xKg3jYS6zODxcabRdhbnJ3616JCdQ/YHA096g1BXPTVHj7HkcMldlPUCeQlQ9IFX4Lf0GV
-	kkbkzaZw6TqkejCXcnuv5TxuoAitGAN9XeDkEkFWaqP8oI2PI4unCqnSXD32hTYIk0zD/C
-	24eHY/iy/MARCHM7BHr8OH0EuHUrzw9eQDfMeI0w3mh11CHUB/b90sUzVC2CiUdj5kl+9C
-	V8mEoMT/gZq+xMPr8xyjGZG9DVNMlPCLANYTKDUqoQvB+z+NGtx757GTtqkVPQ==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1733618146;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=hQSDHmZlOf90U5CrXTl/6j/p+tmRLqohyZBHy+85kAI=;
-	b=x51RJgprGTH765aqhrjAhtUv1MZ9IXa0GXdafEIMkY6SwEAKjHkjhWlvm8tFJKfB+xLqEE
-	oI+UoIcTO/alzzCw==
-From: Nam Cao <namcao@linutronix.de>
-To: guoren@kernel.org
-Cc: paul.walmsley@sifive.com, palmer@dabbelt.com, bjorn@rivosinc.com,
-	conor@kernel.org, leobras@redhat.com, peterz@infradead.org,
-	parri.andrea@gmail.com, will@kernel.org, longman@redhat.com,
-	boqun.feng@gmail.com, arnd@arndb.de, alexghiti@rivosinc.com,
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Guo Ren <guoren@linux.alibaba.com>
-Subject: Re: [RESEND PATCH] riscv: Fixup boot failure when
- CONFIG_DEBUG_RT_MUTEXES=y
-Message-ID: <20241208003523.4zAbPMzd@linutronix.de>
-References: <20241130153310.3349484-1-guoren@kernel.org>
+	Sun, 08 Dec 2024 15:07:26 +0000
+Received: by mail-pl1-x636.google.com with SMTP id d9443c01a7336-21561af95c3so29759145ad.3
+        for <linux-riscv@lists.infradead.org>; Sun, 08 Dec 2024 07:07:23 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ventanamicro.com; s=google; t=1733670443; x=1734275243; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=f1Ymbf7OkgbozNLV0biXsSYspAvpz9yJ0j5pghYtlNA=;
+        b=PcCKFOmcHdbLKwex7LqFkmlJgr6GrmZ+atzeNvDWpFztHDNvPJXdCV5jQk1Hpw+Ytj
+         kBCIxyRX57FMkJzSiSOKV1BWeTi+jNlDSmnTU2OJjF4l0kTekEic4F33jTx6wC4N98eC
+         +Q2yfO5886yzrteK68854vyGU60410+mzmqKRYtkeY62TxMvNn9/zdIinT292Hz5GiOc
+         0faFy6ay+ncfMQ0JOQ3UB0eCUoDsJn0rNBG2BYXVC8sOh84xfq5VrGdzSCjwMg+f7f5X
+         1DgRz8fp/aqbRN+G4Be6vuhZhN7IoG3zHOPS48tqbiAquSqRsEY+jx61ffk3LZVKB7vF
+         lfEQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1733670443; x=1734275243;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=f1Ymbf7OkgbozNLV0biXsSYspAvpz9yJ0j5pghYtlNA=;
+        b=uX9BJnav/8PKFBvJ9vf6FA+61yjmvw80P5RH+dY8h+15MqTH8DrZTuOSr6iVakKTbU
+         hgBGAOhMqCT0fJ+RKNzq4+wp/dmV2AXev0D6i0Y/jiDt0H85mlK0cX06nBsf8/kVxWho
+         5AMtM81Z2U0cbeKWlCMKZJcrO5iP67ay1nzXynPAF4VUPz4sjsbdeUCuGm3WkNu9h8bL
+         WPdO2xuezharSOCUIzmAcL7sqZHlsgb7eHTX8K6kT/sruQJf1IAoK4EmkYOLEhDgRfBB
+         ft3nem1ikPFKOjImKiw5xIe9W2vdQoFCLAvzxL+Fd9wzQim01vUA/3oElwZpAhWOa0A6
+         +yRA==
+X-Forwarded-Encrypted: i=1; AJvYcCV3b7yTy0r7P/dqgCYLdJfIa8adgGa+4Ma6ozdAjWCnYWkRwel/GaXk02rSKLQOW2dnIBvzlZGVIRll/A==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx2TLLGlw8CBlM5zjU/zf03cCvmuHtYX36P4YCY79ofnGZWnpxO
+	jDfM325f3DvBrjR0taO5riKlTtR4gJ8ESac3/dGGq/kLkHnRF8ALpF27Mv7O1GM=
+X-Gm-Gg: ASbGncuVvuvYGEGtk64hbrQF3kckyg8Mt5VwoIR84hwGdD1qvYD6kkCniqGnCKV61SE
+	Niwhx1r/v3fdq6ESArixZ7E/kNz/uE2aFSco+B0Pw2dR5hZEjlRV+/g2IjNh0vfqlxefXH7SrCg
+	IWG5ROvz3V5VQjtrDqDBrOfega9L51U826gQf2ewe4P/WqjXJ3vSZOdepGCRS5YDYUxbiYTL27c
+	AFVtN0cmJ6vZvYA0AJliJHbV8mTRCpTEJ63pDHtau9Ds81tRHMx/h6EZJAwTDsM+h2wKw9v6BkB
+	QvtifRztq+auJjw=
+X-Google-Smtp-Source: AGHT+IHVg6kIJU/hjxCaltB8c3VofoPFS72J5bvbHqE3/3XeAkWqN7rWQDnyGstJdvLaD8pQZcM2/w==
+X-Received: by 2002:a17:903:24e:b0:215:9d29:9724 with SMTP id d9443c01a7336-21614dc51d0mr152817175ad.38.1733670442680;
+        Sun, 08 Dec 2024 07:07:22 -0800 (PST)
+Received: from anup-ubuntu-vm.localdomain ([223.185.130.223])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-216412293d2sm10274515ad.237.2024.12.08.07.07.17
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 08 Dec 2024 07:07:22 -0800 (PST)
+From: Anup Patel <apatel@ventanamicro.com>
+To: Thomas Gleixner <tglx@linutronix.de>
+Subject: [PATCH 0/4] Move RISC-V IMSIC driver to the common MSI lib
+Date: Sun,  8 Dec 2024 20:37:07 +0530
+Message-ID: <20241208150711.297624-1-apatel@ventanamicro.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20241130153310.3349484-1-guoren@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241207_163551_277131_EE188EE7 
-X-CRM114-Status: GOOD (  10.28  )
+X-CRM114-CacheID: sfid-20241208_070724_397950_54B4CBFC 
+X-CRM114-Status: UNSURE (   8.09  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,66 +89,49 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Cc: Anup Patel <apatel@ventanamicro.com>, Andrew Lunn <andrew@lunn.ch>, imx@lists.linux.dev, Marc Zyngier <maz@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, Atish Patra <atishp@atishpatra.org>, linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, Palmer Dabbelt <palmer@dabbelt.com>, Pengutronix Kernel Team <kernel@pengutronix.de>, Paul Walmsley <paul.walmsley@sifive.com>, Anup Patel <anup@brainfault.org>, Andrew Jones <ajones@ventanamicro.com>, Shawn Guo <shawnguo@kernel.org>, Gregory Clement <gregory.clement@bootlin.com>, linux-arm-kernel@lists.infradead.org, Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sat, Nov 30, 2024 at 10:33:10AM -0500, guoren@kernel.org wrote:
-> From: Guo Ren <guoren@linux.alibaba.com>
-> 
-> When CONFIG_DEBUG_RT_MUTEXES=y, mutex_lock->rt_mutex_try_acquire
-> would change from rt_mutex_cmpxchg_acquire to
-> rt_mutex_slowtrylock():
-> 	raw_spin_lock_irqsave(&lock->wait_lock, flags);
-> 	ret = __rt_mutex_slowtrylock(lock);
-> 	raw_spin_unlock_irqrestore(&lock->wait_lock, flags);
-> 
-> Because queued_spin_#ops to ticket_#ops is changed one by one by
-> jump_label, raw_spin_lock/unlock would cause a deadlock during the
-> changing.
-> 
-> That means in arch/riscv/kernel/jump_label.c:
-> 1.
-> arch_jump_label_transform_queue() ->
-> mutex_lock(&text_mutex); +-> raw_spin_lock  -> queued_spin_lock
-> 			 |-> raw_spin_unlock -> queued_spin_unlock
-> patch_insn_write -> change the raw_spin_lock to ticket_lock
-> mutex_unlock(&text_mutex);
-> ...
-> 
-> 2. /* Dirty the lock value */
-> arch_jump_label_transform_queue() ->
-> mutex_lock(&text_mutex); +-> raw_spin_lock -> *ticket_lock*
->                          |-> raw_spin_unlock -> *queued_spin_unlock*
-> 			  /* BUG: ticket_lock with queued_spin_unlock */
-> patch_insn_write  ->  change the raw_spin_unlock to ticket_unlock
-> mutex_unlock(&text_mutex);
-> ...
-> 
-> 3. /* Dead lock */
-> arch_jump_label_transform_queue() ->
-> mutex_lock(&text_mutex); +-> raw_spin_lock -> ticket_lock /* deadlock! */
->                          |-> raw_spin_unlock -> ticket_unlock
-> patch_insn_write -> change other raw_spin_#op -> ticket_#op
-> mutex_unlock(&text_mutex);
-> 
-> So, the solution is to disable mutex usage of
-> arch_jump_label_transform_queue() during early_boot_irqs_disabled, just
-> like we have done for stop_machine.
-> 
-> Reported-by: Conor Dooley <conor@kernel.org>
-> Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
-> Signed-off-by: Guo Ren <guoren@kernel.org>
-> Fixes: ab83647fadae ("riscv: Add qspinlock support")
-> Link: https://lore.kernel.org/linux-riscv/CAJF2gTQwYTGinBmCSgVUoPv0_q4EPt_+WiyfUA1HViAKgUzxAg@mail.gmail.com/T/#mf488e6347817fca03bb93a7d34df33d8615b3775
-> Cc: Palmer Dabbelt <palmer@dabbelt.com>
-> Cc: Alexandre Ghiti <alexghiti@rivosinc.com>
+This series is based on recent discussion on LKML:
+https://lore.kernel.org/lkml/20241114161845.502027-18-ajones@ventanamicro.com/
 
-Tested-by: Nam Cao <namcao@linutronix.de>
+It primarily focuses on moving RISC-V IMSIC driver to the common MSI lib.
 
-Thanks for the fix,
-Nam
+PATCH1: Fix for handling non-atomic MSI updates
+PATCH2 & PATCH3: Preparatory patches
+PATCH4: Main patch which updates IMSIC driver to use MSI lib
+
+These patches can also be found in the riscv_imsic_imp_v1 branch at:
+https://github.com/avpatel/linux.git
+
+Andrew Jones (1):
+  irqchip/riscv-imsic: Set irq_set_affinity for IMSIC base
+
+Anup Patel (1):
+  irqchip/riscv-imsic: Handle non-atomic MSI updates for device
+
+Thomas Gleixner (2):
+  irqchip/irq-msi-lib: Optionally set default irq_eoi/irq_ack
+  irqchip/riscv-imsic: Move to common MSI lib
+
+ drivers/irqchip/Kconfig                    |   8 +-
+ drivers/irqchip/irq-gic-v2m.c              |   1 +
+ drivers/irqchip/irq-imx-mu-msi.c           |   1 +
+ drivers/irqchip/irq-msi-lib.c              |  11 +-
+ drivers/irqchip/irq-mvebu-gicp.c           |   1 +
+ drivers/irqchip/irq-mvebu-odmi.c           |   1 +
+ drivers/irqchip/irq-mvebu-sei.c            |   1 +
+ drivers/irqchip/irq-riscv-imsic-platform.c | 155 ++++++---------------
+ drivers/irqchip/irq-riscv-imsic-state.c    |  27 +++-
+ include/linux/msi.h                        |  11 ++
+ 10 files changed, 87 insertions(+), 130 deletions(-)
+
+-- 
+2.43.0
+
 
 _______________________________________________
 linux-riscv mailing list
