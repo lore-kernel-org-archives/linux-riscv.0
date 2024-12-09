@@ -4,99 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9114E77173
-	for <linux-riscv@archiver.kernel.org>; Mon,  9 Dec 2024 07:12:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0811EE77180
+	for <linux-riscv@archiver.kernel.org>; Mon,  9 Dec 2024 07:19:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:To:From:Reply-To:Cc:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=3+d12Pokx7xDGBDX51e/1StDwTjpWyWllcGfz/D8vns=; b=SQWimRtCWw0VGe
-	kfqxnBcoaJs/iQv9O0vngYZuriy+L6W+pUdoqOXPndYYg6dGpZC/LKbkfHukEW5D0lceNusdbYAAP
-	6OOtfuD4wUcROoKu12cNxoPbHCE4AaDTRKsx1OFVn5K4/djKUtQKd48Zxktr+3qQ5zZeYlQnWG4cw
-	N+I7LcBGmWgFRLhPQzixJlLWNfPzo/SsJOiPDg53e0Juo4o+pTaXFBkTPsheJRwiSHXi/rujWvnQS
-	c7cRqlqhQnZdtvPK39YUmo4qy7ahAXadl2IsPGNw1ThmWRguTWGWxKnpk9hkv4KoveZlbWchWWqyg
-	54fLjgLV6hbBd7d0AL0g==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:To
+	:From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=qsVZMM7KwKgLRejrzwa19GU7S92tS5SkHehXzCV2Ud4=; b=hf+e82/+y78IzU
+	nSREwhlpI+kZ+CAnqLAC5PO5fcsgxDP4Nm83PmfUBnhCMz/ANgud9xO163ZDtLSYovIJ8tPVBSEXH
+	Pm7lpYlhveDAywqbMGVMyq81+2RX33i89eGPvuAIqCw3dACibFTn4RkmdNjeUIB4WQTzW84uvjXA5
+	YZB0fgO4QaLS9yIhTaP4nlIJXmcOTfPC1vu5prBF+lF2Lt6lD4JUBG+DjWtgCyNOyghPH7aSeIuxC
+	n9jTCjJ4+/131epYE/B398zWM8iGxxzdlfIoGVFKQDFVhH9HWsZcYwCBLiOUwrNl49SDbznpqxPXo
+	iGCEeRV3GLtqcu8o6FHA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKXwb-00000006fmM-1LTS;
-	Mon, 09 Dec 2024 07:12:37 +0000
-Received: from mail-oi1-x22f.google.com ([2607:f8b0:4864:20::22f])
+	id 1tKY3G-00000006gxt-0nPQ;
+	Mon, 09 Dec 2024 07:19:30 +0000
+Received: from mail-oo1-xc31.google.com ([2607:f8b0:4864:20::c31])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKXwY-00000006flM-2176
+	id 1tKY3E-00000006gxN-2u0S
 	for linux-riscv@lists.infradead.org;
-	Mon, 09 Dec 2024 07:12:35 +0000
-Received: by mail-oi1-x22f.google.com with SMTP id 5614622812f47-3eb5a870158so208051b6e.3
-        for <linux-riscv@lists.infradead.org>; Sun, 08 Dec 2024 23:12:34 -0800 (PST)
+	Mon, 09 Dec 2024 07:19:29 +0000
+Received: by mail-oo1-xc31.google.com with SMTP id 006d021491bc7-5f2be8023e1so169381eaf.1
+        for <linux-riscv@lists.infradead.org>; Sun, 08 Dec 2024 23:19:28 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1733728353; x=1734333153; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:to:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=CBYCDLmiI5Ul4WtnczXeDvi2MdVWE89AendZ5YRaAK0=;
-        b=bRS2vYzvMVXbK3N8XhKqZ609G3ARqOVbKoNxN09tV8iIbViXMjsQxy5Adt2X1WRl/H
-         chH++9BTUViSE8e6Xbyo+z0+R/yTxQ0ZdNLbQW/UxC2423l7plyE3wgjcNo92xqDrpL3
-         ORPjjCUxt86r+AHjiHKJlr7W6wjMRL9aDqsVxcpH7QVCiEPZDzB/iqxkKsBBvG95ShWt
-         ZCTihqw533+ArH7G3GvOpYl+VQWJHvFvKz8g6F/9U7Dgr4UDbiqf6tk1WjxUxQD8Beid
-         xLHkPCmlirKiR20Ck4/r+W2dwbCB2ry1/qKU6jHUrr0LTPZwiWmuopnauRhlcCVBWu1Z
-         lHeQ==
+        d=gmail.com; s=20230601; t=1733728767; x=1734333567; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:to
+         :from:from:to:cc:subject:date:message-id:reply-to;
+        bh=57haV1hL4VOUvIZiseouq+09JE1910goYy3qPq1Xmko=;
+        b=Tp0piR+Zt+XSP834ogYRnnANLGVekTIEXvQXshIWuJtPY9Mt50zFM7QbcQkdzPo5lg
+         VB9OyYw0JjYEJ5Zw1xac1LYmTdI8PlUv3rAeWlNQGAJp09Qi2IysEYjUDR+7OlkZkLQU
+         KO79sCDnHYVVtr8pXbQ8nN9Zhwbnks+v/dlC6pDdz89RxVtdSOndLo0iTHp35pdJCIve
+         t4f2vclpTa7Jg9k7Ty/rKjAENHr7XlDVdfBoN83xvRVziORhLJUYSmQN9Y3cQPR+7WPs
+         twDgk3V5kBhXPPMQWLuUoMNTYuJ/v+PIFRtLTEqrr7nsXwpu2T7+FSmhh6Fa6xCoqHUn
+         cg4g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1733728353; x=1734333153;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=CBYCDLmiI5Ul4WtnczXeDvi2MdVWE89AendZ5YRaAK0=;
-        b=C5VUeKkn1oQvqY2FwlzKWQ2Y2XAyL2bx+s30ownPF/b/oMD29oZeMK7hiB9VNma5ON
-         YWUk+IYxCjU/5bZ1vQHjT5eBAEANkOgCSLzib19iVaS3OiCgJjhHldiqFCfSX2iFX6il
-         UrZItIpmcbjnEvpfjzGNP8N1TTpu+Eg1MceU2zL+ErzREgQiRq5oKP8h8zpUxGrGU8NA
-         cgC17Z98JuKmKJUKAq+L7sbpU794WSocEWOUM0zu4Uv1+hPn7rnvtWDaoxoYmSC2k0Wa
-         Rgpyku5I+UejEs7+NPhm/BS5gX43PO0byZ9+f7MMDSRUp6jWzjuW5/VJwh8kW8ayfezS
-         p1fA==
-X-Forwarded-Encrypted: i=1; AJvYcCVZn776Z9YE7REZW9PiYN4UlXrIbZ/WMbuFblGqD2Y2RqASeumRBoVosZaYTq+UJfvISy/cOFt9Baj/hg==@lists.infradead.org
-X-Gm-Message-State: AOJu0YzYVvHQG+cr0gdFluvfF90gRIFM/guvx/JyjTA+6x+wOjuoH2gg
-	/uHHvo3XWHdvWQJvAsFMr5Le+FVQCA579rD6n/IVC0ysqJFgBXTg
-X-Gm-Gg: ASbGncujuP4rJRF/xRVtwbzZdYnPceyH11JQq4RO1aQA9Q7LDZ5hXKY+Mu642ZwTDHI
-	5DMNGpuLG6KQAyvgowvqYy66RH07U0mdDfwetufkahb1zl5uEbIAExY9DbJseOe/vdzjmSi0+Gs
-	hB6eRsePQXEaoR6/0/GtIAXzJy8bl03V9VxDwZyGWgDYs+R8dAi3NczzgVvoyQfMPiPqnzDYO9p
-	I6TS1Gs78bod/taFe3WwucQcG4pDWE+rK8gN+kSkJdPgTGPCuuZqHP0OZMF
-X-Google-Smtp-Source: AGHT+IFxb8pbBX+e/TYceKryXxdB/wQe+lQAG69/HoUcIQJsTXDcI32zHcg1iLxG5yHXc/sDK/0Ojw==
-X-Received: by 2002:a05:6808:1802:b0:3e5:f4f9:3280 with SMTP id 5614622812f47-3eb19c770c5mr9478218b6e.10.1733728353439;
-        Sun, 08 Dec 2024 23:12:33 -0800 (PST)
+        d=1e100.net; s=20230601; t=1733728767; x=1734333567;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:to
+         :from:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=57haV1hL4VOUvIZiseouq+09JE1910goYy3qPq1Xmko=;
+        b=ZuBvZIq89rKh8yRm7PFiYxdEUzk1TRgBERWdWB7IG084GyKBULzPZ4Ibef7tL1og9K
+         6iSkjl7Mab5iajSOIhVF6YOYC0UYo3DNh2SgjZFi5Gn4Aeiyvo17UTQDhCGluVFZBjx9
+         Kby3jT+ScySa4zrQcc350P1NofyBo9PU1zJ4H2OQikPdFNYKc0EAcU3CfMyytjPdLw9x
+         RszILqI38uIZNMU1n6DQJKyB7pelG11poDbod3cfdeOTIYHPlw1aN8u6tjZi3LrZNL+w
+         /YrKz7+YHWhZrUEZNHx8pk0vDOEBuL+NpAyZv8kBJ+pm0vzTJ1iBTLOumMmrdOF+Xg53
+         wzxw==
+X-Forwarded-Encrypted: i=1; AJvYcCXp5Bozt5FZE3p4KiR8uW2fJuDaln3VtB+adh5QxvjSVjfNw0Z1RxbtS1zo20CMbUCyZfnY+L6T7ZfL7A==@lists.infradead.org
+X-Gm-Message-State: AOJu0YzfIVApF3XX0dJp6Iv879Z7ww2d/7n3gNCb5NihcimZQy1PdXZm
+	5Q6b6jjlVLsX+NlowLbY7azM/TYMBRtp0UrzFYoRZNN8PJvCEH8m
+X-Gm-Gg: ASbGnctUUafMVo+/AQReL6cRZwrudq3JZsqWeROf3Yes8mRpwHF/HnxdB0vsWffJcOx
+	EsgE36br7kPTP3xcFMetM5lFWNmBoOT6KF4SRzU+s/G3RwdACVdVIqA+qU1RRlfLW2R7Badk4Em
+	FkHw8EAUCLAc2AA0exJRHsA1/PkfvQTF5E9dH0TteGtliabDPAXKyFvwEc2ldNhPis7Nsk0zPvF
+	koT7I+ikJQvyp8kVq1g+zu8nG9HEM3piWH8sLIr7Chd6QeZfCkjT8YRYdMF
+X-Google-Smtp-Source: AGHT+IHAxPFhGdfgb685u348vhj4CVicXrWXrCLtKPo9QFaUPAstgj+S9PSpclTwWeED/WDNIQpYrA==
+X-Received: by 2002:a05:6870:1cc:b0:29e:2bd6:2265 with SMTP id 586e51a60fabf-29f71b643c4mr6950283fac.7.1733728767595;
+        Sun, 08 Dec 2024 23:19:27 -0800 (PST)
 Received: from localhost.localdomain ([122.8.183.87])
-        by smtp.gmail.com with ESMTPSA id 006d021491bc7-5f2793249e8sm2011256eaf.39.2024.12.08.23.12.30
+        by smtp.gmail.com with ESMTPSA id 586e51a60fabf-29f566e5666sm2487711fac.18.2024.12.08.23.19.25
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 08 Dec 2024 23:12:32 -0800 (PST)
+        Sun, 08 Dec 2024 23:19:27 -0800 (PST)
 From: Chen Wang <unicornxw@gmail.com>
-To: u.kleine-koenig@baylibre.com,
+To: kw@linux.com,
+	u.kleine-koenig@baylibre.com,
 	aou@eecs.berkeley.edu,
 	arnd@arndb.de,
+	bhelgaas@google.com,
 	unicorn_wang@outlook.com,
 	conor+dt@kernel.org,
 	guoren@kernel.org,
 	inochiama@outlook.com,
 	krzk+dt@kernel.org,
+	lee@kernel.org,
+	lpieralisi@kernel.org,
+	manivannan.sadhasivam@linaro.org,
 	palmer@dabbelt.com,
 	paul.walmsley@sifive.com,
+	pbrobinson@gmail.com,
 	robh@kernel.org,
-	tglx@linutronix.de,
 	devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
+	linux-pci@vger.kernel.org,
 	linux-riscv@lists.infradead.org,
 	chao.wei@sophgo.com,
 	xiaoguang.xing@sophgo.com,
-	fengchun.li@sophgo.com
-Subject: [PATCH v2 3/3] riscv: sophgo: dts: add msi controller for SG2042
-Date: Mon,  9 Dec 2024 15:12:24 +0800
-Message-Id: <ddfa1512140be756c0432084e18d5d29b1f653ff.1733726057.git.unicorn_wang@outlook.com>
+	fengchun.li@sophgo.com,
+	helgaas@kernel.org
+Subject: [PATCH v2 0/5] Add PCIe support to Sophgo SG2042 SoC
+Date: Mon,  9 Dec 2024 15:19:18 +0800
+Message-Id: <cover.1733726572.git.unicorn_wang@outlook.com>
 X-Mailer: git-send-email 2.34.1
-In-Reply-To: <cover.1733726057.git.unicorn_wang@outlook.com>
-References: <cover.1733726057.git.unicorn_wang@outlook.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241208_231234_538488_D0D75914 
-X-CRM114-Status: UNSURE (   8.42  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241208_231928_735689_92F20680 
+X-CRM114-Status: GOOD (  15.26  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,34 +117,80 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Chen Wang <unicorn_wang@outlook.com>
 
-Add msi-controller node to dts for SG2042.
+Sophgo's SG2042 SoC uses Cadence PCIe core to implement RC mode.
 
-Signed-off-by: Chen Wang <unicorn_wang@outlook.com>
+SG2042 PCIe controller supports two ways to report MSI:
+
+Method A, the PICe controller implements an MSI interrupt controller
+inside, and connect to PLIC upward through one interrupt line. Provides
+memory-mapped msi address, and by programming the upper 32 bits of the
+address to zero, it can be compatible with old pcie devices that only
+support 32-bit msi address.
+
+Method B, the PICe controller connects to PLIC upward through an
+independent MSI controller "sophgo,sg2042-msi" on the SOC. The MSI
+controller provides multiple(up to 32) interrupt sources to PLIC.
+Compared with the first method, the advantage is that the interrupt
+source is expanded, but because for SG2042, the msi address provided
+by the MSI controller is fixed and only supports 64-bit address(> 2^32),
+it is not compatible with old pcie devices that only support 32-bit
+msi address.
+
+This patchset depends on another patchset for the SG2042 MSI controller[msi].
+If you need to test the DTS part, you need to apply the corresponding
+patchset.
+
+Link: https://lore.kernel.org/linux-riscv/cover.1733726057.git.unicorn_wang@outlook.com/ [msi]
+
+Thanks,
+Chen
+
 ---
- arch/riscv/boot/dts/sophgo/sg2042.dtsi | 10 ++++++++++
- 1 file changed, 10 insertions(+)
 
-diff --git a/arch/riscv/boot/dts/sophgo/sg2042.dtsi b/arch/riscv/boot/dts/sophgo/sg2042.dtsi
-index e62ac51ac55a..bda49a398daf 100644
---- a/arch/riscv/boot/dts/sophgo/sg2042.dtsi
-+++ b/arch/riscv/boot/dts/sophgo/sg2042.dtsi
-@@ -173,6 +173,16 @@ pllclk: clock-controller@70300100c0 {
- 			#clock-cells = <1>;
- 		};
- 
-+		msi: msi-controller@7030010304 {
-+			compatible = "sophgo,sg2042-msi";
-+			reg = <0x70 0x30010304 0x0 0x4>;
-+			reg-names = "clr";
-+			msi-controller;
-+			msi-ranges = <&intc 64 IRQ_TYPE_LEVEL_HIGH 32>;
-+			sophgo,msi-doorbell-addr = <0x00000070 0x30010300>;
-+			interrupt-parent = <&intc>;
-+		};
-+
- 		rpgate: clock-controller@7030010368 {
- 			compatible = "sophgo,sg2042-rpgate";
- 			reg = <0x70 0x30010368 0x0 0x98>;
+Changes in v2:
+  The patch series is based on v6.13-rc2.
+
+  Fixed following issues as per comments from Rob Herring, Bjorn Helgaas, thanks.
+
+  - Improve driver binding description
+    - Define a new embeded object property msi to replace the "sophgo,internal-msi".
+    - Rename "sophgo,link-id" to "sophgo,pcie-port" as per suggestion from Bjorn,
+      and add more explanaion for this property.
+    - Use msi-parent.
+  - Improve driver code:
+    - Improve coding style.
+    - Fix a bug and make sure num_applied_vecs updated with the max value.
+    - Use the MSI parent model.
+    - Remove .cpu_addr_fixup.
+    - Reorder Kconfig menu item to keep them in alphabetical order by vendor.
+
+Changes in v1:
+  The patch series is based on v6.12-rc7. You can simply review or test the
+  patches at the link [1].
+
+Link: https://lore.kernel.org/linux-riscv/cover.1731303328.git.unicorn_wang@outlook.com/ [1]
+---
+
+Chen Wang (5):
+  dt-bindings: pci: Add Sophgo SG2042 PCIe host
+  PCI: sg2042: Add Sophgo SG2042 PCIe driver
+  dt-bindings: mfd: syscon: Add sg2042 pcie ctrl compatible
+  riscv: sophgo: dts: add pcie controllers for SG2042
+  riscv: sophgo: dts: enable pcie for PioneerBox
+
+ .../devicetree/bindings/mfd/syscon.yaml       |   2 +
+ .../bindings/pci/sophgo,sg2042-pcie-host.yaml | 141 +++++
+ .../boot/dts/sophgo/sg2042-milkv-pioneer.dts  |  12 +
+ arch/riscv/boot/dts/sophgo/sg2042.dtsi        |  89 +++
+ drivers/pci/controller/cadence/Kconfig        |  11 +
+ drivers/pci/controller/cadence/Makefile       |   1 +
+ drivers/pci/controller/cadence/pcie-sg2042.c  | 534 ++++++++++++++++++
+ 7 files changed, 790 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/pci/sophgo,sg2042-pcie-host.yaml
+ create mode 100644 drivers/pci/controller/cadence/pcie-sg2042.c
+
+
+base-commit: fac04efc5c793dccbd07e2d59af9f90b7fc0dca4
 -- 
 2.34.1
 
