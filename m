@@ -4,91 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0C60FE7717D
-	for <linux-riscv@archiver.kernel.org>; Mon,  9 Dec 2024 06:52:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 43AB4E77173
+	for <linux-riscv@archiver.kernel.org>; Mon,  9 Dec 2024 07:11:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
-	List-Owner; bh=JoxYo85LRuBTe2HF6kY1C+yVR9UshempjhHOPoL14vE=; b=1FSW0d6mo/Ks5g
-	UCtEGVs9cqlf78fRDibQbJ7PWltjCIY9uvs1mZg/UlG451jDlruMEABGH4W6qfNHayVZux0TT31y6
-	orUFViGuGJXfIV8Spncl7QfIJ/4Z1EX+QZLINBclY7Ms9rvcAd7Y38jwoQtxk4lmYlVyr5LeSugCD
-	dvMOZbFSjSf2jb5iZYnurcNmrpPtypM1n0taM6HtqZhf0RLfYjwAewaewbdRaS6/YKVLubq4Z+Le9
-	9LUXKOQ36YXkyqCOk7DW77bg79h1OKv7BLC+wR0qtUst7tVA2FwrE8beYCdnbX0yf9qftHKC0x617
-	j5Jg7RZXPEKJHli+O2Wg==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:To
+	:From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=Hqj0GaFIu4luRWbg1PUnp0ZMymt64O7feZRG+0EkyAI=; b=3T6ND2gVpGA0EC
+	UQfDSQc/pQnpI/IBJrTUFGJPbPFUW/PzRZ6TxutAxh0/+fRgCfKofgRtjS+Sppayd6QEl49EcdF4/
+	9N1G8P2cK/H8Ao4oG3nf8mHpqwOk663GOKuRWmAVCtGzYuZIQF29YhlcljaIlewb6CJTEslxkTdBF
+	cw+Pd+/j5850KMvl3+lqQJ1C4I16Wm7uyuRmlp24bEcwvEZ1uDfFqJcfiZ/BizmoGt36S22UHK5ag
+	SzqeY4ANlGRtxyEVh4cEJFNuaHOwpoOkKWYH2WSTQnsAd0D9vjlKNDM3M38AHnIiEmw5JwhIRy64P
+	N6y4fK4AG/tZIPqWUzcA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKXcc-00000006ctF-3JtO;
-	Mon, 09 Dec 2024 06:51:58 +0000
-Received: from mail-wm1-x332.google.com ([2a00:1450:4864:20::332])
+	id 1tKXvP-00000006fGn-3XTj;
+	Mon, 09 Dec 2024 07:11:23 +0000
+Received: from mail-oi1-x22c.google.com ([2607:f8b0:4864:20::22c])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKXcZ-00000006csi-1jM3
+	id 1tKXvN-00000006fFW-0r3j
 	for linux-riscv@lists.infradead.org;
-	Mon, 09 Dec 2024 06:51:57 +0000
-Received: by mail-wm1-x332.google.com with SMTP id 5b1f17b1804b1-434acf1f9abso38940085e9.2
-        for <linux-riscv@lists.infradead.org>; Sun, 08 Dec 2024 22:51:54 -0800 (PST)
+	Mon, 09 Dec 2024 07:11:22 +0000
+Received: by mail-oi1-x22c.google.com with SMTP id 5614622812f47-3eb4b6106c8so393553b6e.3
+        for <linux-riscv@lists.infradead.org>; Sun, 08 Dec 2024 23:11:20 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1733727113; x=1734331913; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:message-id:subject:cc
-         :to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=UU+rFrYBqU+HyZU9fxW7fsHHwD25k+Ib4ntmd1sD3tw=;
-        b=wJS8rQQmM6Zx6ACn3FYkGOvqwZlfz4f5Llbe9vnP7C0zdcWgvE3mNONJDr0dFCVWV1
-         YjLA+8YqVADAhiewFmOJxhC34ASy7kTpZtDkFS/ZNMPA9zmFKGanCGzEeq5T5s/ZF0h0
-         S9OTI44lRS1eer/LYj3rttdcbfHQO26urwT/6Hw2du12Cp50Jo2X1A9cb2J5A3GfjFr2
-         0OWHDcH/Z1eF0p2+xGLrBZl5f9KRmU4N4NWfomVqRGvqucRIVdQi2I4OHcasSjHAaM8j
-         mOZsEtE0Gl7ClRZv4dI6OEZnxVZi0N+ZYXcJGl5rZ76ZFIbL4GOC6RDqsmtH3HFgRzj6
-         lS8w==
+        d=gmail.com; s=20230601; t=1733728279; x=1734333079; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:to
+         :from:from:to:cc:subject:date:message-id:reply-to;
+        bh=dXCvGSQBhoZb4HfsO/a7NHa2iM3ytg+7BazDpU9q9ug=;
+        b=U/2l4Tf+02OgZe0gGJ9XoMSqqvnORUmhZOId61Wnyxa7x4HL+Vamx3+48GXTWvK3s/
+         WyL9j6ugCPjRNlstHdV/c8w3vK43fklapGmV3CkQpXnk5q0tTo5W4a/twdrawfDV1J1Y
+         4CTJGshuZJ2tZv8IMHzt+ijZE2HU/+VU0hUQ9iwCcmyZwGzR1HKMUeeCkh7SWw1st9UL
+         siMRaji9PqRaQxD+Ej//0pIuyHBJbXftD5Bc7USpbctcF+uasmbu/+wA/voUoB/U3EVD
+         Ww1ZIzdEJADT9+QU5Vw718NiDabr9OvbZUbrNeQ3WefKig2XZXESNyeWAbCHYPPuHdn+
+         84pw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1733727113; x=1734331913;
-        h=in-reply-to:content-disposition:mime-version:message-id:subject:cc
-         :to:from:date:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=UU+rFrYBqU+HyZU9fxW7fsHHwD25k+Ib4ntmd1sD3tw=;
-        b=uZIPElFKYFEaxYC5ibLG01TXf41+6cfkIQ40tzPK6kRsyDFvntRfnAtB5/cSb9f0vm
-         PfddrI3fKAqBsiNsuFWFg+0BzxEO11Z8rlmLMAz3iJxDutXkaDkF7HrfFKQCuTMZCOqh
-         hoGy2JhI3RT9dxjYJAI8BH6txVmpWD0dQRTI1fvIp9kRmIrtoX5sdTv9kvca17GrYrpL
-         PRlktc+7g0Viy+RGAgYyYAbRcWEqZksPtqcpP4Y7JO+kKDiS08loMUfQbFwLm6Y+/QKZ
-         bfefowceUeoXqQZSgYZw8MiFevIakbmAWRFYqexYZBf8wNxPeDD6KRF4Npsp2qRacY8I
-         +B2g==
-X-Forwarded-Encrypted: i=1; AJvYcCVLL367u0jzYnLQxLdjU8DXbY9VwVhR68o+t99kd0GWN87xHbHKPaM9f6vUebm6wL+OWlWvN35dcNR+sQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0YzM9wMT0jmL2DfeOjX9a/AWw5HLEEvA9rFhiWxL/p5lEeG1kJUE
-	5fMAiMMNbwfnrLt4UPbNJUcwQwvbyxttcfdIRxFk87k19iLzsZAtkpVvOKtTuQM=
-X-Gm-Gg: ASbGnctIoo24KlE65TXpUFXPAVE1g6bsQ6CZCqUDi2YMnkIH/VGL/4MxzsKANXfx/aP
-	trsdPGoOanZJPhgRHFp0K62o7/XjxwE/8uQ1Hcjz0F8bUf20hhWRXudA02Gh59qgYOvxENbCX8j
-	X3kstYiKyCdUxznrCl50CEioOq3KwZheDbs+3sTIAGCAvINxM0CZP2JsiNnjiA0+RpGNtf7AiBQ
-	N5Y26WF3pODnFBak4csGjhunKw1L9eCam4SIeC/mDQxCC7zPLiaxO4=
-X-Google-Smtp-Source: AGHT+IGEzc4vwHmaIfvTMIfIV37e15tsohqeHODjPaefoObT5Iz92AFnPqv8LysQYDOG0yI6+qlhwA==
-X-Received: by 2002:a05:600c:3155:b0:431:52b7:a499 with SMTP id 5b1f17b1804b1-434dded67b1mr79239335e9.20.1733727112718;
-        Sun, 08 Dec 2024 22:51:52 -0800 (PST)
-Received: from localhost ([196.207.164.177])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-434eb8f18fcsm72397395e9.24.2024.12.08.22.51.51
+        d=1e100.net; s=20230601; t=1733728279; x=1734333079;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:to
+         :from:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=dXCvGSQBhoZb4HfsO/a7NHa2iM3ytg+7BazDpU9q9ug=;
+        b=BOtwb1z3C6KO4TF70iJxvLX+78ohQbzHWSYfMct/4PsgOIyuBPbhUCwQ9Zlt7yHgpe
+         Ncv1DA++U8oR+XUaviL8DG18UePD/pHfUlDDsb6qVmpXUr+VUu8ArsFux4Uh2KR8fisK
+         MLC/TYpfXTfSgVjnUBKHuglIb1wIBd8BtCGUL7BYdQNvQi9Qs2G2nmjxhV4Sjo/JMxdh
+         52lS5m4RA7OJ1OFJIk/k8Wzc+t7BDPIPyCOPSW5brWJLCoDVzH0k35k+DA/Pf4LSugMQ
+         VjIH5KO5rJqIAG7EZy++zc0VFRO8e4TN7k3GZQ0FHmBzmjb4wlcWdodpsIm7MWWX9deN
+         nZWw==
+X-Forwarded-Encrypted: i=1; AJvYcCV06LvD8YiVZEtF2ZHNg2/uIThp1tZkKaoLIgMF4gdCkNPAk/7wDAgWZ3mHCAhiwYgk0NesEAQiHutZpA==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz+qmLuOkprKjFhpHrGdsycj1vVT1fs6fuy9OW0tB3mYo6hQrx1
+	A0UGXysfiLbCmKVM00z/UDIR/n7AtBZUkQc3d+DPQOnzuT9tZLxq
+X-Gm-Gg: ASbGncsg3EJRVbPhvptMShAc7FzwZpCkjeTkM85r3gPQBRii8nlt1W1393NDPdBi6LB
+	uk53tQMcd0nYmBssT77RJFDC63qfJWT8C9W9nRE1gNgD36QqKVzT5ypWCdMdLzaxNDhJlqZHjOx
+	444Dv8Ub32UCljuqRG8yEav5sWNkVLyaAgwsX1uQN0ZvtmuYN0GzGTgJpUUgh1fttMIYS28iIqT
+	IrNwxA9J5sS9Rg22fVbvnlRvK/SrGDX1bOz56DXaYklLRblx8hDVhEAge28
+X-Google-Smtp-Source: AGHT+IFwsqT7VvH1ZQKLkcly4Q3Eht2MXjBzxc0eFSNqVIH3M+ua4qIPPmMIpviBVPhw56Hs9UWc8A==
+X-Received: by 2002:a05:6808:1522:b0:3e8:1f5d:b7f8 with SMTP id 5614622812f47-3eb19c1fba7mr9768212b6e.1.1733728279562;
+        Sun, 08 Dec 2024 23:11:19 -0800 (PST)
+Received: from localhost.localdomain ([122.8.183.87])
+        by smtp.gmail.com with ESMTPSA id 006d021491bc7-5f2bdb73d46sm293812eaf.13.2024.12.08.23.11.16
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 08 Dec 2024 22:51:52 -0800 (PST)
-Date: Mon, 9 Dec 2024 09:51:48 +0300
-From: Dan Carpenter <dan.carpenter@linaro.org>
-To: oe-kbuild@lists.linux.dev, Haylen Chu <heylenay@4d2.org>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Haylen Chu <heylenay@outlook.com>
-Cc: lkp@intel.com, oe-kbuild-all@lists.linux.dev,
-	linux-riscv@lists.infradead.org, linux-clk@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	Inochi Amaoto <inochiama@outlook.com>,
-	Chen Wang <unicornxdotw@foxmail.com>,
-	Jisheng Zhang <jszhang@kernel.org>
-Subject: Re: [PATCH v3 3/3] clk: spacemit: Add clock support for Spacemit K1
- SoC
-Message-ID: <9a3f6975-d99d-430b-9a09-697638667e97@stanley.mountain>
+        Sun, 08 Dec 2024 23:11:18 -0800 (PST)
+From: Chen Wang <unicornxw@gmail.com>
+To: u.kleine-koenig@baylibre.com,
+	aou@eecs.berkeley.edu,
+	arnd@arndb.de,
+	unicorn_wang@outlook.com,
+	conor+dt@kernel.org,
+	guoren@kernel.org,
+	inochiama@outlook.com,
+	krzk+dt@kernel.org,
+	palmer@dabbelt.com,
+	paul.walmsley@sifive.com,
+	robh@kernel.org,
+	tglx@linutronix.de,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	chao.wei@sophgo.com,
+	xiaoguang.xing@sophgo.com,
+	fengchun.li@sophgo.com
+Subject: [PATCH v2 0/3] irqchip: Add Sophgo SG2042 MSI controller
+Date: Mon,  9 Dec 2024 15:11:10 +0800
+Message-Id: <cover.1733726057.git.unicorn_wang@outlook.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20241126143125.9980-7-heylenay@4d2.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241208_225155_456484_2295C56A 
-X-CRM114-Status: UNSURE (   8.93  )
+X-CRM114-CacheID: sfid-20241208_231121_243135_E439831F 
+X-CRM114-Status: UNSURE (   9.22  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -106,80 +109,54 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Haylen,
+From: Chen Wang <unicorn_wang@outlook.com>
 
-kernel test robot noticed the following build warnings:
+This controller is on the Sophgo SG2042 SoC to transform interrupts from
+PCIe MSI to PLIC interrupts.
 
-url:    https://github.com/intel-lab-lkp/linux/commits/Haylen-Chu/dt-bindings-clock-spacemit-Add-clock-controllers-of-Spacemit-K1-SoC/20241128-101248
-base:   2d5404caa8c7bb5c4e0435f94b28834ae5456623
-patch link:    https://lore.kernel.org/r/20241126143125.9980-7-heylenay%404d2.org
-patch subject: [PATCH v3 3/3] clk: spacemit: Add clock support for Spacemit K1 SoC
-config: arm64-randconfig-r073-20241207 (https://download.01.org/0day-ci/archive/20241207/202412072123.ne7GnRyJ-lkp@intel.com/config)
-compiler: aarch64-linux-gcc (GCC) 14.2.0
+Thanks,
+Chen
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Reported-by: Dan Carpenter <dan.carpenter@linaro.org>
-| Closes: https://lore.kernel.org/r/202412072123.ne7GnRyJ-lkp@intel.com/
+---
 
-smatch warnings:
-drivers/clk/spacemit/ccu-k1.c:1686 k1_ccu_probe() error: uninitialized symbol 'lock_map'.
+Changes in v2:
+  The patch series is based on v6.13-rc2.
 
-vim +/lock_map +1686 drivers/clk/spacemit/ccu-k1.c
+  Fixed following issues as per comments from Rob Herring, Thomas Gleixner, thanks.
 
-e71e4621b06cd42 Haylen Chu 2024-11-26  1651  static int k1_ccu_probe(struct platform_device *pdev)
-e71e4621b06cd42 Haylen Chu 2024-11-26  1652  {
-e71e4621b06cd42 Haylen Chu 2024-11-26  1653  	const struct spacemit_ccu_data *data;
-e71e4621b06cd42 Haylen Chu 2024-11-26  1654  	struct regmap *base_map, *lock_map;
-e71e4621b06cd42 Haylen Chu 2024-11-26  1655  	struct device *dev = &pdev->dev;
-e71e4621b06cd42 Haylen Chu 2024-11-26  1656  	struct spacemit_ccu_priv *priv;
-e71e4621b06cd42 Haylen Chu 2024-11-26  1657  	struct device_node *parent;
-e71e4621b06cd42 Haylen Chu 2024-11-26  1658  	int ret;
-e71e4621b06cd42 Haylen Chu 2024-11-26  1659  
-e71e4621b06cd42 Haylen Chu 2024-11-26  1660  	data = of_device_get_match_data(dev);
-e71e4621b06cd42 Haylen Chu 2024-11-26  1661  	if (WARN_ON(!data))
-e71e4621b06cd42 Haylen Chu 2024-11-26  1662  		return -EINVAL;
-e71e4621b06cd42 Haylen Chu 2024-11-26  1663  
-e71e4621b06cd42 Haylen Chu 2024-11-26  1664  	parent   = of_get_parent(dev->of_node);
-e71e4621b06cd42 Haylen Chu 2024-11-26  1665  	base_map = syscon_node_to_regmap(parent);
-e71e4621b06cd42 Haylen Chu 2024-11-26  1666  	of_node_put(parent);
-e71e4621b06cd42 Haylen Chu 2024-11-26  1667  
-e71e4621b06cd42 Haylen Chu 2024-11-26  1668  	if (IS_ERR(base_map))
-e71e4621b06cd42 Haylen Chu 2024-11-26  1669  		return dev_err_probe(dev, PTR_ERR(base_map),
-e71e4621b06cd42 Haylen Chu 2024-11-26  1670  				     "failed to get regmap\n");
-e71e4621b06cd42 Haylen Chu 2024-11-26  1671  
-e71e4621b06cd42 Haylen Chu 2024-11-26  1672  	if (data->need_pll_lock) {
-e71e4621b06cd42 Haylen Chu 2024-11-26  1673  		lock_map = syscon_regmap_lookup_by_phandle(dev->of_node,
-e71e4621b06cd42 Haylen Chu 2024-11-26  1674  							   "spacemit,mpmu");
-e71e4621b06cd42 Haylen Chu 2024-11-26  1675  		if (IS_ERR(lock_map))
-e71e4621b06cd42 Haylen Chu 2024-11-26  1676  			return dev_err_probe(dev, PTR_ERR(lock_map),
-e71e4621b06cd42 Haylen Chu 2024-11-26  1677  					     "failed to get lock regmap\n");
-e71e4621b06cd42 Haylen Chu 2024-11-26  1678  	}
+  - Improve driver binding description, use msi-ranges instread.
+  - Improve driver code:
+    - Improve coding style.
+    - Fixed bug that possible memory leak of bitmap when sg2042_msi_init_domains returns error.
+    - Use guard(mutex).
+    - Use the MSI parent model.
 
-lock_map not initialized on else path.
+Changes in v1:
+  The patch series is based on v6.12-rc7. You can simply review or test the
+  patches at the link [1].
 
-e71e4621b06cd42 Haylen Chu 2024-11-26  1679  
-e71e4621b06cd42 Haylen Chu 2024-11-26  1680  	priv = devm_kzalloc(dev, sizeof(*priv), GFP_KERNEL);
-e71e4621b06cd42 Haylen Chu 2024-11-26  1681  	if (!priv)
-e71e4621b06cd42 Haylen Chu 2024-11-26  1682  		return -ENOMEM;
-e71e4621b06cd42 Haylen Chu 2024-11-26  1683  
-e71e4621b06cd42 Haylen Chu 2024-11-26  1684  	priv->data	= data;
-e71e4621b06cd42 Haylen Chu 2024-11-26  1685  	priv->base	= base_map;
-e71e4621b06cd42 Haylen Chu 2024-11-26 @1686  	priv->lock_base	= lock_map;
-                                                                  ^^^^^^^^^
+Link: https://lore.kernel.org/linux-riscv/cover.1731296803.git.unicorn_wang@outlook.com/ [1]
+---
 
-e71e4621b06cd42 Haylen Chu 2024-11-26  1687  
-e71e4621b06cd42 Haylen Chu 2024-11-26  1688  	ret = spacemit_ccu_register(dev, priv);
-e71e4621b06cd42 Haylen Chu 2024-11-26  1689  	if (ret)
-e71e4621b06cd42 Haylen Chu 2024-11-26  1690  		return dev_err_probe(dev, ret, "failed to register clocks\n");
-e71e4621b06cd42 Haylen Chu 2024-11-26  1691  
-e71e4621b06cd42 Haylen Chu 2024-11-26  1692  	return 0;
-e71e4621b06cd42 Haylen Chu 2024-11-26  1693  }
 
+Chen Wang (3):
+  dt-bindings: interrupt-controller: Add Sophgo SG2042 MSI
+  irqchip: Add the Sophgo SG2042 MSI interrupt controller
+  riscv: sophgo: dts: add msi controller for SG2042
+
+ .../sophgo,sg2042-msi.yaml                    |  63 ++++
+ arch/riscv/boot/dts/sophgo/sg2042.dtsi        |  10 +
+ drivers/irqchip/Kconfig                       |  12 +
+ drivers/irqchip/Makefile                      |   1 +
+ drivers/irqchip/irq-sg2042-msi.c              | 285 ++++++++++++++++++
+ 5 files changed, 371 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/interrupt-controller/sophgo,sg2042-msi.yaml
+ create mode 100644 drivers/irqchip/irq-sg2042-msi.c
+
+
+base-commit: fac04efc5c793dccbd07e2d59af9f90b7fc0dca4
 -- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+2.34.1
 
 
 _______________________________________________
