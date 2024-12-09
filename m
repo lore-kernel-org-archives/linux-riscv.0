@@ -4,64 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A296E77173
-	for <linux-riscv@archiver.kernel.org>; Mon,  9 Dec 2024 09:34:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41F8DE7717D
+	for <linux-riscv@archiver.kernel.org>; Mon,  9 Dec 2024 10:11:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=I9sYsgIo7VqzHZHN2inQFYm0t1tIM1jPj4U6v8lYZnw=; b=w6JdOd39KwJ1kz
-	GNUREI8tV1DvLsifymQ5BbTauQGSfa/hgR7E/+9S8hCPqVVqG8twTcR+2EXG4SNshrvXVrOqWUAdE
-	UENT78vIAb8JP8JcsGY1izWHp0n1tSg/CRdZOP4RU2eOTTc0BhdrlVONR4ojYyJRiqErTZYzktC+i
-	qcPs4O+9XZ5iRvVUYZrxlRxyzMV1SDrbP+BeEFHw6c+t+gbIoJ9EqY+/ycjUEqWJngStk0DTQfuH2
-	zleCaPufgLfc+iU+E4raaw2Xg3vW7hJwaoIWusLBrEb4IfNJJ1HevGooVP1I0FvMpnBx98+2tL688
-	8ZuL9B/eUt7fJvQoM7zQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=gvuTZSn9Cdyph9XmogKxk8baztEST1MbpNuwtYU8nxE=; b=d2TURzkezXhPKp
+	kb597TV7kuDgX2nvGXDmBM7F+NMRxZVwI8WHtzlFwv/PNwhWbko4lN3bXB1k02qknp4RzHDFZLb6M
+	7g4IQ9J7j9TUgBFv086b2M+nKm0RXED84OziO7bQSioWWzik/CJbnoIARX7s+/tI9AQZSKc04iP73
+	nSpGKshN6Q6eydwl4ySW4XPJdGx6+05TkbOeR3uRpCUj3oGbvXQA+fpt+mF8vSikBxhfETuwMFgPE
+	pYzv5h3RsMOkn0JRe2uyOXyOXDmxpq0/1RAmzjOxjJdqo3d2MMLC121Y4DPBsUYNkvH5ShLo/FV+R
+	D3LrfBvhgktdGnniX5ug==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKa9l-000000076Fh-2VED;
-	Mon, 09 Dec 2024 09:34:21 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1tKajn-00000007EAh-1UAD;
+	Mon, 09 Dec 2024 10:11:35 +0000
+Received: from mail-pj1-x102f.google.com ([2607:f8b0:4864:20::102f])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKa9j-000000076Ew-1s71
+	id 1tKaQE-000000079f5-36p3
 	for linux-riscv@lists.infradead.org;
-	Mon, 09 Dec 2024 09:34:20 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id EC8C9A40C5C;
-	Mon,  9 Dec 2024 09:32:26 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AE96EC4CED1;
-	Mon,  9 Dec 2024 09:34:17 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1733736858;
-	bh=IzV+3HCjgE7OTmGjpz+XMnwaut0tfpKGJVLufWU0mVo=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=ZLOsVyheykMvVt0+tlREeXQE2g6gYKe0GjHqgBDNvliriYOD+n4e9Lo6pMBaXlfUp
-	 6Gmki8zPupghf+PE9X7AUPHpkBZ67tdCFG0NXClw14zDZ7suB6RLDdt3wv9cEDOF3A
-	 pGwnT6O/0VBNTVqfQmiPIo90pBmDRQqu3zn7XHIS+7YfW/+T+YBoR/4phy4C5j4m9R
-	 SulkZBRFxQc/a0IKvho+y2yX9VNKBnP135zEifhdvNkmBtU0ksmvM/c4+yXqv+YMfx
-	 1i2D9xH5xX+tpUI6FYj+HGWwzKfWYMZGSUG2zojPx02w/SsPM608q1n//IJHvvMo/p
-	 Yg+l7VSv1GqCA==
-Date: Mon, 9 Dec 2024 10:34:14 +0100
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Chen Wang <unicornxw@gmail.com>
-Cc: u.kleine-koenig@baylibre.com, aou@eecs.berkeley.edu, arnd@arndb.de, 
-	unicorn_wang@outlook.com, conor+dt@kernel.org, guoren@kernel.org, inochiama@outlook.com, 
-	krzk+dt@kernel.org, palmer@dabbelt.com, paul.walmsley@sifive.com, robh@kernel.org, 
-	tglx@linutronix.de, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-riscv@lists.infradead.org, chao.wei@sophgo.com, xiaoguang.xing@sophgo.com, 
-	fengchun.li@sophgo.com
-Subject: Re: [PATCH v2 2/3] irqchip: Add the Sophgo SG2042 MSI interrupt
- controller
-Message-ID: <kdwwyx4digujlculbu4ivyiedqbmivuuddpfadpp7tup2gmvjv@6j53b4wqxbd7>
-References: <cover.1733726057.git.unicorn_wang@outlook.com>
- <c882fe329932409131be76ce47b81a6155595ce4.1733726057.git.unicorn_wang@outlook.com>
+	Mon, 09 Dec 2024 09:51:24 +0000
+Received: by mail-pj1-x102f.google.com with SMTP id 98e67ed59e1d1-2ef8c012913so1133205a91.3
+        for <linux-riscv@lists.infradead.org>; Mon, 09 Dec 2024 01:51:21 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=bytedance.com; s=google; t=1733737881; x=1734342681; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=lcckKnBkxwonex0rN05fDWZ2YY8G15nPOBI5Ow04occ=;
+        b=btaQrJCUm+BBSrP48++e3K0n238DiEgj7uP5KUqWsL3BXmDfrUe/npneAwRGeJLdlg
+         k9alSMEoGPKijsRYm4z/9J6Tfcay6jnl1hkIGB45GhGYMB5h3CsLhlhCYphhmbk3qXt5
+         z8Y2OOKLrhInYav9Adtvo57uUO2Mj0ABEklf8VVli84gMO3ozdWmYalycTHvu9+aao6C
+         bQ8UaRZV1aSWXxkEPH5ubRXPZfRIpcs8uWzXDrC7FLJOREuavWGBQWHCmJDO4C3IOve3
+         r8SikCu0OByVwxuCsSF1bvweqV7PLVbKKWZw9Q46TBsxumEduMDevrnJ568FB5HffmM5
+         Anxw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1733737881; x=1734342681;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=lcckKnBkxwonex0rN05fDWZ2YY8G15nPOBI5Ow04occ=;
+        b=p+ItDBp//iRFXYN3eN5ZDknNNYLvuCXial0gGCFv/Zl5ITdlKj87yQ2JYuYUPs7+4R
+         9A6VP5I3WZVZmb/yfKGkePlVfpzboIiE0ARNxzqRq/SG0+Gwuu2AsDOGmb+AiGa+ile7
+         MwPlhmRzkXXiBQcYLvJwikq9zvMzH8v9SZ6461kUp7od2YwXri6IAIKxDB4p8ZkWTvxm
+         JuTOjn/BdmPKjY3rYCwZc9+JKFsVzAHAaFVp8oiZvTohBecsICqO1P/XcZI1fJm/DAcm
+         C+cTtEVix6e2YTJop24odKsesuH8QPvktJaY6XVcktsDyjOx+z4Xn6U2q/bDp8ZT9YQM
+         /Ckg==
+X-Forwarded-Encrypted: i=1; AJvYcCXqTOHG5/dnkydfjEyGp1MX5sdy8VJfmADztJI3Do/HVP2rLI1m1NlXqdbKqP0aaSn7SHvvpCJkUZ5JZg==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx6lVnf8kj3dWBXr8T12kIfG5Qh+5fGHdaNUDO8a7p57c+nqeV+
+	qAZy8L2a7bXLtTkEQZ661kmpCsDHLlMkqAuZqSRQP3uGEiQC71OE36P4Zf16XjE=
+X-Gm-Gg: ASbGncsr16xQUA6gSIqXvN8/kFlZl9cgYLUO7+RVB3xn9JrYX42t4U/zgOIj1F3/Wfk
+	x/q/KiymxZyzK+jz4HRNJuN4KVfiw52p+/tMrX0KOuLl/pM/juer6Qhv7i/jMxXeGkkoQwEj+fn
+	wv3CTk00XIsm01Qgym7nR7mufr6PVab2MjyW+MbPhgM03W077qPvg4vf/+cKpLCGE68O9yahvOW
+	dONoQMZUJbhqGrnjwi6zD87OdJ5zRbBb+ZxqRj66AzRYsTS9EommyX4yX35/0Otbv8aPTe8tFRG
+	mAhQbEG8bqmqYl6Fh6rhLfLXeGlSN+ID
+X-Google-Smtp-Source: AGHT+IHkfKdV7X6NFJu77/MTZMkJs3GSnr3friviyGuaSw/bQdYdXWzPFIgBffs3GwqK80qVdk+nPA==
+X-Received: by 2002:a17:90a:c88f:b0:2ee:dd9b:e402 with SMTP id 98e67ed59e1d1-2ef69f0b077mr20057976a91.12.1733737880950;
+        Mon, 09 Dec 2024 01:51:20 -0800 (PST)
+Received: from J9GPGXL7NT.bytedance.net ([61.213.176.55])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-2ef2708cf3csm9459051a91.53.2024.12.09.01.51.17
+        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
+        Mon, 09 Dec 2024 01:51:20 -0800 (PST)
+From: Xu Lu <luxu.kernel@bytedance.com>
+To: paul.walmsley@sifive.com,
+	palmer@dabbelt.com,
+	alexghiti@rivosinc.com,
+	bjorn@rivosinc.com
+Cc: lihangjing@bytedance.com,
+	xieyongji@bytedance.com,
+	linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Xu Lu <luxu.kernel@bytedance.com>
+Subject: [PATCH v3] riscv: mm: Fix the out of bound issue of vmemmap address
+Date: Mon,  9 Dec 2024 17:51:13 +0800
+Message-Id: <20241209095113.41154-1-luxu.kernel@bytedance.com>
+X-Mailer: git-send-email 2.39.5 (Apple Git-154)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <c882fe329932409131be76ce47b81a6155595ce4.1733726057.git.unicorn_wang@outlook.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241209_013419_610575_ABCFD45D 
-X-CRM114-Status: GOOD (  15.33  )
+X-CRM114-CacheID: sfid-20241209_015122_936302_456B39CA 
+X-CRM114-Status: GOOD (  14.84  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,123 +101,116 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Dec 09, 2024 at 03:12:00PM +0800, Chen Wang wrote:
-> +static void sg2042_msi_irq_ack(struct irq_data *d)
-> +{
-> +	struct sg2042_msi_data *data  = irq_data_get_irq_chip_data(d);
-> +	int bit_off = d->hwirq - data->irq_first;
-> +
-> +	writel(1 << bit_off, (unsigned int *)data->reg_clr);
-> +
-> +	irq_chip_ack_parent(d);
-> +}
-> +
-> +static void sg2042_msi_irq_compose_msi_msg(struct irq_data *data,
-> +					   struct msi_msg *msg)
-> +{
-> +	struct sg2042_msi_data *priv = irq_data_get_irq_chip_data(data);
-> +
-> +	msg->address_hi = upper_32_bits(priv->doorbell_addr);
-> +	msg->address_lo = lower_32_bits(priv->doorbell_addr);
-> +	msg->data = 1 << (data->hwirq - priv->irq_first);
-> +
-> +	pr_debug("%s hwirq[%ld]: address_hi[%#x], address_lo[%#x], data[%#x]\n",
-> +		 __func__, data->hwirq, msg->address_hi, msg->address_lo, msg->data);
+In sparse vmemmap model, the virtual address of vmemmap is calculated as:
+((struct page *)VMEMMAP_START - (phys_ram_base >> PAGE_SHIFT)).
+And the struct page's va can be calculated with an offset:
+(vmemmap + (pfn)).
 
-Don't print addresses, it is useless - it will be a constant.
+However, when initializing struct pages, kernel actually starts from the
+first page from the same section that phys_ram_base belongs to. If the
+first page's physical address is not (phys_ram_base >> PAGE_SHIFT), then
+we get an va below VMEMMAP_START when calculating va for it's struct page.
 
-> +}
-> +
-> +static struct irq_chip sg2042_msi_middle_irq_chip = {
-> +	.name			= "SG2042 MSI",
-> +	.irq_ack		= sg2042_msi_irq_ack,
-> +	.irq_mask		= irq_chip_mask_parent,
-> +	.irq_unmask		= irq_chip_unmask_parent,
-> +#ifdef CONFIG_SMP
-> +	.irq_set_affinity	= irq_chip_set_affinity_parent,
-> +#endif
-> +	.irq_compose_msi_msg	= sg2042_msi_irq_compose_msi_msg,
-> +};
+For example, if phys_ram_base starts from 0x82000000 with pfn 0x82000, the
+first page in the same section is actually pfn 0x80000. During
+init_unavailable_range(), we will initialize struct page for pfn 0x80000
+with virtual address ((struct page *)VMEMMAP_START - 0x2000), which is
+below VMEMMAP_START as well as PCI_IO_END.
 
-...
+This commit fixes this bug by introducing a new variable
+'vmemmap_start_pfn' which is aligned with memory section size and using
+it to calculate vmemmap address instead of phys_ram_base.
 
-> +static int sg2042_msi_probe(struct platform_device *pdev)
-> +{
-> +	struct of_phandle_args args = {};
-> +	struct sg2042_msi_data *data;
-> +	int ret;
-> +
-> +	data = devm_kzalloc(&pdev->dev, sizeof(struct sg2042_msi_data), GFP_KERNEL);
-> +	if (!data)
-> +		return -ENOMEM;
-> +
-> +	data->reg_clr = devm_platform_ioremap_resource_byname(pdev, "clr");
-> +	if (IS_ERR(data->reg_clr)) {
-> +		dev_err(&pdev->dev, "Failed to map clear register\n");
-> +		return PTR_ERR(data->reg_clr);
-> +	}
-> +
-> +	if (of_property_read_u64(pdev->dev.of_node, "sophgo,msi-doorbell-addr",
-> +				 &data->doorbell_addr)) {
-> +		dev_err(&pdev->dev, "Unable to parse MSI doorbell addr\n");
-> +		return -EINVAL;
-> +	}
-> +
-> +	ret = of_parse_phandle_with_args(pdev->dev.of_node, "msi-ranges",
-> +					 "#interrupt-cells", 0, &args);
-> +	if (ret) {
-> +		dev_err(&pdev->dev, "Unable to parse MSI vec base\n");
-> +		return ret;
-> +	}
+Fixes: a11dd49dcb93 ("riscv: Sparse-Memory/vmemmap out-of-bounds fix")
+Signed-off-by: Xu Lu <luxu.kernel@bytedance.com>
+---
+ arch/riscv/include/asm/page.h    |  4 ++++
+ arch/riscv/include/asm/pgtable.h |  4 +++-
+ arch/riscv/mm/init.c             | 18 ++++++++++++++++++
+ 3 files changed, 25 insertions(+), 1 deletion(-)
 
-You leak the phandle. You leak much more, btw...
-
-> +	data->irq_first = (u32)args.args[0];
-> +
-> +	ret = of_property_read_u32_index(pdev->dev.of_node, "msi-ranges",
-> +					 args.args_count + 1, &data->num_irqs);
-> +	if (ret) {
-> +		dev_err(&pdev->dev, "Unable to parse MSI vec number\n");
-> +		return ret;
-> +	}
-> +
-> +	if (data->irq_first < SG2042_VECTOR_MIN ||
-> +	    (data->irq_first + data->num_irqs - 1) > SG2042_VECTOR_MAX) {
-> +		dev_err(&pdev->dev, "msi-ranges is incorrect!\n");
-> +		return -EINVAL;
-> +	}
-> +
-> +	mutex_init(&data->msi_map_lock);
-> +
-> +	data->msi_map = bitmap_zalloc(data->num_irqs, GFP_KERNEL);
-
-This also leaks during removal.
-
-> +	if (!data->msi_map)
-> +		return -ENOMEM;
-> +
-> +	ret = sg2042_msi_init_domains(data, pdev->dev.of_node);
-> +	if (ret)
-> +		bitmap_free(data->msi_map);
-> +
-> +	return ret;
-> +}
-> +
-> +static const struct of_device_id sg2042_msi_of_match[] = {
-> +	{ .compatible	= "sophgo,sg2042-msi" },
-> +	{}
-> +};
-> +
-> +static struct platform_driver sg2042_msi_driver = {
-> +	.driver = {
-> +		.name		= "sg2042-msi",
-> +		.of_match_table	= of_match_ptr(sg2042_msi_of_match),
-
-Drop of_match_ptr(), unnecessary and might lead to warnings even if this
-is not a module.
-
-Best regards,
-Krzysztof
+diff --git a/arch/riscv/include/asm/page.h b/arch/riscv/include/asm/page.h
+index 71aabc5c6713..a1be1adcfb85 100644
+--- a/arch/riscv/include/asm/page.h
++++ b/arch/riscv/include/asm/page.h
+@@ -123,6 +123,10 @@ struct kernel_mapping {
+ extern struct kernel_mapping kernel_map;
+ extern phys_addr_t phys_ram_base;
+ 
++#ifdef CONFIG_SPARSEMEM_VMEMMAP
++extern unsigned long vmemmap_start_pfn;
++#endif
++
+ #define is_kernel_mapping(x)	\
+ 	((x) >= kernel_map.virt_addr && (x) < (kernel_map.virt_addr + kernel_map.size))
+ 
+diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
+index d4e99eef90ac..e2dbd4b9a686 100644
+--- a/arch/riscv/include/asm/pgtable.h
++++ b/arch/riscv/include/asm/pgtable.h
+@@ -87,7 +87,9 @@
+  * Define vmemmap for pfn_to_page & page_to_pfn calls. Needed if kernel
+  * is configured with CONFIG_SPARSEMEM_VMEMMAP enabled.
+  */
+-#define vmemmap		((struct page *)VMEMMAP_START - (phys_ram_base >> PAGE_SHIFT))
++#ifdef CONFIG_SPARSEMEM_VMEMMAP
++#define vmemmap		((struct page *)VMEMMAP_START - vmemmap_start_pfn)
++#endif
+ 
+ #define PCI_IO_SIZE      SZ_16M
+ #define PCI_IO_END       VMEMMAP_START
+diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
+index 0e8c20adcd98..e7c52d647f50 100644
+--- a/arch/riscv/mm/init.c
++++ b/arch/riscv/mm/init.c
+@@ -32,6 +32,9 @@
+ #include <asm/numa.h>
+ #include <asm/pgtable.h>
+ #include <asm/sections.h>
++#ifdef CONFIG_SPARSEMEM_VMEMMAP
++#include <asm/sparsemem.h>
++#endif
+ #include <asm/soc.h>
+ #include <asm/tlbflush.h>
+ 
+@@ -62,6 +65,13 @@ EXPORT_SYMBOL(pgtable_l5_enabled);
+ phys_addr_t phys_ram_base __ro_after_init;
+ EXPORT_SYMBOL(phys_ram_base);
+ 
++#ifdef CONFIG_SPARSEMEM_VMEMMAP
++#define VMEMMAP_ADDR_ALIGN	(1ULL << SECTION_SIZE_BITS)
++
++unsigned long vmemmap_start_pfn __ro_after_init;
++EXPORT_SYMBOL(vmemmap_start_pfn);
++#endif
++
+ unsigned long empty_zero_page[PAGE_SIZE / sizeof(unsigned long)]
+ 							__page_aligned_bss;
+ EXPORT_SYMBOL(empty_zero_page);
+@@ -243,6 +253,11 @@ static void __init setup_bootmem(void)
+ 	if (!IS_ENABLED(CONFIG_XIP_KERNEL))
+ 		phys_ram_base = memblock_start_of_DRAM() & PMD_MASK;
+ 
++#ifdef CONFIG_SPARSEMEM_VMEMMAP
++	if (!IS_ENABLED(CONFIG_XIP_KERNEL))
++		vmemmap_start_pfn = round_down(phys_ram_base, VMEMMAP_ADDR_ALIGN) >> PAGE_SHIFT;
++#endif
++
+ 	/*
+ 	 * In 64-bit, any use of __va/__pa before this point is wrong as we
+ 	 * did not know the start of DRAM before.
+@@ -1101,6 +1116,9 @@ asmlinkage void __init setup_vm(uintptr_t dtb_pa)
+ 	kernel_map.xiprom_sz = (uintptr_t)(&_exiprom) - (uintptr_t)(&_xiprom);
+ 
+ 	phys_ram_base = CONFIG_PHYS_RAM_BASE;
++#ifdef CONFIG_SPARSEMEM_VMEMMAP
++	vmemmap_start_pfn = round_down(phys_ram_base, VMEMMAP_ADDR_ALIGN) >> PAGE_SHIFT;
++#endif
+ 	kernel_map.phys_addr = (uintptr_t)CONFIG_PHYS_RAM_BASE;
+ 	kernel_map.size = (uintptr_t)(&_end) - (uintptr_t)(&_start);
+ 
+-- 
+2.20.1
 
 
 _______________________________________________
