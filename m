@@ -4,78 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 851B0E7717D
-	for <linux-riscv@archiver.kernel.org>; Mon,  9 Dec 2024 12:09:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D8BF1E77180
+	for <linux-riscv@archiver.kernel.org>; Mon,  9 Dec 2024 12:27:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=bkLQN7c10CDEgeR6pAjUNwsUeifYvIimK7OWW1R4XU4=; b=cXqvWK2TENZxpn
-	7p6ahJV4ZGHDZcu+O6wKvke8Yj9Vkic0ZPVIikzxfuDLZ+CodvOWe+eFUPAVloCU6RJ2bPvEeNPj5
-	6/V9SrDC/wO1/XjYMJ1R2GHTft++XZMzNaJTWb8KrrrT3tjtR9BnvWwbRSeS+2wQ+gNvS1IbvYh6T
-	ek+cWrQD9qmcT0nMXcQcG133jc6z1+aDKUZWkZd7rqzTlLx/m0HUWl2HvEVhVj7F9Lsb//b3rleAH
-	fOncTJTXzCfnC+Ay33jwdy/wT+gtZ6HCHB/ZZq5FTDyMwfnLGTNUeE6r8y/U8O2D4E0VQpxQCMFrn
-	216437YZoxAH1m+TlIig==;
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=Z7S3mxazbm1wYoj4NEB4TlpC8vwu/Jhd1t+vAw5UvoA=; b=UepEqNwxt3NEv4
+	4ubGgsyB4kTwYSBhnh/LPq+GDF4TyX+fg0WPEQdt+/1YvpoPApFjPkcGWGJx34k1x9nyJZ+qAgnvF
+	ebeeIiGOOl2+tDnWE7BqoKPmGSTKb4Nm+5YuXuVFEvPtLfMeagCZ58vxiUIbybUvkwHNnxa/23MED
+	Z3HtOC1IvHtX1oZBL7J5/tK3e5mtk43x8xwchCK7wxnQVVLCWZPWjmsMxRI139K77GC+SLuTihFf5
+	5Pz4hZk+1OPwj9/XDemaRKW07ZmC9A/AfRVc9aPrNnZ696W513HGIPbNCOwgtrYk6WMBd9RLxfmzU
+	lsaux+wW77eFQcjyArcw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKca0-00000007d8X-0Bca;
-	Mon, 09 Dec 2024 12:09:36 +0000
-Received: from mail-lj1-x22f.google.com ([2a00:1450:4864:20::22f])
+	id 1tKcql-00000007fuR-3ME9;
+	Mon, 09 Dec 2024 12:26:55 +0000
+Received: from mail-pl1-x62c.google.com ([2607:f8b0:4864:20::62c])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKcYy-00000007cyg-3bPZ
+	id 1tKcqH-00000007fo8-1aUH
 	for linux-riscv@lists.infradead.org;
-	Mon, 09 Dec 2024 12:08:33 +0000
-Received: by mail-lj1-x22f.google.com with SMTP id 38308e7fff4ca-2ff976ab0edso42209551fa.1
-        for <linux-riscv@lists.infradead.org>; Mon, 09 Dec 2024 04:08:31 -0800 (PST)
+	Mon, 09 Dec 2024 12:26:26 +0000
+Received: by mail-pl1-x62c.google.com with SMTP id d9443c01a7336-215ac560292so41752885ad.2
+        for <linux-riscv@lists.infradead.org>; Mon, 09 Dec 2024 04:26:24 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1733746110; x=1734350910; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=w6gzkDAhzXovMDqEI+9lRYWllf8EEHxno6K1iEAuLoM=;
-        b=CD3wR5fsoJ07YL9ViWpYj6PLLcL8tFxy4d3IeWnMqQU/6uRpJMrKR+0njjAgSiXJIQ
-         MGiptf/ynlADJPckO52eLMVKMK/MjzuKd6MuQyp0vH7c7yJBVqm/+dROz2qrre4ynyF0
-         5sz0GYm205zy9O6kei2vOKrLJ34qMi+0kOKVEV27hLkqvBtwThCDNUuIXIiHhCxCH0+a
-         k/AOBTpMInMA+xSxHeTo1VvX3l9IYTBv/1N3SdhrzkMaAoDlqMZc0ahlv5miZJweo5tS
-         6DrzdXaQ7TLsx7mz47sKqbwTdJvrKdPw5+//Yp+N9B53fZ3uJ3VUKhsAyq8oz9UW1gwX
-         Csjg==
+        d=bytedance.com; s=google; t=1733747184; x=1734351984; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=adtW4yhwyBOkoWat2M6vNhXJayXsjhP2L4IIfgg3CNM=;
+        b=kSMWoy/lHKlr48T8JDIiOc/+N5//qd2E6dRpXXYNiSXTTpwlnPf+6Kj1DNsSX3Sjpf
+         ZzgpEzsV/5qPYPeglNk7ocdyQ83+2apEvs21xZ7ouTzOCRX0PaLVydGi+VPGLXiGDXei
+         XO87u741pl2qZMv4nLK/u7q0Kdsxipu8H9OaJ4pTBczB+ifNEMDje1RYCif3YD8Db0sc
+         TvsYMTKtH3e9P1xDwQMc1XdbR86UBvIm2uwhmxwRbazcv422ZjLkKwr5h/LL9VSeEnCr
+         QkVFS7FCYBU4LY1OCvksaCLfo7o0gV0VGL4PjbdlPIxb5T+s06LDYVvl3ELVccCz4f5r
+         o9Sg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1733746110; x=1734350910;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=w6gzkDAhzXovMDqEI+9lRYWllf8EEHxno6K1iEAuLoM=;
-        b=beZSfeNv9Au4uU84oXFi2YVWv4ZTqvVg8Y5GjgDE1Th/AI/kk3hufoj2BApA4gnQvN
-         0WL4jJl/BNEzAiWgJyNlsN1EPkpSax5ryJClBqKRwjmAlruMCDqmeQqy+Mn9RHNo56l3
-         QA4oTJcMLhIqcnXYUWVOZtG/KcMARsYmHKwtsVLgQPGU9nXpDisuYIbjWnwrp/tA1n+W
-         UhDHRiXPGEn2O9yl0/7rMkRhq0QoOe6j/oGiEb/gXyMqUK2HznVHLRjiB/lWn/Ml2wZ8
-         gKTjOil1erbrcnKM9FHeQpCjG9j/LiQgvbt88YxrLwMlTTNnaF2b/sNituG7EG8IQPJW
-         NVow==
-X-Forwarded-Encrypted: i=1; AJvYcCWHGOh/rAMWLcyT3UDDd+2QsggC/t0FyOQIe16Ei8e2i/9AS/wHbZvz1QpTcSx0iG2wKUumNFIGLJ5/9A==@lists.infradead.org
-X-Gm-Message-State: AOJu0YwKRAWwgalGhtPOEc1rLXSmeVV5vBCnJH1h+h4t852hFPci0d86
-	WLl6S+SPq7Z+iKgBDBfJDssOSzZtampyIQWV3ofQZNo58TOE60W8rGIcjzYEFiiwQ6/OvgpPRZs
-	TC3XSKuUhV1yTXrBnJycPNx4BZlsTcsalrVtAYA==
-X-Gm-Gg: ASbGncuwJtmAOOlulOFPQqfM3OEWWd8+fBB4edBBjK1tlryvqII/gTEifx6k6GIHlMH
-	O6ygsK6B3qU4hAx67tnbAq4VOW2v3yEiu7Q==
-X-Google-Smtp-Source: AGHT+IE7s57c5CX5EN+0VrV/XwVhMQsRyEe4E1tm7jFdZ3xrCHKp5MnSIFcNY2K88pwSkR5p5gRdx23gp0eZz8tJNGY=
-X-Received: by 2002:a2e:b013:0:b0:300:33b1:f0cc with SMTP id
- 38308e7fff4ca-30033b1f3femr48347421fa.34.1733746109558; Mon, 09 Dec 2024
- 04:08:29 -0800 (PST)
+        d=1e100.net; s=20230601; t=1733747184; x=1734351984;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=adtW4yhwyBOkoWat2M6vNhXJayXsjhP2L4IIfgg3CNM=;
+        b=qJJ+ybL40IqNgw21SDtvcTAOThqgkUQF/Pd/YVU1cBsRhLpt20EGHcpal/cgZqqAlH
+         Th0WUTx99kdOR6EEkqGbHHu2MQJ6GHt6IWDJCllmSXQKP980/YO9M05a1C7XGeL0DTyp
+         1qf9kIeWaBr98GzjU5oD1Q7pa4OiafsD6BpV9RRYtAhNTrOHDe8omrOZ06wwDmKq0s45
+         fklx7qbojHqbYQezW5nQfpcU9x0KqjYqC/XoAYHVUG0e+HlxBqXCM8JxhJNce+Q0QxEN
+         Sdci5iZznhxgzhZRB0z9Zp9RsUYcDZGWac7Y6EsADbRYII5bNvB5c+djMayzJ1YmVuuo
+         aoZw==
+X-Forwarded-Encrypted: i=1; AJvYcCUSPW/YZCEXh2e1+iKz0YOnjrH2Rdd/VrRrVnJzM9RjE9r//xjpJB04T+LPIYOiPPsVSxdWz1zOGM/GoA==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz0lHOzNcN1Om5jNTdQzRj4dgOH4W+7XfT1iTO4L4JooKXTMNlQ
+	dqZMeEyxO0BZN0R2yMCtExut8U1TklkrPgUDh0Vq7BtZzjhF7FTPeUw5oygV1o8=
+X-Gm-Gg: ASbGncuW+nsEt8IhcA4a/sXz5jpWaEG0g52EUQ+VVeylYYylnqDjuT0nLliPhtJmra0
+	jC6nZHoxR1VSLuo92D6ZVcjxNpbH2TglYmw5ZXO6x4T2R6iUW8SFr1TL7r1rixPuNY1gNMeNXMl
+	/58x09kjSjDuqZRjC7RB+GdtTYDHc/++zm81ODTdKb21NURmpUE0khRpf6thucy27cmt9hJQDnT
+	QDe37ma/+GWprE7UhKG7lRkE4J/D+67mMKQvLGPS8Nwn3cVLr+GgLBmFS2nV+wgFR7zs6a3p1hE
+	/OBHH06mxu44zPsxXbNKCc/mG2GOmjCD
+X-Google-Smtp-Source: AGHT+IEkfqOSMeyV1p1/Cuhjrl7T8ZPCluyO93B+ezN3zdW8K/wnCYdgb3FXmHnAi6yiGokVDtfhww==
+X-Received: by 2002:a17:902:ccc1:b0:216:4e8d:4803 with SMTP id d9443c01a7336-2166a03c862mr3381875ad.42.1733747183831;
+        Mon, 09 Dec 2024 04:26:23 -0800 (PST)
+Received: from J9GPGXL7NT.bytedance.net ([61.213.176.56])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-21638d87ca1sm28386325ad.171.2024.12.09.04.26.20
+        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
+        Mon, 09 Dec 2024 04:26:23 -0800 (PST)
+From: Xu Lu <luxu.kernel@bytedance.com>
+To: paul.walmsley@sifive.com,
+	palmer@dabbelt.com,
+	alexghiti@rivosinc.com,
+	bjorn@rivosinc.com
+Cc: lihangjing@bytedance.com,
+	xieyongji@bytedance.com,
+	linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Xu Lu <luxu.kernel@bytedance.com>
+Subject: [PATCH v4] riscv: mm: Fix the out of bound issue of vmemmap address
+Date: Mon,  9 Dec 2024 20:26:17 +0800
+Message-Id: <20241209122617.53341-1-luxu.kernel@bytedance.com>
+X-Mailer: git-send-email 2.39.5 (Apple Git-154)
 MIME-Version: 1.0
-References: <20241208150711.297624-1-apatel@ventanamicro.com>
- <20241208150711.297624-2-apatel@ventanamicro.com> <875xnuq6dc.ffs@tglx>
-In-Reply-To: <875xnuq6dc.ffs@tglx>
-From: Anup Patel <apatel@ventanamicro.com>
-Date: Mon, 9 Dec 2024 17:38:18 +0530
-Message-ID: <CAK9=C2VqU2mdLL-R20bdgvDHi0WcuNyUSqRo7Pztsu-8X1wVvw@mail.gmail.com>
-Subject: Re: [PATCH 1/4] irqchip/riscv-imsic: Handle non-atomic MSI updates
- for device
-To: Thomas Gleixner <tglx@linutronix.de>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241209_040832_889525_42DA8E95 
-X-CRM114-Status: GOOD (  20.01  )
+X-CRM114-CacheID: sfid-20241209_042625_418239_3DDF9AB5 
+X-CRM114-Status: GOOD (  17.36  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,50 +96,119 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Andrew Lunn <andrew@lunn.ch>, imx@lists.linux.dev, Marc Zyngier <maz@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, Atish Patra <atishp@atishpatra.org>, linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, Palmer Dabbelt <palmer@dabbelt.com>, Pengutronix Kernel Team <kernel@pengutronix.de>, Paul Walmsley <paul.walmsley@sifive.com>, Anup Patel <anup@brainfault.org>, Andrew Jones <ajones@ventanamicro.com>, Shawn Guo <shawnguo@kernel.org>, Gregory Clement <gregory.clement@bootlin.com>, linux-arm-kernel@lists.infradead.org, Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-SGkgVGhvbWFzLAoKT24gTW9uLCBEZWMgOSwgMjAyNCBhdCAxOjQ04oCvQU0gVGhvbWFzIEdsZWl4
-bmVyIDx0Z2x4QGxpbnV0cm9uaXguZGU+IHdyb3RlOgo+Cj4gT24gU3VuLCBEZWMgMDggMjAyNCBh
-dCAyMDozNywgQW51cCBQYXRlbCB3cm90ZToKPiA+ICsKPiA+ICsgICAgICAgICAgICAgICAgICAg
-ICB0dmVjID0gdmVjLT5sb2NhbF9pZCA9PSBtdmVjLT5sb2NhbF9pZCA/Cj4gPiArICAgICAgICAg
-ICAgICAgICAgICAgICAgICAgIE5VTEwgOiAmbHByaXYtPnZlY3RvcnNbbXZlYy0+bG9jYWxfaWRd
-Owo+ID4gKyAgICAgICAgICAgICAgICAgICAgIGlmICh0dmVjICYmIF9faW1zaWNfaWRfcmVhZF9j
-bGVhcl9wZW5kaW5nKHR2ZWMtPmxvY2FsX2lkKSkgewo+Cj4gQXMgSSB0b2xkIHlvdSBiZWZvcmU6
-Cj4KPiBJIGRvbid0IHNlZSBhIHdheSBob3cgdGhhdCBjYW4gd29yayByZW1vdGUgd2l0aCB0aGUg
-SU1TSUMgZWl0aGVyIGV2ZW4gaWYKPiB5b3UgY2FuIGVhc2lseSBhY2Nlc3MgdGhlIHBlbmRpbmcg
-c3RhdGUgb2YgdGhlIHJlbW90ZSBDUFU6CgpGb3IgUklTQy1WIElNU0lDLCBhIHJlbW90ZSBDUFUg
-Y2Fubm90IGFjY2VzcyB0aGUgcGVuZGluZyBzdGF0ZQpvZiBpbnRlcnJ1cHRzIG9uIHNvbWUgb3Ro
-ZXIgQ1BVLgoKPgo+IENQVTAgICAgICAgICAgICAgICAgICAgICAgICAgICAgQ1BVMSAgICAgICAg
-ICAgICAgICAgICBEZXZpY2UKPiBzZXRfYWZmaW5pdHkoKQo+ICAgd3JpdGVfbXNnKHRtcCkKPiAg
-ICAgd3JpdGUoYWRkcik7IC8vIENQVTEKPiAgICAgd3JpdGUoZGF0YSk7IC8vIHZlY3RvciAweDIw
-Cj4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
-ICByYWlzZSBJUlEgKENQVTEsIHZlY3RvciAweDIwKQo+ICAgICAgICAgICAgICAgICAgICAgICAg
-ICAgICAgICAgaGFuZGxlIHZlY3RvciAweDIwCj4gICAgICAgICAgICAgICAgICAgICAgICAgICAg
-ICAgICAob3RoZXIgZGV2aWNlKQo+Cj4gICAgIGNoZWNrX3BlbmRpbmcoQ1BVMSwgMHgyMCkgPT0g
-ZmFsc2UgLT4gSW50ZXJydXB0IGlzIGxvc3QKPgo+IFRoZXJlIGlzIG5vIGd1YXJhbnRlZSB0aGF0
-IHNldF9hZmZpbml0eSgpIHJ1bnMgb24gdGhlIG9yaWdpbmFsIHRhcmdldAo+IENQVSAoQ1BVIDEp
-LiBZb3VyIHNjaGVtZSBvbmx5IHdvcmtzLCB3aGVuIENQVTEgdmVjdG9yIDB4MjAgaXMgbm90IHVz
-ZWQKPiBieSBzb21lIG90aGVyIGRldmljZS4gSWYgaXQncyB1c2VkLCB5b3UgbG9zdCBhcyBDUFUx
-IHdpbGwgY29uc3VtZSB0aGUKPiB2ZWN0b3IgYW5kIHlvdXIgcGVuZGluZyBjaGVjayBpcyBub3Qg
-c2VlaW5nIGFueXRoaW5nLgo+Cj4geDg2IGVuc3VyZXMgQ1BVIGxvY2FsaXR5IGJ5IGRlZmVycmlu
-ZyB0aGUgYWZmaW5pdHkgbW92ZSB0byB0aGUgbmV4dAo+IGRldmljZSBpbnRlcnJ1cHQgb24gdGhl
-IG9yaWdpbmFsIHRhcmdldCBDUFUgKENQVTEgaW4gdGhlIGFib3ZlCj4gZXhhbXBsZSkuIFNlZSBD
-T05GSUdfR0VORVJJQ19JUlFfUEVORElORy4KCkkgYWdyZWUgd2l0aCB5b3UuCgpUaGUgSU1TSUMg
-ZHJpdmVyIG11c3QgZG8gdGhlIGFmZmluaXR5IG1vdmUgdXBvbiB0aGUgbmV4dCBkZXZpY2UKaW50
-ZXJydXB0IG9uIHRoZSBvbGQgQ1BVLiBJIHdpbGwgdXBkYXRlIHRoaXMgcGF0Y2ggaW4gdGhlIG5l
-eHQgcmV2aXNpb24uCgpCVFcsIEkgZGlkIG5vdCBmaW5kIENPTkZJR19HRU5FUklDX0lSUV9QRU5E
-SU5HLiBJcyB0aGUKbmFtZSBjb3JyZWN0ID8KCj4KPiBUaGUgaW50ZXJydXB0IGRvbWFpbnMgd2hp
-Y2ggYXJlIG5vdCBhZmZlY3RlZCAocmVtYXApIHNldCB0aGUKPiBJUlFfTU9WRV9QQ05UWFQgZmxh
-ZyB0byBhdm9pZCB0aGF0IGRhbmNlIGFuZCBkb24ndCB1c2UgdGhhdCBhZmZpbml0eQo+IHNldHRl
-ciBjb2RlIHBhdGggYXQgYWxsLgoKWWVzLCBzZXR0aW5nIHRoZSBJUlFfTU9WRV9QQ05UWFQgZmxh
-ZyBpbiB0aGUgcmVtYXAgZG9tYWluCm1ha2VzIHBlcmZlY3Qgc2Vuc2UuCgpJIHN1Z2dlc3QgYWRk
-aW5nIElSUV9NT1ZFX1BDTlRYVCB1c2FnZSBhcyBwYXJ0IG9mIERyZXcncwppcnFieXBhc3Mgc2Vy
-aWVzIHdoaWNoIGFkZHMgYSByZW1hcCBkb21haW4gaW4gdGhlIElPTU1VCmRyaXZlci4gVW5sZXNz
-IHlvdSBpbnNpc3Qgb24gaGF2aW5nIGl0IGFzIHBhcnQgb2YgdGhpcyBzZXJpZXMgPwoKUmVnYXJk
-cywKQW51cAoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18K
-bGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcK
-aHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
+In sparse vmemmap model, the virtual address of vmemmap is calculated as:
+((struct page *)VMEMMAP_START - (phys_ram_base >> PAGE_SHIFT)).
+And the struct page's va can be calculated with an offset:
+(vmemmap + (pfn)).
+
+However, when initializing struct pages, kernel actually starts from the
+first page from the same section that phys_ram_base belongs to. If the
+first page's physical address is not (phys_ram_base >> PAGE_SHIFT), then
+we get an va below VMEMMAP_START when calculating va for it's struct page.
+
+For example, if phys_ram_base starts from 0x82000000 with pfn 0x82000, the
+first page in the same section is actually pfn 0x80000. During
+init_unavailable_range(), we will initialize struct page for pfn 0x80000
+with virtual address ((struct page *)VMEMMAP_START - 0x2000), which is
+below VMEMMAP_START as well as PCI_IO_END.
+
+This commit fixes this bug by introducing a new variable
+'vmemmap_start_pfn' which is aligned with memory section size and using
+it to calculate vmemmap address instead of phys_ram_base.
+
+Fixes: a11dd49dcb93 ("riscv: Sparse-Memory/vmemmap out-of-bounds fix")
+Signed-off-by: Xu Lu <luxu.kernel@bytedance.com>
+---
+ arch/riscv/include/asm/page.h    |  1 +
+ arch/riscv/include/asm/pgtable.h |  2 +-
+ arch/riscv/mm/init.c             | 17 ++++++++++++++++-
+ 3 files changed, 18 insertions(+), 2 deletions(-)
+
+diff --git a/arch/riscv/include/asm/page.h b/arch/riscv/include/asm/page.h
+index 71aabc5c6713..125f5ecd9565 100644
+--- a/arch/riscv/include/asm/page.h
++++ b/arch/riscv/include/asm/page.h
+@@ -122,6 +122,7 @@ struct kernel_mapping {
+ 
+ extern struct kernel_mapping kernel_map;
+ extern phys_addr_t phys_ram_base;
++extern unsigned long vmemmap_start_pfn;
+ 
+ #define is_kernel_mapping(x)	\
+ 	((x) >= kernel_map.virt_addr && (x) < (kernel_map.virt_addr + kernel_map.size))
+diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
+index d4e99eef90ac..050fdc49b5ad 100644
+--- a/arch/riscv/include/asm/pgtable.h
++++ b/arch/riscv/include/asm/pgtable.h
+@@ -87,7 +87,7 @@
+  * Define vmemmap for pfn_to_page & page_to_pfn calls. Needed if kernel
+  * is configured with CONFIG_SPARSEMEM_VMEMMAP enabled.
+  */
+-#define vmemmap		((struct page *)VMEMMAP_START - (phys_ram_base >> PAGE_SHIFT))
++#define vmemmap		((struct page *)VMEMMAP_START - vmemmap_start_pfn)
+ 
+ #define PCI_IO_SIZE      SZ_16M
+ #define PCI_IO_END       VMEMMAP_START
+diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
+index 0e8c20adcd98..d93271cb97b1 100644
+--- a/arch/riscv/mm/init.c
++++ b/arch/riscv/mm/init.c
+@@ -33,6 +33,7 @@
+ #include <asm/pgtable.h>
+ #include <asm/sections.h>
+ #include <asm/soc.h>
++#include <asm/sparsemem.h>
+ #include <asm/tlbflush.h>
+ 
+ #include "../kernel/head.h"
+@@ -62,6 +63,13 @@ EXPORT_SYMBOL(pgtable_l5_enabled);
+ phys_addr_t phys_ram_base __ro_after_init;
+ EXPORT_SYMBOL(phys_ram_base);
+ 
++#ifdef CONFIG_SPARSEMEM_VMEMMAP
++#define VMEMMAP_ADDR_ALIGN	(1ULL << SECTION_SIZE_BITS)
++
++unsigned long vmemmap_start_pfn __ro_after_init;
++EXPORT_SYMBOL(vmemmap_start_pfn);
++#endif
++
+ unsigned long empty_zero_page[PAGE_SIZE / sizeof(unsigned long)]
+ 							__page_aligned_bss;
+ EXPORT_SYMBOL(empty_zero_page);
+@@ -240,8 +248,12 @@ static void __init setup_bootmem(void)
+ 	 * Make sure we align the start of the memory on a PMD boundary so that
+ 	 * at worst, we map the linear mapping with PMD mappings.
+ 	 */
+-	if (!IS_ENABLED(CONFIG_XIP_KERNEL))
++	if (!IS_ENABLED(CONFIG_XIP_KERNEL)) {
+ 		phys_ram_base = memblock_start_of_DRAM() & PMD_MASK;
++#ifdef CONFIG_SPARSEMEM_VMEMMAP
++		vmemmap_start_pfn = round_down(phys_ram_base, VMEMMAP_ADDR_ALIGN) >> PAGE_SHIFT;
++#endif
++	}
+ 
+ 	/*
+ 	 * In 64-bit, any use of __va/__pa before this point is wrong as we
+@@ -1101,6 +1113,9 @@ asmlinkage void __init setup_vm(uintptr_t dtb_pa)
+ 	kernel_map.xiprom_sz = (uintptr_t)(&_exiprom) - (uintptr_t)(&_xiprom);
+ 
+ 	phys_ram_base = CONFIG_PHYS_RAM_BASE;
++#ifdef CONFIG_SPARSEMEM_VMEMMAP
++	vmemmap_start_pfn = round_down(phys_ram_base, VMEMMAP_ADDR_ALIGN) >> PAGE_SHIFT;
++#endif
+ 	kernel_map.phys_addr = (uintptr_t)CONFIG_PHYS_RAM_BASE;
+ 	kernel_map.size = (uintptr_t)(&_end) - (uintptr_t)(&_start);
+ 
+-- 
+2.20.1
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
