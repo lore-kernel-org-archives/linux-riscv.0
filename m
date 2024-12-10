@@ -4,90 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 73471E7717F
-	for <linux-riscv@archiver.kernel.org>; Tue, 10 Dec 2024 08:36:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 21B42E77180
+	for <linux-riscv@archiver.kernel.org>; Tue, 10 Dec 2024 08:48:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=oMR1l29bUln0A3OmG9b/QLCp30+Ki+LHYxcMg5SaHRU=; b=47njP3jBpD3Ceq
-	nySasXZnbJcvInDBXbYder3vzZXQ2u4IrwqWC3bvbIqUkVOA2SIBWfpix105qgZxaBXGJJyfT6rQL
-	kad3e4vU5/Bdd0bPpBgQLG0x/YBOOsqeCdZ7qugGtxoT/4YegVpNe2ZckUJ9aYd3oPCy/Id7SYGGG
-	cKpOgTn6lwNCbyHHR29KCKqONznX2R9qhA/q9youMZEn7s4q/wSfBFw20TAAFepFzoAAwPAvET/50
-	EcVpB1tP8uSxsZX2XAERxTmFuaXju6u2WHHoJohXdgJ1IIslGfXAn/3ImA81FvXgQSE9pA8/5ArBB
-	9xF9XdK7SAKEKeZVlBnw==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=OWQakwcjkXSdsPZcV0TgMK6ufCIzw9XMSWAdTlUlDNQ=; b=0fjobcLMz51OIv
+	AammQVJ4MIXRqzEUyhj5wf//BvIXI1BafjKO73X2RPNMhhkSqb+BELS8FJk1q8a8uSPVwBwR7Vc4L
+	Mz+5PvOBxUzzZSNFWZe2374K4VoGnTwNMX/38gBzUGDvpqcRNYBLbiXEXAGRLIymX2cGbWSL7hIEl
+	mRLNAuRJd3KQ+kOIute1eubYeA99pDCAFlo/oUdmf3kxB932N1PZg2Y5F1ypNFattaMQc1XJpPGWm
+	l+UjUBOtk8PVb6rTxzz1jAJtZ18ijsTqDOf7JAYJfSJDFBygeLVYwrj9j4ufqSm+LCRTZPa07uldL
+	Js5AEOKYxt6/BPZ5Eqkw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKvij-0000000AjL6-3GAp;
-	Tue, 10 Dec 2024 08:35:53 +0000
-Received: from mail-lf1-x130.google.com ([2a00:1450:4864:20::130])
+	id 1tKvvI-0000000Am4w-2o2y;
+	Tue, 10 Dec 2024 08:48:52 +0000
+Received: from mail-pf1-x42f.google.com ([2607:f8b0:4864:20::42f])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tKvdu-0000000AiR1-20gg
+	id 1tKvvG-0000000Am43-0Sir
 	for linux-riscv@lists.infradead.org;
-	Tue, 10 Dec 2024 08:30:56 +0000
-Received: by mail-lf1-x130.google.com with SMTP id 2adb3069b0e04-540201cfedbso1562326e87.3
-        for <linux-riscv@lists.infradead.org>; Tue, 10 Dec 2024 00:30:53 -0800 (PST)
+	Tue, 10 Dec 2024 08:48:51 +0000
+Received: by mail-pf1-x42f.google.com with SMTP id d2e1a72fcca58-723f37dd76cso4708552b3a.0
+        for <linux-riscv@lists.infradead.org>; Tue, 10 Dec 2024 00:48:46 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1733819452; x=1734424252; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=90ZkUIqsBdVLrJBG0q75ZwBWmjhC0C/y0EueSUVYRDg=;
-        b=NUXqUqmonx4wRaiB4Lwekkw63WAYc1yhyYVOI+ChoVlZLwpjcctup2VYZqjcBV7QQe
-         UnrPeXuCN/aZJmyj9XKsJHctat9MVFjBUtCUzVW1wH9Ewi2bN1ESF9IdO/5kyEn/Ho3G
-         pSNgaH9cipuWbt9Y/a8l0v/9XWi9t8AgfpV2k7GXE35UTtlF75Hkc1Isxu60saQ7jPEV
-         y/RK3PEAH6g1LGBVvWhURMajT+cbn0ZdunGGQVuYzPmeKej2oy5quSOZBeJbJrEbkE2u
-         MHXPNAXM/S8wke/QQ8PR3D2Dg3DcsfBI/JkG6jAfMMga7wAHGq+OwQhc+/6AQyYSQ6zl
-         wenA==
+        d=bytedance.com; s=google; t=1733820525; x=1734425325; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=4xdi3z9/CNbVcJitr9EduQ8bN9iyAWrkkGNI8Z3BdOU=;
+        b=VOVILGGbhZgbxTJsyXC73qfdl7w90vF9sgrqB8Ex8+ChhbRCVFORxMhjJvVDA9IlEd
+         gKIhl3AUTRWA2Qbgo42VPspC7RNt9mJCUy14cuVnjhW/daKeKmsaxehWHKmLsVbGiQWj
+         oZywKFgj5Avg2p1LzpW0SGXoraxhlzGFjmYtoO900UMslgkZAJmWW7qN07jQLXpKLZIg
+         A1875/ATqtcpTJTUX4UP0V30rcGYkXfTrEvgug8d+SovFBtQo5XiTUBps5836SN5UD49
+         znEIJ9CQpGU0agzpOo9sZmunqx5tEkTS2rQl6UYQ0ouRePbuhTuC6ZNekAhxl26+w+xz
+         svaA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1733819452; x=1734424252;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=90ZkUIqsBdVLrJBG0q75ZwBWmjhC0C/y0EueSUVYRDg=;
-        b=ayiZkKjgLGxNWNl5fUOLxxwQ60AuS52Gdl/uhOXlnOs78GLiV+Y7xuDAj5pTOfAM+y
-         4CyzPOk4KWXlXPAYV/1EldRku4fuP80fNt+3VNOCWQcZ6aZCwBO8PCIgVylhDfs2wl1m
-         xO2qwdGRes8gWahWAFrogs4deZb1CYdWSK5P9m3x8xhBoC3b1WZIG45HsMJw6zC2Bn1x
-         jDD2oOxTg8GCOobQhd0yE50XvQMovKn1UoysGg48j89lN+p1AH81WfAOqDJwG7sDOSVw
-         ZfVLwrTzNxuS4/J0evJ2r3beRPjFotAkvQyi8NtpT56c77tRC5RZtXCU+DbP9+dxX2Da
-         5kiA==
-X-Forwarded-Encrypted: i=1; AJvYcCXLCb7JFIdV5PLrXXHUBd0IIkglkXgo4ohK15dps2WZGX4Mr/OdWHG1IOOKCQ2acA3GA031rkf/juTDfQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy8l6nOZjrc5Cansn7Ii8FeMOy0GY89Bx7FhvBS/qN+taSa7qT/
-	foviJB6YjzRNEE8L82Qv6VA2CoAQyJFG4JLBPZ50TzHAXsSVIo9Y
-X-Gm-Gg: ASbGncsNfDwJQ7yHQppSZByrNdXAk04/RS6iNPz1Y43djTAI7kCRre4HoZd7BDYCaba
-	uopKEJqp/0tyf/nL9Cvy9fNVD7sRo3GxYyeqlsDgVoji3w+PDNXTWvnlnlfUKaHeQGoxpqxCniZ
-	N8e/yHhE0IeVKLT9T2eO+L9v/hS5k8RDMu3k+NhDOmjZdmVeIEle+jfvnX5X6kcTKfORNd4n2lz
-	M6bw5yHoORMGWg1UhqNNxHATY5/+HbOej8D4vKeFKSPGQKqBPTVczOAERccetSG/cF2lxf6eeIu
-	rLiqFCsQwxMWqg==
-X-Google-Smtp-Source: AGHT+IE5OZMXD5wGIi+gQNBFtFm/8ORVBm/3TlKPK1kt/NeR8RusvkrggIMTg8CDMExbsnpqReNNxg==
-X-Received: by 2002:a05:6512:3c91:b0:53e:39c2:f021 with SMTP id 2adb3069b0e04-540240c0e6amr1174314e87.15.1733819451569;
-        Tue, 10 Dec 2024 00:30:51 -0800 (PST)
-Received: from wpc.yadro.com (host-95-152-63-227.dsl.sura.ru. [95.152.63.227])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-53e3745b0bbsm1216804e87.185.2024.12.10.00.30.50
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 10 Dec 2024 00:30:50 -0800 (PST)
-From: bigunclemax@gmail.com
-To: 
-Cc: bigunclemax@gmail.com,
-	Drew Fustini <drew@pdp7.com>,
-	Guo Ren <guoren@kernel.org>,
-	Fu Wei <wefu@redhat.com>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Yangtao Li <frank.li@vivo.com>,
-	Jisheng Zhang <jszhang@kernel.org>,
-	linux-riscv@lists.infradead.org,
-	linux-clk@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v2] clk: thead: Fix TH1520 emmc and shdci clock rate
-Date: Tue, 10 Dec 2024 11:30:27 +0300
-Message-ID: <20241210083029.92620-1-bigunclemax@gmail.com>
-X-Mailer: git-send-email 2.45.2
+        d=1e100.net; s=20230601; t=1733820525; x=1734425325;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=4xdi3z9/CNbVcJitr9EduQ8bN9iyAWrkkGNI8Z3BdOU=;
+        b=NiGy/BsUN9s12ERYJakU1ttkqRd4UTiRH5ZPyfKY6QSrzJBtQcLa7Lq4I+8S8WLXm1
+         oeVMpxsiffclvAwNGSogtpkSDhr7dKEjx/tafEOomH4hYh+Id0KHXP6/dYMd75jU0JxJ
+         fjEhk4zURRKDdPFC3JCmiHv8Ft+XAN8lpK62H1Ts4HpgwqzBVbEw8SdVmn15P1AWeJm+
+         PwVVSqEhKG+fcC0MeOuTlm4ZwX7BJEEFpwnY5xupdhD/7ziWmpyjiECvBXWUI89OlFvy
+         q8zxv9YBMHZD9NP4VKBSwnAdewq4luXc5RjlH8uZZrbw2ti1V76kggd0A6EghCHrGBig
+         ycOw==
+X-Forwarded-Encrypted: i=1; AJvYcCXYp+tyE4wmEskU51HobOXtQE6pr3ThceW9FC/tCE1x8rhbrx/JnAeXV70ft2McdDdg8vy8ZWPzaHbzfQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0YyhPEzS9L5kogqoYUVsoH84qEklUSHGBZ4rRu0Cc53pqkoAuxfV
+	ofLY77TvMjkKtQb1i//yVlYC0ZM3vSqPbbYSDXpaOOE8Tk6RwBUjZqmEBKBEjdavWUEjj/G6e2O
+	QB24gl3YK3NADr2/Fmvz3nH8p0/Wz8oqcR4GToQ==
+X-Gm-Gg: ASbGnctdgWpyF7U0BovAQSZw7v2Bp6gkqKIBQZIFaYCwlcw+vgmKH+uCL1rIFY+wcs9
+	BXZ03qet/jinUk7RpbcxhaO/5POHOnog2clCQhYC7Vp9sEt1p
+X-Google-Smtp-Source: AGHT+IEeuMu8uXi3ZE16bp1ukXRs8K6CpNq5yl10CKIHFHI15DQEAFvQNF0rRvfgKbd84KwQSI2khPon70vuDsQN4WY=
+X-Received: by 2002:a05:6a20:b598:b0:1e1:afa9:d38b with SMTP id
+ adf61e73a8af0-1e1b1a79bf7mr6372667637.8.1733820525586; Tue, 10 Dec 2024
+ 00:48:45 -0800 (PST)
 MIME-Version: 1.0
+References: <20240614142156.29420-1-zong.li@sifive.com> <20240614142156.29420-3-zong.li@sifive.com>
+ <CAEEQ3wmccVW0ApAxeGM97XS7BH3khuzRK=wAhg5En3BjEKNnvw@mail.gmail.com>
+In-Reply-To: <CAEEQ3wmccVW0ApAxeGM97XS7BH3khuzRK=wAhg5En3BjEKNnvw@mail.gmail.com>
+From: Xu Lu <luxu.kernel@bytedance.com>
+Date: Tue, 10 Dec 2024 16:48:34 +0800
+Message-ID: <CAPYmKFtHn+ggujCWeQoSaWPK-2G=-Om0DuCpFyf+ha+OXQfsnw@mail.gmail.com>
+Subject: Re: [External] [RFC PATCH v2 02/10] iommu/riscv: support HPM and
+ interrupt handling
+To: yunhui cui <cuiyunhui@bytedance.com>
+Cc: Zong Li <zong.li@sifive.com>, joro@8bytes.org, will@kernel.org, 
+	robin.murphy@arm.com, tjeznach@rivosinc.com, paul.walmsley@sifive.com, 
+	palmer@dabbelt.com, aou@eecs.berkeley.edu, jgg@ziepe.ca, kevin.tian@intel.com, 
+	linux-kernel@vger.kernel.org, iommu@lists.linux.dev, 
+	linux-riscv@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241210_003054_535212_D0D5ED25 
-X-CRM114-Status: GOOD (  12.47  )
+X-CRM114-CacheID: sfid-20241210_004850_149176_CCBB3B7B 
+X-CRM114-Status: GOOD (  29.53  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,75 +92,121 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Maksim Kiselev <bigunclemax@gmail.com>
-
-In accordance with LicheePi 4A BSP the clock that comes to emmc/sdhci
-is 198Mhz which is got through frequency division of source clock
-VIDEO PLL by 4 [1].
-
-But now the AP_SUBSYS driver sets the CLK EMMC SDIO to the same
-frequency as the VIDEO PLL, equal to 792 MHz. This causes emmc/sdhci
-to work 4 times slower.
-
-Let's fix this issue by adding fixed factor clock that divides
-VIDEO PLL by 4 for emmc/sdhci.
-
-Link: https://github.com/revyos/thead-kernel/blob/7563179071a314f41cdcdbfd8cf6e101e73707f3/drivers/clk/thead/clk-light-fm.c#L454
-
-Fixes: ae81b69fd2b1 ("clk: thead: Add support for T-Head TH1520 AP_SUBSYS clocks")
-Signed-off-by: Maksim Kiselev <bigunclemax@gmail.com>
----
- drivers/clk/thead/clk-th1520-ap.c | 13 ++++++++++++-
- 1 file changed, 12 insertions(+), 1 deletion(-)
-
-diff --git a/drivers/clk/thead/clk-th1520-ap.c b/drivers/clk/thead/clk-th1520-ap.c
-index 17e32ae08720..1015fab95251 100644
---- a/drivers/clk/thead/clk-th1520-ap.c
-+++ b/drivers/clk/thead/clk-th1520-ap.c
-@@ -779,6 +779,13 @@ static struct ccu_div dpu1_clk = {
- 	},
- };
- 
-+static CLK_FIXED_FACTOR_HW(emmc_sdio_ref_clk, "emmc-sdio-ref",
-+			   &video_pll_clk.common.hw, 4, 1, 0);
-+
-+static const struct clk_parent_data emmc_sdio_ref_clk_pd[] = {
-+	{ .hw = &emmc_sdio_ref_clk.hw },
-+};
-+
- static CCU_GATE(CLK_BROM, brom_clk, "brom", ahb2_cpusys_hclk_pd, 0x100, BIT(4), 0);
- static CCU_GATE(CLK_BMU, bmu_clk, "bmu", axi4_cpusys2_aclk_pd, 0x100, BIT(5), 0);
- static CCU_GATE(CLK_AON2CPU_A2X, aon2cpu_a2x_clk, "aon2cpu-a2x", axi4_cpusys2_aclk_pd,
-@@ -798,7 +805,7 @@ static CCU_GATE(CLK_PERISYS_APB4_HCLK, perisys_apb4_hclk, "perisys-apb4-hclk", p
- 		0x150, BIT(12), 0);
- static CCU_GATE(CLK_NPU_AXI, npu_axi_clk, "npu-axi", axi_aclk_pd, 0x1c8, BIT(5), 0);
- static CCU_GATE(CLK_CPU2VP, cpu2vp_clk, "cpu2vp", axi_aclk_pd, 0x1e0, BIT(13), 0);
--static CCU_GATE(CLK_EMMC_SDIO, emmc_sdio_clk, "emmc-sdio", video_pll_clk_pd, 0x204, BIT(30), 0);
-+static CCU_GATE(CLK_EMMC_SDIO, emmc_sdio_clk, "emmc-sdio", emmc_sdio_ref_clk_pd, 0x204, BIT(30), 0);
- static CCU_GATE(CLK_GMAC1, gmac1_clk, "gmac1", gmac_pll_clk_pd, 0x204, BIT(26), 0);
- static CCU_GATE(CLK_PADCTRL1, padctrl1_clk, "padctrl1", perisys_apb_pclk_pd, 0x204, BIT(24), 0);
- static CCU_GATE(CLK_DSMART, dsmart_clk, "dsmart", perisys_apb_pclk_pd, 0x204, BIT(23), 0);
-@@ -1059,6 +1066,10 @@ static int th1520_clk_probe(struct platform_device *pdev)
- 		return ret;
- 	priv->hws[CLK_PLL_GMAC_100M] = &gmac_pll_clk_100m.hw;
- 
-+	ret = devm_clk_hw_register(dev, &emmc_sdio_ref_clk.hw);
-+	if (ret)
-+		return ret;
-+
- 	ret = devm_of_clk_add_hw_provider(dev, of_clk_hw_onecell_get, priv);
- 	if (ret)
- 		return ret;
--- 
-2.45.2
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+SGkgWm9uZyBMaSwKClRoYW5rcyBmb3IgeW91ciBqb2IuIFdlIGhhdmUgdGVzdGVkIHlvdXIgaW9t
+bXUgcG11IGRyaXZlciBhbmQgaGF2ZQpzb21lIGZlZWRiYWNrcy4KCjEuIE1heWJlIGl0IGlzIGJl
+dHRlciB0byBjbGVhciBpcHNyLlBNSVAgZmlyc3QgYW5kIHRoZW4gaGFuZGxlIHRoZSBwbXUKb3Zm
+IGlycSBpbiByaXNjdl9pb21tdV9ocG1faXJxX2hhbmRsZXIoKS4gT3RoZXJ3aXNlLCBpZiBhIG5l
+dyBvdmVyZmxvdwpoYXBwZW5zIGFmdGVyIHRoZSByaXNjdl9pb21tdV9wbXVfaGFuZGxlX2lycSgp
+IGFuZCBiZWZvcmUgcG1pcCBjbGVhciwKd2Ugd2lsbCBkcm9wIGl0LgoKMi4gVGhlIHBlcmlvZF9s
+ZWZ0IGNhbiBiZSBtZXNzZWQgaW4gcmlzY3ZfaW9tbXVfcG11X3VwZGF0ZSgpIGFzCnJpc2N2X2lv
+bW11X3BtdV9nZXRfY291bnRlcigpIGFsd2F5cyByZXR1cm4gdGhlIHdob2xlIHJlZ2lzdGVyIHZh
+bHVlCndoaWxlIGJpdCA2MyBpbiBocG1jeWNsZSBhY3R1YWxseSBpbmRpY2F0ZXMgd2hldGhlciBv
+dmVyZmxvdyBoYXBwZW5zCmluc3RlYWQgb2YgY3VycmVudCB2YWx1ZS4gTWF5YmUgdGhlc2UgdHdv
+IGZ1bmN0aW9ucyBzaG91bGQgYmUKaW1wbGVtZW50ZWQgYXM6CgpzdGF0aWMgdm9pZCByaXNjdl9p
+b21tdV9wbXVfc2V0X2NvdW50ZXIoc3RydWN0IHJpc2N2X2lvbW11X3BtdSAqcG11LCB1MzIgaWR4
+LAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgdTY0IHZhbHVlKQp7CiAg
+ICAgICAgdm9pZCBfX2lvbWVtICphZGRyID0gcG11LT5yZWcgKyBSSVNDVl9JT01NVV9SRUdfSU9I
+UE1DWUNMRVM7CgogICAgICAgIGlmIChXQVJOX09OX09OQ0UoaWR4IDwgMCB8fCBpZHggPiBwbXUt
+Pm51bV9jb3VudGVycykpCiAgICAgICAgICAgICAgICByZXR1cm47CgogICAgICAgIGlmIChpZHgg
+PT0gMCkKICAgICAgICAgICAgICAgIHZhbHVlID0gKHZhbHVlICYgflJJU0NWX0lPTU1VX0lPSFBN
+Q1lDTEVTX09GKSB8CiAgICAgICAgICAgICAgICAgICAgICAgIChyZWFkcShhZGRyKSAmIFJJU0NW
+X0lPTU1VX0lPSFBNQ1lDTEVTX09GKTsKCiAgICAgICAgd3JpdGVxKEZJRUxEX1BSRVAoUklTQ1Zf
+SU9NTVVfSU9IUE1DVFJfQ09VTlRFUiwgdmFsdWUpLCBhZGRyICsgaWR4ICogOCk7Cn0KCnN0YXRp
+YyB1NjQgcmlzY3ZfaW9tbXVfcG11X2dldF9jb3VudGVyKHN0cnVjdCByaXNjdl9pb21tdV9wbXUg
+KnBtdSwgdTMyIGlkeCkKewogICAgICAgIHZvaWQgX19pb21lbSAqYWRkciA9IHBtdS0+cmVnICsg
+UklTQ1ZfSU9NTVVfUkVHX0lPSFBNQ1lDTEVTOwogICAgICAgIHU2NCB2YWx1ZTsKCiAgICAgICAg
+aWYgKFdBUk5fT05fT05DRShpZHggPCAwIHx8IGlkeCA+IHBtdS0+bnVtX2NvdW50ZXJzKSkKICAg
+ICAgICAgICAgICAgIHJldHVybiAtRUlOVkFMOwoKICAgICAgICB2YWx1ZSA9IHJlYWRxKGFkZHIg
+KyBpZHggKiA4KTsKCiAgICAgICAgaWYgKGlkeCA9PSAwKQogICAgICAgICAgICAgICAgcmV0dXJu
+IEZJRUxEX0dFVChSSVNDVl9JT01NVV9JT0hQTUNZQ0xFU19DT1VOVEVSLCB2YWx1ZSk7CgogICAg
+ICAgIHJldHVybiBGSUVMRF9HRVQoUklTQ1ZfSU9NTVVfSU9IUE1DVFJfQ09VTlRFUiwgdmFsdWUp
+Owp9CgpQbGVhc2UgaWdub3JlIG1lIGlmIHRoZXNlIGlzc3VlcyBoYXZlIGFscmVhZHkgYmVlbiBk
+aXNjdXNzZWQuCgpCZXN0IHJlZ2FyZHMsCgpYdSBMdQoKT24gVHVlLCBEZWMgMTAsIDIwMjQgYXQg
+Mzo1NeKAr1BNIHl1bmh1aSBjdWkgPGN1aXl1bmh1aUBieXRlZGFuY2UuY29tPiB3cm90ZToKPgo+
+IEFkZCBMdXh1IGluIHRoZSBsb29wLgo+Cj4gT24gRnJpLCBKdW4gMTQsIDIwMjQgYXQgMTA6MjLi
+gK9QTSBab25nIExpIDx6b25nLmxpQHNpZml2ZS5jb20+IHdyb3RlOgo+ID4KPiA+IFRoaXMgcGF0
+Y2ggaW5pdGlhbGl6ZSB0aGUgcG11IHN0dWZmIGFuZCB1bmluaXRpYWxpemUgaXQgd2hlbiBkcml2
+ZXIKPiA+IHJlbW92aW5nLiBUaGUgaW50ZXJydXB0IGhhbmRsaW5nIGlzIGFsc28gcHJvdmlkZWQs
+IHRoaXMgaGFuZGxlciBuZWVkIHRvCj4gPiBiZSBwcmltYXJ5IGhhbmRsZXIgaW5zdGVhZCBvZiB0
+aHJlYWQgZnVuY3Rpb24sIGJlY2F1c2UgcHRfcmVncyBpcyBlbXB0eQo+ID4gd2hlbiB0aHJlYWRp
+bmcgdGhlIElSUSwgYnV0IHB0X3JlZ3MgaXMgbmVjZXNzYXJ5IGJ5IHBlcmZfZXZlbnRfb3ZlcmZs
+b3cuCj4gPgo+ID4gU2lnbmVkLW9mZi1ieTogWm9uZyBMaSA8em9uZy5saUBzaWZpdmUuY29tPgo+
+ID4gLS0tCj4gPiAgZHJpdmVycy9pb21tdS9yaXNjdi9pb21tdS5jIHwgNjUgKysrKysrKysrKysr
+KysrKysrKysrKysrKysrKysrKysrKysrKwo+ID4gIDEgZmlsZSBjaGFuZ2VkLCA2NSBpbnNlcnRp
+b25zKCspCj4gPgo+ID4gZGlmZiAtLWdpdCBhL2RyaXZlcnMvaW9tbXUvcmlzY3YvaW9tbXUuYyBi
+L2RyaXZlcnMvaW9tbXUvcmlzY3YvaW9tbXUuYwo+ID4gaW5kZXggOGI2YTY0YzFhZDhkLi4xNzE2
+YjIyNTFmMzggMTAwNjQ0Cj4gPiAtLS0gYS9kcml2ZXJzL2lvbW11L3Jpc2N2L2lvbW11LmMKPiA+
+ICsrKyBiL2RyaXZlcnMvaW9tbXUvcmlzY3YvaW9tbXUuYwo+ID4gQEAgLTU0MCw2ICs1NDAsNjIg
+QEAgc3RhdGljIGlycXJldHVybl90IHJpc2N2X2lvbW11X2ZsdHFfcHJvY2VzcyhpbnQgaXJxLCB2
+b2lkICpkYXRhKQo+ID4gICAgICAgICByZXR1cm4gSVJRX0hBTkRMRUQ7Cj4gPiAgfQo+ID4KPiA+
+ICsvKgo+ID4gKyAqIElPTU1VIEhhcmR3YXJlIHBlcmZvcm1hbmNlIG1vbml0b3IKPiA+ICsgKi8K
+PiA+ICsKPiA+ICsvKiBIUE0gaW50ZXJydXB0IHByaW1hcnkgaGFuZGxlciAqLwo+ID4gK3N0YXRp
+YyBpcnFyZXR1cm5fdCByaXNjdl9pb21tdV9ocG1faXJxX2hhbmRsZXIoaW50IGlycSwgdm9pZCAq
+ZGV2X2lkKQo+ID4gK3sKPiA+ICsgICAgICAgc3RydWN0IHJpc2N2X2lvbW11X2RldmljZSAqaW9t
+bXUgPSAoc3RydWN0IHJpc2N2X2lvbW11X2RldmljZSAqKWRldl9pZDsKPiA+ICsKPiA+ICsgICAg
+ICAgLyogUHJvY2VzcyBwbXUgaXJxICovCj4gPiArICAgICAgIHJpc2N2X2lvbW11X3BtdV9oYW5k
+bGVfaXJxKCZpb21tdS0+cG11KTsKPiA+ICsKPiA+ICsgICAgICAgLyogQ2xlYXIgcGVyZm9ybWFu
+Y2UgbW9uaXRvcmluZyBpbnRlcnJ1cHQgcGVuZGluZyAqLwo+ID4gKyAgICAgICByaXNjdl9pb21t
+dV93cml0ZWwoaW9tbXUsIFJJU0NWX0lPTU1VX1JFR19JUFNSLCBSSVNDVl9JT01NVV9JUFNSX1BN
+SVApOwo+ID4gKwo+ID4gKyAgICAgICByZXR1cm4gSVJRX0hBTkRMRUQ7Cj4gPiArfQo+ID4gKwo+
+ID4gKy8qIEhQTSBpbml0aWFsaXphdGlvbiAqLwo+ID4gK3N0YXRpYyBpbnQgcmlzY3ZfaW9tbXVf
+aHBtX2VuYWJsZShzdHJ1Y3QgcmlzY3ZfaW9tbXVfZGV2aWNlICppb21tdSkKPiA+ICt7Cj4gPiAr
+ICAgICAgIGludCByYzsKPiA+ICsKPiA+ICsgICAgICAgaWYgKCEoaW9tbXUtPmNhcHMgJiBSSVND
+Vl9JT01NVV9DQVBBQklMSVRJRVNfSFBNKSkKPiA+ICsgICAgICAgICAgICAgICByZXR1cm4gMDsK
+PiA+ICsKPiA+ICsgICAgICAgLyoKPiA+ICsgICAgICAgICogcHRfcmVncyBpcyBlbXB0eSB3aGVu
+IHRocmVhZGluZyB0aGUgSVJRLCBidXQgcHRfcmVncyBpcyBuZWNlc3NhcnkKPiA+ICsgICAgICAg
+ICogYnkgcGVyZl9ldmVudF9vdmVyZmxvdy4gVXNlIHByaW1hcnkgaGFuZGxlciBpbnN0ZWFkIG9m
+IHRocmVhZAo+ID4gKyAgICAgICAgKiBmdW5jdGlvbiBmb3IgUE0gSVJRLgo+ID4gKyAgICAgICAg
+Kgo+ID4gKyAgICAgICAgKiBTZXQgdGhlIElSUUZfT05FU0hPVCBmbGFnIGJlY2F1c2UgdGhpcyBJ
+UlEgbWlnaHQgYmUgc2hhcmVkIHdpdGgKPiA+ICsgICAgICAgICogb3RoZXIgdGhyZWFkZWQgSVJR
+cyBieSBvdGhlciBxdWV1ZXMuCj4gPiArICAgICAgICAqLwo+ID4gKyAgICAgICByYyA9IGRldm1f
+cmVxdWVzdF9pcnEoaW9tbXUtPmRldiwKPiA+ICsgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+IGlvbW11LT5pcnFzW3Jpc2N2X2lvbW11X3F1ZXVlX3ZlYyhpb21tdSwgUklTQ1ZfSU9NTVVfSVBT
+Ul9QTUlQKV0sCj4gPiArICAgICAgICAgICAgICAgICAgICAgICAgICAgICByaXNjdl9pb21tdV9o
+cG1faXJxX2hhbmRsZXIsIElSUUZfT05FU0hPVCB8IElSUUZfU0hBUkVELCBOVUxMLCBpb21tdSk7
+Cj4gPiArICAgICAgIGlmIChyYykKPiA+ICsgICAgICAgICAgICAgICByZXR1cm4gcmM7Cj4gPiAr
+Cj4gPiArICAgICAgIHJldHVybiByaXNjdl9pb21tdV9wbXVfaW5pdCgmaW9tbXUtPnBtdSwgaW9t
+bXUtPnJlZywgZGV2X25hbWUoaW9tbXUtPmRldikpOwo+ID4gK30KPiA+ICsKPiA+ICsvKiBIUE0g
+dW5pbml0aWFsaXphdGlvbiAqLwo+ID4gK3N0YXRpYyB2b2lkIHJpc2N2X2lvbW11X2hwbV9kaXNh
+YmxlKHN0cnVjdCByaXNjdl9pb21tdV9kZXZpY2UgKmlvbW11KQo+ID4gK3sKPiA+ICsgICAgICAg
+aWYgKCEoaW9tbXUtPmNhcHMgJiBSSVNDVl9JT01NVV9DQVBBQklMSVRJRVNfSFBNKSkKPiA+ICsg
+ICAgICAgICAgICAgICByZXR1cm47Cj4gPiArCj4gPiArICAgICAgIGRldm1fZnJlZV9pcnEoaW9t
+bXUtPmRldiwKPiA+ICsgICAgICAgICAgICAgICAgICAgICBpb21tdS0+aXJxc1tyaXNjdl9pb21t
+dV9xdWV1ZV92ZWMoaW9tbXUsIFJJU0NWX0lPTU1VX0lQU1JfUE1JUCldLAo+ID4gKyAgICAgICAg
+ICAgICAgICAgICAgIGlvbW11KTsKPiA+ICsKPiA+ICsgICAgICAgcmlzY3ZfaW9tbXVfcG11X3Vu
+aW5pdCgmaW9tbXUtPnBtdSk7Cj4gPiArfQo+ID4gKwo+ID4gIC8qIExvb2t1cCBhbmQgaW5pdGlh
+bGl6ZSBkZXZpY2UgY29udGV4dCBpbmZvIHN0cnVjdHVyZS4gKi8KPiA+ICBzdGF0aWMgc3RydWN0
+IHJpc2N2X2lvbW11X2RjICpyaXNjdl9pb21tdV9nZXRfZGMoc3RydWN0IHJpc2N2X2lvbW11X2Rl
+dmljZSAqaW9tbXUsCj4gPiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgdW5zaWduZWQgaW50IGRldmlkKQo+ID4gQEAgLTE2MTIsNiArMTY2OCw5IEBAIHZv
+aWQgcmlzY3ZfaW9tbXVfcmVtb3ZlKHN0cnVjdCByaXNjdl9pb21tdV9kZXZpY2UgKmlvbW11KQo+
+ID4gICAgICAgICByaXNjdl9pb21tdV9pb2Rpcl9zZXRfbW9kZShpb21tdSwgUklTQ1ZfSU9NTVVf
+RERUUF9JT01NVV9NT0RFX09GRik7Cj4gPiAgICAgICAgIHJpc2N2X2lvbW11X3F1ZXVlX2Rpc2Fi
+bGUoJmlvbW11LT5jbWRxKTsKPiA+ICAgICAgICAgcmlzY3ZfaW9tbXVfcXVldWVfZGlzYWJsZSgm
+aW9tbXUtPmZsdHEpOwo+ID4gKwo+ID4gKyAgICAgICBpZiAoaW9tbXUtPmNhcHMgJiBSSVNDVl9J
+T01NVV9DQVBBQklMSVRJRVNfSFBNKQo+ID4gKyAgICAgICAgICAgICAgIHJpc2N2X2lvbW11X3Bt
+dV91bmluaXQoJmlvbW11LT5wbXUpOwo+ID4gIH0KPiA+Cj4gPiAgaW50IHJpc2N2X2lvbW11X2lu
+aXQoc3RydWN0IHJpc2N2X2lvbW11X2RldmljZSAqaW9tbXUpCj4gPiBAQCAtMTY1MSw2ICsxNzEw
+LDEwIEBAIGludCByaXNjdl9pb21tdV9pbml0KHN0cnVjdCByaXNjdl9pb21tdV9kZXZpY2UgKmlv
+bW11KQo+ID4gICAgICAgICBpZiAocmMpCj4gPiAgICAgICAgICAgICAgICAgZ290byBlcnJfcXVl
+dWVfZGlzYWJsZTsKPiA+Cj4gPiArICAgICAgIHJjID0gcmlzY3ZfaW9tbXVfaHBtX2VuYWJsZShp
+b21tdSk7Cj4gPiArICAgICAgIGlmIChyYykKPiA+ICsgICAgICAgICAgICAgICBnb3RvIGVycl9o
+cG1fZGlzYWJsZTsKPiA+ICsKPiA+ICAgICAgICAgcmMgPSBpb21tdV9kZXZpY2Vfc3lzZnNfYWRk
+KCZpb21tdS0+aW9tbXUsIE5VTEwsIE5VTEwsICJyaXNjdi1pb21tdUAlcyIsCj4gPiAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICBkZXZfbmFtZShpb21tdS0+ZGV2KSk7Cj4gPiAg
+ICAgICAgIGlmIChyYykgewo+ID4gQEAgLTE2NjksNiArMTczMiw4IEBAIGludCByaXNjdl9pb21t
+dV9pbml0KHN0cnVjdCByaXNjdl9pb21tdV9kZXZpY2UgKmlvbW11KQo+ID4gIGVycl9yZW1vdmVf
+c3lzZnM6Cj4gPiAgICAgICAgIGlvbW11X2RldmljZV9zeXNmc19yZW1vdmUoJmlvbW11LT5pb21t
+dSk7Cj4gPiAgZXJyX2lvZGlyX29mZjoKPiA+ICsgICAgICAgcmlzY3ZfaW9tbXVfaHBtX2Rpc2Fi
+bGUoaW9tbXUpOwo+ID4gK2Vycl9ocG1fZGlzYWJsZToKPiA+ICAgICAgICAgcmlzY3ZfaW9tbXVf
+aW9kaXJfc2V0X21vZGUoaW9tbXUsIFJJU0NWX0lPTU1VX0REVFBfSU9NTVVfTU9ERV9PRkYpOwo+
+ID4gIGVycl9xdWV1ZV9kaXNhYmxlOgo+ID4gICAgICAgICByaXNjdl9pb21tdV9xdWV1ZV9kaXNh
+YmxlKCZpb21tdS0+Zmx0cSk7Cj4gPiAtLQo+ID4gMi4xNy4xCj4gPgo+ID4KPgo+IFRoYW5rcywK
+PiBZdW5odWkKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+CmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3Jn
+Cmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
