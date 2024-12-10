@@ -4,65 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8E933E77182
-	for <linux-riscv@archiver.kernel.org>; Tue, 10 Dec 2024 17:38:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5868AE7717F
+	for <linux-riscv@archiver.kernel.org>; Tue, 10 Dec 2024 18:42:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
-	List-Owner; bh=zy9hE1MGZSFO0Iof4976Ji/Jje1+Rjh5hz6RvakmEus=; b=AY0MYwwEa62/Vb
-	g1SKSn2xbwjKwQoSxCmLzV1h6iGa3nTxN3OCJoVTg7h7WV1xK7ASYnznFYZJgY8+GQtyplpOGgi29
-	k5xVNEoujxBm8N9AEBHxMArVNBacMHbYUA57OSJOTV/2UdDMqoAr4N9PWEfBts3ByoNMb1u7gGSL6
-	65UNiktdnNfVGRdLwk9TvSzyC8LxQ/ZVioQP/Fo1/5VXtRMb0+5Rw3cxQwX6A/1JAh613XH3uBif+
-	Up9+fOkK9Xs86eeRlVy2hqtL0/SxkQ+6LQHUDieIVHlBMPI+frRwsx6ElbwMi4hwM0Z9D0DAr7rIY
-	WShqLZduIue4ed6kiepg==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=h7+wAQns7PJMLVKGb+jwMF1XBvi/iNYn768D/DwJ1iM=; b=bHJJgr28isOGcc
+	T1cczaMQx7DJXRiY/DN2JDwD43iIu4uWtKnTQOKrI7Jcy337RYOacWUvrWKSphoyiDduMuymzVHHM
+	tDrBFO4lgFodJQ3gyWeG+OMd51jjdmjDqaDTkfcJHR3qbTga+2rT86tPQLpHUeGiUvKvow75mP2Yw
+	qW1kPSOaTCwAaPVdyFz+bGnK/WxBl3QmHiaoKSMUpVe/+4n+hA7n+vGRhutPxR1KCK0PgXO2CXAbg
+	AFEzC5qn0PdX/BwY0UpHJhp4CiFQtB0lrH/p9BWUVYKuiYiglw9ClDqj8L5g7jJFT0/MBcjImpNVO
+	APgfZkAcp6XyXB9zMm5Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tL4BB-0000000CIhI-1vld;
-	Tue, 10 Dec 2024 17:37:49 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tL5Bd-0000000CQf4-0DMG;
+	Tue, 10 Dec 2024 18:42:21 +0000
+Received: from mgamail.intel.com ([198.175.65.15])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tL47M-0000000CHz9-3H6M
+	id 1tL54u-0000000CPS0-1K44
 	for linux-riscv@lists.infradead.org;
-	Tue, 10 Dec 2024 17:33:53 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id AD2495C58C3;
-	Tue, 10 Dec 2024 17:33:09 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A8385C4CED6;
-	Tue, 10 Dec 2024 17:33:51 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1733852031;
-	bh=ew+3ZtWBeaC/eFtZKLcAyztF4BPk9mI0PuL1WaDabJQ=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:From;
-	b=T39kgcRf3GFXq4r2FXd0HCkM16w7yJpDM6dZFXf3pqdOuuqPtBo4O6XSg0ZYamK6c
-	 uBM6kqoqiwa3v9XO4Um8GxmNm4IJVDVdbjCj4c3zDc2nSa1xCQgZYXtVSkfH1LIYo8
-	 KvJina1zVOVksS411aPbRFITFJs7c7OAwDRViN+iBcgKak4I+TQ1zuWJToaL3IXb9C
-	 JF5A2p6NaxoDV3vgnC0+tF2+X1Ih17zdfVCYOLgTk67ZwCVCftsO3iXY3w3/dRvI8M
-	 7y1VBY9/afIPa/Mb7hjISoSDG/BftkD/w9XpVjT1XWbVCXgrXfxHP3ezku8c3xgA9X
-	 /C/Cc1cvfEqkw==
-Date: Tue, 10 Dec 2024 11:33:50 -0600
-From: Bjorn Helgaas <helgaas@kernel.org>
-To: Chen Wang <unicornxw@gmail.com>
-Cc: kw@linux.com, u.kleine-koenig@baylibre.com, aou@eecs.berkeley.edu,
-	arnd@arndb.de, bhelgaas@google.com, unicorn_wang@outlook.com,
+	Tue, 10 Dec 2024 18:35:25 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1733855725; x=1765391725;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=FdRhiTf0H0C251ouPst6kpD29MZnOFFx0UOQiwCT1/E=;
+  b=jntojBSLmRRP+mte+sJe4coZC8GX24ST6Ez6guJ4roXgQHfdmmNxmnuD
+   O2mCt3MpB17mi/57iRU8ICq4M2KLh8hlugUvdxaMk5Uqm7rxDPQosGlpB
+   dVpOfh1fuccroaqz4VlTgA+p9eIfaryTwqMH9cVMrfOXFFWP1FSWwGTOC
+   PK1uVwZV+i5djNO0gUlqZWAW/QBHw5ODekB8i3h+2m7lZTpW+zb0mniNe
+   Rn7GX4LAFZZ2Rx6ND9lmrxmj6f1lf9jZBLF8J9B7fPTNXMqxoqBNRcHTB
+   h7xVl7XsPFI4TgDLKfdVxFOXSHfUaYZxbBsbOpo4x3jf7whXPQbO400JH
+   A==;
+X-CSE-ConnectionGUID: q8ZyNZLNSyCCHvRyXWtcww==
+X-CSE-MsgGUID: gxCYw+XnRfqceA88JsJ3Cg==
+X-IronPort-AV: E=McAfee;i="6700,10204,11282"; a="37901804"
+X-IronPort-AV: E=Sophos;i="6.12,223,1728975600"; 
+   d="scan'208";a="37901804"
+Received: from fmviesa007.fm.intel.com ([10.60.135.147])
+  by orvoesa107.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 10 Dec 2024 10:35:23 -0800
+X-CSE-ConnectionGUID: qMcCP1BFTf6GYnBNbWFPfQ==
+X-CSE-MsgGUID: uQSxdHw8SI2pdZwNqnwP6g==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.12,223,1728975600"; 
+   d="scan'208";a="95321237"
+Received: from lkp-server01.sh.intel.com (HELO 82a3f569d0cb) ([10.239.97.150])
+  by fmviesa007.fm.intel.com with ESMTP; 10 Dec 2024 10:35:18 -0800
+Received: from kbuild by 82a3f569d0cb with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1tL54l-0005r9-3A;
+	Tue, 10 Dec 2024 18:35:15 +0000
+Date: Wed, 11 Dec 2024 02:34:16 +0800
+From: kernel test robot <lkp@intel.com>
+To: Chen Wang <unicornxw@gmail.com>, u.kleine-koenig@baylibre.com,
+	aou@eecs.berkeley.edu, arnd@arndb.de, unicorn_wang@outlook.com,
 	conor+dt@kernel.org, guoren@kernel.org, inochiama@outlook.com,
-	krzk+dt@kernel.org, lee@kernel.org, lpieralisi@kernel.org,
-	manivannan.sadhasivam@linaro.org, palmer@dabbelt.com,
-	paul.walmsley@sifive.com, pbrobinson@gmail.com, robh@kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-pci@vger.kernel.org, linux-riscv@lists.infradead.org,
+	krzk+dt@kernel.org, palmer@dabbelt.com, paul.walmsley@sifive.com,
+	robh@kernel.org, tglx@linutronix.de, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
 	chao.wei@sophgo.com, xiaoguang.xing@sophgo.com,
 	fengchun.li@sophgo.com
-Subject: Re: [PATCH v2 1/5] dt-bindings: pci: Add Sophgo SG2042 PCIe host
-Message-ID: <20241210173350.GA3222084@bhelgaas>
+Cc: oe-kbuild-all@lists.linux.dev
+Subject: Re: [PATCH v2 2/3] irqchip: Add the Sophgo SG2042 MSI interrupt
+ controller
+Message-ID: <202412110248.fdcNDwnt-lkp@intel.com>
+References: <c882fe329932409131be76ce47b81a6155595ce4.1733726057.git.unicorn_wang@outlook.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <05998df400a64734308e986069ca0b337618e464.1733726572.git.unicorn_wang@outlook.com>
+In-Reply-To: <c882fe329932409131be76ce47b81a6155595ce4.1733726057.git.unicorn_wang@outlook.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241210_093352_907951_AF563E18 
-X-CRM114-Status: GOOD (  17.87  )
+X-CRM114-CacheID: sfid-20241210_103524_428333_F9AB49E5 
+X-CRM114-Status: UNSURE (   8.74  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,128 +96,48 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Dec 09, 2024 at 03:19:38PM +0800, Chen Wang wrote:
-> Add binding for Sophgo SG2042 PCIe host controller.
+Hi Chen,
 
-> +  sophgo,pcie-port:
+kernel test robot noticed the following build warnings:
 
-This is just an index, isn't it?  I don't see why it should include
-"sophgo" unless it encodes something sophgo-specific.
+[auto build test WARNING on fac04efc5c793dccbd07e2d59af9f90b7fc0dca4]
 
-> +    $ref: /schemas/types.yaml#/definitions/uint32
-> +    description: |
-> +      SG2042 uses Cadence IP, every IP is composed of 2 cores(called link0
+url:    https://github.com/intel-lab-lkp/linux/commits/Chen-Wang/dt-bindings-interrupt-controller-Add-Sophgo-SG2042-MSI/20241209-151429
+base:   fac04efc5c793dccbd07e2d59af9f90b7fc0dca4
+patch link:    https://lore.kernel.org/r/c882fe329932409131be76ce47b81a6155595ce4.1733726057.git.unicorn_wang%40outlook.com
+patch subject: [PATCH v2 2/3] irqchip: Add the Sophgo SG2042 MSI interrupt controller
+config: arm-randconfig-r131-20241210 (https://download.01.org/0day-ci/archive/20241211/202412110248.fdcNDwnt-lkp@intel.com/config)
+compiler: arm-linux-gnueabi-gcc (GCC) 14.2.0
+reproduce: (https://download.01.org/0day-ci/archive/20241211/202412110248.fdcNDwnt-lkp@intel.com/reproduce)
 
-Add space before "(".  More instances below.
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202412110248.fdcNDwnt-lkp@intel.com/
 
-> +      & link1 as Cadence's term). "sophgo,pcie-port" is used to identify which
-> +      core/link the pcie host controller node corresponds to.
+sparse warnings: (new ones prefixed by >>)
+>> drivers/irqchip/irq-sg2042-msi.c:64:9: sparse: sparse: cast removes address space '__iomem' of expression
+>> drivers/irqchip/irq-sg2042-msi.c:64:9: sparse: sparse: incorrect type in argument 2 (different address spaces) @@     expected void volatile [noderef] __iomem *addr @@     got unsigned int * @@
+   drivers/irqchip/irq-sg2042-msi.c:64:9: sparse:     expected void volatile [noderef] __iomem *addr
+   drivers/irqchip/irq-sg2042-msi.c:64:9: sparse:     got unsigned int *
 
-s/pcie/PCIe/ for consistency in the text.  More instances below.
+vim +/__iomem +64 drivers/irqchip/irq-sg2042-msi.c
 
-> +      The Cadence IP has two modes of operation, selected by a strap pin.
-> +
-> +      In the single-link mode, the Cadence PCIe core instance associated
-> +      with Link0 is connected to all the lanes and the Cadence PCIe core
-> +      instance associated with Link1 is inactive.
-> +
-> +      In the dual-link mode, the Cadence PCIe core instance associated
-> +      with Link0 is connected to the lower half of the lanes and the
-> +      Cadence PCIe core instance associated with Link1 is connected to
-> +      the upper half of the lanes.
+    58	
+    59	static void sg2042_msi_irq_ack(struct irq_data *d)
+    60	{
+    61		struct sg2042_msi_data *data  = irq_data_get_irq_chip_data(d);
+    62		int bit_off = d->hwirq - data->irq_first;
+    63	
+  > 64		writel(1 << bit_off, (unsigned int *)data->reg_clr);
+    65	
+    66		irq_chip_ack_parent(d);
+    67	}
+    68	
 
-I assume this means there are two separate Root Ports, one for Link0
-and a second for Link1?
-
-> +      SG2042 contains 2 Cadence IPs and configures the Cores as below:
-> +
-> +                     +-- Core(Link0) <---> pcie_rc0   +-----------------+
-> +                     |                                |                 |
-> +      Cadence IP 1 --+                                | cdns_pcie0_ctrl |
-> +                     |                                |                 |
-> +                     +-- Core(Link1) <---> disabled   +-----------------+
-> +
-> +                     +-- Core(Link0) <---> pcie_rc1   +-----------------+
-> +                     |                                |                 |
-> +      Cadence IP 2 --+                                | cdns_pcie1_ctrl |
-> +                     |                                |                 |
-> +                     +-- Core(Link1) <---> pcie_rc2   +-----------------+
-> +
-> +      pcie_rcX is pcie node ("sophgo,sg2042-pcie-host") defined in DTS.
-> +      cdns_pcie0_ctrl is syscon node ("sophgo,sg2042-pcie-ctrl") defined in DTS
-> +
-> +      cdns_pcieX_ctrl contains some registers shared by pcie_rcX, even two
-> +      RC(Link)s may share different bits of the same register. For example,
-> +      cdns_pcie1_ctrl contains registers shared by link0 & link1 for Cadence IP 2.
-
-An RC doesn't have a Link.  A Root Port does.
-
-> +      "sophgo,pcie-port" is defined to flag which core(link) the rc maps to, with
-> +      this we can know what registers(bits) we should use.
-> +
-> +  sophgo,syscon-pcie-ctrl:
-> +    $ref: /schemas/types.yaml#/definitions/phandle
-> +    description:
-> +      Phandle to the PCIe System Controller DT node. It's required to
-> +      access some MSI operation registers shared by PCIe RCs.
-
-I think this probably means "shared by PCIe Root Ports", not RCs.
-It's unlikely that this hardware has multiple Root Complexes.
-
-> +required:
-> +  - compatible
-> +  - reg
-> +  - reg-names
-> +  - vendor-id
-> +  - device-id
-> +  - sophgo,syscon-pcie-ctrl
-> +  - sophgo,pcie-port
-
-It looks like vendor-id and device-id apply to PCI devices, i.e.,
-things that will show up in lspci, I assume Root Ports in this case.
-Can we make this explicit in the DT, e.g., something like this?
-
-  pcie@62000000 {
-    compatible = "sophgo,sg2042-pcie-host";
-    port0: pci@0,0 {
-      vendor-id = <0x1f1c>;
-      device-id = <0x2042>;
-    };
-
-> +additionalProperties: true
-> +
-> +examples:
-> +  - |
-> +    #include <dt-bindings/interrupt-controller/irq.h>
-> +
-> +    pcie@62000000 {
-> +      compatible = "sophgo,sg2042-pcie-host";
-> +      device_type = "pci";
-> +      reg = <0x62000000  0x00800000>,
-> +            <0x48000000  0x00001000>;
-> +      reg-names = "reg", "cfg";
-> +      #address-cells = <3>;
-> +      #size-cells = <2>;
-> +      ranges = <0x81000000 0 0x00000000 0xde000000 0 0x00010000>,
-> +               <0x82000000 0 0xd0400000 0xd0400000 0 0x0d000000>;
-> +      bus-range = <0x80 0xbf>;
-> +      vendor-id = <0x1f1c>;
-> +      device-id = <0x2042>;
-> +      cdns,no-bar-match-nbits = <48>;
-> +      sophgo,pcie-port = <0>;
-> +      sophgo,syscon-pcie-ctrl = <&cdns_pcie1_ctrl>;
-> +      msi-parent = <&msi_pcie>;
-> +      msi_pcie: msi {
-> +        compatible = "sophgo,sg2042-pcie-msi";
-> +        msi-controller;
-> +        interrupt-parent = <&intc>;
-> +        interrupts = <123 IRQ_TYPE_LEVEL_HIGH>;
-> +        interrupt-names = "msi";
-> +      };
-> +    };
-> -- 
-> 2.34.1
-> 
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
 _______________________________________________
 linux-riscv mailing list
