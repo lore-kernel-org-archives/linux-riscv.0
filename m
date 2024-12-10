@@ -4,94 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D4FCE7717F
-	for <linux-riscv@archiver.kernel.org>; Tue, 10 Dec 2024 14:41:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4B50AE7717F
+	for <linux-riscv@archiver.kernel.org>; Tue, 10 Dec 2024 17:37:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:List-Subscribe:List-Help:
-	List-Post:List-Archive:List-Unsubscribe:List-Id:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=f9T7xhf8/e/IR1ozR427FJGthCDnxkA08GcwcStjBJk=; b=EMAO9ga8chyVuI
-	45GyfskwdJliDrzrbvJgMFm2bylcwQIQm82ok3cA9c8slH+Vji4ZP/Yqi390iWCzjWGtfMB/SwLP3
-	6cvwVkcqbBOBe1F89iAzjQTWcJl97Gjfwz/9CJiqd3KUGfu21H64ku2Wq63gEQzYa28dTHHk5hxs5
-	ZnejKLs8mjIQQ32RKAxLKbpRmQRXdOWRZpl18DvB6M9nR7oun1ARuh0m7cqtTmm2zEqrma86Dfd/e
-	yNfCr7LQod8bPkSzsZoY1gGVPBXGHyODIKSAb2Mxwky5P/ocCrsNAwbOKMfgCRpM9IeA+D7Mh7HJ3
-	VLvZngco2zDwpsXYdQ0g==;
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
+	List-Owner; bh=cRl1XXdwYT8V6WA5zfPera7uQtlbDdWTNBkYOhzLxGQ=; b=KI/1D2ufWzqU/j
+	Taa4xP2RBJB/8Bwv5Du6zVFnyvtOSsPID5iAI8R7FTRSyCP7ZNjww/Uk/h97kvJjDanM5+c/9L9KE
+	ivQ+X3y6nmRGXLgssJgcJYJkIY/Yt5lBCXRYRzjDNDcCCIHe0YwJSfWZ2mXyszTir8xzLsOuUVtiX
+	k8pAr6UuvIsxeXKTm3CkONckVN8LIVtba09kxcQR56+lIm7ULgv2KSskZswx3Q+1hpL7NLMNANYdF
+	WnSyxRYmCnKBRSybYJLOsH94eTYbcO/Xlz6Wxud3EVjzQMI/h+UyMRrvglY1X08lbz1Vc64e/3aGZ
+	dENIrKXJiWA5cT5BUnRg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tL1Q1-0000000BoCM-0E74;
-	Tue, 10 Dec 2024 14:40:57 +0000
-Received: from mail-pj1-x102a.google.com ([2607:f8b0:4864:20::102a])
+	id 1tL4BA-0000000CIgv-11lK;
+	Tue, 10 Dec 2024 17:37:48 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tL19r-0000000BkCD-43n2
+	id 1tL450-0000000CHMz-3A0G
 	for linux-riscv@lists.infradead.org;
-	Tue, 10 Dec 2024 14:24:17 +0000
-Received: by mail-pj1-x102a.google.com with SMTP id 98e67ed59e1d1-2ef89dbd8eeso2081411a91.0
-        for <linux-riscv@lists.infradead.org>; Tue, 10 Dec 2024 06:24:15 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sifive.com; s=google; t=1733840655; x=1734445455; darn=lists.infradead.org;
-        h=references:in-reply-to:message-id:date:subject:cc:to:from:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=K5qH0MfXKfA82FtJGAtiD9e44kpeNSF59qHyzqUktew=;
-        b=iJQzriXYEGU1HkAcU7XrZ6TlnEf1ef9+2orhzR2WN/Y0nIdcV/WftgNWzwzHie+9C5
-         HAjb86M1bHa6oDgA+iJc6BGIUGpXF4E+W4dcOcjSunejRQ5+kjmETXGV56a9KmPu2aZI
-         UA1OGCkQgMalAMWLDZP5ng5y8L91HSti80bPYN4txltxLYl0UybVViNQQrvpcY52eZv5
-         jC7JqqLiYf4H283Uc+A4RFDOagrqIyCSd8D+FlxmUbiW/79N4cTTKga5zhgsQboN12d/
-         ozsELJH8e1dLbtTGw3WHAtgypNFLhnLte3rl1VStiTv4IacM8Vr4JWjXoTPsfozDB/OM
-         W/Ww==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1733840655; x=1734445455;
-        h=references:in-reply-to:message-id:date:subject:cc:to:from
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=K5qH0MfXKfA82FtJGAtiD9e44kpeNSF59qHyzqUktew=;
-        b=OHY2p3MmFq9qD0PkKKD1Oj5l0ksMhgs3eu1QKh20mWHKibQpWeITE8rUmyHbknlPw1
-         nJyNDRSfDXsDg/Iyf8vy1KyWvSZUfLqnTtTV2fzRPmOFBp79Yp8eXSyh8cjLs+U/suOE
-         I7Iy6hK19MjmVoA+3WIapu4bqV3DbZWAbI5bqwr2ngLLf5VSdHC7QqZKq9Jfe6xvpzwt
-         2k6G3Cg8YFgIEItuoiwtBHTWavUO4GwG61lax2UsGm6bdQWUyqFQmBdHecvBzrUE2Bw0
-         RNx6439BNeM74KSADOxtjnEHt3Yn54zRdRsE4Oh655t9zZmg+V4B7UKNi3s+jiqMc9jf
-         NbcQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVr5YJWj8V5B2mOpn1qE6Bo7xTta3o/ZBpFLFyhPluRizHUVhQA2JbIkj+Dmr0t3F6HMfQPr8CqApaBDw==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz+burZbg1WO3PD0/HJa2mwYLx+Vqqk4lNXnh9aYi6E7uMCSfjc
-	Skbuqzetf3kyTQn+O4H9Lf5AkLXENKfkvQT+s+1fju07oXLHUrIVxsTfgCxNjpw=
-X-Gm-Gg: ASbGncvLwixdJ8SwVP/8oF4AvTgiTHqGVf+jNkUDr4SVeelfcazfwIXDGBqUsUJeEFD
-	Ovb/s4scYf6fR+XR0qWoSNlrl2pQtF7Armdj81aqPsiH56ZtGppep1OG7YAHfB3I2LRnLE5LOFP
-	mvcVvOBD2HOnG1u2Vfs7JzTELXRjeWpvRCiVk8BLDuQTNEXyggBbuOSw9DJGpROer9peUwwJ5bN
-	um/kroBrP7rr18uqbY5wyB6dbD0WjF2uLgbF/W8/RSChGm6PBzLGJing3Bk7Jn5HW06m7p/2S4G
-	/c1meB8C
-X-Google-Smtp-Source: AGHT+IE4HixJrIDtqZonmKGjORacp6uNTwKs9GuvdA/FUm9KmXGsasElmICG8/zrqS2NRhVFZTIRCA==
-X-Received: by 2002:a17:90b:52d0:b0:2ee:741c:e9f4 with SMTP id 98e67ed59e1d1-2ef69fffa77mr23841080a91.11.1733840654766;
-        Tue, 10 Dec 2024 06:24:14 -0800 (PST)
-Received: from hsinchu26.internal.sifive.com ([210.176.154.34])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-2ef7315fd3asm7538444a91.44.2024.12.10.06.24.12
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 10 Dec 2024 06:24:14 -0800 (PST)
-From: Yong-Xuan Wang <yongxuan.wang@sifive.com>
-To: linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org
-Cc: greentime.hu@sifive.com,
-	vincent.chen@sifive.com,
-	Yong-Xuan Wang <yongxuan.wang@sifive.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Andy Chiu <andybnac@gmail.com>,
-	Zong Li <zong.li@sifive.com>,
-	Conor Dooley <conor.dooley@microchip.com>,
-	=?UTF-8?q?Bj=C3=B6rn=20T=C3=B6pel?= <bjorn@rivosinc.com>,
-	Zhongqiu Han <quic_zhonhan@quicinc.com>,
-	Ben Dooks <ben.dooks@codethink.co.uk>,
-	Guo Ren <guoren@kernel.org>,
-	Heiko Stuebner <heiko@sntech.de>
-Subject: [PATCH 2/2] riscv: signal: fix signal_minsigstksz
-Date: Tue, 10 Dec 2024 22:23:50 +0800
-Message-Id: <20241210142353.6457-3-yongxuan.wang@sifive.com>
-X-Mailer: git-send-email 2.17.1
-In-Reply-To: <20241210142353.6457-1-yongxuan.wang@sifive.com>
-References: <20241210142353.6457-1-yongxuan.wang@sifive.com>
+	Tue, 10 Dec 2024 17:31:27 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 47A3DA41786;
+	Tue, 10 Dec 2024 17:29:34 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2D9F5C4CEDD;
+	Tue, 10 Dec 2024 17:31:25 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1733851885;
+	bh=DuBdlT+k6TDL3ybELXaf3EyWiycHlo9VKr61ZHOmzqI=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:From;
+	b=u7rwvAvrDmwsGVeL9KORiux9PdU5c0Jz5MVI/MTPKUOA/8/SA2I5FiDLLrcyssx2m
+	 TTTRY1hm2x5TzBu//inrGvww2OTIK4/q4vRJh6+xbkIzMzK6YKdNnU56B5MC2/fSUz
+	 jLoDp8Zt7LdKbXQFipYs4Ss1g7S/wbYXMDJxiFrVG2OHhuJItj2s/Ph1cS2fGQSrF0
+	 UvKGW94k3B/dXFvKP/owrasdIEnx48Wd/vIahARjJNkbd5TPzxWWD+AwnEdSYo+UYQ
+	 W9jbhPX0IuGvTjGEwjtWzn9jIudc/8TAwVJhX/IrAWay6OcR9dquLF9BbhTS6vLCoJ
+	 6DJV/yhON5qOw==
+Date: Tue, 10 Dec 2024 11:31:23 -0600
+From: Bjorn Helgaas <helgaas@kernel.org>
+To: Chen Wang <unicornxw@gmail.com>
+Cc: kw@linux.com, u.kleine-koenig@baylibre.com, aou@eecs.berkeley.edu,
+	arnd@arndb.de, bhelgaas@google.com, unicorn_wang@outlook.com,
+	conor+dt@kernel.org, guoren@kernel.org, inochiama@outlook.com,
+	krzk+dt@kernel.org, lee@kernel.org, lpieralisi@kernel.org,
+	manivannan.sadhasivam@linaro.org, palmer@dabbelt.com,
+	paul.walmsley@sifive.com, pbrobinson@gmail.com, robh@kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-pci@vger.kernel.org, linux-riscv@lists.infradead.org,
+	chao.wei@sophgo.com, xiaoguang.xing@sophgo.com,
+	fengchun.li@sophgo.com
+Subject: Re: [PATCH v2 2/5] PCI: sg2042: Add Sophgo SG2042 PCIe driver
+Message-ID: <20241210173123.GA3247614@bhelgaas>
+MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <1d82eff3670f60df24228e5c83cf663c6dd61eaf.1733726572.git.unicorn_wang@outlook.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241210_062416_003261_13ED17BF 
-X-CRM114-Status: GOOD (  16.86  )
+X-CRM114-CacheID: sfid-20241210_093126_915643_BC3BD844 
+X-CRM114-Status: GOOD (  18.99  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,117 +74,104 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The init_rt_signal_env() funciton is called before the alternative patch
-is applied, so using the alternative-related API to check the availability
-of an extension within this function doesn't have the intended effect.
-Instead, the riscv_isa bitmap should be used to properly check whether
-given extension is available. This patch also refactors the estimation of
-signal_minsigstksz by extracting it from the get_rt_frame_size() funciton.
+On Mon, Dec 09, 2024 at 03:19:57PM +0800, Chen Wang wrote:
+> From: Chen Wang <unicorn_wang@outlook.com>
+> 
+> Add support for PCIe controller in SG2042 SoC. The controller
+> uses the Cadence PCIe core programmed by pcie-cadence*.c. The
+> PCIe controller will work in host mode only.
 
-Fixes: e92f469b0771 ("riscv: signal: Report signal frame size to userspace via auxv")
-Signed-off-by: Yong-Xuan Wang <yongxuan.wang@sifive.com>
-Reviewed-by: Zong Li <zong.li@sifive.com>
----
- arch/riscv/kernel/signal.c | 40 ++++++++++++++++++++++++--------------
- 1 file changed, 25 insertions(+), 15 deletions(-)
+> +++ b/drivers/pci/controller/cadence/Makefile
+> @@ -4,3 +4,4 @@ obj-$(CONFIG_PCIE_CADENCE_HOST) += pcie-cadence-host.o
+>  obj-$(CONFIG_PCIE_CADENCE_EP) += pcie-cadence-ep.o
+>  obj-$(CONFIG_PCIE_CADENCE_PLAT) += pcie-cadence-plat.o
+>  obj-$(CONFIG_PCI_J721E) += pci-j721e.o
+> +obj-$(CONFIG_PCIE_SG2042) += pcie-sg2042.o
+> \ No newline at end of file
 
-diff --git a/arch/riscv/kernel/signal.c b/arch/riscv/kernel/signal.c
-index c3c517b9eee5..85eac84719e9 100644
---- a/arch/riscv/kernel/signal.c
-+++ b/arch/riscv/kernel/signal.c
-@@ -203,22 +203,18 @@ static long restore_sigcontext(struct pt_regs *regs,
- 	return err;
- }
- 
--static size_t get_rt_frame_size(bool cal_all)
-+static size_t get_rt_frame_size(struct pt_regs *regs)
- {
- 	struct rt_sigframe __user *frame;
--	size_t frame_size;
-+	size_t frame_size = sizeof(*frame);
- 	size_t total_context_size = 0;
- 
--	frame_size = sizeof(*frame);
--
--	if (has_vector()) {
--		if (cal_all || riscv_v_vstate_query(task_pt_regs(current)))
--			total_context_size += riscv_v_sc_size;
--	}
-+	if (has_vector() && riscv_v_vstate_query(regs))
-+		total_context_size += riscv_v_sc_size;
- 
- 	frame_size += total_context_size;
--
- 	frame_size = round_up(frame_size, 16);
-+
- 	return frame_size;
- }
- 
-@@ -228,7 +224,7 @@ SYSCALL_DEFINE0(rt_sigreturn)
- 	struct rt_sigframe __user *frame;
- 	struct task_struct *task;
- 	sigset_t set;
--	size_t frame_size = get_rt_frame_size(false);
-+	size_t frame_size = get_rt_frame_size(regs);
- 
- 	/* Always make any pending restarted system calls return -EINTR */
- 	current->restart_block.fn = do_no_restart_syscall;
-@@ -318,7 +314,7 @@ static int setup_rt_frame(struct ksignal *ksig, sigset_t *set,
- 	struct rt_sigframe __user *frame;
- 	long err = 0;
- 	unsigned long __maybe_unused addr;
--	size_t frame_size = get_rt_frame_size(false);
-+	size_t frame_size = get_rt_frame_size(regs);
- 
- 	frame = get_sigframe(ksig, regs, frame_size);
- 	if (!access_ok(frame, frame_size))
-@@ -465,19 +461,33 @@ void arch_do_signal_or_restart(struct pt_regs *regs)
- void init_rt_signal_env(void);
- void __init init_rt_signal_env(void)
- {
--	riscv_v_sc_size = sizeof(struct __riscv_ctx_hdr) +
--			  sizeof(struct __sc_riscv_v_state) + riscv_v_vsize;
-+	struct rt_sigframe __user *frame;
-+	size_t frame_size = sizeof(*frame);
-+
-+	/*
-+	 * init_rt_signal_env() is called before applying alternative patch. Do not use
-+	 * __riscv_has_extension_likely()/__riscv_has_extension_unlikely() to check the
-+	 * availiablity of an extension in this function.
-+	 */
-+	if (__riscv_isa_extension_available(NULL, RISCV_ISA_EXT_v)) {
-+		riscv_v_sc_size = sizeof(struct __riscv_ctx_hdr) +
-+				  sizeof(struct __sc_riscv_v_state) + riscv_v_vsize;
-+		frame_size += riscv_v_sc_size;
-+	}
-+
-+	frame_size = round_up(frame_size, 16);
-+
- 	/*
- 	 * Determine the stack space required for guaranteed signal delivery.
- 	 * The signal_minsigstksz will be populated into the AT_MINSIGSTKSZ entry
- 	 * in the auxiliary array at process startup.
- 	 */
--	signal_minsigstksz = get_rt_frame_size(true);
-+	signal_minsigstksz = frame_size;
- }
- 
- #ifdef CONFIG_DYNAMIC_SIGFRAME
- bool sigaltstack_size_valid(size_t ss_size)
- {
--	return ss_size > get_rt_frame_size(false);
-+	return ss_size > get_rt_frame_size(current_pt_regs());
- }
- #endif /* CONFIG_DYNAMIC_SIGFRAME */
--- 
-2.17.1
+Add the newline.
 
+> +++ b/drivers/pci/controller/cadence/pcie-sg2042.c
+
+> +#include "../../../irqchip/irq-msi-lib.h"
+
+This is the only file outside drivers/irqchip/ that includes this.
+What's special about this driver?  Maybe this is a hint that something
+here belongs in drivers/irqchip/?
+
+> +#ifdef CONFIG_SMP
+
+No other drivers test CONFIG_SMP, why should this be different?
+
+> +static int sg2042_pcie_msi_irq_set_affinity(struct irq_data *d,
+> +					    const struct cpumask *mask,
+> +					    bool force)
+> +{
+> +	if (d->parent_data)
+> +		return irq_chip_set_affinity_parent(d, mask, force);
+> +
+> +	return -EINVAL;
+> +}
+> +#endif /* CONFIG_SMP */
+
+> +static int sg2042_pcie_init_msi_data(struct sg2042_pcie *pcie)
+> +{
+> +	struct device *dev = pcie->cdns_pcie->dev;
+> +	u32 value;
+> +	int ret;
+> +
+> +	raw_spin_lock_init(&pcie->msi_lock);
+> +
+> +	/*
+> +	 * Though the PCIe controller can address >32-bit address space, to
+> +	 * facilitate endpoints that support only 32-bit MSI target address,
+> +	 * the mask is set to 32-bit to make sure that MSI target address is
+> +	 * always a 32-bit address
+> +	 */
+> +	ret = dma_set_coherent_mask(dev, DMA_BIT_MASK(32));
+
+Not sure this is needed.  Does DT dma-ranges not cover this?
+
+> +static int sg2042_pcie_setup_msi(struct sg2042_pcie *pcie, struct device_node *msi_node)
+
+Wrap to fit in 80 columns like the rest.
+
+> +/*
+> + * SG2042 only support 4-byte aligned access, so for the rootbus (i.e. to read
+> + * the PCIe controller itself, read32 is required. For non-rootbus (i.e. to read
+
+s/PCIe controller/Root Port/
+
+> + * the PCIe peripheral registers, supports 1/2/4 byte aligned access, so
+> + * directly use read should be fine.
+
+s/use read/using read/
+
+> +static int sg2042_pcie_probe(struct platform_device *pdev)
+> +{
+> +	struct device *dev = &pdev->dev;
+> +	struct device_node *np = dev->of_node;
+> +	struct pci_host_bridge *bridge;
+> +	struct device_node *np_syscon;
+> +	struct device_node *msi_node;
+> +	struct cdns_pcie *cdns_pcie;
+> +	struct sg2042_pcie *pcie;
+> +	struct cdns_pcie_rc *rc;
+> +	struct regmap *syscon;
+> +	int ret;
+> +
+> +	if (!IS_ENABLED(CONFIG_PCIE_CADENCE_HOST))
+> +		return -ENODEV;
+
+I don't think this is needed since CONFIG_PCIE_SG2042 selects
+PCIE_CADENCE_HOST.
+
+Bjorn
 
 _______________________________________________
 linux-riscv mailing list
