@@ -4,67 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B0170E7717D
-	for <linux-riscv@archiver.kernel.org>; Wed, 11 Dec 2024 19:20:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0DC87E7717D
+	for <linux-riscv@archiver.kernel.org>; Wed, 11 Dec 2024 19:46:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
-	List-Owner; bh=ZaraRPfIQGPKPl3Ulv0R7o43Tfh3VJZoqif5f8DMAQ4=; b=bcFnokzQbjDvgj
-	Aun8Fz6Q3m79O8c2KQfxzhiBPAKYk+ckTTZJCa7mBp+vyW6bLYqaI5jv1tNO/auS7m3/vHhaYxIpx
-	x4R4E6BEcsZe6MwgOmZWmChjnpKi/DzYXnREjK3aNTKQa5F2Wth5ZbY5TrS+F2u49ACUgHs1aJRY0
-	4F6BAmfIqTbOEFUdnWzU8zOHD3uQyIgN1VH2ffuKwnu5CKBTtcec5NGjn1JMaBnlmMqsFLeoedJrS
-	IYBHPpqb6rk7q2PvOPcW7pc5iXjbam82tTl4Yg7yt6QsyVpNESAbpddnAG3VeLgFVulbq74p3Q0dt
-	OLh/VO8iSN46lv9Zmgrw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
+	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
+	bh=wU6b9du4KzpP9/3mmpVHVxjsKA8ovnuiHjfwylI2mE4=; b=it47W25R2/En8Z1roVyaGdhL6a
+	TJnNkHeWFExCCsq4B6lLgVoH4a1c8q0fQuvcmLU6Ajop2OtZmdWoOQU7qZIT7YmstfkWke4CGd8hO
+	NX2xxTI5O5r1pjSdjHTdJ8S+aofAB4uAY0/5yekHI8sIPlu1y88X+OYs4EhwZxRwtaYugwfNRaqds
+	FpjXNcUiQUAF/O3oSlf8/nVCOwfCsL0VfyBd2i5cCk5gahTL3a8YcEBRMHp9Bn6e2h+c8zI5nnA8+
+	G1QKWw5KvfoqgFjvWA/fVwR64CVJ0UVef8UMaZRwM90oBi2+kVnLHQjP5cSgqSA0xcq0gNyDSa51Q
+	pyA+xs2Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLSFv-0000000FuEE-2sKW;
-	Wed, 11 Dec 2024 19:20:19 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tLSfS-0000000Fxa6-1utE;
+	Wed, 11 Dec 2024 19:46:42 +0000
+Received: from mail-pj1-x102b.google.com ([2607:f8b0:4864:20::102b])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLSFt-0000000FuCp-1nAX
+	id 1tLSfP-0000000FxZa-2pGm
 	for linux-riscv@lists.infradead.org;
-	Wed, 11 Dec 2024 19:20:18 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id DFFC35C609D;
-	Wed, 11 Dec 2024 19:19:33 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D363DC4CED2;
-	Wed, 11 Dec 2024 19:20:15 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1733944816;
-	bh=tyykMSo0nPT52ILfZq5q6tJt70N2U4en4/fZrKCHmHY=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:From;
-	b=m8C2osmN6l2UocCn4/RRS7GssrXcQXio4fsafrI0AzKl3XrZ7qrfsAZgVMKmlnWYV
-	 WyT4PeD9FPXKkD/XfMymM8l/iQsPTRVqgWv7Y/1jZNgLYbTDDXqAGf9iSTipIDvyJY
-	 /j2Biba8AVySUHTICqKF0HNSSBEkQmAGGFIxzvuT9qk9zrOL4DqfFko6n2ZGESlnA5
-	 7z4coFGh0YLmyTSDQGuKzad67JkhSU+NSJkHzzRivur9+b7kxeJ1Vxf/Hl5dpraxDR
-	 NI5vSOEJj6pXPMpqy7PcYhkukWto9WOOT5njZHuxtZmXQcDBL9cp7erHDZm1J1zjWM
-	 Itib4DC9ZCz/Q==
-Date: Wed, 11 Dec 2024 13:20:14 -0600
-From: Bjorn Helgaas <helgaas@kernel.org>
-To: Chen Wang <unicorn_wang@outlook.com>, Rob Herring <robh+dt@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>
-Cc: Chen Wang <unicornxw@gmail.com>, kw@linux.com,
-	u.kleine-koenig@baylibre.com, aou@eecs.berkeley.edu, arnd@arndb.de,
-	bhelgaas@google.com, guoren@kernel.org, inochiama@outlook.com,
-	lee@kernel.org, lpieralisi@kernel.org,
-	manivannan.sadhasivam@linaro.org, palmer@dabbelt.com,
-	paul.walmsley@sifive.com, pbrobinson@gmail.com,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-pci@vger.kernel.org, linux-riscv@lists.infradead.org,
-	chao.wei@sophgo.com, xiaoguang.xing@sophgo.com,
-	fengchun.li@sophgo.com
-Subject: Re: [PATCH v2 1/5] dt-bindings: pci: Add Sophgo SG2042 PCIe host
-Message-ID: <20241211192014.GA3302752@bhelgaas>
-MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <BM1PR01MB4515ECD36D8FC6ECB7D161C5FE3E2@BM1PR01MB4515.INDPRD01.PROD.OUTLOOK.COM>
+	Wed, 11 Dec 2024 19:46:41 +0000
+Received: by mail-pj1-x102b.google.com with SMTP id 98e67ed59e1d1-2ee50ffcf14so915064a91.0
+        for <linux-riscv@lists.infradead.org>; Wed, 11 Dec 2024 11:46:38 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=dabbelt-com.20230601.gappssmtp.com; s=20230601; t=1733946398; x=1734551198; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:to:from:cc
+         :in-reply-to:subject:date:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=FTiBfu3LCijHwOIB1klB+vWcYLMQe6opMPGWa86HSek=;
+        b=IDaHLa1mX+7URoRnRMPC/iQhWO0poR6QU3I5tQC0ImLgCMpG1GflvUnNeTxGi9GkuF
+         1phLPDQDJ8/1zKVAT2uEMM9N0ITXf+QriR9e88Y0TVUa5xOtunCBLDhZvIdO8TbMzCtT
+         azhdq56n8aalBnCjbhjGmqdWtRbKSkzMGBk4yF0iAvGEZxWa8w5urM5s6t5QZ+ag/5lq
+         QuYmMWOJJZnpLNxFuC4S2NGNEhO74MwHYHByKM4bvm/itYE3rq3jswD0MfhqR6KdXMTa
+         cPHz2prGxv1WJqXVjTc+GqIgTrN6h37mPodC1NwZ3RW+DxMRQBQmtwgWAn4fNO+wgJ3O
+         l5lw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1733946398; x=1734551198;
+        h=content-transfer-encoding:mime-version:message-id:to:from:cc
+         :in-reply-to:subject:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=FTiBfu3LCijHwOIB1klB+vWcYLMQe6opMPGWa86HSek=;
+        b=rd/iDjdgnI8Vq5IAzDmFqroTKgGtaECFBLw9lJSXfO71dHcoZGLMt0rSZiQ0KzqqQq
+         w/STJ5XCj7R/4owHhKxXxFyDEGE/F9prOWRYpJqQ6t4KXlNa/G6dlFldZcSEIqR+bQWG
+         6LXDXS6LzncEHRbBN0QEZoh4zUhOEagdWjq0crqX+K9kQHV6p95P5mp28oAgHR1s6hdS
+         Ono4KEJvE09BX0NGOetGFFZX2UXBqoChByXymEDkmHVFEswqvEWkIGZdgPpQVQWpRiES
+         agtogZ3dXXkL7e32JhScyZhTQTDcbfjYHpKzv++e0tkgK/574PJbd4a030WNrr5bQqTU
+         DYoQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWKj+2G3+cNbGLYFeCFmoY1y9mlExmMPwwInCnPJQvtn6j6fuyTXibxG1NbcJPHIWzhQMvH5R5IYV0EKA==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx516zUne1JOMb8KGVhknbT85/tA3v2GM3oqtcY9SUcx1SpbRyN
+	kIB7mA7b1YJ4HSSI6pYULX+5PQLdXKSYkE46aCe1AIVl+aCN0J0OvG5G4+JP3fin0Oxd7FEJXIU
+	A
+X-Gm-Gg: ASbGncuRP4b3IHbV+uWoK51ZSPxxBhz2AzfDKtqBF0Es+Wo2+/9kXYa/xAE5873IGJV
+	Bmcj5QKfGPYpl9lBTRqoVJNvnGzAgdaEtWR8TofgbzxD8FbPhga5Stmk3R/XJ8Gv2Mb5LayRCq9
+	KkIsv4cCp2hklRgKGlJfowdrte4baf2ypIkVQ3VYhbCozHsEmxDb7iulqv94Uv8++TIm7LkkwLy
+	3RcRjowmPZuol1Cs3T3Vy1oHOg9oA27ZLZurAw33nFxIBE=
+X-Google-Smtp-Source: AGHT+IFnTOMb6O5sg4/hZzOJTSZlpikmzRhprbval79dvoemRTgwDyiy/kr+8d0qfhl4JQpSLR1kZg==
+X-Received: by 2002:a17:90b:3c02:b0:2ee:5c9b:35c0 with SMTP id 98e67ed59e1d1-2f13abee2a2mr834848a91.9.1733946397459;
+        Wed, 11 Dec 2024 11:46:37 -0800 (PST)
+Received: from localhost ([50.145.13.30])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-2ef45f7eaedsm11923684a91.2.2024.12.11.11.46.36
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 11 Dec 2024 11:46:36 -0800 (PST)
+Date: Wed, 11 Dec 2024 11:46:36 -0800 (PST)
+X-Google-Original-Date: Wed, 11 Dec 2024 11:46:35 PST (-0800)
+Subject: Re: [PATCH 2/2] drivers/perf: riscv: Do not allow invalid raw event config
+In-Reply-To: <20241209-pmu_event_fixes-v1-2-d9525e90072c@rivosinc.com>
+CC: Paul Walmsley <paul.walmsley@sifive.com>, atishp@atishpatra.org,
+  anup@brainfault.org, Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
+  mchitale@ventanamicro.com, samuel.holland@sifive.com, linux-riscv@lists.infradead.org,
+  linux-kernel@vger.kernel.org, Atish Patra <atishp@rivosinc.com>
+From: Palmer Dabbelt <palmer@dabbelt.com>
+To: Atish Patra <atishp@rivosinc.com>
+Message-ID: <mhng-1c6ec679-02bc-4aa3-9b23-bb4c5f5f9b81@palmer-ri-x1c9a>
+Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241211_112017_557374_C32ACEB9 
-X-CRM114-Status: GOOD (  25.87  )
+X-CRM114-CacheID: sfid-20241211_114639_978025_38B4A9F6 
+X-CRM114-Status: GOOD (  26.01  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,120 +94,74 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-W2NjLT50bzogUm9iLCBLcnp5c3p0b2YsIENvbm9yIGJlY2F1c2UgSSdtIG5vdCBhIERUIGV4cGVy
-dCBhbmQgSSdkCmxpa2UgdGhlaXIgdGhvdWdodHMgb24gdGhpcyBpZGVhIG9mIGRlc2NyaWJpbmcg
-Um9vdCBQb3J0cyBhcyBzZXBhcmF0ZQpjaGlsZHJlbl0KCk9uIFdlZCwgRGVjIDExLCAyMDI0IGF0
-IDA1OjAwOjQ0UE0gKzA4MDAsIENoZW4gV2FuZyB3cm90ZToKPiBPbiAyMDI0LzEyLzExIDE6MzMs
-IEJqb3JuIEhlbGdhYXMgd3JvdGU6Cj4gPiBPbiBNb24sIERlYyAwOSwgMjAyNCBhdCAwMzoxOToz
-OFBNICswODAwLCBDaGVuIFdhbmcgd3JvdGU6Cgo+ID4gPiArICAgICAgVGhlIENhZGVuY2UgSVAg
-aGFzIHR3byBtb2RlcyBvZiBvcGVyYXRpb24sIHNlbGVjdGVkIGJ5IGEgc3RyYXAgcGluLgo+ID4g
-PiArCj4gPiA+ICsgICAgICBJbiB0aGUgc2luZ2xlLWxpbmsgbW9kZSwgdGhlIENhZGVuY2UgUENJ
-ZSBjb3JlIGluc3RhbmNlIGFzc29jaWF0ZWQKPiA+ID4gKyAgICAgIHdpdGggTGluazAgaXMgY29u
-bmVjdGVkIHRvIGFsbCB0aGUgbGFuZXMgYW5kIHRoZSBDYWRlbmNlIFBDSWUgY29yZQo+ID4gPiAr
-ICAgICAgaW5zdGFuY2UgYXNzb2NpYXRlZCB3aXRoIExpbmsxIGlzIGluYWN0aXZlLgo+ID4gPiAr
-Cj4gPiA+ICsgICAgICBJbiB0aGUgZHVhbC1saW5rIG1vZGUsIHRoZSBDYWRlbmNlIFBDSWUgY29y
-ZSBpbnN0YW5jZSBhc3NvY2lhdGVkCj4gPiA+ICsgICAgICB3aXRoIExpbmswIGlzIGNvbm5lY3Rl
-ZCB0byB0aGUgbG93ZXIgaGFsZiBvZiB0aGUgbGFuZXMgYW5kIHRoZQo+ID4gPiArICAgICAgQ2Fk
-ZW5jZSBQQ0llIGNvcmUgaW5zdGFuY2UgYXNzb2NpYXRlZCB3aXRoIExpbmsxIGlzIGNvbm5lY3Rl
-ZCB0bwo+ID4gPiArICAgICAgdGhlIHVwcGVyIGhhbGYgb2YgdGhlIGxhbmVzLgoKPiA+ID4gKyAg
-ICAgIFNHMjA0MiBjb250YWlucyAyIENhZGVuY2UgSVBzIGFuZCBjb25maWd1cmVzIHRoZSBDb3Jl
-cyBhcyBiZWxvdzoKPiA+ID4gKwo+ID4gPiArICAgICAgICAgICAgICAgICAgICAgKy0tIENvcmUo
-TGluazApIDwtLS0+IHBjaWVfcmMwICAgKy0tLS0tLS0tLS0tLS0tLS0tKwo+ID4gPiArICAgICAg
-ICAgICAgICAgICAgICAgfCAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgfCAgICAgICAg
-ICAgICAgICAgfAo+ID4gPiArICAgICAgQ2FkZW5jZSBJUCAxIC0tKyAgICAgICAgICAgICAgICAg
-ICAgICAgICAgICAgICAgfCBjZG5zX3BjaWUwX2N0cmwgfAo+ID4gPiArICAgICAgICAgICAgICAg
-ICAgICAgfCAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgfCAgICAgICAgICAgICAgICAg
-fAo+ID4gPiArICAgICAgICAgICAgICAgICAgICAgKy0tIENvcmUoTGluazEpIDwtLS0+IGRpc2Fi
-bGVkICAgKy0tLS0tLS0tLS0tLS0tLS0tKwo+ID4gPiArCj4gPiA+ICsgICAgICAgICAgICAgICAg
-ICAgICArLS0gQ29yZShMaW5rMCkgPC0tLT4gcGNpZV9yYzEgICArLS0tLS0tLS0tLS0tLS0tLS0r
-Cj4gPiA+ICsgICAgICAgICAgICAgICAgICAgICB8ICAgICAgICAgICAgICAgICAgICAgICAgICAg
-ICAgICB8ICAgICAgICAgICAgICAgICB8Cj4gPiA+ICsgICAgICBDYWRlbmNlIElQIDIgLS0rICAg
-ICAgICAgICAgICAgICAgICAgICAgICAgICAgICB8IGNkbnNfcGNpZTFfY3RybCB8Cj4gPiA+ICsg
-ICAgICAgICAgICAgICAgICAgICB8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICB8ICAg
-ICAgICAgICAgICAgICB8Cj4gPiA+ICsgICAgICAgICAgICAgICAgICAgICArLS0gQ29yZShMaW5r
-MSkgPC0tLT4gcGNpZV9yYzIgICArLS0tLS0tLS0tLS0tLS0tLS0rCj4gPiA+ICsKPiA+ID4gKyAg
-ICAgIHBjaWVfcmNYIGlzIHBjaWUgbm9kZSAoInNvcGhnbyxzZzIwNDItcGNpZS1ob3N0IikgZGVm
-aW5lZCBpbiBEVFMuCj4gPiA+ICsgICAgICBjZG5zX3BjaWUwX2N0cmwgaXMgc3lzY29uIG5vZGUg
-KCJzb3BoZ28sc2cyMDQyLXBjaWUtY3RybCIpIGRlZmluZWQgaW4gRFRTCj4gPiA+ICsKPiA+ID4g
-KyAgICAgIGNkbnNfcGNpZVhfY3RybCBjb250YWlucyBzb21lIHJlZ2lzdGVycyBzaGFyZWQgYnkg
-cGNpZV9yY1gsIGV2ZW4gdHdvCj4gPiA+ICsgICAgICBSQyhMaW5rKXMgbWF5IHNoYXJlIGRpZmZl
-cmVudCBiaXRzIG9mIHRoZSBzYW1lIHJlZ2lzdGVyLiBGb3IgZXhhbXBsZSwKPiA+ID4gKyAgICAg
-IGNkbnNfcGNpZTFfY3RybCBjb250YWlucyByZWdpc3RlcnMgc2hhcmVkIGJ5IGxpbmswICYgbGlu
-azEgZm9yIENhZGVuY2UgSVAgMi4KCj4gPiA+ICsgICAgICAic29waGdvLHBjaWUtcG9ydCIgaXMg
-ZGVmaW5lZCB0byBmbGFnIHdoaWNoIGNvcmUobGluaykgdGhlIHJjIG1hcHMgdG8sIHdpdGgKPiA+
-ID4gKyAgICAgIHRoaXMgd2UgY2FuIGtub3cgd2hhdCByZWdpc3RlcnMoYml0cykgd2Ugc2hvdWxk
-IHVzZS4KCj4gPiA+ICtyZXF1aXJlZDoKPiA+ID4gKyAgLSBjb21wYXRpYmxlCj4gPiA+ICsgIC0g
-cmVnCj4gPiA+ICsgIC0gcmVnLW5hbWVzCj4gPiA+ICsgIC0gdmVuZG9yLWlkCj4gPiA+ICsgIC0g
-ZGV2aWNlLWlkCj4gPiA+ICsgIC0gc29waGdvLHN5c2Nvbi1wY2llLWN0cmwKPiA+ID4gKyAgLSBz
-b3BoZ28scGNpZS1wb3J0Cj4gPgo+ID4gSXQgbG9va3MgbGlrZSB2ZW5kb3ItaWQgYW5kIGRldmlj
-ZS1pZCBhcHBseSB0byBQQ0kgZGV2aWNlcywgaS5lLiwKPiA+IHRoaW5ncyB0aGF0IHdpbGwgc2hv
-dyB1cCBpbiBsc3BjaSwgSSBhc3N1bWUgUm9vdCBQb3J0cyBpbiB0aGlzIGNhc2UuCj4gPiBDYW4g
-d2UgbWFrZSB0aGlzIGV4cGxpY2l0IGluIHRoZSBEVCwgZS5nLiwgc29tZXRoaW5nIGxpa2UgdGhp
-cz8KPiA+IAo+ID4gICAgcGNpZUA2MjAwMDAwMCB7Cj4gPiAgICAgIGNvbXBhdGlibGUgPSAic29w
-aGdvLHNnMjA0Mi1wY2llLWhvc3QiOwo+ID4gICAgICBwb3J0MDogcGNpQDAsMCB7Cj4gPiAgICAg
-ICAgdmVuZG9yLWlkID0gPDB4MWYxYz47Cj4gPiAgICAgICAgZGV2aWNlLWlkID0gPDB4MjA0Mj47
-Cj4gPiAgICAgIH07Cj4gCj4gU29ycnksIEkgZG9uJ3QgdW5kZXJzdGFuZCB5b3VyIG1lYW5pbmcg
-dmVyeSB3ZWxsLsKgIFJlZmVycmluZyB0byB0aGUgdG9wb2xvZ3kKPiBkaWFncmFtIEkgZHJldyBh
-Ym92ZSwgaXMgaXQgb2theSB0byB3cml0ZSBEVFMgYXMgZm9sbG93cz8KPiAKPiBwY2llQDcwNjAw
-MDAwMDAgewo+IMKgwqDCoCBjb21wYXRpYmxlID0gInNvcGhnbyxzZzIwNDItcGNpZS1ob3N0IjsK
-PiDCoMKgwqAgLi4uLi4uIC8vIG90aGVyIHByb3BlcnRpZXMKPiDCoMKgwqAgcGNpQDAsMCB7Cj4g
-wqDCoMKgwqDCoCB2ZW5kb3ItaWQgPSA8MHgxZjFjPjsKPiDCoMKgwqDCoMKgIGRldmljZS1pZCA9
-IDwweDIwNDI+Owo+IMKgwqDCoCB9Owo+IH0KPiAKPiBwY2llQDcwNjIwMDAwMDAgewo+IMKgwqDC
-oCBjb21wYXRpYmxlID0gInNvcGhnbyxzZzIwNDItcGNpZS1ob3N0IjsKPiDCoMKgwqAgLi4uLi4u
-IC8vIG90aGVyIHByb3BlcnRpZXMKPiDCoMKgwqAgcGNpQDAsMCB7Cj4gwqDCoMKgwqDCoCB2ZW5k
-b3ItaWQgPSA8MHgxZjFjPjsKPiDCoMKgwqDCoMKgIGRldmljZS1pZCA9IDwweDIwNDI+Owo+IMKg
-wqDCoCB9Owo+IH0KPiAKPiBwY2llQDcwNjI4MDAwMDAgewo+IMKgwqDCoCBjb21wYXRpYmxlID0g
-InNvcGhnbyxzZzIwNDItcGNpZS1ob3N0IjsKPiDCoMKgwqAgLi4uLi4uIC8vIG90aGVyIHByb3Bl
-cnRpZXMKPiDCoMKgwqAgcGNpQDEsMCB7Cj4gwqDCoMKgwqDCoCB2ZW5kb3ItaWQgPSA8MHgxZjFj
-PjsKPiDCoMKgwqDCoMKgIGRldmljZS1pZCA9IDwweDIwNDI+Owo+IMKgwqDCoCB9Owo+IAo+IH0K
-CkdlbmVyYWxseSBtYWtlcyBzZW5zZSB0byBtZS4gIEknbSBzdWdnZXN0aW5nIHRoYXQgd2Ugc2hv
-dWxkIHN0YXJ0CmRlc2NyaWJpbmcgUm9vdCBQb3J0cyBhcyBjaGlsZHJlbiBvZiB0aGUgaG9zdCBi
-cmlkZ2Ugbm9kZSBpbnN0ZWFkIG9mIAptaXhpbmcgdGhlaXIgcHJvcGVydGllcyBpbnRvIHRoZSBo
-b3N0IGJyaWRnZSBpdHNlbGYuCgpTb21lIHByb3BlcnRpZXMgYXBwbHkgdG8gdGhlIGhvc3QgYnJp
-ZGdlLCBlLmcuLCAiYnVzLXJhbmdlIiBkZXNjcmliZXMKdGhlIGJ1cyBudW1iZXIgYXBlcnR1cmUs
-IGFuZCAicmFuZ2VzIiBkZXNjcmliZXMgdGhlIGFkZHJlc3MKdHJhbnNsYXRpb24gYmV0d2VlbiB0
-aGUgdXBzdHJlYW0gQ1BVIGFkZHJlc3Mgc3BhY2UgYW5kIHRoZSBQQ0kgYWRkcmVzcwpzcGFjZS4K
-Ck90aGVycyBhcHBseSBzcGVjaWZpY2FsbHkgdG8gYSBSb290IFBvcnQsIGUuZy4sICJudW0tbGFu
-ZXMiLAoibWF4LWxpbmstc3BlZWQiLCAicGh5cyIsICJ2ZW5kb3ItaWQiLCAiZGV2aWNlLWlkIi4g
-IEkgdGhpbmsgaXQgd2lsbApoZWxwIGlmIHdlIGNhbiBkZXNjcmliZSB0aGVzZSBpbiBzZXBhcmF0
-ZSBjaGlsZHJlbiwgZXNwZWNpYWxseSB3aGVuCnRoZXJlIGFyZSBtdWx0aXBsZSBSb290IFBvcnRz
-LgoKRG9jdW1lbnRhdGlvbi9kZXZpY2V0cmVlL2JpbmRpbmdzL3BjaS9wY2kudHh0IHNheXMgYSBS
-b290IFBvcnQKc2hvdWxkIGluY2x1ZGUgYSByZWcgcHJvcGVydHkgdGhhdCBjb250YWlucyB0aGUg
-YnVzL2RldmljZS9mdW5jdGlvbgpudW1iZXIgb2YgdGhlIFJQLCBlLmcuLApEb2N1bWVudGF0aW9u
-L2RldmljZXRyZWUvYmluZGluZ3MvcGNpL252aWRpYSx0ZWdyYTIwLXBjaWUudHh0IGhhcwp0aGlz
-OgoKICBwY2llLWNvbnRyb2xsZXJAMzAwMCB7CiAgICAgY29tcGF0aWJsZSA9ICJudmlkaWEsdGVn
-cmEzMC1wY2llIjsKICAgICBwY2lAMSwwIHsKICAgICAgIHJlZyA9IDwweDAwMDgwMCAwIDAgMCAw
-PjsKICAgICB9OwoKd2hlcmUgdGhlICIweDAwMDgwMCAwIDAgMCAwIiBtZWFucyB0aGUgInBjaUAx
-LDAiIFJvb3QgUG9ydCBpcyBhdAowMDowMS4wIChidXMgMDAsIGRldmljZSAwMSwgZnVuY3Rpb24g
-MCkuICBJIGRvbid0IGtub3cgd2hhdCB0aGUgIkAxLDAiCnBhcnQgbWVhbnMuCgo+IEFuZCB3aXRo
-IHRoaXMgY2hhbmdlLCBJIGNhbiBkcm9wIHRoZSDigJxwY2llLXBvcnTigJ1wcm9wZXJ0eSBhbmQg
-dXNlIHRoZSBwb3J0Cj4gbmFtZSB0byBmaWd1cmUgb3V0IHRoZSBwb3J0IG51bWJlciwgcmlnaHQ/
-CgpTZWVtcyBsaWtlbHkgdG8gbWUuCgo+ID4gPiArYWRkaXRpb25hbFByb3BlcnRpZXM6IHRydWUK
-PiA+ID4gKwo+ID4gPiArZXhhbXBsZXM6Cj4gPiA+ICsgIC0gfAo+ID4gPiArICAgICNpbmNsdWRl
-IDxkdC1iaW5kaW5ncy9pbnRlcnJ1cHQtY29udHJvbGxlci9pcnEuaD4KPiA+ID4gKwo+ID4gPiAr
-ICAgIHBjaWVANjIwMDAwMDAgewo+ID4gPiArICAgICAgY29tcGF0aWJsZSA9ICJzb3BoZ28sc2cy
-MDQyLXBjaWUtaG9zdCI7Cj4gPiA+ICsgICAgICBkZXZpY2VfdHlwZSA9ICJwY2kiOwo+ID4gPiAr
-ICAgICAgcmVnID0gPDB4NjIwMDAwMDAgIDB4MDA4MDAwMDA+LAo+ID4gPiArICAgICAgICAgICAg
-PDB4NDgwMDAwMDAgIDB4MDAwMDEwMDA+Owo+ID4gPiArICAgICAgcmVnLW5hbWVzID0gInJlZyIs
-ICJjZmciOwo+ID4gPiArICAgICAgI2FkZHJlc3MtY2VsbHMgPSA8Mz47Cj4gPiA+ICsgICAgICAj
-c2l6ZS1jZWxscyA9IDwyPjsKPiA+ID4gKyAgICAgIHJhbmdlcyA9IDwweDgxMDAwMDAwIDAgMHgw
-MDAwMDAwMCAweGRlMDAwMDAwIDAgMHgwMDAxMDAwMD4sCj4gPiA+ICsgICAgICAgICAgICAgICA8
-MHg4MjAwMDAwMCAwIDB4ZDA0MDAwMDAgMHhkMDQwMDAwMCAwIDB4MGQwMDAwMDA+Owo+ID4gPiAr
-ICAgICAgYnVzLXJhbmdlID0gPDB4ODAgMHhiZj47Cj4gPiA+ICsgICAgICB2ZW5kb3ItaWQgPSA8
-MHgxZjFjPjsKPiA+ID4gKyAgICAgIGRldmljZS1pZCA9IDwweDIwNDI+Owo+ID4gPiArICAgICAg
-Y2Rucyxuby1iYXItbWF0Y2gtbmJpdHMgPSA8NDg+Owo+ID4gPiArICAgICAgc29waGdvLHBjaWUt
-cG9ydCA9IDwwPjsKPiA+ID4gKyAgICAgIHNvcGhnbyxzeXNjb24tcGNpZS1jdHJsID0gPCZjZG5z
-X3BjaWUxX2N0cmw+Owo+ID4gPiArICAgICAgbXNpLXBhcmVudCA9IDwmbXNpX3BjaWU+Owo+ID4g
-PiArICAgICAgbXNpX3BjaWU6IG1zaSB7Cj4gPiA+ICsgICAgICAgIGNvbXBhdGlibGUgPSAic29w
-aGdvLHNnMjA0Mi1wY2llLW1zaSI7Cj4gPiA+ICsgICAgICAgIG1zaS1jb250cm9sbGVyOwo+ID4g
-PiArICAgICAgICBpbnRlcnJ1cHQtcGFyZW50ID0gPCZpbnRjPjsKPiA+ID4gKyAgICAgICAgaW50
-ZXJydXB0cyA9IDwxMjMgSVJRX1RZUEVfTEVWRUxfSElHSD47Cj4gPiA+ICsgICAgICAgIGludGVy
-cnVwdC1uYW1lcyA9ICJtc2kiOwo+ID4gPiArICAgICAgfTsKPiA+ID4gKyAgICB9OwoKX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFp
-bGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmlu
-ZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
+On Mon, 09 Dec 2024 16:04:46 PST (-0800), Atish Patra wrote:
+> The SBI specification allows only lower 48bits of hpmeventX to be
+> configured via SBI PMU. Currently, the driver masks of the higher
+> bits but doesn't return an error. This will lead to an additional
+> SBI call for config matching which should return for an invalid
+> event error in most of the cases.
+>
+> However, if a platform(i.e Rocket and sifive cores) implements a
+> bitmap of all bits in the event encoding this will lead to an
+> incorrect event being programmed leading to user confusion.
+>
+> Report the error to the user if higher bits are set during the
+> event mapping itself to avoid the confusion and save an additional
+> SBI call.
+>
+> Suggested-by: Samuel Holland <samuel.holland@sifive.com>
+> Signed-off-by: Atish Patra <atishp@rivosinc.com>
+> ---
+>  drivers/perf/riscv_pmu_sbi.c | 10 ++++++----
+>  1 file changed, 6 insertions(+), 4 deletions(-)
+>
+> diff --git a/drivers/perf/riscv_pmu_sbi.c b/drivers/perf/riscv_pmu_sbi.c
+> index 3473ba02abf3..fb6eda90f771 100644
+> --- a/drivers/perf/riscv_pmu_sbi.c
+> +++ b/drivers/perf/riscv_pmu_sbi.c
+> @@ -507,7 +507,7 @@ static int pmu_sbi_event_map(struct perf_event *event, u64 *econfig)
+>  {
+>  	u32 type = event->attr.type;
+>  	u64 config = event->attr.config;
+> -	int ret;
+> +	int ret = -ENOENT;
+>
+>  	/*
+>  	 * Ensure we are finished checking standard hardware events for
+> @@ -536,8 +536,11 @@ static int pmu_sbi_event_map(struct perf_event *event, u64 *econfig)
+>
+>  		switch (config >> 62) {
+>  		case 0:
+> -			ret = RISCV_PMU_RAW_EVENT_IDX;
+> -			*econfig = config & RISCV_PMU_RAW_EVENT_MASK;
+> +			/* Return error any bits [48-63] is set  as it is not allowed by the spec */
+> +			if (!(config & ~RISCV_PMU_RAW_EVENT_MASK)) {
+> +				*econfig = config & RISCV_PMU_RAW_EVENT_MASK;
+> +				ret = RISCV_PMU_RAW_EVENT_IDX;
+> +			}
+>  			break;
+>  		case 2:
+>  			ret = (config & 0xFFFF) | (SBI_PMU_EVENT_TYPE_FW << 16);
+> @@ -554,7 +557,6 @@ static int pmu_sbi_event_map(struct perf_event *event, u64 *econfig)
+>  		}
+>  		break;
+>  	default:
+> -		ret = -ENOENT;
+>  		break;
+>  	}
+
+This doesn't have a Fixes, is it 
+
+    Fixes: f0c9363db2dd ("perf/riscv-sbi: Add platform specific firmware event handling")
+
+?
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
