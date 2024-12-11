@@ -4,85 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 21BC8E7717D
-	for <linux-riscv@archiver.kernel.org>; Wed, 11 Dec 2024 22:00:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 87BEFE7717D
+	for <linux-riscv@archiver.kernel.org>; Wed, 11 Dec 2024 22:15:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
-	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	bh=Gq0Smi2eZ5yZkHKQzh00iHA/onJ+VZDj4aJ4Rbho0ag=; b=2GIPVYZCiKrhwydej3kPvEx0/f
-	ciW3TGWObdbyEzeaDLxRihKhW/hu9wBjspxKnw3py3FLt6NEQ4/ZQHxMR486gQ/dK08BJCLH7TGaH
-	oURT0SJIDRxltcah6kdoqYO2fWRUcoTG0pSbeqMGNgXo7+sGHS8X1p26ZJQwqmLjUznrDeigDZrbU
-	XJaCmNCKeHAtAIdRCtlGtTLX6You5j2yK26uIq1ZTCqGnvKeNV9tuzCCxqvJ4MC6l1yKFWnWw+WpE
-	uydjEO/Eva5438ZPTh5P9DUSfx5aWkXHI82VN9LywIbnnR8HiAME57yl2GDDOotC7AZf0mFzmJN2y
-	ApH2elHA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=xbjCm7/QqciIw4miRbQBB7X9vRo5rMbSjg0b4v2pA+w=; b=vfXblbNH00UHZS
+	yqiFXkywrPZpgCi5EDdxp7VwKsa2amwvzT0pvO+hmCeAlvAWxtq12kU+uaogTAi5x0yG0slKIMC43
+	tl931ftLYysM+O0U0BxwLCmYIM9zdbucdNL+HcI5O2TB6p+7aKr5F5Xl5z+ebZBr0tGjYotEW0OSw
+	elyizT05WEarxjlYyaIxs8Jxr8W1PhyzDS+8MIwm0cSZ2aeyXSvXqVMWuWVQwOlCiOZyGck96RlFW
+	GuhSZsfjx3nGf2BNXcX8gJze7fH7G0amuTFgtVjat6SuRlz5gyyyfq0C6WK9tnpFNTXbuo/FZrc6j
+	WRl/oOJj6iJThPQ6Drzg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLUkT-0000000GFQB-2BYf;
-	Wed, 11 Dec 2024 22:00:01 +0000
-Received: from mail-pg1-x52d.google.com ([2607:f8b0:4864:20::52d])
+	id 1tLUzh-0000000GHuB-3lcv;
+	Wed, 11 Dec 2024 22:15:45 +0000
+Received: from mail-pj1-x1034.google.com ([2607:f8b0:4864:20::1034])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLUkR-0000000GFP8-0t3L
+	id 1tLUz2-0000000GHq5-1zHP
 	for linux-riscv@lists.infradead.org;
-	Wed, 11 Dec 2024 22:00:00 +0000
-Received: by mail-pg1-x52d.google.com with SMTP id 41be03b00d2f7-7fd49d85f82so3120804a12.3
-        for <linux-riscv@lists.infradead.org>; Wed, 11 Dec 2024 13:59:58 -0800 (PST)
+	Wed, 11 Dec 2024 22:15:05 +0000
+Received: by mail-pj1-x1034.google.com with SMTP id 98e67ed59e1d1-2ee989553c1so6183892a91.3
+        for <linux-riscv@lists.infradead.org>; Wed, 11 Dec 2024 14:15:04 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=dabbelt-com.20230601.gappssmtp.com; s=20230601; t=1733954398; x=1734559198; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:to:from:cc
-         :in-reply-to:subject:date:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=ysfEfMkRShl7ZQ6rcvjQZizTooHGsZAtmuWoKudrSMo=;
-        b=S51ZLXpBtdfE2nzj3rWO/vPPpor1BlcbWJOCmNBnMvXPoE54qGDw5zB+KIixEP04Uu
-         DcNVSSHv/LJPO3RfbqgC9bGskNpQFjo91zr5O9sWRnZ1ccPT0lZ+ZjZyQb7AE1NDC/1H
-         /1uoQ/3rMopxKtON1h0/2/5NsMF4kvK5sgR8dXlGsByyDwiTrafNVPgy0Il3+Ge4uggX
-         eEjU1JkiKEO2beJrSU3NdgT2vLYijNcfhuPsF1FhVPsHTNxatMV7okg+Q4iPUPff8qMy
-         +x+7GCRoxApmB5SH9t76F/Lkp5Bwd54WCuI1LHApWS3dUbVlG/IDsV8c7CV5d93keBCk
-         55MQ==
+        d=tenstorrent.com; s=google; t=1733955304; x=1734560104; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=L3bvWRkboCH041Q0f62pL6WYiocCI+DadvD/PAjyygU=;
+        b=cSLXoaX5jdk2f7CpmqhjyBFHLn2kjn/q/3p0CwYCOjwUTPEaKQc2Wvr4i4jZUCkVyg
+         1EMUk2RKyAtmhko9tuRbK2Oz7Xpm0HMUuAuB90win1huz2vmeO7TgHY3uG2EmhSgwDRa
+         R2bcZnAqlJuzG5e2KMlRKeSd1SdjLLETzX7iMw3YwWzMClAjVPUEffhUrVke0ufXjYii
+         mDGCMWOaNNBTQZmIRnlCRDu//bJahhlITDHIkFmkDh4klRXOVyDDjhsff3z82F994opq
+         u+34rjZRPJI5icMzv4QujvMxlTVx7AVRfIPDtvDqjvJWY5UqXbbCdP+A6Xjnq4wfYpYb
+         Yz8w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1733954398; x=1734559198;
-        h=content-transfer-encoding:mime-version:message-id:to:from:cc
-         :in-reply-to:subject:date:x-gm-message-state:from:to:cc:subject:date
+        d=1e100.net; s=20230601; t=1733955304; x=1734560104;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=ysfEfMkRShl7ZQ6rcvjQZizTooHGsZAtmuWoKudrSMo=;
-        b=tkR1zuXbaJA43rui6xHpp6UmgEJJ8IUcJ6DSIb1JijWwDmUkngPwkQkGdnSKOBDHdg
-         cqgsVYsKkmtmSmblKDQKyajJNnc0LzZdjgjw20YfuQjUH08pTFoMMvPpNabyhmQ4oQ3P
-         ZpAjWasnshD1dWFdWu8aPL+EPqEuEpVlSlHSPW4eA1Lc1XErTSF4+XvIaj6gMWoN/6Qw
-         44zIO+7M8WhzAdoOIZ61ysXUnDlB39x9+TZlM2ou9CyIWfRxONJIkGIEwpdX+Gv7vPps
-         sCptywSi8whveXMN7sqEo8MOZ5xG4s+tQpmHEVycA7pvEGifkjLfy6HwckzgJmjY/6Th
-         dEvA==
-X-Forwarded-Encrypted: i=1; AJvYcCVBTouadGmoIPgpe4yeVuQhqIOOmx/y5Ggi0YA4EaZO/VC1SJZc1XFzRokuWKKFJNMorHn8X6a29DkPmQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0YzMe+LeboZOpNYaLcuWlGoFshUNvJB5hyz7Hla1Cm/VHHzXjyw4
-	qelWLeY4K8SevhKEm5pF8LoNfnSdMtv5MayPhgya5H2WSbjrJhFtghQVVbfArIo=
-X-Gm-Gg: ASbGnctdYxmQHHUlzflSDBsG1PXjxe9uSt7Qo2+Tj4GUH/fqcdkJjuzHnWc+ITBEENf
-	euWCV03sAuUUMZ3FhdHPxE5sOduDLmfEy2wrqNcXM33Xe+BV4Uh0DfTTen+2QSPS18qdgS89sUS
-	07KTK1qbiZVwv8Ti2yHcBC/bLXNYHME88IXTxKyXl3veHY5P3/QodZObALJiqbillUgW3nTfIhV
-	996VQTFH5OHwBl6yeWr8CMrlnP0Kolhzvegvk6gQWC0RwA=
-X-Google-Smtp-Source: AGHT+IEe15JJyYKtkAHuxohnoY6qiZwwCLJ+yMJNp2SXyg2ac68X6HXMty2F6N0NtFrMS07/og1DhQ==
-X-Received: by 2002:a05:6a20:cc0a:b0:1e1:cd9c:3775 with SMTP id adf61e73a8af0-1e1cea981c0mr1154087637.12.1733954398333;
-        Wed, 11 Dec 2024 13:59:58 -0800 (PST)
-Received: from localhost ([50.145.13.30])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-725cf9f681esm8213135b3a.98.2024.12.11.13.59.57
+        bh=L3bvWRkboCH041Q0f62pL6WYiocCI+DadvD/PAjyygU=;
+        b=pBE5cXvsANhHqW9G4jp8GDcBCzNgXZsVzlgTPkNsKArnXA4iiW/GZNTYikkNIBg8nj
+         t1AX6RKtCYr4bS04wfD2dEHabfVK2vMXNQjW4b1fmd6b1+2TfMVzFqvETcC7X3tv4FzD
+         cKX3EYPYGJtsnvIQPi29vYSzOPfI7Kc6HcvzVjnLXyJqbaaYLWCT8GEF0mYbDWR31by6
+         NtFe4UHk8NIVN6D0tEeYIJtA2kTxgseIJuQ7xfdkNUGt58aY/m8cx0LJkny7KfoeBUvH
+         Qvg6INW3gsOf1DL3OBfiWJpTW5luTFBaNB6Vph2xd83ZhB+RT2+z2r5iVGTCCZ16lAxl
+         fu4Q==
+X-Forwarded-Encrypted: i=1; AJvYcCX8BD423oFvRIwgJOPQldbd6rn5hdm4/whDeyk8mEJCPo9qUBS6ZBwe0Z4Gru8ObgVMx2asaq0viIrGAQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0YwDOgLLHavHKiaquTrU9kIV/OMGClM/wIQ9TU/G4I8ul1U66b/g
+	ObUHmmgHH51ur09F5KTfrue29gdwt7Wrz1YeqLg2oltJ/Qxuobh4Nte4xbwgBww=
+X-Gm-Gg: ASbGncsqFQtB6aUBPNSUulCFGLRAPSb4SQgB4+qeJKZBL8swaEEbcAgasQJ8yp8tAEJ
+	2O+LZWvyqMnJFe2z6Dk5OD9vCAHrD/n8ZPXe+qNavBpz0xeCFVBmpDljoYyjilOM5YpAS82rabO
+	MpxwySmvWWpdijFw4qR0wd9Y8OUuLtxtmddFiYkNekPvGnM2qQkXqCfYTNSNJ2QiBrOPIRyLftV
+	8AsKIbAaw6RJFEjWbBxpo1OB2lDp3t16E6GaqqxHd9EJtfkMsscaY3huPhr73jOcdAiIOEWLttc
+	MQ==
+X-Google-Smtp-Source: AGHT+IEb6jrcS620SuawsDm8dcAts71In8z21uu+C1uHb7i7S2+w4kvORWkHg4Zn3dKoRKn7AByUgQ==
+X-Received: by 2002:a17:90b:4b01:b0:2ee:863e:9fff with SMTP id 98e67ed59e1d1-2f127fa5c8emr7725668a91.10.1733955303743;
+        Wed, 11 Dec 2024 14:15:03 -0800 (PST)
+Received: from x1 (75-164-218-15.ptld.qwest.net. [75.164.218.15])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-2f12d32170dsm1630237a91.46.2024.12.11.14.15.03
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 11 Dec 2024 13:59:57 -0800 (PST)
-Date: Wed, 11 Dec 2024 13:59:57 -0800 (PST)
-X-Google-Original-Date: Wed, 11 Dec 2024 13:59:56 PST (-0800)
-Subject: Re: [RESEND PATCH] riscv: Fixup boot failure when CONFIG_DEBUG_RT_MUTEXES=y
-In-Reply-To: <7e93d7a9-caa8-40c4-997a-d96ad94dbe94@ghiti.fr>
-CC: guoren@kernel.org, Paul Walmsley <paul.walmsley@sifive.com>,
-  Bjorn Topel <bjorn@rivosinc.com>, Conor Dooley <conor@kernel.org>, leobras@redhat.com, peterz@infradead.org,
-  parri.andrea@gmail.com, Will Deacon <will@kernel.org>, longman@redhat.com, boqun.feng@gmail.com,
-  Arnd Bergmann <arnd@arndb.de>, alexghiti@rivosinc.com, linux-riscv@lists.infradead.org,
-  linux-kernel@vger.kernel.org, guoren@linux.alibaba.com
-From: Palmer Dabbelt <palmer@dabbelt.com>
-To: alex@ghiti.fr
-Message-ID: <mhng-a0dbdedc-aed2-4dc3-b556-3a81530e7ec4@palmer-ri-x1c9a>
-Mime-Version: 1.0 (MHng)
+        Wed, 11 Dec 2024 14:15:03 -0800 (PST)
+Date: Wed, 11 Dec 2024 14:15:01 -0800
+From: Drew Fustini <dfustini@tenstorrent.com>
+To: Michal Wilczynski <m.wilczynski@samsung.com>
+Cc: drew@pdp7.com, guoren@kernel.org, wefu@redhat.com,
+	jassisinghbrar@gmail.com, robh@kernel.org, krzk+dt@kernel.org,
+	conor+dt@kernel.org, paul.walmsley@sifive.com, palmer@dabbelt.com,
+	aou@eecs.berkeley.edu, m.szyprowski@samsung.com,
+	samuel.holland@sifive.com, emil.renner.berthing@canonical.com,
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org, christophe.jaillet@wanadoo.fr
+Subject: Re: [PATCH v6 3/3] riscv: dts: thead: Add mailbox node
+Message-ID: <Z1oO5ewIOMFco4KI@x1>
+References: <20241104100734.1276116-1-m.wilczynski@samsung.com>
+ <CGME20241104100801eucas1p27cd0d7b9b5b4500604470664884c42fb@eucas1p2.samsung.com>
+ <20241104100734.1276116-4-m.wilczynski@samsung.com>
+MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20241104100734.1276116-4-m.wilczynski@samsung.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241211_135959_251026_47E9921D 
-X-CRM114-Status: GOOD (  27.74  )
+X-CRM114-CacheID: sfid-20241211_141504_508590_CFD828AE 
+X-CRM114-Status: GOOD (  13.66  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,119 +99,60 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, 04 Dec 2024 00:27:00 PST (-0800), alex@ghiti.fr wrote:
-> Hi Guo,
->
-> On 30/11/2024 16:33, guoren@kernel.org wrote:
->> From: Guo Ren <guoren@linux.alibaba.com>
->>
->> When CONFIG_DEBUG_RT_MUTEXES=y, mutex_lock->rt_mutex_try_acquire
->> would change from rt_mutex_cmpxchg_acquire to
->> rt_mutex_slowtrylock():
->> 	raw_spin_lock_irqsave(&lock->wait_lock, flags);
->> 	ret = __rt_mutex_slowtrylock(lock);
->> 	raw_spin_unlock_irqrestore(&lock->wait_lock, flags);
->>
->> Because queued_spin_#ops to ticket_#ops is changed one by one by
->> jump_label, raw_spin_lock/unlock would cause a deadlock during the
->> changing.
->>
->> That means in arch/riscv/kernel/jump_label.c:
->> 1.
->> arch_jump_label_transform_queue() ->
->> mutex_lock(&text_mutex); +-> raw_spin_lock  -> queued_spin_lock
->> 			 |-> raw_spin_unlock -> queued_spin_unlock
->> patch_insn_write -> change the raw_spin_lock to ticket_lock
->> mutex_unlock(&text_mutex);
->> ...
->>
->> 2. /* Dirty the lock value */
->> arch_jump_label_transform_queue() ->
->> mutex_lock(&text_mutex); +-> raw_spin_lock -> *ticket_lock*
->>                           |-> raw_spin_unlock -> *queued_spin_unlock*
->> 			  /* BUG: ticket_lock with queued_spin_unlock */
->> patch_insn_write  ->  change the raw_spin_unlock to ticket_unlock
->> mutex_unlock(&text_mutex);
->> ...
->>
->> 3. /* Dead lock */
->> arch_jump_label_transform_queue() ->
->> mutex_lock(&text_mutex); +-> raw_spin_lock -> ticket_lock /* deadlock! */
->>                           |-> raw_spin_unlock -> ticket_unlock
->> patch_insn_write -> change other raw_spin_#op -> ticket_#op
->> mutex_unlock(&text_mutex);
->>
->> So, the solution is to disable mutex usage of
->> arch_jump_label_transform_queue() during early_boot_irqs_disabled, just
->> like we have done for stop_machine.
->>
->> Reported-by: Conor Dooley <conor@kernel.org>
->> Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
->> Signed-off-by: Guo Ren <guoren@kernel.org>
->> Fixes: ab83647fadae ("riscv: Add qspinlock support")
->> Link: https://lore.kernel.org/linux-riscv/CAJF2gTQwYTGinBmCSgVUoPv0_q4EPt_+WiyfUA1HViAKgUzxAg@mail.gmail.com/T/#mf488e6347817fca03bb93a7d34df33d8615b3775
->> Cc: Palmer Dabbelt <palmer@dabbelt.com>
->> Cc: Alexandre Ghiti <alexghiti@rivosinc.com>
->> ---
->>   arch/riscv/kernel/jump_label.c | 12 +++++++++---
->>   1 file changed, 9 insertions(+), 3 deletions(-)
->>
->> diff --git a/arch/riscv/kernel/jump_label.c b/arch/riscv/kernel/jump_label.c
->> index 6eee6f736f68..654ed159c830 100644
->> --- a/arch/riscv/kernel/jump_label.c
->> +++ b/arch/riscv/kernel/jump_label.c
->> @@ -36,9 +36,15 @@ bool arch_jump_label_transform_queue(struct jump_entry *entry,
->>   		insn = RISCV_INSN_NOP;
->>   	}
->>
->> -	mutex_lock(&text_mutex);
->> -	patch_insn_write(addr, &insn, sizeof(insn));
->> -	mutex_unlock(&text_mutex);
->> +	if (early_boot_irqs_disabled) {
->> +		riscv_patch_in_stop_machine = 1;
->> +		patch_insn_write(addr, &insn, sizeof(insn));
->> +		riscv_patch_in_stop_machine = 0;
->> +	} else {
->> +		mutex_lock(&text_mutex);
->> +		patch_insn_write(addr, &insn, sizeof(insn));
->> +		mutex_unlock(&text_mutex);
->> +	}
->>
->>   	return true;
->>   }
->
->
-> Sorry for the late answer, I've been sick lately!
+On Mon, Nov 04, 2024 at 11:07:34AM +0100, Michal Wilczynski wrote:
+> Add mailbox device tree node. This work is based on the vendor kernel [1].
+> 
+> Link: https://github.com/revyos/thead-kernel.git [1]
+> 
+> Signed-off-by: Michal Wilczynski <m.wilczynski@samsung.com>
+> ---
+>  arch/riscv/boot/dts/thead/th1520.dtsi | 16 ++++++++++++++++
+>  1 file changed, 16 insertions(+)
+> 
+> diff --git a/arch/riscv/boot/dts/thead/th1520.dtsi b/arch/riscv/boot/dts/thead/th1520.dtsi
+> index 6992060e6a54..89de5634d3d3 100644
+> --- a/arch/riscv/boot/dts/thead/th1520.dtsi
+> +++ b/arch/riscv/boot/dts/thead/th1520.dtsi
+> @@ -520,6 +520,22 @@ timer7: timer@ffffc3303c {
+>  			status = "disabled";
+>  		};
+>  
+> +		mbox_910t: mailbox@ffffc38000 {
+> +			compatible = "thead,th1520-mbox";
+> +			reg = <0xff 0xffc38000 0x0 0x6000>,
+> +			      <0xff 0xffc40000 0x0 0x6000>,
+> +			      <0xff 0xffc4c000 0x0 0x2000>,
+> +			      <0xff 0xffc54000 0x0 0x2000>;
+> +			reg-names = "local", "remote-icu0", "remote-icu1", "remote-icu2";
+> +			clocks = <&clk CLK_MBOX0>, <&clk CLK_MBOX1>, <&clk CLK_MBOX2>,
+> +				 <&clk CLK_MBOX3>;
+> +			clock-names = "clk-local", "clk-remote-icu0", "clk-remote-icu1",
+> +				      "clk-remote-icu2";
+> +			interrupt-parent = <&plic>;
+> +			interrupts = <28 IRQ_TYPE_LEVEL_HIGH>;
+> +			#mbox-cells = <1>;
+> +		};
+> +
+>  		ao_gpio0: gpio@fffff41000 {
+>  			compatible = "snps,dw-apb-gpio";
+>  			reg = <0xff 0xfff41000 0x0 0x1000>;
+> -- 
+> 2.34.1
+> 
 
-Ya, I was also sick -- bad timing.
+Reviewed-by: Drew Fustini <dfustini@tenstorrent.com>
 
-> Thank you very much for looking into this and finding this not-so-bad
-> solution! I remind everyone that this is a temporary solution until we
-> can use an alternative instead of a static key.
->
-> You can add:
->
-> Reviewed-by: Alexandre Ghiti <alexghiti@rivosinc.com>
-> Tested-by: Alexandre Ghiti <alexghiti@rivosinc.com>
->
-> The revert is still on the table IMO, let's Palmer decide.
+dt_binding_check and dtbs_check are clean when I apply this patch to
+v6.13-rc1. There is trivial conflict due to the gpio node label having
+changed. I'll resolve it when I apply the patch to thead-dt-for-next.
 
-IMO it's fine to just take this as a fix.  Reverting stuff is always a 
-nice big hammer to have if we don't get a fix in a reasonable timeframe, 
-but with a fix avaliable in the time I was out sick anyway I think it's 
-fine to just take this.
-
-So I've got it queued up on fixes.
-
-> Thank you again Guo, really appreciate you took the time to find this
-> solution!
->
-> Alex
+Thanks,
+Drew
 
 _______________________________________________
 linux-riscv mailing list
