@@ -4,62 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D6299E77182
-	for <linux-riscv@archiver.kernel.org>; Wed, 11 Dec 2024 22:33:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 999E8E7717D
+	for <linux-riscv@archiver.kernel.org>; Wed, 11 Dec 2024 22:36:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
 	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=9kbdxBHkgfgoKSuW4j4Wpo5bcdjWh9rVG1IDPBSJsXM=; b=4TYuIafs+fcJkO
-	OhFK8jum0IOlpza/nCsXcg3YekO7vAA2RArsPOLelXQlGgsa2p7X/HARMhTEX8c8MZDAKgWiv+YWn
-	ReVR7CNeAOCsIJ52RErRnvjgcOy5cniz+EyxtWAMw1r9frwmDfIwFAFRb3pFHX1tuc8T5jSpVAd+d
-	WPqc3Pn+ZBbkyZ/mBR176uwnb8lQ6vlhkgfWZYOjL1ndyW5o+btu08m/RO82CsXZYoysNOFDpCoc8
-	7957L+5ISCCN4sFPs53kgsjcESACLl7kopKihRoY8AnqF5z4z+r+Sn1IUppAZKlvINqHKpr72cKOm
-	9SE8M3nxBJn1HK7IDriw==;
+	List-Owner; bh=QteCaRm2m5rGIIXeLyuNtfluXPPi/YoeP3OfUae00e0=; b=JNi4a8f4doGkp2
+	oQEVu+bJ9ZegEqQSMJUXdvxooSIaCnNSKAO8Z9WQei/biRK2qY6dHYDGUPtOXPcsGoYiRnC2gYLNg
+	V7gAWesbq6FvwE7a+LThOqCRUjew/25UNDJgtWu82mFZc6D3TPY1U6Rt59L3My+hrqKBzZXsOxmYk
+	HhSKYnW8cHtXqYkONzxRmsGCUSDoasCjAV7GY5aXJY1i0IeAdisbLZkC5zWsNZNigVgTg+zjP0H9R
+	stZRaxsnsMKFyMZNd3hsurvoRpynGi9F+L9YkhYtcbGJ0EEJVVDKam6XyRqVcW1OXzACcG2XPMLh5
+	rlCD2BJyrfs+dmIsIrVw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLVGv-0000000GLIn-1zB9;
-	Wed, 11 Dec 2024 22:33:33 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1tLVJy-0000000GMSL-3FEx;
+	Wed, 11 Dec 2024 22:36:42 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLVFr-0000000GKTz-3sg8
-	for linux-riscv@lists.infradead.org;
-	Wed, 11 Dec 2024 22:32:29 +0000
+	id 1tLVFw-0000000GKW6-1mz2;
+	Wed, 11 Dec 2024 22:32:33 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 05DCE5C678F;
-	Wed, 11 Dec 2024 22:31:45 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 28CD1C4CED2;
-	Wed, 11 Dec 2024 22:32:27 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 820405C67EF;
+	Wed, 11 Dec 2024 22:31:49 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A31DDC4CED3;
+	Wed, 11 Dec 2024 22:32:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1733956347;
-	bh=u4gaXs5sosKWY77rmkfUwUca79BA3tp4W9GgBMx4WJM=;
+	s=k20201202; t=1733956351;
+	bh=k0MtyxDbbtsm27qvkqsKV+jrSIBDfJRGa0WHRKH9KWs=;
 	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=mt21d5jKVhkwSjxHePxlM4O/zLpsGeiRd5tjyK2pX0BJTm98heLfhm4LJOYBbfwZa
-	 atA+ZiFZbqY75h4AxHIgC/2D/ZDPVaj88Q1VIPtRxek+GeuHfna2eGz2IcTu7E2bjF
-	 y+8Y/884d5ESblaH6xap/fCr939WefZ6WXlf3u2jHPjxUjx0H6/BcBNZYsujX1rhDZ
-	 rsTDJm+pOrnde3dqEJnLiOkbyX+OwHMfU3XQn3f+uTAfMXXMKEt8ozQzF8UdLES1WW
-	 E07AquHPMxaLvuLu+zuiGq5SPDEJll7lePXJFRX+UNYglftZp2s4gTIYeuYtmaZ8Zx
-	 Uw+ir5YffFaMw==
+	b=nPOtlX5TKBph2olV5g0D84w7BiGXyaTzX/kmSl/KB3xl8BPQoIcxG64kiVppaKWV6
+	 UuVYIQk2nmWnJhIowxxs3i7Ezo4bFvlmC27nFpPkM/jb80vyzHBEMsDiWlhHJUBmrV
+	 E4nuPLnavEZNBvgxCnxSG/erFAKypXE58/ddSXOGTSgdiPaf+RxWJKbmenqt6qmjdG
+	 RpQEsDlCvg4cySX8p8aQt/+bGgUkkoqZuHIfhgpxn+qXexNXcqJewICJNI3vp9PVla
+	 22tDI2SHe01OOAbfoiss8OadArWzPpX9wRC6bdennXUaIn34M8kF/jHgNGbizmzpuY
+	 lZsn8ISnWGPaw==
 Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 70A6C380A965;
-	Wed, 11 Dec 2024 22:32:44 +0000 (UTC)
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id EAEED380A965;
+	Wed, 11 Dec 2024 22:32:48 +0000 (UTC)
 MIME-Version: 1.0
-Subject: Re: [PATCH v4] pinctrl: k210: Undef K210_PC_DEFAULT
+Subject: Re: [PATCH v2] of/fdt: add dt_phys arg to early_init_dt_scan and
+ early_init_dt_verify
 From: patchwork-bot+linux-riscv@kernel.org
-Message-Id: <173395636298.1729195.9726718788225234944.git-patchwork-notify@kernel.org>
-Date: Wed, 11 Dec 2024 22:32:42 +0000
-References: <20241113071201.5440-1-zhangjiao2@cmss.chinamobile.com>
-In-Reply-To: <20241113071201.5440-1-zhangjiao2@cmss.chinamobile.com>
-To: zhangjiao2 <zhangjiao2@cmss.chinamobile.com>
-Cc: linux-riscv@lists.infradead.org, dlemoal@kernel.org,
- linus.walleij@linaro.org, linux-gpio@vger.kernel.org,
- linux-kernel@vger.kernel.org
+Message-Id: <173395636750.1729195.6853192666319119853.git-patchwork-notify@kernel.org>
+Date: Wed, 11 Dec 2024 22:32:47 +0000
+References: <20241023171426.452688-1-usamaarif642@gmail.com>
+In-Reply-To: <20241023171426.452688-1-usamaarif642@gmail.com>
+To: Usama Arif <usamaarif642@gmail.com>
+Cc: linux-riscv@lists.infradead.org, robh@kernel.org, mark.rutland@arm.com,
+ will@kernel.org, leitao@debian.org, catalin.marinas@arm.com,
+ tglx@linutronix.de, chris@zankel.net, saravanak@google.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ devicetree@vger.kernel.org, kexec@lists.infradead.org,
+ loongarch@lists.linux.dev, linux-sh@vger.kernel.org,
+ linuxppc-dev@lists.ozlabs.org, linux-openrisc@vger.kernel.org,
+ linux-mips@vger.kernel.org, linux-csky@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241211_143228_009941_3C86F35E 
-X-CRM114-Status: UNSURE (   7.75  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241211_143232_514575_AC832EAE 
+X-CRM114-Status: GOOD (  10.69  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,24 +83,25 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 Hello:
 
 This patch was applied to riscv/linux.git (fixes)
-by Linus Walleij <linus.walleij@linaro.org>:
+by Rob Herring (Arm) <robh@kernel.org>:
 
-On Wed, 13 Nov 2024 15:12:01 +0800 you wrote:
-> From: zhang jiao <zhangjiao2@cmss.chinamobile.com>
+On Wed, 23 Oct 2024 18:14:26 +0100 you wrote:
+> __pa() is only intended to be used for linear map addresses and using
+> it for initial_boot_params which is in fixmap for arm64 will give an
+> incorrect value. Hence save the physical address when it is known at
+> boot time when calling early_init_dt_scan for arm64 and use it at kexec
+> time instead of converting the virtual address using __pa().
 > 
-> When the temporary macro K210_PC_DEFAULT is not needed anymore,
-> use its name in the #undef statement instead of
-> the incorrect "DEFAULT" name.
-> 
-> Fixes: d4c34d09ab03 ("pinctrl: Add RISC-V Canaan Kendryte K210 FPIOA driver")
-> Signed-off-by: zhang jiao <zhangjiao2@cmss.chinamobile.com>
-> Reviewed-by: Damien Le Moal <dlemoal@kernel.org>
+> Reported-by: Breno Leitao <leitao@debian.org>
+> Suggested-by: Mark Rutland <mark.rutland@arm.com>
+> Signed-off-by: Usama Arif <usamaarif642@gmail.com>
+> Fixes: ac10be5cdbfa ("arm64: Use common of_kexec_alloc_and_setup_fdt()")
 > 
 > [...]
 
 Here is the summary with links:
-  - [v4] pinctrl: k210: Undef K210_PC_DEFAULT
-    https://git.kernel.org/riscv/c/7e86490c5dee
+  - [v2] of/fdt: add dt_phys arg to early_init_dt_scan and early_init_dt_verify
+    https://git.kernel.org/riscv/c/b2473a359763
 
 You are awesome, thank you!
 -- 
