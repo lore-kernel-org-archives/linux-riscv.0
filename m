@@ -4,64 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 089CFE77182
-	for <linux-riscv@archiver.kernel.org>; Wed, 11 Dec 2024 23:45:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11E88E77182
+	for <linux-riscv@archiver.kernel.org>; Wed, 11 Dec 2024 23:45:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
 	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=nOYQehJYst1VY+YWISN9BjNPtTGlUHT0hFg7XpD0h0M=; b=LOv4lcoeEzRcJS
-	65N/dcx7zXkna9skEDlIrJHu6KEKlp0D+W70XEn0YtAo2wsX4p1x/9zm0PxEoR+LL+ZEZ8am6CSHX
-	WwTd6N0YKL6pumIpjDOE2eVtw3GyMWIWoh/+qYWwRIBNc1JjTMl71kLi+TsiUA8qjcNCPaUWaU30g
-	bO4GOoGY027z4C67oldyPgZRd44KbyuuIiEmsTBvFHLP09ZEr9rzKl5vK5d5rdDSK1lU6ypvqtdon
-	xapHlz46jmz6jDF0fXc0LWpZkjNiFCZFJ6GQrZcR4qi1PsuvrmNmFOHZfRQ68t4pyZaSNm1RJCX5h
-	DXi5J2bHBO++ETIhasEA==;
+	List-Owner; bh=O88WmxKk/Mcva/Dt1byvqfjqhFpKd9KPITAR1LfOVUI=; b=A4ArmvJS1s6Q+0
+	Sv6oMB2mVVLu3/Zj6Nnju2oemgu7UOr5xZuc7RYDocLNY0NfPhA524scVpqOAuUvvOaKD4iAb+Aii
+	KgDGBV5HntXEzIyOCtorBleqzHgBWRJ0YHa6CGF50K0gOFoATqs6YQfQciUf6aWcMm6AyROWNLjo/
+	FfjP/GaEWaTg6JDpTrHvLUV94Ljdlvz+nPGVTlaj/Ws6EZb9cR0l0sPAssLReJouqpZbEKJAEpLMp
+	6J61FpZiWVAL1ZFoB8PiEYRTyjTvl50OGQsOyHQsTAWkrExvPY+jwjwlmoXtQmuIpMOBcO778vwvt
+	xNNITBv7YZrybqZb4GEQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLWOh-0000000GWqa-0ODO;
-	Wed, 11 Dec 2024 23:45:39 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1tLWOj-0000000GWu1-0p1q;
+	Wed, 11 Dec 2024 23:45:41 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLVGP-0000000GKu7-0s9D
-	for linux-riscv@lists.infradead.org;
-	Wed, 11 Dec 2024 22:33:02 +0000
+	id 1tLVGQ-0000000GKv9-3Pyy;
+	Wed, 11 Dec 2024 22:33:04 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 4885B5C67EA;
-	Wed, 11 Dec 2024 22:32:18 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 690E8C4CED2;
-	Wed, 11 Dec 2024 22:33:00 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id B4C0CA41B16;
+	Wed, 11 Dec 2024 22:31:10 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A92BFC4CED2;
+	Wed, 11 Dec 2024 22:33:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1733956380;
-	bh=+r7obNnqA7SvuvQvjFDZpPRvtSWlHovJxu+KW41vPZM=;
+	s=k20201202; t=1733956381;
+	bh=22J+gOpjU9cUBjJTCfbYoXOQOQ02vFL/kmDAmitv0Oc=;
 	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=sX1m5oM/pt2uCA/7BkmXCnUscvWJ5y3EA8oKefUedT6RK15/amkrFVM8gBfk/6KLf
-	 mnqMHyVprwVj7gR68d4volCH41ZxgqcNkznOxs9MYOuUALZ6zsCUvE4G/Nh+Mo2xjJ
-	 H4NqjsDwBrECVZK2pOtU0XccNhUZ97KkO83HSNXtOKoE2K98HiFw1yxDU5JisZgblD
-	 1IntGnIiiN/GchHIRfSlOSwsDvz2tAzi/4ydENFBvuKKDAHKjjNT1kIEIsLnZenexS
-	 O/cnCqNLQYZAbx+jK9gB9IIctJmPYdYjfxIm0eA6B9cgH+HH8LomsFIEVXrJTNjapc
-	 /xVwRBhDnzu7g==
+	b=nWKDnM8zbcIF2djxC8fiOIOI3aUWr7TPAJCWU7ymE3mh5w2HYnJyAIXKcD5Z/72Ik
+	 RXR4O9F/aU40PoBXvJ7XQXthLV2s4bsqOgfr50SDKFPRdnN9Us4sRkg4wVPA1v1sWs
+	 kmuwkRDqP/9t5kMphxqk619d2ax7wRCqOpRNHKzjgvwJVCBNZYsBwGByJZh6bRNViD
+	 yrqc1wHdhtHkBz1Bsd0sAtAVRFHXuN3A8nyxlLFqzm4TGzLspNaCqc2nuGjGhk5Ngr
+	 pRCorRCtj+x28DI2Z1vxcZ2g3p4dEWd2sTvDRfb/s5xPU/4+C8mw0GfDgU2OE3HHnZ
+	 3Ww2yKRibpabg==
 Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id ADE39380A965;
-	Wed, 11 Dec 2024 22:33:17 +0000 (UTC)
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id EACB2380A965;
+	Wed, 11 Dec 2024 22:33:18 +0000 (UTC)
 MIME-Version: 1.0
-Subject: Re: [PATCH] dt-bindings: pinctrl: correct typo of description for cv1800
+Subject: Re: [PATCH v2 0/2] ftrace: Make ftrace_regs abstract and consolidate code
 From: patchwork-bot+linux-riscv@kernel.org
-Message-Id: <173395639623.1729195.12285623767079173929.git-patchwork-notify@kernel.org>
-Date: Wed, 11 Dec 2024 22:33:16 +0000
-References: <20241029012312.3448287-1-unicornxw@gmail.com>
-In-Reply-To: <20241029012312.3448287-1-unicornxw@gmail.com>
-To: Chen Wang <unicornxw@gmail.com>
-Cc: linux-riscv@lists.infradead.org, linus.walleij@linaro.org,
- robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
- inochiama@outlook.com, linux-gpio@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- unicorn_wang@outlook.com
+Message-Id: <173395639774.1729195.5975449690225774291.git-patchwork-notify@kernel.org>
+Date: Wed, 11 Dec 2024 22:33:17 +0000
+References: <20241008230527.674939311@goodmis.org>
+In-Reply-To: <20241008230527.674939311@goodmis.org>
+To: Steven Rostedt <rostedt@goodmis.org>
+Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-trace-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ loongarch@lists.linux.dev, linuxppc-dev@lists.ozlabs.org,
+ linux-s390@vger.kernel.org, linux-arch@vger.kernel.org, x86@kernel.org,
+ mhiramat@kernel.org, mathieu.desnoyers@efficios.com, mark.rutland@arm.com,
+ catalin.marinas@arm.com, will@kernel.org, chenhuacai@kernel.org,
+ kernel@xen0n.name, mpe@ellerman.id.au, npiggin@gmail.com,
+ christophe.leroy@csgroup.eu, naveen@kernel.org, maddy@linux.ibm.com,
+ paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
+ hca@linux.ibm.com, gor@linux.ibm.com, agordeev@linux.ibm.com,
+ borntraeger@linux.ibm.com, svens@linux.ibm.com, tglx@linutronix.de,
+ mingo@kernel.org, bp@alien8.de, dave.hansen@linux.intel.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241211_143301_287096_8A4FCC41 
-X-CRM114-Status: UNSURE (   7.92  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241211_143302_918044_0BD22DF1 
+X-CRM114-Status: GOOD (  12.65  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,23 +85,29 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 Hello:
 
-This patch was applied to riscv/linux.git (fixes)
-by Linus Walleij <linus.walleij@linaro.org>:
+This series was applied to riscv/linux.git (fixes)
+by Steven Rostedt (Google) <rostedt@goodmis.org>:
 
-On Tue, 29 Oct 2024 09:23:12 +0800 you wrote:
-> From: Chen Wang <unicorn_wang@outlook.com>
+On Tue, 08 Oct 2024 19:05:27 -0400 you wrote:
+> This is based on:
 > 
-> It should be PINMUX/PINMUX2, not GPIOMUX/GPIOMUX2, see
-> <dt-bindings/pinctrl/pinctrl-cv1800b.h>.
+>   https://git.kernel.org/pub/scm/linux/kernel/git/trace/linux-trace.git/
+>      ftrace/for-next
 > 
-> Fixes: 64aa494de6fa ("dt-bindings: pinctrl: Add pinctrl for Sophgo CV1800 series SoC.")
-> Signed-off-by: Chen Wang <unicorn_wang@outlook.com>
+> ftrace_regs was created to hold registers that store information to save
+> function parameters, return value and stack. Since it is a subset of
+> pt_regs, it should only be used by its accessor functions. But because
+> pt_regs can easily be taken from ftrace_regs (on most archs), it is
+> tempting to use it directly. But when running on other architectures, it
+> may fail to build or worse, build but crash the kernel!
 > 
 > [...]
 
 Here is the summary with links:
-  - dt-bindings: pinctrl: correct typo of description for cv1800
-    https://git.kernel.org/riscv/c/4905aa25d31f
+  - [v2,1/2] ftrace: Make ftrace_regs abstract from direct use
+    https://git.kernel.org/riscv/c/7888af4166d4
+  - [v2,2/2] ftrace: Consolidate ftrace_regs accessor functions for archs using pt_regs
+    (no matching commit)
 
 You are awesome, thank you!
 -- 
