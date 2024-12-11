@@ -4,69 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 79CB3E77184
-	for <linux-riscv@archiver.kernel.org>; Wed, 11 Dec 2024 23:45:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DA28BE7717D
+	for <linux-riscv@archiver.kernel.org>; Wed, 11 Dec 2024 23:45:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
 	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=EXzGuNoj76poDBfEyXVkWRjDl1qfg/81Rb6N2gNZT4Q=; b=JhebcFKfinX/jt
-	DTovMvkXHHpdIXUdmptxIAiWUXkCg7Q9st0gUww4b2t5eCDfxVxxIgp/H0kMkGVlKn8SZgTNGDxx2
-	OA3iNY/l3ZqKUnFmH9Q6Efb/IE5oquEUtP1RstAB2OhtKwRvw35T5veIrwaptEExhWPBRFOggIPtJ
-	Ul2pt+ABl9vxyEf8Qgle9y0ruePerViiIdd9g2fu+EoEo9hhNI2/ZBG7CFq5DDACXhPh7EN5UUP+3
-	mpnfc9tHMU0z2Dzb80Bqdb75zP05moa0UI6QDbzTjJ3R22fyGmn9jJzkUD0cPQfGzdVGovW4G52OI
-	6SbWq+PUfPOWQNg2LSLg==;
+	List-Owner; bh=VsFgf5ubVAXqAFMIkTv6mMBxeq9DF9xguzv4IpSJIjU=; b=he3SrS8Qv+6hw2
+	mmoBoL2Qnsenu4dD6hyug0cBpXtxtZf8TBAnh2ZtHyDg1RvAUZ5FvDRW9T53re0ciXxQ0Edygzxrn
+	Atlx4nXQZwjD1ZZHs6dudDgKNWzS1f8NTY2e2+F/bJD8vpG5pbvvSPE6KqQ4HPLpW7oTzRXRWLg9O
+	e1QxBiE8BTUfC9P57vCpR1j2tCRyMDyLU/kNjaEFiO17v8bs3rmr28bA5PhM9CcAP2hFNcoO8ZbXd
+	xq/q3GmQ9XOW9OlzzFp5tWX6UywNvqklXOKa/OIdOuPeXYCh3gsxsdzgebkU1qgXa1ySKjE0X4NR8
+	iGVMxnjhN6tCmjRP6wbw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLWOW-0000000GWb0-1Oqb;
-	Wed, 11 Dec 2024 23:45:28 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tLWOX-0000000GWcn-3hhG;
+	Wed, 11 Dec 2024 23:45:29 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLVFy-0000000GKWy-0NYx;
-	Wed, 11 Dec 2024 22:32:35 +0000
+	id 1tLVG1-0000000GKZS-0FNm
+	for linux-riscv@lists.infradead.org;
+	Wed, 11 Dec 2024 22:32:38 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 0F3C85C67F1;
-	Wed, 11 Dec 2024 22:31:51 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2D537C4CED2;
-	Wed, 11 Dec 2024 22:32:33 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 0967E5C67E2;
+	Wed, 11 Dec 2024 22:31:54 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2B3F6C4CED2;
+	Wed, 11 Dec 2024 22:32:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1733956353;
-	bh=RRuLfKZeC8+vc2RY1vIgr2/93ygrFKjc9DELDSjP76w=;
+	s=k20201202; t=1733956356;
+	bh=R/piOYxV7yarX3+ioC7AI5Ae+G1cK9j4iXrTWmCNeAU=;
 	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=cdV8cioAnhLMhQZutiHWY+WBHtcIFtIO7iItL4IlV2Bzx7Yz/2CAAoAyrasboVtnp
-	 xh4aWdm0kZuPQSolZrnbAUGw58tQb9l0Y6cZv6qcNqH8mEbq27Z0Hj5HfIMVysNzfG
-	 bt2GP1vrfXVtkoYpM3nXRqlvBz9JAVp3o9t7nLPrNR/hywSHGgtYtz49Ec8FaDxkXM
-	 Sga9jYw2unkD8pN1JCnG8Za6O16kvgH+Xjjav4mmvgMOyS48Nr/1w81nw8RgHTtPDy
-	 oqPIBVAWpJujhC6gFG/yhxP5XJsGd/+zZ39jvKK7QfWZLenlfexA1w3IMUz2AUcXE8
-	 4fEPvRXqWfT2g==
+	b=mj+xOSeioeKDbSdqGf7D5cWxQNiIVtl7IETIJJK+Mr5SkhgY3mm+EOPmB+a0z7dBz
+	 qNrMjXgWwxB3u9abW369Ms9zhe+peGKYSJLjDF1Z5JyYXRXxOmnwmOlLUBLi360JCe
+	 qgamfxLSrGa98pH6H28pPOBTk5HEOqo+umYvqz0XWFqlWiENDVQY9qCs05xN6cqAaK
+	 oFEnHQ3vYSyZLODCiMjpOKzHE8cGbmYEl8wweOS5jfXTijJD6/+5efD23tkjMH0kIp
+	 zurVJTSSW7qbW9D0LkpoIlMa+c/AAW9zBLnivUed2vUPouh+xI/CBLKJOdBxS8sIeg
+	 MI2Ybwv0kGmNw==
 Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 70D41380A965;
-	Wed, 11 Dec 2024 22:32:50 +0000 (UTC)
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 70B08380A965;
+	Wed, 11 Dec 2024 22:32:53 +0000 (UTC)
 MIME-Version: 1.0
-Subject: Re: [PATCH v2 0/8] Refactor cpuid and metric table lookup code
+Subject: Re: [PATCH V2 0/4] A few fixes for RISC-V
 From: patchwork-bot+linux-riscv@kernel.org
-Message-Id: <173395636900.1729195.10506266683827384224.git-patchwork-notify@kernel.org>
-Date: Wed, 11 Dec 2024 22:32:49 +0000
-References: <20241107162035.52206-1-irogers@google.com>
-In-Reply-To: <20241107162035.52206-1-irogers@google.com>
-To: Ian Rogers <irogers@google.com>
-Cc: linux-riscv@lists.infradead.org, john.g.garry@oracle.com, will@kernel.org,
- james.clark@linaro.org, mike.leach@linaro.org, leo.yan@linux.dev,
- peterz@infradead.org, mingo@redhat.com, acme@kernel.org, namhyung@kernel.org,
- mark.rutland@arm.com, alexander.shishkin@linux.intel.com, jolsa@kernel.org,
- adrian.hunter@intel.com, kan.liang@linux.intel.com, paul.walmsley@sifive.com,
- palmer@dabbelt.com, aou@eecs.berkeley.edu, chenhuacai@kernel.org,
- maobibo@loongson.cn, atrajeev@linux.vnet.ibm.com, ben717@andestech.com,
- alexghiti@rivosinc.com, sandipan.das@amd.com, bgray@linux.ibm.com,
- xu.yang_2@nxp.com, ravi.bangoria@amd.com, clement.legoffic@foss.st.com,
- yangyicong@hisilicon.com, mhiramat@kernel.org, dima@secretsauce.net,
- linux@treblig.org, linux-arm-kernel@lists.infradead.org,
- linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org
+Message-Id: <173395637198.1729195.13590127218540707757.git-patchwork-notify@kernel.org>
+Date: Wed, 11 Dec 2024 22:32:51 +0000
+References: <20241008094141.549248-1-zhangchunyan@iscas.ac.cn>
+In-Reply-To: <20241008094141.549248-1-zhangchunyan@iscas.ac.cn>
+To: Chunyan Zhang <zhangchunyan@iscas.ac.cn>
+Cc: linux-riscv@lists.infradead.org, palmer@dabbelt.com,
+ akpm@linux-foundation.org, shuah@kernel.org, paul.walmsley@sifive.com,
+ alex@ghiti.fr, charlie@rivosinc.com, linux-mm@kvack.org,
+ linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org,
+ zhang.lyra@gmail.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241211_143234_209761_2367370B 
-X-CRM114-Status: GOOD (  12.11  )
+X-CRM114-CacheID: sfid-20241211_143237_137029_071A738B 
+X-CRM114-Status: UNSURE (   8.24  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,38 +81,31 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 Hello:
 
 This series was applied to riscv/linux.git (fixes)
-by Arnaldo Carvalho de Melo <acme@redhat.com>:
+by Andrew Morton <akpm@linux-foundation.org>:
 
-On Thu,  7 Nov 2024 08:20:27 -0800 you wrote:
-> Xu Yang <xu.yang_2@nxp.com> reported issues with the system metric
-> lookup:
-> https://lore.kernel.org/linux-perf-users/20241106085441.3945502-1-xu.yang_2@nxp.com/
-> These patches remove a lot of the logic relating CPUIDs to PMUs so
-> that the PMU isn't part of the question when finding a metric table.
-> For time reasons, it doesn't go as far as allowing system metrics
-> without a metric table as a metric table is needed for metrics to
-> refer to other metrics, and the refactoring of that resolution is a
-> hassle.
+On Tue,  8 Oct 2024 17:41:37 +0800 you wrote:
+> These patches are all simple fixes with no strong dependency though,
+> I hope that making them a patchset will be more convenient for merge.
+> 
+> The patchset are based on v6.12-rc2.
+> 
+> Chunyan Zhang (4):
+>   riscv: Remove unused GENERATING_ASM_OFFSETS
+>   riscv: Remove duplicated GET_RM
+>   selftest/mm: Fix typo in virtual_address_range
+>   selftests/mm: skip virtual_address_range tests on riscv
 > 
 > [...]
 
 Here is the summary with links:
-  - [v2,1/8] perf jevents: fix breakage when do perf stat on system metric
-    https://git.kernel.org/riscv/c/4a159e6049f3
-  - [v2,2/8] perf header: Move is_cpu_online to numa bench
-    https://git.kernel.org/riscv/c/c6fafe36bab3
-  - [v2,3/8] perf header: Refactor get_cpuid to take a CPU for ARM
-    https://git.kernel.org/riscv/c/cec0d6572a44
-  - [v2,4/8] perf arm64 header: Use cpu argument in get_cpuid
-    https://git.kernel.org/riscv/c/538737da9625
-  - [v2,5/8] perf header: Avoid transitive PMU includes
-    https://git.kernel.org/riscv/c/7463ee17a740
-  - [v2,6/8] perf header: Pass a perf_cpu rather than a PMU to get_cpuid_str
-    https://git.kernel.org/riscv/c/494c403ff159
-  - [v2,7/8] perf jevents: Add map_for_cpu
-    https://git.kernel.org/riscv/c/0434410fa45c
-  - [v2,8/8] perf pmu: Move pmu_metrics_table__find and remove ARM override
-    https://git.kernel.org/riscv/c/8f997865ee9e
+  - [V2,1/4] riscv: Remove unused GENERATING_ASM_OFFSETS
+    (no matching commit)
+  - [V2,2/4] riscv: Remove duplicated GET_RM
+    (no matching commit)
+  - [V2,3/4] selftest/mm: Fix typo in virtual_address_range
+    https://git.kernel.org/riscv/c/e847f8cd96ae
+  - [V2,4/4] selftests/mm: skip virtual_address_range tests on riscv
+    https://git.kernel.org/riscv/c/4175eff0e007
 
 You are awesome, thank you!
 -- 
