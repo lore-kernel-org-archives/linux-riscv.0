@@ -4,62 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D93DFE77183
-	for <linux-riscv@archiver.kernel.org>; Wed, 11 Dec 2024 22:32:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 13DFFE77180
+	for <linux-riscv@archiver.kernel.org>; Wed, 11 Dec 2024 22:32:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
 	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=1UEXDosENarb68OkcOi/tK4ncLpbvx+erw4GguDlONI=; b=Z1sCOhEAiVQtys
-	1NUnYg4qhJAyl02hKEKHvuvRxxVB9EK5x7OyTPeTdbFwfSgGLVFW7Xx0czed8QUt6zotNkKs0hcMP
-	9fZ0RTFgETmT8dbJPpz9QNjh9rHXs5staE6Hlo1Ukk37DHZtIZXQuL6Ke7WJ6gHkSMBhHWHWeQ67i
-	4l33Ng6M+Ka/+w9LWDu/aU6QRbypa4yQsH26w7mwwQupqVWj1isEAWSwcAaTynI7fnrOaUgfOj73j
-	DyXAmoaKvFZ/EArWYMoECbjMObxoHNweaICq/6wAy31VCZmgiskQTll/rI+MCbKIXBmIIvAjpsVlR
-	zYMRYl2ieCXbv3PFGt0g==;
+	List-Owner; bh=5bIzoj5sOv6GiqZLBzkTcfPcPaGvA/I9GiGNIc8mQhI=; b=keprzrNN2zzG4I
+	bNDnZUFeYL14Qdyv5YQeY/8NgFiHsRQeaoltqof0UgipOAICFiDVPQ3o4FAGiWUY3+rKr6DK+6yTo
+	W5iOtiTTjzxobVtZY1D6dFSjYS4mXeUI8t28XSYqd1fV3xqfb5KU2lnA8enhuA6l74Ew6VIVyulsH
+	aeeVpNG/n5hRC1jL0UFV44bNGc1zCSi7/rkBF1U7hJR5l/fE2TC2gdjqbFiBvHw+4plMl+neAsb5x
+	rOjhR7zA2HFsL7v2EBe/qYl/BVSGGnQhkNdNkCS0Dc4FX3JHicbL9TmjdGnPkO5tZmaTp0NgtjVJD
+	x3Hf72q7GgMKC6E+qDrQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLVFf-0000000GKIF-1VZJ;
-	Wed, 11 Dec 2024 22:32:15 +0000
+	id 1tLVFh-0000000GKKR-1h2i;
+	Wed, 11 Dec 2024 22:32:17 +0000
 Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLVFc-0000000GKGk-3iKD
-	for linux-riscv@lists.infradead.org;
-	Wed, 11 Dec 2024 22:32:14 +0000
+	id 1tLVFe-0000000GKHd-2GIr;
+	Wed, 11 Dec 2024 22:32:15 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 81A7F5C67E4;
-	Wed, 11 Dec 2024 22:31:29 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A4454C4CED2;
-	Wed, 11 Dec 2024 22:32:11 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 22C195C67E6;
+	Wed, 11 Dec 2024 22:31:31 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 38846C4CEDD;
+	Wed, 11 Dec 2024 22:32:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1733956331;
-	bh=YitCwK6c+33A6aC+Ygx3OE8d+hQaCuKW3MFcVWF5360=;
+	s=k20201202; t=1733956333;
+	bh=SEo/hZdGOI1Q/CSoVxc2NHBSSqNSaH3b4tjYopKGg5Q=;
 	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=uTGqiXy5bmDgJRGblbXGYidOuhp/B6l9GzJ5CwQc4h89NX0dFGFGNGyNrA8ShzB6y
-	 6RT8dcqVEw1SsssusH27Ml7A/KryBQEuPfbJznOp52WKzE3alcSxFUgeDHI8F+rLT6
-	 wOkne/dlATfk7333bXBjysUA4stsIyDnFqEBWD43Zf99ZlO9R+UFvENwVkvjZ5wODH
-	 ieN7Jx5cicu9C5le0ZhyMjXourWjhhtmOTo0SNsx0j0kXX13WP5DXXcwfH/S00gJ/Z
-	 YA7d3n3kTWyNNmmwcDdmI+4a6g2nIBHa42LyNOefUddswo6iSqQ/jsEWK6u2acokTI
-	 BPXSJf66CMZlQ==
+	b=taXi5zliiFN3KW6tUo9STN8RrcaQwTguLWUw7vOA+mWtVIl/lOqyfp7tYIS/4F3zV
+	 SrlDbBAQw0pq/i+m3XA8S2V5RKELeBAQDrM9ZlzmC5W2t3P2/1WtHs4/RSCdUgq8dQ
+	 mlxsg6YPQmJkBgFPWopn0EvLsIRByEfTZmh5jsblEZTrZHF1YBr1gHB4u8SC/ZnwYc
+	 JJmrOPumN6Bq+UlMa1Yy/gqSPnI2DNXR7U5+yK9MuW0ITZJZ/qhOwGYGwKr3anAyP3
+	 KUBLzQdsNExdAOK6/2U41j0zEPH/NAHyaJyJUiYyz7Ml3I0TkGmyIhQT3WGrG4Z/r4
+	 v9nQIb5qf2Bkg==
 Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id EAFD5380A965;
-	Wed, 11 Dec 2024 22:32:28 +0000 (UTC)
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 70D1D380A965;
+	Wed, 11 Dec 2024 22:32:30 +0000 (UTC)
 MIME-Version: 1.0
-Subject: Re: [PATCH -next] irqchip/sifive-plic: Make use of __assign_bit() API
+Subject: Re: [PATCH v12 0/5] Tracepoints and static branch in Rust
 From: patchwork-bot+linux-riscv@kernel.org
-Message-Id: <173395634775.1729195.14916770545645743784.git-patchwork-notify@kernel.org>
-Date: Wed, 11 Dec 2024 22:32:27 +0000
-References: <20240902130824.2878644-1-lihongbo22@huawei.com>
-In-Reply-To: <20240902130824.2878644-1-lihongbo22@huawei.com>
-To: Hongbo Li <lihongbo22@huawei.com>
-Cc: linux-riscv@lists.infradead.org, tglx@linutronix.de,
- paul.walmsley@sifive.com, samuel.holland@sifive.com,
- linux-kernel@vger.kernel.org
+Message-Id: <173395634899.1729195.7492083712432982213.git-patchwork-notify@kernel.org>
+Date: Wed, 11 Dec 2024 22:32:28 +0000
+References: <20241030-tracepoint-v12-0-eec7f0f8ad22@google.com>
+In-Reply-To: <20241030-tracepoint-v12-0-eec7f0f8ad22@google.com>
+To: Alice Ryhl <aliceryhl@google.com>
+Cc: linux-riscv@lists.infradead.org, rostedt@goodmis.org, mhiramat@kernel.org,
+ mathieu.desnoyers@efficios.com, peterz@infradead.org, jpoimboe@kernel.org,
+ jbaron@akamai.com, ardb@kernel.org, ojeda@kernel.org, alex.gaynor@gmail.com,
+ wedsonaf@gmail.com, boqun.feng@gmail.com, gary@garyguo.net,
+ bjorn3_gh@protonmail.com, benno.lossin@proton.me, a.hindborg@kernel.org,
+ linux-trace-kernel@vger.kernel.org, rust-for-linux@vger.kernel.org,
+ linux-kernel@vger.kernel.org, arnd@arndb.de, linux-arch@vger.kernel.org,
+ tglx@linutronix.de, mingo@redhat.com, bp@alien8.de,
+ dave.hansen@linux.intel.com, x86@kernel.org, hpa@zytor.com,
+ seanjc@google.com, ubizjak@gmail.com, catalin.marinas@arm.com,
+ will@kernel.org, maz@kernel.org, oliver.upton@linux.dev,
+ mark.rutland@arm.com, ryan.roberts@arm.com, tabba@google.com,
+ linux-arm-kernel@lists.infradead.org, paul.walmsley@sifive.com,
+ palmer@dabbelt.com, aou@eecs.berkeley.edu, apatel@ventanamicro.com,
+ ajones@ventanamicro.com, alexghiti@rivosinc.com, conor.dooley@microchip.com,
+ samuel.holland@sifive.com, chenhuacai@kernel.org, kernel@xen0n.name,
+ maobibo@loongson.cn, yangtiezhu@loongson.cn, akpm@linux-foundation.org,
+ zhaotianrui@loongson.cn, loongarch@lists.linux.dev, cmllamas@google.com,
+ palmer@rivosinc.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241211_143212_963953_300D6E97 
-X-CRM114-Status: UNSURE (   6.88  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241211_143214_664023_F9CC5C0F 
+X-CRM114-Status: GOOD (  13.75  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,22 +92,32 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 Hello:
 
-This patch was applied to riscv/linux.git (fixes)
-by Thomas Gleixner <tglx@linutronix.de>:
+This series was applied to riscv/linux.git (fixes)
+by Steven Rostedt (Google) <rostedt@goodmis.org>:
 
-On Mon, 2 Sep 2024 21:08:24 +0800 you wrote:
-> We have for some time the __assign_bit() API to replace
-> open coded
->     if (foo)
->         __set_bit(n, bar);
->     else
->         __clear_bit(n, bar);
+On Wed, 30 Oct 2024 16:04:23 +0000 you wrote:
+> An important part of a production ready Linux kernel driver is
+> tracepoints. So to write production ready Linux kernel drivers in Rust,
+> we must be able to call tracepoints from Rust code. This patch series
+> adds support for calling tracepoints declared in C from Rust.
+> 
+> This series includes a patch that adds a user of tracepoints to the
+> rust_print sample. Please see that sample for details on what is needed
+> to use this feature in Rust code.
 > 
 > [...]
 
 Here is the summary with links:
-  - [-next] irqchip/sifive-plic: Make use of __assign_bit() API
-    https://git.kernel.org/riscv/c/40d7af5375a4
+  - [v12,1/5] rust: add static_branch_unlikely for static_key_false
+    https://git.kernel.org/riscv/c/6e59bcc9c8ad
+  - [v12,2/5] rust: add tracepoint support
+    https://git.kernel.org/riscv/c/ad37bcd965fd
+  - [v12,3/5] rust: samples: add tracepoint to Rust sample
+    https://git.kernel.org/riscv/c/91d39024e1b0
+  - [v12,4/5] jump_label: adjust inline asm to be consistent
+    https://git.kernel.org/riscv/c/aecaf181651c
+  - [v12,5/5] rust: add arch_static_branch
+    https://git.kernel.org/riscv/c/169484ab6677
 
 You are awesome, thank you!
 -- 
