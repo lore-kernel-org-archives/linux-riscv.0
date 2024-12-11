@@ -4,64 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7826E77182
-	for <linux-riscv@archiver.kernel.org>; Wed, 11 Dec 2024 22:38:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3396DE77180
+	for <linux-riscv@archiver.kernel.org>; Wed, 11 Dec 2024 22:40:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
 	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=0ESISa+F6gXNL1Vn9sFeTLqUo3uyYioM4qOvPXF8T30=; b=nU2P+RaoEB+sNW
-	pUUtFTHId1FcHorwhTDkPYvEXUdrF4cUHo8kkickEsPkqhaO79k60HvGJeWcmXTW2sBszPluB7ii3
-	2OX12rWTEM/9DT+Pe0WRVGIohna8q10KArC3v8imkRSE4dP5bdL9zCLoLUMoypYnVG191DfFieLR+
-	3pP+vF2AZlA/Y1LMTwT/T0A9bm5MS0SlGolP1jjnczj+YP/vaapH96fkFibFdyEiQEiwFlN+lrH84
-	A7Nw7WufsrTZCqG4oBSiINv/p//LSs3OVj5Vp1n3bM6ahINWsOzNwe4St+eEwvohcUPHM59VpT2F9
-	dnuM0Bm1SBqJNU4Ma6vQ==;
+	List-Owner; bh=SlPTajXcGCFAYnFE2jrli+NIs8Lr0qUzIr5jlndPFiQ=; b=yaOQqB/J4bXt6+
+	5B6jQtnGiwRch8Zpxy+Co1pXD3hFFxgitrwwqw9oOetxURYUTLkgKlABnT30hNCpZT2vF4eeaYqZ1
+	gqRsX9rMjfgKLsNI9Gre0o8TOy0Lbn7J4sdi17Vu8ojCf4bbw0s2Y6giCB9W2Xjv4+IL5BCY4cjR3
+	P9d9w7XsVflW/cAkyf4nbyxLJBusQH1hAgSne22mwR8eCpD+BNuTj25w2ihmmVuBYv42vPb+bN0jX
+	54kJ1jzwltWT5QEEljRBkjoH8tUCb1Qu92BhwgGF/VIMmJfW2wfUuKvsV4+Loxu83RV/hbXn5b3nT
+	Cm21vrFtnYx286rEoQ3w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLVM3-0000000GMtm-2zhW;
-	Wed, 11 Dec 2024 22:38:51 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1tLVN6-0000000GNOY-0Ol5;
+	Wed, 11 Dec 2024 22:39:56 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLVG9-0000000GKZS-0Yyv
-	for linux-riscv@lists.infradead.org;
-	Wed, 11 Dec 2024 22:32:46 +0000
+	id 1tLVGF-0000000GKm7-1saO;
+	Wed, 11 Dec 2024 22:32:52 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 86A155C67F5;
-	Wed, 11 Dec 2024 22:32:02 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A5D83C4CED3;
-	Wed, 11 Dec 2024 22:32:44 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 3B2BAA41D7A;
+	Wed, 11 Dec 2024 22:30:59 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2FF38C4CEDD;
+	Wed, 11 Dec 2024 22:32:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1733956364;
-	bh=iRwxC1s0tO/FMsHuvL9jXdyPxujIqKEggAX45W0Slqk=;
+	s=k20201202; t=1733956370;
+	bh=HsV2hgf0fbYGgHmLxzKHUU+rPda90YFsJKEFrTRZGjc=;
 	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=gXv2yfYI3u6DpqV1QgWdlFHngfCsoqTqn8qFlW9vmxnxqkmi2e0lXapKqCP1xq6Sq
-	 m27jAoArETLE59h3MnbPfeV3Du7pXd51diP7+E1kuOCkhI7BhHN3DecsGyqg69HYCz
-	 4dtnfhgmCNmsRYRIPBaEYy8l1+tEE1pvCJwTuJ6jZQE2vL5C5Y4TlG7IFgF7jCU0ML
-	 EPY3X047UtqYUWAN70PGlmC02VnScPkoy5P16UdK6QQNkRg9BsWNI2Pw7GnLtv9JBW
-	 l0EMIp8cQD51ifM8V58DpUd37Lm02CBpfUmo+wcLANw+3geztRTyBkXlx98+9U2bsW
-	 EaiC7JsiZtyNQ==
+	b=vOONck9QSCmGFAHL/+qROtp77YjI5J4I/SNx0ir3wUFq4T7bxTbb2voI8ut/Ww9hs
+	 umsbLAHyc22326U3EC8FWHJ3RCF4ulGvVPT8unOrZjZcpbnYzq8lhQ8KZU/C75OtUl
+	 TO35ohplFrGjkcnKUJpkMytFDmtP45NC6yfOPGcqz1mXjqA+0VDaJ219FdT3oRfhjQ
+	 +iTuIQURyuJN/K99Xa7QwlpMG5dyEGecunWyNHIBydjo4JIfHZWyknpdRE7t11ztmj
+	 /DFlKfV5HP6jQUF0INgFoLP6GW3gvNPKM3C4afp9/wcwEriIMhkxgMsNY64t5aAjCO
+	 +zJCDNgxMnL1A==
 Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id EBAA4380A965;
-	Wed, 11 Dec 2024 22:33:01 +0000 (UTC)
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 710F2380A965;
+	Wed, 11 Dec 2024 22:33:07 +0000 (UTC)
 MIME-Version: 1.0
-Subject: Re: [PATCH fixes] riscv: mm: Do not call pmd dtor on vmemmap page table
- teardown
+Subject: Re: [PATCH] firmware: Switch back to struct platform_driver::remove()
 From: patchwork-bot+linux-riscv@kernel.org
-Message-Id: <173395638049.1729195.5190256802330820237.git-patchwork-notify@kernel.org>
-Date: Wed, 11 Dec 2024 22:33:00 +0000
-References: <20241120131203.1859787-1-bjorn@kernel.org>
-In-Reply-To: <20241120131203.1859787-1-bjorn@kernel.org>
-To: =?utf-8?b?QmrDtnJuIFTDtnBlbCA8Ympvcm5Aa2VybmVsLm9yZz4=?=@aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org
-Cc: linux-riscv@lists.infradead.org, alexghiti@rivosinc.com,
- aou@eecs.berkeley.edu, david@redhat.com, palmer@dabbelt.com,
- paul.walmsley@sifive.com, osalvador@suse.de, bjorn@rivosinc.com,
- abrestic@rivosinc.com, linux-kernel@vger.kernel.org, linux-mm@kvack.org,
- virtualization@lists.linux-foundation.org
+Message-Id: <173395638610.1729195.7835904976463124425.git-patchwork-notify@kernel.org>
+Date: Wed, 11 Dec 2024 22:33:06 +0000
+References: <36974feb6035201d53384557259ec72fe311053b.1731397962.git.u.kleine-koenig@baylibre.com>
+In-Reply-To: <36974feb6035201d53384557259ec72fe311053b.1731397962.git.u.kleine-koenig@baylibre.com>
+To: =?utf-8?q?Uwe_Kleine-K=C3=B6nig_=3Cu=2Ekleine-koenig=40baylibre=2Ecom=3E?=@aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org
+Cc: linux-riscv@lists.infradead.org, sudeep.holla@arm.com,
+ cristian.marussi@arm.com, tzungbi@kernel.org, briannorris@chromium.org,
+ jwerner@chromium.org, shawnguo@kernel.org, s.hauer@pengutronix.de,
+ kernel@pengutronix.de, festevam@gmail.com, conor.dooley@microchip.com,
+ daire.mcnamara@microchip.com, matthias.bgg@gmail.com,
+ angelogioacchino.delregno@collabora.com, somlo@cmu.edu, mst@redhat.com,
+ florian.fainelli@broadcom.com, bcm-kernel-feedback-list@broadcom.com,
+ dinguyen@kernel.org, michal.simek@amd.com, gregkh@linuxfoundation.org,
+ wahrenst@gmx.net, laurent.pinchart@ideasonboard.com,
+ jay.buddhabhatti@amd.com, ronak.jain@amd.com, radhey.shyam.pandey@amd.com,
+ praveen.teja.kundanala@amd.com, arm-scmi@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ chrome-platform@lists.linux.dev, imx@lists.linux.dev,
+ linux-mediatek@lists.infradead.org, qemu-devel@nongnu.org,
+ linux-rpi-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241211_143245_220678_58DD4163 
-X-CRM114-Status: GOOD (  11.23  )
+X-CRM114-CacheID: sfid-20241211_143251_560475_F7B02967 
+X-CRM114-Status: UNSURE (   9.65  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,28 +82,40 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-SGVsbG86CgpUaGlzIHBhdGNoIHdhcyBhcHBsaWVkIHRvIHJpc2N2L2xpbnV4LmdpdCAoZml4ZXMp
-CmJ5IFBhbG1lciBEYWJiZWx0IDxwYWxtZXJAcml2b3NpbmMuY29tPjoKCk9uIFdlZCwgMjAgTm92
-IDIwMjQgMTQ6MTI6MDIgKzAxMDAgeW91IHdyb3RlOgo+IEZyb206IEJqw7ZybiBUw7ZwZWwgPGJq
-b3JuQHJpdm9zaW5jLmNvbT4KPiAKPiBUaGUgdm1lbW1hcCdzLCB3aGljaCBpcyB1c2VkIGZvciBS
-VjY0IHdpdGggU1BBUlNFTUVNX1ZNRU1NQVAsIHBhZ2UKPiB0YWJsZXMgYXJlIHBvcHVsYXRlZCB1
-c2luZyBwbWQgKHBhZ2UgbWlkZGxlIGRpcmVjdG9yeSkgaHVnZXRhYmxlcy4KPiBIb3dldmVyLCB0
-aGUgcG1kIGFsbG9jYXRpb24gaXMgbm90IHVzaW5nIHRoZSBnZW5lcmljIG1lY2hhbmlzbSB1c2Vk
-IGJ5Cj4gdGhlIFZNQSBjb2RlIChlLmcuIHBtZF9hbGxvYygpKSwgb3IgdGhlIFJJU0MtViBzcGVj
-aWZpYwo+IGNyZWF0ZV9wZ2RfbWFwcGluZygpL2FsbG9jX3BtZF9sYXRlKCkuIEluc3RlYWQsIHRo
-ZSB2bWVtbWFwIHBhZ2UgdGFibGUKPiBjb2RlIGFsbG9jYXRlcyBhIHBhZ2UsIGFuZCBjYWxscyB2
-bWVtbWFwX3NldF9wbWQoKS4gVGhpcyByZXN1bHRzIGluCj4gdGhhdCB0aGUgcG1kIGN0b3IgaXMg
-Km5vdCogY2FsbGVkLCBub3Igd291bGQgaXQgbWFrZSBzZW5zZSB0byBkbyBzby4KPiAKPiBbLi4u
-XQoKSGVyZSBpcyB0aGUgc3VtbWFyeSB3aXRoIGxpbmtzOgogIC0gW2ZpeGVzXSByaXNjdjogbW06
-IERvIG5vdCBjYWxsIHBtZCBkdG9yIG9uIHZtZW1tYXAgcGFnZSB0YWJsZSB0ZWFyZG93bgogICAg
-aHR0cHM6Ly9naXQua2VybmVsLm9yZy9yaXNjdi9jLzIxZjFiODVjODkxMgoKWW91IGFyZSBhd2Vz
-b21lLCB0aGFuayB5b3UhCi0tIApEZWV0LWRvb3QtZG90LCBJIGFtIGEgYm90LgpodHRwczovL2tv
-cmcuZG9jcy5rZXJuZWwub3JnL3BhdGNod29yay9wd2JvdC5odG1sCgoKCl9fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlz
-dApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQu
-b3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+Hello:
+
+This patch was applied to riscv/linux.git (fixes)
+by Greg Kroah-Hartman <gregkh@linuxfoundation.org>:
+
+On Tue, 12 Nov 2024 09:35:20 +0100 you wrote:
+> After commit 0edb555a65d1 ("platform: Make platform_driver::remove()
+> return void") .remove() is (again) the right callback to implement for
+> platform drivers.
+> 
+> Convert all platform drivers below drivers/firmware to use .remove(),
+> with the eventual goal to drop struct platform_driver::remove_new(). As
+> .remove() and .remove_new() have the same prototypes, conversion is done
+> by just changing the structure member name in the driver initializer.
+> 
+> [...]
+
+Here is the summary with links:
+  - firmware: Switch back to struct platform_driver::remove()
+    https://git.kernel.org/riscv/c/5770e9f237b6
+
+You are awesome, thank you!
+-- 
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/patchwork/pwbot.html
+
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
