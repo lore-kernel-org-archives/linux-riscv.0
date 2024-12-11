@@ -4,69 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11E88E77182
-	for <linux-riscv@archiver.kernel.org>; Wed, 11 Dec 2024 23:45:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 87A23E77180
+	for <linux-riscv@archiver.kernel.org>; Wed, 11 Dec 2024 23:45:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
 	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=O88WmxKk/Mcva/Dt1byvqfjqhFpKd9KPITAR1LfOVUI=; b=A4ArmvJS1s6Q+0
-	Sv6oMB2mVVLu3/Zj6Nnju2oemgu7UOr5xZuc7RYDocLNY0NfPhA524scVpqOAuUvvOaKD4iAb+Aii
-	KgDGBV5HntXEzIyOCtorBleqzHgBWRJ0YHa6CGF50K0gOFoATqs6YQfQciUf6aWcMm6AyROWNLjo/
-	FfjP/GaEWaTg6JDpTrHvLUV94Ljdlvz+nPGVTlaj/Ws6EZb9cR0l0sPAssLReJouqpZbEKJAEpLMp
-	6J61FpZiWVAL1ZFoB8PiEYRTyjTvl50OGQsOyHQsTAWkrExvPY+jwjwlmoXtQmuIpMOBcO778vwvt
-	xNNITBv7YZrybqZb4GEQ==;
+	List-Owner; bh=vsJ8P/DGWjqpXivHd9kOwrlpwEnTaswnVhI5cqUmrko=; b=O/yziqP0ZiGlUs
+	be8n+o75ujUcWV4/ZQVGsNor97iBwGEL+GEKiEYjVb/C4R+sbECtrYdrJIdXS7TT/7DvUDMS1E4eZ
+	CQbn8+re38TUx+qfcj70MhpoQkYmIiOCCpVktIKkowvsXU7Flc3VlS++npPUz/dyytQZzxb47oPZo
+	pgoBFv6s5JuS/mDwLs2UNZEUKPQyFezrKImpLdinc5EO61LNkVo5FoZx/YxqhWPDMdeudN12Vkd8S
+	96Oxkh6IlBo5FgrLANuXP2OaJMuxML0yFTz2ahCrkCxrQkFvs3woX9sledgxnxkyDp2klp7Q4l7i0
+	A9P2ph/eLiA9y/Lb4Q7A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLWOj-0000000GWu1-0p1q;
-	Wed, 11 Dec 2024 23:45:41 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1tLWOl-0000000GWzN-41ls;
+	Wed, 11 Dec 2024 23:45:43 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLVGQ-0000000GKv9-3Pyy;
-	Wed, 11 Dec 2024 22:33:04 +0000
+	id 1tLVGS-0000000GKx5-3u0A
+	for linux-riscv@lists.infradead.org;
+	Wed, 11 Dec 2024 22:33:06 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id B4C0CA41B16;
-	Wed, 11 Dec 2024 22:31:10 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A92BFC4CED2;
-	Wed, 11 Dec 2024 22:33:01 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 073065C67D4;
+	Wed, 11 Dec 2024 22:32:22 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2B139C4CED2;
+	Wed, 11 Dec 2024 22:33:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1733956381;
-	bh=22J+gOpjU9cUBjJTCfbYoXOQOQ02vFL/kmDAmitv0Oc=;
+	s=k20201202; t=1733956384;
+	bh=dfkE6O/egkW2YpK2IvJJiv33ml4HlWyuyxOZmVAxw9c=;
 	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=nWKDnM8zbcIF2djxC8fiOIOI3aUWr7TPAJCWU7ymE3mh5w2HYnJyAIXKcD5Z/72Ik
-	 RXR4O9F/aU40PoBXvJ7XQXthLV2s4bsqOgfr50SDKFPRdnN9Us4sRkg4wVPA1v1sWs
-	 kmuwkRDqP/9t5kMphxqk619d2ax7wRCqOpRNHKzjgvwJVCBNZYsBwGByJZh6bRNViD
-	 yrqc1wHdhtHkBz1Bsd0sAtAVRFHXuN3A8nyxlLFqzm4TGzLspNaCqc2nuGjGhk5Ngr
-	 pRCorRCtj+x28DI2Z1vxcZ2g3p4dEWd2sTvDRfb/s5xPU/4+C8mw0GfDgU2OE3HHnZ
-	 3Ww2yKRibpabg==
+	b=ZvaMCh3EMlbzjJV5gz6GKVrjYMFfRsCEB0itM/x4pbq1+of24OYlFqoE5I0JX04Y8
+	 W0WxYmXjG+uttUOWn1z8tvw9Wm/4xBI/gF+nIi+hS3jL01gSRT7CaP2RflsUkMOr1V
+	 pOj61xt1kvg9nWPVgUq1Ej4SlLJonIisLTBdxm750YWAmRzm2onP7af9scPO30Jeak
+	 iNvIihIP4CoD7N29Vqx89SWkRaPFvnkSXPDfRpYh212GYyEfkuaBYFF6rNte+nft8q
+	 11wKmGfUABzhnUIzm3vDt6oYIEYNyGg2X4uIkYrjjawlifbrdRROY72L+y2a1joTB/
+	 rTyJykfYjrFHw==
 Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id EACB2380A965;
-	Wed, 11 Dec 2024 22:33:18 +0000 (UTC)
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 70DB0380A965;
+	Wed, 11 Dec 2024 22:33:21 +0000 (UTC)
 MIME-Version: 1.0
-Subject: Re: [PATCH v2 0/2] ftrace: Make ftrace_regs abstract and consolidate code
+Subject: Re: [PATCH -fixes] riscv: Fix wrong usage of __pa() on a fixmap address
 From: patchwork-bot+linux-riscv@kernel.org
-Message-Id: <173395639774.1729195.5975449690225774291.git-patchwork-notify@kernel.org>
-Date: Wed, 11 Dec 2024 22:33:17 +0000
-References: <20241008230527.674939311@goodmis.org>
-In-Reply-To: <20241008230527.674939311@goodmis.org>
-To: Steven Rostedt <rostedt@goodmis.org>
-Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-trace-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- loongarch@lists.linux.dev, linuxppc-dev@lists.ozlabs.org,
- linux-s390@vger.kernel.org, linux-arch@vger.kernel.org, x86@kernel.org,
- mhiramat@kernel.org, mathieu.desnoyers@efficios.com, mark.rutland@arm.com,
- catalin.marinas@arm.com, will@kernel.org, chenhuacai@kernel.org,
- kernel@xen0n.name, mpe@ellerman.id.au, npiggin@gmail.com,
- christophe.leroy@csgroup.eu, naveen@kernel.org, maddy@linux.ibm.com,
- paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
- hca@linux.ibm.com, gor@linux.ibm.com, agordeev@linux.ibm.com,
- borntraeger@linux.ibm.com, svens@linux.ibm.com, tglx@linutronix.de,
- mingo@kernel.org, bp@alien8.de, dave.hansen@linux.intel.com
+Message-Id: <173395640024.1729195.13342843889585643305.git-patchwork-notify@kernel.org>
+Date: Wed, 11 Dec 2024 22:33:20 +0000
+References: <20241209074508.53037-1-alexghiti@rivosinc.com>
+In-Reply-To: <20241209074508.53037-1-alexghiti@rivosinc.com>
+To: Alexandre Ghiti <alexghiti@rivosinc.com>
+Cc: linux-riscv@lists.infradead.org, paul.walmsley@sifive.com,
+ palmer@dabbelt.com, aou@eecs.berkeley.edu, usamaarif642@gmail.com,
+ robh@kernel.org, linux-kernel@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241211_143302_918044_0BD22DF1 
-X-CRM114-Status: GOOD (  12.65  )
+X-CRM114-CacheID: sfid-20241211_143305_007213_379EA35F 
+X-CRM114-Status: UNSURE (   9.56  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,29 +78,22 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 Hello:
 
-This series was applied to riscv/linux.git (fixes)
-by Steven Rostedt (Google) <rostedt@goodmis.org>:
+This patch was applied to riscv/linux.git (fixes)
+by Palmer Dabbelt <palmer@rivosinc.com>:
 
-On Tue, 08 Oct 2024 19:05:27 -0400 you wrote:
-> This is based on:
+On Mon,  9 Dec 2024 08:45:08 +0100 you wrote:
+> riscv uses fixmap addresses to map the dtb so we can't use __pa() which
+> is reserved for linear mapping addresses.
 > 
->   https://git.kernel.org/pub/scm/linux/kernel/git/trace/linux-trace.git/
->      ftrace/for-next
-> 
-> ftrace_regs was created to hold registers that store information to save
-> function parameters, return value and stack. Since it is a subset of
-> pt_regs, it should only be used by its accessor functions. But because
-> pt_regs can easily be taken from ftrace_regs (on most archs), it is
-> tempting to use it directly. But when running on other architectures, it
-> may fail to build or worse, build but crash the kernel!
-> 
-> [...]
+> Fixes: b2473a359763 ("of/fdt: add dt_phys arg to early_init_dt_scan and early_init_dt_verify")
+> Signed-off-by: Alexandre Ghiti <alexghiti@rivosinc.com>
+> ---
+>  arch/riscv/kernel/setup.c | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
 
 Here is the summary with links:
-  - [v2,1/2] ftrace: Make ftrace_regs abstract from direct use
-    https://git.kernel.org/riscv/c/7888af4166d4
-  - [v2,2/2] ftrace: Consolidate ftrace_regs accessor functions for archs using pt_regs
-    (no matching commit)
+  - [-fixes] riscv: Fix wrong usage of __pa() on a fixmap address
+    https://git.kernel.org/riscv/c/c796e1872012
 
 You are awesome, thank you!
 -- 
