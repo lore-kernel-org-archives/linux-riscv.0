@@ -4,67 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 77DC4E77183
-	for <linux-riscv@archiver.kernel.org>; Wed, 11 Dec 2024 22:38:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7826E77182
+	for <linux-riscv@archiver.kernel.org>; Wed, 11 Dec 2024 22:38:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
 	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=cFMDZ8GNJ+u0N5DUIWm+wkdDRFwictxz36cxQR0kk5Y=; b=OU3uZMuCx14MvK
-	3iOuFJGej5+XDTEt6p9NTVZc+GwL+dfdZHZ1JYQIGpaxPLj7hz0QXNBCZJEEcC5y7ejgpeIYFu0jJ
-	dQUJ6rX4pedzcr4nQHCVVUA7Ns3TeOCzqtOL3f8bzeXvCtmZtz3VnoqsPfmPElmmuWbaFAzgde9Ku
-	nf18kO80qUBSDq92AykXkb4yKJTudtj2B5Yulmd//b35nTDgvtZXMMvV0DwbkKwfrC3EjnoKc6w9O
-	3wVE+jzw6UlLFKAfkvvvsgvnxtBEnQj479W45vM0Qu9LIGx3rOmbgAERxB9hHAu7Ui+pwV4M7ssI9
-	kviaTxqpayiuafkAqFuQ==;
+	List-Owner; bh=0ESISa+F6gXNL1Vn9sFeTLqUo3uyYioM4qOvPXF8T30=; b=nU2P+RaoEB+sNW
+	pUUtFTHId1FcHorwhTDkPYvEXUdrF4cUHo8kkickEsPkqhaO79k60HvGJeWcmXTW2sBszPluB7ii3
+	2OX12rWTEM/9DT+Pe0WRVGIohna8q10KArC3v8imkRSE4dP5bdL9zCLoLUMoypYnVG191DfFieLR+
+	3pP+vF2AZlA/Y1LMTwT/T0A9bm5MS0SlGolP1jjnczj+YP/vaapH96fkFibFdyEiQEiwFlN+lrH84
+	A7Nw7WufsrTZCqG4oBSiINv/p//LSs3OVj5Vp1n3bM6ahINWsOzNwe4St+eEwvohcUPHM59VpT2F9
+	dnuM0Bm1SBqJNU4Ma6vQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLVM4-0000000GMuD-1lra;
-	Wed, 11 Dec 2024 22:38:52 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tLVM3-0000000GMtm-2zhW;
+	Wed, 11 Dec 2024 22:38:51 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLVGA-0000000GKg6-1ma8
+	id 1tLVG9-0000000GKZS-0Yyv
 	for linux-riscv@lists.infradead.org;
-	Wed, 11 Dec 2024 22:32:48 +0000
+	Wed, 11 Dec 2024 22:32:46 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id CE5F25C6474;
-	Wed, 11 Dec 2024 22:32:03 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E79A4C4CED3;
-	Wed, 11 Dec 2024 22:32:45 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 86A155C67F5;
+	Wed, 11 Dec 2024 22:32:02 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A5D83C4CED3;
+	Wed, 11 Dec 2024 22:32:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1733956366;
-	bh=obLml54yrC6BtPAvZAw6oHrG+DacnU6UkXbWYex96uQ=;
+	s=k20201202; t=1733956364;
+	bh=iRwxC1s0tO/FMsHuvL9jXdyPxujIqKEggAX45W0Slqk=;
 	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=f3Y1qtdQGdMFCfSboCawizXobcUgw2E7uyX0u9TS6LZTranNNUaLvizV5M/uf4JVv
-	 6wdmmp8rH+8i5m7TDTkpBHaE/I70OTc9JhThdUfSx3tMET3XZRz3zgJx4jSrVXJ6HK
-	 dTPyhioPrnGp6zxdsD3eF4F8YZQ3I5CjQKcrRg4ZBz9eHhfjQUrDsJPYq9LRO/KTCg
-	 T7m+GxeewLN/pL8waq9uyekOdC5ANOLUDgb9UavzspL2WMo2wy06I2tG4Z/xQIBh4E
-	 z0ntxLpzXUXPJVxWipK8pwZUYY/lL+bSO3CqM3XaUNyCzVMe2gbJnloJauVfuRTHGa
-	 jdVL399dsPxRA==
+	b=gXv2yfYI3u6DpqV1QgWdlFHngfCsoqTqn8qFlW9vmxnxqkmi2e0lXapKqCP1xq6Sq
+	 m27jAoArETLE59h3MnbPfeV3Du7pXd51diP7+E1kuOCkhI7BhHN3DecsGyqg69HYCz
+	 4dtnfhgmCNmsRYRIPBaEYy8l1+tEE1pvCJwTuJ6jZQE2vL5C5Y4TlG7IFgF7jCU0ML
+	 EPY3X047UtqYUWAN70PGlmC02VnScPkoy5P16UdK6QQNkRg9BsWNI2Pw7GnLtv9JBW
+	 l0EMIp8cQD51ifM8V58DpUd37Lm02CBpfUmo+wcLANw+3geztRTyBkXlx98+9U2bsW
+	 EaiC7JsiZtyNQ==
 Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 33CCE380A965;
-	Wed, 11 Dec 2024 22:33:03 +0000 (UTC)
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id EBAA4380A965;
+	Wed, 11 Dec 2024 22:33:01 +0000 (UTC)
 MIME-Version: 1.0
-Subject: Re: [PATCH v5 00/10] riscv: add initial support for SpacemiT K1
+Subject: Re: [PATCH fixes] riscv: mm: Do not call pmd dtor on vmemmap page table
+ teardown
 From: patchwork-bot+linux-riscv@kernel.org
-Message-Id: <173395638199.1729195.1529576042123666894.git-patchwork-notify@kernel.org>
-Date: Wed, 11 Dec 2024 22:33:01 +0000
-References: <20240730-k1-01-basic-dt-v5-0-98263aae83be@gentoo.org>
-In-Reply-To: <20240730-k1-01-basic-dt-v5-0-98263aae83be@gentoo.org>
-To: Yixun Lan <dlan@gentoo.org>
-Cc: linux-riscv@lists.infradead.org, robh@kernel.org, krzk+dt@kernel.org,
- conor+dt@kernel.org, paul.walmsley@sifive.com, palmer@dabbelt.com,
- aou@eecs.berkeley.edu, cyy@cyyself.name, daniel.lezcano@linaro.org,
- tglx@linutronix.de, samuel.holland@sifive.com, anup@brainfault.org,
- gregkh@linuxfoundation.org, jirislaby@kernel.org, lkundrak@v3.sk,
- devicetree@vger.kernel.org, linux-serial@vger.kernel.org,
- linux-kernel@vger.kernel.org, jesse@rivosinc.com, conor.dooley@microchip.com,
- inochiama@outlook.com, zhangmeng.kevin@spacemit.com, jszhang@kernel.org,
- matthias.bgg@kernel.org, kevin.z.m@hotmail.com
+Message-Id: <173395638049.1729195.5190256802330820237.git-patchwork-notify@kernel.org>
+Date: Wed, 11 Dec 2024 22:33:00 +0000
+References: <20241120131203.1859787-1-bjorn@kernel.org>
+In-Reply-To: <20241120131203.1859787-1-bjorn@kernel.org>
+To: =?utf-8?b?QmrDtnJuIFTDtnBlbCA8Ympvcm5Aa2VybmVsLm9yZz4=?=@aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org
+Cc: linux-riscv@lists.infradead.org, alexghiti@rivosinc.com,
+ aou@eecs.berkeley.edu, david@redhat.com, palmer@dabbelt.com,
+ paul.walmsley@sifive.com, osalvador@suse.de, bjorn@rivosinc.com,
+ abrestic@rivosinc.com, linux-kernel@vger.kernel.org, linux-mm@kvack.org,
+ virtualization@lists.linux-foundation.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241211_143246_529778_F2600F82 
-X-CRM114-Status: GOOD (  11.01  )
+X-CRM114-CacheID: sfid-20241211_143245_220678_58DD4163 
+X-CRM114-Status: GOOD (  11.23  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,58 +73,28 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hello:
-
-This series was applied to riscv/linux.git (fixes)
-by Conor Dooley <conor.dooley@microchip.com>:
-
-On Tue, 30 Jul 2024 00:28:03 +0000 you wrote:
-> SpacemiT K1 is an ideal chip for some new extension such as RISC-V Vector
-> 1.0 and Zicond evaluation now. Add initial support for it to allow more
-> people to participate in building drivers to mainline for it.
-> 
-> This kernel has been tested upon Banana Pi BPI-F3 board on vendor U-Boot
-> bootflow generated by Armbian SDK[1] and patched OpenSBI[2] to enable
-> Zicboz, which does not in the vendor dts on its U-Boot. Then successfully
-> booted to busybox on initrd with this log[3].
-> 
-> [...]
-
-Here is the summary with links:
-  - [v5,01/10] dt-bindings: vendor-prefixes: add spacemit
-    https://git.kernel.org/riscv/c/7cf3e9bfc63d
-  - [v5,02/10] dt-bindings: riscv: Add SpacemiT X60 compatibles
-    (no matching commit)
-  - [v5,03/10] dt-bindings: riscv: add SpacemiT K1 bindings
-    (no matching commit)
-  - [v5,04/10] dt-bindings: timer: Add SpacemiT K1 CLINT
-    (no matching commit)
-  - [v5,05/10] dt-bindings: interrupt-controller: Add SpacemiT K1 PLIC
-    (no matching commit)
-  - [v5,06/10] dt-bindings: serial: 8250: Add SpacemiT K1 uart compatible
-    (no matching commit)
-  - [v5,07/10] riscv: add SpacemiT SoC family Kconfig support
-    (no matching commit)
-  - [v5,08/10] riscv: dts: add initial SpacemiT K1 SoC device tree
-    (no matching commit)
-  - [v5,09/10] riscv: dts: spacemit: add Banana Pi BPI-F3 board device tree
-    (no matching commit)
-  - [v5,10/10] riscv: defconfig: enable SpacemiT SoC
-    (no matching commit)
-
-You are awesome, thank you!
--- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
-
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+SGVsbG86CgpUaGlzIHBhdGNoIHdhcyBhcHBsaWVkIHRvIHJpc2N2L2xpbnV4LmdpdCAoZml4ZXMp
+CmJ5IFBhbG1lciBEYWJiZWx0IDxwYWxtZXJAcml2b3NpbmMuY29tPjoKCk9uIFdlZCwgMjAgTm92
+IDIwMjQgMTQ6MTI6MDIgKzAxMDAgeW91IHdyb3RlOgo+IEZyb206IEJqw7ZybiBUw7ZwZWwgPGJq
+b3JuQHJpdm9zaW5jLmNvbT4KPiAKPiBUaGUgdm1lbW1hcCdzLCB3aGljaCBpcyB1c2VkIGZvciBS
+VjY0IHdpdGggU1BBUlNFTUVNX1ZNRU1NQVAsIHBhZ2UKPiB0YWJsZXMgYXJlIHBvcHVsYXRlZCB1
+c2luZyBwbWQgKHBhZ2UgbWlkZGxlIGRpcmVjdG9yeSkgaHVnZXRhYmxlcy4KPiBIb3dldmVyLCB0
+aGUgcG1kIGFsbG9jYXRpb24gaXMgbm90IHVzaW5nIHRoZSBnZW5lcmljIG1lY2hhbmlzbSB1c2Vk
+IGJ5Cj4gdGhlIFZNQSBjb2RlIChlLmcuIHBtZF9hbGxvYygpKSwgb3IgdGhlIFJJU0MtViBzcGVj
+aWZpYwo+IGNyZWF0ZV9wZ2RfbWFwcGluZygpL2FsbG9jX3BtZF9sYXRlKCkuIEluc3RlYWQsIHRo
+ZSB2bWVtbWFwIHBhZ2UgdGFibGUKPiBjb2RlIGFsbG9jYXRlcyBhIHBhZ2UsIGFuZCBjYWxscyB2
+bWVtbWFwX3NldF9wbWQoKS4gVGhpcyByZXN1bHRzIGluCj4gdGhhdCB0aGUgcG1kIGN0b3IgaXMg
+Km5vdCogY2FsbGVkLCBub3Igd291bGQgaXQgbWFrZSBzZW5zZSB0byBkbyBzby4KPiAKPiBbLi4u
+XQoKSGVyZSBpcyB0aGUgc3VtbWFyeSB3aXRoIGxpbmtzOgogIC0gW2ZpeGVzXSByaXNjdjogbW06
+IERvIG5vdCBjYWxsIHBtZCBkdG9yIG9uIHZtZW1tYXAgcGFnZSB0YWJsZSB0ZWFyZG93bgogICAg
+aHR0cHM6Ly9naXQua2VybmVsLm9yZy9yaXNjdi9jLzIxZjFiODVjODkxMgoKWW91IGFyZSBhd2Vz
+b21lLCB0aGFuayB5b3UhCi0tIApEZWV0LWRvb3QtZG90LCBJIGFtIGEgYm90LgpodHRwczovL2tv
+cmcuZG9jcy5rZXJuZWwub3JnL3BhdGNod29yay9wd2JvdC5odG1sCgoKCl9fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlz
+dApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQu
+b3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
