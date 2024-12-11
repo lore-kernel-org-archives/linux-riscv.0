@@ -4,65 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1BF5E7717D
-	for <linux-riscv@archiver.kernel.org>; Wed, 11 Dec 2024 22:44:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 51B3AE77182
+	for <linux-riscv@archiver.kernel.org>; Wed, 11 Dec 2024 22:44:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:To:In-Reply-To:References:Date:
 	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=n111i4sv429ZzeOsJ+UO+IMozjyVZ+7tbsoMaF/o/BM=; b=Dv/8G2pTSqsmp3
-	h9J71vKW5t6BUQ79NsilYOiTvOoAChUDe1Cq93fYbyhG8XwIaB23VKsYpsA4VHggfvvp7k9fRNrwf
-	/2dbschxX9nUtx87vzIeeFIGeXS0nJf7fty7n+h6nhY3mVddHLaPNLG3PzdlZ6ihc3aaVagqYFSpZ
-	BiSybMWehJuT1huVmLfByARgBCaUwwlgsJ1pAz6QBxwUDYEW/YflanjvNHWt4lrco07ePTD+aQu/r
-	pqYAW4/oYHOGFus3sssO1PnmZQhQDnwfvWrQTd7XGya3mN4gxEirmhSoBACdzWRs4+c91KbMBvPqP
-	HfyFj+4TttTre1mKKlPg==;
+	List-Owner; bh=fu4kadEbgYH96SJ2JBRYL2mw/udcvJzORhNCzZu6yyQ=; b=qij+VjUsZlejue
+	eAuUwi8N0FDKmEAzlzbrZ9yNEd6GV+XkTKJ8Cr3Ye1mUIEHJ7qGFhIQPgVOzrDtGYWkkQp3uWpaTd
+	+2JB1y1IZTDoopSY4uOzSHvv4P6DOi3ZEZ1UBINUTEb6kgGOc8qrE8i19DEGQZSPQPWpJ+xcf7hh5
+	1UL1NIerl1YtmiA4gE4fg+vhsxomSfFYMQr67Na6k6ahVrew9q829W3QOLTu/zWzssmCk38TMrwIc
+	JZ+2R2LxW5IEb+Ums1zgYp5FXw8bg1cPGdhj6wDmt9O0YkqCRKSO7XghPjOsJkvDOSQyOfNPZ2AAq
+	fsCwlVHMskhMyD3Suh9A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLVRR-0000000GODr-38pa;
+	id 1tLVRR-0000000GODi-0n8a;
 	Wed, 11 Dec 2024 22:44:25 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLVGX-0000000GKzi-2AOj
-	for linux-riscv@lists.infradead.org;
-	Wed, 11 Dec 2024 22:33:11 +0000
+	id 1tLVGV-0000000GKx5-1kj9;
+	Wed, 11 Dec 2024 22:33:08 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 6D770A41B16;
-	Wed, 11 Dec 2024 22:31:17 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 66660C4CED2;
-	Wed, 11 Dec 2024 22:33:08 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id BE5BC5C67FC;
+	Wed, 11 Dec 2024 22:32:24 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E03B1C4CED2;
+	Wed, 11 Dec 2024 22:33:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1733956388;
-	bh=mVgKdv1VYB3F4YDKiICqJP62JryObnh1WV8uO4vtcEE=;
+	s=k20201202; t=1733956386;
+	bh=6vzy9W7MutUOZNBEPu/ZaeFKt+pCcG6i2Mi81FMo/zo=;
 	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=KdkpMxZlloN6e++uDsfgbjZ4497egu+EYtsR31yrXLHEpg63wzm1PmT2Zx9g/cjaV
-	 hcbOrAG1WNXX7pcdUqsoCGZ0IpgKaPUM7hMu9Eb0WaQC/r16JmBQvUX6/pFlSGcQrk
-	 IwjigmMmXHn/5+GIC0UBKp3tVe+c563y93qnIqK7cVjx1rblGwdnBcrv2Vc8MmaSAF
-	 DBy/Mduxe8v2GRtFayqEjbY3WLGaHaAM9kGddYpeN6BCsgQfsB63ZbUe8m2GnzhcCk
-	 YF5LoSnoh+3jrqKuyt4kIbY9E2KI4zWg2uMxl29fcwaiocNdyM7HC/5Wso2tQ7EXeW
-	 TzMVywECB/LaA==
+	b=o4HKpHYz5SmpQqTC9GZTYYy4yG9JFVIeM+ayvy/+YFWquF15hl5vh5/qKEH5pK49v
+	 Sieu7dXVq6LpyNvgG6Ftq2AxnjNx7Shc2dADxtWMJv98WMfPVAN0CyRGwOlPl4UzRK
+	 DQ+aSQcSiq26XFF3vdiXybukEqBL+ue+nAhU9FcxjLus6W+b0DurNnzqZ38s90Y5Qp
+	 U4WwSSY6uJeUD4uqItXPW5GVeHBrx905oU0uOJ1f2/PIK78s84wyvLbykSNqaAi/hD
+	 9BS/2U3/CPf8fi0fQKyMn81FhMNGoFgySNjam1t4JouI8BmJqaQUyPj5B3C+ALubUm
+	 30gtmj941aCyQ==
 Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id ADBA0380A965;
-	Wed, 11 Dec 2024 22:33:25 +0000 (UTC)
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 3458B380A965;
+	Wed, 11 Dec 2024 22:33:24 +0000 (UTC)
 MIME-Version: 1.0
-Subject: Re: [RESEND PATCH] riscv: Fixup boot failure when
- CONFIG_DEBUG_RT_MUTEXES=y
+Subject: Re: [PATCH v4] ACPI: introduce acpi_arch_init
 From: patchwork-bot+linux-riscv@kernel.org
-Message-Id: <173395640424.1729195.252270245008728818.git-patchwork-notify@kernel.org>
-Date: Wed, 11 Dec 2024 22:33:24 +0000
-References: <20241130153310.3349484-1-guoren@kernel.org>
-In-Reply-To: <20241130153310.3349484-1-guoren@kernel.org>
-To: Guo Ren <guoren@kernel.org>
-Cc: linux-riscv@lists.infradead.org, paul.walmsley@sifive.com,
- palmer@dabbelt.com, bjorn@rivosinc.com, conor@kernel.org, leobras@redhat.com,
- peterz@infradead.org, parri.andrea@gmail.com, will@kernel.org,
- longman@redhat.com, boqun.feng@gmail.com, arnd@arndb.de,
- alexghiti@rivosinc.com, linux-kernel@vger.kernel.org,
- guoren@linux.alibaba.com
+Message-Id: <173395640299.1729195.506901103763287454.git-patchwork-notify@kernel.org>
+Date: Wed, 11 Dec 2024 22:33:22 +0000
+References: <20241121-intro-acpi-arch-init-v4-1-b1fb517e7d8b@gmail.com>
+In-Reply-To: <20241121-intro-acpi-arch-init-v4-1-b1fb517e7d8b@gmail.com>
+To: Miao Wang via B4 Relay <devnull+shankerwangmiao.gmail.com@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241211_143309_635455_4868589E 
-X-CRM114-Status: UNSURE (   6.65  )
+X-CRM114-CacheID: sfid-20241211_143307_494609_287C2319 
+X-CRM114-Status: UNSURE (   7.44  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -75,6 +67,7 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Cc: aou@eecs.berkeley.edu, rafael@kernel.org, lpieralisi@kernel.org, guohanjun@huawei.com, linux-acpi@vger.kernel.org, palmer@dabbelt.com, paul.walmsley@sifive.com, sudeep.holla@arm.com, linux-riscv@lists.infradead.org, shankerwangmiao@gmail.com, linux-arm-kernel@lists.infradead.org, lenb@kernel.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
@@ -83,23 +76,22 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 Hello:
 
 This patch was applied to riscv/linux.git (fixes)
-by Palmer Dabbelt <palmer@rivosinc.com>:
+by Rafael J. Wysocki <rafael.j.wysocki@intel.com>:
 
-On Sat, 30 Nov 2024 10:33:10 -0500 you wrote:
-> From: Guo Ren <guoren@linux.alibaba.com>
+On Thu, 21 Nov 2024 22:25:21 +0800 you wrote:
+> From: Miao Wang <shankerwangmiao@gmail.com>
 > 
-> When CONFIG_DEBUG_RT_MUTEXES=y, mutex_lock->rt_mutex_try_acquire
-> would change from rt_mutex_cmpxchg_acquire to
-> rt_mutex_slowtrylock():
-> 	raw_spin_lock_irqsave(&lock->wait_lock, flags);
-> 	ret = __rt_mutex_slowtrylock(lock);
-> 	raw_spin_unlock_irqrestore(&lock->wait_lock, flags);
+> To avoid arch-specific code in general ACPI initialization flow,
+> we introduce a weak symbol acpi_arch_init. Currently, arm64 and
+> riscv can utillize this to insert their arch-specific flow. In
+> the future, other architectures can also have chance to define
+> their own arch-specific acpi initialization process if necessary.
 > 
 > [...]
 
 Here is the summary with links:
-  - [RESEND] riscv: Fixup boot failure when CONFIG_DEBUG_RT_MUTEXES=y
-    https://git.kernel.org/riscv/c/b3134b8c1a1c
+  - [v4] ACPI: introduce acpi_arch_init
+    https://git.kernel.org/riscv/c/9d8a2b033db1
 
 You are awesome, thank you!
 -- 
