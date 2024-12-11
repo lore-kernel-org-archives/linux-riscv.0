@@ -4,76 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 13DFFE77180
-	for <linux-riscv@archiver.kernel.org>; Wed, 11 Dec 2024 22:32:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2ED4DE77183
+	for <linux-riscv@archiver.kernel.org>; Wed, 11 Dec 2024 22:33:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
 	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=5bIzoj5sOv6GiqZLBzkTcfPcPaGvA/I9GiGNIc8mQhI=; b=keprzrNN2zzG4I
-	bNDnZUFeYL14Qdyv5YQeY/8NgFiHsRQeaoltqof0UgipOAICFiDVPQ3o4FAGiWUY3+rKr6DK+6yTo
-	W5iOtiTTjzxobVtZY1D6dFSjYS4mXeUI8t28XSYqd1fV3xqfb5KU2lnA8enhuA6l74Ew6VIVyulsH
-	aeeVpNG/n5hRC1jL0UFV44bNGc1zCSi7/rkBF1U7hJR5l/fE2TC2gdjqbFiBvHw+4plMl+neAsb5x
-	rOjhR7zA2HFsL7v2EBe/qYl/BVSGGnQhkNdNkCS0Dc4FX3JHicbL9TmjdGnPkO5tZmaTp0NgtjVJD
-	x3Hf72q7GgMKC6E+qDrQ==;
+	List-Owner; bh=D5Yqr2LZ6mCc3puksVK7gQN5PE3wsot4PdQC4vK6CZc=; b=fn9R56RvSzn7Fw
+	K74ah/Qbwl+FWnEp20mXtaGMQY8GM/mdqKVHhbfnLMWK7FFCfV3sNU9g856fCHGyhdbIvWGBHf8en
+	0AQap7RVCn/W297C6hSL5hyMGtuois0SwWw5VUZ5T4uBFupMmd+8p1t3lvs0NSdDrH4LOtTVxVMP4
+	yTqnTt2P3iznogkRcGP8NDQPJwM7h77FrapjMHtx8zkjwi1BFfMDX4ELrzKD6tM0zXOY8yI+AmFQ/
+	ZEKT4XPP/S84E2Zqg8EUUP+6pSOsEQbG41eoLeOC0Jj24ry8nBAAmO6iwTZzqK9rjPHjLM5noPzIk
+	EjdJdzaiR53i62LT4Wfw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLVFh-0000000GKKR-1h2i;
-	Wed, 11 Dec 2024 22:32:17 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tLVGn-0000000GL8n-2KWc;
+	Wed, 11 Dec 2024 22:33:25 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLVFe-0000000GKHd-2GIr;
-	Wed, 11 Dec 2024 22:32:15 +0000
+	id 1tLVFg-0000000GKJU-3QJu;
+	Wed, 11 Dec 2024 22:32:18 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 22C195C67E6;
-	Wed, 11 Dec 2024 22:31:31 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 38846C4CEDD;
-	Wed, 11 Dec 2024 22:32:13 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id BDB65A41D76;
+	Wed, 11 Dec 2024 22:30:24 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E0BF6C4CED2;
+	Wed, 11 Dec 2024 22:32:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1733956333;
-	bh=SEo/hZdGOI1Q/CSoVxc2NHBSSqNSaH3b4tjYopKGg5Q=;
+	s=k20201202; t=1733956335;
+	bh=awhd+qYBZdWAIqJRcAxRI8ocm3yOwTpT8RsZsQR3PAk=;
 	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=taXi5zliiFN3KW6tUo9STN8RrcaQwTguLWUw7vOA+mWtVIl/lOqyfp7tYIS/4F3zV
-	 SrlDbBAQw0pq/i+m3XA8S2V5RKELeBAQDrM9ZlzmC5W2t3P2/1WtHs4/RSCdUgq8dQ
-	 mlxsg6YPQmJkBgFPWopn0EvLsIRByEfTZmh5jsblEZTrZHF1YBr1gHB4u8SC/ZnwYc
-	 JJmrOPumN6Bq+UlMa1Yy/gqSPnI2DNXR7U5+yK9MuW0ITZJZ/qhOwGYGwKr3anAyP3
-	 KUBLzQdsNExdAOK6/2U41j0zEPH/NAHyaJyJUiYyz7Ml3I0TkGmyIhQT3WGrG4Z/r4
-	 v9nQIb5qf2Bkg==
+	b=RDlVokYh0l4AVx9EUxhtB7Pl4dZihyS9aPE4663P+x5ykYHBIc9Ir1CrrdeDXtzsp
+	 iwQwrJx/XOQMKP3c7yqhem1/iuE6FN0OUfXvl0ipFE42Hhea+t+EqAkvqFCjYqNGyR
+	 KCZnki4f6Pqba1ciquWr69X8whEgMReywX3iFv3/dpNSOczT8LePmK+pmflbCq86BK
+	 nCkOguK4Mf3Xb9+0/gJTuirhA9N+uawZaztOziKAnOUhyHKobudckD0JSnzr7HFzyD
+	 vvd0EPNUT6ie9EfVyom9Ue5ajs3C2ICsPvYKbY2faMDnnksBMPkcVWSVZTbwLPQ4Os
+	 N4V4Z9+pQUc0g==
 Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 70D1D380A965;
-	Wed, 11 Dec 2024 22:32:30 +0000 (UTC)
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 34141380A965;
+	Wed, 11 Dec 2024 22:32:33 +0000 (UTC)
 MIME-Version: 1.0
-Subject: Re: [PATCH v12 0/5] Tracepoints and static branch in Rust
+Subject: Re: [PATCH v8 0/5] Add Svade and Svadu Extensions Support
 From: patchwork-bot+linux-riscv@kernel.org
-Message-Id: <173395634899.1729195.7492083712432982213.git-patchwork-notify@kernel.org>
-Date: Wed, 11 Dec 2024 22:32:28 +0000
-References: <20241030-tracepoint-v12-0-eec7f0f8ad22@google.com>
-In-Reply-To: <20241030-tracepoint-v12-0-eec7f0f8ad22@google.com>
-To: Alice Ryhl <aliceryhl@google.com>
-Cc: linux-riscv@lists.infradead.org, rostedt@goodmis.org, mhiramat@kernel.org,
- mathieu.desnoyers@efficios.com, peterz@infradead.org, jpoimboe@kernel.org,
- jbaron@akamai.com, ardb@kernel.org, ojeda@kernel.org, alex.gaynor@gmail.com,
- wedsonaf@gmail.com, boqun.feng@gmail.com, gary@garyguo.net,
- bjorn3_gh@protonmail.com, benno.lossin@proton.me, a.hindborg@kernel.org,
- linux-trace-kernel@vger.kernel.org, rust-for-linux@vger.kernel.org,
- linux-kernel@vger.kernel.org, arnd@arndb.de, linux-arch@vger.kernel.org,
- tglx@linutronix.de, mingo@redhat.com, bp@alien8.de,
- dave.hansen@linux.intel.com, x86@kernel.org, hpa@zytor.com,
- seanjc@google.com, ubizjak@gmail.com, catalin.marinas@arm.com,
- will@kernel.org, maz@kernel.org, oliver.upton@linux.dev,
- mark.rutland@arm.com, ryan.roberts@arm.com, tabba@google.com,
- linux-arm-kernel@lists.infradead.org, paul.walmsley@sifive.com,
- palmer@dabbelt.com, aou@eecs.berkeley.edu, apatel@ventanamicro.com,
- ajones@ventanamicro.com, alexghiti@rivosinc.com, conor.dooley@microchip.com,
- samuel.holland@sifive.com, chenhuacai@kernel.org, kernel@xen0n.name,
- maobibo@loongson.cn, yangtiezhu@loongson.cn, akpm@linux-foundation.org,
- zhaotianrui@loongson.cn, loongarch@lists.linux.dev, cmllamas@google.com,
- palmer@rivosinc.com
+Message-Id: <173395635176.1729195.3092998721998204770.git-patchwork-notify@kernel.org>
+Date: Wed, 11 Dec 2024 22:32:31 +0000
+References: <20240726084931.28924-1-yongxuan.wang@sifive.com>
+In-Reply-To: <20240726084931.28924-1-yongxuan.wang@sifive.com>
+To: Yong-Xuan Wang <yongxuan.wang@sifive.com>
+Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+ kvm-riscv@lists.infradead.org, kvm@vger.kernel.org, greentime.hu@sifive.com,
+ vincent.chen@sifive.com, paul.walmsley@sifive.com, palmer@dabbelt.com,
+ aou@eecs.berkeley.edu
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241211_143214_664023_F9CC5C0F 
-X-CRM114-Status: GOOD (  13.75  )
+X-CRM114-CacheID: sfid-20241211_143216_925465_79264644 
+X-CRM114-Status: GOOD (  11.92  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,31 +78,43 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 Hello:
 
 This series was applied to riscv/linux.git (fixes)
-by Steven Rostedt (Google) <rostedt@goodmis.org>:
+by Anup Patel <anup@brainfault.org>:
 
-On Wed, 30 Oct 2024 16:04:23 +0000 you wrote:
-> An important part of a production ready Linux kernel driver is
-> tracepoints. So to write production ready Linux kernel drivers in Rust,
-> we must be able to call tracepoints from Rust code. This patch series
-> adds support for calling tracepoints declared in C from Rust.
+On Fri, 26 Jul 2024 16:49:25 +0800 you wrote:
+> Svade and Svadu extensions represent two schemes for managing the PTE A/D
+> bit. When the PTE A/D bits need to be set, Svade extension intdicates that
+> a related page fault will be raised. In contrast, the Svadu extension
+> supports hardware updating of PTE A/D bits. This series enables Svade and
+> Svadu extensions for both host and guest OS.
 > 
-> This series includes a patch that adds a user of tracepoints to the
-> rust_print sample. Please see that sample for details on what is needed
-> to use this feature in Rust code.
+> Regrading the mailing thread[1], we have 4 possible combinations of
+> these extensions in the device tree, the default hardware behavior for
+> these possibilities are:
+> 1) Neither Svade nor Svadu present in DT => It is technically
+>    unknown whether the platform uses Svade or Svadu. Supervisor
+>    software should be prepared to handle either hardware updating
+>    of the PTE A/D bits or page faults when they need updated.
+> 2) Only Svade present in DT => Supervisor must assume Svade to be
+>    always enabled.
+> 3) Only Svadu present in DT => Supervisor must assume Svadu to be
+>    always enabled.
+> 4) Both Svade and Svadu present in DT => Supervisor must assume
+>    Svadu turned-off at boot time. To use Svadu, supervisor must
+>    explicitly enable it using the SBI FWFT extension.
 > 
 > [...]
 
 Here is the summary with links:
-  - [v12,1/5] rust: add static_branch_unlikely for static_key_false
-    https://git.kernel.org/riscv/c/6e59bcc9c8ad
-  - [v12,2/5] rust: add tracepoint support
-    https://git.kernel.org/riscv/c/ad37bcd965fd
-  - [v12,3/5] rust: samples: add tracepoint to Rust sample
-    https://git.kernel.org/riscv/c/91d39024e1b0
-  - [v12,4/5] jump_label: adjust inline asm to be consistent
-    https://git.kernel.org/riscv/c/aecaf181651c
-  - [v12,5/5] rust: add arch_static_branch
-    https://git.kernel.org/riscv/c/169484ab6677
+  - [v8,1/5] RISC-V: Add Svade and Svadu Extensions Support
+    https://git.kernel.org/riscv/c/94a7734d0967
+  - [v8,2/5] dt-bindings: riscv: Add Svade and Svadu Entries
+    https://git.kernel.org/riscv/c/b8d481671703
+  - [v8,3/5] RISC-V: KVM: Add Svade and Svadu Extensions Support for Guest/VM
+    https://git.kernel.org/riscv/c/97eccf7db4f2
+  - [v8,4/5] KVM: riscv: selftests: Fix compile error
+    (no matching commit)
+  - [v8,5/5] KVM: riscv: selftests: Add Svade and Svadu Extension to get-reg-list test
+    https://git.kernel.org/riscv/c/c74bfe4ffe8c
 
 You are awesome, thank you!
 -- 
