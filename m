@@ -4,70 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EE444E7717D
-	for <linux-riscv@archiver.kernel.org>; Wed, 11 Dec 2024 23:45:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35CACE77180
+	for <linux-riscv@archiver.kernel.org>; Wed, 11 Dec 2024 23:45:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
 	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=vouhGwRYK2ULJs8ESED7AcAuqq6uLw1v1Zw8ZqBRMEU=; b=niEprkc1xD9h3M
-	45VSfSMwcvCU0k5TlvuLf/rD5UWJdMiETIwmENAAl+rZEALQNYyDyRTPjLGIVyD3nRZy8RP7uR99d
-	EN2JCcE8ijQ7PR9M5Ebb+rj+cOP1Ziqqqr50QnZO1ODAC8Q/3CQutmlU9kGixTLEFgF/noHRwCoDZ
-	pJYPNcmaX2FKCD2QBXY32Av4j6+eJazcGX6h7eaA5CACanZR1hQEINzicdIo4ZtyAsN51Ccy8nqSE
-	JQ63VSCNiXbk2f4SY3jvnMiRXNYGIOMJUdIIL39eNfC5rWGohaXRfB4SX84G5acdlKeA7ym7nI7Qs
-	jA9NTprPElrLLoSS7AKw==;
+	List-Owner; bh=GfRSGz2oHqNkEwjR49doN9Ii8tax+40aRbB84Y+x0OI=; b=EeJK2emExXw1aY
+	EoHwOKchpGzkVt8GU+OCiwZgDW9a0VPkeIR6JSOCeGebuj//A0HuskmtsOQibtZu8/2OklIFLBvke
+	S+lvAStCrZ1Kdf7Ny1VpyxXuhblOFmCH+KpFxhckCeseynOCA+nE9PecwzE40JKxFlchvqfuMruq7
+	amn6a/LiGu3NZdVQjSVjfbxmHtbDIUFafHe+BwaSFBL7mR1236UI5SRjgqoDLG0WZfRO9MCBW/dPc
+	9w6ucy7Pphtqd8Cp/KspZw74UwIZRG3movgIQc6gPl/HJ9wDFgo5f+CYiOmFK3hnvMoMBqaJxxcuQ
+	bup8d87Ohasj3rlUUu2Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLWOU-0000000GWYD-1gC2;
-	Wed, 11 Dec 2024 23:45:26 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1tLWOX-0000000GWbt-0Om1;
+	Wed, 11 Dec 2024 23:45:29 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLVFv-0000000GKVG-09Z2;
-	Wed, 11 Dec 2024 22:32:32 +0000
+	id 1tLVFz-0000000GKW6-0bFo
+	for linux-riscv@lists.infradead.org;
+	Wed, 11 Dec 2024 22:32:36 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 0C2945C678F;
-	Wed, 11 Dec 2024 22:31:48 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2ABF1C4CED2;
-	Wed, 11 Dec 2024 22:32:30 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 89F8A5C6474;
+	Wed, 11 Dec 2024 22:31:52 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A286AC4CED2;
+	Wed, 11 Dec 2024 22:32:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1733956350;
-	bh=Lj6m1KGdu6A9P37ePkeHmGhpEOYrC07Re+9IHx97taY=;
+	s=k20201202; t=1733956354;
+	bh=D8PIEfAkk3ZURZLdoJfZkuoLoCE4AVt+//7WJV4stTI=;
 	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=Q+h6JdhYbgWkkJZKxxBpvzzMrsNxkGoEdza4YFJyky6PGRqvTppB4WWSHpF2XbZEp
-	 3RmwDTIJ+IWZiPF6URzM7AFAUrovMRw7D8NbXB+92TG9vVWaXrcU/MsgUuSOZ3vPex
-	 o0MaFjihetIadNNvJTpEn+nlZctZbXnS0fVYRMWoku2hOngBPg/UbRT+WKkxpgNf2d
-	 SwvyT1mNlDgHbiMNbtlfPoLzmzqTgNvTIuq+Jo3m/NabxJ757iMFljbIUWU4KxUn8N
-	 5ID5hDIVQ1/ODfWBnJSI9qXoWm4SM9dKAfh3gfNA/Y4dMt1mVhzEjFLVbDxspwHNRS
-	 2u3nMpWh8Eo9Q==
+	b=rbl6916+Zv/ZGhbfFNrBYPN6Ig1vrxarxb4LSjDhlwExb8L+Lq+2UD0ffQnWh8h4s
+	 DpGOCoiuYKnJZKMTuVzYVhGZ3YuLTXuy1iyp0HuZ01hLDTy4JIu7cluWfhK6Nm/r4h
+	 rGFsQTAiWVDX9RC3/nPrTtyfyIbi85DluHt/9Q0deDuv3wm+UjAHEdeeNZFxymeUGG
+	 7I/sBszMtqijm61PqNLaE2a4jJqyuHE5OFBdZsgvv7ZCa5jyJetZoeRwV5xhNIFnoL
+	 XWY2ngLDLWEvW4Q3p17ceBYsNra+U88Y+eFZlgRB2brmwJDufsCHPMl/NuKf3I2K7H
+	 8DAYif77nC/nA==
 Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 70C81380A965;
-	Wed, 11 Dec 2024 22:32:47 +0000 (UTC)
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id EAD92380A965;
+	Wed, 11 Dec 2024 22:32:51 +0000 (UTC)
 MIME-Version: 1.0
-Subject: Re: [PATCH] kernel/irq/proc: performance: replace seq_printf with
- seq_put_decimal_ull_width
+Subject: Re: [PATCH 1/2] selftest/mm: Fix typo in virtual_address_range
 From: patchwork-bot+linux-riscv@kernel.org
-Message-Id: <173395636600.1729195.17930169527159894833.git-patchwork-notify@kernel.org>
-Date: Wed, 11 Dec 2024 22:32:46 +0000
-References: <20241103080552.4787-1-00107082@163.com>
-In-Reply-To: <20241103080552.4787-1-00107082@163.com>
-To: David Wang <00107082@163.com>
-Cc: linux-riscv@lists.infradead.org, tglx@linutronix.de,
- richard.henderson@linaro.org, linux@armlinux.org.uk, catalin.marinas@arm.com,
- will@kernel.org, guoren@kernel.org, chenhuacai@kernel.org, kernel@xen0n.name,
- James.Bottomley@HansenPartnership.com, deller@gmx.de, mpe@ellerman.id.au,
- paul.walmsley@sifive.com, ysato@users.sourceforge.jp, dalias@libc.org,
- glaubitz@physik.fu-berlin.de, davem@davemloft.net, andreas@gaisler.com,
- mingo@redhat.com, bp@alien8.de, dave.hansen@linux.intel.com, x86@kernel.org,
- chris@zankel.net, jcmvbkbc@gmail.com, linux-kernel@vger.kernel.org,
- linux-alpha@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-csky@vger.kernel.org, loongarch@lists.linux.dev,
- linux-parisc@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
- linux-sh@vger.kernel.org, sparclinux@vger.kernel.org
+Message-Id: <173395637050.1729195.966660069889668701.git-patchwork-notify@kernel.org>
+Date: Wed, 11 Dec 2024 22:32:50 +0000
+References: <20240913022635.751505-1-zhangchunyan@iscas.ac.cn>
+In-Reply-To: <20240913022635.751505-1-zhangchunyan@iscas.ac.cn>
+To: Chunyan Zhang <zhangchunyan@iscas.ac.cn>
+Cc: linux-riscv@lists.infradead.org, akpm@linux-foundation.org,
+ shuah@kernel.org, paul.walmsley@sifive.com, palmer@dabbelt.com,
+ alex@ghiti.fr, charlie@rivosinc.com, linux-mm@kvack.org,
+ linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org,
+ zhang.lyra@gmail.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241211_143231_114866_8ADBB58E 
-X-CRM114-Status: UNSURE (   6.53  )
+X-CRM114-CacheID: sfid-20241211_143235_217849_F1B08A99 
+X-CRM114-Status: UNSURE (   9.19  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -87,28 +80,22 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 Hello:
 
-This patch was applied to riscv/linux.git (fixes)
-by Michael Ellerman <mpe@ellerman.id.au>:
+This series was applied to riscv/linux.git (fixes)
+by Andrew Morton <akpm@linux-foundation.org>:
 
-On Sun,  3 Nov 2024 16:05:52 +0800 you wrote:
-> seq_printf is costy, when stress reading /proc/interrupts, profiling indicates
-> seq_printf takes about ~47% of show_interrupts samples:
+On Fri, 13 Sep 2024 10:26:34 +0800 you wrote:
+> The function name should be *hint* address, so correct it.
 > 
->     show_interrupts(94.495% 5166019/5466991)
-> 	seq_printf(47.429% 2450210/5166019)
-> 	    vsnprintf(89.232% 2186366/2450210)
-> 		format_decode(24.005% 524831/2186366)
-> 		number(19.488% 426084/2186366)
-> 		memcpy_orig(3.739% 81753/2186366)
-> 		...
-> 	_raw_spin_unlock_irqrestore(26.643% 1376379/5166019)
-> 	mtree_load(8.059% 416304/5166019)
-> 
-> [...]
+> Signed-off-by: Chunyan Zhang <zhangchunyan@iscas.ac.cn>
+> ---
+>  tools/testing/selftests/mm/virtual_address_range.c | 4 ++--
+>  1 file changed, 2 insertions(+), 2 deletions(-)
 
 Here is the summary with links:
-  - kernel/irq/proc: performance: replace seq_printf with seq_put_decimal_ull_width
-    https://git.kernel.org/riscv/c/5b881c1f8379
+  - [1/2] selftest/mm: Fix typo in virtual_address_range
+    https://git.kernel.org/riscv/c/e847f8cd96ae
+  - [2/2] selftests/mm: skip virtual_address_range tests on riscv
+    (no matching commit)
 
 You are awesome, thank you!
 -- 
