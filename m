@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41E01E77182
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 98503E77185
 	for <linux-riscv@archiver.kernel.org>; Wed, 11 Dec 2024 23:45:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -12,56 +12,52 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
 	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=e+g/th2Se7zRnKJAM5dDtuJrTisoHd4tscWLQAMZ7cs=; b=gcxn/AOZnLOI9U
-	6kcPk/wh1DFQhTXM99TDW04xdbk+VBHRq4Yx7cHU8ah9EHeBTR6SkUDNsnt2qAdAEJOMOMwBah+oO
-	uYvBlsj6ocVEPHZq4DtqPDv/EycmrM2EgTCiP2vQDgE+pSV4J5oFpvj/yrb1+MhIHi5f6cyfOAaCi
-	Xqa8holWos4HuxkCknPhSIzNgRTX0S4HEUNVtLA5v8qWHXv2jFtn/D7I4on93XXKGyv7M46SWfSdq
-	u+q1GLGHdFj4P0eDkS7it8efUdVgswS0AuV8tgEEfOMjhMRU8QN4TEJ/JhbRBiV2W+hhHt9DN67p2
-	WtayTcOXlHuNGgeh0S1A==;
+	List-Owner; bh=qV9jaq24JiUlsjIczgkrTPQIjzmwGxZ3oOoatKxqfRo=; b=QzQuchD/W8WRm3
+	4NBSQd9W1xtKcTIIExKkCy9i3tzp7Agn/wcEgCfQqK/adYb99ZV98k/vJJgpZqZu2GkLe804lKCcf
+	KkypKMBjub8Og2CWYWjSec1JwHoQewTrtvsuaCAWU+xOYvPd6uB7wqpXd3VzH/RbzKy+KhliELB27
+	GGC6tzJOxPsc/YkZ7dEHK+AP8a+NyLUPK2ZHJiheAr4rA8R8FsM8lU52WymKBSm7VXl7xYhPHijbE
+	7QGRp95rjfnuBOOAzd/DmAUxCyb0ni5EhaW7oaPwcg3SY83lrPS4hjPfmEnTJipU9KVOkC4CQIhPA
+	d828GxyLFxul9IHWn5wg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLWOZ-0000000GWeZ-1bJZ;
-	Wed, 11 Dec 2024 23:45:31 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1tLWOa-0000000GWfu-1xij;
+	Wed, 11 Dec 2024 23:45:32 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLVG3-0000000GKZS-1qJb
-	for linux-riscv@lists.infradead.org;
-	Wed, 11 Dec 2024 22:32:40 +0000
+	id 1tLVG4-0000000GKW6-2ptA;
+	Wed, 11 Dec 2024 22:32:42 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id C34BB5C67E2;
-	Wed, 11 Dec 2024 22:31:56 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E5076C4CED3;
-	Wed, 11 Dec 2024 22:32:38 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 124F15C67E6;
+	Wed, 11 Dec 2024 22:31:58 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 28F3DC4AF0F;
+	Wed, 11 Dec 2024 22:32:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1733956358;
-	bh=Dtby0qiULUFzZD3soDB2ZMr1AJrfu0wubG7oLHi5HuA=;
+	s=k20201202; t=1733956360;
+	bh=jp4Hkfu9jwxRbaUjCfVLhfbjcNqPwXBnLrsEXVYRfdA=;
 	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=GpKNGYUJHmYhkwBIdn+plUspHkFn0Zm8KfkjOjEsmfiPHLnb4H4Yb56CIsvTo6G3G
-	 ro9RBbL5zJiakfLk7m7UodiGc2RsH0EnwN/ZPRQLgc17XoqXD+LtyuZthWWBgdEzn4
-	 j3Or1LkCIf5Y1jeXRr5WHQ+ennorEs4Rvck1khiRUEO3Iv+46FlOpuMAUFg4rPOaus
-	 bjVornFwVeBvkNGjhAVruAVtvygQ3KGbMrtbE5LbIgibGdUbhG5AXoAu3YYdYDMzxt
-	 fBoOsk2KwL/VBSzheIgRwl4MtUE3yunXOfKzYmQ/fqdXslhdbhWk3b/CTFjJjXq0Fl
-	 wz4UyZjCFfOBg==
+	b=b+b5rokYnQRfbPzTwJMTXZQG+EHiJjJGg1+IUOPGp/n0Wvx+ijSowiC9UHhxhBpxy
+	 DZ8iD0RuWsgcRECVKgBTOlopvKBqcJoSBIo66KDkddUjm3X9HkKQx8TGNZm5iKacJA
+	 T1dT/D4yM2CcTfsmISse0USBHWmqNQ/rn/1skaJcebMKvv1WVqq8kIlNhxylUEubwE
+	 chfTOUNXXWA0rRMo2zBnws4AjNRn1PnnYvDHTktKDQJXrqpBgKIVkvcPnLwYXAgRWh
+	 Dy0pSrtJy3l3/deM0PTrS7Ca8pgE3JM5+8uZSgt35aKVogl+Ht06F3d7xwIL8ePENC
+	 EkbRgOLSfHoyQ==
 Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 33BD3380A965;
-	Wed, 11 Dec 2024 22:32:56 +0000 (UTC)
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 70FE3380A965;
+	Wed, 11 Dec 2024 22:32:57 +0000 (UTC)
 MIME-Version: 1.0
-Subject: Re: [PATCH] docs/zh_CN: add the translation of kbuild/llvm.rst
+Subject: Re: [GIT PULL] KVM/riscv changes for 6.13
 From: patchwork-bot+linux-riscv@kernel.org
-Message-Id: <173395637500.1729195.10613393812752938273.git-patchwork-notify@kernel.org>
-Date: Wed, 11 Dec 2024 22:32:55 +0000
-References: <20241023153235.1291567-1-dzm91@hust.edu.cn>
-In-Reply-To: <20241023153235.1291567-1-dzm91@hust.edu.cn>
-To: Dongliang Mu <dzm91@hust.edu.cn>
-Cc: linux-riscv@lists.infradead.org, si.yanteng@linux.dev, alexs@kernel.org,
- siyanteng@loongson.cn, corbet@lwn.net, paul.walmsley@sifive.com,
- palmer@dabbelt.com, aou@eecs.berkeley.edu, nathan@kernel.org,
- ndesaulniers@google.com, morbo@google.com, justinstitt@google.com,
- hust-os-kernel-patches@googlegroups.com, linux-doc@vger.kernel.org,
- linux-kernel@vger.kernel.org, llvm@lists.linux.dev
+Message-Id: <173395637624.1729195.9518811719329670075.git-patchwork-notify@kernel.org>
+Date: Wed, 11 Dec 2024 22:32:56 +0000
+References: <CAAhSdy1iTNc5QG34ceebMzA137-pNGzTva33VQ83j-yMoaw8Fg@mail.gmail.com>
+In-Reply-To: <CAAhSdy1iTNc5QG34ceebMzA137-pNGzTva33VQ83j-yMoaw8Fg@mail.gmail.com>
+To: Anup Patel <anup@brainfault.org>
+Cc: linux-riscv@lists.infradead.org, pbonzini@redhat.com, palmer@dabbelt.com,
+ palmer@rivosinc.com, ajones@ventanamicro.com, atishp@atishpatra.org,
+ atishp@rivosinc.com, kvm-riscv@lists.infradead.org, kvm@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241211_143239_536953_9B3A6F72 
-X-CRM114-Status: UNSURE (   7.40  )
+X-CRM114-CacheID: sfid-20241211_143240_760550_020768CB 
+X-CRM114-Status: UNSURE (   8.62  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -81,23 +77,24 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 Hello:
 
-This patch was applied to riscv/linux.git (fixes)
-by Jonathan Corbet <corbet@lwn.net>:
+This pull request was applied to riscv/linux.git (fixes)
+by Paolo Bonzini <pbonzini@redhat.com>:
 
-On Wed, 23 Oct 2024 23:32:02 +0800 you wrote:
-> Finish the translation of kbuild/llvm.rst and move llvm from TODO
-> to the main body.
+On Fri, 8 Nov 2024 17:07:34 +0530 you wrote:
+> Hi Paolo,
 > 
-> Update to commit 145082ebfcf0 ("Documentation/llvm: turn make command
-> for ccache into code block")
+> We have the following KVM RISC-V changes for 6.13:
+> 1) Accelerate KVM RISC-V when running as a guest
+> 2) Perf support to collect KVM guest statistics from host side
 > 
-> Signed-off-by: Dongliang Mu <dzm91@hust.edu.cn>
+> In addition, the pointer masking support (Ssnpm and
+> Smnpm) for KVM guest is going through the RISC-V tree.
 > 
 > [...]
 
 Here is the summary with links:
-  - docs/zh_CN: add the translation of kbuild/llvm.rst
-    https://git.kernel.org/riscv/c/b934bc754265
+  - [GIT,PULL] KVM/riscv changes for 6.13
+    https://git.kernel.org/riscv/c/e3e0f9b7ae28
 
 You are awesome, thank you!
 -- 
