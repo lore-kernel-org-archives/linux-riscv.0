@@ -4,70 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 76031E7717D
-	for <linux-riscv@archiver.kernel.org>; Wed, 11 Dec 2024 23:45:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 089CFE77182
+	for <linux-riscv@archiver.kernel.org>; Wed, 11 Dec 2024 23:45:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
 	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=qbsLBHhT6yYk5QsPTogqbz2l/HvjKMSk8x2b0747XdU=; b=dWXQCXF5Rom+9o
-	/piW8F4zeOcbPHmpiZrXRJQfEQRX3v0rVVDzz1fhbqm1iTWJ4xL/yMqUkrNKgjXhqjEM5X7W7/Yfe
-	vTBNe3Y9I3HrzZTVaEfuSSoSEq3zq2r6r3hxVLFRY0KdHfFqG02x8UuQZcR7t/gvLLft5jWS12kEU
-	e1MCoMXSYvWXdBIHFHRAxyZc8l2u3A/RDar/l91jHrGuSk/OKet9v1KI0JWNDPdG7RaY/BPRYekWR
-	ZjEkVhSxRAk/gzm9WfwgTyPkASMWnJY6GWCAkuRtYxWmVskKUMJulKP8S6mQp0gaL8JRKhKcJb5ga
-	LuNt1+s4HTgDmZfm8Vfw==;
+	List-Owner; bh=nOYQehJYst1VY+YWISN9BjNPtTGlUHT0hFg7XpD0h0M=; b=LOv4lcoeEzRcJS
+	65N/dcx7zXkna9skEDlIrJHu6KEKlp0D+W70XEn0YtAo2wsX4p1x/9zm0PxEoR+LL+ZEZ8am6CSHX
+	WwTd6N0YKL6pumIpjDOE2eVtw3GyMWIWoh/+qYWwRIBNc1JjTMl71kLi+TsiUA8qjcNCPaUWaU30g
+	bO4GOoGY027z4C67oldyPgZRd44KbyuuIiEmsTBvFHLP09ZEr9rzKl5vK5d5rdDSK1lU6ypvqtdon
+	xapHlz46jmz6jDF0fXc0LWpZkjNiFCZFJ6GQrZcR4qi1PsuvrmNmFOHZfRQ68t4pyZaSNm1RJCX5h
+	DXi5J2bHBO++ETIhasEA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLWOg-0000000GWp5-0yKx;
-	Wed, 11 Dec 2024 23:45:38 +0000
+	id 1tLWOh-0000000GWqa-0ODO;
+	Wed, 11 Dec 2024 23:45:39 +0000
 Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLVGJ-0000000GKpV-3BVN;
-	Wed, 11 Dec 2024 22:32:57 +0000
+	id 1tLVGP-0000000GKu7-0s9D
+	for linux-riscv@lists.infradead.org;
+	Wed, 11 Dec 2024 22:33:02 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 975595C67E0;
-	Wed, 11 Dec 2024 22:32:12 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A1C1BC4CED2;
-	Wed, 11 Dec 2024 22:32:54 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 4885B5C67EA;
+	Wed, 11 Dec 2024 22:32:18 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 690E8C4CED2;
+	Wed, 11 Dec 2024 22:33:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1733956374;
-	bh=29u5B09z/mNiOUipvbCAR8d/HfuJKD9vMPDnfCmrneU=;
+	s=k20201202; t=1733956380;
+	bh=+r7obNnqA7SvuvQvjFDZpPRvtSWlHovJxu+KW41vPZM=;
 	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=dnrDcNkOoxwSBjPjDdUGrvVokaL8PbY/29PjhRdPkvydqw8DxYooD5ABeBk3HzL/N
-	 76xby5lMWnFghEv7vC3hF+lPCP97eOVPUwp3+ZSkE4SEdqJhuc4M4tsMuMgquf/1Sh
-	 MR1GipeeO24AReN6/ejtJZElR5CRC8RyZljN784IO+9YPc2RBnMzEXA7w+OQ/yoYqa
-	 adhGvjnBGfHafNdP3219wtIr4V6sPs3ti0dnt0aZa1Z6WSjl0+E+Zb5OzErlTpRYgu
-	 UkzyIpABUuFP1nVewt4cL6HBuOiiJYxbTNdocbttNyq8XlE99Zmw+EmsHH8rPlCKUB
-	 H5x4fe1dWfyKw==
+	b=sX1m5oM/pt2uCA/7BkmXCnUscvWJ5y3EA8oKefUedT6RK15/amkrFVM8gBfk/6KLf
+	 mnqMHyVprwVj7gR68d4volCH41ZxgqcNkznOxs9MYOuUALZ6zsCUvE4G/Nh+Mo2xjJ
+	 H4NqjsDwBrECVZK2pOtU0XccNhUZ97KkO83HSNXtOKoE2K98HiFw1yxDU5JisZgblD
+	 1IntGnIiiN/GchHIRfSlOSwsDvz2tAzi/4ydENFBvuKKDAHKjjNT1kIEIsLnZenexS
+	 O/cnCqNLQYZAbx+jK9gB9IIctJmPYdYjfxIm0eA6B9cgH+HH8LomsFIEVXrJTNjapc
+	 /xVwRBhDnzu7g==
 Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id EAD93380A965;
-	Wed, 11 Dec 2024 22:33:11 +0000 (UTC)
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id ADE39380A965;
+	Wed, 11 Dec 2024 22:33:17 +0000 (UTC)
 MIME-Version: 1.0
-Subject: Re: [PATCH v3] ftrace: Consolidate ftrace_regs accessor functions for
- archs using pt_regs
+Subject: Re: [PATCH] dt-bindings: pinctrl: correct typo of description for cv1800
 From: patchwork-bot+linux-riscv@kernel.org
-Message-Id: <173395639050.1729195.18342749493985130890.git-patchwork-notify@kernel.org>
-Date: Wed, 11 Dec 2024 22:33:10 +0000
-References: <20241010202114.2289f6fd@gandalf.local.home>
-In-Reply-To: <20241010202114.2289f6fd@gandalf.local.home>
-To: Steven Rostedt <rostedt@goodmis.org>
-Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-trace-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- loongarch@lists.linux.dev, linuxppc-dev@lists.ozlabs.org,
- linux-s390@vger.kernel.org, linux-arch@vger.kernel.org, x86@kernel.org,
- mhiramat@kernel.org, mathieu.desnoyers@efficios.com, mark.rutland@arm.com,
- catalin.marinas@arm.com, will@kernel.org, chenhuacai@kernel.org,
- kernel@xen0n.name, mpe@ellerman.id.au, npiggin@gmail.com,
- christophe.leroy@csgroup.eu, naveen@kernel.org, maddy@linux.ibm.com,
- paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
- hca@linux.ibm.com, gor@linux.ibm.com, agordeev@linux.ibm.com,
- borntraeger@linux.ibm.com, svens@linux.ibm.com, tglx@linutronix.de,
- mingo@kernel.org, bp@alien8.de, dave.hansen@linux.intel.com
+Message-Id: <173395639623.1729195.12285623767079173929.git-patchwork-notify@kernel.org>
+Date: Wed, 11 Dec 2024 22:33:16 +0000
+References: <20241029012312.3448287-1-unicornxw@gmail.com>
+In-Reply-To: <20241029012312.3448287-1-unicornxw@gmail.com>
+To: Chen Wang <unicornxw@gmail.com>
+Cc: linux-riscv@lists.infradead.org, linus.walleij@linaro.org,
+ robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+ inochiama@outlook.com, linux-gpio@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ unicorn_wang@outlook.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241211_143255_848233_9E8DB788 
-X-CRM114-Status: GOOD (  11.87  )
+X-CRM114-CacheID: sfid-20241211_143301_287096_8A4FCC41 
+X-CRM114-Status: UNSURE (   7.92  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,24 +81,22 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 Hello:
 
 This patch was applied to riscv/linux.git (fixes)
-by Steven Rostedt (Google) <rostedt@goodmis.org>:
+by Linus Walleij <linus.walleij@linaro.org>:
 
-On Thu, 10 Oct 2024 20:21:14 -0400 you wrote:
-> From: Steven Rostedt <rostedt@goodmis.org>
+On Tue, 29 Oct 2024 09:23:12 +0800 you wrote:
+> From: Chen Wang <unicorn_wang@outlook.com>
 > 
-> Most architectures use pt_regs within ftrace_regs making a lot of the
-> accessor functions just calls to the pt_regs internally. Instead of
-> duplication this effort, use a HAVE_ARCH_FTRACE_REGS for architectures
-> that have their own ftrace_regs that is not based on pt_regs and will
-> define all the accessor functions, and for the architectures that just use
-> pt_regs, it will leave it undefined, and the default accessor functions
-> will be used.
+> It should be PINMUX/PINMUX2, not GPIOMUX/GPIOMUX2, see
+> <dt-bindings/pinctrl/pinctrl-cv1800b.h>.
+> 
+> Fixes: 64aa494de6fa ("dt-bindings: pinctrl: Add pinctrl for Sophgo CV1800 series SoC.")
+> Signed-off-by: Chen Wang <unicorn_wang@outlook.com>
 > 
 > [...]
 
 Here is the summary with links:
-  - [v3] ftrace: Consolidate ftrace_regs accessor functions for archs using pt_regs
-    https://git.kernel.org/riscv/c/e4cf33ca4812
+  - dt-bindings: pinctrl: correct typo of description for cv1800
+    https://git.kernel.org/riscv/c/4905aa25d31f
 
 You are awesome, thank you!
 -- 
