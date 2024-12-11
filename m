@@ -4,64 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B4EB2E7717D
-	for <linux-riscv@archiver.kernel.org>; Wed, 11 Dec 2024 22:40:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B4D56E7717D
+	for <linux-riscv@archiver.kernel.org>; Wed, 11 Dec 2024 22:43:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
 	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=A91RP/rEFYV04VNdffUWK2zN18XgV20xQIIVJsiRY2c=; b=rGQMBr7iLJGyAK
-	krjSLmEuctRnvmycJXIxw42NlvRi7hsafzU9yHn5y8ViOhS3jTiVg8b9JKdTHiztfko/sdK2DyDi0
-	yfPbX4cB4A1gkBPbe1R6xTOj4JPzC11nX7l+mSxE29LxOO8OZ3BrmeQgFxuR7FD0PsNdeIyTqK3l3
-	l6eMTzlDSxcZ3cZl/N2BdPpxAybahaCb9+M/M7X/KGTVeH0qsth6Xo8e/+hBw4mIZIXbMx6kYiz5/
-	VWXwA+DeCy2H7a7n3islug+Xv84Ew5zRuBttjp1zI/YPVR6MFSTXUpWoC9St4GKIt78qOaZV+L4Wc
-	wrG6O5VDO+WQY4unZH5w==;
+	List-Owner; bh=Ur0hH+Asb3X2TV0TK8RNCclwRgOYvVKqdWBBBGvxWuQ=; b=Lp9FTzpxHwH3F6
+	b8Pyk8JLzHyNfu6o/kfSgQZV2gBYef/ksjFZH3oLooKusY3QLEoJm7pqKWE1D1mMOi+OdXbv5WTMV
+	hTZTBuNexNO1Y2lSEReF8+srrtn2WM8PptmNoE9TCH2FU0CkH1yqhs20y3P51w2b7rghqbu6rWawn
+	hk31lWNxFdOoEUd2g3NdlOcM5j0O3TiMe7qGHByK7WWEdA4fB+Yu8dRMmtMaN65t143b/+kBxasOC
+	nKYwx1Nm9fpz9zh8QivG8oIYzHK7zzfihbvSY+ibrJDqT4bSPt3i9m6E1U6Kf+L1H5CUHtmdfdeB8
+	clh8oWqWwbdkI+VOo/jQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLVN6-0000000GNP3-2zBm;
-	Wed, 11 Dec 2024 22:39:56 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1tLVQO-0000000GO2y-42AA;
+	Wed, 11 Dec 2024 22:43:20 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLVGG-0000000GKmz-28WH
-	for linux-riscv@lists.infradead.org;
-	Wed, 11 Dec 2024 22:32:53 +0000
+	id 1tLVGW-0000000GKyZ-2Cub;
+	Wed, 11 Dec 2024 22:33:08 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:Date:
+	Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:Content-Type:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=+R7WMFr8J5p1lUpd7cHc5bxsSxLWD66PUoHsVuNxldQ=; b=belfRK6u2P3t3ZGjFmMKk46h4S
+	w/6rN5DTrezogT+yqChmeqUlJE1ojSODVpuhivpJ+p2ZmULb6tAzJ09oD1zqOiVf5lZga5Fzark8q
+	WUcK4bZFGgA2ZT1YGkdc+5vMaqOvKlRle7r5/1IoEGyBrwE27C5DsVRVth39Cs6k20kf4KefXmnmZ
+	DLW/KcOi4BO0rWK6jVJRQLi3AHnYqimjVm7TCvdNmQkzdFKnAo6pl03PM1iqq+aQ37/2kI/k2plO3
+	BI25Jh+Q7cOYmGZeosZJBelz9qAsHb4Gsk0p9hxFgdglOaeoVveg/w3G6fS184A+hF/sIYfLBniTu
+	J7g7ivdQ==;
+Received: from dfw.source.kernel.org ([139.178.84.217])
+	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tLVGQ-00000003t24-3dda;
+	Wed, 11 Dec 2024 22:33:06 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 7EF625C67A9;
-	Wed, 11 Dec 2024 22:32:09 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A1FF0C4CED2;
-	Wed, 11 Dec 2024 22:32:51 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 249745C67E5;
+	Wed, 11 Dec 2024 22:32:14 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2A09FC4CED3;
+	Wed, 11 Dec 2024 22:32:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1733956371;
-	bh=OFUDKl/zfGVkDxLHgqMZHOS0MzDnMONqvySriFeHPp0=;
+	s=k20201202; t=1733956376;
+	bh=1MJ06IwhKiUOka6t13pDPzzxerzMi81atHP/6c9+22c=;
 	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=VFPfpZPnfMb8GpVKtoWEoUUOzp46P1OPdg2x3WnquEHa70Gm3KUoK3prDBBttmgri
-	 POJnlOPmjIPs0A0b7GMzlLSc9xoozFz/4bRTqKL7Be87NYzNneldg3Pbv67rfRs0iE
-	 eD/CKd61Gho2+txPMmKMXVX4DcU97PYobMKMFMmwueAoLCN4dFZ+cBDVBJqGoRcbs9
-	 zgQyRWgbrTkVEweHThpu4P1212B4wj7dXE1X0MrYPUakdt0wkUB6Caepi+n1DawbpY
-	 n/9S7iLtZh2j+OfsVyFSH2V9OpgagDSWavgZNy2SqJ0+5JRApbdkWDavyJxQTC0Nyy
-	 rm93Me0cAP7lA==
+	b=Hia/ijUEuZBroxj7nHTcTLUeY0lUzwbIDShfmCnvrhgwkWkpcTiJx7pJ1rDHrcbYd
+	 v9xc5XYWsKCanEQ84GJFDJY00b2HgNbwArL4F0yC9b3PGcwDDt8RjKLjKLEhKLhhcd
+	 fmxIfg3UO49ThB7NCaSOMylOZeYdgxA9dXMqt5Zh24qGuiC5PnXYEzmSSsUEGzlsGM
+	 QIuCwUtbYZSKHZWQsPR/5JQlLYffzh4qHAuBe3D1CDOd8aIWP34Q5xS6MsQDi3t00y
+	 2Sa/0R/Urbix0SVQmgQhhgfeqd/s3orjw+NRpayKDn0m9Fbd2FqUvFGpLePlE4DJR6
+	 KkGTKHdygfE8A==
 Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id EADDA380A965;
-	Wed, 11 Dec 2024 22:33:08 +0000 (UTC)
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 710A8380A965;
+	Wed, 11 Dec 2024 22:33:13 +0000 (UTC)
 MIME-Version: 1.0
-Subject: Re: [RESEND PATCH] mm: Move set_pxd_safe() helpers from generic to
- platform
+Subject: Re: [PATCH 00/28] vdso: Preparations for generic data storage
 From: patchwork-bot+linux-riscv@kernel.org
-Message-Id: <173395638752.1729195.1601200589696534900.git-patchwork-notify@kernel.org>
-Date: Wed, 11 Dec 2024 22:33:07 +0000
-References: <20241003044842.246016-1-anshuman.khandual@arm.com>
-In-Reply-To: <20241003044842.246016-1-anshuman.khandual@arm.com>
-To: Anshuman Khandual <anshuman.khandual@arm.com>
-Cc: linux-riscv@lists.infradead.org, linux-mm@kvack.org,
- akpm@linux-foundation.org, paul.walmsley@sifive.com,
- dave.hansen@linux.intel.com, palmer@dabbelt.com, tglx@linutronix.de,
- david@redhat.com, ryan.roberts@arm.com, x86@kernel.org,
- linux-kernel@vger.kernel.org
+Message-Id: <173395639200.1729195.15576952837564128066.git-patchwork-notify@kernel.org>
+Date: Wed, 11 Dec 2024 22:33:12 +0000
+References: <20241010-vdso-generic-base-v1-0-b64f0842d512@linutronix.de>
+In-Reply-To: <20241010-vdso-generic-base-v1-0-b64f0842d512@linutronix.de>
+To: =?utf-8?q?Thomas_Wei=C3=9Fschuh_=3Cthomas=2Eweissschuh=40linutronix=2Ede=3E?=@aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org
+Cc: linux-riscv@lists.infradead.org, guoren@kernel.org, hca@linux.ibm.com,
+ gor@linux.ibm.com, agordeev@linux.ibm.com, borntraeger@linux.ibm.com,
+ svens@linux.ibm.com, catalin.marinas@arm.com, will@kernel.org,
+ paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
+ linux@armlinux.org.uk, chenhuacai@kernel.org, kernel@xen0n.name,
+ tytso@mit.edu, Jason@zx2c4.com, tsbogend@alpha.franken.de,
+ dave.hansen@linux.intel.com, luto@kernel.org, peterz@infradead.org,
+ tglx@linutronix.de, mingo@redhat.com, bp@alien8.de, x86@kernel.org,
+ hpa@zytor.com, mpe@ellerman.id.au, npiggin@gmail.com,
+ christophe.leroy@csgroup.eu, naveen@kernel.org, maddy@linux.ibm.com,
+ vincenzo.frascino@arm.com, linux-csky@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-s390@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, loongarch@lists.linux.dev,
+ linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+ namcao@linutronix.de
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241211_143252_588931_D8E7BBD3 
-X-CRM114-Status: GOOD (  10.36  )
+X-CRM114-CacheID: sfid-20241211_223304_128528_9A87B621 
+X-CRM114-Status: UNSURE (   9.65  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,34 +103,76 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 Hello:
 
-This patch was applied to riscv/linux.git (fixes)
-by Andrew Morton <akpm@linux-foundation.org>:
+This series was applied to riscv/linux.git (fixes)
+by Thomas Gleixner <tglx@linutronix.de>:
 
-On Thu,  3 Oct 2024 10:18:42 +0530 you wrote:
-> set_pxd_safe() helpers that serve a specific purpose for both x86 and riscv
-> platforms, do not need to be in the common memory code. Otherwise they just
-> unnecessarily make the common API more complicated. This moves the helpers
-> from common code to platform instead.
-> 
-> Cc: Paul Walmsley <paul.walmsley@sifive.com>
-> Cc: Palmer Dabbelt <palmer@dabbelt.com>
-> Cc: Thomas Gleixner <tglx@linutronix.de>
-> Cc: Dave Hansen <dave.hansen@linux.intel.com>
-> Cc: David Hildenbrand <david@redhat.com>
-> Cc: Ryan Roberts <ryan.roberts@arm.com>
-> Cc: Andrew Morton <akpm@linux-foundation.org>
-> Cc: x86@kernel.org
-> Cc: linux-mm@kvack.org
-> Cc: linux-riscv@lists.infradead.org
-> Cc: linux-kernel@vger.kernel.org
-> Suggested-by: David Hildenbrand <david@redhat.com>
-> Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
+On Thu, 10 Oct 2024 09:01:02 +0200 you wrote:
+> Historically each architecture defined their own datapage to store the
+> VDSO data. This stands in contrast to the generic nature of the VDSO
+> code itself.
+> We plan to introduce a generic framework for the management of the VDSO
+> data storage that can be used by all architectures and which works
+> together with the existing generic VDSO code.
 > 
 > [...]
 
 Here is the summary with links:
-  - [RESEND] mm: Move set_pxd_safe() helpers from generic to platform
-    https://git.kernel.org/riscv/c/d7d65b103901
+  - [01/28] csky/vdso: Remove gettimeofday() and friends from VDSO
+    (no matching commit)
+  - [02/28] csky/vdso: Remove arch_vma_name()
+    (no matching commit)
+  - [03/28] s390/vdso: Drop LBASE_VDSO
+    (no matching commit)
+  - [04/28] arm64: vdso: Drop LBASE_VDSO
+    (no matching commit)
+  - [05/28] arm64: vdso: Use only one single vvar mapping
+    (no matching commit)
+  - [06/28] riscv: vdso: Use only one single vvar mapping
+    https://git.kernel.org/riscv/c/d34b60752fcb
+  - [07/28] arm: vdso: Remove assembly for datapage access
+    (no matching commit)
+  - [08/28] LoongArch: vDSO: Use vdso/datapage.h to access vDSO data
+    (no matching commit)
+  - [09/28] MIPS: vdso: Avoid name conflict around "vdso_data"
+    (no matching commit)
+  - [10/28] x86/mm/mmap: Remove arch_vma_name()
+    (no matching commit)
+  - [11/28] x86: vdso: Use __arch_get_vdso_data() to access vdso data
+    (no matching commit)
+  - [12/28] x86: vdso: Place vdso_data at beginning of vvar page
+    (no matching commit)
+  - [13/28] x86: vdso: Access rng data from kernel without vvar
+    (no matching commit)
+  - [14/28] x86: vdso: Allocate vvar page from C code
+    (no matching commit)
+  - [15/28] x86: vdso: Access timens vdso data without vvar.h
+    (no matching commit)
+  - [16/28] x86: vdso: Access rng vdso data without vvar.h
+    (no matching commit)
+  - [17/28] x86: vdso: Move the rng offset to vsyscall.h
+    (no matching commit)
+  - [18/28] x86: vdso: Access vdso data without vvar.h
+    (no matching commit)
+  - [19/28] x86: vdso: Delete vvar.h
+    (no matching commit)
+  - [20/28] x86: vdso: Split virtual clock pages into dedicated mapping
+    (no matching commit)
+  - [21/28] powerpc: vdso: Remove offset comment from 32bit vdso_arch_data
+    (no matching commit)
+  - [22/28] powerpc: procfs: Propagate error of remap_pfn_range()
+    (no matching commit)
+  - [23/28] powerpc/pseries/lparcfg: Fix printing of system_active_processors
+    (no matching commit)
+  - [24/28] powerpc/pseries/lparcfg: Use num_possible_cpus() for potential processors
+    (no matching commit)
+  - [25/28] powerpc: Add kconfig option for the systemcfg page
+    (no matching commit)
+  - [26/28] powerpc: Split systemcfg data out of vdso data page
+    (no matching commit)
+  - [27/28] powerpc: Split systemcfg struct definitions out from vdso
+    (no matching commit)
+  - [28/28] vdso: Rename struct arch_vdso_data to arch_vdso_time_data
+    (no matching commit)
 
 You are awesome, thank you!
 -- 
