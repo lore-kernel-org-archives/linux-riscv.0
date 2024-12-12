@@ -4,125 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5501CE7717F
-	for <linux-riscv@archiver.kernel.org>; Thu, 12 Dec 2024 21:09:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0C409E7717F
+	for <linux-riscv@archiver.kernel.org>; Thu, 12 Dec 2024 21:39:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Subject:References:In-Reply-To:
-	Message-Id:Cc:To:From:Date:MIME-Version:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=gOPsO2j0s9+huLvfTBUSkCgUw/8Cy9KVCGzsAKKavek=; b=lQO4t2urQL8l0NCK5OXoKKA1N8
-	ktaJCFahO2X2CuF4pR2yYcv7u/l/eHZuOY+uHnD0UfdrBeEVJa2NlOmQ5gIu+QPYHOGnY7Mb0RN/1
-	Ks9XDJw3rF621/IBaoF2GFQNfLZ8aj81FaN+nWzU1i5Q52XR7Wuna4zJqpDpZ973ynAZE7gDsPmfd
-	mIud7jklA+/N8cY/57QrKzQ5a0LfyuKtC3A9kdgOuodvrqNO6bNuP2zajKqfsDA+5DvcSgjbMso3T
-	ACyt4kQPL8b6JPfBDIb0H4cPxkM0xZqIpPvYl4QEOUoXcYOc6862ulumx9BwT/LkbFSarvF/ceRlE
-	VGtVndqg==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=HP5Ih/v7HjtgfJImMeAASSJZMCC8eBZZ2LPZTIM8AZ4=; b=T15K4gRSYGqisB
+	CV/ASLGgdgQS3tXhye+sDczq1nWT3xVzGv+2oCk7btapvOLFO9jvyTQNnijsJvSXohVZzHYWB3qhp
+	41phyLmaoJ7+gz6NrxQao+Ktwxz0uoLurDLAsAT/224Dw1UHBOJvx4GgoizFJjatOEjQ1kwRUHTqW
+	w/rmy9Otm86vGhCS/WR99u421UO6uboKHPAAQ8lGxQIWAywp/fHrQ8OL2FqAf/ykZyR9OkVkWfcQZ
+	NU/JHzzn1aPhX6vTlqEWzrEih9AMZNVdYvs3CApiICBl0IhfEhj/o8Ac6HwWeTgbZ0nCg+f71vctT
+	Zkh3+SCBJgx7bvpMgYyA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLqQj-00000001uI2-43uY;
-	Thu, 12 Dec 2024 21:09:05 +0000
-Received: from fout-a1-smtp.messagingengine.com ([103.168.172.144])
+	id 1tLqto-00000001zX1-07nw;
+	Thu, 12 Dec 2024 21:39:08 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLqQg-00000001uGw-1m8m;
-	Thu, 12 Dec 2024 21:09:03 +0000
-Received: from phl-compute-10.internal (phl-compute-10.phl.internal [10.202.2.50])
-	by mailfout.phl.internal (Postfix) with ESMTP id 8EE3F1383EA7;
-	Thu, 12 Dec 2024 16:09:00 -0500 (EST)
-Received: from phl-imap-11 ([10.202.2.101])
-  by phl-compute-10.internal (MEProxy); Thu, 12 Dec 2024 16:09:00 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm1; t=1734037740;
-	 x=1734124140; bh=9IqZ6rAQRKbEW2J4TH6/7CA/VSmhrZDWQ3WoMQkxePk=; b=
-	sI9WQo0hT8RZfeLkFWtOxYBaixCFsKGWtj1oeld5wv+OdD59xfdJ/DXtsqqA5hQt
-	iqOuvNi/VCCSpWXoYZS39BY5IDFhiWrgN7uGOEI80sW1mD86lUNNrJYsuinhpIUd
-	yIhPLs4TywRs8rOz9rzJVi1JgzrdiimkQ65PkMgb0vc72c6LR+JnVMGUs4NEk77r
-	sTzT5VObzwIahbjTu14Sn072AKr3QmyqW4t6gUI+fj8oxqiYAtMZnJGpw6KFvWj9
-	/oN1Ya0/vGY1kQzpziYR1O6rbYPBKcOKtWSh2D/iBJcvpmOMOKrODid3HPvM9yZy
-	4mjyZbZRdPqpqpSkulf93g==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm1; t=1734037740; x=
-	1734124140; bh=9IqZ6rAQRKbEW2J4TH6/7CA/VSmhrZDWQ3WoMQkxePk=; b=V
-	2xBxaHcyH7nhSIq8a4Shpv1fzPD4TS4/o7IMn+qgKdxGHqV8eH8bVojf4NDKmYId
-	wQ5mTyohsX3YXFFFXfGAVLTVSHsgcVGB32ZuEuPEcsvKgPnNjr/ytl8Rol4AdGUH
-	z4RYUE/LTQ4TSRFibOFJaAUAU9Y1y3XSO4DmEg/vuNB3umXTPRa+lqY4thL/yeSX
-	+gWisPsU3ubkDeY87y6wmDYrll/Y7H8BuqaYXv7BQKRu+NAHz633wh9LSFMjsRCc
-	Sl9zQV4xpWiKN9OVoZ2hImjbuMrL8rLGDuVpu5KmhMLyFaTOGnXlPY4RfqWnGL3Q
-	tyRAAaDN7xrgHEaKtYX0A==
-X-ME-Sender: <xms:6lBbZyw5SFn4lKEQCjXQULlKKQ3fuezYL-a0vCHYGD3K-FVjpKNC4A>
-    <xme:6lBbZ-T7owsIHjUc1TlBe8pyoFKFV3A4XgfmG_C3lywr1GwU4Q9tIxa9IUfSJ4uZZ
-    5abI64AlwCYCLWcu3w>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefuddrkeehgddugeefucetufdoteggodetrfdotf
-    fvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdggtfgfnhhsuhgsshgtrhhisggvpdfu
-    rfetoffkrfgpnffqhgenuceurghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnh
-    htshculddquddttddmnecujfgurhepofggfffhvfevkfgjfhfutgfgsehtqhertdertdej
-    necuhfhrohhmpedftehrnhguuceuvghrghhmrghnnhdfuceorghrnhgusegrrhhnuggsrd
-    guvgeqnecuggftrfgrthhtvghrnhepvdfhvdekueduveffffetgfdvveefvdelhedvvdeg
-    jedvfeehtdeggeevheefleejnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpe
-    hmrghilhhfrhhomheprghrnhgusegrrhhnuggsrdguvgdpnhgspghrtghpthhtohepfeeg
-    pdhmohguvgepshhmthhpohhuthdprhgtphhtthhopegsphesrghlihgvnhekrdguvgdprh
-    gtphhtthhopehtshgsohhgvghnugesrghlphhhrgdrfhhrrghnkhgvnhdruggvpdhrtghp
-    thhtohepghhrrghfsegrmhgriihonhdrtghomhdprhgtphhtthhopegrthhishhhphesrg
-    htihhshhhprghtrhgrrdhorhhgpdhrtghpthhtoheprghnuhhpsegsrhgrihhnfhgruhhl
-    thdrohhrghdprhgtphhtthhopegthhhrihhsthhophhhvgdrlhgvrhhohiestghsghhroh
-    huphdrvghupdhrtghpthhtohepphgrlhhmvghrsegurggssggvlhhtrdgtohhmpdhrtghp
-    thhtoheprghouhesvggvtghsrdgsvghrkhgvlhgvhidrvgguuhdprhgtphhtthhopehmph
-    gvsegvlhhlvghrmhgrnhdrihgurdgruh
-X-ME-Proxy: <xmx:6lBbZ0VwsS4U5Dh3P7otMqmSIAVEsOO6G7LJsCShu6InWS5ECnRScA>
-    <xmx:6lBbZ4g36ua-0NY8XWqhtFeQFSxll2Gb7OcvFB5JwEkVcXBPt7efZw>
-    <xmx:6lBbZ0CZQR2tq0T2mN9rDgYjaqBp7grBCA0XYnDCiY-g_gO8TIGx1w>
-    <xmx:6lBbZ5JchKyroSqzawYqmB-bFcM24AfcbmVsrLAOC-nqaNsZvK-LMA>
-    <xmx:7FBbZ-xtl9XJ4zczjb9ueyrbQc4qE0emOqr48sDEu3vHDq2m0T8uPYzW>
-Feedback-ID: i56a14606:Fastmail
-Received: by mailuser.phl.internal (Postfix, from userid 501)
-	id 134EC2220072; Thu, 12 Dec 2024 16:08:58 -0500 (EST)
-X-Mailer: MessagingEngine.com Webmail Interface
+	id 1tLqsL-00000001zAT-0u5H;
+	Thu, 12 Dec 2024 21:37:38 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 4670AA42AAE;
+	Thu, 12 Dec 2024 21:35:45 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BAE1CC4CECE;
+	Thu, 12 Dec 2024 21:37:35 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1734039456;
+	bh=hF4mJhnVVXZXfZmgDwcher6bwGaSHVExWyvvXFEjp2w=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=olHk7jG7/rj4jRsPenllCQhTf5QGq/o+IXUWAK82q6pCJzN6i0SdtI7XXvHvfiYLW
+	 o7Yb2dtL1CH8VNEjEG8A5mpzTFx8yH0hEIFW7L1nUsgKKc9ugXfj5gaT9OXUqTDi58
+	 6N9jkLSNkjhUTqlAcmvg1HLxdVRSD5WcssiicIJ2Nxmvr9M6pJD1wQCUfPhz2WNC+t
+	 2xdjNIS1+MX5kC7hdRX17/1bm7hIdvOxPxxX9hHKaS50L38XE0/FImLbSAiegVPTIq
+	 VSrgB1QqyjlJeR5aTe0UIkwwE/K4CIPz765ubY7ooteF3fveq0wORNZ7ubo5V6o5Xr
+	 rY71XaqihMshQ==
+Date: Thu, 12 Dec 2024 13:37:34 -0800
+From: Eric Biggers <ebiggers@kernel.org>
+To: linux-kernel@vger.kernel.org
+Cc: linux-arch@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-crypto@vger.kernel.org, linux-ext4@vger.kernel.org,
+	linux-f2fs-devel@lists.sourceforge.net, linux-mips@vger.kernel.org,
+	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
+	linux-scsi@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+	loongarch@lists.linux.dev, sparclinux@vger.kernel.org,
+	x86@kernel.org
+Subject: Re: [PATCH v4 00/19] Wire up CRC32 library functions to
+ arch-optimized code
+Message-ID: <20241212213734.GB39696@sol.localdomain>
+References: <20241202010844.144356-1-ebiggers@kernel.org>
 MIME-Version: 1.0
-Date: Thu, 12 Dec 2024 22:08:37 +0100
-From: "Arnd Bergmann" <arnd@arndb.de>
-To: "Christophe Leroy" <christophe.leroy@csgroup.eu>,
- "Arnd Bergmann" <arnd@kernel.org>, kvm@vger.kernel.org
-Cc: "Thomas Bogendoerfer" <tsbogend@alpha.franken.de>,
- "Huacai Chen" <chenhuacai@kernel.org>,
- "Jiaxun Yang" <jiaxun.yang@flygoat.com>,
- "Michael Ellerman" <mpe@ellerman.id.au>,
- "Nicholas Piggin" <npiggin@gmail.com>,
- "Naveen N Rao" <naveen@kernel.org>,
- "Madhavan Srinivasan" <maddy@linux.ibm.com>,
- "Alexander Graf" <graf@amazon.com>, "Crystal Wood" <crwood@redhat.com>,
- "Anup Patel" <anup@brainfault.org>,
- "Atish Patra" <atishp@atishpatra.org>,
- "Paul Walmsley" <paul.walmsley@sifive.com>,
- "Palmer Dabbelt" <palmer@dabbelt.com>,
- "Albert Ou" <aou@eecs.berkeley.edu>,
- "Sean Christopherson" <seanjc@google.com>,
- "Paolo Bonzini" <pbonzini@redhat.com>,
- "Thomas Gleixner" <tglx@linutronix.de>, "Ingo Molnar" <mingo@redhat.com>,
- "Borislav Petkov" <bp@alien8.de>,
- "Dave Hansen" <dave.hansen@linux.intel.com>, x86@kernel.org,
- "H. Peter Anvin" <hpa@zytor.com>,
- "Vitaly Kuznetsov" <vkuznets@redhat.com>,
- "David Woodhouse" <dwmw2@infradead.org>, "Paul Durrant" <paul@xen.org>,
- "Marc Zyngier" <maz@kernel.org>, linux-kernel@vger.kernel.org,
- linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
- kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org
-Message-Id: <1633f30e-d885-4f31-a14d-11881e16deb9@app.fastmail.com>
-In-Reply-To: <3589ad69-13df-40f1-88c2-55d39790bbac@csgroup.eu>
-References: <20241212125516.467123-1-arnd@kernel.org>
- <20241212125516.467123-3-arnd@kernel.org>
- <3589ad69-13df-40f1-88c2-55d39790bbac@csgroup.eu>
-Subject: Re: [RFC 2/5] powerpc: kvm: drop 32-bit booke
+Content-Disposition: inline
+In-Reply-To: <20241202010844.144356-1-ebiggers@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241212_130902_527980_30E75293 
-X-CRM114-Status: UNSURE (   8.68  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241212_133737_313924_04750381 
+X-CRM114-Status: GOOD (  12.49  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -134,45 +72,35 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gVGh1LCBEZWMgMTIsIDIwMjQsIGF0IDE5OjM1LCBDaHJpc3RvcGhlIExlcm95IHdyb3RlOgo+
-IExlIDEyLzEyLzIwMjQgw6AgMTM6NTUsIEFybmQgQmVyZ21hbm4gYSDDqWNyaXTCoDoKPj4gRnJv
-bTogQXJuZCBCZXJnbWFubiA8YXJuZEBhcm5kYi5kZT4KCj4+IAo+PiBTdXBwb3J0IGZvciA2NC1i
-aXQgaG9zdHMgcmVtYWlucyB1bmNoYW5nZWQsIGZvciBib3RoIDMyLWJpdCBhbmQKPj4gNjQtYml0
-IGd1ZXN0cy4KPj4gCgo+PiAgIGFyY2gvcG93ZXJwYy9pbmNsdWRlL2FzbS9rdm1fYm9vazNzXzMy
-LmggICAgfCAgMzYgLS0KPj4gICBhcmNoL3Bvd2VycGMvaW5jbHVkZS9hc20va3ZtX2Jvb2tlLmgg
-ICAgICAgIHwgICA0IC0KPj4gICBhcmNoL3Bvd2VycGMvaW5jbHVkZS9hc20va3ZtX2Jvb2tlX2h2
-X2FzbS5oIHwgICAyIC0KPj4gICBhcmNoL3Bvd2VycGMva3ZtL0tjb25maWcgICAgICAgICAgICAg
-ICAgICAgIHwgIDIyICstCj4+ICAgYXJjaC9wb3dlcnBjL2t2bS9NYWtlZmlsZSAgICAgICAgICAg
-ICAgICAgICB8ICAxNSAtCj4+ICAgYXJjaC9wb3dlcnBjL2t2bS9ib29rM3NfMzJfbW11X2hvc3Qu
-YyAgICAgICB8IDM5NiAtLS0tLS0tLS0tLS0tLQo+PiAgIGFyY2gvcG93ZXJwYy9rdm0vYm9va2Uu
-YyAgICAgICAgICAgICAgICAgICAgfCAyNjggLS0tLS0tLS0tLQo+PiAgIGFyY2gvcG93ZXJwYy9r
-dm0vYm9va2UuaCAgICAgICAgICAgICAgICAgICAgfCAgIDggLQo+PiAgIGFyY2gvcG93ZXJwYy9r
-dm0vYm9va2VfZW11bGF0ZS5jICAgICAgICAgICAgfCAgNDQgLS0KPj4gICBhcmNoL3Bvd2VycGMv
-a3ZtL2Jvb2tlX2ludGVycnVwdHMuUyAgICAgICAgIHwgNTM1IC0tLS0tLS0tLS0tLS0tLS0tLS0K
-Pj4gICBhcmNoL3Bvd2VycGMva3ZtL2Jvb2tlaHZfaW50ZXJydXB0cy5TICAgICAgIHwgMTAyIC0t
-LS0KPj4gICBhcmNoL3Bvd2VycGMva3ZtL2U1MDAuYyAgICAgICAgICAgICAgICAgICAgIHwgNTUz
-IC0tLS0tLS0tLS0tLS0tLS0tLS0tCj4+ICAgYXJjaC9wb3dlcnBjL2t2bS9lNTAwLmggICAgICAg
-ICAgICAgICAgICAgICB8ICA0MCAtLQo+PiAgIGFyY2gvcG93ZXJwYy9rdm0vZTUwMF9lbXVsYXRl
-LmMgICAgICAgICAgICAgfCAxMDAgLS0tLQo+PiAgIGFyY2gvcG93ZXJwYy9rdm0vZTUwMF9tbXVf
-aG9zdC5jICAgICAgICAgICAgfCAgNTQgLS0KPj4gICBhcmNoL3Bvd2VycGMva3ZtL2U1MDBtYy5j
-ICAgICAgICAgICAgICAgICAgIHwgICA1ICstCj4+ICAgYXJjaC9wb3dlcnBjL2t2bS90cmFjZV9i
-b29rZS5oICAgICAgICAgICAgICB8ICAxNCAtCj4+ICAgMTcgZmlsZXMgY2hhbmdlZCwgNCBpbnNl
-cnRpb25zKCspLCAyMTk0IGRlbGV0aW9ucygtKQo+PiAgIGRlbGV0ZSBtb2RlIDEwMDY0NCBhcmNo
-L3Bvd2VycGMvaW5jbHVkZS9hc20va3ZtX2Jvb2szc18zMi5oCj4+ICAgZGVsZXRlIG1vZGUgMTAw
-NjQ0IGFyY2gvcG93ZXJwYy9rdm0vYm9vazNzXzMyX21tdV9ob3N0LmMKPj4gICBkZWxldGUgbW9k
-ZSAxMDA2NDQgYXJjaC9wb3dlcnBjL2t2bS9ib29rZV9pbnRlcnJ1cHRzLlMKPj4gICBkZWxldGUg
-bW9kZSAxMDA2NDQgYXJjaC9wb3dlcnBjL2t2bS9lNTAwLmMKPgo+IExlZnQgb3ZlciA/Cj4KPiBh
-cmNoL3Bvd2VycGMva2VybmVsL2hlYWRfYm9va2UuaDojaW5jbHVkZSA8YXNtL2t2bV9hc20uaD4K
-PiBhcmNoL3Bvd2VycGMva2VybmVsL2hlYWRfYm9va2UuaDojaW5jbHVkZSA8YXNtL2t2bV9ib29r
-ZV9odl9hc20uaD4KPiBhcmNoL3Bvd2VycGMva2VybmVsL2hlYWRfYm9va2UuaDogICAgICAgYiAK
-PiBrdm1wcGNfaGFuZGxlcl9caW50bm9cKClfXHNycjEKCkFzIGZhciBhcyBJIGNhbiB0ZWxsLCB0
-aGVzZSBhcmUgc3RpbGwgbmVlZGVkIGZvciBlNTUwMC9lNjUwMCwKYnV0IHlvdSBrbm93IG1vcmUg
-YWJvdXQgdGhlIHBsYXRmb3JtIHRoYW4gSSBkby4KCiAgICAgICBBcm5kCgpfX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxp
-c3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFk
-Lm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+On Sun, Dec 01, 2024 at 05:08:25PM -0800, Eric Biggers wrote:
+> This patchset applies to v6.13-rc1 and is also available in git via:
+> 
+>     git fetch https://git.kernel.org/pub/scm/linux/kernel/git/ebiggers/linux.git crc32-lib-v4
+> 
+> CRC32 is a family of common non-cryptographic integrity check algorithms
+> that are fairly fast with a portable C implementation and become far
+> faster still with the CRC32 or carryless multiplication instructions
+> that most CPUs have.  9 architectures already have optimized code for at
+> least some CRC32 variants; however, except for arm64 this optimized code
+> was only accessible through the crypto API, not the library functions.
+> 
+> This patchset fixes that so that the CRC32 library functions use the
+> optimized code.  This allows users to just use the library instead of
+> the crypto API.  This is much simpler and also improves performance due
+> to eliminating the crypto API overhead including an indirect call.  Some
+> examples of updating users are included at the end of the patchset.
+
+FYI, this patchset is now in linux-next via the crc-next branch in my repo.
+Additional reviews and acks would always be appreciated, of course.
+
+- Eric
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
