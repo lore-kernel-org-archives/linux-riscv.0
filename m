@@ -4,95 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DB860E77180
-	for <linux-riscv@archiver.kernel.org>; Thu, 12 Dec 2024 12:40:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 846C9E77183
+	for <linux-riscv@archiver.kernel.org>; Thu, 12 Dec 2024 12:56:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=KHALYW2nCPYpV5YoP/ONRgwp1wv4mpBNfhCk0aZeits=; b=ttSreB4hN9naNS
-	x43EO8vRA4zzU3+lw+7x3G3yHaKdpsP2fwwgXMTCpr2lizZMSVFX9QrF+rGgX/2Y+uagI2yhNWbUS
-	rvvNkGCE8Aic/QeI6HZRFxZLn2gUXhcYVeMDn8bB7/hxI5u/bQp8iHKxSzNhsfXRN56qN9+OMaGod
-	uuSReImsaFNYa8WSsHK6YXq+eTvykEkpX90VYI8a3Ob2sbJ68QLcrekMYANqGuIWsgwF6W03CWwo9
-	dYacFqPOAq9FmEK4F5Nzlc33EvkmdwYvKJRhTmcbMSxdRlX7IUqXCEC8MpOau3e4TRtw1Li38U1AH
-	J48mJ/x40/hw8c6QSk/w==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=oS+3YbT10mJaVDjdocFWDKXRyZuhwPMnuLYcDJhr0Ho=; b=cPwvDFDqX4m3Vv
+	I79gJCY70/8i4dDRZ/N5D0vzyIFHtwkVhQVocvO6KAOvSHC7M6R3KeXVdi+Sk9/BLOfwcpqgZ23uf
+	vEH8L4n7HrC9psgfzXtDqaFT6/ss5lSHbWZVu1Ba7Qo6BPCYhm1qVQER+FWNrLRXpD1tVLJKBsCFR
+	tYtUWtzv6jOIYzmU2Bay0/cl2BP0spPqL5pZElKQ6vcQ05rKnjgqkYnqoVlF477f73L2BZkSxRSXP
+	OPQa5tOdxIW3Cl83WRDWhNQoS5ecZ3BjHopxCSMZfg3z2zuvOkxvezVpd9WvtoqA9KLEjoFDFpmqI
+	EILW5DH8hSz23VisIrzQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLiUZ-00000000OLP-1kVQ;
-	Thu, 12 Dec 2024 12:40:31 +0000
-Received: from mail-pj1-x102e.google.com ([2607:f8b0:4864:20::102e])
+	id 1tLijl-00000000QCd-12jY;
+	Thu, 12 Dec 2024 12:56:13 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tLiUW-00000000OKM-3ieb;
-	Thu, 12 Dec 2024 12:40:29 +0000
-Received: by mail-pj1-x102e.google.com with SMTP id 98e67ed59e1d1-2ef718cb473so76878a91.1;
-        Thu, 12 Dec 2024 04:40:28 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1734007227; x=1734612027; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=r1wFQ2XEw4h3NqlPy/Ig8PdgIYeLmggghPp5vpM+aTg=;
-        b=cpPwBhypbudeOImkkmdFgT2xYQ8RBNEdtNm5xFBe3t3AJFECc9A3BFYutQvipqiAgs
-         RQaITW3hey9x6EZ9gIrV2mfGU3t9IliN+p7xzcaBBMu/ZxQITercgvG6VjBUv2RnjFR8
-         ot8nzYRE4DR8d24AzyTsDUES2uvgD2xxHXV0uli9qmMDaU5VzYt6D1OGcCPH6DMSglYC
-         B6kO3w1MXalexY1iTsRd5jUO6WzphwRu+uP4RIwlc9TvCBEVTZtQUGATMHvFrTe3z6HR
-         menkH0cQMeHlNQUvQe4+2uEP5AC0p24SFNd1ExHMTWCnskAJeW0WZ/sUX3tkj54SZATO
-         56ug==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1734007227; x=1734612027;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=r1wFQ2XEw4h3NqlPy/Ig8PdgIYeLmggghPp5vpM+aTg=;
-        b=Q02eBYNx2m5qF2gJSGsEJO8c/HOyBzvfZiYSKTqw7SJVoIj8dS5qwXuT/9kfmTqHzv
-         jCXOysDK+AFn4OcEkGNleOf73UTuEk/mbNosdyIw5yyq8z2gTSLDUshh2p9XdDjlUpEs
-         9RQepYUJ+Rp19vtHgHD3kACMS3KOgg1aFudN34NvCrgPUU/P7WVnignUxG+ztrGpHYGn
-         GRpyT4JwSOG96Wk2fKhyaOtU7DSvXhDJg+dbzEDidnJ5Q5t8mGrUq8ig4xH1qpzH9N7i
-         +oJfp0INtYBigyUqHKgKMwMnmODatjMtzPMnC0Xc4t5e8J9cfBpGhIO3ygEZvwJrZ6/r
-         8pqQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUHbOsUXQog0kRJY8t17oEn5KDhd/uWFBl4SgGjH9f1n1YMtvTov4ATLGiBzQsL716KS28Uq5+1Hq8hPFE=@lists.infradead.org, AJvYcCXiWaFZy27esEvcWjb9YQHZBBTJkI2fCSYL5AWmMi6943UQCCMh1oQX1F7WNyKtF/5y2Y7HqBsga9xpmC82qYgQ@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxf2HNNw2fGPi1hYaNCxvy3EKs8PlGr52N/uVFksAFJactk8KEd
-	8BymqzfAUHYuvVqw/jNe5T6kE7e8WAmUXI+4+9wkkOA8j/ne4hkGTB197hlvNaJ+7l3IEzOJWzV
-	4nQaZ8ZapFMn8bmDUquCK7X9PCBY=
-X-Gm-Gg: ASbGnctG78ogjONeWca3rZBPChyoWY+CoTokiUUv+n51hAGeJQqybGzhJuIkiJLNl6t
-	GXwLjiEVYahh5IYysHsjtNOrboBl29TU95oRcNA==
-X-Google-Smtp-Source: AGHT+IGFpqHYpP+ryhHdXHcJSw/i/CLG0LKsPNa9VsJsTDjRyGichTiBKLOQwEEn9jpAx0lNH3xQvXBViE9Iz/QqtPc=
-X-Received: by 2002:a17:90b:3b87:b0:2ee:f59a:94d3 with SMTP id
- 98e67ed59e1d1-2f127e2416fmr3955460a91.0.1734007227479; Thu, 12 Dec 2024
- 04:40:27 -0800 (PST)
+	id 1tLiji-00000000QBT-0ja7;
+	Thu, 12 Dec 2024 12:56:11 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 5FDD25C5816;
+	Thu, 12 Dec 2024 12:55:26 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AD1FDC4CECE;
+	Thu, 12 Dec 2024 12:56:02 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1734008168;
+	bh=xxZqH/jWseGtawnTC3Mff0BVdlHl78xupLUOsVLvfIc=;
+	h=From:To:Cc:Subject:Date:From;
+	b=n+7Fj8Of8e5sts5EpMo7IcbPPQefDcygJTvJiXwpSImEu/euclZ6Bx4GqaPgB9BAS
+	 FC4B8FUtqKk2cwlm+G4MDUFBJxlGjy+Xyf+UGEHoh7ODAHRe5iul8cwad7BmocUNUO
+	 yQgv1x7MmFDwvvnAQtr0sJwLl7qC/O0URI3UfnyVQ9MTFZyjCr5vlk55V1qwVpYdi1
+	 QZKderZ8s7FSi4AC3RP01v7I+mr84s09Or5FW2yiFQ/NnidTgm0la/5eUMXMidG1uo
+	 huHO0dznecqL990+dZlovhbBYo/EoQ4Kvug0p3zf2r057/Y1qQayr/EDXOK4i4ZnQk
+	 B8d9Wq66KI53A==
+From: Arnd Bergmann <arnd@kernel.org>
+To: kvm@vger.kernel.org
+Cc: Arnd Bergmann <arnd@arndb.de>,
+	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+	Huacai Chen <chenhuacai@kernel.org>,
+	Jiaxun Yang <jiaxun.yang@flygoat.com>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Nicholas Piggin <npiggin@gmail.com>,
+	Christophe Leroy <christophe.leroy@csgroup.eu>,
+	Naveen N Rao <naveen@kernel.org>,
+	Madhavan Srinivasan <maddy@linux.ibm.com>,
+	Alexander Graf <graf@amazon.com>,
+	Crystal Wood <crwood@redhat.com>,
+	Anup Patel <anup@brainfault.org>,
+	Atish Patra <atishp@atishpatra.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Sean Christopherson <seanjc@google.com>,
+	Paolo Bonzini <pbonzini@redhat.com>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Ingo Molnar <mingo@redhat.com>,
+	Borislav Petkov <bp@alien8.de>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	x86@kernel.org,
+	"H. Peter Anvin" <hpa@zytor.com>,
+	Vitaly Kuznetsov <vkuznets@redhat.com>,
+	David Woodhouse <dwmw2@infradead.org>,
+	Paul Durrant <paul@xen.org>,
+	Marc Zyngier <maz@kernel.org>,
+	linux-kernel@vger.kernel.org,
+	linux-mips@vger.kernel.org,
+	linuxppc-dev@lists.ozlabs.org,
+	kvm-riscv@lists.infradead.org,
+	linux-riscv@lists.infradead.org
+Subject: [RFC 0/5] KVM: drop 32-bit host support on all architectures
+Date: Thu, 12 Dec 2024 13:55:11 +0100
+Message-Id: <20241212125516.467123-1-arnd@kernel.org>
+X-Mailer: git-send-email 2.39.5
 MIME-Version: 1.0
-References: <20241030-tracepoint-v12-0-eec7f0f8ad22@google.com> <173395634899.1729195.7492083712432982213.git-patchwork-notify@kernel.org>
-In-Reply-To: <173395634899.1729195.7492083712432982213.git-patchwork-notify@kernel.org>
-From: Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>
-Date: Thu, 12 Dec 2024 13:40:13 +0100
-Message-ID: <CANiq72mmO5SswxmdcLc0i_rY+ZVo4zY8AsmHPPBKb_Vmzk8+aw@mail.gmail.com>
-Subject: Re: [PATCH v12 0/5] Tracepoints and static branch in Rust
-To: patchwork-bot+linux-riscv@kernel.org
-Cc: Alice Ryhl <aliceryhl@google.com>, linux-riscv@lists.infradead.org, 
-	rostedt@goodmis.org, mhiramat@kernel.org, mathieu.desnoyers@efficios.com, 
-	peterz@infradead.org, jpoimboe@kernel.org, jbaron@akamai.com, ardb@kernel.org, 
-	ojeda@kernel.org, alex.gaynor@gmail.com, wedsonaf@gmail.com, 
-	boqun.feng@gmail.com, gary@garyguo.net, bjorn3_gh@protonmail.com, 
-	benno.lossin@proton.me, a.hindborg@kernel.org, 
-	linux-trace-kernel@vger.kernel.org, rust-for-linux@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, arnd@arndb.de, linux-arch@vger.kernel.org, 
-	tglx@linutronix.de, mingo@redhat.com, bp@alien8.de, 
-	dave.hansen@linux.intel.com, x86@kernel.org, hpa@zytor.com, seanjc@google.com, 
-	ubizjak@gmail.com, catalin.marinas@arm.com, will@kernel.org, maz@kernel.org, 
-	oliver.upton@linux.dev, mark.rutland@arm.com, ryan.roberts@arm.com, 
-	tabba@google.com, linux-arm-kernel@lists.infradead.org, 
-	paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu, 
-	apatel@ventanamicro.com, ajones@ventanamicro.com, alexghiti@rivosinc.com, 
-	conor.dooley@microchip.com, samuel.holland@sifive.com, chenhuacai@kernel.org, 
-	kernel@xen0n.name, maobibo@loongson.cn, yangtiezhu@loongson.cn, 
-	akpm@linux-foundation.org, zhaotianrui@loongson.cn, loongarch@lists.linux.dev, 
-	cmllamas@google.com, palmer@rivosinc.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241212_044028_920117_6AB2C8D9 
-X-CRM114-Status: UNSURE (   7.18  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241212_045610_303713_B170114F 
+X-CRM114-Status: GOOD (  16.45  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,17 +95,163 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gV2VkLCBEZWMgMTEsIDIwMjQgYXQgMTE6MzLigK9QTSA8cGF0Y2h3b3JrLWJvdCtsaW51eC1y
-aXNjdkBrZXJuZWwub3JnPiB3cm90ZToKPgo+IFRoaXMgc2VyaWVzIHdhcyBhcHBsaWVkIHRvIHJp
-c2N2L2xpbnV4LmdpdCAoZml4ZXMpCj4gYnkgU3RldmVuIFJvc3RlZHQgKEdvb2dsZSkgPHJvc3Rl
-ZHRAZ29vZG1pcy5vcmc+OgoKSG1tLi4uIFRoaXMgaXMgYWxyZWFkeSBpbiBtYWlubGluZSwgYW5k
-IEkgZG9uJ3Qgc2VlIGl0IGluCnJpc2N2L2xpbnV4LmdpdCAoZml4ZXMpIC0tIEkgZ3Vlc3MgaXQg
-d2FzIGEgbWlzdGFrZT8KCkNoZWVycywKTWlndWVsCgpfX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlz
-Y3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFu
-L2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+From: Arnd Bergmann <arnd@arndb.de>
+
+I submitted a patch to remove KVM support for x86-32 hosts earlier
+this month, but there were still concerns that this might be useful for
+testing 32-bit host in general, as that remains supported on three other
+architectures. I have gone through those three now and prepared similar
+patches, as all of them seem to be equally obsolete.
+
+Support for 32-bit KVM host on Arm hardware was dropped back in 2020
+because of lack of users, despite Cortex-A7/A15/A17 based SoCs being
+much more widely deployed than the other virtualization capable 32-bit
+CPUs (Intel Core Duo/Silverthorne, PowerPC e300/e500/e600, MIPS P5600)
+combined.
+
+It probably makes sense to drop all of these at the same time, provided
+there are no actual users remaining (not counting regression testing
+that developers might be doing). Please let me know if you are still
+using any of these machines, or think there needs to be deprecation
+phase first.
+
+      Arnd
+
+Link: https://lore.kernel.org/lkml/Z1B1phcpbiYWLgCD@google.com/
+Cc: Thomas Bogendoerfer <tsbogend@alpha.franken.de>
+Cc: Huacai Chen <chenhuacai@kernel.org>
+Cc: Jiaxun Yang <jiaxun.yang@flygoat.com>
+Cc: Michael Ellerman <mpe@ellerman.id.au>
+Cc: Nicholas Piggin <npiggin@gmail.com>
+Cc: Christophe Leroy <christophe.leroy@csgroup.eu>
+Cc: Naveen N Rao <naveen@kernel.org>
+Cc: Madhavan Srinivasan <maddy@linux.ibm.com>
+Cc: Alexander Graf <graf@amazon.com>
+Cc: Crystal Wood <crwood@redhat.com>
+Cc: Anup Patel <anup@brainfault.org>
+Cc: Atish Patra <atishp@atishpatra.org>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>
+Cc: Palmer Dabbelt <palmer@dabbelt.com>
+Cc: Albert Ou <aou@eecs.berkeley.edu>
+Cc: Sean Christopherson <seanjc@google.com>
+Cc: Paolo Bonzini <pbonzini@redhat.com>
+Cc: Thomas Gleixner <tglx@linutronix.de>
+Cc: Ingo Molnar <mingo@redhat.com>
+Cc: Borislav Petkov <bp@alien8.de>
+Cc: Dave Hansen <dave.hansen@linux.intel.com>
+Cc: x86@kernel.org
+Cc: "H. Peter Anvin" <hpa@zytor.com>
+Cc: Vitaly Kuznetsov <vkuznets@redhat.com>
+Cc: David Woodhouse <dwmw2@infradead.org>
+Cc: Paul Durrant <paul@xen.org>
+Cc: Marc Zyngier <maz@kernel.org>
+Cc: linux-kernel@vger.kernel.org
+Cc: linux-mips@vger.kernel.org
+Cc: kvm@vger.kernel.org
+Cc: linuxppc-dev@lists.ozlabs.org
+Cc: kvm-riscv@lists.infradead.org
+Cc: linux-riscv@lists.infradead.org
+
+Arnd Bergmann (5):
+  mips: kvm: drop support for 32-bit hosts
+  powerpc: kvm: drop 32-bit booke
+  powerpc: kvm: drop 32-bit book3s
+  riscv: kvm: drop 32-bit host support
+  x86: kvm drop 32-bit host support
+
+ MAINTAINERS                                 |   2 +-
+ arch/mips/Kconfig                           |   3 -
+ arch/mips/include/asm/kvm_host.h            |   4 -
+ arch/mips/kvm/Kconfig                       |   1 +
+ arch/mips/kvm/emulate.c                     |   8 -
+ arch/mips/kvm/msa.S                         |  12 -
+ arch/mips/kvm/vz.c                          |  22 -
+ arch/powerpc/include/asm/kvm_book3s.h       |  19 -
+ arch/powerpc/include/asm/kvm_book3s_32.h    |  36 --
+ arch/powerpc/include/asm/kvm_book3s_asm.h   |  10 -
+ arch/powerpc/include/asm/kvm_booke.h        |   4 -
+ arch/powerpc/include/asm/kvm_booke_hv_asm.h |   2 -
+ arch/powerpc/kvm/Kconfig                    |  44 +-
+ arch/powerpc/kvm/Makefile                   |  30 --
+ arch/powerpc/kvm/book3s.c                   |  18 -
+ arch/powerpc/kvm/book3s_32_mmu_host.c       | 396 --------------
+ arch/powerpc/kvm/book3s_emulate.c           |  37 --
+ arch/powerpc/kvm/book3s_interrupts.S        |  11 -
+ arch/powerpc/kvm/book3s_mmu_hpte.c          |  12 -
+ arch/powerpc/kvm/book3s_pr.c                | 122 +----
+ arch/powerpc/kvm/book3s_rmhandlers.S        | 110 ----
+ arch/powerpc/kvm/book3s_segment.S           |  30 +-
+ arch/powerpc/kvm/booke.c                    | 264 ----------
+ arch/powerpc/kvm/booke.h                    |   8 -
+ arch/powerpc/kvm/booke_emulate.c            |  44 --
+ arch/powerpc/kvm/booke_interrupts.S         | 535 -------------------
+ arch/powerpc/kvm/bookehv_interrupts.S       |  10 -
+ arch/powerpc/kvm/e500.c                     | 553 --------------------
+ arch/powerpc/kvm/e500.h                     |  40 --
+ arch/powerpc/kvm/e500_emulate.c             | 100 ----
+ arch/powerpc/kvm/e500_mmu_host.c            |  54 --
+ arch/powerpc/kvm/e500mc.c                   |   5 +-
+ arch/powerpc/kvm/emulate.c                  |   2 -
+ arch/powerpc/kvm/powerpc.c                  |   2 -
+ arch/powerpc/kvm/trace_booke.h              |  14 -
+ arch/riscv/kvm/Kconfig                      |   2 +-
+ arch/riscv/kvm/aia.c                        | 105 ----
+ arch/riscv/kvm/aia_imsic.c                  |  34 --
+ arch/riscv/kvm/mmu.c                        |   8 -
+ arch/riscv/kvm/vcpu_exit.c                  |   4 -
+ arch/riscv/kvm/vcpu_insn.c                  |  12 -
+ arch/riscv/kvm/vcpu_sbi_pmu.c               |   8 -
+ arch/riscv/kvm/vcpu_sbi_replace.c           |   4 -
+ arch/riscv/kvm/vcpu_sbi_v01.c               |   4 -
+ arch/riscv/kvm/vcpu_timer.c                 |  20 -
+ arch/x86/kvm/Kconfig                        |   6 +-
+ arch/x86/kvm/Makefile                       |   4 +-
+ arch/x86/kvm/cpuid.c                        |   9 +-
+ arch/x86/kvm/emulate.c                      |  34 +-
+ arch/x86/kvm/fpu.h                          |   4 -
+ arch/x86/kvm/hyperv.c                       |   5 +-
+ arch/x86/kvm/i8254.c                        |   4 -
+ arch/x86/kvm/kvm_cache_regs.h               |   2 -
+ arch/x86/kvm/kvm_emulate.h                  |   8 -
+ arch/x86/kvm/lapic.c                        |   4 -
+ arch/x86/kvm/mmu.h                          |   4 -
+ arch/x86/kvm/mmu/mmu.c                      | 134 -----
+ arch/x86/kvm/mmu/mmu_internal.h             |   9 -
+ arch/x86/kvm/mmu/paging_tmpl.h              |   9 -
+ arch/x86/kvm/mmu/spte.h                     |   5 -
+ arch/x86/kvm/mmu/tdp_mmu.h                  |   4 -
+ arch/x86/kvm/smm.c                          |  19 -
+ arch/x86/kvm/svm/sev.c                      |   2 -
+ arch/x86/kvm/svm/svm.c                      |  23 +-
+ arch/x86/kvm/svm/vmenter.S                  |  20 -
+ arch/x86/kvm/trace.h                        |   4 -
+ arch/x86/kvm/vmx/main.c                     |   2 -
+ arch/x86/kvm/vmx/nested.c                   |  24 +-
+ arch/x86/kvm/vmx/vmcs.h                     |   2 -
+ arch/x86/kvm/vmx/vmenter.S                  |  25 +-
+ arch/x86/kvm/vmx/vmx.c                      | 117 +----
+ arch/x86/kvm/vmx/vmx.h                      |  23 +-
+ arch/x86/kvm/vmx/vmx_ops.h                  |   7 -
+ arch/x86/kvm/vmx/x86_ops.h                  |   2 -
+ arch/x86/kvm/x86.c                          |  74 +--
+ arch/x86/kvm/x86.h                          |   4 -
+ arch/x86/kvm/xen.c                          |  61 +--
+ 77 files changed, 63 insertions(+), 3356 deletions(-)
+ delete mode 100644 arch/powerpc/include/asm/kvm_book3s_32.h
+ delete mode 100644 arch/powerpc/kvm/book3s_32_mmu_host.c
+ delete mode 100644 arch/powerpc/kvm/booke_interrupts.S
+ delete mode 100644 arch/powerpc/kvm/e500.c
+
+-- 
+2.39.5
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
