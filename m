@@ -4,123 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 52B94E77180
-	for <linux-riscv@archiver.kernel.org>; Fri, 13 Dec 2024 09:25:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C30AE7717D
+	for <linux-riscv@archiver.kernel.org>; Fri, 13 Dec 2024 09:36:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Subject:References:In-Reply-To:
-	Message-Id:Cc:To:From:Date:MIME-Version:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=nxrM0ZcMIp4gB8GI6PHxhW5Q3DXXz+vPOJcszO3Mtz8=; b=Ssk1lnRmelqAqDe4KV3nE8cYk1
-	dQPOr6KyZYY5yViDH6Nt/bDML19oG8eEPjRU9CL0qcV4jAE1OD07In2OC66lnfSJ6LDXHexHs7MEH
-	KGb+uMiTZUaFfMkIgOdIKayiIOrkQnxZubuFThvB/JmwH+XXk8sQpnNReGYi4DS1cSiBWTqfOKOG/
-	uHIKBesvc3/x1j+eblenw9z0jH3vQf1GqfccPUA7xiJU9q7DSDZiEb9dcxe1by3VBx0lwEy4OZZ+r
-	znLeXcRo/ZHYRJNz8fJbsw9cT6NDWoSWXySsc2Qy7wHEyKvmEGBgU9mOCZeGxu3iQaBEHGe1/oL/c
-	E/GqOzgA==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=qh+osTEDZP0NpmrtRvtBjsMJNk1l57niPuP+K203xD0=; b=13B0fhm3fsTm6n
+	i3GfEfWd9RikY+iev1GPdW5haVU6Tm9v3zAVGsfzVfkKFuOv1+vCbf0Jl41UUEE/I65iL2nMD298K
+	OD2zZtpb98ugBIhAj4dlJtBJsHidL1wPDdYeTkcogxxpFtwfYIlPj5YIGXdWscQGDsU8qRosqwcP4
+	UOandMdOZUTXINcUgzThjVgC69fWti0Jp76Gzth1cBdr5jhCOwB55zoWMCJWe4PHPRm9NVOhUmU90
+	81EvkK8j7zdQ7NGOU1Xhvi2XbIUiQRr1lqBBvOPV1mJ0YXzLJK6Ww2Wu4Kn//GSXyANeg3WmAMa3P
+	M3hqsgVF3yBKc9sZkBJQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tM1uz-00000003FWR-1REU;
-	Fri, 13 Dec 2024 09:25:05 +0000
-Received: from fhigh-b6-smtp.messagingengine.com ([202.12.124.157])
+	id 1tM26F-00000003H6r-44aV;
+	Fri, 13 Dec 2024 09:36:43 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tM1tl-00000003F9e-3QkI;
-	Fri, 13 Dec 2024 09:23:51 +0000
-Received: from phl-compute-10.internal (phl-compute-10.phl.internal [10.202.2.50])
-	by mailfhigh.stl.internal (Postfix) with ESMTP id 54AC925401E6;
-	Fri, 13 Dec 2024 04:23:48 -0500 (EST)
-Received: from phl-imap-11 ([10.202.2.101])
-  by phl-compute-10.internal (MEProxy); Fri, 13 Dec 2024 04:23:49 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm1; t=1734081828;
-	 x=1734168228; bh=n3jJEXDlikai5BIZE32F7/anjx2vQjCMi91W2c/0OIU=; b=
-	s4TV2CZcFzkScS6acPGBCbdFq7V/Dy9RHjeZpO9D08kgTWi83d99z4rSFRDlfItn
-	79LEae3O/sswqtGNjOgw6p7A2uwEeu0rfXX0KGnM24oGxe10TsYGKNa9gjwrHH1M
-	77z/q7KtVruOe0OdOi5TRWS78SiFNa+SiVNFQ+rpodntJZ3b8xuSM3Xs5Z+TlZPj
-	jYk2eN1Px/XuwrJJme56jgHrfrvdu83wF+LObLjV/zkYuwMf0uA5hR0Zcu2ry91Q
-	Ry+Uz0q570BdWx1QqFQRL9PRUaVrmXH8DYuhm9SCjYYBS5lrtdgQP9GSk2sX+/SO
-	z2MPOgw3vU3Pc2EnX/A7kQ==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm1; t=1734081828; x=
-	1734168228; bh=n3jJEXDlikai5BIZE32F7/anjx2vQjCMi91W2c/0OIU=; b=g
-	WU5S28dBtpaWIxa/WfM5+DNCtPcxjWDKZ5b2kRMCICSJF1Jbck+yyL1ak4Ck+oF0
-	nox2Q2CbaqUmj7XEf9+21T4ImwGeKoHVi5AE+xHWohHrRQcDoHgKvZ4Yr4kY6gni
-	YZIOiSrcIdaQcI0AhGo/p4lWcpMTXzfQ5zLFgCQXQPUT1krKF2v2ZDBcSySmQnjw
-	BJqoRz6HxfoszAxXbUwIJzPE5lcC5KeaE/0Fici6VhdoTdJ/8znEVN09XLsFhFrI
-	al6U/3+bf4zSqkaual62alMbdvj4QXQ12jAo9/gjiXpO0Ig4vhKGaXWuY4LUKeOi
-	9cB+GvrtMyfHT96cMjZ9Q==
-X-ME-Sender: <xms:I_1bZ3bSMslrR4QcwZjgzRBZ5UKLplvFQPQjA0HoCnQRTVB04lTnEA>
-    <xme:I_1bZ2a8d_Q2fZ0Na0kNwzMS2ZkTU1yxsCa3UliYufnRsy7JexVQuLspvw1Yp0hIM
-    JzKyNy6s59A2VINbsY>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefuddrkeejgddtfecutefuodetggdotefrodftvf
-    curfhrohhfihhlvgemucfhrghsthforghilhdpggftfghnshhusghstghrihgsvgdpuffr
-    tefokffrpgfnqfghnecuuegrihhlohhuthemuceftddtnecusecvtfgvtghiphhivghnth
-    hsucdlqddutddtmdenucfjughrpefoggffhffvvefkjghfufgtgfesthejredtredttden
-    ucfhrhhomhepfdetrhhnugcuuegvrhhgmhgrnhhnfdcuoegrrhhnugesrghrnhgusgdrug
-    gvqeenucggtffrrghtthgvrhhnpefhtdfhvddtfeehudekteeggffghfejgeegteefgffg
-    vedugeduveelvdekhfdvieenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepmh
-    grihhlfhhrohhmpegrrhhnugesrghrnhgusgdruggvpdhnsggprhgtphhtthhopeefhedp
-    mhhouggvpehsmhhtphhouhhtpdhrtghpthhtohepsghpsegrlhhivghnkedruggvpdhrtg
-    hpthhtohepthhssghoghgvnhgusegrlhhphhgrrdhfrhgrnhhkvghnrdguvgdprhgtphht
-    thhopehgrhgrfhesrghmrgiiohhnrdgtohhmpdhrtghpthhtoheprghtihhshhhpsegrth
-    hishhhphgrthhrrgdrohhrghdprhgtphhtthhopegrnhhuphessghrrghinhhfrghulhht
-    rdhorhhgpdhrtghpthhtoheptghhrhhishhtohhphhgvrdhlvghrohihsegtshhgrhhouh
-    hprdgvuhdprhgtphhtthhopehprghlmhgvrhesuggrsggsvghlthdrtghomhdprhgtphht
-    thhopegrohhusegvvggtshdrsggvrhhkvghlvgihrdgvughupdhrtghpthhtohepmhhpvg
-    esvghllhgvrhhmrghnrdhiugdrrghu
-X-ME-Proxy: <xmx:I_1bZ58zp8MDxlCvv9u8Ry7AWm65nv4xnbOyH4IiLbt8eU9JURJk6A>
-    <xmx:I_1bZ9pACUTZW8WwPhf4QcxSOuYSxTAQPur06CGzF5qEKPbeOcByjA>
-    <xmx:I_1bZyo9cFmEKSDlhBCOYIixy__LIbIAUQqjIMpbNVa2B_j7nEn0sg>
-    <xmx:I_1bZzRjXDv_56jhWmo6jXwpR2ylFASCuDSuCjtAjXh0sDj2yp1RYQ>
-    <xmx:JP1bZ_ItKkj-d1aQhFXJA5zdxncKJIEWh0breQRKQ_juZTDHL4INUEmF>
-Feedback-ID: i56a14606:Fastmail
-Received: by mailuser.phl.internal (Postfix, from userid 501)
-	id CDDBA2220072; Fri, 13 Dec 2024 04:23:47 -0500 (EST)
-X-Mailer: MessagingEngine.com Webmail Interface
+	id 1tM26D-00000003H6T-1Hnz
+	for linux-riscv@lists.infradead.org;
+	Fri, 13 Dec 2024 09:36:42 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 6ED995C6692;
+	Fri, 13 Dec 2024 09:35:58 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D1295C4CED0;
+	Fri, 13 Dec 2024 09:36:39 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1734082600;
+	bh=2398Dink1XI0qXX1lmBE/iLuxkdh/Ul2IAUIGRgTvqY=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=A+zTUY2zEx1rezaCPp4xGqN3x28llyz6ivL6Fe6I9JGNIaG3hreL27Ic9wnjlm2hJ
+	 wX16cQILlbJZXV+A3zcotEdaArsKhgp+FM/rco/QgeXzfKY6MrlhgKP1nA/NkDoqYX
+	 hTMCU9LAbUjXfvtm95IPUuVfftMDQuHo6Ck+q0Z3UsUiBCnk9Is8Mt0a07nSeltRyc
+	 mKZELaFR/CPAfs+7ofURRuVTg/aX6ckJXYN5mdD3AkEZz4R3EwJUfhyWCnMLk/7GY/
+	 kolvtBYl739jAJ7E9lP9R6y7BcDLB/bAxYswMIQRe987sF+8HcctUChZdwObh7hoZ9
+	 W6DtVPlsoEJww==
+Date: Fri, 13 Dec 2024 10:36:37 +0100
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: E Shattow <e@freeshell.de>
+Cc: Conor Dooley <conor@kernel.org>, 
+	Emil Renner Berthing <kernel@esmil.dk>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Hal Feng <hal.feng@starfivetech.com>, Jianlong Huang <jianlong.huang@starfivetech.com>, 
+	Conor Dooley <conor.dooley@microchip.com>, linux-riscv@lists.infradead.org, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] riscv: dts: starfive: jh7110-pinfunc.h
+Message-ID: <rqqh56dyxblzsigse6drluhoeuapsxlr3qbzkzvy2lnpzotma5@ltydfatcrtpx>
+References: <20241210014903.154551-1-e@freeshell.de>
 MIME-Version: 1.0
-Date: Fri, 13 Dec 2024 10:23:27 +0100
-From: "Arnd Bergmann" <arnd@arndb.de>
-To: "Andreas Schwab" <schwab@suse.de>, "Arnd Bergmann" <arnd@kernel.org>
-Cc: kvm@vger.kernel.org, "Thomas Bogendoerfer" <tsbogend@alpha.franken.de>,
- "Huacai Chen" <chenhuacai@kernel.org>,
- "Jiaxun Yang" <jiaxun.yang@flygoat.com>,
- "Michael Ellerman" <mpe@ellerman.id.au>,
- "Nicholas Piggin" <npiggin@gmail.com>,
- "Christophe Leroy" <christophe.leroy@csgroup.eu>,
- "Naveen N Rao" <naveen@kernel.org>,
- "Madhavan Srinivasan" <maddy@linux.ibm.com>,
- "Alexander Graf" <graf@amazon.com>, "Crystal Wood" <crwood@redhat.com>,
- "Anup Patel" <anup@brainfault.org>,
- "Atish Patra" <atishp@atishpatra.org>,
- "Paul Walmsley" <paul.walmsley@sifive.com>,
- "Palmer Dabbelt" <palmer@dabbelt.com>,
- "Albert Ou" <aou@eecs.berkeley.edu>,
- "Sean Christopherson" <seanjc@google.com>,
- "Paolo Bonzini" <pbonzini@redhat.com>,
- "Thomas Gleixner" <tglx@linutronix.de>, "Ingo Molnar" <mingo@redhat.com>,
- "Borislav Petkov" <bp@alien8.de>,
- "Dave Hansen" <dave.hansen@linux.intel.com>, x86@kernel.org,
- "H. Peter Anvin" <hpa@zytor.com>,
- "Vitaly Kuznetsov" <vkuznets@redhat.com>,
- "David Woodhouse" <dwmw2@infradead.org>, "Paul Durrant" <paul@xen.org>,
- "Marc Zyngier" <maz@kernel.org>, linux-kernel@vger.kernel.org,
- linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
- kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org
-Message-Id: <e67c5757-26be-4fa6-932e-c7e51858081b@app.fastmail.com>
-In-Reply-To: <mvm4j39ghrj.fsf@suse.de>
-References: <20241212125516.467123-1-arnd@kernel.org>
- <20241212125516.467123-2-arnd@kernel.org> <mvm4j39ghrj.fsf@suse.de>
-Subject: Re: [RFC 1/5] mips: kvm: drop support for 32-bit hosts
+Content-Disposition: inline
+In-Reply-To: <20241210014903.154551-1-e@freeshell.de>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241213_012349_917363_52C234F5 
-X-CRM114-Status: UNSURE (   5.15  )
+X-CRM114-CacheID: sfid-20241213_013641_386762_F714E9C8 
+X-CRM114-Status: UNSURE (   5.38  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -138,17 +78,14 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Dec 12, 2024, at 14:20, Andreas Schwab wrote:
-> On Dez 12 2024, Arnd Bergmann wrote:
->
->> KVM support on MIPS was added in 2012 with both 32-bit and 32-bit mode
->
-> s/32-bit/64-bit/ (once)
->
+On Mon, Dec 09, 2024 at 05:48:57PM -0800, E Shattow wrote:
+> Fix a typo in StarFive JH7110 pin function definitions
 
-Fixed now, thanks,
+That's not a "typo", but entire wrong value with actual impact.
 
-     Arnd
+Best regards,
+Krzysztof
+
 
 _______________________________________________
 linux-riscv mailing list
