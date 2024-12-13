@@ -4,123 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C613E7717D
-	for <linux-riscv@archiver.kernel.org>; Fri, 13 Dec 2024 12:00:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB246E7717D
+	for <linux-riscv@archiver.kernel.org>; Fri, 13 Dec 2024 13:12:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
+	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=83SwMW6XcKy84Xeusa7i5F6vh1sTRZDwo678sGcpyKI=; b=paSsPKJzSYiHK7
-	CS9athiWMN/iQe/DSLZVMnphcrFkQqnfyGY/tM8W7wFL7EQKGHEu6coohPElFUBm1YENwDSTnn4zN
-	WtKjWuO3dJDqPhCgJcusTBUOUI8HtX4Qi1q3ovNaHO5fvHx1d52bxPUTfgJ8Dsh7hMx4pL7IVQUM0
-	RFjLdVLsBnG1DV7RGKH6yWusj4qyeEnv8Hf0cBitpP9okrpG/Pw7mRyjQ5J0K0MD+CZwzB4gSOeUb
-	dBJAVvVT+6AmsVn+DC0Z4YWlQkkB4i45/DjQgPBk4zdSKG68gwtVlp+CAX4DM8dZ5ek0G2ftEuxpg
-	ACUfSfVzpgyPST1VHB2w==;
+	List-Owner; bh=ZCVOeK4Yflug/vYNqPcWsMpeKOCXhp6n8f0L0q83Z98=; b=TbCY9HO79/MMSB
+	thJL9iJ+309KXekQMbkjuMbzAfmUbJeh2R+lC/98S8xliH2xS0HMueb11UOdzRIEPHuj01VqVeOFN
+	ZjCByNPKBsd60l5uwPOY5qgZ7RzNPuzKSrgppZ8uGuwVWBIvMuV87KPrNEAySGw+W37lo8XFznmlH
+	GqggZP584uYvVJ/POiSi3yZhk6HRUMGGZQRyaKxoVZ7Mfd7Fjlv+8Z/1QwT9dnjV1BJwcM8mzciZe
+	cx/YW3v6Fc5YwI2lRRUieIqAPvlB7bPp66tiHJLtZKVTfJCSrJ9EBXsC58fHW408DRplWG0v4SFPJ
+	X4UqIo6YD69q8SGbFiwg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tM4LX-00000003eEG-31u9;
-	Fri, 13 Dec 2024 12:00:39 +0000
-Received: from fout-b7-smtp.messagingengine.com ([202.12.124.150])
+	id 1tM5Sk-00000003nXp-2FQR;
+	Fri, 13 Dec 2024 13:12:10 +0000
+Received: from galois.linutronix.de ([193.142.43.55])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tM4KQ-00000003e7I-3lfu;
-	Fri, 13 Dec 2024 11:59:32 +0000
-Received: from phl-compute-10.internal (phl-compute-10.phl.internal [10.202.2.50])
-	by mailfout.stl.internal (Postfix) with ESMTP id 9DEE31140216;
-	Fri, 13 Dec 2024 06:59:26 -0500 (EST)
-Received: from phl-mailfrontend-02 ([10.202.2.163])
-  by phl-compute-10.internal (MEProxy); Fri, 13 Dec 2024 06:59:27 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=shutemov.name;
-	 h=cc:cc:content-type:content-type:date:date:from:from
-	:in-reply-to:in-reply-to:message-id:mime-version:references
-	:reply-to:subject:subject:to:to; s=fm3; t=1734091166; x=
-	1734177566; bh=YY9Ny37WV/e8XNd3tcZJEJMvfANE4ZRS8J1X5XId050=; b=t
-	QgxBTJ7cI21MODHm5IIhsr9qQzk4lUA0CTYP4QXEFNOgSxelQHeakjL+MZkdtoSw
-	ld7ieKDSHQKVUZJ03hzJ1b4ApDYLShIMZ2/1sQ/07AmlG+/WqCEIkwmJUoSMVuxf
-	lE46e4YNbqvpRzK3Er+9gVFjHXCmcI/Iz9vdMIMZzJ5Pfp2+AGW0GcYY+JO+0I9o
-	7dU1+wSufBh8U149cRZAVjGaNfVF2qwDh0zkYs5V0v8aojQaYlLgh3BH64mtDwF/
-	Uz9OV+qisQPQj1ovy5JQlHG2I0+RDihEkEcY7wqnEPtcDixc/fDiAk7EwCiEBz+u
-	k9wr+T8lfG2rdpxyIFU/g==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-type:content-type:date:date
-	:feedback-id:feedback-id:from:from:in-reply-to:in-reply-to
-	:message-id:mime-version:references:reply-to:subject:subject:to
-	:to:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=fm1; t=
-	1734091166; x=1734177566; bh=YY9Ny37WV/e8XNd3tcZJEJMvfANE4ZRS8J1
-	X5XId050=; b=uHJTAYSvYyol+OslkmlWVtjJxWlbd6yvuoAI+aLInxA51QCTJ+w
-	0zgUiCFT5M3BkYay9NetzJ9vIKz8Rgl4jPugaEXY/7MwiWU7Q95moFYBNktPp7Rs
-	xLlTMyq/0meVG4P6x3w9OSnouLbB8Y0UYi728bJ/WluPkeYT1sg/U3guL9ZMu0Q1
-	u/9lOFirZb5EHkekq8HhWCU5T/4ueLYsdvKMuTEO4Jk1GnLUFMMjQuZimGTCLc1e
-	8ygE0yPAtfa9FCxYhHauPrTfHoVE0az+9tm3UXC0TUEZz96zvov/NErDhXTU/AIW
-	xOySIUmbdP6OPjtwdgpo9amPsZsKG3KOylg==
-X-ME-Sender: <xms:nCFcZ9jwvYrdqGJY5AXoELdLaHGuUUfWoHHb7qyvrcs7otL--F9zcQ>
-    <xme:nCFcZyC4V1hIWZSgfKWznAW135Kb86FiCIDfn-3_TTYBrClnjPMAFz_QtuZbIpiU-
-    5pL5JxhyYjwld8sO4g>
-X-ME-Received: <xmr:nCFcZ9F9puHXqz8UHyPic35ImT0xh5322Wrg0RuDrW1285oZXBluiCDQENsEoz8MWdodpA>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefuddrkeejgdefgecutefuodetggdotefrodftvf
-    curfhrohhfihhlvgemucfhrghsthforghilhdpggftfghnshhusghstghrihgsvgdpuffr
-    tefokffrpgfnqfghnecuuegrihhlohhuthemuceftddtnecusecvtfgvtghiphhivghnth
-    hsucdlqddutddtmdenucfjughrpeffhffvvefukfhfgggtuggjsehttdfstddttddvnecu
-    hfhrohhmpedfmfhirhhilhhlucetrdcuufhhuhhtvghmohhvfdcuoehkihhrihhllhessh
-    hhuhhtvghmohhvrdhnrghmvgeqnecuggftrfgrthhtvghrnhepffdvveeuteduhffhffev
-    lefhteefveevkeelveejudduvedvuddvleetudevhfeknecuvehluhhsthgvrhfuihiivg
-    eptdenucfrrghrrghmpehmrghilhhfrhhomhepkhhirhhilhhlsehshhhuthgvmhhovhdr
-    nhgrmhgvpdhnsggprhgtphhtthhopeeftddpmhhouggvpehsmhhtphhouhhtpdhrtghpth
-    htohepthhhohhmrghsrdhlvghnuggrtghkhiesrghmugdrtghomhdprhgtphhtthhopehk
-    ihhrihhllhdrshhhuhhtvghmohhvsehlihhnuhigrdhinhhtvghlrdgtohhmpdhrtghpth
-    htohepsghpsegrlhhivghnkedruggvpdhrtghpthhtohepthhglhigsehlihhnuhhtrhho
-    nhhigidruggvpdhrtghpthhtohepmhhinhhgohesrhgvughhrghtrdgtohhmpdhrtghpth
-    htohepuggrvhgvrdhhrghnshgvnheslhhinhhugidrihhnthgvlhdrtghomhdprhgtphht
-    thhopeigkeeisehkvghrnhgvlhdrohhrghdprhgtphhtthhopehhphgrseiihihtohhrrd
-    gtohhmpdhrtghpthhtoheplhhuthhosehkvghrnhgvlhdrohhrgh
-X-ME-Proxy: <xmx:nCFcZyTEfCh21EnlTiPrK6G66zjhnkSICcPVJ5yGL_XX7CPK1LepTg>
-    <xmx:nCFcZ6yfy5onCbvtfbE9MjEOnuFY59LeQraVqzy6cMwh2dZO7nNzwQ>
-    <xmx:nCFcZ44gnrVsQRUU0evquTZE4W0t006Zwd1VWEzwQw8dmXJ7O69QwA>
-    <xmx:nCFcZ_wBGf8yVd5DPOy-M9IiNQcdKezDc7xTboVD_T-5GwLBVrORwA>
-    <xmx:niFcZz8dofWI4yELC61Xl2mY9kvqAIng5IyYovyCZ3-xyAvp6G73usVl>
-Feedback-ID: ie3994620:Fastmail
-Received: by mail.messagingengine.com (Postfix) with ESMTPA; Fri,
- 13 Dec 2024 06:59:15 -0500 (EST)
-Date: Fri, 13 Dec 2024 13:59:12 +0200
-From: "Kirill A. Shutemov" <kirill@shutemov.name>
-To: Tom Lendacky <thomas.lendacky@amd.com>
-Cc: "Kirill A. Shutemov" <kirill.shutemov@linux.intel.com>,
- 	Borislav Petkov <bp@alien8.de>, Thomas Gleixner <tglx@linutronix.de>,
- 	Ingo Molnar <mingo@redhat.com>,
- Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
- 	"H. Peter Anvin" <hpa@zytor.com>, Andy Lutomirski <luto@kernel.org>,
- 	Albert Ou <aou@eecs.berkeley.edu>, Alexei Starovoitov <ast@kernel.org>,
- 	Andrea Parri <parri.andrea@gmail.com>, Arnd Bergmann <arnd@arndb.de>,
- 	Daniel Borkmann <daniel@iogearbox.net>,
- Eric Chan <ericchancf@google.com>, 	Jason Gunthorpe <jgg@ziepe.ca>,
- Kai Huang <kai.huang@intel.com>,
- 	Kefeng Wang <wangkefeng.wang@huawei.com>,
- Kent Overstreet <kent.overstreet@linux.dev>,
- 	Palmer Dabbelt <palmer@rivosinc.com>,
- Paul Walmsley <paul.walmsley@sifive.com>,
- 	Russell King <linux@armlinux.org.uk>,
- Samuel Holland <samuel.holland@sifive.com>,
- 	Suren Baghdasaryan <surenb@google.com>, Yuntao Wang <ytcoode@gmail.com>,
- 	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-riscv@lists.infradead.org, 	Ashish Kalra <ashish.kalra@amd.com>,
- "Maciej W. Rozycki" <macro@orcam.me.uk>
-Subject: Re: [PATCHv2 2/2] x86/mm: Make memremap(MEMREMAP_WB) map memory as
- encrypted by default
-Message-ID: <myzpconz5z7xf4j7fnofb5zgxv7fc3evxhcys6wnqlao2c3xkj@aoapggj7lchq>
-References: <20241021105723.2707507-1-kirill.shutemov@linux.intel.com>
- <20241021105723.2707507-3-kirill.shutemov@linux.intel.com>
- <20241118164616.GAZztvWGs9cOV8t20_@fat_crate.local>
- <s4frmqwtuvclinuu7ttyzfpe7bj7hju5xgt6sxzy3gyt3prr62@rrgvhkv4lgwv>
- <20241121114952.GCZz8eYEVa3yubYQzO@fat_crate.local>
- <bz3vlh3lri7yfckdkddopwhsgvkmizhw5q6ecomgeba7q22ufp@ntu2kugiho4o>
- <079cb87c-78aa-5fb5-b28f-e7a54e51aa78@amd.com>
+	id 1tM5Si-00000003nWN-0Nru
+	for linux-riscv@lists.infradead.org;
+	Fri, 13 Dec 2024 13:12:09 +0000
+From: Thomas Gleixner <tglx@linutronix.de>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1734095525;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=1lE2poo2GMB98M3DjQRZUTgVcvXIDD7PPRxrzMRG9oM=;
+	b=HEoStFZJ5EfQAolr9+hEMAnBOKOo2iMkTXBWt8foCfFSMDcHnFPVKA50yTBJyla3fdGosl
+	HOJKQ1wi9Mku9Z3l2DzecaiWIIvkVzh2Rf3FRa1airQEh5s6XIIM4b8VqHz7tBbtvbkb4w
+	QTKYsjqQz5v7Q0y62btYk6qsrYq/Wgemhc47UNqoV6eVMzXHvdjCieiL38PAcvCyroAlI7
+	5aEj6yz9cLa/w2jz9eS8D/jQxV0sMjkdX52qTZrMFwVVyEkcYkdcxd8SCsC3OacvBE4AiM
+	kDEX58aR11BlyQCe7by/JHzfoVjmYzarlt6e0mwTS9b/Rf/NKt4Z833QByE3NQ==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1734095525;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=1lE2poo2GMB98M3DjQRZUTgVcvXIDD7PPRxrzMRG9oM=;
+	b=Esrj5StdaxwMDaPAcLNiXxAYNk9ctiiAfaJHXgTof+7R9B9+OYlpsjSDVrNs80W/Mjxkva
+	xu8P/0iPq9mWBqAA==
+To: Alexandre Ghiti <alexghiti@rivosinc.com>, Paul Walmsley
+ <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Anup
+ Patel <anup@brainfault.org>, Sunil V L <sunilvl@ventanamicro.com>,
+ linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+Cc: Alexandre Ghiti <alexghiti@rivosinc.com>
+Subject: Re: [RFC PATCH] riscv: Fix PCI warning by enabling
+ PCI_MSI_ARCH_FALLBACKS
+In-Reply-To: <20241213115704.353665-1-alexghiti@rivosinc.com>
+References: <20241213115704.353665-1-alexghiti@rivosinc.com>
+Date: Fri, 13 Dec 2024 14:12:04 +0100
+Message-ID: <87v7vn917f.ffs@tglx>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <079cb87c-78aa-5fb5-b28f-e7a54e51aa78@amd.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241213_035931_631123_F6DD286D 
-X-CRM114-Status: GOOD (  38.31  )
+X-CRM114-CacheID: sfid-20241213_051208_264947_FA6D33A0 
+X-CRM114-Status: GOOD (  13.18  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -137,96 +78,78 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Dec 12, 2024 at 08:23:07AM -0600, Tom Lendacky wrote:
-> On 12/10/24 07:26, Kirill A. Shutemov wrote:
-> > On Thu, Nov 21, 2024 at 12:49:52PM +0100, Borislav Petkov wrote:
-> >> On Tue, Nov 19, 2024 at 10:21:05AM +0200, Kirill A. Shutemov wrote:
-> >>> Sure, we can workaround every place that touches such ranges.
-> >>
-> >> Every place? Which every place? I thought this is only an EISA issue?
-> > 
-> > I looked at other places where we call memremap(MEMREMAP_WB) such as
-> > acpi_wakeup_cpu(). We actually get encrypted/private mapping for this
-> > callsite despite __ioremap_caller() being called encrypted == false.
-> > This happens because of IORES_MAP_ENCRYPTED check in __ioremap_caller().
-> > 
-> > So we depend on the BIOS here. The EISA problem happens because the
-> > target memory is in !IORES_MAP_ENCRYPTED memory.
-> > 
-> > It's hard to say if any other memremap(MEMREMAP_WB) would trigger the
-> > issue. And what will happen after next BIOS update.
-> > 
-> >> Then clearly your changelogs need to expand considerably more what we're
-> >> *really* addressing here.
-> >>
-> >>> Or we can address problem at the root and make creating decrypted/shared
-> >>> mappings explicit.
-> >>
-> >> What is the problem? That KVM implicitly converts memory to shared? Why does
-> >> KVM do that an can it be fixed not to?
-> >>
-> >> Doesn't sound like the guest's problem.
-> > 
-> > Well, the problem is on the both sides.
-> > 
-> > VMM behaviour on such accesses is not specified in any spec. AFAIK all
-> > current VMM implementations do this implicit conversion.
-> > 
-> > I think it has to be fixed. VMMs (not only KVM) should not silently
-> > convert memory to shared. But VMMs cannot make memory access to go away.
-> > The only option they have is to inject #VE instead indicating bogus
-> > access. At this point it becomes a guest problem.
-> > 
-> > It will get fixed in VMMs naturally when TDX Connect gets enabled.
-> > With a secure device assigned to a TD, VMM would loose the ability to
-> > convert memory on its own. The guest would have to unlock the memory
-> > first. This will make implicit conversion impossible.
-> > 
-> > But it also means guest should never initiate shared access without
-> > explicit conversion. Otherwise #VE will crash it.
-> > 
-> >> Or maybe this needs a lot more explanation what we're fixing here.
-> >>
-> >>> Such mappings have both functional (as we see here) and security
-> >>> implications (VMM can manipulate the guest memory range). We should not
-> >>> create decrypted mappings by default on legacy interfaces.
-> >>
-> >> So we're getting closer.
-> >>
-> >> The changes themselves are fine but your text is missing a lot about what
-> >> we're fixing here. When I asked, I barely scratched the surface. So can we
-> >> elaborate here pls?
-> > 
-> > What about this:
-> > 
-> > x86/mm: Make memremap(MEMREMAP_WB) map memory as encrypted by default
-> > 
-> > Currently memremap(MEMREMAP_WB) can produce decrypted/shared mapping:
-> > 
-> > memremap(MEMREMAP_WB)
-> >   arch_memremap_wb()
-> >     ioremap_cache()
-> >       __ioremap_caller(.encrytped = false)
-> 
-> That's because try_ram_remap() invokes arch_memremap_can_ram_remap()
-> which is returning false (for some reason).
+On Fri, Dec 13 2024 at 12:57, Alexandre Ghiti wrote:
+> When the interrupt controller is not using the IMSIC and ACPI is enabled,
+> the following warning appears:
+>
+> [    0.866401] WARNING: CPU: 1 PID: 1 at drivers/pci/msi/msi.h:121 pci_msi_setup_msi_irqs+0x2c/0x32
+> [    0.867071] Modules linked in:
+> [    0.867389] CPU: 1 UID: 0 PID: 1 Comm: swapper/0 Not tainted 6.13.0-rc2-00001-g795582ce7e24-dirty #44
+> [    0.867538] Hardware name: QEMU QEMU Virtual Machine, BIOS
+> [    0.867672] epc : pci_msi_setup_msi_irqs+0x2c/0x32
+> [    0.867738]  ra : __pci_enable_msix_range+0x30c/0x596
 
-In EISA case try_ram_remap() is not called. is_ram is REGION_DISJOINT
+Removing a ton of badly formatted stack trace:
 
-> When arch_memremap_can_ram_remap() returns false, ioremap_cache() is
-> invoked. ioremap() should provide shared mappings unless specifically
-> requested to provide an encrypted mapping (via encrypted parameter) or
-> if __ioremap_check_mem() determines that an encrypted mapping is needed.
+https://www.kernel.org/doc/html/latest/process/submitting-patches.html#backtraces-in-commit-messages
 
-I don't propose changing ioremap() behaviour. It's about memremap().
+>
+> So enable PCI_MSI_ARCH_FALLBACKS to get rid of this.
 
-> Can logic be added to arch_memremap_can_ram_remap() to return true for
-> the cases that TDX is having issues with?
+No. PCI_MSI_ARCH_FALLBACKS is really only meant for architectures which
+implement the legacy fallbacks and not to paper over the underlying
+logic bug in the pci/msi code. Of course the loongson folks ran into the
+same problem two years ago and went for the sloppy fix without talking
+to anyone...
 
-It will not help EISA case, because we don't get this path.
+Thanks for bringing it up instead of silently slapping it into the RISCV
+tree !
 
--- 
-  Kiryl Shutsemau / Kirill A. Shutemov
+The uncompiled patch below should fix this for real.
+
+Thanks,
+
+        tglx
+---
+--- a/arch/loongarch/Kconfig
++++ b/arch/loongarch/Kconfig
+@@ -185,7 +185,6 @@ config LOONGARCH
+ 	select PCI_DOMAINS_GENERIC
+ 	select PCI_ECAM if ACPI
+ 	select PCI_LOONGSON
+-	select PCI_MSI_ARCH_FALLBACKS
+ 	select PCI_QUIRKS
+ 	select PERF_USE_VMALLOC
+ 	select RTC_LIB
+--- a/drivers/pci/msi/irqdomain.c
++++ b/drivers/pci/msi/irqdomain.c
+@@ -350,8 +350,11 @@ bool pci_msi_domain_supports(struct pci_
+ 
+ 	domain = dev_get_msi_domain(&pdev->dev);
+ 
+-	if (!domain || !irq_domain_is_hierarchy(domain))
+-		return mode == ALLOW_LEGACY;
++	if (!domain || !irq_domain_is_hierarchy(domain)) {
++		if (IS_ENABLED(CONFIG_PCI_MSI_ARCH_FALLBACKS))
++			return mode == ALLOW_LEGACY;
++		return false;
++	}
+ 
+ 	if (!irq_domain_is_msi_parent(domain)) {
+ 		/*
+--- a/drivers/pci/msi/msi.c
++++ b/drivers/pci/msi/msi.c
+@@ -442,6 +442,10 @@ int __pci_enable_msi_range(struct pci_de
+ 	if (nvec > maxvec)
+ 		nvec = maxvec;
+ 
++	/* Test for the availability of MSI support */
++	if (!pci_msi_domain_supports(dev, 0, ALLOW_LEGACY))
++		return -ENOTSUPP;
++
+ 	rc = pci_setup_msi_context(dev);
+ 	if (rc)
+ 		return rc;
 
 _______________________________________________
 linux-riscv mailing list
