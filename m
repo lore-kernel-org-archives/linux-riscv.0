@@ -4,104 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 428FFE77180
-	for <linux-riscv@archiver.kernel.org>; Fri, 13 Dec 2024 14:38:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 08CD7E7717F
+	for <linux-riscv@archiver.kernel.org>; Fri, 13 Dec 2024 15:43:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=j9kwhQjzgaBZQAgCNVbLDx2JNW8ibLD+LrriEh/GCBE=; b=LBwGcmfWN1itZC
-	myyzZd7sOg4eogzeCpSiiLxd/5ZMC2XR+y40dkwkRDID/wNXA5hdgpC0Do60zSs9v2pbjCEUnkIAL
-	hf4RkyrbYbDAafn0CseeRfrJOkTNqClmHGrwoVJ1ef6lwJ6KZBovq9eHnsFNr+/MNc4mFkpm7a8Nu
-	kfY2ZfsQChWTl2wELM/c/Op7th58kgUH3CtIoo29UOite1yX0L/uq1x2wp7j0sZrt3cs1ZqA86+c1
-	ua0N0MArMezIhZgS9NOrqHPbFpaUNjmJGnn66og2Li2M8blazY2dCyePUbtlpAQViYf9hHiUUz6Yt
-	mhGT9L3TcrqUuW19XRhw==;
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=BO6oOF7Ff1RtSQmrx4Z/xq0x0EQ2XvMaP+H7COWNp/M=; b=FQPjnGaNoTgUBL
+	qn+LdQb1E3Ng8aU3xN1ErQMm1QzljfTdRro8o3g7MBQ8Eb1pRMV/0zsIj6jhbDJMFnYuyZEg71CDO
+	9iUpHGLZSo6ttt+HsYisyoE/Ah6lOQ1XVsbwALxZh3F2Avt1lb17tGOAAZMqdZav9qmZKDB65oulu
+	qVr5xrJLRnY6ByX2gXvJUlXWVhjeOeS0qD9UESnx+hB/VZnSjlGl+KKLvDw9bdQSDAqISkhOg7CBs
+	5pDuO8TOSbP+4NNkefMBYVfex4ZVxBZu4cL/FY4UIfKNkdM5Wh7VCoH9UUTqzs8e1pPr0krYcGael
+	Pgqk1HGNXTR2m90rcFJw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tM6nq-000000047b8-2oZl;
-	Fri, 13 Dec 2024 14:38:02 +0000
-Received: from mail-wr1-x42a.google.com ([2a00:1450:4864:20::42a])
+	id 1tM7pC-00000004IuN-3aKW;
+	Fri, 13 Dec 2024 15:43:30 +0000
+Received: from mail-io1-xd2c.google.com ([2607:f8b0:4864:20::d2c])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tM6j1-000000045MY-2PQc
+	id 1tM7p9-00000004ItV-1LLp
 	for linux-riscv@lists.infradead.org;
-	Fri, 13 Dec 2024 14:33:05 +0000
-Received: by mail-wr1-x42a.google.com with SMTP id ffacd0b85a97d-3862b40a6e0so1017315f8f.0
-        for <linux-riscv@lists.infradead.org>; Fri, 13 Dec 2024 06:33:02 -0800 (PST)
+	Fri, 13 Dec 2024 15:43:28 +0000
+Received: by mail-io1-xd2c.google.com with SMTP id ca18e2360f4ac-844e9b83aaaso64206339f.3
+        for <linux-riscv@lists.infradead.org>; Fri, 13 Dec 2024 07:43:26 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1734100381; x=1734705181; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=YS9LGudJur7kGbLspdnTQuWDC+hZFSTpArars9lBeLQ=;
-        b=TAGjRkDmwySe9yo3jmezVIRHtcoRAUtdMS9fZli5V7piVj6F6VTtLEwQcBHumWMHAr
-         +j1ek58Tk9fuAQniaYdBgDYroy4wRyEigHmVMnV9kLa52hOjMzIXHqN5QsZCakNcNnyp
-         DNYwAF/gxXesZoOI8Rbbx4h3V8brCGiIsIo0h6mBWizPqpNzOa6MNU7elaQtc5xUQILa
-         Mzhw6Cx2D1spcX/lmOwwN+roGFc5HqeZY0TBfq70I5L6wVaAxEgSciGZBIK6n+eex35w
-         DXV7p04kDlRRbXzCUhXXFPKUPly82ThyI/PGPZ/B0jyoO5VYbntq0nmADHVKWus6taAa
-         yi4w==
+        d=brainfault-org.20230601.gappssmtp.com; s=20230601; t=1734104605; x=1734709405; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:mime-version:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=iwjoP0Rbkuiwb4EhGyP5yHnBvkPf6hPIeiHA6s05heM=;
+        b=Odq1G7fsyhWM3/Fy0rGiiQrgbyBSH/WsbJ0BYdksK/wGNoWWZUJaKKsUTO7h7eKO+h
+         vrSGBiOUF1LkTLYB0OgqCVxx8iX96+S1Nnw4JuEN3447D5QCn34ksHCcOr+4xv95j9OZ
+         aAwxAgqYEN1Sz2XNzb9nb7nDoOvFbW6dVUQr003YGfJPDX1QihcwG4zRkFFQTfxsJ/xE
+         eW5R9IJ2Uu1bwfcekY9az5cUzPD5zWitpotlK5gqJo+7mlxq97oT79anYCPioEvbuQAz
+         jnetIykDgJswGtK68/zAgxtok+z10vDPVL7zMjM8ol3g+OEHnmfkhrDgBO/2fnHxYewA
+         7bFg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1734100381; x=1734705181;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=YS9LGudJur7kGbLspdnTQuWDC+hZFSTpArars9lBeLQ=;
-        b=PyJLoO4+4c/qI6q9wvJk6aa3vo9UmkWNllr6bXt5fCy8YtMw7b7dvIStqBquQQq+qO
-         FbwVSJOxFjU/2q04khLIUcj6/MJyOSl8KBafrJW6WoPrtShER8psM1fqeJIiABeE72sP
-         zdp6lO79Jyh3t3afuuA/FZLRXAvuUHZ+AWOWmT/H+n7AhGxZJFED3EWYcyeRkWrt8PuO
-         pI4D2LCsKwSET1AZjy7nqlfkDz/gKM2Uho7T+LVMM6SDhF+7EnhC4Glbnku9UFzpP8kb
-         +4bzEwsuCksNYfNCqqvelAB7LPePLyDxQbIm7STLnGLOlvPqpl3cKqa7+nIWZyQGRyWj
-         r2lA==
-X-Forwarded-Encrypted: i=1; AJvYcCXCq9K14ACb7kAEvzmr71l/CNrATGg1qYVkSr/5KThzhqygma31jZygUz/1jsjfaot+6637/ApzYbZ7UQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy+SCa6AtwLvUF07Q71VfpuCD28UvkAWUtj4fCDMX6sSBSJKfaz
-	0CgJCMo/R8XenX/xTaE2DzuPOMrBdlkUG8sziunLOFN3Mm6tQAd5DHnKAzwFdPGBTwXVN8gsAIs
-	g2aDrKJaFFoLfE+oLPGkldkBuuGryHiQSpLzX
-X-Gm-Gg: ASbGncs8uxvDZKw8GpS1oMhzwwVXms5zkaS9R3WaXSXDnOoeMGEotURekBnESxaRfS4
-	GLdCQ6+UGY33r1B2N7CyCC3HmlLC9oDIJLiNTiwA=
-X-Google-Smtp-Source: AGHT+IGvvc8SEIVkqPspUBW11+fwBIw/V0dhqL0RuVU+1lBeUhFdbOVUzhj6j5lBdtbpP2FKdq6ekBfVUhokO3//J1Y=
-X-Received: by 2002:a05:6000:2ad:b0:385:ee59:44eb with SMTP id
- ffacd0b85a97d-3888e0bd28amr2583040f8f.33.1734100380695; Fri, 13 Dec 2024
- 06:33:00 -0800 (PST)
+        d=1e100.net; s=20230601; t=1734104605; x=1734709405;
+        h=cc:to:subject:message-id:date:from:mime-version:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=iwjoP0Rbkuiwb4EhGyP5yHnBvkPf6hPIeiHA6s05heM=;
+        b=jVNHW8zDt8TCTPf6OfH6qRDZbKZN0+BtSOVziqSSrtl2i6FIlvbQOtQMWC8L1fN/pV
+         fJgy4/jcW5ZrnoiPlqmW1N1nHYs0toVScEiKXXprJ/FhcbIgMDTWKtRab2GKWvx8ualt
+         mu28VV3H5V8EgU2cqBvS2dgMatTrUVNjOQl9DvoA8UHLMXSLGVNtsMIJLX9mBHpeI9cX
+         2FKo70CrHS+sFT/f+aDOpJMrtMm7qy8S9koIGo/Go36CDSxuUTNCksAttKSxu8+MKebK
+         at+pJpJUF680Ix4lXjH8YwGfx15yOxXqeK8HqBtRbIeTH5d9qLWbEDA/h4IUSQqMIxLL
+         YIMw==
+X-Forwarded-Encrypted: i=1; AJvYcCU4a+/fMZcU7Outa2Xr78LOj8n0361173yBUaW8NDJ0hCGUxoDPKpEQP37UEUEM2vHtqfHS89QRHCBqSg==@lists.infradead.org
+X-Gm-Message-State: AOJu0YxsCkPy/PR78YigB+Dsw73j/bVZEE04mCt4oTaldNwe6jOl0+Mo
+	yZ7lzX1GawGi8aPKaHoZwKr6dzKy0N7NHrB+0sObwZU1EhI55mrg8bX9oDOKAdnrFqmK9jubGsQ
+	Ut6n1okQa5dW5PEw0Lh4sBrzCt/oIlhu8wlduLDwTRFEyVPGU8O4=
+X-Gm-Gg: ASbGncvzxFKzGntNJ7IyIZw9iVs+fc6azyInfzElZBA44xXS3BmRz3uQg3/RQbZuy0C
+	yHxWTlEvcr042WKJYX3E6z15tFSjpg0/ey3IFXhA=
+X-Google-Smtp-Source: AGHT+IHszYtma7y6OUpPC8sx00Gd9GpsiqMRXevKniZfSrxLywefwvvNPxXnHXUXuYGvWK0JHf7Ffw8UvhWyAl7zeRk=
+X-Received: by 2002:a05:6e02:18cd:b0:3a7:e0e6:65a5 with SMTP id
+ e9e14a558f8ab-3aff52a260cmr44535365ab.6.1734104605585; Fri, 13 Dec 2024
+ 07:43:25 -0800 (PST)
 MIME-Version: 1.0
-References: <20241101060237.1185533-1-boqun.feng@gmail.com>
- <20241101060237.1185533-5-boqun.feng@gmail.com> <CAH5fLgjhQouU=kqVx7LET2yeWt6sKt-VO5PR5SnQ8doaG4ihuQ@mail.gmail.com>
- <Z1seogLmy5H8-hXn@boqun-archlinux>
-In-Reply-To: <Z1seogLmy5H8-hXn@boqun-archlinux>
-From: Alice Ryhl <aliceryhl@google.com>
-Date: Fri, 13 Dec 2024 15:32:47 +0100
-Message-ID: <CAH5fLgjGg8_s8imOkmPb0yLAMwD1sF1aoBZWkAy-YLNh41zCuw@mail.gmail.com>
-Subject: Re: [RFC v2 04/13] rust: sync: atomic: Add generic atomics
-To: Boqun Feng <boqun.feng@gmail.com>
-Cc: rust-for-linux@vger.kernel.org, rcu@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-arch@vger.kernel.org, 
-	llvm@lists.linux.dev, lkmm@lists.linux.dev, Miguel Ojeda <ojeda@kernel.org>, 
-	Alex Gaynor <alex.gaynor@gmail.com>, Wedson Almeida Filho <wedsonaf@gmail.com>, Gary Guo <gary@garyguo.net>, 
-	=?UTF-8?Q?Bj=C3=B6rn_Roy_Baron?= <bjorn3_gh@protonmail.com>, 
-	Benno Lossin <benno.lossin@proton.me>, Andreas Hindborg <a.hindborg@samsung.com>, 
-	Alan Stern <stern@rowland.harvard.edu>, Andrea Parri <parri.andrea@gmail.com>, 
-	Will Deacon <will@kernel.org>, Peter Zijlstra <peterz@infradead.org>, 
-	Nicholas Piggin <npiggin@gmail.com>, David Howells <dhowells@redhat.com>, 
-	Jade Alglave <j.alglave@ucl.ac.uk>, Luc Maranget <luc.maranget@inria.fr>, 
-	"Paul E. McKenney" <paulmck@kernel.org>, Akira Yokosawa <akiyks@gmail.com>, 
-	Daniel Lustig <dlustig@nvidia.com>, Joel Fernandes <joel@joelfernandes.org>, 
-	Nathan Chancellor <nathan@kernel.org>, Nick Desaulniers <ndesaulniers@google.com>, kent.overstreet@gmail.com, 
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, elver@google.com, 
-	Mark Rutland <mark.rutland@arm.com>, Thomas Gleixner <tglx@linutronix.de>, 
-	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, 
-	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org, 
-	"H. Peter Anvin" <hpa@zytor.com>, Catalin Marinas <catalin.marinas@arm.com>, torvalds@linux-foundation.org, 
-	linux-arm-kernel@lists.infradead.org, linux-fsdevel@vger.kernel.org, 
-	Trevor Gross <tmgross@umich.edu>, dakr@redhat.com, 
-	Frederic Weisbecker <frederic@kernel.org>, Neeraj Upadhyay <neeraj.upadhyay@kernel.org>, 
-	Josh Triplett <josh@joshtriplett.org>, Uladzislau Rezki <urezki@gmail.com>, 
-	Steven Rostedt <rostedt@goodmis.org>, Mathieu Desnoyers <mathieu.desnoyers@efficios.com>, 
-	Lai Jiangshan <jiangshanlai@gmail.com>, Zqiang <qiang.zhang1211@gmail.com>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, linux-riscv@lists.infradead.org
+From: Anup Patel <anup@brainfault.org>
+Date: Fri, 13 Dec 2024 21:13:14 +0530
+Message-ID: <CAAhSdy35NO2fUrgER57qgOHRSZYbGLvmKDPjdfpXOP04C1AhMg@mail.gmail.com>
+Subject: [GIT PULL] KVM/riscv fixes for 6.13 take #1
+To: Paolo Bonzini <pbonzini@redhat.com>
+Cc: Palmer Dabbelt <palmer@dabbelt.com>, Palmer Dabbelt <palmer@rivosinc.com>, 
+	Atish Patra <atishp@atishpatra.org>, Atish Patra <atishp@rivosinc.com>, 
+	Andrew Jones <ajones@ventanamicro.com>, KVM General <kvm@vger.kernel.org>, 
+	"open list:KERNEL VIRTUAL MACHINE FOR RISC-V (KVM/riscv)" <kvm-riscv@lists.infradead.org>, 
+	linux-riscv <linux-riscv@lists.infradead.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241213_063303_610484_03D7A0DA 
-X-CRM114-Status: GOOD (  29.81  )
+X-CRM114-CacheID: sfid-20241213_074327_511351_DC58D7BA 
+X-CRM114-Status: UNSURE (   5.93  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,67 +87,47 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gVGh1LCBEZWMgMTIsIDIwMjQgYXQgNjozNOKAr1BNIEJvcXVuIEZlbmcgPGJvcXVuLmZlbmdA
-Z21haWwuY29tPiB3cm90ZToKPgo+IE9uIFRodSwgRGVjIDEyLCAyMDI0IGF0IDExOjU3OjA3QU0g
-KzAxMDAsIEFsaWNlIFJ5aGwgd3JvdGU6Cj4gWy4uLl0KPiA+ID4gZGlmZiAtLWdpdCBhL3J1c3Qv
-a2VybmVsL3N5bmMvYXRvbWljL2dlbmVyaWMucnMgYi9ydXN0L2tlcm5lbC9zeW5jL2F0b21pYy9n
-ZW5lcmljLnJzCj4gPiA+IG5ldyBmaWxlIG1vZGUgMTAwNjQ0Cj4gPiA+IGluZGV4IDAwMDAwMDAw
-MDAwMC4uMjA0ZGEzOGUyNjkxCj4gPiA+IC0tLSAvZGV2L251bGwKPiA+ID4gKysrIGIvcnVzdC9r
-ZXJuZWwvc3luYy9hdG9taWMvZ2VuZXJpYy5ycwo+ID4gPiBAQCAtMCwwICsxLDI1MyBAQAo+ID4g
-PiArLy8gU1BEWC1MaWNlbnNlLUlkZW50aWZpZXI6IEdQTC0yLjAKPiA+ID4gKwo+ID4gPiArLy8h
-IEdlbmVyaWMgYXRvbWljIHByaW1pdGl2ZXMuCj4gPiA+ICsKPiA+ID4gK3VzZSBzdXBlcjo6b3Bz
-OjoqOwo+ID4gPiArdXNlIHN1cGVyOjpvcmRlcmluZzo6KjsKPiA+ID4gK3VzZSBjcmF0ZTo6dHlw
-ZXM6Ok9wYXF1ZTsKPiA+ID4gKwo+ID4gPiArLy8vIEEgZ2VuZXJpYyBhdG9taWMgdmFyaWFibGUu
-Cj4gPiA+ICsvLy8KPiA+ID4gKy8vLyBgVGAgbXVzdCBpbXBsIFtgQWxsb3dBdG9taWNgXSwgdGhh
-dCBpcywgYW4gW2BBdG9taWNJbXBsYF0gaGFzIHRvIGJlIGNob3Nlbi4KPiA+ID4gKy8vLwo+ID4g
-PiArLy8vICMgSW52YXJpYW50cwo+ID4gPiArLy8vCj4gPiA+ICsvLy8gRG9pbmcgYW4gYXRvbWlj
-IG9wZXJhdGlvbiB3aGlsZSBob2xkaW5nIGEgcmVmZXJlbmNlIG9mIFtgU2VsZmBdIHdvbid0IGNh
-dXNlIGEgZGF0YSByYWNlLCB0aGlzCj4gPiA+ICsvLy8gaXMgZ3VhcmFudGVlZCBieSB0aGUgc2Fm
-ZXR5IHJlcXVpcmVtZW50IG9mIFtgU2VsZjo6ZnJvbV9wdHJgXSBhbmQgdGhlIGV4dHJhIHNhZmV0
-eSByZXF1aXJlbWVudAo+ID4gPiArLy8vIG9mIHRoZSB1c2FnZSBvbiBwb2ludGVycyByZXR1cm5l
-ZCBieSBbYFNlbGY6OmFzX3B0cmBdLgo+ID4gPiArI1tyZXByKHRyYW5zcGFyZW50KV0KPiA+ID4g
-K3B1YiBzdHJ1Y3QgQXRvbWljPFQ6IEFsbG93QXRvbWljPihPcGFxdWU8VD4pOwo+ID4gPiArCj4g
-PiA+ICsvLyBTQUZFVFk6IGBBdG9taWM8VD5gIGlzIHNhZmUgdG8gc2hhcmUgYW1vbmcgZXhlY3V0
-aW9uIGNvbnRleHRzIGJlY2F1c2UgYWxsIGFjY2Vzc2VzIGFyZSBhdG9taWMuCj4gPiA+ICt1bnNh
-ZmUgaW1wbDxUOiBBbGxvd0F0b21pYz4gU3luYyBmb3IgQXRvbWljPFQ+IHt9Cj4gPgo+ID4gU3Vy
-ZWx5IGl0IHNob3VsZCBhbHNvIGJlIFNlbmQ/Cj4gPgo+Cj4gSXQncyBgU2VuZGAgaGVyZSBiZWNh
-dXNlIGBPcGFxdWU8VD5gIGlzIGBTZW5kYCB3aGVuIGBUYCBpcyBgU2VuZGAuIEFuZAo+IGluIHBh
-dGNoICM5LCBJIGNoYW5nZWQgdGhlIGRlZmluaXRpb24gb2YgYEFsbG93QXRvbWljYCwgd2hpY2gg
-aXMgbm90IGEKPiBzdWJ0cmFpdCBvZiBgU2VuZGAgYW55bW9yZSwgYW5kIGFuIGBpbXBsIFNlbmRg
-IGJsb2NrIHdhcyBhZGRlZCB0aGVyZS4KPgo+ID4gPiArLy8vIEF0b21pY3MgdGhhdCBzdXBwb3J0
-IGJhc2ljIGF0b21pYyBvcGVyYXRpb25zLgo+ID4gPiArLy8vCj4gPiA+ICsvLy8gVE9ETzogVW5s
-ZXNzIHRoZSBgaW1wbGAgaXMgYSBgI1tyZXByKHRyYW5zcGFyZXQpXWAgbmV3IHR5cGUgb2YgYW4g
-ZXhpc3RpbmcgW2BBbGxvd0F0b21pY2BdLCB0aGUKPiA+ID4gKy8vLyBpbXBsIGJsb2NrIHNob3Vs
-ZCBiZSBvbmx5IGRvbmUgaW4gYXRvbWljIG1vZC4gQW5kIGN1cnJlbnRseSBvbmx5IGJhc2ljIGlu
-dGVnZXIgdHlwZXMgY2FuCj4gPiA+ICsvLy8gaW1wbGVtZW50IHRoaXMgdHJhaXQgaW4gYXRvbWlj
-IG1vZC4KPiA+Cj4gPiBXaGF0J3MgdXAgd2l0aCB0aGlzIFRPRE8/IENhbid0IHlvdSBqdXN0IHdy
-aXRlIGFuIGFwcHJvcHJpYXRlIHNhZmV0eQo+ID4gcmVxdWlyZW1lbnQ/Cj4gPgo+Cj4gQmVjYXVz
-ZSB0aGUgbGltaXRlZCBzY29wZSBvZiB0eXBlcyB0aGF0IGFsbG93cyBhdG9taWMgaXMgYW4gYXJ0
-aWZpY2lhbAo+IGNob2ljZSwgaS5lLiB3ZSB3YW50IHRvIHN0YXJ0IHdpdGggYSBsaW1pdGVkIG51
-bWJlciBvZiB0eXBlcyBhbmQgbWFrZQo+IGZvcndhcmQgcHJvZ3Jlc3MsIGFuZCB0aGUgdHlwZXMg
-dGhhdCB3ZSBkb24ndCB3YW50IHRvIHN1cHBvcnQgYXRvbWljcwo+IGZvciBub3cgYXJlIG5vdCBi
-ZWNhdXNlIG9mIHNhZmV0eSByZWFzb25zLCBidXQgbW9yZSBvZiBhIGxhY2sgb2YKPiB1c2Vycy9t
-b3RpdmF0aW9ucy4gU28gSSBkb24ndCB0aGluayB0aGlzIGlzIHNvbWV0aGluZyB3ZSBzaG91bGQg
-dXNlCj4gc2FmZXR5IHJlcXVpcmVtZW50IHRvIGRlc2NyaWJlLgoKSSBmb3VuZCB0aGUgd29yZGlu
-ZyB2ZXJ5IGNvbmZ1c2luZy4gQ291bGQgeW91IHJld29yZCBpdCB0byBzYXkKc29tZXRoaW5nIGFi
-b3V0IGZ1dHVyZSBwb3NzaWJpbGl0aWVzPwoKPiA+ID4gKy8vLyAjIFNhZmV0eQo+ID4gPiArLy8v
-Cj4gPiA+ICsvLy8gW2BTZWxmYF0gbXVzdCBoYXZlIHRoZSBzYW1lIHNpemUgYW5kIGFsaWdubWVu
-dCBhcyBbYFNlbGY6OlJlcHJgXS4KPiA+ID4gK3B1YiB1bnNhZmUgdHJhaXQgQWxsb3dBdG9taWM6
-IFNpemVkICsgU2VuZCArIENvcHkgewo+ID4gPiArICAgIC8vLyBUaGUgYmFja2luZyBhdG9taWMg
-aW1wbGVtZW50YXRpb24gdHlwZS4KPiA+ID4gKyAgICB0eXBlIFJlcHI6IEF0b21pY0ltcGw7Cj4g
-PiA+ICsKPiA+ID4gKyAgICAvLy8gQ29udmVydHMgaW50byBhIFtgU2VsZjo6UmVwcmBdLgo+ID4g
-PiArICAgIGZuIGludG9fcmVwcihzZWxmKSAtPiBTZWxmOjpSZXByOwo+ID4gPiArCj4gPiA+ICsg
-ICAgLy8vIENvbnZlcnRzIGZyb20gYSBbYFNlbGY6OlJlcHJgXS4KPiA+ID4gKyAgICBmbiBmcm9t
-X3JlcHIocmVwcjogU2VsZjo6UmVwcikgLT4gU2VsZjsKPiA+Cj4gPiBXaGF0IGRvIHlvdSBuZWVk
-IHRoZXNlIG1ldGhvZHMgZm9yPwo+ID4KPgo+IENvbnZlcnRpbmcgYSBgQXRvbWljSW1wbGAgdmFs
-dWUgKGN1cnJlbnRseSBvbmx5IGBpMzJgIGFuZCBgaTY0YCkgdG8gYQo+IGBBbGxvd0F0b21pY2Ag
-dmFsdWUgd2l0aG91dCB1c2luZyB0cmFuc211dGUgaW4gYGltcGxgIGJsb2NrIG9mCj4gYEF0b21p
-YzxUPmAuIEFueSBiZXR0ZXIgaWRlYT8KCllvdSBjb3VsZCB1c2UgdHJhbnNtdXRlPwoKQWxpY2UK
-Cl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJp
-c2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9s
-aXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+Hi Paolo,
+
+We have just one fix related to the HVIEN CSR update
+for the 6.13 kernel.
+
+Please pull.
+
+Regards,
+Anup
+
+The following changes since commit 40384c840ea1944d7c5a392e8975ed088ecf0b37:
+
+  Linux 6.13-rc1 (2024-12-01 14:28:56 -0800)
+
+are available in the Git repository at:
+
+  https://github.com/kvm-riscv/linux.git tags/kvm-riscv-fixes-6.13-1
+
+for you to fetch changes up to ea6398a5af81e3e7fb3da5d261694d479a321fd9:
+
+  RISC-V: KVM: Fix csr_write -> csr_set for HVIEN PMU overflow bit
+(2024-12-06 18:42:38 +0530)
+
+----------------------------------------------------------------
+KVM/riscv fixes for 6.13, take #1
+
+- Replace csr_write() with csr_set() for HVIEN PMU overflow bit
+
+----------------------------------------------------------------
+Michael Neuling (1):
+      RISC-V: KVM: Fix csr_write -> csr_set for HVIEN PMU overflow bit
+
+ arch/riscv/kvm/aia.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
