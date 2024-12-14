@@ -4,97 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7DD07E7716A
-	for <linux-riscv@archiver.kernel.org>; Sat, 14 Dec 2024 09:07:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C3B30E7716A
+	for <linux-riscv@archiver.kernel.org>; Sat, 14 Dec 2024 11:50:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
+	:In-Reply-To:Subject:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=+yfzlg8n2UuQONUBe9yZC8y0JfNwO+EAKMfBLQy0Qmc=; b=k+1YEbkpXKlSvX
-	txa7mIBlUl/IQ+StDdd/fu/yy/H4mGy59ujUZnkXp4VT3hs7x0KXLaCrSRJvxrBcqWO5SiNejK1z1
-	M+b2wJbdbkKJT9W7FXM5wO23Oy2WTsvd+KZuOVNKrcE7m+yu3ZQ7zX+WwMue6BpQnrWglKPzsd9KU
-	ARkNeAlHDmps2JU1SJ0sym+m+4mK3OALnukhYn5jJVmTsSelHBrK1Hr2k6HkGiEg0p/nMU0vWWEuc
-	7gmeSNozGuKuqWj7Qgb9LYvUhget+mVzaRLSkh7y/CzLVXjNj0WrIHVDbIElDgssIYC3VhGBvB/IQ
-	EwIjssEy0inkw6njo67A==;
+	List-Owner; bh=QAU+1rWd6eOg8RIcQ3FC7AZVMot+K2JbhN42cSH2tO0=; b=dTSlLXwCoxYKco
+	sEPKB0Q4RKQZdXyDERPIeUNah+GZByABwb2sZw48rshQc8c82x8Fv4TzSfSaVWtg67NVhja9FbekS
+	JJ8Iy2OmJNcFUMnEcrAfFKvLmL+uux29ac/ybNncspXjUwslqjmjevHclUyIW6UPFDU59TunN+IZi
+	tEv+kDisgdNpiskD/qN9BW9/GGGB7BHKhVnUsEYXz+kaMzsyeVIF7sqG6/j3zflvjJYArcYqFdOSX
+	48Vb/h04cakYTc830NkRXOBNY2MrHFqvV0/fg7u43S10O+4aYHzGWsO68AuCkp2sCP2y1Lk6xUHqE
+	Y9rtVVP7/godGE+gLsRQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tMO7Q-000000065FH-12S3;
-	Sat, 14 Dec 2024 09:07:24 +0000
-Received: from mail-pg1-x52c.google.com ([2607:f8b0:4864:20::52c])
+	id 1tMQfB-00000006HEh-1lAi;
+	Sat, 14 Dec 2024 11:50:25 +0000
+Received: from galois.linutronix.de ([193.142.43.55])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tMO4x-000000064bX-1sF2
+	id 1tMQf9-00000006HDy-2VoL
 	for linux-riscv@lists.infradead.org;
-	Sat, 14 Dec 2024 09:04:52 +0000
-Received: by mail-pg1-x52c.google.com with SMTP id 41be03b00d2f7-7fd45005a09so1627480a12.2
-        for <linux-riscv@lists.infradead.org>; Sat, 14 Dec 2024 01:04:51 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bytedance.com; s=google; t=1734167090; x=1734771890; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=kxcjg+YJiLOjdKwLGOoVz8JWl+VadyRpr3tadtBHjWA=;
-        b=ceIwlt3JG9YqqGz2zwQuWnujRHPdcGk7CC/OGjcoTuCbZHbsnExiXpfPnmEP1QU0cb
-         MEXl/014e4pb/2/LxT9GF6ks1VCd2OfpaJizDId2fu80ojw1+NDXeYUSQqKzSMR0sWU7
-         IS2KaAG6E7OskyoLt/paMQa+1uqLVaE7onUeh/6s2Eu8kBtSi734/PgGcjpvCe1tLdjw
-         BvV/g9IuKGKOUM4kMzJTUKXBbT5vYmPHINjmW4AZysD+exDaKlr2wPN8PrzFDK5paSl1
-         t8wwzrrimHjyxT0kEzNtACROzULsEawkJUeMKN76WE4zAsCldQLme+T6IBY5bVoGBsqp
-         P0Bw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1734167090; x=1734771890;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=kxcjg+YJiLOjdKwLGOoVz8JWl+VadyRpr3tadtBHjWA=;
-        b=Pr4Aqf70DVvBJF6SYMGsgs8Jheb2JWSyeOwf6P+7WnF3ewjMazqL1B1z7o/voqzsCS
-         KELeCIutpdU9CumGA5SNeszk8uZnpOpl/RG8hj4Hfk2hLqf4SClIrgjdLd3hnnartqES
-         hqASE29d1OhkiZGPn5o8aAw8Zt7r0Ls0ne/DaV39EBJ246cZIJGHxC/7nBS11zIEB5mE
-         jq4cARF/3e3ZFP0pYRSio3gRN57Eym14hn3wDmcJme1z2S+IlL+9o51w20FCCh57ywC8
-         o9RaS3hPkzM6Y2AQxgpUVey8abQIrx4vw/yNLtNON326WXOOd8pH0JR6etY29x5rSE6k
-         P26Q==
-X-Forwarded-Encrypted: i=1; AJvYcCULEfaqAHJXYu1pCzWceIfNUVeoKKHSDpkvVHi1ypofjLB8FqU4yFLM021b6ZBg6LE2G7YYA7AxvA6NVQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw+kzuGUWebA3fq/b2jkv4Aunov5dh0V7rVgAtfjo06t4sKu952
-	7/dlPJPg83KJ072KqF7n9x2ZKWtrJU59rfSmcW7L/9Nw9ubgMYNbxNsFWD+f2LA=
-X-Gm-Gg: ASbGnctGmgfSKJpj+FgXvFcnB4SnMiWvUz8g6rlepj6pmzBVEPiDK+Eul5NtIosLR8k
-	gpvLG5EJgnTa5+h/4LYOGW3pfQ3AeKVwf4HwQd2OH5D6s+qHfwDOmoLF8D+EvNEdpChp8lwiW/r
-	syhlALspB8Q9wXHWIwO/Quk9HO58UQ8ux+oCAk6Z5MrnbkMqzudQGa17XNLRf5jGlZNzmS+pwtQ
-	iyqPZI4gcfTrER8l2XWMAD2xXkhay85c98QRfbdCMhXe2doSgxtxnMNcZgVPsiRATM95mAlLLwB
-	3uXdotEyEzAOJUQ8DJDhFkSzQUvqNQ==
-X-Google-Smtp-Source: AGHT+IGmWNhert5ebnmEBEANehnSTDBWCLVNkF+841k1TH0tjB/D3zS21KwZ8s5YJg+vyRMQfoaR6w==
-X-Received: by 2002:a17:90b:3b52:b0:2ef:2d9f:8e55 with SMTP id 98e67ed59e1d1-2f28fd66b3dmr9591223a91.17.1734167090585;
-        Sat, 14 Dec 2024 01:04:50 -0800 (PST)
-Received: from C02DW0BEMD6R.bytedance.net ([2409:8a28:f4f:a9a4:5d46:4ef0:daa9:1db8])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-801d5a90ba0sm905731a12.16.2024.12.14.01.04.42
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 14 Dec 2024 01:04:50 -0800 (PST)
-From: Qi Zheng <zhengqi.arch@bytedance.com>
-To: peterz@infradead.org,
-	tglx@linutronix.de,
-	david@redhat.com,
-	jannh@google.com,
-	hughd@google.com,
-	yuzhao@google.com,
-	willy@infradead.org,
-	muchun.song@linux.dev,
-	vbabka@kernel.org,
-	lorenzo.stoakes@oracle.com,
-	akpm@linux-foundation.org,
-	rientjes@google.com
-Cc: linux-mm@kvack.org,
-	linux-kernel@vger.kernel.org,
-	Qi Zheng <zhengqi.arch@bytedance.com>,
-	linux-riscv@lists.infradead.org
-Subject: [PATCH 08/12] riscv: pgtable: move pagetable_dtor() to __tlb_remove_table()
-Date: Sat, 14 Dec 2024 17:02:54 +0800
-Message-Id: <1e73cf87193d838c64e402896b4252875c212986.1734164094.git.zhengqi.arch@bytedance.com>
-X-Mailer: git-send-email 2.24.3 (Apple Git-128)
-In-Reply-To: <cover.1734164094.git.zhengqi.arch@bytedance.com>
-References: <cover.1734164094.git.zhengqi.arch@bytedance.com>
+	Sat, 14 Dec 2024 11:50:24 +0000
+From: Thomas Gleixner <tglx@linutronix.de>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1734177019;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=qzhprNUpJd8crZLNLycupfbl2vwMD3GsAtuBolAfNoY=;
+	b=juRtzyi0tetJHjKFjtFzHZG7rWMU4N8Z58M+GYecSxP5OJThN+DFmtm9cO61sR2kWiqmHQ
+	aamdpY7MSgaRK0jejENepHm7pqpbIV8dXvr/b0xNRygbfKV41faD1da+0ZTkahJiz3d6Wq
+	MoxS5DwJOQ65jC2q/A1LDK+Mc5Z2581zOPBbZfG3LPUewGXQt5v6A96GfZvtomJrybn2wP
+	CGCB3gC00aVXPfUwJixgX/ugMNN2SxXIsBUh5dmnwAPX//dbQkAaAMJdEpdkHqSq2Cn2az
+	03VLM3QxmGOrVuCg4HPkkCaAFisP9EJorj4KtmkR8sYQK/REPQTQSCDxsaRTqQ==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1734177019;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=qzhprNUpJd8crZLNLycupfbl2vwMD3GsAtuBolAfNoY=;
+	b=/kT1pB5h9x7NYf+v7YUGm9akGgpE576x1ScHoRdyaND8OyrX8q/cgdov3dsKva4erlJZ2+
+	EcwB2vgCs/C9LpAA==
+To: Alexandre Ghiti <alexghiti@rivosinc.com>
+Subject: [Patch] PCI/MSI: Handle lack of irqdomain gracefully
+In-Reply-To: <CAHVXubiNMp9chdUdvYjiQC2LMhNMMaGEiLMWZ-4RSV54jakP3g@mail.gmail.com>
+References: <20241213115704.353665-1-alexghiti@rivosinc.com>
+ <87v7vn917f.ffs@tglx>
+ <CAHVXubiNMp9chdUdvYjiQC2LMhNMMaGEiLMWZ-4RSV54jakP3g@mail.gmail.com>
+Date: Sat, 14 Dec 2024 12:50:18 +0100
+Message-ID: <87ed2a8ow5.ffs@tglx>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241214_010451_492325_D944049C 
-X-CRM114-Status: GOOD (  12.85  )
+X-CRM114-CacheID: sfid-20241214_035023_777482_0EB3FD17 
+X-CRM114-Status: GOOD (  12.19  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,142 +70,75 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Cc: Anup Patel <anup@brainfault.org>, linux-kernel@vger.kernel.org, Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, Bjorn Helgaas <helgaas@kernel.org>, linux-riscv@lists.infradead.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Move pagetable_dtor() to __tlb_remove_table(), so that ptlock and page
-table pages can be freed together (regardless of whether RCU is used).
-This prevents the use-after-free problem where the ptlock is freed
-immediately but the page table pages is freed later via RCU.
+Alexandre observed a warning emitted from pci_msi_setup_msi_irqs() on a
+RISCV platform which does not provide PCI/MSI support:
 
-Page tables shouldn't have swap cache, so use pagetable_free() instead of
-free_page_and_swap_cache() to free page table pages.
+ WARNING: CPU: 1 PID: 1 at drivers/pci/msi/msi.h:121 pci_msi_setup_msi_irqs+0x2c/0x32
+ __pci_enable_msix_range+0x30c/0x596
+ pci_msi_setup_msi_irqs+0x2c/0x32
+ pci_alloc_irq_vectors_affinity+0xb8/0xe2
 
-By the way, move the comment above __tlb_remove_table() to
-riscv_tlb_remove_ptdesc(), it will be more appropriate.
+RISCV uses hierarchical interrupt domains and correctly does not implement
+the legacy fallback. The warning triggers from the legacy fallback stub.
 
-Signed-off-by: Qi Zheng <zhengqi.arch@bytedance.com>
-Cc: linux-riscv@lists.infradead.org
+That warning is bogus as the PCI/MSI layer knows whether a PCI/MSI parent
+domain is associated with the device or not. There is a check for MSI-X,
+which has a legacy assumption. But that legacy fallback assumption is only
+valid when legacy support is enabled, but otherwise the check should simply
+return -ENOTSUPP.
+
+Loongarch tripped over the same problem and blindly enabled legacy support
+without implementing the legacy fallbacks. There are weak implementations
+which return an error, so the problem was papered over.
+
+Correct pci_msi_domain_supports() to evaluate the legacy mode and add
+the missing supported check into the MSI enable path to complete it.
+
+Fixes: d2a463b29741 ("PCI/MSI: Reject multi-MSI early")
+Reported-by: Alexandre Ghiti <alexghiti@rivosinc.com>
+Signed-off-by: Thomas Gleixner <tglx@linutronix.de>
+Tested-by: Alexandre Ghiti <alexghiti@rivosinc.com>
+Cc: stable@vger.kernel.org
 ---
- arch/riscv/include/asm/pgalloc.h | 38 ++++++++++++++------------------
- arch/riscv/include/asm/tlb.h     | 14 ++++--------
- 2 files changed, 21 insertions(+), 31 deletions(-)
+ drivers/pci/msi/irqdomain.c |    7 +++++--
+ drivers/pci/msi/msi.c       |    4 ++++
+ 2 files changed, 9 insertions(+), 2 deletions(-)
 
-diff --git a/arch/riscv/include/asm/pgalloc.h b/arch/riscv/include/asm/pgalloc.h
-index 09c2eff571a49..fc50d14010246 100644
---- a/arch/riscv/include/asm/pgalloc.h
-+++ b/arch/riscv/include/asm/pgalloc.h
-@@ -18,12 +18,22 @@
- #define __HAVE_ARCH_P4D_FREE
- #include <asm-generic/pgalloc.h>
+--- a/drivers/pci/msi/irqdomain.c
++++ b/drivers/pci/msi/irqdomain.c
+@@ -350,8 +350,11 @@ bool pci_msi_domain_supports(struct pci_
  
-+/*
-+ * While riscv platforms with riscv_ipi_for_rfence as true require an IPI to
-+ * perform TLB shootdown, some platforms with riscv_ipi_for_rfence as false use
-+ * SBI to perform TLB shootdown. To keep software pagetable walkers safe in this
-+ * case we switch to RCU based table free (MMU_GATHER_RCU_TABLE_FREE). See the
-+ * comment below 'ifdef CONFIG_MMU_GATHER_RCU_TABLE_FREE' in include/asm-generic/tlb.h
-+ * for more details.
-+ */
- static inline void riscv_tlb_remove_ptdesc(struct mmu_gather *tlb, void *pt)
- {
--	if (riscv_use_sbi_for_rfence())
-+	if (riscv_use_sbi_for_rfence()) {
- 		tlb_remove_ptdesc(tlb, pt);
--	else
-+	} else {
-+		pagetable_dtor(pt);
- 		tlb_remove_page_ptdesc(tlb, pt);
+ 	domain = dev_get_msi_domain(&pdev->dev);
+ 
+-	if (!domain || !irq_domain_is_hierarchy(domain))
+-		return mode == ALLOW_LEGACY;
++	if (!domain || !irq_domain_is_hierarchy(domain)) {
++		if (IS_ENABLED(CONFIG_PCI_MSI_ARCH_FALLBACKS))
++			return mode == ALLOW_LEGACY;
++		return false;
 +	}
- }
  
- static inline void pmd_populate_kernel(struct mm_struct *mm,
-@@ -109,12 +119,8 @@ static inline void pud_free(struct mm_struct *mm, pud_t *pud)
- static inline void __pud_free_tlb(struct mmu_gather *tlb, pud_t *pud,
- 				  unsigned long addr)
- {
--	if (pgtable_l4_enabled) {
--		struct ptdesc *ptdesc = virt_to_ptdesc(pud);
--
--		pagetable_dtor(ptdesc);
--		riscv_tlb_remove_ptdesc(tlb, ptdesc);
--	}
-+	if (pgtable_l4_enabled)
-+		riscv_tlb_remove_ptdesc(tlb, virt_to_ptdesc(pud));
- }
+ 	if (!irq_domain_is_msi_parent(domain)) {
+ 		/*
+--- a/drivers/pci/msi/msi.c
++++ b/drivers/pci/msi/msi.c
+@@ -433,6 +433,10 @@ int __pci_enable_msi_range(struct pci_de
+ 	if (WARN_ON_ONCE(dev->msi_enabled))
+ 		return -EINVAL;
  
- #define p4d_alloc_one p4d_alloc_one
-@@ -136,12 +142,8 @@ static inline void p4d_free(struct mm_struct *mm, p4d_t *p4d)
- static inline void __p4d_free_tlb(struct mmu_gather *tlb, p4d_t *p4d,
- 				  unsigned long addr)
- {
--	if (pgtable_l5_enabled) {
--		struct ptdesc *ptdesc = virt_to_ptdesc(p4d);
--
--		pagetable_dtor(ptdesc);
-+	if (pgtable_l5_enabled)
- 		riscv_tlb_remove_ptdesc(tlb, virt_to_ptdesc(p4d));
--	}
- }
- #endif /* __PAGETABLE_PMD_FOLDED */
- 
-@@ -170,10 +172,7 @@ static inline pgd_t *pgd_alloc(struct mm_struct *mm)
- static inline void __pmd_free_tlb(struct mmu_gather *tlb, pmd_t *pmd,
- 				  unsigned long addr)
- {
--	struct ptdesc *ptdesc = virt_to_ptdesc(pmd);
--
--	pagetable_dtor(ptdesc);
--	riscv_tlb_remove_ptdesc(tlb, ptdesc);
-+	riscv_tlb_remove_ptdesc(tlb, virt_to_ptdesc(pmd));
- }
- 
- #endif /* __PAGETABLE_PMD_FOLDED */
-@@ -181,10 +180,7 @@ static inline void __pmd_free_tlb(struct mmu_gather *tlb, pmd_t *pmd,
- static inline void __pte_free_tlb(struct mmu_gather *tlb, pgtable_t pte,
- 				  unsigned long addr)
- {
--	struct ptdesc *ptdesc = page_ptdesc(pte);
--
--	pagetable_dtor(ptdesc);
--	riscv_tlb_remove_ptdesc(tlb, ptdesc);
-+	riscv_tlb_remove_ptdesc(tlb, page_ptdesc(pte));
- }
- #endif /* CONFIG_MMU */
- 
-diff --git a/arch/riscv/include/asm/tlb.h b/arch/riscv/include/asm/tlb.h
-index 1f6c38420d8e0..ded8724b3c4f7 100644
---- a/arch/riscv/include/asm/tlb.h
-+++ b/arch/riscv/include/asm/tlb.h
-@@ -11,19 +11,13 @@ struct mmu_gather;
- static void tlb_flush(struct mmu_gather *tlb);
- 
- #ifdef CONFIG_MMU
--#include <linux/swap.h>
- 
--/*
-- * While riscv platforms with riscv_ipi_for_rfence as true require an IPI to
-- * perform TLB shootdown, some platforms with riscv_ipi_for_rfence as false use
-- * SBI to perform TLB shootdown. To keep software pagetable walkers safe in this
-- * case we switch to RCU based table free (MMU_GATHER_RCU_TABLE_FREE). See the
-- * comment below 'ifdef CONFIG_MMU_GATHER_RCU_TABLE_FREE' in include/asm-generic/tlb.h
-- * for more details.
-- */
- static inline void __tlb_remove_table(void *table)
- {
--	free_page_and_swap_cache(table);
-+	struct ptdesc *ptdesc = (struct ptdesc *)table;
++	/* Test for the availability of MSI support */
++	if (!pci_msi_domain_supports(dev, 0, ALLOW_LEGACY))
++		return -ENOTSUPP;
 +
-+	pagetable_dtor(ptdesc);
-+	pagetable_free(ptdesc);
- }
- 
- #endif /* CONFIG_MMU */
--- 
-2.20.1
-
+ 	nvec = pci_msi_vec_count(dev);
+ 	if (nvec < 0)
+ 		return nvec;
 
 _______________________________________________
 linux-riscv mailing list
