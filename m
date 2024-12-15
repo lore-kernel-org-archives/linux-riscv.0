@@ -4,82 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A5D40E7716A
-	for <linux-riscv@archiver.kernel.org>; Sat, 14 Dec 2024 18:46:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DF13AE7716A
+	for <linux-riscv@archiver.kernel.org>; Sun, 15 Dec 2024 09:18:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=DKLzFrPGahRK6/mbHBMZHp6Lw7RYzlS6pnHmtyEtJnY=; b=tIa1mNqVKYHST1
-	NDEx1MCjcyP4cypIMSCefogad7cTdeZsb9NGns4GXiSFiPX0Ozp8Hhf9PHHhVcUNrSb6YSUp8jQge
-	1NRCttcHrMdatt4Y8JgspnrDLZi6vvpTnQJSXGYS4cQqp2c14QmI1EClitc08aDf6+ZUO/ydUW0B2
-	j5Gr51LJo2cDz/noGmortJ13uaXR9lRAIU4rVM7sWWMuYrETcinavk+jvFaJIoUq14H14OhIcXVAC
-	AeccSkotKuBF8bFCJaQyT2HeWlytGwIRrw5XZZCAXtoVpuonSeCdQfZPhlPOf2e8rvRHjoRL2WjTh
-	KhlbjGXQ4amVItUS057Q==;
+	List-Owner; bh=DJSzi+Dajz7PVClNn5RQ9B163jhGLz9TAatmpGq7Xi0=; b=mQHkX86clit4iC
+	ztR6X46l0P4zMY5ijXzbdnTQw1pU734WWOb2jUIOStNXds/V36xj7mkG/PPNh9GIv3cgDWsOJUcZ4
+	m8YRnJQh3xxHwA9fdBN6O5BZpb/j/zfjhPUjd8pjF9XXZjwh6nsOCyfBT9ujXPlrfpF6cyXL7DsPz
+	ZW66eb8beP1YXX+YHqyxoQJtTpkDqVBNGK6/Q24RrrLPWUXj2EOZQCYvORRinq9MLHsLdavQipRqL
+	NWOZmhY3VrexTkzxDKWsGcMGjYw2Sxv9AefPTZvSa35BdMAiikLfO/dHmxkYQi5BBg2Jkr4ySe3Jw
+	W+1m70fI9OP5QDYH50gA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tMX9H-00000006nYH-0Our;
-	Sat, 14 Dec 2024 18:45:55 +0000
-Received: from mail-pj1-x1032.google.com ([2607:f8b0:4864:20::1032])
+	id 1tMklk-00000007fsY-2zMC;
+	Sun, 15 Dec 2024 09:18:32 +0000
+Received: from mgamail.intel.com ([198.175.65.11])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tMVv9-00000006gZt-1tZv
+	id 1tMklh-00000007frI-2tuq
 	for linux-riscv@lists.infradead.org;
-	Sat, 14 Dec 2024 17:27:16 +0000
-Received: by mail-pj1-x1032.google.com with SMTP id 98e67ed59e1d1-2ee51f8c47dso1914712a91.1
-        for <linux-riscv@lists.infradead.org>; Sat, 14 Dec 2024 09:27:14 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1734197234; x=1734802034; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=EP+pJC86HytY47PbI5sMBg+o5TFAFMoqjjekp4WBZSk=;
-        b=NEwm7NCgBZvTjh5PL4xLstTePcqDe4KhrPWnztezena2SxcMXXwOFjVkWHCQ93468f
-         L6P855gjOlOfFV9arAAEaGBCPQLdGEMCqzHq9USk5LfsQt9TCxA23t9qBWDBP6aPJP3L
-         MyZWr2dbz7fXLsJdmWOTDXaa0cHkuHqJfs1YAaZFv6BjpvAy6RZDdaxYbRRFl1jdDKna
-         BrIjH5gDhGWcDMl2m7osUDsegpFfMzdIhfK/XMKyfv91GPfGqrBrfrsQYziiWFixcsBQ
-         vwfdjMzSsJ+QML1GohD+EOZZbLjqk1DfGOu8EG3hfEfJmrkQyrIYm/XfKk9PyUpDeVzk
-         Ig+g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1734197234; x=1734802034;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=EP+pJC86HytY47PbI5sMBg+o5TFAFMoqjjekp4WBZSk=;
-        b=rP81E+tqtMztl5Z9HbedhV8qJ2y7farnoO2q96Yk1pom1UHr7W0bFqX7APu0lTbPTC
-         w1hBEb8axebYjaJKs4wh1fb803q4SzjWmwEr9IpeCIODWyDq/mm0Q3mGIsavNubuUHb8
-         5kD4OU0mnjewCQ7axH+EVW1cQLHonqozC4kq4d/XYfK9WCzwXUtGwOz+fqxgZ1pnwm++
-         m87Suk6AP6g9l9tKNHWKf/j8aoy0jZBEjhmKyaKT0O3nts6WmQveJfr/EWjw4AlFX8Oy
-         rkbQokTM846XruJbnnj5xZmo+Laop9aqhL0ge5z2KO1FR9UN000ZOmEFaRUVf2bUVJb9
-         90Sg==
-X-Forwarded-Encrypted: i=1; AJvYcCXc4+SazafCoXR+A1BT5wONSMsQor0kFqm3B08HttId9fxWX5/K1j/NmF11SlDrHef0y8R8uBBDalN1uA==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy6qOWfGrhs+zrUqb07QddeeiHqMsnLoEN1/cfe+Kp9YgtZQatn
-	7IP66mqElu3+uvcJk8l8ZMyZ3YvG1x8jHNwxpDSHS67bd/KTyQx7OJ5IGbkDPNc=
-X-Gm-Gg: ASbGnctUPSJBDIH0jJClwzJKK5umv5RcmjMkO5OTwsqKT6TIwiGz+g3bGKnQoT0BcB1
-	b7B6mPT8rJ2Dv3/DgleihOuzDQIZk5Zo9D8CukSKpHJaedSUtK+7XyW6hrDhOq7wwnQrCW+blN4
-	y08AE0UisVkqxvXLfJYSB+INTk/gNOSk8qPQzsbtPpQewhKoCtzFa0KNErbRJw/cU9xLUK0hJfO
-	020gSuOmSboattNk1QN9P6StaKo/3AgsyVxb+APysojTInUJzYih/otu6+LThC0Drk/WrDYN/fk
-	jUk76PpK1ScB2QA=
-X-Google-Smtp-Source: AGHT+IEViE/EyOEoU9avO8xOUuGHIK7Nu4di+ccQuUelW0qrSBcAUC23H6R13dSAPO44yc0spDyzYw==
-X-Received: by 2002:a17:90a:ec84:b0:2ee:f80c:6889 with SMTP id 98e67ed59e1d1-2f290dbce03mr10584296a91.33.1734197234199;
-        Sat, 14 Dec 2024 09:27:14 -0800 (PST)
-Received: from localhost.localdomain ([223.185.132.246])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-2f142f9e186sm5049811a91.41.2024.12.14.09.27.07
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 14 Dec 2024 09:27:13 -0800 (PST)
-From: Anup Patel <apatel@ventanamicro.com>
-To: Thomas Gleixner <tglx@linutronix.de>
-Subject: [PATCH v2 10/11] irqchip/riscv-imsic: Replace hwirq with irq in the IMSIC vector
-Date: Sat, 14 Dec 2024 22:55:48 +0530
-Message-ID: <20241214172549.8842-11-apatel@ventanamicro.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20241214172549.8842-1-apatel@ventanamicro.com>
-References: <20241214172549.8842-1-apatel@ventanamicro.com>
+	Sun, 15 Dec 2024 09:18:31 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1734254310; x=1765790310;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=gOFMlC93rzTys2ywdCU7XfZ3NWMuDFC1Y2dBKFeIrRU=;
+  b=TiGS162Torx089g5D3r0EVGDkqKePwQQ01rUpOmxEsf7fU1YVTCCg6yG
+   eIXSabl3gCYWCdFlI1o438LvaiXjTrgo0HnTvUj4kUEAXnIw5QxHgjLqg
+   sakK0JdUhlUxaIxf+RNaP/HGOpf6CbCf+FAOC7Psv7j3K36Rg+AnpPKqx
+   IfBPZ8F3XO7DBlXuhyRyQA3lulxMAfjnmLNheklkFNPgiemIDMudz5BUm
+   xbJhLlOJSDBFMGt+EmlxY0RrKCebKicb3wntt1JEGnIv1oDhQZ+4Rn4do
+   MsnEFGCOVjXVxZFlkM6ydiehRQysWlg3JXvAcagaUwcPC1Q+kRDkWNyxA
+   Q==;
+X-CSE-ConnectionGUID: bK33CP00SbOjku5Cdswa5A==
+X-CSE-MsgGUID: Qvf1tTVtQdGSUOruSo/6Sg==
+X-IronPort-AV: E=McAfee;i="6700,10204,11282"; a="45139914"
+X-IronPort-AV: E=Sophos;i="6.12,224,1728975600"; 
+   d="scan'208";a="45139914"
+Received: from orviesa002.jf.intel.com ([10.64.159.142])
+  by orvoesa103.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 15 Dec 2024 01:18:28 -0800
+X-CSE-ConnectionGUID: U3KsVvy2SGKSfoAXon5cPw==
+X-CSE-MsgGUID: 4p8/FwS1R7KjSwCz7AR3OQ==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.12,236,1728975600"; 
+   d="scan'208";a="127745779"
+Received: from lkp-server01.sh.intel.com (HELO 82a3f569d0cb) ([10.239.97.150])
+  by orviesa002.jf.intel.com with ESMTP; 15 Dec 2024 01:18:21 -0800
+Received: from kbuild by 82a3f569d0cb with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1tMklX-000DXG-0A;
+	Sun, 15 Dec 2024 09:18:19 +0000
+Date: Sun, 15 Dec 2024 17:17:37 +0800
+From: kernel test robot <lkp@intel.com>
+To: Chen Wang <unicornxw@gmail.com>, kw@linux.com,
+	u.kleine-koenig@baylibre.com, aou@eecs.berkeley.edu, arnd@arndb.de,
+	bhelgaas@google.com, unicorn_wang@outlook.com, conor+dt@kernel.org,
+	guoren@kernel.org, inochiama@outlook.com, krzk+dt@kernel.org,
+	lee@kernel.org, lpieralisi@kernel.org,
+	manivannan.sadhasivam@linaro.org, palmer@dabbelt.com,
+	paul.walmsley@sifive.com, pbrobinson@gmail.com, robh@kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-pci@vger.kernel.org, linux-riscv@lists.infradead.org,
+	chao.wei@sophgo.com, xiaoguang.xing@sophgo.com,
+	fengchun.li@sophgo.com, helgaas@kernel.org
+Cc: oe-kbuild-all@lists.linux.dev
+Subject: Re: [PATCH v2 2/5] PCI: sg2042: Add Sophgo SG2042 PCIe driver
+Message-ID: <202412151758.8ckkzHnf-lkp@intel.com>
+References: <1d82eff3670f60df24228e5c83cf663c6dd61eaf.1733726572.git.unicorn_wang@outlook.com>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <1d82eff3670f60df24228e5c83cf663c6dd61eaf.1733726572.git.unicorn_wang@outlook.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241214_092715_481244_31E735AC 
-X-CRM114-Status: GOOD (  16.74  )
+X-CRM114-CacheID: sfid-20241215_011829_876320_9398E5D0 
+X-CRM114-Status: GOOD (  12.27  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,127 +92,155 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Anup Patel <apatel@ventanamicro.com>, Andrew Lunn <andrew@lunn.ch>, imx@lists.linux.dev, Marc Zyngier <maz@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, Atish Patra <atishp@atishpatra.org>, linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, Palmer Dabbelt <palmer@dabbelt.com>, Pengutronix Kernel Team <kernel@pengutronix.de>, Paul Walmsley <paul.walmsley@sifive.com>, Anup Patel <anup@brainfault.org>, Andrew Jones <ajones@ventanamicro.com>, Shawn Guo <shawnguo@kernel.org>, Gregory Clement <gregory.clement@bootlin.com>, linux-arm-kernel@lists.infradead.org, Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Currently, the imsic_handle_irq() uses generic_handle_domain_irq() to
-handle the irq which internally has an extra step of resolving hwirq
-using domain. This extra step can be avoided by replacing hwirq with
-irq in the IMSIC vector and directly calling generic_handle_irq().
+Hi Chen,
 
-Signed-off-by: Anup Patel <apatel@ventanamicro.com>
----
- drivers/irqchip/irq-riscv-imsic-early.c    | 6 ++----
- drivers/irqchip/irq-riscv-imsic-platform.c | 2 +-
- drivers/irqchip/irq-riscv-imsic-state.c    | 8 ++++----
- drivers/irqchip/irq-riscv-imsic-state.h    | 4 ++--
- 4 files changed, 9 insertions(+), 11 deletions(-)
+kernel test robot noticed the following build warnings:
 
-diff --git a/drivers/irqchip/irq-riscv-imsic-early.c b/drivers/irqchip/irq-riscv-imsic-early.c
-index 73a93ce8668f..0c94ce8ce580 100644
---- a/drivers/irqchip/irq-riscv-imsic-early.c
-+++ b/drivers/irqchip/irq-riscv-imsic-early.c
-@@ -73,7 +73,7 @@ static int __init imsic_ipi_domain_init(void) { return 0; }
- static void imsic_handle_irq(struct irq_desc *desc)
- {
- 	struct irq_chip *chip = irq_desc_get_chip(desc);
--	int err, cpu = smp_processor_id();
-+	int cpu = smp_processor_id();
- 	struct imsic_vector *vec;
- 	unsigned long local_id;
- 
-@@ -103,9 +103,7 @@ static void imsic_handle_irq(struct irq_desc *desc)
- 			continue;
- 		}
- 
--		err = generic_handle_domain_irq(imsic->base_domain, vec->hwirq);
--		if (unlikely(err))
--			pr_warn_ratelimited("hwirq 0x%x mapping not found\n", vec->hwirq);
-+		generic_handle_irq(vec->irq);
- 	}
- 
- 	chained_irq_exit(chip, desc);
-diff --git a/drivers/irqchip/irq-riscv-imsic-platform.c b/drivers/irqchip/irq-riscv-imsic-platform.c
-index fae47b8ccf73..e6c81718ba78 100644
---- a/drivers/irqchip/irq-riscv-imsic-platform.c
-+++ b/drivers/irqchip/irq-riscv-imsic-platform.c
-@@ -112,7 +112,7 @@ static int imsic_irq_set_affinity(struct irq_data *d, const struct cpumask *mask
- 		return -EBUSY;
- 
- 	/* Get a new vector on the desired set of CPUs */
--	new_vec = imsic_vector_alloc(old_vec->hwirq, mask_val);
-+	new_vec = imsic_vector_alloc(old_vec->irq, mask_val);
- 	if (!new_vec)
- 		return -ENOSPC;
- 
-diff --git a/drivers/irqchip/irq-riscv-imsic-state.c b/drivers/irqchip/irq-riscv-imsic-state.c
-index c915a5cf4187..aca769d915bf 100644
---- a/drivers/irqchip/irq-riscv-imsic-state.c
-+++ b/drivers/irqchip/irq-riscv-imsic-state.c
-@@ -434,7 +434,7 @@ struct imsic_vector *imsic_vector_from_local_id(unsigned int cpu, unsigned int l
- 	return &lpriv->vectors[local_id];
- }
- 
--struct imsic_vector *imsic_vector_alloc(unsigned int hwirq, const struct cpumask *mask)
-+struct imsic_vector *imsic_vector_alloc(unsigned int irq, const struct cpumask *mask)
- {
- 	struct imsic_vector *vec = NULL;
- 	struct imsic_local_priv *lpriv;
-@@ -450,7 +450,7 @@ struct imsic_vector *imsic_vector_alloc(unsigned int hwirq, const struct cpumask
- 
- 	lpriv = per_cpu_ptr(imsic->lpriv, cpu);
- 	vec = &lpriv->vectors[local_id];
--	vec->hwirq = hwirq;
-+	vec->irq = irq;
- 	vec->enable = false;
- 	vec->move_next = NULL;
- 	vec->move_prev = NULL;
-@@ -463,7 +463,7 @@ void imsic_vector_free(struct imsic_vector *vec)
- 	unsigned long flags;
- 
- 	raw_spin_lock_irqsave(&imsic->matrix_lock, flags);
--	vec->hwirq = UINT_MAX;
-+	vec->irq = 0;
- 	irq_matrix_free(imsic->matrix, vec->cpu, vec->local_id, false);
- 	raw_spin_unlock_irqrestore(&imsic->matrix_lock, flags);
- }
-@@ -522,7 +522,7 @@ static int __init imsic_local_init(void)
- 			vec = &lpriv->vectors[i];
- 			vec->cpu = cpu;
- 			vec->local_id = i;
--			vec->hwirq = UINT_MAX;
-+			vec->irq = 0;
- 		}
- 	}
- 
-diff --git a/drivers/irqchip/irq-riscv-imsic-state.h b/drivers/irqchip/irq-riscv-imsic-state.h
-index 19dea0c77738..3202ffa4e849 100644
---- a/drivers/irqchip/irq-riscv-imsic-state.h
-+++ b/drivers/irqchip/irq-riscv-imsic-state.h
-@@ -20,7 +20,7 @@ struct imsic_vector {
- 	unsigned int				cpu;
- 	unsigned int				local_id;
- 	/* Details saved by driver in the vector */
--	unsigned int				hwirq;
-+	unsigned int				irq;
- 	/* Details accessed using local lock held */
- 	bool					enable;
- 	struct imsic_vector			*move_next;
-@@ -96,7 +96,7 @@ void imsic_vector_move(struct imsic_vector *old_vec, struct imsic_vector *new_ve
- 
- struct imsic_vector *imsic_vector_from_local_id(unsigned int cpu, unsigned int local_id);
- 
--struct imsic_vector *imsic_vector_alloc(unsigned int hwirq, const struct cpumask *mask);
-+struct imsic_vector *imsic_vector_alloc(unsigned int irq, const struct cpumask *mask);
- void imsic_vector_free(struct imsic_vector *vector);
- 
- void imsic_vector_debug_show(struct seq_file *m, struct imsic_vector *vec, int ind);
+[auto build test WARNING on fac04efc5c793dccbd07e2d59af9f90b7fc0dca4]
+
+url:    https://github.com/intel-lab-lkp/linux/commits/Chen-Wang/dt-bindings-pci-Add-Sophgo-SG2042-PCIe-host/20241209-152613
+base:   fac04efc5c793dccbd07e2d59af9f90b7fc0dca4
+patch link:    https://lore.kernel.org/r/1d82eff3670f60df24228e5c83cf663c6dd61eaf.1733726572.git.unicorn_wang%40outlook.com
+patch subject: [PATCH v2 2/5] PCI: sg2042: Add Sophgo SG2042 PCIe driver
+config: sh-randconfig-r071-20241215 (https://download.01.org/0day-ci/archive/20241215/202412151758.8ckkzHnf-lkp@intel.com/config)
+compiler: sh4-linux-gcc (GCC) 14.2.0
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20241215/202412151758.8ckkzHnf-lkp@intel.com/reproduce)
+
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202412151758.8ckkzHnf-lkp@intel.com/
+
+All warnings (new ones prefixed by >>):
+
+   In file included from drivers/pci/controller/cadence/pcie-sg2042.c:23:
+>> drivers/pci/controller/cadence/../../../irqchip/irq-msi-lib.h:25:39: warning: 'struct msi_domain_info' declared inside parameter list will not be visible outside of this definition or declaration
+      25 |                                struct msi_domain_info *info);
+         |                                       ^~~~~~~~~~~~~~~
+   drivers/pci/controller/cadence/pcie-sg2042.c:306:15: error: variable 'sg2042_pcie_msi_parent_ops' has initializer but incomplete type
+     306 | static struct msi_parent_ops sg2042_pcie_msi_parent_ops = {
+         |               ^~~~~~~~~~~~~~
+   drivers/pci/controller/cadence/pcie-sg2042.c:307:10: error: 'struct msi_parent_ops' has no member named 'required_flags'
+     307 |         .required_flags         = SG2042_PCIE_MSI_FLAGS_REQUIRED,
+         |          ^~~~~~~~~~~~~~
+   drivers/pci/controller/cadence/pcie-sg2042.c:301:41: error: 'MSI_FLAG_USE_DEF_DOM_OPS' undeclared here (not in a function)
+     301 | #define SG2042_PCIE_MSI_FLAGS_REQUIRED (MSI_FLAG_USE_DEF_DOM_OPS |      \
+         |                                         ^~~~~~~~~~~~~~~~~~~~~~~~
+   drivers/pci/controller/cadence/pcie-sg2042.c:307:35: note: in expansion of macro 'SG2042_PCIE_MSI_FLAGS_REQUIRED'
+     307 |         .required_flags         = SG2042_PCIE_MSI_FLAGS_REQUIRED,
+         |                                   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   drivers/pci/controller/cadence/pcie-sg2042.c:302:41: error: 'MSI_FLAG_USE_DEF_CHIP_OPS' undeclared here (not in a function)
+     302 |                                         MSI_FLAG_USE_DEF_CHIP_OPS)
+         |                                         ^~~~~~~~~~~~~~~~~~~~~~~~~
+   drivers/pci/controller/cadence/pcie-sg2042.c:307:35: note: in expansion of macro 'SG2042_PCIE_MSI_FLAGS_REQUIRED'
+     307 |         .required_flags         = SG2042_PCIE_MSI_FLAGS_REQUIRED,
+         |                                   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+>> drivers/pci/controller/cadence/pcie-sg2042.c:301:40: warning: excess elements in struct initializer
+     301 | #define SG2042_PCIE_MSI_FLAGS_REQUIRED (MSI_FLAG_USE_DEF_DOM_OPS |      \
+         |                                        ^
+   drivers/pci/controller/cadence/pcie-sg2042.c:307:35: note: in expansion of macro 'SG2042_PCIE_MSI_FLAGS_REQUIRED'
+     307 |         .required_flags         = SG2042_PCIE_MSI_FLAGS_REQUIRED,
+         |                                   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   drivers/pci/controller/cadence/pcie-sg2042.c:301:40: note: (near initialization for 'sg2042_pcie_msi_parent_ops')
+     301 | #define SG2042_PCIE_MSI_FLAGS_REQUIRED (MSI_FLAG_USE_DEF_DOM_OPS |      \
+         |                                        ^
+   drivers/pci/controller/cadence/pcie-sg2042.c:307:35: note: in expansion of macro 'SG2042_PCIE_MSI_FLAGS_REQUIRED'
+     307 |         .required_flags         = SG2042_PCIE_MSI_FLAGS_REQUIRED,
+         |                                   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   drivers/pci/controller/cadence/pcie-sg2042.c:308:10: error: 'struct msi_parent_ops' has no member named 'supported_flags'
+     308 |         .supported_flags        = SG2042_PCIE_MSI_FLAGS_SUPPORTED,
+         |          ^~~~~~~~~~~~~~~
+   drivers/pci/controller/cadence/pcie-sg2042.c:304:41: error: 'MSI_GENERIC_FLAGS_MASK' undeclared here (not in a function)
+     304 | #define SG2042_PCIE_MSI_FLAGS_SUPPORTED MSI_GENERIC_FLAGS_MASK
+         |                                         ^~~~~~~~~~~~~~~~~~~~~~
+   drivers/pci/controller/cadence/pcie-sg2042.c:308:35: note: in expansion of macro 'SG2042_PCIE_MSI_FLAGS_SUPPORTED'
+     308 |         .supported_flags        = SG2042_PCIE_MSI_FLAGS_SUPPORTED,
+         |                                   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   drivers/pci/controller/cadence/pcie-sg2042.c:304:41: warning: excess elements in struct initializer
+     304 | #define SG2042_PCIE_MSI_FLAGS_SUPPORTED MSI_GENERIC_FLAGS_MASK
+         |                                         ^~~~~~~~~~~~~~~~~~~~~~
+   drivers/pci/controller/cadence/pcie-sg2042.c:308:35: note: in expansion of macro 'SG2042_PCIE_MSI_FLAGS_SUPPORTED'
+     308 |         .supported_flags        = SG2042_PCIE_MSI_FLAGS_SUPPORTED,
+         |                                   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   drivers/pci/controller/cadence/pcie-sg2042.c:304:41: note: (near initialization for 'sg2042_pcie_msi_parent_ops')
+     304 | #define SG2042_PCIE_MSI_FLAGS_SUPPORTED MSI_GENERIC_FLAGS_MASK
+         |                                         ^~~~~~~~~~~~~~~~~~~~~~
+   drivers/pci/controller/cadence/pcie-sg2042.c:308:35: note: in expansion of macro 'SG2042_PCIE_MSI_FLAGS_SUPPORTED'
+     308 |         .supported_flags        = SG2042_PCIE_MSI_FLAGS_SUPPORTED,
+         |                                   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   drivers/pci/controller/cadence/pcie-sg2042.c:309:10: error: 'struct msi_parent_ops' has no member named 'bus_select_mask'
+     309 |         .bus_select_mask        = MATCH_PCI_MSI,
+         |          ^~~~~~~~~~~~~~~
+>> drivers/pci/controller/cadence/../../../irqchip/irq-msi-lib.h:15:33: warning: excess elements in struct initializer
+      15 | #define MATCH_PCI_MSI           (0)
+         |                                 ^
+   drivers/pci/controller/cadence/pcie-sg2042.c:309:35: note: in expansion of macro 'MATCH_PCI_MSI'
+     309 |         .bus_select_mask        = MATCH_PCI_MSI,
+         |                                   ^~~~~~~~~~~~~
+   drivers/pci/controller/cadence/../../../irqchip/irq-msi-lib.h:15:33: note: (near initialization for 'sg2042_pcie_msi_parent_ops')
+      15 | #define MATCH_PCI_MSI           (0)
+         |                                 ^
+   drivers/pci/controller/cadence/pcie-sg2042.c:309:35: note: in expansion of macro 'MATCH_PCI_MSI'
+     309 |         .bus_select_mask        = MATCH_PCI_MSI,
+         |                                   ^~~~~~~~~~~~~
+   drivers/pci/controller/cadence/pcie-sg2042.c:310:10: error: 'struct msi_parent_ops' has no member named 'bus_select_token'
+     310 |         .bus_select_token       = DOMAIN_BUS_NEXUS,
+         |          ^~~~~~~~~~~~~~~~
+   drivers/pci/controller/cadence/pcie-sg2042.c:310:35: warning: excess elements in struct initializer
+     310 |         .bus_select_token       = DOMAIN_BUS_NEXUS,
+         |                                   ^~~~~~~~~~~~~~~~
+   drivers/pci/controller/cadence/pcie-sg2042.c:310:35: note: (near initialization for 'sg2042_pcie_msi_parent_ops')
+   drivers/pci/controller/cadence/pcie-sg2042.c:311:10: error: 'struct msi_parent_ops' has no member named 'prefix'
+     311 |         .prefix                 = "SG2042-",
+         |          ^~~~~~
+   drivers/pci/controller/cadence/pcie-sg2042.c:311:35: warning: excess elements in struct initializer
+     311 |         .prefix                 = "SG2042-",
+         |                                   ^~~~~~~~~
+   drivers/pci/controller/cadence/pcie-sg2042.c:311:35: note: (near initialization for 'sg2042_pcie_msi_parent_ops')
+   drivers/pci/controller/cadence/pcie-sg2042.c:312:10: error: 'struct msi_parent_ops' has no member named 'init_dev_msi_info'
+     312 |         .init_dev_msi_info      = msi_lib_init_dev_msi_info,
+         |          ^~~~~~~~~~~~~~~~~
+   drivers/pci/controller/cadence/pcie-sg2042.c:312:35: warning: excess elements in struct initializer
+     312 |         .init_dev_msi_info      = msi_lib_init_dev_msi_info,
+         |                                   ^~~~~~~~~~~~~~~~~~~~~~~~~
+   drivers/pci/controller/cadence/pcie-sg2042.c:312:35: note: (near initialization for 'sg2042_pcie_msi_parent_ops')
+   drivers/pci/controller/cadence/pcie-sg2042.c: In function 'sg2042_pcie_setup_msi':
+   drivers/pci/controller/cadence/pcie-sg2042.c:344:22: error: 'struct irq_domain' has no member named 'msi_parent_ops'
+     344 |         parent_domain->msi_parent_ops = &sg2042_pcie_msi_parent_ops;
+         |                      ^~
+   drivers/pci/controller/cadence/pcie-sg2042.c: At top level:
+   drivers/pci/controller/cadence/pcie-sg2042.c:306:30: error: storage size of 'sg2042_pcie_msi_parent_ops' isn't known
+     306 | static struct msi_parent_ops sg2042_pcie_msi_parent_ops = {
+         |                              ^~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+vim +25 drivers/pci/controller/cadence/../../../irqchip/irq-msi-lib.h
+
+72e257c6f058032 Thomas Gleixner 2024-06-23  11  
+8c41ccec839c622 Thomas Gleixner 2024-06-23  12  #ifdef CONFIG_PCI_MSI
+8c41ccec839c622 Thomas Gleixner 2024-06-23  13  #define MATCH_PCI_MSI		BIT(DOMAIN_BUS_PCI_MSI)
+8c41ccec839c622 Thomas Gleixner 2024-06-23  14  #else
+8c41ccec839c622 Thomas Gleixner 2024-06-23 @15  #define MATCH_PCI_MSI		(0)
+8c41ccec839c622 Thomas Gleixner 2024-06-23  16  #endif
+8c41ccec839c622 Thomas Gleixner 2024-06-23  17  
+496436f4a514a3f Thomas Gleixner 2024-06-23  18  #define MATCH_PLATFORM_MSI	BIT(DOMAIN_BUS_PLATFORM_MSI)
+496436f4a514a3f Thomas Gleixner 2024-06-23  19  
+72e257c6f058032 Thomas Gleixner 2024-06-23  20  int msi_lib_irq_domain_select(struct irq_domain *d, struct irq_fwspec *fwspec,
+72e257c6f058032 Thomas Gleixner 2024-06-23  21  			      enum irq_domain_bus_token bus_token);
+72e257c6f058032 Thomas Gleixner 2024-06-23  22  
+72e257c6f058032 Thomas Gleixner 2024-06-23  23  bool msi_lib_init_dev_msi_info(struct device *dev, struct irq_domain *domain,
+72e257c6f058032 Thomas Gleixner 2024-06-23  24  			       struct irq_domain *real_parent,
+72e257c6f058032 Thomas Gleixner 2024-06-23 @25  			       struct msi_domain_info *info);
+72e257c6f058032 Thomas Gleixner 2024-06-23  26  
+
 -- 
-2.43.0
-
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
 _______________________________________________
 linux-riscv mailing list
