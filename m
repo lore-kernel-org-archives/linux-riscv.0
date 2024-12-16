@@ -4,50 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A6B52E7717F
-	for <linux-riscv@archiver.kernel.org>; Mon, 16 Dec 2024 09:15:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 44A67E7717F
+	for <linux-riscv@archiver.kernel.org>; Mon, 16 Dec 2024 09:47:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=is/P0kqG9IWQ/eaAbQK07TK9SA1qLULvDXlLpXTXxIM=; b=cG46wWlKBfIkM/
-	8+GGkj++3NClx8Pd41qaFc6fI1cXL2e0Z5qQQrmh15wqEEJcAKGTGfLvJ2H14JEUR/rspcGIfMomg
-	R2vr57SKKDwfllvLTFmS1XWKq0pt8ZfpvGnmTJOZ3JOyv4DLq288qHpA/5gnrSj0eZlQ8vcBDBP8r
-	ft6GKmjoDhDHxpP7EI86PF7FyizGNbZs9kc1/WcaXclB3DTVROL0hn0rWuSx8q6300z9zZoOBYSny
-	XajbLP6myNJARcZm2KruJ6MfTp3nv/ZGe4jCy/WY6l/Q3pG0085UqGpOJkqQ4fRuhKaDPB+LTV9Wv
-	wh7qEYWJGk9x+h8dKw5Q==;
+	List-Owner; bh=yESzRkfbN11Jxn1Sz9NmpnTLPwk6I2OocJ1SAKQ4hw0=; b=oihekaKqRx3ZFs
+	sQEqgIsHWm+ydubNljshaA12dBibKYQr9c4Pyu7ZX2FIa+eEuKzh8+Vrrh/MCIS4e/ZcB1hiEGTKf
+	O4TuKB9JIFctUfbABrWqTZa24PqMRfFdb0D0+8f8Nh18gIYhb3u4Kr2nDs5H66lQZKk61qp6hBTab
+	fjl+KFAI0FxxXssgFwmMvw32vt/cwPSGs2OhzYXsrvCGDVovq2to2OLo9SxceFd9Qo0R5F4M2cvSF
+	bMYI0j77vztYtiBbiMaMMeZXsHnWlSHIIA5QPbQz9Lo7oikvJfS0oMRHMjZFDNH3MEWtiFGlVP7fe
+	47ionhcHmdzi2/KVL95g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tN7By-00000009VgQ-2q0C;
-	Mon, 16 Dec 2024 09:15:06 +0000
-Received: from relay6-d.mail.gandi.net ([2001:4b98:dc4:8::226])
+	id 1tN7hG-00000009a7f-3JLq;
+	Mon, 16 Dec 2024 09:47:26 +0000
+Received: from mail-ej1-x62a.google.com ([2a00:1450:4864:20::62a])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tN7Bw-00000009Vfc-0MiC
+	id 1tN7hE-00000009a6p-3pjk
 	for linux-riscv@lists.infradead.org;
-	Mon, 16 Dec 2024 09:15:05 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id 96E66C0006;
-	Mon, 16 Dec 2024 09:14:58 +0000 (UTC)
-Message-ID: <330c7596-cd93-4ae5-b00d-789c72a944aa@ghiti.fr>
-Date: Mon, 16 Dec 2024 10:14:57 +0100
+	Mon, 16 Dec 2024 09:47:25 +0000
+Received: by mail-ej1-x62a.google.com with SMTP id a640c23a62f3a-aa69599b4b0so64943966b.3
+        for <linux-riscv@lists.infradead.org>; Mon, 16 Dec 2024 01:47:24 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ventanamicro.com; s=google; t=1734342443; x=1734947243; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=BfwhoMEmCl4bzWZVdzsW/vy74IIm23dtlmSsoG0ijCk=;
+        b=fYSHqwNoXkt4shvflkUqbfkVZwcP/Rn2zbg66HnJdD1Ja/W/lPef6FQRW8JdVhG3/3
+         OYCyuaaQHzYuPVWLFrYLP2VscsKsoZotcM6/0E0EjPhgjmqXHzFCI2m+Uu4BRf1bepiO
+         yWeklpZrPSOaTo89p2EoYmfaeDnFdN9dbqaXMUXpAZP3pfkPlk6hejeql9GtZm9pBXaL
+         O10/sT6cR/ZtLJM2npPeUb4pMLXA8+6DP+lwzcO4Sr3S4htDNbxFas+MaLoppwDzyVOT
+         AaoFFLDN00iI/xG3PH7lINe5NLXRG+XhkVDYvzslywUDSbNXiP2+tyIY1QF0nVBXKi3s
+         OhKg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1734342443; x=1734947243;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=BfwhoMEmCl4bzWZVdzsW/vy74IIm23dtlmSsoG0ijCk=;
+        b=EaSfPojBSi3ZFT5mbHSz2NBBrj+hP8S0656M8h4JQZRtAjVLcUNHbiniHwE+JFomMZ
+         wYBxs402mZNW9Ok+xF+fzCQJqEdyG4KY91wry0zHftT6kythWeVxFg41j6D/asjliYzH
+         U8AAR5vCqbyYMI//Z0SDluREvemmS3ayeJNd4TsVVyEB0swu4BgmcRbWFO5b1Tcf1W0E
+         JGZ/UZIXrETexO2ehIKthqzOW/WF4+3wzb2qGWNDszAeKjL4b+3Jk7RPxOZ+dRfdjtSH
+         9m0W2DIUyuSsoC9IjK8p3k4IOvdH3sPvh8HKGrPi9+wBAoDeYaLjyBQrpfIyD37DulZX
+         MWdw==
+X-Forwarded-Encrypted: i=1; AJvYcCXmr4X+GRfi1JieXDvYB0DmXFZQPIZ6+ykI8ilDLVGyJXgwhtJezuy6WIVYACyeYbf8Vybt4EXlYNcO1w==@lists.infradead.org
+X-Gm-Message-State: AOJu0YzFA96pefwzcIQB/lWA+C4TEZYw9EgBBWIjGGesveTIcb0e7wmo
+	Yr+9RdQ5eWZAjJUmYiq/i+shME615VYMYL/dOajHJ2hQjhG3uI9dJBOR9kl0/X8=
+X-Gm-Gg: ASbGncvccw6gVK0RziOGDZ6Zfi+HY99pXN5BHOF/RDpKSr7UnpcN1j/LUgGMqnBCcnj
+	C5U6Wv/8L4Seor27rB7I+v3ffQE9tgPsgFiyIjAcwjx/l0kkNAT/PmuqoJZpPON6QZpM9FlGHmF
+	EkTZUOyyVJrcJAbD7Oq7qulGS0e7GbaMyRXKjQ7UOgFXKxTXZ1m6XW0/6jG2ecc737CvYrY0ByC
+	/09YBXK0WvDkmgAdhCuK1ifUvU2vuDNgVgd88qTERm1UQLUil1bcabK3RMrXGFh3wnp8BJaxVoC
+	fMM+TMEXeDl3a2NvrwgTytBRf4eNmMKslzG0kpC3Zaa67A==
+X-Google-Smtp-Source: AGHT+IHFeq/+nCe5ggsaLGepw/t531rWVuUQBmDN6QoOg6H6ozKl8Rg6N9Iw1AYH27D2IAU9zMcOww==
+X-Received: by 2002:a17:907:3f8f:b0:aa6:ab00:7b9d with SMTP id a640c23a62f3a-aab7794039amr442095266b.4.1734342442726;
+        Mon, 16 Dec 2024 01:47:22 -0800 (PST)
+Received: from localhost (2001-1ae9-1c2-4c00-ac7d-82cf-fd83-c610.ip6.tmcz.cz. [2001:1ae9:1c2:4c00:ac7d:82cf:fd83:c610])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-aab9600e02esm310913266b.15.2024.12.16.01.47.22
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 16 Dec 2024 01:47:22 -0800 (PST)
+Date: Mon, 16 Dec 2024 10:47:21 +0100
+From: Radim =?utf-8?B?S3LEjW3DocWZ?= <rkrcmar@ventanamicro.com>
+To: guoren@kernel.org
+Cc: paul.walmsley@sifive.com, palmer@dabbelt.com, bjorn@rivosinc.com, 
+	conor@kernel.org, leobras@redhat.com, alexghiti@rivosinc.com, atishp@rivosinc.com, 
+	apatel@ventanamicro.com, linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	parri.andrea@gmail.com, Guo Ren <guoren@linux.alibaba.com>
+Subject: Re: [PATCH] riscv: qspinlock: Add virt_spin_lock() support for KVM
+ guests
+Message-ID: <36jzgc7cpsvphw32wghpegb7t6ezsgd622bm2ws7syjj6mmah2@pameujabd32c>
+References: <20241215161322.460832-1-guoren@kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] riscv: Add riscv_force_qspinlock for early_param
-Content-Language: en-US
-To: guoren@kernel.org, conor@kernel.org, alexghiti@rivosinc.com
-Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
- paul.walmsley@sifive.com, palmer@dabbelt.com, bjorn@rivosinc.com,
- leobras@redhat.com, peterz@infradead.org, parri.andrea@gmail.com,
- longman@redhat.com, boqun.feng@gmail.com, arnd@arndb.de, will@kernel.org,
- corbet@lwn.net, Guo Ren <guoren@linux.alibaba.com>
-References: <20241214043510.3795984-1-guoren@kernel.org>
-From: Alexandre Ghiti <alex@ghiti.fr>
-In-Reply-To: <20241214043510.3795984-1-guoren@kernel.org>
-X-GND-Sasl: alex@ghiti.fr
+Content-Disposition: inline
+In-Reply-To: <20241215161322.460832-1-guoren@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241216_011504_260884_5302187A 
-X-CRM114-Status: GOOD (  19.52  )
+X-CRM114-CacheID: sfid-20241216_014724_950672_EE26D595 
+X-CRM114-Status: UNSURE (   8.76  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -59,83 +96,29 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Guo,
+2024-12-15T11:13:22-0500, guoren@kernel.org:
+> Add a static key controlling whether virt_spin_lock() should be
+> called or not. When running on bare metal set the new key to
+> false.
 
-On 14/12/2024 05:35, guoren@kernel.org wrote:
-> From: Guo Ren <guoren@linux.alibaba.com>
->
-> When CONFIG_RISCV_COMBO_SPINLOCKS is enabled, permit qspinlock
-> force enabled. See the Kconfig entry for RISCV_COMBO_SPINLOCKS.
->
-> Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
-> Signed-off-by: Guo Ren <guoren@kernel.org>
-> ---
->   Documentation/admin-guide/kernel-parameters.txt |  5 +++++
->   arch/riscv/kernel/setup.c                       | 13 ++++++++++++-
->   2 files changed, 17 insertions(+), 1 deletion(-)
->
-> diff --git a/Documentation/admin-guide/kernel-parameters.txt b/Documentation/admin-guide/kernel-parameters.txt
-> index 3872bc6ec49d..43d0df2922b2 100644
-> --- a/Documentation/admin-guide/kernel-parameters.txt
-> +++ b/Documentation/admin-guide/kernel-parameters.txt
-> @@ -5887,6 +5887,11 @@
->   			[KNL] Disable ring 3 MONITOR/MWAIT feature on supported
->   			CPUs.
->   
-> +	riscv_force_qspinlock [RISCV, EARLY]
-> +			When CONFIG_RISCV_COMBO_SPINLOCKS is enabled, permit
-> +			qspinlock force enabled. See the Kconfig entry for
-> +			RISCV_COMBO_SPINLOCKS.
-> +
->   	riscv_isa_fallback [RISCV,EARLY]
->   			When CONFIG_RISCV_ISA_FALLBACK is not enabled, permit
->   			falling back to detecting extension support by parsing
-> diff --git a/arch/riscv/kernel/setup.c b/arch/riscv/kernel/setup.c
-> index 45010e71df86..74b13bc64c9c 100644
-> --- a/arch/riscv/kernel/setup.c
-> +++ b/arch/riscv/kernel/setup.c
-> @@ -247,6 +247,15 @@ static void __init parse_dtb(void)
->   #if defined(CONFIG_RISCV_COMBO_SPINLOCKS)
->   DEFINE_STATIC_KEY_TRUE(qspinlock_key);
->   EXPORT_SYMBOL(qspinlock_key);
-> +
-> +static bool force_qspinlock;
-> +
-> +static int __init riscv_force_qspinlock(char *p)
-> +{
-> +	force_qspinlock = true;
-> +	return 0;
-> +}
-> +early_param("riscv_force_qspinlock", riscv_force_qspinlock);
->   #endif
->   
->   static void __init riscv_spinlock_init(void)
-> @@ -267,7 +276,9 @@ static void __init riscv_spinlock_init(void)
->   		using_ext = "using Ziccrse";
->   	}
->   #if defined(CONFIG_RISCV_COMBO_SPINLOCKS)
-> -	else {
-> +	else if (force_qspinlock) {
-> +		using_ext = "force";
-> +	} else {
->   		static_branch_disable(&qspinlock_key);
->   		pr_info("Ticket spinlock: enabled\n");
->   		return;
+Wouldn't re-using the combo spinlock qspinlock_key be better?
 
+> The VM guests should fall back to a Test-and-Set spinlock,
+> because fair locks have horrible lock 'holder' preemption issues.
+> The virt_spin_lock_key would shortcut for the queued_spin_lock_-
+> slowpath() function that allow virt_spin_lock to hijack it.
 
-What's the use case for this early param? To me that implies that a 
-platform may have another extension which would allow the usage of 
-qspinlock, so why not listing it in riscv_spinlock_init() instead?
+I think we want the proper paravirtualized slowpath, have the
+discussions stalled on the SBI side?
 
-Thanks,
+Btw. how bad are the performance numbers without this patch?
 
-Alex
-
+Thanks.
 
 _______________________________________________
 linux-riscv mailing list
