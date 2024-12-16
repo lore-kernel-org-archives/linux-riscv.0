@@ -4,93 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4FE4BE7716A
-	for <linux-riscv@archiver.kernel.org>; Mon, 16 Dec 2024 00:31:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9242CE77180
+	for <linux-riscv@archiver.kernel.org>; Mon, 16 Dec 2024 03:26:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
 	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=78UQhu/vEehHt1u4uYqv5wFQlOZjVE0lYQl1aMOsjpw=; b=Wg+pv8lVCh5Hap
-	UQv9DnU0wDSjv2NxekR3P6ABLcMvbZHZRXVOF+SAHrScMbLbfaDsOUIoX+Eo6mH3ymelYFChgcvQ2
-	DlhLWaFuBTF3gc1d6Inp/GLDw5zkeafYxkk13JQTJDNg/Mja77keFwsRX9VExH6wFNv78FW2onGj9
-	U8Ig6dytNXNv84hk78LVpb8B3dQwMtWAB6xs0w8blvmSX0M7fbdXSnSK2pxkw6jCqHiyanXGAUA7J
-	yPzvjTxUt8DdPnqYZRnCFDyvUG5uAJ0gslxnOx93EynXuwFYbso2CJ4S3ZhpeimZ1lxhGlG+zYDB/
-	+Or4CGQk0Nap/IMACe9Q==;
+	List-Owner; bh=BxI2NpQXGnUWXV9cnhOeL5sKC2Aju5SI/5yYup1Uv9s=; b=MUDgiYZiu3ljWp
+	BB7n2+9Fnd3xcL9Gdxoq5mUw9ZLcKdiRko2CtRF5bpg4WJPKzm7IGwW9TvpuW/uI2uNbBHHbEbYOO
+	eQV1HMdTZka6rbji2zM2IWd8bZD528l7SFvCddLoin7NRcVJpOVcOOcHWdA6Qr+RTzQzMlZTv3BO/
+	Ihy1IV2zD47Oe08t0hyS+x+pecFs2sOXdBhvtl6iY6qb3xwSq5SK+k2ys2mCV8XowMQZVFLGuwQYA
+	hDFE09IBAOkXKrB74Fy4kcnw3H0wKiPDG2AkJ2Wb9nKWjjfQN7BvLEnzFXHILmShj4/5/QFcR1zMY
+	JUb7AfkZojJCLOIXWxyA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tMz1U-00000008gwP-1ucb;
-	Mon, 16 Dec 2024 00:31:44 +0000
-Received: from mail-pg1-x530.google.com ([2607:f8b0:4864:20::530])
+	id 1tN1km-00000008vc8-42gt;
+	Mon, 16 Dec 2024 03:26:40 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tMz1R-00000008gvw-3xxD
+	id 1tN1hO-00000008vA5-0n2H
 	for linux-riscv@lists.infradead.org;
-	Mon, 16 Dec 2024 00:31:43 +0000
-Received: by mail-pg1-x530.google.com with SMTP id 41be03b00d2f7-7ea8de14848so1664158a12.2
-        for <linux-riscv@lists.infradead.org>; Sun, 15 Dec 2024 16:31:40 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=pdp7-com.20230601.gappssmtp.com; s=20230601; t=1734309100; x=1734913900; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=Wjgf63X56bGGjXplIZClf8v63m4wUGZdNsKWrwYGmwQ=;
-        b=Hfr250m6M3TN0Zv67PUN6yQIdVG8LhKxqZXGysSRTFPqbt3ugwvL/ohNBJq1MwxYbA
-         aiPJ4tGDpixL0x8xgWQSWjFBjbzLgcdcyjW+bLaALhltyNdbenBtLGaYqZHeUKTUB62q
-         hx58VZFOJAh8UYYqf9GFO1HTacXlrYxyu+myFFt3wFK3NJnt7latliLuaVCGMKEwOLLK
-         yRqxAfZDno5BVSvt91Z9Yab09m7qrs+/6xC/qtPZxRT3O1CcNCYxAJvJoniw4PtHuJie
-         78BUub+vkI1P828OqS/5MUjiHH3YBitztp+dlaGcoMEhtfKYs09INuNVW8fwbm9jeouo
-         8aqQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1734309100; x=1734913900;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=Wjgf63X56bGGjXplIZClf8v63m4wUGZdNsKWrwYGmwQ=;
-        b=WbV2z8tLN8DlXxEGbb2V+2aJXt4JZUmpqgxt14GBiFeuuKx7IqjwLzrVmmjaXfaBQY
-         jYdi17nXDojIlIQaMul8EtKEszUaMI4qTia2KwX2MJu5gQuxgh+DaBCkt0FMfRR3xmG5
-         vuFY7HO6IZsh/p4KSSOo68N5JSqIVwfHrvF8xPf6KXTmb8NFS2jozoSXBsBuZUUX9lNn
-         VQ0V+rhyyeGCzSCwOyMCZ+/MQEg2DhbwVIPbtCkFLqQnCdMykYJLXUJLADn/fiR4iusc
-         OSqMxuqnQPHAMPaV6p6mQjW/76oBwSU5qadNet71GPSrIbl5zern6ourLVI7XDaadX5s
-         lhMA==
-X-Forwarded-Encrypted: i=1; AJvYcCWJ0bmrr7WVfjbJaru9W7s4G7V8w5gxcA0Gz89uviexIOwvOHcWmLOo1AgJVQBArQ/ym1kQktwAReoOSQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0YwWHivpevxG28mRLjCKAhdWzS8FRghYH4AM7sMkodQJnXs4n1zu
-	6VmUiTmaM0HkqSxiw7vcsWj+uB/6RQ6SgxztYCJzkcAlB7Jz94jfHSEt6rY1jBI=
-X-Gm-Gg: ASbGncuVsPtKwVJBUCkbjjstEgrXSsvgOUeAUj4uGcMv4RJn4IU+YaeV3wuBVJUI5l7
-	iqheIePbiHqktJ6bALgUBs9ChP015USEVVJ9gXYFz2E4VCv+13+clOt1QYyU74KNkoTtJaoKJ8N
-	0qvLy/gWHDGQp69FXGvu8E7J/acti2HT7d+8NjIZA9rjfYFOjHPzb8Buqpi0SI8h/sn5bKfLdWs
-	dBTMV4C/zxahwJHfN+7X5B2zDlRU1q+kI2GovgCLYwqhZPdcFcSxZI2oPR6FYs2j7/D27JDh+z0
-	9gKDWrPHAG+M
-X-Google-Smtp-Source: AGHT+IE6hWu/AiGUMcCIzE+Djl5ZsvZivICvhS5bLKVYfQP3DTp8yAD9VUpIONRzJAvAK5ShHk2dUQ==
-X-Received: by 2002:a17:90b:51d0:b0:2ee:3fa7:ef4d with SMTP id 98e67ed59e1d1-2f28ffa7db3mr16665936a91.24.1734309100191;
-        Sun, 15 Dec 2024 16:31:40 -0800 (PST)
-Received: from x1.tailc1103.ts.net (75-164-218-15.ptld.qwest.net. [75.164.218.15])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-2f142de3403sm6826614a91.26.2024.12.15.16.31.39
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 15 Dec 2024 16:31:39 -0800 (PST)
-From: Drew Fustini <drew@pdp7.com>
-To: Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Conor Dooley <conor.dooley@microchip.com>,
-	Drew Fustini <drew@pdp7.com>,
-	Inochi Amaoto <inochiama@gmail.com>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Yangyu Chen <cyy@cyyself.name>,
-	Anup Patel <apatel@ventanamicro.com>,
-	Hal Feng <hal.feng@starfivetech.com>,
-	Chen Wang <unicorn_wang@outlook.com>,
-	Geert Uytterhoeven <geert+renesas@glider.be>,
-	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Cc: Emil Renner Berthing <emil.renner.berthing@canonical.com>
-Subject: [RESEND][PATCH] riscv: defconfig: enable pinctrl and dwmac support for TH1520
-Date: Sun, 15 Dec 2024 16:31:15 -0800
-Message-Id: <20241216003114.326129-1-drew@pdp7.com>
-X-Mailer: git-send-email 2.34.1
+	Mon, 16 Dec 2024 03:23:11 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 2DE3D5C59D8;
+	Mon, 16 Dec 2024 03:22:27 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 48104C4CED0;
+	Mon, 16 Dec 2024 03:23:06 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1734319389;
+	bh=V4jM3CVSCQm1TaO1otXw7852w/swq8OZFbl3RxkIYK4=;
+	h=From:To:Cc:Subject:Date:From;
+	b=kjuVY9PGhDTtrEHi/eH9u8pArsgTdG3NHgqlKH9cBtPvf+LGHxw0mZ/wK/sHWxQPe
+	 H/bZk4C+cC1a4BWJyFCpHnhMz1UM2ybo9yn4gjGYKCQ9phC+s875/LSrqSpGSXBK4n
+	 jBa/ZZzVOwJoGT5ohcQNioboygexWAg2IfcPSt/rOn8xcUWSJtRZk+fcZG9lq7qBsn
+	 vbVngoME1TjByjp6y9CxwGSd9ZOuiguO7DkSRllgLyk2ysrGVdODtjcsoJ+gDPJ4NL
+	 oknWLJRF9DZMt+r7ne2xAcBaeh2uDzGFguujf80RXHPaXA6A6GGSu1gNS5ZhzuIdKx
+	 0fsS87gW9evnw==
+From: guoren@kernel.org
+To: paul.walmsley@sifive.com,
+	palmer@dabbelt.com,
+	guoren@kernel.org,
+	bjorn@rivosinc.com,
+	conor@kernel.org,
+	leobras@redhat.com,
+	alexghiti@rivosinc.com,
+	christoph.muellner@vrull.eu
+Cc: linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	parri.andrea@gmail.com,
+	ajones@ventanamicro.com,
+	ericchancf@google.com,
+	Guo Ren <guoren@linux.alibaba.com>
+Subject: [PATCH] riscv: Implement smp_cond_load8/16() with Zawrs
+Date: Sun, 15 Dec 2024 22:22:53 -0500
+Message-Id: <20241216032253.685728-1-guoren@kernel.org>
+X-Mailer: git-send-email 2.40.1
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241215_163142_287844_6AEBABA7 
-X-CRM114-Status: UNSURE (   9.15  )
+X-CRM114-CacheID: sfid-20241215_192310_324570_D0338D2E 
+X-CRM114-Status: UNSURE (   8.13  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -108,41 +82,76 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Enable pinctrl and ethernet dwmac driver for the TH1520 SoC boards like
-the BeagleV Ahead and the Sipeed LicheePi 4A.
+From: Guo Ren <guoren@linux.alibaba.com>
 
-Reviewed-by: Emil Renner Berthing <emil.renner.berthing@canonical.com>
-Signed-off-by: Drew Fustini <drew@pdp7.com>
+RISC-V code uses the queued spinlock implementation, which calls
+the macros smp_cond_load_acquire for one byte. So, complement the
+implementation of byte and halfword versions.
+
+Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
+Signed-off-by: Guo Ren <guoren@kernel.org>
 ---
-I am resending this patch since it has been about a month. It is still
-listed in patchwork in the "new" state:
-https://patchwork.kernel.org/project/linux-riscv/patch/20241113184333.829716-1-drew@pdp7.com/
+ arch/riscv/include/asm/cmpxchg.h | 38 +++++++++++++++++++++++++++++---
+ 1 file changed, 35 insertions(+), 3 deletions(-)
 
- arch/riscv/configs/defconfig | 2 ++
- 1 file changed, 2 insertions(+)
-
-diff --git a/arch/riscv/configs/defconfig b/arch/riscv/configs/defconfig
-index b4a37345703e..d26e670404b6 100644
---- a/arch/riscv/configs/defconfig
-+++ b/arch/riscv/configs/defconfig
-@@ -167,6 +167,7 @@ CONFIG_PINCTRL_SOPHGO_CV1800B=y
- CONFIG_PINCTRL_SOPHGO_CV1812H=y
- CONFIG_PINCTRL_SOPHGO_SG2000=y
- CONFIG_PINCTRL_SOPHGO_SG2002=y
-+CONFIG_PINCTRL_TH1520=y
- CONFIG_GPIO_DWAPB=y
- CONFIG_GPIO_SIFIVE=y
- CONFIG_POWER_RESET_GPIO_RESTART=y
-@@ -242,6 +243,7 @@ CONFIG_RTC_DRV_SUN6I=y
- CONFIG_DMADEVICES=y
- CONFIG_DMA_SUN6I=m
- CONFIG_DW_AXI_DMAC=y
-+CONFIG_DWMAC_THEAD=m
- CONFIG_VIRTIO_PCI=y
- CONFIG_VIRTIO_BALLOON=y
- CONFIG_VIRTIO_INPUT=y
+diff --git a/arch/riscv/include/asm/cmpxchg.h b/arch/riscv/include/asm/cmpxchg.h
+index 4cadc56220fe..2bd42a11ff8f 100644
+--- a/arch/riscv/include/asm/cmpxchg.h
++++ b/arch/riscv/include/asm/cmpxchg.h
+@@ -365,16 +365,48 @@ static __always_inline void __cmpwait(volatile void *ptr,
+ {
+ 	unsigned long tmp;
+ 
++	u32 *__ptr32b;
++	ulong __s, __val, __mask;
++
+ 	asm goto(ALTERNATIVE("j %l[no_zawrs]", "nop",
+ 			     0, RISCV_ISA_EXT_ZAWRS, 1)
+ 		 : : : : no_zawrs);
+ 
+ 	switch (size) {
+ 	case 1:
+-		fallthrough;
++		__ptr32b = (u32 *)((ulong)(ptr) & ~0x3);
++		__s = ((ulong)(ptr) & 0x3) * BITS_PER_BYTE;
++		__val = val << __s;
++		__mask = 0xf << __s;
++
++		asm volatile(
++		"	lr.w	%0, %1\n"
++		"	and	%0, %0, %3\n"
++		"	xor	%0, %0, %2\n"
++		"	bnez	%0, 1f\n"
++			ZAWRS_WRS_NTO "\n"
++		"1:"
++		: "=&r" (tmp), "+A" (*(__ptr32b))
++		: "r" (__val), "r" (__mask)
++		: "memory");
++		break;
+ 	case 2:
+-		/* RISC-V doesn't have lr instructions on byte and half-word. */
+-		goto no_zawrs;
++		__ptr32b = (u32 *)((ulong)(ptr) & ~0x3);
++		__s = ((ulong)(ptr) & 0x2) * BITS_PER_BYTE;
++		__val = val << __s;
++		__mask = 0xff << __s;
++
++		asm volatile(
++		"	lr.w	%0, %1\n"
++		"	and	%0, %0, %3\n"
++		"	xor	%0, %0, %2\n"
++		"	bnez	%0, 1f\n"
++			ZAWRS_WRS_NTO "\n"
++		"1:"
++		: "=&r" (tmp), "+A" (*(__ptr32b))
++		: "r" (__val), "r" (__mask)
++		: "memory");
++		break;
+ 	case 4:
+ 		asm volatile(
+ 		"	lr.w	%0, %1\n"
 -- 
-2.34.1
+2.40.1
 
 
 _______________________________________________
