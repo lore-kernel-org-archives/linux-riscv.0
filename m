@@ -4,69 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8D456E7717F
-	for <linux-riscv@archiver.kernel.org>; Mon, 16 Dec 2024 08:48:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D49F6E77183
+	for <linux-riscv@archiver.kernel.org>; Mon, 16 Dec 2024 08:48:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:To
-	:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=x4t8N23RNpW6qBW/P0PlObd4XWpsR38VJt7sofXX8S8=; b=HI5Jq0KWQP72a9
-	+k5ST5kYvFO6cobkeYmw4IUYCgpMtDfFv88SW7fa2pB3qSH4CWs7gZ18VPaPh1UFGrjlbnAY/6KtI
-	oknnf7xBsQbOpoEDv2g7im5Uh9EXfFObkhGljh/qW5qt06SBkGX6XGQn/Izoo/GYu4Wvqb9xJ5Huo
-	iNb/BXBpZdAQGjI566Ap3rjuAQCwv5BnrqL+CkKzeO2fS5gO6TNHm7S4cq5H1K51TKOzglOr/Z/2/
-	5A5iLcpaQK6+P/zNZSfhHQKzoJ4+pfFou67AhPIBW4BIWIZuO01KRDB8JFdE0Hd6TVI0jegD5uiQn
-	Up5kIBh3AJA6NF5pg+sw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=qsC6qX2OPDLqroKC0bA4ARS/wXtqcYZZuDua2aRNO0o=; b=Yl5uvio2CGYyVX
+	yj9c6/E67PbwuEg4XuX3PPL+m2RqkCZJ/oZugkILwcvcpM7isPUrOHbtAirdIyNg+kV0hiGOF8p9N
+	/Z6Wf9CHqEKenPxNWXLyEQMnSPG4aivSKO3I3cKbw/UBI/LuYdkcfQzxNz0p1ZyXXq5wygPFMKFXP
+	dKViDD63/YuhgjFrBx++2c0rnnuQAKCTkJ5aXvaCUK0NsTBIm1aPY8r/GCBcRspacEK28RskvQiQD
+	gtQXahphLzsrZ6Pn/tbd6RXA4vG80PlYof/As6fkUJpd54A/oP2jJx+/GKR3q4D42kW8UeP15CUDa
+	fClWUeXNA7DvWJ53ZUNg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tN6mM-00000009RF8-3q43;
-	Mon, 16 Dec 2024 08:48:38 +0000
-Received: from mail-pl1-x62c.google.com ([2607:f8b0:4864:20::62c])
+	id 1tN6mQ-00000009RG7-21yb;
+	Mon, 16 Dec 2024 08:48:42 +0000
+Received: from mail-pl1-x62a.google.com ([2607:f8b0:4864:20::62a])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tN6mJ-00000009RET-3VyG
+	id 1tN6mO-00000009RFC-48vO
 	for linux-riscv@lists.infradead.org;
-	Mon, 16 Dec 2024 08:48:37 +0000
-Received: by mail-pl1-x62c.google.com with SMTP id d9443c01a7336-21628b3fe7dso28852305ad.3
-        for <linux-riscv@lists.infradead.org>; Mon, 16 Dec 2024 00:48:35 -0800 (PST)
+	Mon, 16 Dec 2024 08:48:42 +0000
+Received: by mail-pl1-x62a.google.com with SMTP id d9443c01a7336-216401de828so29581245ad.3
+        for <linux-riscv@lists.infradead.org>; Mon, 16 Dec 2024 00:48:40 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1734338914; x=1734943714; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=/ZPlunLBlln7QYb6AUUO3djXlFosdjLIQj/QlK3o4jU=;
-        b=lgLvKdfqEaBSZkxJFbrQmQnVOcUL8f0ROTuyaWZtOifEIhPJmytf69TOPqKBq8Flab
-         BgkhsC8O2C4FVwD6RU5dZ01CHHBrZsTravDVEW1oeueTgXpGlXZOe8WmGQSzealY9bjZ
-         WxgUtIA3weT63jVrpUd7TUf8MmAFy2DYr8PZ2Ceg5flvO88M2zLHqli6B+nvoU0lg5E0
-         Zj77iDZQNx83JDvrIwK86vazDIbwo5HN1nt559ulTwNtS+q/fq//bTjGoruQuy6drUa2
-         qOxWe5oT1ISKFuUrLigEwctiIMRL85rr0kCVdRJA9w1r5NScPKImjxi27rENEBQE0qui
-         kJyA==
+        d=ventanamicro.com; s=google; t=1734338920; x=1734943720; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=Eei5CeEAyNvf2PS4xwdFaq29ZOKnFWm89T3hqpCmQHw=;
+        b=EiFeIgqc5kUAB7RPlA3ykItnNY/V3TGjE9mjx7vo7f4CQlEfWgDiAIg6huimlR+Mhr
+         5+0wYg4Wji+AZlw6EYI+exF7v1AWvkN7uH/tf0jfdYF3lh3WAnOAWUpJ5MxOsU56WWHL
+         Yu3ZnHAB88naVWNSizWcUmSVkJ1SZOGCoJcwiFDJ99cpexwjNwoOiIyur2Wc/FIH8Pu1
+         DvGnoYn4/FvnqCpPKC8ft8zwm3H4iS4Xv99SPk+fVL6VsjYWY2h1C9Q0bteyTT609eqO
+         JvYfIcXCxrJe2J8k/5NFUvptwF+sa+43PRh1VNIru5dY1ryoM/KHtQcsMRgqydjjJlKL
+         OidQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1734338914; x=1734943714;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=/ZPlunLBlln7QYb6AUUO3djXlFosdjLIQj/QlK3o4jU=;
-        b=JVFWShY1IvoGHVuwhBC9sTy080qckmxSa8ApTmg+awjqmFVXnsvk8mtLdMCQiX8cVD
-         ozwUwNcZrBL8YUHnB2nc3IWicpQOPFTg8r0qZRCRH5LbPKgu0fF91BpFn3+Vg4t4zIoa
-         cVb0sxCyRgvWMy54VQJ/2Og1gnEHanL3Ekz4nLSA20oWjHsKjH6UE7ojw0MxggI/ms7e
-         JbuwmpDSC4Fk6x7dSaKknTteAIVYe2y6j4CSNvPX/5rePa6viedK5QuvUtcCEDnyU8Wm
-         BE/JPkxMlgLxq8r5Gi/JNj5aJ/VXIqAgdytT7+hDs1Spcl+YYLoJgRtA0hc4bN6uyMAI
-         Qqdw==
-X-Forwarded-Encrypted: i=1; AJvYcCVbAkQ7kT65Hi1TcybV8z2AqTYaSfuYyg8UWM1dy1sf/iTeoHgQpBLm7PknbeWerufptmDUqh0Z7dLn1Q==@lists.infradead.org
-X-Gm-Message-State: AOJu0YxXXmshBcu/1p5/5HeWR+JLtassvX2kNR1c6jwis70iqcxnr616
-	O1Fx0Irps5ojA6DY4uK2CvERQOR51qLjbqebf+5/ituUVjfGAGB/NYFcxIoj59g=
-X-Gm-Gg: ASbGncts6cRtMiLEHr2FORBJmuQMkjaay82icvCA3Z+3mgq5fSzRYgXoJ7BPhfOLZbC
-	qChPzQQxRHd76XEha8paisjztuiRlJ5TO4mMCy+E2jIU8YLj7kV4vVmIq6pe0CNJpe0fp5UOJv0
-	MkDYcWC6jVOZRs645EcI0Ju7wS5Ddu8D2JcEL/ZqZvUT1QjQAE+I9SkvezNsDqITbwGc5v8pEMe
-	1jXZ/jNsGH/2dP86YCfzfPuO2m3GySKEG5nHlZ6/Qq4Jb3WCqJZfQO/ZAXN+zeD7lFrQ2/+QbrJ
-	DZlK6mHt8vobzSg=
-X-Google-Smtp-Source: AGHT+IFoNCn1xjwdvfD5tU8wcob3LmcqUZZYdSpRKH7XSPi+k1Q2z7DhQmm+kma0y1vvzp+aMNnp1w==
-X-Received: by 2002:a17:902:e84f:b0:212:514:b30a with SMTP id d9443c01a7336-218929808c8mr181238975ad.12.1734338914542;
-        Mon, 16 Dec 2024 00:48:34 -0800 (PST)
+        d=1e100.net; s=20230601; t=1734338920; x=1734943720;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=Eei5CeEAyNvf2PS4xwdFaq29ZOKnFWm89T3hqpCmQHw=;
+        b=VFIssCzp2+T5H/Wa2Zn73XHa0EvbR6jzzzyoIRWyjVkY/dNZeKWYm4GYNRioMPZ4G5
+         GJzOD+xGhT7RDeHDYf8pWYvs87hFEaJTcYj94/aF92MH7DaqcJcCr9Hozj5WBf6s/4F+
+         lu0k+uKyEplsCSlM5crDr+VPDgt02CcXWqgVDXBXJRAWqjrXt47M8eSHfFg5zf51yrFu
+         rVPycuigxeLOHh3LEbWrAtP8KITPoJSQZ0iv5KRDhalPPS9KxF4x9MrIY3P3nmxvkXDp
+         ZFj7CdFq6Bx0ZxfNrTrFPqt4zuaKPqE4e5l7fAyeucPpMAZe+KiSovna+IbCaiKpvSBn
+         tq3Q==
+X-Forwarded-Encrypted: i=1; AJvYcCWHrP//xxtQTEKSc5dtn4zPxf7q9JVnbVHitA4l+zcsoMcQDmgiBXPtr9OIX4rMwfR7wzzcCrLqlL9xwg==@lists.infradead.org
+X-Gm-Message-State: AOJu0YyL1blLg/Yad5k9CfMpLj+wKSGUzl3pglIihOmKMeHEY+UTNmmg
+	F2qBpv+jxnO7+KN5BY5qjzeOuPCLrzMduyFpJLHL47xyEgWAoZwon2qvlXuP6ZY=
+X-Gm-Gg: ASbGncteZ6lshAkPnkEoEYQ1l5ZGmhRNRCNd4vM/h+FEP6X2G9XamA5ybzaaohmhhHK
+	ZBFJOyzo7DXtRFlegYFVDyWtJqT9BKg35nTXxhBaxR4R6aJ6+l9/Zyjn0KdNVsD0xO0yxV9kPBx
+	A9yThOMX9LLFqa/zww6x7uTnvg3Ls7zmzrdYrDnscJcfCrhF6WKZ8Xl6HlKMdZ8P0wtXAClOhos
+	o2H+Nq3Qe0K1rrtRrA6YgbMd4ngvy72hUs2v+sEx4rKcjtRfrEuFjfNdRoQ1SL1uDNKpS/IPze7
+	AEeQ9P/Ke2v0gFw=
+X-Google-Smtp-Source: AGHT+IH23xFB2kNx/gOskLUHtyyFSXX+WD7siqR8qRzGwZ+oJpSpIMc4NvB33gu7U5vEEvlRMs2S/A==
+X-Received: by 2002:a17:902:ce85:b0:216:7cbf:951f with SMTP id d9443c01a7336-218929c72b5mr138434115ad.21.1734338919985;
+        Mon, 16 Dec 2024 00:48:39 -0800 (PST)
 Received: from localhost.localdomain ([223.185.130.105])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-218a1e501d0sm37711495ad.116.2024.12.16.00.48.29
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-218a1e501d0sm37711495ad.116.2024.12.16.00.48.34
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 16 Dec 2024 00:48:33 -0800 (PST)
+        Mon, 16 Dec 2024 00:48:39 -0800 (PST)
 From: Anup Patel <apatel@ventanamicro.com>
 To: Michael Turquette <mturquette@baylibre.com>,
 	Stephen Boyd <sboyd@kernel.org>,
@@ -74,14 +75,17 @@ To: Michael Turquette <mturquette@baylibre.com>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	Conor Dooley <conor+dt@kernel.org>,
 	Jassi Brar <jassisinghbrar@gmail.com>
-Subject: [RFC PATCH 0/8] Linux SBI MPXY and RPMI drivers
-Date: Mon, 16 Dec 2024 14:18:09 +0530
-Message-ID: <20241216084817.373131-1-apatel@ventanamicro.com>
+Subject: [RFC PATCH 1/8] riscv: Add new error codes defined by SBI v3.0
+Date: Mon, 16 Dec 2024 14:18:10 +0530
+Message-ID: <20241216084817.373131-2-apatel@ventanamicro.com>
 X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20241216084817.373131-1-apatel@ventanamicro.com>
+References: <20241216084817.373131-1-apatel@ventanamicro.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241216_004835_881177_FD862706 
-X-CRM114-Status: GOOD (  14.27  )
+X-CRM114-CacheID: sfid-20241216_004841_028307_49099B43 
+X-CRM114-Status: UNSURE (   9.61  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,57 +103,45 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The SBI v3.0 MPXY extension [1] and RPMI v1.0 [2] specifications are
-in stable state and under ARC review at the RISC-V International so
-as part of the RVI process we would like to receive an early feedback
-on the device tree bindings and mailbox drivers hence this series.
+The SBI v3.0 defines new error codes so add these new error codes
+to the asm/sbi.h for use by newer SBI extensions.
 
-Currently, most of the RPMI and MPXY drivers are in OpenSBI whereas
-for Linux only has SBI MPXY mailbox controller driver and RPMI clock
-driver. This series will be expanded in the future to include some
-more RPMI drivers and ACPI support.
+Signed-off-by: Anup Patel <apatel@ventanamicro.com>
+---
+ arch/riscv/include/asm/sbi.h | 10 ++++++++++
+ 1 file changed, 10 insertions(+)
 
-These patches can be found in the riscv_sbi_mpxy_mailbox_v1 branch at:
-https://github.com/avpatel/linux.git
-
-To test these patches, boot Linux on "virt,rpmi=on" machine with
-latest OpenSBI and QEMU from the dev-upstream QEMU branch at:
-https://github.com/ventanamicro/qemu.git
-
-[1] https://github.com/riscv-non-isa/riscv-sbi-doc/releases
-[2] https://github.com/riscv-non-isa/riscv-rpmi/releases
-
-Anup Patel (7):
-  riscv: Add new error codes defined by SBI v3.0
-  dt-bindings: mailbox: Add bindings for RPMI shared memory transport
-  dt-bindings: mailbox: Add bindings for RISC-V SBI MPXY extension
-  RISC-V: Add defines for the SBI message proxy extension
-  mailbox: Add common header for RPMI messages sent via mailbox
-  mailbox: Add RISC-V SBI message proxy (MPXY) based mailbox driver
-  dt-bindings: clock: Add bindings for RISC-V RPMI clock service group
-
-Rahul Pathak (1):
-  clk: Add clock driver for the RISC-V RPMI clock service group
-
- .../bindings/clock/riscv,rpmi-clock.yaml      |  78 ++
- .../mailbox/riscv,rpmi-shmem-mbox.yaml        | 135 +++
- .../bindings/mailbox/riscv,sbi-mpxy-mbox.yaml |  54 +
- arch/riscv/include/asm/sbi.h                  |  69 ++
- drivers/clk/Kconfig                           |   8 +
- drivers/clk/Makefile                          |   1 +
- drivers/clk/clk-rpmi.c                        | 588 +++++++++++
- drivers/mailbox/Kconfig                       |  11 +
- drivers/mailbox/Makefile                      |   2 +
- drivers/mailbox/riscv-sbi-mpxy-mbox.c         | 979 ++++++++++++++++++
- include/linux/mailbox/riscv-rpmi-message.h    | 218 ++++
- 11 files changed, 2143 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/clock/riscv,rpmi-clock.yaml
- create mode 100644 Documentation/devicetree/bindings/mailbox/riscv,rpmi-shmem-mbox.yaml
- create mode 100644 Documentation/devicetree/bindings/mailbox/riscv,sbi-mpxy-mbox.yaml
- create mode 100644 drivers/clk/clk-rpmi.c
- create mode 100644 drivers/mailbox/riscv-sbi-mpxy-mbox.c
- create mode 100644 include/linux/mailbox/riscv-rpmi-message.h
-
+diff --git a/arch/riscv/include/asm/sbi.h b/arch/riscv/include/asm/sbi.h
+index 6c82318065cf..bc35ad750e28 100644
+--- a/arch/riscv/include/asm/sbi.h
++++ b/arch/riscv/include/asm/sbi.h
+@@ -418,6 +418,10 @@ enum sbi_ext_nacl_feature {
+ #define SBI_ERR_ALREADY_STARTED -7
+ #define SBI_ERR_ALREADY_STOPPED -8
+ #define SBI_ERR_NO_SHMEM	-9
++#define SBI_ERR_INVALID_STATE	-10
++#define SBI_ERR_BAD_RANGE	-11
++#define SBI_ERR_TIMEOUT		-12
++#define SBI_ERR_IO		-13
+ 
+ extern unsigned long sbi_spec_version;
+ struct sbiret {
+@@ -504,9 +508,15 @@ static inline int sbi_err_map_linux_errno(int err)
+ 	case SBI_ERR_DENIED:
+ 		return -EPERM;
+ 	case SBI_ERR_INVALID_PARAM:
++	case SBI_ERR_INVALID_STATE:
++	case SBI_ERR_BAD_RANGE:
+ 		return -EINVAL;
+ 	case SBI_ERR_INVALID_ADDRESS:
+ 		return -EFAULT;
++	case SBI_ERR_TIMEOUT:
++		return -ETIMEDOUT;
++	case SBI_ERR_IO:
++		return -EIO;
+ 	case SBI_ERR_NOT_SUPPORTED:
+ 	case SBI_ERR_FAILURE:
+ 	default:
 -- 
 2.43.0
 
