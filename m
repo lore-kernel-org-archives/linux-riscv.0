@@ -4,68 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9242CE77180
-	for <linux-riscv@archiver.kernel.org>; Mon, 16 Dec 2024 03:26:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7F1D7E77180
+	for <linux-riscv@archiver.kernel.org>; Mon, 16 Dec 2024 05:06:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=BxI2NpQXGnUWXV9cnhOeL5sKC2Aju5SI/5yYup1Uv9s=; b=MUDgiYZiu3ljWp
-	BB7n2+9Fnd3xcL9Gdxoq5mUw9ZLcKdiRko2CtRF5bpg4WJPKzm7IGwW9TvpuW/uI2uNbBHHbEbYOO
-	eQV1HMdTZka6rbji2zM2IWd8bZD528l7SFvCddLoin7NRcVJpOVcOOcHWdA6Qr+RTzQzMlZTv3BO/
-	Ihy1IV2zD47Oe08t0hyS+x+pecFs2sOXdBhvtl6iY6qb3xwSq5SK+k2ys2mCV8XowMQZVFLGuwQYA
-	hDFE09IBAOkXKrB74Fy4kcnw3H0wKiPDG2AkJ2Wb9nKWjjfQN7BvLEnzFXHILmShj4/5/QFcR1zMY
-	JUb7AfkZojJCLOIXWxyA==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=XGwdlhSmj53o4wvxlALbhIBQHVTue/xYFCeRn3m+fKI=; b=ebsSGnIImQqI2O
+	fu6NniNKxfBuuC3GKoW3tD0wpEMaHihAOpZ2OOcA4DQjTRWBa6N2d0sVcgSqpCyr3muuzsEn4K/6t
+	aZzLioVBUkcqkkdyxl5yIo9fa8tIc1NSpQXE+La9WKuNnJYQ0w2POLKAcSz+r2di9ahJUEfOCUPRJ
+	/NFK+dBClBHZxGTAsIJ7pOkOXxWEvqvjPVEVf64NeAuxzPcrWqlmcPcZ574y+Lhkk2ryg+1+94piu
+	OVANWAaKt+vBP9SqHSuIW6iqhDq23k2SS5quj+RsfmxFLAnuZEnckkwYWvB5HhIyg5LannIEK+LgG
+	eKRhzUkmBsflODWUFWwQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tN1km-00000008vc8-42gt;
-	Mon, 16 Dec 2024 03:26:40 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1tN3J4-000000094Hf-2YMf;
+	Mon, 16 Dec 2024 05:06:10 +0000
+Received: from mail-qk1-x733.google.com ([2607:f8b0:4864:20::733])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tN1hO-00000008vA5-0n2H
+	id 1tN3J2-000000094HE-0fI0
 	for linux-riscv@lists.infradead.org;
-	Mon, 16 Dec 2024 03:23:11 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 2DE3D5C59D8;
-	Mon, 16 Dec 2024 03:22:27 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 48104C4CED0;
-	Mon, 16 Dec 2024 03:23:06 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1734319389;
-	bh=V4jM3CVSCQm1TaO1otXw7852w/swq8OZFbl3RxkIYK4=;
-	h=From:To:Cc:Subject:Date:From;
-	b=kjuVY9PGhDTtrEHi/eH9u8pArsgTdG3NHgqlKH9cBtPvf+LGHxw0mZ/wK/sHWxQPe
-	 H/bZk4C+cC1a4BWJyFCpHnhMz1UM2ybo9yn4gjGYKCQ9phC+s875/LSrqSpGSXBK4n
-	 jBa/ZZzVOwJoGT5ohcQNioboygexWAg2IfcPSt/rOn8xcUWSJtRZk+fcZG9lq7qBsn
-	 vbVngoME1TjByjp6y9CxwGSd9ZOuiguO7DkSRllgLyk2ysrGVdODtjcsoJ+gDPJ4NL
-	 oknWLJRF9DZMt+r7ne2xAcBaeh2uDzGFguujf80RXHPaXA6A6GGSu1gNS5ZhzuIdKx
-	 0fsS87gW9evnw==
-From: guoren@kernel.org
-To: paul.walmsley@sifive.com,
-	palmer@dabbelt.com,
-	guoren@kernel.org,
-	bjorn@rivosinc.com,
-	conor@kernel.org,
-	leobras@redhat.com,
-	alexghiti@rivosinc.com,
-	christoph.muellner@vrull.eu
-Cc: linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	parri.andrea@gmail.com,
-	ajones@ventanamicro.com,
-	ericchancf@google.com,
-	Guo Ren <guoren@linux.alibaba.com>
-Subject: [PATCH] riscv: Implement smp_cond_load8/16() with Zawrs
-Date: Sun, 15 Dec 2024 22:22:53 -0500
-Message-Id: <20241216032253.685728-1-guoren@kernel.org>
-X-Mailer: git-send-email 2.40.1
+	Mon, 16 Dec 2024 05:06:09 +0000
+Received: by mail-qk1-x733.google.com with SMTP id af79cd13be357-7b6f0afda3fso409399485a.2
+        for <linux-riscv@lists.infradead.org>; Sun, 15 Dec 2024 21:06:07 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1734325566; x=1734930366; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=LyAlmSIue1yI2x6sqSoYtePgVLtgmXfHaAKBgrqewBQ=;
+        b=SI4c0tZYtzeCkaL6EC1Brs8IU+V/sjGuu2mCNfD7HdoEuF2R+/iQQAecky9iCYnys9
+         5u2yUiBHUDXv5Sgl2FTw8k2AvJCJu5S3ZUIE1w5CABVXC8bt4csCHjPCT7ggqU0eEx92
+         jgLjmHxm6pIpgS75QJrm1fTGs+HOwXw773yg0Bl3+0ZnAGFKSHGgQ3bEFPiuY0hL6SAV
+         f3GeEgnb1NeZL0OKey46iw6F9FTauouIBRJlmukKU6oGsU0bZxQGo3/Wt/jUVuJm61U7
+         /Mq2KckiNuQGgcvvyJlfT99MWR3LJh9vlmTjee+OrjesNd28Si9yIo+vYuVrnwXlkTVL
+         B2cQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1734325566; x=1734930366;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=LyAlmSIue1yI2x6sqSoYtePgVLtgmXfHaAKBgrqewBQ=;
+        b=B0Ace54yk9xSW+N13gsJaZK26RqlNPl688E8vXXNIVxCtQy4GjRTW71OWvSvwFRHiC
+         Tgdv69cTrlOQSbPCkVUM2ZtnPpiVO/+QJPSOwGBkgM0SoZCxgznRVaigA1peUehjddWM
+         QgkhA5d9x3//vM9cgSonL2yte5VHdtrVO6+Feb7Ezo5qww96Y3+YQ1sEQ/0IJ+DwKVJt
+         sCW9Em0V7ZYus64PGH+iP3w5/0YUjYzrb1LN0HKWSINJxPAtc2Vnbi4WccnH3GxRS8Wa
+         h5TgeIc8JAhU+OiTq2eccqse0bWIxcuup5Fu/8WF1l41445UlcY2CWYcKmjPeIZZwJdy
+         qL6g==
+X-Gm-Message-State: AOJu0YwBWaZWaokeMShh3zrZzZXpq5yPDtVqMiKTU69L5I5k0tPiyZV3
+	VJdDPLNZrnLEF4hRLhjbd4MYM3afl4zsQGirZ2QwhWpSbYBTQUD/
+X-Gm-Gg: ASbGncs6FrGQWW5zwWWp9A+3wBtbweaZHrhH4eZblsl5OdfhP1M8elQvof1ya/lqhtX
+	hkZBsXjRoDitVqB5dReb7QANCuHNnw8Olp9YKZ+ExTy6vczevfw3IDqmE5DEw/kVaSxGKyIp1cn
+	K5UxATDNxmsO2JLnxcsIhxch2xkvIrb5xKJxpnEccnj/HYQ3aXcQDd/47L0pUM+L08fJh0tX0+J
+	tm2jjSw4YfilZSHdTkFkH31GKmZTDuM
+X-Google-Smtp-Source: AGHT+IF1V1JDBT9DxBXnKsSb9FGOSWHTVrkLz4gC4NnnVANUPFlFTC911pK1N5+IlhRrLEkQEQ26SA==
+X-Received: by 2002:a05:620a:46a6:b0:7b6:dd7a:9716 with SMTP id af79cd13be357-7b6fbecc698mr2294512685a.10.1734325566242;
+        Sun, 15 Dec 2024 21:06:06 -0800 (PST)
+Received: from localhost ([2001:da8:7001:11::cb])
+        by smtp.gmail.com with ESMTPSA id af79cd13be357-7b7048ca76asm191276585a.112.2024.12.15.21.06.04
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 15 Dec 2024 21:06:05 -0800 (PST)
+Date: Mon, 16 Dec 2024 13:05:48 +0800
+From: Inochi Amaoto <inochiama@gmail.com>
+To: guoren@kernel.org, conor@kernel.org, alexghiti@rivosinc.com
+Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	paul.walmsley@sifive.com, palmer@dabbelt.com, bjorn@rivosinc.com, leobras@redhat.com, 
+	corbet@lwn.net, peterlin@andestech.com, Guo Ren <guoren@linux.alibaba.com>
+Subject: Re: [PATCH 0/2] riscv: qspinlock: errata: Add
+ ERRATA_THEAD_WRITE_ONCE fixup
+Message-ID: <ohjfp2mwenkmm77t3iwtd6xhuhiykcmumujknqme3yd7hyac2p@j6mi542lmbeg>
+References: <20241214143039.4139398-1-guoren@kernel.org>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20241214143039.4139398-1-guoren@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241215_192310_324570_D0338D2E 
-X-CRM114-Status: UNSURE (   8.13  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241215_210608_225963_D3B9FF7D 
+X-CRM114-Status: GOOD (  13.99  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,77 +97,41 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Guo Ren <guoren@linux.alibaba.com>
+On Sat, Dec 14, 2024 at 09:30:37AM -0500, guoren@kernel.org wrote:
+> From: Guo Ren <guoren@linux.alibaba.com>
+> 
+> The early version of T-Head C9xx cores has a store merge buffer
+> delay problem. The store merge buffer could improve the store queue
+> performance by merging multi-store requests, but when there are not
+> continued store requests, the prior single store request would be
+> waiting in the store queue for a long time. That would cause
+> significant problems for communication between multi-cores. This
+> problem was found on sg2042 & th1520 platforms with the qspinlock
+> lock torture test.
+> 
+> The orignal patch is from:
+> https://lore.kernel.org/linux-riscv/20231225125847.2778638-5-guoren@kernel.org/
+> 
+> Guo Ren (2):
+>   riscv: Move vendor errata definitions into vendorid_list.h
+>   riscv: qspinlock: errata: Add ERRATA_THEAD_WRITE_ONCE fixup
+> 
+>  arch/riscv/Kconfig.errata              | 19 +++++++++++++++
+>  arch/riscv/errata/thead/errata.c       | 20 ++++++++++++++++
+>  arch/riscv/include/asm/errata_list.h   | 17 -------------
+>  arch/riscv/include/asm/rwonce.h        | 33 ++++++++++++++++++++++++++
+>  arch/riscv/include/asm/vendorid_list.h | 18 ++++++++++++++
+>  include/asm-generic/rwonce.h           |  2 ++
+>  6 files changed, 92 insertions(+), 17 deletions(-)
+>  create mode 100644 arch/riscv/include/asm/rwonce.h
+> 
+> -- 
+> 2.40.1
+> 
 
-RISC-V code uses the queued spinlock implementation, which calls
-the macros smp_cond_load_acquire for one byte. So, complement the
-implementation of byte and halfword versions.
+It works on SG2042.
 
-Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
-Signed-off-by: Guo Ren <guoren@kernel.org>
----
- arch/riscv/include/asm/cmpxchg.h | 38 +++++++++++++++++++++++++++++---
- 1 file changed, 35 insertions(+), 3 deletions(-)
-
-diff --git a/arch/riscv/include/asm/cmpxchg.h b/arch/riscv/include/asm/cmpxchg.h
-index 4cadc56220fe..2bd42a11ff8f 100644
---- a/arch/riscv/include/asm/cmpxchg.h
-+++ b/arch/riscv/include/asm/cmpxchg.h
-@@ -365,16 +365,48 @@ static __always_inline void __cmpwait(volatile void *ptr,
- {
- 	unsigned long tmp;
- 
-+	u32 *__ptr32b;
-+	ulong __s, __val, __mask;
-+
- 	asm goto(ALTERNATIVE("j %l[no_zawrs]", "nop",
- 			     0, RISCV_ISA_EXT_ZAWRS, 1)
- 		 : : : : no_zawrs);
- 
- 	switch (size) {
- 	case 1:
--		fallthrough;
-+		__ptr32b = (u32 *)((ulong)(ptr) & ~0x3);
-+		__s = ((ulong)(ptr) & 0x3) * BITS_PER_BYTE;
-+		__val = val << __s;
-+		__mask = 0xf << __s;
-+
-+		asm volatile(
-+		"	lr.w	%0, %1\n"
-+		"	and	%0, %0, %3\n"
-+		"	xor	%0, %0, %2\n"
-+		"	bnez	%0, 1f\n"
-+			ZAWRS_WRS_NTO "\n"
-+		"1:"
-+		: "=&r" (tmp), "+A" (*(__ptr32b))
-+		: "r" (__val), "r" (__mask)
-+		: "memory");
-+		break;
- 	case 2:
--		/* RISC-V doesn't have lr instructions on byte and half-word. */
--		goto no_zawrs;
-+		__ptr32b = (u32 *)((ulong)(ptr) & ~0x3);
-+		__s = ((ulong)(ptr) & 0x2) * BITS_PER_BYTE;
-+		__val = val << __s;
-+		__mask = 0xff << __s;
-+
-+		asm volatile(
-+		"	lr.w	%0, %1\n"
-+		"	and	%0, %0, %3\n"
-+		"	xor	%0, %0, %2\n"
-+		"	bnez	%0, 1f\n"
-+			ZAWRS_WRS_NTO "\n"
-+		"1:"
-+		: "=&r" (tmp), "+A" (*(__ptr32b))
-+		: "r" (__val), "r" (__mask)
-+		: "memory");
-+		break;
- 	case 4:
- 		asm volatile(
- 		"	lr.w	%0, %1\n"
--- 
-2.40.1
-
+Tested-by: Inochi Amaoto <inochiama@gmail.com>
 
 _______________________________________________
 linux-riscv mailing list
