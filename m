@@ -4,57 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CA420E7717F
-	for <linux-riscv@archiver.kernel.org>; Mon, 16 Dec 2024 18:50:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F9DBE77180
+	for <linux-riscv@archiver.kernel.org>; Mon, 16 Dec 2024 20:09:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:Cc:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qvvirBXtz6e/u1zN5JIygSzeY0m0Js6WhR4ATBtysAc=; b=R0yLODnijeyT/4YN5dcyQIkRIx
-	OS1IhFUSj85KivofciCVhwQg8w+hy0Z1O+KKLYTZuC+MS7kxv4G7GG+8I1Z/38IEJTcDpXb5SZTQs
-	NHUQdeNHtJEa6RrpeJbuqwh+Cq6PCly3BZxfQ6g+clcwj8mt56zq4VAO1FQ3rGVNFl07akWSToC4F
-	avoLo9sdraSjaIZZHbL7ZqCnrwsNtrDqORj4vqGde8kBSsWKh5n9cpkUBf7PM5nV0IZTnmoy+mfl3
-	/Yc+IhbZA9LhtLitX8U8ulNeAWx8T2uLXmku0ijCFRTUw2fAkwXkL15/kJWc0VZoIwl3/cNA7rb5m
-	Ofu7loMQ==;
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=IOFddKaTeKjFTZxirfB378m8F2cp03azSOJJOaXOxX8=; b=ij/5UAhTNMf7UiNVFVxPj+nyvd
+	IbXkaTzJiuEslEweD+Z651qI5JrIHz6a276dXGlriJCMsbKm9WkajTlqVpmkQ/cDHaxcgvx++V6/s
+	ZKvWyIsi9xfu7UG7+iRQCETrXR5ytzVcPRnz6kKfb9+V+lffum+no0Br87eNYO8VMhETex2LsYGDz
+	CRFMNZ7JzgqnAayL4gna0LSKCtcuzWAVbRfGRM8AuGuMSla4/xiN6XAFW+GXCMZ8XMnU+VayHqNPn
+	M0rgQKfdx+ZHaW6RRv8QZVCalaUChiIk6hHl7m31pno9FOOTApLYCfh5POyZWLSB+OQd9N+RtM9CL
+	nNeQik7g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNGAF-0000000B0Xc-0FBL;
-	Mon, 16 Dec 2024 18:49:55 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1tNHP3-0000000BD8K-1KXY;
+	Mon, 16 Dec 2024 20:09:17 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNG9k-0000000B0SM-2x6K
+	id 1tNHP1-0000000BD7v-0S2S
 	for linux-riscv@lists.infradead.org;
-	Mon, 16 Dec 2024 18:49:26 +0000
+	Mon, 16 Dec 2024 20:09:16 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 4C0185C541C;
-	Mon, 16 Dec 2024 18:48:41 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C25A3C4CED0;
-	Mon, 16 Dec 2024 18:49:19 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 911ECA41A6E;
+	Mon, 16 Dec 2024 20:07:23 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 57697C4CED0;
+	Mon, 16 Dec 2024 20:09:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1734374963;
-	bh=ZeQQScruNqW/bJ/x/lj6Dul84Yp6/f/jX5d+nsFQXP0=;
+	s=k20201202; t=1734379754;
+	bh=Ajv+SLsg/GiAOURmWAmHL8wxGVRWma3tzp34DC7dGEc=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=V1ZPNrm77Hzb3Yr+VIztPlS4AaSqQZsY4L4YZA9QyjHnf9y9BKoeORsmL5zqgKM5z
-	 zLaNqRq6UgjB77sZjplhEZvkYOwLVcGoCG3dowN1eWsh6i5FORV033E1421uFMGfFD
-	 ikzKblefGpcRe5va/r0VTspaftVOegoMzFiPLys3IV/zW/amTD8r56rT9kmc+udtBt
-	 4QRQxrK5zAnkPf+4VqrMovYSuSx4UGoHBY6wxRrubhkokRlvQdN8/aFhXyhQv60rcM
-	 a4ZHBnq1aW8/33AXSZy4Tfg96sbT4oMedVo3YzFjVgm0J++jU5Ff5gptjzJi3iK5wo
-	 UEUM1dM3cddig==
-Date: Mon, 16 Dec 2024 18:49:17 +0000
+	b=T7bxWYQRt2nRAiP3KX4O/Wmpbcdn962UVtW4c5BVLQeAYnPksk2d5swqx5iiEPUpq
+	 WEoRiJO0Idppg/6TvTM1mw05rUKVwjdEXuqIp0FWcFimvIZTWXmBHWc96MOHF+AFeB
+	 FrpkyfXKq60blPQMSZoaEgCK6P9LrZ/GylbhNaNdfN5Gn94w63fmtcdp3Ke1xjE7Dk
+	 CYFO0kCyILaKOzQ+ahwqqoEKRNwDS6KSQNF+pKj2EpOhEHKNhCNxphvU2JNSfRJF0x
+	 HDkDSIbGVt5lc5DOVRrojG02MTaSiIo0qwqMXpXV90rnANrQTafK9Idi4f4bQU3LVn
+	 eblfrdJwUfafg==
+Date: Mon, 16 Dec 2024 20:09:09 +0000
 From: Conor Dooley <conor@kernel.org>
-To: Anup Patel <apatel@ventanamicro.com>
-Subject: Re: [RFC PATCH 2/8] dt-bindings: mailbox: Add bindings for RPMI
- shared memory transport
-Message-ID: <20241216-untrained-scarce-211d99984416@spud>
-References: <20241216084817.373131-1-apatel@ventanamicro.com>
- <20241216084817.373131-3-apatel@ventanamicro.com>
+To: E Shattow <e@freeshell.de>
+Cc: Krzysztof Kozlowski <krzk@kernel.org>,
+	Emil Renner Berthing <kernel@esmil.dk>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Hal Feng <hal.feng@starfivetech.com>,
+	Jianlong Huang <jianlong.huang@starfivetech.com>,
+	Conor Dooley <conor.dooley@microchip.com>,
+	linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] riscv: dts: starfive: Fix a typo in StarFive JH7110 pin
+ function definitions
+Message-ID: <20241216-nuttiness-arrogant-27063bd1c47b@spud>
+References: <20241210042002.165297-1-e@freeshell.de>
+ <oacmcw5yvdlsmvqbt4dbdmsx6rvd6x43qv2ejmypw57jgraqu7@txhhsxdg2agq>
+ <e4e19875-c02c-4673-814b-86090223b55d@freeshell.de>
 MIME-Version: 1.0
-In-Reply-To: <20241216084817.373131-3-apatel@ventanamicro.com>
+In-Reply-To: <e4e19875-c02c-4673-814b-86090223b55d@freeshell.de>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241216_104924_826979_54CFFABC 
-X-CRM114-Status: GOOD (  21.90  )
+X-CRM114-CacheID: sfid-20241216_120915_219634_605D89FC 
+X-CRM114-Status: GOOD (  22.96  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -66,163 +79,71 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Rob Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Atish Patra <atishp@atishpatra.org>, devicetree@vger.kernel.org, Stephen Boyd <sboyd@kernel.org>, Anup Patel <anup@brainfault.org>, Michael Turquette <mturquette@baylibre.com>, Jassi Brar <jassisinghbrar@gmail.com>, linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, Leyfoon Tan <leyfoon.tan@starfivetech.com>, Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Andrew Jones <ajones@ventanamicro.com>, linux-clk@vger.kernel.org, Rahul Pathak <rpathak@ventanamicro.com>
-Content-Type: multipart/mixed; boundary="===============8940929388359742271=="
+Content-Type: multipart/mixed; boundary="===============8688488204695847354=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
---===============8940929388359742271==
+--===============8688488204695847354==
 Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="DW1/Ea3gbyAW1RUZ"
+	protocol="application/pgp-signature"; boundary="N6lwbiqT70gdwRWZ"
 Content-Disposition: inline
 
 
---DW1/Ea3gbyAW1RUZ
+--N6lwbiqT70gdwRWZ
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
 
-On Mon, Dec 16, 2024 at 02:18:11PM +0530, Anup Patel wrote:
-> Add device tree bindings for the common RISC-V Platform Management
-> Interface (RPMI) shared memory transport as a mailbox controller.
+On Fri, Dec 13, 2024 at 11:58:29AM -0800, E Shattow wrote:
+> Hi Krzysztof,
 >=20
-> Signed-off-by: Anup Patel <apatel@ventanamicro.com>
-> ---
->  .../mailbox/riscv,rpmi-shmem-mbox.yaml        | 135 ++++++++++++++++++
->  1 file changed, 135 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/mailbox/riscv,rpmi-=
-shmem-mbox.yaml
+> On 12/13/24 01:37, Krzysztof Kozlowski wrote:
+> > On Mon, Dec 09, 2024 at 08:19:56PM -0800, E Shattow wrote:
+> > > Fix a typo in StarFive JH7110 pin function definitions for GPOUT_SYS_=
+SDIO1_DATA4
+> > >=20
+> > > Fixes: e22f09e598d12 ("riscv: dts: starfive: Add StarFive JH7110 pin =
+function definitions")
+> > > Signed-off-by: E Shattow <e@freeshell.de>
+> > > Acked-by: Hal Feng <hal.feng@starfivetech.com>
+> > > ---
+> >=20
+> > Why are you sending the same multiple times? Where is the changelog and
+> > proper patch versioning?
+> >=20
+> > Best regards,
+> > Krzysztof
+> >=20
 >=20
-> diff --git a/Documentation/devicetree/bindings/mailbox/riscv,rpmi-shmem-m=
-box.yaml b/Documentation/devicetree/bindings/mailbox/riscv,rpmi-shmem-mbox.=
-yaml
-> new file mode 100644
-> index 000000000000..8d713ba7ffc7
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/mailbox/riscv,rpmi-shmem-mbox.yaml
-> @@ -0,0 +1,135 @@
-> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/mailbox/riscv,sbi-mpxy-mbox.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: RISC-V Platform Management Interface (RPMI) shared memory mailbox
-> +
-> +maintainers:
-> +  - Anup Patel <anup@brainfault.org>
-> +
-> +description: |
-> +  The RISC-V Platform Management Interface (RPMI) [1] defines a common s=
-hared
-> +  memory based RPMI transport. This RPMI shared memory transport integra=
-tes as
-> +  mailbox controller in the SBI implementation or supervisor software wh=
-ereas
-> +  each RPMI service group is mailbox client in the SBI implementation and
-> +  supervisor software.
-> +
-> +  =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
-=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
-> +  References
-> +  =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
-=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
-> +
-> +  [1] RISC-V Platform Management Interface (RPMI)
-> +      https://github.com/riscv-non-isa/riscv-rpmi/releases
-> +
-> +properties:
-> +  compatible:
-> +    const: riscv,rpmi-shmem-mbox
-> +
-> +  reg:
-> +    oneOf:
-> +      - items:
-> +        - description: A2P request queue base address
-> +        - description: P2A acknowledgment queue base address
-> +        - description: P2A request queue base address
-> +        - description: A2P acknowledgment queue base address
-> +        - description: A2P doorbell address
-> +      - items:
-> +        - description: A2P request queue base address
-> +        - description: P2A acknowledgment queue base address
-> +        - description: A2P doorbell address
-> +
-> +  reg-names:
-> +    oneOf:
-> +      - items:
-> +        - const: a2p-req
-> +        - const: p2a-ack
-> +        - const: p2a-req
-> +        - const: a2p-ack
-> +        - const: db-reg
-> +      - items:
-> +        - const: a2p-req
-> +        - const: p2a-ack
-> +        - const: db-reg
-> +
-> +  interrupts:
-> +    minItems: 1
-> +    maxItems: 1
-> +    description:
-> +      The RPMI shared memory transport supports wired interrupt specifie=
-d by
-> +      this property as the P2A doorbell.
-> +
-> +  msi-parent:
-> +    description:
-> +      The RPMI shared memory transport supports MSI as P2A doorbell and =
-this
-> +      property specifies the target MSI controller.
-> +
-> +  riscv,slot-size:
-> +    $ref: /schemas/types.yaml#/definitions/uint32
-> +    minimum: 64
-> +    description:
-> +      Power-of-2 RPMI slot size of the RPMI shared memory transport.
-> +
-> +  riscv,db-mask:
-> +    $ref: /schemas/types.yaml#/definitions/uint32
-> +    description:
-> +      Update only the register bits of doorbell defined by the mask (32 =
-bit).
+> I did respond to Hal's comment that the patch is missing a commit title
+> description and that I would re-send. How instead should the message be
+> formatted so the patch commit title description is changed but the patch =
+is
+> not the same being sent multiple times?  And now, again, based on your
+> comment that this is not a typo I will again change the commit description
+> but I don't know how to do that without sending again as a duplicate.
+>=20
+> Thank you for the review and for your patience with me when I am learning
+> how to participate.
 
-For an untested RFC, the bindings here look mostly fine. I'd suggest
-renaming "db" to "doorbell" in properties etc, since we can easily
-afford the extra characters. Please make sure to actually test the
-bindings next time around, looks like all 3 bindings produced warnings.
+FWIW, this should be v2. Don't resend for that.
 
-General comments like not needing to provide minItems: 1 when maxItems
-is also 1, and not needing a | unless you have formatting to preserve.
-
-> +      If this property is not present then mask is assumed to be 0xfffff=
-fff.
-
-Also, things like this should be handled with a `default: 0xffffffff`,
-rather than describing it in text.
-
-I'll give the !rfc bindings a proper review when they appear, but before
-that I'll give the code here a go too - thanks for sending the patches.
-
-Cheers,
-Conor.
-
---DW1/Ea3gbyAW1RUZ
+--N6lwbiqT70gdwRWZ
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZ2B2LQAKCRB4tDGHoIJi
-0oJNAP9JzetQCsrZEN1o9LOtrG9uzZmopAxjlXBU4Ev0ivS0wgD9GrrhOQX2dGfa
-MzxcsO3uL5ROuSy48vQfWsf+RA9CnAA=
-=lG3u
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZ2CI5QAKCRB4tDGHoIJi
+0h8XAQDfEK+StAVpeKk1JbjwhFO7IWDiTdyVJYwV3RBO+0EpTgEAnW4HWnSV4NCp
+1mo5X7aeQN0fSR+A+l16E/NBUXLECAc=
+=grkq
 -----END PGP SIGNATURE-----
 
---DW1/Ea3gbyAW1RUZ--
+--N6lwbiqT70gdwRWZ--
 
 
---===============8940929388359742271==
+--===============8688488204695847354==
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
@@ -233,5 +154,5 @@ linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
 
---===============8940929388359742271==--
+--===============8688488204695847354==--
 
