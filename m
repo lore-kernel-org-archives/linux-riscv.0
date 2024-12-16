@@ -4,70 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7FD05E7717F
-	for <linux-riscv@archiver.kernel.org>; Mon, 16 Dec 2024 08:48:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 832B9E77180
+	for <linux-riscv@archiver.kernel.org>; Mon, 16 Dec 2024 08:48:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=UIKYIf6FhxA4muHgh3h12eOuAiClQrTPiUhFwpGrg+o=; b=ON1Q1uSFfeYcR6
-	eYIYEuKfZF0/F1ObUAbyQ8/R29Su/uRqMVl0nxd+/4VNtcxCE3zJaN/cwHGHkpNJFCiDst4JvdxzP
-	14xIxm4GgW4//z3ljiyNJXsg7MSCwfEgly3bAk3UA9gXESmlwpyOijmtu1h2WqkLbnK99Sfbk11g7
-	jNGiTCqaX3XjJJIOjOIzJHS0gtLSNKNPXmr80btHTHPQ/MgIvHVMn7JkdGHqbI2AWgvNykmtR6eXe
-	FRXOOQIGyc19WBKVUNO+3vA5TNM9SvmAkENvodF0AVrUuMO7Uh4mnFltRPlEUKtVnO1djkh+tPJdP
-	8r+UHUtQVhRQj/5pJXUA==;
+	List-Owner; bh=cQ3s2YLlI1tcrBlcnenUY3rBKde2HZKFn9ZuP65dnGg=; b=416ARGxjlajMVH
+	JGjBC3JVgqtvieBTt56csMtksgN6A3bgRu8OTGLEIQZXsuyR32ULdk9CyCuiDPHgYuuz/aXO1cqyH
+	7BoWQiqAhArS2msHIFKwEAa58gFQ1XQZrQfoALeGfDG3MW5MozrBDjdt5CaPr0eqZbBPBT7u5c4bR
+	Z8crRyksId1pMa/YK5IyNQS06/A8nmHPU/TWMwCwCR/HyGe4GoA5BBG1HpqckSNMYxoRUVX3uyTUZ
+	hSShoxyJYRq82C8WzuqSyFUwRUIEOppExbUYpjTa9xle9grk4imXTDSMZiDGXIDhTGLSsBzVJjICp
+	/54DJ9cLbHMYmP4Ho5zw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tN6mX-00000009RI8-0Ep8;
-	Mon, 16 Dec 2024 08:48:49 +0000
-Received: from mail-pl1-x62b.google.com ([2607:f8b0:4864:20::62b])
+	id 1tN6mb-00000009RKo-37OD;
+	Mon, 16 Dec 2024 08:48:53 +0000
+Received: from mail-pl1-x635.google.com ([2607:f8b0:4864:20::635])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tN6mU-00000009RGq-1zFd
+	id 1tN6mZ-00000009RJv-2gPO
 	for linux-riscv@lists.infradead.org;
-	Mon, 16 Dec 2024 08:48:47 +0000
-Received: by mail-pl1-x62b.google.com with SMTP id d9443c01a7336-2166022c5caso28702705ad.2
-        for <linux-riscv@lists.infradead.org>; Mon, 16 Dec 2024 00:48:46 -0800 (PST)
+	Mon, 16 Dec 2024 08:48:53 +0000
+Received: by mail-pl1-x635.google.com with SMTP id d9443c01a7336-2156e078563so28460035ad.2
+        for <linux-riscv@lists.infradead.org>; Mon, 16 Dec 2024 00:48:51 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1734338925; x=1734943725; darn=lists.infradead.org;
+        d=ventanamicro.com; s=google; t=1734338931; x=1734943731; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=cMO3jfuL5hmIGaCvebBRAsGTgzlAeW19tcp/lCnmhhM=;
-        b=jmsYJxDuDTMqNGpZgvBrO1FNUVR5aHyWIIWrSYS2CdCyPy7OgP4ninnPsHFruAnWOY
-         ki4GJ3EuXUv4XnDiJXu4M1P1fke6lfr/XHfBbndNo/Els+Yh9gRehg96hY2K/P9LcH2u
-         Y8o+BStD+b4OR3JKwxJ/P+QIIzWv7I17mfK8JtDHdmFfz52aLKBBu0mYIZtDCrEGBGOh
-         GeAMjYi9MWB6InXCBRLsximyMV2gVbCrsojI3iVLWsCwQ5imlUJ6lYh9SERdCHjibb9x
-         wBGbqiocKNxvMQ3kBSreK1lighgaTJCOrFxWuobI7vMrExXVgGzrBX61tv/34/BQkSCj
-         zB6A==
+        bh=ssg9a8o6gZjpZvchZzGUt0Qt044T+B0HdxLRYjAYuuA=;
+        b=exD4L56Q0f/4sFy9/OaPVVoov3EiSmaIzD6lvVaT+4/fi22m8ZY4f45sGHsqJquFnq
+         EEVFX8kOCfN8zvk5UFW1HK6sgDFPGTa2IQs2CcmTcskgCPh5afwvUSTc5ZSVpNzKrjJe
+         DUrj/ZsUMXTBpU/e+j02762jLWIDAmECPkEkEFHhfBUqeaGBB+T1g1GrFl6qC/qpzUl6
+         Ky6lR88IdsGVjRTze6SXr/VoVsKRSgCrKlKMZhK9YDEO+W/FbgR0SSmg30feQw3pgvQq
+         qJx2GrB2oDNtrgWcMPxkwgpRdp+YHg+b55LGH50tt0vpwQcXwS9q2Jrm0gBkG9TYRlmQ
+         Mk2A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1734338925; x=1734943725;
+        d=1e100.net; s=20230601; t=1734338931; x=1734943731;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=cMO3jfuL5hmIGaCvebBRAsGTgzlAeW19tcp/lCnmhhM=;
-        b=dQfe3E+qMeSLNo9mA8t44q1KwztGc4jhO0WegbfzY9uN6XxOa/7XkEr0oiJsudIEtR
-         rQbQiC3mXfkClGjjiIuCwomCQ/6OuL/heaQWCtWSm1byFWoNK2G/9hKLYYTUoHRpULeQ
-         fMIgVVuvchoxn3rW1e3FfaOQhRbiHIBhWlTy2PqWyCXptS6lQWbDfJa1g37rXUcsRs+S
-         CfcyiTLRWo08GhY7LKjmSw4koDlUmfaNbLZ37/4tOb+rymfJRqUl7R8zEgnT13SgEBqN
-         qofGFdhVlPrr5xrTrz91pAmYdXfiomW3HcE4adgXBlw99pEHOhUaBDUXjCqaXWwRpi5E
-         3a4g==
-X-Forwarded-Encrypted: i=1; AJvYcCV/z17poxsP2nwPgr48QWnMBoOQsbnZU9GHz+qbuISYraedmoBCrli5r4Tyf3OJjgsY3QSMVSHfKbE8MQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0YwqHT744c5JkqsoPay/4d3o8MSAMqLhi0naXb9jyDlFwFMKyE8S
-	jBipmWGYW4M12MJtpKlm5pXnaHeMRmsHY/sUI8tfJSKTlMUdvj/ee983io5BbuU=
-X-Gm-Gg: ASbGncvUk4P6BvyHqgCbilgN9dYQvXLttctjTefScC9d7LAtCKX6XNC/I/MIVk9jpMc
-	G/A9yZp6npWVrTTViZt6wuwGRkpDP/1kVuKCmsDEvhjV6Y+U+kpCndvWatrnbmmKHbkkSM/CFYp
-	SOC5LMGWD3Wfy2yoD7NQuyq5mS46aluyGDhzQm/ywrCrnCWqFPk/4CC8wnUPt34yGCtlnfU7/GK
-	+w/oimT1u8jNgYPCTceOA2iOKOUXn+f/WhoyhWyIx/tBHyewftteCCOO2Y1/LDEmczPVt/puvYc
-	0EagkWnX4oQiAuQ=
-X-Google-Smtp-Source: AGHT+IFP0telDvRf+8kDLe8zYK7tj9L0Ym2laW4HDpkbeQU6flKJQAmEPGbnSvej/CfGRJih0n5Yog==
-X-Received: by 2002:a17:902:d48b:b0:216:60a5:ebfd with SMTP id d9443c01a7336-21892a8483fmr144631265ad.55.1734338925436;
-        Mon, 16 Dec 2024 00:48:45 -0800 (PST)
+        bh=ssg9a8o6gZjpZvchZzGUt0Qt044T+B0HdxLRYjAYuuA=;
+        b=unNGCf62Ld9n7D6SUTEPNfFcKJvq3IZYQZZ9P1MTaiXbg2SSiHqWkSoodWYnI/i2bq
+         SiizF79LCfW0XZ9+ok/kDwLmWVGfWpOD11irkQNy1Z5IMun8+ch6lturUhT4I3NkuneS
+         5aPtaJZFLr3a8bIPyUFufXmRRRrwliKpRems5eNs/X6RDOelfgGLUuZVGv/pbM7ZTZHE
+         RwkrRiwqPQ/Uc0ngU0+Va6alipnunnWjQVqsru3kkkXVo9hNK2BwNpXX9AmXaapsUCjC
+         W9mtTzbdVSKQLw2IX/Fl2SDnfRWA3fhX4YNKsQL9DfSxM18/txEGQtk4DM11SKHjdxLu
+         193A==
+X-Forwarded-Encrypted: i=1; AJvYcCVPtgdTDGuhj+JdvPu7MGfAAfGgoJeJzjIt0lO/IfaKbliH4+Xhvww1e4H+t2GiteMWbud9aUzYhhsFmQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw9fLn7XGNGmBQupp/lwsdS+ES4AoZ6koJSMiMt9Dj1tKV17iyv
+	Yma1UtcP0tWztcIPB9M7v3cmSpby+Igx5vFNSOlQUGHA7950F5lsfJqgSfXalR4=
+X-Gm-Gg: ASbGncvd7e1Cweu0ZClyQ5SZ9tn+fp7JLq0jQY19MYcHAg3F7W8U4RM2nI5m4sdZy4F
+	1ccHSTMT/SUX5t+DyuTXEdctLKdx9LlU2cQWMyiTb1haFGw2vNNN+EsDx7+U8EnqLqmVepqlAKy
+	L3enuy4Y9SmP6AssGFcVGMgCloLlp723Eq+m8RFNEDP1F+qedkutewf3n3L3/NTFNsxwjcq6Qoi
+	4XRr+ERFDomWyTAjFUj6ZGMGyd2jR6L5Cu/yel9bjR3PCz566E2mATiz787wkOskvN0xG7/AbyY
+	eIQDPlT7wJxN8sc=
+X-Google-Smtp-Source: AGHT+IEjkG82UTaLNxVZ0a1jk6JfxX7g2yNmmqLUOhK1uOCG12kx8FsqZmcvvvLQulkpsVPnYWSQaw==
+X-Received: by 2002:a17:902:ec89:b0:216:770e:f46 with SMTP id d9443c01a7336-21892a74611mr174024415ad.54.1734338930854;
+        Mon, 16 Dec 2024 00:48:50 -0800 (PST)
 Received: from localhost.localdomain ([223.185.130.105])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-218a1e501d0sm37711495ad.116.2024.12.16.00.48.40
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-218a1e501d0sm37711495ad.116.2024.12.16.00.48.45
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 16 Dec 2024 00:48:44 -0800 (PST)
+        Mon, 16 Dec 2024 00:48:50 -0800 (PST)
 From: Anup Patel <apatel@ventanamicro.com>
 To: Michael Turquette <mturquette@baylibre.com>,
 	Stephen Boyd <sboyd@kernel.org>,
@@ -75,16 +75,16 @@ To: Michael Turquette <mturquette@baylibre.com>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	Conor Dooley <conor+dt@kernel.org>,
 	Jassi Brar <jassisinghbrar@gmail.com>
-Subject: [RFC PATCH 2/8] dt-bindings: mailbox: Add bindings for RPMI shared memory transport
-Date: Mon, 16 Dec 2024 14:18:11 +0530
-Message-ID: <20241216084817.373131-3-apatel@ventanamicro.com>
+Subject: [RFC PATCH 3/8] dt-bindings: mailbox: Add bindings for RISC-V SBI MPXY extension
+Date: Mon, 16 Dec 2024 14:18:12 +0530
+Message-ID: <20241216084817.373131-4-apatel@ventanamicro.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20241216084817.373131-1-apatel@ventanamicro.com>
 References: <20241216084817.373131-1-apatel@ventanamicro.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241216_004846_518153_96B0C581 
-X-CRM114-Status: GOOD (  15.14  )
+X-CRM114-CacheID: sfid-20241216_004851_679093_7A5464C2 
+X-CRM114-Status: GOOD (  13.13  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,155 +102,74 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add device tree bindings for the common RISC-V Platform Management
-Interface (RPMI) shared memory transport as a mailbox controller.
+Add device tree bindings for the RISC-V SBI Message Proxy (MPXY)
+extension as a mailbox controller.
 
 Signed-off-by: Anup Patel <apatel@ventanamicro.com>
 ---
- .../mailbox/riscv,rpmi-shmem-mbox.yaml        | 135 ++++++++++++++++++
- 1 file changed, 135 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/mailbox/riscv,rpmi-shmem-mbox.yaml
+ .../bindings/mailbox/riscv,sbi-mpxy-mbox.yaml | 54 +++++++++++++++++++
+ 1 file changed, 54 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/mailbox/riscv,sbi-mpxy-mbox.yaml
 
-diff --git a/Documentation/devicetree/bindings/mailbox/riscv,rpmi-shmem-mbox.yaml b/Documentation/devicetree/bindings/mailbox/riscv,rpmi-shmem-mbox.yaml
+diff --git a/Documentation/devicetree/bindings/mailbox/riscv,sbi-mpxy-mbox.yaml b/Documentation/devicetree/bindings/mailbox/riscv,sbi-mpxy-mbox.yaml
 new file mode 100644
-index 000000000000..8d713ba7ffc7
+index 000000000000..8a05e089b710
 --- /dev/null
-+++ b/Documentation/devicetree/bindings/mailbox/riscv,rpmi-shmem-mbox.yaml
-@@ -0,0 +1,135 @@
++++ b/Documentation/devicetree/bindings/mailbox/riscv,sbi-mpxy-mbox.yaml
+@@ -0,0 +1,54 @@
 +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
 +%YAML 1.2
 +---
 +$id: http://devicetree.org/schemas/mailbox/riscv,sbi-mpxy-mbox.yaml#
 +$schema: http://devicetree.org/meta-schemas/core.yaml#
 +
-+title: RISC-V Platform Management Interface (RPMI) shared memory mailbox
++title: RISC-V SBI Message Proxy (MPXY) extension based mailbox
 +
 +maintainers:
 +  - Anup Patel <anup@brainfault.org>
 +
 +description: |
-+  The RISC-V Platform Management Interface (RPMI) [1] defines a common shared
-+  memory based RPMI transport. This RPMI shared memory transport integrates as
-+  mailbox controller in the SBI implementation or supervisor software whereas
-+  each RPMI service group is mailbox client in the SBI implementation and
-+  supervisor software.
++  The RISC-V SBI Message Proxy (MPXY) extension [1] allows supervisor
++  software to send messages through the SBI implementation (M-mode
++  firmware or HS-mode hypervisor). The underlying message protocol
++  and message format used by the supervisor software could be some
++  other standard protocol compatible with the SBI MPXY extension
++  (such as RISC-V Platform Management Interface (RPMI) [2]).
 +
 +  ===========================================
 +  References
 +  ===========================================
 +
-+  [1] RISC-V Platform Management Interface (RPMI)
++  [1] RISC-V Supervisor Binary Interface (SBI)
++      https://github.com/riscv-non-isa/riscv-sbi-doc/releases
++
++  [2] RISC-V Platform Management Interface (RPMI)
 +      https://github.com/riscv-non-isa/riscv-rpmi/releases
 +
 +properties:
++  $nodename:
++    const: sbi-mpxy-mbox
++
 +  compatible:
-+    const: riscv,rpmi-shmem-mbox
-+
-+  reg:
-+    oneOf:
-+      - items:
-+        - description: A2P request queue base address
-+        - description: P2A acknowledgment queue base address
-+        - description: P2A request queue base address
-+        - description: A2P acknowledgment queue base address
-+        - description: A2P doorbell address
-+      - items:
-+        - description: A2P request queue base address
-+        - description: P2A acknowledgment queue base address
-+        - description: A2P doorbell address
-+
-+  reg-names:
-+    oneOf:
-+      - items:
-+        - const: a2p-req
-+        - const: p2a-ack
-+        - const: p2a-req
-+        - const: a2p-ack
-+        - const: db-reg
-+      - items:
-+        - const: a2p-req
-+        - const: p2a-ack
-+        - const: db-reg
-+
-+  interrupts:
-+    minItems: 1
-+    maxItems: 1
-+    description:
-+      The RPMI shared memory transport supports wired interrupt specified by
-+      this property as the P2A doorbell.
-+
-+  msi-parent:
-+    description:
-+      The RPMI shared memory transport supports MSI as P2A doorbell and this
-+      property specifies the target MSI controller.
-+
-+  riscv,slot-size:
-+    $ref: /schemas/types.yaml#/definitions/uint32
-+    minimum: 64
-+    description:
-+      Power-of-2 RPMI slot size of the RPMI shared memory transport.
-+
-+  riscv,db-mask:
-+    $ref: /schemas/types.yaml#/definitions/uint32
-+    description:
-+      Update only the register bits of doorbell defined by the mask (32 bit).
-+      If this property is not present then mask is assumed to be 0xffffffff.
-+
-+  riscv,db-value:
-+    $ref: /schemas/types.yaml#/definitions/uint32
-+    description:
-+      Value written to the doorbell register bits (32-bit access) specified
-+      by the riscv,db-mask property. If this property is not present then
-+      value is assumed to be 0x1.
++    const: riscv,sbi-mpxy-mbox
 +
 +  "#mbox-cells":
-+    const: 1
++    const: 2
 +    description:
-+      The first cell specifies RPMI service group ID.
++      The first cell specifies channel_id of the SBI MPXY channel,
++      the second cell specifies MSG_PROT_ID of the SBI MPXY channel
 +
 +required:
 +  - compatible
-+  - reg
-+  - reg-names
-+  - riscv,slot-size
 +  - "#mbox-cells"
-+
-+anyOf:
-+  - required:
-+      - interrupts
-+  - required:
-+      - msi-parent
 +
 +additionalProperties: false
 +
 +examples:
 +  - |
-+    // Example 1 (RPMI shared memory with only 2 queues):
-+    mailbox@10080000 {
-+        compatible = "riscv,rpmi-shmem-mbox";
-+        reg = <0x00 0x10080000 0x00 0x10000>,
-+              <0x00 0x10090000 0x00 0x10000>,
-+              <0x00 0x100a0000 0x00 0x4>;
-+        reg-names = "a2p-req", "p2a-ack", "db-reg";
-+        msi-parent = <&imsic_mlevel>;
-+        riscv,slot-size = <64>;
-+        #mbox-cells = <1>;
-+    };
-+  - |
-+    // Example 2 (RPMI shared memory with only 4 queues):
-+    mailbox@10001000 {
-+        compatible = "riscv,rpmi-shmem-mbox";
-+        reg = <0x00 0x10001000 0x00 0x800>,
-+              <0x00 0x10001800 0x00 0x800>,
-+              <0x00 0x10002000 0x00 0x800>,
-+              <0x00 0x10002800 0x00 0x800>,
-+              <0x00 0x10003000 0x00 0x4>;
-+        reg-names = "a2p-req", "p2a-ack", "db-reg";
-+        msi-parent = <&imsic_mlevel>;
-+        riscv,slot-size = <64>;
-+        riscv,db-mask = <0x00008000>;
-+        riscv,db-value = <0x00008000>;
-+        #mbox-cells = <1>;
++    sbi-mpxy-mbox {
++          compatible = "riscv,sbi-mpxy-mbox";
++          #mbox-cells = <2>;
 +    };
 -- 
 2.43.0
