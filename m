@@ -4,74 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DA050E7718A
-	for <linux-riscv@archiver.kernel.org>; Wed, 18 Dec 2024 09:26:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 65BA2E77187
+	for <linux-riscv@archiver.kernel.org>; Wed, 18 Dec 2024 09:28:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=hvBP4o8slO5Q9hac38J+6MsomUir9entQDLaeCz2lQE=; b=OXIKb1aZ9L/8E8
-	bgdXN+/sROUZV6hhnRbREQ7x5VQGZuytvnCDqDlL3ubM5zR2zVBvFXEmu0LHmbBiWIdkSsytZWZQs
-	6JW93V+asRe9reNOFTXUtFVadIzUKFb+BzQtl98FlHM/Dm+tIaE9yDAw/aZQbK6iJOXvO45QEZVMU
-	vvtxJZJ2tXNwum6kCsSRdvRKeiORaLPJId27ig19ClAQ/VFHyY6X8ckTa7mWHu+X0JsU89Rumbv3Q
-	yy7unmhRb/ampNF7j9DCPl1HGn2zk6STuui0RTIqM44xvhXENddy11XNNfHrJRRm69TxjgO/0Lkp4
-	0D1XsoKMazU9dG6JpXEQ==;
+	List-Owner; bh=65dQXYRbg9N36YzgYkTk+R6W26Tro1L7CCGu2ZIf5no=; b=mqWQvWL1tS9GJP
+	NDF9qmpt2ZVRTuNOsK8Vgg+Y7Sx5J3g600+y3kwjZ0odotE5vbDQ/Jip4yfwlgZd3rGsE6h6n1W8o
+	rn028x7iqU7z8WP85zQ+l4W6dVQCGzmh2X2CsQRkLHLFw/A1igcObhZz2SwN/wXgjMMFsEv6NWIh3
+	4Wda3sbt3XNsvJcxHh0CS+CpCjoKEnkvoLCVoyJTC8WCuj7yacwJu8+nDm/phwViTB0P/KFXpjVo6
+	kgqvOJAv1aAQ3DQs9yIwGsWnnFxG8P4SXuZDh+Aa7hp/OgMvvXYI0m3Nc8zXZ9NhrnWPZLJj8AIUz
+	5HrshZD5yuD5P15Zh++g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNqKP-0000000G5fx-3hcX;
-	Wed, 18 Dec 2024 09:26:49 +0000
-Received: from mail-pl1-x633.google.com ([2607:f8b0:4864:20::633])
+	id 1tNqLV-0000000G62p-0kiA;
+	Wed, 18 Dec 2024 09:27:57 +0000
+Received: from mail-pj1-x1029.google.com ([2607:f8b0:4864:20::1029])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNqID-0000000G4nU-1CV1
+	id 1tNqIF-0000000G4pG-2loS
 	for linux-riscv@lists.infradead.org;
-	Wed, 18 Dec 2024 09:24:34 +0000
-Received: by mail-pl1-x633.google.com with SMTP id d9443c01a7336-21634338cfdso75045115ad.2
-        for <linux-riscv@lists.infradead.org>; Wed, 18 Dec 2024 01:24:33 -0800 (PST)
+	Wed, 18 Dec 2024 09:24:36 +0000
+Received: by mail-pj1-x1029.google.com with SMTP id 98e67ed59e1d1-2efe25558ddso4496800a91.2
+        for <linux-riscv@lists.infradead.org>; Wed, 18 Dec 2024 01:24:35 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1734513872; x=1735118672; darn=lists.infradead.org;
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1734513875; x=1735118675; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=nj6/YILuiSz3bRgw8K5LxLTzKJz30pINSFnQS/0yP28=;
-        b=L/yF4R0eaklAs9LRPJSxAdGl7WflTk7uJ6/KoQ7L6BQip0WlnnVYIIgBIePDYndgBn
-         JfTtjf/1jDbDvwX2tncuiSPmmRrVm0kW6hbK0pRVjhO9llMC2DMBGzW1AFe5NPttaZN8
-         a0dWQenP8RIRSxbAwITuoJ+uMtRGkFVfSDzfON16hSf0lb14fruPhChHzvumYiHVyvAn
-         QreDmNSYDX+iNPeyrps2q9/e5yWUTVlIGFXbzTFGsfEpmZBF5c9psPu2hZ5XQ3mhL/BY
-         BCf4xBPhunX9CODezA1ZbxKtHE/hcKWZHvrrZ4KUOqJYlTVytfzzS9DIVuD6FZePVb4Q
-         F2vQ==
+        bh=uc6AkHxSAkZ2nW0ejwY9TuAU4WyUl5DsEUDPCF/WMmI=;
+        b=N0UcICCKH1PaSWOJXcfag5SgbQv3gOWUXxBVCQllgQ+skjqUwdQNEwf7v+0Ta8VzGI
+         Plc+Ctdo70AFRx9Sxhyl07g20KLWeeIqjPDrVuMok/l0EM1MJmXGIMGFskiwBiuu3L4M
+         0imrFROiQxe97K66vDr69ayPpTQvSOEePzCf+z9M36PmdK84RVl878DwAErYidmnXamB
+         xgGMvbUrNIhVGAOylrqxk7GlNb13+nudkDw5zykulS78ybaE1/M8PkNv1Xxrw+kj7Isw
+         TAOf5RLSyMo1Dm7Feotg/+xCFg10UcbIM8bm+rBz7nUmBGRi8e3ui462pF+ZPLRAQNCk
+         agZA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1734513872; x=1735118672;
+        d=1e100.net; s=20230601; t=1734513875; x=1735118675;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=nj6/YILuiSz3bRgw8K5LxLTzKJz30pINSFnQS/0yP28=;
-        b=vL+RZE+VWeT3g7wADkWnRSvPJO3PLx7xHK6sEVBW88hZNpdNjrLk8nKPDrSzmpv4CP
-         9Y6vcVCrFEYExPniua0zRie66dWvlvpAhWxVlXaFD2vNor8pHru4KwP2cOHAaiHL9raG
-         YhrzK6tsGedoXG0bemVJZKwAf77yWT7DsvGoSovgw3PI0wKQer/yrMMQC3dUXz1gs/tM
-         La79b5DviQpD68Z1ensqvUEeKMmCh2TPjv5oO93L2UCL2n2gPZZRfLp8WATEXX4rfHzS
-         +4jeyghjhNWYgAhWGatCegWjWbbuF1zBe9jsdqjU3eU061y5eEAPHNTHRjwgSdV3y9Xt
-         0UiA==
-X-Forwarded-Encrypted: i=1; AJvYcCUeMWNB2e58BBQ08pDACf4JV9IWI7stL4aQH43AN/SmCPz2AW4yEHqODYBFmlAmdiAqyEPJ8H6yMRj/fg==@lists.infradead.org
-X-Gm-Message-State: AOJu0YzTK7vtMj+7aCGnR077ABViHlJSlmcDvlG+4oAMDCpB3JM9bZi5
-	pClNVAlvzj+CtGQiH2fp9h380rMRTiMcBAav+0iyw+gNLuprPg5nwWtEidHu/F0=
-X-Gm-Gg: ASbGncstBSk+tJ/QeyVyS/qSOH36ExliFDnjshLfU5LiAtd8K7FVT0ZmWCte3Of7RFZ
-	dr07C5gCWd0wG//RR7gQDmVpHEWMAr/oP7YCQN1EBzq5ArO2ZeZdCDdK+kef8d5tR3u1iNnZsh+
-	0lrg/NjMuD0eEllSf14bkzwMcQwOLslBHFH53FUBqku6u5tXIbKuRXV6NFBVrA1BWAUPGqp3iec
-	XEfnuDq85VuJKEDdZtYYFlzpp5Ag5AbmMz/ZmjQp7GaesV7B+GWIC0P4taNKNKFhS5OvIlq
-X-Google-Smtp-Source: AGHT+IEhtkJNUuqYcOVKrRhInclVGwI1wduL0wL1bhvLdKVEYtre3SXMJ70XIRjbVO+NQVZb+hCRFA==
-X-Received: by 2002:a17:902:c94f:b0:216:281f:820d with SMTP id d9443c01a7336-218d6fd4bdamr25342235ad.11.1734513872495;
-        Wed, 18 Dec 2024 01:24:32 -0800 (PST)
+        bh=uc6AkHxSAkZ2nW0ejwY9TuAU4WyUl5DsEUDPCF/WMmI=;
+        b=hxouTLhPgu5bPm4X1s+c4j8pDzFUQioRNFAZh/Xsz2zjs7gmK8SpyV1xCuLeUmgm+f
+         b9yk6kBv5CGSH/i+NLHVcdv0Xeq7MLQpqEDGEFMUtNc4S4edMFjDsIvo3raG8X0Jz3jc
+         mQ4SrRtLKzX0rdZTRYZwsx5U+9OcCZFo4Pd7JF1pnCurdgMddxRo1ggLwiGdeARKLA1h
+         QohgeA+XzGgERvgTcHFZ6oVnGnqavJiKkZLntab1nS8ORJloUOKp9PaPMia0o9zWMf3G
+         n3SHENc0ivfajHcZylQRdy3fFL805YxS0khdKdzh4XufKmLZcd+cMBYcmPJPXw+x5nlD
+         xu/Q==
+X-Forwarded-Encrypted: i=1; AJvYcCUUgrd4avw3sNuhUoH02fPgBJM5ifIQZqgvRLCNDNIuvf2eI7+fgNYzHvovkupDMkKSlwUXY+m+HnXr4A==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz35e+jVo+j5cXwhA5j/YM8wloEZwXGEOUypANjnbocqYUEq/RN
+	vW3e83qlFD18EH2mTKKyz1d51ehBbu7CtuGEF4Lg6FdLUWdpKM2IdoOMRBSVTmY=
+X-Gm-Gg: ASbGnctt4NLcJm300rSjt6/IiP39QSdJciqrZFQKJnq6u21O5GvsPuRahdz3ESJRerE
+	UD3vokT05gPtSZWNhGctXbSFEHqwmULGrscqFpQN6WukWMU53xdIYGPE27DZvGTXKp9u0VNkK6J
+	38JJk9bgsb6jZq2ccipVCr19p/G3BZs2FdzevXhnjwJWHzM7MZUxX6ATzwsMdbwevJlNiXHf7Kb
+	NJvwJ6okSILrqmhcM38xWrJ8nNITwokAHfmej2LnIQ1mrH2m8pdz8+GlzpNQfHzfdNr9l+b
+X-Google-Smtp-Source: AGHT+IEYfeptiNvPvwhEIFQk4qrtcNpSuwqJU4nqArf0lp9ixOHLB81Va8vS+TepDJm9AqqgSFUpaw==
+X-Received: by 2002:a17:90a:1208:b0:2ee:c457:bf83 with SMTP id 98e67ed59e1d1-2f2e9303915mr2983950a91.19.1734513875015;
+        Wed, 18 Dec 2024 01:24:35 -0800 (PST)
 Received: from charlie.ba.rivosinc.com ([64.71.180.162])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-218a1e64f90sm72119995ad.241.2024.12.18.01.24.29
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-218a1e64f90sm72119995ad.241.2024.12.18.01.24.32
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 18 Dec 2024 01:24:31 -0800 (PST)
+        Wed, 18 Dec 2024 01:24:34 -0800 (PST)
 From: Charlie Jenkins <charlie@rivosinc.com>
-Date: Wed, 18 Dec 2024 01:24:00 -0800
-Subject: [PATCH v4 02/16] perf tools: arc: Support generic syscall headers
+Date: Wed, 18 Dec 2024 01:24:01 -0800
+Subject: [PATCH v4 03/16] perf tools: csky: Support generic syscall headers
 MIME-Version: 1.0
-Message-Id: <20241218-perf_syscalltbl-v4-2-bc8caef2ca8e@rivosinc.com>
+Message-Id: <20241218-perf_syscalltbl-v4-3-bc8caef2ca8e@rivosinc.com>
 References: <20241218-perf_syscalltbl-v4-0-bc8caef2ca8e@rivosinc.com>
 In-Reply-To: <20241218-perf_syscalltbl-v4-0-bc8caef2ca8e@rivosinc.com>
 To: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
@@ -96,17 +96,17 @@ Cc: linux-kernel@vger.kernel.org, linux-perf-users@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org, 
  Charlie Jenkins <charlie@rivosinc.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2837; i=charlie@rivosinc.com;
- h=from:subject:message-id; bh=X0SL5q6fWt+9GQtD73LJR9GwlfHvHpAQdAMzHn+mSzc=;
- b=owGbwMvMwCHWx5hUnlvL8Y3xtFoSQ3rSlCMr3t06b/vMLCnUT+ixhjTPiRNtF3rMD5lN+pdQu
- 1GO76F1RykLgxgHg6yYIgvPtQbm1jv6ZUdFyybAzGFlAhnCwMUpABOZv5yRYXLJ4uXMjxPM2m1z
- WA9IJoRaS/P+MD9gVm/TntmiH35CgOGf2Wmt09vZeLQusHcJKKy+n+q0J8/Vo3zyXh/u44VuD/g
- 5AA==
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2180; i=charlie@rivosinc.com;
+ h=from:subject:message-id; bh=aj6KhD87JndqJTmCbrJmfbqawzLsCSF87gVbexImUU4=;
+ b=owGbwMvMwCHWx5hUnlvL8Y3xtFoSQ3rSlCO7U2T0SlQbfRQzLpk9SV20rivlS+UJhkt/FBjd2
+ NQFbOI7SlkYxDgYZMUUWXiuNTC33tEvOypaNgFmDisTyBAGLk4BmAjPMoa/oqfu9xrJb/Deu+KZ
+ TKg26/IfpVo/Nm2dM9HFdaPp1bqbDowMaz61s3dXtR1+f+Vd/FWRSaezHH99rY7xvB9xsGqTQ8w
+ udgA=
 X-Developer-Key: i=charlie@rivosinc.com; a=openpgp;
  fpr=7D834FF11B1D8387E61C776FFB10D1F27D6B1354
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241218_012433_356050_4D42691C 
-X-CRM114-Status: GOOD (  13.25  )
+X-CRM114-CacheID: sfid-20241218_012435_696370_A622088B 
+X-CRM114-Status: GOOD (  13.15  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,67 +123,52 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Arc uses the generic syscall table, use that in perf instead of
+csky uses the generic syscall table, use that in perf instead of
 requiring libaudit.
 
 Signed-off-by: Charlie Jenkins <charlie@rivosinc.com>
 ---
- tools/perf/Makefile.config                           | 2 +-
- tools/perf/Makefile.perf                             | 3 ++-
- tools/perf/arch/arc/entry/syscalls/Kbuild            | 2 ++
- tools/perf/arch/arc/entry/syscalls/Makefile.syscalls | 3 +++
- tools/perf/arch/arc/include/syscall_table.h          | 2 ++
- 5 files changed, 10 insertions(+), 2 deletions(-)
+ tools/perf/Makefile.perf                              | 2 +-
+ tools/perf/arch/csky/entry/syscalls/Kbuild            | 2 ++
+ tools/perf/arch/csky/entry/syscalls/Makefile.syscalls | 3 +++
+ tools/perf/arch/csky/include/syscall_table.h          | 2 ++
+ 4 files changed, 8 insertions(+), 1 deletion(-)
 
-diff --git a/tools/perf/Makefile.config b/tools/perf/Makefile.config
-index 9ff49aeb4fa5d6015dea068f23ea3a135155eb6e..a09e2245a9ba00db79cf3a65e8772a6cb9b6c78e 100644
---- a/tools/perf/Makefile.config
-+++ b/tools/perf/Makefile.config
-@@ -36,7 +36,7 @@ ifneq ($(NO_SYSCALL_TABLE),1)
-   endif
- 
-   # architectures that use the generic syscall table scripts
--  ifeq ($(SRCARCH),riscv)
-+  ifneq ($(filter $(SRCARCH), $(generic_syscall_table_archs)),)
-     NO_SYSCALL_TABLE := 0
-     CFLAGS += -DGENERIC_SYSCALL_TABLE
-     CFLAGS += -I$(OUTPUT)tools/perf/arch/$(SRCARCH)/include/generated
 diff --git a/tools/perf/Makefile.perf b/tools/perf/Makefile.perf
-index f5278ed9f778f928436693a14e016c5c3c5171c1..f717e4628d9e4632f53fed16524a659a3e4feea5 100644
+index f717e4628d9e4632f53fed16524a659a3e4feea5..b20daf3769771a7c23cc0f7dd46f562510bc3199 100644
 --- a/tools/perf/Makefile.perf
 +++ b/tools/perf/Makefile.perf
-@@ -311,7 +311,8 @@ FEATURE_TESTS := all
+@@ -311,7 +311,7 @@ FEATURE_TESTS := all
  endif
  endif
  # architectures that use the generic syscall table
--ifeq ($(SRCARCH),riscv)
-+generic_syscall_table_archs := riscv arc
-+ifneq ($(filter $(SRCARCH), $(generic_syscall_table_archs)),)
+-generic_syscall_table_archs := riscv arc
++generic_syscall_table_archs := riscv arc csky
+ ifneq ($(filter $(SRCARCH), $(generic_syscall_table_archs)),)
  include $(srctree)/tools/perf/scripts/Makefile.syscalls
  endif
- include Makefile.config
-diff --git a/tools/perf/arch/arc/entry/syscalls/Kbuild b/tools/perf/arch/arc/entry/syscalls/Kbuild
+diff --git a/tools/perf/arch/csky/entry/syscalls/Kbuild b/tools/perf/arch/csky/entry/syscalls/Kbuild
 new file mode 100644
 index 0000000000000000000000000000000000000000..11707c481a24ecf4e220e51eb1aca890fe929a13
 --- /dev/null
-+++ b/tools/perf/arch/arc/entry/syscalls/Kbuild
++++ b/tools/perf/arch/csky/entry/syscalls/Kbuild
 @@ -0,0 +1,2 @@
 +# SPDX-License-Identifier: GPL-2.0
 +syscall-y += syscalls_32.h
-diff --git a/tools/perf/arch/arc/entry/syscalls/Makefile.syscalls b/tools/perf/arch/arc/entry/syscalls/Makefile.syscalls
+diff --git a/tools/perf/arch/csky/entry/syscalls/Makefile.syscalls b/tools/perf/arch/csky/entry/syscalls/Makefile.syscalls
 new file mode 100644
-index 0000000000000000000000000000000000000000..391d30ab7a831b72d2ed3f2e7966fdbf558a9ed7
+index 0000000000000000000000000000000000000000..ea2dd10d0571df464574a9c0232ada0ac1f79a3f
 --- /dev/null
-+++ b/tools/perf/arch/arc/entry/syscalls/Makefile.syscalls
++++ b/tools/perf/arch/csky/entry/syscalls/Makefile.syscalls
 @@ -0,0 +1,3 @@
 +# SPDX-License-Identifier: GPL-2.0
 +
-+syscall_abis_32 += arc time32 renameat stat64 rlimit
-diff --git a/tools/perf/arch/arc/include/syscall_table.h b/tools/perf/arch/arc/include/syscall_table.h
++syscall_abis_32 += csky time32 stat64 rlimit
+diff --git a/tools/perf/arch/csky/include/syscall_table.h b/tools/perf/arch/csky/include/syscall_table.h
 new file mode 100644
 index 0000000000000000000000000000000000000000..4c942821662d95216765b176a84d5fc7974e1064
 --- /dev/null
-+++ b/tools/perf/arch/arc/include/syscall_table.h
++++ b/tools/perf/arch/csky/include/syscall_table.h
 @@ -0,0 +1,2 @@
 +/* SPDX-License-Identifier: GPL-2.0 */
 +#include <asm/syscalls_32.h>
