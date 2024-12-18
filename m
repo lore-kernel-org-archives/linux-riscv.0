@@ -4,79 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7694AE77187
-	for <linux-riscv@archiver.kernel.org>; Wed, 18 Dec 2024 21:02:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0F957E77187
+	for <linux-riscv@archiver.kernel.org>; Wed, 18 Dec 2024 21:55:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=RgvHL3ZlUzElTQTpkg+RV+rYr3K+abDUJNKAhUY5J8g=; b=lUnPPw666UWfww
-	+6uLc2xOQXPm8b2YoA3Ic+jZ4BPxACsJAIsiRn9Qlxw6lq28r3UJOfL8g5M5wqmlbpxIloDVA4mJy
-	K2yFH5hhcuXNfEo14XEfWMIYZqjyLw6+/jRa5bj7ituL+9uXcIFe76Gr59nU+z1d4ZBfh185QLC5p
-	LOPH6UiCp8BEowyFFvTPdL8W+J82p8/siES6RbhhWwQ4rCMZN87pQNZ/OazlWsxXhB425FxKFvCYF
-	P0LBp3ZonanJKLxnAg77opFE5kBHLMyRbB1jVr4FIpTTC55TXYrs6XPgJkv2Q76vWkKK0iavFJ5rl
-	eEPZydXIbIIp0COSHzZA==;
+	List-Owner; bh=d9PPGPDAFNS3y2o6nEetOdYEKM8RryoMaGiz+5qQu3Y=; b=VpY7UrmpENL0wH
+	FRqFdgJvcYqM2vlBc9fTfu0ZP60p09lomIRGlvC6zsujEpQrnr40YNUh8rKMksrd10XNIRtjZodGw
+	nH/JRKraXlsTTyFFw/r8I4N/OaqeA+0ksX4aO6GmrPwPmwUbggrKL969F0yARvet3K0bj13ccExTn
+	hFoBv8iAcej8zcxv0SiKIRlbiyEmqY2Uxd0ytJ3K3EpVbQH9CWrzy35UZ4T7x7LMG42CNypI2CEQO
+	4UvhawQ+jfjIVI5X2Is4ouq43GoadcnnBGuQVcUi9lcQ+lqyhE9ht9hg/rHB4VLfNbkWy9eEjO6jh
+	Wx2DIThpgVqhEz7oaXzQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tO1Bn-000000005gy-05wZ;
-	Wed, 18 Dec 2024 21:02:39 +0000
-Received: from mail-pf1-x42a.google.com ([2607:f8b0:4864:20::42a])
+	id 1tO20f-00000000BM8-0xR2;
+	Wed, 18 Dec 2024 21:55:13 +0000
+Received: from mail-pg1-x534.google.com ([2607:f8b0:4864:20::534])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tO1Bj-000000005gG-3RUA
+	id 1tO20b-00000000BLH-2Utz
 	for linux-riscv@lists.infradead.org;
-	Wed, 18 Dec 2024 21:02:37 +0000
-Received: by mail-pf1-x42a.google.com with SMTP id d2e1a72fcca58-728d1a2f180so99784b3a.1
-        for <linux-riscv@lists.infradead.org>; Wed, 18 Dec 2024 13:02:35 -0800 (PST)
+	Wed, 18 Dec 2024 21:55:11 +0000
+Received: by mail-pg1-x534.google.com with SMTP id 41be03b00d2f7-825c6570a80so21854a12.2
+        for <linux-riscv@lists.infradead.org>; Wed, 18 Dec 2024 13:55:09 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1734555754; x=1735160554; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=VEvOuS9GjCc8R1kkciZzUfnJPop9QAlnrlUsyAlmMgg=;
-        b=wod5xUZuPhtXisjvaJfu/LmKwHqKjj3rVoc0KzR5qpMrbhpe1966kIAgfWdmDfc/4R
-         x+uNuP92/3nBPt4sgQLkVKd/zWp9AVnVcuKIVdpwHJl30qgt/hLCswCrqKFGZ3mfkT/I
-         0Uo9nUojcYKI6Px8Xd1Gms1fHvLNFzNZ6euE8dyFr5OpLUcngWRNk31yrPHh3CNwNNaJ
-         cCWN2XkFU8iHVymuITTEnUlUifVECT7rAgv1UTRYVfMQdOV8ari2qzMyFuBCuDAuxAvG
-         8CYAe1SNE3XyXE37r+eBdBPvnplRxjK3pt2tIA/9/V6tUfOzjfkAQpMo+7bif6ZjVI+p
-         ai7g==
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1734558908; x=1735163708; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=qQSiK4s4Uqm4QJokNKH0Tf7jwBuMNzU4RqKyMwdUVzU=;
+        b=yRETgIGHOROMZPHR0Bb4Dt0wEKKuNOYD0zJ4SRV0woMhUw0xLfnTxIqkVlkViNmen3
+         K5asRCQHooqUsNXDs+0lqOyvKKZbUeQ5R2ENNBw6FFkxrdvmU4cFu7fq3aTfxWpujDFY
+         ZKcg7/hvHDj/6xhY+zAU1tJly6B6ddYeBmPQhNkv11U3kPgd0SlQbx3G15bpRNF1KH2t
+         xvEnS2EDHMwxIgzcTT6ym3YOdUaLttKFHEy9+QFvvgWnXCcqiP1GISVqEXrWy6aj9dZV
+         bWp3eDbI8qLCVwad0ltn7m5SypAkuEWiX3koIgVybuHKe/91/SWsjz/uB2vzwzrPR6ip
+         AXJA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1734555754; x=1735160554;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=VEvOuS9GjCc8R1kkciZzUfnJPop9QAlnrlUsyAlmMgg=;
-        b=C/wdjb0lqLBN/5rJR6322MXkSzj3xYgnapeQt23vz+g1H/AnGTzXBPd3lUpgtmJ1Q2
-         F2ku01392TwUyeiWlBSCL06xDLgDzVHu1/9vLp0X/S0p/PeWBlS1Ewhxr1gnIfOAXVpV
-         DP2jjkCra4/hvataW4sdEToY3Ya9+ruw32aOgf83HczUT6iJIC/dnjWI+g9UXBcpIIB+
-         3zH9hMLiNyelYXSPsQbUa23Qv+xAhj4i7ZtM8N0KKFBcgOzYez4+hXAoRsM2pwpYAjC6
-         aAEfDw7roKy841jtvAgODGsGQzKHOFrjysEHnV6hDReIK9gJbVjixDg0dzJtAcmJLyOP
-         9bcA==
-X-Forwarded-Encrypted: i=1; AJvYcCUVS9mWSwvn3HFKSrkTh2FyHVVQUDiRRmYOtmW3do2HuNpv/99dI5OHWK2D3lywOoEZEIXAsmuaZ+E6Yw==@lists.infradead.org
-X-Gm-Message-State: AOJu0YzSiC+XyufbEdGQl6FaJMnlvn9AtAX4YvyZMf0ZSynbQ24dAQUm
-	5sTpCEXLNkQLuomiOef+bQnb3hWFfjl07gvogsPIbmUSGeRUTapaJPiQQXwBj1Y=
-X-Gm-Gg: ASbGncvtIt9Q+T1kaKEGj6nifxkVC2TZC7FxaW+hBOxLvwVG+GobrHet/fNbSwzK4i6
-	Jogz9pGTagCofuZNLjAZUOfYMR5ERRXhxRDA/b7xAIb4Vb7TW0ugy2RUfNY2Zqxac1c6YdDe581
-	XlSxBMgDe5e7PWhI7XsLuBuVryCO1MktRgBBxUEdpB+kYqctjcxBC1zwCJVAdSDxnZ64nD2k0gX
-	Rl8owGINvbIVLVz/B+fX4xrHz+Q8zRMZX793BBauqOrZ2s=
-X-Google-Smtp-Source: AGHT+IGGTepBnro/Yv+Td9aOesliGxiq1HfALi+NYhCuWSXz+YG9fqxb1BuJcfYw6mbiXYYJ+gAnug==
-X-Received: by 2002:a05:6a00:7428:b0:725:4a1b:38ec with SMTP id d2e1a72fcca58-72aa9a10440mr1146368b3a.3.1734555753073;
-        Wed, 18 Dec 2024 13:02:33 -0800 (PST)
+        d=1e100.net; s=20230601; t=1734558908; x=1735163708;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=qQSiK4s4Uqm4QJokNKH0Tf7jwBuMNzU4RqKyMwdUVzU=;
+        b=YjvPEmfgsbwuJXamF5TRhJkuFEazfVI6Xx9nd/fUikPU0dMizAb137f4X2WsuLmZ9m
+         8XLA5z8FGUdQLLqstGsKBjNQSZO4BDFx+/ZrlaIk5wMUV6+GDnB+TRM8f+Zm2RWpoHw8
+         7CZC4tPUnc+MyGE2fDp+8l8hcAi7rA18UpaFWbAKbePz/AWdZuq8F5tmsvJ2+phrTkNg
+         1qVEpeC1LQGrwmuvEMYfH7qsrfwTBBeCPlgTs85VrG4fDqpjv4voJHVGK+qn/KYQ49ED
+         nL/dlcu1YU3Vd8eJedlm3M/S/OhtjIDnbaMooiZBZaaR5qyMYbArHIy7e2/E1Wbo+3AP
+         0zyQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVqi7KOfFVJ9Q1uAmqIp2To9GxvUHojXNFhhp1kKWp2k95hEY9IToazSCVMAq7q+TL9AnLah/xuZSJd1A==@lists.infradead.org
+X-Gm-Message-State: AOJu0YxR+EQ0mVPMUZNnHTgzymPxeBv34pekIIEs3lTGl/+9ZF+T84yL
+	eV3jfvBQgdqeEqZieVVDllW1+5EW10mpamCx64TYVcum7tNSiXkquoRl7HPYMEM=
+X-Gm-Gg: ASbGnctHu3UgT0JwCME/oy+NTIn3PanDfiiMW7RKpqKHZ5yGZ53AXIQNC7S+tQtnpSS
+	+NsELYbporyB7tvdEE0aGehQv4bhmEAp5GeVfqDdQY/9GnJ9XG+qCwfL92ncpKx8IWtvNnKUIOP
+	J5967DqdGCWoW4hCXJCNWrmhfPj+RjH25emwu6FyAeIU1c3CSwjTyL9brQ8LGLHWrRJnWlm1yxD
+	ZiaKuPX1k7wTeNmjmYt7mZfpwdxSgs1bVRGlTSB0YRQY0Q=
+X-Google-Smtp-Source: AGHT+IED7YCeQuGuUtpDThJELTrJknNCN7ilLzn7fIFW/Z/Wgd/+nA9XgNr9h0l1o/RBE85pV6GJMQ==
+X-Received: by 2002:a17:90b:2d0e:b0:2ee:dcf6:1c77 with SMTP id 98e67ed59e1d1-2f2e91f0dbemr7484871a91.16.1734558908287;
+        Wed, 18 Dec 2024 13:55:08 -0800 (PST)
 Received: from ghost ([50.145.13.30])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-72918b77290sm8969134b3a.113.2024.12.18.13.02.31
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-2f2d9dc7342sm1451271a91.0.2024.12.18.13.55.06
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 18 Dec 2024 13:02:32 -0800 (PST)
-Date: Wed, 18 Dec 2024 13:02:30 -0800
+        Wed, 18 Dec 2024 13:55:07 -0800 (PST)
+Date: Wed, 18 Dec 2024 13:55:05 -0800
 From: Charlie Jenkins <charlie@rivosinc.com>
-To: Ian Rogers <irogers@google.com>
-Cc: Arnaldo Carvalho de Melo <acme@kernel.org>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Ingo Molnar <mingo@redhat.com>, Namhyung Kim <namhyung@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Jiri Olsa <jolsa@kernel.org>,
-	Adrian Hunter <adrian.hunter@intel.com>,
+To: Conor Dooley <conor@kernel.org>
+Cc: Masahiro Yamada <masahiroy@kernel.org>,
 	Paul Walmsley <paul.walmsley@sifive.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
 	Albert Ou <aou@eecs.berkeley.edu>,
@@ -84,21 +77,32 @@ Cc: Arnaldo Carvalho de Melo <acme@kernel.org>,
 	Nick Desaulniers <ndesaulniers@google.com>,
 	Bill Wendling <morbo@google.com>,
 	Justin Stitt <justinstitt@google.com>,
-	linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v2] tools: perf: tests: Fix code reading for riscv
-Message-ID: <Z2M4ZparbNRvRHpz@ghost>
-References: <20241217-perf_fix_riscv_obj_reading-v2-1-58f81b7b4c7d@rivosinc.com>
- <CAP-5=fXK6HRzBKHzF=T_w9cn7ohWOdmZNRMXvJzN6QG11HE6tA@mail.gmail.com>
- <Z2IXl5cuKQJInJb0@ghost>
- <Z2MXXFhUzoQmW4xV@x1>
- <CAP-5=fXPPfHHVPh0nYgR96VM+smuZKepO+GoE4X+aZsQE4tHSw@mail.gmail.com>
+	Peter Zijlstra <peterz@infradead.org>,
+	Ingo Molnar <mingo@redhat.com>,
+	Arnaldo Carvalho de Melo <acme@kernel.org>,
+	Namhyung Kim <namhyung@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>,
+	Adrian Hunter <adrian.hunter@intel.com>,
+	=?iso-8859-1?Q?Micka=EBl_Sala=FCn?= <mic@digikod.net>,
+	=?iso-8859-1?Q?G=FCnther?= Noack <gnoack@google.com>,
+	Nelson Chu <nelson@rivosinc.com>, linux-kernel@vger.kernel.org,
+	linux-kbuild@vger.kernel.org, linux-riscv@lists.infradead.org,
+	llvm@lists.linux.dev, linux-perf-users@vger.kernel.org,
+	linux-security-module@vger.kernel.org
+Subject: Re: [PATCH 1/2] kbuild: Check version of objdump
+Message-ID: <Z2NEuXMiP7QKhQnW@ghost>
+References: <20241216-perf_fix_riscv_obj_reading-v1-0-b75962660a9b@rivosinc.com>
+ <20241216-perf_fix_riscv_obj_reading-v1-1-b75962660a9b@rivosinc.com>
+ <20241218-sandfish-hence-5fa18539f7ca@spud>
+ <20241218-hypnotic-acid-630e8a8d35da@spud>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <CAP-5=fXPPfHHVPh0nYgR96VM+smuZKepO+GoE4X+aZsQE4tHSw@mail.gmail.com>
+In-Reply-To: <20241218-hypnotic-acid-630e8a8d35da@spud>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241218_130235_850760_31106415 
-X-CRM114-Status: GOOD (  34.99  )
+X-CRM114-CacheID: sfid-20241218_135509_945963_97E508B2 
+X-CRM114-Status: GOOD (  34.66  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,68 +114,187 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gV2VkLCBEZWMgMTgsIDIwMjQgYXQgMTE6MjM6NTFBTSAtMDgwMCwgSWFuIFJvZ2VycyB3cm90
-ZToKPiBPbiBXZWQsIERlYyAxOCwgMjAyNCBhdCAxMDo0MeKAr0FNIEFybmFsZG8gQ2FydmFsaG8g
-ZGUgTWVsbwo+IDxhY21lQGtlcm5lbC5vcmc+IHdyb3RlOgo+ID4KPiA+IE9uIFR1ZSwgRGVjIDE3
-LCAyMDI0IGF0IDA0OjMwOjE1UE0gLTA4MDAsIENoYXJsaWUgSmVua2lucyB3cm90ZToKPiA+ID4g
-T24gVHVlLCBEZWMgMTcsIDIwMjQgYXQgMDQ6MTg6MzJQTSAtMDgwMCwgSWFuIFJvZ2VycyB3cm90
-ZToKPiA+ID4gPiBPbiBUdWUsIERlYyAxNywgMjAyNCBhdCAzOjUy4oCvUE0gQ2hhcmxpZSBKZW5r
-aW5zIDxjaGFybGllQHJpdm9zaW5jLmNvbT4gd3JvdGU6Cj4gPiA+ID4gPiBBZnRlciBiaW51dGls
-cyBjb21taXQgZTQzZDg3NiB3aGljaCB3YXMgZmlyc3QgaW5jbHVkZWQgaW4gYmludXRpbHMgMi40
-MSwKPiA+ID4gPiA+IHJpc2N2IG5vIGxvbmdlciBzdXBwb3J0cyBkdW1waW5nIGluIHRoZSBtaWRk
-bGUgb2YgaW5zdHJ1Y3Rpb25zLiBJbmNyZWFzZQo+ID4gPiA+ID4gdGhlIG9iamR1bXAgd2luZG93
-IGJ5IDItYnl0ZXMgdG8gZW5zdXJlIHRoYXQgYW55IGluc3RydWN0aW9uIHRoYXQgc2l0cwo+ID4g
-PiA+ID4gb24gdGhlIGJvdW5kYXJ5IG9mIHRoZSBzcGVjaWZpZWQgc3RvcC1hZGRyZXNzIGlzIG5v
-dCBjdXQgaW4gaGFsZi4KPiA+Cj4gPiA+ID4gPiBTaWduZWQtb2ZmLWJ5OiBDaGFybGllIEplbmtp
-bnMgPGNoYXJsaWVAcml2b3NpbmMuY29tPgo+ID4KPiA+ID4gPiBSZXZpZXdlZC1ieTogSWFuIFJv
-Z2VycyA8aXJvZ2Vyc0Bnb29nbGUuY29tPgo+ID4KPiA+ID4gPiA+IEEgYmludXRpbHMgcGF0Y2gg
-aGFzIGJlZW4gc2VudCBhcyB3ZWxsIHRvIGZpeCB0aGlzIGluIG9iamR1bXAgWzFdLgo+ID4KPiA+
-ID4gPiA+IExpbms6IGh0dHBzOi8vc291cmNld2FyZS5vcmcvcGlwZXJtYWlsL2JpbnV0aWxzLzIw
-MjQtRGVjZW1iZXIvMTM4MTM5Lmh0bWwgWzFdCj4gPgo+ID4gPiA+ID4gQ2hhbmdlcyBpbiB2MjoK
-PiA+ID4gPiA+IC0gRG8gb2JqZHVtcCB2ZXJzaW9uIGRldGVjdGlvbiBhdCBydW50aW1lIChJYW4p
-Cj4gPiA+ID4gPiAtIExpbmsgdG8gdjE6IGh0dHBzOi8vbG9yZS5rZXJuZWwub3JnL3IvMjAyNDEy
-MTYtcGVyZl9maXhfcmlzY3Zfb2JqX3JlYWRpbmctdjEtMC1iNzU5NjI2NjBhOWJAcml2b3NpbmMu
-Y29tCj4gPgo+ID4gPiA+ID4gLS0tIGEvdG9vbHMvcGVyZi90ZXN0cy9jb2RlLXJlYWRpbmcuYwo+
-ID4gPiA+ID4gQEAgLTE4Myw5ICsyNDQsMzAgQEAgc3RhdGljIGludCByZWFkX3ZpYV9vYmpkdW1w
-KGNvbnN0IGNoYXIgKmZpbGVuYW1lLCB1NjQgYWRkciwgdm9pZCAqYnVmLAo+ID4gPiA+ID4gICAg
-ICAgICBjb25zdCBjaGFyICpmbXQ7Cj4gPiA+ID4gPiAgICAgICAgIEZJTEUgKmY7Cj4gPiA+ID4g
-PiAgICAgICAgIGludCByZXQ7Cj4gPiA+ID4gPiArICAgICAgIHU2NCBzdG9wX2FkZHJlc3MgPSBh
-ZGRyICsgbGVuOwo+ID4gPiA+ID4gKwo+ID4gPiA+ID4gKyAgICAgICBpZiAoSVNfRU5BQkxFRChf
-X3Jpc2N2KSkgewo+ID4KPiA+ID4gPiBOb3Qgc3VyZSBpZiB0aGVyZSBpcyBhIGNvbnNpc3RlbmN5
-IGlzc3VlIGhlcmUuIEVsc2V3aGVyZSB3ZSdyZSBqdXN0Cj4gPiA+ID4gdXNpbmcgaWZkZWYsIHN1
-Y2ggYXM6Cj4gPiA+ID4gaHR0cHM6Ly9naXQua2VybmVsLm9yZy9wdWIvc2NtL2xpbnV4L2tlcm5l
-bC9naXQvcGVyZi9wZXJmLXRvb2xzLW5leHQuZ2l0L3RyZWUvdG9vbHMvcGVyZi91dGlsL2luY2x1
-ZGUvZHdhcmYtcmVncy5oP2g9cGVyZi10b29scy1uZXh0I242OQo+ID4KPiA+ID4gSSBkb24ndCBo
-YXZlIGFueSBzdHJvbmcgZmVlbGluZ3MgYWJvdXQgdGhhdC4gSSBjYW4gY2hhbmdlIGl0IHRvIGJl
-IGFuCj4gPiA+IGlmZGVmLiBPbiBvdGhlciBsaXN0cyBJIGhhdmUgYmVlbiB0b2xkIHRvIHVzZSBJ
-U19FTkFCTEVEIHdoZW5ldmVyCj4gPiA+IHBvc3NpYmxlLCBidXQgaXQncyBvbmx5IGEgc21hbGwg
-ZGlmZmVyZW5jZS4KPiA+Cj4gPiBDYW4ndCB3ZSBqdXN0IHVzZSB1bmFtZSBoZXJlPwo+ID4KPiA+
-IFNvIHRoYXQgd2UgZG9uJ3QgdXNlIGtjb25maWcuaCBzaW5jZSBpdHMgbm90IHVzZWQgaW4gdG9v
-bHMvcGVyZi8gYW5kCj4gPiBtYWtlcyBpdCBsb29rcyBsaWtlIHBlcmYgaXMgaW4gbG9ja3N0ZXAg
-d2l0aCB0aGUga2VybmVsIHNvdXJjZSB0cmVlCj4gPiB2ZXJzaW9uIGl0IHdhcyBjb21waWxlZCBm
-cm9tPwo+ID4KPiA+ICQgZ2l0IGdyZXAga2NvbmZpZy5oIHRvb2xzL3BlcmYvCj4gPiAkCj4gPgo+
-ID4gQlRXLCB3aGF0IHdvdWxkIGhhcHBlbiBpZiBJIGNvbGxlY3RlZCBhIHBlcmYuZGF0YSBmaWxl
-IG9uIHg4Nl82NCBhbmQKPiA+IHdvdWxkIHJlYWQgaXQgaW4gYSBSaXNjViBtYWNoaW5lIHdpdGgg
-c3VjaCBhIG9iamR1bXAgdmVyc2lvbj8gVGhlIHNhbWUKPiA+IHByb2JsZW0/Cj4gCj4gVGhpcyBj
-b2RlIGlzIGluIHRlc3RzIGhlbmNlIHRoaW5raW5nIHRoYXQgYSBzZXBhcmF0ZSBmaXggaXMgbmVl
-ZGVkIGZvcgo+IHRoYXQgcHJvYmxlbS4gSG9wZWZ1bGx5IHRoZSB1c2Ugb2YgZWxmIG1hY2hpbmUv
-ZmxhZ3MgdGFja2xlcyBpdDoKPiBodHRwczovL2dpdC5rZXJuZWwub3JnL3B1Yi9zY20vbGludXgv
-a2VybmVsL2dpdC9wZXJmL3BlcmYtdG9vbHMtbmV4dC5naXQvdHJlZS90b29scy9wZXJmL3V0aWwv
-aW5jbHVkZS9kd2FyZi1yZWdzLmg/aD1wZXJmLXRvb2xzLW5leHQjbjI1Cj4gV2UgYXJlIGdldHRp
-bmcgc29tZXdoYXQgZGlzYXNzZW1ibGVyIGhlYXZ5LiBXZSBoYXZlIGxsdm0gYXMgYSBsaWJyYXJ5
-LAo+IGNhcHN0b25lIGFzIGEgbGlicmFyeSwgYmludXRpbHMgb2JqZHVtcCBhbmQgbGx2bSBvYmpk
-dW1wLiBHaXZlbiB0aGUKPiBwYWluIHdpdGggcGFyc2luZyB0ZXh0LCBjb3VsZCB3ZSBsb3NlIHRo
-ZSBvYmpkdW1wcz8gU2ltaWxhcmx5IGZvcgo+IGFkZHIybGluZT8KCkFyZSB5b3Ugc3VnZ2VzdGlu
-ZyB0byByZW1vdmUgdGhpcyB0ZXN0IGNhc2UgZW50aXJlbHkgdG8gZ2V0IHJpZCBvZiB0aGUKb2Jq
-ZHVtcCBkZXBlbmRlbmN5PyBUaGUgZ29hbCBvZiB0aGlzIHRlc3QgY2FzZSBzZWVtcyB0byBiZSB0
-byBjaGVjawpvYmpkdW1wIGFuZCBwZXJmIHJldHVybiB0aGUgc2FtZSBkYXRhLCBzbyBpdCBkb2Vz
-bid0IHNlZW0gbGlrZSB0aGVyZQp3b3VsZCBiZSBhbiBhbHRlcm5hdGl2ZSB0byB1c2luZyBvYmpk
-dW1wLgoKLSBDaGFybGllCgo+IAo+IFRoYW5rcywKPiBJYW4KCl9fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51
-eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21h
-aWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+On Wed, Dec 18, 2024 at 03:40:25PM +0000, Conor Dooley wrote:
+> On Wed, Dec 18, 2024 at 03:14:46PM +0000, Conor Dooley wrote:
+> > On Mon, Dec 16, 2024 at 03:12:51PM -0800, Charlie Jenkins wrote:
+> > > Similar to ld-version, add a way to check the version of objdump. This
+> > > should most of the time end up being the binutils version or the llvm
+> > > version.
+> > > 
+> > > Signed-off-by: Charlie Jenkins <charlie@rivosinc.com>
+> > 
+> > This fails for allmodconfig and rv32_defconfig with clang. 19.1.1
+> > according to Bjorn :)
+> 
+> Some additional info from Bjorn:
+> https://paste.debian.net/1340410
+> and the steps to reproduce:
+> https://paste.debian.net/1340408
+> 
+> That should not be reporting 13.0.1, it should be 19.1.x, there's one
+> included in the toolchains we use from https://mirrors.edge.kernel.org/pub/tools/llvm/
+> 
+> 13.0.1 looks like a host toolchain?
+
+I ended up sending a v2 that dropped this in favor of detecting this at
+runtime [1] so this is no longer needed.
+
+- Charlie
+
+Link:
+https://lore.kernel.org/lkml/20241217-perf_fix_riscv_obj_reading-v2-1-58f81b7b4c7d@rivosinc.com/
+[1]
+
+> 
+> > 
+> > Cheers,
+> > Conor.
+> > 
+> > > ---
+> > >  init/Kconfig               | 10 +++++++
+> > >  scripts/Kconfig.include    |  6 ++++
+> > >  scripts/objdump-version.sh | 69 ++++++++++++++++++++++++++++++++++++++++++++++
+> > >  3 files changed, 85 insertions(+)
+> > > 
+> > > diff --git a/init/Kconfig b/init/Kconfig
+> > > index a20e6efd3f0fbdd7f0df2448854cc30734a0ee4f..0b5d36f939e1de89c12ebdd61e4815015314d4f1 100644
+> > > --- a/init/Kconfig
+> > > +++ b/init/Kconfig
+> > > @@ -60,6 +60,16 @@ config LLD_VERSION
+> > >  	default $(ld-version) if LD_IS_LLD
+> > >  	default 0
+> > >  
+> > > +config OBJDUMP_IS_GNU
+> > > +	def_bool $(success,test "$(objdump-name)" = objdump)
+> > > +
+> > > +config OBJDUMP_IS_LLVM
+> > > +	def_bool $(success,test "$(objdump-name)" = llvm-objdump)
+> > > +
+> > > +config OBJDUMP_VERSION
+> > > +	int
+> > > +	default $(objdump-version)
+> > > +
+> > >  config RUSTC_VERSION
+> > >  	int
+> > >  	default $(rustc-version)
+> > > diff --git a/scripts/Kconfig.include b/scripts/Kconfig.include
+> > > index 33193ca6e8030e659d6b321acaea1acd42c387a4..cb3e2d2564fea8cce780adb3be672c9596b7ccf2 100644
+> > > --- a/scripts/Kconfig.include
+> > > +++ b/scripts/Kconfig.include
+> > > @@ -58,6 +58,12 @@ $(error-if,$(success,test -z "$(ld-info)"),Sorry$(comma) this linker is not supp
+> > >  ld-name := $(shell,set -- $(ld-info) && echo $1)
+> > >  ld-version := $(shell,set -- $(ld-info) && echo $2)
+> > >  
+> > > +# Get the objdump name, version, and error out if it is not supported.
+> > > +objdump-info := $(shell,$(srctree)/scripts/objdump-version.sh $(OBJDUMP))
+> > > +$(error-if,$(success,test -z "$(objdump-info)"),Sorry$(comma) this objdump is not supported.)
+> > > +objdump-name := $(shell,set -- $(objdump-info) && echo $1)
+> > > +objdump-version := $(shell,set -- $(objdump-info) && echo $2)
+> > > +
+> > >  # machine bit flags
+> > >  #  $(m32-flag): -m32 if the compiler supports it, or an empty string otherwise.
+> > >  #  $(m64-flag): -m64 if the compiler supports it, or an empty string otherwise.
+> > > diff --git a/scripts/objdump-version.sh b/scripts/objdump-version.sh
+> > > new file mode 100755
+> > > index 0000000000000000000000000000000000000000..fa24f8dc2d3c42fd1195fceb3c96b27f7127db25
+> > > --- /dev/null
+> > > +++ b/scripts/objdump-version.sh
+> > > @@ -0,0 +1,69 @@
+> > > +#!/bin/sh
+> > > +# SPDX-License-Identifier: GPL-2.0
+> > > +#
+> > > +# Print the objdump name and its version in a 5 or 6-digit form.
+> > > +# Also, perform the minimum version check.
+> > > +
+> > > +set -e
+> > > +
+> > > +# Convert the version string x.y.z to a canonical 5 or 6-digit form.
+> > > +get_canonical_version()
+> > > +{
+> > > +	IFS=.
+> > > +	set -- $1
+> > > +
+> > > +	# If the 2nd or 3rd field is missing, fill it with a zero.
+> > > +	#
+> > > +	# The 4th field, if present, is ignored.
+> > > +	# This occurs in development snapshots as in 2.35.1.20201116
+> > > +	echo $((10000 * $1 + 100 * ${2:-0} + ${3:-0}))
+> > > +}
+> > > +
+> > > +orig_args="$@"
+> > > +
+> > > +# Get the first line of the --version output.
+> > > +IFS='
+> > > +'
+> > > +set -- $(LC_ALL=C "$@" --version)
+> > > +
+> > > +# Split the line on spaces.
+> > > +IFS=' '
+> > > +set -- $1
+> > > +
+> > > +min_tool_version=$(dirname $0)/min-tool-version.sh
+> > > +
+> > > +if [ "$1" = GNU -a "$2" = objdump ]; then
+> > > +	shift $(($# - 1))
+> > > +	version=$1
+> > > +	min_version=$($min_tool_version binutils)
+> > > +	disp_name="GNU objdump"
+> > > +else
+> > > +	while [ $# -gt 1 -a "$1" != "LLVM" ]; do
+> > > +		shift
+> > > +	done
+> > > +
+> > > +	if [ "$1" = LLVM ]; then
+> > > +		version=$3
+> > > +		min_version=$($min_tool_version llvm)
+> > > +		disp_name="llvm-objdump"
+> > > +	else
+> > > +		echo "$orig_args: unknown objdump" >&2
+> > > +		exit 1
+> > > +	fi
+> > > +fi
+> > > +
+> > > +version=${version%%[!0-9.]*}
+> > > +
+> > > +cversion=$(get_canonical_version $version)
+> > > +min_cversion=$(get_canonical_version $min_version)
+> > > +
+> > > +if [ "$cversion" -lt "$min_cversion" ]; then
+> > > +	echo >&2 "***"
+> > > +	echo >&2 "*** objdump is too old."
+> > > +	echo >&2 "***   Your $disp_name version:    $version"
+> > > +	echo >&2 "***   Minimum $disp_name version: $min_version"
+> > > +	echo >&2 "***"
+> > > +	exit 1
+> > > +fi
+> > > +
+> > > +echo objdump $cversion
+> > > 
+> > > -- 
+> > > 2.34.1
+> > > 
+> > > 
+> > > _______________________________________________
+> > > linux-riscv mailing list
+> > > linux-riscv@lists.infradead.org
+> > > http://lists.infradead.org/mailman/listinfo/linux-riscv
+> 
+> 
+> 
+> > _______________________________________________
+> > linux-riscv mailing list
+> > linux-riscv@lists.infradead.org
+> > http://lists.infradead.org/mailman/listinfo/linux-riscv
+> 
+
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
