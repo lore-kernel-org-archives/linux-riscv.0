@@ -4,83 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E94C8E77187
-	for <linux-riscv@archiver.kernel.org>; Wed, 18 Dec 2024 10:27:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9C72E77187
+	for <linux-riscv@archiver.kernel.org>; Wed, 18 Dec 2024 10:40:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
+	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=E4PddX9HTRvXeVqREZ4etiHqQKIe97MqDkX/8w8vQW0=; b=zqFxuHP2hLuyEu
-	v878wco1MJKzMnxYyDQsxCFqqLGvo2b48B6hoUeu/H4bBWjjS2fH/xpDeJZMXCfAqUki6cDsECcxn
-	taGy2i1smeqoNc4w/PE9PbeVApvtNc4g8RcT7kkV34AWbvRqaZwYZHl+J8qCnDplH4x7epRfkxe6w
-	Q+tz6waPs2szTrUVMAg8VGzFd9dFlTXHqQq6Or7PewSzdVVYQh1zV3Zyx+n9LxVTBUizJYcFEO/AC
-	zlI34r3w+VdxrWVRiWYzCRdx+zEEODFrWpHByy/Dxz7htsrak6pzEY8QcUwLamFd8q5IAKwq6IsnA
-	lsYteJAfmvmHKhRJkJFA==;
+	List-Owner; bh=NAnek7lvzWqqCylOxROdmJGzKKrX4p983CDAWtctsLw=; b=oWCwr+boeYI647
+	n45nMbQ/1z9++PVr+cEjLOlvSbdLxcjSvKTmydUXgD6bNX9E+D4jjTiNRzLnLvxqcG3ITnN3EcOo8
+	jQyzu9kdZVux1VPrmNKxzi0gGJ5Z2e1yaSZedw/S9rEtgrpdGAvzgNfyuIdDcRqPNYdSaoLqhvZg2
+	IChWwc2baBgxtFhXB6u7gUFgsgjRMyPasEhcYPPUifKzt0NAM/B+4tKHR2O0Z28ispenRTkUSlGl4
+	MqCp0V/ezcPaK4ILpxlMZLyf2Go5dj+oFSSVP8iZpTm7pEKPJh0PLSoZNjgpL3lO9KV72AS8lOrVk
+	MjUWDJ2+f1Tm0fXuXq6A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNrGZ-0000000GFtq-0mMS;
-	Wed, 18 Dec 2024 10:26:55 +0000
-Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
+	id 1tNrTM-0000000GIDU-0JTL;
+	Wed, 18 Dec 2024 10:40:08 +0000
+Received: from mail-pl1-x62f.google.com ([2607:f8b0:4864:20::62f])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNrFS-0000000GFj8-20VK;
-	Wed, 18 Dec 2024 10:25:47 +0000
-Date: Wed, 18 Dec 2024 11:25:44 +0100
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1734517545;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=Wc3y2MMAV4l4fXGHcieZbsIyWfTg/ozhFPhFb4lifrk=;
-	b=2SSWoTmikqml+QyzziVj/m4Yg45xAoP4dNtwTBlJig2p14toOtHozKw5Bxfjy4L/DvACGV
-	OMNT4R2Rekm2Ck8CCOW0XGD1j8FoyZrt3Z7jazkfGB6Zv+KWrHTMOhmUum+sr+mgUm1e61
-	TM1KWhbGQXbTlvxJf51hlLY47fK7pZY7y05qey8SsXBH0Nkg9uMgzFSWUJ30b/nxZp2S3N
-	Hy4DtDnFlOUNAID7T8cQaJtlrwqn059Y+FAOYDMu2CWWxXTn5NsAeABAkO/WY90H+pP48R
-	uMCgaoU5KLrPl82I7qw8SvgoxROfvTSXg9ibM/gPkLEPvpm/oD+JPk198PVRXA==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1734517545;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=Wc3y2MMAV4l4fXGHcieZbsIyWfTg/ozhFPhFb4lifrk=;
-	b=AoKeNEyuPrW2z0f+0sR+kxNpoFiiPy1/gq9ak22q5IqO1FLos7EO/vgThimKc+44ktm5ZR
-	tRGCj/jF+KFa4yBw==
-From: Thomas =?utf-8?Q?Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
-To: Christophe Leroy <christophe.leroy@csgroup.eu>
-Cc: "James E.J. Bottomley" <James.Bottomley@hansenpartnership.com>, 
-	Helge Deller <deller@gmx.de>, Andy Lutomirski <luto@kernel.org>, 
-	Thomas Gleixner <tglx@linutronix.de>, Vincenzo Frascino <vincenzo.frascino@arm.com>, 
-	Anna-Maria Behnsen <anna-maria@linutronix.de>, Frederic Weisbecker <frederic@kernel.org>, 
-	Andrew Morton <akpm@linux-foundation.org>, Catalin Marinas <catalin.marinas@arm.com>, 
-	Will Deacon <will@kernel.org>, Theodore Ts'o <tytso@mit.edu>, 
-	"Jason A. Donenfeld" <Jason@zx2c4.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Huacai Chen <chenhuacai@kernel.org>, WANG Xuerui <kernel@xen0n.name>, 
-	Russell King <linux@armlinux.org.uk>, Heiko Carstens <hca@linux.ibm.com>, 
-	Vasily Gorbik <gor@linux.ibm.com>, Alexander Gordeev <agordeev@linux.ibm.com>, 
-	Christian Borntraeger <borntraeger@linux.ibm.com>, Sven Schnelle <svens@linux.ibm.com>, 
-	Thomas Bogendoerfer <tsbogend@alpha.franken.de>, Michael Ellerman <mpe@ellerman.id.au>, 
-	Nicholas Piggin <npiggin@gmail.com>, Naveen N Rao <naveen@kernel.org>, 
-	Madhavan Srinivasan <maddy@linux.ibm.com>, Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, 
-	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org, "H. Peter Anvin" <hpa@zytor.com>, 
-	Arnd Bergmann <arnd@arndb.de>, linux-parisc@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-riscv@lists.infradead.org, loongarch@lists.linux.dev, 
-	linux-s390@vger.kernel.org, linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, 
-	linux-arch@vger.kernel.org, Nam Cao <namcao@linutronix.de>
-Subject: Re: [PATCH 03/17] vdso: Add generic time data storage
-Message-ID: <20241218111724-41f5e3c6-f41d-41ec-beed-bd05cca05016@linutronix.de>
-References: <20241216-vdso-store-rng-v1-0-f7aed1bdb3b2@linutronix.de>
- <20241216-vdso-store-rng-v1-3-f7aed1bdb3b2@linutronix.de>
- <3b44defd-cd2a-4a3c-b72d-bcc0530336da@csgroup.eu>
+	id 1tNqIS-0000000G4x2-0cPx
+	for linux-riscv@lists.infradead.org;
+	Wed, 18 Dec 2024 09:24:49 +0000
+Received: by mail-pl1-x62f.google.com with SMTP id d9443c01a7336-21628b3fe7dso48206485ad.3
+        for <linux-riscv@lists.infradead.org>; Wed, 18 Dec 2024 01:24:48 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1734513887; x=1735118687; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=yDhKwzrUe5Roy/zDCl6lSLCddVlMAa7MrVUXUhom5gI=;
+        b=Vvkuqqmb8kxbzEwZeZdS2fnT80u5zstWlTx+pm29tivKoA00fskqSlqNTFAsB0dR+/
+         Ux7bmuv3gysXfErkLlzPe8fCmqUc/F5YBvP6EhF80N3YdnofZH9bgHUjI5xJfv3UYRG1
+         Qq/ZCSG+SN2nZDR/HWIykQtYARuMVYNGS1Fwnkn/gtDEAAVxJv4rKAjYArKJ4Vjdspvv
+         QP0LIriS1QF5NBmEOwtFudfsEwanM/LFOC9YXHzXGkCzwgf2j4A4YPD2rwaOVE9xmSRK
+         HC+Qcm+MkDOJ/3MHIv3RRNEkNOEdIR13ShSp3xwh750AKjNU85glbcZsabPlPwKScbXx
+         CQyg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1734513887; x=1735118687;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=yDhKwzrUe5Roy/zDCl6lSLCddVlMAa7MrVUXUhom5gI=;
+        b=shU76AgIpdzG863woy3XdA6iVxWojspbeNLrjfSIkjjK0IhZQ+L/hZlLfiqTOk6Fbe
+         5FZ1/Xfn5APiDs3enxL6Ak7dDfuBL7VYihJWmnwc7YL29iruKK3hT+0NQspxvsC47WAz
+         WTDgZs636qWSBw8gIVWVwo6jYWShhNCtEYh7VqbhoGZK4s7Tz+9T0RiRfV9Hh1US+YWu
+         nXSUdCnHo9B5B/fW4voMmboHlrOy0aySmh4wBehElXZW8LLOEiDHR4Ag4y4pmvCs2gBF
+         KGoK4EsrVnYnySbP+ZjL+To9p6YOUq6xGTabHDbSqJg26wtnvQv0yJYamrM0Cw4TIIrH
+         Q28Q==
+X-Forwarded-Encrypted: i=1; AJvYcCXs7UnkVJwqNJDhN2pK/l5X17nbvzHXs5iSs/JuE1EK6UOCChOv6Z1/BDg3Sqsc4Fh+gnRSltuC3LxSnQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0YyRP6mNAfWqWPetcxyeVCbkYaeRlN+i+t9uv7Xgd00Gpt6YyUOF
+	K/ZI1uwkLR/LZEoTwYsowuBlvL75tm9f6Cbo20Rsel7Y7uU62udOTIMiSd6I0RM=
+X-Gm-Gg: ASbGncs4rS80pmN/n54gSV3uyBRqHsMkp148YX4qjqCJ+hBsGV8LuHgSbazeanv2+RK
+	ttomi9kbTEdn618q/ZcZ9+bWY2EJCEGVbHycSwbF/0zvKMqNuZPWi5N0a/KDh1hG/lb7mrQX0Ld
+	Y3JRreV4xx081FSwAzAASkGmz2EPBmacsPFIVriU5dBYFCNDEKvpkJLCqZ5hrqWJmI1NB8vdzed
+	waPT9tpSHsvL0Fehb6HMmIpcRRcAjkXe43bw/1xfSnnFqN6plNcKhxUX9hZS9qMg31KqDT6
+X-Google-Smtp-Source: AGHT+IHNUI1AHBQoBga0aAezTy/Vvg/AQiVn3J8vR7Lw+QWhOSCt+vF+YMZsBNQ3jjFCPSUN68skeA==
+X-Received: by 2002:a17:902:ec91:b0:218:a5a8:431a with SMTP id d9443c01a7336-218d727e5efmr31917135ad.49.1734513887569;
+        Wed, 18 Dec 2024 01:24:47 -0800 (PST)
+Received: from charlie.ba.rivosinc.com ([64.71.180.162])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-218a1e64f90sm72119995ad.241.2024.12.18.01.24.45
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 18 Dec 2024 01:24:46 -0800 (PST)
+From: Charlie Jenkins <charlie@rivosinc.com>
+Date: Wed, 18 Dec 2024 01:24:06 -0800
+Subject: [PATCH v4 08/16] perf tools: x86: Use generic syscall scripts
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <3b44defd-cd2a-4a3c-b72d-bcc0530336da@csgroup.eu>
+Message-Id: <20241218-perf_syscalltbl-v4-8-bc8caef2ca8e@rivosinc.com>
+References: <20241218-perf_syscalltbl-v4-0-bc8caef2ca8e@rivosinc.com>
+In-Reply-To: <20241218-perf_syscalltbl-v4-0-bc8caef2ca8e@rivosinc.com>
+To: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
+ Arnaldo Carvalho de Melo <acme@kernel.org>, 
+ Namhyung Kim <namhyung@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>, 
+ Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>, 
+ Adrian Hunter <adrian.hunter@intel.com>, 
+ Paul Walmsley <paul.walmsley@sifive.com>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, 
+ =?utf-8?q?Micka=C3=ABl_Sala=C3=BCn?= <mic@digikod.net>, 
+ =?utf-8?q?G=C3=BCnther_Noack?= <gnoack@google.com>, 
+ Christian Brauner <brauner@kernel.org>, Guo Ren <guoren@kernel.org>, 
+ John Garry <john.g.garry@oracle.com>, Will Deacon <will@kernel.org>, 
+ James Clark <james.clark@linaro.org>, Mike Leach <mike.leach@linaro.org>, 
+ Leo Yan <leo.yan@linux.dev>, Jonathan Corbet <corbet@lwn.net>, 
+ =?utf-8?q?Bj=C3=B6rn_T=C3=B6pel?= <bjorn@rivosinc.com>, 
+ Arnd Bergmann <arnd@arndb.de>, Albert Ou <aou@eecs.berkeley.edu>
+Cc: linux-kernel@vger.kernel.org, linux-perf-users@vger.kernel.org, 
+ linux-riscv@lists.infradead.org, linux-security-module@vger.kernel.org, 
+ bpf@vger.kernel.org, linux-csky@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org, 
+ Charlie Jenkins <charlie@rivosinc.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=7222; i=charlie@rivosinc.com;
+ h=from:subject:message-id; bh=iQ/ut7mVjV4B2SKqji8uHlm+XnjbUkJfvO8D33/ins4=;
+ b=owGbwMvMwCHWx5hUnlvL8Y3xtFoSQ3rSlKPZhtX6zouW7NxsLpi+VfzerZYLa+ZcDZ30IKDnx
+ 54F/s1xHaUsDGIcDLJiiiw81xqYW+/olx0VLZsAM4eVCWQIAxenAEzkgwXD/1LviyLXj67Z5ilw
+ 7Lvp1N1J8yYUn3Oey3bZm+frVedw/zuMDB3Os/cGnRP8+erKZ1f+qXMO/TNJ3vI6fkPm4t9ZEi9
+ +yfICAA==
+X-Developer-Key: i=charlie@rivosinc.com; a=openpgp;
+ fpr=7D834FF11B1D8387E61C776FFB10D1F27D6B1354
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241218_022546_795944_9307E309 
-X-CRM114-Status: GOOD (  20.87  )
+X-CRM114-CacheID: sfid-20241218_012448_200746_F7EE258A 
+X-CRM114-Status: GOOD (  16.68  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,80 +118,214 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="iso-8859-1"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Christophe,
+Use the generic scripts to generate headers from the syscall table for
+both 32- and 64-bit x86.
 
-On Wed, Dec 18, 2024 at 08:32:14AM +0100, Christophe Leroy wrote:
-> Le 16/12/2024 =E0 15:09, Thomas Wei=DFschuh a =E9crit=A0:
-> > Historically each architecture defined their own way to store the vDSO
-> > data page. Add a generic mechanism to provide storage for that page.
-> > =
+Signed-off-by: Charlie Jenkins <charlie@rivosinc.com>
+---
+ tools/perf/Makefile.config                         |  3 +-
+ tools/perf/Makefile.perf                           |  2 +-
+ tools/perf/arch/x86/Build                          |  1 -
+ tools/perf/arch/x86/Makefile                       | 25 -------------
+ tools/perf/arch/x86/entry/syscalls/Kbuild          |  3 ++
+ .../perf/arch/x86/entry/syscalls/Makefile.syscalls |  6 ++++
+ tools/perf/arch/x86/entry/syscalls/syscalltbl.sh   | 42 ----------------------
+ tools/perf/arch/x86/include/syscall_table.h        |  8 +++++
+ tools/perf/util/syscalltbl.c                       | 10 +-----
+ 9 files changed, 20 insertions(+), 80 deletions(-)
 
-> > Furthermore this generic storage will be extended to also provide
-> > uniform storage for *non*-time-related data, like the random state or
-> > architecture-specific data. These will have their own pages and data
-> > structures, so rename 'vdso_data' into 'vdso_time_data' to make that
-> > split clear from the name.
-> > =
+diff --git a/tools/perf/Makefile.config b/tools/perf/Makefile.config
+index a09e2245a9ba00db79cf3a65e8772a6cb9b6c78e..7accb54e60aac2e615ddf03e8f4ffa8cff539aaa 100644
+--- a/tools/perf/Makefile.config
++++ b/tools/perf/Makefile.config
+@@ -31,7 +31,7 @@ $(call detected_var,SRCARCH)
+ ifneq ($(NO_SYSCALL_TABLE),1)
+   NO_SYSCALL_TABLE := 1
+ 
+-  ifeq ($(SRCARCH),$(filter $(SRCARCH),x86 powerpc arm64 s390 mips loongarch riscv))
++  ifeq ($(SRCARCH),$(filter $(SRCARCH),powerpc arm64 s390 mips loongarch))
+     NO_SYSCALL_TABLE := 0
+   endif
+ 
+@@ -58,7 +58,6 @@ endif
+ # Additional ARCH settings for x86
+ ifeq ($(SRCARCH),x86)
+   $(call detected,CONFIG_X86)
+-  CFLAGS += -I$(OUTPUT)arch/x86/include/generated
+   ifeq (${IS_64_BIT}, 1)
+     CFLAGS += -DHAVE_ARCH_X86_64_SUPPORT
+     ARCH_INCLUDE = ../../arch/x86/lib/memcpy_64.S ../../arch/x86/lib/memset_64.S
+diff --git a/tools/perf/Makefile.perf b/tools/perf/Makefile.perf
+index 47fe3c41fa13a388803ba804a7c3a4aac81d20ae..698967f50ceb5cfc29dc5c2947c995980120e64e 100644
+--- a/tools/perf/Makefile.perf
++++ b/tools/perf/Makefile.perf
+@@ -311,7 +311,7 @@ FEATURE_TESTS := all
+ endif
+ endif
+ # architectures that use the generic syscall table
+-generic_syscall_table_archs := riscv arc csky arm sh sparc xtensa
++generic_syscall_table_archs := riscv arc csky arm sh sparc xtensa x86
+ ifneq ($(filter $(SRCARCH), $(generic_syscall_table_archs)),)
+ include $(srctree)/tools/perf/scripts/Makefile.syscalls
+ endif
+diff --git a/tools/perf/arch/x86/Build b/tools/perf/arch/x86/Build
+index 87d0574913431b7c4505caf78f41d48b180a2fbc..02a1ca780a2071d322f75fb2885c3a36bc278e8d 100644
+--- a/tools/perf/arch/x86/Build
++++ b/tools/perf/arch/x86/Build
+@@ -2,7 +2,6 @@ perf-util-y += util/
+ perf-test-y += tests/
+ 
+ ifdef SHELLCHECK
+-  SHELL_TESTS := entry/syscalls/syscalltbl.sh
+   TEST_LOGS := $(SHELL_TESTS:%=%.shellcheck_log)
+ else
+   SHELL_TESTS :=
+diff --git a/tools/perf/arch/x86/Makefile b/tools/perf/arch/x86/Makefile
+index a6b6e0a9308a8e401c65eb802e5815a41fbdefe9..a295a80ea078199547e816d18531820bfdba7961 100644
+--- a/tools/perf/arch/x86/Makefile
++++ b/tools/perf/arch/x86/Makefile
+@@ -1,28 +1,3 @@
+ # SPDX-License-Identifier: GPL-2.0
+ HAVE_KVM_STAT_SUPPORT := 1
+ PERF_HAVE_JITDUMP := 1
+-
+-###
+-# Syscall table generation
+-#
+-
+-generated := $(OUTPUT)arch/x86/include/generated
+-out       := $(generated)/asm
+-header    := $(out)/syscalls_64.c
+-header_32 := $(out)/syscalls_32.c
+-sys       := $(srctree)/tools/perf/arch/x86/entry/syscalls
+-systbl    := $(sys)/syscalltbl.sh
+-
+-# Create output directory if not already present
+-$(shell [ -d '$(out)' ] || mkdir -p '$(out)')
+-
+-$(header): $(sys)/syscall_64.tbl $(systbl)
+-	$(Q)$(SHELL) '$(systbl)' $(sys)/syscall_64.tbl 'x86_64' > $@
+-
+-$(header_32): $(sys)/syscall_32.tbl $(systbl)
+-	$(Q)$(SHELL) '$(systbl)' $(sys)/syscall_32.tbl 'x86' > $@
+-
+-clean::
+-	$(call QUIET_CLEAN, x86) $(RM) -r $(header) $(generated)
+-
+-archheaders: $(header) $(header_32)
+diff --git a/tools/perf/arch/x86/entry/syscalls/Kbuild b/tools/perf/arch/x86/entry/syscalls/Kbuild
+new file mode 100644
+index 0000000000000000000000000000000000000000..84c6599b4ea6a160217a3496449b205f2263f0fb
+--- /dev/null
++++ b/tools/perf/arch/x86/entry/syscalls/Kbuild
+@@ -0,0 +1,3 @@
++# SPDX-License-Identifier: GPL-2.0
++syscall-y += syscalls_32.h
++syscall-y += syscalls_64.h
+diff --git a/tools/perf/arch/x86/entry/syscalls/Makefile.syscalls b/tools/perf/arch/x86/entry/syscalls/Makefile.syscalls
+new file mode 100644
+index 0000000000000000000000000000000000000000..db3d5d6d4e5699d338afc55f6415612ef924d985
+--- /dev/null
++++ b/tools/perf/arch/x86/entry/syscalls/Makefile.syscalls
+@@ -0,0 +1,6 @@
++# SPDX-License-Identifier: GPL-2.0
++
++syscall_abis_32 += i386
++syscall_abis_64 +=
++
++syscalltbl = $(srctree)/tools/perf/arch/x86/entry/syscalls/syscall_%.tbl
+diff --git a/tools/perf/arch/x86/entry/syscalls/syscalltbl.sh b/tools/perf/arch/x86/entry/syscalls/syscalltbl.sh
+deleted file mode 100755
+index 2b71f99933a549607b0c18aa2b8be16b860f603c..0000000000000000000000000000000000000000
+--- a/tools/perf/arch/x86/entry/syscalls/syscalltbl.sh
++++ /dev/null
+@@ -1,42 +0,0 @@
+-#!/bin/sh
+-# SPDX-License-Identifier: GPL-2.0
+-
+-in="$1"
+-arch="$2"
+-
+-syscall_macro() {
+-    nr="$1"
+-    name="$2"
+-
+-    echo "	[$nr] = \"$name\","
+-}
+-
+-emit() {
+-    nr="$1"
+-    entry="$2"
+-
+-    syscall_macro "$nr" "$entry"
+-}
+-
+-echo "static const char *const syscalltbl_${arch}[] = {"
+-
+-sorted_table=$(mktemp /tmp/syscalltbl.XXXXXX)
+-grep '^[0-9]' "$in" | sort -n > $sorted_table
+-
+-max_nr=0
+-# the params are: nr abi name entry compat
+-# use _ for intentionally unused variables according to SC2034
+-while read nr _ name _ _; do
+-    if [ $nr -ge 512 ] ; then # discard compat sycalls
+-        break
+-    fi
+-
+-    emit "$nr" "$name"
+-    max_nr=$nr
+-done < $sorted_table
+-
+-rm -f $sorted_table
+-
+-echo "};"
+-
+-echo "#define SYSCALLTBL_${arch}_MAX_ID ${max_nr}"
+diff --git a/tools/perf/arch/x86/include/syscall_table.h b/tools/perf/arch/x86/include/syscall_table.h
+new file mode 100644
+index 0000000000000000000000000000000000000000..7ff51b783000d727ec48be960730b81ecdb05575
+--- /dev/null
++++ b/tools/perf/arch/x86/include/syscall_table.h
+@@ -0,0 +1,8 @@
++/* SPDX-License-Identifier: GPL-2.0 */
++#include <asm/bitsperlong.h>
++
++#if __BITS_PER_LONG == 64
++#include <asm/syscalls_64.h>
++#else
++#include <asm/syscalls_32.h>
++#endif
+diff --git a/tools/perf/util/syscalltbl.c b/tools/perf/util/syscalltbl.c
+index ccf234a54366f9921c3b9a02ffb0a365d17244bc..02f23483bfff83809c4e649a2d054dba6975d12c 100644
+--- a/tools/perf/util/syscalltbl.c
++++ b/tools/perf/util/syscalltbl.c
+@@ -14,15 +14,7 @@
+ #include <string.h>
+ #include "string2.h"
+ 
+-#if defined(__x86_64__)
+-#include <asm/syscalls_64.c>
+-const int syscalltbl_native_max_id = SYSCALLTBL_x86_64_MAX_ID;
+-static const char *const *syscalltbl_native = syscalltbl_x86_64;
+-#elif defined(__i386__)
+-#include <asm/syscalls_32.c>
+-const int syscalltbl_native_max_id = SYSCALLTBL_x86_MAX_ID;
+-static const char *const *syscalltbl_native = syscalltbl_x86;
+-#elif defined(__s390x__)
++#if defined(__s390x__)
+ #include <asm/syscalls_64.c>
+ const int syscalltbl_native_max_id = SYSCALLTBL_S390_64_MAX_ID;
+ static const char *const *syscalltbl_native = syscalltbl_s390_64;
 
-> > Also introduce a new consistent naming scheme for the symbols related to
-> > the vDSO, which makes it clear if the symbol is accessible from
-> > userspace or kernel space and the type of data behind the symbol.
-> > =
+-- 
+2.34.1
 
-> > The generic fault handler contains an optimization to prefault the vvar
-> > page when the timens page is accessed. This was lifted from s390 and x8=
-6.
-> > =
-
-> > Co-developed-by: Nam Cao <namcao@linutronix.de>
-> > Signed-off-by: Nam Cao <namcao@linutronix.de>
-> > Signed-off-by: Thomas Wei=DFschuh <thomas.weissschuh@linutronix.de>
-> > ---
-> >   MAINTAINERS                    |  1 +
-> >   include/linux/time_namespace.h |  1 +
-> >   include/linux/vdso_datastore.h | 10 +++++
-> >   include/vdso/datapage.h        | 69 +++++++++++++++++++++++++----
-> >   lib/Kconfig                    |  1 +
-> >   lib/Makefile                   |  2 +
-> >   lib/vdso_kernel/Kconfig        |  7 +++
-> >   lib/vdso_kernel/Makefile       |  3 ++
-> >   lib/vdso_kernel/datastore.c    | 99 +++++++++++++++++++++++++++++++++=
-+++++++++
-> =
-
-> There is only one single file, namely datastore.c. You don't need a new
-> directory for that, I should go in lib/vdso/
-
-lib/vdso/ currently only contains userspace code.
-I don't have a strong opinion on that.
-The lib/vdso_kernel location was suggested by tglx, maybe he has some
-feedback. (Originally I put it into kernel/vdso_storage.c)
-
-[..]
-
-> > +enum vdso_pages {
-> > +	VDSO_TIME_PAGE_OFFSET,
-> > +	VDSO_TIMENS_PAGE_OFFSET,
-> > +	VDSO_NR_PAGES
-> > +};
-> =
-
-> Naming that VDSO_ is confusing. Most macros called VDSO_ are related to t=
-he
-> VDSO Code. VDSO data related macros should be prefixed with VVAR_
-
-Also a request from tglx.
-
-[..]
-
-
-Thanks!
-Thomas
 
 _______________________________________________
 linux-riscv mailing list
