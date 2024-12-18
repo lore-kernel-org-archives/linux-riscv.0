@@ -4,86 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2B545E77187
-	for <linux-riscv@archiver.kernel.org>; Wed, 18 Dec 2024 13:33:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BDE51E77188
+	for <linux-riscv@archiver.kernel.org>; Wed, 18 Dec 2024 15:09:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=yXIelB7sEaBiT7CL2gREWJlS1v88RCJHPJKNoy1JFHs=; b=2ZpM6n33JxyRv2
-	4BY/FGAM8gu+5gq9eW5kTPpa4PeSfnknXfgG5vgQYQkH6TNoQ/KCikkmKAa/djblZkQbcDlIIq6JP
-	KajsHAphtTurkYT9DJVPtGF/cl81NweeojDWHdN5jjtTtTmsYo/Sn5+C9tqE8FTX7NhfbujpsfIm+
-	DZX7fUX5JgTLvooYPT8U6ZHdIDJeJbOVbowhReWuTNu4agscnJd/csGJd9cKD5+Y40/xomX7jVJh4
-	wzlUaRtxANHKs8DqTSpLAeCAGoBYr7n1V7jeqJTVZzs+Yu0bP0uwP5uAozbYUBLc1r7q7uXmAIeJQ
-	geU4K8vnVNPv1e7GBL/Q==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=MI5zI6fHFh7XfFwaz0Kf2g0Y3AuQAymAjsZp/IkEkdY=; b=dh8yiB4iy9JdHH35pleBJOoFz/
+	KYz5HSRYR3b5O//qncuNnp1MiIBhEWzaZhASLpAGyoLdEHXIiMbh9oc5/7FhcA7CpEwhFaN8FzITS
+	y/dyi+UhUJpU/dwOvVJ/1ZIZws0QYhDVyP+Awfk3n4ylA8pzVyTb+TzoBdOtbdnIWonuSMhxZAOQH
+	L+fHeKaM7T0Bj3AwSD6EPw5CqNK6rmWgy+MXPMXNlg4sM+wUtZv7MfbIc+rd50aRqCnLzYXqoymcm
+	wstxUB/YDOnUlozc14ltoxwrUC1YPt/tORPpHlxBeI7KrcsJwuWCf/uN9PhDld1IvWlRvFb8HklDs
+	jX0FYQ4w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNuBQ-0000000GjxK-3cJz;
-	Wed, 18 Dec 2024 13:33:48 +0000
-Received: from mail-ed1-x535.google.com ([2a00:1450:4864:20::535])
+	id 1tNvgL-0000000Gxah-44rg;
+	Wed, 18 Dec 2024 15:09:49 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNuBO-0000000Gjwb-1TuJ
-	for linux-riscv@lists.infradead.org;
-	Wed, 18 Dec 2024 13:33:47 +0000
-Received: by mail-ed1-x535.google.com with SMTP id 4fb4d7f45d1cf-5d3f65844deso10714613a12.0
-        for <linux-riscv@lists.infradead.org>; Wed, 18 Dec 2024 05:33:45 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1734528824; x=1735133624; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=F04qCBUVVoN6U8u4xH7kBwCsJkFMNNfZymSECrRf1P8=;
-        b=TwyKxJumHaHGl91byfC4MgOGpCxnFS7y3yrtKiuRRABnbItYkGJgVyk7Guw7dZPjdr
-         /NXR8OvnkzUTzm6bgAlAGCOrIuvXSTGaFMQWQ/Q8ShzIUBBhveERPplsWOVS6/4g8299
-         KVlFLHNkgZsBSOHzPtC1HYwhT/yS5VAzq9jxNAv/03QdX5Ljn6Nfzr0qNVnv1BNq+73M
-         4ZZr9YH+R9SRiwsUsq9ARzcpp/h3EC2WCspmtVRCm3L/QPHZdi8iIy9QON38cPk2C3LU
-         CINgETU82mri9Xh83Hh3nndTqUaOdlNn4KkiW0uUvcM4zvWjFHq9ThpUVp4rWtmMmx4p
-         IAjw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1734528824; x=1735133624;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=F04qCBUVVoN6U8u4xH7kBwCsJkFMNNfZymSECrRf1P8=;
-        b=MFt+SaQqot4AA2ueVj0Rd3lxYDOh4kvxSDxk23rLbj0gI9YziXYiy+FNg+J78FrzCs
-         l7M+vYXlPW1SJ363I9OyyiNXQc6PHBBjbmqvs96NINBWd5IaoRp1OtMTaGuhNHioEjFo
-         5JeBomTzoo6hxDMUurgfZb36xMx+mKzrwc+I9tQLGlVaBZ2WLWIowlrAplhxGfNRiu4F
-         RcS+oeRSzcxertX8wMJndyM3viEB4Rdr1eBU9ljO4lCXXNdLMk3rptBv0UbCwZtlS6X/
-         dl5Umc2xSNecdbulECukILChvF3PtQyTRCM8iyKFV1d/cdj01EJph5DBX3jWJ84ZFwib
-         bi7A==
-X-Gm-Message-State: AOJu0Yw2XszjowWFP+YDVrnV5JI/srZyz71d+F3+wneMF4A26tmfd482
-	5GLQHQ5TOAhusZGQx1tKNEFg5PV4UKnYdOyP16zQnKrODMCkQRnrORZCvABX7YY=
-X-Gm-Gg: ASbGncvP8I/Ha6LeCP/4neWQf8FeTokk78yQBw2pNrcPSGnd+FqvO1yfl7CTePRc8zM
-	+8/dV7y/pq0N5jIGg0uvddqOkfJirE3JdkAbbpQp/1vm7oz/cqFidwncV2L0DWuwM5YacVHmdnJ
-	XL6B2e44/Zez4r6+jpzk5/14MH1r320DQPSlzydl+3QQRpKNDNbVGDWUqVSchVznwHlA9jFWmQv
-	7fsTCXsMHtuFffpIQB3cdOxtnNBGOU0ExPErWlo0QfUb0HBoPtUye4eTIjzn46WhQ==
-X-Google-Smtp-Source: AGHT+IHvX5X6BqHRSMeBGrCGLrIORFdCEP7U5u82MX7KqOksIbsBDW9rkN+UXFaQ/V6EmbhAHdKVrg==
-X-Received: by 2002:a17:906:309a:b0:aac:d8:13d1 with SMTP id a640c23a62f3a-aac00d813f8mr82990466b.13.1734528823548;
-        Wed, 18 Dec 2024 05:33:43 -0800 (PST)
-Received: from localhost.localdomain ([79.175.114.8])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-aab96005f89sm562706166b.35.2024.12.18.05.33.41
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 18 Dec 2024 05:33:42 -0800 (PST)
-From: Aleksandar Rikalo <arikalo@gmail.com>
-To: linux-riscv@lists.infradead.org
-Cc: Paul Walmsley <paul.walmsley@sifive.com>,
+	id 1tNvfE-0000000GxLy-2ZcC;
+	Wed, 18 Dec 2024 15:08:41 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 37A0F5C61EC;
+	Wed, 18 Dec 2024 15:07:57 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 31A23C4CECE;
+	Wed, 18 Dec 2024 15:08:31 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1734534519;
+	bh=dsz8257D+6as1uUtKCRNXMXuyupbAqskFTKy5dqOl5Q=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=DOFYmV/OC+pxzzSN2F3KRoWuPa3RBYPTcC/zoOH2NCKjp1MeXanV999doe0z17HZ9
+	 kZeRFu9n52HpxIYfDvjY68cwj2dFjby7xXYHkkhE6r1WCfyp9XvKDBOdii0weYJCm+
+	 9xKCOdfjiu4YgHKWSLJx0oNXIh9y/gozVqQ4FgrGJap66A/Q1lO5Vt/tWoIGECJlWH
+	 Rp7OGHr4sDQ+63bPykzZvg4/ERY2JHbLdJSx7PfB1jdfh7ai0OGgoE0GCVZHUb6g+l
+	 lHS+ibQI7IPTVeyzL3d/9mjIO74XkR3qFvTP3HJ4GhKXpeqZidOrYIhtpJAdAEabhd
+	 m0OkMY0OfPMpw==
+Date: Wed, 18 Dec 2024 15:08:28 +0000
+From: Conor Dooley <conor@kernel.org>
+To: Thomas =?iso-8859-1?Q?Wei=DFschuh?= <thomas.weissschuh@linutronix.de>
+Cc: "James E.J. Bottomley" <James.Bottomley@hansenpartnership.com>,
+	Helge Deller <deller@gmx.de>, Andy Lutomirski <luto@kernel.org>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Vincenzo Frascino <vincenzo.frascino@arm.com>,
+	Anna-Maria Behnsen <anna-maria@linutronix.de>,
+	Frederic Weisbecker <frederic@kernel.org>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Theodore Ts'o <tytso@mit.edu>,
+	"Jason A. Donenfeld" <Jason@zx2c4.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
 	Albert Ou <aou@eecs.berkeley.edu>,
-	Andrew Jones <ajones@ventanamicro.com>,
-	=?UTF-8?q?Christoph=20M=C3=BCllner?= <christoph.muellner@vrull.eu>,
-	Aleksandar Rikalo <arikalo@gmail.com>,
-	linux-kernel@vger.kernel.org,
-	Djordje Todorovic <djordje.todorovic@htecgroup.com>
-Subject: [PATCH] riscv: Fix the PAUSE Opcode for MIPS P8700.
-Date: Wed, 18 Dec 2024 14:33:40 +0100
-Message-Id: <20241218133340.51003-1-arikalo@gmail.com>
-X-Mailer: git-send-email 2.25.1
+	Huacai Chen <chenhuacai@kernel.org>,
+	WANG Xuerui <kernel@xen0n.name>,
+	Russell King <linux@armlinux.org.uk>,
+	Heiko Carstens <hca@linux.ibm.com>,
+	Vasily Gorbik <gor@linux.ibm.com>,
+	Alexander Gordeev <agordeev@linux.ibm.com>,
+	Christian Borntraeger <borntraeger@linux.ibm.com>,
+	Sven Schnelle <svens@linux.ibm.com>,
+	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Nicholas Piggin <npiggin@gmail.com>,
+	Christophe Leroy <christophe.leroy@csgroup.eu>,
+	Naveen N Rao <naveen@kernel.org>,
+	Madhavan Srinivasan <maddy@linux.ibm.com>,
+	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
+	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
+	"H. Peter Anvin" <hpa@zytor.com>, Arnd Bergmann <arnd@arndb.de>,
+	linux-parisc@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-riscv@lists.infradead.org, loongarch@lists.linux.dev,
+	linux-s390@vger.kernel.org, linux-mips@vger.kernel.org,
+	linuxppc-dev@lists.ozlabs.org, linux-arch@vger.kernel.org,
+	Nam Cao <namcao@linutronix.de>
+Subject: Re: [PATCH 07/17] riscv: vdso: Switch to generic storage
+ implementation
+Message-ID: <20241218-action-matchbook-571b597b7f55@spud>
+References: <20241216-vdso-store-rng-v1-0-f7aed1bdb3b2@linutronix.de>
+ <20241216-vdso-store-rng-v1-7-f7aed1bdb3b2@linutronix.de>
 MIME-Version: 1.0
+In-Reply-To: <20241216-vdso-store-rng-v1-7-f7aed1bdb3b2@linutronix.de>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241218_053346_407850_BC1D87DA 
-X-CRM114-Status: UNSURE (   9.58  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241218_070840_744162_A55FEFAB 
+X-CRM114-Status: GOOD (  14.90  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,43 +101,129 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: multipart/mixed; boundary="===============2177177190523467522=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-RnJvbTogUmFqIFZpc2h3YW5hdGhhbjQgPHJ2aXNod2FuYXRoYW5AbWlwcy5jb20+CgpUaGUgcmlz
-Y3YgTUlQUyBQODcwMCB1c2VzIGEgZGlmZmVyZW50IG9wY29kZSBmb3IgUEFVU0UuCkl0IGlzIGEg
-4oCYaGludOKAmSBlbmNvZGluZyBvZiB0aGUgU0xMSSBpbnN0cnVjdGlvbiwgd2l0aCByZD0wLCBy
-czE9MCBhbmQKaW1tPTUuIEl0IHdpbGwgYmVoYXZlIGFzIGEgTk9QIGluc3RydWN0aW9uIGlmIG5v
-IGFkZGl0aW9uYWwgYmVoYXZpb3IKYmV5b25kIHRoYXQgb2YgU0xMSSBpcyBpbXBsZW1lbnRlZC4K
-ClNpZ25lZC1vZmYtYnk6IFJhaiBWaXNod2FuYXRoYW40IDxydmlzaHdhbmF0aGFuQG1pcHMuY29t
-PgpTaWduZWQtb2ZmLWJ5OiBBbGVrc2FuZGFyIFJpa2FsbyA8YXJpa2Fsb0BnbWFpbC5jb20+Ci0t
-LQogYXJjaC9yaXNjdi9LY29uZmlnICAgICAgICAgICAgICAgIHwgMTIgKysrKysrKysrKysrCiBh
-cmNoL3Jpc2N2L2luY2x1ZGUvYXNtL2luc24tZGVmLmggfCAgNSArKysrKwogMiBmaWxlcyBjaGFu
-Z2VkLCAxNyBpbnNlcnRpb25zKCspCgpkaWZmIC0tZ2l0IGEvYXJjaC9yaXNjdi9LY29uZmlnIGIv
-YXJjaC9yaXNjdi9LY29uZmlnCmluZGV4IGQ0YTdjYTAzODhjMC4uMDdhNzdmYTBhMDE0IDEwMDY0
-NAotLS0gYS9hcmNoL3Jpc2N2L0tjb25maWcKKysrIGIvYXJjaC9yaXNjdi9LY29uZmlnCkBAIC03
-MTYsNiArNzE2LDE4IEBAIGNvbmZpZyBSSVNDVl9JU0FfWkFDQVMKIAogCSAgSWYgeW91IGRvbid0
-IGtub3cgd2hhdCB0byBkbyBoZXJlLCBzYXkgWS4KIAorY29uZmlnIFJJU0NWX01JUFNfUDg3MDBf
-UEFVU0VfT1BDT0RFX0ZJWAorCWJvb2wgIkZpeCB0aGUgUEFVU0UgT3Bjb2RlIGZvciBNSVBTIFA4
-NzAwIgorCWRlZmF1bHQgbgorCWhlbHAKKwkgICBUaGUgUklTQ1YgTUlQUyBQODcwMCB1c2VzIGEg
-ZGlmZmVyZW50IG9wY29kZSBmb3IgUEFVU0UuCisJICAgSXQgaXMgYSAnaGludCcgZW5jb2Rpbmcg
-b2YgdGhlIFNMTEkgaW5zdHJ1Y3Rpb24sCisJICAgd2l0aCByZD0wLCByczE9MCBhbmQgaW1tPTUu
-IEl0IHdpbGwgYmVoYXZlIGFzIGEgTk9QCisJICAgaW5zdHJ1Y3Rpb24gaWYgbm8gYWRkaXRpb25h
-bCBiZWhhdmlvciBiZXlvbmQgdGhhdCBvZgorCSAgIFNMTEkgaXMgaW1wbGVtZW50ZWQuCisKKwkg
-ICBJZiB5b3UgYXJlIG5vdCB1c2luZyB0aGUgUDg3MDAgcHJvY2Vzc29yLCBzYXkgbi4KKwogY29u
-ZmlnIFRPT0xDSEFJTl9IQVNfWkJCCiAJYm9vbAogCWRlZmF1bHQgeQpkaWZmIC0tZ2l0IGEvYXJj
-aC9yaXNjdi9pbmNsdWRlL2FzbS9pbnNuLWRlZi5oIGIvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9p
-bnNuLWRlZi5oCmluZGV4IDlhOTEzMDEwY2RkOS4uNzkzZWVkZGUzNTE2IDEwMDY0NAotLS0gYS9h
-cmNoL3Jpc2N2L2luY2x1ZGUvYXNtL2luc24tZGVmLmgKKysrIGIvYXJjaC9yaXNjdi9pbmNsdWRl
-L2FzbS9pbnNuLWRlZi5oCkBAIC0xOTYsNyArMTk2LDEyIEBACiAJSU5TTl9JKE9QQ09ERV9NSVND
-X01FTSwgRlVOQzMoMiksIF9fUkQoMCksCQlcCiAJICAgICAgIFJTMShiYXNlKSwgU0lNTTEyKDQp
-KQogCisjaWZuZGVmIENPTkZJR19SSVNDVl9NSVBTX1A4NzAwX1BBVVNFX09QQ09ERV9GSVgKICNk
-ZWZpbmUgUklTQ1ZfUEFVU0UJIi40Ynl0ZSAweDEwMDAwMGYiCisjZWxzZQorI2RlZmluZSBSSVND
-Vl9QQVVTRQkiLjRieXRlIDB4MDA1MDEwMTMiCisjZW5kaWYKKwogI2RlZmluZSBaQVdSU19XUlNf
-TlRPCSIuNGJ5dGUgMHgwMGQwMDA3MyIKICNkZWZpbmUgWkFXUlNfV1JTX1NUTwkiLjRieXRlIDB4
-MDFkMDAwNzMiCiAKLS0gCjIuMjUuMQoKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0
-cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGlu
-Zm8vbGludXgtcmlzY3YK
+
+--===============2177177190523467522==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="fu8z2+BbmIxUgToy"
+Content-Disposition: inline
+
+
+--fu8z2+BbmIxUgToy
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+On Mon, Dec 16, 2024 at 03:10:03PM +0100, Thomas Wei=DFschuh wrote:
+> The generic storage implementation provides the same features as the
+> custom one. However it can be shared between architectures, making
+> maintenance easier.
+>=20
+> Co-developed-by: Nam Cao <namcao@linutronix.de>
+> Signed-off-by: Nam Cao <namcao@linutronix.de>
+> Signed-off-by: Thomas Wei=DFschuh <thomas.weissschuh@linutronix.de>
+> ---
+>  arch/riscv/Kconfig                                 |  3 +-
+>  arch/riscv/include/asm/vdso.h                      |  2 +-
+>  .../include/asm/vdso/{time_data.h =3D> arch_data.h}  |  8 +-
+>  arch/riscv/include/asm/vdso/gettimeofday.h         | 14 +---
+>  arch/riscv/include/asm/vdso/vsyscall.h             |  9 ---
+>  arch/riscv/kernel/sys_hwprobe.c                    |  3 +-
+>  arch/riscv/kernel/vdso.c                           | 90 +---------------=
+------
+>  arch/riscv/kernel/vdso/hwprobe.c                   |  6 +-
+>  arch/riscv/kernel/vdso/vdso.lds.S                  |  7 +-
+>  9 files changed, 18 insertions(+), 124 deletions(-)
+
+Fails to build:
+Patch 7/17: Test 1/12: .github/scripts/patches/tests/build_rv32_defconfig.sh
+  /build/tmp.cAQOaMfDA3/arch/riscv/kernel/vdso/hwprobe.c:11:33: warning: de=
+claration of 'struct riscv_hwprobe' will not be visible outside of this fun=
+ction [-Wvisibility]
+  /build/tmp.cAQOaMfDA3/arch/riscv/kernel/vdso/hwprobe.c:15:41: warning: de=
+claration of 'struct riscv_hwprobe' will not be visible outside of this fun=
+ction [-Wvisibility]
+  /build/tmp.cAQOaMfDA3/arch/riscv/kernel/vdso/hwprobe.c:19:37: error: call=
+ to undeclared function '__arch_get_vdso_u_arch_data'; ISO C99 and later do=
+ not support implicit function declarations [-Wimplicit-function-declaratio=
+n]
+  /build/tmp.cAQOaMfDA3/arch/riscv/kernel/vdso/hwprobe.c:19:31: error: inco=
+mpatible integer to pointer conversion initializing 'const struct vdso_arch=
+_data *' with an expression of type 'int' [-Wint-conversion]
+  /build/tmp.cAQOaMfDA3/arch/riscv/kernel/vdso/hwprobe.c:22:36: error: arit=
+hmetic on a pointer to an incomplete type 'struct riscv_hwprobe'
+  /build/tmp.cAQOaMfDA3/arch/riscv/kernel/vdso/hwprobe.c:30:40: error: inco=
+mplete definition of type 'const struct vdso_arch_data'
+  /build/tmp.cAQOaMfDA3/arch/riscv/kernel/vdso/hwprobe.c:31:24: error: inco=
+mpatible pointer types passing 'struct riscv_hwprobe *' to parameter of typ=
+e 'struct riscv_hwprobe *' [-Werror,-Wincompatible-pointer-types]
+  /build/tmp.cAQOaMfDA3/arch/riscv/kernel/vdso/hwprobe.c:35:7: error: call =
+to undeclared function 'riscv_hwprobe_key_is_valid'; ISO C99 and later do n=
+ot support implicit function declarations [-Wimplicit-function-declaration]
+  /build/tmp.cAQOaMfDA3/arch/riscv/kernel/vdso/hwprobe.c:35:35: error: inco=
+mplete definition of type 'struct riscv_hwprobe'
+  /build/tmp.cAQOaMfDA3/arch/riscv/kernel/vdso/hwprobe.c:36:5: error: incom=
+plete definition of type 'struct riscv_hwprobe'
+  /build/tmp.cAQOaMfDA3/arch/riscv/kernel/vdso/hwprobe.c:36:18: error: inco=
+mplete definition of type 'const struct vdso_arch_data'
+  /build/tmp.cAQOaMfDA3/arch/riscv/kernel/vdso/hwprobe.c:36:44: error: inco=
+mplete definition of type 'struct riscv_hwprobe'
+  /build/tmp.cAQOaMfDA3/arch/riscv/kernel/vdso/hwprobe.c:39:5: error: incom=
+plete definition of type 'struct riscv_hwprobe'
+  /build/tmp.cAQOaMfDA3/arch/riscv/kernel/vdso/hwprobe.c:40:5: error: incom=
+plete definition of type 'struct riscv_hwprobe'
+  /build/tmp.cAQOaMfDA3/arch/riscv/kernel/vdso/hwprobe.c:43:4: error: arith=
+metic on a pointer to an incomplete type 'struct riscv_hwprobe'
+  /build/tmp.cAQOaMfDA3/arch/riscv/kernel/vdso/hwprobe.c:49:39: warning: de=
+claration of 'struct riscv_hwprobe' will not be visible outside of this fun=
+ction [-Wvisibility]
+  /build/tmp.cAQOaMfDA3/arch/riscv/kernel/vdso/hwprobe.c:53:37: error: call=
+ to undeclared function '__arch_get_vdso_u_arch_data'; ISO C99 and later do=
+ not support implicit function declarations [-Wimplicit-function-declaratio=
+n]
+  /build/tmp.cAQOaMfDA3/arch/riscv/kernel/vdso/hwprobe.c:53:31: error: inco=
+mpatible integer to pointer conversion initializing 'const struct vdso_arch=
+_data *' with an expression of type 'int' [-Wint-conversion]
+  /build/tmp.cAQOaMfDA3/arch/riscv/kernel/vdso/hwprobe.c:55:36: error: arit=
+hmetic on a pointer to an incomplete type 'struct riscv_hwprobe'
+  /build/tmp.cAQOaMfDA3/arch/riscv/kernel/vdso/hwprobe.c:71:61: error: inco=
+mplete definition of type 'const struct vdso_arch_data'
+  /build/tmp.cAQOaMfDA3/arch/riscv/kernel/vdso/hwprobe.c:71:29: error: use =
+of undeclared identifier 'RISCV_HWPROBE_WHICH_CPUS'
+  /build/tmp.cAQOaMfDA3/arch/riscv/kernel/vdso/hwprobe.c:72:24: error: inco=
+mpatible pointer types passing 'struct riscv_hwprobe *' to parameter of typ=
+e 'struct riscv_hwprobe *' [-Werror,-Wincompatible-pointer-types]
+  fatal error: too many errors emitted, stopping now [-ferror-limit=3D]
+
+Might be a clang thing, allmodconfig with clang doesn't build either.
+
+--fu8z2+BbmIxUgToy
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZ2LlbAAKCRB4tDGHoIJi
+0n2PAQDyBQBbIhWl4PuPh0Arh+dY5o5V02LpT/vyZTOInKNMcgEAqZD+a5hkxJEH
+lFXI4u2esepSVEUEOeQQYFauBervVQc=
+=gqd2
+-----END PGP SIGNATURE-----
+
+--fu8z2+BbmIxUgToy--
+
+
+--===============2177177190523467522==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============2177177190523467522==--
+
