@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C54AE77187
-	for <linux-riscv@archiver.kernel.org>; Wed, 18 Dec 2024 10:18:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E94C8E77187
+	for <linux-riscv@archiver.kernel.org>; Wed, 18 Dec 2024 10:27:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=M35DV9p7+on36DOKNRtkAzXQjn2uZ8jkFrJ8nBl5gCk=; b=coOp5Bbw2k9h6f
-	D5VvSsXRJIGv6nnJc1kGllojMKOoCIC8wpxDlt4tUSOGlpwmmfR1zQgNrIvHDZuPzXSfkc92kyhgE
-	8TMzBIgts2whNwWes5jODWXSVtGx8nWBnJgbizToCD51KfiS8XfvV2gIvYGDl+hNLFDDjHNeNCh72
-	zdzAnkNykZiRPbKx3JzbPb3t4ioHYP1hxHi14DbYVZ29qRPacPTq1O5HOLQoHYTGa5jKQY7TWcfdD
-	jxrlY84u4zQLXn7AQ5wk4oU4qN6xWbRwIIFuDuI1solSnNEds6+uVOZtn1J5pw14sx2cy9oEXLvKV
-	2Vx+qkhMnjhmpStsI1Kw==;
+	List-Owner; bh=E4PddX9HTRvXeVqREZ4etiHqQKIe97MqDkX/8w8vQW0=; b=zqFxuHP2hLuyEu
+	v878wco1MJKzMnxYyDQsxCFqqLGvo2b48B6hoUeu/H4bBWjjS2fH/xpDeJZMXCfAqUki6cDsECcxn
+	taGy2i1smeqoNc4w/PE9PbeVApvtNc4g8RcT7kkV34AWbvRqaZwYZHl+J8qCnDplH4x7epRfkxe6w
+	Q+tz6waPs2szTrUVMAg8VGzFd9dFlTXHqQq6Or7PewSzdVVYQh1zV3Zyx+n9LxVTBUizJYcFEO/AC
+	zlI34r3w+VdxrWVRiWYzCRdx+zEEODFrWpHByy/Dxz7htsrak6pzEY8QcUwLamFd8q5IAKwq6IsnA
+	lsYteJAfmvmHKhRJkJFA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNr85-0000000GE8A-0v7J;
-	Wed, 18 Dec 2024 10:18:09 +0000
+	id 1tNrGZ-0000000GFtq-0mMS;
+	Wed, 18 Dec 2024 10:26:55 +0000
 Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNr6x-0000000GDyG-39kR;
-	Wed, 18 Dec 2024 10:17:01 +0000
-Date: Wed, 18 Dec 2024 11:16:53 +0100
+	id 1tNrFS-0000000GFj8-20VK;
+	Wed, 18 Dec 2024 10:25:47 +0000
+Date: Wed, 18 Dec 2024 11:25:44 +0100
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1734517014;
+	s=2020; t=1734517545;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=asQwivYoQ6OyVNJBd3EdgJw1JjuKg7fNklboQjqanF4=;
-	b=k+9+2dt84P2yu2JQjHriNsnfLK1U2zwMe3zETXzWpHvMFbzWIWRl0216I0Fp7Fs0GxVlyo
-	yc6i4Q3Hu1q2hD8wlkaWxUa2/LSRxg2COBfpJYgxfKOVjFaVDrdSLxoJSE3b4rni7eSePg
-	zI/dWD74oT5nZPEZZO7hwDCfBtI4dfQFjxRIFS9AkAU85OAfFsoE1hleSOYGu1n4z2yAZY
-	Y1RK/InyIx+aLJuE6QRRzC4LUqndo/HAvuKeT1pLXt7sSb5Bh3nglAiSTENEvex8fG+geW
-	f0ENU722o2Q/62/Nus5sE3hNF3ZF1A45agg8WoxbV4hKlyXpoR26vp6T9Jw1dg==
+	bh=Wc3y2MMAV4l4fXGHcieZbsIyWfTg/ozhFPhFb4lifrk=;
+	b=2SSWoTmikqml+QyzziVj/m4Yg45xAoP4dNtwTBlJig2p14toOtHozKw5Bxfjy4L/DvACGV
+	OMNT4R2Rekm2Ck8CCOW0XGD1j8FoyZrt3Z7jazkfGB6Zv+KWrHTMOhmUum+sr+mgUm1e61
+	TM1KWhbGQXbTlvxJf51hlLY47fK7pZY7y05qey8SsXBH0Nkg9uMgzFSWUJ30b/nxZp2S3N
+	Hy4DtDnFlOUNAID7T8cQaJtlrwqn059Y+FAOYDMu2CWWxXTn5NsAeABAkO/WY90H+pP48R
+	uMCgaoU5KLrPl82I7qw8SvgoxROfvTSXg9ibM/gPkLEPvpm/oD+JPk198PVRXA==
 DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1734517014;
+	s=2020e; t=1734517545;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=asQwivYoQ6OyVNJBd3EdgJw1JjuKg7fNklboQjqanF4=;
-	b=yXhQ4RjeaS/+ewnR286ORrRNsrdJ4qpmR9IkiLgWDlKmPEPu6UZYxm4SDqI/YyJISRXAyJ
-	qqASr10vg3j1/pBg==
+	bh=Wc3y2MMAV4l4fXGHcieZbsIyWfTg/ozhFPhFb4lifrk=;
+	b=AoKeNEyuPrW2z0f+0sR+kxNpoFiiPy1/gq9ak22q5IqO1FLos7EO/vgThimKc+44ktm5ZR
+	tRGCj/jF+KFa4yBw==
 From: Thomas =?utf-8?Q?Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
 To: Christophe Leroy <christophe.leroy@csgroup.eu>
 Cc: "James E.J. Bottomley" <James.Bottomley@hansenpartnership.com>, 
@@ -70,18 +70,17 @@ Cc: "James E.J. Bottomley" <James.Bottomley@hansenpartnership.com>,
 	linux-arm-kernel@lists.infradead.org, linux-riscv@lists.infradead.org, loongarch@lists.linux.dev, 
 	linux-s390@vger.kernel.org, linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, 
 	linux-arch@vger.kernel.org, Nam Cao <namcao@linutronix.de>
-Subject: Re: [PATCH 12/17] powerpc/vdso: Switch to generic storage
- implementation
-Message-ID: <20241218105556-6d6d0bcb-f2d7-418e-a4e6-1222c506d2cb@linutronix.de>
+Subject: Re: [PATCH 03/17] vdso: Add generic time data storage
+Message-ID: <20241218111724-41f5e3c6-f41d-41ec-beed-bd05cca05016@linutronix.de>
 References: <20241216-vdso-store-rng-v1-0-f7aed1bdb3b2@linutronix.de>
- <20241216-vdso-store-rng-v1-12-f7aed1bdb3b2@linutronix.de>
- <12120bbe-1d79-425b-982d-46af1fa5d70d@csgroup.eu>
+ <20241216-vdso-store-rng-v1-3-f7aed1bdb3b2@linutronix.de>
+ <3b44defd-cd2a-4a3c-b72d-bcc0530336da@csgroup.eu>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <12120bbe-1d79-425b-982d-46af1fa5d70d@csgroup.eu>
+In-Reply-To: <3b44defd-cd2a-4a3c-b72d-bcc0530336da@csgroup.eu>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241218_021700_068755_B9F052A6 
-X-CRM114-Status: GOOD (  16.24  )
+X-CRM114-CacheID: sfid-20241218_022546_795944_9307E309 
+X-CRM114-Status: GOOD (  20.87  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,78 +99,69 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 Hi Christophe,
 
-On Wed, Dec 18, 2024 at 08:20:51AM +0100, Christophe Leroy wrote:
-> Le 16/12/2024 =E0 15:10, Thomas Wei=DFschuh a =E9crit=A0:
+On Wed, Dec 18, 2024 at 08:32:14AM +0100, Christophe Leroy wrote:
+> Le 16/12/2024 =E0 15:09, Thomas Wei=DFschuh a =E9crit=A0:
+> > Historically each architecture defined their own way to store the vDSO
+> > data page. Add a generic mechanism to provide storage for that page.
+> > =
+
+> > Furthermore this generic storage will be extended to also provide
+> > uniform storage for *non*-time-related data, like the random state or
+> > architecture-specific data. These will have their own pages and data
+> > structures, so rename 'vdso_data' into 'vdso_time_data' to make that
+> > split clear from the name.
+> > =
+
+> > Also introduce a new consistent naming scheme for the symbols related to
+> > the vDSO, which makes it clear if the symbol is accessible from
+> > userspace or kernel space and the type of data behind the symbol.
+> > =
+
+> > The generic fault handler contains an optimization to prefault the vvar
+> > page when the timens page is accessed. This was lifted from s390 and x8=
+6.
+> > =
+
+> > Co-developed-by: Nam Cao <namcao@linutronix.de>
+> > Signed-off-by: Nam Cao <namcao@linutronix.de>
+> > Signed-off-by: Thomas Wei=DFschuh <thomas.weissschuh@linutronix.de>
+> > ---
+> >   MAINTAINERS                    |  1 +
+> >   include/linux/time_namespace.h |  1 +
+> >   include/linux/vdso_datastore.h | 10 +++++
+> >   include/vdso/datapage.h        | 69 +++++++++++++++++++++++++----
+> >   lib/Kconfig                    |  1 +
+> >   lib/Makefile                   |  2 +
+> >   lib/vdso_kernel/Kconfig        |  7 +++
+> >   lib/vdso_kernel/Makefile       |  3 ++
+> >   lib/vdso_kernel/datastore.c    | 99 +++++++++++++++++++++++++++++++++=
++++++++++
+> =
+
+> There is only one single file, namely datastore.c. You don't need a new
+> directory for that, I should go in lib/vdso/
+
+lib/vdso/ currently only contains userspace code.
+I don't have a strong opinion on that.
+The lib/vdso_kernel location was suggested by tglx, maybe he has some
+feedback. (Originally I put it into kernel/vdso_storage.c)
 
 [..]
 
-> >   #ifdef CONFIG_TIME_NS
-> > -static __always_inline
-> > -const struct vdso_data *__arch_get_timens_vdso_data(const struct vdso_=
-data *vd)
-> > +static __always_inline const struct vdso_time_data *__ppc_get_vdso_u_t=
-imens_data(void)
-> >   {
-> > -	return (void *)vd + (1U << CONFIG_PAGE_SHIFT);
-> > +	struct vdso_time_data *time_data;
-> > +
-> > +	asm(
-> > +		"	bcl	20, 31, .+4\n"
-> > +		"0:	mflr	%0\n"
-> > +		"	addis	%0, %0, (vdso_u_timens_data - 0b)@ha\n"
-> > +		"	addi	%0, %0, (vdso_u_timens_data - 0b)@l\n"
-> > +	: "=3Dr" (time_data) :: "lr");
-> > +
-> > +	return time_data;
+> > +enum vdso_pages {
+> > +	VDSO_TIME_PAGE_OFFSET,
+> > +	VDSO_TIMENS_PAGE_OFFSET,
+> > +	VDSO_NR_PAGES
+> > +};
 > =
 
-> Please don't do that, it kills optimisation efforts done when implementing
-> VDSO time. Commit ce7d8056e38b ("powerpc/vdso: Prepare for switching VDSO=
- to
-> generic C implementation.") explains why.
-> =
+> Naming that VDSO_ is confusing. Most macros called VDSO_ are related to t=
+he
+> VDSO Code. VDSO data related macros should be prefixed with VVAR_
 
-> For time data, the bcl/mflr dance is done by get_datapage macro called by
-> cvdso_call macro in gettimeofday.S, and given to
-> __cvdso_clock_gettime_data() by __c_kernel_clock_gettime() in
-> vgettimeofday.c . Use that information and don't redo the bcl/mflr sequen=
-ce.
-
-So instead keeping the logic of this:
-
-static __always_inline
-const struct vdso_data *__arch_get_timens_vdso_data(const struct vdso_data =
-*vd)
-{
-	return (void *)vd + (1U << CONFIG_PAGE_SHIFT);
-}
-
-Makes sense.
-
-Adding a constant value should be cheaper or just as cheap as a
-PC-relative addressing for all architectures, so it can go into the
-generic code, too.
+Also a request from tglx.
 
 [..]
-
-> >   }
-> > +#define __arch_get_vdso_u_timens_data __ppc_get_vdso_u_timens_data
-> =
-
-> There is not #ifdef __arch_get_vdso_u_timens_data anywhere, this #define =
-is
-> not needed, the function should be called __arch_get_vdso_u_timens_data()
-> directly as before, unnecessary indirections reduce readability.
-
-I'll see how this works out with the include order and conflicts with
-symbols in include/vdso/datapage.h.
-
-> >   #endif
-> > -static inline bool vdso_clocksource_ok(const struct vdso_data *vd)
-> > +static inline bool vdso_clocksource_ok(const struct vdso_time_data *vd)
-> >   {
-> >   	return true;
-> >   }
 
 
 Thanks!
