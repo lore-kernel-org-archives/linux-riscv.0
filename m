@@ -4,92 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BDE51E77188
-	for <linux-riscv@archiver.kernel.org>; Wed, 18 Dec 2024 15:09:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 52819E77187
+	for <linux-riscv@archiver.kernel.org>; Wed, 18 Dec 2024 15:15:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
 	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
 	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MI5zI6fHFh7XfFwaz0Kf2g0Y3AuQAymAjsZp/IkEkdY=; b=dh8yiB4iy9JdHH35pleBJOoFz/
-	KYz5HSRYR3b5O//qncuNnp1MiIBhEWzaZhASLpAGyoLdEHXIiMbh9oc5/7FhcA7CpEwhFaN8FzITS
-	y/dyi+UhUJpU/dwOvVJ/1ZIZws0QYhDVyP+Awfk3n4ylA8pzVyTb+TzoBdOtbdnIWonuSMhxZAOQH
-	L+fHeKaM7T0Bj3AwSD6EPw5CqNK6rmWgy+MXPMXNlg4sM+wUtZv7MfbIc+rd50aRqCnLzYXqoymcm
-	wstxUB/YDOnUlozc14ltoxwrUC1YPt/tORPpHlxBeI7KrcsJwuWCf/uN9PhDld1IvWlRvFb8HklDs
-	jX0FYQ4w==;
+	bh=7uCp1VDRg4d+Aa2dWaJE+Z71hFeqcSNWZKj0PkamG8M=; b=aJjbfrT+i9WoLatyYensAlXIHZ
+	UxjFKD9818AMSfuEMoKJBFR4v/pW533BhbQxgLQS3rUMRZyVLGzygFus6KwoMz26AFK3dGrhUJc0R
+	pF9bbKRK1qC6CYt0zSrNc5NZTdvaSn3dsKIw0P6W0h1PtJfChM43M/GHqeZI/UBgkFENDIdk5h1dy
+	Smhkz9y0AxoRt8tRpkbEZm791gS4mwA1vhM8VrVHweCBqBZLn9I+/ZV/id7b8oefNCTsF8Ja7R3P2
+	iaWKqqZyTc8YgUMEqe/6mdlJUAsu5TwwzYHG9QlAYpPGfvDXqgTgby1MPLJYQQI5DkPtPmdi39Aqw
+	Gr0XNAJA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNvgL-0000000Gxah-44rg;
-	Wed, 18 Dec 2024 15:09:49 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tNvlk-0000000Gyt9-39fW;
+	Wed, 18 Dec 2024 15:15:24 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNvfE-0000000GxLy-2ZcC;
-	Wed, 18 Dec 2024 15:08:41 +0000
+	id 1tNvlG-0000000Gykw-2EYn
+	for linux-riscv@lists.infradead.org;
+	Wed, 18 Dec 2024 15:14:56 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 37A0F5C61EC;
-	Wed, 18 Dec 2024 15:07:57 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 31A23C4CECE;
-	Wed, 18 Dec 2024 15:08:31 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 184B0A42090;
+	Wed, 18 Dec 2024 15:13:03 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A8CA9C4CECD;
+	Wed, 18 Dec 2024 15:14:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1734534519;
-	bh=dsz8257D+6as1uUtKCRNXMXuyupbAqskFTKy5dqOl5Q=;
+	s=k20201202; t=1734534893;
+	bh=SjNt+XDqcRtFHMkrR6DiTUZbGYdJRYJjVJCsdb9bxhI=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=DOFYmV/OC+pxzzSN2F3KRoWuPa3RBYPTcC/zoOH2NCKjp1MeXanV999doe0z17HZ9
-	 kZeRFu9n52HpxIYfDvjY68cwj2dFjby7xXYHkkhE6r1WCfyp9XvKDBOdii0weYJCm+
-	 9xKCOdfjiu4YgHKWSLJx0oNXIh9y/gozVqQ4FgrGJap66A/Q1lO5Vt/tWoIGECJlWH
-	 Rp7OGHr4sDQ+63bPykzZvg4/ERY2JHbLdJSx7PfB1jdfh7ai0OGgoE0GCVZHUb6g+l
-	 lHS+ibQI7IPTVeyzL3d/9mjIO74XkR3qFvTP3HJ4GhKXpeqZidOrYIhtpJAdAEabhd
-	 m0OkMY0OfPMpw==
-Date: Wed, 18 Dec 2024 15:08:28 +0000
+	b=ZJUNGrrD92LbfAoykCRLgv4ue8/TQpJT+ZSjc4y0+QtjHMVeqodSTtGy68pavPYpn
+	 7otipDC35WXX4JW0z0ruRtK60POtL8s39akaRRmceo96gHferykcsnG4fyBicw8PV4
+	 zQ4kWMq0kDgrymMA2EuSu0ZYDIzaDRP5NiwpRzperRw/nx+RzHcyaPYC5zP8YviM3c
+	 cSxv2hGTZ/3MnOxN3hf9Iq7b8IzYriLLiMwWCrkIEmAlWxIG/DznT7dXRim2wPDLVx
+	 W13UxjbMxcgktTohq5MQGZ/I+EvK7fRwj0bSmiCjA/WY02raeDO7JxsE2M3W8MOJUW
+	 oxEBf6ZoYgIbg==
+Date: Wed, 18 Dec 2024 15:14:46 +0000
 From: Conor Dooley <conor@kernel.org>
-To: Thomas =?iso-8859-1?Q?Wei=DFschuh?= <thomas.weissschuh@linutronix.de>
-Cc: "James E.J. Bottomley" <James.Bottomley@hansenpartnership.com>,
-	Helge Deller <deller@gmx.de>, Andy Lutomirski <luto@kernel.org>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Vincenzo Frascino <vincenzo.frascino@arm.com>,
-	Anna-Maria Behnsen <anna-maria@linutronix.de>,
-	Frederic Weisbecker <frederic@kernel.org>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Theodore Ts'o <tytso@mit.edu>,
-	"Jason A. Donenfeld" <Jason@zx2c4.com>,
+To: Charlie Jenkins <charlie@rivosinc.com>
+Cc: Masahiro Yamada <masahiroy@kernel.org>,
 	Paul Walmsley <paul.walmsley@sifive.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
 	Albert Ou <aou@eecs.berkeley.edu>,
-	Huacai Chen <chenhuacai@kernel.org>,
-	WANG Xuerui <kernel@xen0n.name>,
-	Russell King <linux@armlinux.org.uk>,
-	Heiko Carstens <hca@linux.ibm.com>,
-	Vasily Gorbik <gor@linux.ibm.com>,
-	Alexander Gordeev <agordeev@linux.ibm.com>,
-	Christian Borntraeger <borntraeger@linux.ibm.com>,
-	Sven Schnelle <svens@linux.ibm.com>,
-	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Nicholas Piggin <npiggin@gmail.com>,
-	Christophe Leroy <christophe.leroy@csgroup.eu>,
-	Naveen N Rao <naveen@kernel.org>,
-	Madhavan Srinivasan <maddy@linux.ibm.com>,
-	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
-	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
-	"H. Peter Anvin" <hpa@zytor.com>, Arnd Bergmann <arnd@arndb.de>,
-	linux-parisc@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-riscv@lists.infradead.org, loongarch@lists.linux.dev,
-	linux-s390@vger.kernel.org, linux-mips@vger.kernel.org,
-	linuxppc-dev@lists.ozlabs.org, linux-arch@vger.kernel.org,
-	Nam Cao <namcao@linutronix.de>
-Subject: Re: [PATCH 07/17] riscv: vdso: Switch to generic storage
- implementation
-Message-ID: <20241218-action-matchbook-571b597b7f55@spud>
-References: <20241216-vdso-store-rng-v1-0-f7aed1bdb3b2@linutronix.de>
- <20241216-vdso-store-rng-v1-7-f7aed1bdb3b2@linutronix.de>
+	Nathan Chancellor <nathan@kernel.org>,
+	Nick Desaulniers <ndesaulniers@google.com>,
+	Bill Wendling <morbo@google.com>,
+	Justin Stitt <justinstitt@google.com>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Ingo Molnar <mingo@redhat.com>,
+	Arnaldo Carvalho de Melo <acme@kernel.org>,
+	Namhyung Kim <namhyung@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>,
+	Adrian Hunter <adrian.hunter@intel.com>,
+	=?iso-8859-1?Q?Micka=EBl_Sala=FCn?= <mic@digikod.net>,
+	=?iso-8859-1?Q?G=FCnther?= Noack <gnoack@google.com>,
+	Nelson Chu <nelson@rivosinc.com>, linux-kernel@vger.kernel.org,
+	linux-kbuild@vger.kernel.org, linux-riscv@lists.infradead.org,
+	llvm@lists.linux.dev, linux-perf-users@vger.kernel.org,
+	linux-security-module@vger.kernel.org
+Subject: Re: [PATCH 1/2] kbuild: Check version of objdump
+Message-ID: <20241218-sandfish-hence-5fa18539f7ca@spud>
+References: <20241216-perf_fix_riscv_obj_reading-v1-0-b75962660a9b@rivosinc.com>
+ <20241216-perf_fix_riscv_obj_reading-v1-1-b75962660a9b@rivosinc.com>
 MIME-Version: 1.0
-In-Reply-To: <20241216-vdso-store-rng-v1-7-f7aed1bdb3b2@linutronix.de>
+In-Reply-To: <20241216-perf_fix_riscv_obj_reading-v1-1-b75962660a9b@rivosinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241218_070840_744162_A55FEFAB 
-X-CRM114-Status: GOOD (  14.90  )
+X-CRM114-CacheID: sfid-20241218_071454_709458_B5718480 
+X-CRM114-Status: GOOD (  25.56  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,120 +87,188 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============2177177190523467522=="
+Content-Type: multipart/mixed; boundary="===============1047407611682951385=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
---===============2177177190523467522==
+--===============1047407611682951385==
 Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="fu8z2+BbmIxUgToy"
+	protocol="application/pgp-signature"; boundary="b/GWEQJsBut7jlmV"
 Content-Disposition: inline
 
 
---fu8z2+BbmIxUgToy
-Content-Type: text/plain; charset=iso-8859-1
+--b/GWEQJsBut7jlmV
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
 
-On Mon, Dec 16, 2024 at 03:10:03PM +0100, Thomas Wei=DFschuh wrote:
-> The generic storage implementation provides the same features as the
-> custom one. However it can be shared between architectures, making
-> maintenance easier.
+On Mon, Dec 16, 2024 at 03:12:51PM -0800, Charlie Jenkins wrote:
+> Similar to ld-version, add a way to check the version of objdump. This
+> should most of the time end up being the binutils version or the llvm
+> version.
 >=20
-> Co-developed-by: Nam Cao <namcao@linutronix.de>
-> Signed-off-by: Nam Cao <namcao@linutronix.de>
-> Signed-off-by: Thomas Wei=DFschuh <thomas.weissschuh@linutronix.de>
+> Signed-off-by: Charlie Jenkins <charlie@rivosinc.com>
+
+This fails for allmodconfig and rv32_defconfig with clang. 19.1.1
+according to Bjorn :)
+
+Cheers,
+Conor.
+
 > ---
->  arch/riscv/Kconfig                                 |  3 +-
->  arch/riscv/include/asm/vdso.h                      |  2 +-
->  .../include/asm/vdso/{time_data.h =3D> arch_data.h}  |  8 +-
->  arch/riscv/include/asm/vdso/gettimeofday.h         | 14 +---
->  arch/riscv/include/asm/vdso/vsyscall.h             |  9 ---
->  arch/riscv/kernel/sys_hwprobe.c                    |  3 +-
->  arch/riscv/kernel/vdso.c                           | 90 +---------------=
-------
->  arch/riscv/kernel/vdso/hwprobe.c                   |  6 +-
->  arch/riscv/kernel/vdso/vdso.lds.S                  |  7 +-
->  9 files changed, 18 insertions(+), 124 deletions(-)
+>  init/Kconfig               | 10 +++++++
+>  scripts/Kconfig.include    |  6 ++++
+>  scripts/objdump-version.sh | 69 ++++++++++++++++++++++++++++++++++++++++=
+++++++
+>  3 files changed, 85 insertions(+)
+>=20
+> diff --git a/init/Kconfig b/init/Kconfig
+> index a20e6efd3f0fbdd7f0df2448854cc30734a0ee4f..0b5d36f939e1de89c12ebdd61=
+e4815015314d4f1 100644
+> --- a/init/Kconfig
+> +++ b/init/Kconfig
+> @@ -60,6 +60,16 @@ config LLD_VERSION
+>  	default $(ld-version) if LD_IS_LLD
+>  	default 0
+> =20
+> +config OBJDUMP_IS_GNU
+> +	def_bool $(success,test "$(objdump-name)" =3D objdump)
+> +
+> +config OBJDUMP_IS_LLVM
+> +	def_bool $(success,test "$(objdump-name)" =3D llvm-objdump)
+> +
+> +config OBJDUMP_VERSION
+> +	int
+> +	default $(objdump-version)
+> +
+>  config RUSTC_VERSION
+>  	int
+>  	default $(rustc-version)
+> diff --git a/scripts/Kconfig.include b/scripts/Kconfig.include
+> index 33193ca6e8030e659d6b321acaea1acd42c387a4..cb3e2d2564fea8cce780adb3b=
+e672c9596b7ccf2 100644
+> --- a/scripts/Kconfig.include
+> +++ b/scripts/Kconfig.include
+> @@ -58,6 +58,12 @@ $(error-if,$(success,test -z "$(ld-info)"),Sorry$(comm=
+a) this linker is not supp
+>  ld-name :=3D $(shell,set -- $(ld-info) && echo $1)
+>  ld-version :=3D $(shell,set -- $(ld-info) && echo $2)
+> =20
+> +# Get the objdump name, version, and error out if it is not supported.
+> +objdump-info :=3D $(shell,$(srctree)/scripts/objdump-version.sh $(OBJDUM=
+P))
+> +$(error-if,$(success,test -z "$(objdump-info)"),Sorry$(comma) this objdu=
+mp is not supported.)
+> +objdump-name :=3D $(shell,set -- $(objdump-info) && echo $1)
+> +objdump-version :=3D $(shell,set -- $(objdump-info) && echo $2)
+> +
+>  # machine bit flags
+>  #  $(m32-flag): -m32 if the compiler supports it, or an empty string oth=
+erwise.
+>  #  $(m64-flag): -m64 if the compiler supports it, or an empty string oth=
+erwise.
+> diff --git a/scripts/objdump-version.sh b/scripts/objdump-version.sh
+> new file mode 100755
+> index 0000000000000000000000000000000000000000..fa24f8dc2d3c42fd1195fceb3=
+c96b27f7127db25
+> --- /dev/null
+> +++ b/scripts/objdump-version.sh
+> @@ -0,0 +1,69 @@
+> +#!/bin/sh
+> +# SPDX-License-Identifier: GPL-2.0
+> +#
+> +# Print the objdump name and its version in a 5 or 6-digit form.
+> +# Also, perform the minimum version check.
+> +
+> +set -e
+> +
+> +# Convert the version string x.y.z to a canonical 5 or 6-digit form.
+> +get_canonical_version()
+> +{
+> +	IFS=3D.
+> +	set -- $1
+> +
+> +	# If the 2nd or 3rd field is missing, fill it with a zero.
+> +	#
+> +	# The 4th field, if present, is ignored.
+> +	# This occurs in development snapshots as in 2.35.1.20201116
+> +	echo $((10000 * $1 + 100 * ${2:-0} + ${3:-0}))
+> +}
+> +
+> +orig_args=3D"$@"
+> +
+> +# Get the first line of the --version output.
+> +IFS=3D'
+> +'
+> +set -- $(LC_ALL=3DC "$@" --version)
+> +
+> +# Split the line on spaces.
+> +IFS=3D' '
+> +set -- $1
+> +
+> +min_tool_version=3D$(dirname $0)/min-tool-version.sh
+> +
+> +if [ "$1" =3D GNU -a "$2" =3D objdump ]; then
+> +	shift $(($# - 1))
+> +	version=3D$1
+> +	min_version=3D$($min_tool_version binutils)
+> +	disp_name=3D"GNU objdump"
+> +else
+> +	while [ $# -gt 1 -a "$1" !=3D "LLVM" ]; do
+> +		shift
+> +	done
+> +
+> +	if [ "$1" =3D LLVM ]; then
+> +		version=3D$3
+> +		min_version=3D$($min_tool_version llvm)
+> +		disp_name=3D"llvm-objdump"
+> +	else
+> +		echo "$orig_args: unknown objdump" >&2
+> +		exit 1
+> +	fi
+> +fi
+> +
+> +version=3D${version%%[!0-9.]*}
+> +
+> +cversion=3D$(get_canonical_version $version)
+> +min_cversion=3D$(get_canonical_version $min_version)
+> +
+> +if [ "$cversion" -lt "$min_cversion" ]; then
+> +	echo >&2 "***"
+> +	echo >&2 "*** objdump is too old."
+> +	echo >&2 "***   Your $disp_name version:    $version"
+> +	echo >&2 "***   Minimum $disp_name version: $min_version"
+> +	echo >&2 "***"
+> +	exit 1
+> +fi
+> +
+> +echo objdump $cversion
+>=20
+> --=20
+> 2.34.1
+>=20
+>=20
+> _______________________________________________
+> linux-riscv mailing list
+> linux-riscv@lists.infradead.org
+> http://lists.infradead.org/mailman/listinfo/linux-riscv
 
-Fails to build:
-Patch 7/17: Test 1/12: .github/scripts/patches/tests/build_rv32_defconfig.sh
-  /build/tmp.cAQOaMfDA3/arch/riscv/kernel/vdso/hwprobe.c:11:33: warning: de=
-claration of 'struct riscv_hwprobe' will not be visible outside of this fun=
-ction [-Wvisibility]
-  /build/tmp.cAQOaMfDA3/arch/riscv/kernel/vdso/hwprobe.c:15:41: warning: de=
-claration of 'struct riscv_hwprobe' will not be visible outside of this fun=
-ction [-Wvisibility]
-  /build/tmp.cAQOaMfDA3/arch/riscv/kernel/vdso/hwprobe.c:19:37: error: call=
- to undeclared function '__arch_get_vdso_u_arch_data'; ISO C99 and later do=
- not support implicit function declarations [-Wimplicit-function-declaratio=
-n]
-  /build/tmp.cAQOaMfDA3/arch/riscv/kernel/vdso/hwprobe.c:19:31: error: inco=
-mpatible integer to pointer conversion initializing 'const struct vdso_arch=
-_data *' with an expression of type 'int' [-Wint-conversion]
-  /build/tmp.cAQOaMfDA3/arch/riscv/kernel/vdso/hwprobe.c:22:36: error: arit=
-hmetic on a pointer to an incomplete type 'struct riscv_hwprobe'
-  /build/tmp.cAQOaMfDA3/arch/riscv/kernel/vdso/hwprobe.c:30:40: error: inco=
-mplete definition of type 'const struct vdso_arch_data'
-  /build/tmp.cAQOaMfDA3/arch/riscv/kernel/vdso/hwprobe.c:31:24: error: inco=
-mpatible pointer types passing 'struct riscv_hwprobe *' to parameter of typ=
-e 'struct riscv_hwprobe *' [-Werror,-Wincompatible-pointer-types]
-  /build/tmp.cAQOaMfDA3/arch/riscv/kernel/vdso/hwprobe.c:35:7: error: call =
-to undeclared function 'riscv_hwprobe_key_is_valid'; ISO C99 and later do n=
-ot support implicit function declarations [-Wimplicit-function-declaration]
-  /build/tmp.cAQOaMfDA3/arch/riscv/kernel/vdso/hwprobe.c:35:35: error: inco=
-mplete definition of type 'struct riscv_hwprobe'
-  /build/tmp.cAQOaMfDA3/arch/riscv/kernel/vdso/hwprobe.c:36:5: error: incom=
-plete definition of type 'struct riscv_hwprobe'
-  /build/tmp.cAQOaMfDA3/arch/riscv/kernel/vdso/hwprobe.c:36:18: error: inco=
-mplete definition of type 'const struct vdso_arch_data'
-  /build/tmp.cAQOaMfDA3/arch/riscv/kernel/vdso/hwprobe.c:36:44: error: inco=
-mplete definition of type 'struct riscv_hwprobe'
-  /build/tmp.cAQOaMfDA3/arch/riscv/kernel/vdso/hwprobe.c:39:5: error: incom=
-plete definition of type 'struct riscv_hwprobe'
-  /build/tmp.cAQOaMfDA3/arch/riscv/kernel/vdso/hwprobe.c:40:5: error: incom=
-plete definition of type 'struct riscv_hwprobe'
-  /build/tmp.cAQOaMfDA3/arch/riscv/kernel/vdso/hwprobe.c:43:4: error: arith=
-metic on a pointer to an incomplete type 'struct riscv_hwprobe'
-  /build/tmp.cAQOaMfDA3/arch/riscv/kernel/vdso/hwprobe.c:49:39: warning: de=
-claration of 'struct riscv_hwprobe' will not be visible outside of this fun=
-ction [-Wvisibility]
-  /build/tmp.cAQOaMfDA3/arch/riscv/kernel/vdso/hwprobe.c:53:37: error: call=
- to undeclared function '__arch_get_vdso_u_arch_data'; ISO C99 and later do=
- not support implicit function declarations [-Wimplicit-function-declaratio=
-n]
-  /build/tmp.cAQOaMfDA3/arch/riscv/kernel/vdso/hwprobe.c:53:31: error: inco=
-mpatible integer to pointer conversion initializing 'const struct vdso_arch=
-_data *' with an expression of type 'int' [-Wint-conversion]
-  /build/tmp.cAQOaMfDA3/arch/riscv/kernel/vdso/hwprobe.c:55:36: error: arit=
-hmetic on a pointer to an incomplete type 'struct riscv_hwprobe'
-  /build/tmp.cAQOaMfDA3/arch/riscv/kernel/vdso/hwprobe.c:71:61: error: inco=
-mplete definition of type 'const struct vdso_arch_data'
-  /build/tmp.cAQOaMfDA3/arch/riscv/kernel/vdso/hwprobe.c:71:29: error: use =
-of undeclared identifier 'RISCV_HWPROBE_WHICH_CPUS'
-  /build/tmp.cAQOaMfDA3/arch/riscv/kernel/vdso/hwprobe.c:72:24: error: inco=
-mpatible pointer types passing 'struct riscv_hwprobe *' to parameter of typ=
-e 'struct riscv_hwprobe *' [-Werror,-Wincompatible-pointer-types]
-  fatal error: too many errors emitted, stopping now [-ferror-limit=3D]
-
-Might be a clang thing, allmodconfig with clang doesn't build either.
-
---fu8z2+BbmIxUgToy
+--b/GWEQJsBut7jlmV
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZ2LlbAAKCRB4tDGHoIJi
-0n2PAQDyBQBbIhWl4PuPh0Arh+dY5o5V02LpT/vyZTOInKNMcgEAqZD+a5hkxJEH
-lFXI4u2esepSVEUEOeQQYFauBervVQc=
-=gqd2
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZ2Lm5gAKCRB4tDGHoIJi
+0u/lAP9kRzDD4E/btOPSi7N3eOmgjKUrMlMEji8jDYxIKzyTmAD/XIfHvCTvc6cx
+cqbHAgzjJzYiJ5hNBr8W+Qg7PTaoEwA=
+=4kd8
 -----END PGP SIGNATURE-----
 
---fu8z2+BbmIxUgToy--
+--b/GWEQJsBut7jlmV--
 
 
---===============2177177190523467522==
+--===============1047407611682951385==
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
@@ -225,5 +279,5 @@ linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
 
---===============2177177190523467522==--
+--===============1047407611682951385==--
 
