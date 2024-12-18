@@ -4,91 +4,112 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B8C1EE77187
-	for <linux-riscv@archiver.kernel.org>; Wed, 18 Dec 2024 09:03:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6C891E77187
+	for <linux-riscv@archiver.kernel.org>; Wed, 18 Dec 2024 09:24:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=9fPAg2/HkUTtC8zYxYpbr7gzDu+L9A4Lpf2JuoxhQ9w=; b=S3A4pdpM4aMBvG
-	BAhRVtw3bDdrmnMalymT1QZO1P/utQigEZ+m15bqjGzrXq8WNN2X23K44Se5Ce2qLcD4wiMzMt/B3
-	St4V58TGYbE5kfRlfO5fhKnceQUA6dnGlrYuEPcibg4hp7leG7EHguPSP7g8Z8WwRTA+GlaL1X4r+
-	qNPXzGXrzU0/bn0bre1hViqiSBegLD7yrfS8EfyeDFSptgujM0uCOHy/iRxeBh1zb3HuK82OFL+pv
-	x79bWjlKrrb5guth51qd/gf6UHLeG3tzmC8+wsi/7SyOtdioqkxX02iEArdjxt77taOCe5mAomSt8
-	n7Q0bVtxOw92xG7FWMYg==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:MIME-Version:Message-Id:Date:
+	Subject:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=2gJNbwtbyJjlXiofODQ9k8UY20kg2Md0twkTOcYTVGI=; b=34AvRrojFybxgf
+	m1OGNgb84O2Oao0dLVcploK697CSJogBHniIOz7hLfW7HYIFb3qbbIxhv4ipAgs7ptZjzdSCgITv8
+	19nJsUF8K6uefNmOFCzNHfG7VINooeE9t3zk+Ca2NSeq543RsYOFFmVCKPEr/ueb1Mn7L1vWJqLm4
+	yeggLOvwnAtJqeRHdVBAhQqQ83Ab67GjMB8aQud1my410N4G11/C8mXuxMw3oFnj6OBZr9DDXzjtB
+	rz6ZHp4Ge60axCeyASzCkTQVCPWU8u1+E8R2OfLy5mRU0/vnhMszL5VIWZvcfUCHWbAyHRALLfzo0
+	yMTX1I3zV+mW14Ed2lGQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNpxl-0000000G0Jl-097s;
-	Wed, 18 Dec 2024 09:03:25 +0000
-Received: from mail-qk1-x731.google.com ([2607:f8b0:4864:20::731])
+	id 1tNqIB-0000000G4mO-1CHe;
+	Wed, 18 Dec 2024 09:24:31 +0000
+Received: from mail-pl1-x634.google.com ([2607:f8b0:4864:20::634])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tNpxi-0000000G0IL-3cxJ
+	id 1tNqI7-0000000G4jx-3QYS
 	for linux-riscv@lists.infradead.org;
-	Wed, 18 Dec 2024 09:03:24 +0000
-Received: by mail-qk1-x731.google.com with SMTP id af79cd13be357-7b15467f383so568932685a.3
-        for <linux-riscv@lists.infradead.org>; Wed, 18 Dec 2024 01:03:22 -0800 (PST)
+	Wed, 18 Dec 2024 09:24:29 +0000
+Received: by mail-pl1-x634.google.com with SMTP id d9443c01a7336-215770613dbso42395775ad.2
+        for <linux-riscv@lists.infradead.org>; Wed, 18 Dec 2024 01:24:27 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1734512601; x=1735117401; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=cRdLdfLHCtTxVWya9q7QwJ93naqGXr0sXIFf7mt5Vkg=;
-        b=htNrnd14EVpex1hYOoaMMfqupGc5gMIt1+BA4S5Gp9Teu+eb9G1xkYLa6pjF9YwVVJ
-         8OW+HuZnrqpq0drAxlcsMkdJ0xY1vUCX8DMczzHmpc1qWcNYX08Dwy20ukE373ITvq7h
-         OPGH7pGftfZz4EJwNsbX0Omu+1Zrt85aJ8t5nspzLFRVFe//LOj/u+5xQGQILBqkqloG
-         z/FW/cc6q0WdSE9FIMqoQYvH8dvHvn1XDsXD7Sl4jRw4L4Wl+4qtAp4qJq52ywQLi0p+
-         aE/i2I+2qIGaOXz+rvpIpb3jtVrQqja1GiTFwo5NalXFnuocU6C012DcVeHKVHMHP+CF
-         NQ0w==
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1734513867; x=1735118667; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=NRJha1SoH0/hFCPzxGAQ47LX039fMVOKupm0XmZAb70=;
+        b=HBaZ9MaO6n5Bs6Qth/IBb3CrclzO2ZSHHMw8K1xaa8kklsGUm23Yt9lrGSfFQv0ybu
+         t8hCELi1LDvApIl8pzzvRq4cEYVutTD9fhee0AyESL5kUBdHKQ3Elb1i1KnqIkmRw8vz
+         nUXQI9gz5HI5ZyiuvtKU7SFIZAK1HEQBfllnrhur0QAQxj+Q53mLoA+Pw/ElaO67U7vT
+         jB1bpr60ymUWUXkKqXwSZW80G7pNUjVn61zdHpWoyjk6cxhqq0RDT22uG8oT2OSHoEN+
+         VhyYFPs6dDd5K+w91EF6a/Eoj2DzBYtd6rVygUBYMD2ATcVK92uecBxjK39PddNn4/hi
+         xqDg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1734512601; x=1735117401;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=cRdLdfLHCtTxVWya9q7QwJ93naqGXr0sXIFf7mt5Vkg=;
-        b=IrBX4IElSVz5vmnFX+88sI2Q9UKzAM83gNDyCrdqc1DXuqQY42nO0clDU/qR04BYGQ
-         kDwjxNr3hKpI9hSxm0mujtZJ/8Tc/xWdyIGSGmP5g5JFukd4uwrXuF1ih+CR60dCCzTG
-         zQPmKrykR0+7HuCRATy6B/etLaf02k0XZzBno1EJTOfI6TiiS1UTaGy0QIiNQrrZnMXj
-         QELZDHS4eF5ybYtzrMahbD3FgoEhIC0pH35PtvTH0VLh8lIBNBHfQxt7dUYVLqHygRkg
-         D9BwlObiTcaggx+Bssrzi3s7NA9lmGSq96WruK+NcEd8mMquQRNoqUBKjjTomXsoViky
-         YbQw==
-X-Forwarded-Encrypted: i=1; AJvYcCWuBX7ZBitNo+aUoWVu7NsKf1P+/5yepNFXFxMq4WYFLT/QsCaQZtFyxX7Q+ARf0lCDb8K5WoEh84JCgA==@lists.infradead.org
-X-Gm-Message-State: AOJu0YzFNJrbhjAroOZ62k21BKqwpQZqvYV1nLGlLAzgNOLHh0hCnqyX
-	Bsb/Xaz7iAhxm1PuyFAibNSmNQ7LNMVEMABzjwe2CrtrKk2ULVhB
-X-Gm-Gg: ASbGncu8+6lo2QJQh/8qwuJe4EEnj2BcppStb7cTlcn/q+nSi+0cdgzG6KIWGiKC5/k
-	nyg/3pFS+3RWYTuLeQTIqVCzj+l0OO6bXSOgNib6U8DSiV1rLkbfDFdAxhUL/tvhK8hPXqNN8Ow
-	MgOFpxZz5//d8LLS1vzY2rghatxB5MLcxZTvJ9JrHxYOTNaWaaMZog0LkDQomvfrq9rMm3Nk2RN
-	+V5r61Ixt8sMt2aF0PfwCnUAuPBy9xX
-X-Google-Smtp-Source: AGHT+IHIh+isE6oKIPishyr/XKqQDlHJnnTXjbRPJxsMVMeZi6BTkAZUEnn6VdDa/2khagRhtmmCIQ==
-X-Received: by 2002:a05:620a:1915:b0:7b6:da92:fcd0 with SMTP id af79cd13be357-7b8636e88bdmr234217885a.8.1734512600956;
-        Wed, 18 Dec 2024 01:03:20 -0800 (PST)
-Received: from localhost ([2001:da8:7001:11::cb])
-        by smtp.gmail.com with ESMTPSA id af79cd13be357-7b7048bd90dsm404115785a.87.2024.12.18.01.03.19
+        d=1e100.net; s=20230601; t=1734513867; x=1735118667;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=NRJha1SoH0/hFCPzxGAQ47LX039fMVOKupm0XmZAb70=;
+        b=aTxHfNyIzJIBi8p3CbjlJlCYnf6kwoWYKZ56mBG5MFZ6th4xrVMjuF2O3YjjeXaCdG
+         RXLoqcpEmt8Lp3o1PmK3PUoTCC2xF3tvemChBgY5rmVQdjJAbSGwTeGRjuPSoIEC9yAQ
+         4Cp+3eZZKBfpJH33cbDBG0cZyW6cLTj+ose9TKEygtbSs97tsGRoGSqnZrH6a0D+IlbH
+         Cx3iFcwGoLlG0RjPyhlMh9xiLZ4taS7PTHMXN7muDp2WXoyTiSyjczCl7mel3iUlUEVj
+         pZzbaXZPJWhytJQIoTvCmO//na2YyoBuWLSveT+dExtDhPSi0zxfeYs/xAAbpz75YEyG
+         cq3Q==
+X-Forwarded-Encrypted: i=1; AJvYcCXeB7zq+W6bndP03RPlTALNDyw+EQAPcYt8XMN/iGHyqDYhKmBTd5NPYJhgE0FzCJwGnWTrWoRopZ/vEg==@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywt8qlYJQyHi9/OqM2xuEvx+D7VS2c1cjTBVe7lYGma+Q+Kl3cK
+	5dpGDQAIptV70YhVROVdZdrvyflCX7iIHZsunbCp/v097KR6Q7g0Nbkp5q/UNz8=
+X-Gm-Gg: ASbGnctkqN9+RNiJdJP6mW8NLecbbwWZoNm7/UzLH7iDuqgE1hIfSlwMq+cki1UsQ2h
+	9la99rjls/zV/zPUKZZaSeUGQIM0hCnPvAgOONcXq4Q4/dWG1JybERvoAEVRWBEzhnfak5RIhi9
+	SP+/yQV0BSoDtMejyY/FDeJDxkgV3KiJvFNv9TQv2nn7BTQfFZo1qvVBOjaFe1IjYNRjitq/unM
+	dMS7X3EjS4vaQehHxwvZkH6Va0yXVV2K5K5mnhYN58eEy/sGLLYcOj7ikjObIuvZ2o4dOe/
+X-Google-Smtp-Source: AGHT+IGR4D+hNDWJEhj5SMCJmWDe5Yk0GMudatm20Y3u8muxzsVTwGB13H7qLZBnO+a9tWVs1mqlMg==
+X-Received: by 2002:a17:902:da8b:b0:216:2426:767f with SMTP id d9443c01a7336-218d725c2d5mr29562395ad.49.1734513866948;
+        Wed, 18 Dec 2024 01:24:26 -0800 (PST)
+Received: from charlie.ba.rivosinc.com ([64.71.180.162])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-218a1e64f90sm72119995ad.241.2024.12.18.01.24.24
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 18 Dec 2024 01:03:20 -0800 (PST)
-Date: Wed, 18 Dec 2024 17:03:01 +0800
-From: Inochi Amaoto <inochiama@gmail.com>
-To: Yixun Lan <dlan@gentoo.org>, Haylen Chu <heylenay@4d2.org>
-Cc: Michael Turquette <mturquette@baylibre.com>, 
-	Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Haylen Chu <heylenay@outlook.com>, linux-riscv@lists.infradead.org, linux-clk@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	Inochi Amaoto <inochiama@outlook.com>, Chen Wang <unicornxdotw@foxmail.com>, 
-	Jisheng Zhang <jszhang@kernel.org>, Inochi Amaoto <inochiama@gmail.com>
-Subject: Re: [PATCH v3 3/3] clk: spacemit: Add clock support for Spacemit K1
- SoC
-Message-ID: <3fhnjybnrrixse5h6epfp2aj7pk3uo6fk34gvsqkku6sofir6r@t3ofcy5xure6>
-References: <20241126143125.9980-2-heylenay@4d2.org>
- <20241126143125.9980-7-heylenay@4d2.org>
- <xswwcu4htkls4rdaoccrlyotup4rxjma332wewyqkmctezouxl@oplcxg5nglty>
- <20241218072727-GYA3467167@gentoo>
+        Wed, 18 Dec 2024 01:24:25 -0800 (PST)
+From: Charlie Jenkins <charlie@rivosinc.com>
+Subject: [PATCH v4 00/16] perf tools: Use generic syscall scripts for all
+ archs
+Date: Wed, 18 Dec 2024 01:23:58 -0800
+Message-Id: <20241218-perf_syscalltbl-v4-0-bc8caef2ca8e@rivosinc.com>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20241218072727-GYA3467167@gentoo>
+X-B4-Tracking: v=1; b=H4sIAK6UYmcC/23NTQrCMBCG4atI1kby19q48h4iEtMZG6hNSUqwl
+ N7dtBvFunw/mGcmEiE4iOS0m0iA5KLzXQ613xHbmO4B1NW5iWBCMc0l7SHgLY7RmrYd7i0tUVc
+ 1oLUlFiRf9QHQvVbxcs3duDj4MK4PEl/W1eKcqY2VOGVUm9pAYY8lBzwHl3x0nT1Y/yQLl8SHE
+ FxsCZEJrKzRlUIExf4Q8psot4TMhJAamRSq4nXxQ8zz/AZvUL/BNwEAAA==
+X-Change-ID: 20240913-perf_syscalltbl-6f98defcc6f5
+To: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
+ Arnaldo Carvalho de Melo <acme@kernel.org>, 
+ Namhyung Kim <namhyung@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>, 
+ Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>, 
+ Adrian Hunter <adrian.hunter@intel.com>, 
+ Paul Walmsley <paul.walmsley@sifive.com>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, 
+ =?utf-8?q?Micka=C3=ABl_Sala=C3=BCn?= <mic@digikod.net>, 
+ =?utf-8?q?G=C3=BCnther_Noack?= <gnoack@google.com>, 
+ Christian Brauner <brauner@kernel.org>, Guo Ren <guoren@kernel.org>, 
+ John Garry <john.g.garry@oracle.com>, Will Deacon <will@kernel.org>, 
+ James Clark <james.clark@linaro.org>, Mike Leach <mike.leach@linaro.org>, 
+ Leo Yan <leo.yan@linux.dev>, Jonathan Corbet <corbet@lwn.net>, 
+ =?utf-8?q?Bj=C3=B6rn_T=C3=B6pel?= <bjorn@rivosinc.com>, 
+ Arnd Bergmann <arnd@arndb.de>, Albert Ou <aou@eecs.berkeley.edu>
+Cc: linux-kernel@vger.kernel.org, linux-perf-users@vger.kernel.org, 
+ linux-riscv@lists.infradead.org, linux-security-module@vger.kernel.org, 
+ bpf@vger.kernel.org, linux-csky@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org, 
+ Charlie Jenkins <charlie@rivosinc.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=8126; i=charlie@rivosinc.com;
+ h=from:subject:message-id; bh=r5X4P4KH+np4q2plC0P/nDZXhnkwoxhAfS7b7JDFHSM=;
+ b=owGbwMvMwCHWx5hUnlvL8Y3xtFoSQ3rSlC18lXcqhZ6mOv7M/pesJ7wo5+IV8aTAXacDcuyC1
+ teneSt1lLIwiHEwyIopsvBca2BuvaNfdlS0bALMHFYmkCEMXJwCMJEYRkaGWe/TPqTc7PtSv9vV
+ +Uj6Ko0GjdWJ9oq+O1QsZFf9WZNizsjwIlR0qnDP/hcaSybFH7xt8d8r3rJVwtnz6+GTPI/+7d/
+ PCAA=
+X-Developer-Key: i=charlie@rivosinc.com; a=openpgp;
+ fpr=7D834FF11B1D8387E61C776FFB10D1F27D6B1354
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241218_010322_929993_AAE3A219 
-X-CRM114-Status: GOOD (  37.15  )
+X-CRM114-CacheID: sfid-20241218_012427_943758_4A879FD0 
+X-CRM114-Status: GOOD (  14.11  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,372 +126,158 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Dec 18, 2024 at 03:27:27PM +0800, Yixun Lan wrote:
-> On 14:47 Sun 08 Dec     , Inochi Amaoto wrote:
-> > On Tue, Nov 26, 2024 at 02:31:28PM +0000, Haylen Chu wrote:
-> > > The clock tree of K1 SoC contains three main types of clock hardware
-> > > (PLL/DDN/MIX) and is managed by several independent controllers in
-> > > different SoC parts (APBC, APBS and etc.), thus different compatible
-> > > strings are added to distinguish them.
-> > > 
-> > > Some controllers may share IO region with reset controller and other low
-> > > speed peripherals like watchdog, so all register operations are done
-> > > through regmap to avoid competition.
-> > > 
-> > > Signed-off-by: Haylen Chu <heylenay@4d2.org>
-> > > ---
-> > >  drivers/clk/Kconfig               |    1 +
-> > >  drivers/clk/Makefile              |    1 +
-> > >  drivers/clk/spacemit/Kconfig      |   20 +
-> > >  drivers/clk/spacemit/Makefile     |    5 +
-> > >  drivers/clk/spacemit/ccu-k1.c     | 1747 +++++++++++++++++++++++++++++
-> > >  drivers/clk/spacemit/ccu_common.h |   62 +
-> > >  drivers/clk/spacemit/ccu_ddn.c    |  146 +++
-> > >  drivers/clk/spacemit/ccu_ddn.h    |   85 ++
-> > >  drivers/clk/spacemit/ccu_mix.c    |  296 +++++
-> > >  drivers/clk/spacemit/ccu_mix.h    |  336 ++++++
-> > >  drivers/clk/spacemit/ccu_pll.c    |  198 ++++
-> > >  drivers/clk/spacemit/ccu_pll.h    |   80 ++
-> ....snip
-> > > diff --git a/drivers/clk/spacemit/ccu_mix.c b/drivers/clk/spacemit/ccu_mix.c
-> > > new file mode 100644
-> > > index 000000000000..de343405fcc7
-> > > --- /dev/null
-> > > +++ b/drivers/clk/spacemit/ccu_mix.c
-> > > @@ -0,0 +1,296 @@
-> > > +// SPDX-License-Identifier: GPL-2.0-only
-> > > +/*
-> > > + * Spacemit clock type mix(div/mux/gate/factor)
-> > > + *
-> > > + * Copyright (c) 2024 SpacemiT Technology Co. Ltd
-> > > + * Copyright (c) 2024 Haylen Chu <heylenay@outlook.com>
-> > > + */
-> > > +
-> > > +#include <linux/clk-provider.h>
-> > > +
-> > > +#include "ccu_mix.h"
-> > > +
-> > > +#define MIX_TIMEOUT	10000
-> > > +
-> > > +#define mix_hwparam_in_sel(c) \
-> > > +	((c)->reg_type == CLK_DIV_TYPE_2REG_NOFC_V3 || \
-> > > +	 (c)->reg_type == CLK_DIV_TYPE_2REG_FC_V4)
-> > > +
-> > 
-> > > +static void ccu_mix_disable(struct clk_hw *hw)
-> > > +{
-> > > +	struct ccu_mix *mix = hw_to_ccu_mix(hw);
-> > > +	struct ccu_common *common = &mix->common;
-> > > +	struct ccu_gate_config *gate = mix->gate;
-> > > +
-> > > +	if (!gate)
-> > > +		return;
-> > > +
-> > > +	if (mix_hwparam_in_sel(common))
-> > > +		ccu_update(sel, common, gate->gate_mask, gate->val_disable);
-> > > +	else
-> > > +		ccu_update(ctrl, common, gate->gate_mask, gate->val_disable);
-> > > +}
-> > > +
-> > > +static int ccu_mix_enable(struct clk_hw *hw)
-> > > +{
-> > > +	struct ccu_mix *mix = hw_to_ccu_mix(hw);
-> > > +	struct ccu_common *common = &mix->common;
-> > > +	struct ccu_gate_config *gate = mix->gate;
-> > > +	u32 val_enable, mask;
-> > > +	u32 tmp;
-> > > +
-> > > +	if (!gate)
-> > > +		return 0;
-> > > +
-> > > +	val_enable	= gate->val_enable;
-> > > +	mask		= gate->gate_mask;
-> > > +
-> > > +	if (mix_hwparam_in_sel(common))
-> > > +		ccu_update(sel, common, mask, val_enable);
-> > > +	else
-> > > +		ccu_update(ctrl, common, mask, val_enable);
-> > > +
-> > > +	if (common->reg_type == CLK_DIV_TYPE_2REG_NOFC_V3 ||
-> > > +	    common->reg_type == CLK_DIV_TYPE_2REG_FC_V4)
-> > > +		return ccu_poll(sel, common, tmp, (tmp & mask) == val_enable,
-> > > +				10, MIX_TIMEOUT);
-> > > +	else
-> > > +		return ccu_poll(ctrl, common, tmp, (tmp & mask) == val_enable,
-> > > +				10, MIX_TIMEOUT);
-> > > +}
-> > > +
-> > > +static int ccu_mix_is_enabled(struct clk_hw *hw)
-> > > +{
-> > > +	struct ccu_mix *mix = hw_to_ccu_mix(hw);
-> > > +	struct ccu_common *common = &mix->common;
-> > > +	struct ccu_gate_config *gate = mix->gate;
-> > > +	u32 tmp;
-> > > +
-> > > +	if (!gate)
-> > > +		return 1;
-> > > +
-> > > +	if (mix_hwparam_in_sel(common))
-> > > +		ccu_read(sel, common, &tmp);
-> > > +	else
-> > > +		ccu_read(ctrl, common, &tmp);
-> > > +
-> > > +	return (tmp & gate->gate_mask) == gate->val_enable;
-> > > +}
-> > > +
-> > > +static unsigned long ccu_mix_recalc_rate(struct clk_hw *hw,
-> > > +					unsigned long parent_rate)
-> > > +{
-> > > +	struct ccu_mix *mix = hw_to_ccu_mix(hw);
-> > > +	struct ccu_common *common = &mix->common;
-> > > +	struct ccu_div_config *div = mix->div;
-> > > +	unsigned long val;
-> > > +	u32 reg;
-> > > +
-> > > +	if (!div) {
-> > > +		if (mix->factor)
-> > > +			return parent_rate * mix->factor->mul / mix->factor->div;
-> > > +
-> > > +		return parent_rate;
-> > > +	}
-> > > +
-> > > +	if (mix_hwparam_in_sel(common))
-> > > +		ccu_read(sel, common, &reg);
-> > > +	else
-> > > +		ccu_read(ctrl, common, &reg);
-> > > +
-> > > +	val = reg >> div->shift;
-> > > +	val &= (1 << div->width) - 1;
-> > > +
-> > > +	val = divider_recalc_rate(hw, parent_rate, val, div->table,
-> > > +				  div->flags, div->width);
-> > > +
-> > > +	return val;
-> > > +}
-> > 
-> > I think you should distinguish these muxs, it is not good to
-> > use mix_hwparam_in_sel everywhere. There are two types of mux.
-> > 
-> > > +
-> > > +
-> > 
-> > Double empty line here, you should run checkpatch.
-> > 
-> > > +static int ccu_mix_trigger_fc(struct clk_hw *hw)
-> > > +{
-> > > +	struct ccu_mix *mix = hw_to_ccu_mix(hw);
-> > > +	struct ccu_common *common = &mix->common;
-> > > +	unsigned int val = 0;
-> > > +	int ret = 0;
-> > > +
-> > > +	if (common->reg_type == CLK_DIV_TYPE_1REG_FC_V2 ||
-> > > +	    common->reg_type == CLK_DIV_TYPE_2REG_FC_V4 ||
-> > > +	    common->reg_type == CLK_DIV_TYPE_1REG_FC_DIV_V5 ||
-> > > +	    common->reg_type == CLK_DIV_TYPE_1REG_FC_MUX_V6) {
-> > > +		ccu_update(ctrl, common, common->fc, common->fc);
-> > > +
-> > > +		ret = ccu_poll(ctrl, common, val, !(val & common->fc),
-> > > +			       5, MIX_TIMEOUT);
-> > > +	}
-> > > +
-> > > +	return ret;
-> > > +}
-> > > +
-> > > +static int ccu_mix_determine_rate(struct clk_hw *hw,
-> > > +				  struct clk_rate_request *req)
-> > > +{
-> > > +	return 0;
-> > > +}
-> > > +
-> > 
-> > Why a empty determine_rate function?
-> > 
-> > > +static unsigned long
-> > > +ccu_mix_calc_best_rate(struct clk_hw *hw, unsigned long rate, u32 *mux_val,
-> > > +		       u32 *div_val)
-> > > +{
-> > > +	struct ccu_mix *mix = hw_to_ccu_mix(hw);
-> > > +	struct ccu_common *common = &mix->common;
-> > > +	struct ccu_div_config *div = mix->div ? mix->div : NULL;
-> > > +	struct clk_hw *parent;
-> > > +	unsigned long parent_rate = 0, best_rate = 0;
-> > > +	u32 i, j, div_max;
-> > > +
-> > > +	for (i = 0; i < common->num_parents; i++) {
-> > > +		parent = clk_hw_get_parent_by_index(hw, i);
-> > > +		if (!parent)
-> > > +			continue;
-> > > +
-> > > +		parent_rate = clk_hw_get_rate(parent);
-> > > +
-> > > +		if (div)
-> > > +			div_max = 1 << div->width;
-> > > +		else
-> > > +			div_max = 1;
-> > > +
-> > > +		for (j = 1; j <= div_max; j++) {
-> > > +			if (abs(parent_rate/j - rate) < abs(best_rate - rate)) {
-> > > +				best_rate = DIV_ROUND_UP_ULL(parent_rate, j);
-> > > +				*mux_val = i;
-> > > +				*div_val = j - 1;
-> > > +			}
-> > > +		}
-> > > +	}
-> > > +
-> > > +	return best_rate;
-> > > +}
-> > > +
-> > > +static int ccu_mix_set_rate(struct clk_hw *hw, unsigned long rate,
-> > > +			   unsigned long parent_rate)
-> > > +{
-> > > +	struct ccu_mix *mix = hw_to_ccu_mix(hw);
-> > > +	struct ccu_common *common = &mix->common;
-> > > +	struct ccu_div_config *div = mix->div;
-> > > +	struct ccu_mux_config *mux = mix->mux;
-> > > +	u32 cur_mux, cur_div, mux_val = 0, div_val = 0;
-> > > +	unsigned long best_rate = 0;
-> > > +	int ret = 0, tmp = 0;
-> > > +
-> > > +	if (!div && !mux)
-> > > +		return 0;
-> > > +
-> > > +	best_rate = ccu_mix_calc_best_rate(hw, rate, &mux_val, &div_val);
-> > > +
-> > > +	if (mix_hwparam_in_sel(common))
-> > > +		ccu_read(sel, common, &tmp);
-> > > +	else
-> > > +		ccu_read(ctrl, common, &tmp);
-> > > +
-> > > +	if (mux) {
-> > > +		cur_mux = tmp >> mux->shift;
-> > > +		cur_mux &= (1 << mux->width) - 1;
-> > > +
-> > > +		if (cur_mux != mux_val)
-> > > +			clk_hw_set_parent(hw, clk_hw_get_parent_by_index(hw, mux_val));
-> > > +	}
-> > > +
-> > > +	if (div) {
-> > > +		cur_div = tmp >> div->shift;
-> > > +		cur_div &= (1 << div->width) - 1;
-> > > +
-> > > +		if (cur_div == div_val)
-> > > +			return 0;
-> > > +	} else {
-> > > +		return 0;
-> > > +	}
-> > > +
-> > > +	tmp = GENMASK(div->width + div->shift - 1, div->shift);
-> > > +
-> > > +	if (mix_hwparam_in_sel(common))
-> > > +		ccu_update(sel, common, tmp, div_val << div->shift);
-> > > +	else
-> > > +		ccu_update(ctrl, common, tmp, div_val << div->shift);
-> > > +
-> > > +	if (common->reg_type == CLK_DIV_TYPE_1REG_FC_V2 ||
-> > > +	    common->reg_type == CLK_DIV_TYPE_2REG_FC_V4 ||
-> > > +	    common->reg_type == CLK_DIV_TYPE_1REG_FC_DIV_V5)
-> > > +		ret = ccu_mix_trigger_fc(hw);
-> > > +
-> > > +	return ret;
-> > > +}
-> > > +
-> > > +static u8 ccu_mix_get_parent(struct clk_hw *hw)
-> > > +{
-> > > +	struct ccu_mix *mix = hw_to_ccu_mix(hw);
-> > > +	struct ccu_common *common = &mix->common;
-> > > +	struct ccu_mux_config *mux = mix->mux;
-> > > +	u32 reg;
-> > > +	u8 parent;
-> > > +
-> > > +	if (!mux)
-> > > +		return 0;
-> > > +
-> > > +	if (mix_hwparam_in_sel(common))
-> > > +		ccu_read(sel, common, &reg);
-> > > +	else
-> > > +		ccu_read(ctrl, common, &reg);
-> > > +
-> > > +	parent = reg >> mux->shift;
-> > > +	parent &= (1 << mux->width) - 1;
-> > > +
-> > > +	if (mux->table) {
-> > > +		int num_parents = clk_hw_get_num_parents(&common->hw);
-> > > +		int i;
-> > > +
-> > > +		for (i = 0; i < num_parents; i++)
-> > > +			if (mux->table[i] == parent)
-> > > +				return i;
-> > > +	}
-> > > +
-> > > +	return parent;
-> > > +}
-> > > +
-> > > +static int ccu_mix_set_parent(struct clk_hw *hw, u8 index)
-> > > +{
-> > > +	struct ccu_mix *mix = hw_to_ccu_mix(hw);
-> > > +	struct ccu_common *common = &mix->common;
-> > > +	struct ccu_mux_config *mux = mix->mux;
-> > > +	int ret = 0;
-> > > +	u32 mask;
-> > > +
-> > > +	if (!mux)
-> > > +		return 0;
-> > > +
-> > > +	if (mux->table)
-> > > +		index = mux->table[index];
-> > > +
-> > > +	mask = GENMASK(mux->width + mux->shift - 1, mux->shift);
-> > > +
-> > > +	if (mix_hwparam_in_sel(common))
-> > > +		ccu_update(sel, common, mask, index << mux->shift);
-> > > +	else
-> > > +		ccu_update(ctrl, common, mask, index << mux->shift);
-> > > +
-> > > +	if (common->reg_type == CLK_DIV_TYPE_1REG_FC_V2 ||
-> > > +	    common->reg_type == CLK_DIV_TYPE_2REG_FC_V4 ||
-> > > +	    common->reg_type == CLK_DIV_TYPE_1REG_FC_MUX_V6)
-> > > +		ret = ccu_mix_trigger_fc(hw);
-> > > +
-> > > +	return ret;
-> > > +}
-> > > +
-> > > +const struct clk_ops spacemit_ccu_mix_ops = {
-> > > +	.disable	 = ccu_mix_disable,
-> > > +	.enable		 = ccu_mix_enable,
-> > > +	.is_enabled	 = ccu_mix_is_enabled,
-> > > +	.get_parent	 = ccu_mix_get_parent,
-> > > +	.set_parent	 = ccu_mix_set_parent,
-> > > +	.determine_rate  = ccu_mix_determine_rate,
-> > > +	.recalc_rate	 = ccu_mix_recalc_rate,
-> > > +	.set_rate	 = ccu_mix_set_rate,
-> > > +};
-> > 
-> > I think you should separate the clock into different type and
-> > use pre-defined function to simplify, but not use a unified,
-> > complex and hard to read structure to represent all kinds of
-> > clocks.
-> > 
-> agree
-> 
-> I'd not object to use composite clock, it simplify the implementation,
-> but, in this version, there is lots of "if" conditions which make it
-> hard to review and maintain..
-> 
-> would it possibile to use more basic clk prototype? or just the composite
-> model[1] or something similar as owl-composite.c [2] which has more fine
-> composite prototype (instead of bundling all in one)
-> 
-> drivers/clk/clk-composite.c [1]
-> drivers/clk/actions/owl-composite.c [2]
-> 
+Standardize the generation of syscall headers around syscall tables.
+Previously each architecture independently selected how syscall headers
+would be generated, or would not define a way and fallback onto
+libaudit. Convert all architectures to use a standard syscall header
+generation script and allow each architecture to override the syscall
+table to use if they do not use the generic table.
 
-This depends on what you clock is. I guest this mix has a all in one
-register to perform mix/div/gate. If so, it is better to provide multiple
-clk_ops to adopt the real one. Otherwise, it will be better to use
-different clk type to represent the real clock.
+As a result of these changes, no architecture will require libaudit, and
+so the fallback case of using libaudit is removed by this series.
 
-Regards,
-Inochi
+Testing:
+
+I have tested that the syscall mappings of id to name generation works
+as expected for every architecture, but I have only validated that perf
+trace compiles and runs as expected on riscv, arm64, and x86_64.
+
+Signed-off-by: Charlie Jenkins <charlie@rivosinc.com>
+Reviewed-by: Ian Rogers <irogers@google.com>
+
+On x86-64:
+Tested-by: Ian Rogers <irogers@google.com>
+
+---
+Changes in v4:
+- Remove audit_machine member of syscalltbl struct (Ian)
+- Rebase on perf-tools-next
+- Link to v3: https://lore.kernel.org/r/20241216-perf_syscalltbl-v3-0-239f032481d5@rivosinc.com
+
+Changes in v3:
+- Fix compiliation when OUTPUT is empty
+- Correct unused headers to be .h instead of .c  (Namhyung)
+- Make variable definition of supported archs (Namhyung)
+- Convert += into := for syscalls headers (Namhyung)
+- Link to v2: https://lore.kernel.org/r/20241212-perf_syscalltbl-v2-0-f8ca984ffe40@rivosinc.com
+
+Changes in v2:
+- Rebase onto 6.13-rc2
+- Fix output path so it generates to /tools/perf/arch properly
+- Link to v1: https://lore.kernel.org/r/20241104-perf_syscalltbl-v1-0-9adae5c761ef@rivosinc.com
+
+---
+Charlie Jenkins (16):
+      perf tools: Create generic syscall table support
+      perf tools: arc: Support generic syscall headers
+      perf tools: csky: Support generic syscall headers
+      perf tools: arm: Support syscall headers
+      perf tools: sh: Support syscall headers
+      perf tools: sparc: Support syscall headers
+      perf tools: xtensa: Support syscall header
+      perf tools: x86: Use generic syscall scripts
+      perf tools: alpha: Support syscall header
+      perf tools: parisc: Support syscall header
+      perf tools: arm64: Use syscall table
+      perf tools: loongarch: Use syscall table
+      perf tools: mips: Use generic syscall scripts
+      perf tools: powerpc: Use generic syscall table scripts
+      perf tools: s390: Use generic syscall table scripts
+      perf tools: Remove dependency on libaudit
+
+ Documentation/admin-guide/workload-tracing.rst     |   2 +-
+ tools/build/feature/Makefile                       |   4 -
+ tools/build/feature/test-libaudit.c                |  11 -
+ tools/perf/Documentation/perf-check.txt            |   1 -
+ tools/perf/Makefile.config                         |  39 +-
+ tools/perf/Makefile.perf                           |  12 +-
+ tools/perf/arch/alpha/entry/syscalls/Kbuild        |   2 +
+ .../arch/alpha/entry/syscalls/Makefile.syscalls    |   5 +
+ tools/perf/arch/alpha/entry/syscalls/syscall.tbl   | 504 ++++++++++++++++++++
+ tools/perf/arch/alpha/include/syscall_table.h      |   2 +
+ tools/perf/arch/arc/entry/syscalls/Kbuild          |   2 +
+ .../perf/arch/arc/entry/syscalls/Makefile.syscalls |   3 +
+ tools/perf/arch/arc/include/syscall_table.h        |   2 +
+ tools/perf/arch/arm/entry/syscalls/Kbuild          |   4 +
+ .../perf/arch/arm/entry/syscalls/Makefile.syscalls |   2 +
+ tools/perf/arch/arm/entry/syscalls/syscall.tbl     | 483 +++++++++++++++++++
+ tools/perf/arch/arm/include/syscall_table.h        |   2 +
+ tools/perf/arch/arm64/Makefile                     |  22 -
+ tools/perf/arch/arm64/entry/syscalls/Kbuild        |   3 +
+ .../arch/arm64/entry/syscalls/Makefile.syscalls    |   6 +
+ tools/perf/arch/arm64/entry/syscalls/mksyscalltbl  |  46 --
+ .../perf/arch/arm64/entry/syscalls/syscall_32.tbl  | 476 +++++++++++++++++++
+ .../perf/arch/arm64/entry/syscalls/syscall_64.tbl  |   1 +
+ tools/perf/arch/arm64/include/syscall_table.h      |   8 +
+ tools/perf/arch/csky/entry/syscalls/Kbuild         |   2 +
+ .../arch/csky/entry/syscalls/Makefile.syscalls     |   3 +
+ tools/perf/arch/csky/include/syscall_table.h       |   2 +
+ tools/perf/arch/loongarch/Makefile                 |  22 -
+ tools/perf/arch/loongarch/entry/syscalls/Kbuild    |   2 +
+ .../loongarch/entry/syscalls/Makefile.syscalls     |   3 +
+ .../arch/loongarch/entry/syscalls/mksyscalltbl     |  45 --
+ tools/perf/arch/loongarch/include/syscall_table.h  |   2 +
+ tools/perf/arch/mips/entry/syscalls/Kbuild         |   2 +
+ .../arch/mips/entry/syscalls/Makefile.syscalls     |   5 +
+ tools/perf/arch/mips/entry/syscalls/mksyscalltbl   |  32 --
+ tools/perf/arch/mips/include/syscall_table.h       |   2 +
+ tools/perf/arch/parisc/entry/syscalls/Kbuild       |   3 +
+ .../arch/parisc/entry/syscalls/Makefile.syscalls   |   6 +
+ tools/perf/arch/parisc/entry/syscalls/syscall.tbl  | 463 +++++++++++++++++++
+ tools/perf/arch/parisc/include/syscall_table.h     |   8 +
+ tools/perf/arch/powerpc/Makefile                   |  25 -
+ tools/perf/arch/powerpc/entry/syscalls/Kbuild      |   3 +
+ .../arch/powerpc/entry/syscalls/Makefile.syscalls  |   6 +
+ .../perf/arch/powerpc/entry/syscalls/mksyscalltbl  |  39 --
+ tools/perf/arch/powerpc/include/syscall_table.h    |   8 +
+ tools/perf/arch/riscv/Makefile                     |  22 -
+ tools/perf/arch/riscv/entry/syscalls/Kbuild        |   2 +
+ .../arch/riscv/entry/syscalls/Makefile.syscalls    |   4 +
+ tools/perf/arch/riscv/entry/syscalls/mksyscalltbl  |  47 --
+ tools/perf/arch/riscv/include/syscall_table.h      |   8 +
+ tools/perf/arch/s390/Makefile                      |  21 -
+ tools/perf/arch/s390/entry/syscalls/Kbuild         |   2 +
+ .../arch/s390/entry/syscalls/Makefile.syscalls     |   5 +
+ tools/perf/arch/s390/entry/syscalls/mksyscalltbl   |  32 --
+ tools/perf/arch/s390/include/syscall_table.h       |   2 +
+ tools/perf/arch/sh/entry/syscalls/Kbuild           |   2 +
+ .../perf/arch/sh/entry/syscalls/Makefile.syscalls  |   4 +
+ tools/perf/arch/sh/entry/syscalls/syscall.tbl      | 472 +++++++++++++++++++
+ tools/perf/arch/sh/include/syscall_table.h         |   2 +
+ tools/perf/arch/sparc/entry/syscalls/Kbuild        |   3 +
+ .../arch/sparc/entry/syscalls/Makefile.syscalls    |   5 +
+ tools/perf/arch/sparc/entry/syscalls/syscall.tbl   | 514 +++++++++++++++++++++
+ tools/perf/arch/sparc/include/syscall_table.h      |   8 +
+ tools/perf/arch/x86/Build                          |   1 -
+ tools/perf/arch/x86/Makefile                       |  25 -
+ tools/perf/arch/x86/entry/syscalls/Kbuild          |   3 +
+ .../perf/arch/x86/entry/syscalls/Makefile.syscalls |   6 +
+ tools/perf/arch/x86/entry/syscalls/syscalltbl.sh   |  42 --
+ tools/perf/arch/x86/include/syscall_table.h        |   8 +
+ tools/perf/arch/xtensa/entry/syscalls/Kbuild       |   2 +
+ .../arch/xtensa/entry/syscalls/Makefile.syscalls   |   4 +
+ tools/perf/arch/xtensa/entry/syscalls/syscall.tbl  | 439 ++++++++++++++++++
+ tools/perf/arch/xtensa/include/syscall_table.h     |   2 +
+ tools/perf/builtin-check.c                         |   1 -
+ tools/perf/builtin-help.c                          |   2 -
+ tools/perf/builtin-trace.c                         |  30 --
+ tools/perf/check-headers.sh                        |   9 +
+ tools/perf/perf.c                                  |   6 +-
+ tools/perf/scripts/Makefile.syscalls               |  61 +++
+ tools/perf/scripts/syscalltbl.sh                   |  86 ++++
+ tools/perf/tests/make                              |   7 +-
+ tools/perf/util/env.c                              |   4 +-
+ tools/perf/util/generate-cmdlist.sh                |   4 +-
+ tools/perf/util/syscalltbl.c                       |  90 +---
+ tools/perf/util/syscalltbl.h                       |   1 -
+ tools/scripts/syscall.tbl                          | 409 ++++++++++++++++
+ 86 files changed, 4102 insertions(+), 620 deletions(-)
+---
+base-commit: e8b3012cbd8f2263777347c2e8310b3f00d494f5
+change-id: 20240913-perf_syscalltbl-6f98defcc6f5
+-- 
+- Charlie
+
 
 _______________________________________________
 linux-riscv mailing list
