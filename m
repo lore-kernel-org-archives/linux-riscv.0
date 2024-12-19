@@ -4,84 +4,148 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 489FCE77188
-	for <linux-riscv@archiver.kernel.org>; Thu, 19 Dec 2024 02:02:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B0AC7E77188
+	for <linux-riscv@archiver.kernel.org>; Thu, 19 Dec 2024 02:35:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID:
-	References:Mime-Version:In-Reply-To:Date:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=08MvbiJuRY/GSwe8PeypK03huHQZmdnaO+UabwXrO3U=; b=B0rmq7iT8mgE8Jfxs6jKJxx9CD
-	N9l72Y0X1xikHoYqHfUORndEuk6QbfNdSpICGvCvKTv67WuN4RJ6qSHoVGS2VPfLtEPxBXUAUgP+1
-	521U6mvXjVP1bcoSdH0ZSHtq36VioE63dE9dnu9zhq4+3UNe9KjswW0dg5enBmPAYAI8hu86Ysn+M
-	YZKsBjOFw9Zi5VSNH3UcLmCbpdcPfMyFa7GzXgOCzQ2ClpwUa3eu88x9mVmqVc26NbF75jtEUfXtK
-	z1IsKfZBkusss9GcMHfuepk/TakfJneovdJNudDgR0t3rUl9iKuSKhGwvgc6K6jgsnXriiXMCVo5M
-	AdJ3wIsA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=HM+crNy+uNvodK2KcRBZYALI8MGeHgSRplhGy1RcMHU=; b=BfKtQE7Settd9sPyFfGvZt4r9y
+	Qhu5ywTb2buhn6FI6JG5/moZVgLVqEhYjL+OVz7UO5WvapE092UdC1Of0B+KKRF0mTKKmkfJ9V+oR
+	gNHuRJ9qn0aN3n4YuqzuFxQ2sCuNnND0DlbHRpFmqeM51jebGczFmyr/td7s7JuSpbkL1bCosxTA6
+	HrQvh60U7aHqDEpB/72VjfAIaeh0vJAWu0sicke2vnJstaR6mkFlmRo/XlFe5LQHw9mT+/5B5FxUW
+	Vnf23NkqXZicnBgF4cJjV6OBDfpWzXOxW/ebcJsljVD9WzbjTou/Vmc8rKhUk67Gf6I7c9r4U6fs4
+	qM7Qlusw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tO5rW-00000000ZSG-3n3F;
-	Thu, 19 Dec 2024 02:02:02 +0000
-Received: from mail-pj1-x104a.google.com ([2607:f8b0:4864:20::104a])
+	id 1tO6Nq-00000000cS2-15rV;
+	Thu, 19 Dec 2024 02:35:26 +0000
+Received: from mail-centralindiaazolkn190110001.outbound.protection.outlook.com ([2a01:111:f403:d409::1] helo=PNZPR01CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tO5qP-00000000ZHn-3oaJ
+	id 1tO6Nn-00000000cNQ-2Lr6
 	for linux-riscv@lists.infradead.org;
-	Thu, 19 Dec 2024 02:00:56 +0000
-Received: by mail-pj1-x104a.google.com with SMTP id 98e67ed59e1d1-2ef35de8901so262305a91.3
-        for <linux-riscv@lists.infradead.org>; Wed, 18 Dec 2024 18:00:52 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1734573652; x=1735178452; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=LnN1m6kZY8nxLeyAllIIy8tSezrE1QsUX37rLQ5nqO8=;
-        b=IxpJajHsF2WKGn21I+udaCQucDPzU0BVbq6o8ycfIH0OmBr2gegLnS+rh60jJEVKUt
-         FI7RAKJ/5TfFZKsJGqsNqqhx3It1JB8cjCCAd0aHvD3xH+INKq36XWVR4Nw54a5Kjia2
-         PUFgwO9n/CQhbguEDasZcQOL1uyqo1jesXArL2eOV7C3SxR+tbBQC+5m4JnCqQniScV2
-         /jZ5hPZHbjJcVjcqv6qb1DO2c7QbRdfl/Ggo02kbg444RseNlvpEjN3FJAhm24lMDyIU
-         U+TdI4k50qPfx9+r0vh/A9CxQinAryDntl0nYtrtZA4ST9pXym663DSvI1m+dF5/fAIP
-         0GWg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1734573652; x=1735178452;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=LnN1m6kZY8nxLeyAllIIy8tSezrE1QsUX37rLQ5nqO8=;
-        b=uH0ohdUgxC7XjHjk9kyGULtIg+qmwGEiBEmODR0DmdoNB2FtrgrkrtJwWBffLZuENd
-         dNKNCnZDzHzPc97xHDsgh/2mkQjAVzZ+kYD3gIVrCx495tkW7RXijPJ6o4HnQFgSXzpx
-         1YIavKDaH4rwi8EXMjE/wAdQUQVCMorBgtBYGFuX0hVBPjx8pf427TJIbqENxz/juJ5p
-         adlxexl09p4+vCHEQcZIV8pNd8jV1UdDyOpJfguz55ZTMsGBWcje/VGXP2dcNNrZiumO
-         HavAmkqOf77fx3rQriZYYMMIIy9oBOfMr5cDI0gqvX6hai1OeLBqJJ1EBvkshwr0H56c
-         /Mog==
-X-Forwarded-Encrypted: i=1; AJvYcCVlb+6eALem85D9xYd9099CH6iDedZ0FdGRtaMysZJVtB2xN4bWDRQp2EVS3bjwjWXl8sh3VJVl9Uy9Vw==@lists.infradead.org
-X-Gm-Message-State: AOJu0YxuTkdSQXABrmTbZa9tTx2NQgsizdTdiBzLZj9tW3tTbRyqi101
-	1hOBzU8wnDo47YEyKYOiUDfV922QwsHX+TYYcBfmWyzaqUitx0A6LGpXx68gg+xOV0Uofau9/mx
-	v9g==
-X-Google-Smtp-Source: AGHT+IEp2vy8HFyuGoK4SydG4I/RG1o01kuXRbHxCjif4IzdatCClK7yZ117EeBVv/ihoiiyFOqquVyS7m8=
-X-Received: from pji3.prod.google.com ([2002:a17:90b:3fc3:b0:2ea:5613:4d5d])
- (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:90b:1f8d:b0:2ee:cdea:ad91
- with SMTP id 98e67ed59e1d1-2f2e91f0d26mr8195498a91.15.1734573652071; Wed, 18
- Dec 2024 18:00:52 -0800 (PST)
-Date: Wed, 18 Dec 2024 18:00:50 -0800
-In-Reply-To: <Z2NIwmRDaZBc_V4o@google.com>
-Mime-Version: 1.0
-References: <20241128005547.4077116-1-seanjc@google.com> <173455833964.3185228.5614329030867008316.b4-ty@google.com>
- <Z2NIwmRDaZBc_V4o@google.com>
-Message-ID: <Z2N-UlxgYlGT_1Or@google.com>
-Subject: Re: [PATCH v4 00/16] KVM: selftests: "tree" wide overhauls
-From: Sean Christopherson <seanjc@google.com>
-To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
-	Anup Patel <anup@brainfault.org>, Paul Walmsley <paul.walmsley@sifive.com>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Paolo Bonzini <pbonzini@redhat.com>, Christian Borntraeger <borntraeger@linux.ibm.com>, 
-	Janosch Frank <frankja@linux.ibm.com>, Claudio Imbrenda <imbrenda@linux.ibm.com>
-Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
-	kvm@vger.kernel.org, kvm-riscv@lists.infradead.org, 
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	Andrew Jones <ajones@ventanamicro.com>, James Houghton <jthoughton@google.com>, 
-	Muhammad Usama Anjum <usama.anjum@collabora.com>
+	Thu, 19 Dec 2024 02:35:25 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=G7jz1RhIbrBnsw9V3sH+lqRNm9Br/WQoDDqcyUZ2jvr/mbJHorwF5niSHvUfxXF62f6i4M928e9jZioDYPX2HzrNnWZublLQJwszJ/hERXi56b/M2JY+iHFKvxiWUh3RwSpNf51ZRlxOV9JYmDx2ZjeSgwR9cdWp/o1U5oInQfG0PO+6CmoIxudXy26BcaKVIiPgL5g+3MwKQutuXuIa8K87bz1Dc6IoG54I/8HVfGXcNIS0R/gj5VwDFSMbH0b2rZKx5/kGY9BDCsIZGel2n9gtthmhOcvKDrt3pE3N3EZTXr1RM6nIu7xPDFzWIMdBnQ86QnhKhSfd+tI9gCb0ag==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=yKH+pcfoE8FlgzqGj2cxedQVbQWBDZQLvKLNhq0TJ8Y=;
+ b=IO8Jstomn265/dDX1DCpXirkBNm1KxFYvEIKqK5tgPkTeaByuamxgBli1+8BG+qJ6iw1iwWl1Yp+h40KgU5BCzCXZ7exDdKjE7IHgPjyACUzPWecoMuSd55HkCIvYdVFyGndARUnlx4St7H1OpYGT65b6/bCkfvyG0MaoxR+k4e9St1nDCCWzMNof8AIz/6d1z9b9IdKLCCUy354Y2eR34n2gm0dw8nqVQQCx1ZpjDsDP7BkKf7MhX6jqRnEvPuqQqJJNlifut3bFhLpgTCg/PjcbRwlaovXKRQ82KfCtmEk4Rj2j85Onr15Inzmgz6ZMQu4/JkTstdrDci8xPFDEw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
+ dkim=none; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=yKH+pcfoE8FlgzqGj2cxedQVbQWBDZQLvKLNhq0TJ8Y=;
+ b=U/2Bj0YMcb8DlKG7v98qf0S/V344/yGQ0aO6mlv5ybEYFUlwqaQDUR+kTQIs5Tk4gS22KSKmqPRP57OiYMRKBwA2yozCwniaOtK8iXWYDqyNaOFcKFLa/+ZCCEU0MPdmDTZris7OooBnfd4FnKmoTwK+8AsXwSd2P54wf9sHfmR73Wuu/k4O28Ne1FVgFJYhRmc42JI+6TXvp/l1JSTKHXTMKfkPcpCPJVWxTo+9LMD+5pEwLuDoKRg244iPGRi0XtO1fWdWlXz7VULjcGF07NI7MxJJvQkBUDyvDiGj6dTSUJ1m23R8waA5jhy4FS1In47P/KJuJyeRwyanpNdrRQ==
+Received: from BM1PR01MB2116.INDPRD01.PROD.OUTLOOK.COM (2603:1096:b00:46::11)
+ by PN0PR01MB5860.INDPRD01.PROD.OUTLOOK.COM (2603:1096:c01:67::14) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8272.15; Thu, 19 Dec
+ 2024 02:34:55 +0000
+Received: from BM1PR01MB2116.INDPRD01.PROD.OUTLOOK.COM
+ ([fe80::67d0:f11f:b82f:1f5d]) by BM1PR01MB2116.INDPRD01.PROD.OUTLOOK.COM
+ ([fe80::67d0:f11f:b82f:1f5d%5]) with mapi id 15.20.8272.005; Thu, 19 Dec 2024
+ 02:34:55 +0000
+Message-ID: <BM1PR01MB2116EB0657EA6E231AB75BD5FE062@BM1PR01MB2116.INDPRD01.PROD.OUTLOOK.COM>
+Date: Thu, 19 Dec 2024 10:34:50 +0800
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 1/5] dt-bindings: pci: Add Sophgo SG2042 PCIe host
+To: Bjorn Helgaas <helgaas@kernel.org>, Chen Wang <unicornxw@gmail.com>
+Cc: kw@linux.com, u.kleine-koenig@baylibre.com, aou@eecs.berkeley.edu,
+ arnd@arndb.de, bhelgaas@google.com, conor+dt@kernel.org, guoren@kernel.org,
+ inochiama@outlook.com, krzk+dt@kernel.org, lee@kernel.org,
+ lpieralisi@kernel.org, manivannan.sadhasivam@linaro.org, palmer@dabbelt.com,
+ paul.walmsley@sifive.com, pbrobinson@gmail.com, robh@kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-pci@vger.kernel.org, linux-riscv@lists.infradead.org,
+ chao.wei@sophgo.com, xiaoguang.xing@sophgo.com, fengchun.li@sophgo.com
+References: <20241210173350.GA3222084@bhelgaas>
+From: Chen Wang <unicorn_wang@outlook.com>
+In-Reply-To: <20241210173350.GA3222084@bhelgaas>
+X-ClientProxiedBy: SG2PR01CA0154.apcprd01.prod.exchangelabs.com
+ (2603:1096:4:8f::34) To BM1PR01MB2116.INDPRD01.PROD.OUTLOOK.COM
+ (2603:1096:b00:46::11)
+X-Microsoft-Original-Message-ID: <a700338b-26e9-4c9c-9567-ec05bc0daa71@outlook.com>
+MIME-Version: 1.0
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: BM1PR01MB2116:EE_|PN0PR01MB5860:EE_
+X-MS-Office365-Filtering-Correlation-Id: 4121c664-9e93-4bb8-dcb7-08dd1fd5b87a
+X-Microsoft-Antispam: BCL:0;ARA:14566002|7092599003|15080799006|19110799003|5072599009|6090799003|8060799006|461199028|10035399004|440099028|3412199025;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?ZE1UcDZDZVNHOHN2aGNqWUxIZFpCWWtqR1B5V1lkQXI4UDVLR2N6eVJ4NWti?=
+ =?utf-8?B?UXZpZTJBL0hucUZGWnlyZ292WHN2UU5DS0w5RUVRM21UejRpcWNrQWdObSt5?=
+ =?utf-8?B?RCtaR1AyamNTc0I1M2FJZ3NXODh5RUN4Wmc0K0cwSXNkRm14VWUvYWhwMnVj?=
+ =?utf-8?B?dWdXemdmaUhidm0wSUtuelVmVjVMa1pGU1hDNEE5NmpwRHUyVFNSaEFydmZH?=
+ =?utf-8?B?SFI1QWFMRzlnNmwweTM2K3RwdFdQa3ZGT0JEUlBqYndPSkNhdE9RNDAyanh5?=
+ =?utf-8?B?L3FVam5PSWNIUUFsZEZqSUxON2FvN3VVZjQzd0JTdUMxSDEzVXJ5eXR0bjFV?=
+ =?utf-8?B?QnBVVlBMdnBpNzFWWmxhdHg1SHVFYzNUZmNtd2NHS2g0MXNMd0JKT1VjanNw?=
+ =?utf-8?B?ZGM3OVFtNFF0TE01NGF5UlpmV3RnMzJKV0FwVFVCOEdUMU5XenFzZ1plWXEx?=
+ =?utf-8?B?SjRodFA3V3BsTklJSS93K0dQZUJIcWFvaEJFWFR1VjhnNTFZMkx1WkdKU0FO?=
+ =?utf-8?B?aGN2d1NMd2J5QUhGUVdiNUFjOGVHdlVUY1Q1K3FBamtlQUVMMTdEdWtOTTQv?=
+ =?utf-8?B?OEM4OW5HZVpYeE9pcHRQcTBOUEpmQXpqcXNZMEZGcEd6cEJBMVhlWlJnc2hU?=
+ =?utf-8?B?aEJhUks5NDJiNk5FZlJ1UFo0S0pJRlJQa3B5N3hYYjFNcHhQVXVJZTZVOUdj?=
+ =?utf-8?B?MklMazhHQ25LUHFNWm1QTU16dEdwRHV0bnpCaGMzbTlQaCt5RDV1Y1BEZmxY?=
+ =?utf-8?B?TUE0YSt0dGdyenA3SklkVC91YlJzYTFGOWN5NzI0dzJXdVF1R2xiZit6L3Ns?=
+ =?utf-8?B?VEovdHFzMUVjazhoMjZTZGxCL3kzaW9qdzZyRmNXMnR4ZVljOFhDa2VOS21V?=
+ =?utf-8?B?UGVTM1NNQzk0SG5uV25LNy9CVWxQWGhCRldNSVc2UDBYVDBtVi8yNGJGMmVS?=
+ =?utf-8?B?dzB4NmNRQzBaaWlDelliUlhSNlNOSHZJVzdrMG1IRVE0bUJzcGFxbkVQUFFM?=
+ =?utf-8?B?NVhmdkRjdjhTcWZZWk5LNXpJQzNOaGZ3WHVyWmovTC9rVGVYb0tyQ1BPcEF5?=
+ =?utf-8?B?cFJxalRtKytjaisrdmUrRFE2MU1DOHlyTmhzeis4WGI4ZzIzV0lmdFArc044?=
+ =?utf-8?B?SG9QRjdaNlFtMkthT3NtZWRuSWpxRWtXQ2NWekh4ejV5NG9BcmwvUHRFYWdi?=
+ =?utf-8?B?NW9BS3EvQnAxSHhkUDkzcXhoaWE3RWlaYytua29menpPc0lPempkMWJLQmtR?=
+ =?utf-8?B?UEpTU2Rka1J3c24xNFVlNUhoS21yU0RqcXIyeUxZQ2lNWnYxKzJyMVhSVExD?=
+ =?utf-8?B?VDdSUi9aQ1hLWkpFUk5HT29NK1l6dEgzK05HSHlnaWUvQzdaK3E1SzlMNXZh?=
+ =?utf-8?B?RVpnSEs2bENkenZ3K3RtQmhja1cxM01NS21LdDUwdm1lYXNYTnpGaTdSR2Jm?=
+ =?utf-8?B?VGV5NWpjclFqMzI2blg5dG5aMGgrMVplaWJabXVIZDB4SGNBbUtjb2NNTmRB?=
+ =?utf-8?B?NGJabVdJQzVmRDBIMUlvWk91MXE1Ui8vZlE5MW13Y0cwNko2a3lDVE5PTG5V?=
+ =?utf-8?Q?1lOYnZQZFANxFbdbSLbCE9k6M=3D?=
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?ZkpvNVNPbVFEOWlWNWkzeEFUWWxWZ1YyaTNtdEh0VlFqdm9kWFpXdXlqVzZN?=
+ =?utf-8?B?eWsxaTN5MUZvUFRuc1lWUEQ5L2xTblkyK0NSaXJWV2NqekkwV3lwZEhVNVpP?=
+ =?utf-8?B?QkRmTk1BR05reFI0SzMvV2lJT2xZd2Y5YjlhMHdrWjFwK2IwaWdPeVVnY2hS?=
+ =?utf-8?B?cFY5NkFlQkRkeFZBTlVIUzFKQU5FM2IxNFhnckJYRmhweVpacE44WDZkMW1K?=
+ =?utf-8?B?Y1g1cmRxaklKSnRhNHRhRTBTTGZ1ZzNnaTJSYmw0Z3BxNmJzb0Z2T2hrdnM4?=
+ =?utf-8?B?TXljaU1MRjFFaXlzVDUzcGJvdXFEY0dBNEo5NjlXbUUvKy8vbWhTN3J6L0Fw?=
+ =?utf-8?B?d1BWYzBoT1FFdU45bHpaQjJYRjIybTYvZzZTbHNJVjFWS2ZGWFVNdW5pZXo3?=
+ =?utf-8?B?UlpvMzIxaURLdmkwSnFvdWJCbDlad2RYaFp0djV6blNwYnpRTzNxa0lDaWxk?=
+ =?utf-8?B?MWFtK2g5SHlyeVRack5jc05PQ1VWcEVkcWVHSkVpd3F6YjlIVDZOTENlUi9C?=
+ =?utf-8?B?Mk9nRFphaDhMQ0ZlUy8rRzZYZ2F4d2hSWlNIMHNWSWFpN3dudFF0UXFHZ1NN?=
+ =?utf-8?B?Y0tKZkNWWTNta1pTVTVjbWlTSjl1YkNDR211V0VXanFwWWdZOFRHcCtzNCsr?=
+ =?utf-8?B?b1pxVVY0SVUvOEdGRllnaDNWU0srTEhycmtaSTNMSFg2dE1odWZ0VU9LZ080?=
+ =?utf-8?B?RUhnQ1BhZ2djbGZ6aFlQbUxIeXZGRHovRDBlMVk4NEVYWXcxSVVoRnFtNHky?=
+ =?utf-8?B?TDFPSUJKby8zN1NKSVpmMkJnRzBKN2htL1hsWE1jRUIrTzVrcDFNSXZwcHRE?=
+ =?utf-8?B?UjNTUjJBY0hQZk9SWXRsR2piYllIS2ZFVUpWUUpHMFVZcnUrQ2xRTk1DV2pq?=
+ =?utf-8?B?UE9WODBJWlVjZVM5VCswaWFpNGhucXFlUmxLc092aUQ4ZVdBUWJFTy9lM3RR?=
+ =?utf-8?B?NW9XNVhDMm8wTFQ3MmhJRTJXVTBUT0dvY1EwSW5hS0J2cGdobklnT1k2a3dR?=
+ =?utf-8?B?WTNnYXlSZTFscFpEV0orVDRsRXhrSUJHQnRBRm5CVE80SzFXZUhaMEI4WTlm?=
+ =?utf-8?B?OUpsb0NKVVJWZGU1V2VraXRzTktORk41QjdyYmk1WmRVRmNQYlJDcU4zRXhQ?=
+ =?utf-8?B?VjBxVytRdUJkdm1hZytPMWhHVHFvZ3cveFNISmhqS1NNV1g3ckcrZFB4aU5Y?=
+ =?utf-8?B?WTltQ1plcWNreGJYekdBeEhzcjNMQS9MNDRtNnJ1aTBIajVWOG0vbFpmb21j?=
+ =?utf-8?B?RmI0dk4rVkhtdWhCSTY4dDdRZHZyQTRpOU9IL1Q3bm5CUU9RV1dSSFZEdDFB?=
+ =?utf-8?B?TTduZkFqZ1N2eS9sU1k0MUZNdk94bTBublFWaUhaK2RTNFRFVENBQ1ZVb0kv?=
+ =?utf-8?B?WlplRzRzVjlUdThRV1dwNWxZcHdRTHN6SEo5dWpXcWxCdE5FOFhkYno0MUVP?=
+ =?utf-8?B?ZFh1UzA2WTg1dW5nWC8zMzY4ck5YTGpxVW9RS1Q5TFdFWU5waUI4eXkzOFV3?=
+ =?utf-8?B?UUJYRWM0clRhQUczV3gyRlJpT2kwWDFXdHJlMTRvVFR0bVU5SitLWnBaRzZo?=
+ =?utf-8?B?Y1ZIekZ2a1FkR1BYdnhqblJrUE9vUWNkTTlxam9WSm13Y0kzeFpyWXdtMCtD?=
+ =?utf-8?B?eU1RQXJPQzBkcytsRTFLeVM5L25VaGNSZm5IOVZTQWN1VllIYmIweVJKbGJ0?=
+ =?utf-8?Q?mc73S47TzKwsM4TORYdq?=
+X-OriginatorOrg: outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 4121c664-9e93-4bb8-dcb7-08dd1fd5b87a
+X-MS-Exchange-CrossTenant-AuthSource: BM1PR01MB2116.INDPRD01.PROD.OUTLOOK.COM
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Dec 2024 02:34:55.0361
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
+X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PN0PR01MB5860
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241218_180053_951029_F652D706 
-X-CRM114-Status: GOOD (  26.34  )
+X-CRM114-CacheID: sfid-20241218_183523_835398_B72BA6F8 
+X-CRM114-Status: GOOD (  26.86  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,459 +157,127 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="utf-8"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Dec 18, 2024, Sean Christopherson wrote:
-> On Wed, Dec 18, 2024, Sean Christopherson wrote:
-> > On Wed, 27 Nov 2024 16:55:31 -0800, Sean Christopherson wrote:
-> > > Two separate series (mmu_stress_test[1] and $ARCH[2]), posted as one to
-> > > avoid unpleasant conflicts, and because I hope to land both in kvm/next
-> > > shortly after 6.12-rc1 since they impact all of KVM selftests.
-> > > 
-> > > mmu_stress_test
-> > > ---------------
-> > > Convert the max_guest_memory_test into a more generic mmu_stress_test.
-> > > The basic gist of the "conversion" is to have the test do mprotect() on
-> > > guest memory while vCPUs are accessing said memory, e.g. to verify KVM
-> > > and mmu_notifiers are working as intended.
-> > > 
-> > > [...]
-> > 
-> > As I am running out of time before I disappear for two weeks, applied to:
-> > 
-> >    https://github.com/kvm-x86/linux.git selftests_arch
-> > 
-> > Other KVM maintainers, that branch is officially immutable.  I also pushed a tag,
-> > kvm-selftests-arch-6.14, just in case I pull a stupid and manage to clobber the
-> > branch.  My apologies if this causes pain.  AFAICT, there aren't any queued or
-> > in-flight patches that git's rename magic can't automatically handle, so hopefully
-> > this ends up being pain-free.
-> > 
-> > Paolo, here's a pull request if you want to pull this into kvm/next long before
-> > the 6.14 merge window.  Diff stats at the very bottom (hilariously long).
-> 
-> Argh!  I completely forget to build test this on non-x86, and missed that arm64
-> snuck in 75cd027cbcb1 ("KVM: arm64: selftests: Test ID_AA64PFR0.MPAM isn't completely 
-> ignored").  *sigh*
-> 
-> Given that I just sent out mail, I'm going to cross my fingers and hope that no
-> one has merged the above branch/tag.  I've deleted the branch and tags from the
-> remote, but kept the tag locally just in case.
-> 
-> Please holler if you managed to grab the broken branch/tag.  If no one screams,
-> I'll assume I got luckly and will push a fixed version (with different names) later
-> today.
-
-Third time is the charm.  Compile tested on all architectures, and runtime tested
-on x86 and arm64.
-
-  https://github.com/kvm-x86/linux.git selftests_treewide_6.14
-
----
-The following changes since commit 3522c419758ee8dca5a0e8753ee0070a22157bc1:
-
-  Merge tag 'kvm-riscv-fixes-6.13-1' of https://github.com/kvm-riscv/linux into HEAD (2024-12-13 13:59:20 -0500)
-
-are available in the Git repository at:
-
-  https://github.com/kvm-x86/linux.git tags/kvm-selftests-treewide-6.14
-
-for you to fetch changes up to 9af04539d474dda4984ff4909d4568e6123c8cba:
-
-  KVM: selftests: Override ARCH for x86_64 instead of using ARCH_DIR (2024-12-18 14:15:05 -0800)
-
-----------------------------------------------------------------
-KVM selftests "tree"-wide changes for 6.14:
-
- - Rework vcpu_get_reg() to return a value instead of using an out-param, and
-   update all affected arch code accordingly.
-
- - Convert the max_guest_memory_test into a more generic mmu_stress_test.
-   The basic gist of the "conversion" is to have the test do mprotect() on
-   guest memory while vCPUs are accessing said memory, e.g. to verify KVM
-   and mmu_notifiers are working as intended.
-
- - Play nice with treewrite builds of unsupported architectures, e.g. arm
-   (32-bit), as KVM selftests' Makefile doesn't do anything to ensure the
-   target architecture is actually one KVM selftests supports.
-
- - Use the kernel's $(ARCH) definition instead of the target triple for arch
-   specific directories, e.g. arm64 instead of aarch64, mainly so as not to
-   be different from the rest of the kernel.
-
-----------------------------------------------------------------
-Sean Christopherson (16):
-      KVM: Move KVM_REG_SIZE() definition to common uAPI header
-      KVM: selftests: Return a value from vcpu_get_reg() instead of using an out-param
-      KVM: selftests: Assert that vcpu_{g,s}et_reg() won't truncate
-      KVM: selftests: Check for a potential unhandled exception iff KVM_RUN succeeded
-      KVM: selftests: Rename max_guest_memory_test to mmu_stress_test
-      KVM: selftests: Only muck with SREGS on x86 in mmu_stress_test
-      KVM: selftests: Compute number of extra pages needed in mmu_stress_test
-      KVM: sefltests: Explicitly include ucall_common.h in mmu_stress_test.c
-      KVM: selftests: Enable mmu_stress_test on arm64
-      KVM: selftests: Use vcpu_arch_put_guest() in mmu_stress_test
-      KVM: selftests: Precisely limit the number of guest loops in mmu_stress_test
-      KVM: selftests: Add a read-only mprotect() phase to mmu_stress_test
-      KVM: selftests: Verify KVM correctly handles mprotect(PROT_READ)
-      KVM: selftests: Provide empty 'all' and 'clean' targets for unsupported ARCHs
-      KVM: selftests: Use canonical $(ARCH) paths for KVM selftests directories
-      KVM: selftests: Override ARCH for x86_64 instead of using ARCH_DIR
---
-
-[01/16] KVM: Move KVM_REG_SIZE() definition to common uAPI header
-        https://github.com/kvm-x86/linux/commit/915d2f0718a4
-[02/16] KVM: selftests: Return a value from vcpu_get_reg() instead of using an out-param
-        https://github.com/kvm-x86/linux/commit/09bb926d2907
-[03/16] KVM: selftests: Assert that vcpu_{g,s}et_reg() won't truncate
-        https://github.com/kvm-x86/linux/commit/fe85ce31b289
-[04/16] KVM: selftests: Check for a potential unhandled exception iff KVM_RUN succeeded
-        https://github.com/kvm-x86/linux/commit/d6533c151338
-[05/16] KVM: selftests: Rename max_guest_memory_test to mmu_stress_test
-        https://github.com/kvm-x86/linux/commit/b12391498d1e
-[06/16] KVM: selftests: Only muck with SREGS on x86 in mmu_stress_test
-        https://github.com/kvm-x86/linux/commit/55e164df482a
-[07/16] KVM: selftests: Compute number of extra pages needed in mmu_stress_test
-        https://github.com/kvm-x86/linux/commit/1ddd3ea75ac3
-[08/16] KVM: sefltests: Explicitly include ucall_common.h in mmu_stress_test.c
-        https://github.com/kvm-x86/linux/commit/c35d8f579e50
-[09/16] KVM: selftests: Enable mmu_stress_test on arm64
-        https://github.com/kvm-x86/linux/commit/8abe7632a1ee
-[10/16] KVM: selftests: Use vcpu_arch_put_guest() in mmu_stress_test
-        https://github.com/kvm-x86/linux/commit/3a0422526404
-[11/16] KVM: selftests: Precisely limit the number of guest loops in mmu_stress_test
-        https://github.com/kvm-x86/linux/commit/82b542e11848
-[12/16] KVM: selftests: Add a read-only mprotect() phase to mmu_stress_test
-        https://github.com/kvm-x86/linux/commit/80b7859a3a43
-[13/16] KVM: selftests: Verify KVM correctly handles mprotect(PROT_READ)
-        https://github.com/kvm-x86/linux/commit/b6c304aec648
-[14/16] KVM: selftests: Provide empty 'all' and 'clean' targets for unsupported ARCHs
-        https://github.com/kvm-x86/linux/commit/43fbd8cd389f
-[15/16] KVM: selftests: Use canonical $(ARCH) paths for KVM selftests directories
-        https://github.com/kvm-x86/linux/commit/67730e6c53d7
-[16/16] KVM: selftests: Override ARCH for x86_64 instead of using ARCH_DIR
-        https://github.com/kvm-x86/linux/commit/9af04539d474
-
-
- MAINTAINERS                                                                          |  12 +--
- arch/arm64/include/uapi/asm/kvm.h                                                    |   3 -
- arch/riscv/include/uapi/asm/kvm.h                                                    |   3 -
- include/uapi/linux/kvm.h                                                             |   4 +
- tools/testing/selftests/kvm/.gitignore                                               |   1 +
- tools/testing/selftests/kvm/Makefile                                                 | 345 ++------------------------------------------------------------------------------
- tools/testing/selftests/kvm/Makefile.kvm                                             | 330 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
- tools/testing/selftests/kvm/{aarch64 => arm64}/aarch32_id_regs.c                     |  10 +--
- tools/testing/selftests/kvm/{aarch64 => arm64}/arch_timer.c                          |   0
- tools/testing/selftests/kvm/{aarch64 => arm64}/arch_timer_edge_cases.c               |   0
- tools/testing/selftests/kvm/{aarch64 => arm64}/debug-exceptions.c                    |   4 +-
- tools/testing/selftests/kvm/{aarch64 => arm64}/get-reg-list.c                        |   0
- tools/testing/selftests/kvm/{aarch64 => arm64}/hypercalls.c                          |   6 +-
- tools/testing/selftests/kvm/{aarch64 => arm64}/mmio_abort.c                          |   0
- tools/testing/selftests/kvm/{aarch64 => arm64}/no-vgic-v3.c                          |   2 +-
- tools/testing/selftests/kvm/{aarch64 => arm64}/page_fault_test.c                     |   0
- tools/testing/selftests/kvm/{aarch64 => arm64}/psci_test.c                           |   8 +-
- tools/testing/selftests/kvm/{aarch64 => arm64}/set_id_regs.c                         |  22 +++---
- tools/testing/selftests/kvm/{aarch64 => arm64}/smccc_filter.c                        |   0
- tools/testing/selftests/kvm/{aarch64 => arm64}/vcpu_width_config.c                   |   0
- tools/testing/selftests/kvm/{aarch64 => arm64}/vgic_init.c                           |   0
- tools/testing/selftests/kvm/{aarch64 => arm64}/vgic_irq.c                            |   0
- tools/testing/selftests/kvm/{aarch64 => arm64}/vgic_lpi_stress.c                     |   0
- tools/testing/selftests/kvm/{aarch64 => arm64}/vpmu_counter_access.c                 |  19 +++--
- tools/testing/selftests/kvm/dirty_log_perf_test.c                                    |   2 +-
- tools/testing/selftests/kvm/include/{aarch64 => arm64}/arch_timer.h                  |   0
- tools/testing/selftests/kvm/include/{aarch64 => arm64}/delay.h                       |   0
- tools/testing/selftests/kvm/include/{aarch64 => arm64}/gic.h                         |   0
- tools/testing/selftests/kvm/include/{aarch64 => arm64}/gic_v3.h                      |   0
- tools/testing/selftests/kvm/include/{aarch64 => arm64}/gic_v3_its.h                  |   0
- tools/testing/selftests/kvm/include/{aarch64 => arm64}/kvm_util_arch.h               |   0
- tools/testing/selftests/kvm/include/{aarch64 => arm64}/processor.h                   |   0
- tools/testing/selftests/kvm/include/{aarch64 => arm64}/spinlock.h                    |   0
- tools/testing/selftests/kvm/include/{aarch64 => arm64}/ucall.h                       |   0
- tools/testing/selftests/kvm/include/{aarch64 => arm64}/vgic.h                        |   0
- tools/testing/selftests/kvm/include/kvm_util.h                                       |  10 ++-
- tools/testing/selftests/kvm/include/{s390x => s390}/debug_print.h                    |   0
- tools/testing/selftests/kvm/include/{s390x => s390}/diag318_test_handler.h           |   0
- tools/testing/selftests/kvm/include/{s390x => s390}/facility.h                       |   0
- tools/testing/selftests/kvm/include/{s390x => s390}/kvm_util_arch.h                  |   0
- tools/testing/selftests/kvm/include/{s390x => s390}/processor.h                      |   0
- tools/testing/selftests/kvm/include/{s390x => s390}/sie.h                            |   0
- tools/testing/selftests/kvm/include/{s390x => s390}/ucall.h                          |   0
- tools/testing/selftests/kvm/include/{x86_64 => x86}/apic.h                           |   2 -
- tools/testing/selftests/kvm/include/{x86_64 => x86}/evmcs.h                          |   3 -
- tools/testing/selftests/kvm/include/{x86_64 => x86}/hyperv.h                         |   3 -
- tools/testing/selftests/kvm/include/{x86_64 => x86}/kvm_util_arch.h                  |   0
- tools/testing/selftests/kvm/include/{x86_64 => x86}/mce.h                            |   2 -
- tools/testing/selftests/kvm/include/{x86_64 => x86}/pmu.h                            |   0
- tools/testing/selftests/kvm/include/{x86_64 => x86}/processor.h                      |   2 -
- tools/testing/selftests/kvm/include/{x86_64 => x86}/sev.h                            |   0
- tools/testing/selftests/kvm/include/{x86_64 => x86}/svm.h                            |   6 --
- tools/testing/selftests/kvm/include/{x86_64 => x86}/svm_util.h                       |   3 -
- tools/testing/selftests/kvm/include/{x86_64 => x86}/ucall.h                          |   0
- tools/testing/selftests/kvm/include/{x86_64 => x86}/vmx.h                            |   2 -
- tools/testing/selftests/kvm/lib/{aarch64 => arm64}/gic.c                             |   0
- tools/testing/selftests/kvm/lib/{aarch64 => arm64}/gic_private.h                     |   0
- tools/testing/selftests/kvm/lib/{aarch64 => arm64}/gic_v3.c                          |   0
- tools/testing/selftests/kvm/lib/{aarch64 => arm64}/gic_v3_its.c                      |   0
- tools/testing/selftests/kvm/lib/{aarch64 => arm64}/handlers.S                        |   0
- tools/testing/selftests/kvm/lib/{aarch64 => arm64}/processor.c                       |   8 +-
- tools/testing/selftests/kvm/lib/{aarch64 => arm64}/spinlock.c                        |   0
- tools/testing/selftests/kvm/lib/{aarch64 => arm64}/ucall.c                           |   0
- tools/testing/selftests/kvm/lib/{aarch64 => arm64}/vgic.c                            |   0
- tools/testing/selftests/kvm/lib/kvm_util.c                                           |   3 +-
- tools/testing/selftests/kvm/lib/riscv/processor.c                                    |  66 ++++++++--------
- tools/testing/selftests/kvm/lib/{s390x => s390}/diag318_test_handler.c               |   0
- tools/testing/selftests/kvm/lib/{s390x => s390}/facility.c                           |   0
- tools/testing/selftests/kvm/lib/{s390x => s390}/processor.c                          |   0
- tools/testing/selftests/kvm/lib/{s390x => s390}/ucall.c                              |   0
- tools/testing/selftests/kvm/lib/{x86_64 => x86}/apic.c                               |   0
- tools/testing/selftests/kvm/lib/{x86_64 => x86}/handlers.S                           |   0
- tools/testing/selftests/kvm/lib/{x86_64 => x86}/hyperv.c                             |   0
- tools/testing/selftests/kvm/lib/{x86_64 => x86}/memstress.c                          |   2 +-
- tools/testing/selftests/kvm/lib/{x86_64 => x86}/pmu.c                                |   0
- tools/testing/selftests/kvm/lib/{x86_64 => x86}/processor.c                          |   2 -
- tools/testing/selftests/kvm/lib/{x86_64 => x86}/sev.c                                |   0
- tools/testing/selftests/kvm/lib/{x86_64 => x86}/svm.c                                |   1 -
- tools/testing/selftests/kvm/lib/{x86_64 => x86}/ucall.c                              |   0
- tools/testing/selftests/kvm/lib/{x86_64 => x86}/vmx.c                                |   2 -
- tools/testing/selftests/kvm/{max_guest_memory_test.c => mmu_stress_test.c}           | 162 ++++++++++++++++++++++++++++++++++----
- tools/testing/selftests/kvm/riscv/arch_timer.c                                       |   2 +-
- tools/testing/selftests/kvm/riscv/ebreak_test.c                                      |   2 +-
- tools/testing/selftests/kvm/riscv/sbi_pmu_test.c                                     |   2 +-
- tools/testing/selftests/kvm/{s390x => s390}/cmma_test.c                              |   0
- tools/testing/selftests/kvm/{s390x => s390}/config                                   |   0
- tools/testing/selftests/kvm/{s390x => s390}/cpumodel_subfuncs_test.c                 |   0
- tools/testing/selftests/kvm/{s390x => s390}/debug_test.c                             |   0
- tools/testing/selftests/kvm/{s390x => s390}/memop.c                                  |   0
- tools/testing/selftests/kvm/{s390x => s390}/resets.c                                 |   2 +-
- tools/testing/selftests/kvm/{s390x => s390}/shared_zeropage_test.c                   |   0
- tools/testing/selftests/kvm/{s390x => s390}/sync_regs_test.c                         |   0
- tools/testing/selftests/kvm/{s390x => s390}/tprot.c                                  |   0
- tools/testing/selftests/kvm/{s390x => s390}/ucontrol_test.c                          |   0
- tools/testing/selftests/kvm/set_memory_region_test.c                                 |   6 +-
- tools/testing/selftests/kvm/steal_time.c                                             |   3 +-
- tools/testing/selftests/kvm/{x86_64 => x86}/amx_test.c                               |   0
- tools/testing/selftests/kvm/{x86_64 => x86}/apic_bus_clock_test.c                    |   0
- tools/testing/selftests/kvm/{x86_64 => x86}/cpuid_test.c                             |   0
- tools/testing/selftests/kvm/{x86_64 => x86}/cr4_cpuid_sync_test.c                    |   0
- tools/testing/selftests/kvm/{x86_64 => x86}/debug_regs.c                             |   0
- tools/testing/selftests/kvm/{x86_64 => x86}/dirty_log_page_splitting_test.c          |   0
- tools/testing/selftests/kvm/{x86_64 => x86}/exit_on_emulation_failure_test.c         |   0
- tools/testing/selftests/kvm/{x86_64 => x86}/feature_msrs_test.c                      |   0
- tools/testing/selftests/kvm/{x86_64 => x86}/fix_hypercall_test.c                     |   0
- tools/testing/selftests/kvm/{x86_64 => x86}/flds_emulation.h                         |   0
- tools/testing/selftests/kvm/{x86_64 => x86}/hwcr_msr_test.c                          |   0
- tools/testing/selftests/kvm/{x86_64 => x86}/hyperv_clock.c                           |   0
- tools/testing/selftests/kvm/{x86_64 => x86}/hyperv_cpuid.c                           |   0
- tools/testing/selftests/kvm/{x86_64 => x86}/hyperv_evmcs.c                           |   0
- tools/testing/selftests/kvm/{x86_64 => x86}/hyperv_extended_hypercalls.c             |   0
- tools/testing/selftests/kvm/{x86_64 => x86}/hyperv_features.c                        |   0
- tools/testing/selftests/kvm/{x86_64 => x86}/hyperv_ipi.c                             |   0
- tools/testing/selftests/kvm/{x86_64 => x86}/hyperv_svm_test.c                        |   0
- tools/testing/selftests/kvm/{x86_64 => x86}/hyperv_tlb_flush.c                       |   0
- tools/testing/selftests/kvm/{x86_64 => x86}/kvm_clock_test.c                         |   0
- tools/testing/selftests/kvm/{x86_64 => x86}/kvm_pv_test.c                            |   0
- tools/testing/selftests/kvm/{x86_64 => x86}/max_vcpuid_cap_test.c                    |   0
- tools/testing/selftests/kvm/{x86_64 => x86}/monitor_mwait_test.c                     |   0
- tools/testing/selftests/kvm/{x86_64 => x86}/nested_exceptions_test.c                 |   0
- tools/testing/selftests/kvm/{x86_64 => x86}/nx_huge_pages_test.c                     |   0
- tools/testing/selftests/kvm/{x86_64 => x86}/nx_huge_pages_test.sh                    |   0
- tools/testing/selftests/kvm/{x86_64 => x86}/platform_info_test.c                     |   0
- tools/testing/selftests/kvm/{x86_64 => x86}/pmu_counters_test.c                      |   0
- tools/testing/selftests/kvm/{x86_64 => x86}/pmu_event_filter_test.c                  |   0
- tools/testing/selftests/kvm/{x86_64 => x86}/private_mem_conversions_test.c           |   0
- tools/testing/selftests/kvm/{x86_64 => x86}/private_mem_kvm_exits_test.c             |   0
- tools/testing/selftests/kvm/{x86_64 => x86}/recalc_apic_map_test.c                   |   0
- tools/testing/selftests/kvm/{x86_64 => x86}/set_boot_cpu_id.c                        |   0
- tools/testing/selftests/kvm/{x86_64 => x86}/set_sregs_test.c                         |   0
- tools/testing/selftests/kvm/{x86_64 => x86}/sev_init2_tests.c                        |   0
- tools/testing/selftests/kvm/{x86_64 => x86}/sev_migrate_tests.c                      |   0
- tools/testing/selftests/kvm/{x86_64 => x86}/sev_smoke_test.c                         |   0
- tools/testing/selftests/kvm/{x86_64 => x86}/smaller_maxphyaddr_emulation_test.c      |   0
- tools/testing/selftests/kvm/{x86_64 => x86}/smm_test.c                               |   0
- tools/testing/selftests/kvm/{x86_64 => x86}/state_test.c                             |   0
- tools/testing/selftests/kvm/{x86_64 => x86}/svm_int_ctl_test.c                       |   0
- tools/testing/selftests/kvm/{x86_64 => x86}/svm_nested_shutdown_test.c               |   0
- tools/testing/selftests/kvm/{x86_64 => x86}/svm_nested_soft_inject_test.c            |   0
- tools/testing/selftests/kvm/{x86_64 => x86}/svm_vmcall_test.c                        |   0
- tools/testing/selftests/kvm/{x86_64 => x86}/sync_regs_test.c                         |   0
- tools/testing/selftests/kvm/{x86_64 => x86}/triple_fault_event_test.c                |   0
- tools/testing/selftests/kvm/{x86_64 => x86}/tsc_msrs_test.c                          |   0
- tools/testing/selftests/kvm/{x86_64 => x86}/tsc_scaling_sync.c                       |   0
- tools/testing/selftests/kvm/{x86_64 => x86}/ucna_injection_test.c                    |   0
- tools/testing/selftests/kvm/{x86_64 => x86}/userspace_io_test.c                      |   0
- tools/testing/selftests/kvm/{x86_64 => x86}/userspace_msr_exit_test.c                |   0
- tools/testing/selftests/kvm/{x86_64 => x86}/vmx_apic_access_test.c                   |   0
- tools/testing/selftests/kvm/{x86_64 => x86}/vmx_close_while_nested_test.c            |   0
- tools/testing/selftests/kvm/{x86_64 => x86}/vmx_dirty_log_test.c                     |   0
- tools/testing/selftests/kvm/{x86_64 => x86}/vmx_exception_with_invalid_guest_state.c |   0
- tools/testing/selftests/kvm/{x86_64 => x86}/vmx_invalid_nested_guest_state.c         |   0
- tools/testing/selftests/kvm/{x86_64 => x86}/vmx_msrs_test.c                          |   0
- tools/testing/selftests/kvm/{x86_64 => x86}/vmx_nested_tsc_scaling_test.c            |   0
- tools/testing/selftests/kvm/{x86_64 => x86}/vmx_pmu_caps_test.c                      |   0
- tools/testing/selftests/kvm/{x86_64 => x86}/vmx_preemption_timer_test.c              |   0
- tools/testing/selftests/kvm/{x86_64 => x86}/vmx_set_nested_state_test.c              |   0
- tools/testing/selftests/kvm/{x86_64 => x86}/vmx_tsc_adjust_test.c                    |   0
- tools/testing/selftests/kvm/{x86_64 => x86}/xapic_ipi_test.c                         |   0
- tools/testing/selftests/kvm/{x86_64 => x86}/xapic_state_test.c                       |   0
- tools/testing/selftests/kvm/{x86_64 => x86}/xcr0_cpuid_test.c                        |   0
- tools/testing/selftests/kvm/{x86_64 => x86}/xen_shinfo_test.c                        |   0
- tools/testing/selftests/kvm/{x86_64 => x86}/xen_vmcall_test.c                        |   0
- tools/testing/selftests/kvm/{x86_64 => x86}/xss_msr_test.c                           |   0
- 164 files changed, 587 insertions(+), 480 deletions(-)
- create mode 100644 tools/testing/selftests/kvm/Makefile.kvm
- rename tools/testing/selftests/kvm/{aarch64 => arm64}/aarch32_id_regs.c (95%)
- rename tools/testing/selftests/kvm/{aarch64 => arm64}/arch_timer.c (100%)
- rename tools/testing/selftests/kvm/{aarch64 => arm64}/arch_timer_edge_cases.c (100%)
- rename tools/testing/selftests/kvm/{aarch64 => arm64}/debug-exceptions.c (99%)
- rename tools/testing/selftests/kvm/{aarch64 => arm64}/get-reg-list.c (100%)
- rename tools/testing/selftests/kvm/{aarch64 => arm64}/hypercalls.c (98%)
- rename tools/testing/selftests/kvm/{aarch64 => arm64}/mmio_abort.c (100%)
- rename tools/testing/selftests/kvm/{aarch64 => arm64}/no-vgic-v3.c (98%)
- rename tools/testing/selftests/kvm/{aarch64 => arm64}/page_fault_test.c (100%)
- rename tools/testing/selftests/kvm/{aarch64 => arm64}/psci_test.c (96%)
- rename tools/testing/selftests/kvm/{aarch64 => arm64}/set_id_regs.c (97%)
- rename tools/testing/selftests/kvm/{aarch64 => arm64}/smccc_filter.c (100%)
- rename tools/testing/selftests/kvm/{aarch64 => arm64}/vcpu_width_config.c (100%)
- rename tools/testing/selftests/kvm/{aarch64 => arm64}/vgic_init.c (100%)
- rename tools/testing/selftests/kvm/{aarch64 => arm64}/vgic_irq.c (100%)
- rename tools/testing/selftests/kvm/{aarch64 => arm64}/vgic_lpi_stress.c (100%)
- rename tools/testing/selftests/kvm/{aarch64 => arm64}/vpmu_counter_access.c (97%)
- rename tools/testing/selftests/kvm/include/{aarch64 => arm64}/arch_timer.h (100%)
- rename tools/testing/selftests/kvm/include/{aarch64 => arm64}/delay.h (100%)
- rename tools/testing/selftests/kvm/include/{aarch64 => arm64}/gic.h (100%)
- rename tools/testing/selftests/kvm/include/{aarch64 => arm64}/gic_v3.h (100%)
- rename tools/testing/selftests/kvm/include/{aarch64 => arm64}/gic_v3_its.h (100%)
- rename tools/testing/selftests/kvm/include/{aarch64 => arm64}/kvm_util_arch.h (100%)
- rename tools/testing/selftests/kvm/include/{aarch64 => arm64}/processor.h (100%)
- rename tools/testing/selftests/kvm/include/{aarch64 => arm64}/spinlock.h (100%)
- rename tools/testing/selftests/kvm/include/{aarch64 => arm64}/ucall.h (100%)
- rename tools/testing/selftests/kvm/include/{aarch64 => arm64}/vgic.h (100%)
- rename tools/testing/selftests/kvm/include/{s390x => s390}/debug_print.h (100%)
- rename tools/testing/selftests/kvm/include/{s390x => s390}/diag318_test_handler.h (100%)
- rename tools/testing/selftests/kvm/include/{s390x => s390}/facility.h (100%)
- rename tools/testing/selftests/kvm/include/{s390x => s390}/kvm_util_arch.h (100%)
- rename tools/testing/selftests/kvm/include/{s390x => s390}/processor.h (100%)
- rename tools/testing/selftests/kvm/include/{s390x => s390}/sie.h (100%)
- rename tools/testing/selftests/kvm/include/{s390x => s390}/ucall.h (100%)
- rename tools/testing/selftests/kvm/include/{x86_64 => x86}/apic.h (98%)
- rename tools/testing/selftests/kvm/include/{x86_64 => x86}/evmcs.h (99%)
- rename tools/testing/selftests/kvm/include/{x86_64 => x86}/hyperv.h (99%)
- rename tools/testing/selftests/kvm/include/{x86_64 => x86}/kvm_util_arch.h (100%)
- rename tools/testing/selftests/kvm/include/{x86_64 => x86}/mce.h (94%)
- rename tools/testing/selftests/kvm/include/{x86_64 => x86}/pmu.h (100%)
- rename tools/testing/selftests/kvm/include/{x86_64 => x86}/processor.h (99%)
- rename tools/testing/selftests/kvm/include/{x86_64 => x86}/sev.h (100%)
- rename tools/testing/selftests/kvm/include/{x86_64 => x86}/svm.h (98%)
- rename tools/testing/selftests/kvm/include/{x86_64 => x86}/svm_util.h (94%)
- rename tools/testing/selftests/kvm/include/{x86_64 => x86}/ucall.h (100%)
- rename tools/testing/selftests/kvm/include/{x86_64 => x86}/vmx.h (99%)
- rename tools/testing/selftests/kvm/lib/{aarch64 => arm64}/gic.c (100%)
- rename tools/testing/selftests/kvm/lib/{aarch64 => arm64}/gic_private.h (100%)
- rename tools/testing/selftests/kvm/lib/{aarch64 => arm64}/gic_v3.c (100%)
- rename tools/testing/selftests/kvm/lib/{aarch64 => arm64}/gic_v3_its.c (100%)
- rename tools/testing/selftests/kvm/lib/{aarch64 => arm64}/handlers.S (100%)
- rename tools/testing/selftests/kvm/lib/{aarch64 => arm64}/processor.c (98%)
- rename tools/testing/selftests/kvm/lib/{aarch64 => arm64}/spinlock.c (100%)
- rename tools/testing/selftests/kvm/lib/{aarch64 => arm64}/ucall.c (100%)
- rename tools/testing/selftests/kvm/lib/{aarch64 => arm64}/vgic.c (100%)
- rename tools/testing/selftests/kvm/lib/{s390x => s390}/diag318_test_handler.c (100%)
- rename tools/testing/selftests/kvm/lib/{s390x => s390}/facility.c (100%)
- rename tools/testing/selftests/kvm/lib/{s390x => s390}/processor.c (100%)
- rename tools/testing/selftests/kvm/lib/{s390x => s390}/ucall.c (100%)
- rename tools/testing/selftests/kvm/lib/{x86_64 => x86}/apic.c (100%)
- rename tools/testing/selftests/kvm/lib/{x86_64 => x86}/handlers.S (100%)
- rename tools/testing/selftests/kvm/lib/{x86_64 => x86}/hyperv.c (100%)
- rename tools/testing/selftests/kvm/lib/{x86_64 => x86}/memstress.c (98%)
- rename tools/testing/selftests/kvm/lib/{x86_64 => x86}/pmu.c (100%)
- rename tools/testing/selftests/kvm/lib/{x86_64 => x86}/processor.c (99%)
- rename tools/testing/selftests/kvm/lib/{x86_64 => x86}/sev.c (100%)
- rename tools/testing/selftests/kvm/lib/{x86_64 => x86}/svm.c (99%)
- rename tools/testing/selftests/kvm/lib/{x86_64 => x86}/ucall.c (100%)
- rename tools/testing/selftests/kvm/lib/{x86_64 => x86}/vmx.c (99%)
- rename tools/testing/selftests/kvm/{max_guest_memory_test.c => mmu_stress_test.c} (60%)
- rename tools/testing/selftests/kvm/{s390x => s390}/cmma_test.c (100%)
- rename tools/testing/selftests/kvm/{s390x => s390}/config (100%)
- rename tools/testing/selftests/kvm/{s390x => s390}/cpumodel_subfuncs_test.c (100%)
- rename tools/testing/selftests/kvm/{s390x => s390}/debug_test.c (100%)
- rename tools/testing/selftests/kvm/{s390x => s390}/memop.c (100%)
- rename tools/testing/selftests/kvm/{s390x => s390}/resets.c (99%)
- rename tools/testing/selftests/kvm/{s390x => s390}/shared_zeropage_test.c (100%)
- rename tools/testing/selftests/kvm/{s390x => s390}/sync_regs_test.c (100%)
- rename tools/testing/selftests/kvm/{s390x => s390}/tprot.c (100%)
- rename tools/testing/selftests/kvm/{s390x => s390}/ucontrol_test.c (100%)
- rename tools/testing/selftests/kvm/{x86_64 => x86}/amx_test.c (100%)
- rename tools/testing/selftests/kvm/{x86_64 => x86}/apic_bus_clock_test.c (100%)
- rename tools/testing/selftests/kvm/{x86_64 => x86}/cpuid_test.c (100%)
- rename tools/testing/selftests/kvm/{x86_64 => x86}/cr4_cpuid_sync_test.c (100%)
- rename tools/testing/selftests/kvm/{x86_64 => x86}/debug_regs.c (100%)
- rename tools/testing/selftests/kvm/{x86_64 => x86}/dirty_log_page_splitting_test.c (100%)
- rename tools/testing/selftests/kvm/{x86_64 => x86}/exit_on_emulation_failure_test.c (100%)
- rename tools/testing/selftests/kvm/{x86_64 => x86}/feature_msrs_test.c (100%)
- rename tools/testing/selftests/kvm/{x86_64 => x86}/fix_hypercall_test.c (100%)
- rename tools/testing/selftests/kvm/{x86_64 => x86}/flds_emulation.h (100%)
- rename tools/testing/selftests/kvm/{x86_64 => x86}/hwcr_msr_test.c (100%)
- rename tools/testing/selftests/kvm/{x86_64 => x86}/hyperv_clock.c (100%)
- rename tools/testing/selftests/kvm/{x86_64 => x86}/hyperv_cpuid.c (100%)
- rename tools/testing/selftests/kvm/{x86_64 => x86}/hyperv_evmcs.c (100%)
- rename tools/testing/selftests/kvm/{x86_64 => x86}/hyperv_extended_hypercalls.c (100%)
- rename tools/testing/selftests/kvm/{x86_64 => x86}/hyperv_features.c (100%)
- rename tools/testing/selftests/kvm/{x86_64 => x86}/hyperv_ipi.c (100%)
- rename tools/testing/selftests/kvm/{x86_64 => x86}/hyperv_svm_test.c (100%)
- rename tools/testing/selftests/kvm/{x86_64 => x86}/hyperv_tlb_flush.c (100%)
- rename tools/testing/selftests/kvm/{x86_64 => x86}/kvm_clock_test.c (100%)
- rename tools/testing/selftests/kvm/{x86_64 => x86}/kvm_pv_test.c (100%)
- rename tools/testing/selftests/kvm/{x86_64 => x86}/max_vcpuid_cap_test.c (100%)
- rename tools/testing/selftests/kvm/{x86_64 => x86}/monitor_mwait_test.c (100%)
- rename tools/testing/selftests/kvm/{x86_64 => x86}/nested_exceptions_test.c (100%)
- rename tools/testing/selftests/kvm/{x86_64 => x86}/nx_huge_pages_test.c (100%)
- rename tools/testing/selftests/kvm/{x86_64 => x86}/nx_huge_pages_test.sh (100%)
- rename tools/testing/selftests/kvm/{x86_64 => x86}/platform_info_test.c (100%)
- rename tools/testing/selftests/kvm/{x86_64 => x86}/pmu_counters_test.c (100%)
- rename tools/testing/selftests/kvm/{x86_64 => x86}/pmu_event_filter_test.c (100%)
- rename tools/testing/selftests/kvm/{x86_64 => x86}/private_mem_conversions_test.c (100%)
- rename tools/testing/selftests/kvm/{x86_64 => x86}/private_mem_kvm_exits_test.c (100%)
- rename tools/testing/selftests/kvm/{x86_64 => x86}/recalc_apic_map_test.c (100%)
- rename tools/testing/selftests/kvm/{x86_64 => x86}/set_boot_cpu_id.c (100%)
- rename tools/testing/selftests/kvm/{x86_64 => x86}/set_sregs_test.c (100%)
- rename tools/testing/selftests/kvm/{x86_64 => x86}/sev_init2_tests.c (100%)
- rename tools/testing/selftests/kvm/{x86_64 => x86}/sev_migrate_tests.c (100%)
- rename tools/testing/selftests/kvm/{x86_64 => x86}/sev_smoke_test.c (100%)
- rename tools/testing/selftests/kvm/{x86_64 => x86}/smaller_maxphyaddr_emulation_test.c (100%)
- rename tools/testing/selftests/kvm/{x86_64 => x86}/smm_test.c (100%)
- rename tools/testing/selftests/kvm/{x86_64 => x86}/state_test.c (100%)
- rename tools/testing/selftests/kvm/{x86_64 => x86}/svm_int_ctl_test.c (100%)
- rename tools/testing/selftests/kvm/{x86_64 => x86}/svm_nested_shutdown_test.c (100%)
- rename tools/testing/selftests/kvm/{x86_64 => x86}/svm_nested_soft_inject_test.c (100%)
- rename tools/testing/selftests/kvm/{x86_64 => x86}/svm_vmcall_test.c (100%)
- rename tools/testing/selftests/kvm/{x86_64 => x86}/sync_regs_test.c (100%)
- rename tools/testing/selftests/kvm/{x86_64 => x86}/triple_fault_event_test.c (100%)
- rename tools/testing/selftests/kvm/{x86_64 => x86}/tsc_msrs_test.c (100%)
- rename tools/testing/selftests/kvm/{x86_64 => x86}/tsc_scaling_sync.c (100%)
- rename tools/testing/selftests/kvm/{x86_64 => x86}/ucna_injection_test.c (100%)
- rename tools/testing/selftests/kvm/{x86_64 => x86}/userspace_io_test.c (100%)
- rename tools/testing/selftests/kvm/{x86_64 => x86}/userspace_msr_exit_test.c (100%)
- rename tools/testing/selftests/kvm/{x86_64 => x86}/vmx_apic_access_test.c (100%)
- rename tools/testing/selftests/kvm/{x86_64 => x86}/vmx_close_while_nested_test.c (100%)
- rename tools/testing/selftests/kvm/{x86_64 => x86}/vmx_dirty_log_test.c (100%)
- rename tools/testing/selftests/kvm/{x86_64 => x86}/vmx_exception_with_invalid_guest_state.c (100%)
- rename tools/testing/selftests/kvm/{x86_64 => x86}/vmx_invalid_nested_guest_state.c (100%)
- rename tools/testing/selftests/kvm/{x86_64 => x86}/vmx_msrs_test.c (100%)
- rename tools/testing/selftests/kvm/{x86_64 => x86}/vmx_nested_tsc_scaling_test.c (100%)
- rename tools/testing/selftests/kvm/{x86_64 => x86}/vmx_pmu_caps_test.c (100%)
- rename tools/testing/selftests/kvm/{x86_64 => x86}/vmx_preemption_timer_test.c (100%)
- rename tools/testing/selftests/kvm/{x86_64 => x86}/vmx_set_nested_state_test.c (100%)
- rename tools/testing/selftests/kvm/{x86_64 => x86}/vmx_tsc_adjust_test.c (100%)
- rename tools/testing/selftests/kvm/{x86_64 => x86}/xapic_ipi_test.c (100%)
- rename tools/testing/selftests/kvm/{x86_64 => x86}/xapic_state_test.c (100%)
- rename tools/testing/selftests/kvm/{x86_64 => x86}/xcr0_cpuid_test.c (100%)
- rename tools/testing/selftests/kvm/{x86_64 => x86}/xen_shinfo_test.c (100%)
- rename tools/testing/selftests/kvm/{x86_64 => x86}/xen_vmcall_test.c (100%)
- rename tools/testing/selftests/kvm/{x86_64 => x86}/xss_msr_test.c (100%)
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+aGVsbG8gfgoKT24gMjAyNC8xMi8xMSAxOjMzLCBCam9ybiBIZWxnYWFzIHdyb3RlOgo+IE9uIE1v
+biwgRGVjIDA5LCAyMDI0IGF0IDAzOjE5OjM4UE0gKzA4MDAsIENoZW4gV2FuZyB3cm90ZToKPj4g
+QWRkIGJpbmRpbmcgZm9yIFNvcGhnbyBTRzIwNDIgUENJZSBob3N0IGNvbnRyb2xsZXIuCj4+ICsg
+IHNvcGhnbyxwY2llLXBvcnQ6ClsuLi4uLi5dCj4+ICsgICAgICBUaGUgQ2FkZW5jZSBJUCBoYXMg
+dHdvIG1vZGVzIG9mIG9wZXJhdGlvbiwgc2VsZWN0ZWQgYnkgYSBzdHJhcCBwaW4uCj4+ICsKPj4g
+KyAgICAgIEluIHRoZSBzaW5nbGUtbGluayBtb2RlLCB0aGUgQ2FkZW5jZSBQQ0llIGNvcmUgaW5z
+dGFuY2UgYXNzb2NpYXRlZAo+PiArICAgICAgd2l0aCBMaW5rMCBpcyBjb25uZWN0ZWQgdG8gYWxs
+IHRoZSBsYW5lcyBhbmQgdGhlIENhZGVuY2UgUENJZSBjb3JlCj4+ICsgICAgICBpbnN0YW5jZSBh
+c3NvY2lhdGVkIHdpdGggTGluazEgaXMgaW5hY3RpdmUuCj4+ICsKPj4gKyAgICAgIEluIHRoZSBk
+dWFsLWxpbmsgbW9kZSwgdGhlIENhZGVuY2UgUENJZSBjb3JlIGluc3RhbmNlIGFzc29jaWF0ZWQK
+Pj4gKyAgICAgIHdpdGggTGluazAgaXMgY29ubmVjdGVkIHRvIHRoZSBsb3dlciBoYWxmIG9mIHRo
+ZSBsYW5lcyBhbmQgdGhlCj4+ICsgICAgICBDYWRlbmNlIFBDSWUgY29yZSBpbnN0YW5jZSBhc3Nv
+Y2lhdGVkIHdpdGggTGluazEgaXMgY29ubmVjdGVkIHRvCj4+ICsgICAgICB0aGUgdXBwZXIgaGFs
+ZiBvZiB0aGUgbGFuZXMuCj4gSSBhc3N1bWUgdGhpcyBtZWFucyB0aGVyZSBhcmUgdHdvIHNlcGFy
+YXRlIFJvb3QgUG9ydHMsIG9uZSBmb3IgTGluazAKPiBhbmQgYSBzZWNvbmQgZm9yIExpbmsxPwo+
+Cj4+ICsgICAgICBTRzIwNDIgY29udGFpbnMgMiBDYWRlbmNlIElQcyBhbmQgY29uZmlndXJlcyB0
+aGUgQ29yZXMgYXMgYmVsb3c6Cj4+ICsKPj4gKyAgICAgICAgICAgICAgICAgICAgICstLSBDb3Jl
+KExpbmswKSA8LS0tPiBwY2llX3JjMCAgICstLS0tLS0tLS0tLS0tLS0tLSsKPj4gKyAgICAgICAg
+ICAgICAgICAgICAgIHwgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHwgICAgICAgICAg
+ICAgICAgIHwKPj4gKyAgICAgIENhZGVuY2UgSVAgMSAtLSsgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgIHwgY2Ruc19wY2llMF9jdHJsIHwKPj4gKyAgICAgICAgICAgICAgICAgICAgIHwg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHwgICAgICAgICAgICAgICAgIHwKPj4gKyAg
+ICAgICAgICAgICAgICAgICAgICstLSBDb3JlKExpbmsxKSA8LS0tPiBkaXNhYmxlZCAgICstLS0t
+LS0tLS0tLS0tLS0tLSsKPj4gKwo+PiArICAgICAgICAgICAgICAgICAgICAgKy0tIENvcmUoTGlu
+azApIDwtLS0+IHBjaWVfcmMxICAgKy0tLS0tLS0tLS0tLS0tLS0tKwo+PiArICAgICAgICAgICAg
+ICAgICAgICAgfCAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgfCAgICAgICAgICAgICAg
+ICAgfAo+PiArICAgICAgQ2FkZW5jZSBJUCAyIC0tKyAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgfCBjZG5zX3BjaWUxX2N0cmwgfAo+PiArICAgICAgICAgICAgICAgICAgICAgfCAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgfCAgICAgICAgICAgICAgICAgfAo+PiArICAgICAg
+ICAgICAgICAgICAgICAgKy0tIENvcmUoTGluazEpIDwtLS0+IHBjaWVfcmMyICAgKy0tLS0tLS0t
+LS0tLS0tLS0tKwo+PiArCj4+ICsgICAgICBwY2llX3JjWCBpcyBwY2llIG5vZGUgKCJzb3BoZ28s
+c2cyMDQyLXBjaWUtaG9zdCIpIGRlZmluZWQgaW4gRFRTLgo+PiArICAgICAgY2Ruc19wY2llMF9j
+dHJsIGlzIHN5c2NvbiBub2RlICgic29waGdvLHNnMjA0Mi1wY2llLWN0cmwiKSBkZWZpbmVkIGlu
+IERUUwo+PiArCj4+ICsgICAgICBjZG5zX3BjaWVYX2N0cmwgY29udGFpbnMgc29tZSByZWdpc3Rl
+cnMgc2hhcmVkIGJ5IHBjaWVfcmNYLCBldmVuIHR3bwo+PiArICAgICAgUkMoTGluaylzIG1heSBz
+aGFyZSBkaWZmZXJlbnQgYml0cyBvZiB0aGUgc2FtZSByZWdpc3Rlci4gRm9yIGV4YW1wbGUsCj4+
+ICsgICAgICBjZG5zX3BjaWUxX2N0cmwgY29udGFpbnMgcmVnaXN0ZXJzIHNoYXJlZCBieSBsaW5r
+MCAmIGxpbmsxIGZvciBDYWRlbmNlIElQIDIuCj4gQW4gUkMgZG9lc24ndCBoYXZlIGEgTGluay4g
+IEEgUm9vdCBQb3J0IGRvZXMuCj4KPj4gKyAgICAgICJzb3BoZ28scGNpZS1wb3J0IiBpcyBkZWZp
+bmVkIHRvIGZsYWcgd2hpY2ggY29yZShsaW5rKSB0aGUgcmMgbWFwcyB0bywgd2l0aAo+PiArICAg
+ICAgdGhpcyB3ZSBjYW4ga25vdyB3aGF0IHJlZ2lzdGVycyhiaXRzKSB3ZSBzaG91bGQgdXNlLgo+
+PiArCj4+ICsgIHNvcGhnbyxzeXNjb24tcGNpZS1jdHJsOgo+PiArICAgICRyZWY6IC9zY2hlbWFz
+L3R5cGVzLnlhbWwjL2RlZmluaXRpb25zL3BoYW5kbGUKPj4gKyAgICBkZXNjcmlwdGlvbjoKPj4g
+KyAgICAgIFBoYW5kbGUgdG8gdGhlIFBDSWUgU3lzdGVtIENvbnRyb2xsZXIgRFQgbm9kZS4gSXQn
+cyByZXF1aXJlZCB0bwo+PiArICAgICAgYWNjZXNzIHNvbWUgTVNJIG9wZXJhdGlvbiByZWdpc3Rl
+cnMgc2hhcmVkIGJ5IFBDSWUgUkNzLgo+IEkgdGhpbmsgdGhpcyBwcm9iYWJseSBtZWFucyAic2hh
+cmVkIGJ5IFBDSWUgUm9vdCBQb3J0cyIsIG5vdCBSQ3MuCj4gSXQncyB1bmxpa2VseSB0aGF0IHRo
+aXMgaGFyZHdhcmUgaGFzIG11bHRpcGxlIFJvb3QgQ29tcGxleGVzLgoKaGksIEJqb3JuLAoKSSBq
+dXN0IGRvdWJsZSBjb25maXJtZWQgd2l0aCBzb3BoZ28gZW5naW5lZXJzLCB0aGV5IHRvbGQgbWUg
+dGhhdCB0aGUgCmFjdHVhbCBQQ0llIGRlc2lnbiBpcyB0aGF0IHRoZXJlIGlzIG9ubHkgb25lIHJv
+b3QgcG9ydCB1bmRlciBhIGhvc3QgCmJyaWRnZS4gSSBhbSBzb3JyeSB0aGF0IG15IG9yaWdpbmFs
+IGRlc2NyaXB0aW9uIGFuZCBkaWFncmFtIG1heSBub3QgbWFrZSAKdGhpcyBjbGVhciwgc28gcGxl
+YXNlIGFsbG93IG1lIHRvIGludHJvZHVjZSB0aGlzIGhpc3RvcmljYWwgYmFja2dyb3VuZCAKaW4g
+ZGV0YWlsIGFnYWluLiBQbGVhc2UgcmVhZCBpdCBwYXRpZW50bHkgOik6CgpUaGUgSVAgcHJvdmlk
+ZWQgYnkgQ2FkZW5jZSBjb250YWlucyB0d28gaW5kZXBlbmRlbnQgY29yZXMgKGNhbGxlZCAKImxp
+bmtzIiBhY2NvcmRpbmcgdG8gdGhlIHRlcm1pbm9sb2d5IG9mIHRoZWlyIG1hbnVhbCwgdGhlIGZp
+cnN0IG9uZSBpcyAKY2FsbGVkIGxpbmswIGFuZCB0aGUgc2Vjb25kIG9uZSBpcyBjYWxsZWQgbGlu
+azEpLiBFYWNoIGNvcmUgY29ycmVzcG9uZHMgCnRvIGEgaG9zdCBicmlkZ2UsIGFuZCBlYWNoIGhv
+c3QgYnJpZGdlIGhhcyBvbmx5IG9uZSByb290IHBvcnQsIGFuZCB0aGVpciAKY29uZmlndXJhdGlv
+biByZWdpc3RlcnMgYXJlIGNvbXBsZXRlbHkgaW5kZXBlbmRlbnQuIFRoYXQgaXMgdG8gc2F577yM
+b25lIApjYWRlbmNlIElQIGVuY2Fwc3VsYXRlcyB0d28gaW5kZXBlbmRlbnQgaG9zdCBicmlkZ2Vz
+LiBTRzIwNDIgaW50ZWdyYXRlcyAKdHdvIENhZGVuY2UgSVBzLCBzbyB0aGVyZSBjYW4gYWN0dWFs
+bHkgYmUgdXAgdG8gZm91ciBob3N0IGJyaWRnZXMuCgoKVGFraW5nIGEgQ2FkZW5jZSBJUCBhcyBh
+biBleGFtcGxlLCB0aGUgdHdvIGhvc3QgYnJpZGdlcyBjYW4gYmUgY29ubmVjdGVkIAp0byBkaWZm
+ZXJlbnQgbGFuZXMgdGhyb3VnaCBjb25maWd1cmF0aW9uLCB3aGljaCBoYXMgYmVlbiBkZXNjcmli
+ZWQgaW4gCnRoZSBvcmlnaW5hbCBtZXNzYWdlLiBBdCBwcmVzZW50LCB0aGUgY29uZmlndXJhdGlv
+biBvZiBTRzIwNDIgaXMgdG8gbGV0IApjb3JlMCAobGluazApIGluIHRoZSBmaXJzdCBpcCBvY2N1
+cHkgYWxsIGxhbmVzIGluIHRoZSBpcCwgYW5kIGxldCBjb3JlMCAKKGxpbmswKSBhbmQgY29yZTEg
+KGxpbmsxKSBpbiB0aGUgc2Vjb25kIGlwIGVhY2ggdXNlIGhhbGYgb2YgdGhlIGxhbmVzIGluIAp0
+aGUgaXAuIFNvIGluIHRoZSBlbmQgd2Ugb25seSB1c2UgMyBjb3JlcywgdGhhdCdzIHdoeSAzIGhv
+c3QgYnJpZGdlIApub2RlcyBhcmUgY29uZmlndXJlZCBpbiBkdHMuCgoKQmVjYXVzZSB0aGUgY29u
+ZmlndXJhdGlvbnMgb2YgdGhlc2UgbGlua3MgYXJlIGluZGVwZW5kZW50LCB0aGUgc3RvcnkgCmVu
+ZHMgaGVyZSwgYnV0IHVuZm9ydHVuYXRlbHksIHNvcGhnbyBlbmdpbmVlcnMgZGVmaW5lZCBzb21l
+IG5ldyByZWdpc3RlciAKZmlsZXMgdG8gYWRkIHN1cHBvcnQgZm9yIHRoZWlyIG1zaSBjb250cm9s
+bGVyIGluc2lkZSBwY2llLiBUaGUgcHJvYmxlbSAKaXMgdGhleSBkaWQgbm90IHNlcGFyYXRlIHRo
+ZXNlIHJlZ2lzdGVyIGZpbGVzIGFjY29yZGluZyB0byBsaW5rMCBhbmQgCmxpbmsxLiBUaGVzZSBu
+ZXcgcmVnaXN0ZXIgZmlsZXMgYXJlICJjZG5zX3BjaWUwX2N0cmwiIC8gCiJjZG5zX3BjaWUxX2N0
+cmwiIGluIHRoZSBvcmlnaW5hbCBwaWN0dXJlIGFuZCBkdHMsIHdoZXJlIHRoZSByZWdpc3RlciBv
+ZiAKImNkbnNfcGNpZTBfY3RybCIgaXMgc2hhcmVkIGJ5IGxpbmswIGFuZCBsaW5rMSBvZiB0aGUg
+Zmlyc3QgaXAsIGFuZCAKImNkbnNfcGNpZTFfY3RybCIgaXMgc2hhcmVkIGJ5IGxpbmswIGFuZCBs
+aW5rMSBvZiB0aGUgc2Vjb25kIGlwLiAKQWNjb3JkaW5nIHRvIG15IG5ldyBkZXNjcmlwdGlvbiwg
+ImNkbnNfcGNpZVhfY3RybCIgaXMgbm90IHNoYXJlZCBieSByb290IApwb3J0cywgdGhleSBhcmUg
+c2hhcmVkIGJ5IGhvc3QgYnJpZGdlL3JjLgoKCkJlY2F1c2UgdGhlIHJlZ2lzdGVyIGRlc2lnbiBv
+ZiAiY2Ruc19wY2llWF9jdHJsIiBpcyBub3Qgc3RyaWN0bHkgCnNlZ21lbnRlZCBhY2NvcmRpbmcg
+dG8gbGluazAgYW5kIGxpbmsxLCBpbiBwY2llIGhvc3QgYnJpZGdlIGRyaXZlciAKY29kaW5nIHdl
+IG11c3Qga25vdyB3aGV0aGVyIHRoZSBob3N0IGJyaWRnZSBjb3JyZXNwb25kcyB0byBsaW5rMCBv
+ciAKbGluazEgaW4gdGhlIGlwLCBzbyB0aGUgInNvcGhnbyxsaW5rLWlkIiBhdHRyaWJ1dGUgaXMg
+aW50cm9kdWNlZC4KCgpOb3cgSSB0aGluayBpdCBpcyBub3QgYXBwcm9wcmlhdGUgdG8gY2hhbmdl
+IGl0IHRvICJzb3BoZ28scGNpZS1wb3J0Ii4gClRoZSByZWFzb24gaXMgdGhhdCBhcyBtZW50aW9u
+ZWQgYWJvdmUsIHRoZXJlIGlzIG9ubHkgb25lIHJvb3QgcG9ydCB1bmRlciAKZWFjaCBob3N0IGJy
+aWRnZSBpbiB0aGUgY2FkZW5jZSBpcC4gTGluazAgYW5kIGxpbmsxIGFyZSBhY3R1YWxseSB1c2Vk
+IHRvIApkaXN0aW5ndWlzaCB0aGUgdHdvIGhvc3QgYnJpZGdlcyBpbiBvbmUgaXAuCgpTbyBJIHN1
+Z2dlc3QgdG8ga2VlcCB0aGUgb3JpZ2luYWwgInNvcGhnbyxsaW5rLWlkIiBhbmQgd2l0aCB0aGUg
+cHJlZml4IApiZWNhdXNlIHRoZSBpbnRyb2R1Y3Rpb24gb2YgdGhpcyBhdHRyaWJ1dGUgaXMgaW5k
+ZWVkIGNhdXNlZCBieSB0aGUgCnByaXZhdGUgZGVzaWduIG9mIHNvcGhnby4KCkFueSBvdGhlciBn
+b29kIGlkZWEgcGxlYXNlIGZlZWwgZnJlZSBsZXQgbWUga25vdy4KClRoYW5zaywKCkNoZW4KCj4+
+ICtyZXF1aXJlZDoKPj4gKyAgLSBjb21wYXRpYmxlCj4+ICsgIC0gcmVnCj4+ICsgIC0gcmVnLW5h
+bWVzCj4+ICsgIC0gdmVuZG9yLWlkCj4+ICsgIC0gZGV2aWNlLWlkCj4+ICsgIC0gc29waGdvLHN5
+c2Nvbi1wY2llLWN0cmwKPj4gKyAgLSBzb3BoZ28scGNpZS1wb3J0Cj4gSXQgbG9va3MgbGlrZSB2
+ZW5kb3ItaWQgYW5kIGRldmljZS1pZCBhcHBseSB0byBQQ0kgZGV2aWNlcywgaS5lLiwKPiB0aGlu
+Z3MgdGhhdCB3aWxsIHNob3cgdXAgaW4gbHNwY2ksIEkgYXNzdW1lIFJvb3QgUG9ydHMgaW4gdGhp
+cyBjYXNlLgo+IENhbiB3ZSBtYWtlIHRoaXMgZXhwbGljaXQgaW4gdGhlIERULCBlLmcuLCBzb21l
+dGhpbmcgbGlrZSB0aGlzPwo+Cj4gICAgcGNpZUA2MjAwMDAwMCB7Cj4gICAgICBjb21wYXRpYmxl
+ID0gInNvcGhnbyxzZzIwNDItcGNpZS1ob3N0IjsKPiAgICAgIHBvcnQwOiBwY2lAMCwwIHsKPiAg
+ICAgICAgdmVuZG9yLWlkID0gPDB4MWYxYz47Cj4gICAgICAgIGRldmljZS1pZCA9IDwweDIwNDI+
+Owo+ICAgICAgfTsKQXMgSSBtZW50aW9uZWQgYWJvdmUsIHRoZXJlIGlzIGFjdHVhbGx5IG9ubHkg
+b25lIHJvb3QgcG9ydCB1bmRlciBhIGhvc3QgCmJyaWRnZSwgc28gSSB0aGluayBpdCBpcyB1bm5l
+Y2Vzc2FyeSB0byBpbnRyb2R1Y2UgdGhlIHBvcnQgc3Vibm9kZS4KSW4gYWRkaXRpb24sIEkgZm91
+bmQgdGhhdCBpdCBpcyBhbHNvIGFsbG93ZWQgdG8gZGlyZWN0bHkgYWRkIHRoZSAKdmVuZG9yLWlk
+IGFuZCBkZXZpY2UtaWQgcHJvcGVydGllcyBkaXJlY3RseSB1bmRlciB0aGUgaG9zdCBicmlkZ2Us
+IHNlZSAKaHR0cHM6Ly9naXRodWIuY29tL2RldmljZXRyZWUtb3JnL2R0LXNjaGVtYS9ibG9iL21h
+aW4vZHRzY2hlbWEvc2NoZW1hcy9wY2kvcGNpLWhvc3QtYnJpZGdlLnlhbWwKQW5kIHJlZmVyIHRv
+IHRoZSBkdHMgZm9yIHRob3NlIHByb2R1Y3RzIHVzaW5nIGNhZGVuY2UgaXA6IAphcmNoL2FybTY0
+L2Jvb3QvZHRzL3RpL2szLWo3MjFlLW1haW4uZHRzaQoKSW4gdGhpcyB3YXksIHdoZW4gZXhlY3V0
+aW5nIGxzcGNpLCB0aGUgdmVuZG9yIGlkIGFuZCBkZXZpY2UgaWQgd2lsbCAKYXBwZWFyIGluIHRo
+ZSBsaW5lIGNvcnJlc3BvbmRpbmcgdG8gdGhlIHBjaSBicmRnZSBkZXZpY2UuCgpbLi4uLi4uXQoK
+CgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1y
+aXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8v
+bGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
