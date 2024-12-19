@@ -4,45 +4,142 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8AD01E77184
-	for <linux-riscv@archiver.kernel.org>; Thu, 19 Dec 2024 12:51:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 89A8DE77184
+	for <linux-riscv@archiver.kernel.org>; Thu, 19 Dec 2024 12:51:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=insnG4qk6US4Qcv4p5dXF3BVkQbdgfZhSFshNLqyf78=; b=cMiFn1hM0zZ5YZ
-	cNzaa+UkuCBXpOfmE6npH8kH/HwnqikqwDR2Pqd2Si/f57Tuuu8eD4ySxHMpUTT1GAhWf0Dlom/jS
-	jJkmqpTmpIkZVgEwzsj1+HEOsIampfsUXw1sy7ulyf07mQaaaN3j7RS9KifVKGfjBIiCLtviDCwG4
-	fct/5YlGucNNlvT42WheaeN0LC8Xu8TNVDIZjgpLSNNYd0lR8EmNkVj4KgYfqJzYTXjmXcBTEOZqi
-	0nc0elGSkhI4KarXvTN7FRndfNU7rSFE1BYouGoXU6NKwNukyYdZ7ZKRl4LJrzFxgfWeggQAKTdR4
-	be5EzeOWj3ah2kpSekyg==;
+	List-Owner; bh=bedHRlTVvAnHNZQ8kCa6VDLY9UhLrCYaEM8VZ7hNDU8=; b=A5pI7Ut6mHwuwi
+	YJWABIMPoTrHRi8fydTekVnPkoqaWa+AOj0NrImr6sT9pFLGbsDV5tJpt/0Sx4iuke5apet0x0OmA
+	LIrRJTfD5FeVzXQseyox7OUUPbJZhjIxF4UVGc2pOIRLiLlBLThttPaexvnJM8A+VMI/IrAWnhXtx
+	01mEVMFIzd8K/NH6X7feMadw9aaLv9cEXyErZH+er20EExpzWoKg96czy4xyApupQgc6sGZadHXLX
+	tZqyGxVcwuVqcK/T603qng8XP7bRBKlueJSqYJ0xhJHTsEHWe0Z0xOGlFJyaqpzyjRnU+00Tggucx
+	LYNRTJesvMEJPhkUl6Wg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tOFzn-00000001s44-0i4l;
-	Thu, 19 Dec 2024 12:51:15 +0000
-Received: from woodpecker.gentoo.org ([2001:470:ea4a:1:5054:ff:fec7:86e4] helo=smtp.gentoo.org)
+	id 1tOG0M-00000001s9s-09C2;
+	Thu, 19 Dec 2024 12:51:50 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tOFzg-00000001s3V-24rL
+	id 1tOG0I-00000001s8C-1BlF
 	for linux-riscv@lists.infradead.org;
-	Thu, 19 Dec 2024 12:51:13 +0000
-From: Yixun Lan <dlan@gentoo.org>
-To: Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Conor Dooley <conor@kernel.org>,
-	Yixun Lan <dlan@gentoo.org>
-Subject: Re: [PATCH v2] MAINTAINERS: setup support for SpacemiT SoC tree
-Date: Thu, 19 Dec 2024 20:50:41 +0800
-Message-ID: <173461125325.241921.7669060101424869020.b4-ty@gentoo.org>
-X-Mailer: git-send-email 2.47.0
-In-Reply-To: <20241028-00-k1-maintainer-v2-1-272c9834220d@gentoo.org>
-References: <20241028-00-k1-maintainer-v2-1-272c9834220d@gentoo.org>
+	Thu, 19 Dec 2024 12:51:48 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1734612704;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
+	bh=7c8saus9YLZhVfJ1KTMCJAG76jnz4bfOn7VY82l2UQo=;
+	b=PWcgpOzODnA0Mls8EY5SkxTq+iKUxmTaG9q2Bfj6zKyQkwTXm1kLw4wBiVswoBPt+TyjCm
+	nE5JE8syPkkL/FKj4ddwxGFEhiIolZBf2jJnm9Elj4xFeD9iNM8y3aQMFWIh1+HuiEWm/g
+	5BoQc3xfGRGt8jvV956Swuuse8vaf3A=
+Received: from mail-wm1-f69.google.com (mail-wm1-f69.google.com
+ [209.85.128.69]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-107-TODIAHgkP3KGYAbA9Kc8jg-1; Thu, 19 Dec 2024 07:51:42 -0500
+X-MC-Unique: TODIAHgkP3KGYAbA9Kc8jg-1
+X-Mimecast-MFC-AGG-ID: TODIAHgkP3KGYAbA9Kc8jg
+Received: by mail-wm1-f69.google.com with SMTP id 5b1f17b1804b1-4362552ce62so4582195e9.0
+        for <linux-riscv@lists.infradead.org>; Thu, 19 Dec 2024 04:51:42 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1734612702; x=1735217502;
+        h=content-transfer-encoding:in-reply-to:autocrypt:content-language
+         :from:references:cc:to:subject:user-agent:mime-version:date
+         :message-id:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=7c8saus9YLZhVfJ1KTMCJAG76jnz4bfOn7VY82l2UQo=;
+        b=uQ20SL30tSvgQnS8qK0jlkJ6JNDT3qHoJI97sMyFXQ8Dd5xU6rrwR1hv6X6HtyQzAL
+         ZbZ0ZImWNZmbwM2aMwLDRuCu1RskY3p45hdvbI6/9gkT2O2oQL61TqFrsEGCsq88yqY+
+         qh8BMQmeknf1NWNvjmdjd2XADluXrfxNZMS/jPcI5owSVYJedqlhZCioHKto0l5jXedV
+         7esIxSJRT6TibmmwKZdrS7Jp4OjvefU8b7/wdx1t45owo9YICSbK813NZ1nzdnGzF1Yx
+         FQwuaV7z6hUB9nnGBGYApYlJApDg67GiAa86INXuF9OrMn332DNpq0MfjgOy5nwH+Ghi
+         mrbg==
+X-Forwarded-Encrypted: i=1; AJvYcCUc+4V920oN22WgX5FhtNFW8W3mm6xGO1lDKEznM99kmbLVaxze33ZUNAYf58zUBfzYWDIPdkDI1aZqSg==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx/41CXVHLlnl9A1SUGrMVynYe9jskywd6D0Jm+xO43xlUxseZx
+	zo4B+9lA4sE5gchOilvUHchZMaGOvpdBtyVQqZ5IlbbQCJ1Xx0cnx1awMAFVKSDnrNItaqfOm1o
+	VAOxBczoPtXhQyIJDvcqFGir/Qhkkq0WKvjJh3dnZMxO+7MTFbCb7AEo8l3YO7COSIQ==
+X-Gm-Gg: ASbGncuHX7gVRm/5JrsXDJCRLTUNayL4t7GP34SM8kXlNjpbd26Eqj8KR0MVkTFxvKr
+	cXP/nzzTPM1Tjim9bpTBdTcxSwYNAJQKv6TGBfCOEexMmXq6gF8ozgO9FUjXIhwnpduUlHV9WP3
+	wF9ZXE5EuVmiBVDU+uxVWjhORlgnnBmhpD7VQkuVptIi/1UIWA2YFQUswtAMi+khwHPjp6RTYk0
+	EoVFv6z28wYpqu4TVfYTqbOF1HpbDJmiol/oOselA+EO4KKDyYl2UbmFFOI
+X-Received: by 2002:a05:600c:1c95:b0:434:f917:2b11 with SMTP id 5b1f17b1804b1-4365c7d05a7mr26149605e9.21.1734612701679;
+        Thu, 19 Dec 2024 04:51:41 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IGi6kT1YUYVhMLCGFvM9zRpWd8/VGVfy+jl/VcBcc+w951wALdRk+vWkS9XaX3I8AkE4IXmYA==
+X-Received: by 2002:a05:600c:1c95:b0:434:f917:2b11 with SMTP id 5b1f17b1804b1-4365c7d05a7mr26149385e9.21.1734612701311;
+        Thu, 19 Dec 2024 04:51:41 -0800 (PST)
+Received: from [192.168.10.27] ([151.81.118.45])
+        by smtp.googlemail.com with ESMTPSA id 5b1f17b1804b1-436611ea40csm17411745e9.1.2024.12.19.04.51.39
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 19 Dec 2024 04:51:40 -0800 (PST)
+Message-ID: <6887b48c-b1ef-418b-90e7-fa95fedc71f2@redhat.com>
+Date: Thu, 19 Dec 2024 13:51:39 +0100
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 00/16] KVM: selftests: "tree" wide overhauls
+To: Sean Christopherson <seanjc@google.com>, Marc Zyngier <maz@kernel.org>,
+ Oliver Upton <oliver.upton@linux.dev>, Anup Patel <anup@brainfault.org>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Christian Borntraeger <borntraeger@linux.ibm.com>,
+ Janosch Frank <frankja@linux.ibm.com>,
+ Claudio Imbrenda <imbrenda@linux.ibm.com>
+Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+ kvm@vger.kernel.org, kvm-riscv@lists.infradead.org,
+ linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+ Andrew Jones <ajones@ventanamicro.com>,
+ James Houghton <jthoughton@google.com>,
+ Muhammad Usama Anjum <usama.anjum@collabora.com>
+References: <20241128005547.4077116-1-seanjc@google.com>
+ <173455833964.3185228.5614329030867008316.b4-ty@google.com>
+ <Z2NIwmRDaZBc_V4o@google.com> <Z2N-UlxgYlGT_1Or@google.com>
+From: Paolo Bonzini <pbonzini@redhat.com>
+Autocrypt: addr=pbonzini@redhat.com; keydata=
+ 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
+In-Reply-To: <Z2N-UlxgYlGT_1Or@google.com>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: L5MI8Nwktxv7GCCr3ljIJegnticMP9V1Acj-WvBaL40_1734612702
+X-Mimecast-Originator: redhat.com
+Content-Language: en-US
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241219_045108_566521_A8CD9C20 
-X-CRM114-Status: UNSURE (   5.95  )
+X-CRM114-CacheID: sfid-20241219_045146_400151_C9EBADCB 
+X-CRM114-Status: UNSURE (   8.50  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -55,31 +152,43 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Meng Zhang <zhangmeng.kevin@spacemit.com>, linux-kernel@vger.kernel.org, Jesse Taube <mr.bossman075@gmail.com>, Yangyu Chen <cyy@cyyself.name>, soc@kernel.org, Inochi Amaoto <inochiama@outlook.com>, Jisheng Zhang <jszhang@kernel.org>, Meng Zhang <kevin.z.m@hotmail.com>, linux-riscv@lists.infradead.org
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On 12/19/24 03:00, Sean Christopherson wrote:
+> On Wed, Dec 18, 2024, Sean Christopherson wrote:
+>> On Wed, Dec 18, 2024, Sean Christopherson wrote:
+>>> On Wed, 27 Nov 2024 16:55:31 -0800, Sean Christopherson wrote:
+>>>> Two separate series (mmu_stress_test[1] and $ARCH[2]), posted as one to
+>>>> avoid unpleasant conflicts, and because I hope to land both in kvm/next
+>>>> shortly after 6.12-rc1 since they impact all of KVM selftests.
+>>>>
+>>>> mmu_stress_test
+>>>> ---------------
+>>>> Convert the max_guest_memory_test into a more generic mmu_stress_test.
+>>>> The basic gist of the "conversion" is to have the test do mprotect() on
+>>>> guest memory while vCPUs are accessing said memory, e.g. to verify KVM
+>>>> and mmu_notifiers are working as intended.
+>>>>
+>>>> [...]
+>>>
+>>> As I am running out of time before I disappear for two weeks, applied to:
+>>>
+>>>     https://github.com/kvm-x86/linux.git selftests_arch
+>>>
+>>> Other KVM maintainers, that branch is officially immutable.  I also pushed a tag,
+>>> kvm-selftests-arch-6.14, just in case I pull a stupid and manage to clobber the
+>>> branch.  My apologies if this causes pain.  AFAICT, there aren't any queued or
+>>> in-flight patches that git's rename magic can't automatically handle, so hopefully
+>>> this ends up being pain-free.
+>>>
+>>> Paolo, here's a pull request if you want to pull this into kvm/next long before
+>>> the 6.14 merge window.  Diff stats at the very bottom (hilariously long).
+Pulled, thanks.
 
-On Mon, 28 Oct 2024 07:04:00 +0800, Yixun Lan wrote:
-> Add myself as maintainer of SpacemiT's SoC tree, which
-> suggested by Conor [1].
-> 
-> 
-
-Thanks, Applied to SpacemiT's SoC tree:
- https://github.com/spacemit-com/linux/ (for-next)
-
-[1/1] MAINTAINERS: setup support for SpacemiT SoC tree
-      commit: f187e72262c3245bc032a1a0f106784fb8562a0b
-
-The for-next branch will be sent via a formal Pull Request to
-the Linux SoC maintainers for inclusion in next merge window.
-
-Best regards,
--- 
-Yixun Lan
+Paolo
 
 
 _______________________________________________
