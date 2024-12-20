@@ -4,27 +4,27 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 06327E77190
-	for <linux-riscv@archiver.kernel.org>; Fri, 20 Dec 2024 15:58:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F2F1BE7718F
+	for <linux-riscv@archiver.kernel.org>; Fri, 20 Dec 2024 15:58:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=VIAOqcQyxpsKTIH4VOpLdhoMCdHNOz2a6sXZBvC9TPc=; b=FlBmOhnpLKpS3R
-	5t9QCm+3bIguwkD+8hihRF4A4n5xiLmEKTUimwpzo6m2VaOgPSiFp9GJLWpzjv0xciGvuuerVUuYi
-	0fprVGtRJ60cmegKp/2PKvaxu16M7lgz8Xs7FCaC0g65VdhOG2ZGGgZRZjjcLNurULFsErylra2ZE
-	6bPINZRCs2IXlQB7oRoXzPy/5mzGORGOi9lhsGka6d9Ad9HNLNQQlsqlbNDsD9Yk7+dapA69pVySj
-	XedLlywd9dUaMDa+GKpogam3FUA0v8KA8TxonbooAqLbE+BT9/iuo6cNA5H/pF6fSLmGiI7CBWoTj
-	wgA58WoCq0ELutTPzczg==;
+	List-Owner; bh=dUhvP0DfR955jURsd80PDzVPYftBuBfv0g8CeCFsUhQ=; b=kEhw/AGM2OYSfG
+	QQpPeBjMCbEq+LEOeJZRmjf2yRFMzvK3azbfLFElkYPsjVcxY5PttODH65LxCW7+kuvK2a1Chh74a
+	PHCnHHDYiPbinAL+mqgSRdrcfY/nwgWHwBJcPRBonUGUGzeC/c3WEh8Wmq4cxpteOjCfdPe93Mnk1
+	HDEjeoS0zaWHbzCCyvFIMqDoilwP3c87kOUs/uAHKugCUj9ef37CwVQuceAuG9PUSCwEhc+XBEST8
+	SEX4iQUusljVPL5KlaOj7XV9aubH4hYhwC0Q301m5HwgtAc6tojlSI+5kUFMHTnP8JYi232DNx0Fp
+	HxIXp1R4GKQwth1IOteg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tOfON-00000005NyH-172z;
+	id 1tOfON-00000005Nyt-3nOT;
 	Fri, 20 Dec 2024 15:58:19 +0000
 Received: from imap5.colo.codethink.co.uk ([78.40.148.171])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tOfOF-00000005NqU-3Mv6
+	id 1tOfOF-00000005NqV-3NSm
 	for linux-riscv@lists.infradead.org;
 	Fri, 20 Dec 2024 15:58:14 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
@@ -33,18 +33,18 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
 	List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=Jd/m4zbR6LWW3A8qCa5nNBThBWahVG9In5EIy65DcuU=; b=4FXHGp+u6J5rXVByg4DE/AT7IG
-	QAbGkteE4+15qLVvGCBvdfaKyXUaxrl5O8kn0odjRbZ3UrwakdyBwyNT2X5j5YJU5SPDIJ+DZtH9c
-	+CzieyX+PJV5f26457HvKO1CIbYC82dp49XVb4O48EVrotXClcjCgSLHOlCHHoB1GNB2Yd/G0hXSm
-	wVnXmI3d2K8VKtfBDgaAMl89bB904S0Oa7O5GR5AU8I2OX9UZboAwepQC913Yr5ppkK8W9cNCDYc7
-	t2zZRcY/moQRlKHyADXdqnCstfK3dk2+q+YODY264LROfMAcFNO+KRVVgPmwc7UtxywGDr3Q9x4GN
-	bTnZxteA==;
+	bh=BxNHQ+B0HaXyHNwMQnlpMraQTogWmeujailVSyn2wj8=; b=3GScIZWw3YR4JwaudPSHZZZ9SX
+	wcihPzwkDzZdcJgbaHXYFAXVDUTvOYgl0NR7Bu5ZFR9WB4BSlgWEdJQam/N5AgoxE1USqQAAqXSL8
+	y7Veb5Wv6bEZc8hx0tjqclzjbrfK46ep2LpoJDNlhMw1Trci35A/uG0JHW7U8elFXU6Pz7oKOZnwg
+	wF1CU/dngi6LGAvXStNjPJCWY51UU2xKuuiNdbWBxZgx/+FwNllIlFpNzizKYndGU6CZXALIsOamz
+	Mk/OQP0NGRg9wa6sQt6ofK5dq9gFLwLJFJy8Ie197mNjDY3ygUc+I6hUc4rBJGQ4q2+grlN8rGUC1
+	HC+9/mOg==;
 Received: from [167.98.27.226] (helo=rainbowdash)
 	by imap5.colo.codethink.co.uk with esmtpsa  (Exim 4.94.2 #2 (Debian))
-	id 1tOfO9-00ADAI-Tk; Fri, 20 Dec 2024 15:58:05 +0000
+	id 1tOfO9-00ADAJ-Tn; Fri, 20 Dec 2024 15:58:05 +0000
 Received: from ben by rainbowdash with local (Exim 4.98)
 	(envelope-from <ben@rainbowdash>)
-	id 1tOfO9-00000008LSb-2lpf;
+	id 1tOfO9-00000008LSf-2rBD;
 	Fri, 20 Dec 2024 15:58:05 +0000
 From: Ben Dooks <ben.dooks@codethink.co.uk>
 To: felix.chong@codethink.co.uk,
@@ -52,16 +52,16 @@ To: felix.chong@codethink.co.uk,
 	roan.richmond@codethink.co.uk,
 	linux-riscv@lists.infradead.org
 Cc: Ben Dooks <ben.dooks@codethink.co.uk>
-Subject: [RFC 02/15] add __RISCVEB__ to byteorder.h
-Date: Fri, 20 Dec 2024 15:57:48 +0000
-Message-Id: <20241220155801.1988785-3-ben.dooks@codethink.co.uk>
+Subject: [RFC 03/15] riscv: disable vector if big-endian, gcc unsupported option
+Date: Fri, 20 Dec 2024 15:57:49 +0000
+Message-Id: <20241220155801.1988785-4-ben.dooks@codethink.co.uk>
 X-Mailer: git-send-email 2.37.2.352.g3c44437643
 In-Reply-To: <20241220155801.1988785-1-ben.dooks@codethink.co.uk>
 References: <20241220155801.1988785-1-ben.dooks@codethink.co.uk>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241220_075811_842156_FE1409E8 
-X-CRM114-Status: UNSURE (   6.70  )
+X-CRM114-CacheID: sfid-20241220_075811_843522_CD0693F8 
+X-CRM114-Status: UNSURE (   6.93  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -79,25 +79,24 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+You can't build with vector enabled at the moment so remove
+this until gcc is changed.
 ---
- arch/riscv/include/uapi/asm/byteorder.h | 4 ++++
- 1 file changed, 4 insertions(+)
+ arch/riscv/Kconfig | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/arch/riscv/include/uapi/asm/byteorder.h b/arch/riscv/include/uapi/asm/byteorder.h
-index f671e16bf6af..61da07ed6b32 100644
---- a/arch/riscv/include/uapi/asm/byteorder.h
-+++ b/arch/riscv/include/uapi/asm/byteorder.h
-@@ -7,6 +7,10 @@
- #ifndef _UAPI_ASM_RISCV_BYTEORDER_H
- #define _UAPI_ASM_RISCV_BYTEORDER_H
- 
-+#ifdef __RISCVEB__
-+#include <linux/byteorder/big_endian.h>
-+#else
- #include <linux/byteorder/little_endian.h>
-+#endif
- 
- #endif /* _UAPI_ASM_RISCV_BYTEORDER_H */
+diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+index e352e022ed4a..d632bfad190c 100644
+--- a/arch/riscv/Kconfig
++++ b/arch/riscv/Kconfig
+@@ -602,6 +602,7 @@ config RISCV_ISA_V
+ 	bool "VECTOR extension support"
+ 	depends on TOOLCHAIN_HAS_V
+ 	depends on FPU
++	depends on CPU_LITTLE_ENDIAN
+ 	select DYNAMIC_SIGFRAME
+ 	default y
+ 	help
 -- 
 2.37.2.352.g3c44437643
 
