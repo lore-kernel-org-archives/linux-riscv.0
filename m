@@ -4,83 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DFD53E77188
-	for <linux-riscv@archiver.kernel.org>; Fri, 20 Dec 2024 19:54:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A386E77188
+	for <linux-riscv@archiver.kernel.org>; Fri, 20 Dec 2024 22:52:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=VMb80kgO8u4ggAhSolps+wz5kiyb8pK0OFdp86jiGcQ=; b=igdCUXoG1qyfTE
-	QecffeG4eJazsqR5gaWvX3Oi/FvSp7/DAema5rI7Ay6nGftr6tUQTV1rUauqxdPBvGeGLGKjVaHV+
-	JDRhKD1CbY7s71YNyzIeIGw4H2ZpUqiZfRM34BBaReDiO+x9uUo/av+PkHQePgnqTkJGBD4hHy7KW
-	hXy5eBuoSbi9+T9k+Hisb3yV8ro+W6KfZu5bRrhLm5n0OfKTT1LzM1z/DySxsaZ6wk2fJ9XQZPvJo
-	Q3Uaihc5gl683Th/yanykAUyKctmOaxMc4ZjMYtpC+OaP7CwQeK+zr4/Ul7SyGH2UkCzr+pNdUvCE
-	lE+me+jQXaD59ROKI1Cw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Yua4JOh8Ty6QqCWmxWiVpuBYpOiuuDt9/4wyojUr7oc=; b=egpQS0jPZi4GXcjzY5M7S4PxEy
+	8ReHbl6xqjHpkSG1rGhbsClhLrpoVxPWF3hQle/XT8rTHrLv18AdkoECYCg4jd5SW15JUdK9hHoTg
+	UfwZ5mcGpDATMVOcCOiAtoS5QvbjeUFt1bYeWekw0J6IAjSKraanbdO8kseKRytvcYllqnF7NXCoc
+	M4ar05xmwsJtAfmtkOySR0TG3VDRMD5bJPVdcqdWlGMcOS6HutjwkfOZK9yZoZSOQkgFBJN0hv1FB
+	5/3gQHD1IbGAUiydrxeSF/dKp5oCd6WOu0qig+xDKaspL9XZ3leCG8ovhQKere06mfLaiinxyhtCm
+	bxl1UVyw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tOj57-00000005z3n-1PCy;
-	Fri, 20 Dec 2024 19:54:41 +0000
-Received: from mail-pg1-x52e.google.com ([2607:f8b0:4864:20::52e])
+	id 1tOlqt-00000006Dsu-0kOg;
+	Fri, 20 Dec 2024 22:52:11 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tOj54-00000005z32-43U0
+	id 1tOlqq-00000006DsT-3FQB
 	for linux-riscv@lists.infradead.org;
-	Fri, 20 Dec 2024 19:54:40 +0000
-Received: by mail-pg1-x52e.google.com with SMTP id 41be03b00d2f7-7fdc6e04411so1545368a12.2
-        for <linux-riscv@lists.infradead.org>; Fri, 20 Dec 2024 11:54:38 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=lixom-net.20230601.gappssmtp.com; s=20230601; t=1734724478; x=1735329278; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=NkPuVK31h6ylgXGAz6BTZY5MK0QZOsmKngt0A2KtN0k=;
-        b=b/jk4eyDKCpsDX35xEUmOH56FQ3m61TOnfGPFcEqCie0Fp5+I6zJdsta1qjIglWnGH
-         9G0STAuXB+wrQLQsA5fO+oOrd/BKqPPy00lXp4ADfaQ1s+DhWhBsL2rSShfuvDOtPvhT
-         9Cq78OG3YANWSk370cQ0h0HZ5Uso/nZkBr2lGhsmrQPinDrICrsJZIKB8DhKLAIwpqW5
-         OVPUJbnp+J5WZrYiVY/1em5tkaDphzHhQ6dHoYJkoudcLXUPYB61xK2uzCkajWzHFqMm
-         pBZKT0DThj8wUs+gVuG2SiqOdKDuzwyYJzH075H5tJlqY0ITa8ELdoFloCWgviZJ0rfS
-         EK8g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1734724478; x=1735329278;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=NkPuVK31h6ylgXGAz6BTZY5MK0QZOsmKngt0A2KtN0k=;
-        b=hgjOJ9LHiwXJgRJy0ipjri9a0uRrN+B7tFaW7+a9YW32TWH0nJysFuAJ9HcKwjdq3N
-         qH9NgwnxQ+b0dhzZwU54HSXnBbzXZqmbU24IfPpCQwZxNcZe+cVNLaTKR7iCULw5ukdY
-         4aYQSSr/nyLSi++H2OkC7oim2+nXzNDN8hfalXnP2mMrwcgam1E5ouZCfSHDT1vZuIT2
-         DCDq9gqvgWsZ4iawwNottRc3t6PHv8PqLx8rb3VXI/RuHPNy1J6JcvnIjKu/f3IW4TvB
-         M2dsmzLoiW1wfZGnZjHRaVUClKI5Gq6rObKACydpCGgY8AvvM9Yen8uRYEflw/8tF1ri
-         QGfg==
-X-Forwarded-Encrypted: i=1; AJvYcCVhnzDAPmCQ0NjrXrbZx5FywrCTnLwsUfB+Z/DZLj7BW6mp4MlRrBW8vruiufBCunQcfQEH8wBoy/zwIA==@lists.infradead.org
-X-Gm-Message-State: AOJu0YwFOZ/FOypt1spXn2+KXDiSWu6qxz5BEloJRcw9Codu5CgM4Jzu
-	5MjRId/KI4kMkYSbhG0TGukhyGpGDZbR/LjPsO2+tUKiPQGY7TEfDIReTVyDvko=
-X-Gm-Gg: ASbGncvcCkr6C4ylSGiHc0EfIvJBR5tJ9KVgp2dktLyRBaysqC/+ACypkaid4yHWDmp
-	+JHvbDqAENT6Se+3ntIYchyqlWNizGgVAA6Pdz7NMFsllvEJIbzTiyoB/Y9wDUS16eUy+cpUTVz
-	lzEUEJJOp59Tom9MknPmyOIIG/kq+0qCgbdln2Wm7dhujCZ4/j6OW6ecpgL12Z2HP+Mnvp3Q9q5
-	yz89wCBzpBea7NWk95uFvFD/FKHlQPRC3eUJ01+97zyMY9gG3EHYobvsphNm2wCzk9/73Y0VVZ0
-	CQ3lbfE0O0LhDLeNUSfbOw==
-X-Google-Smtp-Source: AGHT+IGKhyPUJg+rDxXOP26hWETP8CwUyIBCsCKTPtmY6GDDgXDpezWFyCeWsXvGQ9G/iU7jCbubWw==
-X-Received: by 2002:a17:90b:2e06:b0:2ee:ba0c:1718 with SMTP id 98e67ed59e1d1-2f452ee8cd4mr6674514a91.37.1734724477996;
-        Fri, 20 Dec 2024 11:54:37 -0800 (PST)
-Received: from localhost (99-152-116-91.lightspeed.sntcca.sbcglobal.net. [99.152.116.91])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-219dc962d53sm32904585ad.33.2024.12.20.11.54.37
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 20 Dec 2024 11:54:37 -0800 (PST)
-Date: Fri, 20 Dec 2024 11:53:47 -0800
-From: Olof Johansson <olof@lixom.net>
-To: Ben Dooks <ben.dooks@codethink.co.uk>
-Cc: felix.chong@codethink.co.uk, lawrence.hunter@codethink.co.uk,
-	roan.richmond@codethink.co.uk, linux-riscv@lists.infradead.org
-Subject: Re: RFC: riscv64 big endian system attempt
-Message-ID: <Z2XLS2HX2KqBJW6U@chonkvm.lixom.net>
-References: <20241220155801.1988785-1-ben.dooks@codethink.co.uk>
+	Fri, 20 Dec 2024 22:52:10 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 1BC855C5CD0;
+	Fri, 20 Dec 2024 22:51:26 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C934FC4CECD;
+	Fri, 20 Dec 2024 22:52:05 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1734735127;
+	bh=x1geHJyvQYUlT46aSui9lC9h1O8kJQ2tWCiN2ftRs8I=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=CfyihGSewCwhcz7Wc7zqoROYOoRhuDUYDgw5oaur+eitWwHOMR6B86/Rb4qtePu9w
+	 ibtFKq+K1IGQ9aDgRDXXlUtOoeTv0/ijM00mBrzr2gdXirqwXv7N4aM5B7eMHdbqu8
+	 NzNCBXiEO2T5SqYBTbpV7vj8BWVHaPxJyYAhxKhxdeQRQfajj1+854cydZidF0YAh/
+	 1Q9nuX+EaM/pTv/2TR9bfc9Sbw4OwioGGu6oWaptQCsZkjWQzijTMavGI/p0I1mEcm
+	 ugF+icYp1iWlcyMAxlo3nZurHBC4/XA2u+vvXAj+BUmJx3FgxOdtxpkVN4Y2BbVv0E
+	 mx6EyLIpCkMUA==
+Date: Fri, 20 Dec 2024 22:52:03 +0000
+From: Conor Dooley <conor@kernel.org>
+To: Chunyan Zhang <zhangchunyan@iscas.ac.cn>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Song Liu <song@kernel.org>,
+	Yu Kuai <yukuai3@huawei.com>, linux-riscv@lists.infradead.org,
+	linux-raid@vger.kernel.org, linux-kernel@vger.kernel.org,
+	Chunyan Zhang <zhang.lyra@gmail.com>
+Subject: Re: [RFC PATCH] raid6: Add RISC-V SIMD syndrome and recovery
+ calculations
+Message-ID: <20241220-chaste-mundane-5514462147b6@spud>
+References: <20241220114023.667347-1-zhangchunyan@iscas.ac.cn>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20241220155801.1988785-1-ben.dooks@codethink.co.uk>
+In-Reply-To: <20241220114023.667347-1-zhangchunyan@iscas.ac.cn>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241220_115439_004284_04C9FFA9 
-X-CRM114-Status: GOOD (  14.75  )
+X-CRM114-CacheID: sfid-20241220_145208_905231_7CDFB189 
+X-CRM114-Status: GOOD (  18.79  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,47 +71,158 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============3626621986600564926=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Dec 20, 2024 at 03:57:46PM +0000, Ben Dooks wrote:
-> With the latest spec adding configurable endianness, we thought we
-> should try putting together a proof of concept riscv64 big endian.
-> 
-> The full information is documented on our gitlab[1] which includes
-> source repositories, build information and project documentation.
-> 
-> We have a minimal buildroot, qemu and kernel working on QEMU.
-> 
-> As this is a work in progress any review or help is appreciated.
 
-While this is neat, I wonder if there's any real point in picking this
-up broadly and enabling it, with the associated overhead to keep it
-maintained?
-
-While big endian ppc64 will always be close to my heart, little endian
-really has taken over the world by now, even on ppc64. It used to be
-that networking was the area that BE was a (soft) requirement, but with
-modern CPUs having advanced faster than memory latencies and speed, doing
-endian conversion in software doesn't seem to be a big deal any more.
-
-As far as I know, ARM platforms are in the same boat -- they did some
-early enablement, driven by a couple of specific use cases that didn't
-significantly grow and are used in very narrow environment and with very
-limited userspace.
-
-Is this a parallel situation to that, or are there reasons to support BE
-more broadly? It seems like it'd mostly split efforts and add overhead
-to make sure it's still supported, even if it's a fun project to prove
-that it works.
+--===============3626621986600564926==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="grfA220Fqa9N1N7V"
+Content-Disposition: inline
 
 
+--grfA220Fqa9N1N7V
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
--Olof
+On Fri, Dec 20, 2024 at 07:40:23PM +0800, Chunyan Zhang wrote:
+> The assembly is originally based on the ARM NEON and int.uc, but uses
+> RISC-V vector instructions to implement the RAID6 syndrome and
+> recovery calculations.
+>=20
+> The functions are tested on QEMU.
+>=20
+> Signed-off-by: Chunyan Zhang <zhangchunyan@iscas.ac.cn>
+> ---
+>  include/linux/raid/pq.h |   4 +
+>  lib/raid6/Makefile      |   3 +
+>  lib/raid6/algos.c       |   8 +
+>  lib/raid6/recov_rvv.c   | 229 +++++++++++++
+>  lib/raid6/rvv.c         | 715 ++++++++++++++++++++++++++++++++++++++++
+>  5 files changed, 959 insertions(+)
+>  create mode 100644 lib/raid6/recov_rvv.c
+>  create mode 100644 lib/raid6/rvv.c
+>=20
+> diff --git a/include/linux/raid/pq.h b/include/linux/raid/pq.h
+> index 98030accf641..4c21f06c662a 100644
+> --- a/include/linux/raid/pq.h
+> +++ b/include/linux/raid/pq.h
+> @@ -108,6 +108,9 @@ extern const struct raid6_calls raid6_vpermxor4;
+>  extern const struct raid6_calls raid6_vpermxor8;
+>  extern const struct raid6_calls raid6_lsx;
+>  extern const struct raid6_calls raid6_lasx;
+> +extern const struct raid6_calls raid6_rvvx1;
+> +extern const struct raid6_calls raid6_rvvx2;
+> +extern const struct raid6_calls raid6_rvvx4;
+> =20
+>  struct raid6_recov_calls {
+>  	void (*data2)(int, size_t, int, int, void **);
+> @@ -125,6 +128,7 @@ extern const struct raid6_recov_calls raid6_recov_s39=
+0xc;
+>  extern const struct raid6_recov_calls raid6_recov_neon;
+>  extern const struct raid6_recov_calls raid6_recov_lsx;
+>  extern const struct raid6_recov_calls raid6_recov_lasx;
+> +extern const struct raid6_recov_calls raid6_recov_rvv;
+> =20
+>  extern const struct raid6_calls raid6_neonx1;
+>  extern const struct raid6_calls raid6_neonx2;
+> diff --git a/lib/raid6/Makefile b/lib/raid6/Makefile
+> index 29127dd05d63..e62fb7cd773e 100644
+> --- a/lib/raid6/Makefile
+> +++ b/lib/raid6/Makefile
+> @@ -10,6 +10,9 @@ raid6_pq-$(CONFIG_ALTIVEC) +=3D altivec1.o altivec2.o a=
+ltivec4.o altivec8.o \
+>  raid6_pq-$(CONFIG_KERNEL_MODE_NEON) +=3D neon.o neon1.o neon2.o neon4.o =
+neon8.o recov_neon.o recov_neon_inner.o
+>  raid6_pq-$(CONFIG_S390) +=3D s390vx8.o recov_s390xc.o
+>  raid6_pq-$(CONFIG_LOONGARCH) +=3D loongarch_simd.o recov_loongarch_simd.o
+> +raid6_pq-$(CONFIG_RISCV_ISA_V) +=3D rvv.o recov_rvv.o
+> +CFLAGS_rvv.o +=3D -march=3Drv64gcv
+> +CFLAGS_recov_rvv.o +=3D -march=3Drv64gcv
+
+I'm curious - why do you need this when you're using .option arch,+v
+below?
+
+>  hostprogs	+=3D mktables
+> =20
+> diff --git a/lib/raid6/algos.c b/lib/raid6/algos.c
+> index cd2e88ee1f14..0a388a605131 100644
+> --- a/lib/raid6/algos.c
+> +++ b/lib/raid6/algos.c
+> @@ -80,6 +80,11 @@ const struct raid6_calls * const raid6_algos[] =3D {
+>  #ifdef CONFIG_CPU_HAS_LSX
+>  	&raid6_lsx,
+>  #endif
+> +#endif
+> +#ifdef CONFIG_RISCV_ISA_V
+> +	&raid6_rvvx1,
+> +	&raid6_rvvx2,
+> +	&raid6_rvvx4,
+>  #endif
+>  	&raid6_intx8,
+>  	&raid6_intx4,
+> @@ -115,6 +120,9 @@ const struct raid6_recov_calls *const raid6_recov_alg=
+os[] =3D {
+>  #ifdef CONFIG_CPU_HAS_LSX
+>  	&raid6_recov_lsx,
+>  #endif
+> +#endif
+> +#ifdef CONFIG_RISCV_ISA_V
+> +	&raid6_recov_rvv,
+>  #endif
+>  	&raid6_recov_intx1,
+>  	NULL
+> diff --git a/lib/raid6/recov_rvv.c b/lib/raid6/recov_rvv.c
+> new file mode 100644
+> index 000000000000..8ae74803ea7f
+> --- /dev/null
+> +++ b/lib/raid6/recov_rvv.c
+> @@ -0,0 +1,229 @@
+> +// SPDX-License-Identifier: GPL-2.0-only
+> +/*
+> + * Copyright 2024 Institute of Software, CAS.
+> + * Author: Chunyan Zhang <zhangchunyan@iscas.ac.cn>
+> + */
+> +
+> +#include <asm/simd.h>
+> +#include <asm/vector.h>
+> +#include <crypto/internal/simd.h>
+> +#include <linux/raid/pq.h>
+> +
+> +static void __raid6_2data_recov_rvv(int bytes, u8 *p, u8 *q, u8 *dp,
+> +			      u8 *dq, const u8 *pbmul,
+> +			      const u8 *qmul)
+> +{
+> +	asm volatile (
+> +		".option	push\n"
+> +		".option	arch,+v\n"
+
+--grfA220Fqa9N1N7V
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZ2X1EwAKCRB4tDGHoIJi
+0mXZAQDfjM9V3rIhJVGhXkMjfFty2/1Wrdhq04Nw9AUbBmnhpwEAvLQDtV3Oza7Q
+Jpt6rzwTK9vccV2D0feN9rrSOlDxQwM=
+=4fKU
+-----END PGP SIGNATURE-----
+
+--grfA220Fqa9N1N7V--
+
+
+--===============3626621986600564926==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============3626621986600564926==--
+
