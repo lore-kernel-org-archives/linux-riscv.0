@@ -4,62 +4,104 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A386E77188
-	for <linux-riscv@archiver.kernel.org>; Fri, 20 Dec 2024 22:52:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 88C1FE77188
+	for <linux-riscv@archiver.kernel.org>; Fri, 20 Dec 2024 23:06:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Yua4JOh8Ty6QqCWmxWiVpuBYpOiuuDt9/4wyojUr7oc=; b=egpQS0jPZi4GXcjzY5M7S4PxEy
-	8ReHbl6xqjHpkSG1rGhbsClhLrpoVxPWF3hQle/XT8rTHrLv18AdkoECYCg4jd5SW15JUdK9hHoTg
-	UfwZ5mcGpDATMVOcCOiAtoS5QvbjeUFt1bYeWekw0J6IAjSKraanbdO8kseKRytvcYllqnF7NXCoc
-	M4ar05xmwsJtAfmtkOySR0TG3VDRMD5bJPVdcqdWlGMcOS6HutjwkfOZK9yZoZSOQkgFBJN0hv1FB
-	5/3gQHD1IbGAUiydrxeSF/dKp5oCd6WOu0qig+xDKaspL9XZ3leCG8ovhQKere06mfLaiinxyhtCm
-	bxl1UVyw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Mime-Version:References:In-Reply-To:
+	Message-Id:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=lBt9Vp/GZWw0WBtc+qXRGggfw/3URXzK+r3FaMuHbMU=; b=QuXpJGTxnrF3Ua
+	Hwm3iddEdbGzZw6m+j2k0s5hWWiKbkCgtU15+jaBSiK42+NEcFi204x8GoDE9FgJuegXo/V4mQ8nQ
+	lXaj0cmPYfzUUwGhR1njwRcn/oAKMjyR3rf3HnohzolVLlTwfi6qCTgDN7wbVG0REc+cK/xpVoQaN
+	PH+/+TVtrsmNfNxA3VtWbeKopJ7xXsg+/myQOeIb1fPz72vjIrzJnQ2FsbyKUgykQVTKbUS20Ccfz
+	gRMsslLXPZwooQUMwBjdNqoTeY8VM+TlGWfqWAyVbtcpq3FkFlXyXM8touvsogXQmBiEdGtFV4R/T
+	5AkF4zKNoKxlV40vVNxA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tOlqt-00000006Dsu-0kOg;
-	Fri, 20 Dec 2024 22:52:11 +0000
+	id 1tOm4l-00000006EsS-2Qel;
+	Fri, 20 Dec 2024 23:06:31 +0000
 Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tOlqq-00000006DsT-3FQB
-	for linux-riscv@lists.infradead.org;
-	Fri, 20 Dec 2024 22:52:10 +0000
+	id 1tOm4j-00000006ErS-02No;
+	Fri, 20 Dec 2024 23:06:30 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 1BC855C5CD0;
-	Fri, 20 Dec 2024 22:51:26 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C934FC4CECD;
-	Fri, 20 Dec 2024 22:52:05 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1734735127;
-	bh=x1geHJyvQYUlT46aSui9lC9h1O8kJQ2tWCiN2ftRs8I=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=CfyihGSewCwhcz7Wc7zqoROYOoRhuDUYDgw5oaur+eitWwHOMR6B86/Rb4qtePu9w
-	 ibtFKq+K1IGQ9aDgRDXXlUtOoeTv0/ijM00mBrzr2gdXirqwXv7N4aM5B7eMHdbqu8
-	 NzNCBXiEO2T5SqYBTbpV7vj8BWVHaPxJyYAhxKhxdeQRQfajj1+854cydZidF0YAh/
-	 1Q9nuX+EaM/pTv/2TR9bfc9Sbw4OwioGGu6oWaptQCsZkjWQzijTMavGI/p0I1mEcm
-	 ugF+icYp1iWlcyMAxlo3nZurHBC4/XA2u+vvXAj+BUmJx3FgxOdtxpkVN4Y2BbVv0E
-	 mx6EyLIpCkMUA==
-Date: Fri, 20 Dec 2024 22:52:03 +0000
-From: Conor Dooley <conor@kernel.org>
-To: Chunyan Zhang <zhangchunyan@iscas.ac.cn>
-Cc: Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Song Liu <song@kernel.org>,
-	Yu Kuai <yukuai3@huawei.com>, linux-riscv@lists.infradead.org,
-	linux-raid@vger.kernel.org, linux-kernel@vger.kernel.org,
-	Chunyan Zhang <zhang.lyra@gmail.com>
-Subject: Re: [RFC PATCH] raid6: Add RISC-V SIMD syndrome and recovery
- calculations
-Message-ID: <20241220-chaste-mundane-5514462147b6@spud>
-References: <20241220114023.667347-1-zhangchunyan@iscas.ac.cn>
-MIME-Version: 1.0
-In-Reply-To: <20241220114023.667347-1-zhangchunyan@iscas.ac.cn>
+	by dfw.source.kernel.org (Postfix) with ESMTP id 683895C3B27;
+	Fri, 20 Dec 2024 23:05:45 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 51D4DC4CECD;
+	Fri, 20 Dec 2024 23:06:24 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linux-foundation.org;
+	s=korg; t=1734735987;
+	bh=rDnT4CiiEQHDei+WTY8t89wAldSK7/wzy9hzuNQ2FY0=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=ko0NoC85TGcP1IppTBQ7r5GFZyBBTG2SpQ0tFrc/AJkG+/T9Itx2K+hPhmLUjOFT3
+	 W/JopMsDfKdWQ+Sgte/CaZu5u4oCC9X7AhqHTGt1/QNG5SKrdk/OmLPnondMcorXOq
+	 YK2sRjfqtNIqcRTWYGNAXSYWTaR7HQTBx80wOGXo=
+Date: Fri, 20 Dec 2024 15:06:23 -0800
+From: Andrew Morton <akpm@linux-foundation.org>
+To: Guo Weikang <guoweikang.kernel@gmail.com>
+Cc: Mike Rapoport <rppt@kernel.org>, Dennis Zhou <dennis@kernel.org>, Tejun
+ Heo <tj@kernel.org>, Christoph Lameter <cl@linux.com>, Thomas Bogendoerfer
+ <tsbogend@alpha.franken.de>, Sam Creasey <sammy@sammy.net>, Geert
+ Uytterhoeven <geert@linux-m68k.org>, Huacai Chen <chenhuacai@kernel.org>,
+ Will Deacon <will@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>,
+ Oreoluwa Babatunde <quic_obabatun@quicinc.com>, rafael.j.wysocki@intel.com,
+ Palmer Dabbelt <palmer@rivosinc.com>, Hanjun Guo <guohanjun@huawei.com>,
+ Easwar Hariharan <eahariha@linux.microsoft.com>, Johannes Berg
+ <johannes.berg@intel.com>, Ingo Molnar <mingo@kernel.org>, Dave Hansen
+ <dave.hansen@intel.com>, Christian Brauner <brauner@kernel.org>, KP Singh
+ <kpsingh@kernel.org>, Richard Henderson <richard.henderson@linaro.org>,
+ Matt Turner <mattst88@gmail.com>, Russell King <linux@armlinux.org.uk>,
+ WANG Xuerui <kernel@xen0n.name>, Michael Ellerman <mpe@ellerman.id.au>,
+ Jonas Bonn <jonas@southpole.se>, Stefan Kristiansson
+ <stefan.kristiansson@saunalahti.fi>, Stafford Horne <shorne@gmail.com>,
+ Helge Deller <deller@gmx.de>, Nicholas Piggin <npiggin@gmail.com>,
+ Christophe Leroy <christophe.leroy@csgroup.eu>, Naveen N Rao
+ <naveen@kernel.org>, Madhavan Srinivasan <maddy@linux.ibm.com>, Geoff
+ Levand <geoff@infradead.org>, Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Andrey Ryabinin <ryabinin.a.a@gmail.com>, Alexander Potapenko
+ <glider@google.com>, Andrey Konovalov <andreyknvl@gmail.com>, Dmitry Vyukov
+ <dvyukov@google.com>, Vincenzo Frascino <vincenzo.frascino@arm.com>, Heiko
+ Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>, Alexander
+ Gordeev <agordeev@linux.ibm.com>, Christian Borntraeger
+ <borntraeger@linux.ibm.com>, Sven Schnelle <svens@linux.ibm.com>, Yoshinori
+ Sato <ysato@users.sourceforge.jp>, Rich Felker <dalias@libc.org>, John Paul
+ Adrian Glaubitz <glaubitz@physik.fu-berlin.de>, Andreas Larsson
+ <andreas@gaisler.com>, Richard Weinberger <richard@nod.at>, Anton Ivanov
+ <anton.ivanov@cambridgegreys.com>, Johannes Berg
+ <johannes@sipsolutions.net>, Thomas Gleixner <tglx@linutronix.de>, Ingo
+ Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, Dave Hansen
+ <dave.hansen@linux.intel.com>, x86@kernel.org, Len Brown <lenb@kernel.org>,
+ Juergen Gross <jgross@suse.com>, Boris Ostrovsky
+ <boris.ostrovsky@oracle.com>, Chris Zankel <chris@zankel.net>, Max Filippov
+ <jcmvbkbc@gmail.com>, Tero Kristo <kristo@kernel.org>, Michael Turquette
+ <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, Rob Herring
+ <robh@kernel.org>, Saravana Kannan <saravanak@google.com>, Pavel Machek
+ <pavel@ucw.cz>, Yury Norov <yury.norov@gmail.com>, Rasmus Villemoes
+ <linux@rasmusvillemoes.dk>, Marco Elver <elver@google.com>, Al Viro
+ <viro@zeniv.linux.org.uk>, Arnd Bergmann <arnd@arndb.de>,
+ linux-alpha@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, loongarch@lists.linux.dev,
+ linux-m68k@lists.linux-m68k.org, linux-mips@vger.kernel.org,
+ linux-openrisc@vger.kernel.org, linux-parisc@vger.kernel.org,
+ linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
+ kasan-dev@googlegroups.com, linux-s390@vger.kernel.org,
+ linux-sh@vger.kernel.org, sparclinux@vger.kernel.org,
+ linux-um@lists.infradead.org, linux-acpi@vger.kernel.org,
+ xen-devel@lists.xenproject.org, linux-omap@vger.kernel.org,
+ linux-clk@vger.kernel.org, devicetree@vger.kernel.org, linux-mm@kvack.org,
+ linux-pm@vger.kernel.org
+Subject: Re: [PATCH] mm/memblock: Add memblock_alloc_or_panic interface
+Message-Id: <20241220150623.278e8fa9f073b66dc81edfe6@linux-foundation.org>
+In-Reply-To: <20241220092638.2611414-1-guoweikang.kernel@gmail.com>
+References: <20241220092638.2611414-1-guoweikang.kernel@gmail.com>
+X-Mailer: Sylpheed 3.8.0beta1 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
+Mime-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241220_145208_905231_7CDFB189 
-X-CRM114-Status: GOOD (  18.79  )
+X-CRM114-CacheID: sfid-20241220_150629_162170_73F4011F 
+X-CRM114-Status: GOOD (  15.17  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,158 +113,60 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============3626621986600564926=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On Fri, 20 Dec 2024 17:26:38 +0800 Guo Weikang <guoweikang.kernel@gmail.com> wrote:
 
---===============3626621986600564926==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="grfA220Fqa9N1N7V"
-Content-Disposition: inline
+> Before SLUB initialization, various subsystems used memblock_alloc to
+> allocate memory. In most cases, when memory allocation fails, an immediate
+> panic is required. To simplify this behavior and reduce repetitive checks,
+> introduce `memblock_alloc_or_panic`. This function ensures that memory
+> allocation failures result in a panic automatically, improving code
+> readability and consistency across subsystems that require this behavior.
+> 
 
+Seems nice.
 
---grfA220Fqa9N1N7V
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+> ...
+>
+> --- a/include/linux/memblock.h
+> +++ b/include/linux/memblock.h
+> @@ -417,6 +417,19 @@ static __always_inline void *memblock_alloc(phys_addr_t size, phys_addr_t align)
+>  				      MEMBLOCK_ALLOC_ACCESSIBLE, NUMA_NO_NODE);
+>  }
+>  
+> +static __always_inline void *memblock_alloc_or_panic(phys_addr_t size, phys_addr_t align)
 
-On Fri, Dec 20, 2024 at 07:40:23PM +0800, Chunyan Zhang wrote:
-> The assembly is originally based on the ARM NEON and int.uc, but uses
-> RISC-V vector instructions to implement the RAID6 syndrome and
-> recovery calculations.
->=20
-> The functions are tested on QEMU.
->=20
-> Signed-off-by: Chunyan Zhang <zhangchunyan@iscas.ac.cn>
-> ---
->  include/linux/raid/pq.h |   4 +
->  lib/raid6/Makefile      |   3 +
->  lib/raid6/algos.c       |   8 +
->  lib/raid6/recov_rvv.c   | 229 +++++++++++++
->  lib/raid6/rvv.c         | 715 ++++++++++++++++++++++++++++++++++++++++
->  5 files changed, 959 insertions(+)
->  create mode 100644 lib/raid6/recov_rvv.c
->  create mode 100644 lib/raid6/rvv.c
->=20
-> diff --git a/include/linux/raid/pq.h b/include/linux/raid/pq.h
-> index 98030accf641..4c21f06c662a 100644
-> --- a/include/linux/raid/pq.h
-> +++ b/include/linux/raid/pq.h
-> @@ -108,6 +108,9 @@ extern const struct raid6_calls raid6_vpermxor4;
->  extern const struct raid6_calls raid6_vpermxor8;
->  extern const struct raid6_calls raid6_lsx;
->  extern const struct raid6_calls raid6_lasx;
-> +extern const struct raid6_calls raid6_rvvx1;
-> +extern const struct raid6_calls raid6_rvvx2;
-> +extern const struct raid6_calls raid6_rvvx4;
-> =20
->  struct raid6_recov_calls {
->  	void (*data2)(int, size_t, int, int, void **);
-> @@ -125,6 +128,7 @@ extern const struct raid6_recov_calls raid6_recov_s39=
-0xc;
->  extern const struct raid6_recov_calls raid6_recov_neon;
->  extern const struct raid6_recov_calls raid6_recov_lsx;
->  extern const struct raid6_recov_calls raid6_recov_lasx;
-> +extern const struct raid6_recov_calls raid6_recov_rvv;
-> =20
->  extern const struct raid6_calls raid6_neonx1;
->  extern const struct raid6_calls raid6_neonx2;
-> diff --git a/lib/raid6/Makefile b/lib/raid6/Makefile
-> index 29127dd05d63..e62fb7cd773e 100644
-> --- a/lib/raid6/Makefile
-> +++ b/lib/raid6/Makefile
-> @@ -10,6 +10,9 @@ raid6_pq-$(CONFIG_ALTIVEC) +=3D altivec1.o altivec2.o a=
-ltivec4.o altivec8.o \
->  raid6_pq-$(CONFIG_KERNEL_MODE_NEON) +=3D neon.o neon1.o neon2.o neon4.o =
-neon8.o recov_neon.o recov_neon_inner.o
->  raid6_pq-$(CONFIG_S390) +=3D s390vx8.o recov_s390xc.o
->  raid6_pq-$(CONFIG_LOONGARCH) +=3D loongarch_simd.o recov_loongarch_simd.o
-> +raid6_pq-$(CONFIG_RISCV_ISA_V) +=3D rvv.o recov_rvv.o
-> +CFLAGS_rvv.o +=3D -march=3Drv64gcv
-> +CFLAGS_recov_rvv.o +=3D -march=3Drv64gcv
+We lost the printing of the function name, but it's easy to retain with
+something like
 
-I'm curious - why do you need this when you're using .option arch,+v
-below?
+#define memblock_alloc_or_panic(size, align)	\
+		__memblock_alloc_or_panic(size, align, __func__)
 
->  hostprogs	+=3D mktables
-> =20
-> diff --git a/lib/raid6/algos.c b/lib/raid6/algos.c
-> index cd2e88ee1f14..0a388a605131 100644
-> --- a/lib/raid6/algos.c
-> +++ b/lib/raid6/algos.c
-> @@ -80,6 +80,11 @@ const struct raid6_calls * const raid6_algos[] =3D {
->  #ifdef CONFIG_CPU_HAS_LSX
->  	&raid6_lsx,
->  #endif
-> +#endif
-> +#ifdef CONFIG_RISCV_ISA_V
-> +	&raid6_rvvx1,
-> +	&raid6_rvvx2,
-> +	&raid6_rvvx4,
->  #endif
->  	&raid6_intx8,
->  	&raid6_intx4,
-> @@ -115,6 +120,9 @@ const struct raid6_recov_calls *const raid6_recov_alg=
-os[] =3D {
->  #ifdef CONFIG_CPU_HAS_LSX
->  	&raid6_recov_lsx,
->  #endif
-> +#endif
-> +#ifdef CONFIG_RISCV_ISA_V
-> +	&raid6_recov_rvv,
->  #endif
->  	&raid6_recov_intx1,
->  	NULL
-> diff --git a/lib/raid6/recov_rvv.c b/lib/raid6/recov_rvv.c
-> new file mode 100644
-> index 000000000000..8ae74803ea7f
-> --- /dev/null
-> +++ b/lib/raid6/recov_rvv.c
-> @@ -0,0 +1,229 @@
-> +// SPDX-License-Identifier: GPL-2.0-only
-> +/*
-> + * Copyright 2024 Institute of Software, CAS.
-> + * Author: Chunyan Zhang <zhangchunyan@iscas.ac.cn>
-> + */
-> +
-> +#include <asm/simd.h>
-> +#include <asm/vector.h>
-> +#include <crypto/internal/simd.h>
-> +#include <linux/raid/pq.h>
-> +
-> +static void __raid6_2data_recov_rvv(int bytes, u8 *p, u8 *q, u8 *dp,
-> +			      u8 *dq, const u8 *pbmul,
-> +			      const u8 *qmul)
 > +{
-> +	asm volatile (
-> +		".option	push\n"
-> +		".option	arch,+v\n"
+> +	void *addr = memblock_alloc(size, align);
+> +
+> +	if (unlikely(!addr))
+> +#ifdef CONFIG_PHYS_ADDR_T_64BIT
+> +		panic("%s: Failed to allocate %llu bytes\n", __func__, size);
 
---grfA220Fqa9N1N7V
-Content-Type: application/pgp-signature; name="signature.asc"
+Won't this always print "memblock_alloc_or_panic: Failed ..."?  Not
+very useful.
 
------BEGIN PGP SIGNATURE-----
+> +#else
+> +		panic("%s: Failed to allocate %u bytes\n", __func__, size);
+> +#endif
 
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZ2X1EwAKCRB4tDGHoIJi
-0mXZAQDfjM9V3rIhJVGhXkMjfFty2/1Wrdhq04Nw9AUbBmnhpwEAvLQDtV3Oza7Q
-Jpt6rzwTK9vccV2D0feN9rrSOlDxQwM=
-=4fKU
------END PGP SIGNATURE-----
+We can avoid the ifdef with printk's "%pap"?
 
---grfA220Fqa9N1N7V--
+> +	return addr;
+> +}
 
-
---===============3626621986600564926==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============3626621986600564926==--
-
