@@ -4,47 +4,47 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D5884E77191
-	for <linux-riscv@archiver.kernel.org>; Fri, 20 Dec 2024 15:58:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EACA8E7718D
+	for <linux-riscv@archiver.kernel.org>; Fri, 20 Dec 2024 15:58:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=zpmGOInL5BRbRExsU8KSX9wu0a5mDqzgUigJCw+MrJM=; b=pz0bAGoYHCBbWh
-	YBNmYNX1zovTit2SjbPe8u//o/zrGS+W7BT4ulOq/9+2UUE3pIMxZ1dU6BtNqhv5ABJ82IBwmj+Pm
-	zRn6jO9Rk4/xSeRIRSwynoVcbJp8pAvE2kc5r9jVlUIogJdB1A9CZnP566bjAKL87AbJTdJuSDVUS
-	DwRJR8NzD4G4Sg6OkVf6EUf+dtsAK0SjYMDf0zUy70b72kSeCuBCJZtHNgUDrFmNJ9eRKbX2fxuEl
-	hB8tDq4WhRAYL7re8dk9CB8m7nsSANdYbhj/PVPpbVv8PXJBCJgzAmyvklMqqMD6tJ8DSl5ArLmDL
-	LQwZceiZ2xkia5ZgWg9w==;
+	List-Owner; bh=tC+gvlqcOS3vQ6loD/PzlMf4tyw++GCZPF9Qs/IDVAQ=; b=KKCT/nA2Fiv8Bx
+	+VvV4eWpeOUjHGFm2Ol1BA+vfLpgteXyxXkdPbx7MQOzuz+kfvCMQTK7YpufGziOi6KOhbEryKTmd
+	V6A8FgG0Ilo1LJnUt0hSQt+kok9mFXDYwtFDFis1gl7ihz/4BB7z3PxuwwRDxl5fRP+ZHaz65EXGR
+	YL6gJr+0Po/RoPrgf1fzzKtZ5j+UlkMH8b58GGX6CpkI3iFhl3lyFrhr75CK3eHlR4cLaNE10BCHI
+	o18UXAZgZXgZcDc3KLBHFwDoxSL2UkObzgRvksfGdAS1FLPbsdOBddqjYSkvrpDCiOwA8EDHI/9LE
+	GKDA5Zl/6qqJnT9JAVhw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tOfOO-00000005NzT-2JqS;
-	Fri, 20 Dec 2024 15:58:20 +0000
-Received: from imap4.hz.codethink.co.uk ([188.40.203.114])
+	id 1tOfOP-00000005O0d-3jVq;
+	Fri, 20 Dec 2024 15:58:21 +0000
+Received: from imap5.colo.codethink.co.uk ([78.40.148.171])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tOfOF-00000005Nqj-26WO
+	id 1tOfOH-00000005NtN-2DIj
 	for linux-riscv@lists.infradead.org;
-	Fri, 20 Dec 2024 15:58:14 +0000
+	Fri, 20 Dec 2024 15:58:15 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=codethink.co.uk; s=imap4-20230908; h=Sender:Content-Transfer-Encoding:
+	d=codethink.co.uk; s=imap5-20230908; h=Sender:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
 	List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=g4Ldg+7uAVjvFAfFSZqwpU5aSKiNNo2G81qDT3t2uCQ=; b=erGSpGBdQNQCMeFje2k7GenkkZ
-	YQKxylZoPLVEMVWvRjKA5bboOOVcq5xTbf6FEqeZBiCk68LliwJEkPaMsXSZngDtTcGplM4nh1z5B
-	pp0cJIA9kxio3jAQztHHl+epdzQ4Lgr4N/ZBmOKlvkiYs8I1hn4LKte230vMgwAg7F3helwUhvRWl
-	QZ5RrXWIcuqzLW8PA0o6Jdi+MFA9pxQ2IAcRCUMc05BAXKU32xV549KPlznJjEKDiy9mpwhIa6uwP
-	x4cxSRgnQd8deL+o812DiABpNb3jK9kNjFimwn7k8yCKFQKEjY90BRCin092u1GGIwYItFXsk0s82
-	QXV9tqRg==;
+	bh=E6Cvl+CmVX6/psQST7J+RL1e1pZwMBpeyyec77Ez6rM=; b=nBafdhbLpa+Ca5tWntqfRP28qr
+	6h5N0lBoh+ObPrK4AAyld/80dz8Kxkt5VOWsc9qY7N6pizkq9K/nGpF6QoGm/dKr64t+bdA9roqMw
+	IsIvQe+Ol416AQFNuym9TomijNdLdTqxtuZbSUgW9cdlHxaVaawvhuul2nPnVxjGwbKe++C/gVDJ5
+	03rtu0ulFN8zZnXIWzhXZO5Eq+qZcYuvOxf6JLQib1L5C1YcWW3/6w7YFDQ+mAQrW2f2g8VlfH2ew
+	nSmUrpssaZPNydsMQplIzRFIy9LYhbEw0BNSvjFlSb8zLqMMo/rJmWSAXNidDjy/IaQohbpHDMzu1
+	YHZARb6g==;
 Received: from [167.98.27.226] (helo=rainbowdash)
-	by imap4.hz.codethink.co.uk with esmtpsa  (Exim 4.94.2 #2 (Debian))
-	id 1tOfOA-006axn-68; Fri, 20 Dec 2024 15:58:06 +0000
+	by imap5.colo.codethink.co.uk with esmtpsa  (Exim 4.94.2 #2 (Debian))
+	id 1tOfOA-00ADAT-5F; Fri, 20 Dec 2024 15:58:06 +0000
 Received: from ben by rainbowdash with local (Exim 4.98)
 	(envelope-from <ben@rainbowdash>)
-	id 1tOfO9-00000008LSz-3Iy9;
+	id 1tOfO9-00000008LTS-3zRi;
 	Fri, 20 Dec 2024 15:58:05 +0000
 From: Ben Dooks <ben.dooks@codethink.co.uk>
 To: felix.chong@codethink.co.uk,
@@ -52,16 +52,16 @@ To: felix.chong@codethink.co.uk,
 	roan.richmond@codethink.co.uk,
 	linux-riscv@lists.infradead.org
 Cc: Ben Dooks <ben.dooks@codethink.co.uk>
-Subject: [RFC 08/15] defconfig: add our build config
-Date: Fri, 20 Dec 2024 15:57:54 +0000
-Message-Id: <20241220155801.1988785-9-ben.dooks@codethink.co.uk>
+Subject: [RFC 15/15] riscv: traps: make insn fetch common in unknown instruction
+Date: Fri, 20 Dec 2024 15:58:01 +0000
+Message-Id: <20241220155801.1988785-16-ben.dooks@codethink.co.uk>
 X-Mailer: git-send-email 2.37.2.352.g3c44437643
 In-Reply-To: <20241220155801.1988785-1-ben.dooks@codethink.co.uk>
 References: <20241220155801.1988785-1-ben.dooks@codethink.co.uk>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241220_075811_687493_DCDAAA1C 
-X-CRM114-Status: GOOD (  11.80  )
+X-CRM114-CacheID: sfid-20241220_075813_634065_91CD36F1 
+X-CRM114-Status: GOOD (  12.37  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,361 +78,112 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
----
- arch/riscv/configs/be_defconfig | 344 ++++++++++++++++++++++++++++++++
- 1 file changed, 344 insertions(+)
- create mode 100644 arch/riscv/configs/be_defconfig
+Add the trapped instruction (insn) as the second argument to
+riscv_v_first_use_handler() from the trap handler so when we
+add more handlers we can do the fetch of the instruction just
+once.
 
-diff --git a/arch/riscv/configs/be_defconfig b/arch/riscv/configs/be_defconfig
-new file mode 100644
-index 000000000000..89d06b74a1b8
---- /dev/null
-+++ b/arch/riscv/configs/be_defconfig
-@@ -0,0 +1,344 @@
-+CONFIG_SYSVIPC=y
-+CONFIG_POSIX_MQUEUE=y
-+CONFIG_NO_HZ_IDLE=y
-+CONFIG_HIGH_RES_TIMERS=y
-+CONFIG_BPF_SYSCALL=y
-+CONFIG_BPF_JIT=y
-+CONFIG_BPF_JIT_ALWAYS_ON=y
-+CONFIG_BPF_LSM=y
-+CONFIG_IKCONFIG=y
-+CONFIG_IKCONFIG_PROC=y
-+CONFIG_CGROUPS=y
-+CONFIG_MEMCG=y
-+CONFIG_BLK_CGROUP=y
-+CONFIG_CGROUP_SCHED=y
-+CONFIG_CFS_BANDWIDTH=y
-+CONFIG_RT_GROUP_SCHED=y
-+CONFIG_CGROUP_PIDS=y
-+CONFIG_CGROUP_FREEZER=y
-+CONFIG_CGROUP_HUGETLB=y
-+CONFIG_CPUSETS=y
-+CONFIG_CGROUP_DEVICE=y
-+CONFIG_CGROUP_CPUACCT=y
-+CONFIG_CGROUP_PERF=y
-+CONFIG_CGROUP_BPF=y
-+CONFIG_NAMESPACES=y
-+CONFIG_USER_NS=y
-+CONFIG_CHECKPOINT_RESTORE=y
-+CONFIG_BOOT_CONFIG=y
-+CONFIG_EXPERT=y
-+# CONFIG_SYSFS_SYSCALL is not set
-+CONFIG_PROFILING=y
-+CONFIG_ARCH_MICROCHIP=y
-+CONFIG_ARCH_RENESAS=y
-+CONFIG_ARCH_SIFIVE=y
-+CONFIG_ARCH_SOPHGO=y
-+CONFIG_SOC_STARFIVE=y
-+CONFIG_ARCH_SUNXI=y
-+CONFIG_ARCH_THEAD=y
-+CONFIG_ARCH_VIRT=y
-+CONFIG_ARCH_CANAAN=y
-+CONFIG_CPU_BIG_ENDIAN=y
-+CONFIG_SMP=y
-+CONFIG_RISCV_EMULATED_UNALIGNED_ACCESS=y
-+CONFIG_CMDLINE="earlycon=sbi console=ttyS0,115200,8h1 root=/dev/vda"
-+CONFIG_CMDLINE_EXTEND=y
-+CONFIG_CPU_FREQ=y
-+CONFIG_CPU_FREQ_STAT=y
-+CONFIG_CPU_FREQ_GOV_POWERSAVE=m
-+CONFIG_CPU_FREQ_GOV_USERSPACE=y
-+CONFIG_CPU_FREQ_GOV_ONDEMAND=y
-+CONFIG_CPU_FREQ_GOV_CONSERVATIVE=m
-+CONFIG_CPUFREQ_DT=y
-+CONFIG_ACPI_CPPC_CPUFREQ=m
-+CONFIG_VIRTUALIZATION=y
-+CONFIG_KVM=m
-+CONFIG_ACPI=y
-+CONFIG_KPROBES=y
-+CONFIG_JUMP_LABEL=y
-+CONFIG_STATIC_KEYS_SELFTEST=y
-+CONFIG_COMPAT_32BIT_TIME=y
-+CONFIG_MODULES=y
-+CONFIG_MODULE_UNLOAD=y
-+CONFIG_BLK_DEV_THROTTLING=y
-+CONFIG_SPARSEMEM_MANUAL=y
-+CONFIG_NET=y
-+CONFIG_PACKET=y
-+CONFIG_XFRM_USER=m
-+CONFIG_IP_MULTICAST=y
-+CONFIG_IP_ADVANCED_ROUTER=y
-+CONFIG_IP_PNP=y
-+CONFIG_IP_PNP_DHCP=y
-+CONFIG_IP_PNP_BOOTP=y
-+CONFIG_IP_PNP_RARP=y
-+CONFIG_INET_ESP=m
-+CONFIG_NETFILTER=y
-+CONFIG_BRIDGE_NETFILTER=m
-+CONFIG_NF_CONNTRACK=m
-+CONFIG_NF_CONNTRACK_FTP=m
-+CONFIG_NF_CONNTRACK_TFTP=m
-+CONFIG_NETFILTER_XT_MARK=m
-+CONFIG_NETFILTER_XT_MATCH_ADDRTYPE=m
-+CONFIG_NETFILTER_XT_MATCH_CONNTRACK=m
-+CONFIG_NETFILTER_XT_MATCH_IPVS=m
-+CONFIG_IP_VS=m
-+CONFIG_IP_VS_PROTO_TCP=y
-+CONFIG_IP_VS_PROTO_UDP=y
-+CONFIG_IP_VS_RR=m
-+CONFIG_IP_VS_NFCT=y
-+CONFIG_NF_LOG_ARP=m
-+CONFIG_NF_LOG_IPV4=m
-+CONFIG_IP_NF_IPTABLES=m
-+CONFIG_IP_NF_FILTER=m
-+CONFIG_IP_NF_TARGET_REJECT=m
-+CONFIG_IP_NF_NAT=m
-+CONFIG_IP_NF_TARGET_MASQUERADE=m
-+CONFIG_IP_NF_TARGET_REDIRECT=m
-+CONFIG_IP_NF_MANGLE=m
-+CONFIG_NF_LOG_IPV6=m
-+CONFIG_IP6_NF_IPTABLES=m
-+CONFIG_IP6_NF_MATCH_IPV6HEADER=m
-+CONFIG_IP6_NF_FILTER=m
-+CONFIG_IP6_NF_TARGET_REJECT=m
-+CONFIG_IP6_NF_MANGLE=m
-+CONFIG_BRIDGE=m
-+CONFIG_BRIDGE_VLAN_FILTERING=y
-+CONFIG_VLAN_8021Q=m
-+CONFIG_NET_SCHED=y
-+CONFIG_NET_CLS_CGROUP=m
-+CONFIG_NETLINK_DIAG=y
-+CONFIG_CGROUP_NET_PRIO=y
-+CONFIG_BPF_STREAM_PARSER=y
-+CONFIG_CAN=m
-+CONFIG_NET_9P=y
-+CONFIG_NET_9P_VIRTIO=y
-+CONFIG_PCI=y
-+CONFIG_PCIEPORTBUS=y
-+CONFIG_PCI_HOST_GENERIC=y
-+CONFIG_PCIE_XILINX=y
-+CONFIG_PCIE_FU740=y
-+CONFIG_PCIE_STARFIVE_HOST=m
-+CONFIG_DEVTMPFS=y
-+CONFIG_DEVTMPFS_MOUNT=y
-+CONFIG_SIFIVE_CCACHE=y
-+CONFIG_MTD=y
-+CONFIG_MTD_BLOCK=y
-+CONFIG_MTD_CFI=y
-+CONFIG_MTD_CFI_ADV_OPTIONS=y
-+CONFIG_MTD_SPI_NOR=y
-+CONFIG_BLK_DEV_LOOP=y
-+CONFIG_VIRTIO_BLK=y
-+CONFIG_BLK_DEV_NVME=m
-+CONFIG_BLK_DEV_SD=y
-+CONFIG_BLK_DEV_SR=y
-+CONFIG_SCSI_VIRTIO=y
-+CONFIG_ATA=y
-+CONFIG_SATA_AHCI=y
-+CONFIG_SATA_AHCI_PLATFORM=y
-+CONFIG_MD=y
-+CONFIG_BLK_DEV_DM=m
-+CONFIG_DM_THIN_PROVISIONING=m
-+CONFIG_NETDEVICES=y
-+CONFIG_DUMMY=m
-+CONFIG_MACVLAN=m
-+CONFIG_IPVLAN=m
-+CONFIG_VXLAN=m
-+CONFIG_VETH=m
-+CONFIG_VIRTIO_NET=y
-+CONFIG_MACB=y
-+CONFIG_E1000E=y
-+CONFIG_R8169=y
-+CONFIG_RAVB=y
-+CONFIG_STMMAC_ETH=m
-+CONFIG_MICREL_PHY=y
-+CONFIG_MICROSEMI_PHY=y
-+CONFIG_MOTORCOMM_PHY=y
-+CONFIG_CAN_RCAR_CANFD=m
-+CONFIG_INPUT_MOUSEDEV=y
-+CONFIG_KEYBOARD_SUN4I_LRADC=m
-+CONFIG_SERIAL_8250=y
-+CONFIG_SERIAL_8250_CONSOLE=y
-+CONFIG_SERIAL_8250_DW=y
-+CONFIG_SERIAL_OF_PLATFORM=y
-+CONFIG_SERIAL_EARLYCON_RISCV_SBI=y
-+CONFIG_SERIAL_SH_SCI=y
-+CONFIG_VIRTIO_CONSOLE=y
-+CONFIG_HW_RANDOM=y
-+CONFIG_HW_RANDOM_VIRTIO=y
-+CONFIG_HW_RANDOM_JH7110=m
-+CONFIG_I2C=y
-+CONFIG_I2C_CHARDEV=m
-+CONFIG_I2C_DESIGNWARE_CORE=y
-+CONFIG_I2C_MV64XXX=m
-+CONFIG_I2C_RIIC=y
-+CONFIG_SPI=y
-+CONFIG_SPI_CADENCE_QUADSPI=m
-+CONFIG_SPI_PL022=m
-+CONFIG_SPI_RSPI=m
-+CONFIG_SPI_SIFIVE=y
-+CONFIG_SPI_SUN6I=y
-+# CONFIG_PTP_1588_CLOCK is not set
-+CONFIG_GPIO_SIFIVE=y
-+CONFIG_GPIO_ADP5585=y
-+CONFIG_POWER_RESET_GPIO_RESTART=y
-+CONFIG_SENSORS_SFCTEMP=m
-+CONFIG_SENSORS_SG2042_MCU=m
-+CONFIG_CPU_THERMAL=y
-+CONFIG_DEVFREQ_THERMAL=y
-+CONFIG_RZG2L_THERMAL=y
-+CONFIG_WATCHDOG=y
-+CONFIG_SUNXI_WATCHDOG=y
-+CONFIG_MFD_ADP5585=y
-+CONFIG_MFD_AXP20X_I2C=y
-+CONFIG_REGULATOR=y
-+CONFIG_REGULATOR_FIXED_VOLTAGE=y
-+CONFIG_REGULATOR_AXP20X=y
-+CONFIG_REGULATOR_GPIO=y
-+CONFIG_MEDIA_SUPPORT=m
-+CONFIG_VIDEO_CADENCE_CSI2RX=m
-+CONFIG_DRM=m
-+CONFIG_DRM_RADEON=m
-+CONFIG_DRM_NOUVEAU=m
-+CONFIG_DRM_SUN4I=m
-+CONFIG_DRM_VIRTIO_GPU=m
-+CONFIG_FB=y
-+CONFIG_SOUND=y
-+CONFIG_SND=y
-+CONFIG_SND_UTIMER=y
-+CONFIG_SND_SOC=y
-+CONFIG_SND_DESIGNWARE_I2S=m
-+CONFIG_SND_SOC_STARFIVE=m
-+CONFIG_SND_SOC_JH7110_PWMDAC=m
-+CONFIG_SND_SOC_JH7110_TDM=m
-+CONFIG_SND_SOC_WM8978=m
-+CONFIG_SND_SOC_MT6357=y
-+CONFIG_SND_SIMPLE_CARD=m
-+CONFIG_USB=y
-+CONFIG_USB_OTG=y
-+CONFIG_USB_XHCI_HCD=y
-+CONFIG_USB_XHCI_PLATFORM=y
-+CONFIG_USB_EHCI_HCD=y
-+CONFIG_USB_EHCI_HCD_PLATFORM=y
-+CONFIG_USB_OHCI_HCD=y
-+CONFIG_USB_OHCI_HCD_PLATFORM=y
-+CONFIG_USB_RENESAS_USBHS=m
-+CONFIG_USB_STORAGE=y
-+CONFIG_USB_UAS=y
-+CONFIG_USB_CDNS_SUPPORT=m
-+CONFIG_USB_CDNS3=m
-+CONFIG_USB_CDNS3_GADGET=y
-+CONFIG_USB_CDNS3_HOST=y
-+CONFIG_USB_CDNS3_STARFIVE=m
-+CONFIG_USB_MUSB_HDRC=m
-+CONFIG_USB_MUSB_SUNXI=m
-+CONFIG_NOP_USB_XCEIV=m
-+CONFIG_USB_GADGET=y
-+CONFIG_USB_RENESAS_USBHS_UDC=m
-+CONFIG_USB_CONFIGFS=m
-+CONFIG_USB_CONFIGFS_SERIAL=y
-+CONFIG_USB_CONFIGFS_ACM=y
-+CONFIG_USB_CONFIGFS_OBEX=y
-+CONFIG_USB_CONFIGFS_NCM=y
-+CONFIG_USB_CONFIGFS_ECM=y
-+CONFIG_USB_CONFIGFS_ECM_SUBSET=y
-+CONFIG_USB_CONFIGFS_RNDIS=y
-+CONFIG_USB_CONFIGFS_EEM=y
-+CONFIG_USB_CONFIGFS_MASS_STORAGE=y
-+CONFIG_USB_CONFIGFS_F_FS=y
-+CONFIG_MMC=y
-+CONFIG_MMC_SDHCI=y
-+CONFIG_MMC_SDHCI_PLTFM=y
-+CONFIG_MMC_SDHCI_OF_DWCMSHC=y
-+CONFIG_MMC_SDHCI_CADENCE=y
-+CONFIG_MMC_SPI=y
-+CONFIG_MMC_SDHI=y
-+CONFIG_MMC_DW=y
-+CONFIG_MMC_DW_STARFIVE=y
-+CONFIG_MMC_SUNXI=y
-+CONFIG_RTC_CLASS=y
-+CONFIG_RTC_DRV_SUN6I=y
-+CONFIG_DMADEVICES=y
-+CONFIG_DMA_SUN6I=m
-+CONFIG_DW_AXI_DMAC=y
-+CONFIG_VIRTIO_PCI=y
-+CONFIG_VIRTIO_BALLOON=y
-+CONFIG_VIRTIO_INPUT=y
-+CONFIG_VIRTIO_MMIO=y
-+CONFIG_CLK_SOPHGO_CV1800=y
-+CONFIG_SUN8I_DE2_CCU=m
-+CONFIG_RENESAS_OSTM=y
-+CONFIG_SUN50I_IOMMU=y
-+CONFIG_RPMSG_CHAR=y
-+CONFIG_RPMSG_CTRL=y
-+CONFIG_RPMSG_VIRTIO=y
-+CONFIG_PM_DEVFREQ=y
-+CONFIG_IIO=y
-+CONFIG_PHY_SUN4I_USB=m
-+CONFIG_PHY_RCAR_GEN3_USB2=y
-+CONFIG_PHY_STARFIVE_JH7110_DPHY_RX=m
-+CONFIG_PHY_STARFIVE_JH7110_PCIE=m
-+CONFIG_PHY_STARFIVE_JH7110_USB=m
-+CONFIG_LIBNVDIMM=y
-+CONFIG_NVMEM_SUNXI_SID=y
-+CONFIG_EXT4_FS=y
-+CONFIG_EXT4_FS_POSIX_ACL=y
-+CONFIG_EXT4_FS_SECURITY=y
-+CONFIG_BTRFS_FS=m
-+CONFIG_BTRFS_FS_POSIX_ACL=y
-+CONFIG_AUTOFS_FS=y
-+CONFIG_OVERLAY_FS=m
-+CONFIG_ISO9660_FS=y
-+CONFIG_JOLIET=y
-+CONFIG_ZISOFS=y
-+CONFIG_MSDOS_FS=y
-+CONFIG_VFAT_FS=y
-+CONFIG_TMPFS=y
-+CONFIG_TMPFS_POSIX_ACL=y
-+CONFIG_HUGETLBFS=y
-+CONFIG_NFS_FS=y
-+CONFIG_NFS_V4=y
-+CONFIG_NFS_V4_1=y
-+CONFIG_NFS_V4_2=y
-+CONFIG_ROOT_NFS=y
-+CONFIG_9P_FS=y
-+CONFIG_NLS_CODEPAGE_437=y
-+CONFIG_NLS_ISO8859_1=m
-+CONFIG_SECURITY=y
-+CONFIG_SECURITY_SELINUX=y
-+CONFIG_SECURITY_APPARMOR=y
-+CONFIG_SECURITY_IPE=y
-+CONFIG_DEFAULT_SECURITY_DAC=y
-+CONFIG_LSM="landlock,lockdown,yama,loadpin,safesetid,bpf"
-+CONFIG_CRYPTO_USER_API_HASH=y
-+CONFIG_CRYPTO_DEV_VIRTIO=y
-+CONFIG_PRINTK_TIME=y
-+CONFIG_DEBUG_INFO_DWARF_TOOLCHAIN_DEFAULT=y
-+CONFIG_DEBUG_FS=y
-+CONFIG_DEBUG_PAGEALLOC=y
-+CONFIG_SCHED_STACK_END_CHECK=y
-+CONFIG_DEBUG_VM=y
-+CONFIG_DEBUG_VM_PGFLAGS=y
-+CONFIG_DEBUG_MEMORY_INIT=y
-+CONFIG_DEBUG_PER_CPU_MAPS=y
-+CONFIG_SOFTLOCKUP_DETECTOR=y
-+CONFIG_WQ_WATCHDOG=y
-+CONFIG_DEBUG_TIMEKEEPING=y
-+CONFIG_DEBUG_RT_MUTEXES=y
-+CONFIG_DEBUG_SPINLOCK=y
-+CONFIG_DEBUG_MUTEXES=y
-+CONFIG_DEBUG_RWSEMS=y
-+CONFIG_DEBUG_ATOMIC_SLEEP=y
-+CONFIG_DEBUG_LIST=y
-+CONFIG_DEBUG_PLIST=y
-+CONFIG_DEBUG_SG=y
-+# CONFIG_RCU_TRACE is not set
-+CONFIG_RCU_EQS_DEBUG=y
-+CONFIG_FTRACE_SYSCALLS=y
-+CONFIG_USER_EVENTS=y
-+CONFIG_TRACE_EVENT_INJECT=y
-+CONFIG_KPROBE_EVENT_GEN_TEST=m
-+CONFIG_RV=y
-+CONFIG_TEST_BPF=y
-+CONFIG_FIND_BIT_BENCHMARK=y
-+CONFIG_TEST_STATIC_KEYS=m
-+CONFIG_MEMTEST=y
+Signed-off-by: Ben Dooks <ben.dooks@codethink.co.uk>
+---
+- fixed wording of patch from rfc
+v2:
+  - fixed todo by going to illegal instruction error if get_user fails
+  - added pointer print for failed read
+  - fixed issues with rebasing onto main branch
+v3:
+  - removed print from v2
+---
+ arch/riscv/include/asm/vector.h |  5 +++--
+ arch/riscv/kernel/traps.c       | 13 +++++++++++--
+ arch/riscv/kernel/vector.c      | 11 +----------
+ 3 files changed, 15 insertions(+), 14 deletions(-)
+
+diff --git a/arch/riscv/include/asm/vector.h b/arch/riscv/include/asm/vector.h
+index be7d309cca8a..24f77a56ac57 100644
+--- a/arch/riscv/include/asm/vector.h
++++ b/arch/riscv/include/asm/vector.h
+@@ -21,7 +21,7 @@
+ 
+ extern unsigned long riscv_v_vsize;
+ int riscv_v_setup_vsize(void);
+-bool riscv_v_first_use_handler(struct pt_regs *regs);
++bool riscv_v_first_use_handler(struct pt_regs *regs, u32 insn);
+ void kernel_vector_begin(void);
+ void kernel_vector_end(void);
+ void get_cpu_vector_context(void);
+@@ -268,7 +268,8 @@ struct pt_regs;
+ 
+ static inline int riscv_v_setup_vsize(void) { return -EOPNOTSUPP; }
+ static __always_inline bool has_vector(void) { return false; }
+-static inline bool riscv_v_first_use_handler(struct pt_regs *regs) { return false; }
++static __always_inline bool insn_is_vector(u32 insn_buf) { return false; }
++static inline bool riscv_v_first_use_handler(struct pt_regs *regs, u32 insn) { return false; }
+ static inline bool riscv_v_vstate_query(struct pt_regs *regs) { return false; }
+ static inline bool riscv_v_vstate_ctrl_user_allowed(void) { return false; }
+ #define riscv_v_vsize (0)
+diff --git a/arch/riscv/kernel/traps.c b/arch/riscv/kernel/traps.c
+index a475fd9310fd..5ef418b0b7b2 100644
+--- a/arch/riscv/kernel/traps.c
++++ b/arch/riscv/kernel/traps.c
+@@ -169,17 +169,26 @@ DO_ERROR_INFO(do_trap_insn_fault,
+ 
+ asmlinkage __visible __trap_section void do_trap_insn_illegal(struct pt_regs *regs)
+ {
+-	bool handled;
++	bool handled = false;
+ 
+ 	if (user_mode(regs)) {
++		u32 __user *epc = (u32 __user *)regs->epc;
++		u32 insn = (u32)regs->badaddr;
++
+ 		irqentry_enter_from_user_mode(regs);
+ 
+ 		local_irq_enable();
+ 
+-		handled = riscv_v_first_use_handler(regs);
++		if (!insn) {
++			if (__get_user(insn, epc))
++				goto no_insn;
++		}
++
++		handled = riscv_v_first_use_handler(regs, insn);
+ 
+ 		local_irq_disable();
+ 
++	no_insn:
+ 		if (!handled)
+ 			do_trap_error(regs, SIGILL, ILL_ILLOPC, regs->epc,
+ 				      "Oops - illegal instruction");
+diff --git a/arch/riscv/kernel/vector.c b/arch/riscv/kernel/vector.c
+index 682b3feee451..b852648cb8d5 100644
+--- a/arch/riscv/kernel/vector.c
++++ b/arch/riscv/kernel/vector.c
+@@ -168,11 +168,8 @@ bool riscv_v_vstate_ctrl_user_allowed(void)
+ }
+ EXPORT_SYMBOL_GPL(riscv_v_vstate_ctrl_user_allowed);
+ 
+-bool riscv_v_first_use_handler(struct pt_regs *regs)
++bool riscv_v_first_use_handler(struct pt_regs *regs, u32 insn)
+ {
+-	u32 __user *epc = (u32 __user *)regs->epc;
+-	u32 insn = (u32)regs->badaddr;
+-
+ 	if (!has_vector())
+ 		return false;
+ 
+@@ -184,12 +181,6 @@ bool riscv_v_first_use_handler(struct pt_regs *regs)
+ 	if (riscv_v_vstate_query(regs))
+ 		return false;
+ 
+-	/* Get the instruction */
+-	if (!insn) {
+-		if (__get_user(insn, epc))
+-			return false;
+-	}
+-
+ 	/* Filter out non-V instructions */
+ 	if (!insn_is_vector(insn))
+ 		return false;
 -- 
 2.37.2.352.g3c44437643
 
