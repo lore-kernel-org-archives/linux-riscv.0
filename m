@@ -4,47 +4,47 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A52EFE7718C
-	for <linux-riscv@archiver.kernel.org>; Fri, 20 Dec 2024 15:58:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8085E7718D
+	for <linux-riscv@archiver.kernel.org>; Fri, 20 Dec 2024 15:58:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=iQqyEG77QGrzjXeZVsnLpFeBjzjJjfIPKtPDi2aP0lw=; b=fnVAik9zyLgtva
-	OFZYv7BGakR1vdttZTMOKPFLxsQNFjXo9AiOFgxodswbOh9epVhxggpkPtkFJZmjklyF1ub8v9/kr
-	llx5HX1y+GhA3+7NU4j7wmq+AknuNXaXwJlMpLN7+K1irYvMQfrjTZ39sAKcW4qFjH7wAlK4uAYkv
-	9CsabHIFvy/wsb2AkqRA0oh4+mEEDFuyCtNFwm/Nq5AdUZKejq9QXeA7HQAvw/LYbF75pd+mnAB67
-	1Cgjv69W+ik5ScexRXeieL6otL24sDBEUjxy7lUEDLVkG/yE2G8WBKwXW9E8fTjXIHGf8whMMAMwK
-	x9klX7om/W+YlLj7/IFw==;
+	List-Owner; bh=18mdsxLNEHTjFXh4UBsRiYapVKuxDbCLf17yxk0VuVI=; b=hmt7UgV7YISjtQ
+	QMuzKQ1brqCvx4gE765lexLMHaVSkeOlRJ5R6+GPpfJQ7b8/+3F+q/B+OEHNAO+m6wZq3xXFKVOnT
+	Lbe5EBNGUzFu3CPcCWT8YYx7ZMRBMN7QvEUdY379eWtPm0OEf64Za7JSqKhgWR22n6Ym17X6IoIs7
+	0WR3lLvY6V1gF7rW6C+1IatTbrlRcqD5D/BDqhvvnSJk7T6erviH8GZ4ab5SuMVqz3lMWDiMAsFjl
+	FlzXReRHWkn6m1zREQJ/++8zPmJkLU2czSBjjQemhM91fYcqlLkvqC9xYHsictmx8h95U321VJDez
+	MCviwRBQkm+fzwgMPJlA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tOfOI-00000005NuU-0E2x;
-	Fri, 20 Dec 2024 15:58:14 +0000
-Received: from imap5.colo.codethink.co.uk ([78.40.148.171])
+	id 1tOfOK-00000005NwK-1fWf;
+	Fri, 20 Dec 2024 15:58:16 +0000
+Received: from imap4.hz.codethink.co.uk ([188.40.203.114])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tOfOF-00000005NqX-0fLh
+	id 1tOfOF-00000005Nqh-26bI
 	for linux-riscv@lists.infradead.org;
-	Fri, 20 Dec 2024 15:58:12 +0000
+	Fri, 20 Dec 2024 15:58:13 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=codethink.co.uk; s=imap5-20230908; h=Sender:Content-Transfer-Encoding:
+	d=codethink.co.uk; s=imap4-20230908; h=Sender:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
 	List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=ZnXGFCpfCP9HiAZ+IkE+2YmSsqzx9QwNJVZS7AaXEzw=; b=lIX2V++SU6VFKrxoUeUTqjnNMj
-	5ZgR84MQ0L5pUl7hugPjWJxpTxQMqyTUayX/oZ8rpO5ZO1HewsFNO9E+av1HXHgoCXHqWJpDGKAKf
-	KZ9QBKraG1vDFs0Mp53jsGm9TGDbFeLdzyIIdgZAukPGsbJNE0FgVTunD4PDXGoUCwlb+aDo3/2Cz
-	IuIl5FaL0TLZIMkDQfHxo4HvPCfXJqyqFg2l1dZvuOeHQh28suWW4HwSqZMNinoD3TB0qk6g+S+8H
-	A5ROe5Zu4yQU4dqr6v3Kw1WW7O2+9rqEhKlzzGAv7ZPyBrXHcPXz15wqHGR3QQ6qVWnqt+FUw+o54
-	yShUigUg==;
+	bh=AuhkpriSa43or7c14nqod3pbLZV+TBelgd27m0CLnto=; b=lhCnL2Dg5qytf1Rg+poMdXhoxr
+	eYaHQTeXWcRRwBPW7UzAsYE27ExGC/XVT/veUGSfVys5WmmMKepXkCCzozqCBSEFzLBkTltsHXJBZ
+	BSuc3k4JZ+NB0a9Dz96BZauqMOrgFGHKAgNsNZa3qliIF/cdcF8gek6d0yHD/FnFh9ONfqsCEmvjY
+	bMDjHLuh7QjHwYBY/67TBdzwZXePWhCbcgcOKX8E2C4Kz4siLGBhIV8uPgsYqVzKY2e7AgWgsDZvh
+	MDcha1Bc/7ihsHwVYFqsUebMLTvzP+PeWArc3MOQWNobYJx+eyazFePl6lwDGGTnYbFlZpWYrHDYc
+	hopNLV4Q==;
 Received: from [167.98.27.226] (helo=rainbowdash)
-	by imap5.colo.codethink.co.uk with esmtpsa  (Exim 4.94.2 #2 (Debian))
-	id 1tOfOA-00ADAM-3D; Fri, 20 Dec 2024 15:58:06 +0000
+	by imap4.hz.codethink.co.uk with esmtpsa  (Exim 4.94.2 #2 (Debian))
+	id 1tOfOA-006axo-6F; Fri, 20 Dec 2024 15:58:06 +0000
 Received: from ben by rainbowdash with local (Exim 4.98)
 	(envelope-from <ben@rainbowdash>)
-	id 1tOfO9-00000008LT7-3VT1;
+	id 1tOfO9-00000008LT3-3OxI;
 	Fri, 20 Dec 2024 15:58:05 +0000
 From: Ben Dooks <ben.dooks@codethink.co.uk>
 To: felix.chong@codethink.co.uk,
@@ -52,16 +52,16 @@ To: felix.chong@codethink.co.uk,
 	roan.richmond@codethink.co.uk,
 	linux-riscv@lists.infradead.org
 Cc: Ben Dooks <ben.dooks@codethink.co.uk>
-Subject: [RFC 10/15] riscv: fixup use of natural endian on instructions
-Date: Fri, 20 Dec 2024 15:57:56 +0000
-Message-Id: <20241220155801.1988785-11-ben.dooks@codethink.co.uk>
+Subject: [RFC 09/15] temp: remove various library optimisations
+Date: Fri, 20 Dec 2024 15:57:55 +0000
+Message-Id: <20241220155801.1988785-10-ben.dooks@codethink.co.uk>
 X-Mailer: git-send-email 2.37.2.352.g3c44437643
 In-Reply-To: <20241220155801.1988785-1-ben.dooks@codethink.co.uk>
 References: <20241220155801.1988785-1-ben.dooks@codethink.co.uk>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241220_075811_277309_38F3AA35 
-X-CRM114-Status: GOOD (  14.26  )
+X-CRM114-CacheID: sfid-20241220_075811_607364_2D462E5E 
+X-CRM114-Status: GOOD (  12.40  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,152 +78,134 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The priveldged ISA spec says that all instructions should
-be treated as little endian, so if we load them from memory
-we should do le{16,32}_to_cpu on these and the reverse when
-storing.
+These either need fixing or checking for big endian.
 
-This fixes jump_label, bug and related functions for big endian
-builds.
-
-Signed-off-by: Ben Dooks <ben.dooks@codethink.co.uk>
+- memove is deifentyl not working
+- ignore memset and  memcpy optimisation for now
+- uaccess code needs fixing
 ---
- arch/riscv/kernel/alternative.c      | 10 +++++++++-
- arch/riscv/kernel/cfi.c              |  3 ++-
- arch/riscv/kernel/jump_label.c       |  3 ++-
- arch/riscv/kernel/traps.c            |  2 ++
- arch/riscv/kernel/traps_misaligned.c |  3 +++
- 5 files changed, 18 insertions(+), 3 deletions(-)
+ arch/riscv/lib/memcpy.S  | 22 +++++++++++++++++++++-
+ arch/riscv/lib/memmove.S |  2 +-
+ arch/riscv/lib/memset.S  |  1 +
+ arch/riscv/lib/strlen.S  |  2 +-
+ arch/riscv/lib/uaccess.S |  7 +++++--
+ 5 files changed, 29 insertions(+), 5 deletions(-)
 
-diff --git a/arch/riscv/kernel/alternative.c b/arch/riscv/kernel/alternative.c
-index 0128b161bfda..a2c8f0a5bca9 100644
---- a/arch/riscv/kernel/alternative.c
-+++ b/arch/riscv/kernel/alternative.c
-@@ -62,11 +62,16 @@ static void riscv_fill_cpu_mfr_info(struct cpu_manufacturer_info_t *cpu_mfr_info
- 	}
- }
+diff --git a/arch/riscv/lib/memcpy.S b/arch/riscv/lib/memcpy.S
+index 44e009ec5fef..b51380f06204 100644
+--- a/arch/riscv/lib/memcpy.S
++++ b/arch/riscv/lib/memcpy.S
+@@ -7,12 +7,15 @@
+ #include <asm/asm.h>
  
-+static u32 get_u16(u16 *ptr)
-+{
-+	return le16_to_cpu(*ptr);
-+}
+ /* void *memcpy(void *, const void *, size_t) */
+-SYM_FUNC_START(__memcpy)
++SYM_FUNC_START(__memcpy1)
+ 	move t6, a0  /* Preserve return value */
+ 
+ 	/* Defer to byte-oriented copy for small sizes */
+ 	sltiu a3, a2, 128
++	j	4f	/* for now just always use bytes */	
 +
- static u32 riscv_instruction_at(void *p)
- {
- 	u16 *parcel = p;
- 
--	return (u32)parcel[0] | (u32)parcel[1] << 16;
-+	return (u32)get_u16(parcel+0) | (u32)get_u16(parcel+1) << 16;
- }
- 
- static void riscv_alternative_fix_auipc_jalr(void *ptr, u32 auipc_insn,
-@@ -83,6 +88,8 @@ static void riscv_alternative_fix_auipc_jalr(void *ptr, u32 auipc_insn,
- 	riscv_insn_insert_utype_itype_imm(&call[0], &call[1], imm);
- 
- 	/* patch the call place again */
-+	call[0] = cpu_to_le32(call[0]);
-+	call[1] = cpu_to_le32(call[1]);
- 	patch_text_nosync(ptr, call, sizeof(u32) * 2);
- }
- 
-@@ -98,6 +105,7 @@ static void riscv_alternative_fix_jal(void *ptr, u32 jal_insn, int patch_offset)
- 	riscv_insn_insert_jtype_imm(&jal_insn, imm);
- 
- 	/* patch the call place again */
-+	jal_insn = cpu_to_le32(jal_insn);
- 	patch_text_nosync(ptr, &jal_insn, sizeof(u32));
- }
- 
-diff --git a/arch/riscv/kernel/cfi.c b/arch/riscv/kernel/cfi.c
-index 64bdd3e1ab8c..bd35ddbcbcee 100644
---- a/arch/riscv/kernel/cfi.c
-+++ b/arch/riscv/kernel/cfi.c
-@@ -37,15 +37,16 @@ static bool decode_cfi_insn(struct pt_regs *regs, unsigned long *target,
+ 	bnez a3, 4f
++
+ 	/* Use word-oriented copy only if low-order bits match */
+ 	andi a3, t6, SZREG-1
+ 	andi a4, a1, SZREG-1
+@@ -87,6 +90,7 @@ SYM_FUNC_START(__memcpy)
+ 	or a5, a5, a3
+ 	andi a5, a5, 3
+ 	bnez a5, 5f
++	j	5f	/* skip word */
+ 7:
+ 	lw a4, 0(a1)
+ 	addi a1, a1, 4
+@@ -104,6 +108,22 @@ SYM_FUNC_START(__memcpy)
+ 	bltu a1, a3, 5b
+ 6:
+ 	ret
++
++SYM_FUNC_START(__memcpy)
++	move t6, a0  /* Preserve return value */
++	beqz a2, 6f
++	add a3, a1, a2
++
++5:
++	lb a4, 0(a1)
++	addi a1, a1, 1
++	sb a4, 0(t6)
++	addi t6, t6, 1
++	bltu a1, a3, 5b
++6:
++	ret
++
++
+ SYM_FUNC_END(__memcpy)
+ SYM_FUNC_ALIAS_WEAK(memcpy, __memcpy)
+ SYM_FUNC_ALIAS(__pi_memcpy, __memcpy)
+diff --git a/arch/riscv/lib/memmove.S b/arch/riscv/lib/memmove.S
+index cb3e2e7ef0ba..c51475e4f3ce 100644
+--- a/arch/riscv/lib/memmove.S
++++ b/arch/riscv/lib/memmove.S
+@@ -60,7 +60,7 @@ SYM_FUNC_START(__memmove)
  	 */
- 	if (get_kernel_nofault(insn, (void *)regs->epc - 4))
- 		return false;
-+	insn = le32_to_cpu(insn);
- 	if (!riscv_insn_is_beq(insn))
- 		return false;
+ 	andi t0, a2, -(2 * SZREG)
+ 	beqz t0, .Lbyte_copy
 -
- 	*type = (u32)regs_ptr[RV_EXTRACT_RS1_REG(insn)];
++	j .Lbyte_copy
+ 	/*
+ 	 * Now solve for t5 and t6.
+ 	 */
+diff --git a/arch/riscv/lib/memset.S b/arch/riscv/lib/memset.S
+index da23b8347e2d..a3cd79cb33b4 100644
+--- a/arch/riscv/lib/memset.S
++++ b/arch/riscv/lib/memset.S
+@@ -14,6 +14,7 @@ SYM_FUNC_START(__memset)
+ 	/* Defer to byte-oriented fill for small sizes */
+ 	sltiu a3, a2, 16
+ 	bnez a3, 4f
++	j 4f /* disabel optimised for now */
  
- 	if (get_kernel_nofault(insn, (void *)regs->epc) ||
- 	    get_kernel_nofault(insn, (void *)regs->epc + GET_INSN_LENGTH(insn)))
- 		return false;
+ 	/*
+ 	 * Round to nearest XLEN-aligned address
+diff --git a/arch/riscv/lib/strlen.S b/arch/riscv/lib/strlen.S
+index 962983b73251..bea650fd24af 100644
+--- a/arch/riscv/lib/strlen.S
++++ b/arch/riscv/lib/strlen.S
+@@ -8,7 +8,7 @@
+ /* int strlen(const char *s) */
+ SYM_FUNC_START(strlen)
  
-+	insn = le32_to_cpu(insn);
- 	if (riscv_insn_is_jalr(insn))
- 		rs1_num = RV_EXTRACT_RS1_REG(insn);
- 	else if (riscv_insn_is_c_jalr(insn))
-diff --git a/arch/riscv/kernel/jump_label.c b/arch/riscv/kernel/jump_label.c
-index 11ad789c60c6..e8a9301ec0bf 100644
---- a/arch/riscv/kernel/jump_label.c
-+++ b/arch/riscv/kernel/jump_label.c
-@@ -19,7 +19,7 @@ bool arch_jump_label_transform_queue(struct jump_entry *entry,
- 				     enum jump_label_type type)
- {
- 	void *addr = (void *)jump_entry_code(entry);
--	u32 insn;
-+	__le32 insn;
+-	ALTERNATIVE("nop", "j strlen_zbb", 0, RISCV_ISA_EXT_ZBB, CONFIG_RISCV_ISA_ZBB)
++	/*ALTERNATIVE("nop", "j strlen_zbb", 0, RISCV_ISA_EXT_ZBB, CONFIG_RISCV_ISA_ZBB)*/
  
- 	if (type == JUMP_LABEL_JMP) {
- 		long offset = jump_entry_target(entry) - jump_entry_code(entry);
-@@ -36,6 +36,7 @@ bool arch_jump_label_transform_queue(struct jump_entry *entry,
- 		insn = RISCV_INSN_NOP;
- 	}
+ 	/*
+ 	 * Returns
+diff --git a/arch/riscv/lib/uaccess.S b/arch/riscv/lib/uaccess.S
+index 6a9f116bb545..3d7da86277bb 100644
+--- a/arch/riscv/lib/uaccess.S
++++ b/arch/riscv/lib/uaccess.S
+@@ -46,7 +46,8 @@ SYM_FUNC_START(fallback_scalar_usercopy)
+ 	 */
+ 	li	a3, 9*SZREG-1 /* size must >= (word_copy stride + SZREG-1) */
+ 	bltu	a2, a3, .Lbyte_copy_tail
+-
++	j	.Lbyte_copy_tail
++	
+ 	/*
+ 	 * Copy first bytes until dst is aligned to word boundary.
+ 	 * a0 - start of dst
+@@ -73,7 +74,9 @@ SYM_FUNC_START(fallback_scalar_usercopy)
+ 	 */
+ 	/* a1 - start of src */
+ 	andi	a3, a1, SZREG-1
+-	bnez	a3, .Lshift_copy
++	/*	bnez	a3, .Lshift_copy */
++	/* for now, ignore shift copy until fixed */
++	bnez	a3, .Lbyte_copy_tail
  
-+	insn = cpu_to_le32(insn);
- 	mutex_lock(&text_mutex);
- 	patch_insn_write(addr, &insn, sizeof(insn));
- 	mutex_unlock(&text_mutex);
-diff --git a/arch/riscv/kernel/traps.c b/arch/riscv/kernel/traps.c
-index 51ebfd23e007..a475fd9310fd 100644
---- a/arch/riscv/kernel/traps.c
-+++ b/arch/riscv/kernel/traps.c
-@@ -253,6 +253,7 @@ static inline unsigned long get_break_insn_length(unsigned long pc)
- 	if (get_kernel_nofault(insn, (bug_insn_t *)pc))
- 		return 0;
- 
-+	insn = le32_to_cpu(insn);
- 	return GET_INSN_LENGTH(insn);
- }
- 
-@@ -399,6 +400,7 @@ int is_valid_bugaddr(unsigned long pc)
- 		return 0;
- 	if (get_kernel_nofault(insn, (bug_insn_t *)pc))
- 		return 0;
-+	insn = cpu_to_le32(insn);
- 	if ((insn & __INSN_LENGTH_MASK) == __INSN_LENGTH_32)
- 		return (insn == __BUG_INSN_32);
- 	else
-diff --git a/arch/riscv/kernel/traps_misaligned.c b/arch/riscv/kernel/traps_misaligned.c
-index 1b9867136b61..21b2a4df185f 100644
---- a/arch/riscv/kernel/traps_misaligned.c
-+++ b/arch/riscv/kernel/traps_misaligned.c
-@@ -290,6 +290,7 @@ static inline int get_insn(struct pt_regs *regs, ulong epc, ulong *r_insn)
- 		 * below with the upper 16 bits half.
- 		 */
- 		insn &= GENMASK(15, 0);
-+		insn = le16_to_cpu(insn);
- 		if ((insn & __INSN_LENGTH_MASK) != __INSN_LENGTH_32) {
- 			*r_insn = insn;
- 			return 0;
-@@ -297,12 +298,14 @@ static inline int get_insn(struct pt_regs *regs, ulong epc, ulong *r_insn)
- 		epc += sizeof(u16);
- 		if (__read_insn(regs, tmp, epc, u16))
- 			return -EFAULT;
-+		tmp = le16_to_cpu(tmp);
- 		*r_insn = (tmp << 16) | insn;
- 
- 		return 0;
- 	} else {
- 		if (__read_insn(regs, insn, epc, u32))
- 			return -EFAULT;
-+		insn = le32_to_cpu(insn);
- 		if ((insn & __INSN_LENGTH_MASK) == __INSN_LENGTH_32) {
- 			*r_insn = insn;
- 			return 0;
+ .Lword_copy:
+         /*
 -- 
 2.37.2.352.g3c44437643
 
