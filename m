@@ -4,77 +4,129 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D3C6DE77188
-	for <linux-riscv@archiver.kernel.org>; Fri, 20 Dec 2024 16:09:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6741BE77188
+	for <linux-riscv@archiver.kernel.org>; Fri, 20 Dec 2024 19:34:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:To
-	:From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=HorN8NwiSAJDTa0gycmpIHFuM76ZpAA+Dt728JX+aFA=; b=xUYX4Pw95cWgRc
-	yEUoGlHpwLA8dWvlRwMkvbnjF8965tR/8ltzizGFdlRctxno1j+ozXdfO1pz0lUY1FztosYIEQUIm
-	dhNXqNxi4qB2AFOEQBRrgmhIpDBCAhtAc0qXpHKlCuY34flVPp/UpXk6z46CJa12B5OW1y/LrqG06
-	8ZUITYapfwBtwCc3kRgoLvmVc3Ikr/rFLYhiTvFj/gp4bJgMiyE2awHjNIGZmyeMiaMMoH0BewHay
-	b6Y9aP0xxwJkiOaZvGVygYkUJOUZJWi0Dxz+QsOrcIJYl1tUA/muKT1dX5CC6vU5QQ8w6rdswUM+R
-	3WKW6enlivnHNS+QA+Nw==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=binA5QEifWjm7Z9Daa4YKkoISpSMfzv5UHqTXwYDxgk=; b=4RLypVCJW1IqPs
+	xv+ykYFUlBi1CTtiP7YDTZzYz42q11AYGnlmkTYEZZY4kUClQzm2mr9VVrTkJNnxDjIturuksWLxI
+	PtjHYNrhQRQZ1A+lRdTdkAleFCgTVY4I5aQi6cWQFE3Zf2emF735lLu2xWWxwVdKRllSGXaognxiy
+	JtsaQX9VzcKNWte3aOKEAtCWRVlkRvfLMAa/EclWzDKtba3K9gvwtPBzGtcA1D6A+rcDrd6YmBw06
+	25e0XdDM6JwThKbKqxFqUiItoi4bENoinZ3JWco49KjsoH/J52wgN3zWiZxFIxCysNCWy4l+gjGKn
+	19OQ8A2GDASDavuyY3bg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tOfZP-00000005QQO-1rI1;
-	Fri, 20 Dec 2024 16:09:43 +0000
-Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
+	id 1tOilj-00000005xT1-33w9;
+	Fri, 20 Dec 2024 19:34:39 +0000
+Received: from mgamail.intel.com ([192.198.163.14])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tOfZO-00000005QQC-1pIq
-	for linux-riscv@bombadil.infradead.org;
-	Fri, 20 Dec 2024 16:09:42 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=casper.20170209; h=Sender:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:To:From:Reply-To:Cc:Content-Type:
-	Content-ID:Content-Description:In-Reply-To:References;
-	bh=5jUyvcliTWq/zA4LB6ZBAPw47QQ3JG1r8KxL9sbTAtU=; b=JFr1ATRWBHcESLVqviU8FgFw2g
-	0LfD+AftdKsYD7mwD9lUsH4buj8vkqNLKSfYj0Jm7hFmHhe6nb4S+D9l0jWu+FCsqo4TlEedjk35/
-	5DntPIo3YppSgu4TZsGUZ1FIm0yfJAZSfUcD31avJzOw4f9XLu7EzQOarGrySf7Rn2Yo3o+U6a9pY
-	KhFf1F23rhEg8GroN1HfZbLqK4wy/QRqkz7/UcByVBLrnz2DNwbwtiJMRRW8fAmcpKu+zrtMawPJ7
-	Ind+0myuKUFLOS1PImHk0g7idWh0lGo1xVtDTkqxt3KobGXiv4R+5gFocpZulnl0RjiFSN3+JipJA
-	lZ+YoFjQ==;
-Received: from imap5.colo.codethink.co.uk ([78.40.148.171])
-	by casper.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tOfZK-00000001XiO-3t5D
-	for linux-riscv@lists.infradead.org;
-	Fri, 20 Dec 2024 16:09:40 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=codethink.co.uk; s=imap5-20230908; h=Sender:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:To:From:Reply-To:Cc:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Id:
-	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=5jUyvcliTWq/zA4LB6ZBAPw47QQ3JG1r8KxL9sbTAtU=; b=XUG4NWuWND9VzcO++6nv12EymV
-	GeSwS07uj0VfBNS2i3nOFXYIYAZDS4KjL80XgdL0pv3zoyYoNHTQEP0IlAwAqAEwXVFcr7NrVHLs5
-	jVVeF9b4phZTVSwQNODozIS1f0TIfSwU+Lu7uGy0WjjuQHAt+uXSUm5+geOaLMCgJ5fSAcvOVWoQu
-	WXnHsffWk8Bgu9ZbS9dG38GtQdE/IBuqNnmoe2hs3S7cGaaBa3WrK4x8Lts8OZjgZNCQYcm0JrCyx
-	JzhlntlGp2IPouMpgzdlN8gVv8PmuOQLjO4640CMyzx++CBCjJTFPRqEFYT52RUkluq0x0ZmVSarm
-	QcElHkmQ==;
-Received: from [167.98.27.226] (helo=rainbowdash)
-	by imap5.colo.codethink.co.uk with esmtpsa  (Exim 4.94.2 #2 (Debian))
-	id 1tOfO8-00AD9n-3c; Fri, 20 Dec 2024 15:58:04 +0000
-Received: from ben by rainbowdash with local (Exim 4.98)
-	(envelope-from <ben@rainbowdash>)
-	id 1tOfO7-00000008LST-3gt8;
-	Fri, 20 Dec 2024 15:58:03 +0000
-From: Ben Dooks <ben.dooks@codethink.co.uk>
-To: felix.chong@codethink.co.uk,
-	lawrence.hunter@codethink.co.uk,
-	roan.richmond@codethink.co.uk,
-	linux-riscv@lists.infradead.org
-Subject: RFC: riscv64 big endian system attempt
-Date: Fri, 20 Dec 2024 15:57:46 +0000
-Message-Id: <20241220155801.1988785-1-ben.dooks@codethink.co.uk>
-X-Mailer: git-send-email 2.37.2.352.g3c44437643
+	id 1tOij4-00000005x6N-28X8;
+	Fri, 20 Dec 2024 19:31:55 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1734723114; x=1766259114;
+  h=message-id:date:mime-version:subject:to:cc:references:
+   from:in-reply-to:content-transfer-encoding;
+  bh=cWsdyve87/ahvL1Kdn+WU4yfF9lwFtfjevTBD3q3a5I=;
+  b=e9gK+DBQbzyFGMPNrPj3wscI69IjJgli/MEudo4Xcz+40+EOpWPt2+9Z
+   z7TSmgmecmJGt2J1McQhGgZ7otX5FLTBcNLXhIsQ0RlRdGzOCX5/jqnPr
+   F6KlK1eFG6/Ee9WwL9GUsIW2AqwFAuzyYzV14thuv6hqhZTi99La0RQAz
+   KQVuvkSULdr4pXM4FSk56+uCVbVfkXqUoMen4lz16TYM4dv0TnwvhM8+k
+   OIfFCGZsjFH8/HNsSK9z8H0etS7ap0bz4TnCyZxttywLzWwu6raAeAmKN
+   ynDpuq3DUKWv46Fhnqk5lwA58sXfRoR1FX/YRgp3F6g6S89mxrWCmJqic
+   w==;
+X-CSE-ConnectionGUID: K5zYjgiYQDSlX76qKKe9hA==
+X-CSE-MsgGUID: YV5JXQOESRWErs2B4UU10A==
+X-IronPort-AV: E=McAfee;i="6700,10204,11292"; a="35498891"
+X-IronPort-AV: E=Sophos;i="6.12,251,1728975600"; 
+   d="scan'208";a="35498891"
+Received: from fmviesa010.fm.intel.com ([10.60.135.150])
+  by fmvoesa108.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Dec 2024 11:31:53 -0800
+X-CSE-ConnectionGUID: puhYWLhrTxCkddI44a7G2Q==
+X-CSE-MsgGUID: ZOvVbemkRy6XjG3xptTdtg==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.12,251,1728975600"; 
+   d="scan'208";a="98986706"
+Received: from jairdeje-mobl1.amr.corp.intel.com (HELO [10.124.221.219]) ([10.124.221.219])
+  by fmviesa010-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Dec 2024 11:31:52 -0800
+Message-ID: <989b55cf-1f9e-4b73-b3dd-d8b6a62be3f2@intel.com>
+Date: Fri, 20 Dec 2024 11:31:51 -0800
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 00/10] Account page tables at all levels
+To: Kevin Brodsky <kevin.brodsky@arm.com>, linux-mm@kvack.org
+Cc: Andrew Morton <akpm@linux-foundation.org>,
+ Catalin Marinas <catalin.marinas@arm.com>,
+ Dave Hansen <dave.hansen@linux.intel.com>,
+ Linus Walleij <linus.walleij@linaro.org>, Andy Lutomirski <luto@kernel.org>,
+ Peter Zijlstra <peterz@infradead.org>, "Mike Rapoport (IBM)"
+ <rppt@kernel.org>, Ryan Roberts <ryan.roberts@arm.com>,
+ Thomas Gleixner <tglx@linutronix.de>, Will Deacon <will@kernel.org>,
+ Matthew Wilcox <willy@infradead.org>, linux-alpha@vger.kernel.org,
+ linux-arch@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-csky@vger.kernel.org, linux-hexagon@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-m68k@lists.linux-m68k.org,
+ linux-mips@vger.kernel.org, linux-openrisc@vger.kernel.org,
+ linux-parisc@vger.kernel.org, linux-riscv@lists.infradead.org,
+ linux-s390@vger.kernel.org, linux-snps-arc@lists.infradead.org,
+ linux-um@lists.infradead.org, loongarch@lists.linux.dev, x86@kernel.org,
+ Joerg Roedel <jroedel@suse.de>
+References: <20241219164425.2277022-1-kevin.brodsky@arm.com>
+ <a7398426-56d1-40b4-a1c9-40ae8c8a4b4b@intel.com>
+ <765aec36-55a4-4161-bb30-4ff838bc2d98@arm.com>
+From: Dave Hansen <dave.hansen@intel.com>
+Content-Language: en-US
+Autocrypt: addr=dave.hansen@intel.com; keydata=
+ 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
+In-Reply-To: <765aec36-55a4-4161-bb30-4ff838bc2d98@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241220_160939_257099_6A845FAD 
-X-CRM114-Status: UNSURE (   3.05  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241220_113154_568963_85509504 
+X-CRM114-Status: GOOD (  13.73  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,18 +143,32 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-With the latest spec adding configurable endianness, we thought we
-should try putting together a proof of concept riscv64 big endian.
+On 12/20/24 02:58, Kevin Brodsky wrote:
+>> One super tiny nit is that the PAE pgd _can_ be allocated using
+>> __get_free_pages(). It was originally there for Xen, but I think it's
+>> being used for PTI only at this point and the comments are wrong-ish.
+>>
+>> I kinda think we should just get rid of the 32-bit kmem_cache entirely.
+> That would certainly simplify things on the x86 side! I'm not at all
+> familiar with that code though, would you be happy with providing a
+> patch? I could add it to this series if that's convenient.
 
-The full information is documented on our gitlab[1] which includes
-source repositories, build information and project documentation.
+I hacked this together yesterday:
 
-We have a minimal buildroot, qemu and kernel working on QEMU.
+> https://git.kernel.org/pub/scm/linux/kernel/git/daveh/devel.git/log/?h=simplify-pae-20241220
+It definitely needs some more work. I'm particularly still puzzling
+about why SHARED_KERNEL_PMD is used both as a trigger for 32b vs.
+PAGE_SIZE PAE pgd allocations _and_ for the actual PMD sharing.
 
-As this is a work in progress any review or help is appreciated.
+Xen definitely needed the whole page behavior but I'm not sure why PTI did.
 
-[1] https://gitlab.com/CodethinkLabs/riscv_bigendian
+Either way, that series should make the PAE PGDs a _bit_ less weird at
+the cost of an extra ~2 pages per process for folks who are running
+32-bit PAE kernels with PTI disabled.
 
+But I think the diffstat is worth it:
+
+ 5 files changed, 16 insertions(+), 96 deletions(-)
 
 
 _______________________________________________
