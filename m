@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 36C58E7718D
-	for <linux-riscv@archiver.kernel.org>; Mon, 23 Dec 2024 16:10:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DD187E7718B
+	for <linux-riscv@archiver.kernel.org>; Mon, 23 Dec 2024 16:11:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
 	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Yp/K9t0Y+izzcvVDaVXECwgHeRSBA4Rxc5bKWLF3P/0=; b=oAE5XkYzUqEqpC
-	aEowt3iYXMyiFBrspPDJ2zVVt5/G1oihj90Kl1Tt478eOJ9YqcxTpg2q9eu/ZStYh6DhGbTxzi7E7
-	8tPNWIMpVA+vx/ua+6B+jCXZ9ZLTc8J5NJFQWpj7Cs4qaQ+81cIGHpyzIq1Lftc9ba2Zh3I6ektP3
-	1oH/3wDJYH6IA0xKDt3RiNSTaMRgKfKwD8WuPOUjCkF4NEJr+3vX3GRv4R9Lq448L+7XVxFmQKb6u
-	SGXSBJUR7sf/ZwCQ0tE2u8fIrh9APxC45ulMh1rgizHhwzki/lbc+1S8rqavsBxAoymAXBVZKNKdj
-	9PQiCWRWb769esX/HaYg==;
+	List-Owner; bh=CgTMiAKQ1Mnl0kzIfQ654Ik2QfxRUCNUNbvInAjxDU0=; b=QwiLFsiiAcso4O
+	d82+KJC8CmqFDmCwih8A4zHYT1gk4hRhGoQ+0Iw+VARg3zaSOc0hJoBRgggnL0DAfgSOdJMY88WiI
+	EXNFoeI76iKk1MXjRD5PDGV/8hMWFnSkKFv8FxXKHm1LosTbew2gMT5b3+8r/fVAtCuRG7JgwcyeS
+	IbD/bAGuRP3kPagWPE7KIz7Z0+aC/5j1QgrlNZLTbCaoHaeqgjnWoa5mVC4FmPe0qrc34vVKvwy2n
+	lamuMfD5UhRFy2r9nTF/VeP0KQxx5USP2JVW1MM5Ci3CewGEKBnpL2ZQDQ9Uxfl76HCe3oGVMykvu
+	Y4lsar9VIlPW2KvHwz0Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tPl0U-0000000AM4Z-2iHq;
-	Mon, 23 Dec 2024 16:10:10 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tPl1r-0000000AMLU-2Cpg;
+	Mon, 23 Dec 2024 16:11:35 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tPl09-0000000ALyc-0jxX
+	id 1tPl1o-0000000AMKB-1az8
 	for linux-riscv@lists.infradead.org;
-	Mon, 23 Dec 2024 16:09:50 +0000
+	Mon, 23 Dec 2024 16:11:34 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id BDBD15C5646;
-	Mon, 23 Dec 2024 16:09:06 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 453E3C4CED3;
+	by nyc.source.kernel.org (Postfix) with ESMTP id 07CD1A41045;
 	Mon, 23 Dec 2024 16:09:41 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D2C02C4CED6;
+	Mon, 23 Dec 2024 16:11:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1734970188;
-	bh=8yY7PAo6J90CfiAubwEdngmP+WIXNeXeySn+ACc7MJc=;
+	s=k20201202; t=1734970290;
+	bh=osfhE2TyNQW1+b8jfL6a/Qu2j1NG7qQBvc9ikP7KIpQ=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=nQrpWpDQWwFTMIgJaG3inMCzsfYw0WpKnXY8RrKP3FlDNc/N5suKg0f+QnPje6hnc
-	 UDpkF6SHv5oMWiqwxL1GUBLzj1cKJDft0H+b0r4DAMAM63wukxwi+Q90UsO/r3OVUD
-	 qRpxQUhpp2vrZrZKJ6ienQYTm9//7obuPu566fpQ5HIPqLrp/V/mpDR9qqZUZWi3iX
-	 mRjr4oxqrzJCyycGi8uJP7ZYZYIeItZvZ40PsGLyHV5nY6xccnbY4GKTKsWmqHceWM
-	 Rw7/Ee9u7sY2OXwcVJyJx/WjdywwOZ830KQk9azrmUW/uLP5vKArZbxrXy/TMgQ1C7
-	 69mS9T7I5dspQ==
-Message-ID: <db2987c2-53fc-4d3a-b85c-f5683f74e7a0@kernel.org>
-Date: Mon, 23 Dec 2024 17:09:39 +0100
+	b=lFxnkZlpDn18NzO7Mx2sEHY9verHL6/fPu8Py9tvo9jJUzN4iZba7L2R1W3DQ4yoO
+	 TdPwEJyaHZDtJTlpBlKFhZvifCQAoYQ6QortFO79D0UyZKk/RSg3Rhv3qfm+MY3m11
+	 lRBMPvC+yKH7OUrBGqfiRcf9zrQ64ThZHaBKaUDif1GfT+qKVLKn/nczfFmGHTDTqm
+	 wgJIhPJ0HFNY5ZTO97sV3eJ1vEdj4z8Hasrik54IGYUgJ6AA9+w1sx0cqy7CDBvDFr
+	 KyFqSp0hkq+B2wjJh2ePtn5dmwcoy9Ab6KpxIv1+NFL7H+TmAvfwYlDWnpylmrbo4G
+	 Wtn8zqFuyE3Hw==
+Message-ID: <19270618-be7e-46c0-a937-706b0c0b4118@kernel.org>
+Date: Mon, 23 Dec 2024 17:11:21 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH v2 03/19] dt-bindings: power: thead,th1520: Add
- support for power domains
+Subject: Re: [RFC PATCH v2 04/19] dt-bindings: firmware: thead,th1520: Add
+ support for firmware node
 To: Michal Wilczynski <m.wilczynski@samsung.com>, mturquette@baylibre.com,
  sboyd@kernel.org, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
  drew@pdp7.com, guoren@kernel.org, wefu@redhat.com, jassisinghbrar@gmail.com,
@@ -60,8 +60,8 @@ Cc: linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
  linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
  dri-devel@lists.freedesktop.org, linux-pm@vger.kernel.org
 References: <20241223125553.3527812-1-m.wilczynski@samsung.com>
- <CGME20241223125604eucas1p26b870756eeaf2a5666b70de3f7554c13@eucas1p2.samsung.com>
- <20241223125553.3527812-4-m.wilczynski@samsung.com>
+ <CGME20241223125606eucas1p10ca3adc99322ff33d617a227733e5e67@eucas1p1.samsung.com>
+ <20241223125553.3527812-5-m.wilczynski@samsung.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -107,11 +107,10 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  uZwJCLykjad45hsWcOGk3OcaAGQS6NDlfhM6O9aYNwGL6tGt/6BkRikNOs7VDEa4/HlbaSJo
  7FgndGw1kWmkeL6oQh7wBvYll2buKod4qYntmNKEicoHGU+x91Gcan8mCoqhJkbqrL7+nXG2
  5Q/GS5M9RFWS+nYyJh+c3OcfKqVcZQNANItt7+ULzdNJuhvTRRdC3g9hmCEuNSr+CLMdnRBY fv0=
-In-Reply-To: <20241223125553.3527812-4-m.wilczynski@samsung.com>
+In-Reply-To: <20241223125553.3527812-5-m.wilczynski@samsung.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241223_080949_310433_206D86F3 
-X-CRM114-Status: UNSURE (   7.78  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241223_081132_565294_EFE0B789 
+X-CRM114-Status: GOOD (  17.75  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -129,41 +128,79 @@ Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 On 23/12/2024 13:55, Michal Wilczynski wrote:
-> +  compatible:
-> +    const: thead,th1520-pd
+> The kernel communicates with the E902 core through the mailbox
+> transport using AON firmware protocol. Add dt-bindings to document it
+> the dt node.
+> 
+> Signed-off-by: Michal Wilczynski <m.wilczynski@samsung.com>
+> ---
+>  .../bindings/firmware/thead,th1520-aon.yaml   | 59 +++++++++++++++++++
+>  MAINTAINERS                                   |  1 +
+>  2 files changed, 60 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/firmware/thead,th1520-aon.yaml
+> 
+> diff --git a/Documentation/devicetree/bindings/firmware/thead,th1520-aon.yaml b/Documentation/devicetree/bindings/firmware/thead,th1520-aon.yaml
+> new file mode 100644
+> index 000000000000..ca4c276766a3
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/firmware/thead,th1520-aon.yaml
+> @@ -0,0 +1,59 @@
+> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/firmware/thead,th1520-aon.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
 > +
-> +  "#power-domain-cells":
-> +    const: 1
+> +title: T-HEAD TH1520 AON (Always-On) Firmware Node
+
+Drop "Node", unless this is somehow name of device (not a DT node).
+
+> +
+> +description: |
+> +  The Always-On (AON) subsystem in the TH1520 SoC is responsible for managing
+> +  low-power states, system wakeup events, and power management tasks. It is
+> +  designed to operate independently in a dedicated power domain, allowing it to
+> +  remain functional even during the SoC's deep sleep states.
+> +
+> +  At the heart of the AON subsystem is the E902, a low-power core that executes
+> +  firmware responsible for coordinating tasks such as power domain control,
+> +  clock management, and system wakeup signaling. Communication between the main
+> +  SoC and the AON subsystem is handled through a mailbox interface, which
+> +  enables message-based interactions with the AON firmware.
+> +
+> +maintainers:
+> +  - Michal Wilczynski <m.wilczynski@samsung.com>
+> +
+> +properties:
+> +  compatible:
+> +    const: thead,th1520-aon
+> +
+> +  mboxes:
+> +    maxItems: 1
+> +
+> +  mbox-names:
+> +    items:
+> +      - const: aon
+> +
+> +  power-domain:
+> +    $ref: /schemas/power/thead,th1520-power.yaml#
+> +    description: Subnode representing the hardware power domain of the AON subsystem.
 > +
 > +additionalProperties: false
 > +
 > +required:
 > +  - compatible
-> +  - "#power-domain-cells"
+> +  - mboxes
+> +  - mbox-names
+
+In all your bindings patches: "required" block goes before
+additional/unevaluatedProperties. See also example-schema.
+
 > +
 > +examples:
 > +  - |
 > +    firmware {
-
-Drop
-
 > +        aon: aon {
-> +            compatible = "thead,th1520-aon";
-> +            mboxes = <&mbox_910t 1>;
-> +            mbox-names = "aon";
-
-Drop aon node... but the main problem is you do not have any resources
-in your power-domain device node, assuming your binding is complete.
-This suggests that this is part of aon, not separate device. Fold the
-device node into its parent (so everything goes to AON).
-
-> +
-> +            pd: power-domain {
-> +                compatible = "thead,th1520-pd";
-> +                #power-domain-cells = <1>;
-> +            };
-> +        };
-> +    };
 
 Best regards,
 Krzysztof
