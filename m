@@ -4,131 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5E72CE7718E
-	for <linux-riscv@archiver.kernel.org>; Mon, 23 Dec 2024 14:06:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 694AFE7718D
+	for <linux-riscv@archiver.kernel.org>; Mon, 23 Dec 2024 14:20:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:References:MIME-Version:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=av39eR1biZK2CEKSZKaITbP355t9reUta8t0HNXaFxs=; b=L5ZEea/+Hm3EWV
-	AcP26gev5Se0F6zXKSk5N6ENeZyTYG6uRVTHViPr1LRwvKbi6g4rLraQi/5V6zwkWjFTosS03QXV3
-	WHfyy/DbkMIHCm0JczUz70/i01l+yHrwXDUTKmhnCUP+e1l5jCWH2VqMFGjtvnoUhcGWZpikdEKHM
-	N71FYkrS9H1dgTZUi4XzzWDeE+xd8A7n1JPmxtFsIYtJ9wOLp5Q8wGyP3NBeY1bdkfOfIitWsKEPm
-	veKemGCIuzHtxg/FUCehuc/8BuuWwYFx8zF/oV2hiWzLFucwGnJjxdqVEkyC68Wr3NxL2M6IQcD04
-	Eds36eXqjp5PLoB70YKw==;
+	List-Owner; bh=JrsF3cFPmq7+4q0PLD43YY5ZOYuAcC/eEFo97eZVjds=; b=rd4y5GY8/DUvEv
+	PV8BobWtVIu7Yr2qDw3mcsSHD3QWjrCGSDWLeiA+Q1lTZc333y2mIWV0K6IzRmP8D7jZuy9R5k1wL
+	Eqqe2s2bZVWEsjWSGXnzMf6MyWNVWq72abeAFHH5gTNBEV5lcWkAooI0YKoEb1WYPIiGyIshnTzWb
+	LE3G9Xas5IAZKoQUTQny48gphAa+EM+DkJZlm6z5yMSMw4Wp7PFFSxmYpnSJuNeKhrTcROxhr0gR1
+	+7NZf/UQA5D9IR8v/GUPKwN6joyC4R9kMMPyC6ZVk7KmFBRL43r5VDDMN3oYswC8XEn0oricBpon5
+	qXv0tenogdweM8blaZnw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tPj4U-0000000A7FL-0bdE;
-	Mon, 23 Dec 2024 14:06:10 +0000
-Received: from mailout2.w1.samsung.com ([210.118.77.12])
+	id 1tPjIR-0000000A9Sg-3mty;
+	Mon, 23 Dec 2024 14:20:35 +0000
+Received: from mail-il1-x12d.google.com ([2607:f8b0:4864:20::12d])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tPhyq-0000000A1LV-2m43
+	id 1tPjHT-0000000A8vg-028T
 	for linux-riscv@lists.infradead.org;
-	Mon, 23 Dec 2024 12:56:18 +0000
-Received: from eucas1p2.samsung.com (unknown [182.198.249.207])
-	by mailout2.w1.samsung.com (KnoxPortal) with ESMTP id 20241223125615euoutp0223eb9235b2a7de8822d71bb28ba8402d~Tz6HV3c5V1064210642euoutp02I
-	for <linux-riscv@lists.infradead.org>; Mon, 23 Dec 2024 12:56:15 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.w1.samsung.com 20241223125615euoutp0223eb9235b2a7de8822d71bb28ba8402d~Tz6HV3c5V1064210642euoutp02I
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1734958575;
-	bh=+f3X/DCuFdKKzA9Co4hfqONzYJgQc/PdEIk3SwP3lE8=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=LjG13qpF6jsbDr5cR4CyLNoTs6ZyblpQQocej/kgKTbR4OXgisqaUo3q5+PeNQKCL
-	 NvYAK+2TACMKWbtFqx+oKyhnXjcKuMQxWW8Mi/IAS8mRiPOZWUvdrAlxSAcP3EqrTX
-	 N1UTwNyX+hohmZ09MZ9L/oYwDhV8gg4KOfcC3P/I=
-Received: from eusmges3new.samsung.com (unknown [203.254.199.245]) by
-	eucas1p2.samsung.com (KnoxPortal) with ESMTP id
-	20241223125614eucas1p24a133876e24d4d9de287258d7191d048~Tz6G23CfT2931129311eucas1p2H;
-	Mon, 23 Dec 2024 12:56:14 +0000 (GMT)
-Received: from eucas1p2.samsung.com ( [182.198.249.207]) by
-	eusmges3new.samsung.com (EUCPMTA) with SMTP id 82.52.20397.EED59676; Mon, 23
-	Dec 2024 12:56:14 +0000 (GMT)
-Received: from eusmtrp1.samsung.com (unknown [182.198.249.138]) by
-	eucas1p1.samsung.com (KnoxPortal) with ESMTPA id
-	20241223125614eucas1p181b9db4e69de9915f0234fb1d1348465~Tz6GUEjq82329123291eucas1p1W;
-	Mon, 23 Dec 2024 12:56:14 +0000 (GMT)
-Received: from eusmgms2.samsung.com (unknown [182.198.249.180]) by
-	eusmtrp1.samsung.com (KnoxPortal) with ESMTP id
-	20241223125614eusmtrp142ae161a920ace4fad8475e6dbdedc55~Tz6GQ_f2c2059320593eusmtrp1v;
-	Mon, 23 Dec 2024 12:56:14 +0000 (GMT)
-X-AuditID: cbfec7f5-ed1d670000004fad-98-67695dee1701
-Received: from eusmtip2.samsung.com ( [203.254.199.222]) by
-	eusmgms2.samsung.com (EUCPMTA) with SMTP id D1.83.19654.EED59676; Mon, 23
-	Dec 2024 12:56:14 +0000 (GMT)
-Received: from AMDC4942.home (unknown [106.210.136.40]) by
-	eusmtip2.samsung.com (KnoxPortal) with ESMTPA id
-	20241223125612eusmtip2fb75917172dcee314c8bcd874d070cbc~Tz6E0sqm43262732627eusmtip2f;
-	Mon, 23 Dec 2024 12:56:12 +0000 (GMT)
-From: Michal Wilczynski <m.wilczynski@samsung.com>
-To: mturquette@baylibre.com, sboyd@kernel.org, robh@kernel.org,
-	krzk+dt@kernel.org, conor+dt@kernel.org, drew@pdp7.com, guoren@kernel.org,
-	wefu@redhat.com, jassisinghbrar@gmail.com, paul.walmsley@sifive.com,
-	palmer@dabbelt.com, aou@eecs.berkeley.edu, frank.binns@imgtec.com,
-	matt.coster@imgtec.com, maarten.lankhorst@linux.intel.com,
-	mripard@kernel.org, tzimmermann@suse.de, airlied@gmail.com, simona@ffwll.ch,
-	ulf.hansson@linaro.org, jszhang@kernel.org, p.zabel@pengutronix.de,
-	m.szyprowski@samsung.com
-Cc: linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
-	dri-devel@lists.freedesktop.org, linux-pm@vger.kernel.org, Michal Wilczynski
-	<m.wilczynski@samsung.com>
-Subject: [RFC PATCH v2 10/19] drm/imagination: Add reset controller support
- for GPU initialization
-Date: Mon, 23 Dec 2024 13:55:44 +0100
-Message-Id: <20241223125553.3527812-11-m.wilczynski@samsung.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20241223125553.3527812-1-m.wilczynski@samsung.com>
+	Mon, 23 Dec 2024 14:19:36 +0000
+Received: by mail-il1-x12d.google.com with SMTP id e9e14a558f8ab-3a9caa3726fso14346705ab.1
+        for <linux-riscv@lists.infradead.org>; Mon, 23 Dec 2024 06:19:34 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=brainfault-org.20230601.gappssmtp.com; s=20230601; t=1734963573; x=1735568373; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=nlKsDcG265GLTRuHGNMMDIoHE87S0dQc7oUcHfSD0xo=;
+        b=h1XlBwlqZ/avXH8P0DAnya+P439rNGiW0djOrU9UYs8CdzaqYnMi9t5GNxV9HZOaef
+         bRCecp3+r8VQUo4L4N3uoozqT0iaBCznHI4syl/Hzu42rPE2OpGiJPXjvRnGLOGcF4cD
+         q+UbWqcIxVZmU03HzrdwphTkJnKg1K85qwQYaiUppurb9DUvFV3hSfFM+94GWTd23OAJ
+         q5fDumD2j0jBnRV7v4+GbiMY/TFTOz7jiElnIvctSbn68cHjFtQugA9vl9ilevutGW6K
+         VwkG6VEriODDc7mzTE3BqueXjMGfCMxQ8a2HxLxBeveIlraBNdMnLgeWtZQzKYWHDCVg
+         MUOQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1734963573; x=1735568373;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=nlKsDcG265GLTRuHGNMMDIoHE87S0dQc7oUcHfSD0xo=;
+        b=K5nlhyIvykz5+z8taKtdP7+TJUJ+v+urujShA2Vrn143n5RmO8dYkB9VvQYJXR65oL
+         Hlqfm7JNtwFTPakvztByJs0LaGyOjQ3lUCndz1alhwB2jLE5ek9fgUirbW5LQEI9wS8Q
+         bpLyN+K7mcO1OpEeSNP3LGwSTV+1WFkqYFCko+1Crc1hWQDgXDh8+yyYwOAjRQceJjWP
+         u+MStooZ3xCOFTtM3RI/Zhd/oYl7k7tCAZ4NnmUow/0A4Y02fLxATvDBFnDZshYG/Pvd
+         aadaGuWX4PeKhseaigjLhR/Keu1zls8pLWkmTHgbnjvIL1ZKAluXwypdh5s+OUE3+dCQ
+         o7Qg==
+X-Forwarded-Encrypted: i=1; AJvYcCUFQbRsAbqTmiGe/1iV8Te8BhDErQzMT59ycWMwJJibrL20SoxW+1UVIo2F6ON3LIgFqHLs1bUzT/d+2A==@lists.infradead.org
+X-Gm-Message-State: AOJu0YzddN+Ib8+j/zNCbQGJJtHX4H1V5oKhhQPwT4aDovO84+cIskEJ
+	FZlstY+4gtAGAe1A1QbUrGcEw7TqsL7Cs6QkM6Gc+BEDiQLl+vo6EMR7FRpIOcQbbBuBm1ynSRZ
+	gFGYdGrQ0/+cRGoM+5otmFxB7MDyU7H5up5OpWQ==
+X-Gm-Gg: ASbGncsMz1JDBc8yK6TAiSSyTlzBo9gWIbx8SIRZJEWO7DemVlo5RRx9nuc76Ls79Cn
+	2xGY8TCqZ9d3Q3gtiOIAbY7CpUEjaddjgPQZeBHA=
+X-Google-Smtp-Source: AGHT+IHT7JeacGaKf7+yPhFAeXWIA2+H/KV/q4bKowl5LHB+O1SpHIOeP9ZRh+8nxiuSwiyJGyjte+YTgeP6fBPIcQk=
+X-Received: by 2002:a92:d703:0:b0:3ab:502c:b523 with SMTP id
+ e9e14a558f8ab-3c02ceb2239mr110342355ab.4.1734963573524; Mon, 23 Dec 2024
+ 06:19:33 -0800 (PST)
 MIME-Version: 1.0
-X-Brightmail-Tracker: H4sIAAAAAAAAA02Se0xTZxjG851zek5hKR6ObnwyIhEHcUQB0cxvgTQQZ3L+2AWTZU7DLs16
-	UsnKxRYGOpaBXAZYQAQhq1ysGFoIFMS2FiYQK9KKkzEulUwobMNsdQwCiAxMYW0Pbv73fM/7
-	e/K8b/IJccZEBgqTUtI5RYpEHkL6EqaBtZ/2z3+SJItq1h5CtodXMWR8rqZQa88Qhhr6hwTI
-	MWLA0NjKAon0j4cp9GdPLoHsujoK5Q20k8ipdpBoUeUQoNHuWhItl/YDZFrOJ1Fb/xSF2lca
-	MKRZNBLomrkboMLiJgH6efAomnLYCOQcVeGoUL0Nbd4yU2jDfp1Al+f7KGSYqxAga9txlN9X
-	RcTtYhcmCih2zukk2DtFTym259kVgu1ST1GsqutHwHa2FJPspP0WydbfO8ZOn7di7I1r37L5
-	bQMYW+6KYhd6x0m2zNAC2JG8h1QCc9I3VsrJk77iFJHiz31PfXdXi6U92J015hzBckBeUAnw
-	EUL6EFQ1lRMezdA6AMddshLg69ZPAbyuXRPwj2UAf1NpqBeJ+sZOnE9oAay9EcJDcwDODWtI
-	z4Cko+GMtsGb3kEXELDgbi7wPHD6DwBNs7VeajsthXn5MwKPJuhQWHezw7uIiI6DteYqkq8L
-	hn23H3jrfNx+a8kE4Bl/eO/7WS+Pu5k842XcUwDpZl+oLysX8OF3oMVVjPN6O3xiNWzdEATv
-	V6oIXqfCGePSFpMNu1TWLR0DJ4fW3UsI3QVvwvbuSN6Oh6tlDZTHhrQfnPjbn1/BD1401eC8
-	LYJFhQxPh8FLqtL/Sod0JozXLLxqnsYugN3ql45Rv3SM+v/eKwBvAQFchjJZxikPpnCZEUpJ
-	sjIjRRbxRWpyJ3B/7fsb1hUz0D1ZjLAATAgsAArxkB0iC5MkY0RSyZmznCL1M0WGnFNawOtC
-	IiRAFCoN5hhaJknnvuS4NE7xYooJfQJzsDP2ivnm4x8PiWoGR5ilsQQ0+k95Y+VOa/yFwXaV
-	s6dCIzlm8Qv7VMaco1KOxGQuHY0aN23G2Q0FWVn1f40Zo/XR3b/rfsh5b1/TrsRH08aThD7t
-	rVcV07/6h3e25EuGzwX3igIr48Oow+8G+cXTuWLhM3PH6Yt7GquKR2IL37AxTKSra89C7Gbg
-	keyymzXZqLHdWP3YZJPHTx6MqXb8sg4zxNXK6rB9uWvkcAwUpEHxgdc4Qt7xoSvZVWpM9++k
-	zgcczqmL1mQ9R4mntxXp61cnbBs2f6C5vX62T9yyqr8zqxbvDf3oG8nXOz8IDJIm9L4f/krr
-	pROZ++cSHW8/CiGUpyQHwnGFUvIvZKabokkEAAA=
-X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFlrKKsWRmVeSWpSXmKPExsVy+t/xe7rvYjPTDY6c4bI4cX0Rk8XW37PY
-	LdbsPcdkMf/IOVaLe5e2MFlc+fqezWLd0wvsFi/2NrJYXFsxl92i+dh6NouXs+6xWXzsucdq
-	cXnXHDaLz71HGC22fW5hs1h75C67xfqv85ksFn7cymKxZMcuRou2zmWsFhdPuVrcvXeCxeLl
-	5R5mi7ZZ/Bb/9+xgt/h3bSOLxex3+9kttryZyGpxfG24Rcv+KSwOch7vb7Sye7x5+ZLF43DH
-	F3aPvd8WsHjsnHWX3aNn5xlGj02rOtk87lzbw+Yx72Sgx/3u40wem5fUe7SsPcbk0f/XwOP9
-	vqtsHn1bVjF6XGq+zh4gFKVnU5RfWpKqkJFfXGKrFG1oYaRnaGmhZ2RiqWdobB5rZWSqpG9n
-	k5Kak1mWWqRvl6CX0X50OVPBWcWKKy8vMTUwNst0MXJySAiYSMxbvIkZxBYSWMoocbfZCyIu
-	I3Gt+yULhC0s8edaF1sXIxdQzStGiQ83GllBEmwCRhIPls8Hs0UEFrNI7N1XCVLELPCWUeL6
-	zI1g3cICSRKHm/rYQGwWAVWJuds3gMV5BRwk5uyYwgaxQV5i/8GzYFdwAsXXdN1ghLjIXuLf
-	qQ9sEPWCEidnPgHrZQaqb946m3kCo8AsJKlZSFILGJlWMYqklhbnpucWG+kVJ+YWl+al6yXn
-	525iBKaXbcd+btnBuPLVR71DjEwcjIcYJTiYlUR4DwllpgvxpiRWVqUW5ccXleakFh9iNAW6
-	eyKzlGhyPjDB5ZXEG5oZmBqamFkamFqaGSuJ87JdOZ8mJJCeWJKanZpakFoE08fEwSnVwMRx
-	qDm2wHzB5l8e85zu3eINW7Wmf1q//TaxjqypZSKXVLdwXjXz2uBYmrvErUnQ48PGlLmHfBV1
-	trWUpv70ljv2RPphQgJLb3F7WEDCwfN1GRoCZ27vTzvcJ5GfwHSN93vO12TNRZ3FkZ9S3zjs
-	j3L5yWhwzrarI768V+7w9Ic7dwgxtH5TWRAn80ut78pOq7PT0ucwcUyy90390h304MLk46+t
-	1q2ruHrVZvcm+2bndfOeX221rWLRehseeuL7wjN7lOYo7GG4qyNT3H/w3q4Ngp/j9PoPWPf4
-	T9DUWbwpYfM/pXOcYZycXwqUypYEbNKLYrijXPLu8kwWV/aJPxg8583boZR4ec+6XPeOciWW
-	4oxEQy3mouJEALV9NhS4AwAA
-X-CMS-MailID: 20241223125614eucas1p181b9db4e69de9915f0234fb1d1348465
-X-Msg-Generator: CA
-X-RootMTR: 20241223125614eucas1p181b9db4e69de9915f0234fb1d1348465
-X-EPHeader: CA
-CMS-TYPE: 201P
-X-CMS-RootMailID: 20241223125614eucas1p181b9db4e69de9915f0234fb1d1348465
-References: <20241223125553.3527812-1-m.wilczynski@samsung.com>
-	<CGME20241223125614eucas1p181b9db4e69de9915f0234fb1d1348465@eucas1p1.samsung.com>
+References: <20241212-kvm_guest_stat-v1-0-d1a6d0c862d5@rivosinc.com> <20241212-kvm_guest_stat-v1-3-d1a6d0c862d5@rivosinc.com>
+In-Reply-To: <20241212-kvm_guest_stat-v1-3-d1a6d0c862d5@rivosinc.com>
+From: Anup Patel <anup@brainfault.org>
+Date: Mon, 23 Dec 2024 19:49:22 +0530
+X-Gm-Features: AbW1kvYLaTndzKv1CpNodLd28lS6Xhq_vsaRN7L1uynktu-VhkkNsDjLYzKvJF0
+Message-ID: <CAAhSdy24K3pkOR25Rbcvw6pRWXrKXdy0CH9CLeG77EqQRZTDnQ@mail.gmail.com>
+Subject: Re: [PATCH 3/3] RISC-V: KVM: Add new exit statstics for redirected traps
+To: Atish Patra <atishp@rivosinc.com>
+Cc: Atish Patra <atishp@atishpatra.org>, Paul Walmsley <paul.walmsley@sifive.com>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, kvm@vger.kernel.org, kvm-riscv@lists.infradead.org, 
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241223_045616_972849_115163D2 
-X-CRM114-Status: GOOD (  22.37  )
+X-CRM114-CacheID: sfid-20241223_061935_054373_7469F05E 
+X-CRM114-Status: GOOD (  16.76  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -140,150 +89,80 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Certain platforms, such as the T-Head TH1520 and Banana Pi BPI-F3,
-require a controlled GPU reset sequence during the power-up procedure
-to ensure proper initialization. Without this reset, the GPU may remain
-in an undefined state, potentially leading to stability or performance
-issues.
-
-This commit integrates a dedicated reset controller within the
-drm/imagination driver. By doing so, the driver can coordinate the
-necessary reset operations as part of the normal GPU bring-up process,
-improving reliability and ensuring that the hardware is ready for
-operation.
-
-Signed-off-by: Michal Wilczynski <m.wilczynski@samsung.com>
----
- drivers/gpu/drm/imagination/pvr_device.c | 21 +++++++++++++++++++++
- drivers/gpu/drm/imagination/pvr_device.h |  9 +++++++++
- drivers/gpu/drm/imagination/pvr_power.c  | 15 ++++++++++++++-
- 3 files changed, 44 insertions(+), 1 deletion(-)
-
-diff --git a/drivers/gpu/drm/imagination/pvr_device.c b/drivers/gpu/drm/imagination/pvr_device.c
-index 1704c0268589..83a8ba70a30e 100644
---- a/drivers/gpu/drm/imagination/pvr_device.c
-+++ b/drivers/gpu/drm/imagination/pvr_device.c
-@@ -25,6 +25,7 @@
- #include <linux/interrupt.h>
- #include <linux/platform_device.h>
- #include <linux/pm_runtime.h>
-+#include <linux/reset.h>
- #include <linux/slab.h>
- #include <linux/stddef.h>
- #include <linux/types.h>
-@@ -120,6 +121,21 @@ static int pvr_device_clk_init(struct pvr_device *pvr_dev)
- 	return 0;
- }
- 
-+static int pvr_device_reset_init(struct pvr_device *pvr_dev)
-+{
-+	struct drm_device *drm_dev = from_pvr_device(pvr_dev);
-+	struct reset_control *reset;
-+
-+	reset = devm_reset_control_get_optional_exclusive(drm_dev->dev, "gpu");
-+	if (IS_ERR(reset))
-+		return dev_err_probe(drm_dev->dev, PTR_ERR(reset),
-+				     "failed to get gpu reset line\n");
-+
-+	pvr_dev->reset = reset;
-+
-+	return 0;
-+}
-+
- /**
-  * pvr_device_process_active_queues() - Process all queue related events.
-  * @pvr_dev: PowerVR device to check
-@@ -509,6 +525,11 @@ pvr_device_init(struct pvr_device *pvr_dev)
- 	if (err)
- 		return err;
- 
-+	/* Get the reset line for the GPU */
-+	err = pvr_device_reset_init(pvr_dev);
-+	if (err)
-+		return err;
-+
- 	/* Explicitly power the GPU so we can access control registers before the FW is booted. */
- 	err = pm_runtime_resume_and_get(dev);
- 	if (err)
-diff --git a/drivers/gpu/drm/imagination/pvr_device.h b/drivers/gpu/drm/imagination/pvr_device.h
-index 6d0dfacb677b..f6576c08111c 100644
---- a/drivers/gpu/drm/imagination/pvr_device.h
-+++ b/drivers/gpu/drm/imagination/pvr_device.h
-@@ -131,6 +131,15 @@ struct pvr_device {
- 	 */
- 	struct clk *mem_clk;
- 
-+	/**
-+	 * @reset: Optional reset line.
-+	 *
-+	 * This may be used on some platforms to provide a reset line that needs to be de-asserted
-+	 * after power-up procedure. It would also need to be asserted after the power-down
-+	 * procedure.
-+	 */
-+	struct reset_control *reset;
-+
- 	/** @irq: IRQ number. */
- 	int irq;
- 
-diff --git a/drivers/gpu/drm/imagination/pvr_power.c b/drivers/gpu/drm/imagination/pvr_power.c
-index ba7816fd28ec..87a955600d8b 100644
---- a/drivers/gpu/drm/imagination/pvr_power.c
-+++ b/drivers/gpu/drm/imagination/pvr_power.c
-@@ -15,6 +15,7 @@
- #include <linux/mutex.h>
- #include <linux/platform_device.h>
- #include <linux/pm_runtime.h>
-+#include <linux/reset.h>
- #include <linux/timer.h>
- #include <linux/types.h>
- #include <linux/workqueue.h>
-@@ -252,6 +253,9 @@ pvr_power_device_suspend(struct device *dev)
- 	clk_disable_unprepare(pvr_dev->sys_clk);
- 	clk_disable_unprepare(pvr_dev->core_clk);
- 
-+	if (pvr_dev->reset)
-+		err = reset_control_assert(pvr_dev->reset);
-+
- err_drm_dev_exit:
- 	drm_dev_exit(idx);
- 
-@@ -282,16 +286,25 @@ pvr_power_device_resume(struct device *dev)
- 	if (err)
- 		goto err_sys_clk_disable;
- 
-+	if (pvr_dev->reset) {
-+		err = reset_control_deassert(pvr_dev->reset);
-+		if (err)
-+			goto err_mem_clk_disable;
-+	}
-+
- 	if (pvr_dev->fw_dev.booted) {
- 		err = pvr_power_fw_enable(pvr_dev);
- 		if (err)
--			goto err_mem_clk_disable;
-+			goto err_reset_assert;
- 	}
- 
- 	drm_dev_exit(idx);
- 
- 	return 0;
- 
-+err_reset_assert:
-+	reset_control_assert(pvr_dev->reset);
-+
- err_mem_clk_disable:
- 	clk_disable_unprepare(pvr_dev->mem_clk);
- 
--- 
-2.34.1
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gRnJpLCBEZWMgMTMsIDIwMjQgYXQgMjoyN+KAr0FNIEF0aXNoIFBhdHJhIDxhdGlzaHBAcml2
+b3NpbmMuY29tPiB3cm90ZToKPgo+IEN1cnJlbnRseSwga3ZtIGRvZXNuJ3QgZGVsZWdhdGUgdGhl
+IGZldyB0cmFwcyBzdWNoIGFzIG1pc2FsaWduZWQKPiBsb2FkL3N0b3JlLCBpbGxlZ2FsIGluc3Ry
+dWN0aW9uIGFuZCBsb2FkL3N0b3JlIGFjY2VzcyBmYXVsdHMgYmVjYXVzZSBpdAo+IGlzIG5vdCBl
+eHBlY3RlZCB0byBvY2N1ciBpbiB0aGUgZ3Vlc3QgdmVyeSBmcmVxdWVudC4gVGh1cywga3ZtIGdl
+dHMgYQo+IGNoYW5jZSB0byBhY3QgdXBvbiBpdCBvciBjb2xsZWN0IHN0YXRzdGljcyBhYm91dCBp
+dCBiZWZvcmUgcmVkaXJlY3RpbmcKPiB0aGUgdHJhcHMgdG8gdGhlIGd1ZXN0Lgo+Cj4gV2UgY2Fu
+IGNvbGxlY3QgYm90aCBndWVzdCBhbmQgaG9zdCB2aXNpYmxlIHN0YXRpc3RpY3MgZHVyaW5nIHRo
+ZSB0cmFwcy4KPiBFbmFibGUgdGhlbSBzbyB0aGF0IGJvdGggZ3Vlc3QgYW5kIGhvc3QgY2FuIGNv
+bGxlY3QgdGhlIHN0YXRzIGFib3V0Cj4gdGhlbSBpZiByZXF1aXJlZC4KCnMvV2UgY2FuIGNvbGxl
+Y3QgLi4uL0NvbGxlY3QgLi4uLwoKPgo+IFNpZ25lZC1vZmYtYnk6IEF0aXNoIFBhdHJhIDxhdGlz
+aHBAcml2b3NpbmMuY29tPgoKT3RoZXJ3aXNlLCBpdCBsb29rcyBnb29kIHRvIG1lLgoKUmV2aWV3
+ZWQtYnk6IEFudXAgUGF0ZWwgPGFudXBAYnJhaW5mYXVsdC5vcmc+CgpSZWdhcmRzLApBbnVwCgo+
+IC0tLQo+ICBhcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL2t2bV9ob3N0LmggfCA1ICsrKysrCj4gIGFy
+Y2gvcmlzY3Yva3ZtL3ZjcHUuYyAgICAgICAgICAgICB8IDcgKysrKysrLQo+ICBhcmNoL3Jpc2N2
+L2t2bS92Y3B1X2V4aXQuYyAgICAgICAgfCA1ICsrKysrCj4gIDMgZmlsZXMgY2hhbmdlZCwgMTYg
+aW5zZXJ0aW9ucygrKSwgMSBkZWxldGlvbigtKQo+Cj4gZGlmZiAtLWdpdCBhL2FyY2gvcmlzY3Yv
+aW5jbHVkZS9hc20va3ZtX2hvc3QuaCBiL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20va3ZtX2hvc3Qu
+aAo+IGluZGV4IDM1ZWFiNmUwZjRhZS4uY2MzM2UzNWNkNjI4IDEwMDY0NAo+IC0tLSBhL2FyY2gv
+cmlzY3YvaW5jbHVkZS9hc20va3ZtX2hvc3QuaAo+ICsrKyBiL2FyY2gvcmlzY3YvaW5jbHVkZS9h
+c20va3ZtX2hvc3QuaAo+IEBAIC04Nyw2ICs4NywxMSBAQCBzdHJ1Y3Qga3ZtX3ZjcHVfc3RhdCB7
+Cj4gICAgICAgICB1NjQgY3NyX2V4aXRfa2VybmVsOwo+ICAgICAgICAgdTY0IHNpZ25hbF9leGl0
+czsKPiAgICAgICAgIHU2NCBleGl0czsKPiArICAgICAgIHU2NCBpbnN0cl9pbGxlZ2FsX2V4aXRz
+Owo+ICsgICAgICAgdTY0IGxvYWRfbWlzYWxpZ25lZF9leGl0czsKPiArICAgICAgIHU2NCBzdG9y
+ZV9taXNhbGlnbmVkX2V4aXRzOwo+ICsgICAgICAgdTY0IGxvYWRfYWNjZXNzX2V4aXRzOwo+ICsg
+ICAgICAgdTY0IHN0b3JlX2FjY2Vzc19leGl0czsKPiAgfTsKPgo+ICBzdHJ1Y3Qga3ZtX2FyY2hf
+bWVtb3J5X3Nsb3Qgewo+IGRpZmYgLS1naXQgYS9hcmNoL3Jpc2N2L2t2bS92Y3B1LmMgYi9hcmNo
+L3Jpc2N2L2t2bS92Y3B1LmMKPiBpbmRleCBlMDQ4ZGNjNmU2NWUuLjYwZDY4NGM3NmM1OCAxMDA2
+NDQKPiAtLS0gYS9hcmNoL3Jpc2N2L2t2bS92Y3B1LmMKPiArKysgYi9hcmNoL3Jpc2N2L2t2bS92
+Y3B1LmMKPiBAQCAtMzQsNyArMzQsMTIgQEAgY29uc3Qgc3RydWN0IF9rdm1fc3RhdHNfZGVzYyBr
+dm1fdmNwdV9zdGF0c19kZXNjW10gPSB7Cj4gICAgICAgICBTVEFUU19ERVNDX0NPVU5URVIoVkNQ
+VSwgY3NyX2V4aXRfdXNlciksCj4gICAgICAgICBTVEFUU19ERVNDX0NPVU5URVIoVkNQVSwgY3Ny
+X2V4aXRfa2VybmVsKSwKPiAgICAgICAgIFNUQVRTX0RFU0NfQ09VTlRFUihWQ1BVLCBzaWduYWxf
+ZXhpdHMpLAo+IC0gICAgICAgU1RBVFNfREVTQ19DT1VOVEVSKFZDUFUsIGV4aXRzKQo+ICsgICAg
+ICAgU1RBVFNfREVTQ19DT1VOVEVSKFZDUFUsIGV4aXRzKSwKPiArICAgICAgIFNUQVRTX0RFU0Nf
+Q09VTlRFUihWQ1BVLCBpbnN0cl9pbGxlZ2FsX2V4aXRzKSwKPiArICAgICAgIFNUQVRTX0RFU0Nf
+Q09VTlRFUihWQ1BVLCBsb2FkX21pc2FsaWduZWRfZXhpdHMpLAo+ICsgICAgICAgU1RBVFNfREVT
+Q19DT1VOVEVSKFZDUFUsIHN0b3JlX21pc2FsaWduZWRfZXhpdHMpLAo+ICsgICAgICAgU1RBVFNf
+REVTQ19DT1VOVEVSKFZDUFUsIGxvYWRfYWNjZXNzX2V4aXRzKSwKPiArICAgICAgIFNUQVRTX0RF
+U0NfQ09VTlRFUihWQ1BVLCBzdG9yZV9hY2Nlc3NfZXhpdHMpLAo+ICB9Owo+Cj4gIGNvbnN0IHN0
+cnVjdCBrdm1fc3RhdHNfaGVhZGVyIGt2bV92Y3B1X3N0YXRzX2hlYWRlciA9IHsKPiBkaWZmIC0t
+Z2l0IGEvYXJjaC9yaXNjdi9rdm0vdmNwdV9leGl0LmMgYi9hcmNoL3Jpc2N2L2t2bS92Y3B1X2V4
+aXQuYwo+IGluZGV4IGFjZGNkNjE5Nzk3ZS4uNmUwYzE4NDEyNzk1IDEwMDY0NAo+IC0tLSBhL2Fy
+Y2gvcmlzY3Yva3ZtL3ZjcHVfZXhpdC5jCj4gKysrIGIvYXJjaC9yaXNjdi9rdm0vdmNwdV9leGl0
+LmMKPiBAQCAtMTk1LDIyICsxOTUsMjcgQEAgaW50IGt2bV9yaXNjdl92Y3B1X2V4aXQoc3RydWN0
+IGt2bV92Y3B1ICp2Y3B1LCBzdHJ1Y3Qga3ZtX3J1biAqcnVuLAo+ICAgICAgICAgc3dpdGNoICh0
+cmFwLT5zY2F1c2UpIHsKPiAgICAgICAgIGNhc2UgRVhDX0lOU1RfSUxMRUdBTDoKPiAgICAgICAg
+ICAgICAgICAga3ZtX3Jpc2N2X3ZjcHVfcG11X2luY3JfZncodmNwdSwgU0JJX1BNVV9GV19JTExF
+R0FMX0lOU04pOwo+ICsgICAgICAgICAgICAgICB2Y3B1LT5zdGF0Lmluc3RyX2lsbGVnYWxfZXhp
+dHMrKzsKPiAgICAgICAgICAgICAgICAgcmV0ID0gdmNwdV9yZWRpcmVjdCh2Y3B1LCB0cmFwKTsK
+PiAgICAgICAgICAgICAgICAgYnJlYWs7Cj4gICAgICAgICBjYXNlIEVYQ19MT0FEX01JU0FMSUdO
+RUQ6Cj4gICAgICAgICAgICAgICAgIGt2bV9yaXNjdl92Y3B1X3BtdV9pbmNyX2Z3KHZjcHUsIFNC
+SV9QTVVfRldfTUlTQUxJR05FRF9MT0FEKTsKPiArICAgICAgICAgICAgICAgdmNwdS0+c3RhdC5s
+b2FkX21pc2FsaWduZWRfZXhpdHMrKzsKPiAgICAgICAgICAgICAgICAgcmV0ID0gdmNwdV9yZWRp
+cmVjdCh2Y3B1LCB0cmFwKTsKPiAgICAgICAgICAgICAgICAgYnJlYWs7Cj4gICAgICAgICBjYXNl
+IEVYQ19TVE9SRV9NSVNBTElHTkVEOgo+ICAgICAgICAgICAgICAgICBrdm1fcmlzY3ZfdmNwdV9w
+bXVfaW5jcl9mdyh2Y3B1LCBTQklfUE1VX0ZXX01JU0FMSUdORURfU1RPUkUpOwo+ICsgICAgICAg
+ICAgICAgICB2Y3B1LT5zdGF0LnN0b3JlX21pc2FsaWduZWRfZXhpdHMrKzsKPiAgICAgICAgICAg
+ICAgICAgcmV0ID0gdmNwdV9yZWRpcmVjdCh2Y3B1LCB0cmFwKTsKPiAgICAgICAgICAgICAgICAg
+YnJlYWs7Cj4gICAgICAgICBjYXNlIEVYQ19MT0FEX0FDQ0VTUzoKPiAgICAgICAgICAgICAgICAg
+a3ZtX3Jpc2N2X3ZjcHVfcG11X2luY3JfZncodmNwdSwgU0JJX1BNVV9GV19BQ0NFU1NfTE9BRCk7
+Cj4gKyAgICAgICAgICAgICAgIHZjcHUtPnN0YXQubG9hZF9hY2Nlc3NfZXhpdHMrKzsKPiAgICAg
+ICAgICAgICAgICAgcmV0ID0gdmNwdV9yZWRpcmVjdCh2Y3B1LCB0cmFwKTsKPiAgICAgICAgICAg
+ICAgICAgYnJlYWs7Cj4gICAgICAgICBjYXNlIEVYQ19TVE9SRV9BQ0NFU1M6Cj4gICAgICAgICAg
+ICAgICAgIGt2bV9yaXNjdl92Y3B1X3BtdV9pbmNyX2Z3KHZjcHUsIFNCSV9QTVVfRldfQUNDRVNT
+X1NUT1JFKTsKPiArICAgICAgICAgICAgICAgdmNwdS0+c3RhdC5zdG9yZV9hY2Nlc3NfZXhpdHMr
+KzsKPiAgICAgICAgICAgICAgICAgcmV0ID0gdmNwdV9yZWRpcmVjdCh2Y3B1LCB0cmFwKTsKPiAg
+ICAgICAgICAgICAgICAgYnJlYWs7Cj4gICAgICAgICBjYXNlIEVYQ19JTlNUX0FDQ0VTUzoKPgo+
+IC0tCj4gMi4zNC4xCj4KCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRl
+YWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgt
+cmlzY3YK
