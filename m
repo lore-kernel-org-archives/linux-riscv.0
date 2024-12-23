@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B0D39E7718D
-	for <linux-riscv@archiver.kernel.org>; Mon, 23 Dec 2024 16:17:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B3ECBE7718B
+	for <linux-riscv@archiver.kernel.org>; Mon, 23 Dec 2024 16:20:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
 	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=vtJ4kVpKcxPw4C5Lvppul2Mj4BKUbAbHh1VgcKWJY6g=; b=USVFaq1YfzU6ps
-	N8FuWgK/aie/TZuGzetv1swtbgk5XoonzErtk3rvyevcbt5lX2ShVoz6dLyuVTyWSQP9cAW0NjczN
-	z8jdIg5cOeW5AACW7l93nZgFnGKjE6N8dEC/Avj3onklwolnwV1x8skSl+kIUbvXzwfRogkjTVAm6
-	p7bPbCx7AFpxGRdVXQZIY3xUwFo9T72tCb3/NVInsjh2/cYvgZ1VrVoc6Uv/lzAz4cL4Be7iRAMXr
-	pw3UGdJeKwpGC+3WlZDLWI1ByN/ufziRUPZ5tBmuH0aKoRra3zSbG7i6bLBpmzq9LNoBen6oY6v9u
-	BKhV7pHMwZKZMZFKaIcw==;
+	List-Owner; bh=TzbYXmCpmkC2kuuLyX/IjFIo+MJl8mVxWnSmm45TLeM=; b=flgxonH3msW4k2
+	GO7XoNBvWorqG9mzp0xnXEKHxRS8Mw0lDXtAeSznIdEzml17BYpD8iO2iAJl1CTjI2C00d5GvYvGJ
+	rgzMmN3gidTCdabMBDtgG9xEfrvAm5MH7KLNIiPV6H9y3UhRl4Vqz2NrGBcfrqLYqXu8+dB/LYM9M
+	PEsCNdM0ePYvNuN7dF72zfmJbXr4K2zcwlLHB/dcXqHqu/YRtaZ5oj3CFVLARMZRqrf2OhCa+xnK7
+	hb1VI+H8kDfzK82/mPpe89qVTYxiP7DzEGWEqzvHFzYDbdA9UueJJ9vWZEYL1QWTrmpttn6zwOach
+	SXVOtJc81JXd7PiUnS6g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tPl7L-0000000AMlx-3k2q;
-	Mon, 23 Dec 2024 16:17:15 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1tPlAc-0000000ANBV-0xDR;
+	Mon, 23 Dec 2024 16:20:38 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tPl7J-0000000AMky-0LRl
+	id 1tPlAZ-0000000ANB5-0FOS
 	for linux-riscv@lists.infradead.org;
-	Mon, 23 Dec 2024 16:17:14 +0000
+	Mon, 23 Dec 2024 16:20:37 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id AA8D75C596B;
-	Mon, 23 Dec 2024 16:16:30 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 87A86C4CED3;
-	Mon, 23 Dec 2024 16:17:05 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 1E5DAA40E68;
+	Mon, 23 Dec 2024 16:18:44 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 30517C4CED3;
+	Mon, 23 Dec 2024 16:20:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1734970632;
-	bh=U+r0l82EYvI04zf6st2atiHtEKZrPRSvnnX9tISQoao=;
+	s=k20201202; t=1734970833;
+	bh=7wlSzIwoKKWjdoIdeSM+QZG2X3+f0y+yiHRgSv58THs=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=HLyCRIZRn2YdQ1X9NnEVSIx7ti5xIOEfdjXFOzbWEF91fdAO6iqOH8Uy2HGdAB1bq
-	 vfec9xmHItDBgVzrIRBSK9KhIJLdi+Ab5LFuTRpwLO0Iy7+NLp+9YxR5QmflTVByiC
-	 Rk9+UtqkmZg6cYr1xD5FSiXxaeTrWAQk45M2k8iZ0/nIyXqWSupzWHk5EHMYM7FKxM
-	 +KHnY+F63sI1myS2vaK54LWldBECTaZNBNqtsLEZjsnHf1o7DI5XOEk/ytaO6isAA4
-	 bSbbrF/JvPnpxs0NTAa/j/hskINol3WcISIFgWG/Ooqx/fijc++6TONatwpovUXycX
-	 K7pAFb5NssRCg==
-Message-ID: <ef07641d-ced2-4a45-89cd-d119e503dd14@kernel.org>
-Date: Mon, 23 Dec 2024 17:17:03 +0100
+	b=sxWdDGj9YSbSC1WBGRHWSYTewVb+ZPldkEqXL4vM0AeJanifQ2kPqdckE167NKRSp
+	 BAqUhuEMso39C17m4XHtWbP8liF5eHdJ0J9ogSBNaH0JLipvAdqt6iP++V8GPkXXPm
+	 ChDcNNSnqCgQaN1+pa0Powj6NdZ2JGSRTeMB2PWtrFi2aGB7jTxriC0ezwoGCfCBGf
+	 zznf9hJEC44mQQR3/4kfgoz4U1kZRT9czeYjZj0Q8aDocDLE4OAJdZu91Wf0GGgbeY
+	 hc9KhMPinfbswIRvYIrNPwETK2JC1M2dXh816N8lVO6by0Po3LPm9icsogHV/wFdoP
+	 fPd38yk0QnD+Q==
+Message-ID: <902bfbef-7ebd-4397-b229-86611e65f4fa@kernel.org>
+Date: Mon, 23 Dec 2024 17:20:24 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH v2 05/19] firmware: thead: Add AON firmware protocol
- driver
+Subject: Re: [RFC PATCH v2 06/19] soc: thead: power-domain: Add power-domain
+ driver for TH1520
 To: Michal Wilczynski <m.wilczynski@samsung.com>, mturquette@baylibre.com,
  sboyd@kernel.org, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
  drew@pdp7.com, guoren@kernel.org, wefu@redhat.com, jassisinghbrar@gmail.com,
@@ -60,8 +60,8 @@ Cc: linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
  linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
  dri-devel@lists.freedesktop.org, linux-pm@vger.kernel.org
 References: <20241223125553.3527812-1-m.wilczynski@samsung.com>
- <CGME20241223125607eucas1p1eac1c05d699337f9af118c1885b14b1d@eucas1p1.samsung.com>
- <20241223125553.3527812-6-m.wilczynski@samsung.com>
+ <CGME20241223125608eucas1p25f0be9eb6fb7ab906f942201560dd881@eucas1p2.samsung.com>
+ <20241223125553.3527812-7-m.wilczynski@samsung.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -107,10 +107,10 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  uZwJCLykjad45hsWcOGk3OcaAGQS6NDlfhM6O9aYNwGL6tGt/6BkRikNOs7VDEa4/HlbaSJo
  7FgndGw1kWmkeL6oQh7wBvYll2buKod4qYntmNKEicoHGU+x91Gcan8mCoqhJkbqrL7+nXG2
  5Q/GS5M9RFWS+nYyJh+c3OcfKqVcZQNANItt7+ULzdNJuhvTRRdC3g9hmCEuNSr+CLMdnRBY fv0=
-In-Reply-To: <20241223125553.3527812-6-m.wilczynski@samsung.com>
+In-Reply-To: <20241223125553.3527812-7-m.wilczynski@samsung.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241223_081713_254489_080B9FD9 
-X-CRM114-Status: GOOD (  24.10  )
+X-CRM114-CacheID: sfid-20241223_082035_241344_BA15E070 
+X-CRM114-Status: GOOD (  20.13  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -128,198 +128,107 @@ Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 On 23/12/2024 13:55, Michal Wilczynski wrote:
-> The T-Head TH1520 SoC uses an E902 co-processor running Always-On (AON)
-> firmware to manage power, clock, and other system resources [1]. This
-> patch introduces a driver implementing the AON firmware protocol,
-> allowing the Linux kernel to communicate with the firmware via mailbox
-> channels.  Through an RPC-based interface, the kernel can initiate power
-> state transitions, update resource configurations, and perform other
-> AON-related tasks.
+> The T-Head TH1520 SoC contains multiple power islands that can be
+> programmatically turned on and off using the AON (Always-On) protocol
+> and a hardware mailbox [1]. The relevant mailbox driver has already been
+> merged into the mainline kernel in commit 5d4d263e1c6b ("mailbox:
+> Introduce support for T-head TH1520 Mailbox driver");
+> 
+> This commit introduces a power-domain driver for the TH1520 SoC, which
+> is using AON firmware protocol to communicate with E902 core through the
+> hardware mailbox. This way it can send power on/off commands to the E902
+> core.
 > 
 > Link: https://openbeagle.org/beaglev-ahead/beaglev-ahead/-/blob/main/docs/TH1520%20System%20User%20Manual.pdf [1]
 > 
 > Signed-off-by: Michal Wilczynski <m.wilczynski@samsung.com>
+
+Please use subject prefixes matching the subsystem. You can get them for
+example with `git log --oneline -- DIRECTORY_OR_FILE` on the directory
+your patch is touching. For bindings, the preferred subjects are
+explained here:
+https://www.kernel.org/doc/html/latest/devicetree/bindings/submitting-patches.html#i-for-patch-submitters
+
+E.g.
+pmdomain: thead: Add driver for TH1520 AON
+
+
 > ---
->  MAINTAINERS                                   |   2 +
->  drivers/firmware/Kconfig                      |   9 +
->  drivers/firmware/Makefile                     |   1 +
->  drivers/firmware/thead,th1520-aon.c           | 203 ++++++++++++++++++
->  .../linux/firmware/thead/thead,th1520-aon.h   | 186 ++++++++++++++++
->  5 files changed, 401 insertions(+)
->  create mode 100644 drivers/firmware/thead,th1520-aon.c
->  create mode 100644 include/linux/firmware/thead/thead,th1520-aon.h
+>  MAINTAINERS                                |   1 +
+>  drivers/pmdomain/Kconfig                   |   1 +
+>  drivers/pmdomain/Makefile                  |   1 +
+>  drivers/pmdomain/thead/Kconfig             |  12 ++
+>  drivers/pmdomain/thead/Makefile            |   2 +
+>  drivers/pmdomain/thead/th1520-pm-domains.c | 181 +++++++++++++++++++++
+>  6 files changed, 198 insertions(+)
+>  create mode 100644 drivers/pmdomain/thead/Kconfig
+>  create mode 100644 drivers/pmdomain/thead/Makefile
+>  create mode 100644 drivers/pmdomain/thead/th1520-pm-domains.c
 > 
 > diff --git a/MAINTAINERS b/MAINTAINERS
-> index 7705d1b6dd7a..42aef66bd257 100644
+> index 42aef66bd257..173eeaf3bbe8 100644
 > --- a/MAINTAINERS
 > +++ b/MAINTAINERS
-> @@ -20196,10 +20196,12 @@ F:	Documentation/devicetree/bindings/pinctrl/thead,th1520-pinctrl.yaml
->  F:	Documentation/devicetree/bindings/power/thead,th1520-power.yaml
->  F:	arch/riscv/boot/dts/thead/
->  F:	drivers/clk/thead/clk-th1520-ap.c
-> +F:	drivers/firmware/thead,th1520-aon.c
+> @@ -20200,6 +20200,7 @@ F:	drivers/firmware/thead,th1520-aon.c
 >  F:	drivers/mailbox/mailbox-th1520.c
 >  F:	drivers/net/ethernet/stmicro/stmmac/dwmac-thead.c
 >  F:	drivers/pinctrl/pinctrl-th1520.c
+> +F:	drivers/pmdomain/thead/
 >  F:	include/dt-bindings/clock/thead,th1520-clk-ap.h
-> +F:	include/linux/firmware/thead/thead,th1520-aon.h
+>  F:	include/linux/firmware/thead/thead,th1520-aon.h
 >  
->  RNBD BLOCK DRIVERS
->  M:	Md. Haris Iqbal <haris.iqbal@ionos.com>
-> diff --git a/drivers/firmware/Kconfig b/drivers/firmware/Kconfig
-> index 71d8b26c4103..e08e01de3ee3 100644
-> --- a/drivers/firmware/Kconfig
-> +++ b/drivers/firmware/Kconfig
-> @@ -212,6 +212,15 @@ config SYSFB_SIMPLEFB
+> diff --git a/drivers/pmdomain/Kconfig b/drivers/pmdomain/Kconfig
+> index 23c64851a5b0..91f04ace35d4 100644
+> --- a/drivers/pmdomain/Kconfig
+> +++ b/drivers/pmdomain/Kconfig
+> @@ -16,6 +16,7 @@ source "drivers/pmdomain/st/Kconfig"
+>  source "drivers/pmdomain/starfive/Kconfig"
+>  source "drivers/pmdomain/sunxi/Kconfig"
+>  source "drivers/pmdomain/tegra/Kconfig"
+> +source "drivers/pmdomain/thead/Kconfig"
+>  source "drivers/pmdomain/ti/Kconfig"
+>  source "drivers/pmdomain/xilinx/Kconfig"
 >  
->  	  If unsure, say Y.
->  
-> +config TH1520_AON_PROTOCOL
-> +	tristate "Always-On firmware protocol"
-> +	depends on THEAD_TH1520_MBOX
+> diff --git a/drivers/pmdomain/Makefile b/drivers/pmdomain/Makefile
+> index a68ece2f4c68..7030f44a49df 100644
+> --- a/drivers/pmdomain/Makefile
+> +++ b/drivers/pmdomain/Makefile
+> @@ -14,6 +14,7 @@ obj-y					+= st/
+>  obj-y					+= starfive/
+>  obj-y					+= sunxi/
+>  obj-y					+= tegra/
+> +obj-y					+= thead/
+>  obj-y					+= ti/
+>  obj-y					+= xilinx/
+>  obj-y					+= core.o governor.o
+> diff --git a/drivers/pmdomain/thead/Kconfig b/drivers/pmdomain/thead/Kconfig
+> new file mode 100644
+> index 000000000000..3b61e92dde43
+> --- /dev/null
+> +++ b/drivers/pmdomain/thead/Kconfig
+> @@ -0,0 +1,12 @@
+> +# SPDX-License-Identifier: GPL-2.0-only
+> +
+> +config TH1520_PM_DOMAINS
+> +	tristate "Support TH1520 Power Domains"
+> +	depends on TH1520_AON_PROTOCOL || COMPILE_TEST
 
-Would:
-	|| COMPILE_TEST
-work?
 
-What sort of dependency is this? Build time? Runtime? If runtime, this
-should be just dependency on ARCH_THEAD (or whatever is there)
+What sort of dependency is this? Looks build time, but you miss handling
+modules. You might need: https://lwn.net/Articles/944368/
 
+Test if it really builds if TH1520_AON_PROTOCOL is a module.
+
+> +	select REGMAP_MMIO
 > +	help
-> +	  Power, clock, and resource management capabilities on the TH1520 SoC are
-> +	  managed by the E902 core. Firmware running on this core communicates with
-> +	  the kernel through the Always-On protocol, using hardware mailbox as a medium.
-> +	  Say yes if you need such capabilities.
-> +
-
-
-...
-
-> +static void th1520_aon_rx_callback(struct mbox_client *c, void *rx_msg)
-> +{
-> +	struct th1520_aon_chan *aon_chan =
-> +		container_of(c, struct th1520_aon_chan, cl);
-> +	struct th1520_aon_rpc_msg_hdr *hdr =
-> +		(struct th1520_aon_rpc_msg_hdr *)rx_msg;
-> +	u8 recv_size = sizeof(struct th1520_aon_rpc_msg_hdr) + hdr->size;
-> +
-> +	if (recv_size != sizeof(struct th1520_aon_rpc_ack_common)) {
-> +		dev_err(c->dev, "Invalid ack size, not completing\n");
-> +		return;
-> +	}
-> +
-> +	memcpy(&aon_chan->ack_msg, rx_msg, recv_size);
-> +	complete(&aon_chan->done);
-> +}
-> +
-
-You need proper (and useful) kerneldoc for all exported functions.
-
-> +int th1520_aon_call_rpc(struct th1520_aon_chan *aon_chan, void *msg)
-> +{
-> +	struct th1520_aon_rpc_msg_hdr *hdr = msg;
-> +	int ret;
-> +
-> +	mutex_lock(&aon_chan->transaction_lock);
-> +	reinit_completion(&aon_chan->done);
-> +
-> +	RPC_SET_VER(hdr, TH1520_AON_RPC_VERSION);
-> +	RPC_SET_SVC_ID(hdr, hdr->svc);
-> +	RPC_SET_SVC_FLAG_MSG_TYPE(hdr, RPC_SVC_MSG_TYPE_DATA);
-> +	RPC_SET_SVC_FLAG_ACK_TYPE(hdr, RPC_SVC_MSG_NEED_ACK);
-> +
-> +	ret = mbox_send_message(aon_chan->ch, msg);
-> +	if (ret < 0) {
-> +		dev_err(aon_chan->cl.dev, "RPC send msg failed: %d\n", ret);
-> +		goto out;
-> +	}
-> +
-> +	if (!wait_for_completion_timeout(&aon_chan->done, MAX_RX_TIMEOUT)) {
-> +		dev_err(aon_chan->cl.dev, "RPC send msg timeout\n");
-> +		mutex_unlock(&aon_chan->transaction_lock);
-> +		return -ETIMEDOUT;
-> +	}
-> +
-> +	ret = aon_chan->ack_msg.err_code;
-> +
-> +out:
-> +	mutex_unlock(&aon_chan->transaction_lock);
-> +
-> +	return th1520_aon_to_linux_errno(ret);
-> +}
-> +EXPORT_SYMBOL_GPL(th1520_aon_call_rpc);
-> +
-
-Here as well.
-
-> +int th1520_aon_power_update(struct th1520_aon_chan *aon_chan, u16 rsrc,
-> +			    bool power_on)
-> +{
-> +	struct th1520_aon_msg_req_set_resource_power_mode msg = {};
-> +	struct th1520_aon_rpc_msg_hdr *hdr = &msg.hdr;
-> +	int ret;
-> +
-> +	hdr->svc = TH1520_AON_RPC_SVC_PM;
-> +	hdr->func = TH1520_AON_PM_FUNC_SET_RESOURCE_POWER_MODE;
-> +	hdr->size = TH1520_AON_RPC_MSG_NUM;
-> +
-> +	RPC_SET_BE16(&msg.resource, 0, rsrc);
-> +	RPC_SET_BE16(&msg.resource, 2,
-> +		     (power_on ? TH1520_AON_PM_PW_MODE_ON :
-> +				 TH1520_AON_PM_PW_MODE_OFF));
-> +
-> +	ret = th1520_aon_call_rpc(aon_chan, &msg);
-> +	if (ret)
-> +		dev_err(aon_chan->cl.dev, "failed to power %s resource %d ret %d\n",
-> +			power_on ? "up" : "off", rsrc, ret);
-> +
-> +	return ret;
-> +}
-> +EXPORT_SYMBOL_GPL(th1520_aon_power_update);
-> +
-> +static int th1520_aon_probe(struct platform_device *pdev)
-> +{
-> +	struct device *dev = &pdev->dev;
-> +	struct th1520_aon_chan *aon_chan;
-> +	struct mbox_client *cl;
-> +	int ret;
-> +
-> +	aon_chan = devm_kzalloc(dev, sizeof(*aon_chan), GFP_KERNEL);
-> +	if (!aon_chan)
-> +		return -ENOMEM;
-> +
-> +	cl = &aon_chan->cl;
-> +	cl->dev = dev;
-> +	cl->tx_block = true;
-> +	cl->tx_tout = MAX_TX_TIMEOUT;
-> +	cl->rx_callback = th1520_aon_rx_callback;
-> +
-> +	aon_chan->ch = mbox_request_channel_byname(cl, "aon");
-> +	if (IS_ERR(aon_chan->ch)) {
-> +		ret = PTR_ERR(aon_chan->ch);
-> +		if (ret != -EPROBE_DEFER)
-> +			dev_err(dev, "Failed to request aon mbox chan ret %d\n",
-> +				ret);
-
-You just open-coded dev_err_probe. Syntax is:
-
-return dev_err_probe()
-
-> +		return ret;
-> +	}
-> +
-> +	mutex_init(&aon_chan->transaction_lock);
-> +	init_completion(&aon_chan->done);
-> +
-> +	platform_set_drvdata(pdev, aon_chan);
-> +
-> +	return devm_of_platform_populate(dev);
-> +}
-> +
-
-No remove() callback to free mbox channel? Looks like a leak.
-
-
+> +	  This driver enables power domain management for the T-HEAD
+> +	  TH-1520 SoC. On this SoC there are number of power domains,
+> +	  which can be managed independently. For example GPU, NPU,
+> +	  and DPU reside in their own power domains which can be
+> +	  turned on/off.
+> diff --git a/drivers/pmdomain/thead/Makefile b/drivers/pmdomain/thead/Makefile
+> new file mode 100644
+> index 000000000000..adfdf5479c68
 
 Best regards,
 Krzysztof
