@@ -4,66 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0BCC2E7718B
-	for <linux-riscv@archiver.kernel.org>; Mon, 23 Dec 2024 16:05:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7767E7718D
+	for <linux-riscv@archiver.kernel.org>; Mon, 23 Dec 2024 16:07:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
 	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=NKjp1iyaGVNNh6zUEhAhqRVVPrKBIq1RSenOLSe00EQ=; b=4m247BIJJPHF2T
-	ixznhTgp/lyL96I0NJokZWq5N2ryt8zCQIkBnX4ieNuISUBTzslI036PINZDBtOUjFXKYI+s+eGlk
-	2FwP9O4w1JV+XwVCYeMYYUrn+ojP85KENSpTXZgTu5IzRnPur4OlGHCoufDQ/K/WFmuyDtSOhUPb/
-	Ox3fsyFOL53WS/iaBklFu/WJ8AbfR45b6aWBsABOsG9cVRdIKs6G9bxDnQ+ARLayktHxC0z8P+EP0
-	yOF/rp901StKeBmtknJDE03/SLD+69BCOk3uSBXC6yYYzgMX8oOBf5SaUPyvb0ZTqVzI/IeAwcTjO
-	fQjPF49RxY0Ws8hob1Dg==;
+	List-Owner; bh=VbckVyhWsb7q0TNEd7ulg9bezgHqcFvRf4JQLTBRaxY=; b=W5O9irjK+KE5YZ
+	dSWtcC7GvNItghGn5SviOTTX0Ii/keHOWMQa5a/uRow+MJHCPk81cXrR/HuAAWG7E83ofVT5KjimJ
+	OQUkH/+fABFUJ2QKnYhmMgZFURaYJOj7C4CT+i64qNztXoyLi4m52PjaGrbe/LezKqHK/LW/Gjj7v
+	Vu+A9o3pCxrNZj0mwIayYJQjoTD2aIQRuPzo371V7gQC9lu7QIPdWOVTGWDlEFPBktnEaVDHGtwHS
+	Ie3og8k1kOiAL+Eyz8tnHlXa0Y9i0lWjpgf20+TYVmtsBFF1/DdegFo2plSWgdq0NGgGP2Jrg3ok8
+	cqdskguRoaYaOGAFHCZw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tPkwJ-0000000ALSA-2TpE;
-	Mon, 23 Dec 2024 16:05:51 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tPkxa-0000000ALc9-1Zke;
+	Mon, 23 Dec 2024 16:07:10 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tPkwG-0000000ALRH-3vte
+	id 1tPkxY-0000000ALbS-0Zco
 	for linux-riscv@lists.infradead.org;
-	Mon, 23 Dec 2024 16:05:50 +0000
+	Mon, 23 Dec 2024 16:07:09 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 71A8D5C5218;
-	Mon, 23 Dec 2024 16:05:06 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6B4C9C4CED6;
-	Mon, 23 Dec 2024 16:05:40 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id C27F55C54A0;
+	Mon, 23 Dec 2024 16:06:25 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4B2EFC4CED3;
+	Mon, 23 Dec 2024 16:07:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1734969948;
-	bh=FyhbUDFYzmUUwzgCV2llSYJzVDKPCcqce7NR3DfFN3k=;
+	s=k20201202; t=1734970027;
+	bh=1IbgtySXC4KI6sZYcpnCUCWLQZXNGqd5oTs96XrG+lk=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=oSJGTj81G054ABDVOfZMBhMmxten0SpJmyqwyqA0Lr08ruEs0JY2zYulIW+u7kJmJ
-	 w6CkJnP8nhGtOvx8TKGRaaT09pGFG7gYCOn+r8p8Mq4NdYm6+NHhvRGBY9jra5yYTJ
-	 IWDTZZ8eQYv8Tfkuo1H4kmzQYvA+9ThHEucw3L1ipROiX7/L9bkwqIjwcxXH5P+Z2G
-	 VxA1ZID1zvLo0aJg+P90Yj3ig+v24xZdIDMYUyIsfHrLVjrR4RxkZfvugFtlk2DMB3
-	 q0xh1Thg/eGshXx7XnnLicpevG+7cbCSOwGijqZpblgwC5XlZ2cEfsMAhfa36NBihF
-	 8YC6aPnz1HAbw==
-Message-ID: <48716029-9338-4d66-b846-b5c4a74431cf@kernel.org>
-Date: Mon, 23 Dec 2024 17:05:38 +0100
+	b=t9udbE05fb/2gYsfBsie7tiGtZPZzA1P58w0CvJDSPoF7s7KKw6J2rnxFSY63SZcB
+	 ewH0s2pOlp4175MjCgv8xs4dCGzjgFd4rgaNKXKsSjQwAdvrAeT+pkoM9DzuMGXSvo
+	 e1sOEP6bdJQPSBScS7XKSoTXTUNNPfyJhIC+IbxHFHzG94NHa2AZFwGGYvZhoIPhP8
+	 Xk7BQFLh2Nm14DJAR+Gjtx4B8Fi370wOh+0I984xEzZHWi/7B+pw4hbsNgYq87yhbF
+	 iJqtZIvl5R+BXwD3isAMJ8/rhZz4YAByiQa57qGLeTbzJw2ebxODlJwrRy0lV3ichn
+	 MzzWGR+WujGcQ==
+Message-ID: <d242dafd-f51b-4a81-bcd7-fed9e00506b3@kernel.org>
+Date: Mon, 23 Dec 2024 17:06:58 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH v2 01/19] dt-bindings: clock: Add VO subsystem clocks
- and update address requirements
-To: Michal Wilczynski <m.wilczynski@samsung.com>, mturquette@baylibre.com,
- sboyd@kernel.org, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
- drew@pdp7.com, guoren@kernel.org, wefu@redhat.com, jassisinghbrar@gmail.com,
- paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
- frank.binns@imgtec.com, matt.coster@imgtec.com,
- maarten.lankhorst@linux.intel.com, mripard@kernel.org, tzimmermann@suse.de,
- airlied@gmail.com, simona@ffwll.ch, ulf.hansson@linaro.org,
- jszhang@kernel.org, p.zabel@pengutronix.de, m.szyprowski@samsung.com
-Cc: linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
- dri-devel@lists.freedesktop.org, linux-pm@vger.kernel.org
+Subject: Re: [RFC PATCH v2 03/19] dt-bindings: power: thead,th1520: Add
+ support for power domains
+To: Michal Wilczynski <m.wilczynski@samsung.com>,
+ "Rob Herring (Arm)" <robh@kernel.org>
+Cc: guoren@kernel.org, linux-riscv@lists.infradead.org, conor+dt@kernel.org,
+ krzk+dt@kernel.org, sboyd@kernel.org, mripard@kernel.org,
+ jassisinghbrar@gmail.com, dri-devel@lists.freedesktop.org,
+ m.szyprowski@samsung.com, palmer@dabbelt.com, jszhang@kernel.org,
+ aou@eecs.berkeley.edu, airlied@gmail.com, ulf.hansson@linaro.org,
+ frank.binns@imgtec.com, linux-pm@vger.kernel.org, paul.walmsley@sifive.com,
+ devicetree@vger.kernel.org, p.zabel@pengutronix.de,
+ linux-clk@vger.kernel.org, matt.coster@imgtec.com, mturquette@baylibre.com,
+ linux-kernel@vger.kernel.org, drew@pdp7.com, tzimmermann@suse.de,
+ simona@ffwll.ch, maarten.lankhorst@linux.intel.com, wefu@redhat.com
 References: <20241223125553.3527812-1-m.wilczynski@samsung.com>
- <CGME20241223125601eucas1p1d274193122638075dc65310a22616bae@eucas1p1.samsung.com>
- <20241223125553.3527812-2-m.wilczynski@samsung.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
+ <CGME20241223125604eucas1p26b870756eeaf2a5666b70de3f7554c13@eucas1p2.samsung.com>
+ <20241223125553.3527812-4-m.wilczynski@samsung.com>
+ <173496697225.830201.2249501258776075204.robh@kernel.org>
+ <3b2fd94a-2b4d-4bdb-9266-203a09369982@samsung.com>
 Content-Language: en-US
+From: Krzysztof Kozlowski <krzk@kernel.org>
 Autocrypt: addr=krzk@kernel.org; keydata=
  xsFNBFVDQq4BEAC6KeLOfFsAvFMBsrCrJ2bCalhPv5+KQF2PS2+iwZI8BpRZoV+Bd5kWvN79
  cFgcqTTuNHjAvxtUG8pQgGTHAObYs6xeYJtjUH0ZX6ndJ33FJYf5V3yXqqjcZ30FgHzJCFUu
@@ -107,10 +110,10 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  uZwJCLykjad45hsWcOGk3OcaAGQS6NDlfhM6O9aYNwGL6tGt/6BkRikNOs7VDEa4/HlbaSJo
  7FgndGw1kWmkeL6oQh7wBvYll2buKod4qYntmNKEicoHGU+x91Gcan8mCoqhJkbqrL7+nXG2
  5Q/GS5M9RFWS+nYyJh+c3OcfKqVcZQNANItt7+ULzdNJuhvTRRdC3g9hmCEuNSr+CLMdnRBY fv0=
-In-Reply-To: <20241223125553.3527812-2-m.wilczynski@samsung.com>
+In-Reply-To: <3b2fd94a-2b4d-4bdb-9266-203a09369982@samsung.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241223_080549_068480_FDF65B91 
-X-CRM114-Status: UNSURE (   7.75  )
+X-CRM114-CacheID: sfid-20241223_080708_270306_1FAA9337 
+X-CRM114-Status: UNSURE (   7.08  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -128,35 +131,25 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 23/12/2024 13:55, Michal Wilczynski wrote:
+On 23/12/2024 17:02, Michal Wilczynski wrote:
+>>>  .../bindings/power/thead,th1520-power.yaml    | 42 +++++++++++++++++++
+>>>  MAINTAINERS                                   |  1 +
+>>>  .../dt-bindings/power/thead,th1520-power.h    | 18 ++++++++
+>>>  3 files changed, 61 insertions(+)
+>>>  create mode 100644 Documentation/devicetree/bindings/power/thead,th1520-power.yaml
+>>>  create mode 100644 include/dt-bindings/power/thead,th1520-power.h
+>>>
+>>
+>> My bot found errors running 'make dt_binding_check' on your patch:
+>>
+>> yamllint warnings/errors:
+>>
+>> dtschema/dtc warnings/errors:
+>> Documentation/devicetree/bindings/power/thead,th1520-power.example.dtb: /example-0/firmware/aon: failed to match any schema with compatible: ['thead,th1520-aon']
+> 
+> It is introduced in the next commit in this patch series.
 
->  description: |
->    The T-HEAD TH1520 AP sub-system clock controller configures the
-> -  CPU, DPU, GMAC and TEE PLLs.
-> +  CPU, DPU, GMAC and TEE PLLs. Additionally the VO subsystem configures
-> +  the clock gates for the HDMI, MIPI and the GPU.
->  
->    SoC reference manual
->    https://openbeagle.org/beaglev-ahead/beaglev-ahead/-/blob/main/docs/TH1520%20System%20User%20Manual.pdf
-> @@ -23,7 +24,13 @@ properties:
->      const: thead,th1520-clk-ap
->  
->    reg:
-> -    maxItems: 1
-> +    minItems: 2
-
-You can drop minItems in this case.
-
-> +    maxItems: 2
-> +
-> +  reg-names:
-> +    items:
-> +      - const: ap-clks
-> +      - const: vo-clks
-
-
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-
+Then your patchset is not bisectable. Reorder patches.
 
 Best regards,
 Krzysztof
