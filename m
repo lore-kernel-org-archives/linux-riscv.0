@@ -4,72 +4,103 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 59F2AE77188
-	for <linux-riscv@archiver.kernel.org>; Sun, 22 Dec 2024 22:39:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33EE8E77188
+	for <linux-riscv@archiver.kernel.org>; Mon, 23 Dec 2024 01:00:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Mime-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=x4383zvPX2GEgDgMRf8FAjFCSzA+Q7G2YuHTiXOkPto=; b=vcTNra8rOSZ7KU
-	XgMZaER3AN6KYcSLkxqXeZHab7jespuaPWxLhyKoQYNVhBi5o+TEkBtlyPpCXv1QYuic4cIPhuTvV
-	VQLqgX5t8LD8/Fq1Q2CXc/HqeG5WeHPTcwx/kgX5kbj3XAoXGfSleFJ8t9/t4i3o8h6twLfhr52ww
-	ZbGQ9PGMbXc0/cefpbvQ78TNt5DKJeYCUTHku1rPcQdUNu62wdQ+/C3bom9/nm89l6EdUObLZp701
-	ML4Fd3j+iV0/pnxlQQC/w3ki4egmGgjVCCA+vLyD/RxkzhTN+Y/HdmVDrIG/SIGS6+774tbIzvfbT
-	NupnZutKcfj4GzX6AjVQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=EB5fzADt8OR05VsZKJMkk96e6BnK2Re1p+0jXiIU5aQ=; b=ZJ6khmVtaRvzDi
+	qB3RrBpQZZVonl9MUcJCjmFH1G59yw0vjxNf/wH1rVixAXFKsbxoZA+3KVzZ8gwflxqdOAcOnxExt
+	ubXpN4IA7V4t5MRFdZm8hLNHrdFaAjnWNsBk2eYWsCZkEm9re0fwmDJxWLVx6rxx+JTEhaGUgMWJS
+	co3zaS1yqNGDFLBc9LixNOPsskPHkvqwCaLIC8RSO52lUCGrEV5DRw12muauhfdewO7jyuvIomKrD
+	b/SHfrbpBMkaK3Qt2PMIZB7I00RpfCss/9FnnjpcNbTQKz/a+4a4sZhJNmM1fst3AbocB7z1FJ/1S
+	/81LDiJrjoQY7T8dRrUg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tPUbX-00000008ujJ-1bAY;
-	Sun, 22 Dec 2024 22:39:19 +0000
-Received: from gate.crashing.org ([63.228.1.57])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tPUbT-00000008uil-0MwM;
-	Sun, 22 Dec 2024 22:39:16 +0000
-Received: from gate.crashing.org (localhost.localdomain [127.0.0.1])
-	by gate.crashing.org (8.14.1/8.14.1) with ESMTP id 4BMMNW3F022029;
-	Sun, 22 Dec 2024 16:23:32 -0600
-Received: (from segher@localhost)
-	by gate.crashing.org (8.14.1/8.14.1/Submit) id 4BMMNR4S022013;
-	Sun, 22 Dec 2024 16:23:27 -0600
-X-Authentication-Warning: gate.crashing.org: segher set sender to segher@kernel.crashing.org using -f
-Date: Sun, 22 Dec 2024 16:23:26 -0600
-From: Segher Boessenkool <segher@kernel.crashing.org>
-To: Arnd Bergmann <arnd@arndb.de>
-Cc: "A. Wilcox" <AWilcox@wilcox-tech.com>, Arnd Bergmann <arnd@kernel.org>,
-        kvm@vger.kernel.org, Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
-        Huacai Chen <chenhuacai@kernel.org>,
-        Jiaxun Yang <jiaxun.yang@flygoat.com>,
-        Michael Ellerman <mpe@ellerman.id.au>,
-        Nicholas Piggin <npiggin@gmail.com>,
-        Christophe Leroy <christophe.leroy@csgroup.eu>,
-        Naveen N Rao <naveen@kernel.org>,
-        Madhavan Srinivasan <maddy@linux.ibm.com>,
-        Alexander Graf <graf@amazon.com>, Crystal Wood <crwood@redhat.com>,
-        Anup Patel <anup@brainfault.org>, Atish Patra <atishp@atishpatra.org>,
-        Paul Walmsley <paul.walmsley@sifive.com>,
-        Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
-        Sean Christopherson <seanjc@google.com>,
-        Paolo Bonzini <pbonzini@redhat.com>,
-        Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>,
-        Borislav Petkov <bp@alien8.de>,
-        Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
-        "H. Peter Anvin" <hpa@zytor.com>,
-        Vitaly Kuznetsov <vkuznets@redhat.com>,
-        David Woodhouse <dwmw2@infradead.org>, Paul Durrant <paul@xen.org>,
-        Marc Zyngier <maz@kernel.org>, linux-kernel@vger.kernel.org,
-        linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
-        kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v2 4/5] powerpc: kvm: drop 32-bit book3s
-Message-ID: <20241222222325.GD20626@gate.crashing.org>
-References: <20241221214223.3046298-1-arnd@kernel.org> <20241221214223.3046298-5-arnd@kernel.org> <9B9E07F0-3373-4F59-BE4C-E6C425B3C36D@Wilcox-Tech.com> <6253307c-d3d6-485f-9d01-12787b457a99@app.fastmail.com>
-Mime-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <6253307c-d3d6-485f-9d01-12787b457a99@app.fastmail.com>
-User-Agent: Mutt/1.4.2.3i
+	id 1tPWoG-000000092mz-434L;
+	Mon, 23 Dec 2024 01:00:36 +0000
+Received: from mail-qv1-xf34.google.com ([2607:f8b0:4864:20::f34])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tPWn3-000000092aE-0pmO;
+	Mon, 23 Dec 2024 00:59:22 +0000
+Received: by mail-qv1-xf34.google.com with SMTP id 6a1803df08f44-6d918f066c1so18478976d6.2;
+        Sun, 22 Dec 2024 16:59:20 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1734915559; x=1735520359; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=rZiA8+8cgK1p5p7ZdtgnD9VuQej6yYU4CGShpBV3y6M=;
+        b=S8bkUhLL13H3VmzCowCQIP1tE/rcf7nkIZ6F30kZUS3V4GzMFqJvFVqePAvbQVEWU0
+         wOHSsvaSKUePT1fcajlBFW7V8JtkdVzLmOoR/jNYLgYdwWjD3GcjerldYB3CQw/vWdp0
+         T8ZlRiYcrxQXtCF+hU6VPiQ41N7g9H0Mz7PSCPe0CIzZfTFFT4jSkUXUsubMfdnkkGrq
+         J9ppXS/g+znJl/LLpkpW+V8ZD9XqPo3MIwhcjMeniOX99PAJROjypiKNfOmhdd49ADDt
+         EKr9V5v/stqz+fbqyVvq1dQb+tcgiGFHP0601ZRCJKCkIPOqAM+nI6Ex5/YvU/9Arlfu
+         vyWw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1734915559; x=1735520359;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=rZiA8+8cgK1p5p7ZdtgnD9VuQej6yYU4CGShpBV3y6M=;
+        b=LRcWG3WNihHOrIi1kCXmPQnIWn8EB6q8K/LTQ4jR3twI7FpgS7I1oJhNRrJzNhjNev
+         Qp1gmSRJhjQ3fMNallQH/kMo2M4RzDKZNl+CYw0v1oEj/BIHOMo5tGcl0YjGXRz4z9Or
+         O/Qc/HOyzP9ECoEaNQwL0p43YtHj3QgjsIjdpSiAS9CGd/+QOp18we8RMqC5/fFM4zwe
+         E1mO4KbVVHSnde04wEatuvIxpzLObYNojntiPm5FnCP/c7PvLM7errbxh0RddDx/3jC9
+         u5hiaRZ8gtR6lsWp+FDIJ3jL61ljB49hZJz6bJlfcxzOw+ROiWxFOCU40FmvraUyvriS
+         f8/Q==
+X-Forwarded-Encrypted: i=1; AJvYcCVkWKfqW2GEAEBDynaKd4jlHpD5J4HS7wbq+YWrNTLjwPWkBGod9JtPjtig6wrqU6J3/VGEkPCCM15azr8=@lists.infradead.org, AJvYcCWXXn9thJIgwdc/D/+qLXqa38acn3eHzcYsYfXssGSRn1hT65BsO4ZM9DhVTDCzSh3nc1w/gD5dgi2SrsIUX5cV@lists.infradead.org
+X-Gm-Message-State: AOJu0YxcVdAqO0J8NZkYIxS9eVRysCprdElpyUtohubF19Y9fdnssMcJ
+	f6Re37ZOejzgFU16Av8DJqvfrBZbDBmSQTZKTV9uregxEufdP9NE
+X-Gm-Gg: ASbGncsIvxg7nqck8cbwGOYWSZSAcIOsvo8w7buTMJXQSsd6S0HkHbWfpjDAOF/bFO6
+	Gx3N8CyMWheaK43WELHjlLVa7eM08V9HxpFm2kpAJOOmo1Hn+JxqcOdJMwt5jTjKj/ZH/pEcWQ0
+	pr1LXFc7T1kOFdG+M5s21A/W/KPsrJNYET3dSBImx8vdjdTeMHws+YIknaD7yYjYOZoBdaF5Hu5
+	zD9WsIsy6ow+U/4uCdgCrORddAvU5Kc
+X-Google-Smtp-Source: AGHT+IHSkClTiIOMU6UV3EvrSaxtK6rioCiVEHPiLA/vc1hX5NvNNm2L1qNaUclIZVtTYbzu6LhDcw==
+X-Received: by 2002:ad4:5ae9:0:b0:6cb:ef8d:b10 with SMTP id 6a1803df08f44-6dd2339fb2cmr222084936d6.39.1734915559348;
+        Sun, 22 Dec 2024 16:59:19 -0800 (PST)
+Received: from localhost ([2001:da8:7001:11::cb])
+        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-6dd181bb4b1sm39250996d6.78.2024.12.22.16.59.17
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 22 Dec 2024 16:59:18 -0800 (PST)
+From: Inochi Amaoto <inochiama@gmail.com>
+To: Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Chen Wang <unicorn_wang@outlook.com>,
+	Inochi Amaoto <inochiama@outlook.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Jose Abreu <joabreu@synopsys.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Richard Cochran <richardcochran@gmail.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Giuseppe Cavallaro <peppe.cavallaro@st.com>
+Cc: Inochi Amaoto <inochiama@gmail.com>,
+	netdev@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-riscv@lists.infradead.org,
+	Yixun Lan <dlan@gentoo.org>,
+	Longbin Li <looong.bin@gmail.com>
+Subject: [PATCH net-next v3 0/3] riscv: sophgo: Add ethernet support for SG2044
+Date: Mon, 23 Dec 2024 08:58:36 +0800
+Message-ID: <20241223005843.483805-1-inochiama@gmail.com>
+X-Mailer: git-send-email 2.47.1
+MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241222_143915_803524_D8DD3BB2 
-X-CRM114-Status: GOOD (  17.20  )
+X-CRM114-CacheID: sfid-20241222_165921_240587_F83249A8 
+X-CRM114-Status: GOOD (  13.37  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,51 +112,61 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gU3VuLCBEZWMgMjIsIDIwMjQgYXQgMTA6MDk6MTRQTSArMDEwMCwgQXJuZCBCZXJnbWFubiB3
-cm90ZToKPiBPbiBTdW4sIERlYyAyMiwgMjAyNCwgYXQgMDM6MTMsIEEuIFdpbGNveCB3cm90ZToK
-PiA+IE9uIERlYyAyMSwgMjAyNCwgYXQgMzo0MuKAr1BNLCBBcm5kIEJlcmdtYW5uIDxhcm5kQGtl
-cm5lbC5vcmc+IHdyb3RlOgo+ID4KPiA+ICAgICBSMCAuLiBSNyAgICAgICAgICAgUjggLi4gUjE1
-ICAgICAgICAgUjE2IC4uIFIyMyAgICAgICAgIFIyNCAuLiBSMzEKPiA+IDAwMDAwMDAwMDE0YTEx
-MjQgICAwMDAwMDAwMDAwMDAwMDAwICAgMDAwMDAwMDAwMTM1YjRhYyAgIDAwMDAwMDAwMDAwMDAw
-MDAgICAKPiA+IDAwMDAwMDAwMGRjNzBmMzAgICBmZmZmZmZmZmMwMDAwMDAwICAgMDAwMDAwMDAw
-ZGM3MGZhNCAgIDAwMDAwMDAwMDE3MzYwMGMgICAKPiA+IDAwMDAwMDAwMDAwMDAwMDAgICAwMDAw
-MDAwMDBlNDc3MDEwICAgMDAwMDAwMDAwMDAwMDAwMCAgIDAwMDAwMDAwMDA0MDAwMDAgICAKPiA+
-IGZmZmZmZmZmMDE0MWJlNGMgICAwMDAwMDAwMDAxNDlhYjc0ICAgMDAwMDAwMDBmZmZmZmZmZiAg
-IDAwMDAwMDAwMDAwMDAwMDggICAKPiA+IDAwMDAwMDAwYzAwMTRiNmMgICAwMDAwMDAwMDIwMDAw
-NDAyICAgMDAwMDAwMDA0MDQwMDAwMCAgIDAwMDAwMDAwMDE2ZjIwMDAgICAKPiA+IGZmZmZmZmZm
-NDA0MDAwMDAgICAwMDAwMDAwMDAwMDAwMDAwICAgMDAwMDAwMDAwMDAwMDAwMCAgIDAwMDAwMDAw
-MGRjNzBmNjAgICAKPiA+IDAwMDAwMDAwMDAwMDAwMDAgICAwMDAwMDAwMDAwMDAwMDAwICAgMDAw
-MDAwMDAwZTczZDQ5MCAgIDAwMDAwMDAwMDE0OWYwMDAgICAKPiA+IDAwMDAwMDAwMDAwMDAwMDAg
-ICAwMDAwMDAwMDBlNzU2MTE4ICAgMDAwMDAwMDAwZGM3MGZhMCAgIGZmZmZmZmZmNDA0MDAwMDAg
-ICAKPiA+Cj4gPiAgICAgQ1IgLyBYRVIgICAgICAgICAgIExSIC8gQ1RSICAgICAgICAgIFNSUjAg
-LyBTUlIxICAgICAgICBEQVIgLyBEU0lTUgo+ID4gICAgICAgICA4MDAwMDQwMiAgIDAwMDAwMDAw
-MDE0YTExMjQgICAwMDAwMDAwMDAxNGExMTI4ICAgZmZmZmZmZmYwMTQxYmU0YyAgIAo+ID4gMDAw
-MDAwMDAyMDA0MDAwMCAgIDAwMDAwMDAwMDAwMDAwMDAgICA4MDAwMDAwMDAwMDAzMDAwICAgICAg
-ICAgICAwMDAwMDAwMCAgIAo+ID4KPiA+Cj4gPiAyID4gCj4gPgo+ID4gV2hpY2ggaXMgdGhlIHNh
-bWUgdGhpbmcgdGhhdCBoYXBwZW5zIGlmIHlvdSBib290IGEgMzItYml0IExpbnV4IGtlcm5lbAo+
-ID4gb24gYSBwaHlzaWNhbCA2NC1iaXQgUG93ZXIgbWFjaGluZS4gIFRoaXMgaXMgcHJvYmFibHkg
-YmVjYXVzZSBLVk0gaXMKPiA+IHNvIG11Y2ggbW9yZSBhY2N1cmF0ZSB0aGFuIFRDRyBmb3IgUG93
-ZXIgZW11bGF0aW9uIDopCj4gCj4gRGlkIHlvdSBhc2sga3ZtIHRvIGVtdWxhdGUgYSAzMi1iaXQg
-cGxhdGZvcm0gdGhvdWdoPyBTaW5jZSB0aGUKPiByZWdpc3RlciBkdW1wIHNob3dzIDY0LWJpdCBy
-ZWdpc3RlcnMsIG15IGd1ZXNzIGlzIHRoYXQgdGhpcyBpcyB0aGUKPiByZXN1bHQgb2YgdHJ5aW5n
-IHRvIGxvYWQgYSAzMi1iaXQga2VybmVsIG9uICItbWFjaGluZSBwc2VyaWVzCj4gLWNwdSBuYXRp
-dmUiLCB3aGljaCBpcyBub3Qgc3VwcG9ydGVkIGJ5IHRoZSBndWVzdCBrZXJuZWwuIEkgd291bGQK
-PiBleHBlY3QgdGhhdCB5b3UgbmVlZCBhdCBsZWFzdCBhIDMyLWJpdCBtYWNoaW5lIHR5cGUgKG1h
-Yzk5LAo+IHBlZ2Fzb3MyKSBhbmQgbGlrZWx5IGFsc28gYSAzMi1iaXQgQ1BVICg3NDQ3YSwgZTYw
-MCkuCgpTTE9GIGFsd2F5cyBzaG93cyA2NC1iaXQgcmVnaXN0ZXJzOyBTTE9GIG9ubHkgZXZlciBy
-dW5zIGFzIDY0LWJpdApwcm9ncmFtLiAgVGhlICpjbGllbnQqIHByb2dyYW0gY2FuIGJlIDMyLWJp
-dCBvZiBjb3Vyc2UsIGJ1dCB0aGUgZHVtcApvZiBTUlIxIGhlcmUgc2hvd3MgU0Y9MSAodGhlIHRv
-cCBiaXQgdGhlcmUpLiAgTm8gaWRlYSB3aGF0IHdhcyBydW5uaW5nCmF0IHRoZSB0aW1lLCBidXQg
-c29tZXRoaW5nIGluIHRoZSBrZXJuZWwgSSBndWVzcz8KCihUbyBzaG93IHRoZSBsYXN0IHNldCBj
-bGllbnQgc3RhdGUsIHVzZQogIGNpcmVncyAucmVncwp0aGUgdGhpbmcgZXhjZXB0aW9ucyBwcmlu
-dCBpcyB2aWEKICBlcmVncyAucmVncwpzbyB5b3UnbGwgcHJvYmFibHkgZmlndXJlIG91dCB0aGUg
-Zm9ybWF0IDstKSApCgpJZiB0aGUgY2xpZW50IHByb2dyYW0gaXMgYSAzMi1iaXQgRUxGIGZpbGUs
-IFNMT0Ygc3RhcnRzIHRoZSBjbGllbnQKcHJvZ3JhbSB3aXRoIFNGPTAuCgoKU2VnaGVyCgpfX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBt
-YWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMu
-aW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+The ethernet controller of SG2044 is Synopsys DesignWare IP with
+custom clock. Add glue layer for it.
+
+Since v2, these patch depends on that following patch that provides
+helper function to compute rgmii clock, As for now, this patch is merged
+in net/for-next
+https://lore.kernel.org/netdev/173380743727.355055.17303486442146316315.git-patchwork-notify@kernel.org/
+
+Changed from RFC:
+- https://lore.kernel.org/netdev/20241101014327.513732-1-inochiama@gmail.com/
+1. patch 1: apply Krzysztof' tag
+
+Changed from v2:
+- https://lore.kernel.org/netdev/20241025011000.244350-1-inochiama@gmail.com/
+1. patch 1: merge the first and the second bindings patch to show the all
+            compatible change.
+2. patch 2: use of_device_compatible_match helper function to perform check.
+2. patch 3: remove unused include and sort the left.
+3. patch 3: fix wrong variable usage in sophgo_dwmac_fix_mac_speed
+4. patch 3: drop unused variable in the patch.
+
+Changed from v1:
+- https://lore.kernel.org/netdev/20241021103617.653386-1-inochiama@gmail.com/
+1. patch 2: remove sophgo,syscon as this mac delay is resolved.
+2. patch 2: apply all the properties unconditionally.
+3. patch 4: remove sophgo,syscon code as this mac delay is resolved.
+4. patch 4: use the helper function to compute rgmii clock.
+5. patch 4: use remove instead of remove_new for the platform driver.
+
+
+Inochi Amaoto (3):
+  dt-bindings: net: Add support for Sophgo SG2044 dwmac
+  net: stmmac: platform: Add snps,dwmac-5.30a IP compatible string
+  net: stmmac: Add glue layer for Sophgo SG2044 SoC
+
+ .../devicetree/bindings/net/snps,dwmac.yaml   |   4 +
+ .../bindings/net/sophgo,sg2044-dwmac.yaml     | 124 ++++++++++++++++++
+ drivers/net/ethernet/stmicro/stmmac/Kconfig   |  11 ++
+ drivers/net/ethernet/stmicro/stmmac/Makefile  |   1 +
+ .../ethernet/stmicro/stmmac/dwmac-sophgo.c    | 105 +++++++++++++++
+ .../ethernet/stmicro/stmmac/stmmac_platform.c |  17 ++-
+ 6 files changed, 257 insertions(+), 5 deletions(-)
+ create mode 100644 Documentation/devicetree/bindings/net/sophgo,sg2044-dwmac.yaml
+ create mode 100644 drivers/net/ethernet/stmicro/stmmac/dwmac-sophgo.c
+
+--
+2.47.1
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
