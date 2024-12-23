@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3A133E7718E
-	for <linux-riscv@archiver.kernel.org>; Mon, 23 Dec 2024 16:27:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2CA8FE7718E
+	for <linux-riscv@archiver.kernel.org>; Mon, 23 Dec 2024 16:29:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
 	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=dfiF7r58pYoORyGReknfGwjUaOURlASio8OXCgOQDlY=; b=0R7iC+ZDq2CJCU
-	XQgvhiI0FaU1L6RX60TzWV/gHsB4a254u3fpXiLIjrlHUiS9yojjfYA/2g26OLUNPP8vEji60isjF
-	gBxX44y0PawA/uV6RmQZpJwEf12XOwH3vo9zX1mNV2nGt3IeRIDdHirZ42nu2wUBi9MlKs04d0kn6
-	iPbnYa4pBjmCh3BRjaSCWG3YEw3N7/7P0NzRkIk8cur/UJTaF8gIcm6j3a3zv5I9tQQsfaFWjkpFv
-	LwnJ3h0A2iHKlrkNZiH9E0JR0LPoVGXNT9V0Frd/sEv83ln27RobnSxj7MjhRyW+XHgVbr/qa3Oql
-	A6Pym2NNXo9fLyY5Vxcw==;
+	List-Owner; bh=efA/ArYXeCi3Hp3werS7PYqtv3F8gyfrjdSZUo2KYd0=; b=gvXnnkyml5wxQS
+	++MaP8LDNT+Rl+bLifweKM9y1Y6k3CtA3P2F9BqkY1c7VsswU2ItG7szI9HLXeXXWCHmYuBkX/+S3
+	Ktv+r3S4yahU0R0471ROS2DAkkMKFiDsMZMBj+WrIbSZCffpFtk58ZPQtazqDDfzmndQItY6+0xoO
+	/A1I+1bEcCeyD5cTBPcalv33x0A1+tqYeVcrnBORbttSiLKtBjj+oaonjo8G+ilWM4jchYEVHpTrH
+	JRp2g+4QYU57zyIpFGbwyy2/1T/6Gx9wpFLTESCkkbK1V47tqOZPrTQ2N0R2ZOlQ3O7HDPFjj3kQJ
+	d2drn6KiX2x8jh741svQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tPlHd-0000000AOhZ-1oIz;
-	Mon, 23 Dec 2024 16:27:53 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tPlJ2-0000000AOyQ-0A3i;
+	Mon, 23 Dec 2024 16:29:20 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tPlFf-0000000AOHY-2oe1
+	id 1tPlIy-0000000AOxt-43dP
 	for linux-riscv@lists.infradead.org;
-	Mon, 23 Dec 2024 16:25:53 +0000
+	Mon, 23 Dec 2024 16:29:18 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id E53535C4879;
-	Mon, 23 Dec 2024 16:25:08 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 22C3DC4CED3;
-	Mon, 23 Dec 2024 16:25:42 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 426DA5C54A0;
+	Mon, 23 Dec 2024 16:28:34 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CB9A4C4CED3;
+	Mon, 23 Dec 2024 16:29:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1734971150;
-	bh=Vs/h4RxE9dOESkNRA82uuKV5gXmOQqgO1ktW1hz8B7g=;
+	s=k20201202; t=1734971355;
+	bh=XygZQRpJWNRjIbchkiN9zAFoutbPnIdXdggo9ovNnuQ=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=LhB0N/st+R0Kikm7sUW1cSS6+spRJeFAh5hPNkjrYUwQAHFtwoz4IModLtTD9k/o2
-	 nCcxqrXn1hdB67/V/DOnsYxXBh6Hy6v0HPqwlPvLe5E06Y6VW78NW1Go/GPOJveKuL
-	 l+gdTiaRugnPE/Wjr+Uxwh5SJR6nqSrp+bdzunblrn9SkdhW/QfmV8rkmqPGt4GosG
-	 ZOOt5IhESPaU9+yFZURuPhs/Ob7/LxTNk/FLgZoK7OUJw+Eb4k5iQZjwfTqMAg6r0R
-	 ktADTREn3EL9u6Y3PCPgcHMA5XFl4nC8tF9TffH4QZ03fCPTxKmzbXbU/J9PxG8vLk
-	 mvbA4RxtGOUCA==
-Message-ID: <5b4368c4-b4bb-453d-9daa-e108f944556b@kernel.org>
-Date: Mon, 23 Dec 2024 17:25:41 +0100
+	b=YBOVXoAT/0v5TyJWpBPDWBHr/0LTx0YYWnAgGCL+a0XYlXbFOmVqGBirPoX0i4c1s
+	 SdGCzOkzWCFh0LQCbEI6xoXl5C2Iux48lbpfOk+4FFKmqRhrdbhBpVd5Ay7e46AsQ8
+	 FIaceDzbPZsLqqeHWnSGEArd9hDuGxA6YEzWiAWxd2btT2XmGD4HzaPT+UdnZ4Ngjr
+	 hiEixwbhFZltUcvzyHAhoZCdwoA4InJJfuTbvaG+lsTtVqJLjVULq/Y33335HO9mj+
+	 02C95ioDoarhsjRxjrnMzA7P9XMfjqXECocQqr6soelqqgIlTssVW/J00zI9EBQcmf
+	 v5Th2T+JxcVuA==
+Message-ID: <06c381c3-f181-4422-8aec-d4efcc6d3f07@kernel.org>
+Date: Mon, 23 Dec 2024 17:29:06 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH v2 09/19] reset: thead: Add TH1520 reset controller
- driver
+Subject: Re: [RFC PATCH v2 11/19] dt-bindings: gpu: Add 'resets' property for
+ GPU initialization
 To: Michal Wilczynski <m.wilczynski@samsung.com>, mturquette@baylibre.com,
  sboyd@kernel.org, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
  drew@pdp7.com, guoren@kernel.org, wefu@redhat.com, jassisinghbrar@gmail.com,
@@ -60,8 +60,8 @@ Cc: linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
  linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
  dri-devel@lists.freedesktop.org, linux-pm@vger.kernel.org
 References: <20241223125553.3527812-1-m.wilczynski@samsung.com>
- <CGME20241223125612eucas1p1d27f793116fa405911f07cfc926c0129@eucas1p1.samsung.com>
- <20241223125553.3527812-10-m.wilczynski@samsung.com>
+ <CGME20241223125615eucas1p10cd69b9a6f03f33ce9b9346558de6ce6@eucas1p1.samsung.com>
+ <20241223125553.3527812-12-m.wilczynski@samsung.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -107,10 +107,11 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  uZwJCLykjad45hsWcOGk3OcaAGQS6NDlfhM6O9aYNwGL6tGt/6BkRikNOs7VDEa4/HlbaSJo
  7FgndGw1kWmkeL6oQh7wBvYll2buKod4qYntmNKEicoHGU+x91Gcan8mCoqhJkbqrL7+nXG2
  5Q/GS5M9RFWS+nYyJh+c3OcfKqVcZQNANItt7+ULzdNJuhvTRRdC3g9hmCEuNSr+CLMdnRBY fv0=
-In-Reply-To: <20241223125553.3527812-10-m.wilczynski@samsung.com>
+In-Reply-To: <20241223125553.3527812-12-m.wilczynski@samsung.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241223_082551_810588_20B65CDE 
-X-CRM114-Status: GOOD (  25.73  )
+X-CRM114-CacheID: sfid-20241223_082917_103572_97064357 
+X-CRM114-Status: UNSURE (   8.51  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -128,188 +129,21 @@ Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 On 23/12/2024 13:55, Michal Wilczynski wrote:
-> This patch introduces the reset controller driver for the T-HEAD
-
-Please do not use "This commit/patch/change", but imperative mood. See
-longer explanation here:
-https://elixir.bootlin.com/linux/v5.17.1/source/Documentation/process/submitting-patches.rst#L95
-
-> TH1520 SoC. The controller manages hardware reset lines for various SoC
-> subsystems, such as the GPU. By exposing these resets via the Linux
-> reset subsystem, drivers can request and control hardware resets to
-> reliably initialize or recover key components.
-> 
-
-
-
->  config RESET_TI_SCI
->  	tristate "TI System Control Interface (TI-SCI) reset driver"
->  	depends on TI_SCI_PROTOCOL || (COMPILE_TEST && TI_SCI_PROTOCOL=n)
-> diff --git a/drivers/reset/Makefile b/drivers/reset/Makefile
-> index 677c4d1e2632..d6c2774407ae 100644
-> --- a/drivers/reset/Makefile
-> +++ b/drivers/reset/Makefile
-> @@ -35,6 +35,7 @@ obj-$(CONFIG_RESET_SIMPLE) += reset-simple.o
->  obj-$(CONFIG_RESET_SOCFPGA) += reset-socfpga.o
->  obj-$(CONFIG_RESET_SUNPLUS) += reset-sunplus.o
->  obj-$(CONFIG_RESET_SUNXI) += reset-sunxi.o
-> +obj-$(CONFIG_RESET_TH1520) += reset-th1520.o
->  obj-$(CONFIG_RESET_TI_SCI) += reset-ti-sci.o
->  obj-$(CONFIG_RESET_TI_SYSCON) += reset-ti-syscon.o
->  obj-$(CONFIG_RESET_TI_TPS380X) += reset-tps380x.o
-> diff --git a/drivers/reset/reset-th1520.c b/drivers/reset/reset-th1520.c
-> new file mode 100644
-> index 000000000000..10ca200690d5
-> --- /dev/null
-> +++ b/drivers/reset/reset-th1520.c
-> @@ -0,0 +1,151 @@
-> +// SPDX-License-Identifier: GPL-2.0
-> +/*
-> + * Copyright (c) 2024 Samsung Electronics Co., Ltd.
-> + * Author: Michal Wilczynski <m.wilczynski@samsung.com>
-> + */
+> diff --git a/Documentation/devicetree/bindings/gpu/img,powervr-rogue.yaml b/Documentation/devicetree/bindings/gpu/img,powervr-rogue.yaml
+> index 256e252f8087..4078cc816ea1 100644
+> --- a/Documentation/devicetree/bindings/gpu/img,powervr-rogue.yaml
+> +++ b/Documentation/devicetree/bindings/gpu/img,powervr-rogue.yaml
+> @@ -37,6 +37,12 @@ properties:
+>    power-domains:
+>      maxItems: 1
+>  
+> +  resets:
+> +    maxItems: 1
 > +
-> +#include <linux/of.h>
-
-This looks unused. What you need is mod_devicetable.h and
-MODULE_DEVICE_TABLE(th1520_reset_match) after th1520_reset_match.
-
-> +#include <linux/platform_device.h>
-> +#include <linux/reset-controller.h>
-> +#include <linux/regmap.h>
-> +
-> +#include <dt-bindings/reset/thead,th1520-reset.h>
-> +
-> + /* register offset in VOSYS_REGMAP */
-> +#define TH1520_GPU_RST_CFG		0x0
-> +#define TH1520_GPU_RST_CFG_MASK		GENMASK(2, 0)
-> +
-> +/* register values */
-> +#define TH1520_GPU_SW_GPU_RST		BIT(0)
-> +#define TH1520_GPU_SW_CLKGEN_RST	BIT(1)
-> +
-> +struct th1520_reset_priv {
-> +	struct reset_controller_dev rcdev;
-> +	struct regmap *map;
-> +};
-> +
-> +static inline struct th1520_reset_priv *
-> +to_th1520_reset(struct reset_controller_dev *rcdev)
-> +{
-> +	return container_of(rcdev, struct th1520_reset_priv, rcdev);
-> +}
-> +
-> +static void th1520_rst_gpu_enable(struct regmap *reg)
-> +{
-> +	int val;
-> +
-> +	/* if the GPU is not in a reset state it, put it into one */
-> +	regmap_read(reg, TH1520_GPU_RST_CFG, &val);
-> +	if (val) {
-
-Drop {}
-
-> +		regmap_update_bits(reg, TH1520_GPU_RST_CFG,
-> +				   TH1520_GPU_RST_CFG_MASK, 0x0);
-> +	}
-> +
-> +	/* rst gpu clkgen */
-> +	regmap_set_bits(reg, TH1520_GPU_RST_CFG, TH1520_GPU_SW_CLKGEN_RST);
-> +
-> +	/*
-> +	 * According to the hardware manual, a delay of at least 32 clock
-> +	 * cycles is required between de-asserting the clkgen reset and
-> +	 * de-asserting the GPU reset. Assuming a worst-case scenario with
-> +	 * a very high GPU clock frequency, a delay of 1 microsecond is
-> +	 * sufficient to ensure this requirement is met across all
-> +	 * feasible GPU clock speeds.
-> +	 */
-> +	udelay(1);
-> +
-> +	/* rst gpu */
-> +	regmap_set_bits(reg, TH1520_GPU_RST_CFG, TH1520_GPU_SW_GPU_RST);
-> +}
-> +
-> +static void th1520_rst_gpu_disable(struct regmap *reg)
-> +{
-> +	regmap_update_bits(reg, TH1520_GPU_RST_CFG, TH1520_GPU_RST_CFG_MASK, 0x0);
-> +}
-> +
-> +static int th1520_reset_assert(struct reset_controller_dev *rcdev, unsigned long id)
-> +{
-> +	struct th1520_reset_priv *priv = to_th1520_reset(rcdev);
-> +
-> +	switch (id) {
-> +	case TH1520_RESET_ID_GPU:
-> +		th1520_rst_gpu_disable(priv->map);
-> +		break;
-> +	default:
-> +		return -EINVAL;
-> +	}
-> +
-> +	return 0;
-> +}
-> +
-> +static int th1520_reset_deassert(struct reset_controller_dev *rcdev, unsigned long id)
-> +{
-> +	struct th1520_reset_priv *priv = to_th1520_reset(rcdev);
-> +
-> +	switch (id) {
-> +	case TH1520_RESET_ID_GPU:
-> +		th1520_rst_gpu_enable(priv->map);
-> +		break;
-> +	default:
-> +		return -EINVAL;
-> +	}
-> +
-> +	return 0;
-> +}
-> +
-> +static const struct reset_control_ops th1520_reset_ops = {
-> +	.assert	= th1520_reset_assert,
-> +	.deassert = th1520_reset_deassert,
-> +};
-> +
-> +const struct regmap_config th1520_reset_regmap_config = {
-
-Should be static
-
-> +	.reg_bits = 32,
-> +	.val_bits = 32,
-> +	.reg_stride = 4,
-> +	.fast_io = true,
-> +};
-> +
-> +static int th1520_reset_probe(struct platform_device *pdev)
-> +{
-> +	struct device *dev = &pdev->dev;
-> +	struct th1520_reset_priv *priv;
-> +	void __iomem *base;
-> +
-> +	priv = devm_kzalloc(dev, sizeof(*priv), GFP_KERNEL);
-> +	if (!priv)
-> +		return -ENOMEM;
-> +
-> +	base = devm_platform_ioremap_resource(pdev, 0);
-> +	if (IS_ERR(base))
-> +		return PTR_ERR(base);
-> +
-> +	priv->map =
-> +		devm_regmap_init_mmio(dev, base, &th1520_reset_regmap_config);
-
-Join lines. I feel you used some incorrect clang or other editor
-settings leading to such code format. Code can exceed 80 if improves
-readability, but if you wanted to wrap, then the wrapping should be
-after 'base' and next line aligned with opening (.
-
-> +	if (IS_ERR(priv->map))
-> +		return PTR_ERR(priv->map);
-> +
-> +	priv->rcdev.owner = THIS_MODULE;
-> +	priv->rcdev.nr_resets = TH1520_RESET_NUM_IDS;
-> +	priv->rcdev.ops = &th1520_reset_ops;
-
-
+> +  reset-names:
+> +    const: gpu
+Name being equal to the name of the block is not useful. Drop
+reset-names. Reset framework allows to get the reset instance without name.
 
 Best regards,
 Krzysztof
