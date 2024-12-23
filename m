@@ -4,65 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A4616E7718B
-	for <linux-riscv@archiver.kernel.org>; Mon, 23 Dec 2024 16:26:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 295FFE7718B
+	for <linux-riscv@archiver.kernel.org>; Mon, 23 Dec 2024 16:27:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
 	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=9Op0T4zRLjI01mOQj002TZjodaI70GeM3YtMI2F0AUM=; b=byY6NokpUl0Ylb
-	fdhbjVZEonTz7rTAhTRdWsTk2IowUYPSSiXxDbRN7ddyX1yYIyLD6TnMZp23Dda/wZKhqfSo6eOeX
-	GHyC2YkvAmFhSMxHwwASdnvi1FZyR7BTJh/KFmbpfzRxB/5GSSdi/oSiq73Ybo4/iF6rcmZqk0b5P
-	geeoM/km3MGCUDYrTbmXPnhB0sXkxPiD4GHCUXy41aoGjA7oUGwtgymBF4T7Eqh5xfi1mX21iFJLh
-	kSalx2Ei8kVXNOIrCpxDNzl8w+4ETwo6XMApiH0HqVQPHUsPc4rpEUt19eytmqj7++DtHvbyiJH5B
-	Ri3yE+MtyXuHWmVR3ooA==;
+	List-Owner; bh=vf5QM4MAXuTQi+ba+c5le270akxl6bT6c39hqyLMPfU=; b=vDWDB0nihGQN0q
+	WD+M/CRoRBSrxtnKLQIpj/z9nxfrrIORClpW8tXdeF24l1raaSiWf8kiBKxDhrBGBojde05btUdPQ
+	NbMtr4I+Ym0B3ehEhkt5hK6Se8Hs1f/QfWdxrfzNjabXHvJZCz2kPWIkmcZUR13bTr6ESW+eQI8tq
+	bxwMbmpOzpzARjlEifyY7lDOSvyteAwnIsyIzpuCW9Gavs68SdTgXARSBxkngqjxtlknuFjHekmzu
+	eN4mFDZy7Ovak7Ze84GYUu3Kzi49o+rWcrJgFM3hdwOO/yyyRiBN85WJeS6iFF0uoL7TlSJTbVII6
+	yunzst2oClwG2h7dwjCA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tPlGW-0000000AOSH-1kg2;
-	Mon, 23 Dec 2024 16:26:44 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1tPlHe-0000000AOht-0Vvj;
+	Mon, 23 Dec 2024 16:27:54 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tPlCR-0000000ANch-3w1e
-	for linux-riscv@bombadil.infradead.org;
-	Mon, 23 Dec 2024 16:22:32 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=UePGm/KWvaMpmoQFJotfe/kyDLZb2cJlRPepybc5vWE=; b=gdfdenTenVOgqtCQD9wfgFpeaV
-	+NWgqMDkdvU3a+Cdi/rAwH7pFdnA7Zs7N8Op6jfiMeLG0cjhWSi8XXIu8rJ1pOBMmdb+xwLbKkHS6
-	HXO+dgJaAq6eXLJnY6vnfMfIMMA+jCGslqMW1p0PqlcNp8kJKZoUfXnnn3KTPUPm4nSQzubLA6pqh
-	0IEee9xdhAm2FUz1hbHF5l1GXh06bJ2y+RMxuEij+99a0NHirb2JR3nX0Bj41WkRNfuCTG24O491K
-	OxIe/zwQWr7o+ButHZD5xcilfRYWMA1d1PQQF1a6JLTI0othWy9Z/Kv0bhyBAdpH7SG8xDIyF8Br3
-	aVhb8V/Q==;
-Received: from dfw.source.kernel.org ([139.178.84.217])
-	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tPlCO-00000006Pg6-2Zo6
+	id 1tPlGV-0000000AOQd-1Je4
 	for linux-riscv@lists.infradead.org;
-	Mon, 23 Dec 2024 16:22:30 +0000
+	Mon, 23 Dec 2024 16:26:44 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 436DB5C4D35;
-	Mon, 23 Dec 2024 16:21:43 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8777CC4CED3;
-	Mon, 23 Dec 2024 16:22:17 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 200A1A4107E;
+	Mon, 23 Dec 2024 16:24:52 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DFAFAC4CED3;
+	Mon, 23 Dec 2024 16:26:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1734970944;
-	bh=s3eirBo87GbwMwKk9aMOYDlwNe9g2heQX4Fix86GvNk=;
+	s=k20201202; t=1734971201;
+	bh=SpibcqlZmzhHP5M7rb1BfLKQeqe2s1fFqr8oFCIWDCw=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=AIeWYDfvUumx4s7P5Sf1ZW/n4Mf0nPcuIHR7qlFYIEjm0OWMuskTSqiVSgh4hFXqh
-	 d6cyHbR/uSKOkZtO84AtNa3Y8eYeRFlFcTFRc41Fdr/S9PpW2UDHOiFo7jZca79g8F
-	 35VDwj9ua0tV058Z1GcKeS00hmIkLneqKCV00N5JWYT/qf49D064uC4RHcR/iB7jCB
-	 mD0ecP2KDgkidFtFR0OlMAJ61dqc+X+aclG5EyFnhrpPIW2sDViXzALCAiBB8SDIOh
-	 6NW9XHgJkUj9eVHodSD+SdwoliPsT5uF4BIq/meAuJLcKja5Jrk//6JKh1SJ/objWU
-	 ZVXk67p8L5mqw==
-Message-ID: <1699014b-8874-4756-8538-11c5fbfc383f@kernel.org>
-Date: Mon, 23 Dec 2024 17:22:15 +0100
+	b=l09IWAFiS5Vij+ODX6yzNZGu6ZgPfIuNCkUbYhyWPW971pbObxvHPgTAHG+q1m3L7
+	 0pen81f01rvpqivtIfH541oEOGTJSSjqXSOGrEUliFiK1V3xd94La7mZdZoNjcPu6R
+	 VJ2B2CFO6pot8gfUll3NrzFk/Abm7lIe5CNWO6VsfwvttQP9g8Ki2W47VF3nYUsEVo
+	 F9ephFRC6/wnmMU+WitqsjE17BK32IzC19Q/lJzmojXxH67N+gHwg/ukjc7LUKqQCz
+	 xk8DYE81TRfHREEEYOvFjlCWq/4WRwxGW4Fum2Bu5+P7SPDp94zWSy3xX+XKR1KFpw
+	 jewAa1+9+0sXg==
+Message-ID: <567e2ea6-ad6b-44bb-a5ec-fdb95da5b166@kernel.org>
+Date: Mon, 23 Dec 2024 17:26:31 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH v2 08/19] dt-bindings: reset: Add T-HEAD TH1520 SoC
- Reset Controller
+Subject: Re: [RFC PATCH v2 06/19] soc: thead: power-domain: Add power-domain
+ driver for TH1520
 To: Michal Wilczynski <m.wilczynski@samsung.com>, mturquette@baylibre.com,
  sboyd@kernel.org, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
  drew@pdp7.com, guoren@kernel.org, wefu@redhat.com, jassisinghbrar@gmail.com,
@@ -75,8 +60,8 @@ Cc: linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
  linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
  dri-devel@lists.freedesktop.org, linux-pm@vger.kernel.org
 References: <20241223125553.3527812-1-m.wilczynski@samsung.com>
- <CGME20241223125611eucas1p1acf9a7f030c4c8687f946c34f8043bcd@eucas1p1.samsung.com>
- <20241223125553.3527812-9-m.wilczynski@samsung.com>
+ <CGME20241223125608eucas1p25f0be9eb6fb7ab906f942201560dd881@eucas1p2.samsung.com>
+ <20241223125553.3527812-7-m.wilczynski@samsung.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -122,10 +107,11 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  uZwJCLykjad45hsWcOGk3OcaAGQS6NDlfhM6O9aYNwGL6tGt/6BkRikNOs7VDEa4/HlbaSJo
  7FgndGw1kWmkeL6oQh7wBvYll2buKod4qYntmNKEicoHGU+x91Gcan8mCoqhJkbqrL7+nXG2
  5Q/GS5M9RFWS+nYyJh+c3OcfKqVcZQNANItt7+ULzdNJuhvTRRdC3g9hmCEuNSr+CLMdnRBY fv0=
-In-Reply-To: <20241223125553.3527812-9-m.wilczynski@samsung.com>
+In-Reply-To: <20241223125553.3527812-7-m.wilczynski@samsung.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241223_162229_107128_EBC53EB8 
-X-CRM114-Status: GOOD (  15.56  )
+X-CRM114-CacheID: sfid-20241223_082643_496448_D2166D7E 
+X-CRM114-Status: UNSURE (   9.34  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -143,82 +129,25 @@ Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 On 23/12/2024 13:55, Michal Wilczynski wrote:
-> Add a YAML schema for the T-HEAD TH1520 SoC reset controller. This
-> controller manages resets for subsystems such as the GPU within the
-> TH1520 SoC.
-> 
-> Signed-off-by: Michal Wilczynski <m.wilczynski@samsung.com>
-> ---
->  .../bindings/reset/thead,th1520-reset.yaml    | 45 +++++++++++++++++++
->  MAINTAINERS                                   |  2 +
->  .../dt-bindings/reset/thead,th1520-reset.h    | 13 ++++++
->  3 files changed, 60 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/reset/thead,th1520-reset.yaml
->  create mode 100644 include/dt-bindings/reset/thead,th1520-reset.h
-> 
-> diff --git a/Documentation/devicetree/bindings/reset/thead,th1520-reset.yaml b/Documentation/devicetree/bindings/reset/thead,th1520-reset.yaml
-> new file mode 100644
-> index 000000000000..46d0e6b8c712
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/reset/thead,th1520-reset.yaml
-> @@ -0,0 +1,45 @@
-> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> +	pd_data->domains = domains;
+> +	pd_data->num_domains = ARRAY_SIZE(th1520_pd_ranges);
+> +	pd_data->xlate = th1520_pd_xlate;
 > +
-
-Drop blank line
-
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/reset/thead,th1520-reset.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +	/*
+> +	 * Initialize all power domains to off to ensure they start in a
+> +	 * low-power state. This allows device drivers to manage power
+> +	 * domains by turning them on or off as needed.
+> +	 */
+> +	th1520_pd_init_all_off(domains, dev);
 > +
-> +title: T-HEAD TH1520 SoC Reset Controller
+> +	return of_genpd_add_provider_onecell(dev->of_node, pd_data);
+> +}
 > +
-> +description: |
-
-Do not need '|' unless you need to preserve formatting.
-
-> +  The T-HEAD TH1520 reset controller is a hardware block that asserts/deasserts
-> +  resets for SoC subsystems.
-> +
-> +maintainers:
-> +  - Michal Wilczynski <m.wilczynski@samsung.com>
-> +
-> +properties:
-> +  compatible:
-> +    enum:
-> +      - thead,th1520-reset
-> +
-
-...
-
->  RNBD BLOCK DRIVERS
-> diff --git a/include/dt-bindings/reset/thead,th1520-reset.h b/include/dt-bindings/reset/thead,th1520-reset.h
-> new file mode 100644
-> index 000000000000..a4958b2ed710
-> --- /dev/null
-> +++ b/include/dt-bindings/reset/thead,th1520-reset.h
-> @@ -0,0 +1,13 @@
-> +/* SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause) */
-> +/*
-> + * Copyright (c) 2024 Samsung Electronics Co., Ltd.
-> + * Author: Michal Wilczynski <m.wilczynski@samsung.com>
-> + */
-> +
-> +#ifndef _DT_BINDINGS_TH1520_RESET_H
-> +#define _DT_BINDINGS_TH1520_RESET_H
-> +
-> +#define TH1520_RESET_ID_GPU	0
-> +#define TH1520_RESET_NUM_IDS	1
-
-Drop the NUM_IDS define. Number is not a binding.
-
-But this leads to another question: only one reset? Then reset-cells
-should be 0.
-
-> +
-> +#endif /* _DT_BINDINGS_TH1520_RESET_H */
-
+> +static const struct of_device_id th1520_pd_match[] = {
+> +	{ .compatible = "thead,th1520-pd" },
+> +	{ /* sentinel */ }
+> +};
+MODULE_DEVICE_TABLE, this applies to all your patches.
 
 Best regards,
 Krzysztof
