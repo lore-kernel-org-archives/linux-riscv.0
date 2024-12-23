@@ -4,133 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0DED4E7718B
-	for <linux-riscv@archiver.kernel.org>; Mon, 23 Dec 2024 08:02:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C855E7718B
+	for <linux-riscv@archiver.kernel.org>; Mon, 23 Dec 2024 08:13:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Glo3/CwkFyEZiWxN8EHsfjT7UVPcoNtMcxH6i54Sgyw=; b=XFlOeiQF3uA/F0
-	jn5YL9e6NHYqf3ITkxxAsCsxwDK52s8TWENQ7GbjRlSkM4ZHZJHRAHTRLhMUisAr7WNFmDis2WDFg
-	ksTdTcJhPeQ/yOadba5Ucv/OWh5qEWalcferCTi3nFeGwrBDl3fEastqLsuDj66bj1J6CS6L9kSPD
-	kLCfcKG00t30zuAhmYONGWa/F2uUSXdBffPV3LS1Nj0nyuDwG4NPaO/jnE2wXZgAEEr9PngZxcvcV
-	I5FKUUNtw8cPBpeDqLTXY3rqct3WnNYUqmifM8DaK0NLNB1GccS47GPYSMKnnW5GQdFzLNqxHSg93
-	kNkh0XpnwXf1uy7YVmYQ==;
+	List-Owner; bh=9v8nC3gUOn3KyUmQYNvBj8NIenP7nClg1wX1cjnASjI=; b=p0cxlHHs4XTvjn
+	Xtvdf1P8zY7KTa+So3Alvk27eR6xU1FzVF1DctMNNpF8i8m9xS2ZwNjsN4liZhs/LvjO4AT/gy60L
+	LO1XPABhEgKfwP2jn5QLQ7rkzKNDSToXWkF/7zicapQLzHWX7XXGxpnbQeeOYOpF8kQWWjt30r4Im
+	ggkhnTiaZ72KwEszQ9tdJeHUFVrC8B1cC+Z/HjZCGFmGZgG5LwUMpMiUOVcBvkfbsj0bm7NchxVfa
+	2CYaSWo9h3Onkiy3ZRKPfACgmI9UI9MCLqcm9OPkPBbMWbZTq3TF/ANqbIFzqTW92+4uyIAKUxmlk
+	0bBrll4zH/GfvTmVcwqQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tPdNz-00000009Yrm-28Zm;
-	Mon, 23 Dec 2024 08:01:55 +0000
-Received: from mail.alien8.de ([65.109.113.108])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tPdMB-00000009Yes-1bmw;
-	Mon, 23 Dec 2024 08:00:05 +0000
-Received: from localhost (localhost.localdomain [127.0.0.1])
-	by mail.alien8.de (SuperMail on ZX Spectrum 128k) with ESMTP id D012140E0288;
-	Mon, 23 Dec 2024 07:59:59 +0000 (UTC)
-X-Virus-Scanned: Debian amavisd-new at mail.alien8.de
-Received: from mail.alien8.de ([127.0.0.1])
-	by localhost (mail.alien8.de [127.0.0.1]) (amavisd-new, port 10026)
-	with ESMTP id IM0pXPZd7px8; Mon, 23 Dec 2024 07:59:57 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=alien8.de; s=alien8;
-	t=1734940795; bh=oLmiO6e1v7+WwnKur2gbXxPFrWqAvAvJYXOalhGYmh0=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=NwAS/XG2uaILqi2tnPoMceO1SFvcdwgB2eUP+lF0E3qtxPsrkKvNIAdwvcYOwYLbg
-	 VvqRX9HbNopYUz0E8WqlR4+hwS4evjJxGuAOGasHGtlugkVJp9ywpiKC8EbDZ422zm
-	 muU9ukFK3vu7hlaK35oICq0nKKtYMvBJQy2OPsR+mvKsFD61IL8Mw2MAlMJkEryItZ
-	 Tzude+wGqe0Sw9wWIR9qCEh9iQ+cGYRJHeuycqd23zgYmnzkMpT5N1DW0p6NrAgCYf
-	 olFh8rx2BkdY5or8KF6raR/v2Ni/IFGcDQKB5uSqrYJiXVWNpgp+jX4ZxJgjDbURJ4
-	 cSrvSAzFi4ZxrvHZ1a2k5YfgSAP6AQYRPi9NLJBbrvSRcSIni8b7sSzt4BURfuxCE2
-	 r4sJGrTU/6kz8jXjqNQu+e5JVOpZaEHuyoW5vdTmIKsc1KmSM8jxmKbimkXbQrlsIH
-	 90+POUXhp51ZscIRGQuA125qI7jngipHuMx2xQIaDiLgkkm892NzJLWoWCASuUcIjP
-	 t7xw06sq/JRCWhb65oG60xkW3rPq6o8p+BSEtePeDRS1FBXX3NANrTP8cZLWwcZ34D
-	 4b4E4Fx232+BRVdx65v4LFgXYODS/oGKPtkkdO7V+2SrY5pMunLK7ADoymYz7xZnXg
-	 ml+quzLMltF9PXnz4EArbLUs=
-Received: from nazgul.tnic (2-228-221-6.ip193.fastwebnet.it [2.228.221.6])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (P-256) server-signature ECDSA (P-256) server-digest SHA256)
-	(No client certificate requested)
-	by mail.alien8.de (SuperMail on ZX Spectrum 128k) with ESMTPSA id C580D40E0286;
-	Mon, 23 Dec 2024 07:58:32 +0000 (UTC)
-Date: Mon, 23 Dec 2024 08:58:11 +0100
-From: Borislav Petkov <bp@alien8.de>
-To: Weikang Guo <guoweikang.kernel@gmail.com>
-Cc: Mike Rapoport <rppt@kernel.org>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Geert Uytterhoeven <geert@linux-m68k.org>,
-	Dennis Zhou <dennis@kernel.org>, Tejun Heo <tj@kernel.org>,
-	Christoph Lameter <cl@linux.com>,
-	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
-	Sam Creasey <sammy@sammy.net>, Huacai Chen <chenhuacai@kernel.org>,
-	Will Deacon <will@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Oreoluwa Babatunde <quic_obabatun@quicinc.com>,
-	rafael.j.wysocki@intel.com, Palmer Dabbelt <palmer@rivosinc.com>,
-	Hanjun Guo <guohanjun@huawei.com>,
-	Easwar Hariharan <eahariha@linux.microsoft.com>,
-	Johannes Berg <johannes.berg@intel.com>,
-	Ingo Molnar <mingo@kernel.org>, Dave Hansen <dave.hansen@intel.com>,
-	Christian Brauner <brauner@kernel.org>,
-	KP Singh <kpsingh@kernel.org>,
-	Richard Henderson <richard.henderson@linaro.org>,
-	Matt Turner <mattst88@gmail.com>,
-	Russell King <linux@armlinux.org.uk>,
-	WANG Xuerui <kernel@xen0n.name>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Stefan Kristiansson <stefan.kristiansson@saunalahti.fi>,
-	Stafford Horne <shorne@gmail.com>, Helge Deller <deller@gmx.de>,
-	Nicholas Piggin <npiggin@gmail.com>,
-	Christophe Leroy <christophe.leroy@csgroup.eu>,
-	Naveen N Rao <naveen@kernel.org>,
-	Madhavan Srinivasan <maddy@linux.ibm.com>,
-	Geoff Levand <geoff@infradead.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Andrey Ryabinin <ryabinin.a.a@gmail.com>,
-	Alexander Potapenko <glider@google.com>,
-	Andrey Konovalov <andreyknvl@gmail.com>,
-	Dmitry Vyukov <dvyukov@google.com>,
-	Vincenzo Frascino <vincenzo.frascino@arm.com>,
-	Heiko Carstens <hca@linux.ibm.com>,
-	Vasily Gorbik <gor@linux.ibm.com>,
-	Alexander Gordeev <agordeev@linux.ibm.com>,
-	Christian Borntraeger <borntraeger@linux.ibm.com>,
-	Sven Schnelle <svens@linux.ibm.com>,
-	Yoshinori Sato <ysato@users.sourceforge.jp>,
-	Rich Felker <dalias@libc.org>,
-	John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>,
-	Andreas Larsson <andreas@gaisler.com>,
-	Richard Weinberger <richard@nod.at>,
-	Anton Ivanov <anton.ivanov@cambridgegreys.com>,
-	Johannes Berg <johannes@sipsolutions.net>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Ingo Molnar <mingo@redhat.com>,
-	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
-	linux-alpha@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, loongarch@lists.linux.dev,
-	linux-m68k@lists.linux-m68k.org, linux-mips@vger.kernel.org,
-	linux-openrisc@vger.kernel.org, linux-parisc@vger.kernel.org,
-	linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
-	kasan-dev@googlegroups.com, linux-s390@vger.kernel.org,
-	linux-sh@vger.kernel.org, sparclinux@vger.kernel.org,
-	linux-um@lists.infradead.org, linux-acpi@vger.kernel.org,
-	xen-devel@lists.xenproject.org, linux-omap@vger.kernel.org,
-	linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-mm@kvack.org, linux-pm@vger.kernel.org,
-	Xi Ruoyao <xry111@xry111.site>
-Subject: Re: [PATCH v7] mm/memblock: Add memblock_alloc_or_panic interface
-Message-ID: <20241223075811.GAZ2kYEwZ93CYkatrD@fat_crate.local>
-References: <20241222111537.2720303-1-guoweikang.kernel@gmail.com>
- <Z2kNTjO8hXzN66bX@kernel.org>
- <CAOm6qnkRUMnVGj7tnem822nRpJ8R6kFVf6B4W9MhMSBQY8X7Kg@mail.gmail.com>
+	id 1tPdZK-00000009ZVc-2WNv;
+	Mon, 23 Dec 2024 08:13:38 +0000
+Received: from ded1.1wt.eu ([163.172.96.212] helo=1wt.eu)
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tPdZH-00000009ZUt-2jrj
+	for linux-riscv@lists.infradead.org;
+	Mon, 23 Dec 2024 08:13:37 +0000
+Received: (from willy@localhost)
+	by pcw.home.local (8.15.2/8.15.2/Submit) id 4BN8DJbb003891;
+	Mon, 23 Dec 2024 09:13:19 +0100
+Date: Mon, 23 Dec 2024 09:13:19 +0100
+From: Willy Tarreau <w@1wt.eu>
+To: Thomas =?iso-8859-1?Q?Wei=DFschuh?= <linux@weissschuh.net>
+Cc: Shuah Khan <shuah@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>,
+        Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+        linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org,
+        linux-riscv@lists.infradead.org, Zhangjin Wu <falcon@tinylab.org>
+Subject: Re: [PATCH 1/6] tools/nolibc: add support for waitid()
+Message-ID: <20241223081319.GA3840@1wt.eu>
+References: <20241221-nolibc-rv32-v1-0-d9ef6dab7c63@weissschuh.net>
+ <20241221-nolibc-rv32-v1-1-d9ef6dab7c63@weissschuh.net>
+ <20241221163540.GA11984@1wt.eu>
+ <732f202e-c0de-493e-adec-59fe069b17c9@t-8ch.de>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <CAOm6qnkRUMnVGj7tnem822nRpJ8R6kFVf6B4W9MhMSBQY8X7Kg@mail.gmail.com>
+In-Reply-To: <732f202e-c0de-493e-adec-59fe069b17c9@t-8ch.de>
+User-Agent: Mutt/1.10.1 (2018-07-13)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241223_000003_680721_6F408919 
-X-CRM114-Status: GOOD (  14.18  )
+X-CRM114-CacheID: sfid-20241223_001336_123385_DDA14D41 
+X-CRM114-Status: GOOD (  25.23  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -142,34 +61,92 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gTW9uLCBEZWMgMjMsIDIwMjQgYXQgMDM6MzI6MDFQTSArMDgwMCwgV2Vpa2FuZyBHdW8gd3Jv
-dGU6Cj4gRmlyc3Qgb2YgYWxsLCB0aGFuayB5b3UgZm9yIHlvdXIgcmVtaW5kZXIgYW5kIHBhdGll
-bmNlLiBJbiBmYWN0LCB0aGlzCj4gaXMgdGhlIGZpcnN0IHRpbWUgSSByZWNlaXZlZCBhIHBhdGNo
-IGRpc2N1c3Npb24gd2hlbiBzdWJtaXR0aW5nIGEKPiBwYXRjaC4KPiBBYm91dCBSZXZpZXdlZC1i
-eSBvciBBY2tlZC1ieSB0YWdzLCBJIHdpbGwgbm90IGFkZCBpdCBteXNlbGYgaW4gdGhlCj4gZnV0
-dXJlLiBSZWdhcmRpbmcgdGhpcyBwYXRjaCwgZG8gSSBuZWVkIHRvIHByb3ZpZGUgYSBuZXcgcGF0
-Y2ggdG8KPiB1cGRhdGUgaXQ/IE9yIHdpbGwgeW91IG1vZGlmeSBpdD8gIExvb2tpbmcgZm9yd2Fy
-ZCB0byB5b3VyIHJlcGx5CgpJdCBpcyBhbGwgZXhwbGFpbmVkIGhlcmU6CgpodHRwczovL2tlcm5l
-bC5vcmcvZG9jL2h0bWwvbGF0ZXN0L3Byb2Nlc3MvZGV2ZWxvcG1lbnQtcHJvY2Vzcy5odG1sCgpH
-byByZWFkIGl0IHdoaWxlIHdhaXRpbmcgaW5zdGVhZCBvZiBzcGFtbWluZyBldmVyeW9uZS4KCkxl
-bW1lIGdldCB5b3VyIHN0YXJ0ZWQgb24gdGhhdCByZWFkaW5nOgoKIkRvbuKAmXQgZ2V0IGRpc2Nv
-dXJhZ2VkIC0gb3IgaW1wYXRpZW50CgpBZnRlciB5b3UgaGF2ZSBzdWJtaXR0ZWQgeW91ciBjaGFu
-Z2UsIGJlIHBhdGllbnQgYW5kIHdhaXQuIFJldmlld2VycyBhcmUKYnVzeSBwZW9wbGUgYW5kIG1h
-eSBub3QgZ2V0IHRvIHlvdXIgcGF0Y2ggcmlnaHQgYXdheS4KCk9uY2UgdXBvbiBhIHRpbWUsIHBh
-dGNoZXMgdXNlZCB0byBkaXNhcHBlYXIgaW50byB0aGUgdm9pZCB3aXRob3V0CmNvbW1lbnQsIGJ1
-dCB0aGUgZGV2ZWxvcG1lbnQgcHJvY2VzcyB3b3JrcyBtb3JlIHNtb290aGx5IHRoYW4gdGhhdCBu
-b3cuCllvdSBzaG91bGQgcmVjZWl2ZSBjb21tZW50cyB3aXRoaW4gYSBmZXcgd2Vla3MgKHR5cGlj
-YWxseSAyLTMpOyBpZiB0aGF0CmRvZXMgbm90IGhhcHBlbiwgbWFrZSBzdXJlIHRoYXQgeW91IGhh
-dmUgc2VudCB5b3VyIHBhdGNoZXMgdG8gdGhlIHJpZ2h0CnBsYWNlLiBXYWl0IGZvciBhIG1pbmlt
-dW0gb2Ygb25lIHdlZWsgYmVmb3JlIHJlc3VibWl0dGluZyBvciBwaW5naW5nCnJldmlld2VycyAt
-IHBvc3NpYmx5IGxvbmdlciBkdXJpbmcgYnVzeSB0aW1lcyBsaWtlIG1lcmdlIHdpbmRvd3MuIgoK
-LS0gClJlZ2FyZHMvR3J1c3MsCiAgICBCb3Jpcy4KCmh0dHBzOi8vcGVvcGxlLmtlcm5lbC5vcmcv
-dGdseC9ub3Rlcy1hYm91dC1uZXRpcXVldHRlCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZA
-bGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xp
-c3RpbmZvL2xpbnV4LXJpc2N2Cg==
+Hi Thomas!
+
+On Sun, Dec 22, 2024 at 12:39:01PM +0100, Thomas Wei=DFschuh wrote:
+> > Maybe it will be time for us to run an overall audit of arch-dependent
+> > syscalls we currently have, to make sure that the common ones continue
+> > to work fine there (and waitpid() definitely is as common a syscall as
+> > open() since it's the good old and portable one).
+> =
+
+> Isn't this what nolibc-test is already doing?
+
+My concern is that it might be progressively going away from this if
+we replace some standard syscalls with new ones that are cross-arch.
+
+> Or do you also want to compare it to non-current kernel versions?
+
+I mean that we progressively replace old posix calls with new cross arch
+ones in the system (e.g. open->openat, waitpid->waitid etc) and normally
+it's a libc's role to preserve application-level compatibility by
+maintaining the mapping between standard ones and specific ones so that
+applications relying on standard ones continue to work, and that was one
+of the original goals of nolibc.
+
+I have nothing against missing some calls in newly added architectures,
+of course, but when I'm seeing for example that we switch some of the
+lower layer tests to use a pipe because some call was not present, I
+tend to think that maybe we should first define what is the minimal set
+of working syscalls that the nolibc-test program requires to be usable
+on any arch.
+
+In the current case, we seem to have to arbiter between pipe() and
+lseek() support for basic nolibc-test support. But maybe a new arch will
+be added for which it will be the opposite choice between the two. We
+may very well require both of them to work if needed, or either, at the
+risk of delaying support of a specific arch in the future, but that's
+fine.
+
+Second we should have a new look at all our supported calls and check if
+some of them are present while the legacy calls they're supposed to
+replace is missing (which would be perfectly possible). For example if
+we had implemented waitpid() much later, it would have been perfectly
+possible that we'd only implement waitid() and miss waitpid() that
+applications expect.
+
+Honestly it's not a particularly interesting job to do. That's why I'm
+mostly saying that we should just keep that in mind to be careful with
+new additions.
+
+> In general the special rv32 syscalls are not really
+> architecture-dependent, they just dropped the "legacy" ones, especially
+> all using 32bit timestamps.
+
+I understand, and when adding a new arch we need to start with something.
+I just think that we should consider that for a new arch to switch from
+"in progress" to "working", it would require the legacy ones working on
+other archs to work on that one as well. My concern is that early boot
+tools would only build on certain archs but not all when all of them are
+supposed to be in a working state. When it fails everywhere that's fine,
+it just means we're missing some calls and the user is welcome to submit
+a patch. But when the user only tests on, say, x86 and arm, and someone
+relies on that to package kernels and discovers late that it fails on
+riscv for example, that's a problem. Note that I'm just making up examples,
+and not designating any particular issue.
+
+Maybe it would be convenient to maintain a support matrix for the syscalls
+we currently support. It could look something like:
+
+   waitpid()   x86: native
+               arm: native
+               riscv32: via waitid()
+               foobar: not yet
+
+   open()      ...
+
+etc. I could try to work on such a thing if you're interested as well, but
+not now as I don't have the time at the moment.
+
+Cheers,
+Willy
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
