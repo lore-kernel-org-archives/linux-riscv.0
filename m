@@ -4,87 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BED0BE7718E
-	for <linux-riscv@archiver.kernel.org>; Tue, 24 Dec 2024 21:05:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F2AD4E77188
+	for <linux-riscv@archiver.kernel.org>; Wed, 25 Dec 2024 00:33:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
-	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=e/AKWhu+MMV5Wt8qWidqEPX8X3hFWWiMGEg3OXQU18A=; b=Kha6rrodmsW36H
-	N8l2NI+9wv5Gb3T6gjSS/EwASFquX8OscEtIMAhnhr2Wq3fekNixhScZFMyxv1nyeYtAY9gGzXBas
-	RLn1u+5ehu7ajXobJNWfj1U11Dc9si/++fHgtGTauU9l2IE1Nn/+ApTtJfsOx7nZE9zgXs0RxFbkA
-	MgaBIrm1ppOdqYRHDEiaiId16+S+MYjKmv/SfSxDWlG5Pn5YLac8b16/KjJC4n8g0lPvhsJX+aYzA
-	VWXMZoFmPG76isvYuE/K4mkkxwnMQf1TAxNrzZsxoQcyaI86jA5BQ9vMvU7LndUe4CbyOBmO+yOnr
-	fRaz5JWJeKEccl5HjQpg==;
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:To:MIME-Version:Message-Id:Date:Subject
+	:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=yeZ35MZUJ+BtyjOSFd1rJ7U5j2a2RqUQt4T2C77Uu6g=; b=U5adDM8Y/GemVA
+	A8+nf5YzBzfgEWZCL1QqNxQb1z1ts+sTnC+5Eb9bH/pMJsUga19puCIJ/NoZ/qAu+SZqypoGGqehi
+	wChnNHlBXQS57W+fOycSGYqEVO98No8lMceKygxCGbX/D4RUqgrVURwhIH+xRkcPp5ji2lSlXPiaZ
+	H31XXupQlBR38JqR85e/TuargGaK6MZG60JupZgDEzJIrWTm4tK0pUX7zRfUtWoNbbAGDjxgMA+Q9
+	NDL9dT594tyY51cpYtcAMG9unyV5KucAqQp1l9V8/Zm2EQej0vU4d3oFELKwCuvmMcbiewZr/ppfC
+	1zeAja5fOIj4ZAovtWmQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tQC5P-0000000CnTv-1sCu;
-	Tue, 24 Dec 2024 21:05:03 +0000
-Received: from mail-pl1-x633.google.com ([2607:f8b0:4864:20::633])
+	id 1tQFKz-0000000CzdM-0CrC;
+	Wed, 25 Dec 2024 00:33:21 +0000
+Received: from woodpecker.gentoo.org ([140.211.166.183] helo=smtp.gentoo.org)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tQC5M-0000000CnRB-0NNg
+	id 1tQFKw-0000000Czcv-46zd
 	for linux-riscv@lists.infradead.org;
-	Tue, 24 Dec 2024 21:05:02 +0000
-Received: by mail-pl1-x633.google.com with SMTP id d9443c01a7336-216401de828so55240035ad.3
-        for <linux-riscv@lists.infradead.org>; Tue, 24 Dec 2024 13:04:59 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1735074299; x=1735679099; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=K7Pb5Vxtmu1FY9/J9EKk+mhOADazj56h0vKNA3c2QKo=;
-        b=zLQqCeTA8kG12fOAPvFCvR1bGqL9AI8qTX9ic4wb7/Np/2oc30/PeLMcQfszohurNu
-         uq1Xc1xt33vT3Q4Rx1GBJdg3SSXzdh0ecz47LH9L626nMI0rE8rBAFLtgYrNh90dL6Vd
-         aSf+lCZBStZ1czE/x6qr36tSWdzIaZzacEspT99bkFXj/V7Jeo/t3Q3XcbsVKxuHFVww
-         Iah/dHPrj+cEIGetq+XLvcn6jRh3djep7jOqWstxJ916/TiR8OQ9W2YedtvBBd8YzTeG
-         I4Ihd5lmdaUljIc5IME0T1ZiA9TwbMkGgnLMqTdfrBUIV4vc8USfiGR7dzMc53WCk8jB
-         +E0g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1735074299; x=1735679099;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=K7Pb5Vxtmu1FY9/J9EKk+mhOADazj56h0vKNA3c2QKo=;
-        b=gl5oyOZFOUubaCkLpI0v514AY3J82N5AoKQqbaRl3m6XhnOpOxichcCQ+p69O7Fswt
-         XVvrrkzHdwksiUMSmF5Coilt9ykfx4DpqYCOZPmnuUEd7U8ScyBQ1LzNMtfLkc30+P20
-         aj1dc5q1xb2ZJyFn6c0GMr94j0x+LoWThSPXVyRMbRdeA5mG63GxprB40VsKDRsZ9YmN
-         RKKOhxNoNfvMyYm+o+JFjdjhnZdPdKEqurjjkZkUUpb9n3Vesx1sikKEcCDP+71Oz12I
-         sjJLq5MUUZUpY92R/8/hUnqs0p9ALt4otHMs//XkIar9ph9eZ4ZRRQuygSwIV97WTsQh
-         5pJQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXHbYO9KSxPZVYe6na8YbzHFFIX07P1H4So/6yE+enzTNKe8hftWrpJ45wbf9F2AiV7C/30U4zcySgECQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0YxzuueTDwv1GGnnO/IhO/R4FSn2CDxxOKSycfQCsthJUQbbMGVI
-	/LO+cMav4wzmqLeem633ssiK4tBEDMWHuXYMgrDU6NFDKpmuPipVhLhSqihBcro=
-X-Gm-Gg: ASbGncvoLaM+mZUuT6cZjqKOBfYPcJhRdcfes5hr6VIYO1ZBGnjwJQATY6T44m2eeue
-	O6lX9DOHh/l4bztzU1a2FVLHQFMGkJONAGr81oxYMiJOnQgiz4NGk4+KsozoD0ZDH0QppBvHnC+
-	PU3Iw5CkdTcDiII1px8ASVFit0f9U1iDpBNOjMNfpaaVuIn1hca8Ko8cVdfcGCx2G/tIyS/Uyhe
-	XG4T+1nQxagaUteURkMMtAOrp0uMfHJdJcinwVABWFRxLuC0D9hWAOM/PlcMxh8+AV5dA==
-X-Google-Smtp-Source: AGHT+IEINBS2wMAKPXcEeiQvMr4mHt6N/s5a4KNXcdkRoepKl+xENIOeQWFga5Ts/3lf9tV+pKQhqg==
-X-Received: by 2002:a05:6a00:3905:b0:725:e73c:c415 with SMTP id d2e1a72fcca58-72abde8fd6fmr24905523b3a.18.1735074299238;
-        Tue, 24 Dec 2024 13:04:59 -0800 (PST)
-Received: from atishp.ba.rivosinc.com ([64.71.180.162])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-72aad90c344sm10445925b3a.186.2024.12.24.13.04.58
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 24 Dec 2024 13:04:58 -0800 (PST)
-From: Atish Patra <atishp@rivosinc.com>
-Date: Tue, 24 Dec 2024 13:04:53 -0800
-Subject: [PATCH v2 1/3] RISC-V: KVM: Redirect instruction access fault trap
- to guest
+	Wed, 25 Dec 2024 00:33:20 +0000
+From: Yixun Lan <dlan@gentoo.org>
+Subject: [PATCH v3 0/3] riscv: spacemit: add gpio support for K1 SoC
+Date: Wed, 25 Dec 2024 08:32:38 +0800
+Message-Id: <20241225-03-k1-gpio-v3-0-27bb7b441d62@gentoo.org>
 MIME-Version: 1.0
-Message-Id: <20241224-kvm_guest_stat-v2-1-08a77ac36b02@rivosinc.com>
-References: <20241224-kvm_guest_stat-v2-0-08a77ac36b02@rivosinc.com>
-In-Reply-To: <20241224-kvm_guest_stat-v2-0-08a77ac36b02@rivosinc.com>
-To: Anup Patel <anup@brainfault.org>, Atish Patra <atishp@atishpatra.org>, 
+X-B4-Tracking: v=1; b=H4sIAKdSa2cC/1WQy27EIAxFfyViXSrbkOeq/1F1EcBkUDshJWnUa
+ pR/L8mM2hl2F+kcX/siZk6BZ9EVF5F4DXOIYw7qqRD21I8Dy+ByFgSkoaFGgpLvKIcpRFmh8S3
+ 5FhRZkYEpsQ/fh+z17ZoTf35l53L9/Fd2xSGsqNptgNL0c7DSLRL7XiEzG+uoW0txX+RG1ZBr0
+ A5OYbRL+pCqJwNsUSHgDcpCljaez2Hpirpx2ivNhFiaEmtjjeeaLTjAxuRX+daAacRe+xTmJaa
+ f4yQrHr2PsS3o++3X3FtWUBMbZtszvAw8LjE+xzQcnpX+WCRsH1jKLDVaa++I0LoHdtu2Xx+J6
+ haYAQAA
+X-Change-ID: 20240828-03-k1-gpio-61bf92f9032c
+To: Linus Walleij <linus.walleij@linaro.org>, 
+ Bartosz Golaszewski <brgl@bgdev.pl>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Conor Dooley <conor@kernel.org>, 
  Paul Walmsley <paul.walmsley@sifive.com>, 
  Palmer Dabbelt <palmer@dabbelt.com>
-Cc: kvm@vger.kernel.org, kvm-riscv@lists.infradead.org, 
- linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Atish Patra <atishp@rivosinc.com>, Quan Zhou <zhouquan@iscas.ac.cn>
-X-Mailer: b4 0.15-dev-13183
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=3764; i=dlan@gentoo.org;
+ h=from:subject:message-id; bh=cxl3ajAlJqTFZVJYcvm63By6WB5fDAr1GHfv0IxtB/Q=;
+ b=owEBzQIy/ZANAwAKATGq6kdZTbvtAcsmYgBna1K64x9Qk83DaIIseh3eAA9yHstXGjOvGDmsK
+ pH3yjgh8S2JApMEAAEKAH0WIQS1urjJwxtxFWcCI9wxqupHWU277QUCZ2tSul8UgAAAAAAuAChp
+ c3N1ZXItZnByQG5vdGF0aW9ucy5vcGVucGdwLmZpZnRoaG9yc2VtYW4ubmV0QjVCQUI4QzlDMzF
+ CNzExNTY3MDIyM0RDMzFBQUVBNDc1OTREQkJFRAAKCRAxqupHWU277RahD/9uuI9FpmUE2tmQb/
+ Csw7MdmVqGup9rJ8afzNy/hVOdpx05/43R9NJrBjON+PGfwcVJXwxSE2u7BE4eG+CwwAeOGMwSH
+ HPmx/kIYpG0OuFnBgEOSLD1ZzCkY8abcvM41/UbHIOkT2JQtjUezkCEaWtlPI0TXyxEBcvJKpks
+ dgoD5cGLyzPBzR4p1xsViWXN2n0DQr0zQksIcdT5x2eEigYp+WexiZ94w61peYhaU3CBmvAArdt
+ Alo9HuZ8YUgZ/E3WogVfJGGEyq5gESxrFu1Xb/WoXe7VbncUs284z6KRKg/qPS0Wa+73f8T05g+
+ GJP1aT3AAYy5B8+p6FOOkzviMW9ekm9FBMSI5G6p+vQYU6BM7TU6YWPPFmWenI4hJres0IzZduQ
+ ousCLgQN9avMOQlMlI/bpTbIDhEdb9wTmCUz8ktnQkuxa58ziJ5r3Z565Nk78QhFOjuxf5u9z69
+ SkZk7At+v4g0s794eil/vPP45DEJdbvlFLZgneCGYoi6p07jMwl/LKUbmNHBtc494L+0VUUHzac
+ tNY5/VRoO8bu2G9rEBQZCWJ9IRyXje9o2sy3SgqZwjuQV0MMpwXV8zjFWiXmposSidV5Obhplw/
+ TSVPrSqyK0RbdIMjVN9afTF8T/pyV/qFsLBzj6Xc4fVpn18t2o7kuWD7DHvkbKekSwHw==
+X-Developer-Key: i=dlan@gentoo.org; a=openpgp;
+ fpr=50B03A1A5CBCD33576EF8CD7920C0DBCAABEFD55
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241224_130500_137472_5F123742 
-X-CRM114-Status: UNSURE (   8.84  )
+X-CRM114-CacheID: sfid-20241224_163319_060999_0CB0BF1F 
+X-CRM114-Status: UNSURE (   9.25  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -97,43 +78,89 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Cc: devicetree@vger.kernel.org, Meng Zhang <zhangmeng.kevin@linux.spacemit.com>, Yixun Lan <dlan@gentoo.org>, linux-gpio@vger.kernel.org, linux-kernel@vger.kernel.org, Jesse Taube <mr.bossman075@gmail.com>, Yangyu Chen <cyy@cyyself.name>, Inochi Amaoto <inochiama@outlook.com>, Jisheng Zhang <jszhang@kernel.org>, linux-riscv@lists.infradead.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Quan Zhou <zhouquan@iscas.ac.cn>
+The gpio controller of K1 support basic GPIO functions,
+which capable of enabling as input, output. It can also be used
+as GPIO interrupt which able to detect rising edge, falling edge,
+or both. There are four GPIO banks, each consisting of 32 pins.
 
-The M-mode redirects an unhandled instruction access
-fault trap back to S-mode when not delegating it to
-VS-mode(hedeleg). However, KVM running in HS-mode
-terminates the VS-mode software when back from M-mode.
+The GPIO driver request the clock source from APBC block,
+In this series, I haven't added the clock support, but plan
+to fix it after clock driver is implemented/merged.
 
-The KVM should redirect the trap back to VS-mode, and
-let VS-mode trap handler decide the next step.
+The GPIO docs of K1 SoC can be found here, chapter 16.4 GPIO [1]
 
-Signed-off-by: Quan Zhou <zhouquan@iscas.ac.cn>
-Reviewed-by: Anup Patel <anup@brainfault.org>
-Signed-off-by: Atish Patra <atishp@rivosinc.com>
+Note, this patch need two prerequisite series, basic dt[2] and pinctrl[3]
+
+This patch series has been tested on Bananapi-F3 board,
+with following GPIO cases passed:
+ 1) gpio input
+ 2) gpio output - set to high, low
+ 3) gpio interrupt - rising trigger, falling trigger, both edge trigger
+
+Link: https://developer.spacemit.com/documentation?token=Rn9Kw3iFHirAMgkIpTAcV2Arnkf [1]
+Link: https://lore.kernel.org/all/20240730-k1-01-basic-dt-v5-0-98263aae83be@gentoo.org [2]
+Link: https://lore.kernel.org/all/20241016-02-k1-pinctrl-v5-0-03d395222e4f@gentoo.org/ [3]
+Signed-off-by: Yixun Lan <dlan@gentoo.org>
 ---
- arch/riscv/kvm/vcpu_exit.c | 1 +
- 1 file changed, 1 insertion(+)
+Changes in v3:
+- dt: drop ranges, interrupt-names property
+- Link to v2: https://lore.kernel.org/r/20241219-03-k1-gpio-v2-0-28444fd221cd@gentoo.org
 
-diff --git a/arch/riscv/kvm/vcpu_exit.c b/arch/riscv/kvm/vcpu_exit.c
-index fa98e5c024b2..c9f8b2094554 100644
---- a/arch/riscv/kvm/vcpu_exit.c
-+++ b/arch/riscv/kvm/vcpu_exit.c
-@@ -187,6 +187,7 @@ int kvm_riscv_vcpu_exit(struct kvm_vcpu *vcpu, struct kvm_run *run,
- 	case EXC_STORE_MISALIGNED:
- 	case EXC_LOAD_ACCESS:
- 	case EXC_STORE_ACCESS:
-+	case EXC_INST_ACCESS:
- 		if (vcpu->arch.guest_context.hstatus & HSTATUS_SPV) {
- 			kvm_riscv_vcpu_trap_redirect(vcpu, trap);
- 			ret = 1;
+Changes in v2:
+- address dt-bindings comments, simplify example
+- rebase to 6.13-rc3 
+- Link to v1: https://lore.kernel.org/r/20240904-03-k1-gpio-v1-0-6072ebeecae0@gentoo.org
 
+---
+Yixun Lan (3):
+      dt-bindings: gpio: spacemit: add support for K1 SoC
+      gpio: spacemit: add support for K1 SoC
+      riscv: dts: spacemit: add gpio support for K1 SoC
+
+ .../devicetree/bindings/gpio/spacemit,k1-gpio.yaml |  69 ++++
+ arch/riscv/boot/dts/spacemit/k1.dtsi               |  12 +
+ drivers/gpio/Kconfig                               |   7 +
+ drivers/gpio/Makefile                              |   1 +
+ drivers/gpio/gpio-spacemit-k1.c                    | 454 +++++++++++++++++++++
+ 5 files changed, 543 insertions(+)
+---
+base-commit: 78d4f34e2115b517bcbfe7ec0d018bbbb6f9b0b8
+change-id: 20240828-03-k1-gpio-61bf92f9032c
+prerequisite-change-id: 20240626-k1-01-basic-dt-1aa31eeebcd2:v5
+prerequisite-patch-id: 47dcf6861f7d434d25855b379e6d7ef4ce369c9c
+prerequisite-patch-id: 77787fe82911923aff15ccf565e8fa451538c3a6
+prerequisite-patch-id: b0bdb1742d96c5738f05262c3b0059102761390b
+prerequisite-patch-id: 3927d39d8d77e35d5bfe53d9950da574ff8f2054
+prerequisite-patch-id: a98039136a4796252a6029e474f03906f2541643
+prerequisite-patch-id: c95f6dc0547a2a63a76e3cba0cf5c623b212b4e6
+prerequisite-patch-id: 66e750e438ee959ddc2a6f0650814a2d8c989139
+prerequisite-patch-id: 29a0fd8c36c1a4340f0d0b68a4c34d2b8abfb1ab
+prerequisite-patch-id: 0bdfff661c33c380d1cf00a6c68688e05f88c0b3
+prerequisite-patch-id: 99f15718e0bfbb7ed1a96dfa19f35841b004dae9
+prerequisite-change-id: 20240708-02-k1-pinctrl-3a2b0ec13101:v5
+prerequisite-patch-id: 47dcf6861f7d434d25855b379e6d7ef4ce369c9c
+prerequisite-patch-id: 77787fe82911923aff15ccf565e8fa451538c3a6
+prerequisite-patch-id: b0bdb1742d96c5738f05262c3b0059102761390b
+prerequisite-patch-id: 3927d39d8d77e35d5bfe53d9950da574ff8f2054
+prerequisite-patch-id: a98039136a4796252a6029e474f03906f2541643
+prerequisite-patch-id: c95f6dc0547a2a63a76e3cba0cf5c623b212b4e6
+prerequisite-patch-id: 66e750e438ee959ddc2a6f0650814a2d8c989139
+prerequisite-patch-id: 29a0fd8c36c1a4340f0d0b68a4c34d2b8abfb1ab
+prerequisite-patch-id: 0bdfff661c33c380d1cf00a6c68688e05f88c0b3
+prerequisite-patch-id: 99f15718e0bfbb7ed1a96dfa19f35841b004dae9
+prerequisite-patch-id: 238db182251f2f79a947d16f0112a958d0837878
+prerequisite-patch-id: 8c2cff9ceb9d062c91a34a39add45555bff2d545
+prerequisite-patch-id: b93bb35db82d199d4d30deefbc34b8413539cf32
+
+Best regards,
 -- 
-2.34.1
+Yixun Lan
 
 
 _______________________________________________
