@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 98F50E7718E
-	for <linux-riscv@archiver.kernel.org>; Fri, 27 Dec 2024 01:10:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A56E4E7718F
+	for <linux-riscv@archiver.kernel.org>; Fri, 27 Dec 2024 01:10:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=AmX4QTOvdbbd17IkmkTbYFhPalt11Gcqz9znYVo5YpY=; b=QdvtoYrdSZmr9l
-	gllSZGxTNmWP7NSisBAfbpWittXSCmr+xGCkFAeLLwpub/dGznDd5IDkkLGNZNWjNiG56l0E4dqPV
-	o2PHIvUhY3OVBCQvOy7TXubWXngScUiMeqFlwQdYoF2Cn9O1tTjSbHjKfaWYeI7xSw/YmsbcsnjW8
-	uYZD/cKgStS5mTb8c0dyup+W7xvBq7QXYfd4SXcUcJA71/nNfmYz4gJwMeEPk1Y98cgCw9AApYkIM
-	9KvpTheq+R8IeV61VYxzpKmslMX6tsBhK0Gn6YKMldgNLxZ1ZCGPdGSMhCF/PvbAkaepOYUGzIm/x
-	BJW9BWR2whPgvvmspP3A==;
+	List-Owner; bh=vVRMblyhyVX9XQa5HHWiZRF2T2xGr9w/B6pSsh49GDA=; b=yErY8b0/+GV8H4
+	baqMkrvLMDN7uj6AfAzmi07ZhvyCcz/fnJWMyIQtei8lT9U80R70POoI4LJHsr/xAGdlqRKK9Jhby
+	HMZQwSWop+YOh42lnY9W46ORch+hMyqNJhRicIGYItTdrC6bjqgCDbICSxYopwKOWtmOV7sf/62DG
+	FBpPiQF3Zc3/R8Y5yBXEXDOgIsg3p7G+h5hkJzBK9mdXN6FBGEZZb+vc0Vgt58NsdDxuW9X3REDJ3
+	WX2e11m+8szAahAN1rR6y6pt60hTAzx1HEfT/0p6lppzmkMP16vfF7ALxAgoKvLSOueRMzvncTMYj
+	nKAaam0De9uUl0ZNb5gA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tQysH-0000000GnFX-27fR;
-	Fri, 27 Dec 2024 01:10:45 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tQys9-0000000GnAg-0fLX;
+	Fri, 27 Dec 2024 01:10:37 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tQysE-0000000GnE2-1Qdi
+	id 1tQys6-0000000Gn9o-3VUr
 	for linux-riscv@lists.infradead.org;
-	Fri, 27 Dec 2024 01:10:43 +0000
+	Fri, 27 Dec 2024 01:10:36 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 37FF75C61C4;
-	Fri, 27 Dec 2024 01:10:00 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4C341C4CED1;
-	Fri, 27 Dec 2024 01:10:38 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id B416F5C61B8;
+	Fri, 27 Dec 2024 01:09:52 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E7F09C4CEDC;
+	Fri, 27 Dec 2024 01:10:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1735261841;
-	bh=fuERFLEm+4/d8Ny2ilkznllQWW+KHxeqo3MyuSlJ5ks=;
+	s=k20201202; t=1735261834;
+	bh=ZQvAGn/2NlyTLE3ty4U7yyFatMFiuoweHmxM3NYxd9s=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=WvhNjbqEy9asICLql8bu7lqIB9zK2p+NiuQDAK+96oXH5t0q3gjQ0VgYHjndxG93D
-	 Hm1IHY7pr9aAfyfrpE9JZDfx9js99q1hJ2Dk67m+Ybgd/bwIv+UfrwbBl1iG0VUpg3
-	 vC9GltSvBlJ9krVNY6khmLXCU9MKO6y+qmhMvb7lJwajuwGby4NRPj96f3UtqgHBsa
-	 kEtGMAlca/N4LFw3QyNzFZwxz2jJ1JvjxCmW+W2XTVil5fIMKy4mPvYbKDBPj+RjB8
-	 SFM/RwgPY980fe7r54C2es28e+7iZNWBEaMm4T7yAxwPRTaPimxp/G67qiNyMxq2+l
-	 QiDFtSXu5mKlw==
+	b=PeZ1kEAp68nyIi/RJ5ZdLkSOeUrgMc/fSVBuT0mLtmilREx+IP91edm7/kKg2N1JH
+	 iMVn9kpXvF4fjd/rV49CCfOHwi8bCQ3dU997P4ruWiAg78TmkbOprD3tev8LSCKbk3
+	 RbGmIxM5CvgwhAww2+ntH/FodbVcCpMSWW7vEpXgN2P5PEaxQFT2IApJKntndQRJiM
+	 Isgvs+5unaC+O7RMUTlxBLTdoeOiJtUcuNBtFYu6SpdC3H/XzzP/FW3HEJK+XzGHwq
+	 UZAbuoS8ZmafCtz4HmO41xtz3732f0HOkTJXdMhq4tEIb1gjgFCa3okQYHMq/2EjF7
+	 Of8pTprIEsLng==
 From: guoren@kernel.org
 To: paul.walmsley@sifive.com,
 	palmer@dabbelt.com,
@@ -62,16 +62,16 @@ To: paul.walmsley@sifive.com,
 Cc: linux-riscv@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	Guo Ren <guoren@linux.alibaba.com>
-Subject: [RFC PATCH V2 3/4] RISC-V: paravirt: pvqspinlock: Add trace point for pv_kick/wait
-Date: Thu, 26 Dec 2024 20:10:10 -0500
-Message-Id: <20241227011011.2331381-4-guoren@kernel.org>
+Subject: [RFC PATCH V2 1/4] RISC-V: paravirt: Add pvqspinlock KVM backend
+Date: Thu, 26 Dec 2024 20:10:08 -0500
+Message-Id: <20241227011011.2331381-2-guoren@kernel.org>
 X-Mailer: git-send-email 2.40.1
 In-Reply-To: <20241227011011.2331381-1-guoren@kernel.org>
 References: <20241227011011.2331381-1-guoren@kernel.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241226_171042_464862_30DE6872 
-X-CRM114-Status: GOOD (  10.91  )
+X-CRM114-CacheID: sfid-20241226_171034_965731_632C78E3 
+X-CRM114-Status: GOOD (  16.03  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,147 +90,161 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Guo Ren <guoren@linux.alibaba.com>
 
-Add trace point for pv_kick&wait, here is the output:
-
-ls /sys/kernel/debug/tracing/events/paravirt/
- enable   filter   pv_kick  pv_wait
-
-cat /sys/kernel/debug/tracing/trace
- entries-in-buffer/entries-written: 33927/33927   #P:12
-
-                                _-----=> irqs-off/BH-disabled
-                               / _----=> need-resched
-                              | / _---=> hardirq/softirq
-                              || / _--=> preempt-depth
-                              ||| / _-=> migrate-disable
-                              |||| /     delay
-           TASK-PID     CPU#  |||||  TIMESTAMP  FUNCTION
-              | |         |   |||||     |         |
-             sh-100     [001] d..2.    28.312294: pv_wait: cpu 1 out of wfi
-         <idle>-0       [000] d.h4.    28.322030: pv_kick: cpu 0 kick target cpu 1
-             sh-100     [001] d..2.    30.982631: pv_wait: cpu 1 out of wfi
-         <idle>-0       [000] d.h4.    30.993289: pv_kick: cpu 0 kick target cpu 1
-             sh-100     [002] d..2.    44.987573: pv_wait: cpu 2 out of wfi
-         <idle>-0       [000] d.h4.    44.989000: pv_kick: cpu 0 kick target cpu 2
-         <idle>-0       [003] d.s3.    51.593978: pv_kick: cpu 3 kick target cpu 4
-      rcu_sched-15      [004] d..2.    51.595192: pv_wait: cpu 4 out of wfi
-lock_torture_wr-115     [004] ...2.    52.656482: pv_kick: cpu 4 kick target cpu 2
-lock_torture_wr-113     [002] d..2.    52.659146: pv_wait: cpu 2 out of wfi
-lock_torture_wr-114     [008] d..2.    52.659507: pv_wait: cpu 8 out of wfi
-lock_torture_wr-114     [008] d..2.    52.663503: pv_wait: cpu 8 out of wfi
-lock_torture_wr-113     [002] ...2.    52.666128: pv_kick: cpu 2 kick target cpu 8
-lock_torture_wr-114     [008] d..2.    52.667261: pv_wait: cpu 8 out of wfi
-lock_torture_wr-114     [009] .n.2.    53.141515: pv_kick: cpu 9 kick target cpu 11
-lock_torture_wr-113     [002] d..2.    53.143339: pv_wait: cpu 2 out of wfi
-lock_torture_wr-116     [007] d..2.    53.143412: pv_wait: cpu 7 out of wfi
-lock_torture_wr-118     [000] d..2.    53.143457: pv_wait: cpu 0 out of wfi
-lock_torture_wr-115     [008] d..2.    53.143481: pv_wait: cpu 8 out of wfi
-lock_torture_wr-117     [011] d..2.    53.143522: pv_wait: cpu 11 out of wfi
-lock_torture_wr-117     [011] ...2.    53.143987: pv_kick: cpu 11 kick target cpu 8
-lock_torture_wr-115     [008] ...2.    53.144269: pv_kick: cpu 8 kick target cpu 7
+Add the files functions needed to support the SBI PVLOCK (paravirt
+qspinlock kick_cpu) extension. Implement kvm_sbi_ext_pvlock_kick_-
+cpu(), and we only need to call the kvm_vcpu_kick() and bring
+target_vcpu from the halt state.
 
 Reviewed-by: Leonardo Bras <leobras@redhat.com>
 Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
 Signed-off-by: Guo Ren <guoren@kernel.org>
 ---
- arch/riscv/kernel/qspinlock_paravirt.c        |  7 +++
- .../kernel/trace_events_filter_paravirt.h     | 60 +++++++++++++++++++
- 2 files changed, 67 insertions(+)
- create mode 100644 arch/riscv/kernel/trace_events_filter_paravirt.h
+ arch/riscv/include/asm/kvm_vcpu_sbi.h |  1 +
+ arch/riscv/include/asm/sbi.h          |  5 +++
+ arch/riscv/include/uapi/asm/kvm.h     |  1 +
+ arch/riscv/kvm/Makefile               |  1 +
+ arch/riscv/kvm/vcpu_sbi.c             |  4 ++
+ arch/riscv/kvm/vcpu_sbi_pvlock.c      | 57 +++++++++++++++++++++++++++
+ 6 files changed, 69 insertions(+)
+ create mode 100644 arch/riscv/kvm/vcpu_sbi_pvlock.c
 
-diff --git a/arch/riscv/kernel/qspinlock_paravirt.c b/arch/riscv/kernel/qspinlock_paravirt.c
-index 4ec4765f57f3..781ed2190334 100644
---- a/arch/riscv/kernel/qspinlock_paravirt.c
-+++ b/arch/riscv/kernel/qspinlock_paravirt.c
-@@ -9,8 +9,13 @@
- #include <asm/qspinlock_paravirt.h>
- #include <asm/sbi.h>
+diff --git a/arch/riscv/include/asm/kvm_vcpu_sbi.h b/arch/riscv/include/asm/kvm_vcpu_sbi.h
+index b96705258cf9..bc37131938ad 100644
+--- a/arch/riscv/include/asm/kvm_vcpu_sbi.h
++++ b/arch/riscv/include/asm/kvm_vcpu_sbi.h
+@@ -88,6 +88,7 @@ extern const struct kvm_vcpu_sbi_extension vcpu_sbi_ext_dbcn;
+ extern const struct kvm_vcpu_sbi_extension vcpu_sbi_ext_sta;
+ extern const struct kvm_vcpu_sbi_extension vcpu_sbi_ext_experimental;
+ extern const struct kvm_vcpu_sbi_extension vcpu_sbi_ext_vendor;
++extern const struct kvm_vcpu_sbi_extension vcpu_sbi_ext_pvlock;
  
-+#define CREATE_TRACE_POINTS
-+#include "trace_events_filter_paravirt.h"
-+
- void pv_kick(int cpu)
- {
-+	trace_pv_kick(smp_processor_id(), cpu);
-+
- 	sbi_ecall(SBI_EXT_PVLOCK, SBI_EXT_PVLOCK_KICK_CPU,
- 		  cpuid_to_hartid_map(cpu), 0, 0, 0, 0, 0);
- 	return;
-@@ -28,6 +33,8 @@ void pv_wait(u8 *ptr, u8 val)
- 		goto out;
+ #ifdef CONFIG_RISCV_PMU_SBI
+ extern const struct kvm_vcpu_sbi_extension vcpu_sbi_ext_pmu;
+diff --git a/arch/riscv/include/asm/sbi.h b/arch/riscv/include/asm/sbi.h
+index 6c82318065cf..03e719f076ad 100644
+--- a/arch/riscv/include/asm/sbi.h
++++ b/arch/riscv/include/asm/sbi.h
+@@ -35,6 +35,7 @@ enum sbi_ext_id {
+ 	SBI_EXT_DBCN = 0x4442434E,
+ 	SBI_EXT_STA = 0x535441,
+ 	SBI_EXT_NACL = 0x4E41434C,
++	SBI_EXT_PVLOCK = 0x50564C4B,
  
- 	wait_for_interrupt();
+ 	/* Experimentals extensions must lie within this range */
+ 	SBI_EXT_EXPERIMENTAL_START = 0x08000000,
+@@ -401,6 +402,10 @@ enum sbi_ext_nacl_feature {
+ #define SBI_NACL_SHMEM_SRET_X(__i)		((__riscv_xlen / 8) * (__i))
+ #define SBI_NACL_SHMEM_SRET_X_LAST		31
+ 
++enum sbi_ext_pvlock_fid {
++	SBI_EXT_PVLOCK_KICK_CPU = 0,
++};
 +
-+	trace_pv_wait(smp_processor_id());
- out:
- 	local_irq_restore(flags);
- }
-diff --git a/arch/riscv/kernel/trace_events_filter_paravirt.h b/arch/riscv/kernel/trace_events_filter_paravirt.h
+ /* SBI spec version fields */
+ #define SBI_SPEC_VERSION_DEFAULT	0x1
+ #define SBI_SPEC_VERSION_MAJOR_SHIFT	24
+diff --git a/arch/riscv/include/uapi/asm/kvm.h b/arch/riscv/include/uapi/asm/kvm.h
+index 3482c9a73d1b..4590570a8fc3 100644
+--- a/arch/riscv/include/uapi/asm/kvm.h
++++ b/arch/riscv/include/uapi/asm/kvm.h
+@@ -198,6 +198,7 @@ enum KVM_RISCV_SBI_EXT_ID {
+ 	KVM_RISCV_SBI_EXT_VENDOR,
+ 	KVM_RISCV_SBI_EXT_DBCN,
+ 	KVM_RISCV_SBI_EXT_STA,
++	KVM_RISCV_SBI_EXT_PVLOCK,
+ 	KVM_RISCV_SBI_EXT_MAX,
+ };
+ 
+diff --git a/arch/riscv/kvm/Makefile b/arch/riscv/kvm/Makefile
+index 0fb1840c3e0a..4e1a82a7eeab 100644
+--- a/arch/riscv/kvm/Makefile
++++ b/arch/riscv/kvm/Makefile
+@@ -32,6 +32,7 @@ kvm-y += vcpu_sbi_replace.o
+ kvm-y += vcpu_sbi_sta.o
+ kvm-$(CONFIG_RISCV_SBI_V01) += vcpu_sbi_v01.o
+ kvm-y += vcpu_switch.o
++kvm-y += vcpu_sbi_pvlock.o
+ kvm-y += vcpu_timer.o
+ kvm-y += vcpu_vector.o
+ kvm-y += vm.o
+diff --git a/arch/riscv/kvm/vcpu_sbi.c b/arch/riscv/kvm/vcpu_sbi.c
+index 6e704ed86a83..c770bef51a2f 100644
+--- a/arch/riscv/kvm/vcpu_sbi.c
++++ b/arch/riscv/kvm/vcpu_sbi.c
+@@ -82,6 +82,10 @@ static const struct kvm_riscv_sbi_extension_entry sbi_ext[] = {
+ 		.ext_idx = KVM_RISCV_SBI_EXT_VENDOR,
+ 		.ext_ptr = &vcpu_sbi_ext_vendor,
+ 	},
++	{
++		.ext_idx = KVM_RISCV_SBI_EXT_PVLOCK,
++		.ext_ptr = &vcpu_sbi_ext_pvlock,
++	},
+ };
+ 
+ static const struct kvm_riscv_sbi_extension_entry *
+diff --git a/arch/riscv/kvm/vcpu_sbi_pvlock.c b/arch/riscv/kvm/vcpu_sbi_pvlock.c
 new file mode 100644
-index 000000000000..68570c7602eb
+index 000000000000..55d889ddc2cd
 --- /dev/null
-+++ b/arch/riscv/kernel/trace_events_filter_paravirt.h
-@@ -0,0 +1,60 @@
-+// SPDX-License-Identifier: GPL-2.0-only
++++ b/arch/riscv/kvm/vcpu_sbi_pvlock.c
+@@ -0,0 +1,57 @@
++// SPDX-License-Identifier: GPL-2.0
 +/*
 + * Copyright (c), 2024 Alibaba Cloud
++ *
 + * Authors:
-+ *	Guo Ren <guoren@linux.alibaba.com>
++ *     Guo Ren <guoren@linux.alibaba.com>
 + */
-+#undef TRACE_SYSTEM
-+#define TRACE_SYSTEM paravirt
 +
-+#if !defined(_TRACE_PARAVIRT_H) || defined(TRACE_HEADER_MULTI_READ)
-+#define _TRACE_PARAVIRT_H
++#include <linux/errno.h>
++#include <linux/err.h>
++#include <linux/kvm_host.h>
++#include <asm/sbi.h>
++#include <asm/kvm_vcpu_sbi.h>
 +
-+#include <linux/tracepoint.h>
++static int kvm_sbi_ext_pvlock_kick_cpu(struct kvm_vcpu *vcpu)
++{
++	struct kvm_cpu_context *cp = &vcpu->arch.guest_context;
++	struct kvm *kvm = vcpu->kvm;
++	struct kvm_vcpu *target;
 +
-+TRACE_EVENT(pv_kick,
-+	TP_PROTO(int cpu, int target),
-+	TP_ARGS(cpu, target),
++	target = kvm_get_vcpu_by_id(kvm, cp->a0);
++	if (!target)
++		return SBI_ERR_INVALID_PARAM;
 +
-+	TP_STRUCT__entry(
-+		__field(int, cpu)
-+		__field(int, target)
-+	),
++	kvm_vcpu_kick(target);
 +
-+	TP_fast_assign(
-+		__entry->cpu = cpu;
-+		__entry->target = target;
-+	),
++	if (READ_ONCE(target->ready))
++		kvm_vcpu_yield_to(target);
 +
-+	TP_printk("cpu %d pv_kick target cpu %d",
-+		__entry->cpu,
-+		__entry->target
-+	)
-+);
++	return SBI_SUCCESS;
++}
 +
-+TRACE_EVENT(pv_wait,
-+	TP_PROTO(int cpu),
-+	TP_ARGS(cpu),
++static int kvm_sbi_ext_pvlock_handler(struct kvm_vcpu *vcpu, struct kvm_run *run,
++				      struct kvm_vcpu_sbi_return *retdata)
++{
++	int ret = 0;
++	struct kvm_cpu_context *cp = &vcpu->arch.guest_context;
++	unsigned long funcid = cp->a6;
 +
-+	TP_STRUCT__entry(
-+		__field(int, cpu)
-+	),
++	switch (funcid) {
++	case SBI_EXT_PVLOCK_KICK_CPU:
++		ret = kvm_sbi_ext_pvlock_kick_cpu(vcpu);
++		break;
++	default:
++		ret = SBI_ERR_NOT_SUPPORTED;
++	}
 +
-+	TP_fast_assign(
-+		__entry->cpu = cpu;
-+	),
++	retdata->err_val = ret;
 +
-+	TP_printk("cpu %d out of wfi",
-+		__entry->cpu
-+	)
-+);
++	return 0;
++}
 +
-+#endif /* _TRACE_PARAVIRT_H || TRACE_HEADER_MULTI_READ */
-+
-+#undef TRACE_INCLUDE_PATH
-+#undef TRACE_INCLUDE_FILE
-+#define TRACE_INCLUDE_PATH ../../../arch/riscv/kernel/
-+#define TRACE_INCLUDE_FILE trace_events_filter_paravirt
-+
-+/* This part must be outside protection */
-+#include <trace/define_trace.h>
++const struct kvm_vcpu_sbi_extension vcpu_sbi_ext_pvlock = {
++	.extid_start = SBI_EXT_PVLOCK,
++	.extid_end = SBI_EXT_PVLOCK,
++	.handler = kvm_sbi_ext_pvlock_handler,
++};
 -- 
 2.40.1
 
