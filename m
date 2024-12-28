@@ -4,68 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EDD06E77188
-	for <linux-riscv@archiver.kernel.org>; Sat, 28 Dec 2024 10:12:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EEA0BE77188
+	for <linux-riscv@archiver.kernel.org>; Sat, 28 Dec 2024 22:56:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=AjBZ9nu/wcMpBX/AjoAxJeMnKgUcgdVQ/wHTQjqjyaE=; b=KyuGMcDtUlpTXy
-	pucWXenWUHqUSx53XJlfP7oi5hzCW6GexST7dpcGQ5J+A0KuAEVBrUmXVaTDMohBee3vXe7fEt4V7
-	GSi5ck95X0tdNzukOu+ksP6xO1LtekhLC4pYYHZMIVQOVGabZlBeC8wpCFC2urxEtsdf+pfpXDkPi
-	ZziXX/2KXZE86VycsnZI/qLagVCmmclngBVnl9kTDaNAocrAwfI/vF/XxVhtMcxJUxoAe9ZDegRlM
-	CD3zYQiwpf1vXwwJp3/sczu1hLEX19PQyUb0CQoG1X8oOzv8+eIoV7POxXG7DE5+YhB6e+lxVJkkT
-	YEjOtC7LmIXnqmrou7VA==;
+	List-Owner; bh=oetbe2fN2v6OjXfeP+gorlWMs7b3JWVicf0XWezbC+Y=; b=EnPglQVaflAp0t
+	2/tnMBoNDwnMpOXRMHBLJyrC96zuEiZMk4FtDFcgnn9MYHycUoSCRQnrf1ZPl4dyNl+UlpZYxzK8/
+	kqpxNMoDiQYe0vQ1GcNthmPYKjlI1ga2RV484vNRM0UE8TcDCjr1m3TZfqRxt4P/t1+4sexdM5BD2
+	EpWAvy0hDzzmYoC6cGwb4lXN2tXAJSKIUVGbsfAiamIHP9/ACI8BK6YTEX3GBeZRrdkCn/Gaz7IIE
+	0oKqpyC6SBiBeDUfhixTgE16g5keb0/n57BrmC/f9gxcp3Dx9gvhmPtgYqnap0FCSV3QyEaKYdB/5
+	9Mq5YH+Z0MEk/wqLhNuw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tRTnm-00000001i7t-0fyJ;
-	Sat, 28 Dec 2024 10:12:10 +0000
-Received: from relay8-d.mail.gandi.net ([2001:4b98:dc4:8::228])
+	id 1tRfja-00000002VQm-2bDw;
+	Sat, 28 Dec 2024 22:56:38 +0000
+Received: from mail-lf1-x12b.google.com ([2a00:1450:4864:20::12b])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tRTmX-00000001hz1-002o;
-	Sat, 28 Dec 2024 10:10:55 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id 4D9191BF203;
-	Sat, 28 Dec 2024 10:10:46 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1735380648;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=ncWYXnUi6mk+o8Emqu4x+YEeix+m7qnAVflQKfWOvnU=;
-	b=XCIDTksVVP4MKIPW77YWhn5eQnvC48fM7XT38sMO4GL+S2x3Df1Ewj/szBh5xIFIqsA2Z5
-	ZilzcEnS0ob4kPcYJWo88q53OLtd7SamktyTld8/ykS5ad9aHtO7ShlIBUvjk+nBt0QW5J
-	myFBF+iN4oCB0jXlbMsfqtkMizt/w77iQVe9W7M9LtSxoo6OTA5KHxrcgkphpt8L5CByY1
-	xg+gw54EfF9RaAE9czfc7Nlyb3vjZjVSG0fNA9q0UQtOtz8AnyO7G5irHp4pYROlBGSfmn
-	c0RlJWVwKaPGic630SqefQTeKf9SJuvfmVmrN1Vmevo6n6oweZ6GjhiunOcb6w==
-Date: Sat, 28 Dec 2024 11:10:46 +0100
-From: Alexandre Belloni <alexandre.belloni@bootlin.com>
-To: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>
-Cc: "Rafael J. Wysocki" <rafael@kernel.org>,
-	Len Brown <len.brown@intel.com>, Pavel Machek <pavel@ucw.cz>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Dmitry Torokhov <dmitry.torokhov@gmail.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Linus Walleij <linus.walleij@linaro.org>,
-	Conor Dooley <conor.dooley@microchip.com>,
-	Daire McNamara <daire.mcnamara@microchip.com>,
-	linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-input@vger.kernel.org, linux-rtc@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
-	linux-riscv@lists.infradead.org, Peng Fan <peng.fan@nxp.com>
-Subject: Re: [PATCH 00/12] pm: Introduce devm_pm_set_wake_irq
-Message-ID: <20241228101046e64adfb2@mail.local>
-References: <20241228-wake_irq-v1-0-09cfca77cd47@nxp.com>
+	id 1tRfiO-00000002VHt-00ue
+	for linux-riscv@lists.infradead.org;
+	Sat, 28 Dec 2024 22:55:25 +0000
+Received: by mail-lf1-x12b.google.com with SMTP id 2adb3069b0e04-5401c52000dso9482039e87.3
+        for <linux-riscv@lists.infradead.org>; Sat, 28 Dec 2024 14:55:22 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1735426521; x=1736031321; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=ma5+6x4L6RmgRS3yZ8s305V7iJUxY/Vzh6XEkM9c4sU=;
+        b=taVdMpreIowOn9rP+LLzCfFQRF3k6nQ86UD2mrPe4FUPLR02QNosTajQmE8YWGgYwt
+         5j98K3WIX5TqDUAcsEounGzk4n0/JO4WcVEXcZXa7q0dX4sXTWtFjG+9RJS1t+bKwwuL
+         wteN22QJMz2lvqBzU/IVWvxcK1Q2BC+V2UTXI6BHRnybGDjNV1ty/U483Ab0VQ6QHUCX
+         pm1/1/oWl7MoUNYmupEPUeyvXv0SwmaweY6xzcXA4O+qR8HK7+moXIa6fbOXJZS8GZPo
+         /jXVqjwRwnRLdSYN7ptnhPdldMTvEJe6Ilf1AxY9O960lBFu728YVZw6pUE/YkmdbCkM
+         ap/A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1735426521; x=1736031321;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=ma5+6x4L6RmgRS3yZ8s305V7iJUxY/Vzh6XEkM9c4sU=;
+        b=g0TMjZD2CpTnYCPI/matafq+c2PecUZUJ+xHn5iDF5QdNgGMIy8A64qXCUtz2Vz4A5
+         tDZqcSm2mjSspZGuw/hW2ndwgBydMMit7HpkaBa1zbXXb9H8zfE2xmjIvZKrXnutMiDS
+         fdeGYbkNWFjlDHGRhL4gYgwdpuQDFDtJwKUfHSYfnJQZhzw9bbVRZnSzJLPKh/KOluBX
+         mvO3yTkvuh8SCLmsswG2j/BeH42NRzlJi7PuD7jf3WyD61vxf4ufiOqhCHzpCj5fU+kN
+         mKFXx7OnzF9R86QkkXwEJAjDteMk/DD7uS9Kk8cfSGhPXpvm7uhpcLuD4wJM1v3xFs3e
+         uGhg==
+X-Forwarded-Encrypted: i=1; AJvYcCV115anj/ViWcgxLmjHnqKY6/p4+gqn6lgCDw9Rx47EOrM4n+XNIYj5lW6Q5tLl31T7ABw0/topuMRsyg==@lists.infradead.org
+X-Gm-Message-State: AOJu0YzvHgoX5ErCea7MpXfCVAVqdw9fEUFq7eb3TIWAEahpJeZFzgXo
+	vr1HB+uksIfBlci4bwcym3VPy6FxTDVwQ4KMPjql7nqUZUhzhaLE+eQ14sowfnSJukhVi44uOyj
+	SFnGNu4aWMyhZ0+hls0JyGrw8mkV2/OpB1C5ZXw==
+X-Gm-Gg: ASbGncuLF0LdW2zTqM9hgUzKj9eE3JpDkQWANxLJuiUZ9N/7vaWiPFjpiEZefZiwcur
+	u5SYL9Lt8HF8dD9L+/oJNjJXuv87CpvYZUzdZ
+X-Google-Smtp-Source: AGHT+IEeHS7qBCOkGJkLci2K1l4MO3cQjjPsp4mJA4mp2Fct0kochwX6HgM8ASkaZLPLeUe5QHN30KZL6jeoExuit3I=
+X-Received: by 2002:a05:6512:ba6:b0:540:2160:ade3 with SMTP id
+ 2adb3069b0e04-5422953c19cmr7875781e87.25.1735426521162; Sat, 28 Dec 2024
+ 14:55:21 -0800 (PST)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20241228-wake_irq-v1-0-09cfca77cd47@nxp.com>
-X-GND-Sasl: alexandre.belloni@bootlin.com
+References: <20241228-wake_irq-v1-0-09cfca77cd47@nxp.com> <20241228-wake_irq-v1-10-09cfca77cd47@nxp.com>
+In-Reply-To: <20241228-wake_irq-v1-10-09cfca77cd47@nxp.com>
+From: Linus Walleij <linus.walleij@linaro.org>
+Date: Sat, 28 Dec 2024 23:55:10 +0100
+Message-ID: <CACRpkdYaWTdOoLXcpWG92+OyRwsPMxMbhQ6djdzO07x0sPz4oQ@mail.gmail.com>
+Subject: Re: [PATCH 10/12] rtc: ab8500: Use resource managed API to simplify code
+To: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>
+Cc: "Rafael J. Wysocki" <rafael@kernel.org>, Len Brown <len.brown@intel.com>, Pavel Machek <pavel@ucw.cz>, 
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Dmitry Torokhov <dmitry.torokhov@gmail.com>, 
+	Alexandre Belloni <alexandre.belloni@bootlin.com>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
+	Alexandre Torgue <alexandre.torgue@foss.st.com>, Conor Dooley <conor.dooley@microchip.com>, 
+	Daire McNamara <daire.mcnamara@microchip.com>, linux-pm@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-input@vger.kernel.org, 
+	linux-rtc@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, 
+	linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org, 
+	linux-riscv@lists.infradead.org, Peng Fan <peng.fan@nxp.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241228_021053_496060_E8824DED 
-X-CRM114-Status: GOOD (  14.84  )
+X-CRM114-CacheID: sfid-20241228_145524_043060_5DB6454C 
+X-CRM114-Status: UNSURE (   7.05  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,74 +95,19 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 28/12/2024 09:14:36+0800, Peng Fan (OSS) wrote:
-> This was a retry to address [1][2], to let common code handle
-> dev_pm_clear_wake_irq. Then no need to call dev_pm_clear_wake_irq
-> in each driver.remove() hook and error handling path.
-> 
-> In this patchset, I include input and rtc patches to show the usage
-> to avoid that introducing an API without users. There are still
-> other places using dev_pm_clear_wake_irq. If this patchset is
-> good for you, I could start to clean up other drivers such as mmc and
-> etc.
-> 
-> [1] https://lore.kernel.org/all/20241111092131.1693319-1-peng.fan@oss.nxp.com/
-> [2] https://lore.kernel.org/all/ZymxvLMkkktRoCXZ@google.com/
-
-It seems your patchset depends on devm_device_init_wakeup which did not
-make it yet.
-
-> 
-> Signed-off-by: Peng Fan <peng.fan@nxp.com>
-> ---
-> Peng Fan (12):
->       PM: sleep: wakeirq: Introduce device-managed variant of dev_pm_set_wake_irq
->       input: keyboard: ep93xx_keypad: Use devm_pm_set_wake_irq
->       input: keyboard: omap4_keypad: Use devm_pm_set_wake_irq
->       input: misc: nxp-bbnsm-pwrkey: Use resource managed API to simplify code
->       input: touchscreen: ti_am335x_tsc: Use resource managed API to simplify code
->       rtc: stm32: Use resource managed API to simplify code
->       rtc: nxp-bbnsm: Use resource managed API to simplify code
->       rtc: ds1343: Use devm_pm_set_wake_irq
->       rtc: pm8xxx: Use devm_pm_set_wake_irq
->       rtc: ab8500: Use resource managed API to simplify code
->       rtc: mpfs: Use devm_pm_set_wake_irq
->       rtc: pl031: Use resource managed API to simplify code
-> 
->  drivers/base/power/wakeirq.c              | 25 ++++++++++++++++++
->  drivers/input/keyboard/ep93xx_keypad.c    |  8 +-----
->  drivers/input/keyboard/omap4-keypad.c     |  8 +-----
->  drivers/input/misc/nxp-bbnsm-pwrkey.c     | 15 ++++-------
->  drivers/input/touchscreen/ti_am335x_tsc.c | 43 ++++++++++---------------------
->  drivers/rtc/rtc-ab8500.c                  | 11 ++------
->  drivers/rtc/rtc-ds1343.c                  |  8 +-----
->  drivers/rtc/rtc-mpfs.c                    |  8 +-----
->  drivers/rtc/rtc-nxp-bbnsm.c               | 29 +++++++--------------
->  drivers/rtc/rtc-pl031.c                   |  6 ++---
->  drivers/rtc/rtc-pm8xxx.c                  | 12 +--------
->  drivers/rtc/rtc-stm32.c                   | 10 ++-----
->  include/linux/pm_wakeirq.h                |  6 +++++
->  13 files changed, 70 insertions(+), 119 deletions(-)
-> ---
-> base-commit: 8155b4ef3466f0e289e8fcc9e6e62f3f4dceeac2
-> change-id: 20241227-wake_irq-b68d604dd902
-> 
-> Best regards,
-> -- 
-> Peng Fan <peng.fan@nxp.com>
-> 
-
--- 
-Alexandre Belloni, co-owner and COO, Bootlin
-Embedded Linux and Kernel engineering
-https://bootlin.com
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gU2F0LCBEZWMgMjgsIDIwMjQgYXQgMjoxNuKAr0FNIFBlbmcgRmFuIChPU1MpIDxwZW5nLmZh
+bkBvc3MubnhwLmNvbT4gd3JvdGU6Cgo+IEZyb206IFBlbmcgRmFuIDxwZW5nLmZhbkBueHAuY29t
+Pgo+Cj4gVXNlIGRldm1fcG1fc2V0X3dha2VfaXJxIGFuZCBkZXZtX2RldmljZV9pbml0X3dha2V1
+cCB0byBjbGVhbnVwIHRoZQo+IGVycm9yIGhhbmRsaW5nIGNvZGUgYW5kICdkcml2ZXIucmVtb3Zl
+KCknIGhvb2suCj4KPiBTaWduZWQtb2ZmLWJ5OiBQZW5nIEZhbiA8cGVuZy5mYW5AbnhwLmNvbT4K
+ClRoaXMgbG9va3MgdmVyeSBuaWNlIHByb3ZpZGVkIHRoZSBjb3JlIGNvZGUgaXMgbWVyZ2VkLgpS
+ZXZpZXdlZC1ieTogTGludXMgV2FsbGVpaiA8bGludXMud2FsbGVpakBsaW5hcm8ub3JnPgoKWW91
+cnMsCkxpbnVzIFdhbGxlaWoKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZy
+YWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGlu
+dXgtcmlzY3YK
