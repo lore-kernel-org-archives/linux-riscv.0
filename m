@@ -4,89 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 853BAE77188
-	for <linux-riscv@archiver.kernel.org>; Sat, 28 Dec 2024 05:14:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9518FE77188
+	for <linux-riscv@archiver.kernel.org>; Sat, 28 Dec 2024 05:18:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=L1MEC/b28uVcX7XJIeNPsy3pCR4hCcv3XSNnMX6xJGM=; b=Dx3D1rF68G/guQ
-	pLMDhqTJRd018YwNqiD6ozfCmMa5mlRQpeLJ4nLc44WAm5imHDk0XATdMM/Epe+wNlh4PBHzbLwgn
-	qTdjacHTJJyDCE7/Ftqu1ePExv+BOSqQsSrA0jOm+1RxEHPN2x+O+7AWcILF9IEw2QilA3odug9PI
-	CYV/+NB+LEcYCiuSpjexpovws3zS8/SuFAWTHfy7hYbYZcipuVxJhy8Ij7yH7z7yJ+Wo8On/LEe08
-	3kX8y1FBuskAMVeq+Rff6ODdbATG2qf2jtFzrRCXKW2274P5wCIYRqhd4+o4VS7xXUH1CHx++xpRX
-	4z+uKhWyZ6c6ApEL4gag==;
+	List-Owner; bh=kJP+XEmEvjTJYs17lP76Jn+AbwtaYijRf4sCAsGLNPM=; b=ru0HxuiOfHlo5B
+	FWjIMV38TCtj3xCaarhgXHt15I72pkxieA7qVrg0fkoEXXC7i63Ya9S7tQnCcU18Zcl3UinmnNxBG
+	w8s6zQBY8vgGqQWyaqBwgDYwptuPHqPfdliMNCZSKMHtZYp8zJ8Qkr7Qm2q/oUPCmHrCsaycxTdSQ
+	R9+09hqHyg+9DTGxsUlUq/2a8iWMuzHoShOmX+nMIIjzsQ6cId2zkSyO4Orai0M8y9w3MQQdq7MYr
+	+xsc1VnT85EfhmosvtLxw3LsqWgZZoNGdcmfRXQWeIDV16zIsmyevTJbSkjEilEUp5ddl1VLFpExg
+	VY4EjGZQTVflPLazOQTg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tRP9B-00000001PRp-3rLc;
-	Sat, 28 Dec 2024 05:13:57 +0000
-Received: from mgamail.intel.com ([198.175.65.16])
+	id 1tRPDm-00000001Pn2-3prL;
+	Sat, 28 Dec 2024 05:18:42 +0000
+Received: from woodpecker.gentoo.org ([140.211.166.183] helo=smtp.gentoo.org)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tRP7w-00000001PLd-3muX;
-	Sat, 28 Dec 2024 05:12:42 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1735362762; x=1766898762;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=ioBF6btaLkebkM4HUjVJqFMRdhQwf4/nTJIficbpk6U=;
-  b=GKMGtEZTbzpRyRGr5dTyb1MIEfxfhoft/xKMmwjA5mNtd8uMJRtGt/5f
-   3OJUtbNALr5PBKaNEUgTBaq5v+ypT1T+48sWwGhyOHGMzsY/AwaE8amw+
-   N2jaWuwlBd9hiOEHaez6ojs8BqRWiqktWLak7pJ2Sc7CZjU7JuPxs30+S
-   zQOAwUDrEynN78LBycSnWolVdhApivKcUH6xj93e6KictnplqkWBtgDV+
-   cp2HAy7O+il+PJKdY80fc8geSW6LEdNdX4dYzv0Bbj1+QgNBKSAqzY4U2
-   Dtj97sD+Efb80ZY85H5ihJDArtnJiv2kqaYnCXEMnfDLC0RLuAF8pdW4l
-   w==;
-X-CSE-ConnectionGUID: a4uGGLRPRPqEGPCIysr0aw==
-X-CSE-MsgGUID: 5gamfRA+T9OgXFBCbhGOMQ==
-X-IronPort-AV: E=McAfee;i="6700,10204,11298"; a="35886908"
-X-IronPort-AV: E=Sophos;i="6.12,271,1728975600"; 
-   d="scan'208";a="35886908"
-Received: from fmviesa001.fm.intel.com ([10.60.135.141])
-  by orvoesa108.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 27 Dec 2024 21:12:38 -0800
-X-CSE-ConnectionGUID: h4uyA0ddSTuuZ4tzLd9DvQ==
-X-CSE-MsgGUID: Go8sLyvHTGyzRo44j8EaKw==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.12,224,1728975600"; 
-   d="scan'208";a="131267180"
-Received: from lkp-server01.sh.intel.com (HELO d63d4d77d921) ([10.239.97.150])
-  by fmviesa001.fm.intel.com with ESMTP; 27 Dec 2024 21:12:32 -0800
-Received: from kbuild by d63d4d77d921 with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1tRP7m-0003rw-0r;
-	Sat, 28 Dec 2024 05:12:30 +0000
-Date: Sat, 28 Dec 2024 13:11:47 +0800
-From: kernel test robot <lkp@intel.com>
-To: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>,
-	"Rafael J. Wysocki" <rafael@kernel.org>,
-	Len Brown <len.brown@intel.com>, Pavel Machek <pavel@ucw.cz>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Dmitry Torokhov <dmitry.torokhov@gmail.com>,
-	Alexandre Belloni <alexandre.belloni@bootlin.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Linus Walleij <linus.walleij@linaro.org>,
-	Conor Dooley <conor.dooley@microchip.com>,
-	Daire McNamara <daire.mcnamara@microchip.com>
-Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
-	linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-input@vger.kernel.org, linux-rtc@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
-	linux-riscv@lists.infradead.org, Peng Fan <peng.fan@nxp.com>
-Subject: Re: [PATCH 03/12] input: keyboard: omap4_keypad: Use
- devm_pm_set_wake_irq
-Message-ID: <202412281211.h6tPLOqJ-lkp@intel.com>
-References: <20241228-wake_irq-v1-3-09cfca77cd47@nxp.com>
+	id 1tRPDh-00000001Pm8-0zND
+	for linux-riscv@lists.infradead.org;
+	Sat, 28 Dec 2024 05:18:41 +0000
+Date: Sat, 28 Dec 2024 13:18:24 +0800
+From: Yixun Lan <dlan@gentoo.org>
+To: Linus Walleij <linus.walleij@linaro.org>
+Subject: Re: [PATCH v3 1/3] dt-bindings: gpio: spacemit: add support for K1
+ SoC
+Message-ID: <20241228051824-GYA1079860@gentoo>
+References: <20241225-03-k1-gpio-v3-0-27bb7b441d62@gentoo.org>
+ <20241225-03-k1-gpio-v3-1-27bb7b441d62@gentoo.org>
+ <CACRpkdZPD2C2iPwOX_kW1Ug8jVkdHhhc7iFycHtzj5LQ0XWNgQ@mail.gmail.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20241228-wake_irq-v1-3-09cfca77cd47@nxp.com>
+In-Reply-To: <CACRpkdZPD2C2iPwOX_kW1Ug8jVkdHhhc7iFycHtzj5LQ0XWNgQ@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241227_211241_043673_37F8CCA2 
-X-CRM114-Status: UNSURE (   8.08  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241227_211837_309159_0DA63635 
+X-CRM114-Status: GOOD (  18.85  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,43 +53,40 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Cc: Rob Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Meng Zhang <zhangmeng.kevin@linux.spacemit.com>, linux-gpio@vger.kernel.org, Bartosz Golaszewski <brgl@bgdev.pl>, linux-kernel@vger.kernel.org, Conor Dooley <conor@kernel.org>, Yangyu Chen <cyy@cyyself.name>, devicetree@vger.kernel.org, Palmer Dabbelt <palmer@dabbelt.com>, Jesse Taube <mr.bossman075@gmail.com>, Jisheng Zhang <jszhang@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>, Inochi Amaoto <inochiama@outlook.com>, Krzysztof Kozlowski <krzk+dt@kernel.org>, linux-riscv@lists.infradead.org
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Peng,
-
-kernel test robot noticed the following build errors:
-
-[auto build test ERROR on 8155b4ef3466f0e289e8fcc9e6e62f3f4dceeac2]
-
-url:    https://github.com/intel-lab-lkp/linux/commits/Peng-Fan-OSS/PM-sleep-wakeirq-Introduce-device-managed-variant-of-dev_pm_set_wake_irq/20241228-091859
-base:   8155b4ef3466f0e289e8fcc9e6e62f3f4dceeac2
-patch link:    https://lore.kernel.org/r/20241228-wake_irq-v1-3-09cfca77cd47%40nxp.com
-patch subject: [PATCH 03/12] input: keyboard: omap4_keypad: Use devm_pm_set_wake_irq
-config: i386-buildonly-randconfig-002-20241228 (https://download.01.org/0day-ci/archive/20241228/202412281211.h6tPLOqJ-lkp@intel.com/config)
-compiler: clang version 19.1.3 (https://github.com/llvm/llvm-project ab51eccf88f5321e7c60591c5546b254b6afab99)
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20241228/202412281211.h6tPLOqJ-lkp@intel.com/reproduce)
-
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202412281211.h6tPLOqJ-lkp@intel.com/
-
-All errors (new ones prefixed by >>, old ones prefixed by <<):
-
-WARNING: modpost: missing MODULE_DESCRIPTION() in lib/zlib_inflate/zlib_inflate.o
->> ERROR: modpost: "devm_pm_set_wake_irq" [drivers/input/keyboard/omap4-keypad.ko] undefined!
-WARNING: modpost: module snd-compress uses symbol dma_buf_fd from namespace DMA_BUF, but does not import it.
-WARNING: modpost: module snd-compress uses symbol dma_buf_get from namespace DMA_BUF, but does not import it.
-WARNING: modpost: module snd-compress uses symbol dma_buf_put from namespace DMA_BUF, but does not import it.
-
--- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+SGkgTGludXM6Cgp0aGFua3MgZm9yIHlvdXIgcmV2aWV3CgpPbiAxNzozNCBGcmkgMjcgRGVjICAg
+ICAsIExpbnVzIFdhbGxlaWogd3JvdGU6Cj4gT24gV2VkLCBEZWMgMjUsIDIwMjQgYXQgMTozM+KA
+r0FNIFlpeHVuIExhbiA8ZGxhbkBnZW50b28ub3JnPiB3cm90ZToKPiAKPiA+IFRoZSBHUElPIGNv
+bnRyb2xsZXIgb2YgSzEgc3VwcG9ydCBiYXNpYyBmdW5jdGlvbnMgYXMgaW5wdXQvb3V0cHV0LAo+
+ID4gYWxsIHBpbnMgY2FuIGJlIHVzZWQgYXMgaW50ZXJydXB0IHdoaWNoIHJvdXRlIHRvIG9uZSBJ
+UlEgbGluZSwKPiA+IHRyaWdnZXIgdHlwZSBjYW4gYmUgc2VsZWN0IGJldHdlZW4gcmlzaW5nIGVk
+Z2UsIGZhaWxpbmcgZWRnZSwgb3IgYm90aC4KPiA+IFRoZXJlIGFyZSBmb3VyIEdQSU8gYmFua3Ms
+IGVhY2ggY29uc2lzdGluZyBvZiAzMiBwaW5zLgo+ICguLi4pCj4gPiArZGVzY3JpcHRpb246Cj4g
+PiArICBUaGUgY29udHJvbGxlcidzIHJlZ2lzdGVycyBhcmUgb3JnYW5pemVkIGFzIHNldHMgb2Yg
+ZWlnaHQgMzItYml0Cj4gPiArICByZWdpc3RlcnMgd2l0aCBlYWNoIHNldCBjb250cm9sbGluZyBh
+IGJhbmsgb2YgdXAgdG8gMzIgcGlucy4gIEEgc2luZ2xlCj4gPiArICBpbnRlcnJ1cHQgaXMgc2hh
+cmVkIGZvciBhbGwgb2YgdGhlIGJhbmtzIGhhbmRsZWQgYnkgdGhlIGNvbnRyb2xsZXIuCj4gCj4g
+SSBsb29rZWQgYXQgdGhlIGRyaXZlciBhbmQgY2FtZSB0byB0aGUgY29uY2x1c2lvbiB0aGF0IGl0
+J3MgYmV0dGVyIHRvIHVzZQo+IDQgZGlmZmVyZW50IGluc3RhbmNlcyBvZiB0aGUgY2hpcCwgb25l
+IGZvciBlYWNoIHNldCBvZiAzMmJpdCByZWdpc3RlcnMsCj4gc28gdGhlc2UgNCBHUElPIGNvbnRy
+b2xsZXJzIGFyZSBpbnN0YW50aWF0ZWQgc2VwYXJhdGVseS4KPiAKc291bmRzIGdvb2QgdG8gbWUs
+IEkgd2lsbCB3b3JrIGFjY29yZGluZyB0byB0aGlzIGluIG5leHQgdmVyc2lvbgoKPiBUaGUgb3Bl
+cmF0aW5nIHN5c3RlbSBjYW4gaGFuZGxlIHRoZSBzaGFyZWQgaW50ZXJydXB0LCB0aGVyZSBpcyBu
+bwo+IG5lZWQgdG8gdXNlIGEgc2luZ2xlIGRldmljZSBpbnN0YW5jZSBqdXN0IGJlY2F1c2UgdGhl
+IGludGVycnVwdCBpcwo+IHNoYXJlZC4KPiAKPiBEVCBiaW5kaW5ncyBhcmUgb3BlcmF0aW5nIHN5
+c3RlbSBuZXV0cmFsLCBidXQgZm9yIGV4YW1wbGUgaW4gTGludXgKPiAoaWYgd2UgcHJldGVuZCB0
+aGlzIGlzIGp1c3Qgb25lIHBvc3NpYmxlIGV4YW1wbGUpIHRoZW4gYSBkcml2ZXIKPiBoYW5kbGlu
+ZyBhIHNoYXJlZCBJUlEgY2FuIGJlIHJlcXVlc3RlZCB3aXRoIHRoZSBmbGFnIElSUUZfU0hBUkVE
+Cj4gYW5kIHRoZSBkcml2ZXIgY2FuIGp1c3QgcmV0dXJuIElSUV9IQU5ETEVEIGlmIGl0IGhhbmRs
+ZWQgYW4gSVJRCj4gb3IgSVJRX05PTkUgaWYgaXQgZGlkbid0IGhhbmRsZSB0aGUgaXJxIChzbyBv
+dGhlciBpbnN0YW5jZXMgY2FuCj4gaGFuZGxlIGl0KS4KPiAKYWdyZWUsIG1ha2Ugc2Vuc2UKCj4g
+WW91cnMsCj4gTGludXMgV2FsbGVpagoKLS0gCllpeHVuIExhbiAoZGxhbikKR2VudG9vIExpbnV4
+IERldmVsb3BlcgpHUEcgS2V5IElEIEFBQkVGRDU1CgpfX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlz
+Y3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFu
+L2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
