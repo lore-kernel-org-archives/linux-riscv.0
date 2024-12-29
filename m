@@ -4,72 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6CF51E7718F
-	for <linux-riscv@archiver.kernel.org>; Sun, 29 Dec 2024 13:22:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F3E4BE7718F
+	for <linux-riscv@archiver.kernel.org>; Sun, 29 Dec 2024 14:30:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
-	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Ai9/XSyp/dPiWY1d8vc3Kj/bkZAjWx9H64mNrLB0Wco=; b=YFzPcZ/Rbxmlp1
-	5xmOZcplpgghqWXbjmZrdBzgy8KT9BsVd2oyLro8hBD5lb1mooMOe61e54SNtaUbm0dBiZzoeXA0Z
-	Rbeqt1/mJglg+SCklfIGzmm/qKGgiZg8M0n6MWt9dBiAZ62Sgdy00XT9XB8LCLAG4lyPUgCjTArhj
-	WmDyVBU9uJzSC+dRBiOHo5B4oW5JxDLi/YGc8puOjM9yCBHjamJ3g6q3pB6ZJa8p+WFZ3oTwkiQVz
-	jcczhoyneHlWEAjjU7+VDVKnVC4xJO413OqyGhLYzO5KccP/+jeZUr5LWpfvR++xnRl/ArM8YY/lO
-	mt11+0BJJ1tncXY+KNIg==;
+	List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:References:
+	In-Reply-To:To:Cc:From:MIME-Version:Date:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Owner;
+	bh=l6wDtOA1o2ZVU5DTzjS5Fs14w72Crl4/vF4jXz16GFo=; b=Er4MS9sfI8LtpjPTTRJpDr4slV
+	bl0D0vdODRTyYowmKCQhx6g3L7PpRJ8tCWHMv/yMjFoZnGcs7qh60c7Mcm8A8xilYDLi4Wc4uc8Up
+	I2ZXVNER7/SnkAOmLCzcmJV9hrBzdIl7roIXnfDUSGlzS0A2VLzFUu9Azo5sHzRSEtfdih5gq4Gop
+	Xs1CR8o83YlcutJRzQc6n2KDJZfq1KkKv+KJXVQya0EhVR/EKobk271XGJ3bKRBJD5Id7xXYNDtKZ
+	ULAP7HVPLQl5DiiZz4WQZxtSrYew0+GIPg71u1xqc4I8ncfWyQDkSOoMTdv9OeBdTuahnXWP4aqlH
+	VOnQqD/A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tRtFO-00000003QpW-1GTp;
-	Sun, 29 Dec 2024 13:22:22 +0000
-Received: from sender4-pp-o94.zoho.com ([136.143.188.94])
+	id 1tRuJV-00000003Uhf-1GiQ;
+	Sun, 29 Dec 2024 14:30:41 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tRtFL-00000003QnR-25re
+	id 1tRuJS-00000003Uh9-3clY
 	for linux-riscv@lists.infradead.org;
-	Sun, 29 Dec 2024 13:22:20 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1735478523; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=URRcrEhbU952+043VBLmv/qWSHJ5/tigs27jYmMX91ucN+6DuKihTMhofLdIwhFVDVObVkyBn++3mspEgHbQU33tGgydvVdP4TlYJfWCe+QSvGxsUyiHOq5tqzrcp0w2X+KUJOwtyI3Z3R2aW11YA1GrrggfDZ1WI5elfhIjrQo=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1735478523; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=9MOQQP/x77Ro5ASLfJZTxTTeYz6fqTSvvH80KDtJdi0=; 
-	b=Pnu7FcXntZp0wsUsM3nFhbMYjxBGu3I3UxpfPmcRp3wj97EPGvoOa1DIc5DejkGG8g9Z0zSwPSAkvi9tUTQGjyaNIX+naNTiglrTdwvEgKN9kDPurhPZq0QahQiKaDyMxPohZytv6GnhM2KncrhEpXOTSVQB7RAHS2pr6wZGq9g=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=zohomail.com;
-	spf=pass  smtp.mailfrom=kingxukai@zohomail.com;
-	dmarc=pass header.from=<kingxukai@zohomail.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1735478523;
-	s=zm2022; d=zohomail.com; i=kingxukai@zohomail.com;
-	h=From:From:Date:Date:Subject:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:Message-Id:Message-Id:References:In-Reply-To:To:To:Cc:Cc:Feedback-ID:Reply-To;
-	bh=9MOQQP/x77Ro5ASLfJZTxTTeYz6fqTSvvH80KDtJdi0=;
-	b=cRZw/jOgRe0vO6s9R4BD+zo2RlgpGQnOBeZDN7KvUzCgqektJxD/VE+uX4B/9AGV
-	3h7fin7eCgoWlh3jxSKHXgs8ImhXSpAUKY6uXYl5/KmApTYWSZ9Jzd2pV2YFxAaAs4B
-	U1arPklCIC2nsClH9xVD2rZ5+Xktt/EeHbUCNF9Y=
-Received: by mx.zohomail.com with SMTPS id 173547852017236.09863257523682;
-	Sun, 29 Dec 2024 05:22:00 -0800 (PST)
-From: Xukai Wang <kingxukai@zohomail.com>
-Date: Sun, 29 Dec 2024 21:21:10 +0800
-Subject: [PATCH 3/3] riscv: dts: canaan: Add clock initial support for K230
+	Sun, 29 Dec 2024 14:30:40 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id B25BAA40B47;
+	Sun, 29 Dec 2024 14:28:47 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 42E9AC4CED1;
+	Sun, 29 Dec 2024 14:30:36 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1735482636;
+	bh=lFIVaV71tsM7UxfJbfpVommJU7JD4UzmobP32UMnsZU=;
+	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
+	b=oUHJ9E1ljBqkdDUI0KZvJrzRVz30XDvTlNQOiXt4xBxyPoHI8L+Ud3ZO05V094zjY
+	 NpgcQFezAHhFNUP19fZ1NfhcmPbQ47ZpDgMm0X6TpSxL2fLIJAQ5r8ZFZIABHKl8GE
+	 N7DEMR0BGD7MYZmIE+BpNsmth9tmvPwn27nSdtwvHdPr+2wp3hgQJM+OTV2nwdcI4k
+	 iNYaJ/B8CMINcitW5afhpvGi3UZCJ/U/5tXEcLiXsMgc9e/j+v+EY/apd94PY8rQ/O
+	 AR17HaiSyHitgEh1HMQctV/7CI2x5W0afe/4Zt8H2qDNclwlgLExbkDkEyjoLerlFc
+	 4Anz/z+YGiwzw==
+Date: Sun, 29 Dec 2024 08:30:34 -0600
 MIME-Version: 1.0
-Message-Id: <20241229-b4-k230-clk-v1-3-221a917e80ed@zohomail.com>
+From: "Rob Herring (Arm)" <robh@kernel.org>
+Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>, linux-clk@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, Michael Turquette <mturquette@baylibre.com>, 
+ Stephen Boyd <sboyd@kernel.org>, Albert Ou <aou@eecs.berkeley.edu>, 
+ devicetree@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>, 
+ Troy Mitchell <TroyMitchell988@gmail.com>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, linux-riscv@lists.infradead.org, 
+ Paul Walmsley <paul.walmsley@sifive.com>
+To: Xukai Wang <kingxukai@zohomail.com>
+In-Reply-To: <20241229-b4-k230-clk-v1-1-221a917e80ed@zohomail.com>
 References: <20241229-b4-k230-clk-v1-0-221a917e80ed@zohomail.com>
-In-Reply-To: <20241229-b4-k230-clk-v1-0-221a917e80ed@zohomail.com>
-To: Michael Turquette <mturquette@baylibre.com>, 
- Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Paul Walmsley <paul.walmsley@sifive.com>, 
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>
-Cc: linux-clk@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
- Troy Mitchell <TroyMitchell988@gmail.com>
-X-Mailer: b4 0.14.2
-Feedback-ID: rr0801122702ffcca89299b3078852e72a000005c72e0eace2615fcad8885e02fce6541bf0ba08c291f7dcf3:zu08011227d6d2d30888a3b43c703fd0c700003dbe33a86462bfcc434c9524a7bb3d4e7f14d2123ea28425d8:rf0801122d0c822b09e7e811d6dc6609fc00003dfde26ddcfc8442858b40cd9632b075de8e5875d239ee2e4004fca0c7646b:ZohoMail
-X-ZohoMailClient: External
+ <20241229-b4-k230-clk-v1-1-221a917e80ed@zohomail.com>
+Message-Id: <173548263487.3742243.93806553348966195.robh@kernel.org>
+Subject: Re: [PATCH 1/3] dt-bindings: clock: Add bindings for Canaan K230
+ clock controller
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241229_052219_593449_1BA49045 
-X-CRM114-Status: UNSURE (   9.63  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20241229_063038_998330_5087D5E1 
+X-CRM114-Status: GOOD (  10.91  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,73 +79,43 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This patch provides basic support for the K230 clock, which does not
-cover all clocks.
 
-The clock tree of the K230 SoC consists of OSC24M,
-PLLs and sysclk.
+On Sun, 29 Dec 2024 21:21:08 +0800, Xukai Wang wrote:
+> This patch adds the Device Tree binding for the clock controller
+> on Canaan k230. The binding defines the new clocks available and
+> the required properties to configure them correctly.
+> 
+> Signed-off-by: Xukai Wang <kingxukai@zohomail.com>
+> ---
+>  .../devicetree/bindings/clock/canaan,k230-clk.yaml | 41 ++++++++++++++++++
+>  include/dt-bindings/clock/k230-clk.h               | 49 ++++++++++++++++++++++
+>  2 files changed, 90 insertions(+)
+> 
 
-Co-developed-by: Troy Mitchell <TroyMitchell988@gmail.com>
-Signed-off-by: Troy Mitchell <TroyMitchell988@gmail.com>
-Signed-off-by: Xukai Wang <kingxukai@zohomail.com>
----
- arch/riscv/boot/dts/canaan/k230.dtsi | 27 +++++++++++++++++++++++++++
- 1 file changed, 27 insertions(+)
+My bot found errors running 'make dt_binding_check' on your patch:
 
-diff --git a/arch/riscv/boot/dts/canaan/k230.dtsi b/arch/riscv/boot/dts/canaan/k230.dtsi
-index 95c1a3d8fb1192e30113d96d3e96329545bc6ae7..c407471af3daac154e0fbdd377d57ea3ff4698e1 100644
---- a/arch/riscv/boot/dts/canaan/k230.dtsi
-+++ b/arch/riscv/boot/dts/canaan/k230.dtsi
-@@ -3,6 +3,7 @@
-  * Copyright (C) 2024 Yangyu Chen <cyy@cyyself.name>
-  */
- 
-+#include <dt-bindings/clock/k230-clk.h>
- #include <dt-bindings/interrupt-controller/irq.h>
- 
- /dts-v1/;
-@@ -65,6 +66,13 @@ apb_clk: apb-clk-clock {
- 		#clock-cells = <0>;
- 	};
- 
-+	osc24m: clock-24m {
-+		compatible = "fixed-clock";
-+		#clock-cells = <0>;
-+		clock-frequency = <24000000>;
-+		clock-output-names = "osc24m";
-+	};
-+
- 	soc {
- 		compatible = "simple-bus";
- 		interrupt-parent = <&plic>;
-@@ -138,5 +146,24 @@ uart4: serial@91404000 {
- 			reg-shift = <2>;
- 			status = "disabled";
- 		};
-+
-+		sysclk: clock-controller@91100000 {
-+			compatible = "canaan,k230-clk";
-+			reg = <0x0 0x91102000 0x0 0x1000>, <0x0 0x91100000 0x0 0x1000>;
-+			clocks = <&osc24m>;
-+			#clock-cells = <1>;
-+			clock-output-names =
-+			"CPU0_ACLK", "CPU0_PLIC", "CPU0_NOC_DDRCP4", "CPU0_PCLK",
-+			"PMU_PCLK", "HS_HCLK_HIGN_SRC", "HS_HCLK_HIGN_GATE",
-+			"HS_HCLK_SRC", "HS_SD0_HS_AHB_GAT", "HS_SD1_HS_AHB_GAT",
-+			"HS_SSI1_HS_AHB_GA", "HS_SSI2_HS_AHB_GA", "HS_USB0_HS_AHB_GA",
-+			"HS_USB1_HS_AHB_GA", "HS_SSI0_AXI", "HS_SSI1", "HS_SSI2",
-+			"HS_QSPI_AXI_SRC", "HS_SSI1_ACLK_GATE", "HS_SSI2_ACLK_GATE",
-+			"HS_SD_CARD_SRC", "HS_SD0_CARD_TX", "HS_SD1_CARD_TX",
-+			"HS_SD_AXI_SRC", "HS_SD0_AXI_GATE", "HS_SD1_AXI_GATE",
-+			"HS_SD0_BASE_GATE", "HS_SD1_BASE_GATE", "HS_OSPI_SRC",
-+			"HS_USB_REF_51M", "HS_SD_TIMER_SRC", "HS_SD0_TIMER_GATE",
-+			"HS_SD1_TIMER_GATE", "HS_USB0_REFERENCE", "HS_USB1_REFERENCE";
-+		};
- 	};
- };
+yamllint warnings/errors:
 
--- 
-2.34.1
+dtschema/dtc warnings/errors:
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/clock/canaan,k230-clk.example.dtb: clock-controller@91102000: clocks: 1 was expected
+	from schema $id: http://devicetree.org/schemas/clock/canaan,k230-clk.yaml#
+
+doc reference errors (make refcheckdocs):
+
+See https://patchwork.ozlabs.org/project/devicetree-bindings/patch/20241229-b4-k230-clk-v1-1-221a917e80ed@zohomail.com
+
+The base for the series is generally the latest rc1. A different dependency
+should be noted in *this* patch.
+
+If you already ran 'make dt_binding_check' and didn't see the above
+error(s), then make sure 'yamllint' is installed and dt-schema is up to
+date:
+
+pip3 install dtschema --upgrade
+
+Please check and re-submit after running the above command yourself. Note
+that DT_SCHEMA_FILES can be set to your schema file to speed up checking
+your schema. However, it must be unset to test all examples with your schema.
 
 
 _______________________________________________
