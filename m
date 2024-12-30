@@ -4,65 +4,119 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6231BE77188
-	for <linux-riscv@archiver.kernel.org>; Mon, 30 Dec 2024 07:54:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35388E77194
+	for <linux-riscv@archiver.kernel.org>; Mon, 30 Dec 2024 09:08:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=t1OSz65riDfhZntUrbkLf9xWiG2+Q6akya8xNYJJjjY=; b=lmXNm54Ur7hpj6
-	YQ92Z3/iLmGmhVuNdLlyNHM1oeZkJ7FGtnp9CPJr+6pEn9hLAsCYnt18IaUxlqetpMZQcmZ7aRmMb
-	wb26nsuVT+P4vAdUjVRJo2rekjVnwwHhfQxkr3Kahj5Hj6XA/OxtdWRkgqJP6nQwzgJ40dvqUpfDz
-	whhEOeNpVPBbBCtEU6b4GqgrrgIfvNQZKzBPe6hvDr0sAneWWzzv+Uz1i3fqTsbtbUcGdOg1wgiG6
-	zG8pjEOa2iwjHdTWI8coCxGl7P16TIUEpOO2tIcxc1ikl++/j6SOEjt4vjZLI2W1rMwY0Lo2XNRIR
-	jGHckllrIsyAsnm1WMDA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=sdy3kjIkn32DlbPW0M6H+rCaXJcZlm7aFubAjsaLYr4=; b=3Ckw0h04hSgoF7
+	1EtuyTMigVAjamyAbXe6rcxikOJetkMK9LTwGfhzBSkvEMXB3/Z3NwyXeRxdAAjyb+rc+xD9x33ia
+	lqse8ocpbMdvQoBnHdW5RBbPrb3OJ+QcsreBRkzFroTpNUmt3z4w7c/BFYzoYeIvSnNblVW/kKG24
+	miLgi/PIINQXXMGnQ0kPA5LbaXSgxcfS1mUzAFgvxeZe8zLinFpzImaaBkpxswwbPB7Cf21/4yS0w
+	Tg73FDEvhYHMBIZeE+NTjh0a+FFZYpdBsMHigbs49JXIMlyvzHc1KXyXBq+oZyCC+yQ+vzOy0cMrW
+	mQkTPkEzBi4iPaEcyKzQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tSAbr-00000004loP-0fBh;
-	Mon, 30 Dec 2024 07:54:43 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1tSBlU-00000004rdI-0iTP;
+	Mon, 30 Dec 2024 09:08:44 +0000
+Received: from mail-pl1-x62d.google.com ([2607:f8b0:4864:20::62d])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tSAbo-00000004lnz-2TmP
+	id 1tSBlR-00000004rbb-2yAY
 	for linux-riscv@lists.infradead.org;
-	Mon, 30 Dec 2024 07:54:42 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 4CC35A40A7F;
-	Mon, 30 Dec 2024 07:52:50 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AFAD2C4CED0;
-	Mon, 30 Dec 2024 07:54:38 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1735545279;
-	bh=183EA7MfCyWxhhzwpT8mT9bghaFpDjOqGIviGpm0Xd0=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=JvlVmJTPsEilkeHz2NgEIfo56yDGjFOw+rqKFtEMD86H+dR/pquZbRjNMjMNwmywS
-	 K9yF5bxbhXPdF4q4tY0T7Lt6JQWpjiaw6Yp1tAbTrfOgdQjoLgnbRWe1RgFXk1pDm5
-	 hRx3n0d+bs6BTXkYSQ/eRZcfT50IbBnazT9lXA5XgqL7Y3QM03LIypZlTa4HA39glp
-	 e82iS08bcaoD35Jg5mnILgrJzD+knjtIecoJ3E3huzy/BE03zeou3jhBfFGpS4U+iE
-	 ZljgEhmXkp18UNHAvrFiF2h/fj9tSvzRFWu0bEY/Zn0vKaPrYpqZGV4U63YeoLnR1S
-	 lk3MYOa9OLJuQ==
-Date: Mon, 30 Dec 2024 08:54:36 +0100
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Xukai Wang <kingxukai@zohomail.com>
-Cc: Michael Turquette <mturquette@baylibre.com>, 
-	Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, linux-clk@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
-	Troy Mitchell <TroyMitchell988@gmail.com>
-Subject: Re: [PATCH 1/3] dt-bindings: clock: Add bindings for Canaan K230
- clock controller
-Message-ID: <zfjj33otyxiamsc7u2uwnvygcuhe7u2tfgiz6txp62emnddbw5@5iozmjg4eugn>
-References: <20241229-b4-k230-clk-v1-0-221a917e80ed@zohomail.com>
- <20241229-b4-k230-clk-v1-1-221a917e80ed@zohomail.com>
+	Mon, 30 Dec 2024 09:08:43 +0000
+Received: by mail-pl1-x62d.google.com with SMTP id d9443c01a7336-216281bc30fso133997565ad.0
+        for <linux-riscv@lists.infradead.org>; Mon, 30 Dec 2024 01:08:40 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=bytedance.com; s=google; t=1735549720; x=1736154520; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=KCS148NFM6neePcbo7P2q7bn6Gnf3WOST+giN1oaVZ4=;
+        b=TFgd3L8dQ1qDeAkc38YN+6HROh2rZXc3y3j2NB2CMzBS+hepIs2/vMk3YEmUeXS9L8
+         iqAbqxDWDNaWxoQEAJpr3nAFpinxMAyLPqMinc+IbikFPEDCqU3BcLx5xLVfA7yFrYLY
+         FHxQm6IWDnMyDU1Gx5WrNs+n5I5XoEK3nDKCqrZhStoKzoy1VcjhW38ryrLbPgBNbEzw
+         gBCRM1xm3DI5xubR9EpY0ulRU0uiWAGPYWPkyHFnXribIHSJ1Fe2YuPnEPkbdQemY0ro
+         qoF4/ZMUe7mBBghRIBlCbxa0NKBT402D5hSTllhszWKZSBT9kQJ1eZNr8OaEDoNq+QWx
+         c9eQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1735549720; x=1736154520;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=KCS148NFM6neePcbo7P2q7bn6Gnf3WOST+giN1oaVZ4=;
+        b=ewH0zourXHz8pSiaT8ttYRVX3lOQeL+rbpjoWzIHi2/o3LPh/MOQ/upwd2OAf2JMrO
+         XM70FYXppnZ5gFWc7XEmOXKG6Ajt12G3ruWHqAmIrS2aEuBI4KIQq0hjqe/0Fl13brC4
+         u4iYkwRW9kCtVH1lO1d9kCvP4P5YDW9bQYWCDjXCvwFH6p1e8I4rRaZhDBveVl5QrCv9
+         SSPV99Dskjw20MbeXV3mgjs4FsEPRpJ1gXMxEr2PTZ8wM+kCkKfnBewSA6lEeZQ1vddR
+         3NFfRn6WjTtQf20mQMrdRK6pXh41Q9V5plfjO6zIBT10grUPg9dJ2x51ikmDnfWyP7lQ
+         Awkg==
+X-Forwarded-Encrypted: i=1; AJvYcCXQzeXw22m1ey2tsM8Gr+ot9B21xPasJj5Hj8DkBWdXNA4V3ZGmNmxnNQF15kjysElkY92k6KvFmAf0cQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0YwRFl9mh72NoO+onUqBN70E6AkK6X3A0Kmgk1mbUvc/yb36qPf3
+	wiodcF0jTYwYjvYdKdBJTg/Zi//5R0ubGgrtBUb/qgfGeyrCQ7NkUNn05JOHIzU=
+X-Gm-Gg: ASbGncu7K0ek2g6ALdChh1IQeosTZGQQovO/G3M6MApMDJUpJZQouaj4lR5AedMOxKW
+	5dwX/rTFEuSwM33iwOTXQQ3I0vXkaWTAnTpuJma48Z/FYQguAei8khSX5VIS9WZAye01JwtuWcb
+	GcEtYvxOouL/xvndYxXCJlEZ9wbzPgGotfabXdY9WBew2VZpzeqEE6mxcreinJAyNq6M7wZuDXS
+	2MROz7aArkogZ2AiR1Yt0s4417xrjJ9yMM3GAUH6ptvhheVhthZp7nL/2o4MgiZ2h8TlHRte4dD
+	RCzNz/vGWnEUgJqpnWHL5g==
+X-Google-Smtp-Source: AGHT+IHgLmMaWHwHgL0oRHIhYJ2vWpvY6ebuDt6AqrGAyIjEWzK95W7/7i/VdRxGUDUWQcC+IVrQ/g==
+X-Received: by 2002:a05:6a00:e06:b0:725:9dc7:4f8b with SMTP id d2e1a72fcca58-72abde30cc7mr45836853b3a.15.1735549719834;
+        Mon, 30 Dec 2024 01:08:39 -0800 (PST)
+Received: from C02DW0BEMD6R.bytedance.net ([203.208.167.150])
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-842aba72f7csm17057841a12.4.2024.12.30.01.08.27
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 30 Dec 2024 01:08:39 -0800 (PST)
+From: Qi Zheng <zhengqi.arch@bytedance.com>
+To: peterz@infradead.org,
+	agordeev@linux.ibm.com,
+	kevin.brodsky@arm.com,
+	palmer@dabbelt.com,
+	tglx@linutronix.de,
+	david@redhat.com,
+	jannh@google.com,
+	hughd@google.com,
+	yuzhao@google.com,
+	willy@infradead.org,
+	muchun.song@linux.dev,
+	vbabka@kernel.org,
+	lorenzo.stoakes@oracle.com,
+	akpm@linux-foundation.org,
+	rientjes@google.com,
+	vishal.moola@gmail.com,
+	arnd@arndb.de,
+	will@kernel.org,
+	aneesh.kumar@kernel.org,
+	npiggin@gmail.com,
+	dave.hansen@linux.intel.com,
+	rppt@kernel.org,
+	ryan.roberts@arm.com
+Cc: linux-mm@kvack.org,
+	linux-arm-kernel@lists.infradead.org,
+	linuxppc-dev@lists.ozlabs.org,
+	linux-riscv@lists.infradead.org,
+	linux-s390@vger.kernel.org,
+	sparclinux@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	x86@kernel.org,
+	linux-arch@vger.kernel.org,
+	linux-csky@vger.kernel.org,
+	linux-hexagon@vger.kernel.org,
+	loongarch@lists.linux.dev,
+	linux-m68k@lists.linux-m68k.org,
+	linux-mips@vger.kernel.org,
+	linux-openrisc@vger.kernel.org,
+	linux-sh@vger.kernel.org,
+	linux-um@lists.infradead.org,
+	Qi Zheng <zhengqi.arch@bytedance.com>
+Subject: [PATCH v4 00/15] move pagetable_*_dtor() to __tlb_remove_table()
+Date: Mon, 30 Dec 2024 17:07:35 +0800
+Message-Id: <cover.1735549103.git.zhengqi.arch@bytedance.com>
+X-Mailer: git-send-email 2.24.3 (Apple Git-128)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20241229-b4-k230-clk-v1-1-221a917e80ed@zohomail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20241229_235440_788171_35B0E90E 
-X-CRM114-Status: GOOD (  17.89  )
+X-CRM114-CacheID: sfid-20241230_010842_066960_D7A42997 
+X-CRM114-Status: GOOD (  17.07  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,98 +133,133 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sun, Dec 29, 2024 at 09:21:08PM +0800, Xukai Wang wrote:
-> This patch adds the Device Tree binding for the clock controller
-> on Canaan k230. The binding defines the new clocks available and
-> the required properties to configure them correctly.
-> 
-> Signed-off-by: Xukai Wang <kingxukai@zohomail.com>
-> ---
->  .../devicetree/bindings/clock/canaan,k230-clk.yaml | 41 ++++++++++++++++++
->  include/dt-bindings/clock/k230-clk.h               | 49 ++++++++++++++++++++++
->  2 files changed, 90 insertions(+)
+Changes in v4:
+ - remove [PATCH v3 15/17] and [PATCH v3 16/17] (Mike Rapoport)
+   (the tlb_remove_page_ptdesc() and tlb_remove_ptdesc() are intermediate
+    products of the project: https://kernelnewbies.org/MatthewWilcox/Memdescs,
+    so keep them)
+ - collect Acked-by
 
-Please run scripts/checkpatch.pl and fix reported warnings. After that,
-run also 'scripts/checkpatch.pl --strict' and (probably) fix more
-warnings. Some warnings can be ignored, especially from --strict run,
-but the code here looks like it needs a fix. Feel free to get in touch
-if the warning is not clear.
+Changes in v3:
+ - take patch #5 and #6 from Kevin Brodsky's patch series below.
+   Link: https://lore.kernel.org/lkml/20241219164425.2277022-1-kevin.brodsky@arm.com/
+ - separate the statistics part from [PATCH v2 02/15] as [PATCH v3 04/17], and
+   replace the rest part with Kevin Brodsky's patch #6
+   (Alexander Gordeev and Kevin Brodsky)
+ - change the commit message of [PATCH v2 10/15] and [PATCH v2 11/15]
+   (Alexander Gordeev)
+ - fix the bug introduced by [PATCH v2 11/15]
+   (Peter Zijlstra)
+ - rebase onto the next-20241220
 
-> 
-> diff --git a/Documentation/devicetree/bindings/clock/canaan,k230-clk.yaml b/Documentation/devicetree/bindings/clock/canaan,k230-clk.yaml
-> new file mode 100644
-> index 0000000000000000000000000000000000000000..ffd4e0b052455bf3dcedd9355d93764119df3d68
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/clock/canaan,k230-clk.yaml
-> @@ -0,0 +1,41 @@
-> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/clock/canaan,k230-clk.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: Canaan Kendryte K230 Clock
-> +
-> +maintainers:
-> +  - Xukai Wang <kingxukai@zohomail.com>
-> +
-> +properties:
-> +  compatible:
-> +    const: canaan,k230-clk
-> +
-> +  clocks: 
-> +    const: 1
-> +
-> +  reg:
-> +    maxItems: 2
-> +    minItems: 1
+Changes in v2:
+ - add [PATCH v2 13|14|15/15] (suggested by Peter Zijlstra)
+ - add Originally-bys and Suggested-bys
+ - rebase onto the next-20241218
 
-List and describe the items instead.
+Hi all,
 
-> +
-> +  '#clock-cells':
-> +    const: 1
-> +
-> +required:
-> +  - compatible
-> +  - reg
-> +  - clocks
-> +  - '#clock-cells'
-> +
-> +additionalProperties: false
-> +
-> +examples:
-> +  - |
-> +    clock-controller@91102000 {
-> +        compatible = "canaan,k230-clk";
-> +        reg = <0x91102000 0x1000>, <0x91100000 0x1000>;
-> +        #clock-cells = <1>;
-> +        clocks = <&osc24m>;
-> +    };
-> diff --git a/include/dt-bindings/clock/k230-clk.h b/include/dt-bindings/clock/k230-clk.h
-> new file mode 100644
-> index 0000000000000000000000000000000000000000..31d1f82fbcff654072ef1a8985a884377d801e72
-> --- /dev/null
-> +++ b/include/dt-bindings/clock/k230-clk.h
-> @@ -0,0 +1,49 @@
-> +/* SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause) */
-> +/*
-> + * Kendryte Canaan K230 Clock Drivers
-> + *
-> + * Author: Xukai Wang <kingxukai@zohomail.com>
-> + */
-> +
-> +#ifndef CLOCK_K230_CLK_H
-> +#define CLOCK_K230_CLK_H
-> +
-> +/* Kendryte K230 SoC clock identifiers (arbitrary values). */
-> +#define	K230_CPU0_SRC			0
+As proposed [1] by Peter Zijlstra below, this patch series aims to move
+pagetable_*_dtor() into __tlb_remove_table(). This will cleanup pagetable_*_dtor()
+a bit and more gracefully fix the UAF issue [2] reported by syzbot.
 
+```
+Notably:
 
-Drop the indentation after '#define'
+ - s390 pud isn't calling the existing pagetable_pud_[cd]tor()
+ - none of the p4d things have pagetable_p4d_[cd]tor() (x86,arm64,s390,riscv)
+   and they have inconsistent accounting
+ - while much of the _ctor calls are in generic code, many of the _dtor
+   calls are in arch code for hysterial raisins, this could easily be
+   fixed
+ - if we fix ptlock_free() to handle NULL, then all the _dtor()
+   functions can use it, and we can observe they're all identical
+   and can be folded
 
-Best regards,
-Krzysztof
+after all that cleanup, you can move the _dtor from *_free_tlb() into
+tlb_remove_table() -- which for the above case, would then have it
+called from __tlb_remove_table_free().
+```
+
+And hi Andrew, I developed the code based on the latest linux-next, so I reverted
+the "mm: pgtable: make ptlock be freed by RCU" first. Once the review of this
+patch series is completed, the "mm: pgtable: make ptlock be freed by RCU" can be
+dropped directly from mm tree, and this revert patch will not be needed.
+
+This series is based on next-20241220. And I tested this patch series on x86 and
+only cross-compiled it on arm, arm64, powerpc, riscv, s390 and sparc.
+
+Comments and suggestions are welcome!
+
+Thanks,
+Qi
+
+[1]. https://lore.kernel.org/all/20241211133433.GC12500@noisy.programming.kicks-ass.net/
+[2]. https://lore.kernel.org/all/67548279.050a0220.a30f1.015b.GAE@google.com/
+
+Kevin Brodsky (2):
+  riscv: mm: Skip pgtable level check in {pud,p4d}_alloc_one
+  asm-generic: pgalloc: Provide generic p4d_{alloc_one,free}
+
+Qi Zheng (13):
+  Revert "mm: pgtable: make ptlock be freed by RCU"
+  mm: pgtable: add statistics for P4D level page table
+  arm64: pgtable: use mmu gather to free p4d level page table
+  s390: pgtable: add statistics for PUD and P4D level page table
+  mm: pgtable: introduce pagetable_dtor()
+  arm: pgtable: move pagetable_dtor() to __tlb_remove_table()
+  arm64: pgtable: move pagetable_dtor() to __tlb_remove_table()
+  riscv: pgtable: move pagetable_dtor() to __tlb_remove_table()
+  x86: pgtable: move pagetable_dtor() to __tlb_remove_table()
+  s390: pgtable: also move pagetable_dtor() of PxD to
+    __tlb_remove_table()
+  mm: pgtable: introduce generic __tlb_remove_table()
+  mm: pgtable: move __tlb_remove_table_one() in x86 to generic file
+  mm: pgtable: introduce generic pagetable_dtor_free()
+
+ Documentation/mm/split_page_table_lock.rst |  4 +-
+ arch/arm/include/asm/tlb.h                 | 10 ----
+ arch/arm64/include/asm/pgalloc.h           | 18 ------
+ arch/arm64/include/asm/tlb.h               | 21 ++++---
+ arch/csky/include/asm/pgalloc.h            |  2 +-
+ arch/hexagon/include/asm/pgalloc.h         |  2 +-
+ arch/loongarch/include/asm/pgalloc.h       |  2 +-
+ arch/m68k/include/asm/mcf_pgalloc.h        |  4 +-
+ arch/m68k/include/asm/sun3_pgalloc.h       |  2 +-
+ arch/m68k/mm/motorola.c                    |  2 +-
+ arch/mips/include/asm/pgalloc.h            |  2 +-
+ arch/nios2/include/asm/pgalloc.h           |  2 +-
+ arch/openrisc/include/asm/pgalloc.h        |  2 +-
+ arch/powerpc/include/asm/tlb.h             |  1 +
+ arch/powerpc/mm/book3s64/mmu_context.c     |  2 +-
+ arch/powerpc/mm/book3s64/pgtable.c         |  2 +-
+ arch/powerpc/mm/pgtable-frag.c             |  4 +-
+ arch/riscv/include/asm/pgalloc.h           | 69 +++++-----------------
+ arch/riscv/include/asm/tlb.h               | 18 ------
+ arch/riscv/mm/init.c                       |  4 +-
+ arch/s390/include/asm/pgalloc.h            | 31 +++++++---
+ arch/s390/include/asm/tlb.h                | 43 +++++++-------
+ arch/s390/mm/pgalloc.c                     | 23 +-------
+ arch/sh/include/asm/pgalloc.h              |  2 +-
+ arch/sparc/include/asm/tlb_32.h            |  1 +
+ arch/sparc/include/asm/tlb_64.h            |  1 +
+ arch/sparc/mm/init_64.c                    |  2 +-
+ arch/sparc/mm/srmmu.c                      |  2 +-
+ arch/um/include/asm/pgalloc.h              |  6 +-
+ arch/x86/include/asm/pgalloc.h             | 18 ------
+ arch/x86/include/asm/tlb.h                 | 33 -----------
+ arch/x86/kernel/paravirt.c                 |  1 +
+ arch/x86/mm/pgtable.c                      | 13 ++--
+ include/asm-generic/pgalloc.h              | 55 +++++++++++++++--
+ include/asm-generic/tlb.h                  | 14 ++++-
+ include/linux/mm.h                         | 50 ++++++----------
+ include/linux/mm_types.h                   |  9 +--
+ mm/memory.c                                | 23 +++-----
+ mm/mmu_gather.c                            | 20 ++++++-
+ 39 files changed, 211 insertions(+), 309 deletions(-)
+
+-- 
+2.20.1
 
 
 _______________________________________________
