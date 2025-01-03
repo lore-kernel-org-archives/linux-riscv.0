@@ -4,66 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3E2B4E77188
-	for <linux-riscv@archiver.kernel.org>; Fri,  3 Jan 2025 09:30:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E8475E77188
+	for <linux-riscv@archiver.kernel.org>; Fri,  3 Jan 2025 09:32:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=M+kJny8NhXP28mgEOMX1GRI37JysgOU058XOch8XoGU=; b=M60iCtF/WjLnTR
-	jDNG83m8CzMLaowXZBqFCLyVWktRzwcpFVLn6E2PPIc+flP/f/nR/T0x5OdBtYxcRmdckampJID2D
-	xFTTwLyDR4YcLzDiQGLlYDjpVHM+rnd7tQ+h/OsgnQZyCUPUM/FioepzTjEDZyZAuQrWh5wAWL3om
-	eZVU38s3NrBrAgzTJqtxvzUY3Ve66LDHNkyJLSyOxK6ELC8KoyrBBfPIZu3GBpJtVSunV393Yktx2
-	0+2fIb0urQ9mKhaJpgh52HUfIP+PKCPGjVQgogCV+qD23K2P5Uypa45T8697aAnbf2koDwfcCEcRT
-	OHKFGL9mSM3Jtq8j2/mA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=/75SpAdy13QGsfC0bmWwV7p2kECK4F+1ZgDTrGRdSVk=; b=cT2wgBXZCiHHsN
+	pMEo+ftS/DGQ7jQKNfux3yc867+XUBa99rnQU8+IDv3TpTspQVwYGVbI3dW+mjVl6Gr5lpfdQZ12h
+	568BiPhBreOK8Sa0ejC1SjuqNU3nM7ChnKfmYfyetufABVqCpt6LnlUM7R+2/X7Ztvetd6j/LXVqS
+	Kn8e3xilB5ZJvU9ewDLNpaquln2xFJEx8lrNrGJyQAoirtIxXD/BphluaBQji8W6cfJvW+qx7gFAe
+	hjd4wtR7bVfP0wvJJys4tHiXgHGJzt1FThX3j1/WuQ4sl4RH5lk328h9Ngi5SmKCAxkX3u2lMeyCf
+	gaBm81KtYz2ltTX5qZLA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tTe0l-0000000CcLD-3urQ;
-	Fri, 03 Jan 2025 09:30:31 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tTdz3-0000000CbzE-0XWf;
-	Fri, 03 Jan 2025 09:28:47 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 3C0AF1480;
-	Fri,  3 Jan 2025 01:29:12 -0800 (PST)
-Received: from [10.57.92.237] (unknown [10.57.92.237])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id B8B153F673;
-	Fri,  3 Jan 2025 01:28:35 -0800 (PST)
-Message-ID: <80cf6cae-11f6-4db2-816b-b1dcca3cee3e@arm.com>
-Date: Fri, 3 Jan 2025 10:28:32 +0100
+	id 1tTe2h-0000000Cchs-0zuY;
+	Fri, 03 Jan 2025 09:32:31 +0000
+Received: from mail-pl1-x635.google.com ([2607:f8b0:4864:20::635])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tTe2f-0000000Cch9-00UF
+	for linux-riscv@lists.infradead.org;
+	Fri, 03 Jan 2025 09:32:30 +0000
+Received: by mail-pl1-x635.google.com with SMTP id d9443c01a7336-21649a7bcdcso162861205ad.1
+        for <linux-riscv@lists.infradead.org>; Fri, 03 Jan 2025 01:32:28 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=bytedance.com; s=google; t=1735896748; x=1736501548; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=SKk1FI6zQyxC6Jfeaa2W406Eo5j/J0Vbugy5i2jnps4=;
+        b=TDY3PG4OZvG5wdoTaRCvOhwj4l9liNcyVNtIYGw2Sp8nyCZqkCmrLBeoq+Qfno7eWB
+         xzCoVEmUKVHFL/uITbsjMkm6WLnM+49BPvsAhAU0afJPexdfp27xKL+BpaukTDNc9/vf
+         u0fXbYOf0+UeHi5OEMdmzAr2eIDYnlfzsL0AEORspu7T8U+h4Eehv03rdN7Uw80CmeYe
+         vAc4k5mQIPEUW2IWIn8Wphv2hw2ZnVEnMaS157SywR0UIg7Sf2oCRQrQ1GfmDa77ECUj
+         M8ap1fgDYR77VdPzfJeaZ96qJXQMC1FiqRxzMmeUFDofN7UVrsV0OGTJVGiy3tk74cIK
+         drBw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1735896748; x=1736501548;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=SKk1FI6zQyxC6Jfeaa2W406Eo5j/J0Vbugy5i2jnps4=;
+        b=RMFFIl2yEMCk5cdN0FCg8eQXoj+LiF2hNIpiakCuCpAFB0MhA9V9ofCpLTi9l7B4A8
+         lsZM3Qd3gK4vMLrNKahscSbemL1Nb87U0r1WwYottx/KdTWSj+iznBoPnGHnsK+GiQW8
+         hFVo+pokN//G+mWYzPa0d0KmUc779yMI6NQ/iVxzQdx9+q7dzCKohfke4WaDY/bOp2NZ
+         7XgZCXVHqq22+RrNR9leR1G4sYS1cMincqwnTtyaIfSudxQLt1QseYMdq/y9Z3DTSYXd
+         trf1fqBrQK7erzI8zDq1Hg4yOBs7MOwMs4SCC/BMcp038t3jUPrqCc6vUCkc6JhYOPBv
+         BgNQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUM0l6LMNROHt0SFcaN11YCGuvIXAP0bsHCwXQQiaqDgV8YLZgZ1S7cZPgBVBsVy2PhRNVUWhFbgviWIA==@lists.infradead.org
+X-Gm-Message-State: AOJu0YzMw7aaomzTAu0TNAKwpx8XdSZXHRYvj/e1CTnSEfvGXzzu+5nE
+	vcM8mg4VpM+uS45Gw3keVwBXxU9htVoEC2POZbyva2rIp99e0fkLqClQhCQeRFQ=
+X-Gm-Gg: ASbGncsxyuAbPvQH72al/LKp7G0bIzf8QlcEgZESteUWdCUcErqFgO0WSYJXl4pxTSM
+	w/T25yERLrmr07rq9wUwU6KuAysJNAcFIegDNIEz0qcGyKQ19LXVi26SRZZjM/3XnnJPbwbe++i
+	5k00xYMsAtzumkeqRfaonwNl8uV6yoBP/G4DujGA+/slN674ZNzlV07AUjWc97nBjP/hvOssL11
+	vTmjHaS/mGIhf5Y/W8cigZBME8rIZ6GcDLmI6193o5ewYxCruWbrWxP5DaRHut1mjU7IKAVREdu
+	3D+m//XQnW1uHWzD/ng7N1/fqc0xEoZUwDO1FYI=
+X-Google-Smtp-Source: AGHT+IGBzxD4H34Ifr5hg3tZ1klbrrjY+CrreB/5URknlVxUQwbmgmz/BsJ+ZoGNL1+L0MbwMbpjzQ==
+X-Received: by 2002:a17:903:238b:b0:216:39fa:5cb4 with SMTP id d9443c01a7336-219e6eb6234mr722356135ad.25.1735896748046;
+        Fri, 03 Jan 2025 01:32:28 -0800 (PST)
+Received: from J9GPGXL7NT.bytedance.net ([61.213.176.55])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-219dc9f4a2csm242227395ad.175.2025.01.03.01.32.24
+        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
+        Fri, 03 Jan 2025 01:32:27 -0800 (PST)
+From: Xu Lu <luxu.kernel@bytedance.com>
+To: tjeznach@rivosinc.com,
+	joro@8bytes.org,
+	will@kernel.org
+Cc: lihangjing@bytedance.com,
+	xieyongji@bytedance.com,
+	guojinhui.liam@bytedance.com,
+	linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Xu Lu <luxu.kernel@bytedance.com>
+Subject: [PATCH RESEND 0/2] riscv: iommu: Add shutdown callback for kexec
+Date: Fri,  3 Jan 2025 17:32:18 +0800
+Message-Id: <20250103093220.38106-1-luxu.kernel@bytedance.com>
+X-Mailer: git-send-email 2.39.5 (Apple Git-154)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 00/10] Account page tables at all levels
-To: Dave Hansen <dave.hansen@intel.com>, linux-mm@kvack.org
-Cc: Andrew Morton <akpm@linux-foundation.org>,
- Catalin Marinas <catalin.marinas@arm.com>,
- Dave Hansen <dave.hansen@linux.intel.com>,
- Linus Walleij <linus.walleij@linaro.org>, Andy Lutomirski <luto@kernel.org>,
- Peter Zijlstra <peterz@infradead.org>, "Mike Rapoport (IBM)"
- <rppt@kernel.org>, Ryan Roberts <ryan.roberts@arm.com>,
- Thomas Gleixner <tglx@linutronix.de>, Will Deacon <will@kernel.org>,
- Matthew Wilcox <willy@infradead.org>, linux-alpha@vger.kernel.org,
- linux-arch@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-csky@vger.kernel.org, linux-hexagon@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-m68k@lists.linux-m68k.org,
- linux-mips@vger.kernel.org, linux-openrisc@vger.kernel.org,
- linux-parisc@vger.kernel.org, linux-riscv@lists.infradead.org,
- linux-s390@vger.kernel.org, linux-snps-arc@lists.infradead.org,
- linux-um@lists.infradead.org, loongarch@lists.linux.dev, x86@kernel.org,
- Joerg Roedel <jroedel@suse.de>
-References: <20241219164425.2277022-1-kevin.brodsky@arm.com>
- <a7398426-56d1-40b4-a1c9-40ae8c8a4b4b@intel.com>
- <765aec36-55a4-4161-bb30-4ff838bc2d98@arm.com>
- <989b55cf-1f9e-4b73-b3dd-d8b6a62be3f2@intel.com>
-Content-Language: en-GB
-From: Kevin Brodsky <kevin.brodsky@arm.com>
-In-Reply-To: <989b55cf-1f9e-4b73-b3dd-d8b6a62be3f2@intel.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250103_012845_280706_8E95504E 
-X-CRM114-Status: GOOD (  18.08  )
+X-CRM114-CacheID: sfid-20250103_013229_037800_ADF1C1F1 
+X-CRM114-Status: UNSURE (   6.38  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,43 +102,26 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 20/12/2024 20:31, Dave Hansen wrote:
-> On 12/20/24 02:58, Kevin Brodsky wrote:
->>> One super tiny nit is that the PAE pgd _can_ be allocated using
->>> __get_free_pages(). It was originally there for Xen, but I think it's
->>> being used for PTI only at this point and the comments are wrong-ish.
->>>
->>> I kinda think we should just get rid of the 32-bit kmem_cache entirely.
->> That would certainly simplify things on the x86 side! I'm not at all
->> familiar with that code though, would you be happy with providing a
->> patch? I could add it to this series if that's convenient.
-> I hacked this together yesterday:
->
->> https://git.kernel.org/pub/scm/linux/kernel/git/daveh/devel.git/log/?h=simplify-pae-20241220
-> It definitely needs some more work. I'm particularly still puzzling
-> about why SHARED_KERNEL_PMD is used both as a trigger for 32b vs.
-> PAGE_SIZE PAE pgd allocations _and_ for the actual PMD sharing.
->
-> Xen definitely needed the whole page behavior but I'm not sure why PTI did.
->
-> Either way, that series should make the PAE PGDs a _bit_ less weird at
-> the cost of an extra ~2 pages per process for folks who are running
-> 32-bit PAE kernels with PTI disabled.
->
-> But I think the diffstat is worth it:
->
->  5 files changed, 16 insertions(+), 96 deletions(-)
+After kexec, the newly booted kernel can not initialize iommu driver
+successfully as no one resets iommu state before kexec.
 
-That does look like a nice simplification! After the first patch, with
-my series, we could get rid of _pgd_alloc() and _pgd_free() in
-arch/x86/mm/pgtable.c and just call __pgd_alloc() and __pgd_free() directly.
+This patch series supplies shutdown callback for iommu driver. The shutdown
+callback resets necessary registers so that newly booted kernel can pass
+riscv_iommu_init_check() after kexec.
 
-Considering that these changes are not trivial and may need more work,
-should I let you post those patches as a separate series? If it gets
-merged soon, I'll adapt my series, otherwise I can post a follow-up
-patch later if needed.
+Xu Lu (2):
+  iommu/riscv: Empty iommu queue before enabling it
+  iommu/riscv: Add shutdown function for iommu driver
 
-- Kevin
+ drivers/iommu/riscv/iommu-pci.c      |  8 ++++++++
+ drivers/iommu/riscv/iommu-platform.c |  6 ++++++
+ drivers/iommu/riscv/iommu.c          | 12 ++++++++++--
+ drivers/iommu/riscv/iommu.h          |  1 +
+ 4 files changed, 25 insertions(+), 2 deletions(-)
+
+-- 
+2.20.1
+
 
 _______________________________________________
 linux-riscv mailing list
