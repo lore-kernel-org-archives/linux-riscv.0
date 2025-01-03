@@ -4,66 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5E1BE77188
-	for <linux-riscv@archiver.kernel.org>; Fri,  3 Jan 2025 10:37:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7EC06E77188
+	for <linux-riscv@archiver.kernel.org>; Fri,  3 Jan 2025 11:16:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=eyUfhO6UMPld/B5XTLzI+dTOhULmXplY+ViYNFMa0M0=; b=U4w8SV2piyRB/5
-	o5A61ufhVZage8Nf2VpuscA6unJrqaXvU0vq+psVbhceOrkib9d5dciByZPHOHjqFExRdMlhFjnEL
-	3mgohZogim60z1NA5aX8kj6SzCoqPLrHg14tnl/KQ33ej7dCSTi/CLBvJPTVDtIvV0XjsYnIurBN3
-	xFf0MoZ0kS5gQfdstXRocKKRPoAKW0woFrwrzhN1UVH4zg03smbz9sxWQbn4iLwLiHqqfPlLmtFD0
-	TVEOIQChJN9Bphm6Yg68LHj1CWOJ4laB6smDEa/5sfzwIWZCE22UqTJP4/qIdyNJLa3boFXQ243r7
-	TpmmJYYBBjCj51uP2sIA==;
+	List-Owner; bh=gQiyw4nrvJkPUksRfWWFxRJR2mBO1fGIBG0LUZQtlTs=; b=NcmRP0kyFtRiUn
+	iVQMUbu/czSrgTMAXP96LujcTfLKcTSd6Y65nrJZcSUmBX/gJ27Rw1xoAihpvZyJBX1SMwGmDiNtt
+	A3e45OYGCP7ZJ1+5/PZQNVXqQenS+WH7ajRHDVGxSOh456aSUoi+wx22fDPsfar7BWYCzM889rfVB
+	PjlZdzPZg7sXInd+1P02VEzYE9nZV3lgXJ5LANc1j8IYNdKs/0XvZ8hSNOuhp17/4e2dLefCAcrzr
+	pCZoYk6ixdMbh6D28KWRIUwSJk7FH1eZ/BrRzjmXDxWP4iMn3z9zuU1MD7C2kGeKmBAt01YFYdGOu
+	algZhxclV439AL0heF+Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tTf3a-0000000Ck1W-2gYO;
-	Fri, 03 Jan 2025 10:37:30 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tTf2M-0000000Cjvn-0ioI;
-	Fri, 03 Jan 2025 10:36:16 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 45A1D150C;
-	Fri,  3 Jan 2025 02:36:41 -0800 (PST)
-Received: from [10.44.160.93] (e126510-lin.lund.arm.com [10.44.160.93])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 8736A3F6A8;
-	Fri,  3 Jan 2025 02:36:06 -0800 (PST)
-Message-ID: <39925677-4619-411d-b0b1-40f9db09374f@arm.com>
-Date: Fri, 3 Jan 2025 11:36:03 +0100
+	id 1tTff9-0000000Cny8-0ITp;
+	Fri, 03 Jan 2025 11:16:19 +0000
+Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tTfdw-0000000CnoI-1ZoD;
+	Fri, 03 Jan 2025 11:15:04 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=casper.20170209; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=CPGOdr/jsXJNO5Wu3fEBGF99GP73lSQF/IKxQW4k0R4=; b=Tf96QP1nI5zee8m+i5u3CA94h9
+	3PVNNoLdvhSBk2t6LZQP6KHn1+Y/Ig9kK3lwT2hFjHWgZiqq3VK4SzqQBmD6A0e29acKD8NJDsAzp
+	PBklhel75TRoOCf5VTzc00lXza1eWj1sW19Tjleo1fc/L5i9P5juDXyKQY9kHKExje/1wAmmZkrHj
+	FdESUWBGwWEamk3EA3c0+gwV4EPoveBGXJo3r+051uO72Cz+2Bir5nMUbKQ2FfpEvF0r1gyVxRelx
+	Ro4i1hRHlfJmHnjxqwmbD1SaYDgPeAH7HhcAneWE1IcOwP7nCEbEkp2xJxpa8O/6L3gNZJN11KFqb
+	fYAj5NUQ==;
+Received: from 77-249-17-89.cable.dynamic.v4.ziggo.nl ([77.249.17.89] helo=noisy.programming.kicks-ass.net)
+	by casper.infradead.org with esmtpsa (Exim 4.98 #2 (Red Hat Linux))
+	id 1tTfdp-00000005j4l-1npS;
+	Fri, 03 Jan 2025 11:14:57 +0000
+Received: by noisy.programming.kicks-ass.net (Postfix, from userid 1000)
+	id 3EDFC3003AF; Fri,  3 Jan 2025 12:14:57 +0100 (CET)
+Date: Fri, 3 Jan 2025 12:14:57 +0100
+From: Peter Zijlstra <peterz@infradead.org>
+To: Mike Rapoport <rppt@kernel.org>
+Cc: Qi Zheng <zhengqi.arch@bytedance.com>, agordeev@linux.ibm.com,
+	kevin.brodsky@arm.com, tglx@linutronix.de, david@redhat.com,
+	jannh@google.com, hughd@google.com, yuzhao@google.com,
+	willy@infradead.org, muchun.song@linux.dev, vbabka@kernel.org,
+	lorenzo.stoakes@oracle.com, akpm@linux-foundation.org,
+	rientjes@google.com, vishal.moola@gmail.com, arnd@arndb.de,
+	will@kernel.org, aneesh.kumar@kernel.org, npiggin@gmail.com,
+	dave.hansen@linux.intel.com, ryan.roberts@arm.com,
+	linux-mm@kvack.org, linux-arm-kernel@lists.infradead.org,
+	linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
+	linux-s390@vger.kernel.org, sparclinux@vger.kernel.org,
+	linux-kernel@vger.kernel.org, x86@kernel.org,
+	linux-arch@vger.kernel.org, linux-csky@vger.kernel.org,
+	linux-hexagon@vger.kernel.org, loongarch@lists.linux.dev,
+	linux-m68k@lists.linux-m68k.org, linux-mips@vger.kernel.org,
+	linux-openrisc@vger.kernel.org, linux-sh@vger.kernel.org,
+	linux-um@lists.infradead.org
+Subject: Re: [PATCH v3 15/17] mm: pgtable: remove tlb_remove_page_ptdesc()
+Message-ID: <20250103111457.GC22934@noisy.programming.kicks-ass.net>
+References: <cover.1734945104.git.zhengqi.arch@bytedance.com>
+ <b37435768345e0fcf7ea358f69b4a71767f0f530.1734945104.git.zhengqi.arch@bytedance.com>
+ <Z2_EPmOTUHhcBegW@kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 05/10] riscv: mm: Skip pgtable level check in
- {pud,p4d}_alloc_one
-To: Alexandre Ghiti <alex@ghiti.fr>, linux-mm@kvack.org
-Cc: Andrew Morton <akpm@linux-foundation.org>,
- Catalin Marinas <catalin.marinas@arm.com>,
- Dave Hansen <dave.hansen@linux.intel.com>,
- Linus Walleij <linus.walleij@linaro.org>, Andy Lutomirski <luto@kernel.org>,
- Peter Zijlstra <peterz@infradead.org>, "Mike Rapoport (IBM)"
- <rppt@kernel.org>, Ryan Roberts <ryan.roberts@arm.com>,
- Thomas Gleixner <tglx@linutronix.de>, Will Deacon <will@kernel.org>,
- Matthew Wilcox <willy@infradead.org>, linux-alpha@vger.kernel.org,
- linux-arch@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-csky@vger.kernel.org, linux-hexagon@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-m68k@lists.linux-m68k.org,
- linux-mips@vger.kernel.org, linux-openrisc@vger.kernel.org,
- linux-parisc@vger.kernel.org, linux-riscv@lists.infradead.org,
- linux-s390@vger.kernel.org, linux-snps-arc@lists.infradead.org,
- linux-um@lists.infradead.org, loongarch@lists.linux.dev, x86@kernel.org,
- Qi Zheng <zhengqi.arch@bytedance.com>
-References: <20241219164425.2277022-1-kevin.brodsky@arm.com>
- <20241219164425.2277022-6-kevin.brodsky@arm.com>
- <2aed338a-97a4-40e3-8a95-99458756ca28@ghiti.fr>
-Content-Language: en-GB
-From: Kevin Brodsky <kevin.brodsky@arm.com>
-In-Reply-To: <2aed338a-97a4-40e3-8a95-99458756ca28@ghiti.fr>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250103_023614_303221_0C0F016B 
-X-CRM114-Status: GOOD (  13.85  )
+Content-Disposition: inline
+In-Reply-To: <Z2_EPmOTUHhcBegW@kernel.org>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,59 +81,48 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-K1FpCgpPbiAwMy8wMS8yMDI1IDExOjMxLCBBbGV4YW5kcmUgR2hpdGkgd3JvdGU6Cj4gSGkgS2V2
-aW4sCj4KPiBPbiAxOS8xMi8yMDI0IDE3OjQ0LCBLZXZpbiBCcm9kc2t5IHdyb3RlOgo+PiB7cG1k
-LHB1ZCxwNGR9X2FsbG9jX29uZSgpIGlzIG5ldmVyIGNhbGxlZCBpZiB0aGUgY29ycmVzcG9uZGlu
-ZyBwYWdlCj4+IHRhYmxlIGxldmVsIGlzIGZvbGRlZCwgYXMge3BtZCxwdWQscDRkfV9hbGxvYygp
-IGFscmVhZHkgZG9lcyB0aGUKPj4gcmVxdWlyZWQgY2hlY2suIFdlIGNhbiB0aGVyZWZvcmUgcmVt
-b3ZlIHRoZSBydW50aW1lIHBhZ2UgdGFibGUgbGV2ZWwKPj4gY2hlY2tzIGluIHtwdWQscDRkfV9h
-bGxvY19vbmUuIFRoZSBQVUQgaGVscGVyIGJlY29tZXMgZXF1aXZhbGVudCB0bwo+PiB0aGUgZ2Vu
-ZXJpYyB2ZXJzaW9uLCBzbyB3ZSByZW1vdmUgaXQgYWx0b2dldGhlci4KPj4KPj4gVGhpcyBpcyBj
-b25zaXN0ZW50IHdpdGggdGhlIHdheSBhcm02NCBhbmQgeDg2IGhhbmRsZSB0aGlzIHNpdHVhdGlv
-bgo+PiAocnVudGltZSBjaGVjayBpbiBwNGRfZnJlZSgpIG9ubHkpLgo+Pgo+PiBTaWduZWQtb2Zm
-LWJ5OiBLZXZpbiBCcm9kc2t5IDxrZXZpbi5icm9kc2t5QGFybS5jb20+Cj4+IC0tLQo+PiDCoCBh
-cmNoL3Jpc2N2L2luY2x1ZGUvYXNtL3BnYWxsb2MuaCB8IDIyICsrKystLS0tLS0tLS0tLS0tLS0t
-LS0KPj4gwqAgMSBmaWxlIGNoYW5nZWQsIDQgaW5zZXJ0aW9ucygrKSwgMTggZGVsZXRpb25zKC0p
-Cj4+Cj4+IGRpZmYgLS1naXQgYS9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL3BnYWxsb2MuaAo+PiBi
-L2FyY2gvcmlzY3YvaW5jbHVkZS9hc20vcGdhbGxvYy5oCj4+IGluZGV4IGY1MjI2NDMwNGY3Ny4u
-OGFkMGJiZTgzOGEyIDEwMDY0NAo+PiAtLS0gYS9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL3BnYWxs
-b2MuaAo+PiArKysgYi9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL3BnYWxsb2MuaAo+PiBAQCAtMTIs
-NyArMTIsNiBAQAo+PiDCoCAjaW5jbHVkZSA8YXNtL3RsYi5oPgo+PiDCoCDCoCAjaWZkZWYgQ09O
-RklHX01NVQo+PiAtI2RlZmluZSBfX0hBVkVfQVJDSF9QVURfQUxMT0NfT05FCj4+IMKgICNkZWZp
-bmUgX19IQVZFX0FSQ0hfUFVEX0ZSRUUKPj4gwqAgI2luY2x1ZGUgPGFzbS1nZW5lcmljL3BnYWxs
-b2MuaD4KPj4gwqAgQEAgLTg4LDE1ICs4Nyw2IEBAIHN0YXRpYyBpbmxpbmUgdm9pZCBwZ2RfcG9w
-dWxhdGVfc2FmZShzdHJ1Y3QKPj4gbW1fc3RydWN0ICptbSwgcGdkX3QgKnBnZCwKPj4gwqDCoMKg
-wqDCoCB9Cj4+IMKgIH0KPj4gwqAgLSNkZWZpbmUgcHVkX2FsbG9jX29uZSBwdWRfYWxsb2Nfb25l
-Cj4+IC1zdGF0aWMgaW5saW5lIHB1ZF90ICpwdWRfYWxsb2Nfb25lKHN0cnVjdCBtbV9zdHJ1Y3Qg
-Km1tLCB1bnNpZ25lZAo+PiBsb25nIGFkZHIpCj4+IC17Cj4+IC3CoMKgwqAgaWYgKHBndGFibGVf
-bDRfZW5hYmxlZCkKPj4gLcKgwqDCoMKgwqDCoMKgIHJldHVybiBfX3B1ZF9hbGxvY19vbmUobW0s
-IGFkZHIpOwo+PiAtCj4+IC3CoMKgwqAgcmV0dXJuIE5VTEw7Cj4+IC19Cj4+IC0KPj4gwqAgI2Rl
-ZmluZSBwdWRfZnJlZSBwdWRfZnJlZQo+PiDCoCBzdGF0aWMgaW5saW5lIHZvaWQgcHVkX2ZyZWUo
-c3RydWN0IG1tX3N0cnVjdCAqbW0sIHB1ZF90ICpwdWQpCj4+IMKgIHsKPj4gQEAgLTExOCwxNSAr
-MTA4LDExIEBAIHN0YXRpYyBpbmxpbmUgdm9pZCBfX3B1ZF9mcmVlX3RsYihzdHJ1Y3QKPj4gbW11
-X2dhdGhlciAqdGxiLCBwdWRfdCAqcHVkLAo+PiDCoCAjZGVmaW5lIHA0ZF9hbGxvY19vbmUgcDRk
-X2FsbG9jX29uZQo+PiDCoCBzdGF0aWMgaW5saW5lIHA0ZF90ICpwNGRfYWxsb2Nfb25lKHN0cnVj
-dCBtbV9zdHJ1Y3QgKm1tLCB1bnNpZ25lZAo+PiBsb25nIGFkZHIpCj4+IMKgIHsKPj4gLcKgwqDC
-oCBpZiAocGd0YWJsZV9sNV9lbmFibGVkKSB7Cj4+IC3CoMKgwqDCoMKgwqDCoCBnZnBfdCBnZnAg
-PSBHRlBfUEdUQUJMRV9VU0VSOwo+PiAtCj4+IC3CoMKgwqDCoMKgwqDCoCBpZiAobW0gPT0gJmlu
-aXRfbW0pCj4+IC3CoMKgwqDCoMKgwqDCoMKgwqDCoMKgIGdmcCA9IEdGUF9QR1RBQkxFX0tFUk5F
-TDsKPj4gLcKgwqDCoMKgwqDCoMKgIHJldHVybiAocDRkX3QgKilnZXRfemVyb2VkX3BhZ2UoZ2Zw
-KTsKPj4gLcKgwqDCoCB9Cj4+ICvCoMKgwqAgZ2ZwX3QgZ2ZwID0gR0ZQX1BHVEFCTEVfVVNFUjsK
-Pj4gwqAgLcKgwqDCoCByZXR1cm4gTlVMTDsKPj4gK8KgwqDCoCBpZiAobW0gPT0gJmluaXRfbW0p
-Cj4+ICvCoMKgwqDCoMKgwqDCoCBnZnAgPSBHRlBfUEdUQUJMRV9LRVJORUw7Cj4+ICvCoMKgwqAg
-cmV0dXJuIChwNGRfdCAqKWdldF96ZXJvZWRfcGFnZShnZnApOwo+PiDCoCB9Cj4+IMKgIMKgIHN0
-YXRpYyBpbmxpbmUgdm9pZCBfX3A0ZF9mcmVlKHN0cnVjdCBtbV9zdHJ1Y3QgKm1tLCBwNGRfdCAq
-cDRkKQo+Cj4KPiBSZXZpZXdlZC1ieTogQWxleGFuZHJlIEdoaXRpIDxhbGV4Z2hpdGlAcml2b3Np
-bmMuY29tPgoKVGhhbmtzIGZvciB0aGUgcmV2aWV3ISBKdXN0IEZZSSB0aGlzIHBhdGNoIGlzIG5v
-dyBwYXJ0IG9mIFFpJ3Mgc2VyaWVzClsxXSwgSSB3aWxsIGRyb3AgaXQgd2hlbiBwb3N0aW5nIHRo
-ZSBuZXh0IHZlcnNpb24gb2YgdGhpcyBzZXJpZXMuCgotIEtldmluCgpbMV0KaHR0cHM6Ly9sb3Jl
-Lmtlcm5lbC5vcmcvbGludXgtbW0vODRkZGY4NTc1MDhiOThhMTk1YTc5MGJjNmZmNmFiODg0OWI0
-NDYzMy4xNzM1NTQ5MTAzLmdpdC56aGVuZ3FpLmFyY2hAYnl0ZWRhbmNlLmNvbS8KCl9fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxp
-bmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZy
-YWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+On Sat, Dec 28, 2024 at 11:26:22AM +0200, Mike Rapoport wrote:
+> On Mon, Dec 23, 2024 at 05:41:01PM +0800, Qi Zheng wrote:
+> > Here we are explicitly dealing with struct page, and the following logic
+> > semms strange:
+> > 
+> > tlb_remove_page_ptdesc((tlb), (page_ptdesc(pte)));
+> > 
+> > tlb_remove_page_ptdesc
+> > --> tlb_remove_page(tlb, ptdesc_page(pt));
+> > 
+> > So remove tlb_remove_page_ptdesc() and make callers call tlb_remove_page()
+> > directly.
+> 
+> Please don't. The ptdesc wrappers are there as a part of reducing the size
+> of struct page project [1]. 
+> 
+> For now struct ptdesc overlaps struct page, but the goal is to have them
+> separate and always operate on struct ptdesc when working with page tables.
+
+I don't see how the current idiotic code helps with that at all.
+
+Fundamentally tlb_remove_page() is about removing *pages* as from a PTE,
+there should not be a page-table anywhere near here *ever*.
+
+Yes, some architectures use tlb_remove_page() for page-tables too, but
+that is more or less an implementation detail that can be fixed.
+
+So no, please keep these patches and kill this utterly idiotic code.
+
+The only thing that should eventually care about page-tables is
+tlb_remove_table(), and that takes a 'void *' and is expected to match
+whatever __tlb_remove_table() does.
+
+Flipping those to pgdesc, once its actually a thing, should be fairly
+straight forward.
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
