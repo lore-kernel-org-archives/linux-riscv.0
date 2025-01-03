@@ -4,72 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7EC06E77188
-	for <linux-riscv@archiver.kernel.org>; Fri,  3 Jan 2025 11:16:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5AA7AE77188
+	for <linux-riscv@archiver.kernel.org>; Fri,  3 Jan 2025 13:00:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=gQiyw4nrvJkPUksRfWWFxRJR2mBO1fGIBG0LUZQtlTs=; b=NcmRP0kyFtRiUn
-	iVQMUbu/czSrgTMAXP96LujcTfLKcTSd6Y65nrJZcSUmBX/gJ27Rw1xoAihpvZyJBX1SMwGmDiNtt
-	A3e45OYGCP7ZJ1+5/PZQNVXqQenS+WH7ajRHDVGxSOh456aSUoi+wx22fDPsfar7BWYCzM889rfVB
-	PjlZdzPZg7sXInd+1P02VEzYE9nZV3lgXJ5LANc1j8IYNdKs/0XvZ8hSNOuhp17/4e2dLefCAcrzr
-	pCZoYk6ixdMbh6D28KWRIUwSJk7FH1eZ/BrRzjmXDxWP4iMn3z9zuU1MD7C2kGeKmBAt01YFYdGOu
-	algZhxclV439AL0heF+Q==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=TyWFgXFfo170yZKZd5EXbxTSqm+ElcHPgX0U4pAVYfk=; b=x+XGTrG1tqmTwy
+	YdRse0ThMVYVW3a55O5kt7kN0NZATeqOTn3cUGZzbiYi6x5nep6oiafAS3TawcDdOQ27JlPeGNgf5
+	2EhD6HNIdSubBoNrysL7bkcahcqbqa2hV79nbc5zaJmGNtxTYPZkY3wSk/Oc8+GL9ioaRw9/H35UC
+	Tt6F8TyMQpTrUxUr4lXcPxTVllSDLRt8f12H+A9Zt0HNhyr5X8akTarfdRBdwyCk0s+FUKPADaDi5
+	FbqiPPoRO4y5PwkwngPm0M9tstY42IVCz/tSWALhAaC/Vxd+K57ThAjj92YJiJDRMUrnZH0sYeclz
+	5gqyaVf0nL2xyvSvUcjQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tTff9-0000000Cny8-0ITp;
-	Fri, 03 Jan 2025 11:16:19 +0000
-Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
+	id 1tThHy-0000000CxMi-45GO;
+	Fri, 03 Jan 2025 13:00:30 +0000
+Received: from mail-pl1-x633.google.com ([2607:f8b0:4864:20::633])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tTfdw-0000000CnoI-1ZoD;
-	Fri, 03 Jan 2025 11:15:04 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=casper.20170209; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=CPGOdr/jsXJNO5Wu3fEBGF99GP73lSQF/IKxQW4k0R4=; b=Tf96QP1nI5zee8m+i5u3CA94h9
-	3PVNNoLdvhSBk2t6LZQP6KHn1+Y/Ig9kK3lwT2hFjHWgZiqq3VK4SzqQBmD6A0e29acKD8NJDsAzp
-	PBklhel75TRoOCf5VTzc00lXza1eWj1sW19Tjleo1fc/L5i9P5juDXyKQY9kHKExje/1wAmmZkrHj
-	FdESUWBGwWEamk3EA3c0+gwV4EPoveBGXJo3r+051uO72Cz+2Bir5nMUbKQ2FfpEvF0r1gyVxRelx
-	Ro4i1hRHlfJmHnjxqwmbD1SaYDgPeAH7HhcAneWE1IcOwP7nCEbEkp2xJxpa8O/6L3gNZJN11KFqb
-	fYAj5NUQ==;
-Received: from 77-249-17-89.cable.dynamic.v4.ziggo.nl ([77.249.17.89] helo=noisy.programming.kicks-ass.net)
-	by casper.infradead.org with esmtpsa (Exim 4.98 #2 (Red Hat Linux))
-	id 1tTfdp-00000005j4l-1npS;
-	Fri, 03 Jan 2025 11:14:57 +0000
-Received: by noisy.programming.kicks-ass.net (Postfix, from userid 1000)
-	id 3EDFC3003AF; Fri,  3 Jan 2025 12:14:57 +0100 (CET)
-Date: Fri, 3 Jan 2025 12:14:57 +0100
-From: Peter Zijlstra <peterz@infradead.org>
-To: Mike Rapoport <rppt@kernel.org>
-Cc: Qi Zheng <zhengqi.arch@bytedance.com>, agordeev@linux.ibm.com,
-	kevin.brodsky@arm.com, tglx@linutronix.de, david@redhat.com,
-	jannh@google.com, hughd@google.com, yuzhao@google.com,
-	willy@infradead.org, muchun.song@linux.dev, vbabka@kernel.org,
-	lorenzo.stoakes@oracle.com, akpm@linux-foundation.org,
-	rientjes@google.com, vishal.moola@gmail.com, arnd@arndb.de,
-	will@kernel.org, aneesh.kumar@kernel.org, npiggin@gmail.com,
-	dave.hansen@linux.intel.com, ryan.roberts@arm.com,
-	linux-mm@kvack.org, linux-arm-kernel@lists.infradead.org,
-	linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
-	linux-s390@vger.kernel.org, sparclinux@vger.kernel.org,
-	linux-kernel@vger.kernel.org, x86@kernel.org,
-	linux-arch@vger.kernel.org, linux-csky@vger.kernel.org,
-	linux-hexagon@vger.kernel.org, loongarch@lists.linux.dev,
-	linux-m68k@lists.linux-m68k.org, linux-mips@vger.kernel.org,
-	linux-openrisc@vger.kernel.org, linux-sh@vger.kernel.org,
-	linux-um@lists.infradead.org
-Subject: Re: [PATCH v3 15/17] mm: pgtable: remove tlb_remove_page_ptdesc()
-Message-ID: <20250103111457.GC22934@noisy.programming.kicks-ass.net>
-References: <cover.1734945104.git.zhengqi.arch@bytedance.com>
- <b37435768345e0fcf7ea358f69b4a71767f0f530.1734945104.git.zhengqi.arch@bytedance.com>
- <Z2_EPmOTUHhcBegW@kernel.org>
+	id 1tThHw-0000000CxLL-1D8J
+	for linux-riscv@lists.infradead.org;
+	Fri, 03 Jan 2025 13:00:29 +0000
+Received: by mail-pl1-x633.google.com with SMTP id d9443c01a7336-2163bd70069so71085675ad.0
+        for <linux-riscv@lists.infradead.org>; Fri, 03 Jan 2025 05:00:27 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=bytedance.com; s=google; t=1735909227; x=1736514027; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=3IC8pHAXBnHweFaq0TqnW2AnPKbh58D2DOWeo9mLza8=;
+        b=BSUpX/qb7LIeM7YDRVAsr1iZqyAowDJNPSfpf5Joz9wVfw2ChadFF4l6yFbby9fapr
+         /HvcN2D1UCzjXCmvt+F5+kAzaU3PIQgoJL1jsmY5DZbae+rnfAcwqo91PLezdtk8yL+e
+         4kMA6qqAyKY5v4leZ4oYxEpNYltG0y4dUbuLp+Yv7taUdSkeL3dKFoY4g9NM7OckDt+g
+         FKPpHS+orJzGwoS+kU65tdBIh/cYiDqC1M6Kb/gRvhbnRiJdcMkLAk/1QG0YopEBGL9Y
+         33zr65AYm2Wb9nFPmV0nj4exAnlwIe0rct3Zcirfbj/9m0GeNHD3HIkExmBz7I+9M8z9
+         jVxQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1735909227; x=1736514027;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=3IC8pHAXBnHweFaq0TqnW2AnPKbh58D2DOWeo9mLza8=;
+        b=F1wp5hwra/wjiMkJuHNs+B3S/03OBIj2ss6dbwJLU6e7kE0DSTDcPR7iQMPRleooXy
+         GYipqQP4YEd5hZhTYNejbZoiRn045AMzJOlb5Bk1JP6Z9ImqTnap33LF9Jh4CrT29nxg
+         o9G0iIZqiNk34guxdF5pdvUGxR6kcbqFiCK0BXkMMaOiC72xQfih6/eyCCYJnxLyf6qz
+         dbbtR4oWhwgH8UaBHWsaT/NPPniMDjKJf/Uz3zKz4iVq3H/1gmheTL2mVfK89OVuRsIY
+         4Y28lKW9cDwa/5FKKAnhlb2g2xKD+2NjdCGr4INltGoRDwZEHQxT7m69kNbLTctz4W+6
+         Xkpw==
+X-Forwarded-Encrypted: i=1; AJvYcCU2s9Y5V4GcppBTYC1rkUIzbjXaaaBa30lMAx4udP1G4ZXz8NdIdp+0GM/K6wIAK5uO7Dh+vl+ujiAgng==@lists.infradead.org
+X-Gm-Message-State: AOJu0YybDytYWkJZbDpoV34gtw3cZ9subXvdQLgTlWfNbKaUFFVxk2yz
+	giyfA5xppGg4X2jDBGayWgZJqI6OBY30E4F+1gaRKAQ2AoY+TaiugJZ1nqKhw/k=
+X-Gm-Gg: ASbGncvqNKOHTg7PVbwK9+Kqrgxd95h9K2f2UmoU8owv4mkfvELlO6nza21yBwYabhz
+	r1DpndHbkmvE4ujOBP7EBQVdi9U3JrnXYVdUr6sr2yRmPjznD+KH52o8hC6S9riONiq5xp0SBCk
+	YbiyjQQ7832yhkF+69JlS2UnwhPynlkL8nQoQ3LDNlXfyOzPjj+1vKPLKLq5aSSE+lCugUQ1IZC
+	X7ntjswTL3X6+IwMQfEBhRo5brqTFHsO8hi/DnykhL5XorVzXZggrOHLC80WZXlZ75nvb0rewdz
+	COz23EEY7r/1jPVrYr/slU6Qyq8c9a0X8yyDKNk=
+X-Google-Smtp-Source: AGHT+IFN5bHsIB1vygR17dR/EPZKajkRBHEdNUkbVb4Fp3ZLcSef1rUquFUDTP26CTgg1Aj/Zy2YqQ==
+X-Received: by 2002:a17:902:db0e:b0:215:8695:ef91 with SMTP id d9443c01a7336-219e6e8957amr732305365ad.6.1735909226965;
+        Fri, 03 Jan 2025 05:00:26 -0800 (PST)
+Received: from J9GPGXL7NT.bytedance.net ([61.213.176.55])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-219dc970c8fsm244601745ad.60.2025.01.03.05.00.23
+        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
+        Fri, 03 Jan 2025 05:00:26 -0800 (PST)
+From: Xu Lu <luxu.kernel@bytedance.com>
+To: anup@brainfault.org,
+	tglx@linutronix.de,
+	paul.walmsley@sifive.com
+Cc: lihangjing@bytedance.com,
+	xieyongji@bytedance.com,
+	guojinhui.liam@bytedance.com,
+	linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Xu Lu <luxu.kernel@bytedance.com>
+Subject: [PATCH] irqchip/riscv-imsic: Support allocating multiple msi-x vectors
+Date: Fri,  3 Jan 2025 20:59:26 +0800
+Message-Id: <20250103125926.54203-1-luxu.kernel@bytedance.com>
+X-Mailer: git-send-email 2.39.5 (Apple Git-154)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <Z2_EPmOTUHhcBegW@kernel.org>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250103_050028_331205_78671B70 
+X-CRM114-Status: GOOD (  12.95  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,41 +101,89 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sat, Dec 28, 2024 at 11:26:22AM +0200, Mike Rapoport wrote:
-> On Mon, Dec 23, 2024 at 05:41:01PM +0800, Qi Zheng wrote:
-> > Here we are explicitly dealing with struct page, and the following logic
-> > semms strange:
-> > 
-> > tlb_remove_page_ptdesc((tlb), (page_ptdesc(pte)));
-> > 
-> > tlb_remove_page_ptdesc
-> > --> tlb_remove_page(tlb, ptdesc_page(pt));
-> > 
-> > So remove tlb_remove_page_ptdesc() and make callers call tlb_remove_page()
-> > directly.
-> 
-> Please don't. The ptdesc wrappers are there as a part of reducing the size
-> of struct page project [1]. 
-> 
-> For now struct ptdesc overlaps struct page, but the goal is to have them
-> separate and always operate on struct ptdesc when working with page tables.
+This commit modifies alloc and free callback of imsic_base_domain to
+support allocating and freeing multiple msi-x vectors at once.
 
-I don't see how the current idiotic code helps with that at all.
+Signed-off-by: Xu Lu <luxu.kernel@bytedance.com>
+---
+ drivers/irqchip/irq-riscv-imsic-platform.c | 54 +++++++++++++---------
+ 1 file changed, 32 insertions(+), 22 deletions(-)
 
-Fundamentally tlb_remove_page() is about removing *pages* as from a PTE,
-there should not be a page-table anywhere near here *ever*.
+diff --git a/drivers/irqchip/irq-riscv-imsic-platform.c b/drivers/irqchip/irq-riscv-imsic-platform.c
+index c708780e8760..d0ea0eb22e2e 100644
+--- a/drivers/irqchip/irq-riscv-imsic-platform.c
++++ b/drivers/irqchip/irq-riscv-imsic-platform.c
+@@ -141,35 +141,45 @@ static struct irq_chip imsic_irq_base_chip = {
+ 				  IRQCHIP_MASK_ON_SUSPEND,
+ };
+ 
++static void imsic_irq_domain_free(struct irq_domain *domain, unsigned int virq,
++				  unsigned int nr_irqs)
++{
++	struct irq_data *d;
++	int i;
++
++	for (i = 0; i < nr_irqs; i++) {
++		d = irq_domain_get_irq_data(domain, virq + i);
++		imsic_vector_free(irq_data_get_irq_chip_data(d));
++	}
++	irq_domain_free_irqs_top(domain, virq, nr_irqs);
++}
++
+ static int imsic_irq_domain_alloc(struct irq_domain *domain, unsigned int virq,
+ 				  unsigned int nr_irqs, void *args)
+ {
+ 	struct imsic_vector *vec;
+-
+-	/* Multi-MSI is not supported yet. */
+-	if (nr_irqs > 1)
+-		return -EOPNOTSUPP;
+-
+-	vec = imsic_vector_alloc(virq, cpu_online_mask);
+-	if (!vec)
+-		return -ENOSPC;
+-
+-	irq_domain_set_info(domain, virq, virq, &imsic_irq_base_chip, vec,
+-			    handle_simple_irq, NULL, NULL);
+-	irq_set_noprobe(virq);
+-	irq_set_affinity(virq, cpu_online_mask);
+-	irq_data_update_effective_affinity(irq_get_irq_data(virq), cpumask_of(vec->cpu));
++	int i, err;
++
++	for (i = 0; i < nr_irqs; i++) {
++		vec = imsic_vector_alloc(virq + i, cpu_online_mask);
++		if (!vec) {
++			err = -ENOSPC;
++			goto error;
++		}
++
++		irq_domain_set_info(domain, virq + i, virq + i, &imsic_irq_base_chip,
++				    vec, handle_simple_irq, NULL, NULL);
++		irq_set_noprobe(virq + i);
++		irq_set_affinity(virq + i, cpu_online_mask);
++		irq_data_update_effective_affinity(irq_get_irq_data(virq + i),
++						   cpumask_of(vec->cpu));
++	}
+ 
+ 	return 0;
+-}
+-
+-static void imsic_irq_domain_free(struct irq_domain *domain, unsigned int virq,
+-				  unsigned int nr_irqs)
+-{
+-	struct irq_data *d = irq_domain_get_irq_data(domain, virq);
+ 
+-	imsic_vector_free(irq_data_get_irq_chip_data(d));
+-	irq_domain_free_irqs_parent(domain, virq, nr_irqs);
++error:
++	imsic_irq_domain_free(domain, virq, i);
++	return err;
+ }
+ 
+ static int imsic_irq_domain_select(struct irq_domain *domain, struct irq_fwspec *fwspec,
+-- 
+2.20.1
 
-Yes, some architectures use tlb_remove_page() for page-tables too, but
-that is more or less an implementation detail that can be fixed.
-
-So no, please keep these patches and kill this utterly idiotic code.
-
-The only thing that should eventually care about page-tables is
-tlb_remove_table(), and that takes a 'void *' and is expected to match
-whatever __tlb_remove_table() does.
-
-Flipping those to pgdesc, once its actually a thing, should be fairly
-straight forward.
 
 _______________________________________________
 linux-riscv mailing list
