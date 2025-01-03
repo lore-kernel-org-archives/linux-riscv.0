@@ -4,63 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B7B4E7718F
-	for <linux-riscv@archiver.kernel.org>; Fri,  3 Jan 2025 21:59:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 39FE1E7718F
+	for <linux-riscv@archiver.kernel.org>; Fri,  3 Jan 2025 21:59:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=1aeJMqYowOJ1OIUPbJH9R99g1lZtcOrEfpqLMH6aAuY=; b=JvIaJUdxvNImDP
-	DcBPCLkOqqaXixA5TAop5op4cp74NiNuVkZV4ZBpUO2JwqoxdF4W1najpBj+b+ttwfHAOJma13r+E
-	zD+cK/yTPN4cVR8zCK01vYEibJAnsPkdHdOewNXaetXfLbflrTUoAhSx00hdwD+/QizdSwqF11zKd
-	lOK3GStAusptcYxYlxBRNwrGYZmv/vpqZW/9/EB9XyMheSPrForp6rEu5fntBtHFRi3LlspPAB4og
-	aEdUfLsmyzyY/Hfl/G/GnBXbgn5+D9ikj+vemEC6b5Wl6gnMbR/4TA55w7mlODfrcS7I/rKdaAZVj
-	g98DcyPG92QdUAzJ1aOQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=fjsm2qVkSuiNDuNth5/OOGPtSKPRGxs0RfFXAUB4csY=; b=N+UkJnXR2/xGPW
+	zqeEhgkA9/dpxeE1/XxEKkV8e22snn88x0Di3KslqFhKdoRVrNQkF9Obk+YcYSai9xJg+vq1DTbh5
+	A8x4MTijd1xi0wP1mqDrcDm5jqnQEJeKNohKSaIGUfuQEhwgL3RRrFm/WZKH1k5B7gjjumJgPIbK1
+	F2U8BDAm+lETi2AGT4yL5MiRDJPUyN8H5WtToxfXK3/bl1eABz6Ky7CqKME8XZAxJLwCqWSzETVbR
+	rD9i1rosy1w9nQ7of7lxoDZl80yQ6URso3vLKfOJbaTeOTzaVW78MPWIFPgQBQ4+JpLt4bC/5mKAl
+	VjMcyF/rYB3cBeVtJnZw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tTph1-0000000E4vI-1Rx9;
-	Fri, 03 Jan 2025 21:58:55 +0000
+	id 1tTpgv-0000000E4t1-1ODL;
+	Fri, 03 Jan 2025 21:58:49 +0000
 Received: from bayard.4d2.org ([5.78.89.93])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tTpgz-0000000E4uA-0G5T
+	id 1tTpgr-0000000E4rc-10Pu
 	for linux-riscv@lists.infradead.org;
-	Fri, 03 Jan 2025 21:58:54 +0000
+	Fri, 03 Jan 2025 21:58:47 +0000
 Received: from bayard.4d2.org (bayard.4d2.org [127.0.0.1])
-	by bayard.4d2.org (Postfix) with ESMTP id 92400122FE1A;
-	Fri, 03 Jan 2025 13:58:52 -0800 (PST)
+	by bayard.4d2.org (Postfix) with ESMTP id BAF8B122FE2A;
+	Fri, 03 Jan 2025 13:58:40 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=4d2.org; s=mail;
-	t=1735941532; bh=qZadH32Mxvg/KW2cNQGknLlppTgwQl/Gx8bFpQjBHnQ=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=OWPzDNrO4SFci61Gxr/iWRSnlao8EM951VmLVApKkeL9xP7qZlqKlAa4VUqVzXjGZ
-	 Evm0ehq/CosiLoOe/ogsyH2nfQVjrlu6fuBddpBGIdfYAF1Bf8hxLylhTfRGqTUk4v
-	 4dgsdZfzahgDcn8kD5jkHKUF2c2iWMkTiWKsPdQA0Ryx7l5++diPamkXrdmiM7YXoW
-	 7t4T96H2SlmLxTP3tb4UPNtdt9rhJgS295AlgPhQdyl4VdI/xUOPks4VmhgqD/+hud
-	 BzabgTk6ryw0YfZ8xeeoc6t7jGmJQz2TOz/ugI/Ogee8eASocB4EcujhFQuCKXNIVi
-	 vnLaJXtt48Y2g==
+	t=1735941520; bh=VI2R59Sogl5+RPBrs2vo5GuhhrWrivwEF9ZnmBtZwrM=;
+	h=From:To:Cc:Subject:Date:From;
+	b=tUN3prY+LacI+gXTqsFzBDimVsWg/32gWC2OPQMmr1rLjFjmyrAco6K1IDMbltog7
+	 vIPTfX5pDW2k7Q/MX8BYOqSLZJaw8d3ntIbn+KJxmxouKzly104ZJWLrLhrRxQa0xB
+	 v0FJxdtU1riSFXJSr3qtK5Kc1UFiJLia39pe8HPArLZdQlZnUyOSFCDB+uSvl2/GfN
+	 zgBQ/whGXNNUn57nZLOkYvQA0pofM+HtHBfiODWGUxZtd0Gyd0YjDyj27c2q8T1FVj
+	 t+oI0rFny6LQHcIqz/lNJTFVWg0moTAUoWWcr20p4DpmkfhRCy/YQggen8USVVQOtE
+	 gEAeA/JwABs8w==
 X-Virus-Scanned: amavisd-new at 4d2.org
 Authentication-Results: bayard.4d2.org (amavisd-new); dkim=pass (2048-bit key)
  header.d=4d2.org
 Received: from bayard.4d2.org ([127.0.0.1])
  by bayard.4d2.org (bayard.4d2.org [127.0.0.1]) (amavisd-new, port 10024)
- with ESMTP id Sp43EfecQ-BO; Fri,  3 Jan 2025 13:58:52 -0800 (PST)
+ with ESMTP id 57_Q6Vnd7hxo; Fri,  3 Jan 2025 13:58:34 -0800 (PST)
 Received: from localhost.localdomain (unknown [183.217.81.188])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: heylenay@4d2.org)
-	by bayard.4d2.org (Postfix) with ESMTPSA id 2483E122FE22;
-	Fri, 03 Jan 2025 13:58:47 -0800 (PST)
+	by bayard.4d2.org (Postfix) with ESMTPSA id 6EA3E122FE1A;
+	Fri, 03 Jan 2025 13:58:30 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=4d2.org; s=mail;
-	t=1735941532; bh=qZadH32Mxvg/KW2cNQGknLlppTgwQl/Gx8bFpQjBHnQ=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=OWPzDNrO4SFci61Gxr/iWRSnlao8EM951VmLVApKkeL9xP7qZlqKlAa4VUqVzXjGZ
-	 Evm0ehq/CosiLoOe/ogsyH2nfQVjrlu6fuBddpBGIdfYAF1Bf8hxLylhTfRGqTUk4v
-	 4dgsdZfzahgDcn8kD5jkHKUF2c2iWMkTiWKsPdQA0Ryx7l5++diPamkXrdmiM7YXoW
-	 7t4T96H2SlmLxTP3tb4UPNtdt9rhJgS295AlgPhQdyl4VdI/xUOPks4VmhgqD/+hud
-	 BzabgTk6ryw0YfZ8xeeoc6t7jGmJQz2TOz/ugI/Ogee8eASocB4EcujhFQuCKXNIVi
-	 vnLaJXtt48Y2g==
+	t=1735941514; bh=VI2R59Sogl5+RPBrs2vo5GuhhrWrivwEF9ZnmBtZwrM=;
+	h=From:To:Cc:Subject:Date:From;
+	b=ie7qq+jqZ1cFinmaH2kMndTfkxzNrhnp3HKrxJ1BaL/lsWrAGCigq3F6iQ4k8tlR+
+	 D5ooPW+JJ59xM8GRw+UCTl+ygYgXzca8kKAT5yjnb1WU8ZY1RxiKa+i4OixvtC4MtH
+	 +Fn1fc1A1hfCcHZ7nJxn43Ox9buIHJ/aTsMWtNCqNk9XQt3ZkR1Lmg6SB3uTvTDfrS
+	 zF/hCz+872n/MpxljbhADpTxYIHHutcKGfZROb/mbl0FPiUPC2T2wEfaNqox8hftSC
+	 d8B3PY93ziMCaJn6eGDYmsesxASqu9SkYT6RlOQ6pM72OxeLYlF9/6hJzmymDZbFv6
+	 dtP4JiFT8m2SA==
 From: Haylen Chu <heylenay@4d2.org>
 To: Michael Turquette <mturquette@baylibre.com>,
 	Stephen Boyd <sboyd@kernel.org>,
@@ -78,17 +78,14 @@ Cc: linux-riscv@lists.infradead.org,
 	Jisheng Zhang <jszhang@kernel.org>,
 	Meng Zhang <zhangmeng.kevin@linux.spacemit.com>,
 	Haylen Chu <heylenay@4d2.org>
-Subject: [PATCH v4 4/4] riscv: dts: spacemit: Add clock controller for K1
-Date: Fri,  3 Jan 2025 21:56:37 +0000
-Message-ID: <20250103215636.19967-6-heylenay@4d2.org>
+Subject: [PATCH v4 0/4] Add clock controller support for SpacemiT K1
+Date: Fri,  3 Jan 2025 21:56:33 +0000
+Message-ID: <20250103215636.19967-2-heylenay@4d2.org>
 X-Mailer: git-send-email 2.47.1
-In-Reply-To: <20250103215636.19967-2-heylenay@4d2.org>
-References: <20250103215636.19967-2-heylenay@4d2.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250103_135853_145608_857129C9 
-X-CRM114-Status: UNSURE (   8.37  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250103_135845_595684_09CD954D 
+X-CRM114-Status: GOOD (  12.83  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,143 +102,114 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add clock controllers for APBC, APBS, APMU and MPMU regions along with
-system controllers which they belong to.
+The clock tree of SpacemiT K1 is managed by several independent
+controllers in different SoC parts. In this series, all clock hardwares
+in APBS, MPMU, APBC and APMU are implemented. Clocks in other SoC parts
+could be implemented later.
 
-Signed-off-by: Haylen Chu <heylenay@4d2.org>
----
- arch/riscv/boot/dts/spacemit/k1.dtsi | 97 ++++++++++++++++++++++++++++
- 1 file changed, 97 insertions(+)
+This driver has been tested on BananaPi-F3 board. With some out-of-tree
+drivers, I've successfully brought up I2C, RTC, MMC and ethernet
+controllers, proving it works. A clock tree dump could be obtained
+here[1].
 
-diff --git a/arch/riscv/boot/dts/spacemit/k1.dtsi b/arch/riscv/boot/dts/spacemit/k1.dtsi
-index 0777bf9e0118..a2cd141f9177 100644
---- a/arch/riscv/boot/dts/spacemit/k1.dtsi
-+++ b/arch/riscv/boot/dts/spacemit/k1.dtsi
-@@ -3,6 +3,8 @@
-  * Copyright (C) 2024 Yangyu Chen <cyy@cyyself.name>
-  */
- 
-+#include <dt-bindings/clock/spacemit,k1-ccu.h>
-+
- /dts-v1/;
- / {
- 	#address-cells = <2>;
-@@ -318,6 +320,40 @@ cluster1_l2_cache: l2-cache1 {
- 		};
- 	};
- 
-+	clocks {
-+		#address-cells = <0x2>;
-+		#size-cells = <0x2>;
-+		ranges;
-+
-+		vctcxo_1m: clock-1m {
-+			compatible = "fixed-clock";
-+			clock-frequency = <1000000>;
-+			clock-output-names = "vctcxo_1m";
-+			#clock-cells = <0>;
-+		};
-+
-+		vctcxo_24m: clock-24m {
-+			compatible = "fixed-clock";
-+			clock-frequency = <24000000>;
-+			clock-output-names = "vctcxo_24m";
-+			#clock-cells = <0>;
-+		};
-+
-+		vctcxo_3m: clock-3m {
-+			compatible = "fixed-clock";
-+			clock-frequency = <3000000>;
-+			clock-output-names = "vctcxo_3m";
-+			#clock-cells = <0>;
-+		};
-+
-+		osc_32k: clock-32k {
-+			compatible = "fixed-clock";
-+			clock-frequency = <32000>;
-+			clock-output-names = "osc_32k";
-+			#clock-cells = <0>;
-+		};
-+	};
-+
- 	soc {
- 		compatible = "simple-bus";
- 		interrupt-parent = <&plic>;
-@@ -326,6 +362,21 @@ soc {
- 		dma-noncoherent;
- 		ranges;
- 
-+		syscon_apbc: system-control@d4015000 {
-+			compatible = "spacemit,k1-apbc-syscon", "syscon",
-+				     "simple-mfd";
-+			reg = <0x0 0xd4015000 0x0 0x1000>;
-+
-+			clk_apbc: clock-controller {
-+				compatible = "spacemit,k1-ccu-apbc";
-+				clocks = <&osc_32k>, <&vctcxo_1m>,
-+					 <&vctcxo_3m>, <&vctcxo_24m>;
-+				clock-names = "osc", "vctcxo_1m",
-+					      "vctcxo_3m", "vctcxo_24m";
-+				#clock-cells = <1>;
-+			};
-+		};
-+
- 		uart0: serial@d4017000 {
- 			compatible = "spacemit,k1-uart", "intel,xscale-uart";
- 			reg = <0x0 0xd4017000 0x0 0x100>;
-@@ -416,6 +467,52 @@ uart9: serial@d4017800 {
- 			status = "disabled";
- 		};
- 
-+		syscon_mpmu: system-control@d4050000 {
-+			compatible = "spacemit,k1-mpmu-syscon", "syscon",
-+				     "simple-mfd";
-+			reg = <0x0 0xd4050000 0x0 0x209c>;
-+
-+			clk_mpmu: clock-controller {
-+				compatible = "spacemit,k1-ccu-mpmu";
-+				clocks = <&osc_32k>, <&vctcxo_1m>,
-+					 <&vctcxo_3m>, <&vctcxo_24m>;
-+				clock-names = "osc", "vctcxo_1m",
-+					      "vctcxo_3m", "vctcxo_24m";
-+				#clock-cells = <1>;
-+			};
-+		};
-+
-+		syscon_apbs: system-control@d4090000 {
-+			compatible = "spacemit,k1-apbs-syscon", "syscon",
-+				     "simple-mfd";
-+			reg = <0x0 0xd4090000 0x0 0x1000>;
-+
-+			clk_apbs: clock-controller {
-+				compatible = "spacemit,k1-ccu-apbs";
-+				clocks = <&osc_32k>, <&vctcxo_1m>,
-+					 <&vctcxo_3m>, <&vctcxo_24m>;
-+				clock-names = "osc", "vctcxo_1m",
-+					      "vctcxo_3m", "vctcxo_24m";
-+				spacemit,mpmu = <&syscon_mpmu>;
-+				#clock-cells = <1>;
-+			};
-+		};
-+
-+		syscon_apmu: system-control@d4282800 {
-+			compatible = "spacemit,k1-apmu-syscon", "syscon",
-+				     "simple-mfd";
-+			reg = <0x0 0xd4282800 0x0 0x400>;
-+
-+			clk_apmu: clock-controller {
-+				compatible = "spacemit,k1-ccu-apmu";
-+				clocks = <&osc_32k>, <&vctcxo_1m>,
-+					 <&vctcxo_3m>, <&vctcxo_24m>;
-+				clock-names = "osc", "vctcxo_1m",
-+					      "vctcxo_3m", "vctcxo_24m";
-+				#clock-cells = <1>;
-+			};
-+		};
-+
- 		plic: interrupt-controller@e0000000 {
- 			compatible = "spacemit,k1-plic", "sifive,plic-1.0.0";
- 			reg = <0x0 0xe0000000 0x0 0x4000000>;
+[1]: https://gist.github.com/heylenayy/fda51ac6736ac97a2c53d8caa3302378
+
+Link: https://developer.spacemit.com/documentation?token=LCrKwWDasiJuROkVNusc2pWTnEb
+
+Changed from v3
+- spacemit,k1-ccu binding
+  - allow spacemit,mpmu property only for controllers requiring it
+    (spacemit,k1-ccu-apbs)
+- spacemit,k1-syscon binding
+  - drop unnecessary *-cells properties
+  - drop unrelated nodes in the example
+- driver
+  - remove unnecessary divisions during rate calucalation in ccu_ddn.c
+  - use independent clk_ops for different ddn/mix variants, drop
+    reg_type field in struct ccu_common
+  - make the register containing frequency change bit a sperate field in
+    ccu_common
+  - unify DIV_MFC_MUX_GATE and DIV_FC_MUX_GATE
+  - implement a correct determine_rate() for mix type
+  - avoid reparenting in set_rate() for mix type
+  - fix build failure when SPACEMIT_CCU and SPACEMIT_CCU_K1 are
+    configured differently
+- use "osc" instead of "osc_32k" in clock input names
+- misc style fixes
+- Link to v3: https://lore.kernel.org/all/20241126143125.9980-2-heylenay@4d2.org/
+
+Changed from v2
+- dt-binding fixes
+  - drop clocks marked as deprecated by the vendor (CLK_JPF_4KAFBC and
+    CLK_JPF_2KAFBC)
+  - add binding of missing bus clocks
+  - change input clocks to use frequency-aware and more precise names
+  - mark input clocks and their names as required
+  - move the example to the (parent) syscon node and complete it
+  - misc style fixes
+- misc improvements in code
+- drop unnecessary spinlock in the driver
+- implement missing bus clocks
+- Link to v2: https://lore.kernel.org/all/SEYPR01MB4221829A2CD4D4C1704BABD7D7602@SEYPR01MB4221.apcprd01.prod.exchangelabs.com/
+
+Changed from v1
+- add SoC prefix (k1)
+- relicense dt-binding header
+- misc fixes and style improvements for dt-binding
+- document spacemit,k1-syscon
+- implement all APBS, MPMU, APBC and APMU clocks
+- code cleanup
+- Link to v1: https://lore.kernel.org/all/SEYPR01MB4221B3178F5233EAB5149E41D7902@SEYPR01MB4221.apcprd01.prod.exchangelabs.com/
+
+Haylen Chu (4):
+  dt-bindings: clock: spacemit: Add clock controllers of Spacemit K1 SoC
+  dt-bindings: soc: spacemit: Add spacemit,k1-syscon
+  clk: spacemit: Add clock support for Spacemit K1 SoC
+  riscv: dts: spacemit: Add clock controller for K1
+
+ .../bindings/clock/spacemit,k1-ccu.yaml       |   60 +
+ .../soc/spacemit/spacemit,k1-syscon.yaml      |   52 +
+ arch/riscv/boot/dts/spacemit/k1.dtsi          |   97 +
+ drivers/clk/Kconfig                           |    1 +
+ drivers/clk/Makefile                          |    1 +
+ drivers/clk/spacemit/Kconfig                  |   20 +
+ drivers/clk/spacemit/Makefile                 |    5 +
+ drivers/clk/spacemit/ccu-k1.c                 | 1747 +++++++++++++++++
+ drivers/clk/spacemit/ccu_common.h             |   51 +
+ drivers/clk/spacemit/ccu_ddn.c                |  140 ++
+ drivers/clk/spacemit/ccu_ddn.h                |   84 +
+ drivers/clk/spacemit/ccu_mix.c                |  304 +++
+ drivers/clk/spacemit/ccu_mix.h                |  309 +++
+ drivers/clk/spacemit/ccu_pll.c                |  189 ++
+ drivers/clk/spacemit/ccu_pll.h                |   80 +
+ include/dt-bindings/clock/spacemit,k1-ccu.h   |  246 +++
+ 16 files changed, 3386 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/clock/spacemit,k1-ccu.yaml
+ create mode 100644 Documentation/devicetree/bindings/soc/spacemit/spacemit,k1-syscon.yaml
+ create mode 100644 drivers/clk/spacemit/Kconfig
+ create mode 100644 drivers/clk/spacemit/Makefile
+ create mode 100644 drivers/clk/spacemit/ccu-k1.c
+ create mode 100644 drivers/clk/spacemit/ccu_common.h
+ create mode 100644 drivers/clk/spacemit/ccu_ddn.c
+ create mode 100644 drivers/clk/spacemit/ccu_ddn.h
+ create mode 100644 drivers/clk/spacemit/ccu_mix.c
+ create mode 100644 drivers/clk/spacemit/ccu_mix.h
+ create mode 100644 drivers/clk/spacemit/ccu_pll.c
+ create mode 100644 drivers/clk/spacemit/ccu_pll.h
+ create mode 100644 include/dt-bindings/clock/spacemit,k1-ccu.h
+
+
+base-commit: 2d5404caa8c7bb5c4e0435f94b28834ae5456623
+prerequisite-patch-id: 47dcf6861f7d434d25855b379e6d7ef4ce369c9c
+prerequisite-patch-id: 77787fe82911923aff15ccf565e8fa451538c3a6
+prerequisite-patch-id: b0bdb1742d96c5738f05262c3b0059102761390b
+prerequisite-patch-id: 3927d39d8d77e35d5bfe53d9950da574ff8f2054
+prerequisite-patch-id: a98039136a4796252a6029e474f03906f2541643
+prerequisite-patch-id: c95f6dc0547a2a63a76e3cba0cf5c623b212b4e6
+prerequisite-patch-id: 66e750e438ee959ddc2a6f0650814a2d8c989139
+prerequisite-patch-id: 29a0fd8c36c1a4340f0d0b68a4c34d2b8abfb1ab
+prerequisite-patch-id: 0bdfff661c33c380d1cf00a6c68688e05f88c0b3
+prerequisite-patch-id: 99f15718e0bfbb7ed1a96dfa19f35841b004dae9
 -- 
 2.47.1
 
