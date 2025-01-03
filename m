@@ -4,80 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8AF99E77188
-	for <linux-riscv@archiver.kernel.org>; Fri,  3 Jan 2025 16:52:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7105CE77188
+	for <linux-riscv@archiver.kernel.org>; Fri,  3 Jan 2025 18:45:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=d/n1qKV0tvxC9MuUBwonTmkiRIrA3IPEuE6qHCO/sRo=; b=wOs4RGUuJIWjOF
-	i9UYO5P2eMnYpvLFKVyMlnog1G/QkEI5gAt8pPDouW5gkUx2bB5KsRfjYNg7CiUP/fWmFlX1R3GHW
-	6Sso+a+yKw3cxYEFfvZkrHHU4D5O8rcIdTzbqN7Y4QuFCsCP5v9/xzRRFsqwsSN3JdbTIBSH4KGpO
-	Zw2g2siq3GWRg//sj4XNBv46q036Gi9b0mThjp6IpEHYi4QmRAU0m2yEk2k5MkbvkpuMkbz1SwU63
-	fMPll/bp1KtFyH/J8MR+jVGru8nVWfa7iP2lCBJU34LUQF6hJiw4GBWVUZJGLXs8NLkXQwTaxes8a
-	Z2J1K26ln/C1pd98a32w==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=Y1XHOeyPe+G7qvEU/dI1rhBsSj18eScOCPTI2LBbxHo=; b=QzARVUz8sq9/4R
+	CicVQcm4ES9fRQh+yaYs3+BFzxnrdDdgctPbRVVrdhMI9b2UnhEd2y8rhhElMolqks+BI9zr3CAWC
+	V8TyjgzlXHgqexpcG93QmTOAkIcYsJ2GHpdaeCTFI0unlp/CWpksQFiz/ro6XwkiPHEKfaKJ8TFZs
+	qb85YcgdzqA4iju8AzjJErvZ4+5D55bebW+I7FjH6Xzs6sw4KePjhLczLb8y1wixzq7oBfeIb+HO5
+	OVN3xue9GVDxZFv5FnLh02rjXvUvcBqL1joL7r4zp3ybTznIsjSCu7cLuBvW5T9jwgZqE57a4PwK9
+	O02oRY23Gbj0WM1UEQzg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tTku7-0000000DUcX-0OqX;
-	Fri, 03 Jan 2025 16:52:07 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tTku4-0000000DUbl-0KFN
-	for linux-riscv@lists.infradead.org;
-	Fri, 03 Jan 2025 16:52:05 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id CACBC5C64A7;
-	Fri,  3 Jan 2025 16:51:21 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4EC42C4CECE;
-	Fri,  3 Jan 2025 16:52:02 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1735923122;
-	bh=58khvkNUqxd3P2obZLHz4AGI382Z9+SOg3N/vpAAXRg=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=t8tBQsBkQUvmKhCM4rkYUmD1LZs/ZLSj7FPA+XimaQZxnVte6RolTuR22n2H7C3ls
-	 W00WAwD2OdGN4h+XwJQlSlakVNIerPcqMlEe1P1Rmp/YgTke9U0M+GM//j10Ok51Xd
-	 7Co8ZQHwQkWKx7C3a66zNP1NxXjeSDJoUdzaH6RKDs9iGmFhfrLqOjGd4aK6vpzO81
-	 0L3gXIeVfEfRFtrV+PnuRBjkWQL+85qow8ulTuYI3EnWVQvSr8OTSfip9saalpc9Fw
-	 MPkSVtppD8zh25QkUbxKoHKhR1y0FQ8yVH+NWZ6YwPFO9rldvgfFKrNTqIQyMxL8zI
-	 1WPF+E6U6gKrg==
-Date: Fri, 3 Jan 2025 13:51:59 -0300
-From: Arnaldo Carvalho de Melo <acme@kernel.org>
-To: Charlie Jenkins <charlie@rivosinc.com>
-Cc: Ian Rogers <irogers@google.com>, Peter Zijlstra <peterz@infradead.org>,
-	Ingo Molnar <mingo@redhat.com>, Namhyung Kim <namhyung@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Jiri Olsa <jolsa@kernel.org>,
-	Adrian Hunter <adrian.hunter@intel.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Nathan Chancellor <nathan@kernel.org>,
-	Nick Desaulniers <ndesaulniers@google.com>,
-	Bill Wendling <morbo@google.com>,
-	Justin Stitt <justinstitt@google.com>,
-	linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v2] tools: perf: tests: Fix code reading for riscv
-Message-ID: <Z3gVrzFd_2cacOFD@x1>
-References: <CAP-5=fXK6HRzBKHzF=T_w9cn7ohWOdmZNRMXvJzN6QG11HE6tA@mail.gmail.com>
- <Z2IXl5cuKQJInJb0@ghost>
- <Z2MXXFhUzoQmW4xV@x1>
- <CAP-5=fXPPfHHVPh0nYgR96VM+smuZKepO+GoE4X+aZsQE4tHSw@mail.gmail.com>
- <Z2M4ZparbNRvRHpz@ghost>
- <CAP-5=fXL6YaEq1cvBh2iESmQ_kqfm5VH5thJ0zrkOCcaWv5s+Q@mail.gmail.com>
- <Z2NNcy1jCLqb62h2@ghost>
- <CAP-5=fUBcu=Kd7StJvwdM_ArnSdOjmAcgR7NzDd+Ep8LrNMhyw@mail.gmail.com>
- <Z2N8WLTmh0ojIzhF@ghost>
- <Z3dBGM5L41v0RlZf@ghost>
+	id 1tTmg7-0000000Djye-2YRi;
+	Fri, 03 Jan 2025 18:45:47 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tTmet-0000000DjGU-3rcu;
+	Fri, 03 Jan 2025 18:44:33 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 561C61480;
+	Fri,  3 Jan 2025 10:44:57 -0800 (PST)
+Received: from e123572-lin.arm.com (e123572-lin.cambridge.arm.com [10.1.194.54])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 1D3DB3F673;
+	Fri,  3 Jan 2025 10:44:24 -0800 (PST)
+From: Kevin Brodsky <kevin.brodsky@arm.com>
+To: linux-mm@kvack.org
+Cc: Kevin Brodsky <kevin.brodsky@arm.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	Linus Walleij <linus.walleij@linaro.org>,
+	Andy Lutomirski <luto@kernel.org>,
+	Peter Zijlstra <peterz@infradead.org>,
+	"Mike Rapoport (IBM)" <rppt@kernel.org>,
+	Ryan Roberts <ryan.roberts@arm.com>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Will Deacon <will@kernel.org>,
+	Matthew Wilcox <willy@infradead.org>,
+	Qi Zheng <zhengqi.arch@bytedance.com>,
+	linux-alpha@vger.kernel.org,
+	linux-arch@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-csky@vger.kernel.org,
+	linux-hexagon@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-m68k@lists.linux-m68k.org,
+	linux-mips@vger.kernel.org,
+	linux-openrisc@vger.kernel.org,
+	linux-parisc@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	linux-s390@vger.kernel.org,
+	linux-snps-arc@lists.infradead.org,
+	linux-um@lists.infradead.org,
+	loongarch@lists.linux.dev,
+	x86@kernel.org
+Subject: [PATCH v2 0/6] Account page tables at all levels
+Date: Fri,  3 Jan 2025 18:44:09 +0000
+Message-ID: <20250103184415.2744423-1-kevin.brodsky@arm.com>
+X-Mailer: git-send-email 2.47.0
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <Z3dBGM5L41v0RlZf@ghost>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250103_085204_151928_E5D530EC 
-X-CRM114-Status: GOOD (  16.41  )
+X-CRM114-CacheID: sfid-20250103_104432_058405_C4699145 
+X-CRM114-Status: GOOD (  11.51  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,30 +87,109 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jan 02, 2025 at 05:44:56PM -0800, Charlie Jenkins wrote:
-> On Wed, Dec 18, 2024 at 05:52:24PM -0800, Charlie Jenkins wrote:
-> > On Wed, Dec 18, 2024 at 05:20:15PM -0800, Ian Rogers wrote:
-> > Yeah I agree. This test case did end up being interesting though as it
-> > unconvered this change in behavior of objdump on riscv, but that's
-> > tangential to the purpose of this test case. We need this patch on riscv
-> > to stop this test from failing, but it is also reasonable to approach
-> > this differently and not use objdump at all.
- 
-> What's the next step here? Would you prefer to get rid of this test
-> entirely? I sent out a v3 that uses uname [1].
- 
-> Link
-> https://lore.kernel.org/lkml/20241219-perf_fix_riscv_obj_reading-v3-1-a7d644dcfa50@rivosinc.com/
-> [1]
+v1: https://lore.kernel.org/linux-mm/20241219164425.2277022-1-kevin.brodsky@arm.com/
 
-I'm ok with this latest version and added it to perf-tools-next,
-changing the patch subject line to:
+This series should be considered in conjunction with Qi's series [1].
+Together, they ensure that page table ctor/dtor are called at all levels
+(PTE to PGD) and all architectures, where page tables are regular pages.
+Besides the improvement in accounting and general cleanup, this also
+create a single place where construction/destruction hooks can be called
+for all page tables, namely the now-generic pagetable_dtor() introduced
+by Qi, and __pagetable_ctor() introduced in this series.
 
-  perf tests code-reading: Handle change in objdump output from binutils >= 2.41 on riscv
+v2 is essentially v1 rebased on top of mm-unstable, which includes Qi's
+v4 series. A number of patches from v1 were dropped:
 
-Ok?
+* v1 patch 4 is superseded by patch 6 in Qi's series.
+* v1 patch 5 and 6 moved to Qi's series from v3 onwards.
+* v1 patch 7 is superseded by patch 4 in Qi's series.
 
-- Arnaldo
+Changes from v1 in the remaining patches:
+
+* Patch 1 only introduces __pagetable_ctor() as there is now a single
+  generic pagetable_dtor(). 
+
+* Patch 3 and 6: in arch/m68k/mm/motorola.c, free_pointer_table() can
+  now unconditionally call pagetable_dtor() since it is the same for all
+  levels.
+
+* Patch 6 just uses pagetable_dtor() instead of introducing
+  pagetable_pgd_dtor().
+
+* Added Dave Hansen's Acked-by to all patches.
+
+- Kevin
+
+[1] https://lore.kernel.org/linux-mm/cover.1735549103.git.zhengqi.arch@bytedance.com/
+---
+Cc: Andrew Morton <akpm@linux-foundation.org>
+Cc: Catalin Marinas <catalin.marinas@arm.com>
+Cc: Dave Hansen <dave.hansen@linux.intel.com>
+Cc: Linus Walleij <linus.walleij@linaro.org>
+Cc: Andy Lutomirski <luto@kernel.org>
+Cc: Peter Zijlstra <peterz@infradead.org>
+Cc: "Mike Rapoport (IBM)" <rppt@kernel.org>
+Cc: Ryan Roberts <ryan.roberts@arm.com>
+Cc: Thomas Gleixner <tglx@linutronix.de>
+Cc: Will Deacon <will@kernel.org>
+Cc: Matthew Wilcox <willy@infradead.org>
+Cc: Qi Zheng <zhengqi.arch@bytedance.com>
+Cc: linux-alpha@vger.kernel.org
+Cc: linux-arch@vger.kernel.org
+Cc: linux-arm-kernel@lists.infradead.org
+Cc: linux-csky@vger.kernel.org
+Cc: linux-hexagon@vger.kernel.org
+Cc: linux-kernel@vger.kernel.org
+Cc: linux-m68k@lists.linux-m68k.org
+Cc: linux-mips@vger.kernel.org
+Cc: linux-openrisc@vger.kernel.org
+Cc: linux-parisc@vger.kernel.org
+Cc: linux-riscv@lists.infradead.org
+Cc: linux-s390@vger.kernel.org
+Cc: linux-snps-arc@lists.infradead.org
+Cc: linux-um@lists.infradead.org
+Cc: loongarch@lists.linux.dev
+Cc: x86@kernel.org
+---
+Kevin Brodsky (6):
+  mm: Move common part of pagetable_*_ctor to helper
+  parisc: mm: Ensure pagetable_pmd_[cd]tor are called
+  m68k: mm: Add calls to pagetable_pmd_[cd]tor
+  ARM: mm: Rename PGD helpers
+  asm-generic: pgalloc: Provide generic __pgd_{alloc,free}
+  mm: Introduce ctor/dtor at PGD level
+
+ arch/alpha/mm/init.c                     |  2 +-
+ arch/arc/include/asm/pgalloc.h           |  9 ++----
+ arch/arm/mm/pgd.c                        | 16 +++++-----
+ arch/arm64/mm/pgd.c                      |  4 +--
+ arch/csky/include/asm/pgalloc.h          |  2 +-
+ arch/hexagon/include/asm/pgalloc.h       |  2 +-
+ arch/loongarch/mm/pgtable.c              |  7 ++---
+ arch/m68k/include/asm/mcf_pgalloc.h      |  3 +-
+ arch/m68k/include/asm/motorola_pgalloc.h |  6 ++--
+ arch/m68k/include/asm/sun3_pgalloc.h     |  2 +-
+ arch/m68k/mm/motorola.c                  | 21 +++++++++----
+ arch/microblaze/include/asm/pgalloc.h    |  7 +----
+ arch/mips/include/asm/pgalloc.h          |  6 ----
+ arch/mips/mm/pgtable.c                   |  8 ++---
+ arch/nios2/mm/pgtable.c                  |  3 +-
+ arch/openrisc/include/asm/pgalloc.h      |  6 ++--
+ arch/parisc/include/asm/pgalloc.h        | 39 ++++++++----------------
+ arch/riscv/include/asm/pgalloc.h         |  3 +-
+ arch/s390/include/asm/pgalloc.h          |  9 +++++-
+ arch/um/kernel/mem.c                     |  7 ++---
+ arch/x86/mm/pgtable.c                    | 24 +++++++--------
+ arch/xtensa/include/asm/pgalloc.h        |  2 +-
+ include/asm-generic/pgalloc.h            | 28 ++++++++++++++++-
+ include/linux/mm.h                       | 31 ++++++++++---------
+ 24 files changed, 126 insertions(+), 121 deletions(-)
+
+
+base-commit: e2ce19225db5818f5dc22864cd225f8c425c3775
+-- 
+2.47.0
+
 
 _______________________________________________
 linux-riscv mailing list
