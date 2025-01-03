@@ -4,100 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 522E0E7718F
-	for <linux-riscv@archiver.kernel.org>; Fri,  3 Jan 2025 03:56:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A5FB6E77188
+	for <linux-riscv@archiver.kernel.org>; Fri,  3 Jan 2025 04:04:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=d8HGQokk8uMrh1qPef8XBz9dSdplOMD4dQeAohwbi/s=; b=VlynaTpoFjzvOY
-	c2z7/jWuT46tPGXhWteCLjgECEL90TRUxlTXNvsPzp7lJE7Jp1GnbHj9rpO07Y6e+0OlkwwnayR/U
-	Ms7z3GzlsTG0/zH6Z0NLf6ZDKWPQGdwCSaZnn3Hn6dXxIB5R9zrfzdlEgxnYV+UZcz2kJKqLuL7Gt
-	cWxSeD29M0yfBbi8vYNmN1zOpDeVpbJ0DOuLoWw2nUAFbocB1xqKAGkBkqE55P5UgmTf6kOnhU30v
-	/oz+FKRROUcD75KHR3TbcyzrcVSMkWdIJ4sNmU8NNYZ9UUdjn0uivTUy9YT4QSQulV2qL33JDc60l
-	MH2u4re7bANX6lD7bXBQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=t5SPsnURoL289H0TehMrqzMZEQTIbX34I3Nf03XZcBQ=; b=LkHk0tEX33/fyH
+	3NRqoWH0cF9F1z18WNksYLdX/ZcXxz/KFRw43DJQJC0kYLIIGGZAWLNB9PMRG9rP9984Q5hBTvLp8
+	h0B2TxXQ303QfuF4Qqlvc0PwYsWIhfG/8yOIN1o25ZTs6xox5qV9cMIQ1GwZFHwwDwxS1TT3MtSVw
+	KHfChu+ieKKaXcIaUZedvxAVS2rxm0lK7vKk62rTfOkS00nov7fAsD2/xfNVuqbry/oF8Bxbd6vaJ
+	iFrpzNDPGZVC6j6ezwLhQD7VYtJKoanmPUHvzSFOQOOGYoVN0hGXtUirhFvNAu17+o1yFOqoAqfm6
+	FPOVEkQqhb4Jj017wiJw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tTYnq-0000000C3HX-28H7;
-	Fri, 03 Jan 2025 03:56:50 +0000
-Received: from mail-pl1-x630.google.com ([2607:f8b0:4864:20::630])
+	id 1tTYuj-0000000C3me-3Orj;
+	Fri, 03 Jan 2025 04:03:57 +0000
+Received: from mail-wm1-x32a.google.com ([2a00:1450:4864:20::32a])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tTYnn-0000000C3FX-1MMv
+	id 1tTYuh-0000000C3lx-1eMg
 	for linux-riscv@lists.infradead.org;
-	Fri, 03 Jan 2025 03:56:48 +0000
-Received: by mail-pl1-x630.google.com with SMTP id d9443c01a7336-2161eb95317so168525925ad.1
-        for <linux-riscv@lists.infradead.org>; Thu, 02 Jan 2025 19:56:47 -0800 (PST)
+	Fri, 03 Jan 2025 04:03:56 +0000
+Received: by mail-wm1-x32a.google.com with SMTP id 5b1f17b1804b1-4361b0ec57aso118594215e9.0
+        for <linux-riscv@lists.infradead.org>; Thu, 02 Jan 2025 20:03:54 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bytedance.com; s=google; t=1735876607; x=1736481407; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=ZAFSLXktiWezwRLeMqNHQIZ8a5HqagkfYDHtpNVk3Hg=;
-        b=LTXOpWEnaubze8l9bv+/Z+4DqJ4GJmRjF8GmtL7BB2ylECR4GIpWqxar0k0KHbCgmd
-         Cbd6Bm6oV7YcpodEH4ckulNKZo+09Qy1yupVi+ETbqp/lqEKD2j9oiXF6MUYmSSczpJL
-         2E/k6m/o0/XsF+nNIzs0s1fGi3dCoWiO8pGhDtIRXgn5BM9TUg+y5vAye3AkW+y5qOBL
-         osx/5NqtBKV+gmqL/fsQffyLAluoygOnz+cydRnxHvroUVs5hN93Z+JaOMHvXhvJw4Gk
-         er01/ZjNotjH/lWRp359/YXMpTNgzt/vS5jdyYnfN7SrLUwKFHiefGXCS/j7paEp2+Q9
-         Kxgw==
+        d=gmail.com; s=20230601; t=1735877033; x=1736481833; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=fJuGqMO/jQ4z+TowIOoPl2aMlmVXNRNIGfU0gnbDMo4=;
+        b=K1NnFCJzblXNVcnLwPqr3Xk/C1q4BVidAJLVTfI3UqiVa71MFNc+8wuSdRwkkHjyq2
+         fFkZf0R3F12PWym08ZOwW9YfgiFke4UAoW0P7BK7JaTorxrKY4T2mhiMbceCdUc8CdjH
+         5tUNSB6JoDROD41+4k7D9NIsytCu0oQIZQVaLhfMkmPIqG7Cy0lE0xndG9jF9PmkPkn+
+         Zu0+nH0hLXHspwn8/6nfJlIdWcPD2HSO/neO+62Y9jNdRpxcvou0TdM3gswxgaEdMmRO
+         jUZJm+xUlLx1JZU4Xvp83S+K7d3wjiIU/IWnZ/oDd+dHnvUqT+scOVhXzgD0FlBXLaUV
+         MUjA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1735876607; x=1736481407;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=ZAFSLXktiWezwRLeMqNHQIZ8a5HqagkfYDHtpNVk3Hg=;
-        b=hDRlI5o4UhaeOY7e6GjxiJ70Ya1BV/0dY5g8yCefqqHe7NjyJZl+a7EKnQrzexQ7+I
-         7jNjdd/hGDMycWTk+Zhncqux5MiD1AlhSxBX7PbRFmJstuP3t66pPX6g+QgosZj93AAS
-         H9ZLH/ACwBKByiDEwIj3PfWSFs2Xm5Y0gUtapfKyDKdqHyGLkkqZ8hYmj3XNABc1937N
-         EmAT4u8hXcp9aAekyxyJHlDni0QM+phDeEn13U9Ri0nfLh6SppE4TwHezjHNkpmvRB9j
-         iTn/iW/LSZEcYc981H11Wny5gqqPOPAg5Kep+0Og0LVlxnIBLOzn390PdQrrhkWcxN4M
-         tsdQ==
-X-Forwarded-Encrypted: i=1; AJvYcCX9fnLucAYHfqG/a3G54UUWy+UwCRhMjRXBF+a2HSS6AzJeNXKI/6gQSMjj4ScEEbTsf4C7GmWmNiW6vQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0YwNBVmS+w0ECFYUFvrlpOAuPA57wnGHF5ErjPMUqLWbcwkP8mAi
-	0W9HGXZyZ+dfQvycbUOvZWHpWJo537XynZyYOaFwIQKPwneZU2KKCM+ResEmQzY=
-X-Gm-Gg: ASbGncvWBcrEvsL7KzOjwWCW7xSpa/0VjaEbsv+T++GVGEO5uZXGLhJ9Y3IC+u6ijhv
-	0cXArWUtdopzJwXOtgS8Nd5Jez+Usei3NQr4hpLuxG7UNDQ1E1/guYvMuPmIgDH83ZQCLtS9/NJ
-	YsW7AOfPgLYrRsyBalCg+UFsuerr3DRZsd7hrQi403esHYn58QrN0EzwfpmxMze/7VQBt4+RzCB
-	8mUv8vlBMLyzPKWOqHfvlP0dn8qT6FyKmrCD6uU+WISav+qo4uKQekkvQXWgujoRNhYoSbvg3hP
-	kA9f3A==
-X-Google-Smtp-Source: AGHT+IEc/ggyHLTYoMeUluV4bigOVwXpofNkIsaBMCcId3pHP1FalWdw/+NGvDWYCJeax838Cotn8g==
-X-Received: by 2002:a05:6a21:158d:b0:1e1:ca91:b0e3 with SMTP id adf61e73a8af0-1e5e0800420mr68823527637.36.1735876606776;
-        Thu, 02 Jan 2025 19:56:46 -0800 (PST)
-Received: from [10.84.148.23] ([203.208.167.148])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-72aad8dbafesm25847661b3a.128.2025.01.02.19.56.34
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 02 Jan 2025 19:56:46 -0800 (PST)
-Message-ID: <1cea8c66-626e-434f-aafd-9d44d37f5cc4@bytedance.com>
-Date: Fri, 3 Jan 2025 11:56:32 +0800
+        d=1e100.net; s=20230601; t=1735877033; x=1736481833;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=fJuGqMO/jQ4z+TowIOoPl2aMlmVXNRNIGfU0gnbDMo4=;
+        b=SfEngA95b9JmqhXeBxokCmms+7u98Ui441CDnzWnBfAx5tUZqx7OQ6iK78AmJbU9iy
+         S0XCcpD4ZcdTR7yNkKZBXtF4OvBFo30fO+N0Mzw3f69fcg0zpHP69BRGAFq2l9GA89S1
+         3DcItIKD7NDqlYS5sfG1bUe+udjWtmmOIYFm43ZqCPdAdf8eSg0y484lPIx5lousJrdF
+         RzMGZvdxnJtL+YPANvnPWycek4dHRvcb6lhj0uI0Sw6RjdkDVT9eepvvp5b+L+ct+nVs
+         uzANW7LfC2lhYEspkT27aSSLTfkxij1bvKPYcdXk+TcWrAe9tsulJrVw6tsf4hHO/vHD
+         94Ag==
+X-Forwarded-Encrypted: i=1; AJvYcCWxhZTC4UKeaIqYXZFdKqphTKavsGJSOjzJ+R6WHEQuNAOSQlTWg+jcGajQN5SrZAzDB3OveXF+bWzO1w==@lists.infradead.org
+X-Gm-Message-State: AOJu0YycVjB0SYpfQhvZlWg+90WSz+K4/aw11ag5zaYfKLVOPOM5r6Mr
+	xp2mMONEo6R8INJUgVxSvDJvJw2PMAvUt6kpaNQ8gwpnKCVmevrV
+X-Gm-Gg: ASbGncs1vfAtNMS+WQiXmemztagfYHh9uCoWlOOHceIqmlPP/r+TtwH7sb+EC9i/jnd
+	uvoZTUCFRTuqziyUAMRjjwPO7wfnhAnUzmwJEAZjq2+Fih9ZTaLBUcX1QSHMX3m+K8Bg50ylfyB
+	Wy0aWKp9wZYQdDImBvTfQCsRMpPmLZrtB7aosDcBelbo7Mp8awV9u1d18V6yVNqnU1pEGUkXhfj
+	UFhtlrdnInTuhrsfJ9/lttcuWjf8XozWgca63iCgOqBvJJ9bo7Lot7zHcIlMrgObqrRXVjSwBR7
+	VHRYMZFWhBIXpKeSUNZG
+X-Google-Smtp-Source: AGHT+IFz1LXuucqG5XV4LRRH13gBdh5dZWFfNIE1AWBUxiyuEmTm3SbKU5ReRbu84ZTQzvFYvORA9w==
+X-Received: by 2002:a05:600c:470b:b0:434:a75b:5f59 with SMTP id 5b1f17b1804b1-43668547127mr431260385e9.3.1735877032812;
+        Thu, 02 Jan 2025 20:03:52 -0800 (PST)
+Received: from localhost (cpc1-brnt4-2-0-cust862.4-2.cable.virginm.net. [86.9.131.95])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-43661289995sm468388165e9.36.2025.01.02.20.03.51
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 02 Jan 2025 20:03:51 -0800 (PST)
+From: Stafford Horne <shorne@gmail.com>
+To: LKML <linux-kernel@vger.kernel.org>
+Cc: Stafford Horne <shorne@gmail.com>,
+	Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
+	Peter Zijlstra <peterz@infradead.org>,
+	"Paul E. McKenney" <paulmck@kernel.org>,
+	Boqun Feng <boqun.feng@gmail.com>,
+	Shuah Khan <shuah@kernel.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	linux-kselftest@vger.kernel.org,
+	linux-riscv@lists.infradead.org
+Subject: [PATCH] rseq/selftests: Fix riscv rseq_offset_deref_addv inline asm
+Date: Fri,  3 Jan 2025 04:03:26 +0000
+Message-ID: <20250103040326.2603734-1-shorne@gmail.com>
+X-Mailer: git-send-email 2.47.0
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 00/15] move pagetable_*_dtor() to __tlb_remove_table()
-Content-Language: en-US
-To: Kevin Brodsky <kevin.brodsky@arm.com>
-Cc: peterz@infradead.org, agordeev@linux.ibm.com, palmer@dabbelt.com,
- tglx@linutronix.de, david@redhat.com, jannh@google.com, hughd@google.com,
- yuzhao@google.com, willy@infradead.org, muchun.song@linux.dev,
- vbabka@kernel.org, lorenzo.stoakes@oracle.com, akpm@linux-foundation.org,
- rientjes@google.com, vishal.moola@gmail.com, arnd@arndb.de, will@kernel.org,
- aneesh.kumar@kernel.org, npiggin@gmail.com, dave.hansen@linux.intel.com,
- rppt@kernel.org, ryan.roberts@arm.com, linux-mm@kvack.org,
- linux-arm-kernel@lists.infradead.org, linuxppc-dev@lists.ozlabs.org,
- linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
- sparclinux@vger.kernel.org, linux-kernel@vger.kernel.org, x86@kernel.org,
- linux-arch@vger.kernel.org, linux-csky@vger.kernel.org,
- linux-hexagon@vger.kernel.org, loongarch@lists.linux.dev,
- linux-m68k@lists.linux-m68k.org, linux-mips@vger.kernel.org,
- linux-openrisc@vger.kernel.org, linux-sh@vger.kernel.org,
- linux-um@lists.infradead.org
-References: <cover.1735549103.git.zhengqi.arch@bytedance.com>
- <04b0a778-7a6b-4df3-b40e-ca76adddb243@arm.com>
-From: Qi Zheng <zhengqi.arch@bytedance.com>
-In-Reply-To: <04b0a778-7a6b-4df3-b40e-ca76adddb243@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250102_195647_370514_96067A58 
-X-CRM114-Status: UNSURE (   9.37  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250102_200355_454122_AEEA07E0 
+X-CRM114-Status: GOOD (  12.96  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,47 +99,70 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+When working on OpenRISC support for restartable sequences I noticed
+and fixed these two issues with the riscv support bits.
 
+ 1 The 'inc' argument to RSEQ_ASM_OP_R_DEREF_ADDV was being implicitly
+   passed to the macro.  Fix this by adding 'inc' to the list of macro
+   arguments.
+ 2 The inline asm input constraints for 'inc' and 'off' use "er",  The
+   riscv gcc port does not have an "e" constraint, this looks to be
+   copied from the x86 port.  Fix this by just using an "r" constraint.
 
-On 2025/1/3 01:00, Kevin Brodsky wrote:
-> On 30/12/2024 10:07, Qi Zheng wrote:
->> Qi Zheng (13):
->>    Revert "mm: pgtable: make ptlock be freed by RCU"
->>    mm: pgtable: add statistics for P4D level page table
->>    arm64: pgtable: use mmu gather to free p4d level page table
->>    s390: pgtable: add statistics for PUD and P4D level page table
->>    mm: pgtable: introduce pagetable_dtor()
->>    arm: pgtable: move pagetable_dtor() to __tlb_remove_table()
->>    arm64: pgtable: move pagetable_dtor() to __tlb_remove_table()
->>    riscv: pgtable: move pagetable_dtor() to __tlb_remove_table()
->>    x86: pgtable: move pagetable_dtor() to __tlb_remove_table()
->>    s390: pgtable: also move pagetable_dtor() of PxD to
->>      __tlb_remove_table()
->>    mm: pgtable: introduce generic __tlb_remove_table()
->>    mm: pgtable: move __tlb_remove_table_one() in x86 to generic file
->>    mm: pgtable: introduce generic pagetable_dtor_free()
-> 
-> Aside from the nit on patch 4 and the request for clarification on patch
-> 10, this is looking good to me, so for the whole series (aside from my
-> own patches of course):
-> 
-> Reviewed-by: Kevin Brodsky <kevin.brodsky@arm.com>
+I have compile tested this only for riscv.  However, the same fixes I
+use in the OpenRISC rseq selftests and everything passes with no issues.
 
-Thanks for your review!
+Signed-off-by: Stafford Horne <shorne@gmail.com>
+---
+ tools/testing/selftests/rseq/rseq-riscv-bits.h | 6 +++---
+ tools/testing/selftests/rseq/rseq-riscv.h      | 2 +-
+ 2 files changed, 4 insertions(+), 4 deletions(-)
 
-> 
-> And happy new year!
+diff --git a/tools/testing/selftests/rseq/rseq-riscv-bits.h b/tools/testing/selftests/rseq/rseq-riscv-bits.h
+index de31a0143139..f02f411d550d 100644
+--- a/tools/testing/selftests/rseq/rseq-riscv-bits.h
++++ b/tools/testing/selftests/rseq/rseq-riscv-bits.h
+@@ -243,7 +243,7 @@ int RSEQ_TEMPLATE_IDENTIFIER(rseq_offset_deref_addv)(intptr_t *ptr, off_t off, i
+ #ifdef RSEQ_COMPARE_TWICE
+ 				  RSEQ_ASM_CMP_CPU_ID(cpu_id, current_cpu_id, "%l[error1]")
+ #endif
+-				  RSEQ_ASM_OP_R_DEREF_ADDV(ptr, off, 3)
++				  RSEQ_ASM_OP_R_DEREF_ADDV(ptr, off, inc, 3)
+ 				  RSEQ_INJECT_ASM(4)
+ 				  RSEQ_ASM_DEFINE_ABORT(4, abort)
+ 				  : /* gcc asm goto does not allow outputs */
+@@ -251,8 +251,8 @@ int RSEQ_TEMPLATE_IDENTIFIER(rseq_offset_deref_addv)(intptr_t *ptr, off_t off, i
+ 				    [current_cpu_id]		"m" (rseq_get_abi()->RSEQ_TEMPLATE_CPU_ID_FIELD),
+ 				    [rseq_cs]			"m" (rseq_get_abi()->rseq_cs.arch.ptr),
+ 				    [ptr]			"r" (ptr),
+-				    [off]			"er" (off),
+-				    [inc]			"er" (inc)
++				    [off]			"r" (off),
++				    [inc]			"r" (inc)
+ 				    RSEQ_INJECT_INPUT
+ 				  : "memory", RSEQ_ASM_TMP_REG_1
+ 				    RSEQ_INJECT_CLOBBER
+diff --git a/tools/testing/selftests/rseq/rseq-riscv.h b/tools/testing/selftests/rseq/rseq-riscv.h
+index 37e598d0a365..67d544aaa9a3 100644
+--- a/tools/testing/selftests/rseq/rseq-riscv.h
++++ b/tools/testing/selftests/rseq/rseq-riscv.h
+@@ -158,7 +158,7 @@ do {									\
+ 	"bnez	" RSEQ_ASM_TMP_REG_1 ", 222b\n"				\
+ 	"333:\n"
+ 
+-#define RSEQ_ASM_OP_R_DEREF_ADDV(ptr, off, post_commit_label)		\
++#define RSEQ_ASM_OP_R_DEREF_ADDV(ptr, off, inc, post_commit_label)	\
+ 	"mv	" RSEQ_ASM_TMP_REG_1 ", %[" __rseq_str(ptr) "]\n"	\
+ 	RSEQ_ASM_OP_R_ADD(off)						\
+ 	REG_L	  RSEQ_ASM_TMP_REG_1 ", 0(" RSEQ_ASM_TMP_REG_1 ")\n"	\
+-- 
+2.47.0
 
-Happy New Year!! :)
-
-> 
-> Cheers,
-> - Kevin
 
 _______________________________________________
 linux-riscv mailing list
