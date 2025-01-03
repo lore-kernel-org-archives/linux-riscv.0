@@ -4,63 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2B2E8E77188
-	for <linux-riscv@archiver.kernel.org>; Fri,  3 Jan 2025 21:58:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B7B4E7718F
+	for <linux-riscv@archiver.kernel.org>; Fri,  3 Jan 2025 21:59:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=/mvrlQgYnyqAHf1pjCRpRAnoe+AVaDdsHRZepsZ/HMc=; b=AxoDTuPnzCn2oE
-	5GIFEuC3tGDTgyw69VHy7/i6Z2tqNkwG22YByJnjvgIGp5X177R0S1HasuFN55W3hkrErcv9EIsgy
-	ub8RHDIN/xpNu6+7YnGhOduRcwf5Xpb6+OuN5Z2ilxP1kObkZgQUt5SLUwlYMbRpVzy7/Byv5FJk6
-	KGzBHodkHY5t+4XEuvgwOzOTL29V5FxfEGDXeXkTKXpFrZHYd25NbHfD3/bUoxSdqmOVeyeFO6XpU
-	5Tmw37/ZghPb3nCh2Lz5ozJa2yKObipVTvHAdc4zpIb3oZyZlmGWxxHNJgv+C+XTKj6bHMRtCV4Og
-	5Lhz6i6VV4aN4e7xwmxQ==;
+	List-Owner; bh=1aeJMqYowOJ1OIUPbJH9R99g1lZtcOrEfpqLMH6aAuY=; b=JvIaJUdxvNImDP
+	DcBPCLkOqqaXixA5TAop5op4cp74NiNuVkZV4ZBpUO2JwqoxdF4W1najpBj+b+ttwfHAOJma13r+E
+	zD+cK/yTPN4cVR8zCK01vYEibJAnsPkdHdOewNXaetXfLbflrTUoAhSx00hdwD+/QizdSwqF11zKd
+	lOK3GStAusptcYxYlxBRNwrGYZmv/vpqZW/9/EB9XyMheSPrForp6rEu5fntBtHFRi3LlspPAB4og
+	aEdUfLsmyzyY/Hfl/G/GnBXbgn5+D9ikj+vemEC6b5Wl6gnMbR/4TA55w7mlODfrcS7I/rKdaAZVj
+	g98DcyPG92QdUAzJ1aOQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tTpgv-0000000E4tC-47ac;
-	Fri, 03 Jan 2025 21:58:49 +0000
+	id 1tTph1-0000000E4vI-1Rx9;
+	Fri, 03 Jan 2025 21:58:55 +0000
 Received: from bayard.4d2.org ([5.78.89.93])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tTpgr-0000000E4rb-1WoS
+	id 1tTpgz-0000000E4uA-0G5T
 	for linux-riscv@lists.infradead.org;
-	Fri, 03 Jan 2025 21:58:48 +0000
+	Fri, 03 Jan 2025 21:58:54 +0000
 Received: from bayard.4d2.org (bayard.4d2.org [127.0.0.1])
-	by bayard.4d2.org (Postfix) with ESMTP id 9C075122FE29;
-	Fri, 03 Jan 2025 13:58:40 -0800 (PST)
+	by bayard.4d2.org (Postfix) with ESMTP id 92400122FE1A;
+	Fri, 03 Jan 2025 13:58:52 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=4d2.org; s=mail;
-	t=1735941520; bh=Khs0bEecS6iOs704VCxoVgddAatkDQOp6qMAFO6tB+s=;
+	t=1735941532; bh=qZadH32Mxvg/KW2cNQGknLlppTgwQl/Gx8bFpQjBHnQ=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=xlFdQuKtEuMJIVlGWi8PiNJUGGDDzpUbh+gQ8ZaCxLx2BDIwyqiLCdD9IeODhG9aZ
-	 1p1d+sJX2LYRiO7vluCg8re4kBtridSkS5YQfFn5upg8IZHRzUK8Cvk7YesFFCGwbS
-	 mijgOf0Q9+splZ+pvYpRzLD42V83EROF4R5VLYCzjE5UueeI85h1Ozr/zIw9XvYMYG
-	 m9UMLMChzDesXpnZGM2KVnfuniGzSqMYGkdFaXioqiIeljFZieu4Ww9SrI9VN/YMN6
-	 jTvR6ssZkDIfHXFCYUfVXSt542xz45kD3rXcFJDfFMhqAHuly43kjjxRGp+iv70+qv
-	 Ub/V4yTDWxcSg==
+	b=OWPzDNrO4SFci61Gxr/iWRSnlao8EM951VmLVApKkeL9xP7qZlqKlAa4VUqVzXjGZ
+	 Evm0ehq/CosiLoOe/ogsyH2nfQVjrlu6fuBddpBGIdfYAF1Bf8hxLylhTfRGqTUk4v
+	 4dgsdZfzahgDcn8kD5jkHKUF2c2iWMkTiWKsPdQA0Ryx7l5++diPamkXrdmiM7YXoW
+	 7t4T96H2SlmLxTP3tb4UPNtdt9rhJgS295AlgPhQdyl4VdI/xUOPks4VmhgqD/+hud
+	 BzabgTk6ryw0YfZ8xeeoc6t7jGmJQz2TOz/ugI/Ogee8eASocB4EcujhFQuCKXNIVi
+	 vnLaJXtt48Y2g==
 X-Virus-Scanned: amavisd-new at 4d2.org
 Authentication-Results: bayard.4d2.org (amavisd-new); dkim=pass (2048-bit key)
  header.d=4d2.org
 Received: from bayard.4d2.org ([127.0.0.1])
  by bayard.4d2.org (bayard.4d2.org [127.0.0.1]) (amavisd-new, port 10024)
- with ESMTP id PJTZE1muQcid; Fri,  3 Jan 2025 13:58:38 -0800 (PST)
+ with ESMTP id Sp43EfecQ-BO; Fri,  3 Jan 2025 13:58:52 -0800 (PST)
 Received: from localhost.localdomain (unknown [183.217.81.188])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: heylenay@4d2.org)
-	by bayard.4d2.org (Postfix) with ESMTPSA id CAA95122FE21;
-	Fri, 03 Jan 2025 13:58:34 -0800 (PST)
+	by bayard.4d2.org (Postfix) with ESMTPSA id 2483E122FE22;
+	Fri, 03 Jan 2025 13:58:47 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=4d2.org; s=mail;
-	t=1735941518; bh=Khs0bEecS6iOs704VCxoVgddAatkDQOp6qMAFO6tB+s=;
+	t=1735941532; bh=qZadH32Mxvg/KW2cNQGknLlppTgwQl/Gx8bFpQjBHnQ=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=1XXWUhpIeRYvFsKOBbYDpthV6MNiIpGlajcZXHTivQjYLwrwIMx7UaSQcoaa+S6w2
-	 yctyD/qyUvdsPV/8J8Wd2xcjekgo9SICrFIAJz/CofTAlt4oNBaCq1kelnf7m5XW0u
-	 3g8gdAs2X/f1d+UjAsXiIAilnsFFpMPoctUe6JM8Hia5ZYT6EskLmdG65xTewEAyeD
-	 8ZlFMkg2qThHZ/QE4ps6bf0x9bTTpra/aRSniw0auwTbdCFCL5wcKX+kiDQi2b6pdt
-	 zBv9nIJeiTjYkB7L2h+h4H3s1GyKmCyA5joCI88XJDWqSjFxFOB8Yq96sJbrTAVt0S
-	 9Ujji6/eYOpXQ==
+	b=OWPzDNrO4SFci61Gxr/iWRSnlao8EM951VmLVApKkeL9xP7qZlqKlAa4VUqVzXjGZ
+	 Evm0ehq/CosiLoOe/ogsyH2nfQVjrlu6fuBddpBGIdfYAF1Bf8hxLylhTfRGqTUk4v
+	 4dgsdZfzahgDcn8kD5jkHKUF2c2iWMkTiWKsPdQA0Ryx7l5++diPamkXrdmiM7YXoW
+	 7t4T96H2SlmLxTP3tb4UPNtdt9rhJgS295AlgPhQdyl4VdI/xUOPks4VmhgqD/+hud
+	 BzabgTk6ryw0YfZ8xeeoc6t7jGmJQz2TOz/ugI/Ogee8eASocB4EcujhFQuCKXNIVi
+	 vnLaJXtt48Y2g==
 From: Haylen Chu <heylenay@4d2.org>
 To: Michael Turquette <mturquette@baylibre.com>,
 	Stephen Boyd <sboyd@kernel.org>,
@@ -78,16 +78,17 @@ Cc: linux-riscv@lists.infradead.org,
 	Jisheng Zhang <jszhang@kernel.org>,
 	Meng Zhang <zhangmeng.kevin@linux.spacemit.com>,
 	Haylen Chu <heylenay@4d2.org>
-Subject: [PATCH v4 1/4] dt-bindings: clock: spacemit: Add clock controllers of Spacemit K1 SoC
-Date: Fri,  3 Jan 2025 21:56:34 +0000
-Message-ID: <20250103215636.19967-3-heylenay@4d2.org>
+Subject: [PATCH v4 4/4] riscv: dts: spacemit: Add clock controller for K1
+Date: Fri,  3 Jan 2025 21:56:37 +0000
+Message-ID: <20250103215636.19967-6-heylenay@4d2.org>
 X-Mailer: git-send-email 2.47.1
 In-Reply-To: <20250103215636.19967-2-heylenay@4d2.org>
 References: <20250103215636.19967-2-heylenay@4d2.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250103_135845_596091_75961488 
-X-CRM114-Status: GOOD (  12.13  )
+X-CRM114-CacheID: sfid-20250103_135853_145608_857129C9 
+X-CRM114-Status: UNSURE (   8.37  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,336 +105,143 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add definition for the clock controllers of Spacemit K1 SoC. The clock
-tree is managed by several SoC parts thus different compatible strings
-are introduced for each.
+Add clock controllers for APBC, APBS, APMU and MPMU regions along with
+system controllers which they belong to.
 
 Signed-off-by: Haylen Chu <heylenay@4d2.org>
 ---
- .../bindings/clock/spacemit,k1-ccu.yaml       |  60 +++++
- include/dt-bindings/clock/spacemit,k1-ccu.h   | 246 ++++++++++++++++++
- 2 files changed, 306 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/clock/spacemit,k1-ccu.yaml
- create mode 100644 include/dt-bindings/clock/spacemit,k1-ccu.h
+ arch/riscv/boot/dts/spacemit/k1.dtsi | 97 ++++++++++++++++++++++++++++
+ 1 file changed, 97 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/clock/spacemit,k1-ccu.yaml b/Documentation/devicetree/bindings/clock/spacemit,k1-ccu.yaml
-new file mode 100644
-index 000000000000..56db670961cf
---- /dev/null
-+++ b/Documentation/devicetree/bindings/clock/spacemit,k1-ccu.yaml
-@@ -0,0 +1,60 @@
-+# SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/clock/spacemit,k1-ccu.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
+diff --git a/arch/riscv/boot/dts/spacemit/k1.dtsi b/arch/riscv/boot/dts/spacemit/k1.dtsi
+index 0777bf9e0118..a2cd141f9177 100644
+--- a/arch/riscv/boot/dts/spacemit/k1.dtsi
++++ b/arch/riscv/boot/dts/spacemit/k1.dtsi
+@@ -3,6 +3,8 @@
+  * Copyright (C) 2024 Yangyu Chen <cyy@cyyself.name>
+  */
+ 
++#include <dt-bindings/clock/spacemit,k1-ccu.h>
 +
-+title: Spacemit K1 SoC Clock Controller
+ /dts-v1/;
+ / {
+ 	#address-cells = <2>;
+@@ -318,6 +320,40 @@ cluster1_l2_cache: l2-cache1 {
+ 		};
+ 	};
+ 
++	clocks {
++		#address-cells = <0x2>;
++		#size-cells = <0x2>;
++		ranges;
 +
-+maintainers:
-+  - Haylen Chu <heylenay@4d2.org>
++		vctcxo_1m: clock-1m {
++			compatible = "fixed-clock";
++			clock-frequency = <1000000>;
++			clock-output-names = "vctcxo_1m";
++			#clock-cells = <0>;
++		};
 +
-+properties:
-+  compatible:
-+    enum:
-+      - spacemit,k1-ccu-apbs
-+      - spacemit,k1-ccu-mpmu
-+      - spacemit,k1-ccu-apbc
-+      - spacemit,k1-ccu-apmu
++		vctcxo_24m: clock-24m {
++			compatible = "fixed-clock";
++			clock-frequency = <24000000>;
++			clock-output-names = "vctcxo_24m";
++			#clock-cells = <0>;
++		};
 +
-+  clocks:
-+    maxItems: 4
++		vctcxo_3m: clock-3m {
++			compatible = "fixed-clock";
++			clock-frequency = <3000000>;
++			clock-output-names = "vctcxo_3m";
++			#clock-cells = <0>;
++		};
 +
-+  clock-names:
-+    items:
-+      - const: osc
-+      - const: vctcxo_1m
-+      - const: vctcxo_3m
-+      - const: vctcxo_24m
++		osc_32k: clock-32k {
++			compatible = "fixed-clock";
++			clock-frequency = <32000>;
++			clock-output-names = "osc_32k";
++			#clock-cells = <0>;
++		};
++	};
 +
-+  spacemit,mpmu:
-+    $ref: /schemas/types.yaml#/definitions/phandle
-+    description:
-+      Phandle to the syscon managing "Main PMU (MPMU)" registers. It is used to
-+      check PLL lock status.
+ 	soc {
+ 		compatible = "simple-bus";
+ 		interrupt-parent = <&plic>;
+@@ -326,6 +362,21 @@ soc {
+ 		dma-noncoherent;
+ 		ranges;
+ 
++		syscon_apbc: system-control@d4015000 {
++			compatible = "spacemit,k1-apbc-syscon", "syscon",
++				     "simple-mfd";
++			reg = <0x0 0xd4015000 0x0 0x1000>;
 +
-+  "#clock-cells":
-+    const: 1
-+    description:
-+      See <dt-bindings/clock/spacemit,k1-ccu.h> for valid indices.
++			clk_apbc: clock-controller {
++				compatible = "spacemit,k1-ccu-apbc";
++				clocks = <&osc_32k>, <&vctcxo_1m>,
++					 <&vctcxo_3m>, <&vctcxo_24m>;
++				clock-names = "osc", "vctcxo_1m",
++					      "vctcxo_3m", "vctcxo_24m";
++				#clock-cells = <1>;
++			};
++		};
 +
-+required:
-+  - compatible
-+  - clocks
-+  - clock-names
-+  - "#clock-cells"
+ 		uart0: serial@d4017000 {
+ 			compatible = "spacemit,k1-uart", "intel,xscale-uart";
+ 			reg = <0x0 0xd4017000 0x0 0x100>;
+@@ -416,6 +467,52 @@ uart9: serial@d4017800 {
+ 			status = "disabled";
+ 		};
+ 
++		syscon_mpmu: system-control@d4050000 {
++			compatible = "spacemit,k1-mpmu-syscon", "syscon",
++				     "simple-mfd";
++			reg = <0x0 0xd4050000 0x0 0x209c>;
 +
-+allOf:
-+  - if:
-+      properties:
-+        compatible:
-+          contains:
-+            const: spacemit,k1-ccu-apbs
-+    then:
-+      required:
-+        - spacemit,mpmu
-+    else:
-+      properties:
-+        spacemit,mpmu: false
++			clk_mpmu: clock-controller {
++				compatible = "spacemit,k1-ccu-mpmu";
++				clocks = <&osc_32k>, <&vctcxo_1m>,
++					 <&vctcxo_3m>, <&vctcxo_24m>;
++				clock-names = "osc", "vctcxo_1m",
++					      "vctcxo_3m", "vctcxo_24m";
++				#clock-cells = <1>;
++			};
++		};
 +
-+additionalProperties: false
-diff --git a/include/dt-bindings/clock/spacemit,k1-ccu.h b/include/dt-bindings/clock/spacemit,k1-ccu.h
-new file mode 100644
-index 000000000000..71760355b304
---- /dev/null
-+++ b/include/dt-bindings/clock/spacemit,k1-ccu.h
-@@ -0,0 +1,246 @@
-+/* SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause) */
-+/*
-+ * Copyright (C) 2024 Haylen Chu <heylenay@outlook.com>
-+ */
++		syscon_apbs: system-control@d4090000 {
++			compatible = "spacemit,k1-apbs-syscon", "syscon",
++				     "simple-mfd";
++			reg = <0x0 0xd4090000 0x0 0x1000>;
 +
-+#ifndef _DT_BINDINGS_SPACEMIT_CCU_H_
-+#define _DT_BINDINGS_SPACEMIT_CCU_H_
++			clk_apbs: clock-controller {
++				compatible = "spacemit,k1-ccu-apbs";
++				clocks = <&osc_32k>, <&vctcxo_1m>,
++					 <&vctcxo_3m>, <&vctcxo_24m>;
++				clock-names = "osc", "vctcxo_1m",
++					      "vctcxo_3m", "vctcxo_24m";
++				spacemit,mpmu = <&syscon_mpmu>;
++				#clock-cells = <1>;
++			};
++		};
 +
-+/*	APBS clocks	*/
-+#define CLK_PLL1		0
-+#define CLK_PLL2		1
-+#define CLK_PLL3		2
-+#define CLK_PLL1_D2		3
-+#define CLK_PLL1_D3		4
-+#define CLK_PLL1_D4		5
-+#define CLK_PLL1_D5		6
-+#define CLK_PLL1_D6		7
-+#define CLK_PLL1_D7		8
-+#define CLK_PLL1_D8		9
-+#define CLK_PLL1_D11		10
-+#define CLK_PLL1_D13		11
-+#define CLK_PLL1_D23		12
-+#define CLK_PLL1_D64		13
-+#define CLK_PLL1_D10_AUD	14
-+#define CLK_PLL1_D100_AUD	15
-+#define CLK_PLL2_D1		16
-+#define CLK_PLL2_D2		17
-+#define CLK_PLL2_D3		18
-+#define CLK_PLL2_D4		19
-+#define CLK_PLL2_D5		20
-+#define CLK_PLL2_D6		21
-+#define CLK_PLL2_D7		22
-+#define CLK_PLL2_D8		23
-+#define CLK_PLL3_D1		24
-+#define CLK_PLL3_D2		25
-+#define CLK_PLL3_D3		26
-+#define CLK_PLL3_D4		27
-+#define CLK_PLL3_D5		28
-+#define CLK_PLL3_D6		29
-+#define CLK_PLL3_D7		30
-+#define CLK_PLL3_D8		31
-+#define CLK_PLL3_80		32
-+#define CLK_PLL3_40		33
-+#define CLK_PLL3_20		34
-+#define CLK_APBS_NUM		35
++		syscon_apmu: system-control@d4282800 {
++			compatible = "spacemit,k1-apmu-syscon", "syscon",
++				     "simple-mfd";
++			reg = <0x0 0xd4282800 0x0 0x400>;
 +
-+/*	MPMU clocks	*/
-+#define CLK_PLL1_307P2		0
-+#define CLK_PLL1_76P8		1
-+#define CLK_PLL1_61P44		2
-+#define CLK_PLL1_153P6		3
-+#define CLK_PLL1_102P4		4
-+#define CLK_PLL1_51P2		5
-+#define CLK_PLL1_51P2_AP	6
-+#define CLK_PLL1_57P6		7
-+#define CLK_PLL1_25P6		8
-+#define CLK_PLL1_12P8		9
-+#define CLK_PLL1_12P8_WDT	10
-+#define CLK_PLL1_6P4		11
-+#define CLK_PLL1_3P2		12
-+#define CLK_PLL1_1P6		13
-+#define CLK_PLL1_0P8		14
-+#define CLK_PLL1_351		15
-+#define CLK_PLL1_409P6		16
-+#define CLK_PLL1_204P8		17
-+#define CLK_PLL1_491		18
-+#define CLK_PLL1_245P76		19
-+#define CLK_PLL1_614		20
-+#define CLK_PLL1_47P26		21
-+#define CLK_PLL1_31P5		22
-+#define CLK_PLL1_819		23
-+#define CLK_PLL1_1228		24
-+#define CLK_SLOW_UART		25
-+#define CLK_SLOW_UART1		26
-+#define CLK_SLOW_UART2		27
-+#define CLK_WDT			28
-+#define CLK_RIPC		29
-+#define CLK_I2S_SYSCLK		30
-+#define CLK_I2S_BCLK		31
-+#define CLK_APB			32
-+#define CLK_WDT_BUS		33
-+#define CLK_MPMU_NUM		34
++			clk_apmu: clock-controller {
++				compatible = "spacemit,k1-ccu-apmu";
++				clocks = <&osc_32k>, <&vctcxo_1m>,
++					 <&vctcxo_3m>, <&vctcxo_24m>;
++				clock-names = "osc", "vctcxo_1m",
++					      "vctcxo_3m", "vctcxo_24m";
++				#clock-cells = <1>;
++			};
++		};
 +
-+/*	APBC clocks	*/
-+#define CLK_UART0		0
-+#define CLK_UART2		1
-+#define CLK_UART3		2
-+#define CLK_UART4		3
-+#define CLK_UART5		4
-+#define CLK_UART6		5
-+#define CLK_UART7		6
-+#define CLK_UART8		7
-+#define CLK_UART9		8
-+#define CLK_GPIO		9
-+#define CLK_PWM0		10
-+#define CLK_PWM1		11
-+#define CLK_PWM2		12
-+#define CLK_PWM3		13
-+#define CLK_PWM4		14
-+#define CLK_PWM5		15
-+#define CLK_PWM6		16
-+#define CLK_PWM7		17
-+#define CLK_PWM8		18
-+#define CLK_PWM9		19
-+#define CLK_PWM10		20
-+#define CLK_PWM11		21
-+#define CLK_PWM12		22
-+#define CLK_PWM13		23
-+#define CLK_PWM14		24
-+#define CLK_PWM15		25
-+#define CLK_PWM16		26
-+#define CLK_PWM17		27
-+#define CLK_PWM18		28
-+#define CLK_PWM19		29
-+#define CLK_SSP3		30
-+#define CLK_RTC			31
-+#define CLK_TWSI0		32
-+#define CLK_TWSI1		33
-+#define CLK_TWSI2		34
-+#define CLK_TWSI4		35
-+#define CLK_TWSI5		36
-+#define CLK_TWSI6		37
-+#define CLK_TWSI7		38
-+#define CLK_TWSI8		39
-+#define CLK_TIMERS1		40
-+#define CLK_TIMERS2		41
-+#define CLK_AIB			42
-+#define CLK_ONEWIRE		43
-+#define CLK_SSPA0		44
-+#define CLK_SSPA1		45
-+#define CLK_DRO			46
-+#define CLK_IR			47
-+#define CLK_TSEN		48
-+#define CLK_IPC_AP2AUD		49
-+#define CLK_CAN0		50
-+#define CLK_CAN0_BUS		51
-+#define CLK_UART0_BUS		52
-+#define CLK_UART2_BUS		53
-+#define CLK_UART3_BUS		54
-+#define CLK_UART4_BUS		55
-+#define CLK_UART5_BUS		56
-+#define CLK_UART6_BUS		57
-+#define CLK_UART7_BUS		58
-+#define CLK_UART8_BUS		59
-+#define CLK_UART9_BUS		60
-+#define CLK_GPIO_BUS		61
-+#define CLK_PWM0_BUS		62
-+#define CLK_PWM1_BUS		63
-+#define CLK_PWM2_BUS		64
-+#define CLK_PWM3_BUS		65
-+#define CLK_PWM4_BUS		66
-+#define CLK_PWM5_BUS		67
-+#define CLK_PWM6_BUS		68
-+#define CLK_PWM7_BUS		69
-+#define CLK_PWM8_BUS		70
-+#define CLK_PWM9_BUS		71
-+#define CLK_PWM10_BUS		72
-+#define CLK_PWM11_BUS		73
-+#define CLK_PWM12_BUS		74
-+#define CLK_PWM13_BUS		75
-+#define CLK_PWM14_BUS		76
-+#define CLK_PWM15_BUS		77
-+#define CLK_PWM16_BUS		78
-+#define CLK_PWM17_BUS		79
-+#define CLK_PWM18_BUS		80
-+#define CLK_PWM19_BUS		81
-+#define CLK_SSP3_BUS		82
-+#define CLK_RTC_BUS		83
-+#define CLK_TWSI0_BUS		84
-+#define CLK_TWSI1_BUS		85
-+#define CLK_TWSI2_BUS		86
-+#define CLK_TWSI4_BUS		87
-+#define CLK_TWSI5_BUS		88
-+#define CLK_TWSI6_BUS		89
-+#define CLK_TWSI7_BUS		90
-+#define CLK_TWSI8_BUS		91
-+#define CLK_TIMERS1_BUS		92
-+#define CLK_TIMERS2_BUS		93
-+#define CLK_AIB_BUS		94
-+#define CLK_ONEWIRE_BUS		95
-+#define CLK_SSPA0_BUS		96
-+#define CLK_SSPA1_BUS		97
-+#define CLK_TSEN_BUS		98
-+#define CLK_IPC_AP2AUD_BUS	99
-+#define CLK_APBC_NUM		100
-+
-+/*	APMU clocks	*/
-+#define CLK_CCI550		0
-+#define CLK_CPU_C0_HI		1
-+#define CLK_CPU_C0_CORE		2
-+#define CLK_CPU_C0_ACE		3
-+#define CLK_CPU_C0_TCM		4
-+#define CLK_CPU_C1_HI		5
-+#define CLK_CPU_C1_CORE		6
-+#define CLK_CPU_C1_ACE		7
-+#define CLK_CCIC_4X		8
-+#define CLK_CCIC1PHY		9
-+#define CLK_SDH_AXI		10
-+#define CLK_SDH0		11
-+#define CLK_SDH1		12
-+#define CLK_SDH2		13
-+#define CLK_USB_P1		14
-+#define CLK_USB_AXI		15
-+#define CLK_USB30		16
-+#define CLK_QSPI		17
-+#define CLK_QSPI_BUS		18
-+#define CLK_DMA			19
-+#define CLK_AES			20
-+#define CLK_VPU			21
-+#define CLK_GPU			22
-+#define CLK_EMMC		23
-+#define CLK_EMMC_X		24
-+#define CLK_AUDIO		25
-+#define CLK_HDMI		26
-+#define CLK_PMUA_ACLK		27
-+#define CLK_PCIE0		28
-+#define CLK_PCIE1		29
-+#define CLK_PCIE2		30
-+#define CLK_EMAC0_BUS		31
-+#define CLK_EMAC0_PTP		32
-+#define CLK_EMAC1_BUS		33
-+#define CLK_EMAC1_PTP		34
-+#define CLK_JPG			35
-+#define CLK_CCIC2PHY		36
-+#define CLK_CCIC3PHY		37
-+#define CLK_CSI			38
-+#define CLK_CAMM0		39
-+#define CLK_CAMM1		40
-+#define CLK_CAMM2		41
-+#define CLK_ISP_CPP		42
-+#define CLK_ISP_BUS		43
-+#define CLK_ISP			44
-+#define CLK_DPU_MCLK		45
-+#define CLK_DPU_ESC		46
-+#define CLK_DPU_BIT		47
-+#define CLK_DPU_PXCLK		48
-+#define CLK_DPU_HCLK		49
-+#define CLK_DPU_SPI		50
-+#define CLK_DPU_SPI_HBUS	51
-+#define CLK_DPU_SPIBUS		52
-+#define CLK_DPU_SPI_ACLK	53
-+#define CLK_V2D			54
-+#define CLK_EMMC_BUS		55
-+#define CLK_APMU_NUM		56
-+
-+#endif /* _DT_BINDINGS_SPACEMIT_CCU_H_ */
+ 		plic: interrupt-controller@e0000000 {
+ 			compatible = "spacemit,k1-plic", "sifive,plic-1.0.0";
+ 			reg = <0x0 0xe0000000 0x0 0x4000000>;
 -- 
 2.47.1
 
