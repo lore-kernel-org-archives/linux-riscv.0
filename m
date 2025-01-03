@@ -4,68 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B10E8E77197
-	for <linux-riscv@archiver.kernel.org>; Fri,  3 Jan 2025 00:32:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F2FAE77188
+	for <linux-riscv@archiver.kernel.org>; Fri,  3 Jan 2025 00:32:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=E333R0sQtP/utPxGsQnqTEAOUNehMQIbndQIo/SgFco=; b=KxXTAUrp4AjOau
-	va2ii+FL3DXSXjEPT01dvstRxnZJQ04Wyk4iUzL1jJLOHyofxN4OI3K5SmMHyU94FDY51eXeKnKor
-	iIuYcfcTV8gZMZHrAXnYfd13rFvnTIDSdddSlUGOP/UaTIKOssxq+kbBJhdp93eYhLKFseA78aNCp
-	f+fCrv1T2eBcjHnKUQrmSFN/59pV+NzYA3lpwHW6oS50c1qDwmUAG7kf0ivisw8QkZcCIhYxUsKG5
-	x3yT4UHXf70dHBK30Y4+K6DuEYTr10719AvPv29qb6HLiHyD4+5+fxIzPx04Jb4PEASkBLoSuLTzS
-	h9tYML4XuGD2Fvab34pg==;
+	List-Owner; bh=hjWv7G9qDRMkLqE4+4FJNNJBtkpQW6LB6R7ahkjiPzQ=; b=EcuOWWHCIbU9Kw
+	f6fPVF2YkyWI2A7cWTV5USZOECNR00leWq3UsTdJfYlGzc1EWqBmWHjo7MoL4K2pH/5TalKjF0Qeq
+	2yz4kvBa8Uszym5DGB4ezoop2EHNyijbEVr90zXxrb2hCmySu2p7QSJfqzzbo+bGJVi/hoo3xeDtU
+	4bCGgUMNc0+AdA5O5iCLaQD3RjShjN/N5RPHwe3gUwr9ZVRUPRcOhDNN+z0wloXPiqUSMv772Y/S9
+	7XSczwwxxFQgvdODcsaVkvWbCzkGXksfJ0Xaod2/5MfISH1IwNwZdjjue8N3YG/TmIj7pLz+9CaK0
+	4IbcnXRveBJKfBgUXBCw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tTVbb-0000000BlIE-40mg;
-	Fri, 03 Jan 2025 00:31:59 +0000
-Received: from mail-pj1-x102d.google.com ([2607:f8b0:4864:20::102d])
+	id 1tTVcA-0000000BlNa-2Fnu;
+	Fri, 03 Jan 2025 00:32:34 +0000
+Received: from mail-pl1-x633.google.com ([2607:f8b0:4864:20::633])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tTVbY-0000000BlHn-3Far
+	id 1tTVc8-0000000BlN2-0DuL
 	for linux-riscv@lists.infradead.org;
-	Fri, 03 Jan 2025 00:31:58 +0000
-Received: by mail-pj1-x102d.google.com with SMTP id 98e67ed59e1d1-2ef89dbd8eeso12149559a91.0
-        for <linux-riscv@lists.infradead.org>; Thu, 02 Jan 2025 16:31:55 -0800 (PST)
+	Fri, 03 Jan 2025 00:32:33 +0000
+Received: by mail-pl1-x633.google.com with SMTP id d9443c01a7336-2166360285dso163351665ad.1
+        for <linux-riscv@lists.infradead.org>; Thu, 02 Jan 2025 16:32:31 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1735864315; x=1736469115; darn=lists.infradead.org;
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1735864351; x=1736469151; darn=lists.infradead.org;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=p60ohEC0lcMDc5+vsoccSHrGFVlwexFhvL+evZT42iQ=;
-        b=thIHanpMtgLAxP6bqo0F27WkLhyODrT4aOmyOrNzQ4Tcqtv+NIjRk6x7h0vfwu8RW/
-         tyE/eLTnCiAVKhPbyIV0i74me5L4z60Mcka6tgA5ElLM2qRxNpr4BEuSOAmom17XjFs2
-         KJl3meV49KEhK0flsARPJDONGL7gR/k87qMa9FtAObUfdxJmySv/WIkkYnviPyUIC8YY
-         b+TfuwhxeZNflKBhJjdo+Wd26evgFyI5/o15YQ8DoTq1EtKMOUmvWSCol1ppkiMp7FCS
-         2U5ELiE7fiers0cfGK51Nes5YeneR5fSH23W2ymAFP5ANk2Y5hV0bI+iYAcnesAgA71j
-         7aeA==
+        bh=7g+wLSi8c6UqspOT12/qWIHbcBq4WpxJE8ZGVDZG+qo=;
+        b=aJMwovVrhse3Fdc7iGemMVIxhS1gjee18B/u4GXWJ14aT/fe89I73jqQ62mI7RFrx/
+         f2xdpol1LCG/31d5YUp+MIFnlj5hBGeLahT01nMKp0q0f5J5C7YSO+NcenYSzA42LTg7
+         jCIhTimTPprblrNWSz6ZjV4N1wYbinycGTBiBe8B4j6J7qMKnW3BwpxZgOJc2L1ypEsy
+         YtwfZwCxfA1WK5U0Qi/jRBr+c6B2uDoEWxZlIvAOGK34uMx2XLDR6XRbrRZGKDBV/O59
+         6pUN876P9uIdBREVdtgXB7aIWdUkFZJYz0HxZAucoQKt1AbYlGDTnxMMt/O7VzKUEkjO
+         Gtow==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1735864315; x=1736469115;
+        d=1e100.net; s=20230601; t=1735864351; x=1736469151;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=p60ohEC0lcMDc5+vsoccSHrGFVlwexFhvL+evZT42iQ=;
-        b=IzENZvly7RP4SsHPP0Io7BrJkSJfzTPieIgolHAmF21X/0lQwE16eyXHkJn4jxvDQi
-         V4v4K/9T+M4tuEAC/nvGEzEhLdxBpJicfcryH1Tl4xMVZjgzfiYoIhKMxuWCGQKoxgLu
-         19jEcVxw0RPxN4TawPV+/x4p/76UMwe6rwKZX6lKcy330uIUs4CYZditnXTfQ5V/7vzt
-         xYyzT9AJgVk8YKvr30cNoQwIu/GkoVMAqRaw9jSbUJZT1YxhyLuCZ2lXsipBE2IgFDKB
-         TR8VWk5K/TBX3FfpTWKn5W4P+demI4x1lqOcogCbnTmDatFibFIu4MUxNNjOac7aExCz
-         MP6w==
-X-Gm-Message-State: AOJu0YyeoEkgOrU5FBXCFV3BhfpTetFel5wSX4gFTzkkEgmPZpdfYDXk
-	WMlA+t5qQSXvi2e9xsYZTaLC3+SsGp6WVDAeaJeKikMHaDogKXtW6g4KBvtozgQ=
-X-Gm-Gg: ASbGnctKdiWinPjf4SttDpNhYjdjQatHtF+/V/yS5swgqqKnItq3cPuqRqAie8EEEgf
-	oZtfiUHSXfzovkTXM/nWUI3X2mkAjj7axG6bvSDjy7CTByw9vh717SXgNMPdWXQsDQeOF78/UNP
-	kPSPxLpHJ9nhn9QVau832vvOeqrAORLFeM3uGIZGCnkZbYNNvKGvSTI4/+11MJ0vqSpHxA48Bj3
-	RQdYhdoX71vuH2cAtRT1/1s/1riUVghvOVtusaAh1sP2nn21C4R
-X-Google-Smtp-Source: AGHT+IGKGAeDhUlzYbvQRqd8UylgnFkCkYWQF4YyiX8Kt33xlyrfV+H8wMqxdbtsRoigqCVOJqH/bg==
-X-Received: by 2002:a17:90b:54d0:b0:2ee:c918:cd60 with SMTP id 98e67ed59e1d1-2f452e4a7f6mr72948222a91.20.1735864315357;
-        Thu, 02 Jan 2025 16:31:55 -0800 (PST)
+        bh=7g+wLSi8c6UqspOT12/qWIHbcBq4WpxJE8ZGVDZG+qo=;
+        b=CSkSWzTNfMKJgI17xtY2De8+c1RvwHKJsIHAMEPigZ9QzNR8Fx6h7W34ZGiR6Paup8
+         c02WpDLpoPGwkdzZXMVLU2QFAUATZqu+uxAV9O2oWls2BZSz/l5ld/+Rhg6GPtYE9Eak
+         gHP1yKMiy5xu97hZIwt4ojM3b32hPa4oGdkEdE5LL47Y3YZ6/WPL6hh8LHedUW7HhUao
+         0R/Ex8os+qtiNKgIJeTiH4xlAl73wlntFfBC+LxvUX7YW/1hCH3BLu3GYdbQQd9XkeS2
+         22fAHBxwqDgONo1x0+L8TpshjWskXAIg/Uxlu7hOv/6coXb/OqeD8RRL4BefY2LYgbpk
+         nVwA==
+X-Gm-Message-State: AOJu0YxVxgeV+9cf1UBkGxzN/CVXPbo7yZ2DYaJHjZHqLNUPyjA4SDp4
+	6zjLMPPVmm4U4SNROxctUsNBfoiIn85YD9IKpul/uNTPd6ejiCpac3D3lqw8XrM=
+X-Gm-Gg: ASbGncsTjbAkCy8HB8BmAlxE0jGZZY288yi2uVkiUWZg1y/B+/+P1Ftu1E7Z+SESE3t
+	VaBGdaTnwtdjtP9tkdfHPrFMm7Su7FY2MI0fW+WyHLN1Tp4xexjf6xoOh17u+M7knbk7rkQ1FR0
+	iF4qo+AOvEd5Hw8yynIBmOAC1jNqRTP0/kHlbYCbgAxvUD2vUyjA9LQo1uOZ+WpdxrL3Tj7ZWXn
+	HXATnQUp7XsNRcRFxfk5Tv8MXTDosDh6knEVAI7YTXsR/uyll64
+X-Google-Smtp-Source: AGHT+IG3sPQtyi5nkFmQ3CmrthpTZfdWuyQXeZ4UGYJicox25LifDSU88z0mlPQiLhfTtFUIuF2xOA==
+X-Received: by 2002:a17:902:f54e:b0:216:6c88:efd9 with SMTP id d9443c01a7336-219e6e9a3a1mr589504795ad.15.1735864350978;
+        Thu, 02 Jan 2025 16:32:30 -0800 (PST)
 Received: from ghost ([2601:647:6700:64d0:e7aa:b727:e049:3265])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-2f2ed0d8bb2sm28947179a91.0.2025.01.02.16.31.53
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-219dc9f6156sm226459435ad.209.2025.01.02.16.32.29
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 02 Jan 2025 16:31:54 -0800 (PST)
-Date: Thu, 2 Jan 2025 16:31:52 -0800
+        Thu, 02 Jan 2025 16:32:30 -0800 (PST)
+Date: Thu, 2 Jan 2025 16:32:28 -0800
 From: Charlie Jenkins <charlie@rivosinc.com>
 To: Conor Dooley <conor@kernel.org>
 Cc: linux-riscv@lists.infradead.org,
@@ -76,17 +76,17 @@ Cc: linux-riscv@lists.infradead.org,
 	Samuel Holland <samuel.holland@sifive.com>,
 	Pu Lehui <pulehui@huaweicloud.com>,
 	=?iso-8859-1?Q?Bj=F6rn_T=F6pel?= <bjorn@kernel.org>
-Subject: Re: [PATCH v4 1/2] RISC-V: clarify what some RISCV_ISA* config
- options do
-Message-ID: <Z3cv-GI7gdCpIdm2@ghost>
+Subject: Re: [PATCH v4 2/2] RISC-V: separate Zbb optimisations requiring and
+ not requiring toolchain support
+Message-ID: <Z3cwHCbbXqlRVXYc@ghost>
 References: <20241024-aspire-rectify-9982da6943e5@spud>
- <20241024-overdue-slogan-0b0f69d3da91@spud>
+ <20241024-chump-freebase-d26b6d81af33@spud>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20241024-overdue-slogan-0b0f69d3da91@spud>
+In-Reply-To: <20241024-chump-freebase-d26b6d81af33@spud>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250102_163157_080799_E461DB30 
-X-CRM114-Status: GOOD (  36.06  )
+X-CRM114-CacheID: sfid-20250102_163232_099024_C2B3B2CC 
+X-CRM114-Status: GOOD (  28.92  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,133 +103,232 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Oct 24, 2024 at 11:19:40AM +0100, Conor Dooley wrote:
+On Thu, Oct 24, 2024 at 11:19:41AM +0100, Conor Dooley wrote:
 > From: Conor Dooley <conor.dooley@microchip.com>
 > 
-> During some discussion on IRC yesterday and on Pu's bpf patch [1]
-> I noticed that these RISCV_ISA* Kconfig options are not really clear
-> about their implications. Many of these options have no impact on what
-> userspace is allowed to do, for example an application can use Zbb
-> regardless of whether or not the kernel does. Change the help text to
-> try and clarify whether or not an option affects just the kernel, or
-> also userspace. None of these options actually control whether or not an
-> extension is detected dynamically as that's done regardless of Kconfig
-> options, so drop any text that implies the option is required for
-> dynamic detection, rewording them as "do x when y is detected".
+> It seems a bit ridiculous to require toolchain support for BPF to
+> assemble Zbb instructions, so move the dependency on toolchain support
+> for Zbb optimisations out of the Kconfig option and to the callsites.
 > 
-> Link: https://lore.kernel.org/linux-riscv/20240328-ferocity-repose-c554f75a676c@spud/ [1]
+> Zbb support has always depended on alternatives, so while adjusting the
+> config options guarding optimisations, remove any checks for
+> whether or not alternatives are enabled.
+> 
 > Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
-
-This has been sitting around for a while but is a good change.
-
 Reviewed-by: Charlie Jenkins <charlie@rivosinc.com>
-
 > Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
 > ---
->  arch/riscv/Kconfig | 36 +++++++++++++++++++-----------------
->  1 file changed, 19 insertions(+), 17 deletions(-)
+>  arch/riscv/Kconfig                    |  4 ++--
+>  arch/riscv/include/asm/arch_hweight.h |  6 +++---
+>  arch/riscv/include/asm/bitops.h       |  4 ++--
+>  arch/riscv/include/asm/checksum.h     |  3 +--
+>  arch/riscv/lib/csum.c                 | 21 +++------------------
+>  arch/riscv/lib/strcmp.S               |  5 +++--
+>  arch/riscv/lib/strlen.S               |  5 +++--
+>  arch/riscv/lib/strncmp.S              |  5 +++--
+>  8 files changed, 20 insertions(+), 33 deletions(-)
 > 
 > diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-> index 62545946ecf43..278a38c94c5a6 100644
+> index 278a38c94c5a6..6ec7a500a25ff 100644
 > --- a/arch/riscv/Kconfig
 > +++ b/arch/riscv/Kconfig
-> @@ -527,7 +527,8 @@ config RISCV_ISA_C
->  	help
->  	  Adds "C" to the ISA subsets that the toolchain is allowed to emit
->  	  when building Linux, which results in compressed instructions in the
-> -	  Linux binary.
-> +	  Linux binary. This option produces a kernel that will not run on
-> +	  systems that do not support compressed instructions.
+> @@ -664,12 +664,12 @@ config RISCV_ISA_ZBA
 >  
->  	  If you don't know what to do here, say Y.
->  
-> @@ -537,8 +538,8 @@ config RISCV_ISA_SVNAPOT
+>  config RISCV_ISA_ZBB
+>  	bool "Zbb extension support for bit manipulation instructions"
+> -	depends on TOOLCHAIN_HAS_ZBB
 >  	depends on RISCV_ALTERNATIVE
 >  	default y
 >  	help
-> -	  Allow kernel to detect the Svnapot ISA-extension dynamically at boot
-> -	  time and enable its usage.
-> +	  Enable support for the Svnapot ISA-extension when it is detected
-> +	  at boot.
->  
->  	  The Svnapot extension is used to mark contiguous PTEs as a range
->  	  of contiguous virtual-to-physical translations for a naturally
-> @@ -556,9 +557,8 @@ config RISCV_ISA_SVPBMT
->  	depends on RISCV_ALTERNATIVE
->  	default y
->  	help
-> -	   Adds support to dynamically detect the presence of the Svpbmt
-> -	   ISA-extension (Supervisor-mode: page-based memory types) and
-> -	   enable its usage.
-> +	   Add support for the Svpbmt ISA-extension (Supervisor-mode:
-> +	   page-based memory types) in the kernel when it is detected at boot.
->  
->  	   The memory type for a page contains a combination of attributes
->  	   that indicate the cacheability, idempotency, and ordering
-> @@ -577,14 +577,15 @@ config TOOLCHAIN_HAS_V
->  	depends on AS_HAS_OPTION_ARCH
->  
->  config RISCV_ISA_V
-> -	bool "VECTOR extension support"
-> +	bool "Vector extension support"
->  	depends on TOOLCHAIN_HAS_V
->  	depends on FPU
->  	select DYNAMIC_SIGFRAME
->  	default y
->  	help
-> -	  Say N here if you want to disable all vector related procedure
-> -	  in the kernel.
-> +	  Add support for the Vector extension when it is detected at boot.
-> +	  When this option is disabled, neither the kernel nor userspace may
-> +	  use vector procedures.
->  
->  	  If you don't know what to do here, say Y.
->  
-> @@ -667,8 +668,8 @@ config RISCV_ISA_ZBB
->  	depends on RISCV_ALTERNATIVE
->  	default y
->  	help
-> -	   Adds support to dynamically detect the presence of the ZBB
-> -	   extension (basic bit manipulation) and enable its usage.
-> +	   Add support for enabling optimisations in the kernel when the
-> +	   Zbb extension is detected at boot.
+>  	   Add support for enabling optimisations in the kernel when the
+> -	   Zbb extension is detected at boot.
+> +	   Zbb extension is detected at boot. Some optimisations may
+> +	   additionally depend on toolchain support for Zbb.
 >  
 >  	   The Zbb extension provides instructions to accelerate a number
 >  	   of bit-specific operations (count bit population, sign extending,
-> @@ -707,9 +708,9 @@ config RISCV_ISA_ZICBOM
->  	select RISCV_DMA_NONCOHERENT
->  	select DMA_DIRECT_REMAP
->  	help
-> -	   Adds support to dynamically detect the presence of the ZICBOM
-> -	   extension (Cache Block Management Operations) and enable its
-> -	   usage.
-> +	   Add support for the Zicbom extension (Cache Block Management
-> +	   Operations) and enable its use in the kernel when it is detected
-> +	   at boot.
+> diff --git a/arch/riscv/include/asm/arch_hweight.h b/arch/riscv/include/asm/arch_hweight.h
+> index 613769b9cdc90..0e7cdbbec8efd 100644
+> --- a/arch/riscv/include/asm/arch_hweight.h
+> +++ b/arch/riscv/include/asm/arch_hweight.h
+> @@ -19,7 +19,7 @@
 >  
->  	   The Zicbom extension can be used to handle for example
->  	   non-coherent DMA support on devices that need it.
-> @@ -722,7 +723,7 @@ config RISCV_ISA_ZICBOZ
->  	default y
->  	help
->  	   Enable the use of the Zicboz extension (cbo.zero instruction)
-> -	   when available.
-> +	   in the kernel when it is detected at boot.
+>  static __always_inline unsigned int __arch_hweight32(unsigned int w)
+>  {
+> -#ifdef CONFIG_RISCV_ISA_ZBB
+> +#if defined(CONFIG_RISCV_ISA_ZBB) && defined(CONFIG_TOOLCHAIN_HAS_ZBB)
+>  	asm goto(ALTERNATIVE("j %l[legacy]", "nop", 0,
+>  				      RISCV_ISA_EXT_ZBB, 1)
+>  			  : : : : legacy);
+> @@ -50,7 +50,7 @@ static inline unsigned int __arch_hweight8(unsigned int w)
+>  #if BITS_PER_LONG == 64
+>  static __always_inline unsigned long __arch_hweight64(__u64 w)
+>  {
+> -# ifdef CONFIG_RISCV_ISA_ZBB
+> +#if defined(CONFIG_RISCV_ISA_ZBB) && defined(CONFIG_TOOLCHAIN_HAS_ZBB)
+>  	asm goto(ALTERNATIVE("j %l[legacy]", "nop", 0,
+>  				      RISCV_ISA_EXT_ZBB, 1)
+>  			  : : : : legacy);
+> @@ -64,7 +64,7 @@ static __always_inline unsigned long __arch_hweight64(__u64 w)
+>  	return w;
 >  
->  	   The Zicboz extension is used for faster zeroing of memory.
+>  legacy:
+> -# endif
+> +#endif
+>  	return __sw_hweight64(w);
+>  }
+>  #else /* BITS_PER_LONG == 64 */
+> diff --git a/arch/riscv/include/asm/bitops.h b/arch/riscv/include/asm/bitops.h
+> index fae152ea0508d..410e2235d6589 100644
+> --- a/arch/riscv/include/asm/bitops.h
+> +++ b/arch/riscv/include/asm/bitops.h
+> @@ -15,7 +15,7 @@
+>  #include <asm/barrier.h>
+>  #include <asm/bitsperlong.h>
 >  
-> @@ -760,8 +761,9 @@ config FPU
->  	bool "FPU support"
->  	default y
->  	help
-> -	  Say N here if you want to disable all floating-point related procedure
-> -	  in the kernel.
-> +	  Add support for floating point operations when an FPU is detected at
-> +	  boot. When this option is disabled, neither the kernel nor userspace
-> +	  may use the floating point unit.
+> -#if !defined(CONFIG_RISCV_ISA_ZBB) || defined(NO_ALTERNATIVE)
+> +#if !(defined(CONFIG_RISCV_ISA_ZBB) && defined(CONFIG_TOOLCHAIN_HAS_ZBB)) || defined(NO_ALTERNATIVE)
+>  #include <asm-generic/bitops/__ffs.h>
+>  #include <asm-generic/bitops/__fls.h>
+>  #include <asm-generic/bitops/ffs.h>
+> @@ -175,7 +175,7 @@ static __always_inline int variable_fls(unsigned int x)
+>  	 variable_fls(x_);					\
+>  })
 >  
->  	  If you don't know what to do here, say Y.
+> -#endif /* !defined(CONFIG_RISCV_ISA_ZBB) || defined(NO_ALTERNATIVE) */
+> +#endif /* !(defined(CONFIG_RISCV_ISA_ZBB) && defined(CONFIG_TOOLCHAIN_HAS_ZBB)) || defined(NO_ALTERNATIVE) */
 >  
+>  #include <asm-generic/bitops/ffz.h>
+>  #include <asm-generic/bitops/fls64.h>
+> diff --git a/arch/riscv/include/asm/checksum.h b/arch/riscv/include/asm/checksum.h
+> index 88e6f1499e889..da378856f1d59 100644
+> --- a/arch/riscv/include/asm/checksum.h
+> +++ b/arch/riscv/include/asm/checksum.h
+> @@ -49,8 +49,7 @@ static inline __sum16 ip_fast_csum(const void *iph, unsigned int ihl)
+>  	 * ZBB only saves three instructions on 32-bit and five on 64-bit so not
+>  	 * worth checking if supported without Alternatives.
+>  	 */
+> -	if (IS_ENABLED(CONFIG_RISCV_ISA_ZBB) &&
+> -	    IS_ENABLED(CONFIG_RISCV_ALTERNATIVE)) {
+> +	if (IS_ENABLED(CONFIG_RISCV_ISA_ZBB) && IS_ENABLED(CONFIG_TOOLCHAIN_HAS_ZBB)) {
+>  		unsigned long fold_temp;
+>  
+>  		asm goto(ALTERNATIVE("j %l[no_zbb]", "nop", 0,
+> diff --git a/arch/riscv/lib/csum.c b/arch/riscv/lib/csum.c
+> index 7fb12c59e5719..9408f50ca59a8 100644
+> --- a/arch/riscv/lib/csum.c
+> +++ b/arch/riscv/lib/csum.c
+> @@ -40,12 +40,7 @@ __sum16 csum_ipv6_magic(const struct in6_addr *saddr,
+>  	uproto = (__force unsigned int)htonl(proto);
+>  	sum += uproto;
+>  
+> -	/*
+> -	 * Zbb support saves 4 instructions, so not worth checking without
+> -	 * alternatives if supported
+> -	 */
+> -	if (IS_ENABLED(CONFIG_RISCV_ISA_ZBB) &&
+> -	    IS_ENABLED(CONFIG_RISCV_ALTERNATIVE)) {
+> +	if (IS_ENABLED(CONFIG_RISCV_ISA_ZBB) && IS_ENABLED(CONFIG_TOOLCHAIN_HAS_ZBB)) {
+>  		unsigned long fold_temp;
+>  
+>  		/*
+> @@ -157,12 +152,7 @@ do_csum_with_alignment(const unsigned char *buff, int len)
+>  	csum = do_csum_common(ptr, end, data);
+>  
+>  #ifdef CC_HAS_ASM_GOTO_TIED_OUTPUT
+> -	/*
+> -	 * Zbb support saves 6 instructions, so not worth checking without
+> -	 * alternatives if supported
+> -	 */
+> -	if (IS_ENABLED(CONFIG_RISCV_ISA_ZBB) &&
+> -	    IS_ENABLED(CONFIG_RISCV_ALTERNATIVE)) {
+> +	if (IS_ENABLED(CONFIG_RISCV_ISA_ZBB) && IS_ENABLED(CONFIG_TOOLCHAIN_HAS_ZBB)) {
+>  		unsigned long fold_temp;
+>  
+>  		/*
+> @@ -244,12 +234,7 @@ do_csum_no_alignment(const unsigned char *buff, int len)
+>  	end = (const unsigned long *)(buff + len);
+>  	csum = do_csum_common(ptr, end, data);
+>  
+> -	/*
+> -	 * Zbb support saves 6 instructions, so not worth checking without
+> -	 * alternatives if supported
+> -	 */
+> -	if (IS_ENABLED(CONFIG_RISCV_ISA_ZBB) &&
+> -	    IS_ENABLED(CONFIG_RISCV_ALTERNATIVE)) {
+> +	if (IS_ENABLED(CONFIG_RISCV_ISA_ZBB) && IS_ENABLED(CONFIG_TOOLCHAIN_HAS_ZBB)) {
+>  		unsigned long fold_temp;
+>  
+>  		/*
+> diff --git a/arch/riscv/lib/strcmp.S b/arch/riscv/lib/strcmp.S
+> index 57a5c00662315..65027e742af15 100644
+> --- a/arch/riscv/lib/strcmp.S
+> +++ b/arch/riscv/lib/strcmp.S
+> @@ -8,7 +8,8 @@
+>  /* int strcmp(const char *cs, const char *ct) */
+>  SYM_FUNC_START(strcmp)
+>  
+> -	ALTERNATIVE("nop", "j strcmp_zbb", 0, RISCV_ISA_EXT_ZBB, CONFIG_RISCV_ISA_ZBB)
+> +	__ALTERNATIVE_CFG("nop", "j strcmp_zbb", 0, RISCV_ISA_EXT_ZBB,
+> +		IS_ENABLED(CONFIG_RISCV_ISA_ZBB) && IS_ENABLED(CONFIG_TOOLCHAIN_HAS_ZBB))
+>  
+>  	/*
+>  	 * Returns
+> @@ -43,7 +44,7 @@ SYM_FUNC_START(strcmp)
+>   * The code was published as part of the bitmanip manual
+>   * in Appendix A.
+>   */
+> -#ifdef CONFIG_RISCV_ISA_ZBB
+> +#if defined(CONFIG_RISCV_ISA_ZBB) && defined(CONFIG_TOOLCHAIN_HAS_ZBB)
+>  strcmp_zbb:
+>  
+>  .option push
+> diff --git a/arch/riscv/lib/strlen.S b/arch/riscv/lib/strlen.S
+> index 962983b73251e..eb4d2b7ed22b6 100644
+> --- a/arch/riscv/lib/strlen.S
+> +++ b/arch/riscv/lib/strlen.S
+> @@ -8,7 +8,8 @@
+>  /* int strlen(const char *s) */
+>  SYM_FUNC_START(strlen)
+>  
+> -	ALTERNATIVE("nop", "j strlen_zbb", 0, RISCV_ISA_EXT_ZBB, CONFIG_RISCV_ISA_ZBB)
+> +	__ALTERNATIVE_CFG("nop", "j strlen_zbb", 0, RISCV_ISA_EXT_ZBB,
+> +		IS_ENABLED(CONFIG_RISCV_ISA_ZBB) && IS_ENABLED(CONFIG_TOOLCHAIN_HAS_ZBB))
+>  
+>  	/*
+>  	 * Returns
+> @@ -33,7 +34,7 @@ SYM_FUNC_START(strlen)
+>  /*
+>   * Variant of strlen using the ZBB extension if available
+>   */
+> -#ifdef CONFIG_RISCV_ISA_ZBB
+> +#if defined(CONFIG_RISCV_ISA_ZBB) && defined(CONFIG_TOOLCHAIN_HAS_ZBB)
+>  strlen_zbb:
+>  
+>  #ifdef CONFIG_CPU_BIG_ENDIAN
+> diff --git a/arch/riscv/lib/strncmp.S b/arch/riscv/lib/strncmp.S
+> index 7b2d0ff9ed6c7..062000c468c83 100644
+> --- a/arch/riscv/lib/strncmp.S
+> +++ b/arch/riscv/lib/strncmp.S
+> @@ -8,7 +8,8 @@
+>  /* int strncmp(const char *cs, const char *ct, size_t count) */
+>  SYM_FUNC_START(strncmp)
+>  
+> -	ALTERNATIVE("nop", "j strncmp_zbb", 0, RISCV_ISA_EXT_ZBB, CONFIG_RISCV_ISA_ZBB)
+> +	__ALTERNATIVE_CFG("nop", "j strncmp_zbb", 0, RISCV_ISA_EXT_ZBB,
+> +		IS_ENABLED(CONFIG_RISCV_ISA_ZBB) && IS_ENABLED(CONFIG_TOOLCHAIN_HAS_ZBB))
+>  
+>  	/*
+>  	 * Returns
+> @@ -46,7 +47,7 @@ SYM_FUNC_START(strncmp)
+>  /*
+>   * Variant of strncmp using the ZBB extension if available
+>   */
+> -#ifdef CONFIG_RISCV_ISA_ZBB
+> +#if defined(CONFIG_RISCV_ISA_ZBB) && defined(CONFIG_TOOLCHAIN_HAS_ZBB)
+>  strncmp_zbb:
+>  
+>  .option push
 > -- 
 > 2.45.2
 > 
