@@ -4,115 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 191CFE77188
-	for <linux-riscv@archiver.kernel.org>; Sat,  4 Jan 2025 12:34:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 575B4E77188
+	for <linux-riscv@archiver.kernel.org>; Sat,  4 Jan 2025 18:33:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=S9A5O9TjkSP0nLSbr8RsNiXWt7QXL0jozeyWQrbTPAw=; b=DksZYoUiKtYjgl
-	XfDVeNncL/tV10Bui5rGiWpNiOg3KRyV/H+KGN05T7NXZo68/iDx8cPIP/hjSy5nRl0hOaaRq2LqU
-	yWQba6NvzY+afAjQ9r/DsKKVJrN5J3KGbv9sLIVeIP/2uqqKpdNx4R/Y6cyC67jDmhXb1/YFT9qPa
-	XFaueksrdyPl1r6BXohjU203qxzulJTJJQWT2+fsfprsSjzFjp4a+Rc82tcffjUZVx0cuuHuTc9Jw
-	c8kehodyLoLVynKi0/1KQMjIV+SX0lZdFKMmryGkGucFyLMhr8uwB30oWrDIv6Wc0FifOeJ1gRVnC
-	ovE4WW3aDocDeEgH6Q3w==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=svOOr2x0MmpfrYs1AFS6kyjVdf/vH7C28LvAUkSYbuQ=; b=Eptjzru8+2gvLmSI1quYUBF6hU
+	XjYRadoJzzUoCjIYaBTFBZ7UHIDoErvEUyP85FGlDqO+ddCpC+AfK4omS7qYC21eUNkhFPMvUh6Xf
+	rOsZNL/lX47kZ25DPCti4jXeTSKzcIOU7pcXzKYlKlKNnHzfcIOYoYb9KSRbZ8lHz0h/KTkSKrUIO
+	JP8GNXx/Z3brJH1RUdz7e89wV/JHyVoON74gPZb6ns3p866b/tiYvF/sLPH06lfGCfA8+v/U2gEu7
+	UpLhdqoMZ/WzYwEVmbLjmdm5B3IHiyxdDFer56z3T+MQj03HTUTUZvHEt4SlLUJMPf2jcAVYng84b
+	bhIOqhlQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tU3Lx-0000000EynI-42OL;
-	Sat, 04 Jan 2025 12:34:05 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tU8xz-0000000FPMk-2LIE;
+	Sat, 04 Jan 2025 18:33:43 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tU3Lu-0000000Eymt-39Tr
+	id 1tU8xx-0000000FPMK-1MY3
 	for linux-riscv@lists.infradead.org;
-	Sat, 04 Jan 2025 12:34:03 +0000
+	Sat, 04 Jan 2025 18:33:42 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id F04D95C3B0E;
-	Sat,  4 Jan 2025 12:33:19 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7406BC4CED1;
-	Sat,  4 Jan 2025 12:33:56 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 132C45C1129;
+	Sat,  4 Jan 2025 18:32:58 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1C32CC4CED1;
+	Sat,  4 Jan 2025 18:33:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1735994040;
-	bh=olMPNy4+lzOMsVZgsB6du4RYLJvBTUgStsbjsnCyciM=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=JXjO01IP5TYGY0RsckB6T+9dvw0mNs8Sq0N9g+4I3qXtIdHuWSegqiNlRj7ryyg4p
-	 MMGUjI6pc15QyDmI3PWdJhUFPe9Ic6GX66JK5H82Dpo+RxCz8tkx5JIIlcU7kXz+vo
-	 SuAcD0BPmV4ZbXESziNqpKSH0Znx60KKM/ufqVm6fORSW7NiONHNG00gv4W3zUXI0n
-	 ViX7kAlCXkQueGCnRsIG+y0p5JzMFZUVDnSXZVxsAwg33KU+T6DWSrYbqFL236sD4+
-	 /iBegrwE91BpKs3qAW8+jnLwK6A/tRf2vw7zIszowmEM7POcBY1VxYO3mPfoU5fss1
-	 leJ1rH7FxLRdg==
-Message-ID: <5f112a20-f1ce-45d1-a554-5f86846bcc25@kernel.org>
-Date: Sat, 4 Jan 2025 13:33:54 +0100
+	s=k20201202; t=1736015619;
+	bh=bbGVCiebfDC2v8ZrjzXFysT9S4V23mFCJgUmWbhnAB8=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=dS9jhJE3fxzDyDlfMtIS55DjSwucd1le+RtfivhNsJpsOEGZuPxOeDj4OO5ZzgfMj
+	 ekuzhAPdQQNZ34lYJhHt4Y2Fd2A8/K4N080hN3NIMNq1ftxSyHtV+I7srKxt8I4y6f
+	 Zm/U7tRP7Rg/toi9hSt55TxLOxHPQDiavQBJmsBHB64GnA54MMjbh3PNUbF4hniH5W
+	 IW91QCc1jaHBCm/LNXWbu0qq8fVjGkOl+pM/xBz5ui0hjq0abCvx1PWIWIFX1Obzda
+	 WKbAur3l7pv4LaQYc8uKOzAInrs0K0q6sMV95T3Cr89EEMhffoMAAQRsFg8ak2wEp+
+	 H5lwD84y0HVWw==
+Date: Sat, 4 Jan 2025 18:33:34 +0000
+From: Conor Dooley <conor@kernel.org>
+To: E Shattow <e@freeshell.de>
+Cc: Emil Renner Berthing <kernel@esmil.dk>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org, devicetree@vger.kernel.org
+Subject: Re: [PATCH v1 1/5] riscv: dts: starfive: jh7110-common: replace
+ syscrg clock assignments
+Message-ID: <20250104-mutilated-unpaved-008eebdb200a@spud>
+References: <20250102194530.418127-1-e@freeshell.de>
+ <20250102194530.418127-2-e@freeshell.de>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/3] dt-bindings: clock: Add bindings for Canaan K230
- clock controller
-To: Xukai Wang <kingxukai@zohomail.com>
-Cc: Michael Turquette <mturquette@baylibre.com>,
- Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
- Troy Mitchell <TroyMitchell988@gmail.com>
-References: <20241229-b4-k230-clk-v1-0-221a917e80ed@zohomail.com>
- <20241229-b4-k230-clk-v1-1-221a917e80ed@zohomail.com>
- <zfjj33otyxiamsc7u2uwnvygcuhe7u2tfgiz6txp62emnddbw5@5iozmjg4eugn>
- <39e6bf64-2ce6-45bb-b622-4b413efc185f@zohomail.com>
- <a097980a-c2b7-440c-8eff-b540acfd4027@kernel.org>
- <68de77d0-b289-4137-85f3-050a1a10eb63@zohomail.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 fv0=
-In-Reply-To: <68de77d0-b289-4137-85f3-050a1a10eb63@zohomail.com>
+In-Reply-To: <20250102194530.418127-2-e@freeshell.de>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250104_043402_888335_FC3CB53C 
-X-CRM114-Status: UNSURE (   8.37  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250104_103341_406673_AFF50FFD 
+X-CRM114-Status: GOOD (  13.57  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,22 +72,87 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: multipart/mixed; boundary="===============0488103295598474795=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gMDQvMDEvMjAyNSAxMzowOSwgWHVrYWkgV2FuZyB3cm90ZToKPj4gV2h5Pwo+Pgo+Pj4gwqAg
-aXRlbXM6Cj4+PiDCoMKgwqAgLSBkZXNjcmlwdGlvbjogQmFzZSBhZGRyZXNzIGFuZCBzaXplIG9m
-IHRoZSBQTEwgY29udHJvbCByZWdpc3RlcnMuCj4+PiDCoMKgwqAgLSBkZXNjcmlwdGlvbjogQmFz
-ZSBhZGRyZXNzIGFuZCBzaXplIG9mIHRoZSBzeXNjbGsgY29udHJvbCByZWdpc3RlcnMuCj4+IERy
-b3AgcmVkdW5kYW50ICJCYXNlIGFkZHJlc3MgYW5kIHNpemUgb2YgdGhlIi4gVGhpcyBjYW5ub3Qg
-YmUgYW55dGhpbmcKPj4gZWxzZSBpbiB0aGlzIGNvbnRleHQuCj4gCj4gVGhhbmsgeW91IGZvciBw
-b2ludCB0aGVzZSBvdXQsIEnigJl2ZSByZW1vdmVkIHRoZSByZWR1bmRhbnQgZGVzY3JpcHRpb25z
-LAo+IGFuZCBoZXJlJ3MgdGhlIHVwZGF0ZWQgdmVyc2lvbjoKPiAKPiByZWc6Cj4gwqAgaXRlbXM6
-Cj4gwqDCoMKgIC0gZGVzY3JpcHRpb246IFBMTCBjb250cm9sIHJlZ2lzdGVycy4KPiDCoMKgwqAg
-LSBkZXNjcmlwdGlvbjogU3lzY2xrIGNvbnRyb2wgcmVnaXN0ZXJzLgo+IAo+IERvZXMgdGhpcyBj
-b250ZW50IGxvb2sgYXBwcm9wcmlhdGU/ClllcywgdGhhbmsgeW91LgoKQmVzdCByZWdhcmRzLApL
-cnp5c3p0b2YKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-CmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3Jn
-Cmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+
+--===============0488103295598474795==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="X/IiaMylgfGE4uV1"
+Content-Disposition: inline
+
+
+--X/IiaMylgfGE4uV1
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+On Thu, Jan 02, 2025 at 11:45:07AM -0800, E Shattow wrote:
+> Replace syscrg assignments of clocks, clock parents, and rates, for
+> compatibility with downstream boot loader SPL secondary program
+> loader.
+>=20
+> Signed-off-by: E Shattow <e@freeshell.de>
+> ---
+>  arch/riscv/boot/dts/starfive/jh7110-common.dtsi | 12 +++++++++---
+>  1 file changed, 9 insertions(+), 3 deletions(-)
+>=20
+> diff --git a/arch/riscv/boot/dts/starfive/jh7110-common.dtsi b/arch/riscv=
+/boot/dts/starfive/jh7110-common.dtsi
+> index 48fb5091b817..55c6743100a7 100644
+> --- a/arch/riscv/boot/dts/starfive/jh7110-common.dtsi
+> +++ b/arch/riscv/boot/dts/starfive/jh7110-common.dtsi
+> @@ -359,9 +359,15 @@ spi_dev0: spi@0 {
+>  };
+> =20
+>  &syscrg {
+> -	assigned-clocks =3D <&syscrg JH7110_SYSCLK_CPU_CORE>,
+> -			  <&pllclk JH7110_PLLCLK_PLL0_OUT>;
+> -	assigned-clock-rates =3D <500000000>, <1500000000>;
+> +	assigned-clocks =3D <&syscrg JH7110_SYSCLK_CPU_ROOT>,
+> +			  <&syscrg JH7110_SYSCLK_BUS_ROOT>,
+> +			  <&syscrg JH7110_SYSCLK_PERH_ROOT>,
+> +			  <&syscrg JH7110_SYSCLK_QSPI_REF>;
+> +	assigned-clock-parents =3D <&pllclk JH7110_PLLCLK_PLL0_OUT>,
+> +				 <&pllclk JH7110_PLLCLK_PLL2_OUT>,
+> +				 <&pllclk JH7110_PLLCLK_PLL2_OUT>,
+> +				 <&syscrg JH7110_SYSCLK_QSPI_REF_SRC>;
+> +	assigned-clock-rates =3D <0>, <0>, <0>, <0>;
+
+Why is assigned rates here 0s, rather than the property just removed?
+
+>  };
+> =20
+>  &sysgpio {
+> --=20
+> 2.45.2
+>=20
+
+--X/IiaMylgfGE4uV1
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZ3l+/gAKCRB4tDGHoIJi
+0tJ3AP4y1JgKxVuFtAfj2/e072mhmKgwjpCJdSfFu0f8h9kxNgEA/OuSW1oF+y2v
+pCRVRiOegBMIH80dCitQajbHkophhQA=
+=Z2jI
+-----END PGP SIGNATURE-----
+
+--X/IiaMylgfGE4uV1--
+
+
+--===============0488103295598474795==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============0488103295598474795==--
+
