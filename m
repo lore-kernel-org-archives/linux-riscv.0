@@ -4,49 +4,112 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 644B2E77199
-	for <linux-riscv@archiver.kernel.org>; Mon,  6 Jan 2025 10:32:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AC272E77198
+	for <linux-riscv@archiver.kernel.org>; Mon,  6 Jan 2025 10:35:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=MqXfdZ6esJMvFtiwgF7ufQSXYOdDB0DqlleTr2iIFX8=; b=1VbyA6KrZmd7Mo
-	BZPyrQ5NXAhm+x6Bf4VKykUDkHuis2o0pj3dUSk+556i4XmY4TBctHsfH9JcvuGsyhHqQ1rDCjOuP
-	aNMdN3VuiU99mjTZKKyjBth+ewvZhR6A5pRzFWOrg3ovGaQOmKZqv7Osygv86P977t3MwJmTpxEMu
-	gYOQOs+GcTKQHBAznCYNdPNnJK1xjVLwydSDsMRUoeG+2krojoILdCauazNjieEDiubzbFxFBDqdV
-	xekujpAfaFOaqOASKJT68y1nN8J8ccQePWu/G2WKCQ++iDQy+oEhAFqET7M+tR9vv8zYvla77+bH7
-	hXqJA4tUU6dtx03HKEnA==;
+	List-Owner; bh=f0gX+bowjBLyayrk6i6JwImPO0+aQsztnqLsnqdo5oE=; b=nZ6Hd1+Fr0fAE5
+	jmC6EfPRoKq0cRr8u5bvd0ToJqkZoqc6EbSnnoWP1YNnWJn1rXUDPQO0CM6lp/LDtNNCNXtCzYmup
+	2wFRulOZ05Z2aaoT9Ee4ZJ9GobpEdxiMIaX154VCzYSXe6afPrsKS7p3deAq47+0tUiC+NF2a2a/g
+	LtXtiXmoPgbZng2K6ncNXkj9zvo/H2RXfqdZGCJfzwc4tTy8PS+qhwjJ8CK/XGCCpnbDGHvEulD1y
+	jK8Yfkf4DgiJZlyldP/LMGUmo8qqZXkTqJeoE2ejfrMK3WkuZ/+RZw0Us8ZdAwU4oZzTr3reNOLzS
+	cVVZm2pp0XWFNQuOAh0Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tUkPi-00000000rkf-41ls;
-	Mon, 06 Jan 2025 10:32:50 +0000
-Received: from relay6-d.mail.gandi.net ([2001:4b98:dc4:8::226])
+	id 1tUkS2-00000000sG0-00IR;
+	Mon, 06 Jan 2025 10:35:14 +0000
+Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tUkOk-00000000rak-2xuY
-	for linux-riscv@lists.infradead.org;
-	Mon, 06 Jan 2025 10:31:52 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id 97A2DC0003;
-	Mon,  6 Jan 2025 10:31:45 +0000 (UTC)
-Message-ID: <a110be11-923e-4943-8741-43b5513c9691@ghiti.fr>
-Date: Mon, 6 Jan 2025 11:31:45 +0100
+	id 1tUkQe-00000000rxs-35Yb;
+	Mon, 06 Jan 2025 10:33:49 +0000
+Received: from pps.filterd (m0356516.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 505NaE33006668;
+	Mon, 6 Jan 2025 10:33:02 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
+	:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=pp1; bh=T/dIATF0B0cb2CjV4kpJjZfFPga/hC
+	k4zk30iJIHW7w=; b=UNSjWw3irJn0V+Dm8j5t3FNW5/wXx/WChR9S+1E2fwnee6
+	3YnxLlHQxOWH5zrs+0j3Lht+s4UrTI6g7Yg1KPB8FMCugDt75nNJJWZKMmbDbPht
+	aD4e1ztejD6AY9RigrcvvmP08x+kE9ZPTuYPeo60tFTmnQ8k4Cpe4cZrulHW0baX
+	bOFNUKH9z8P8+JW+mRFxmH7ld8nXAdzH+SB/wWVmxjkHXf+l7Q0PcRAwggyYoIXJ
+	RPu2iCOjOnvWnlY1gzTc7zEiBMqw+MBx8ifutL9cQhg4trkc8IU7fa53qIVbDErN
+	zLxsI17bxYOGqDtgLVqTsRSbTQbHdK5UUjCL9AUQ==
+Received: from pps.reinject (localhost [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4403waj0t2-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 06 Jan 2025 10:33:02 +0000 (GMT)
+Received: from m0356516.ppops.net (m0356516.ppops.net [127.0.0.1])
+	by pps.reinject (8.18.0.8/8.18.0.8) with ESMTP id 506AX1FB005709;
+	Mon, 6 Jan 2025 10:33:01 GMT
+Received: from ppma22.wdc07v.mail.ibm.com (5c.69.3da9.ip4.static.sl-reverse.com [169.61.105.92])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4403waj0sx-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 06 Jan 2025 10:33:01 +0000 (GMT)
+Received: from pps.filterd (ppma22.wdc07v.mail.ibm.com [127.0.0.1])
+	by ppma22.wdc07v.mail.ibm.com (8.18.1.2/8.18.1.2) with ESMTP id 506A0LB9008869;
+	Mon, 6 Jan 2025 10:33:00 GMT
+Received: from smtprelay04.fra02v.mail.ibm.com ([9.218.2.228])
+	by ppma22.wdc07v.mail.ibm.com (PPS) with ESMTPS id 43yfpyndxu-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 06 Jan 2025 10:33:00 +0000
+Received: from smtpav06.fra02v.mail.ibm.com (smtpav06.fra02v.mail.ibm.com [10.20.54.105])
+	by smtprelay04.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 506AWwE135127994
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Mon, 6 Jan 2025 10:32:58 GMT
+Received: from smtpav06.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 8AC1920049;
+	Mon,  6 Jan 2025 10:32:58 +0000 (GMT)
+Received: from smtpav06.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 535C720040;
+	Mon,  6 Jan 2025 10:32:56 +0000 (GMT)
+Received: from li-008a6a4c-3549-11b2-a85c-c5cc2836eea2.ibm.com (unknown [9.179.15.34])
+	by smtpav06.fra02v.mail.ibm.com (Postfix) with ESMTPS;
+	Mon,  6 Jan 2025 10:32:56 +0000 (GMT)
+Date: Mon, 6 Jan 2025 11:32:54 +0100
+From: Alexander Gordeev <agordeev@linux.ibm.com>
+To: Qi Zheng <zhengqi.arch@bytedance.com>
+Cc: peterz@infradead.org, kevin.brodsky@arm.com, palmer@dabbelt.com,
+        tglx@linutronix.de, david@redhat.com, jannh@google.com,
+        hughd@google.com, yuzhao@google.com, willy@infradead.org,
+        muchun.song@linux.dev, vbabka@kernel.org, lorenzo.stoakes@oracle.com,
+        akpm@linux-foundation.org, rientjes@google.com, vishal.moola@gmail.com,
+        arnd@arndb.de, will@kernel.org, aneesh.kumar@kernel.org,
+        npiggin@gmail.com, dave.hansen@linux.intel.com, rppt@kernel.org,
+        ryan.roberts@arm.com, linux-mm@kvack.org,
+        linux-arm-kernel@lists.infradead.org, linuxppc-dev@lists.ozlabs.org,
+        linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
+        sparclinux@vger.kernel.org, linux-kernel@vger.kernel.org,
+        x86@kernel.org, linux-arch@vger.kernel.org, linux-csky@vger.kernel.org,
+        linux-hexagon@vger.kernel.org, loongarch@lists.linux.dev,
+        linux-m68k@lists.linux-m68k.org, linux-mips@vger.kernel.org,
+        linux-openrisc@vger.kernel.org, linux-sh@vger.kernel.org,
+        linux-um@lists.infradead.org
+Subject: Re: [PATCH v4 06/15] s390: pgtable: add statistics for PUD and P4D
+ level page table
+Message-ID: <Z3uxVkg3i7zXI92e@li-008a6a4c-3549-11b2-a85c-c5cc2836eea2.ibm.com>
+References: <cover.1735549103.git.zhengqi.arch@bytedance.com>
+ <35be22a2b1666df729a9fc108c2da5cce266e4be.1735549103.git.zhengqi.arch@bytedance.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] iommu/riscv: Fixup compile warning
-Content-Language: en-US
-To: guoren@kernel.org, tjeznach@rivosinc.com
-Cc: joro@8bytes.org, will@kernel.org, robin.murphy@arm.com,
- paul.walmsley@sifive.com, palmer@dabbelt.com, baolu.lu@linux.intel.com,
- zong.li@sifive.com, iommu@lists.linux.dev, linux-riscv@lists.infradead.org,
- linux-kernel@vger.kernel.org, Guo Ren <guoren@linux.alibaba.com>
-References: <20250103024616.3359159-1-guoren@kernel.org>
-From: Alexandre Ghiti <alex@ghiti.fr>
-In-Reply-To: <20250103024616.3359159-1-guoren@kernel.org>
-X-GND-Sasl: alex@ghiti.fr
+Content-Disposition: inline
+In-Reply-To: <35be22a2b1666df729a9fc108c2da5cce266e4be.1735549103.git.zhengqi.arch@bytedance.com>
+X-TM-AS-GCONF: 00
+X-Proofpoint-GUID: 3z7EZUf66yDmnmtJgcHtcRdfzcBMN59A
+X-Proofpoint-ORIG-GUID: jOq3BOzX-nfrjMJZAlUBmLDYevP81AVQ
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1051,Hydra:6.0.680,FMLib:17.12.62.30
+ definitions=2024-10-15_01,2024-10-11_01,2024-09-30_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 phishscore=0 mlxlogscore=650
+ lowpriorityscore=0 spamscore=0 suspectscore=0 bulkscore=0 mlxscore=0
+ clxscore=1011 adultscore=0 impostorscore=0 priorityscore=1501
+ malwarescore=0 classifier=spam adjust=0 reason=mlx scancount=1
+ engine=8.19.0-2411120000 definitions=main-2501060093
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250106_023150_892452_8EBD08FF 
-X-CRM114-Status: GOOD (  12.55  )
+X-CRM114-CacheID: sfid-20250106_023348_892441_04992112 
+X-CRM114-Status: GOOD (  20.97  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -58,50 +121,78 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Guo,
+On Mon, Dec 30, 2024 at 05:07:41PM +0800, Qi Zheng wrote:
+> Like PMD and PTE level page table, also add statistics for PUD and P4D
+> page table.
+...
+> diff --git a/arch/s390/include/asm/tlb.h b/arch/s390/include/asm/tlb.h
+> index e95b2c8081eb8..b946964afce8e 100644
+> --- a/arch/s390/include/asm/tlb.h
+> +++ b/arch/s390/include/asm/tlb.h
+> @@ -110,24 +110,6 @@ static inline void pmd_free_tlb(struct mmu_gather *tlb, pmd_t *pmd,
+>  	tlb_remove_ptdesc(tlb, pmd);
+>  }
+>  
+> -/*
+> - * p4d_free_tlb frees a pud table and clears the CRSTE for the
+> - * region second table entry from the tlb.
+> - * If the mm uses a four level page table the single p4d is freed
+> - * as the pgd. p4d_free_tlb checks the asce_limit against 8PB
+> - * to avoid the double free of the p4d in this case.
+> - */
+> -static inline void p4d_free_tlb(struct mmu_gather *tlb, p4d_t *p4d,
+> -				unsigned long address)
+> -{
+> -	if (mm_p4d_folded(tlb->mm))
+> -		return;
+> -	__tlb_adjust_range(tlb, address, PAGE_SIZE);
+> -	tlb->mm->context.flush_mm = 1;
+> -	tlb->freed_tables = 1;
+> -	tlb_remove_ptdesc(tlb, p4d);
+> -}
+> -
+>  /*
+>   * pud_free_tlb frees a pud table and clears the CRSTE for the
+>   * region third table entry from the tlb.
+> @@ -140,11 +122,30 @@ static inline void pud_free_tlb(struct mmu_gather *tlb, pud_t *pud,
+>  {
+>  	if (mm_pud_folded(tlb->mm))
+>  		return;
+> +	pagetable_pud_dtor(virt_to_ptdesc(pud));
+>  	tlb->mm->context.flush_mm = 1;
+>  	tlb->freed_tables = 1;
+>  	tlb->cleared_p4ds = 1;
+>  	tlb_remove_ptdesc(tlb, pud);
+>  }
+>  
+> +/*
+> + * p4d_free_tlb frees a p4d table and clears the CRSTE for the
+> + * region second table entry from the tlb.
+> + * If the mm uses a four level page table the single p4d is freed
+> + * as the pgd. p4d_free_tlb checks the asce_limit against 8PB
+> + * to avoid the double free of the p4d in this case.
+> + */
+> +static inline void p4d_free_tlb(struct mmu_gather *tlb, p4d_t *p4d,
+> +				unsigned long address)
+> +{
+> +	if (mm_p4d_folded(tlb->mm))
+> +		return;
+> +	pagetable_p4d_dtor(virt_to_ptdesc(p4d));
+> +	__tlb_adjust_range(tlb, address, PAGE_SIZE);
+> +	tlb->mm->context.flush_mm = 1;
+> +	tlb->freed_tables = 1;
+> +	tlb_remove_ptdesc(tlb, p4d);
+> +}
 
-On 03/01/2025 03:46, guoren@kernel.org wrote:
-> From: Guo Ren <guoren@linux.alibaba.com>
->
-> When __BITS_PER_LONG == 32, size_t is defined as unsigned int rather
+I understand that you want to sort p.._free_tlb() routines, but please
+do not move the code around or make a separate follow-up patch.
 
-
-RISCV_IOMMU depends on 64BIT so how do you get __BITS_PER_LONG == 32?
-
-Thanks,
-
-Alex
-
-
-> than unsigned long. Therefore, we should use size_t to avoid
-> type-checking errors.
->
-> Fixes: 488ffbf18171 ("iommu/riscv: Paging domain support")
-> Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
-> Signed-off-by: Guo Ren <guoren@kernel.org>
-> Cc: Tomasz Jeznach <tjeznach@rivosinc.com>
-> ---
->   drivers/iommu/riscv/iommu.c | 2 +-
->   1 file changed, 1 insertion(+), 1 deletion(-)
->
-> diff --git a/drivers/iommu/riscv/iommu.c b/drivers/iommu/riscv/iommu.c
-> index 8a05def774bd..38d381164385 100644
-> --- a/drivers/iommu/riscv/iommu.c
-> +++ b/drivers/iommu/riscv/iommu.c
-> @@ -1270,7 +1270,7 @@ static phys_addr_t riscv_iommu_iova_to_phys(struct iommu_domain *iommu_domain,
->   					    dma_addr_t iova)
->   {
->   	struct riscv_iommu_domain *domain = iommu_domain_to_riscv(iommu_domain);
-> -	unsigned long pte_size;
-> +	size_t pte_size;
->   	unsigned long *ptr;
->   
->   	ptr = riscv_iommu_pte_fetch(domain, iova, &pte_size);
+Thanks!
 
 _______________________________________________
 linux-riscv mailing list
