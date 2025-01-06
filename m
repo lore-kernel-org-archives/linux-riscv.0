@@ -4,55 +4,116 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30297E77198
-	for <linux-riscv@archiver.kernel.org>; Mon,  6 Jan 2025 14:07:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9D2CE77198
+	for <linux-riscv@archiver.kernel.org>; Mon,  6 Jan 2025 14:51:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=EOudbTgaJm0UXlDo5i6JvKw5uKdfu9GPT9zFolK9LJ4=; b=f5Q8TuGDO1ChAL
-	j2JH7rF+NDyEzPRJw/HDYYk71czRaJFXhbtUXs11kTBNqtYTJVwDL1Xh/mlQ9FBjgIy9GSUtZlt5b
-	bxkUleBs1nDV5n1KzNqtu+mwgaFhhXKiuojCtFdpbJhp5CIERR/XlN2/vUZLVtzyIVk6Jn9UX1Cd1
-	VU40GAZcaBeTIWdnx/t2BgXV27UdyjOH5f3kGTfz5/bfmQUw4iREoRLXZWvXdJrX8o0bJMskr2h3J
-	ozdNsdeiI/WTHI/2UR08P/cu5L6aJfONTPfM/QAYzlHpgyL/TKaaZT0rnYrzPzMk89e12hC8Q4ILf
-	Ypv6CXWNmpw+3bLn3Nkw==;
+	List-Owner; bh=DBy7bJhUAc3O6p5/+XQhEXm7nJjJooVCJMHv7Fh2Fds=; b=tNH4wmbNyrmnTO
+	bruijUqZxe0uQ0lyhYv39vq2mCF91V2ekBvu9rabfZoORkQp0n1TVkL6F8abhd7khqcD8kioel/m1
+	x1tBEbwTFw7nOktBhSPMR7jbCBpBF/94y+CVwhsdIK4eDkpqK1xzCktFSWoZVeMIPYXEaOm6jew5B
+	VUUUU3AflsfMQ0u3B+hXb5qw/sbT7KjucsHDyihA0ooT9q7ZMnn6g3I+hVVHClA0bitp1EoQdS+Kx
+	aVExlum4BoxY0wqjEcYs7AzbmBNO7nq3URIUVlz8SZICdtNw603zwrLYZMUrbK36phJrOWeQAtDjl
+	ysBPTZpXycackQLyjWXw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tUnlk-00000001W8I-3Anw;
-	Mon, 06 Jan 2025 14:07:48 +0000
-Received: from relay9-d.mail.gandi.net ([217.70.183.199])
+	id 1tUoRr-00000001eQX-0bHC;
+	Mon, 06 Jan 2025 14:51:19 +0000
+Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tUnli-00000001W70-3Q26
-	for linux-riscv@lists.infradead.org;
-	Mon, 06 Jan 2025 14:07:48 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id F154DFF803;
-	Mon,  6 Jan 2025 14:07:41 +0000 (UTC)
-Message-ID: <dab16ea0-e021-4038-a6c7-bd2b1f4d84b5@ghiti.fr>
-Date: Mon, 6 Jan 2025 15:07:41 +0100
+	id 1tUoCm-00000001b0W-03ob;
+	Mon, 06 Jan 2025 14:35:45 +0000
+Received: from pps.filterd (m0353729.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 506DKdR6028353;
+	Mon, 6 Jan 2025 14:35:17 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
+	:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=pp1; bh=yoK5E8r9ZiVbP/iseDdGu93jcAAz/4
+	Uy/8D3TkhMEPQ=; b=RgUCNi9X25JhEHAe1CAG1qqWDykE2cD2UYRU3jmdIYZ8Ch
+	T5zNuZL1wNyGI3Vx6v5lGgT6nrQjUFmPBzbnAHtewI+GPO2JVytXZHj2wHKmhggO
+	GdcJ4vAjUlaHrEKk26fgqLKossjwTqPk3DWuWYX2Dr+Z7onrnepYYdpVWHvCydHs
+	bu32Wpeqd9ftCqq6EZBoM7oOtX/GhoZh7MR5d6abz5ggaLaPXwccpK1Z1mGCENN4
+	yKVEOjmgL8y/m6mo88lKz8bR0FDZGFR18HK66OfhU0FrVIV1cSA7wvm4ufpM7WPO
+	4ER6RJeXDR1BpR42AHtSLYfW3/ShkDYByj64zWig==
+Received: from pps.reinject (localhost [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 44047hb2wm-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 06 Jan 2025 14:35:17 +0000 (GMT)
+Received: from m0353729.ppops.net (m0353729.ppops.net [127.0.0.1])
+	by pps.reinject (8.18.0.8/8.18.0.8) with ESMTP id 506EZGRn003388;
+	Mon, 6 Jan 2025 14:35:16 GMT
+Received: from ppma11.dal12v.mail.ibm.com (db.9e.1632.ip4.static.sl-reverse.com [50.22.158.219])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 44047hb2wj-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 06 Jan 2025 14:35:16 +0000 (GMT)
+Received: from pps.filterd (ppma11.dal12v.mail.ibm.com [127.0.0.1])
+	by ppma11.dal12v.mail.ibm.com (8.18.1.2/8.18.1.2) with ESMTP id 506CA9Jj026189;
+	Mon, 6 Jan 2025 14:35:15 GMT
+Received: from smtprelay04.fra02v.mail.ibm.com ([9.218.2.228])
+	by ppma11.dal12v.mail.ibm.com (PPS) with ESMTPS id 43yj11wr3q-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 06 Jan 2025 14:35:15 +0000
+Received: from smtpav03.fra02v.mail.ibm.com (smtpav03.fra02v.mail.ibm.com [10.20.54.102])
+	by smtprelay04.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 506EZDIG28705314
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Mon, 6 Jan 2025 14:35:13 GMT
+Received: from smtpav03.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 96B4320043;
+	Mon,  6 Jan 2025 14:35:13 +0000 (GMT)
+Received: from smtpav03.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 345D620040;
+	Mon,  6 Jan 2025 14:35:11 +0000 (GMT)
+Received: from li-008a6a4c-3549-11b2-a85c-c5cc2836eea2.ibm.com (unknown [9.179.26.127])
+	by smtpav03.fra02v.mail.ibm.com (Postfix) with ESMTPS;
+	Mon,  6 Jan 2025 14:35:11 +0000 (GMT)
+Date: Mon, 6 Jan 2025 15:35:09 +0100
+From: Alexander Gordeev <agordeev@linux.ibm.com>
+To: Qi Zheng <zhengqi.arch@bytedance.com>
+Cc: peterz@infradead.org, kevin.brodsky@arm.com, palmer@dabbelt.com,
+        tglx@linutronix.de, david@redhat.com, jannh@google.com,
+        hughd@google.com, yuzhao@google.com, willy@infradead.org,
+        muchun.song@linux.dev, vbabka@kernel.org, lorenzo.stoakes@oracle.com,
+        akpm@linux-foundation.org, rientjes@google.com, vishal.moola@gmail.com,
+        arnd@arndb.de, will@kernel.org, aneesh.kumar@kernel.org,
+        npiggin@gmail.com, dave.hansen@linux.intel.com, rppt@kernel.org,
+        ryan.roberts@arm.com, linux-mm@kvack.org,
+        linux-arm-kernel@lists.infradead.org, linuxppc-dev@lists.ozlabs.org,
+        linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
+        sparclinux@vger.kernel.org, linux-kernel@vger.kernel.org,
+        x86@kernel.org, linux-arch@vger.kernel.org, linux-csky@vger.kernel.org,
+        linux-hexagon@vger.kernel.org, loongarch@lists.linux.dev,
+        linux-m68k@lists.linux-m68k.org, linux-mips@vger.kernel.org,
+        linux-openrisc@vger.kernel.org, linux-sh@vger.kernel.org,
+        linux-um@lists.infradead.org
+Subject: Re: [PATCH v4 12/15] s390: pgtable: also move pagetable_dtor() of
+ PxD to __tlb_remove_table()
+Message-ID: <Z3vqHXdwIMBVQ2GT@li-008a6a4c-3549-11b2-a85c-c5cc2836eea2.ibm.com>
+References: <cover.1735549103.git.zhengqi.arch@bytedance.com>
+ <ad21b9392096336cf15aee46f68f9989a9cf877e.1735549103.git.zhengqi.arch@bytedance.com>
+ <Z3uyJ2BjslzsjkZI@li-008a6a4c-3549-11b2-a85c-c5cc2836eea2.ibm.com>
+ <2d16f0fe-9c7f-4229-b7b5-ffa3ab1b1143@bytedance.com>
+ <Z3vQHplZqtHf6Td8@li-008a6a4c-3549-11b2-a85c-c5cc2836eea2.ibm.com>
+ <57ea8193-2fd9-41a9-85b4-7af924f900f4@bytedance.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 2/2] riscv: signal: fix signal_minsigstksz
-Content-Language: en-US
-To: Yong-Xuan Wang <yongxuan.wang@sifive.com>, linux-kernel@vger.kernel.org,
- linux-riscv@lists.infradead.org
-Cc: greentime.hu@sifive.com, vincent.chen@sifive.com, AndybnAC@gmail.com,
- zong.li@sifive.com, Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Haibo Xu <haibo1.xu@intel.com>, Conor Dooley <conor.dooley@microchip.com>,
- Usama Arif <usamaarif642@gmail.com>, Hanjun Guo <guohanjun@huawei.com>,
- Samuel Holland <samuel.holland@sifive.com>,
- Alexandre Ghiti <alexghiti@rivosinc.com>, Heiko Stuebner <heiko@sntech.de>,
- =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@rivosinc.com>
-References: <20241220083926.19453-1-yongxuan.wang@sifive.com>
- <20241220083926.19453-3-yongxuan.wang@sifive.com>
-From: Alexandre Ghiti <alex@ghiti.fr>
-In-Reply-To: <20241220083926.19453-3-yongxuan.wang@sifive.com>
-X-GND-Sasl: alex@ghiti.fr
+Content-Disposition: inline
+In-Reply-To: <57ea8193-2fd9-41a9-85b4-7af924f900f4@bytedance.com>
+X-TM-AS-GCONF: 00
+X-Proofpoint-GUID: sJuxnsXxxJgGCCGTIUc0sEdh5BRYGtAz
+X-Proofpoint-ORIG-GUID: UPicS2fzhLCrpHuuN_a8oN-YM2X9yFa6
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1051,Hydra:6.0.680,FMLib:17.12.62.30
+ definitions=2024-10-15_01,2024-10-11_01,2024-09-30_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 mlxscore=0 adultscore=0
+ impostorscore=0 priorityscore=1501 malwarescore=0 spamscore=0
+ lowpriorityscore=0 phishscore=0 mlxlogscore=791 bulkscore=0 suspectscore=0
+ clxscore=1015 classifier=spam adjust=0 reason=mlx scancount=1
+ engine=8.19.0-2411120000 definitions=main-2501060128
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250106_060746_987280_D35738EC 
-X-CRM114-Status: GOOD (  15.71  )
+X-CRM114-CacheID: sfid-20250106_063544_052741_584FD68F 
+X-CRM114-Status: GOOD (  13.56  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -64,49 +125,34 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Yong-Xuan,
+On Mon, Jan 06, 2025 at 09:34:55PM +0800, Qi Zheng wrote:
+> OK, will change the subject and description to:
+> 
+> s390: pgtable: also move pagetable_dtor() of PxD to pagetable_dtor_free()
+> 
+> To unify the PxD and PTE TLB free path, also move the pagetable_dtor() of
+> PMD|PUD|P4D to pagetable_dtor_free().
+> 
+> But pagetable_dtor_free() is newly introduced in this patch, should it
+> be changed to 'move ... to pagetable_pte_dtor_free()'? But this seems
+> strange. :(
 
-On 20/12/2024 09:39, Yong-Xuan Wang wrote:
-> The init_rt_signal_env() funciton is called before the alternative patch
-> is applied, so using the alternative-related API to check the availability
-> of an extension within this function doesn't have the intended effect.
-> This patch reorders the init_rt_signal_env() and apply_boot_alternatives()
-> to get the correct signal_minsigstksz.
->
-> Fixes: e92f469b0771 ("riscv: signal: Report signal frame size to userspace via auxv")
-> Signed-off-by: Yong-Xuan Wang <yongxuan.wang@sifive.com>
-> Reviewed-by: Zong Li <zong.li@sifive.com>
-> ---
->   arch/riscv/kernel/setup.c | 2 +-
->   1 file changed, 1 insertion(+), 1 deletion(-)
->
-> diff --git a/arch/riscv/kernel/setup.c b/arch/riscv/kernel/setup.c
-> index 016b48fcd6f2..b7c91f546453 100644
-> --- a/arch/riscv/kernel/setup.c
-> +++ b/arch/riscv/kernel/setup.c
-> @@ -324,8 +324,8 @@ void __init setup_arch(char **cmdline_p)
->   
->   	riscv_init_cbo_blocksizes();
->   	riscv_fill_hwcap();
-> -	init_rt_signal_env();
->   	apply_boot_alternatives();
-> +	init_rt_signal_env();
->   
->   	if (IS_ENABLED(CONFIG_RISCV_ISA_ZICBOM) &&
->   	    riscv_isa_extension_available(NULL, ZICBOM))
+s390: pgtable: consolidate PxD and PTE TLB free paths
 
+Call pagetable_dtor() for PMD|PUD|P4D tables just before ptdesc is
+freed - same as it is done for PTE tables. That allows consolidating
+TLB free paths for all table types.
 
-Reviewed-by: Alexandre Ghiti <alexghiti@rivosinc.com>
+Makes sense?
 
-Thanks for your fixes!
+> Thanks!
 
-Alex
-
+Thank you!
 
 _______________________________________________
 linux-riscv mailing list
