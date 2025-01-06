@@ -4,101 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E890CE77188
-	for <linux-riscv@archiver.kernel.org>; Mon,  6 Jan 2025 03:55:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7E8DE77188
+	for <linux-riscv@archiver.kernel.org>; Mon,  6 Jan 2025 08:40:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
 	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
 	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=JS+Os3r5JR4vxarx76ZQjkj5u/efkEX3OMJe6vSFvEY=; b=m/phYLtkLes2MA
-	riPyagYLG3LKuX5A9Sp2kv97HLlMNY+hiDCmkvDsdvxBfUeoIhqj7ah4/cEMXJI78xAO1/YaUCUpe
-	EsPSJJtDqM7nTU1WNR1lCByCwR/azctY3vicLP6MBGuHP738f1tpb7xukBcIWCXTOK1FtFaKBh/9t
-	bdIEBPXx0f6qj1PS6vclV+6/kVREAQRKgWBXd0WzC2GiscuXZH4e7vJ7HU4cW+FKKTajGHru+52xZ
-	FgtvYEnsisQh25TytxEc1ISZrNlJuZLNCc7hcZrFnlzUKKzGQMjigrlJWiQLNffFvM9VI1siwsuws
-	vwshAQK2581C4pfldbzA==;
+	List-Owner; bh=5RfmQkmFb2ISfnl38wp/E51TJGBmfcYnLFKwbsh4o70=; b=Ux0XsNmDd8vDAE
+	gqCBJ6tvB2GGnuwNh9Aj6fI9UgSJ3JiNSqEDaRz5GfhznFAMTXOp5kA0rMt979FtS+EvYbyjYV+Ks
+	9jSxIywxhpErXzkT2oVmXmOSe7vkzCxotbJjGVY2D4qD0Qm6zdj+zHiIwLUfxku3J2oVgBh2RyAJi
+	h+j+pAgcvQ4pdmseSzabse1CUqls0J6tktWEpMG+ob0gnB7RKx2jtIrCv3XqVXTeQ7Q+xSVz6JdKP
+	x6oxdIO2lDJPMdMhUMlc4OrlyoqSOn4ewT+2qtIsl4VyHaD2R9kt2gm2vpQ8hFVC+Kg/xvnTKB0Ej
+	gCmLhX8i65kj2UZxv3nw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tUeCn-00000000AHB-2gpN;
-	Mon, 06 Jan 2025 03:55:05 +0000
-Received: from mail-pj1-x1029.google.com ([2607:f8b0:4864:20::1029])
+	id 1tUieY-00000000YDr-1JKR;
+	Mon, 06 Jan 2025 08:40:02 +0000
+Received: from mail-pl1-x636.google.com ([2607:f8b0:4864:20::636])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tUeBb-00000000A8i-1BRZ
+	id 1tUidL-00000000Y1e-1wDQ
 	for linux-riscv@lists.infradead.org;
-	Mon, 06 Jan 2025 03:53:53 +0000
-Received: by mail-pj1-x1029.google.com with SMTP id 98e67ed59e1d1-2ee397a82f6so20360660a91.2
-        for <linux-riscv@lists.infradead.org>; Sun, 05 Jan 2025 19:53:50 -0800 (PST)
+	Mon, 06 Jan 2025 08:38:51 +0000
+Received: by mail-pl1-x636.google.com with SMTP id d9443c01a7336-215770613dbso148527635ad.2
+        for <linux-riscv@lists.infradead.org>; Mon, 06 Jan 2025 00:38:46 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bytedance.com; s=google; t=1736135630; x=1736740430; darn=lists.infradead.org;
+        d=bytedance.com; s=google; t=1736152725; x=1736757525; darn=lists.infradead.org;
         h=content-transfer-encoding:in-reply-to:from:references:cc:to
          :content-language:subject:user-agent:mime-version:date:message-id
          :from:to:cc:subject:date:message-id:reply-to;
-        bh=/q466ctbH84kLf48L1cXJtHFTRzDl7be/n0cI3LGmOM=;
-        b=isoXtO3CuYLqt2tyJbp+2B5dmXhmABhJ9wZmXt2QOme+TqUw/AraFkM8Kt+m+Iu866
-         moWp8FhZ1aMm/ejkaK180kDGL5OW+KMOvYUbCejAbRc+ZXFfYxr18PHfX1m34qC2T+fM
-         wY9It39AP4+BxYIMkX3jvLhF3dDahRttZqsGZj4jq9R/v3LRVeFykTqDSFvZ/VWF7COS
-         5F0gOA3N3ua6eFjmwnzVh/wBD/efKXcczvrPhgimM4vLnfFnXOzB7ypZUuMgrMcdCnau
-         F0y665LbLVlUMTNJvZeqBRu+0+6BWeCuBBqLKkQxxOGaTPNFUfV+QWC4l+jdjRiSmDZk
-         amdQ==
+        bh=YiOAOk5kGRx9rmUPaHmWdeff0Y5xhlY6UwwEsQqm8Hw=;
+        b=YhLtHRliJAH+nVaGq9JLlfFq/roSt+Z5/uK/lPENt7TByuZgR+ZRXkjHkEPJMrPKbg
+         Uqv+xKC41iZMdIKj7jXF+j3Ist/TOq3kGaZL912TdGa7i212Pb3JLnmdZW7oOy4fnCzP
+         2aAQeZpgD9L8OWFWh/8NKye0niQQ+TMk7BJBlESC/gmNZ39daKZhbzFLb+c74ff/amfU
+         MX1W1FyuKlzJqmQ3raCpD+zHRKNDw9fsbsEJFgNSwEPfUO1W0c1u2dKkNQZb4g2ufM2V
+         y+Vqs5BjODGIbjPo0+gmmpGoeFKfduXtJBXHFZfskc6kiwm7niramZK4m2DdT+9099Xy
+         qjdA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1736135630; x=1736740430;
+        d=1e100.net; s=20230601; t=1736152725; x=1736757525;
         h=content-transfer-encoding:in-reply-to:from:references:cc:to
          :content-language:subject:user-agent:mime-version:date:message-id
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=/q466ctbH84kLf48L1cXJtHFTRzDl7be/n0cI3LGmOM=;
-        b=rU4STUk00y2SaEzl9z/Ou0cU1JgVn4zb6fRe5T/jOkDTpxECUa1f/wKJkHqxHvqsAP
-         CvVf0Jp67xb8ipPOvf1hYIMKTxxi4+TosobJeVWQe2m4HYFovJlYlyU0Y45ZDgf1SjSH
-         14+fmxv2Xs6En6afOUEav2Z28Aj66A1J4G2DQSXdFcMXFRS/0PB1ll4lmcecFsLcSg0b
-         O2qLsMa9TLXMhHzbf2oihTgk+50Y52q2hVssI7Qda+Ba68eWTP1ja9xn5V3w2bPmB4N2
-         SuqDLSzR618rNRd2r04iC5kMonfTSFwFKzL6xQKpcFPmu/pDV/PNJu1LLlEPiiKG+thP
-         3j7g==
-X-Forwarded-Encrypted: i=1; AJvYcCWNPw8XEuOhS46h0wgyghpffGlTQwCAa1VvgaJ8sruItl+JkqryMFC4Np+wmLF/e0pJxZBybj+TNs9SRw==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy3J8BjrEb5TV/AKJuemEHaDW5nkaF3bG4yNqpbH+PVFWHqaMhx
-	6QuZFMgq1YoCy76ALb92IqFpgehC3olRCx6fQSJOgDl46XggVT8lehsUgvViuec=
-X-Gm-Gg: ASbGnctaLreTBvVmk4k5TgCaHQnkV1MLzhsV3Gs3qL3a/JaIAIxwZ6z+I91dBICOuQG
-	mtPe9Q9vinXADu0986Co1cvAA//rh3s5Y23Hu9Yc3uli2Y89w2M+i9IW8LgC/ZX6CfI2jaO4sS+
-	BDWKTYEZgD0aUjyaI8wP34Ad2pHhQC3/VHO+F5r67LOzuBdTh8lhiduHPaEx6mb5tnhLOO3qBls
-	fUWJaHnKDF7GvaCl5+qwjlYahaGbMhmfYYKPWKelO6jUcFOyJ1F6EmgQ35DW8QlpypU0r1ggrZz
-	GlWPOA==
-X-Google-Smtp-Source: AGHT+IE2eKUVGb+J7TSGZASTVnkByt6mt8YLIy++PUNY+VFfsnF7zlybMe8WL3Umwm8kwi4ry/BkkA==
-X-Received: by 2002:a17:90b:54c3:b0:2ee:a127:ba8b with SMTP id 98e67ed59e1d1-2f452ee83d9mr71788615a91.36.1736135630440;
-        Sun, 05 Jan 2025 19:53:50 -0800 (PST)
-Received: from [10.84.148.23] ([203.208.167.150])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-219dca02f72sm283551435ad.249.2025.01.05.19.53.38
+        bh=YiOAOk5kGRx9rmUPaHmWdeff0Y5xhlY6UwwEsQqm8Hw=;
+        b=dNBNPIGIg6xishejyZZ+emXJsFO20onHxnS7HVhLvFobDkOBDfiXSXQLiyVyk2YHo3
+         cEJr7kaSCjoq9p8Mrw0ghEgZmOgF4tDj4XgU6tzphfexiU7SK+8uISF3r0mikm2wsLKt
+         V7VRDtJnbKYgxO8QQklALyFzx5TWE7v+hF26hEpOZMZZttYMmpNT/te6j0RjuN74jaBR
+         yLDZwNGGokoTR40JoKA3KbBCrJGT6I84y8taFjbcr8EqcWt1Jk2AEc7QvnvmyUEsZB8Y
+         NbedsV3d7qlB4lvGz1A4AZc0w8SUT6nn91PxzxIkDpzFsn05yl8LAIW7Wcx2gwchlxZU
+         lD4g==
+X-Forwarded-Encrypted: i=1; AJvYcCUdhfujVpFVbICV7GSZQbSfU+1j+6P9zY3RrDXw1XaXLL9IBcDUdSk2hLRZJKX0qhfJ6a8KYNRxkgwx0w==@lists.infradead.org
+X-Gm-Message-State: AOJu0YyDFIigeVtQqg1LiVkZ462P45MQE0UQWYyTpMsRKtmx+56ZxzDX
+	meBtixQx9TZpouLr+OOqNYbkJJuwCCroFfmr84H9SIs1JYcwi5OZ5eRrm8ebVrg=
+X-Gm-Gg: ASbGncuP3JOzudlg21Lz7ZsTIGcNV6CEpDqNQg336QnpM8qBABDSAygZJSntDuhUnFL
+	RAns8tCUuMCQlzyTlpewmXY8qpapPmsY6VmrN6+uZ22LhoGFksJpnBHeMhTXVunc+ViAlxK/XT2
+	sEQtykHvCsWqxqjJHx9B+hXs1NjeiChyRaxE3Iua6hGvyQbLoz/mQab8fwWNi2ADt6T+ooq7+ix
+	tJ4mKYWZ9Ywt8H7bZgI1pYTG5FlZHg6sW1sNtk0ulNArwoFy2ymRj9aKHf/weaJIKNf9lPn+EbQ
+	kbDtoA==
+X-Google-Smtp-Source: AGHT+IGUVd4iqCCZ9lciazZSWpc6AL/Za8b2BM7ngUBHt9ys8AcRhMXZRUNC6JrwIwMnpr/5pGC4Lg==
+X-Received: by 2002:a17:903:234c:b0:215:5a53:edee with SMTP id d9443c01a7336-219e6e85b25mr837178605ad.9.1736152725600;
+        Mon, 06 Jan 2025 00:38:45 -0800 (PST)
+Received: from [10.84.148.23] ([203.208.167.148])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-219dc9f5087sm282364745ad.202.2025.01.06.00.38.36
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sun, 05 Jan 2025 19:53:49 -0800 (PST)
-Message-ID: <a84a7b0f-dad5-4100-9d0c-3b515e7fb71f@bytedance.com>
-Date: Mon, 6 Jan 2025 11:53:36 +0800
+        Mon, 06 Jan 2025 00:38:45 -0800 (PST)
+Message-ID: <ae8aa8d7-4121-4939-9890-c54e0aee7896@bytedance.com>
+Date: Mon, 6 Jan 2025 16:38:32 +0800
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 15/17] mm: pgtable: remove tlb_remove_page_ptdesc()
+Subject: Re: [PATCH v2 0/6] Account page tables at all levels
 Content-Language: en-US
-To: Peter Zijlstra <peterz@infradead.org>, Mike Rapoport <rppt@kernel.org>
-Cc: agordeev@linux.ibm.com, kevin.brodsky@arm.com, tglx@linutronix.de,
- david@redhat.com, jannh@google.com, hughd@google.com, yuzhao@google.com,
- willy@infradead.org, muchun.song@linux.dev, vbabka@kernel.org,
- lorenzo.stoakes@oracle.com, akpm@linux-foundation.org, rientjes@google.com,
- vishal.moola@gmail.com, arnd@arndb.de, will@kernel.org,
- aneesh.kumar@kernel.org, npiggin@gmail.com, dave.hansen@linux.intel.com,
- ryan.roberts@arm.com, linux-mm@kvack.org,
- linux-arm-kernel@lists.infradead.org, linuxppc-dev@lists.ozlabs.org,
- linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
- sparclinux@vger.kernel.org, linux-kernel@vger.kernel.org, x86@kernel.org,
- linux-arch@vger.kernel.org, linux-csky@vger.kernel.org,
- linux-hexagon@vger.kernel.org, loongarch@lists.linux.dev,
- linux-m68k@lists.linux-m68k.org, linux-mips@vger.kernel.org,
- linux-openrisc@vger.kernel.org, linux-sh@vger.kernel.org,
- linux-um@lists.infradead.org
-References: <cover.1734945104.git.zhengqi.arch@bytedance.com>
- <b37435768345e0fcf7ea358f69b4a71767f0f530.1734945104.git.zhengqi.arch@bytedance.com>
- <Z2_EPmOTUHhcBegW@kernel.org>
- <20250103111457.GC22934@noisy.programming.kicks-ass.net>
+To: Kevin Brodsky <kevin.brodsky@arm.com>
+Cc: linux-mm@kvack.org, Andrew Morton <akpm@linux-foundation.org>,
+ Catalin Marinas <catalin.marinas@arm.com>,
+ Dave Hansen <dave.hansen@linux.intel.com>,
+ Linus Walleij <linus.walleij@linaro.org>, Andy Lutomirski <luto@kernel.org>,
+ Peter Zijlstra <peterz@infradead.org>, "Mike Rapoport (IBM)"
+ <rppt@kernel.org>, Ryan Roberts <ryan.roberts@arm.com>,
+ Thomas Gleixner <tglx@linutronix.de>, Will Deacon <will@kernel.org>,
+ Matthew Wilcox <willy@infradead.org>, linux-alpha@vger.kernel.org,
+ linux-arch@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-csky@vger.kernel.org, linux-hexagon@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-m68k@lists.linux-m68k.org,
+ linux-mips@vger.kernel.org, linux-openrisc@vger.kernel.org,
+ linux-parisc@vger.kernel.org, linux-riscv@lists.infradead.org,
+ linux-s390@vger.kernel.org, linux-snps-arc@lists.infradead.org,
+ linux-um@lists.infradead.org, loongarch@lists.linux.dev, x86@kernel.org
+References: <20250103184415.2744423-1-kevin.brodsky@arm.com>
 From: Qi Zheng <zhengqi.arch@bytedance.com>
-In-Reply-To: <20250103111457.GC22934@noisy.programming.kicks-ass.net>
+In-Reply-To: <20250103184415.2744423-1-kevin.brodsky@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250105_195351_358368_E2B293B1 
-X-CRM114-Status: GOOD (  17.64  )
+X-CRM114-CacheID: sfid-20250106_003847_828218_FA6922B7 
+X-CRM114-Status: GOOD (  15.61  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,47 +114,85 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 
 
-On 2025/1/3 19:14, Peter Zijlstra wrote:
-> On Sat, Dec 28, 2024 at 11:26:22AM +0200, Mike Rapoport wrote:
->> On Mon, Dec 23, 2024 at 05:41:01PM +0800, Qi Zheng wrote:
->>> Here we are explicitly dealing with struct page, and the following logic
->>> semms strange:
->>>
->>> tlb_remove_page_ptdesc((tlb), (page_ptdesc(pte)));
->>>
->>> tlb_remove_page_ptdesc
->>> --> tlb_remove_page(tlb, ptdesc_page(pt));
->>>
->>> So remove tlb_remove_page_ptdesc() and make callers call tlb_remove_page()
->>> directly.
->>
->> Please don't. The ptdesc wrappers are there as a part of reducing the size
->> of struct page project [1].
->>
->> For now struct ptdesc overlaps struct page, but the goal is to have them
->> separate and always operate on struct ptdesc when working with page tables.
+On 2025/1/4 02:44, Kevin Brodsky wrote:
+> v1: https://lore.kernel.org/linux-mm/20241219164425.2277022-1-kevin.brodsky@arm.com/
 > 
-> I don't see how the current idiotic code helps with that at all.
+> This series should be considered in conjunction with Qi's series [1].
+> Together, they ensure that page table ctor/dtor are called at all levels
+> (PTE to PGD) and all architectures, where page tables are regular pages.
+> Besides the improvement in accounting and general cleanup, this also
+> create a single place where construction/destruction hooks can be called
+> for all page tables, namely the now-generic pagetable_dtor() introduced
+> by Qi, and __pagetable_ctor() introduced in this series.
 > 
-> Fundamentally tlb_remove_page() is about removing *pages* as from a PTE,
-> there should not be a page-table anywhere near here *ever*.
+> v2 is essentially v1 rebased on top of mm-unstable, which includes Qi's
+> v4 series. A number of patches from v1 were dropped:
 > 
-> Yes, some architectures use tlb_remove_page() for page-tables too, but
-> that is more or less an implementation detail that can be fixed.
+> * v1 patch 4 is superseded by patch 6 in Qi's series.
+> * v1 patch 5 and 6 moved to Qi's series from v3 onwards.
+> * v1 patch 7 is superseded by patch 4 in Qi's series.
 > 
-> So no, please keep these patches and kill this utterly idiotic code.
+> Changes from v1 in the remaining patches:
 > 
-> The only thing that should eventually care about page-tables is
-> tlb_remove_table(), and that takes a 'void *' and is expected to match
-> whatever __tlb_remove_table() does.
+> * Patch 1 only introduces __pagetable_ctor() as there is now a single
+>    generic pagetable_dtor().
 > 
-> Flipping those to pgdesc, once its actually a thing, should be fairly
-> straight forward.
+> * Patch 3 and 6: in arch/m68k/mm/motorola.c, free_pointer_table() can
+>    now unconditionally call pagetable_dtor() since it is the same for all
+>    levels.
+> 
+> * Patch 6 just uses pagetable_dtor() instead of introducing
+>    pagetable_pgd_dtor().
+> 
+> * Added Dave Hansen's Acked-by to all patches.
+> 
+> - Kevin
+> 
+> [1] https://lore.kernel.org/linux-mm/cover.1735549103.git.zhengqi.arch@bytedance.com/
+> ---
+> Cc: Andrew Morton <akpm@linux-foundation.org>
+> Cc: Catalin Marinas <catalin.marinas@arm.com>
+> Cc: Dave Hansen <dave.hansen@linux.intel.com>
+> Cc: Linus Walleij <linus.walleij@linaro.org>
+> Cc: Andy Lutomirski <luto@kernel.org>
+> Cc: Peter Zijlstra <peterz@infradead.org>
+> Cc: "Mike Rapoport (IBM)" <rppt@kernel.org>
+> Cc: Ryan Roberts <ryan.roberts@arm.com>
+> Cc: Thomas Gleixner <tglx@linutronix.de>
+> Cc: Will Deacon <will@kernel.org>
+> Cc: Matthew Wilcox <willy@infradead.org>
+> Cc: Qi Zheng <zhengqi.arch@bytedance.com>
+> Cc: linux-alpha@vger.kernel.org
+> Cc: linux-arch@vger.kernel.org
+> Cc: linux-arm-kernel@lists.infradead.org
+> Cc: linux-csky@vger.kernel.org
+> Cc: linux-hexagon@vger.kernel.org
+> Cc: linux-kernel@vger.kernel.org
+> Cc: linux-m68k@lists.linux-m68k.org
+> Cc: linux-mips@vger.kernel.org
+> Cc: linux-openrisc@vger.kernel.org
+> Cc: linux-parisc@vger.kernel.org
+> Cc: linux-riscv@lists.infradead.org
+> Cc: linux-s390@vger.kernel.org
+> Cc: linux-snps-arc@lists.infradead.org
+> Cc: linux-um@lists.infradead.org
+> Cc: loongarch@lists.linux.dev
+> Cc: x86@kernel.org
+> ---
+> Kevin Brodsky (6):
+>    mm: Move common part of pagetable_*_ctor to helper
+>    parisc: mm: Ensure pagetable_pmd_[cd]tor are called
+>    m68k: mm: Add calls to pagetable_pmd_[cd]tor
+>    ARM: mm: Rename PGD helpers
+>    asm-generic: pgalloc: Provide generic __pgd_{alloc,free}
+>    mm: Introduce ctor/dtor at PGD level
 
-Well, since I've already sent v4, and that patch series is mainly for
-bug fix, I'll send a separate patch series to do this.
+For this series:
+
+Acked-by: Qi Zheng <zhengqi.arch@bytedance.com>
 
 Thanks!
+
 
 _______________________________________________
 linux-riscv mailing list
