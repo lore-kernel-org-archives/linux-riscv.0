@@ -4,93 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D9BFE77197
-	for <linux-riscv@archiver.kernel.org>; Tue,  7 Jan 2025 18:46:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 023B5E77197
+	for <linux-riscv@archiver.kernel.org>; Tue,  7 Jan 2025 23:08:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=KRWKEcI8RuI6GJEl66tQKMM8mRu0ZOJir4mw9MduRVw=; b=D0tDA/7Lef6Wm1
-	78ooyxHg4hMFkyN9J52NBlNK8RsXdf2aNPqigYoK8FZve8K47vesTfY1P5o9ZEAa/+btIIF4IowrF
-	Y939pXHPXbeSKZXyCz9PLZQzozba9ewD/6l0V5Myyffq+WYWYoJejSkpyRbhZzpUyMbbwp9DPz0wb
-	mlpoW+BO4sKbYDw7pP+W/IQd2duFLqRcVdnOcGFYJqZfTZ018J1C7c86T+JxpHZPHJRvzUdwmDLza
-	EYpenpIKllOuBg8lbuX+k2g3k2tA7i+RgLkDFlvh1P3iW8q9LbWsP9iBN6F9ZSlX7nMLF9IjoY98O
-	2xfOcDLVF2sDAqwv1GQQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=0iZcrumX/W2hCBvLwLQDvlJ/3/dvPS0va9h31inV6oY=; b=zgj0wyTz2ISsYN
+	w9TqRTySmOLQN4CLGKHKDziYemZgCXSuqk4Q+4frlr/Zmb5rebK5YPKqED1g/kBJBtwjxpVzYZNZl
+	fy3R5DbmhsLqENZEb7JvFZvMW8oiCF3hF82IliJeTyg8SIWUGiq3qqUBoi1O01jZkjIXd841+FmJz
+	XbPa45qPjUZztVhtkneT9EfiExZ6tk1IYhOFKlTTMJ5WQHwRw8Zd2eHr0lBJ3Pr1EwaSz8Jy9kvmP
+	79Eyqb2C0SJD3nb5CModw9mvPyGXDlMIWh20FOgerxVhEUUjqlFFVn0fTonZWb0RrXamNwUBB5UYA
+	2UzO+csro3Pz7rDh4Crw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVEas-000000063RO-1PXN;
-	Tue, 07 Jan 2025 18:46:22 +0000
-Received: from mail-il1-x12a.google.com ([2607:f8b0:4864:20::12a])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVEZa-000000063BJ-1I7P
-	for linux-riscv@lists.infradead.org;
-	Tue, 07 Jan 2025 18:45:07 +0000
-Received: by mail-il1-x12a.google.com with SMTP id e9e14a558f8ab-3a7dfcd40fcso7225ab.1
-        for <linux-riscv@lists.infradead.org>; Tue, 07 Jan 2025 10:45:01 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1736275501; x=1736880301; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=VJJx+P1BM3o2AclN0fARVZxzF2vJee5sNA/yq96x/gk=;
-        b=LmjPEX2sPTu2P2fBO8n9lGWSv+fv7PQD7KtH7tuQcqRGVsruwgBVf0q1Fpxu0wvdtk
-         fja2Cumf1yRD7t9Lzgi3J65qsodwGmtk1dgmokud//jzlvPjjxpKh04h7JQtSTfIQQMr
-         /vS8LXILgI8uOk04VSda4gqqXL2wvihRq8p2/1nKzZJG3byx3xMV/gsGD2buMVFK9P0Q
-         Gse1+i6U04nwrEA353eGAKE/ozfcdJeIhnisjF0OEsMjZywSslsEiX85qmiPP5y/f45S
-         K7hPGfJhKx/pmKG5JrziIior0poePj5IEGRcmplb+hV8C2ShQJIqyyv4QRqPStBEKvjK
-         qS7Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1736275501; x=1736880301;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=VJJx+P1BM3o2AclN0fARVZxzF2vJee5sNA/yq96x/gk=;
-        b=DwUCcN8EgU8dZqzrksqH+QIVw/mP5euiVmiZkZKHuOaaST82+XMpj9psWJiwfPuvrP
-         rc56LuBvC8oMoMd4KeyJ9sIqyjhPQW0IuwGU4MitC7RtUU5nGZdMErgfHg2hNUe1epqf
-         sVTbk6D3qjxyYDPMeIy33hPlImEDrEavWRgY49gGEvPUW+lI5dTCa9HHcgbZXkKURT/U
-         X8XLDuzba9G5+84mvi4AsaGqyvFaFvcaNGPhJTUtH3G2rCQ3jpw8vLi2FYyHVPvji89V
-         GnKGRnfO5yAAfyaci3UdIRJUqvUH6MVyx/m5WNPKp8+B7SaD/4g/7wYUd5Z0ULKl0VMf
-         UgUQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUpnpC3PJLrpPnnNk+wQJZV7uwBy0SfDVmcC6LqvyAMCW/YI4OU0XMbm+GnkcOMk7Ke31698IvBVD9SQQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0YxydZZ7oltcO8fGcQ+r6DZJNAcoy7eYND1mmsAHtBunfmI1tjKS
-	Ac7LvveId0hba1YIiKYbmeXj1reNWyoYh4u88i+7YtGwnL0UvlZh5QIn0qqtT3LXX70XBZShNvI
-	jMwK7XDcFyDPrBx9i8dLl1wXui6UZfSSFO/us
-X-Gm-Gg: ASbGncshpDICH9n/EXsLEyV7Pjf5zzQbnv9vXseIkSTBRIS2M2L+GMvxIWwcNDgvREG
-	a+7YY9KcMOTXVYnhQz7cxc4/VmeYxYgiAdHfmY1ayKWl4Fpd2lqYCNrNloXWVCOEmCjSfxg==
-X-Google-Smtp-Source: AGHT+IEseKvNZN6+1U5xaeEFYg5v0HSjPQ42KLZsijQ/hQCyvb+Yo8x6RDlu2GEmFg6ThF8oNhQEjR4YLtlu8w6G6hY=
-X-Received: by 2002:a92:cd09:0:b0:3a7:dcc1:9936 with SMTP id
- e9e14a558f8ab-3ce333ac737mr3451575ab.23.1736275500747; Tue, 07 Jan 2025
- 10:45:00 -0800 (PST)
+	id 1tVIgs-00000006UgC-0nT7;
+	Tue, 07 Jan 2025 23:08:50 +0000
+Received: from vmicros1.altlinux.org ([194.107.17.57])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tVIaE-00000006TNw-0rr3;
+	Tue, 07 Jan 2025 23:02:01 +0000
+Received: from mua.local.altlinux.org (mua.local.altlinux.org [192.168.1.14])
+	by vmicros1.altlinux.org (Postfix) with ESMTP id 3EEAD72C8CC;
+	Wed,  8 Jan 2025 02:01:53 +0300 (MSK)
+Received: by mua.local.altlinux.org (Postfix, from userid 508)
+	id 2CA007CCB3A; Wed,  8 Jan 2025 01:01:53 +0200 (IST)
+Date: Wed, 8 Jan 2025 01:01:53 +0200
+From: "Dmitry V. Levin" <ldv@strace.io>
+To: Oleg Nesterov <oleg@redhat.com>
+Cc: Eugene Syromyatnikov <evgsyr@gmail.com>,
+	Mike Frysinger <vapier@gentoo.org>,
+	Renzo Davoli <renzo@cs.unibo.it>,
+	Davide Berardi <berardi.dav@gmail.com>,
+	strace-devel@lists.strace.io, Vineet Gupta <vgupta@kernel.org>,
+	Russell King <linux@armlinux.org.uk>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Guo Ren <guoren@kernel.org>,
+	Brian Cain <bcain@quicinc.com>, Huacai Chen <chenhuacai@kernel.org>,
+	WANG Xuerui <kernel@xen0n.name>,
+	Geert Uytterhoeven <geert@linux-m68k.org>,
+	Michal Simek <monstr@monstr.eu>,
+	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+	Dinh Nguyen <dinguyen@kernel.org>, Jonas Bonn <jonas@southpole.se>,
+	Stefan Kristiansson <stefan.kristiansson@saunalahti.fi>,
+	Stafford Horne <shorne@gmail.com>,
+	"James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>,
+	Helge Deller <deller@gmx.de>, Michael Ellerman <mpe@ellerman.id.au>,
+	Nicholas Piggin <npiggin@gmail.com>,
+	Christophe Leroy <christophe.leroy@csgroup.eu>,
+	Naveen N Rao <naveen@kernel.org>,
+	Madhavan Srinivasan <maddy@linux.ibm.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Heiko Carstens <hca@linux.ibm.com>,
+	Vasily Gorbik <gor@linux.ibm.com>,
+	Alexander Gordeev <agordeev@linux.ibm.com>,
+	Christian Borntraeger <borntraeger@linux.ibm.com>,
+	Sven Schnelle <svens@linux.ibm.com>,
+	Yoshinori Sato <ysato@users.sourceforge.jp>,
+	Rich Felker <dalias@libc.org>,
+	John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>,
+	"David S. Miller" <davem@davemloft.net>,
+	Andreas Larsson <andreas@gaisler.com>,
+	Richard Weinberger <richard@nod.at>,
+	Anton Ivanov <anton.ivanov@cambridgegreys.com>,
+	Johannes Berg <johannes@sipsolutions.net>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
+	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
+	"H. Peter Anvin" <hpa@zytor.com>, Chris Zankel <chris@zankel.net>,
+	Max Filippov <jcmvbkbc@gmail.com>, Arnd Bergmann <arnd@arndb.de>,
+	Shuah Khan <shuah@kernel.org>, linux-snps-arc@lists.infradead.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-csky@vger.kernel.org, linux-hexagon@vger.kernel.org,
+	loongarch@lists.linux.dev, linux-m68k@lists.linux-m68k.org,
+	linux-mips@vger.kernel.org, linux-openrisc@vger.kernel.org,
+	linux-parisc@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
+	linux-sh@vger.kernel.org, sparclinux@vger.kernel.org,
+	linux-um@lists.infradead.org, linux-arch@vger.kernel.org,
+	linux-kselftest@vger.kernel.org
+Subject: [PATCH 0/6] ptrace: introduce PTRACE_SET_SYSCALL_INFO API
+Message-ID: <20250107230153.GA30560@strace.io>
 MIME-Version: 1.0
-References: <20241218-perf_syscalltbl-v4-0-bc8caef2ca8e@rivosinc.com>
-In-Reply-To: <20241218-perf_syscalltbl-v4-0-bc8caef2ca8e@rivosinc.com>
-From: Ian Rogers <irogers@google.com>
-Date: Tue, 7 Jan 2025 10:44:49 -0800
-X-Gm-Features: AbW1kvZ2ue7zebeJn1ASl6IcPrVI85kIxnXUJ0ZFdYfd60rswaW74SbtuHBtKwI
-Message-ID: <CAP-5=fVoH3_naH_UzwBKy9ayCC=Ee5ck6=iJQ9bVPuVCame6Gg@mail.gmail.com>
-Subject: Re: [PATCH v4 00/16] perf tools: Use generic syscall scripts for all archs
-To: Charlie Jenkins <charlie@rivosinc.com>
-Cc: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
-	Arnaldo Carvalho de Melo <acme@kernel.org>, Namhyung Kim <namhyung@kernel.org>, 
-	Mark Rutland <mark.rutland@arm.com>, 
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>, Jiri Olsa <jolsa@kernel.org>, 
-	Adrian Hunter <adrian.hunter@intel.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, =?UTF-8?B?TWlja2HDq2wgU2FsYcO8bg==?= <mic@digikod.net>, 
-	=?UTF-8?Q?G=C3=BCnther_Noack?= <gnoack@google.com>, 
-	Christian Brauner <brauner@kernel.org>, Guo Ren <guoren@kernel.org>, 
-	John Garry <john.g.garry@oracle.com>, Will Deacon <will@kernel.org>, 
-	James Clark <james.clark@linaro.org>, Mike Leach <mike.leach@linaro.org>, 
-	Leo Yan <leo.yan@linux.dev>, Jonathan Corbet <corbet@lwn.net>, =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@rivosinc.com>, 
-	Arnd Bergmann <arnd@arndb.de>, Albert Ou <aou@eecs.berkeley.edu>, linux-kernel@vger.kernel.org, 
-	linux-perf-users@vger.kernel.org, linux-riscv@lists.infradead.org, 
-	linux-security-module@vger.kernel.org, bpf@vger.kernel.org, 
-	linux-csky@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-doc@vger.kernel.org
+Content-Disposition: inline
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250107_104502_345974_CCE3EE8B 
-X-CRM114-Status: GOOD (  24.26  )
+X-CRM114-CacheID: sfid-20250107_150158_572873_DC0B2405 
+X-CRM114-Status: GOOD (  14.44  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,161 +105,93 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gV2VkLCBEZWMgMTgsIDIwMjQgYXQgMToyNOKAr0FNIENoYXJsaWUgSmVua2lucyA8Y2hhcmxp
-ZUByaXZvc2luYy5jb20+IHdyb3RlOgo+Cj4gU3RhbmRhcmRpemUgdGhlIGdlbmVyYXRpb24gb2Yg
-c3lzY2FsbCBoZWFkZXJzIGFyb3VuZCBzeXNjYWxsIHRhYmxlcy4KPiBQcmV2aW91c2x5IGVhY2gg
-YXJjaGl0ZWN0dXJlIGluZGVwZW5kZW50bHkgc2VsZWN0ZWQgaG93IHN5c2NhbGwgaGVhZGVycwo+
-IHdvdWxkIGJlIGdlbmVyYXRlZCwgb3Igd291bGQgbm90IGRlZmluZSBhIHdheSBhbmQgZmFsbGJh
-Y2sgb250bwo+IGxpYmF1ZGl0LiBDb252ZXJ0IGFsbCBhcmNoaXRlY3R1cmVzIHRvIHVzZSBhIHN0
-YW5kYXJkIHN5c2NhbGwgaGVhZGVyCj4gZ2VuZXJhdGlvbiBzY3JpcHQgYW5kIGFsbG93IGVhY2gg
-YXJjaGl0ZWN0dXJlIHRvIG92ZXJyaWRlIHRoZSBzeXNjYWxsCj4gdGFibGUgdG8gdXNlIGlmIHRo
-ZXkgZG8gbm90IHVzZSB0aGUgZ2VuZXJpYyB0YWJsZS4KPgo+IEFzIGEgcmVzdWx0IG9mIHRoZXNl
-IGNoYW5nZXMsIG5vIGFyY2hpdGVjdHVyZSB3aWxsIHJlcXVpcmUgbGliYXVkaXQsIGFuZAo+IHNv
-IHRoZSBmYWxsYmFjayBjYXNlIG9mIHVzaW5nIGxpYmF1ZGl0IGlzIHJlbW92ZWQgYnkgdGhpcyBz
-ZXJpZXMuCj4KPiBUZXN0aW5nOgo+Cj4gSSBoYXZlIHRlc3RlZCB0aGF0IHRoZSBzeXNjYWxsIG1h
-cHBpbmdzIG9mIGlkIHRvIG5hbWUgZ2VuZXJhdGlvbiB3b3Jrcwo+IGFzIGV4cGVjdGVkIGZvciBl
-dmVyeSBhcmNoaXRlY3R1cmUsIGJ1dCBJIGhhdmUgb25seSB2YWxpZGF0ZWQgdGhhdCBwZXJmCj4g
-dHJhY2UgY29tcGlsZXMgYW5kIHJ1bnMgYXMgZXhwZWN0ZWQgb24gcmlzY3YsIGFybTY0LCBhbmQg
-eDg2XzY0Lgo+Cj4gU2lnbmVkLW9mZi1ieTogQ2hhcmxpZSBKZW5raW5zIDxjaGFybGllQHJpdm9z
-aW5jLmNvbT4KPiBSZXZpZXdlZC1ieTogSWFuIFJvZ2VycyA8aXJvZ2Vyc0Bnb29nbGUuY29tPgo+
-Cj4gT24geDg2LTY0Ogo+IFRlc3RlZC1ieTogSWFuIFJvZ2VycyA8aXJvZ2Vyc0Bnb29nbGUuY29t
-PgoKSSdkIGxpa2UgdG8gc2VlIHRoaXMgbGFuZC4gVGhlIHBhdGNoZXMgYXBwbHkgY2xlYW5seSBv
-bgpwZXJmLXRvb2xzLW5leHQgZm9yIG1lIGFuZCBleGNlcHQgZm9yIGEgMSBsaW5lciBvbiBwYXRj
-aCAxNiBldmVyeXRoaW5nCmhhcyBteToKVGVzdGVkLWJ5OiBJYW4gUm9nZXJzIDxpcm9nZXJzQGdv
-b2dsZS5jb20+CgpUaGFua3MsCklhbgoKPiAtLS0KPiBDaGFuZ2VzIGluIHY0Ogo+IC0gUmVtb3Zl
-IGF1ZGl0X21hY2hpbmUgbWVtYmVyIG9mIHN5c2NhbGx0Ymwgc3RydWN0IChJYW4pCj4gLSBSZWJh
-c2Ugb24gcGVyZi10b29scy1uZXh0Cj4gLSBMaW5rIHRvIHYzOiBodHRwczovL2xvcmUua2VybmVs
-Lm9yZy9yLzIwMjQxMjE2LXBlcmZfc3lzY2FsbHRibC12My0wLTIzOWYwMzI0ODFkNUByaXZvc2lu
-Yy5jb20KPgo+IENoYW5nZXMgaW4gdjM6Cj4gLSBGaXggY29tcGlsaWF0aW9uIHdoZW4gT1VUUFVU
-IGlzIGVtcHR5Cj4gLSBDb3JyZWN0IHVudXNlZCBoZWFkZXJzIHRvIGJlIC5oIGluc3RlYWQgb2Yg
-LmMgIChOYW1oeXVuZykKPiAtIE1ha2UgdmFyaWFibGUgZGVmaW5pdGlvbiBvZiBzdXBwb3J0ZWQg
-YXJjaHMgKE5hbWh5dW5nKQo+IC0gQ29udmVydCArPSBpbnRvIDo9IGZvciBzeXNjYWxscyBoZWFk
-ZXJzIChOYW1oeXVuZykKPiAtIExpbmsgdG8gdjI6IGh0dHBzOi8vbG9yZS5rZXJuZWwub3JnL3Iv
-MjAyNDEyMTItcGVyZl9zeXNjYWxsdGJsLXYyLTAtZjhjYTk4NGZmZTQwQHJpdm9zaW5jLmNvbQo+
-Cj4gQ2hhbmdlcyBpbiB2MjoKPiAtIFJlYmFzZSBvbnRvIDYuMTMtcmMyCj4gLSBGaXggb3V0cHV0
-IHBhdGggc28gaXQgZ2VuZXJhdGVzIHRvIC90b29scy9wZXJmL2FyY2ggcHJvcGVybHkKPiAtIExp
-bmsgdG8gdjE6IGh0dHBzOi8vbG9yZS5rZXJuZWwub3JnL3IvMjAyNDExMDQtcGVyZl9zeXNjYWxs
-dGJsLXYxLTAtOWFkYWU1Yzc2MWVmQHJpdm9zaW5jLmNvbQo+Cj4gLS0tCj4gQ2hhcmxpZSBKZW5r
-aW5zICgxNik6Cj4gICAgICAgcGVyZiB0b29sczogQ3JlYXRlIGdlbmVyaWMgc3lzY2FsbCB0YWJs
-ZSBzdXBwb3J0Cj4gICAgICAgcGVyZiB0b29sczogYXJjOiBTdXBwb3J0IGdlbmVyaWMgc3lzY2Fs
-bCBoZWFkZXJzCj4gICAgICAgcGVyZiB0b29sczogY3NreTogU3VwcG9ydCBnZW5lcmljIHN5c2Nh
-bGwgaGVhZGVycwo+ICAgICAgIHBlcmYgdG9vbHM6IGFybTogU3VwcG9ydCBzeXNjYWxsIGhlYWRl
-cnMKPiAgICAgICBwZXJmIHRvb2xzOiBzaDogU3VwcG9ydCBzeXNjYWxsIGhlYWRlcnMKPiAgICAg
-ICBwZXJmIHRvb2xzOiBzcGFyYzogU3VwcG9ydCBzeXNjYWxsIGhlYWRlcnMKPiAgICAgICBwZXJm
-IHRvb2xzOiB4dGVuc2E6IFN1cHBvcnQgc3lzY2FsbCBoZWFkZXIKPiAgICAgICBwZXJmIHRvb2xz
-OiB4ODY6IFVzZSBnZW5lcmljIHN5c2NhbGwgc2NyaXB0cwo+ICAgICAgIHBlcmYgdG9vbHM6IGFs
-cGhhOiBTdXBwb3J0IHN5c2NhbGwgaGVhZGVyCj4gICAgICAgcGVyZiB0b29sczogcGFyaXNjOiBT
-dXBwb3J0IHN5c2NhbGwgaGVhZGVyCj4gICAgICAgcGVyZiB0b29sczogYXJtNjQ6IFVzZSBzeXNj
-YWxsIHRhYmxlCj4gICAgICAgcGVyZiB0b29sczogbG9vbmdhcmNoOiBVc2Ugc3lzY2FsbCB0YWJs
-ZQo+ICAgICAgIHBlcmYgdG9vbHM6IG1pcHM6IFVzZSBnZW5lcmljIHN5c2NhbGwgc2NyaXB0cwo+
-ICAgICAgIHBlcmYgdG9vbHM6IHBvd2VycGM6IFVzZSBnZW5lcmljIHN5c2NhbGwgdGFibGUgc2Ny
-aXB0cwo+ICAgICAgIHBlcmYgdG9vbHM6IHMzOTA6IFVzZSBnZW5lcmljIHN5c2NhbGwgdGFibGUg
-c2NyaXB0cwo+ICAgICAgIHBlcmYgdG9vbHM6IFJlbW92ZSBkZXBlbmRlbmN5IG9uIGxpYmF1ZGl0
-Cj4KPiAgRG9jdW1lbnRhdGlvbi9hZG1pbi1ndWlkZS93b3JrbG9hZC10cmFjaW5nLnJzdCAgICAg
-fCAgIDIgKy0KPiAgdG9vbHMvYnVpbGQvZmVhdHVyZS9NYWtlZmlsZSAgICAgICAgICAgICAgICAg
-ICAgICAgfCAgIDQgLQo+ICB0b29scy9idWlsZC9mZWF0dXJlL3Rlc3QtbGliYXVkaXQuYyAgICAg
-ICAgICAgICAgICB8ICAxMSAtCj4gIHRvb2xzL3BlcmYvRG9jdW1lbnRhdGlvbi9wZXJmLWNoZWNr
-LnR4dCAgICAgICAgICAgIHwgICAxIC0KPiAgdG9vbHMvcGVyZi9NYWtlZmlsZS5jb25maWcgICAg
-ICAgICAgICAgICAgICAgICAgICAgfCAgMzkgKy0KPiAgdG9vbHMvcGVyZi9NYWtlZmlsZS5wZXJm
-ICAgICAgICAgICAgICAgICAgICAgICAgICAgfCAgMTIgKy0KPiAgdG9vbHMvcGVyZi9hcmNoL2Fs
-cGhhL2VudHJ5L3N5c2NhbGxzL0tidWlsZCAgICAgICAgfCAgIDIgKwo+ICAuLi4vYXJjaC9hbHBo
-YS9lbnRyeS9zeXNjYWxscy9NYWtlZmlsZS5zeXNjYWxscyAgICB8ICAgNSArCj4gIHRvb2xzL3Bl
-cmYvYXJjaC9hbHBoYS9lbnRyeS9zeXNjYWxscy9zeXNjYWxsLnRibCAgIHwgNTA0ICsrKysrKysr
-KysrKysrKysrKysrCj4gIHRvb2xzL3BlcmYvYXJjaC9hbHBoYS9pbmNsdWRlL3N5c2NhbGxfdGFi
-bGUuaCAgICAgIHwgICAyICsKPiAgdG9vbHMvcGVyZi9hcmNoL2FyYy9lbnRyeS9zeXNjYWxscy9L
-YnVpbGQgICAgICAgICAgfCAgIDIgKwo+ICAuLi4vcGVyZi9hcmNoL2FyYy9lbnRyeS9zeXNjYWxs
-cy9NYWtlZmlsZS5zeXNjYWxscyB8ICAgMyArCj4gIHRvb2xzL3BlcmYvYXJjaC9hcmMvaW5jbHVk
-ZS9zeXNjYWxsX3RhYmxlLmggICAgICAgIHwgICAyICsKPiAgdG9vbHMvcGVyZi9hcmNoL2FybS9l
-bnRyeS9zeXNjYWxscy9LYnVpbGQgICAgICAgICAgfCAgIDQgKwo+ICAuLi4vcGVyZi9hcmNoL2Fy
-bS9lbnRyeS9zeXNjYWxscy9NYWtlZmlsZS5zeXNjYWxscyB8ICAgMiArCj4gIHRvb2xzL3BlcmYv
-YXJjaC9hcm0vZW50cnkvc3lzY2FsbHMvc3lzY2FsbC50YmwgICAgIHwgNDgzICsrKysrKysrKysr
-KysrKysrKysKPiAgdG9vbHMvcGVyZi9hcmNoL2FybS9pbmNsdWRlL3N5c2NhbGxfdGFibGUuaCAg
-ICAgICAgfCAgIDIgKwo+ICB0b29scy9wZXJmL2FyY2gvYXJtNjQvTWFrZWZpbGUgICAgICAgICAg
-ICAgICAgICAgICB8ICAyMiAtCj4gIHRvb2xzL3BlcmYvYXJjaC9hcm02NC9lbnRyeS9zeXNjYWxs
-cy9LYnVpbGQgICAgICAgIHwgICAzICsKPiAgLi4uL2FyY2gvYXJtNjQvZW50cnkvc3lzY2FsbHMv
-TWFrZWZpbGUuc3lzY2FsbHMgICAgfCAgIDYgKwo+ICB0b29scy9wZXJmL2FyY2gvYXJtNjQvZW50
-cnkvc3lzY2FsbHMvbWtzeXNjYWxsdGJsICB8ICA0NiAtLQo+ICAuLi4vcGVyZi9hcmNoL2FybTY0
-L2VudHJ5L3N5c2NhbGxzL3N5c2NhbGxfMzIudGJsICB8IDQ3NiArKysrKysrKysrKysrKysrKysr
-Cj4gIC4uLi9wZXJmL2FyY2gvYXJtNjQvZW50cnkvc3lzY2FsbHMvc3lzY2FsbF82NC50YmwgIHwg
-ICAxICsKPiAgdG9vbHMvcGVyZi9hcmNoL2FybTY0L2luY2x1ZGUvc3lzY2FsbF90YWJsZS5oICAg
-ICAgfCAgIDggKwo+ICB0b29scy9wZXJmL2FyY2gvY3NreS9lbnRyeS9zeXNjYWxscy9LYnVpbGQg
-ICAgICAgICB8ICAgMiArCj4gIC4uLi9hcmNoL2Nza3kvZW50cnkvc3lzY2FsbHMvTWFrZWZpbGUu
-c3lzY2FsbHMgICAgIHwgICAzICsKPiAgdG9vbHMvcGVyZi9hcmNoL2Nza3kvaW5jbHVkZS9zeXNj
-YWxsX3RhYmxlLmggICAgICAgfCAgIDIgKwo+ICB0b29scy9wZXJmL2FyY2gvbG9vbmdhcmNoL01h
-a2VmaWxlICAgICAgICAgICAgICAgICB8ICAyMiAtCj4gIHRvb2xzL3BlcmYvYXJjaC9sb29uZ2Fy
-Y2gvZW50cnkvc3lzY2FsbHMvS2J1aWxkICAgIHwgICAyICsKPiAgLi4uL2xvb25nYXJjaC9lbnRy
-eS9zeXNjYWxscy9NYWtlZmlsZS5zeXNjYWxscyAgICAgfCAgIDMgKwo+ICAuLi4vYXJjaC9sb29u
-Z2FyY2gvZW50cnkvc3lzY2FsbHMvbWtzeXNjYWxsdGJsICAgICB8ICA0NSAtLQo+ICB0b29scy9w
-ZXJmL2FyY2gvbG9vbmdhcmNoL2luY2x1ZGUvc3lzY2FsbF90YWJsZS5oICB8ICAgMiArCj4gIHRv
-b2xzL3BlcmYvYXJjaC9taXBzL2VudHJ5L3N5c2NhbGxzL0tidWlsZCAgICAgICAgIHwgICAyICsK
-PiAgLi4uL2FyY2gvbWlwcy9lbnRyeS9zeXNjYWxscy9NYWtlZmlsZS5zeXNjYWxscyAgICAgfCAg
-IDUgKwo+ICB0b29scy9wZXJmL2FyY2gvbWlwcy9lbnRyeS9zeXNjYWxscy9ta3N5c2NhbGx0Ymwg
-ICB8ICAzMiAtLQo+ICB0b29scy9wZXJmL2FyY2gvbWlwcy9pbmNsdWRlL3N5c2NhbGxfdGFibGUu
-aCAgICAgICB8ICAgMiArCj4gIHRvb2xzL3BlcmYvYXJjaC9wYXJpc2MvZW50cnkvc3lzY2FsbHMv
-S2J1aWxkICAgICAgIHwgICAzICsKPiAgLi4uL2FyY2gvcGFyaXNjL2VudHJ5L3N5c2NhbGxzL01h
-a2VmaWxlLnN5c2NhbGxzICAgfCAgIDYgKwo+ICB0b29scy9wZXJmL2FyY2gvcGFyaXNjL2VudHJ5
-L3N5c2NhbGxzL3N5c2NhbGwudGJsICB8IDQ2MyArKysrKysrKysrKysrKysrKysrCj4gIHRvb2xz
-L3BlcmYvYXJjaC9wYXJpc2MvaW5jbHVkZS9zeXNjYWxsX3RhYmxlLmggICAgIHwgICA4ICsKPiAg
-dG9vbHMvcGVyZi9hcmNoL3Bvd2VycGMvTWFrZWZpbGUgICAgICAgICAgICAgICAgICAgfCAgMjUg
-LQo+ICB0b29scy9wZXJmL2FyY2gvcG93ZXJwYy9lbnRyeS9zeXNjYWxscy9LYnVpbGQgICAgICB8
-ICAgMyArCj4gIC4uLi9hcmNoL3Bvd2VycGMvZW50cnkvc3lzY2FsbHMvTWFrZWZpbGUuc3lzY2Fs
-bHMgIHwgICA2ICsKPiAgLi4uL3BlcmYvYXJjaC9wb3dlcnBjL2VudHJ5L3N5c2NhbGxzL21rc3lz
-Y2FsbHRibCAgfCAgMzkgLS0KPiAgdG9vbHMvcGVyZi9hcmNoL3Bvd2VycGMvaW5jbHVkZS9zeXNj
-YWxsX3RhYmxlLmggICAgfCAgIDggKwo+ICB0b29scy9wZXJmL2FyY2gvcmlzY3YvTWFrZWZpbGUg
-ICAgICAgICAgICAgICAgICAgICB8ICAyMiAtCj4gIHRvb2xzL3BlcmYvYXJjaC9yaXNjdi9lbnRy
-eS9zeXNjYWxscy9LYnVpbGQgICAgICAgIHwgICAyICsKPiAgLi4uL2FyY2gvcmlzY3YvZW50cnkv
-c3lzY2FsbHMvTWFrZWZpbGUuc3lzY2FsbHMgICAgfCAgIDQgKwo+ICB0b29scy9wZXJmL2FyY2gv
-cmlzY3YvZW50cnkvc3lzY2FsbHMvbWtzeXNjYWxsdGJsICB8ICA0NyAtLQo+ICB0b29scy9wZXJm
-L2FyY2gvcmlzY3YvaW5jbHVkZS9zeXNjYWxsX3RhYmxlLmggICAgICB8ICAgOCArCj4gIHRvb2xz
-L3BlcmYvYXJjaC9zMzkwL01ha2VmaWxlICAgICAgICAgICAgICAgICAgICAgIHwgIDIxIC0KPiAg
-dG9vbHMvcGVyZi9hcmNoL3MzOTAvZW50cnkvc3lzY2FsbHMvS2J1aWxkICAgICAgICAgfCAgIDIg
-Kwo+ICAuLi4vYXJjaC9zMzkwL2VudHJ5L3N5c2NhbGxzL01ha2VmaWxlLnN5c2NhbGxzICAgICB8
-ICAgNSArCj4gIHRvb2xzL3BlcmYvYXJjaC9zMzkwL2VudHJ5L3N5c2NhbGxzL21rc3lzY2FsbHRi
-bCAgIHwgIDMyIC0tCj4gIHRvb2xzL3BlcmYvYXJjaC9zMzkwL2luY2x1ZGUvc3lzY2FsbF90YWJs
-ZS5oICAgICAgIHwgICAyICsKPiAgdG9vbHMvcGVyZi9hcmNoL3NoL2VudHJ5L3N5c2NhbGxzL0ti
-dWlsZCAgICAgICAgICAgfCAgIDIgKwo+ICAuLi4vcGVyZi9hcmNoL3NoL2VudHJ5L3N5c2NhbGxz
-L01ha2VmaWxlLnN5c2NhbGxzICB8ICAgNCArCj4gIHRvb2xzL3BlcmYvYXJjaC9zaC9lbnRyeS9z
-eXNjYWxscy9zeXNjYWxsLnRibCAgICAgIHwgNDcyICsrKysrKysrKysrKysrKysrKysKPiAgdG9v
-bHMvcGVyZi9hcmNoL3NoL2luY2x1ZGUvc3lzY2FsbF90YWJsZS5oICAgICAgICAgfCAgIDIgKwo+
-ICB0b29scy9wZXJmL2FyY2gvc3BhcmMvZW50cnkvc3lzY2FsbHMvS2J1aWxkICAgICAgICB8ICAg
-MyArCj4gIC4uLi9hcmNoL3NwYXJjL2VudHJ5L3N5c2NhbGxzL01ha2VmaWxlLnN5c2NhbGxzICAg
-IHwgICA1ICsKPiAgdG9vbHMvcGVyZi9hcmNoL3NwYXJjL2VudHJ5L3N5c2NhbGxzL3N5c2NhbGwu
-dGJsICAgfCA1MTQgKysrKysrKysrKysrKysrKysrKysrCj4gIHRvb2xzL3BlcmYvYXJjaC9zcGFy
-Yy9pbmNsdWRlL3N5c2NhbGxfdGFibGUuaCAgICAgIHwgICA4ICsKPiAgdG9vbHMvcGVyZi9hcmNo
-L3g4Ni9CdWlsZCAgICAgICAgICAgICAgICAgICAgICAgICAgfCAgIDEgLQo+ICB0b29scy9wZXJm
-L2FyY2gveDg2L01ha2VmaWxlICAgICAgICAgICAgICAgICAgICAgICB8ICAyNSAtCj4gIHRvb2xz
-L3BlcmYvYXJjaC94ODYvZW50cnkvc3lzY2FsbHMvS2J1aWxkICAgICAgICAgIHwgICAzICsKPiAg
-Li4uL3BlcmYvYXJjaC94ODYvZW50cnkvc3lzY2FsbHMvTWFrZWZpbGUuc3lzY2FsbHMgfCAgIDYg
-Kwo+ICB0b29scy9wZXJmL2FyY2gveDg2L2VudHJ5L3N5c2NhbGxzL3N5c2NhbGx0Ymwuc2ggICB8
-ICA0MiAtLQo+ICB0b29scy9wZXJmL2FyY2gveDg2L2luY2x1ZGUvc3lzY2FsbF90YWJsZS5oICAg
-ICAgICB8ICAgOCArCj4gIHRvb2xzL3BlcmYvYXJjaC94dGVuc2EvZW50cnkvc3lzY2FsbHMvS2J1
-aWxkICAgICAgIHwgICAyICsKPiAgLi4uL2FyY2gveHRlbnNhL2VudHJ5L3N5c2NhbGxzL01ha2Vm
-aWxlLnN5c2NhbGxzICAgfCAgIDQgKwo+ICB0b29scy9wZXJmL2FyY2gveHRlbnNhL2VudHJ5L3N5
-c2NhbGxzL3N5c2NhbGwudGJsICB8IDQzOSArKysrKysrKysrKysrKysrKysKPiAgdG9vbHMvcGVy
-Zi9hcmNoL3h0ZW5zYS9pbmNsdWRlL3N5c2NhbGxfdGFibGUuaCAgICAgfCAgIDIgKwo+ICB0b29s
-cy9wZXJmL2J1aWx0aW4tY2hlY2suYyAgICAgICAgICAgICAgICAgICAgICAgICB8ICAgMSAtCj4g
-IHRvb2xzL3BlcmYvYnVpbHRpbi1oZWxwLmMgICAgICAgICAgICAgICAgICAgICAgICAgIHwgICAy
-IC0KPiAgdG9vbHMvcGVyZi9idWlsdGluLXRyYWNlLmMgICAgICAgICAgICAgICAgICAgICAgICAg
-fCAgMzAgLS0KPiAgdG9vbHMvcGVyZi9jaGVjay1oZWFkZXJzLnNoICAgICAgICAgICAgICAgICAg
-ICAgICAgfCAgIDkgKwo+ICB0b29scy9wZXJmL3BlcmYuYyAgICAgICAgICAgICAgICAgICAgICAg
-ICAgICAgICAgICB8ICAgNiArLQo+ICB0b29scy9wZXJmL3NjcmlwdHMvTWFrZWZpbGUuc3lzY2Fs
-bHMgICAgICAgICAgICAgICB8ICA2MSArKysKPiAgdG9vbHMvcGVyZi9zY3JpcHRzL3N5c2NhbGx0
-Ymwuc2ggICAgICAgICAgICAgICAgICAgfCAgODYgKysrKwo+ICB0b29scy9wZXJmL3Rlc3RzL21h
-a2UgICAgICAgICAgICAgICAgICAgICAgICAgICAgICB8ICAgNyArLQo+ICB0b29scy9wZXJmL3V0
-aWwvZW52LmMgICAgICAgICAgICAgICAgICAgICAgICAgICAgICB8ICAgNCArLQo+ICB0b29scy9w
-ZXJmL3V0aWwvZ2VuZXJhdGUtY21kbGlzdC5zaCAgICAgICAgICAgICAgICB8ICAgNCArLQo+ICB0
-b29scy9wZXJmL3V0aWwvc3lzY2FsbHRibC5jICAgICAgICAgICAgICAgICAgICAgICB8ICA5MCAr
-LS0tCj4gIHRvb2xzL3BlcmYvdXRpbC9zeXNjYWxsdGJsLmggICAgICAgICAgICAgICAgICAgICAg
-IHwgICAxIC0KPiAgdG9vbHMvc2NyaXB0cy9zeXNjYWxsLnRibCAgICAgICAgICAgICAgICAgICAg
-ICAgICAgfCA0MDkgKysrKysrKysrKysrKysrKwo+ICA4NiBmaWxlcyBjaGFuZ2VkLCA0MTAyIGlu
-c2VydGlvbnMoKyksIDYyMCBkZWxldGlvbnMoLSkKPiAtLS0KPiBiYXNlLWNvbW1pdDogZThiMzAx
-MmNiZDhmMjI2Mzc3NzM0N2MyZTgzMTBiM2YwMGQ0OTRmNQo+IGNoYW5nZS1pZDogMjAyNDA5MTMt
-cGVyZl9zeXNjYWxsdGJsLTZmOThkZWZjYzZmNQo+IC0tCj4gLSBDaGFybGllCj4KCl9fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxp
-bmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZy
-YWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+PTRACE_SET_SYSCALL_INFO is a generic ptrace API that complements
+PTRACE_GET_SYSCALL_INFO by letting the ptracer modify details of
+system calls the tracee is blocked in.
+
+This API allows ptracers to obtain and modify system call details
+in a straightforward and architecture-agnostic way.
+
+Current implementation supports changing only those bits of system call
+information that are used by strace, namely, syscall number, syscall
+arguments, and syscall return value.
+
+Support of changing additional details returned by PTRACE_GET_SYSCALL_INFO,
+such as instruction pointer and stack pointer, could be added later
+if needed, by re-using struct ptrace_syscall_info.reserved to specify
+the additional details that should be set.  Currently, the reserved
+field of struct ptrace_syscall_info must be initialized with zeroes;
+arch, instruction_pointer, and stack_pointer fields are ignored.
+
+PTRACE_SET_SYSCALL_INFO currently supports only PTRACE_SYSCALL_INFO_ENTRY,
+PTRACE_SYSCALL_INFO_EXIT, and PTRACE_SYSCALL_INFO_SECCOMP operations.
+Other operations could be added later if needed.
+
+Ideally, PTRACE_SET_SYSCALL_INFO should have been introduced along with
+PTRACE_GET_SYSCALL_INFO, but it didn't happen.  The last straw that
+convinced me to implement PTRACE_SET_SYSCALL_INFO was apparent failure
+to provide an API of changing the first system call argument on riscv
+architecture [1].
+
+ptrace(2) man page:
+
+long ptrace(enum __ptrace_request request, pid_t pid, void *addr, void *data);
+...
+PTRACE_SET_SYSCALL_INFO
+       Modify information about the system call that caused the stop.
+       The "data" argument is a pointer to struct ptrace_syscall_info
+       that specifies the system call information to be set.
+       The "addr" argument should be set to sizeof(struct ptrace_syscall_info)).
+
+[1] https://lore.kernel.org/all/59505464-c84a-403d-972f-d4b2055eeaac@gmail.com/
+
+Dmitry V. Levin (6):
+  Revert "arch: remove unused function syscall_set_arguments()"
+  syscall.h: add syscall_set_arguments() on remaining
+    HAVE_ARCH_TRACEHOOK arches
+  syscall.h: introduce syscall_set_nr()
+  ptrace_get_syscall_info: factor out ptrace_get_syscall_info_op
+  ptrace: introduce PTRACE_SET_SYSCALL_INFO request
+  selftests/ptrace: add a test case for PTRACE_SET_SYSCALL_INFO
+
+ arch/arc/include/asm/syscall.h                |  20 +
+ arch/arm/include/asm/syscall.h                |  25 +
+ arch/arm64/include/asm/syscall.h              |  20 +
+ arch/csky/include/asm/syscall.h               |  13 +
+ arch/hexagon/include/asm/syscall.h            |  14 +
+ arch/loongarch/include/asm/syscall.h          |  15 +
+ arch/m68k/include/asm/syscall.h               |   7 +
+ arch/microblaze/include/asm/syscall.h         |   7 +
+ arch/mips/include/asm/syscall.h               |  53 +++
+ arch/nios2/include/asm/syscall.h              |  16 +
+ arch/openrisc/include/asm/syscall.h           |  13 +
+ arch/parisc/include/asm/syscall.h             |  19 +
+ arch/powerpc/include/asm/syscall.h            |  15 +
+ arch/riscv/include/asm/syscall.h              |  16 +
+ arch/s390/include/asm/syscall.h               |  19 +
+ arch/sh/include/asm/syscall_32.h              |  19 +
+ arch/sparc/include/asm/syscall.h              |  17 +
+ arch/um/include/asm/syscall-generic.h         |  19 +
+ arch/x86/include/asm/syscall.h                |  43 ++
+ arch/xtensa/include/asm/syscall.h             |  18 +
+ include/asm-generic/syscall.h                 |  30 ++
+ include/linux/ptrace.h                        |   3 +
+ include/uapi/linux/ptrace.h                   |   3 +-
+ kernel/ptrace.c                               | 154 ++++++-
+ tools/testing/selftests/ptrace/Makefile       |   2 +-
+ .../selftests/ptrace/set_syscall_info.c       | 436 ++++++++++++++++++
+ 26 files changed, 994 insertions(+), 22 deletions(-)
+ create mode 100644 tools/testing/selftests/ptrace/set_syscall_info.c
+
+-- 
+ldv
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
