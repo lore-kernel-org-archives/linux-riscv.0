@@ -4,70 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8F8E4E7719A
-	for <linux-riscv@archiver.kernel.org>; Wed,  8 Jan 2025 07:03:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 69A97E77199
+	for <linux-riscv@archiver.kernel.org>; Wed,  8 Jan 2025 07:04:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=bvdZObhDRrietSF17dn5kovUvty9Hm58eyyNspJ/rOA=; b=afuVdENHV4j47T
-	3GMq7QaRxBwrki04B6ypg1uS6FfAH8reGS6ERVR8f995bcJNPzqMAuVJEj4YbYqC1L3RnkxhugZ2W
-	g57+QCvFvHsLck3zAVsliRJJpXc1N0LKZdeSQwrR+p7T708aGxPFhPGuBEMcYNC9TMN4fUv+tBWyR
-	uaHHgye8x++4QXf7igoogZDnIs+XJNbS8rE8cm//llAo0T9CyglJhh+Sa25k5RP+uCcVBevDuu7Rb
-	h1i+jHpdIY6KSVypYvjSORlhgQjW0agVQ/JnA5g3P+LkO+Om0UWwpE9foR+dsZ3Fv22eNHZmACBWC
-	zz8HuoEGJznPu93+y2EA==;
+	List-Owner; bh=RJXl4DGjC5f4ctxeltcE+YwLQooy718Qojj2NIDv6go=; b=clwuGXfE1A8J9J
+	0hLp0H4/6CW+578S2TeH1Qz8B9i6CQCHeUJbITmxxUu/OSItFU8hjjhI+nly5D9/X2j9NhI9jwPtU
+	Mp0RlWihWlKoCBB+VyLAt9xBLlBwhzglKzWb6kB8a+el+EGBCSY2alU2ziFK3oR0HMwQEEbnVhvyJ
+	6IU5rvohvVGwZP5EiLg8crU9zrimpA1DqS+B34hGmUaRTJi/zg3gkzcEbXozIkN734HWAOGHpSooj
+	SzDpHuuzlOwXfg2EB6SNfPm3UA7b0YdURul10eF9yZLs5eBpF1f8NKs+/JhgYAyjwPx2RvJzZC9W9
+	8cUjG4P3ntRBPJe7iimA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVQ5m-00000007Lur-2bOP;
-	Wed, 08 Jan 2025 07:03:02 +0000
-Received: from mail-pl1-x62b.google.com ([2607:f8b0:4864:20::62b])
+	id 1tVQ75-00000007Mcv-46RM;
+	Wed, 08 Jan 2025 07:04:23 +0000
+Received: from mail-pj1-x1031.google.com ([2607:f8b0:4864:20::1031])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVQ2d-00000007KCe-0Gfa
+	id 1tVQ2s-00000007KKJ-2VBw
 	for linux-riscv@lists.infradead.org;
-	Wed, 08 Jan 2025 06:59:48 +0000
-Received: by mail-pl1-x62b.google.com with SMTP id d9443c01a7336-2167141dfa1so9476705ad.1
-        for <linux-riscv@lists.infradead.org>; Tue, 07 Jan 2025 22:59:46 -0800 (PST)
+	Wed, 08 Jan 2025 07:00:04 +0000
+Received: by mail-pj1-x1031.google.com with SMTP id 98e67ed59e1d1-2ef714374c0so847809a91.0
+        for <linux-riscv@lists.infradead.org>; Tue, 07 Jan 2025 23:00:02 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bytedance.com; s=google; t=1736319586; x=1736924386; darn=lists.infradead.org;
+        d=bytedance.com; s=google; t=1736319601; x=1736924401; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=WgpljFzcR37DW+k0izImY02NXJU+2N4CamZhPf6BMmU=;
-        b=B58FyfQZGYZOmITEUN+oNjzWx14zqXglokbQNkjFG3gAmn3i95AxYh2JfGMMh+5uqC
-         NBeiw1Dmj54U2hpYZbvlB6Ymj2A2uRM4Hnk0kQzm6x/nh1WEvqBAIZGLPY3hUsY0PMpN
-         1/U+m/VbQ+uspzYGCpdX30NtL17ExXEYpLfJuU8tCv71EnKmQiuUVedMWfKDf1mBjHP+
-         kYQdon2UgMiMo6Kudlc39s3ywUsTCVYAwnAmhZT1hWNL40gnUaofuy0gNZCbox7/m5TZ
-         kZuUrZtfoRvN0XnHVGxB6bDFGlurAOQpUBdON7snYWXG37d5SKFoOKLqh5EWdTWgRRjg
-         H2kQ==
+        bh=Hi4+N7L/R07Fq6g8WRpMxop4cD3t01a1BHl7awbkQjI=;
+        b=JpGgnHUAmvYZbYxDV+6yXYCrMBNiPc1CkqmBH6EHd0lfReULLcQngPr4w4fLEeg5F2
+         liBG1HadgFBISiFywB4C6dAJoGMJgCihh8uGlid5fIxmJUOMQ/QObBu0HWGOf7cSkeBD
+         46n+heEJ4xYZgJYzG+fM7404rT5PQEgz650G8cwUBWefdwMaX4Meqdg+GRQ9F4KtyrDP
+         3WJXUaa/o1TVFXKXbrB3WsGnz0itIMX3bHG6WVHOqB3JISegqODrOpcsIhbeTVdfeSZE
+         hol/Wyudk6qPg66mt1jM7TKykQsG3ji90Bl2DnaeINURVsDM/PU+zdgUEgTz80DZ7JI5
+         bc1g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1736319586; x=1736924386;
+        d=1e100.net; s=20230601; t=1736319601; x=1736924401;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=WgpljFzcR37DW+k0izImY02NXJU+2N4CamZhPf6BMmU=;
-        b=dG1L5szd5cGZr9GhrU1AvMwZkZlEquYh7PMx/+I5/Jq0f4WD1pu3BSet8S45+2HfXP
-         tZjsXq5c6/aCwY1ld0Mn8TjbBQRzcEukdYTQLo6shkV9gb8C1z88BJV6z+yNj0IsBkGl
-         gGBry6s3FeBabqL14sV3SVo3Jw9TnA/n8v0qiPGshHdAdViZCIQ3wsEEcZV/TG2WGvNq
-         Ao0QrRraHN3l0FuuttuXUEa2uKK3I0O89CfD16mwv0UswZOX+0d8IuFQEox23Q3iuAv4
-         z/YyUQn2P0ev+wPuyd1h1cOP22vFzjtIcfOrE2l7hPnf7EpfRcxSJqi1iEFRWqAeRxD0
-         /lMw==
-X-Forwarded-Encrypted: i=1; AJvYcCW4I8Fi+dgEiIqs4gm4F4o2ce78kjrCrXIo6D7mDzGuA9UXYzFCsCiwVfquK9GNmH746HACkUmnKbTswA==@lists.infradead.org
-X-Gm-Message-State: AOJu0YwCcd5qoDzHMwfhRcNovlBWF+/3yWzHoHm/fM0unLH7+NUNiaJm
-	IOjR+Vkr+WOkhGhlYNtq5JioJLCSyyF65Kq3mKn6GZ4YC5gUH/bT6dZRxpHr/ug=
-X-Gm-Gg: ASbGncvyijIY8tG+8gJxzjpKyt7HDz0ibtyohWP+BBgpk9NKTxgo8pbBnUqjkGVRVMY
-	eT23NL4L6BcF8P+O+xPWxB4s95sVLbNN8WnTJ+V8bwyRe3W5OKPVck8uS6F2ps8XLwZO7yAzF2Q
-	tyH0Q9YC9xUWwCdx0QeEC2Xii+Tq9K2GTq53XEi39T4DmY2U5/87PwwCc7Hax72nvOCLFPw9YQn
-	wVdP11z7CUDhQEFs0VmLlZlAW6LKjt68/vf/iYKaPbiVnqLyXXme+nEsWZE4kfGc0XJmhKaxHIp
-	QKzaq9P9zYQLMC39cT1QIJVFI5s=
-X-Google-Smtp-Source: AGHT+IEXmx6aGyXUatDDUSC3BIwwvJRBe2xxgGmNdG6bwRG2a4u7PgHO01+qr8GDOf9tBGHx3RRkKg==
-X-Received: by 2002:a17:902:fc4d:b0:216:5db1:5dc1 with SMTP id d9443c01a7336-21a83bb9991mr32206305ad.1.1736319586298;
-        Tue, 07 Jan 2025 22:59:46 -0800 (PST)
+        bh=Hi4+N7L/R07Fq6g8WRpMxop4cD3t01a1BHl7awbkQjI=;
+        b=kxVI5M6qei0N67cbfIGwXagZS4Ci/GkjHDLQmgeKSllLhGf+8mplWbY9wfCjTydJcb
+         JGr7VkYjdcRl8rcgHn31trZwDs1rGIyDHLpnBfwuRXjcFaXUmb+Iyqxv6jQEY0CDAIem
+         SsjN1hZ04sFgyt9vPwv+8KXm4SiLVK44elKzA0L3zexEJDeI2xeYxemAPFjG1XmeALWi
+         gWcl9ZPNTFiqAmiLT5UPXshMh4mJEGBru5XDEyngt3l9rK4yG0Z0KXR5yXlSxhJxx7Rx
+         gfLsRHBexTIT0fuiMopTeiQSDOdkVrdnJW1bYdrAO2E9ZJr1QATWPt1/v5p+YUIPUMaY
+         b0PQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVoq8WBlxesJpUwDAGqLimLBfwo4qxgRXfDkqSaf1VYS3wUnQLtMIESQGyvlzSZ2h3M7DLW4XKHAfb/cA==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz9z8m46FbHMhG3jWloFEW1R7Z6y0b8A5wa6jzu0B1ud/tslPJd
+	Qd8k8TWl6dyCxmpvN81b1h5PJTWn5X1JiTOwyhasQvUnqKA3CsIMWPLDDCttzSk=
+X-Gm-Gg: ASbGncuZ9MAcxk3P1SpxlZ4KdOj23sKL3+Nd81b8xOYN3qacCPphfDXrszVmqopBwrB
+	68N2LX4+Lax57t0qk2wWZ/4UIM27lwHuvcN5opHZQNIiDM+pyGImhKSwSiL+Ow87xTKUbBlBt5h
+	jYS4tDFYMGlJy2chghvDMn0AOc+lN2bgA/YSg0KS6+3VCapyjWw7AAzw79R3ZQmJpzMIVz92uFt
+	/oQ5w75EvJ92hbYtRdrKi5FsF7pZwHi0aTLP7EkbMdmO4HUFT4qgBu13epJmvxosAk6+eUwkKkv
+	UFEhenAZijpFnGsUG+cHMraJFkU=
+X-Google-Smtp-Source: AGHT+IGjcc9iZhJOiA9Wc8tHUVktzF7/LrG3apZd5+oOKb6c7hgnTezIflh22cvX8oiOIwiosByWAA==
+X-Received: by 2002:a17:90b:4d09:b0:2ef:2980:4411 with SMTP id 98e67ed59e1d1-2f53cbd9b2fmr9342892a91.9.1736319601534;
+        Tue, 07 Jan 2025 23:00:01 -0800 (PST)
 Received: from C02DW0BEMD6R.bytedance.net ([139.177.225.244])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-219dca023a3sm320067275ad.250.2025.01.07.22.59.31
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-219dca023a3sm320067275ad.250.2025.01.07.22.59.46
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 07 Jan 2025 22:59:45 -0800 (PST)
+        Tue, 07 Jan 2025 23:00:01 -0800 (PST)
 From: Qi Zheng <zhengqi.arch@bytedance.com>
 To: peterz@infradead.org,
 	agordeev@linux.ibm.com,
@@ -111,18 +111,17 @@ Cc: linux-mm@kvack.org,
 	linux-openrisc@vger.kernel.org,
 	linux-sh@vger.kernel.org,
 	linux-um@lists.infradead.org,
-	Qi Zheng <zhengqi.arch@bytedance.com>,
-	Alexandre Ghiti <alexghiti@rivosinc.com>
-Subject: [PATCH v5 02/17] riscv: mm: Skip pgtable level check in {pud,p4d}_alloc_one
-Date: Wed,  8 Jan 2025 14:57:18 +0800
-Message-Id: <93a1c6bddc0ded9f1a9f15658c1e4af5c93d1194.1736317725.git.zhengqi.arch@bytedance.com>
+	Qi Zheng <zhengqi.arch@bytedance.com>
+Subject: [PATCH v5 03/17] asm-generic: pgalloc: Provide generic p4d_{alloc_one,free}
+Date: Wed,  8 Jan 2025 14:57:19 +0800
+Message-Id: <26d69c74a29183ecc335b9b407040d8e4cd70c6a.1736317725.git.zhengqi.arch@bytedance.com>
 X-Mailer: git-send-email 2.24.3 (Apple Git-128)
 In-Reply-To: <cover.1736317725.git.zhengqi.arch@bytedance.com>
 References: <cover.1736317725.git.zhengqi.arch@bytedance.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250107_225947_103067_527236E1 
-X-CRM114-Status: GOOD (  11.02  )
+X-CRM114-CacheID: sfid-20250107_230002_705901_423EBED9 
+X-CRM114-Status: GOOD (  13.57  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -141,71 +140,179 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Kevin Brodsky <kevin.brodsky@arm.com>
 
-{pmd,pud,p4d}_alloc_one() is never called if the corresponding page
-table level is folded, as {pmd,pud,p4d}_alloc() already does the
-required check. We can therefore remove the runtime page table level
-checks in {pud,p4d}_alloc_one. The PUD helper becomes equivalent to
-the generic version, so we remove it altogether.
+Four architectures currently implement 5-level pgtables: arm64,
+riscv, x86 and s390. The first three have essentially the same
+implementation for p4d_alloc_one() and p4d_free(), so we've got an
+opportunity to reduce duplication like at the lower levels.
 
-This is consistent with the way arm64 and x86 handle this situation
-(runtime check in p4d_free() only).
+Provide a generic version of p4d_alloc_one() and p4d_free(), and
+make use of it on those architectures.
+
+Their implementation is the same as at PUD level, except that
+p4d_free() performs a runtime check by calling mm_p4d_folded().
+5-level pgtables depend on a runtime-detected hardware feature on
+all supported architectures, so we might as well include this check
+in the generic implementation. No runtime check is required in
+p4d_alloc_one() as the top-level p4d_alloc() already does the
+required check.
 
 Signed-off-by: Kevin Brodsky <kevin.brodsky@arm.com>
-Signed-off-by: Qi Zheng <zhengqi.arch@bytedance.com>
 Acked-by: Dave Hansen <dave.hansen@linux.intel.com>
-Reviewed-by: Alexandre Ghiti <alexghiti@rivosinc.com>
+Signed-off-by: Qi Zheng <zhengqi.arch@bytedance.com>
 ---
- arch/riscv/include/asm/pgalloc.h | 22 ++++------------------
- 1 file changed, 4 insertions(+), 18 deletions(-)
+ arch/arm64/include/asm/pgalloc.h | 17 ------------
+ arch/riscv/include/asm/pgalloc.h | 23 ----------------
+ arch/x86/include/asm/pgalloc.h   | 18 -------------
+ include/asm-generic/pgalloc.h    | 45 ++++++++++++++++++++++++++++++++
+ 4 files changed, 45 insertions(+), 58 deletions(-)
 
+diff --git a/arch/arm64/include/asm/pgalloc.h b/arch/arm64/include/asm/pgalloc.h
+index e75422864d1bd..2965f5a7e39e3 100644
+--- a/arch/arm64/include/asm/pgalloc.h
++++ b/arch/arm64/include/asm/pgalloc.h
+@@ -85,23 +85,6 @@ static inline void pgd_populate(struct mm_struct *mm, pgd_t *pgdp, p4d_t *p4dp)
+ 	__pgd_populate(pgdp, __pa(p4dp), pgdval);
+ }
+ 
+-static inline p4d_t *p4d_alloc_one(struct mm_struct *mm, unsigned long addr)
+-{
+-	gfp_t gfp = GFP_PGTABLE_USER;
+-
+-	if (mm == &init_mm)
+-		gfp = GFP_PGTABLE_KERNEL;
+-	return (p4d_t *)get_zeroed_page(gfp);
+-}
+-
+-static inline void p4d_free(struct mm_struct *mm, p4d_t *p4d)
+-{
+-	if (!pgtable_l5_enabled())
+-		return;
+-	BUG_ON((unsigned long)p4d & (PAGE_SIZE-1));
+-	free_page((unsigned long)p4d);
+-}
+-
+ #define __p4d_free_tlb(tlb, p4d, addr)  p4d_free((tlb)->mm, p4d)
+ #else
+ static inline void __pgd_populate(pgd_t *pgdp, phys_addr_t p4dp, pgdval_t prot)
 diff --git a/arch/riscv/include/asm/pgalloc.h b/arch/riscv/include/asm/pgalloc.h
-index f52264304f772..8ad0bbe838a24 100644
+index 8ad0bbe838a24..551d614d3369c 100644
 --- a/arch/riscv/include/asm/pgalloc.h
 +++ b/arch/riscv/include/asm/pgalloc.h
-@@ -12,7 +12,6 @@
- #include <asm/tlb.h>
- 
- #ifdef CONFIG_MMU
--#define __HAVE_ARCH_PUD_ALLOC_ONE
- #define __HAVE_ARCH_PUD_FREE
- #include <asm-generic/pgalloc.h>
- 
-@@ -88,15 +87,6 @@ static inline void pgd_populate_safe(struct mm_struct *mm, pgd_t *pgd,
+@@ -105,29 +105,6 @@ static inline void __pud_free_tlb(struct mmu_gather *tlb, pud_t *pud,
  	}
  }
  
--#define pud_alloc_one pud_alloc_one
--static inline pud_t *pud_alloc_one(struct mm_struct *mm, unsigned long addr)
+-#define p4d_alloc_one p4d_alloc_one
+-static inline p4d_t *p4d_alloc_one(struct mm_struct *mm, unsigned long addr)
 -{
--	if (pgtable_l4_enabled)
--		return __pud_alloc_one(mm, addr);
+-	gfp_t gfp = GFP_PGTABLE_USER;
 -
--	return NULL;
+-	if (mm == &init_mm)
+-		gfp = GFP_PGTABLE_KERNEL;
+-	return (p4d_t *)get_zeroed_page(gfp);
 -}
 -
- #define pud_free pud_free
- static inline void pud_free(struct mm_struct *mm, pud_t *pud)
- {
-@@ -118,15 +108,11 @@ static inline void __pud_free_tlb(struct mmu_gather *tlb, pud_t *pud,
- #define p4d_alloc_one p4d_alloc_one
- static inline p4d_t *p4d_alloc_one(struct mm_struct *mm, unsigned long addr)
- {
--	if (pgtable_l5_enabled) {
--		gfp_t gfp = GFP_PGTABLE_USER;
+-static inline void __p4d_free(struct mm_struct *mm, p4d_t *p4d)
+-{
+-	BUG_ON((unsigned long)p4d & (PAGE_SIZE-1));
+-	free_page((unsigned long)p4d);
+-}
 -
--		if (mm == &init_mm)
--			gfp = GFP_PGTABLE_KERNEL;
--		return (p4d_t *)get_zeroed_page(gfp);
--	}
-+	gfp_t gfp = GFP_PGTABLE_USER;
- 
--	return NULL;
-+	if (mm == &init_mm)
-+		gfp = GFP_PGTABLE_KERNEL;
-+	return (p4d_t *)get_zeroed_page(gfp);
+-#define p4d_free p4d_free
+-static inline void p4d_free(struct mm_struct *mm, p4d_t *p4d)
+-{
+-	if (pgtable_l5_enabled)
+-		__p4d_free(mm, p4d);
+-}
+-
+ static inline void __p4d_free_tlb(struct mmu_gather *tlb, p4d_t *p4d,
+ 				  unsigned long addr)
+ {
+diff --git a/arch/x86/include/asm/pgalloc.h b/arch/x86/include/asm/pgalloc.h
+index dcd836b59bebd..dd4841231bb9f 100644
+--- a/arch/x86/include/asm/pgalloc.h
++++ b/arch/x86/include/asm/pgalloc.h
+@@ -147,24 +147,6 @@ static inline void pgd_populate_safe(struct mm_struct *mm, pgd_t *pgd, p4d_t *p4
+ 	set_pgd_safe(pgd, __pgd(_PAGE_TABLE | __pa(p4d)));
  }
  
- static inline void __p4d_free(struct mm_struct *mm, p4d_t *p4d)
+-static inline p4d_t *p4d_alloc_one(struct mm_struct *mm, unsigned long addr)
+-{
+-	gfp_t gfp = GFP_KERNEL_ACCOUNT;
+-
+-	if (mm == &init_mm)
+-		gfp &= ~__GFP_ACCOUNT;
+-	return (p4d_t *)get_zeroed_page(gfp);
+-}
+-
+-static inline void p4d_free(struct mm_struct *mm, p4d_t *p4d)
+-{
+-	if (!pgtable_l5_enabled())
+-		return;
+-
+-	BUG_ON((unsigned long)p4d & (PAGE_SIZE-1));
+-	free_page((unsigned long)p4d);
+-}
+-
+ extern void ___p4d_free_tlb(struct mmu_gather *tlb, p4d_t *p4d);
+ 
+ static inline void __p4d_free_tlb(struct mmu_gather *tlb, p4d_t *p4d,
+diff --git a/include/asm-generic/pgalloc.h b/include/asm-generic/pgalloc.h
+index 7c48f5fbf8aa7..59131629ac9cc 100644
+--- a/include/asm-generic/pgalloc.h
++++ b/include/asm-generic/pgalloc.h
+@@ -215,6 +215,51 @@ static inline void pud_free(struct mm_struct *mm, pud_t *pud)
+ 
+ #endif /* CONFIG_PGTABLE_LEVELS > 3 */
+ 
++#if CONFIG_PGTABLE_LEVELS > 4
++
++static inline p4d_t *__p4d_alloc_one_noprof(struct mm_struct *mm, unsigned long addr)
++{
++	gfp_t gfp = GFP_PGTABLE_USER;
++	struct ptdesc *ptdesc;
++
++	if (mm == &init_mm)
++		gfp = GFP_PGTABLE_KERNEL;
++	gfp &= ~__GFP_HIGHMEM;
++
++	ptdesc = pagetable_alloc_noprof(gfp, 0);
++	if (!ptdesc)
++		return NULL;
++
++	return ptdesc_address(ptdesc);
++}
++#define __p4d_alloc_one(...)	alloc_hooks(__p4d_alloc_one_noprof(__VA_ARGS__))
++
++#ifndef __HAVE_ARCH_P4D_ALLOC_ONE
++static inline p4d_t *p4d_alloc_one_noprof(struct mm_struct *mm, unsigned long addr)
++{
++	return __p4d_alloc_one_noprof(mm, addr);
++}
++#define p4d_alloc_one(...)	alloc_hooks(p4d_alloc_one_noprof(__VA_ARGS__))
++#endif
++
++static inline void __p4d_free(struct mm_struct *mm, p4d_t *p4d)
++{
++	struct ptdesc *ptdesc = virt_to_ptdesc(p4d);
++
++	BUG_ON((unsigned long)p4d & (PAGE_SIZE-1));
++	pagetable_free(ptdesc);
++}
++
++#ifndef __HAVE_ARCH_P4D_FREE
++static inline void p4d_free(struct mm_struct *mm, p4d_t *p4d)
++{
++	if (!mm_p4d_folded(mm))
++		__p4d_free(mm, p4d);
++}
++#endif
++
++#endif /* CONFIG_PGTABLE_LEVELS > 4 */
++
+ #ifndef __HAVE_ARCH_PGD_FREE
+ static inline void pgd_free(struct mm_struct *mm, pgd_t *pgd)
+ {
 -- 
 2.20.1
 
