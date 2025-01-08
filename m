@@ -4,125 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 07DD9E77199
-	for <linux-riscv@archiver.kernel.org>; Wed,  8 Jan 2025 11:10:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 88044E7719A
+	for <linux-riscv@archiver.kernel.org>; Wed,  8 Jan 2025 12:50:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Subject:References:In-Reply-To:
-	Message-Id:Cc:To:From:Date:MIME-Version:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=MqSggvNncxUOZMZIX5seCF04CQkM00FTMrMYHRWUW4M=; b=izH3HgAY0KKSRb/iRH4Gv5twzV
-	+On2Ii7WmuW4Ag0jeeG2mM1c3OWgvEFHh74f1RXwHmijO9S2eCNV5Mrzc1iiwY1mMPhFThBclBxUT
-	LdISXOK+h5yadSz1pXOMOq8bKUWzPJhwubh37774q/dsPG7a2A9k4t+Esc8vvnp90mCYIpHXMmVjb
-	NLItCnuk1aqDZVkjdIzBS/W7ft43WcauCKt7twMO+BrLdMdPkVmY58E9JtbKR/AzPonlpb1b2lK92
-	yx3RW6et0i2jBimE95OMC7+GGylxeFKb5bkqJPriRbjwvkiPHYujLko58bXhOyitmG7Am5emZ4IR/
-	Osr+9cDA==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:MIME-Version:Message-Id:Date:
+	Subject:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=ySZDeFWfsAd9au0bJ/cDwfEeJo90bTunIZz91smAjS8=; b=O4qTCVYY5fKa38
+	7qfxjjBtdxrWcSnwD77LO3Ie9+OdOQpRhqfQujvljpwKDmC0Vj4cTg8bvJ7tUVni+zrd1hoeOEKDG
+	dauzB2itXqzPuyYmnfqQB5uU5noeES+KLlV7jbjEeJfsp5ApKUSS47i4npLrNnRyAV+F51LTR3eMA
+	hUSojQf2MNko1vj6QwcrL+tITYQ2pbNNlmegoSecp9CQ5GsfmJRHMNvkzdM5xL6rCBVpKhBxoJTuW
+	eo4mklFL7GWXMxY91oHMseoLPPNOcG6/1h/zoEde8Qoxc/eWMIYa8X50cP7xC3TS/WyYvIbMxRWh0
+	8r2h7WPQrQUxZCEujvbA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVTxL-000000089ZY-2M8e;
-	Wed, 08 Jan 2025 11:10:35 +0000
-Received: from flow-a8-smtp.messagingengine.com ([103.168.172.143])
+	id 1tVVVb-00000008UPt-14HR;
+	Wed, 08 Jan 2025 12:50:03 +0000
+Received: from sender4-pp-o94.zoho.com ([136.143.188.94])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVTqb-000000087q1-1Irx;
-	Wed, 08 Jan 2025 11:03:39 +0000
-Received: from phl-compute-10.internal (phl-compute-10.phl.internal [10.202.2.50])
-	by mailflow.phl.internal (Postfix) with ESMTP id 9F498200F91;
-	Wed,  8 Jan 2025 06:03:36 -0500 (EST)
-Received: from phl-imap-11 ([10.202.2.101])
-  by phl-compute-10.internal (MEProxy); Wed, 08 Jan 2025 06:03:36 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm1; t=1736334216;
-	 x=1736341416; bh=USnfbtjdzJEK9gukpGljvTqxb7I/7Fqgvuzbz7iTWaM=; b=
-	WtLL9WZ2meLEVZxmli00VbYv11fhuBGMZp6eU19+LeFOehXBLGesRZh6foqHtbE0
-	V/ZqVr7QGvKNjvIMaFOQQl8fHSHaAhWG2taHOBszb/Sq7XFaSAS+D+pLnhXcVEEG
-	9uyMw7CSg+NAiw+pzvO8CUfpXLlE91al0J72AFbo+shTsoaTlWzfYiYt52iZtCKH
-	nmg1mZoSHgDk3xnOd214hOZwMr6vTagL9xQJIQro8s2DanAm9Tm63iTfM6HbNZuz
-	uvBZuyu1aKoZY4Uun5qOYSYCCWF8j7+i6EXN0AHyCHvZTaUYT731+4yKtq/aCUfm
-	vzKDj0eDWfWNK9Xi1Q5X1Q==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm2; t=1736334216; x=
-	1736341416; bh=USnfbtjdzJEK9gukpGljvTqxb7I/7Fqgvuzbz7iTWaM=; b=J
-	/vtRZnOn2Upyqb3fRTIONUj6WwtelA9l+iJ/3kKR44BHYQB+0BEXpQDFHZyObWkP
-	WAI69mXSkRadmsk3gdtGfGutrxvwKpm7uTeYZ8OfHgEZmNiAr20tkfybv2hbmcMp
-	aGCFu/i+Ze/nNBT79BvaUZG5iO8ATI+xCjkaIojCFJEUB/7yV9OHAgWXIR4vHoyv
-	svnP73yQR2D5DdJaECwwSduJJlJgwyl/c0Zm0q7/p4v9C+QOc0wDTt3BMFKIhm5o
-	n6C8ZNGXDcfQcxNUDnSJGxVA5j4AZN+g3Y0WW5RuLPEuRofwDLvI0w4bNYthI1rB
-	XcXmK6Drrgsa42Eogsk9g==
-X-ME-Sender: <xms:h1t-Z__aAxWAhva-MdllhQ4BYUgmBfsyRApbSzOtiprXyT60uQomkg>
-    <xme:h1t-Z7t0b7azrzS4uz3CDbALYqcojYJUUGAsBpI_lmF6nYqjDu3CEvB0twds3feyy
-    SsqYy99WQypcV1T2Hc>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefuddrudeggedgvdefucetufdoteggodetrfdotf
-    fvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdggtfgfnhhsuhgsshgtrhhisggvpdfu
-    rfetoffkrfgpnffqhgenuceurghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnh
-    htshculddquddttddmnecujfgurhepofggfffhvfevkfgjfhfutgfgsehtjeertdertddt
-    necuhfhrohhmpedftehrnhguuceuvghrghhmrghnnhdfuceorghrnhgusegrrhhnuggsrd
-    guvgeqnecuggftrfgrthhtvghrnhephfdthfdvtdefhedukeetgefggffhjeeggeetfefg
-    gfevudegudevledvkefhvdeinecuvehluhhsthgvrhfuihiivgepudenucfrrghrrghmpe
-    hmrghilhhfrhhomheprghrnhgusegrrhhnuggsrdguvgdpnhgspghrtghpthhtohepgedv
-    pdhmohguvgepshhmthhpohhuthdprhgtphhtthhopehkvghvihhnrdgsrhhoughskhihse
-    grrhhmrdgtohhmpdhrtghpthhtoheprhihrghnrdhrohgsvghrthhssegrrhhmrdgtohhm
-    pdhrtghpthhtohepiihhvghnghhqihdrrghrtghhsegshihtvggurghntggvrdgtohhmpd
-    hrtghpthhtohepphgrlhhmvghrsegurggssggvlhhtrdgtohhmpdhrtghpthhtoheprghn
-    ughrvggrshesghgrihhslhgvrhdrtghomhdprhgtphhtthhopegrlhgvgiesghhhihhtih
-    drfhhrpdhrtghpthhtohepnhhpihhgghhinhesghhmrghilhdrtghomhdprhgtphhtthho
-    pehvihhshhgrlhdrmhhoohhlrgesghhmrghilhdrtghomhdprhgtphhtthhopehhuhhghh
-    gusehgohhoghhlvgdrtghomh
-X-ME-Proxy: <xmx:iFt-Z9ANGY5phHCQP5q9aptFJBex2r8tUUEtjidE_xfb4AaP55hNrg>
-    <xmx:iFt-Z7ctt2NWtfyYsEgjYqKKIrHn67L1tyZAg4XMHhOyiTzOECL22Q>
-    <xmx:iFt-Z0OlCBsb26nhU66OvTEdGpRVGIW5IfVb2Uu5QIznryJY6Y1lyw>
-    <xmx:iFt-Z9kr0zvBfse9P3OqsbaaksL8J3gNd0JxqpmXi6zyClNfGpiDVw>
-    <xmx:iFt-Z8U-rzqfWoWAKZ4Q8n6ifXS3RNJxGRb6sdxgxo5Zg4md0Aao1UvA>
-Feedback-ID: i56a14606:Fastmail
-Received: by mailuser.phl.internal (Postfix, from userid 501)
-	id D26632220072; Wed,  8 Jan 2025 06:03:35 -0500 (EST)
-X-Mailer: MessagingEngine.com Webmail Interface
+	id 1tVUcx-00000008J4Y-3M33
+	for linux-riscv@lists.infradead.org;
+	Wed, 08 Jan 2025 11:53:37 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1736337212; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=IKSlO00cPMt57MupNatC0bqx+ZcCv/3AqIBTsFRmMQIX8Fw95KgMhHPf0MZgHq9WV5wSWPVHH54aESNdwig8JqHnG+uVqY08sC9gPBYWpHDeIRGCZ5iGZTb249yrLY1kpo4gFKNpVJWvG0tnQrNOt8Ei2qJ3cfv2MTy4zaaXLDU=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1736337212; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=SV6+dD61DjVjHaXAw4cZ7pAs5Ek4RvEv84oeJT7/Jlk=; 
+	b=HSU7GzNilwKbgdmSwLGH8+h7wQuQK91nvNdg5yOMMuHFMM1lD++hmI5OOxh8wq5Ox3NWTeq2NYheAsS/vCs4GirCJl3M/eaCZzlaC14Nmo34T3iDI8/NrIB7LWdg55vuU8kMPOAGT5sI5ieYv3QUaph9XBFqtvEBL/19mSytD5k=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=zohomail.com;
+	spf=pass  smtp.mailfrom=kingxukai@zohomail.com;
+	dmarc=pass header.from=<kingxukai@zohomail.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1736337212;
+	s=zm2022; d=zohomail.com; i=kingxukai@zohomail.com;
+	h=From:From:Subject:Subject:Date:Date:Message-Id:Message-Id:MIME-Version:Content-Type:Content-Transfer-Encoding:To:To:Cc:Cc:Feedback-ID:Reply-To;
+	bh=SV6+dD61DjVjHaXAw4cZ7pAs5Ek4RvEv84oeJT7/Jlk=;
+	b=IJ9btuGC0yhbQD2brTNdxzro2kKi26IK2uQitLe7XtRq1HLNUV9aWuPVOa6Nv7DB
+	EpzV9gYsEUsvH+IQ0CHbDrJwzZynaY1yFgALDvFy/BhAbHbyUqkigO2c7OwKw5AMk/W
+	7r45h5knNXEWbGgFigxC4gv9rS9VbyMCcBat8gbo=
+Received: by mx.zohomail.com with SMTPS id 1736337209274483.6594892898389;
+	Wed, 8 Jan 2025 03:53:29 -0800 (PST)
+From: Xukai Wang <kingxukai@zohomail.com>
+Subject: [PATCH v2 0/3] riscv: canaan: Add support for K230-Canmv clock
+Date: Wed, 08 Jan 2025 19:53:06 +0800
+Message-Id: <20250108-b4-k230-clk-v2-0-27b30a2ca52d@zohomail.com>
 MIME-Version: 1.0
-Date: Wed, 08 Jan 2025 12:03:15 +0100
-From: "Arnd Bergmann" <arnd@arndb.de>
-To: "Qi Zheng" <zhengqi.arch@bytedance.com>,
- "Peter Zijlstra" <peterz@infradead.org>,
- "Alexander Gordeev" <agordeev@linux.ibm.com>,
- "Kevin Brodsky" <kevin.brodsky@arm.com>, "Alexandre Ghiti" <alex@ghiti.fr>,
- "Andreas Larsson" <andreas@gaisler.com>,
- "Palmer Dabbelt" <palmer@dabbelt.com>,
- "Thomas Gleixner" <tglx@linutronix.de>,
- "David Hildenbrand" <david@redhat.com>, "Jann Horn" <jannh@google.com>,
- "Hugh Dickins" <hughd@google.com>, "Yu Zhao" <yuzhao@google.com>,
- "Matthew Wilcox" <willy@infradead.org>,
- "Muchun Song" <muchun.song@linux.dev>, vbabka@kernel.org,
- "Lorenzo Stoakes" <lorenzo.stoakes@oracle.com>,
- "Andrew Morton" <akpm@linux-foundation.org>,
- "David Rientjes" <rientjes@google.com>, vishal.moola@gmail.com,
- "Will Deacon" <will@kernel.org>, aneesh.kumar@kernel.org,
- "Nicholas Piggin" <npiggin@gmail.com>,
- "Dave Hansen" <dave.hansen@linux.intel.com>,
- "Mike Rapoport" <rppt@kernel.org>, "Ryan Roberts" <ryan.roberts@arm.com>
-Cc: linux-mm@kvack.org, linux-arm-kernel@lists.infradead.org,
- linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
- linux-s390@vger.kernel.org, sparclinux@vger.kernel.org,
- linux-kernel@vger.kernel.org, x86@kernel.org,
- Linux-Arch <linux-arch@vger.kernel.org>,
- "linux-csky@vger.kernel.org" <linux-csky@vger.kernel.org>,
- linux-hexagon@vger.kernel.org, loongarch@lists.linux.dev,
- linux-m68k@lists.linux-m68k.org, linux-mips@vger.kernel.org,
- "linux-openrisc@vger.kernel.org" <linux-openrisc@vger.kernel.org>,
- linux-sh@vger.kernel.org, linux-um@lists.infradead.org
-Message-Id: <2f93708c-9816-4214-ae61-1e6b9f68cdc4@app.fastmail.com>
-In-Reply-To: <ea372633d94f4d3f9f56a7ec5994bf050bf77e39.1736317725.git.zhengqi.arch@bytedance.com>
-References: <cover.1736317725.git.zhengqi.arch@bytedance.com>
- <ea372633d94f4d3f9f56a7ec5994bf050bf77e39.1736317725.git.zhengqi.arch@bytedance.com>
-Subject: Re: [PATCH v5 14/17] mm: pgtable: introduce generic __tlb_remove_table()
+X-B4-Tracking: v=1; b=H4sIACJnfmcC/22PQW6DMBBFr4K8rit7bDCw6j2qLuyZcbESQgIUt
+ Y24ex3SRag6K39L7838q5h4TDyJtriKkZc0peGUAzwVAjt/emeZKGcBCqwGVclg5QGMkng8yAb
+ KaExkqhBEJs4jx/S52V7f7nnky0eWzvdPcfYzdlnZFsTkDVoHUeWJkaxCInIYKzKhZCBH3hHev
+ MFPLHHo+zS3hfOldiFQNIR148FzWSqVdZXjGkysI6CpIovbBV2a5mH82uotZjvht4nbNVmMzI+
+ gXVPqumbnXr6Hbuh9Oj7nvZtqsQ+4tnvcZlyjatBXwdja/4PrBxyaPa4zDqB9o3MHxfQHX9f1B
+ 6Kl8YypAQAA
+X-Change-ID: 20241206-b4-k230-clk-925f33fed6c2
+To: Michael Turquette <mturquette@baylibre.com>, 
+ Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Paul Walmsley <paul.walmsley@sifive.com>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>
+Cc: linux-clk@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
+ Troy Mitchell <TroyMitchell988@gmail.com>
+X-Mailer: b4 0.14.2
+Feedback-ID: rr08011227ba5e3a8d70608de2ce4996130000408bc3c13a028403076f2b5ffdfedb427aa725b96e6725753a:zu08011227cfa1dcabed92c2e71aefc7f100004979d722aff1144df9bddbf5ff30a1768dd220fb0d3d8df855:rf0801122d0f1e211bd97fcc46e25e04b6000059365634c4ba4e5beb21e0b6035ad86f2ed9372a290e72ac99dec17635970d:ZohoMail
+X-ZohoMailClient: External
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250108_030337_419024_025BE717 
-X-CRM114-Status: UNSURE (   6.73  )
+X-CRM114-CacheID: sfid-20250108_035335_903850_6A147BF2 
+X-CRM114-Status: UNSURE (   7.67  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -140,20 +91,49 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jan 8, 2025, at 07:57, Qi Zheng wrote:
-> Several architectures (arm, arm64, riscv and x86) define exactly the
-> same __tlb_remove_table(), just introduce generic __tlb_remove_table() to
-> eliminate these duplications.
->
-> The s390 __tlb_remove_table() is nearly the same, so also make s390
-> __tlb_remove_table() version generic.
->
-> Signed-off-by: Qi Zheng <zhengqi.arch@bytedance.com>
-> Reviewed-by: Kevin Brodsky <kevin.brodsky@arm.com>
-> Acked-by: Andreas Larsson <andreas@gaisler.com> # sparc
-> Acked-by: Alexander Gordeev <agordeev@linux.ibm.com> # s390
+This patch series adds clock controller support for the Canaan Kendryte
+K230 SoC. The K230 SoC includes an external 24MHz OSC and 4 internal
+PLLs, with the controller managing these sources and their derived clocks.
 
-Acked-by: Arnd Bergmann <arnd@arndb.de> # asm-generic
+The clock tree and hardware-specific definition can be found in the
+vendor's DTS [1],
+and this series is based on the K230 initial series [2].
+
+Link: https://github.com/kendryte/k230_sdk/blob/main/src/little/linux/arch/riscv/boot/dts/kendryte/clock_provider.dtsi [1]
+Link: https://lore.kernel.org/linux-clk/tencent_F76EB8D731C521C18D5D7C4F8229DAA58E08@qq.com/ [2]
+
+Co-developed-by: Troy Mitchell <TroyMitchell988@gmail.com>
+Signed-off-by: Troy Mitchell <TroyMitchell988@gmail.com>
+Signed-off-by: Xukai Wang <kingxukai@zohomail.com>
+
+---
+Changes in v2:
+- Add items and description.
+- Rename k230-clk.h to canaan,k230-clk.h
+- Link to v1: https://lore.kernel.org/r/20241229-b4-k230-clk-v1-0-221a917e80ed@zohomail.com
+
+---
+Xukai Wang (3):
+      dt-bindings: clock: Add bindings for Canaan K230 clock controller
+      clk: canaan: Add clock driver for Canaan K230
+      riscv: dts: canaan: Add clock initial support for K230
+
+ .../devicetree/bindings/clock/canaan,k230-clk.yaml |   42 +
+ arch/riscv/boot/dts/canaan/k230.dtsi               |   27 +
+ drivers/clk/Kconfig                                |    6 +
+ drivers/clk/Makefile                               |    1 +
+ drivers/clk/clk-k230.c                             | 1424 ++++++++++++++++++++
+ include/dt-bindings/clock/canaan,k230-clk.h        |   49 +
+ 6 files changed, 1549 insertions(+)
+---
+base-commit: 7a517bbdf3dc89a2ae5500ded67e823f8f2c36fe
+change-id: 20241206-b4-k230-clk-925f33fed6c2
+prerequisite-patch-id: deda3c472f0000ffd40cddd7cf6d3b5e2d7da7dc
+
+Best regards,
+-- 
+Xukai Wang <kingxukai@zohomail.com>
+
 
 _______________________________________________
 linux-riscv mailing list
