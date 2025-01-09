@@ -4,108 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C6B01E77197
-	for <linux-riscv@archiver.kernel.org>; Thu,  9 Jan 2025 07:57:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 08E45E77197
+	for <linux-riscv@archiver.kernel.org>; Thu,  9 Jan 2025 09:02:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=txGPgWoIhuhKcxO937iOVQHU5Vd6oUmOVJx0Zr9QvKo=; b=hcp1dHV5bRizAX
-	Q8JDpX2dA68d10XW+z1iMJV5BEj4pMox2SNIvEJAoT17g2y2UlchEtB1EPZdKyW6rdHv7qguVLSeP
-	3U6Qdm7GutboxYeUPh+wR1xl8PuG5KCR2HhI/0Snl4v/HB8iu1il5717r7TjaxiGmkQRjViHOtubR
-	LUZvwL043UKUDcHPRuZp+gOpmrH9icFhAlEZoZ3BDLbIC7+NqMO32/Q+jUQBnk81NUxLgnb00kOjd
-	L7d8zt0d7L1wHFVcPufQdZ+1ba72QrXY+247i90js+Np0e8cB1dkYQo2ueoSbi9WkXrwE7E/1ArQC
-	cKxobRdKdjVDNkgAUzPQ==;
+	List-Owner; bh=/pveI1MGi5FxCFS/LD0RzOrVjzYk0NGw3zAJhkVGPrs=; b=b5QQ/uhBwQ6nSr
+	L/KJCS/+w1PFE7WZc6K70rKz9bNRpHgwmBJEuDfz40SweqnZMa0NdZpHENsISfV1jt524fd5FrENm
+	PqCMXbITGPpnS7oeGXkp9uWEv1RSmpP8QtO0aoz+r8DueqS72y/TcGZoNwnZQHGljLy/br7anTYnY
+	5vPjCq5msEGDgVCCBibim/x9Q84nXhMGuMa0vfcfAMPInU6rQTjYjUnGnvWVzyFi49Qz+dtW5gpqP
+	qJ+2E8STMxWsNqCFaiKTWkjEZaZMCMZnMG35TLq5D1Dro76ekfU4dDwcx8nS0SqtOww4fCOiRBhlT
+	0dh62kPtyc5RjK7IP3cg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVnQ5-0000000B7Bf-3bl4;
-	Thu, 09 Jan 2025 07:57:33 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tVoQe-0000000BFim-0LJq;
+	Thu, 09 Jan 2025 09:02:12 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVnPU-0000000B75j-3AjF
+	id 1tVoQc-0000000BFhe-22xh
 	for linux-riscv@lists.infradead.org;
-	Thu, 09 Jan 2025 07:56:57 +0000
+	Thu, 09 Jan 2025 09:02:11 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 2DF5C5C59BF;
-	Thu,  9 Jan 2025 07:56:15 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B3BD4C4CED2;
-	Thu,  9 Jan 2025 07:56:51 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 084BC5C473E;
+	Thu,  9 Jan 2025 09:01:29 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CFF23C4CED2;
+	Thu,  9 Jan 2025 09:02:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1736409415;
-	bh=HJ5r19ZrMks2F0ma0sosq/aR9gk751d7SwwJ0aTjq64=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=lVEVTfvMqatv2EMsLL9SzyGODeIt1owvUodCjvun6AkIWLbqHjrsBPXTb8OKg4Pog
-	 tYru4Js3IwjfQV/wrL1Q9K3ijgZV+uSvMiXkID0AYv/HsFQ4+aOUuFlPPToB9wedIW
-	 l7qLN4Qh3mBc6zBSxwUgxpmZpZRqZV008DVFGbN3OURM76JflUm2Gt/Ya+60l6hmip
-	 v6hTdIGbhgJgigAu+aeg1hbVLusPD6eWzfERFfyL9DRpI/fYb0cbAi7DXJ11maxhE8
-	 /Fr/zE+9Vrt5eqUHLZeif+RdF5WzBNfRMk5SLJyIbwMb7ag0QCX9/v8uMM88R3IwL5
-	 qEVOE/HrtXLAA==
-Message-ID: <61adfec1-89bb-4367-b8d4-64a8b751326c@kernel.org>
-Date: Thu, 9 Jan 2025 08:56:49 +0100
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 1/2] dt-bindings: interrupt-controller: add
- risc-v,aplic hart indexes
-To: Vladimir Kondratiev <vladimir.kondratiev@mobileye.com>,
- anup@brainfault.org
-Cc: aou@eecs.berkeley.edu, conor+dt@kernel.org, krzk+dt@kernel.org,
- linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
- palmer@dabbelt.com, paul.walmsley@sifive.com, robh@kernel.org,
- tglx@linutronix.de
-References: <CAAhSdy0U3VXqKK-pReUSo5PYJhr0YGoO6pT194Me0Q18dHbE9g@mail.gmail.com>
- <20250107075835.1421602-1-vladimir.kondratiev@mobileye.com>
- <20250107075835.1421602-2-vladimir.kondratiev@mobileye.com>
+	s=k20201202; t=1736413329;
+	bh=LbMP1cxyodyElRexu6bEYIVYMSructjCAywnIpRXVfk=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=ANd84GOGtxe66kPVbYuxrO0yRLa5gmhb8R7mKAxzbEjLcbNebETKpPmcMQePUcQdM
+	 Kw+7DtrTySPlcrK5QEcI/RV5qSWjAw+FgjiooIi6IUsaTZtmOdlYc9f7C4FU4aX0pa
+	 NuqLURUzOa779wC8GOY7R0Va3VDrDaTkMGLJUahvb87RH37xORdLDPelxhHLIAZQrd
+	 WtAkvfKQiBSimYHdAMye6LODhNh/jsJKp0kFMVECcK/oPxsQFvUBZBpnm3jn/iPyZq
+	 /hsqKgmXC/qYvqNErThm+Cda24+vny/l33xzESibjyWzQaHo3U/2sJfDwAZHYS3RfG
+	 t9rJ6JREvCZrw==
+Date: Thu, 9 Jan 2025 10:02:06 +0100
 From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 fv0=
-In-Reply-To: <20250107075835.1421602-2-vladimir.kondratiev@mobileye.com>
+To: Xukai Wang <kingxukai@zohomail.com>
+Cc: Michael Turquette <mturquette@baylibre.com>, 
+	Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, linux-clk@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
+	Troy Mitchell <TroyMitchell988@gmail.com>
+Subject: Re: [PATCH v2 1/3] dt-bindings: clock: Add bindings for Canaan K230
+ clock controller
+Message-ID: <nvfvyy7vajbskfn542lxbvfkxuhasmnyni2uudy3cdybzlddiu@u46fcydzgxsw>
+References: <20250108-b4-k230-clk-v2-0-27b30a2ca52d@zohomail.com>
+ <20250108-b4-k230-clk-v2-1-27b30a2ca52d@zohomail.com>
+MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20250108-b4-k230-clk-v2-1-27b30a2ca52d@zohomail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250108_235656_886616_0B1C2B02 
-X-CRM114-Status: UNSURE (   4.79  )
+X-CRM114-CacheID: sfid-20250109_010210_564349_13CFAA1A 
+X-CRM114-Status: UNSURE (   8.33  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -123,22 +80,37 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 07/01/2025 08:58, Vladimir Kondratiev wrote:
-> Document optional property "riscv,hart-indexes"
-> 
-> Signed-off-by: Vladimir Kondratiev <vladimir.kondratiev@mobileye.com>
-> ---
-So you are going to keep ignoring comments?
+On Wed, Jan 08, 2025 at 07:53:07PM +0800, Xukai Wang wrote:
+> +properties:
+> +  compatible:
+> +    const: canaan,k230-clk
+> +
+> +  clocks:
+> +    maxItems: 1
+> +
+> +  reg:
+> +    items:
+> +      - description: PLL control registers.
+> +      - description: Sysclk control registers.
+> +
+> +  '#clock-cells':
+> +    const: 1
+> +
+> +required:
+> +  - compatible
+> +  - reg
+> +  - clocks
 
-NAK, not tested.
+If there is going to be any new version, then keep the same order in
+required: as in properties:
 
-Also:
-Do not attach (thread) your patchsets to some other threads (unrelated
-or older versions). This buries them deep in the mailbox and might
-interfere with applying entire sets.
+In any case:
+
+Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 
 Best regards,
 Krzysztof
+
 
 _______________________________________________
 linux-riscv mailing list
