@@ -4,81 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C3366E7719A
-	for <linux-riscv@archiver.kernel.org>; Thu,  9 Jan 2025 14:04:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E8CEDE77197
+	for <linux-riscv@archiver.kernel.org>; Thu,  9 Jan 2025 14:51:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Z/JMqyb7Igl6JQcsc7mTk3wTghIzwAuBGuYnYUbsldE=; b=l8xH5QfqSSoHXi
-	8+mabmJjoKq/bh4oJ1JeKeEfBdDvs8JwGysRzKCI3VdQqD+9jvQ2WVZ+lvbMNFBEU/DlhJYfoLNMq
-	I4NZ46CNasdG6tx0TAaDWbdq41i/ggOMAPAHATfvwYSZ+2czZ3KuRtRTpEixyADI25Q73RgcaDz1n
-	G1OOTrsd8ytCoRrhHfYn2GfBRH3LNK+wUfkB7yBLKmzi3Dvstthq/vNNof8J1cedyqSabYxsl95Gt
-	NAuq61Yz7zXuVsKrgANS64rqN3th2A5VCzoPlj3tJd6nINiwep94Zjy10YUD2NAjTazWCE7qgDQUX
-	9hmU+8PFchhon1nMCfdw==;
+	List-Owner; bh=QrhzprM7U+MG26s8vHp5dCphRV7rU+SMw5MC9llHEwg=; b=g2JeK7yVmsIn1j
+	MJpW83n4FhWjsu6h9bfDjPLcc7cj4L7rS2awQgGJ1/AxESBZE8kZpbv78F3DSZf8d9KddYjJ7JpR/
+	+oEwhf/aw8ZpiMNemZCIZS5L8LCSF7DXYcJigoLmQbUUScJzZYciOJ0k5jOFvcLfYMRvTziX8+rrl
+	rXXJdIk9BCdh6rLxnpnzNfA+SvJDo4AtiWoFjUtfmEuOFsO2ZdxednUwQu/8INW2c8jmUsrbRghu/
+	i0Y4nhBLCnRdtfYS6uL7455d66DVC+nEMgUT6sIgub9UV/ZAgLk8zjrlMke4FuDNul8oSUuiYiuJZ
+	oJ2NACMoStVoVYysZkAg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVt8m-0000000C9Q5-2lxJ;
-	Thu, 09 Jan 2025 14:04:04 +0000
-Received: from mgamail.intel.com ([198.175.65.14])
+	id 1tVts9-0000000CJCJ-49rv;
+	Thu, 09 Jan 2025 14:50:58 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVt8k-0000000C9P6-0O60
-	for linux-riscv@lists.infradead.org;
-	Thu, 09 Jan 2025 14:04:03 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1736431442; x=1767967442;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=BWV1WTF/ifCd9oEFOcs2VR1x3kRaZVia0ikTWu/gvLI=;
-  b=ZsjfZgRIrCDDUwPSUb3rfXrrmDaNOdYiXcj0BYL4q7XwINGFs9kqlTsd
-   X3OBIFzm2izM4fFa8dYb8sXfWvYlnlzRDiYDg8oQNppv5kuosIIbl+Xiq
-   iwwCPC53KPskiEej5deeemaDNMWkEK9/mG6HKrnh48NtZfhhV7avyqg3a
-   XP5dqZGNWtBxXX0LIGuzLp2YPcEQ1v4pDhzD8snbkib8PuSLyhMopMDc8
-   HR67/8v4IiBbp83E344ZeWnvZoZCHBb7WiEUPwePizDBuVZugi2zgCIPK
-   S1dCvwTPVjk3e9y/WModEigAvJgcIeE9qUPfpQ9HoIggcGdB5JcNskWyt
-   g==;
-X-CSE-ConnectionGUID: CYh0SOS5S6mOjwheAS+EDQ==
-X-CSE-MsgGUID: D8sYmzrMS0ieXvZLhUQHJQ==
-X-IronPort-AV: E=McAfee;i="6700,10204,11310"; a="40458717"
-X-IronPort-AV: E=Sophos;i="6.12,301,1728975600"; 
-   d="scan'208";a="40458717"
-Received: from fmviesa002.fm.intel.com ([10.60.135.142])
-  by orvoesa106.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 09 Jan 2025 06:03:58 -0800
-X-CSE-ConnectionGUID: 04uivOU6Sv6u3hhRdVHm1w==
-X-CSE-MsgGUID: nB5f4kv1TO6zGTKfCGEaCA==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.12,224,1728975600"; 
-   d="scan'208";a="126707404"
-Received: from lkp-server01.sh.intel.com (HELO d63d4d77d921) ([10.239.97.150])
-  by fmviesa002.fm.intel.com with ESMTP; 09 Jan 2025 06:03:56 -0800
-Received: from kbuild by d63d4d77d921 with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1tVt8c-000Hdd-0d;
-	Thu, 09 Jan 2025 14:03:54 +0000
-Date: Thu, 9 Jan 2025 22:03:04 +0800
-From: kernel test robot <lkp@intel.com>
-To: Alexandre Ghiti <alexghiti@rivosinc.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Samuel Holland <samuel.holland@sifive.com>,
-	Andrew Jones <ajones@ventanamicro.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Cc: oe-kbuild-all@lists.linux.dev, Alexandre Ghiti <alexghiti@rivosinc.com>,
-	=?iso-8859-1?Q?Cl=E9ment_L=E9ger?= <cleger@rivosinc.com>
-Subject: Re: [PATCH v3] riscv: Call secondary mmu notifier when flushing the
- tlb
-Message-ID: <202501092121.lZ2DY62V-lkp@intel.com>
-References: <20250108154907.132863-1-alexghiti@rivosinc.com>
+	id 1tVtqO-0000000CIfD-4BVl;
+	Thu, 09 Jan 2025 14:49:10 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 861CE5C5A84;
+	Thu,  9 Jan 2025 14:48:27 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 35F4DC4CED2;
+	Thu,  9 Jan 2025 14:49:04 +0000 (UTC)
+Date: Thu, 9 Jan 2025 09:50:37 -0500
+From: Steven Rostedt <rostedt@goodmis.org>
+To: Joel Granados <joel.granados@kernel.org>
+Cc: Thomas =?UTF-8?B?V2Vpw59zY2h1aA==?= <linux@weissschuh.net>, Kees Cook
+ <kees@kernel.org>, Luis Chamberlain <mcgrof@kernel.org>,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
+ linux-s390@vger.kernel.org, linux-crypto@vger.kernel.org,
+ openipmi-developer@lists.sourceforge.net, intel-gfx@lists.freedesktop.org,
+ dri-devel@lists.freedesktop.org, intel-xe@lists.freedesktop.org,
+ linux-hyperv@vger.kernel.org, linux-rdma@vger.kernel.org,
+ linux-raid@vger.kernel.org, linux-scsi@vger.kernel.org,
+ linux-serial@vger.kernel.org, xen-devel@lists.xenproject.org,
+ linux-aio@kvack.org, linux-fsdevel@vger.kernel.org, netfs@lists.linux.dev,
+ codalist@coda.cs.cmu.edu, linux-mm@kvack.org, linux-nfs@vger.kernel.org,
+ ocfs2-devel@lists.linux.dev, fsverity@lists.linux.dev,
+ linux-xfs@vger.kernel.org, io-uring@vger.kernel.org, bpf@vger.kernel.org,
+ kexec@lists.infradead.org, linux-trace-kernel@vger.kernel.org,
+ linux-hardening@vger.kernel.org, apparmor@lists.ubuntu.com,
+ linux-security-module@vger.kernel.org, keyrings@vger.kernel.org
+Subject: Re: [PATCH] treewide: const qualify ctl_tables where applicable
+Message-ID: <20250109095037.0ac3fe09@gandalf.local.home>
+In-Reply-To: <20250109-jag-ctl_table_const-v1-1-622aea7230cf@kernel.org>
+References: <20250109-jag-ctl_table_const-v1-1-622aea7230cf@kernel.org>
+X-Mailer: Claws Mail 3.20.0git84 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20250108154907.132863-1-alexghiti@rivosinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250109_060402_188414_16ED2DC2 
-X-CRM114-Status: GOOD (  12.05  )
+X-CRM114-CacheID: sfid-20250109_064909_076047_825B7447 
+X-CRM114-Status: GOOD (  10.41  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,83 +76,39 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Alexandre,
+On Thu, 09 Jan 2025 14:16:39 +0100
+Joel Granados <joel.granados@kernel.org> wrote:
 
-kernel test robot noticed the following build warnings:
+> diff --git a/kernel/trace/ftrace.c b/kernel/trace/ftrace.c
+> index 2e113f8b13a2..489cbab3d64c 100644
+> --- a/kernel/trace/ftrace.c
+> +++ b/kernel/trace/ftrace.c
+> @@ -8786,7 +8786,7 @@ ftrace_enable_sysctl(const struct ctl_table *table, int write,
+>  	return ret;
+>  }
+>  
+> -static struct ctl_table ftrace_sysctls[] = {
+> +static const struct ctl_table ftrace_sysctls[] = {
+>  	{
+>  		.procname       = "ftrace_enabled",
+>  		.data           = &ftrace_enabled,
+> diff --git a/kernel/trace/trace_events_user.c b/kernel/trace/trace_events_user.c
+> index 17bcad8f79de..97325fbd6283 100644
+> --- a/kernel/trace/trace_events_user.c
+> +++ b/kernel/trace/trace_events_user.c
+> @@ -2899,7 +2899,7 @@ static int set_max_user_events_sysctl(const struct ctl_table *table, int write,
+>  	return ret;
+>  }
+>  
+> -static struct ctl_table user_event_sysctls[] = {
+> +static const struct ctl_table user_event_sysctls[] = {
+>  	{
+>  		.procname	= "user_events_max",
+>  		.data		= &max_user_events,
 
-[auto build test WARNING on linus/master]
-[also build test WARNING on v6.13-rc6 next-20250109]
-[If your patch is applied to the wrong git tree, kindly drop us a note.
-And when submitting patch, we suggest to use '--base' as documented in
-https://git-scm.com/docs/git-format-patch#_base_tree_information]
+Acked-by: Steven Rostedt (Google) <rostedt@goodmis.org> # for kernel/trace/
 
-url:    https://github.com/intel-lab-lkp/linux/commits/Alexandre-Ghiti/riscv-Call-secondary-mmu-notifier-when-flushing-the-tlb/20250108-235624
-base:   linus/master
-patch link:    https://lore.kernel.org/r/20250108154907.132863-1-alexghiti%40rivosinc.com
-patch subject: [PATCH v3] riscv: Call secondary mmu notifier when flushing the tlb
-config: riscv-allnoconfig (https://download.01.org/0day-ci/archive/20250109/202501092121.lZ2DY62V-lkp@intel.com/config)
-compiler: riscv64-linux-gcc (GCC) 14.2.0
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250109/202501092121.lZ2DY62V-lkp@intel.com/reproduce)
-
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202501092121.lZ2DY62V-lkp@intel.com/
-
-All warnings (new ones prefixed by >>):
-
-   arch/riscv/mm/tlbflush.c: In function '__flush_tlb_range':
->> arch/riscv/mm/tlbflush.c:94:14: warning: unused variable 'broadcast' [-Wunused-variable]
-      94 |         bool broadcast;
-         |              ^~~~~~~~~
->> arch/riscv/mm/tlbflush.c:92:37: warning: unused variable 'ftd' [-Wunused-variable]
-      92 |         struct flush_tlb_range_data ftd;
-         |                                     ^~~
-
-
-vim +/broadcast +94 arch/riscv/mm/tlbflush.c
-
-    86	
-    87	static void __flush_tlb_range(struct mm_struct *mm,
-    88				      const struct cpumask *cmask,
-    89				      unsigned long start, unsigned long size,
-    90				      unsigned long stride)
-    91	{
-  > 92		struct flush_tlb_range_data ftd;
-    93		unsigned long asid = get_mm_asid(mm);
-  > 94		bool broadcast;
-    95		unsigned int cpu;
-    96	
-    97		if (cpumask_empty(cmask))
-    98			return;
-    99	
-   100		cpu = get_cpu();
-   101	
-   102		/* Check if the TLB flush needs to be sent to other CPUs. */
-   103		if (cpumask_any_but(cmask, cpu) >= nr_cpu_ids) {
-   104			local_flush_tlb_range_asid(start, size, stride, asid);
-   105		} else if (riscv_use_sbi_for_rfence()) {
-   106			sbi_remote_sfence_vma_asid(cmask, start, size, asid);
-   107		} else {
-   108			struct flush_tlb_range_data ftd;
-   109	
-   110			ftd.asid = asid;
-   111			ftd.start = start;
-   112			ftd.size = size;
-   113			ftd.stride = stride;
-   114			on_each_cpu_mask(cmask, __ipi_flush_tlb_range_asid, &ftd, 1);
-   115		}
-   116	
-   117		put_cpu();
-   118	
-   119		if (mm)
-   120			mmu_notifier_arch_invalidate_secondary_tlbs(mm, start, start + size);
-   121	}
-   122	
-
--- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+-- Steve
 
 _______________________________________________
 linux-riscv mailing list
