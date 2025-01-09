@@ -4,39 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E8CEDE77197
-	for <linux-riscv@archiver.kernel.org>; Thu,  9 Jan 2025 14:51:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 46AA4E77197
+	for <linux-riscv@archiver.kernel.org>; Thu,  9 Jan 2025 14:59:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
+	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=QrhzprM7U+MG26s8vHp5dCphRV7rU+SMw5MC9llHEwg=; b=g2JeK7yVmsIn1j
-	MJpW83n4FhWjsu6h9bfDjPLcc7cj4L7rS2awQgGJ1/AxESBZE8kZpbv78F3DSZf8d9KddYjJ7JpR/
-	+oEwhf/aw8ZpiMNemZCIZS5L8LCSF7DXYcJigoLmQbUUScJzZYciOJ0k5jOFvcLfYMRvTziX8+rrl
-	rXXJdIk9BCdh6rLxnpnzNfA+SvJDo4AtiWoFjUtfmEuOFsO2ZdxednUwQu/8INW2c8jmUsrbRghu/
-	i0Y4nhBLCnRdtfYS6uL7455d66DVC+nEMgUT6sIgub9UV/ZAgLk8zjrlMke4FuDNul8oSUuiYiuJZ
-	oJ2NACMoStVoVYysZkAg==;
+	List-Owner; bh=t7pBXN9X8I6Q/HQ1L2IxwhXPFmMc1uSKtsAFiRrsSGk=; b=Hq1F3pHq9fF45o
+	tk9XgAm2F7Df345kLBAQjrxeyyakfnGQ2nWM3D4U4uRAupTgdk7Gua6NW2sUioJVl2G1/dHk3cgGi
+	QYjmKhyHZUA9oReLZZZlhw7dnn1rhZ++yTZyBDRDnkP2t6tR81PJsa8jVsDE9DESmX0NupwNt2QrD
+	wwNPjg+6BiA5u1FEJy84g+vV2xn0BHpIXYTN1aP/Ka3WNgWg3uogxEjnPk0CTA4xntsj9/uxckS66
+	eXLSZSfUw6MrykKJH8fZbUKfzsBm0mScqrE7JsHu7EcuCpxjxWbG7N6ckQvt8Ru1gUbRaPlrV0gQ5
+	FILCmNL8JQLe5JOdQGOw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVts9-0000000CJCJ-49rv;
-	Thu, 09 Jan 2025 14:50:58 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1tVu0R-0000000CLFx-2zB5;
+	Thu, 09 Jan 2025 14:59:31 +0000
+Received: from mgamail.intel.com ([192.198.163.10])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVtqO-0000000CIfD-4BVl;
-	Thu, 09 Jan 2025 14:49:10 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 861CE5C5A84;
-	Thu,  9 Jan 2025 14:48:27 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 35F4DC4CED2;
-	Thu,  9 Jan 2025 14:49:04 +0000 (UTC)
-Date: Thu, 9 Jan 2025 09:50:37 -0500
-From: Steven Rostedt <rostedt@goodmis.org>
-To: Joel Granados <joel.granados@kernel.org>
-Cc: Thomas =?UTF-8?B?V2Vpw59zY2h1aA==?= <linux@weissschuh.net>, Kees Cook
- <kees@kernel.org>, Luis Chamberlain <mcgrof@kernel.org>,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	id 1tVtzD-0000000CKuY-45OH;
+	Thu, 09 Jan 2025 14:58:17 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1736434696; x=1767970696;
+  h=from:to:cc:subject:in-reply-to:references:date:
+   message-id:mime-version;
+  bh=vefbR+WxUsl6W1mxf4BqpYTUFUuz57yEjCw3Nj1MESk=;
+  b=O0S/GfACkzTzfNWxJdZV/RDMLKAc9QTiO1ADlXLVE3R8aVQztjZpLXES
+   5l3F2mn0eVSjdHAWpZObipNk1T6L8A/hfcH38AAdDhayHMryokusuQSrN
+   zLJZshzx+NKdjNs4grPe8khjD1x0DoX0bV6V8MaMQly1r0v4djgeK7xbI
+   KuOR9H3mQX+wdyiFSZfIYun85ZUY9Cxh8jLe9TN/EZ9fkqKUOz7ZhtbjO
+   Sxmg45pHRaC2XRbiaZOGU+vmKMAC5FP8aZC65dcRKocGXWf0K7+f1EgBn
+   S2t2N7ZvbUPwfnU6eyRrZOVIoBtSsXcrHps1xntpuUx6l/6YJbCElzyhM
+   g==;
+X-CSE-ConnectionGUID: 1EVrddV2QSqjUQFCBxWPzw==
+X-CSE-MsgGUID: Kw1T8CIkRrW7I0j0KtjKbA==
+X-IronPort-AV: E=McAfee;i="6700,10204,11310"; a="48110955"
+X-IronPort-AV: E=Sophos;i="6.12,301,1728975600"; 
+   d="scan'208";a="48110955"
+Received: from orviesa005.jf.intel.com ([10.64.159.145])
+  by fmvoesa104.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 09 Jan 2025 06:58:14 -0800
+X-CSE-ConnectionGUID: aAxGFyBISeOF2fi1TGSFDw==
+X-CSE-MsgGUID: hUbAKolZSWC8NTenKubm+A==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.12,224,1728975600"; 
+   d="scan'208";a="108527826"
+Received: from unknown (HELO localhost) ([10.237.66.160])
+  by orviesa005-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 09 Jan 2025 06:58:04 -0800
+From: Jani Nikula <jani.nikula@linux.intel.com>
+To: Joel Granados <joel.granados@kernel.org>, Thomas =?utf-8?Q?Wei=C3=9Fsc?=
+ =?utf-8?Q?huh?=
+ <linux@weissschuh.net>, Kees Cook <kees@kernel.org>, Luis Chamberlain
+ <mcgrof@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
  linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
  linux-s390@vger.kernel.org, linux-crypto@vger.kernel.org,
  openipmi-developer@lists.sourceforge.net, intel-gfx@lists.freedesktop.org,
@@ -50,16 +72,19 @@ Cc: Thomas =?UTF-8?B?V2Vpw59zY2h1aA==?= <linux@weissschuh.net>, Kees Cook
  linux-xfs@vger.kernel.org, io-uring@vger.kernel.org, bpf@vger.kernel.org,
  kexec@lists.infradead.org, linux-trace-kernel@vger.kernel.org,
  linux-hardening@vger.kernel.org, apparmor@lists.ubuntu.com,
- linux-security-module@vger.kernel.org, keyrings@vger.kernel.org
+ linux-security-module@vger.kernel.org, keyrings@vger.kernel.org, Joel
+ Granados <joel.granados@kernel.org>
 Subject: Re: [PATCH] treewide: const qualify ctl_tables where applicable
-Message-ID: <20250109095037.0ac3fe09@gandalf.local.home>
 In-Reply-To: <20250109-jag-ctl_table_const-v1-1-622aea7230cf@kernel.org>
+Organization: Intel Finland Oy - BIC 0357606-4 - Westendinkatu 7, 02160 Espoo
 References: <20250109-jag-ctl_table_const-v1-1-622aea7230cf@kernel.org>
-X-Mailer: Claws Mail 3.20.0git84 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
+Date: Thu, 09 Jan 2025 16:58:01 +0200
+Message-ID: <87frlsjapy.fsf@intel.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250109_064909_076047_825B7447 
-X-CRM114-Status: GOOD (  10.41  )
+X-CRM114-CacheID: sfid-20250109_065816_028081_A9C2E45B 
+X-CRM114-Status: UNSURE (   6.22  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,39 +101,28 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, 09 Jan 2025 14:16:39 +0100
-Joel Granados <joel.granados@kernel.org> wrote:
-
-> diff --git a/kernel/trace/ftrace.c b/kernel/trace/ftrace.c
-> index 2e113f8b13a2..489cbab3d64c 100644
-> --- a/kernel/trace/ftrace.c
-> +++ b/kernel/trace/ftrace.c
-> @@ -8786,7 +8786,7 @@ ftrace_enable_sysctl(const struct ctl_table *table, int write,
+On Thu, 09 Jan 2025, Joel Granados <joel.granados@kernel.org> wrote:
+> diff --git a/drivers/gpu/drm/i915/i915_perf.c b/drivers/gpu/drm/i915/i915_perf.c
+> index 2406cda75b7b..5384d1bb4923 100644
+> --- a/drivers/gpu/drm/i915/i915_perf.c
+> +++ b/drivers/gpu/drm/i915/i915_perf.c
+> @@ -4802,7 +4802,7 @@ int i915_perf_remove_config_ioctl(struct drm_device *dev, void *data,
 >  	return ret;
 >  }
 >  
-> -static struct ctl_table ftrace_sysctls[] = {
-> +static const struct ctl_table ftrace_sysctls[] = {
+> -static struct ctl_table oa_table[] = {
+> +static const struct ctl_table oa_table[] = {
 >  	{
->  		.procname       = "ftrace_enabled",
->  		.data           = &ftrace_enabled,
-> diff --git a/kernel/trace/trace_events_user.c b/kernel/trace/trace_events_user.c
-> index 17bcad8f79de..97325fbd6283 100644
-> --- a/kernel/trace/trace_events_user.c
-> +++ b/kernel/trace/trace_events_user.c
-> @@ -2899,7 +2899,7 @@ static int set_max_user_events_sysctl(const struct ctl_table *table, int write,
->  	return ret;
->  }
->  
-> -static struct ctl_table user_event_sysctls[] = {
-> +static const struct ctl_table user_event_sysctls[] = {
->  	{
->  		.procname	= "user_events_max",
->  		.data		= &max_user_events,
+>  	 .procname = "perf_stream_paranoid",
+>  	 .data = &i915_perf_stream_paranoid,
 
-Acked-by: Steven Rostedt (Google) <rostedt@goodmis.org> # for kernel/trace/
+For i915,
 
--- Steve
+Acked-by: Jani Nikula <jani.nikula@intel.com>
+
+
+-- 
+Jani Nikula, Intel
 
 _______________________________________________
 linux-riscv mailing list
