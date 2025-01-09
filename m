@@ -4,63 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D5890E77197
-	for <linux-riscv@archiver.kernel.org>; Thu,  9 Jan 2025 16:16:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20EF8E77197
+	for <linux-riscv@archiver.kernel.org>; Thu,  9 Jan 2025 16:16:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
 	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=S9FdreQed3pq9rqv8CNdefgNEiAp+3rTvxHkBw1h3Cg=; b=3Tn89imyQMMfQB
-	SdBLo/CjnJ5l2sYpt5NNv7rw2kunnUh+ZxdYzGg2DVscz6o0nJgO6+HMFIAOrIRgrX611ZboYKdoM
-	lQLzLKIUr2gKSyJ3qxIyV6FDNVoDwlZLHzroktXZ5FS1H76c/sMthzryJ7CTQW778yOKaQWOThFaO
-	AfKdtwpFcg/zTzdLKJmyMTpP7x5FlRC8nqKa6tFrS+9b2wQb7f7OYmgvJgZy4puJndCjAktJvBk7e
-	+ZjsGRZiE/JqMXncTy0eNiT0UvPm1buP/UyEqQdPyqZFDRbNkTAW69pSOe2UdYJTwBI3TJyAH0r7j
-	s4o2fKrjw0bLjK9nIShw==;
+	List-Owner; bh=z4/Z54G9t1yj5dKVDmpTGsz0vuRs20qrR4d4u0ZWsUs=; b=nzA5C3Ic3rhb+u
+	AguMo4pVH9guh2SH5YyYO/Fkujvm1cjAMMLWsTrRN9pu8fZxTE1rOVeiIC5fTcwR/T2KUb61sATvP
+	2mcWuLUz0a1Vffs3UjbtOqSO0y0CHtwjvEZVWaROb5pBvkoLbZTYbc3tVPZmJ2LsK8RgEQk3AC7HH
+	qCHp5PzDB5+lAJ2+HBm74Y+QKJ2LrNEB6Ay7KHyHklmeD1gixOlZfcjtsoxQrSlgWW28SASUtbPQd
+	Raf42AFiQ55KKuT5tE1y2jaBPDgSkDSS5gktj39H+otw9i/mMSW/K4bll3iCCxjhz7VaV2ASL4czL
+	AaecBLFDrrK7xNldMrrw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVvCr-0000000Cdiv-1Vz4;
-	Thu, 09 Jan 2025 16:16:25 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1tVvCw-0000000CdlJ-0Cm0;
+	Thu, 09 Jan 2025 16:16:30 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVvCo-0000000Cdi1-2x6n
+	id 1tVvCs-0000000Cdj3-2B6S
 	for linux-riscv@lists.infradead.org;
-	Thu, 09 Jan 2025 16:16:23 +0000
+	Thu, 09 Jan 2025 16:16:27 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 4E22CA41F2C;
-	Thu,  9 Jan 2025 16:14:33 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7F633C4CED3;
-	Thu,  9 Jan 2025 16:16:21 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 199835C5C83;
+	Thu,  9 Jan 2025 16:15:45 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C8465C4CED3;
+	Thu,  9 Jan 2025 16:16:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1736439381;
-	bh=JbWDKBRIac68JZfYCDScQslJZun2nbBr1DkEqLzKpJg=;
+	s=k20201202; t=1736439385;
+	bh=P4omZiuNPKRvfWFtFyjMMe2KlP1PlaCHnveL+GNvOfc=;
 	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=YhesjzDLLGGN+NIcaSK+Ufh5ObnT5njRu4WalUn+Cb0hxWW6gQJZ2V4Vu5nMoKK2r
-	 Avu9vOG73Tp0tW7/FdWGAQGeYd9vXomL8ZDF7KyplnitpqBBYigydMHKror6zblh5H
-	 upUJoVkJcg+fgD57F9gJJF6X9SvPfCKmNTgQBK9jU1cE0MHd00bcaQQuIn1Ma9jRoy
-	 IpyMAXssL7ZfZIhrBPt8yW6H+GHzC5MozGSSJkEUstULPBsHAr5V8cs220WrJ+hgW6
-	 9T6RXoNf2rO9Yo0S4jyqMfM6Hx0kdoo4w01Zie17qIR2F+8uULIxhf6UQM5u87vvUo
-	 9GBr5sRRcJuow==
+	b=N+OLsBxL39t8/zEdqoVMIaKdv36/PzzEpTg0c+I4Q1EWxTh/txmYM74trpiwWY7Ge
+	 +HomxJCp7LzH11ryhNdqZYqv2cLHXonQdgTwxfcTHdjNKIfgORR5JZ65k+ZQ5LBsKf
+	 idHWrcDQ5JALk7kh7AiDyJGNN84EU0fD5iAQm/9/MWFO4to1CiURqBUeKHc9ccSqZV
+	 NuysTwK4b7ijzXHqVV0cUBs0hx5fH52d+86DS/EbnE3zaSCpCkzYFsLm7StwPyiYPm
+	 y5pAvjwmJuIcTssK7SkuHYB/9qXjG91eFsNPO+17i+DkacNMunuhUqNX/WUBnh02uv
+	 inXLIsHNV/6tw==
 Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 71433380A97D;
-	Thu,  9 Jan 2025 16:16:44 +0000 (UTC)
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id ADFCB380A97D;
+	Thu,  9 Jan 2025 16:16:48 +0000 (UTC)
 MIME-Version: 1.0
-Subject: Re: [PATCH] riscv: Fix sleeping in invalid context in die()
+Subject: Re: [PATCH] riscv: stacktrace: fix backtracing through exceptions
 From: patchwork-bot+linux-riscv@kernel.org
-Message-Id: <173643940326.1375203.17540794932675045582.git-patchwork-notify@kernel.org>
-Date: Thu, 09 Jan 2025 16:16:43 +0000
-References: <20241118091333.1185288-1-namcao@linutronix.de>
-In-Reply-To: <20241118091333.1185288-1-namcao@linutronix.de>
-To: Nam Cao <namcao@linutronix.de>
+Message-Id: <173643940723.1375203.17763630478007232527.git-patchwork-notify@kernel.org>
+Date: Thu, 09 Jan 2025 16:16:47 +0000
+References: <20241209155714.1239665-1-cleger@rivosinc.com>
+In-Reply-To: <20241209155714.1239665-1-cleger@rivosinc.com>
+To: =?utf-8?b?Q2zDqW1lbnQgTMOpZ2VyIDxjbGVnZXJAcml2b3NpbmMuY29tPg==?=@aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org
 Cc: linux-riscv@lists.infradead.org, paul.walmsley@sifive.com,
- palmer@dabbelt.com, aou@eecs.berkeley.edu, bjorn@rivosinc.com,
- schwab@suse.de, songshuaishuai@tinylab.org, coelacanthushex@gmail.com,
- bigeasy@linutronix.de, linux-kernel@vger.kernel.org, stable@vger.kernel.org
+ palmer@dabbelt.com, linux-kernel@vger.kernel.org, antonb@tenstorrent.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250109_081622_807057_92A1F254 
-X-CRM114-Status: UNSURE (   8.31  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250109_081626_592827_AF09BCA1 
+X-CRM114-Status: GOOD (  10.15  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,34 +79,22 @@ Hello:
 This patch was applied to riscv/linux.git (fixes)
 by Palmer Dabbelt <palmer@rivosinc.com>:
 
-On Mon, 18 Nov 2024 10:13:33 +0100 you wrote:
-> die() can be called in exception handler, and therefore cannot sleep.
-> However, die() takes spinlock_t which can sleep with PREEMPT_RT enabled.
-> That causes the following warning:
-> 
-> BUG: sleeping function called from invalid context at kernel/locking/spinlock_rt.c:48
-> in_atomic(): 1, irqs_disabled(): 1, non_block: 0, pid: 285, name: mutex
-> preempt_count: 110001, expected: 0
-> RCU nest depth: 0, expected: 0
-> CPU: 0 UID: 0 PID: 285 Comm: mutex Not tainted 6.12.0-rc7-00022-ge19049cf7d56-dirty #234
-> Hardware name: riscv-virtio,qemu (DT)
-> Call Trace:
->     dump_backtrace+0x1c/0x24
->     show_stack+0x2c/0x38
->     dump_stack_lvl+0x5a/0x72
->     dump_stack+0x14/0x1c
->     __might_resched+0x130/0x13a
->     rt_spin_lock+0x2a/0x5c
->     die+0x24/0x112
->     do_trap_insn_illegal+0xa0/0xea
->     _new_vmalloc_restore_context_a0+0xcc/0xd8
-> Oops - illegal instruction [#1]
+On Mon,  9 Dec 2024 16:57:12 +0100 you wrote:
+> Prior to commit 5d5fc33ce58e ("riscv: Improve exception and system call
+> latency"), backtrace through exception worked since ra was filled with
+> ret_from_exception symbol address and the stacktrace code checked 'pc' to
+> be equal to that symbol. Now that handle_exception uses regular 'call'
+> instructions, this isn't working anymore and backtrace stops at
+> handle_exception(). Since there are multiple call site to C code in the
+> exception handling path, rather than checking multiple potential return
+> addresses, add a new symbol at the end of exception handling and check pc
+> to be in that range.
 > 
 > [...]
 
 Here is the summary with links:
-  - riscv: Fix sleeping in invalid context in die()
-    https://git.kernel.org/riscv/c/6a97f4118ac0
+  - riscv: stacktrace: fix backtracing through exceptions
+    https://git.kernel.org/riscv/c/51356ce60e59
 
 You are awesome, thank you!
 -- 
