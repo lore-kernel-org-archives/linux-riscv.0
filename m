@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D1B2E7719A
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 755DDE77199
 	for <linux-riscv@archiver.kernel.org>; Thu,  9 Jan 2025 16:16:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -12,56 +12,54 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
 	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=5yzuHHxQnOZ4VB4IkBmf2Kb41ZDGWmLLcpqDjkW6cyM=; b=P4kqADBgayu0/R
-	5i2tCvxURDZIiGnyNG0ib2Q0iF22lbirG+J/GH0V5m0xVLB//4RLreEJU4Ms2Ux4pl5nJkbBBP155
-	2zfZtWOcfVezBgLfA5YEMSgpDxtXl349v3WdqJUSI8bC3GDFyyptOtGCkV0lsM9E4RBGsPcu3VcWO
-	QwVB0tAg9b3Pwq8bU+8oI9m0gAHCNmMMQTVZusChkD0QBJcQGmltaNNc2KSfvLv88uMPE95D3yfPH
-	X7jE5QmE4vFmRzy3Z01do1DuW6LuTKyalizSZ/dmOe2kPO2q4ITxoX7C+RG8v/AUPwLSEah6962j2
-	P0NxOlI4VKHytVRjBzlQ==;
+	List-Owner; bh=/Ri5UUe6L7ayGPscYwHAIp2pr7fTy6rCi15dvRji9v0=; b=1LFtvTrGuvlcRV
+	rCHrvqEKKZ6+tSBhQAYSfs3GjIWgPrpQSCYFht+x5RtLMszJKReeYSCuVykQdgHtEcZ+y4o/i17ZT
+	IxJaJmVpYIIhOftcObk8yWI5Iz8yiiGutdC+Nf60oxtU2+YOMHMsJlbf7wnt6WmiKgldVJRuDV3yq
+	qHC2sGH4Rz1Fa6FhfyF7vXkwFrMgTK7SwnVlNs/AUZQGTUo9gtSqsATJOQRDoMj+fUzxQ2dC8+iAv
+	Sqpeqttvv8RViInyL2FE1sa5U2kZ8cXZOYE99pFfkvVQ7tIL6xA4FP6BYJvJj8wjuZ6fgVsR+7HUT
+	Y60Z6qwcm9ekQFP7kB6Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVvCz-0000000CdoI-3u1c;
-	Thu, 09 Jan 2025 16:16:33 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tVvCr-0000000Cdiz-3qFU;
+	Thu, 09 Jan 2025 16:16:25 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tVvCw-0000000Cdlk-3C29
+	id 1tVvCp-0000000CdiH-31op
 	for linux-riscv@lists.infradead.org;
-	Thu, 09 Jan 2025 16:16:31 +0000
+	Thu, 09 Jan 2025 16:16:25 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 4963D5C5C7C;
-	Thu,  9 Jan 2025 16:15:49 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 13588C4CED2;
-	Thu,  9 Jan 2025 16:16:30 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 3D7B85C5BDF;
+	Thu,  9 Jan 2025 16:15:42 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 10E99C4CED6;
+	Thu,  9 Jan 2025 16:16:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1736439390;
-	bh=lLc428MwVBZLOUjSb7mBR/eR0fcuFIIBC38FuoCAZgc=;
+	s=k20201202; t=1736439383;
+	bh=1F5eIseTUkjVCc2h24GfQ7JMZM/Tnc1tqemDD6ZG91U=;
 	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=ox8csaZVwuUcQbX4/ODrqTC2b/7NOy4qHH1/xjBCRfHbfTIi+Yvr3T+MgmLfq4W2G
-	 LtXEJ7WRtaX4TIiDDZbhxKxd+eKyhYShsYERMmhMPBWEpy+YEwXwedJbl3o6tui3jM
-	 bGuvsgeggpWHfeBMwJa/IDjRVQF9VmQN1EbZhIJGH3by4qiLVAFERzLL4HJQmkNAt0
-	 QDVRrKLzuDSqxyU15p3B42r+C3KfpWhgrnK1gbqgemJroOHeacz/OuQAu4tv3x+ZiV
-	 oqkN/Gd+1meHJfNwk7AJHm6sQInxs6iXBaYrhvgZFvGsaV6h1poyDOBhnNR3UMZrtM
-	 v+666YguQKwWA==
+	b=Hn4f0k6BA8hefxug0N0Gxer4jyNj1q9wu5V+YCMr8OVvOUEMMM3nxaGiBdEx5vvo5
+	 3yj76VTNX6P8tCOwKsY8kVHk6Z8NdmUYiZiNTPgsF6ePEXPeNwQWXPEFS3vcDg/dyW
+	 cLee8moO1FRKu3mDXiBfwU8wy9kLLPB17CbZlQ8JrJz/lC3qqZyFrErIwp/SLG/8IY
+	 D5IAPikRVmW7hDtZ6EvTY4h6bLu4CG4VVWU5TvwfixB3U45nt/9d6mjN3CeCcldUsn
+	 bYPUalU/ZYq3GyYGuMyp6xdkfONZboC9vLC3yeG34gx6M5xvj8UKmol6raTgKqnJG1
+	 8L85yNNG9WNVA==
 Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id EADB3380A97D;
-	Thu,  9 Jan 2025 16:16:52 +0000 (UTC)
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id EB122380A97D;
+	Thu,  9 Jan 2025 16:16:45 +0000 (UTC)
 MIME-Version: 1.0
-Subject: Re: [PATCH] riscv: qspinlock: Fixup _Q_PENDING_LOOPS definition
+Subject: Re: [PATCH v2] riscv: module: use a plain variable for list_head instead
+ of a pointer
 From: patchwork-bot+linux-riscv@kernel.org
-Message-Id: <173643941148.1375203.4599909310672567109.git-patchwork-notify@kernel.org>
-Date: Thu, 09 Jan 2025 16:16:51 +0000
-References: <20241215135252.201983-1-guoren@kernel.org>
-In-Reply-To: <20241215135252.201983-1-guoren@kernel.org>
-To: Guo Ren <guoren@kernel.org>
+Message-Id: <173643940449.1375203.11421611509133898262.git-patchwork-notify@kernel.org>
+Date: Thu, 09 Jan 2025 16:16:44 +0000
+References: <20241127142519.3038691-1-cleger@rivosinc.com>
+In-Reply-To: <20241127142519.3038691-1-cleger@rivosinc.com>
+To: =?utf-8?b?Q2zDqW1lbnQgTMOpZ2VyIDxjbGVnZXJAcml2b3NpbmMuY29tPg==?=@aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org
 Cc: linux-riscv@lists.infradead.org, paul.walmsley@sifive.com,
- palmer@dabbelt.com, bjorn@rivosinc.com, conor@kernel.org, leobras@redhat.com,
- peterz@infradead.org, parri.andrea@gmail.com, will@kernel.org,
- longman@redhat.com, boqun.feng@gmail.com, arnd@arndb.de,
- alexghiti@rivosinc.com, linux-kernel@vger.kernel.org,
- guoren@linux.alibaba.com
+ palmer@dabbelt.com, aou@eecs.berkeley.edu, linux-kernel@vger.kernel.org,
+ charlie@rivosinc.com, zhangkai@iscas.ac.cn, ajones@ventanamicro.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250109_081630_842867_CD3641B0 
-X-CRM114-Status: UNSURE (   7.40  )
+X-CRM114-CacheID: sfid-20250109_081623_795559_6C7CEC68 
+X-CRM114-Status: UNSURE (   8.09  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -74,41 +72,26 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hello:
-
-This patch was applied to riscv/linux.git (fixes)
-by Palmer Dabbelt <palmer@rivosinc.com>:
-
-On Sun, 15 Dec 2024 08:52:52 -0500 you wrote:
-> From: Guo Ren <guoren@linux.alibaba.com>
-> 
-> When CONFIG_RISCV_QUEUED_SPINLOCKS=y, the _Q_PENDING_LOOPS
-> definition is missing. Add the _Q_PENDING_LOOPS definition for
-> pure qspinlock usage.
-> 
-> Fixes: ab83647fadae ("riscv: Add qspinlock support")
-> Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
-> Signed-off-by: Guo Ren <guoren@kernel.org>
-> 
-> [...]
-
-Here is the summary with links:
-  - riscv: qspinlock: Fixup _Q_PENDING_LOOPS definition
-    https://git.kernel.org/riscv/c/40e6073e7648
-
-You are awesome, thank you!
--- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
-
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+SGVsbG86CgpUaGlzIHBhdGNoIHdhcyBhcHBsaWVkIHRvIHJpc2N2L2xpbnV4LmdpdCAoZml4ZXMp
+CmJ5IFBhbG1lciBEYWJiZWx0IDxwYWxtZXJAcml2b3NpbmMuY29tPjoKCk9uIFdlZCwgMjcgTm92
+IDIwMjQgMTU6MjU6MTcgKzAxMDAgeW91IHdyb3RlOgo+IHJlbF9oZWFkJ3MgbGlzdF9oZWFkIG1l
+bWJlciwgcmVsX2VudHJ5LCBkb2Vzbid0IG5lZWQgdG8gYmUgYWxsb2NhdGVkLAo+IGl0cyBzdG9y
+YWdlIGNhbiBqdXN0IGJlIHBhcnQgb2YgdGhlIGFsbG9jYXRlZCByZWxfaGVhZC4gUmVtb3ZlIHRo
+ZQo+IHBvaW50ZXIgd2hpY2ggYWxsb3dzIHRvIGdldCByaWQgb2YgdGhlIGFsbG9jYXRpb24gYXMg
+d2VsbCBhcyBhbiBleGlzdGluZwo+IG1lbW9yeSBsZWFrIGZvdW5kIGJ5IEthaSBaYW5nIHVzaW5n
+IGttZW1sZWFrLgo+IAo+IFJlcG9ydGVkLWJ5OiBLYWkgWmhhbmcgPHpoYW5na2FpQGlzY2FzLmFj
+LmNuPgo+IFNpZ25lZC1vZmYtYnk6IENsw6ltZW50IEzDqWdlciA8Y2xlZ2VyQHJpdm9zaW5jLmNv
+bT4KPiBSZXZpZXdlZC1ieTogQW5kcmV3IEpvbmVzIDxham9uZXNAdmVudGFuYW1pY3JvLmNvbT4K
+PiAKPiBbLi4uXQoKSGVyZSBpcyB0aGUgc3VtbWFyeSB3aXRoIGxpbmtzOgogIC0gW3YyXSByaXNj
+djogbW9kdWxlOiB1c2UgYSBwbGFpbiB2YXJpYWJsZSBmb3IgbGlzdF9oZWFkIGluc3RlYWQgb2Yg
+YSBwb2ludGVyCiAgICBodHRwczovL2dpdC5rZXJuZWwub3JnL3Jpc2N2L2MvMDNmMGI1NDg1Mzdm
+CgpZb3UgYXJlIGF3ZXNvbWUsIHRoYW5rIHlvdSEKLS0gCkRlZXQtZG9vdC1kb3QsIEkgYW0gYSBi
+b3QuCmh0dHBzOi8va29yZy5kb2NzLmtlcm5lbC5vcmcvcGF0Y2h3b3JrL3B3Ym90Lmh0bWwKCgoK
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlz
+Y3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xp
+c3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
