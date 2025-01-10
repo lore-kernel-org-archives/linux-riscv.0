@@ -4,8 +4,8 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E8A03E77188
-	for <linux-riscv@archiver.kernel.org>; Fri, 10 Jan 2025 23:20:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3BE21E7719D
+	for <linux-riscv@archiver.kernel.org>; Fri, 10 Jan 2025 23:20:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
@@ -13,76 +13,76 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	References:Mime-Version:In-Reply-To:Date:Reply-To:Content-ID:
 	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
 	:Resent-Message-ID:List-Owner;
-	bh=7ecASLCLIj/wgGA9otCjssC+2Ke2xXZNM/eZNNNsmcg=; b=GBVhzbWGTIClEtctr1XbKI8+ih
-	apGluOe9Jv8AjhYKpsB4W4PziV2Dr9md9o8opEnvmiGVDyiWcBYLLJycWWWuF13leClDO4E/3SQtr
-	+NVmwxbh4i5Z7qy+pb8mqf+TwDZgbl62vIA+dKRA70bppJ2xpmNb96P1Z6JVVAEnfapTswW6oLBuM
-	R6+QOqQYr04CM2t0iOBs12sWsjthN/M4gyhA4vpkqUJRBnvQdXR9KPf8U+Iqu0RLHfYcDoHFdvSp6
-	ypQv7G3vIn0nT3bIcSrG6MBi4umMFPpIAdx5d7X8ooyfmAhBPo5G7wIqG17hlvvsNG908gfi77OxX
-	7GrMJIBw==;
+	bh=piwhqrElHKvGadACmc8P0S6wRegJ7/X+NgJ3JKZQPLo=; b=D/6BaJ7aT91uhVrPDsmwm3kKrn
+	BLUm6cafBBC+/3znxWJwQkgH1GRcY9ndCTIJdIKyy9G4yJBcGQEChB7z0SCU/B9c++cOuiUnpVKMM
+	9Tsr6aPRZ4mrFOndxYFBfyfrY4zyvDEvhTd85EZnpGrfUKKjn+kHYl9qnW8e56OiQiLJ3+J1W30yf
+	dyCN0xHtdsb11dSGyAWg+qwdEe32BudXt6n1YJNL5eA/5T1Or8qtGPhvfa3bgmSUtYTqPJeZZrHcJ
+	Ltan/rAyxaOGzLZOIriUjvsMgJwLNZhMMeZn7E8bEOzNZeXg1QaKjk82NH08wYX81h0bUj9cSklNV
+	BDQajzvA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tWOIL-0000000HEeW-26Mo;
-	Fri, 10 Jan 2025 23:20:01 +0000
+	id 1tWOIM-0000000HEfv-1Erc;
+	Fri, 10 Jan 2025 23:20:02 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tWJwo-0000000Gbhg-1CTf
+	id 1tWJws-0000000GblE-35Xd
 	for linux-riscv@bombadil.infradead.org;
-	Fri, 10 Jan 2025 18:41:32 +0000
+	Fri, 10 Jan 2025 18:41:34 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Content-Type:Cc:To:From:Subject:
 	Message-ID:References:Mime-Version:In-Reply-To:Date:Sender:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=KV+yP+i7I0yJqjdnPuT5zohhg/S0Da4STnyrBal2kA0=; b=RHUVpqQ8DsY8/mWG3S4So1aOd4
-	Vy0bn8eK5zodLR2JT5apLrtEVCdPd37qOO1Hn7FBRx/PD/hEVsJf1BdJ4Y4s+2HaK83Ttsww9DPFj
-	K4d0Xl1H7mz9s0AvD+UVmNwp1b4SFwUvlVR/9dhm0M/ZmEE+CJ2KQLv2kkl9diKs0WcS9JOjDDl2h
-	07Pzy6r57zV6VZ6Rjnjzg5GC1pkBtWLbxINIpoPyE6eDDYpScB1YBh76VIAL4VA2Hknq29CB/PRsy
-	vjG2g95yOyaMwcYxR0IgDgLedLO5laa7D299Nh+VCisyiLSoPhq3Fzwk+LM0e6StCM19bYGCL+ZyP
-	NuPIF9Kw==;
+	bh=lgAtsH7tF25YqHAENGvYLMvhBopdecMcg5W9s6t9Qm4=; b=TP5VEjc1mX2wWxicPPswZERaG2
+	Msakl1A6zExiHzAF6FzcJ/cp8OIdtnM9f9vdWLO7nIuK/KYMiJ/ZAKawy35DMObLfZ5xVJNDZJ4gr
+	6s2hUeqk48GrpglIoDLF7Ihssy6zIUUJ5PTdncvXdzmMblGtFgBrgy6PzQEl1U83ZkUGs/HQnsn4I
+	hfT8ftc1quI0Y/U5Ch2zmg0UxYoUBWIVG7vwu0hWGrdKgoIxPCNvx9VvSlPBFZE8qifgkZZOpT+FY
+	iw9rsDY56d7amnhnr3VJEtLGjAgMWWcRJ5olDuLRz6ZTYrY/NHng7DZ/9891iaHCXlG725+wPUpDC
+	WM6C81+A==;
 Received: from mail-wm1-x349.google.com ([2a00:1450:4864:20::349])
 	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tWJwi-00000009scl-1Krg
+	id 1tWJwo-00000009sgb-2FRl
 	for linux-riscv@lists.infradead.org;
-	Fri, 10 Jan 2025 18:41:28 +0000
-Received: by mail-wm1-x349.google.com with SMTP id 5b1f17b1804b1-436219070b4so11488005e9.1
-        for <linux-riscv@lists.infradead.org>; Fri, 10 Jan 2025 10:41:24 -0800 (PST)
+	Fri, 10 Jan 2025 18:41:33 +0000
+Received: by mail-wm1-x349.google.com with SMTP id 5b1f17b1804b1-4361ac8b25fso12663735e9.2
+        for <linux-riscv@lists.infradead.org>; Fri, 10 Jan 2025 10:41:29 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1736534482; x=1737139282; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1736534489; x=1737139289; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=KV+yP+i7I0yJqjdnPuT5zohhg/S0Da4STnyrBal2kA0=;
-        b=T+Y+7zuTZ3uuB41Q0pbed2FlPJmpU3v9IcNl3GFgW1sZqpevwd2McPQiXQWbMMNHID
-         C4ywAzuswJq6jwtg/qQ2Kw3XwnZ66dMc+mwLC5k3BFTyR9Phu4nvCnniESGSKBQ2DA6S
-         7Z6oiuxSfBlEWCTNKTBFR6lITATLON0DZAOoIKVWMhLH8Vgkv7h4VWNbUv5TVBFiBZQL
-         vrF9huerFv7J8ueHsPBxQTP9GWu3uOjMtFBgEZdiUfZ3L3YI4MrrpZD5K3oayST5j+df
-         wq8Xp8xwX9xKtOrlErcwOoQxjP1ZE5rA/iZyemrvc/NAW+drCDJyqHlR1+htuJTM8wa9
-         IL4w==
+        bh=lgAtsH7tF25YqHAENGvYLMvhBopdecMcg5W9s6t9Qm4=;
+        b=bfCO4nDbQMSDPYlPBMOy+6exWhsmiyWjOcEvtmGXjIh2YhgHb3DnFM7QYDhgedb678
+         uvdJZaETnoKxK4QuxmVAFN/ESWbBJ6lT22mRLtXRNQ0g790+gdXTzYlCl9P5smuX5ic7
+         Uw4YnEtiuNp8I6lbARbXtRMGQ+vj1FLcwOcqI7cHANdrTr9UJuwxCGK+yQqZ/87ZQOc3
+         kXZYYkgPXUEEzJ4hStw80bON8w3A/zgkjm4z7TsxsLVvAySVkWHP9scYLKmSNJ+BKF6p
+         iR/ktuQJdko2cRRbkLLzdLhhTsA3lzM+zlWUIra7R4AJ4XfTH/L79kbC2ghiMoH14ZbV
+         tYRQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1736534482; x=1737139282;
+        d=1e100.net; s=20230601; t=1736534489; x=1737139289;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=KV+yP+i7I0yJqjdnPuT5zohhg/S0Da4STnyrBal2kA0=;
-        b=mlis8RHbMh6jljkqgVoZvB4bw90pMATE4xjjx4ZJBBxzzIMbFbngiDBelNZH7STxQ+
-         +2Be2l2eukFM0ASFbjFjYumO7ZF7sUTdbNTuwt3T+htmLnrlE8Ln3NtODDZNS5D+6IkX
-         VuxuaXbWh9RIBO44tPQpu39l3T/e4pxR8iElCDVpcaDrqgrXvhHH/ZY6FhlSEfgrX1iG
-         h2WPhR3bkashLf/DYTNzX1neCW3sN78Qlkf/0Kq0pf+ucQMTMOe1nYmlzrFNJ4WIJr0L
-         EYviECjl8pmEnTc6Nx+dQN+prFgZE6NfzT/v98nFmwz3QZGy67zlqjgdBgrtbYUaN+Sw
-         grew==
-X-Forwarded-Encrypted: i=1; AJvYcCXSFkCf4JGoovwuU8ZXgvqFAuwLpWW3Jm+HxqdQzUbCth4+UEl1oRORt5K+PZa8xufX+S9rHCSr9xuoBg==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy8mCUV/lbSEScVgMBhfBWb2m9T0aDSR9Nm6hXD4+8MVQvRHunH
-	PUkER3uLwr/UP8P2R7o7xh41ZW8zcdW19PJRcCoVTUvdeLQBnoQkmji6J8XCkaE0GoeIy3dme7F
-	V2ON9ZTN3bg==
-X-Google-Smtp-Source: AGHT+IGysxF4lj+Pa3edYCQyxcx2uUdgDB4x/aH3it4KUk62HUjYx0xS9V+RTFKPnAfHJUfpiQOrJBNcPZbgiA==
-X-Received: from wmbfl22.prod.google.com ([2002:a05:600c:b96:b0:436:6fa7:621])
+        bh=lgAtsH7tF25YqHAENGvYLMvhBopdecMcg5W9s6t9Qm4=;
+        b=WXeo3JiI0Gr1dWHLGwJHQeiU/dCWVyhv3glPB/akQ5yc70QXCC2YToWzARq6PGe/up
+         kfBtW/6XLyVr/CvaW6QziI60C6PeYvZlwl4u09hut6aP1viI4dw5mPfVaMOA0DYp6w5o
+         a6I9njWbpK+4jvEfYllc+aNlkabmEA1JXICuMSVqoJRK/LWK2+dpA/CmdwHLjxu9AWrI
+         FV7hdMAmvTmSvUYlod1US4qklr6kiZmCadYJCJvf0PXdMrxUf30jS/P2E5u9LhMOe7rJ
+         DNbbZDzX2J5sQE5lBNKSUhBHp21YkJNj+MaYDu8JR12MHZz8CNCEulOAaaDo7WbjbGCr
+         SMUg==
+X-Forwarded-Encrypted: i=1; AJvYcCUrVHUXMHpiSJqt1IUomdAPoS5vMMl4Ynvp34j+jtFZEOiAIDa6eG6u2J/pz94rPaoZ1pMDHmDGmBWgTw==@lists.infradead.org
+X-Gm-Message-State: AOJu0YxfhOd85NoK88Kj3aDVgf3x24nZoYNrgc0YUzcrKYpSk0UJFhLu
+	O/QtOX46De1T+CuHPBWyp5z+6bOSspOC+PhrhvTtNRn5vRLvW2xx1LzBpdazueLqPd+AI2GoS4L
+	gIXozgVvVLA==
+X-Google-Smtp-Source: AGHT+IFeKlzdEnxlsx468YN6J+lzj2fJ2REIK9m1LE7fZOV2UV2JrR/PAzf48/PWmJ/jsXO7ZyblIN12CqtAPQ==
+X-Received: from wmqa17.prod.google.com ([2002:a05:600c:3491:b0:434:fa72:f1bf])
  (user=jackmanb job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:600c:5117:b0:431:60ec:7a96 with SMTP id 5b1f17b1804b1-436e26ddc53mr94187935e9.25.1736534481726;
- Fri, 10 Jan 2025 10:41:21 -0800 (PST)
-Date: Fri, 10 Jan 2025 18:40:42 +0000
+ 2002:a05:600c:4586:b0:434:9e1d:7626 with SMTP id 5b1f17b1804b1-436e26f4b91mr97248925e9.25.1736534488470;
+ Fri, 10 Jan 2025 10:41:28 -0800 (PST)
+Date: Fri, 10 Jan 2025 18:40:45 +0000
 In-Reply-To: <20250110-asi-rfc-v2-v2-0-8419288bc805@google.com>
 Mime-Version: 1.0
 References: <20250110-asi-rfc-v2-v2-0-8419288bc805@google.com>
 X-Mailer: b4 0.15-dev
-Message-ID: <20250110-asi-rfc-v2-v2-16-8419288bc805@google.com>
-Subject: [PATCH RFC v2 16/29] mm: asi: Map kernel text and static data as nonsensitive
+Message-ID: <20250110-asi-rfc-v2-v2-19-8419288bc805@google.com>
+Subject: [PATCH RFC v2 19/29] mm: asi: Stabilize CR3 in switch_mm_irqs_off()
 From: Brendan Jackman <jackmanb@google.com>
 To: Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, 
 	Dave Hansen <dave.hansen@linux.intel.com>, "H. Peter Anvin" <hpa@zytor.com>, 
@@ -135,8 +135,8 @@ Cc: x86@kernel.org, linux-kernel@vger.kernel.org, linux-alpha@vger.kernel.org,
 	kvm@vger.kernel.org, linux-efi@vger.kernel.org, 
 	Brendan Jackman <jackmanb@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250110_184124_454951_80AAFC98 
-X-CRM114-Status: GOOD (  27.97  )
+X-CRM114-CacheID: sfid-20250110_184130_727529_D2A4ADBA 
+X-CRM114-Status: GOOD (  13.38  )
 X-Mailman-Approved-At: Fri, 10 Jan 2025 15:19:44 -0800
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -154,200 +154,31 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Basically we need to map the kernel code and all its static variables.
-Per-CPU variables need to be treated specially as described in the
-comments. The cpu_entry_area is similar - this needs to be
-nonsensitive so that the CPU can access the GDT etc when handling
-a page fault.
-
-Under 5-level paging, most of the kernel memory comes under a single PGD
-entry (see Documentation/x86/x86_64/mm.rst. Basically, the mapping is
-for this big region is the same as under 4-level, just wrapped in an
-outer PGD entry). For that region, the "clone" logic is moved down one
-step of the paging hierarchy.
-
-Note that the p4d_alloc in asi_clone_p4d won't actually be used in
-practice; the relevant PGD entry will always have been populated by
-prior asi_map calls so this code would "work" if we just wrote
-p4d_offset (but asi_clone_p4d would be broken if viewed in isolation).
-
-The vmemmap area is not under this single PGD, it has its own 2-PGD
-area, so we still use asi_clone_pgd for that one.
+An ASI-restricted CR3 is unstable as interrupts can cause ASI-exits.
+Although we already unconditionally ASI-exit during context-switch, and
+before returning from the VM-run path, it's still possible to reach
+switch_mm_irqs_off() in a restricted context, because KVM code updates
+static keys, which requires using a temporary mm.
 
 Signed-off-by: Brendan Jackman <jackmanb@google.com>
 ---
- arch/x86/mm/asi.c                 | 105 +++++++++++++++++++++++++++++++++++++-
- include/asm-generic/vmlinux.lds.h |  11 ++++
- 2 files changed, 115 insertions(+), 1 deletion(-)
+ arch/x86/mm/tlb.c | 3 +++
+ 1 file changed, 3 insertions(+)
 
-diff --git a/arch/x86/mm/asi.c b/arch/x86/mm/asi.c
-index b951f2100b8bdea5738ded16166255deb29faf57..bc2cf0475a0e7344a66d81453f55034b2fc77eef 100644
---- a/arch/x86/mm/asi.c
-+++ b/arch/x86/mm/asi.c
-@@ -7,7 +7,6 @@
- #include <linux/init.h>
- #include <linux/pgtable.h>
+diff --git a/arch/x86/mm/tlb.c b/arch/x86/mm/tlb.c
+index c55733e144c7538ce7f97b74ea2b1b9c22497c32..ce5598f96ea7a84dc0e8623022ab5bfbba401b48 100644
+--- a/arch/x86/mm/tlb.c
++++ b/arch/x86/mm/tlb.c
+@@ -546,6 +546,9 @@ void switch_mm_irqs_off(struct mm_struct *unused, struct mm_struct *next,
+ 	bool need_flush;
+ 	u16 new_asid;
  
--#include <asm/asi.h>
- #include <asm/cmdline.h>
- #include <asm/cpufeature.h>
- #include <asm/page.h>
-@@ -186,8 +185,68 @@ void __init asi_check_boottime_disable(void)
- 		pr_info("ASI enablement ignored due to incomplete implementation.\n");
- }
- 
-+/*
-+ * Map data by sharing sub-PGD pagetables with the unrestricted mapping. This is
-+ * more efficient than asi_map, but only works when you know the whole top-level
-+ * page needs to be mapped in the restricted tables. Note that the size of the
-+ * mappings this creates differs between 4 and 5-level paging.
-+ */
-+static void asi_clone_pgd(pgd_t *dst_table, pgd_t *src_table, size_t addr)
-+{
-+	pgd_t *src = pgd_offset_pgd(src_table, addr);
-+	pgd_t *dst = pgd_offset_pgd(dst_table, addr);
++	/* Stabilize CR3, before reading or writing CR3 */
++	asi_exit();
 +
-+	if (!pgd_val(*dst))
-+		set_pgd(dst, *src);
-+	else
-+		WARN_ON_ONCE(pgd_val(*dst) != pgd_val(*src));
-+}
-+
-+/*
-+ * For 4-level paging this is exactly the same as asi_clone_pgd. For 5-level
-+ * paging it clones one level lower. So this always creates a mapping of the
-+ * same size.
-+ */
-+static void asi_clone_p4d(pgd_t *dst_table, pgd_t *src_table, size_t addr)
-+{
-+	pgd_t *src_pgd = pgd_offset_pgd(src_table, addr);
-+	pgd_t *dst_pgd = pgd_offset_pgd(dst_table, addr);
-+	p4d_t *src_p4d = p4d_alloc(&init_mm, src_pgd, addr);
-+	p4d_t *dst_p4d = p4d_alloc(&init_mm, dst_pgd, addr);
-+
-+	if (!p4d_val(*dst_p4d))
-+		set_p4d(dst_p4d, *src_p4d);
-+	else
-+		WARN_ON_ONCE(p4d_val(*dst_p4d) != p4d_val(*src_p4d));
-+}
-+
-+/*
-+ * percpu_addr is where the linker put the percpu variable. asi_map_percpu finds
-+ * the place where the percpu allocator copied the data during boot.
-+ *
-+ * This is necessary even when the page allocator defaults to
-+ * global-nonsensitive, because the percpu allocator uses the memblock allocator
-+ * for early allocations.
-+ */
-+static int asi_map_percpu(struct asi *asi, void *percpu_addr, size_t len)
-+{
-+	int cpu, err;
-+	void *ptr;
-+
-+	for_each_possible_cpu(cpu) {
-+		ptr = per_cpu_ptr(percpu_addr, cpu);
-+		err = asi_map(asi, ptr, len);
-+		if (err)
-+			return err;
-+	}
-+
-+	return 0;
-+}
-+
- static int __init asi_global_init(void)
- {
-+	int err;
-+
- 	if (!boot_cpu_has(X86_FEATURE_ASI))
- 		return 0;
- 
-@@ -207,6 +266,46 @@ static int __init asi_global_init(void)
- 				  VMALLOC_START, VMALLOC_END,
- 				  "ASI Global Non-sensitive vmalloc");
- 
-+	/* Map all kernel text and static data */
-+	err = asi_map(ASI_GLOBAL_NONSENSITIVE, (void *)__START_KERNEL,
-+		      (size_t)_end - __START_KERNEL);
-+	if (WARN_ON(err))
-+		return err;
-+	err = asi_map(ASI_GLOBAL_NONSENSITIVE, (void *)FIXADDR_START,
-+		      FIXADDR_SIZE);
-+	if (WARN_ON(err))
-+		return err;
-+	/* Map all static percpu data */
-+	err = asi_map_percpu(
-+		ASI_GLOBAL_NONSENSITIVE,
-+		__per_cpu_start, __per_cpu_end - __per_cpu_start);
-+	if (WARN_ON(err))
-+		return err;
-+
-+	/*
-+	 * The next areas are mapped using shared sub-P4D paging structures
-+	 * (asi_clone_p4d instead of asi_map), since we know the whole P4D will
-+	 * be mapped.
-+	 */
-+	asi_clone_p4d(asi_global_nonsensitive_pgd, init_mm.pgd,
-+		      CPU_ENTRY_AREA_BASE);
-+#ifdef CONFIG_X86_ESPFIX64
-+	asi_clone_p4d(asi_global_nonsensitive_pgd, init_mm.pgd,
-+		      ESPFIX_BASE_ADDR);
-+#endif
-+	/*
-+	 * The vmemmap area actually _must_ be cloned via shared paging
-+	 * structures, since mappings can potentially change dynamically when
-+	 * hugetlbfs pages are created or broken down.
-+	 *
-+	 * We always clone 2 PGDs, this is a corrolary of the sizes of struct
-+	 * page, a page, and the physical address space.
-+	 */
-+	WARN_ON(sizeof(struct page) * MAXMEM / PAGE_SIZE != 2 * (1UL << PGDIR_SHIFT));
-+	asi_clone_pgd(asi_global_nonsensitive_pgd, init_mm.pgd, VMEMMAP_START);
-+	asi_clone_pgd(asi_global_nonsensitive_pgd, init_mm.pgd,
-+		      VMEMMAP_START + (1UL << PGDIR_SHIFT));
-+
- 	return 0;
- }
- subsys_initcall(asi_global_init)
-@@ -599,6 +698,10 @@ static bool follow_physaddr(
-  * Map the given range into the ASI page tables. The source of the mapping is
-  * the regular unrestricted page tables. Can be used to map any kernel memory.
-  *
-+ * In contrast to some internal ASI logic (asi_clone_pgd and asi_clone_p4d) this
-+ * never shares pagetables between restricted and unrestricted address spaces,
-+ * instead it creates wholly new equivalent mappings.
-+ *
-  * The caller MUST ensure that the source mapping will not change during this
-  * function. For dynamic kernel memory, this is generally ensured by mapping the
-  * memory within the allocator.
-diff --git a/include/asm-generic/vmlinux.lds.h b/include/asm-generic/vmlinux.lds.h
-index eeadbaeccf88b73af40efe5221760a7cb37058d2..18f6c0448baf5dfbd0721ba9a6d89000fa86f061 100644
---- a/include/asm-generic/vmlinux.lds.h
-+++ b/include/asm-generic/vmlinux.lds.h
-@@ -1022,6 +1022,16 @@
- 	COMMON_DISCARDS							\
- 	}
- 
-+/*
-+ * ASI maps certain sections with certain sensitivity levels, so they need to
-+ * have a page-aligned size.
-+ */
-+#ifdef CONFIG_MITIGATION_ADDRESS_SPACE_ISOLATION
-+#define ASI_ALIGN() ALIGN(PAGE_SIZE)
-+#else
-+#define ASI_ALIGN() .
-+#endif
-+
- /**
-  * PERCPU_INPUT - the percpu input sections
-  * @cacheline: cacheline size
-@@ -1043,6 +1053,7 @@
- 	*(.data..percpu)						\
- 	*(.data..percpu..shared_aligned)				\
- 	PERCPU_DECRYPTED_SECTION					\
-+	. = ASI_ALIGN();						\
- 	__per_cpu_end = .;
- 
- /**
+ 	/* We don't want flush_tlb_func() to run concurrently with us. */
+ 	if (IS_ENABLED(CONFIG_PROVE_LOCKING))
+ 		WARN_ON_ONCE(!irqs_disabled());
 
 -- 
 2.47.1.613.gc27f4b7a9f-goog
