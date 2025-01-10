@@ -4,59 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A1FFE77188
-	for <linux-riscv@archiver.kernel.org>; Fri, 10 Jan 2025 16:07:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 32197E77188
+	for <linux-riscv@archiver.kernel.org>; Fri, 10 Jan 2025 16:14:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
-	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Date:Message-Id:Subject:
+	References:In-Reply-To:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=vJzWt3PmFnCK8lwK0WY/Jb/RlSlOuKhr0olXTwW9MGc=; b=uGXxYdRRz6oDxp
-	dDs3TehbfM317b6200npe18lX6LeM/u5tcBgmCfgpDm8Bdnr0vXRMnNRRD+R8ki0l1bPHUEIjzblR
-	5Q4B4f/5W9AOUa6SlFwnIb3lLBx2aQ7MwraAWyUEixyulcZ+Nm2PXB6Sk9ZdwAuox3S2RqS+sMQkc
-	jr5iStvW7FhjIoMb5qmFIcPoNdmzAt11q8H9gRi3VdgyOZHYow3vV9hh8er64YUpou56l83PkNTgL
-	+5Bz8s7fKiFUHmiGZ7jST4GnX23NpaW2iOkysHsxtzQYN8jJNbMe1J8ZcvoybovnTvFmLkqa0tstT
-	rF2ZV7YhtEaxQY6iJKrw==;
+	List-Owner; bh=2lERszdtC5HdzckgU8m7jBSuxPDHDeQvfdPwUPVVzsI=; b=YrGiikukdX5s1y
+	Ct4Vd70f+py/D0gBxlRRK80HCzTGVeoZ2hqonsd8/G5gSqyICvkPfGeqZpRjzgXLgXfzuMebOpde+
+	KOrFf4LMkWuL+cfRzMuLcMxLFKd3QTw656b2OUNJmmzCLDdxEGPmG1Q+CG3X9pe8ElKJlXiiGO6x0
+	GKe9ivTAv0zPYlLJl45g4QTzNzI5NYUcaB2AJW6aLKMplnLeCHr80NSaV+bN+FTlEfpxQxoRdZs5z
+	CL7jCaISmJRPRCH2Sxl1IMoe20s0ExxxYOY+NGBhs+Wtdk7cqIlZbT/1oZIvpN3S9+grRgEmYbi+s
+	Y1mlGOPYg71QDcACjcdA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tWHXo-0000000G9c3-3Has;
-	Fri, 10 Jan 2025 16:07:32 +0000
-Received: from relay9-d.mail.gandi.net ([217.70.183.199])
+	id 1tWHes-0000000GB8J-2Bf5;
+	Fri, 10 Jan 2025 16:14:50 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tWGGT-0000000FgAs-2kJP;
-	Fri, 10 Jan 2025 14:45:35 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id 1317AFF807;
-	Fri, 10 Jan 2025 14:45:30 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1736520331;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=BZ7N9DxFJs+ypWx4tpIWo4afnbo0gO3jjiMo2DbsJnA=;
-	b=Ep+W3RwwhmDUkoOO8gMAhVAvq+JxfEHNNEhlItnkm6ggFf2cddQXzxap3MgR9mXKCDscmq
-	m/wfrLsZs+FKMbbg3tKL/2WRy+/PqYCmxdj31+BFkJ6U5x977eYrMYR4dWMjtIP/3LrZOr
-	+9YwOhVFPYowtfyY29H0gM+j+73hpW4Om/PtB2G7ZEY2XAWCJZ8fN34jETT6A7RWvtNVug
-	+95UyUbdJXRSJsOX/bPjB6A+lRpnt8Hsb4V24g0Id8tv5VrIKh/LnBd4/KNLdRLwc3FzxP
-	0132EdjtSokHP0suQe2WqJ8kvsWTOT3s3qDIdFB6l5xjeBP3BxhjdUWbwB3+gg==
-From: Miquel Raynal <miquel.raynal@bootlin.com>
-Date: Fri, 10 Jan 2025 15:45:09 +0100
-Subject: [PATCH v3 07/27] spi: dw: Support per spi-mem operation frequency
- switches
-MIME-Version: 1.0
-Message-Id: <20250110-winbond-6-11-rc1-quad-support-v3-7-7ab4bd56cf6e@bootlin.com>
-References: <20250110-winbond-6-11-rc1-quad-support-v3-0-7ab4bd56cf6e@bootlin.com>
-In-Reply-To: <20250110-winbond-6-11-rc1-quad-support-v3-0-7ab4bd56cf6e@bootlin.com>
-To: Mark Brown <broonie@kernel.org>, Sanjay R Mehta <sanju.mehta@amd.com>, 
- Serge Semin <fancer.lancer@gmail.com>, Han Xu <han.xu@nxp.com>, 
+	id 1tWHEN-0000000G52q-2F0M;
+	Fri, 10 Jan 2025 15:47:28 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id BA8BD5C338E;
+	Fri, 10 Jan 2025 15:46:45 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7FF99C4CEE1;
+	Fri, 10 Jan 2025 15:47:18 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1736524046;
+	bh=v73Vw62MTNkPdqw8cVZvUOLB+25Ygi2g/dhpqPSNGOs=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
+	b=l/Tqf1J0YeqgmGTlb9OUQ/Wvq+oCw2zgnE8wFFqL59zvdOgp7O+gqxEegYCMlag5B
+	 Q6YYo8nE4BAqap4CwWdBHEB5spPiRJAR3xfPANPsrUl8QBsBJkFuY9/mmloDugDn53
+	 oTrzlRuyCsQh3Pip0J9mKHKMBRqWqQrHqvRlba7lqg2A2mhrzj5cyWW+hzMCeL8RK0
+	 5GclltoKebgtyrLyhSxH8ccfanUNpL8t1yEknIhnlxVvFmJDoCR6QoQO2CNOzLGW18
+	 eGfHAbzkQCEt/QvPwSazROLltVeDVxhce+xTw1U85pnahOGx6/HmZUCI7bRjv8s9WC
+	 Mv9KDA4WfFk4A==
+From: Mark Brown <broonie@kernel.org>
+To: Sanjay R Mehta <sanju.mehta@amd.com>, Han Xu <han.xu@nxp.com>, 
  Conor Dooley <conor.dooley@microchip.com>, 
  Daire McNamara <daire.mcnamara@microchip.com>, 
  Matthias Brugger <matthias.bgg@gmail.com>, 
  AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
  Haibo Chen <haibo.chen@nxp.com>, Yogesh Gaur <yogeshgaur.83@gmail.com>, 
  Heiko Stuebner <heiko@sntech.de>, Michal Simek <michal.simek@amd.com>, 
- Miquel Raynal <miquel.raynal@bootlin.com>, 
  Richard Weinberger <richard@nod.at>, Vignesh Raghavendra <vigneshr@ti.com>, 
  Jacky Huang <ychuang3@nuvoton.com>, Shan-Chun Hung <schung@nuvoton.com>, 
  Chin-Ting Kuo <chin-ting_kuo@aspeedtech.com>, 
@@ -67,19 +59,27 @@ To: Mark Brown <broonie@kernel.org>, Sanjay R Mehta <sanju.mehta@amd.com>,
  Nancy Yuen <yuenn@google.com>, Benjamin Fair <benjaminfair@google.com>, 
  Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
  Alexandre Torgue <alexandre.torgue@foss.st.com>, 
- Raju Rangoju <Raju.Rangoju@amd.com>
+ Raju Rangoju <Raju.Rangoju@amd.com>, 
+ Miquel Raynal <miquel.raynal@bootlin.com>
 Cc: Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
  Steam Lin <stlin2@winbond.com>, linux-spi@vger.kernel.org, 
  linux-kernel@vger.kernel.org, imx@lists.linux.dev, 
  linux-riscv@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
  linux-mediatek@lists.infradead.org, linux-rockchip@lists.infradead.org, 
  linux-mtd@lists.infradead.org, linux-aspeed@lists.ozlabs.org, 
- openbmc@lists.ozlabs.org, linux-stm32@st-md-mailman.stormreply.com
-X-Mailer: b4 0.15-dev
-X-GND-Sasl: miquel.raynal@bootlin.com
+ openbmc@lists.ozlabs.org, linux-stm32@st-md-mailman.stormreply.com, 
+ Pratyush Yadav <pratyush@kernel.org>, 
+ Tudor Ambarus <tudor.ambarus@linaro.org>, stable+noautosel@kernel.org
+In-Reply-To: <20241224-winbond-6-11-rc1-quad-support-v2-0-ad218dbc406f@bootlin.com>
+References: <20241224-winbond-6-11-rc1-quad-support-v2-0-ad218dbc406f@bootlin.com>
+Subject: Re: (subset) [PATCH v2 00/27] spi-nand/spi-mem DTR support
+Message-Id: <173652403824.316821.7989247622292618802.b4-ty@kernel.org>
+Date: Fri, 10 Jan 2025 15:47:18 +0000
+MIME-Version: 1.0
+X-Mailer: b4 0.15-dev-1b0d6
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250110_064533_956882_FB9F1598 
-X-CRM114-Status: GOOD (  14.79  )
+X-CRM114-CacheID: sfid-20250110_074727_662851_2701A901 
+X-CRM114-Status: GOOD (  14.17  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,60 +96,81 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Every ->exec_op() call correctly configures the spi bus speed to the
-maximum allowed frequency for the memory using the constant spi default
-parameter. Since we can now have per-operation constraints, let's use
-the value that comes from the spi-mem operation structure instead. In
-case there is no specific limitation for this operation, the default spi
-device value will be given anyway.
+On Tue, 24 Dec 2024 18:05:45 +0100, Miquel Raynal wrote:
+> Here is a (big) series supposed to bring DTR support in SPI-NAND.
+> 
+> I could have split this into two but I eventually preferred showing the
+> big picture. Once v1 will be over, I can make it two. However when we'll
+> discuss merging, we'll have to share an immutable tag among the two
+> subsystems.
+> 
+> [...]
 
-The per-operation frequency capability is thus advertised to the spi-mem
-core.
+Applied to
 
-Signed-off-by: Miquel Raynal <miquel.raynal@bootlin.com>
----
- drivers/spi/spi-dw-core.c | 10 ++++++++--
- 1 file changed, 8 insertions(+), 2 deletions(-)
+   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/spi.git for-next
 
-diff --git a/drivers/spi/spi-dw-core.c b/drivers/spi/spi-dw-core.c
-index 431788dd848cea1d854affe0d1fb971f680824a1..3d49b1dbaed4d491c0df659c061582e71f2c514d 100644
---- a/drivers/spi/spi-dw-core.c
-+++ b/drivers/spi/spi-dw-core.c
-@@ -677,7 +677,7 @@ static int dw_spi_exec_mem_op(struct spi_mem *mem, const struct spi_mem_op *op)
- 	 * operation. Transmit-only mode is suitable for the rest of them.
- 	 */
- 	cfg.dfs = 8;
--	cfg.freq = clamp(mem->spi->max_speed_hz, 0U, dws->max_mem_freq);
-+	cfg.freq = clamp(op->max_freq, 0U, dws->max_mem_freq);
- 	if (op->data.dir == SPI_MEM_DATA_IN) {
- 		cfg.tmode = DW_SPI_CTRLR0_TMOD_EPROMREAD;
- 		cfg.ndf = op->data.nbytes;
-@@ -894,6 +894,10 @@ static void dw_spi_hw_init(struct device *dev, struct dw_spi *dws)
- 		dw_writel(dws, DW_SPI_CS_OVERRIDE, 0xF);
- }
- 
-+static const struct spi_controller_mem_caps dw_spi_mem_caps = {
-+	.per_op_freq = true,
-+};
-+
- int dw_spi_add_host(struct device *dev, struct dw_spi *dws)
- {
- 	struct spi_controller *host;
-@@ -941,8 +945,10 @@ int dw_spi_add_host(struct device *dev, struct dw_spi *dws)
- 		host->set_cs = dw_spi_set_cs;
- 	host->transfer_one = dw_spi_transfer_one;
- 	host->handle_err = dw_spi_handle_err;
--	if (dws->mem_ops.exec_op)
-+	if (dws->mem_ops.exec_op) {
- 		host->mem_ops = &dws->mem_ops;
-+		host->mem_caps = &dw_spi_mem_caps;
-+	}
- 	host->max_speed_hz = dws->max_freq;
- 	host->flags = SPI_CONTROLLER_GPIO_SS;
- 	host->auto_runtime_pm = true;
+Thanks!
 
--- 
-2.47.0
+[01/27] spi: spi-mem: Extend spi-mem operations with a per-operation maximum frequency
+        commit: 0fefeade90e74bc8f40ab0e460f483565c492e28
+[02/27] spi: spi-mem: Add a new controller capability
+        commit: 1248c9b8d54120950fda10fbeb98fb8932b4d45c
+[03/27] spi: amd: Support per spi-mem operation frequency switches
+        commit: d0e5faccb229b1dacc4c9fa11f6df33bb1fdabd8
+[04/27] spi: amd: Drop redundant check
+        commit: e6204f39fe3a7b4538815a2d778b601bd543649e
+[05/27] spi: amlogic-spifc-a1: Support per spi-mem operation frequency switches
+        commit: 5baa189789e8894c58eacc7803e3c163c1d0fc0a
+[06/27] spi: cadence-qspi: Support per spi-mem operation frequency switches
+        commit: 06e9f5a1f6ba774d8942a168d3ec5ed5a008fbcb
+[07/27] spi: dw: Support per spi-mem operation frequency switches
+        commit: eee7bc9e7ade6f7ac17d9ec02887cd5509ba9427
+[08/27] spi: fsl-qspi: Support per spi-mem operation frequency switches
+        commit: 2438db5253eb17a7c0ccb15aea4252a150dda057
+[09/27] spi: microchip-core-qspi: Support per spi-mem operation frequency switches
+        commit: 13529647743d906ed3cf991f1d77727e7ff1fb6f
+[10/27] spi: mt65xx: Support per spi-mem operation frequency switches
+        commit: 13fd04b53053bbfa741a0f2a781837ab80e485f6
+[11/27] spi: mxic: Support per spi-mem operation frequency switches
+        commit: 67707cb094f134f5b3931eefbedbb9ca7e3209d0
+[12/27] spi: nxp-fspi: Support per spi-mem operation frequency switches
+        commit: 26851cf65ffca2d3a8d529a125e54cf0084d69e7
+[13/27] spi: rockchip-sfc: Support per spi-mem operation frequency switches
+        commit: d3f35dd3ad968256ed1080e3ea2022f947861cff
+[14/27] spi: spi-sn-f-ospi: Support per spi-mem operation frequency switches
+        commit: 1a206344218cc15ad8f321e3abab3f3d36ab639f
+[15/27] spi: spi-ti-qspi: Support per spi-mem operation frequency switches
+        commit: b2fac3192919dd07e7ce30558e34abd7e07dde77
+[16/27] spi: zynq-qspi: Support per spi-mem operation frequency switches
+        commit: 9a68f6c8d6cfddeac7c5874528ed04e50a1cb579
+[17/27] spi: zynqmp-gqspi: Support per spi-mem operation frequency switches
+        commit: 30eb2e6e78225f92f04a2325c6fd77fe8f5b4aab
+[18/27] spi: spi-mem: Reorder spi-mem macro assignments
+        commit: d1f85873d2d62d6980e68d21d3a21f20b0664cc3
+[19/27] spi: spi-mem: Create macros for DTR operation
+        commit: f0006897a96c736623ddeb9b68c3880eb5cdebe7
+[20/27] spi: spi-mem: Estimate the time taken by operations
+        (no commit info)
+
+All being well this means that it will be integrated into the linux-next
+tree (usually sometime in the next 24 hours) and sent to Linus during
+the next merge window (or sooner if it is a bug fix), however if
+problems are discovered then the patch may be dropped or reverted.
+
+You may get further e-mails resulting from automated or manual testing
+and review of the tree, please engage with people reporting problems and
+send followup patches addressing any issues that are reported if needed.
+
+If any updates are required or you are submitting further changes they
+should be sent as incremental updates against current git, existing
+patches will not be replaced.
+
+Please add any relevant lists and maintainers to the CCs when replying
+to this mail.
+
+Thanks,
+Mark
 
 
 _______________________________________________
