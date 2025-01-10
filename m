@@ -4,85 +4,106 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 60457E7719A
-	for <linux-riscv@archiver.kernel.org>; Fri, 10 Jan 2025 02:44:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8CF20E77188
+	for <linux-riscv@archiver.kernel.org>; Fri, 10 Jan 2025 03:17:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=PCUSxTWhSAlFNpg4X2d0SgV2dvooVnqXi67CIjw6M6w=; b=MfLvlkgOcYqik/
-	8inGYzolKUJ6y4Lv2I0BWDNtrGSfPpRCO8H7YWVck+U8G2FSpoH5QMl+mIfwuQ4hRp/qDSlo4DoQz
-	iuMGCkL2kHiWpMIOJVZnct7RLx5bBIjlpTG+aFpE9kzi9EYWv9uXn5gulAAx98+GDSDc5yQPVMWxd
-	s2fvtbKGJ96PW/GsfA+kdjmy/E7Qcj7xqPZAEhYzJvYtIH+Gc49pB+KyC399xXT0+9c0t5Y+4pnxP
-	Lq6uvLG2Wr0DyvNBR4/TgXTbxwifj7g/LABetJchB7pwMjUi7i5bwhgjQhYEY+v81FP2YFUM5Y0bO
-	cb1KwSSlHfcnSxlW1IxQ==;
+	List-Owner; bh=c+q8wgBwdri6L1cp67o5HQxEVRevNK9EgXNgARzxYCo=; b=SBzDwVbLnEk45b
+	tVfLrEioaWiafRlJaZCaGcId35D4TjRoOAVNIdnSCchQo6TFRlfMsnnCbJO4J79zpEstMTqauMLi8
+	ydjWNkBSSvy7J/K9CPLDt2qBdcAO6i/oO7kyjttzmKeIslzqd84jtCvM6hMud/BkrV7QQlrVSceQD
+	pMNG/YPBTA2x3OkgRoEePe+kD4LQXUfl6S60aHvfazN6Pw4vbfEzzzYrjjdv6J8KJVPE30HBsknTH
+	iJFxs0YRWBqdZrF6eY3WyuOCg6M8RHnFE2qiqzs9jmFOkGQXWg0pMvSJvbMVou2+wfxBzSsnTPsLq
+	00/8rtXa++zOhf/NukrQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tW50v-0000000DrNn-1hM2;
-	Fri, 10 Jan 2025 02:44:45 +0000
-Received: from mail-pl1-x630.google.com ([2607:f8b0:4864:20::630])
+	id 1tW5WJ-0000000DtiJ-1wgy;
+	Fri, 10 Jan 2025 03:17:11 +0000
+Received: from torg.zytor.com ([2607:7c80:54:3::138] helo=mail.zytor.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tW50s-0000000DrMo-3jSk
-	for linux-riscv@lists.infradead.org;
-	Fri, 10 Jan 2025 02:44:44 +0000
-Received: by mail-pl1-x630.google.com with SMTP id d9443c01a7336-21649a7bcdcso25020565ad.1
-        for <linux-riscv@lists.infradead.org>; Thu, 09 Jan 2025 18:44:42 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1736477082; x=1737081882; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=caWTBlewbD0QAQDMzRt4/otJEJ5C2eutlx7bRA+hads=;
-        b=X9OGfOneg6nY6Chr+4LS8x7SEgETcQqQD0qRQXk5CdwJQe6pobAH7SfEzBfAKuU7Xv
-         pYgVx6tVHm4CMnvixXQ1t9XXZNZU/rT35YQD3vDShE1ixToH9waKR8nHANI9b0HMcibN
-         I9+wox02u359kz0hC/NeskrPksU3SoqvVt7F5ds3kH04TZtOJJLq9QzJncBCzqo5NT51
-         B4hEMF6/4QU39YDowITtrgeONkGT4epbQXDj0wkLQwFb4S0BYuYDopNVpNiPT60AhQnW
-         XGfxHtCjsDpLis5Yt9BOs4KLrfj5plSc+TvCOC10SD20+IPNuwl19hiRuVlsgQEvLLxA
-         oKHQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1736477082; x=1737081882;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=caWTBlewbD0QAQDMzRt4/otJEJ5C2eutlx7bRA+hads=;
-        b=O7LLbwCImNDaIJoXWJIfv/miZsIlDEhJijsSsDmBAoXC651uXZbF/pFuhMt53ivT+7
-         6JPpZqhGt9+C1fxkgyYSAoBz7khC3wimIUV0LMlgmFkhICm4ku3FgbN837oHR8UVueRM
-         HES4Kk5D3pTX3eHvtFKerGPwvQbfm0hce+ag131j/bQ4hxYWUIeiJlTHyTNFW80h5N69
-         AuFQhjdpsOryFQ5O31vi5EwAg7UbO6OnaLqK96iAh0U9X7Zch+DGJyqm+C/tZ3HU26EN
-         qRdT28s00kVFakL1zYHFfKw2UeC72KNaQ8c4VwoxfEsZTvp3aNUSWgyU8yrBMe6vT7wZ
-         Lk0Q==
-X-Forwarded-Encrypted: i=1; AJvYcCW66vt30o1ydU4LukzQuWcJ7Cm5KZOYSjpmoj11z18nN7XTF8mxqilYKOSUniDIlMLiHLh0FwE3azW3SQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0YziDVtQJpVeXS4iTRN4sW8Frr5ha1Z2JhFFjs+M4ocsKR4LOhM6
-	XXx1pVaitrzo36ep5liRDFv2g8dDC5KcRhhUdiXL5tE13r/7QVOnZxf1/Pxbfi4=
-X-Gm-Gg: ASbGncvwkf0KZQw5N1h/Sssd7n6LeXVMWpBk8yHsm6+V9w7OtHU424uv+n0/cnjqJQD
-	sgGx3rxV89Yq0c49HElJqJoDCF1xlxImSaFn+cSstAJtYhz6VLlazj9x5JfKO+YL8EC2mBIhQL1
-	DPreiTwZXVxwejd+16suyA7MiPezfyuzbrivWn6IXSQZTbiacEfYQ4zjR2DIerSgQJjSyNj9c11
-	ptBUlQ0w+7vK1zvQJQVcwBWA7tjFbIRFp3abIZqC/9UO42mTQjF
-X-Google-Smtp-Source: AGHT+IFlRtu6l5mEzMt1KG7rnqNGqfPFXArBqJ0XQuS/Gm9ftFlurHOHzbdJUCjSRTmC9tm9lxKH6Q==
-X-Received: by 2002:a05:6a21:168e:b0:1e0:ce71:48e0 with SMTP id adf61e73a8af0-1e88d2f69d8mr13896318637.39.1736477081989;
-        Thu, 09 Jan 2025 18:44:41 -0800 (PST)
-Received: from ghost ([2601:647:6700:64d0:691c:638a:ff10:3765])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-72d405491b8sm535145b3a.9.2025.01.09.18.44.40
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 09 Jan 2025 18:44:41 -0800 (PST)
-Date: Thu, 9 Jan 2025 18:44:39 -0800
-From: Charlie Jenkins <charlie@rivosinc.com>
-To: guoren@kernel.org
-Cc: tjeznach@rivosinc.com, joro@8bytes.org, will@kernel.org,
-	robin.murphy@arm.com, paul.walmsley@sifive.com, palmer@dabbelt.com,
-	baolu.lu@linux.intel.com, zong.li@sifive.com, iommu@lists.linux.dev,
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Guo Ren <guoren@linux.alibaba.com>
-Subject: Re: [PATCH] iommu/riscv: Fixup compile warning
-Message-ID: <Z4CJl264jMZAIogB@ghost>
-References: <20250103024616.3359159-1-guoren@kernel.org>
+	id 1tW5WG-0000000Dthk-2hCl;
+	Fri, 10 Jan 2025 03:17:09 +0000
+Received: from [IPV6:2601:646:8080:c1f1:e386:c572:17d3:6ddc] ([IPv6:2601:646:8080:c1f1:e386:c572:17d3:6ddc])
+	(authenticated bits=0)
+	by mail.zytor.com (8.18.1/8.17.1) with ESMTPSA id 50A3FGON981507
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NO);
+	Thu, 9 Jan 2025 19:15:22 -0800
+DKIM-Filter: OpenDKIM Filter v2.11.0 mail.zytor.com 50A3FGON981507
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=zytor.com;
+	s=2024121701; t=1736478939;
+	bh=2Gsk7+JP3PoZg8VhoEWFUmet8fDEOviqEDX2siCLmXA=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=UI2PWbpd/173uf8ET7OhKCSxHMq3wIV9uPwlDabKLopTn4XQlVOW2UhdDhLNKQ2ou
+	 8eY5IkJPjKd/ufxYXpC3T7ngILIHHww7s3f/TxHKadq33uowsRPtdqvlulWYDcl4s8
+	 98gF9cD/iHRBhl+LkNR2Vz4dcuRwuyCMkzCPxTONo9GrePkGJYLa5vUD7mYV9L5Uos
+	 ee2fTgpV4TmVkm3/EnjzCs2Wh3is/8drjYQa4kdxx6i4NZ58BWsIW3fEOCUEzu/US4
+	 z0xQ+UHFUiZOJoDRJIqr/23SWWVPTNXl6Nb/6Jv9OAyLaNK9jKDb4DWbnzq60xty/Q
+	 X0SCgYzOXKJQw==
+Message-ID: <4536aca6-c430-4cf9-a98f-8282c7378955@zytor.com>
+Date: Thu, 9 Jan 2025 19:15:09 -0800
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20250103024616.3359159-1-guoren@kernel.org>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 0/6] ptrace: introduce PTRACE_SET_SYSCALL_INFO API
+To: "Dmitry V. Levin" <ldv@strace.io>, Oleg Nesterov <oleg@redhat.com>
+Cc: Eugene Syromyatnikov <evgsyr@gmail.com>,
+        Mike Frysinger <vapier@gentoo.org>, Renzo Davoli <renzo@cs.unibo.it>,
+        Davide Berardi <berardi.dav@gmail.com>, strace-devel@lists.strace.io,
+        Vineet Gupta <vgupta@kernel.org>, Russell King <linux@armlinux.org.uk>,
+        Catalin Marinas <catalin.marinas@arm.com>,
+        Will Deacon <will@kernel.org>, Guo Ren <guoren@kernel.org>,
+        Brian Cain <bcain@quicinc.com>, Huacai Chen <chenhuacai@kernel.org>,
+        WANG Xuerui <kernel@xen0n.name>,
+        Geert Uytterhoeven <geert@linux-m68k.org>,
+        Michal Simek <monstr@monstr.eu>,
+        Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+        Dinh Nguyen <dinguyen@kernel.org>, Jonas Bonn <jonas@southpole.se>,
+        Stefan Kristiansson <stefan.kristiansson@saunalahti.fi>,
+        Stafford Horne <shorne@gmail.com>,
+        "James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>,
+        Helge Deller <deller@gmx.de>, Michael Ellerman <mpe@ellerman.id.au>,
+        Nicholas Piggin <npiggin@gmail.com>,
+        Christophe Leroy <christophe.leroy@csgroup.eu>,
+        Naveen N Rao <naveen@kernel.org>,
+        Madhavan Srinivasan <maddy@linux.ibm.com>,
+        Paul Walmsley <paul.walmsley@sifive.com>,
+        Palmer Dabbelt
+ <palmer@dabbelt.com>,
+        Albert Ou <aou@eecs.berkeley.edu>, Heiko Carstens <hca@linux.ibm.com>,
+        Vasily Gorbik <gor@linux.ibm.com>,
+        Alexander Gordeev <agordeev@linux.ibm.com>,
+        Christian Borntraeger <borntraeger@linux.ibm.com>,
+        Sven Schnelle <svens@linux.ibm.com>,
+        Yoshinori Sato <ysato@users.osdn.me>, Rich Felker <dalias@libc.org>,
+        John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>,
+        "David S. Miller" <davem@davemloft.net>,
+        Andreas Larsson <andreas@gaisler.com>,
+        Richard Weinberger <richard@nod.at>,
+        Anton Ivanov <anton.ivanov@cambridgegreys.com>,
+        Johannes Berg <johannes@sipsolutions.net>,
+        Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>,
+        Borislav Petkov <bp@alien8.de>,
+        Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
+        Chris Zankel <chris@zankel.net>, Max Filippov <jcmvbkbc@gmail.com>,
+        Arnd Bergmann <arnd@arndb.de>, Shuah Khan <shuah@kernel.org>,
+        linux-snps-arc@lists.infradead.org, linux-kernel@vger.kernel.org,
+        linux-arm-kernel@lists.infradead.org, linux-csky@vger.kernel.org,
+        linux-hexagon@vger.kernel.org, loongarch@lists.linux.dev,
+        linux-m68k@vger.kernel.org, linux-mips@vger.kernel.org,
+        linux-openrisc@vger.kernel.org, linux-parisc@vger.kernel.org,
+        linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
+        linux-s390@vger.kernel.org, linux-sh@vger.kernel.org,
+        sparclinux@vger.kernel.org, linux-um@lists.infradead.org,
+        linux-arch@vger.kernel.org, linux-kselftest@vger.kernel.org
+References: <20250107230153.GA30560@strace.io>
+Content-Language: en-US
+From: "H. Peter Anvin" <hpa@zytor.com>
+In-Reply-To: <20250107230153.GA30560@strace.io>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250109_184442_926671_B328BEFF 
-X-CRM114-Status: GOOD (  17.10  )
+X-CRM114-CacheID: sfid-20250109_191708_687581_C5B138C6 
+X-CRM114-Status: GOOD (  24.05  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,53 +115,100 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jan 02, 2025 at 09:46:16PM -0500, guoren@kernel.org wrote:
-> From: Guo Ren <guoren@linux.alibaba.com>
-> 
-> When __BITS_PER_LONG == 32, size_t is defined as unsigned int rather
-> than unsigned long. Therefore, we should use size_t to avoid
-> type-checking errors.
-> 
-> Fixes: 488ffbf18171 ("iommu/riscv: Paging domain support")
-> Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
-> Signed-off-by: Guo Ren <guoren@kernel.org>
-> Cc: Tomasz Jeznach <tjeznach@rivosinc.com>
-> ---
->  drivers/iommu/riscv/iommu.c | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
-> 
-> diff --git a/drivers/iommu/riscv/iommu.c b/drivers/iommu/riscv/iommu.c
-> index 8a05def774bd..38d381164385 100644
-> --- a/drivers/iommu/riscv/iommu.c
-> +++ b/drivers/iommu/riscv/iommu.c
-> @@ -1270,7 +1270,7 @@ static phys_addr_t riscv_iommu_iova_to_phys(struct iommu_domain *iommu_domain,
->  					    dma_addr_t iova)
->  {
->  	struct riscv_iommu_domain *domain = iommu_domain_to_riscv(iommu_domain);
-> -	unsigned long pte_size;
-> +	size_t pte_size;
+This would seem like a very good idea. However, it is perhaps important 
+to realize that it doesn't fully eliminate the problems with 64-bit 
+arguments on 32-bit ABIs being handled differently (never mind 
+inconsistencies in system call ABIs etc.) There isn't all that much that 
+can be done about that directly, though.
 
-riscv_iommu_pte_fetch() expects size_t so even though ILP32 isn't
-currently supported in the kernel, this change makes sense.
+	-hpa
 
-Reviewed-by: Charlie Jenkins <charlie@rivosinc.com>
 
->  	unsigned long *ptr;
->  
->  	ptr = riscv_iommu_pte_fetch(domain, iova, &pte_size);
-> -- 
-> 2.40.1
+On 1/7/25 15:01, Dmitry V. Levin wrote:
+> PTRACE_SET_SYSCALL_INFO is a generic ptrace API that complements
+> PTRACE_GET_SYSCALL_INFO by letting the ptracer modify details of
+> system calls the tracee is blocked in.
 > 
+> This API allows ptracers to obtain and modify system call details
+> in a straightforward and architecture-agnostic way.
 > 
-> _______________________________________________
-> linux-riscv mailing list
-> linux-riscv@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-riscv
+> Current implementation supports changing only those bits of system call
+> information that are used by strace, namely, syscall number, syscall
+> arguments, and syscall return value.
+> 
+> Support of changing additional details returned by PTRACE_GET_SYSCALL_INFO,
+> such as instruction pointer and stack pointer, could be added later
+> if needed, by re-using struct ptrace_syscall_info.reserved to specify
+> the additional details that should be set.  Currently, the reserved
+> field of struct ptrace_syscall_info must be initialized with zeroes;
+> arch, instruction_pointer, and stack_pointer fields are ignored.
+> 
+> PTRACE_SET_SYSCALL_INFO currently supports only PTRACE_SYSCALL_INFO_ENTRY,
+> PTRACE_SYSCALL_INFO_EXIT, and PTRACE_SYSCALL_INFO_SECCOMP operations.
+> Other operations could be added later if needed.
+> 
+> Ideally, PTRACE_SET_SYSCALL_INFO should have been introduced along with
+> PTRACE_GET_SYSCALL_INFO, but it didn't happen.  The last straw that
+> convinced me to implement PTRACE_SET_SYSCALL_INFO was apparent failure
+> to provide an API of changing the first system call argument on riscv
+> architecture [1].
+> 
+> ptrace(2) man page:
+> 
+> long ptrace(enum __ptrace_request request, pid_t pid, void *addr, void *data);
+> ...
+> PTRACE_SET_SYSCALL_INFO
+>         Modify information about the system call that caused the stop.
+>         The "data" argument is a pointer to struct ptrace_syscall_info
+>         that specifies the system call information to be set.
+>         The "addr" argument should be set to sizeof(struct ptrace_syscall_info)).
+> 
+> [1] https://lore.kernel.org/all/59505464-c84a-403d-972f-d4b2055eeaac@gmail.com/
+> 
+> Dmitry V. Levin (6):
+>    Revert "arch: remove unused function syscall_set_arguments()"
+>    syscall.h: add syscall_set_arguments() on remaining
+>      HAVE_ARCH_TRACEHOOK arches
+>    syscall.h: introduce syscall_set_nr()
+>    ptrace_get_syscall_info: factor out ptrace_get_syscall_info_op
+>    ptrace: introduce PTRACE_SET_SYSCALL_INFO request
+>    selftests/ptrace: add a test case for PTRACE_SET_SYSCALL_INFO
+> 
+>   arch/arc/include/asm/syscall.h                |  20 +
+>   arch/arm/include/asm/syscall.h                |  25 +
+>   arch/arm64/include/asm/syscall.h              |  20 +
+>   arch/csky/include/asm/syscall.h               |  13 +
+>   arch/hexagon/include/asm/syscall.h            |  14 +
+>   arch/loongarch/include/asm/syscall.h          |  15 +
+>   arch/m68k/include/asm/syscall.h               |   7 +
+>   arch/microblaze/include/asm/syscall.h         |   7 +
+>   arch/mips/include/asm/syscall.h               |  53 +++
+>   arch/nios2/include/asm/syscall.h              |  16 +
+>   arch/openrisc/include/asm/syscall.h           |  13 +
+>   arch/parisc/include/asm/syscall.h             |  19 +
+>   arch/powerpc/include/asm/syscall.h            |  15 +
+>   arch/riscv/include/asm/syscall.h              |  16 +
+>   arch/s390/include/asm/syscall.h               |  19 +
+>   arch/sh/include/asm/syscall_32.h              |  19 +
+>   arch/sparc/include/asm/syscall.h              |  17 +
+>   arch/um/include/asm/syscall-generic.h         |  19 +
+>   arch/x86/include/asm/syscall.h                |  43 ++
+>   arch/xtensa/include/asm/syscall.h             |  18 +
+>   include/asm-generic/syscall.h                 |  30 ++
+>   include/linux/ptrace.h                        |   3 +
+>   include/uapi/linux/ptrace.h                   |   3 +-
+>   kernel/ptrace.c                               | 154 ++++++-
+>   tools/testing/selftests/ptrace/Makefile       |   2 +-
+>   .../selftests/ptrace/set_syscall_info.c       | 436 ++++++++++++++++++
+>   26 files changed, 994 insertions(+), 22 deletions(-)
+>   create mode 100644 tools/testing/selftests/ptrace/set_syscall_info.c
+> 
+
 
 _______________________________________________
 linux-riscv mailing list
