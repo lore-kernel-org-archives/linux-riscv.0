@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D2408E7719F
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC289E7719D
 	for <linux-riscv@archiver.kernel.org>; Fri, 10 Jan 2025 23:19:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -13,77 +13,77 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	References:Mime-Version:In-Reply-To:Date:Reply-To:Content-ID:
 	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
 	:Resent-Message-ID:List-Owner;
-	bh=Wwj/jxUZOGtHf7mCsJaIlCdiAyooGeUEeZynzK3+b0o=; b=TxhIgbs5Wl2WrMbrr9BnpW1Qvj
-	hJ04yisVcQerGkv6jw2otO1/dnDskHnEZeIJd7VsYCPUd9JkhhR9Uy9nsPmUTu2ZoWv22LLxNWN7e
-	EXu+ByAp3NG+lomznd/0XEdHmMYEPGmX5uleL2LtI+TBlXSJSmOpm8gLIAbwvqIwDLEzvogTiCzsn
-	x6QJEnXfYjncsly9LKMEnEqqhqRjicEP5AY/oBRf2RpM4VKzzjM4qJLh8Cy9jQtMW537YFkeOEtT4
-	wCBEhQxYUzFbsnDCJAIppiLcwZ66IkpkejwTxBIQnOGkchOlwSez+zGCgaxnkvyg6GxrFrS3W5/5F
-	EFaiEujQ==;
+	bh=e+AIs7QVx6H7G6tlA6JPAYJp18ExV03h8uSIrefn+Ks=; b=FnSLG1gIPq3a9SfJGmpEwSDeto
+	4m2RJqp7FdhJ7Llbf7Rf7u7nB0hEkEICOnh1mnRf0aknmVssdooghbFgbOC1GhwwdqlalCS4LbI+K
+	Bz4MfU0emn+ql0i5F0DA3TdfHfCQOxnY7Ehzas3OtnDwIsiGHK73OW3kMaP7qEpWxsru/+CrKtAPu
+	tk/lUIvIP4YXeh7u8muBQjt5OhFOdHXt3DPL0PkNEhC2N/PhPEFAUijAuXS182DxXkNI9Rn3i8tR2
+	63VVqpAZfhWGTLIejRHVUmYEWQ29mU+V307rRPQTBjt5xv8bQKD2asmERR2XAZ985D6yf9IqY6r+G
+	LIJBWN1A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tWOI8-0000000HESj-3w81;
-	Fri, 10 Jan 2025 23:19:48 +0000
+	id 1tWOI9-0000000HETK-2biW;
+	Fri, 10 Jan 2025 23:19:49 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tWJwP-0000000GbKP-2AT7
+	id 1tWJwU-0000000GbPg-1ILw
 	for linux-riscv@bombadil.infradead.org;
-	Fri, 10 Jan 2025 18:41:06 +0000
+	Fri, 10 Jan 2025 18:41:10 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Content-Type:Cc:To:From:Subject:
 	Message-ID:References:Mime-Version:In-Reply-To:Date:Sender:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=kYL7XeCfcudeBLlUDEGoh0o6eIbGWBwJtwhvHOdo8c0=; b=UcurtA9y/H0dO8UNBzD0A03+BW
-	+/rOC3HY8uyF2XgdDaBonBhyQE03CyOIcSRNVcRMANXIAI0Q//E+RT4ML2z3Q3YB3623sRhKfS6Bp
-	qzR59q6f4CB6fjREM7ouqDneMB7YQaWRzFd6qD7OkSKGT6cdXB4R0FtQ+JNyrVcBOQKIad+rCnZgm
-	ZWwy3xgHS70SKzlZNb43tHoJzdijpU7Gmbzux7RN8lqHYuVsnakT4TAjhclEl+H6MGEfZ4X98EKOA
-	x2lejww87vUKt+2wYpjJuLHBOatJszeulOYu6DDIvIx8v45isT7yFZsHzb8VS9rX0RSaLXpU1oJgE
-	ZWgrkP6A==;
+	bh=NdZ1cQRVb5G6t/AzbRzOJmiK1PmEXn2j4H5pJNPFFDE=; b=e0pCAiubKz45dKSDEo8kl6ig/G
+	IyZPBwVlQCaAycCTdiflZNT/u4rU/UuGyOaSbgQdBKWnr/8t3GSzAcyL2CxnGzvfzZG5aN+jvY5NQ
+	vqTK/yHm3YCb2aCWd2XfBiiV0yKCOxZRURx9ULMK829tfVud+/Wp3djMzsEap8iPj6n2TPYA4zsyz
+	XrcqaHxN/LR/ignAs3wgdJ6n8WcJ+MOdGmnhojbJZXt4M+gamBFIqnIplJpr438t/2SR9/YFYAt43
+	P7oOav8QTS6pPJNoVP9g7xxHwtIjKCmLEiAhuGsRJ7U7Bkouih695ozrw1sUnmieis7RMJGsg/v9+
+	5VCM33+w==;
 Received: from mail-wm1-x349.google.com ([2a00:1450:4864:20::349])
 	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tWJwK-00000009sLT-3ynS
+	id 1tWJwP-00000009sOX-0yKn
 	for linux-riscv@lists.infradead.org;
-	Fri, 10 Jan 2025 18:41:04 +0000
-Received: by mail-wm1-x349.google.com with SMTP id 5b1f17b1804b1-4362153dcd6so12412425e9.2
-        for <linux-riscv@lists.infradead.org>; Fri, 10 Jan 2025 10:41:00 -0800 (PST)
+	Fri, 10 Jan 2025 18:41:07 +0000
+Received: by mail-wm1-x349.google.com with SMTP id 5b1f17b1804b1-436248d1240so11542625e9.0
+        for <linux-riscv@lists.infradead.org>; Fri, 10 Jan 2025 10:41:05 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1736534459; x=1737139259; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1736534464; x=1737139264; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=kYL7XeCfcudeBLlUDEGoh0o6eIbGWBwJtwhvHOdo8c0=;
-        b=rhavPpKSEWFpXwKaqRjMsEejHctlHHYw8I6Y5SzhbgS2u9nZ8oRfgyeZUSBTDvt5Xk
-         ddoSM7HbXc7B8fYrnlsXJQJOzA9XCTEVdvngDjcKpGSuT64GCJlbRl67ZCpbblBWiokx
-         pMgrxGXyhzSsZipX6CaQXQgcF/fIcnoX3B3N7+1G9ErQ9WcsM1KVhUHcyqUz4TGsGzoC
-         aHyMD7rcmSXxJzuUvbfLQbD1YUpfIMxvvM2Q0ZWXoTDqOHqRFMKncTWU2OQyJxREgepp
-         46tPFy5bbdgDehU2H2cnB1JZPPBvKL51Pzq9L78SCkF5yJny8hi8Wt2wcQffuuxkkXML
-         AElg==
+        bh=NdZ1cQRVb5G6t/AzbRzOJmiK1PmEXn2j4H5pJNPFFDE=;
+        b=CJa5CHVoG9yWsZBCnnBg0j9DoM3daJVSXSYRzTYOePTn81FrIGdKoJ6J72urks7mJr
+         LnUnI8whUQnfeA6FxKnSojy4s8jBpDyT4s9uuBMuoTRTjxo5nbh2FzHOnmywLoXXgjHV
+         TGIRRA1DI/D9TAyPmym2BU6HQPgB8Hg54hiTx8DRf6pFk6k1y6jxIyMGh6ioAAmnZRA5
+         eOLKF7FV/+HcJIqeGAyAVKch684Xp6Jy/M7smH2fdeW0aEFK708o4Ano4e2fUxSEoHGC
+         s2XElWf8OXVGWZSb9D8PaQn/3kHupp0Hi2DKyHcK9icjmZ4L0t+B6pbWv/lI0jbz6WxV
+         hItA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1736534459; x=1737139259;
+        d=1e100.net; s=20230601; t=1736534464; x=1737139264;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=kYL7XeCfcudeBLlUDEGoh0o6eIbGWBwJtwhvHOdo8c0=;
-        b=KyymPi/VL48PgtWY2eFA6+jMMZwQHICOZfOI9vtnCSjlqhNKQxXQyjmNngxqnuPbtK
-         ZiZ/cviRZ+Gx4ddLJFXbaDjuGkb0etrkLTjItQXiiWaSChEX1w2CkPMrbD3PNHBWrIhW
-         +/ICs+nT9y3QjPCupJWUZeoTQEBgjAkVoZJAAG8bYG/iwONHzJBhrr1xO8Lp8ybuZ4z0
-         mk4TtaqsoaTOr7u4RCdogTVu+OcGLZirkwTUaEM9xA+7UyZMm7JAuqw4dkpjk85h7tkO
-         w8nfGUzUK6BBAGeyKm2DuNV6e1oQGE/+AEHqMQw3UU38vTxiBnbjn955r3+ULUwRkmiX
-         hdKg==
-X-Forwarded-Encrypted: i=1; AJvYcCWjLJIMZpnLxxqs6ojn5tOw7+q8eyj+3qaXUGdkewqrs2nrY/B1GFT1m/yIN5og0AhHEPl0XOcJOpZQ4g==@lists.infradead.org
-X-Gm-Message-State: AOJu0YxQ410o8cAeM5XBU8b4Yh/oAnMcyUoefx6TXnYZNCyGGMWJIr23
-	l/kycvtcESZ90hWVYoIAoWMzObZsGUfhCv6rzn4t8kUPxdFFbaMDuZOyKLXWP82vwyp8QE8ifyY
-	+dsAH1ZlhiQ==
-X-Google-Smtp-Source: AGHT+IH0DyTQGUBeXAkb8pkdNHIPyF1JMCOQ9V4x2A26uY/IXi2bUp3/F2mGP9HMTIoPxxyBiM7AkavMfpYEag==
-X-Received: from wmdn10.prod.google.com ([2002:a05:600c:294a:b0:436:d819:e4eb])
+        bh=NdZ1cQRVb5G6t/AzbRzOJmiK1PmEXn2j4H5pJNPFFDE=;
+        b=BJZqwPFbaO+5O1SbFbh85lnhde1EUhM0501rRM5hxuVOvld6OxPcGtcH2x3Omch6FD
+         mQ+RmVTlq63MGCAsegq1vhVPcUqn5uayqw41biBAMG0N3kGupCVx0OXDSGKPV/2cI6xs
+         aXG33bSvVKamQpA8Hnsw3MjoYDASKtH+Z/ptAqsPy7ngaOlYJIdKhQGc0rZ2KKczyVjU
+         X51bv6pY6aveTqsWW0Y3RfKDByLh/daBDd2mdN2Orh47lHkRhs5zzmaZbGvCVBhoSm/o
+         g1GfMhsLUrE4+2f3DN0hyhUs8o2EVtDo1kctil6wJiOSzCpdFK/3MCd8Qtmt9W/itlHU
+         HIVw==
+X-Forwarded-Encrypted: i=1; AJvYcCXFC+RzThPhQOfta6vVx82VQB2IOYZQCUbcTUYzGYWxY3FMPZnA4oEh2TmALN+QSGxK/ZviFVNNty+uxw==@lists.infradead.org
+X-Gm-Message-State: AOJu0YyqdYN6hKL2S7lZmpR0j88KPRuA0iHxxbDlDObkZXGczxebSJzB
+	HRBRgSJ8ELWVRPPe0xCkU4AMA5TFwmHoy1GzeDX6OblgAY3X+nnwXPqhrhcw26f5w+CIoTvtbG7
+	GjPgndfTEUw==
+X-Google-Smtp-Source: AGHT+IHOqPqFuZt9UmOoUeA2JDIFLsGLn/JF5TCYjoXI0XK4RQVEWWzyMiwW2MB3CIHY3dySJS8wD0E+4CgsAA==
+X-Received: from wmgg11.prod.google.com ([2002:a05:600d:b:b0:434:ff52:1c7])
  (user=jackmanb job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:600c:4f09:b0:434:fafe:edb with SMTP id 5b1f17b1804b1-436e26f00fdmr96576145e9.24.1736534459144;
- Fri, 10 Jan 2025 10:40:59 -0800 (PST)
-Date: Fri, 10 Jan 2025 18:40:32 +0000
+ 2002:a05:600c:4ed3:b0:434:f7e3:bfbd with SMTP id 5b1f17b1804b1-436e26dda8cmr98320145e9.23.1736534463780;
+ Fri, 10 Jan 2025 10:41:03 -0800 (PST)
+Date: Fri, 10 Jan 2025 18:40:34 +0000
 In-Reply-To: <20250110-asi-rfc-v2-v2-0-8419288bc805@google.com>
 Mime-Version: 1.0
 References: <20250110-asi-rfc-v2-v2-0-8419288bc805@google.com>
 X-Mailer: b4 0.15-dev
-Message-ID: <20250110-asi-rfc-v2-v2-6-8419288bc805@google.com>
-Subject: [PATCH RFC v2 06/29] mm: asi: Use separate PCIDs for restricted
- address spaces
+Message-ID: <20250110-asi-rfc-v2-v2-8-8419288bc805@google.com>
+Subject: [PATCH RFC v2 08/29] mm: asi: Avoid warning from NMI userspace
+ accesses in ASI context
 From: Brendan Jackman <jackmanb@google.com>
 To: Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, 
 	Dave Hansen <dave.hansen@linux.intel.com>, "H. Peter Anvin" <hpa@zytor.com>, 
@@ -134,11 +134,11 @@ Cc: x86@kernel.org, linux-kernel@vger.kernel.org, linux-alpha@vger.kernel.org,
 	linux-um@lists.infradead.org, linux-arch@vger.kernel.org, linux-mm@kvack.org, 
 	linux-trace-kernel@vger.kernel.org, linux-perf-users@vger.kernel.org, 
 	kvm@vger.kernel.org, linux-efi@vger.kernel.org, 
-	Brendan Jackman <jackmanb@google.com>, Yosry Ahmed <yosryahmed@google.com>, 
-	Junaid Shahid <junaids@google.com>
+	Brendan Jackman <jackmanb@google.com>, Junaid Shahid <junaids@google.com>, 
+	Yosry Ahmed <yosryahmed@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250110_184101_138990_E2C793DA 
-X-CRM114-Status: GOOD (  25.95  )
+X-CRM114-CacheID: sfid-20250110_184106_211212_44BA84F9 
+X-CRM114-Status: GOOD (  18.82  )
 X-Mailman-Approved-At: Fri, 10 Jan 2025 15:19:44 -0800
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -156,252 +156,69 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Yosry Ahmed <yosryahmed@google.com>
-
-Each restricted address space is assigned a separate PCID. Since
-currently only one ASI instance per-class exists for a given process,
-the PCID is just derived from the class index.
-
-This commit only sets the appropriate PCID when switching CR3, but does
-not actually use the NOFLUSH bit. That will be done by later patches.
+nmi_uaccess_okay() emits a warning if current CR3 != mm->pgd.
+Limit the warning to only when ASI is not active.
 
 Co-developed-by: Junaid Shahid <junaids@google.com>
 Signed-off-by: Junaid Shahid <junaids@google.com>
+Co-developed-by: Yosry Ahmed <yosryahmed@google.com>
 Signed-off-by: Yosry Ahmed <yosryahmed@google.com>
 Signed-off-by: Brendan Jackman <jackmanb@google.com>
 ---
- arch/x86/include/asm/asi.h             |  4 +--
- arch/x86/include/asm/processor-flags.h | 24 +++++++++++++++++
- arch/x86/include/asm/tlbflush.h        |  3 +++
- arch/x86/mm/asi.c                      | 10 +++----
- arch/x86/mm/tlb.c                      | 49 +++++++++++++++++++++++++++++++---
- include/asm-generic/asi.h              |  2 ++
- 6 files changed, 81 insertions(+), 11 deletions(-)
+ arch/x86/mm/tlb.c | 26 +++++++++++++++++++++-----
+ 1 file changed, 21 insertions(+), 5 deletions(-)
 
-diff --git a/arch/x86/include/asm/asi.h b/arch/x86/include/asm/asi.h
-index 9a9a139518289fc65f26a4d1cd311aa52cc5357f..a55e73f1b2bc84c41b9ab25f642a4d5f1aa6ba90 100644
---- a/arch/x86/include/asm/asi.h
-+++ b/arch/x86/include/asm/asi.h
-@@ -4,13 +4,13 @@
- 
- #include <linux/sched.h>
- 
--#include <asm-generic/asi.h>
--
- #include <asm/pgtable_types.h>
- #include <asm/percpu.h>
- #include <asm/cpufeature.h>
- #include <asm/processor.h>
- 
-+#include <asm-generic/asi.h>
-+
- #ifdef CONFIG_MITIGATION_ADDRESS_SPACE_ISOLATION
- 
- /*
-diff --git a/arch/x86/include/asm/processor-flags.h b/arch/x86/include/asm/processor-flags.h
-index e5f204b9b33dfaa92ed1b05faa6b604e50d5f2f3..42c5acb67c2d2a6b03deb548fe3dd088baa88842 100644
---- a/arch/x86/include/asm/processor-flags.h
-+++ b/arch/x86/include/asm/processor-flags.h
-@@ -55,4 +55,28 @@
- # define X86_CR3_PTI_PCID_USER_BIT	11
- #endif
- 
-+/*
-+ * An ASI identifier is included in the higher bits of PCID to use a different
-+ * PCID for each restricted address space, different from the PCID of the
-+ * unrestricted address space (see asi_pcid()). We use the bits directly after
-+ * the bit used by PTI (if any).
-+ */
-+#ifdef CONFIG_MITIGATION_ADDRESS_SPACE_ISOLATION
-+
-+#define X86_CR3_ASI_PCID_BITS 2
-+
-+/* Use the highest available PCID bits after the PTI bit (if any) */
-+#ifdef CONFIG_MITIGATION_PAGE_TABLE_ISOLATION
-+#define X86_CR3_ASI_PCID_END_BIT (X86_CR3_PTI_PCID_USER_BIT - 1)
-+#else
-+#define X86_CR3_ASI_PCID_END_BIT (X86_CR3_PCID_BITS - 1)
-+#endif
-+
-+#define X86_CR3_ASI_PCID_BITS_SHIFT (X86_CR3_ASI_PCID_END_BIT - X86_CR3_ASI_PCID_BITS + 1)
-+#define X86_CR3_ASI_PCID_MASK (((1UL << X86_CR3_ASI_PCID_BITS) - 1) << X86_CR3_ASI_PCID_BITS_SHIFT)
-+
-+#else
-+#define X86_CR3_ASI_PCID_BITS 0
-+#endif
-+
- #endif /* _ASM_X86_PROCESSOR_FLAGS_H */
-diff --git a/arch/x86/include/asm/tlbflush.h b/arch/x86/include/asm/tlbflush.h
-index c884174a44e119a3c027c44ada6c5cdba14d1282..f167feb5ebdfc7faba26b8b18ac65888cd9b0494 100644
---- a/arch/x86/include/asm/tlbflush.h
-+++ b/arch/x86/include/asm/tlbflush.h
-@@ -425,5 +425,8 @@ static inline void __native_tlb_flush_global(unsigned long cr4)
- }
- 
- unsigned long build_cr3_noinstr(pgd_t *pgd, u16 asid, unsigned long lam);
-+unsigned long build_cr3_pcid_noinstr(pgd_t *pgd, u16 pcid, unsigned long lam, bool noflush);
-+
-+u16 asi_pcid(struct asi *asi, u16 asid);
- 
- #endif /* _ASM_X86_TLBFLUSH_H */
-diff --git a/arch/x86/mm/asi.c b/arch/x86/mm/asi.c
-index 054315d566c082c0925a00ce3a0877624c8b9957..8d060c633be68b508847e2c1c111761df1da92af 100644
---- a/arch/x86/mm/asi.c
-+++ b/arch/x86/mm/asi.c
-@@ -238,6 +238,7 @@ static __always_inline void maybe_flush_data(struct asi *next_asi)
- noinstr void __asi_enter(void)
- {
- 	u64 asi_cr3;
-+	u16 pcid;
- 	struct asi *target = asi_get_target(current);
- 
- 	/*
-@@ -266,9 +267,8 @@ noinstr void __asi_enter(void)
- 	this_cpu_write(curr_asi, target);
- 	maybe_flush_control(target);
- 
--	asi_cr3 = build_cr3_noinstr(target->pgd,
--				    this_cpu_read(cpu_tlbstate.loaded_mm_asid),
--				    tlbstate_lam_cr3_mask());
-+	pcid = asi_pcid(target, this_cpu_read(cpu_tlbstate.loaded_mm_asid));
-+	asi_cr3 = build_cr3_pcid_noinstr(target->pgd, pcid, tlbstate_lam_cr3_mask(), false);
- 	write_cr3(asi_cr3);
- 
- 	maybe_flush_data(target);
-@@ -335,8 +335,8 @@ noinstr void asi_exit(void)
- 
- 		unrestricted_cr3 =
- 			build_cr3_noinstr(this_cpu_read(cpu_tlbstate.loaded_mm)->pgd,
--					  this_cpu_read(cpu_tlbstate.loaded_mm_asid),
--					  tlbstate_lam_cr3_mask());
-+					 this_cpu_read(cpu_tlbstate.loaded_mm_asid),
-+					 tlbstate_lam_cr3_mask());
- 
- 		/* Tainting first makes reentrancy easier to reason about.  */
- 		this_cpu_or(asi_taints, ASI_TAINT_KERNEL_DATA);
 diff --git a/arch/x86/mm/tlb.c b/arch/x86/mm/tlb.c
-index 7c2309996d1d5a7cac23bd122f7b56a869d67d6a..2601beed83aef182d88800c09d70e4c5e95e7ed0 100644
+index b2a13fdab0c6454c1d9d4e3338801f3402da4191..c41e083c5b5281684be79ad0391c1a5fc7b0c493 100644
 --- a/arch/x86/mm/tlb.c
 +++ b/arch/x86/mm/tlb.c
-@@ -13,6 +13,7 @@
- #include <linux/mmu_notifier.h>
- #include <linux/mmu_context.h>
+@@ -1340,6 +1340,22 @@ void arch_tlbbatch_flush(struct arch_tlbflush_unmap_batch *batch)
+ 	put_cpu();
+ }
  
-+#include <asm/processor-flags.h>
- #include <asm/tlbflush.h>
- #include <asm/mmu_context.h>
- #include <asm/nospec-branch.h>
-@@ -96,7 +97,10 @@
- # define PTI_CONSUMED_PCID_BITS	0
- #endif
- 
--#define CR3_AVAIL_PCID_BITS (X86_CR3_PCID_BITS - PTI_CONSUMED_PCID_BITS)
-+#define CR3_AVAIL_PCID_BITS (X86_CR3_PCID_BITS - PTI_CONSUMED_PCID_BITS - \
-+			     X86_CR3_ASI_PCID_BITS)
++static inline bool cr3_matches_current_mm(void)
++{
++	struct asi *asi = asi_get_current();
++	pgd_t *pgd_asi = asi_pgd(asi);
++	pgd_t *pgd_cr3;
 +
-+static_assert(BIT(CR3_AVAIL_PCID_BITS) > TLB_NR_DYN_ASIDS);
- 
++	/*
++	 * Prevent read_cr3_pa -> [NMI, asi_exit] -> asi_get_current,
++	 * otherwise we might find CR3 pointing to the ASI PGD but not
++	 * find a current ASI domain.
++	 */
++	barrier();
++	pgd_cr3 = __va(read_cr3_pa());
++	return pgd_cr3 == current->mm->pgd || pgd_cr3 == pgd_asi;
++}
++
  /*
-  * ASIDs are zero-based: 0->MAX_AVAIL_ASID are valid.  -1 below to account
-@@ -125,6 +129,11 @@ static __always_inline u16 kern_pcid(u16 asid)
- 	 */
- 	VM_WARN_ON_ONCE(asid & (1 << X86_CR3_PTI_PCID_USER_BIT));
- #endif
-+
-+#ifdef CONFIG_MITIGATION_ADDRESS_SPACE_ISOLATION
-+	BUILD_BUG_ON(TLB_NR_DYN_ASIDS >= (1 << X86_CR3_ASI_PCID_BITS_SHIFT));
-+	VM_WARN_ON_ONCE(asid & X86_CR3_ASI_PCID_MASK);
-+#endif
+  * Blindly accessing user memory from NMI context can be dangerous
+  * if we're in the middle of switching the current user task or
+@@ -1355,10 +1371,10 @@ bool nmi_uaccess_okay(void)
+ 	VM_WARN_ON_ONCE(!loaded_mm);
+ 
  	/*
- 	 * The dynamically-assigned ASIDs that get passed in are small
- 	 * (<TLB_NR_DYN_ASIDS).  They never have the high switch bit set,
-@@ -153,17 +162,22 @@ static inline u16 user_pcid(u16 asid)
- 	return ret;
+-	 * The condition we want to check is
+-	 * current_mm->pgd == __va(read_cr3_pa()).  This may be slow, though,
+-	 * if we're running in a VM with shadow paging, and nmi_uaccess_okay()
+-	 * is supposed to be reasonably fast.
++	 * The condition we want to check that CR3 points to either
++	 * current_mm->pgd or an appropriate ASI PGD. Reading CR3 may be slow,
++	 * though, if we're running in a VM with shadow paging, and
++	 * nmi_uaccess_okay() is supposed to be reasonably fast.
+ 	 *
+ 	 * Instead, we check the almost equivalent but somewhat conservative
+ 	 * condition below, and we rely on the fact that switch_mm_irqs_off()
+@@ -1367,7 +1383,7 @@ bool nmi_uaccess_okay(void)
+ 	if (loaded_mm != current_mm)
+ 		return false;
+ 
+-	VM_WARN_ON_ONCE(current_mm->pgd != __va(read_cr3_pa()));
++	VM_WARN_ON_ONCE(!cr3_matches_current_mm());
+ 
+ 	return true;
  }
- 
-+static __always_inline unsigned long __build_cr3(pgd_t *pgd, u16 pcid, unsigned long lam)
-+{
-+	return __sme_pa_nodebug(pgd) | pcid | lam;
-+}
-+
- static __always_inline unsigned long build_cr3(pgd_t *pgd, u16 asid, unsigned long lam)
- {
--	unsigned long cr3 = __sme_pa_nodebug(pgd) | lam;
-+	u16 pcid = 0;
- 
- 	if (static_cpu_has(X86_FEATURE_PCID)) {
--		cr3 |= kern_pcid(asid);
-+		pcid = kern_pcid(asid);
- 	} else {
- 		VM_WARN_ON_ONCE(asid != 0);
- 	}
- 
--	return cr3;
-+	return __build_cr3(pgd, pcid, lam);
- }
- 
- noinstr unsigned long build_cr3_noinstr(pgd_t *pgd, u16 asid, unsigned long lam)
-@@ -183,6 +197,19 @@ static inline unsigned long build_cr3_noflush(pgd_t *pgd, u16 asid,
- 	return build_cr3(pgd, asid, lam) | CR3_NOFLUSH;
- }
- 
-+noinstr unsigned long build_cr3_pcid_noinstr(pgd_t *pgd, u16 pcid,
-+					     unsigned long lam, bool noflush)
-+{
-+	u64 noflush_bit = 0;
-+
-+	if (!static_cpu_has(X86_FEATURE_PCID))
-+		pcid = 0;
-+	else if (noflush)
-+		noflush_bit = CR3_NOFLUSH;
-+
-+	return __build_cr3(pgd, pcid, lam) | noflush_bit;
-+}
-+
- /*
-  * We get here when we do something requiring a TLB invalidation
-  * but could not go invalidate all of the contexts.  We do the
-@@ -998,6 +1025,20 @@ static void put_flush_tlb_info(void)
- #endif
- }
- 
-+#ifdef CONFIG_MITIGATION_ADDRESS_SPACE_ISOLATION
-+
-+noinstr u16 asi_pcid(struct asi *asi, u16 asid)
-+{
-+	return kern_pcid(asid) | ((asi->class_id + 1) << X86_CR3_ASI_PCID_BITS_SHIFT);
-+	// return kern_pcid(asid) | ((asi->index + 1) << X86_CR3_ASI_PCID_BITS_SHIFT);
-+}
-+
-+#else /* CONFIG_MITIGATION_ADDRESS_SPACE_ISOLATION */
-+
-+u16 asi_pcid(struct asi *asi, u16 asid) { return kern_pcid(asid); }
-+
-+#endif /* CONFIG_MITIGATION_ADDRESS_SPACE_ISOLATION */
-+
- void flush_tlb_mm_range(struct mm_struct *mm, unsigned long start,
- 				unsigned long end, unsigned int stride_shift,
- 				bool freed_tables)
-diff --git a/include/asm-generic/asi.h b/include/asm-generic/asi.h
-index 7f542c59c2b8a2b74432e4edb7199f9171db8a84..f777a6cf604b0656fb39087f6eba08f980b2cb6f 100644
---- a/include/asm-generic/asi.h
-+++ b/include/asm-generic/asi.h
-@@ -2,6 +2,7 @@
- #ifndef __ASM_GENERIC_ASI_H
- #define __ASM_GENERIC_ASI_H
- 
-+#include <linux/log2.h>
- #include <linux/types.h>
- 
- #ifndef _ASSEMBLY_
-@@ -16,6 +17,7 @@ enum asi_class_id {
- #endif
- 	ASI_MAX_NUM_CLASSES,
- };
-+static_assert(order_base_2(X86_CR3_ASI_PCID_BITS) <= ASI_MAX_NUM_CLASSES);
- 
- typedef u8 asi_taints_t;
- 
 
 -- 
 2.47.1.613.gc27f4b7a9f-goog
