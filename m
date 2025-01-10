@@ -4,8 +4,8 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C88CE77188
-	for <linux-riscv@archiver.kernel.org>; Fri, 10 Jan 2025 23:19:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63024E7719D
+	for <linux-riscv@archiver.kernel.org>; Fri, 10 Jan 2025 23:19:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
@@ -13,76 +13,76 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	References:Mime-Version:In-Reply-To:Date:Reply-To:Content-ID:
 	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
 	:Resent-Message-ID:List-Owner;
-	bh=WbBL9denNPQSaUzuEINalKajU8CNSZU0S3zvqssodu8=; b=YcwZgb36FLvKSAO32IiTWdKtgA
-	tJJi5R9+YusZ/76YlnWRQom/8OCnr197spWqVHwvsg/rpcUGk9VM/mYIhNGmmqSkr4GzRaYlSQAoV
-	vXJS7N4j36v2kVL3IIFjTE/6vbtagtgpLHc+9kWFUoRL3dTE1GDja6Fr28v3Mv7JnpcEPntPRtvYw
-	HsYnSNq8a+UI3YZLtw5ar6NN4QBwdLYGsijnfffGsu0ngIYFxh/vDADja+no+JVhCmOqSysX2vN+/
-	l9ScpTlwzQeWjmzDAAVUXExZg6c7B+soeqz2Wac0q8fz0oPOhoLaTK96ZJ7TwF1zGpr2Ny/noDPY0
-	NUMXybUg==;
+	bh=IGj3J+892XQCUEocD1b1aCRdTI39EQlSgtQlsE16Qh0=; b=xK5XCb0BPatDjO+UhDnl+ptU+x
+	U1TxGJrxCGpyCmCarTCUve8bW8qqMdEo5zvVV1HJCulIIx3/bzRTZn0Ljp1EzW+MoZYS/odwK7F/4
+	vkxjbWXuEXM6sLOkwC8SGyWnSXjyUcJjnG4Ocgij/JTrAKEC6BMRnGm+gXU7pK/k+EZE7u1KtrJ0u
+	DNg7lVdx4agmk+P5qbWsEWufgvbdQ3yc05fwNqLo6mop03V8oecWAT5ukXee0imWjA8WAerDVk7m/
+	2QOuFFffrKO1K7XsrAgpZsMZJBEb6kVV/W5ceGtj/dG2MSFV2vcGiFbA9bomyyfcu0yqWbDJHdAYD
+	h3Yy4vbg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tWOI5-0000000HEQ3-2akN;
-	Fri, 10 Jan 2025 23:19:45 +0000
+	id 1tWOI6-0000000HEQr-3Of8;
+	Fri, 10 Jan 2025 23:19:46 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tWJwF-0000000GbB4-1wz9
+	id 1tWJwJ-0000000GbDs-1Wwq
 	for linux-riscv@bombadil.infradead.org;
-	Fri, 10 Jan 2025 18:40:55 +0000
+	Fri, 10 Jan 2025 18:40:59 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Content-Type:Cc:To:From:Subject:
 	Message-ID:References:Mime-Version:In-Reply-To:Date:Sender:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=lMV7uJ7I18OKYw8GMGFQsmzHxbOybRxQHWQLaqO2yfM=; b=FGe+SI25defFW6EcNmMwCFS6Jc
-	eKE0g/8HKxq0kEBuNsqBoeP9DTuMblnVR9Vayl0+AGDQbFhRCPM4shOnPG7n6Nr7VP77O1mqcj2Bt
-	UnGw4PHb+yVQF98SJRx9hGxqzyz2B05BbUa0X+2eYrIwjveoW5VV1b6Bl0vr6gGG/fYMU5HimpwI2
-	FuJnbZwYkLrunHp1TxuZ+qdE/JGzPPaQJqD8fiCm7a3BB3ZlmRs3dg9L0sUj6MeARanZp8ayJFlpb
-	rZYb5G86zmcxL3frjCXewib/AGAInl9BcLLQ0OGLANO9uHerz4pRN1C7keUEuOP6syuNZqT6H6pll
-	ktcgiXmg==;
+	bh=XoGlz9R9SPVMFZpNV+d4L6dWHbzE359F5HGhLwEH9Ng=; b=BZ1V+PYLvg/puSSsWcvP/v88uV
+	JjvrX1ix5jvhmkgljg7GuL1xpFDuDE8WZAf/pOsgOtvS5mSmO5P2Vk5/69kCg8YczJ2Dt+XT4R/ll
+	lcNJm+hCFyHAohaikeHpsmZkN8SVUIkgaD/FV7yhr15nRwzfIiA2ppG1WYuD3etFybPKGWMfyuM0N
+	Mxtwi+NGKjCw0TxtVgTgTOJQ4kbBPCvGHBbSRU4P20Yhq1+Bh/5LHNb0mmQ2GBhjPEgBEkKkx0dk4
+	m5w6gRc3DmKdr7bCO1eyNVLovttnX8HWMWP+mFtTgi+iuqGy+PCjI91jnPdb5hCkspehKHf7rIsRT
+	PFa3GLGQ==;
 Received: from mail-wm1-x34a.google.com ([2a00:1450:4864:20::34a])
 	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tWJwB-00000009sDG-0c22
+	id 1tWJwE-00000009sGU-0JFX
 	for linux-riscv@lists.infradead.org;
-	Fri, 10 Jan 2025 18:40:54 +0000
-Received: by mail-wm1-x34a.google.com with SMTP id 5b1f17b1804b1-436289a570eso19444205e9.0
-        for <linux-riscv@lists.infradead.org>; Fri, 10 Jan 2025 10:40:49 -0800 (PST)
+	Fri, 10 Jan 2025 18:40:58 +0000
+Received: by mail-wm1-x34a.google.com with SMTP id 5b1f17b1804b1-43673af80a6so19099875e9.1
+        for <linux-riscv@lists.infradead.org>; Fri, 10 Jan 2025 10:40:53 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1736534448; x=1737139248; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1736534453; x=1737139253; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=lMV7uJ7I18OKYw8GMGFQsmzHxbOybRxQHWQLaqO2yfM=;
-        b=AeDmocrQ6kKyHVY0ETjASJms9JGBDnaH1a7CSHBzIlvK9YxiniTrGP+KM3mVM+DhhA
-         57nMvQis6dVYBSjOxPjnVf0Axi82dbj3Et4DSbM8NToI+pwmZItibhz3vb7G7No4caYV
-         B5pblVuehnd2zr7oWGQo1g+ic1QwhUe0q07PCK9DIeNe6HpJH596+P6LjWg4BQKg6ivP
-         wQAv9OJ3Xu0HcMK2jSQ57hwhKI89umdLy56/Mm01CrHuqnRYTGenms25oC0lVbSeT88E
-         Ja+fG+Af89pZbB7SwdH3cfde5GlV0LJo42iqtuVriwpmnUVvcj58V+z0aQ89eba6VVVT
-         9u1g==
+        bh=XoGlz9R9SPVMFZpNV+d4L6dWHbzE359F5HGhLwEH9Ng=;
+        b=XP7q8TumKoReS0kuvbl6dWAJwu2sEkirnLoqpT4frmv57xhSeLahMzX3CCgPq/ZXKT
+         XFmGb068uym2EyKITSBsKDKLb+W2nzmJF1hcI8xVbm5/RQ7zq0DQ6Xh5Llt98CBVUg08
+         ZUwP9QrOrbcGCOZyjztHd9jIyozj06XMV4wXOqgAO7MxurphKqNi82KGfQsCkQqj6dUG
+         usxAZXq+GF/0HC3g6f//pKHU20KET8LhXa0ey+52EpNmTi/jY7inLnTG6heeZ7MYnQxx
+         DMpWCozFZ7PvY28FaeCdcTex2ylzLm5kcNPtesYnBzZ13AJceTmoT5PeFRUzJC9yE2JK
+         5lDw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1736534448; x=1737139248;
+        d=1e100.net; s=20230601; t=1736534453; x=1737139253;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=lMV7uJ7I18OKYw8GMGFQsmzHxbOybRxQHWQLaqO2yfM=;
-        b=sOgU1o9e2wCdrJxireswiJ6rEdqObK1MLa4QdDgyXjHjwmkqejRwj4kP/iFwyzyLeU
-         +pIcTUTSbaNVkTjmT9kwMqCoSwrd+Np3UKxriJnDY1VD9piDjNGCQlk9wKOaAIsWZjpd
-         h3YeICPaamfNIu/YlmkkrRO/xR1TD1AO2O420ml3VhJoWoa8QFQHE1h9ti8qv43J1kFv
-         D0k7YxZJMEXBw3HxKGTNDtgudV7aFD/j5STz94G95in7+dlGjLJl+OkBRYGnPGL+echB
-         +e/qD+s0YvfY3Ero7PNyQ+1LTw10hdEKmJF0wi1jDt/sYsSnCHshSXsWANt0ZgTSQgtx
-         WOeA==
-X-Forwarded-Encrypted: i=1; AJvYcCXHFVbPiC9qAeQQBe+LDRvvlMwc1/vpSyhUFXs0fQvvPfcc/WzTr7APqdXNy4GpK0+xvpTqUK5+adEX3g==@lists.infradead.org
-X-Gm-Message-State: AOJu0YyreM3pUbHQ8XXSFVpx5hKyXBZglmtL+VaNJPjKALpzZXcn3MRw
-	ygoGuLYcHp+FukMU1K+nILxsLJK7YyBgib/qJu0UwBVI/v2GOcgwiQrzcuJt60htReAuLuiP69q
-	LDxKvkjRpEw==
-X-Google-Smtp-Source: AGHT+IFp39E9krgcILEXjwgS0eG/yaDAJpZCMdfJgN+pTbMyBclx0Pttf9qnW8OHp1hJ5TpOh65GX4riAPR9zA==
-X-Received: from wmbbd12.prod.google.com ([2002:a05:600c:1f0c:b0:434:fd41:173c])
+        bh=XoGlz9R9SPVMFZpNV+d4L6dWHbzE359F5HGhLwEH9Ng=;
+        b=uB38CsRjTz71yNaIlJRQO2plikb9jWZz7yrZpOMzR8g5cRsgt5P0i9l5RZH7biij0Z
+         AMN8rHGWQrqCTpvf59e+Hh22dUGWVjrGNgZ5ocEBhOF58F45nzevMD2r2AjENJXc0QnH
+         iqLUZ56j7x8Q32y9RPUyG7WEu5ItHBKqHzoNkMf2Ju+6h23PHG/mP5nI3hgcpaR9+ol4
+         UVh5HrrnuzPEI8ratgBhsHCBpbm/SCczBhfLHHFOfXLGj2YUwI7E0Z/b13qp8XU/43k4
+         vzlSrAQpmM8RtittVE9ZMjghRYxkVweWMprZFgHZtahQA49XQJGAeQiU7b8zlnviDvQf
+         PJtQ==
+X-Forwarded-Encrypted: i=1; AJvYcCW1EnpsfPV66TkutLBTumpk06koAXH5esF5qiBrhWzVLFJmYm5uiJjFYQUDD3KLX/5T731/lWMOIRJq5w==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yyz/dq0stcGogS1jmzfLDKctY5MwTQZSpVZbK3fogYx3YviZf2r
+	Dd2QHj6CpxrXL1VVPw9YJ7qmFHE4JzXB5S1VAbtsT+5bmkt2mjkFpsn2u+8X2zDA7Sr9cOGXsdu
+	KJzfNKSI2Ew==
+X-Google-Smtp-Source: AGHT+IFPE8+5SCTXqr49FlBKd+8kKzimRqkvhpstM5ymbp/ZYkpFIu6SM4TYwUHOcXTpPXWmM6SB9Eylsg8TKg==
+X-Received: from wmbhg22.prod.google.com ([2002:a05:600c:5396:b0:434:e90f:9fd3])
  (user=jackmanb job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:600c:1d03:b0:434:a781:f5d9 with SMTP id 5b1f17b1804b1-436e2697b32mr62972955e9.11.1736534447848;
- Fri, 10 Jan 2025 10:40:47 -0800 (PST)
-Date: Fri, 10 Jan 2025 18:40:27 +0000
+ 2002:a05:600c:4745:b0:434:9c60:95a3 with SMTP id 5b1f17b1804b1-436e26c4218mr116881415e9.11.1736534452359;
+ Fri, 10 Jan 2025 10:40:52 -0800 (PST)
+Date: Fri, 10 Jan 2025 18:40:29 +0000
 In-Reply-To: <20250110-asi-rfc-v2-v2-0-8419288bc805@google.com>
 Mime-Version: 1.0
 References: <20250110-asi-rfc-v2-v2-0-8419288bc805@google.com>
 X-Mailer: b4 0.15-dev
-Message-ID: <20250110-asi-rfc-v2-v2-1-8419288bc805@google.com>
-Subject: [PATCH RFC v2 01/29] mm: asi: Make some utility functions noinstr compatible
+Message-ID: <20250110-asi-rfc-v2-v2-3-8419288bc805@google.com>
+Subject: [PATCH RFC v2 03/29] mm: asi: Introduce ASI core API
 From: Brendan Jackman <jackmanb@google.com>
 To: Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, 
 	Dave Hansen <dave.hansen@linux.intel.com>, "H. Peter Anvin" <hpa@zytor.com>, 
@@ -133,10 +133,11 @@ Cc: x86@kernel.org, linux-kernel@vger.kernel.org, linux-alpha@vger.kernel.org,
 	linux-um@lists.infradead.org, linux-arch@vger.kernel.org, linux-mm@kvack.org, 
 	linux-trace-kernel@vger.kernel.org, linux-perf-users@vger.kernel.org, 
 	kvm@vger.kernel.org, linux-efi@vger.kernel.org, 
-	Brendan Jackman <jackmanb@google.com>
+	Brendan Jackman <jackmanb@google.com>, Ofir Weisse <oweisse@google.com>, 
+	Junaid Shahid <junaids@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250110_184051_287175_F32A3D27 
-X-CRM114-Status: GOOD (  21.18  )
+X-CRM114-CacheID: sfid-20250110_184054_405672_0335E95F 
+X-CRM114-Status: GOOD (  34.84  )
 X-Mailman-Approved-At: Fri, 10 Jan 2025 15:19:44 -0800
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -154,145 +155,874 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Some existing utility functions would need to be called from a noinstr
-context in the later patches. So mark these as either noinstr or
-__always_inline.
+Introduce core API for Address Space Isolation (ASI).  Kernel address
+space isolation provides the ability to run some kernel
+code with a restricted kernel address space.
 
-An earlier version of this by Junaid had a macro that was intended to
-tell the compiler "either inline this function, or call it in the
-noinstr section", which basically boiled down to:
+There can be multiple classes of such restricted kernel address spaces
+(e.g. KPTI, KVM-PTI etc.). Each ASI class is identified by an index.
+The ASI class can register some hooks to be called when
+entering/exiting the restricted address space.
 
- #define inline_or_noinstr noinline __section(".noinstr.text")
+Currently, there is a fixed maximum number of ASI classes supported.
+In addition, each process can have at most one restricted address space
+from each ASI class. Neither of these are inherent limitations and
+are merely simplifying assumptions for the time being.
 
-Unfortunately Thomas pointed out this will prevent the function from
-being inlined at call sites in .text.
+To keep things simpler for the time being, we disallow context switches
+within the restricted address space. In the future, we would be able to
+relax this limitation for the case of context switches to different
+threads within the same process (or to the idle thread and back).
 
-So far I haven't been able[1] to find a formulation that lets us :
-1. avoid calls from .noinstr.text -> .text,
-2. while also letting the compiler freely decide what to inline.
+Note that this doesn't really support protecting sibling VM guests
+within the same VMM process from one another. From first principles
+it seems unlikely that anyone who cares about VM isolation would do
+that, but there could be a use-case to think about. In that case need
+something like the OTHER_MM logic might be needed, but specific to
+intra-process guest separation.
 
-1 is a functional requirement so here I'm just giving up on 2. Existing
-callsites of this code are just forced inline. For the incoming code
-that needs to call it from noinstr, they will be out-of-line calls.
+[0]:
+https://lore.kernel.org/kvm/1562855138-19507-1-git-send-email-alexandre.chartre@oracle.com
 
-[1] https://lore.kernel.org/lkml/CA+i-1C1z35M8wA_4AwMq7--c1OgjNoLGTkn4+Td5gKg7QQAzWw@mail.gmail.com/
+Notes about RFC-quality implementation details:
 
-Checkpatch-args: --ignore=COMMIT_LOG_LONG_LINE
+ - Ignoring checkpatch.pl AVOID_BUG.
+ - The dynamic registration of classes might be pointless complexity.
+   This was kept from RFCv1 without much thought.
+ - The other-mm logic is also perhaps overly complex, suggestions are
+   welcome for how best to tackle this (or we could just forget about
+   it for the moment, and rely on asi_exit() happening in process
+   switch).
+ - The taint flag definitions would probably be clearer with an enum or
+   something.
+
+Checkpatch-args: --ignore=AVOID_BUG,COMMIT_LOG_LONG_LINE,EXPORT_SYMBOL
+Co-developed-by: Ofir Weisse <oweisse@google.com>
+Signed-off-by: Ofir Weisse <oweisse@google.com>
+Co-developed-by: Junaid Shahid <junaids@google.com>
+Signed-off-by: Junaid Shahid <junaids@google.com>
 Signed-off-by: Brendan Jackman <jackmanb@google.com>
 ---
- arch/x86/include/asm/processor.h     |  2 +-
- arch/x86/include/asm/special_insns.h |  8 ++++----
- arch/x86/include/asm/tlbflush.h      |  3 +++
- arch/x86/mm/tlb.c                    | 13 +++++++++----
- 4 files changed, 17 insertions(+), 9 deletions(-)
+ arch/x86/include/asm/asi.h       | 208 +++++++++++++++++++++++
+ arch/x86/include/asm/processor.h |   8 +
+ arch/x86/mm/Makefile             |   1 +
+ arch/x86/mm/asi.c                | 350 +++++++++++++++++++++++++++++++++++++++
+ arch/x86/mm/init.c               |   3 +-
+ arch/x86/mm/tlb.c                |   1 +
+ include/asm-generic/asi.h        |  67 ++++++++
+ include/linux/mm_types.h         |   7 +
+ kernel/fork.c                    |   3 +
+ kernel/sched/core.c              |   9 +
+ mm/init-mm.c                     |   4 +
+ 11 files changed, 660 insertions(+), 1 deletion(-)
 
-diff --git a/arch/x86/include/asm/processor.h b/arch/x86/include/asm/processor.h
-index 4a686f0e5dbf6d906ed38276148b186e920927b3..1a1b7ea5d7d32a47d783d9d62cd2a53672addd6f 100644
---- a/arch/x86/include/asm/processor.h
-+++ b/arch/x86/include/asm/processor.h
-@@ -220,7 +220,7 @@ void print_cpu_msr(struct cpuinfo_x86 *);
- /*
-  * Friendlier CR3 helpers.
-  */
--static inline unsigned long read_cr3_pa(void)
-+static __always_inline unsigned long read_cr3_pa(void)
- {
- 	return __read_cr3() & CR3_ADDR_MASK;
- }
-diff --git a/arch/x86/include/asm/special_insns.h b/arch/x86/include/asm/special_insns.h
-index aec6e2d3aa1d52e5c8f513e188015a45e9eeaeb2..6e103358966f6f1333aa07be97aec5f8af794120 100644
---- a/arch/x86/include/asm/special_insns.h
-+++ b/arch/x86/include/asm/special_insns.h
-@@ -42,14 +42,14 @@ static __always_inline void native_write_cr2(unsigned long val)
- 	asm volatile("mov %0,%%cr2": : "r" (val) : "memory");
- }
- 
--static inline unsigned long __native_read_cr3(void)
-+static __always_inline unsigned long __native_read_cr3(void)
- {
- 	unsigned long val;
- 	asm volatile("mov %%cr3,%0\n\t" : "=r" (val) : __FORCE_ORDER);
- 	return val;
- }
- 
--static inline void native_write_cr3(unsigned long val)
-+static __always_inline void native_write_cr3(unsigned long val)
- {
- 	asm volatile("mov %0,%%cr3": : "r" (val) : "memory");
- }
-@@ -153,12 +153,12 @@ static __always_inline void write_cr2(unsigned long x)
-  * Careful!  CR3 contains more than just an address.  You probably want
-  * read_cr3_pa() instead.
-  */
--static inline unsigned long __read_cr3(void)
-+static __always_inline unsigned long __read_cr3(void)
- {
- 	return __native_read_cr3();
- }
- 
--static inline void write_cr3(unsigned long x)
-+static __always_inline void write_cr3(unsigned long x)
- {
- 	native_write_cr3(x);
- }
-diff --git a/arch/x86/include/asm/tlbflush.h b/arch/x86/include/asm/tlbflush.h
-index 69e79fff41b800a0a138bcbf548dde9d72993105..c884174a44e119a3c027c44ada6c5cdba14d1282 100644
---- a/arch/x86/include/asm/tlbflush.h
-+++ b/arch/x86/include/asm/tlbflush.h
-@@ -423,4 +423,7 @@ static inline void __native_tlb_flush_global(unsigned long cr4)
- 	native_write_cr4(cr4 ^ X86_CR4_PGE);
- 	native_write_cr4(cr4);
- }
+diff --git a/arch/x86/include/asm/asi.h b/arch/x86/include/asm/asi.h
+new file mode 100644
+index 0000000000000000000000000000000000000000..7cc635b6653a3970ba9dbfdc9c828a470e27bd44
+--- /dev/null
++++ b/arch/x86/include/asm/asi.h
+@@ -0,0 +1,208 @@
++/* SPDX-License-Identifier: GPL-2.0 */
++#ifndef _ASM_X86_ASI_H
++#define _ASM_X86_ASI_H
 +
-+unsigned long build_cr3_noinstr(pgd_t *pgd, u16 asid, unsigned long lam);
++#include <linux/sched.h>
 +
- #endif /* _ASM_X86_TLBFLUSH_H */
-diff --git a/arch/x86/mm/tlb.c b/arch/x86/mm/tlb.c
-index 86593d1b787d8a5b9fa4bd492356898ec8870938..f0428e5e1f1947903ee87c4c6444844ee11b45c3 100644
---- a/arch/x86/mm/tlb.c
-+++ b/arch/x86/mm/tlb.c
-@@ -108,7 +108,7 @@
- /*
-  * Given @asid, compute kPCID
-  */
--static inline u16 kern_pcid(u16 asid)
-+static __always_inline u16 kern_pcid(u16 asid)
- {
- 	VM_WARN_ON_ONCE(asid > MAX_ASID_AVAILABLE);
- 
-@@ -153,9 +153,9 @@ static inline u16 user_pcid(u16 asid)
- 	return ret;
- }
- 
--static inline unsigned long build_cr3(pgd_t *pgd, u16 asid, unsigned long lam)
-+static __always_inline unsigned long build_cr3(pgd_t *pgd, u16 asid, unsigned long lam)
- {
--	unsigned long cr3 = __sme_pa(pgd) | lam;
-+	unsigned long cr3 = __sme_pa_nodebug(pgd) | lam;
- 
- 	if (static_cpu_has(X86_FEATURE_PCID)) {
- 		cr3 |= kern_pcid(asid);
-@@ -166,6 +166,11 @@ static inline unsigned long build_cr3(pgd_t *pgd, u16 asid, unsigned long lam)
- 	return cr3;
- }
- 
-+noinstr unsigned long build_cr3_noinstr(pgd_t *pgd, u16 asid, unsigned long lam)
++#include <asm-generic/asi.h>
++
++#include <asm/pgtable_types.h>
++#include <asm/percpu.h>
++#include <asm/processor.h>
++
++#ifdef CONFIG_MITIGATION_ADDRESS_SPACE_ISOLATION
++
++/*
++ * Overview of API usage by ASI clients:
++ *
++ * Setup: First call asi_init() to create a domain. At present only one domain
++ * can be created per mm per class, but it's safe to asi_init() this domain
++ * multiple times. For each asi_init() call you must call asi_destroy() AFTER
++ * you are certain all CPUs have exited the restricted address space (by
++ * calling asi_exit()).
++ *
++ * Runtime usage:
++ *
++ * 1. Call asi_enter() to switch to the restricted address space. This can't be
++ *    from an interrupt or exception handler and preemption must be disabled.
++ *
++ * 2. Execute untrusted code.
++ *
++ * 3. Call asi_relax() to inform the ASI subsystem that untrusted code execution
++ *    is finished. This doesn't cause any address space change. This can't be
++ *    from an interrupt or exception handler and preemption must be disabled.
++ *
++ * 4. Either:
++ *
++ *    a. Go back to 1.
++ *
++ *    b. Call asi_exit() before returning to userspace. This immediately
++ *       switches to the unrestricted address space.
++ *
++ * The region between 1 and 3 is called the "ASI critical section". During the
++ * critical section, it is a bug to access any sensitive data, and you mustn't
++ * sleep.
++ *
++ * The restriction on sleeping is not really a fundamental property of ASI.
++ * However for performance reasons it's important that the critical section is
++ * absolutely as short as possible. So the ability to do sleepy things like
++ * taking mutexes oughtn't to confer any convenience on API users.
++ *
++ * Similarly to the issue of sleeping, the need to asi_exit in case 4b is not a
++ * fundamental property of the system but a limitation of the current
++ * implementation. With further work it is possible to context switch
++ * from and/or to the restricted address space, and to return to userspace
++ * directly from the restricted address space, or _in_ it.
++ *
++ * Note that the critical section only refers to the direct execution path from
++ * asi_enter to asi_relax: it's fine to access sensitive data from exceptions
++ * and interrupt handlers that occur during that time. ASI will re-enter the
++ * restricted address space before returning from the outermost
++ * exception/interrupt.
++ *
++ * Note: ASI does not modify KPTI behaviour; when ASI and KPTI run together
++ * there are 2+N address spaces per task: the unrestricted kernel address space,
++ * the user address space, and one restricted (kernel) address space for each of
++ * the N ASI classes.
++ */
++
++/*
++ * ASI uses a per-CPU tainting model to track what mitigation actions are
++ * required on domain transitions. Taints exist along two dimensions:
++ *
++ *  - Who touched the CPU (guest, unprotected kernel, userspace).
++ *
++ *  - What kind of state might remain: "data" means there might be data owned by
++ *    a victim domain left behind in a sidechannel. "Control" means there might
++ *    be state controlled by an attacker domain left behind in the branch
++ *    predictor.
++ *
++ *    In principle the same domain can be both attacker and victim, thus we have
++ *    both data and control taints for userspace, although there's no point in
++ *    trying to protect against attacks from the kernel itself, so there's no
++ *    ASI_TAINT_KERNEL_CONTROL.
++ */
++#define ASI_TAINT_KERNEL_DATA		((asi_taints_t)BIT(0))
++#define ASI_TAINT_USER_DATA		((asi_taints_t)BIT(1))
++#define ASI_TAINT_GUEST_DATA		((asi_taints_t)BIT(2))
++#define ASI_TAINT_OTHER_MM_DATA		((asi_taints_t)BIT(3))
++#define ASI_TAINT_USER_CONTROL		((asi_taints_t)BIT(4))
++#define ASI_TAINT_GUEST_CONTROL		((asi_taints_t)BIT(5))
++#define ASI_TAINT_OTHER_MM_CONTROL	((asi_taints_t)BIT(6))
++#define ASI_NUM_TAINTS			6
++static_assert(BITS_PER_BYTE * sizeof(asi_taints_t) >= ASI_NUM_TAINTS);
++
++#define ASI_TAINTS_CONTROL_MASK \
++	(ASI_TAINT_USER_CONTROL | ASI_TAINT_GUEST_CONTROL | ASI_TAINT_OTHER_MM_CONTROL)
++
++#define ASI_TAINTS_DATA_MASK \
++	(ASI_TAINT_KERNEL_DATA | ASI_TAINT_USER_DATA | ASI_TAINT_OTHER_MM_DATA)
++
++#define ASI_TAINTS_GUEST_MASK (ASI_TAINT_GUEST_DATA | ASI_TAINT_GUEST_CONTROL)
++#define ASI_TAINTS_USER_MASK (ASI_TAINT_USER_DATA | ASI_TAINT_USER_CONTROL)
++
++/* The taint policy tells ASI how a class interacts with the CPU taints */
++struct asi_taint_policy {
++	/*
++	 * What taints would necessitate a flush when entering the domain, to
++	 * protect it from attack by prior domains?
++	 */
++	asi_taints_t prevent_control;
++	/*
++	 * What taints would necessetate a flush when entering the domain, to
++	 * protect former domains from attack by this domain?
++	 */
++	asi_taints_t protect_data;
++	/* What taints should be set when entering the domain? */
++	asi_taints_t set;
++};
++
++/*
++ * An ASI domain (struct asi) represents a restricted address space. The
++ * unrestricted address space (and user address space under PTI) are not
++ * represented as a domain.
++ */
++struct asi {
++	pgd_t *pgd;
++	struct mm_struct *mm;
++	int64_t ref_count;
++	enum asi_class_id class_id;
++};
++
++DECLARE_PER_CPU_ALIGNED(struct asi *, curr_asi);
++
++void asi_init_mm_state(struct mm_struct *mm);
++
++int asi_init_class(enum asi_class_id class_id, struct asi_taint_policy *taint_policy);
++void asi_uninit_class(enum asi_class_id class_id);
++const char *asi_class_name(enum asi_class_id class_id);
++
++int asi_init(struct mm_struct *mm, enum asi_class_id class_id, struct asi **out_asi);
++void asi_destroy(struct asi *asi);
++
++/* Enter an ASI domain (restricted address space) and begin the critical section. */
++void asi_enter(struct asi *asi);
++
++/*
++ * Leave the "tense" state if we are in it, i.e. end the critical section. We
++ * will stay relaxed until the next asi_enter.
++ */
++void asi_relax(void);
++
++/* Immediately exit the restricted address space if in it */
++void asi_exit(void);
++
++/* The target is the domain we'll enter when returning to process context. */
++static __always_inline struct asi *asi_get_target(struct task_struct *p)
 +{
-+	return build_cr3(pgd, asid, lam);
++	return p->thread.asi_state.target;
 +}
 +
- static inline unsigned long build_cr3_noflush(pgd_t *pgd, u16 asid,
- 					      unsigned long lam)
++static __always_inline void asi_set_target(struct task_struct *p,
++					   struct asi *target)
++{
++	p->thread.asi_state.target = target;
++}
++
++static __always_inline struct asi *asi_get_current(void)
++{
++	return this_cpu_read(curr_asi);
++}
++
++/* Are we currently in a restricted address space? */
++static __always_inline bool asi_is_restricted(void)
++{
++	return (bool)asi_get_current();
++}
++
++/* If we exit/have exited, can we stay that way until the next asi_enter? */
++static __always_inline bool asi_is_relaxed(void)
++{
++	return !asi_get_target(current);
++}
++
++/*
++ * Is the current task in the critical section?
++ *
++ * This is just the inverse of !asi_is_relaxed(). We have both functions in order to
++ * help write intuitive client code. In particular, asi_is_tense returns false
++ * when ASI is disabled, which is judged to make user code more obvious.
++ */
++static __always_inline bool asi_is_tense(void)
++{
++	return !asi_is_relaxed();
++}
++
++static __always_inline pgd_t *asi_pgd(struct asi *asi)
++{
++	return asi ? asi->pgd : NULL;
++}
++
++#define INIT_MM_ASI(init_mm) \
++	.asi_init_lock = __MUTEX_INITIALIZER(init_mm.asi_init_lock),
++
++void asi_handle_switch_mm(void);
++
++#endif /* CONFIG_MITIGATION_ADDRESS_SPACE_ISOLATION */
++
++#endif
+diff --git a/arch/x86/include/asm/processor.h b/arch/x86/include/asm/processor.h
+index 1a1b7ea5d7d32a47d783d9d62cd2a53672addd6f..f02220e6b4df911d87e2fee4b497eade61a27161 100644
+--- a/arch/x86/include/asm/processor.h
++++ b/arch/x86/include/asm/processor.h
+@@ -5,6 +5,7 @@
+ #include <asm/processor-flags.h>
+ 
+ /* Forward declaration, a strange C thing */
++struct asi;
+ struct task_struct;
+ struct mm_struct;
+ struct io_bitmap;
+@@ -503,6 +504,13 @@ struct thread_struct {
+ 	struct thread_shstk	shstk;
+ #endif
+ 
++#ifdef CONFIG_MITIGATION_ADDRESS_SPACE_ISOLATION
++	struct {
++		/* Domain to enter when returning to process context. */
++		struct asi	*target;
++	} asi_state;
++#endif
++
+ 	/* Floating point and extended processor state */
+ 	struct fpu		fpu;
+ 	/*
+diff --git a/arch/x86/mm/Makefile b/arch/x86/mm/Makefile
+index 690fbf48e8538b62a176ce838820e363575b7897..89ade7363798cc20d5e5643526eba7378174baa0 100644
+--- a/arch/x86/mm/Makefile
++++ b/arch/x86/mm/Makefile
+@@ -61,6 +61,7 @@ obj-$(CONFIG_ACPI_NUMA)		+= srat.o
+ obj-$(CONFIG_X86_INTEL_MEMORY_PROTECTION_KEYS)	+= pkeys.o
+ obj-$(CONFIG_RANDOMIZE_MEMORY)			+= kaslr.o
+ obj-$(CONFIG_MITIGATION_PAGE_TABLE_ISOLATION)	+= pti.o
++obj-$(CONFIG_MITIGATION_ADDRESS_SPACE_ISOLATION)		+= asi.o
+ 
+ obj-$(CONFIG_X86_MEM_ENCRYPT)	+= mem_encrypt.o
+ obj-$(CONFIG_AMD_MEM_ENCRYPT)	+= mem_encrypt_amd.o
+diff --git a/arch/x86/mm/asi.c b/arch/x86/mm/asi.c
+new file mode 100644
+index 0000000000000000000000000000000000000000..105cd8b43eaf5c20acc80d4916b761559fb95d74
+--- /dev/null
++++ b/arch/x86/mm/asi.c
+@@ -0,0 +1,350 @@
++// SPDX-License-Identifier: GPL-2.0
++#include <linux/compiler_types.h>
++#include <linux/export.h>
++#include <linux/percpu.h>
++#include <linux/spinlock.h>
++
++#include <asm/asi.h>
++#include <asm/cmdline.h>
++#include <asm/cpufeature.h>
++#include <asm/page.h>
++#include <asm/pgalloc.h>
++#include <asm/mmu_context.h>
++
++static struct asi_taint_policy *taint_policies[ASI_MAX_NUM_CLASSES];
++
++const char *asi_class_names[] = {
++#if IS_ENABLED(CONFIG_KVM)
++	[ASI_CLASS_KVM] = "KVM",
++#endif
++};
++
++DEFINE_PER_CPU_ALIGNED(struct asi *, curr_asi);
++EXPORT_SYMBOL(curr_asi);
++
++static inline bool asi_class_id_valid(enum asi_class_id class_id)
++{
++	return class_id >= 0 && class_id < ASI_MAX_NUM_CLASSES;
++}
++
++static inline bool asi_class_initialized(enum asi_class_id class_id)
++{
++	if (WARN_ON(!asi_class_id_valid(class_id)))
++		return false;
++
++	return !!(taint_policies[class_id]);
++}
++
++int asi_init_class(enum asi_class_id class_id, struct asi_taint_policy *taint_policy)
++{
++	if (asi_class_initialized(class_id))
++		return -EEXIST;
++
++	WARN_ON(!(taint_policy->prevent_control & ASI_TAINTS_CONTROL_MASK));
++	WARN_ON(!(taint_policy->protect_data & ASI_TAINTS_DATA_MASK));
++
++	taint_policies[class_id] = taint_policy;
++
++	return 0;
++}
++EXPORT_SYMBOL_GPL(asi_init_class);
++
++void asi_uninit_class(enum asi_class_id class_id)
++{
++	if (!asi_class_initialized(class_id))
++		return;
++
++	taint_policies[class_id] = NULL;
++}
++EXPORT_SYMBOL_GPL(asi_uninit_class);
++
++const char *asi_class_name(enum asi_class_id class_id)
++{
++	if (WARN_ON_ONCE(!asi_class_id_valid(class_id)))
++		return "<invalid>";
++
++	return asi_class_names[class_id];
++}
++
++static void __asi_destroy(struct asi *asi)
++{
++	lockdep_assert_held(&asi->mm->asi_init_lock);
++
++}
++
++int asi_init(struct mm_struct *mm, enum asi_class_id class_id, struct asi **out_asi)
++{
++	struct asi *asi;
++	int err = 0;
++
++	*out_asi = NULL;
++
++	if (WARN_ON(!asi_class_initialized(class_id)))
++		return -EINVAL;
++
++	asi = &mm->asi[class_id];
++
++	mutex_lock(&mm->asi_init_lock);
++
++	if (asi->ref_count++ > 0)
++		goto exit_unlock; /* err is 0 */
++
++	BUG_ON(asi->pgd != NULL);
++
++	/*
++	 * For now, we allocate 2 pages to avoid any potential problems with
++	 * KPTI code. This won't be needed once KPTI is folded into the ASI
++	 * framework.
++	 */
++	asi->pgd = (pgd_t *)__get_free_pages(
++		GFP_KERNEL_ACCOUNT | __GFP_ZERO, PGD_ALLOCATION_ORDER);
++	if (!asi->pgd) {
++		err = -ENOMEM;
++		goto exit_unlock;
++	}
++
++	asi->mm = mm;
++	asi->class_id = class_id;
++
++exit_unlock:
++	if (err)
++		__asi_destroy(asi);
++	else
++		*out_asi = asi;
++
++	mutex_unlock(&mm->asi_init_lock);
++
++	return err;
++}
++EXPORT_SYMBOL_GPL(asi_init);
++
++void asi_destroy(struct asi *asi)
++{
++	struct mm_struct *mm;
++
++	if (!asi)
++		return;
++
++	if (WARN_ON(!asi_class_initialized(asi->class_id)))
++		return;
++
++	mm = asi->mm;
++	/*
++	 * We would need this mutex even if the refcount was atomic as we need
++	 * to block concurrent asi_init calls.
++	 */
++	mutex_lock(&mm->asi_init_lock);
++	WARN_ON_ONCE(asi->ref_count <= 0);
++	if (--(asi->ref_count) == 0) {
++		free_pages((ulong)asi->pgd, PGD_ALLOCATION_ORDER);
++		memset(asi, 0, sizeof(struct asi));
++	}
++	mutex_unlock(&mm->asi_init_lock);
++}
++EXPORT_SYMBOL_GPL(asi_destroy);
++
++DEFINE_PER_CPU_ALIGNED(asi_taints_t, asi_taints);
++
++/*
++ * Flush out any potentially malicious speculative control flow (e.g. branch
++ * predictor) state if necessary when we are entering a new domain (which may be
++ * NULL when we are exiting to the restricted address space).
++ *
++ * This is "backwards-looking" mitigation, the attacker is in the past: we want
++ * then when logically transitioning from A to B and B doesn't trust A.
++ *
++ * This function must tolerate reentrancy.
++ */
++static __always_inline void maybe_flush_control(struct asi *next_asi)
++{
++	asi_taints_t taints = this_cpu_read(asi_taints);
++
++	if (next_asi) {
++		taints &= taint_policies[next_asi->class_id]->prevent_control;
++	} else {
++		/*
++		 * Going to the unrestricted address space, this has an implicit
++		 * policy of flushing all taints.
++		 */
++		taints &= ASI_TAINTS_CONTROL_MASK;
++	}
++
++	if (!taints)
++		return;
++
++	/*
++	 * This is where we'll do the actual dirty work of clearing uarch state.
++	 * For now we just pretend, clear the taints.
++	 */
++	this_cpu_and(asi_taints, ~ASI_TAINTS_CONTROL_MASK);
++}
++
++/*
++ * Flush out any data that might be hanging around in uarch state that can be
++ * leaked through sidechannels if necessary when we are entering a new domain.
++ *
++ * This is "forwards-looking" mitigation, the attacker is in the future: we want
++ * this when logically transitioning from A to B and A doesn't trust B.
++ *
++ * This function must tolerate reentrancy.
++ */
++static __always_inline void maybe_flush_data(struct asi *next_asi)
++{
++	asi_taints_t taints = this_cpu_read(asi_taints)
++		& taint_policies[next_asi->class_id]->protect_data;
++
++	if (!taints)
++		return;
++
++	/*
++	 * This is where we'll do the actual dirty work of clearing uarch state.
++	 * For now we just pretend, clear the taints.
++	 */
++	this_cpu_and(asi_taints, ~ASI_TAINTS_DATA_MASK);
++}
++
++static noinstr void __asi_enter(void)
++{
++	u64 asi_cr3;
++	struct asi *target = asi_get_target(current);
++
++	/*
++	 * This is actually false restriction, it should be fine to be
++	 * preemptible during the critical section. But we haven't tested it. We
++	 * will also need to disable preemption during this function itself and
++	 * perhaps elsewhere. This false restriction shouldn't create any
++	 * additional burden for ASI clients anyway: the critical section has
++	 * to be as short as possible to avoid unnecessary ASI transitions so
++	 * disabling preemption should be fine.
++	 */
++	VM_BUG_ON(preemptible());
++
++	if (!target || target == this_cpu_read(curr_asi))
++		return;
++
++	VM_BUG_ON(this_cpu_read(cpu_tlbstate.loaded_mm) ==
++		  LOADED_MM_SWITCHING);
++
++	/*
++	 * Must update curr_asi before writing CR3 to ensure an interrupting
++	 * asi_exit sees that it may need to switch address spaces.
++	 * This is the real beginning of the ASI critical section.
++	 */
++	this_cpu_write(curr_asi, target);
++	maybe_flush_control(target);
++
++	asi_cr3 = build_cr3_noinstr(target->pgd,
++				    this_cpu_read(cpu_tlbstate.loaded_mm_asid),
++				    tlbstate_lam_cr3_mask());
++	write_cr3(asi_cr3);
++
++	maybe_flush_data(target);
++	/*
++	 * It's fine to set the control taints late like this, since we haven't
++	 * actually got to the untrusted code yet. Waiting until now to set the
++	 * data taints is less obviously correct: we've mapped in the incoming
++	 * domain's secrets now so we can't guarantee they haven't already got
++	 * into a sidechannel. However, preemption is off so the only way we can
++	 * reach another asi_enter() is in the return from an interrupt - in
++	 * that case the reentrant asi_enter() call is entering the same domain
++	 * that we're entering at the moment, it doesn't need to flush those
++	 * secrets.
++	 */
++	this_cpu_or(asi_taints, taint_policies[target->class_id]->set);
++}
++
++noinstr void asi_enter(struct asi *asi)
++{
++	VM_WARN_ON_ONCE(!asi);
++
++	/* Should not have an asi_enter() without a prior asi_relax(). */
++	VM_WARN_ON_ONCE(asi_get_target(current));
++
++	asi_set_target(current, asi);
++	barrier();
++
++	__asi_enter();
++}
++EXPORT_SYMBOL_GPL(asi_enter);
++
++noinstr void asi_relax(void)
++{
++	barrier();
++	asi_set_target(current, NULL);
++}
++EXPORT_SYMBOL_GPL(asi_relax);
++
++noinstr void asi_exit(void)
++{
++	u64 unrestricted_cr3;
++	struct asi *asi;
++
++	preempt_disable_notrace();
++
++	VM_BUG_ON(this_cpu_read(cpu_tlbstate.loaded_mm) ==
++		  LOADED_MM_SWITCHING);
++
++	asi = this_cpu_read(curr_asi);
++	if (asi) {
++		maybe_flush_control(NULL);
++
++		unrestricted_cr3 =
++			build_cr3_noinstr(this_cpu_read(cpu_tlbstate.loaded_mm)->pgd,
++					  this_cpu_read(cpu_tlbstate.loaded_mm_asid),
++					  tlbstate_lam_cr3_mask());
++
++		/* Tainting first makes reentrancy easier to reason about.  */
++		this_cpu_or(asi_taints, ASI_TAINT_KERNEL_DATA);
++		write_cr3(unrestricted_cr3);
++		/*
++		 * Must not update curr_asi until after CR3 write, otherwise a
++		 * re-entrant call might not enter this branch. (This means we
++		 * might do unnecessary CR3 writes).
++		 */
++		this_cpu_write(curr_asi, NULL);
++	}
++
++	preempt_enable_notrace();
++}
++EXPORT_SYMBOL_GPL(asi_exit);
++
++void asi_init_mm_state(struct mm_struct *mm)
++{
++	memset(mm->asi, 0, sizeof(mm->asi));
++	mutex_init(&mm->asi_init_lock);
++}
++
++void asi_handle_switch_mm(void)
++{
++	/*
++	 * We can't handle context switching in the restricted address space yet
++	 * so this is pointless in practice (we asi_exit() in this path, which
++	 * doesn't care about the fine details of who exactly got at the branch
++	 * predictor), but just to illustrate how the tainting model is supposed
++	 * to work, here we squash the per-domain (guest/userspace) taints into
++	 * a general "other MM" taint. Other processes don't care if their peers
++	 * are attacking them from a guest or from bare metal.
++	 */
++	asi_taints_t taints = this_cpu_read(asi_taints);
++	asi_taints_t new_taints = 0;
++
++	if (taints & ASI_TAINTS_CONTROL_MASK)
++		new_taints |= ASI_TAINT_OTHER_MM_CONTROL;
++	if (taints & ASI_TAINTS_DATA_MASK)
++		new_taints |= ASI_TAINT_OTHER_MM_DATA;
++
++	/*
++	 * We can't race with asi_enter() or we'd clobber the taint it sets.
++	 * Would be odd given this function says context_switch in the name but
++	 * just be to sure...
++	 */
++	lockdep_assert_preemption_disabled();
++
++	/*
++	 * Can'tt just this_cpu_write here as we could be racing with asi_exit()
++	 * (at least, in the future where this function is actually necessary),
++	 * we mustn't clobber ASI_TAINT_KERNEL_DATA.
++	 */
++	this_cpu_or(asi_taints, new_taints);
++	this_cpu_and(asi_taints, ~(ASI_TAINTS_GUEST_MASK | ASI_TAINTS_USER_MASK));
++}
+diff --git a/arch/x86/mm/init.c b/arch/x86/mm/init.c
+index eb503f53c3195ca4f299593c0112dab0fb09e7dd..de4227ed5169ff84d0ce80b677caffc475198fa6 100644
+--- a/arch/x86/mm/init.c
++++ b/arch/x86/mm/init.c
+@@ -250,7 +250,8 @@ static void __init probe_page_size_mask(void)
+ 	/* By the default is everything supported: */
+ 	__default_kernel_pte_mask = __supported_pte_mask;
+ 	/* Except when with PTI where the kernel is mostly non-Global: */
+-	if (cpu_feature_enabled(X86_FEATURE_PTI))
++	if (cpu_feature_enabled(X86_FEATURE_PTI) ||
++	    IS_ENABLED(CONFIG_MITIGATION_ADDRESS_SPACE_ISOLATION))
+ 		__default_kernel_pte_mask &= ~_PAGE_GLOBAL;
+ 
+ 	/* Enable 1 GB linear kernel mappings if available: */
+diff --git a/arch/x86/mm/tlb.c b/arch/x86/mm/tlb.c
+index f0428e5e1f1947903ee87c4c6444844ee11b45c3..7c2309996d1d5a7cac23bd122f7b56a869d67d6a 100644
+--- a/arch/x86/mm/tlb.c
++++ b/arch/x86/mm/tlb.c
+@@ -608,6 +608,7 @@ void switch_mm_irqs_off(struct mm_struct *unused, struct mm_struct *next,
+ 		 * Apply process to process speculation vulnerability
+ 		 * mitigations if applicable.
+ 		 */
++		asi_handle_switch_mm();
+ 		cond_mitigation(tsk);
+ 
+ 		/*
+diff --git a/include/asm-generic/asi.h b/include/asm-generic/asi.h
+index c4d9a5ff860a96428422a15000c622aeecc2d664..6b84202837605fa57e4a910318c8353b3f816f06 100644
+--- a/include/asm-generic/asi.h
++++ b/include/asm-generic/asi.h
+@@ -2,4 +2,71 @@
+ #ifndef __ASM_GENERIC_ASI_H
+ #define __ASM_GENERIC_ASI_H
+ 
++#include <linux/types.h>
++
++#ifndef _ASSEMBLY_
++
++/*
++ * An ASI class is a type of isolation that can be applied to a process. A
++ * process may have a domain for each class.
++ */
++enum asi_class_id {
++#if IS_ENABLED(CONFIG_KVM)
++	ASI_CLASS_KVM,
++#endif
++	ASI_MAX_NUM_CLASSES,
++};
++
++typedef u8 asi_taints_t;
++
++#ifndef CONFIG_MITIGATION_ADDRESS_SPACE_ISOLATION
++
++struct asi_hooks {};
++struct asi {};
++
++static inline
++int asi_init_class(enum asi_class_id class_id,
++		       asi_taints_t control_taints, asi_taints_t data_taints)
++{
++	return 0;
++}
++
++static inline void asi_uninit_class(enum asi_class_id class_id) { }
++
++struct mm_struct;
++static inline void asi_init_mm_state(struct mm_struct *mm) { }
++
++static inline int asi_init(struct mm_struct *mm, enum asi_class_id class_id,
++			   struct asi **out_asi)
++{
++	return 0;
++}
++
++static inline void asi_destroy(struct asi *asi) { }
++
++static inline void asi_enter(struct asi *asi) { }
++
++static inline void asi_relax(void) { }
++
++static inline bool asi_is_relaxed(void) { return true; }
++
++static inline bool asi_is_tense(void) { return false; }
++
++static inline void asi_exit(void) { }
++
++static inline bool asi_is_restricted(void) { return false; }
++
++static inline struct asi *asi_get_current(void) { return NULL; }
++
++struct task_struct;
++static inline struct asi *asi_get_target(struct task_struct *p) { return NULL; }
++
++static inline pgd_t *asi_pgd(struct asi *asi) { return NULL; }
++
++static inline void asi_handle_switch_mm(void) { }
++
++#endif /* !CONFIG_MITIGATION_ADDRESS_SPACE_ISOLATION */
++
++#endif  /* !_ASSEMBLY_ */
++
+ #endif
+diff --git a/include/linux/mm_types.h b/include/linux/mm_types.h
+index 6e3bdf8e38bcaee66a71f5566ac7debb94c0ee78..391e32a41ca3df84a619f3ee8ea45d3729a43023 100644
+--- a/include/linux/mm_types.h
++++ b/include/linux/mm_types.h
+@@ -19,8 +19,10 @@
+ #include <linux/workqueue.h>
+ #include <linux/seqlock.h>
+ #include <linux/percpu_counter.h>
++#include <linux/mutex.h>
+ 
+ #include <asm/mmu.h>
++#include <asm/asi.h>
+ 
+ #ifndef AT_VECTOR_SIZE_ARCH
+ #define AT_VECTOR_SIZE_ARCH 0
+@@ -826,6 +828,11 @@ struct mm_struct {
+ 		atomic_t membarrier_state;
+ #endif
+ 
++#ifdef CONFIG_MITIGATION_ADDRESS_SPACE_ISOLATION
++		struct asi asi[ASI_MAX_NUM_CLASSES];
++		struct mutex asi_init_lock;
++#endif
++
+ 		/**
+ 		 * @mm_users: The number of users including userspace.
+ 		 *
+diff --git a/kernel/fork.c b/kernel/fork.c
+index 22f43721d031d48fd5be2606e86642334be9735f..bb73758790d08112265d398b16902ff9a4c2b8fe 100644
+--- a/kernel/fork.c
++++ b/kernel/fork.c
+@@ -112,6 +112,7 @@
+ #include <asm/mmu_context.h>
+ #include <asm/cacheflush.h>
+ #include <asm/tlbflush.h>
++#include <asm/asi.h>
+ 
+ #include <trace/events/sched.h>
+ 
+@@ -1296,6 +1297,8 @@ static struct mm_struct *mm_init(struct mm_struct *mm, struct task_struct *p,
+ 	if (mm_alloc_pgd(mm))
+ 		goto fail_nopgd;
+ 
++	asi_init_mm_state(mm);
++
+ 	if (init_new_context(p, mm))
+ 		goto fail_nocontext;
+ 
+diff --git a/kernel/sched/core.c b/kernel/sched/core.c
+index a1c353a62c5684e3e773dd100afbddb818c480be..b1f7f73730c1e56f700cd3611a8093f177184842 100644
+--- a/kernel/sched/core.c
++++ b/kernel/sched/core.c
+@@ -78,6 +78,7 @@
+ #include <asm/irq_regs.h>
+ #include <asm/switch_to.h>
+ #include <asm/tlb.h>
++#include <asm/asi.h>
+ 
+ #define CREATE_TRACE_POINTS
+ #include <linux/sched/rseq_api.h>
+@@ -5272,6 +5273,14 @@ static __always_inline struct rq *
+ context_switch(struct rq *rq, struct task_struct *prev,
+ 	       struct task_struct *next, struct rq_flags *rf)
  {
-@@ -1084,7 +1089,7 @@ void flush_tlb_kernel_range(unsigned long start, unsigned long end)
-  * It's intended to be used for code like KVM that sneakily changes CR3
-  * and needs to restore it.  It needs to be used very carefully.
-  */
--unsigned long __get_current_cr3_fast(void)
-+noinstr unsigned long __get_current_cr3_fast(void)
- {
- 	unsigned long cr3 =
- 		build_cr3(this_cpu_read(cpu_tlbstate.loaded_mm)->pgd,
++	/*
++	 * It's possible to avoid this by tweaking ASI's domain management code
++	 * and updating code that modifies CR3 to be ASI-aware. Even without
++	 * that, it's probably possible to get rid of this in certain cases just
++	 * by fiddling with the context switch path itself.
++	 */
++	asi_exit();
++
+ 	prepare_task_switch(rq, prev, next);
+ 
+ 	/*
+diff --git a/mm/init-mm.c b/mm/init-mm.c
+index 24c809379274503ac4f261fe7cfdbab3cb1ed1e7..e820e1c6edd48836a0ebe58e777046498d6a89ee 100644
+--- a/mm/init-mm.c
++++ b/mm/init-mm.c
+@@ -12,6 +12,7 @@
+ #include <linux/user_namespace.h>
+ #include <linux/iommu.h>
+ #include <asm/mmu.h>
++#include <asm/asi.h>
+ 
+ #ifndef INIT_MM_CONTEXT
+ #define INIT_MM_CONTEXT(name)
+@@ -44,6 +45,9 @@ struct mm_struct init_mm = {
+ #endif
+ 	.user_ns	= &init_user_ns,
+ 	.cpu_bitmap	= CPU_BITS_NONE,
++#ifdef CONFIG_MITIGATION_ADDRESS_SPACE_ISOLATION
++	INIT_MM_ASI(init_mm)
++#endif
+ 	INIT_MM_CONTEXT(init_mm)
+ };
+ 
 
 -- 
 2.47.1.613.gc27f4b7a9f-goog
