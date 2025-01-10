@@ -4,90 +4,140 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 07B3CE7719C
-	for <linux-riscv@archiver.kernel.org>; Fri, 10 Jan 2025 23:55:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6C161E77188
+	for <linux-riscv@archiver.kernel.org>; Sat, 11 Jan 2025 00:22:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Cc:From:References:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=VlY7jOo1bnc3LqWlSyJsBKqdBCfSEzpGNXvBqFhEV+U=; b=B3FvUTGJVWb/OO
-	0H6Lee6P72HvViyFbvxOYrPVJdQOBlkKIcs2D6rgSaD2EWd1z8uUYdmDdNmt6JCytcIxHJWSSgL9A
-	BovmkJOHBF44Ozb1/Th8YhEDRWxDO52TL/HZCIzHzKXgnkdmpkO3CXE8AZF9fT5LyGAM4nNucOeee
-	CHGHsNT6HSy/e/yYnCwD+B/21uqTHCkXQ9VU+NlgJb1LBPiAwfg00hFpijZ5Y/46Me6p768Ezx9PG
-	tyMGo0lxIpFL/wBfoLDq8QpKMNm7R7qRCEpjFgaDq+DUnSoNH9X7ZguYDJux/TzUMSGJRdh4sI28N
-	WGZLqgyPUFKuk3eVSFpA==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID:
+	References:Mime-Version:In-Reply-To:Date:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Owner;
+	bh=x3rchEyQvYBPWZyvjsEbXobGEC74oXI2WJp5RlmwnHc=; b=eBH516ZF4FejsDHGK+4o+X7NYi
+	7RzSDCksiEGTjACwxpzVuTQg/io4WJKIhF5/pyFDu+hGPTsmp3eODVxcKbZ8JaiIaq60XfoSy43Gi
+	iirYYwXi/vYp+gRdnDQQ4nvdWwx/8N9lyqlV6DG5/g+x2s2+ZMxkiBs6DNzpDU8akh9vcBIF+asQ+
+	/KfdxbD+/437ArOTwofPu9t27DSCJR+CuAmJQuyHogvlqQYtyEupa5ANrupig76o5M9RGe3FKUD46
+	D9RUpXQjJ2zj5wf6xXNUMwozZnt8581RkfjYk1nkrubwaA1gZon1LAyqbpLCfAxTO+a3cSdb3uCPQ
+	sARJucpw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tWOqz-0000000HJtH-08NZ;
-	Fri, 10 Jan 2025 23:55:49 +0000
-Received: from mail-il1-x133.google.com ([2607:f8b0:4864:20::133])
+	id 1tWPGz-0000000HMbe-1QMZ;
+	Sat, 11 Jan 2025 00:22:41 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tWOqw-0000000HJsE-0MZR
+	id 1tWJxB-0000000Gc1V-1pvr
+	for linux-riscv@bombadil.infradead.org;
+	Fri, 10 Jan 2025 18:41:53 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Type:Cc:To:From:Subject:
+	Message-ID:References:Mime-Version:In-Reply-To:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=CAllTjvu+aeRJsuZfnIbaARP70yHbpTXyh5BDwNTLpw=; b=M5OJwz71x+E209KhhTWSCJSPC+
+	rTQnQlevcRMyA4dzFH1fHdoszJrRe0PA/sN4hqR71PyoZQmNQzGP0ZLQXhrn32DyEYg8SO7yY9GmE
+	kFunVuraNhTvt4C7/wgDidF4ja2EuhsGbLMVuZHt1CT9W54VnnQ70Gw04fIsc3Rr3AuWcJYbGqAek
+	mQP4BUuNSpHj9SFRSYN6CItRW+YmfUJEolh9qR8w9EN/rJ/cl8sTugvECZjvMlsHooMs1ve+5TBya
+	IPNu+clEAOgW1qqjo01dRdYhUiG9Ok+KCbdpOkw79yOrZaSlPvfvtgJWerhnsYQKPyXtf5kSmk+Iv
+	mGL3U+lA==;
+Received: from mail-wm1-x34a.google.com ([2a00:1450:4864:20::34a])
+	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tWJx4-00000009ssY-1hdE
 	for linux-riscv@lists.infradead.org;
-	Fri, 10 Jan 2025 23:55:47 +0000
-Received: by mail-il1-x133.google.com with SMTP id e9e14a558f8ab-3ab29214f45so8192905ab.0
-        for <linux-riscv@lists.infradead.org>; Fri, 10 Jan 2025 15:55:45 -0800 (PST)
+	Fri, 10 Jan 2025 18:41:50 +0000
+Received: by mail-wm1-x34a.google.com with SMTP id 5b1f17b1804b1-436289a570eso19449995e9.0
+        for <linux-riscv@lists.infradead.org>; Fri, 10 Jan 2025 10:41:45 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sifive.com; s=google; t=1736553345; x=1737158145; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:cc:content-language:from
-         :references:to:subject:user-agent:mime-version:date:message-id:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=83wRULGvUmj10rdkn50Twrq4N8VlHWb+qzAtMGfh0G4=;
-        b=I8j2lImGkNcWaZ/8LE+NYpFdV0tMTKzolHVqPmjV1XxvulPWpO5mOxZKMYiRENhFUr
-         dd+A8LKQKsp03PheYLkDlDiIbHMppR1TrQKL2o+jzp1p7qftHKzPyCvgctONT9dtIzIn
-         gFj7sMeLw4Jm0pzsyKEF9X7TFB4gync+dGrTFQaM1e8w6ap+mHZZSJxboz77xsNifhhN
-         jRl8M9fkix2dgTPjAC4dbZTuC4Dtbs8zAuDCwYAR7sptP9zDhzDEuZMwiK1Qb64FTDwd
-         MWVMOwiZEkNjwMeTJ1Ca3rdZJ/om0FXhIv4zBvzpxwMw1r65iDb63bMwX3ned5UZ6Al1
-         SZDg==
+        d=google.com; s=20230601; t=1736534505; x=1737139305; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:from:to:cc:subject:date:message-id:reply-to;
+        bh=CAllTjvu+aeRJsuZfnIbaARP70yHbpTXyh5BDwNTLpw=;
+        b=rqaSIbFEaRsw1XLV5/Y9dwc/CINHbljVbDhmf2YGrl4CMKhk9l/gZfcBRgbi/xD48J
+         Ms3mWypknpNEdCsHMbIiQxC0xEhGdx5rW9cuWToeDAAPRNKFD1eIgFAygXocaWn/AZBV
+         yLPEVTUKQ67c4O5AYT9vl8HZw7TLB3bs8YzRuB3fWtgDIe4xiNt3bwLoawLS3BJ1ysbT
+         u8Xa+0hg4dQ1N0lSZmTu6HjHiL2HeL8P6A2DOXHByWvh4oCjyTaedhyHlkXyx4rhadOS
+         8sk7//6/1IeZWmPcSJl2iFLaKArjCdWlQ/Q8nyO6jrw9nbqMx21im7U5GwrMj0njDies
+         Lqiw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1736553345; x=1737158145;
-        h=content-transfer-encoding:in-reply-to:cc:content-language:from
-         :references:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=83wRULGvUmj10rdkn50Twrq4N8VlHWb+qzAtMGfh0G4=;
-        b=Nmacs8IcbSt4q8jVhZsHNgRS7a9lRLqSkR96y8iJKdVfljlpZgFj3SeqgX1Ohr+AuX
-         4zdOr0FYOTm1y0UXfqhBldaTeLLmyffH/Bai8HG5bHFLBRXAXUgQTgwT6kPdlpy+5+jt
-         yCN1zh7YHDLZZQTFdQygLisnfwuMK8vCTusD+53HVbout0aE5JqM+pzXyoI1DGYJaylf
-         XzKwubSNS7NpzK+OTWrTSNtL3ekpMNqjHLFmjIdgSOAum7piD/dioKFl+2+R8u9J92+r
-         xk3U51ue4Pc/6yIcH2gL0iSiFChV7AFhum8HewtEGDnVJ0uz+S9ulYzibrSGBS7FC+NI
-         QggQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUUkhIj7rwcFY44jtF6lpw/TIHUF4dRYqiphO30QFyzs6UNTR3ItrjCiSiuLc0tYEDVHFle0XTQ8+KsJQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0YyVp4rId2mJmubWkIzqhL7Q+8BQ7eIpFLrvI7dYbMUFMMy5e/uB
-	ncvVO4lWkL7VOIF3atq5M6j/uFPeWoR8rOHZLvkllAeGOaazcoCamy/fQ0Vxa58=
-X-Gm-Gg: ASbGnctHltx4+NUDA3zQdkANVbu4VC+JfJXNX/0NpCtqXeiKSr/mIrGwFpdRo/+HKII
-	V1wCnylTOGSPi/jT+ckxhPpCzm95OwG/tio2FmdL+CDsItz+e71pszkxOBArExfYOB2g0PbDAxW
-	RCpLM5jglI20vl1Vac5/gIBw3gT9vml1V5sYAQlUUEbjSpFBhARwvLbXDldpGPTmx9NRdyR9hg7
-	6zBdpzn3xZDaXH++MpsGGM74dZOfO8oS3uKG8Uh0eaO5tw0NNc+1zQVFaAXjy1Y3L0Bk21UWAou
-	sFsI
-X-Google-Smtp-Source: AGHT+IH0fgQxMOSKadJfIoy2Nj8jc7fKrOvZJO0N4J4fYEHjn0eRwTiFqc8rtxsnNitjP7FoCOy29w==
-X-Received: by 2002:a05:6e02:1c81:b0:3a7:6636:eb3b with SMTP id e9e14a558f8ab-3ce3aa5ad65mr87898675ab.17.1736553344919;
-        Fri, 10 Jan 2025 15:55:44 -0800 (PST)
-Received: from [100.64.0.1] ([165.188.116.9])
-        by smtp.gmail.com with ESMTPSA id e9e14a558f8ab-3ce4ad94327sm11932995ab.15.2025.01.10.15.55.43
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 10 Jan 2025 15:55:44 -0800 (PST)
-Message-ID: <b3f54d34-bc77-46db-88da-70c0c602081f@sifive.com>
-Date: Fri, 10 Jan 2025 17:55:43 -0600
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 6/6] RISC-V: KVM: add support for
- SBI_FWFT_MISALIGNED_DELEG
-To: =?UTF-8?B?Q2zDqW1lbnQgTMOpZ2Vy?= <cleger@rivosinc.com>
-References: <20250106154847.1100344-1-cleger@rivosinc.com>
- <20250106154847.1100344-7-cleger@rivosinc.com>
-From: Samuel Holland <samuel.holland@sifive.com>
-Content-Language: en-US
-Cc: Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, Anup Patel <anup@brainfault.org>,
- Atish Patra <atishp@atishpatra.org>, linux-riscv@lists.infradead.org,
- linux-kernel@vger.kernel.org, kvm@vger.kernel.org,
- kvm-riscv@lists.infradead.org
-In-Reply-To: <20250106154847.1100344-7-cleger@rivosinc.com>
+        d=1e100.net; s=20230601; t=1736534505; x=1737139305;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=CAllTjvu+aeRJsuZfnIbaARP70yHbpTXyh5BDwNTLpw=;
+        b=sdCd/1Orf2msNWVILBzLdwAbrxPTCAWJ8JLwdH9VDSEuwndT8yq0shVJiDH66fZgIp
+         9flv6jpBlyXTCz9hq6J8jTGE0M4eucrUO09VxPHqOq/z0Bb2bikZuqlccnWDDL7A2k3i
+         0JxgQQ9jGvBNhQIQwlPS0f5cf0dTLHuDyYg+9aWqHvgnjIrQL+20RjgEYPkW+dHg+7G1
+         p9TtGYDVDwbJCPkIz9i8+WbX0jAmqYDP39co1qDHV3KwbCZE98Gk/ySvlUMc8H0q6ox/
+         Kzdk3As+UCweVj2gcrcjlFvW/MNlwJjgMRaA8xu2OrJ4fSH3nFRiQHcMCZ9ocsk3LTtE
+         PNDA==
+X-Forwarded-Encrypted: i=1; AJvYcCUw5t5LxokZaLaqExb6VkBxhuFOCVDuwNlWqlSsgqR2SWOuVxOHyTgUIJLj6eDnMNM65bvT0H7GesKeYA==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx62Z+sOEqUtNY80YZEsMaas/VkhrZDO67+6Kd8s+TPch3bPoq7
+	3oPr4605tWSbDlgysdZqIRH7uLq31SMcDhkRyhbngUOcxWsb2EG8qGDfky+XD4NVNlxHLaEj7ve
+	ymR5GuF5lWQ==
+X-Google-Smtp-Source: AGHT+IFbu2VfquZETrYawBwFSqjLwW/Qzimn4MDKfCetEVKQSMACYt32ELZsfcDoj+dSkmxIf50qY6QNFb/+Xg==
+X-Received: from wmqe1.prod.google.com ([2002:a05:600c:4e41:b0:434:a050:ddcf])
+ (user=jackmanb job=prod-delivery.src-stubby-dispatcher) by
+ 2002:a05:600c:3c85:b0:436:18d0:aa6e with SMTP id 5b1f17b1804b1-436e2679a7cmr125841955e9.5.1736534504638;
+ Fri, 10 Jan 2025 10:41:44 -0800 (PST)
+Date: Fri, 10 Jan 2025 18:40:52 +0000
+In-Reply-To: <20250110-asi-rfc-v2-v2-0-8419288bc805@google.com>
+Mime-Version: 1.0
+References: <20250110-asi-rfc-v2-v2-0-8419288bc805@google.com>
+X-Mailer: b4 0.15-dev
+Message-ID: <20250110-asi-rfc-v2-v2-26-8419288bc805@google.com>
+Subject: [PATCH RFC v2 26/29] x86: Create library for flushing L1D for L1TF
+From: Brendan Jackman <jackmanb@google.com>
+To: Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, 
+	Dave Hansen <dave.hansen@linux.intel.com>, "H. Peter Anvin" <hpa@zytor.com>, 
+	Andy Lutomirski <luto@kernel.org>, Peter Zijlstra <peterz@infradead.org>, 
+	Richard Henderson <richard.henderson@linaro.org>, Matt Turner <mattst88@gmail.com>, 
+	Vineet Gupta <vgupta@kernel.org>, Russell King <linux@armlinux.org.uk>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, Guo Ren <guoren@kernel.org>, 
+	Brian Cain <bcain@quicinc.com>, Huacai Chen <chenhuacai@kernel.org>, 
+	WANG Xuerui <kernel@xen0n.name>, Geert Uytterhoeven <geert@linux-m68k.org>, 
+	Michal Simek <monstr@monstr.eu>, Thomas Bogendoerfer <tsbogend@alpha.franken.de>, 
+	Dinh Nguyen <dinguyen@kernel.org>, Jonas Bonn <jonas@southpole.se>, 
+	Stefan Kristiansson <stefan.kristiansson@saunalahti.fi>, Stafford Horne <shorne@gmail.com>, 
+	"James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>, Helge Deller <deller@gmx.de>, 
+	Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>, 
+	Christophe Leroy <christophe.leroy@csgroup.eu>, Naveen N Rao <naveen@kernel.org>, 
+	Madhavan Srinivasan <maddy@linux.ibm.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>, 
+	Alexander Gordeev <agordeev@linux.ibm.com>, Christian Borntraeger <borntraeger@linux.ibm.com>, 
+	Sven Schnelle <svens@linux.ibm.com>, Yoshinori Sato <ysato@users.sourceforge.jp>, 
+	Rich Felker <dalias@libc.org>, John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>, 
+	"David S. Miller" <davem@davemloft.net>, Andreas Larsson <andreas@gaisler.com>, 
+	Richard Weinberger <richard@nod.at>, Anton Ivanov <anton.ivanov@cambridgegreys.com>, 
+	Johannes Berg <johannes@sipsolutions.net>, Chris Zankel <chris@zankel.net>, 
+	Max Filippov <jcmvbkbc@gmail.com>, Arnd Bergmann <arnd@arndb.de>, 
+	Andrew Morton <akpm@linux-foundation.org>, Juri Lelli <juri.lelli@redhat.com>, 
+	Vincent Guittot <vincent.guittot@linaro.org>, Dietmar Eggemann <dietmar.eggemann@arm.com>, 
+	Steven Rostedt <rostedt@goodmis.org>, Ben Segall <bsegall@google.com>, Mel Gorman <mgorman@suse.de>, 
+	Valentin Schneider <vschneid@redhat.com>, Uladzislau Rezki <urezki@gmail.com>, 
+	Christoph Hellwig <hch@infradead.org>, Masami Hiramatsu <mhiramat@kernel.org>, 
+	Mathieu Desnoyers <mathieu.desnoyers@efficios.com>, Mike Rapoport <rppt@kernel.org>, 
+	Arnaldo Carvalho de Melo <acme@kernel.org>, Namhyung Kim <namhyung@kernel.org>, 
+	Mark Rutland <mark.rutland@arm.com>, 
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>, Jiri Olsa <jolsa@kernel.org>, 
+	Ian Rogers <irogers@google.com>, Adrian Hunter <adrian.hunter@intel.com>, 
+	Dennis Zhou <dennis@kernel.org>, Tejun Heo <tj@kernel.org>, Christoph Lameter <cl@linux.com>, 
+	Sean Christopherson <seanjc@google.com>, Paolo Bonzini <pbonzini@redhat.com>, 
+	Ard Biesheuvel <ardb@kernel.org>, Josh Poimboeuf <jpoimboe@kernel.org>, 
+	Pawan Gupta <pawan.kumar.gupta@linux.intel.com>
+Cc: x86@kernel.org, linux-kernel@vger.kernel.org, linux-alpha@vger.kernel.org, 
+	linux-snps-arc@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
+	linux-csky@vger.kernel.org, linux-hexagon@vger.kernel.org, 
+	loongarch@lists.linux.dev, linux-m68k@lists.linux-m68k.org, 
+	linux-mips@vger.kernel.org, linux-openrisc@vger.kernel.org, 
+	linux-parisc@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, 
+	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org, 
+	linux-sh@vger.kernel.org, sparclinux@vger.kernel.org, 
+	linux-um@lists.infradead.org, linux-arch@vger.kernel.org, linux-mm@kvack.org, 
+	linux-trace-kernel@vger.kernel.org, linux-perf-users@vger.kernel.org, 
+	kvm@vger.kernel.org, linux-efi@vger.kernel.org, 
+	Brendan Jackman <jackmanb@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250110_155546_177123_187C355E 
-X-CRM114-Status: GOOD (  19.95  )
+X-CRM114-CacheID: sfid-20250110_184146_616895_093BA024 
+X-CRM114-Status: GOOD (  36.84  )
+X-Mailman-Approved-At: Fri, 10 Jan 2025 15:19:44 -0800
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,78 +149,326 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gMjAyNS0wMS0wNiA5OjQ4IEFNLCBDbMOpbWVudCBMw6lnZXIgd3JvdGU6Cj4gU0JJX0ZXRlRf
-TUlTQUxJR05FRF9ERUxFRyBuZWVkcyBoZWRlbGVnIHRvIGJlIG1vZGlmaWVkIHRvIGRlbGVnYXRl
-Cj4gbWlzYWxpZ25lZCBsb2FkL3N0b3JlIGV4Y2VwdGlvbnMuIFNhdmUgYW5kIHJlc3RvcmUgaXQg
-ZHVyaW5nIENQVQo+IGxvYWQvcHV0Lgo+IAo+IFNpZ25lZC1vZmYtYnk6IENsw6ltZW50IEzDqWdl
-ciA8Y2xlZ2VyQHJpdm9zaW5jLmNvbT4KPiAtLS0KPiAgYXJjaC9yaXNjdi9rdm0vdmNwdS5jICAg
-ICAgICAgIHwgIDMgKysrCj4gIGFyY2gvcmlzY3Yva3ZtL3ZjcHVfc2JpX2Z3ZnQuYyB8IDM5ICsr
-KysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysKPiAgMiBmaWxlcyBjaGFuZ2VkLCA0MiBp
-bnNlcnRpb25zKCspCj4gCj4gZGlmZiAtLWdpdCBhL2FyY2gvcmlzY3Yva3ZtL3ZjcHUuYyBiL2Fy
-Y2gvcmlzY3Yva3ZtL3ZjcHUuYwo+IGluZGV4IDM0MjBhNGE2MmM5NC4uYmI2Zjc4OGQ0NmY1IDEw
-MDY0NAo+IC0tLSBhL2FyY2gvcmlzY3Yva3ZtL3ZjcHUuYwo+ICsrKyBiL2FyY2gvcmlzY3Yva3Zt
-L3ZjcHUuYwo+IEBAIC02NDEsNiArNjQxLDcgQEAgdm9pZCBrdm1fYXJjaF92Y3B1X3B1dChzdHJ1
-Y3Qga3ZtX3ZjcHUgKnZjcHUpCj4gIHsKPiAgCXZvaWQgKm5zaDsKPiAgCXN0cnVjdCBrdm1fdmNw
-dV9jc3IgKmNzciA9ICZ2Y3B1LT5hcmNoLmd1ZXN0X2NzcjsKPiArCXN0cnVjdCBrdm1fdmNwdV9j
-b25maWcgKmNmZyA9ICZ2Y3B1LT5hcmNoLmNmZzsKPiAgCj4gIAl2Y3B1LT5jcHUgPSAtMTsKPiAg
-Cj4gQEAgLTY2Niw2ICs2NjcsNyBAQCB2b2lkIGt2bV9hcmNoX3ZjcHVfcHV0KHN0cnVjdCBrdm1f
-dmNwdSAqdmNwdSkKPiAgCQljc3ItPnZzdHZhbCA9IG5hY2xfY3NyX3JlYWQobnNoLCBDU1JfVlNU
-VkFMKTsKPiAgCQljc3ItPmh2aXAgPSBuYWNsX2Nzcl9yZWFkKG5zaCwgQ1NSX0hWSVApOwo+ICAJ
-CWNzci0+dnNhdHAgPSBuYWNsX2Nzcl9yZWFkKG5zaCwgQ1NSX1ZTQVRQKTsKPiArCQljZmctPmhl
-ZGVsZWcgPSBuYWNsX2Nzcl9yZWFkKG5zaCwgQ1NSX0hFREVMRUcpOwo+ICAJfSBlbHNlIHsKPiAg
-CQljc3ItPnZzc3RhdHVzID0gY3NyX3JlYWQoQ1NSX1ZTU1RBVFVTKTsKPiAgCQljc3ItPnZzaWUg
-PSBjc3JfcmVhZChDU1JfVlNJRSk7Cj4gQEAgLTY3Niw2ICs2NzgsNyBAQCB2b2lkIGt2bV9hcmNo
-X3ZjcHVfcHV0KHN0cnVjdCBrdm1fdmNwdSAqdmNwdSkKPiAgCQljc3ItPnZzdHZhbCA9IGNzcl9y
-ZWFkKENTUl9WU1RWQUwpOwo+ICAJCWNzci0+aHZpcCA9IGNzcl9yZWFkKENTUl9IVklQKTsKPiAg
-CQljc3ItPnZzYXRwID0gY3NyX3JlYWQoQ1NSX1ZTQVRQKTsKPiArCQljZmctPmhlZGVsZWcgPSBj
-c3JfcmVhZChDU1JfSEVERUxFRyk7Cj4gIAl9Cj4gIH0KPiAgCj4gZGlmZiAtLWdpdCBhL2FyY2gv
-cmlzY3Yva3ZtL3ZjcHVfc2JpX2Z3ZnQuYyBiL2FyY2gvcmlzY3Yva3ZtL3ZjcHVfc2JpX2Z3ZnQu
-Ywo+IGluZGV4IDU1NDMzZTgwNWJhYS4uMWU4NWZmNjY2NmFmIDEwMDY0NAo+IC0tLSBhL2FyY2gv
-cmlzY3Yva3ZtL3ZjcHVfc2JpX2Z3ZnQuYwo+ICsrKyBiL2FyY2gvcmlzY3Yva3ZtL3ZjcHVfc2Jp
-X2Z3ZnQuYwo+IEBAIC0xNCw2ICsxNCw4IEBACj4gICNpbmNsdWRlIDxhc20va3ZtX3ZjcHVfc2Jp
-Lmg+Cj4gICNpbmNsdWRlIDxhc20va3ZtX3ZjcHVfc2JpX2Z3ZnQuaD4KPiAgCj4gKyNkZWZpbmUg
-TUlTX0RFTEVHICgxVUwgPDwgRVhDX0xPQURfTUlTQUxJR05FRCB8IDFVTCA8PCBFWENfU1RPUkVf
-TUlTQUxJR05FRCkKPiArCj4gIHN0YXRpYyBjb25zdCBlbnVtIHNiaV9md2Z0X2ZlYXR1cmVfdCBr
-dm1fZndmdF9kZWZpbmVkX2ZlYXR1cmVzW10gPSB7Cj4gIAlTQklfRldGVF9NSVNBTElHTkVEX0VY
-Q19ERUxFRywKPiAgCVNCSV9GV0ZUX0xBTkRJTkdfUEFELAo+IEBAIC0zNSw3ICszNyw0NCBAQCBz
-dGF0aWMgYm9vbCBrdm1fZndmdF9pc19kZWZpbmVkX2ZlYXR1cmUoZW51bSBzYmlfZndmdF9mZWF0
-dXJlX3QgZmVhdHVyZSkKPiAgCXJldHVybiBmYWxzZTsKPiAgfQo+ICAKPiArc3RhdGljIGJvb2wg
-a3ZtX3NiaV9md2Z0X21pc2FsaWduZWRfZGVsZWdhdGlvbl9zdXBwb3J0ZWQoc3RydWN0IGt2bV92
-Y3B1ICp2Y3B1KQo+ICt7Cj4gKwlpZiAoIXVuYWxpZ25lZF9jdGxfYXZhaWxhYmxlKCkpCgpUaGlz
-IHNlZW1zIGxpa2UgdGhlIHdyb25nIGNvbmRpdGlvbi4gUGF0Y2ggMiByZXF1ZXN0cyBkZWxlZ2F0
-aW9uIHJlZ2FyZGxlc3Mgb2YKd2hhdCBwcm9iaW5nIGRldGVjdHMuIEZvciBNSVNBTElHTkVEX1ND
-QUxBUl9GQVNULCB0aGUgZGVsZWdhdGlvbiBsaWtlbHkgZG9lc24ndApjaGFuZ2UgYW55IGFjdHVh
-bCBiZWhhdmlvciwgYmVjYXVzZSB0aGUgaGFyZHdhcmUgbGlrZWx5IG5ldmVyIHJhaXNlcyB0aGUK
-ZXhjZXB0aW9uLiBCdXQgaXQgZG9lcyBlbnN1cmUgTS1tb2RlIG5ldmVyIGVtdWxhdGVzIGFueXRo
-aW5nLCBzbyBpZiB0aGUKZXhjZXB0aW9uIHdlcmUgdG8gb2NjdXIsIHRoZSBrZXJuZWwgaGFzIHRo
-ZSBjaG9pY2Ugd2hldGhlciB0byBoYW5kbGUgaXQuIEFuZAp0aGlzIGxldHMgdXMgcHJvdmlkZSB0
-aGUgc2FtZSBndWFyYW50ZWUgdG8gS1ZNIGd1ZXN0cy4gU28gSSB0aGluayB0aGlzIGZlYXR1cmUK
-c2hvdWxkIGFsc28gYmUgc3VwcG9ydGVkIGlmIHdlIHN1Y2Nlc3NmdWxseSBkZWxlZ2F0ZWQgdGhl
-IGV4Y2VwdGlvbiBvbiB0aGUgaG9zdApzaWRlLgoKPiArCQlyZXR1cm4gZmFsc2U7Cj4gKwo+ICsJ
-cmV0dXJuIHRydWU7Cj4gK30KPiArCj4gK3N0YXRpYyBpbnQga3ZtX3NiaV9md2Z0X3NldF9taXNh
-bGlnbmVkX2RlbGVnYXRpb24oc3RydWN0IGt2bV92Y3B1ICp2Y3B1LAo+ICsJCQkJCXN0cnVjdCBr
-dm1fc2JpX2Z3ZnRfY29uZmlnICpjb25mLAo+ICsJCQkJCXVuc2lnbmVkIGxvbmcgdmFsdWUpCj4g
-K3sKPiArCWlmICh2YWx1ZSA9PSAxKQo+ICsJCWNzcl9zZXQoQ1NSX0hFREVMRUcsIE1JU19ERUxF
-Ryk7Cj4gKwllbHNlIGlmICh2YWx1ZSA9PSAwKQo+ICsJCWNzcl9jbGVhcihDU1JfSEVERUxFRywg
-TUlTX0RFTEVHKTsKPiArCWVsc2UKPiArCQlyZXR1cm4gU0JJX0VSUl9JTlZBTElEX1BBUkFNOwo+
-ICsKPiArCXJldHVybiBTQklfU1VDQ0VTUzsKPiArfQo+ICsKPiArc3RhdGljIGludCBrdm1fc2Jp
-X2Z3ZnRfZ2V0X21pc2FsaWduZWRfZGVsZWdhdGlvbihzdHJ1Y3Qga3ZtX3ZjcHUgKnZjcHUsCj4g
-KwkJCQkJc3RydWN0IGt2bV9zYmlfZndmdF9jb25maWcgKmNvbmYsCj4gKwkJCQkJdW5zaWduZWQg
-bG9uZyAqdmFsdWUpCj4gK3sKPiArCSp2YWx1ZSA9IChjc3JfcmVhZChDU1JfSEVERUxFRykgJiBN
-SVNfREVMRUcpICE9IDA7Cj4gKwo+ICsJcmV0dXJuIFNCSV9TVUNDRVNTOwo+ICt9Cj4gKwo+ICBz
-dGF0aWMgY29uc3Qgc3RydWN0IGt2bV9zYmlfZndmdF9mZWF0dXJlIGZlYXR1cmVzW10gPSB7Cj4g
-Kwl7Cj4gKwkJLmlkID0gU0JJX0ZXRlRfTUlTQUxJR05FRF9FWENfREVMRUcsCj4gKwkJLnN1cHBv
-cnRlZCA9IGt2bV9zYmlfZndmdF9taXNhbGlnbmVkX2RlbGVnYXRpb25fc3VwcG9ydGVkLAo+ICsJ
-CS5zZXQgPSBrdm1fc2JpX2Z3ZnRfc2V0X21pc2FsaWduZWRfZGVsZWdhdGlvbiwKPiArCQkuZ2V0
-ID0ga3ZtX3NiaV9md2Z0X2dldF9taXNhbGlnbmVkX2RlbGVnYXRpb24sCj4gKwl9CgpuaXQ6IFBs
-ZWFzZSBhZGQgYSB0cmFpbGluZyBjb21tYSBoZXJlIGFzIGZ1dHVyZSBwYXRjaGVzIHdpbGwgZXh0
-ZW5kIHRoZSBhcnJheS4KClJlZ2FyZHMsClNhbXVlbAoKPiAgfTsKPiAgCj4gIHN0YXRpYyBzdHJ1
-Y3Qga3ZtX3NiaV9md2Z0X2NvbmZpZyAqCgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxp
-c3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0
-aW5mby9saW51eC1yaXNjdgo=
+ASI will need to use this L1D flushing logic so put it in a library
+where it can be used independently of KVM.
+
+Since we're creating this library, it starts to look messy if we don't
+also use it in the double-opt-in (both kernel cmdline and prctl)
+mm-switching flush logic which is there for mitigating Snoop-Assisted L1
+Data Sampling ("SAL1DS"). However, that logic doesn't use any
+software-based fallback for flushing on CPUs without the L1D_FLUSH
+command. In that case the prctl opt-in will fail.
+
+One option would be to just start using the software fallback sequence
+currently done by VMX code, but Linus didn't seem happy with a similar
+sequence being used here [1]. CPUs affected by SAL1DS are a subset of
+those affected by L1TF, so it wouldn't be completely insane to assume
+that the same sequence works for both cases, but I'll err on the side of
+caution and avoid risk of giving users a false impression that the
+kernel has really flushed L1D for them.
+
+[1] https://lore.kernel.org/linux-kernel/CAHk-=whC4PUhErcoDhCbTOdmPPy-Pj8j9ytsdcyz9TorOb4KUw@mail.gmail.com/
+
+Instead, create this awkward library that is scoped specifically to L1TF,
+which will be used only by VMX and ASI, and has an annoying "only
+sometimes works" doc-comment. Users of the library can then infer from
+that comment whether they have flushed L1D.
+
+No functional change intended.
+
+Checkpatch-args: --ignore=COMMIT_LOG_LONG_LINE
+Signed-off-by: Brendan Jackman <jackmanb@google.com>
+---
+ arch/x86/Kconfig            |  4 ++
+ arch/x86/include/asm/l1tf.h | 11 ++++++
+ arch/x86/kvm/Kconfig        |  1 +
+ arch/x86/kvm/vmx/vmx.c      | 66 +++----------------------------
+ arch/x86/lib/Makefile       |  1 +
+ arch/x86/lib/l1tf.c         | 94 +++++++++++++++++++++++++++++++++++++++++++++
+ 6 files changed, 117 insertions(+), 60 deletions(-)
+
+diff --git a/arch/x86/Kconfig b/arch/x86/Kconfig
+index ae31f36ce23d7c29d1e90b726c5a2e6ea5a63c8d..ca984dc7ee2f2b68c3ce1bcb5055047ca4f2a65d 100644
+--- a/arch/x86/Kconfig
++++ b/arch/x86/Kconfig
+@@ -2523,6 +2523,7 @@ config MITIGATION_ADDRESS_SPACE_ISOLATION
+ 	bool "Allow code to run with a reduced kernel address space"
+ 	default n
+ 	depends on X86_64 && !PARAVIRT && !UML
++	select X86_L1TF_FLUSH_LIB
+ 	help
+ 	  This feature provides the ability to run some kernel code
+ 	  with a reduced kernel address space. This can be used to
+@@ -3201,6 +3202,9 @@ config HAVE_ATOMIC_IOMAP
+ 	def_bool y
+ 	depends on X86_32
+ 
++config X86_L1TF_FLUSH_LIB
++	def_bool n
++
+ source "arch/x86/kvm/Kconfig"
+ 
+ source "arch/x86/Kconfig.assembler"
+diff --git a/arch/x86/include/asm/l1tf.h b/arch/x86/include/asm/l1tf.h
+new file mode 100644
+index 0000000000000000000000000000000000000000..e0be19c588bb5ec5c76a1861492e48b88615b4b8
+--- /dev/null
++++ b/arch/x86/include/asm/l1tf.h
+@@ -0,0 +1,11 @@
++/* SPDX-License-Identifier: GPL-2.0 */
++#ifndef _ASM_L1TF_FLUSH_H
++#define _ASM_L1TF_FLUSH_H
++
++#ifdef CONFIG_X86_L1TF_FLUSH_LIB
++int l1tf_flush_setup(void);
++void l1tf_flush(void);
++#endif /* CONFIG_X86_L1TF_FLUSH_LIB */
++
++#endif
++
+diff --git a/arch/x86/kvm/Kconfig b/arch/x86/kvm/Kconfig
+index f09f13c01c6bbd28fa37fdf50547abf4403658c9..81c71510e33e52447882ab7b22682199c57b492e 100644
+--- a/arch/x86/kvm/Kconfig
++++ b/arch/x86/kvm/Kconfig
+@@ -92,6 +92,7 @@ config KVM_SW_PROTECTED_VM
+ config KVM_INTEL
+ 	tristate "KVM for Intel (and compatible) processors support"
+ 	depends on KVM && IA32_FEAT_CTL
++	select X86_L1TF_FLUSH_LIB
+ 	help
+ 	  Provides support for KVM on processors equipped with Intel's VT
+ 	  extensions, a.k.a. Virtual Machine Extensions (VMX).
+diff --git a/arch/x86/kvm/vmx/vmx.c b/arch/x86/kvm/vmx/vmx.c
+index 0e90463f1f2183b8d716f85d5c8a8af8958fef0b..b1a02f27b3abce0ef6ac448b66bef2c653a52eef 100644
+--- a/arch/x86/kvm/vmx/vmx.c
++++ b/arch/x86/kvm/vmx/vmx.c
+@@ -42,6 +42,7 @@
+ #include <asm/idtentry.h>
+ #include <asm/io.h>
+ #include <asm/irq_remapping.h>
++#include <asm/l1tf.h>
+ #include <asm/reboot.h>
+ #include <asm/perf_event.h>
+ #include <asm/mmu_context.h>
+@@ -250,9 +251,6 @@ static void *vmx_l1d_flush_pages;
+ 
+ static int vmx_setup_l1d_flush(enum vmx_l1d_flush_state l1tf)
+ {
+-	struct page *page;
+-	unsigned int i;
+-
+ 	if (!boot_cpu_has_bug(X86_BUG_L1TF)) {
+ 		l1tf_vmx_mitigation = VMENTER_L1D_FLUSH_NOT_REQUIRED;
+ 		return 0;
+@@ -288,26 +286,11 @@ static int vmx_setup_l1d_flush(enum vmx_l1d_flush_state l1tf)
+ 		l1tf = VMENTER_L1D_FLUSH_ALWAYS;
+ 	}
+ 
+-	if (l1tf != VMENTER_L1D_FLUSH_NEVER && !vmx_l1d_flush_pages &&
+-	    !boot_cpu_has(X86_FEATURE_FLUSH_L1D)) {
+-		/*
+-		 * This allocation for vmx_l1d_flush_pages is not tied to a VM
+-		 * lifetime and so should not be charged to a memcg.
+-		 */
+-		page = alloc_pages(GFP_KERNEL, L1D_CACHE_ORDER);
+-		if (!page)
+-			return -ENOMEM;
+-		vmx_l1d_flush_pages = page_address(page);
++	if (l1tf != VMENTER_L1D_FLUSH_NEVER) {
++		int err = l1tf_flush_setup();
+ 
+-		/*
+-		 * Initialize each page with a different pattern in
+-		 * order to protect against KSM in the nested
+-		 * virtualization case.
+-		 */
+-		for (i = 0; i < 1u << L1D_CACHE_ORDER; ++i) {
+-			memset(vmx_l1d_flush_pages + i * PAGE_SIZE, i + 1,
+-			       PAGE_SIZE);
+-		}
++		if (err)
++			return err;
+ 	}
+ 
+ 	l1tf_vmx_mitigation = l1tf;
+@@ -6652,20 +6635,8 @@ int vmx_handle_exit(struct kvm_vcpu *vcpu, fastpath_t exit_fastpath)
+ 	return ret;
+ }
+ 
+-/*
+- * Software based L1D cache flush which is used when microcode providing
+- * the cache control MSR is not loaded.
+- *
+- * The L1D cache is 32 KiB on Nehalem and later microarchitectures, but to
+- * flush it is required to read in 64 KiB because the replacement algorithm
+- * is not exactly LRU. This could be sized at runtime via topology
+- * information but as all relevant affected CPUs have 32KiB L1D cache size
+- * there is no point in doing so.
+- */
+ static noinstr void vmx_l1d_flush(struct kvm_vcpu *vcpu)
+ {
+-	int size = PAGE_SIZE << L1D_CACHE_ORDER;
+-
+ 	/*
+ 	 * This code is only executed when the flush mode is 'cond' or
+ 	 * 'always'
+@@ -6695,32 +6666,7 @@ static noinstr void vmx_l1d_flush(struct kvm_vcpu *vcpu)
+ 
+ 	vcpu->stat.l1d_flush++;
+ 
+-	if (static_cpu_has(X86_FEATURE_FLUSH_L1D)) {
+-		native_wrmsrl(MSR_IA32_FLUSH_CMD, L1D_FLUSH);
+-		return;
+-	}
+-
+-	asm volatile(
+-		/* First ensure the pages are in the TLB */
+-		"xorl	%%eax, %%eax\n"
+-		".Lpopulate_tlb:\n\t"
+-		"movzbl	(%[flush_pages], %%" _ASM_AX "), %%ecx\n\t"
+-		"addl	$4096, %%eax\n\t"
+-		"cmpl	%%eax, %[size]\n\t"
+-		"jne	.Lpopulate_tlb\n\t"
+-		"xorl	%%eax, %%eax\n\t"
+-		"cpuid\n\t"
+-		/* Now fill the cache */
+-		"xorl	%%eax, %%eax\n"
+-		".Lfill_cache:\n"
+-		"movzbl	(%[flush_pages], %%" _ASM_AX "), %%ecx\n\t"
+-		"addl	$64, %%eax\n\t"
+-		"cmpl	%%eax, %[size]\n\t"
+-		"jne	.Lfill_cache\n\t"
+-		"lfence\n"
+-		:: [flush_pages] "r" (vmx_l1d_flush_pages),
+-		    [size] "r" (size)
+-		: "eax", "ebx", "ecx", "edx");
++	l1tf_flush();
+ }
+ 
+ void vmx_update_cr8_intercept(struct kvm_vcpu *vcpu, int tpr, int irr)
+diff --git a/arch/x86/lib/Makefile b/arch/x86/lib/Makefile
+index 98583a9dbab337e09a2e58905e5200499a496a07..b0a45bd70b40743a3fccb352b9641caacac83275 100644
+--- a/arch/x86/lib/Makefile
++++ b/arch/x86/lib/Makefile
+@@ -37,6 +37,7 @@ lib-$(CONFIG_INSTRUCTION_DECODER) += insn.o inat.o insn-eval.o
+ lib-$(CONFIG_RANDOMIZE_BASE) += kaslr.o
+ lib-$(CONFIG_FUNCTION_ERROR_INJECTION)	+= error-inject.o
+ lib-$(CONFIG_MITIGATION_RETPOLINE) += retpoline.o
++lib-$(CONFIG_X86_L1TF_FLUSH_LIB) += l1tf.o
+ 
+ obj-y += msr.o msr-reg.o msr-reg-export.o hweight.o
+ obj-y += iomem.o
+diff --git a/arch/x86/lib/l1tf.c b/arch/x86/lib/l1tf.c
+new file mode 100644
+index 0000000000000000000000000000000000000000..c474f18ae331c8dfa7a029c457dd3cf75bebf808
+--- /dev/null
++++ b/arch/x86/lib/l1tf.c
+@@ -0,0 +1,94 @@
++// SPDX-License-Identifier: GPL-2.0
++#include <linux/gfp.h>
++#include <linux/mm.h>
++#include <linux/string.h>
++
++#include <asm/cpufeature.h>
++#include <asm/l1tf.h>
++#include <asm/msr.h>
++
++#define L1D_CACHE_ORDER 4
++static void *l1tf_flush_pages;
++
++int l1tf_flush_setup(void)
++{
++	struct page *page;
++	unsigned int i;
++
++	if (l1tf_flush_pages || boot_cpu_has(X86_FEATURE_FLUSH_L1D))
++		return 0;
++
++	page = alloc_pages(GFP_KERNEL, L1D_CACHE_ORDER);
++	if (!page)
++		return -ENOMEM;
++	l1tf_flush_pages = page_address(page);
++
++	/*
++	 * Initialize each page with a different pattern in
++	 * order to protect against KSM in the nested
++	 * virtualization case.
++	 */
++	for (i = 0; i < 1u << L1D_CACHE_ORDER; ++i) {
++		memset(l1tf_flush_pages + i * PAGE_SIZE, i + 1,
++			 PAGE_SIZE);
++	}
++
++	return 0;
++}
++EXPORT_SYMBOL(l1tf_flush_setup);
++
++/*
++ * Flush L1D in a way that:
++ *
++ *  - definitely works on CPUs X86_FEATURE_FLUSH_L1D (because the SDM says so).
++ *  - almost definitely works on other CPUs with L1TF (because someone on LKML
++ *    said someone from Intel said so).
++ *  - may or may not work on other CPUs.
++ *
++ * Don't call unless l1tf_flush_setup() has returned successfully.
++ */
++noinstr void l1tf_flush(void)
++{
++	int size = PAGE_SIZE << L1D_CACHE_ORDER;
++
++	if (static_cpu_has(X86_FEATURE_FLUSH_L1D)) {
++		native_wrmsrl(MSR_IA32_FLUSH_CMD, L1D_FLUSH);
++		return;
++	}
++
++	if (WARN_ON(!l1tf_flush_pages))
++		return;
++
++	/*
++	 * This sequence was provided by Intel for the purpose of mitigating
++	 * L1TF on VMX.
++	 *
++	 * The L1D cache is 32 KiB on Nehalem and some later microarchitectures,
++	 * but to flush it is required to read in 64 KiB because the replacement
++	 * algorithm is not exactly LRU. This could be sized at runtime via
++	 * topology information but as all relevant affected CPUs have 32KiB L1D
++	 * cache size there is no point in doing so.
++	 */
++	asm volatile(
++		/* First ensure the pages are in the TLB */
++		"xorl	%%eax, %%eax\n"
++		".Lpopulate_tlb:\n\t"
++		"movzbl	(%[flush_pages], %%" _ASM_AX "), %%ecx\n\t"
++		"addl	$4096, %%eax\n\t"
++		"cmpl	%%eax, %[size]\n\t"
++		"jne	.Lpopulate_tlb\n\t"
++		"xorl	%%eax, %%eax\n\t"
++		"cpuid\n\t"
++		/* Now fill the cache */
++		"xorl	%%eax, %%eax\n"
++		".Lfill_cache:\n"
++		"movzbl	(%[flush_pages], %%" _ASM_AX "), %%ecx\n\t"
++		"addl	$64, %%eax\n\t"
++		"cmpl	%%eax, %[size]\n\t"
++		"jne	.Lfill_cache\n\t"
++		"lfence\n"
++		:: [flush_pages] "r" (l1tf_flush_pages),
++		    [size] "r" (size)
++		: "eax", "ebx", "ecx", "edx");
++}
++EXPORT_SYMBOL(l1tf_flush);
+
+-- 
+2.47.1.613.gc27f4b7a9f-goog
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
