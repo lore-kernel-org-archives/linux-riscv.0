@@ -4,119 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3205CE77188
-	for <linux-riscv@archiver.kernel.org>; Fri, 10 Jan 2025 16:22:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20DBDE7719E
+	for <linux-riscv@archiver.kernel.org>; Fri, 10 Jan 2025 16:22:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
+	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Iowqax5hBEQDQOHGt1UusAyAH9Iq5jflM/P3dJ4Ctzg=; b=WHNS65qDL5BaFo
-	335tf4pkxOwekz7bIdmFETYv7QOQRWzszKJDWYs3WDhWSNFpziphAWMBjbwBDOOYeYTc04fZ3e2iV
-	YFAbJYs4Yp0DQXM5AZblKhuy/3zBj6qIt9pDPWgcgK3Go8/XTsubyXbOPDfN0HnZ5n6SMA/VTRj7w
-	RDjZ/iJ2rzajUD9VulZvpIPVf6RY0m5AF0w7aek0fbyrA6DrapJe1Cbg1Ux9RKndimrVrjXNL0wAn
-	2gnyYnVc1W+3jaNzLNiaEfKnF6+vPjsBjC8F/qdqxiyxmmJet2OVIuGZUPtL25Z2BW2rEzJIA1H8y
-	i6enw7VCuH31YGCm1nig==;
+	List-Owner; bh=4K6q5qOM0AyKEPFpGvlm+VkGhq67JU8suzvDBITpJ2U=; b=aPSryg4x0go1Yz
+	OtOKVlUPiE9N/Ai+4oVtB4KCqx50PE7ULe3i0JA3fRITqqQAbyBRqZIj9yCxT2j0n/l/oWK0SjKzh
+	I9bo9ZuxcqUZn3zM9etTglEzpHnJLFihiPGXZhTIko8rLpL3uboPBSvX6Xq0Sl973grAqAK6ChkfP
+	5QSByZ7iEXCGHGfhjOl8S79kkhCt4/DD4XGFfUOyzGrbGwc+W1+DwDUa3RJ4slFuT4wdnHQS0DWj9
+	fz6lVMJIhLWNHo0yciyCrHgNgO8Q+hyX5HKaAPdmzoavrAES9onb0EchZL/JL1LJTn07yym3izUCw
+	XHrtSqXmu/k1N//Jn/9A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tWHmK-0000000GDW9-3N2i;
-	Fri, 10 Jan 2025 16:22:32 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tWHmM-0000000GDXk-3wfy;
+	Fri, 10 Jan 2025 16:22:34 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tWFU6-0000000FXr4-0gol;
-	Fri, 10 Jan 2025 13:55:35 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 9BD395C3674;
-	Fri, 10 Jan 2025 13:54:52 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0B5E3C4CED6;
-	Fri, 10 Jan 2025 13:55:24 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1736517333;
-	bh=7FhdF0E/wzZ/LjN0yMmNkDWkh1Ljtoxfv/kPShF+jeQ=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=n1qrLbpmYHNuXmpmmfgcZqeE9SKNpSLD+QRrpHqDL1r5p0y/s5K6pfI8xfrCqkmsf
-	 s73mWDEghOV7mk3dxbzcne12ZseS0n4PuWOGwG+ytrRKnVHq9vq6PzbrsH4J9q8PoJ
-	 iHxwjJ65zbKbLFje7JOnUkBJuHawvetMmK5OJg5UiF/LqYJb5za6xjpEAXUL1iV1tM
-	 rt+0AF6adCg3UcUh6zFcV656ck1kZP01SYIquNQA+zb9Se2guaP6DroZfSHqGKsiKK
-	 XmUxFGUDGxUWbxj5n+spiWELjrrBc6Qb1y+BWEKouX0FYGmLqqzAOXfPmyVzPyafoO
-	 2GIrGHad83vRA==
-Message-ID: <106ad964-3734-43ec-8563-50cb18c5189d@kernel.org>
-Date: Fri, 10 Jan 2025 14:55:22 +0100
+	id 1tWGGs-0000000FgMp-1y0R;
+	Fri, 10 Jan 2025 14:45:58 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
+	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Sender:Reply-To:Content-ID:Content-Description;
+	bh=kbQep8baX7V18i3WQzlRcus+JcLBQAZAEQ0EVnsTNJ0=; b=SC7ckBhr5XKlpE8IaH4fcR/Rat
+	NnwsOOfEgqWddTKtw9FYd7UDbhhCTaXdxMQDk6L3am8hhbfkSLX9dvJCX+CdcAnN8Lf2o18ls9D4Z
+	vyXux74Jhe/xgOyTCM0WLzDmDIa+vc9SyXsSt78vXVcwr5XG1CjtShAH95ifB3qNnPekj9/hdMAqt
+	sH2lpwb7L7HAVdzICmAuflnY81z/Oj9CP3rlTva8AdnkyNvhhWGMLjWmxwNyILSvoLRug2LiVq6Gi
+	BPnoe7HePhfemJ3y1N7VP+MeFHus+BgrWhda//HiJtXUjhZyKTG0NNEc7cituODYvMO1APkJxQScg
+	on4o8gPQ==;
+Received: from relay9-d.mail.gandi.net ([217.70.183.199])
+	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tWGGo-00000009oDa-3BhI;
+	Fri, 10 Jan 2025 14:45:57 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id 1D260FF803;
+	Fri, 10 Jan 2025 14:45:52 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
+	t=1736520353;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=kbQep8baX7V18i3WQzlRcus+JcLBQAZAEQ0EVnsTNJ0=;
+	b=UGGaSxpeKOOJ3smxkaQdJ4uOZ/MUdMTMNMLdUC3NRxNJC9B4WACDnbR9qRE+I7bOkWY6kU
+	lfB1YXjaXDpN/gQouuRUMZaZZ6D0ztSlPImxP59iebcja/YDP33+M4kyTV+QayseGwChzi
+	rrhkGfBfUMN/pv9PtFcRkeCvANIxHGMdN2l9sQN89C8Wkb+F6wCcEEX5u5cQ8lbu+vuQ/d
+	IrmEnS/iIwMERZpG8xY8YhlSlNZ00Ru0Jb/RactVoWvHnHFV0QBA3Yfy7s1GZ6hKmpoxCY
+	ifQDXpruMfUXf8Wl0v+TlCuVunKObkvHLcKfp2zwWGwVPQFUrgGXePDYvV4y3w==
+From: Miquel Raynal <miquel.raynal@bootlin.com>
+Date: Fri, 10 Jan 2025 15:45:21 +0100
+Subject: [PATCH v3 19/27] spi: spi-mem: Create macros for DTR operation
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 04/12] dt-bindings: clock: sunxi-ng: add compatibles for
- V853
-To: Andras Szemzo <szemzo.andras@gmail.com>,
- Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
- <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Chen-Yu Tsai <wens@csie.org>,
- Jernej Skrabec <jernej.skrabec@gmail.com>,
- Samuel Holland <samuel@sholland.org>,
- Linus Walleij <linus.walleij@linaro.org>,
- Philipp Zabel <p.zabel@pengutronix.de>, Maxime Ripard <mripard@kernel.org>
-Cc: Vinod Koul <vkoul@kernel.org>, Kishon Vijay Abraham I
- <kishon@kernel.org>, Ulf Hansson <ulf.hansson@linaro.org>,
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- =?UTF-8?Q?Uwe_Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>,
- Florian Fainelli <florian.fainelli@broadcom.com>, linux-clk@vger.kernel.org,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org,
- linux-phy@lists.infradead.org, linux-gpio@vger.kernel.org,
- linux-pm@vger.kernel.org, linux-riscv@lists.infradead.org
-References: <20250110123923.270626-1-szemzo.andras@gmail.com>
- <20250110123923.270626-5-szemzo.andras@gmail.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 fv0=
-In-Reply-To: <20250110123923.270626-5-szemzo.andras@gmail.com>
+Message-Id: <20250110-winbond-6-11-rc1-quad-support-v3-19-7ab4bd56cf6e@bootlin.com>
+References: <20250110-winbond-6-11-rc1-quad-support-v3-0-7ab4bd56cf6e@bootlin.com>
+In-Reply-To: <20250110-winbond-6-11-rc1-quad-support-v3-0-7ab4bd56cf6e@bootlin.com>
+To: Mark Brown <broonie@kernel.org>, Sanjay R Mehta <sanju.mehta@amd.com>, 
+ Serge Semin <fancer.lancer@gmail.com>, Han Xu <han.xu@nxp.com>, 
+ Conor Dooley <conor.dooley@microchip.com>, 
+ Daire McNamara <daire.mcnamara@microchip.com>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ Haibo Chen <haibo.chen@nxp.com>, Yogesh Gaur <yogeshgaur.83@gmail.com>, 
+ Heiko Stuebner <heiko@sntech.de>, Michal Simek <michal.simek@amd.com>, 
+ Miquel Raynal <miquel.raynal@bootlin.com>, 
+ Richard Weinberger <richard@nod.at>, Vignesh Raghavendra <vigneshr@ti.com>, 
+ Jacky Huang <ychuang3@nuvoton.com>, Shan-Chun Hung <schung@nuvoton.com>, 
+ Chin-Ting Kuo <chin-ting_kuo@aspeedtech.com>, 
+ =?utf-8?q?C=C3=A9dric_Le_Goater?= <clg@kaod.org>, 
+ Joel Stanley <joel@jms.id.au>, Andrew Jeffery <andrew@codeconstruct.com.au>, 
+ Avi Fishman <avifishman70@gmail.com>, Tomer Maimon <tmaimon77@gmail.com>, 
+ Tali Perry <tali.perry1@gmail.com>, Patrick Venture <venture@google.com>, 
+ Nancy Yuen <yuenn@google.com>, Benjamin Fair <benjaminfair@google.com>, 
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
+ Alexandre Torgue <alexandre.torgue@foss.st.com>, 
+ Raju Rangoju <Raju.Rangoju@amd.com>
+Cc: Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
+ Steam Lin <stlin2@winbond.com>, linux-spi@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, imx@lists.linux.dev, 
+ linux-riscv@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
+ linux-mediatek@lists.infradead.org, linux-rockchip@lists.infradead.org, 
+ linux-mtd@lists.infradead.org, linux-aspeed@lists.ozlabs.org, 
+ openbmc@lists.ozlabs.org, linux-stm32@st-md-mailman.stormreply.com
+X-Mailer: b4 0.15-dev
+X-GND-Sasl: miquel.raynal@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250110_055534_296680_B4DB521D 
-X-CRM114-Status: GOOD (  12.26  )
+X-CRM114-CacheID: sfid-20250110_144555_013455_CA535436 
+X-CRM114-Status: UNSURE (   8.46  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -133,29 +110,105 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 10/01/2025 13:39, Andras Szemzo wrote:
-> V853 has 2 CCUs, add compatible strings for it.
-> 
-> Signed-off-by: Andras Szemzo <szemzo.andras@gmail.com>
-> ---
->  .../devicetree/bindings/clock/allwinner,sun4i-a10-ccu.yaml      | 2 ++
->  1 file changed, 2 insertions(+)
-> 
-> diff --git a/Documentation/devicetree/bindings/clock/allwinner,sun4i-a10-ccu.yaml b/Documentation/devicetree/bindings/clock/allwinner,sun4i-a10-ccu.yaml
-> index 1690b9d99c3d..bb1fa032e789 100644
-> --- a/Documentation/devicetree/bindings/clock/allwinner,sun4i-a10-ccu.yaml
-> +++ b/Documentation/devicetree/bindings/clock/allwinner,sun4i-a10-ccu.yaml
-> @@ -36,6 +36,8 @@ properties:
->        - allwinner,sun9i-a80-ccu
->        - allwinner,sun20i-d1-ccu
->        - allwinner,sun20i-d1-r-ccu
-> +      - allwinner,sun8i-v853-ccu
-> +      - allwinner,sun8i-v853-r-ccu
+We do have macros for defining command, address, dummy and data
+cycles. We also have a .dtr flag that implies sampling the bus on both
+edges, but there are currently no macros enabling it. We might make use
+of such macros, so let's create:
+- SPI_MEM_DTR_OP_CMD
+- SPI_MEM_DTR_OP_ADDR
+- SPI_MEM_DTR_OP_DUMMY
+- SPI_MEM_DTR_OP_DATA_OUT
+- SPI_MEM_DTR_OP_DATA_OUT
 
-Where are the clock headers?
+Signed-off-by: Miquel Raynal <miquel.raynal@bootlin.com>
+---
+ include/linux/spi/spi-mem.h | 41 +++++++++++++++++++++++++++++++++++++++++
+ 1 file changed, 41 insertions(+)
 
-Best regards,
-Krzysztof
+diff --git a/include/linux/spi/spi-mem.h b/include/linux/spi/spi-mem.h
+index ca6ea01c40f85095ac2730cb424cfb21d7daa700..306c05dd13789017da2c5339cddc031f03302bb9 100644
+--- a/include/linux/spi/spi-mem.h
++++ b/include/linux/spi/spi-mem.h
+@@ -20,6 +20,14 @@
+ 		.opcode = __opcode,				\
+ 	}
+ 
++#define SPI_MEM_DTR_OP_CMD(__opcode, __buswidth)		\
++	{							\
++		.nbytes = 1,					\
++		.opcode = __opcode,				\
++		.buswidth = __buswidth,				\
++		.dtr = true,					\
++	}
++
+ #define SPI_MEM_OP_ADDR(__nbytes, __val, __buswidth)		\
+ 	{							\
+ 		.nbytes = __nbytes,				\
+@@ -27,6 +35,14 @@
+ 		.val = __val,					\
+ 	}
+ 
++#define SPI_MEM_DTR_OP_ADDR(__nbytes, __val, __buswidth)	\
++	{							\
++		.nbytes = __nbytes,				\
++		.val = __val,					\
++		.buswidth = __buswidth,				\
++		.dtr = true,					\
++	}
++
+ #define SPI_MEM_OP_NO_ADDR	{ }
+ 
+ #define SPI_MEM_OP_DUMMY(__nbytes, __buswidth)			\
+@@ -35,6 +51,13 @@
+ 		.buswidth = __buswidth,				\
+ 	}
+ 
++#define SPI_MEM_DTR_OP_DUMMY(__nbytes, __buswidth)		\
++	{							\
++		.nbytes = __nbytes,				\
++		.buswidth = __buswidth,				\
++		.dtr = true,					\
++	}
++
+ #define SPI_MEM_OP_NO_DUMMY	{ }
+ 
+ #define SPI_MEM_OP_DATA_IN(__nbytes, __buf, __buswidth)		\
+@@ -45,6 +68,15 @@
+ 		.buf.in = __buf,				\
+ 	}
+ 
++#define SPI_MEM_DTR_OP_DATA_IN(__nbytes, __buf, __buswidth)	\
++	{							\
++		.dir = SPI_MEM_DATA_IN,				\
++		.nbytes = __nbytes,				\
++		.buf.in = __buf,				\
++		.buswidth = __buswidth,				\
++		.dtr = true,					\
++	}
++
+ #define SPI_MEM_OP_DATA_OUT(__nbytes, __buf, __buswidth)	\
+ 	{							\
+ 		.buswidth = __buswidth,				\
+@@ -53,6 +85,15 @@
+ 		.buf.out = __buf,				\
+ 	}
+ 
++#define SPI_MEM_DTR_OP_DATA_OUT(__nbytes, __buf, __buswidth)	\
++	{							\
++		.dir = SPI_MEM_DATA_OUT,			\
++		.nbytes = __nbytes,				\
++		.buf.out = __buf,				\
++		.buswidth = __buswidth,				\
++		.dtr = true,					\
++	}
++
+ #define SPI_MEM_OP_NO_DATA	{ }
+ 
+ /**
+
+-- 
+2.47.0
+
 
 _______________________________________________
 linux-riscv mailing list
