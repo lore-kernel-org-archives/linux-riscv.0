@@ -4,92 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1518EC02185
-	for <linux-riscv@archiver.kernel.org>; Fri, 10 Jan 2025 13:13:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 05FD0E77188
+	for <linux-riscv@archiver.kernel.org>; Fri, 10 Jan 2025 13:44:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QLBqzZ49sqaS4MvDLz+e40iinVgtrKzClrlUmOHohdA=; b=ZMFHelrpBKts5jroXyXbyHPh7S
-	ZS41kzuU38ZUQwAWHOw0nzTnR0aISjvCdTp0xGSLgqZ+pM4UTe61N2ZqnAS1027cTlk2kkWlbkC8z
-	/7TNUrKPzW/LZZFhC2pypZ7wFY5VxTxi/4xXcIOa/3FYblWi3jjRk0Y6e0L+X3qC2xwhrOzyNdpyN
-	xsbHYbIX7nZD/1fXAcFl25KPMhYe4jvpJ3V99fKNfZO3fMHKwd+3XKC3sMfUcqTl//hno/YiqzWyR
-	P5hQY26VCvBWKqCsznzAmfK0IdGYQk/K8nISXX5pYyvuteCHYeGyFV8fItzORQqUnSNgVpJrzDc6F
-	tYN6567A==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:References:
+	In-Reply-To:To:Cc:From:MIME-Version:Date:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Owner;
+	bh=CSjiDv1xKhuK35HKKvLosKnrMTirhI5Si5cLRR03PqI=; b=bJljZrjWuyIR5el+C7rZoqVM3m
+	HVpjJIlZxN7xt9McnncOkW6oAB4K16G9aw+VqRQ5posZA2UryqWV3ZToOlAjkpbSXLMumm1vqY0f0
+	1RahQyvB7Alv8921dBr6R5AT3dAm91gLmsVHx3rM3tpK+S2ySsht7Y8GcEiEGM4AbOu1eKd/JyuSA
+	17kpMVYUoxbmefojN7lK4Fqq5SYpc88KJBr5vP2oOykyEPHtPbqyfGCSsgr5yfXa2g6b6dBekT930
+	Ioym+eDKLbTOROsST9BMtu2dS8Nh7Zz7wLTubkdUIqTuWMtzNYvlXgqWloBX+VBWzgu6MF0d1JEiR
+	3F2saOzg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tWEpj-0000000FQcP-42VM;
-	Fri, 10 Jan 2025 13:13:51 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1tWFJ4-0000000FWNj-2DFn;
+	Fri, 10 Jan 2025 13:44:10 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tWELq-0000000FK8V-20wh;
-	Fri, 10 Jan 2025 12:42:59 +0000
+	id 1tWFE7-0000000FVT9-1ZT7;
+	Fri, 10 Jan 2025 13:39:04 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id CCE6B5C10C3;
-	Fri, 10 Jan 2025 12:42:16 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0816AC4CEDD;
-	Fri, 10 Jan 2025 12:42:49 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 0B433A41F0C;
+	Fri, 10 Jan 2025 13:37:14 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E5A41C4CED6;
+	Fri, 10 Jan 2025 13:39:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1736512977;
-	bh=jQisMlTjYfeo02yHCaf8/3pDTMXN8QMfrZ/MAhEXiCE=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=KpD0sW7UIABuucxd/Qx8pWVveKRBTPjoee4MF0KjKw8i5YDBoDzL5JYvu4BaELO0t
-	 M/U8H/SXs0PIabw+VP/Wmcv2zkse9maGzd/9rSoZgJ6hC/Lu3TEGJ9VrLXjmmeRFg1
-	 vFZp71KV7rVxbfsUrwau0sxqutt53V+fSRgOWgFQTeVLDgWzOazdvg68BZ9FapN4Et
-	 JWbE4PuKzWFwlzYvCA+Uzkc1/eq5V73FfErBUEePlT0QeeVOCwHPXy/saY0DV/C3w1
-	 EubDaTDdWlxizzmd69Sr4YfE+GSogwgowB31K0GFRmk2/goQYinjInn1BjN5IFfOdI
-	 Cy3tqd/O7Qjaw==
-Date: Fri, 10 Jan 2025 12:42:47 +0000
-From: Mark Brown <broonie@kernel.org>
-To: Miquel Raynal <miquel.raynal@bootlin.com>
-Cc: Sanjay R Mehta <sanju.mehta@amd.com>,
-	Serge Semin <fancer.lancer@gmail.com>, Han Xu <han.xu@nxp.com>,
-	Conor Dooley <conor.dooley@microchip.com>,
-	Daire McNamara <daire.mcnamara@microchip.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Haibo Chen <haibo.chen@nxp.com>,
-	Yogesh Gaur <yogeshgaur.83@gmail.com>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Michal Simek <michal.simek@amd.com>,
-	Richard Weinberger <richard@nod.at>,
-	Vignesh Raghavendra <vigneshr@ti.com>,
-	Jacky Huang <ychuang3@nuvoton.com>,
-	Shan-Chun Hung <schung@nuvoton.com>,
-	Chin-Ting Kuo <chin-ting_kuo@aspeedtech.com>,
-	=?iso-8859-1?Q?C=E9dric?= Le Goater <clg@kaod.org>,
-	Joel Stanley <joel@jms.id.au>,
-	Andrew Jeffery <andrew@codeconstruct.com.au>,
-	Avi Fishman <avifishman70@gmail.com>,
-	Tomer Maimon <tmaimon77@gmail.com>,
-	Tali Perry <tali.perry1@gmail.com>,
-	Patrick Venture <venture@google.com>, Nancy Yuen <yuenn@google.com>,
-	Benjamin Fair <benjaminfair@google.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Raju Rangoju <Raju.Rangoju@amd.com>,
-	Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
-	Steam Lin <stlin2@winbond.com>, linux-spi@vger.kernel.org,
-	linux-kernel@vger.kernel.org, imx@lists.linux.dev,
-	linux-riscv@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
-	linux-rockchip@lists.infradead.org, linux-mtd@lists.infradead.org,
-	linux-aspeed@lists.ozlabs.org, openbmc@lists.ozlabs.org,
-	linux-stm32@st-md-mailman.stormreply.com
-Subject: Re: [PATCH v2 20/27] spi: spi-mem: Estimate the time taken by
- operations
-Message-ID: <ca317e2c-cd09-4884-b9eb-9cf23ae88078@sirena.org.uk>
-References: <20241224-winbond-6-11-rc1-quad-support-v2-0-ad218dbc406f@bootlin.com>
- <20241224-winbond-6-11-rc1-quad-support-v2-20-ad218dbc406f@bootlin.com>
+	s=k20201202; t=1736516342;
+	bh=6706hwt5VHDv/HYNCdAtvE3p3uI0dV7mNWaIgSNjhww=;
+	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
+	b=HDJxtVPUD3p1SPdmApTnfH1ZoE4n7ZFxynwqFV038FIhmH+KTYwzMG0DrffGF/nes
+	 kHPqBwAElyCI5eK2Ezs/K/2wx9Fm/iwgfWvrIY1/oBQutRKEN6/5whRMsBp3y+gCvj
+	 zsk+fd0zgLouIxMHWUtxp7Fvrsu5xZEEqA02aR3WXlWLsxqWJGuyQC/zI5p7cqJ3Yr
+	 IdvP7rbi4pJzlYTPlII5k1cSTkk6THrWwSveggw5lwWG65vHhOGbTYdOpY4mPzjIzZ
+	 S/HtoWdh6WDCC2mmpvDMmDXH7DENiQdWf8f0jNCEyIKckZyeYqAHdxqPq6FsuvWZ93
+	 CdTSfMYioM6Gw==
+Date: Fri, 10 Jan 2025 07:39:00 -0600
 MIME-Version: 1.0
-In-Reply-To: <20241224-winbond-6-11-rc1-quad-support-v2-20-ad218dbc406f@bootlin.com>
-X-Cookie: Many are cold, but few are frozen.
+From: "Rob Herring (Arm)" <robh@kernel.org>
+Cc: devicetree@vger.kernel.org, linux-phy@lists.infradead.org, 
+ Vinod Koul <vkoul@kernel.org>, linux-sunxi@lists.linux.dev, 
+ Philipp Zabel <p.zabel@pengutronix.de>, linux-riscv@lists.infradead.org, 
+ Albert Ou <aou@eecs.berkeley.edu>, linux-gpio@vger.kernel.org, 
+ Linus Walleij <linus.walleij@linaro.org>, 
+ Ulf Hansson <ulf.hansson@linaro.org>, Stephen Boyd <sboyd@kernel.org>, 
+ Florian Fainelli <florian.fainelli@broadcom.com>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Jernej Skrabec <jernej.skrabec@gmail.com>, 
+ Paul Walmsley <paul.walmsley@sifive.com>, Chen-Yu Tsai <wens@csie.org>, 
+ linux-pm@vger.kernel.org, Samuel Holland <samuel@sholland.org>, 
+ Maxime Ripard <mripard@kernel.org>, 
+ Kishon Vijay Abraham I <kishon@kernel.org>, linux-clk@vger.kernel.org, 
+ Michael Turquette <mturquette@baylibre.com>, linux-kernel@vger.kernel.org, 
+ =?utf-8?q?Uwe_Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ linux-arm-kernel@lists.infradead.org, Palmer Dabbelt <palmer@dabbelt.com>
+To: Andras Szemzo <szemzo.andras@gmail.com>
+In-Reply-To: <20250110123923.270626-11-szemzo.andras@gmail.com>
+References: <20250110123923.270626-1-szemzo.andras@gmail.com>
+ <20250110123923.270626-11-szemzo.andras@gmail.com>
+Message-Id: <173651634086.2650897.13417575426746113059.robh@kernel.org>
+Subject: Re: [PATCH 10/12] dt-bindings: phy: allwinner: add v853 usb phy
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250110_044258_594828_7BB985FD 
-X-CRM114-Status: GOOD (  13.35  )
+X-CRM114-CacheID: sfid-20250110_053903_548897_4616C5C7 
+X-CRM114-Status: GOOD (  11.77  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,108 +82,56 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============5685768298740378681=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
---===============5685768298740378681==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="RVMhmV/ewGAzdaKp"
-Content-Disposition: inline
+On Fri, 10 Jan 2025 13:39:21 +0100, Andras Szemzo wrote:
+> Document Allwinner v853 USB phy.
+> 
+> Signed-off-by: Andras Szemzo <szemzo.andras@gmail.com>
+> ---
+>  .../phy/allwinner,sun8i-v853-usb-phy.yaml     | 89 +++++++++++++++++++
+>  1 file changed, 89 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/phy/allwinner,sun8i-v853-usb-phy.yaml
+> 
 
+My bot found errors running 'make dt_binding_check' on your patch:
 
---RVMhmV/ewGAzdaKp
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+yamllint warnings/errors:
+./Documentation/devicetree/bindings/phy/allwinner,sun8i-v853-usb-phy.yaml:19:1: [error] syntax error: found character '\t' that cannot start any token (syntax)
 
-On Tue, Dec 24, 2024 at 06:06:05PM +0100, Miquel Raynal wrote:
-> In the SPI-NAND layer, we currently make list of operation variants from
-> the fastest one to the slowest and there is a bit of logic in the core
-> to go over them and pick the first one that is supported by the
-> controller, ie. the fastest one among the supported ops.
+dtschema/dtc warnings/errors:
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/phy/allwinner,sun8i-v853-usb-phy.yaml: ignoring, error parsing file
+make[2]: *** Deleting file 'Documentation/devicetree/bindings/phy/allwinner,sun8i-v853-usb-phy.example.dts'
+Documentation/devicetree/bindings/phy/allwinner,sun8i-v853-usb-phy.yaml:19:1: found character '\t' that cannot start any token
+make[2]: *** [Documentation/devicetree/bindings/Makefile:26: Documentation/devicetree/bindings/phy/allwinner,sun8i-v853-usb-phy.example.dts] Error 1
+make[2]: *** Waiting for unfinished jobs....
+./Documentation/devicetree/bindings/phy/allwinner,sun8i-v853-usb-phy.yaml:19:1: found character '\t' that cannot start any token
+make[1]: *** [/builds/robherring/dt-review-ci/linux/Makefile:1506: dt_binding_check] Error 2
+make: *** [Makefile:251: __sub-make] Error 2
 
-This breaks the build:
+doc reference errors (make refcheckdocs):
 
-/build/stage/linux/drivers/spi/spi-mem.c:580:5: error: conflicting types fo=
-r =E2=80=98spi_mem_calc_op_duration=E2=80=99; have =E2=80=98u64(struct spi_=
-mem_op *)=E2=80=99 {aka =E2=80=98long long unsigned int(struct spi_mem_op *=
-)=E2=80=99}
-  580 | u64 spi_mem_calc_op_duration(struct spi_mem_op *op)
-      |     ^~~~~~~~~~~~~~~~~~~~~~~~
-In file included from /build/stage/linux/drivers/spi/spi-mem.c:12:
-/build/stage/linux/include/linux/spi/spi-mem.h:427:5: note: previous declar=
-ation of =E2=80=98spi_mem_calc_op_duration=E2=80=99 with type =E2=80=98u64(=
-struct spi_mem *, struct spi_mem_op *)=E2=80=99 {aka =E2=80=98long long uns=
-igned int(struct spi_mem *, struct spi_mem_op *)=E2=80=99}
-  427 | u64 spi_mem_calc_op_duration(struct spi_mem *mem, struct spi_mem_op=
- *op);
-      |     ^~~~~~~~~~~~~~~~~~~~~~~~
-In file included from /build/stage/linux/include/linux/linkage.h:7,
-                 from /build/stage/linux/arch/arm/include/asm/bug.h:5,
-                 from /build/stage/linux/include/linux/bug.h:5,
-                 from /build/stage/linux/include/linux/thread_info.h:13,
-                 from /build/stage/linux/include/linux/sched.h:14,
-                 from /build/stage/linux/include/linux/ratelimit.h:6,
-                 from /build/stage/linux/include/linux/dev_printk.h:16,
-                 from /build/stage/linux/include/linux/device.h:15,
-                 from /build/stage/linux/include/linux/dmaengine.h:8,
-                 from /build/stage/linux/drivers/spi/spi-mem.c:8:
-/build/stage/linux/drivers/spi/spi-mem.c:593:19: error: conflicting types f=
-or =E2=80=98spi_mem_calc_op_duration=E2=80=99; have =E2=80=98u64(struct spi=
-_mem_op *)=E2=80=99 {aka =E2=80=98long long unsigned int(struct spi_mem_op =
-*)=E2=80=99}
-  593 | EXPORT_SYMBOL_GPL(spi_mem_calc_op_duration);
-      |                   ^~~~~~~~~~~~~~~~~~~~~~~~
-/build/stage/linux/include/linux/export.h:56:28: note: in definition of mac=
-ro =E2=80=98__EXPORT_SYMBOL=E2=80=99
-   56 |         extern typeof(sym) sym;                                 \
-      |                            ^~~
-/build/stage/linux/include/linux/export.h:69:41: note: in expansion of macr=
-o =E2=80=98_EXPORT_SYMBOL=E2=80=99
-   69 | #define EXPORT_SYMBOL_GPL(sym)          _EXPORT_SYMBOL(sym, "GPL")
-      |                                         ^~~~~~~~~~~~~~
-/build/stage/linux/drivers/spi/spi-mem.c:593:1: note: in expansion of macro=
- =E2=80=98EXPORT_SYMBOL_GPL=E2=80=99
-  593 | EXPORT_SYMBOL_GPL(spi_mem_calc_op_duration);
-      | ^~~~~~~~~~~~~~~~~
-/build/stage/linux/include/linux/spi/spi-mem.h:427:5: note: previous declar=
-ation of =E2=80=98spi_mem_calc_op_duration=E2=80=99 with type =E2=80=98u64(=
-struct spi_mem *, struct spi_mem_op *)=E2=80=99 {aka =E2=80=98long long uns=
-igned int(struct spi_mem *, struct spi_mem_op *)=E2=80=99}
-  427 | u64 spi_mem_calc_op_duration(struct spi_mem *mem, struct spi_mem_op=
- *op);
-      |     ^~~~~~~~~~~~~~~~~~~~~~~~
+See https://patchwork.ozlabs.org/project/devicetree-bindings/patch/20250110123923.270626-11-szemzo.andras@gmail.com
 
---RVMhmV/ewGAzdaKp
-Content-Type: application/pgp-signature; name="signature.asc"
+The base for the series is generally the latest rc1. A different dependency
+should be noted in *this* patch.
 
------BEGIN PGP SIGNATURE-----
+If you already ran 'make dt_binding_check' and didn't see the above
+error(s), then make sure 'yamllint' is installed and dt-schema is up to
+date:
 
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmeBFcYACgkQJNaLcl1U
-h9BhIgf+KXE1JExJo+WBN7mYcyQ4HitVxI+rVexdbI+QMmjPpB2umRebJU2u0F2O
-zJlk5R6eGXdOn3H83H0CacUm11VVNZmqP1yUSytO4sjiyHdh7Zp70UkidrhA0O9F
-pRM9l9bBbWV3FzLgZCYjZ03y6A+A9CrIsGRVAuX/rAUHENGshIN+Wa1j4ZwRkI+u
-Nid4YWfQkB1UjSFhcx6d9iDq65hTlrHDn5ThFmIDGZCTS8NRcUAevtkdwoU9thC7
-1xTCkJ92ejUGQ3TTzVrlg6qsnSJTAARPhDZ8WasEfN+L/LWyRI181QAMRKG4oOOi
-swVXAClyqCX9avFjDoBP8aArkjRb4A==
-=qXZ3
------END PGP SIGNATURE-----
+pip3 install dtschema --upgrade
 
---RVMhmV/ewGAzdaKp--
+Please check and re-submit after running the above command yourself. Note
+that DT_SCHEMA_FILES can be set to your schema file to speed up checking
+your schema. However, it must be unset to test all examples with your schema.
 
-
---===============5685768298740378681==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============5685768298740378681==--
-
