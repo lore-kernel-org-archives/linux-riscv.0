@@ -4,61 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64FBAE7719D
-	for <linux-riscv@archiver.kernel.org>; Fri, 10 Jan 2025 14:51:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7074AE77188
+	for <linux-riscv@archiver.kernel.org>; Fri, 10 Jan 2025 14:52:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=R7EYrpSvKGiLPgJIE9XPlU3SgGzzcuwQrXXja0eKtyU=; b=wltj4wqj2+1QZm
-	p6grZXODg/i/wBdmdxfJxDbHqhHkfDBSp7FlxNGdhtu8gCUo3lIVxPssJES4GoDtMS1jaUCPGIzi0
-	Jb44vxk35ctOvnh1jwGLJSdM6SjN/W5gV0cVMU4i65peueNpmfIv5HmEoX6EpWAXl+AUIwhwttn++
-	ui7BgzxToSZtwSAnnqpfZujZmFWAZv9F5DQMoANKxoqwUUbCjS49HrZNCYxQqzrp44NCWrnAq55+n
-	be9k8pEm3P0ml8+Eb8E9K1gqpAgYsU8+uTwlFfART8VXBvRPJNAvTBWciQGWT12zO2535WM5zQpz4
-	Xo660rmEwd7p5l7HTDXA==;
+	List-Owner; bh=IrZ9GaJy4Kuz8/P/3O5CawNJo2qXWv6SGVm4hEpg+Lk=; b=R5ugSZFmsgQOYF
+	m4+u7Rm3tVz1rNgTcJDelWYzkvH66KriM1Rvm3WLlBU43YzKINwRlPNCwyZvBr320tFUBz+9E+w7N
+	Aso2kRSpyMsoBQT6Bz5vd+GJOhE9V0v9eXQgJeUXdO8LF3fdGGynTpcEwsEMo7vgUoTKiqxdFahFL
+	ojtA0XJ8dBZ1KI3FLzdLsl5T1Z8cMyY8/gm2YfQ9RNFomSjAAxgc001USR/Nz/g4A8B+TNdjIZd7z
+	w2l1HLttiHnzNe4R9J67qW4HUul1Xi8Vf3NDRdsD51a7h7kcC+tRDNBe6IQuRmXNqhXHwyIdKLP67
+	AiwfUFtARCyksMV0HFjg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tWGMM-0000000Figq-0iI3;
-	Fri, 10 Jan 2025 14:51:38 +0000
+	id 1tWGNX-0000000FjEY-2z0a;
+	Fri, 10 Jan 2025 14:52:51 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tWGGQ-0000000Fg9c-3KNk;
-	Fri, 10 Jan 2025 14:45:30 +0000
+	id 1tWGGR-0000000Fg9o-1qsQ;
+	Fri, 10 Jan 2025 14:45:31 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
 	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=dHPofq5XZq7az/ZH3pSbnokgc8b9g3SIFoGkVNSo6iM=; b=WgeitKMsUcVH5mkiDLc5eA84Fi
-	OseqtSMencYUs0HrHuoHKO7cUbQUl2rlMhHj0qC0GwZ/Yl4p062cQOSDxzs5o8mHNFF5ub54rAcB2
-	VnfQoxTBxrCmzRMhMbXJ2A0r3WBeT6rV9WEEH/ARCzyaYMerSLaoN5HxnaCw4Cva8N1RNKH2f6Hac
-	kPLzVIctZyVCLTeRVnsM6EEWryMPvNdkkHU+H2bJsA71BpmRSJD+Mf6CnHYa5msUhxT8XZ7+nvl4V
-	GvB1XqAJsVvzW2cASmm+Z1NTOu/OYFmCHgbToywqgnmfo29ivbY8ofY4xbMQmKummCQDEEGV/yDKl
-	B5iz6IUQ==;
-Received: from relay9-d.mail.gandi.net ([2001:4b98:dc4:8::229])
+	bh=dplhgiiMhu5lUlvijJ09whzPZ6kRkT4F5CXKBJnyGI0=; b=hylzPrYpz5E+MrZTYYAgQlAvss
+	UWVPnvrcQo16Thk81FytKHY1S5bq6LJqmDQ6KiQ0uktQsIZ6sxqXyWLBafEW6Rq9WsI0ZDVvU4VuJ
+	cskrAAYKIKHNmIUccZ6NSJBLSYowEEXJCrnCWGjY7nLMK/Edcp6/akVAnZ+nF1WvmlzIzZfA1XLu9
+	mAaurBufOyPf8bFh54qwNVLVqTyURqS5z2ubmpXLd8kF7H8enipNdDrxUHk04yi3XTGPM36oy6FYx
+	ILHjq+zM9po7rGap5njJkE0kVAs5HaHCs2nCdQDpFv34ZV69BQl9q1SRh0L1u6hp6we65Dyv/acuv
+	Ddec+G3Q==;
+Received: from relay9-d.mail.gandi.net ([217.70.183.199])
 	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tWGGO-00000009o8q-0r95;
-	Fri, 10 Jan 2025 14:45:29 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id 54FB5FF809;
-	Fri, 10 Jan 2025 14:45:24 +0000 (UTC)
+	id 1tWGGO-00000009o9B-39jI;
+	Fri, 10 Jan 2025 14:45:30 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id 27B4CFF806;
+	Fri, 10 Jan 2025 14:45:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1736520326;
+	t=1736520327;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=dHPofq5XZq7az/ZH3pSbnokgc8b9g3SIFoGkVNSo6iM=;
-	b=QaykDlSwtQxbTXSFx/WQbVyeesPYBW12EuQ2e83119ikzKXwERkm59oGK8cQtYV6jA7uyt
-	nr0ZCtAn6FdPe6RrgAHZUYM5u6MoLPdP9IIAGGaJSQAmLzW3vc+a8hwSFBOZwUzvG9d5N1
-	RjjVie2+9GL+I2Tptx7o5sBeHjizza20bxGbLeeGet2CiAEMHRZkLBeEbDnOHiRhGwYr5Y
-	ItlINRNMCLBiOuXDN1+EGarnTO9PBFL6oX9U+iDjUsW7jHNbW8kimAtb9fed96Wwmrt6BB
-	EBm+jPCNzi6JMVBbchseGwpaeMN7nYjD9MwmTcRdl7W6F45psfhShwxgJ9a7uA==
+	bh=dplhgiiMhu5lUlvijJ09whzPZ6kRkT4F5CXKBJnyGI0=;
+	b=PY2OAUb0ukChGfwopJPw5yxfekY09UhFNW75L8Y7tCwOjbIbfVx7fo0Dswgyb3igQ6xWhr
+	3KyjlDET81zaWtehYnsXqPAEAFxTno2n9VxbVL5HZxlK2K9XpNWSiPedwRBxRm7zeMIhPc
+	kRfrPaNYzwOft0xCq53psN+wTMfxeiZ9rFS4rWpYCNwbYui5sqhxKr6ul+O48UTEGBkbhA
+	ywmE8QaTOjhj02EdxOvBnfwTRIXYdWqzWVkC2TCA+J4LtSCzNl9vi/9WAtAXZUuxtHQL09
+	pRZb7ONm8IPYsgXgZ0JPZheqTYnG+trhaiHP2Lucbg0X5Px7hoHuy6Y8p5GHdw==
 From: Miquel Raynal <miquel.raynal@bootlin.com>
-Date: Fri, 10 Jan 2025 15:45:06 +0100
-Subject: [PATCH v3 04/27] spi: amd: Drop redundant check
+Date: Fri, 10 Jan 2025 15:45:07 +0100
+Subject: [PATCH v3 05/27] spi: amlogic-spifc-a1: Support per spi-mem
+ operation frequency switches
 MIME-Version: 1.0
-Message-Id: <20250110-winbond-6-11-rc1-quad-support-v3-4-7ab4bd56cf6e@bootlin.com>
+Message-Id: <20250110-winbond-6-11-rc1-quad-support-v3-5-7ab4bd56cf6e@bootlin.com>
 References: <20250110-winbond-6-11-rc1-quad-support-v3-0-7ab4bd56cf6e@bootlin.com>
 In-Reply-To: <20250110-winbond-6-11-rc1-quad-support-v3-0-7ab4bd56cf6e@bootlin.com>
 To: Mark Brown <broonie@kernel.org>, Sanjay R Mehta <sanju.mehta@amd.com>, 
@@ -91,8 +92,8 @@ Cc: Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
 X-Mailer: b4 0.15-dev
 X-GND-Sasl: miquel.raynal@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250110_144528_358954_EB06106F 
-X-CRM114-Status: GOOD (  12.91  )
+X-CRM114-CacheID: sfid-20250110_144528_952895_D7D757F9 
+X-CRM114-Status: GOOD (  12.67  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,65 +110,53 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Both spi and spi-mem cores already take care of checking the minimum and
-maximum speed for transfers depending on the controller
-capabilities. There is no reason to repeat this check in controller
-drivers.
+Every ->exec_op() call correctly configures the spi bus speed to the
+maximum allowed frequency for the memory using the constant spi default
+parameter. Since we can now have per-operation constraints, let's use
+the value that comes from the spi-mem operation structure instead. In
+case there is no specific limitation for this operation, the default spi
+device value will be given anyway.
 
-Once this possible error condition removed from the function, it makes
-no longer sense to return an int.
+The per-operation frequency capability is thus advertised to the spi-mem
+core.
 
 Signed-off-by: Miquel Raynal <miquel.raynal@bootlin.com>
 ---
- drivers/spi/spi-amd.c | 13 +++----------
- 1 file changed, 3 insertions(+), 10 deletions(-)
+ drivers/spi/spi-amlogic-spifc-a1.c | 7 ++++++-
+ 1 file changed, 6 insertions(+), 1 deletion(-)
 
-diff --git a/drivers/spi/spi-amd.c b/drivers/spi/spi-amd.c
-index 485ae1e382e3eb8f4d72ebb0fb15c51b9a118d3b..fbe795bbcf507abcbbd973b226b5db0de1584898 100644
---- a/drivers/spi/spi-amd.c
-+++ b/drivers/spi/spi-amd.c
-@@ -298,19 +298,16 @@ static const struct amd_spi_freq amd_spi_freq[] = {
- 	{ AMD_SPI_MIN_HZ,   F_800KHz,         0},
+diff --git a/drivers/spi/spi-amlogic-spifc-a1.c b/drivers/spi/spi-amlogic-spifc-a1.c
+index fadf6667cd51c40a29749b378b82161a337edc62..18c9aa2cbc290d8ac179438ab42c27e1a722d422 100644
+--- a/drivers/spi/spi-amlogic-spifc-a1.c
++++ b/drivers/spi/spi-amlogic-spifc-a1.c
+@@ -259,7 +259,7 @@ static int amlogic_spifc_a1_exec_op(struct spi_mem *mem,
+ 	size_t data_size = op->data.nbytes;
+ 	int ret;
+ 
+-	ret = amlogic_spifc_a1_set_freq(spifc, mem->spi->max_speed_hz);
++	ret = amlogic_spifc_a1_set_freq(spifc, op->max_freq);
+ 	if (ret)
+ 		return ret;
+ 
+@@ -320,6 +320,10 @@ static const struct spi_controller_mem_ops amlogic_spifc_a1_mem_ops = {
+ 	.adjust_op_size = amlogic_spifc_a1_adjust_op_size,
  };
  
--static int amd_set_spi_freq(struct amd_spi *amd_spi, u32 speed_hz)
-+static void amd_set_spi_freq(struct amd_spi *amd_spi, u32 speed_hz)
++static const struct spi_controller_mem_caps amlogic_spifc_a1_mem_caps = {
++	.per_op_freq = true,
++};
++
+ static int amlogic_spifc_a1_probe(struct platform_device *pdev)
  {
- 	unsigned int i, spd7_val, alt_spd;
- 
--	if (speed_hz < AMD_SPI_MIN_HZ)
--		return -EINVAL;
--
- 	for (i = 0; i < ARRAY_SIZE(amd_spi_freq); i++)
- 		if (speed_hz >= amd_spi_freq[i].speed_hz)
- 			break;
- 
- 	if (amd_spi->speed_hz == amd_spi_freq[i].speed_hz)
--		return 0;
-+		return;
- 
- 	amd_spi->speed_hz = amd_spi_freq[i].speed_hz;
- 
-@@ -329,8 +326,6 @@ static int amd_set_spi_freq(struct amd_spi *amd_spi, u32 speed_hz)
- 		amd_spi_setclear_reg32(amd_spi, AMD_SPI_SPEED_REG, spd7_val,
- 				       AMD_SPI_SPD7_MASK);
- 	}
--
--	return 0;
- }
- 
- static inline int amd_spi_fifo_xfer(struct amd_spi *amd_spi,
-@@ -679,9 +674,7 @@ static int amd_spi_exec_mem_op(struct spi_mem *mem,
- 
- 	amd_spi = spi_controller_get_devdata(mem->spi->controller);
- 
--	ret = amd_set_spi_freq(amd_spi, op->max_freq);
--	if (ret)
--		return ret;
-+	amd_set_spi_freq(amd_spi, op->max_freq);
- 
- 	if (amd_spi->version == AMD_SPI_V2)
- 		amd_set_spi_addr_mode(amd_spi, op);
+ 	struct spi_controller *ctrl;
+@@ -356,6 +360,7 @@ static int amlogic_spifc_a1_probe(struct platform_device *pdev)
+ 	ctrl->bits_per_word_mask = SPI_BPW_MASK(8);
+ 	ctrl->auto_runtime_pm = true;
+ 	ctrl->mem_ops = &amlogic_spifc_a1_mem_ops;
++	ctrl->mem_caps = &amlogic_spifc_a1_mem_caps;
+ 	ctrl->min_speed_hz = SPIFC_A1_MIN_HZ;
+ 	ctrl->max_speed_hz = SPIFC_A1_MAX_HZ;
+ 	ctrl->mode_bits = (SPI_RX_DUAL | SPI_TX_DUAL |
 
 -- 
 2.47.0
