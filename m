@@ -4,8 +4,8 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CBAE5E77188
-	for <linux-riscv@archiver.kernel.org>; Fri, 10 Jan 2025 23:19:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DCFA6E7719E
+	for <linux-riscv@archiver.kernel.org>; Fri, 10 Jan 2025 23:19:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
@@ -13,76 +13,76 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	References:Mime-Version:In-Reply-To:Date:Reply-To:Content-ID:
 	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
 	:Resent-Message-ID:List-Owner;
-	bh=flT5aVTbl44099H7SStRIRvE2biCRFzyhL4gjh5Pu5A=; b=F8JWAlpBYSjpoFQyr3viMPjplU
-	zncL8USsJl7uPpo+s2qEF2wE+6HngW/KBgRQcWBjgtgSl9b/XnvQnuZ4vAo8JTlA1MVggI5XGW9l1
-	Gi+UBwOBMalJ50iSS5rOeXG7n3HfcIEwnpYPLicOROldJTfKW5fKORNA1YEfthJ7O0acmH3Vli3cZ
-	8BkStYsToHRoiMpGHR937RhX/+DDspa077qhDRExWkm77yAMTM7XeyPRQdntlei7LbfL/zmQP30xx
-	YVyoSCQT6lkcxJx43+7HDawStaCYksgTIGmLAa7eT7701d3PrUY6fqZZ4Wq9RUfaEFJGNYuA6VsIY
-	KCKyeuXA==;
+	bh=6eX/i+mWV7qYIjKWPAZBqOu21Qk8XrZ9wUbYMuTIt5A=; b=kgrVQqOulEQEiLXlpgkzhDqSda
+	dEaePh3iTDgoGB1S6HfhUQzD30AU2FA+Hy7mNiDtLdSsirLF9fkP/eI/6MQ8HJm3z4WI+bwEd9/Pz
+	oQXOBpo7QY37U1G5oZG25DZeJUd/HPPidG5OTl5Crhb1qkjv1JX/ZvjemQakGn2mFBrOPEfHj37yy
+	xqtpTL9aMvf3AyRGG7N9VuroWCJ0HZnVpqJxGiQhHiI35Un0NN1KRzIWH9R6g9GI1fnOSZqmqrHhm
+	FW7JBJ3txbE6bbynyZIG6TgooZfZkl1lrHqe5sUoBn1u3eimr1N3ozwOQEMJrV4rFJ0v+vOCcxpZE
+	Lq2I/RoA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tWOI8-0000000HERv-0XNS;
-	Fri, 10 Jan 2025 23:19:48 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1tWOIA-0000000HEU8-1FRi;
+	Fri, 10 Jan 2025 23:19:50 +0000
+Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tWJwM-0000000GbGo-1vsG
+	id 1tWJwU-0000000GbPi-1Nqd
 	for linux-riscv@bombadil.infradead.org;
-	Fri, 10 Jan 2025 18:41:03 +0000
+	Fri, 10 Jan 2025 18:41:11 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Type:Cc:To:From:Subject:
+	d=infradead.org; s=casper.20170209; h=Content-Type:Cc:To:From:Subject:
 	Message-ID:References:Mime-Version:In-Reply-To:Date:Sender:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=2/DwiwuishkWohq1Selw9AVX00i6WMTVrJEAuBvDTaE=; b=aq4ftzleEzxBlOmdWdhLRzwYMs
-	kiepR7md764ktW0twHZQ4axGqR5m0b/O6zoKViqLe8FI+NUL4aHe+r2aDzr8ivmpdveNOBvu4zAgc
-	EV9jKzS2ebl4PdoclL/1fWJ7L1yfiSkji0TV+weGd6ATMgodOOPwGK+bcmAVJmbtl3+1KZg7S0KYl
-	bWIb8p08MwCxzsLfcKzEhhpbx158QLnEMyQvveVv5qCbkP71pgxmB1qXO/H4j6kPvO3BdgEB8jsjw
-	ZykJtXagm0/LpGMVpR53eR2CzEAs1Y53+Q1YwzVoHON9u3jE85CUSbT0lUjH53S5zg9GuCIrNyoza
-	q8BOXW+w==;
-Received: from mail-wm1-x349.google.com ([2a00:1450:4864:20::349])
-	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tWJwH-00000009sHq-3qtZ
+	bh=WaFp0TOYaWSuGPhKgfBnenMecO/UsWYRxmgXZ26ETaU=; b=ihB9y3DPVBTVH9wJXl03PtPKt5
+	lVZ1qzVBUKYK6dKXSJBqft4/DYQze2K8MiDAYyt8xmNLMeb4xh83WAWyScrGNsB/x2xs78uOvSHxa
+	3Jvo/Gw86agqLZZPnVHfGNN5J00GnbhL6JL+Fgsuj9K5+gvxAy0TMj0jXNSeF27TsC6Tb/EYsExHE
+	53B2+dmaEop+iBJZB4xUtzq1FGp1INz/SeyUz1K/VbZ1k3wYUlk5FaK6vylUoityUQuWAGUJefEkm
+	hcM8N21Dvg1YfjscPk/SuBieS0OC89SnyZ3cerdGWZEu47Xv+3WTMIiAyGT1REMcGwpkWK1Tpdygi
+	v3B7DKiA==;
+Received: from mail-wm1-x34a.google.com ([2a00:1450:4864:20::34a])
+	by casper.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tWJwR-0000000EBH7-2F4z
 	for linux-riscv@lists.infradead.org;
-	Fri, 10 Jan 2025 18:41:01 +0000
-Received: by mail-wm1-x349.google.com with SMTP id 5b1f17b1804b1-436379713baso11445715e9.2
-        for <linux-riscv@lists.infradead.org>; Fri, 10 Jan 2025 10:40:55 -0800 (PST)
+	Fri, 10 Jan 2025 18:41:09 +0000
+Received: by mail-wm1-x34a.google.com with SMTP id 5b1f17b1804b1-4359206e1e4so19288795e9.2
+        for <linux-riscv@lists.infradead.org>; Fri, 10 Jan 2025 10:41:07 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1736534455; x=1737139255; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1736534466; x=1737139266; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=2/DwiwuishkWohq1Selw9AVX00i6WMTVrJEAuBvDTaE=;
-        b=qZkOWdWsYTtUGRPAQfXhRfOdq1ptn50xpusVVF1jaEroucu0MBgM4NqPPuhTupBO7b
-         eGF++7hDVfJsIrVJU20dhiUnBf0umQNsRfXkB+zKbu3wNquBgOej7bxMcV6GuqnoDAEJ
-         q3YYTC0DulUGTH+XjOlAuKnHnbkoRj4iu9xhA2bizea3czra0/di6pOFsLd7vd1Ca7fJ
-         bpKwEydMo0mF/nMoSoXmzCoQfR707ZbryVOg8huEOUmp6t5Tt/3nrZ+3cK828HTw8n5j
-         YtAGH5JoNwzf5OfUMvzJzIApoU5IhDra/E5Qd9vs7C+qqSy7cYTYPvs4GOOyPy/+CpaI
-         YPbw==
+        bh=WaFp0TOYaWSuGPhKgfBnenMecO/UsWYRxmgXZ26ETaU=;
+        b=VEAQxMPFpxhBEZTqoqlDOf6y8oieYRZ6DfiXEI/4X1AVjiUAscjWIriFM6s9e9EAZJ
+         V2OlwEFmOkm9vR0ss42jzqCI0wRVWeN1dDZ7gOJ9sNnHrnRp8+XJ7NFNn5Hw3dZ4XhHh
+         Z/UCxx/f3hnRw47al8rIdqbZC5P49kpCFEjB8jOJLOvQ47+ErdoEknTdkw9QvjNh2Cc5
+         46pQo7DMl43auDI5yWQpNdtLVG4DCzvyeNzfxdYNZkuU2HBLF+Tu04fujWxk1N+StBNF
+         kK4cdATEnHfCGX8mUWSV0Ezd12eS7QZ81nVYZLx+PY+Da4SzMU5FfcuK55O8qwrDZv5G
+         2AyQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1736534455; x=1737139255;
+        d=1e100.net; s=20230601; t=1736534466; x=1737139266;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=2/DwiwuishkWohq1Selw9AVX00i6WMTVrJEAuBvDTaE=;
-        b=hoQz70J8oFmhn+DiszwptG+GckbCFEiz1NnwjvEDFdNuSUO0zkuWcJOm0rjzhsjdA+
-         rkEfmEe7H+/YDSbjhczxfQorrBHVJqdzRBaovYZ6DVaSWMWxOzHIfrS/FkuXUzgSnqaT
-         NVB/ysmAKVYWTxjqohr1Vg4XJnjRn11q6N1gA+JGO3+bEJl5MeDxge8MHfFwvQP3DfJK
-         TN0bz2ZqOOlKRQuWUjGkhSYzLc8tcdfZu/Mt/UMP5Y029KsAZUGo+lZuuXPoicHulWWp
-         tvY2p/YtO3MJO/mo+d8a2KCBunzwpyVKLubUY6TWh2mkxZsw0RmQkuGWWoPWogVSctMJ
-         bBBA==
-X-Forwarded-Encrypted: i=1; AJvYcCXm1X2DeMR4trLWgbYYU3xpfHEZqz1kGNhJEmKXdrrP/yxRKmu/PFb6NxrVQPRB71j0mntmTdEWkOOAzg==@lists.infradead.org
-X-Gm-Message-State: AOJu0YzTP+vc7L6BEHDyvu9kbjGKgUNshu2bBZu222V6d3w4W4mcuXTN
-	sYfxUrRXuaxw+PVBgEl0oSIhtn+hsxFw7eo0mlEGutnDWUh1UvTNKbHNlA+8w+g53SiVDzjtjlk
-	zh/xkBQ507A==
-X-Google-Smtp-Source: AGHT+IFG2gVbYjLEgd+rVsDr92xsiDXdhg3a2JRtZbNVmnh3EgFoUPLrUSfZq6jOhgEgZFCkNrLAplfHg1IQBQ==
-X-Received: from wmqa17.prod.google.com ([2002:a05:600c:3491:b0:434:fa72:f1bf])
+        bh=WaFp0TOYaWSuGPhKgfBnenMecO/UsWYRxmgXZ26ETaU=;
+        b=AcbPyI0pKFiTWmjhCsxDxHHxQxT+MKCg6h+yhQtHiPPW450vdxoYv53qYe5aiuz5vb
+         bz0LCtMxV+p4ZkYAYLIpaEMKPoggg7x3zLoe+HEEDH8XJwgazZcNrqSD4mvBbRXAgIVK
+         iZeTqGd8oyVpyTaijTyeOSVQPUZ2jNsDZK2BEJoYmsyIRhVRQIGpGNfvPn7bXOzWtpLx
+         wSM4qkH9sWcVVTZ2LwOMvA5Nzyb+Ap4UMY28Ecl2sCmg66Sk51zZFR3qUqzcYqK2HdHr
+         pjni+RuWetjnmxO+ygQN3bKG950ycDralb98Putcw1sqw48IAxCMH8pJnQkfpr/8rr/y
+         /8tA==
+X-Forwarded-Encrypted: i=1; AJvYcCUlHmKmZh6xrYICTI8ujiFRhVr+3N8BnmIKjax8WkV7eX/c+WvpbhGOWFVZIW352Ng1q1LvmdxThj2iZw==@lists.infradead.org
+X-Gm-Message-State: AOJu0YwO21jQKe/x8+UV3LCs5sO81X+JksQ/fp34ea2PL19rWaqaan6W
+	lD+f4oLuQkB96OflWdlmohQiRyNEYPmQjm5EZdQk7y4K+VRqJXC5vayLwZNXsYg5jJkXmzt62kx
+	Csh4J/AErFw==
+X-Google-Smtp-Source: AGHT+IEE4az+Oz6XpM1h3immNPii0BZQy1AjHZ6Oe5B/in2qx8QsaCvn5PLTDmCUbo/W1PshFIv+Soo2Sqz9XA==
+X-Received: from wmrn35.prod.google.com ([2002:a05:600c:5023:b0:434:f2eb:aa72])
  (user=jackmanb job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:600c:1d14:b0:436:5fc9:309d with SMTP id 5b1f17b1804b1-436e26f6d81mr55448175e9.30.1736534454514;
- Fri, 10 Jan 2025 10:40:54 -0800 (PST)
-Date: Fri, 10 Jan 2025 18:40:30 +0000
+ 2002:a05:600c:3ca4:b0:434:a26c:8291 with SMTP id 5b1f17b1804b1-436e26e203emr101768035e9.24.1736534465947;
+ Fri, 10 Jan 2025 10:41:05 -0800 (PST)
+Date: Fri, 10 Jan 2025 18:40:35 +0000
 In-Reply-To: <20250110-asi-rfc-v2-v2-0-8419288bc805@google.com>
 Mime-Version: 1.0
 References: <20250110-asi-rfc-v2-v2-0-8419288bc805@google.com>
 X-Mailer: b4 0.15-dev
-Message-ID: <20250110-asi-rfc-v2-v2-4-8419288bc805@google.com>
-Subject: [PATCH RFC v2 04/29] mm: asi: Add infrastructure for boot-time enablement
+Message-ID: <20250110-asi-rfc-v2-v2-9-8419288bc805@google.com>
+Subject: [PATCH RFC v2 09/29] mm: asi: ASI page table allocation functions
 From: Brendan Jackman <jackmanb@google.com>
 To: Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, 
 	Dave Hansen <dave.hansen@linux.intel.com>, "H. Peter Anvin" <hpa@zytor.com>, 
@@ -133,11 +133,10 @@ Cc: x86@kernel.org, linux-kernel@vger.kernel.org, linux-alpha@vger.kernel.org,
 	linux-um@lists.infradead.org, linux-arch@vger.kernel.org, linux-mm@kvack.org, 
 	linux-trace-kernel@vger.kernel.org, linux-perf-users@vger.kernel.org, 
 	kvm@vger.kernel.org, linux-efi@vger.kernel.org, 
-	Brendan Jackman <jackmanb@google.com>, Junaid Shahid <junaids@google.com>, 
-	Yosry Ahmed <yosryahmed@google.com>
+	Brendan Jackman <jackmanb@google.com>, Junaid Shahid <junaids@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250110_184058_206097_2C5DC715 
-X-CRM114-Status: GOOD (  30.89  )
+X-CRM114-CacheID: sfid-20250110_184107_598255_3F094C05 
+X-CRM114-Status: GOOD (  17.22  )
 X-Mailman-Approved-At: Fri, 10 Jan 2025 15:19:44 -0800
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -155,350 +154,96 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add a boot time parameter to control the newly added X86_FEATURE_ASI.
-"asi=on" or "asi=off" can be used in the kernel command line to enable
-or disable ASI at boot time. If not specified, ASI enablement depends
-on CONFIG_ADDRESS_SPACE_ISOLATION_DEFAULT_ON, which is off by default.
-asi_check_boottime_disable() is modeled after
-pti_check_boottime_disable().
+From: Junaid Shahid <junaids@google.com>
 
-The boot parameter is currently ignored until ASI is fully functional.
+This adds custom allocation and free functions for ASI page tables.
 
-Once we have a set of ASI features checked in that we have actually
-tested, we will stop ignoring the flag. But for now let's just add the
-infrastructure so we can implement the usage code.
+The alloc functions support allocating memory using different GFP
+reclaim flags, in order to be able to support non-sensitive allocations
+from both standard and atomic contexts. They also install the page
+tables locklessly, which makes it slightly simpler to handle
+non-sensitive allocations from interrupts/exceptions.
 
-Ignoring checkpatch.pl CONFIG_DESCRIPTION because the _DEFAULT_ON
-Kconfig is trivial to explain.
+checkpatch.pl MACRO_ARG_UNUSED,SPACING is false positive. COMPLEX_MACRO - I
+dunno, suggestions welcome.
 
-Checkpatch-args: --ignore CONFIG_DESCRIPTION
-Co-developed-by: Junaid Shahid <junaids@google.com>
+Checkpatch-args: --ignore=MACRO_ARG_UNUSED,SPACING,COMPLEX_MACRO
 Signed-off-by: Junaid Shahid <junaids@google.com>
-Co-developed-by: Yosry Ahmed <yosryahmed@google.com>
-Signed-off-by: Yosry Ahmed <yosryahmed@google.com>
 Signed-off-by: Brendan Jackman <jackmanb@google.com>
 ---
- arch/x86/Kconfig                         |  9 +++++
- arch/x86/include/asm/asi.h               | 19 ++++++++--
- arch/x86/include/asm/cpufeatures.h       |  1 +
- arch/x86/include/asm/disabled-features.h |  8 ++++-
- arch/x86/mm/asi.c                        | 61 +++++++++++++++++++++++++++-----
- arch/x86/mm/init.c                       |  4 ++-
- include/asm-generic/asi.h                |  4 +++
- 7 files changed, 92 insertions(+), 14 deletions(-)
+ arch/x86/mm/asi.c | 59 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ 1 file changed, 59 insertions(+)
 
-diff --git a/arch/x86/Kconfig b/arch/x86/Kconfig
-index 5a50582eb210e9d1309856a737d32b76fa1bfc85..1fcb52cb8cd5084ac3cef04af61b7d1653162bdb 100644
---- a/arch/x86/Kconfig
-+++ b/arch/x86/Kconfig
-@@ -2533,6 +2533,15 @@ config MITIGATION_ADDRESS_SPACE_ISOLATION
- 	  there are likely to be unhandled cases, in particular concerning TLB
- 	  flushes.
- 
-+
-+config ADDRESS_SPACE_ISOLATION_DEFAULT_ON
-+	bool "Enable address space isolation by default"
-+	default n
-+	depends on MITIGATION_ADDRESS_SPACE_ISOLATION
-+	help
-+	  If selected, ASI is enabled by default at boot if the asi=on or
-+	  asi=off are not specified.
-+
- config MITIGATION_RETPOLINE
- 	bool "Avoid speculative indirect branches in kernel"
- 	select OBJTOOL if HAVE_OBJTOOL
-diff --git a/arch/x86/include/asm/asi.h b/arch/x86/include/asm/asi.h
-index 7cc635b6653a3970ba9dbfdc9c828a470e27bd44..b9671ef2dd3278adceed18507fd260e21954d574 100644
---- a/arch/x86/include/asm/asi.h
-+++ b/arch/x86/include/asm/asi.h
-@@ -8,6 +8,7 @@
- 
- #include <asm/pgtable_types.h>
- #include <asm/percpu.h>
-+#include <asm/cpufeature.h>
- #include <asm/processor.h>
- 
- #ifdef CONFIG_MITIGATION_ADDRESS_SPACE_ISOLATION
-@@ -66,6 +67,8 @@
-  * the N ASI classes.
-  */
- 
-+#define static_asi_enabled() cpu_feature_enabled(X86_FEATURE_ASI)
-+
- /*
-  * ASI uses a per-CPU tainting model to track what mitigation actions are
-  * required on domain transitions. Taints exist along two dimensions:
-@@ -131,6 +134,8 @@ struct asi {
- 
- DECLARE_PER_CPU_ALIGNED(struct asi *, curr_asi);
- 
-+void asi_check_boottime_disable(void);
-+
- void asi_init_mm_state(struct mm_struct *mm);
- 
- int asi_init_class(enum asi_class_id class_id, struct asi_taint_policy *taint_policy);
-@@ -155,7 +160,9 @@ void asi_exit(void);
- /* The target is the domain we'll enter when returning to process context. */
- static __always_inline struct asi *asi_get_target(struct task_struct *p)
- {
--	return p->thread.asi_state.target;
-+	return static_asi_enabled()
-+	       ? p->thread.asi_state.target
-+	       : NULL;
- }
- 
- static __always_inline void asi_set_target(struct task_struct *p,
-@@ -166,7 +173,9 @@ static __always_inline void asi_set_target(struct task_struct *p,
- 
- static __always_inline struct asi *asi_get_current(void)
- {
--	return this_cpu_read(curr_asi);
-+	return static_asi_enabled()
-+	       ? this_cpu_read(curr_asi)
-+	       : NULL;
- }
- 
- /* Are we currently in a restricted address space? */
-@@ -175,7 +184,11 @@ static __always_inline bool asi_is_restricted(void)
- 	return (bool)asi_get_current();
- }
- 
--/* If we exit/have exited, can we stay that way until the next asi_enter? */
-+/*
-+ * If we exit/have exited, can we stay that way until the next asi_enter?
-+ *
-+ * When ASI is disabled, this returns true.
-+ */
- static __always_inline bool asi_is_relaxed(void)
- {
- 	return !asi_get_target(current);
-diff --git a/arch/x86/include/asm/cpufeatures.h b/arch/x86/include/asm/cpufeatures.h
-index 913fd3a7bac6506141de65f33b9ee61c615c7d7d..d6a808d10c3b8900d190ea01c66fc248863f05e2 100644
---- a/arch/x86/include/asm/cpufeatures.h
-+++ b/arch/x86/include/asm/cpufeatures.h
-@@ -474,6 +474,7 @@
- #define X86_FEATURE_CLEAR_BHB_HW	(21*32+ 3) /* BHI_DIS_S HW control enabled */
- #define X86_FEATURE_CLEAR_BHB_LOOP_ON_VMEXIT (21*32+ 4) /* Clear branch history at vmexit using SW loop */
- #define X86_FEATURE_FAST_CPPC		(21*32 + 5) /* AMD Fast CPPC */
-+#define X86_FEATURE_ASI			(21*32+6) /* Kernel Address Space Isolation */
- 
- /*
-  * BUG word(s)
-diff --git a/arch/x86/include/asm/disabled-features.h b/arch/x86/include/asm/disabled-features.h
-index c492bdc97b0595ec77f89dc9b0cefe5e3e64be41..c7964ed4fef8b9441e1c0453da587787d8008d9d 100644
---- a/arch/x86/include/asm/disabled-features.h
-+++ b/arch/x86/include/asm/disabled-features.h
-@@ -50,6 +50,12 @@
- # define DISABLE_PTI		(1 << (X86_FEATURE_PTI & 31))
- #endif
- 
-+#ifdef CONFIG_MITIGATION_ADDRESS_SPACE_ISOLATION
-+# define DISABLE_ASI		0
-+#else
-+# define DISABLE_ASI		(1 << (X86_FEATURE_ASI & 31))
-+#endif
-+
- #ifdef CONFIG_MITIGATION_RETPOLINE
- # define DISABLE_RETPOLINE	0
- #else
-@@ -154,7 +160,7 @@
- #define DISABLED_MASK17	0
- #define DISABLED_MASK18	(DISABLE_IBT)
- #define DISABLED_MASK19	(DISABLE_SEV_SNP)
--#define DISABLED_MASK20	0
-+#define DISABLED_MASK20	(DISABLE_ASI)
- #define DISABLED_MASK21	0
- #define DISABLED_MASK_CHECK BUILD_BUG_ON_ZERO(NCAPINTS != 22)
- 
 diff --git a/arch/x86/mm/asi.c b/arch/x86/mm/asi.c
-index 105cd8b43eaf5c20acc80d4916b761559fb95d74..5baf563a078f5b3a6cd4b9f5e92baaf81b0774c4 100644
+index 8d060c633be68b508847e2c1c111761df1da92af..b15d043acedc9f459f17e86564a15061650afc3a 100644
 --- a/arch/x86/mm/asi.c
 +++ b/arch/x86/mm/asi.c
-@@ -4,6 +4,7 @@
- #include <linux/percpu.h>
- #include <linux/spinlock.h>
- 
-+#include <linux/init.h>
- #include <asm/asi.h>
- #include <asm/cmdline.h>
- #include <asm/cpufeature.h>
-@@ -29,6 +30,9 @@ static inline bool asi_class_id_valid(enum asi_class_id class_id)
- 
- static inline bool asi_class_initialized(enum asi_class_id class_id)
- {
-+	if (!boot_cpu_has(X86_FEATURE_ASI))
-+		return 0;
-+
- 	if (WARN_ON(!asi_class_id_valid(class_id)))
- 		return false;
- 
-@@ -51,6 +55,9 @@ EXPORT_SYMBOL_GPL(asi_init_class);
- 
- void asi_uninit_class(enum asi_class_id class_id)
- {
-+	if (!boot_cpu_has(X86_FEATURE_ASI))
-+		return;
-+
- 	if (!asi_class_initialized(class_id))
- 		return;
- 
-@@ -66,10 +73,36 @@ const char *asi_class_name(enum asi_class_id class_id)
+@@ -73,6 +73,65 @@ const char *asi_class_name(enum asi_class_id class_id)
  	return asi_class_names[class_id];
  }
  
-+void __init asi_check_boottime_disable(void)
-+{
-+	bool enabled = IS_ENABLED(CONFIG_MITIGATION_ADDRESS_SPACE_ISOLATION_DEFAULT_ON);
-+	char arg[4];
-+	int ret;
++#ifndef mm_inc_nr_p4ds
++#define mm_inc_nr_p4ds(mm)	do {} while (false)
++#endif
 +
-+	ret = cmdline_find_option(boot_command_line, "asi", arg, sizeof(arg));
-+	if (ret == 3 && !strncmp(arg, "off", 3)) {
-+		enabled = false;
-+		pr_info("ASI disabled through kernel command line.\n");
-+	} else if (ret == 2 && !strncmp(arg, "on", 2)) {
-+		enabled = true;
-+		pr_info("Ignoring asi=on param while ASI implementation is incomplete.\n");
-+	} else {
-+		pr_info("ASI %s by default.\n",
-+			enabled ? "enabled" : "disabled");
-+	}
++#ifndef mm_dec_nr_p4ds
++#define mm_dec_nr_p4ds(mm)	do {} while (false)
++#endif
 +
-+	if (enabled)
-+		pr_info("ASI enablement ignored due to incomplete implementation.\n");
++#define pte_offset		pte_offset_kernel
++
++/*
++ * asi_p4d_alloc, asi_pud_alloc, asi_pmd_alloc, asi_pte_alloc.
++ *
++ * These are like the normal xxx_alloc functions, but:
++ *
++ *  - They use atomic operations instead of taking a spinlock; this allows them
++ *    to be used from interrupts. This is necessary because we use the page
++ *    allocator from interrupts and the page allocator ultimately calls this
++ *    code.
++ *  - They support customizing the allocation flags.
++ *
++ * On the other hand, they do not use the normal page allocation infrastructure,
++ * that means that PTE pages do not have the PageTable type nor the PagePgtable
++ * flag and we don't increment the meminfo stat (NR_PAGETABLE) as they do.
++ */
++static_assert(!IS_ENABLED(CONFIG_PARAVIRT));
++#define DEFINE_ASI_PGTBL_ALLOC(base, level)				\
++__maybe_unused								\
++static level##_t * asi_##level##_alloc(struct asi *asi,			\
++				       base##_t *base, ulong addr,	\
++				       gfp_t flags)			\
++{									\
++	if (unlikely(base##_none(*base))) {				\
++		ulong pgtbl = get_zeroed_page(flags);			\
++		phys_addr_t pgtbl_pa;					\
++									\
++		if (!pgtbl)						\
++			return NULL;					\
++									\
++		pgtbl_pa = __pa(pgtbl);					\
++									\
++		if (cmpxchg((ulong *)base, 0,				\
++			    pgtbl_pa | _PAGE_TABLE) != 0) {		\
++			free_page(pgtbl);				\
++			goto out;					\
++		}							\
++									\
++		mm_inc_nr_##level##s(asi->mm);				\
++	}								\
++out:									\
++	VM_BUG_ON(base##_leaf(*base));					\
++	return level##_offset(base, addr);				\
 +}
 +
- static void __asi_destroy(struct asi *asi)
++DEFINE_ASI_PGTBL_ALLOC(pgd, p4d)
++DEFINE_ASI_PGTBL_ALLOC(p4d, pud)
++DEFINE_ASI_PGTBL_ALLOC(pud, pmd)
++DEFINE_ASI_PGTBL_ALLOC(pmd, pte)
++
+ void __init asi_check_boottime_disable(void)
  {
--	lockdep_assert_held(&asi->mm->asi_init_lock);
-+	WARN_ON_ONCE(asi->ref_count <= 0);
-+	if (--(asi->ref_count) > 0)
-+		return;
- 
-+	free_pages((ulong)asi->pgd, PGD_ALLOCATION_ORDER);
-+	memset(asi, 0, sizeof(struct asi));
- }
- 
- int asi_init(struct mm_struct *mm, enum asi_class_id class_id, struct asi **out_asi)
-@@ -79,6 +112,9 @@ int asi_init(struct mm_struct *mm, enum asi_class_id class_id, struct asi **out_
- 
- 	*out_asi = NULL;
- 
-+	if (!boot_cpu_has(X86_FEATURE_ASI))
-+		return 0;
-+
- 	if (WARN_ON(!asi_class_initialized(class_id)))
- 		return -EINVAL;
- 
-@@ -122,7 +158,7 @@ void asi_destroy(struct asi *asi)
- {
- 	struct mm_struct *mm;
- 
--	if (!asi)
-+	if (!boot_cpu_has(X86_FEATURE_ASI) || !asi)
- 		return;
- 
- 	if (WARN_ON(!asi_class_initialized(asi->class_id)))
-@@ -134,11 +170,7 @@ void asi_destroy(struct asi *asi)
- 	 * to block concurrent asi_init calls.
- 	 */
- 	mutex_lock(&mm->asi_init_lock);
--	WARN_ON_ONCE(asi->ref_count <= 0);
--	if (--(asi->ref_count) == 0) {
--		free_pages((ulong)asi->pgd, PGD_ALLOCATION_ORDER);
--		memset(asi, 0, sizeof(struct asi));
--	}
-+	__asi_destroy(asi);
- 	mutex_unlock(&mm->asi_init_lock);
- }
- EXPORT_SYMBOL_GPL(asi_destroy);
-@@ -255,6 +287,9 @@ static noinstr void __asi_enter(void)
- 
- noinstr void asi_enter(struct asi *asi)
- {
-+	if (!static_asi_enabled())
-+		return;
-+
- 	VM_WARN_ON_ONCE(!asi);
- 
- 	/* Should not have an asi_enter() without a prior asi_relax(). */
-@@ -269,8 +304,10 @@ EXPORT_SYMBOL_GPL(asi_enter);
- 
- noinstr void asi_relax(void)
- {
--	barrier();
--	asi_set_target(current, NULL);
-+	if (static_asi_enabled()) {
-+		barrier();
-+		asi_set_target(current, NULL);
-+	}
- }
- EXPORT_SYMBOL_GPL(asi_relax);
- 
-@@ -279,6 +316,9 @@ noinstr void asi_exit(void)
- 	u64 unrestricted_cr3;
- 	struct asi *asi;
- 
-+	if (!static_asi_enabled())
-+		return;
-+
- 	preempt_disable_notrace();
- 
- 	VM_BUG_ON(this_cpu_read(cpu_tlbstate.loaded_mm) ==
-@@ -310,6 +350,9 @@ EXPORT_SYMBOL_GPL(asi_exit);
- 
- void asi_init_mm_state(struct mm_struct *mm)
- {
-+	if (!boot_cpu_has(X86_FEATURE_ASI))
-+		return;
-+
- 	memset(mm->asi, 0, sizeof(mm->asi));
- 	mutex_init(&mm->asi_init_lock);
- }
-diff --git a/arch/x86/mm/init.c b/arch/x86/mm/init.c
-index de4227ed5169ff84d0ce80b677caffc475198fa6..ded3a47f2a9c1f554824d4ad19f3b48bce271274 100644
---- a/arch/x86/mm/init.c
-+++ b/arch/x86/mm/init.c
-@@ -28,6 +28,7 @@
- #include <asm/text-patching.h>
- #include <asm/memtype.h>
- #include <asm/paravirt.h>
-+#include <asm/asi.h>
- 
- /*
-  * We need to define the tracepoints somewhere, and tlb.c
-@@ -251,7 +252,7 @@ static void __init probe_page_size_mask(void)
- 	__default_kernel_pte_mask = __supported_pte_mask;
- 	/* Except when with PTI where the kernel is mostly non-Global: */
- 	if (cpu_feature_enabled(X86_FEATURE_PTI) ||
--	    IS_ENABLED(CONFIG_MITIGATION_ADDRESS_SPACE_ISOLATION))
-+	    cpu_feature_enabled(X86_FEATURE_ASI))
- 		__default_kernel_pte_mask &= ~_PAGE_GLOBAL;
- 
- 	/* Enable 1 GB linear kernel mappings if available: */
-@@ -754,6 +755,7 @@ void __init init_mem_mapping(void)
- 	unsigned long end;
- 
- 	pti_check_boottime_disable();
-+	asi_check_boottime_disable();
- 	probe_page_size_mask();
- 	setup_pcid();
- 
-diff --git a/include/asm-generic/asi.h b/include/asm-generic/asi.h
-index 6b84202837605fa57e4a910318c8353b3f816f06..eedc961ee916a9e1da631ca489ea4a7bc9e6089f 100644
---- a/include/asm-generic/asi.h
-+++ b/include/asm-generic/asi.h
-@@ -65,6 +65,10 @@ static inline pgd_t *asi_pgd(struct asi *asi) { return NULL; }
- 
- static inline void asi_handle_switch_mm(void) { }
- 
-+#define static_asi_enabled() false
-+
-+static inline void asi_check_boottime_disable(void) { }
-+
- #endif /* !CONFIG_MITIGATION_ADDRESS_SPACE_ISOLATION */
- 
- #endif  /* !_ASSEMBLY_ */
+ 	bool enabled = IS_ENABLED(CONFIG_MITIGATION_ADDRESS_SPACE_ISOLATION_DEFAULT_ON);
 
 -- 
 2.47.1.613.gc27f4b7a9f-goog
