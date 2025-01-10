@@ -4,63 +4,48 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 57466E77188
-	for <linux-riscv@archiver.kernel.org>; Fri, 10 Jan 2025 14:04:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D4D59E77188
+	for <linux-riscv@archiver.kernel.org>; Fri, 10 Jan 2025 14:07:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
 	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=JEjFw+pFcyIypQCjzVorYFEoZjo4gyM4EiRzMJN1LXU=; b=RR9fAvhj9/KjZh
-	KFZwbP9QbHNr8WuaQw9gtly1Xc1TBE0oa5P3R1JyHiOS/qBkPjKi5dCb3tKcAWhEJ0s7zg/WLK08V
-	GmPhtA6tk8rM4lHwvmtp9n2JFjnSTrLFpBJNh266tT+P23X6/5QcUiDBxh3ECEQ54sfHBRmsGZfwU
-	eVT7G/UKmrKmRfHC7Uv7i3sh6o2rG8LQkpTkUynZz5yV7yHyLIq+cueJN97y2cS3tldt4T8U40aME
-	JhguoZy506RO6Nfg5grCX9FTsU0eIcyOvLCy0xMx68poYMZSpSNNEeYJokHiXjND1MoBAnSXpgYUi
-	pwnCWxo00X+Ceo+UYmbw==;
+	List-Owner; bh=KMZ0LhDzyI0EsYu1sAz/ywyiHhty6rEP4gMsMkt6amE=; b=AZdpKsu3U3LMDC
+	FDO+HAZMmuY0xqANxNMLW9YFUMhLFI02y9xM8gCM+MqqtQyaDr4oQvafjwNLYk9BEzXMO5HNWV4eZ
+	wJ4jRfIYeGnOGp1NzQ82H9woNC8K6sBw2ysYNsXbVHGbnkeCBoBFSwn92LxVdrXC94bKLc3yegUj2
+	ATF/dpYzjmgS+0TAkGQNL545VWYEUilPyWxWkr2XYjANIcaaGM5b23pPeisDxjwmF+8xXwtqX2eek
+	62qVuJp6LDWke4msxOekG8sQyBdI7VQsqiovnQ8FHVACAZ1U4zh9lNqQJtiLxuuWl2UhlaPCF9pj8
+	vEfdH7JZSNSQRzrlsyAw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tWFcz-0000000FZdN-1r6k;
-	Fri, 10 Jan 2025 14:04:45 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1tWFfO-0000000FaHq-1bJa;
+	Fri, 10 Jan 2025 14:07:14 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tWFVN-0000000FY7W-1j0D;
-	Fri, 10 Jan 2025 13:56:53 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=YwYzlM9SAeOiyMw0xPqH94UuPAmY2pEyT6RCfaL387M=; b=fgEsw9uEeUP+rz+OneKij+Z12y
-	6FC0LTdNANgbXzvTsHXCIjfUK2zKAH87ghX4G6gRTkg08BjGeHHVoUAYcDHIY1RALUNmt4DaXuuIu
-	5AK0E+jQTBz55PluQQ97JoPtCiA7D4k/QRguBzx7JNw8/cikkJYVYhZ8sO5zIr7GtrrL1t4e1rMQi
-	7PHTrOugR6mYEe1C2++ZriOWswoTrE2MBl8SDctKGLws203tsuGjJaMnmaYftH83FPJp4LV7rjVs4
-	cRGa+NdArXURd1mERGpYl1Vp4UsXFnf+qHQlbuvFf4g4sKv0Us8pyxRICxy0Ps93isCNUtCJX0hGA
-	88w3fKFQ==;
-Received: from dfw.source.kernel.org ([139.178.84.217])
-	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tWFVK-00000009mxt-1yrN;
-	Fri, 10 Jan 2025 13:56:52 +0000
+	id 1tWFXU-0000000FYRC-3x9e;
+	Fri, 10 Jan 2025 13:59:06 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 333A05C4447;
-	Fri, 10 Jan 2025 13:56:08 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B165CC4CED6;
-	Fri, 10 Jan 2025 13:56:40 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id B1325A41FA0;
+	Fri, 10 Jan 2025 13:57:15 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BEE7DC4CED6;
+	Fri, 10 Jan 2025 13:58:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1736517408;
-	bh=AouVWEys/NtgqaGbXkcBOKCybsdMDm2Sr9XXLLSNYMc=;
+	s=k20201202; t=1736517543;
+	bh=g7wxpqcSQJrcO2+CyoWI6wsntd8vQcmKdFcJ3jJ7Gto=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=hEPjokNK/n8xwEc3DQJQvgieQyY0GTZOA6Bio0y1e6GVGnmuCaek49sVLVjUlj7P2
-	 1IHRmkMzLocl5POXPHb+0V29Md+2J9fo7ulrSsiP4zqaNTmsC7FoCKWH43NKMyqPrR
-	 b6y3uTd1MIJKjGK7V1oBJpoh+0pvIjzzTcR3TLzbm/8JbSdcyb/cJeXTLf+4pwmKX+
-	 18dsUQfblv/ooXW7qG42cVFr+Kp+RHcBuSFqgaqseq4rJl5wBN4GfC3kqik52K6qmE
-	 bKmoxWJyUr7cGdpGETQO8VqBLulpyOCX/q1CPUa4a8qYvWANlQ6hWJHSQV+6sa/Imt
-	 QkV1g7JKUmY7Q==
-Message-ID: <de280eed-bcc8-4802-9734-5e95ad1f6611@kernel.org>
-Date: Fri, 10 Jan 2025 14:56:38 +0100
+	b=qtSc7DoKJaJxVmUrLBQwq48v+ML5dD9Ga2+pU723ktjwlMZcKLgkHhlcyOXDZUuEe
+	 qK8ewFruiXPXBpCoEmKdqMgA2DXJ94pw8IEY8nGAznJ3xE0lQMsw/R7ANS4L2atzdU
+	 QQse0NzArfLlWtSoMphmG3sWlXakNCM31W84vEItXJA6h3rtEeQurmXhtzbEUvQk7v
+	 GZHD9+zNNPISrFQhdCNOMDaieDZnj+IIUv24yxWd/oY4hgBgoEXuIdrXyFCGKGpK2U
+	 LxadZwWtcr2cXnOIcHNp3dX4MBQhK9a72dgHjr2+kGwXScL6DLfF7Rl7pM1kPWEEjA
+	 my9wCAUEhljwA==
+Message-ID: <ff57cf8d-626e-4d35-a18f-1a89b4d9fa3e@kernel.org>
+Date: Fri, 10 Jan 2025 14:58:52 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 06/12] dt-bindings: clk: sunxi-ng: add V853 CCU
- clock/reset
+Subject: Re: [PATCH 12/12] ARM: dts: sun8i: add DTSI file for V853
 To: Andras Szemzo <szemzo.andras@gmail.com>,
  Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
  <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
@@ -81,7 +66,7 @@ Cc: Vinod Koul <vkoul@kernel.org>, Kishon Vijay Abraham I
  linux-phy@lists.infradead.org, linux-gpio@vger.kernel.org,
  linux-pm@vger.kernel.org, linux-riscv@lists.infradead.org
 References: <20250110123923.270626-1-szemzo.andras@gmail.com>
- <20250110123923.270626-7-szemzo.andras@gmail.com>
+ <20250110123923.270626-13-szemzo.andras@gmail.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -127,10 +112,10 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  uZwJCLykjad45hsWcOGk3OcaAGQS6NDlfhM6O9aYNwGL6tGt/6BkRikNOs7VDEa4/HlbaSJo
  7FgndGw1kWmkeL6oQh7wBvYll2buKod4qYntmNKEicoHGU+x91Gcan8mCoqhJkbqrL7+nXG2
  5Q/GS5M9RFWS+nYyJh+c3OcfKqVcZQNANItt7+ULzdNJuhvTRRdC3g9hmCEuNSr+CLMdnRBY fv0=
-In-Reply-To: <20250110123923.270626-7-szemzo.andras@gmail.com>
+In-Reply-To: <20250110123923.270626-13-szemzo.andras@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250110_135650_812705_61A23B7B 
-X-CRM114-Status: GOOD (  13.49  )
+X-CRM114-CacheID: sfid-20250110_055905_124733_C70D98F0 
+X-CRM114-Status: GOOD (  15.04  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -148,48 +133,47 @@ Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 On 10/01/2025 13:39, Andras Szemzo wrote:
-> As the device tree needs the clock/reset indices, add them to DT binding
-> headers.
+> V853/V851 is a new SoC by Allwinner. Add a basic dtsi file for it.
 > 
 > Signed-off-by: Andras Szemzo <szemzo.andras@gmail.com>
-
-That's never a separate commit from the binding.
-
-
-...
-
-> --- /dev/null
-> +++ b/include/dt-bindings/clock/sun8i-v853-r-ccu.h
-> @@ -0,0 +1,16 @@
-> +/* SPDX-License-Identifier: (GPL-2.0+ OR MIT) */
-> +/* Copyright(c) 2020 - 2023 Allwinner Technology Co.,Ltd. All rights reserved.
-> + *
-> + * Copyright (C) 2023 rengaomin@allwinnertech.com
-> + */
-> +#ifndef _DT_BINDINGS_CLK_SUN8I_V85X_R_CCU_H_
-> +#define _DT_BINDINGS_CLK_SUN8I_V85X_R_CCU_H_
-> +
-> +#define CLK_R_TWD		0
-> +#define CLK_R_PPU		1
-> +#define CLK_R_RTC		2
-> +#define CLK_R_CPUCFG		3
-> +
-> +#define CLK_R_MAX_NO		(CLK_R_CPUCFG + 1)
-
-Nope, drop. Not a binding.
-
-> +
-> +#endif
-> diff --git a/include/dt-bindings/reset/sun8i-v853-ccu.h b/include/dt-bindings/reset/sun8i-v853-ccu.h
+> ---
+>  arch/arm/boot/dts/allwinner/sun8i-v853.dtsi | 673 ++++++++++++++++++++
+>  1 file changed, 673 insertions(+)
+>  create mode 100644 arch/arm/boot/dts/allwinner/sun8i-v853.dtsi
+> 
+> diff --git a/arch/arm/boot/dts/allwinner/sun8i-v853.dtsi b/arch/arm/boot/dts/allwinner/sun8i-v853.dtsi
 > new file mode 100644
-> index 000000000000..89d94fcbdb55
+> index 000000000000..4ecc97c7e7c0
 > --- /dev/null
-> +++ b/include/dt-bindings/reset/sun8i-v853-ccu.h
-> @@ -0,0 +1,62 @@
-> +/* SPDX-License-Identifier: (GPL-2.0+ OR MIT) */
+> +++ b/arch/arm/boot/dts/allwinner/sun8i-v853.dtsi
 
-Odd license. Did you copy the file with such license from the downstream?
+Impossible to build and test.
 
+Please submit complete work, so one which can be actually built (DTSI,
+DTS and bindings).
+
+> @@ -0,0 +1,673 @@
+> +// SPDX-License-Identifier: (GPL-2.0+ or MIT)
+
+Odd license, why would we ever want GPLv3 or even GPLv4?
+
+> +// Copyright (C) 2024 Andras Szemzo <szemzo.andras@gmail.com>
+> +
+> +#include <dt-bindings/clock/sun6i-rtc.h>
+> +#include <dt-bindings/clock/sun8i-v853-r-ccu.h>
+> +#include <dt-bindings/reset/sun8i-v853-r-ccu.h>
+> +#include <dt-bindings/clock/sun8i-v853-ccu.h>
+> +#include <dt-bindings/reset/sun8i-v853-ccu.h>
+> +#include <dt-bindings/interrupt-controller/arm-gic.h>
+> +#include <dt-bindings/power/allwinner,sun8i-v853-ppu.h>
+> +
+> +/ {
+> +	#address-cells = <1>;
+> +	#size-cells = <1>;
+> +
+> +	osc24M: osc24M-clk {
+
+Only lowercase node names.
 
 Best regards,
 Krzysztof
