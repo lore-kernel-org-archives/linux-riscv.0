@@ -4,162 +4,116 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ED574E77188
-	for <linux-riscv@archiver.kernel.org>; Fri, 10 Jan 2025 07:39:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 07392E7719C
+	for <linux-riscv@archiver.kernel.org>; Fri, 10 Jan 2025 07:48:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
-	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=6o+cgoFbaEEJ7jaQ2Sv8usagmwYZnFQrHFbeFGzoDfM=; b=P2wvrO0Q6eUiEX
-	wOIeT6Y4nJoX+aO/H7whRhHYcKnhi3wZrTp1P240c15H93p3hBxO6CRakWI2fyjHP2rzqhkTSBvmx
-	BXQknThW9OXfcyx9Ga++IWb7zpEr5XOf79TDXME1K70UKTFDcNfhx6sVTpwRYvbc2p1N1Kr9FTfBu
-	bd6o4m7f7+GVWCvfQygqIbQXvlAifIbN9zhW+/6qGvyfJKiviWqG8RPSuHq+zN3YYVKwYDN02MG1T
-	fJQInqWGOhs617+65mDyrO4WeqHhBf9HHYh6dl9vwercIHq3o7I0DQkFXtegd3PVWxmIVZg0uRwaX
-	ZfkV2LiXO3zz6/gL0cng==;
+	List-Owner; bh=74L/Tv+juFkVXxXIa9TdHEwqB8qKOIsMDOM5/FsSJo0=; b=Yct0U94seJ16cF
+	8ZT1H/SQj/v6vKHoWBpdxEKD8vd9UjIhJxVVsIf4hcYM0Uh+wja//fNLV8HswL2GkaD9ROLl80n64
+	UYD24J5yCKIiOhUCSMZA9v03WngqK+ZS+uerpe3FfoQr2fEs/3eZwNH6WHFwk4OfpMNTsaSLFoDZ8
+	W3/cyF34oSYgh6ZceeIFi3gEfagXAnhLcyFfsD75Bz4yMKDke1kzXa8+Bt6PrDJzlvc1PfAAkjzm7
+	3z5altjfS9XM5uUZiTsyYynH6unADcgQ4LNlp9dXWhqgAbSwrRPNoW+/Ixm/SpkAoB9bIQlIFREBm
+	nlUO/+5NF2OMyTraTvPQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tW9cC-0000000EOqr-2ddT;
-	Fri, 10 Jan 2025 07:39:32 +0000
-Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
+	id 1tW9lC-0000000EREz-3KSa;
+	Fri, 10 Jan 2025 07:48:50 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tW9ax-0000000EOUy-0YPq;
-	Fri, 10 Jan 2025 07:38:16 +0000
-Received: from pps.filterd (m0353729.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 509Nx3H2001639;
-	Fri, 10 Jan 2025 07:37:54 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
-	:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=pp1; bh=2WLKmmEPE7uT96J0bnuWzAWEZ+Ks9U
-	e/uzhm9byypE8=; b=oRQpF/U/6grcr4Snq1iRk/I9GYPWsewmz147QsJg3tlJpp
-	Sm/UeyETvgjJAENQaWXaSd8cfqXr/0vuRhl8N3wtL6grgFwp/aIijZOMmhsN47FV
-	f5jNMRsdgk7yT4y+tHRFOoWJtkEWYjhp56XaA02mxcT8qNb30IwNF63MXXQkZAEl
-	UIlk8MTqRCqzy91KOcrwItqlnQdxp2B2h/5xAgUKTct76fC0NSNLcVTVxD2ZYQ7X
-	9rxhSluh+DwsIN5cVsDEsi/dxgg4ADMCRoXyhv5xzciWSwH6XZkvVHoOuULqD2BA
-	tjfE3Xo8v5ux7lwgyBH9IJOGKqLEpFGzYgoJwZfA==
-Received: from pps.reinject (localhost [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 442rkhsd0u-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 10 Jan 2025 07:37:54 +0000 (GMT)
-Received: from m0353729.ppops.net (m0353729.ppops.net [127.0.0.1])
-	by pps.reinject (8.18.0.8/8.18.0.8) with ESMTP id 50A7YWLB014523;
-	Fri, 10 Jan 2025 07:37:53 GMT
-Received: from ppma23.wdc07v.mail.ibm.com (5d.69.3da9.ip4.static.sl-reverse.com [169.61.105.93])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 442rkhsd0p-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 10 Jan 2025 07:37:53 +0000 (GMT)
-Received: from pps.filterd (ppma23.wdc07v.mail.ibm.com [127.0.0.1])
-	by ppma23.wdc07v.mail.ibm.com (8.18.1.2/8.18.1.2) with ESMTP id 50A5a76b015805;
-	Fri, 10 Jan 2025 07:37:51 GMT
-Received: from smtprelay03.fra02v.mail.ibm.com ([9.218.2.224])
-	by ppma23.wdc07v.mail.ibm.com (PPS) with ESMTPS id 43ygtm930f-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 10 Jan 2025 07:37:51 +0000
-Received: from smtpav06.fra02v.mail.ibm.com (smtpav06.fra02v.mail.ibm.com [10.20.54.105])
-	by smtprelay03.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 50A7bmZl54264154
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Fri, 10 Jan 2025 07:37:48 GMT
-Received: from smtpav06.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id DCF1520049;
-	Fri, 10 Jan 2025 07:37:47 +0000 (GMT)
-Received: from smtpav06.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 2113920040;
-	Fri, 10 Jan 2025 07:37:47 +0000 (GMT)
-Received: from tuxmaker.linux.ibm.com (unknown [9.152.85.9])
-	by smtpav06.fra02v.mail.ibm.com (Postfix) with ESMTPS;
-	Fri, 10 Jan 2025 07:37:47 +0000 (GMT)
-From: Sven Schnelle <svens@linux.ibm.com>
-To: "Dmitry V. Levin" <ldv@strace.io>
-Cc: Oleg Nesterov <oleg@redhat.com>, Eugene Syromyatnikov
- <evgsyr@gmail.com>,
-        Mike Frysinger <vapier@gentoo.org>, Renzo Davoli
- <renzo@cs.unibo.it>,
-        Davide Berardi <berardi.dav@gmail.com>, strace-devel@lists.strace.io,
-        Vineet Gupta <vgupta@kernel.org>,
-        Russell
- King <linux@armlinux.org.uk>,
-        Catalin Marinas <catalin.marinas@arm.com>,
-        Will Deacon <will@kernel.org>, Brian Cain <bcain@quicinc.com>,
-        Huacai
- Chen <chenhuacai@kernel.org>, WANG Xuerui <kernel@xen0n.name>,
-        Geert
- Uytterhoeven <geert@linux-m68k.org>,
-        Michal Simek <monstr@monstr.eu>,
-        Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
-        Dinh Nguyen
- <dinguyen@kernel.org>, Jonas Bonn <jonas@southpole.se>,
-        Stefan
- Kristiansson <stefan.kristiansson@saunalahti.fi>,
-        Stafford Horne
- <shorne@gmail.com>,
-        "James E.J. Bottomley"
- <James.Bottomley@HansenPartnership.com>,
-        Helge Deller <deller@gmx.de>, Michael Ellerman <mpe@ellerman.id.au>,
-        Nicholas Piggin
- <npiggin@gmail.com>,
-        Christophe Leroy <christophe.leroy@csgroup.eu>,
-        Naveen N Rao <naveen@kernel.org>,
-        Madhavan Srinivasan
- <maddy@linux.ibm.com>,
-        Paul Walmsley <paul.walmsley@sifive.com>,
-        Palmer
- Dabbelt <palmer@dabbelt.com>,
-        Albert Ou <aou@eecs.berkeley.edu>, Heiko
- Carstens <hca@linux.ibm.com>,
-        Vasily Gorbik <gor@linux.ibm.com>,
-        Alexander Gordeev <agordeev@linux.ibm.com>,
-        Christian Borntraeger
- <borntraeger@linux.ibm.com>,
-        Yoshinori Sato <ysato@users.sourceforge.jp>,
-        Rich Felker <dalias@libc.org>,
-        John Paul Adrian Glaubitz
- <glaubitz@physik.fu-berlin.de>,
-        "David S. Miller" <davem@davemloft.net>,
-        Andreas Larsson <andreas@gaisler.com>,
-        Richard Weinberger
- <richard@nod.at>,
-        Anton Ivanov <anton.ivanov@cambridgegreys.com>,
-        Johannes Berg <johannes@sipsolutions.net>,
-        Thomas Gleixner
- <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>,
-        Borislav Petkov
- <bp@alien8.de>,
-        Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
-        "H. Peter Anvin" <hpa@zytor.com>, Chris Zankel
- <chris@zankel.net>,
-        Max Filippov <jcmvbkbc@gmail.com>, Arnd Bergmann
- <arnd@arndb.de>,
-        linux-snps-arc@lists.infradead.org, linux-kernel@vger.kernel.org,
-        linux-arm-kernel@lists.infradead.org, linux-hexagon@vger.kernel.org,
-        loongarch@lists.linux.dev, linux-m68k@lists.linux-m68k.org,
-        linux-mips@vger.kernel.org, linux-openrisc@vger.kernel.org,
-        linux-parisc@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
-        linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
-        linux-sh@vger.kernel.org, sparclinux@vger.kernel.org,
-        linux-um@lists.infradead.org, linux-arch@vger.kernel.org
-Subject: Re: [PATCH 3/6] syscall.h: introduce syscall_set_nr()
-In-Reply-To: <20250107230438.GC30633@strace.io> (Dmitry V. Levin's message of
-	"Wed, 8 Jan 2025 01:04:38 +0200")
-References: <20250107230438.GC30633@strace.io>
-Date: Fri, 10 Jan 2025 08:37:46 +0100
-Message-ID: <yt9dzfjz6rw5.fsf@linux.ibm.com>
-User-Agent: Gnus/5.13 (Gnus v5.13)
+	id 1tW9id-0000000EQRv-26XP
+	for linux-riscv@lists.infradead.org;
+	Fri, 10 Jan 2025 07:46:12 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id E92B55C4AB4;
+	Fri, 10 Jan 2025 07:45:29 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 67D2AC4CED6;
+	Fri, 10 Jan 2025 07:46:06 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1736495170;
+	bh=kinaiS2gMbZg/94aWlrRbm7XIuSa0jlNfu1uPEjxcD0=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=Eq8Yew4iA/Nf7BEgezbVIQMZu6wpNBMaEPcnwHBuFnQ1T8GwdbI/O1QDYwf+e8cwR
+	 9Hjk+EL1lZwN4OmSErDITvMkda9GDx50ozNYJqY29TAwMfUOHnvBVQbMsQ+rKy9OcQ
+	 Q485iXEQ31Tfo3OpUZwimWGBMRy5WAZzzkSDF3IIBLlJCEchmy0NUYqfaVQgZKSJxN
+	 goM/B1oykDrtP6z8P0u+RLj+WI45rCZDSxHmb7mRvopLPUnjeF7L/VC9m0HxpanNPu
+	 vPrvqlIrjEL2rLK0Ex6seiGpVuyHetGfpTayTsdfAOMJosBQ7r1tZDpY1kYl3CfRIL
+	 HiTauuW7lla/w==
+Message-ID: <20851bad-ae07-4d81-8a98-67458cb11fc6@kernel.org>
+Date: Fri, 10 Jan 2025 08:46:04 +0100
 MIME-Version: 1.0
-X-TM-AS-GCONF: 00
-X-Proofpoint-ORIG-GUID: oQL9q4Cm2OlRS0avVKS0GOik26TaXbjd
-X-Proofpoint-GUID: v26jL7-Nw4XZK-M8Nskiprqug0sq7Zhb
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1051,Hydra:6.0.680,FMLib:17.12.62.30
- definitions=2024-10-15_01,2024-10-11_01,2024-09-30_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 clxscore=1011 bulkscore=0
- mlxscore=0 suspectscore=0 phishscore=0 impostorscore=0 adultscore=0
- malwarescore=0 priorityscore=1501 mlxlogscore=723 lowpriorityscore=0
- spamscore=0 classifier=spam adjust=0 reason=mlx scancount=1
- engine=8.19.0-2411120000 definitions=main-2501100061
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 1/2] dt-bindings: interrupt-controller: add
+ risc-v,aplic hart indexes
+To: Vladimir Kondratiev <Vladimir.Kondratiev@mobileye.com>,
+ "anup@brainfault.org" <anup@brainfault.org>
+Cc: "aou@eecs.berkeley.edu" <aou@eecs.berkeley.edu>,
+ "conor+dt@kernel.org" <conor+dt@kernel.org>,
+ "krzk+dt@kernel.org" <krzk+dt@kernel.org>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
+ "palmer@dabbelt.com" <palmer@dabbelt.com>,
+ "paul.walmsley@sifive.com" <paul.walmsley@sifive.com>,
+ "robh@kernel.org" <robh@kernel.org>, "tglx@linutronix.de"
+ <tglx@linutronix.de>
+References: <CAAhSdy0U3VXqKK-pReUSo5PYJhr0YGoO6pT194Me0Q18dHbE9g@mail.gmail.com>
+ <20250107075835.1421602-1-vladimir.kondratiev@mobileye.com>
+ <20250107075835.1421602-2-vladimir.kondratiev@mobileye.com>
+ <61adfec1-89bb-4367-b8d4-64a8b751326c@kernel.org>
+ <VI1PR09MB23335F8C46D70921B074488C94132@VI1PR09MB2333.eurprd09.prod.outlook.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 fv0=
+In-Reply-To: <VI1PR09MB23335F8C46D70921B074488C94132@VI1PR09MB2333.eurprd09.prod.outlook.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250109_233815_195244_2B215CF1 
-X-CRM114-Status: GOOD (  21.23  )
+X-CRM114-CacheID: sfid-20250109_234611_619733_44BFCCAD 
+X-CRM114-Status: UNSURE (   7.64  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -176,67 +130,35 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-"Dmitry V. Levin" <ldv@strace.io> writes:
+On 09/01/2025 10:13, Vladimir Kondratiev wrote:
+> 
+> On 07/01/2025 08:58, Vladimir Kondratiev wrote:
+>>> Document optional property "riscv,hart-indexes"
+>>>
+>>> Signed-off-by: Vladimir Kondratiev <vladimir.kondratiev@mobileye.com>
+>>> ---
+>> So you are going to keep ignoring comments?
+> 
+> Not intentionally, sorry for this. I saw your mail too late, after I already posted
 
-> Similar to syscall_set_arguments() that complements
-> syscall_get_arguments(), introduce syscall_set_nr()
-> that complements syscall_get_nr().
->
-> syscall_set_nr() is going to be needed along with
-> syscall_set_arguments() on all HAVE_ARCH_TRACEHOOK
-> architectures to implement PTRACE_SET_SYSCALL_INFO API.
->
-> Signed-off-by: Dmitry V. Levin <ldv@strace.io>
-> ---
->  arch/arc/include/asm/syscall.h        |  6 ++++++
->  arch/arm/include/asm/syscall.h        | 12 ++++++++++++
->  arch/arm64/include/asm/syscall.h      |  7 +++++++
->  arch/hexagon/include/asm/syscall.h    |  7 +++++++
->  arch/loongarch/include/asm/syscall.h  |  7 +++++++
->  arch/m68k/include/asm/syscall.h       |  7 +++++++
->  arch/microblaze/include/asm/syscall.h |  7 +++++++
->  arch/mips/include/asm/syscall.h       |  7 +++++++
->  arch/nios2/include/asm/syscall.h      |  5 +++++
->  arch/openrisc/include/asm/syscall.h   |  6 ++++++
->  arch/parisc/include/asm/syscall.h     |  7 +++++++
->  arch/powerpc/include/asm/syscall.h    |  5 +++++
->  arch/riscv/include/asm/syscall.h      |  7 +++++++
->  arch/s390/include/asm/syscall.h       |  7 +++++++
->  arch/sh/include/asm/syscall_32.h      |  7 +++++++
->  arch/sparc/include/asm/syscall.h      |  7 +++++++
->  arch/um/include/asm/syscall-generic.h |  5 +++++
->  arch/x86/include/asm/syscall.h        |  7 +++++++
->  arch/xtensa/include/asm/syscall.h     |  7 +++++++
->  include/asm-generic/syscall.h         | 14 ++++++++++++++
->  20 files changed, 144 insertions(+)
->
-> diff --git a/arch/s390/include/asm/syscall.h b/arch/s390/include/asm/syscall.h
-> index b3dd883699e7..1c0e349fd5c9 100644
-> --- a/arch/s390/include/asm/syscall.h
-> +++ b/arch/s390/include/asm/syscall.h
-> @@ -24,6 +24,13 @@ static inline long syscall_get_nr(struct task_struct *task,
->  		(regs->int_code & 0xffff) : -1;
->  }
->  
-> +static inline void syscall_set_nr(struct task_struct *task,
-> +				  struct pt_regs *regs,
-> +				  int nr)
-> +{
+How?
 
-I think there should be a
+You sent first version on 2nd of Jan. You got my reply after 6 hours, so
+still 2nd of Jan. You even replied to it on 7th of Jan.
 
-	if (!test_pt_regs_flags(regs, PIF_SYSCALL))
-		return;
+This was sent on 9th Jan.
 
-before the modification so a user can't accidentally change int_code
-when ptrace stopped in a non-syscall path.
+How could you reply to my message before "seeing my mail"?
 
-> +	regs->int_code = (regs->int_code & ~0xffff) | (nr & 0xffff);
-> +}
-> +
->  static inline void syscall_rollback(struct task_struct *task,
->  				    struct pt_regs *regs)
->  {
+> "v3". So I asked you how to better handle this. Perhaps this lost somewhere in
+> the mail thread. I'll repeat - what is the best way, re-submit patch set
+> as "v4" adding missed address, or re-send "v3"?
+
+Whatever submitting patches is proposing for your specific case. Resend
+is for patches without any changes.
+
+Best regards,
+Krzysztof
 
 _______________________________________________
 linux-riscv mailing list
