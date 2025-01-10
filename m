@@ -4,8 +4,8 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7434FE7719C
-	for <linux-riscv@archiver.kernel.org>; Fri, 10 Jan 2025 23:20:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4BC15E77188
+	for <linux-riscv@archiver.kernel.org>; Fri, 10 Jan 2025 23:20:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
@@ -13,76 +13,76 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	References:Mime-Version:In-Reply-To:Date:Reply-To:Content-ID:
 	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
 	:Resent-Message-ID:List-Owner;
-	bh=uRJIy/qLwE7m5ITpcAUvSLtgdk2SxhpzAuGgf3GuSjU=; b=u+Mm6DarNAYXQCppnQDqo1Im9o
-	ckLTYvp4/HAnya27cTzUgvc+IcYsex+newDgomdGglMFRYlj80y0UrtZVTJSd2nza2d/sDHntVcD8
-	ZGtxXXlfCWQ5ErqiJMp6HsPKf+cFUg4i/czVjVaO6RJ6sTYqDQ2i/7V/f++P36jBG4fPS62AXnFDD
-	Nj+En05K+8uIScSUbQoTiKC6Q/09pJutT+Tqs+g5i+iL84OF6SSgy/ZAk3S/c4TjrQZLGvbferjcY
-	HRdl4ihkRDDMdTEmoRPW1DM5NvxKnDL4tn8sD5GDs8hwKej/XmS8OVAf55Eou4iKVcXswXUrF5u/y
-	YwEJ4/tw==;
+	bh=BIhKWSWySy6W/MjpZfPHzJI3eJjSy93PjFGewrG7/o8=; b=v5DWQ6oFi1QeCKLSwbYbNnnqM0
+	+wisQ5uYKLWgrWO3bPwIeVf3AhxR6xtXAOnQdFujVZiJBHQFvVRzixptwsGsefa8X2/fLB8KPd4xX
+	uMxnj9gX9HAmYUgQUhLMGO2DJgPNiFuONAh+VSFC9cJ5hUCvD0IBE9MCsSDmceqEjGye2tlO5j6I/
+	T5KMf70mf5bzGOBPQpmwXhLaVOv0mSAXiIFrtChUdzeeXGbecF4Bu9oIxmW1H4Ay6hDTvtBwkh9df
+	0kELdqMA+jBLr7Pvyx+XVJlzGv3OFpw7TNKxYLBAbrR4J4BO0ZJsRVRQDy1CNUbqHUg5Pob7vHG9z
+	HVLW3iJw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tWOIN-0000000HEh1-0lOB;
-	Fri, 10 Jan 2025 23:20:03 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1tWOIO-0000000HEiL-018i;
+	Fri, 10 Jan 2025 23:20:04 +0000
+Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tWJwt-0000000GbmB-0fb1
+	id 1tWJwt-0000000GbmD-17lz
 	for linux-riscv@bombadil.infradead.org;
 	Fri, 10 Jan 2025 18:41:35 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Type:Cc:To:From:Subject:
+	d=infradead.org; s=casper.20170209; h=Content-Type:Cc:To:From:Subject:
 	Message-ID:References:Mime-Version:In-Reply-To:Date:Sender:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=+fqV4f6s/Eo+EZ+PE2OCyE0kBm/vfnsLcFKRz+1otrE=; b=SfJTsR1mUVffuwO4Ia6w0khGfb
-	Z1vw7oe1zU6SBvW0eQgSbRm436vfARb/IUJvRUIZVQMpuSfY1QdGc+TvokX4HC4kk7jjCWoqV0olm
-	dFsxU5zdS6dVT3rmJzGSzBjfMZECa/d2OKCkv26mBOr6d0e7cfyGOQahYWI5eUWZZmPiDUxddqfpj
-	PgSMo2mRjlfIsKSPz90wiMe8L4Sm20RtKmwZV9No2CYlkG9cLH9rcc7l8uiuzMX21VdVIP5c/Zm5L
-	lzoIg52ECliKQVtVt+ExItUZf2Dy/U4O+7JYRmHmDqX/FN2AB0BA+DauayNFL7WE3c16eKKBXC2n7
-	TFkXyHqA==;
-Received: from mail-wr1-f74.google.com ([209.85.221.74])
-	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tWJwo-00000009sfs-2NJs
+	bh=z5b6fu2IPJ4vMWdeJyvKaXZwCsIFdjwPZGonrVH8VuY=; b=L9qB7j/GXMrZVQRy0mtOltmBC+
+	vKQTBqfUOknEsIsLokT+NzNB1Rw4xdlcARcgtSOpiPPxzhI6KIdNDkZeLcPXsgN0/z/BnYLDlhrHr
+	EvM+plN2X0YfwrJZeSIlJ7Jvlbm/3YyiYgp+9epujynbTPEq47NhdWT/otGRfpWW3oyuQTf0OfBCO
+	bR9AchQwtvEf9K4rs70mJRYOtOxiYC6cdvZoDvbDCtHV3xxpLeIjIhEnYq8WyWI0nEmmcigz600o7
+	IT1GQ3Yy7pAzDRX+H7H66GwjhHjVEkT9Y5VRLCCJTvYyAzIspLb9mHIoGeAN+YgUAOOPthFixhY2D
+	Wxl0rRIQ==;
+Received: from mail-wr1-x44a.google.com ([2a00:1450:4864:20::44a])
+	by casper.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tWJwq-0000000EBRj-1Nzp
 	for linux-riscv@lists.infradead.org;
 	Fri, 10 Jan 2025 18:41:34 +0000
-Received: by mail-wr1-f74.google.com with SMTP id ffacd0b85a97d-38a684a096eso995701f8f.2
-        for <linux-riscv@lists.infradead.org>; Fri, 10 Jan 2025 10:41:28 -0800 (PST)
+Received: by mail-wr1-x44a.google.com with SMTP id ffacd0b85a97d-385d6ee042eso1539653f8f.0
+        for <linux-riscv@lists.infradead.org>; Fri, 10 Jan 2025 10:41:32 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1736534486; x=1737139286; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1736534491; x=1737139291; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=+fqV4f6s/Eo+EZ+PE2OCyE0kBm/vfnsLcFKRz+1otrE=;
-        b=EavjCIYG0dDEOr3FhAz1S0PJOpbg5+xopl3JoU7RHAMpSjBt02AHaVfJV5NCnZdx4J
-         GBvEfWJoV5jwnFH3ltm40pNX9jMvW9Y3uGXzxMElmv1rt+lTAhCQuvqswJUAFFdmZ6sJ
-         Bjjh8nwLxcqJQRz0t/62Z2VBZDkX3e9fy5WpLpqe7zPYzU5dyYCqD0bglHXwnY2zRM0h
-         6FFPcWIj3pX2JABqkynPof4fBg5CyvvumxMmzOl2DYHoKrNtbOLH3kDjkJddzFVhzZX0
-         FJ7CEBMDOXpGrqIOlkawhzvmhRWQtWGB68dRWwutCbPhLTzgSSs/KMJ8PJFpX2c1rsWn
-         p/fw==
+        bh=z5b6fu2IPJ4vMWdeJyvKaXZwCsIFdjwPZGonrVH8VuY=;
+        b=ZN72pOmq+KvqGOJhTcKfI5pjf3mieqcwagJZT5fndr69QSc+dVM39+0K0lrhFrc04g
+         CzsSJ6Ns7fQNFHQ8GCAYDpXMwIMF3D2AhsI67rzHv2Vh/rR5NwXpZ6ESwkrSwSHnebLy
+         p6TieOue9f1d0XuUSRXQWTYbTJ6jklvEvFbhXfljrIlWSwyOy4K/vUsBDwzAZdQ3kqDi
+         dfNpOg39gu6ke8pCfd5PIe4yEMtp5fK7JZuEX/+67FNI8VslGyuPvHVWpmarafj2m85I
+         uqYCKfPm9Yhcxx1BVkLIIzYVnbUZ7dDCTxDKN4pq+xTqhg1gOoOenoHRsj+LFrVrR9kC
+         2X7Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1736534486; x=1737139286;
+        d=1e100.net; s=20230601; t=1736534491; x=1737139291;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=+fqV4f6s/Eo+EZ+PE2OCyE0kBm/vfnsLcFKRz+1otrE=;
-        b=nRrJpA7FwOlUNgUu9W/+llHBXqBUMrNKsg36KEnZGWCfX209M624ZLj2S6Zv85IrJw
-         LewJA1eniCHeH1ih50tIHe69RLrtgoPN12QSzQBkh5gZ4t8utnPa5GzQGCiicMkg1GY7
-         K1sL6ckeRlsTtKszP/J0cLbwUOw2hr8nZ/8avYh17H21WglSzWrYm4ddy62NPFw7KPFt
-         Bi2BLgiKnw6GGevHlnV0rZfKOsG/lMqHVH/i01r3q/fIclG0ijVR4Mg4hCuS3s7vNEvX
-         hAVkX7Cv+JfXOjhmvsdh1UyKRcoOqH3UbaozqM+Ii+LLJF3lgFGzS0D4LJ/VCbxL/uWz
-         QY5w==
-X-Forwarded-Encrypted: i=1; AJvYcCU9USqapuJ3VVT78MtmTLGfMPcjwsXxluAhzKtxrWuqTwsPG7nBRRyJHQCJ73Bcyse5e1nZuRnrHan7kg==@lists.infradead.org
-X-Gm-Message-State: AOJu0YzWciLkGqcOTZKUvy9ArD/LDynCKHEx9JUguTMuWG/AE40II0uf
-	j9+QrWqG0/bvWT4U/NwANgMNbhzwofvgyjjX3V27261oVy2jTpeQ7gt8fMlkmuhAJsP7qWsecBw
-	2YlH1fRFc3w==
-X-Google-Smtp-Source: AGHT+IFgJUpClA++DtJe4xQ45Yc9kKsVSyJCXKqF0cxpPlCBfuMButRzIe/JLM7ynzshFcOsnG5hhjluySNsEA==
-X-Received: from wrbeh5.prod.google.com ([2002:a05:6000:4105:b0:382:4235:c487])
+        bh=z5b6fu2IPJ4vMWdeJyvKaXZwCsIFdjwPZGonrVH8VuY=;
+        b=U0KrEdtTF+Z6Aeu+cHwq9bXJnz911o4wmUGbzvjCOuMTjEpnyCqQ1ZhoDNJSQ9X05v
+         bICzP/vybt4KFbSfp46oG7223JaFCmd0kA+0tg2WEtZMCqcRqvy5qt0UyX9WjaD5tO0Y
+         iaivJbykk7y5B5CFsCY8x/PoI3h3FmD9CnN4SOFH2Q2TyiugWwwICstOJ1nZVSHMHWlw
+         a9vgNMfXNrylzooDq8lf7CuWZlC1QUhD2w4MLNKS17Ij4OKYCaSJ5Z0s8qsXRvQEycGX
+         S0uDAva0yB/NtkIuO9F+L4EX21cxCXLZhtWYhK/Ts2dv+RPosqNpg2XrsUkwVCusJm0e
+         5Umw==
+X-Forwarded-Encrypted: i=1; AJvYcCUyWNX6H/LE2g50+GmyOvwsIw5boeboHnbDDqMvX1gzaFaBibdkzFDGGT+mWZRnrG2KwJVsZeQl1NkUDQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0YzOgCSgdgAuGxEiUow2YVZwR7v1o2HExWXwLORQSujUlzvn7GM2
+	rGDIgvKKYuyZONU4d7wy8z+lwal850JfndffkufpcR/sqYfVbnp4GX7j6BANzyOXgKPkpXtoDqv
+	+M7S77dny7Q==
+X-Google-Smtp-Source: AGHT+IEE74PFwgraC6zRNOcME3rOW4swKtJd/bKE4AIl8MRowFtdpWNq19ZBTTKPz5sLGPxmEc1GHABVlwipiQ==
+X-Received: from wmjv9.prod.google.com ([2002:a7b:cb49:0:b0:434:f173:a51])
  (user=jackmanb job=prod-delivery.src-stubby-dispatcher) by
- 2002:adf:8b5b:0:b0:38a:88bc:aea4 with SMTP id ffacd0b85a97d-38a88bcaebfmr7355114f8f.30.1736534486264;
- Fri, 10 Jan 2025 10:41:26 -0800 (PST)
-Date: Fri, 10 Jan 2025 18:40:44 +0000
+ 2002:a05:6000:1a85:b0:38a:4184:1520 with SMTP id ffacd0b85a97d-38a872eb1eamr9947778f8f.27.1736534490587;
+ Fri, 10 Jan 2025 10:41:30 -0800 (PST)
+Date: Fri, 10 Jan 2025 18:40:46 +0000
 In-Reply-To: <20250110-asi-rfc-v2-v2-0-8419288bc805@google.com>
 Mime-Version: 1.0
 References: <20250110-asi-rfc-v2-v2-0-8419288bc805@google.com>
 X-Mailer: b4 0.15-dev
-Message-ID: <20250110-asi-rfc-v2-v2-18-8419288bc805@google.com>
-Subject: [PATCH RFC v2 18/29] mm: asi: Map dynamic percpu memory as nonsensitive
+Message-ID: <20250110-asi-rfc-v2-v2-20-8419288bc805@google.com>
+Subject: [PATCH RFC v2 20/29] mm: asi: Make TLB flushing correct under ASI
 From: Brendan Jackman <jackmanb@google.com>
 To: Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, 
 	Dave Hansen <dave.hansen@linux.intel.com>, "H. Peter Anvin" <hpa@zytor.com>, 
@@ -133,11 +133,10 @@ Cc: x86@kernel.org, linux-kernel@vger.kernel.org, linux-alpha@vger.kernel.org,
 	linux-um@lists.infradead.org, linux-arch@vger.kernel.org, linux-mm@kvack.org, 
 	linux-trace-kernel@vger.kernel.org, linux-perf-users@vger.kernel.org, 
 	kvm@vger.kernel.org, linux-efi@vger.kernel.org, 
-	Brendan Jackman <jackmanb@google.com>, Reiji Watanabe <reijiw@google.com>, 
-	Junaid Shahid <junaids@google.com>
+	Brendan Jackman <jackmanb@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250110_184130_765706_D7811E46 
-X-CRM114-Status: GOOD (  20.51  )
+X-CRM114-CacheID: sfid-20250110_184132_409501_11E25279 
+X-CRM114-Status: GOOD (  23.66  )
 X-Mailman-Approved-At: Fri, 10 Jan 2025 15:19:44 -0800
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -155,156 +154,107 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Reiji Watanabe <reijiw@google.com>
+This is the absolute minimum change for TLB flushing to be correct under
+ASI. There are two arguably orthogonal changes in here but they feel
+small enough for a single commit.
 
-Currently, all dynamic percpu memory is implicitly (and
-unintentionally) treated as sensitive memory.
+.:: CR3 stabilization
 
-Unconditionally map pages for dynamically allocated percpu
-memory as global nonsensitive memory, other than pages that
-are allocated for pcpu_{first,reserved}_chunk during early
-boot via memblock allocator (these will be taken care by the
-following patch).
+As noted in the comment ASI can destabilize CR3, but we can stabilize it
+again by calling asi_exit, this makes it safe to read CR3 and write it
+back.
 
-We don't support sensitive percpu memory allocation yet.
+This is enough to be correct - we don't have to worry about invalidating
+the other ASI address space (i.e. we don't need to invalidate the
+restricted address space if we are currently unrestricted / vice versa)
+because we currently never set the noflush bit in CR3 for ASI
+transitions.
 
-Co-developed-by: Junaid Shahid <junaids@google.com>
-Signed-off-by: Junaid Shahid <junaids@google.com>
-Signed-off-by: Reiji Watanabe <reijiw@google.com>
+Even without using CR3's noflush bit there are trivial optimizations
+still on the table here: on where invpcid_flush_single_context is
+available (i.e. with the INVPCID_SINGLE feature) we can use that in lieu
+of the CR3 read/write, and avoid the extremely costly asi_exit.
+
+.:: Invalidating kernel mappings
+
+Before ASI, with KPTI off we always either disable PCID or use global
+mappings for kernel memory. However ASI disables global kernel mappings
+regardless of factors. So we need to invalidate other address spaces to
+trigger a flush when we switch into them.
+
+Note that there is currently a pointless write of
+cpu_tlbstate.invalidate_other in the case of KPTI and !PCID. We've added
+another case of that (ASI, !KPTI and !PCID). I think that's preferable
+to expanding the conditional in flush_tlb_one_kernel.
+
 Signed-off-by: Brendan Jackman <jackmanb@google.com>
-
-WIP: Drop VM_SENSITIVE checks from percpu code
 ---
- mm/percpu-vm.c | 50 ++++++++++++++++++++++++++++++++++++++++++++------
- mm/percpu.c    |  4 ++--
- 2 files changed, 46 insertions(+), 8 deletions(-)
+ arch/x86/mm/tlb.c | 27 ++++++++++++++++++++-------
+ 1 file changed, 20 insertions(+), 7 deletions(-)
 
-diff --git a/mm/percpu-vm.c b/mm/percpu-vm.c
-index cd69caf6aa8d8eded2395eb4bc4051b78ec6aa33..2935d7fbac41548819a94dcc60566bd18cde819a 100644
---- a/mm/percpu-vm.c
-+++ b/mm/percpu-vm.c
-@@ -132,11 +132,20 @@ static void pcpu_pre_unmap_flush(struct pcpu_chunk *chunk,
- 		pcpu_chunk_addr(chunk, pcpu_high_unit_cpu, page_end));
- }
- 
--static void __pcpu_unmap_pages(unsigned long addr, int nr_pages)
-+static void ___pcpu_unmap_pages(unsigned long addr, int nr_pages)
- {
- 	vunmap_range_noflush(addr, addr + (nr_pages << PAGE_SHIFT));
- }
- 
-+static void __pcpu_unmap_pages(unsigned long addr, int nr_pages,
-+			       unsigned long vm_flags)
-+{
-+	unsigned long size = nr_pages << PAGE_SHIFT;
-+
-+	asi_unmap(ASI_GLOBAL_NONSENSITIVE, (void *)addr, size);
-+	___pcpu_unmap_pages(addr, nr_pages);
-+}
-+
- /**
-  * pcpu_unmap_pages - unmap pages out of a pcpu_chunk
-  * @chunk: chunk of interest
-@@ -153,6 +162,8 @@ static void __pcpu_unmap_pages(unsigned long addr, int nr_pages)
- static void pcpu_unmap_pages(struct pcpu_chunk *chunk,
- 			     struct page **pages, int page_start, int page_end)
- {
-+	struct vm_struct **vms = (struct vm_struct **)chunk->data;
-+	unsigned long vm_flags = vms ? vms[0]->flags : VM_ALLOC;
- 	unsigned int cpu;
- 	int i;
- 
-@@ -165,7 +176,7 @@ static void pcpu_unmap_pages(struct pcpu_chunk *chunk,
- 			pages[pcpu_page_idx(cpu, i)] = page;
- 		}
- 		__pcpu_unmap_pages(pcpu_chunk_addr(chunk, cpu, page_start),
--				   page_end - page_start);
-+				   page_end - page_start, vm_flags);
+diff --git a/arch/x86/mm/tlb.c b/arch/x86/mm/tlb.c
+index ce5598f96ea7a84dc0e8623022ab5bfbba401b48..07b1657bee8e4cf17452ea57c838823e76f482c0 100644
+--- a/arch/x86/mm/tlb.c
++++ b/arch/x86/mm/tlb.c
+@@ -231,7 +231,7 @@ static void clear_asid_other(void)
+ 	 * This is only expected to be set if we have disabled
+ 	 * kernel _PAGE_GLOBAL pages.
+ 	 */
+-	if (!static_cpu_has(X86_FEATURE_PTI)) {
++	if (!static_cpu_has(X86_FEATURE_PTI) && !static_asi_enabled()) {
+ 		WARN_ON_ONCE(1);
+ 		return;
  	}
- }
- 
-@@ -190,13 +201,38 @@ static void pcpu_post_unmap_tlb_flush(struct pcpu_chunk *chunk,
- 		pcpu_chunk_addr(chunk, pcpu_high_unit_cpu, page_end));
- }
- 
--static int __pcpu_map_pages(unsigned long addr, struct page **pages,
--			    int nr_pages)
-+/*
-+ * __pcpu_map_pages() should not be called during the percpu initialization,
-+ * as asi_map() depends on the page allocator (which isn't available yet
-+ * during percpu initialization).  Instead, ___pcpu_map_pages() can be used
-+ * during the percpu initialization. But, any pages that are mapped with
-+ * ___pcpu_map_pages() will be treated as sensitive memory, unless
-+ * they are explicitly mapped with asi_map() later.
-+ */
-+static int ___pcpu_map_pages(unsigned long addr, struct page **pages,
-+			     int nr_pages)
+@@ -1040,7 +1040,6 @@ static void put_flush_tlb_info(void)
+ noinstr u16 asi_pcid(struct asi *asi, u16 asid)
  {
- 	return vmap_pages_range_noflush(addr, addr + (nr_pages << PAGE_SHIFT),
- 					PAGE_KERNEL, pages, PAGE_SHIFT);
+ 	return kern_pcid(asid) | ((asi->class_id + 1) << X86_CR3_ASI_PCID_BITS_SHIFT);
+-	// return kern_pcid(asid) | ((asi->index + 1) << X86_CR3_ASI_PCID_BITS_SHIFT);
  }
  
-+static int __pcpu_map_pages(unsigned long addr, struct page **pages,
-+			    int nr_pages, unsigned long vm_flags)
-+{
-+	unsigned long size = nr_pages << PAGE_SHIFT;
-+	int err;
-+
-+	err = ___pcpu_map_pages(addr, pages, nr_pages);
-+	if (err)
-+		return err;
-+
+ void asi_flush_tlb_range(struct asi *asi, void *addr, size_t len)
+@@ -1192,15 +1191,19 @@ void flush_tlb_one_kernel(unsigned long addr)
+ 	 * use PCID if we also use global PTEs for the kernel mapping, and
+ 	 * INVLPG flushes global translations across all address spaces.
+ 	 *
+-	 * If PTI is on, then the kernel is mapped with non-global PTEs, and
+-	 * __flush_tlb_one_user() will flush the given address for the current
+-	 * kernel address space and for its usermode counterpart, but it does
+-	 * not flush it for other address spaces.
++	 * If PTI or ASI is on, then the kernel is mapped with non-global PTEs,
++	 * and __flush_tlb_one_user() will flush the given address for the
++	 * current kernel address space and, if PTI is on, for its usermode
++	 * counterpart, but it does not flush it for other address spaces.
+ 	 */
+ 	flush_tlb_one_user(addr);
+ 
+-	if (!static_cpu_has(X86_FEATURE_PTI))
++	/* Nothing more to do if PTI and ASI are completely off. */
++	if (!static_cpu_has(X86_FEATURE_PTI) && !static_asi_enabled()) {
++		VM_WARN_ON_ONCE(static_cpu_has(X86_FEATURE_PCID) &&
++				!(__default_kernel_pte_mask & _PAGE_GLOBAL));
+ 		return;
++	}
+ 
+ 	/*
+ 	 * See above.  We need to propagate the flush to all other address
+@@ -1289,6 +1292,16 @@ STATIC_NOPV void native_flush_tlb_local(void)
+ 
+ 	invalidate_user_asid(this_cpu_read(cpu_tlbstate.loaded_mm_asid));
+ 
 +	/*
-+	 * If this fails, pcpu_map_pages()->__pcpu_unmap_pages() will call
-+	 * asi_unmap() and clean up any partial mappings.
++	 * Restricted ASI CR3 is unstable outside of critical section, so we
++	 * couldn't flush via a CR3 read/write. asi_exit() stabilizes it.
++	 * We don't expect any flushes in a critical section.
 +	 */
-+	return asi_map(ASI_GLOBAL_NONSENSITIVE, (void *)addr, size);
-+}
++	if (WARN_ON(asi_in_critical_section()))
++		native_flush_tlb_global();
++	else
++		asi_exit();
 +
- /**
-  * pcpu_map_pages - map pages into a pcpu_chunk
-  * @chunk: chunk of interest
-@@ -214,13 +250,15 @@ static int __pcpu_map_pages(unsigned long addr, struct page **pages,
- static int pcpu_map_pages(struct pcpu_chunk *chunk,
- 			  struct page **pages, int page_start, int page_end)
- {
-+	struct vm_struct **vms = (struct vm_struct **)chunk->data;
-+	unsigned long vm_flags = vms ? vms[0]->flags : VM_ALLOC;
- 	unsigned int cpu, tcpu;
- 	int i, err;
- 
- 	for_each_possible_cpu(cpu) {
- 		err = __pcpu_map_pages(pcpu_chunk_addr(chunk, cpu, page_start),
- 				       &pages[pcpu_page_idx(cpu, page_start)],
--				       page_end - page_start);
-+				       page_end - page_start, vm_flags);
- 		if (err < 0)
- 			goto err;
- 
-@@ -232,7 +270,7 @@ static int pcpu_map_pages(struct pcpu_chunk *chunk,
- err:
- 	for_each_possible_cpu(tcpu) {
- 		__pcpu_unmap_pages(pcpu_chunk_addr(chunk, tcpu, page_start),
--				   page_end - page_start);
-+				   page_end - page_start, vm_flags);
- 		if (tcpu == cpu)
- 			break;
- 	}
-diff --git a/mm/percpu.c b/mm/percpu.c
-index da21680ff294cb53dfb42bf0d3b3bbd2654d2cfa..c2d913c579bf07892957ac7f601a6a71defadc4b 100644
---- a/mm/percpu.c
-+++ b/mm/percpu.c
-@@ -3273,8 +3273,8 @@ int __init pcpu_page_first_chunk(size_t reserved_size, pcpu_fc_cpu_to_node_fn_t
- 			pcpu_populate_pte(unit_addr + (i << PAGE_SHIFT));
- 
- 		/* pte already populated, the following shouldn't fail */
--		rc = __pcpu_map_pages(unit_addr, &pages[unit * unit_pages],
--				      unit_pages);
-+		rc = ___pcpu_map_pages(unit_addr, &pages[unit * unit_pages],
-+				       unit_pages);
- 		if (rc < 0)
- 			panic("failed to map percpu area, err=%d\n", rc);
- 
+ 	/* If current->mm == NULL then the read_cr3() "borrows" an mm */
+ 	native_write_cr3(__native_read_cr3());
+ }
 
 -- 
 2.47.1.613.gc27f4b7a9f-goog
