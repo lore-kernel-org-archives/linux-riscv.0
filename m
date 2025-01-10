@@ -4,86 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0F107E7719C
-	for <linux-riscv@archiver.kernel.org>; Fri, 10 Jan 2025 17:15:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5A1A7E7719C
+	for <linux-riscv@archiver.kernel.org>; Fri, 10 Jan 2025 17:37:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Subject:Cc:To:From:Message-ID:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=PWzV8tAS6LsUz4qY/pSGVGnH6aAor20P4JuW4UAlYS0=; b=QQpT/FDAzsGsAn
-	PpPeDKO4dY4MP9Sc+iaj340F9p5QM4P96YlY7nfIBrIt70HxMsm/aDJas+P30an89JAg9gAeUwmz7
-	iR5+r7MFaKS8pfntjBP9iVY+Rm3UExfHvT0DMlvL7i5vKsKbvkYIIb1LNXGLQAl4fsrKV9ivjJdJU
-	1UAz/CSzUT0ynsXnxYx4GZJTgGcIwYEeB5xPmoqqLIHmIa3ENFdVT2eoXJjtWRv9b876wHRNlbZnn
-	0SRr5/7KdJjNCE6TQZ+I4Xcue2/GgvEUXab1NIcH0mOda1E8y8gRaj87GHxW+Quw8HSVocZEY5PIH
-	R3GFzCEhmvWBgNc9kEnw==;
+	List-Owner; bh=lV/ZGSghc/JlcdYXS2vz81Isy1M0lvdLP5XqwAKDs8U=; b=uHL2XeVuTqhZ52
+	OJNTarANF3WXOBjyFSk+VQcX/xojBEivQd4ZVsq3N4EPqTAFx5Bqa/nerbNHt39jd/6aTrCHLqc2F
+	8mBJLDtDhIMWPny6WvxECnvx9y8x6CxwjemAx4FQs3bHhDZMOAw9m3lSBQnmU3m+RaKqpmVeBcZij
+	ITTv1octhZV88a+KulJq+ndQ3Hp7xMXbJT4tad8QsAG+TlFLLnAAPat1NdJRGS0HF/YoYZcToEFUb
+	CxlICDB/KEL3t9buqcgomas3hdpouabKooJozGXOOGnWbBicpPbsC1ybptaWiUJIUZuZQQ2IMgUEv
+	vmZLwjR/VbNjrXMfJYag==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tWIbM-0000000GOPe-01Km;
-	Fri, 10 Jan 2025 17:15:16 +0000
-Received: from mgamail.intel.com ([198.175.65.21])
+	id 1tWIwv-0000000GSYo-3ATi;
+	Fri, 10 Jan 2025 17:37:33 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tWIa7-0000000GO6f-0jbm;
-	Fri, 10 Jan 2025 17:14:00 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1736529239; x=1768065239;
-  h=date:message-id:from:to:cc:subject:in-reply-to:
-   references:mime-version;
-  bh=zCD9wMt7oj+kJBhlIcsVVTGT43QE2wPIyfO0mHZuo3E=;
-  b=DemtaSeYwH+WRO0/KzyGdpFW3f7qYSBZoH+TGZyGXYMHRWgyRC+LqDhO
-   PjH8BE37zAG66e29MGjCZ8RQ2S2xU+x8NdVd/xqzJaiUFZjLHiMeci3pr
-   yUpL4ehVYiGQKZ2szAvf2Xy1ldHEx1Rso0Y6C69QzBTCsdVbmTXWK0uRS
-   Ni9tnwRaWKZjVsr1WTC+7QioAu+MCeGhW+pOH3YR9EP8UAqkU1TLwQiKp
-   rNDfH2RBYqxmHtWjvXxb2rKtQqHqng/9NO4UYXh626uH16SY69Vh+YwiQ
-   sMYA2DCCm9PhB9ADDsn/qWlM9+P9hgw8bHfxfxOjDjlwhFcb8jh1VsvXH
-   Q==;
-X-CSE-ConnectionGUID: TwCtQd3OR/2VbHetj3mVZA==
-X-CSE-MsgGUID: IkvnLbeFQEKr0V1mhcTOqQ==
-X-IronPort-AV: E=McAfee;i="6700,10204,11311"; a="36712481"
-X-IronPort-AV: E=Sophos;i="6.12,303,1728975600"; 
-   d="scan'208";a="36712481"
-Received: from fmviesa002.fm.intel.com ([10.60.135.142])
-  by orvoesa113.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 10 Jan 2025 09:13:58 -0800
-X-CSE-ConnectionGUID: d+N1H3FPQryemumCSoERgQ==
-X-CSE-MsgGUID: skCK+1HISZSgobnkHZdoJg==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.12,224,1728975600"; 
-   d="scan'208";a="127073384"
-Received: from orsosgc001.jf.intel.com (HELO orsosgc001.intel.com) ([10.165.21.142])
-  by fmviesa002-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 10 Jan 2025 09:13:57 -0800
-Date: Fri, 10 Jan 2025 09:13:56 -0800
-Message-ID: <8534hqvbfv.wl-ashutosh.dixit@intel.com>
-From: "Dixit, Ashutosh" <ashutosh.dixit@intel.com>
-To: Joel Granados <joel.granados@kernel.org>
-Cc: Thomas =?ISO-8859-1?Q?Wei=DFschuh?= <linux@weissschuh.net>,	Kees Cook
- <kees@kernel.org>,	Luis Chamberlain <mcgrof@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,	linux-kernel@vger.kernel.org,
-	linuxppc-dev@lists.ozlabs.org,	linux-riscv@lists.infradead.org,
-	linux-s390@vger.kernel.org,	linux-crypto@vger.kernel.org,
-	openipmi-developer@lists.sourceforge.net,	intel-gfx@lists.freedesktop.org,
-	dri-devel@lists.freedesktop.org,	intel-xe@lists.freedesktop.org,
-	linux-hyperv@vger.kernel.org,	linux-rdma@vger.kernel.org,
-	linux-raid@vger.kernel.org,	linux-scsi@vger.kernel.org,
-	linux-serial@vger.kernel.org,	xen-devel@lists.xenproject.org,
-	linux-aio@kvack.org,	linux-fsdevel@vger.kernel.org,	netfs@lists.linux.dev,
-	codalist@coda.cs.cmu.edu,	linux-mm@kvack.org,	linux-nfs@vger.kernel.org,
-	ocfs2-devel@lists.linux.dev,	fsverity@lists.linux.dev,
-	linux-xfs@vger.kernel.org,	io-uring@vger.kernel.org,	bpf@vger.kernel.org,
-	kexec@lists.infradead.org,	linux-trace-kernel@vger.kernel.org,
-	linux-hardening@vger.kernel.org,	apparmor@lists.ubuntu.com,
-	linux-security-module@vger.kernel.org,	keyrings@vger.kernel.org
-Subject: Re: [PATCH] treewide: const qualify ctl_tables where applicable
-In-Reply-To: <20250109-jag-ctl_table_const-v1-1-622aea7230cf@kernel.org>
-References: <20250109-jag-ctl_table_const-v1-1-622aea7230cf@kernel.org>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?ISO-8859-4?Q?Goj=F2?=) APEL-LB/10.8 EasyPG/1.0.0
- Emacs/28.2 (x86_64-redhat-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+	id 1tWHkb-0000000GDA7-1OxC
+	for linux-riscv@lists.infradead.org;
+	Fri, 10 Jan 2025 16:20:46 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 12757A42680;
+	Fri, 10 Jan 2025 16:18:56 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 12DF0C4CEE0;
+	Fri, 10 Jan 2025 16:20:44 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1736526044;
+	bh=LKUhCQ7uyIY0f8gN/kHHYG4fgpltHjGFFaHE0gi9P0o=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=Amj4PXR+Oo8fuqto2o2c80PYRQvozGzpuAFQotAwA1QrCb/e+A+N6Euac5bxNS5zg
+	 q4WWu1SXOKkoPoKcjsYSzpKvx8s7R1atU7K7OEY9K9vwntUGC/ZMJfln51z/h2Sxs1
+	 n/OYyiFVu10izUUAvk2qa53ar8IXS3xKeInsoh6m8djEgvk3lNo6VuSfbkKSZOOYd6
+	 4iZojg8XZV5VlD845iGwtW25hJZp4ekZu2AqMVHaJK0Et4qq0NbCCjPwjjRG/ehZSf
+	 pLaYdNE4d/6VitCNYD1pDXHJbgj+cuRHrOHSZZndnx1TU1YymwFaGBppdulqMv5uZa
+	 DShP9YlYILJRg==
+Date: Fri, 10 Jan 2025 10:20:43 -0600
+From: Rob Herring <robh@kernel.org>
+To: Vladimir Kondratiev <vladimir.kondratiev@mobileye.com>
+Cc: Anup Patel <anup@brainfault.org>, Thomas Gleixner <tglx@linutronix.de>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org
+Subject: Re: [PATCH v4 1/2] dt-bindings: interrupt-controller: add
+ risc-v,aplic hart indexes
+Message-ID: <20250110162043.GA2975507-robh@kernel.org>
+References: <20250109113814.3254448-1-vladimir.kondratiev@mobileye.com>
+ <20250109113814.3254448-2-vladimir.kondratiev@mobileye.com>
+MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20250109113814.3254448-2-vladimir.kondratiev@mobileye.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250110_091359_259148_B7F3B509 
-X-CRM114-Status: GOOD (  11.21  )
+X-CRM114-CacheID: sfid-20250110_082045_433949_6DCC45F7 
+X-CRM114-Status: GOOD (  13.99  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,38 +79,34 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, 09 Jan 2025 05:16:39 -0800, Joel Granados wrote:
->
-> diff --git a/drivers/gpu/drm/i915/i915_perf.c b/drivers/gpu/drm/i915/i915_perf.c
-> index 2406cda75b7b..5384d1bb4923 100644
-> --- a/drivers/gpu/drm/i915/i915_perf.c
-> +++ b/drivers/gpu/drm/i915/i915_perf.c
-> @@ -4802,7 +4802,7 @@ int i915_perf_remove_config_ioctl(struct drm_device *dev, void *data,
->	return ret;
->  }
->
-> -static struct ctl_table oa_table[] = {
-> +static const struct ctl_table oa_table[] = {
->	{
->	 .procname = "perf_stream_paranoid",
->	 .data = &i915_perf_stream_paranoid,
-> diff --git a/drivers/gpu/drm/xe/xe_observation.c b/drivers/gpu/drm/xe/xe_observation.c
-> index 8ec1b84cbb9e..57cf01efc07f 100644
-> --- a/drivers/gpu/drm/xe/xe_observation.c
-> +++ b/drivers/gpu/drm/xe/xe_observation.c
-> @@ -56,7 +56,7 @@ int xe_observation_ioctl(struct drm_device *dev, void *data, struct drm_file *fi
->	}
->  }
->
-> -static struct ctl_table observation_ctl_table[] = {
-> +static const struct ctl_table observation_ctl_table[] = {
->	{
->	 .procname = "observation_paranoid",
->	 .data = &xe_observation_paranoid,
+On Thu, Jan 09, 2025 at 01:38:13PM +0200, Vladimir Kondratiev wrote:
+> Document optional property "riscv,hart-indexes"
+> 
+> Signed-off-by: Vladimir Kondratiev <vladimir.kondratiev@mobileye.com>
+> Reviewed-by: Anup Patel <anup@brainfault.org>
+> ---
+>  .../bindings/interrupt-controller/riscv,aplic.yaml        | 8 ++++++++
+>  1 file changed, 8 insertions(+)
+> 
+> diff --git a/Documentation/devicetree/bindings/interrupt-controller/riscv,aplic.yaml b/Documentation/devicetree/bindings/interrupt-controller/riscv,aplic.yaml
+> index 190a6499c932..bef00521d5da 100644
+> --- a/Documentation/devicetree/bindings/interrupt-controller/riscv,aplic.yaml
+> +++ b/Documentation/devicetree/bindings/interrupt-controller/riscv,aplic.yaml
+> @@ -91,6 +91,14 @@ properties:
+>        Firmware must configure interrupt delegation registers based on
+>        interrupt delegation list.
+>  
+> +  riscv,hart-indexes:
+> +    $ref: /schemas/types.yaml#/definitions/uint32-array
+> +    minItems: 1
+> +    maxItems: 16384
+> +    description:
+> +      A list of hart indexes that APLIC should use to address each hart
+> +      that is mentioned in the "interrupts-extended"
 
-For i915 and xe:
+Wouldn't using the 'cpus' property linking to each cpu/hart node work?
 
-Acked-by: Ashutosh Dixit <ashutosh.dixit@intel.com>
+Rob
 
 _______________________________________________
 linux-riscv mailing list
