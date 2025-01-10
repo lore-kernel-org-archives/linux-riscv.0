@@ -4,62 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B4EECE7719C
-	for <linux-riscv@archiver.kernel.org>; Fri, 10 Jan 2025 14:01:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 57466E77188
+	for <linux-riscv@archiver.kernel.org>; Fri, 10 Jan 2025 14:04:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
 	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ORxpE0m5WmL6cRLaVB+0OfMx7EIeBSSbkfCScU6H2Rk=; b=aQKgxAYGINKrr3
-	vT4AUzJ8jT+/Qu5mba0WsDvg8+zwOmEoudnfm2345DzTiFE5TIu+F8OISwjk3FHcyOcq0TZB/4J4f
-	LgjVPZKI+3kj7I76+KcpHHq739QRT5Ym3XXcKl17IK5qP3geBMkwkzXrOVR9YY+ZYhbE+RwkLRlPK
-	eORH2VNJx+GaExBvTsftmPDVgAOk7xVET9ZuD4wu14TDXirD+iLqIa/IOsG109PRD4GqDJkD6opBJ
-	A+DOtUcOIed5HdQKz4l5gzZkjhtiYnicUm0QTsXWx4vTB4Nnlb2aystgQ6VWuz6DqirlZPC8qYmmi
-	hHj/ULRgAhlNpSUdyh/Q==;
+	List-Owner; bh=JEjFw+pFcyIypQCjzVorYFEoZjo4gyM4EiRzMJN1LXU=; b=RR9fAvhj9/KjZh
+	KFZwbP9QbHNr8WuaQw9gtly1Xc1TBE0oa5P3R1JyHiOS/qBkPjKi5dCb3tKcAWhEJ0s7zg/WLK08V
+	GmPhtA6tk8rM4lHwvmtp9n2JFjnSTrLFpBJNh266tT+P23X6/5QcUiDBxh3ECEQ54sfHBRmsGZfwU
+	eVT7G/UKmrKmRfHC7Uv7i3sh6o2rG8LQkpTkUynZz5yV7yHyLIq+cueJN97y2cS3tldt4T8U40aME
+	JhguoZy506RO6Nfg5grCX9FTsU0eIcyOvLCy0xMx68poYMZSpSNNEeYJokHiXjND1MoBAnSXpgYUi
+	pwnCWxo00X+Ceo+UYmbw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tWFZQ-0000000FYsT-3rfo;
-	Fri, 10 Jan 2025 14:01:04 +0000
+	id 1tWFcz-0000000FZdN-1r6k;
+	Fri, 10 Jan 2025 14:04:45 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tWFTf-0000000FXio-2S8b;
-	Fri, 10 Jan 2025 13:55:07 +0000
+	id 1tWFVN-0000000FY7W-1j0D;
+	Fri, 10 Jan 2025 13:56:53 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
 	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
 	Sender:Reply-To:Content-ID:Content-Description;
-	bh=Crriz9ADolTMeTb8Q5bfJqlQH2X3QmHbSOYoLMkGdAY=; b=m8gRhrcxEHziiNcACbhit+6ewp
-	eqewnqK3nO8tsjTvlmql/bsP2JHUad/eLzE+5ciyT0xoQIeVx/GAVAcX0EqcRjEIn3ZDaLHV+g2Y1
-	fnWYzOA/c+Z38XSnrwgjgu3RXjHLknWKB/qZYZ+eT/pzsNnxnFNFDJ6kqsDzN8nBG9pvuARq9Rj7R
-	G6M+CCCx6jLW0XtuOPeb7MvCl3rIDmUrvUvOys697DjzUrL3zkYcfwThTEW6Cki2tPGJzpZfWxIrO
-	FSzOOlPgLQXNy4EbaTPT8bADJSO9cPHP3Z9kLFmYepPnZTva/JEZPexX7+tYiAXl2Xye6QNek+boZ
-	OeB3ujoA==;
+	bh=YwYzlM9SAeOiyMw0xPqH94UuPAmY2pEyT6RCfaL387M=; b=fgEsw9uEeUP+rz+OneKij+Z12y
+	6FC0LTdNANgbXzvTsHXCIjfUK2zKAH87ghX4G6gRTkg08BjGeHHVoUAYcDHIY1RALUNmt4DaXuuIu
+	5AK0E+jQTBz55PluQQ97JoPtCiA7D4k/QRguBzx7JNw8/cikkJYVYhZ8sO5zIr7GtrrL1t4e1rMQi
+	7PHTrOugR6mYEe1C2++ZriOWswoTrE2MBl8SDctKGLws203tsuGjJaMnmaYftH83FPJp4LV7rjVs4
+	cRGa+NdArXURd1mERGpYl1Vp4UsXFnf+qHQlbuvFf4g4sKv0Us8pyxRICxy0Ps93isCNUtCJX0hGA
+	88w3fKFQ==;
 Received: from dfw.source.kernel.org ([139.178.84.217])
 	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tWFTc-00000009mrY-1ZBm;
-	Fri, 10 Jan 2025 13:55:06 +0000
+	id 1tWFVK-00000009mxt-1yrN;
+	Fri, 10 Jan 2025 13:56:52 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id EE3605C2D8F;
-	Fri, 10 Jan 2025 13:54:19 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BC042C4CED6;
-	Fri, 10 Jan 2025 13:54:51 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 333A05C4447;
+	Fri, 10 Jan 2025 13:56:08 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B165CC4CED6;
+	Fri, 10 Jan 2025 13:56:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1736517300;
-	bh=GwQHk8tU2zwJEWdTaDa4kpSdyMXUvLt1FJwllRojAgM=;
+	s=k20201202; t=1736517408;
+	bh=AouVWEys/NtgqaGbXkcBOKCybsdMDm2Sr9XXLLSNYMc=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=HLmE9fAe9Av6txZNzmMcvTKs1v24fyzSDnMKGs6c0+nfkvNmg6/rl7nNqh9vpwdpp
-	 nMu2r3Q3FY2/0IMNNs36T/stybZg0YIRiZtaW9vnpzT8qqL7splqH5PlQUEFaWfXC5
-	 09WznGMPKnxn5Rt/MZlBklmL8hTxQUlWAXNCIWuMc4HGDDVYg3EDtatOv5MI7Xh2si
-	 6Z5XtlgezD/S5VdsSVoHOBsloygvxakBZJWB7kmM//MPsdZgFnYB3YErtOy4RG1g5q
-	 +csWu9kgJPW+NZOLDZ66lLdtfB2QLDwU+tzaXz4sxq+frZJU6qbtTLcQKEhNqETink
-	 dBNX0y1KorfHA==
-Message-ID: <27fe2d33-dc79-435f-ab1c-467bd121c049@kernel.org>
-Date: Fri, 10 Jan 2025 14:54:49 +0100
+	b=hEPjokNK/n8xwEc3DQJQvgieQyY0GTZOA6Bio0y1e6GVGnmuCaek49sVLVjUlj7P2
+	 1IHRmkMzLocl5POXPHb+0V29Md+2J9fo7ulrSsiP4zqaNTmsC7FoCKWH43NKMyqPrR
+	 b6y3uTd1MIJKjGK7V1oBJpoh+0pvIjzzTcR3TLzbm/8JbSdcyb/cJeXTLf+4pwmKX+
+	 18dsUQfblv/ooXW7qG42cVFr+Kp+RHcBuSFqgaqseq4rJl5wBN4GfC3kqik52K6qmE
+	 bKmoxWJyUr7cGdpGETQO8VqBLulpyOCX/q1CPUa4a8qYvWANlQ6hWJHSQV+6sa/Imt
+	 QkV1g7JKUmY7Q==
+Message-ID: <de280eed-bcc8-4802-9734-5e95ad1f6611@kernel.org>
+Date: Fri, 10 Jan 2025 14:56:38 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 07/12] devicetree: bindings: power: add v853 ppu
+Subject: Re: [PATCH 06/12] dt-bindings: clk: sunxi-ng: add V853 CCU
+ clock/reset
 To: Andras Szemzo <szemzo.andras@gmail.com>,
  Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
  <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
@@ -80,7 +81,7 @@ Cc: Vinod Koul <vkoul@kernel.org>, Kishon Vijay Abraham I
  linux-phy@lists.infradead.org, linux-gpio@vger.kernel.org,
  linux-pm@vger.kernel.org, linux-riscv@lists.infradead.org
 References: <20250110123923.270626-1-szemzo.andras@gmail.com>
- <20250110123923.270626-8-szemzo.andras@gmail.com>
+ <20250110123923.270626-7-szemzo.andras@gmail.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -126,11 +127,10 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  uZwJCLykjad45hsWcOGk3OcaAGQS6NDlfhM6O9aYNwGL6tGt/6BkRikNOs7VDEa4/HlbaSJo
  7FgndGw1kWmkeL6oQh7wBvYll2buKod4qYntmNKEicoHGU+x91Gcan8mCoqhJkbqrL7+nXG2
  5Q/GS5M9RFWS+nYyJh+c3OcfKqVcZQNANItt7+ULzdNJuhvTRRdC3g9hmCEuNSr+CLMdnRBY fv0=
-In-Reply-To: <20250110123923.270626-8-szemzo.andras@gmail.com>
+In-Reply-To: <20250110123923.270626-7-szemzo.andras@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250110_135504_793690_8B3E0D59 
-X-CRM114-Status: UNSURE (   6.26  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250110_135650_812705_61A23B7B 
+X-CRM114-Status: GOOD (  13.49  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -148,16 +148,48 @@ Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 On 10/01/2025 13:39, Andras Szemzo wrote:
-> Document V853 PPU compatible.
+> As the device tree needs the clock/reset indices, add them to DT binding
+> headers.
 > 
 > Signed-off-by: Andras Szemzo <szemzo.andras@gmail.com>
-Why different subject prefix?
 
-Please use subject prefixes matching the subsystem. You can get them for
-example with `git log --oneline -- DIRECTORY_OR_FILE` on the directory
-your patch is touching. For bindings, the preferred subjects are
-explained here:
-https://www.kernel.org/doc/html/latest/devicetree/bindings/submitting-patches.html#i-for-patch-submitters
+That's never a separate commit from the binding.
+
+
+...
+
+> --- /dev/null
+> +++ b/include/dt-bindings/clock/sun8i-v853-r-ccu.h
+> @@ -0,0 +1,16 @@
+> +/* SPDX-License-Identifier: (GPL-2.0+ OR MIT) */
+> +/* Copyright(c) 2020 - 2023 Allwinner Technology Co.,Ltd. All rights reserved.
+> + *
+> + * Copyright (C) 2023 rengaomin@allwinnertech.com
+> + */
+> +#ifndef _DT_BINDINGS_CLK_SUN8I_V85X_R_CCU_H_
+> +#define _DT_BINDINGS_CLK_SUN8I_V85X_R_CCU_H_
+> +
+> +#define CLK_R_TWD		0
+> +#define CLK_R_PPU		1
+> +#define CLK_R_RTC		2
+> +#define CLK_R_CPUCFG		3
+> +
+> +#define CLK_R_MAX_NO		(CLK_R_CPUCFG + 1)
+
+Nope, drop. Not a binding.
+
+> +
+> +#endif
+> diff --git a/include/dt-bindings/reset/sun8i-v853-ccu.h b/include/dt-bindings/reset/sun8i-v853-ccu.h
+> new file mode 100644
+> index 000000000000..89d94fcbdb55
+> --- /dev/null
+> +++ b/include/dt-bindings/reset/sun8i-v853-ccu.h
+> @@ -0,0 +1,62 @@
+> +/* SPDX-License-Identifier: (GPL-2.0+ OR MIT) */
+
+Odd license. Did you copy the file with such license from the downstream?
+
 
 Best regards,
 Krzysztof
