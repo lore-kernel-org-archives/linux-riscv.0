@@ -4,119 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3EEB6E7719D
-	for <linux-riscv@archiver.kernel.org>; Fri, 10 Jan 2025 17:07:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0F107E7719C
+	for <linux-riscv@archiver.kernel.org>; Fri, 10 Jan 2025 17:15:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Subject:Cc:To:From:Message-ID:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=H61LWiW/riGPc3vkNb1wzPUDkGBlU0sLEkY0GS1D6zs=; b=o/Uug2+eR6jG+4
-	ExyaRKUJftkkRTn/YdEMVH/9RiyoPWgB84/oSMYEzpyJupl6DfFBRckpEo4x6484QG/bPFtPofT+5
-	WWQGBBIaOKiN8ZxMlKabUFEVPSb1Le/toxapWVuhK9ELbZ4Erl5WsGb8K0VhlJrC/SdUz5jTwZ9VD
-	ekE1mdvXiY+Lup7oAcu+1QYSjTR6nnK2ipdBnHhxQk1hKdo2fr60zThTxKaVblb/fIvHyFHMFZawm
-	tXccm3KMT/yPkp/Em+65S+FXnfkQYXZvIn+bo72ivJksz+uCx86ISvWX1E2AIft6J9Gch6utdICkl
-	y1HgOX1ogkhBN8A8WK4Q==;
+	List-Owner; bh=PWzV8tAS6LsUz4qY/pSGVGnH6aAor20P4JuW4UAlYS0=; b=QQpT/FDAzsGsAn
+	PpPeDKO4dY4MP9Sc+iaj340F9p5QM4P96YlY7nfIBrIt70HxMsm/aDJas+P30an89JAg9gAeUwmz7
+	iR5+r7MFaKS8pfntjBP9iVY+Rm3UExfHvT0DMlvL7i5vKsKbvkYIIb1LNXGLQAl4fsrKV9ivjJdJU
+	1UAz/CSzUT0ynsXnxYx4GZJTgGcIwYEeB5xPmoqqLIHmIa3ENFdVT2eoXJjtWRv9b876wHRNlbZnn
+	0SRr5/7KdJjNCE6TQZ+I4Xcue2/GgvEUXab1NIcH0mOda1E8y8gRaj87GHxW+Quw8HSVocZEY5PIH
+	R3GFzCEhmvWBgNc9kEnw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tWITs-0000000GN4g-3eES;
-	Fri, 10 Jan 2025 17:07:32 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tWIbM-0000000GOPe-01Km;
+	Fri, 10 Jan 2025 17:15:16 +0000
+Received: from mgamail.intel.com ([198.175.65.21])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tWFSm-0000000FXSZ-14M4;
-	Fri, 10 Jan 2025 13:54:13 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 957C65C4333;
-	Fri, 10 Jan 2025 13:53:30 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 921FDC4CED6;
-	Fri, 10 Jan 2025 13:54:01 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1736517251;
-	bh=jEVCuEZV5Gr8pXT1qYg9b6tzkbYnHjzSBCglmFu48nc=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=TOvaP1heR4Ub7inpuLtgEwGwSQ9y1fkA0FVa+8VWiaH7mpstEm+NodxZX4p2rqV+8
-	 hVGLu+HrHOPv3Dw6I5QoH7fxzVP96CFx0ysGgCWCCz2VZ7iuQL6FNoIKeHDu+oWrN/
-	 vg4Fa8TFAEy0Yr1lWYQQLjxM7I8iiDwRUkABALDu6gUjmDLY89ORHTE1ouHE41wTrH
-	 RGABTcBwqjrxKihT1ugdZTHSO8iq9RlKCAxSnD/kxXTh4WogbecrMkdJ2H5070TN42
-	 GktNsn1wPo6V7DwW8Ek2n/CN5QraK8D7Z9da0orkvRJ9WKGuGp588JtQf+2Gy8Jive
-	 FOe3yARaYywmw==
-Message-ID: <f3712c29-47b0-42bc-9135-c35a24fafb35@kernel.org>
-Date: Fri, 10 Jan 2025 14:53:59 +0100
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 09/12] dt-bindings: power: add V853 ppu bindings
-To: Andras Szemzo <szemzo.andras@gmail.com>,
- Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
- <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Chen-Yu Tsai <wens@csie.org>,
- Jernej Skrabec <jernej.skrabec@gmail.com>,
- Samuel Holland <samuel@sholland.org>,
- Linus Walleij <linus.walleij@linaro.org>,
- Philipp Zabel <p.zabel@pengutronix.de>, Maxime Ripard <mripard@kernel.org>
-Cc: Vinod Koul <vkoul@kernel.org>, Kishon Vijay Abraham I
- <kishon@kernel.org>, Ulf Hansson <ulf.hansson@linaro.org>,
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- =?UTF-8?Q?Uwe_Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>,
- Florian Fainelli <florian.fainelli@broadcom.com>, linux-clk@vger.kernel.org,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org,
- linux-phy@lists.infradead.org, linux-gpio@vger.kernel.org,
- linux-pm@vger.kernel.org, linux-riscv@lists.infradead.org
-References: <20250110123923.270626-1-szemzo.andras@gmail.com>
- <20250110123923.270626-10-szemzo.andras@gmail.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 fv0=
-In-Reply-To: <20250110123923.270626-10-szemzo.andras@gmail.com>
+	id 1tWIa7-0000000GO6f-0jbm;
+	Fri, 10 Jan 2025 17:14:00 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1736529239; x=1768065239;
+  h=date:message-id:from:to:cc:subject:in-reply-to:
+   references:mime-version;
+  bh=zCD9wMt7oj+kJBhlIcsVVTGT43QE2wPIyfO0mHZuo3E=;
+  b=DemtaSeYwH+WRO0/KzyGdpFW3f7qYSBZoH+TGZyGXYMHRWgyRC+LqDhO
+   PjH8BE37zAG66e29MGjCZ8RQ2S2xU+x8NdVd/xqzJaiUFZjLHiMeci3pr
+   yUpL4ehVYiGQKZ2szAvf2Xy1ldHEx1Rso0Y6C69QzBTCsdVbmTXWK0uRS
+   Ni9tnwRaWKZjVsr1WTC+7QioAu+MCeGhW+pOH3YR9EP8UAqkU1TLwQiKp
+   rNDfH2RBYqxmHtWjvXxb2rKtQqHqng/9NO4UYXh626uH16SY69Vh+YwiQ
+   sMYA2DCCm9PhB9ADDsn/qWlM9+P9hgw8bHfxfxOjDjlwhFcb8jh1VsvXH
+   Q==;
+X-CSE-ConnectionGUID: TwCtQd3OR/2VbHetj3mVZA==
+X-CSE-MsgGUID: IkvnLbeFQEKr0V1mhcTOqQ==
+X-IronPort-AV: E=McAfee;i="6700,10204,11311"; a="36712481"
+X-IronPort-AV: E=Sophos;i="6.12,303,1728975600"; 
+   d="scan'208";a="36712481"
+Received: from fmviesa002.fm.intel.com ([10.60.135.142])
+  by orvoesa113.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 10 Jan 2025 09:13:58 -0800
+X-CSE-ConnectionGUID: d+N1H3FPQryemumCSoERgQ==
+X-CSE-MsgGUID: skCK+1HISZSgobnkHZdoJg==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.12,224,1728975600"; 
+   d="scan'208";a="127073384"
+Received: from orsosgc001.jf.intel.com (HELO orsosgc001.intel.com) ([10.165.21.142])
+  by fmviesa002-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 10 Jan 2025 09:13:57 -0800
+Date: Fri, 10 Jan 2025 09:13:56 -0800
+Message-ID: <8534hqvbfv.wl-ashutosh.dixit@intel.com>
+From: "Dixit, Ashutosh" <ashutosh.dixit@intel.com>
+To: Joel Granados <joel.granados@kernel.org>
+Cc: Thomas =?ISO-8859-1?Q?Wei=DFschuh?= <linux@weissschuh.net>,	Kees Cook
+ <kees@kernel.org>,	Luis Chamberlain <mcgrof@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,	linux-kernel@vger.kernel.org,
+	linuxppc-dev@lists.ozlabs.org,	linux-riscv@lists.infradead.org,
+	linux-s390@vger.kernel.org,	linux-crypto@vger.kernel.org,
+	openipmi-developer@lists.sourceforge.net,	intel-gfx@lists.freedesktop.org,
+	dri-devel@lists.freedesktop.org,	intel-xe@lists.freedesktop.org,
+	linux-hyperv@vger.kernel.org,	linux-rdma@vger.kernel.org,
+	linux-raid@vger.kernel.org,	linux-scsi@vger.kernel.org,
+	linux-serial@vger.kernel.org,	xen-devel@lists.xenproject.org,
+	linux-aio@kvack.org,	linux-fsdevel@vger.kernel.org,	netfs@lists.linux.dev,
+	codalist@coda.cs.cmu.edu,	linux-mm@kvack.org,	linux-nfs@vger.kernel.org,
+	ocfs2-devel@lists.linux.dev,	fsverity@lists.linux.dev,
+	linux-xfs@vger.kernel.org,	io-uring@vger.kernel.org,	bpf@vger.kernel.org,
+	kexec@lists.infradead.org,	linux-trace-kernel@vger.kernel.org,
+	linux-hardening@vger.kernel.org,	apparmor@lists.ubuntu.com,
+	linux-security-module@vger.kernel.org,	keyrings@vger.kernel.org
+Subject: Re: [PATCH] treewide: const qualify ctl_tables where applicable
+In-Reply-To: <20250109-jag-ctl_table_const-v1-1-622aea7230cf@kernel.org>
+References: <20250109-jag-ctl_table_const-v1-1-622aea7230cf@kernel.org>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?ISO-8859-4?Q?Goj=F2?=) APEL-LB/10.8 EasyPG/1.0.0
+ Emacs/28.2 (x86_64-redhat-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250110_055412_389012_3394DB6C 
-X-CRM114-Status: UNSURE (   5.84  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250110_091359_259148_B7F3B509 
+X-CRM114-Status: GOOD (  11.21  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -133,15 +100,38 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 10/01/2025 13:39, Andras Szemzo wrote:
-> The device-tree needs ppu indexes, add it.
+On Thu, 09 Jan 2025 05:16:39 -0800, Joel Granados wrote:
+>
+> diff --git a/drivers/gpu/drm/i915/i915_perf.c b/drivers/gpu/drm/i915/i915_perf.c
+> index 2406cda75b7b..5384d1bb4923 100644
+> --- a/drivers/gpu/drm/i915/i915_perf.c
+> +++ b/drivers/gpu/drm/i915/i915_perf.c
+> @@ -4802,7 +4802,7 @@ int i915_perf_remove_config_ioctl(struct drm_device *dev, void *data,
+>	return ret;
+>  }
+>
+> -static struct ctl_table oa_table[] = {
+> +static const struct ctl_table oa_table[] = {
+>	{
+>	 .procname = "perf_stream_paranoid",
+>	 .data = &i915_perf_stream_paranoid,
+> diff --git a/drivers/gpu/drm/xe/xe_observation.c b/drivers/gpu/drm/xe/xe_observation.c
+> index 8ec1b84cbb9e..57cf01efc07f 100644
+> --- a/drivers/gpu/drm/xe/xe_observation.c
+> +++ b/drivers/gpu/drm/xe/xe_observation.c
+> @@ -56,7 +56,7 @@ int xe_observation_ioctl(struct drm_device *dev, void *data, struct drm_file *fi
+>	}
+>  }
+>
+> -static struct ctl_table observation_ctl_table[] = {
+> +static const struct ctl_table observation_ctl_table[] = {
+>	{
+>	 .procname = "observation_paranoid",
+>	 .data = &xe_observation_paranoid,
 
+For i915 and xe:
 
-This belongs to the commit introducing binding. Squash it.
-
-
-Best regards,
-Krzysztof
+Acked-by: Ashutosh Dixit <ashutosh.dixit@intel.com>
 
 _______________________________________________
 linux-riscv mailing list
