@@ -4,115 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 07392E7719C
-	for <linux-riscv@archiver.kernel.org>; Fri, 10 Jan 2025 07:48:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A96CBE77188
+	for <linux-riscv@archiver.kernel.org>; Fri, 10 Jan 2025 08:28:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=74L/Tv+juFkVXxXIa9TdHEwqB8qKOIsMDOM5/FsSJo0=; b=Yct0U94seJ16cF
-	8ZT1H/SQj/v6vKHoWBpdxEKD8vd9UjIhJxVVsIf4hcYM0Uh+wja//fNLV8HswL2GkaD9ROLl80n64
-	UYD24J5yCKIiOhUCSMZA9v03WngqK+ZS+uerpe3FfoQr2fEs/3eZwNH6WHFwk4OfpMNTsaSLFoDZ8
-	W3/cyF34oSYgh6ZceeIFi3gEfagXAnhLcyFfsD75Bz4yMKDke1kzXa8+Bt6PrDJzlvc1PfAAkjzm7
-	3z5altjfS9XM5uUZiTsyYynH6unADcgQ4LNlp9dXWhqgAbSwrRPNoW+/Ixm/SpkAoB9bIQlIFREBm
-	nlUO/+5NF2OMyTraTvPQ==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID:
+	Mime-Version:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
+	References:List-Owner; bh=YaKDY2KFrO/uVrDnp+TG+svRLyLjOUMlyPsDPDlwpe0=; b=laa
+	UamHQef2teVccSfcCtTnw69yttLHAND5+/ZP1yVvPtRl+zn79XR0p9TcvkudVcvuNWU1DZMu1pG2k
+	7UIvrL1koWXIKoCF9wKzyVaJvL7ydTIzOxZ8J/9PhsoBy4+gdH8o0n2lrSGF6QLEMoy44IxEptsM8
+	8CWzD/ElKkit8HZCMiXs3y5qnURYEIjR5bpk+zZJdyarG332U/KRxcyf2HGyY0Kbcj9b0PSh/8AyG
+	JNvJcG6SW5Nb5PksYEoIZENevUP3SAqCrcoN+gJJqvekZlEOJD7o8Wfc6zLtPx7EWCQWhYrMQFkGT
+	Mc7m8992I2c6zldK6IMFW0d4c8xJnMw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tW9lC-0000000EREz-3KSa;
-	Fri, 10 Jan 2025 07:48:50 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1tWANA-0000000EWNL-1OQc;
+	Fri, 10 Jan 2025 08:28:04 +0000
+Received: from mail-wr1-x449.google.com ([2a00:1450:4864:20::449])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tW9id-0000000EQRv-26XP
+	id 1tWAN8-0000000EWMk-3JCY
 	for linux-riscv@lists.infradead.org;
-	Fri, 10 Jan 2025 07:46:12 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id E92B55C4AB4;
-	Fri, 10 Jan 2025 07:45:29 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 67D2AC4CED6;
-	Fri, 10 Jan 2025 07:46:06 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1736495170;
-	bh=kinaiS2gMbZg/94aWlrRbm7XIuSa0jlNfu1uPEjxcD0=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=Eq8Yew4iA/Nf7BEgezbVIQMZu6wpNBMaEPcnwHBuFnQ1T8GwdbI/O1QDYwf+e8cwR
-	 9Hjk+EL1lZwN4OmSErDITvMkda9GDx50ozNYJqY29TAwMfUOHnvBVQbMsQ+rKy9OcQ
-	 Q485iXEQ31Tfo3OpUZwimWGBMRy5WAZzzkSDF3IIBLlJCEchmy0NUYqfaVQgZKSJxN
-	 goM/B1oykDrtP6z8P0u+RLj+WI45rCZDSxHmb7mRvopLPUnjeF7L/VC9m0HxpanNPu
-	 vPrvqlIrjEL2rLK0Ex6seiGpVuyHetGfpTayTsdfAOMJosBQ7r1tZDpY1kYl3CfRIL
-	 HiTauuW7lla/w==
-Message-ID: <20851bad-ae07-4d81-8a98-67458cb11fc6@kernel.org>
-Date: Fri, 10 Jan 2025 08:46:04 +0100
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 1/2] dt-bindings: interrupt-controller: add
- risc-v,aplic hart indexes
-To: Vladimir Kondratiev <Vladimir.Kondratiev@mobileye.com>,
- "anup@brainfault.org" <anup@brainfault.org>
-Cc: "aou@eecs.berkeley.edu" <aou@eecs.berkeley.edu>,
- "conor+dt@kernel.org" <conor+dt@kernel.org>,
- "krzk+dt@kernel.org" <krzk+dt@kernel.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
- "palmer@dabbelt.com" <palmer@dabbelt.com>,
- "paul.walmsley@sifive.com" <paul.walmsley@sifive.com>,
- "robh@kernel.org" <robh@kernel.org>, "tglx@linutronix.de"
- <tglx@linutronix.de>
-References: <CAAhSdy0U3VXqKK-pReUSo5PYJhr0YGoO6pT194Me0Q18dHbE9g@mail.gmail.com>
- <20250107075835.1421602-1-vladimir.kondratiev@mobileye.com>
- <20250107075835.1421602-2-vladimir.kondratiev@mobileye.com>
- <61adfec1-89bb-4367-b8d4-64a8b751326c@kernel.org>
- <VI1PR09MB23335F8C46D70921B074488C94132@VI1PR09MB2333.eurprd09.prod.outlook.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 fv0=
-In-Reply-To: <VI1PR09MB23335F8C46D70921B074488C94132@VI1PR09MB2333.eurprd09.prod.outlook.com>
+	Fri, 10 Jan 2025 08:28:04 +0000
+Received: by mail-wr1-x449.google.com with SMTP id ffacd0b85a97d-38a35a65575so1289884f8f.1
+        for <linux-riscv@lists.infradead.org>; Fri, 10 Jan 2025 00:28:01 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1736497680; x=1737102480; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:mime-version:date:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=T+He27ln4e+a+fHoBq8fWvUdNVutb9NtrOMSMA+rzNo=;
+        b=kXLhTJA/iYmUoTDEEliTUPLyjRVtzul3JQZkRwmwSNyXtc17oZrn4ZhznBqjcLFwfH
+         nDYfhyU7b1vjnhnRiYTPkoZXAQREuMO2SsnvlcTMPoCRO6urTMAKY8pv2mE+Xo1jg9Xa
+         MUgjUzx13IcTCnKAToA8uy5e14Lz/ouJTir1YS6rdmyQsvnNsctygad4FT1XZOSP9kOn
+         wgf0hMpSvKIQX2DxGoeQrXbTt8tTzvYzjt+E5P2l14Im5b8UOB/tJ0itLWQ5l01g9+lt
+         sMANCEnR8q2zB8e7lNLSAIYirbiQx7lt6aQcBIPn/Kt5SOItnv/8fELWsXlcjN/PqrfP
+         Lijw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1736497680; x=1737102480;
+        h=cc:to:from:subject:message-id:mime-version:date:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=T+He27ln4e+a+fHoBq8fWvUdNVutb9NtrOMSMA+rzNo=;
+        b=MvUpVRC4gS+5qijCP448cNC1Mo3UhJT+JxNsSn4T8vSqFGKE41E81x/6CM2qi+fLkH
+         D+FZxQvDKrsRg1KgqoONFNQgaCREcg9N8S1fQFn+C2hX/YUVniP1NdfE0AhbPJAHVEku
+         zRHToeTGRdoGlZugeFNBF63etOvdqDkVJ2IjcFWe6Fx7kv5f2Jjp20XWcRocnfjYopZt
+         jC7b8IH2zk+GNMOecAR6EQ+03NL7dqSDXJlzQyhsn7KFXfGl+I3sfCL1JTgVgFM2sURh
+         ONhePHkTat9gciW7uUPW60vRyo1RpGC8Jt0GS9YNUewnmDDA/x44huXE91Qz0OrII6z0
+         cZ1A==
+X-Forwarded-Encrypted: i=1; AJvYcCXQ1temJSd4V5tbTphb3a6CeNbGMX7NgfJhcxmI0Q8OTqo/CKHEsI/2XZDofnBtsqB1vzq9LsfhenITxg==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz9W/n/Kc3N3DgWPhJVU1Q26tt67wAjyEiQFruJr5y/Iq+P9Cux
+	9UwUPi6puZDCRGfUCIinYzaF1xxVzPvNxsHQS9He0jq6jIsZT2uN6KpqH7tJqX6fHEuevA==
+X-Google-Smtp-Source: AGHT+IHllbdvdpNeIVSUCIWzmwjLgK47yyaQGnjKJuHkrzM4n3hoLPsW3VD6z3VeT2CzpCll5061RsnL
+X-Received: from wmbfm21.prod.google.com ([2002:a05:600c:c15:b0:434:fe2b:fea7])
+ (user=ardb job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6000:184e:b0:385:f64e:f163
+ with SMTP id ffacd0b85a97d-38a87312f41mr7988646f8f.32.1736497680388; Fri, 10
+ Jan 2025 00:28:00 -0800 (PST)
+Date: Fri, 10 Jan 2025 09:27:45 +0100
+Mime-Version: 1.0
+X-Developer-Key: i=ardb@kernel.org; a=openpgp; fpr=F43D03328115A198C90016883D200E9CA6329909
+X-Developer-Signature: v=1; a=openpgp-sha256; l=4529; i=ardb@kernel.org;
+ h=from:subject; bh=AUBKLLIPMNBxUb7a34I5INNn0MWf/ugl8eWGUaKnNsY=;
+ b=owGbwMvMwCFmkMcZplerG8N4Wi2JIb3hFuO6sB8O7BeZ5DRbPWsSZ1l8uxFVlaFQWjnziRjf/
+ Nwf+fs6SlkYxDgYZMUUWQRm/3238/REqVrnWbIwc1iZQIYwcHEKwESYPjIyTLz67ZrIrlgey1Ql
+ jeuvL+pMme09pTjx/NTMDONiU0ZeD0aGHZ3i3E5HHm1ZvqqK3682//cF9vtXM9+cM7Faz/4rKru eDwA=
+X-Mailer: git-send-email 2.47.1.688.g23fc6f90ad-goog
+Message-ID: <20250110082744.457067-2-ardb+git@google.com>
+Subject: [PATCH] kbuild: Strip runtime const RELA sections correctly
+From: Ard Biesheuvel <ardb+git@google.com>
+To: linux-kbuild@vger.kernel.org
+Cc: linux-kernel@vger.kernel.org, Ard Biesheuvel <ardb@kernel.org>, 
+	Linus Torvalds <torvalds@linux-foundation.org>, Masahiro Yamada <masahiroy@kernel.org>, 
+	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250109_234611_619733_44BFCCAD 
-X-CRM114-Status: UNSURE (   7.64  )
+X-CRM114-CacheID: sfid-20250110_002802_849614_8F0FA94D 
+X-CRM114-Status: UNSURE (   9.76  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -130,35 +95,116 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 09/01/2025 10:13, Vladimir Kondratiev wrote:
-> 
-> On 07/01/2025 08:58, Vladimir Kondratiev wrote:
->>> Document optional property "riscv,hart-indexes"
->>>
->>> Signed-off-by: Vladimir Kondratiev <vladimir.kondratiev@mobileye.com>
->>> ---
->> So you are going to keep ignoring comments?
-> 
-> Not intentionally, sorry for this. I saw your mail too late, after I already posted
+From: Ard Biesheuvel <ardb@kernel.org>
 
-How?
+Due to the fact that runtime const ELF sections are named without a
+leading period or double underscore, the RSTRIP logic that removes the
+static RELA sections from vmlinux fails to identify them. This results
+in a situation like below, where some sections that were supposed to get
+removed are left behind.
 
-You sent first version on 2nd of Jan. You got my reply after 6 hours, so
-still 2nd of Jan. You even replied to it on 7th of Jan.
+  [Nr] Name                              Type            Address          Off     Size   ES Flg Lk Inf Al
 
-This was sent on 9th Jan.
+  [58] runtime_shift_d_hash_shift        PROGBITS        ffffffff83500f50 2900f50 000014 00   A  0   0  1
+  [59] .relaruntime_shift_d_hash_shift   RELA            0000000000000000 55b6f00 000078 18   I 70  58  8
+  [60] runtime_ptr_dentry_hashtable      PROGBITS        ffffffff83500f68 2900f68 000014 00   A  0   0  1
+  [61] .relaruntime_ptr_dentry_hashtable RELA            0000000000000000 55b6f78 000078 18   I 70  60  8
+  [62] runtime_ptr_USER_PTR_MAX          PROGBITS        ffffffff83500f80 2900f80 000238 00   A  0   0  1
+  [63] .relaruntime_ptr_USER_PTR_MAX     RELA            0000000000000000 55b6ff0 000d50 18   I 70  62  8
 
-How could you reply to my message before "seeing my mail"?
+So tweak the match expression to strip all sections starting with .rel.
+While at it, consolidate the logic used by RISC-V, s390 and x86 into a
+single shared Makefile library command.
 
-> "v3". So I asked you how to better handle this. Perhaps this lost somewhere in
-> the mail thread. I'll repeat - what is the best way, re-submit patch set
-> as "v4" adding missed address, or re-send "v3"?
+Cc: Linus Torvalds <torvalds@linux-foundation.org>
+Cc: Masahiro Yamada <masahiroy@kernel.org>
+Cc: linux-riscv@lists.infradead.org
+Cc: linux-s390@vger.kernel.org
+Link: https://lore.kernel.org/all/CAHk-=wjk3ynjomNvFN8jf9A1k=qSc=JFF591W00uXj-qqNUxPQ@mail.gmail.com/
+Signed-off-by: Ard Biesheuvel <ardb@kernel.org>
+---
+ arch/riscv/Makefile.postlink | 9 +--------
+ arch/s390/Makefile.postlink  | 5 -----
+ arch/x86/Makefile.postlink   | 5 -----
+ scripts/Makefile.lib         | 3 +++
+ 4 files changed, 4 insertions(+), 18 deletions(-)
 
-Whatever submitting patches is proposing for your specific case. Resend
-is for patches without any changes.
+diff --git a/arch/riscv/Makefile.postlink b/arch/riscv/Makefile.postlink
+index 829b9abc91f6..65652fd6a252 100644
+--- a/arch/riscv/Makefile.postlink
++++ b/arch/riscv/Makefile.postlink
+@@ -19,13 +19,6 @@ ifdef CONFIG_RELOCATABLE
+ quiet_cmd_cp_vmlinux_relocs = CPREL   vmlinux.relocs
+ cmd_cp_vmlinux_relocs = cp vmlinux vmlinux.relocs
+ 
+-quiet_cmd_relocs_strip = STRIPREL $@
+-cmd_relocs_strip = $(OBJCOPY)   --remove-section='.rel.*'       \
+-                                --remove-section='.rel__*'      \
+-                                --remove-section='.rela.*'      \
+-                                --remove-section='.rela__*' $@
+-endif
+-
+ # `@true` prevents complaint when there is nothing to be done
+ 
+ vmlinux: FORCE
+@@ -33,7 +26,7 @@ vmlinux: FORCE
+ ifdef CONFIG_RELOCATABLE
+ 	$(call if_changed,relocs_check)
+ 	$(call if_changed,cp_vmlinux_relocs)
+-	$(call if_changed,relocs_strip)
++	$(call if_changed,strip_relocs)
+ endif
+ 
+ clean:
+diff --git a/arch/s390/Makefile.postlink b/arch/s390/Makefile.postlink
+index df82f5410769..008acf35c37e 100644
+--- a/arch/s390/Makefile.postlink
++++ b/arch/s390/Makefile.postlink
+@@ -19,11 +19,6 @@ quiet_cmd_relocs = RELOCS  $(OUT_RELOCS)/relocs.S
+ 	mkdir -p $(OUT_RELOCS); \
+ 	$(CMD_RELOCS) $@ > $(OUT_RELOCS)/relocs.S
+ 
+-quiet_cmd_strip_relocs = RSTRIP  $@
+-      cmd_strip_relocs = \
+-	$(OBJCOPY) --remove-section='.rel.*' --remove-section='.rel__*' \
+-		   --remove-section='.rela.*' --remove-section='.rela__*' $@
+-
+ vmlinux: FORCE
+ 	$(call cmd,relocs)
+ 	$(call cmd,strip_relocs)
+diff --git a/arch/x86/Makefile.postlink b/arch/x86/Makefile.postlink
+index fef2e977cc7d..8db8b7d338ad 100644
+--- a/arch/x86/Makefile.postlink
++++ b/arch/x86/Makefile.postlink
+@@ -20,11 +20,6 @@ quiet_cmd_relocs = RELOCS  $(OUT_RELOCS)/$@.relocs
+ 	$(CMD_RELOCS) $@ > $(OUT_RELOCS)/$@.relocs; \
+ 	$(CMD_RELOCS) --abs-relocs $@
+ 
+-quiet_cmd_strip_relocs = RSTRIP  $@
+-      cmd_strip_relocs = \
+-	$(OBJCOPY) --remove-section='.rel.*' --remove-section='.rel__*' \
+-		   --remove-section='.rela.*' --remove-section='.rela__*' $@
+-
+ # `@true` prevents complaint when there is nothing to be done
+ 
+ vmlinux: FORCE
+diff --git a/scripts/Makefile.lib b/scripts/Makefile.lib
+index 7395200538da..f604f51d23ca 100644
+--- a/scripts/Makefile.lib
++++ b/scripts/Makefile.lib
+@@ -374,6 +374,9 @@ quiet_cmd_ar = AR      $@
+ quiet_cmd_objcopy = OBJCOPY $@
+ cmd_objcopy = $(OBJCOPY) $(OBJCOPYFLAGS) $(OBJCOPYFLAGS_$(@F)) $< $@
+ 
++quiet_cmd_strip_relocs = RSTRIP  $@
++cmd_strip_relocs = $(OBJCOPY) --remove-section='.rel*' $@
++
+ # Gzip
+ # ---------------------------------------------------------------------------
+ 
+-- 
+2.47.1.688.g23fc6f90ad-goog
 
-Best regards,
-Krzysztof
 
 _______________________________________________
 linux-riscv mailing list
