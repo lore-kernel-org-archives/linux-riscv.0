@@ -4,91 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 512B8E77188
-	for <linux-riscv@archiver.kernel.org>; Sat, 11 Jan 2025 00:47:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EDA3DE77188
+	for <linux-riscv@archiver.kernel.org>; Sat, 11 Jan 2025 00:53:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
+	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID
+	:References:Mime-Version:In-Reply-To:Date:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=U02WYZ7EqrIK77DJpzBs8RbFoOdJsbtyLguh/jRgf/Q=; b=UTbJb1XOnFdKDB
-	qt0JbfDpmo56P6N25cHh6eCnBny7WN0EWDfNONnYnjw1/cXOtgIHu1u+L4BStpLg+MZvS1R3uUHX1
-	jKdHRe43PEnWQUnJPYH9kwMHypbUx5smHMx8XhddQAFjOkiWQHg+gTu8UqGNPih1ux25TDBF0vXfQ
-	TMKO0M6luAmDgOR53hBKMRzDlnXbYDGitk7teQgy984pi5vTnob3H4jSR6LG4dfTvf6ucJ61OKFyd
-	+r0gusbJI0maszeb0mpmbcgJ3otAMSdCIUXcbBzXtcb3L0Hy2uxdHCOjFPXPKM7+S6ichr7vE5i/F
-	MLRb8l+QHFsDHF/5Uylw==;
+	List-Owner; bh=kdILnSzejAMjJoM2j67cQixQ++aoQC9lahvuRy4NFQo=; b=Z+O++xAlDpl1VL
+	YdL4hOdD2Vx3QSCsZDog5+1zVNW00IssgIJFa4QdgEhhRxSc7gGuH5GptyhH0av+IXFeZoUyyjSQy
+	YUFKRa+Hp54PA7vSwAbal2+CwobwEjO/rMG4IaibDdQNcZTKYUhOM62BlfhGTpkAgnsMLKiblQ4Sh
+	Md+kX0KHpVGqUN5sdR6rU8+FyqZ+RsXlwNTITS9F/ZDkg65L4FF76wC/neVBy1reIN5ZnclRybbj4
+	Laad0S5DcRK04YFbHpvH7bwWlNZY8BRlNKfxnkmNaAgPxEMi/8bav61klAdG0cXd+61KXaQm7N80H
+	5KKmhWks6+wtlQIFG+Bg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tWPef-0000000HPtm-3tcN;
-	Sat, 11 Jan 2025 00:47:10 +0000
-Received: from mail-pj1-x1036.google.com ([2607:f8b0:4864:20::1036])
+	id 1tWPkj-0000000HQqW-2eK4;
+	Sat, 11 Jan 2025 00:53:25 +0000
+Received: from mail-pj1-x1049.google.com ([2607:f8b0:4864:20::1049])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tWPed-0000000HPsE-0z60
+	id 1tWPiL-0000000HQLH-3wYg
 	for linux-riscv@lists.infradead.org;
-	Sat, 11 Jan 2025 00:47:08 +0000
-Received: by mail-pj1-x1036.google.com with SMTP id 98e67ed59e1d1-2efe25558ddso3435287a91.2
-        for <linux-riscv@lists.infradead.org>; Fri, 10 Jan 2025 16:47:07 -0800 (PST)
+	Sat, 11 Jan 2025 00:50:59 +0000
+Received: by mail-pj1-x1049.google.com with SMTP id 98e67ed59e1d1-2ee5668e09bso4754451a91.3
+        for <linux-riscv@lists.infradead.org>; Fri, 10 Jan 2025 16:50:57 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sifive.com; s=google; t=1736556427; x=1737161227; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=dhKWMGnM57WsMY43qomywj90difyS8W0XzJpu0qHE5Y=;
-        b=RqkqA6Yykt6/2mIcyAuPXLyY7OOYdxsofFofeXt1y60bAFNtPKJ47nUO/9iG1o/egw
-         lNi9ARV6FKFWJH8P76TI3MFK3xzzzrKytdHDO+RAvRkuC0KQKpNDbRDcYyf5Xlri4x75
-         AsIgC1COujDh+Y56e7OQlIbsSCiI5qSMh+ujP5nrFch4DbvbHwedwBmMx0TkVmojevng
-         +nbMADPvND8rtGQ0YaAjo7t8f00GVPDO3XwZH5a+LEp3oEmkI0KhCGTWTmB1QYJ6Ix8k
-         dFzFtVMjhIDlxOO20BlCiQ4RbfTpjlcengRrYOTJMquYWVHc19RXVdyrl4RSivAweQsB
-         l5Sg==
+        d=google.com; s=20230601; t=1736556657; x=1737161457; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:reply-to:from:to:cc:subject:date:message-id:reply-to;
+        bh=fmZxaHK89gYqxCqQ02UIn+br/dW4oBYWdpIBYGTzQvU=;
+        b=1GWrbGjeToC2RYU4gx/iFiDZRRFfQW96ANC4m+0eucYdwOcHhmqlAZBE3yhR6rcD5L
+         DAMUjqb9hwUFXqN2Wp1gSC5xZVKeRYq+4o5YiLFnIuzcYvFxk06S8OEiSeSpiYGCc+f0
+         IQUil3r4RxZsdrVLo+ui0xanNhvgWdLL9sAUjLn03NuJgfxDA3IXKeBuhww0KHlQE/Aq
+         bdl7mGnLb2xJocv8h4NzP8Wts96SIHwNgRp9WtkoCtUtjWnBzy9oIDNWEc9XY+Hu52k1
+         RncJcQn0QG/jmiAT+Yc0R2SbOWZPnAQbcIHQRO8hXwi4cw3R4+i6xDpUWipKWw+CPgCN
+         lIsQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1736556427; x=1737161227;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=dhKWMGnM57WsMY43qomywj90difyS8W0XzJpu0qHE5Y=;
-        b=dOT7nxIQvfcEHzXyXBGmuZwf7cdgWoHwJXJDhnTmRu2gynJYI0YUG8lPKWgKPwuhpG
-         Frtzy2RlEhIkbevD2fajlmGlrTV9BkNsjDoHgJOKVhXOBML4/8V9l1X6qsz67/k7/kvt
-         WRn8oJHnCt1CYiDIEEFUEjxTqY17crrNNPqghJinqfjXlS3tVu/MYMVKf7RtxYgSWA14
-         cJCGxXpLJ3mAIei9ZMBPv+AVu6UzEK8NBaHtoP19Ue0Tu9DlturUtZomnTAxVdLJUu1R
-         Z+BZm7tFWyLzP8zScUzDcVLIZLz3rN+rIqwVt62tJ/GQE8FuNl4hk2yqmFExwSmXBJjP
-         Hvxg==
-X-Forwarded-Encrypted: i=1; AJvYcCXLGKqHRenn95+DKfMT93tEzLGCRxr/kbDIDdxjeey8OMpKUjhckVcAbu/7x+uyPu4kKfv1XctJ4yxK6A==@lists.infradead.org
-X-Gm-Message-State: AOJu0YwcfqFoQvpeslSQy6B/oWRSGLSet8fnVnzG0YI35Ps8MwDBAevF
-	hYI2kmY4+skcS19DUQmJ5IUbaEVRYYDi5bhwudKm6y9TCDqpUpW4rnclPEqeWFY=
-X-Gm-Gg: ASbGncuVCindDKM2cAACS617lqNALBIM4dIaU5kYXNzC2tE0MkfFHmtwPfm+IuwfcRg
-	0/3HfI1KCRXjvszmDNPrz8nR1K+w5RaMl/bKwjUgLzmzuHDsPu/rp+DE1oquGgfILI0n2FalweB
-	jdG55JyYI6Yut1l70USNFtW1KT/MBE/2EdAJDMH2pcBxD6Sv96rx+DEUQ7RTM0gzbbR+gFfPgDW
-	pcj8FEl13hY3j+6vXPTDrFkKXFSfWOhBLPMi3WuAWfq1wNf+JtpDsCL6ZHqjtfLn2gJqAtNhZgp
-	NPs=
-X-Google-Smtp-Source: AGHT+IEzAQsFVVUnarlp48IX+/exhmsTTctl6ss+iMEnk5dre6TgWISy267dYaDXt8LAjE4L45Tvqw==
-X-Received: by 2002:a17:90b:3bcf:b0:2ee:b6c5:1de7 with SMTP id 98e67ed59e1d1-2f548e9872emr19653709a91.2.1736556426732;
-        Fri, 10 Jan 2025 16:47:06 -0800 (PST)
-Received: from sw06.internal.sifive.com ([4.53.31.132])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-2f54a28723esm6064295a91.19.2025.01.10.16.47.05
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 10 Jan 2025 16:47:06 -0800 (PST)
-From: Samuel Holland <samuel.holland@sifive.com>
-To: Anup Patel <anup@brainfault.org>,
-	Atish Patra <atishp@atishpatra.org>,
-	kvm-riscv@lists.infradead.org,
-	linux-riscv@lists.infradead.org
-Cc: Samuel Holland <samuel.holland@sifive.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	kvm@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: [RFC PATCH 2/2] RISC-V: KVM: Add support for SBI_FWFT_POINTER_MASKING_PMLEN
-Date: Fri, 10 Jan 2025 16:46:59 -0800
-Message-ID: <20250111004702.2813013-3-samuel.holland@sifive.com>
-X-Mailer: git-send-email 2.47.0
-In-Reply-To: <20250111004702.2813013-1-samuel.holland@sifive.com>
-References: <20250111004702.2813013-1-samuel.holland@sifive.com>
-MIME-Version: 1.0
+        d=1e100.net; s=20230601; t=1736556657; x=1737161457;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:reply-to:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=fmZxaHK89gYqxCqQ02UIn+br/dW4oBYWdpIBYGTzQvU=;
+        b=AscfwK4gP+jviISVPzAxvE03OlyahD58o+5T7yNZE4y+WI7PaHTA2gTQ9pRcdzPClZ
+         XqM8HGEH9FELdgfvPzMDwKxT/ZN8H/TFKBx4rCvjB5vr+WwHEft115VuMWfnsvwxubuA
+         D6EwLFyRWTTfhZeZHVRYA8HBAChzRSfR+oCgVumviMSTR6NlFjZPojZR93T/Hg0zgEwd
+         fjc1sBMlG4Gb2LMERHckoxc3zlyxZxgf9/psOy1pLj8F8FGA/pxYmO0uuUu2heFu19WN
+         TjXNm7gwvrstsgw8zuEJC/y45ge47m1KRTU05Y1Hvn9Lfir9p/uf2a2PnEXHd/pDkanB
+         ipHw==
+X-Forwarded-Encrypted: i=1; AJvYcCVkNvhf/DnLu4WVKmORMU2oANMsA7RxXwXR4BfLQrPJj+C8ocf/N5SzpAiM1xWrZUJ4ooQ9IWMgFqOsRg==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx6gg9oZfp/B/Sj9m2FKnyp0wrk4cUj2vambdykyk8mow0eZZYK
+	aWOJbBKMaiDupf2eAUl2X3xEJggnHdlUjlM3HMMAbmpyUvBjp+kWptrbtlhSqOXxzCCkyBFPCvy
+	BQQ==
+X-Google-Smtp-Source: AGHT+IEiPYhZFrxECLTpeRyhrniySkHxs86k154WoHT+4SPRvFRx2z0MZkxZdNLfF3LCv7K79vdra9fQLrE=
+X-Received: from pjz13.prod.google.com ([2002:a17:90b:56cd:b0:2ef:7af4:5e8e])
+ (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:90b:2cc5:b0:2ee:c91a:ad05
+ with SMTP id 98e67ed59e1d1-2f548e984abmr17519047a91.3.1736556656714; Fri, 10
+ Jan 2025 16:50:56 -0800 (PST)
+Date: Fri, 10 Jan 2025 16:50:43 -0800
+In-Reply-To: <20250111005049.1247555-1-seanjc@google.com>
+Mime-Version: 1.0
+References: <20250111005049.1247555-1-seanjc@google.com>
+X-Mailer: git-send-email 2.47.1.613.gc27f4b7a9f-goog
+Message-ID: <20250111005049.1247555-4-seanjc@google.com>
+Subject: [PATCH v2 3/9] KVM: selftests: Assert that __vm_get_stat() actually
+ finds a stat
+From: Sean Christopherson <seanjc@google.com>
+To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
+	Anup Patel <anup@brainfault.org>, Paul Walmsley <paul.walmsley@sifive.com>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Christian Borntraeger <borntraeger@linux.ibm.com>, Janosch Frank <frankja@linux.ibm.com>, 
+	Claudio Imbrenda <imbrenda@linux.ibm.com>, Sean Christopherson <seanjc@google.com>, 
+	Paolo Bonzini <pbonzini@redhat.com>
+Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
+	kvm@vger.kernel.org, kvm-riscv@lists.infradead.org, 
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250110_164707_272704_8F826141 
-X-CRM114-Status: GOOD (  18.30  )
+X-CRM114-CacheID: sfid-20250110_165057_976754_B3DC1EAE 
+X-CRM114-Status: UNSURE (   9.90  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,138 +94,42 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Reply-To: Sean Christopherson <seanjc@google.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Pointer masking is controlled through a WARL field in henvcfg. Expose
-the feature only if at least one PMLEN value is supported for VS-mode.
-Allow the VMM to block access to the feature by disabling the Smnpm ISA
-extension in the guest.
+Fail the test if it attempts to read a stat that doesn't exist, e.g. due
+to a typo (hooray, strings), or because the test tried to get a stat for
+the wrong scope.  As is, there's no indiciation of failure and @data is
+left untouched, e.g. holds '0' or random stack data in most cases.
 
-Signed-off-by: Samuel Holland <samuel.holland@sifive.com>
+Fixes: 8448ec5993be ("KVM: selftests: Add NX huge pages test")
+Signed-off-by: Sean Christopherson <seanjc@google.com>
 ---
+ tools/testing/selftests/kvm/lib/kvm_util.c | 5 +++--
+ 1 file changed, 3 insertions(+), 2 deletions(-)
 
- arch/riscv/include/asm/kvm_vcpu_sbi_fwft.h |  2 +
- arch/riscv/kvm/vcpu_onereg.c               |  1 -
- arch/riscv/kvm/vcpu_sbi_fwft.c             | 70 +++++++++++++++++++++-
- 3 files changed, 71 insertions(+), 2 deletions(-)
-
-diff --git a/arch/riscv/include/asm/kvm_vcpu_sbi_fwft.h b/arch/riscv/include/asm/kvm_vcpu_sbi_fwft.h
-index 5782517f6e08..5176344d9162 100644
---- a/arch/riscv/include/asm/kvm_vcpu_sbi_fwft.h
-+++ b/arch/riscv/include/asm/kvm_vcpu_sbi_fwft.h
-@@ -30,6 +30,8 @@ struct kvm_sbi_fwft_config {
- /* FWFT data structure per vcpu */
- struct kvm_sbi_fwft {
- 	struct kvm_sbi_fwft_config *configs;
-+	bool have_vs_pmlen_7;
-+	bool have_vs_pmlen_16;
- };
+diff --git a/tools/testing/selftests/kvm/lib/kvm_util.c b/tools/testing/selftests/kvm/lib/kvm_util.c
+index 9138801ecb60..21b5a6261106 100644
+--- a/tools/testing/selftests/kvm/lib/kvm_util.c
++++ b/tools/testing/selftests/kvm/lib/kvm_util.c
+@@ -2238,9 +2238,10 @@ void __vm_get_stat(struct kvm_vm *vm, const char *stat_name, uint64_t *data,
  
- #define vcpu_to_fwft(vcpu) (&(vcpu)->arch.fwft_context)
-diff --git a/arch/riscv/kvm/vcpu_onereg.c b/arch/riscv/kvm/vcpu_onereg.c
-index 93115abca3b8..1d2033b33e6d 100644
---- a/arch/riscv/kvm/vcpu_onereg.c
-+++ b/arch/riscv/kvm/vcpu_onereg.c
-@@ -168,7 +168,6 @@ static bool kvm_riscv_vcpu_isa_disable_allowed(unsigned long ext)
- 	case KVM_RISCV_ISA_EXT_C:
- 	case KVM_RISCV_ISA_EXT_I:
- 	case KVM_RISCV_ISA_EXT_M:
--	case KVM_RISCV_ISA_EXT_SMNPM:
- 	/* There is not architectural config bit to disable sscofpmf completely */
- 	case KVM_RISCV_ISA_EXT_SSCOFPMF:
- 	case KVM_RISCV_ISA_EXT_SSNPM:
-diff --git a/arch/riscv/kvm/vcpu_sbi_fwft.c b/arch/riscv/kvm/vcpu_sbi_fwft.c
-index 1e85ff6666af..6e8f818fd6f5 100644
---- a/arch/riscv/kvm/vcpu_sbi_fwft.c
-+++ b/arch/riscv/kvm/vcpu_sbi_fwft.c
-@@ -68,13 +68,81 @@ static int kvm_sbi_fwft_get_misaligned_delegation(struct kvm_vcpu *vcpu,
- 	return SBI_SUCCESS;
+ 		read_stat_data(vm->stats_fd, &vm->stats_header, desc,
+ 			       data, max_elements);
+-
+-		break;
++		return;
+ 	}
++
++	TEST_FAIL("Unabled to find stat '%s'", stat_name);
  }
  
-+static bool try_to_set_pmm(unsigned long value)
-+{
-+	csr_set(CSR_HENVCFG, value);
-+	return (csr_read_clear(CSR_HENVCFG, ENVCFG_PMM) & ENVCFG_PMM) == value;
-+}
-+
-+static bool kvm_sbi_fwft_pointer_masking_pmlen_supported(struct kvm_vcpu *vcpu)
-+{
-+	struct kvm_sbi_fwft *fwft = vcpu_to_fwft(vcpu);
-+
-+	if (!riscv_isa_extension_available(vcpu->arch.isa, SMNPM))
-+		return false;
-+
-+	fwft->have_vs_pmlen_7 = try_to_set_pmm(ENVCFG_PMM_PMLEN_7);
-+	fwft->have_vs_pmlen_16 = try_to_set_pmm(ENVCFG_PMM_PMLEN_16);
-+
-+	return fwft->have_vs_pmlen_7 || fwft->have_vs_pmlen_16;
-+}
-+
-+static int kvm_sbi_fwft_set_pointer_masking_pmlen(struct kvm_vcpu *vcpu,
-+						  struct kvm_sbi_fwft_config *conf,
-+						  unsigned long value)
-+{
-+	struct kvm_sbi_fwft *fwft = vcpu_to_fwft(vcpu);
-+	unsigned long pmm;
-+
-+	if (value == 0)
-+		pmm = ENVCFG_PMM_PMLEN_0;
-+	else if (value <= 7 && fwft->have_vs_pmlen_7)
-+		pmm = ENVCFG_PMM_PMLEN_7;
-+	else if (value <= 16 && fwft->have_vs_pmlen_16)
-+		pmm = ENVCFG_PMM_PMLEN_16;
-+	else
-+		return SBI_ERR_INVALID_PARAM;
-+
-+	vcpu->arch.cfg.henvcfg &= ~ENVCFG_PMM;
-+	vcpu->arch.cfg.henvcfg |= pmm;
-+
-+	return SBI_SUCCESS;
-+}
-+
-+static int kvm_sbi_fwft_get_pointer_masking_pmlen(struct kvm_vcpu *vcpu,
-+						  struct kvm_sbi_fwft_config *conf,
-+						  unsigned long *value)
-+{
-+	switch (vcpu->arch.cfg.henvcfg & ENVCFG_PMM) {
-+	case ENVCFG_PMM_PMLEN_0:
-+		*value = 0;
-+		break;
-+	case ENVCFG_PMM_PMLEN_7:
-+		*value = 7;
-+		break;
-+	case ENVCFG_PMM_PMLEN_16:
-+		*value = 16;
-+		break;
-+	default:
-+		return SBI_ERR_FAILURE;
-+	}
-+
-+	return SBI_SUCCESS;
-+}
-+
- static const struct kvm_sbi_fwft_feature features[] = {
- 	{
- 		.id = SBI_FWFT_MISALIGNED_EXC_DELEG,
- 		.supported = kvm_sbi_fwft_misaligned_delegation_supported,
- 		.set = kvm_sbi_fwft_set_misaligned_delegation,
- 		.get = kvm_sbi_fwft_get_misaligned_delegation,
--	}
-+	},
-+	{
-+		.id = SBI_FWFT_POINTER_MASKING_PMLEN,
-+		.supported = kvm_sbi_fwft_pointer_masking_pmlen_supported,
-+		.set = kvm_sbi_fwft_set_pointer_masking_pmlen,
-+		.get = kvm_sbi_fwft_get_pointer_masking_pmlen,
-+	},
- };
- 
- static struct kvm_sbi_fwft_config *
+ __weak void kvm_arch_vm_post_create(struct kvm_vm *vm)
 -- 
-2.47.0
+2.47.1.613.gc27f4b7a9f-goog
 
 
 _______________________________________________
