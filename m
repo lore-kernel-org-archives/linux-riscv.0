@@ -4,71 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 40A22E77188
-	for <linux-riscv@archiver.kernel.org>; Sat, 11 Jan 2025 01:14:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 563C1E77188
+	for <linux-riscv@archiver.kernel.org>; Sat, 11 Jan 2025 01:16:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=wcRKA45TY0w/pIPY1IsWnGDo73BN3Zy6Twt7nxjF2DA=; b=RCVE4taFfbWoA/
-	YwujdGIL4QcI2DdoCmmQ4PHqx7I1Q4J6/HcfHuzme7NscBB8/fBDbYbNoSlp/Df5e/TrYHSEcayED
-	R6iUhlriBr/aeSCC5sHbZTHzeJHqOv5Syown9UPat+r+AWni6PJFyp9OEjeQzQJ4A5+GYqpWaJzNs
-	NzRUD4ity22oTmPGnMe08OuZ09ntCmWBSro2okNk0+lWT07KcD26eDagh9q1w1a8Pk6wQ5Fxtat3K
-	nqYe0Le8ZJJVXeIdqz3AsA7Olwo9gR9e8BktG6lWsAekPNDLUokiO6QVSF1IBsedvTQDrrveNfig4
-	s5f5uRY6p1B3g1QmaYDg==;
+	List-Owner; bh=G5ZJAL2YRuwYi9dhDzjF6/Q2lHB4xm5oK7HhTVtktqA=; b=O8ssK9Q/Es9ppj
+	FDRdSF2MEaolzi9MreSL0xbBHU25T2F72hzG9KesAl+6T94R7XRG0jtHF5Lr4r9kRW74XJNifYY9Z
+	7qIW2GepWJd83TcKhpH8CscoV9GOwh5lMq4HYiulhe0Oudf5zz02TOfu6ZHwqoi3jO6oCaZS9OjWA
+	CWaP5aC0Qo8M6+mvcLoSGyHKwufAHq3quamLlk9NqpOOVAagD56EBFPRgOZdGg/JzKi5MIcjckx/N
+	Sp4cBGfy7F5B/sTIFOUcxibYQy0E9pgkBmNx48N0TNYTc0jWl6oo1USa/MaqaQYJ/SeYu7RfHDgvt
+	mMyAGWdZlP8N1aJSlvTQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tWQ54-0000000HTZ9-0dSQ;
-	Sat, 11 Jan 2025 01:14:26 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tWQ51-0000000HTYg-3bHN
-	for linux-riscv@lists.infradead.org;
-	Sat, 11 Jan 2025 01:14:25 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 8286C5C584D
-	for <linux-riscv@lists.infradead.org>; Sat, 11 Jan 2025 01:13:41 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2AFD5C4CEE4
-	for <linux-riscv@lists.infradead.org>; Sat, 11 Jan 2025 01:14:22 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1736558062;
-	bh=n+iRm2VaEJvvCCHmY+X42mIpAqGf52//qef9C9sjFzQ=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=d7pch/5Ai3D88+mYzxr4tKRXyYeEsstHsz/AP6jZ82xJ0g8upbBSoEyBI1db98t7t
-	 0F7GdQO9QmYnkCBfdeM0TsLHrK2pqjQv8cI8X0FiuY2Ms4o3JBAMlNVMJ1Aj4rtUZx
-	 n7EsOzPpwFwaSZMVErvoOh4P2tCVro1wy0UTSjeopvuM+99b64WltPIgDZ0rfVXozl
-	 z1QPZbXeyS/eIDR2uhGW+RsGUDEUUmSXBzKyJB+V/JGWCSARSemS6DVeMnPLj+u/vt
-	 YU02Cea6ay5x5waHfpsNge0+ud9mpJXhHYConhWsavxvveg4Qj4GGZjhEhUWGfROT7
-	 axdJtyrH0Lr1Q==
-Received: by mail-lf1-f43.google.com with SMTP id 2adb3069b0e04-53df80eeeedso2493223e87.2
-        for <linux-riscv@lists.infradead.org>; Fri, 10 Jan 2025 17:14:22 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCVGTzvDJmwhIpr8psMJZbklajnjjFBiqI+O2/OcBxPeybensS5P6UXHYJFL8j4r9P4Q9aDwsPgzPLO9MQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0YyLH4lbRsTMl+Kkv0bXSEAvjIOqrCVDJod3j4ZdUEVWocsNjZmJ
-	UAyTaIH4QtusU9V8H/0k69PT4cFFTOt/CWyAucqlr+kaGOnw1ZeITJPmGxIDKlW1oPUU2eh0e02
-	pWLWPl0tP5B7L/IzlvEsvcqjl36Q=
-X-Google-Smtp-Source: AGHT+IHY04Sligz279mJ22kXB8Zjf/y7VUC/N6Z6gUTMrSAcA4W4uor1DT6HPAp0b14YuYtRYWDA7k5jcE8WiamKzAc=
-X-Received: by 2002:a05:6512:6cc:b0:53e:350a:729e with SMTP id
- 2adb3069b0e04-542845b94d0mr4507675e87.35.1736558060770; Fri, 10 Jan 2025
- 17:14:20 -0800 (PST)
+	id 1tWQ7D-0000000HTnW-3fvv;
+	Sat, 11 Jan 2025 01:16:39 +0000
+Received: from vmicros1.altlinux.org ([194.107.17.57])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tWQ7B-0000000HTmw-0Y2E;
+	Sat, 11 Jan 2025 01:16:38 +0000
+Received: from mua.local.altlinux.org (mua.local.altlinux.org [192.168.1.14])
+	by vmicros1.altlinux.org (Postfix) with ESMTP id 3D21472C8FB;
+	Sat, 11 Jan 2025 04:16:32 +0300 (MSK)
+Received: by mua.local.altlinux.org (Postfix, from userid 508)
+	id 2736C7CCB3A; Sat, 11 Jan 2025 03:16:32 +0200 (IST)
+Date: Sat, 11 Jan 2025 03:16:32 +0200
+From: "Dmitry V. Levin" <ldv@strace.io>
+To: Sven Schnelle <svens@linux.ibm.com>
+Cc: Oleg Nesterov <oleg@redhat.com>,
+	Eugene Syromyatnikov <evgsyr@gmail.com>,
+	Mike Frysinger <vapier@gentoo.org>,
+	Renzo Davoli <renzo@cs.unibo.it>,
+	Davide Berardi <berardi.dav@gmail.com>,
+	strace-devel@lists.strace.io, Vineet Gupta <vgupta@kernel.org>,
+	Russell King <linux@armlinux.org.uk>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Brian Cain <bcain@quicinc.com>,
+	Huacai Chen <chenhuacai@kernel.org>,
+	WANG Xuerui <kernel@xen0n.name>,
+	Geert Uytterhoeven <geert@linux-m68k.org>,
+	Michal Simek <monstr@monstr.eu>,
+	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+	Dinh Nguyen <dinguyen@kernel.org>, Jonas Bonn <jonas@southpole.se>,
+	Stefan Kristiansson <stefan.kristiansson@saunalahti.fi>,
+	Stafford Horne <shorne@gmail.com>,
+	"James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>,
+	Helge Deller <deller@gmx.de>, Michael Ellerman <mpe@ellerman.id.au>,
+	Nicholas Piggin <npiggin@gmail.com>,
+	Christophe Leroy <christophe.leroy@csgroup.eu>,
+	Naveen N Rao <naveen@kernel.org>,
+	Madhavan Srinivasan <maddy@linux.ibm.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Heiko Carstens <hca@linux.ibm.com>,
+	Vasily Gorbik <gor@linux.ibm.com>,
+	Alexander Gordeev <agordeev@linux.ibm.com>,
+	Christian Borntraeger <borntraeger@linux.ibm.com>,
+	Yoshinori Sato <ysato@users.sourceforge.jp>,
+	Rich Felker <dalias@libc.org>,
+	John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>,
+	"David S. Miller" <davem@davemloft.net>,
+	Andreas Larsson <andreas@gaisler.com>,
+	Richard Weinberger <richard@nod.at>,
+	Anton Ivanov <anton.ivanov@cambridgegreys.com>,
+	Johannes Berg <johannes@sipsolutions.net>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
+	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
+	"H. Peter Anvin" <hpa@zytor.com>, Chris Zankel <chris@zankel.net>,
+	Max Filippov <jcmvbkbc@gmail.com>, Arnd Bergmann <arnd@arndb.de>,
+	linux-snps-arc@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-hexagon@vger.kernel.org,
+	loongarch@lists.linux.dev, linux-m68k@lists.linux-m68k.org,
+	linux-mips@vger.kernel.org, linux-openrisc@vger.kernel.org,
+	linux-parisc@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
+	linux-sh@vger.kernel.org, sparclinux@vger.kernel.org,
+	linux-um@lists.infradead.org, linux-arch@vger.kernel.org
+Subject: Re: [PATCH 3/6] syscall.h: introduce syscall_set_nr()
+Message-ID: <20250111011632.GA1724@strace.io>
+References: <20250107230438.GC30633@strace.io>
+ <yt9dzfjz6rw5.fsf@linux.ibm.com>
 MIME-Version: 1.0
-References: <20250110082744.457067-2-ardb+git@google.com> <CAK7LNASygf5gRdYOOa3KsKbz8mny9nnn5RduuGtP5WoWgXDTQA@mail.gmail.com>
- <CAMj1kXEPq6VU19qzmW9DNVG=nzoGbnCMt7dE5nXeZCqk2JPE3A@mail.gmail.com> <CAHk-=wiGfhxb4q4T2=W=Vg=sHwZwwMTN2EaDYbmS0VG1Srdb-w@mail.gmail.com>
-In-Reply-To: <CAHk-=wiGfhxb4q4T2=W=Vg=sHwZwwMTN2EaDYbmS0VG1Srdb-w@mail.gmail.com>
-From: Masahiro Yamada <masahiroy@kernel.org>
-Date: Sat, 11 Jan 2025 10:13:44 +0900
-X-Gmail-Original-Message-ID: <CAK7LNASrzZnoLeRQz9FH6EUEz1rSPY_-GHvmS=8JA2R8eCjSKg@mail.gmail.com>
-X-Gm-Features: AbW1kvYUzM6oy1WA3iNunnG5Otg_1tGF6QyaJF7fe05aRP67ws8j4txIP2SJldQ
-Message-ID: <CAK7LNASrzZnoLeRQz9FH6EUEz1rSPY_-GHvmS=8JA2R8eCjSKg@mail.gmail.com>
-Subject: Re: [PATCH] kbuild: Strip runtime const RELA sections correctly
-To: Linus Torvalds <torvalds@linux-foundation.org>
-Cc: Ard Biesheuvel <ardb@kernel.org>, Ard Biesheuvel <ardb+git@google.com>, linux-kbuild@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
-	linux-s390@vger.kernel.org
+Content-Disposition: inline
+In-Reply-To: <yt9dzfjz6rw5.fsf@linux.ibm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250110_171423_986249_C5646BEB 
-X-CRM114-Status: GOOD (  14.75  )
+X-CRM114-CacheID: sfid-20250110_171637_501766_72E36C16 
+X-CRM114-Status: GOOD (  21.30  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,40 +106,71 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gU2F0LCBKYW4gMTEsIDIwMjUgYXQgMzozM+KAr0FNIExpbnVzIFRvcnZhbGRzCjx0b3J2YWxk
-c0BsaW51eC1mb3VuZGF0aW9uLm9yZz4gd3JvdGU6Cj4KPiBPbiBGcmksIDEwIEphbiAyMDI1IGF0
-IDEwOjExLCBBcmQgQmllc2hldXZlbCA8YXJkYkBrZXJuZWwub3JnPiB3cm90ZToKPiA+Cj4gPiBJ
-IHN1cHBvc2UgdGhpcyBpcyBhIGNvbnNlcXVlbmNlIG9mIDg5NjJiNmI0NzViZGRjICgia2J1aWxk
-OiBwcmludAo+ID4gc2hvcnQgbG9nIGluIGFkZGl0aW9uIHRvIHRoZSB3aG9sZSBjb21tYW5kIHdp
-dGggVj0xIikgd2hpY2ggaW50cm9kdWNlZAo+ID4gYW4gJChpZiApIHdoZXJlIHRoZSBlbHNlIGJy
-YW5jaCBpcyBzaW1wbHkgJzonIGFuZCBzbyBpdCBhbHdheXMKPiA+IHN1Y2NlZWRzLgo+Cj4gSG1t
-LiBPZGQuIEkgZG9uJ3Qgc2VlIHdoeSB0aGF0IHBhcnQgb2YgdGhlIGNvbW1pdCBleGlzdHMsIGFu
-ZCB5b3UncmUKPiByaWdodCwgdGhhdCBzZWVtcyBsaWtlIGEgYmFkIGlkZWEuCj4KPiBBbmQgcmVt
-b3ZpbmcgdGhhdCBvZGQgJChpZi4uKSBhbmQgbWFraW5nIGl0IGp1c3QgZG8KPgo+ICAgIGNtZCA9
-IEBzZXQgLWU7ICQoJChxdWlldClsb2dfcHJpbnQpICQoZGVsZXRlLW9uLWludGVycnVwdCkgJChj
-bWRfJCgxKSkKPgo+IGRvZXNuJ3Qgc2VlbSB0byBoYXZlIGFueSBvYnZpb3VzIG5lZ2F0aXZlIGVm
-ZmVjdHMuCgpXaGVuIGNtZF9mb28gaXMgbm90IGRlZmluZWQsICQoY2FsbCBpZl9jaGFuZ2VkLGZv
-bykgd2lsbCBmYWlsIHdpdGggdGhpcyBjaGFuZ2UsCmJ1dCAkKGNhbGwgY21kLGZvbykgd2lsbCBz
-dWNjZWVkIHJlZ2FyZGxlc3MuCgpJbiBNYWtlZmlsZSwgdGhlIHZhcmlhYmxlIGV4cGFuc2lvbiB3
-b3JrcyBsaWtlIHRoZSBsYXR0ZXIuCldoZW4gWCBpcyBub3QgZGVmaW5lZCwgJChYKSBpcyBleHBh
-bmRlZCB0byBhbiBlbXB0eSBzdHJpbmcgc3VjY2Vzc2Z1bGx5LgpUaGlzIGlzIHVzZWZ1bC4KCgo+
-IEknbSBwcm9iYWJseSBtaXNzaW5nIHNvbWUgb2J2aW91cyByZWFzb24gd2h5IHRoYXQgJChpZi4u
-KSB3YXMgYWRkZWQsCj4gaXQncyBiZWVuIHRoYXQgd2F5IGZvciB0d28geWVhcnMgbm93LgoKV2Ug
-ZG8gbm90IG5lZWQgdG8gZ3VhcmQgYm90aCBhIGRlZmluaXRpb24gYW5kIGl0cyBjYWxsc2l0ZS4K
-CkZvciBleGFtcGxlLCB0aGUgY3VycmVudCBjb2RlIGluIGFyY2gvcG93ZXJwYy9NYWtlZmlsZS5w
-b3N0bGluazoKCnZtbGludXg6IEZPUkNFCiAgICAgICAgQHRydWUKaWZkZWYgQ09ORklHX1BQQzY0
-CiAgICAgICAgJChjYWxsIGNtZCxoZWFkX2NoZWNrKQplbmRpZgppZmRlZiBDT05GSUdfUkVMT0NB
-VEFCTEUKICAgICAgICAkKGNhbGwgaWZfY2hhbmdlZCxyZWxvY3NfY2hlY2spCmVuZGlmCmlmZGVm
-IENPTkZJR19GVU5DVElPTl9UUkFDRVIKaWZuZGVmIENPTkZJR19QUEM2NF9FTEZfQUJJX1YxCiAg
-ICAgICAgJChjYWxsIGNtZCxmdHJhY2VfY2hlY2spCmVuZGlmCmVuZGlmCgoKLi4uIGNhbiBiZSBz
-aW1wbGlmaWVkIGludG86Cgp2bWxpbnV4OiBGT1JDRQogICAgICAgICQoY2FsbCBjbWQsaGVhZF9j
-aGVjaykKICAgICAgICAkKGNhbGwgaWZfY2hhbmdlZCxyZWxvY3NfY2hlY2spCiAgICAgICAgJChj
-YWxsIGNtZCxmdHJhY2VfY2hlY2spCgoKCgoKCi0tIApCZXN0IFJlZ2FyZHMKTWFzYWhpcm8gWWFt
-YWRhCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51
-eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRw
-Oi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+On Fri, Jan 10, 2025 at 08:37:46AM +0100, Sven Schnelle wrote:
+> "Dmitry V. Levin" <ldv@strace.io> writes:
+> 
+> > Similar to syscall_set_arguments() that complements
+> > syscall_get_arguments(), introduce syscall_set_nr()
+> > that complements syscall_get_nr().
+> >
+> > syscall_set_nr() is going to be needed along with
+> > syscall_set_arguments() on all HAVE_ARCH_TRACEHOOK
+> > architectures to implement PTRACE_SET_SYSCALL_INFO API.
+[...]
+> > diff --git a/arch/s390/include/asm/syscall.h b/arch/s390/include/asm/syscall.h
+> > index b3dd883699e7..1c0e349fd5c9 100644
+> > --- a/arch/s390/include/asm/syscall.h
+> > +++ b/arch/s390/include/asm/syscall.h
+> > @@ -24,6 +24,13 @@ static inline long syscall_get_nr(struct task_struct *task,
+> >  		(regs->int_code & 0xffff) : -1;
+> >  }
+> >  
+> > +static inline void syscall_set_nr(struct task_struct *task,
+> > +				  struct pt_regs *regs,
+> > +				  int nr)
+> > +{
+> 
+> I think there should be a
+> 
+> 	if (!test_pt_regs_flags(regs, PIF_SYSCALL))
+> 		return;
+> 
+> before the modification so a user can't accidentally change int_code
+> when ptrace stopped in a non-syscall path.
+
+The reason why syscall_get_nr() has this check on s390 (and similar checks
+on arc, powerpc, and sparc) is that syscall_get_nr() can be called while
+the target task is not in syscall.
+
+Unlike syscall_get_nr(), syscall_set_nr() can be called only when the
+target task is stopped for tracing on entering syscall: the description in
+include/asm-generic/syscall.h explicitly states that, and the follow-up
+patch that introduces PTRACE_SET_SYSCALL_INFO adds a syscall_set_nr() call
+when the tracee is stopped on entering syscall in either
+PTRACE_SYSCALL_INFO_ENTRY or PTRACE_SYSCALL_INFO_SECCOMP state.
+
+I don't mind adding a check, but syscall_set_nr() invocation while the
+target task is not in syscall wouldn't be a result of user actions but
+a kernel programing error, and in that case WARN_ON_ONCE() would be more
+appropriate.
+
+If calling syscall_set_nr() while the target task is not in syscall was
+legal, then syscall_set_nr() would have been designed to return a value
+indicating the status of operation.
+
+Anyway, I'll add an explanatory comment to syscall_set_nr() on all
+architectures where syscall_get_nr() has a check.
+
+
+-- 
+ldv
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
