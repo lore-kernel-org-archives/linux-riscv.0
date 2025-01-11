@@ -4,71 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0FA52E77188
-	for <linux-riscv@archiver.kernel.org>; Sat, 11 Jan 2025 00:54:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 84061E7719C
+	for <linux-riscv@archiver.kernel.org>; Sat, 11 Jan 2025 00:57:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
 	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID
 	:References:Mime-Version:In-Reply-To:Date:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=T4wbE9ZJDH+y+R7d0OyZ/tNsBt0GG78Fs0bYev6uF2w=; b=JLufNGFrrnIRCg
-	Eh4XEoRUwiR4iP+9Ktrth/1POVB8cGbWn74LIT2ZUrat8AcGL8It7HM0lzjpn3K0XbNyQcS6EkMY4
-	TpeDMicuoCFr/RiqcokrFu0lLYcdT75xfMSJsEz56N6O595zvUBv7kRKIHl3NNQut2uh9LF35d25e
-	URhYZm646ZWXmaeboqjwBhaX/YBdOStPccm2iINaP/BAK8iKb75J7453u+vggsnAWtpmGIzJijb3B
-	gsR8BUjiwe65G9iEhL8dujqwXgZEisvQ2gZQE77NvfAiNQTMMgUKfBT+li+VjKnBfmo8Wa9Bvv5rx
-	YELcUaGygH3JTfcRtsdw==;
+	List-Owner; bh=2Vh2hi7SpG2z37s16ZqbfAY0tNR6a3xH8b2tkub3Ezg=; b=nmo9KaoLVotQTp
+	WRx3MH62AELzEznKiRa5yPh+gOXSIYWrbRPwI85VESZOmPQoK4fNB44QWiVtJTwiANQuaHBc6BzxA
+	vlpXpNBjE5OUDcZueVouUgwLal255B/q+cO00hfIFj9PJvDzpmkunrWzT+NRuxkN7m2g0mBBYmvB5
+	hviI9BmOMgSG0PvDK03GpWK67exJHZVN+7FCMlqdAm5sEerE6pomHaXuQTe099f4HQfdPw7FA/ctQ
+	kfkeFrxZqfKjkZI09yfWEUeFvuLnuT22GRbBNEtNEoGOCB1PpJlW8NZq3CClF7HJHv33HO8243gLZ
+	opDi1c+S22aitj/Gjjxw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tWPlv-0000000HRG2-3Tas;
-	Sat, 11 Jan 2025 00:54:39 +0000
-Received: from mail-pj1-x1049.google.com ([2607:f8b0:4864:20::1049])
+	id 1tWPoN-0000000HRcx-0eWD;
+	Sat, 11 Jan 2025 00:57:11 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tWPiP-0000000HQMT-0MfO
+	id 1tWPiS-0000000HQNr-0oOW
+	for linux-riscv@bombadil.infradead.org;
+	Sat, 11 Jan 2025 00:51:04 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Type:Cc:To:From:Subject:
+	Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:Sender:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=VJst1sRt7o765YHKTsyCLHu+qBA9pewJkWtnndgMLN0=; b=NIS9YEomDO5qY29dZRXEK7kT0Z
+	+2vJYZ78L6qCStTwmhzhOdGqWYtByFxUH+jEtnwZt2CXP4Z8KU7z4TZir36Wk3Q7wDmZ9xBqXPosT
+	SUjpDMuKGkuCT2B+jH4BrXYhObozmyKjUakhQVszFfWJyeOTi7W8+BT2SYMLmxgpYnUksog3JXSH5
+	m+9H99SLku5ROE6fp1aNFD/RuE5yTs+FmZRybI1fGzjhkIrGie3TbBH7KfE1A2igj6Cii4x5RMq6c
+	NNSWNmOCsjO/1hjfSj7kKkIZ2Km/+wi96PfqVSmlV4tvfMOMBh2CErD5wth2WNGwhwSDKDvw+5tNR
+	eekpApBA==;
+Received: from mail-pj1-x104a.google.com ([2607:f8b0:4864:20::104a])
+	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tWPiK-00000009yLZ-3BQw
 	for linux-riscv@lists.infradead.org;
 	Sat, 11 Jan 2025 00:51:02 +0000
-Received: by mail-pj1-x1049.google.com with SMTP id 98e67ed59e1d1-2f2a9f056a8so4815126a91.2
-        for <linux-riscv@lists.infradead.org>; Fri, 10 Jan 2025 16:51:00 -0800 (PST)
+Received: by mail-pj1-x104a.google.com with SMTP id 98e67ed59e1d1-2ef9da03117so6713652a91.1
+        for <linux-riscv@lists.infradead.org>; Fri, 10 Jan 2025 16:50:56 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1736556660; x=1737161460; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1736556655; x=1737161455; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:reply-to:from:to:cc:subject:date:message-id:reply-to;
-        bh=lQGXs4fRzhUjC9h6471rkcBzWgIFKg5z0MpBCPWHmMU=;
-        b=j3Cl7emQhO0Gv8ADACM/NdBjmdKyvZlY2sfvUkjDV6PFQwegYBnWu6Jajr/MXZhTp8
-         pPzJ6UiDTMOUhMVaMH8DIfLJeyFOrkJtzR8TkJcJ57NI5zY3of9cuJg6naCrwqIlpuHr
-         V2ADM5L+WipPPTp/6mw23z9dscBQJ4M8xxd1Qtjoe6kBUTiQ+oEll0PtP1hU9N8/Eb//
-         0ym9PNljJtv/zyXqjCmIesTnfiIEFZaTp7q13OW+5xuHLxHP3IeBaX0/Fzqc05JeU6yg
-         dSdSE0jqbL8m9X2cYMu3mL4JmKXMr04KPqR1oJxN/jC3X/+CXZDdXtsNkyhT+jtCLAd9
-         8nFw==
+        bh=VJst1sRt7o765YHKTsyCLHu+qBA9pewJkWtnndgMLN0=;
+        b=qzXOF7oWXrrJDxdwh3iksBy8JnONgG8JG/gk3gC+BhT8lMVAB7HEK1gBjt7n7U9brM
+         0ocjJYduFRzB8UHQQlEJ887YLWxO58E8cX2atPLaLIzjEIe1A7/GNPHi8nNIJYXOyxK3
+         EEz6fWi7s9vsoXDj7HZZHnJRgVExygYMwrgTrrFB3JYTl6v7lbK+ZCQaabhwv1dS1g1g
+         IJRCQBtt8qKRRXEIJ1Sy9g1IAGLPWS0qjdLdCHkZGu9R59p9c2eRAapkSX7oS8hcuBvt
+         0PwTqWBU6YkbngpgHxZ2gFzdmmzdm2WnhPFWzKdxgdc+Lbu3amMMKin7xr4X8ktF8b3I
+         IR5w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1736556660; x=1737161460;
+        d=1e100.net; s=20230601; t=1736556655; x=1737161455;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:reply-to:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=lQGXs4fRzhUjC9h6471rkcBzWgIFKg5z0MpBCPWHmMU=;
-        b=HnVkRey/wejr9QhbqNs6K5QBzHm85YmymiVWMd3H81s0xGaZ1R0ZevYdxBvVsav0kZ
-         ZhKGwpQdAaoT/9mtl4Stgfdfajb2HvL14L7RMsmd+Vouo/eQHCwl+tyjPvb2bkb5ogR6
-         nDr7XrUjtESIEdCW1yNg7W3hN0fe5LQv/tlGUiL1FweLYcjoDavZjaioYOgBjNzM7nXU
-         DG2bSl62nd8nyZHbnR0HY3XxwprxOOtL6AAW+pH5n6LRJeMFhfCRzglxnThFQ5hXScMv
-         vnymgeEZCTpq1wGmAwpCfVxvrdWWNnlyUVxqmqHJGU2qz7RZJQvBzcfJWwbMCoBBc9hD
-         3dSw==
-X-Forwarded-Encrypted: i=1; AJvYcCVnFmvh7wa7jb94LCD/hkXt/Jm97Yxbkik9NSIQnoKTC82jQvIar6VFFntt0Y5ndecXkdkq53hUkXhAqA==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy1XdcfG6DSHY6/gLsfvRj5dOt6QXM4V7nE2BA8LXQBgI8Spogo
-	1xelS4rjgxrBk2NDLWr1HGevvc5ZUZT75RfyhdlLDDaNCkPuxnSqWcwcx4CCn35eEiPMrekI78m
-	Nmw==
-X-Google-Smtp-Source: AGHT+IFkTOLXQinvGI8s6GviRk7XKu9XJa8etcXjW5yAd+8/VTBQJ+NHE0WBibUOfLnKYqGfPAkdUeiGwEY=
-X-Received: from pjbqd11.prod.google.com ([2002:a17:90b:3ccb:b0:2e5:8726:a956])
- (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:90a:dfcc:b0:2ee:ad18:b30d
- with SMTP id 98e67ed59e1d1-2f548e98f31mr17356212a91.6.1736556660239; Fri, 10
- Jan 2025 16:51:00 -0800 (PST)
-Date: Fri, 10 Jan 2025 16:50:45 -0800
+        bh=VJst1sRt7o765YHKTsyCLHu+qBA9pewJkWtnndgMLN0=;
+        b=jrPT4PT84MnrDwXXM4KeBiUdQUZS4nIjFyA9kLle6kpmtd11FfrRyMrmu7n+87NjnF
+         DSJeWOn1+VtfKNkbAELhxwQAt6mNHvTqxlF2JEsTn0/COn9OuYqR8Z3qiItYrhztg89K
+         p3V9Ffep55UN2mTuR49OlAACQ+7z9EYqp6+9P/kVoo08WDhfClgODuq/8cq/xJeIYwcJ
+         JDgOwkf9RWK/WywzLRou6c1uXvqZjJF93R3t1K7F7Udau/+l6Bi4wWCKu/4sCUVZVsxM
+         ZjKgtxv5Dlky7MeLU4qinr15ELVe5RifvL0089H1ox2qsTqCCq30inz2AHsIOKSCyqTj
+         c52Q==
+X-Forwarded-Encrypted: i=1; AJvYcCUlXCHE7DavzAq6FWaj+0CUb+a+BRSe0llrZLl5V7dcpieduqyo30brmF9xixcOwXQiaUmr5jS5tWrFQg==@lists.infradead.org
+X-Gm-Message-State: AOJu0YzVUgNaxShJilkbcLdv82qjto7q/LcJs3t6rdqhenYyGqh2PYRe
+	cqEl2/ubMexmGgCGt5Rl285aPywsjHcB2s79mqIbBjjexD+cv6AwJ3IofehbOVehVexOzC+Ntfb
+	qHw==
+X-Google-Smtp-Source: AGHT+IFaIgnmyMwcv0JpFmACh/zvowyMAMYrlakJCH8pPaULUTBzt/qI/JqGqmGqNNZlkEWD/D5dHaJ9LLc=
+X-Received: from pjbqd16.prod.google.com ([2002:a17:90b:3cd0:b0:2f4:47fc:7f17])
+ (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:90b:2c83:b0:2ee:fa0c:cebc
+ with SMTP id 98e67ed59e1d1-2f548ececc3mr18761170a91.20.1736556655284; Fri, 10
+ Jan 2025 16:50:55 -0800 (PST)
+Date: Fri, 10 Jan 2025 16:50:42 -0800
 In-Reply-To: <20250111005049.1247555-1-seanjc@google.com>
 Mime-Version: 1.0
 References: <20250111005049.1247555-1-seanjc@google.com>
 X-Mailer: git-send-email 2.47.1.613.gc27f4b7a9f-goog
-Message-ID: <20250111005049.1247555-6-seanjc@google.com>
-Subject: [PATCH v2 5/9] KVM: selftests: Add struct and helpers to wrap binary
- stats cache
+Message-ID: <20250111005049.1247555-3-seanjc@google.com>
+Subject: [PATCH v2 2/9] KVM: selftests: Close VM's binary stats FD when
+ releasing VM
 From: Sean Christopherson <seanjc@google.com>
 To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
 	Anup Patel <anup@brainfault.org>, Paul Walmsley <paul.walmsley@sifive.com>, 
@@ -80,8 +95,8 @@ Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
 	kvm@vger.kernel.org, kvm-riscv@lists.infradead.org, 
 	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250110_165101_124369_DEDAF8B0 
-X-CRM114-Status: GOOD (  15.60  )
+X-CRM114-CacheID: sfid-20250111_005056_912353_8B5DC24A 
+X-CRM114-Status: GOOD (  12.37  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,138 +114,55 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add a struct and helpers to manage the binary stats cache, which is
-currently used only for VM-scoped stats.  This will allow expanding the
-selftests infrastructure to provide support for vCPU-scoped binary stats,
-which, except for the ioctl to get the stats FD are identical to VM-scoped
-stats.
+Close/free a VM's binary stats cache when the VM is released, not when the
+VM is fully freed.  When a VM is re-created, e.g. for state save/restore
+tests, the stats FD and descriptor points at the old, defunct VM.  The FD
+is still valid, in that the underlying stats file won't be freed until the
+FD is closed, but reading stats will always pull information from the old
+VM.
 
-Defer converting __vm_get_stat() to a scope-agnostic helper to a future
-patch, as getting the stats FD from KVM needs to be moved elsewhere
-before it can be made completely scope-agnostic.
+Note, this is a benign bug in the current code base as none of the tests
+that recreate VMs use binary stats.
 
+Fixes: 83f6e109f562 ("KVM: selftests: Cache binary stats metadata for duration of test")
 Signed-off-by: Sean Christopherson <seanjc@google.com>
 ---
- .../testing/selftests/kvm/include/kvm_util.h  | 11 +++--
- tools/testing/selftests/kvm/lib/kvm_util.c    | 47 +++++++++++--------
- 2 files changed, 34 insertions(+), 24 deletions(-)
+ tools/testing/selftests/kvm/lib/kvm_util.c | 15 +++++++++------
+ 1 file changed, 9 insertions(+), 6 deletions(-)
 
-diff --git a/tools/testing/selftests/kvm/include/kvm_util.h b/tools/testing/selftests/kvm/include/kvm_util.h
-index 044c2231431e..9a64bab42f89 100644
---- a/tools/testing/selftests/kvm/include/kvm_util.h
-+++ b/tools/testing/selftests/kvm/include/kvm_util.h
-@@ -46,6 +46,12 @@ struct userspace_mem_region {
- 	struct hlist_node slot_node;
- };
- 
-+struct kvm_binary_stats {
-+	int fd;
-+	struct kvm_stats_header header;
-+	struct kvm_stats_desc *desc;
-+};
-+
- struct kvm_vcpu {
- 	struct list_head list;
- 	uint32_t id;
-@@ -99,10 +105,7 @@ struct kvm_vm {
- 
- 	struct kvm_vm_arch arch;
- 
--	/* Cache of information for binary stats interface */
--	int stats_fd;
--	struct kvm_stats_header stats_header;
--	struct kvm_stats_desc *stats_desc;
-+	struct kvm_binary_stats stats;
- 
- 	/*
- 	 * KVM region slots. These are the default memslots used by page
 diff --git a/tools/testing/selftests/kvm/lib/kvm_util.c b/tools/testing/selftests/kvm/lib/kvm_util.c
-index 21b5a6261106..c88f5e7871f7 100644
+index 91d295ef5d02..9138801ecb60 100644
 --- a/tools/testing/selftests/kvm/lib/kvm_util.c
 +++ b/tools/testing/selftests/kvm/lib/kvm_util.c
-@@ -657,6 +657,20 @@ userspace_mem_region_find(struct kvm_vm *vm, uint64_t start, uint64_t end)
- 	return NULL;
- }
+@@ -709,6 +709,15 @@ void kvm_vm_release(struct kvm_vm *vmp)
  
-+static void kvm_stats_release(struct kvm_binary_stats *stats)
-+{
-+	int ret;
-+
-+	if (!stats->desc)
-+		return;
-+
-+	free(stats->desc);
-+	stats->desc = NULL;
-+
-+	ret = close(stats->fd);
-+	TEST_ASSERT(!ret,  __KVM_SYSCALL_ERROR("close()", ret));
-+}
-+
- __weak void vcpu_arch_free(struct kvm_vcpu *vcpu)
- {
- 
-@@ -711,13 +725,7 @@ void kvm_vm_release(struct kvm_vm *vmp)
+ 	ret = close(vmp->kvm_fd);
  	TEST_ASSERT(!ret,  __KVM_SYSCALL_ERROR("close()", ret));
- 
- 	/* Free cached stats metadata and close FD */
--	if (vmp->stats_desc) {
--		free(vmp->stats_desc);
--		vmp->stats_desc = NULL;
--
--		ret = close(vmp->stats_fd);
--		TEST_ASSERT(!ret,  __KVM_SYSCALL_ERROR("close()", ret));
--	}
-+	kvm_stats_release(&vmp->stats);
++
++	/* Free cached stats metadata and close FD */
++	if (vmp->stats_desc) {
++		free(vmp->stats_desc);
++		vmp->stats_desc = NULL;
++
++		ret = close(vmp->stats_fd);
++		TEST_ASSERT(!ret,  __KVM_SYSCALL_ERROR("close()", ret));
++	}
  }
  
  static void __vm_mem_region_delete(struct kvm_vm *vm,
-@@ -2214,34 +2222,33 @@ void read_stat_data(int stats_fd, struct kvm_stats_header *header,
-  *
-  * Read the data values of a specified stat from the binary stats interface.
-  */
--void __vm_get_stat(struct kvm_vm *vm, const char *stat_name, uint64_t *data,
-+void __vm_get_stat(struct kvm_vm *vm, const char *name, uint64_t *data,
- 		   size_t max_elements)
- {
-+	struct kvm_binary_stats *stats = &vm->stats;
- 	struct kvm_stats_desc *desc;
- 	size_t size_desc;
- 	int i;
- 
--	if (!vm->stats_desc) {
--		vm->stats_fd = vm_get_stats_fd(vm);
--		read_stats_header(vm->stats_fd, &vm->stats_header);
--		vm->stats_desc = read_stats_descriptors(vm->stats_fd,
--							&vm->stats_header);
-+	if (!stats->desc) {
-+		stats->fd = vm_get_stats_fd(vm);
-+		read_stats_header(stats->fd, &stats->header);
-+		stats->desc = read_stats_descriptors(stats->fd, &stats->header);
- 	}
- 
--	size_desc = get_stats_descriptor_size(&vm->stats_header);
-+	size_desc = get_stats_descriptor_size(&stats->header);
- 
--	for (i = 0; i < vm->stats_header.num_desc; ++i) {
--		desc = (void *)vm->stats_desc + (i * size_desc);
-+	for (i = 0; i < stats->header.num_desc; ++i) {
-+		desc = (void *)stats->desc + (i * size_desc);
- 
--		if (strcmp(desc->name, stat_name))
-+		if (strcmp(desc->name, name))
- 			continue;
- 
--		read_stat_data(vm->stats_fd, &vm->stats_header, desc,
--			       data, max_elements);
-+		read_stat_data(stats->fd, &stats->header, desc, data, max_elements);
+@@ -748,12 +757,6 @@ void kvm_vm_free(struct kvm_vm *vmp)
+ 	if (vmp == NULL)
  		return;
- 	}
  
--	TEST_FAIL("Unabled to find stat '%s'", stat_name);
-+	TEST_FAIL("Unabled to find stat '%s'", name);
- }
- 
- __weak void kvm_arch_vm_post_create(struct kvm_vm *vm)
+-	/* Free cached stats metadata and close FD */
+-	if (vmp->stats_desc) {
+-		free(vmp->stats_desc);
+-		close(vmp->stats_fd);
+-	}
+-
+ 	/* Free userspace_mem_regions. */
+ 	hash_for_each_safe(vmp->regions.slot_hash, ctr, node, region, slot_node)
+ 		__vm_mem_region_delete(vmp, region);
 -- 
 2.47.1.613.gc27f4b7a9f-goog
 
