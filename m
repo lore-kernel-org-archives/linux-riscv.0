@@ -4,102 +4,113 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ED10DC02198
-	for <linux-riscv@archiver.kernel.org>; Tue, 11 Feb 2025 02:55:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B864EE77188
+	for <linux-riscv@archiver.kernel.org>; Tue, 14 Jan 2025 16:45:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=krpGRjvIhA27EI2oCqjaJ411JUAvKaXYrc7/D6A7p70=; b=uWcR5aonLDEjil
-	baA6rpSfbUwkibwY44hiDBwY1vfdKPihbKk5w7UbdGiX8oRmoImRZrjzrMGSLiowZrouWQKGlf5Sh
-	vVvVnuCaxB8GlbmxRsUZXiFJsjQIScGjv36SlQ7OTOMPsVIa/NtfhcTmfzbqMiO9xu9zqQlhl6DCp
-	XZPWgVeoZrouBXwTbWiOb3en6OqULq9LP98f+9QsEdO/cxKiprUtV3uXU1YleNTKQOySiGkgNAods
-	CQBKZKOvym8WwuvWoIWW2FFNb2o8Z5TzxIEjJHJpoxECbvacHdfUhBLTh6qGB/Z7cnrqMfmSJRfKo
-	KJuZh+AX3GaMzkWWuLZg==;
+	List-Owner; bh=z6u1LyD8ZCWkwRBzxIS7np9Eal1i50I1hrMJWhy2mmA=; b=lle7M0OnNwoRL/
+	pdq9xa3ACNXgbIQmMxs0xRmGRu9drLnJV1y8j7mBrjlj3SzyRjlYWW1k2FxMfTYtrreFGxP9EsJu3
+	Bfzlf3Oza+7/C1xU27QohFSR5XE/YKixL1aShLXYEQENdOREPWZzRGwISwiO53XJ8OVdVYozoGRSt
+	+Q2pS0Y5ToX1dutJO+Vf/cDS9e/uXzzVrayM2vOi1rShrluUaPBWdRPgzuiJeKIubODKpm9UUtR2B
+	HkOmSmNPV8z5zKkvm4c6AAgEKSx3sruT4CvjMuXcJYrost287ZbMHQq3Jafi1Sa3NWnMZdXoA2F4u
+	cEvq3600xQXIavayKTag==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1thgRE-00000002Kzv-0Zyk;
-	Tue, 11 Feb 2025 02:55:52 +0000
-Received: from mail-qt1-f171.google.com ([209.85.160.171])
+	id 1tXk2d-000000094eV-0PdZ;
+	Tue, 14 Jan 2025 16:45:23 +0000
+Received: from [198.175.65.12] (helo=mgamail.intel.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1theQh-0000000226k-005x;
-	Tue, 11 Feb 2025 00:47:12 +0000
-Received: by mail-qt1-f171.google.com with SMTP id d75a77b69052e-4679eacf2c5so51651041cf.0;
-        Mon, 10 Feb 2025 16:47:10 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1739234829; x=1739839629; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=jTIEVTb8WG6g/xYwFCZRA14WxKqhOtoX7+ICXbI2OMk=;
-        b=njmx7K13XudtyUI38Ns3JQf660DXAQtrLva4LiHFgTZR327waVH2jKC6iXD+jaY86x
-         224OBakHWRdvXkZPm6UtVMaxny3wHPFY9eK/aPuqV4A1zWPNihCj/rLwrx8APPsgPSVB
-         fjFlDlB/+CvieP+BNSGdX9JQ35Ge5IwadUZzTvRC9wq7f/Im9Lk6vk17+qgkpw8GUfPp
-         KGLbqYXoYZIvYArQyQ6nsrkQm3iuemMfkUIWZlgH4xtU8PGOBWfTiWT06UMPUtqCob54
-         55ERwbzA4GlkcteIh9i6XN4O+bF7CnE3AFSqiVOnttjBcfrfyCqdzDCewao8nQpUI4zA
-         1GFA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1739234829; x=1739839629;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=jTIEVTb8WG6g/xYwFCZRA14WxKqhOtoX7+ICXbI2OMk=;
-        b=JOl5LaCL6+BNQBXYQXHEdC0dhPcdu0ppQ43Zuugq7flC6g43j3omU6up0VNjIb67ue
-         hkqUfsPtAm0dU/HuwaJVMOMCjgnvbr64n2yr60XGICG7UrPayhM0mwn2FAx56ks8YYhN
-         hnkelxtJ2Hepaie3Zqg/mYzkOH3UkSqN7rN6Zt1H748TDWwyCi2h3CnbqCgIsxjbRAYm
-         j8zcaGqRLYZ1zlC960xL2wIdEAElqQrawK9Fep/v3Idz7tJERySD6CA+oI6GORLvJc8z
-         XRYICIjn5yUp2kXLwujGSDfAYOvXQtHzjUT1M6mnqOKAgT7YGq307J3vDUA1biA7YfDV
-         E02A==
-X-Forwarded-Encrypted: i=1; AJvYcCXcMlscOwOMVjSXxFU2rz4BmCTg7dmR7bbrCb15Q3DFO3qluwMfnEIH1s6PYClQF/fnOJeLOCByokowWX1ht9xG@lists.infradead.org, AJvYcCXtUOgn++1iu2MHhE3i8FE8x0/pvHRt/ffw25ea8GF0PeQshSfTO46pY0BnefnM9U50LqHaKWe0kFZCh3k=@lists.infradead.org
-X-Gm-Message-State: AOJu0YzhqT1ZZaJShYtmKuQL3IbqH8O5uFvsZ5azZuNN2b6IhjBCfVgI
-	KvsSOAw6BQ7EXkZ+6PcY8SDjFDsrrFf9MAng9HRBHcc5RFYivwNS
-X-Gm-Gg: ASbGncu/b2MFWuvNItkwaNHvoMXRN1YBNUfuJKXTnqGDYCP28TC6pvv0q/tu6GAXft0
-	pzRExIgGd57EBMS5OXKiXEboAapSL+8VOLuZhdkdwZSdpZawd03VjYIR9c2m087yaAzx/WtoYWY
-	t8L9eeI0u9OMDD7WEZ9OyF3b2VpBwSKBZ0k4l5/e+ZMkwh0mB1J9DEZeKk1FyP6dg3jG1oVkE+c
-	ZRcqOxJjHFDN++tVkjI+vmNEuiYcXbTo6o3qILoJAEiv9qJopLhWlTH7F8/0Ne4uuY=
-X-Google-Smtp-Source: AGHT+IHdTWiwpRzbdPuvlFEYzABE9ESxasKSuFHVRX5pGBvoEIPULEvUws7kobHnz0ZNoja0v14wbA==
-X-Received: by 2002:a05:6214:dc7:b0:6d4:1e43:f3a5 with SMTP id 6a1803df08f44-6e4455f4e38mr268033066d6.13.1739234829280;
-        Mon, 10 Feb 2025 16:47:09 -0800 (PST)
-Received: from localhost ([2001:da8:7001:11::cb])
-        by smtp.gmail.com with UTF8SMTPSA id 6a1803df08f44-6e459711533sm26289906d6.18.2025.02.10.16.47.07
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 10 Feb 2025 16:47:08 -0800 (PST)
-Date: Tue, 11 Feb 2025 08:47:02 +0800
-From: Inochi Amaoto <inochiama@gmail.com>
-To: Romain Gantois <romain.gantois@bootlin.com>, 
-	Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, 
-	Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, 
-	Paolo Abeni <pabeni@redhat.com>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Chen Wang <unicorn_wang@outlook.com>, Inochi Amaoto <inochiama@outlook.com>, 
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
-	Richard Cochran <richardcochran@gmail.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Emil Renner Berthing <emil.renner.berthing@canonical.com>, Jisheng Zhang <jszhang@kernel.org>, 
-	"Jan Petrous (OSS)" <jan.petrous@oss.nxp.com>, =?utf-8?B?Q2zDqW1lbnQgTMOpZ2Vy?= <clement.leger@bootlin.com>, 
-	Simon Horman <horms@kernel.org>, Furong Xu <0x1207@gmail.com>, 
-	Serge Semin <fancer.lancer@gmail.com>, Lothar Rubusch <l.rubusch@gmail.com>, 
-	Suraj Jaiswal <quic_jsuraj@quicinc.com>, Joe Hattori <joe@pf.is.s.u-tokyo.ac.jp>, 
-	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>, Giuseppe Cavallaro <peppe.cavallaro@st.com>, 
-	Jose Abreu <joabreu@synopsys.com>, Inochi Amaoto <inochiama@gmail.com>
-Cc: netdev@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, 
-	linux-arm-kernel@lists.infradead.org, linux-riscv@lists.infradead.org, Yixun Lan <dlan@gentoo.org>, 
-	Longbin Li <looong.bin@gmail.com>
-Subject: Re: [PATCH net-next v4 3/3] net: stmmac: Add glue layer for Sophgo
- SG2044 SoC
-Message-ID: <uhup3bm6ez6kg7efvimy6rcthmqfcdkg2vmcwafqz33vouplfl@i25wn6q6c4h6>
-References: <20250209013054.816580-1-inochiama@gmail.com>
- <20250209013054.816580-4-inochiama@gmail.com>
- <2379380.ElGaqSPkdT@fw-rgant>
+	id 1tX2ul-00000003GvY-2XPj;
+	Sun, 12 Jan 2025 18:42:24 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1736707344; x=1768243344;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:content-transfer-encoding:in-reply-to;
+  bh=yIaBS7LkmzUat2OFaATD2kGBTQNP/h49/H3lTPBbro8=;
+  b=lHW+9QQWYKyPIOUybZasOa3J1OQFOuOMtjrwe0ueLIte6P+JPA6r8FCO
+   d3tiOtwHwdEfikamTWzBJdMQ7R5mVqcGw5FdiTmHyK8FT4iJ6tXiqKEJj
+   TwUv05RYnQ6733g8s37xC+/nAD9nDARvdvhYWyEYQhhHpHpLvK9+RS8Zd
+   Mt8wiecN89gQH1W4TtaTmSk9Y13zx8VOXA7wJFnDVhmn83moK56pI1JOR
+   j2MFgjmrUvkeUZ9ixGN38hnhmPiz0+frtb6lXTlmIENVV3JjTqgPuQ89b
+   pvGhgtm7RPx+nfEz9Ej+sGPgBVSsIQzRTV6I3FPT2JSSZFX0zpQ4ivsMU
+   A==;
+X-CSE-ConnectionGUID: AS+JXUvsSc2jOD0l4SrVAw==
+X-CSE-MsgGUID: NkWtkabvT3KgBrRTa9gsLw==
+X-IronPort-AV: E=McAfee;i="6700,10204,11313"; a="48304990"
+X-IronPort-AV: E=Sophos;i="6.12,309,1728975600"; 
+   d="scan'208";a="48304990"
+Received: from fmviesa008.fm.intel.com ([10.60.135.148])
+  by orvoesa104.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 12 Jan 2025 10:42:21 -0800
+X-CSE-ConnectionGUID: ATBPUUgvRE6sx2qYcVZXpw==
+X-CSE-MsgGUID: s4iONW0iTDay0Hxof3O8IA==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.12,309,1728975600"; 
+   d="scan'208";a="104396986"
+Received: from stinkpipe.fi.intel.com (HELO stinkbox) ([10.237.72.74])
+  by fmviesa008.fm.intel.com with SMTP; 12 Jan 2025 10:42:06 -0800
+Received: by stinkbox (sSMTP sendmail emulation); Sun, 12 Jan 2025 20:42:05 +0200
+Date: Sun, 12 Jan 2025 20:42:05 +0200
+From: Ville =?iso-8859-1?Q?Syrj=E4l=E4?= <ville.syrjala@linux.intel.com>
+To: Mike Rapoport <rppt@kernel.org>
+Cc: Andrew Morton <akpm@linux-foundation.org>,
+	Luis Chamberlain <mcgrof@kernel.org>,
+	Andreas Larsson <andreas@gaisler.com>,
+	Andy Lutomirski <luto@kernel.org>, Ard Biesheuvel <ardb@kernel.org>,
+	Arnd Bergmann <arnd@arndb.de>, Borislav Petkov <bp@alien8.de>,
+	Brian Cain <bcain@quicinc.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Christoph Hellwig <hch@infradead.org>,
+	Christophe Leroy <christophe.leroy@csgroup.eu>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	Dinh Nguyen <dinguyen@kernel.org>,
+	Geert Uytterhoeven <geert@linux-m68k.org>,
+	Guo Ren <guoren@kernel.org>, Helge Deller <deller@gmx.de>,
+	Huacai Chen <chenhuacai@kernel.org>, Ingo Molnar <mingo@redhat.com>,
+	Johannes Berg <johannes@sipsolutions.net>,
+	John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>,
+	Kent Overstreet <kent.overstreet@linux.dev>,
+	"Liam R. Howlett" <Liam.Howlett@oracle.com>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Masami Hiramatsu <mhiramat@kernel.org>,
+	Matt Turner <mattst88@gmail.com>, Max Filippov <jcmvbkbc@gmail.com>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Michal Simek <monstr@monstr.eu>, Oleg Nesterov <oleg@redhat.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Richard Weinberger <richard@nod.at>,
+	Russell King <linux@armlinux.org.uk>, Song Liu <song@kernel.org>,
+	Stafford Horne <shorne@gmail.com>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	Suren Baghdasaryan <surenb@google.com>,
+	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Uladzislau Rezki <urezki@gmail.com>,
+	Vineet Gupta <vgupta@kernel.org>, Will Deacon <will@kernel.org>,
+	bpf@vger.kernel.org, linux-alpha@vger.kernel.org,
+	linux-arch@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-csky@vger.kernel.org, linux-hexagon@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-m68k@lists.linux-m68k.org,
+	linux-mips@vger.kernel.org, linux-mm@kvack.org,
+	linux-modules@vger.kernel.org, linux-openrisc@vger.kernel.org,
+	linux-parisc@vger.kernel.or
+Subject: [REGRESSION] Re: [PATCH v7 8/8] x86/module: enable ROX caches for
+ module text on 64 bit
+Message-ID: <Z4QM_RFfhNX_li_C@intel.com>
+References: <20241023162711.2579610-1-rppt@kernel.org>
+ <20241023162711.2579610-9-rppt@kernel.org>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <2379380.ElGaqSPkdT@fw-rgant>
+In-Reply-To: <20241023162711.2579610-9-rppt@kernel.org>
+X-Patchwork-Hint: comment
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250210_164711_042522_280F3955 
-X-CRM114-Status: GOOD (  29.46  )
+X-CRM114-CacheID: sfid-20250112_104223_752153_4F36DF25 
+X-CRM114-Status: GOOD (  25.13  )
+X-Mailman-Approved-At: Tue, 14 Jan 2025 08:45:21 -0800
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,87 +122,273 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gTW9uLCBGZWIgMTAsIDIwMjUgYXQgMTI6MDE6NTZQTSArMDEwMCwgUm9tYWluIEdhbnRvaXMg
-d3JvdGU6Cj4gSGVsbG8gSW5vY2hpLAo+IAo+IE9uIGRpbWFuY2hlIDkgZsOpdnJpZXIgMjAyNSAw
-MjozMDo1MiBoZXVyZSBub3JtYWxlIGTigJlFdXJvcGUgY2VudHJhbGUgSW5vY2hpIAo+IEFtYW90
-byB3cm90ZToKPiA+IEFkZHMgU29waGdvIGR3bWFjIGRyaXZlciBzdXBwb3J0IG9uIHRoZSBTb3Bo
-Z28gU0cyMDQ0IFNvQy4KPiAuLi4KPiA+IC0tLSAvZGV2L251bGwKPiA+ICsrKyBiL2RyaXZlcnMv
-bmV0L2V0aGVybmV0L3N0bWljcm8vc3RtbWFjL2R3bWFjLXNvcGhnby5jCj4gPiBAQCAtMCwwICsx
-LDEwNSBAQAo+ID4gKy8vIFNQRFgtTGljZW5zZS1JZGVudGlmaWVyOiBHUEwtMi4wKwo+ID4gKy8q
-Cj4gPiArICogU29waGdvIERXTUFDIHBsYXRmb3JtIGRyaXZlcgo+ID4gKyAqCj4gPiArICogQ29w
-eXJpZ2h0IChDKSAyMDI0IElub2NoaSBBbWFvdG8gPGlub2NoaWFtYUBnbWFpbC5jb20+Cj4gPiAr
-ICovCj4gPiArCj4gPiArI2luY2x1ZGUgPGxpbnV4L2JpdHMuaD4KPiAKPiBJdCBkb2Vzbid0IGxv
-b2sgbGlrZSB0aGlzIGluY2x1ZGUgaXMgdXNlZCwgY291bGQgeW91IHBsZWFzZSByZW1vdmUgaXQ/
-Cj4gCgpUaGFua3MsIEkgd2lsbC4gQW5kIEkgd2lsbCBhZGQgdGhlIG1pc3MgaGVhZGVyIApsaW51
-eC9jbGsuaCBhbmQgbGludXgvbW9kdWxlLmguCgo+ID4gKyNpbmNsdWRlIDxsaW51eC9tb2RfZGV2
-aWNldGFibGUuaD4KPiA+ICsjaW5jbHVkZSA8bGludXgvcGh5Lmg+Cj4gPiArI2luY2x1ZGUgPGxp
-bnV4L3BsYXRmb3JtX2RldmljZS5oPgo+ID4gKwo+ID4gKyNpbmNsdWRlICJzdG1tYWNfcGxhdGZv
-cm0uaCIKPiA+ICsKPiA+ICtzdHJ1Y3Qgc29waGdvX2R3bWFjIHsKPiA+ICsJc3RydWN0IGRldmlj
-ZSAqZGV2Owo+ID4gKwlzdHJ1Y3QgY2xrICpjbGtfdHg7Cj4gPiArfTsKPiA+ICsKPiA+ICtzdGF0
-aWMgdm9pZCBzb3BoZ29fZHdtYWNfZml4X21hY19zcGVlZCh2b2lkICpwcml2LCB1bnNpZ25lZCBp
-bnQgc3BlZWQsCj4gPiB1bnNpZ25lZCBpbnQgbW9kZSkgK3sKPiA+ICsJc3RydWN0IHNvcGhnb19k
-d21hYyAqZHdtYWMgPSBwcml2Owo+ID4gKwlsb25nIHJhdGU7Cj4gPiArCWludCByZXQ7Cj4gPiAr
-Cj4gPiArCXJhdGUgPSByZ21paV9jbG9jayhzcGVlZCk7Cj4gPiArCWlmIChyYXRlIDwgMCkgewo+
-ID4gKwkJZGV2X2Vycihkd21hYy0+ZGV2LCAiaW52YWxpZCBzcGVlZCAldVxuIiwgc3BlZWQpOwo+
-ID4gKwkJcmV0dXJuOwo+ID4gKwl9Cj4gPiArCj4gPiArCXJldCA9IGNsa19zZXRfcmF0ZShkd21h
-Yy0+Y2xrX3R4LCByYXRlKTsKPiA+ICsJaWYgKHJldCkKPiA+ICsJCWRldl9lcnIoZHdtYWMtPmRl
-diwgImZhaWxlZCB0byBzZXQgdHggcmF0ZSAlbHU6ICVwZVxuIiwKPiAKPiBuaXQ6IHNob3VsZG4n
-dCB0aGlzIGJlICIlbGQiPwo+IAoKWWVhaCwgaXQgaXMgbXkgbWlzdGFrZSwgSSB3aWxsIGZpeCBp
-dC4KCj4gPiArCQkJcmF0ZSwgRVJSX1BUUihyZXQpKTsKPiA+ICt9Cj4gPiArCj4gPiArc3RhdGlj
-IGludCBzb3BoZ29fc2cyMDQ0X2R3bWFjX2luaXQoc3RydWN0IHBsYXRmb3JtX2RldmljZSAqcGRl
-diwKPiA+ICsJCQkJICAgIHN0cnVjdCBwbGF0X3N0bW1hY2VuZXRfZGF0YSAqcGxhdF9kYXQsCj4g
-PiArCQkJCSAgICBzdHJ1Y3Qgc3RtbWFjX3Jlc291cmNlcyAqc3RtbWFjX3JlcykKPiA+ICt7Cj4g
-PiArCXN0cnVjdCBzb3BoZ29fZHdtYWMgKmR3bWFjOwo+ID4gKwo+ID4gKwlkd21hYyA9IGRldm1f
-a3phbGxvYygmcGRldi0+ZGV2LCBzaXplb2YoKmR3bWFjKSwgR0ZQX0tFUk5FTCk7Cj4gPiArCWlm
-ICghZHdtYWMpCj4gPiArCQlyZXR1cm4gLUVOT01FTTsKPiA+ICsKPiA+ICsJZHdtYWMtPmNsa190
-eCA9IGRldm1fY2xrX2dldF9lbmFibGVkKCZwZGV2LT5kZXYsICJ0eCIpOwo+ID4gKwlpZiAoSVNf
-RVJSKGR3bWFjLT5jbGtfdHgpKQo+ID4gKwkJcmV0dXJuIGRldl9lcnJfcHJvYmUoJnBkZXYtPmRl
-diwgUFRSX0VSUihkd21hYy0+Y2xrX3R4KSwKPiA+ICsJCQkJICAgICAiZmFpbGVkIHRvIGdldCB0
-eCBjbG9ja1xuIik7Cj4gPiArCj4gPiArCWR3bWFjLT5kZXYgPSAmcGRldi0+ZGV2Owo+ID4gKwlw
-bGF0X2RhdC0+YnNwX3ByaXYgPSBkd21hYzsKPiA+ICsJcGxhdF9kYXQtPmZsYWdzIHw9IFNUTU1B
-Q19GTEFHX1NQSF9ESVNBQkxFOwo+ID4gKwlwbGF0X2RhdC0+Zml4X21hY19zcGVlZCA9IHNvcGhn
-b19kd21hY19maXhfbWFjX3NwZWVkOwo+ID4gKwlwbGF0X2RhdC0+bXVsdGljYXN0X2ZpbHRlcl9i
-aW5zID0gMDsKPiA+ICsJcGxhdF9kYXQtPnVuaWNhc3RfZmlsdGVyX2VudHJpZXMgPSAxOwo+ID4g
-Kwo+ID4gKwlyZXR1cm4gMDsKPiA+ICt9Cj4gPiArCj4gPiArc3RhdGljIGludCBzb3BoZ29fZHdt
-YWNfcHJvYmUoc3RydWN0IHBsYXRmb3JtX2RldmljZSAqcGRldikKPiA+ICt7Cj4gPiArCXN0cnVj
-dCBwbGF0X3N0bW1hY2VuZXRfZGF0YSAqcGxhdF9kYXQ7Cj4gPiArCXN0cnVjdCBzdG1tYWNfcmVz
-b3VyY2VzIHN0bW1hY19yZXM7Cj4gCj4gbml0OiBJIHRoaW5rIGFkZGluZyAic3RydWN0IGRldmlj
-ZSAqZGV2ID0gJnBkZXYtPmRldjsiIGhlcmUgd291bGQKPiBiZSBiZXR0ZXIgdGhhbiByZXBlYXRp
-bmcgIiZwZGV2LT5kZXYiIGxhdGVyIG9uLgo+IAoKVGhhbmtzLCBJIHdpbGwgY2hhbmdlIHRoYXQu
-Cgo+ID4gKwlpbnQgcmV0Owo+ID4gKwo+ID4gKwlyZXQgPSBzdG1tYWNfZ2V0X3BsYXRmb3JtX3Jl
-c291cmNlcyhwZGV2LCAmc3RtbWFjX3Jlcyk7Cj4gPiArCWlmIChyZXQpCj4gPiArCQlyZXR1cm4g
-ZGV2X2Vycl9wcm9iZSgmcGRldi0+ZGV2LCByZXQsCj4gPiArCQkJCSAgICAgImZhaWxlZCB0byBn
-ZXQgcmVzb3VyY2VzXG4iKTsKPiAKPiBUaGlzIGVycm9yIG1lc3NhZ2UgaXMgYSBiaXQgdG9vIHZh
-Z3VlLCBtYXliZSByZXBsYWNlIGl0IHdpdGggImZhaWxlZCB0byBnZXQgCj4gcGxhdGZvcm0gcmVz
-b3VyY2VzIj8KPiAKCk9LLgoKPiA+ICsKPiA+ICsJcGxhdF9kYXQgPSBkZXZtX3N0bW1hY19wcm9i
-ZV9jb25maWdfZHQocGRldiwgc3RtbWFjX3Jlcy5tYWMpOwo+ID4gKwlpZiAoSVNfRVJSKHBsYXRf
-ZGF0KSkKPiA+ICsJCXJldHVybiBkZXZfZXJyX3Byb2JlKCZwZGV2LT5kZXYsIFBUUl9FUlIocGxh
-dF9kYXQpLAo+ID4gKwkJCQkgICAgICJkdCBjb25maWd1cmF0aW9uIGZhaWxlZFxuIik7Cj4gCj4g
-VGhpcyBlcnJvciBtZXNzYWdlIGlzIGEgYml0IG1pc2xlYWRpbmcgSU1PLCBJIHdvdWxkIHJlcGxh
-Y2UgaXQgd2l0aAo+IHNvbWV0aGluZyBsaWtlICJmYWlsZWQgdG8gcGFyc2UgZGV2aWNlLXRyZWUg
-cGFyYW1ldGVycyIuCj4gCgpPSy4KCj4gPiArCj4gPiArCXJldCA9IHNvcGhnb19zZzIwNDRfZHdt
-YWNfaW5pdChwZGV2LCBwbGF0X2RhdCwgJnN0bW1hY19yZXMpOwo+ID4gKwlpZiAocmV0KQo+ID4g
-KwkJcmV0dXJuIHJldDsKPiA+ICsKPiA+ICsJcmV0dXJuIHN0bW1hY19kdnJfcHJvYmUoJnBkZXYt
-PmRldiwgcGxhdF9kYXQsICZzdG1tYWNfcmVzKTsKPiA+ICt9Cj4gPiArCj4gPiArc3RhdGljIGNv
-bnN0IHN0cnVjdCBvZl9kZXZpY2VfaWQgc29waGdvX2R3bWFjX21hdGNoW10gPSB7Cj4gPiArCXsg
-LmNvbXBhdGlibGUgPSAic29waGdvLHNnMjA0NC1kd21hYyIgfSwKPiA+ICsJeyAvKiBzZW50aW5l
-bCAqLyB9Cj4gPiArfTsKPiA+ICtNT0RVTEVfREVWSUNFX1RBQkxFKG9mLCBzb3BoZ29fZHdtYWNf
-bWF0Y2gpOwo+ID4gKwo+ID4gK3N0YXRpYyBzdHJ1Y3QgcGxhdGZvcm1fZHJpdmVyIHNvcGhnb19k
-d21hY19kcml2ZXIgPSB7Cj4gPiArCS5wcm9iZSAgPSBzb3BoZ29fZHdtYWNfcHJvYmUsCj4gPiAr
-CS5yZW1vdmUgPSBzdG1tYWNfcGx0ZnJfcmVtb3ZlLAo+ID4gKwkuZHJpdmVyID0gewo+ID4gKwkJ
-Lm5hbWUgPSAic29waGdvLWR3bWFjIiwKPiA+ICsJCS5wbSA9ICZzdG1tYWNfcGx0ZnJfcG1fb3Bz
-LAo+ID4gKwkJLm9mX21hdGNoX3RhYmxlID0gc29waGdvX2R3bWFjX21hdGNoLAo+ID4gKwl9LAo+
-ID4gK307Cj4gPiArbW9kdWxlX3BsYXRmb3JtX2RyaXZlcihzb3BoZ29fZHdtYWNfZHJpdmVyKTsK
-PiA+ICsKPiA+ICtNT0RVTEVfQVVUSE9SKCJJbm9jaGkgQW1hb3RvIDxpbm9jaGlhbWFAZ21haWwu
-Y29tPiIpOwo+ID4gK01PRFVMRV9ERVNDUklQVElPTigiU29waGdvIERXTUFDIHBsYXRmb3JtIGRy
-aXZlciIpOwo+ID4gK01PRFVMRV9MSUNFTlNFKCJHUEwiKTsKPiAKPiBUaGFua3MsCj4gCj4gLS0g
-Cj4gUm9tYWluIEdhbnRvaXMsIEJvb3RsaW4KPiBFbWJlZGRlZCBMaW51eCBhbmQgS2VybmVsIGVu
-Z2luZWVyaW5nCj4gaHR0cHM6Ly9ib290bGluLmNvbQoKCgpfX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgt
-cmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWls
-bWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+On Wed, Oct 23, 2024 at 07:27:11PM +0300, Mike Rapoport wrote:
+> From: "Mike Rapoport (Microsoft)" <rppt@kernel.org>
+> =
+
+> Enable execmem's cache of PMD_SIZE'ed pages mapped as ROX for module
+> text allocations on 64 bit.
+
+Hi,
+
+This breaks resume from hibernation on my Alderlake laptop.
+
+Fortunately this still reverts cleanly.
+
+pstore managed to catch the following oops (seems to blow up on
+bringing up the second ht of the second pcore for whatever reason):
+
+<6>[   33.993727] PM: hibernation: hibernation entry
+<6>[   34.154410] Filesystems sync: 0.006 seconds
+<6>[   34.154418] Freezing user space processes
+<6>[   34.156019] Freezing user space processes completed (elapsed 0.001 se=
+conds)
+<6>[   34.156026] OOM killer disabled.
+<6>[   34.160470] PM: hibernation: Preallocating image memory
+<6>[   34.330327] PM: hibernation: Allocated 387861 pages for snapshot
+<6>[   34.330328] PM: hibernation: Allocated 1551444 kbytes in 0.16 seconds=
+ (9696.52 MB/s)
+<6>[   34.330330] Freezing remaining freezable tasks
+<6>[   34.331499] Freezing remaining freezable tasks completed (elapsed 0.0=
+01 seconds)
+<6>[   34.351602] printk: Suspending console(s) (use no_console_suspend to =
+debug)
+<6>[   34.836184] ACPI: EC: interrupt blocked
+<6>[   34.858903] ACPI: PM: Preparing to enter system sleep state S4
+<6>[   34.868434] ACPI: EC: event blocked
+<6>[   34.868434] ACPI: EC: EC stopped
+<6>[   34.868435] ACPI: PM: Saving platform NVS memory
+<6>[   34.872538] Disabling non-boot CPUs ...
+<6>[   34.874012] smpboot: CPU 15 is now offline
+<6>[   34.875511] smpboot: CPU 14 is now offline
+<6>[   34.877209] smpboot: CPU 13 is now offline
+<6>[   34.879173] smpboot: CPU 12 is now offline
+<6>[   34.881117] smpboot: CPU 11 is now offline
+<6>[   34.882952] smpboot: CPU 10 is now offline
+<6>[   34.885175] smpboot: CPU 9 is now offline
+<6>[   34.886844] smpboot: CPU 8 is now offline
+<6>[   34.889056] smpboot: CPU 7 is now offline
+<6>[   34.891866] smpboot: CPU 6 is now offline
+<6>[   34.893685] smpboot: CPU 5 is now offline
+<6>[   34.896856] smpboot: CPU 4 is now offline
+<6>[   34.900015] smpboot: CPU 3 is now offline
+<6>[   34.902355] smpboot: CPU 2 is now offline
+<6>[   34.906162] smpboot: CPU 1 is now offline
+<6>[   34.914835] PM: hibernation: Creating image:
+<6>[   35.074645] PM: hibernation: Need to copy 348072 pages
+<6>[   34.915076] ACPI: PM: Restoring platform NVS memory
+<6>[   34.916499] ACPI: EC: EC started
+<6>[   34.918228] Enabling non-boot CPUs ...
+<6>[   34.918248] smpboot: Booting Node 0 Processor 1 APIC 0x1
+<6>[   34.920121] CPU1 is up
+<6>[   34.920132] smpboot: Booting Node 0 Processor 2 APIC 0x8
+<6>[   34.923737] CPU2 is up
+<6>[   34.923746] smpboot: Booting Node 0 Processor 3 APIC 0x9
+<1>[   34.927019] BUG: kernel NULL pointer dereference, address: 0000000000=
+000008
+<1>[   34.927023] #PF: supervisor write access in kernel mode
+<1>[   34.927024] #PF: error_code(0x0002) - not-present page
+<6>[   34.927026] PGD 0 P4D 0 =
+
+<4>[   34.927028] Oops: Oops: 0002 [#1] PREEMPT SMP NOPTI
+<4>[   34.927030] CPU: 3 UID: 0 PID: 93 Comm: cpuhp/3 Not tainted 6.13.0-rc=
+5+ #406
+<4>[   34.927033] Hardware name: LENOVO 21AJS29M0Q/21AJS29M0Q, BIOS N3MET18=
+W (1.17 ) 10/24/2023
+<4>[   34.927033] RIP: 0010:__rmqueue_pcplist+0x1c9/0x6f0
+<4>[   34.927039] Code: 00 00 48 39 f0 0f 84 7c 01 00 00 49 89 c6 49 83 ee =
+08 0f 84 6f 01 00 00 48 8b 78 08 41 b8 01 00 00 00 89 ce 4c 8b 08 41 d3 e0 =
+<49> 89 79 08 4c 89 0f 48 bf 00 01 00 00 00 00 ad de 48 89 38 48 83
+<4>[   34.927041] RSP: 0000:ffffc90000457840 EFLAGS: 00010082
+<4>[   34.927042] RAX: ffffea000427af48 RBX: ffff88844e2f0720 RCX: 00000000=
+00000000
+<4>[   34.927043] RDX: 0000000000000000 RSI: 0000000000000000 RDI: ffffffff=
+827f0f00
+<4>[   34.927043] RBP: 0000000000000000 R08: 0000000000000001 R09: 00000000=
+00000000
+<4>[   34.927044] R10: ffff88844e2f0700 R11: 0000000000000001 R12: 00000000=
+00000000
+<4>[   34.927044] R13: ffffffff827f0e40 R14: ffffea000427af40 R15: ffffffff=
+ffffffff
+<4>[   34.927045] FS:  0000000000000000(0000) GS:ffff88844e2c0000(0000) knl=
+GS:0000000000000000
+<4>[   34.927046] CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+<4>[   34.927046] CR2: 0000000000000008 CR3: 000000000402e001 CR4: 00000000=
+00372ef0
+<4>[   34.927047] Call Trace:
+<4>[   34.927048]  <TASK>
+<4>[   34.927049]  ? __die+0x1a/0x60
+<4>[   34.927053]  ? page_fault_oops+0x157/0x440
+<4>[   34.927055]  ? exc_page_fault+0x444/0x710
+<4>[   34.927058]  ? asm_exc_page_fault+0x22/0x30
+<4>[   34.927060]  ? __rmqueue_pcplist+0x1c9/0x6f0
+<4>[   34.927061]  get_page_from_freelist+0x20f/0xf00
+<4>[   34.927063]  __alloc_pages_noprof+0x111/0x240
+<4>[   34.927065]  allocate_slab+0x24f/0x3c0
+<4>[   34.927066]  ? get_page_from_freelist+0x21a/0xf00
+<4>[   34.927067]  ___slab_alloc+0x42a/0xb80
+<4>[   34.927069]  ? __kernfs_new_node.isra.0+0x59/0x1e0
+<4>[   34.927071]  ? get_nohz_timer_target+0x29/0x140
+<4>[   34.927073]  ? timerqueue_add+0x62/0xb0
+<4>[   34.927074]  kmem_cache_alloc_noprof+0x17a/0x220
+<4>[   34.927076]  __kernfs_new_node.isra.0+0x59/0x1e0
+<4>[   34.927077]  ? dl_server_stop+0x26/0x30
+<4>[   34.927079]  ? dequeue_entities+0x33b/0x5f0
+<4>[   34.927080]  kernfs_new_node+0x3b/0x60
+<4>[   34.927081]  kernfs_create_dir_ns+0x22/0x80
+<4>[   34.927083]  sysfs_create_dir_ns+0x6b/0xd0
+<4>[   34.927085]  kobject_add_internal+0x9e/0x270
+<4>[   34.927087]  kobject_add+0x79/0xe0
+<4>[   34.927088]  ? __kmalloc_cache_noprof+0x105/0x240
+<4>[   34.927090]  device_add+0xb7/0x7d0
+<4>[   34.927092]  ? complete_all+0x1b/0x80
+<4>[   34.927095]  cpu_device_create+0xea/0x100
+<4>[   34.927097]  ? __pfx_smpboot_thread_fn+0x10/0x10
+<4>[   34.927099]  ? __set_cpus_allowed_ptr+0x47/0x90
+<4>[   34.927100]  ? detect_cache_attributes+0xd2/0x330
+<4>[   34.927102]  ? __pfx_cacheinfo_cpu_online+0x10/0x10
+<4>[   34.927104]  cacheinfo_cpu_online+0x94/0x270
+<4>[   34.927105]  ? __pfx_cacheinfo_cpu_online+0x10/0x10
+<4>[   34.927107]  ? __pfx_smpboot_thread_fn+0x10/0x10
+<4>[   34.927108]  cpuhp_invoke_callback+0x10e/0x4b0
+<4>[   34.927110]  ? __pfx_smpboot_thread_fn+0x10/0x10
+<4>[   34.927111]  cpuhp_thread_fun+0xcf/0x150
+<4>[   34.927112]  smpboot_thread_fn+0xd1/0x1c0
+<4>[   34.927113]  kthread+0xc6/0x100
+<4>[   34.927115]  ? __pfx_kthread+0x10/0x10
+<4>[   34.927115]  ret_from_fork+0x28/0x40
+<4>[   34.927117]  ? __pfx_kthread+0x10/0x10
+<4>[   34.927118]  ret_from_fork_asm+0x1a/0x30
+<4>[   34.927120]  </TASK>
+<4>[   34.927120] Modules linked in: fuse ctr ccm sch_fq_codel cmac xt_mult=
+iport xt_tcpudp xt_state iptable_filter xt_MASQUERADE iptable_nat nf_nat nf=
+_conntrack nf_defrag_ipv4 ip_tables x_tables bnep btusb uvcvideo btrtl btin=
+tel videobuf2_vmalloc btbcm videobuf2_memops btmtk uvc videobuf2_v4l2 bluet=
+ooth videodev videobuf2_common ecdh_generic mc ecc binfmt_misc snd_hda_code=
+c_hdmi mousedev snd_hda_codec_realtek snd_hda_codec_generic snd_hda_scodec_=
+component snd_ctl_led iwlmvm mac80211 libarc4 i915 snd_hda_intel snd_intel_=
+dspcfg i2c_algo_bit snd_hda_codec drm_buddy xhci_pci intel_tcc_cooling mei_=
+hdcp snd_hwdep ttm mei_pxp mei_wdt processor_thermal_device_pci snd_hda_cor=
+e x86_pkg_temp_thermal processor_thermal_device xhci_hcd thinkpad_acpi inte=
+l_powerclamp 8250_pci processor_thermal_wt_hint drm_display_helper snd_pcm =
+processor_thermal_rfim i2c_hid_acpi coretemp 8250 processor_thermal_rapl nv=
+ram i2c_hid iwlwifi kvm_intel drm_kms_helper usbcore intel_rapl_msr 8250_ba=
+se iTCO_wdt intel_rapl_common platform_profile hid snd_timer
+<4>[   34.927180]  intel_gtt mei_me serial_mctrl_gpio led_class processor_t=
+hermal_wt_req cfg80211 kvm thunderbolt e1000e snd efi_pstore intel_lpss_pci=
+ serial_base usb_common agpgart processor_thermal_power_floor spi_intel_pci=
+ i2c_i801 intel_lpss mei soundcore processor_thermal_mbox drm rfkill pstore=
+ spi_intel mfd_core tpm_tis i2c_smbus psmouse tpm_tis_core zlib_deflate pcs=
+pkr evdev tpm think_lmi video intel_pmc_core firmware_attributes_class inte=
+l_hid sparse_keymap int3403_thermal intel_vsec pinctrl_tigerlake int3400_th=
+ermal wmi int340x_thermal_zone pmt_telemetry i2c_core backlight pinctrl_int=
+el pmt_class acpi_thermal_rel efivarfs
+<4>[   34.927209] CR2: 0000000000000008
+<4>[   34.927210] ---[ end trace 0000000000000000 ]---
+
+> =
+
+> Signed-off-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
+> Reviewed-by: Luis Chamberlain <mcgrof@kernel.org>
+> Tested-by: kdevops <kdevops@lists.linux.dev>
+> ---
+>  arch/x86/Kconfig   |  1 +
+>  arch/x86/mm/init.c | 37 ++++++++++++++++++++++++++++++++++++-
+>  2 files changed, 37 insertions(+), 1 deletion(-)
+> =
+
+> diff --git a/arch/x86/Kconfig b/arch/x86/Kconfig
+> index 2852fcd82cbd..ff71d18253ba 100644
+> --- a/arch/x86/Kconfig
+> +++ b/arch/x86/Kconfig
+> @@ -83,6 +83,7 @@ config X86
+>  	select ARCH_HAS_DMA_OPS			if GART_IOMMU || XEN
+>  	select ARCH_HAS_EARLY_DEBUG		if KGDB
+>  	select ARCH_HAS_ELF_RANDOMIZE
+> +	select ARCH_HAS_EXECMEM_ROX		if X86_64
+>  	select ARCH_HAS_FAST_MULTIPLIER
+>  	select ARCH_HAS_FORTIFY_SOURCE
+>  	select ARCH_HAS_GCOV_PROFILE_ALL
+> diff --git a/arch/x86/mm/init.c b/arch/x86/mm/init.c
+> index eb503f53c319..c2e4f389f47f 100644
+> --- a/arch/x86/mm/init.c
+> +++ b/arch/x86/mm/init.c
+> @@ -1053,18 +1053,53 @@ unsigned long arch_max_swapfile_size(void)
+>  #ifdef CONFIG_EXECMEM
+>  static struct execmem_info execmem_info __ro_after_init;
+>  =
+
+> +#ifdef CONFIG_ARCH_HAS_EXECMEM_ROX
+> +void execmem_fill_trapping_insns(void *ptr, size_t size, bool writeable)
+> +{
+> +	/* fill memory with INT3 instructions */
+> +	if (writeable)
+> +		memset(ptr, INT3_INSN_OPCODE, size);
+> +	else
+> +		text_poke_set(ptr, INT3_INSN_OPCODE, size);
+> +}
+> +#endif
+> +
+>  struct execmem_info __init *execmem_arch_setup(void)
+>  {
+>  	unsigned long start, offset =3D 0;
+> +	enum execmem_range_flags flags;
+> +	pgprot_t pgprot;
+>  =
+
+>  	if (kaslr_enabled())
+>  		offset =3D get_random_u32_inclusive(1, 1024) * PAGE_SIZE;
+>  =
+
+>  	start =3D MODULES_VADDR + offset;
+>  =
+
+> +	if (IS_ENABLED(CONFIG_ARCH_HAS_EXECMEM_ROX)) {
+> +		pgprot =3D PAGE_KERNEL_ROX;
+> +		flags =3D EXECMEM_KASAN_SHADOW | EXECMEM_ROX_CACHE;
+> +	} else {
+> +		pgprot =3D PAGE_KERNEL;
+> +		flags =3D EXECMEM_KASAN_SHADOW;
+> +	}
+> +
+>  	execmem_info =3D (struct execmem_info){
+>  		.ranges =3D {
+> -			[EXECMEM_DEFAULT] =3D {
+> +			[EXECMEM_MODULE_TEXT] =3D {
+> +				.flags	=3D flags,
+> +				.start	=3D start,
+> +				.end	=3D MODULES_END,
+> +				.pgprot	=3D pgprot,
+> +				.alignment =3D MODULE_ALIGN,
+> +			},
+> +			[EXECMEM_KPROBES ... EXECMEM_BPF] =3D {
+> +				.flags	=3D EXECMEM_KASAN_SHADOW,
+> +				.start	=3D start,
+> +				.end	=3D MODULES_END,
+> +				.pgprot	=3D PAGE_KERNEL,
+> +				.alignment =3D MODULE_ALIGN,
+> +			},
+> +			[EXECMEM_MODULE_DATA] =3D {
+>  				.flags	=3D EXECMEM_KASAN_SHADOW,
+>  				.start	=3D start,
+>  				.end	=3D MODULES_END,
+> -- =
+
+> 2.43.0
+> =
+
+
+-- =
+
+Ville Syrj=E4l=E4
+Intel
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
