@@ -4,82 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 10099C02180
-	for <linux-riscv@archiver.kernel.org>; Mon, 13 Jan 2025 15:37:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E240FC02186
+	for <linux-riscv@archiver.kernel.org>; Mon, 13 Jan 2025 15:52:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=x0oNG5NutLzd4zaKqOrZIQh8DGjE8oNNZ5CnRCeXS6k=; b=AU8W/3oztzpgPr
-	I+wgxIDNd3HJOvmRL5i9VLhlSG73PXoiO5DQdqRrRvLlwWEU5Y84tsxrK4NdgtiqECNFy5dm7xgFo
-	v6HzrOyOtAqHqCX3w5o9Y0YYWOWJdGdpf55b/GAU+bW+q2hD3mQ8XN0vFyirpT8c8yE7mnFsTW4+K
-	y4GVF3bCDdZAIZNhsO+Dkh48vy4Scnt87YwXD8u5HFrxIjDYUEqymInMtqRsUsBNNxbw8EGn+aLAY
-	dYbg2BVVf6N9R8emkxdX+ChsKPGOEoinO9dZ33JSZb6WNMgsYQk8NdUE3geq+Q1KaYHjPsfRj1aEd
-	nQrxVcRlabdYs/zPVwKQ==;
+	List-Owner; bh=PpOkiOQu9kjX107XX7/80a9v7QI92YrddMsj/gjZcJA=; b=l6UNYjQ0t6T410
+	OBCVqlWQIIe7C6p/YB7j70ACzoUB/supdc8qyHfEPZDIRmiPVBcOu5vphDrh5pZ4XSVFLr9OtHt1M
+	nyHAK4oTT6xxTRSliCOeh7aVaGc/uMtTexKukaQqINBCwyRuPwejZFq9wo3hI1r+p5LhMu+/zJSr0
+	I8xe++PhX/rJxl611QF+0EWRRbZh3p0VCtZAJ8daIpLyT9GwS8n5914f4GgzWGYQ32gLAdrTlscKJ
+	eTSpciOSEuyaG0aXu4KWVyygpxVShBkEZCdpsuC04ywyRam8OoD0ag0ZqfR/NLRl6ofs07MDMWV9i
+	96szk+AcGTySRPPAKSMQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXMVg-00000005fsE-0TX0;
-	Mon, 13 Jan 2025 15:37:48 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tXMkI-00000005jNy-2xdy;
+	Mon, 13 Jan 2025 15:52:54 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXLqM-00000005VCU-00mj;
-	Mon, 13 Jan 2025 14:55:08 +0000
+	id 1tXM4b-00000005YxJ-020O
+	for linux-riscv@lists.infradead.org;
+	Mon, 13 Jan 2025 15:09:50 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id A83405C5439;
-	Mon, 13 Jan 2025 14:54:24 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id ADB7AC4CEE2;
-	Mon, 13 Jan 2025 14:55:04 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 0BC6EA4054A
+	for <linux-riscv@lists.infradead.org>; Mon, 13 Jan 2025 15:08:00 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E139FC4CED6
+	for <linux-riscv@lists.infradead.org>; Mon, 13 Jan 2025 15:09:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1736780105;
-	bh=rMXm59SPTsrymD3C2yxFqEbLQ1YAvMyEOn3UiB05slc=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=ljKxA0aFAxh2ONCcjbhbD784GF9s1PYXJEEhRvReBgZEd6mDOgNWpdwwkyWfeJtFD
-	 ms5xEGQtINBAIYgUytnrPynqhAUDRqfv74ujLH6UCshPh2cTPoJ8hPIZXvR3svIiA7
-	 o7F2SGfoA9kSXA0z25eLW/4YvTTMEneP+GangqZLdQgRreaEQhitpVt0fc/v6k9WRZ
-	 cHiPMwk4/ZkoSkgvizHC3Z1Z7DkSrh/HkjwDNIqWHODpNSrreAduK5Y/WeqkUAORaC
-	 kmspZTxOCvVnKX0NexSwAos/8QKdXhniXRbJetXIy518kJYNu8Z9wNyrPdc2P/rmCr
-	 sNZbLt631SwvQ==
-Date: Mon, 13 Jan 2025 11:55:02 -0300
-From: Arnaldo Carvalho de Melo <acme@kernel.org>
-To: Charlie Jenkins <charlie@rivosinc.com>
-Cc: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>,
-	Namhyung Kim <namhyung@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>,
-	Adrian Hunter <adrian.hunter@intel.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	=?iso-8859-1?Q?Micka=EBl_Sala=FCn?= <mic@digikod.net>,
-	=?iso-8859-1?Q?G=FCnther?= Noack <gnoack@google.com>,
-	Christian Brauner <brauner@kernel.org>, Guo Ren <guoren@kernel.org>,
-	John Garry <john.g.garry@oracle.com>, Will Deacon <will@kernel.org>,
-	James Clark <james.clark@linaro.org>,
-	Mike Leach <mike.leach@linaro.org>, Leo Yan <leo.yan@linux.dev>,
-	Jonathan Corbet <corbet@lwn.net>, Arnd Bergmann <arnd@arndb.de>,
-	linux-kernel@vger.kernel.org, linux-perf-users@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	linux-security-module@vger.kernel.org, bpf@vger.kernel.org,
-	linux-csky@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-doc@vger.kernel.org
-Subject: Re: [PATCH v6 00/16] perf tools: Use generic syscall scripts for all
- archs
-Message-ID: <Z4UpRqywqYPZSUM_@x1>
-References: <20250108-perf_syscalltbl-v6-0-7543b5293098@rivosinc.com>
- <Z3_ybwWW3QZvJ4V6@x1>
- <Z4AoFA974kauIJ9T@ghost>
- <Z4A2Y269Ffo0ERkS@x1>
- <Z4BEygdXmofWBr0-@x1>
- <Z4BVK3D7sN-XYg2o@ghost>
- <Z4F1dXQLPGZ3JFI5@ghost>
+	s=k20201202; t=1736780987;
+	bh=ySZhrV7KxoEoceQ7GO1oMNQ6hJVR+4rWEVsbhAzW6xg=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=Q0kFRQ2dWCSaUoXOl2eVB/tWlbeGYAgdrPF2xWrir0QIZwcTXRng10Ynb7GskjCTt
+	 ynnIxQ2FLURIP4I4PDkqEPU+3TPpg+YTTKUpGa7jGzg6foD1xgFzVn6by+vnxiwSDm
+	 mACMwVaULUom5fP1yMXBc0JYW6/26b2F8DARMG9UAxfg9cUWHr41wDbDAvWQIlEWQn
+	 tNrH1eC00V4+Q35Oq5ZzxJAThQqP+p06aBiOl4okEap2sKwWcvjdm765085op+5b2+
+	 PycxsJLItwsj+Z/HqA7PevddE0dkOAeNOJvZHQqcuNZUa6jmp9AcpLE3kxMA3vThIq
+	 DQuAyB46GTcWw==
+Received: by mail-lj1-f171.google.com with SMTP id 38308e7fff4ca-30613037309so17841181fa.3
+        for <linux-riscv@lists.infradead.org>; Mon, 13 Jan 2025 07:09:47 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCVxmxriAScazO0GGBtmkh4kx8WH9TsUO+pW0YAzpUq8DkqHuctZ81sG3q727UadUnqIFyG30me6ZFPCQA==@lists.infradead.org
+X-Gm-Message-State: AOJu0YwXrf7JWwfwfUmB9rBxmH3sv74JVhjk4ongxLbMNELXP4dqn9hA
+	ITlZaKvDDmArenNvcsEadJ9PoZ2lRVAJwRIzehBLhzNCDy55IkWOjeuHv8zYEdStyUwUrAw2wu3
+	1rypxBE91OgpxZBufbMOA9PlzEQ8=
+X-Google-Smtp-Source: AGHT+IGbUkOcXb0e6H2t3vy22I/KxhY5cdwF9uFWxpJILef6hsn0LJJk83aecUNNIJFWk9t6jD5HcQSKaA5naE5eaek=
+X-Received: by 2002:a2e:bc89:0:b0:306:1501:b18c with SMTP id
+ 38308e7fff4ca-3061501b3camr29624171fa.13.1736780986298; Mon, 13 Jan 2025
+ 07:09:46 -0800 (PST)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <Z4F1dXQLPGZ3JFI5@ghost>
+References: <20250113143222.1868692-2-ardb+git@google.com> <82c4c224-1e3a-4fe1-8bec-a9a3d82cbf3f@w6rz.net>
+In-Reply-To: <82c4c224-1e3a-4fe1-8bec-a9a3d82cbf3f@w6rz.net>
+From: Ard Biesheuvel <ardb@kernel.org>
+Date: Mon, 13 Jan 2025 16:09:35 +0100
+X-Gmail-Original-Message-ID: <CAMj1kXHfD=ZBgOBZpAB97i210N7vtHd2_UPbE_2oAmdMA3Ya9w@mail.gmail.com>
+X-Gm-Features: AbW1kvYpyJxTd8iahwxjc7X9ci_8FA4gjYXt6Ub8WEY5hrXC34Ji-2-m_yKfHRg
+Message-ID: <CAMj1kXHfD=ZBgOBZpAB97i210N7vtHd2_UPbE_2oAmdMA3Ya9w@mail.gmail.com>
+Subject: Re: [PATCH v2] kbuild: Strip runtime const RELA sections correctly
+To: Ron Economos <re@w6rz.net>
+Cc: Ard Biesheuvel <ardb+git@google.com>, linux-kbuild@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, Linus Torvalds <torvalds@linux-foundation.org>, 
+	Masahiro Yamada <masahiroy@kernel.org>, linux-riscv@lists.infradead.org, 
+	linux-s390@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250113_065506_122436_807E560E 
-X-CRM114-Status: GOOD (  18.63  )
+X-CRM114-CacheID: sfid-20250113_070949_173793_C050261F 
+X-CRM114-Status: GOOD (  21.69  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,58 +85,159 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jan 10, 2025 at 11:31:01AM -0800, Charlie Jenkins wrote:
-> On Thu, Jan 09, 2025 at 03:00:59PM -0800, Charlie Jenkins wrote:
-> > Ooh okay I see, the quiet commands were being ignored as-is. We could
-> > add the lines to handle this to Makefile.syscalls, but I think the
-> > better solution is to move the lines from Makefile.build to
-> > Makefile.perf to be more generically available. Here is a patch for
-> > that. I also added the comment from the kernel Makefile describing what
-> > this does.
+On Mon, 13 Jan 2025 at 16:07, Ron Economos <re@w6rz.net> wrote:
+>
+> On 1/13/25 06:32, Ard Biesheuvel wrote:
+> > From: Ard Biesheuvel <ardb@kernel.org>
+> >
+> > Due to the fact that runtime const ELF sections are named without a
+> > leading period or double underscore, the RSTRIP logic that removes the
+> > static RELA sections from vmlinux fails to identify them. This results
+> > in a situation like below, where some sections that were supposed to get
+> > removed are left behind.
+> >
+> >    [Nr] Name                              Type            Address          Off     Size   ES Flg Lk Inf Al
+> >
+> >    [58] runtime_shift_d_hash_shift        PROGBITS        ffffffff83500f50 2900f50 000014 00   A  0   0  1
+> >    [59] .relaruntime_shift_d_hash_shift   RELA            0000000000000000 55b6f00 000078 18   I 70  58  8
+> >    [60] runtime_ptr_dentry_hashtable      PROGBITS        ffffffff83500f68 2900f68 000014 00   A  0   0  1
+> >    [61] .relaruntime_ptr_dentry_hashtable RELA            0000000000000000 55b6f78 000078 18   I 70  60  8
+> >    [62] runtime_ptr_USER_PTR_MAX          PROGBITS        ffffffff83500f80 2900f80 000238 00   A  0   0  1
+> >    [63] .relaruntime_ptr_USER_PTR_MAX     RELA            0000000000000000 55b6ff0 000d50 18   I 70  62  8
+> >
+> > So tweak the match expression to strip all sections starting with .rel.
+> > While at it, consolidate the logic used by RISC-V, s390 and x86 into a
+> > single shared Makefile library command.
+> >
+> > Cc: Linus Torvalds <torvalds@linux-foundation.org>
+> > Cc: Masahiro Yamada <masahiroy@kernel.org>
+> > Cc: linux-riscv@lists.infradead.org
+> > Cc: linux-s390@vger.kernel.org
+> > Link: https://lore.kernel.org/all/CAHk-=wjk3ynjomNvFN8jf9A1k=qSc=JFF591W00uXj-qqNUxPQ@mail.gmail.com/
+> > Signed-off-by: Ard Biesheuvel <ardb@kernel.org>
+> > ---
+> > v2: add missing include of scripts/Makefile.lib
+> >
+> >   arch/riscv/Makefile.postlink | 10 ++--------
+> >   arch/s390/Makefile.postlink  |  6 +-----
+> >   arch/x86/Makefile.postlink   |  6 +-----
+> >   scripts/Makefile.lib         |  3 +++
+> >   4 files changed, 7 insertions(+), 18 deletions(-)
+> >
+> > diff --git a/arch/riscv/Makefile.postlink b/arch/riscv/Makefile.postlink
+> > index 829b9abc91f6..750d2784f69e 100644
+> > --- a/arch/riscv/Makefile.postlink
+> > +++ b/arch/riscv/Makefile.postlink
+> > @@ -10,6 +10,7 @@ __archpost:
+> >
+> >   -include include/config/auto.conf
+> >   include $(srctree)/scripts/Kbuild.include
+> > +include $(srctree)/scripts/Makefile.lib
+> >
+> >   quiet_cmd_relocs_check = CHKREL  $@
+> >   cmd_relocs_check =                                                  \
+> > @@ -19,13 +20,6 @@ ifdef CONFIG_RELOCATABLE
+> >   quiet_cmd_cp_vmlinux_relocs = CPREL   vmlinux.relocs
+> >   cmd_cp_vmlinux_relocs = cp vmlinux vmlinux.relocs
+> >
+> > -quiet_cmd_relocs_strip = STRIPREL $@
+> > -cmd_relocs_strip = $(OBJCOPY)   --remove-section='.rel.*'       \
+> > -                                --remove-section='.rel__*'      \
+> > -                                --remove-section='.rela.*'      \
+> > -                                --remove-section='.rela__*' $@
+> > -endif
+> > -
+> >   # `@true` prevents complaint when there is nothing to be done
+> >
+> >   vmlinux: FORCE
+> > @@ -33,7 +27,7 @@ vmlinux: FORCE
+> >   ifdef CONFIG_RELOCATABLE
+> >       $(call if_changed,relocs_check)
+> >       $(call if_changed,cp_vmlinux_relocs)
+> > -     $(call if_changed,relocs_strip)
+> > +     $(call if_changed,strip_relocs)
+> >   endif
+> >
+> >   clean:
+> > diff --git a/arch/s390/Makefile.postlink b/arch/s390/Makefile.postlink
+> > index df82f5410769..1ae5478cd6ac 100644
+> > --- a/arch/s390/Makefile.postlink
+> > +++ b/arch/s390/Makefile.postlink
+> > @@ -11,6 +11,7 @@ __archpost:
+> >
+> >   -include include/config/auto.conf
+> >   include $(srctree)/scripts/Kbuild.include
+> > +include $(srctree)/scripts/Makefile.lib
+> >
+> >   CMD_RELOCS=arch/s390/tools/relocs
+> >   OUT_RELOCS = arch/s390/boot
+> > @@ -19,11 +20,6 @@ quiet_cmd_relocs = RELOCS  $(OUT_RELOCS)/relocs.S
+> >       mkdir -p $(OUT_RELOCS); \
+> >       $(CMD_RELOCS) $@ > $(OUT_RELOCS)/relocs.S
+> >
+> > -quiet_cmd_strip_relocs = RSTRIP  $@
+> > -      cmd_strip_relocs = \
+> > -     $(OBJCOPY) --remove-section='.rel.*' --remove-section='.rel__*' \
+> > -                --remove-section='.rela.*' --remove-section='.rela__*' $@
+> > -
+> >   vmlinux: FORCE
+> >       $(call cmd,relocs)
+> >       $(call cmd,strip_relocs)
+> > diff --git a/arch/x86/Makefile.postlink b/arch/x86/Makefile.postlink
+> > index fef2e977cc7d..8b8a68162c94 100644
+> > --- a/arch/x86/Makefile.postlink
+> > +++ b/arch/x86/Makefile.postlink
+> > @@ -11,6 +11,7 @@ __archpost:
+> >
+> >   -include include/config/auto.conf
+> >   include $(srctree)/scripts/Kbuild.include
+> > +include $(srctree)/scripts/Makefile.lib
+> >
+> >   CMD_RELOCS = arch/x86/tools/relocs
+> >   OUT_RELOCS = arch/x86/boot/compressed
+> > @@ -20,11 +21,6 @@ quiet_cmd_relocs = RELOCS  $(OUT_RELOCS)/$@.relocs
+> >       $(CMD_RELOCS) $@ > $(OUT_RELOCS)/$@.relocs; \
+> >       $(CMD_RELOCS) --abs-relocs $@
+> >
+> > -quiet_cmd_strip_relocs = RSTRIP  $@
+> > -      cmd_strip_relocs = \
+> > -     $(OBJCOPY) --remove-section='.rel.*' --remove-section='.rel__*' \
+> > -                --remove-section='.rela.*' --remove-section='.rela__*' $@
+> > -
+> >   # `@true` prevents complaint when there is nothing to be done
+> >
+> >   vmlinux: FORCE
+> > diff --git a/scripts/Makefile.lib b/scripts/Makefile.lib
+> > index 7395200538da..f604f51d23ca 100644
+> > --- a/scripts/Makefile.lib
+> > +++ b/scripts/Makefile.lib
+> > @@ -374,6 +374,9 @@ quiet_cmd_ar = AR      $@
+> >   quiet_cmd_objcopy = OBJCOPY $@
+> >   cmd_objcopy = $(OBJCOPY) $(OBJCOPYFLAGS) $(OBJCOPYFLAGS_$(@F)) $< $@
+> >
+> > +quiet_cmd_strip_relocs = RSTRIP  $@
+> > +cmd_strip_relocs = $(OBJCOPY) --remove-section='.rel*' $@
+> > +
+> >   # Gzip
+> >   # ---------------------------------------------------------------------------
+> >
+>
+> Fails on RISC-V with:
+>
+>    LD      vmlinux
+>    NM      System.map
+>    SORTTAB vmlinux
+> arch/riscv/Makefile.postlink:41: *** missing 'endif'.  Stop.
+> make[2]: *** [scripts/Makefile.vmlinux:34: vmlinux] Error 2
+> make[2]: *** Deleting file 'vmlinux'
+> make[1]: *** [/home/ubuntu/xfer/linux/Makefile:1167: vmlinux] Error 2
+> make: *** [Makefile:224: __sub-make] Error 2
+> Command exited with non-zero status 2
+>
+> I think you need to put that deleted "endif" back in.
+>
 
-> > From 8dcec7f5d937ede3d33c687573dc2f1654ddc59e Mon Sep 17 00:00:00 2001
-> > From: Charlie Jenkins <charlie@rivosinc.com>
-> > Date: Thu, 9 Jan 2025 14:36:40 -0800
-> > Subject: [PATCH] perf tools: Expose quiet/verbose variables in Makefile.perf
-> > 
-> > The variables to make builds silent/verbose live inside
-> > tools/build/Makefile.build. Move those variables to the top-level
-> > Makefile.perf to be generally available.
-
-<SNIP applied patch>
- 
-> Let me know how you want to handle this, I can send this out as a
-> separate patch if that's better.
-
-I used the patch you provided above after hand editing the message
-before feeding it to 'git am', added these comments:
-
-    Committer testing:
-    
-    See the SYSCALL lines, now they are consistent with the other
-    operations in other lines:
-    
-      SYSTBL  /tmp/build/perf-tools-next/arch/x86/include/generated/asm/syscalls_32.h
-      SYSTBL  /tmp/build/perf-tools-next/arch/x86/include/generated/asm/syscalls_64.h
-      GEN     /tmp/build/perf-tools-next/common-cmds.h
-      GEN     /tmp/build/perf-tools-next/arch/arm64/include/generated/asm/sysreg-defs.h
-      PERF_VERSION = 6.13.rc2.g3d94bb6ed1d0
-      GEN     perf-archive
-      MKDIR   /tmp/build/perf-tools-next/jvmti/
-      MKDIR   /tmp/build/perf-tools-next/jvmti/
-      MKDIR   /tmp/build/perf-tools-next/jvmti/
-      MKDIR   /tmp/build/perf-tools-next/jvmti/
-      GEN     perf-iostat
-      CC      /tmp/build/perf-tools-next/jvmti/libjvmti.o
-      CC      /tmp/build/perf-tools-next/jvmti/jvmti_agent.o
-    
-    Reported-by: Arnaldo Carvalho de Melo <acme@redhat.com>
-    Signed-off-by: Charlie Jenkins <charlie@rivosinc.com>
-    Tested-by: Arnaldo Carvalho de Melo <acme@redhat.com>
-
-Thanks,
-
-- Arnaldo
+Yeah, sorry about that, and thanks for testing.
 
 _______________________________________________
 linux-riscv mailing list
