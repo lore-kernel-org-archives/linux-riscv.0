@@ -4,71 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E240FC02186
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C0E46C02185
 	for <linux-riscv@archiver.kernel.org>; Mon, 13 Jan 2025 15:52:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=PpOkiOQu9kjX107XX7/80a9v7QI92YrddMsj/gjZcJA=; b=l6UNYjQ0t6T410
-	OBCVqlWQIIe7C6p/YB7j70ACzoUB/supdc8qyHfEPZDIRmiPVBcOu5vphDrh5pZ4XSVFLr9OtHt1M
-	nyHAK4oTT6xxTRSliCOeh7aVaGc/uMtTexKukaQqINBCwyRuPwejZFq9wo3hI1r+p5LhMu+/zJSr0
-	I8xe++PhX/rJxl611QF+0EWRRbZh3p0VCtZAJ8daIpLyT9GwS8n5914f4GgzWGYQ32gLAdrTlscKJ
-	eTSpciOSEuyaG0aXu4KWVyygpxVShBkEZCdpsuC04ywyRam8OoD0ag0ZqfR/NLRl6ofs07MDMWV9i
-	96szk+AcGTySRPPAKSMQ==;
+	List-Owner; bh=Zcic0YY3hiCRtseI5hkDNo+VLlgbFRoexzIFJMonxj0=; b=1P16mDFMTqcAeI
+	8gujU/8b9o5AJRIC1jMFGAWqCpKF7cn3etGv91NlspTj1hrnElk/x2B32XMveGanh80T+yD+09QUq
+	pi+hmcIeJzh/1Qmg2tVBattrWSq6LkqqIEBe1R1pxpaVKF8T0W/Rwy4KjlB1wTCO7vyoWGrGrbUpv
+	M61AdgjYuzZFx0EA4UqdRefcC3Oe8VlHfiptOymVO7RP4JMwAQPMFBsjSlmaSpHkZRauHqodHh8GJ
+	YnWjnXsohv/pnYhBFmc1/qfYgSTRZExrW4x9MW1Y6Oyca0ktIpWxou5WKGPyzadIV1pGQvhX8DV5j
+	3zP5jdlxHTGqLG+J9zBg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXMkI-00000005jNy-2xdy;
-	Mon, 13 Jan 2025 15:52:54 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1tXMkG-00000005jMm-3uVo;
+	Mon, 13 Jan 2025 15:52:52 +0000
+Received: from omta38.uswest2.a.cloudfilter.net ([35.89.44.37])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXM4b-00000005YxJ-020O
+	id 1tXM2n-00000005YRQ-3ABw
 	for linux-riscv@lists.infradead.org;
-	Mon, 13 Jan 2025 15:09:50 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 0BC6EA4054A
-	for <linux-riscv@lists.infradead.org>; Mon, 13 Jan 2025 15:08:00 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E139FC4CED6
-	for <linux-riscv@lists.infradead.org>; Mon, 13 Jan 2025 15:09:47 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1736780987;
-	bh=ySZhrV7KxoEoceQ7GO1oMNQ6hJVR+4rWEVsbhAzW6xg=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=Q0kFRQ2dWCSaUoXOl2eVB/tWlbeGYAgdrPF2xWrir0QIZwcTXRng10Ynb7GskjCTt
-	 ynnIxQ2FLURIP4I4PDkqEPU+3TPpg+YTTKUpGa7jGzg6foD1xgFzVn6by+vnxiwSDm
-	 mACMwVaULUom5fP1yMXBc0JYW6/26b2F8DARMG9UAxfg9cUWHr41wDbDAvWQIlEWQn
-	 tNrH1eC00V4+Q35Oq5ZzxJAThQqP+p06aBiOl4okEap2sKwWcvjdm765085op+5b2+
-	 PycxsJLItwsj+Z/HqA7PevddE0dkOAeNOJvZHQqcuNZUa6jmp9AcpLE3kxMA3vThIq
-	 DQuAyB46GTcWw==
-Received: by mail-lj1-f171.google.com with SMTP id 38308e7fff4ca-30613037309so17841181fa.3
-        for <linux-riscv@lists.infradead.org>; Mon, 13 Jan 2025 07:09:47 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCVxmxriAScazO0GGBtmkh4kx8WH9TsUO+pW0YAzpUq8DkqHuctZ81sG3q727UadUnqIFyG30me6ZFPCQA==@lists.infradead.org
-X-Gm-Message-State: AOJu0YwXrf7JWwfwfUmB9rBxmH3sv74JVhjk4ongxLbMNELXP4dqn9hA
-	ITlZaKvDDmArenNvcsEadJ9PoZ2lRVAJwRIzehBLhzNCDy55IkWOjeuHv8zYEdStyUwUrAw2wu3
-	1rypxBE91OgpxZBufbMOA9PlzEQ8=
-X-Google-Smtp-Source: AGHT+IGbUkOcXb0e6H2t3vy22I/KxhY5cdwF9uFWxpJILef6hsn0LJJk83aecUNNIJFWk9t6jD5HcQSKaA5naE5eaek=
-X-Received: by 2002:a2e:bc89:0:b0:306:1501:b18c with SMTP id
- 38308e7fff4ca-3061501b3camr29624171fa.13.1736780986298; Mon, 13 Jan 2025
- 07:09:46 -0800 (PST)
+	Mon, 13 Jan 2025 15:08:01 +0000
+Received: from eig-obgw-6006a.ext.cloudfilter.net ([10.0.30.182])
+	by cmsmtp with ESMTPS
+	id XK6qtqj2IqewVXM2atdl2b; Mon, 13 Jan 2025 15:07:44 +0000
+Received: from box5620.bluehost.com ([162.241.219.59])
+	by cmsmtp with ESMTPS
+	id XM2ZtEUXFfoYEXM2ZtqCzO; Mon, 13 Jan 2025 15:07:44 +0000
+X-Authority-Analysis: v=2.4 cv=GtlE+F1C c=1 sm=1 tr=0 ts=67852c40
+ a=30941lsx5skRcbJ0JMGu9A==:117 a=30941lsx5skRcbJ0JMGu9A==:17
+ a=IkcTkHD0fZMA:10 a=VdSt8ZQiCzkA:10 a=7vwVE5O1G3EA:10 a=VwQbUJbxAAAA:8
+ a=pGLkceISAAAA:8 a=Z4Rwk6OoAAAA:8 a=JfrnYn6hAAAA:8 a=RiYDK7WvK0PClliYqTEA:9
+ a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10 a=HkZW87K1Qel5hWWM3VKY:22
+ a=1CNFftbPRP8L7MoqJWF3:22 a=hTR6fmoedSdf3N0JiVF8:22
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=w6rz.net;
+	s=default; h=Content-Transfer-Encoding:Content-Type:In-Reply-To:From:
+	References:Cc:To:Subject:MIME-Version:Date:Message-ID:Sender:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
+	List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=FV80WBHquXMN08T5W3+Ksl5Dj9zljkMGlhhiCT+jC0k=; b=a0nTCHvQhX6w54cgFnZCw0LyXT
+	GWgY9E/lD1WLSUkc9MATFq/00GiV8Ii3bG5i1lUSTAKmi1L1h/tl2iuqRMcdUIYcn4nlPmtlow3bh
+	v4uKBnF+J1rx6BzI9UkEHtNGOLoIoN7T8Mlrb0/RqKbtUA8Q1YZE+uMshRIJkXY8tAE0LTOiFJoeA
+	7aM/GfmgNucJXPIBnvIlb6nO0m3sOovdt0irk4ydGM7gTdb8Xme7LMfyJx433DYAVN9DcBuf5Psz2
+	G6mFRi4Ii06jFo7pnaeiW3chkmSE/oP62ttawBvetF/9ffEzLycFnnh7o0xhA8hwzgh30dsZySUOW
+	mhxgfs3Q==;
+Received: from c-73-223-253-157.hsd1.ca.comcast.net ([73.223.253.157]:57814 helo=[10.0.1.116])
+	by box5620.bluehost.com with esmtpsa  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
+	(Exim 4.96.2)
+	(envelope-from <re@w6rz.net>)
+	id 1tXM2Z-0011Bx-0K;
+	Mon, 13 Jan 2025 08:07:43 -0700
+Message-ID: <82c4c224-1e3a-4fe1-8bec-a9a3d82cbf3f@w6rz.net>
+Date: Mon, 13 Jan 2025 07:07:41 -0800
 MIME-Version: 1.0
-References: <20250113143222.1868692-2-ardb+git@google.com> <82c4c224-1e3a-4fe1-8bec-a9a3d82cbf3f@w6rz.net>
-In-Reply-To: <82c4c224-1e3a-4fe1-8bec-a9a3d82cbf3f@w6rz.net>
-From: Ard Biesheuvel <ardb@kernel.org>
-Date: Mon, 13 Jan 2025 16:09:35 +0100
-X-Gmail-Original-Message-ID: <CAMj1kXHfD=ZBgOBZpAB97i210N7vtHd2_UPbE_2oAmdMA3Ya9w@mail.gmail.com>
-X-Gm-Features: AbW1kvYpyJxTd8iahwxjc7X9ci_8FA4gjYXt6Ub8WEY5hrXC34Ji-2-m_yKfHRg
-Message-ID: <CAMj1kXHfD=ZBgOBZpAB97i210N7vtHd2_UPbE_2oAmdMA3Ya9w@mail.gmail.com>
+User-Agent: Mozilla Thunderbird
 Subject: Re: [PATCH v2] kbuild: Strip runtime const RELA sections correctly
-To: Ron Economos <re@w6rz.net>
-Cc: Ard Biesheuvel <ardb+git@google.com>, linux-kbuild@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, Linus Torvalds <torvalds@linux-foundation.org>, 
-	Masahiro Yamada <masahiroy@kernel.org>, linux-riscv@lists.infradead.org, 
-	linux-s390@vger.kernel.org
+To: Ard Biesheuvel <ardb+git@google.com>, linux-kbuild@vger.kernel.org
+Cc: linux-kernel@vger.kernel.org, Ard Biesheuvel <ardb@kernel.org>,
+ Linus Torvalds <torvalds@linux-foundation.org>,
+ Masahiro Yamada <masahiroy@kernel.org>, linux-riscv@lists.infradead.org,
+ linux-s390@vger.kernel.org
+References: <20250113143222.1868692-2-ardb+git@google.com>
+Content-Language: en-US
+From: Ron Economos <re@w6rz.net>
+In-Reply-To: <20250113143222.1868692-2-ardb+git@google.com>
+X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
+X-AntiAbuse: Primary Hostname - box5620.bluehost.com
+X-AntiAbuse: Original Domain - lists.infradead.org
+X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
+X-AntiAbuse: Sender Address Domain - w6rz.net
+X-BWhitelist: no
+X-Source-IP: 73.223.253.157
+X-Source-L: No
+X-Exim-ID: 1tXM2Z-0011Bx-0K
+X-Source: 
+X-Source-Args: 
+X-Source-Dir: 
+X-Source-Sender: c-73-223-253-157.hsd1.ca.comcast.net ([10.0.1.116]) [73.223.253.157]:57814
+X-Source-Auth: re@w6rz.net
+X-Email-Count: 2
+X-Org: HG=bhshared;ORG=bluehost;
+X-Source-Cap: d3NpeHJ6bmU7d3NpeHJ6bmU7Ym94NTYyMC5ibHVlaG9zdC5jb20=
+X-Local-Domain: yes
+X-CMAE-Envelope: MS4xfNWkErWy4DOs/1zUYIRcjUJ1jYDrXawQG0jCqECt4tIWEUunGJm+hjLDDEbWcn5BO8zvDYF+7tcYGqp93YQYRSPJDxxMy+E6GwPNRbx04xERd5cq8JjN
+ Kp2OEI31dary2xGJqyoFbQk1uKkXAci9WGMi7aqTjruUg67FdPsj2IwISl+apZFy4uHnAkIcDiwD37gRrzaqTUj3DfWnJvQj5Go=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250113_070949_173793_C050261F 
-X-CRM114-Status: GOOD (  21.69  )
+X-CRM114-CacheID: sfid-20250113_070758_100830_4AF4B0C2 
+X-CRM114-Status: GOOD (  12.78  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,166 +105,116 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="utf-8"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, 13 Jan 2025 at 16:07, Ron Economos <re@w6rz.net> wrote:
->
-> On 1/13/25 06:32, Ard Biesheuvel wrote:
-> > From: Ard Biesheuvel <ardb@kernel.org>
-> >
-> > Due to the fact that runtime const ELF sections are named without a
-> > leading period or double underscore, the RSTRIP logic that removes the
-> > static RELA sections from vmlinux fails to identify them. This results
-> > in a situation like below, where some sections that were supposed to get
-> > removed are left behind.
-> >
-> >    [Nr] Name                              Type            Address          Off     Size   ES Flg Lk Inf Al
-> >
-> >    [58] runtime_shift_d_hash_shift        PROGBITS        ffffffff83500f50 2900f50 000014 00   A  0   0  1
-> >    [59] .relaruntime_shift_d_hash_shift   RELA            0000000000000000 55b6f00 000078 18   I 70  58  8
-> >    [60] runtime_ptr_dentry_hashtable      PROGBITS        ffffffff83500f68 2900f68 000014 00   A  0   0  1
-> >    [61] .relaruntime_ptr_dentry_hashtable RELA            0000000000000000 55b6f78 000078 18   I 70  60  8
-> >    [62] runtime_ptr_USER_PTR_MAX          PROGBITS        ffffffff83500f80 2900f80 000238 00   A  0   0  1
-> >    [63] .relaruntime_ptr_USER_PTR_MAX     RELA            0000000000000000 55b6ff0 000d50 18   I 70  62  8
-> >
-> > So tweak the match expression to strip all sections starting with .rel.
-> > While at it, consolidate the logic used by RISC-V, s390 and x86 into a
-> > single shared Makefile library command.
-> >
-> > Cc: Linus Torvalds <torvalds@linux-foundation.org>
-> > Cc: Masahiro Yamada <masahiroy@kernel.org>
-> > Cc: linux-riscv@lists.infradead.org
-> > Cc: linux-s390@vger.kernel.org
-> > Link: https://lore.kernel.org/all/CAHk-=wjk3ynjomNvFN8jf9A1k=qSc=JFF591W00uXj-qqNUxPQ@mail.gmail.com/
-> > Signed-off-by: Ard Biesheuvel <ardb@kernel.org>
-> > ---
-> > v2: add missing include of scripts/Makefile.lib
-> >
-> >   arch/riscv/Makefile.postlink | 10 ++--------
-> >   arch/s390/Makefile.postlink  |  6 +-----
-> >   arch/x86/Makefile.postlink   |  6 +-----
-> >   scripts/Makefile.lib         |  3 +++
-> >   4 files changed, 7 insertions(+), 18 deletions(-)
-> >
-> > diff --git a/arch/riscv/Makefile.postlink b/arch/riscv/Makefile.postlink
-> > index 829b9abc91f6..750d2784f69e 100644
-> > --- a/arch/riscv/Makefile.postlink
-> > +++ b/arch/riscv/Makefile.postlink
-> > @@ -10,6 +10,7 @@ __archpost:
-> >
-> >   -include include/config/auto.conf
-> >   include $(srctree)/scripts/Kbuild.include
-> > +include $(srctree)/scripts/Makefile.lib
-> >
-> >   quiet_cmd_relocs_check = CHKREL  $@
-> >   cmd_relocs_check =                                                  \
-> > @@ -19,13 +20,6 @@ ifdef CONFIG_RELOCATABLE
-> >   quiet_cmd_cp_vmlinux_relocs = CPREL   vmlinux.relocs
-> >   cmd_cp_vmlinux_relocs = cp vmlinux vmlinux.relocs
-> >
-> > -quiet_cmd_relocs_strip = STRIPREL $@
-> > -cmd_relocs_strip = $(OBJCOPY)   --remove-section='.rel.*'       \
-> > -                                --remove-section='.rel__*'      \
-> > -                                --remove-section='.rela.*'      \
-> > -                                --remove-section='.rela__*' $@
-> > -endif
-> > -
-> >   # `@true` prevents complaint when there is nothing to be done
-> >
-> >   vmlinux: FORCE
-> > @@ -33,7 +27,7 @@ vmlinux: FORCE
-> >   ifdef CONFIG_RELOCATABLE
-> >       $(call if_changed,relocs_check)
-> >       $(call if_changed,cp_vmlinux_relocs)
-> > -     $(call if_changed,relocs_strip)
-> > +     $(call if_changed,strip_relocs)
-> >   endif
-> >
-> >   clean:
-> > diff --git a/arch/s390/Makefile.postlink b/arch/s390/Makefile.postlink
-> > index df82f5410769..1ae5478cd6ac 100644
-> > --- a/arch/s390/Makefile.postlink
-> > +++ b/arch/s390/Makefile.postlink
-> > @@ -11,6 +11,7 @@ __archpost:
-> >
-> >   -include include/config/auto.conf
-> >   include $(srctree)/scripts/Kbuild.include
-> > +include $(srctree)/scripts/Makefile.lib
-> >
-> >   CMD_RELOCS=arch/s390/tools/relocs
-> >   OUT_RELOCS = arch/s390/boot
-> > @@ -19,11 +20,6 @@ quiet_cmd_relocs = RELOCS  $(OUT_RELOCS)/relocs.S
-> >       mkdir -p $(OUT_RELOCS); \
-> >       $(CMD_RELOCS) $@ > $(OUT_RELOCS)/relocs.S
-> >
-> > -quiet_cmd_strip_relocs = RSTRIP  $@
-> > -      cmd_strip_relocs = \
-> > -     $(OBJCOPY) --remove-section='.rel.*' --remove-section='.rel__*' \
-> > -                --remove-section='.rela.*' --remove-section='.rela__*' $@
-> > -
-> >   vmlinux: FORCE
-> >       $(call cmd,relocs)
-> >       $(call cmd,strip_relocs)
-> > diff --git a/arch/x86/Makefile.postlink b/arch/x86/Makefile.postlink
-> > index fef2e977cc7d..8b8a68162c94 100644
-> > --- a/arch/x86/Makefile.postlink
-> > +++ b/arch/x86/Makefile.postlink
-> > @@ -11,6 +11,7 @@ __archpost:
-> >
-> >   -include include/config/auto.conf
-> >   include $(srctree)/scripts/Kbuild.include
-> > +include $(srctree)/scripts/Makefile.lib
-> >
-> >   CMD_RELOCS = arch/x86/tools/relocs
-> >   OUT_RELOCS = arch/x86/boot/compressed
-> > @@ -20,11 +21,6 @@ quiet_cmd_relocs = RELOCS  $(OUT_RELOCS)/$@.relocs
-> >       $(CMD_RELOCS) $@ > $(OUT_RELOCS)/$@.relocs; \
-> >       $(CMD_RELOCS) --abs-relocs $@
-> >
-> > -quiet_cmd_strip_relocs = RSTRIP  $@
-> > -      cmd_strip_relocs = \
-> > -     $(OBJCOPY) --remove-section='.rel.*' --remove-section='.rel__*' \
-> > -                --remove-section='.rela.*' --remove-section='.rela__*' $@
-> > -
-> >   # `@true` prevents complaint when there is nothing to be done
-> >
-> >   vmlinux: FORCE
-> > diff --git a/scripts/Makefile.lib b/scripts/Makefile.lib
-> > index 7395200538da..f604f51d23ca 100644
-> > --- a/scripts/Makefile.lib
-> > +++ b/scripts/Makefile.lib
-> > @@ -374,6 +374,9 @@ quiet_cmd_ar = AR      $@
-> >   quiet_cmd_objcopy = OBJCOPY $@
-> >   cmd_objcopy = $(OBJCOPY) $(OBJCOPYFLAGS) $(OBJCOPYFLAGS_$(@F)) $< $@
-> >
-> > +quiet_cmd_strip_relocs = RSTRIP  $@
-> > +cmd_strip_relocs = $(OBJCOPY) --remove-section='.rel*' $@
-> > +
-> >   # Gzip
-> >   # ---------------------------------------------------------------------------
-> >
->
-> Fails on RISC-V with:
->
->    LD      vmlinux
->    NM      System.map
->    SORTTAB vmlinux
-> arch/riscv/Makefile.postlink:41: *** missing 'endif'.  Stop.
-> make[2]: *** [scripts/Makefile.vmlinux:34: vmlinux] Error 2
-> make[2]: *** Deleting file 'vmlinux'
-> make[1]: *** [/home/ubuntu/xfer/linux/Makefile:1167: vmlinux] Error 2
-> make: *** [Makefile:224: __sub-make] Error 2
-> Command exited with non-zero status 2
->
-> I think you need to put that deleted "endif" back in.
->
-
-Yeah, sorry about that, and thanks for testing.
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gMS8xMy8yNSAwNjozMiwgQXJkIEJpZXNoZXV2ZWwgd3JvdGU6Cj4gRnJvbTogQXJkIEJpZXNo
+ZXV2ZWwgPGFyZGJAa2VybmVsLm9yZz4KPgo+IER1ZSB0byB0aGUgZmFjdCB0aGF0IHJ1bnRpbWUg
+Y29uc3QgRUxGIHNlY3Rpb25zIGFyZSBuYW1lZCB3aXRob3V0IGEKPiBsZWFkaW5nIHBlcmlvZCBv
+ciBkb3VibGUgdW5kZXJzY29yZSwgdGhlIFJTVFJJUCBsb2dpYyB0aGF0IHJlbW92ZXMgdGhlCj4g
+c3RhdGljIFJFTEEgc2VjdGlvbnMgZnJvbSB2bWxpbnV4IGZhaWxzIHRvIGlkZW50aWZ5IHRoZW0u
+IFRoaXMgcmVzdWx0cwo+IGluIGEgc2l0dWF0aW9uIGxpa2UgYmVsb3csIHdoZXJlIHNvbWUgc2Vj
+dGlvbnMgdGhhdCB3ZXJlIHN1cHBvc2VkIHRvIGdldAo+IHJlbW92ZWQgYXJlIGxlZnQgYmVoaW5k
+Lgo+Cj4gICAgW05yXSBOYW1lICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgVHlwZSAgICAg
+ICAgICAgIEFkZHJlc3MgICAgICAgICAgT2ZmICAgICBTaXplICAgRVMgRmxnIExrIEluZiBBbAo+
+Cj4gICAgWzU4XSBydW50aW1lX3NoaWZ0X2RfaGFzaF9zaGlmdCAgICAgICAgUFJPR0JJVFMgICAg
+ICAgIGZmZmZmZmZmODM1MDBmNTAgMjkwMGY1MCAwMDAwMTQgMDAgICBBICAwICAgMCAgMQo+ICAg
+IFs1OV0gLnJlbGFydW50aW1lX3NoaWZ0X2RfaGFzaF9zaGlmdCAgIFJFTEEgICAgICAgICAgICAw
+MDAwMDAwMDAwMDAwMDAwIDU1YjZmMDAgMDAwMDc4IDE4ICAgSSA3MCAgNTggIDgKPiAgICBbNjBd
+IHJ1bnRpbWVfcHRyX2RlbnRyeV9oYXNodGFibGUgICAgICBQUk9HQklUUyAgICAgICAgZmZmZmZm
+ZmY4MzUwMGY2OCAyOTAwZjY4IDAwMDAxNCAwMCAgIEEgIDAgICAwICAxCj4gICAgWzYxXSAucmVs
+YXJ1bnRpbWVfcHRyX2RlbnRyeV9oYXNodGFibGUgUkVMQSAgICAgICAgICAgIDAwMDAwMDAwMDAw
+MDAwMDAgNTViNmY3OCAwMDAwNzggMTggICBJIDcwICA2MCAgOAo+ICAgIFs2Ml0gcnVudGltZV9w
+dHJfVVNFUl9QVFJfTUFYICAgICAgICAgIFBST0dCSVRTICAgICAgICBmZmZmZmZmZjgzNTAwZjgw
+IDI5MDBmODAgMDAwMjM4IDAwICAgQSAgMCAgIDAgIDEKPiAgICBbNjNdIC5yZWxhcnVudGltZV9w
+dHJfVVNFUl9QVFJfTUFYICAgICBSRUxBICAgICAgICAgICAgMDAwMDAwMDAwMDAwMDAwMCA1NWI2
+ZmYwIDAwMGQ1MCAxOCAgIEkgNzAgIDYyICA4Cj4KPiBTbyB0d2VhayB0aGUgbWF0Y2ggZXhwcmVz
+c2lvbiB0byBzdHJpcCBhbGwgc2VjdGlvbnMgc3RhcnRpbmcgd2l0aCAucmVsLgo+IFdoaWxlIGF0
+IGl0LCBjb25zb2xpZGF0ZSB0aGUgbG9naWMgdXNlZCBieSBSSVNDLVYsIHMzOTAgYW5kIHg4NiBp
+bnRvIGEKPiBzaW5nbGUgc2hhcmVkIE1ha2VmaWxlIGxpYnJhcnkgY29tbWFuZC4KPgo+IENjOiBM
+aW51cyBUb3J2YWxkcyA8dG9ydmFsZHNAbGludXgtZm91bmRhdGlvbi5vcmc+Cj4gQ2M6IE1hc2Fo
+aXJvIFlhbWFkYSA8bWFzYWhpcm95QGtlcm5lbC5vcmc+Cj4gQ2M6IGxpbnV4LXJpc2N2QGxpc3Rz
+LmluZnJhZGVhZC5vcmcKPiBDYzogbGludXgtczM5MEB2Z2VyLmtlcm5lbC5vcmcKPiBMaW5rOiBo
+dHRwczovL2xvcmUua2VybmVsLm9yZy9hbGwvQ0FIay09d2prM3luam9tTnZGTjhqZjlBMWs9cVNj
+PUpGRjU5MVcwMHVYai1xcU5VeFBRQG1haWwuZ21haWwuY29tLwo+IFNpZ25lZC1vZmYtYnk6IEFy
+ZCBCaWVzaGV1dmVsIDxhcmRiQGtlcm5lbC5vcmc+Cj4gLS0tCj4gdjI6IGFkZCBtaXNzaW5nIGlu
+Y2x1ZGUgb2Ygc2NyaXB0cy9NYWtlZmlsZS5saWIKPgo+ICAgYXJjaC9yaXNjdi9NYWtlZmlsZS5w
+b3N0bGluayB8IDEwICsrLS0tLS0tLS0KPiAgIGFyY2gvczM5MC9NYWtlZmlsZS5wb3N0bGluayAg
+fCAgNiArLS0tLS0KPiAgIGFyY2gveDg2L01ha2VmaWxlLnBvc3RsaW5rICAgfCAgNiArLS0tLS0K
+PiAgIHNjcmlwdHMvTWFrZWZpbGUubGliICAgICAgICAgfCAgMyArKysKPiAgIDQgZmlsZXMgY2hh
+bmdlZCwgNyBpbnNlcnRpb25zKCspLCAxOCBkZWxldGlvbnMoLSkKPgo+IGRpZmYgLS1naXQgYS9h
+cmNoL3Jpc2N2L01ha2VmaWxlLnBvc3RsaW5rIGIvYXJjaC9yaXNjdi9NYWtlZmlsZS5wb3N0bGlu
+awo+IGluZGV4IDgyOWI5YWJjOTFmNi4uNzUwZDI3ODRmNjllIDEwMDY0NAo+IC0tLSBhL2FyY2gv
+cmlzY3YvTWFrZWZpbGUucG9zdGxpbmsKPiArKysgYi9hcmNoL3Jpc2N2L01ha2VmaWxlLnBvc3Rs
+aW5rCj4gQEAgLTEwLDYgKzEwLDcgQEAgX19hcmNocG9zdDoKPiAgIAo+ICAgLWluY2x1ZGUgaW5j
+bHVkZS9jb25maWcvYXV0by5jb25mCj4gICBpbmNsdWRlICQoc3JjdHJlZSkvc2NyaXB0cy9LYnVp
+bGQuaW5jbHVkZQo+ICtpbmNsdWRlICQoc3JjdHJlZSkvc2NyaXB0cy9NYWtlZmlsZS5saWIKPiAg
+IAo+ICAgcXVpZXRfY21kX3JlbG9jc19jaGVjayA9IENIS1JFTCAgJEAKPiAgIGNtZF9yZWxvY3Nf
+Y2hlY2sgPSAJCQkJCQkJXAo+IEBAIC0xOSwxMyArMjAsNiBAQCBpZmRlZiBDT05GSUdfUkVMT0NB
+VEFCTEUKPiAgIHF1aWV0X2NtZF9jcF92bWxpbnV4X3JlbG9jcyA9IENQUkVMICAgdm1saW51eC5y
+ZWxvY3MKPiAgIGNtZF9jcF92bWxpbnV4X3JlbG9jcyA9IGNwIHZtbGludXggdm1saW51eC5yZWxv
+Y3MKPiAgIAo+IC1xdWlldF9jbWRfcmVsb2NzX3N0cmlwID0gU1RSSVBSRUwgJEAKPiAtY21kX3Jl
+bG9jc19zdHJpcCA9ICQoT0JKQ09QWSkgICAtLXJlbW92ZS1zZWN0aW9uPScucmVsLionICAgICAg
+IFwKPiAtICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAtLXJlbW92ZS1zZWN0aW9uPScu
+cmVsX18qJyAgICAgIFwKPiAtICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAtLXJlbW92
+ZS1zZWN0aW9uPScucmVsYS4qJyAgICAgIFwKPiAtICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAtLXJlbW92ZS1zZWN0aW9uPScucmVsYV9fKicgJEAKPiAtZW5kaWYKPiAtCj4gICAjIGBA
+dHJ1ZWAgcHJldmVudHMgY29tcGxhaW50IHdoZW4gdGhlcmUgaXMgbm90aGluZyB0byBiZSBkb25l
+Cj4gICAKPiAgIHZtbGludXg6IEZPUkNFCj4gQEAgLTMzLDcgKzI3LDcgQEAgdm1saW51eDogRk9S
+Q0UKPiAgIGlmZGVmIENPTkZJR19SRUxPQ0FUQUJMRQo+ICAgCSQoY2FsbCBpZl9jaGFuZ2VkLHJl
+bG9jc19jaGVjaykKPiAgIAkkKGNhbGwgaWZfY2hhbmdlZCxjcF92bWxpbnV4X3JlbG9jcykKPiAt
+CSQoY2FsbCBpZl9jaGFuZ2VkLHJlbG9jc19zdHJpcCkKPiArCSQoY2FsbCBpZl9jaGFuZ2VkLHN0
+cmlwX3JlbG9jcykKPiAgIGVuZGlmCj4gICAKPiAgIGNsZWFuOgo+IGRpZmYgLS1naXQgYS9hcmNo
+L3MzOTAvTWFrZWZpbGUucG9zdGxpbmsgYi9hcmNoL3MzOTAvTWFrZWZpbGUucG9zdGxpbmsKPiBp
+bmRleCBkZjgyZjU0MTA3NjkuLjFhZTU0NzhjZDZhYyAxMDA2NDQKPiAtLS0gYS9hcmNoL3MzOTAv
+TWFrZWZpbGUucG9zdGxpbmsKPiArKysgYi9hcmNoL3MzOTAvTWFrZWZpbGUucG9zdGxpbmsKPiBA
+QCAtMTEsNiArMTEsNyBAQCBfX2FyY2hwb3N0Ogo+ICAgCj4gICAtaW5jbHVkZSBpbmNsdWRlL2Nv
+bmZpZy9hdXRvLmNvbmYKPiAgIGluY2x1ZGUgJChzcmN0cmVlKS9zY3JpcHRzL0tidWlsZC5pbmNs
+dWRlCj4gK2luY2x1ZGUgJChzcmN0cmVlKS9zY3JpcHRzL01ha2VmaWxlLmxpYgo+ICAgCj4gICBD
+TURfUkVMT0NTPWFyY2gvczM5MC90b29scy9yZWxvY3MKPiAgIE9VVF9SRUxPQ1MgPSBhcmNoL3Mz
+OTAvYm9vdAo+IEBAIC0xOSwxMSArMjAsNiBAQCBxdWlldF9jbWRfcmVsb2NzID0gUkVMT0NTICAk
+KE9VVF9SRUxPQ1MpL3JlbG9jcy5TCj4gICAJbWtkaXIgLXAgJChPVVRfUkVMT0NTKTsgXAo+ICAg
+CSQoQ01EX1JFTE9DUykgJEAgPiAkKE9VVF9SRUxPQ1MpL3JlbG9jcy5TCj4gICAKPiAtcXVpZXRf
+Y21kX3N0cmlwX3JlbG9jcyA9IFJTVFJJUCAgJEAKPiAtICAgICAgY21kX3N0cmlwX3JlbG9jcyA9
+IFwKPiAtCSQoT0JKQ09QWSkgLS1yZW1vdmUtc2VjdGlvbj0nLnJlbC4qJyAtLXJlbW92ZS1zZWN0
+aW9uPScucmVsX18qJyBcCj4gLQkJICAgLS1yZW1vdmUtc2VjdGlvbj0nLnJlbGEuKicgLS1yZW1v
+dmUtc2VjdGlvbj0nLnJlbGFfXyonICRACj4gLQo+ICAgdm1saW51eDogRk9SQ0UKPiAgIAkkKGNh
+bGwgY21kLHJlbG9jcykKPiAgIAkkKGNhbGwgY21kLHN0cmlwX3JlbG9jcykKPiBkaWZmIC0tZ2l0
+IGEvYXJjaC94ODYvTWFrZWZpbGUucG9zdGxpbmsgYi9hcmNoL3g4Ni9NYWtlZmlsZS5wb3N0bGlu
+awo+IGluZGV4IGZlZjJlOTc3Y2M3ZC4uOGI4YTY4MTYyYzk0IDEwMDY0NAo+IC0tLSBhL2FyY2gv
+eDg2L01ha2VmaWxlLnBvc3RsaW5rCj4gKysrIGIvYXJjaC94ODYvTWFrZWZpbGUucG9zdGxpbmsK
+PiBAQCAtMTEsNiArMTEsNyBAQCBfX2FyY2hwb3N0Ogo+ICAgCj4gICAtaW5jbHVkZSBpbmNsdWRl
+L2NvbmZpZy9hdXRvLmNvbmYKPiAgIGluY2x1ZGUgJChzcmN0cmVlKS9zY3JpcHRzL0tidWlsZC5p
+bmNsdWRlCj4gK2luY2x1ZGUgJChzcmN0cmVlKS9zY3JpcHRzL01ha2VmaWxlLmxpYgo+ICAgCj4g
+ICBDTURfUkVMT0NTID0gYXJjaC94ODYvdG9vbHMvcmVsb2NzCj4gICBPVVRfUkVMT0NTID0gYXJj
+aC94ODYvYm9vdC9jb21wcmVzc2VkCj4gQEAgLTIwLDExICsyMSw2IEBAIHF1aWV0X2NtZF9yZWxv
+Y3MgPSBSRUxPQ1MgICQoT1VUX1JFTE9DUykvJEAucmVsb2NzCj4gICAJJChDTURfUkVMT0NTKSAk
+QCA+ICQoT1VUX1JFTE9DUykvJEAucmVsb2NzOyBcCj4gICAJJChDTURfUkVMT0NTKSAtLWFicy1y
+ZWxvY3MgJEAKPiAgIAo+IC1xdWlldF9jbWRfc3RyaXBfcmVsb2NzID0gUlNUUklQICAkQAo+IC0g
+ICAgICBjbWRfc3RyaXBfcmVsb2NzID0gXAo+IC0JJChPQkpDT1BZKSAtLXJlbW92ZS1zZWN0aW9u
+PScucmVsLionIC0tcmVtb3ZlLXNlY3Rpb249Jy5yZWxfXyonIFwKPiAtCQkgICAtLXJlbW92ZS1z
+ZWN0aW9uPScucmVsYS4qJyAtLXJlbW92ZS1zZWN0aW9uPScucmVsYV9fKicgJEAKPiAtCj4gICAj
+IGBAdHJ1ZWAgcHJldmVudHMgY29tcGxhaW50IHdoZW4gdGhlcmUgaXMgbm90aGluZyB0byBiZSBk
+b25lCj4gICAKPiAgIHZtbGludXg6IEZPUkNFCj4gZGlmZiAtLWdpdCBhL3NjcmlwdHMvTWFrZWZp
+bGUubGliIGIvc2NyaXB0cy9NYWtlZmlsZS5saWIKPiBpbmRleCA3Mzk1MjAwNTM4ZGEuLmY2MDRm
+NTFkMjNjYSAxMDA2NDQKPiAtLS0gYS9zY3JpcHRzL01ha2VmaWxlLmxpYgo+ICsrKyBiL3Njcmlw
+dHMvTWFrZWZpbGUubGliCj4gQEAgLTM3NCw2ICszNzQsOSBAQCBxdWlldF9jbWRfYXIgPSBBUiAg
+ICAgICRACj4gICBxdWlldF9jbWRfb2JqY29weSA9IE9CSkNPUFkgJEAKPiAgIGNtZF9vYmpjb3B5
+ID0gJChPQkpDT1BZKSAkKE9CSkNPUFlGTEFHUykgJChPQkpDT1BZRkxBR1NfJChARikpICQ8ICRA
+Cj4gICAKPiArcXVpZXRfY21kX3N0cmlwX3JlbG9jcyA9IFJTVFJJUCAgJEAKPiArY21kX3N0cmlw
+X3JlbG9jcyA9ICQoT0JKQ09QWSkgLS1yZW1vdmUtc2VjdGlvbj0nLnJlbConICRACj4gKwo+ICAg
+IyBHemlwCj4gICAjIC0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0t
+LS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLQo+ICAgCgpGYWlscyBvbiBSSVNDLVYgd2l0
+aDoKCiDCoCBMRMKgwqDCoMKgwqAgdm1saW51eAogwqAgTk3CoMKgwqDCoMKgIFN5c3RlbS5tYXAK
+IMKgIFNPUlRUQUIgdm1saW51eAphcmNoL3Jpc2N2L01ha2VmaWxlLnBvc3RsaW5rOjQxOiAqKiog
+bWlzc2luZyAnZW5kaWYnLsKgIFN0b3AuCm1ha2VbMl06ICoqKiBbc2NyaXB0cy9NYWtlZmlsZS52
+bWxpbnV4OjM0OiB2bWxpbnV4XSBFcnJvciAyCm1ha2VbMl06ICoqKiBEZWxldGluZyBmaWxlICd2
+bWxpbnV4JwptYWtlWzFdOiAqKiogWy9ob21lL3VidW50dS94ZmVyL2xpbnV4L01ha2VmaWxlOjEx
+Njc6IHZtbGludXhdIEVycm9yIDIKbWFrZTogKioqIFtNYWtlZmlsZToyMjQ6IF9fc3ViLW1ha2Vd
+IEVycm9yIDIKQ29tbWFuZCBleGl0ZWQgd2l0aCBub24temVybyBzdGF0dXMgMgoKSSB0aGluayB5
+b3UgbmVlZCB0byBwdXQgdGhhdCBkZWxldGVkICJlbmRpZiIgYmFjayBpbi4KCgpfX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5n
+IGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFk
+ZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
