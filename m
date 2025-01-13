@@ -4,84 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 89DD2E7719F
-	for <linux-riscv@archiver.kernel.org>; Mon, 13 Jan 2025 13:19:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C65A1C02180
+	for <linux-riscv@archiver.kernel.org>; Mon, 13 Jan 2025 13:22:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	List-Unsubscribe:List-Id:In-Reply-To:References:Cc:To:From:Subject:
 	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=bXGi/lHjp+Pkk016RNc2QWmhFYVret2588lM16Zkc3U=; b=sLl6A/yAiHZ6pi
-	iEeRYfzz/vvj1eKAziVeynlcyK1kXSyqFm28wCY+iz3H17OSpZL4z0qz6iKcf1jl9PNqYHmnFIWd7
-	lNHqlCrrEE21ErfuOnHdC95Mx1ak7wVZpCN7I31M0h5XhbWXqV0QWy8/k/aIaKTWgb+kZ79jvs/th
-	sJYJ3krKQOp4rVe37hgOtIdv9UBaG9PdW+hOGL/Vymcigr6VsL1auFoaBop7xbkBPG5el6PRlkh14
-	6omn8TiX9N2CgoyGWYF9rr0kW4ur4a4+H5zJ62urHjmHCN0Ywyo/Ch+39qbXy4JVNDV4wLMOx7dbI
-	ZYt2oIYstEBka89UdHkg==;
+	List-Owner; bh=2BwlVufb1Locu6gWa/obkeYLLgAiAWjweDHnVqfC7Hk=; b=YwNW6bw2tLtQC0
+	mowS+s46tdgvU4GxZdbGERMq4u3FfoGdeN7I6iePB1m4Unkly18yI+kxa67cqlpK9skhPXSFlzISY
+	eeomgdsygHXIxqNOTDaSvtN9QVrxADO5sNiBLjrKeLeBDUZxupKB9ISb2lL78t+rMRVFqI3qWu7Rn
+	WTSLNUPD3aHak4lxAr5Up+H6+bEXJGmQ4V9ROZPlezn40L6+DBmZQ6KownP0FsrO1zEihlFeTIXOM
+	Mj/5VRSc8RvMsLNqusR2iHFNrYD9aRj4pd2CidU0WDr1GEywDJG82PM9AfIH/4qzwoNGgaqsDzk/e
+	9Q3zlYFgvujUyKdXambQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXKLu-00000005Duo-0iOW;
-	Mon, 13 Jan 2025 13:19:34 +0000
+	id 1tXKOV-00000005EUf-2E0p;
+	Mon, 13 Jan 2025 13:22:15 +0000
 Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXKLs-00000005Dtn-0S3G
+	id 1tXKNP-00000005EIo-05C9
 	for linux-riscv@lists.infradead.org;
-	Mon, 13 Jan 2025 13:19:33 +0000
+	Mon, 13 Jan 2025 13:21:08 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1736774371;
+	s=mimecast20190719; t=1736774466;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=PttcTbV6q4JSNPDitRHrXVO5rJhcJB2dabUIlHPBpi0=;
-	b=elwoZM0F/y8X9OZbKnXU2PQ3jIsMRIrtkgsB+K18LHqvcbZ4NORklLBbU5UtZUAfF5XzFo
-	LGBh9vQ1Z4vYm3S1t7+ginloTr2ktaprOAEOfCk7oY4/YHQyPLBbq8xLFz0Jk3css1GlE1
-	jrscc+fL5Hxtg/Uv71vAQRvgwQyqn0o=
-Received: from mail-wr1-f69.google.com (mail-wr1-f69.google.com
- [209.85.221.69]) by relay.mimecast.com with ESMTP with STARTTLS
+	bh=A3R7ega60i2XI0ngndIHudoIs2LUtdofitS/MXH9C7I=;
+	b=CDgMkV58OC6qdt3tPWK7icvbH3QkGPISTrFapzXekiaPvw6q+k/QR5LlfDoeMkWufpKXVv
+	GCrIdca6OYw/7PoNeL/eoCr7w49IC7GnKzx6+MFqWhxxXeDMx6CLDRqke+NtY92whB6qjZ
+	KymcPnnT1cIRfAA30QDRSpRmf44QfcA=
+Received: from mail-wm1-f70.google.com (mail-wm1-f70.google.com
+ [209.85.128.70]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-619-pl3FE2zrP5iazNyQ5nBHxg-1; Mon, 13 Jan 2025 08:19:30 -0500
-X-MC-Unique: pl3FE2zrP5iazNyQ5nBHxg-1
-X-Mimecast-MFC-AGG-ID: pl3FE2zrP5iazNyQ5nBHxg
-Received: by mail-wr1-f69.google.com with SMTP id ffacd0b85a97d-3862b364578so2442618f8f.1
-        for <linux-riscv@lists.infradead.org>; Mon, 13 Jan 2025 05:19:29 -0800 (PST)
+ us-mta-321-Xk0IizJ8NbiVQc9yT11D1A-1; Mon, 13 Jan 2025 08:21:04 -0500
+X-MC-Unique: Xk0IizJ8NbiVQc9yT11D1A-1
+X-Mimecast-MFC-AGG-ID: Xk0IizJ8NbiVQc9yT11D1A
+Received: by mail-wm1-f70.google.com with SMTP id 5b1f17b1804b1-43624b08181so20937435e9.0
+        for <linux-riscv@lists.infradead.org>; Mon, 13 Jan 2025 05:21:04 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1736774369; x=1737379169;
+        d=1e100.net; s=20230601; t=1736774463; x=1737379263;
         h=content-transfer-encoding:in-reply-to:organization:autocrypt
-         :content-language:from:references:cc:to:subject:user-agent
+         :content-language:references:cc:to:from:subject:user-agent
          :mime-version:date:message-id:x-gm-message-state:from:to:cc:subject
          :date:message-id:reply-to;
-        bh=PttcTbV6q4JSNPDitRHrXVO5rJhcJB2dabUIlHPBpi0=;
-        b=r5zWShA4ZJ2pUvFUFcV3wgFU/LxyOtFEXupkcci1cL3rpRC3aVKx3Y24vHEaULsBua
-         lLvC6Su1wWVno7GBBLPa+dOt6nQyFU19JeKOWQ50G7NvpLQ09yLhwmiSZKOihIozEuih
-         Hzmv2xsY81S+hxWF1OKc+PPyuIyFuqhaC+h7arm6aL4YbWVuVqi1Jc7Y54/SxTzqpGkS
-         GcXLaUfzslAwD9G7ma5AOZweeOFnYzf2ggRA1m/vBHwvflcvdDH9xX+USc4WNLYUenTK
-         EjyNNN5XWnUjaAmX0rZ6o3X82H2HfO2jZ+SbQIfPTKuz7BED9X3UORGcArKkzmp1SRPS
-         iH1A==
-X-Forwarded-Encrypted: i=1; AJvYcCXja24npn+rV+zyfPQlKRZ58S3BSAu5rcWhxOoLp+7kqVYz6ks9sxMFWG4Jg1SCig/UKwEg2xld5yftfA==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzy2tvDvJMNq+RMOzs4e91kO/pgGa0wVwLOIviXPF62p75b4Owg
-	xnoM9PIqjoCEyLVYukp0C2VsZu4azReYXD7eXtlzxPFOy/Zoe6lySS7Om5Mp3M+QhlOvY8IG8Ya
-	rZIR73fjS5CZXsvk2R9C8IP9kH2xldnHys47llYIhz1am8ydNX1f/6cXjK/rq7ertEw==
-X-Gm-Gg: ASbGncsLiH9bz/CEYAefEPddIMMCBqDJ4PFOijGVjqu764fH4ItSsNyd8Bb+RhJ0AMV
-	rzbpP5+Xz5jZf/NUVKX4s0hnRMIzzxz77v0m0rcm40CL/aELaQd51DONH8riSEyf4r2RBwwWE0d
-	0Y08DjQLTQ98D0dzCVoECCwVugiqGzMNLDNS56xdFtH1uxlkb7zk+Tux39nKYHPUGUr2K21ZENH
-	YKqMySuDfW9yOyiZFwDPezwB9hbMwWvQ6eB6ob/T0VT3ULQAzYvJJnf3XJlKqwwYMCXzeLtZMSS
-	Z9VQuVr1r/g8U2w=
-X-Received: by 2002:a05:6000:1aca:b0:386:3bde:9849 with SMTP id ffacd0b85a97d-38a8b0caa82mr14308085f8f.12.1736774368928;
-        Mon, 13 Jan 2025 05:19:28 -0800 (PST)
-X-Google-Smtp-Source: AGHT+IEmrfLkoC0dheFen0KOd3QX1GBKHjDo/69IXQ3IByuhquzkA2mL2+9hUXz910tsz5nN/hQhSg==
-X-Received: by 2002:a05:6000:1aca:b0:386:3bde:9849 with SMTP id ffacd0b85a97d-38a8b0caa82mr14308054f8f.12.1736774368577;
-        Mon, 13 Jan 2025 05:19:28 -0800 (PST)
+        bh=A3R7ega60i2XI0ngndIHudoIs2LUtdofitS/MXH9C7I=;
+        b=B+JZrzXeLEWP9ax8CKMJ/sGZzkEih1sFFE5ikY/AYYbEa3+ixgXY1+8faelQ57Ucmj
+         POZRuFyjH8gQ8ipsrUypndlz5/apppdf3W5hz0Yd908xXFyvgIiNss67rvYkRpmaYaU4
+         O3YQAtHxQMrC5dzkwmMgSFEi1NeDhXOAK0TF2varTE54CxT4LcoNmtufWxmVPmS4AKBX
+         y10ccncpru8tt7vzRsk31j+ivI96Zh2ec3lO0siC4qWszovUZ2jVewap4Q/zaHZyH8Gt
+         kWBEtle1JdzP665OsTuU+wa3UEOLD7P6BDTO1YQd4MB8sl/lMiV21Cmdg4wudtSvnMjf
+         USsw==
+X-Forwarded-Encrypted: i=1; AJvYcCUW3Qd5Jp6tZbh722ashnJbHMSAouOuI8+TCNZgLynrGxMMqWL7H0jHLBVdK+k75bfYEvU7xmAGKq3rWA==@lists.infradead.org
+X-Gm-Message-State: AOJu0YwcS8I5By9W3rUQS7EyIEWSiGTKshyqSBNNC6MEwnbI9CmIhrrB
+	7soP5/8XX58PgIAlh1nA5PLB7eI53p5paiSJv8WVyGq7Cvst85UkfwjTKiG6YSbOpYkUzTJ/U9k
+	0RoqqJBL83/wSQp7kRRi/Q0a6zZLJz6Uwo0/qqapo0J8SjVdk54tXw494z7jqMZ9Agw==
+X-Gm-Gg: ASbGnct6/vdVfHsxy+UoGpPjVCmlbLXAWK1XbSOlLwvonKlFeIbjTrF9TrqommQ2ciF
+	rsE66OvdJoV6zYEYoVAzlzdJXzgNsjHzxG3sBGQDXRYNXZUxK7lUPRvVFOk9z6RjoQOSMUwwglI
+	8ptsQTe7ciL75H3+SP3+oCMTM11ygH3Bl805BE6MakA0fnsPazejKHYAJ6rv28dDdqJYUIWrLKP
+	weeLf8yWRQhg1tXVJXG/8P9QiRwziaLZUrQ+CHgdPC9a/zKsL/RtrhdNL7+9PQI2/YV4NNw76wF
+	nUN0FwdebE5nxNo=
+X-Received: by 2002:a05:600c:5918:b0:436:185f:dfae with SMTP id 5b1f17b1804b1-436e881e681mr125927785e9.6.1736774463350;
+        Mon, 13 Jan 2025 05:21:03 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IGKcgi8IHOeELIAQ3P3feBXZIx+FPb9LcEzOeJE3vptCqKAaI/6YDc2O3yD/xkGQL19Z3ey2w==
+X-Received: by 2002:a05:600c:5918:b0:436:185f:dfae with SMTP id 5b1f17b1804b1-436e881e681mr125927535e9.6.1736774462981;
+        Mon, 13 Jan 2025 05:21:02 -0800 (PST)
 Received: from ?IPV6:2a09:80c0:192:0:5dac:bf3d:c41:c3e7? ([2a09:80c0:192:0:5dac:bf3d:c41:c3e7])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-436f9bc6b9bsm53356035e9.22.2025.01.13.05.19.25
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-436e9e6251asm147879855e9.40.2025.01.13.05.21.00
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 13 Jan 2025 05:19:27 -0800 (PST)
-Message-ID: <296b04db-9524-48f1-9fa1-0b028bc939a6@redhat.com>
-Date: Mon, 13 Jan 2025 14:19:25 +0100
+        Mon, 13 Jan 2025 05:21:01 -0800 (PST)
+Message-ID: <e36243bb-5a6f-4ef7-ae3e-99d204009afb@redhat.com>
+Date: Mon, 13 Jan 2025 14:20:59 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
 Subject: Re: [PATCH v2 1/4] mm: Set folio swapbacked iff folios are dirty in
  try_to_unmap_one
+From: David Hildenbrand <david@redhat.com>
 To: Barry Song <21cnbao@gmail.com>, akpm@linux-foundation.org,
  linux-mm@kvack.org
 Cc: baolin.wang@linux.alibaba.com, chrisl@kernel.org, ioworker0@gmail.com,
@@ -91,7 +92,7 @@ Cc: baolin.wang@linux.alibaba.com, chrisl@kernel.org, ioworker0@gmail.com,
  zhengtangquan@oppo.com, lorenzo.stoakes@oracle.com
 References: <20250113033901.68951-1-21cnbao@gmail.com>
  <20250113033901.68951-2-21cnbao@gmail.com>
-From: David Hildenbrand <david@redhat.com>
+ <296b04db-9524-48f1-9fa1-0b028bc939a6@redhat.com>
 Autocrypt: addr=david@redhat.com; keydata=
  xsFNBFXLn5EBEAC+zYvAFJxCBY9Tr1xZgcESmxVNI/0ffzE/ZQOiHJl6mGkmA1R7/uUpiCjJ
  dBrn+lhhOYjjNefFQou6478faXE6o2AhmebqT4KiQoUQFV4R7y1KMEKoSyy8hQaK1umALTdL
@@ -137,14 +138,14 @@ Autocrypt: addr=david@redhat.com; keydata=
  jPrnvUsUUsjRoRNJjKKA/REq+sAnhkNPPZ/NNMjaZ5b8Tovi8C0tmxiCHaQYqj7G2rgnT0kt
  WNyWQQ==
 Organization: Red Hat
-In-Reply-To: <20250113033901.68951-2-21cnbao@gmail.com>
+In-Reply-To: <296b04db-9524-48f1-9fa1-0b028bc939a6@redhat.com>
 X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: zl3V-NBgn2umpIlPp1ufR0dP--FZvtc4y3dmP1caA64_1736774369
+X-Mimecast-MFC-PROC-ID: w6So_x2HpRQjmVvL1c5Kk-dYhjJAXukZUwB_h3BgM4w_1736774463
 X-Mimecast-Originator: redhat.com
 Content-Language: en-US
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250113_051932_228947_1C4A609D 
-X-CRM114-Status: UNSURE (   8.57  )
+X-CRM114-CacheID: sfid-20250113_052107_203426_295E0E2A 
+X-CRM114-Status: UNSURE (   9.14  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -162,19 +163,27 @@ Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 13.01.25 04:38, Barry Song wrote:
-> From: Barry Song <v-songbaohua@oppo.com>
+On 13.01.25 14:19, David Hildenbrand wrote:
+> On 13.01.25 04:38, Barry Song wrote:
+>> From: Barry Song <v-songbaohua@oppo.com>
+>>
+>> The refcount may be temporarily or long-term increased, but this does
+>> not change the fundamental nature of the folio already being lazy-
+>> freed. Therefore, we only reset 'swapbacked' when we are certain the
+>> folio is dirty and not droppable.
+>>
+>> Suggested-by: David Hildenbrand <david@redhat.com>
+>> Signed-off-by: Barry Song <v-songbaohua@oppo.com>
+>> ---
 > 
-> The refcount may be temporarily or long-term increased, but this does
-> not change the fundamental nature of the folio already being lazy-
-> freed. Therefore, we only reset 'swapbacked' when we are certain the
-> folio is dirty and not droppable.
+> Acked-by: David Hildenbrand <david@redhat.com>
 > 
-> Suggested-by: David Hildenbrand <david@redhat.com>
-> Signed-off-by: Barry Song <v-songbaohua@oppo.com>
-> ---
 
-Acked-by: David Hildenbrand <david@redhat.com>
+Ah, should this have a Fixes: ?
+
+Because of a speculative reference, we might not reclaim MADV_FREE 
+folios as we silently mark them as swapbacked again, which sounds fairly 
+wrong.
 
 -- 
 Cheers,
