@@ -4,78 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04DD9C02180
-	for <linux-riscv@archiver.kernel.org>; Mon, 13 Jan 2025 17:39:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5CC08C02180
+	for <linux-riscv@archiver.kernel.org>; Mon, 13 Jan 2025 18:17:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eDNhRndCojkplLc4Dh4MARS9m3wAVTjhm9QHaOkS2h0=; b=PGCj45E5wMjc4998R+kowX0cCZ
-	jJcsXd9zEsGQlq3M2olbb4rg2PdoZK5QWE/acUVQay29jGPlio6dpMtExce4jyE23+Svqt9mENJGk
-	HGguT/tD3Fa9qAH67S6UHYVSJ/w9y+EnlCF5JR5afreaKtT5Lww3MMHOngphCEMaInasr8nTetCS9
-	A8pEKR6lHh8Kz5fM/lbAK4nLHHYRgdHhbeSgImhFLU9+mwabCLKtMhk+2vW5AT5j+6LTEWa2Masq+
-	RIHIN4lXHp3L7l8i1dpOxi/nRE7CK8TC+kK6jQ75bOboPvzX85DPRO8em/7fztMhQA37Jv+Bg7rUH
-	pXt/gKtA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
+	List-Owner; bh=vQtEQ5jbEmMNSVHQtu1V/vpSfy6TR2efKadap64peDM=; b=cmkcuRoTrX0ivN
+	aHooxrKVp1Eh90c9J7KTwCh/2JXN6NUuBZJemuTHRnLkIrR0a8Xl94m/Ixg+w9bLsVSArsv1XaACE
+	cHarAksbEg/6XptfPZtBZhd3YgFEjTmUaNP3WFVD41yAVMXr39b+wJf5Enjxn7RExjzwYhFLBP7WJ
+	r4wgyCX4ybKaznqTfm/6hWbQqZmg4Oz+A9+IaaWu7W+tyXZ1A9OfsMpLE0k8H5Tb4B0NJMKjWrrQb
+	m6Ld0+4zftAPG7URJ5CCAUK3dBQAbKXCr2rNmxgnsqKF+3a7xnSwCxI9YbKCCRgy5WokaKP+Tg+fB
+	ZXAwrPXthi8OhaXzIdJg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXOP5-000000064CP-1NJP;
-	Mon, 13 Jan 2025 17:39:07 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXONr-000000063tT-1uFo;
-	Mon, 13 Jan 2025 17:37:51 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=nfIml/GWxEsZm0NpaVbjbKNfBZtmD00u78N6+zE2OWk=; b=lUQo3GShJsI3XG0RttPTE+3duR
-	j8aZhW/Rldn6/mTwZwsUbCKLnQShsexG5IBa4fPPz7fYX6aLCN46uUVGSndvKzMFUNLm4WCj5maph
-	fqUmlQfL3wlJk/r2Hr7Pudu2cwx2ycFLhWQKc+YqTc6L45cxJjy86Zgw2faR+Q/7iAsS7mMZbrSDK
-	PVJr7hDPKFxzNDdLYf+jeivZoPlV6HFEZGJXIwFlQqzSMc8Ue9V7cePsUhrXRlNNZfSHTZTeavIq3
-	hULWSB2Wjmbn7gV/N2VCgu6wrQGZS954bHiiGp4ItkXIkWbOutS9fxBKt+b1bEotisWZyeFL2A5EW
-	Kirwnzmg==;
-Received: from nyc.source.kernel.org ([147.75.193.91])
-	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXONo-0000000AKJL-1R28;
-	Mon, 13 Jan 2025 17:37:50 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id EA004A41272;
-	Mon, 13 Jan 2025 17:35:56 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 20DABC4CEEE;
-	Mon, 13 Jan 2025 17:37:41 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1736789864;
-	bh=nfIml/GWxEsZm0NpaVbjbKNfBZtmD00u78N6+zE2OWk=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=FumxbJgQ71kYmQkug7xA2BOvkp9Uq19JqUckCrQngg8pIz7gfiQ8tHxNC8jN3Mmsa
-	 03YDC69Plg4fxc21wEzIkGOWPT9cSOmYc5HSxafS/s15bBKOa5VR8U7YKaNVl2ZSMI
-	 PNKK/fmoEO9pq1X4RHTD4aIeZW/8HN5rP7WQjnTN+d1ABvEu05PHkykdWUtqYlVfm4
-	 Qe3R/n40ETrlSw6bj5zcJNBE1vQrPzmP+R/yiepJiKa/LZ9VMIoNmkm6EiTEzB+uTT
-	 aN2RIq2XsmBRCoqxIAogTmLncrnSUuX4GuFigGNj77gFzbJ3MZoOKaUuDgYwakmax9
-	 eMakHZ9M5EXYQ==
-Date: Mon, 13 Jan 2025 17:37:39 +0000
-From: Conor Dooley <conor@kernel.org>
-To: Alexander Sverdlin <alexander.sverdlin@gmail.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Chen Wang <unicorn_wang@outlook.com>,
-	Inochi Amaoto <inochiama@outlook.com>,
+	id 1tXP02-00000006B1J-1uIw;
+	Mon, 13 Jan 2025 18:17:18 +0000
+Received: from vmicros1.altlinux.org ([194.107.17.57])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tXNyj-0000000605q-2V4I;
+	Mon, 13 Jan 2025 17:11:55 +0000
+Received: from mua.local.altlinux.org (mua.local.altlinux.org [192.168.1.14])
+	by vmicros1.altlinux.org (Postfix) with ESMTP id 4128272C97D;
+	Mon, 13 Jan 2025 20:11:51 +0300 (MSK)
+Received: by mua.local.altlinux.org (Postfix, from userid 508)
+	id 2ACB87CCB3A; Mon, 13 Jan 2025 19:11:51 +0200 (IST)
+Date: Mon, 13 Jan 2025 19:11:51 +0200
+From: "Dmitry V. Levin" <ldv@strace.io>
+To: Oleg Nesterov <oleg@redhat.com>
+Cc: Eugene Syromyatnikov <evgsyr@gmail.com>,
+	Mike Frysinger <vapier@gentoo.org>,
+	Renzo Davoli <renzo@cs.unibo.it>,
+	Davide Berardi <berardi.dav@gmail.com>,
+	strace-devel@lists.strace.io, Vineet Gupta <vgupta@kernel.org>,
+	Russell King <linux@armlinux.org.uk>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Brian Cain <bcain@quicinc.com>,
+	Huacai Chen <chenhuacai@kernel.org>,
+	WANG Xuerui <kernel@xen0n.name>,
+	Geert Uytterhoeven <geert@linux-m68k.org>,
+	Michal Simek <monstr@monstr.eu>,
+	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+	Dinh Nguyen <dinguyen@kernel.org>, Jonas Bonn <jonas@southpole.se>,
+	Stefan Kristiansson <stefan.kristiansson@saunalahti.fi>,
+	Stafford Horne <shorne@gmail.com>,
+	"James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>,
+	Helge Deller <deller@gmx.de>, Michael Ellerman <mpe@ellerman.id.au>,
+	Nicholas Piggin <npiggin@gmail.com>,
+	Christophe Leroy <christophe.leroy@csgroup.eu>,
+	Naveen N Rao <naveen@kernel.org>,
+	Madhavan Srinivasan <maddy@linux.ibm.com>,
 	Paul Walmsley <paul.walmsley@sifive.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Arnd Bergmann <arnd@arndb.de>,
-	devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH RFC] arm64: dts: sophgo: Add initial SG2000 SoC device
- tree
-Message-ID: <20250113-aftermost-whole-18401dc54137@spud>
-References: <19bb108e93bb58eecc6a53d78ff4e75fc380f072.camel@gmail.com>
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Heiko Carstens <hca@linux.ibm.com>,
+	Vasily Gorbik <gor@linux.ibm.com>,
+	Alexander Gordeev <agordeev@linux.ibm.com>,
+	Christian Borntraeger <borntraeger@linux.ibm.com>,
+	Sven Schnelle <svens@linux.ibm.com>,
+	Yoshinori Sato <ysato@users.sourceforge.jp>,
+	Rich Felker <dalias@libc.org>,
+	John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>,
+	"David S. Miller" <davem@davemloft.net>,
+	Andreas Larsson <andreas@gaisler.com>,
+	Richard Weinberger <richard@nod.at>,
+	Anton Ivanov <anton.ivanov@cambridgegreys.com>,
+	Johannes Berg <johannes@sipsolutions.net>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
+	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
+	"H. Peter Anvin" <hpa@zytor.com>, Chris Zankel <chris@zankel.net>,
+	Max Filippov <jcmvbkbc@gmail.com>, Arnd Bergmann <arnd@arndb.de>,
+	linux-snps-arc@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-hexagon@vger.kernel.org,
+	loongarch@lists.linux.dev, linux-m68k@lists.linux-m68k.org,
+	linux-mips@vger.kernel.org, linux-openrisc@vger.kernel.org,
+	linux-parisc@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
+	linux-sh@vger.kernel.org, sparclinux@vger.kernel.org,
+	linux-um@lists.infradead.org, linux-arch@vger.kernel.org
+Subject: [PATCH v2 4/7] syscall.h: introduce syscall_set_nr()
+Message-ID: <20250113171150.GD589@strace.io>
 MIME-Version: 1.0
-In-Reply-To: <19bb108e93bb58eecc6a53d78ff4e75fc380f072.camel@gmail.com>
+Content-Disposition: inline
+In-Reply-To: <20250113170925.GA392@strace.io>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250113_173748_704861_2C4228CE 
-X-CRM114-Status: GOOD (  28.90  )
+X-CRM114-CacheID: sfid-20250113_091154_140185_3AC49324 
+X-CRM114-Status: GOOD (  16.31  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,105 +104,464 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============1488219227251425128=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+Similar to syscall_set_arguments() that complements
+syscall_get_arguments(), introduce syscall_set_nr()
+that complements syscall_get_nr().
 
---===============1488219227251425128==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="z1X8w3KbdPQChHSz"
-Content-Disposition: inline
+syscall_set_nr() is going to be needed along with
+syscall_set_arguments() on all HAVE_ARCH_TRACEHOOK
+architectures to implement PTRACE_SET_SYSCALL_INFO API.
 
+Signed-off-by: Dmitry V. Levin <ldv@strace.io>
+---
+ arch/arc/include/asm/syscall.h        | 11 +++++++++++
+ arch/arm/include/asm/syscall.h        | 24 ++++++++++++++++++++++++
+ arch/arm64/include/asm/syscall.h      | 16 ++++++++++++++++
+ arch/hexagon/include/asm/syscall.h    |  7 +++++++
+ arch/loongarch/include/asm/syscall.h  |  7 +++++++
+ arch/m68k/include/asm/syscall.h       |  7 +++++++
+ arch/microblaze/include/asm/syscall.h |  7 +++++++
+ arch/mips/include/asm/syscall.h       | 14 ++++++++++++++
+ arch/nios2/include/asm/syscall.h      |  5 +++++
+ arch/openrisc/include/asm/syscall.h   |  6 ++++++
+ arch/parisc/include/asm/syscall.h     |  7 +++++++
+ arch/powerpc/include/asm/syscall.h    | 10 ++++++++++
+ arch/riscv/include/asm/syscall.h      |  7 +++++++
+ arch/s390/include/asm/syscall.h       | 12 ++++++++++++
+ arch/sh/include/asm/syscall_32.h      | 12 ++++++++++++
+ arch/sparc/include/asm/syscall.h      | 12 ++++++++++++
+ arch/um/include/asm/syscall-generic.h |  5 +++++
+ arch/x86/include/asm/syscall.h        |  7 +++++++
+ arch/xtensa/include/asm/syscall.h     |  7 +++++++
+ include/asm-generic/syscall.h         | 14 ++++++++++++++
+ 20 files changed, 197 insertions(+)
 
---z1X8w3KbdPQChHSz
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-On Sun, Jan 12, 2025 at 01:55:05AM +0100, Alexander Sverdlin wrote:
-> Add initial device tree for the SG2000 SoC by SOPHGO (from ARM64 PoV).
->=20
-> ---
-> Dear ARM, RISCV, DT maintainers, I'd like to ask your opinion on the
-> below patch, which I plan as a base for ARM64 BSP for dual-arch (RISCV or
-> ARM64) Cvitek SoC SG2000. The main motivation for ARM64 support is the
-> ARCH support in the upstream gcc, which is not that mature for RISCV.
->=20
-> I believe it's the first time we already have quite some base in the
-> tree for a SoC, so it would be advantageous to re-use it and not
-> duplicate the same SoC structures in two places, especially having
-> in mind that Cvitek/Sophgo are still working on upstreaming and by
-> far not all HW blocks are populated in the SoC DTs. They focus primarely
-> on RISCV, so ARM64 would be dragging behind in this case if it would be
-> forked.
->=20
-> On the other hand, including SoC dtsi from RISCV into ARM64 poses
-> some technical challenges by itself, obviously CPU cores have to be
-> deleted, same is true for interrupt controller. And the interrupt
-> numbers are of course difference for ARM GIC, so they have to be
-> overwritten.
->=20
-> Alternatively I can split existing .dtsi included below into their
-> RISCV-specific and generic parts, so that both ARM64 and RISCV would
-> include generic part and their corresponding ARCH-specific parts
-> bringing CPU cores + interrupt controller + IRQ numbers for each and
-> every device separately.
->=20
-> The below example isactually booting (being included into board-level
-> DT), so it's a real example I'd be ready to submit if there will be
-> no objections of the cross-ARCH include approach in general.
->=20
-> What are your thoughts?
->=20
-> =A0arch/arm64/boot/dts/sophgo/sg2000.dtsi | 164 +++++++++++++++++++++++++
-> =A01 file changed, 164 insertions(+)
-> =A0create mode 100644 arch/arm64/boot/dts/sophgo/sg2000.dtsi
->=20
-> diff --git a/arch/arm64/boot/dts/sophgo/sg2000.dtsi b/arch/arm64/boot/dts=
-/sophgo/sg2000.dtsi
-> new file mode 100644
-> index 000000000000..96afd342bde5
-> --- /dev/null
-> +++ b/arch/arm64/boot/dts/sophgo/sg2000.dtsi
-> @@ -0,0 +1,164 @@
-> +// SPDX-License-Identifier: (GPL-2.0 OR MIT)
-> +
-> +#include <dt-bindings/interrupt-controller/arm-gic.h>
-> +#include "../../../../riscv/boot/dts/sophgo/cv18xx.dtsi"
-> +#include "../../../../riscv/boot/dts/sophgo/cv181x.dtsi"
-
-FWIW, this can just be #include <riscv/sophgo/<whatever>, /should/ be a
-symlink for that, as there is for arm64. At the very least, I did see a
-patch adding that link in the past. Check out what the RZ/Five is doing
-(that's the riscv renesas chip) for an example of how this already has
-been done - I think it's doing what your "Alternatively I can..."
-paragraph describes.
-
---z1X8w3KbdPQChHSz
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZ4VPYwAKCRB4tDGHoIJi
-0tPdAP92+UcHJCss0o1ICZL++iZWw/z31s3IyurwEC7rC33EMQEA4xiVuLT7bFTc
-b7Xyw1nOCCorNKX2WrA3s8zMRWo1LA4=
-=34ET
------END PGP SIGNATURE-----
-
---z1X8w3KbdPQChHSz--
-
-
---===============1488219227251425128==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+diff --git a/arch/arc/include/asm/syscall.h b/arch/arc/include/asm/syscall.h
+index 89c1e1736356..728d625a10f1 100644
+--- a/arch/arc/include/asm/syscall.h
++++ b/arch/arc/include/asm/syscall.h
+@@ -23,6 +23,17 @@ syscall_get_nr(struct task_struct *task, struct pt_regs *regs)
+ 		return -1;
+ }
+ 
++static inline void
++syscall_set_nr(struct task_struct *task, struct pt_regs *regs, int nr)
++{
++	/*
++	 * Unlike syscall_get_nr(), syscall_set_nr() can be called only when
++	 * the target task is stopped for tracing on entering syscall, so
++	 * there is no need to have the same check syscall_get_nr() has.
++	 */
++	regs->r8 = nr;
++}
++
+ static inline void
+ syscall_rollback(struct task_struct *task, struct pt_regs *regs)
+ {
+diff --git a/arch/arm/include/asm/syscall.h b/arch/arm/include/asm/syscall.h
+index 21927fa0ae2b..18b102a30741 100644
+--- a/arch/arm/include/asm/syscall.h
++++ b/arch/arm/include/asm/syscall.h
+@@ -68,6 +68,30 @@ static inline void syscall_set_return_value(struct task_struct *task,
+ 	regs->ARM_r0 = (long) error ? error : val;
+ }
+ 
++static inline void syscall_set_nr(struct task_struct *task,
++				  struct pt_regs *regs,
++				  int nr)
++{
++	if (nr == -1) {
++		task_thread_info(task)->abi_syscall = -1;
++		/*
++		 * When the syscall number is set to -1, the syscall will be
++		 * skipped.  In this case the syscall return value has to be
++		 * set explicitly, otherwise the first syscall argument is
++		 * returned as the syscall return value.
++		 */
++		syscall_set_return_value(task, regs, -ENOSYS, 0);
++		return;
++	}
++	if ((IS_ENABLED(CONFIG_AEABI) && !IS_ENABLED(CONFIG_OABI_COMPAT))) {
++		task_thread_info(task)->abi_syscall = nr;
++		return;
++	}
++	task_thread_info(task)->abi_syscall =
++		(task_thread_info(task)->abi_syscall & ~__NR_SYSCALL_MASK) |
++		(nr & __NR_SYSCALL_MASK);
++}
++
+ #define SYSCALL_MAX_ARGS 7
+ 
+ static inline void syscall_get_arguments(struct task_struct *task,
+diff --git a/arch/arm64/include/asm/syscall.h b/arch/arm64/include/asm/syscall.h
+index 76020b66286b..712daa90e643 100644
+--- a/arch/arm64/include/asm/syscall.h
++++ b/arch/arm64/include/asm/syscall.h
+@@ -61,6 +61,22 @@ static inline void syscall_set_return_value(struct task_struct *task,
+ 	regs->regs[0] = val;
+ }
+ 
++static inline void syscall_set_nr(struct task_struct *task,
++				  struct pt_regs *regs,
++				  int nr)
++{
++	regs->syscallno = nr;
++	if (nr == -1) {
++		/*
++		 * When the syscall number is set to -1, the syscall will be
++		 * skipped.  In this case the syscall return value has to be
++		 * set explicitly, otherwise the first syscall argument is
++		 * returned as the syscall return value.
++		 */
++		syscall_set_return_value(task, regs, -ENOSYS, 0);
++	}
++}
++
+ #define SYSCALL_MAX_ARGS 6
+ 
+ static inline void syscall_get_arguments(struct task_struct *task,
+diff --git a/arch/hexagon/include/asm/syscall.h b/arch/hexagon/include/asm/syscall.h
+index 1024a6548d78..70637261817a 100644
+--- a/arch/hexagon/include/asm/syscall.h
++++ b/arch/hexagon/include/asm/syscall.h
+@@ -26,6 +26,13 @@ static inline long syscall_get_nr(struct task_struct *task,
+ 	return regs->r06;
+ }
+ 
++static inline void syscall_set_nr(struct task_struct *task,
++				  struct pt_regs *regs,
++				  int nr)
++{
++	regs->r06 = nr;
++}
++
+ static inline void syscall_get_arguments(struct task_struct *task,
+ 					 struct pt_regs *regs,
+ 					 unsigned long *args)
+diff --git a/arch/loongarch/include/asm/syscall.h b/arch/loongarch/include/asm/syscall.h
+index ff415b3c0a8e..81d2733f7b94 100644
+--- a/arch/loongarch/include/asm/syscall.h
++++ b/arch/loongarch/include/asm/syscall.h
+@@ -26,6 +26,13 @@ static inline long syscall_get_nr(struct task_struct *task,
+ 	return regs->regs[11];
+ }
+ 
++static inline void syscall_set_nr(struct task_struct *task,
++				  struct pt_regs *regs,
++				  int nr)
++{
++	regs->regs[11] = nr;
++}
++
+ static inline void syscall_rollback(struct task_struct *task,
+ 				    struct pt_regs *regs)
+ {
+diff --git a/arch/m68k/include/asm/syscall.h b/arch/m68k/include/asm/syscall.h
+index d1453e850cdd..bf84b160c2eb 100644
+--- a/arch/m68k/include/asm/syscall.h
++++ b/arch/m68k/include/asm/syscall.h
+@@ -14,6 +14,13 @@ static inline int syscall_get_nr(struct task_struct *task,
+ 	return regs->orig_d0;
+ }
+ 
++static inline void syscall_set_nr(struct task_struct *task,
++				  struct pt_regs *regs,
++				  int nr)
++{
++	regs->orig_d0 = nr;
++}
++
+ static inline void syscall_rollback(struct task_struct *task,
+ 				    struct pt_regs *regs)
+ {
+diff --git a/arch/microblaze/include/asm/syscall.h b/arch/microblaze/include/asm/syscall.h
+index 5eb3f624cc59..b5b6b91fae3e 100644
+--- a/arch/microblaze/include/asm/syscall.h
++++ b/arch/microblaze/include/asm/syscall.h
+@@ -14,6 +14,13 @@ static inline long syscall_get_nr(struct task_struct *task,
+ 	return regs->r12;
+ }
+ 
++static inline void syscall_set_nr(struct task_struct *task,
++				  struct pt_regs *regs,
++				  int nr)
++{
++	regs->r12 = nr;
++}
++
+ static inline void syscall_rollback(struct task_struct *task,
+ 				    struct pt_regs *regs)
+ {
+diff --git a/arch/mips/include/asm/syscall.h b/arch/mips/include/asm/syscall.h
+index 3163d1506fae..58d68205fd2c 100644
+--- a/arch/mips/include/asm/syscall.h
++++ b/arch/mips/include/asm/syscall.h
+@@ -41,6 +41,20 @@ static inline long syscall_get_nr(struct task_struct *task,
+ 	return task_thread_info(task)->syscall;
+ }
+ 
++static inline void syscall_set_nr(struct task_struct *task,
++				  struct pt_regs *regs,
++				  int nr)
++{
++	/*
++	 * New syscall number has to be assigned to regs[2] because
++	 * syscall_trace_entry() loads it from there unconditionally.
++	 *
++	 * Consequently, if the syscall was indirect and nr != __NR_syscall,
++	 * then after this assignment the syscall will cease to be indirect.
++	 */
++	task_thread_info(task)->syscall = regs->regs[2] = nr;
++}
++
+ static inline void mips_syscall_update_nr(struct task_struct *task,
+ 					  struct pt_regs *regs)
+ {
+diff --git a/arch/nios2/include/asm/syscall.h b/arch/nios2/include/asm/syscall.h
+index 526449edd768..8e3eb1d689bb 100644
+--- a/arch/nios2/include/asm/syscall.h
++++ b/arch/nios2/include/asm/syscall.h
+@@ -15,6 +15,11 @@ static inline int syscall_get_nr(struct task_struct *task, struct pt_regs *regs)
+ 	return regs->r2;
+ }
+ 
++static inline void syscall_set_nr(struct task_struct *task, struct pt_regs *regs, int nr)
++{
++	regs->r2 = nr;
++}
++
+ static inline void syscall_rollback(struct task_struct *task,
+ 				struct pt_regs *regs)
+ {
+diff --git a/arch/openrisc/include/asm/syscall.h b/arch/openrisc/include/asm/syscall.h
+index e6383be2a195..5e037d9659c5 100644
+--- a/arch/openrisc/include/asm/syscall.h
++++ b/arch/openrisc/include/asm/syscall.h
+@@ -25,6 +25,12 @@ syscall_get_nr(struct task_struct *task, struct pt_regs *regs)
+ 	return regs->orig_gpr11;
+ }
+ 
++static inline void
++syscall_set_nr(struct task_struct *task, struct pt_regs *regs, int nr)
++{
++	regs->orig_gpr11 = nr;
++}
++
+ static inline void
+ syscall_rollback(struct task_struct *task, struct pt_regs *regs)
+ {
+diff --git a/arch/parisc/include/asm/syscall.h b/arch/parisc/include/asm/syscall.h
+index b146d0ae4c77..c11222798ab2 100644
+--- a/arch/parisc/include/asm/syscall.h
++++ b/arch/parisc/include/asm/syscall.h
+@@ -17,6 +17,13 @@ static inline long syscall_get_nr(struct task_struct *tsk,
+ 	return regs->gr[20];
+ }
+ 
++static inline void syscall_set_nr(struct task_struct *tsk,
++				  struct pt_regs *regs,
++				  int nr)
++{
++	regs->gr[20] = nr;
++}
++
+ static inline void syscall_get_arguments(struct task_struct *tsk,
+ 					 struct pt_regs *regs,
+ 					 unsigned long *args)
+diff --git a/arch/powerpc/include/asm/syscall.h b/arch/powerpc/include/asm/syscall.h
+index 521f279e6b33..7505dcfed247 100644
+--- a/arch/powerpc/include/asm/syscall.h
++++ b/arch/powerpc/include/asm/syscall.h
+@@ -39,6 +39,16 @@ static inline int syscall_get_nr(struct task_struct *task, struct pt_regs *regs)
+ 		return -1;
+ }
+ 
++static inline void syscall_set_nr(struct task_struct *task, struct pt_regs *regs, int nr)
++{
++	/*
++	 * Unlike syscall_get_nr(), syscall_set_nr() can be called only when
++	 * the target task is stopped for tracing on entering syscall, so
++	 * there is no need to have the same check syscall_get_nr() has.
++	 */
++	regs->gpr[0] = nr;
++}
++
+ static inline void syscall_rollback(struct task_struct *task,
+ 				    struct pt_regs *regs)
+ {
+diff --git a/arch/riscv/include/asm/syscall.h b/arch/riscv/include/asm/syscall.h
+index 8d389ba995c8..a5281cdf2b10 100644
+--- a/arch/riscv/include/asm/syscall.h
++++ b/arch/riscv/include/asm/syscall.h
+@@ -30,6 +30,13 @@ static inline int syscall_get_nr(struct task_struct *task,
+ 	return regs->a7;
+ }
+ 
++static inline void syscall_set_nr(struct task_struct *task,
++				  struct pt_regs *regs,
++				  int nr)
++{
++	regs->a7 = nr;
++}
++
+ static inline void syscall_rollback(struct task_struct *task,
+ 				    struct pt_regs *regs)
+ {
+diff --git a/arch/s390/include/asm/syscall.h b/arch/s390/include/asm/syscall.h
+index b3dd883699e7..12cd0c60c07b 100644
+--- a/arch/s390/include/asm/syscall.h
++++ b/arch/s390/include/asm/syscall.h
+@@ -24,6 +24,18 @@ static inline long syscall_get_nr(struct task_struct *task,
+ 		(regs->int_code & 0xffff) : -1;
+ }
+ 
++static inline void syscall_set_nr(struct task_struct *task,
++				  struct pt_regs *regs,
++				  int nr)
++{
++	/*
++	 * Unlike syscall_get_nr(), syscall_set_nr() can be called only when
++	 * the target task is stopped for tracing on entering syscall, so
++	 * there is no need to have the same check syscall_get_nr() has.
++	 */
++	regs->int_code = (regs->int_code & ~0xffff) | (nr & 0xffff);
++}
++
+ static inline void syscall_rollback(struct task_struct *task,
+ 				    struct pt_regs *regs)
+ {
+diff --git a/arch/sh/include/asm/syscall_32.h b/arch/sh/include/asm/syscall_32.h
+index cb51a7528384..7027d87d901d 100644
+--- a/arch/sh/include/asm/syscall_32.h
++++ b/arch/sh/include/asm/syscall_32.h
+@@ -15,6 +15,18 @@ static inline long syscall_get_nr(struct task_struct *task,
+ 	return (regs->tra >= 0) ? regs->regs[3] : -1L;
+ }
+ 
++static inline void syscall_set_nr(struct task_struct *task,
++				  struct pt_regs *regs,
++				  int nr)
++{
++	/*
++	 * Unlike syscall_get_nr(), syscall_set_nr() can be called only when
++	 * the target task is stopped for tracing on entering syscall, so
++	 * there is no need to have the same check syscall_get_nr() has.
++	 */
++	regs->regs[3] = nr;
++}
++
+ static inline void syscall_rollback(struct task_struct *task,
+ 				    struct pt_regs *regs)
+ {
+diff --git a/arch/sparc/include/asm/syscall.h b/arch/sparc/include/asm/syscall.h
+index 62a5a78804c4..b0233924d323 100644
+--- a/arch/sparc/include/asm/syscall.h
++++ b/arch/sparc/include/asm/syscall.h
+@@ -25,6 +25,18 @@ static inline long syscall_get_nr(struct task_struct *task,
+ 	return (syscall_p ? regs->u_regs[UREG_G1] : -1L);
+ }
+ 
++static inline void syscall_set_nr(struct task_struct *task,
++				  struct pt_regs *regs,
++				  int nr)
++{
++	/*
++	 * Unlike syscall_get_nr(), syscall_set_nr() can be called only when
++	 * the target task is stopped for tracing on entering syscall, so
++	 * there is no need to have the same check syscall_get_nr() has.
++	 */
++	regs->u_regs[UREG_G1] = nr;
++}
++
+ static inline void syscall_rollback(struct task_struct *task,
+ 				    struct pt_regs *regs)
+ {
+diff --git a/arch/um/include/asm/syscall-generic.h b/arch/um/include/asm/syscall-generic.h
+index 2984feb9d576..bcd73bcfe577 100644
+--- a/arch/um/include/asm/syscall-generic.h
++++ b/arch/um/include/asm/syscall-generic.h
+@@ -21,6 +21,11 @@ static inline int syscall_get_nr(struct task_struct *task, struct pt_regs *regs)
+ 	return PT_REGS_SYSCALL_NR(regs);
+ }
+ 
++static inline void syscall_set_nr(struct task_struct *task, struct pt_regs *regs, int nr)
++{
++	PT_REGS_SYSCALL_NR(regs) = nr;
++}
++
+ static inline void syscall_rollback(struct task_struct *task,
+ 				    struct pt_regs *regs)
+ {
+diff --git a/arch/x86/include/asm/syscall.h b/arch/x86/include/asm/syscall.h
+index b9c249dd9e3d..c10dbb74cd00 100644
+--- a/arch/x86/include/asm/syscall.h
++++ b/arch/x86/include/asm/syscall.h
+@@ -38,6 +38,13 @@ static inline int syscall_get_nr(struct task_struct *task, struct pt_regs *regs)
+ 	return regs->orig_ax;
+ }
+ 
++static inline void syscall_set_nr(struct task_struct *task,
++				  struct pt_regs *regs,
++				  int nr)
++{
++	regs->orig_ax = nr;
++}
++
+ static inline void syscall_rollback(struct task_struct *task,
+ 				    struct pt_regs *regs)
+ {
+diff --git a/arch/xtensa/include/asm/syscall.h b/arch/xtensa/include/asm/syscall.h
+index f9a671cbf933..7db3b489c8ad 100644
+--- a/arch/xtensa/include/asm/syscall.h
++++ b/arch/xtensa/include/asm/syscall.h
+@@ -28,6 +28,13 @@ static inline long syscall_get_nr(struct task_struct *task,
+ 	return regs->syscall;
+ }
+ 
++static inline void syscall_set_nr(struct task_struct *task,
++				  struct pt_regs *regs,
++				  int nr)
++{
++	regs->syscall = nr;
++}
++
+ static inline void syscall_rollback(struct task_struct *task,
+ 				    struct pt_regs *regs)
+ {
+diff --git a/include/asm-generic/syscall.h b/include/asm-generic/syscall.h
+index 0f7b9a493de7..e33fd4e783c1 100644
+--- a/include/asm-generic/syscall.h
++++ b/include/asm-generic/syscall.h
+@@ -37,6 +37,20 @@ struct pt_regs;
+  */
+ int syscall_get_nr(struct task_struct *task, struct pt_regs *regs);
+ 
++/**
++ * syscall_set_nr - change the system call a task is executing
++ * @task:	task of interest, must be blocked
++ * @regs:	task_pt_regs() of @task
++ * @nr:		system call number
++ *
++ * Changes the system call number @task is about to execute.
++ *
++ * It's only valid to call this when @task is stopped for tracing on
++ * entry to a system call, due to %SYSCALL_WORK_SYSCALL_TRACE or
++ * %SYSCALL_WORK_SYSCALL_AUDIT.
++ */
++void syscall_set_nr(struct task_struct *task, struct pt_regs *regs, int nr);
++
+ /**
+  * syscall_rollback - roll back registers after an aborted system call
+  * @task:	task of interest, must be in system call exit tracing
+-- 
+ldv
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============1488219227251425128==--
-
