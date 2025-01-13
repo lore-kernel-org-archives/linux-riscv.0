@@ -4,76 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 94BBBC02180
-	for <linux-riscv@archiver.kernel.org>; Mon, 13 Jan 2025 16:45:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8367BC02184
+	for <linux-riscv@archiver.kernel.org>; Mon, 13 Jan 2025 16:45:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=k2bpBMPNXrfZMFooOTfqhAGYV1QkD6dhUgsbpXqlm7k=; b=Bb67nlSnW8QQ0W
-	hQik8xTVpG60CEiCPdkGNAfkPv25lDac3tbLFc4+cnfeuq4HzxgxfDBxiyGVj35binfspnAIAOFeK
-	IX4K0UNE4EfK6ahbCBsbNDB41iwMjJTvNkC3LncsVRcdBNKvXoBoSMBXrX+2MLCGR5OWk6/rszp5D
-	+s4pjfH2TYto3S8GUp1WOqeq3gUThi96Yh+V3hX3dht9u0n8zYi/8KFUNJwuI8T6m7YTI/JNfw7II
-	rsvwLeCFr44Y/HWBSvJzfAQ/uAFtznoclO2ZbKCyVwPn0KGLhApJXEj7ktPRZ5ZSZsaCZORrTbGo8
-	cybuubZxx53obq8FLI9w==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:MIME-Version:Subject:
+	Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=MMSEUocTiLD2wY+z8F8C+DwxwSvY0lVbS2/GOabQ91g=; b=UNCYmMF17LMyT0
+	/rqVd0P/eHu0MPCwr+MIOQddt9KwSjv/uzHVnCgp0B+FNzVb+GWxWGxeXG3zWCf7neLgZKzEZuAiQ
+	jNht9srYqUqxCDiJ4PmoFpceBsONui81+NwoqQYTF6hHjrkPW+yMnURFGmS+E3dqOwRpDp6OOIn0f
+	IisU2JlIrMfCP3xJm6ZD5O0KTOL46SpBs8a6KyjqRdtYvIFUh659GK8IOvkz6HQsYZneGrPd1INyl
+	q4vLrKJpOReYgzJVmqnyj7d+qEU/a3//S8axb2OiOwE02vV2nsImFzEWkvITtox6LDEtRYK4MLynU
+	wxBFR2ZGof+0Y/jy0Psw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXNZD-00000005ugd-34mN;
-	Mon, 13 Jan 2025 16:45:31 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tXNZF-00000005ujC-2qb2;
+	Mon, 13 Jan 2025 16:45:33 +0000
+Received: from mail-pl1-x632.google.com ([2607:f8b0:4864:20::632])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXNJv-00000005rK3-0tK5;
-	Mon, 13 Jan 2025 16:29:44 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id D37DA5C56E5;
-	Mon, 13 Jan 2025 16:29:01 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 749DDC4CED6;
-	Mon, 13 Jan 2025 16:29:35 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1736785782;
-	bh=G/WL7za6/FhMEJQUPPYaVa5AR3im6p6zdx508VpTd8Y=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=lPMzoMzonmm2uaOFLfrdzxlqYEZB9gyC4UNDIA7tmVyD1CdeiDw/0q7HTvvJaEdU9
-	 O8zfvzFkV7uaD3Eeih9wt9NYEMgB9jFV0IHWkVr1H3T/eBEPpuOfFcMO/Ou4iLVDWQ
-	 Hml2UsTpltlAGqg8dCV2vjov8Jfdy8hAWDfRY3MLkqHK6jF+OtTwqCUS2Mr7UtQJAG
-	 LdHkSaSmCjlHGRuBlI0oL1FiCdYRvc0JfAH5RdDfH6z1lRwE3aqHCLNuC9IujuiGvW
-	 +MOXpYRLwV7Hg46tyDx5cj6hTBCHBY3taAzyPWeFgdxktJaT7Of+Zg4hhGTcDn07vF
-	 bC7Um3/mpT7aQ==
-Date: Mon, 13 Jan 2025 16:29:32 +0000
-From: Will Deacon <will@kernel.org>
-To: Qi Zheng <zhengqi.arch@bytedance.com>
-Cc: peterz@infradead.org, agordeev@linux.ibm.com, kevin.brodsky@arm.com,
-	alex@ghiti.fr, andreas@gaisler.com, palmer@dabbelt.com,
-	tglx@linutronix.de, david@redhat.com, jannh@google.com,
-	hughd@google.com, yuzhao@google.com, willy@infradead.org,
-	muchun.song@linux.dev, vbabka@kernel.org,
-	lorenzo.stoakes@oracle.com, akpm@linux-foundation.org,
-	rientjes@google.com, vishal.moola@gmail.com, arnd@arndb.de,
-	aneesh.kumar@kernel.org, npiggin@gmail.com,
-	dave.hansen@linux.intel.com, rppt@kernel.org, ryan.roberts@arm.com,
-	linux-mm@kvack.org, linux-arm-kernel@lists.infradead.org,
-	linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
-	linux-s390@vger.kernel.org, sparclinux@vger.kernel.org,
-	linux-kernel@vger.kernel.org, x86@kernel.org,
-	linux-arch@vger.kernel.org, linux-csky@vger.kernel.org,
-	linux-hexagon@vger.kernel.org, loongarch@lists.linux.dev,
-	linux-m68k@lists.linux-m68k.org, linux-mips@vger.kernel.org,
-	linux-openrisc@vger.kernel.org, linux-sh@vger.kernel.org,
-	linux-um@lists.infradead.org
-Subject: Re: [PATCH v5 09/17] arm64: pgtable: move pagetable_dtor() to
- __tlb_remove_table()
-Message-ID: <20250113162931.GB14101@willie-the-truck>
-References: <cover.1736317725.git.zhengqi.arch@bytedance.com>
- <cf4b847caf390f96a3e3d534dacb2c174e16c154.1736317725.git.zhengqi.arch@bytedance.com>
+	id 1tXNKu-00000005rbJ-1f08
+	for linux-riscv@lists.infradead.org;
+	Mon, 13 Jan 2025 16:30:45 +0000
+Received: by mail-pl1-x632.google.com with SMTP id d9443c01a7336-2161eb94cceso54834505ad.2
+        for <linux-riscv@lists.infradead.org>; Mon, 13 Jan 2025 08:30:43 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1736785842; x=1737390642; darn=lists.infradead.org;
+        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
+         :date:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=XTzFDsQHUin+/A6axFxcZaUiGXtBBo86vE+wIdzsuEc=;
+        b=RVZI6dP1juWeBV9Q8QBXz7V6+YoJsz8fb+b9Zzr7DAWwMlrzo8cL6e8qf44sjppcHR
+         gtlY3B4iNrUWqSJnoBjRY6r4wINYrr5L2c0QWEtbGH479ReBvkmjOo6RCW4JbIwzno4q
+         1/rsGs+wr0AmG57bTiqMGcLF4b0y2Ruc/H5iIrw6ncJdtGVMLtfD26lglesWtbOrRW40
+         t6M1HWoN1qpjcoPfNxy3fJTOvSsOh0xULUC2AZT/JJrEwD+UjcrRI/UynQ2w17yIe9aW
+         svxYaN93zecackZsyvSIHOhNY3IOaSRo8YW+bH2yO+6k16GsflNOTKueWpTSH8wkD+qe
+         LU8w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1736785842; x=1737390642;
+        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
+         :date:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=XTzFDsQHUin+/A6axFxcZaUiGXtBBo86vE+wIdzsuEc=;
+        b=ZcrCVtOR/+zA2nMP+BSJKOILkWIEC5P/USlXV8lJgGGI+l+99lYPjksYzaZLzq7YDE
+         ps0Wd0JEK4LbAoaJw4KZGfPaxX4f5dIwuta8bWy+eFmQ8iCBiIPBC2yWW4awdytLg0We
+         eitexJ3YAw6+qnz9l3j9TnPfbSQNl/Yvl/HSHwHL8A9z+lEV1kt1aTfn6/6pxQMdYSTV
+         zGhdE5E/31WI2LwKnLtTEhLcUDy/ke7Kh3FNEY3rtiAeEZBiLvbzLuaJJGsn1lVttky/
+         xNHrLAz6L2pDtDfk7it5S+Oni/3zBGN00kTnDrAsBb5IYUCpr1E/WTVnGcGg+EJ3S0jQ
+         P1LQ==
+X-Gm-Message-State: AOJu0YzR+qlgbmiOVnz1OuHZO494E8Gs04DhYG8u0+hTWbYb4XqUO5TA
+	hDOHJE1sfL/6IhU8S968H/YZ5t9/0Cb4gMlc0MKVUTgMEKkX3HuVXMK/0Ll0J5xDVbh0qCQ=
+X-Gm-Gg: ASbGnctlkKwxfyMVuwG1HONk9UyihrSGHW7KXkLGXjoJwhriqLWQwXGAWdk5tUKHdmp
+	Q69KdI479xmDxK/gUuu8Um2VZU+c44I41/SMf8qeRl91jd+2+tJpsL4h68e8sa4LZSSgD2b+Erg
+	jlPnflFxs8zJqMbNbaTYvGEqn/2txcPPIdhO3xwdUIPD0dKzZlRZMbwejIy3OQM+Shqn++r7tXs
+	th/FCZkD1Dw7eJ/PPaet8sNCrE1wFKDJP24ahw6yxphWJPY
+X-Google-Smtp-Source: AGHT+IFhVoNdw8wuVQOZU1U9esePqqq4zOjWrm3eULiuawqiNHS+N4Bi5ybSRXC5R2tTHhc+R/q/Cw==
+X-Received: by 2002:a05:6a00:66cb:b0:724:5815:62c1 with SMTP id d2e1a72fcca58-72d22048b6fmr29376724b3a.19.1736785842122;
+        Mon, 13 Jan 2025 08:30:42 -0800 (PST)
+Received: from [198.18.0.23] ([2401:b60:25::97b9:8ec4])
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-a31d5047e79sm7075489a12.53.2025.01.13.08.30.38
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 13 Jan 2025 08:30:41 -0800 (PST)
+From: Zixian Zeng <sycamoremoon376@gmail.com>
+Date: Tue, 14 Jan 2025 00:30:20 +0800
+Subject: [PATCH] riscv: remove redundant CMDLINE_FORCE check
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <cf4b847caf390f96a3e3d534dacb2c174e16c154.1736317725.git.zhengqi.arch@bytedance.com>
-User-Agent: Mutt/1.10.1 (2018-07-13)
+Message-Id: <20250114-rebund-v1-1-5632b2d54d6c@gmail.com>
+X-B4-Tracking: v=1; b=H4sIAJs/hWcC/22MQQ6CMBBFr0JmbU1nLKCuvIdxAdMWJlEwrTYaw
+ t0trEx0+X7+exNEF8RFOBYTBJckyjhkwE0B3DdD55TYzECaSo24U8G1z8EqKq2pDoxsbAn5fA/
+ Oy2sNnS+Ze4mPMbzXbsJl/UkkVKg0M2rfWG90fepujVy3PN5gSST6r1HWqpY8V5b2pjbf2jzPH
+ +rrvyLTAAAA
+X-Change-ID: 20250113-rebund-25d469c1c4d5
+To: Paul Walmsley <paul.walmsley@sifive.com>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>
+Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Zixian Zeng <sycamoremoon376@gmail.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1736785838; l=986;
+ i=sycamoremoon376@gmail.com; s=20250113; h=from:subject:message-id;
+ bh=C8W7YfQErHbf98SS3XhJkt6Jty4PK97d6HshqEmSIuc=;
+ b=i885COunQq4KEIy3ZrlaRSlLkoLMd8syApBMNPYp/SMeNqjakoru5qSMzzng/eIS7ENMWv01O
+ H65WRs+Lh7FAB4Q1cE8x73b833y9FiiQhQfMBDCfIdFtyxKDScn02jy
+X-Developer-Key: i=sycamoremoon376@gmail.com; a=ed25519;
+ pk=OYfH6Z2Nx3aU1r0UZdvhskmddV6KC6V1nyFjsQQt4J8=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250113_082943_289473_43DFBB9E 
-X-CRM114-Status: GOOD (  10.92  )
+X-CRM114-CacheID: sfid-20250113_083044_436203_E1B23588 
+X-CRM114-Status: UNSURE (   7.63  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,26 +107,40 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jan 08, 2025 at 02:57:25PM +0800, Qi Zheng wrote:
-> Move pagetable_dtor() to __tlb_remove_table(), so that ptlock and page
-> table pages can be freed together (regardless of whether RCU is used).
-> This prevents the use-after-free problem where the ptlock is freed
-> immediately but the page table pages is freed later via RCU.
-> 
-> Page tables shouldn't have swap cache, so use pagetable_free() instead of
-> free_page_and_swap_cache() to free page table pages.
-> 
-> Signed-off-by: Qi Zheng <zhengqi.arch@bytedance.com>
-> Suggested-by: Peter Zijlstra (Intel) <peterz@infradead.org>
-> Reviewed-by: Kevin Brodsky <kevin.brodsky@arm.com>
-> Cc: linux-arm-kernel@lists.infradead.org
-> ---
->  arch/arm64/include/asm/tlb.h | 10 ++++------
->  1 file changed, 4 insertions(+), 6 deletions(-)
+Drop redundant CMDLINE_FORCE check as it's already done in
+function early_init_dt_scan_chosen().
 
-Acked-by: Will Deacon <will@kernel.org>
+Signed-off-by: Zixian Zeng <sycamoremoon376@gmail.com>
+---
+---
+ arch/riscv/kernel/setup.c | 5 -----
+ 1 file changed, 5 deletions(-)
 
-Will
+diff --git a/arch/riscv/kernel/setup.c b/arch/riscv/kernel/setup.c
+index 45010e71df86ce40f99fabf03103a49ad1041f3d..a08a8409aab01d504d3ad975fbf9c66c02992713 100644
+--- a/arch/riscv/kernel/setup.c
++++ b/arch/riscv/kernel/setup.c
+@@ -237,11 +237,6 @@ static void __init parse_dtb(void)
+ 	} else {
+ 		pr_err("No DTB passed to the kernel\n");
+ 	}
+-
+-#ifdef CONFIG_CMDLINE_FORCE
+-	strscpy(boot_command_line, CONFIG_CMDLINE, COMMAND_LINE_SIZE);
+-	pr_info("Forcing kernel command line to: %s\n", boot_command_line);
+-#endif
+ }
+ 
+ #if defined(CONFIG_RISCV_COMBO_SPINLOCKS)
+
+---
+base-commit: fa47906ff358a5865b7be2356a5a1d1e58dd17d8
+change-id: 20250113-rebund-25d469c1c4d5
+
+Best regards,
+-- 
+Zixian Zeng <sycamoremoon376@gmail.com>
+
 
 _______________________________________________
 linux-riscv mailing list
