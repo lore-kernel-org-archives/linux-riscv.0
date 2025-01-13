@@ -4,64 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 97FD4C02180
-	for <linux-riscv@archiver.kernel.org>; Mon, 13 Jan 2025 18:44:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 73BEFC02183
+	for <linux-riscv@archiver.kernel.org>; Mon, 13 Jan 2025 19:36:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=E7XDtOpCQHTlv8s0cKrrWhP9K20o6HQ9gXAA6HvjlP4=; b=FbFGT9m+znfJY/PFOp0tPYVW6r
-	3wGCnnznPqUdqUwcvf0eIgHZbuMHfRib/EhiHWAaaSO47nKquireYR5JlmVWJwvje+wsBv7attjRN
-	SjLkEDYus8FJjHTgsg6q4kCwHXZ8pLF/cP63fGFW3Ax1AN2fMviMDXQGm9WaD7E12C+Ct8Et3gCNZ
-	0BK7ZMRcR06xDd3A4LNlfq0wLK8rknkgXluUgpvLbv/gkIkMi8FbPz3hKAaxYCEjyV+vyooi9vrCV
-	oduphRZG8KXVhUFdi3NwMwvwzQ9TAj7wLGK133xYld891rjKnPwoizYMUdV5AzTc34N7RE9aiqLQM
-	UnSAOgzw==;
+	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
+	References:List-Owner; bh=1YCVqC+a+yIHCIRGaT3FLltQpF7sKXjjEL+GBF53sP4=; b=lrl
+	0ZEKAImWm+Rgh8w7CYzh/I+KpND/kReQIYhfr3PcscS1zWP2D2ogAALfitgNjltL+/uT8QHq1Cz9J
+	0rI3LOoNpIpUH7vbm1ZGxFb8LB3B0a45tPfogERoF9+9uR4E5//3nzWX+vZBzqxMi7YJzMSgmV0qO
+	wLPNveHLikWW8pldmX8ZwwlqBkEgCbRQOmgUbwaawtth4PdZ6PS9gNqq6cmMJFNPO1XhKj58cTjf6
+	epA678KhQHC+WpUrVELBZTMAfijnJkN/ZcCEjry3LUbD6sTFN2K5LsZrJ8i7LVGfHkyberKJoy4f8
+	S7p42Lu7J+Z+eEmWWI3hauf/KnRTuVg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXPQH-00000006GPZ-0H3x;
-	Mon, 13 Jan 2025 18:44:25 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tXQEq-00000006PbY-1Baq;
+	Mon, 13 Jan 2025 19:36:40 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXPQE-00000006GO2-1r3c
+	id 1tXQDK-00000006PCw-1S7x
 	for linux-riscv@lists.infradead.org;
-	Mon, 13 Jan 2025 18:44:23 +0000
+	Mon, 13 Jan 2025 19:35:07 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 120335C56F4;
-	Mon, 13 Jan 2025 18:43:41 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 74740C4CED6;
-	Mon, 13 Jan 2025 18:44:19 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 62DACA41344
+	for <linux-riscv@lists.infradead.org>; Mon, 13 Jan 2025 19:33:17 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6FE36C4CEE1;
+	Mon, 13 Jan 2025 19:35:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1736793861;
-	bh=REzVxlFlZt3jmyJLhz4812x6+rsJC8868RgubbOogdQ=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=vOHQYYn9UlplFd26nMocQ5aNJqYCOGIRMK+Zz/MW7zp9lEnDJPPLxAGuQckjVDQy0
-	 aFtU9mp1TLaIt3yGFhvOmf58brOJq3kXi4w2EoHZ4BZK/eyxutMvX8FlIc7oedkoru
-	 HdAlmAKPQzrp9zkHPM2a+tzqtfYCESVAGC7C8rf7B/m7nMrgAtVA6+mcT3ZJLv4rYO
-	 mYzOL56Mvu0mtlgFNlBBl/XOLsm3k4zHJEcpGM39C8RXLba+soTDWso0BhSUaXOMxp
-	 kZWZ5txewsHsWXjkeMMOL9cPPvXtj2okhsO0ybnocA5oBsFeuoIrtEYbTPTeSWIlCT
-	 fjLrtu36kcDnw==
-Date: Mon, 13 Jan 2025 18:44:17 +0000
+	s=k20201202; t=1736796905;
+	bh=LNPRUlUhY5X4l38jufusldSu8m0yDc9nEltVinBbZ0Q=;
+	h=Date:From:To:Cc:Subject:From;
+	b=NBnAEFtD8cO4/AZtZG0RFfZhstjHu8NTA9hDGwTj1LC2AE8wbgeRCfCSjNbSHKIkS
+	 xVbnPW3rCWPyYPY+pVhAHnehbG4GQgxZD2IQSUnpDBQRGeYqJJq7cHgYuoUjupDYvU
+	 Ffvj0+UwVJKQ6uOGCAYIO2xq9cK9sp+5KR+eWODu3xJpD9HljkHTOVI0ocYXEgbuXv
+	 SFSBlkPWaPdl7YtdYxv2PUhyHAlSoFdotavnnUk7egaT9+0+HnjS/OX26auOn00EwG
+	 W6/L4V14JAqWnjTP/FKtdeMMjRct/lQw/z6KOCOwFs4rpsCghzshkkF5nbYpMfJUSe
+	 dn83r55j+7AMg==
+Date: Mon, 13 Jan 2025 19:35:02 +0000
 From: Conor Dooley <conor@kernel.org>
-To: E Shattow <e@freeshell.de>
-Cc: Emil Renner Berthing <kernel@esmil.dk>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, linux-riscv@lists.infradead.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	Minda Chen <minda.chen@starfivetech.com>
-Subject: Re: [PATCH v1 1/2] riscv: dts: starfive: jh7110: pciephy0 USB 3.0
- configuration registers
-Message-ID: <20250113-mushiness-snugness-0f55574e3956@spud>
-References: <20250102183746.411526-1-e@freeshell.de>
- <20250102183746.411526-2-e@freeshell.de>
+To: soc@kernel.org
+Cc: conor@kernel.org, linux-riscv@lists.infradead.org
+Subject: [GIT PULL] StarFive Devicetrees for v6.14
+Message-ID: <20250113-kennel-outplayed-21a52a654c36@spud>
 MIME-Version: 1.0
-In-Reply-To: <20250102183746.411526-2-e@freeshell.de>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250113_104422_518436_C51170C0 
-X-CRM114-Status: GOOD (  14.66  )
+X-CRM114-CacheID: sfid-20250113_113506_453934_D50E3E43 
+X-CRM114-Status: UNSURE (   7.59  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,68 +64,75 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============8010885030311418718=="
+Content-Type: multipart/mixed; boundary="===============8528519427310829858=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
---===============8010885030311418718==
+--===============8528519427310829858==
 Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="FOHyHV9iOj/jYnyr"
+	protocol="application/pgp-signature"; boundary="GwHu556FBBtAye50"
 Content-Disposition: inline
 
 
---FOHyHV9iOj/jYnyr
+--GwHu556FBBtAye50
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
 
-On Thu, Jan 02, 2025 at 10:37:36AM -0800, E Shattow wrote:
-> StarFive JH7110 contains a Cadence USB2.0+USB3.0 controller IP block that
-> may exclusively use pciephy0 for USB3.0 connectivity. Add the register
-> offsets for the driver to enable/disable USB3.0 on pciephy0.
->=20
-> Signed-off-by: E Shattow <e@freeshell.de>
-> ---
->  arch/riscv/boot/dts/starfive/jh7110.dtsi | 2 ++
->  1 file changed, 2 insertions(+)
->=20
-> diff --git a/arch/riscv/boot/dts/starfive/jh7110.dtsi b/arch/riscv/boot/d=
-ts/starfive/jh7110.dtsi
-> index 0d8339357bad..75ff07303e8b 100644
-> --- a/arch/riscv/boot/dts/starfive/jh7110.dtsi
-> +++ b/arch/riscv/boot/dts/starfive/jh7110.dtsi
-> @@ -611,6 +611,8 @@ usbphy0: phy@10200000 {
->  		pciephy0: phy@10210000 {
->  			compatible =3D "starfive,jh7110-pcie-phy";
->  			reg =3D <0x0 0x10210000 0x0 0x10000>;
-> +			starfive,sys-syscon =3D <&sys_syscon 0x18>;
-> +			starfive,stg-syscon =3D <&stg_syscon 0x148 0x1f4>;
+Arnd,
 
-Why weren't these added in the first place? Minda, do you know?
+Very little here, but apologies for it being kinda late. Ended up
+dislocating my jaw between Christmas and New Years, so been kinda
+out of it.
 
->  			#phy-cells =3D <0>;
->  		};
-> =20
-> --=20
-> 2.45.2
->=20
+Cheers,
+Conor.
 
---FOHyHV9iOj/jYnyr
+The following changes since commit 40384c840ea1944d7c5a392e8975ed088ecf0b37:
+
+  Linux 6.13-rc1 (2024-12-01 14:28:56 -0800)
+
+are available in the Git repository at:
+
+  https://git.kernel.org/pub/scm/linux/kernel/git/conor/linux.git/ riscv-dt-for-v6.14
+
+for you to fetch changes up to 708d55db3edbe2ccf88d94b5f2e2b404bc0ba37c:
+
+  riscv: dts: starfive: jh7110-milkv-mars: enable usb0 host function (2024-12-02 19:06:40 +0000)
+
+----------------------------------------------------------------
+~RISC-V~ StarFive Devicetrees for v6.14
+
+Not so much RISC-V, but rather StarFive, this time around as there are
+only two changes: the Milk-V Mars and Pine64 Star64 boards get their usb0
+interfaces moved from peripheral to host mode.
+
+Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
+
+----------------------------------------------------------------
+E Shattow (2):
+      riscv: dts: starfive: jh7110-pine64-star64: enable usb0 host function
+      riscv: dts: starfive: jh7110-milkv-mars: enable usb0 host function
+
+ arch/riscv/boot/dts/starfive/jh7110-milkv-mars.dts    | 18 +++++++++++++++++-
+ arch/riscv/boot/dts/starfive/jh7110-pine64-star64.dts | 18 +++++++++++++++++-
+ 2 files changed, 34 insertions(+), 2 deletions(-)
+
+--GwHu556FBBtAye50
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZ4VfAQAKCRB4tDGHoIJi
-0svDAP9bn1shXngVSxwtTd7ldTcxUpfFziGGwYPkzQJxx0mfAgEA82jk5WOM83MQ
-gtS8YQT14ttMooCsyg4YEnYq4j6tYQQ=
-=u+LI
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZ4Vq5gAKCRB4tDGHoIJi
+0vCUAQC8+tM6xqkQ0sQamnGjc9Dv3M5Zowoj/7gl+sD3XiV+RwEA+d/gKlbdQEJi
+4DyLfqr72lac3fgmxfkmWvtOpJkbfgs=
+=s+QG
 -----END PGP SIGNATURE-----
 
---FOHyHV9iOj/jYnyr--
+--GwHu556FBBtAye50--
 
 
---===============8010885030311418718==
+--===============8528519427310829858==
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
@@ -145,5 +143,5 @@ linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
 
---===============8010885030311418718==--
+--===============8528519427310829858==--
 
