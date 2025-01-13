@@ -4,99 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 111A6E7719E
-	for <linux-riscv@archiver.kernel.org>; Mon, 13 Jan 2025 10:34:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DCC44E7719E
+	for <linux-riscv@archiver.kernel.org>; Mon, 13 Jan 2025 10:56:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Subject:CC:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=I+J6DeMrVrsyxng5QMYRH7oRp89d+dpV2yTBIsMF8vA=; b=urLW9ftrhWOGTV
-	sY4XRclsZFrVzLmg4rcuAuD4yOdOIAHTl2x8MF3cT2K3zmR9GU0y4tY5SqpXIr5qXsbHyHcWGVC3R
-	K38vFVmRYLpgvcOkPDKDYOZhGGuO3kYO/XTHajZSAjjgW4vHv91JsGtMW1pqPt0TL8zwUz2bP4d+R
-	yOz+SYUciDH8zSlmOHU9yh6/SlXlq3jZQTilwX2RHg8vizsbyPsQRJ6BwvRwU7ImqYqy/alg0YsI4
-	modNNNa8USRAx8tY0wEhc1uxwwotKHeGF2tanu67GSPve2gMOYXYNPuySh75DtCZapDcb2VfjthKH
-	rcO/IVoGTrGlM5Xepi8w==;
+	List-Owner; bh=hDrA4lsyEMCOYUD0x0ud8NrUy9wHMQ0G6oAg/NTK69A=; b=uK0vp1tV5aAMjG
+	eN7U8KRHndpBKD70nVaa03cIUYY4KEKfaFKgMLzOibRskQprFEwsQnxoRr/szu6/NresBVwetUo++
+	f4PSVqDHAZeXQwd/hqRO/hMBXC7m1GbXg+SxRe/YKkRuY/o/fA4NJz01MD4nYsSILhkkQ/loqTA4B
+	2T88SLdnv999Y0hmN8tpgkFOTrdN3Kl42tX/YgZpc9MOt7n5QJAc+Q6DUdjDbOhSoydr9ykA0H7G2
+	BpJ1aMc1e7H91a+HagsYjlkx5yepgyFqynOEsQPuz79AnutY2qrsuj31t1XdwomhBRFiv7BtcmRBw
+	bsumqk22CIOswNsbHm1Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXHmH-00000004nku-2zRT;
-	Mon, 13 Jan 2025 10:34:37 +0000
-Received: from mail.alien8.de ([65.109.113.108])
+	id 1tXI7m-00000004pbT-1LMH;
+	Mon, 13 Jan 2025 10:56:50 +0000
+Received: from mta-03.yadro.com ([89.207.88.253])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXHl3-00000004nbC-1IOR;
-	Mon, 13 Jan 2025 10:33:22 +0000
-Received: from localhost (localhost.localdomain [127.0.0.1])
-	by mail.alien8.de (SuperMail on ZX Spectrum 128k) with ESMTP id 56AC540E0269;
-	Mon, 13 Jan 2025 10:33:17 +0000 (UTC)
-X-Virus-Scanned: Debian amavisd-new at mail.alien8.de
-Authentication-Results: mail.alien8.de (amavisd-new); dkim=pass (4096-bit key)
-	header.d=alien8.de
-Received: from mail.alien8.de ([127.0.0.1])
-	by localhost (mail.alien8.de [127.0.0.1]) (amavisd-new, port 10026)
-	with ESMTP id 44t9bF7uA_eu; Mon, 13 Jan 2025 10:33:14 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=alien8.de; s=alien8;
-	t=1736764394; bh=1YAg0YpSiEYHy04uZdiQTEpl5KVnoLqEM0qII/Nidds=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=K+EMIWQk8WEi1SZnmV0P2JV4bYxukiYLA54qWzk86NFeV3epUUZCeca9u2L5n9P0E
-	 LpzIa+lx4YydRs1fIN7BKHu3nzp6rB87sIjJmGJ99V6hS0DgT/3rLZQdZbxkjW7+Yo
-	 FEQN8hNHMfG4NvXbq9OG9bFMgM2NIGgR5axG9G7NXZBTOuKNQfkSgQYm8gyRlWWKeq
-	 rVbTzkI+yk2Z0AxKMbBrVVQjIDL4xbIZc/110fkUfbrI6OAGjNXu5VnNwBJiOWm1L5
-	 rx11poD/DmHI/DaWjIq6EwLTaFFtDn2j3JPdJpjT1Bg5Omjsa02dn834AalXC6G4xe
-	 H7DEiXBwOIpZxaFBanAsxQ08DvWiMSECeZNk/LGwLnxKl0hUALCNakpEANuApExibj
-	 lePjysDbMECgWWQ1uvRpBJRFNbuwqE7M0bqM9JKDgoVMK8ebDYnIuVG8pCNbioibbg
-	 A3wk+AfTiIwv6GMxRr7ztm+GMm+4OJIkaFDR311ZiFSFu202yKPdUV/AuWUDVLwNY0
-	 nPNWVZEp3FxjV2/rXxxzZtE8W4FTydvSfdEJHkAd3xB1RLT/gbgUhUd0IJMPVKeZy2
-	 DdCkE/H7k5SgA9wABr7ZHtmZR3cbJhyVtdWkL2MxZnSqn16Ve5qbAdf8f0DNt+jwHq
-	 puXr2LJB5F9JK2neGSR9z39Q=
-Received: from zn.tnic (pd953008e.dip0.t-ipconnect.de [217.83.0.142])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (P-256) server-signature ECDSA (P-256) server-digest SHA256)
-	(No client certificate requested)
-	by mail.alien8.de (SuperMail on ZX Spectrum 128k) with ESMTPSA id AEAF040E0163;
-	Mon, 13 Jan 2025 10:32:44 +0000 (UTC)
-Date: Mon, 13 Jan 2025 11:32:38 +0100
-From: Borislav Petkov <bp@alien8.de>
-To: "Kirill A. Shutemov" <kirill.shutemov@linux.intel.com>
-Cc: Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>,
-	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
-	"H. Peter Anvin" <hpa@zytor.com>, Andy Lutomirski <luto@kernel.org>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Alexei Starovoitov <ast@kernel.org>,
-	Andrea Parri <parri.andrea@gmail.com>,
-	Arnd Bergmann <arnd@arndb.de>,
-	Daniel Borkmann <daniel@iogearbox.net>,
-	Eric Chan <ericchancf@google.com>, Jason Gunthorpe <jgg@ziepe.ca>,
-	Kai Huang <kai.huang@intel.com>,
-	Kefeng Wang <wangkefeng.wang@huawei.com>,
-	Kent Overstreet <kent.overstreet@linux.dev>,
-	Palmer Dabbelt <palmer@rivosinc.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Russell King <linux@armlinux.org.uk>,
-	Samuel Holland <samuel.holland@sifive.com>,
-	Suren Baghdasaryan <surenb@google.com>,
-	Yuntao Wang <ytcoode@gmail.com>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	Tom Lendacky <thomas.lendacky@amd.com>,
-	Ashish Kalra <ashish.kalra@amd.com>,
-	"Maciej W. Rozycki" <macro@orcam.me.uk>
-Subject: Re: [PATCHv2 2/2] x86/mm: Make memremap(MEMREMAP_WB) map memory as
- encrypted by defaultk
-Message-ID: <20250113103238.GCZ4TrxlX-VbHLkoNo@fat_crate.local>
-References: <20241021105723.2707507-1-kirill.shutemov@linux.intel.com>
- <20241021105723.2707507-3-kirill.shutemov@linux.intel.com>
- <20241118164616.GAZztvWGs9cOV8t20_@fat_crate.local>
- <s4frmqwtuvclinuu7ttyzfpe7bj7hju5xgt6sxzy3gyt3prr62@rrgvhkv4lgwv>
- <20241121114952.GCZz8eYEVa3yubYQzO@fat_crate.local>
- <bz3vlh3lri7yfckdkddopwhsgvkmizhw5q6ecomgeba7q22ufp@ntu2kugiho4o>
- <ejh2llcaxahkgz3k2ji3b35dfdss3bfgztyhsfgtu6adejasr7@ajehr7ac3bp3>
+	id 1tXI7j-00000004paS-0Fe0
+	for linux-riscv@lists.infradead.org;
+	Mon, 13 Jan 2025 10:56:49 +0000
+DKIM-Filter: OpenDKIM Filter v2.11.0 mta-03.yadro.com 600D7E0026
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yadro.com; s=mta-04;
+	t=1736765799; bh=GPkBzbEa74bl5EdCDEBHXIO3MAGG7toGPMqv8S0lHMU=;
+	h=Date:From:To:Subject:Message-ID:MIME-Version:Content-Type:From;
+	b=ohO9M+eIH81Gs8wmoM4Jstlex4u75e2ERR0QflVzbku6EA53OwBBN1Xr0PBjRjeOz
+	 326bsSpSNqa8tzzB/mj/LRHcEQ2uhMnKgu4Nu7MEGwODqSR+JJjG+oTbETZV2MDmmo
+	 HmkpA6m5329PtifGfw2F8RFesb3R/uaHTq8JZs+MpzsZJCbKDNybG/aHemmGQxluyg
+	 s7DGm3MauS2a7L0TLcP6c6Uy1UbvdaDaM+/BgfGulRMvYdwDGy7z26r3i373krE3zM
+	 mHamuYEHcXg3gmF4C0g2J37k589ZMQaIgAW2u1M4KEVjR/lkn/kdbQfPvTSGx56Ybp
+	 ORE/dWNka0DOg==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yadro.com; s=mta-03;
+	t=1736765799; bh=GPkBzbEa74bl5EdCDEBHXIO3MAGG7toGPMqv8S0lHMU=;
+	h=Date:From:To:Subject:Message-ID:MIME-Version:Content-Type:From;
+	b=Z2wGCD812wkIH7w+lGI1I9nfaNHd9NgN6W1d2Q3LC4vUSD/WcmcuBn3m4/ykaUC5b
+	 w7+n60x2N7GfEJbZfwCjmpAixa7ma9x4SMp9oBNea30N1iSkKcGXsWNeUt4Bo9fOlR
+	 iuKIeUXsEcPn7OQsQivZllYYQ4QZD13HWoindrAAaZM9C+CLhYAae6YHQGM8msS1YR
+	 /rZv+XnC8BuJBSANPkc+TluAgFusJZ9uqY32IH37/ugdIyh94ahdL54VofIqGd3cDZ
+	 +qI5shAqyFxiHzAkMtOlmYYBnFm5z9V4DVP0Aoj6ALa4Srtu7t/6N6Ghe3lhM5LcnK
+	 juHpbqFh9/Jmg==
+Date: Mon, 13 Jan 2025 13:56:27 +0300
+From: Nikita Proshkin <n.proshkin@yadro.com>
+To: Green Wan <green.wan@sifive.com>, Vinod Koul <vkoul@kernel.org>
+CC: <dmaengine@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
+	<linux@yadro.com>, Nikita Proshkin <n.proshkin@yadro.com>
+Subject: Re: [PATCH 0/2] dmaengine: sf-pdma: Fix dma transfers errors
+ handling
+Message-ID: <20250113135627.7b245f92.n.proshkin@yadro.com>
+In-Reply-To: <20241111152600.146912-1-n.proshkin@yadro.com>
+References: <20241111152600.146912-1-n.proshkin@yadro.com>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <ejh2llcaxahkgz3k2ji3b35dfdss3bfgztyhsfgtu6adejasr7@ajehr7ac3bp3>
+X-ClientProxiedBy: T-EXCH-06.corp.yadro.com (172.17.10.110) To
+ S-Exch-02.corp.yadro.com (10.78.5.239)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250113_023321_503892_18F9A1ED 
-X-CRM114-Status: GOOD (  10.05  )
+X-CRM114-CacheID: sfid-20250113_025647_802794_9C244767 
+X-CRM114-Status: UNSURE (   5.97  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,31 +79,25 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jan 13, 2025 at 12:03:22PM +0200, Kirill A. Shutemov wrote:
-> Borislav,
+On Mon, 11 Nov 2024 18:25:58 +0300
+Nikita Proshkin <n.proshkin@yadro.com> wrote:
+
+> Fix several problems in the sf-pdma driver related to handling situations
+> when the dma transfer fails (for example, due to IOMMU activities).
 > 
-> Is there anything I need to do to get this patchset merged?
+> Nikita Proshkin (2):
+>   dmaengine: sf-pdma: Fix dma descriptor status reporting
+>   dmaengine: sf-pdma: Fix possible double-free for descriptors
+> 
+>  drivers/dma/sf-pdma/sf-pdma.c | 106 ++++++++++------------------------
+>  drivers/dma/sf-pdma/sf-pdma.h |   3 -
+>  2 files changed, 32 insertions(+), 77 deletions(-)
+> 
 
-Your updated commit message here:
+Gently pinging. Any requests/comments for me?
 
-https://lore.kernel.org/r/bz3vlh3lri7yfckdkddopwhsgvkmizhw5q6ecomgeba7q22ufp@ntu2kugiho4o
-
-Reads better, yes.
-
-> This change fixes the crash on kexec in TDX guests if CONFIG_EISA is
-> enabled.
-
-s/This change fixes/Fix/
-
-In imperative tone pls.
-
-And that sentence begs the question: does this need to go to stable?
-
--- 
-Regards/Gruss,
-    Boris.
-
-https://people.kernel.org/tglx/notes-about-netiquette
+Thanks,
+Nikita Proshkin
 
 _______________________________________________
 linux-riscv mailing list
