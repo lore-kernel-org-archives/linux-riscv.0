@@ -4,79 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30996C02180
-	for <linux-riscv@archiver.kernel.org>; Mon, 13 Jan 2025 16:50:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8AAC4C02180
+	for <linux-riscv@archiver.kernel.org>; Mon, 13 Jan 2025 17:11:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=GpiHSGngzbW8PQS2eUwrxobOJYOg2RUt5EhKjL0Dtnk=; b=GZoswasj95cRbC
-	E5L/a86IJBc253WN5cLCEAPfkE2z9Dw87otKNlsajNuFmCgzDJDdiP6nsjyBdJY37zmayP2AiwgnS
-	MNtcSjBOVtc74rXqymY0gQRT/w/ICxva9NeNfQmyAg/mfC+uwQMWKkTcDCc0CwCKf9ylbEExS0npY
-	rf8CoAweKiAQdX013TlqVmjXE1qWtt/o20uPX0/j7RF3576HD/4HZPlwl8dUEshlxCrSqrwq/fzMF
-	FIWQ+sBLXx9gnagF3e5rOZA7PQ2izl5evIGIi2hhdyZel4wK+BMUIF750QNEgxIM7uQKNwvXjl9z4
-	m0+Qs9hBj8b4CZErxohQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=jWOYxdHE0ywaqpBGm9SxlXOmjGzs16vObJpLd4juMks=; b=ZafYvRi5AshzZD
+	EY51GnbMlfboxYn+hnS5bwnShc0XF5ep0AGxfRK4KHENo+u+JFDckGpU7beI76v/kL8EnjPkipmI0
+	Nhw2ymcB2KKyz7Gx0+vCCPnAHmBpKpHi/EGA3t4KKY8f3E3JbVtYOLvKnKNI36dIH9M/Uy02f1QL0
+	EM0esf0hNq/qchwX1ZjUetziBP7jSSGFTUNswnESfoQSdBCy3gREF+eO7cquWpnCcDY7nH6jO5qlY
+	6ATMxQHk0keV9iBBSH++SjAWL3faOzVRvYVlS/Bs9xilWQ7Y32Blf4j7Z17DEhhlEKHAxXO2S9FQ3
+	617y99ZBRmvVx6HA8ptQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXNeF-00000005wUG-2XsR;
-	Mon, 13 Jan 2025 16:50:43 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1tXNyT-00000005zvY-04DZ;
+	Mon, 13 Jan 2025 17:11:37 +0000
+Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXNbw-00000005vwt-3rUd;
-	Mon, 13 Jan 2025 16:48:22 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 2554D5C5637;
-	Mon, 13 Jan 2025 16:47:39 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 00791C4CED6;
-	Mon, 13 Jan 2025 16:48:13 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1736786899;
-	bh=JKbUdrq2yjCdAS7+vTikTrh0+8U9qazr2XTClE4SOeE=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=vGT3La7eABzQ7OhDTupouwdqXt4MD5RkP+HE//stc61NySgZntcB28m6U2N4jYZMU
-	 JET9d/nkuUq4pZJqDbrWoMZzE9F0B7/+KoWOUZ4cZf66NGlgdEl6p6sJFJRw6gQJSy
-	 aTTYoEWcEgZvDwfiSGdaQdfzIBQM/9L4W6WX2frJXvClVsPW0Y3TaAxlQ3azMnAaqo
-	 9fysBp7HU2Zhnfjpz5Ibv/CnyLtcXljQYgYj2EGIVX50UrcJYbLTuGgAz2R32sx7Gw
-	 LFw61MzuVHihkvPMlUj4wOWObdb861F+84u5fSpgNV9c6iUVIXsAXCob5RsKZB6DsP
-	 legD9xTnZPxzA==
-Date: Mon, 13 Jan 2025 16:48:10 +0000
-From: Will Deacon <will@kernel.org>
-To: Barry Song <21cnbao@gmail.com>
-Cc: akpm@linux-foundation.org, linux-mm@kvack.org,
-	baolin.wang@linux.alibaba.com, chrisl@kernel.org, david@redhat.com,
-	ioworker0@gmail.com, kasong@tencent.com,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	ryan.roberts@arm.com, v-songbaohua@oppo.com, x86@kernel.org,
-	linux-riscv@lists.infradead.org, ying.huang@intel.com,
-	zhengtangquan@oppo.com, lorenzo.stoakes@oracle.com,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	"H. Peter Anvin" <hpa@zytor.com>,
-	Anshuman Khandual <anshuman.khandual@arm.com>,
-	Shaoqin Huang <shahuang@redhat.com>, Gavin Shan <gshan@redhat.com>,
-	Kefeng Wang <wangkefeng.wang@huawei.com>,
-	Mark Rutland <mark.rutland@arm.com>,
-	"Kirill A. Shutemov" <kirill.shutemov@linux.intel.com>,
-	Yosry Ahmed <yosryahmed@google.com>,
+	id 1tXNwZ-00000005zK5-1k9u;
+	Mon, 13 Jan 2025 17:09:39 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=casper.20170209; h=Content-Type:MIME-Version:Message-ID:
+	Subject:Cc:To:From:Date:Sender:Reply-To:Content-Transfer-Encoding:Content-ID:
+	Content-Description:In-Reply-To:References;
+	bh=pRQhUW8dQ+0CujHJfWL4uly3saXw3ma1OCWVp0SB+SA=; b=PHO44ZImrLpOfYfdV4jyxVvKWE
+	ox4d16N3ONR6J1XFVTxsiiaPXjZRGr1rBlkgn6eAsoJ3Nw0DaqKBGJ3vaTOieEI6kLDdp/H1Zqg6q
+	9YtFde5aeZDIluFBmsVE0qtL9Vbv/qpyoRoyZ7hHgNwEPTz5M6zCq8kIuTMjsdTqiBAq6dHJbfJxE
+	ujWUX7ACfYCQ4zBJA/GSJS408wcWXIPo9OI5VYvW1X4GT9soYBzg4eQZ49x3ezp+9YjwJuOG7IkQb
+	TDXc8c0qX5D9LenPL6oMST3orkRLUKhllsPG6VlNDdRbkJb24mFqJxHlvQEUUq1rHGUb39jP7ORj7
+	5Q+xgsSg==;
+Received: from vmicros1.altlinux.org ([194.107.17.57])
+	by casper.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tXNwV-00000001bXa-2E6b;
+	Mon, 13 Jan 2025 17:09:37 +0000
+Received: from mua.local.altlinux.org (mua.local.altlinux.org [192.168.1.14])
+	by vmicros1.altlinux.org (Postfix) with ESMTP id 37B7E72C8CC;
+	Mon, 13 Jan 2025 20:09:26 +0300 (MSK)
+Received: by mua.local.altlinux.org (Postfix, from userid 508)
+	id 150757CCB3A; Mon, 13 Jan 2025 19:09:25 +0200 (IST)
+Date: Mon, 13 Jan 2025 19:09:25 +0200
+From: "Dmitry V. Levin" <ldv@strace.io>
+To: Oleg Nesterov <oleg@redhat.com>
+Cc: Eugene Syromyatnikov <evgsyr@gmail.com>,
+	Mike Frysinger <vapier@gentoo.org>,
+	Renzo Davoli <renzo@cs.unibo.it>,
+	Davide Berardi <berardi.dav@gmail.com>,
+	strace-devel@lists.strace.io, Vineet Gupta <vgupta@kernel.org>,
+	Russell King <linux@armlinux.org.uk>, Will Deacon <will@kernel.org>,
+	Guo Ren <guoren@kernel.org>, Brian Cain <bcain@quicinc.com>,
+	Huacai Chen <chenhuacai@kernel.org>,
+	WANG Xuerui <kernel@xen0n.name>,
+	Geert Uytterhoeven <geert@linux-m68k.org>,
+	Michal Simek <monstr@monstr.eu>,
+	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+	Dinh Nguyen <dinguyen@kernel.org>, Jonas Bonn <jonas@southpole.se>,
+	Stefan Kristiansson <stefan.kristiansson@saunalahti.fi>,
+	Stafford Horne <shorne@gmail.com>,
+	"James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>,
+	Helge Deller <deller@gmx.de>, Michael Ellerman <mpe@ellerman.id.au>,
+	Nicholas Piggin <npiggin@gmail.com>,
+	Christophe Leroy <christophe.leroy@csgroup.eu>,
+	Naveen N Rao <naveen@kernel.org>,
+	Madhavan Srinivasan <maddy@linux.ibm.com>,
 	Paul Walmsley <paul.walmsley@sifive.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
 	Albert Ou <aou@eecs.berkeley.edu>,
-	Yicong Yang <yangyicong@hisilicon.com>
-Subject: Re: [PATCH v2 2/4] mm: Support tlbbatch flush for a range of PTEs
-Message-ID: <20250113164809.GC14101@willie-the-truck>
-References: <20250113033901.68951-1-21cnbao@gmail.com>
- <20250113033901.68951-3-21cnbao@gmail.com>
+	Heiko Carstens <hca@linux.ibm.com>,
+	Vasily Gorbik <gor@linux.ibm.com>,
+	Alexander Gordeev <agordeev@linux.ibm.com>,
+	Christian Borntraeger <borntraeger@linux.ibm.com>,
+	Sven Schnelle <svens@linux.ibm.com>,
+	Yoshinori Sato <ysato@users.sourceforge.jp>,
+	Rich Felker <dalias@libc.org>,
+	John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>,
+	"David S. Miller" <davem@davemloft.net>,
+	Andreas Larsson <andreas@gaisler.com>,
+	Richard Weinberger <richard@nod.at>,
+	Anton Ivanov <anton.ivanov@cambridgegreys.com>,
+	Johannes Berg <johannes@sipsolutions.net>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
+	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
+	"H. Peter Anvin" <hpa@zytor.com>, Chris Zankel <chris@zankel.net>,
+	Max Filippov <jcmvbkbc@gmail.com>, Arnd Bergmann <arnd@arndb.de>,
+	Shuah Khan <shuah@kernel.org>, linux-snps-arc@lists.infradead.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-csky@vger.kernel.org, linux-hexagon@vger.kernel.org,
+	loongarch@lists.linux.dev, linux-m68k@lists.linux-m68k.org,
+	linux-mips@vger.kernel.org, linux-openrisc@vger.kernel.org,
+	linux-parisc@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
+	linux-sh@vger.kernel.org, sparclinux@vger.kernel.org,
+	linux-um@lists.infradead.org, linux-arch@vger.kernel.org,
+	linux-kselftest@vger.kernel.org, linux-api@vger.kernel.org
+Subject: [PATCH v2 0/7] ptrace: introduce PTRACE_SET_SYSCALL_INFO API
+Message-ID: <20250113170925.GA392@altlinux.org>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20250113033901.68951-3-21cnbao@gmail.com>
-User-Agent: Mutt/1.10.1 (2018-07-13)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250113_084821_040032_17CBEEEF 
-X-CRM114-Status: GOOD (  14.73  )
+X-CRM114-CacheID: sfid-20250113_170935_716675_42AFB01D 
+X-CRM114-Status: GOOD (  17.88  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,50 +123,111 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jan 13, 2025 at 04:38:59PM +1300, Barry Song wrote:
-> From: Barry Song <v-songbaohua@oppo.com>
-> 
-> This is a preparatory patch to support batch PTE unmapping in
-> `try_to_unmap_one`. It first introduces range handling for
-> `tlbbatch` flush. Currently, the range is always set to the size of
-> PAGE_SIZE.
-> 
-> Cc: Catalin Marinas <catalin.marinas@arm.com>
-> Cc: Will Deacon <will@kernel.org>
-> Cc: Thomas Gleixner <tglx@linutronix.de>
-> Cc: Ingo Molnar <mingo@redhat.com>
-> Cc: Borislav Petkov <bp@alien8.de>
-> Cc: Dave Hansen <dave.hansen@linux.intel.com>
-> Cc: "H. Peter Anvin" <hpa@zytor.com>
-> Cc: Anshuman Khandual <anshuman.khandual@arm.com>
-> Cc: Ryan Roberts <ryan.roberts@arm.com>
-> Cc: Shaoqin Huang <shahuang@redhat.com>
-> Cc: Gavin Shan <gshan@redhat.com>
-> Cc: Kefeng Wang <wangkefeng.wang@huawei.com>
-> Cc: Mark Rutland <mark.rutland@arm.com>
-> Cc: David Hildenbrand <david@redhat.com>
-> Cc: Lance Yang <ioworker0@gmail.com>
-> Cc: "Kirill A. Shutemov" <kirill.shutemov@linux.intel.com>
-> Cc: Yosry Ahmed <yosryahmed@google.com>
-> Cc: Paul Walmsley <paul.walmsley@sifive.com>
-> Cc: Palmer Dabbelt <palmer@dabbelt.com>
-> Cc: Albert Ou <aou@eecs.berkeley.edu>
-> Cc: Yicong Yang <yangyicong@hisilicon.com>
-> Signed-off-by: Barry Song <v-songbaohua@oppo.com>
-> ---
->  arch/arm64/include/asm/tlbflush.h | 26 ++++++++++++++------------
->  arch/arm64/mm/contpte.c           |  2 +-
->  arch/riscv/include/asm/tlbflush.h |  3 ++-
->  arch/riscv/mm/tlbflush.c          |  3 ++-
->  arch/x86/include/asm/tlbflush.h   |  3 ++-
->  mm/rmap.c                         | 12 +++++++-----
->  6 files changed, 28 insertions(+), 21 deletions(-)
+PTRACE_SET_SYSCALL_INFO is a generic ptrace API that complements
+PTRACE_GET_SYSCALL_INFO by letting the ptracer modify details of
+system calls the tracee is blocked in.
 
-The arm64 bits look correct to me:
+This API allows ptracers to obtain and modify system call details
+in a straightforward and architecture-agnostic way.
 
-Acked-by: Will Deacon <will@kernel.org>
+Current implementation supports changing only those bits of system call
+information that are used by strace, namely, syscall number, syscall
+arguments, and syscall return value.
 
-Will
+Support of changing additional details returned by PTRACE_GET_SYSCALL_INFO,
+such as instruction pointer and stack pointer, could be added later
+if needed, by using struct ptrace_syscall_info.flags to specify
+the additional details that should be set.  Currently, flags and reserved
+fields of struct ptrace_syscall_info must be initialized with zeroes;
+arch, instruction_pointer, and stack_pointer fields are ignored.
+
+PTRACE_SET_SYSCALL_INFO currently supports only PTRACE_SYSCALL_INFO_ENTRY,
+PTRACE_SYSCALL_INFO_EXIT, and PTRACE_SYSCALL_INFO_SECCOMP operations.
+Other operations could be added later if needed.
+
+Ideally, PTRACE_SET_SYSCALL_INFO should have been introduced along with
+PTRACE_GET_SYSCALL_INFO, but it didn't happen.  The last straw that
+convinced me to implement PTRACE_SET_SYSCALL_INFO was apparent failure
+to provide an API of changing the first system call argument on riscv
+architecture [1].
+
+ptrace(2) man page:
+
+long ptrace(enum __ptrace_request request, pid_t pid, void *addr, void *data);
+...
+PTRACE_SET_SYSCALL_INFO
+       Modify information about the system call that caused the stop.
+       The "data" argument is a pointer to struct ptrace_syscall_info
+       that specifies the system call information to be set.
+       The "addr" argument should be set to sizeof(struct ptrace_syscall_info)).
+
+[1] https://lore.kernel.org/all/59505464-c84a-403d-972f-d4b2055eeaac@gmail.com/
+
+---
+
+Notes:
+    v2:
+    * Add patch to fix syscall_set_return_value() on powerpc
+    * Add patch to fix mips_get_syscall_arg() on mips
+    * Merge two patches adding syscall_set_arguments() implementations
+      from different sources into a single patch
+    * Add syscall_set_return_value() implementation on hexagon
+    * Add syscall_set_return_value() invocation to syscall_set_nr()
+      on arm and arm64.
+    * Fix syscall_set_nr() and mips_set_syscall_arg() on mips
+    * Add a comment to syscall_set_nr() on arc, powerpc, s390, sh,
+      and sparc
+    * Remove redundant ptrace_syscall_info.op assignments in
+      ptrace_get_syscall_info_*
+    * Minor style tweaks in ptrace_get_syscall_info_op()
+    * Remove syscall_set_return_value() invocation from
+      ptrace_set_syscall_info_entry()
+    * Skip syscall_set_arguments() invocation in case of syscall number -1
+      in ptrace_set_syscall_info_entry() 
+    * Split ptrace_syscall_info.reserved into ptrace_syscall_info.reserved
+      and ptrace_syscall_info.flags
+    * Use __kernel_ulong_t instead of unsigned long in set_syscall_info test
+
+Dmitry V. Levin (7):
+  powerpc: properly negate error in syscall_set_return_value()
+  mips: fix mips_get_syscall_arg() for O32 and N32
+  syscall.h: add syscall_set_arguments() and syscall_set_return_value()
+  syscall.h: introduce syscall_set_nr()
+  ptrace_get_syscall_info: factor out ptrace_get_syscall_info_op
+  ptrace: introduce PTRACE_SET_SYSCALL_INFO request
+  selftests/ptrace: add a test case for PTRACE_SET_SYSCALL_INFO
+
+ arch/arc/include/asm/syscall.h                |  25 +
+ arch/arm/include/asm/syscall.h                |  37 ++
+ arch/arm64/include/asm/syscall.h              |  29 ++
+ arch/csky/include/asm/syscall.h               |  13 +
+ arch/hexagon/include/asm/syscall.h            |  21 +
+ arch/loongarch/include/asm/syscall.h          |  15 +
+ arch/m68k/include/asm/syscall.h               |   7 +
+ arch/microblaze/include/asm/syscall.h         |   7 +
+ arch/mips/include/asm/syscall.h               |  72 ++-
+ arch/nios2/include/asm/syscall.h              |  16 +
+ arch/openrisc/include/asm/syscall.h           |  13 +
+ arch/parisc/include/asm/syscall.h             |  19 +
+ arch/powerpc/include/asm/syscall.h            |  26 +-
+ arch/riscv/include/asm/syscall.h              |  16 +
+ arch/s390/include/asm/syscall.h               |  24 +
+ arch/sh/include/asm/syscall_32.h              |  24 +
+ arch/sparc/include/asm/syscall.h              |  22 +
+ arch/um/include/asm/syscall-generic.h         |  19 +
+ arch/x86/include/asm/syscall.h                |  43 ++
+ arch/xtensa/include/asm/syscall.h             |  18 +
+ include/asm-generic/syscall.h                 |  30 ++
+ include/linux/ptrace.h                        |   3 +
+ include/uapi/linux/ptrace.h                   |   4 +-
+ kernel/ptrace.c                               | 153 +++++-
+ tools/testing/selftests/ptrace/Makefile       |   2 +-
+ .../selftests/ptrace/set_syscall_info.c       | 441 ++++++++++++++++++
+ 26 files changed, 1052 insertions(+), 47 deletions(-)
+ create mode 100644 tools/testing/selftests/ptrace/set_syscall_info.c
+
+-- 
+ldv
 
 _______________________________________________
 linux-riscv mailing list
