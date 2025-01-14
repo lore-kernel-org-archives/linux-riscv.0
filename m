@@ -4,96 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 13264C02185
-	for <linux-riscv@archiver.kernel.org>; Wed, 15 Jan 2025 00:32:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DA1B0E77188
+	for <linux-riscv@archiver.kernel.org>; Wed, 15 Jan 2025 00:32:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
-	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=YdvKXDxH4tVq0EOk3cuEKo51mx/mcL5dfEfp5wRMK08=; b=M2chRzUV5LK3dq
-	oFEGL+bFyWshzqfevuI4VI70chxXuy+VmdcP4805/2sRvKx8z+ri9WKr7zkOhcHw31hKDWO1Diq58
-	ehTYU+Ut3kWTpjqQKN5jIoBPtUf9yLaatk0DqmLINx4VYUxQfPzS8e4ZNhimcw+TwJiZKjqmlxlHB
-	FMyCkWsvvF+Q/VJAL8n8L7ZkQhC8nMACFy5+N1gbgW0PBQ832GXJMf0e9GO3gEpXq9s0R5qH//X9f
-	sfOmEKB/Pw2l0Yf/Wvcl02FgtK3rzcoBIHN05x7hq/tNMbkq4/V8S6lS1Tast5qlAdHCEHft16YwW
-	KBvP5zl6OuauxsL0z8WA==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
+	List-Owner; bh=hZHJ7qeqmfqG5uQKc/LC4GqRcXgdetzJXdfJJxvOvEQ=; b=KPRxtcmsOgQzxc
+	JZ4E9wit+FklghnmNJ05Af+i8Dymc3czJncBeyaAuPH8z4wtxRFYqcuqMhfFwHUMvsJt/wXgonqIP
+	TlQqJZ7/TOIr19fVUQMVqwN5SQ9fItIYU9bqfevK4qkBqowIj5lCAIk7IUXdrjbl9jEnTv0WZ1595
+	O6MbzFaHW8TxOKkcICJPCHxxlUn6SCgIwpSA+92eRAUiwNsJeTCa9aDmxY0gsyQ6HOjTs9ip6pegX
+	hUBjfwjTtL3EsS6qaoY2yTYaPcCjO4YZXKc0yafwvWiLXt9N7QIug7Sbhis1HL9yFQSpGredL7NVz
+	kqUJU/3k9rb9I0t5aA2w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXrKf-0000000ACuo-2vjr;
-	Wed, 15 Jan 2025 00:32:29 +0000
-Received: from mail-pl1-x62a.google.com ([2607:f8b0:4864:20::62a])
+	id 1tXrKk-0000000ACzA-2Zeo;
+	Wed, 15 Jan 2025 00:32:34 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXpry-0000000A07k-40kE
+	id 1tXqCK-0000000A5Fn-15DH
+	for linux-riscv@bombadil.infradead.org;
+	Tue, 14 Jan 2025 23:19:48 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:References;
+	bh=gGXDcZ1Hud/GL2ZHjmtyDBpDthzvgRK7rVEcYTDA/cw=; b=WnM8f5k4NU/myo6YChrywLjM0m
+	iLuWwKYpSSPyNSsEZweYTTVaCeLV8Blda7loU3n90DyBKXyPQobmHqGb4WeRnz51bpF5pgRNVJ3fp
+	6AfgEJrJNAxK9nEJQc2SUnTWyZyUCoyhXpXxEwPFmLeGWCzBvhOnmBkjLwj9EX8bNkoveyVh+GhRb
+	odAVyQWfFf+KdZpG/JyrmJa77Pz0yKWFJG3CnkwYXDbY37n5iOCBzUA/iHKYHAvVlHdZ5zckCQtII
+	JWecf6QFDL3KaLJKY8UzMbq7AFYO4htTKT3yIooGqi1/qj5wqq0L16XoifXi+3Wr1NjGkKrr8Oa4e
+	vRM+iakw==;
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tXqCG-0000000AgV0-10IJ
 	for linux-riscv@lists.infradead.org;
-	Tue, 14 Jan 2025 22:58:48 +0000
-Received: by mail-pl1-x62a.google.com with SMTP id d9443c01a7336-2166651f752so136857155ad.3
-        for <linux-riscv@lists.infradead.org>; Tue, 14 Jan 2025 14:58:46 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1736895526; x=1737500326; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=6Y0M33imgYQ7iOQMj5lBrHLPaiCzYIUYZ4s5QSMsm/8=;
-        b=l4JBiAGMLungE7qqPIJkFDgZyrsgDA4km8c0OdKa3RTtaMoF0eskBAbIDAMyhJn4Uy
-         sv9ReJP2pS3kALSGJ3FzdAmrM0ykP+jyi8QHsoIkkgyNdJr7avGYy8FgklCQH6iG1mSZ
-         dTl+j7tToXyrIEkp3Lv/njZncFY8x3acla5DqoFoWTB0FYq2HsSddPAoEPt88+kUEH/O
-         qknT70FaDrbipkg+CWunL7l4hb0m9Na/sswUyAlPRAg6uuv+nXMOCGunY6cDPwHBs65L
-         roCxBn5/YjtJRJwh2KTCAyfQC+1eA+PK+Vq51FkpwojL/BNMqZx5x9JZ82EF/plk/Pvy
-         nJ7Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1736895526; x=1737500326;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=6Y0M33imgYQ7iOQMj5lBrHLPaiCzYIUYZ4s5QSMsm/8=;
-        b=kwjiPA/onZ9JCqstbE247MUXeRwWObRRf9rcK8l1ISnNB6qAGLZzyKc1Fp6S7mIkpX
-         qUobvGgsFVasXD/vUApOmSnOyi9vBboNzph+SDMbaLwaD7Q+UYXCVMt0PepfeRorIbvP
-         OzvPngASepm+WLdiANdUanim80PTqTP9V6YPfiXeh/jPi3N+FWs+MLofpEwtOzIlmIb0
-         OcqHx27RHhGK/4kBbbJ9h/cBgl/8gHqb8uFIcYd/L/O5WPVj6wHgyKker3BsoW5OPjEO
-         KFK97iCnSIQARxrjETVRPl5hmWYvFsIg4FZSHpHPbTWLAIr0qML8un+iND1fXiydXVzd
-         FUZg==
-X-Gm-Message-State: AOJu0Yw6XPLjn6IY2N1PRgNijCWqcXUehQU5y0DJmWWsG0CgWZfEuq77
-	wzxbMiNNrR6axHkUI69THGsFC6pVv2WYy+0PWBOYsKpTySMWR6Ep9WDRkYAD/CQ=
-X-Gm-Gg: ASbGncuZm9G3RBibBPzDWeO0NULER4yCBF4Bdr5X0NSCKH4bvl81usWRpqGgpYqbKcR
-	teZPgBRYg4IZKobO4hkj+Ix0/rCHvDBsNk+Bof4Q8rhhX9SS99pH/kwy1+zi13V9B5PrS3ELUed
-	arvNo8vHX2fZ4VEND6oDkgldjOJGG1+NREeXKDua5oclSf2XSWBDQwdSYwfjzlxgkIU8pxIU7Wd
-	Upzqfnf9mC1UPUemZgAkO31xKENLeEbUaul1W18NAbr03x0ZdT3DCUrYhnB2IyJvSfczw==
-X-Google-Smtp-Source: AGHT+IHqzS/Vjctf50pHiq//oKQavezwc50tWzvRtyLeDE1EG5BvxcMNH9WLo20EpXnOKe7Qia3Q0Q==
-X-Received: by 2002:a17:902:d2d0:b0:216:45b9:439b with SMTP id d9443c01a7336-21a8400a357mr420464835ad.50.1736895526354;
-        Tue, 14 Jan 2025 14:58:46 -0800 (PST)
-Received: from atishp.ba.rivosinc.com ([64.71.180.162])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-21a9f10df7asm71746105ad.47.2025.01.14.14.58.44
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 14 Jan 2025 14:58:46 -0800 (PST)
-From: Atish Patra <atishp@rivosinc.com>
-Date: Tue, 14 Jan 2025 14:57:41 -0800
-Subject: [PATCH v2 16/21] RISC-V: perf: Use config2/vendor table for event
- to counter mapping
+	Tue, 14 Jan 2025 23:19:46 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id CC713A41E0A;
+	Tue, 14 Jan 2025 23:17:52 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 68EBDC4CEDD;
+	Tue, 14 Jan 2025 23:19:40 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1736896780;
+	bh=L6B6WDszISMt6Ham4nV/TMXvAl8fXJGFrEuTt4xWNE8=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:From;
+	b=SZajQZdjOwBfNi9tg2ujzMMljXGL40t9RiHvJVDGaWNYPa8w6nLKeO3RTQIaF5Y3c
+	 5GgkzXTxe/fwKz+0MINkN6Rx2fDI9waCP1p4rKbJzrRVaf5tBkOOIWPNx2O2y30eiW
+	 aHBnafdqCP+XcAkyw5N697QUaVxvox7UjcTATXmos8mOpWBRfKZR8PIfDUNzLwa5CZ
+	 T8DJSJfDrZWzcXEUbkNgi8Z37teAOsyxON2ckbhZ1WfKKF0kvGtnWSkXiKfaQx+qAP
+	 toHISZ3fERNW2HY+zz6xNG+/IKy0SzD23WCNF59Bv9dyX09m0iGLw4F5Tpy/QWmwQ7
+	 8++o9Z2NqLM0Q==
+Date: Tue, 14 Jan 2025 17:19:39 -0600
+From: Bjorn Helgaas <helgaas@kernel.org>
+To: Conor Dooley <conor@kernel.org>
+Cc: daire.mcnamara@microchip.com, linux-pci@vger.kernel.org,
+	devicetree@vger.kernel.org, conor.dooley@microchip.com,
+	lpieralisi@kernel.org, kw@linux.com, robh@kernel.org,
+	bhelgaas@google.com, linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org, krzk+dt@kernel.org,
+	conor+dt@kernel.org, ilpo.jarvinen@linux.intel.com,
+	kevin.xie@starfivetech.com
+Subject: Re: [PATCH v10 0/3] Fix address translations on MPFS PCIe controller
+Message-ID: <20250114231939.GA496825@bhelgaas>
 MIME-Version: 1.0
-Message-Id: <20250114-counter_delegation-v2-16-8ba74cdb851b@rivosinc.com>
-References: <20250114-counter_delegation-v2-0-8ba74cdb851b@rivosinc.com>
-In-Reply-To: <20250114-counter_delegation-v2-0-8ba74cdb851b@rivosinc.com>
-To: Paul Walmsley <paul.walmsley@sifive.com>, 
- Palmer Dabbelt <palmer@dabbelt.com>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Anup Patel <anup@brainfault.org>, 
- Atish Patra <atishp@atishpatra.org>, Will Deacon <will@kernel.org>, 
- Mark Rutland <mark.rutland@arm.com>, Peter Zijlstra <peterz@infradead.org>, 
- Ingo Molnar <mingo@redhat.com>, Arnaldo Carvalho de Melo <acme@kernel.org>, 
- Namhyung Kim <namhyung@kernel.org>, 
- Alexander Shishkin <alexander.shishkin@linux.intel.com>, 
- Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>, 
- Adrian Hunter <adrian.hunter@intel.com>, weilin.wang@intel.com
-Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Palmer Dabbelt <palmer@sifive.com>, Conor Dooley <conor@kernel.org>, 
- devicetree@vger.kernel.org, kvm@vger.kernel.org, 
- kvm-riscv@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
- linux-perf-users@vger.kernel.org, Atish Patra <atishp@rivosinc.com>
-X-Mailer: b4 0.15-dev-13183
+Content-Disposition: inline
+In-Reply-To: <20250114-espresso-display-846f670d2088@spud>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250114_145847_026396_72119224 
-X-CRM114-Status: GOOD (  27.43  )
+X-CRM114-CacheID: sfid-20250114_231945_203930_896F8787 
+X-CRM114-Status: GOOD (  31.07  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,159 +91,86 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The counter restriction specified in the json file is passed to
-the drivers via config2 paarameter in perf attributes. This allows
-any platform vendor to define their custom mapping between event and
-hpmcounters without any rules defined in the ISA.
+On Tue, Jan 14, 2025 at 05:16:10PM +0000, Conor Dooley wrote:
+> Hey folks,
+> 
+> Has this patchset fallen through the cracks?
 
-For legacy events, the platform vendor may define the mapping in
-the driver in the vendor event table.
-The fixed cycle and instruction counters are fixed (0 and 2
-respectively) by the ISA and maps to the legacy events. The platform
-vendor must specify this in the driver if intended to be used while
-profiling. Otherwise, they can just specify the alternate hpmcounters
-that may monitor and/or sample the cycle/instruction counts.
+Yes, unfortunately.  I applied it to pci/controller/microchip for
+v6.14.
 
-Signed-off-by: Atish Patra <atishp@rivosinc.com>
----
- drivers/perf/riscv_pmu_dev.c   | 78 ++++++++++++++++++++++++++++++++++--------
- include/linux/perf/riscv_pmu.h |  2 ++
- 2 files changed, 66 insertions(+), 14 deletions(-)
+I had to adapt it slightly to account for the changes of ac7f53b7e728
+("PCI: microchip: Add support for using either Root Port 1 or 2"), so
+please take a look and make sure I did it right.
 
-diff --git a/drivers/perf/riscv_pmu_dev.c b/drivers/perf/riscv_pmu_dev.c
-index 83e7d1f6b016..8c5e2474fb7d 100644
---- a/drivers/perf/riscv_pmu_dev.c
-+++ b/drivers/perf/riscv_pmu_dev.c
-@@ -76,6 +76,7 @@ static ssize_t __maybe_unused rvpmu_format_show(struct device *dev, struct devic
- 	RVPMU_ATTR_ENTRY(_name, rvpmu_format_show, (char *)_config)
- 
- PMU_FORMAT_ATTR(firmware, "config:62-63");
-+PMU_FORMAT_ATTR(counterid_mask, "config2:0-31");
- 
- static bool sbi_v2_available;
- static DEFINE_STATIC_KEY_FALSE(sbi_pmu_snapshot_available);
-@@ -112,6 +113,7 @@ static const struct attribute_group *riscv_sbi_pmu_attr_groups[] = {
- static struct attribute *riscv_cdeleg_pmu_formats_attr[] = {
- 	RVPMU_FORMAT_ATTR_ENTRY(event, RVPMU_CDELEG_PMU_FORMAT_ATTR),
- 	&format_attr_firmware.attr,
-+	&format_attr_counterid_mask.attr,
- 	NULL,
- };
- 
-@@ -1390,24 +1392,76 @@ static int rvpmu_deleg_find_ctrs(void)
- 	return num_hw_ctr;
- }
- 
-+/* The json file must correctly specify counter 0 or counter 2 is available
-+ * in the counter lists for cycle/instret events. Otherwise, the drivers have
-+ * no way to figure out if a fixed counter must be used and pick a programmable
-+ * counter if available.
-+ */
- static int get_deleg_fixed_hw_idx(struct cpu_hw_events *cpuc, struct perf_event *event)
- {
--	return -EINVAL;
-+	struct hw_perf_event *hwc = &event->hw;
-+	bool guest_events = event->attr.config1 & RISCV_PMU_CONFIG1_GUEST_EVENTS;
-+
-+	if (guest_events) {
-+		if (hwc->event_base == SBI_PMU_HW_CPU_CYCLES)
-+			return 0;
-+		if (hwc->event_base == SBI_PMU_HW_INSTRUCTIONS)
-+			return 2;
-+		else
-+			return -EINVAL;
-+	}
-+
-+	if (!event->attr.config2)
-+		return -EINVAL;
-+
-+	if (event->attr.config2 & RISCV_PMU_CYCLE_FIXED_CTR_MASK)
-+		return 0; /* CY counter */
-+	else if (event->attr.config2 & RISCV_PMU_INSTRUCTION_FIXED_CTR_MASK)
-+		return 2; /* IR counter */
-+	else
-+		return -EINVAL;
- }
- 
- static int get_deleg_next_hpm_hw_idx(struct cpu_hw_events *cpuc, struct perf_event *event)
- {
--	unsigned long hw_ctr_mask = 0;
-+	u32 hw_ctr_mask = 0, temp_mask = 0;
-+	u32 type = event->attr.type;
-+	u64 config = event->attr.config;
-+	int ret;
- 
--	/*
--	 * TODO: Treat every hpmcounter can monitor every event for now.
--	 * The event to counter mapping should come from the json file.
--	 * The mapping should also tell if sampling is supported or not.
--	 */
-+	/* Select only available hpmcounters */
-+	hw_ctr_mask = cmask & (~0x7) & ~(cpuc->used_hw_ctrs[0]);
-+
-+	switch (type) {
-+	case PERF_TYPE_HARDWARE:
-+		temp_mask = current_pmu_hw_event_map[config].counter_mask;
-+		break;
-+	case PERF_TYPE_HW_CACHE:
-+		ret = cdeleg_pmu_event_find_cache(config, NULL, &temp_mask);
-+		if (ret)
-+			return ret;
-+		break;
-+	case PERF_TYPE_RAW:
-+		/*
-+		 * Mask off the counters that can't monitor this event (specified via json)
-+		 * The counter mask for this event is set in config2 via the property 'Counter'
-+		 * in the json file or manual configuration of config2. If the config2 is not set,
-+		 * it is assumed all the available hpmcounters can monitor this event.
-+		 * Note: This assumption may fail for virtualization use case where they hypervisor
-+		 * (e.g. KVM) virtualizes the counter. Any event to counter mapping provided by the
-+		 * guest is meaningless from a hypervisor perspective. Thus, the hypervisor doesn't
-+		 * set config2 when creating kernel counter and relies default host mapping.
-+		 */
-+		if (event->attr.config2)
-+			temp_mask = event->attr.config2;
-+		break;
-+	default:
-+		break;
-+	}
-+
-+	if (temp_mask)
-+		hw_ctr_mask &= temp_mask;
- 
--	/* Select only hpmcounters */
--	hw_ctr_mask = cmask & (~0x7);
--	hw_ctr_mask &= ~(cpuc->used_hw_ctrs[0]);
- 	return __ffs(hw_ctr_mask);
- }
- 
-@@ -1436,10 +1490,6 @@ static int rvpmu_deleg_ctr_get_idx(struct perf_event *event)
- 	u64 priv_filter;
- 	int idx;
- 
--	/*
--	 * TODO: We should not rely on SBI Perf encoding to check if the event
--	 * is a fixed one or not.
--	 */
- 	if (!is_sampling_event(event)) {
- 		idx = get_deleg_fixed_hw_idx(cpuc, event);
- 		if (idx == 0 || idx == 2) {
-diff --git a/include/linux/perf/riscv_pmu.h b/include/linux/perf/riscv_pmu.h
-index 9e2758c32e8b..e58f83811988 100644
---- a/include/linux/perf/riscv_pmu.h
-+++ b/include/linux/perf/riscv_pmu.h
-@@ -30,6 +30,8 @@
- #define RISCV_PMU_CONFIG1_GUEST_EVENTS 0x1
- 
- #define RISCV_PMU_DELEG_RAW_EVENT_MASK GENMASK_ULL(55, 0)
-+#define RISCV_PMU_CYCLE_FIXED_CTR_MASK 0x01
-+#define RISCV_PMU_INSTRUCTION_FIXED_CTR_MASK 0x04
- 
- #define HW_OP_UNSUPPORTED		0xFFFF
- #define CACHE_OP_UNSUPPORTED		0xFFFF
+> On Wed, Nov 13, 2024 at 11:50:44AM +0000, Conor Dooley wrote:
+> > On Fri, Oct 11, 2024 at 03:00:40PM +0100, daire.mcnamara@microchip.com wrote:
+> > > From: Daire McNamara <daire.mcnamara@microchip.com>
+> > > 
+> > > Hi all,
+> > > 
+> > > On Microchip PolarFire SoC (MPFS), the PCIe controller is connected to the
+> > > CPU via one of three Fabric Interface Connectors (FICs).  Each FIC present
+> > > to the CPU complex as 64-bit AXI-M and 64-bit AXI-S.  To preserve
+> > > compatibility with other PolarFire family members, the PCIe controller is
+> > > connected to its encapsulating FIC via a 32-bit AXI-M and 32-bit AXI-S
+> > > interface.
+> > > 
+> > > Each FIC is implemented in FPGA logic and can incorporate logic along its 64-bit
+> > > AXI-M to 32-bit AXI-M chain (including address translation) and, likewise, along
+> > > its 32-bit AXI-S to 64-bit AXI-S chain (again including address translation).
+> > > 
+> > > In order to reduce the potential support space for the PCIe controller in
+> > > this environment, MPFS supports certain reference designs for these address
+> > > translations: reference designs for cache-coherent memory accesses
+> > > and reference designs for non-cache-coherent memory accesses. The precise
+> > > details of these reference designs and associated customer guidelines
+> > > recommending that customers adhere to the addressing schemes used in those
+> > > reference designs are available from Microchip, but the implication for the
+> > > PCIe controller address translation between CPU-space and PCIe-space are:
+> > > 
+> > > For outbound address translation, the PCIe controller address translation tables
+> > > are treated as if they are 32-bit only.  Any further address translation must
+> > > be done in FPGA fabric.
+> > > 
+> > > For inbound address translation, the PCIe controller is configurable for two
+> > > cases:
+> > > * In the case of cache-coherent designs, the base of the AXI-S side of the
+> > >   address translation must be set to 0 and the size should be 4 GiB wide. The
+> > >   FPGA fabric must complete any address translations based on that 0-based
+> > >   address translation.
+> > > * In the case of non-cache coherent designs, the base of AXI-S side of the
+> > >   address translation must be set to 0x8000'0000 and the size shall be 2 GiB
+> > >   wide.  The FPGA fabric must complete any address translation based on that
+> > >   0x80000000 base.
+> > > 
+> > > So, for example, in the non-cache-coherent case, with a device tree property
+> > > that maps an inbound range from 0x10'0000'0000 in PCIe space to 0x10'0000'0000
+> > > in CPU space, the PCIe rootport will translate a PCIe address of 0x10'0000'0000
+> > > to an intermediate 32-bit AXI-S address of 0x8000'0000 and the FIC is
+> > > responsible for translating that intermediate 32-bit AXI-S address of
+> > > 0x8000'0000 to a 64-bit AXI-S address of 0x10'0000'0000.
+> > > 
+> > > And similarly, for example, in the cache-coherent case, with a device tree
+> > > property that maps an inbound range from 0x10'0000'0000 in PCIe space to
+> > > 0x10'0000'0000 in CPU space, the PCIe rootport will translate a PCIe address
+> > > of 0x10'0000'0000 to an intermediate 32-bit AXI-S address of 0x0000'0000 and
+> > > the FIC is responsible for translating that intermediate 32-bit AXI-S address
+> > > of 0x0000'0000 to a 64-bit AXI-S address of 0x10'0000'0000.
+> > > 
+> > > See https://lore.kernel.org/all/20220902142202.2437658-1-daire.mcnamara@microchip.com/T/
+> > > for backstory.
+> > > 
+> > > Changes since v9:
+> > > - Dropped plda_setup_inbound_address_translation() from StarFive driver
+> > 
+> > Since I had some success bumping the other series for this driver, any
+> > chance of some attention here?
+> > AFAIK, Daire's addressed what's been pointed out by reviewers and
+> > exempted the StarFive driver from overwriting the firmware-set values
+> > with once calculated from DT as they requested.
+> 
 
--- 
-2.34.1
 
 
 _______________________________________________
