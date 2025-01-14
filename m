@@ -4,55 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0FA9C02187
-	for <linux-riscv@archiver.kernel.org>; Tue, 14 Jan 2025 19:17:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0ED19C02189
+	for <linux-riscv@archiver.kernel.org>; Tue, 14 Jan 2025 19:17:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=o1b8MAxq+Ee9YIkkbL5DHR5N1UPMonyGGirbSLaKGlY=; b=tXw+MdWuz7SZYg
-	5Sa0yzkjSZnpN9/xHiKmOjw9C49w/Y0ADkzIUKpJE1kSvLnZei47bgLRJiTqnaED5NEGboyB4c/Rb
-	1SDhO8x9TfR6vHFW5fxpQnArco9cb5cmvN1M6AeIifjdk+sZ7sD76rZ7ljyKhlWmGYF/bGVAlpjHz
-	8RF7ZAM/OR+KxmaBzLVGzOYosFgiI8iFrwCJTUTTrJ3ufF+OzwKVr7D4B3p9OM7+p0PQqW0MOoaCj
-	FAwRPHyqPEH0U/cEwHA9BJJrpKLcXZYHpiIoB7ygLZV+cOVzsFbxRmBHDkQQ3D1+E1eO99hQnQZJa
-	9DBN1QyV8TPJcyb1vY1g==;
+	List-Owner; bh=kQXSWj67HPLGSxZKVJ7odCvUbOy+270LQ54xF7c6cjk=; b=uJQ3iU4MCTrTdO
+	RJ8HcP4ESu3POUSMM2A1jSh0nt2ahL8eKc5DpPezpT+cdIYHygUXj9csGkL6vGPZH1ARYSXPpMJZ5
+	NP6FS+v3T/OiXS0cbxc+eDX4U8yplRIe2gub2d824X9SmTGnd+w74GkdYn9gmJ5pBp7BhIntzxaB4
+	TuFCS1xXRobHJPXJLgYvmdEUJVsf9EJhdxmIBn3iBX+HyvNdtpoQqpctck+uDTTsjM5ySbFm4SIox
+	GydwcSGEC5lma7MFKAtzjKoHsvkAPWAbl/5Mm5YdhrfaIpHvOq6AK5OgY40qyzC+XtqFtGafLwqxy
+	dxXvEDm7mJsbIJ9JqocQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXmPn-00000009VdX-2yAg;
-	Tue, 14 Jan 2025 19:17:27 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1tXmPo-00000009Vdy-1Jn3;
+	Tue, 14 Jan 2025 19:17:28 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXlBv-00000009IRn-0WLc
+	id 1tXlDZ-00000009J0F-1YD5
+	for linux-riscv@bombadil.infradead.org;
+	Tue, 14 Jan 2025 18:00:45 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=1xC4OsvuHAy+Ds3sLAPsZ084bYad84WLBsAT/g0G1RM=; b=KuJ2hYrzLUxJWMHq5wrGEqfbmn
+	LF22wg+XLxhInG2kZqU0/TZ1I3b4h23pZ16KylDNkF29Lql6oW7UQWYeQ5U4+tfq6yb9EVMOMwBmi
+	ck1dl1PWq9RP6kzNif5us3ru/3Uz4CzbB3YgeWxJ5GG8p1jdNDo649o89c+CIbdiDTVinknd35eAX
+	KrXJilY5wISngnMvk281jKLedFS6Dy6Dof/nQOsnUio858MTWIbSwIjF7MskQ0M543WAY6IfKL0xb
+	d6drSNEzmiAL+R1ROB5bSAEo4mlys4rKlw9vOPxWhfz2E+9TnY8CPGPI0b+Z/PiMLoYJ97EOKgKHM
+	uTClycwA==;
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tXlDW-0000000AVd6-1jPa
 	for linux-riscv@lists.infradead.org;
-	Tue, 14 Jan 2025 17:59:04 +0000
+	Tue, 14 Jan 2025 18:00:44 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1736877542;
+	s=mimecast20190719; t=1736877641;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=qMGrs2zO6mJ5O7oOgt8NAfFjs5VkJpcxP/Ef9nOpYpY=;
-	b=BFAx/1KpK7OrC3LaEvdXdnfK5gEbla+8nebQxxo/bDk1/b0lOj/k+iBji3oAjYwB5DInKY
-	3JWupUjgKM2XvdXC3zzx8Q5y+JZdYgJzh2Fp8DBw2VNzfv0Kv3kn8Hiw4rzMRtA7Mxb9e0
-	+PXWqNQuv0GsVOSJcKlp36yqj4Im6xg=
-Received: from mx-prod-mc-03.mail-002.prod.us-west-2.aws.redhat.com
+	bh=1xC4OsvuHAy+Ds3sLAPsZ084bYad84WLBsAT/g0G1RM=;
+	b=EcagOfMx6kpBLs3yxfwJxIf81mF8We88FJUFWxcVBdWPTas5GJOsj05EID3hxJSTA+J1ss
+	hM9SpR2GXnyiTh5/lt74rDKdlRF726tYTndYR5QXLPLqeXcKMEQ7htN0OS3GZGf3p8Oo2Z
+	ZeMY6rgAQ+F5PrStuVndO6IzJGXxf0Q=
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1736877641;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=1xC4OsvuHAy+Ds3sLAPsZ084bYad84WLBsAT/g0G1RM=;
+	b=EcagOfMx6kpBLs3yxfwJxIf81mF8We88FJUFWxcVBdWPTas5GJOsj05EID3hxJSTA+J1ss
+	hM9SpR2GXnyiTh5/lt74rDKdlRF726tYTndYR5QXLPLqeXcKMEQ7htN0OS3GZGf3p8Oo2Z
+	ZeMY6rgAQ+F5PrStuVndO6IzJGXxf0Q=
+Received: from mx-prod-mc-05.mail-002.prod.us-west-2.aws.redhat.com
  (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
  relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-682-oI0zUiW-N3iwUtCDbN7ROA-1; Tue,
- 14 Jan 2025 12:58:58 -0500
-X-MC-Unique: oI0zUiW-N3iwUtCDbN7ROA-1
-X-Mimecast-MFC-AGG-ID: oI0zUiW-N3iwUtCDbN7ROA
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-617-15QLd5xpPJuBfkaI0jxIcg-1; Tue,
+ 14 Jan 2025 13:00:36 -0500
+X-MC-Unique: 15QLd5xpPJuBfkaI0jxIcg-1
+X-Mimecast-MFC-AGG-ID: 15QLd5xpPJuBfkaI0jxIcg
 Received: from mx-prod-int-02.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-02.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.15])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mx-prod-mc-03.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id BC5491956059;
-	Tue, 14 Jan 2025 17:58:54 +0000 (UTC)
+	by mx-prod-mc-05.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 7DD041954195;
+	Tue, 14 Jan 2025 18:00:33 +0000 (UTC)
 Received: from vschneid-thinkpadt14sgen2i.remote.csb (unknown [10.39.192.55])
-	by mx-prod-int-02.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 8B17C195608A;
-	Tue, 14 Jan 2025 17:58:29 +0000 (UTC)
+	by mx-prod-int-02.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 3F89B195608A;
+	Tue, 14 Jan 2025 18:00:11 +0000 (UTC)
 From: Valentin Schneider <vschneid@redhat.com>
 To: linux-kernel@vger.kernel.org,
 	x86@kernel.org,
@@ -142,16 +167,16 @@ Cc: Josh Poimboeuf <jpoimboe@kernel.org>,
 	Luis Chamberlain <mcgrof@kernel.org>,
 	Randy Dunlap <rdunlap@infradead.org>,
 	Tiezhu Yang <yangtiezhu@loongson.cn>
-Subject: [PATCH v4 14/30] perf/x86/amd: Mark perf_lopwr_cb static call as __ro_after_init
-Date: Tue, 14 Jan 2025 18:51:27 +0100
-Message-ID: <20250114175143.81438-15-vschneid@redhat.com>
+Subject: [PATCH v4 18/30] x86/kvm/vmx: Mark vmx_l1d_should flush and vmx_l1d_flush_cond keys as allowed in .noinstr
+Date: Tue, 14 Jan 2025 18:51:31 +0100
+Message-ID: <20250114175143.81438-19-vschneid@redhat.com>
 In-Reply-To: <20250114175143.81438-1-vschneid@redhat.com>
 References: <20250114175143.81438-1-vschneid@redhat.com>
 MIME-Version: 1.0
 X-Scanned-By: MIMEDefang 3.0 on 10.30.177.15
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250114_095903_242267_54D4BF83 
-X-CRM114-Status: GOOD (  15.09  )
+X-CRM114-CacheID: sfid-20250114_180042_658867_B8FE1273 
+X-CRM114-Status: GOOD (  14.43  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -168,32 +193,45 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Later commits will cause objtool to warn about static calls being used in
+Later commits will cause objtool to warn about static keys being used in
 .noinstr sections in order to safely defer instruction patching IPIs
 targeted at NOHZ_FULL CPUs.
 
-perf_lopwr_cb is used in .noinstr code, but is only ever updated in __init
-amd_brs_lopwr_init(), and can thus be marked as __ro_after_init.
+These keys are used in .noinstr code, and can be modified at runtime
+(/proc/kernel/vmx* write). However it is not expected that they will be
+flipped during latency-sensitive operations, and thus shouldn't be a source
+of interference wrt the text patching IPI.
+
+Mark it to let objtool know not to warn about it.
 
 Reported-by: Josh Poimboeuf <jpoimboe@kernel.org>
 Signed-off-by: Valentin Schneider <vschneid@redhat.com>
 ---
- arch/x86/events/amd/brs.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ arch/x86/kvm/vmx/vmx.c | 11 +++++++++--
+ 1 file changed, 9 insertions(+), 2 deletions(-)
 
-diff --git a/arch/x86/events/amd/brs.c b/arch/x86/events/amd/brs.c
-index 780acd3dff22a..e2ff03af15d82 100644
---- a/arch/x86/events/amd/brs.c
-+++ b/arch/x86/events/amd/brs.c
-@@ -422,7 +422,7 @@ void noinstr perf_amd_brs_lopwr_cb(bool lopwr_in)
- 	}
- }
+diff --git a/arch/x86/kvm/vmx/vmx.c b/arch/x86/kvm/vmx/vmx.c
+index 893366e537322..a028c38f44e02 100644
+--- a/arch/x86/kvm/vmx/vmx.c
++++ b/arch/x86/kvm/vmx/vmx.c
+@@ -225,8 +225,15 @@ module_param(pt_mode, int, S_IRUGO);
  
--DEFINE_STATIC_CALL_NULL(perf_lopwr_cb, perf_amd_brs_lopwr_cb);
-+DEFINE_STATIC_CALL_NULL_RO(perf_lopwr_cb, perf_amd_brs_lopwr_cb);
- EXPORT_STATIC_CALL_TRAMP_GPL(perf_lopwr_cb);
+ struct x86_pmu_lbr __ro_after_init vmx_lbr_caps;
  
- void __init amd_brs_lopwr_init(void)
+-static DEFINE_STATIC_KEY_FALSE(vmx_l1d_should_flush);
+-static DEFINE_STATIC_KEY_FALSE(vmx_l1d_flush_cond);
++/*
++ * Both of these static keys end up being used in .noinstr sections, however
++ * they are only modified:
++ * - at init
++ * - from a /proc/kernel/vmx* write
++ * thus during latency-sensitive operations they should remain stable.
++ */
++static DEFINE_STATIC_KEY_FALSE_NOINSTR(vmx_l1d_should_flush);
++static DEFINE_STATIC_KEY_FALSE_NOINSTR(vmx_l1d_flush_cond);
+ static DEFINE_MUTEX(vmx_l1d_flush_mutex);
+ 
+ /* Storage for pre module init parameter parsing */
 -- 
 2.43.0
 
