@@ -4,55 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 865A2C02183
-	for <linux-riscv@archiver.kernel.org>; Tue, 14 Jan 2025 17:56:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4B55CE77188
+	for <linux-riscv@archiver.kernel.org>; Tue, 14 Jan 2025 17:57:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=uZ/dmJR+L9J+9lHTpW3T4P0ygJqRdag+LCFl+Ajdc7Y=; b=zgdxRoBkOx4/gA
-	eccaEVInGBoW3G/wh8IahhCsvVnxW+BiFZD2oZqluKrT5zpKlkk3hoICvE9CJt02kpHPiF92dkJOm
-	Mddpd33k7RceG7SU+IOUrUsr3F3mzDSaSbqKGEiWEXm/ZpqQB4CxHHBXZNd7nFeRkvVjJFlNgaBvT
-	pVaWY3Q0qyudnGLA2u4BEW8uaNDMMY9jf8iDI9kMxK3R1zmqO8daBZrzhF27//5PUl2J8evIODnh9
-	LxRHkB5iuSJibLNFmNwWM4Z8vbiyE5jJX2Ld9tuN/JA4bGW7oOaliNaXsKx2QBtWr8zchobT5kma7
-	AI65fRXgMaJkRueBdW4g==;
+	List-Owner; bh=4EQxJljG0ltcveouU0U11lEtx4Xuz5L9RDUJkmLH4Ps=; b=nzp+4K9HJG2g7O
+	yMhHb6+jPpQaDaV3ZYrPXXGRtT4uTDnnQMDWvaOoNQQ26LdAMmqJMxV6NZRzQ2Avx5anqKBwkLVmT
+	qnlDcJopwLIe0IfMVHm8CHJ0m1EfuVppN8I3kUQTtqqReVqWm7gQUQe6PJraMDVA6+Z3qixszagzb
+	04F+4T3UwFXrAgchHGKfh21PO7W93MOfH8bXnzxmummW+UIoMtqPXJbUkCdRaJdY1saDihUrdrQ/n
+	Ud8Ha8ajzco610yDCLWY+f7NSNYaDO9FYWrkL5bEVCSKiRMj7JeiNsZsdb8Zn+hcdb8FwXdtMCN3Q
+	xjwwrUmTRoCsW/FCxL7Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXl9I-00000009HL8-1gMh;
-	Tue, 14 Jan 2025 17:56:20 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1tXlAY-00000009HqE-43w1;
+	Tue, 14 Jan 2025 17:57:38 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXl8A-00000009H2G-0xhU
+	id 1tXl9Q-00000009HQ1-1kOh
 	for linux-riscv@lists.infradead.org;
-	Tue, 14 Jan 2025 17:55:11 +0000
+	Tue, 14 Jan 2025 17:56:29 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1736877309;
+	s=mimecast20190719; t=1736877387;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=tq2pU6+Sz+OC+aH2F2609vpzg9lrw/4sZVW/JKS6LBM=;
-	b=KvqnHIsKIVXRPlWbETt7MtGkZ4bWzWv3+eU9WWcBjKqWrNLNIIRXEWYfX1NJzkb0Soq4mD
-	X+9ILNo909ajv6xN8yJfM8/vOQ7dbnwhbnucOIOy//PPKVNZFpGpVE6J2cOB/17mNy6/WL
-	Ggdy3txGqegryNwOINIE5iaCpTxFasw=
-Received: from mx-prod-mc-05.mail-002.prod.us-west-2.aws.redhat.com
+	bh=upN6bWUdwddcYtCDglXcedCwjwFydQLGp2NkOO9id+w=;
+	b=Qmdz/LMatjCawSqB3zjCEX454D9FGSbRmq5jcSmnK9lYS5JVW0FZIskMD1HN9SI/s0Eg+/
+	6vVUSnJVlL6JnsIUTR7rlTvazT1LTNDIpJIH04C9zL7Gl+Y8kA1lOWeKhvdroNWSBnh5d2
+	OmWi+Is1rlMaEA3tKlC19C4HWRYAZNk=
+Received: from mx-prod-mc-04.mail-002.prod.us-west-2.aws.redhat.com
  (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
  relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-526-rasDThuXPT-KkBXykuo6Cg-1; Tue,
- 14 Jan 2025 12:55:06 -0500
-X-MC-Unique: rasDThuXPT-KkBXykuo6Cg-1
-X-Mimecast-MFC-AGG-ID: rasDThuXPT-KkBXykuo6Cg
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-663-ULU7yixpNjKqcQQdXKvPwg-1; Tue,
+ 14 Jan 2025 12:56:22 -0500
+X-MC-Unique: ULU7yixpNjKqcQQdXKvPwg-1
+X-Mimecast-MFC-AGG-ID: ULU7yixpNjKqcQQdXKvPwg
 Received: from mx-prod-int-02.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-02.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.15])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mx-prod-mc-05.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id F41581955F67;
-	Tue, 14 Jan 2025 17:55:01 +0000 (UTC)
+	by mx-prod-mc-04.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 83AA919560B4;
+	Tue, 14 Jan 2025 17:56:18 +0000 (UTC)
 Received: from vschneid-thinkpadt14sgen2i.remote.csb (unknown [10.39.192.55])
-	by mx-prod-int-02.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 594CC19560AB;
-	Tue, 14 Jan 2025 17:54:36 +0000 (UTC)
+	by mx-prod-int-02.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id AE8F1195608A;
+	Tue, 14 Jan 2025 17:55:53 +0000 (UTC)
 From: Valentin Schneider <vschneid@redhat.com>
 To: linux-kernel@vger.kernel.org,
 	x86@kernel.org,
@@ -142,16 +142,16 @@ Cc: Josh Poimboeuf <jpoimboe@kernel.org>,
 	Luis Chamberlain <mcgrof@kernel.org>,
 	Randy Dunlap <rdunlap@infradead.org>,
 	Tiezhu Yang <yangtiezhu@loongson.cn>
-Subject: [PATCH v4 05/30] jump_label: Add annotations for validating noinstr usage
-Date: Tue, 14 Jan 2025 18:51:18 +0100
-Message-ID: <20250114175143.81438-6-vschneid@redhat.com>
+Subject: [PATCH v4 08/30] x86/idle: Mark x86_idle static call as __ro_after_init
+Date: Tue, 14 Jan 2025 18:51:21 +0100
+Message-ID: <20250114175143.81438-9-vschneid@redhat.com>
 In-Reply-To: <20250114175143.81438-1-vschneid@redhat.com>
 References: <20250114175143.81438-1-vschneid@redhat.com>
 MIME-Version: 1.0
 X-Scanned-By: MIMEDefang 3.0 on 10.30.177.15
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250114_095510_344159_F7C3DEF3 
-X-CRM114-Status: GOOD (  17.26  )
+X-CRM114-CacheID: sfid-20250114_095628_528237_AF0A4C47 
+X-CRM114-Status: GOOD (  14.43  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -168,51 +168,35 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Josh Poimboeuf <jpoimboe@kernel.org>
+Later commits will cause objtool to warn about static calls being used in
+.noinstr sections in order to safely defer instruction patching IPIs
+targeted at NOHZ_FULL CPUs.
 
-Deferring a code patching IPI is unsafe if the patched code is in a
-noinstr region.  In that case the text poke code must trigger an
-immediate IPI to all CPUs, which can rudely interrupt an isolated NO_HZ
-CPU running in userspace.
+x86_idle is updated in:
+o xen_set_default_idle() <- __init xen_arch_setup()
+o __init select_idle_routine()
 
-Some noinstr static branches may really need to be patched at runtime,
-despite the resulting disruption.  Add DEFINE_STATIC_KEY_*_NOINSTR()
-variants for those.  They don't do anything special yet; that will come
-later.
+IOW purely init context, and can thus be marked as __ro_after_init.
 
-Signed-off-by: Josh Poimboeuf <jpoimboe@kernel.org>
+Reported-by: Josh Poimboeuf <jpoimboe@kernel.org>
+Signed-off-by: Valentin Schneider <vschneid@redhat.com>
 ---
- include/linux/jump_label.h | 17 +++++++++++++++++
- 1 file changed, 17 insertions(+)
+ arch/x86/kernel/process.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/include/linux/jump_label.h b/include/linux/jump_label.h
-index f5a2727ca4a9a..88bb6e32fdcbc 100644
---- a/include/linux/jump_label.h
-+++ b/include/linux/jump_label.h
-@@ -385,6 +385,23 @@ struct static_key_false {
- #define DEFINE_STATIC_KEY_FALSE_RO(name)	\
- 	struct static_key_false name __ro_after_init = STATIC_KEY_FALSE_INIT
+diff --git a/arch/x86/kernel/process.c b/arch/x86/kernel/process.c
+index f63f8fd00a91f..85cd62f61d633 100644
+--- a/arch/x86/kernel/process.c
++++ b/arch/x86/kernel/process.c
+@@ -746,7 +746,7 @@ void __cpuidle default_idle(void)
+ EXPORT_SYMBOL(default_idle);
+ #endif
  
-+/*
-+ * The _NOINSTR variants are used to tell objtool the static key is allowed to
-+ * be used in noinstr code.
-+ *
-+ * They should almost never be used, as they prevent code patching IPIs from
-+ * being deferred, which can be problematic for isolated NOHZ_FULL CPUs running
-+ * in pure userspace.
-+ *
-+ * If using one of these _NOINSTR variants, please add a comment above the
-+ * definition with the rationale.
-+ */
-+#define DEFINE_STATIC_KEY_TRUE_NOINSTR(name)					\
-+	DEFINE_STATIC_KEY_TRUE(name)
-+
-+#define DEFINE_STATIC_KEY_FALSE_NOINSTR(name)					\
-+	DEFINE_STATIC_KEY_FALSE(name)
-+
- #define DECLARE_STATIC_KEY_FALSE(name)	\
- 	extern struct static_key_false name
+-DEFINE_STATIC_CALL_NULL(x86_idle, default_idle);
++DEFINE_STATIC_CALL_NULL_RO(x86_idle, default_idle);
  
+ static bool x86_idle_set(void)
+ {
 -- 
 2.43.0
 
