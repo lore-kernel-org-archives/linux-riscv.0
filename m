@@ -4,92 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ACFA1C02185
-	for <linux-riscv@archiver.kernel.org>; Tue, 14 Jan 2025 17:08:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB41CE77188
+	for <linux-riscv@archiver.kernel.org>; Tue, 14 Jan 2025 17:16:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=S/OfdNYeKMLyJnW5wUxS5bFl6l1o1EE/Kl4U6TnwUjg=; b=eVVHSAnn8cRoKB
-	qifulo0i+q6Du7L4n6zQ8BumpDMy07zsIsk3qogsM9b7GkJVLatiPVn2CgwxZWF4qg4Hli4vQAjTn
-	iVdZ47egbFqHO4UxzHoBPirh9zztRbMgzgkSyNx6jmUqDoX+5EkTnOiaeJgrBpmH1YvWd4CS+3ruF
-	FZbzpPFYKLRS+PiW0GNvJbToOZazuSuycCOHI3vEM/zfWRyvL8s0yXa8SzcUU7uobaOXqn9w+DTd8
-	ANhash8UHZ63U1fiIf21Ld++9IoIhTs/2/YAhiErEu5HjAC5qAbKsFwllxesLYU/UdJRwC8MFQ+J1
-	CXDWm9NA+k1nTSMdx2Vg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=4pgqwLo19cOm1oYEg2JrES6KU6wssy2tut6ny8VRK/o=; b=nt4aOzgxIz4WepjXyMsI4Gz/Dl
+	klSdTTgnLHlrflppWTFydHD+LoiNWPEQOXrl+GxaZ2DC0x57xZkYv/i6dHN+ffQJ+gV7b82zpibOm
+	v0onXM1foGdkT8E5buKTi/xZx9iHJLf+WsZ8WZFM4Disko7oCYM8tRv8BJwc56OegMk+3wxN5d2kv
+	UbZl7JV7eCZz5S8KMzkk9hTV5XXlxAvq+DdIbf0nnvpCvHnlFVjXERQYOanpkk7Qs2tAlozr59yY4
+	kI7omIExyyM/liYKhqay2zkaFRwhUYdJm9EFCj1xA8bcd5qFt7bi6vbAfCUhjx3R66oNnQQYjqjgQ
+	jnqrESxA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXkPJ-000000098UU-2sUT;
-	Tue, 14 Jan 2025 17:08:49 +0000
-Received: from mail-wr1-x431.google.com ([2a00:1450:4864:20::431])
+	id 1tXkWY-00000009A1R-2iQ9;
+	Tue, 14 Jan 2025 17:16:18 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXkOG-000000098HV-1Ihs
+	id 1tXkWW-00000009A0w-0apV
 	for linux-riscv@lists.infradead.org;
-	Tue, 14 Jan 2025 17:07:46 +0000
-Received: by mail-wr1-x431.google.com with SMTP id ffacd0b85a97d-38789e5b6a7so3166768f8f.1
-        for <linux-riscv@lists.infradead.org>; Tue, 14 Jan 2025 09:07:43 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1736874463; x=1737479263; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=gk8fgvjSMDx78y5lzfUT57Xiup2COiIkL+Pp/tlBbk0=;
-        b=DXgehuWtpILY6KWgHo+0uSmzpzSFiLdj09taOTJ7IQpZixCM+iN10yltsKRCD0UUDw
-         Tol2SAWdmK5nDLlpUbzUvS2U+zhH7s9ondpAro/f7DpJFnJM+6t7395iqx/dd4GPzVdI
-         yQ7y0IMpnOuSp4DCC1OkWah8uKh9NUh/+UEeJGkrIphUlU72OZ9/QDYBD9iRF/zYToyk
-         hA8I08845L9YM6swM6GplpaCMhNdkX9cdxrIBW0JIt2GKb7emz9h3HAQ/Ejv9LMdJOvg
-         VHErVVGidNcKHfUTieHlyET6JwpMssV9zDWUXCvG0gP/GQWZkkyDAwzdMkxmxjGQ9/PD
-         E7jA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1736874463; x=1737479263;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=gk8fgvjSMDx78y5lzfUT57Xiup2COiIkL+Pp/tlBbk0=;
-        b=sk0399j98D/PnFh5Ri6wig2wTPvWmkSyeI9bGGX/x2hdTQsQLeEywR7zpAOMS9L+jO
-         yFJMUDqfqQsc5KAFWgbyFpa/F8NJ71mIhELpTQgSqiYkLnZON7AUQxeeE462Ku9XXeCv
-         MNv0E0U97EwbUYPEpUNjiRkRgF2B/1sXRxlv6jVcSQ3MmLSjg8FLBIGL6Oqapzc4mUXP
-         kxMmsg2vIEnVw1ZBmjDkWWfW89n6wAPQOnx8SRyie4zvkEWn9QyPlC0VhbOtzATMoH9g
-         pgcyI394goH+KaSTV7WyA50fdKA3C0qzoMMIhrJNPJFnh/Nob+VWDx0KLB/xMAPuZFLv
-         765w==
-X-Forwarded-Encrypted: i=1; AJvYcCXHtnlOg4y55kW12Vbq8rDJIS4JXawmHlAfXI4QcmzE4t6CA/0PXHkvT5tIy1r0lrKuTeh0fW5v3qI9nw==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw+3v7ERJvj3VANBZYyVEMdSkS/x/x77efKe25L12x6hDDTh/4l
-	ZLWRB92EP0aJj0SLiGu0Zm0wCA4wzJlVKMk+wBK235EDjlee9XYI
-X-Gm-Gg: ASbGncvENipuUktQT1M4zS7NsAuDe8OPYj6ezUtWnKm8fvzcKbj10UdwVJaPlh/z1L1
-	TbB5SMGBr2BUjEw1cnYmcQImo4+kfA1Aod0XtoXpIeweCQ3m3lDR5PNYDvWp6Ldd7CF5bG8tr+g
-	6VKsJEvyTDYRDX8dpZfs7uC1tDRfzz5S7XOSL9EW49RzlA4jFgWAUXPL2JzU4olxkGE3g7AZPrs
-	fbgGeFh/rTzrz1MqICY2EW9K59paaUOSX0O2SYvIFrRz2mVE+cphRy8k8czBYsPdFtLdti3WCGo
-	uwJmCxFOJnvy0tbJOo+B
-X-Google-Smtp-Source: AGHT+IEUVNz4y01NUhG2yQ5lT5waJ8ea0XrlPzAEPVA6OkzCMOyeaUi83xVYUjfcZkDmF2IwproYcQ==
-X-Received: by 2002:a05:6000:2cf:b0:385:e961:6589 with SMTP id ffacd0b85a97d-38a87303d73mr20840214f8f.20.1736874462459;
-        Tue, 14 Jan 2025 09:07:42 -0800 (PST)
-Received: from localhost (cpc1-brnt4-2-0-cust862.4-2.cable.virginm.net. [86.9.131.95])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-38a8e38c6a2sm15450507f8f.54.2025.01.14.09.07.40
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 14 Jan 2025 09:07:41 -0800 (PST)
-From: Stafford Horne <shorne@gmail.com>
-To: LKML <linux-kernel@vger.kernel.org>
-Cc: Stafford Horne <shorne@gmail.com>,
-	Charlie Jenkins <charlie@rivosinc.com>,
-	Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
-	Shuah Khan <skhan@linuxfoundation.org>,
-	Peter Zijlstra <peterz@infradead.org>,
-	"Paul E. McKenney" <paulmck@kernel.org>,
-	Boqun Feng <boqun.feng@gmail.com>,
-	Shuah Khan <shuah@kernel.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	linux-kselftest@vger.kernel.org,
-	linux-riscv@lists.infradead.org
-Subject: [PATCH v2] rseq/selftests: Fix riscv rseq_offset_deref_addv inline asm
-Date: Tue, 14 Jan 2025 17:07:21 +0000
-Message-ID: <20250114170721.3613280-1-shorne@gmail.com>
-X-Mailer: git-send-email 2.47.0
+	Tue, 14 Jan 2025 17:16:17 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id BA32A5C57B2;
+	Tue, 14 Jan 2025 17:15:34 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 94F51C4CEDD;
+	Tue, 14 Jan 2025 17:16:12 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1736874975;
+	bh=vakzlSu8gGyMeYuYAvXAQVD+/c7CpXnXrkt59ASXPew=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=shZOKpVBYQa62bI8IntW9zBsf97gRfuVtWhZt8pSFxXwiAAWhxpRheU51X6vGr5JA
+	 Sqj5ftYNSTZjypDBwVOIcmoLnTm7XxqclH+UYyPtg/Jf7lcRHiqAeZe+N/sZ781DJE
+	 RQ6czJBLYags8XtgB8IXNDW3kAtgXqFBJhsc2uj9HLmOvIwIJGxVttUu2pEAhaMxJn
+	 MZUiwCO0LZIoAxYa+W+2cthNPkzsZLsGOwXvsDIooJLkM6NQae6GD4LEsHdBNky6mp
+	 Pn3V3lFGQTUu1aOKCZmyo5l4ClVaIddNyJnIgSNdD6oiZzFxdUMjF+jHWwh4R1RANT
+	 j+GHfCjvKVdQw==
+Date: Tue, 14 Jan 2025 17:16:10 +0000
+From: Conor Dooley <conor@kernel.org>
+To: daire.mcnamara@microchip.com
+Cc: linux-pci@vger.kernel.org, devicetree@vger.kernel.org,
+	conor.dooley@microchip.com, lpieralisi@kernel.org, kw@linux.com,
+	robh@kernel.org, bhelgaas@google.com, linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org, krzk+dt@kernel.org,
+	conor+dt@kernel.org, ilpo.jarvinen@linux.intel.com,
+	kevin.xie@starfivetech.com
+Subject: Re: [PATCH v10 0/3] Fix address translations on MPFS PCIe controller
+Message-ID: <20250114-espresso-display-846f670d2088@spud>
+References: <20241011140043.1250030-1-daire.mcnamara@microchip.com>
+ <20241113-unified-humongous-cda4f06a6240@spud>
 MIME-Version: 1.0
+In-Reply-To: <20241113-unified-humongous-cda4f06a6240@spud>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250114_090744_348860_75A451C3 
-X-CRM114-Status: GOOD (  12.89  )
+X-CRM114-CacheID: sfid-20250114_091616_264591_3A17EB35 
+X-CRM114-Status: GOOD (  27.36  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,80 +71,151 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============8910232412522310409=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-When working on OpenRISC support for restartable sequences I noticed
-and fixed these two issues with the riscv support bits.
 
- 1 The 'inc' argument to RSEQ_ASM_OP_R_DEREF_ADDV was being implicitly
-   passed to the macro.  Fix this by adding 'inc' to the list of macro
-   arguments.
- 2 The inline asm input constraints for 'inc' and 'off' use "er",  The
-   riscv gcc port does not have an "e" constraint, this looks to be
-   copied from the x86 port.  Fix this by just using an "r" constraint.
+--===============8910232412522310409==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="DWPIzAWKXiqE8nuk"
+Content-Disposition: inline
 
-I have compile tested this only for riscv.  However, the same fixes I
-use in the OpenRISC rseq selftests and everything passes with no issues.
 
-Fixes: 171586a6ab66 ("selftests/rseq: riscv: Template memory ordering and percpu access mode")
-Signed-off-by: Stafford Horne <shorne@gmail.com>
-Tested-by: Charlie Jenkins <charlie@rivosinc.com>
-Reviewed-by: Charlie Jenkins <charlie@rivosinc.com>
-Reviewed-by: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>
-Acked-by: Shuah Khan <skhan@linuxfoundation.org>
----
-Since v1:
- - Added Fixes, Tested-by, Reviewed-by etc.
+--DWPIzAWKXiqE8nuk
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
- tools/testing/selftests/rseq/rseq-riscv-bits.h | 6 +++---
- tools/testing/selftests/rseq/rseq-riscv.h      | 2 +-
- 2 files changed, 4 insertions(+), 4 deletions(-)
+Hey folks,
 
-diff --git a/tools/testing/selftests/rseq/rseq-riscv-bits.h b/tools/testing/selftests/rseq/rseq-riscv-bits.h
-index de31a0143139..f02f411d550d 100644
---- a/tools/testing/selftests/rseq/rseq-riscv-bits.h
-+++ b/tools/testing/selftests/rseq/rseq-riscv-bits.h
-@@ -243,7 +243,7 @@ int RSEQ_TEMPLATE_IDENTIFIER(rseq_offset_deref_addv)(intptr_t *ptr, off_t off, i
- #ifdef RSEQ_COMPARE_TWICE
- 				  RSEQ_ASM_CMP_CPU_ID(cpu_id, current_cpu_id, "%l[error1]")
- #endif
--				  RSEQ_ASM_OP_R_DEREF_ADDV(ptr, off, 3)
-+				  RSEQ_ASM_OP_R_DEREF_ADDV(ptr, off, inc, 3)
- 				  RSEQ_INJECT_ASM(4)
- 				  RSEQ_ASM_DEFINE_ABORT(4, abort)
- 				  : /* gcc asm goto does not allow outputs */
-@@ -251,8 +251,8 @@ int RSEQ_TEMPLATE_IDENTIFIER(rseq_offset_deref_addv)(intptr_t *ptr, off_t off, i
- 				    [current_cpu_id]		"m" (rseq_get_abi()->RSEQ_TEMPLATE_CPU_ID_FIELD),
- 				    [rseq_cs]			"m" (rseq_get_abi()->rseq_cs.arch.ptr),
- 				    [ptr]			"r" (ptr),
--				    [off]			"er" (off),
--				    [inc]			"er" (inc)
-+				    [off]			"r" (off),
-+				    [inc]			"r" (inc)
- 				    RSEQ_INJECT_INPUT
- 				  : "memory", RSEQ_ASM_TMP_REG_1
- 				    RSEQ_INJECT_CLOBBER
-diff --git a/tools/testing/selftests/rseq/rseq-riscv.h b/tools/testing/selftests/rseq/rseq-riscv.h
-index 37e598d0a365..67d544aaa9a3 100644
---- a/tools/testing/selftests/rseq/rseq-riscv.h
-+++ b/tools/testing/selftests/rseq/rseq-riscv.h
-@@ -158,7 +158,7 @@ do {									\
- 	"bnez	" RSEQ_ASM_TMP_REG_1 ", 222b\n"				\
- 	"333:\n"
- 
--#define RSEQ_ASM_OP_R_DEREF_ADDV(ptr, off, post_commit_label)		\
-+#define RSEQ_ASM_OP_R_DEREF_ADDV(ptr, off, inc, post_commit_label)	\
- 	"mv	" RSEQ_ASM_TMP_REG_1 ", %[" __rseq_str(ptr) "]\n"	\
- 	RSEQ_ASM_OP_R_ADD(off)						\
- 	REG_L	  RSEQ_ASM_TMP_REG_1 ", 0(" RSEQ_ASM_TMP_REG_1 ")\n"	\
--- 
-2.47.0
+Has this patchset fallen through the cracks?
 
+Cheers,
+Conor.
+
+On Wed, Nov 13, 2024 at 11:50:44AM +0000, Conor Dooley wrote:
+> On Fri, Oct 11, 2024 at 03:00:40PM +0100, daire.mcnamara@microchip.com wr=
+ote:
+> > From: Daire McNamara <daire.mcnamara@microchip.com>
+> >=20
+> > Hi all,
+> >=20
+> > On Microchip PolarFire SoC (MPFS), the PCIe controller is connected to =
+the
+> > CPU via one of three Fabric Interface Connectors (FICs).  Each FIC pres=
+ent
+> > to the CPU complex as 64-bit AXI-M and 64-bit AXI-S.  To preserve
+> > compatibility with other PolarFire family members, the PCIe controller =
+is
+> > connected to its encapsulating FIC via a 32-bit AXI-M and 32-bit AXI-S
+> > interface.
+> >=20
+> > Each FIC is implemented in FPGA logic and can incorporate logic along i=
+ts 64-bit
+> > AXI-M to 32-bit AXI-M chain (including address translation) and, likewi=
+se, along
+> > its 32-bit AXI-S to 64-bit AXI-S chain (again including address transla=
+tion).
+> >=20
+> > In order to reduce the potential support space for the PCIe controller =
+in
+> > this environment, MPFS supports certain reference designs for these add=
+ress
+> > translations: reference designs for cache-coherent memory accesses
+> > and reference designs for non-cache-coherent memory accesses. The preci=
+se
+> > details of these reference designs and associated customer guidelines
+> > recommending that customers adhere to the addressing schemes used in th=
+ose
+> > reference designs are available from Microchip, but the implication for=
+ the
+> > PCIe controller address translation between CPU-space and PCIe-space ar=
+e:
+> >=20
+> > For outbound address translation, the PCIe controller address translati=
+on tables
+> > are treated as if they are 32-bit only.  Any further address translatio=
+n must
+> > be done in FPGA fabric.
+> >=20
+> > For inbound address translation, the PCIe controller is configurable fo=
+r two
+> > cases:
+> > * In the case of cache-coherent designs, the base of the AXI-S side of =
+the
+> >   address translation must be set to 0 and the size should be 4 GiB wid=
+e. The
+> >   FPGA fabric must complete any address translations based on that 0-ba=
+sed
+> >   address translation.
+> > * In the case of non-cache coherent designs, the base of AXI-S side of =
+the
+> >   address translation must be set to 0x8000'0000 and the size shall be =
+2 GiB
+> >   wide.  The FPGA fabric must complete any address translation based on=
+ that
+> >   0x80000000 base.
+> >=20
+> > So, for example, in the non-cache-coherent case, with a device tree pro=
+perty
+> > that maps an inbound range from 0x10'0000'0000 in PCIe space to 0x10'00=
+00'0000
+> > in CPU space, the PCIe rootport will translate a PCIe address of 0x10'0=
+000'0000
+> > to an intermediate 32-bit AXI-S address of 0x8000'0000 and the FIC is
+> > responsible for translating that intermediate 32-bit AXI-S address of
+> > 0x8000'0000 to a 64-bit AXI-S address of 0x10'0000'0000.
+> >=20
+> > And similarly, for example, in the cache-coherent case, with a device t=
+ree
+> > property that maps an inbound range from 0x10'0000'0000 in PCIe space to
+> > 0x10'0000'0000 in CPU space, the PCIe rootport will translate a PCIe ad=
+dress
+> > of 0x10'0000'0000 to an intermediate 32-bit AXI-S address of 0x0000'000=
+0 and
+> > the FIC is responsible for translating that intermediate 32-bit AXI-S a=
+ddress
+> > of 0x0000'0000 to a 64-bit AXI-S address of 0x10'0000'0000.
+> >=20
+> > See https://lore.kernel.org/all/20220902142202.2437658-1-daire.mcnamara=
+@microchip.com/T/
+> > for backstory.
+> >=20
+> > Changes since v9:
+> > - Dropped plda_setup_inbound_address_translation() from StarFive driver
+>=20
+> Since I had some success bumping the other series for this driver, any
+> chance of some attention here?
+> AFAIK, Daire's addressed what's been pointed out by reviewers and
+> exempted the StarFive driver from overwriting the firmware-set values
+> with once calculated from DT as they requested.
+
+
+--DWPIzAWKXiqE8nuk
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZ4ab2gAKCRB4tDGHoIJi
+0vhRAPwNhrvfDp89x6F228OGP2dYlqrqBn1VL3af3DOMXUZC0AEAzAOHwIrkkYhl
+VJQeznMVIiXmNutqnmdW0BBG4n8vQAg=
+=/mvA
+-----END PGP SIGNATURE-----
+
+--DWPIzAWKXiqE8nuk--
+
+
+--===============8910232412522310409==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============8910232412522310409==--
+
