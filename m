@@ -4,8 +4,8 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5D903C02183
-	for <linux-riscv@archiver.kernel.org>; Tue, 14 Jan 2025 21:19:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9924DE77188
+	for <linux-riscv@archiver.kernel.org>; Tue, 14 Jan 2025 21:24:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
@@ -13,61 +13,60 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	References:Mime-Version:In-Reply-To:Date:Reply-To:Content-ID:
 	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
 	:Resent-Message-ID:List-Owner;
-	bh=/2YK1TP5XGGe7pN9lUJgs9bwcKIfH97xHu5cQr6yWnU=; b=tUzozwlJhEhyQIVTPRvPKagE4h
-	2mg4v+tlToOQAgw//mg+VOUqE4DS42mZZSWh7RoqAu0bFKNV9zXh9IomYBMoietH1O2fPkGbN87sn
-	N7dZziBifK/3cUZkDuUk3vA1YeNf6NZXp08YE4gzCxG4rEYXIv1KTODevU1G1UvdpQM7xpfzCBMRT
-	2deQ5Jv1DToBhZcLzZTWlx9F3I+jrVRSjmX1JhOUytCFCBqF20vJdOorm7TWty7jVoBlRu+m++OKA
-	ag3anHJKoU/TFUppiypdEgVXTMjia6nJOK4ARsvuTszmCmXGdVnTHFWRNrlsts2o/3wCZNqgdAOv4
-	Txlx/XUA==;
+	bh=kbqkktmASg/Csp6Z9jhGE+dOnDVWCJCNGWYgzlhQ6jg=; b=3PVfrlbeGEXy8EPrcMcCQRpLdh
+	kyt1aHvGgoVbgaBmeesEcFcvbHU7/7fBrjRUKMiczWl46Ui5ZdMwPuOk4fcnRabYJxxPD8sJRlH36
+	pP0Msz9TVuN8FMxDgt8xk5cqvFrPFp/8rbA8zDxGnvzFXwvUqIrtwVEHVPsylE5c3BPTIpLPXv7Yz
+	KLKAbXFWAEy+TAs428nQL8mJuwpgfjqkKFDJhIScnE+gNU/t7a9rLNFnrW7AM/fo7N/xJlLo6X3F2
+	LP5XqIt7XZ/EljzR9RLeYnxFUlGmKG28CK09J1S8kQZg6k7lcETnXYHPY1PNps2LTecyGQTZQTMI9
+	3bQDqoIQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXoJu-00000009mtU-1gDF;
-	Tue, 14 Jan 2025 21:19:30 +0000
-Received: from mail-pl1-x649.google.com ([2607:f8b0:4864:20::649])
+	id 1tXoOg-00000009nYJ-2EUn;
+	Tue, 14 Jan 2025 21:24:26 +0000
+Received: from mail-pj1-x1049.google.com ([2607:f8b0:4864:20::1049])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXoJq-00000009mrK-36wN
+	id 1tXoOd-00000009nWY-3o6H
 	for linux-riscv@lists.infradead.org;
-	Tue, 14 Jan 2025 21:19:28 +0000
-Received: by mail-pl1-x649.google.com with SMTP id d9443c01a7336-2163dc0f689so154237035ad.1
-        for <linux-riscv@lists.infradead.org>; Tue, 14 Jan 2025 13:19:25 -0800 (PST)
+	Tue, 14 Jan 2025 21:24:24 +0000
+Received: by mail-pj1-x1049.google.com with SMTP id 98e67ed59e1d1-2efa0eb9dacso10826853a91.1
+        for <linux-riscv@lists.infradead.org>; Tue, 14 Jan 2025 13:24:23 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1736889565; x=1737494365; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1736889862; x=1737494662; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=XVbipT56M6kECF5Qh7elLUxboyXWurLrq3UYAkefsoQ=;
-        b=2ggAj7ASj85l71WZb//O6NhkwO+7ZQyZXUdlghhUABErPxnqsUNTmtJHsyv36dux6V
-         5OR8Xj7LfRHAl7G62Zvz74v+Tn5JlC2IuAk62KczQTDEFM5yL6zj1R+NtAdw0QHfc6VY
-         hS5xkaOZlOhCrSi0TAxM/a4uBk3wF4aQyVHtj9uXdsP0Mb1dYQ+eOp7W+lycVayiQUm6
-         UAiKjksKUFkXnnLU+3gZBrMpky3h8GU/lBNJYtd6IzGQWnaQ1K/G0e88YuwOhk9QI1SY
-         hH2wbXCUQKhtc2Z7NToHmNpKlOeDQG3V8gq5Uv+b48swsGhiDfwcIi10dU8ozS5XWoKY
-         NSBg==
+        bh=8cSsXdzV+ZwQOEMikMUZ9KmnzJy+D1+up+g+W/Xr/ho=;
+        b=lXVnvOZ8KFuPz2woRaZtlsneiv44NUj8cbL1rO9Q25MUho7kuTiTLNhlbk9FbFetuE
+         xth+GCqftDmku1sshYrY/dY0Im0IkfCgCgrkQmo8hBcTA9fvTpJok0gfj8u8skQU9WM2
+         iq2Q7Y3dVycvUULu2a03ty3X2V06hXWXNOZOfCfLZeG0OXBzxeWFI+tDyV9g/ypU5erA
+         GFqRyNkwusT8NxdOqLjOwgVaFAZmn5k2ai4wDw45JuX3752znFM/5/X7KfN6Dt09rN3l
+         s4nQBl9cpru8IaWRJHrc5lskKiDBblEmo66IAaOxg/U7wZ4HP+S9nidWiXoouz2KnQb/
+         oZIw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1736889565; x=1737494365;
+        d=1e100.net; s=20230601; t=1736889862; x=1737494662;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=XVbipT56M6kECF5Qh7elLUxboyXWurLrq3UYAkefsoQ=;
-        b=Z6ZPRQTFdjCC2xuPJedseEk5a5JemZuKwjyhlfuulYtR8WjEtHYg/bcLc/CXAWJTfc
-         aT6hBH+cRj5oUmmwp7yBRs9CTOexWByAPP4HRpwIjx4RMqBrWKoBWLcaFSOfX0wc4CjH
-         RWIAunPqjl51PD1dOZ0KUzpbHWK14hAT3noUuJX30pfr1En6IgCr0iquqLxOMiWWhqDJ
-         AzZLk0iV21cW/7zg8+dAbsMA3RIBtXhPDekAyvPFcBynnwZ+E1To2M6CqOfP6pntIS3A
-         WMiaw2fKggN12TCvopXsi30wEsrKAcAfkX+py/wNpmeGYecF9DtjT0FhZ4TzjypDi7iy
-         G4Dg==
-X-Forwarded-Encrypted: i=1; AJvYcCWLpR+fONKI7kfQOsQlHeTTG/r+zUNgZ73CcDHws723/OOCPeiaS8RARwyoqicdNVpFzWqwCUGgZ/KNbQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0YzxCIUClU8y9xuY2qy0w41San3hcaNsEBjv7YT79f/Sjl01MlbG
-	QEEO5lS3CggAPxyuq03y016zaUm+0VDDVje85Sp0vXV+CozZZmyUBw2p1ItBNDZYsvUaZfmh16p
-	57A==
-X-Google-Smtp-Source: AGHT+IGTMIc2Hr+w/ebVVGGlbFAB7WFV7TbQJLIjfH34Jlhrw+YYPMlrag1B602JmLWOQ4sU4fLE9W3Pz50=
-X-Received: from plap13.prod.google.com ([2002:a17:902:f08d:b0:217:8109:e87])
- (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:902:cec1:b0:216:3dc5:1230
- with SMTP id d9443c01a7336-21a83ffc1dbmr401799985ad.42.1736889564696; Tue, 14
- Jan 2025 13:19:24 -0800 (PST)
-Date: Tue, 14 Jan 2025 13:19:23 -0800
-In-Reply-To: <20250114175143.81438-19-vschneid@redhat.com>
+        bh=8cSsXdzV+ZwQOEMikMUZ9KmnzJy+D1+up+g+W/Xr/ho=;
+        b=Q4QfQytdRJCqMhNncYVshMJTDyxr4KYe2ZCsKrANJ5YsCj3Af8ch20xh/uH0jzAhpj
+         pmgreHqnpf6SRo0uWdDk96Bp/q2fRlhVDDNAFilYsBOhWaJJOoqfSsUOO7nWn4qLWkp4
+         jy8LlJVLSb1t3ubBGXztsoJkJUmMT/WbV7otX5QWs27ScW6EONvbE29ZWx8LumlsOj5x
+         MDavLWqaxSdA8luEwjxXc+YHYdiiaFThOdi6Mn+f1ebfLluRmbaJV3kS/A0hmO0my7+P
+         5aVioNot3y4DT5b4zemgptXcKuDA27EIZgvGfLB5LrWetCM/2TdoTwi5niuGyLXJl+1F
+         9NTw==
+X-Forwarded-Encrypted: i=1; AJvYcCWlXj0WFyVbgqoyhQfy8WaNLuoIY19mbflEvwaRqdqCrlAztpiAo8nrXA3TuDKqfRhkhPfjFEHFSeZASQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw+YCfchQsEQy9Q04ikk1Pq3thE/FSIKBBGJqjFwUr7QlZ7nmuV
+	pN3eRWJeXV/el4Ki0nOuIsIpz2VeUUT+oWaPTzcfHVbN4WoNshq47TGTSpQGxsRD9OKCZ7seFDG
+	Pwg==
+X-Google-Smtp-Source: AGHT+IGaqEwoic7xvDyznY8cDg+F7K5+qe11MRhfXOt+1PBXtCG3HV5nSK8yv8Q3/q/HTXMyOsqLmKxvwkg=
+X-Received: from pjbtc8.prod.google.com ([2002:a17:90b:5408:b0:2ef:abba:8bfd])
+ (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:90b:2b87:b0:2ee:8031:cdbc
+ with SMTP id 98e67ed59e1d1-2f548f1ec3fmr32208440a91.23.1736889862547; Tue, 14
+ Jan 2025 13:24:22 -0800 (PST)
+Date: Tue, 14 Jan 2025 13:24:21 -0800
+In-Reply-To: <20250114175143.81438-28-vschneid@redhat.com>
 Mime-Version: 1.0
-References: <20250114175143.81438-1-vschneid@redhat.com> <20250114175143.81438-19-vschneid@redhat.com>
-Message-ID: <Z4bU2xlZXh53lgH6@google.com>
-Subject: Re: [PATCH v4 18/30] x86/kvm/vmx: Mark vmx_l1d_should flush and
- vmx_l1d_flush_cond keys as allowed in .noinstr
+References: <20250114175143.81438-1-vschneid@redhat.com> <20250114175143.81438-28-vschneid@redhat.com>
+Message-ID: <Z4bWBUGUH34qLUt0@google.com>
+Subject: Re: [PATCH v4 27/30] x86/tlb: Make __flush_tlb_local() noinstr-compliant
 From: Sean Christopherson <seanjc@google.com>
 To: Valentin Schneider <vschneid@redhat.com>
 Cc: linux-kernel@vger.kernel.org, x86@kernel.org, 
@@ -77,11 +76,10 @@ Cc: linux-kernel@vger.kernel.org, x86@kernel.org,
 	kvm@vger.kernel.org, linux-arch@vger.kernel.org, rcu@vger.kernel.org, 
 	linux-hardening@vger.kernel.org, linux-mm@kvack.org, 
 	linux-kselftest@vger.kernel.org, bpf@vger.kernel.org, 
-	bcm-kernel-feedback-list@broadcom.com, Josh Poimboeuf <jpoimboe@kernel.org>, 
-	Juergen Gross <jgross@suse.com>, Ajay Kaher <ajay.kaher@broadcom.com>, 
-	Alexey Makhalov <alexey.amakhalov@broadcom.com>, Russell King <linux@armlinux.org.uk>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
-	Huacai Chen <chenhuacai@kernel.org>, WANG Xuerui <kernel@xen0n.name>, 
+	bcm-kernel-feedback-list@broadcom.com, Juergen Gross <jgross@suse.com>, 
+	Ajay Kaher <ajay.kaher@broadcom.com>, Alexey Makhalov <alexey.amakhalov@broadcom.com>, 
+	Russell King <linux@armlinux.org.uk>, Catalin Marinas <catalin.marinas@arm.com>, 
+	Will Deacon <will@kernel.org>, Huacai Chen <chenhuacai@kernel.org>, WANG Xuerui <kernel@xen0n.name>, 
 	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
 	Albert Ou <aou@eecs.berkeley.edu>, Thomas Gleixner <tglx@linutronix.de>, 
 	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, 
@@ -91,8 +89,8 @@ Cc: linux-kernel@vger.kernel.org, x86@kernel.org,
 	Alexander Shishkin <alexander.shishkin@linux.intel.com>, Jiri Olsa <jolsa@kernel.org>, 
 	Ian Rogers <irogers@google.com>, Adrian Hunter <adrian.hunter@intel.com>, 
 	Kan Liang <kan.liang@linux.intel.com>, Boris Ostrovsky <boris.ostrovsky@oracle.com>, 
-	Pawan Gupta <pawan.kumar.gupta@linux.intel.com>, Paolo Bonzini <pbonzini@redhat.com>, 
-	Andy Lutomirski <luto@kernel.org>, Arnd Bergmann <arnd@arndb.de>, 
+	Josh Poimboeuf <jpoimboe@kernel.org>, Pawan Gupta <pawan.kumar.gupta@linux.intel.com>, 
+	Paolo Bonzini <pbonzini@redhat.com>, Andy Lutomirski <luto@kernel.org>, Arnd Bergmann <arnd@arndb.de>, 
 	Frederic Weisbecker <frederic@kernel.org>, "Paul E. McKenney" <paulmck@kernel.org>, 
 	Jason Baron <jbaron@akamai.com>, Steven Rostedt <rostedt@goodmis.org>, 
 	Ard Biesheuvel <ardb@kernel.org>, Neeraj Upadhyay <neeraj.upadhyay@kernel.org>, 
@@ -115,8 +113,8 @@ Cc: linux-kernel@vger.kernel.org, x86@kernel.org,
 	Luis Chamberlain <mcgrof@kernel.org>, Randy Dunlap <rdunlap@infradead.org>, 
 	Tiezhu Yang <yangtiezhu@loongson.cn>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250114_131926_776301_8130B6C7 
-X-CRM114-Status: GOOD (  13.54  )
+X-CRM114-CacheID: sfid-20250114_132423_939831_952E5470 
+X-CRM114-Status: GOOD (  13.21  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -133,27 +131,30 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Please use "KVM: VMX:" for the scope.
-
 On Tue, Jan 14, 2025, Valentin Schneider wrote:
-> Later commits will cause objtool to warn about static keys being used in
-> .noinstr sections in order to safely defer instruction patching IPIs
-> targeted at NOHZ_FULL CPUs.
+> Later patches will require issuing a __flush_tlb_all() from noinstr code.
+> This requires making both __flush_tlb_local() and __flush_tlb_global()
+> noinstr-compliant.
 > 
-> These keys are used in .noinstr code, and can be modified at runtime
-> (/proc/kernel/vmx* write). However it is not expected that they will be
-> flipped during latency-sensitive operations, and thus shouldn't be a source
-> of interference wrt the text patching IPI.
+> For __flush_tlb_local(), xen_flush_tlb() has already been made noinstr, so
+> it's just native_flush_tlb_global(), and simply __always_inline'ing
+> invalidate_user_asid() gets us there
+> 
+> Signed-off-by: Valentin Schneider <vschneid@redhat.com>
+> ---
 
-This misses KVM's static key that's buried behind CONFIG_HYPERV=m|y.
+...
 
-vmlinux.o: warning: objtool: vmx_vcpu_enter_exit+0x241: __kvm_is_using_evmcs: non-RO static key usage in noinstr
-vmlinux.o: warning: objtool: vmx_update_host_rsp+0x13: __kvm_is_using_evmcs: non-RO static key usage in noinstr
+> @@ -1206,7 +1206,7 @@ STATIC_NOPV noinstr void native_flush_tlb_global(void)
+>  /*
+>   * Flush the entire current user mapping
+>   */
+> -STATIC_NOPV void native_flush_tlb_local(void)
+> +STATIC_NOPV noinstr void native_flush_tlb_local(void)
 
-Side topic, it's super annoying that "objtool --noinstr" only runs on vmlinux.o.
-I realize objtool doesn't have the visilibity to validate cross-object calls,
-but couldn't objtool validates calls and static key/branch usage so long as the
-target or key/branch is defined in the same object?
+native_write_cr3() and __native_read_cr3() need to be __always_inline.
+
+vmlinux.o: warning: objtool: native_flush_tlb_local+0x8: call to __native_read_cr3() leaves .noinstr.text section
 
 _______________________________________________
 linux-riscv mailing list
