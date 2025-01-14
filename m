@@ -4,62 +4,110 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AABE9E77188
-	for <linux-riscv@archiver.kernel.org>; Wed, 15 Jan 2025 00:13:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1C38C02183
+	for <linux-riscv@archiver.kernel.org>; Wed, 15 Jan 2025 00:17:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
-	List-Owner; bh=U2TeOzfEaegBvR1o2qqiT3/uUsa7H+wxvn0BSC/alDQ=; b=upRa6WnA6SPDKP
-	pkQNYjJC16pchHWbil0q9rxgJYuosljJZRC34CnOlnEKCN+BDtPZCirpRdre8tIfo35RKC/WjgoIN
-	EBYgqI81J59lrshP1y852j6oVZBRfZxQYRW1puIzvr8QC6piDl1dc5PZa1d90vPKRDKtZqjfHMUBE
-	N07Yxj6RGXNZKXPjS2c6a9QquWjoV8SKGjp64FfhPv96TtmwAeeM5xJccH4kqYwWq1EOXBgcGrNgo
-	cWFQT+y9FaEgUiCHMcdGRJ7H75vqr5rNeNCWIKILW1DTtclcVqo2P4xrcoFJCnPh9IZdRm3qWdO9u
-	zM8V19n6F3qUHlerTCGg==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
+	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=oeVIzNSPZmA2fNgWgqUHeaXkn7W1jxmdbFnvOlWyRaU=; b=dt8SFrTgxsm5hb
+	5M2xCIze1Qukpe4UUElR04nURI0oRkI6wYri9SJ/dH2XYYjc9ivH2oAHQZwhgYIOy1RujwMJgFEFA
+	IYT6OQGW3AH+BQzzlB/YbiXbEaLZ9Jr7+ouapmWUbG6IIK9Ag1ppaGWZpzIf5vUbGZ5VhtRkYJYIl
+	6D7Xy7tgPb/ycBDmWztRkwhyF9l0uQtkVOXLa7H8lDCcjf28rz7lcbpViBc55WM4TW51wvFpp1evQ
+	2Ugutn3rH1r0AmTmX9HZ4c59bCZpF14SdXCWl6iDkJht1h51nptpuujaktdxx2hI907hMFhxOH2rU
+	EtuqxKFSOuVttlHlgtSg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXr22-0000000AB84-3OA2;
-	Wed, 15 Jan 2025 00:13:14 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1tXr6B-0000000ABU2-1DET;
+	Wed, 15 Jan 2025 00:17:31 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXr1z-0000000AB7f-44XG
+	id 1tXprq-00000009zzK-3lkS
+	for linux-riscv@bombadil.infradead.org;
+	Tue, 14 Jan 2025 22:58:39 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
+	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Sender:Reply-To:Content-ID:Content-Description;
+	bh=vL7HY0dEKrWKEMn+BoWLtPifTt6hhf+Eo5KcPrG96mI=; b=HmORDVxOmfy3+IRD7uyRRlIIsu
+	1Keqfj+eZ4xxytzj0MVKrTnqH0PDEfVmvZeG7O0V95D12wM7zH9sgNF/e8ivD6Qd7NbCToFAciGWI
+	fxWiQ2pQnKy5XNnjLi/ov2iRlseeeLWNDecdKE96Nzv+VlXPF6bdU5vvmpauruvvRhz+lOMIIB2Yh
+	KskkifShDoxFhhmYUZPXPFlTnzkrLPRG3KRC9SHIWAVWfzdhkQyL8MSFkE5g+JI6+RKJhVSfCFx6O
+	dx1+9gO54Nv8ypvrewoaYjfmmqybaucRttVZB6LSxVhcQeUMOf9KkA3YwXDC/2xyWKgq3+TPzTTYU
+	zBOQwC3g==;
+Received: from mail-pl1-x62b.google.com ([2607:f8b0:4864:20::62b])
+	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tXpri-0000000Afog-21Ts
 	for linux-riscv@lists.infradead.org;
-	Wed, 15 Jan 2025 00:13:13 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id EC48CA41E78;
-	Wed, 15 Jan 2025 00:11:22 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7FB06C4CEDD;
-	Wed, 15 Jan 2025 00:13:10 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1736899990;
-	bh=QCdx+7T6KB4BIkX67bM4rEWTwO+57c4nzW6/2P/N9iI=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:From;
-	b=ijJ0wii/pQrY1T35xNhRorMcOPQM+Mr0TZNZoCO4Tb8WKxiheHAY3fTnW5O9NRkWE
-	 QSoOEsFZfWh0cgUcP7i2IGvOzKQXt6b9gCQdbhGnsEEg/igjbY9dSCPh9eHXlJ+mQL
-	 P+iaMNzmSXG70Lsh9BDhQe4zj0KZLNTVEC7WLxOBqvF1A/x9l0j/G9J64RkvHfvFYR
-	 UBXkU7uMSM/IXGnB2YAqvUco1FydsKp5isMa4m6RVHXXuSYx7Ubw8Xycz3LZu4/YdX
-	 s6bJc6sOFxSPTjbYsI9HD15Z5k8rw+Exa+hHMwjTYhquwh7gISQcUP8r/J2QS3SLxU
-	 WhC+Hcdd1elpg==
-Date: Tue, 14 Jan 2025 18:13:09 -0600
-From: Bjorn Helgaas <helgaas@kernel.org>
-To: daire.mcnamara@microchip.com
-Cc: linux-pci@vger.kernel.org, devicetree@vger.kernel.org,
-	conor.dooley@microchip.com, lpieralisi@kernel.org, kw@linux.com,
-	robh@kernel.org, bhelgaas@google.com, linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org, krzk+dt@kernel.org,
-	conor+dt@kernel.org, ilpo.jarvinen@linux.intel.com,
-	kevin.xie@starfivetech.com
-Subject: Re: [PATCH v10 1/3] PCI: microchip: Fix outbound address translation
- tables
-Message-ID: <20250115001309.GA508227@bhelgaas>
+	Tue, 14 Jan 2025 22:58:32 +0000
+Received: by mail-pl1-x62b.google.com with SMTP id d9443c01a7336-2166651f752so136852225ad.3
+        for <linux-riscv@lists.infradead.org>; Tue, 14 Jan 2025 14:58:29 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1736895506; x=1737500306; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=vL7HY0dEKrWKEMn+BoWLtPifTt6hhf+Eo5KcPrG96mI=;
+        b=jKgh3h73U3ueJBE13exDcdzjWZ06tuQQ9lFkbVtonpgn+qNqxG+YoYdg5LeoibpJ0x
+         dpZhcbAtUxasBitF4sCJCPEzLaxJbC+6epS3ktbbIzCQK1u7pljMA5ceEPbOtQ2c6F8E
+         BlPzhGu4ESzidXswryvWM7dm2XzM7KfL5J9EoyL+01Pvarpz18FPFepObgEwNgRsb7Ef
+         HQOOmv9XHwZuUC3rcCuIAH0Kjq583Uq5OdV8M8lm31rWwbdIWAVZkAlac+8YGOZTpo7F
+         MTpNvtxCu6UUXGn1pMZfzl8LWdIey+z0b0PukDP5zP9MhWPL+h127Vb8s3ehYX0Fl+Zn
+         MFsw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1736895506; x=1737500306;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=vL7HY0dEKrWKEMn+BoWLtPifTt6hhf+Eo5KcPrG96mI=;
+        b=fW26e9PXORvBs+U+ZI+MfUi7QH/6O3RY2+4w6MirrfpifKUutFuHxWUs2UsAoYkk2C
+         Cvaig2JBX4r3G5fxhkECJO7eMDQoJStcliYCDZI9mdaZCIcacPAcghG5LHKdY8iB0H0n
+         vflsQe1jC/XWqIpymgMUzfl17pRBiPLRC0OFBiL2vv48VjPyKr4zOflt+HVSK8JY/MCa
+         b6nqdGnwUsOgHJXXOTTTHeQoEGka25f8uAsloncJ3LxjOz8VwH9ICUSAz9+2L978Dgmv
+         vCpcsxKh1LoHpZCpmo60NvSgRTalNXcdpGS4mKPun513CcyktdOZWeiLEsENQetQ4QrE
+         AeXQ==
+X-Gm-Message-State: AOJu0YwPWRHMUkyXYVAkzMqcxd8i9s+kZrWAAYf1l+0AzPapJVC5RPY7
+	sVx9RBxbwumT4aEEBhNg6mcwQnHuVdZSY5OhRMvVzqiPnN+/hkYmgj/J9NiRjZs=
+X-Gm-Gg: ASbGncuR7rMYXFCa++yhRWjnnfzlhXRaRl7nni7NVlzpYR+gq7mdPdA1+NgR9m9XVS7
+	tuRNXCrhAlI//eU0GrWNiDlK7iZZrEyua7syRt+STKuKLUAwtgD0PfSV0GIkvb7aMMiwuYMRX7I
+	wf6KyoQSMWn+SeUodv6avLGC5yPeM9gtsLdIphQ36AAI9gs5eEEB0F4cKU9FrhKDumP2Kaysg1o
+	WsiB23wkbBgJa3dxfN7/8g8BRItic86EIvtykrp0uDkR24K2QGtIBcYz/3aUbKPsxUsGQ==
+X-Google-Smtp-Source: AGHT+IGcOgG1DqtPgRuq87OenfYeI7iqhHkrnix8fM+hMVbZ5ICFTggWxOV4+kwRFEcps2WSmP9bRg==
+X-Received: by 2002:a17:902:f685:b0:216:7761:cc36 with SMTP id d9443c01a7336-21a83fe4b6fmr435625665ad.43.1736895506247;
+        Tue, 14 Jan 2025 14:58:26 -0800 (PST)
+Received: from atishp.ba.rivosinc.com ([64.71.180.162])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-21a9f10df7asm71746105ad.47.2025.01.14.14.58.24
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 14 Jan 2025 14:58:25 -0800 (PST)
+From: Atish Patra <atishp@rivosinc.com>
+Date: Tue, 14 Jan 2025 14:57:30 -0800
+Subject: [PATCH v2 05/21] RISC-V: Define indirect CSR access helpers
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20241011140043.1250030-2-daire.mcnamara@microchip.com>
+Message-Id: <20250114-counter_delegation-v2-5-8ba74cdb851b@rivosinc.com>
+References: <20250114-counter_delegation-v2-0-8ba74cdb851b@rivosinc.com>
+In-Reply-To: <20250114-counter_delegation-v2-0-8ba74cdb851b@rivosinc.com>
+To: Paul Walmsley <paul.walmsley@sifive.com>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Anup Patel <anup@brainfault.org>, 
+ Atish Patra <atishp@atishpatra.org>, Will Deacon <will@kernel.org>, 
+ Mark Rutland <mark.rutland@arm.com>, Peter Zijlstra <peterz@infradead.org>, 
+ Ingo Molnar <mingo@redhat.com>, Arnaldo Carvalho de Melo <acme@kernel.org>, 
+ Namhyung Kim <namhyung@kernel.org>, 
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>, 
+ Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>, 
+ Adrian Hunter <adrian.hunter@intel.com>, weilin.wang@intel.com
+Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Palmer Dabbelt <palmer@sifive.com>, Conor Dooley <conor@kernel.org>, 
+ devicetree@vger.kernel.org, kvm@vger.kernel.org, 
+ kvm-riscv@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
+ linux-perf-users@vger.kernel.org, Atish Patra <atishp@rivosinc.com>
+X-Mailer: b4 0.15-dev-13183
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250114_161312_155494_7504ECE1 
-X-CRM114-Status: GOOD (  26.76  )
+X-CRM114-CacheID: sfid-20250114_225831_163609_969B1EFB 
+X-CRM114-Status: GOOD (  11.31  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,106 +124,66 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Oct 11, 2024 at 03:00:41PM +0100, daire.mcnamara@microchip.com wrote:
-> From: Daire McNamara <daire.mcnamara@microchip.com>
-> 
-> On Microchip PolarFire SoC (MPFS) the PCIe Root Port can be behind one of
-> three general-purpose Fabric Interface Controller (FIC) buses that
-> encapsulate an AXI-M interface. That FIC is responsible for managing
-> the translations of the upper 32-bits of the AXI-M address. On MPFS,
-> the Root Port driver needs to take account of that outbound address
-> translation done by the parent FIC bus before setting up its own
-> outbound address translation tables.  In all cases on MPFS,
-> the remaining outbound address translation tables are 32-bit only.
-> 
-> Limit the outbound address translation tables to 32-bit only.
+The indriect CSR requires multiple instructions to read/write CSR.
+Add a few helper functions for ease of usage.
 
-I don't quite understand what this is saying.  It seems like the code
-keeps only the low 32 bits of a PCI address and throws away any
-address bits above the low 32.
+Signed-off-by: Atish Patra <atishp@rivosinc.com>
+---
+ arch/riscv/include/asm/csr_ind.h | 42 ++++++++++++++++++++++++++++++++++++++++
+ 1 file changed, 42 insertions(+)
 
-If that's what the FIC does, I wouldn't describe the FIC as
-"translating the upper 32 bits" since it sounds like the translation
-is just truncation.
+diff --git a/arch/riscv/include/asm/csr_ind.h b/arch/riscv/include/asm/csr_ind.h
+new file mode 100644
+index 000000000000..d36e1e06ed2b
+--- /dev/null
++++ b/arch/riscv/include/asm/csr_ind.h
+@@ -0,0 +1,42 @@
++/* SPDX-License-Identifier: GPL-2.0-only */
++/*
++ * Copyright (C) 2024 Rivos Inc.
++ */
++
++#ifndef _ASM_RISCV_CSR_IND_H
++#define _ASM_RISCV_CSR_IND_H
++
++#include <asm/csr.h>
++
++#define csr_ind_read(iregcsr, iselbase, iseloff) ({	\
++	unsigned long value = 0;			\
++	unsigned long flags;				\
++	local_irq_save(flags);				\
++	csr_write(CSR_ISELECT, iselbase + iseloff);	\
++	value = csr_read(iregcsr);			\
++	local_irq_restore(flags);			\
++	value;						\
++})
++
++#define csr_ind_write(iregcsr, iselbase, iseloff, value) ({	\
++	unsigned long flags;					\
++	local_irq_save(flags);					\
++	csr_write(CSR_ISELECT, iselbase + iseloff);		\
++	csr_write(iregcsr, value);				\
++	local_irq_restore(flags);				\
++})
++
++#define csr_ind_warl(iregcsr, iselbase, iseloff, warl_val) ({	\
++	unsigned long old_val = 0, value = 0;			\
++	unsigned long flags;					\
++	local_irq_save(flags);					\
++	csr_write(CSR_ISELECT, iselbase + iseloff);		\
++	old_val = csr_read(iregcsr);				\
++	csr_write(iregcsr, warl_val);				\
++	value = csr_read(iregcsr);				\
++	csr_write(iregcsr, old_val);				\
++	local_irq_restore(flags);				\
++	value;							\
++})
++
++#endif
 
-I guess it must be more complicated than that?  I assume you can still
-reach BARs that have PCI addresses above 4GB using CPU loads/stores?
+-- 
+2.34.1
 
-The apertures through the host bridge for MMIO access are described by
-DT ranges properties, so this must be something that can't be
-described that way?
-
-> Fixes: 6f15a9c9f941 ("PCI: microchip: Add Microchip Polarfire PCIe controller driver")
-> Signed-off-by: Daire McNamara <daire.mcnamara@microchip.com>
-> Acked-by: Conor Dooley <conor.dooley@microchip.com>
-> Reviewed-by: Ilpo Jarvinen <ilpo.jarvinen@linux.intel.com>
-> ---
->  .../pci/controller/plda/pcie-microchip-host.c | 30 ++++++++++++++++---
->  1 file changed, 26 insertions(+), 4 deletions(-)
-> 
-> diff --git a/drivers/pci/controller/plda/pcie-microchip-host.c b/drivers/pci/controller/plda/pcie-microchip-host.c
-> index 48f60a04b740..fa4c85be21f0 100644
-> --- a/drivers/pci/controller/plda/pcie-microchip-host.c
-> +++ b/drivers/pci/controller/plda/pcie-microchip-host.c
-> @@ -21,6 +21,8 @@
->  #include "../../pci.h"
->  #include "pcie-plda.h"
->  
-> +#define MC_OUTBOUND_TRANS_TBL_MASK		GENMASK(31, 0)
-> +
->  /* PCIe Bridge Phy and Controller Phy offsets */
->  #define MC_PCIE1_BRIDGE_ADDR			0x00008000u
->  #define MC_PCIE1_CTRL_ADDR			0x0000a000u
-> @@ -612,6 +614,27 @@ static void mc_disable_interrupts(struct mc_pcie *port)
->  	writel_relaxed(GENMASK(31, 0), bridge_base_addr + ISTATUS_HOST);
->  }
->  
-> +static int mc_pcie_setup_iomems(struct pci_host_bridge *bridge,
-> +			   struct plda_pcie_rp *port)
-> +{
-> +	void __iomem *bridge_base_addr = port->bridge_addr;
-> +	struct resource_entry *entry;
-> +	u64 pci_addr;
-> +	u32 index = 1;
-> +
-> +	resource_list_for_each_entry(entry, &bridge->windows) {
-> +		if (resource_type(entry->res) == IORESOURCE_MEM) {
-> +			pci_addr = entry->res->start - entry->offset;
-> +			plda_pcie_setup_window(bridge_base_addr, index,
-> +					       entry->res->start & MC_OUTBOUND_TRANS_TBL_MASK,
-> +					       pci_addr, resource_size(entry->res));
-> +			index++;
-> +		}
-> +	}
-> +
-> +	return 0;
-> +}
-> +
->  static int mc_platform_init(struct pci_config_window *cfg)
->  {
->  	struct device *dev = cfg->parent;
-> @@ -622,15 +645,14 @@ static int mc_platform_init(struct pci_config_window *cfg)
->  	int ret;
->  
->  	/* Configure address translation table 0 for PCIe config space */
-> -	plda_pcie_setup_window(bridge_base_addr, 0, cfg->res.start,
-> -			       cfg->res.start,
-> -			       resource_size(&cfg->res));
-> +	plda_pcie_setup_window(bridge_base_addr, 0, cfg->res.start & MC_OUTBOUND_TRANS_TBL_MASK,
-> +			       0, resource_size(&cfg->res));
->  
->  	/* Need some fixups in config space */
->  	mc_pcie_enable_msi(port, cfg->win);
->  
->  	/* Configure non-config space outbound ranges */
-> -	ret = plda_pcie_setup_iomems(bridge, &port->plda);
-> +	ret = mc_pcie_setup_iomems(bridge, &port->plda);
->  	if (ret)
->  		return ret;
->  
-> -- 
-> 2.43.0
-> 
 
 _______________________________________________
 linux-riscv mailing list
