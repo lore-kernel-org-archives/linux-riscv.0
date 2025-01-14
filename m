@@ -4,8 +4,8 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9924DE77188
-	for <linux-riscv@archiver.kernel.org>; Tue, 14 Jan 2025 21:24:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 611E6C02183
+	for <linux-riscv@archiver.kernel.org>; Tue, 14 Jan 2025 21:27:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
@@ -13,60 +13,60 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	References:Mime-Version:In-Reply-To:Date:Reply-To:Content-ID:
 	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
 	:Resent-Message-ID:List-Owner;
-	bh=kbqkktmASg/Csp6Z9jhGE+dOnDVWCJCNGWYgzlhQ6jg=; b=3PVfrlbeGEXy8EPrcMcCQRpLdh
-	kyt1aHvGgoVbgaBmeesEcFcvbHU7/7fBrjRUKMiczWl46Ui5ZdMwPuOk4fcnRabYJxxPD8sJRlH36
-	pP0Msz9TVuN8FMxDgt8xk5cqvFrPFp/8rbA8zDxGnvzFXwvUqIrtwVEHVPsylE5c3BPTIpLPXv7Yz
-	KLKAbXFWAEy+TAs428nQL8mJuwpgfjqkKFDJhIScnE+gNU/t7a9rLNFnrW7AM/fo7N/xJlLo6X3F2
-	LP5XqIt7XZ/EljzR9RLeYnxFUlGmKG28CK09J1S8kQZg6k7lcETnXYHPY1PNps2LTecyGQTZQTMI9
-	3bQDqoIQ==;
+	bh=VrbQ9gjTBNO1dCZ98UooveSsHx94gYzHiwYfndUADjs=; b=t8gawAWS6PV9MvTCwy7kAZ+FR7
+	XRkA8kYLQxrI7uvilhwrk+1n5CXDRp/t0F7rIf2NftIzWT1cYIiE7CZ68Wv6wuMjIS7sIQSlWgh3Q
+	E7Ir2+gGcCGLfXR1OyDKOkBcPVFvKpq6pbTYcSxz6eH66XxA3WjDz/HJsPfQsId5jOf576Hp5Vtxw
+	1BdU8q/LjH1TBxq8A+e6vzvcUxbDbD8xxOf/jtLPLdOa4FB/a02kPNZY4elvB/60vuv/Ib/H8WXHH
+	hy2/Jd6JK8edMx758AXZIAK4vXNw1n5dAIsIGpT0Nt0/lmrxmTFQ2ekam2byELAwFprCMaVjSAJ3B
+	nbS1LbIA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXoOg-00000009nYJ-2EUn;
-	Tue, 14 Jan 2025 21:24:26 +0000
-Received: from mail-pj1-x1049.google.com ([2607:f8b0:4864:20::1049])
+	id 1tXoR9-00000009nsu-09YR;
+	Tue, 14 Jan 2025 21:26:59 +0000
+Received: from mail-pj1-x104a.google.com ([2607:f8b0:4864:20::104a])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXoOd-00000009nWY-3o6H
+	id 1tXoR6-00000009nrw-05Si
 	for linux-riscv@lists.infradead.org;
-	Tue, 14 Jan 2025 21:24:24 +0000
-Received: by mail-pj1-x1049.google.com with SMTP id 98e67ed59e1d1-2efa0eb9dacso10826853a91.1
-        for <linux-riscv@lists.infradead.org>; Tue, 14 Jan 2025 13:24:23 -0800 (PST)
+	Tue, 14 Jan 2025 21:26:57 +0000
+Received: by mail-pj1-x104a.google.com with SMTP id 98e67ed59e1d1-2ef79d9c692so15506257a91.0
+        for <linux-riscv@lists.infradead.org>; Tue, 14 Jan 2025 13:26:55 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1736889862; x=1737494662; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1736890015; x=1737494815; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=8cSsXdzV+ZwQOEMikMUZ9KmnzJy+D1+up+g+W/Xr/ho=;
-        b=lXVnvOZ8KFuPz2woRaZtlsneiv44NUj8cbL1rO9Q25MUho7kuTiTLNhlbk9FbFetuE
-         xth+GCqftDmku1sshYrY/dY0Im0IkfCgCgrkQmo8hBcTA9fvTpJok0gfj8u8skQU9WM2
-         iq2Q7Y3dVycvUULu2a03ty3X2V06hXWXNOZOfCfLZeG0OXBzxeWFI+tDyV9g/ypU5erA
-         GFqRyNkwusT8NxdOqLjOwgVaFAZmn5k2ai4wDw45JuX3752znFM/5/X7KfN6Dt09rN3l
-         s4nQBl9cpru8IaWRJHrc5lskKiDBblEmo66IAaOxg/U7wZ4HP+S9nidWiXoouz2KnQb/
-         oZIw==
+        bh=V8zpuNawVjToL3i20ZYrbUddkmOaJHAfbCZJnZQ478w=;
+        b=fZ3iO33RLS6O01a6AGwjjjmTEOty8Jim1iZCi1rOKBz/oygkMpuEBrp7lBlouUm1RV
+         u2fBd8btvh0UeMkHLXZkew4iQ+I61YTQPrUNm3/dG5zfsoKAblDwHfdPkP9WzhMknnZ1
+         PEbX4daD/1lbvLBFRC6Z96h9EhWpOPCQpqXfs8k9WM/ZY0wuoiPlMohZRFSRm3m06Os3
+         ILNg/eorXKQgS+gAwIVWDkU9ACS7AzQwddw/BwT69Hz7qIkCOKZ2fKyOCO1rdu7R/2xz
+         IWW5UywynhRGCbrFVvoIUKPuXs+aWCoSdbRLw7sT4zZiZns6q4uKp+ngpCd0ZxkWFcFb
+         e/ug==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1736889862; x=1737494662;
+        d=1e100.net; s=20230601; t=1736890015; x=1737494815;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=8cSsXdzV+ZwQOEMikMUZ9KmnzJy+D1+up+g+W/Xr/ho=;
-        b=Q4QfQytdRJCqMhNncYVshMJTDyxr4KYe2ZCsKrANJ5YsCj3Af8ch20xh/uH0jzAhpj
-         pmgreHqnpf6SRo0uWdDk96Bp/q2fRlhVDDNAFilYsBOhWaJJOoqfSsUOO7nWn4qLWkp4
-         jy8LlJVLSb1t3ubBGXztsoJkJUmMT/WbV7otX5QWs27ScW6EONvbE29ZWx8LumlsOj5x
-         MDavLWqaxSdA8luEwjxXc+YHYdiiaFThOdi6Mn+f1ebfLluRmbaJV3kS/A0hmO0my7+P
-         5aVioNot3y4DT5b4zemgptXcKuDA27EIZgvGfLB5LrWetCM/2TdoTwi5niuGyLXJl+1F
-         9NTw==
-X-Forwarded-Encrypted: i=1; AJvYcCWlXj0WFyVbgqoyhQfy8WaNLuoIY19mbflEvwaRqdqCrlAztpiAo8nrXA3TuDKqfRhkhPfjFEHFSeZASQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw+YCfchQsEQy9Q04ikk1Pq3thE/FSIKBBGJqjFwUr7QlZ7nmuV
-	pN3eRWJeXV/el4Ki0nOuIsIpz2VeUUT+oWaPTzcfHVbN4WoNshq47TGTSpQGxsRD9OKCZ7seFDG
-	Pwg==
-X-Google-Smtp-Source: AGHT+IGaqEwoic7xvDyznY8cDg+F7K5+qe11MRhfXOt+1PBXtCG3HV5nSK8yv8Q3/q/HTXMyOsqLmKxvwkg=
-X-Received: from pjbtc8.prod.google.com ([2002:a17:90b:5408:b0:2ef:abba:8bfd])
- (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:90b:2b87:b0:2ee:8031:cdbc
- with SMTP id 98e67ed59e1d1-2f548f1ec3fmr32208440a91.23.1736889862547; Tue, 14
- Jan 2025 13:24:22 -0800 (PST)
-Date: Tue, 14 Jan 2025 13:24:21 -0800
-In-Reply-To: <20250114175143.81438-28-vschneid@redhat.com>
+        bh=V8zpuNawVjToL3i20ZYrbUddkmOaJHAfbCZJnZQ478w=;
+        b=wnXUqtw24khTLt9Cv+nl8eufhUMp0CqoXG6BcQuCU0QCDt8r+IIWDwVd1mfldcl/rQ
+         IifATb5X+XOpRFojFO5jFOz30RFnqauIuffwYutqjdXNf+a9pqNxg/9XB9tFGa2XsJWR
+         ZbOHkh/x8JXCeJrH4sHE7V5KLqx49y3Fm/zZqnZvKuenkDJ9y+YLop0farBdpNEfhexa
+         4txCjiz0h43fcXbsbRvt1LeAfkeP8uN1WWP28AJkVnhwP88NOnOsJ0NkfRQNRlHOPRxE
+         bo4ocVyoGcQuDhInyIHSeaEeulRu+XWYVcEFUQRJZb0LFwqxQ2jIGZkbnev51V3Cu5Yz
+         I0Mw==
+X-Forwarded-Encrypted: i=1; AJvYcCUrpBLKY/SwtziG6yAj3QNBJhwNGIetv8j773qmLblYvUOJFSk665mkWad7ZohRG0Z/RIZXaDfkMhHSlw==@lists.infradead.org
+X-Gm-Message-State: AOJu0YzGrxBYYH0h3UEV18/w9fRfteKaJ5ot5cQqhSHCpsfmKRW4kqMG
+	hdq91O/yyXLItC92Qc56t9hqePZrHrJbh8mLMIW2LCUIjYjSYMiO4q56fTGMBshc0a/NpQORg/2
+	QNQ==
+X-Google-Smtp-Source: AGHT+IGDv4Ej+tMoSohr/AoTazwT/WbetgA7Nr8qE8BLNxmtc1cUUDk0TRGuDLxFKlrZpHzOjZy+L7iCKdA=
+X-Received: from pjbsx15.prod.google.com ([2002:a17:90b:2ccf:b0:2ef:8ef8:2701])
+ (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:90b:544b:b0:2ee:9902:18b4
+ with SMTP id 98e67ed59e1d1-2f548f61fe6mr37131771a91.27.1736890015061; Tue, 14
+ Jan 2025 13:26:55 -0800 (PST)
+Date: Tue, 14 Jan 2025 13:26:53 -0800
+In-Reply-To: <20250114175143.81438-26-vschneid@redhat.com>
 Mime-Version: 1.0
-References: <20250114175143.81438-1-vschneid@redhat.com> <20250114175143.81438-28-vschneid@redhat.com>
-Message-ID: <Z4bWBUGUH34qLUt0@google.com>
-Subject: Re: [PATCH v4 27/30] x86/tlb: Make __flush_tlb_local() noinstr-compliant
+References: <20250114175143.81438-1-vschneid@redhat.com> <20250114175143.81438-26-vschneid@redhat.com>
+Message-ID: <Z4bWnWYqu1LaD-JG@google.com>
+Subject: Re: [PATCH v4 25/30] context_tracking,x86: Defer kernel text patching IPIs
 From: Sean Christopherson <seanjc@google.com>
 To: Valentin Schneider <vschneid@redhat.com>
 Cc: linux-kernel@vger.kernel.org, x86@kernel.org, 
@@ -76,7 +76,8 @@ Cc: linux-kernel@vger.kernel.org, x86@kernel.org,
 	kvm@vger.kernel.org, linux-arch@vger.kernel.org, rcu@vger.kernel.org, 
 	linux-hardening@vger.kernel.org, linux-mm@kvack.org, 
 	linux-kselftest@vger.kernel.org, bpf@vger.kernel.org, 
-	bcm-kernel-feedback-list@broadcom.com, Juergen Gross <jgross@suse.com>, 
+	bcm-kernel-feedback-list@broadcom.com, Peter Zijlstra <peterz@infradead.org>, 
+	Nicolas Saenz Julienne <nsaenzju@redhat.com>, Juergen Gross <jgross@suse.com>, 
 	Ajay Kaher <ajay.kaher@broadcom.com>, Alexey Makhalov <alexey.amakhalov@broadcom.com>, 
 	Russell King <linux@armlinux.org.uk>, Catalin Marinas <catalin.marinas@arm.com>, 
 	Will Deacon <will@kernel.org>, Huacai Chen <chenhuacai@kernel.org>, WANG Xuerui <kernel@xen0n.name>, 
@@ -84,8 +85,8 @@ Cc: linux-kernel@vger.kernel.org, x86@kernel.org,
 	Albert Ou <aou@eecs.berkeley.edu>, Thomas Gleixner <tglx@linutronix.de>, 
 	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, 
 	Dave Hansen <dave.hansen@linux.intel.com>, "H. Peter Anvin" <hpa@zytor.com>, 
-	Peter Zijlstra <peterz@infradead.org>, Arnaldo Carvalho de Melo <acme@kernel.org>, 
-	Namhyung Kim <namhyung@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
+	Arnaldo Carvalho de Melo <acme@kernel.org>, Namhyung Kim <namhyung@kernel.org>, 
+	Mark Rutland <mark.rutland@arm.com>, 
 	Alexander Shishkin <alexander.shishkin@linux.intel.com>, Jiri Olsa <jolsa@kernel.org>, 
 	Ian Rogers <irogers@google.com>, Adrian Hunter <adrian.hunter@intel.com>, 
 	Kan Liang <kan.liang@linux.intel.com>, Boris Ostrovsky <boris.ostrovsky@oracle.com>, 
@@ -106,15 +107,14 @@ Cc: linux-kernel@vger.kernel.org, x86@kernel.org,
 	Shuah Khan <shuah@kernel.org>, Sami Tolvanen <samitolvanen@google.com>, 
 	Miguel Ojeda <ojeda@kernel.org>, Alice Ryhl <aliceryhl@google.com>, 
 	"Mike Rapoport (Microsoft)" <rppt@kernel.org>, Samuel Holland <samuel.holland@sifive.com>, Rong Xu <xur@google.com>, 
-	Nicolas Saenz Julienne <nsaenzju@redhat.com>, Geert Uytterhoeven <geert@linux-m68k.org>, 
-	Yosry Ahmed <yosryahmed@google.com>, 
+	Geert Uytterhoeven <geert@linux-m68k.org>, Yosry Ahmed <yosryahmed@google.com>, 
 	"Kirill A. Shutemov" <kirill.shutemov@linux.intel.com>, 
 	"Masami Hiramatsu (Google)" <mhiramat@kernel.org>, Jinghao Jia <jinghao7@illinois.edu>, 
 	Luis Chamberlain <mcgrof@kernel.org>, Randy Dunlap <rdunlap@infradead.org>, 
 	Tiezhu Yang <yangtiezhu@loongson.cn>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250114_132423_939831_952E5470 
-X-CRM114-Status: GOOD (  13.21  )
+X-CRM114-CacheID: sfid-20250114_132656_059892_89D4D469 
+X-CRM114-Status: GOOD (  11.76  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -132,29 +132,19 @@ Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 On Tue, Jan 14, 2025, Valentin Schneider wrote:
-> Later patches will require issuing a __flush_tlb_all() from noinstr code.
-> This requires making both __flush_tlb_local() and __flush_tlb_global()
-> noinstr-compliant.
-> 
-> For __flush_tlb_local(), xen_flush_tlb() has already been made noinstr, so
-> it's just native_flush_tlb_global(), and simply __always_inline'ing
-> invalidate_user_asid() gets us there
-> 
-> Signed-off-by: Valentin Schneider <vschneid@redhat.com>
-> ---
+>  static __always_inline void arch_context_tracking_work(enum ct_work work)
+>  {
+>  	switch (work) {
+> -	case CT_WORK_n:
+> -		// Do work...
+> +	case CT_WORK_SYNC:
+> +		sync_core();
 
-...
+Not your bug, but serialize() needs to be __always_inline.  Not sure what exactly
+caused it to be uninlined, but this is the obvious new usage.
 
-> @@ -1206,7 +1206,7 @@ STATIC_NOPV noinstr void native_flush_tlb_global(void)
->  /*
->   * Flush the entire current user mapping
->   */
-> -STATIC_NOPV void native_flush_tlb_local(void)
-> +STATIC_NOPV noinstr void native_flush_tlb_local(void)
-
-native_write_cr3() and __native_read_cr3() need to be __always_inline.
-
-vmlinux.o: warning: objtool: native_flush_tlb_local+0x8: call to __native_read_cr3() leaves .noinstr.text section
+vmlinux.o: warning: objtool: __static_call_update_early+0x4e: call to serialize() leaves .noinstr.text section
+vmlinux.o: warning: objtool: ct_work_flush+0x69: call to serialize() leaves .noinstr.text section
 
 _______________________________________________
 linux-riscv mailing list
