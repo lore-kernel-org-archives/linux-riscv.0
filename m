@@ -4,185 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0A0D0E77188
-	for <linux-riscv@archiver.kernel.org>; Tue, 14 Jan 2025 22:47:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 71C5DC02183
+	for <linux-riscv@archiver.kernel.org>; Tue, 14 Jan 2025 22:59:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:
-	Cc:To:Subject:MIME-Version:Date:Message-ID:Content-Type:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DqgT4O2svpmEEhICZ1wgShA1DNsFvQIFpdK/zmQPRog=; b=5F/bpfEVprRfJHQnMGpa/JcNOs
-	U+e/a+51ubNiM3tyK7rn1ngaxjq9a58XsX8zOsH5ACTAq03Dg2k+aoUBiqMNX3KabaLQoq9OOMu9H
-	t2OjWMT/b+920bZCVYx5mgFde9indcgdDh9yxO1CxL6VFok7cBuKhPqMgvbAtrUam+8pTtSMATpcc
-	0g+DEwvJhcfi3Elq3nRWDUIXAqOCB9yXP9/zkDRpwT7GLrxNQ7nDB0Xs/bnPoGcffdJKCb+J+fnDz
-	5DAtm8mmPDPSTbE6PkUgejZ0FlIb5RCqzWd6J3X2cnnqeKupTYWWuh3EJPseialrBBLplRDmIlwla
-	+S0zaGTw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:MIME-Version:Message-Id:Date:
+	Subject:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=nxYOBagbLJxRKh2nhpX2j8sP1akm/OxJpE4RgCuN5YU=; b=4EgJTl2faz6rMr
+	3L7585PjQG4G9ia3hedFDY3ht50dY2Gkl3o7yvnXFVf/49IRktOumHbZUjSOuFQcq2xvF6ZSsyCpq
+	xgmIrkHirHCwR9kId4dP7HvSax3PrfpFSmHeNSYQQTTALjhR4ts01LG7coID+GcD06CHIxY18g9TG
+	uarH+ZOR1qqo2EPpP3IUVQRMCnGRDLwSXuOgaUc9/Rnjutsv0NhXoEw4p+lmZNEvVahSzl4qs31jm
+	1DwciOf0J+zoTNwhM9v6kNn/aSnPgw9uldr+e6c9Gx92mkO8cPVfFcDbg7WmAoMkyUnHuz9JzH/Zd
+	9vO3PRt7uUgO4Fu3ir6w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXph4-00000009ydD-1hKE;
-	Tue, 14 Jan 2025 22:47:30 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1tXpsp-0000000A0UI-3aIl;
+	Tue, 14 Jan 2025 22:59:39 +0000
+Received: from mail-pl1-x629.google.com ([2607:f8b0:4864:20::629])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXojk-00000009qTt-3Wjj;
-	Tue, 14 Jan 2025 21:46:13 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Content-Type:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=jJSBCzrt5lQZvAHmgmoB/qVo7GdUI/q+e6to0GImxz8=; b=fsLFA5ZFD2sINjmhfjRONrCxk7
-	gnVyLOhfXY+beF68THQ2lpyN2zcBRBpGqtPREAP4TcYL+H/OjSAddhCOfaHJwVflo5Bj1bAYOiG2I
-	WWp6yFhj7UFpQpEfNkYRUkl08B0S9/AqjrQUf9h9gbQOujLIH+OXxtINCFuGALJQwIWsj3UZWJZaq
-	Oldev3o+x0e/H3tunmWGdciGH6/cLyzc7QBk16oBGTI+4tx0dfI+9RLoxXi0ETqeW5bDIWpjx7nGs
-	ClO9wALyNAzt8ys42TEQT9sdzXlmCZ6vxyxPlQ5IrLUJ0xOeKRm/G9uxOjLlLIfLgzKA9fdjx7Ded
-	jeYPTaBQ==;
-Received: from mgamail.intel.com ([192.198.163.9])
-	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXojR-0000000Aefg-2arS;
-	Tue, 14 Jan 2025 21:46:11 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1736891154; x=1768427154;
-  h=message-id:date:mime-version:subject:to:cc:references:
-   from:in-reply-to;
-  bh=FiKf+CBG14D8HJTJEsGFPQ/VuBsXxEyfgK3jkw1jBxs=;
-  b=ThZ3thMh4KQ+SRbK+y6iq3tdDCYHhN5wTvSb2HgsO8TDMMj5NtutjoST
-   nLWKmU7NF1EIWglVLKi669URQIRUJh07GxXym1CxteKTY5KsG9+JihiYo
-   3HEDt5Rs3MJgo7U9d5jaTnKBm4f1v4BQyr/jtC/wk7RlJGQqs2hlR/cez
-   q5AzHkxtPBhJzwm5YHwOv89rKKL0hn7OUaE0UBp2Y/x7n4mKM9+o1aiUw
-   OpuG5cf24S2hx6amE7/w7BrhZpjAxY6zNOsWUtEeOayiMgw77Xic/uEvV
-   EqdY1tvABRnWf0++uplRn5kZG/HGT1j6Puf37SAFmkOMSnmIB51jI1C3C
-   w==;
-X-CSE-ConnectionGUID: nY6KJbK1SlivcST3szDSnQ==
-X-CSE-MsgGUID: 6QgpnKhjTBiP429K7FI0jg==
-X-IronPort-AV: E=McAfee;i="6700,10204,11315"; a="47874037"
-X-IronPort-AV: E=Sophos;i="6.12,315,1728975600"; 
-   d="scan'208";a="47874037"
-Received: from orviesa007.jf.intel.com ([10.64.159.147])
-  by fmvoesa103.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 14 Jan 2025 13:45:47 -0800
-X-CSE-ConnectionGUID: wClD8OzMQai+UBG5Nw361Q==
-X-CSE-MsgGUID: vzPbyt3kQ96Xavq3f7i4kA==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.12,224,1728975600"; 
-   d="scan'208";a="105422933"
-Received: from ssimmeri-mobl2.amr.corp.intel.com (HELO [10.124.223.199]) ([10.124.223.199])
-  by orviesa007-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 14 Jan 2025 13:45:42 -0800
-Content-Type: multipart/mixed; boundary="------------n0n6ZXEhGiQA3ZVqsLB2u14D"
-Message-ID: <52311c3d-83cf-4dc4-bbcb-5fbca8eb249c@intel.com>
-Date: Tue, 14 Jan 2025 13:45:39 -0800
+	id 1tXprW-00000009zhZ-2YMn
+	for linux-riscv@lists.infradead.org;
+	Tue, 14 Jan 2025 22:58:20 +0000
+Received: by mail-pl1-x629.google.com with SMTP id d9443c01a7336-2156e078563so90288165ad.2
+        for <linux-riscv@lists.infradead.org>; Tue, 14 Jan 2025 14:58:17 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1736895497; x=1737500297; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=nYkLU0NirAu9JE4/rkvv4iX0/5kO7v9LARooIOZwEJg=;
+        b=WxQEJE+XPtmpSAB/49160zGGvndLZTIc2UiZZAukbWVxoBZDjJ0x2cSM28UHC/DY1y
+         WGKm1iFIT+tQbc2anVoqju+7EhICuUGLknzoUJE08cOukL7x3t52FQS7Ep2OQ8em6CUc
+         jCuWzo+1Ztixv8J1oJVMbVFZC8uMsfH3MA7DHlczveYFLnssI8LhHUwqg9HpRE2fnjbw
+         nkmPTHjUQYxiSLm62qwnz9GNQuM6iFB3+KkBHj7fFPSgqZUoFAlw+eDD+z8fW/WvVzUF
+         LIJenNVgY8WXqcTz0doSmNd/frRoHTM7iIZ5w6E2D3XFfyk4EqmUHtEMDZL+4p75q39L
+         KCOA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1736895497; x=1737500297;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=nYkLU0NirAu9JE4/rkvv4iX0/5kO7v9LARooIOZwEJg=;
+        b=djodj9Jk/VYJvJ6HL18kc/5m+1gZvUWs1kiQgGSshoO6m11SYRkYubXWz+6G9YY+Xh
+         4vuTfEy4VfAJL2wJMJIcqpJvD8p+lasaPIZw0e7tsd1Kuv6ZaUOGe+3d6hM0stQi9c8S
+         4aCntBMexi3uvSK3StMzJT6rVJu/sGCjWC47t3b7pOU+wscW43JDEBqMN4A8gYgJ9ksK
+         Xf/ygCOi3DnF28kIOxwnwjnWQnseYf1V5BCsZ4FbVpx1HVOzDUIPLdMrm5CRQqVSrzVG
+         NSLMtknwuL/v8jo0ClIpItMNT0xYcl/QfUTkQiJIU91Ofpa3i2tFl+fa14hH/mxD8gE2
+         TvSw==
+X-Gm-Message-State: AOJu0Ywye2ydCZ+/rvppgdJ5qSRt6NiGBz0NQa/PIwrpRk/n/z/6KMzD
+	Kc07VWy4NfqpnEi+weIjwwUS8ENsPwKpxsZ1IIKaxwtKlSQhm5q54euV3e434Es=
+X-Gm-Gg: ASbGncvaZR5TrX8XK55d7pxlgZBAC9MxVjG74tdbDMxFPBrakKPNzaYwk8BEBa6nNaI
+	K1imj9RKcCltdRBHUSHOsFyZLPCtDYIgMZNhdJX+8vLaA3bhL8FcinyVvDh94iQCB2tMLoPbdJ5
+	EYAL3pLU3Tg1hu2rTHFZGMCTe8aJKS1qfeuJfxYONOeLFFhoYiLG4WdTGUfnn93oAwDXa+YoneX
+	35SstnOGIvHivLJHsknrVFn3iUZlFcVi8cF2+MLKqKUVOnV/2U/h4z6vjqcpZdjQ7DpwQ==
+X-Google-Smtp-Source: AGHT+IFtG/k42yCeVuHX0tPN9L9VOFBp4AdntnEMp6oqgm8Ihathe3ej6ZuJqnnMKmge/3JMw8KR8w==
+X-Received: by 2002:a17:902:ecc5:b0:215:7dbf:f3de with SMTP id d9443c01a7336-21a83f5e4e5mr418050535ad.28.1736895496910;
+        Tue, 14 Jan 2025 14:58:16 -0800 (PST)
+Received: from atishp.ba.rivosinc.com ([64.71.180.162])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-21a9f10df7asm71746105ad.47.2025.01.14.14.58.15
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 14 Jan 2025 14:58:16 -0800 (PST)
+From: Atish Patra <atishp@rivosinc.com>
+Subject: [PATCH v2 00/21] Add Counter delegation ISA extension support
+Date: Tue, 14 Jan 2025 14:57:25 -0800
+Message-Id: <20250114-counter_delegation-v2-0-8ba74cdb851b@rivosinc.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 26/30] x86,tlb: Make __flush_tlb_global()
- noinstr-compliant
-To: Valentin Schneider <vschneid@redhat.com>, linux-kernel@vger.kernel.org,
- x86@kernel.org, virtualization@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org, loongarch@lists.linux.dev,
- linux-riscv@lists.infradead.org, linux-perf-users@vger.kernel.org,
- xen-devel@lists.xenproject.org, kvm@vger.kernel.org,
- linux-arch@vger.kernel.org, rcu@vger.kernel.org,
- linux-hardening@vger.kernel.org, linux-mm@kvack.org,
- linux-kselftest@vger.kernel.org, bpf@vger.kernel.org,
- bcm-kernel-feedback-list@broadcom.com
-Cc: Peter Zijlstra <peterz@infradead.org>, Juergen Gross <jgross@suse.com>,
- Ajay Kaher <ajay.kaher@broadcom.com>,
- Alexey Makhalov <alexey.amakhalov@broadcom.com>,
- Russell King <linux@armlinux.org.uk>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Huacai Chen <chenhuacai@kernel.org>, WANG Xuerui <kernel@xen0n.name>,
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>,
- Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>,
- "H. Peter Anvin" <hpa@zytor.com>, Arnaldo Carvalho de Melo
- <acme@kernel.org>, Namhyung Kim <namhyung@kernel.org>,
- Mark Rutland <mark.rutland@arm.com>,
- Alexander Shishkin <alexander.shishkin@linux.intel.com>,
- Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>,
- Adrian Hunter <adrian.hunter@intel.com>,
- "Liang, Kan" <kan.liang@linux.intel.com>,
- Boris Ostrovsky <boris.ostrovsky@oracle.com>,
- Josh Poimboeuf <jpoimboe@kernel.org>,
- Pawan Gupta <pawan.kumar.gupta@linux.intel.com>,
- Sean Christopherson <seanjc@google.com>, Paolo Bonzini
- <pbonzini@redhat.com>, Andy Lutomirski <luto@kernel.org>,
- Arnd Bergmann <arnd@arndb.de>, Frederic Weisbecker <frederic@kernel.org>,
- "Paul E. McKenney" <paulmck@kernel.org>, Jason Baron <jbaron@akamai.com>,
- Steven Rostedt <rostedt@goodmis.org>, Ard Biesheuvel <ardb@kernel.org>,
- Neeraj Upadhyay <neeraj.upadhyay@kernel.org>,
- Joel Fernandes <joel@joelfernandes.org>,
- Josh Triplett <josh@joshtriplett.org>, Boqun Feng <boqun.feng@gmail.com>,
- Uladzislau Rezki <urezki@gmail.com>,
- Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
- Lai Jiangshan <jiangshanlai@gmail.com>, Zqiang <qiang.zhang1211@gmail.com>,
- Juri Lelli <juri.lelli@redhat.com>, Clark Williams <williams@redhat.com>,
- Yair Podemsky <ypodemsk@redhat.com>, Tomas Glozar <tglozar@redhat.com>,
- Vincent Guittot <vincent.guittot@linaro.org>,
- Dietmar Eggemann <dietmar.eggemann@arm.com>, Ben Segall
- <bsegall@google.com>, Mel Gorman <mgorman@suse.de>,
- Kees Cook <kees@kernel.org>, Andrew Morton <akpm@linux-foundation.org>,
- Christoph Hellwig <hch@infradead.org>, Shuah Khan <shuah@kernel.org>,
- Sami Tolvanen <samitolvanen@google.com>, Miguel Ojeda <ojeda@kernel.org>,
- Alice Ryhl <aliceryhl@google.com>,
- "Mike Rapoport (Microsoft)" <rppt@kernel.org>,
- Samuel Holland <samuel.holland@sifive.com>, Rong Xu <xur@google.com>,
- Nicolas Saenz Julienne <nsaenzju@redhat.com>,
- Geert Uytterhoeven <geert@linux-m68k.org>,
- Yosry Ahmed <yosryahmed@google.com>,
- "Kirill A. Shutemov" <kirill.shutemov@linux.intel.com>,
- "Masami Hiramatsu (Google)" <mhiramat@kernel.org>,
- Jinghao Jia <jinghao7@illinois.edu>, Luis Chamberlain <mcgrof@kernel.org>,
- Randy Dunlap <rdunlap@infradead.org>, Tiezhu Yang <yangtiezhu@loongson.cn>
-References: <20250114175143.81438-1-vschneid@redhat.com>
- <20250114175143.81438-27-vschneid@redhat.com>
-From: Dave Hansen <dave.hansen@intel.com>
-Content-Language: en-US
-Autocrypt: addr=dave.hansen@intel.com; keydata=
- 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
-In-Reply-To: <20250114175143.81438-27-vschneid@redhat.com>
+X-B4-Tracking: v=1; b=H4sIANXrhmcC/yWNwQ6CMBBEf4Xs2ZJ2AYuc/A9DDFkW2ERb0iLRE
+ P7disc3mXmzQeQgHKHJNgi8ShTvEuApA5o6N7KSPjGgxlJbUynyL7dwuPf84LFbUl2dse4KHGq
+ 6EEEazoEHeR/SW5t4krj48Dk+VvNL/zo0VuvKFnVe2LI0aJRRyRin+Rpk9VEc5eSf0O77/gUwy
+ 20VqQAAAA==
+To: Paul Walmsley <paul.walmsley@sifive.com>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Anup Patel <anup@brainfault.org>, 
+ Atish Patra <atishp@atishpatra.org>, Will Deacon <will@kernel.org>, 
+ Mark Rutland <mark.rutland@arm.com>, Peter Zijlstra <peterz@infradead.org>, 
+ Ingo Molnar <mingo@redhat.com>, Arnaldo Carvalho de Melo <acme@kernel.org>, 
+ Namhyung Kim <namhyung@kernel.org>, 
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>, 
+ Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>, 
+ Adrian Hunter <adrian.hunter@intel.com>, weilin.wang@intel.com
+Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Palmer Dabbelt <palmer@sifive.com>, Conor Dooley <conor@kernel.org>, 
+ devicetree@vger.kernel.org, kvm@vger.kernel.org, 
+ kvm-riscv@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
+ linux-perf-users@vger.kernel.org, Atish Patra <atishp@rivosinc.com>, 
+ Kaiwen Xue <kaiwenx@rivosinc.com>, Charlie Jenkins <charlie@rivosinc.com>
+X-Mailer: b4 0.15-dev-13183
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250114_214556_239668_DE785ADE 
-X-CRM114-Status: GOOD (  16.70  )
+X-CRM114-CacheID: sfid-20250114_145818_650540_0F910558 
+X-CRM114-Status: GOOD (  33.58  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -194,85 +106,201 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This is a multi-part message in MIME format.
---------------n0n6ZXEhGiQA3ZVqsLB2u14D
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+This series adds the counter delegation extension support. It is based on
+very early PoC work done by Kevin Xue and mostly rewritten after that.
+The counter delegation ISA extension(Smcdeleg/Ssccfg) actually depends
+on multiple ISA extensions.
 
-On 1/14/25 09:51, Valentin Schneider wrote:
-> +	cr4 = this_cpu_read(cpu_tlbstate.cr4);
-> +	asm volatile("mov %0,%%cr4": : "r" (cr4 ^ X86_CR4_PGE) : "memory");
-> +	asm volatile("mov %0,%%cr4": : "r" (cr4) : "memory");
-> +	/*
-> +	 * In lieu of not having the pinning crap, hard fail if CR4 doesn't
-> +	 * match the expected value. This ensures that anybody doing dodgy gets
-> +	 * the fallthrough check.
-> +	 */
-> +	BUG_ON(cr4 != this_cpu_read(cpu_tlbstate.cr4));
+1. S[m|s]csrind : The indirect CSR extension[1] which defines additional
+   5 ([M|S|VS]IREG2-[M|S|VS]IREG6) register to address size limitation of
+   RISC-V CSR address space.
+2. Smstateen: The stateen bit[60] controls the access to the registers
+   indirectly via the above indirect registers.
+3. Smcdeleg/Ssccfg: The counter delegation extensions[2]
 
-Let's say someone managed to write to cpu_tlbstate.cr4 where they
-cleared one of the pinned bits.
+The counter delegation extension allows Supervisor mode to program the
+hpmevent and hpmcounters directly without needing the assistance from the
+M-mode via SBI calls. This results in a faster perf profiling and very
+few traps. This extension also introduces a scountinhibit CSR which allows
+to stop/start any counter directly from the S-mode. As the counter
+delegation extension potentially can have more than 100 CSRs, the specification
+leverages the indirect CSR extension to save the precious CSR address range.
 
-Before this patch, CR4 pinning would WARN_ONCE() about it pretty quickly
-and also reset the cleared bits.
+Due to the dependency of these extensions, the following extensions must be
+enabled in qemu to use the counter delegation feature in S-mode.
 
-After this patch, the first native_flush_tlb_global() can clear pinned
-bits, at least until native_write_cr4() gets called the next time. That
-seems like it'll undermine CR4 pinning at least somewhat.
+"smstateen=true,sscofpmf=true,ssccfg=true,smcdeleg=true,smcsrind=true,sscsrind=true"
+or Virt machine users can just "max" cpu instead.
 
-What keeps native_write_cr4() from being noinstr-compliant now? Is it
-just the WARN_ONCE()?
+When we access the counters directly in S-mode, we also need to solve the
+following problems.
 
-If so, I'd kinda rather have a native_write_cr4_nowarn() that's
-noinstr-compliant but retains all the other CR4 pinning behavior. Would
-something like the attached patch be _worse_?
---------------n0n6ZXEhGiQA3ZVqsLB2u14D
-Content-Type: text/x-patch; charset=UTF-8; name="cr4.patch"
-Content-Disposition: attachment; filename="cr4.patch"
-Content-Transfer-Encoding: base64
+1. Event to counter mapping
+2. Event encoding discovery
 
-ZGlmZiAtLWdpdCBhL2FyY2gveDg2L2tlcm5lbC9jcHUvY29tbW9uLmMgYi9hcmNoL3g4Ni9r
-ZXJuZWwvY3B1L2NvbW1vbi5jCmluZGV4IDNlOTAzNzY5MDgxNC4uMjA0NGQ1MTZmMDZmIDEw
-MDY0NAotLS0gYS9hcmNoL3g4Ni9rZXJuZWwvY3B1L2NvbW1vbi5jCisrKyBiL2FyY2gveDg2
-L2tlcm5lbC9jcHUvY29tbW9uLmMKQEAgLTQyMywyNCArNDIzLDQwIEBAIHZvaWQgbmF0aXZl
-X3dyaXRlX2NyMCh1bnNpZ25lZCBsb25nIHZhbCkKIH0KIEVYUE9SVF9TWU1CT0wobmF0aXZl
-X3dyaXRlX2NyMCk7CiAKLXZvaWQgX19ub19wcm9maWxlIG5hdGl2ZV93cml0ZV9jcjQodW5z
-aWduZWQgbG9uZyB2YWwpCit2b2lkIF9fbm9fcHJvZmlsZSBfX25hdGl2ZV93cml0ZV9jcjQo
-dW5zaWduZWQgbG9uZyB2YWwsIHVuc2lnbmVkIGxvbmcgKmJpdHNfY2hhbmdlZCkKIHsKLQl1
-bnNpZ25lZCBsb25nIGJpdHNfY2hhbmdlZCA9IDA7Ci0KIHNldF9yZWdpc3RlcjoKIAlhc20g
-dm9sYXRpbGUoIm1vdiAlMCwlJWNyNCI6ICIrciIgKHZhbCkgOiA6ICJtZW1vcnkiKTsKIAog
-CWlmIChzdGF0aWNfYnJhbmNoX2xpa2VseSgmY3JfcGlubmluZykpIHsKIAkJaWYgKHVubGlr
-ZWx5KCh2YWwgJiBjcjRfcGlubmVkX21hc2spICE9IGNyNF9waW5uZWRfYml0cykpIHsKLQkJ
-CWJpdHNfY2hhbmdlZCA9ICh2YWwgJiBjcjRfcGlubmVkX21hc2spIF4gY3I0X3Bpbm5lZF9i
-aXRzOworCQkJKmJpdHNfY2hhbmdlZCA9ICh2YWwgJiBjcjRfcGlubmVkX21hc2spIF4gY3I0
-X3Bpbm5lZF9iaXRzOwogCQkJdmFsID0gKHZhbCAmIH5jcjRfcGlubmVkX21hc2spIHwgY3I0
-X3Bpbm5lZF9iaXRzOwogCQkJZ290byBzZXRfcmVnaXN0ZXI7CiAJCX0KLQkJLyogV2FybiBh
-ZnRlciB3ZSd2ZSBjb3JyZWN0ZWQgdGhlIGNoYW5nZWQgYml0cy4gKi8KLQkJV0FSTl9PTkNF
-KGJpdHNfY2hhbmdlZCwgInBpbm5lZCBDUjQgYml0cyBjaGFuZ2VkOiAweCVseCE/XG4iLAot
-CQkJICBiaXRzX2NoYW5nZWQpOwogCX0KIH0KKwordm9pZCBfX25vX3Byb2ZpbGUgbmF0aXZl
-X3dyaXRlX2NyNCh1bnNpZ25lZCBsb25nIHZhbCkKK3sKKwl1bnNpZ25lZCBsb25nIGJpdHNf
-Y2hhbmdlZCA9IDA7CisKKwlfX25hdGl2ZV93cml0ZV9jcjQodmFsLCAmYml0c19jaGFuZ2Vk
-KTsKKworCWlmICghYml0c19jaGFuZ2VkKQorCQlyZXR1cm4KKworCVdBUk5fT05DRShiaXRz
-X2NoYW5nZWQsICJwaW5uZWQgQ1I0IGJpdHMgY2hhbmdlZDogMHglbHghP1xuIiwKKwkJICBi
-aXRzX2NoYW5nZWQpOworfQorCit2b2lkIF9fbm9fcHJvZmlsZSBuYXRpdmVfd3JpdGVfY3I0
-X25vd2Fybih1bnNpZ25lZCBsb25nIHZhbCkKK3sKKwl1bnNpZ25lZCBsb25nIGJpdHNfY2hh
-bmdlZCA9IDA7CisKKwlfX25hdGl2ZV93cml0ZV9jcjQodmFsLCAmYml0c19jaGFuZ2VkKTsK
-K30KKwogI2lmIElTX01PRFVMRShDT05GSUdfTEtEVE0pCiBFWFBPUlRfU1lNQk9MX0dQTChu
-YXRpdmVfd3JpdGVfY3I0KTsKICNlbmRpZgo=
+The RISC-V ISA doesn't define any standard either for event encoding or the
+event to counter mapping rules. Until now, the SBI PMU implementation relies
+on device tree binding[3] to discover the event to counter mapping in RISC-V
+platform in the firmware. The SBI PMU specification[4] defines event encoding
+for standard perf events as well. Thus, the kernel can query the appropriate
+counter for an given event from the firmware.
 
---------------n0n6ZXEhGiQA3ZVqsLB2u14D
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+However, the kernel doesn't need any firmware interaction for hardware
+counters if counter delegation is available in the hardware. Thus, the driver
+needs to discover the above mappings/encodings by itself without any assistance
+from firmware.
+
+Solution to Problem #1:
+This patch series solves the above problem #1 by extending the perf tool in a
+way so that event json file can specify the counter constraints of each event
+and that can be passed to the driver to choose the best counter for a given
+event. The perf stat metric series[5] from Weilin already extend the perf tool
+to parse "Counter" property to specify the hardware counter restriction.
+As that series was not revised in a while, I have rebased it and included in
+this series. I can only include the necessary parts from that patch required
+for this series if required. 
+
+This series extends that support by converting comma separated string to a
+bitmap. The counter constraint bitmap is passed to the perf driver via
+newly introduced "counterid_mask" property set in "config2".
+However, it results in the following event string which has repeated information
+about the counters both in list and bitmask format. I am not sure how I can pass
+the list information to the driver directly. That's why I added a
+counterid_mask property.
+
+Additionaly, the PATCH5 in [5] parses the bitmask information from the
+string and puts it into the metric group structure. We can just convert it in
+python easily and pass it to the metric group instead. The PATCH19 does exactly
+that and sets the counterid_mask property.
+
+@Weilin @Ian : Please let me know if there is a better way to solve the problem I
+described. 
+
+Due to the new counterid_mask property, the layout in empty-pmu-events.c got
+changed which is patched in PATCH 20 based on existing script.
+
+Possible solutions to Problem #2:
+
+1. Extend the PMU DT parsing support to kernel as well. However, that requires
+additional support in ACPI based system. It also needs more infrastructure in
+the virtualization as well.
+
+2. Rename perf legacy events to riscv specific names. This will require users to
+use perf differently than other ISAs which is not ideal.
+
+3. Define a architecture specific override function for legacy events. Earlier
+RFC version did that but it is not preferred as arch specific behavior in perf
+tool has other ramifications on the tests.
+
+4. Ian graciously helped and sent a generic fix[6] for #3 that prefers json
+over legacy encoding. Unfortunately, it had some regressions and the discussions
+are ongoing if it is a viable solution.
+
+5. Specify the encodings in the driver. There were earlier concerns of managing
+these in the driver as these encodings are vendor specific in absence of an ISA
+guidelines. However, we also need to support counter virtualization and legacy
+event users (without perf tool) as described in [7]. That's why, this series
+adapts this solution similar to other ISAs. The vendors can define their pmu
+event encoding and event to counter mapping in the driver.
+
+Note: This solution is still compatible with solution #4 by Ian. It gives vendors
+flexibility to define legacy event encoding in either the driver or json file
+if Ian's series [6] is merged. If we can get rid of the legacy events in the
+future, we can just rely on the json encodings. I have not added a json file for
+qemu as I have not included Ian's patches in this series. But I have verified them
+with a virt machine specific json file.
+
+The Qemu patches can be found here:
+https://github.com/atishp04/qemu/tree/b4/counter_delegation_v4
+
+The Linux kernel patches can be found here:
+https://github.com/atishp04/linux/tree/b4/counter_delegation_v2
+
+[1] https://github.com/riscv/riscv-indirect-csr-access
+[2] https://github.com/riscv/riscv-smcdeleg-ssccfg
+[3] https://www.kernel.org/doc/Documentation/devicetree/bindings/perf/riscv%2Cpmu.yaml
+[4] https://github.com/riscv-non-isa/riscv-sbi-doc/blob/master/src/ext-pmu.adoc
+[5] https://lore.kernel.org/lkml/20240412210756.309828-1-weilin.wang@intel.com/
+[6] https://lore.kernel.org/lkml/20250109222109.567031-1-irogers@google.com/
+[7] https://lore.kernel.org/lkml/20241026121758.143259-1-irogers@google.com/T/#m653a6b98919a365a361a698032502bd26af9f6ba
+
+Signed-off-by: Atish Patra <atishp@rivosinc.com>
+---
+Changes in v2:
+- Dropped architecture specific overrides for event encoding.
+- Dropped hwprobe bits.
+- Added a vendor specific event encoding table to support vendor specific event
+  encoding and counter mapping.
+- Fixed few bugs and cleanup.
+- Link to v1: https://lore.kernel.org/r/20240217005738.3744121-1-atishp@rivosinc.com
+
+---
+Atish Patra (17):
+      RISC-V: Add Sxcsrind ISA extension definition and parsing
+      dt-bindings: riscv: add Sxcsrind ISA extension description
+      RISC-V: Define indirect CSR access helpers
+      RISC-V: Add Ssccfg ISA extension definition and parsing
+      dt-bindings: riscv: add Ssccfg ISA extension description
+      RISC-V: Add Smcntrpmf extension parsing
+      dt-bindings: riscv: add Smcntrpmf ISA extension description
+      RISC-V: perf: Restructure the SBI PMU code
+      RISC-V: perf: Modify the counter discovery mechanism
+      RISC-V: perf: Add a mechanism to defined legacy event encoding
+      RISC-V: perf: Implement supervisor counter delegation support
+      RISC-V: perf: Use config2/vendor table for event to counter mapping
+      RISC-V: perf: Add legacy event encodings via sysfs
+      RISC-V: perf: Add Qemu virt machine events
+      tools/perf: Support event code for arch standard events
+      tools/perf: Pass the Counter constraint values in the pmu events
+      Sync empty-pmu-events.c with autogenerated one
+
+Charlie Jenkins (1):
+      RISC-V: perf: Skip PMU SBI extension when not implemented
+
+Kaiwen Xue (2):
+      RISC-V: Add Sxcsrind ISA extension CSR definitions
+      RISC-V: Add Sscfg extension CSR definition
+
+Weilin Wang (1):
+      perf pmu-events: Add functions in jevent.py to parse counter and event info for hardware aware grouping
+
+ .../devicetree/bindings/riscv/extensions.yaml      |  34 +
+ MAINTAINERS                                        |   4 +-
+ arch/riscv/include/asm/csr.h                       |  57 ++
+ arch/riscv/include/asm/csr_ind.h                   |  42 +
+ arch/riscv/include/asm/hwcap.h                     |   8 +
+ arch/riscv/include/asm/kvm_vcpu_pmu.h              |   4 +-
+ arch/riscv/include/asm/kvm_vcpu_sbi.h              |   2 +-
+ arch/riscv/include/asm/sbi.h                       |   2 +-
+ arch/riscv/include/asm/vendorid_list.h             |   4 +
+ arch/riscv/kernel/cpufeature.c                     |   5 +
+ arch/riscv/kvm/Makefile                            |   4 +-
+ arch/riscv/kvm/vcpu_pmu.c                          |   2 +-
+ arch/riscv/kvm/vcpu_sbi.c                          |   2 +-
+ drivers/perf/Kconfig                               |  16 +-
+ drivers/perf/Makefile                              |   4 +-
+ drivers/perf/{riscv_pmu.c => riscv_pmu_common.c}   |   0
+ drivers/perf/{riscv_pmu_sbi.c => riscv_pmu_dev.c}  | 941 +++++++++++++++++----
+ include/linux/perf/riscv_pmu.h                     |  26 +-
+ .../perf/pmu-events/arch/riscv/arch-standard.json  |  10 +
+ tools/perf/pmu-events/empty-pmu-events.c           | 299 ++++---
+ tools/perf/pmu-events/jevents.py                   | 218 ++++-
+ tools/perf/pmu-events/pmu-events.h                 |  32 +-
+ 22 files changed, 1422 insertions(+), 294 deletions(-)
+---
+base-commit: 9d89551994a430b50c4fffcb1e617a057fa76e20
+change-id: 20240715-counter_delegation-628a32f8c9cc
+--
+Regards,
+Atish patra
+
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---------------n0n6ZXEhGiQA3ZVqsLB2u14D--
-
