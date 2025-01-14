@@ -4,78 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E1CC8E77188
-	for <linux-riscv@archiver.kernel.org>; Tue, 14 Jan 2025 16:11:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9795C02183
+	for <linux-riscv@archiver.kernel.org>; Tue, 14 Jan 2025 16:42:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:To
-	:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=t8CiUxDcxK+V/Swu8f+TIVT+NNIR0OCAFL18zLmMIfs=; b=qg2KOEc26c2nTX
-	CVpKS/vZI5FeCIlj6MZv40ECIIteIKqeCa6TuO9PTBtwHFPwITq5BucSWKsHUheWu+fAXMVajHsj/
-	fh6SRT+HlkKrh1aR/7sy3GZmrKpEELtbY2n1QdlcaLSd2K7W7AUzeWKuH01fDXx6qjyTJ+qJb5q4R
-	y5t8QBI5MD25C1hFs8Uj3vb+cQHgeLVza+xp4Fap0WGsRLjGlq3uIKf0Lmj/IEVdSTq8RI5fbOdr8
-	xmZVAGiDWTIVlnfz+WlKBH0V0MmzHTmFUakwsC4Yep3o0z2Ha35g5kuFTzrvNgO20xqbCg48bs6AR
-	pcKxPDZdTPRWVfmjkdwg==;
+	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=hNN5DI7IM19xuEensZl2gtH0q3zp8jikm992RwvZsOY=; b=Gjts4GPYHT7FCy
+	gPrFDD0g6qCNV6Vxv+HDj6c6OgzUVJpOQ8njIbjKKfZg/uuNDno2nJyRHzTR8rnYoLvkf9NG3SHss
+	g4gPh6GTAE4D78Eq7omXo/Ja0evUQgOeKkUZ07aGcYPbMtQrUCJ1P0DjzDUszQOuuPwCWAd9TE7uP
+	wpKdrcVHpI0PEUSs2qiU+xzo/RwDp95DAO/ehWNJeMhQH0ySKoA6mmeOBdRpwilwrepss2C3v7D0j
+	euOcXs0Umix84KvNX2/JtUu9u7fBOsePfMsmZM+lkElGaIA8dXDq8jlEWAM7vb3k281tcXC0/OKMd
+	XHCXDxiiDF9s7ADzA07w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXjVV-00000008zFN-0I2L;
-	Tue, 14 Jan 2025 16:11:09 +0000
-Received: from mail-wm1-x32a.google.com ([2a00:1450:4864:20::32a])
+	id 1tXjzT-00000009428-1wBW;
+	Tue, 14 Jan 2025 16:42:07 +0000
+Received: from mail-il1-x132.google.com ([2607:f8b0:4864:20::132])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXjVS-00000008zEm-25yh
+	id 1tXjyT-000000093mA-2HUs
 	for linux-riscv@lists.infradead.org;
-	Tue, 14 Jan 2025 16:11:08 +0000
-Received: by mail-wm1-x32a.google.com with SMTP id 5b1f17b1804b1-43618283dedso54311555e9.3
-        for <linux-riscv@lists.infradead.org>; Tue, 14 Jan 2025 08:11:05 -0800 (PST)
+	Tue, 14 Jan 2025 16:41:08 +0000
+Received: by mail-il1-x132.google.com with SMTP id e9e14a558f8ab-3a8180205f3so21072985ab.0
+        for <linux-riscv@lists.infradead.org>; Tue, 14 Jan 2025 08:41:05 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1736871064; x=1737475864; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=NTHO6ORbJHu4Fft/9aF8Dega/+gwwgtxpWn3kQGQUvA=;
-        b=MLF0qqBWAriamVGWHI7oM8ITfxcDMRP/dBfSDkaCt4Gqq0c2BsZ/FwvJJDjCfN73G9
-         j5yMeh+tBHxzKJfk9hYo57rVBL9frRc7ew4TQx1QgZFcq22RqdTG5Vgy/zweicuI/Ajz
-         v/9vDQlxfJ1usE9DBe5fxkrnsdMAfqv/f3uLKqrVe5rSOhBrKDndFVWk+zDzgLRDc/Hd
-         suShbpmx9NWFuU6UAihntzY/arkUV1XdqPuTaa6GX93mX2sdQ24y88N5QpZJHVuHMp81
-         UcM/GwMyJicE3zuSWo9bHJuIJmSaCugdRZdsZcHFP9sVjrbHnetbZTbIBtcL7OMQ1ZWt
-         AkAA==
+        d=brainfault-org.20230601.gappssmtp.com; s=20230601; t=1736872864; x=1737477664; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=PYYy9/uR4iy35ySnvh+St9PKv34OGy3mNjqnkv7qxQw=;
+        b=i59MG+FyrZhWiZGYwsULOVrQRodgDJUbYKvheY0jG8PPxRAeDFFp7dID+0GVgdEA+p
+         DrRb54tCM12x7B2mO40wnRzwAu56zF2rXaCvK3SX9HsPBMCISNwxOh3skD13De+hTe3w
+         oWsgpiz67WZs5ZFhtDAy2X0IkVar6ul1uHZcv4dS5i2RG9Bb5ChjGAiVh8Ca8J3iCEb8
+         hiVDxW1RiFLZFS8kwJqnuUA6QnXoTvyRJUzpcFZhqyep7Oy+AJl5+cWsIIaw3FvVZuTD
+         L2sJOnFyUfHUqBXTBGH6o/NKW0zj4ewnGuIBxDFZ69lYci2HDizqD98jKZTieu8EuObG
+         fhHA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1736871064; x=1737475864;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=NTHO6ORbJHu4Fft/9aF8Dega/+gwwgtxpWn3kQGQUvA=;
-        b=ZzBay9Vnv4zVB1AdQfXu+7cewhlaqRRLNhoNqkgvaWQg239ScUv7NyLo9Zy7Zf8GIM
-         UxNjZrToj9u8ovv/RoLcOCKPa//uhqG6u0dyG4gsI+Nn4L63NNCOqzKPM6XRbMXEfgz5
-         l0GO/LsXVXduNxv9xPoLnFM+YGCcoSHyFIVv3bKpFBu0IJ+zzt12hCOm5/eUBJlPNCYS
-         0XzuzYVGhykzzQExiK/8jkjWWm2vNObMNJNp1Ro+EEiaZahmxCcJ2QAgRtvEyeWoU4/b
-         ZmxKa/u5++y55Zy6+ec1l23GVp1Mxse8DbbTCXlrNrcNvPbDMrpAIEEM+eCQdve+pJsa
-         YF6A==
-X-Gm-Message-State: AOJu0Yz1uVOLJ2jYk6PLxhlSiCC98+sxHojU9rvIiALr/BBdkWiFIX1k
-	KyauMusiYBMC1qbPjy7Qlgct8+eHfKOSL4gnzYZI6AabC6MSPLKmLsxBZERMoRk=
-X-Gm-Gg: ASbGncvsF6yKtpAtulgg3yp41PMJZZrHZ+m5gF5aSAPCocGiRFOcJe/Rq3wJ/JEoZRS
-	0PNYkY6JLtELzwyF35Xci/1RZ4aUnmjvrunRAO8lCKJ4JmAuqkW3hosyU27tUQXltMOmGOTTdDE
-	Ly6IXKaYTb/xfjphf3WouVtzlxYVtRUMMqXsYjTPRB7eEDcfXH6QN9SWIpIO7ykRK/VstMkkCHP
-	o/Om+jSp6wJBuh8yeAzWHJcGNaE4P5e70Le02E0yculJxBElN7mHbSBaO6HG+bHZrfIpDb1GnpR
-	I5PXsw==
-X-Google-Smtp-Source: AGHT+IEkkv0RUPmhyicxqkBxmhOobZ5p48nMpzZapAIFwHFVu/2/9jKyyv0rb4O/+ZjNNPQ4Ul9LXw==
-X-Received: by 2002:a05:600c:4e8c:b0:434:f5c0:3288 with SMTP id 5b1f17b1804b1-436e271d355mr233324995e9.29.1736871063354;
-        Tue, 14 Jan 2025 08:11:03 -0800 (PST)
-Received: from RTRKN418-LIN.domain.local ([89.216.37.146])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-38bddbf50a2sm4812812f8f.43.2025.01.14.08.11.02
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 14 Jan 2025 08:11:02 -0800 (PST)
-From: Milan Djokic <milandjokic1995@gmail.com>
-To: linux-riscv@lists.infradead.org
-Subject: [PATCH] riscv: Add initial Xen guest support for RISC-V
-Date: Tue, 14 Jan 2025 17:09:36 +0100
-Message-ID: <e4a649a7fdfc8fcf5f48a0bc4e76e5d546078083.1736868605.git.Slavisa.Petrovic@rt-rk.com>
-X-Mailer: git-send-email 2.43.0
+        d=1e100.net; s=20230601; t=1736872864; x=1737477664;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=PYYy9/uR4iy35ySnvh+St9PKv34OGy3mNjqnkv7qxQw=;
+        b=d/5GWJicn0TlgGnqa4pd68dzPnpznSPfuvMbuWseLxsfAryzSZsgl+bkoDFAqEkpd+
+         qigd6f+/w0KGJBOS+ivWNlbk+EabCFzmY9CmrzH12T0EXiN522g9aUTBJvUeZF4B3DRG
+         c43lpDIsZ+rxDVy3HE9o034lkdKg1Nv7bevRfyEW9bjLVHgdZeWkZptSCa+nRGLjCjEI
+         fQ4aAYq/QmtWNl7E8wMYvtdiWzWXFFTmlWlH1nL/6mTjEUMmOFVmkYKk9bXYQtZwIcw2
+         +OSAOwZKfkH1S/weJ5OoL8uEtjyH0gc+GYtN3T1fsJIwXSkBAfX51hpyKUNN1NLlA7ys
+         a1oQ==
+X-Gm-Message-State: AOJu0Yz7aAxnpuGZEqApqq3unm5z+PYgzbV3Y1uVv3eY10Q6x2ex+L6Z
+	Bx5WnvG7np+5PAgiQjeVzkNgXF/oucBhGJUCny3TqqCN+f/1JttlNE5SiT864tVyAOeXtRgKUYS
+	mbiFuVTsESdTOT573NkYA0OASmxAxxAZOafcSlw==
+X-Gm-Gg: ASbGncs0I3mYbHvJbKwG4dp92AaDskYYsF5/acg8UBXEkaY4P0cABKRAz+PFBwmj+Mk
+	4Vmqar8u9EgxXlBcVKqhYo5/PhFSt+0fTvgPLA5A=
+X-Google-Smtp-Source: AGHT+IGayyMTLiwTPodEFqs3shB7Qhb2StAITjyDm4y5doOqNDLF2JdCpPToaFxsLfQt91MNsMWXze1BX4KyGJIjLMQ=
+X-Received: by 2002:a05:6e02:1f05:b0:3ce:7b33:8c3b with SMTP id
+ e9e14a558f8ab-3ce7b339029mr26680325ab.5.1736872864228; Tue, 14 Jan 2025
+ 08:41:04 -0800 (PST)
 MIME-Version: 1.0
+References: <e4a649a7fdfc8fcf5f48a0bc4e76e5d546078083.1736868605.git.Slavisa.Petrovic@rt-rk.com>
+In-Reply-To: <e4a649a7fdfc8fcf5f48a0bc4e76e5d546078083.1736868605.git.Slavisa.Petrovic@rt-rk.com>
+From: Anup Patel <anup@brainfault.org>
+Date: Tue, 14 Jan 2025 22:10:52 +0530
+X-Gm-Features: AbW1kvZAYWhkxIlWxJiEL0gBDLMmDf6ZNuh0dZnQTSt_rnq6EtQLVaI7jznNB7M
+Message-ID: <CAAhSdy2rfbNT6tTK7i7rV6M1kNs2bFOQtN5QZpJ2xPrJx6WXjw@mail.gmail.com>
+Subject: Re: [PATCH] riscv: Add initial Xen guest support for RISC-V
+To: Milan Djokic <milandjokic1995@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250114_081106_555750_6844CBF1 
-X-CRM114-Status: GOOD (  23.56  )
+X-CRM114-CacheID: sfid-20250114_084105_862042_AB88EA76 
+X-CRM114-Status: GOOD (  32.81  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,1051 +85,632 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: jgross@suse.com, aou@eecs.berkeley.edu, Milan.Djokic@rt-rk.com, rafael.j.wysocki@intel.com, linux-kernel@vger.kernel.org, oleksandr_tyshchenko@epam.com, iommu@lists.linux.dev, sstabellini@kernel.org, palmer@dabbelt.com, paul.walmsley@sifive.com, xen-devel@lists.xenproject.org, Slavisa.Petrovic@rt-rk.com, takakura@valinux.co.jp
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Cc: jgross@suse.com, aou@eecs.berkeley.edu, Milan.Djokic@rt-rk.com, rafael.j.wysocki@intel.com, linux-kernel@vger.kernel.org, oleksandr_tyshchenko@epam.com, iommu@lists.linux.dev, sstabellini@kernel.org, palmer@dabbelt.com, paul.walmsley@sifive.com, xen-devel@lists.xenproject.org, linux-riscv@lists.infradead.org, Slavisa.Petrovic@rt-rk.com, takakura@valinux.co.jp
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Slavisa Petrovic <Slavisa.Petrovic@rt-rk.com>
-
-This patch introduces initial support for running RISC-V as a Xen guest.
-It provides the necessary infrastructure and stubs for Xen-specific
-operations. Key changes include:
-
-- Modifications to the RISC-V kernel to integrate Xen-specific hypercalls
-  and interfaces, with function implementations stubbed for future work.
-- Introduction of Xen-specific headers for RISC-V, including event
-  handling, hypervisor interaction, and page management. Functions are
-  defined but not yet implemented.
-- Stub implementations for memory management, grant tables, and context
-  switching in the Xen environment, allowing further development and
-  integration.
-
-Signed-off-by: Milan Djokic <Milan.Djokic@rt-rk.com>
-Signed-off-by: Slavisa Petrovic <Slavisa.Petrovic@rt-rk.com>
----
- arch/riscv/Kbuild                        |   1 +
- arch/riscv/Kconfig                       |  19 +++
- arch/riscv/include/asm/cpu.h             |   1 +
- arch/riscv/include/asm/hypervisor.h      |   9 ++
- arch/riscv/include/asm/irq.h             |   5 +
- arch/riscv/include/asm/sync_bitops.h     |  27 ++++
- arch/riscv/include/asm/xen/events.h      |  28 ++++
- arch/riscv/include/asm/xen/hypercall.h   |   2 +
- arch/riscv/include/asm/xen/hypervisor.h  |   2 +
- arch/riscv/include/asm/xen/interface.h   |   2 +
- arch/riscv/include/asm/xen/page.h        |   3 +
- arch/riscv/include/asm/xen/swiotlb-xen.h |   2 +
- arch/riscv/xen/Makefile                  |   2 +
- arch/riscv/xen/enlighten.c               | 164 +++++++++++++++++++++++
- arch/riscv/xen/grant-table.c             |  57 ++++++++
- arch/riscv/xen/hypercall.S               |  71 ++++++++++
- arch/riscv/xen/p2m.c                     |  76 +++++++++++
- include/xen/interface/io/protocols.h     |   3 +
- include/xen/riscv/hypercall.h            |  71 ++++++++++
- include/xen/riscv/hypervisor.h           |  26 ++++
- include/xen/riscv/interface.h            |  85 ++++++++++++
- include/xen/riscv/page.h                 | 106 +++++++++++++++
- include/xen/riscv/swiotlb-xen.h          |  13 ++
- test.txt                                 |  21 +++
- 24 files changed, 796 insertions(+)
- create mode 100644 arch/riscv/include/asm/hypervisor.h
- create mode 100644 arch/riscv/include/asm/sync_bitops.h
- create mode 100644 arch/riscv/include/asm/xen/events.h
- create mode 100644 arch/riscv/include/asm/xen/hypercall.h
- create mode 100644 arch/riscv/include/asm/xen/hypervisor.h
- create mode 100644 arch/riscv/include/asm/xen/interface.h
- create mode 100644 arch/riscv/include/asm/xen/page.h
- create mode 100644 arch/riscv/include/asm/xen/swiotlb-xen.h
- create mode 100644 arch/riscv/xen/Makefile
- create mode 100644 arch/riscv/xen/enlighten.c
- create mode 100644 arch/riscv/xen/grant-table.c
- create mode 100644 arch/riscv/xen/hypercall.S
- create mode 100644 arch/riscv/xen/p2m.c
- create mode 100644 include/xen/riscv/hypercall.h
- create mode 100644 include/xen/riscv/hypervisor.h
- create mode 100644 include/xen/riscv/interface.h
- create mode 100644 include/xen/riscv/page.h
- create mode 100644 include/xen/riscv/swiotlb-xen.h
- create mode 100644 test.txt
-
-diff --git a/arch/riscv/Kbuild b/arch/riscv/Kbuild
-index 2c585f7a0b6e..d9b71deed2cd 100644
---- a/arch/riscv/Kbuild
-+++ b/arch/riscv/Kbuild
-@@ -5,6 +5,7 @@ obj-$(CONFIG_BUILTIN_DTB) += boot/dts/
- obj-$(CONFIG_CRYPTO) += crypto/
- obj-y += errata/
- obj-$(CONFIG_KVM) += kvm/
-+obj-$(CONFIG_XEN) += xen/
-
- obj-$(CONFIG_ARCH_SUPPORTS_KEXEC_PURGATORY) += purgatory/
-
-diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-index d4a7ca0388c0..13ea75221524 100644
---- a/arch/riscv/Kconfig
-+++ b/arch/riscv/Kconfig
-@@ -1071,6 +1071,25 @@ config PARAVIRT_TIME_ACCOUNTING
-
- 	  If in doubt, say N here.
-
-+config XEN_DOM0
-+	def_bool y
-+	depends on XEN
-+
-+config XEN
-+	bool "Xen guest support on RISCV"
-+	depends on RISCV && OF
-+	select PARAVIRT
-+	help
-+	  Enables support for running Linux as a Xen guest on RISC-V.
-+
-+	  Xen is a type-1 hypervisor that allows multiple operating systems
-+	  to run on the same hardware. Enabling this option allows the kernel
-+	  to function as a guest under the Xen hypervisor on RISC-V platforms.
-+
-+	  Say Y if you want to run this kernel as a guest under Xen on RISC-V.
-+
-+	  If unsure, say N.
-+
- config RELOCATABLE
- 	bool "Build a relocatable kernel"
- 	depends on MMU && 64BIT && !XIP_KERNEL
-diff --git a/arch/riscv/include/asm/cpu.h b/arch/riscv/include/asm/cpu.h
-index 28d45a6678ce..fb2aac6a068e 100644
---- a/arch/riscv/include/asm/cpu.h
-+++ b/arch/riscv/include/asm/cpu.h
-@@ -4,5 +4,6 @@
- #define _ASM_CPU_H
-
- /* This header is required unconditionally by the ACPI core */
-+#include <linux/cpu.h>
-
- #endif /* _ASM_CPU_H */
-diff --git a/arch/riscv/include/asm/hypervisor.h b/arch/riscv/include/asm/hypervisor.h
-new file mode 100644
-index 000000000000..3a117afe57f0
---- /dev/null
-+++ b/arch/riscv/include/asm/hypervisor.h
-@@ -0,0 +1,9 @@
-+/* SPDX-License-Identifier: GPL-2.0 */
-+#ifndef _ASM_RISCV_HYPERVISOR_H
-+#define _ASM_RISCV_HYPERVISOR_H
-+
-+#include <asm/xen/hypervisor.h>
-+
-+void kvm_init_hyp_services(void);
-+
-+#endif
-diff --git a/arch/riscv/include/asm/irq.h b/arch/riscv/include/asm/irq.h
-index 7b038f3b7cb0..b14621848eae 100644
---- a/arch/riscv/include/asm/irq.h
-+++ b/arch/riscv/include/asm/irq.h
-@@ -23,6 +23,11 @@ void riscv_set_intc_hwnode_fn(struct fwnode_handle *(*fn)(void));
-
- struct fwnode_handle *riscv_get_intc_hwnode(void);
-
-+static inline int nr_legacy_irqs(void)
-+{
-+	return 0;
-+}
-+
- #ifdef CONFIG_ACPI
-
- enum riscv_irqchip_type {
-diff --git a/arch/riscv/include/asm/sync_bitops.h b/arch/riscv/include/asm/sync_bitops.h
-new file mode 100644
-index 000000000000..28e3c64ba852
---- /dev/null
-+++ b/arch/riscv/include/asm/sync_bitops.h
-@@ -0,0 +1,27 @@
-+/* SPDX-License-Identifier: GPL-2.0 */
-+#ifndef __ASM_SYNC_BITOPS_H__
-+#define __ASM_SYNC_BITOPS_H__
-+
-+#include <asm/bitops.h>
-+#include <asm/cmpxchg.h>
-+
-+/* sync_bitops functions are equivalent to the SMP implementation of the
-+ * original functions, independently from CONFIG_SMP being defined.
-+ *
-+ * We need them because _set_bit etc are not SMP safe if !CONFIG_SMP. But
-+ * under Xen you might be communicating with a completely external entity
-+ * who might be on another CPU (e.g. two uniprocessor guests communicating
-+ * via event channels and grant tables). So we need a variant of the bit
-+ * ops which are SMP safe even on a UP kernel.
-+ */
-+
-+#define sync_set_bit(nr, p)             set_bit(nr, p)
-+#define sync_clear_bit(nr, p)           clear_bit(nr, p)
-+#define sync_change_bit(nr, p)          change_bit(nr, p)
-+#define sync_test_and_set_bit(nr, p)    test_and_set_bit(nr, p)
-+#define sync_test_and_clear_bit(nr, p)  test_and_clear_bit(nr, p)
-+#define sync_test_and_change_bit(nr, p) test_and_change_bit(nr, p)
-+#define sync_test_bit(nr, addr)         test_bit(nr, addr)
-+#define arch_sync_cmpxchg               arch_cmpxchg
-+
-+#endif
-diff --git a/arch/riscv/include/asm/xen/events.h b/arch/riscv/include/asm/xen/events.h
-new file mode 100644
-index 000000000000..a3d0332ca46c
---- /dev/null
-+++ b/arch/riscv/include/asm/xen/events.h
-@@ -0,0 +1,28 @@
-+/* SPDX-License-Identifier: GPL-2.0 */
-+#ifndef _ASM_RISCV_XEN_EVENTS_H
-+#define _ASM_RISCV_XEN_EVENTS_H
-+
-+#include <asm/ptrace.h>
-+#include <asm/atomic.h>
-+
-+enum ipi_vector {
-+	XEN_PLACEHOLDER_VECTOR,
-+
-+	/* Xen IPIs go here */
-+	XEN_NR_IPIS,
-+};
-+
-+static inline int xen_irqs_disabled(struct pt_regs *regs)
-+{
-+	return 0;
-+}
-+
-+#define xchg_xen_ulong(ptr, val) xchg((ptr), (val))
-+
-+/* Rebind event channel is supported by default */
-+static inline bool xen_support_evtchn_rebind(void)
-+{
-+	return true;
-+}
-+
-+#endif /* _ASM_RISCV_XEN_EVENTS_H */
-diff --git a/arch/riscv/include/asm/xen/hypercall.h b/arch/riscv/include/asm/xen/hypercall.h
-new file mode 100644
-index 000000000000..0841ba1f0835
---- /dev/null
-+++ b/arch/riscv/include/asm/xen/hypercall.h
-@@ -0,0 +1,2 @@
-+/* SPDX-License-Identifier: GPL-2.0 */
-+#include <xen/riscv/hypercall.h>
-diff --git a/arch/riscv/include/asm/xen/hypervisor.h b/arch/riscv/include/asm/xen/hypervisor.h
-new file mode 100644
-index 000000000000..05b7c834d0a9
---- /dev/null
-+++ b/arch/riscv/include/asm/xen/hypervisor.h
-@@ -0,0 +1,2 @@
-+/* SPDX-License-Identifier: GPL-2.0 */
-+#include <xen/riscv/hypervisor.h>
-diff --git a/arch/riscv/include/asm/xen/interface.h b/arch/riscv/include/asm/xen/interface.h
-new file mode 100644
-index 000000000000..9f30b1d7e77c
---- /dev/null
-+++ b/arch/riscv/include/asm/xen/interface.h
-@@ -0,0 +1,2 @@
-+/* SPDX-License-Identifier: GPL-2.0 */
-+#include <xen/riscv/interface.h>
-diff --git a/arch/riscv/include/asm/xen/page.h b/arch/riscv/include/asm/xen/page.h
-new file mode 100644
-index 000000000000..c8f5b873445b
---- /dev/null
-+++ b/arch/riscv/include/asm/xen/page.h
-@@ -0,0 +1,3 @@
-+/* SPDX-License-Identifier: GPL-2.0 */
-+#include <xen/riscv/page.h>
-+#include <asm/mmu.h>
-diff --git a/arch/riscv/include/asm/xen/swiotlb-xen.h b/arch/riscv/include/asm/xen/swiotlb-xen.h
-new file mode 100644
-index 000000000000..aa3bc339df03
---- /dev/null
-+++ b/arch/riscv/include/asm/xen/swiotlb-xen.h
-@@ -0,0 +1,2 @@
-+/* SPDX-License-Identifier: GPL-2.0 */
-+#include <xen/riscv/swiotlb-xen.h>
-diff --git a/arch/riscv/xen/Makefile b/arch/riscv/xen/Makefile
-new file mode 100644
-index 000000000000..f6d3a357e4c7
---- /dev/null
-+++ b/arch/riscv/xen/Makefile
-@@ -0,0 +1,2 @@
-+# SPDX-License-Identifier: GPL-2.0-only
-+obj-y := enlighten.o p2m.o grant-table.o hypercall.o
-diff --git a/arch/riscv/xen/enlighten.c b/arch/riscv/xen/enlighten.c
-new file mode 100644
-index 000000000000..28bd66c288f9
---- /dev/null
-+++ b/arch/riscv/xen/enlighten.c
-@@ -0,0 +1,164 @@
-+// SPDX-License-Identifier: GPL-2.0-only
-+#include <xen/xen.h>
-+#include <xen/events.h>
-+#include <xen/grant_table.h>
-+#include <xen/hvm.h>
-+#include <xen/interface/vcpu.h>
-+#include <xen/interface/xen.h>
-+#include <xen/interface/memory.h>
-+#include <xen/interface/hvm/params.h>
-+#include <xen/features.h>
-+#include <xen/platform_pci.h>
-+#include <xen/xenbus.h>
-+#include <xen/page.h>
-+#include <xen/interface/sched.h>
-+#include <xen/xen-ops.h>
-+#include <asm/xen/hypervisor.h>
-+#include <asm/xen/hypercall.h>
-+#include <asm/efi.h>
-+#include <linux/interrupt.h>
-+#include <linux/irqreturn.h>
-+#include <linux/module.h>
-+#include <linux/of.h>
-+#include <linux/of_fdt.h>
-+#include <linux/of_irq.h>
-+#include <linux/of_address.h>
-+#include <linux/cpuidle.h>
-+#include <linux/cpufreq.h>
-+#include <linux/cpu.h>
-+#include <linux/console.h>
-+#include <linux/pvclock_gtod.h>
-+#include <linux/reboot.h>
-+#include <linux/time64.h>
-+#include <linux/timekeeping.h>
-+#include <linux/timekeeper_internal.h>
-+#include <linux/acpi.h>
-+#include <linux/virtio_anchor.h>
-+
-+#include <linux/mm.h>
-+
-+static struct start_info _xen_start_info;
-+struct start_info *xen_start_info = &_xen_start_info;
-+EXPORT_SYMBOL(xen_start_info);
-+
-+enum xen_domain_type xen_domain_type = XEN_NATIVE;
-+EXPORT_SYMBOL(xen_domain_type);
-+
-+struct shared_info xen_dummy_shared_info;
-+struct shared_info *HYPERVISOR_shared_info = (void *)&xen_dummy_shared_info;
-+
-+DEFINE_PER_CPU(struct vcpu_info *, xen_vcpu);
-+static struct vcpu_info __percpu *xen_vcpu_info;
-+
-+/* Linux <-> Xen vCPU id mapping */
-+DEFINE_PER_CPU(uint32_t, xen_vcpu_id);
-+EXPORT_PER_CPU_SYMBOL(xen_vcpu_id);
-+
-+/* These are unused until we support booting "pre-ballooned" */
-+unsigned long xen_released_pages;
-+struct xen_memory_region xen_extra_mem[XEN_EXTRA_MEM_MAX_REGIONS] __initdata;
-+
-+static __read_mostly unsigned int xen_events_irq;
-+static __read_mostly phys_addr_t xen_grant_frames;
-+
-+#define GRANT_TABLE_INDEX   0
-+#define EXT_REGION_INDEX    1
-+
-+uint32_t xen_start_flags;
-+EXPORT_SYMBOL(xen_start_flags);
-+
-+int xen_unmap_domain_gfn_range(struct vm_area_struct *vma,
-+					int nr, struct page **pages)
-+{
-+	return 0;
-+}
-+EXPORT_SYMBOL_GPL(xen_unmap_domain_gfn_range);
-+
-+static void xen_read_wallclock(struct timespec64 *ts)
-+{
-+}
-+
-+static int xen_pvclock_gtod_notify(struct notifier_block *nb,
-+					unsigned long was_set, void *priv)
-+{
-+	return 0;
-+}
-+
-+static struct notifier_block xen_pvclock_gtod_notifier = {
-+	.notifier_call = xen_pvclock_gtod_notify,
-+};
-+
-+static int xen_starting_cpu(unsigned int cpu)
-+{
-+	return 0;
-+}
-+
-+static int xen_dying_cpu(unsigned int cpu)
-+{
-+	return 0;
-+}
-+
-+void xen_reboot(int reason)
-+{
-+}
-+
-+static int xen_restart(struct notifier_block *nb, unsigned long action,
-+					void *data)
-+{
-+	return 0;
-+}
-+
-+static struct notifier_block xen_restart_nb = {
-+	.notifier_call = xen_restart,
-+	.priority = 192,
-+};
-+
-+static void xen_power_off(void)
-+{
-+}
-+
-+static __initdata struct {
-+	const char *compat;
-+	const char *prefix;
-+	const char *version;
-+	bool found;
-+} hyper_node = {"xen,xen", "xen,xen-", NULL, false};
-+
-+static int __init fdt_find_hyper_node(unsigned long node, const char *uname,
-+					int depth, void *data)
-+{
-+	return 0;
-+}
-+
-+void __init xen_early_init(void)
-+{
-+}
-+
-+static void __init xen_dt_guest_init(void)
-+{
-+}
-+
-+static int __init xen_guest_init(void)
-+{
-+	return 0;
-+}
-+early_initcall(xen_guest_init);
-+
-+static int xen_starting_runstate_cpu(unsigned int cpu)
-+{
-+	return 0;
-+}
-+
-+static int __init xen_late_init(void)
-+{
-+	return 0;
-+}
-+late_initcall(xen_late_init);
-+
-+
-+/* empty stubs */
-+void xen_arch_pre_suspend(void) { }
-+void xen_arch_post_suspend(int suspend_cancelled) { }
-+void xen_timer_resume(void) { }
-+void xen_arch_resume(void) { }
-+void xen_arch_suspend(void) { }
-diff --git a/arch/riscv/xen/grant-table.c b/arch/riscv/xen/grant-table.c
-new file mode 100644
-index 000000000000..9dd0cea74360
---- /dev/null
-+++ b/arch/riscv/xen/grant-table.c
-@@ -0,0 +1,57 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/******************************************************************************
-+ * grant_table.c
-+ *
-+ * Granting foreign access to our memory reservation.
-+ *
-+ * This program is free software; you can redistribute it and/or
-+ * modify it under the terms of the GNU General Public License version 2
-+ * as published by the Free Software Foundation; or, when distributed
-+ * separately from the Linux kernel or incorporated into other
-+ * software packages, subject to the following license:
-+ *
-+ * Permission is hereby granted, free of charge, to any person obtaining a copy
-+ * of this source file (the "Software"), to deal in the Software without
-+ * restriction, including without limitation the rights to use, copy, modify,
-+ * merge, publish, distribute, sublicense, and/or sell copies of the Software,
-+ * and to permit persons to whom the Software is furnished to do so, subject to
-+ * the following conditions:
-+ *
-+ * The above copyright notice and this permission notice shall be included in
-+ * all copies or substantial portions of the Software.
-+ *
-+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
-+ * FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
-+ * IN THE SOFTWARE.
-+ */
-+
-+#include <xen/interface/xen.h>
-+#include <xen/page.h>
-+#include <xen/grant_table.h>
-+
-+int arch_gnttab_map_shared(xen_pfn_t *frames, unsigned long nr_gframes,
-+					unsigned long max_nr_gframes,
-+					void **__shared)
-+{
-+	return 0;
-+}
-+
-+void arch_gnttab_unmap(void *shared, unsigned long nr_gframes)
-+{
-+}
-+
-+int arch_gnttab_map_status(uint64_t *frames, unsigned long nr_gframes,
-+					unsigned long max_nr_gframes,
-+					grant_status_t **__shared)
-+{
-+	return 0;
-+}
-+
-+int arch_gnttab_init(unsigned long nr_shared, unsigned long nr_status)
-+{
-+	return 0;
-+}
-diff --git a/arch/riscv/xen/hypercall.S b/arch/riscv/xen/hypercall.S
-new file mode 100644
-index 000000000000..a81afd2a11c4
---- /dev/null
-+++ b/arch/riscv/xen/hypercall.S
-@@ -0,0 +1,71 @@
-+/* SPDX-License-Identifier: GPL-2.0 */
-+#include <linux/linkage.h>
-+#include <asm/assembler.h>
-+#include <xen/interface/xen.h>
-+EXPORT_SYMBOL_GPL(HYPERVISOR_event_channel_op);
-+EXPORT_SYMBOL_GPL(HYPERVISOR_grant_table_op);
-+EXPORT_SYMBOL_GPL(HYPERVISOR_xen_version);
-+EXPORT_SYMBOL_GPL(HYPERVISOR_console_io);
-+EXPORT_SYMBOL_GPL(HYPERVISOR_sched_op);
-+EXPORT_SYMBOL_GPL(HYPERVISOR_hvm_op);
-+EXPORT_SYMBOL_GPL(HYPERVISOR_memory_op);
-+EXPORT_SYMBOL_GPL(HYPERVISOR_physdev_op);
-+EXPORT_SYMBOL_GPL(HYPERVISOR_vcpu_op);
-+EXPORT_SYMBOL_GPL(HYPERVISOR_platform_op_raw);
-+EXPORT_SYMBOL_GPL(HYPERVISOR_multicall);
-+EXPORT_SYMBOL_GPL(HYPERVISOR_vm_assist);
-+EXPORT_SYMBOL_GPL(HYPERVISOR_dm_op);
-+EXPORT_SYMBOL_GPL(privcmd_call);
-+#define SBI_ECALL 0xE
-+
-+    .data
-+
-+#define HYPERCALL_SIMPLE(hypercall) \
-+SYM_FUNC_START(HYPERVISOR_##hypercall) \
-+    li a6, __HYPERVISOR_##hypercall; \
-+    li a7, SBI_ECALL; \
-+    mv a5, a4; \
-+    mv a4, a3; \
-+    mv a3, a2; \
-+    mv a2, a1; \
-+    mv a1, a0; \
-+    li a0, 0; \
-+    ecall; \
-+    ret; \
-+SYM_FUNC_END(HYPERVISOR_##hypercall)
-+
-+#define HYPERCALL0 HYPERCALL_SIMPLE
-+#define HYPERCALL1 HYPERCALL_SIMPLE
-+#define HYPERCALL2 HYPERCALL_SIMPLE
-+#define HYPERCALL3 HYPERCALL_SIMPLE
-+#define HYPERCALL4 HYPERCALL_SIMPLE
-+#define HYPERCALL5 HYPERCALL_SIMPLE
-+
-+    .text
-+
-+HYPERCALL2(xen_version);
-+HYPERCALL3(console_io);
-+HYPERCALL3(grant_table_op);
-+HYPERCALL2(sched_op);
-+HYPERCALL2(event_channel_op);
-+HYPERCALL2(hvm_op);
-+HYPERCALL2(memory_op);
-+HYPERCALL2(physdev_op);
-+HYPERCALL3(vcpu_op);
-+HYPERCALL1(platform_op_raw);
-+HYPERCALL2(multicall);
-+HYPERCALL2(vm_assist);
-+HYPERCALL3(dm_op);
-+
-+SYM_FUNC_START(privcmd_call)
-+    mv a6, a0
-+    li a7, SBI_ECALL
-+    mv a5, a4;
-+    mv a4, a3;
-+    mv a3, a2;
-+    mv a2, a1;
-+    mv a1, a0;
-+    li a0, 0;
-+    ecall
-+    ret
-+SYM_FUNC_END(privcmd_call);
-diff --git a/arch/riscv/xen/p2m.c b/arch/riscv/xen/p2m.c
-new file mode 100644
-index 000000000000..7ce75e52d7c4
---- /dev/null
-+++ b/arch/riscv/xen/p2m.c
-@@ -0,0 +1,76 @@
-+// SPDX-License-Identifier: GPL-2.0-only
-+#include <linux/memblock.h>
-+#include <linux/gfp.h>
-+#include <linux/export.h>
-+#include <linux/spinlock.h>
-+#include <linux/slab.h>
-+#include <linux/types.h>
-+#include <linux/dma-mapping.h>
-+#include <linux/vmalloc.h>
-+#include <linux/swiotlb.h>
-+
-+#include <xen/xen.h>
-+#include <xen/interface/memory.h>
-+#include <xen/grant_table.h>
-+#include <xen/page.h>
-+#include <xen/swiotlb-xen.h>
-+
-+#include <asm/cacheflush.h>
-+#include <asm/xen/hypercall.h>
-+#include <asm/xen/interface.h>
-+
-+struct xen_p2m_entry {
-+	unsigned long pfn;
-+	unsigned long mfn;
-+	unsigned long nr_pages;
-+	struct rb_node rbnode_phys;
-+};
-+
-+static rwlock_t p2m_lock;
-+struct rb_root phys_to_mach = RB_ROOT;
-+EXPORT_SYMBOL_GPL(phys_to_mach);
-+
-+static int xen_add_phys_to_mach_entry(struct xen_p2m_entry *new)
-+{
-+
-+	return 0;
-+}
-+
-+unsigned long __pfn_to_mfn(unsigned long pfn)
-+{
-+	return 0;
-+}
-+EXPORT_SYMBOL_GPL(__pfn_to_mfn);
-+
-+int set_foreign_p2m_mapping(struct gnttab_map_grant_ref *map_ops,
-+					struct gnttab_map_grant_ref *kmap_ops,
-+					struct page **pages, unsigned int count)
-+{
-+	return 0;
-+}
-+
-+int clear_foreign_p2m_mapping(struct gnttab_unmap_grant_ref *unmap_ops,
-+					struct gnttab_unmap_grant_ref *kunmap_ops,
-+					struct page **pages, unsigned int count)
-+{
-+	return 0;
-+}
-+
-+bool __set_phys_to_machine_multi(unsigned long pfn,
-+					unsigned long mfn, unsigned long nr_pages)
-+{
-+	return true;
-+}
-+EXPORT_SYMBOL_GPL(__set_phys_to_machine_multi);
-+
-+bool __set_phys_to_machine(unsigned long pfn, unsigned long mfn)
-+{
-+	return true;
-+}
-+EXPORT_SYMBOL_GPL(__set_phys_to_machine);
-+
-+static int p2m_init(void)
-+{
-+	return 0;
-+}
-+arch_initcall(p2m_init);
-diff --git a/include/xen/interface/io/protocols.h b/include/xen/interface/io/protocols.h
-index 22099bb4079f..6c6317462be0 100644
---- a/include/xen/interface/io/protocols.h
-+++ b/include/xen/interface/io/protocols.h
-@@ -6,6 +6,7 @@
- #define XEN_IO_PROTO_ABI_X86_64     "x86_64-abi"
- #define XEN_IO_PROTO_ABI_POWERPC64  "powerpc64-abi"
- #define XEN_IO_PROTO_ABI_ARM        "arm-abi"
-+#define XEN_IO_PROTO_ABI_RISCV      "riscv-abi"
-
- #if defined(__i386__)
- # define XEN_IO_PROTO_ABI_NATIVE XEN_IO_PROTO_ABI_X86_32
-@@ -15,6 +16,8 @@
- # define XEN_IO_PROTO_ABI_NATIVE XEN_IO_PROTO_ABI_POWERPC64
- #elif defined(__arm__) || defined(__aarch64__)
- # define XEN_IO_PROTO_ABI_NATIVE XEN_IO_PROTO_ABI_ARM
-+#elif defined(__riscv)
-+# define XEN_IO_PROTO_ABI_NATIVE XEN_IO_PROTO_ABI_RISCV
- #else
- # error arch fixup needed here
- #endif
-diff --git a/include/xen/riscv/hypercall.h b/include/xen/riscv/hypercall.h
-new file mode 100644
-index 000000000000..f76d8a018f26
---- /dev/null
-+++ b/include/xen/riscv/hypercall.h
-@@ -0,0 +1,71 @@
-+/* SPDX-License-Identifier: GPL-2.0 */
-+/******************************************************************************
-+ * hypercall.h
-+ *
-+ * Linux-specific hypervisor handling.
-+ *
-+ * This program is free software; you can redistribute it and/or
-+ * modify it under the terms of the GNU General Public License version 2
-+ * as published by the Free Software Foundation; or, when distributed
-+ * separately from the Linux kernel or incorporated into other
-+ * software packages, subject to the following license:
-+ *
-+ * Permission is hereby granted, free of charge, to any person obtaining a copy
-+ * of this source file (the "Software"), to deal in the Software without
-+ * restriction, including without limitation the rights to use, copy, modify,
-+ * merge, publish, distribute, sublicense, and/or sell copies of the Software,
-+ * and to permit persons to whom the Software is furnished to do so, subject to
-+ * the following conditions:
-+ *
-+ * The above copyright notice and this permission notice shall be included in
-+ * all copies or substantial portions of the Software.
-+ *
-+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
-+ * FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
-+ * IN THE SOFTWARE.
-+ */
-+
-+#ifndef _ASM_RISCV_XEN_HYPERCALL_H
-+#define _ASM_RISCV_XEN_HYPERCALL_H
-+
-+#include <linux/bug.h>
-+
-+#include <xen/interface/xen.h>
-+#include <xen/interface/sched.h>
-+#include <xen/interface/platform.h>
-+
-+struct xen_dm_op_buf;
-+
-+long privcmd_call(unsigned int call, unsigned long a1,
-+		unsigned long a2, unsigned long a3,
-+		unsigned long a4, unsigned long a5);
-+int HYPERVISOR_xen_version(int cmd, void *arg);
-+int HYPERVISOR_console_io(int cmd, int count, char *str);
-+int HYPERVISOR_grant_table_op(unsigned int cmd, void *uop, unsigned int count);
-+int HYPERVISOR_sched_op(int cmd, void *arg);
-+int HYPERVISOR_event_channel_op(int cmd, void *arg);
-+unsigned long HYPERVISOR_hvm_op(int op, void *arg);
-+int HYPERVISOR_memory_op(unsigned int cmd, void *arg);
-+int HYPERVISOR_physdev_op(int cmd, void *arg);
-+int HYPERVISOR_vcpu_op(int cmd, int vcpuid, void *extra_args);
-+int HYPERVISOR_vm_assist(unsigned int cmd, unsigned int type);
-+int HYPERVISOR_dm_op(domid_t domid, unsigned int nr_bufs,
-+			 struct xen_dm_op_buf *bufs);
-+int HYPERVISOR_platform_op_raw(void *arg);
-+static inline int HYPERVISOR_platform_op(struct xen_platform_op *op)
-+{
-+	return 0;
-+}
-+int HYPERVISOR_multicall(struct multicall_entry *calls, uint32_t nr);
-+
-+static inline int
-+HYPERVISOR_suspend(unsigned long start_info_mfn)
-+{
-+	return 0;
-+}
-+
-+#endif /* _ASM_RISCV_XEN_HYPERCALL_H */
-diff --git a/include/xen/riscv/hypervisor.h b/include/xen/riscv/hypervisor.h
-new file mode 100644
-index 000000000000..2c1f9625be80
---- /dev/null
-+++ b/include/xen/riscv/hypervisor.h
-@@ -0,0 +1,26 @@
-+/* SPDX-License-Identifier: GPL-2.0 */
-+#ifndef _ASM_RISCV_XEN_HYPERVISOR_H
-+#define _ASM_RISCV_XEN_HYPERVISOR_H
-+
-+#include <linux/init.h>
-+
-+extern struct shared_info *HYPERVISOR_shared_info;
-+extern struct start_info *xen_start_info;
-+
-+#ifdef CONFIG_XEN
-+void __init xen_early_init(void);
-+#else
-+static inline void xen_early_init(void) { return; }
-+#endif
-+
-+#ifdef CONFIG_HOTPLUG_CPU
-+static inline void xen_arch_register_cpu(int num)
-+{
-+}
-+
-+static inline void xen_arch_unregister_cpu(int num)
-+{
-+}
-+#endif
-+
-+#endif /* _ASM_RISCV_XEN_HYPERVISOR_H */
-diff --git a/include/xen/riscv/interface.h b/include/xen/riscv/interface.h
-new file mode 100644
-index 000000000000..6769b5b39cba
---- /dev/null
-+++ b/include/xen/riscv/interface.h
-@@ -0,0 +1,85 @@
-+/* SPDX-License-Identifier: GPL-2.0 */
-+/******************************************************************************
-+ * Guest OS interface to RISCV Xen.
-+ *
-+ */
-+
-+#ifndef _ASM_RISCV_XEN_INTERFACE_H
-+#define _ASM_RISCV_XEN_INTERFACE_H
-+
-+#include <linux/types.h>
-+
-+#define uint64_aligned_t uint64_t __aligned(8)
-+
-+#define __DEFINE_GUEST_HANDLE(name, type) \
-+	typedef struct { union { type * p; uint64_aligned_t q; }; }  \
-+		__guest_handle_ ## name
-+
-+#define DEFINE_GUEST_HANDLE_STRUCT(name) \
-+	__DEFINE_GUEST_HANDLE(name, struct name)
-+#define DEFINE_GUEST_HANDLE(name) __DEFINE_GUEST_HANDLE(name, name)
-+#define GUEST_HANDLE(name)        __guest_handle_ ## name
-+
-+#define set_xen_guest_handle(hnd, val)			\
-+	do {						\
-+		if (sizeof(hnd) == 8)			\
-+			*(uint64_t *)&(hnd) = 0;	\
-+		(hnd).p = val;				\
-+	} while (0)
-+
-+#define __HYPERVISOR_platform_op_raw __HYPERVISOR_platform_op
-+
-+#ifndef __ASSEMBLY__
-+/* Explicitly size integers that represent pfns in the interface with
-+ * Xen so that we can have one ABI that works for 32 and 64 bit guests.
-+ * Note that this means that the xen_pfn_t type may be capable of
-+ * representing pfn's which the guest cannot represent in its own pfn
-+ * type. However since pfn space is controlled by the guest this is
-+ * fine since it simply wouldn't be able to create any sure pfns in
-+ * the first place.
-+ */
-+typedef uint64_t xen_pfn_t;
-+#define PRI_xen_pfn "llx"
-+typedef uint64_t xen_ulong_t;
-+#define PRI_xen_ulong "llx"
-+typedef int64_t xen_long_t;
-+#define PRI_xen_long "llx"
-+/* Guest handles for primitive C types. */
-+__DEFINE_GUEST_HANDLE(uchar, unsigned char);
-+__DEFINE_GUEST_HANDLE(uint,  unsigned int);
-+DEFINE_GUEST_HANDLE(char);
-+DEFINE_GUEST_HANDLE(int);
-+DEFINE_GUEST_HANDLE(void);
-+DEFINE_GUEST_HANDLE(uint64_t);
-+DEFINE_GUEST_HANDLE(uint32_t);
-+DEFINE_GUEST_HANDLE(xen_pfn_t);
-+DEFINE_GUEST_HANDLE(xen_ulong_t);
-+
-+/* Maximum number of virtual CPUs in multi-processor guests. */
-+#define MAX_VIRT_CPUS 1
-+
-+struct arch_vcpu_info { };
-+struct arch_shared_info { };
-+
-+/* TODO: Move pvclock definitions some place arch independent */
-+struct pvclock_vcpu_time_info {
-+	u32   version;
-+	u32   pad0;
-+	u64   tsc_timestamp;
-+	u64   system_time;
-+	u32   tsc_to_system_mul;
-+	s8    tsc_shift;
-+	u8    flags;
-+	u8    pad[2];
-+} __packed; /* 32 bytes */
-+
-+/* It is OK to have a 12 bytes struct with no padding because it is packed */
-+struct pvclock_wall_clock {
-+	u32   version;
-+	u32   sec;
-+	u32   nsec;
-+	u32   sec_hi;
-+} __packed;
-+#endif
-+
-+#endif /* _ASM_RISCV_XEN_INTERFACE_H */
-diff --git a/include/xen/riscv/page.h b/include/xen/riscv/page.h
-new file mode 100644
-index 000000000000..fe07a9bffa7e
---- /dev/null
-+++ b/include/xen/riscv/page.h
-@@ -0,0 +1,106 @@
-+/* SPDX-License-Identifier: GPL-2.0 */
-+#ifndef _ASM_RISCV_XEN_PAGE_H
-+#define _ASM_RISCV_XEN_PAGE_H
-+
-+#include <asm/page.h>
-+
-+#include <linux/pfn.h>
-+#include <linux/types.h>
-+#include <linux/dma-mapping.h>
-+#include <linux/pgtable.h>
-+
-+#include <xen/xen.h>
-+#include <xen/interface/grant_table.h>
-+
-+/* Xen machine address */
-+struct xmaddr {
-+	phys_addr_t maddr;
-+};
-+
-+/* Xen pseudo-physical address */
-+struct xpaddr {
-+	phys_addr_t paddr;
-+};
-+
-+#define XMADDR(x)	((struct xmaddr) { .maddr = (x) })
-+#define XPADDR(x)	((struct xpaddr) { .paddr = (x) })
-+
-+#define INVALID_P2M_ENTRY      (~0UL)
-+
-+/*
-+ * The pseudo-physical frame (pfn) used in all the helpers is always based
-+ * on Xen page granularity (i.e 4KB).
-+ *
-+ * A Linux page may be split across multiple non-contiguous Xen page so we
-+ * have to keep track with frame based on 4KB page granularity.
-+ *
-+ * PV drivers should never make a direct usage of those helpers (particularly
-+ * pfn_to_gfn and gfn_to_pfn).
-+ */
-+
-+unsigned long __pfn_to_mfn(unsigned long pfn);
-+extern struct rb_root phys_to_mach;
-+
-+/* Pseudo-physical <-> Guest conversion */
-+static inline unsigned long pfn_to_gfn(unsigned long pfn)
-+{
-+	return 0;
-+}
-+
-+static inline unsigned long gfn_to_pfn(unsigned long gfn)
-+{
-+	return 0;
-+}
-+
-+/* Pseudo-physical <-> BUS conversion */
-+static inline unsigned long pfn_to_bfn(unsigned long pfn)
-+{
-+	return 0;
-+}
-+
-+static inline unsigned long bfn_to_pfn(unsigned long bfn)
-+{
-+	return 0;
-+}
-+
-+#define bfn_to_local_pfn(bfn)	bfn_to_pfn(bfn)
-+
-+/* VIRT <-> GUEST conversion */
-+#define virt_to_gfn(v)                                                         \
-+	({                                                                     \
-+		WARN_ON_ONCE(!virt_addr_valid(v));                              \
-+		pfn_to_gfn(virt_to_phys(v) >> XEN_PAGE_SHIFT);                 \
-+	})
-+#define gfn_to_virt(m)		(__va(gfn_to_pfn(m) << XEN_PAGE_SHIFT))
-+
-+#define percpu_to_gfn(v)	\
-+	(pfn_to_gfn(per_cpu_ptr_to_phys(v) >> XEN_PAGE_SHIFT))
-+
-+static inline struct xmaddr arbitrary_virt_to_machine(void *vaddr)
-+{
-+	WARN_ON_ONCE(1);
-+	return (struct xmaddr){0};
-+}
-+
-+extern int set_foreign_p2m_mapping(struct gnttab_map_grant_ref *map_ops,
-+				   struct gnttab_map_grant_ref *kmap_ops,
-+				   struct page **pages, unsigned int count);
-+
-+extern int clear_foreign_p2m_mapping(struct gnttab_unmap_grant_ref *unmap_ops,
-+					 struct gnttab_unmap_grant_ref *kunmap_ops,
-+					 struct page **pages, unsigned int count);
-+
-+bool __set_phys_to_machine(unsigned long pfn, unsigned long mfn);
-+bool __set_phys_to_machine_multi(unsigned long pfn, unsigned long mfn,
-+		unsigned long nr_pages);
-+
-+static inline bool set_phys_to_machine(unsigned long pfn, unsigned long mfn)
-+{
-+	return 0;
-+}
-+
-+bool xen_arch_need_swiotlb(struct device *dev,
-+			   phys_addr_t phys,
-+			   dma_addr_t dev_addr);
-+
-+#endif /* _ASM_RISCV_XEN_PAGE_H */
-diff --git a/include/xen/riscv/swiotlb-xen.h b/include/xen/riscv/swiotlb-xen.h
-new file mode 100644
-index 000000000000..97ecd8cbbc2d
---- /dev/null
-+++ b/include/xen/riscv/swiotlb-xen.h
-@@ -0,0 +1,13 @@
-+/* SPDX-License-Identifier: GPL-2.0 */
-+#ifndef _ASM_RISCV_SWIOTLB_XEN_H
-+#define _ASM_RISCV_SWIOTLB_XEN_H
-+
-+#include <xen/features.h>
-+#include <xen/xen.h>
-+
-+static inline int xen_swiotlb_detect(void)
-+{
-+	return 0;
-+}
-+
-+#endif /* _ASM_RISCV_SWIOTLB_XEN_H */
-diff --git a/test.txt b/test.txt
-new file mode 100644
-index 000000000000..e54267998982
---- /dev/null
-+++ b/test.txt
-@@ -0,0 +1,21 @@
-+WARNING: added, moved or deleted file(s), does MAINTAINERS need updating?
-+#120:
-+new file mode 100644
-+
-+WARNING: do not add new typedefs
-+#808: FILE: include/xen/riscv/interface.h:15:
-++	typedef struct { union { type * p; uint64_aligned_t q; }; }  \
-+
-+WARNING: please, no spaces at the start of a line
-+#1006: FILE: include/xen/riscv/swiotlb-xen.h:10:
-++    return 0;$
-+
-+total: 0 errors, 3 warnings, 810 lines checked
-+
-+NOTE: For some of the reported defects, checkpatch may be able to
-+      mechanically convert to the typical style using --fix or --fix-inplace.
-+
-+0001-riscv-Add-initial-Xen-guest-support-for-RISC-V.patch has style problems, please review.
-+
-+NOTE: If any of the errors are false positives, please report
-+      them to the maintainer, see CHECKPATCH in MAINTAINERS.
---
-2.43.0
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gVHVlLCBKYW4gMTQsIDIwMjUgYXQgOTo0MeKAr1BNIE1pbGFuIERqb2tpYyA8bWlsYW5kam9r
+aWMxOTk1QGdtYWlsLmNvbT4gd3JvdGU6Cj4KPiBGcm9tOiBTbGF2aXNhIFBldHJvdmljIDxTbGF2
+aXNhLlBldHJvdmljQHJ0LXJrLmNvbT4KPgo+IFRoaXMgcGF0Y2ggaW50cm9kdWNlcyBpbml0aWFs
+IHN1cHBvcnQgZm9yIHJ1bm5pbmcgUklTQy1WIGFzIGEgWGVuIGd1ZXN0Lgo+IEl0IHByb3ZpZGVz
+IHRoZSBuZWNlc3NhcnkgaW5mcmFzdHJ1Y3R1cmUgYW5kIHN0dWJzIGZvciBYZW4tc3BlY2lmaWMK
+PiBvcGVyYXRpb25zLiBLZXkgY2hhbmdlcyBpbmNsdWRlOgo+Cj4gLSBNb2RpZmljYXRpb25zIHRv
+IHRoZSBSSVNDLVYga2VybmVsIHRvIGludGVncmF0ZSBYZW4tc3BlY2lmaWMgaHlwZXJjYWxscwo+
+ICAgYW5kIGludGVyZmFjZXMsIHdpdGggZnVuY3Rpb24gaW1wbGVtZW50YXRpb25zIHN0dWJiZWQg
+Zm9yIGZ1dHVyZSB3b3JrLgo+IC0gSW50cm9kdWN0aW9uIG9mIFhlbi1zcGVjaWZpYyBoZWFkZXJz
+IGZvciBSSVNDLVYsIGluY2x1ZGluZyBldmVudAo+ICAgaGFuZGxpbmcsIGh5cGVydmlzb3IgaW50
+ZXJhY3Rpb24sIGFuZCBwYWdlIG1hbmFnZW1lbnQuIEZ1bmN0aW9ucyBhcmUKPiAgIGRlZmluZWQg
+YnV0IG5vdCB5ZXQgaW1wbGVtZW50ZWQuCj4gLSBTdHViIGltcGxlbWVudGF0aW9ucyBmb3IgbWVt
+b3J5IG1hbmFnZW1lbnQsIGdyYW50IHRhYmxlcywgYW5kIGNvbnRleHQKPiAgIHN3aXRjaGluZyBp
+biB0aGUgWGVuIGVudmlyb25tZW50LCBhbGxvd2luZyBmdXJ0aGVyIGRldmVsb3BtZW50IGFuZAo+
+ICAgaW50ZWdyYXRpb24uCj4KPiBTaWduZWQtb2ZmLWJ5OiBNaWxhbiBEam9raWMgPE1pbGFuLkRq
+b2tpY0BydC1yay5jb20+Cj4gU2lnbmVkLW9mZi1ieTogU2xhdmlzYSBQZXRyb3ZpYyA8U2xhdmlz
+YS5QZXRyb3ZpY0BydC1yay5jb20+CgpBIHNpbmdsZSBwYXRjaCB3aXRoIG1hbnkgY2hhbmdlcyBp
+cyBoYXJkIHRvIHJldmlldy4KClBsZWFzZSBjb252ZXJ0IHRoaXMgcGF0Y2ggaW50byBhIHNlcmll
+cyB3aXRoIHNtYWxsZXIgcGF0Y2hlcy4KQWxzbywgaW5jbHVkZSBhIGNvdmVyIGxldHRlciBpbiB0
+aGUgc2VyaWVzIGV4cGxhaW5pbmcgaG93IHRvCnRlc3QgWGVuIG9uIFJJU0MtVi4KClJlZ2FyZHMs
+CkFudXAKCj4gLS0tCj4gIGFyY2gvcmlzY3YvS2J1aWxkICAgICAgICAgICAgICAgICAgICAgICAg
+fCAgIDEgKwo+ICBhcmNoL3Jpc2N2L0tjb25maWcgICAgICAgICAgICAgICAgICAgICAgIHwgIDE5
+ICsrKwo+ICBhcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL2NwdS5oICAgICAgICAgICAgIHwgICAxICsK
+PiAgYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9oeXBlcnZpc29yLmggICAgICB8ICAgOSArKwo+ICBh
+cmNoL3Jpc2N2L2luY2x1ZGUvYXNtL2lycS5oICAgICAgICAgICAgIHwgICA1ICsKPiAgYXJjaC9y
+aXNjdi9pbmNsdWRlL2FzbS9zeW5jX2JpdG9wcy5oICAgICB8ICAyNyArKysrCj4gIGFyY2gvcmlz
+Y3YvaW5jbHVkZS9hc20veGVuL2V2ZW50cy5oICAgICAgfCAgMjggKysrKwo+ICBhcmNoL3Jpc2N2
+L2luY2x1ZGUvYXNtL3hlbi9oeXBlcmNhbGwuaCAgIHwgICAyICsKPiAgYXJjaC9yaXNjdi9pbmNs
+dWRlL2FzbS94ZW4vaHlwZXJ2aXNvci5oICB8ICAgMiArCj4gIGFyY2gvcmlzY3YvaW5jbHVkZS9h
+c20veGVuL2ludGVyZmFjZS5oICAgfCAgIDIgKwo+ICBhcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL3hl
+bi9wYWdlLmggICAgICAgIHwgICAzICsKPiAgYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS94ZW4vc3dp
+b3RsYi14ZW4uaCB8ICAgMiArCj4gIGFyY2gvcmlzY3YveGVuL01ha2VmaWxlICAgICAgICAgICAg
+ICAgICAgfCAgIDIgKwo+ICBhcmNoL3Jpc2N2L3hlbi9lbmxpZ2h0ZW4uYyAgICAgICAgICAgICAg
+IHwgMTY0ICsrKysrKysrKysrKysrKysrKysrKysrCj4gIGFyY2gvcmlzY3YveGVuL2dyYW50LXRh
+YmxlLmMgICAgICAgICAgICAgfCAgNTcgKysrKysrKysKPiAgYXJjaC9yaXNjdi94ZW4vaHlwZXJj
+YWxsLlMgICAgICAgICAgICAgICB8ICA3MSArKysrKysrKysrCj4gIGFyY2gvcmlzY3YveGVuL3Ay
+bS5jICAgICAgICAgICAgICAgICAgICAgfCAgNzYgKysrKysrKysrKysKPiAgaW5jbHVkZS94ZW4v
+aW50ZXJmYWNlL2lvL3Byb3RvY29scy5oICAgICB8ICAgMyArCj4gIGluY2x1ZGUveGVuL3Jpc2N2
+L2h5cGVyY2FsbC5oICAgICAgICAgICAgfCAgNzEgKysrKysrKysrKwo+ICBpbmNsdWRlL3hlbi9y
+aXNjdi9oeXBlcnZpc29yLmggICAgICAgICAgIHwgIDI2ICsrKysKPiAgaW5jbHVkZS94ZW4vcmlz
+Y3YvaW50ZXJmYWNlLmggICAgICAgICAgICB8ICA4NSArKysrKysrKysrKysKPiAgaW5jbHVkZS94
+ZW4vcmlzY3YvcGFnZS5oICAgICAgICAgICAgICAgICB8IDEwNiArKysrKysrKysrKysrKysKPiAg
+aW5jbHVkZS94ZW4vcmlzY3Yvc3dpb3RsYi14ZW4uaCAgICAgICAgICB8ICAxMyArKwo+ICB0ZXN0
+LnR4dCAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHwgIDIxICsrKwo+ICAyNCBmaWxl
+cyBjaGFuZ2VkLCA3OTYgaW5zZXJ0aW9ucygrKQo+ICBjcmVhdGUgbW9kZSAxMDA2NDQgYXJjaC9y
+aXNjdi9pbmNsdWRlL2FzbS9oeXBlcnZpc29yLmgKPiAgY3JlYXRlIG1vZGUgMTAwNjQ0IGFyY2gv
+cmlzY3YvaW5jbHVkZS9hc20vc3luY19iaXRvcHMuaAo+ICBjcmVhdGUgbW9kZSAxMDA2NDQgYXJj
+aC9yaXNjdi9pbmNsdWRlL2FzbS94ZW4vZXZlbnRzLmgKPiAgY3JlYXRlIG1vZGUgMTAwNjQ0IGFy
+Y2gvcmlzY3YvaW5jbHVkZS9hc20veGVuL2h5cGVyY2FsbC5oCj4gIGNyZWF0ZSBtb2RlIDEwMDY0
+NCBhcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL3hlbi9oeXBlcnZpc29yLmgKPiAgY3JlYXRlIG1vZGUg
+MTAwNjQ0IGFyY2gvcmlzY3YvaW5jbHVkZS9hc20veGVuL2ludGVyZmFjZS5oCj4gIGNyZWF0ZSBt
+b2RlIDEwMDY0NCBhcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL3hlbi9wYWdlLmgKPiAgY3JlYXRlIG1v
+ZGUgMTAwNjQ0IGFyY2gvcmlzY3YvaW5jbHVkZS9hc20veGVuL3N3aW90bGIteGVuLmgKPiAgY3Jl
+YXRlIG1vZGUgMTAwNjQ0IGFyY2gvcmlzY3YveGVuL01ha2VmaWxlCj4gIGNyZWF0ZSBtb2RlIDEw
+MDY0NCBhcmNoL3Jpc2N2L3hlbi9lbmxpZ2h0ZW4uYwo+ICBjcmVhdGUgbW9kZSAxMDA2NDQgYXJj
+aC9yaXNjdi94ZW4vZ3JhbnQtdGFibGUuYwo+ICBjcmVhdGUgbW9kZSAxMDA2NDQgYXJjaC9yaXNj
+di94ZW4vaHlwZXJjYWxsLlMKPiAgY3JlYXRlIG1vZGUgMTAwNjQ0IGFyY2gvcmlzY3YveGVuL3Ay
+bS5jCj4gIGNyZWF0ZSBtb2RlIDEwMDY0NCBpbmNsdWRlL3hlbi9yaXNjdi9oeXBlcmNhbGwuaAo+
+ICBjcmVhdGUgbW9kZSAxMDA2NDQgaW5jbHVkZS94ZW4vcmlzY3YvaHlwZXJ2aXNvci5oCj4gIGNy
+ZWF0ZSBtb2RlIDEwMDY0NCBpbmNsdWRlL3hlbi9yaXNjdi9pbnRlcmZhY2UuaAo+ICBjcmVhdGUg
+bW9kZSAxMDA2NDQgaW5jbHVkZS94ZW4vcmlzY3YvcGFnZS5oCj4gIGNyZWF0ZSBtb2RlIDEwMDY0
+NCBpbmNsdWRlL3hlbi9yaXNjdi9zd2lvdGxiLXhlbi5oCj4gIGNyZWF0ZSBtb2RlIDEwMDY0NCB0
+ZXN0LnR4dAo+Cj4gZGlmZiAtLWdpdCBhL2FyY2gvcmlzY3YvS2J1aWxkIGIvYXJjaC9yaXNjdi9L
+YnVpbGQKPiBpbmRleCAyYzU4NWY3YTBiNmUuLmQ5YjcxZGVlZDJjZCAxMDA2NDQKPiAtLS0gYS9h
+cmNoL3Jpc2N2L0tidWlsZAo+ICsrKyBiL2FyY2gvcmlzY3YvS2J1aWxkCj4gQEAgLTUsNiArNSw3
+IEBAIG9iai0kKENPTkZJR19CVUlMVElOX0RUQikgKz0gYm9vdC9kdHMvCj4gIG9iai0kKENPTkZJ
+R19DUllQVE8pICs9IGNyeXB0by8KPiAgb2JqLXkgKz0gZXJyYXRhLwo+ICBvYmotJChDT05GSUdf
+S1ZNKSArPSBrdm0vCj4gK29iai0kKENPTkZJR19YRU4pICs9IHhlbi8KPgo+ICBvYmotJChDT05G
+SUdfQVJDSF9TVVBQT1JUU19LRVhFQ19QVVJHQVRPUlkpICs9IHB1cmdhdG9yeS8KPgo+IGRpZmYg
+LS1naXQgYS9hcmNoL3Jpc2N2L0tjb25maWcgYi9hcmNoL3Jpc2N2L0tjb25maWcKPiBpbmRleCBk
+NGE3Y2EwMzg4YzAuLjEzZWE3NTIyMTUyNCAxMDA2NDQKPiAtLS0gYS9hcmNoL3Jpc2N2L0tjb25m
+aWcKPiArKysgYi9hcmNoL3Jpc2N2L0tjb25maWcKPiBAQCAtMTA3MSw2ICsxMDcxLDI1IEBAIGNv
+bmZpZyBQQVJBVklSVF9USU1FX0FDQ09VTlRJTkcKPgo+ICAgICAgICAgICBJZiBpbiBkb3VidCwg
+c2F5IE4gaGVyZS4KPgo+ICtjb25maWcgWEVOX0RPTTAKPiArICAgICAgIGRlZl9ib29sIHkKPiAr
+ICAgICAgIGRlcGVuZHMgb24gWEVOCj4gKwo+ICtjb25maWcgWEVOCj4gKyAgICAgICBib29sICJY
+ZW4gZ3Vlc3Qgc3VwcG9ydCBvbiBSSVNDViIKPiArICAgICAgIGRlcGVuZHMgb24gUklTQ1YgJiYg
+T0YKPiArICAgICAgIHNlbGVjdCBQQVJBVklSVAo+ICsgICAgICAgaGVscAo+ICsgICAgICAgICBF
+bmFibGVzIHN1cHBvcnQgZm9yIHJ1bm5pbmcgTGludXggYXMgYSBYZW4gZ3Vlc3Qgb24gUklTQy1W
+Lgo+ICsKPiArICAgICAgICAgWGVuIGlzIGEgdHlwZS0xIGh5cGVydmlzb3IgdGhhdCBhbGxvd3Mg
+bXVsdGlwbGUgb3BlcmF0aW5nIHN5c3RlbXMKPiArICAgICAgICAgdG8gcnVuIG9uIHRoZSBzYW1l
+IGhhcmR3YXJlLiBFbmFibGluZyB0aGlzIG9wdGlvbiBhbGxvd3MgdGhlIGtlcm5lbAo+ICsgICAg
+ICAgICB0byBmdW5jdGlvbiBhcyBhIGd1ZXN0IHVuZGVyIHRoZSBYZW4gaHlwZXJ2aXNvciBvbiBS
+SVNDLVYgcGxhdGZvcm1zLgo+ICsKPiArICAgICAgICAgU2F5IFkgaWYgeW91IHdhbnQgdG8gcnVu
+IHRoaXMga2VybmVsIGFzIGEgZ3Vlc3QgdW5kZXIgWGVuIG9uIFJJU0MtVi4KPiArCj4gKyAgICAg
+ICAgIElmIHVuc3VyZSwgc2F5IE4uCj4gKwo+ICBjb25maWcgUkVMT0NBVEFCTEUKPiAgICAgICAg
+IGJvb2wgIkJ1aWxkIGEgcmVsb2NhdGFibGUga2VybmVsIgo+ICAgICAgICAgZGVwZW5kcyBvbiBN
+TVUgJiYgNjRCSVQgJiYgIVhJUF9LRVJORUwKPiBkaWZmIC0tZ2l0IGEvYXJjaC9yaXNjdi9pbmNs
+dWRlL2FzbS9jcHUuaCBiL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20vY3B1LmgKPiBpbmRleCAyOGQ0
+NWE2Njc4Y2UuLmZiMmFhYzZhMDY4ZSAxMDA2NDQKPiAtLS0gYS9hcmNoL3Jpc2N2L2luY2x1ZGUv
+YXNtL2NwdS5oCj4gKysrIGIvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9jcHUuaAo+IEBAIC00LDUg
+KzQsNiBAQAo+ICAjZGVmaW5lIF9BU01fQ1BVX0gKPgo+ICAvKiBUaGlzIGhlYWRlciBpcyByZXF1
+aXJlZCB1bmNvbmRpdGlvbmFsbHkgYnkgdGhlIEFDUEkgY29yZSAqLwo+ICsjaW5jbHVkZSA8bGlu
+dXgvY3B1Lmg+Cj4KPiAgI2VuZGlmIC8qIF9BU01fQ1BVX0ggKi8KPiBkaWZmIC0tZ2l0IGEvYXJj
+aC9yaXNjdi9pbmNsdWRlL2FzbS9oeXBlcnZpc29yLmggYi9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNt
+L2h5cGVydmlzb3IuaAo+IG5ldyBmaWxlIG1vZGUgMTAwNjQ0Cj4gaW5kZXggMDAwMDAwMDAwMDAw
+Li4zYTExN2FmZTU3ZjAKPiAtLS0gL2Rldi9udWxsCj4gKysrIGIvYXJjaC9yaXNjdi9pbmNsdWRl
+L2FzbS9oeXBlcnZpc29yLmgKPiBAQCAtMCwwICsxLDkgQEAKPiArLyogU1BEWC1MaWNlbnNlLUlk
+ZW50aWZpZXI6IEdQTC0yLjAgKi8KPiArI2lmbmRlZiBfQVNNX1JJU0NWX0hZUEVSVklTT1JfSAo+
+ICsjZGVmaW5lIF9BU01fUklTQ1ZfSFlQRVJWSVNPUl9ICj4gKwo+ICsjaW5jbHVkZSA8YXNtL3hl
+bi9oeXBlcnZpc29yLmg+Cj4gKwo+ICt2b2lkIGt2bV9pbml0X2h5cF9zZXJ2aWNlcyh2b2lkKTsK
+PiArCj4gKyNlbmRpZgo+IGRpZmYgLS1naXQgYS9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL2lycS5o
+IGIvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9pcnEuaAo+IGluZGV4IDdiMDM4ZjNiN2NiMC4uYjE0
+NjIxODQ4ZWFlIDEwMDY0NAo+IC0tLSBhL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20vaXJxLmgKPiAr
+KysgYi9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL2lycS5oCj4gQEAgLTIzLDYgKzIzLDExIEBAIHZv
+aWQgcmlzY3Zfc2V0X2ludGNfaHdub2RlX2ZuKHN0cnVjdCBmd25vZGVfaGFuZGxlICooKmZuKSh2
+b2lkKSk7Cj4KPiAgc3RydWN0IGZ3bm9kZV9oYW5kbGUgKnJpc2N2X2dldF9pbnRjX2h3bm9kZSh2
+b2lkKTsKPgo+ICtzdGF0aWMgaW5saW5lIGludCBucl9sZWdhY3lfaXJxcyh2b2lkKQo+ICt7Cj4g
+KyAgICAgICByZXR1cm4gMDsKPiArfQo+ICsKPiAgI2lmZGVmIENPTkZJR19BQ1BJCj4KPiAgZW51
+bSByaXNjdl9pcnFjaGlwX3R5cGUgewo+IGRpZmYgLS1naXQgYS9hcmNoL3Jpc2N2L2luY2x1ZGUv
+YXNtL3N5bmNfYml0b3BzLmggYi9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL3N5bmNfYml0b3BzLmgK
+PiBuZXcgZmlsZSBtb2RlIDEwMDY0NAo+IGluZGV4IDAwMDAwMDAwMDAwMC4uMjhlM2M2NGJhODUy
+Cj4gLS0tIC9kZXYvbnVsbAo+ICsrKyBiL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20vc3luY19iaXRv
+cHMuaAo+IEBAIC0wLDAgKzEsMjcgQEAKPiArLyogU1BEWC1MaWNlbnNlLUlkZW50aWZpZXI6IEdQ
+TC0yLjAgKi8KPiArI2lmbmRlZiBfX0FTTV9TWU5DX0JJVE9QU19IX18KPiArI2RlZmluZSBfX0FT
+TV9TWU5DX0JJVE9QU19IX18KPiArCj4gKyNpbmNsdWRlIDxhc20vYml0b3BzLmg+Cj4gKyNpbmNs
+dWRlIDxhc20vY21weGNoZy5oPgo+ICsKPiArLyogc3luY19iaXRvcHMgZnVuY3Rpb25zIGFyZSBl
+cXVpdmFsZW50IHRvIHRoZSBTTVAgaW1wbGVtZW50YXRpb24gb2YgdGhlCj4gKyAqIG9yaWdpbmFs
+IGZ1bmN0aW9ucywgaW5kZXBlbmRlbnRseSBmcm9tIENPTkZJR19TTVAgYmVpbmcgZGVmaW5lZC4K
+PiArICoKPiArICogV2UgbmVlZCB0aGVtIGJlY2F1c2UgX3NldF9iaXQgZXRjIGFyZSBub3QgU01Q
+IHNhZmUgaWYgIUNPTkZJR19TTVAuIEJ1dAo+ICsgKiB1bmRlciBYZW4geW91IG1pZ2h0IGJlIGNv
+bW11bmljYXRpbmcgd2l0aCBhIGNvbXBsZXRlbHkgZXh0ZXJuYWwgZW50aXR5Cj4gKyAqIHdobyBt
+aWdodCBiZSBvbiBhbm90aGVyIENQVSAoZS5nLiB0d28gdW5pcHJvY2Vzc29yIGd1ZXN0cyBjb21t
+dW5pY2F0aW5nCj4gKyAqIHZpYSBldmVudCBjaGFubmVscyBhbmQgZ3JhbnQgdGFibGVzKS4gU28g
+d2UgbmVlZCBhIHZhcmlhbnQgb2YgdGhlIGJpdAo+ICsgKiBvcHMgd2hpY2ggYXJlIFNNUCBzYWZl
+IGV2ZW4gb24gYSBVUCBrZXJuZWwuCj4gKyAqLwo+ICsKPiArI2RlZmluZSBzeW5jX3NldF9iaXQo
+bnIsIHApICAgICAgICAgICAgIHNldF9iaXQobnIsIHApCj4gKyNkZWZpbmUgc3luY19jbGVhcl9i
+aXQobnIsIHApICAgICAgICAgICBjbGVhcl9iaXQobnIsIHApCj4gKyNkZWZpbmUgc3luY19jaGFu
+Z2VfYml0KG5yLCBwKSAgICAgICAgICBjaGFuZ2VfYml0KG5yLCBwKQo+ICsjZGVmaW5lIHN5bmNf
+dGVzdF9hbmRfc2V0X2JpdChuciwgcCkgICAgdGVzdF9hbmRfc2V0X2JpdChuciwgcCkKPiArI2Rl
+ZmluZSBzeW5jX3Rlc3RfYW5kX2NsZWFyX2JpdChuciwgcCkgIHRlc3RfYW5kX2NsZWFyX2JpdChu
+ciwgcCkKPiArI2RlZmluZSBzeW5jX3Rlc3RfYW5kX2NoYW5nZV9iaXQobnIsIHApIHRlc3RfYW5k
+X2NoYW5nZV9iaXQobnIsIHApCj4gKyNkZWZpbmUgc3luY190ZXN0X2JpdChuciwgYWRkcikgICAg
+ICAgICB0ZXN0X2JpdChuciwgYWRkcikKPiArI2RlZmluZSBhcmNoX3N5bmNfY21weGNoZyAgICAg
+ICAgICAgICAgIGFyY2hfY21weGNoZwo+ICsKPiArI2VuZGlmCj4gZGlmZiAtLWdpdCBhL2FyY2gv
+cmlzY3YvaW5jbHVkZS9hc20veGVuL2V2ZW50cy5oIGIvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS94
+ZW4vZXZlbnRzLmgKPiBuZXcgZmlsZSBtb2RlIDEwMDY0NAo+IGluZGV4IDAwMDAwMDAwMDAwMC4u
+YTNkMDMzMmNhNDZjCj4gLS0tIC9kZXYvbnVsbAo+ICsrKyBiL2FyY2gvcmlzY3YvaW5jbHVkZS9h
+c20veGVuL2V2ZW50cy5oCj4gQEAgLTAsMCArMSwyOCBAQAo+ICsvKiBTUERYLUxpY2Vuc2UtSWRl
+bnRpZmllcjogR1BMLTIuMCAqLwo+ICsjaWZuZGVmIF9BU01fUklTQ1ZfWEVOX0VWRU5UU19ICj4g
+KyNkZWZpbmUgX0FTTV9SSVNDVl9YRU5fRVZFTlRTX0gKPiArCj4gKyNpbmNsdWRlIDxhc20vcHRy
+YWNlLmg+Cj4gKyNpbmNsdWRlIDxhc20vYXRvbWljLmg+Cj4gKwo+ICtlbnVtIGlwaV92ZWN0b3Ig
+ewo+ICsgICAgICAgWEVOX1BMQUNFSE9MREVSX1ZFQ1RPUiwKPiArCj4gKyAgICAgICAvKiBYZW4g
+SVBJcyBnbyBoZXJlICovCj4gKyAgICAgICBYRU5fTlJfSVBJUywKPiArfTsKPiArCj4gK3N0YXRp
+YyBpbmxpbmUgaW50IHhlbl9pcnFzX2Rpc2FibGVkKHN0cnVjdCBwdF9yZWdzICpyZWdzKQo+ICt7
+Cj4gKyAgICAgICByZXR1cm4gMDsKPiArfQo+ICsKPiArI2RlZmluZSB4Y2hnX3hlbl91bG9uZyhw
+dHIsIHZhbCkgeGNoZygocHRyKSwgKHZhbCkpCj4gKwo+ICsvKiBSZWJpbmQgZXZlbnQgY2hhbm5l
+bCBpcyBzdXBwb3J0ZWQgYnkgZGVmYXVsdCAqLwo+ICtzdGF0aWMgaW5saW5lIGJvb2wgeGVuX3N1
+cHBvcnRfZXZ0Y2huX3JlYmluZCh2b2lkKQo+ICt7Cj4gKyAgICAgICByZXR1cm4gdHJ1ZTsKPiAr
+fQo+ICsKPiArI2VuZGlmIC8qIF9BU01fUklTQ1ZfWEVOX0VWRU5UU19IICovCj4gZGlmZiAtLWdp
+dCBhL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20veGVuL2h5cGVyY2FsbC5oIGIvYXJjaC9yaXNjdi9p
+bmNsdWRlL2FzbS94ZW4vaHlwZXJjYWxsLmgKPiBuZXcgZmlsZSBtb2RlIDEwMDY0NAo+IGluZGV4
+IDAwMDAwMDAwMDAwMC4uMDg0MWJhMWYwODM1Cj4gLS0tIC9kZXYvbnVsbAo+ICsrKyBiL2FyY2gv
+cmlzY3YvaW5jbHVkZS9hc20veGVuL2h5cGVyY2FsbC5oCj4gQEAgLTAsMCArMSwyIEBACj4gKy8q
+IFNQRFgtTGljZW5zZS1JZGVudGlmaWVyOiBHUEwtMi4wICovCj4gKyNpbmNsdWRlIDx4ZW4vcmlz
+Y3YvaHlwZXJjYWxsLmg+Cj4gZGlmZiAtLWdpdCBhL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20veGVu
+L2h5cGVydmlzb3IuaCBiL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20veGVuL2h5cGVydmlzb3IuaAo+
+IG5ldyBmaWxlIG1vZGUgMTAwNjQ0Cj4gaW5kZXggMDAwMDAwMDAwMDAwLi4wNWI3YzgzNGQwYTkK
+PiAtLS0gL2Rldi9udWxsCj4gKysrIGIvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS94ZW4vaHlwZXJ2
+aXNvci5oCj4gQEAgLTAsMCArMSwyIEBACj4gKy8qIFNQRFgtTGljZW5zZS1JZGVudGlmaWVyOiBH
+UEwtMi4wICovCj4gKyNpbmNsdWRlIDx4ZW4vcmlzY3YvaHlwZXJ2aXNvci5oPgo+IGRpZmYgLS1n
+aXQgYS9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL3hlbi9pbnRlcmZhY2UuaCBiL2FyY2gvcmlzY3Yv
+aW5jbHVkZS9hc20veGVuL2ludGVyZmFjZS5oCj4gbmV3IGZpbGUgbW9kZSAxMDA2NDQKPiBpbmRl
+eCAwMDAwMDAwMDAwMDAuLjlmMzBiMWQ3ZTc3Ywo+IC0tLSAvZGV2L251bGwKPiArKysgYi9hcmNo
+L3Jpc2N2L2luY2x1ZGUvYXNtL3hlbi9pbnRlcmZhY2UuaAo+IEBAIC0wLDAgKzEsMiBAQAo+ICsv
+KiBTUERYLUxpY2Vuc2UtSWRlbnRpZmllcjogR1BMLTIuMCAqLwo+ICsjaW5jbHVkZSA8eGVuL3Jp
+c2N2L2ludGVyZmFjZS5oPgo+IGRpZmYgLS1naXQgYS9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL3hl
+bi9wYWdlLmggYi9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL3hlbi9wYWdlLmgKPiBuZXcgZmlsZSBt
+b2RlIDEwMDY0NAo+IGluZGV4IDAwMDAwMDAwMDAwMC4uYzhmNWI4NzM0NDViCj4gLS0tIC9kZXYv
+bnVsbAo+ICsrKyBiL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20veGVuL3BhZ2UuaAo+IEBAIC0wLDAg
+KzEsMyBAQAo+ICsvKiBTUERYLUxpY2Vuc2UtSWRlbnRpZmllcjogR1BMLTIuMCAqLwo+ICsjaW5j
+bHVkZSA8eGVuL3Jpc2N2L3BhZ2UuaD4KPiArI2luY2x1ZGUgPGFzbS9tbXUuaD4KPiBkaWZmIC0t
+Z2l0IGEvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS94ZW4vc3dpb3RsYi14ZW4uaCBiL2FyY2gvcmlz
+Y3YvaW5jbHVkZS9hc20veGVuL3N3aW90bGIteGVuLmgKPiBuZXcgZmlsZSBtb2RlIDEwMDY0NAo+
+IGluZGV4IDAwMDAwMDAwMDAwMC4uYWEzYmMzMzlkZjAzCj4gLS0tIC9kZXYvbnVsbAo+ICsrKyBi
+L2FyY2gvcmlzY3YvaW5jbHVkZS9hc20veGVuL3N3aW90bGIteGVuLmgKPiBAQCAtMCwwICsxLDIg
+QEAKPiArLyogU1BEWC1MaWNlbnNlLUlkZW50aWZpZXI6IEdQTC0yLjAgKi8KPiArI2luY2x1ZGUg
+PHhlbi9yaXNjdi9zd2lvdGxiLXhlbi5oPgo+IGRpZmYgLS1naXQgYS9hcmNoL3Jpc2N2L3hlbi9N
+YWtlZmlsZSBiL2FyY2gvcmlzY3YveGVuL01ha2VmaWxlCj4gbmV3IGZpbGUgbW9kZSAxMDA2NDQK
+PiBpbmRleCAwMDAwMDAwMDAwMDAuLmY2ZDNhMzU3ZTRjNwo+IC0tLSAvZGV2L251bGwKPiArKysg
+Yi9hcmNoL3Jpc2N2L3hlbi9NYWtlZmlsZQo+IEBAIC0wLDAgKzEsMiBAQAo+ICsjIFNQRFgtTGlj
+ZW5zZS1JZGVudGlmaWVyOiBHUEwtMi4wLW9ubHkKPiArb2JqLXkgOj0gZW5saWdodGVuLm8gcDJt
+Lm8gZ3JhbnQtdGFibGUubyBoeXBlcmNhbGwubwo+IGRpZmYgLS1naXQgYS9hcmNoL3Jpc2N2L3hl
+bi9lbmxpZ2h0ZW4uYyBiL2FyY2gvcmlzY3YveGVuL2VubGlnaHRlbi5jCj4gbmV3IGZpbGUgbW9k
+ZSAxMDA2NDQKPiBpbmRleCAwMDAwMDAwMDAwMDAuLjI4YmQ2NmMyODhmOQo+IC0tLSAvZGV2L251
+bGwKPiArKysgYi9hcmNoL3Jpc2N2L3hlbi9lbmxpZ2h0ZW4uYwo+IEBAIC0wLDAgKzEsMTY0IEBA
+Cj4gKy8vIFNQRFgtTGljZW5zZS1JZGVudGlmaWVyOiBHUEwtMi4wLW9ubHkKPiArI2luY2x1ZGUg
+PHhlbi94ZW4uaD4KPiArI2luY2x1ZGUgPHhlbi9ldmVudHMuaD4KPiArI2luY2x1ZGUgPHhlbi9n
+cmFudF90YWJsZS5oPgo+ICsjaW5jbHVkZSA8eGVuL2h2bS5oPgo+ICsjaW5jbHVkZSA8eGVuL2lu
+dGVyZmFjZS92Y3B1Lmg+Cj4gKyNpbmNsdWRlIDx4ZW4vaW50ZXJmYWNlL3hlbi5oPgo+ICsjaW5j
+bHVkZSA8eGVuL2ludGVyZmFjZS9tZW1vcnkuaD4KPiArI2luY2x1ZGUgPHhlbi9pbnRlcmZhY2Uv
+aHZtL3BhcmFtcy5oPgo+ICsjaW5jbHVkZSA8eGVuL2ZlYXR1cmVzLmg+Cj4gKyNpbmNsdWRlIDx4
+ZW4vcGxhdGZvcm1fcGNpLmg+Cj4gKyNpbmNsdWRlIDx4ZW4veGVuYnVzLmg+Cj4gKyNpbmNsdWRl
+IDx4ZW4vcGFnZS5oPgo+ICsjaW5jbHVkZSA8eGVuL2ludGVyZmFjZS9zY2hlZC5oPgo+ICsjaW5j
+bHVkZSA8eGVuL3hlbi1vcHMuaD4KPiArI2luY2x1ZGUgPGFzbS94ZW4vaHlwZXJ2aXNvci5oPgo+
+ICsjaW5jbHVkZSA8YXNtL3hlbi9oeXBlcmNhbGwuaD4KPiArI2luY2x1ZGUgPGFzbS9lZmkuaD4K
+PiArI2luY2x1ZGUgPGxpbnV4L2ludGVycnVwdC5oPgo+ICsjaW5jbHVkZSA8bGludXgvaXJxcmV0
+dXJuLmg+Cj4gKyNpbmNsdWRlIDxsaW51eC9tb2R1bGUuaD4KPiArI2luY2x1ZGUgPGxpbnV4L29m
+Lmg+Cj4gKyNpbmNsdWRlIDxsaW51eC9vZl9mZHQuaD4KPiArI2luY2x1ZGUgPGxpbnV4L29mX2ly
+cS5oPgo+ICsjaW5jbHVkZSA8bGludXgvb2ZfYWRkcmVzcy5oPgo+ICsjaW5jbHVkZSA8bGludXgv
+Y3B1aWRsZS5oPgo+ICsjaW5jbHVkZSA8bGludXgvY3B1ZnJlcS5oPgo+ICsjaW5jbHVkZSA8bGlu
+dXgvY3B1Lmg+Cj4gKyNpbmNsdWRlIDxsaW51eC9jb25zb2xlLmg+Cj4gKyNpbmNsdWRlIDxsaW51
+eC9wdmNsb2NrX2d0b2QuaD4KPiArI2luY2x1ZGUgPGxpbnV4L3JlYm9vdC5oPgo+ICsjaW5jbHVk
+ZSA8bGludXgvdGltZTY0Lmg+Cj4gKyNpbmNsdWRlIDxsaW51eC90aW1la2VlcGluZy5oPgo+ICsj
+aW5jbHVkZSA8bGludXgvdGltZWtlZXBlcl9pbnRlcm5hbC5oPgo+ICsjaW5jbHVkZSA8bGludXgv
+YWNwaS5oPgo+ICsjaW5jbHVkZSA8bGludXgvdmlydGlvX2FuY2hvci5oPgo+ICsKPiArI2luY2x1
+ZGUgPGxpbnV4L21tLmg+Cj4gKwo+ICtzdGF0aWMgc3RydWN0IHN0YXJ0X2luZm8gX3hlbl9zdGFy
+dF9pbmZvOwo+ICtzdHJ1Y3Qgc3RhcnRfaW5mbyAqeGVuX3N0YXJ0X2luZm8gPSAmX3hlbl9zdGFy
+dF9pbmZvOwo+ICtFWFBPUlRfU1lNQk9MKHhlbl9zdGFydF9pbmZvKTsKPiArCj4gK2VudW0geGVu
+X2RvbWFpbl90eXBlIHhlbl9kb21haW5fdHlwZSA9IFhFTl9OQVRJVkU7Cj4gK0VYUE9SVF9TWU1C
+T0woeGVuX2RvbWFpbl90eXBlKTsKPiArCj4gK3N0cnVjdCBzaGFyZWRfaW5mbyB4ZW5fZHVtbXlf
+c2hhcmVkX2luZm87Cj4gK3N0cnVjdCBzaGFyZWRfaW5mbyAqSFlQRVJWSVNPUl9zaGFyZWRfaW5m
+byA9ICh2b2lkICopJnhlbl9kdW1teV9zaGFyZWRfaW5mbzsKPiArCj4gK0RFRklORV9QRVJfQ1BV
+KHN0cnVjdCB2Y3B1X2luZm8gKiwgeGVuX3ZjcHUpOwo+ICtzdGF0aWMgc3RydWN0IHZjcHVfaW5m
+byBfX3BlcmNwdSAqeGVuX3ZjcHVfaW5mbzsKPiArCj4gKy8qIExpbnV4IDwtPiBYZW4gdkNQVSBp
+ZCBtYXBwaW5nICovCj4gK0RFRklORV9QRVJfQ1BVKHVpbnQzMl90LCB4ZW5fdmNwdV9pZCk7Cj4g
+K0VYUE9SVF9QRVJfQ1BVX1NZTUJPTCh4ZW5fdmNwdV9pZCk7Cj4gKwo+ICsvKiBUaGVzZSBhcmUg
+dW51c2VkIHVudGlsIHdlIHN1cHBvcnQgYm9vdGluZyAicHJlLWJhbGxvb25lZCIgKi8KPiArdW5z
+aWduZWQgbG9uZyB4ZW5fcmVsZWFzZWRfcGFnZXM7Cj4gK3N0cnVjdCB4ZW5fbWVtb3J5X3JlZ2lv
+biB4ZW5fZXh0cmFfbWVtW1hFTl9FWFRSQV9NRU1fTUFYX1JFR0lPTlNdIF9faW5pdGRhdGE7Cj4g
+Kwo+ICtzdGF0aWMgX19yZWFkX21vc3RseSB1bnNpZ25lZCBpbnQgeGVuX2V2ZW50c19pcnE7Cj4g
+K3N0YXRpYyBfX3JlYWRfbW9zdGx5IHBoeXNfYWRkcl90IHhlbl9ncmFudF9mcmFtZXM7Cj4gKwo+
+ICsjZGVmaW5lIEdSQU5UX1RBQkxFX0lOREVYICAgMAo+ICsjZGVmaW5lIEVYVF9SRUdJT05fSU5E
+RVggICAgMQo+ICsKPiArdWludDMyX3QgeGVuX3N0YXJ0X2ZsYWdzOwo+ICtFWFBPUlRfU1lNQk9M
+KHhlbl9zdGFydF9mbGFncyk7Cj4gKwo+ICtpbnQgeGVuX3VubWFwX2RvbWFpbl9nZm5fcmFuZ2Uo
+c3RydWN0IHZtX2FyZWFfc3RydWN0ICp2bWEsCj4gKyAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgIGludCBuciwgc3RydWN0IHBhZ2UgKipwYWdlcykKPiArewo+ICsgICAgICAg
+cmV0dXJuIDA7Cj4gK30KPiArRVhQT1JUX1NZTUJPTF9HUEwoeGVuX3VubWFwX2RvbWFpbl9nZm5f
+cmFuZ2UpOwo+ICsKPiArc3RhdGljIHZvaWQgeGVuX3JlYWRfd2FsbGNsb2NrKHN0cnVjdCB0aW1l
+c3BlYzY0ICp0cykKPiArewo+ICt9Cj4gKwo+ICtzdGF0aWMgaW50IHhlbl9wdmNsb2NrX2d0b2Rf
+bm90aWZ5KHN0cnVjdCBub3RpZmllcl9ibG9jayAqbmIsCj4gKyAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgIHVuc2lnbmVkIGxvbmcgd2FzX3NldCwgdm9pZCAqcHJpdikKPiAr
+ewo+ICsgICAgICAgcmV0dXJuIDA7Cj4gK30KPiArCj4gK3N0YXRpYyBzdHJ1Y3Qgbm90aWZpZXJf
+YmxvY2sgeGVuX3B2Y2xvY2tfZ3RvZF9ub3RpZmllciA9IHsKPiArICAgICAgIC5ub3RpZmllcl9j
+YWxsID0geGVuX3B2Y2xvY2tfZ3RvZF9ub3RpZnksCj4gK307Cj4gKwo+ICtzdGF0aWMgaW50IHhl
+bl9zdGFydGluZ19jcHUodW5zaWduZWQgaW50IGNwdSkKPiArewo+ICsgICAgICAgcmV0dXJuIDA7
+Cj4gK30KPiArCj4gK3N0YXRpYyBpbnQgeGVuX2R5aW5nX2NwdSh1bnNpZ25lZCBpbnQgY3B1KQo+
+ICt7Cj4gKyAgICAgICByZXR1cm4gMDsKPiArfQo+ICsKPiArdm9pZCB4ZW5fcmVib290KGludCBy
+ZWFzb24pCj4gK3sKPiArfQo+ICsKPiArc3RhdGljIGludCB4ZW5fcmVzdGFydChzdHJ1Y3Qgbm90
+aWZpZXJfYmxvY2sgKm5iLCB1bnNpZ25lZCBsb25nIGFjdGlvbiwKPiArICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgdm9pZCAqZGF0YSkKPiArewo+ICsgICAgICAgcmV0dXJu
+IDA7Cj4gK30KPiArCj4gK3N0YXRpYyBzdHJ1Y3Qgbm90aWZpZXJfYmxvY2sgeGVuX3Jlc3RhcnRf
+bmIgPSB7Cj4gKyAgICAgICAubm90aWZpZXJfY2FsbCA9IHhlbl9yZXN0YXJ0LAo+ICsgICAgICAg
+LnByaW9yaXR5ID0gMTkyLAo+ICt9Owo+ICsKPiArc3RhdGljIHZvaWQgeGVuX3Bvd2VyX29mZih2
+b2lkKQo+ICt7Cj4gK30KPiArCj4gK3N0YXRpYyBfX2luaXRkYXRhIHN0cnVjdCB7Cj4gKyAgICAg
+ICBjb25zdCBjaGFyICpjb21wYXQ7Cj4gKyAgICAgICBjb25zdCBjaGFyICpwcmVmaXg7Cj4gKyAg
+ICAgICBjb25zdCBjaGFyICp2ZXJzaW9uOwo+ICsgICAgICAgYm9vbCBmb3VuZDsKPiArfSBoeXBl
+cl9ub2RlID0geyJ4ZW4seGVuIiwgInhlbix4ZW4tIiwgTlVMTCwgZmFsc2V9Owo+ICsKPiArc3Rh
+dGljIGludCBfX2luaXQgZmR0X2ZpbmRfaHlwZXJfbm9kZSh1bnNpZ25lZCBsb25nIG5vZGUsIGNv
+bnN0IGNoYXIgKnVuYW1lLAo+ICsgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICBpbnQgZGVwdGgsIHZvaWQgKmRhdGEpCj4gK3sKPiArICAgICAgIHJldHVybiAwOwo+ICt9Cj4g
+Kwo+ICt2b2lkIF9faW5pdCB4ZW5fZWFybHlfaW5pdCh2b2lkKQo+ICt7Cj4gK30KPiArCj4gK3N0
+YXRpYyB2b2lkIF9faW5pdCB4ZW5fZHRfZ3Vlc3RfaW5pdCh2b2lkKQo+ICt7Cj4gK30KPiArCj4g
+K3N0YXRpYyBpbnQgX19pbml0IHhlbl9ndWVzdF9pbml0KHZvaWQpCj4gK3sKPiArICAgICAgIHJl
+dHVybiAwOwo+ICt9Cj4gK2Vhcmx5X2luaXRjYWxsKHhlbl9ndWVzdF9pbml0KTsKPiArCj4gK3N0
+YXRpYyBpbnQgeGVuX3N0YXJ0aW5nX3J1bnN0YXRlX2NwdSh1bnNpZ25lZCBpbnQgY3B1KQo+ICt7
+Cj4gKyAgICAgICByZXR1cm4gMDsKPiArfQo+ICsKPiArc3RhdGljIGludCBfX2luaXQgeGVuX2xh
+dGVfaW5pdCh2b2lkKQo+ICt7Cj4gKyAgICAgICByZXR1cm4gMDsKPiArfQo+ICtsYXRlX2luaXRj
+YWxsKHhlbl9sYXRlX2luaXQpOwo+ICsKPiArCj4gKy8qIGVtcHR5IHN0dWJzICovCj4gK3ZvaWQg
+eGVuX2FyY2hfcHJlX3N1c3BlbmQodm9pZCkgeyB9Cj4gK3ZvaWQgeGVuX2FyY2hfcG9zdF9zdXNw
+ZW5kKGludCBzdXNwZW5kX2NhbmNlbGxlZCkgeyB9Cj4gK3ZvaWQgeGVuX3RpbWVyX3Jlc3VtZSh2
+b2lkKSB7IH0KPiArdm9pZCB4ZW5fYXJjaF9yZXN1bWUodm9pZCkgeyB9Cj4gK3ZvaWQgeGVuX2Fy
+Y2hfc3VzcGVuZCh2b2lkKSB7IH0KPiBkaWZmIC0tZ2l0IGEvYXJjaC9yaXNjdi94ZW4vZ3JhbnQt
+dGFibGUuYyBiL2FyY2gvcmlzY3YveGVuL2dyYW50LXRhYmxlLmMKPiBuZXcgZmlsZSBtb2RlIDEw
+MDY0NAo+IGluZGV4IDAwMDAwMDAwMDAwMC4uOWRkMGNlYTc0MzYwCj4gLS0tIC9kZXYvbnVsbAo+
+ICsrKyBiL2FyY2gvcmlzY3YveGVuL2dyYW50LXRhYmxlLmMKPiBAQCAtMCwwICsxLDU3IEBACj4g
+Ky8vIFNQRFgtTGljZW5zZS1JZGVudGlmaWVyOiBHUEwtMi4wCj4gKy8qKioqKioqKioqKioqKioq
+KioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioq
+KioqKioKPiArICogZ3JhbnRfdGFibGUuYwo+ICsgKgo+ICsgKiBHcmFudGluZyBmb3JlaWduIGFj
+Y2VzcyB0byBvdXIgbWVtb3J5IHJlc2VydmF0aW9uLgo+ICsgKgo+ICsgKiBUaGlzIHByb2dyYW0g
+aXMgZnJlZSBzb2Z0d2FyZTsgeW91IGNhbiByZWRpc3RyaWJ1dGUgaXQgYW5kL29yCj4gKyAqIG1v
+ZGlmeSBpdCB1bmRlciB0aGUgdGVybXMgb2YgdGhlIEdOVSBHZW5lcmFsIFB1YmxpYyBMaWNlbnNl
+IHZlcnNpb24gMgo+ICsgKiBhcyBwdWJsaXNoZWQgYnkgdGhlIEZyZWUgU29mdHdhcmUgRm91bmRh
+dGlvbjsgb3IsIHdoZW4gZGlzdHJpYnV0ZWQKPiArICogc2VwYXJhdGVseSBmcm9tIHRoZSBMaW51
+eCBrZXJuZWwgb3IgaW5jb3Jwb3JhdGVkIGludG8gb3RoZXIKPiArICogc29mdHdhcmUgcGFja2Fn
+ZXMsIHN1YmplY3QgdG8gdGhlIGZvbGxvd2luZyBsaWNlbnNlOgo+ICsgKgo+ICsgKiBQZXJtaXNz
+aW9uIGlzIGhlcmVieSBncmFudGVkLCBmcmVlIG9mIGNoYXJnZSwgdG8gYW55IHBlcnNvbiBvYnRh
+aW5pbmcgYSBjb3B5Cj4gKyAqIG9mIHRoaXMgc291cmNlIGZpbGUgKHRoZSAiU29mdHdhcmUiKSwg
+dG8gZGVhbCBpbiB0aGUgU29mdHdhcmUgd2l0aG91dAo+ICsgKiByZXN0cmljdGlvbiwgaW5jbHVk
+aW5nIHdpdGhvdXQgbGltaXRhdGlvbiB0aGUgcmlnaHRzIHRvIHVzZSwgY29weSwgbW9kaWZ5LAo+
+ICsgKiBtZXJnZSwgcHVibGlzaCwgZGlzdHJpYnV0ZSwgc3VibGljZW5zZSwgYW5kL29yIHNlbGwg
+Y29waWVzIG9mIHRoZSBTb2Z0d2FyZSwKPiArICogYW5kIHRvIHBlcm1pdCBwZXJzb25zIHRvIHdo
+b20gdGhlIFNvZnR3YXJlIGlzIGZ1cm5pc2hlZCB0byBkbyBzbywgc3ViamVjdCB0bwo+ICsgKiB0
+aGUgZm9sbG93aW5nIGNvbmRpdGlvbnM6Cj4gKyAqCj4gKyAqIFRoZSBhYm92ZSBjb3B5cmlnaHQg
+bm90aWNlIGFuZCB0aGlzIHBlcm1pc3Npb24gbm90aWNlIHNoYWxsIGJlIGluY2x1ZGVkIGluCj4g
+KyAqIGFsbCBjb3BpZXMgb3Igc3Vic3RhbnRpYWwgcG9ydGlvbnMgb2YgdGhlIFNvZnR3YXJlLgo+
+ICsgKgo+ICsgKiBUSEUgU09GVFdBUkUgSVMgUFJPVklERUQgIkFTIElTIiwgV0lUSE9VVCBXQVJS
+QU5UWSBPRiBBTlkgS0lORCwgRVhQUkVTUyBPUgo+ICsgKiBJTVBMSUVELCBJTkNMVURJTkcgQlVU
+IE5PVCBMSU1JVEVEIFRPIFRIRSBXQVJSQU5USUVTIE9GIE1FUkNIQU5UQUJJTElUWSwKPiArICog
+RklUTkVTUyBGT1IgQSBQQVJUSUNVTEFSIFBVUlBPU0UgQU5EIE5PTklORlJJTkdFTUVOVC4gSU4g
+Tk8gRVZFTlQgU0hBTEwgVEhFCj4gKyAqIEFVVEhPUlMgT1IgQ09QWVJJR0hUIEhPTERFUlMgQkUg
+TElBQkxFIEZPUiBBTlkgQ0xBSU0sIERBTUFHRVMgT1IgT1RIRVIKPiArICogTElBQklMSVRZLCBX
+SEVUSEVSIElOIEFOIEFDVElPTiBPRiBDT05UUkFDVCwgVE9SVCBPUiBPVEhFUldJU0UsIEFSSVNJ
+TkcKPiArICogRlJPTSwgT1VUIE9GIE9SIElOIENPTk5FQ1RJT04gV0lUSCBUSEUgU09GVFdBUkUg
+T1IgVEhFIFVTRSBPUiBPVEhFUiBERUFMSU5HUwo+ICsgKiBJTiBUSEUgU09GVFdBUkUuCj4gKyAq
+Lwo+ICsKPiArI2luY2x1ZGUgPHhlbi9pbnRlcmZhY2UveGVuLmg+Cj4gKyNpbmNsdWRlIDx4ZW4v
+cGFnZS5oPgo+ICsjaW5jbHVkZSA8eGVuL2dyYW50X3RhYmxlLmg+Cj4gKwo+ICtpbnQgYXJjaF9n
+bnR0YWJfbWFwX3NoYXJlZCh4ZW5fcGZuX3QgKmZyYW1lcywgdW5zaWduZWQgbG9uZyBucl9nZnJh
+bWVzLAo+ICsgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICB1bnNpZ25lZCBs
+b25nIG1heF9ucl9nZnJhbWVzLAo+ICsgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICB2b2lkICoqX19zaGFyZWQpCj4gK3sKPiArICAgICAgIHJldHVybiAwOwo+ICt9Cj4gKwo+
+ICt2b2lkIGFyY2hfZ250dGFiX3VubWFwKHZvaWQgKnNoYXJlZCwgdW5zaWduZWQgbG9uZyBucl9n
+ZnJhbWVzKQo+ICt7Cj4gK30KPiArCj4gK2ludCBhcmNoX2dudHRhYl9tYXBfc3RhdHVzKHVpbnQ2
+NF90ICpmcmFtZXMsIHVuc2lnbmVkIGxvbmcgbnJfZ2ZyYW1lcywKPiArICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgdW5zaWduZWQgbG9uZyBtYXhfbnJfZ2ZyYW1lcywKPiAr
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgZ3JhbnRfc3RhdHVzX3QgKipf
+X3NoYXJlZCkKPiArewo+ICsgICAgICAgcmV0dXJuIDA7Cj4gK30KPiArCj4gK2ludCBhcmNoX2du
+dHRhYl9pbml0KHVuc2lnbmVkIGxvbmcgbnJfc2hhcmVkLCB1bnNpZ25lZCBsb25nIG5yX3N0YXR1
+cykKPiArewo+ICsgICAgICAgcmV0dXJuIDA7Cj4gK30KPiBkaWZmIC0tZ2l0IGEvYXJjaC9yaXNj
+di94ZW4vaHlwZXJjYWxsLlMgYi9hcmNoL3Jpc2N2L3hlbi9oeXBlcmNhbGwuUwo+IG5ldyBmaWxl
+IG1vZGUgMTAwNjQ0Cj4gaW5kZXggMDAwMDAwMDAwMDAwLi5hODFhZmQyYTExYzQKPiAtLS0gL2Rl
+di9udWxsCj4gKysrIGIvYXJjaC9yaXNjdi94ZW4vaHlwZXJjYWxsLlMKPiBAQCAtMCwwICsxLDcx
+IEBACj4gKy8qIFNQRFgtTGljZW5zZS1JZGVudGlmaWVyOiBHUEwtMi4wICovCj4gKyNpbmNsdWRl
+IDxsaW51eC9saW5rYWdlLmg+Cj4gKyNpbmNsdWRlIDxhc20vYXNzZW1ibGVyLmg+Cj4gKyNpbmNs
+dWRlIDx4ZW4vaW50ZXJmYWNlL3hlbi5oPgo+ICtFWFBPUlRfU1lNQk9MX0dQTChIWVBFUlZJU09S
+X2V2ZW50X2NoYW5uZWxfb3ApOwo+ICtFWFBPUlRfU1lNQk9MX0dQTChIWVBFUlZJU09SX2dyYW50
+X3RhYmxlX29wKTsKPiArRVhQT1JUX1NZTUJPTF9HUEwoSFlQRVJWSVNPUl94ZW5fdmVyc2lvbik7
+Cj4gK0VYUE9SVF9TWU1CT0xfR1BMKEhZUEVSVklTT1JfY29uc29sZV9pbyk7Cj4gK0VYUE9SVF9T
+WU1CT0xfR1BMKEhZUEVSVklTT1Jfc2NoZWRfb3ApOwo+ICtFWFBPUlRfU1lNQk9MX0dQTChIWVBF
+UlZJU09SX2h2bV9vcCk7Cj4gK0VYUE9SVF9TWU1CT0xfR1BMKEhZUEVSVklTT1JfbWVtb3J5X29w
+KTsKPiArRVhQT1JUX1NZTUJPTF9HUEwoSFlQRVJWSVNPUl9waHlzZGV2X29wKTsKPiArRVhQT1JU
+X1NZTUJPTF9HUEwoSFlQRVJWSVNPUl92Y3B1X29wKTsKPiArRVhQT1JUX1NZTUJPTF9HUEwoSFlQ
+RVJWSVNPUl9wbGF0Zm9ybV9vcF9yYXcpOwo+ICtFWFBPUlRfU1lNQk9MX0dQTChIWVBFUlZJU09S
+X211bHRpY2FsbCk7Cj4gK0VYUE9SVF9TWU1CT0xfR1BMKEhZUEVSVklTT1Jfdm1fYXNzaXN0KTsK
+PiArRVhQT1JUX1NZTUJPTF9HUEwoSFlQRVJWSVNPUl9kbV9vcCk7Cj4gK0VYUE9SVF9TWU1CT0xf
+R1BMKHByaXZjbWRfY2FsbCk7Cj4gKyNkZWZpbmUgU0JJX0VDQUxMIDB4RQo+ICsKPiArICAgIC5k
+YXRhCj4gKwo+ICsjZGVmaW5lIEhZUEVSQ0FMTF9TSU1QTEUoaHlwZXJjYWxsKSBcCj4gK1NZTV9G
+VU5DX1NUQVJUKEhZUEVSVklTT1JfIyNoeXBlcmNhbGwpIFwKPiArICAgIGxpIGE2LCBfX0hZUEVS
+VklTT1JfIyNoeXBlcmNhbGw7IFwKPiArICAgIGxpIGE3LCBTQklfRUNBTEw7IFwKPiArICAgIG12
+IGE1LCBhNDsgXAo+ICsgICAgbXYgYTQsIGEzOyBcCj4gKyAgICBtdiBhMywgYTI7IFwKPiArICAg
+IG12IGEyLCBhMTsgXAo+ICsgICAgbXYgYTEsIGEwOyBcCj4gKyAgICBsaSBhMCwgMDsgXAo+ICsg
+ICAgZWNhbGw7IFwKPiArICAgIHJldDsgXAo+ICtTWU1fRlVOQ19FTkQoSFlQRVJWSVNPUl8jI2h5
+cGVyY2FsbCkKPiArCj4gKyNkZWZpbmUgSFlQRVJDQUxMMCBIWVBFUkNBTExfU0lNUExFCj4gKyNk
+ZWZpbmUgSFlQRVJDQUxMMSBIWVBFUkNBTExfU0lNUExFCj4gKyNkZWZpbmUgSFlQRVJDQUxMMiBI
+WVBFUkNBTExfU0lNUExFCj4gKyNkZWZpbmUgSFlQRVJDQUxMMyBIWVBFUkNBTExfU0lNUExFCj4g
+KyNkZWZpbmUgSFlQRVJDQUxMNCBIWVBFUkNBTExfU0lNUExFCj4gKyNkZWZpbmUgSFlQRVJDQUxM
+NSBIWVBFUkNBTExfU0lNUExFCj4gKwo+ICsgICAgLnRleHQKPiArCj4gK0hZUEVSQ0FMTDIoeGVu
+X3ZlcnNpb24pOwo+ICtIWVBFUkNBTEwzKGNvbnNvbGVfaW8pOwo+ICtIWVBFUkNBTEwzKGdyYW50
+X3RhYmxlX29wKTsKPiArSFlQRVJDQUxMMihzY2hlZF9vcCk7Cj4gK0hZUEVSQ0FMTDIoZXZlbnRf
+Y2hhbm5lbF9vcCk7Cj4gK0hZUEVSQ0FMTDIoaHZtX29wKTsKPiArSFlQRVJDQUxMMihtZW1vcnlf
+b3ApOwo+ICtIWVBFUkNBTEwyKHBoeXNkZXZfb3ApOwo+ICtIWVBFUkNBTEwzKHZjcHVfb3ApOwo+
+ICtIWVBFUkNBTEwxKHBsYXRmb3JtX29wX3Jhdyk7Cj4gK0hZUEVSQ0FMTDIobXVsdGljYWxsKTsK
+PiArSFlQRVJDQUxMMih2bV9hc3Npc3QpOwo+ICtIWVBFUkNBTEwzKGRtX29wKTsKPiArCj4gK1NZ
+TV9GVU5DX1NUQVJUKHByaXZjbWRfY2FsbCkKPiArICAgIG12IGE2LCBhMAo+ICsgICAgbGkgYTcs
+IFNCSV9FQ0FMTAo+ICsgICAgbXYgYTUsIGE0Owo+ICsgICAgbXYgYTQsIGEzOwo+ICsgICAgbXYg
+YTMsIGEyOwo+ICsgICAgbXYgYTIsIGExOwo+ICsgICAgbXYgYTEsIGEwOwo+ICsgICAgbGkgYTAs
+IDA7Cj4gKyAgICBlY2FsbAo+ICsgICAgcmV0Cj4gK1NZTV9GVU5DX0VORChwcml2Y21kX2NhbGwp
+Owo+IGRpZmYgLS1naXQgYS9hcmNoL3Jpc2N2L3hlbi9wMm0uYyBiL2FyY2gvcmlzY3YveGVuL3Ay
+bS5jCj4gbmV3IGZpbGUgbW9kZSAxMDA2NDQKPiBpbmRleCAwMDAwMDAwMDAwMDAuLjdjZTc1ZTUy
+ZDdjNAo+IC0tLSAvZGV2L251bGwKPiArKysgYi9hcmNoL3Jpc2N2L3hlbi9wMm0uYwo+IEBAIC0w
+LDAgKzEsNzYgQEAKPiArLy8gU1BEWC1MaWNlbnNlLUlkZW50aWZpZXI6IEdQTC0yLjAtb25seQo+
+ICsjaW5jbHVkZSA8bGludXgvbWVtYmxvY2suaD4KPiArI2luY2x1ZGUgPGxpbnV4L2dmcC5oPgo+
+ICsjaW5jbHVkZSA8bGludXgvZXhwb3J0Lmg+Cj4gKyNpbmNsdWRlIDxsaW51eC9zcGlubG9jay5o
+Pgo+ICsjaW5jbHVkZSA8bGludXgvc2xhYi5oPgo+ICsjaW5jbHVkZSA8bGludXgvdHlwZXMuaD4K
+PiArI2luY2x1ZGUgPGxpbnV4L2RtYS1tYXBwaW5nLmg+Cj4gKyNpbmNsdWRlIDxsaW51eC92bWFs
+bG9jLmg+Cj4gKyNpbmNsdWRlIDxsaW51eC9zd2lvdGxiLmg+Cj4gKwo+ICsjaW5jbHVkZSA8eGVu
+L3hlbi5oPgo+ICsjaW5jbHVkZSA8eGVuL2ludGVyZmFjZS9tZW1vcnkuaD4KPiArI2luY2x1ZGUg
+PHhlbi9ncmFudF90YWJsZS5oPgo+ICsjaW5jbHVkZSA8eGVuL3BhZ2UuaD4KPiArI2luY2x1ZGUg
+PHhlbi9zd2lvdGxiLXhlbi5oPgo+ICsKPiArI2luY2x1ZGUgPGFzbS9jYWNoZWZsdXNoLmg+Cj4g
+KyNpbmNsdWRlIDxhc20veGVuL2h5cGVyY2FsbC5oPgo+ICsjaW5jbHVkZSA8YXNtL3hlbi9pbnRl
+cmZhY2UuaD4KPiArCj4gK3N0cnVjdCB4ZW5fcDJtX2VudHJ5IHsKPiArICAgICAgIHVuc2lnbmVk
+IGxvbmcgcGZuOwo+ICsgICAgICAgdW5zaWduZWQgbG9uZyBtZm47Cj4gKyAgICAgICB1bnNpZ25l
+ZCBsb25nIG5yX3BhZ2VzOwo+ICsgICAgICAgc3RydWN0IHJiX25vZGUgcmJub2RlX3BoeXM7Cj4g
+K307Cj4gKwo+ICtzdGF0aWMgcndsb2NrX3QgcDJtX2xvY2s7Cj4gK3N0cnVjdCByYl9yb290IHBo
+eXNfdG9fbWFjaCA9IFJCX1JPT1Q7Cj4gK0VYUE9SVF9TWU1CT0xfR1BMKHBoeXNfdG9fbWFjaCk7
+Cj4gKwo+ICtzdGF0aWMgaW50IHhlbl9hZGRfcGh5c190b19tYWNoX2VudHJ5KHN0cnVjdCB4ZW5f
+cDJtX2VudHJ5ICpuZXcpCj4gK3sKPiArCj4gKyAgICAgICByZXR1cm4gMDsKPiArfQo+ICsKPiAr
+dW5zaWduZWQgbG9uZyBfX3Bmbl90b19tZm4odW5zaWduZWQgbG9uZyBwZm4pCj4gK3sKPiArICAg
+ICAgIHJldHVybiAwOwo+ICt9Cj4gK0VYUE9SVF9TWU1CT0xfR1BMKF9fcGZuX3RvX21mbik7Cj4g
+Kwo+ICtpbnQgc2V0X2ZvcmVpZ25fcDJtX21hcHBpbmcoc3RydWN0IGdudHRhYl9tYXBfZ3JhbnRf
+cmVmICptYXBfb3BzLAo+ICsgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBz
+dHJ1Y3QgZ250dGFiX21hcF9ncmFudF9yZWYgKmttYXBfb3BzLAo+ICsgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICBzdHJ1Y3QgcGFnZSAqKnBhZ2VzLCB1bnNpZ25lZCBpbnQg
+Y291bnQpCj4gK3sKPiArICAgICAgIHJldHVybiAwOwo+ICt9Cj4gKwo+ICtpbnQgY2xlYXJfZm9y
+ZWlnbl9wMm1fbWFwcGluZyhzdHJ1Y3QgZ250dGFiX3VubWFwX2dyYW50X3JlZiAqdW5tYXBfb3Bz
+LAo+ICsgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBzdHJ1Y3QgZ250dGFi
+X3VubWFwX2dyYW50X3JlZiAqa3VubWFwX29wcywKPiArICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgc3RydWN0IHBhZ2UgKipwYWdlcywgdW5zaWduZWQgaW50IGNvdW50KQo+
+ICt7Cj4gKyAgICAgICByZXR1cm4gMDsKPiArfQo+ICsKPiArYm9vbCBfX3NldF9waHlzX3RvX21h
+Y2hpbmVfbXVsdGkodW5zaWduZWQgbG9uZyBwZm4sCj4gKyAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgIHVuc2lnbmVkIGxvbmcgbWZuLCB1bnNpZ25lZCBsb25nIG5yX3BhZ2Vz
+KQo+ICt7Cj4gKyAgICAgICByZXR1cm4gdHJ1ZTsKPiArfQo+ICtFWFBPUlRfU1lNQk9MX0dQTChf
+X3NldF9waHlzX3RvX21hY2hpbmVfbXVsdGkpOwo+ICsKPiArYm9vbCBfX3NldF9waHlzX3RvX21h
+Y2hpbmUodW5zaWduZWQgbG9uZyBwZm4sIHVuc2lnbmVkIGxvbmcgbWZuKQo+ICt7Cj4gKyAgICAg
+ICByZXR1cm4gdHJ1ZTsKPiArfQo+ICtFWFBPUlRfU1lNQk9MX0dQTChfX3NldF9waHlzX3RvX21h
+Y2hpbmUpOwo+ICsKPiArc3RhdGljIGludCBwMm1faW5pdCh2b2lkKQo+ICt7Cj4gKyAgICAgICBy
+ZXR1cm4gMDsKPiArfQo+ICthcmNoX2luaXRjYWxsKHAybV9pbml0KTsKPiBkaWZmIC0tZ2l0IGEv
+aW5jbHVkZS94ZW4vaW50ZXJmYWNlL2lvL3Byb3RvY29scy5oIGIvaW5jbHVkZS94ZW4vaW50ZXJm
+YWNlL2lvL3Byb3RvY29scy5oCj4gaW5kZXggMjIwOTliYjQwNzlmLi42YzYzMTc0NjJiZTAgMTAw
+NjQ0Cj4gLS0tIGEvaW5jbHVkZS94ZW4vaW50ZXJmYWNlL2lvL3Byb3RvY29scy5oCj4gKysrIGIv
+aW5jbHVkZS94ZW4vaW50ZXJmYWNlL2lvL3Byb3RvY29scy5oCj4gQEAgLTYsNiArNiw3IEBACj4g
+ICNkZWZpbmUgWEVOX0lPX1BST1RPX0FCSV9YODZfNjQgICAgICJ4ODZfNjQtYWJpIgo+ICAjZGVm
+aW5lIFhFTl9JT19QUk9UT19BQklfUE9XRVJQQzY0ICAicG93ZXJwYzY0LWFiaSIKPiAgI2RlZmlu
+ZSBYRU5fSU9fUFJPVE9fQUJJX0FSTSAgICAgICAgImFybS1hYmkiCj4gKyNkZWZpbmUgWEVOX0lP
+X1BST1RPX0FCSV9SSVNDViAgICAgICJyaXNjdi1hYmkiCj4KPiAgI2lmIGRlZmluZWQoX19pMzg2
+X18pCj4gICMgZGVmaW5lIFhFTl9JT19QUk9UT19BQklfTkFUSVZFIFhFTl9JT19QUk9UT19BQklf
+WDg2XzMyCj4gQEAgLTE1LDYgKzE2LDggQEAKPiAgIyBkZWZpbmUgWEVOX0lPX1BST1RPX0FCSV9O
+QVRJVkUgWEVOX0lPX1BST1RPX0FCSV9QT1dFUlBDNjQKPiAgI2VsaWYgZGVmaW5lZChfX2FybV9f
+KSB8fCBkZWZpbmVkKF9fYWFyY2g2NF9fKQo+ICAjIGRlZmluZSBYRU5fSU9fUFJPVE9fQUJJX05B
+VElWRSBYRU5fSU9fUFJPVE9fQUJJX0FSTQo+ICsjZWxpZiBkZWZpbmVkKF9fcmlzY3YpCj4gKyMg
+ZGVmaW5lIFhFTl9JT19QUk9UT19BQklfTkFUSVZFIFhFTl9JT19QUk9UT19BQklfUklTQ1YKPiAg
+I2Vsc2UKPiAgIyBlcnJvciBhcmNoIGZpeHVwIG5lZWRlZCBoZXJlCj4gICNlbmRpZgo+IGRpZmYg
+LS1naXQgYS9pbmNsdWRlL3hlbi9yaXNjdi9oeXBlcmNhbGwuaCBiL2luY2x1ZGUveGVuL3Jpc2N2
+L2h5cGVyY2FsbC5oCj4gbmV3IGZpbGUgbW9kZSAxMDA2NDQKPiBpbmRleCAwMDAwMDAwMDAwMDAu
+LmY3NmQ4YTAxOGYyNgo+IC0tLSAvZGV2L251bGwKPiArKysgYi9pbmNsdWRlL3hlbi9yaXNjdi9o
+eXBlcmNhbGwuaAo+IEBAIC0wLDAgKzEsNzEgQEAKPiArLyogU1BEWC1MaWNlbnNlLUlkZW50aWZp
+ZXI6IEdQTC0yLjAgKi8KPiArLyoqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioq
+KioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKgo+ICsgKiBoeXBlcmNhbGwu
+aAo+ICsgKgo+ICsgKiBMaW51eC1zcGVjaWZpYyBoeXBlcnZpc29yIGhhbmRsaW5nLgo+ICsgKgo+
+ICsgKiBUaGlzIHByb2dyYW0gaXMgZnJlZSBzb2Z0d2FyZTsgeW91IGNhbiByZWRpc3RyaWJ1dGUg
+aXQgYW5kL29yCj4gKyAqIG1vZGlmeSBpdCB1bmRlciB0aGUgdGVybXMgb2YgdGhlIEdOVSBHZW5l
+cmFsIFB1YmxpYyBMaWNlbnNlIHZlcnNpb24gMgo+ICsgKiBhcyBwdWJsaXNoZWQgYnkgdGhlIEZy
+ZWUgU29mdHdhcmUgRm91bmRhdGlvbjsgb3IsIHdoZW4gZGlzdHJpYnV0ZWQKPiArICogc2VwYXJh
+dGVseSBmcm9tIHRoZSBMaW51eCBrZXJuZWwgb3IgaW5jb3Jwb3JhdGVkIGludG8gb3RoZXIKPiAr
+ICogc29mdHdhcmUgcGFja2FnZXMsIHN1YmplY3QgdG8gdGhlIGZvbGxvd2luZyBsaWNlbnNlOgo+
+ICsgKgo+ICsgKiBQZXJtaXNzaW9uIGlzIGhlcmVieSBncmFudGVkLCBmcmVlIG9mIGNoYXJnZSwg
+dG8gYW55IHBlcnNvbiBvYnRhaW5pbmcgYSBjb3B5Cj4gKyAqIG9mIHRoaXMgc291cmNlIGZpbGUg
+KHRoZSAiU29mdHdhcmUiKSwgdG8gZGVhbCBpbiB0aGUgU29mdHdhcmUgd2l0aG91dAo+ICsgKiBy
+ZXN0cmljdGlvbiwgaW5jbHVkaW5nIHdpdGhvdXQgbGltaXRhdGlvbiB0aGUgcmlnaHRzIHRvIHVz
+ZSwgY29weSwgbW9kaWZ5LAo+ICsgKiBtZXJnZSwgcHVibGlzaCwgZGlzdHJpYnV0ZSwgc3VibGlj
+ZW5zZSwgYW5kL29yIHNlbGwgY29waWVzIG9mIHRoZSBTb2Z0d2FyZSwKPiArICogYW5kIHRvIHBl
+cm1pdCBwZXJzb25zIHRvIHdob20gdGhlIFNvZnR3YXJlIGlzIGZ1cm5pc2hlZCB0byBkbyBzbywg
+c3ViamVjdCB0bwo+ICsgKiB0aGUgZm9sbG93aW5nIGNvbmRpdGlvbnM6Cj4gKyAqCj4gKyAqIFRo
+ZSBhYm92ZSBjb3B5cmlnaHQgbm90aWNlIGFuZCB0aGlzIHBlcm1pc3Npb24gbm90aWNlIHNoYWxs
+IGJlIGluY2x1ZGVkIGluCj4gKyAqIGFsbCBjb3BpZXMgb3Igc3Vic3RhbnRpYWwgcG9ydGlvbnMg
+b2YgdGhlIFNvZnR3YXJlLgo+ICsgKgo+ICsgKiBUSEUgU09GVFdBUkUgSVMgUFJPVklERUQgIkFT
+IElTIiwgV0lUSE9VVCBXQVJSQU5UWSBPRiBBTlkgS0lORCwgRVhQUkVTUyBPUgo+ICsgKiBJTVBM
+SUVELCBJTkNMVURJTkcgQlVUIE5PVCBMSU1JVEVEIFRPIFRIRSBXQVJSQU5USUVTIE9GIE1FUkNI
+QU5UQUJJTElUWSwKPiArICogRklUTkVTUyBGT1IgQSBQQVJUSUNVTEFSIFBVUlBPU0UgQU5EIE5P
+TklORlJJTkdFTUVOVC4gSU4gTk8gRVZFTlQgU0hBTEwgVEhFCj4gKyAqIEFVVEhPUlMgT1IgQ09Q
+WVJJR0hUIEhPTERFUlMgQkUgTElBQkxFIEZPUiBBTlkgQ0xBSU0sIERBTUFHRVMgT1IgT1RIRVIK
+PiArICogTElBQklMSVRZLCBXSEVUSEVSIElOIEFOIEFDVElPTiBPRiBDT05UUkFDVCwgVE9SVCBP
+UiBPVEhFUldJU0UsIEFSSVNJTkcKPiArICogRlJPTSwgT1VUIE9GIE9SIElOIENPTk5FQ1RJT04g
+V0lUSCBUSEUgU09GVFdBUkUgT1IgVEhFIFVTRSBPUiBPVEhFUiBERUFMSU5HUwo+ICsgKiBJTiBU
+SEUgU09GVFdBUkUuCj4gKyAqLwo+ICsKPiArI2lmbmRlZiBfQVNNX1JJU0NWX1hFTl9IWVBFUkNB
+TExfSAo+ICsjZGVmaW5lIF9BU01fUklTQ1ZfWEVOX0hZUEVSQ0FMTF9ICj4gKwo+ICsjaW5jbHVk
+ZSA8bGludXgvYnVnLmg+Cj4gKwo+ICsjaW5jbHVkZSA8eGVuL2ludGVyZmFjZS94ZW4uaD4KPiAr
+I2luY2x1ZGUgPHhlbi9pbnRlcmZhY2Uvc2NoZWQuaD4KPiArI2luY2x1ZGUgPHhlbi9pbnRlcmZh
+Y2UvcGxhdGZvcm0uaD4KPiArCj4gK3N0cnVjdCB4ZW5fZG1fb3BfYnVmOwo+ICsKPiArbG9uZyBw
+cml2Y21kX2NhbGwodW5zaWduZWQgaW50IGNhbGwsIHVuc2lnbmVkIGxvbmcgYTEsCj4gKyAgICAg
+ICAgICAgICAgIHVuc2lnbmVkIGxvbmcgYTIsIHVuc2lnbmVkIGxvbmcgYTMsCj4gKyAgICAgICAg
+ICAgICAgIHVuc2lnbmVkIGxvbmcgYTQsIHVuc2lnbmVkIGxvbmcgYTUpOwo+ICtpbnQgSFlQRVJW
+SVNPUl94ZW5fdmVyc2lvbihpbnQgY21kLCB2b2lkICphcmcpOwo+ICtpbnQgSFlQRVJWSVNPUl9j
+b25zb2xlX2lvKGludCBjbWQsIGludCBjb3VudCwgY2hhciAqc3RyKTsKPiAraW50IEhZUEVSVklT
+T1JfZ3JhbnRfdGFibGVfb3AodW5zaWduZWQgaW50IGNtZCwgdm9pZCAqdW9wLCB1bnNpZ25lZCBp
+bnQgY291bnQpOwo+ICtpbnQgSFlQRVJWSVNPUl9zY2hlZF9vcChpbnQgY21kLCB2b2lkICphcmcp
+Owo+ICtpbnQgSFlQRVJWSVNPUl9ldmVudF9jaGFubmVsX29wKGludCBjbWQsIHZvaWQgKmFyZyk7
+Cj4gK3Vuc2lnbmVkIGxvbmcgSFlQRVJWSVNPUl9odm1fb3AoaW50IG9wLCB2b2lkICphcmcpOwo+
+ICtpbnQgSFlQRVJWSVNPUl9tZW1vcnlfb3AodW5zaWduZWQgaW50IGNtZCwgdm9pZCAqYXJnKTsK
+PiAraW50IEhZUEVSVklTT1JfcGh5c2Rldl9vcChpbnQgY21kLCB2b2lkICphcmcpOwo+ICtpbnQg
+SFlQRVJWSVNPUl92Y3B1X29wKGludCBjbWQsIGludCB2Y3B1aWQsIHZvaWQgKmV4dHJhX2FyZ3Mp
+Owo+ICtpbnQgSFlQRVJWSVNPUl92bV9hc3Npc3QodW5zaWduZWQgaW50IGNtZCwgdW5zaWduZWQg
+aW50IHR5cGUpOwo+ICtpbnQgSFlQRVJWSVNPUl9kbV9vcChkb21pZF90IGRvbWlkLCB1bnNpZ25l
+ZCBpbnQgbnJfYnVmcywKPiArICAgICAgICAgICAgICAgICAgICAgICAgc3RydWN0IHhlbl9kbV9v
+cF9idWYgKmJ1ZnMpOwo+ICtpbnQgSFlQRVJWSVNPUl9wbGF0Zm9ybV9vcF9yYXcodm9pZCAqYXJn
+KTsKPiArc3RhdGljIGlubGluZSBpbnQgSFlQRVJWSVNPUl9wbGF0Zm9ybV9vcChzdHJ1Y3QgeGVu
+X3BsYXRmb3JtX29wICpvcCkKPiArewo+ICsgICAgICAgcmV0dXJuIDA7Cj4gK30KPiAraW50IEhZ
+UEVSVklTT1JfbXVsdGljYWxsKHN0cnVjdCBtdWx0aWNhbGxfZW50cnkgKmNhbGxzLCB1aW50MzJf
+dCBucik7Cj4gKwo+ICtzdGF0aWMgaW5saW5lIGludAo+ICtIWVBFUlZJU09SX3N1c3BlbmQodW5z
+aWduZWQgbG9uZyBzdGFydF9pbmZvX21mbikKPiArewo+ICsgICAgICAgcmV0dXJuIDA7Cj4gK30K
+PiArCj4gKyNlbmRpZiAvKiBfQVNNX1JJU0NWX1hFTl9IWVBFUkNBTExfSCAqLwo+IGRpZmYgLS1n
+aXQgYS9pbmNsdWRlL3hlbi9yaXNjdi9oeXBlcnZpc29yLmggYi9pbmNsdWRlL3hlbi9yaXNjdi9o
+eXBlcnZpc29yLmgKPiBuZXcgZmlsZSBtb2RlIDEwMDY0NAo+IGluZGV4IDAwMDAwMDAwMDAwMC4u
+MmMxZjk2MjViZTgwCj4gLS0tIC9kZXYvbnVsbAo+ICsrKyBiL2luY2x1ZGUveGVuL3Jpc2N2L2h5
+cGVydmlzb3IuaAo+IEBAIC0wLDAgKzEsMjYgQEAKPiArLyogU1BEWC1MaWNlbnNlLUlkZW50aWZp
+ZXI6IEdQTC0yLjAgKi8KPiArI2lmbmRlZiBfQVNNX1JJU0NWX1hFTl9IWVBFUlZJU09SX0gKPiAr
+I2RlZmluZSBfQVNNX1JJU0NWX1hFTl9IWVBFUlZJU09SX0gKPiArCj4gKyNpbmNsdWRlIDxsaW51
+eC9pbml0Lmg+Cj4gKwo+ICtleHRlcm4gc3RydWN0IHNoYXJlZF9pbmZvICpIWVBFUlZJU09SX3No
+YXJlZF9pbmZvOwo+ICtleHRlcm4gc3RydWN0IHN0YXJ0X2luZm8gKnhlbl9zdGFydF9pbmZvOwo+
+ICsKPiArI2lmZGVmIENPTkZJR19YRU4KPiArdm9pZCBfX2luaXQgeGVuX2Vhcmx5X2luaXQodm9p
+ZCk7Cj4gKyNlbHNlCj4gK3N0YXRpYyBpbmxpbmUgdm9pZCB4ZW5fZWFybHlfaW5pdCh2b2lkKSB7
+IHJldHVybjsgfQo+ICsjZW5kaWYKPiArCj4gKyNpZmRlZiBDT05GSUdfSE9UUExVR19DUFUKPiAr
+c3RhdGljIGlubGluZSB2b2lkIHhlbl9hcmNoX3JlZ2lzdGVyX2NwdShpbnQgbnVtKQo+ICt7Cj4g
+K30KPiArCj4gK3N0YXRpYyBpbmxpbmUgdm9pZCB4ZW5fYXJjaF91bnJlZ2lzdGVyX2NwdShpbnQg
+bnVtKQo+ICt7Cj4gK30KPiArI2VuZGlmCj4gKwo+ICsjZW5kaWYgLyogX0FTTV9SSVNDVl9YRU5f
+SFlQRVJWSVNPUl9IICovCj4gZGlmZiAtLWdpdCBhL2luY2x1ZGUveGVuL3Jpc2N2L2ludGVyZmFj
+ZS5oIGIvaW5jbHVkZS94ZW4vcmlzY3YvaW50ZXJmYWNlLmgKPiBuZXcgZmlsZSBtb2RlIDEwMDY0
+NAo+IGluZGV4IDAwMDAwMDAwMDAwMC4uNjc2OWI1YjM5Y2JhCj4gLS0tIC9kZXYvbnVsbAo+ICsr
+KyBiL2luY2x1ZGUveGVuL3Jpc2N2L2ludGVyZmFjZS5oCj4gQEAgLTAsMCArMSw4NSBAQAo+ICsv
+KiBTUERYLUxpY2Vuc2UtSWRlbnRpZmllcjogR1BMLTIuMCAqLwo+ICsvKioqKioqKioqKioqKioq
+KioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioq
+KioqKioqCj4gKyAqIEd1ZXN0IE9TIGludGVyZmFjZSB0byBSSVNDViBYZW4uCj4gKyAqCj4gKyAq
+Lwo+ICsKPiArI2lmbmRlZiBfQVNNX1JJU0NWX1hFTl9JTlRFUkZBQ0VfSAo+ICsjZGVmaW5lIF9B
+U01fUklTQ1ZfWEVOX0lOVEVSRkFDRV9ICj4gKwo+ICsjaW5jbHVkZSA8bGludXgvdHlwZXMuaD4K
+PiArCj4gKyNkZWZpbmUgdWludDY0X2FsaWduZWRfdCB1aW50NjRfdCBfX2FsaWduZWQoOCkKPiAr
+Cj4gKyNkZWZpbmUgX19ERUZJTkVfR1VFU1RfSEFORExFKG5hbWUsIHR5cGUpIFwKPiArICAgICAg
+IHR5cGVkZWYgc3RydWN0IHsgdW5pb24geyB0eXBlICogcDsgdWludDY0X2FsaWduZWRfdCBxOyB9
+OyB9ICBcCj4gKyAgICAgICAgICAgICAgIF9fZ3Vlc3RfaGFuZGxlXyAjIyBuYW1lCj4gKwo+ICsj
+ZGVmaW5lIERFRklORV9HVUVTVF9IQU5ETEVfU1RSVUNUKG5hbWUpIFwKPiArICAgICAgIF9fREVG
+SU5FX0dVRVNUX0hBTkRMRShuYW1lLCBzdHJ1Y3QgbmFtZSkKPiArI2RlZmluZSBERUZJTkVfR1VF
+U1RfSEFORExFKG5hbWUpIF9fREVGSU5FX0dVRVNUX0hBTkRMRShuYW1lLCBuYW1lKQo+ICsjZGVm
+aW5lIEdVRVNUX0hBTkRMRShuYW1lKSAgICAgICAgX19ndWVzdF9oYW5kbGVfICMjIG5hbWUKPiAr
+Cj4gKyNkZWZpbmUgc2V0X3hlbl9ndWVzdF9oYW5kbGUoaG5kLCB2YWwpICAgICAgICAgICAgICAg
+ICBcCj4gKyAgICAgICBkbyB7ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICBcCj4gKyAgICAgICAgICAgICAgIGlmIChzaXplb2YoaG5kKSA9PSA4KSAgICAgICAgICAg
+ICAgICAgICBcCj4gKyAgICAgICAgICAgICAgICAgICAgICAgKih1aW50NjRfdCAqKSYoaG5kKSA9
+IDA7ICAgICAgICBcCj4gKyAgICAgICAgICAgICAgIChobmQpLnAgPSB2YWw7ICAgICAgICAgICAg
+ICAgICAgICAgICAgICBcCj4gKyAgICAgICB9IHdoaWxlICgwKQo+ICsKPiArI2RlZmluZSBfX0hZ
+UEVSVklTT1JfcGxhdGZvcm1fb3BfcmF3IF9fSFlQRVJWSVNPUl9wbGF0Zm9ybV9vcAo+ICsKPiAr
+I2lmbmRlZiBfX0FTU0VNQkxZX18KPiArLyogRXhwbGljaXRseSBzaXplIGludGVnZXJzIHRoYXQg
+cmVwcmVzZW50IHBmbnMgaW4gdGhlIGludGVyZmFjZSB3aXRoCj4gKyAqIFhlbiBzbyB0aGF0IHdl
+IGNhbiBoYXZlIG9uZSBBQkkgdGhhdCB3b3JrcyBmb3IgMzIgYW5kIDY0IGJpdCBndWVzdHMuCj4g
+KyAqIE5vdGUgdGhhdCB0aGlzIG1lYW5zIHRoYXQgdGhlIHhlbl9wZm5fdCB0eXBlIG1heSBiZSBj
+YXBhYmxlIG9mCj4gKyAqIHJlcHJlc2VudGluZyBwZm4ncyB3aGljaCB0aGUgZ3Vlc3QgY2Fubm90
+IHJlcHJlc2VudCBpbiBpdHMgb3duIHBmbgo+ICsgKiB0eXBlLiBIb3dldmVyIHNpbmNlIHBmbiBz
+cGFjZSBpcyBjb250cm9sbGVkIGJ5IHRoZSBndWVzdCB0aGlzIGlzCj4gKyAqIGZpbmUgc2luY2Ug
+aXQgc2ltcGx5IHdvdWxkbid0IGJlIGFibGUgdG8gY3JlYXRlIGFueSBzdXJlIHBmbnMgaW4KPiAr
+ICogdGhlIGZpcnN0IHBsYWNlLgo+ICsgKi8KPiArdHlwZWRlZiB1aW50NjRfdCB4ZW5fcGZuX3Q7
+Cj4gKyNkZWZpbmUgUFJJX3hlbl9wZm4gImxseCIKPiArdHlwZWRlZiB1aW50NjRfdCB4ZW5fdWxv
+bmdfdDsKPiArI2RlZmluZSBQUklfeGVuX3Vsb25nICJsbHgiCj4gK3R5cGVkZWYgaW50NjRfdCB4
+ZW5fbG9uZ190Owo+ICsjZGVmaW5lIFBSSV94ZW5fbG9uZyAibGx4Igo+ICsvKiBHdWVzdCBoYW5k
+bGVzIGZvciBwcmltaXRpdmUgQyB0eXBlcy4gKi8KPiArX19ERUZJTkVfR1VFU1RfSEFORExFKHVj
+aGFyLCB1bnNpZ25lZCBjaGFyKTsKPiArX19ERUZJTkVfR1VFU1RfSEFORExFKHVpbnQsICB1bnNp
+Z25lZCBpbnQpOwo+ICtERUZJTkVfR1VFU1RfSEFORExFKGNoYXIpOwo+ICtERUZJTkVfR1VFU1Rf
+SEFORExFKGludCk7Cj4gK0RFRklORV9HVUVTVF9IQU5ETEUodm9pZCk7Cj4gK0RFRklORV9HVUVT
+VF9IQU5ETEUodWludDY0X3QpOwo+ICtERUZJTkVfR1VFU1RfSEFORExFKHVpbnQzMl90KTsKPiAr
+REVGSU5FX0dVRVNUX0hBTkRMRSh4ZW5fcGZuX3QpOwo+ICtERUZJTkVfR1VFU1RfSEFORExFKHhl
+bl91bG9uZ190KTsKPiArCj4gKy8qIE1heGltdW0gbnVtYmVyIG9mIHZpcnR1YWwgQ1BVcyBpbiBt
+dWx0aS1wcm9jZXNzb3IgZ3Vlc3RzLiAqLwo+ICsjZGVmaW5lIE1BWF9WSVJUX0NQVVMgMQo+ICsK
+PiArc3RydWN0IGFyY2hfdmNwdV9pbmZvIHsgfTsKPiArc3RydWN0IGFyY2hfc2hhcmVkX2luZm8g
+eyB9Owo+ICsKPiArLyogVE9ETzogTW92ZSBwdmNsb2NrIGRlZmluaXRpb25zIHNvbWUgcGxhY2Ug
+YXJjaCBpbmRlcGVuZGVudCAqLwo+ICtzdHJ1Y3QgcHZjbG9ja192Y3B1X3RpbWVfaW5mbyB7Cj4g
+KyAgICAgICB1MzIgICB2ZXJzaW9uOwo+ICsgICAgICAgdTMyICAgcGFkMDsKPiArICAgICAgIHU2
+NCAgIHRzY190aW1lc3RhbXA7Cj4gKyAgICAgICB1NjQgICBzeXN0ZW1fdGltZTsKPiArICAgICAg
+IHUzMiAgIHRzY190b19zeXN0ZW1fbXVsOwo+ICsgICAgICAgczggICAgdHNjX3NoaWZ0Owo+ICsg
+ICAgICAgdTggICAgZmxhZ3M7Cj4gKyAgICAgICB1OCAgICBwYWRbMl07Cj4gK30gX19wYWNrZWQ7
+IC8qIDMyIGJ5dGVzICovCj4gKwo+ICsvKiBJdCBpcyBPSyB0byBoYXZlIGEgMTIgYnl0ZXMgc3Ry
+dWN0IHdpdGggbm8gcGFkZGluZyBiZWNhdXNlIGl0IGlzIHBhY2tlZCAqLwo+ICtzdHJ1Y3QgcHZj
+bG9ja193YWxsX2Nsb2NrIHsKPiArICAgICAgIHUzMiAgIHZlcnNpb247Cj4gKyAgICAgICB1MzIg
+ICBzZWM7Cj4gKyAgICAgICB1MzIgICBuc2VjOwo+ICsgICAgICAgdTMyICAgc2VjX2hpOwo+ICt9
+IF9fcGFja2VkOwo+ICsjZW5kaWYKPiArCj4gKyNlbmRpZiAvKiBfQVNNX1JJU0NWX1hFTl9JTlRF
+UkZBQ0VfSCAqLwo+IGRpZmYgLS1naXQgYS9pbmNsdWRlL3hlbi9yaXNjdi9wYWdlLmggYi9pbmNs
+dWRlL3hlbi9yaXNjdi9wYWdlLmgKPiBuZXcgZmlsZSBtb2RlIDEwMDY0NAo+IGluZGV4IDAwMDAw
+MDAwMDAwMC4uZmUwN2E5YmZmYTdlCj4gLS0tIC9kZXYvbnVsbAo+ICsrKyBiL2luY2x1ZGUveGVu
+L3Jpc2N2L3BhZ2UuaAo+IEBAIC0wLDAgKzEsMTA2IEBACj4gKy8qIFNQRFgtTGljZW5zZS1JZGVu
+dGlmaWVyOiBHUEwtMi4wICovCj4gKyNpZm5kZWYgX0FTTV9SSVNDVl9YRU5fUEFHRV9ICj4gKyNk
+ZWZpbmUgX0FTTV9SSVNDVl9YRU5fUEFHRV9ICj4gKwo+ICsjaW5jbHVkZSA8YXNtL3BhZ2UuaD4K
+PiArCj4gKyNpbmNsdWRlIDxsaW51eC9wZm4uaD4KPiArI2luY2x1ZGUgPGxpbnV4L3R5cGVzLmg+
+Cj4gKyNpbmNsdWRlIDxsaW51eC9kbWEtbWFwcGluZy5oPgo+ICsjaW5jbHVkZSA8bGludXgvcGd0
+YWJsZS5oPgo+ICsKPiArI2luY2x1ZGUgPHhlbi94ZW4uaD4KPiArI2luY2x1ZGUgPHhlbi9pbnRl
+cmZhY2UvZ3JhbnRfdGFibGUuaD4KPiArCj4gKy8qIFhlbiBtYWNoaW5lIGFkZHJlc3MgKi8KPiAr
+c3RydWN0IHhtYWRkciB7Cj4gKyAgICAgICBwaHlzX2FkZHJfdCBtYWRkcjsKPiArfTsKPiArCj4g
+Ky8qIFhlbiBwc2V1ZG8tcGh5c2ljYWwgYWRkcmVzcyAqLwo+ICtzdHJ1Y3QgeHBhZGRyIHsKPiAr
+ICAgICAgIHBoeXNfYWRkcl90IHBhZGRyOwo+ICt9Owo+ICsKPiArI2RlZmluZSBYTUFERFIoeCkg
+ICAgICAoKHN0cnVjdCB4bWFkZHIpIHsgLm1hZGRyID0gKHgpIH0pCj4gKyNkZWZpbmUgWFBBRERS
+KHgpICAgICAgKChzdHJ1Y3QgeHBhZGRyKSB7IC5wYWRkciA9ICh4KSB9KQo+ICsKPiArI2RlZmlu
+ZSBJTlZBTElEX1AyTV9FTlRSWSAgICAgICh+MFVMKQo+ICsKPiArLyoKPiArICogVGhlIHBzZXVk
+by1waHlzaWNhbCBmcmFtZSAocGZuKSB1c2VkIGluIGFsbCB0aGUgaGVscGVycyBpcyBhbHdheXMg
+YmFzZWQKPiArICogb24gWGVuIHBhZ2UgZ3JhbnVsYXJpdHkgKGkuZSA0S0IpLgo+ICsgKgo+ICsg
+KiBBIExpbnV4IHBhZ2UgbWF5IGJlIHNwbGl0IGFjcm9zcyBtdWx0aXBsZSBub24tY29udGlndW91
+cyBYZW4gcGFnZSBzbyB3ZQo+ICsgKiBoYXZlIHRvIGtlZXAgdHJhY2sgd2l0aCBmcmFtZSBiYXNl
+ZCBvbiA0S0IgcGFnZSBncmFudWxhcml0eS4KPiArICoKPiArICogUFYgZHJpdmVycyBzaG91bGQg
+bmV2ZXIgbWFrZSBhIGRpcmVjdCB1c2FnZSBvZiB0aG9zZSBoZWxwZXJzIChwYXJ0aWN1bGFybHkK
+PiArICogcGZuX3RvX2dmbiBhbmQgZ2ZuX3RvX3BmbikuCj4gKyAqLwo+ICsKPiArdW5zaWduZWQg
+bG9uZyBfX3Bmbl90b19tZm4odW5zaWduZWQgbG9uZyBwZm4pOwo+ICtleHRlcm4gc3RydWN0IHJi
+X3Jvb3QgcGh5c190b19tYWNoOwo+ICsKPiArLyogUHNldWRvLXBoeXNpY2FsIDwtPiBHdWVzdCBj
+b252ZXJzaW9uICovCj4gK3N0YXRpYyBpbmxpbmUgdW5zaWduZWQgbG9uZyBwZm5fdG9fZ2ZuKHVu
+c2lnbmVkIGxvbmcgcGZuKQo+ICt7Cj4gKyAgICAgICByZXR1cm4gMDsKPiArfQo+ICsKPiArc3Rh
+dGljIGlubGluZSB1bnNpZ25lZCBsb25nIGdmbl90b19wZm4odW5zaWduZWQgbG9uZyBnZm4pCj4g
+K3sKPiArICAgICAgIHJldHVybiAwOwo+ICt9Cj4gKwo+ICsvKiBQc2V1ZG8tcGh5c2ljYWwgPC0+
+IEJVUyBjb252ZXJzaW9uICovCj4gK3N0YXRpYyBpbmxpbmUgdW5zaWduZWQgbG9uZyBwZm5fdG9f
+YmZuKHVuc2lnbmVkIGxvbmcgcGZuKQo+ICt7Cj4gKyAgICAgICByZXR1cm4gMDsKPiArfQo+ICsK
+PiArc3RhdGljIGlubGluZSB1bnNpZ25lZCBsb25nIGJmbl90b19wZm4odW5zaWduZWQgbG9uZyBi
+Zm4pCj4gK3sKPiArICAgICAgIHJldHVybiAwOwo+ICt9Cj4gKwo+ICsjZGVmaW5lIGJmbl90b19s
+b2NhbF9wZm4oYmZuKSAgYmZuX3RvX3BmbihiZm4pCj4gKwo+ICsvKiBWSVJUIDwtPiBHVUVTVCBj
+b252ZXJzaW9uICovCj4gKyNkZWZpbmUgdmlydF90b19nZm4odikgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBcCj4gKyAgICAgICAoeyAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgIFwKPiArICAgICAgICAgICAgICAgV0FSTl9PTl9PTkNFKCF2aXJ0X2FkZHJfdmFsaWQo
+dikpOyAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIFwKPiArICAgICAgICAgICAgICAgcGZu
+X3RvX2dmbih2aXJ0X3RvX3BoeXModikgPj4gWEVOX1BBR0VfU0hJRlQpOyAgICAgICAgICAgICAg
+ICAgXAo+ICsgICAgICAgfSkKPiArI2RlZmluZSBnZm5fdG9fdmlydChtKSAgICAgICAgIChfX3Zh
+KGdmbl90b19wZm4obSkgPDwgWEVOX1BBR0VfU0hJRlQpKQo+ICsKPiArI2RlZmluZSBwZXJjcHVf
+dG9fZ2ZuKHYpICAgICAgIFwKPiArICAgICAgIChwZm5fdG9fZ2ZuKHBlcl9jcHVfcHRyX3RvX3Bo
+eXModikgPj4gWEVOX1BBR0VfU0hJRlQpKQo+ICsKPiArc3RhdGljIGlubGluZSBzdHJ1Y3QgeG1h
+ZGRyIGFyYml0cmFyeV92aXJ0X3RvX21hY2hpbmUodm9pZCAqdmFkZHIpCj4gK3sKPiArICAgICAg
+IFdBUk5fT05fT05DRSgxKTsKPiArICAgICAgIHJldHVybiAoc3RydWN0IHhtYWRkcil7MH07Cj4g
+K30KPiArCj4gK2V4dGVybiBpbnQgc2V0X2ZvcmVpZ25fcDJtX21hcHBpbmcoc3RydWN0IGdudHRh
+Yl9tYXBfZ3JhbnRfcmVmICptYXBfb3BzLAo+ICsgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgc3RydWN0IGdudHRhYl9tYXBfZ3JhbnRfcmVmICprbWFwX29wcywKPiArICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgIHN0cnVjdCBwYWdlICoqcGFnZXMsIHVuc2lnbmVkIGlu
+dCBjb3VudCk7Cj4gKwo+ICtleHRlcm4gaW50IGNsZWFyX2ZvcmVpZ25fcDJtX21hcHBpbmcoc3Ry
+dWN0IGdudHRhYl91bm1hcF9ncmFudF9yZWYgKnVubWFwX29wcywKPiArICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgIHN0cnVjdCBnbnR0YWJfdW5tYXBfZ3JhbnRfcmVmICpr
+dW5tYXBfb3BzLAo+ICsgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgc3Ry
+dWN0IHBhZ2UgKipwYWdlcywgdW5zaWduZWQgaW50IGNvdW50KTsKPiArCj4gK2Jvb2wgX19zZXRf
+cGh5c190b19tYWNoaW5lKHVuc2lnbmVkIGxvbmcgcGZuLCB1bnNpZ25lZCBsb25nIG1mbik7Cj4g
+K2Jvb2wgX19zZXRfcGh5c190b19tYWNoaW5lX211bHRpKHVuc2lnbmVkIGxvbmcgcGZuLCB1bnNp
+Z25lZCBsb25nIG1mbiwKPiArICAgICAgICAgICAgICAgdW5zaWduZWQgbG9uZyBucl9wYWdlcyk7
+Cj4gKwo+ICtzdGF0aWMgaW5saW5lIGJvb2wgc2V0X3BoeXNfdG9fbWFjaGluZSh1bnNpZ25lZCBs
+b25nIHBmbiwgdW5zaWduZWQgbG9uZyBtZm4pCj4gK3sKPiArICAgICAgIHJldHVybiAwOwo+ICt9
+Cj4gKwo+ICtib29sIHhlbl9hcmNoX25lZWRfc3dpb3RsYihzdHJ1Y3QgZGV2aWNlICpkZXYsCj4g
+KyAgICAgICAgICAgICAgICAgICAgICAgICAgcGh5c19hZGRyX3QgcGh5cywKPiArICAgICAgICAg
+ICAgICAgICAgICAgICAgICBkbWFfYWRkcl90IGRldl9hZGRyKTsKPiArCj4gKyNlbmRpZiAvKiBf
+QVNNX1JJU0NWX1hFTl9QQUdFX0ggKi8KPiBkaWZmIC0tZ2l0IGEvaW5jbHVkZS94ZW4vcmlzY3Yv
+c3dpb3RsYi14ZW4uaCBiL2luY2x1ZGUveGVuL3Jpc2N2L3N3aW90bGIteGVuLmgKPiBuZXcgZmls
+ZSBtb2RlIDEwMDY0NAo+IGluZGV4IDAwMDAwMDAwMDAwMC4uOTdlY2Q4Y2JiYzJkCj4gLS0tIC9k
+ZXYvbnVsbAo+ICsrKyBiL2luY2x1ZGUveGVuL3Jpc2N2L3N3aW90bGIteGVuLmgKPiBAQCAtMCww
+ICsxLDEzIEBACj4gKy8qIFNQRFgtTGljZW5zZS1JZGVudGlmaWVyOiBHUEwtMi4wICovCj4gKyNp
+Zm5kZWYgX0FTTV9SSVNDVl9TV0lPVExCX1hFTl9ICj4gKyNkZWZpbmUgX0FTTV9SSVNDVl9TV0lP
+VExCX1hFTl9ICj4gKwo+ICsjaW5jbHVkZSA8eGVuL2ZlYXR1cmVzLmg+Cj4gKyNpbmNsdWRlIDx4
+ZW4veGVuLmg+Cj4gKwo+ICtzdGF0aWMgaW5saW5lIGludCB4ZW5fc3dpb3RsYl9kZXRlY3Qodm9p
+ZCkKPiArewo+ICsgICAgICAgcmV0dXJuIDA7Cj4gK30KPiArCj4gKyNlbmRpZiAvKiBfQVNNX1JJ
+U0NWX1NXSU9UTEJfWEVOX0ggKi8KPiBkaWZmIC0tZ2l0IGEvdGVzdC50eHQgYi90ZXN0LnR4dAo+
+IG5ldyBmaWxlIG1vZGUgMTAwNjQ0Cj4gaW5kZXggMDAwMDAwMDAwMDAwLi5lNTQyNjc5OTg5ODIK
+PiAtLS0gL2Rldi9udWxsCj4gKysrIGIvdGVzdC50eHQKPiBAQCAtMCwwICsxLDIxIEBACj4gK1dB
+Uk5JTkc6IGFkZGVkLCBtb3ZlZCBvciBkZWxldGVkIGZpbGUocyksIGRvZXMgTUFJTlRBSU5FUlMg
+bmVlZCB1cGRhdGluZz8KPiArIzEyMDoKPiArbmV3IGZpbGUgbW9kZSAxMDA2NDQKPiArCj4gK1dB
+Uk5JTkc6IGRvIG5vdCBhZGQgbmV3IHR5cGVkZWZzCj4gKyM4MDg6IEZJTEU6IGluY2x1ZGUveGVu
+L3Jpc2N2L2ludGVyZmFjZS5oOjE1Ogo+ICsrICAgICAgdHlwZWRlZiBzdHJ1Y3QgeyB1bmlvbiB7
+IHR5cGUgKiBwOyB1aW50NjRfYWxpZ25lZF90IHE7IH07IH0gIFwKPiArCj4gK1dBUk5JTkc6IHBs
+ZWFzZSwgbm8gc3BhY2VzIGF0IHRoZSBzdGFydCBvZiBhIGxpbmUKPiArIzEwMDY6IEZJTEU6IGlu
+Y2x1ZGUveGVuL3Jpc2N2L3N3aW90bGIteGVuLmg6MTA6Cj4gKysgICAgcmV0dXJuIDA7JAo+ICsK
+PiArdG90YWw6IDAgZXJyb3JzLCAzIHdhcm5pbmdzLCA4MTAgbGluZXMgY2hlY2tlZAo+ICsKPiAr
+Tk9URTogRm9yIHNvbWUgb2YgdGhlIHJlcG9ydGVkIGRlZmVjdHMsIGNoZWNrcGF0Y2ggbWF5IGJl
+IGFibGUgdG8KPiArICAgICAgbWVjaGFuaWNhbGx5IGNvbnZlcnQgdG8gdGhlIHR5cGljYWwgc3R5
+bGUgdXNpbmcgLS1maXggb3IgLS1maXgtaW5wbGFjZS4KPiArCj4gKzAwMDEtcmlzY3YtQWRkLWlu
+aXRpYWwtWGVuLWd1ZXN0LXN1cHBvcnQtZm9yLVJJU0MtVi5wYXRjaCBoYXMgc3R5bGUgcHJvYmxl
+bXMsIHBsZWFzZSByZXZpZXcuCj4gKwo+ICtOT1RFOiBJZiBhbnkgb2YgdGhlIGVycm9ycyBhcmUg
+ZmFsc2UgcG9zaXRpdmVzLCBwbGVhc2UgcmVwb3J0Cj4gKyAgICAgIHRoZW0gdG8gdGhlIG1haW50
+YWluZXIsIHNlZSBDSEVDS1BBVENIIGluIE1BSU5UQUlORVJTLgo+IC0tCj4gMi40My4wCj4KPgoK
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlz
+Y3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xp
+c3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
