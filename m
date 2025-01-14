@@ -4,77 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DA1B0E77188
-	for <linux-riscv@archiver.kernel.org>; Wed, 15 Jan 2025 00:32:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6B6FDC02188
+	for <linux-riscv@archiver.kernel.org>; Wed, 15 Jan 2025 00:32:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
-	List-Owner; bh=hZHJ7qeqmfqG5uQKc/LC4GqRcXgdetzJXdfJJxvOvEQ=; b=KPRxtcmsOgQzxc
-	JZ4E9wit+FklghnmNJ05Af+i8Dymc3czJncBeyaAuPH8z4wtxRFYqcuqMhfFwHUMvsJt/wXgonqIP
-	TlQqJZ7/TOIr19fVUQMVqwN5SQ9fItIYU9bqfevK4qkBqowIj5lCAIk7IUXdrjbl9jEnTv0WZ1595
-	O6MbzFaHW8TxOKkcICJPCHxxlUn6SCgIwpSA+92eRAUiwNsJeTCa9aDmxY0gsyQ6HOjTs9ip6pegX
-	hUBjfwjTtL3EsS6qaoY2yTYaPcCjO4YZXKc0yafwvWiLXt9N7QIug7Sbhis1HL9yFQSpGredL7NVz
-	kqUJU/3k9rb9I0t5aA2w==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
+	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=kl/gP0TBD65xOajAhxh4KdoyQTRtq//OcqpbTB5hOec=; b=okhKEMmTbxc9nq
+	Vib8e1G4gI/V5SdNkI78en+GUSHaEFiA5HvswGfghGjDQPaD4/4NbyxD2SBV2vq5yQMWLQCGHQtFu
+	C+GPfoVAP8dj7lp4ynR+9MbB6EhhMSs9N/1MgoI9pYKEHDUTsAAWZxooXAnda1CmVDDMSr573UMJZ
+	MJGNddP+NGhAJ6cjYL5q4cnoE+8rk4GVNJjHbpdMeTONmV3pLPvNwlsw9P3oHH2vbAUOnDF2JsvvX
+	W0/W3t5WMZLNGyeIpXB9EILv5wq8LuYJHMsxY6ENWg3PILnebaDV90FYNHXWhELbH5D5KRsaJvbWB
+	6HHtHrdANpVe8pEcoRvg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXrKk-0000000ACzA-2Zeo;
-	Wed, 15 Jan 2025 00:32:34 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1tXrKh-0000000ACvd-2QQn;
+	Wed, 15 Jan 2025 00:32:31 +0000
+Received: from mail-pl1-x634.google.com ([2607:f8b0:4864:20::634])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXqCK-0000000A5Fn-15DH
-	for linux-riscv@bombadil.infradead.org;
-	Tue, 14 Jan 2025 23:19:48 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:References;
-	bh=gGXDcZ1Hud/GL2ZHjmtyDBpDthzvgRK7rVEcYTDA/cw=; b=WnM8f5k4NU/myo6YChrywLjM0m
-	iLuWwKYpSSPyNSsEZweYTTVaCeLV8Blda7loU3n90DyBKXyPQobmHqGb4WeRnz51bpF5pgRNVJ3fp
-	6AfgEJrJNAxK9nEJQc2SUnTWyZyUCoyhXpXxEwPFmLeGWCzBvhOnmBkjLwj9EX8bNkoveyVh+GhRb
-	odAVyQWfFf+KdZpG/JyrmJa77Pz0yKWFJG3CnkwYXDbY37n5iOCBzUA/iHKYHAvVlHdZ5zckCQtII
-	JWecf6QFDL3KaLJKY8UzMbq7AFYO4htTKT3yIooGqi1/qj5wqq0L16XoifXi+3Wr1NjGkKrr8Oa4e
-	vRM+iakw==;
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
-	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXqCG-0000000AgV0-10IJ
+	id 1tXps4-0000000A0Cs-16JA
 	for linux-riscv@lists.infradead.org;
-	Tue, 14 Jan 2025 23:19:46 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id CC713A41E0A;
-	Tue, 14 Jan 2025 23:17:52 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 68EBDC4CEDD;
-	Tue, 14 Jan 2025 23:19:40 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1736896780;
-	bh=L6B6WDszISMt6Ham4nV/TMXvAl8fXJGFrEuTt4xWNE8=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:From;
-	b=SZajQZdjOwBfNi9tg2ujzMMljXGL40t9RiHvJVDGaWNYPa8w6nLKeO3RTQIaF5Y3c
-	 5GgkzXTxe/fwKz+0MINkN6Rx2fDI9waCP1p4rKbJzrRVaf5tBkOOIWPNx2O2y30eiW
-	 aHBnafdqCP+XcAkyw5N697QUaVxvox7UjcTATXmos8mOpWBRfKZR8PIfDUNzLwa5CZ
-	 T8DJSJfDrZWzcXEUbkNgi8Z37teAOsyxON2ckbhZ1WfKKF0kvGtnWSkXiKfaQx+qAP
-	 toHISZ3fERNW2HY+zz6xNG+/IKy0SzD23WCNF59Bv9dyX09m0iGLw4F5Tpy/QWmwQ7
-	 8++o9Z2NqLM0Q==
-Date: Tue, 14 Jan 2025 17:19:39 -0600
-From: Bjorn Helgaas <helgaas@kernel.org>
-To: Conor Dooley <conor@kernel.org>
-Cc: daire.mcnamara@microchip.com, linux-pci@vger.kernel.org,
-	devicetree@vger.kernel.org, conor.dooley@microchip.com,
-	lpieralisi@kernel.org, kw@linux.com, robh@kernel.org,
-	bhelgaas@google.com, linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org, krzk+dt@kernel.org,
-	conor+dt@kernel.org, ilpo.jarvinen@linux.intel.com,
-	kevin.xie@starfivetech.com
-Subject: Re: [PATCH v10 0/3] Fix address translations on MPFS PCIe controller
-Message-ID: <20250114231939.GA496825@bhelgaas>
+	Tue, 14 Jan 2025 22:58:53 +0000
+Received: by mail-pl1-x634.google.com with SMTP id d9443c01a7336-2167141dfa1so4673245ad.1
+        for <linux-riscv@lists.infradead.org>; Tue, 14 Jan 2025 14:58:52 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1736895532; x=1737500332; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=/NGMQ1cPPzFcGB6lbht2UloHcbpdvl9Eg+C6+XEyyV4=;
+        b=JtdP3EMSxjdgE830+2na1pqRDrQutHtS2lztPd8QitmuJ0Kubn5dIdzFuoA8/h5L7F
+         7aGQRsCVm+CzlXI8A6ubWSD1vJdltGy8+hU2OEm5gtYlra5qEwwE3GjSEqsCoI/xfwzK
+         GrvG7rIi13mzs5T4YAGZ2ABM7/Rjtv+/7A+NgSTXEEe2FTRtbbtP7IXLmx/pWTDnfHG5
+         q7nWHdNE/yUVH4goGGHYg8qcgKu2WRZPiQuLmHJXOgnvkjXpEZZT+0xLgqUs2BDVH0lJ
+         8WVcUPMcsLG3jGWmlO1uK6qjbC3LOXSAC9xBeADdL22styzCrY5LoIii2KwsV3IHuyZT
+         MW/g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1736895532; x=1737500332;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=/NGMQ1cPPzFcGB6lbht2UloHcbpdvl9Eg+C6+XEyyV4=;
+        b=cILKvSiP3cpVEvDggv24HXwRRYEa2GDQ8Q4LIZ8b7YaUi4OCkAtf8tlJCk7yJtDHoS
+         nSmffBs1VMXl6z3dYdzTjDXPdT6uw6yk5HF9n71H4IVnXXpB3VZKMPmzIEIa01lxCKDr
+         ZuCx2mmRkt9uKgV2sEbRUBCyXJfhZQHIpAQPP3+2wtmQhchMbjENHTKiawGoFPvLUMLc
+         WwtfcGDjcCKeg/TxYr0qCUzWCiKTlFdZMc9hI53mXe7Ar3wo7pAgcO8Bt61BbtHmJEMN
+         a2NdZbzva50aDV5yzzwsu3l6tbyGRFD/rqx4KZh0PFacQdO57qfEvaj+GyIBWt+PZJ+0
+         hHKw==
+X-Gm-Message-State: AOJu0YzfXxQKGizydOqF1cANYXPpnVXT8sgEZ+v7WEG1bp0hyKztuav0
+	NS7wagNjYDII79DkU3QWz0GRCqmhtsOkm+KogVsNSVmYY1WVUIx7dJ1upAQNaAI=
+X-Gm-Gg: ASbGnctpEuimHVCg1ghPdHNqOC+nEHeH+5Tg6jFXAdox0HrBtD0EcqpjZPy06N6X076
+	t2JGRgWMLYo3bRbnVjt6wAMuhLWRDwH8LLa16LTkRDUjN8gibcbJhvOp/p9uFH+inSPJK+BnXYi
+	pFQbtviiIai4auP11CUgYRGLHxutMK3vDtItKNTw/sGHOfjlb82mKOA7HGFITLmrGCwQiwOsQsb
+	v6K7L6uknDYzJsrHTEaSksTLKMsNqltYQ6qExm8peb2GwdfMJSYvSbQiwngR/2kI/UwEA==
+X-Google-Smtp-Source: AGHT+IGY7+84arGT8AswRpB+pqwECCjX/DmctkDVIPDIQHV61usZj0/p7BRGYknWv9dWJ1AzycUGOg==
+X-Received: by 2002:a17:902:e892:b0:215:6c5f:d142 with SMTP id d9443c01a7336-21bf0d16349mr10455835ad.20.1736895531696;
+        Tue, 14 Jan 2025 14:58:51 -0800 (PST)
+Received: from atishp.ba.rivosinc.com ([64.71.180.162])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-21a9f10df7asm71746105ad.47.2025.01.14.14.58.50
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 14 Jan 2025 14:58:51 -0800 (PST)
+From: Atish Patra <atishp@rivosinc.com>
+Date: Tue, 14 Jan 2025 14:57:44 -0800
+Subject: [PATCH v2 19/21] tools/perf: Support event code for arch standard
+ events
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20250114-espresso-display-846f670d2088@spud>
+Message-Id: <20250114-counter_delegation-v2-19-8ba74cdb851b@rivosinc.com>
+References: <20250114-counter_delegation-v2-0-8ba74cdb851b@rivosinc.com>
+In-Reply-To: <20250114-counter_delegation-v2-0-8ba74cdb851b@rivosinc.com>
+To: Paul Walmsley <paul.walmsley@sifive.com>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Anup Patel <anup@brainfault.org>, 
+ Atish Patra <atishp@atishpatra.org>, Will Deacon <will@kernel.org>, 
+ Mark Rutland <mark.rutland@arm.com>, Peter Zijlstra <peterz@infradead.org>, 
+ Ingo Molnar <mingo@redhat.com>, Arnaldo Carvalho de Melo <acme@kernel.org>, 
+ Namhyung Kim <namhyung@kernel.org>, 
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>, 
+ Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>, 
+ Adrian Hunter <adrian.hunter@intel.com>, weilin.wang@intel.com
+Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Palmer Dabbelt <palmer@sifive.com>, Conor Dooley <conor@kernel.org>, 
+ devicetree@vger.kernel.org, kvm@vger.kernel.org, 
+ kvm-riscv@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
+ linux-perf-users@vger.kernel.org, Atish Patra <atishp@rivosinc.com>
+X-Mailer: b4 0.15-dev-13183
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250114_231945_203930_896F8787 
-X-CRM114-Status: GOOD (  31.07  )
+X-CRM114-CacheID: sfid-20250114_145852_315795_8252DAD2 
+X-CRM114-Status: GOOD (  16.02  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,86 +110,51 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jan 14, 2025 at 05:16:10PM +0000, Conor Dooley wrote:
-> Hey folks,
-> 
-> Has this patchset fallen through the cracks?
+RISC-V relies on the event encoding from the json file. That includes
+arch standard events. If event code is present, event is already updated
+with correct encoding. No need to update it again which results in losing
+the event encoding.
 
-Yes, unfortunately.  I applied it to pci/controller/microchip for
-v6.14.
+Signed-off-by: Atish Patra <atishp@rivosinc.com>
+---
+ tools/perf/pmu-events/arch/riscv/arch-standard.json | 10 ++++++++++
+ tools/perf/pmu-events/jevents.py                    |  4 +++-
+ 2 files changed, 13 insertions(+), 1 deletion(-)
 
-I had to adapt it slightly to account for the changes of ac7f53b7e728
-("PCI: microchip: Add support for using either Root Port 1 or 2"), so
-please take a look and make sure I did it right.
+diff --git a/tools/perf/pmu-events/arch/riscv/arch-standard.json b/tools/perf/pmu-events/arch/riscv/arch-standard.json
+new file mode 100644
+index 000000000000..96e21f088558
+--- /dev/null
++++ b/tools/perf/pmu-events/arch/riscv/arch-standard.json
+@@ -0,0 +1,10 @@
++[
++  {
++    "EventName": "cycles",
++    "BriefDescription": "cycle executed"
++  },
++  {
++    "EventName": "instructions",
++    "BriefDescription": "instruction retired"
++  }
++]
+diff --git a/tools/perf/pmu-events/jevents.py b/tools/perf/pmu-events/jevents.py
+index 5fd906ac6642..28acd598dd7c 100755
+--- a/tools/perf/pmu-events/jevents.py
++++ b/tools/perf/pmu-events/jevents.py
+@@ -417,7 +417,9 @@ class JsonEvent:
+       self.long_desc += extra_desc
+     if arch_std:
+       if arch_std.lower() in _arch_std_events:
+-        event = _arch_std_events[arch_std.lower()].event
++        # No need to replace as evencode would have updated the event before
++        if not eventcode:
++          event = _arch_std_events[arch_std.lower()].event
+         # Copy from the architecture standard event to self for undefined fields.
+         for attr, value in _arch_std_events[arch_std.lower()].__dict__.items():
+           if hasattr(self, attr) and not getattr(self, attr):
 
-> On Wed, Nov 13, 2024 at 11:50:44AM +0000, Conor Dooley wrote:
-> > On Fri, Oct 11, 2024 at 03:00:40PM +0100, daire.mcnamara@microchip.com wrote:
-> > > From: Daire McNamara <daire.mcnamara@microchip.com>
-> > > 
-> > > Hi all,
-> > > 
-> > > On Microchip PolarFire SoC (MPFS), the PCIe controller is connected to the
-> > > CPU via one of three Fabric Interface Connectors (FICs).  Each FIC present
-> > > to the CPU complex as 64-bit AXI-M and 64-bit AXI-S.  To preserve
-> > > compatibility with other PolarFire family members, the PCIe controller is
-> > > connected to its encapsulating FIC via a 32-bit AXI-M and 32-bit AXI-S
-> > > interface.
-> > > 
-> > > Each FIC is implemented in FPGA logic and can incorporate logic along its 64-bit
-> > > AXI-M to 32-bit AXI-M chain (including address translation) and, likewise, along
-> > > its 32-bit AXI-S to 64-bit AXI-S chain (again including address translation).
-> > > 
-> > > In order to reduce the potential support space for the PCIe controller in
-> > > this environment, MPFS supports certain reference designs for these address
-> > > translations: reference designs for cache-coherent memory accesses
-> > > and reference designs for non-cache-coherent memory accesses. The precise
-> > > details of these reference designs and associated customer guidelines
-> > > recommending that customers adhere to the addressing schemes used in those
-> > > reference designs are available from Microchip, but the implication for the
-> > > PCIe controller address translation between CPU-space and PCIe-space are:
-> > > 
-> > > For outbound address translation, the PCIe controller address translation tables
-> > > are treated as if they are 32-bit only.  Any further address translation must
-> > > be done in FPGA fabric.
-> > > 
-> > > For inbound address translation, the PCIe controller is configurable for two
-> > > cases:
-> > > * In the case of cache-coherent designs, the base of the AXI-S side of the
-> > >   address translation must be set to 0 and the size should be 4 GiB wide. The
-> > >   FPGA fabric must complete any address translations based on that 0-based
-> > >   address translation.
-> > > * In the case of non-cache coherent designs, the base of AXI-S side of the
-> > >   address translation must be set to 0x8000'0000 and the size shall be 2 GiB
-> > >   wide.  The FPGA fabric must complete any address translation based on that
-> > >   0x80000000 base.
-> > > 
-> > > So, for example, in the non-cache-coherent case, with a device tree property
-> > > that maps an inbound range from 0x10'0000'0000 in PCIe space to 0x10'0000'0000
-> > > in CPU space, the PCIe rootport will translate a PCIe address of 0x10'0000'0000
-> > > to an intermediate 32-bit AXI-S address of 0x8000'0000 and the FIC is
-> > > responsible for translating that intermediate 32-bit AXI-S address of
-> > > 0x8000'0000 to a 64-bit AXI-S address of 0x10'0000'0000.
-> > > 
-> > > And similarly, for example, in the cache-coherent case, with a device tree
-> > > property that maps an inbound range from 0x10'0000'0000 in PCIe space to
-> > > 0x10'0000'0000 in CPU space, the PCIe rootport will translate a PCIe address
-> > > of 0x10'0000'0000 to an intermediate 32-bit AXI-S address of 0x0000'0000 and
-> > > the FIC is responsible for translating that intermediate 32-bit AXI-S address
-> > > of 0x0000'0000 to a 64-bit AXI-S address of 0x10'0000'0000.
-> > > 
-> > > See https://lore.kernel.org/all/20220902142202.2437658-1-daire.mcnamara@microchip.com/T/
-> > > for backstory.
-> > > 
-> > > Changes since v9:
-> > > - Dropped plda_setup_inbound_address_translation() from StarFive driver
-> > 
-> > Since I had some success bumping the other series for this driver, any
-> > chance of some attention here?
-> > AFAIK, Daire's addressed what's been pointed out by reviewers and
-> > exempted the StarFive driver from overwriting the firmware-set values
-> > with once calculated from DT as they requested.
-> 
-
+-- 
+2.34.1
 
 
 _______________________________________________
