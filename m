@@ -4,154 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4B174E77188
-	for <linux-riscv@archiver.kernel.org>; Tue, 14 Jan 2025 19:17:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 68DE4E77188
+	for <linux-riscv@archiver.kernel.org>; Tue, 14 Jan 2025 19:17:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=BnnoViUsplP1otgX1eifJvfOAXuLmuFjtt6BfJTnEdQ=; b=j931filcty2TBH
-	8dGC/uDicf/eJpqzXE2fGX0MUnWQUYM/j+65sY7h7YyMl2QGsBLu3o5FksnDeXqRamy9W6gVXO6y3
-	qUWYGJbxgYjO50ya25crsr7Oka+a3l+BWS+nBqI3miOFaaCogm1izu9DQ4mxTRBbCDnarJW5uKuqe
-	yKvdT2GWhHsL8Ia5RFlXkXSXnZbJ9Zv+Ts30bx17cnBEI6341+hqOhKBTl3HBfapj6695IOlUHAQ+
-	O6c0I4HOoOyptetSIYKMNDfbYi6BBuBW889hY6PZeK9Uq0v+4UCsdFwcEkMB4BEQql4eZlF1s16tz
-	2Z0jLgG4BPvUoPnK+oFQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=SEndu8dqZEhQnwrmYBNA9WKSn+aJsV800eFaRuLL0xA=; b=F1a0lozwtqIwA7QaHAVlj+iY0S
+	LevYddS+Ss/1CwkLzAUyU05zGt9KikHOmQrq8GFndiAoNSwjvYa6iZSlMtpqxvo9vjIiJ/2VS2tq7
+	Q68ScD7v1WL49HyQS9H7bNp+IeVoZCK6vFWxnLelsRciBrCQtTZH7ZDRkyvq6NHYy3cjsXlgoBnoS
+	+dcGMoNmn4+jAMcfaNw8cAOxkFbeE/w0uDfOBG2okuwQbCvRdv+MRqqtNraFgwZ4UPiMIyQ8YTzJH
+	R+fmneo/aNyem7zP8ubcHZjJZZNAS6awYU9SR7vO6SjVUi+0kBnUIJbS9VFcZXJgD2Qzqb/RdGWbf
+	yZlTp88g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXmPv-00000009VlS-2Ezq;
-	Tue, 14 Jan 2025 19:17:35 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1tXmPz-00000009VrH-28gQ;
+	Tue, 14 Jan 2025 19:17:39 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXlI0-00000009Kum-2WAd
+	id 1tXlOO-00000009MxZ-2odz
 	for linux-riscv@lists.infradead.org;
-	Tue, 14 Jan 2025 18:05:21 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1736877919;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=hBnzPr+bF01eZ/FcGt3b6YBzs+ceSVKdSHsMFlRMR5E=;
-	b=ZhxlRo2FJO17mb66ETya58v8DRE0IjvguFrYxLu6s6Ff8s/Dbrb3kMCKvERBvRLjKjou3r
-	7dW1xpsTDKu2gZcL+gw+Uf9Rl64rgDICgN9chMFnxrCkCXh++719IaYtc/OZj7kAd2OFZh
-	WIc0lB/xwiIkjLm65BCHxcHbMmIb5Rg=
-Received: from mx-prod-mc-03.mail-002.prod.us-west-2.aws.redhat.com
- (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
- relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-660-8ogZguOiNnCawOG8JxolMw-1; Tue,
- 14 Jan 2025 13:05:15 -0500
-X-MC-Unique: 8ogZguOiNnCawOG8JxolMw-1
-X-Mimecast-MFC-AGG-ID: 8ogZguOiNnCawOG8JxolMw
-Received: from mx-prod-int-02.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-02.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.15])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mx-prod-mc-03.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id F0F9F1956050;
-	Tue, 14 Jan 2025 18:05:11 +0000 (UTC)
-Received: from vschneid-thinkpadt14sgen2i.remote.csb (unknown [10.39.192.55])
-	by mx-prod-int-02.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id DFA25195608A;
-	Tue, 14 Jan 2025 18:04:49 +0000 (UTC)
-From: Valentin Schneider <vschneid@redhat.com>
-To: linux-kernel@vger.kernel.org,
-	x86@kernel.org,
-	virtualization@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	loongarch@lists.linux.dev,
-	linux-riscv@lists.infradead.org,
-	linux-perf-users@vger.kernel.org,
-	xen-devel@lists.xenproject.org,
-	kvm@vger.kernel.org,
-	linux-arch@vger.kernel.org,
-	rcu@vger.kernel.org,
-	linux-hardening@vger.kernel.org,
-	linux-mm@kvack.org,
-	linux-kselftest@vger.kernel.org,
-	bpf@vger.kernel.org,
-	bcm-kernel-feedback-list@broadcom.com
-Cc: Juergen Gross <jgross@suse.com>,
-	Ajay Kaher <ajay.kaher@broadcom.com>,
-	Alexey Makhalov <alexey.amakhalov@broadcom.com>,
-	Russell King <linux@armlinux.org.uk>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Huacai Chen <chenhuacai@kernel.org>,
-	WANG Xuerui <kernel@xen0n.name>,
+	Tue, 14 Jan 2025 18:11:57 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id AA948A41A7F;
+	Tue, 14 Jan 2025 18:10:07 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 58D11C4CEDD;
+	Tue, 14 Jan 2025 18:11:53 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1736878315;
+	bh=uBXQnziVlP1k5rM6iYlEXPJKkpDHL/qERalon7FwP3Q=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=mVlOusamDxJN1SL1np1WBka1FO/6+7a1yNS+IRB612TyiciAs8hCdLgeoIbL2gaEh
+	 3l7s+Tw8ErDVfzgRFi0FKSPYzb91n1f+7cbewIIElE78Mz+BzIqc7dd7zJND70b8qY
+	 23pjcaDkwQeZ7mnZtIWAn8BNoZOlPmfRnBUrJtHSdqPtxjm2hljWQ5NT1xcZnqr0iW
+	 C7cGMBp9tyu4Q5cbnYaRFrJfvsOtmFTsbjjfKcd5iFDY9eKNJaCLp2/KgwPP+ChPnu
+	 lhytmmtFC1xKr6NVGYJCgp6aFGAGbzpyqV6qmYV9Z1hZCBKrV1/jjw2UNIi/thjV5U
+	 ctsJowCM3nmOw==
+Date: Tue, 14 Jan 2025 18:11:51 +0000
+From: Conor Dooley <conor@kernel.org>
+To: Minda Chen <minda.chen@starfivetech.com>
+Cc: E Shattow <e@freeshell.de>, Emil Renner Berthing <kernel@esmil.dk>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	Paul Walmsley <paul.walmsley@sifive.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
 	Albert Ou <aou@eecs.berkeley.edu>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Ingo Molnar <mingo@redhat.com>,
-	Borislav Petkov <bp@alien8.de>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	"H. Peter Anvin" <hpa@zytor.com>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Arnaldo Carvalho de Melo <acme@kernel.org>,
-	Namhyung Kim <namhyung@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Jiri Olsa <jolsa@kernel.org>,
-	Ian Rogers <irogers@google.com>,
-	Adrian Hunter <adrian.hunter@intel.com>,
-	"Liang, Kan" <kan.liang@linux.intel.com>,
-	Boris Ostrovsky <boris.ostrovsky@oracle.com>,
-	Josh Poimboeuf <jpoimboe@kernel.org>,
-	Pawan Gupta <pawan.kumar.gupta@linux.intel.com>,
-	Sean Christopherson <seanjc@google.com>,
-	Paolo Bonzini <pbonzini@redhat.com>,
-	Andy Lutomirski <luto@kernel.org>,
-	Arnd Bergmann <arnd@arndb.de>,
-	Frederic Weisbecker <frederic@kernel.org>,
-	"Paul E. McKenney" <paulmck@kernel.org>,
-	Jason Baron <jbaron@akamai.com>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	Ard Biesheuvel <ardb@kernel.org>,
-	Neeraj Upadhyay <neeraj.upadhyay@kernel.org>,
-	Joel Fernandes <joel@joelfernandes.org>,
-	Josh Triplett <josh@joshtriplett.org>,
-	Boqun Feng <boqun.feng@gmail.com>,
-	Uladzislau Rezki <urezki@gmail.com>,
-	Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
-	Lai Jiangshan <jiangshanlai@gmail.com>,
-	Zqiang <qiang.zhang1211@gmail.com>,
-	Juri Lelli <juri.lelli@redhat.com>,
-	Clark Williams <williams@redhat.com>,
-	Yair Podemsky <ypodemsk@redhat.com>,
-	Tomas Glozar <tglozar@redhat.com>,
-	Vincent Guittot <vincent.guittot@linaro.org>,
-	Dietmar Eggemann <dietmar.eggemann@arm.com>,
-	Ben Segall <bsegall@google.com>,
-	Mel Gorman <mgorman@suse.de>,
-	Kees Cook <kees@kernel.org>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Christoph Hellwig <hch@infradead.org>,
-	Shuah Khan <shuah@kernel.org>,
-	Sami Tolvanen <samitolvanen@google.com>,
-	Miguel Ojeda <ojeda@kernel.org>,
-	Alice Ryhl <aliceryhl@google.com>,
-	"Mike Rapoport (Microsoft)" <rppt@kernel.org>,
-	Samuel Holland <samuel.holland@sifive.com>,
-	Rong Xu <xur@google.com>,
-	Nicolas Saenz Julienne <nsaenzju@redhat.com>,
-	Geert Uytterhoeven <geert@linux-m68k.org>,
-	Yosry Ahmed <yosryahmed@google.com>,
-	"Kirill A. Shutemov" <kirill.shutemov@linux.intel.com>,
-	"Masami Hiramatsu (Google)" <mhiramat@kernel.org>,
-	Jinghao Jia <jinghao7@illinois.edu>,
-	Luis Chamberlain <mcgrof@kernel.org>,
-	Randy Dunlap <rdunlap@infradead.org>,
-	Tiezhu Yang <yangtiezhu@loongson.cn>
-Subject: [PATCH v4 30/30] context-tracking: Add a Kconfig to enable IPI deferral for NO_HZ_IDLE
-Date: Tue, 14 Jan 2025 18:51:43 +0100
-Message-ID: <20250114175143.81438-31-vschneid@redhat.com>
-In-Reply-To: <20250114175143.81438-1-vschneid@redhat.com>
-References: <20250114175143.81438-1-vschneid@redhat.com>
+	"linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH v1 1/2] riscv: dts: starfive: jh7110: pciephy0 USB 3.0
+ configuration registers
+Message-ID: <20250114-recollect-dictate-104e890d116e@spud>
+References: <20250102183746.411526-1-e@freeshell.de>
+ <20250102183746.411526-2-e@freeshell.de>
+ <20250113-mushiness-snugness-0f55574e3956@spud>
+ <SHXPR01MB0863DBF85A9874C9F93ECD25E618A@SHXPR01MB0863.CHNPR01.prod.partner.outlook.cn>
 MIME-Version: 1.0
-X-Scanned-By: MIMEDefang 3.0 on 10.30.177.15
+In-Reply-To: <SHXPR01MB0863DBF85A9874C9F93ECD25E618A@SHXPR01MB0863.CHNPR01.prod.partner.outlook.cn>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250114_100520_745225_2927B4D5 
-X-CRM114-Status: GOOD (  16.17  )
+X-CRM114-CacheID: sfid-20250114_101156_841286_082EA248 
+X-CRM114-Status: GOOD (  21.33  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -163,72 +77,83 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============6389785354037248419=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-With NO_HZ_IDLE, we get CONTEXT_TRACKING_IDLE, so we get these
-transitions:
 
-  ct_idle_enter()
-    ct_kernel_exit()
-      ct_state_inc_clear_work()
+--===============6389785354037248419==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="zkMmGR8EqwgS0H6h"
+Content-Disposition: inline
 
-  ct_idle_exit()
-    ct_kernel_enter()
-      ct_work_flush()
 
-With just CONTEXT_TRACKING_IDLE, ct_state_inc_clear_work() is just
-ct_state_inc() and ct_work_flush() is a no-op. However, making them be
-functional as if under CONTEXT_TRACKING_WORK would allow NO_HZ_IDLE to
-leverage IPI deferral to keep idle CPUs idle longer.
+--zkMmGR8EqwgS0H6h
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-Having this enabled for NO_HZ_IDLE is a different argument than for having
-it for NO_HZ_FULL (power savings vs latency/performance), but the backing
-mechanism is identical.
+On Tue, Jan 14, 2025 at 05:42:28AM +0000, Minda Chen wrote:
+>=20
+>=20
+> >=20
+> > On Thu, Jan 02, 2025 at 10:37:36AM -0800, E Shattow wrote:
+> > > StarFive JH7110 contains a Cadence USB2.0+USB3.0 controller IP block
+> > > that may exclusively use pciephy0 for USB3.0 connectivity. Add the
+> > > register offsets for the driver to enable/disable USB3.0 on pciephy0.
+> > >
+> > > Signed-off-by: E Shattow <e@freeshell.de>
+> > > ---
+> > >  arch/riscv/boot/dts/starfive/jh7110.dtsi | 2 ++
+> > >  1 file changed, 2 insertions(+)
+> > >
+> > > diff --git a/arch/riscv/boot/dts/starfive/jh7110.dtsi
+> > > b/arch/riscv/boot/dts/starfive/jh7110.dtsi
+> > > index 0d8339357bad..75ff07303e8b 100644
+> > > --- a/arch/riscv/boot/dts/starfive/jh7110.dtsi
+> > > +++ b/arch/riscv/boot/dts/starfive/jh7110.dtsi
+> > > @@ -611,6 +611,8 @@ usbphy0: phy@10200000 {
+> > >  		pciephy0: phy@10210000 {
+> > >  			compatible =3D "starfive,jh7110-pcie-phy";
+> > >  			reg =3D <0x0 0x10210000 0x0 0x10000>;
+> > > +			starfive,sys-syscon =3D <&sys_syscon 0x18>;
+> > > +			starfive,stg-syscon =3D <&stg_syscon 0x148 0x1f4>;
+> >=20
+> > Why weren't these added in the first place? Minda, do you know?
+> >=20
+> The driver only require to set syscon register while the PHY attach to Ca=
+dence USB.(star64 board case)
+> The PHY default attach to PCIe0, VF2 board do not set any setting. So I d=
+on't set it.
 
-Add a default-no option to enable IPI deferral with NO_HZ_IDLE.
+Does this mean that the change should be made in files where it will
+only affect non-VF2 boards, or is it harmless if applied to the VF2
+also?
 
-Signed-off-by: Valentin Schneider <vschneid@redhat.com>
----
- kernel/time/Kconfig | 16 +++++++++++++++-
- 1 file changed, 15 insertions(+), 1 deletion(-)
+--zkMmGR8EqwgS0H6h
+Content-Type: application/pgp-signature; name="signature.asc"
 
-diff --git a/kernel/time/Kconfig b/kernel/time/Kconfig
-index 7e8106a0d981f..c7398fe5382a0 100644
---- a/kernel/time/Kconfig
-+++ b/kernel/time/Kconfig
-@@ -183,9 +183,23 @@ config CONTEXT_TRACKING_USER_FORCE
- 
- config CONTEXT_TRACKING_WORK
- 	bool
--	depends on HAVE_CONTEXT_TRACKING_WORK && CONTEXT_TRACKING_USER
-+	depends on HAVE_CONTEXT_TRACKING_WORK && (CONTEXT_TRACKING_USER || CONTEXT_TRACKING_WORK_IDLE)
- 	default y
- 
-+config CONTEXT_TRACKING_WORK_IDLE
-+       bool
-+       depends on HAVE_CONTEXT_TRACKING_WORK && CONTEXT_TRACKING_IDLE && !CONTEXT_TRACKING_USER
-+       default n
-+       help
-+	 This option enables deferral of some IPIs when they are targeted at CPUs
-+	 that are idle. This can help keep CPUs idle longer, but induces some
-+	 extra overhead to idle <-> kernel transitions and to IPI sending.
-+
-+	 Say Y if the power improvements are worth more to you than the added
-+	 overheads.
-+
-+	 Say N otherwise.
-+
- config NO_HZ
- 	bool "Old Idle dynticks config"
- 	help
--- 
-2.43.0
+-----BEGIN PGP SIGNATURE-----
 
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZ4ao5wAKCRB4tDGHoIJi
+0nL0AP4tkI2HO0ATW7TcIVGIb2mlhpZ8ZVcIBo227WoH3KCBCgD/dQ/WePMc2ft+
+/1Nb9a/IDtAAuVL3adir9sq1W8OnBQw=
+=2Tua
+-----END PGP SIGNATURE-----
+
+--zkMmGR8EqwgS0H6h--
+
+
+--===============6389785354037248419==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============6389785354037248419==--
+
