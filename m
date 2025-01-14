@@ -4,159 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DD568C02183
-	for <linux-riscv@archiver.kernel.org>; Tue, 14 Jan 2025 09:54:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BE1E1E77188
+	for <linux-riscv@archiver.kernel.org>; Tue, 14 Jan 2025 10:37:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=UEYfkVvEaqHi3h2xhn/MFk+5P+LHgijK98s82UCG3/I=; b=Rg0GJZU32bNAJJ
-	z+oYFc+sGq5gY3NSsbbWP22hEFGyp0CzfS1ah8x5ixge5CxCh3sZoVCzA3O/O7SK6TQLAEXfnRb+T
-	8wcpzuZYxJAwGUL84zyC66//Q6wXqyTnJoxGpBD3puaHvnD60B5Iby/A641eHDIK8wACi6vC0i0JY
-	OpwX+fvqzrsH/Tuph3mFkRZX+wNIGF5HrAq56xvGe8Nl4sTmKnqVV8T32j56opqLHxLlksAEOfc9r
-	yJN6eBL0e1HrUEKh0jHvz5NA/4F/qvTv0Pca6ETKfxz/eYyKR2Kq76FvxxwiAcM0DyyUnHgbXAVqP
-	6riljcefMiK3TR+NwIfA==;
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=r+4HNCznmdEnNurUx4vmYtezBRtMmIAm748WLlS5frg=; b=y98T80pTZ7DRr/GdouW10Tw6eD
+	CKOl0+P3tfQfNdIeBDRUwZZE/kUXWbJv7GRno+buXVbnWV6VBayz2XWDBd6caHVu2a2VmEV94yioI
+	RqXA/WieVWAjRY5PkWMwktp7Q2celrBqMiPx5l0EiOniHWdnNI/sWD6zxDzt1zxMYuXtoUzbkyqwK
+	SbCBLe1X+8HBuMkFUI7lZwvPqYVYCJQzlvlqBH2fDnVLEVDNTr5Hhm6D6VCmyD1eaE7vsekCOmJZO
+	oVWdQv4MhzJiIt9rq+GZhrXMVKcV9hL57dZAkbYMDbHjaX7CCP7P3jayJBZVHOLOGoF2GixHi2HSx
+	zg2ca6hA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXdcw-0000000800q-3Ycy;
-	Tue, 14 Jan 2025 09:54:26 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1tXeIa-000000087cf-1o1C;
+	Tue, 14 Jan 2025 10:37:28 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXdb4-00000007zkT-2lgD
-	for linux-riscv@lists.infradead.org;
-	Tue, 14 Jan 2025 09:52:32 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1736848348;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=PDBDZRkgRmItIj5vhNt+NtvPcslu++WjcIN5loqh8wE=;
-	b=WwPWZ9B+IQflMpPUiOJXXCb7H1jPLzy31e64HC4e05heAYnQ/8pm1Kt2vPcLC8x4RwgoVE
-	lSSfwhS+k2s0carU+91V9U8QlGaGfNOcG264106XwnDHA5jIG63pvgOC++/+WaUs8buEGA
-	rVHG2eePwq0gbdcU1MHg8GPFkA9YwE0=
-Received: from mail-wm1-f71.google.com (mail-wm1-f71.google.com
- [209.85.128.71]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-614-mBRSEz6OOvOoZJQaEDgmQQ-1; Tue, 14 Jan 2025 04:52:27 -0500
-X-MC-Unique: mBRSEz6OOvOoZJQaEDgmQQ-1
-X-Mimecast-MFC-AGG-ID: mBRSEz6OOvOoZJQaEDgmQQ
-Received: by mail-wm1-f71.google.com with SMTP id 5b1f17b1804b1-4361ecebc5bso27868385e9.1
-        for <linux-riscv@lists.infradead.org>; Tue, 14 Jan 2025 01:52:27 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1736848346; x=1737453146;
-        h=content-transfer-encoding:in-reply-to:organization:autocrypt
-         :content-language:from:references:cc:to:subject:user-agent
-         :mime-version:date:message-id:x-gm-message-state:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=PDBDZRkgRmItIj5vhNt+NtvPcslu++WjcIN5loqh8wE=;
-        b=AH07v8FchcML0ISFQApFWZFKvgq+m5BRPRMIS/tUdTl+6BwElhVRZ/MoDYRjUWiymd
-         M7crUhCXf/GNOMaHTwrJMITGukTTT0PDLDXuKgmLD+ePb258FOq/m2CBR26Nowa9CZ7S
-         Z5sJMF8vWsfZ+d76g0LoVARsxheNLS4xCGCMKf0YDjkMN+5I8vL0sUVC2p3eQZbNQ8Zw
-         +Q79j0Tl8FPF2f3I98gVjA5FOw3feO7feTRSbfdhHCd9QR6HqTXtn1C6ZEGNl05pPzIa
-         iAzGuuv92XKoYMx/Fb3qHlEYfRq96MUfNUSo8uL3aULrCMb8Z7fY0oe2DSjW133YWGt6
-         8igQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUd+KpsOQpOMoXi3PEAzp+N16wa4+y4jYoYJfT9p5cJCKJgcufgP6bpqz1PS+CafHiu5MVnhvl89Qr6tA==@lists.infradead.org
-X-Gm-Message-State: AOJu0YyrjaOHh/SHea4WWPAGfneNwBUeaZvSWfWFfhcF/UctQg3uUykA
-	0sOjYYr2E4glyUve4BszLDUGPgqH40iBCntC76+0Y9QFROsoP/mboquyzo7TVQBalfIT2HMfous
-	ZVNuKgU70VMIEyYxgTkfw+v5RvcV4PKoLr0DzQaVA7Jp1ebRCHVkWVUcbHMcZcB+xdg==
-X-Gm-Gg: ASbGncuDAbHKHpepTziNbYXdR4PciEaynYarPSfmVh7h73rr9r5i6uB9AdEIRWfU/Bf
-	g1FSekiVL3IMumjEd78Yn+WvETh0kanXGTvdcNmI+nMVtaQ7cp5EUI93k+6Qq1sl13UiWKoK0fe
-	xADCTg2srkuu2mowtCt3XRz1/NqykfRz/sVPM78nuXLwIG9RO2qXBql9XufF0hTLYQt6K2wHVa8
-	Pzy+hujbIlZxN4wAxRWE8eAAs6sdElo4k3GvFvDJMTODl8zIqEq+9Lls79zo+oPNrQkya6efSYn
-	o4fUTCbhuVhdl6GIE6LJjcwfvAYJf6XtX0Qh0FBi8n0p2IzshG8GN+vBQhr+6mjYZBSox6lbVDu
-	MWXLOouOg
-X-Received: by 2002:a05:600c:3c9e:b0:431:5e3c:2ff0 with SMTP id 5b1f17b1804b1-436e26a6727mr212713185e9.8.1736848345867;
-        Tue, 14 Jan 2025 01:52:25 -0800 (PST)
-X-Google-Smtp-Source: AGHT+IGYYQkP3w+WbBbVTmVzQNIKNbbwZDRcnAz9hqgywI3HAHsF6csSDCAJ1P9oM0IZPlA9qfv53Q==
-X-Received: by 2002:a05:600c:3c9e:b0:431:5e3c:2ff0 with SMTP id 5b1f17b1804b1-436e26a6727mr212712915e9.8.1736848345451;
-        Tue, 14 Jan 2025 01:52:25 -0800 (PST)
-Received: from ?IPV6:2003:cb:c738:3100:8133:26cf:7877:94aa? (p200300cbc7383100813326cf787794aa.dip0.t-ipconnect.de. [2003:cb:c738:3100:8133:26cf:7877:94aa])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-436f04df606sm136532165e9.12.2025.01.14.01.52.22
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 14 Jan 2025 01:52:24 -0800 (PST)
-Message-ID: <f50b59ad-3b15-4ca8-9390-17319d441ed8@redhat.com>
-Date: Tue, 14 Jan 2025 10:52:21 +0100
+	id 1tXeFK-000000086z5-02JQ;
+	Tue, 14 Jan 2025 10:34:07 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 9EE47A40C72;
+	Tue, 14 Jan 2025 10:32:16 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 310DFC4CEE0;
+	Tue, 14 Jan 2025 10:33:56 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1736850844;
+	bh=PPBTXcmZ9FTKLOavDTSaaCxS+I83L8XKDLxpo1k4qF8=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=AxTH1TVOByRyemy5vzP15NHxHuJlYlyl1hQLGDalk4R7LH2WyA/2gx/XtNbKHP6IE
+	 BdijOVzI31N04UC33BwkWxuWMPpjOqJk4YPBcZWpHmsEzVSlAn6n8H3SvPSKjRt4Km
+	 MmpAYcYGmR2n+9td9dyxGX+GBgzUR73o9ZemtBsDbfqnix+wupk/YAt26zv5Z/Nt2Q
+	 YW8X2WGphjiIh5L1lDgafPSMz5AIFm6Q1aPh8ln+BKEZNUtlb11WMWugcnXi6M0GO3
+	 AVtW7Uph3adO04TefpnPeJyGrUuc2ovvVgVBTVrDhbVONzJzNVIc1qvOPiQR3KVK67
+	 Hr4Mh5R5VIq3w==
+Date: Tue, 14 Jan 2025 10:33:53 +0000
+From: Conor Dooley <conor@kernel.org>
+To: Thomas =?iso-8859-1?Q?Wei=DFschuh?= <thomas.weissschuh@linutronix.de>
+Cc: "James E.J. Bottomley" <James.Bottomley@hansenpartnership.com>,
+	Helge Deller <deller@gmx.de>, Andy Lutomirski <luto@kernel.org>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Vincenzo Frascino <vincenzo.frascino@arm.com>,
+	Anna-Maria Behnsen <anna-maria@linutronix.de>,
+	Frederic Weisbecker <frederic@kernel.org>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Theodore Ts'o <tytso@mit.edu>,
+	"Jason A. Donenfeld" <Jason@zx2c4.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Huacai Chen <chenhuacai@kernel.org>,
+	WANG Xuerui <kernel@xen0n.name>,
+	Russell King <linux@armlinux.org.uk>,
+	Heiko Carstens <hca@linux.ibm.com>,
+	Vasily Gorbik <gor@linux.ibm.com>,
+	Alexander Gordeev <agordeev@linux.ibm.com>,
+	Christian Borntraeger <borntraeger@linux.ibm.com>,
+	Sven Schnelle <svens@linux.ibm.com>,
+	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Nicholas Piggin <npiggin@gmail.com>,
+	Christophe Leroy <christophe.leroy@csgroup.eu>,
+	Naveen N Rao <naveen@kernel.org>,
+	Madhavan Srinivasan <maddy@linux.ibm.com>,
+	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
+	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
+	"H. Peter Anvin" <hpa@zytor.com>, Arnd Bergmann <arnd@arndb.de>,
+	Guo Ren <guoren@kernel.org>, linux-parisc@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-riscv@lists.infradead.org, loongarch@lists.linux.dev,
+	linux-s390@vger.kernel.org, linux-mips@vger.kernel.org,
+	linuxppc-dev@lists.ozlabs.org, linux-arch@vger.kernel.org,
+	Nam Cao <namcao@linutronix.de>, linux-csky@vger.kernel.org
+Subject: Re: [PATCH v2 09/18] riscv: vdso: Switch to generic storage
+ implementation
+Message-ID: <20250114-lustily-nuttiness-3bb7646515d5@spud>
+References: <20250110-vdso-store-rng-v2-0-350c9179bbf1@linutronix.de>
+ <20250110-vdso-store-rng-v2-9-350c9179bbf1@linutronix.de>
+ <20250113-kissable-monstrous-aace0cf7182e@spud>
+ <20250114093609-6cb25835-f912-4f64-9ba7-54c67d4e2904@linutronix.de>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 2/4] mm: Support tlbbatch flush for a range of PTEs
-To: Barry Song <21cnbao@gmail.com>, akpm@linux-foundation.org,
- linux-mm@kvack.org
-Cc: baolin.wang@linux.alibaba.com, chrisl@kernel.org, ioworker0@gmail.com,
- kasong@tencent.com, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, ryan.roberts@arm.com, v-songbaohua@oppo.com,
- x86@kernel.org, linux-riscv@lists.infradead.org, ying.huang@intel.com,
- zhengtangquan@oppo.com, lorenzo.stoakes@oracle.com,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>,
- Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>,
- "H. Peter Anvin" <hpa@zytor.com>,
- Anshuman Khandual <anshuman.khandual@arm.com>,
- Shaoqin Huang <shahuang@redhat.com>, Gavin Shan <gshan@redhat.com>,
- Kefeng Wang <wangkefeng.wang@huawei.com>, Mark Rutland
- <mark.rutland@arm.com>, "Kirill A. Shutemov"
- <kirill.shutemov@linux.intel.com>, Yosry Ahmed <yosryahmed@google.com>,
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Yicong Yang <yangyicong@hisilicon.com>
-References: <20250113033901.68951-1-21cnbao@gmail.com>
- <20250113033901.68951-3-21cnbao@gmail.com>
-From: David Hildenbrand <david@redhat.com>
-Autocrypt: addr=david@redhat.com; keydata=
- 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
- WNyWQQ==
-Organization: Red Hat
-In-Reply-To: <20250113033901.68951-3-21cnbao@gmail.com>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: TB-v-3qj-WjLxhjhPDzrovSf6vap0nsnMOCQDls9cro_1736848346
-X-Mimecast-Originator: redhat.com
-Content-Language: en-US
+In-Reply-To: <20250114093609-6cb25835-f912-4f64-9ba7-54c67d4e2904@linutronix.de>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250114_015230_854181_58452C0E 
-X-CRM114-Status: GOOD (  26.28  )
+X-CRM114-CacheID: sfid-20250114_023406_166428_92EF0A18 
+X-CRM114-Status: GOOD (  17.82  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -168,195 +103,76 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
+Content-Type: multipart/mixed; boundary="===============5862585921126449640=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 13.01.25 04:38, Barry Song wrote:
-> From: Barry Song <v-songbaohua@oppo.com>
-> 
-> This is a preparatory patch to support batch PTE unmapping in
-> `try_to_unmap_one`. It first introduces range handling for
-> `tlbbatch` flush. Currently, the range is always set to the size of
-> PAGE_SIZE.
 
-You could have spelled out why you perform the VMA -> MM change.
+--===============5862585921126449640==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="jwGvJ1ZaVXfjr5LT"
+Content-Disposition: inline
 
-> 
-> Cc: Catalin Marinas <catalin.marinas@arm.com>
-> Cc: Will Deacon <will@kernel.org>
-> Cc: Thomas Gleixner <tglx@linutronix.de>
-> Cc: Ingo Molnar <mingo@redhat.com>
-> Cc: Borislav Petkov <bp@alien8.de>
-> Cc: Dave Hansen <dave.hansen@linux.intel.com>
-> Cc: "H. Peter Anvin" <hpa@zytor.com>
-> Cc: Anshuman Khandual <anshuman.khandual@arm.com>
-> Cc: Ryan Roberts <ryan.roberts@arm.com>
-> Cc: Shaoqin Huang <shahuang@redhat.com>
-> Cc: Gavin Shan <gshan@redhat.com>
-> Cc: Kefeng Wang <wangkefeng.wang@huawei.com>
-> Cc: Mark Rutland <mark.rutland@arm.com>
-> Cc: David Hildenbrand <david@redhat.com>
-> Cc: Lance Yang <ioworker0@gmail.com>
-> Cc: "Kirill A. Shutemov" <kirill.shutemov@linux.intel.com>
-> Cc: Yosry Ahmed <yosryahmed@google.com>
-> Cc: Paul Walmsley <paul.walmsley@sifive.com>
-> Cc: Palmer Dabbelt <palmer@dabbelt.com>
-> Cc: Albert Ou <aou@eecs.berkeley.edu>
-> Cc: Yicong Yang <yangyicong@hisilicon.com>
-> Signed-off-by: Barry Song <v-songbaohua@oppo.com>
-> ---
->   arch/arm64/include/asm/tlbflush.h | 26 ++++++++++++++------------
->   arch/arm64/mm/contpte.c           |  2 +-
->   arch/riscv/include/asm/tlbflush.h |  3 ++-
->   arch/riscv/mm/tlbflush.c          |  3 ++-
->   arch/x86/include/asm/tlbflush.h   |  3 ++-
->   mm/rmap.c                         | 12 +++++++-----
->   6 files changed, 28 insertions(+), 21 deletions(-)
-> 
-> diff --git a/arch/arm64/include/asm/tlbflush.h b/arch/arm64/include/asm/tlbflush.h
-> index bc94e036a26b..f34e4fab5aa2 100644
-> --- a/arch/arm64/include/asm/tlbflush.h
-> +++ b/arch/arm64/include/asm/tlbflush.h
-> @@ -322,13 +322,6 @@ static inline bool arch_tlbbatch_should_defer(struct mm_struct *mm)
->   	return true;
->   }
->   
-> -static inline void arch_tlbbatch_add_pending(struct arch_tlbflush_unmap_batch *batch,
-> -					     struct mm_struct *mm,
-> -					     unsigned long uaddr)
-> -{
-> -	__flush_tlb_page_nosync(mm, uaddr);
-> -}
-> -
->   /*
->    * If mprotect/munmap/etc occurs during TLB batched flushing, we need to
->    * synchronise all the TLBI issued with a DSB to avoid the race mentioned in
-> @@ -448,7 +441,7 @@ static inline bool __flush_tlb_range_limit_excess(unsigned long start,
->   	return false;
->   }
->   
-> -static inline void __flush_tlb_range_nosync(struct vm_area_struct *vma,
-> +static inline void __flush_tlb_range_nosync(struct mm_struct *mm,
->   				     unsigned long start, unsigned long end,
->   				     unsigned long stride, bool last_level,
->   				     int tlb_level)
-> @@ -460,12 +453,12 @@ static inline void __flush_tlb_range_nosync(struct vm_area_struct *vma,
->   	pages = (end - start) >> PAGE_SHIFT;
->   
->   	if (__flush_tlb_range_limit_excess(start, end, pages, stride)) {
-> -		flush_tlb_mm(vma->vm_mm);
-> +		flush_tlb_mm(mm);
->   		return;
->   	}
->   
->   	dsb(ishst);
-> -	asid = ASID(vma->vm_mm);
-> +	asid = ASID(mm);
->   
->   	if (last_level)
->   		__flush_tlb_range_op(vale1is, start, pages, stride, asid,
-> @@ -474,7 +467,7 @@ static inline void __flush_tlb_range_nosync(struct vm_area_struct *vma,
->   		__flush_tlb_range_op(vae1is, start, pages, stride, asid,
->   				     tlb_level, true, lpa2_is_enabled());
->   
-> -	mmu_notifier_arch_invalidate_secondary_tlbs(vma->vm_mm, start, end);
-> +	mmu_notifier_arch_invalidate_secondary_tlbs(mm, start, end);
->   }
->   
->   static inline void __flush_tlb_range(struct vm_area_struct *vma,
-> @@ -482,7 +475,7 @@ static inline void __flush_tlb_range(struct vm_area_struct *vma,
->   				     unsigned long stride, bool last_level,
->   				     int tlb_level)
->   {
-> -	__flush_tlb_range_nosync(vma, start, end, stride,
-> +	__flush_tlb_range_nosync(vma->vm_mm, start, end, stride,
->   				 last_level, tlb_level);
->   	dsb(ish);
->   }
-> @@ -533,6 +526,15 @@ static inline void __flush_tlb_kernel_pgtable(unsigned long kaddr)
->   	dsb(ish);
->   	isb();
->   }
-> +
-> +static inline void arch_tlbbatch_add_pending(struct arch_tlbflush_unmap_batch *batch,
-> +					     struct mm_struct *mm,
-> +					     unsigned long uaddr,
-> +					     unsigned long size)
-> +{
-> +	__flush_tlb_range_nosync(mm, uaddr, uaddr + size,
-> +				 PAGE_SIZE, true, 3);
-> +}
->   #endif
->   
->   #endif
-> diff --git a/arch/arm64/mm/contpte.c b/arch/arm64/mm/contpte.c
-> index 55107d27d3f8..bcac4f55f9c1 100644
-> --- a/arch/arm64/mm/contpte.c
-> +++ b/arch/arm64/mm/contpte.c
-> @@ -335,7 +335,7 @@ int contpte_ptep_clear_flush_young(struct vm_area_struct *vma,
->   		 * eliding the trailing DSB applies here.
->   		 */
->   		addr = ALIGN_DOWN(addr, CONT_PTE_SIZE);
-> -		__flush_tlb_range_nosync(vma, addr, addr + CONT_PTE_SIZE,
-> +		__flush_tlb_range_nosync(vma->vm_mm, addr, addr + CONT_PTE_SIZE,
->   					 PAGE_SIZE, true, 3);
->   	}
->   
-> diff --git a/arch/riscv/include/asm/tlbflush.h b/arch/riscv/include/asm/tlbflush.h
-> index 72e559934952..7f3ea687ce33 100644
-> --- a/arch/riscv/include/asm/tlbflush.h
-> +++ b/arch/riscv/include/asm/tlbflush.h
-> @@ -61,7 +61,8 @@ void flush_pmd_tlb_range(struct vm_area_struct *vma, unsigned long start,
->   bool arch_tlbbatch_should_defer(struct mm_struct *mm);
->   void arch_tlbbatch_add_pending(struct arch_tlbflush_unmap_batch *batch,
->   			       struct mm_struct *mm,
-> -			       unsigned long uaddr);
-> +			       unsigned long uaddr,
-> +			       unsigned long size);
 
-While we're at it, can we just convert this to the "two tabs" 
-indentation starting on second parameter line" way of doing things? Same 
-for all other cases. (at least in core code, if some arch wants their 
-own weird rules on how to handle these things)
+--jwGvJ1ZaVXfjr5LT
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-[...]
+On Tue, Jan 14, 2025 at 09:40:11AM +0100, Thomas Wei=DFschuh wrote:
+> On Mon, Jan 13, 2025 at 07:48:15PM +0000, Conor Dooley wrote:
+> > On Fri, Jan 10, 2025 at 04:23:48PM +0100, Thomas Wei=DFschuh wrote:
+> > > The generic storage implementation provides the same features as the
+> > > custom one. However it can be shared between architectures, making
+> > > maintenance easier.
+> > >=20
+> > > Co-developed-by: Nam Cao <namcao@linutronix.de>
+> > > Signed-off-by: Nam Cao <namcao@linutronix.de>
+> > > Signed-off-by: Thomas Wei=DFschuh <thomas.weissschuh@linutronix.de>
+> >=20
+> > For rv64, nommu:
+> >   LD      vmlinux
+> > ld.lld: error: undefined symbol: vmf_insert_pfn
+> > >>> referenced by datastore.c
+> > >>>               lib/vdso/datastore.o:(vvar_fault) in archive vmlinux.a
+> >=20
+> > ld.lld: error: undefined symbol: _install_special_mapping
+> > >>> referenced by datastore.c
+> > >>>               lib/vdso/datastore.o:(vdso_install_vvar_mapping) in a=
+rchive vmlinux.a
+> >=20
+> > Later patches in the series don't make it build again.
+> > rv32 builds now though, so thanks for fixing that.
+>=20
+> Thanks for the report.
+> Can you try to diff below?
 
->   	struct tlbflush_unmap_batch *tlb_ubc = &current->tlb_ubc;
->   	int batch;
-> @@ -681,7 +682,7 @@ static void set_tlb_ubc_flush_pending(struct mm_struct *mm, pte_t pteval,
->   	if (!pte_accessible(mm, pteval))
->   		return;
->   
-> -	arch_tlbbatch_add_pending(&tlb_ubc->arch, mm, uaddr);
-> +	arch_tlbbatch_add_pending(&tlb_ubc->arch, mm, uaddr, size);
->   	tlb_ubc->flush_required = true;
->   
->   	/*
-> @@ -757,7 +758,8 @@ void flush_tlb_batched_pending(struct mm_struct *mm)
->   }
->   #else
->   static void set_tlb_ubc_flush_pending(struct mm_struct *mm, pte_t pteval,
-> -				      unsigned long uaddr)
-> +				      unsigned long uaddr,
-> +				      unsigned long size)
+Ye, that resolved it. Thanks!
 
-I'll note that mist tlb functions seem to consume start+end instead of 
-start+size, like
+--jwGvJ1ZaVXfjr5LT
+Content-Type: application/pgp-signature; name="signature.asc"
 
-flush_tlb_mm_range()
-flush_tlb_kernel_range()
+-----BEGIN PGP SIGNATURE-----
 
-So I'm wondering if this should be start+end instead of uaddr+size.
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZ4Y9kQAKCRB4tDGHoIJi
+0oHDAP9Da+NrCNJE56DtkPFciL+LH3SKSSwOWQ6oFB2bu8GWRQEA9RJt/Is3QV+w
++n+t05VKvIADKDk9hc4FHnNawF8GUgg=
+=tDst
+-----END PGP SIGNATURE-----
 
--- 
-Cheers,
+--jwGvJ1ZaVXfjr5LT--
 
-David / dhildenb
 
+--===============5862585921126449640==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============5862585921126449640==--
+
