@@ -4,82 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 44397E77188
-	for <linux-riscv@archiver.kernel.org>; Tue, 14 Jan 2025 06:39:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BBE1BE77188
+	for <linux-riscv@archiver.kernel.org>; Tue, 14 Jan 2025 07:28:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=fkKEywHOCDOwTyW9VoBMuW5Z4fe3htESgCBkRTdbZh8=; b=OLwi7IVwUYRA81
-	oD88sdtPUtVUpMyWVCoxKh/Nlata2YqP28Tgxiv+In3u+MjeM9BF4TEXrTc8ZKFGEZqQFCbj4LdTQ
-	MUlv+dh9I9+cv0aYPNpzPZjErZbX8Z/Cs/ZU4IosPqf1YVZ3PrOc96NKYyn+822lctjexB12wmAUC
-	jkKEvg//d5LJdegU6hvCkEaLukGofT7S2K+801z75z+g/PQQ9QuhOWmGa52Vs9wdEfih66Q+wfMC5
-	pOy+k4dwfVLExtgfUDcDCCIIT2maKcTT5klA73usTfzVgYUnbBN42PnSf/YgTFC+HkXMDyWBu8BgE
-	pi5AD7bvdCINm10/d3ig==;
+	List-Owner; bh=kQGSMegTnFdKNgRGQn2dtJVdaWXn6KN4gD/zthcO6HQ=; b=OZxwFsLFHBJyF0
+	VGh604R6chE+gLTpiubOlT4Q8W85Cde+T6qKgM6l7jzyPR5Qc7pczaKh3966kVycAyazZoWN2aYAm
+	MaHtJ843NMSCaGxvaqslcynokkSEraazeflsDFvVypi7AEKQenQPQ40rF0ghs+BqDh2CC7LuV03+A
+	q6PkjXL2qt7GEk5x+QgUdMJIoiBm1I5jFD2Obz/YtiwpL9eImKcgEGDKXxQK0TABf6AizzOQsEaUS
+	X/E6bdW2UICaGZb5Kj6a2L+IltvoDT1A1PcIVebkdoisVVvFTHhbouUEVsWvc8xKyNwMdxSDA0/xX
+	RXPkbrV1SIntTmTccwog==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXaaQ-00000007c1C-1jgi;
-	Tue, 14 Jan 2025 06:39:38 +0000
-Received: from mail-pj1-x102f.google.com ([2607:f8b0:4864:20::102f])
+	id 1tXbM0-00000007fsf-2t38;
+	Tue, 14 Jan 2025 07:28:48 +0000
+Received: from mgamail.intel.com ([198.175.65.12])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXaaM-00000007c0g-47Ll
-	for linux-riscv@lists.infradead.org;
-	Tue, 14 Jan 2025 06:39:36 +0000
-Received: by mail-pj1-x102f.google.com with SMTP id 98e67ed59e1d1-2f4448bf96fso6466297a91.0
-        for <linux-riscv@lists.infradead.org>; Mon, 13 Jan 2025 22:39:33 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bytedance.com; s=google; t=1736836773; x=1737441573; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=VC5EI+Wdc74KN8yFTiG4LlZGMfcGCq1v/ByOPTNlxQo=;
-        b=V6XJ00WlBuOUov8N8hCtYy2A2XTJvn9fo8Ny7YS25w0sffki7xea+CQVbzK9TTLurk
-         RA9Mfs6RLnv9J6qfnuD+clzuzHxR433vzhUDx2btQTb3aeB7zSYvQ+pYeZ4qWGMaPkfR
-         o5JSQuWFhh3a26m58UQfE/RNYI0Q6ehP8GUh+A/bqNdvM3mcy+Z4MiZQhYjdzWJJC3tu
-         2198w9foYY77PLuCZsdfeJShNm9EiNc9QtmrQc26Ll3AY6wo0ZiUDPVnrqndxFpQAQ4s
-         RgGEMke62hBaXihPZ0Ys5cTwgEiGpDd0PYVzX6rUEI2fMHMPEL/pPhxrbHCW7gVXdkk8
-         8cug==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1736836773; x=1737441573;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=VC5EI+Wdc74KN8yFTiG4LlZGMfcGCq1v/ByOPTNlxQo=;
-        b=AM0qj6ogQ/M0wVe+q4tkv+dO8ebhjkLDl4FVOp0j8SyJriIG5ABLBWcMsWyP0LUAjm
-         UGtecy0JHQ4Jg3/cfr+dwUphAeg2nku3bUFetnWtI41EeEntHChsHvdgApnu/JLoGaqp
-         6+5hzbRKonDyndaO+c3V5bmdkVcGM7yKktl6Gfm9JFjA2KpVIB3g+hY/YnzARHnLYn7/
-         iY9ooAhqGG8ohFwEPgC39fnIfHvUWVqIOTqajQrr0pbJBmWdbpyg+wNtE+uBqXyIvCWR
-         tXItaKPQdMRUWkkMiLo4pSdIx70G63WtrL2VJ6esmOMkaNI6ZHBPG6wE4KDfmFuagE9I
-         fxOw==
-X-Forwarded-Encrypted: i=1; AJvYcCWE/7Xd+EM+SB5NlyA8Slo6yyirbihZ8NHqE6tRqmG6bRVUAtLgjqKeYifrVlZK5+x6OL4pa3XJZlszMg==@lists.infradead.org
-X-Gm-Message-State: AOJu0YzkgFmWkbS4ML544QVQmMFf52XdMzxZyU5p0TU50xhC6mqV5cuK
-	9fU5lFrGWkfdbKFQL4U4tBO9+jrUCkZ7tR7/MT2ebQYvW+dhThZxdTWspQJXWUCE1y1JvI5Qn+n
-	CvHTFR/vkMTd8E8tP0BYk7pi0TdXEW6k33ntbCLJZJqJRyVctFpP+2A==
-X-Gm-Gg: ASbGncu+i2yO0AGcoHRN3uHB8qlFLFqlz/B9KKTjOMb5zUCFx1q85BbNWFgCId/Oa84
-	/Jzqp9nrcWsIlawWEzACLYNr+ROmxQWCTkK1q4sW44tOBryrvTZQ=
-X-Google-Smtp-Source: AGHT+IFiJeeIlF0g5KxkBRN7/VqcEZP6kKQSFwIkALfiw25opBFKRRNJCdL05st0mH2pjsfhKvrYWHLJ98JjBLGtGXM=
-X-Received: by 2002:a17:90a:d64b:b0:2ee:8aa7:94a0 with SMTP id
- 98e67ed59e1d1-2f548f42490mr29285939a91.32.1736836773063; Mon, 13 Jan 2025
- 22:39:33 -0800 (PST)
+	id 1tXbKj-00000007fdp-3rGS;
+	Tue, 14 Jan 2025 07:27:31 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1736839650; x=1768375650;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=KJfe9nVlEn8D3imcOLIM2aumy8f4v35mSshgLI8XJhM=;
+  b=Obz2uxCRSOwgqdek2YKqqa/JhqZG8VFFf0cwTy/fo9ggYWmTh9POZ9xc
+   MPijPUiH/ghuFAFt+OJVhWK9ZYp+5Uz/jPr37ZJjtOhwLzt1VTWJ9XMQc
+   gG/GREfRqxEGZjQsyofBpOViDWgc025S0TKvVMPszj2h1McWdTsxm3Uul
+   gFF5g5oSBRwyN//wpuBE2qpqhjGWF3O1FxVjezAwMmuHeYYTg9dRCBshF
+   lxbi6ci1y4JHnkXkqFrYCyz9mI+PV3POzyaZghuyAaTJ0/sdVGMpKXwZK
+   WiQJSflzHyLptY+xUZIiA5clFHgyVmMoof8mF8qgzNBdvFf9fDtr9EQuE
+   Q==;
+X-CSE-ConnectionGUID: 52GIXBlUR6Ww2xd14NUzqg==
+X-CSE-MsgGUID: bcuZrouOQR+LucTcHLudeg==
+X-IronPort-AV: E=McAfee;i="6700,10204,11314"; a="48505566"
+X-IronPort-AV: E=Sophos;i="6.12,313,1728975600"; 
+   d="scan'208";a="48505566"
+Received: from fmviesa009.fm.intel.com ([10.60.135.149])
+  by orvoesa104.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 13 Jan 2025 23:27:27 -0800
+X-CSE-ConnectionGUID: yfW+ptOYR5mGfoxEhg0Blg==
+X-CSE-MsgGUID: lzW8z/BNT229n2J3J5ggdA==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.12,313,1728975600"; 
+   d="scan'208";a="105286103"
+Received: from black.fi.intel.com ([10.237.72.28])
+  by fmviesa009.fm.intel.com with ESMTP; 13 Jan 2025 23:27:20 -0800
+Received: by black.fi.intel.com (Postfix, from userid 1000)
+	id 773212A6; Tue, 14 Jan 2025 09:27:18 +0200 (EET)
+Date: Tue, 14 Jan 2025 09:27:18 +0200
+From: "Kirill A. Shutemov" <kirill.shutemov@linux.intel.com>
+To: Tom Lendacky <thomas.lendacky@amd.com>
+Cc: Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>, 
+	Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org, 
+	"H. Peter Anvin" <hpa@zytor.com>, Andy Lutomirski <luto@kernel.org>, 
+	Albert Ou <aou@eecs.berkeley.edu>, Alexei Starovoitov <ast@kernel.org>, 
+	Andrea Parri <parri.andrea@gmail.com>, Arnd Bergmann <arnd@arndb.de>, 
+	Daniel Borkmann <daniel@iogearbox.net>, Eric Chan <ericchancf@google.com>, 
+	Jason Gunthorpe <jgg@ziepe.ca>, Kai Huang <kai.huang@intel.com>, 
+	Kefeng Wang <wangkefeng.wang@huawei.com>, Kent Overstreet <kent.overstreet@linux.dev>, 
+	Palmer Dabbelt <palmer@rivosinc.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
+	Russell King <linux@armlinux.org.uk>, Samuel Holland <samuel.holland@sifive.com>, 
+	Suren Baghdasaryan <surenb@google.com>, Yuntao Wang <ytcoode@gmail.com>, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
+	stable@vger.kernel.org, Ashish Kalra <ashish.kalra@amd.com>, 
+	"Maciej W. Rozycki" <macro@orcam.me.uk>
+Subject: Re: [PATCHv3 2/2] x86/mm: Make memremap(MEMREMAP_WB) map memory as
+ encrypted by default
+Message-ID: <vuj7mlvkvazuz5noupusqt2bk42vjkr5lkgivnrub2nby4ma6y@7ezpclbirwcs>
+References: <20250113131459.2008123-1-kirill.shutemov@linux.intel.com>
+ <20250113131459.2008123-3-kirill.shutemov@linux.intel.com>
+ <1532becb-f2be-4458-5d34-77070f2c5e2d@amd.com>
 MIME-Version: 1.0
-References: <20250113150933.65121-1-luxu.kernel@bytedance.com>
- <20250113150933.65121-4-luxu.kernel@bytedance.com> <CAAhSdy1UaFVyGMCtGHZZTuEhxGAja=9viN10SbFXKcNwjwJ8yw@mail.gmail.com>
-In-Reply-To: <CAAhSdy1UaFVyGMCtGHZZTuEhxGAja=9viN10SbFXKcNwjwJ8yw@mail.gmail.com>
-From: Xu Lu <luxu.kernel@bytedance.com>
-Date: Tue, 14 Jan 2025 14:39:22 +0800
-X-Gm-Features: AbW1kvbBFk197XV7hb0sIEw7cMbcGtjtvCnz47p_TWAyG1TuaOYHGDPzIRzxQyY
-Message-ID: <CAPYmKFviTHKTH=Me74qvjFwq6JxwiCYwtrpft-jMb_SkyvRuSQ@mail.gmail.com>
-Subject: Re: [External] Re: [PATCH 3/5] irqchip/riscv-imsic: Use wmb() to
- order normal writes and IPI writes
-To: Anup Patel <anup@brainfault.org>
-Cc: daniel.lezcano@linaro.org, tglx@linutronix.de, paul.walmsley@sifive.com, 
-	palmer@dabbelt.com, lihangjing@bytedance.com, xieyongji@bytedance.com, 
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+Content-Disposition: inline
+In-Reply-To: <1532becb-f2be-4458-5d34-77070f2c5e2d@amd.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250113_223935_342976_FBE0C808 
-X-CRM114-Status: GOOD (  20.84  )
+X-CRM114-CacheID: sfid-20250113_232730_040323_7E9C01D8 
+X-CRM114-Status: GOOD (  19.50  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,47 +95,69 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-SGkgQW51cCwKCkkgd2FudCB0byBlbnN1cmUgd2hlbiB0aGUgcmVjZWl2ZXIgQ1BVIHRyYXBzIGlu
-dG8gaW50ZXJydXB0LCBpdCBjYW4Kc2VlIGFsbCBtZW1vcnkgdXBkYXRlcyBtYWRlIGJ5IHRoZSBz
-ZW5kZXIgYmVmb3JlLgoKVGhlIHNtcF9tYl9fYWZ0ZXJfYXRvbWljKCkgdXNlcyAnZmVuY2Ugcncs
-IHJ3JyB3aGljaCBvcmRlcnMgbm9ybWFsCm1lbW9yeSByZWFkcy93cml0ZXMuIFRoZSBJTVNJQyB3
-cml0ZSBpcyBhY3R1YWxseSBJTyB3cml0ZXMgYW5kIGlzIG5vdApvcmRlcmVkIGJ5IGl0LgoKU28g
-SSB3b3JyeSBpbiBleHRyZW1lIGNhc2VzLCB0aGUgcmVjZWl2ZXIgQ1BVIGNhbiByZWNlaXZlIHRo
-ZSBJUEkKZmlyc3QsIHNlZSBubyB1cGRhdGVzIHRvIGlwaV9tdXhfcGNwdS0+Yml0cyBhbmQgcmV0
-dXJuIGltbWVkaWF0ZWx5LgpUaGVuIHRoaXMgSVBJIHdpbGwgbm90IGJlIGhhbmRsZWQgdW50aWwg
-YW5vdGhlciBJUEkgY29tZXMuCgpCZXN0IFJlZ2FyZHMsCgpYdSBMdQoKT24gVHVlLCBKYW4gMTQs
-IDIwMjUgYXQgMTI6MzTigK9QTSBBbnVwIFBhdGVsIDxhbnVwQGJyYWluZmF1bHQub3JnPiB3cm90
-ZToKPgo+IE9uIE1vbiwgSmFuIDEzLCAyMDI1IGF0IDg6MznigK9QTSBYdSBMdSA8bHV4dS5rZXJu
-ZWxAYnl0ZWRhbmNlLmNvbT4gd3JvdGU6Cj4gPgo+ID4gRHVyaW5nIGFuIElQSSBwcm9jZWR1cmUs
-IHdlIG5lZWQgdG8gZW5zdXJlIGFsbCBwcmV2aW91cyB3cml0ZSBvcGVyYXRpb25zCj4gPiBhcmUg
-dmlzaWJsZSB0byBvdGhlciBDUFVzIGJlZm9yZSBzZW5kaW5nIGEgcmVhbCBJUEkuIFdlIHVzZSB3
-bWIoKSBiYXJyaWVyCj4gPiB0byBlbnN1cmUgdGhpcyBhcyBJTVNJQyBpc3N1ZXMgSVBJIHZpYSBt
-bWlvIHdyaXRlcy4KPiA+Cj4gPiBTaWduZWQtb2ZmLWJ5OiBYdSBMdSA8bHV4dS5rZXJuZWxAYnl0
-ZWRhbmNlLmNvbT4KPiA+IC0tLQo+ID4gIGRyaXZlcnMvaXJxY2hpcC9pcnEtcmlzY3YtaW1zaWMt
-ZWFybHkuYyB8IDYgKysrKysrCj4gPiAgMSBmaWxlIGNoYW5nZWQsIDYgaW5zZXJ0aW9ucygrKQo+
-ID4KPiA+IGRpZmYgLS1naXQgYS9kcml2ZXJzL2lycWNoaXAvaXJxLXJpc2N2LWltc2ljLWVhcmx5
-LmMgYi9kcml2ZXJzL2lycWNoaXAvaXJxLXJpc2N2LWltc2ljLWVhcmx5LmMKPiA+IGluZGV4IDYz
-MDk3ZjJiYmFkZi4uYzYzMTdjYjU1N2ZiIDEwMDY0NAo+ID4gLS0tIGEvZHJpdmVycy9pcnFjaGlw
-L2lycS1yaXNjdi1pbXNpYy1lYXJseS5jCj4gPiArKysgYi9kcml2ZXJzL2lycWNoaXAvaXJxLXJp
-c2N2LWltc2ljLWVhcmx5LmMKPiA+IEBAIC0yOSw2ICsyOSwxMiBAQCBzdGF0aWMgdm9pZCBpbXNp
-Y19pcGlfc2VuZCh1bnNpZ25lZCBpbnQgY3B1KQo+ID4gIHsKPiA+ICAgICAgICAgc3RydWN0IGlt
-c2ljX2xvY2FsX2NvbmZpZyAqbG9jYWwgPSBwZXJfY3B1X3B0cihpbXNpYy0+Z2xvYmFsLmxvY2Fs
-LCBjcHUpOwo+ID4KPiA+ICsgICAgICAgLyoKPiA+ICsgICAgICAgICogRW5zdXJlIHRoYXQgc3Rv
-cmVzIHRvIG5vcm1hbCBtZW1vcnkgYXJlIHZpc2libGUgdG8gdGhlIG90aGVyIENQVXMKPiA+ICsg
-ICAgICAgICogYmVmb3JlIGlzc3VpbmcgSVBJLgo+ID4gKyAgICAgICAgKi8KPiA+ICsgICAgICAg
-d21iKCk7Cj4gPiArCj4KPiBUaGUgaW1zaWNfaXBpX3NlbmQoKSBpcyBjYWxsZWQgdGhyb3VnaCBp
-cGlfbXV4X3NlbmRfbWFzaygpCj4gd2hpY2ggZG9lcyBzbXBfbWJfX2FmdGVyX2F0b21pYygpIGJl
-Zm9yZSBjYWxsaW5nIHNvIG5vIG5lZWQKPiBmb3IgYW55IGJhcnJpZXIgaGVyZS4gQWxzbywgYmFy
-cmllcnMgbmVlZCB0byBiZSBpbi1wYWlyIHNvIGFkZGluZwo+IGEgc2luZ2xlIGJhcnJpZXIgYXQg
-cmFuZG9tIGxvY2F0aW9uIGlzIGluYXBwcm9wcmlhdGUuCj4gKFJlZmVyLCBodHRwczovL2dpdC5r
-ZXJuZWwub3JnL3B1Yi9zY20vbGludXgva2VybmVsL2dpdC90b3J2YWxkcy9saW51eC5naXQvdHJl
-ZS9rZXJuZWwvaXJxL2lwaS1tdXguYz9oPXY2LjEzLXJjNyNuNzgpCj4KPiBCYXNlZCBvbiB0aGUg
-YWJvdmUsIHRoaXMgcGF0Y2ggaXMgbm90IG5lZWRlZC4KPgo+IFJlZ2FyZHMsCj4gQW51cAoKX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3Yg
-bWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3Rz
-LmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
+On Mon, Jan 13, 2025 at 02:47:56PM -0600, Tom Lendacky wrote:
+> On 1/13/25 07:14, Kirill A. Shutemov wrote:
+> > Currently memremap(MEMREMAP_WB) can produce decrypted/shared mapping:
+> > 
+> > memremap(MEMREMAP_WB)
+> >   arch_memremap_wb()
+> >     ioremap_cache()
+> >       __ioremap_caller(.encrytped = false)
+> > 
+> > In such cases, the IORES_MAP_ENCRYPTED flag on the memory will determine
+> > if the resulting mapping is encrypted or decrypted.
+> > 
+> > Creating a decrypted mapping without explicit request from the caller is
+> > risky:
+> > 
+> >   - It can inadvertently expose the guest's data and compromise the
+> >     guest.
+> > 
+> >   - Accessing private memory via shared/decrypted mapping on TDX will
+> >     either trigger implicit conversion to shared or #VE (depending on
+> >     VMM implementation).
+> > 
+> >     Implicit conversion is destructive: subsequent access to the same
+> >     memory via private mapping will trigger a hard-to-debug #VE crash.
+> > 
+> > The kernel already provides a way to request decrypted mapping
+> > explicitly via the MEMREMAP_DEC flag.
+> > 
+> > Modify memremap(MEMREMAP_WB) to produce encrypted/private mapping by
+> > default unless MEMREMAP_DEC is specified.
+> > 
+> > Fix the crash due to #VE on kexec in TDX guests if CONFIG_EISA is enabled.
+> 
+> This patch causes my bare-metal system to crash during boot when using
+> mem_encrypt=on:
+> 
+> [    2.392934] efi: memattr: Entry type should be RuntimeServiceCode/Data
+> [    2.393731] efi: memattr: ! 0x214c42f01f1162a-0xee70ac7bd1a9c629 [type=2028324321|attr=0x6590648fa4209879]
+
+Could you try if this helps?
+
+diff --git a/drivers/firmware/efi/memattr.c b/drivers/firmware/efi/memattr.c
+index c38b1a335590..b5051dcb7c1d 100644
+--- a/drivers/firmware/efi/memattr.c
++++ b/drivers/firmware/efi/memattr.c
+@@ -160,7 +160,7 @@ int __init efi_memattr_apply_permissions(struct mm_struct *mm,
+ 	if (WARN_ON(!efi_enabled(EFI_MEMMAP)))
+ 		return 0;
+ 
+-	tbl = memremap(efi_mem_attr_table, tbl_size, MEMREMAP_WB);
++	tbl = memremap(efi_mem_attr_table, tbl_size, MEMREMAP_WB | MEMREMAP_DEC);
+ 	if (!tbl) {
+ 		pr_err("Failed to map EFI Memory Attributes table @ 0x%lx\n",
+ 		       efi_mem_attr_table);
+-- 
+  Kiryl Shutsemau / Kirill A. Shutemov
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
