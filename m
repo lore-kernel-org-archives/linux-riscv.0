@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD565C02183
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EEAD8C02187
 	for <linux-riscv@archiver.kernel.org>; Tue, 14 Jan 2025 19:17:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -12,47 +12,72 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=EVlHb3m+rBtZZXsdkKxnBbSPLVsdvRwOgPHpafJ96Ps=; b=gCJg6VtNShtI1K
-	A6YawaVsWP274YF/TRC6eWXtxnY4PXBiOeu6IIpAK++aT5gTdD35ayR4ggpahfH48cW3OW33tKc6/
-	I5LNlY73oOz49QUSWgzjgIayvTeBz5Xu0Knlkn7z4zAj61V1Q5/eviMKWez9tyfQkr2hA5ki+rig+
-	/5lMqVzbrPDTXZl722I++ZxyGkTagHU64VVbD/5oGwES0AFSJEuskRRRt3jmAackbkm8O+x/O7yoC
-	+D+hkxMdl+8I6ueqvJiDA/Uv9MKS2BxVHdkP4TQsy3EeP5mBXlhxgTi1H41sFSDqXOdhc08yh2g0R
-	CVpstAYYzY7fp2HDGZZA==;
+	List-Owner; bh=+1RYgDrFeDmrs+2ScUe9uhPZzFAFhaGctvgcIQ1qNVQ=; b=c/PC/Mobsa5zIG
+	zbCK99ZnohZ+5Y5Zi/fzevpacaVe0AC0Fd34GzL9sQmOVUEalEOGJb9HYz20rQsE6b7cM5cG3Mm+C
+	fz/wl/tLGQy5x5ceOYq+Ly++PESYV3350twFK6SU4gNrCs5fMLaEtBYVuWs7fWGhyuBFyVHeGgVgM
+	t/mgDaFeFzORl7hURLwhs77b3SZTxwazyNrCVWA2UKT1zZJbPseGD4xrGFMPEbtLxEfEM16DCSOwE
+	q/VZUzt9hlgJZFAu3d/n6pPXA3K9cZnr/4SsxugzJsqauaQnm7gBmAULrhNptH/q3eE9lxWw+vE0B
+	7oXUQY/hKqOCEDhjBtEQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXmPq-00000009VfK-0ElI;
-	Tue, 14 Jan 2025 19:17:30 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1tXmPr-00000009VgE-0iY1;
+	Tue, 14 Jan 2025 19:17:31 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXlGU-00000009KB8-3Hwr
+	id 1tXlGx-00000009KRP-0F6x
+	for linux-riscv@bombadil.infradead.org;
+	Tue, 14 Jan 2025 18:04:15 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=qfGcbREmcisg82Rx6e546I8mjQ8z9ythW/HTCaSXKy0=; b=AhN80LD61maeYuT7EBXtEtda/n
+	hDE2Z7iq2DgL38X3fOutDjfwX6OC9qq7LzfIB+YOiDwEKoXQuGyJXfWXbNrpi0T5tXXbrKxb81Flx
+	nFKfxs2bHsLl8qXioBbuPqJv56wx0aTfatmbMyldpLDq3lUo56iu+oGMEnI6AQYYXZkVqyOlT9uaG
+	3B880AZ8hbkiXGehwlclQO96tvoGriCG4XpKn3/l/QSWRLXbxelpR7D5nrkyzR3kXa5qN1PrjbDIm
+	50KgmjXszmaKtR/aWH8LaiIrLXQzs2aV0ljjV7Eknj+2E+VcJXsVi62OtKF7KjwFgL0ERJZi5mRW6
+	owOiCgXg==;
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tXlGt-0000000AWBv-3VMD
 	for linux-riscv@lists.infradead.org;
-	Tue, 14 Jan 2025 18:03:48 +0000
+	Tue, 14 Jan 2025 18:04:13 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1736877825;
+	s=mimecast20190719; t=1736877850;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=le8UIdWvg/w/MVcf7PTpfkO3a8bfCjcr6cLgmw3M858=;
-	b=DNZqEs2YY90KWegLtUNMKTwGRPETPz7uCY9w/Jl4tAw8gybvD7b4bi/cWIqw/SuBJbNp7i
-	yVj1xOiIOjCmvBJAvMr3WjQO/v0r9DOwvBiK8rQUtX2Sy+QytQV4Nst4RLwqpYrvj7rvxO
-	Uv0Gq9b9D4k9p6dc95qGs2pBbe0XxHM=
-Received: from mx-prod-mc-01.mail-002.prod.us-west-2.aws.redhat.com
+	bh=qfGcbREmcisg82Rx6e546I8mjQ8z9ythW/HTCaSXKy0=;
+	b=LTwCaDm030pG9AOhBs6eYL8FVYf41aic18w4nWdPtuJyXsj0F+g2wRKOBptvmqUT9KwHse
+	E1ebR9dyzX62LSQh03PMnfQle0oNgEUhCKpCmB4HLRiz5/qJdKcbJ+Bihyrlx+K6PtYAWe
+	0741DzGA8VzB661JDz+biSa82BUPVPg=
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1736877850;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=qfGcbREmcisg82Rx6e546I8mjQ8z9ythW/HTCaSXKy0=;
+	b=LTwCaDm030pG9AOhBs6eYL8FVYf41aic18w4nWdPtuJyXsj0F+g2wRKOBptvmqUT9KwHse
+	E1ebR9dyzX62LSQh03PMnfQle0oNgEUhCKpCmB4HLRiz5/qJdKcbJ+Bihyrlx+K6PtYAWe
+	0741DzGA8VzB661JDz+biSa82BUPVPg=
+Received: from mx-prod-mc-04.mail-002.prod.us-west-2.aws.redhat.com
  (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
  relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-412-RjogcdnCPlS1FV6yZ4Sprw-1; Tue,
- 14 Jan 2025 13:03:43 -0500
-X-MC-Unique: RjogcdnCPlS1FV6yZ4Sprw-1
-X-Mimecast-MFC-AGG-ID: RjogcdnCPlS1FV6yZ4Sprw
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-686-2bGxv9G8MbqEpONYIM0Pig-1; Tue,
+ 14 Jan 2025 13:04:06 -0500
+X-MC-Unique: 2bGxv9G8MbqEpONYIM0Pig-1
+X-Mimecast-MFC-AGG-ID: 2bGxv9G8MbqEpONYIM0Pig
 Received: from mx-prod-int-02.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-02.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.15])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mx-prod-mc-01.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 3C8EC19560B3;
-	Tue, 14 Jan 2025 18:03:39 +0000 (UTC)
+	by mx-prod-mc-04.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id EBCE81955D4F;
+	Tue, 14 Jan 2025 18:04:02 +0000 (UTC)
 Received: from vschneid-thinkpadt14sgen2i.remote.csb (unknown [10.39.192.55])
-	by mx-prod-int-02.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 2905C195608A;
-	Tue, 14 Jan 2025 18:03:16 +0000 (UTC)
+	by mx-prod-int-02.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id B2065195608A;
+	Tue, 14 Jan 2025 18:03:39 +0000 (UTC)
 From: Valentin Schneider <vschneid@redhat.com>
 To: linux-kernel@vger.kernel.org,
 	x86@kernel.org,
@@ -70,8 +95,7 @@ To: linux-kernel@vger.kernel.org,
 	linux-kselftest@vger.kernel.org,
 	bpf@vger.kernel.org,
 	bcm-kernel-feedback-list@broadcom.com
-Cc: Peter Zijlstra <peterz@infradead.org>,
-	Juergen Gross <jgross@suse.com>,
+Cc: Juergen Gross <jgross@suse.com>,
 	Ajay Kaher <ajay.kaher@broadcom.com>,
 	Alexey Makhalov <alexey.amakhalov@broadcom.com>,
 	Russell King <linux@armlinux.org.uk>,
@@ -87,6 +111,7 @@ Cc: Peter Zijlstra <peterz@infradead.org>,
 	Borislav Petkov <bp@alien8.de>,
 	Dave Hansen <dave.hansen@linux.intel.com>,
 	"H. Peter Anvin" <hpa@zytor.com>,
+	Peter Zijlstra <peterz@infradead.org>,
 	Arnaldo Carvalho de Melo <acme@kernel.org>,
 	Namhyung Kim <namhyung@kernel.org>,
 	Mark Rutland <mark.rutland@arm.com>,
@@ -142,16 +167,16 @@ Cc: Peter Zijlstra <peterz@infradead.org>,
 	Luis Chamberlain <mcgrof@kernel.org>,
 	Randy Dunlap <rdunlap@infradead.org>,
 	Tiezhu Yang <yangtiezhu@loongson.cn>
-Subject: [PATCH v4 26/30] x86,tlb: Make __flush_tlb_global() noinstr-compliant
-Date: Tue, 14 Jan 2025 18:51:39 +0100
-Message-ID: <20250114175143.81438-27-vschneid@redhat.com>
+Subject: [PATCH v4 27/30] x86/tlb: Make __flush_tlb_local() noinstr-compliant
+Date: Tue, 14 Jan 2025 18:51:40 +0100
+Message-ID: <20250114175143.81438-28-vschneid@redhat.com>
 In-Reply-To: <20250114175143.81438-1-vschneid@redhat.com>
 References: <20250114175143.81438-1-vschneid@redhat.com>
 MIME-Version: 1.0
 X-Scanned-By: MIMEDefang 3.0 on 10.30.177.15
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250114_100346_907592_C25C5464 
-X-CRM114-Status: GOOD (  20.67  )
+X-CRM114-CacheID: sfid-20250114_180412_019820_EE4BDDD2 
+X-CRM114-Status: GOOD (  16.08  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -168,221 +193,55 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Peter Zijlstra <peterz@infradead.org>
-
 Later patches will require issuing a __flush_tlb_all() from noinstr code.
 This requires making both __flush_tlb_local() and __flush_tlb_global()
 noinstr-compliant.
 
-For __flush_tlb_global(), both native_flush_tlb_global() and xen_flush_tlb()
-need to be made noinstr.
+For __flush_tlb_local(), xen_flush_tlb() has already been made noinstr, so
+it's just native_flush_tlb_global(), and simply __always_inline'ing
+invalidate_user_asid() gets us there
 
-Forgo using __native_flush_tlb_global() / native_write_cr4() and have the
-ASM directly inlined in the native function. For the Xen stuff,
-__always_inline a handful of helpers.
-
-Not-signed-off-by: Peter Zijlstra <peterz@infradead.org>
-[Changelog faff]
 Signed-off-by: Valentin Schneider <vschneid@redhat.com>
 ---
- arch/x86/include/asm/invpcid.h       | 13 ++++++-------
- arch/x86/include/asm/paravirt.h      |  2 +-
- arch/x86/include/asm/xen/hypercall.h | 11 +++++++++--
- arch/x86/mm/tlb.c                    | 15 +++++++++++----
- arch/x86/xen/mmu_pv.c                | 10 +++++-----
- arch/x86/xen/xen-ops.h               | 12 ++++++++----
- 6 files changed, 40 insertions(+), 23 deletions(-)
+ arch/x86/include/asm/paravirt.h | 2 +-
+ arch/x86/mm/tlb.c               | 4 ++--
+ 2 files changed, 3 insertions(+), 3 deletions(-)
 
-diff --git a/arch/x86/include/asm/invpcid.h b/arch/x86/include/asm/invpcid.h
-index 734482afbf81d..ff26136fcd9c6 100644
---- a/arch/x86/include/asm/invpcid.h
-+++ b/arch/x86/include/asm/invpcid.h
-@@ -2,7 +2,7 @@
- #ifndef _ASM_X86_INVPCID
- #define _ASM_X86_INVPCID
- 
--static inline void __invpcid(unsigned long pcid, unsigned long addr,
-+static __always_inline void __invpcid(unsigned long pcid, unsigned long addr,
- 			     unsigned long type)
- {
- 	struct { u64 d[2]; } desc = { { pcid, addr } };
-@@ -13,7 +13,7 @@ static inline void __invpcid(unsigned long pcid, unsigned long addr,
- 	 * mappings, we don't want the compiler to reorder any subsequent
- 	 * memory accesses before the TLB flush.
- 	 */
--	asm volatile("invpcid %[desc], %[type]"
-+	asm_inline volatile("invpcid %[desc], %[type]"
- 		     :: [desc] "m" (desc), [type] "r" (type) : "memory");
- }
- 
-@@ -23,26 +23,25 @@ static inline void __invpcid(unsigned long pcid, unsigned long addr,
- #define INVPCID_TYPE_ALL_NON_GLOBAL	3
- 
- /* Flush all mappings for a given pcid and addr, not including globals. */
--static inline void invpcid_flush_one(unsigned long pcid,
--				     unsigned long addr)
-+static __always_inline void invpcid_flush_one(unsigned long pcid, unsigned long addr)
- {
- 	__invpcid(pcid, addr, INVPCID_TYPE_INDIV_ADDR);
- }
- 
- /* Flush all mappings for a given PCID, not including globals. */
--static inline void invpcid_flush_single_context(unsigned long pcid)
-+static __always_inline void invpcid_flush_single_context(unsigned long pcid)
- {
- 	__invpcid(pcid, 0, INVPCID_TYPE_SINGLE_CTXT);
- }
- 
- /* Flush all mappings, including globals, for all PCIDs. */
--static inline void invpcid_flush_all(void)
-+static __always_inline void invpcid_flush_all(void)
- {
- 	__invpcid(0, 0, INVPCID_TYPE_ALL_INCL_GLOBAL);
- }
- 
- /* Flush all mappings for all PCIDs except globals. */
--static inline void invpcid_flush_all_nonglobals(void)
-+static __always_inline void invpcid_flush_all_nonglobals(void)
- {
- 	__invpcid(0, 0, INVPCID_TYPE_ALL_NON_GLOBAL);
- }
 diff --git a/arch/x86/include/asm/paravirt.h b/arch/x86/include/asm/paravirt.h
-index d4eb9e1d61b8e..b3daee3d46677 100644
+index b3daee3d46677..0c0dd186c03e6 100644
 --- a/arch/x86/include/asm/paravirt.h
 +++ b/arch/x86/include/asm/paravirt.h
-@@ -75,7 +75,7 @@ static inline void __flush_tlb_local(void)
+@@ -70,7 +70,7 @@ void native_flush_tlb_one_user(unsigned long addr);
+ void native_flush_tlb_multi(const struct cpumask *cpumask,
+ 			     const struct flush_tlb_info *info);
+ 
+-static inline void __flush_tlb_local(void)
++static __always_inline void __flush_tlb_local(void)
+ {
  	PVOP_VCALL0(mmu.flush_tlb_user);
  }
- 
--static inline void __flush_tlb_global(void)
-+static __always_inline void __flush_tlb_global(void)
- {
- 	PVOP_VCALL0(mmu.flush_tlb_kernel);
- }
-diff --git a/arch/x86/include/asm/xen/hypercall.h b/arch/x86/include/asm/xen/hypercall.h
-index 97771b9d33af3..291e9f8006f62 100644
---- a/arch/x86/include/asm/xen/hypercall.h
-+++ b/arch/x86/include/asm/xen/hypercall.h
-@@ -365,8 +365,8 @@ MULTI_mmu_update(struct multicall_entry *mcl, struct mmu_update *req,
- 	trace_xen_mc_entry(mcl, 4);
- }
- 
--static inline void
--MULTI_mmuext_op(struct multicall_entry *mcl, struct mmuext_op *op, int count,
-+static __always_inline void
-+__MULTI_mmuext_op(struct multicall_entry *mcl, struct mmuext_op *op, int count,
- 		int *success_count, domid_t domid)
- {
- 	mcl->op = __HYPERVISOR_mmuext_op;
-@@ -374,6 +374,13 @@ MULTI_mmuext_op(struct multicall_entry *mcl, struct mmuext_op *op, int count,
- 	mcl->args[1] = count;
- 	mcl->args[2] = (unsigned long)success_count;
- 	mcl->args[3] = domid;
-+}
-+
-+static inline void
-+MULTI_mmuext_op(struct multicall_entry *mcl, struct mmuext_op *op, int count,
-+		int *success_count, domid_t domid)
-+{
-+	__MULTI_mmuext_op(mcl, op, count, success_count, domid);
- 
- 	trace_xen_mc_entry(mcl, 4);
- }
 diff --git a/arch/x86/mm/tlb.c b/arch/x86/mm/tlb.c
-index a2becb85bea79..2d2ab3e221f0c 100644
+index 2d2ab3e221f0c..18b40bbc2fa15 100644
 --- a/arch/x86/mm/tlb.c
 +++ b/arch/x86/mm/tlb.c
-@@ -1169,9 +1169,10 @@ void flush_tlb_one_user(unsigned long addr)
- /*
-  * Flush everything
+@@ -257,7 +257,7 @@ static void choose_new_asid(struct mm_struct *next, u64 next_tlb_gen,
+  *
+  * See SWITCH_TO_USER_CR3.
   */
--STATIC_NOPV void native_flush_tlb_global(void)
-+STATIC_NOPV noinstr void native_flush_tlb_global(void)
+-static inline void invalidate_user_asid(u16 asid)
++static __always_inline void invalidate_user_asid(u16 asid)
  {
- 	unsigned long flags;
-+	unsigned long cr4;
- 
- 	if (static_cpu_has(X86_FEATURE_INVPCID)) {
- 		/*
-@@ -1190,9 +1191,15 @@ STATIC_NOPV void native_flush_tlb_global(void)
- 	 * be called from deep inside debugging code.)
- 	 */
- 	raw_local_irq_save(flags);
--
--	__native_tlb_flush_global(this_cpu_read(cpu_tlbstate.cr4));
--
-+	cr4 = this_cpu_read(cpu_tlbstate.cr4);
-+	asm volatile("mov %0,%%cr4": : "r" (cr4 ^ X86_CR4_PGE) : "memory");
-+	asm volatile("mov %0,%%cr4": : "r" (cr4) : "memory");
-+	/*
-+	 * In lieu of not having the pinning crap, hard fail if CR4 doesn't
-+	 * match the expected value. This ensures that anybody doing dodgy gets
-+	 * the fallthrough check.
-+	 */
-+	BUG_ON(cr4 != this_cpu_read(cpu_tlbstate.cr4));
- 	raw_local_irq_restore(flags);
- }
- 
-diff --git a/arch/x86/xen/mmu_pv.c b/arch/x86/xen/mmu_pv.c
-index 55a4996d0c04f..4eb265eb867af 100644
---- a/arch/x86/xen/mmu_pv.c
-+++ b/arch/x86/xen/mmu_pv.c
-@@ -1231,22 +1231,22 @@ static noinstr void xen_write_cr2(unsigned long cr2)
- 	this_cpu_read(xen_vcpu)->arch.cr2 = cr2;
- }
- 
--static noinline void xen_flush_tlb(void)
-+static noinline noinstr void xen_flush_tlb(void)
+ 	/* There is no user ASID if address space separation is off */
+ 	if (!IS_ENABLED(CONFIG_MITIGATION_PAGE_TABLE_ISOLATION))
+@@ -1206,7 +1206,7 @@ STATIC_NOPV noinstr void native_flush_tlb_global(void)
+ /*
+  * Flush the entire current user mapping
+  */
+-STATIC_NOPV void native_flush_tlb_local(void)
++STATIC_NOPV noinstr void native_flush_tlb_local(void)
  {
- 	struct mmuext_op *op;
- 	struct multicall_space mcs;
- 
--	preempt_disable();
-+	preempt_disable_notrace();
- 
- 	mcs = xen_mc_entry(sizeof(*op));
- 
- 	op = mcs.args;
- 	op->cmd = MMUEXT_TLB_FLUSH_LOCAL;
--	MULTI_mmuext_op(mcs.mc, op, 1, NULL, DOMID_SELF);
-+	__MULTI_mmuext_op(mcs.mc, op, 1, NULL, DOMID_SELF);
- 
--	xen_mc_issue(XEN_LAZY_MMU);
-+	__xen_mc_issue(XEN_LAZY_MMU);
- 
--	preempt_enable();
-+	preempt_enable_notrace();
- }
- 
- static void xen_flush_tlb_one_user(unsigned long addr)
-diff --git a/arch/x86/xen/xen-ops.h b/arch/x86/xen/xen-ops.h
-index 63c13a2ccf556..effb1a54afbd1 100644
---- a/arch/x86/xen/xen-ops.h
-+++ b/arch/x86/xen/xen-ops.h
-@@ -235,15 +235,19 @@ static inline struct multicall_space xen_mc_entry(size_t args)
- void xen_mc_flush(void);
- 
- /* Issue a multicall if we're not in a lazy mode */
--static inline void xen_mc_issue(unsigned mode)
-+static __always_inline void __xen_mc_issue(unsigned mode)
- {
--	trace_xen_mc_issue(mode);
--
- 	if ((xen_get_lazy_mode() & mode) == 0)
- 		xen_mc_flush();
- 
- 	/* restore flags saved in xen_mc_batch */
--	local_irq_restore(this_cpu_read(xen_mc_irq_flags));
-+	raw_local_irq_restore(this_cpu_read(xen_mc_irq_flags));
-+}
-+
-+static inline void xen_mc_issue(unsigned mode)
-+{
-+	trace_xen_mc_issue(mode);
-+	__xen_mc_issue(mode);
- }
- 
- /* Set up a callback to be called when the current batch is flushed */
+ 	/*
+ 	 * Preemption or interrupts must be disabled to protect the access
 -- 
 2.43.0
 
