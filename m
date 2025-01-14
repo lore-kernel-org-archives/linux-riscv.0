@@ -4,55 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 19531C02185
-	for <linux-riscv@archiver.kernel.org>; Tue, 14 Jan 2025 18:05:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37FAFC02189
+	for <linux-riscv@archiver.kernel.org>; Tue, 14 Jan 2025 18:05:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=KgDUPwPI0BA9purP4lA2qGI7XxuWgkVFoPryMPzIipQ=; b=kD54MWS6kHG5ia
-	Qehop11gF5+j9rGhiqKReu1t0jjy0NLAI5PIHSm0RZ6jeUxZQDQHqCH9T+K3aDeN4xJ62403XNwK7
-	aWywI+KpVsZrqzNH12BHchDVvf59ly6A60OAw1c3j2f3ukHeFxCov/IxatxxEw4tbM5Phv3ILRK0w
-	2/lTghkkTdCUXtkR1swzra2dAzZmJ9dwJjpv81hKBn/gFZrzCI8DKlNnx00+WCdJasb149sg2q43S
-	H7/Nkz7+T7qZ2Aq+oEv20ffBaQsdlJFhDEVcScxq/4L90+oaPnVwE/TID8rmMIDvcfyDEg/bbf8QG
-	rXexKjMUsbUQ19Am9UNw==;
+	List-Owner; bh=lhuBSbcuW2bme34IX8xy4J4FR7gMwwkgjrMj+X0sGyE=; b=idJGiPjzunGTE+
+	eMGx5AMXMgX89uR2ZX3x8jRIYROUujnM58StxSDJ07GxOqo5Z/+/voIdurZRIAicnqG2ds/VBGzRa
+	CnpJwbLP5qgdfaGvJCfj9VWN44oopU3F/rVAO9sdSMlV9MEl9MVF7FMK1LEScRARQXEZD5mKJjL4Z
+	7/xZaeotzHaa252K4L5fDJ2wvJRH77Gpl1z+0ddvMzGwPR37ljkAypNgC8Fv5wID58WZ5UM4eyzG9
+	CKwFyGtZpECkK0NL4FfJNkYXO7iAxR4+N7SQ6FRtI+6KvDVRXCewIlHXZ2oxUT82JSMnk/P9iUyHh
+	+V0LJT9UA5c0exJ2c6eA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXlI6-00000009L3a-4BRY;
-	Tue, 14 Jan 2025 18:05:27 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1tXlI6-00000009L2Z-155Z;
+	Tue, 14 Jan 2025 18:05:26 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXlFP-00000009JXc-3z7d
+	id 1tXlF8-00000009JRG-0Er8
+	for linux-riscv@bombadil.infradead.org;
+	Tue, 14 Jan 2025 18:02:22 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=cNwCh5fgGoJuTFO9fvGqFny78uJkIQRICFisC3zeCIo=; b=RCZysYUi/KCK+CxesKnTJd0YRq
+	LiMrHHw8JvZitHJFt8MhbJvzFRkR29VN/eM2aB5htwqehNM1VHF39CA+dxQd3M8Gw5npDQnLvpxEE
+	nH4OJ9hrK6ua+3qN1axHXkP5GtsCEXGyc91hB0LXYJKgX8Tr2q2Du5oromZ+7P/ISEz6AM71K8hDb
+	cJd4cJHBqpH+Hf9jj8/ODKVFkx5u2mJdSY9OflQCTlZLYu/7CQ7WcfWmNrh6xxIkXLu5gxMaQgQDp
+	E9Ej/WtOGxUD2W68NtA6An9J/8xfv+r3UyB0snCLP7zNBIWam+yPExG346T/AioSb2ZXq4Ww1U/sB
+	b/F7RBsQ==;
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tXlF4-0000000AVtZ-1IRK
 	for linux-riscv@lists.infradead.org;
-	Tue, 14 Jan 2025 18:02:41 +0000
+	Tue, 14 Jan 2025 18:02:21 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1736877759;
+	s=mimecast20190719; t=1736877737;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=vO7Dcae3S+ckJLBtr7bo/IIVyHg02LNyvWNatP3bxFA=;
-	b=IEhJktr9fqdLKFqJMquVWn6MDKEqrJJUSE4jWrbOfc3/Exew/vm6WiUFilFSlPOB7rDwkJ
-	KCrlRTLgbxbgdilpu8ymB292Es4unf+ft402DlWHi1Jf20qR/0YwFRDn0eMH2t0G+O0M8P
-	JzIXdM8Ss2UEamrN4JF2mcMrfuwqn6E=
-Received: from mx-prod-mc-03.mail-002.prod.us-west-2.aws.redhat.com
+	bh=cNwCh5fgGoJuTFO9fvGqFny78uJkIQRICFisC3zeCIo=;
+	b=fW+8XWiKsFfXjWdAQyVsjzvxLrJvFAqM4URsE7UdU0FUBiELgWU99qgItTBUAQCdaCjnjo
+	Q47tmqrc7IK6mT9KGzEIwOWTgl9AgFLwWU5hGtgrS7jIKQuvW4mx6jo2H/UzANUIHm7HXo
+	pjzUrcPEyV9QtENB4KTkizgNl+NMvPc=
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1736877737;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=cNwCh5fgGoJuTFO9fvGqFny78uJkIQRICFisC3zeCIo=;
+	b=fW+8XWiKsFfXjWdAQyVsjzvxLrJvFAqM4URsE7UdU0FUBiELgWU99qgItTBUAQCdaCjnjo
+	Q47tmqrc7IK6mT9KGzEIwOWTgl9AgFLwWU5hGtgrS7jIKQuvW4mx6jo2H/UzANUIHm7HXo
+	pjzUrcPEyV9QtENB4KTkizgNl+NMvPc=
+Received: from mx-prod-mc-04.mail-002.prod.us-west-2.aws.redhat.com
  (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
  relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-125-79n9fhnhPJ65-rfaOeT4Rg-1; Tue,
- 14 Jan 2025 13:02:34 -0500
-X-MC-Unique: 79n9fhnhPJ65-rfaOeT4Rg-1
-X-Mimecast-MFC-AGG-ID: 79n9fhnhPJ65-rfaOeT4Rg
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-230-RjarLQpsMFScdKhdOdyibw-1; Tue,
+ 14 Jan 2025 13:02:13 -0500
+X-MC-Unique: RjarLQpsMFScdKhdOdyibw-1
+X-Mimecast-MFC-AGG-ID: RjarLQpsMFScdKhdOdyibw
 Received: from mx-prod-int-02.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-02.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.15])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mx-prod-mc-03.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 69EBE19560AA;
-	Tue, 14 Jan 2025 18:02:31 +0000 (UTC)
+	by mx-prod-mc-04.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id E0C941955DBA;
+	Tue, 14 Jan 2025 18:02:08 +0000 (UTC)
 Received: from vschneid-thinkpadt14sgen2i.remote.csb (unknown [10.39.192.55])
-	by mx-prod-int-02.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 60C94195608A;
-	Tue, 14 Jan 2025 18:02:09 +0000 (UTC)
+	by mx-prod-int-02.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 61C7C195608A;
+	Tue, 14 Jan 2025 18:01:46 +0000 (UTC)
 From: Valentin Schneider <vschneid@redhat.com>
 To: linux-kernel@vger.kernel.org,
 	x86@kernel.org,
@@ -142,16 +167,16 @@ Cc: Juergen Gross <jgross@suse.com>,
 	Luis Chamberlain <mcgrof@kernel.org>,
 	Randy Dunlap <rdunlap@infradead.org>,
 	Tiezhu Yang <yangtiezhu@loongson.cn>
-Subject: [PATCH v4 23/30] context_tracking: Turn CT_STATE_* into bits
-Date: Tue, 14 Jan 2025 18:51:36 +0100
-Message-ID: <20250114175143.81438-24-vschneid@redhat.com>
+Subject: [PATCH v4 22/30] context_tracking: Exit CT_STATE_IDLE upon irq/nmi entry
+Date: Tue, 14 Jan 2025 18:51:35 +0100
+Message-ID: <20250114175143.81438-23-vschneid@redhat.com>
 In-Reply-To: <20250114175143.81438-1-vschneid@redhat.com>
 References: <20250114175143.81438-1-vschneid@redhat.com>
 MIME-Version: 1.0
 X-Scanned-By: MIMEDefang 3.0 on 10.30.177.15
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250114_100240_052359_418D3EE8 
-X-CRM114-Status: GOOD (  15.47  )
+X-CRM114-CacheID: sfid-20250114_180218_520920_E253AB01 
+X-CRM114-Status: GOOD (  18.59  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -168,39 +193,92 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-A later patch will require to easily exclude CT_STATE_KERNEL from a genuine
-a ct->state read CT_STATE_KERNEL, which requires that value being non-zero
-and exclusive with the other CT_STATE_* values.
+ct_nmi_{enter, exit}() only touches the RCU watching counter and doesn't
+modify the actual CT state part context_tracking.state. This means that
+upon receiving an IRQ when idle, the CT_STATE_IDLE->CT_STATE_KERNEL
+transition only happens in ct_idle_exit().
 
-This increases the size of the CT_STATE region of the ct->state variable by
-two bits.
+One can note that ct_nmi_enter() can only ever be entered with the CT state
+as either CT_STATE_KERNEL or CT_STATE_IDLE, as an IRQ/NMI happenning in the
+CT_STATE_USER or CT_STATE_GUEST states will be routed down to ct_user_exit().
+
+Add/remove CT_STATE_IDLE from the context tracking state as needed in
+ct_nmi_{enter, exit}().
+
+Note that this leaves the following window where the CPU is executing code
+in kernelspace, but the context tracking state is CT_STATE_IDLE:
+
+  ~> IRQ
+  ct_nmi_enter()
+    state = state + CT_STATE_KERNEL - CT_STATE_IDLE
+
+  [...]
+
+  ct_nmi_exit()
+    state = state - CT_STATE_KERNEL + CT_STATE_IDLE
+
+  [...] /!\ CT_STATE_IDLE here while we're really in kernelspace! /!\
+
+  ct_cpuidle_exit()
+    state = state + CT_STATE_KERNEL - CT_STATE_IDLE
 
 Signed-off-by: Valentin Schneider <vschneid@redhat.com>
 ---
- include/linux/context_tracking_state.h | 10 +++++-----
- 1 file changed, 5 insertions(+), 5 deletions(-)
+ kernel/context_tracking.c | 22 +++++++++++++++++++---
+ 1 file changed, 19 insertions(+), 3 deletions(-)
 
-diff --git a/include/linux/context_tracking_state.h b/include/linux/context_tracking_state.h
-index 0b81248aa03e2..eb2149b20baef 100644
---- a/include/linux/context_tracking_state.h
-+++ b/include/linux/context_tracking_state.h
-@@ -11,11 +11,11 @@
+diff --git a/kernel/context_tracking.c b/kernel/context_tracking.c
+index a61498a8425e2..15f10ddec8cbe 100644
+--- a/kernel/context_tracking.c
++++ b/kernel/context_tracking.c
+@@ -236,7 +236,9 @@ void noinstr ct_nmi_exit(void)
+ 	instrumentation_end();
  
- enum ctx_state {
- 	CT_STATE_DISABLED	= -1,	/* returned by ct_state() if unknown */
--	CT_STATE_KERNEL		= 0,
--	CT_STATE_IDLE		= 1,
--	CT_STATE_USER		= 2,
--	CT_STATE_GUEST		= 3,
--	CT_STATE_MAX		= 4,
-+	CT_STATE_KERNEL		= 1,
-+	CT_STATE_IDLE		= 2,
-+	CT_STATE_USER		= 4,
-+	CT_STATE_GUEST		= 8,
-+	CT_STATE_MAX		= 9,
- };
+ 	// RCU is watching here ...
+-	ct_kernel_exit_state(CT_RCU_WATCHING);
++	ct_kernel_exit_state(CT_RCU_WATCHING -
++			     CT_STATE_KERNEL +
++			     CT_STATE_IDLE);
+ 	// ... but is no longer watching here.
  
- struct context_tracking {
+ 	if (!in_nmi())
+@@ -259,6 +261,7 @@ void noinstr ct_nmi_enter(void)
+ {
+ 	long incby = 2;
+ 	struct context_tracking *ct = this_cpu_ptr(&context_tracking);
++	int curr_state;
+ 
+ 	/* Complain about underflow. */
+ 	WARN_ON_ONCE(ct_nmi_nesting() < 0);
+@@ -271,13 +274,26 @@ void noinstr ct_nmi_enter(void)
+ 	 * to be in the outermost NMI handler that interrupted an RCU-idle
+ 	 * period (observation due to Andy Lutomirski).
+ 	 */
+-	if (!rcu_is_watching_curr_cpu()) {
++	curr_state = raw_atomic_read(this_cpu_ptr(&context_tracking.state));
++	if (!(curr_state & CT_RCU_WATCHING)) {
+ 
+ 		if (!in_nmi())
+ 			rcu_task_enter();
+ 
++		/*
++		 * RCU isn't watching, so we're one of
++		 * CT_STATE_IDLE
++		 * CT_STATE_USER
++		 * CT_STATE_GUEST
++		 * guest/user entry is handled by ct_user_enter(), so this has
++		 * to be idle entry.
++		 */
++		WARN_ON_ONCE((curr_state & CT_STATE_MASK) != CT_STATE_IDLE);
++
+ 		// RCU is not watching here ...
+-		ct_kernel_enter_state(CT_RCU_WATCHING);
++		ct_kernel_enter_state(CT_RCU_WATCHING +
++				      CT_STATE_KERNEL -
++				      CT_STATE_IDLE);
+ 		// ... but is watching here.
+ 
+ 		instrumentation_begin();
 -- 
 2.43.0
 
