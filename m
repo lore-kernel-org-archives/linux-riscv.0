@@ -4,86 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE53FE77188
-	for <linux-riscv@archiver.kernel.org>; Tue, 14 Jan 2025 08:41:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 120CFE77188
+	for <linux-riscv@archiver.kernel.org>; Tue, 14 Jan 2025 08:42:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=nF81se5RYcgZfL3stvnRse68Gz/j8VUcLETiLLv7ZnM=; b=zqW+6JKxObpjP7
-	J7LByPpnrFOji/LMEO700/F9sYp6rt8t2ZiY2VTZgAfN4tx9VPzSiu0Ec1Pr5OXqSJoPi5N87yws6
-	POL5xAG3r5XdnVWaNkLrjdJ/TTDDyzL1ukbNhRxwEVxGZQCVyYgbJYv0LQRmMpUpalfhhiIeBPqcM
-	vI6eZ2guv/xpIhkO+djlajqxgJiatTCV0iwF4wkbKhJjfW2H41wKz7J4KB1Gvqd3h3lXEORUy3lVL
-	a5X4rflD37/icGyvNMqSalDimkOW3ozsD9RVlM8r/LSiWNSmDsGVFWmeWBA8ZJdQ6Ei3jvCEolNwr
-	zhRl+nCaNtCi9CK9WMeg==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Subject:To:From:Date:
+	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
+	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=z/zPbP+ZN3r08t/h1RM6U3AZ1VUtr4BGofg2NS1Pxic=; b=k1GLkiATBZu0av
+	8KBYPF7im+DYC0i6zLtOea1nTjBQrIgl3zPGelYtqY7A4jeTMpiu6siN1Zf9FnKLNgnx5au79MIJ8
+	ElYZLIUNmHlbm8CphenEQDJy4pcNN3EHhPQVp4VwcAIeB+mehK/sopnXQTHGJjohr/vanzA3oghBI
+	jLM5kBrbu8ffZgjrdtbY4+L9JV8bnkGevxJ3t4mjSTCBnEGir3cOMrP15Q6LU9h6I49kbGk3vDw4F
+	u/IbM1nrTuEb1Pv2xFTuHSjgHHfSEj1K1RXOCel0+4s+wqHGlVr+19tXUGfe9xAoyEOFsIh0jqZij
+	T18AYI373TZplI0NXRxQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXcUS-00000007rc2-0azH;
-	Tue, 14 Jan 2025 08:41:36 +0000
-Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
+	id 1tXcUv-00000007rj2-0HF2;
+	Tue, 14 Jan 2025 08:42:05 +0000
+Received: from mail.completesolutions.pl ([51.91.254.67])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXcTC-00000007rMt-2j5B;
-	Tue, 14 Jan 2025 08:40:20 +0000
-Date: Tue, 14 Jan 2025 09:40:11 +0100
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1736844014;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=xO/nQTULVjGFS4TV539Ayp3ZWEmdmkrMeax/kxGzbA4=;
-	b=hpYgILLPXQ7SmDpUn60QinBCupBkKGG01dSa+3FTRxgCNWqRO6deM+5ajnF8F0Od2hJi0z
-	cpxkUWPEgYxlKuFJaMAU5lKMBOMsqCHOy8bQU1BqkIFPZmu3C6m9guZo5f5gQe7CgWfAgj
-	wXlrJ+vaLY79yRCYtXdOy7ekdepzM2+FdVeCX/9qEmHH9Disy0/cKsvFF+W1CBIVrlQCea
-	CdXCh/v5ERdvmGs43kWOXeLO4kjwv39L0SRYilloKSbhCM9dQG/0V+AKwY49Zz5COQvlml
-	dgkfNHCH4XX6YPAxAxjBf1Hw2izDtl+kF8Vz8wbVdA0kf1Oan0fsv7K9pzMvpA==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1736844014;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=xO/nQTULVjGFS4TV539Ayp3ZWEmdmkrMeax/kxGzbA4=;
-	b=mNLDwfduAqnNjlxAvy66A4s1VI9taFFzoR0Bjcd3QoK3m68hFryx0HiKPwHcCzZrImHOWD
-	IoGhvQiZnGydi4Aw==
-From: Thomas =?utf-8?Q?Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
-To: Conor Dooley <conor@kernel.org>
-Cc: "James E.J. Bottomley" <James.Bottomley@hansenpartnership.com>, 
-	Helge Deller <deller@gmx.de>, Andy Lutomirski <luto@kernel.org>, 
-	Thomas Gleixner <tglx@linutronix.de>, Vincenzo Frascino <vincenzo.frascino@arm.com>, 
-	Anna-Maria Behnsen <anna-maria@linutronix.de>, Frederic Weisbecker <frederic@kernel.org>, 
-	Andrew Morton <akpm@linux-foundation.org>, Catalin Marinas <catalin.marinas@arm.com>, 
-	Will Deacon <will@kernel.org>, Theodore Ts'o <tytso@mit.edu>, 
-	"Jason A. Donenfeld" <Jason@zx2c4.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Huacai Chen <chenhuacai@kernel.org>, WANG Xuerui <kernel@xen0n.name>, 
-	Russell King <linux@armlinux.org.uk>, Heiko Carstens <hca@linux.ibm.com>, 
-	Vasily Gorbik <gor@linux.ibm.com>, Alexander Gordeev <agordeev@linux.ibm.com>, 
-	Christian Borntraeger <borntraeger@linux.ibm.com>, Sven Schnelle <svens@linux.ibm.com>, 
-	Thomas Bogendoerfer <tsbogend@alpha.franken.de>, Michael Ellerman <mpe@ellerman.id.au>, 
-	Nicholas Piggin <npiggin@gmail.com>, Christophe Leroy <christophe.leroy@csgroup.eu>, 
-	Naveen N Rao <naveen@kernel.org>, Madhavan Srinivasan <maddy@linux.ibm.com>, 
-	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, 
-	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org, "H. Peter Anvin" <hpa@zytor.com>, 
-	Arnd Bergmann <arnd@arndb.de>, Guo Ren <guoren@kernel.org>, linux-parisc@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-riscv@lists.infradead.org, loongarch@lists.linux.dev, linux-s390@vger.kernel.org, 
-	linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, linux-arch@vger.kernel.org, 
-	Nam Cao <namcao@linutronix.de>, linux-csky@vger.kernel.org
-Subject: Re: [PATCH v2 09/18] riscv: vdso: Switch to generic storage
- implementation
-Message-ID: <20250114093609-6cb25835-f912-4f64-9ba7-54c67d4e2904@linutronix.de>
-References: <20250110-vdso-store-rng-v2-0-350c9179bbf1@linutronix.de>
- <20250110-vdso-store-rng-v2-9-350c9179bbf1@linutronix.de>
- <20250113-kissable-monstrous-aace0cf7182e@spud>
+	id 1tXcUr-00000007rgu-3nA7
+	for linux-riscv@lists.infradead.org;
+	Tue, 14 Jan 2025 08:42:03 +0000
+Received: by mail.completesolutions.pl (Postfix, from userid 1002)
+	id 7E9C724434; Tue, 14 Jan 2025 09:41:01 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=completesolutions.pl;
+	s=mail; t=1736844120;
+	bh=dqx6etWJTU7o7oR1uR2aRBCwaPXPl4dirwwzUCFBDcc=;
+	h=Date:From:To:Subject:From;
+	b=OdbTjqNJPlw2PD4IwNNiX6VA4P1fJqX6MLwUW1p01WOvp/8xUfVrz07WKUVez1Osz
+	 sJnOJUqoQNKT/v8gFENPQ2pFPLNZFYeS3vw1puo2NKHKGNXwvNQC5hY+CBw1J1tRw9
+	 RZ2YiZ+diRP9S5CalwOq+s7LpKS+X9dDoDb//Lgyx7bOMGDozbQaN25Xaco7WvEgQ8
+	 nUwK2rT1CeuU8YW/Kw5z45WvOHyk/18BkUegapz1NAKMpqIO3iXh2aS01CmlVRBh9c
+	 PuQ49nGdl+6m+vQ2OWiPJAi5pJN6jm9WNmamwsJownIAi55yVebcw9RWLSJQWgsZ1L
+	 iuDhKBLJiKWwQ==
+Received: by mail.completesolutions.pl for <linux-riscv@lists.infradead.org>; Tue, 14 Jan 2025 08:40:10 GMT
+Message-ID: <20250114084500-0.1.fu.26jhw.0.m808614j01@completesolutions.pl>
+Date: Tue, 14 Jan 2025 08:40:10 GMT
+From: "Marcin Gard" <marcin.grad@completesolutions.pl>
+To: <linux-riscv@lists.infradead.org>
+Subject: =?UTF-8?Q?Prosz=C4=99_o_kontakt?=
+X-Mailer: mail.completesolutions.pl
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20250113-kissable-monstrous-aace0cf7182e@spud>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250114_004018_969550_78BFD747 
-X-CRM114-Status: GOOD (  13.34  )
+X-CRM114-CacheID: sfid-20250114_004202_082183_263AC2FF 
+X-CRM114-Status: UNSURE (   1.36  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,70 +62,16 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="iso-8859-1"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jan 13, 2025 at 07:48:15PM +0000, Conor Dooley wrote:
-> On Fri, Jan 10, 2025 at 04:23:48PM +0100, Thomas Wei=DFschuh wrote:
-> > The generic storage implementation provides the same features as the
-> > custom one. However it can be shared between architectures, making
-> > maintenance easier.
-> > =
-
-> > Co-developed-by: Nam Cao <namcao@linutronix.de>
-> > Signed-off-by: Nam Cao <namcao@linutronix.de>
-> > Signed-off-by: Thomas Wei=DFschuh <thomas.weissschuh@linutronix.de>
-> =
-
-> For rv64, nommu:
->   LD      vmlinux
-> ld.lld: error: undefined symbol: vmf_insert_pfn
-> >>> referenced by datastore.c
-> >>>               lib/vdso/datastore.o:(vvar_fault) in archive vmlinux.a
-> =
-
-> ld.lld: error: undefined symbol: _install_special_mapping
-> >>> referenced by datastore.c
-> >>>               lib/vdso/datastore.o:(vdso_install_vvar_mapping) in arc=
-hive vmlinux.a
-> =
-
-> Later patches in the series don't make it build again.
-> rv32 builds now though, so thanks for fixing that.
-
-Thanks for the report.
-Can you try to diff below?
-
-I'm adding rv64 and arm nommu configs to my test matrix and
-doublechecking all kconfig dependencies.
-
-
-diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-index 335cbbd4dddb..583c55910612 100644
---- a/arch/riscv/Kconfig
-+++ b/arch/riscv/Kconfig
-@@ -52,7 +52,7 @@ config RISCV
-        select ARCH_HAS_SYSCALL_WRAPPER
-        select ARCH_HAS_TICK_BROADCAST if GENERIC_CLOCKEVENTS_BROADCAST
-        select ARCH_HAS_UBSAN
--       select ARCH_HAS_VDSO_ARCH_DATA
-+       select ARCH_HAS_VDSO_ARCH_DATA if GENERIC_VDSO_DATA_STORE
-        select ARCH_KEEP_MEMBLOCK if ACPI
-        select ARCH_MHP_MEMMAP_ON_MEMORY_ENABLE if 64BIT && MMU
-        select ARCH_OPTIONAL_KERNEL_RWX if ARCH_HAS_STRICT_KERNEL_RWX
-@@ -115,7 +115,7 @@ config RISCV
-        select GENERIC_SCHED_CLOCK
-        select GENERIC_SMP_IDLE_THREAD
-        select GENERIC_TIME_VSYSCALL if MMU && 64BIT
--       select GENERIC_VDSO_DATA_STORE
-+       select GENERIC_VDSO_DATA_STORE if MMU
-        select GENERIC_VDSO_TIME_NS if HAVE_GENERIC_VDSO
-        select HARDIRQS_SW_RESEND
-        select HAS_IOPORT if MMU
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+RHppZcWEIGRvYnJ5LAoKQ3p5IGplc3QgbW/FvGxpd2/Fm8SHIG5hd2nEhXphbmlhIHdzcMOzxYJw
+cmFjeSB6IFBhxYRzdHdlbT8KClogY2jEmWNpxIUgcG9yb3ptYXdpYW0geiBvc29ixIUgemFqbXVq
+xIVjxIUgc2nEmSBkemlhxYJhbmlhbWkgendpxIV6YW55bWkgemUgc3ByemVkYcW8xIUuCgpQb21h
+Z2FteSBza3V0ZWN6bmllIHBvenlza2l3YcSHIG5vd3ljaCBrbGllbnTDs3cuCgpaYXByYXN6YW0g
+ZG8ga29udGFrdHUuCgoKUG96ZHJhd2lhbSBzZXJkZWN6bmllCk1hcmNpbiBHYXJkCgpfX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWls
+aW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5m
+cmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
