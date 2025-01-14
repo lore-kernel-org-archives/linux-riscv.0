@@ -4,55 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9823FC02185
-	for <linux-riscv@archiver.kernel.org>; Tue, 14 Jan 2025 18:02:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37896C02183
+	for <linux-riscv@archiver.kernel.org>; Tue, 14 Jan 2025 18:02:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ahAdFpBvHC7YuovU+YiLzpGF8URofM0OIpKUOjb4lJw=; b=LlQb3P/HelK7pN
-	BTma937iXE2rw5Q9aH54xSEY/Y35vqyqawzv7SPX2tPvvSYNW/TdZsidUnUkvMz+L2RCAeloSpSWT
-	j5fEJECYjKH6G8GVMWWQAf7GoMSips1bm5K3dJMKoFwBzUZNa35/NqGUO9yINs4oXG9iJwOIZjY7h
-	8ICWoETmHTTRMEQ4ve/+LpCIkexYlly9PUTHYdIndbbgPqhpPyEn6vJ38hHmWdvRjG8IDId0jpx3T
-	0+WdyEhlZIZ4WMBnkc6CoWmip11fkQD3V2GBf8CFBmDocdE5fPc0Xixup1pYRKEfKisbWmBulrbz1
-	NCsYCPKllUupAN19qLkw==;
+	List-Owner; bh=CdljFMRKmMW9+43y7x+6/ZK5GYcuix4duouoqp7J/Gg=; b=IZA3xGVfDHAaNM
+	XcrTPVEUt1MVfieMYzkHque0Yv8oSg9wfUPfxXu1GX1m7nAylzO0nzAggrvfclNZ44ssjDMjAPVay
+	z0l63GGa/7h5bOpERRRUr2eMlAfRnxJpoJitr41vIACb/UPsbkNarPnvtD9FgD5ULVWe1kbAXaNB2
+	o81CX7tzK1/n4qLT9JOy2kiRcqNSIbD0HHINio+kA4Qs2eHj3ByJ8q07bT/hSaY+06yqVJ3i3h96y
+	DMfb4bpkLWwIInA9jAydAg8uuBXayTiyapWbOi3j/6pSS/TD1x/rJpqB4jmqUZcrFurtmhY0r3yEY
+	Dnt0EF26svO6y9I++gMw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXlFT-00000009JYh-3glC;
-	Tue, 14 Jan 2025 18:02:43 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1tXlFV-00000009JZi-0FVC;
+	Tue, 14 Jan 2025 18:02:45 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXl9x-00000009HeZ-3mqt
+	id 1tXlAJ-00000009Hkx-3L2i
+	for linux-riscv@bombadil.infradead.org;
+	Tue, 14 Jan 2025 17:57:23 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=P7DcLPe7N47ORcKkDkopF1lM4hKgrpRYFpILYCZNJJ8=; b=HikLQZyEJlbChYx+3QdEctNUF3
+	4ZtqZ0ENBqasrHFfOnp85UuTEhPDruVWGEY3wDWvqm3Z5iV/qkUoznSwmS18Zg7X91/qzigb5XeE5
+	0Syex3dbTKVblo3iOgyYH/uncupsS7m+m6VnMUZh/i/J3xVh3cdLglKTLABVxIFjDmPNJVI8VVQ8r
+	hA88da7skBBoAjgrqrMME28rXRb8RCabEqliYF/2Px81psRSI+nbTkTPk9vJEgM+W4P5UqqLAm9ZB
+	TvAdpad223+a5d37xjnvrLvpN9A5U6iysR4PdsFZzCTxlzPQoqJ9yBWXQegklFlv0ic2qNhuk/ajq
+	JrkjeRkg==;
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tXlAF-0000000AVF1-3yiT
 	for linux-riscv@lists.infradead.org;
-	Tue, 14 Jan 2025 17:57:03 +0000
+	Tue, 14 Jan 2025 17:57:22 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1736877421;
+	s=mimecast20190719; t=1736877438;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=yW4eDMpnPb09nDVWkM9p9gFnBpCcE/XnyyFFoIpXh9k=;
-	b=Qx0STMIvETt3ADfGx6ABLQlTdat66EfxVsd1l9FPc6yzwSxBRPldnysFaIEQEqBw9V/Yhg
-	kUOcZkWob4T7/Y8QMRMTs014itaihD9enrzIlJArNA/BaPt50d+VatRZe8j81b+hXmmQ7P
-	Tb0UsgqE8xXKfLXNKlr0v7+2nibwU6k=
-Received: from mx-prod-mc-03.mail-002.prod.us-west-2.aws.redhat.com
+	bh=P7DcLPe7N47ORcKkDkopF1lM4hKgrpRYFpILYCZNJJ8=;
+	b=Fw6BKN/+gV+mQ2kQ8wmTcCYg2fbA13oYej1+za13jHyhhro/pdLpLMvao5FAJdasNWDNVi
+	v6b+3d8cu0fIO75KcldC1vb0NDqOWhySfZT3Q8BRwbpJfzdV7YlNBoMcFbeJXBHvTdkjaN
+	r9/xxVTue0IcuVtMf8Ml4D6VLuxhszI=
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1736877439;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=P7DcLPe7N47ORcKkDkopF1lM4hKgrpRYFpILYCZNJJ8=;
+	b=PWawIk1Zek+1qLCV0nj/wXe8whKJRzNFmuIBPPxY5csm9i5TFq4em6xmybpfkJyHQsVM/q
+	D8DJ6yNa7/jQ38X/fZ1ImYeBtbF5YKuPnNW62vmLlZxZIVwElQ+MCqIXTj8qmtFRjF8DNA
+	dm+/TDq/Lh2Y8lKIapi9jlCXpAUAtMU=
+Received: from mx-prod-mc-05.mail-002.prod.us-west-2.aws.redhat.com
  (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
  relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-346-TCnp728BMva_I5fFAbpK4A-1; Tue,
- 14 Jan 2025 12:55:31 -0500
-X-MC-Unique: TCnp728BMva_I5fFAbpK4A-1
-X-Mimecast-MFC-AGG-ID: TCnp728BMva_I5fFAbpK4A
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-20-jE76dcsZPt-31fHWsIhMBg-1; Tue,
+ 14 Jan 2025 12:55:57 -0500
+X-MC-Unique: jE76dcsZPt-31fHWsIhMBg-1
+X-Mimecast-MFC-AGG-ID: jE76dcsZPt-31fHWsIhMBg
 Received: from mx-prod-int-02.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-02.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.15])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mx-prod-mc-03.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id CC0371956053;
-	Tue, 14 Jan 2025 17:55:27 +0000 (UTC)
+	by mx-prod-mc-05.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 47A70195609E;
+	Tue, 14 Jan 2025 17:55:53 +0000 (UTC)
 Received: from vschneid-thinkpadt14sgen2i.remote.csb (unknown [10.39.192.55])
-	by mx-prod-int-02.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 7D2BD195608A;
-	Tue, 14 Jan 2025 17:55:02 +0000 (UTC)
+	by mx-prod-int-02.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 6703A195608A;
+	Tue, 14 Jan 2025 17:55:28 +0000 (UTC)
 From: Valentin Schneider <vschneid@redhat.com>
 To: linux-kernel@vger.kernel.org,
 	x86@kernel.org,
@@ -142,16 +167,16 @@ Cc: Josh Poimboeuf <jpoimboe@kernel.org>,
 	Luis Chamberlain <mcgrof@kernel.org>,
 	Randy Dunlap <rdunlap@infradead.org>,
 	Tiezhu Yang <yangtiezhu@loongson.cn>
-Subject: [PATCH v4 06/30] static_call: Add read-only-after-init static calls
-Date: Tue, 14 Jan 2025 18:51:19 +0100
-Message-ID: <20250114175143.81438-7-vschneid@redhat.com>
+Subject: [PATCH v4 07/30] x86/paravirt: Mark pv_sched_clock static call as __ro_after_init
+Date: Tue, 14 Jan 2025 18:51:20 +0100
+Message-ID: <20250114175143.81438-8-vschneid@redhat.com>
 In-Reply-To: <20250114175143.81438-1-vschneid@redhat.com>
 References: <20250114175143.81438-1-vschneid@redhat.com>
 MIME-Version: 1.0
 X-Scanned-By: MIMEDefang 3.0 on 10.30.177.15
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250114_095702_069325_F16811BA 
-X-CRM114-Status: GOOD (  15.68  )
+X-CRM114-CacheID: sfid-20250114_175720_245623_DECBD2A3 
+X-CRM114-Status: GOOD (  14.46  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -168,55 +193,37 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Josh Poimboeuf <jpoimboe@kernel.org>
+Later commits will cause objtool to warn about static calls being used in
+.noinstr sections in order to safely defer instruction patching IPIs
+targeted at NOHZ_FULL CPUs.
 
-Deferring a code patching IPI is unsafe if the patched code is in a
-noinstr region.  In that case the text poke code must trigger an
-immediate IPI to all CPUs, which can rudely interrupt an isolated NO_HZ
-CPU running in userspace.
+pv_sched_clock is updated in:
+o __init vmware_paravirt_ops_setup()
+o __init xen_init_time_common()
+o kvm_sched_clock_init() <- __init kvmclock_init()
+o hv_setup_sched_clock() <- __init hv_init_tsc_clocksource()
 
-If a noinstr static call only needs to be patched during boot, its key
-can be made ro-after-init to ensure it will never be patched at runtime.
+IOW purely init context, and can thus be marked as __ro_after_init.
 
-Signed-off-by: Josh Poimboeuf <jpoimboe@kernel.org>
+Reported-by: Josh Poimboeuf <jpoimboe@kernel.org>
+Signed-off-by: Valentin Schneider <vschneid@redhat.com>
 ---
- include/linux/static_call.h | 16 ++++++++++++++++
- 1 file changed, 16 insertions(+)
+ arch/x86/kernel/paravirt.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/include/linux/static_call.h b/include/linux/static_call.h
-index 78a77a4ae0ea8..ea6ca57e2a829 100644
---- a/include/linux/static_call.h
-+++ b/include/linux/static_call.h
-@@ -192,6 +192,14 @@ extern long __static_call_return0(void);
- 	};								\
- 	ARCH_DEFINE_STATIC_CALL_TRAMP(name, _func)
+diff --git a/arch/x86/kernel/paravirt.c b/arch/x86/kernel/paravirt.c
+index fec3815335558..ae6675167877b 100644
+--- a/arch/x86/kernel/paravirt.c
++++ b/arch/x86/kernel/paravirt.c
+@@ -73,7 +73,7 @@ static u64 native_steal_clock(int cpu)
+ }
  
-+#define DEFINE_STATIC_CALL_RO(name, _func)				\
-+	DECLARE_STATIC_CALL(name, _func);				\
-+	struct static_call_key __ro_after_init STATIC_CALL_KEY(name) = {\
-+		.func = _func,						\
-+		.type = 1,						\
-+	};								\
-+	ARCH_DEFINE_STATIC_CALL_TRAMP(name, _func)
-+
- #define DEFINE_STATIC_CALL_NULL(name, _func)				\
- 	DECLARE_STATIC_CALL(name, _func);				\
- 	struct static_call_key STATIC_CALL_KEY(name) = {		\
-@@ -200,6 +208,14 @@ extern long __static_call_return0(void);
- 	};								\
- 	ARCH_DEFINE_STATIC_CALL_NULL_TRAMP(name)
+ DEFINE_STATIC_CALL(pv_steal_clock, native_steal_clock);
+-DEFINE_STATIC_CALL(pv_sched_clock, native_sched_clock);
++DEFINE_STATIC_CALL_RO(pv_sched_clock, native_sched_clock);
  
-+#define DEFINE_STATIC_CALL_NULL_RO(name, _func)				\
-+	DECLARE_STATIC_CALL(name, _func);				\
-+	struct static_call_key __ro_after_init STATIC_CALL_KEY(name) = {\
-+		.func = NULL,						\
-+		.type = 1,						\
-+	};								\
-+	ARCH_DEFINE_STATIC_CALL_NULL_TRAMP(name)
-+
- #define DEFINE_STATIC_CALL_RET0(name, _func)				\
- 	DECLARE_STATIC_CALL(name, _func);				\
- 	struct static_call_key STATIC_CALL_KEY(name) = {		\
+ void paravirt_set_sched_clock(u64 (*func)(void))
+ {
 -- 
 2.43.0
 
