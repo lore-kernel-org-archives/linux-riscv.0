@@ -4,62 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB41CE77188
-	for <linux-riscv@archiver.kernel.org>; Tue, 14 Jan 2025 17:16:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 26D5BC02183
+	for <linux-riscv@archiver.kernel.org>; Tue, 14 Jan 2025 17:52:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4pgqwLo19cOm1oYEg2JrES6KU6wssy2tut6ny8VRK/o=; b=nt4aOzgxIz4WepjXyMsI4Gz/Dl
-	klSdTTgnLHlrflppWTFydHD+LoiNWPEQOXrl+GxaZ2DC0x57xZkYv/i6dHN+ffQJ+gV7b82zpibOm
-	v0onXM1foGdkT8E5buKTi/xZx9iHJLf+WsZ8WZFM4Disko7oCYM8tRv8BJwc56OegMk+3wxN5d2kv
-	UbZl7JV7eCZz5S8KMzkk9hTV5XXlxAvq+DdIbf0nnvpCvHnlFVjXERQYOanpkk7Qs2tAlozr59yY4
-	kI7omIExyyM/liYKhqay2zkaFRwhUYdJm9EFCj1xA8bcd5qFt7bi6vbAfCUhjx3R66oNnQQYjqjgQ
-	jnqrESxA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Date:In-Reply-To:
+	References:To:Message-Id:Subject:From:Reply-To:Content-ID:Content-Description
+	:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=KPfCKo0BvfQTySQQwlO+59MMDe2d5Z73JW0qfhaWz4k=; b=ZMLu5EzhaqLj42
+	THvZvioSzfd2GH1rPOzdHceFXxTxHycTnZBpqGE41fp9GW5no3MqsGrcqyShvgl/YSrBvBtMyOpmD
+	aq44GwPq1qO9BOd+oOR06Q9Tf4d4w8Aev2+n4bvlmmOcIlIc+lVweCoBSay96g6czbR3deLA9G5Ov
+	yTSyBXQ6LD/XTXFMoUQqlaGKwS+fgeWuTRN8A/c+No2R8CPhfJxrMrXYaN+ViYMI3Wa2eIR+NtOCp
+	ROt5pGXd9OjV0fpfbMVVgMHU0u0JKb7APOzfb1Bo9Hjv1vYFOMebfmVblgdBz7aBsgdKRUVOZggLH
+	QVt1vxZWqIRRGsNutIVw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXkWY-00000009A1R-2iQ9;
-	Tue, 14 Jan 2025 17:16:18 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tXl54-00000009FYY-1su5;
+	Tue, 14 Jan 2025 17:51:58 +0000
+Received: from mail178-22.suw51.mandrillapp.com ([198.2.178.22])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXkWW-00000009A0w-0apV
+	id 1tXl52-00000009FWN-1MI5
 	for linux-riscv@lists.infradead.org;
-	Tue, 14 Jan 2025 17:16:17 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id BA32A5C57B2;
-	Tue, 14 Jan 2025 17:15:34 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 94F51C4CEDD;
-	Tue, 14 Jan 2025 17:16:12 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1736874975;
-	bh=vakzlSu8gGyMeYuYAvXAQVD+/c7CpXnXrkt59ASXPew=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=shZOKpVBYQa62bI8IntW9zBsf97gRfuVtWhZt8pSFxXwiAAWhxpRheU51X6vGr5JA
-	 Sqj5ftYNSTZjypDBwVOIcmoLnTm7XxqclH+UYyPtg/Jf7lcRHiqAeZe+N/sZ781DJE
-	 RQ6czJBLYags8XtgB8IXNDW3kAtgXqFBJhsc2uj9HLmOvIwIJGxVttUu2pEAhaMxJn
-	 MZUiwCO0LZIoAxYa+W+2cthNPkzsZLsGOwXvsDIooJLkM6NQae6GD4LEsHdBNky6mp
-	 Pn3V3lFGQTUu1aOKCZmyo5l4ClVaIddNyJnIgSNdD6oiZzFxdUMjF+jHWwh4R1RANT
-	 j+GHfCjvKVdQw==
-Date: Tue, 14 Jan 2025 17:16:10 +0000
-From: Conor Dooley <conor@kernel.org>
-To: daire.mcnamara@microchip.com
-Cc: linux-pci@vger.kernel.org, devicetree@vger.kernel.org,
-	conor.dooley@microchip.com, lpieralisi@kernel.org, kw@linux.com,
-	robh@kernel.org, bhelgaas@google.com, linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org, krzk+dt@kernel.org,
-	conor+dt@kernel.org, ilpo.jarvinen@linux.intel.com,
-	kevin.xie@starfivetech.com
-Subject: Re: [PATCH v10 0/3] Fix address translations on MPFS PCIe controller
-Message-ID: <20250114-espresso-display-846f670d2088@spud>
-References: <20241011140043.1250030-1-daire.mcnamara@microchip.com>
- <20241113-unified-humongous-cda4f06a6240@spud>
+	Tue, 14 Jan 2025 17:51:57 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mandrillapp.com;
+	s=mte1; t=1736877114; x=1737137614;
+	bh=az8rpG0APRcxLiWSmI+/bj3xR4gqvWnpdGPbdfScdrk=;
+	h=From:Subject:Message-Id:To:Cc:References:In-Reply-To:Feedback-ID:
+	 Date:MIME-Version:Content-Type:Content-Transfer-Encoding:CC:Date:
+	 Subject:From;
+	b=VlGpXUuJn8Jz2oaK/ZJTwN0W9aMXf793YJWAokZMUSmPjFJwKM8j/ByKpeZs5AUZk
+	 zczuJj22N4ZDbsYtqv6N0Y7z58wHQqXthFQ1i3rtL51OtZS1/DlIGM7j6l3mR9C2Su
+	 Aw3BZtrqrJo9Tn+E4Uq04wtcaCTFAONz5GFLdvCCnpB3ZkAATbxB7v0Oj31Oek6e6s
+	 bQzdKxZ0319KbTJEaEayqB3AP6GUPxGLMj8keOxoUvzzDPNEZ6iG3Fq2o5QLQzyX4X
+	 /BwVD+rhyCqLbirP979/6RTnsBwU8jWJAJ7H5E+O1spqWT0sp2TLbkqUVlLhDgerhX
+	 xxBZfSjcoLYAw==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=vates.tech; s=mte1;
+	t=1736877114; x=1737137614; i=teddy.astie@vates.tech;
+	bh=az8rpG0APRcxLiWSmI+/bj3xR4gqvWnpdGPbdfScdrk=;
+	h=From:Subject:Message-Id:To:Cc:References:In-Reply-To:Feedback-ID:
+	 Date:MIME-Version:Content-Type:Content-Transfer-Encoding:CC:Date:
+	 Subject:From;
+	b=YyNTQjEFcCrEpflceEe0lOYeKaDMVTiRW5SXUCaIVTzXPQvxMrr+yUI5zDB/4e97w
+	 4vo58Y7uwgZL+Jw/0bXI1f3nP6+xQIR8ehKzWQipHfQ1tKpUvMgDmBGkOU7S5RfpR0
+	 jlkdZlV30mgo9BvdgGtMW2sq1deCDjzg1e7OWDmsci1qriVm01I3SYCqHwdF1bGFli
+	 Jxu7PIsBn59BI8XWp8sILKz/eMoaWTLhdlKRJd2k5zxUZH8trrOkMzGN06NXzoOwTK
+	 irQfj7NJDURr/rEM6MviOfkPW0eyg2U9Td5iaVdkGEedSTOHYSFreTbj5Hg/uhvSR8
+	 /1aXJF9knFBYQ==
+Received: from pmta13.mandrill.prod.suw01.rsglab.com (localhost [127.0.0.1])
+	by mail178-22.suw51.mandrillapp.com (Mailchimp) with ESMTP id 4YXcBy3dYlzGlsvQs
+	for <linux-riscv@lists.infradead.org>; Tue, 14 Jan 2025 17:51:54 +0000 (GMT)
+From: "Teddy Astie" <teddy.astie@vates.tech>
+Subject: =?utf-8?Q?Re:=20[PATCH]=20riscv:=20Add=20initial=20Xen=20guest=20support=20for=20RISC-V?=
+Received: from [37.26.189.201] by mandrillapp.com id 8cbd46ecc1374792bdfc767ea909bec7; Tue, 14 Jan 2025 17:51:54 +0000
+X-Bm-Disclaimer: Yes
+X-Bm-Milter-Handled: 4ffbd6c1-ee69-4e1b-aabd-f977039bd3e2
+X-Bm-Transport-Timestamp: 1736877112710
+Message-Id: <0cac0b13-128c-4d8b-b235-09d7b440ad8e@vates.tech>
+To: "Milan Djokic" <milandjokic1995@gmail.com>, linux-riscv@lists.infradead.org
+References: <e4a649a7fdfc8fcf5f48a0bc4e76e5d546078083.1736868605.git.Slavisa.Petrovic@rt-rk.com>
+In-Reply-To: <e4a649a7fdfc8fcf5f48a0bc4e76e5d546078083.1736868605.git.Slavisa.Petrovic@rt-rk.com>
+X-Native-Encoded: 1
+X-Report-Abuse: =?UTF-8?Q?Please=20forward=20a=20copy=20of=20this=20message,=20including=20all=20headers,=20to=20abuse@mandrill.com.=20You=20can=20also=20report=20abuse=20here:=20https://mandrillapp.com/contact/abuse=3Fid=3D30504962.8cbd46ecc1374792bdfc767ea909bec7?=
+X-Mandrill-User: md_30504962
+Feedback-ID: 30504962:30504962.20250114:md
+Date: Tue, 14 Jan 2025 17:51:54 +0000
 MIME-Version: 1.0
-In-Reply-To: <20241113-unified-humongous-cda4f06a6240@spud>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250114_091616_264591_3A17EB35 
-X-CRM114-Status: GOOD (  27.36  )
+X-CRM114-CacheID: sfid-20250114_095156_489816_4D086C3D 
+X-CRM114-Status: GOOD (  11.20  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,151 +84,42 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============8910232412522310409=="
+Cc: jgross@suse.com, aou@eecs.berkeley.edu, Milan.Djokic@rt-rk.com, rafael.j.wysocki@intel.com, linux-kernel@vger.kernel.org, oleksandr_tyshchenko@epam.com, iommu@lists.linux.dev, sstabellini@kernel.org, palmer@dabbelt.com, paul.walmsley@sifive.com, xen-devel@lists.xenproject.org, Slavisa.Petrovic@rt-rk.com, takakura@valinux.co.jp
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
---===============8910232412522310409==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="DWPIzAWKXiqE8nuk"
-Content-Disposition: inline
-
-
---DWPIzAWKXiqE8nuk
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-Hey folks,
-
-Has this patchset fallen through the cracks?
-
-Cheers,
-Conor.
-
-On Wed, Nov 13, 2024 at 11:50:44AM +0000, Conor Dooley wrote:
-> On Fri, Oct 11, 2024 at 03:00:40PM +0100, daire.mcnamara@microchip.com wr=
-ote:
-> > From: Daire McNamara <daire.mcnamara@microchip.com>
-> >=20
-> > Hi all,
-> >=20
-> > On Microchip PolarFire SoC (MPFS), the PCIe controller is connected to =
-the
-> > CPU via one of three Fabric Interface Connectors (FICs).  Each FIC pres=
-ent
-> > to the CPU complex as 64-bit AXI-M and 64-bit AXI-S.  To preserve
-> > compatibility with other PolarFire family members, the PCIe controller =
-is
-> > connected to its encapsulating FIC via a 32-bit AXI-M and 32-bit AXI-S
-> > interface.
-> >=20
-> > Each FIC is implemented in FPGA logic and can incorporate logic along i=
-ts 64-bit
-> > AXI-M to 32-bit AXI-M chain (including address translation) and, likewi=
-se, along
-> > its 32-bit AXI-S to 64-bit AXI-S chain (again including address transla=
-tion).
-> >=20
-> > In order to reduce the potential support space for the PCIe controller =
-in
-> > this environment, MPFS supports certain reference designs for these add=
-ress
-> > translations: reference designs for cache-coherent memory accesses
-> > and reference designs for non-cache-coherent memory accesses. The preci=
-se
-> > details of these reference designs and associated customer guidelines
-> > recommending that customers adhere to the addressing schemes used in th=
-ose
-> > reference designs are available from Microchip, but the implication for=
- the
-> > PCIe controller address translation between CPU-space and PCIe-space ar=
-e:
-> >=20
-> > For outbound address translation, the PCIe controller address translati=
-on tables
-> > are treated as if they are 32-bit only.  Any further address translatio=
-n must
-> > be done in FPGA fabric.
-> >=20
-> > For inbound address translation, the PCIe controller is configurable fo=
-r two
-> > cases:
-> > * In the case of cache-coherent designs, the base of the AXI-S side of =
-the
-> >   address translation must be set to 0 and the size should be 4 GiB wid=
-e. The
-> >   FPGA fabric must complete any address translations based on that 0-ba=
-sed
-> >   address translation.
-> > * In the case of non-cache coherent designs, the base of AXI-S side of =
-the
-> >   address translation must be set to 0x8000'0000 and the size shall be =
-2 GiB
-> >   wide.  The FPGA fabric must complete any address translation based on=
- that
-> >   0x80000000 base.
-> >=20
-> > So, for example, in the non-cache-coherent case, with a device tree pro=
-perty
-> > that maps an inbound range from 0x10'0000'0000 in PCIe space to 0x10'00=
-00'0000
-> > in CPU space, the PCIe rootport will translate a PCIe address of 0x10'0=
-000'0000
-> > to an intermediate 32-bit AXI-S address of 0x8000'0000 and the FIC is
-> > responsible for translating that intermediate 32-bit AXI-S address of
-> > 0x8000'0000 to a 64-bit AXI-S address of 0x10'0000'0000.
-> >=20
-> > And similarly, for example, in the cache-coherent case, with a device t=
-ree
-> > property that maps an inbound range from 0x10'0000'0000 in PCIe space to
-> > 0x10'0000'0000 in CPU space, the PCIe rootport will translate a PCIe ad=
-dress
-> > of 0x10'0000'0000 to an intermediate 32-bit AXI-S address of 0x0000'000=
-0 and
-> > the FIC is responsible for translating that intermediate 32-bit AXI-S a=
-ddress
-> > of 0x0000'0000 to a 64-bit AXI-S address of 0x10'0000'0000.
-> >=20
-> > See https://lore.kernel.org/all/20220902142202.2437658-1-daire.mcnamara=
-@microchip.com/T/
-> > for backstory.
-> >=20
-> > Changes since v9:
-> > - Dropped plda_setup_inbound_address_translation() from StarFive driver
->=20
-> Since I had some success bumping the other series for this driver, any
-> chance of some attention here?
-> AFAIK, Daire's addressed what's been pointed out by reviewers and
-> exempted the StarFive driver from overwriting the firmware-set values
-> with once calculated from DT as they requested.
-
-
---DWPIzAWKXiqE8nuk
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZ4ab2gAKCRB4tDGHoIJi
-0vhRAPwNhrvfDp89x6F228OGP2dYlqrqBn1VL3af3DOMXUZC0AEAzAOHwIrkkYhl
-VJQeznMVIiXmNutqnmdW0BBG4n8vQAg=
-=/mvA
------END PGP SIGNATURE-----
-
---DWPIzAWKXiqE8nuk--
-
-
---===============8910232412522310409==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============8910232412522310409==--
-
+TGUgMTQvMDEvMjAyNSDDoCAxNzoxMywgTWlsYW4gRGpva2ljIGEgw6ljcml0wqA6Cj4gZGlmZiAt
+LWdpdCBhL3Rlc3QudHh0IGIvdGVzdC50eHQKPiBuZXcgZmlsZSBtb2RlIDEwMDY0NAo+IGluZGV4
+IDAwMDAwMDAwMDAwMC4uZTU0MjY3OTk4OTgyCj4gLS0tIC9kZXYvbnVsbAo+ICsrKyBiL3Rlc3Qu
+dHh0Cj4gQEAgLTAsMCArMSwyMSBAQAo+ICtXQVJOSU5HOiBhZGRlZCwgbW92ZWQgb3IgZGVsZXRl
+ZCBmaWxlKHMpLCBkb2VzIE1BSU5UQUlORVJTIG5lZWQgdXBkYXRpbmc/Cj4gKyMxMjA6Cj4gK25l
+dyBmaWxlIG1vZGUgMTAwNjQ0Cj4gKwo+ICtXQVJOSU5HOiBkbyBub3QgYWRkIG5ldyB0eXBlZGVm
+cwo+ICsjODA4OiBGSUxFOiBpbmNsdWRlL3hlbi9yaXNjdi9pbnRlcmZhY2UuaDoxNToKPiArKwl0
+eXBlZGVmIHN0cnVjdCB7IHVuaW9uIHsgdHlwZSAqIHA7IHVpbnQ2NF9hbGlnbmVkX3QgcTsgfTsg
+fSAgXAo+ICsKPiArV0FSTklORzogcGxlYXNlLCBubyBzcGFjZXMgYXQgdGhlIHN0YXJ0IG9mIGEg
+bGluZQo+ICsjMTAwNjogRklMRTogaW5jbHVkZS94ZW4vcmlzY3Yvc3dpb3RsYi14ZW4uaDoxMDoK
+PiArKyAgICByZXR1cm4gMDskCj4gKwo+ICt0b3RhbDogMCBlcnJvcnMsIDMgd2FybmluZ3MsIDgx
+MCBsaW5lcyBjaGVja2VkCj4gKwo+ICtOT1RFOiBGb3Igc29tZSBvZiB0aGUgcmVwb3J0ZWQgZGVm
+ZWN0cywgY2hlY2twYXRjaCBtYXkgYmUgYWJsZSB0bwo+ICsgICAgICBtZWNoYW5pY2FsbHkgY29u
+dmVydCB0byB0aGUgdHlwaWNhbCBzdHlsZSB1c2luZyAtLWZpeCBvciAtLWZpeC1pbnBsYWNlLgo+
+ICsKPiArMDAwMS1yaXNjdi1BZGQtaW5pdGlhbC1YZW4tZ3Vlc3Qtc3VwcG9ydC1mb3ItUklTQy1W
+LnBhdGNoIGhhcyBzdHlsZSBwcm9ibGVtcywgcGxlYXNlIHJldmlldy4KPiArCj4gK05PVEU6IElm
+IGFueSBvZiB0aGUgZXJyb3JzIGFyZSBmYWxzZSBwb3NpdGl2ZXMsIHBsZWFzZSByZXBvcnQKPiAr
+ICAgICAgdGhlbSB0byB0aGUgbWFpbnRhaW5lciwgc2VlIENIRUNLUEFUQ0ggaW4gTUFJTlRBSU5F
+UlMuCgpJIGFtIG5vdCBzdXJlIHlvdSB3YW50IHRoaXMgaGVyZS4KCiA+IGRpZmYgLS1naXQgYS9h
+cmNoL3Jpc2N2L2luY2x1ZGUvYXNtL2h5cGVydmlzb3IuaCAKYi9hcmNoL3Jpc2N2L2luY2x1ZGUv
+PiBhc20vaHlwZXJ2aXNvci5oCiA+IG5ldyBmaWxlIG1vZGUgMTAwNjQ0CiA+IGluZGV4IDAwMDAw
+MDAwMDAwMC4uM2ExMTdhZmU1N2YwCiA+IC0tLSAvZGV2L251bGwKID4gKysrIGIvYXJjaC9yaXNj
+di9pbmNsdWRlL2FzbS9oeXBlcnZpc29yLmgKID4gQEAgLTAsMCArMSw5IEBACiA+ICsvKiBTUERY
+LUxpY2Vuc2UtSWRlbnRpZmllcjogR1BMLTIuMCAqLwogPiArI2lmbmRlZiBfQVNNX1JJU0NWX0hZ
+UEVSVklTT1JfSAogPiArI2RlZmluZSBfQVNNX1JJU0NWX0hZUEVSVklTT1JfSAogPiArCiA+ICsj
+aW5jbHVkZSA8YXNtL3hlbi9oeXBlcnZpc29yLmg+CiA+ICsKID4gK3ZvaWQga3ZtX2luaXRfaHlw
+X3NlcnZpY2VzKHZvaWQpOwogPiArCiA+ICsjZW5kaWYKCmt2bV9pbml0X2h5cF9zZXJ2aWNlcyBz
+ZWVtcyBLVk0tc3BlY2lmaWMgYW5kIGRvZXNuJ3Qgc2VlbSB0byBleGlzdCAoeWV0KSAKZm9yIFJJ
+U0MtVi4KClRlZGR5CgoKVGVkZHkgQXN0aWUgfCBWYXRlcyBYQ1AtbmcgRGV2ZWxvcGVyCgpYQ1At
+bmcgJiBYZW4gT3JjaGVzdHJhIC0gVmF0ZXMgc29sdXRpb25zCgp3ZWI6IGh0dHBzOi8vdmF0ZXMu
+dGVjaAoKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxp
+bnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0
+dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
