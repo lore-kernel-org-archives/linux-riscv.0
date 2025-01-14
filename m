@@ -4,65 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3A280C02183
-	for <linux-riscv@archiver.kernel.org>; Tue, 14 Jan 2025 13:19:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C2C03E77188
+	for <linux-riscv@archiver.kernel.org>; Tue, 14 Jan 2025 14:17:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=3FoR8D7Cqu5HbS7cyCb03XMbVOIBHJpGZJupenDlgDE=; b=egLb50R4SWl+jS
-	DjXQBgIPUtCS/dEz90RoZ07dmyfL5tXUlunUu4xEOO0Olx79ao1b91q818jAsbrXpe1WDZqZW/Rxo
-	GHqonNbLuYMHjex0K1s86je11FpkxYtTahJVIuEcqKeP0zUbZ7C+mFF9AZ3EiaL+5olJj+EXUBtsm
-	CrEEed57XU/fQl/Tw3UHEXBVdSYob4QejTk4M2qsMEGB+hzrlA2rF4oPk0aBY7HTGmu2lXrvj7VQu
-	DIUmq+TDgtGBRh4vdKqEYXPB0NwmRsGcEHGq3jTHjenCrfNLyDlyxrEYUMjgofDVmauyPd5XPqmYe
-	JnYV3p/Pxrjd9ipjhI8g==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=0qYN4bL0aEa1UegsGjxAu3gAGYK91hOSogNpJkF+xGA=; b=V22aindAuZp/N8
+	VSzPZPwVrlvaz6ABLjt7rYIu23mkh+iV5t+Ms4RfsLCQbGBuPPIyFnbg7+bwctbeKZtF7wxUzPoPA
+	DPWrqHgDgXRyAXv9z7t7uuu0s28b5dKrWUpOlGyPJcc5zhR3t6EaOohlsTKBfkzm01iakCpG2bQpr
+	jbstJI0N4bZKx3mzfPyCDgfOCzCycaC3TybNaByPUxqeAgN8aPGC1bh9SUIHi0z1SRinfv25hXUGA
+	ns1w8SLLU/fM+X9Trm0MVHHQ1B4N8ycgwPxErhMT5XVU+G7JhIFYGnOE8L0iw2RVtp6R8DxXh1yxc
+	hoU67UDgB/npeRg2bPZw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXgpR-00000008V8F-1Jki;
-	Tue, 14 Jan 2025 13:19:33 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1tXhjb-00000008dyS-3sxI;
+	Tue, 14 Jan 2025 14:17:35 +0000
+Received: from mail-lf1-x133.google.com ([2a00:1450:4864:20::133])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXgpO-00000008V6k-1iHE
+	id 1tXhga-00000008dDx-0AuG
 	for linux-riscv@lists.infradead.org;
-	Tue, 14 Jan 2025 13:19:31 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id C9A0C5C58C6;
-	Tue, 14 Jan 2025 13:18:48 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 86A3CC4CEE1;
-	Tue, 14 Jan 2025 13:19:27 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1736860769;
-	bh=8yp8wj5CZLyUheL3COSbwLN32UWBL06zRFhsfhD44t0=;
-	h=From:To:Cc:Subject:Date:From;
-	b=SwUhZ1RKt7gC1NgRT3HxoEwBdBCBviHUX2fDxpWavx2ZmUH/eQwKx5+mZ8Kd6s956
-	 e3GETflIPhy/ug9+C+IJH6rFffYzsH9z3R/f5Nxmo/v0iU8htQEfuD4q8K3XZXOeeW
-	 oRlOHeHEfAHCeBKk8MH+XoFZQHqFpHsW+KZlDZik7REQkv56kKLeosqhsM2Uf+sxxa
-	 lelj1cOsWqNSctWQcGxiU+1lPGuM6K3++GEP8d5LX1E4VeX+TuZFjzZatnRsJnM7us
-	 vnPOHY7uuLgZUQ4gJY0veeaBwZEovccX6ai3jD6v6NuWI4p8ZgXRDRGkN57WmOg2fN
-	 XTDIn5b/32Qpg==
-From: Conor Dooley <conor@kernel.org>
-To: linux-riscv@lists.infradead.org
-Cc: conor@kernel.org,
-	Conor Dooley <conor.dooley@microchip.com>,
-	Daire McNamara <daire.mcnamara@microchip.com>,
-	valentina.fernandezalanis@microchip.com,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH] riscv: dts: microchip: update pcie reg properties to new format
-Date: Tue, 14 Jan 2025 13:18:56 +0000
-Message-ID: <20250114-kilobyte-oven-170d6778089e@spud>
-X-Mailer: git-send-email 2.45.2
+	Tue, 14 Jan 2025 14:14:30 +0000
+Received: by mail-lf1-x133.google.com with SMTP id 2adb3069b0e04-5401d3ea5a1so5494085e87.3
+        for <linux-riscv@lists.infradead.org>; Tue, 14 Jan 2025 06:14:27 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1736864066; x=1737468866; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=kb+N7KX0rT6TQGPdAoyZC4q4c2muk934hfkb7Zz1PYk=;
+        b=ng9PmChdt4ZL5/ILk/LWax8wQ4rPBwTZ3hkWDthmCROVvfsjg3DkiJ2QWS6Cj6j6Em
+         HG8834i66udsK3p2+p+BAhTOEHd2gPKhTAGvgxSoKVsq2RpdN9013PxLTOaHgTIHBmMG
+         3Tx0BvKoXI/R1I4UERClN/AtrgeAJEXetGbApc5mIsBN0VZ8hkY2cCNLqJp/8m/2TSC7
+         eb/a8VZ6dT1qbOqxMGdrzV2r0J1SRt8daSo+U/y6+nQRje8YVLqi3p/gg9pbHVn4Y7dQ
+         DIWr16TquIf4waRhaVqvXxYhQLJ42/o3nw8jpCOxzUBouGbaXG2VS/2gwEecULVkJbuM
+         /BTQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1736864066; x=1737468866;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=kb+N7KX0rT6TQGPdAoyZC4q4c2muk934hfkb7Zz1PYk=;
+        b=sSnNaNyy5ilMwwlhi/8o/ObfxrILmob+zIoINMlGTV/dsaYm6bC2SR35BL1mloAuxy
+         ZxdhwY23szjp6l+3kWv0ZLxnqOHddz3nkVJyGCe/L0dXG6rTikLmq2jB8uqHDeOizabO
+         WAeonb3Q1ZTgadsbJkvMEb9c38KmCkRd1s3ShdcDSqEFhv+bM5xSyGjqFETzNGpHmLro
+         jpgXlGLAQ7Ixo94k9/pylPH0tq/gq4PPec6yFqUCK/mUPb+BB15YYvkgOpVcCSLbcauY
+         lv4F07tOMXUJQ447K7ww9g2fgB3aimduBOxTYLDeYjDWeIVkVQyJwb6T5UJbLRO4R8KI
+         K6vA==
+X-Forwarded-Encrypted: i=1; AJvYcCU5cHe+pjvdu8MHxNvuutxYFfji9cJ5GuRlFzM1i2gVLzT001OkcKje/IS/DyatwjxIhX4aDC3V9i/WrQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0YyKPqcgv/DJrQqdv00UXU/8I96qkQVddqjUzr5E/2XYsWKNwGqn
+	IDAcig0N9qEK1XJc/fs7iKoCoNYvPA3Wnzhq79BooABHbbCuJwPn8uZ49epNkqbVleTFpdmD4aR
+	HjsIa3CtCRktYCbXMJEAqhn4p0K4iZT6zGMEJfjzlZ2XoXRzj
+X-Gm-Gg: ASbGnctrH/w8WNuHjZdIU5uwp8sfgDZBhFmgtZdK/39rLrfQ466Mn/kDudAtyjDH9DE
+	G4DsEL7L2hH3baKC/lykhUhR+naxP4SeugzhQ
+X-Google-Smtp-Source: AGHT+IGQT/qQTanY0VeTmw14H4V1Aaz+aOnG3UKuUwYfMTsXxCW542oDFqS8vWTFAvYHrASeV6/2sAbC1dUoPYmd1+8=
+X-Received: by 2002:a05:6512:104b:b0:542:8d45:cb3e with SMTP id
+ 2adb3069b0e04-5428d45cce2mr7226522e87.18.1736864066034; Tue, 14 Jan 2025
+ 06:14:26 -0800 (PST)
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=3318; i=conor.dooley@microchip.com; h=from:subject:message-id; bh=IF0aY3m7nsj4WuRNkJ6oDUfJt2kJoHaM4evLpeVSh18=; b=owGbwMvMwCFWscWwfUFT0iXG02pJDOltKY6fe4w+ZzPvElM1rn+z1i3xk4xbx5OfX33WR09U7 VR+ayDXUcrCIMbBICumyJJ4u69Fav0flx3OPW9h5rAygQxh4OIUgIkwVDL8zwu1TunRMJAsPp+6 geUTZwdLuuINf7dfmzQPTWZPVG83YGR48+Pay4xHv8JYHz4Q++nJoz0x2/30Kt/T9xWPFseXXbr HBAA=
-X-Developer-Key: i=conor.dooley@microchip.com; a=openpgp; fpr=F9ECA03CF54F12CD01F1655722E2C55B37CF380C
+References: <20250110123923.270626-1-szemzo.andras@gmail.com> <20250110123923.270626-4-szemzo.andras@gmail.com>
+In-Reply-To: <20250110123923.270626-4-szemzo.andras@gmail.com>
+From: Linus Walleij <linus.walleij@linaro.org>
+Date: Tue, 14 Jan 2025 15:14:14 +0100
+X-Gm-Features: AbW1kvZbpuLPblFhcOWb0pAf-vXkkjGwXrNgVmso7Oy8q5LSTsj10tRLuD4ySG4
+Message-ID: <CACRpkdaz7ABO2QQwv1NFaPm1dOF_maO-bxWQdPNoYAmUXDKCDw@mail.gmail.com>
+Subject: Re: [PATCH 03/12] pinctrl: sunxi: add driver for Allwinner V853.
+To: Andras Szemzo <szemzo.andras@gmail.com>
+Cc: Michael Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Chen-Yu Tsai <wens@csie.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
+	Samuel Holland <samuel@sholland.org>, Philipp Zabel <p.zabel@pengutronix.de>, 
+	Maxime Ripard <mripard@kernel.org>, Vinod Koul <vkoul@kernel.org>, 
+	Kishon Vijay Abraham I <kishon@kernel.org>, Ulf Hansson <ulf.hansson@linaro.org>, 
+	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, =?UTF-8?Q?Uwe_Kleine=2DK=C3=B6nig?= <u.kleine-koenig@baylibre.com>, 
+	Florian Fainelli <florian.fainelli@broadcom.com>, linux-clk@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org, 
+	linux-phy@lists.infradead.org, linux-gpio@vger.kernel.org, 
+	linux-pm@vger.kernel.org, linux-riscv@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250114_051930_535778_25F8124D 
-X-CRM114-Status: UNSURE (   7.81  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250114_061428_075233_C28241F0 
+X-CRM114-Status: GOOD (  10.62  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,89 +99,23 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Conor Dooley <conor.dooley@microchip.com>
-
-The existing PolarFire SoC devicetrees all use root port instance 1,
-update the reg properties in PCIe nodes to use the new format that
-specifies the instance in use. Failing to do so would still work but
-produces warnings:
-mpfs-icicle-kit.dtb: pcie@3000000000: reg: [[48, 0, 0, 134217728], [0, 1124073472, 0, 65536]] is too short
-mpfs-icicle-kit.dtb: pcie@3000000000: reg-names: ['cfg', 'apb'] is too short
-
-Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
----
-CC: Conor Dooley <conor@kernel.org>
-CC: Daire McNamara <daire.mcnamara@microchip.com>
-CC: valentina.fernandezalanis@microchip.com
-CC: Rob Herring <robh@kernel.org>
-CC: Krzysztof Kozlowski <krzk+dt@kernel.org>
-CC: linux-riscv@lists.infradead.org
-CC: devicetree@vger.kernel.org
-CC: linux-kernel@vger.kernel.org
----
- arch/riscv/boot/dts/microchip/mpfs-icicle-kit-fabric.dtsi | 5 +++--
- arch/riscv/boot/dts/microchip/mpfs-m100pfs-fabric.dtsi    | 5 +++--
- arch/riscv/boot/dts/microchip/mpfs-polarberry-fabric.dtsi | 5 +++--
- 3 files changed, 9 insertions(+), 6 deletions(-)
-
-diff --git a/arch/riscv/boot/dts/microchip/mpfs-icicle-kit-fabric.dtsi b/arch/riscv/boot/dts/microchip/mpfs-icicle-kit-fabric.dtsi
-index 1069134f2e12..a6dda55a2d1d 100644
---- a/arch/riscv/boot/dts/microchip/mpfs-icicle-kit-fabric.dtsi
-+++ b/arch/riscv/boot/dts/microchip/mpfs-icicle-kit-fabric.dtsi
-@@ -32,8 +32,9 @@ pcie: pcie@3000000000 {
- 		#interrupt-cells = <0x1>;
- 		#size-cells = <0x2>;
- 		device_type = "pci";
--		reg = <0x30 0x0 0x0 0x8000000>, <0x0 0x43000000 0x0 0x10000>;
--		reg-names = "cfg", "apb";
-+		reg = <0x30 0x0 0x0 0x8000000>, <0x0 0x43008000 0x0 0x2000>,
-+		      <0x0 0x4300a000 0x0 0x2000>;
-+		reg-names = "cfg", "bridge", "ctrl";
- 		bus-range = <0x0 0x7f>;
- 		interrupt-parent = <&plic>;
- 		interrupts = <119>;
-diff --git a/arch/riscv/boot/dts/microchip/mpfs-m100pfs-fabric.dtsi b/arch/riscv/boot/dts/microchip/mpfs-m100pfs-fabric.dtsi
-index 8230f06ddf48..36a9860f31da 100644
---- a/arch/riscv/boot/dts/microchip/mpfs-m100pfs-fabric.dtsi
-+++ b/arch/riscv/boot/dts/microchip/mpfs-m100pfs-fabric.dtsi
-@@ -20,8 +20,9 @@ pcie: pcie@2000000000 {
- 		#interrupt-cells = <0x1>;
- 		#size-cells = <0x2>;
- 		device_type = "pci";
--		reg = <0x20 0x0 0x0 0x8000000>, <0x0 0x43000000 0x0 0x10000>;
--		reg-names = "cfg", "apb";
-+		reg = <0x20 0x0 0x0 0x8000000>, <0x0 0x43008000 0x0 0x2000>,
-+		      <0x0 0x4300a000 0x0 0x2000>;
-+		reg-names = "cfg", "bridge", "ctrl";
- 		bus-range = <0x0 0x7f>;
- 		interrupt-parent = <&plic>;
- 		interrupts = <119>;
-diff --git a/arch/riscv/boot/dts/microchip/mpfs-polarberry-fabric.dtsi b/arch/riscv/boot/dts/microchip/mpfs-polarberry-fabric.dtsi
-index 9a56de7b91d6..a57dca891965 100644
---- a/arch/riscv/boot/dts/microchip/mpfs-polarberry-fabric.dtsi
-+++ b/arch/riscv/boot/dts/microchip/mpfs-polarberry-fabric.dtsi
-@@ -20,8 +20,9 @@ pcie: pcie@2000000000 {
- 		#interrupt-cells = <0x1>;
- 		#size-cells = <0x2>;
- 		device_type = "pci";
--		reg = <0x20 0x0 0x0 0x8000000>, <0x0 0x43000000 0x0 0x10000>;
--		reg-names = "cfg", "apb";
-+		reg = <0x20 0x0 0x0 0x8000000>, <0x0 0x43008000 0x0 0x2000>,
-+		      <0x0 0x4300a000 0x0 0x2000>;
-+		reg-names = "cfg", "bridge", "ctrl";
- 		bus-range = <0x0 0x7f>;
- 		interrupt-parent = <&plic>;
- 		interrupts = <119>;
--- 
-2.45.2
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gRnJpLCBKYW4gMTAsIDIwMjUgYXQgMTozOeKAr1BNIEFuZHJhcyBTemVtem8gPHN6ZW16by5h
+bmRyYXNAZ21haWwuY29tPiB3cm90ZToKCj4gVGhlIFY4NTMgZmFtaWx5IGhhcyBtdWx0aXBsZSBw
+YWNrYWdlIHZhcmlhbnRzLCBmcm9tIEJHQSB0byBRRk44OC4KPiBUaGUgbGF0dGVyIGhhcyBjby1w
+YWNrYWdlZCBEUkFNIGFuZCBmZXdlciBwaW5zLCBhbmQgbGVzcyBmZWF0dXJlcyAocGluIG11eGVz
+KS4KPiBBbGwgZmFtaWx5IG1lbWJlcnMgY2FuIGJlIHN1cHBvcnRlZCBieSBhIHNpbmdsZSBkcml2
+ZXIsIGFzIHRoZSBhdmFpbGFibGUgcGlucwo+IHdpdGggYWxsb3dlZCBtdXhlcyBpcyB0aGUgc2Ft
+ZSBhY3Jvc3MgdGhlIGRldmljZXMuCj4KPiBTaWduZWQtb2ZmLWJ5OiBBbmRyYXMgU3plbXpvIDxz
+emVtem8uYW5kcmFzQGdtYWlsLmNvbT4KCkxvb2tzIGdvb2QgdG8gbWUsIHdhaXRpbmcgZm9yIGEg
+cmV2aWV3IG9mIHRoZSBiaW5kaW5ncyBiZWZvcmUgYXBwbHlpbmcsCmJ1dCBJIHNlZSBubyBwcm9i
+bGVtIHdpdGggdGhlIHBhdGNoIGFzIGl0J3MganVzdCB1c2luZyB0aGUgY29yZSBzdW54aQppbmZy
+YXN0cnVjdHVyZSBhbmQgYW55IG1pbm9yIGlzc3VlcyBjYW4gYmUgZml4ZWQgaW4tdHJlZS4KCllv
+dXJzLApMaW51cyBXYWxsZWlqCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5m
+cmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xp
+bnV4LXJpc2N2Cg==
