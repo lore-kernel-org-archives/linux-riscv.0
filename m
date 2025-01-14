@@ -4,97 +4,179 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EE807C02188
-	for <linux-riscv@archiver.kernel.org>; Tue, 14 Jan 2025 19:17:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 15C90E77188
+	for <linux-riscv@archiver.kernel.org>; Tue, 14 Jan 2025 19:17:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=uyv2AKCMTZE5eYY/fyZMPtxikD7riUzb7stenRVXBlY=; b=vXyFD4Kp4NDjVt
-	v+H9fV1zg0ckLcjjLMelq9BHTM+FweBNId1fISalO/+jmXwRDJz53hshplDq3sN1rfR5WGZsKQ0a5
-	Qo+r6Zjgkxp+O3lj/rG8a0aWnl/d5L5cUV74kTuUEAwEJRGhOu/L02LfBzOhxsTa/A2y9aylZubsP
-	NSekr4XJykd0J7u93ZyMyKSSrkRI/9lDARTlRxNgCeAMU1COQ1hxtMxo+b3g2UwlFVq2RGDu3XPEC
-	q7P4wriW5b4uHv7GJO9N8Q8f/QbnPJ3qWkLRoGIEGN0pRiuPtVUJOtt5b2buVnG+qKW1QGeDmCsxA
-	3Qttn0Tf6SEQRITkPANg==;
+	List-Owner; bh=v2ZVagCRmOcyzbNVe7vFhPORFG6eIncUODyn2mYy6so=; b=a52goWE4XQOqmO
+	q24wtN18vWjw6eoIbL5LnTmThrvm/Cs8fsODuhD3ZoBr0d5DnITjybK11K8OOkpsElQVVRey3ETcD
+	oVjy/6PhH3+H4SRxXBKunzOdIGcg26fzrOVPstVXeIDry49ao/PBYg5kWZR3NUC3EqLDAXR23icCO
+	EzZ5k2gecHVgDRpz8oZayi5mCZu/Hkfu1P4TfMCR4FVwM8KLYkzGjPlgGuHilpxI0FEO+kK7EgrLg
+	TqDFPfy/vCL9ziuK21rsbQr9LXPnRNJzL3irVwn5cmN9kNs/BtC0hqKuK6MZDOxRnr+aekNYrTpvp
+	oqFS42I19aaJCyWOTmAQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXmPm-00000009Vcf-2Q3o;
-	Tue, 14 Jan 2025 19:17:26 +0000
+	id 1tXmPo-00000009VeT-447s;
+	Tue, 14 Jan 2025 19:17:28 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXlBV-00000009IGg-0Xsa;
-	Tue, 14 Jan 2025 17:58:37 +0000
+	id 1tXlEg-00000009JIg-0yuS
+	for linux-riscv@bombadil.infradead.org;
+	Tue, 14 Jan 2025 18:01:54 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=lpO8DdPLls/4RByGDNrwQqDhWQHqmYHrT32l/VtbwwM=; b=qr5lREnbjqOvJ5yoxZyyHWyL2F
-	vT/ZpoYGacC9ykqPFSQMuDLT/dFH+35Wz+92aZTKRPSXqbZVrFf9lEliahBNpSH1FQUWO4XbEgxiA
-	GbrkfeVNMCdtMW+4jX4W35nOmsmu/xw9u1qVBT4SYTBx2HLCIr1TTER3xdqXNu8314xEqvkfMv8Gy
-	qecRbLWxoPE6s9/iM6k4iGb0TxFYq1qdPnd2TULTki4rp0cnUQgeg5iT/5iDAd5FksS0RT4Z1a5iz
-	+GwbHGEtF1Taow9i1fZ8g2p16QYSugwlSw42M4ba2F3WZiki8QuE/PSY7K3aABRwCk5vMfvXR3ilH
-	D7Lt4Rpg==;
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=e8MD/yxknvCsMYBCjJmdeKziBGiIOE307eysnVgCl2M=; b=fVlsWE+gNtUofi6AzX/3BnfTuS
+	VsQxLu6ENx3CId/tLTeZ0TpclRPwd7wrONeWbJnrEfl8ry5O8HY9Wz02L8VifpblyUV/b1EwNDfiR
+	biRMfNmOlW03g+d53+qVzxU/kNjepnpMespduUgD6BcYtK+ftpfJG+K5UzVXi5HeEz6NFA/LhE4xT
+	LEMyTh2bFoi6cbueU9pkWHKB26L/tmUgr9niZy5tGpOHz3v8nkfKGPM3U4kgAsRqougm0WtuE925W
+	Q8mygdanKvFhHo/WK3Gmz3scx80mL7XHopAeHrNakTU6e9dbAVipMZ/dNlTkKmUEbLNwnvG7GbkiU
+	YeqKHftA==;
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXlBS-0000000AVO6-0J8s;
-	Tue, 14 Jan 2025 17:58:36 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 18D27A405B0;
-	Tue, 14 Jan 2025 17:56:42 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 584E7C4CEDD;
-	Tue, 14 Jan 2025 17:58:29 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1736877509;
-	bh=7uBK7D+BxpeaL7kysyY/rFTMNpozNYmFCbnN0YYN0S8=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=ZQZ2qX79MyKDt29hnV4kTsJ/MRK66wrAiI4RRNEx6QxqdxFuOyRpIfpq+VeiJeDvN
-	 +aib+D/hIj7feGPN5W1Fdms1ldvCSIYreuHXvvYYAU4UpHP5JFT0EFn29YCXxFBeht
-	 BbvqMSiXFUrhysfoFKTN/h614HAS7vYwLoYlcjYtPIRzGG5AVgrVX5aW3PAfS9ZJ8s
-	 EpeAUXCVSVnaN4ZNkgTn141irhhq+ElDLNFwWpQUFk/hLl9nZfadBwr3yuYPynN5ye
-	 UQvzPnZLrpqTzphcfHGlcTxiLyYwUyK3LS2PtsUYHMio8pZBnGXzQvIJXKF08TAGUZ
-	 1qdfnil3SFh7Q==
-Date: Tue, 14 Jan 2025 14:58:26 -0300
-From: Arnaldo Carvalho de Melo <acme@kernel.org>
-To: Charlie Jenkins <charlie@rivosinc.com>
-Cc: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>,
+	id 1tXlEd-0000000AVpX-1J7a
+	for linux-riscv@lists.infradead.org;
+	Tue, 14 Jan 2025 18:01:53 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1736877710;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=e8MD/yxknvCsMYBCjJmdeKziBGiIOE307eysnVgCl2M=;
+	b=FsV4OvuOID+gy5MmC8vT4fGL4OMZlx0Xx2NpxbTKzpgHvOl2FBRmhe0ad+fGkKLpT4fR5Y
+	gETBiQxpGBrOjIk9E1ozu3kQwCZCv6vwSVPSlzKQ3lhe3gx9mgA7KADLQeTielTVL4w2tn
+	lnTZFLvv9AefxETnwjDxmHmxdQ5PkjU=
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1736877710;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=e8MD/yxknvCsMYBCjJmdeKziBGiIOE307eysnVgCl2M=;
+	b=FsV4OvuOID+gy5MmC8vT4fGL4OMZlx0Xx2NpxbTKzpgHvOl2FBRmhe0ad+fGkKLpT4fR5Y
+	gETBiQxpGBrOjIk9E1ozu3kQwCZCv6vwSVPSlzKQ3lhe3gx9mgA7KADLQeTielTVL4w2tn
+	lnTZFLvv9AefxETnwjDxmHmxdQ5PkjU=
+Received: from mx-prod-mc-04.mail-002.prod.us-west-2.aws.redhat.com
+ (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
+ relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-418-yr-DHzXkMTap-bgFsYDaSw-1; Tue,
+ 14 Jan 2025 13:01:44 -0500
+X-MC-Unique: yr-DHzXkMTap-bgFsYDaSw-1
+X-Mimecast-MFC-AGG-ID: yr-DHzXkMTap-bgFsYDaSw
+Received: from mx-prod-int-02.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-02.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.15])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mx-prod-mc-04.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 2A8ED1A445CE;
+	Tue, 14 Jan 2025 18:01:23 +0000 (UTC)
+Received: from vschneid-thinkpadt14sgen2i.remote.csb (unknown [10.39.192.55])
+	by mx-prod-int-02.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id E8F64195608A;
+	Tue, 14 Jan 2025 18:00:56 +0000 (UTC)
+From: Valentin Schneider <vschneid@redhat.com>
+To: linux-kernel@vger.kernel.org,
+	x86@kernel.org,
+	virtualization@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	loongarch@lists.linux.dev,
+	linux-riscv@lists.infradead.org,
+	linux-perf-users@vger.kernel.org,
+	xen-devel@lists.xenproject.org,
+	kvm@vger.kernel.org,
+	linux-arch@vger.kernel.org,
+	rcu@vger.kernel.org,
+	linux-hardening@vger.kernel.org,
+	linux-mm@kvack.org,
+	linux-kselftest@vger.kernel.org,
+	bpf@vger.kernel.org,
+	bcm-kernel-feedback-list@broadcom.com
+Cc: Josh Poimboeuf <jpoimboe@kernel.org>,
+	Juergen Gross <jgross@suse.com>,
+	Ajay Kaher <ajay.kaher@broadcom.com>,
+	Alexey Makhalov <alexey.amakhalov@broadcom.com>,
+	Russell King <linux@armlinux.org.uk>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Huacai Chen <chenhuacai@kernel.org>,
+	WANG Xuerui <kernel@xen0n.name>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Ingo Molnar <mingo@redhat.com>,
+	Borislav Petkov <bp@alien8.de>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	"H. Peter Anvin" <hpa@zytor.com>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Arnaldo Carvalho de Melo <acme@kernel.org>,
 	Namhyung Kim <namhyung@kernel.org>,
 	Mark Rutland <mark.rutland@arm.com>,
 	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>,
+	Jiri Olsa <jolsa@kernel.org>,
+	Ian Rogers <irogers@google.com>,
 	Adrian Hunter <adrian.hunter@intel.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	=?iso-8859-1?Q?Micka=EBl_Sala=FCn?= <mic@digikod.net>,
-	=?iso-8859-1?Q?G=FCnther?= Noack <gnoack@google.com>,
-	Christian Brauner <brauner@kernel.org>, Guo Ren <guoren@kernel.org>,
-	John Garry <john.g.garry@oracle.com>, Will Deacon <will@kernel.org>,
-	James Clark <james.clark@linaro.org>,
-	Mike Leach <mike.leach@linaro.org>, Leo Yan <leo.yan@linux.dev>,
-	Jonathan Corbet <corbet@lwn.net>, Arnd Bergmann <arnd@arndb.de>,
-	linux-kernel@vger.kernel.org, linux-perf-users@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	linux-security-module@vger.kernel.org, bpf@vger.kernel.org,
-	linux-csky@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-doc@vger.kernel.org
-Subject: Re: [PATCH v6 00/16] perf tools: Use generic syscall scripts for all
- archs
-Message-ID: <Z4alwvqYithaVLSL@x1>
-References: <20250108-perf_syscalltbl-v6-0-7543b5293098@rivosinc.com>
- <Z3_ybwWW3QZvJ4V6@x1>
- <Z4AoFA974kauIJ9T@ghost>
- <Z4A2Y269Ffo0ERkS@x1>
- <Z4BEygdXmofWBr0-@x1>
- <Z4BVK3D7sN-XYg2o@ghost>
- <Z4F1dXQLPGZ3JFI5@ghost>
- <Z4UpRqywqYPZSUM_@x1>
+	"Liang, Kan" <kan.liang@linux.intel.com>,
+	Boris Ostrovsky <boris.ostrovsky@oracle.com>,
+	Pawan Gupta <pawan.kumar.gupta@linux.intel.com>,
+	Sean Christopherson <seanjc@google.com>,
+	Paolo Bonzini <pbonzini@redhat.com>,
+	Andy Lutomirski <luto@kernel.org>,
+	Arnd Bergmann <arnd@arndb.de>,
+	Frederic Weisbecker <frederic@kernel.org>,
+	"Paul E. McKenney" <paulmck@kernel.org>,
+	Jason Baron <jbaron@akamai.com>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	Ard Biesheuvel <ardb@kernel.org>,
+	Neeraj Upadhyay <neeraj.upadhyay@kernel.org>,
+	Joel Fernandes <joel@joelfernandes.org>,
+	Josh Triplett <josh@joshtriplett.org>,
+	Boqun Feng <boqun.feng@gmail.com>,
+	Uladzislau Rezki <urezki@gmail.com>,
+	Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
+	Lai Jiangshan <jiangshanlai@gmail.com>,
+	Zqiang <qiang.zhang1211@gmail.com>,
+	Juri Lelli <juri.lelli@redhat.com>,
+	Clark Williams <williams@redhat.com>,
+	Yair Podemsky <ypodemsk@redhat.com>,
+	Tomas Glozar <tglozar@redhat.com>,
+	Vincent Guittot <vincent.guittot@linaro.org>,
+	Dietmar Eggemann <dietmar.eggemann@arm.com>,
+	Ben Segall <bsegall@google.com>,
+	Mel Gorman <mgorman@suse.de>,
+	Kees Cook <kees@kernel.org>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Christoph Hellwig <hch@infradead.org>,
+	Shuah Khan <shuah@kernel.org>,
+	Sami Tolvanen <samitolvanen@google.com>,
+	Miguel Ojeda <ojeda@kernel.org>,
+	Alice Ryhl <aliceryhl@google.com>,
+	"Mike Rapoport (Microsoft)" <rppt@kernel.org>,
+	Samuel Holland <samuel.holland@sifive.com>,
+	Rong Xu <xur@google.com>,
+	Nicolas Saenz Julienne <nsaenzju@redhat.com>,
+	Geert Uytterhoeven <geert@linux-m68k.org>,
+	Yosry Ahmed <yosryahmed@google.com>,
+	"Kirill A. Shutemov" <kirill.shutemov@linux.intel.com>,
+	"Masami Hiramatsu (Google)" <mhiramat@kernel.org>,
+	Jinghao Jia <jinghao7@illinois.edu>,
+	Luis Chamberlain <mcgrof@kernel.org>,
+	Randy Dunlap <rdunlap@infradead.org>,
+	Tiezhu Yang <yangtiezhu@loongson.cn>
+Subject: [PATCH v4 20/30] objtool: Add noinstr validation for static branches/calls
+Date: Tue, 14 Jan 2025 18:51:33 +0100
+Message-ID: <20250114175143.81438-21-vschneid@redhat.com>
+In-Reply-To: <20250114175143.81438-1-vschneid@redhat.com>
+References: <20250114175143.81438-1-vschneid@redhat.com>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <Z4UpRqywqYPZSUM_@x1>
+X-Scanned-By: MIMEDefang 3.0 on 10.30.177.15
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250114_175834_363654_110F9F6E 
-X-CRM114-Status: GOOD (  30.31  )
+X-CRM114-CacheID: sfid-20250114_180151_564099_2029391B 
+X-CRM114-Status: GOOD (  32.10  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,131 +188,414 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gTW9uLCBKYW4gMTMsIDIwMjUgYXQgMTE6NTU6MDVBTSAtMDMwMCwgQXJuYWxkbyBDYXJ2YWxo
-byBkZSBNZWxvIHdyb3RlOgo+IE9uIEZyaSwgSmFuIDEwLCAyMDI1IGF0IDExOjMxOjAxQU0gLTA4
-MDAsIENoYXJsaWUgSmVua2lucyB3cm90ZToKPiA+IE9uIFRodSwgSmFuIDA5LCAyMDI1IGF0IDAz
-OjAwOjU5UE0gLTA4MDAsIENoYXJsaWUgSmVua2lucyB3cm90ZToKPiA+ID4gT29oIG9rYXkgSSBz
-ZWUsIHRoZSBxdWlldCBjb21tYW5kcyB3ZXJlIGJlaW5nIGlnbm9yZWQgYXMtaXMuIFdlIGNvdWxk
-Cj4gPiA+IGFkZCB0aGUgbGluZXMgdG8gaGFuZGxlIHRoaXMgdG8gTWFrZWZpbGUuc3lzY2FsbHMs
-IGJ1dCBJIHRoaW5rIHRoZQo+ID4gPiBiZXR0ZXIgc29sdXRpb24gaXMgdG8gbW92ZSB0aGUgbGlu
-ZXMgZnJvbSBNYWtlZmlsZS5idWlsZCB0bwo+ID4gPiBNYWtlZmlsZS5wZXJmIHRvIGJlIG1vcmUg
-Z2VuZXJpY2FsbHkgYXZhaWxhYmxlLiBIZXJlIGlzIGEgcGF0Y2ggZm9yCj4gPiA+IHRoYXQuIEkg
-YWxzbyBhZGRlZCB0aGUgY29tbWVudCBmcm9tIHRoZSBrZXJuZWwgTWFrZWZpbGUgZGVzY3JpYmlu
-ZyB3aGF0Cj4gPiA+IHRoaXMgZG9lcy4KPiAKPiA+ID4gRnJvbSA4ZGNlYzdmNWQ5MzdlZGUzZDMz
-YzY4NzU3M2RjMmYxNjU0ZGRjNTllIE1vbiBTZXAgMTcgMDA6MDA6MDAgMjAwMQo+ID4gPiBGcm9t
-OiBDaGFybGllIEplbmtpbnMgPGNoYXJsaWVAcml2b3NpbmMuY29tPgo+ID4gPiBEYXRlOiBUaHUs
-IDkgSmFuIDIwMjUgMTQ6MzY6NDAgLTA4MDAKPiA+ID4gU3ViamVjdDogW1BBVENIXSBwZXJmIHRv
-b2xzOiBFeHBvc2UgcXVpZXQvdmVyYm9zZSB2YXJpYWJsZXMgaW4gTWFrZWZpbGUucGVyZgo+ID4g
-PiAKPiA+ID4gVGhlIHZhcmlhYmxlcyB0byBtYWtlIGJ1aWxkcyBzaWxlbnQvdmVyYm9zZSBsaXZl
-IGluc2lkZQo+ID4gPiB0b29scy9idWlsZC9NYWtlZmlsZS5idWlsZC4gTW92ZSB0aG9zZSB2YXJp
-YWJsZXMgdG8gdGhlIHRvcC1sZXZlbAo+ID4gPiBNYWtlZmlsZS5wZXJmIHRvIGJlIGdlbmVyYWxs
-eSBhdmFpbGFibGUuCj4gCj4gPFNOSVAgYXBwbGllZCBwYXRjaD4KPiAgCj4gPiBMZXQgbWUga25v
-dyBob3cgeW91IHdhbnQgdG8gaGFuZGxlIHRoaXMsIEkgY2FuIHNlbmQgdGhpcyBvdXQgYXMgYQo+
-ID4gc2VwYXJhdGUgcGF0Y2ggaWYgdGhhdCdzIGJldHRlci4KPiAKPiBJIHVzZWQgdGhlIHBhdGNo
-IHlvdSBwcm92aWRlZCBhYm92ZSBhZnRlciBoYW5kIGVkaXRpbmcgdGhlIG1lc3NhZ2UKPiBiZWZv
-cmUgZmVlZGluZyBpdCB0byAnZ2l0IGFtJywgYWRkZWQgdGhlc2UgY29tbWVudHM6CgpTb21laG93
-IHRoaXMgaXMgY2F1c2luZyBzb21lIHRyb3VibGU6CgrirKIgW2FjbWVAdG9vbGJveCBwZXJmLXRv
-b2xzLW5leHRdJCBtYWtlIC1DIHRvb2xzL3BlcmYgYnVpbGQtdGVzdAptYWtlOiBFbnRlcmluZyBk
-aXJlY3RvcnkgJy9ob21lL2FjbWUvZ2l0L3BlcmYtdG9vbHMtbmV4dC90b29scy9wZXJmJwotIHRh
-cnBrZzogLi90ZXN0cy9wZXJmLXRhcmd6LXNyYy1wa2cgLgovYmluL3NoOiBsaW5lIDE6IEBtYWtl
-OiBjb21tYW5kIG5vdCBmb3VuZAptYWtlWzRdOiAqKiogW01ha2VmaWxlOjI3OiBjbGVhbi1hc21f
-cHVyZV9sb29wXSBFcnJvciAxMjcKbWFrZVszXTogKioqIFtNYWtlZmlsZS5wZXJmOjc2NDogdGVz
-dHMtY29yZXNpZ2h0LXRhcmdldHMtY2xlYW5dIEVycm9yIDIKbWFrZVsyXTogKioqIFtNYWtlZmls
-ZTo5NjogY2xlYW5dIEVycm9yIDIKbWFrZVsxXTogKioqIFt0ZXN0cy9tYWtlOjMzMDogbWFrZV9z
-dGF0aWNdIEVycm9yIDIKbWFrZTogKioqIFtNYWtlZmlsZToxMDk6IGJ1aWxkLXRlc3RdIEVycm9y
-IDIKbWFrZTogTGVhdmluZyBkaXJlY3RvcnkgJy9ob21lL2FjbWUvZ2l0L3BlcmYtdG9vbHMtbmV4
-dC90b29scy9wZXJmJwrirKIgW2FjbWVAdG9vbGJveCBwZXJmLXRvb2xzLW5leHRdJAoKQ2FuIHlv
-dSBwbGVhc2UgdHJ5IGZpeGluZyBpdCBhcyBJJ20gYnVzeSBub3cgKEknbGwgYmUgb24gdmFjYXRp
-b24gZnJvbQp0b21vcnJvdyB0aWxsIGVhcmx5IEZlYnJ1YXJ5KT8gVGhpcyBpcyB3aGF0IEkgZXh0
-cmFjdGVkOgoKY29tbWl0IGMxOTlmZDc4NWQxODEyMWZmZDBiYTU3NThlMjNhNDJiYTI5ODRlMTEK
-QXV0aG9yOiBDaGFybGllIEplbmtpbnMgPGNoYXJsaWVAcml2b3NpbmMuY29tPgpEYXRlOiAgIE1v
-biBKYW4gMTMgMTE6NTA6NTUgMjAyNSAtMDMwMAoKICAgIHBlcmYgdG9vbHM6IEV4cG9zZSBxdWll
-dC92ZXJib3NlIHZhcmlhYmxlcyBpbiBNYWtlZmlsZS5wZXJmCiAgICAKICAgIFRoZSB2YXJpYWJs
-ZXMgdG8gbWFrZSBidWlsZHMgc2lsZW50L3ZlcmJvc2UgbGl2ZSBpbnNpZGUKICAgIHRvb2xzL2J1
-aWxkL01ha2VmaWxlLmJ1aWxkLiBNb3ZlIHRob3NlIHZhcmlhYmxlcyB0byB0aGUgdG9wLWxldmVs
-CiAgICBNYWtlZmlsZS5wZXJmIHRvIGJlIGdlbmVyYWxseSBhdmFpbGFibGUuCiAgICAKICAgIENv
-bW1pdHRlciB0ZXN0aW5nOgogICAgCiAgICBTZWUgdGhlIFNZU0NBTEwgbGluZXMsIG5vdyB0aGV5
-IGFyZSBjb25zaXN0ZW50IHdpdGggdGhlIG90aGVyCiAgICBvcGVyYXRpb25zIGluIG90aGVyIGxp
-bmVzOgogICAgCiAgICAgIFNZU1RCTCAgL3RtcC9idWlsZC9wZXJmLXRvb2xzLW5leHQvYXJjaC94
-ODYvaW5jbHVkZS9nZW5lcmF0ZWQvYXNtL3N5c2NhbGxzXzMyLmgKICAgICAgU1lTVEJMICAvdG1w
-L2J1aWxkL3BlcmYtdG9vbHMtbmV4dC9hcmNoL3g4Ni9pbmNsdWRlL2dlbmVyYXRlZC9hc20vc3lz
-Y2FsbHNfNjQuaAogICAgICBHRU4gICAgIC90bXAvYnVpbGQvcGVyZi10b29scy1uZXh0L2NvbW1v
-bi1jbWRzLmgKICAgICAgR0VOICAgICAvdG1wL2J1aWxkL3BlcmYtdG9vbHMtbmV4dC9hcmNoL2Fy
-bTY0L2luY2x1ZGUvZ2VuZXJhdGVkL2FzbS9zeXNyZWctZGVmcy5oCiAgICAgIFBFUkZfVkVSU0lP
-TiA9IDYuMTMucmMyLmczZDk0YmI2ZWQxZDAKICAgICAgR0VOICAgICBwZXJmLWFyY2hpdmUKICAg
-ICAgTUtESVIgICAvdG1wL2J1aWxkL3BlcmYtdG9vbHMtbmV4dC9qdm10aS8KICAgICAgTUtESVIg
-ICAvdG1wL2J1aWxkL3BlcmYtdG9vbHMtbmV4dC9qdm10aS8KICAgICAgTUtESVIgICAvdG1wL2J1
-aWxkL3BlcmYtdG9vbHMtbmV4dC9qdm10aS8KICAgICAgTUtESVIgICAvdG1wL2J1aWxkL3BlcmYt
-dG9vbHMtbmV4dC9qdm10aS8KICAgICAgR0VOICAgICBwZXJmLWlvc3RhdAogICAgICBDQyAgICAg
-IC90bXAvYnVpbGQvcGVyZi10b29scy1uZXh0L2p2bXRpL2xpYmp2bXRpLm8KICAgICAgQ0MgICAg
-ICAvdG1wL2J1aWxkL3BlcmYtdG9vbHMtbmV4dC9qdm10aS9qdm10aV9hZ2VudC5vCiAgICAKICAg
-IFJlcG9ydGVkLWJ5OiBBcm5hbGRvIENhcnZhbGhvIGRlIE1lbG8gPGFjbWVAcmVkaGF0LmNvbT4K
-ICAgIFNpZ25lZC1vZmYtYnk6IENoYXJsaWUgSmVua2lucyA8Y2hhcmxpZUByaXZvc2luYy5jb20+
-CiAgICBUZXN0ZWQtYnk6IEFybmFsZG8gQ2FydmFsaG8gZGUgTWVsbyA8YWNtZUByZWRoYXQuY29t
-PgogICAgQ2M6IEFkcmlhbiBIdW50ZXIgPGFkcmlhbi5odW50ZXJAaW50ZWwuY29tPgogICAgQ2M6
-IEFsZXhhbmRlciBTaGlzaGtpbiA8YWxleGFuZGVyLnNoaXNoa2luQGxpbnV4LmludGVsLmNvbT4K
-ICAgIENjOiBBcm5kIEJlcmdtYW5uIDxhcm5kQGFybmRiLmRlPgogICAgQ2M6IENocmlzdGlhbiBC
-cmF1bmVyIDxicmF1bmVyQGtlcm5lbC5vcmc+CiAgICBDYzogR3VvIFJlbiA8Z3VvcmVuQGtlcm5l
-bC5vcmc+CiAgICBDYzogR8O8bnRoZXIgTm9hY2sgPGdub2Fja0Bnb29nbGUuY29tPgogICAgQ2M6
-IElhbiBSb2dlcnMgPGlyb2dlcnNAZ29vZ2xlLmNvbT4KICAgIENjOiBJbmdvIE1vbG5hciA8bWlu
-Z29AcmVkaGF0LmNvbT4KICAgIENjOiBKYW1lcyBDbGFyayA8amFtZXMuY2xhcmtAbGluYXJvLm9y
-Zz4KICAgIENjOiBKaXJpIE9sc2EgPGpvbHNhQGtlcm5lbC5vcmc+CiAgICBDYzogSm9obiBHYXJy
-eSA8am9obi5nLmdhcnJ5QG9yYWNsZS5jb20+CiAgICBDYzogSm9uYXRoYW4gQ29yYmV0IDxjb3Ji
-ZXRAbHduLm5ldD4KICAgIENjOiBMZW8gWWFuIDxsZW8ueWFuQGxpbnV4LmRldj4KICAgIENjOiBN
-YXJrIFJ1dGxhbmQgPG1hcmsucnV0bGFuZEBhcm0uY29tPgogICAgQ2M6IE1pY2thw6tsIFNhbGHD
-vG4gPG1pY0BkaWdpa29kLm5ldD4KICAgIENjOiBNaWtlIExlYWNoIDxtaWtlLmxlYWNoQGxpbmFy
-by5vcmc+CiAgICBDYzogTmFtaHl1bmcgS2ltIDxuYW1oeXVuZ0BrZXJuZWwub3JnPgogICAgQ2M6
-IFBhbG1lciBEYWJiZWx0IDxwYWxtZXJAZGFiYmVsdC5jb20+CiAgICBDYzogUGF1bCBXYWxtc2xl
-eSA8cGF1bC53YWxtc2xleUBzaWZpdmUuY29tPgogICAgQ2M6IFBldGVyIFppamxzdHJhIDxwZXRl
-cnpAaW5mcmFkZWFkLm9yZz4KICAgIENjOiBXaWxsIERlYWNvbiA8d2lsbEBrZXJuZWwub3JnPgog
-ICAgTGluazogaHR0cDovL2xvcmUua2VybmVsLm9yZy9sa21sL05vbmUKICAgIFNpZ25lZC1vZmYt
-Ynk6IEFybmFsZG8gQ2FydmFsaG8gZGUgTWVsbyA8YWNtZUByZWRoYXQuY29tPgoKZGlmZiAtLWdp
-dCBhL3Rvb2xzL2J1aWxkL01ha2VmaWxlLmJ1aWxkIGIvdG9vbHMvYnVpbGQvTWFrZWZpbGUuYnVp
-bGQKaW5kZXggNWZiM2ZiM2Q5N2UwZmQxMS4uZTcxMGVkNjdhMWI0OWQ5ZiAxMDA2NDQKLS0tIGEv
-dG9vbHMvYnVpbGQvTWFrZWZpbGUuYnVpbGQKKysrIGIvdG9vbHMvYnVpbGQvTWFrZWZpbGUuYnVp
-bGQKQEAgLTEyLDI2ICsxMiw2IEBACiBQSE9OWSA6PSBfX2J1aWxkCiBfX2J1aWxkOgogCi1pZmVx
-ICgkKFYpLDEpCi0gIHF1aWV0ID0KLSAgUSA9Ci1lbHNlCi0gIHF1aWV0PXF1aWV0XwotICBRPUAK
-LWVuZGlmCi0KLSMgSWYgdGhlIHVzZXIgaXMgcnVubmluZyBtYWtlIC1zIChzaWxlbnQgbW9kZSks
-IHN1cHByZXNzIGVjaG9pbmcgb2YgY29tbWFuZHMKLSMgbWFrZS00LjAgKGFuZCBsYXRlcikga2Vl
-cCBzaW5nbGUgbGV0dGVyIG9wdGlvbnMgaW4gdGhlIDFzdCB3b3JkIG9mIE1BS0VGTEFHUy4KLWlm
-ZXEgKCQoZmlsdGVyIDMuJSwkKE1BS0VfVkVSU0lPTikpLCkKLXNob3J0LW9wdHMgOj0gJChmaXJz
-dHdvcmQgLSQoTUFLRUZMQUdTKSkKLWVsc2UKLXNob3J0LW9wdHMgOj0gJChmaWx0ZXItb3V0IC0t
-JSwkKE1BS0VGTEFHUykpCi1lbmRpZgotCi1pZm5lcSAoJChmaW5kc3RyaW5nIHMsJChzaG9ydC1v
-cHRzKSksKQotICBxdWlldD1zaWxlbnRfCi1lbmRpZgotCiBidWlsZC1kaXIgOj0gJChzcmN0cmVl
-KS90b29scy9idWlsZAogCiAjIERlZmluZSAkKGZpeGRlcCkgZm9yIGRlcC1jbWQgZnVuY3Rpb24K
-ZGlmZiAtLWdpdCBhL3Rvb2xzL3BlcmYvTWFrZWZpbGUucGVyZiBiL3Rvb2xzL3BlcmYvTWFrZWZp
-bGUucGVyZgppbmRleCBhNDQ5ZDAwMTU1MzY0NDIyLi41NWQ2Y2U5ZWE1MmZiMmE1IDEwMDY0NAot
-LS0gYS90b29scy9wZXJmL01ha2VmaWxlLnBlcmYKKysrIGIvdG9vbHMvcGVyZi9NYWtlZmlsZS5w
-ZXJmCkBAIC0xNjEsMTIgKzE2MSw0NyBAQCBleHBvcnQgVlBBVEgKIFNPVVJDRSA6PSAkKHNoZWxs
-IGxuIC1zZiAkKHNyY3RyZWUpL3Rvb2xzL3BlcmYgJChPVVRQVVQpL3NvdXJjZSkKIGVuZGlmCiAK
-KyMgQmVhdXRpZnkgb3V0cHV0CisjIC0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0t
-LS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLQorIworIyBNb3N0IG9mIGJ1
-aWxkIGNvbW1hbmRzIGluIEtidWlsZCBzdGFydCB3aXRoICJjbWRfIi4gWW91IGNhbiBvcHRpb25h
-bGx5IGRlZmluZQorIyAicXVpZXRfY21kXyoiLiBJZiBkZWZpbmVkLCB0aGUgc2hvcnQgbG9nIGlz
-IHByaW50ZWQuIE90aGVyd2lzZSwgbm8gbG9nIGZyb20KKyMgdGhhdCBjb21tYW5kIGlzIHByaW50
-ZWQgYnkgZGVmYXVsdC4KKyMKKyMgZS5nLikKKyMgICAgcXVpZXRfY21kX2RlcG1vZCA9IERFUE1P
-RCAgJChNT0RMSUIpCisjICAgICAgICAgIGNtZF9kZXBtb2QgPSAkKHNyY3RyZWUpL3NjcmlwdHMv
-ZGVwbW9kLnNoICQoREVQTU9EKSAkKEtFUk5FTFJFTEVBU0UpCisjCisjIEEgc2ltcGxlIHZhcmlh
-bnQgaXMgdG8gcHJlZml4IGNvbW1hbmRzIHdpdGggJChRKSAtIHRoYXQncyB1c2VmdWwKKyMgZm9y
-IGNvbW1hbmRzIHRoYXQgc2hhbGwgYmUgaGlkZGVuIGluIG5vbi12ZXJib3NlIG1vZGUuCisjCisj
-ICAgICQoUSkkKE1BS0UpICQoYnVpbGQpPXNjcmlwdHMvYmFzaWMKKyMKKyMgVG8gcHV0IG1vcmUg
-Zm9jdXMgb24gd2FybmluZ3MsIGJlIGxlc3MgdmVyYm9zZSBhcyBkZWZhdWx0CisjIFVzZSAnbWFr
-ZSBWPTEnIHRvIHNlZSB0aGUgZnVsbCBjb21tYW5kcworCiBpZmVxICgkKFYpLDEpCisgIHF1aWV0
-ID0KICAgUSA9CiBlbHNlCi0gIFEgPSBACisgIHF1aWV0PXF1aWV0XworICBRPUAKIGVuZGlmCiAK
-KyMgSWYgdGhlIHVzZXIgaXMgcnVubmluZyBtYWtlIC1zIChzaWxlbnQgbW9kZSksIHN1cHByZXNz
-IGVjaG9pbmcgb2YgY29tbWFuZHMKKyMgbWFrZS00LjAgKGFuZCBsYXRlcikga2VlcCBzaW5nbGUg
-bGV0dGVyIG9wdGlvbnMgaW4gdGhlIDFzdCB3b3JkIG9mIE1BS0VGTEFHUy4KK2lmZXEgKCQoZmls
-dGVyIDMuJSwkKE1BS0VfVkVSU0lPTikpLCkKK3Nob3J0LW9wdHMgOj0gJChmaXJzdHdvcmQgLSQo
-TUFLRUZMQUdTKSkKK2Vsc2UKK3Nob3J0LW9wdHMgOj0gJChmaWx0ZXItb3V0IC0tJSwkKE1BS0VG
-TEFHUykpCitlbmRpZgorCitpZm5lcSAoJChmaW5kc3RyaW5nIHMsJChzaG9ydC1vcHRzKSksKQor
-ICBxdWlldD1zaWxlbnRfCitlbmRpZgorCitleHBvcnQgcXVpZXQgUQorCiAjIERvIG5vdCB1c2Ug
-bWFrZSdzIGJ1aWx0LWluIHJ1bGVzCiAjICh0aGlzIGltcHJvdmVzIHBlcmZvcm1hbmNlIGFuZCBh
-dm9pZHMgaGFyZC10by1kZWJ1ZyBiZWhhdmlvdXIpOwogTUFLRUZMQUdTICs9IC1yCgpfX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWls
-aW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5m
-cmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+From: Josh Poimboeuf <jpoimboe@kernel.org>
+
+Warn about static branches/calls in noinstr regions, unless the
+corresponding key is RO-after-init or has been manually whitelisted with
+DEFINE_STATIC_KEY_*_NOINSTR(().
+
+Signed-off-by: Josh Poimboeuf <jpoimboe@kernel.org>
+[Added NULL check for insn_call_dest() return value]
+Signed-off-by: Valentin Schneider <vschneid@redhat.com>
+---
+ include/linux/jump_label.h              | 17 +++--
+ include/linux/objtool.h                 |  7 ++
+ include/linux/static_call.h             |  3 +
+ tools/objtool/Documentation/objtool.txt | 34 +++++++++
+ tools/objtool/check.c                   | 92 ++++++++++++++++++++++---
+ tools/objtool/include/objtool/check.h   |  1 +
+ tools/objtool/include/objtool/elf.h     |  1 +
+ tools/objtool/include/objtool/special.h |  1 +
+ tools/objtool/special.c                 | 18 ++++-
+ 9 files changed, 156 insertions(+), 18 deletions(-)
+
+diff --git a/include/linux/jump_label.h b/include/linux/jump_label.h
+index 88bb6e32fdcbc..dc8a82a62c109 100644
+--- a/include/linux/jump_label.h
++++ b/include/linux/jump_label.h
+@@ -75,6 +75,7 @@
+ 
+ #include <linux/types.h>
+ #include <linux/compiler.h>
++#include <linux/objtool.h>
+ 
+ extern bool static_key_initialized;
+ 
+@@ -373,8 +374,9 @@ struct static_key_false {
+ #define DEFINE_STATIC_KEY_TRUE(name)	\
+ 	struct static_key_true name = STATIC_KEY_TRUE_INIT
+ 
+-#define DEFINE_STATIC_KEY_TRUE_RO(name)	\
+-	struct static_key_true name __ro_after_init = STATIC_KEY_TRUE_INIT
++#define DEFINE_STATIC_KEY_TRUE_RO(name)						\
++	struct static_key_true name __ro_after_init = STATIC_KEY_TRUE_INIT;	\
++	ANNOTATE_NOINSTR_ALLOWED(name)
+ 
+ #define DECLARE_STATIC_KEY_TRUE(name)	\
+ 	extern struct static_key_true name
+@@ -382,8 +384,9 @@ struct static_key_false {
+ #define DEFINE_STATIC_KEY_FALSE(name)	\
+ 	struct static_key_false name = STATIC_KEY_FALSE_INIT
+ 
+-#define DEFINE_STATIC_KEY_FALSE_RO(name)	\
+-	struct static_key_false name __ro_after_init = STATIC_KEY_FALSE_INIT
++#define DEFINE_STATIC_KEY_FALSE_RO(name)					\
++	struct static_key_false name __ro_after_init = STATIC_KEY_FALSE_INIT;	\
++	ANNOTATE_NOINSTR_ALLOWED(name)
+ 
+ /*
+  * The _NOINSTR variants are used to tell objtool the static key is allowed to
+@@ -397,10 +400,12 @@ struct static_key_false {
+  * definition with the rationale.
+  */
+ #define DEFINE_STATIC_KEY_TRUE_NOINSTR(name)					\
+-	DEFINE_STATIC_KEY_TRUE(name)
++	DEFINE_STATIC_KEY_TRUE(name);						\
++	ANNOTATE_NOINSTR_ALLOWED(name)
+ 
+ #define DEFINE_STATIC_KEY_FALSE_NOINSTR(name)					\
+-	DEFINE_STATIC_KEY_FALSE(name)
++	DEFINE_STATIC_KEY_FALSE(name);						\
++	ANNOTATE_NOINSTR_ALLOWED(name)
+ 
+ #define DECLARE_STATIC_KEY_FALSE(name)	\
+ 	extern struct static_key_false name
+diff --git a/include/linux/objtool.h b/include/linux/objtool.h
+index b3b8d3dab52d5..1a7389f273063 100644
+--- a/include/linux/objtool.h
++++ b/include/linux/objtool.h
+@@ -34,6 +34,12 @@
+ 	static void __used __section(".discard.func_stack_frame_non_standard") \
+ 		*__func_stack_frame_non_standard_##func = func
+ 
++#define __ANNOTATE_NOINSTR_ALLOWED(key) \
++	static void __used __section(".discard.noinstr_allowed") \
++		*__annotate_noinstr_allowed_##key = &key
++
++#define ANNOTATE_NOINSTR_ALLOWED(key) __ANNOTATE_NOINSTR_ALLOWED(key)
++
+ /*
+  * STACK_FRAME_NON_STANDARD_FP() is a frame-pointer-specific function ignore
+  * for the case where a function is intentionally missing frame pointer setup,
+@@ -157,6 +163,7 @@
+ #define STACK_FRAME_NON_STANDARD_FP(func)
+ #define ANNOTATE_NOENDBR
+ #define ASM_REACHABLE
++#define ANNOTATE_NOINSTR_ALLOWED(key)
+ #else
+ #define ANNOTATE_INTRA_FUNCTION_CALL
+ .macro UNWIND_HINT type:req sp_reg=0 sp_offset=0 signal=0
+diff --git a/include/linux/static_call.h b/include/linux/static_call.h
+index ea6ca57e2a829..0d4b16d348501 100644
+--- a/include/linux/static_call.h
++++ b/include/linux/static_call.h
+@@ -133,6 +133,7 @@
+ 
+ #include <linux/types.h>
+ #include <linux/cpu.h>
++#include <linux/objtool.h>
+ #include <linux/static_call_types.h>
+ 
+ #ifdef CONFIG_HAVE_STATIC_CALL
+@@ -198,6 +199,7 @@ extern long __static_call_return0(void);
+ 		.func = _func,						\
+ 		.type = 1,						\
+ 	};								\
++	ANNOTATE_NOINSTR_ALLOWED(STATIC_CALL_TRAMP(name));		\
+ 	ARCH_DEFINE_STATIC_CALL_TRAMP(name, _func)
+ 
+ #define DEFINE_STATIC_CALL_NULL(name, _func)				\
+@@ -214,6 +216,7 @@ extern long __static_call_return0(void);
+ 		.func = NULL,						\
+ 		.type = 1,						\
+ 	};								\
++	ANNOTATE_NOINSTR_ALLOWED(STATIC_CALL_TRAMP(name));		\
+ 	ARCH_DEFINE_STATIC_CALL_NULL_TRAMP(name)
+ 
+ #define DEFINE_STATIC_CALL_RET0(name, _func)				\
+diff --git a/tools/objtool/Documentation/objtool.txt b/tools/objtool/Documentation/objtool.txt
+index 7c3ee959b63c7..922d3b41541d0 100644
+--- a/tools/objtool/Documentation/objtool.txt
++++ b/tools/objtool/Documentation/objtool.txt
+@@ -447,6 +447,40 @@ the objtool maintainers.
+    names and does not use module_init() / module_exit() macros to create
+    them.
+ 
++13. file.o: warning: func()+0x2a: key: non-RO static key usage in noinstr code
++    file.o: warning: func()+0x2a: key: non-RO static call usage in noinstr code
++
++  This means that noinstr function func() uses a static key or
++  static call named 'key' which can be modified at runtime.  This is
++  discouraged because it prevents code patching IPIs from being
++  deferred.
++
++  You have the following options:
++
++  1) Check whether the static key/call in question is only modified
++     during init.  If so, define it as read-only-after-init with
++     DEFINE_STATIC_KEY_*_RO() or DEFINE_STATIC_CALL_RO().
++
++  2) Avoid the runtime patching.  For static keys this can be done by
++     using static_key_enabled() or by getting rid of the static key
++     altogether if performance is not a concern.
++
++     For static calls, something like the following could be done:
++
++       target = static_call_query(foo);
++       if (target == func1)
++	       func1();
++	else if (target == func2)
++		func2();
++	...
++
++  3) Silence the warning by defining the static key/call with
++     DEFINE_STATIC_*_NOINSTR().  This decision should not
++     be taken lightly as it may result in code patching IPIs getting
++     sent to isolated NOHZ_FULL CPUs running in pure userspace.  A
++     comment should be added above the definition explaining the
++     rationale for the decision.
++
+ 
+ If the error doesn't seem to make sense, it could be a bug in objtool.
+ Feel free to ask the objtool maintainer for help.
+diff --git a/tools/objtool/check.c b/tools/objtool/check.c
+index 6aa9259fc9940..24219538c1587 100644
+--- a/tools/objtool/check.c
++++ b/tools/objtool/check.c
+@@ -1068,6 +1068,45 @@ static int create_direct_call_sections(struct objtool_file *file)
+ 	return 0;
+ }
+ 
++static int read_noinstr_allowed(struct objtool_file *file)
++{
++	struct section *rsec;
++	struct symbol *sym;
++	struct reloc *reloc;
++
++	rsec = find_section_by_name(file->elf, ".rela.discard.noinstr_allowed");
++	if (!rsec)
++		return 0;
++
++	for_each_reloc(rsec, reloc) {
++		switch (reloc->sym->type) {
++		case STT_OBJECT:
++		case STT_FUNC:
++			sym = reloc->sym;
++			break;
++
++		case STT_SECTION:
++			sym = find_symbol_by_offset(reloc->sym->sec,
++						    reloc_addend(reloc));
++			if (!sym) {
++				WARN_FUNC("can't find static key/call symbol",
++					  reloc->sym->sec, reloc_addend(reloc));
++				return -1;
++			}
++			break;
++
++		default:
++			WARN("unexpected relocation symbol type in %s: %d",
++			     rsec->name, reloc->sym->type);
++			return -1;
++		}
++
++		sym->noinstr_allowed = 1;
++	}
++
++	return 0;
++}
++
+ /*
+  * Warnings shouldn't be reported for ignored functions.
+  */
+@@ -1955,6 +1994,8 @@ static int handle_jump_alt(struct objtool_file *file,
+ 		return -1;
+ 	}
+ 
++	orig_insn->key = special_alt->key;
++
+ 	if (opts.hack_jump_label && special_alt->key_addend & 2) {
+ 		struct reloc *reloc = insn_reloc(file, orig_insn);
+ 
+@@ -2731,6 +2772,10 @@ static int decode_sections(struct objtool_file *file)
+ 	if (ret)
+ 		return ret;
+ 
++	ret = read_noinstr_allowed(file);
++	if (ret)
++		return ret;
++
+ 	return 0;
+ }
+ 
+@@ -3494,9 +3539,9 @@ static bool pv_call_dest(struct objtool_file *file, struct instruction *insn)
+ 	return file->pv_ops[idx].clean;
+ }
+ 
+-static inline bool noinstr_call_dest(struct objtool_file *file,
+-				     struct instruction *insn,
+-				     struct symbol *func)
++static inline bool noinstr_call_allowed(struct objtool_file *file,
++					struct instruction *insn,
++					struct symbol *func)
+ {
+ 	/*
+ 	 * We can't deal with indirect function calls at present;
+@@ -3516,10 +3561,10 @@ static inline bool noinstr_call_dest(struct objtool_file *file,
+ 		return true;
+ 
+ 	/*
+-	 * If the symbol is a static_call trampoline, we can't tell.
++	 * Only DEFINE_STATIC_CALL_*_RO allowed.
+ 	 */
+ 	if (func->static_call_tramp)
+-		return true;
++		return func->noinstr_allowed;
+ 
+ 	/*
+ 	 * The __ubsan_handle_*() calls are like WARN(), they only happen when
+@@ -3532,14 +3577,29 @@ static inline bool noinstr_call_dest(struct objtool_file *file,
+ 	return false;
+ }
+ 
++static char *static_call_name(struct symbol *func)
++{
++	return func->name + strlen("__SCT__");
++}
++
+ static int validate_call(struct objtool_file *file,
+ 			 struct instruction *insn,
+ 			 struct insn_state *state)
+ {
+-	if (state->noinstr && state->instr <= 0 &&
+-	    !noinstr_call_dest(file, insn, insn_call_dest(insn))) {
+-		WARN_INSN(insn, "call to %s() leaves .noinstr.text section", call_dest_name(file, insn));
+-		return 1;
++	if (state->noinstr && state->instr <= 0) {
++		struct symbol *dest = insn_call_dest(insn);
++
++		if (dest && dest->static_call_tramp) {
++			if (!dest->noinstr_allowed) {
++				WARN_INSN(insn, "%s: non-RO static call usage in noinstr",
++					  static_call_name(dest));
++			}
++
++		} else if (dest && !noinstr_call_allowed(file, insn, dest)) {
++			WARN_INSN(insn, "call to %s() leaves .noinstr.text section",
++				  call_dest_name(file, insn));
++			return 1;
++		}
+ 	}
+ 
+ 	if (state->uaccess && !func_uaccess_safe(insn_call_dest(insn))) {
+@@ -3604,6 +3664,17 @@ static int validate_return(struct symbol *func, struct instruction *insn, struct
+ 	return 0;
+ }
+ 
++static int validate_static_key(struct instruction *insn, struct insn_state *state)
++{
++	if (state->noinstr && state->instr <= 0 && !insn->key->noinstr_allowed) {
++		WARN_INSN(insn, "%s: non-RO static key usage in noinstr",
++			  insn->key->name);
++		return 1;
++	}
++
++	return 0;
++}
++
+ static struct instruction *next_insn_to_validate(struct objtool_file *file,
+ 						 struct instruction *insn)
+ {
+@@ -3765,6 +3836,9 @@ static int validate_branch(struct objtool_file *file, struct symbol *func,
+ 		if (handle_insn_ops(insn, next_insn, &state))
+ 			return 1;
+ 
++		if (insn->key)
++			validate_static_key(insn, &state);
++
+ 		switch (insn->type) {
+ 
+ 		case INSN_RETURN:
+diff --git a/tools/objtool/include/objtool/check.h b/tools/objtool/include/objtool/check.h
+index daa46f1f0965a..c0da7246eac7b 100644
+--- a/tools/objtool/include/objtool/check.h
++++ b/tools/objtool/include/objtool/check.h
+@@ -77,6 +77,7 @@ struct instruction {
+ 	struct symbol *sym;
+ 	struct stack_op *stack_ops;
+ 	struct cfi_state *cfi;
++	struct symbol *key;
+ };
+ 
+ static inline struct symbol *insn_func(struct instruction *insn)
+diff --git a/tools/objtool/include/objtool/elf.h b/tools/objtool/include/objtool/elf.h
+index d7e815c2fd156..0cb79931262bb 100644
+--- a/tools/objtool/include/objtool/elf.h
++++ b/tools/objtool/include/objtool/elf.h
+@@ -69,6 +69,7 @@ struct symbol {
+ 	u8 embedded_insn     : 1;
+ 	u8 local_label       : 1;
+ 	u8 frame_pointer     : 1;
++	u8 noinstr_allowed   : 1;
+ 	struct list_head pv_target;
+ 	struct reloc *relocs;
+ };
+diff --git a/tools/objtool/include/objtool/special.h b/tools/objtool/include/objtool/special.h
+index 86d4af9c5aa9d..ce4759358ec48 100644
+--- a/tools/objtool/include/objtool/special.h
++++ b/tools/objtool/include/objtool/special.h
+@@ -20,6 +20,7 @@ struct special_alt {
+ 	bool skip_alt;
+ 	bool jump_or_nop;
+ 	u8 key_addend;
++	struct symbol *key;
+ 
+ 	struct section *orig_sec;
+ 	unsigned long orig_off;
+diff --git a/tools/objtool/special.c b/tools/objtool/special.c
+index 097a69db82a0e..982d5cb55e1bb 100644
+--- a/tools/objtool/special.c
++++ b/tools/objtool/special.c
+@@ -119,14 +119,26 @@ static int get_alt_entry(struct elf *elf, const struct special_entry *entry,
+ 
+ 	if (entry->key) {
+ 		struct reloc *key_reloc;
++		struct symbol *key;
++		s64 key_addend;
+ 
+ 		key_reloc = find_reloc_by_dest(elf, sec, offset + entry->key);
+ 		if (!key_reloc) {
+-			WARN_FUNC("can't find key reloc",
+-				  sec, offset + entry->key);
++			WARN_FUNC("can't find key reloc", sec, offset + entry->key);
+ 			return -1;
+ 		}
+-		alt->key_addend = reloc_addend(key_reloc);
++
++		key = key_reloc->sym;
++		key_addend = reloc_addend(key_reloc);
++
++		if (key->type == STT_SECTION)
++			key = find_symbol_by_offset(key->sec, key_addend & ~3);
++
++		/* embedded keys not supported */
++		if (key) {
++			alt->key = key;
++			alt->key_addend = key_addend;
++		}
+ 	}
+ 
+ 	return 0;
+-- 
+2.43.0
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
