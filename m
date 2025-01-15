@@ -4,98 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DB879C02180
-	for <linux-riscv@archiver.kernel.org>; Wed, 15 Jan 2025 21:34:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4CDE0C02180
+	for <linux-riscv@archiver.kernel.org>; Wed, 15 Jan 2025 21:56:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=t4q3oJP8f59yv8RH9OK3MDfQOT4uc8gXvGvedtr47yY=; b=YxoCDR2BvqmXxX
-	smeaC39UByZkNXeDUakXMjDKkrN9neX6VCDZMd3b/a6B65y96CcYNeKCwR0XcV+jUpWRCaTsuMULS
-	7iS+2mRc8PyxWxSEvlmd/NBINSoZ0hI4AYPz27Sd4ktG5L0YIcTQcIvkmRI5LwdWCgZ7Uiz/f+79x
-	J8lu0LmbvC1eHYeo8VQYk7x0dmn60ry0W7S8SNM8tFpnw23lZQyrhVngryF0AYpGRzbvzsd5AEH+U
-	ZMuGFtrCfvF1lUoZizZEuw8v+69G5HCbTe8bqyQEaBX43OAOazpLBjYDxngH5LqCr6ZNfhtsax/LX
-	+fOC6KDqhuKldfqmJOvQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:To:Subject:MIME-Version:
+	Date:Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=h9NW71NcfA0rt/ziCCWyzq+//V08P3y/Gh2lXNokkFY=; b=O40R9MffM22WwgWCah3olvDICZ
+	ZCfQxw7gjp/dt3+sfa1KnjXeGBajZg7RzH+w78z9w8WLA5DSLPdlxxLW/Cciwjc1fNxN1gSJPx/ud
+	7JrU1nZ6VDQqQIXvXQMyZJ/V94pp2nVGlPvooBnK4auP9hY7Xh4fsO+aTr9ri7TR3BcCLwm1sauns
+	tVxDGDqhy6xQVRJvGchujmsXSYb5t+vmJyY+Tub93VXKihVOd9PxMKeviRgXx5dartgByWOmtETyX
+	qStPmg9zbGwS4AEtD4JeNdTzSaFxJVew15AsrMm1yicnjolD2IHO7uLMYbOuDvU+/YShfh50corwp
+	OwArcc0Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tYB1t-0000000DAwI-1WJ1;
-	Wed, 15 Jan 2025 21:34:25 +0000
-Received: from mail-pl1-x630.google.com ([2607:f8b0:4864:20::630])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tYB1q-0000000DAva-3tZc
+	id 1tYBNE-0000000DCda-22Hf;
+	Wed, 15 Jan 2025 21:56:28 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tYBNB-0000000DCd9-3Qep
 	for linux-riscv@lists.infradead.org;
-	Wed, 15 Jan 2025 21:34:24 +0000
-Received: by mail-pl1-x630.google.com with SMTP id d9443c01a7336-2165448243fso4186425ad.1
-        for <linux-riscv@lists.infradead.org>; Wed, 15 Jan 2025 13:34:22 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1736976862; x=1737581662; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=XVmYZuo4JztFy4oHdJS4ilSyh+oEt0DgqkgC+LTjKe0=;
-        b=CNZqaHSFqSH6ewFUiqICb/zEkklMOv6AvPZz9hEenH+1djTGYUW2W4iVy6h/u1Tad5
-         s/3FWbUWvpB2P4VG/qZpRmdtYUq/WJgupsH9FSu4yFPdukOib6mZiDE+PUdTE0nHQ/1w
-         vt/Wpy+S6/ngj/MbTLCz5foRco3dqBN8GYb0gzzksQxeyqUmDhyli3oyRRgY0cVOh6Lx
-         hWizaVbBwyYL52tq1wu6AAHWPuMBMqVJwEs6/fkxjwF0SaBapJlY3NNXXqgE8VAtm8y/
-         15VFpwIe6CTdNzib+VnPOB/kGG9wgaBCRgOViOwOxc9tVxsUmQB1cPJsIMSVmmjBm0X5
-         bHhg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1736976862; x=1737581662;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=XVmYZuo4JztFy4oHdJS4ilSyh+oEt0DgqkgC+LTjKe0=;
-        b=OMLD9yHkGqGjFK5Zj3SU2EKd15AEaNEeXNTy24ArplaK+E/8HsZyJ/dyI4rdO13aMY
-         yjiHXHNc11+m13Rz5/pNMRndtKpwiWn1NtJ6zGt8HbtUbgNMeuqBQ+UBm0mmP1o7kRZ8
-         MPC/3Cn3l9uGmyP+ogjulVWpCIkwdg8iciskzz8s4NHZbPs2WE1K5LsBtGs9v3rH8x4j
-         Tu0SyH3Uot5KZdfd+ypcQCSly7tz6c5q+OFv/h+iabaoaVZ5AAY7TBuZjOa6U1tWVSS3
-         iL08BpcWT7sMVlnc0DndKeA/O+znJPEmlJja0EkQm9T+/yXblQOHc+5LOe26HuhCnzzX
-         M+dg==
-X-Forwarded-Encrypted: i=1; AJvYcCVFjrqs+cW0J0FrlwHj3VlwWUN6bA042/jLrTI7X/PMIBgFSG3oQ7T5GeEdtkYkkh0vy8jMmkfGD7ADfg==@lists.infradead.org
-X-Gm-Message-State: AOJu0YwJogk7YRi1AyRFC8qXkJzalmTfkDf0q86LEe7IWPJJTG+2JVD7
-	aU6tWTUeRl5B7a0vIfPGCcFWkZ5/PURnsiktZYxqt5JAhDvJGthFDZ7WG+jBrJs=
-X-Gm-Gg: ASbGncvLPrEGv1xaQx+oKBJMlhhSSvzO9xDUilNDNZUzV8wrP5wXma+uUjej7X2oAEO
-	JZBCttE6moc4HYcWogHHYaq3m/8Q5wmbPhN5LJm5hnCTh4gx1lyPtuGPVs5i2adA9FbWVsQXwqi
-	KpI4sh7drrNMbAkHDQrlbi57YJvZE/ySZ9rzzvLP2NtcBE27iEHrW4zJmLwo84oHhSmjyvbTWv+
-	yUFlCtNa+ddkKpg8Q/wjj2u7lJzBF/KzypRFNre2wTRvbA=
-X-Google-Smtp-Source: AGHT+IEFFmZNaH6UqZPYmMZlBbhtp2FzCX0zJ/bThZgticWcSW23VRr/5H6Ff6GcPQSKFDKM32goTg==
-X-Received: by 2002:a17:903:2311:b0:216:4724:2757 with SMTP id d9443c01a7336-21a83f46a3fmr512059935ad.4.1736976862005;
-        Wed, 15 Jan 2025 13:34:22 -0800 (PST)
-Received: from ghost ([50.145.13.30])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-21a9f25c927sm87197555ad.228.2025.01.15.13.34.19
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 15 Jan 2025 13:34:21 -0800 (PST)
-Date: Wed, 15 Jan 2025 13:34:17 -0800
-From: Charlie Jenkins <charlie@rivosinc.com>
-To: Celeste Liu <uwu@coelacanthus.name>
-Cc: Oleg Nesterov <oleg@redhat.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Eric Biederman <ebiederm@xmission.com>, Kees Cook <kees@kernel.org>,
-	Shuah Khan <shuah@kernel.org>, Albert Ou <aou@eecs.berkeley.edu>,
-	Alexandre Ghiti <alex@ghiti.fr>, "Dmitry V. Levin" <ldv@strace.io>,
-	Andrea Bolognani <abologna@redhat.com>,
-	=?iso-8859-1?Q?Bj=F6rn_T=F6pel?= <bjorn@kernel.org>,
-	Thomas Gleixner <tglx@linutronix.de>, Ron Economos <re@w6rz.net>,
-	Andrew Jones <ajones@ventanamicro.com>,
-	Quan Zhou <zhouquan@iscas.ac.cn>,
-	Felix Yan <felixonmars@archlinux.org>,
-	Ruizhe Pan <c141028@gmail.com>, Guo Ren <guoren@kernel.org>,
-	Yao Zi <ziyao@disroot.org>, linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org, linux-mm@kvack.org,
-	linux-kselftest@vger.kernel.org
-Subject: Re: [PATCH v6 2/3] tools: copy include/linux/stddef.h to
- tools/include
-Message-ID: <Z4gp2f-wQwLPCaO1@ghost>
-References: <20250115-riscv-new-regset-v6-0-59bfddd33525@coelacanthus.name>
- <20250115-riscv-new-regset-v6-2-59bfddd33525@coelacanthus.name>
+	Wed, 15 Jan 2025 21:56:27 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 5E3C811FB;
+	Wed, 15 Jan 2025 13:56:53 -0800 (PST)
+Received: from [10.57.4.211] (unknown [10.57.4.211])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id E85C93F673;
+	Wed, 15 Jan 2025 13:56:22 -0800 (PST)
+Message-ID: <6301d20b-d51d-4f96-94ea-134e065d398e@arm.com>
+Date: Wed, 15 Jan 2025 21:56:21 +0000
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20250115-riscv-new-regset-v6-2-59bfddd33525@coelacanthus.name>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 2/2] iommu/riscv: support HPM and interrupt handling
+To: Zong Li <zong.li@sifive.com>, joro@8bytes.org, will@kernel.org,
+ tjeznach@rivosinc.com, paul.walmsley@sifive.com, palmer@dabbelt.com,
+ aou@eecs.berkeley.edu, luxu.kernel@bytedance.com,
+ linux-kernel@vger.kernel.org, iommu@lists.linux.dev,
+ linux-riscv@lists.infradead.org
+References: <20250115030306.29735-1-zong.li@sifive.com>
+ <20250115030306.29735-3-zong.li@sifive.com>
+From: Robin Murphy <robin.murphy@arm.com>
+Content-Language: en-GB
+In-Reply-To: <20250115030306.29735-3-zong.li@sifive.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250115_133422_970562_012A5FA9 
-X-CRM114-Status: GOOD (  25.89  )
+X-CRM114-CacheID: sfid-20250115_135625_949683_3486D1FB 
+X-CRM114-Status: GOOD (  25.20  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,139 +62,140 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jan 15, 2025 at 07:13:28PM +0800, Celeste Liu wrote:
-> Some macro defined in stddef.h are useful and have been used in many
-> code in selftests. Copy them to tools/include so developers needn't
-> create their copy in every files.
+On 2025-01-15 3:03 am, Zong Li wrote:
+> Initialize the PMU and uninitialize it when driver is removed.
+> Interrupt handling is also implemented, and the handler needs
+> to be a primary handler instead of a threaded function because
+> pt_regs is empty when threading the IRQ. However, pt_regs is
+> required by perf_event_overflow.
 > 
-> Remove some definitions like NULL and true/false to be suitable to
-> non-kernel environment.
-> 
-> Signed-off-by: Celeste Liu <uwu@coelacanthus.name>
-
-Reviewed-by: Charlie Jenkins <charlie@rivosinc.com>
-Tested-by: Charlie Jenkins <charlie@rivosinc.com>
-
+> Signed-off-by: Zong Li <zong.li@sifive.com>
+> Tested-by: Xu Lu <luxu.kernel@bytedance.com>
 > ---
->  tools/include/linux/stddef.h      | 85 +++++++++++++++++++++++++++++++++++++++
->  tools/include/uapi/linux/stddef.h |  6 +--
->  2 files changed, 87 insertions(+), 4 deletions(-)
+>   drivers/iommu/riscv/iommu.c | 65 +++++++++++++++++++++++++++++++++++++
+>   1 file changed, 65 insertions(+)
 > 
-> diff --git a/tools/include/linux/stddef.h b/tools/include/linux/stddef.h
-> new file mode 100644
-> index 0000000000000000000000000000000000000000..55f3964d9a3d9f9f9345a75248eec027c56faef9
-> --- /dev/null
-> +++ b/tools/include/linux/stddef.h
-> @@ -0,0 +1,85 @@
-> +/* SPDX-License-Identifier: GPL-2.0 */
-> +#ifndef _LINUX_STDDEF_H
-> +#define _LINUX_STDDEF_H
-> +
-> +#include <uapi/linux/stddef.h>
-> +
-> +/**
-> + * sizeof_field() - Report the size of a struct field in bytes
-> + *
-> + * @TYPE: The structure containing the field of interest
-> + * @MEMBER: The field to return the size of
+> diff --git a/drivers/iommu/riscv/iommu.c b/drivers/iommu/riscv/iommu.c
+> index 8a05def774bd..20ae90471484 100644
+> --- a/drivers/iommu/riscv/iommu.c
+> +++ b/drivers/iommu/riscv/iommu.c
+> @@ -552,6 +552,62 @@ static irqreturn_t riscv_iommu_fltq_process(int irq, void *data)
+>   	return IRQ_HANDLED;
+>   }
+>   
+> +/*
+> + * IOMMU Hardware performance monitor
 > + */
-> +#define sizeof_field(TYPE, MEMBER) sizeof((((TYPE *)0)->MEMBER))
 > +
-> +/**
-> + * offsetofend() - Report the offset of a struct field within the struct
-> + *
-> + * @TYPE: The type of the structure
-> + * @MEMBER: The member within the structure to get the end offset of
-> + */
-> +#define offsetofend(TYPE, MEMBER) \
-> +	(offsetof(TYPE, MEMBER)	+ sizeof_field(TYPE, MEMBER))
+> +/* HPM interrupt primary handler */
+> +static irqreturn_t riscv_iommu_hpm_irq_handler(int irq, void *dev_id)
+> +{
+> +	struct riscv_iommu_device *iommu = (struct riscv_iommu_device *)dev_id;
 > +
-> +/**
-> + * struct_group() - Wrap a set of declarations in a mirrored struct
-> + *
-> + * @NAME: The identifier name of the mirrored sub-struct
-> + * @MEMBERS: The member declarations for the mirrored structs
-> + *
-> + * Used to create an anonymous union of two structs with identical
-> + * layout and size: one anonymous and one named. The former can be
-> + * used normally without sub-struct naming, and the latter can be
-> + * used to reason about the start, end, and size of the group of
-> + * struct members.
-> + */
-> +#define struct_group(NAME, MEMBERS...)	\
-> +	__struct_group(/* no tag */, NAME, /* no attrs */, MEMBERS)
+> +	/* Clear performance monitoring interrupt pending */
+> +	riscv_iommu_writel(iommu, RISCV_IOMMU_REG_IPSR, RISCV_IOMMU_IPSR_PMIP);
 > +
-> +/**
-> + * struct_group_attr() - Create a struct_group() with trailing attributes
-> + *
-> + * @NAME: The identifier name of the mirrored sub-struct
-> + * @ATTRS: Any struct attributes to apply
-> + * @MEMBERS: The member declarations for the mirrored structs
-> + *
-> + * Used to create an anonymous union of two structs with identical
-> + * layout and size: one anonymous and one named. The former can be
-> + * used normally without sub-struct naming, and the latter can be
-> + * used to reason about the start, end, and size of the group of
-> + * struct members. Includes structure attributes argument.
-> + */
-> +#define struct_group_attr(NAME, ATTRS, MEMBERS...) \
-> +	__struct_group(/* no tag */, NAME, ATTRS, MEMBERS)
+> +	/* Process pmu irq */
+> +	riscv_iommu_pmu_handle_irq(&iommu->pmu);
 > +
-> +/**
-> + * struct_group_tagged() - Create a struct_group with a reusable tag
-> + *
-> + * @TAG: The tag name for the named sub-struct
-> + * @NAME: The identifier name of the mirrored sub-struct
-> + * @MEMBERS: The member declarations for the mirrored structs
-> + *
-> + * Used to create an anonymous union of two structs with identical
-> + * layout and size: one anonymous and one named. The former can be
-> + * used normally without sub-struct naming, and the latter can be
-> + * used to reason about the start, end, and size of the group of
-> + * struct members. Includes struct tag argument for the named copy,
-> + * so the specified layout can be reused later.
-> + */
-> +#define struct_group_tagged(TAG, NAME, MEMBERS...) \
-> +	__struct_group(TAG, NAME, /* no attrs */, MEMBERS)
+> +	return IRQ_HANDLED;
+> +}
 > +
-> +/**
-> + * DECLARE_FLEX_ARRAY() - Declare a flexible array usable in a union
-> + *
-> + * @TYPE: The type of each flexible array element
-> + * @NAME: The name of the flexible array member
-> + *
-> + * In order to have a flexible array member in a union or alone in a
-> + * struct, it needs to be wrapped in an anonymous struct with at least 1
-> + * named member, but that member can be empty.
-> + */
-> +#define DECLARE_FLEX_ARRAY(TYPE, NAME) \
-> +	__DECLARE_FLEX_ARRAY(TYPE, NAME)
+> +/* HPM initialization */
+> +static int riscv_iommu_hpm_enable(struct riscv_iommu_device *iommu)
+> +{
+> +	int rc;
 > +
-> +#endif
-> diff --git a/tools/include/uapi/linux/stddef.h b/tools/include/uapi/linux/stddef.h
-> index bb6ea517efb51177a7983fadad9b590b12b786e5..f2548fd95f6e1d8cb218d52918bb81a3317d10b1 100644
-> --- a/tools/include/uapi/linux/stddef.h
-> +++ b/tools/include/uapi/linux/stddef.h
-> @@ -1,8 +1,6 @@
->  /* SPDX-License-Identifier: GPL-2.0 WITH Linux-syscall-note */
-> -#ifndef _LINUX_STDDEF_H
-> -#define _LINUX_STDDEF_H
-> -
-> -
-> +#ifndef _UAPI_LINUX_STDDEF_H
-> +#define _UAPI_LINUX_STDDEF_H
->  
->  #ifndef __always_inline
->  #define __always_inline __inline__
-> 
-> -- 
-> 2.48.0
-> 
+> +	if (!(iommu->caps & RISCV_IOMMU_CAPABILITIES_HPM))
+> +		return 0;
+> +
+> +	/*
+> +	 * pt_regs is empty when threading the IRQ, but pt_regs is necessary
+> +	 * by perf_event_overflow. Use primary handler instead of thread
+> +	 * function for PM IRQ.
+> +	 *
+> +	 * Set the IRQF_ONESHOT flag because this IRQ might be shared with
+> +	 * other threaded IRQs by other queues.
+> +	 */
+> +	rc = devm_request_irq(iommu->dev,
+> +			      iommu->irqs[riscv_iommu_queue_vec(iommu, RISCV_IOMMU_IPSR_PMIP)],
+> +			      riscv_iommu_hpm_irq_handler, IRQF_ONESHOT | IRQF_SHARED, NULL, iommu);
+
+Hmm, shared interrupts are tricky for PMUs, since perf requires any IRQ 
+handler touching a PMU is running on pmu->cpu, so you have to be very 
+careful about maintaining affinity and not letting anyone else change it 
+behind your back.
+
+The other thing is that if it really is shared, at this point you could 
+now be in riscv_iommu_pmu_handle_irq() dereferencing NULL.
+
+> +	if (rc)
+> +		return rc;
+> +
+> +	return riscv_iommu_pmu_init(&iommu->pmu, iommu->reg, dev_name(iommu->dev));
+> +}
+> +
+> +/* HPM uninitialization */
+> +static void riscv_iommu_hpm_disable(struct riscv_iommu_device *iommu)
+> +{
+> +	if (!(iommu->caps & RISCV_IOMMU_CAPABILITIES_HPM))
+> +		return;
+> +
+> +	devm_free_irq(iommu->dev,
+> +		      iommu->irqs[riscv_iommu_queue_vec(iommu, RISCV_IOMMU_IPSR_PMIP)],
+> +		      iommu);
+> +
+> +	riscv_iommu_pmu_uninit(&iommu->pmu);
+> +}
+> +
+>   /* Lookup and initialize device context info structure. */
+>   static struct riscv_iommu_dc *riscv_iommu_get_dc(struct riscv_iommu_device *iommu,
+>   						 unsigned int devid)
+> @@ -1596,6 +1652,9 @@ void riscv_iommu_remove(struct riscv_iommu_device *iommu)
+>   	riscv_iommu_iodir_set_mode(iommu, RISCV_IOMMU_DDTP_IOMMU_MODE_OFF);
+>   	riscv_iommu_queue_disable(&iommu->cmdq);
+>   	riscv_iommu_queue_disable(&iommu->fltq);
+> +
+> +	if (iommu->caps & RISCV_IOMMU_CAPABILITIES_HPM)
+> +		riscv_iommu_pmu_uninit(&iommu->pmu);
+>   }
+>   
+>   int riscv_iommu_init(struct riscv_iommu_device *iommu)
+> @@ -1635,6 +1694,10 @@ int riscv_iommu_init(struct riscv_iommu_device *iommu)
+>   	if (rc)
+>   		goto err_queue_disable;
+>   
+> +	rc = riscv_iommu_hpm_enable(iommu);
+> +	if (rc)
+> +		goto err_hpm_disable;
+> +
+
+I would leave this until after the whole IOMMU setup has succeeded. The 
+PMU is not critical to IOMMU operation, so at that point an error is not 
+fatal, it just means you don't get a PMU, thus there shouldn't need to 
+be any cleanup outside riscv_iommu_hpm_enable() itself.
+
+Thanks,
+Robin.
+
+>   	rc = iommu_device_sysfs_add(&iommu->iommu, NULL, NULL, "riscv-iommu@%s",
+>   				    dev_name(iommu->dev));
+>   	if (rc) {
+> @@ -1653,6 +1716,8 @@ int riscv_iommu_init(struct riscv_iommu_device *iommu)
+>   err_remove_sysfs:
+>   	iommu_device_sysfs_remove(&iommu->iommu);
+>   err_iodir_off:
+> +	riscv_iommu_hpm_disable(iommu);
+> +err_hpm_disable:
+>   	riscv_iommu_iodir_set_mode(iommu, RISCV_IOMMU_DDTP_IOMMU_MODE_OFF);
+>   err_queue_disable:
+>   	riscv_iommu_queue_disable(&iommu->fltq);
+
 
 _______________________________________________
 linux-riscv mailing list
