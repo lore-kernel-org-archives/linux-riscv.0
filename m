@@ -4,69 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 34522C02185
-	for <linux-riscv@archiver.kernel.org>; Wed, 15 Jan 2025 03:45:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 51588C02180
+	for <linux-riscv@archiver.kernel.org>; Wed, 15 Jan 2025 03:46:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=NeX+mOZBMwnKNM7QGK8AMqWy9CQ4ySHgzzHu/CwJbag=; b=JO1v1/oRgewCGs
-	c8FyF+z/rmS7llbC0aJZfK5IjVoFfzpMNOOzvwg9CGY4WZpqd2OQTFVn8O7xKbV4XJPEPl3VLYviW
-	uZSpG+tc3fOx25G9TqjAIO731JKvLjvzBlxiick1PLQuAHYm3RlbVMXJUMJODTPUwsdyvoQ5pTecW
-	yurII7Yz25IyAYVtQX9JPX4Ptl9a+YDKzvD6NDJlE/N7OgPEpp0CD4QPTXyxuH/iOijIRutvL8jE3
-	f55fj/44gG/2twH7P6gsDQtIzJwwjbRAig9BTBL4OYhBo3ktoqBPyKq3lAU3Hr0YsgEPvawcc4pYE
-	A6Rmqabr0OVv8/uI0jeg==;
+	List-Owner; bh=fd1/t5mDbPeQHy7a34ZmiJQgf3d109cpb7K2UxPoLCE=; b=U/yMzEDP9zY69D
+	ICQP5Irx7Wu6vZcN60BP1KJEBAFqK/oJluHVqlrFqG/jqz1sPc78vwtG77j2EC5n+SHPfROLnIn/e
+	pvvBF1a5CR0wrTcIlG4jb2jw1Dmr2s0F8XN2d5bFmVKCDO3n8V2pZDU7IRmOCA1rDdJA63CNg2QsM
+	gDBCmsHcLmMGj5nlVDY9JzSiWBTYPc49H/gPFSW0FkanlAUy6LRP4E3kLx0zQ4s4Zzi5fZQKR28PL
+	00fH5GZ7osrhv2Uvty6NIudCGSxKoHb2L3z3ZwGkyXem5sOMUA9aGxLAZ1lFZooVYL8WQ2up+v6hr
+	mnP/QHSeNki8QcT2GOlA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXuL5-0000000AXnm-0Ys9;
-	Wed, 15 Jan 2025 03:45:07 +0000
-Received: from mail-pl1-x62b.google.com ([2607:f8b0:4864:20::62b])
+	id 1tXuMO-0000000AY5d-1njc;
+	Wed, 15 Jan 2025 03:46:28 +0000
+Received: from mail-pj1-x1031.google.com ([2607:f8b0:4864:20::1031])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXuF2-0000000AWk1-1DMR;
-	Wed, 15 Jan 2025 03:38:53 +0000
-Received: by mail-pl1-x62b.google.com with SMTP id d9443c01a7336-21654fdd5daso106217445ad.1;
-        Tue, 14 Jan 2025 19:38:52 -0800 (PST)
+	id 1tXuF8-0000000AWmB-2abJ;
+	Wed, 15 Jan 2025 03:38:59 +0000
+Received: by mail-pj1-x1031.google.com with SMTP id 98e67ed59e1d1-2efe25558ddso7823860a91.2;
+        Tue, 14 Jan 2025 19:38:58 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1736912331; x=1737517131; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1736912338; x=1737517138; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=bGaU/+TE2oGF3eimQ2KnLuagLzu4AwU2TBvptcVR7ws=;
-        b=Zvl78yW5skM/SqotXWtTUUPIXDO/nezMZ92d7TcC9LyeO0fWcs3I2vtI0Y9u/TJmQE
-         khKd59z6SHBL6kN2MhtmrFhIxRt6u/OFCkIpbfqo0i6CqMTOzjQL3e++M4yZlls7ABse
-         DwRsmh7QhNlmP8OGp0UuD78+bETjAfoLGcep8r1OgmixMOy+pgIJkLgk2AgEEQ11uX1E
-         KhVDg5YnolKjlwkxNjUhrQd681uX/opJeDHQJOBEZEKQOku30uaunMVzglfsKWFh2da3
-         eO35sm2iJwfdjqQZckO2C3D41294/yX1xCnMRMDoQnVDlyLH6PHWryM99yWj23P1R4m3
-         fU0Q==
+        bh=9d8u+VrD2ONy4imzNddIFq+dSgSLZFsyXGu9GrVZVD8=;
+        b=lfMiFfyw3pqm4eeuZ7/Bl9BsdY09hePh89KR160uYEX+dK1ipMDJQVZBJVjWy5UBKK
+         ALIKGVAeZpvYqmBxNL1DpP9Eqj9yBLo4j7p7czMlL29DGzCxoedWk4sezp6zAYGAptYa
+         tK0vcdGEOApBH/WgdaKX2SJ3fPAjDbqGaye6dptA6SJNZyVk6v7F5GMw3xiep3ygqyJE
+         cTej8h0yrm1/Z1P7CFbNtjuM1vRhNaxi8O135b/iqTaXJJGNaHZn091ljeUUCkztSvJM
+         u1rzcu+xk1HxCX3sxhYpRiHf9SMh7aJ9/91IWIG1WsXpDq3CFHJyRJw9gI1W1dL1w0Yy
+         ymGQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1736912331; x=1737517131;
+        d=1e100.net; s=20230601; t=1736912338; x=1737517138;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=bGaU/+TE2oGF3eimQ2KnLuagLzu4AwU2TBvptcVR7ws=;
-        b=dX93hyV39CIjIOnfWAcs/4nRSr4N1U84MbBt0p+5BtsbOvy8w4HiR7fIrWWlEcIsHd
-         EJyN8yo7GYQxYz/GW6D27GLdE4MIEN1Mh3MmHeov93ezs69jRqF8szhiHx8MFBCmcMQ1
-         7Mf2cH70sdtfBjCmr3Nzu9h5D058c+8bWfZSxKUbBYKL0HnQRhJTc8HulhIax5DdQKYN
-         kGOZfvonmjrp3Gsl/aT0IvFmdCIaZrz61+gF8pDwbQLlGpvKg6hdY5Xa/4tyrdvek/o7
-         KbbgjNV8vB4etPUBdiLMvfBtR4PIR0FXNgq4jd6zeSzxVEdX73XWar337Ce9BwSeIuN8
-         UhtQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUoj7hxkpqvgg6gwKWsr8z9SEotYzfQrVMTPWsCabz9ukiY1LXon9Ec+LAO/LdcCiPWe/+DnRSztvOAfy6ER5c3@lists.infradead.org, AJvYcCVg71+9Urjgcvpr89+aVOc45AwQZZY5lxLdqORCEN7biSIjfJlg1v5uBlN2RTZIYgypMaprMr4bWnweubU=@lists.infradead.org
-X-Gm-Message-State: AOJu0YzfY49KWhP+4P2D3idDQzWcRMfXQYpi/fh0UZzFNq+SM3/ltGn0
-	NGm7C/AEK/bzWxkxL6uXJznz+k0PBcqNTE/c5fitwlNnkB8S3WyI
-X-Gm-Gg: ASbGnctgktpoDqqv64vMRzgqgkyk2XOgg0/5DPCZjAZxhC9USYkbDvhsQHk4ft/J7Iu
-	XZIce2q5bw085OjM6opv6x3dqU4+IlguaRHlhBg+U8rOu7BLXCZ+08rpWgDmTS394ztTS0A5dn6
-	7wD+CPH8JFjucNACPNRgmdVv4Q/oy/ijRG9RObh8CnKH3ytbu/hsfemPdCoU3UurrxnwR2VGHDG
-	/hgPi5FGVaSnTuvW1lBPkDLPrOHTYbWrHMh+FdxVBjOtx2eS6Pq31psvYLyES7DRL84n/4Rvo0G
-	QeXH3J5P
-X-Google-Smtp-Source: AGHT+IEqw72Wem1/NpwpTk58spR/v0PCzoGmmngV+d3HWDRVCCL9vc8Xbq25OJt+gLxiUfAdXr2j8w==
-X-Received: by 2002:a17:902:f644:b0:212:40e0:9562 with SMTP id d9443c01a7336-21a83f69651mr417875835ad.25.1736912331517;
-        Tue, 14 Jan 2025 19:38:51 -0800 (PST)
+        bh=9d8u+VrD2ONy4imzNddIFq+dSgSLZFsyXGu9GrVZVD8=;
+        b=EeYFRtNBt2zxkch2pPuguIvaOk6H96ooEnQHxTzzaihUjvwCuLg55o8s4YtbTdpTN0
+         SzEukXYLbYePlkBFvYVO42GjzwkaOEIvQDbEjBXfaWSB1ISLMGLDwHmTn2TQQt6V2lCK
+         8upd5BpIbxsaBSW/kDDEUss6s9/lbnSP/u4FpHaZVHgvLa0Ws8ZrOHCrEhLnaRn6mX7C
+         oNkxozbZyFBd2lI3+JEEMm1J4pb1OQpD6UgYw/U8d1hXsna0JqV2a6TWLpYXNurytXvp
+         OIVVnddZbSzw7YxH9IqlRYV+US7vZgd8Z7d/beoZSCYGl0ZrCIL9biOiD6spFEvCUOCJ
+         zOpA==
+X-Forwarded-Encrypted: i=1; AJvYcCUJkz71NeuYXPx4v3ZAws7v7afybjwJ26n+7kQnI/57cFdHXgw6w5PZ5XjOlqmJbRt4aq04mjMLrmenKDRAJcrB@lists.infradead.org, AJvYcCXLUGHO7N86cLSrXLyx7jM61fEZA1o2fahcEAxdRFr+U+TdcCdqI3iAe7dIHCnODUoCObnVEBYSpll6Q3g=@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywz/mV3CDQhekQ/sV9GjGoN7AdlyEEH9iEbkI2dkOQGaqmCOtlL
+	W40aefphmVBwkFvknju6pohUCh/vpv6w1xTFNxfVcwXw+nLFBDa3
+X-Gm-Gg: ASbGnctmz0uo0HGPbPHp8igSmQ0FLJHpfpRYsbzKjyAiwptH0mPyWJxcOM5cIvic9Xx
+	iYJd8s0N++VYiOyCL2AkWh8czZnjbM4iosfQncTVMKBauaClE8FYzzAdJ780siSgHXj4Dy/l6WM
+	TCeSUp0yOjAj95SgpcbXTq3x0Ip6UJSxFac3YpVOsuDF/mJt3g8ye/p3o7EeHUAv2CTlzRZA9J8
+	MN7o+6JteETZp68pfeKYr9AGfQe38PfgdRx3cEYxOY4jIaJqNHU8c8bqhezGYqmJWTVZn460mBD
+	NgCxHqDF
+X-Google-Smtp-Source: AGHT+IEgu9NCoDqW1LR96/MyezmmdQXkL7jxU3Tb2bYXbRgZkZZNqA2mJFSkzEeWX1OvoHRYK4gZ3A==
+X-Received: by 2002:a17:90b:2f4e:b0:2ee:f550:3848 with SMTP id 98e67ed59e1d1-2f548e98ea9mr36383031a91.5.1736912337886;
+        Tue, 14 Jan 2025 19:38:57 -0800 (PST)
 Received: from Barrys-MBP.hub ([2407:7000:af65:8200:e5d5:b870:ca9b:78f8])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-21a9f10dffbsm73368195ad.49.2025.01.14.19.38.45
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-21a9f10dffbsm73368195ad.49.2025.01.14.19.38.51
         (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Tue, 14 Jan 2025 19:38:51 -0800 (PST)
+        Tue, 14 Jan 2025 19:38:57 -0800 (PST)
 From: Barry Song <21cnbao@gmail.com>
 To: akpm@linux-foundation.org,
 	linux-mm@kvack.org
@@ -85,16 +85,16 @@ Cc: 21cnbao@gmail.com,
 	x86@kernel.org,
 	ying.huang@intel.com,
 	zhengtangquan@oppo.com
-Subject: [PATCH v3 3/4] mm: Support batched unmap for lazyfree large folios during reclamation
-Date: Wed, 15 Jan 2025 16:38:07 +1300
-Message-Id: <20250115033808.40641-4-21cnbao@gmail.com>
+Subject: [PATCH v3 4/4] mm: Avoid splitting pmd for lazyfree pmd-mapped THP in try_to_unmap
+Date: Wed, 15 Jan 2025 16:38:08 +1300
+Message-Id: <20250115033808.40641-5-21cnbao@gmail.com>
 X-Mailer: git-send-email 2.39.3 (Apple Git-146)
 In-Reply-To: <20250115033808.40641-1-21cnbao@gmail.com>
 References: <20250115033808.40641-1-21cnbao@gmail.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250114_193852_329771_53FC6B22 
-X-CRM114-Status: GOOD (  18.02  )
+X-CRM114-CacheID: sfid-20250114_193858_667304_6555BF74 
+X-CRM114-Status: GOOD (  14.92  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,225 +106,119 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Barry Song <v-songbaohua@oppo.com>
-
-Currently, the PTEs and rmap of a large folio are removed one at a time.
-This is not only slow but also causes the large folio to be unnecessarily
-added to deferred_split, which can lead to races between the
-deferred_split shrinker callback and memory reclamation. This patch
-releases all PTEs and rmap entries in a batch.
-Currently, it only handles lazyfree large folios.
-
-The below microbench tries to reclaim 128MB lazyfree large folios
-whose sizes are 64KiB:
-
- #include <stdio.h>
- #include <sys/mman.h>
- #include <string.h>
- #include <time.h>
-
- #define SIZE 128*1024*1024  // 128 MB
-
- unsigned long read_split_deferred()
- {
- 	FILE *file = fopen("/sys/kernel/mm/transparent_hugepage"
-			"/hugepages-64kB/stats/split_deferred", "r");
- 	if (!file) {
- 		perror("Error opening file");
- 		return 0;
- 	}
-
- 	unsigned long value;
- 	if (fscanf(file, "%lu", &value) != 1) {
- 		perror("Error reading value");
- 		fclose(file);
- 		return 0;
- 	}
-
- 	fclose(file);
- 	return value;
- }
-
- int main(int argc, char *argv[])
- {
- 	while(1) {
- 		volatile int *p = mmap(0, SIZE, PROT_READ | PROT_WRITE,
- 				MAP_PRIVATE | MAP_ANONYMOUS, -1, 0);
-
- 		memset((void *)p, 1, SIZE);
-
- 		madvise((void *)p, SIZE, MADV_FREE);
-
- 		clock_t start_time = clock();
- 		unsigned long start_split = read_split_deferred();
- 		madvise((void *)p, SIZE, MADV_PAGEOUT);
- 		clock_t end_time = clock();
- 		unsigned long end_split = read_split_deferred();
-
- 		double elapsed_time = (double)(end_time - start_time) / CLOCKS_PER_SEC;
- 		printf("Time taken by reclamation: %f seconds, split_deferred: %ld\n",
- 			elapsed_time, end_split - start_split);
-
- 		munmap((void *)p, SIZE);
- 	}
- 	return 0;
- }
-
-w/o patch:
-~ # ./a.out
-Time taken by reclamation: 0.177418 seconds, split_deferred: 2048
-Time taken by reclamation: 0.178348 seconds, split_deferred: 2048
-Time taken by reclamation: 0.174525 seconds, split_deferred: 2048
-Time taken by reclamation: 0.171620 seconds, split_deferred: 2048
-Time taken by reclamation: 0.172241 seconds, split_deferred: 2048
-Time taken by reclamation: 0.174003 seconds, split_deferred: 2048
-Time taken by reclamation: 0.171058 seconds, split_deferred: 2048
-Time taken by reclamation: 0.171993 seconds, split_deferred: 2048
-Time taken by reclamation: 0.169829 seconds, split_deferred: 2048
-Time taken by reclamation: 0.172895 seconds, split_deferred: 2048
-Time taken by reclamation: 0.176063 seconds, split_deferred: 2048
-Time taken by reclamation: 0.172568 seconds, split_deferred: 2048
-Time taken by reclamation: 0.171185 seconds, split_deferred: 2048
-Time taken by reclamation: 0.170632 seconds, split_deferred: 2048
-Time taken by reclamation: 0.170208 seconds, split_deferred: 2048
-Time taken by reclamation: 0.174192 seconds, split_deferred: 2048
-...
-
-w/ patch:
-~ # ./a.out
-Time taken by reclamation: 0.074231 seconds, split_deferred: 0
-Time taken by reclamation: 0.071026 seconds, split_deferred: 0
-Time taken by reclamation: 0.072029 seconds, split_deferred: 0
-Time taken by reclamation: 0.071873 seconds, split_deferred: 0
-Time taken by reclamation: 0.073573 seconds, split_deferred: 0
-Time taken by reclamation: 0.071906 seconds, split_deferred: 0
-Time taken by reclamation: 0.073604 seconds, split_deferred: 0
-Time taken by reclamation: 0.075903 seconds, split_deferred: 0
-Time taken by reclamation: 0.073191 seconds, split_deferred: 0
-Time taken by reclamation: 0.071228 seconds, split_deferred: 0
-Time taken by reclamation: 0.071391 seconds, split_deferred: 0
-Time taken by reclamation: 0.071468 seconds, split_deferred: 0
-Time taken by reclamation: 0.071896 seconds, split_deferred: 0
-Time taken by reclamation: 0.072508 seconds, split_deferred: 0
-Time taken by reclamation: 0.071884 seconds, split_deferred: 0
-Time taken by reclamation: 0.072433 seconds, split_deferred: 0
-Time taken by reclamation: 0.071939 seconds, split_deferred: 0
-...
-
-Signed-off-by: Barry Song <v-songbaohua@oppo.com>
----
- mm/rmap.c | 47 +++++++++++++++++++++++++++++++++++++++++------
- 1 file changed, 41 insertions(+), 6 deletions(-)
-
-diff --git a/mm/rmap.c b/mm/rmap.c
-index abeb9fcec384..be1978d2712d 100644
---- a/mm/rmap.c
-+++ b/mm/rmap.c
-@@ -1642,6 +1642,25 @@ void folio_remove_rmap_pmd(struct folio *folio, struct page *page,
- #endif
- }
- 
-+/* We support batch unmapping of PTEs for lazyfree large folios */
-+static inline bool can_batch_unmap_folio_ptes(unsigned long addr,
-+			struct folio *folio, pte_t *ptep)
-+{
-+	const fpb_t fpb_flags = FPB_IGNORE_DIRTY | FPB_IGNORE_SOFT_DIRTY;
-+	int max_nr = folio_nr_pages(folio);
-+	pte_t pte = ptep_get(ptep);
-+
-+	if (!folio_test_anon(folio) || folio_test_swapbacked(folio))
-+		return false;
-+	if (pte_none(pte) || pte_unused(pte) || !pte_present(pte))
-+		return false;
-+	if (pte_pfn(pte) != folio_pfn(folio))
-+		return false;
-+
-+	return folio_pte_batch(folio, addr, ptep, pte, max_nr, fpb_flags, NULL,
-+			       NULL, NULL) == max_nr;
-+}
-+
- /*
-  * @arg: enum ttu_flags will be passed to this argument
-  */
-@@ -1655,6 +1674,7 @@ static bool try_to_unmap_one(struct folio *folio, struct vm_area_struct *vma,
- 	bool anon_exclusive, ret = true;
- 	struct mmu_notifier_range range;
- 	enum ttu_flags flags = (enum ttu_flags)(long)arg;
-+	int nr_pages = 1;
- 	unsigned long pfn;
- 	unsigned long hsz = 0;
- 
-@@ -1780,6 +1800,16 @@ static bool try_to_unmap_one(struct folio *folio, struct vm_area_struct *vma,
- 				hugetlb_vma_unlock_write(vma);
- 			}
- 			pteval = huge_ptep_clear_flush(vma, address, pvmw.pte);
-+		} else if (folio_test_large(folio) && !(flags & TTU_HWPOISON) &&
-+				can_batch_unmap_folio_ptes(address, folio, pvmw.pte)) {
-+			nr_pages = folio_nr_pages(folio);
-+			flush_cache_range(vma, range.start, range.end);
-+			pteval = get_and_clear_full_ptes(mm, address, pvmw.pte, nr_pages, 0);
-+			if (should_defer_flush(mm, flags))
-+				set_tlb_ubc_flush_pending(mm, pteval, address,
-+					address + folio_size(folio));
-+			else
-+				flush_tlb_range(vma, range.start, range.end);
- 		} else {
- 			flush_cache_page(vma, address, pfn);
- 			/* Nuke the page table entry. */
-@@ -1875,7 +1905,7 @@ static bool try_to_unmap_one(struct folio *folio, struct vm_area_struct *vma,
- 					 * redirtied either using the page table or a previously
- 					 * obtained GUP reference.
- 					 */
--					set_pte_at(mm, address, pvmw.pte, pteval);
-+					set_ptes(mm, address, pvmw.pte, pteval, nr_pages);
- 					folio_set_swapbacked(folio);
- 					goto walk_abort;
- 				} else if (ref_count != 1 + map_count) {
-@@ -1888,10 +1918,10 @@ static bool try_to_unmap_one(struct folio *folio, struct vm_area_struct *vma,
- 					 * We'll come back here later and detect if the folio was
- 					 * dirtied when the additional reference is gone.
- 					 */
--					set_pte_at(mm, address, pvmw.pte, pteval);
-+					set_ptes(mm, address, pvmw.pte, pteval, nr_pages);
- 					goto walk_abort;
- 				}
--				dec_mm_counter(mm, MM_ANONPAGES);
-+				add_mm_counter(mm, MM_ANONPAGES, -nr_pages);
- 				goto discard;
- 			}
- 
-@@ -1943,13 +1973,18 @@ static bool try_to_unmap_one(struct folio *folio, struct vm_area_struct *vma,
- 			dec_mm_counter(mm, mm_counter_file(folio));
- 		}
- discard:
--		if (unlikely(folio_test_hugetlb(folio)))
-+		if (unlikely(folio_test_hugetlb(folio))) {
- 			hugetlb_remove_rmap(folio);
--		else
--			folio_remove_rmap_pte(folio, subpage, vma);
-+		} else {
-+			folio_remove_rmap_ptes(folio, subpage, nr_pages, vma);
-+			folio_ref_sub(folio, nr_pages - 1);
-+		}
- 		if (vma->vm_flags & VM_LOCKED)
- 			mlock_drain_local();
- 		folio_put(folio);
-+		/* We have already batched the entire folio */
-+		if (nr_pages > 1)
-+			goto walk_done;
- 		continue;
- walk_abort:
- 		ret = false;
--- 
-2.39.3 (Apple Git-146)
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+RnJvbTogQmFycnkgU29uZyA8di1zb25nYmFvaHVhQG9wcG8uY29tPgoKVGhlIHRyeV90b191bm1h
+cF9vbmUoKSBmdW5jdGlvbiBjdXJyZW50bHkgaGFuZGxlcyBQTUQtbWFwcGVkIFRIUHMKaW5lZmZp
+Y2llbnRseS4gSXQgZmlyc3Qgc3BsaXRzIHRoZSBQTUQgaW50byBQVEVzLCBjb3BpZXMgdGhlIGRp
+cnR5CnN0YXRlIGZyb20gdGhlIFBNRCB0byB0aGUgUFRFcywgaXRlcmF0ZXMgb3ZlciB0aGUgUFRF
+cyB0byBsb2NhdGUKdGhlIGRpcnR5IHN0YXRlLCBhbmQgdGhlbiBtYXJrcyB0aGUgVEhQIGFzIHN3
+YXAtYmFja2VkLiBUaGlzIHByb2Nlc3MKaW52b2x2ZXMgdW5uZWNlc3NhcnkgUE1EIHNwbGl0dGlu
+ZyBhbmQgcmVkdW5kYW50IGl0ZXJhdGlvbi4gSW5zdGVhZCwKdGhpcyBmdW5jdGlvbmFsaXR5IGNh
+biBiZSBlZmZpY2llbnRseSBtYW5hZ2VkIGluCl9fZGlzY2FyZF9hbm9uX2ZvbGlvX3BtZF9sb2Nr
+ZWQoKSwgYXZvaWRpbmcgdGhlIGV4dHJhIHN0ZXBzIGFuZAppbXByb3ZpbmcgcGVyZm9ybWFuY2Uu
+CgpUaGUgZm9sbG93aW5nIG1pY3JvYmVuY2htYXJrIHJlZGlydGllcyBmb2xpb3MgYWZ0ZXIgaW52
+b2tpbmcgTUFEVl9GUkVFLAp0aGVuIG1lYXN1cmVzIHRoZSB0aW1lIHRha2VuIHRvIHBlcmZvcm0g
+bWVtb3J5IHJlY2xhbWF0aW9uIChhY3R1YWxseQpzZXQgdGhvc2UgZm9saW9zIHN3YXBiYWNrZWQg
+YWdhaW4pIG9uIHRoZSByZWRpcnRpZWQgZm9saW9zLgoKICNpbmNsdWRlIDxzdGRpby5oPgogI2lu
+Y2x1ZGUgPHN5cy9tbWFuLmg+CiAjaW5jbHVkZSA8c3RyaW5nLmg+CiAjaW5jbHVkZSA8dGltZS5o
+PgoKICNkZWZpbmUgU0laRSAxMjgqMTAyNCoxMDI0ICAvLyAxMjggTUIKCiBpbnQgbWFpbihpbnQg
+YXJnYywgY2hhciAqYXJndltdKQogewogCXdoaWxlKDEpIHsKIAkJdm9sYXRpbGUgaW50ICpwID0g
+bW1hcCgwLCBTSVpFLCBQUk9UX1JFQUQgfCBQUk9UX1dSSVRFLAogCQkJCU1BUF9QUklWQVRFIHwg
+TUFQX0FOT05ZTU9VUywgLTEsIDApOwoKIAkJbWVtc2V0KCh2b2lkICopcCwgMSwgU0laRSk7CiAJ
+CW1hZHZpc2UoKHZvaWQgKilwLCBTSVpFLCBNQURWX0ZSRUUpOwogCQkvKiByZWRpcnR5IGFmdGVy
+IE1BRFZfRlJFRSAqLwogCQltZW1zZXQoKHZvaWQgKilwLCAxLCBTSVpFKTsKCgkJY2xvY2tfdCBz
+dGFydF90aW1lID0gY2xvY2soKTsKIAkJbWFkdmlzZSgodm9pZCAqKXAsIFNJWkUsIE1BRFZfUEFH
+RU9VVCk7CiAJCWNsb2NrX3QgZW5kX3RpbWUgPSBjbG9jaygpOwoKIAkJZG91YmxlIGVsYXBzZWRf
+dGltZSA9IChkb3VibGUpKGVuZF90aW1lIC0gc3RhcnRfdGltZSkgLyBDTE9DS1NfUEVSX1NFQzsK
+IAkJcHJpbnRmKCJUaW1lIHRha2VuIGJ5IHJlY2xhbWF0aW9uOiAlZiBzZWNvbmRzXG4iLCBlbGFw
+c2VkX3RpbWUpOwoKIAkJbXVubWFwKCh2b2lkICopcCwgU0laRSk7CiAJfQogCXJldHVybiAwOwog
+fQoKVGVzdGluZyByZXN1bHRzIGFyZSBhcyBiZWxvdywKdy9vIHBhdGNoOgp+ICMgLi9hLm91dApU
+aW1lIHRha2VuIGJ5IHJlY2xhbWF0aW9uOiAwLjAwNzMwMCBzZWNvbmRzClRpbWUgdGFrZW4gYnkg
+cmVjbGFtYXRpb246IDAuMDA3MjI2IHNlY29uZHMKVGltZSB0YWtlbiBieSByZWNsYW1hdGlvbjog
+MC4wMDcyOTUgc2Vjb25kcwpUaW1lIHRha2VuIGJ5IHJlY2xhbWF0aW9uOiAwLjAwNzczMSBzZWNv
+bmRzClRpbWUgdGFrZW4gYnkgcmVjbGFtYXRpb246IDAuMDA3MTM0IHNlY29uZHMKVGltZSB0YWtl
+biBieSByZWNsYW1hdGlvbjogMC4wMDcyODUgc2Vjb25kcwpUaW1lIHRha2VuIGJ5IHJlY2xhbWF0
+aW9uOiAwLjAwNzcyMCBzZWNvbmRzClRpbWUgdGFrZW4gYnkgcmVjbGFtYXRpb246IDAuMDA3MTI4
+IHNlY29uZHMKVGltZSB0YWtlbiBieSByZWNsYW1hdGlvbjogMC4wMDc3MTAgc2Vjb25kcwpUaW1l
+IHRha2VuIGJ5IHJlY2xhbWF0aW9uOiAwLjAwNzcxMiBzZWNvbmRzClRpbWUgdGFrZW4gYnkgcmVj
+bGFtYXRpb246IDAuMDA3MjM2IHNlY29uZHMKVGltZSB0YWtlbiBieSByZWNsYW1hdGlvbjogMC4w
+MDc2OTAgc2Vjb25kcwpUaW1lIHRha2VuIGJ5IHJlY2xhbWF0aW9uOiAwLjAwNzE3NCBzZWNvbmRz
+ClRpbWUgdGFrZW4gYnkgcmVjbGFtYXRpb246IDAuMDA3NjcwIHNlY29uZHMKVGltZSB0YWtlbiBi
+eSByZWNsYW1hdGlvbjogMC4wMDcxNjkgc2Vjb25kcwpUaW1lIHRha2VuIGJ5IHJlY2xhbWF0aW9u
+OiAwLjAwNzMwNSBzZWNvbmRzClRpbWUgdGFrZW4gYnkgcmVjbGFtYXRpb246IDAuMDA3NDMyIHNl
+Y29uZHMKVGltZSB0YWtlbiBieSByZWNsYW1hdGlvbjogMC4wMDcxNTggc2Vjb25kcwpUaW1lIHRh
+a2VuIGJ5IHJlY2xhbWF0aW9uOiAwLjAwNzEzMyBzZWNvbmRzCuKApgoKdy8gcGF0Y2gKCn4gIyAu
+L2Eub3V0ClRpbWUgdGFrZW4gYnkgcmVjbGFtYXRpb246IDAuMDAyMTI0IHNlY29uZHMKVGltZSB0
+YWtlbiBieSByZWNsYW1hdGlvbjogMC4wMDIxMTYgc2Vjb25kcwpUaW1lIHRha2VuIGJ5IHJlY2xh
+bWF0aW9uOiAwLjAwMjE1MCBzZWNvbmRzClRpbWUgdGFrZW4gYnkgcmVjbGFtYXRpb246IDAuMDAy
+MjYxIHNlY29uZHMKVGltZSB0YWtlbiBieSByZWNsYW1hdGlvbjogMC4wMDIxMzcgc2Vjb25kcwpU
+aW1lIHRha2VuIGJ5IHJlY2xhbWF0aW9uOiAwLjAwMjE3MyBzZWNvbmRzClRpbWUgdGFrZW4gYnkg
+cmVjbGFtYXRpb246IDAuMDAyMDYzIHNlY29uZHMKVGltZSB0YWtlbiBieSByZWNsYW1hdGlvbjog
+MC4wMDIwODggc2Vjb25kcwpUaW1lIHRha2VuIGJ5IHJlY2xhbWF0aW9uOiAwLjAwMjE2OSBzZWNv
+bmRzClRpbWUgdGFrZW4gYnkgcmVjbGFtYXRpb246IDAuMDAyMTI0IHNlY29uZHMKVGltZSB0YWtl
+biBieSByZWNsYW1hdGlvbjogMC4wMDIxMTEgc2Vjb25kcwpUaW1lIHRha2VuIGJ5IHJlY2xhbWF0
+aW9uOiAwLjAwMjIyNCBzZWNvbmRzClRpbWUgdGFrZW4gYnkgcmVjbGFtYXRpb246IDAuMDAyMjk3
+IHNlY29uZHMKVGltZSB0YWtlbiBieSByZWNsYW1hdGlvbjogMC4wMDIyNjAgc2Vjb25kcwpUaW1l
+IHRha2VuIGJ5IHJlY2xhbWF0aW9uOiAwLjAwMjI0NiBzZWNvbmRzClRpbWUgdGFrZW4gYnkgcmVj
+bGFtYXRpb246IDAuMDAyMjcyIHNlY29uZHMKVGltZSB0YWtlbiBieSByZWNsYW1hdGlvbjogMC4w
+MDIyNzcgc2Vjb25kcwpUaW1lIHRha2VuIGJ5IHJlY2xhbWF0aW9uOiAwLjAwMjQ2MiBzZWNvbmRz
+CuKApgoKVGhpcyBwYXRjaCBzaWduaWZpY2FudGx5IHNwZWVkcyB1cCB0cnlfdG9fdW5tYXBfb25l
+KCkgYnkgYWxsb3dpbmcgaXQKdG8gc2tpcCByZWRpcnRpZWQgVEhQcyB3aXRob3V0IHNwbGl0dGlu
+ZyB0aGUgUE1ELgoKU3VnZ2VzdGVkLWJ5OiBCYW9saW4gV2FuZyA8YmFvbGluLndhbmdAbGludXgu
+YWxpYmFiYS5jb20+ClN1Z2dlc3RlZC1ieTogTGFuY2UgWWFuZyA8aW93b3JrZXIwQGdtYWlsLmNv
+bT4KU2lnbmVkLW9mZi1ieTogQmFycnkgU29uZyA8di1zb25nYmFvaHVhQG9wcG8uY29tPgotLS0K
+IG1tL2h1Z2VfbWVtb3J5LmMgfCAyNCArKysrKysrKysrKysrKysrKy0tLS0tLS0KIG1tL3JtYXAu
+YyAgICAgICAgfCAxMyArKysrKysrKysrLS0tCiAyIGZpbGVzIGNoYW5nZWQsIDI3IGluc2VydGlv
+bnMoKyksIDEwIGRlbGV0aW9ucygtKQoKZGlmZiAtLWdpdCBhL21tL2h1Z2VfbWVtb3J5LmMgYi9t
+bS9odWdlX21lbW9yeS5jCmluZGV4IDNkM2ViZGMwMDJkNS4uNDdjYzhjM2Y4ZjgwIDEwMDY0NAot
+LS0gYS9tbS9odWdlX21lbW9yeS5jCisrKyBiL21tL2h1Z2VfbWVtb3J5LmMKQEAgLTMwNzAsOCAr
+MzA3MCwxMiBAQCBzdGF0aWMgYm9vbCBfX2Rpc2NhcmRfYW5vbl9mb2xpb19wbWRfbG9ja2VkKHN0
+cnVjdCB2bV9hcmVhX3N0cnVjdCAqdm1hLAogCWludCByZWZfY291bnQsIG1hcF9jb3VudDsKIAlw
+bWRfdCBvcmlnX3BtZCA9ICpwbWRwOwogCi0JaWYgKGZvbGlvX3Rlc3RfZGlydHkoZm9saW8pIHx8
+IHBtZF9kaXJ0eShvcmlnX3BtZCkpCisJaWYgKHBtZF9kaXJ0eShvcmlnX3BtZCkpCisJCWZvbGlv
+X3NldF9kaXJ0eShmb2xpbyk7CisJaWYgKGZvbGlvX3Rlc3RfZGlydHkoZm9saW8pICYmICEodm1h
+LT52bV9mbGFncyAmIFZNX0RST1BQQUJMRSkpIHsKKwkJZm9saW9fc2V0X3N3YXBiYWNrZWQoZm9s
+aW8pOwogCQlyZXR1cm4gZmFsc2U7CisJfQogCiAJb3JpZ19wbWQgPSBwbWRwX2h1Z2VfY2xlYXJf
+Zmx1c2godm1hLCBhZGRyLCBwbWRwKTsKIApAQCAtMzA5OCw4ICszMTAyLDE1IEBAIHN0YXRpYyBi
+b29sIF9fZGlzY2FyZF9hbm9uX2ZvbGlvX3BtZF9sb2NrZWQoc3RydWN0IHZtX2FyZWFfc3RydWN0
+ICp2bWEsCiAJICoKIAkgKiBUaGUgb25seSBmb2xpbyByZWZzIG11c3QgYmUgb25lIGZyb20gaXNv
+bGF0aW9uIHBsdXMgdGhlIHJtYXAocykuCiAJICovCi0JaWYgKGZvbGlvX3Rlc3RfZGlydHkoZm9s
+aW8pIHx8IHBtZF9kaXJ0eShvcmlnX3BtZCkgfHwKLQkgICAgcmVmX2NvdW50ICE9IG1hcF9jb3Vu
+dCArIDEpIHsKKwlpZiAocG1kX2RpcnR5KG9yaWdfcG1kKSkKKwkJZm9saW9fc2V0X2RpcnR5KGZv
+bGlvKTsKKwlpZiAoZm9saW9fdGVzdF9kaXJ0eShmb2xpbykgJiYgISh2bWEtPnZtX2ZsYWdzICYg
+Vk1fRFJPUFBBQkxFKSkgeworCQlmb2xpb19zZXRfc3dhcGJhY2tlZChmb2xpbyk7CisJCXNldF9w
+bWRfYXQobW0sIGFkZHIsIHBtZHAsIG9yaWdfcG1kKTsKKwkJcmV0dXJuIGZhbHNlOworCX0KKwor
+CWlmIChyZWZfY291bnQgIT0gbWFwX2NvdW50ICsgMSkgewogCQlzZXRfcG1kX2F0KG1tLCBhZGRy
+LCBwbWRwLCBvcmlnX3BtZCk7CiAJCXJldHVybiBmYWxzZTsKIAl9CkBAIC0zMTE5LDEyICszMTMw
+LDExIEBAIGJvb2wgdW5tYXBfaHVnZV9wbWRfbG9ja2VkKHN0cnVjdCB2bV9hcmVhX3N0cnVjdCAq
+dm1hLCB1bnNpZ25lZCBsb25nIGFkZHIsCiB7CiAJVk1fV0FSTl9PTl9GT0xJTyghZm9saW9fdGVz
+dF9wbWRfbWFwcGFibGUoZm9saW8pLCBmb2xpbyk7CiAJVk1fV0FSTl9PTl9GT0xJTyghZm9saW9f
+dGVzdF9sb2NrZWQoZm9saW8pLCBmb2xpbyk7CisJVk1fV0FSTl9PTl9GT0xJTyghZm9saW9fdGVz
+dF9hbm9uKGZvbGlvKSwgZm9saW8pOworCVZNX1dBUk5fT05fRk9MSU8oZm9saW9fdGVzdF9zd2Fw
+YmFja2VkKGZvbGlvKSwgZm9saW8pOwogCVZNX1dBUk5fT05fT05DRSghSVNfQUxJR05FRChhZGRy
+LCBIUEFHRV9QTURfU0laRSkpOwogCi0JaWYgKGZvbGlvX3Rlc3RfYW5vbihmb2xpbykgJiYgIWZv
+bGlvX3Rlc3Rfc3dhcGJhY2tlZChmb2xpbykpCi0JCXJldHVybiBfX2Rpc2NhcmRfYW5vbl9mb2xp
+b19wbWRfbG9ja2VkKHZtYSwgYWRkciwgcG1kcCwgZm9saW8pOwotCi0JcmV0dXJuIGZhbHNlOwor
+CXJldHVybiBfX2Rpc2NhcmRfYW5vbl9mb2xpb19wbWRfbG9ja2VkKHZtYSwgYWRkciwgcG1kcCwg
+Zm9saW8pOwogfQogCiBzdGF0aWMgdm9pZCByZW1hcF9wYWdlKHN0cnVjdCBmb2xpbyAqZm9saW8s
+IHVuc2lnbmVkIGxvbmcgbnIsIGludCBmbGFncykKZGlmZiAtLWdpdCBhL21tL3JtYXAuYyBiL21t
+L3JtYXAuYwppbmRleCBiZTE5NzhkMjcxMmQuLmE4NTljMzk5ZWM3YyAxMDA2NDQKLS0tIGEvbW0v
+cm1hcC5jCisrKyBiL21tL3JtYXAuYwpAQCAtMTcyNCw5ICsxNzI0LDE2IEBAIHN0YXRpYyBib29s
+IHRyeV90b191bm1hcF9vbmUoc3RydWN0IGZvbGlvICpmb2xpbywgc3RydWN0IHZtX2FyZWFfc3Ry
+dWN0ICp2bWEsCiAJCX0KIAogCQlpZiAoIXB2bXcucHRlKSB7Ci0JCQlpZiAodW5tYXBfaHVnZV9w
+bWRfbG9ja2VkKHZtYSwgcHZtdy5hZGRyZXNzLCBwdm13LnBtZCwKLQkJCQkJCSAgZm9saW8pKQot
+CQkJCWdvdG8gd2Fsa19kb25lOworCQkJaWYgKGZvbGlvX3Rlc3RfYW5vbihmb2xpbykgJiYgIWZv
+bGlvX3Rlc3Rfc3dhcGJhY2tlZChmb2xpbykpIHsKKwkJCQlpZiAodW5tYXBfaHVnZV9wbWRfbG9j
+a2VkKHZtYSwgcHZtdy5hZGRyZXNzLCBwdm13LnBtZCwgZm9saW8pKQorCQkJCQlnb3RvIHdhbGtf
+ZG9uZTsKKwkJCQkvKgorCQkJCSAqIHVubWFwX2h1Z2VfcG1kX2xvY2tlZCBoYXMgZWl0aGVyIGFs
+cmVhZHkgbWFya2VkCisJCQkJICogdGhlIGZvbGlvIGFzIHN3YXAtYmFja2VkIG9yIGRlY2lkZWQg
+dG8gcmV0YWluIGl0CisJCQkJICogZHVlIHRvIEdVUCBvciBzcGVjdWxhdGl2ZSByZWZlcmVuY2Vz
+LgorCQkJCSAqLworCQkJCWdvdG8gd2Fsa19hYm9ydDsKKwkJCX0KIAogCQkJaWYgKGZsYWdzICYg
+VFRVX1NQTElUX0hVR0VfUE1EKSB7CiAJCQkJLyoKLS0gCjIuMzkuMyAoQXBwbGUgR2l0LTE0NikK
+CgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1y
+aXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8v
+bGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
