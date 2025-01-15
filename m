@@ -4,135 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E60FDC02180
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 87AB7C02183
 	for <linux-riscv@archiver.kernel.org>; Wed, 15 Jan 2025 09:47:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=t8eZj+G0qDpT2RdRGLiCxSReDgV8f+YF0UcZooP6xGw=; b=tEZNCcqeiL+xcA
-	aPchLK2nFneFGryy2u94Dw6+neMoLH6qBHvPhBRfMIFGjzN0Zn5ZdsO6qr6Z3MyPWDblx375LOlFj
-	dU15S1QwFhEuU7swn0p05yJXuZfkTxtTntQot6ZAjFdaD3IuubTril+DnElEwaS09hLDO9geS6EON
-	UUnqmsA86a3VTcxfJCMmjaUGV36CKqOSi3vG5xg/KhbGJB56FmVKyNkNE9jemjUhnncLMpfyOqzBi
-	dz/RvZb4SopJG7LAGtIEVMI2diaeDDUCWIrBDU9isQBz3E/YRG93nAeUjGAqlJN16ZAjn3+9NhFM0
-	d68XEPlaVZglHP/8yaXw==;
+	List-Owner; bh=aRlJHp9fKEOFao70Bq+L47oaxCprRfZT8Hrf+0p7DdI=; b=V+lziMoaeBKvTr
+	tdY7ZZwSf61vpWcIlq31p6mIv/Lpc2DmCg2UC+nMNEf5EXi1K1CW+dNbzCOqCVs3bJREA0zRse/6o
+	6kn8ouLzOlq/bFE9p40OrzP+6YsyGJSe7u6ahpHllThKS50Bpxw84CDIWv1accSyBXSV4vtImgsiE
+	mLH5Nu1FtaiUVQMbQYhS4k5JrndIbMMDw/uDijkrUo/VUncEbUDvI98yqsmunzTL8iUJEhX69KkRg
+	sYaxOsZvMpK5UaEtGT0LCjSx2VQfD1sGqLbVpGJDYdgGlssk9iU3y+W6NHIIgQo95VjulCGOGqQgg
+	OZHdHPqWpKwyXFvl4Xaw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXzzD-0000000BOVS-2pa3;
-	Wed, 15 Jan 2025 09:46:55 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1tXzzE-0000000BOVw-1IFB;
+	Wed, 15 Jan 2025 09:46:56 +0000
+Received: from mail-wm1-x331.google.com ([2a00:1450:4864:20::331])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXzwZ-0000000BOBc-3TEY;
-	Wed, 15 Jan 2025 09:44:11 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=w8kQ3O2jcPOeMmEQNBtVm0xlKNKqT8muGuwKTdik/wk=; b=C70wsS6Go+f83qK1gFiH5LfFwW
-	+yAweSVhzKiER9627JDgag3+CKKuuIuwRymaBnRxwY+gbPUCbEIORe5llr0DJiLeY+LfTeFHEhGAh
-	Nr28JD3RZcndacSEHIL37o4IBQmOGbNW7pX7pGdNH0uZDvCi8DdseQxFicwopF5nbeWhY7UvKW7px
-	yQXFmP8AStAMa6JerqniU/bPIPgog+I+LVlFM7eUYgSz6YFz2ePUwG5FNPXQy1u2KpXkBKl3OEkmw
-	nO/uYR3A0TVxsuvXnI9SnKzLdHsAZYraDbnfphLS9djLVRDnXHw4Wv1GTWQCGYunOLEfIUzGsvJ4j
-	fMNMvyeQ==;
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
-	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXzwW-0000000ApWK-1bQ6;
-	Wed, 15 Jan 2025 09:44:10 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 097E3A41A6F;
-	Wed, 15 Jan 2025 09:42:18 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D856DC4CEE1;
-	Wed, 15 Jan 2025 09:43:59 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1736934245;
-	bh=evuBwWPduzBTPe1URAVhuzT1Z4DxtnCak0sjLrDRhqg=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=ChmP4M75/02N36SakWLqFvGy284jj55WAqmJoPW+hUbUaeWAJP+oLw3WjTCEYbSUy
-	 Ng5hlDjgU2oHxGqpNc8WRpVymc8S/oLeeyY+TsPleMLoliy9Vq+T2sRzwEcKHQIRsp
-	 KFPIIKP9DoAQNUUYCJ9jqYsDlAOYOj+u+PYqoxIUaFVEJa/+8A122UkF8OnppELGQI
-	 T/2wPFym+OXDKoIuUXDPD1QFbzRFqYRUbObzV34ey2SWB2OgGtZ3JJ672+4eExeGHP
-	 FMHsJWZwIzlQ61QtdctHcV8QiiZXTnEW1pJD3FgR8UXYqbSxgrMI8DrlEo1g4erRTn
-	 Gq6GsUo3NezxQ==
-Message-ID: <e0a4d575-b4c2-4b4e-b272-1e67472f723f@kernel.org>
-Date: Wed, 15 Jan 2025 10:43:58 +0100
+	id 1tXzwr-0000000BOEF-0xe3
+	for linux-riscv@lists.infradead.org;
+	Wed, 15 Jan 2025 09:44:30 +0000
+Received: by mail-wm1-x331.google.com with SMTP id 5b1f17b1804b1-4362bae4d7dso46124345e9.1
+        for <linux-riscv@lists.infradead.org>; Wed, 15 Jan 2025 01:44:28 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ventanamicro.com; s=google; t=1736934267; x=1737539067; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=esAtTk/lpEE2twEw0jUtCey8Py/XgPIAB3dxsOhtpJc=;
+        b=SoQOw3K0u1bz4CgPRBo3KG3mLSz9KEpX3pFqhjU/NOqaFs3te+862dD08vrfjQ2HQL
+         FuzkBV5x2nXGh9u7kCDiLKYa+OdXedxthnR7QQ88C0G/sGWf9frkYLczabPt5wyNLWXc
+         8daqE6lKojkEbUJ6/FgUmgBRIrUCRXYiDTkWL57h71503hVbp/MVXpwOMcis3M+phB5G
+         XJoU3KOEQNJwDQrxpQ3L3RHr4cJA1j59T0FwlnxnitGGvQY/jVVejLiUexrMDRHNm2VP
+         t92fkJebNGZqryTvUOiaTdMosKuFz2yMn32LKgSbizM+cfH3yHkBHStceTlsHDkNIHm8
+         yF1A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1736934267; x=1737539067;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=esAtTk/lpEE2twEw0jUtCey8Py/XgPIAB3dxsOhtpJc=;
+        b=mgxJqyKsoWPRU32c9WVxCDjCZYNRkba6mJbPq3PVlJVYe7yvJK2n0WXZQ81uH8S8N0
+         GD2KU4rJIXpXywXTpwnQ68doeiw9oL20uKvkJW/HFHwE52O/OUPvY7JG7mNYN+L7i1Ci
+         vt6D81Bne9brBu5cU0OQcm/CvJCepY9xXMovjbK3NboJjSTCE0TS/bnwEHbdUP855xhg
+         wFRhxyhA1IoR8QNdNRT84YgEBO09BUoHMjD7R355zYO98wJjSnsmVNeD7ENOS3381llq
+         N06nIEdASP6tV5paPhll6DVevb9n/mHgzJVNkrOXjmuwh77yAXO+5TvsZMlVu6AbEKRw
+         iVlA==
+X-Forwarded-Encrypted: i=1; AJvYcCVvq7DFfc+bTFyR7y/EBlbDalCKNx4Xj8JePn9eHzTiKIj7vSQ5mIKBLEzW1UUTaqPFeZLN0GxbtyLRQQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzc7+/RDaWDzIMh8HiutccRuAUp3TN8oJxbszBDRgWz99Ef/QJ8
+	m6zfVGCz2EnnF/XA4wHYC4FXHet4MW1hLkgNJeF/qBp0DmDRsuitJsrzYvl0r+c=
+X-Gm-Gg: ASbGncvkfbw3DLfMKjhFFt+4uRG6sHa3BXh/Hezxxvrkzrwqf/Spio8qGm32lCswipf
+	Y9VxA76gIyD43H8E3eA4ZzspvaIJ0lmf33+iKVpoYrPfF7yZyYfeedUWzqv0cwGiqvQRAmkWfEu
+	mg8rsRrgip/rJALFD1wGaBoLyfMS0O/rjxBVZKQyz9sIso2R8vN1FCAjES8JtFqLMl8es5P1ob2
+	wTjzYTGQDgKhk5BbDDU1VJ6+PO4wZJXLDk5oRftgQXX703lMYBLxVvrp4xKPfs5618ncVSjJtf2
+	w8XulXhJDzDxN2SRYALh3r5vYwnOE0ZLSQ16Ffo6EA==
+X-Google-Smtp-Source: AGHT+IGhbkSgvY+dW7yHkdG99m1xQ+qGuWMmxBZmDcAmT3S4qDuCQLsGs5KooVSA8ixJDjHmJigmgw==
+X-Received: by 2002:a05:600c:3516:b0:436:5165:f206 with SMTP id 5b1f17b1804b1-436e27075eemr265829195e9.31.1736934267210;
+        Wed, 15 Jan 2025 01:44:27 -0800 (PST)
+Received: from localhost (2001-1ae9-1c2-4c00-20f-c6b4-1e57-7965.ip6.tmcz.cz. [2001:1ae9:1c2:4c00:20f:c6b4:1e57:7965])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-437c753bee8sm16984215e9.34.2025.01.15.01.44.25
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 15 Jan 2025 01:44:26 -0800 (PST)
+Date: Wed, 15 Jan 2025 10:44:25 +0100
+From: Andrew Jones <ajones@ventanamicro.com>
+To: Zong Li <zong.li@sifive.com>
+Cc: joro@8bytes.org, will@kernel.org, robin.murphy@arm.com, 
+	tjeznach@rivosinc.com, paul.walmsley@sifive.com, palmer@dabbelt.com, 
+	aou@eecs.berkeley.edu, luxu.kernel@bytedance.com, linux-kernel@vger.kernel.org, 
+	iommu@lists.linux.dev, linux-riscv@lists.infradead.org
+Subject: Re: [PATCH 2/2] iommu/riscv: support HPM and interrupt handling
+Message-ID: <20250115-9d8193b7c67eeee41d18a7dd@orel>
+References: <20250115030306.29735-1-zong.li@sifive.com>
+ <20250115030306.29735-3-zong.li@sifive.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 12/12] ARM: dts: sun8i: add DTSI file for V853
-To: =?UTF-8?B?Q3PDs2vDoXMgQmVuY2U=?= <csokas.bence@prolan.hu>,
- Andras Szemzo <szemzo.andras@gmail.com>,
- Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
- <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Chen-Yu Tsai <wens@csie.org>,
- Jernej Skrabec <jernej.skrabec@gmail.com>,
- Samuel Holland <samuel@sholland.org>,
- Linus Walleij <linus.walleij@linaro.org>,
- Philipp Zabel <p.zabel@pengutronix.de>, Maxime Ripard <mripard@kernel.org>
-Cc: Vinod Koul <vkoul@kernel.org>, Kishon Vijay Abraham I
- <kishon@kernel.org>, Ulf Hansson <ulf.hansson@linaro.org>,
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- =?UTF-8?Q?Uwe_Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>,
- Florian Fainelli <florian.fainelli@broadcom.com>, linux-clk@vger.kernel.org,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org,
- linux-phy@lists.infradead.org, linux-gpio@vger.kernel.org,
- linux-pm@vger.kernel.org, linux-riscv@lists.infradead.org
-References: <20250110123923.270626-1-szemzo.andras@gmail.com>
- <20250110123923.270626-13-szemzo.andras@gmail.com>
- <ff57cf8d-626e-4d35-a18f-1a89b4d9fa3e@kernel.org>
- <81cbb273-a4b4-424c-9d25-f53ebc8ea82a@prolan.hu>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 fv0=
-In-Reply-To: <81cbb273-a4b4-424c-9d25-f53ebc8ea82a@prolan.hu>
+Content-Disposition: inline
+In-Reply-To: <20250115030306.29735-3-zong.li@sifive.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250115_094408_970267_B1188EDD 
-X-CRM114-Status: GOOD (  10.15  )
+X-CRM114-CacheID: sfid-20250115_014429_279962_2B53E666 
+X-CRM114-Status: GOOD (  26.73  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -144,30 +95,154 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gMTUvMDEvMjAyNSAxMDowOSwgQ3PDs2vDoXMgQmVuY2Ugd3JvdGU6Cj4gSGksCj4gCj4gT24g
-MjAyNS4gMDEuIDEwLiAxNDo1OCwgS3J6eXN6dG9mIEtvemxvd3NraSB3cm90ZToKPj4gT24gMTAv
-MDEvMjAyNSAxMzozOSwgQW5kcmFzIFN6ZW16byB3cm90ZToKPj4+ICsvLyBDb3B5cmlnaHQgKEMp
-IDIwMjQgQW5kcmFzIFN6ZW16byA8c3plbXpvLmFuZHJhc0BnbWFpbC5jb20+Cj4+PiArCj4+PiAr
-I2luY2x1ZGUgPGR0LWJpbmRpbmdzL2Nsb2NrL3N1bjZpLXJ0Yy5oPgo+Pj4gKyNpbmNsdWRlIDxk
-dC1iaW5kaW5ncy9jbG9jay9zdW44aS12ODUzLXItY2N1Lmg+Cj4+PiArI2luY2x1ZGUgPGR0LWJp
-bmRpbmdzL3Jlc2V0L3N1bjhpLXY4NTMtci1jY3UuaD4KPj4+ICsjaW5jbHVkZSA8ZHQtYmluZGlu
-Z3MvY2xvY2svc3VuOGktdjg1My1jY3UuaD4KPj4+ICsjaW5jbHVkZSA8ZHQtYmluZGluZ3MvcmVz
-ZXQvc3VuOGktdjg1My1jY3UuaD4KPj4+ICsjaW5jbHVkZSA8ZHQtYmluZGluZ3MvaW50ZXJydXB0
-LWNvbnRyb2xsZXIvYXJtLWdpYy5oPgo+Pj4gKyNpbmNsdWRlIDxkdC1iaW5kaW5ncy9wb3dlci9h
-bGx3aW5uZXIsc3VuOGktdjg1My1wcHUuaD4KPj4+ICsKPj4+ICsvIHsKPj4+ICsJI2FkZHJlc3Mt
-Y2VsbHMgPSA8MT47Cj4+PiArCSNzaXplLWNlbGxzID0gPDE+Owo+Pj4gKwo+Pj4gKwlvc2MyNE06
-IG9zYzI0TS1jbGsgewo+Pgo+PiBPbmx5IGxvd2VyY2FzZSBub2RlIG5hbWVzLgo+IAo+IEkgZG9u
-J3QgYWdyZWUuIEl0IGlzIGN1c3RvbWFyeSB0byB3cml0ZSBvc2NpbGxhdG9yIG5hbWVzIHdpdGgg
-Y2FzaW5nIGluIAoKSXQgaXMgbm90IGN1c3RvbWFyeSBpbiBMaW51eCBrZXJuZWwgYW5kIERUIGJp
-bmRpbmdzL0RUUy4gU2VlIERUUyBjb2RpbmcKc3R5bGUsIHNlZSB0aGUgY2xvY2sgYmluZGluZ3Mg
-YW5kIHByZWZlcnJlZCBub2RlIG5hbWluZy4KClRoaXMgaXMgdGhlIERUUyBzdWJtaXR0ZWQgdG8g
-TGludXgga2VybmVsLCB0aHVzIGl0IGlzIGJvdW5kIGJ5IHRoZSBydWxlcwpleHByZXNzZWQgaW4g
-dGhlIGtlcm5lbC4KCkJlc3QgcmVnYXJkcywKS3J6eXN6dG9mCgpfX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGlu
-dXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9t
-YWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+On Wed, Jan 15, 2025 at 11:03:06AM +0800, Zong Li wrote:
+> Initialize the PMU and uninitialize it when driver is removed.
+> Interrupt handling is also implemented, and the handler needs
+> to be a primary handler instead of a threaded function because
+> pt_regs is empty when threading the IRQ. However, pt_regs is
+> required by perf_event_overflow.
+> 
+> Signed-off-by: Zong Li <zong.li@sifive.com>
+> Tested-by: Xu Lu <luxu.kernel@bytedance.com>
+> ---
+>  drivers/iommu/riscv/iommu.c | 65 +++++++++++++++++++++++++++++++++++++
+>  1 file changed, 65 insertions(+)
+> 
+> diff --git a/drivers/iommu/riscv/iommu.c b/drivers/iommu/riscv/iommu.c
+> index 8a05def774bd..20ae90471484 100644
+> --- a/drivers/iommu/riscv/iommu.c
+> +++ b/drivers/iommu/riscv/iommu.c
+> @@ -552,6 +552,62 @@ static irqreturn_t riscv_iommu_fltq_process(int irq, void *data)
+>  	return IRQ_HANDLED;
+>  }
+>  
+> +/*
+> + * IOMMU Hardware performance monitor
+> + */
+> +
+> +/* HPM interrupt primary handler */
+> +static irqreturn_t riscv_iommu_hpm_irq_handler(int irq, void *dev_id)
+> +{
+> +	struct riscv_iommu_device *iommu = (struct riscv_iommu_device *)dev_id;
+> +
+> +	/* Clear performance monitoring interrupt pending */
+> +	riscv_iommu_writel(iommu, RISCV_IOMMU_REG_IPSR, RISCV_IOMMU_IPSR_PMIP);
+> +
+> +	/* Process pmu irq */
+> +	riscv_iommu_pmu_handle_irq(&iommu->pmu);
+> +
+> +	return IRQ_HANDLED;
+> +}
+> +
+> +/* HPM initialization */
+> +static int riscv_iommu_hpm_enable(struct riscv_iommu_device *iommu)
+> +{
+> +	int rc;
+> +
+> +	if (!(iommu->caps & RISCV_IOMMU_CAPABILITIES_HPM))
+> +		return 0;
+> +
+> +	/*
+> +	 * pt_regs is empty when threading the IRQ, but pt_regs is necessary
+> +	 * by perf_event_overflow. Use primary handler instead of thread
+> +	 * function for PM IRQ.
+> +	 *
+> +	 * Set the IRQF_ONESHOT flag because this IRQ might be shared with
+> +	 * other threaded IRQs by other queues.
+> +	 */
+> +	rc = devm_request_irq(iommu->dev,
+> +			      iommu->irqs[riscv_iommu_queue_vec(iommu, RISCV_IOMMU_IPSR_PMIP)],
+> +			      riscv_iommu_hpm_irq_handler, IRQF_ONESHOT | IRQF_SHARED, NULL, iommu);
+> +	if (rc)
+> +		return rc;
+> +
+> +	return riscv_iommu_pmu_init(&iommu->pmu, iommu->reg, dev_name(iommu->dev));
+> +}
+> +
+> +/* HPM uninitialization */
+> +static void riscv_iommu_hpm_disable(struct riscv_iommu_device *iommu)
+> +{
+> +	if (!(iommu->caps & RISCV_IOMMU_CAPABILITIES_HPM))
+> +		return;
+> +
+> +	devm_free_irq(iommu->dev,
+> +		      iommu->irqs[riscv_iommu_queue_vec(iommu, RISCV_IOMMU_IPSR_PMIP)],
+> +		      iommu);
+> +
+> +	riscv_iommu_pmu_uninit(&iommu->pmu);
+> +}
+> +
+>  /* Lookup and initialize device context info structure. */
+>  static struct riscv_iommu_dc *riscv_iommu_get_dc(struct riscv_iommu_device *iommu,
+>  						 unsigned int devid)
+> @@ -1596,6 +1652,9 @@ void riscv_iommu_remove(struct riscv_iommu_device *iommu)
+>  	riscv_iommu_iodir_set_mode(iommu, RISCV_IOMMU_DDTP_IOMMU_MODE_OFF);
+>  	riscv_iommu_queue_disable(&iommu->cmdq);
+>  	riscv_iommu_queue_disable(&iommu->fltq);
+> +
+> +	if (iommu->caps & RISCV_IOMMU_CAPABILITIES_HPM)
+> +		riscv_iommu_pmu_uninit(&iommu->pmu);
+
+This should be
+
+   riscv_iommu_hpm_disable(iommu);
+
+as the cover letter said it would be.
+
+>  }
+>  
+>  int riscv_iommu_init(struct riscv_iommu_device *iommu)
+> @@ -1635,6 +1694,10 @@ int riscv_iommu_init(struct riscv_iommu_device *iommu)
+>  	if (rc)
+>  		goto err_queue_disable;
+>  
+> +	rc = riscv_iommu_hpm_enable(iommu);
+> +	if (rc)
+> +		goto err_hpm_disable;
+
+This should be
+
+  goto err_iodir_off;
+
+And the next goto (under sysfs add) should be
+
+  goto err_hpm_disable;
+
+> +
+>  	rc = iommu_device_sysfs_add(&iommu->iommu, NULL, NULL, "riscv-iommu@%s",
+>  				    dev_name(iommu->dev));
+>  	if (rc) {
+> @@ -1653,6 +1716,8 @@ int riscv_iommu_init(struct riscv_iommu_device *iommu)
+>  err_remove_sysfs:
+>  	iommu_device_sysfs_remove(&iommu->iommu);
+>  err_iodir_off:
+> +	riscv_iommu_hpm_disable(iommu);
+> +err_hpm_disable:
+>  	riscv_iommu_iodir_set_mode(iommu, RISCV_IOMMU_DDTP_IOMMU_MODE_OFF);
+>  err_queue_disable:
+>  	riscv_iommu_queue_disable(&iommu->fltq);
+
+This should be
+
+ err_remove_sysfs:
+   ...
+ err_hpm_disable:
+   ...
+ err_iodir_off:
+   ...
+ err_queue_disable:
+   ...
+
+
+Thanks,
+drew
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
