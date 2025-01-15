@@ -4,70 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5C5A0E77188
-	for <linux-riscv@archiver.kernel.org>; Wed, 15 Jan 2025 02:41:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D063E77188
+	for <linux-riscv@archiver.kernel.org>; Wed, 15 Jan 2025 02:41:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:To:From:Reply-To:Cc:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=P9Ker27qX+Ur2jDnHiMQ2WMhBf6PUfx6F/g3+6m2xm0=; b=CEeidCltYkZ2k3
-	vcZ+awjY9SgbiWsm2ZcwnkliudnGhgLE1eWWqtSY9vNc/aJTdw3/68wKgSKHMvX6dKnzrKDCj1qrN
-	7YMdeyyifIxWkyT6sY5ztd+/11zCU0XdOffgCAEfHxFXZFHIOjBhAUqb3F8y0ArmccPqPH6b8o5TD
-	tVx9b9+X4fWQIKzpkBMCgYe4+alJDIDT8aB01WmMezEb6DKuNGAdlytW3e8K4WK+AJ2QvdDd236Kw
-	H9T5DQ1vkB/TgzTPIV1xFu85wB5Y4DoVC4Ht8eyGXIaWZSfqLc0wiLKWNJotxCCNm0c25IJs8KVEi
-	vnOxkfZU2hmfxceV/roA==;
+	List-Owner; bh=ANe7Hvh/9blwnejzthUkPYYKIYQ82S6YDApJ7WqM/j4=; b=rP+EmbHlqRC3dT
+	tXdt+bHao2411Sih0RE8ccbZCYJpNiBDNoJUjKgqrG/IeHqZvoXDXTdW/ZDqirfMNs9V2MkMfqU3K
+	MrpfvJTFSaB6955iBVlOKLNQimtwa1A42hISf1SaE7FRTL8QA75Be6bzzPyREBZ93YE7YqJYHlV/a
+	k2nD8mTgpY7VQ7kgGAnuBeD8JIlxHBG6C/lhVelAkcw3oWBd9Cbovw56o9EMcI74JlI99X0tLhcd0
+	y3cYsz24Zqfe2JfB1KXtlxd8mj4Q7EwUBd2JB/nuAkFjyGejBvExQl3chGMUwax/chHD1pAFkuBG/
+	FPP1/LS1Q2HxvpH8MzaA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXtL8-0000000AQsV-1350;
-	Wed, 15 Jan 2025 02:41:06 +0000
-Received: from mail-pl1-x632.google.com ([2607:f8b0:4864:20::632])
+	id 1tXtLH-0000000AQxJ-3zz3;
+	Wed, 15 Jan 2025 02:41:15 +0000
+Received: from mail-pl1-x62e.google.com ([2607:f8b0:4864:20::62e])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXtL5-0000000AQrM-13Jz
+	id 1tXtLG-0000000AQvc-0EMw
 	for linux-riscv@lists.infradead.org;
-	Wed, 15 Jan 2025 02:41:04 +0000
-Received: by mail-pl1-x632.google.com with SMTP id d9443c01a7336-21a7ed0155cso107132075ad.3
-        for <linux-riscv@lists.infradead.org>; Tue, 14 Jan 2025 18:41:02 -0800 (PST)
+	Wed, 15 Jan 2025 02:41:15 +0000
+Received: by mail-pl1-x62e.google.com with SMTP id d9443c01a7336-2163b0c09afso113987695ad.0
+        for <linux-riscv@lists.infradead.org>; Tue, 14 Jan 2025 18:41:13 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bytedance.com; s=google; t=1736908862; x=1737513662; darn=lists.infradead.org;
+        d=bytedance.com; s=google; t=1736908873; x=1737513673; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:to:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=n+lHU8O3OzxopxeMRFW7AZqN84liiT6mDTuuIRoGMNs=;
-        b=i6zaw91JmQM+HqEVyR/HylP0M14l60m4yLHpLMwNFfDuNMuyUn/I9+QXpj7c5lRIuX
-         s1LdaFqZnoPM8t28g0vgxdZYdyfD8o3Lm78PCWrFegXNZ+lCuvcDp3ecSCWapmnU10e1
-         wDpcfb7PDNljrUTN7UE2329aHXEgA/B6+ceQGcNvJp7DtG0RKgUwoCQz/oOQR0cRaJUb
-         27BHdWRwtM0TDVTXAgY5+TcaoqH5xUDrGGjRvj8fTDH0ELGaXZf2fm3hGLIciyASoGmv
-         CLYTCm61g964tlOUaVWKdngBlKDgFzCwJQGg3F24xJi73s4OaR4Ilfq0BCl+HCvohTJZ
-         tGWA==
+        bh=rT2pVksutJIId1LNuVU67y8Yu8hoO+3APrCNZYHddJA=;
+        b=U74Qe48wxw+yQLmpBx7eLL1SVZY9tH4C8n9zvGHgauZwjlRCCUestI6GTsRtTtTBN2
+         tI2Gpopcv/UU19HxN8hdHjTJp75oDpM08TYUZqxyVSsISoe2F5Ubz4DYjNv1moGckjjK
+         owDB2u6iiiUylV/CBfzZmRtMXnOleYriKzidRTwbpUhF94nnm7Ip2CrjL+Zh+Md2FyjI
+         nxL5h5wT7PCpFiuEvu64kL9bC+sdujzCa9sUeoWFuuQqQRC4h0k1RK9qprbbYD+R+S3Z
+         kG7fMCSZ0M/fIA4r5eANMlPU6I7Y9lqWPDS87n1es8A5XYb2lqDTkKokfXJJPj5Aflru
+         5ciA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1736908862; x=1737513662;
+        d=1e100.net; s=20230601; t=1736908873; x=1737513673;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=n+lHU8O3OzxopxeMRFW7AZqN84liiT6mDTuuIRoGMNs=;
-        b=pUeIIxCPyFn1eVzWjrst16Zv79B/UrSQKRXeVp7SyW9n2vsnR/q0XesT+/FBFTkfIi
-         kDrYIShukpKzYtamYEcoSPc1U7gSZCqcW0O6kzNcz/m+TuLtX1XjeGeq1S8xii3c1gQa
-         cCjekCWfqBbxsagIWRmFfrET2tPOevIrXisVKgwXOh5MAD/hDomi4uo5sIkI2nTY9Psv
-         hoV6w71XCP3ThE1n0NGEffs2TUHBFFXjmiJepc3AvRzD6RCNsLonxwi5r0IQ1tthuRF0
-         JaKewh8JC/zHn6llwo01TiHxvJU+K+CtFo9WYZpMig5R+cntjzoOSBXBaLOrdwE7VAAZ
-         WDCg==
-X-Forwarded-Encrypted: i=1; AJvYcCXDxiPcTb6s7AyS4+KI/O8aaKsj0y4GQqU32FHWLSVWcYua0woUI4aU60Zb5bSC1ihPRuF2iv3AHXl1dA==@lists.infradead.org
-X-Gm-Message-State: AOJu0YwzwYyOuA698T0AHYao1XO4c+hsAacblaMyunk4u+5x4UIYsBvx
-	SDI9E7OfS5ba9lovUzAo+vAWxaSVsOGzSzIcg6H7ynHr7RKhEy9ELmMKgOsKM/0=
-X-Gm-Gg: ASbGncuFfDC3jEyTXB2xEZFa51mtguGPhKOvw5bGUJYwz6U8fvVczinaOrSN70evlsJ
-	9UKioS8SuHOfe+1L4N2zIVQ8Xlpd+3pjzQZmI/eTWYL4hIT2c2cjABUBJ5xc4K5N1a+IzBiyu7u
-	oSCSqW8jksXP+LQBt01x0LRqB6cXd1VN92eunJSUYdb7ZjUfQ4h8ZwCMNB+zqZTxh+fVwH1+fa+
-	RihUsgr4EAZbr5QVXN75EkX9Bv/E6KJIA1O2Dvrdyi2qkKvYiZPPuoTz9B7CI4qNxaWzD0fFQxu
-	rrXEFMdQyuscz50=
-X-Google-Smtp-Source: AGHT+IHRs+ZLjJaMOCMFOSev5yey8o2EV/Ai+cdpqR0LkTXM3ZpNmIhiXmJyiWzASfW23X6Ls0/4fg==
-X-Received: by 2002:a05:6a00:4502:b0:724:f86e:e3d9 with SMTP id d2e1a72fcca58-72d21f64f72mr39087001b3a.14.1736908862297;
-        Tue, 14 Jan 2025 18:41:02 -0800 (PST)
+        bh=rT2pVksutJIId1LNuVU67y8Yu8hoO+3APrCNZYHddJA=;
+        b=utkPwjl8K6D91wOIDgogDE3DoV7TAPmTuqkn/g9GJRuyQASgAIiHVm5xl5dRYZz+Zw
+         B09XHLk2/5du2AJTFhhZAaFRRpv0cPlMYSp/wcqjfNntF3BHr23qDFyMCgAowhfHdkTN
+         ukEQecv4WeZSI3UjKzFHbAZcQfNlX9NWpvlMsH3mv07iQ2VhD/NzQpNie8RA4bufSMC+
+         fUL7Z+Jaumc+CbUXW95jHN0P1OexG6nIuPVdhFRTPmkkJ5thyDogxrpiRPedCZwzoHut
+         2zSGCSq7T8+dibb2C7kexjsZZ12oLrnHf7hwdQt555WdqIgULYeWy0SuapxHCZnFUwV+
+         jZ7w==
+X-Forwarded-Encrypted: i=1; AJvYcCVli0aEhAfdOlZT0zA/p5ttSq2n8ihS4WOdgn8HHOpB9kkVOA9XrheuLP1Qt5g3KJVTTEkDfLIClDDXvw==@lists.infradead.org
+X-Gm-Message-State: AOJu0YzfaEqUJD1Nwe8LUv7O6tr2Hp7p0Un0j+YtXWQSdi8wiW56EHcF
+	InUiV352Ij0u/rMVMV0MLh/VpnY/4lyQPjJVAqCjbTyqLVGZXXKO0CQ3K+frztk=
+X-Gm-Gg: ASbGncsJHRWWEFxj8cM7jib1yCRqoPGG+K//3TlyD2r1rx9VlqnsJQ2GXwp0B1C/7fm
+	JBeus6eS9eb5hb/uKmCdfbXNAF/QqB6pfbRQ4kAZ3zi67kHeH2eGAEerzwslnqY6EaTxec5ybfR
+	KqlxHFce2Q4NGL11dAyUG/esgChIcpOEGtDXwvehcWWmYnC2u+a+eUz9GZ8wJWjmDgQuSt3OYNr
+	PJ4eKmX0l8l6cGLOB6XR1Exl0IgTBprwlnRTMDkijVXQH4bF9zeR8mS+/eyf3d1LGc6jqjP4DNP
+	o0G4hqetItwGGU4=
+X-Google-Smtp-Source: AGHT+IFZrkOo1kKHka7uEN46rgjAYm+/LF8Olw/yHOPwTxzyq6Nj2yHjAD5mXgPxO3CwPQSd5i6+xA==
+X-Received: by 2002:a05:6a21:151b:b0:1e1:ae4a:1d48 with SMTP id adf61e73a8af0-1e88d2fd01emr46853864637.40.1736908873272;
+        Tue, 14 Jan 2025 18:41:13 -0800 (PST)
 Received: from L6YN4KR4K9.bytedance.net ([139.177.225.227])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-72d40680e67sm8321841b3a.139.2025.01.14.18.40.51
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-72d40680e67sm8321841b3a.139.2025.01.14.18.41.02
         (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Tue, 14 Jan 2025 18:41:01 -0800 (PST)
+        Tue, 14 Jan 2025 18:41:12 -0800 (PST)
 From: Yunhui Cui <cuiyunhui@bytedance.com>
 To: ajones@ventanamicro.com,
 	alexghiti@rivosinc.com,
@@ -89,17 +89,16 @@ To: ajones@ventanamicro.com,
 	paul.walmsley@sifive.com,
 	samuel.holland@sifive.com,
 	shuah@kernel.org
-Subject: [PATCH v5 1/3] RISC-V: Enable cbo.clean/flush in usermode
-Date: Wed, 15 Jan 2025 10:40:22 +0800
-Message-Id: <20250115024024.84365-2-cuiyunhui@bytedance.com>
+Subject: [PATCH v5 2/3] RISC-V: hwprobe: Expose Zicbom extension and its block size
+Date: Wed, 15 Jan 2025 10:40:23 +0800
+Message-Id: <20250115024024.84365-3-cuiyunhui@bytedance.com>
 X-Mailer: git-send-email 2.39.2 (Apple Git-143)
 In-Reply-To: <20250115024024.84365-1-cuiyunhui@bytedance.com>
 References: <20250115024024.84365-1-cuiyunhui@bytedance.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250114_184103_280029_2FFF5351 
-X-CRM114-Status: UNSURE (   9.69  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250114_184114_093272_2A0FC54F 
+X-CRM114-Status: GOOD (  12.37  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,48 +115,95 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Enabling cbo.clean and cbo.flush in user mode makes it more
-convenient to manage the cache state and achieve better performance.
+Expose Zicbom through hwprobe and also provide a key to extract its
+respective block size.
 
-Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
 Signed-off-by: Yunhui Cui <cuiyunhui@bytedance.com>
 ---
- arch/riscv/kernel/cpufeature.c | 8 ++++++++
- 1 file changed, 8 insertions(+)
+ Documentation/arch/riscv/hwprobe.rst  | 6 ++++++
+ arch/riscv/include/asm/hwprobe.h      | 2 +-
+ arch/riscv/include/uapi/asm/hwprobe.h | 2 ++
+ arch/riscv/kernel/sys_hwprobe.c       | 6 ++++++
+ 4 files changed, 15 insertions(+), 1 deletion(-)
 
-diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
-index c0916ed318c2..60d180b98f52 100644
---- a/arch/riscv/kernel/cpufeature.c
-+++ b/arch/riscv/kernel/cpufeature.c
-@@ -30,6 +30,7 @@
- #define NUM_ALPHA_EXTS ('z' - 'a' + 1)
+diff --git a/Documentation/arch/riscv/hwprobe.rst b/Documentation/arch/riscv/hwprobe.rst
+index 955fbcd19ce9..21323811a206 100644
+--- a/Documentation/arch/riscv/hwprobe.rst
++++ b/Documentation/arch/riscv/hwprobe.rst
+@@ -242,6 +242,9 @@ The following keys are defined:
+   * :c:macro:`RISCV_HWPROBE_EXT_SUPM`: The Supm extension is supported as
+        defined in version 1.0 of the RISC-V Pointer Masking extensions.
  
- static bool any_cpu_has_zicboz;
-+static bool any_cpu_has_zicbom;
- 
- unsigned long elf_hwcap __read_mostly;
- 
-@@ -87,6 +88,8 @@ static int riscv_ext_zicbom_validate(const struct riscv_isa_ext_data *data,
- 		pr_err("Zicbom disabled as cbom-block-size present, but is not a power-of-2\n");
- 		return -EINVAL;
- 	}
++  * :c:macro:`RISCV_HWPROBE_EXT_ZICBOM`: The Zicbom extension is supported, as
++       ratified in commit 3dd606f ("Create cmobase-v1.0.pdf") of riscv-CMOs.
 +
-+	any_cpu_has_zicbom = true;
- 	return 0;
- }
+ * :c:macro:`RISCV_HWPROBE_KEY_CPUPERF_0`: Deprecated.  Returns similar values to
+      :c:macro:`RISCV_HWPROBE_KEY_MISALIGNED_SCALAR_PERF`, but the key was
+      mistakenly classified as a bitmask rather than a value.
+@@ -293,3 +296,6 @@ The following keys are defined:
  
-@@ -944,6 +947,11 @@ void __init riscv_user_isa_enable(void)
- 		current->thread.envcfg |= ENVCFG_CBZE;
- 	else if (any_cpu_has_zicboz)
- 		pr_warn("Zicboz disabled as it is unavailable on some harts\n");
+   * :c:macro:`RISCV_HWPROBE_MISALIGNED_VECTOR_UNSUPPORTED`: Misaligned vector accesses are
+     not supported at all and will generate a misaligned address fault.
 +
-+	if (riscv_has_extension_unlikely(RISCV_ISA_EXT_ZICBOM))
-+		current->thread.envcfg |= ENVCFG_CBCFE;
-+	else if (any_cpu_has_zicbom)
-+		pr_warn("Zicbom disabled as it is unavailable on some harts\n");
- }
++* :c:macro:`RISCV_HWPROBE_KEY_ZICBOM_BLOCK_SIZE`: An unsigned int which
++  represents the size of the Zicbom block in bytes.
+diff --git a/arch/riscv/include/asm/hwprobe.h b/arch/riscv/include/asm/hwprobe.h
+index 1ce1df6d0ff3..89379f9a2e6e 100644
+--- a/arch/riscv/include/asm/hwprobe.h
++++ b/arch/riscv/include/asm/hwprobe.h
+@@ -8,7 +8,7 @@
  
- #ifdef CONFIG_RISCV_ALTERNATIVE
+ #include <uapi/asm/hwprobe.h>
+ 
+-#define RISCV_HWPROBE_MAX_KEY 10
++#define RISCV_HWPROBE_MAX_KEY 11
+ 
+ static inline bool riscv_hwprobe_key_is_valid(__s64 key)
+ {
+diff --git a/arch/riscv/include/uapi/asm/hwprobe.h b/arch/riscv/include/uapi/asm/hwprobe.h
+index 3af142b99f77..b15c0bd83ef2 100644
+--- a/arch/riscv/include/uapi/asm/hwprobe.h
++++ b/arch/riscv/include/uapi/asm/hwprobe.h
+@@ -73,6 +73,7 @@ struct riscv_hwprobe {
+ #define		RISCV_HWPROBE_EXT_ZCMOP		(1ULL << 47)
+ #define		RISCV_HWPROBE_EXT_ZAWRS		(1ULL << 48)
+ #define		RISCV_HWPROBE_EXT_SUPM		(1ULL << 49)
++#define		RISCV_HWPROBE_EXT_ZICBOM	(1ULL << 50)
+ #define RISCV_HWPROBE_KEY_CPUPERF_0	5
+ #define		RISCV_HWPROBE_MISALIGNED_UNKNOWN	(0 << 0)
+ #define		RISCV_HWPROBE_MISALIGNED_EMULATED	(1 << 0)
+@@ -94,6 +95,7 @@ struct riscv_hwprobe {
+ #define		RISCV_HWPROBE_MISALIGNED_VECTOR_SLOW		2
+ #define		RISCV_HWPROBE_MISALIGNED_VECTOR_FAST		3
+ #define		RISCV_HWPROBE_MISALIGNED_VECTOR_UNSUPPORTED	4
++#define RISCV_HWPROBE_KEY_ZICBOM_BLOCK_SIZE	11
+ /* Increase RISCV_HWPROBE_MAX_KEY when adding items. */
+ 
+ /* Flags */
+diff --git a/arch/riscv/kernel/sys_hwprobe.c b/arch/riscv/kernel/sys_hwprobe.c
+index cb93adfffc48..04150e62f998 100644
+--- a/arch/riscv/kernel/sys_hwprobe.c
++++ b/arch/riscv/kernel/sys_hwprobe.c
+@@ -106,6 +106,7 @@ static void hwprobe_isa_ext0(struct riscv_hwprobe *pair,
+ 		EXT_KEY(ZCA);
+ 		EXT_KEY(ZCB);
+ 		EXT_KEY(ZCMOP);
++		EXT_KEY(ZICBOM);
+ 		EXT_KEY(ZICBOZ);
+ 		EXT_KEY(ZICOND);
+ 		EXT_KEY(ZIHINTNTL);
+@@ -278,6 +279,11 @@ static void hwprobe_one_pair(struct riscv_hwprobe *pair,
+ 		if (hwprobe_ext0_has(cpus, RISCV_HWPROBE_EXT_ZICBOZ))
+ 			pair->value = riscv_cboz_block_size;
+ 		break;
++	case RISCV_HWPROBE_KEY_ZICBOM_BLOCK_SIZE:
++		pair->value = 0;
++		if (hwprobe_ext0_has(cpus, RISCV_HWPROBE_EXT_ZICBOM))
++			pair->value = riscv_cbom_block_size;
++		break;
+ 	case RISCV_HWPROBE_KEY_HIGHEST_VIRT_ADDRESS:
+ 		pair->value = user_max_virt_addr();
+ 		break;
 -- 
 2.39.2
 
