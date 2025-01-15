@@ -4,69 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DE905C02180
-	for <linux-riscv@archiver.kernel.org>; Wed, 15 Jan 2025 07:07:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6E95FC02183
+	for <linux-riscv@archiver.kernel.org>; Wed, 15 Jan 2025 07:07:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:To:From:Reply-To:Cc:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=m/h7iPkS5bM8+BYCbwdNmMSStF5V6By5xCbEF2IRiuM=; b=01kUnlgguxsTw6
-	oYX73JxSJUP2SF/OnTPCkCOa4w2NhvmA+PUqLNFRTJpzqX9D2q37lknvIdyftqVm4CgUlWHyU+KVO
-	Onynb8j878IvtOmkv+kLKPVWo5Teg1lFGocXZunt7aWpV0cjge41aYkbL7MRLfOTnzbi0YLWNke85
-	FAQ2vvLC0eMS0cthHboTq/iIS0yR+/AjG8vhYU7Z/V3ZCCZa1gHCjzwQGPyK+yBncHbiruB5WVcyj
-	eaim0IFjmwEPrpVIFBRsTWM6igS9Y3HjMhyMS73gN4souzQFACOoyXwPfmZv+jv9/zn9Ver2/oGb6
-	I22TVLBiK3HBD2aPBIGA==;
+	List-Owner; bh=DH4zd4AqZhw8+uOK0cX78hk0YFpDQ1vvRs+YCL/8GuM=; b=DeMJEFKfbA0eOT
+	nPK9edUX3cAqCDv5GzGwjXipTlv/5gGokFH2PecjVfNi9RQ+KvrPo9rqw8pdlNjqCixOjUAfjcPG/
+	ZrLw5KxS+aeXETtTkTKe8apx9molnrd4tPeaZuQ/CHyBeO/B2WQ6IWh5YmR2+cgEwZ/nWcrrd8bKL
+	dFZ+aIfO7Ux3S2OLBTuhGUBlyc0zNGDDYp+kDztdyF5RyINRxzRSDCLKAComke1EiQ9tOqBz12tm6
+	j8BLWuT1AsKE+HtMaBlIvSwRik43o3CXISGuZ4C8EVXdI9SciZlfeQC04EpGJAmMNixHJyPutZ+Iq
+	LxPblm12oNVcsWGBJYzw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXxUt-0000000AtWy-1qWG;
-	Wed, 15 Jan 2025 07:07:27 +0000
-Received: from mail-oo1-xc2f.google.com ([2607:f8b0:4864:20::c2f])
+	id 1tXxUu-0000000AtXJ-09kF;
+	Wed, 15 Jan 2025 07:07:28 +0000
+Received: from mail-oo1-xc2d.google.com ([2607:f8b0:4864:20::c2d])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXxUF-0000000AtMa-2Fzf
+	id 1tXxUZ-0000000AtR7-2Jdt
 	for linux-riscv@lists.infradead.org;
-	Wed, 15 Jan 2025 07:06:48 +0000
-Received: by mail-oo1-xc2f.google.com with SMTP id 006d021491bc7-5f4c111991bso296854eaf.0
-        for <linux-riscv@lists.infradead.org>; Tue, 14 Jan 2025 23:06:47 -0800 (PST)
+	Wed, 15 Jan 2025 07:07:08 +0000
+Received: by mail-oo1-xc2d.google.com with SMTP id 006d021491bc7-5f2e13cb359so1820713eaf.3
+        for <linux-riscv@lists.infradead.org>; Tue, 14 Jan 2025 23:07:07 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1736924806; x=1737529606; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1736924826; x=1737529626; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:to:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=A6LsDSRxso3EvoawgFxcfFBhG8RtxCRF21ny5YM/h+8=;
-        b=YfaFSc+72b4J9qY/QJCm0GcMM7+wHZb+CipazXwbrBzYHeMpyeo7ykUsTVIk6w3CVM
-         eo8foKM/IJvAK2mdz6tlh3q7jnlPoEBLgt48db8QL0hOD3r7nldFSie1yrb2oaTe3D7L
-         kh2u/wwsWQ06HfQcX7UGWsWTugNh2TWrbMr+OzlCVndL9dTD+gsHqXlxB+j9Km/pvWPL
-         g7XRXyx7jUykS6z7dIdWEXmAeRpKwLlZlj/DZJ+uri0ValhqQO3cveLaDjwwgFqqI/oc
-         a5phmjBoca2rC/pfPbJJHQhb7N49D5pg0/em5OWGhEtZGBd8Rml+L0FzTVY1t1dEmhM/
-         MCgA==
+        bh=abobXy0SXY71oXKljRUVM/MN4IZYip5SxUDW7tMtbSU=;
+        b=OF0z9OhoZVeG7o6kDZxC2iGDl/BJlupvfptCu0XspQLlQis/IVvTSfHTO/oiZ445GT
+         bdAe9N+F1RG1bgGaHBLO/Vz5TN+pCWmHx5iXyNbMkGzKTs7vCuSsTWtB33kvBbOISqKj
+         P7R1mJdb/T9rBpFx/FxnNdTfSlgvXqdvJFD2JRO5EwkRu/TyrG9+be6P4R2gcjxUhnWu
+         XMxXrk/ZAecboRVscMwwGaMurAs8xlHloNktJoRf0OEC/99jrdiM9dFAj14kGcKK20Dc
+         yX+W7VzY4Rf/OJrLkIWqaSwA8mgoPuexnrvBET9fZlSvfdl/tcT89L2bvKu9Pvvrqjok
+         c5sw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1736924806; x=1737529606;
+        d=1e100.net; s=20230601; t=1736924826; x=1737529626;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=A6LsDSRxso3EvoawgFxcfFBhG8RtxCRF21ny5YM/h+8=;
-        b=skGcRHTC6qPAXd1CMfpQe4E4c1pmZxFV35QRf7TX5IM6EIK5JcLwqijuZl6+aMLVyp
-         z5El1AMiluXYy4jq9wh1Wgne5gw2M+Rf5cnbLZ3nYdz3f++AaUOS0AQITlsQ/ysxeaVg
-         TO+3IISPwaoYyHCA3IIjTldewvWLSRfaapqnsXi7ykSlVMVEexCGbheZPJN2FiLhN1dq
-         S6lk416kDug7Ynp8qy1YFoGlFN81QxuPmmIZZLPHVu1/A/aqny0dCfk+NFL6JorA/3YF
-         sOZRCDnRXQgeclpvLar+403SdCYXCPF/zleyJ6PQZj/FZqHnAY/oEST5wwohjT0WSRCs
-         dOKQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXWx3n9+7k02Gmvl5EeX1yrXEXpJ6oS2QCaOhnv/h8rRM19B/S6fIEfKsA7m6gnEIgZQ1srwy6Ux08FBA==@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywt/uGqZCDqH/PTDV3sQlm7dGkMF+VV4nEgOFYunn+NFjM9WrnA
-	L6ZjpqzcFhtxdWS4bgYJ8uLT9MIMfRv0etPBLlZ9YmhnPWpvDMcC
-X-Gm-Gg: ASbGnctQVT5wsj39IE2ejnlzNEwYB+XPFZqHdblzbD9zo72vSTf2D5hM8wgzu31vPGQ
-	PHAFga7tRXgp0PqyJjIn+2IoUER4dGxpYX5uJrc3JX1mxTrtAuM0WkN4M88kOKbVFucL4/Le8vn
-	ZSzh9/n9oOreo+o/pJWsFi/zvLAm0JIsATrDtkE/uELZu56WZ8OtEt9HVSG2hK+6Rp+R23Kf+RM
-	acrdRBBRp8INLOAcOy0gkjKL66pnOrRLF7rDbDhRxFVrzkory1nrRM59/acg3Y7y20=
-X-Google-Smtp-Source: AGHT+IG1BnRm1bURx9ei4lbPam8um8KU2KsMP9ifZa/V7dvLXRAArhlchv75sptxdIonaHl6GhtQiA==
-X-Received: by 2002:a4a:d682:0:b0:5f3:3d75:7d8f with SMTP id 006d021491bc7-5f8fa888b40mr1218310eaf.2.1736924806485;
-        Tue, 14 Jan 2025 23:06:46 -0800 (PST)
+        bh=abobXy0SXY71oXKljRUVM/MN4IZYip5SxUDW7tMtbSU=;
+        b=fxP1cRJvi7qj+qvX+WeXHLCevEI1zptcpQ2T2RxteTImB3/EE86E31AqvMSkXJ1zFC
+         s6ZlcvZfRuTvsxQ6g0e9FkqyvIQpWd/mU1NDPpsiH8hxyWOpScCCReYA4cRMq6kwuOg7
+         wFOdE98L2gQ4izzNVXZ7NXM4jY+JEE+ovEvpeyyvJhCoeAx6cXjULv+dAs1HoLQhgixU
+         EXgapKm6At13ykqzrZ+et/vilGYBmakgPBvIz21HyVC9224K5C4rLhjgyokEROvqlLeT
+         yaZ9txUpiUQ1yZFr2FVWFJPwhevqFoUmU3beUzXjE/IOnlksfk8B/RwlrtGYewFr1eM/
+         YILw==
+X-Forwarded-Encrypted: i=1; AJvYcCWrj8e6mS/KVGtmOl/C3DvpsJSTywKvcoAp5JYBL5hUsxDtrGmoN2JTS2jVc/ouvyA42O15Z8RH3vosmg==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw2xpKffOdM/uBN0R0DZ6hZg3zdp5lDvzeAuowZyo2rq3U90+pZ
+	LXVbZR7YEM+NeC7bQXbV8G5q69KL3veHv+Y3CTEMM2Mv88waZIv0
+X-Gm-Gg: ASbGncsyyhp0/mZIZ9ArG0PmQtNaEA+GFNUOo+phT9hLlpRqLR4wRtb0gk8Sxw0IZ3A
+	yH4ZWHMX5cJ9A9Ic3nT3VM70rxtAtBCTv+yh5eZ7zB4h6hWG5VKezuz8kv63uk7Kh5Pu9IHEPW7
+	RFff4tJ6bsNP3zyF0roveN1kj9osrrQ7jN0RsORR6QG+ULSFs7GA8lPExY2QmQbougGX//dkin0
+	XMNLpBNZQ0Z4qSTVIAcu+Xm/8Z89htExzSYQL1i+U33qlpDZnAy4v5tdxnMd5/UgFA=
+X-Google-Smtp-Source: AGHT+IGvjn4v1+QVeijX68j9UlTXjSg+4mSDzzJHyrs4Sxhtm8AkRzw+g+ojXPw3T9jDHtbkdIFdrw==
+X-Received: by 2002:a4a:a503:0:b0:5f7:30bf:dc61 with SMTP id 006d021491bc7-5f730bfe0b6mr11797499eaf.5.1736924826321;
+        Tue, 14 Jan 2025 23:07:06 -0800 (PST)
 Received: from localhost.localdomain ([122.8.183.87])
-        by smtp.gmail.com with ESMTPSA id 46e09a7af769-723185383e7sm5428507a34.11.2025.01.14.23.06.44
+        by smtp.gmail.com with ESMTPSA id 46e09a7af769-7231861bf71sm5382880a34.52.2025.01.14.23.07.03
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 14 Jan 2025 23:06:45 -0800 (PST)
+        Tue, 14 Jan 2025 23:07:05 -0800 (PST)
 From: Chen Wang <unicornxw@gmail.com>
 To: kw@linux.com,
 	u.kleine-koenig@baylibre.com,
@@ -93,16 +93,16 @@ To: kw@linux.com,
 	xiaoguang.xing@sophgo.com,
 	fengchun.li@sophgo.com,
 	helgaas@kernel.org
-Subject: [PATCH v3 1/5] dt-bindings: pci: Add Sophgo SG2042 PCIe host
-Date: Wed, 15 Jan 2025 15:06:37 +0800
-Message-Id: <5a784afde48c44b5a8f376f02c5f30ccff8a3312.1736923025.git.unicorn_wang@outlook.com>
+Subject: [PATCH v3 2/5] PCI: sg2042: Add Sophgo SG2042 PCIe driver
+Date: Wed, 15 Jan 2025 15:06:57 +0800
+Message-Id: <ddedd8f76f83fea2c6d3887132d2fe6f2a6a02c1.1736923025.git.unicorn_wang@outlook.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <cover.1736923025.git.unicorn_wang@outlook.com>
 References: <cover.1736923025.git.unicorn_wang@outlook.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250114_230647_576606_25BB2BBB 
-X-CRM114-Status: GOOD (  15.05  )
+X-CRM114-CacheID: sfid-20250114_230707_597701_F3B12894 
+X-CRM114-Status: GOOD (  28.70  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,167 +121,590 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Chen Wang <unicorn_wang@outlook.com>
 
-Add binding for Sophgo SG2042 PCIe host controller.
+Add support for PCIe controller in SG2042 SoC. The controller
+uses the Cadence PCIe core programmed by pcie-cadence*.c. The
+PCIe controller will work in host mode only.
 
 Signed-off-by: Chen Wang <unicorn_wang@outlook.com>
 ---
- .../bindings/pci/sophgo,sg2042-pcie-host.yaml | 147 ++++++++++++++++++
- 1 file changed, 147 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/pci/sophgo,sg2042-pcie-host.yaml
+ drivers/pci/controller/cadence/Kconfig       |  13 +
+ drivers/pci/controller/cadence/Makefile      |   1 +
+ drivers/pci/controller/cadence/pcie-sg2042.c | 528 +++++++++++++++++++
+ 3 files changed, 542 insertions(+)
+ create mode 100644 drivers/pci/controller/cadence/pcie-sg2042.c
 
-diff --git a/Documentation/devicetree/bindings/pci/sophgo,sg2042-pcie-host.yaml b/Documentation/devicetree/bindings/pci/sophgo,sg2042-pcie-host.yaml
+diff --git a/drivers/pci/controller/cadence/Kconfig b/drivers/pci/controller/cadence/Kconfig
+index 8a0044bb3989..292eb2b20e9c 100644
+--- a/drivers/pci/controller/cadence/Kconfig
++++ b/drivers/pci/controller/cadence/Kconfig
+@@ -42,6 +42,18 @@ config PCIE_CADENCE_PLAT_EP
+ 	  endpoint mode. This PCIe controller may be embedded into many
+ 	  different vendors SoCs.
+ 
++config PCIE_SG2042
++	bool "Sophgo SG2042 PCIe controller (host mode)"
++	depends on ARCH_SOPHGO || COMPILE_TEST
++	depends on OF
++	select IRQ_MSI_LIB
++	select PCI_MSI
++	select PCIE_CADENCE_HOST
++	help
++	  Say Y here if you want to support the Sophgo SG2042 PCIe platform
++	  controller in host mode. Sophgo SG2042 PCIe controller uses Cadence
++	  PCIe core.
++
+ config PCI_J721E
+ 	bool
+ 
+@@ -67,4 +79,5 @@ config PCI_J721E_EP
+ 	  Say Y here if you want to support the TI J721E PCIe platform
+ 	  controller in endpoint mode. TI J721E PCIe controller uses Cadence PCIe
+ 	  core.
++
+ endmenu
+diff --git a/drivers/pci/controller/cadence/Makefile b/drivers/pci/controller/cadence/Makefile
+index 9bac5fb2f13d..4df4456d9539 100644
+--- a/drivers/pci/controller/cadence/Makefile
++++ b/drivers/pci/controller/cadence/Makefile
+@@ -4,3 +4,4 @@ obj-$(CONFIG_PCIE_CADENCE_HOST) += pcie-cadence-host.o
+ obj-$(CONFIG_PCIE_CADENCE_EP) += pcie-cadence-ep.o
+ obj-$(CONFIG_PCIE_CADENCE_PLAT) += pcie-cadence-plat.o
+ obj-$(CONFIG_PCI_J721E) += pci-j721e.o
++obj-$(CONFIG_PCIE_SG2042) += pcie-sg2042.o
+diff --git a/drivers/pci/controller/cadence/pcie-sg2042.c b/drivers/pci/controller/cadence/pcie-sg2042.c
 new file mode 100644
-index 000000000000..f98e71822144
+index 000000000000..56797c2af755
 --- /dev/null
-+++ b/Documentation/devicetree/bindings/pci/sophgo,sg2042-pcie-host.yaml
-@@ -0,0 +1,147 @@
-+# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/pci/sophgo,sg2042-pcie-host.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
++++ b/drivers/pci/controller/cadence/pcie-sg2042.c
+@@ -0,0 +1,528 @@
++// SPDX-License-Identifier: GPL-2.0
++/*
++ * pcie-sg2042 - PCIe controller driver for Sophgo SG2042 SoC
++ *
++ * Copyright (C) 2024 Sophgo Technology Inc.
++ * Copyright (C) 2024 Chen Wang <unicorn_wang@outlook.com>
++ */
 +
-+title: Sophgo SG2042 PCIe Host (Cadence PCIe Wrapper)
++#include <linux/bits.h>
++#include <linux/irq.h>
++#include <linux/irqchip/chained_irq.h>
++#include <linux/irqdomain.h>
++#include <linux/kernel.h>
++#include <linux/mfd/syscon.h>
++#include <linux/msi.h>
++#include <linux/of_address.h>
++#include <linux/of_irq.h>
++#include <linux/of_pci.h>
++#include <linux/platform_device.h>
++#include <linux/pm_runtime.h>
++#include <linux/regmap.h>
 +
-+description:
-+  Sophgo SG2042 PCIe host controller is based on the Cadence PCIe core.
++#include "../../../irqchip/irq-msi-lib.h"
 +
-+maintainers:
-+  - Chen Wang <unicorn_wang@outlook.com>
++#include "pcie-cadence.h"
 +
-+properties:
-+  compatible:
-+    const: sophgo,sg2042-pcie-host
++/*
++ * SG2042 PCIe controller supports two ways to report MSI:
++ *
++ * - Method A, the PCIe controller implements an MSI interrupt controller
++ *   inside, and connect to PLIC upward through one interrupt line.
++ *   Provides memory-mapped MSI address, and by programming the upper 32
++ *   bits of the address to zero, it can be compatible with old PCIe devices
++ *   that only support 32-bit MSI address.
++ *
++ * - Method B, the PCIe controller connects to PLIC upward through an
++ *   independent MSI controller "sophgo,sg2042-msi" on the SOC. The MSI
++ *   controller provides multiple(up to 32) interrupt sources to PLIC.
++ *   Compared with the first method, the advantage is that the interrupt
++ *   source is expanded, but because for SG2042, the MSI address provided by
++ *   the MSI controller is fixed and only supports 64-bit address(> 2^32),
++ *   it is not compatible with old PCIe devices that only support 32-bit MSI
++ *   address.
++ *
++ * Method A & B can be configured in DTS, default is Method B.
++ */
 +
-+  reg:
-+    maxItems: 2
++#define MAX_MSI_IRQS		8
++#define MAX_MSI_IRQS_PER_CTRL	1
++#define MAX_MSI_CTRLS		(MAX_MSI_IRQS / MAX_MSI_IRQS_PER_CTRL)
++#define MSI_DEF_NUM_VECTORS	MAX_MSI_IRQS
++#define BYTE_NUM_PER_MSI_VEC	4
 +
-+  reg-names:
-+    items:
-+      - const: reg
-+      - const: cfg
++#define REG_CLEAR		0x0804
++#define REG_STATUS		0x0810
++#define REG_LINK0_MSI_ADDR_SIZE	0x085C
++#define REG_LINK1_MSI_ADDR_SIZE	0x080C
++#define REG_LINK0_MSI_ADDR_LOW	0x0860
++#define REG_LINK0_MSI_ADDR_HIGH	0x0864
++#define REG_LINK1_MSI_ADDR_LOW	0x0868
++#define REG_LINK1_MSI_ADDR_HIGH	0x086C
 +
-+  vendor-id:
-+    const: 0x1f1c
++#define REG_CLEAR_LINK0_BIT	2
++#define REG_CLEAR_LINK1_BIT	3
++#define REG_STATUS_LINK0_BIT	2
++#define REG_STATUS_LINK1_BIT	3
 +
-+  device-id:
-+    const: 0x2042
++#define REG_LINK0_MSI_ADDR_SIZE_MASK	GENMASK(15, 0)
++#define REG_LINK1_MSI_ADDR_SIZE_MASK	GENMASK(31, 16)
 +
-+  msi:
-+    type: object
-+    $ref: /schemas/interrupt-controller/msi-controller.yaml#
-+    unevaluatedProperties: false
++struct sg2042_pcie {
++	struct cdns_pcie	*cdns_pcie;
 +
-+    properties:
-+      compatible:
-+        items:
-+          - const: sophgo,sg2042-pcie-msi
++	struct regmap		*syscon;
 +
-+      interrupts:
-+        maxItems: 1
++	u32			link_id;
 +
-+      interrupt-names:
-+        const: msi
++	struct irq_domain	*msi_domain;
 +
-+  msi-parent: true
++	int			msi_irq;
 +
-+  sophgo,link-id:
-+    $ref: /schemas/types.yaml#/definitions/uint32
-+    description: |
-+      SG2042 uses Cadence IP, every IP is composed of 2 cores (called link0
-+      & link1 as Cadence's term). Each core corresponds to a host bridge,
-+      and each host bridge has only one root port. Their configuration
-+      registers are completely independent. SG2042 integrates two Cadence IPs,
-+      so there can actually be up to four host bridges. "sophgo,link-id" is
-+      used to identify which core/link the PCIe host bridge node corresponds to.
++	dma_addr_t		msi_phys;
++	void			*msi_virt;
 +
-+      The Cadence IP has two modes of operation, selected by a strap pin.
++	u32			num_applied_vecs; /* used to speed up ISR */
 +
-+      In the single-link mode, the Cadence PCIe core instance associated
-+      with Link0 is connected to all the lanes and the Cadence PCIe core
-+      instance associated with Link1 is inactive.
++	raw_spinlock_t		msi_lock;
++	DECLARE_BITMAP(msi_irq_in_use, MAX_MSI_IRQS);
++};
 +
-+      In the dual-link mode, the Cadence PCIe core instance associated
-+      with Link0 is connected to the lower half of the lanes and the
-+      Cadence PCIe core instance associated with Link1 is connected to
-+      the upper half of the lanes.
++static void sg2042_pcie_msi_clear_status(struct sg2042_pcie *pcie)
++{
++	u32 status, clr_msi_in_bit;
 +
-+      SG2042 contains 2 Cadence IPs and configures the Cores as below:
++	if (pcie->link_id == 1)
++		clr_msi_in_bit = BIT(REG_CLEAR_LINK1_BIT);
++	else
++		clr_msi_in_bit = BIT(REG_CLEAR_LINK0_BIT);
 +
-+                     +-- Core (Link0) <---> pcie_rc0  +-----------------+
-+                     |                                |                 |
-+      Cadence IP 1 --+                                | cdns_pcie0_ctrl |
-+                     |                                |                 |
-+                     +-- Core (Link1) <---> disabled  +-----------------+
++	regmap_read(pcie->syscon, REG_CLEAR, &status);
++	status |= clr_msi_in_bit;
++	regmap_write(pcie->syscon, REG_CLEAR, status);
 +
-+                     +-- Core (Link0) <---> pcie_rc1  +-----------------+
-+                     |                                |                 |
-+      Cadence IP 2 --+                                | cdns_pcie1_ctrl |
-+                     |                                |                 |
-+                     +-- Core (Link1) <---> pcie_rc2  +-----------------+
++	/* need write 0 to reset, hardware can not reset automatically */
++	status &= ~clr_msi_in_bit;
++	regmap_write(pcie->syscon, REG_CLEAR, status);
++}
 +
-+      pcie_rcX is PCIe node ("sophgo,sg2042-pcie-host") defined in DTS.
++static int sg2042_pcie_msi_irq_set_affinity(struct irq_data *d,
++					    const struct cpumask *mask,
++					    bool force)
++{
++	if (d->parent_data)
++		return irq_chip_set_affinity_parent(d, mask, force);
 +
-+      Sophgo defines some new register files to add support for their MSI
-+      controller inside PCIe. These new register files are defined in DTS as
-+      syscon node ("sophgo,sg2042-pcie-ctrl"), i.e. "cdns_pcie0_ctrl" /
-+      "cdns_pcie1_ctrl". cdns_pcieX_ctrl contains some registers shared by
-+      pcie_rcX, even two RC (Link)s may share different bits of the same
-+      register. For example, cdns_pcie1_ctrl contains registers shared by
-+      link0 & link1 for Cadence IP 2.
++	return -EINVAL;
++}
 +
-+      "sophgo,link-id" is defined to distinguish the two RC's in one Cadence IP,
-+      so we can know what registers (bits) we should use.
++static void sg2042_pcie_msi_irq_compose_msi_msg(struct irq_data *d,
++						struct msi_msg *msg)
++{
++	struct sg2042_pcie *pcie = irq_data_get_irq_chip_data(d);
++	struct device *dev = pcie->cdns_pcie->dev;
 +
-+  sophgo,syscon-pcie-ctrl:
-+    $ref: /schemas/types.yaml#/definitions/phandle
-+    description:
-+      Phandle to the PCIe System Controller DT node. It's required to
-+      access some MSI operation registers shared by PCIe RCs.
++	msg->address_lo = lower_32_bits(pcie->msi_phys) + BYTE_NUM_PER_MSI_VEC * d->hwirq;
++	msg->address_hi = upper_32_bits(pcie->msi_phys);
++	msg->data = 1;
 +
-+allOf:
-+  - $ref: cdns-pcie-host.yaml#
++	if (d->hwirq > pcie->num_applied_vecs)
++		pcie->num_applied_vecs = d->hwirq;
 +
-+required:
-+  - compatible
-+  - reg
-+  - reg-names
-+  - vendor-id
-+  - device-id
-+  - sophgo,link-id
-+  - sophgo,syscon-pcie-ctrl
++	dev_dbg(dev, "compose MSI msg hwirq[%ld] address_hi[%#x] address_lo[%#x]\n",
++		d->hwirq, msg->address_hi, msg->address_lo);
++}
 +
-+unevaluatedProperties: false
++static void sg2042_pcie_msi_irq_ack(struct irq_data *d)
++{
++	struct sg2042_pcie *pcie = irq_data_get_irq_chip_data(d);
 +
-+examples:
-+  - |
-+    #include <dt-bindings/interrupt-controller/irq.h>
++	sg2042_pcie_msi_clear_status(pcie);
++}
 +
-+    pcie@62000000 {
-+      compatible = "sophgo,sg2042-pcie-host";
-+      device_type = "pci";
-+      reg = <0x62000000  0x00800000>,
-+            <0x48000000  0x00001000>;
-+      reg-names = "reg", "cfg";
-+      #address-cells = <3>;
-+      #size-cells = <2>;
-+      ranges = <0x81000000 0 0x00000000 0xde000000 0 0x00010000>,
-+               <0x82000000 0 0xd0400000 0xd0400000 0 0x0d000000>;
-+      bus-range = <0x00 0xff>;
-+      vendor-id = <0x1f1c>;
-+      device-id = <0x2042>;
-+      cdns,no-bar-match-nbits = <48>;
-+      sophgo,link-id = <0>;
-+      sophgo,syscon-pcie-ctrl = <&cdns_pcie1_ctrl>;
-+      msi-parent = <&msi_pcie>;
-+      msi_pcie: msi {
-+        compatible = "sophgo,sg2042-pcie-msi";
-+        msi-controller;
-+        interrupt-parent = <&intc>;
-+        interrupts = <123 IRQ_TYPE_LEVEL_HIGH>;
-+        interrupt-names = "msi";
-+      };
-+    };
++static struct irq_chip sg2042_pcie_msi_bottom_chip = {
++	.name			= "SG2042 PCIe PLIC-MSI translator",
++	.irq_ack		= sg2042_pcie_msi_irq_ack,
++	.irq_compose_msi_msg	= sg2042_pcie_msi_irq_compose_msi_msg,
++	.irq_set_affinity	= sg2042_pcie_msi_irq_set_affinity,
++};
++
++static int sg2042_pcie_irq_domain_alloc(struct irq_domain *domain,
++					unsigned int virq, unsigned int nr_irqs,
++					void *args)
++{
++	struct sg2042_pcie *pcie = domain->host_data;
++	unsigned long flags;
++	u32 i;
++	int bit;
++
++	raw_spin_lock_irqsave(&pcie->msi_lock, flags);
++
++	bit = bitmap_find_free_region(pcie->msi_irq_in_use, MSI_DEF_NUM_VECTORS,
++				      order_base_2(nr_irqs));
++
++	raw_spin_unlock_irqrestore(&pcie->msi_lock, flags);
++
++	if (bit < 0)
++		return -ENOSPC;
++
++	for (i = 0; i < nr_irqs; i++)
++		irq_domain_set_info(domain, virq + i, bit + i,
++				    &sg2042_pcie_msi_bottom_chip,
++				    pcie, handle_edge_irq,
++				    NULL, NULL);
++
++	return 0;
++}
++
++static void sg2042_pcie_irq_domain_free(struct irq_domain *domain,
++					unsigned int virq, unsigned int nr_irqs)
++{
++	struct irq_data *d = irq_domain_get_irq_data(domain, virq);
++	struct sg2042_pcie *pcie = irq_data_get_irq_chip_data(d);
++	unsigned long flags;
++
++	raw_spin_lock_irqsave(&pcie->msi_lock, flags);
++
++	bitmap_release_region(pcie->msi_irq_in_use, d->hwirq,
++			      order_base_2(nr_irqs));
++
++	raw_spin_unlock_irqrestore(&pcie->msi_lock, flags);
++}
++
++static const struct irq_domain_ops sg2042_pcie_msi_domain_ops = {
++	.alloc	= sg2042_pcie_irq_domain_alloc,
++	.free	= sg2042_pcie_irq_domain_free,
++};
++
++static int sg2042_pcie_init_msi_data(struct sg2042_pcie *pcie)
++{
++	struct device *dev = pcie->cdns_pcie->dev;
++	u32 value;
++	int ret;
++
++	raw_spin_lock_init(&pcie->msi_lock);
++
++	/*
++	 * Though the PCIe controller can address >32-bit address space, to
++	 * facilitate endpoints that support only 32-bit MSI target address,
++	 * the mask is set to 32-bit to make sure that MSI target address is
++	 * always a 32-bit address
++	 */
++	ret = dma_set_coherent_mask(dev, DMA_BIT_MASK(32));
++	if (ret < 0)
++		return ret;
++
++	pcie->msi_virt = dma_alloc_coherent(dev, BYTE_NUM_PER_MSI_VEC * MAX_MSI_IRQS,
++					    &pcie->msi_phys, GFP_KERNEL);
++	if (!pcie->msi_virt)
++		return -ENOMEM;
++
++	/* Program the MSI address and size */
++	if (pcie->link_id == 1) {
++		regmap_write(pcie->syscon, REG_LINK1_MSI_ADDR_LOW,
++			     lower_32_bits(pcie->msi_phys));
++		regmap_write(pcie->syscon, REG_LINK1_MSI_ADDR_HIGH,
++			     upper_32_bits(pcie->msi_phys));
++
++		regmap_read(pcie->syscon, REG_LINK1_MSI_ADDR_SIZE, &value);
++		value = (value & REG_LINK1_MSI_ADDR_SIZE_MASK) | MAX_MSI_IRQS;
++		regmap_write(pcie->syscon, REG_LINK1_MSI_ADDR_SIZE, value);
++	} else {
++		regmap_write(pcie->syscon, REG_LINK0_MSI_ADDR_LOW,
++			     lower_32_bits(pcie->msi_phys));
++		regmap_write(pcie->syscon, REG_LINK0_MSI_ADDR_HIGH,
++			     upper_32_bits(pcie->msi_phys));
++
++		regmap_read(pcie->syscon, REG_LINK0_MSI_ADDR_SIZE, &value);
++		value = (value & REG_LINK0_MSI_ADDR_SIZE_MASK) | (MAX_MSI_IRQS << 16);
++		regmap_write(pcie->syscon, REG_LINK0_MSI_ADDR_SIZE, value);
++	}
++
++	return 0;
++}
++
++static irqreturn_t sg2042_pcie_msi_handle_irq(struct sg2042_pcie *pcie)
++{
++	u32 i, pos;
++	unsigned long val;
++	u32 status, num_vectors;
++	irqreturn_t ret = IRQ_NONE;
++
++	num_vectors = pcie->num_applied_vecs;
++	for (i = 0; i <= num_vectors; i++) {
++		status = readl((void *)(pcie->msi_virt + i * BYTE_NUM_PER_MSI_VEC));
++		if (!status)
++			continue;
++
++		ret = IRQ_HANDLED;
++		val = status;
++		pos = 0;
++		while ((pos = find_next_bit(&val, MAX_MSI_IRQS_PER_CTRL,
++					    pos)) != MAX_MSI_IRQS_PER_CTRL) {
++			generic_handle_domain_irq(pcie->msi_domain,
++						  (i * MAX_MSI_IRQS_PER_CTRL) +
++						  pos);
++			pos++;
++		}
++		writel(0, ((void *)(pcie->msi_virt) + i * BYTE_NUM_PER_MSI_VEC));
++	}
++	return ret;
++}
++
++static void sg2042_pcie_msi_chained_isr(struct irq_desc *desc)
++{
++	struct irq_chip *chip = irq_desc_get_chip(desc);
++	u32 status, st_msi_in_bit;
++	struct sg2042_pcie *pcie;
++
++	chained_irq_enter(chip, desc);
++
++	pcie = irq_desc_get_handler_data(desc);
++	if (pcie->link_id == 1)
++		st_msi_in_bit = REG_STATUS_LINK1_BIT;
++	else
++		st_msi_in_bit = REG_STATUS_LINK0_BIT;
++
++	regmap_read(pcie->syscon, REG_STATUS, &status);
++	if ((status >> st_msi_in_bit) & 0x1) {
++		sg2042_pcie_msi_clear_status(pcie);
++
++		sg2042_pcie_msi_handle_irq(pcie);
++	}
++
++	chained_irq_exit(chip, desc);
++}
++
++#define SG2042_PCIE_MSI_FLAGS_REQUIRED (MSI_FLAG_USE_DEF_DOM_OPS |	\
++					MSI_FLAG_USE_DEF_CHIP_OPS)
++
++#define SG2042_PCIE_MSI_FLAGS_SUPPORTED MSI_GENERIC_FLAGS_MASK
++
++static struct msi_parent_ops sg2042_pcie_msi_parent_ops = {
++	.required_flags		= SG2042_PCIE_MSI_FLAGS_REQUIRED,
++	.supported_flags	= SG2042_PCIE_MSI_FLAGS_SUPPORTED,
++	.bus_select_mask	= MATCH_PCI_MSI,
++	.bus_select_token	= DOMAIN_BUS_NEXUS,
++	.prefix			= "SG2042-",
++	.init_dev_msi_info	= msi_lib_init_dev_msi_info,
++};
++
++static int sg2042_pcie_setup_msi(struct sg2042_pcie *pcie,
++				 struct device_node *msi_node)
++{
++	struct device *dev = pcie->cdns_pcie->dev;
++	struct fwnode_handle *fwnode = of_node_to_fwnode(dev->of_node);
++	struct irq_domain *parent_domain;
++	int ret = 0;
++
++	if (!of_property_read_bool(msi_node, "msi-controller"))
++		return -ENODEV;
++
++	ret = of_irq_get_byname(msi_node, "msi");
++	if (ret <= 0) {
++		dev_err(dev, "%pOF: failed to get MSI irq\n", msi_node);
++		return ret;
++	}
++	pcie->msi_irq = ret;
++
++	irq_set_chained_handler_and_data(pcie->msi_irq,
++					 sg2042_pcie_msi_chained_isr, pcie);
++
++	parent_domain = irq_domain_create_linear(fwnode, MSI_DEF_NUM_VECTORS,
++						 &sg2042_pcie_msi_domain_ops, pcie);
++	if (!parent_domain) {
++		dev_err(dev, "%pfw: Failed to create IRQ domain\n", fwnode);
++		return -ENOMEM;
++	}
++	irq_domain_update_bus_token(parent_domain, DOMAIN_BUS_NEXUS);
++
++	parent_domain->flags |= IRQ_DOMAIN_FLAG_MSI_PARENT;
++	parent_domain->msi_parent_ops = &sg2042_pcie_msi_parent_ops;
++
++	pcie->msi_domain = parent_domain;
++
++	ret = sg2042_pcie_init_msi_data(pcie);
++	if (ret) {
++		dev_err(dev, "Failed to initialize MSI data!\n");
++		return ret;
++	}
++
++	return 0;
++}
++
++static void sg2042_pcie_free_msi(struct sg2042_pcie *pcie)
++{
++	struct device *dev = pcie->cdns_pcie->dev;
++
++	if (pcie->msi_irq)
++		irq_set_chained_handler_and_data(pcie->msi_irq, NULL, NULL);
++
++	if (pcie->msi_virt)
++		dma_free_coherent(dev, BYTE_NUM_PER_MSI_VEC * MAX_MSI_IRQS,
++				  pcie->msi_virt, pcie->msi_phys);
++}
++
++/*
++ * SG2042 only support 4-byte aligned access, so for the rootbus (i.e. to read
++ * the Root Port itself, read32 is required. For non-rootbus (i.e. to read
++ * the PCIe peripheral registers, supports 1/2/4 byte aligned access, so
++ * directly using read should be fine.
++ *
++ * The same is true for write.
++ */
++static int sg2042_pcie_config_read(struct pci_bus *bus, unsigned int devfn,
++				   int where, int size, u32 *value)
++{
++	if (pci_is_root_bus(bus))
++		return pci_generic_config_read32(bus, devfn, where, size,
++						 value);
++
++	return pci_generic_config_read(bus, devfn, where, size, value);
++}
++
++static int sg2042_pcie_config_write(struct pci_bus *bus, unsigned int devfn,
++				    int where, int size, u32 value)
++{
++	if (pci_is_root_bus(bus))
++		return pci_generic_config_write32(bus, devfn, where, size,
++						  value);
++
++	return pci_generic_config_write(bus, devfn, where, size, value);
++}
++
++static struct pci_ops sg2042_pcie_host_ops = {
++	.map_bus	= cdns_pci_map_bus,
++	.read		= sg2042_pcie_config_read,
++	.write		= sg2042_pcie_config_write,
++};
++
++/* Dummy ops which will be assigned to cdns_pcie.ops, which must be !NULL. */
++static const struct cdns_pcie_ops sg2042_cdns_pcie_ops = {};
++
++static int sg2042_pcie_probe(struct platform_device *pdev)
++{
++	struct device *dev = &pdev->dev;
++	struct device_node *np = dev->of_node;
++	struct pci_host_bridge *bridge;
++	struct device_node *np_syscon;
++	struct device_node *msi_node;
++	struct cdns_pcie *cdns_pcie;
++	struct sg2042_pcie *pcie;
++	struct cdns_pcie_rc *rc;
++	struct regmap *syscon;
++	int ret;
++
++	pcie = devm_kzalloc(dev, sizeof(*pcie), GFP_KERNEL);
++	if (!pcie)
++		return -ENOMEM;
++
++	bridge = devm_pci_alloc_host_bridge(dev, sizeof(*rc));
++	if (!bridge) {
++		dev_err(dev, "Failed to alloc host bridge!\n");
++		return -ENOMEM;
++	}
++
++	bridge->ops = &sg2042_pcie_host_ops;
++
++	rc = pci_host_bridge_priv(bridge);
++	cdns_pcie = &rc->pcie;
++	cdns_pcie->dev = dev;
++	cdns_pcie->ops = &sg2042_cdns_pcie_ops;
++	pcie->cdns_pcie = cdns_pcie;
++
++	np_syscon = of_parse_phandle(np, "sophgo,syscon-pcie-ctrl", 0);
++	if (!np_syscon) {
++		dev_err(dev, "Failed to get syscon node\n");
++		return -ENOMEM;
++	}
++	syscon = syscon_node_to_regmap(np_syscon);
++	if (IS_ERR(syscon)) {
++		dev_err(dev, "Failed to get regmap for syscon\n");
++		return -ENOMEM;
++	}
++	pcie->syscon = syscon;
++
++	if (of_property_read_u32(np, "sophgo,link-id", &pcie->link_id)) {
++		dev_err(dev, "Unable to parse sophgo,link-id\n");
++		return -EINVAL;
++	}
++
++	platform_set_drvdata(pdev, pcie);
++
++	pm_runtime_enable(dev);
++
++	ret = pm_runtime_get_sync(dev);
++	if (ret < 0) {
++		dev_err(dev, "pm_runtime_get_sync failed\n");
++		goto err_get_sync;
++	}
++
++	msi_node = of_parse_phandle(dev->of_node, "msi-parent", 0);
++	if (!msi_node) {
++		dev_err(dev, "Failed to get msi-parent!\n");
++		return -1;
++	}
++
++	if (of_device_is_compatible(msi_node, "sophgo,sg2042-pcie-msi")) {
++		ret = sg2042_pcie_setup_msi(pcie, msi_node);
++		if (ret < 0)
++			goto err_setup_msi;
++	}
++
++	ret = cdns_pcie_init_phy(dev, cdns_pcie);
++	if (ret) {
++		dev_err(dev, "Failed to init phy!\n");
++		goto err_setup_msi;
++	}
++
++	ret = cdns_pcie_host_setup(rc);
++	if (ret < 0) {
++		dev_err(dev, "Failed to setup host!\n");
++		goto err_host_setup;
++	}
++
++	return 0;
++
++err_host_setup:
++	cdns_pcie_disable_phy(cdns_pcie);
++
++err_setup_msi:
++	sg2042_pcie_free_msi(pcie);
++
++err_get_sync:
++	pm_runtime_put(dev);
++	pm_runtime_disable(dev);
++
++	return ret;
++}
++
++static void sg2042_pcie_shutdown(struct platform_device *pdev)
++{
++	struct sg2042_pcie *pcie = platform_get_drvdata(pdev);
++	struct cdns_pcie *cdns_pcie = pcie->cdns_pcie;
++	struct device *dev = &pdev->dev;
++
++	sg2042_pcie_free_msi(pcie);
++
++	cdns_pcie_disable_phy(cdns_pcie);
++
++	pm_runtime_put(dev);
++	pm_runtime_disable(dev);
++}
++
++static const struct of_device_id sg2042_pcie_of_match[] = {
++	{ .compatible = "sophgo,sg2042-pcie-host" },
++	{},
++};
++
++static struct platform_driver sg2042_pcie_driver = {
++	.driver = {
++		.name		= "sg2042-pcie",
++		.of_match_table	= sg2042_pcie_of_match,
++		.pm		= &cdns_pcie_pm_ops,
++	},
++	.probe		= sg2042_pcie_probe,
++	.shutdown	= sg2042_pcie_shutdown,
++};
++builtin_platform_driver(sg2042_pcie_driver);
 -- 
 2.34.1
 
