@@ -4,83 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3922FC02183
-	for <linux-riscv@archiver.kernel.org>; Wed, 15 Jan 2025 09:20:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5AFD0C02183
+	for <linux-riscv@archiver.kernel.org>; Wed, 15 Jan 2025 09:23:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=zNyY1oSQQhTtZMBUh8W/o7AekHo9peJQONtu1MXFnqw=; b=ijLNsqIrgvJTd6
-	370ZuaB3MiMrv3nAe0LPas6YVhgaqYt6JJo7s2j6vom6Ixy/QuOTMRTdJYTPcctwApSzoCggFaF8L
-	xg+SCyoSzGFWpxP8W7ENhMi+G4zTslHdCk4vj43F57/or+rT0LvTWKEvCy02aEhODl8/+omjWPIIj
-	AStNtiJUQMcy2ipt/wduU6ad4eresi16X8fFyN1JAi4C7OK+iN8vsMq4j/ZTCTLlggtuX24iX3+92
-	UD9vBlSWZhRB+DNVqY4UzfsvWPuiP1g0U+ElNxyUzIq1umImDn9mYipmczW1MbtmME7mIOdU0qsm+
-	FDfQW2RCT1J0jkpo1ZYQ==;
+	List-Owner; bh=ri/V+sW1/NKOFOjktDf8pwGJmpAfvYngyzxVHi74SW8=; b=CEQ5nton1jqR7R
+	wElsbigeKBXzacG8EBZs3SGKwy1exL/DnrKIuyEqDwOeJ30oLMM22ZiKU9aiJvPs1czI3S0uHWTpx
+	RT1nan0NfLXOh8nUG4sRQz6H1DuPaoB0Nr0wMZPcG4eaEzEdp1ipt1J9QcN6dh2CigITzWj1YX1NU
+	oXIib/WvJ8PgZf+mZB/Nn9GT24zi5ZtHT75AUZMIB6Np5FZRUXUqt793dXE0ipgqCPvN7W7u+NSYy
+	GKTwujyLSlKpIwgwxMjAB8uM2LuGh17fcm8lfvJw9MGYgNGENYALhQKMrV1ibLOZ1Q2pJQDMLyius
+	t0FU8mHCl+LU2diQVp6A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXzZc-0000000BHg4-0ePo;
-	Wed, 15 Jan 2025 09:20:28 +0000
-Received: from fw2.prolan.hu ([193.68.50.107])
+	id 1tXzc4-0000000BISY-3EFd;
+	Wed, 15 Jan 2025 09:23:00 +0000
+Received: from mail-wm1-x330.google.com ([2a00:1450:4864:20::330])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXzOm-0000000BEuu-0Mt3;
-	Wed, 15 Jan 2025 09:09:17 +0000
-Received: from proxmox-mailgw.intranet.prolan.hu (localhost.localdomain [127.0.0.1])
-	by proxmox-mailgw.intranet.prolan.hu (Proxmox) with ESMTP id 4F1A8A0A27;
-	Wed, 15 Jan 2025 10:09:12 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=prolan.hu; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:from:from:in-reply-to:message-id:mime-version:references
-	:reply-to:subject:subject:to:to; s=mail; bh=ssZI86T0A6XNN8hCXgMu
-	MZMsnzteKeFLGvw1TpMOAQU=; b=YwUsiqL+mnfGUW9j8eGYD/GWnYrYU4Lh23/R
-	Gk2lpKqoAoqRGyrHg00ogMYZOT6rBU2nNA0yllC476j3q3fUoYLJVNemN00UpP4s
-	RNSd3MN5utnVTVpVHhRiW7g18Rxvg6cg5Mbi0igsJ8aqMJi2LKMdPOWddsY+ja2X
-	HdVuwqmRkFUNTRYG+1vhShK2qKRzlVSPpPbLn1PZT3aeK6GviuuaHTod48xGpBct
-	xITp7DWK5gH6WgPA0466Hq4INt9RjJ3g9jWgF2DO4HcsvCXLUtYqm6VEJSF6skO4
-	QKwbsuC4d9czkpAnsIVGSJP89jgtxCsPE33/NZJaQbojtYFP5lBO/LYuskWxvMgF
-	L+IEVCzwQZ8fR5S7OdoyPZNYIudOpxHv82EgdF5wm/maN/qVoKiD6Jtr/4cSHgyp
-	A0d/IluO1KZddaESPZPCepvmVGSG8fa7b68lneLzG4o93UIraCbzM6rDLsfYHMtg
-	lpWj8ZVDnG6zZDLoLifMkms32GIpx/DhARP/Z8rZ3YYdqa0ClqgGgmZVhYHHRiLK
-	Xglikd9s9lg4opobT3B+ruWbtNC7nBY7dr1DfKu4PDOZqXWX80G3xcgPLCmXTtq1
-	pl4P9NrgOy1MtsywyJ4vVaQqbvy1t76OTxyKF32tbGpRU0vliKNBQ5DbgD/jZTwO
-	3/JuGtg=
-Message-ID: <81cbb273-a4b4-424c-9d25-f53ebc8ea82a@prolan.hu>
-Date: Wed, 15 Jan 2025 10:09:09 +0100
+	id 1tXzWX-0000000BGEH-1XRq
+	for linux-riscv@lists.infradead.org;
+	Wed, 15 Jan 2025 09:17:18 +0000
+Received: by mail-wm1-x330.google.com with SMTP id 5b1f17b1804b1-43635796b48so3648255e9.0
+        for <linux-riscv@lists.infradead.org>; Wed, 15 Jan 2025 01:17:17 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ventanamicro.com; s=google; t=1736932636; x=1737537436; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=ZPR0vSrKJLMo0r7/wQPbLykYZGu5on6q/CBisXInbBg=;
+        b=nW+1DdUABYL96OSloVTF/k65v+chOxWEuPIwdpfWbfh2F7KTCUEx67PoCnZTfCMBhv
+         yb8d2KPF2NPkiqTsyWFT8TQKhFCovVE47OkgJRRNvuEyBRaLcXfrCazo3tNomMMxV6X0
+         xd2iaZoAL/YqobhwBOl1ATcx3WkOMGQNORcCoJrFSZZp4HjIQN/i9ChGnJxz0Mx+8AZj
+         nTu2gmpN2T/glLu7P0HlOgxWKbHgMz0CZCFgQuQVuBGRy/RDbEqtH67mweT7DK9iXpMc
+         GAJCtTlQ/JkbF/XbfuUQK8gPkruW9nblnvvvc/WURD7/KJPth4HlPNvSqjDhkBGkCzK1
+         LPnw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1736932636; x=1737537436;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=ZPR0vSrKJLMo0r7/wQPbLykYZGu5on6q/CBisXInbBg=;
+        b=Rq3tpPY7isG6X9lIugSd93Z305xQmjFUL/gDjhE4DGPrASXNU2KHXOScY3gjKNtN1X
+         Vdf1VHqP3okdil7mOudr4zNXwbOGx4Jl32TBPslXzq2nmabrMKSesLFgoOFmLc3NG473
+         gOhoAsSnwIUjgEZc97Xf0Puoax1mznzjDNcfRrRsCa1A1bjO1C20Rs/K0tTVLpqhg5IB
+         6bhbVGC2q2NT5bBm/CA5uTMv3SiTEMAZVAGG8tTVe7vj+QhGcdYQYblid/MV59cIgUT2
+         xDe6itmDA/0+foxzuzL2FRwozbKNoujoXpEqRvwUk/eeP1vhyjM9sA/POlp/GUSLdN2d
+         rNeQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXllxA0oOGinMNDI3FfKMNfsSNdjKB27O33QTB0++KVMk8fsZnvHMsfxjFxsFNj9MTdcD9Urs2CoIZWdQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0YyZMXzlP/068EgcNfNjWeTmlZzNinYaANcn84nBBwxRjFfkfRfu
+	baSP1COmA2IlBMSX/cB/sAMkKf3lUAT0ztK/9HRUJhavCfNdaqiIWKWi6QuXZRw=
+X-Gm-Gg: ASbGncs0WBgPijv4WP9X9RUM3JUjWmUFW3jjAcGDiMeEVUUlOO4wQYSTdNh4iAEvgP2
+	H369c5F66soRAS8M8884aCwSrjPbUbw7pFpAjnFKZkOM8VoNoIPAMvwEZ9faKxMTQj5XhH/Bk0L
+	NVvYwBQSVgeoFLlUEba7gx/99AJaW1hWI2zMRmnssOOvZGNW2s8DZifSWn5g86oxAtukoN776Xm
+	RAV+KAckckzyHl/dCgkHrtrJpPEhEOytzvyNs6+5Tf/w4z2rL2FQ8TIt/yaa+HgkGdv8Z5JZMKb
+	Vp1ru5AxCbmEexarpReS6fwvwRUQT/3f8M6j3DLqdA==
+X-Google-Smtp-Source: AGHT+IEKwUbajcfYL3oDiXKeywStAiA7ujSjd3p63sWc1z3chviVk4GQ+jyIXySBHFmI84rSHpJJ0Q==
+X-Received: by 2002:a05:600c:c06:b0:434:fe3c:c662 with SMTP id 5b1f17b1804b1-437c6b26e74mr15223725e9.12.1736932635833;
+        Wed, 15 Jan 2025 01:17:15 -0800 (PST)
+Received: from localhost (2001-1ae9-1c2-4c00-20f-c6b4-1e57-7965.ip6.tmcz.cz. [2001:1ae9:1c2:4c00:20f:c6b4:1e57:7965])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-437c74ad59fsm16180155e9.16.2025.01.15.01.17.15
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 15 Jan 2025 01:17:15 -0800 (PST)
+Date: Wed, 15 Jan 2025 10:17:14 +0100
+From: Andrew Jones <ajones@ventanamicro.com>
+To: Yunhui Cui <cuiyunhui@bytedance.com>
+Cc: alexghiti@rivosinc.com, andybnac@gmail.com, aou@eecs.berkeley.edu, 
+	charlie@rivosinc.com, cleger@rivosinc.com, conor.dooley@microchip.com, 
+	conor@kernel.org, corbet@lwn.net, evan@rivosinc.com, jesse@rivosinc.com, 
+	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org, 
+	linux-riscv@lists.infradead.org, palmer@dabbelt.com, paul.walmsley@sifive.com, 
+	samuel.holland@sifive.com, shuah@kernel.org
+Subject: Re: [PATCH v5 2/3] RISC-V: hwprobe: Expose Zicbom extension and its
+ block size
+Message-ID: <20250115-6a3da5301a44634ae704491f@orel>
+References: <20250115024024.84365-1-cuiyunhui@bytedance.com>
+ <20250115024024.84365-3-cuiyunhui@bytedance.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 12/12] ARM: dts: sun8i: add DTSI file for V853
-To: Krzysztof Kozlowski <krzk@kernel.org>, Andras Szemzo
-	<szemzo.andras@gmail.com>, Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>, "Krzysztof
- Kozlowski" <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, "Chen-Yu
- Tsai" <wens@csie.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, "Samuel
- Holland" <samuel@sholland.org>, Linus Walleij <linus.walleij@linaro.org>,
-	Philipp Zabel <p.zabel@pengutronix.de>, Maxime Ripard <mripard@kernel.org>
-CC: Vinod Koul <vkoul@kernel.org>, Kishon Vijay Abraham I <kishon@kernel.org>,
-	Ulf Hansson <ulf.hansson@linaro.org>, Paul Walmsley
-	<paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
-	<aou@eecs.berkeley.edu>, =?UTF-8?Q?Uwe_Kleine-K=C3=B6nig?=
-	<u.kleine-koenig@baylibre.com>, Florian Fainelli
-	<florian.fainelli@broadcom.com>, <linux-clk@vger.kernel.org>,
-	<devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-sunxi@lists.linux.dev>, <linux-kernel@vger.kernel.org>,
-	<linux-phy@lists.infradead.org>, <linux-gpio@vger.kernel.org>,
-	<linux-pm@vger.kernel.org>, <linux-riscv@lists.infradead.org>
-References: <20250110123923.270626-1-szemzo.andras@gmail.com>
- <20250110123923.270626-13-szemzo.andras@gmail.com>
- <ff57cf8d-626e-4d35-a18f-1a89b4d9fa3e@kernel.org>
-Content-Language: en-US
-From: =?UTF-8?B?Q3PDs2vDoXMgQmVuY2U=?= <csokas.bence@prolan.hu>
-In-Reply-To: <ff57cf8d-626e-4d35-a18f-1a89b4d9fa3e@kernel.org>
-X-Originating-IP: [10.254.7.14]
-X-ClientProxiedBy: ATLAS.intranet.prolan.hu (10.254.0.229) To
- ATLAS.intranet.prolan.hu (10.254.0.229)
-X-EsetResult: clean, is OK
-X-EsetId: 37303A2980D94852647063
+Content-Disposition: inline
+In-Reply-To: <20250115024024.84365-3-cuiyunhui@bytedance.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250115_010916_590009_870FA38E 
-X-CRM114-Status: UNSURE (   6.22  )
+X-CRM114-CacheID: sfid-20250115_011717_400950_94C34272 
+X-CRM114-Status: UNSURE (   9.54  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -93,40 +99,25 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi,
-
-On 2025. 01. 10. 14:58, Krzysztof Kozlowski wrote:
-> On 10/01/2025 13:39, Andras Szemzo wrote:
->> +// Copyright (C) 2024 Andras Szemzo <szemzo.andras@gmail.com>
->> +
->> +#include <dt-bindings/clock/sun6i-rtc.h>
->> +#include <dt-bindings/clock/sun8i-v853-r-ccu.h>
->> +#include <dt-bindings/reset/sun8i-v853-r-ccu.h>
->> +#include <dt-bindings/clock/sun8i-v853-ccu.h>
->> +#include <dt-bindings/reset/sun8i-v853-ccu.h>
->> +#include <dt-bindings/interrupt-controller/arm-gic.h>
->> +#include <dt-bindings/power/allwinner,sun8i-v853-ppu.h>
->> +
->> +/ {
->> +	#address-cells = <1>;
->> +	#size-cells = <1>;
->> +
->> +	osc24M: osc24M-clk {
+On Wed, Jan 15, 2025 at 10:40:23AM +0800, Yunhui Cui wrote:
+> Expose Zicbom through hwprobe and also provide a key to extract its
+> respective block size.
 > 
-> Only lowercase node names.
+> Signed-off-by: Yunhui Cui <cuiyunhui@bytedance.com>
+> ---
+>  Documentation/arch/riscv/hwprobe.rst  | 6 ++++++
+>  arch/riscv/include/asm/hwprobe.h      | 2 +-
+>  arch/riscv/include/uapi/asm/hwprobe.h | 2 ++
+>  arch/riscv/kernel/sys_hwprobe.c       | 6 ++++++
+>  4 files changed, 15 insertions(+), 1 deletion(-)
+>
 
-I don't agree. It is customary to write oscillator names with casing in 
-line with the SI prefixes of their frequency, i.e. lowercase k, 
-uppercase M/G/etc. (even though a millihertz oscillator rarely makes 
-sense, it is best to stay consistent).
-
-Bence
-
+Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
 
 _______________________________________________
 linux-riscv mailing list
