@@ -4,82 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EFF20C02180
-	for <linux-riscv@archiver.kernel.org>; Wed, 15 Jan 2025 12:38:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE3C4C02180
+	for <linux-riscv@archiver.kernel.org>; Wed, 15 Jan 2025 12:47:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=WNkx3Nu2SzQCthHhx1KjpOhukFcleDkiAdlaILYCXes=; b=S/44BH+1OEAPrS
-	CBknTg1lyp4HDdDoNU2ZTjNE3BRici6Vnlht47c96vPjNElOIS31bZRKnUmbcqAnRBQFDh4A9EEoR
-	+gMWk7b0fhEmiejiTOGiegB3jiylsBYoz0wo4khJjKTOzyfEZsEKD5vKW93A3FdTr2UR5zSCGoKf6
-	MsVZ8tSRjVaIpwpWkYw4WkPd3GGpf7BfVaYYnXgdblfzrYJidYKTnrjQzuNDqB3a+M24unUiCozAV
-	fL9NvTU06A9RsiKWiWdNxtz6UnfZKNIF1ouvsSjAN6DmUSB32y8JR0OtyYXdjeGQbXMDxZr2WU6NT
-	ehm+MKN9oS/bbgAztQuw==;
+	List-Owner; bh=P9hM9X7XqaAynGM9KxPOXeAhgwB4BfvzU8z5U4e0akw=; b=F/lVLr/xEZM2ca
+	YIZnlvkNlrz9qutNtrDZwfIKoOWZx4O4Vs6iklEZLl3iUAGDLokwzmBrTuoEgY5Wwr1FjV9ltKeUr
+	CFZACIw17G9c8EyGGbW9lCFii9/0ETRD7OifaT/Tb54OdN0LK5SlAspjaw6V78o3QWF6NfqtvKAEE
+	yP+Gk2ylqv2R6NDRLG7XyEu78/mznBNlzPxYpVtGJ0h8d4uuibzUzSml0MmzSOqB4Rx7ILAEAweqn
+	mi2rhp3TCeQgkQ/5fYz4PYb5kXG8AFq2RiGCchY3PUAsEfk8uNdf9yANxz/32Zh72Fqs74hJTGOnL
+	BrxBhTq3zInF7lN/MvVQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tY2eq-0000000BrIG-10bW;
-	Wed, 15 Jan 2025 12:38:04 +0000
-Received: from mail-pl1-x636.google.com ([2607:f8b0:4864:20::636])
+	id 1tY2o2-0000000BsOv-0B8H;
+	Wed, 15 Jan 2025 12:47:34 +0000
+Received: from mail-ej1-x630.google.com ([2a00:1450:4864:20::630])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tY2en-0000000BrHM-3Z9v
+	id 1tY1gF-0000000BhVL-1NXX
 	for linux-riscv@lists.infradead.org;
-	Wed, 15 Jan 2025 12:38:03 +0000
-Received: by mail-pl1-x636.google.com with SMTP id d9443c01a7336-2161eb95317so118901935ad.1
-        for <linux-riscv@lists.infradead.org>; Wed, 15 Jan 2025 04:38:00 -0800 (PST)
+	Wed, 15 Jan 2025 11:35:29 +0000
+Received: by mail-ej1-x630.google.com with SMTP id a640c23a62f3a-aab6fa3e20eso1189169966b.2
+        for <linux-riscv@lists.infradead.org>; Wed, 15 Jan 2025 03:35:26 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bytedance.com; s=google; t=1736944680; x=1737549480; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=EfUTZFv7ChhtUvD6MjIpx00v0w/visqAl6IrKOepjKI=;
-        b=NPTLzCBAlDGArh8LigUZtncrG7id6pnrRkl1J/noHfkf2q6kFUXIZpZl88dvdTQLFF
-         KWOKN6PaaMBIkubjREsPlq9oWX34a+Bh4lkADwXlK1VB8lqxF2aKhMNy62Mr8IIedmdg
-         t4o//BH8EcpRNulNwN/FeEVpKx2ha94Bb2VvGKLivUIoKNGuOedniw85hyh48+C1hnq+
-         JJgmUzHHL9h8Z+rqjdXSlZoFg1eHHZwtwL2sYXMnDY7LJzwzghs944dgOCe8uj7Y95CZ
-         lbnvzDXYTHSj5ANmDKgqFh4SC1wcJwb9zFB0vPXRUXXHrXJuX/aAkONv/atHj1Le+dIc
-         dosw==
+        d=ventanamicro.com; s=google; t=1736940926; x=1737545726; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=lUHWtySzqJ9yO6ZWLDwixXceZtGyWajzSTrgRbyzKjU=;
+        b=EpqCJtIi+G8DQ6HHzssk3IWErNz0V+mRTCTYjLt7pPPXfLesofTvCYwpl6dfY/KQqa
+         gWpued0AWv4xaOMl0xPWQLoO/1JWGjGPLiBKQrSH1shPOAxKNpGHTV2ASbJGwzEb6O87
+         KkRdtI809xIFUO6h6j7CqutU2dGTF4RIIVsaiTakj/LEb15adtZ2pez5O9Htug902Bz3
+         hgrB50onzk56e6Wyd48qIfLAydI2VcybbFPjpzXgvhthhE7A385jfJilevglIH3rvUOg
+         EKxj23DUI13cLOYawi1IKgO0vzAdTZvKUJjirR6TZuF8/QEZP2GPBgBTrU2U/IXihTHd
+         PYrQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1736944680; x=1737549480;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=EfUTZFv7ChhtUvD6MjIpx00v0w/visqAl6IrKOepjKI=;
-        b=mAvU4DyLNHpr63htn018YBdZfQ3Z5U4JKtlTVo7S6UYggaeXkiaPQVH8XH6ei7JwWY
-         ZUAFedavYd82iYAvpe6joL3bcCk0uHD0Qv09/h66Bdxw6zqS7Wp8uFjEPTOrOdHeQhGR
-         AfYhL/blTDrT8e4Tsx/sB3Zalx8PrEIeTVcHnpn7MxA7u68iI7/zfi1LeNh4/sHTeOVc
-         6nvPU1ihUAX2+Z2UsyQcepYTyiCkyIusre0lnn4ItnkOUjgKX7PoIsu9jMA0Ch85J2Po
-         QxjAKduGqca9HOoGR2j+Q7EiSvxdVqsfAEWn9SOBBbQdV2yxOe0W1NVEjI1+OdbM+Tc+
-         5+6g==
-X-Forwarded-Encrypted: i=1; AJvYcCVjYPN5chkI6KgTeeAJvq7DfmqmYDCwSyBk0cRj7F6aiufyZGP3H73g9GcsMrL58uY2Zzw1mHAPuatahw==@lists.infradead.org
-X-Gm-Message-State: AOJu0YyJmXowskZ8H2aNEfa/qyUzbwqjPBsIc5jhskLdJsCbqxlo/2JS
-	y7QKSFGVAdQ6o5SUCO6D9NDeCTByOGhny/B7CaEqfngSKVV5WzdPhPmUfWAdT/N4Ei7M7Mg6xo+
-	L8hCfUNP6QWa15/bq79TsqGIrpOmOCeeD8Nwv3Q==
-X-Gm-Gg: ASbGncv2YUazzJIzC28YRExZ7Pb0qOeTflnAHxlh241LlYIWF7qgMtFGRspPxKJh/Fa
-	+/zFRz7RTTXBIHspfT/iy+KzN+TwwweBAMFTDGFp7Nh/mSH/vuoo=
-X-Google-Smtp-Source: AGHT+IFxTf4Mxv+5aCF2Pvb7dbDThBMheItPmHQH8/LicjEO3xA2asmBO/eYvBJdw9W+duxtQJM4U1PVyGDaR2g3x3A=
-X-Received: by 2002:a17:90a:d00c:b0:2ee:c5ea:bd91 with SMTP id
- 98e67ed59e1d1-2f548f1d783mr40836082a91.29.1736944679790; Wed, 15 Jan 2025
- 04:37:59 -0800 (PST)
+        d=1e100.net; s=20230601; t=1736940926; x=1737545726;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=lUHWtySzqJ9yO6ZWLDwixXceZtGyWajzSTrgRbyzKjU=;
+        b=fyP7HQJ9Jhhg4T5tl4zjVu8PTE4QEVu7qmMvfsNB+pDmls74uwYQKZi8r3yEOzQRGO
+         hMl412S1lgfe+zriMfcFjCPRRtHvDGgsUasipV8eXVHqWJPZLLD5xPPWhKaQxSt9xz7Y
+         RhM1axzKYC9l+U01MABqYvTwld1nwgxeRs9X8JpU+F88Jf8jmD4TMLgtqHmGZU34/yms
+         0hXYb898QJw6isVCtAa6BNMvqIjpYZEjNWDT0HMA3Tijqt2m2v1OdVmTzeHAubcfT/8V
+         4stOuGp+hCstQD7pFVl8+2x9x/JXCxc1Qeu6yOrHuPCuFjBM47UWPl1imYCnZR0yIiNe
+         cOdw==
+X-Forwarded-Encrypted: i=1; AJvYcCUkfQKM2+6uR0NSOlV3hIwmGwKYO9PnWbZE7YTYA8sa5OXOR1XnCfBgKNz5FwFNLNiBlGBJXYqvNl/nXg==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzu8lIsGixa4O/ndLRAV8Lm7vU0hFru9r4+lhCGBk0mTBq53JY/
+	9/brsI2i9pfNlkR3gE8c/iymZ3XAe5HnFYGzOJ3hLNwG7D1Oz6RwNWtGWtzfkew=
+X-Gm-Gg: ASbGnct2ywRtQJRC7Frq313TjUHv6ENMgQsm+24Ve0MdWu7keBKMYqEcyQ1ff4f5qmD
+	y0haxh9g7BkLup6JsV+x/JqCJFhPRxLRrVworgpXLrDLo3q+9E+EE7iWKFcDDRIV2oZWbiNfExU
+	f0HWzaqgzUfJzQfv6EuZZUs/fnqe+J/8XhrB9hAP0u/utz6J4PukcYu2jhGoEtuOus6DIepNoNU
+	UD4CUDsM57RbRQxO2kVJ4xcQz+m0o7xNEE790227o68FAibQeGV3sVOJYdczFB/o0UZtLHHb65j
+	ZFQYvTfkfPPuoUiCASzWpi+mC4pElZoWYPD8lhHcLw==
+X-Google-Smtp-Source: AGHT+IEQLKTa0DBxC8EOVUTlbuIfogqAL7gY4MctOjS7wqT4IZEViihjVaBW+6yGKWlOG3PEpzozoQ==
+X-Received: by 2002:a17:907:9617:b0:ab2:d2e7:abc7 with SMTP id a640c23a62f3a-ab2d2e7b16bmr2022380966b.19.1736940925400;
+        Wed, 15 Jan 2025 03:35:25 -0800 (PST)
+Received: from localhost (2001-1ae9-1c2-4c00-20f-c6b4-1e57-7965.ip6.tmcz.cz. [2001:1ae9:1c2:4c00:20f:c6b4:1e57:7965])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ab2c905ed87sm738090866b.28.2025.01.15.03.35.24
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 15 Jan 2025 03:35:24 -0800 (PST)
+Date: Wed, 15 Jan 2025 12:35:24 +0100
+From: Andrew Jones <ajones@ventanamicro.com>
+To: Celeste Liu <uwu@coelacanthus.name>
+Cc: Oleg Nesterov <oleg@redhat.com>, 
+	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Eric Biederman <ebiederm@xmission.com>, Kees Cook <kees@kernel.org>, Shuah Khan <shuah@kernel.org>, 
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
+	"Dmitry V. Levin" <ldv@strace.io>, Andrea Bolognani <abologna@redhat.com>, 
+	=?utf-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>, Thomas Gleixner <tglx@linutronix.de>, Ron Economos <re@w6rz.net>, 
+	Charlie Jenkins <charlie@rivosinc.com>, Quan Zhou <zhouquan@iscas.ac.cn>, 
+	Felix Yan <felixonmars@archlinux.org>, Ruizhe Pan <c141028@gmail.com>, Guo Ren <guoren@kernel.org>, 
+	Yao Zi <ziyao@disroot.org>, linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	linux-mm@kvack.org, linux-kselftest@vger.kernel.org
+Subject: Re: [PATCH v6 2/3] tools: copy include/linux/stddef.h to
+ tools/include
+Message-ID: <20250115-710fcf2a3f874dfd032211c2@orel>
+References: <20250115-riscv-new-regset-v6-0-59bfddd33525@coelacanthus.name>
+ <20250115-riscv-new-regset-v6-2-59bfddd33525@coelacanthus.name>
 MIME-Version: 1.0
-References: <20250113150933.65121-1-luxu.kernel@bytedance.com>
- <20250113150933.65121-2-luxu.kernel@bytedance.com> <CAAhSdy0qH=ofaKuohLHpyPFU87Q2pG0h8Fk33Pum28WMPv-Www@mail.gmail.com>
-In-Reply-To: <CAAhSdy0qH=ofaKuohLHpyPFU87Q2pG0h8Fk33Pum28WMPv-Www@mail.gmail.com>
-From: Xu Lu <luxu.kernel@bytedance.com>
-Date: Wed, 15 Jan 2025 20:37:49 +0800
-X-Gm-Features: AbW1kvZLKentGMGpjXlgqRvXX1_xp5epBD46zzgertfx4zW_ILdsZH_f_xVQgKA
-Message-ID: <CAPYmKFtj3esCztK2++Chg-V1isAvVUXpEH3Pm-CaK=uZo_HfpA@mail.gmail.com>
-Subject: Re: [External] Re: [PATCH 1/5] irqchip/riscv-intc: Balance priority
- and fairness during irq handling
-To: Anup Patel <anup@brainfault.org>
-Cc: daniel.lezcano@linaro.org, tglx@linutronix.de, paul.walmsley@sifive.com, 
-	palmer@dabbelt.com, lihangjing@bytedance.com, xieyongji@bytedance.com, 
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+Content-Disposition: inline
+In-Reply-To: <20250115-riscv-new-regset-v6-2-59bfddd33525@coelacanthus.name>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250115_043802_000556_D4F54A62 
-X-CRM114-Status: GOOD (  36.08  )
+X-CRM114-CacheID: sfid-20250115_033527_370603_4C8284A7 
+X-CRM114-Status: GOOD (  26.84  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,118 +102,139 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-SGkgQW51cCwKCkkgYWdyZWUgdGhhdCBhIHN0YW5kYXJkaXplZCBOTUkgb3IgU1NFIGV2ZW50IGlz
-IHRoZSBvcHRpbWFsIHNvbHV0aW9uCnRvIHRoZSB3YXRjaGRvZyBwcm9ibGVtLiBIZXJlIEkganVz
-dCB1c2UgYnVkZHkgd2F0Y2hkb2cgdG8gaWxsdXN0cmF0ZQp0aGUgcG9zc2libGUgY29uc2VxdWVu
-Y2VzIG9mIGludGVycnVwdHMgd2l0aCBsb3cgcHJpb3JpdHkgZ2V0dGluZwpzdGFydmVkLgoKSSBi
-ZWxpZXZlIHRoYXQgQUlBIG9yIGZpcm13YXJlIGNhbiBhZGp1c3QgdGhlIHByaW9yaXR5IG9mIGRp
-ZmZlcmVudAppcnFzLiBXaGF0IEkgd2FudCB0byBlbXBoYXNpemUgaXMgdGhhdCBpbiBleGlzdGlu
-ZyBpbXBsZW1lbnRhdGlvbiwKa2VybmVsIHdpbGwgY29udGludWUgaGFuZGxpbmcgbmV3bHkgYXJy
-aXZlZCBoaWdoIHByaW9yaXR5IGlycXMsIG5vCm1hdHRlciBob3cgbG9uZyBsb3dlciBwcmlvcml0
-eSBpcnFzIGhhdmUgYmVlbiB3YWl0aW5nIGZvci4KCkZvciBleGFtcGxlLCBpZiBib3RoIGV4dGVy
-bmFsIGlycSBhbmQgSVBJIChhc3N1bWluZyBub24gQUlBCmFyY2hpdGVjdHVyZSB1c2luZyBzb2Z0
-d2FyZSBpcnEpIGFycml2ZSBpbiBjeWNsZSAwLCBrZXJuZWwgd2lsbCBoYW5kbGUKdGhlIGV4dGVy
-bmFsIGlycSBmaXJzdC4gVGhlbiBhIG5ldyBleHRlcm5hbCBpcnEgYXJyaXZlcyBkdXJpbmcgdGhl
-CmZpcnN0IGV4dGVybmFsIGlycSBoYW5kbGluZyBwcm9jZWR1cmUsIGxldCdzIHNheSBjeWNsZSAx
-MDAuIFRoZW4Ka2VybmVsIGZpbmlzaGVzIHRoZSBmaXJzdCBleHRlcm5hbCBpcnEgaGFuZGxpbmcg
-cHJvY2VkdXJlLCBsZXQncyBzYXkKY3ljbGUgMjAwLCBpdCB3aWxsIGhhbmRsZSB0aGUgbmV3bHkg
-YXJyaXZlZCBleHRlcm5hbCBpcnEsIGluc3RlYWQgb2YKdGhlIGFscmVhZHkgYXJyaXZlZCBJUEku
-IFRoZSBJUEkgd29uJ3QgYmUgaGFuZGxlZCB1bnRpbCB0aGUgc2Vjb25kCmV4dGVybmFsIGlycSBp
-cyBoYW5kbGVkLCBsZXQncyBzYXkgY3ljbGUgMzAwLiBUaGluZ3MgZ2V0IHdvcnNlIGlmCmV4dGVy
-bmFsIGludGVycnVwdHMga2VlcCBhcnJpdmluZy4KCkkgdGhpbmsgaXQgaXMgYmV0dGVyIHRvIHBy
-b3ZpZGUgYSBtZWNoYW5pc20gdG8gYXZvaWQgdGhpcy4gU28gSSByZWdhcmQKaW50ZXJydXB0cyBh
-cnJpdmluZyB3aXRoaW4gYSBjZXJ0YWluIHBlcmlvZCBhcyBhIHJvdW5kIGFuZCBvbmx5IGhhbmRs
-ZQppbnRlcnJ1cHRzIGluIHRoZSBuZXcgcm91bmQgYWZ0ZXIgYWxsIGludGVycnVwdHMgaW4gdGhl
-IG9sZCByb3VuZCBoYXZlCmJlZW4gaGFuZGxlZC4gVGhlIGludGVycnVwdCBwcmlvcml0eSBvbmx5
-IHRha2VzIGVmZmVjdCBpbiB0aGUgc2FtZQpyb3VuZC4KCk9mIGNvdXJzZSB0aGlzIGlzIG5vdCB0
-aGUgb3B0aW1hbCB3YXkuIFBsZWFzZSBnaXZlIHNvbWUgYWR2aWNlIGlmIHlvdQphbHNvIHRoaW5r
-IGl0IGlzIG5lY2Vzc2FyeSAoZm9yIGV4YW1wbGUgaW50cm9kdWNlIGFuIGludGVycnVwdApwcmlv
-cml0eSBkZWNyZWFzaW5nIG1lY2hhbmlzbSBpbnN0ZWFkKS4KCkJlc3QgUmVnYXJkcywKClh1IEx1
-CgpPbiBXZWQsIEphbiAxNSwgMjAyNSBhdCA3OjM54oCvUE0gQW51cCBQYXRlbCA8YW51cEBicmFp
-bmZhdWx0Lm9yZz4gd3JvdGU6Cj4KPiBPbiBNb24sIEphbiAxMywgMjAyNSBhdCA4OjM54oCvUE0g
-WHUgTHUgPGx1eHUua2VybmVsQGJ5dGVkYW5jZS5jb20+IHdyb3RlOgo+ID4KPiA+IEJvdGggY3Ny
-IGNhdXNlIGFuZCBjc3IgdG9waSByZWNvcmQgdGhlIHBlbmRpbmcgYml0IHdpdGggdGhlIGhpZ2hl
-c3QKPiA+IHByaW9yaXR5LiBJZiBpbnRlcnJ1cHRzIHdpdGggaGlnaCBwcmlvcml0eSBhcnJpdmUg
-ZnJlcXVlbnRseSB3aXRoaW4gYQo+ID4gY2VydGFpbiBwZXJpb2Qgb2YgdGltZSwgdGhlIGludGVy
-cnVwdHMgd2l0aCBsb3cgcHJpb3JpdHkgd29uJ3QgZ2V0IGEKPiA+IGNoYW5jZSB0byBiZSBoYW5k
-bGVkLgo+ID4KPiA+IEZvciBleGFtcGxlLCBpZiBleHRlcm5hbCBpbnRlcnJ1cHRzIGFuZCBzb2Z0
-d2FyZSBpbnRlcnJ1cHRzIGFycml2ZSB2ZXJ5Cj4gPiBmcmVxdWVudGx5LCB0aGUgdGltZXIgaW50
-ZXJydXB0cyB3aWxsIG5ldmVyIGJlIGhhbmRsZWQuIFRoZW4gYnVkZHkKPiA+IHdhdGNoZG9nIG9u
-IGEgYnVkZHkgQ1BVIHdpbGwgcmVwb3J0IGEgaGFyZGxvY2t1cCBvbiB0aGUgY3VycmVudCBDUFUg
-d2hpbGUKPiA+IGN1cnJlbnQgQ1BVIGFjdHVhbGx5IGNhbiByZWNlaXZlIGlycS4KPgo+IFBsYXRm
-b3JtIHdpdGggcHJvcGVyIEhXIHdhdGNoZG9nIHdpbGwgbm90IHNlZSB0aGlzIGlzc3VlIGJlY2F1
-c2UgSFcKPiB3YXRjaGRvZyBpbnRlcnJ1cHQgd2lsbCBiZSBhbiBleHRlcm5hbCBpbnRlcnJ1cHQu
-Cj4KPiBUaGVyZSB3YXMgYW4gZWZmb3J0IHRvIHN0YW5kYXJkaXplIHdhdGNoZG9nIGZvciBSSVND
-LVYgcGxhdGZvcm1zIGJ1dCBpdCB3YXMKPiBkZWZlcnJlZCB0byBmdXR1cmUgc3RhbmRhcmRpemF0
-aW9uLiBXZSBzaG91bGQgcmVzdW1lIHRob3NlIGRpc2N1c3Npb25zIHdpdGhpbgo+IFJWSSBmb3J1
-bXMuCj4KPiA+Cj4gPiBUaGlzIGNvbW1pdCBzb2x2ZXMgdGhpcyBwcm9ibGVtIGJ5IGhhbmRsaW5n
-IGFsbCBwZW5kaW5nIGlycXMgaW4gYSByb3VuZC4KPiA+IER1cmluZyBlYWNoIHJvdW5kLCB0aGlz
-IGNvbW1pdCBoYW5kbGVzIHBlbmRpbmcgaXJxcyBieSB0aGVpciBwcmlvcml0eS4KPiA+Cj4gPiBT
-aWduZWQtb2ZmLWJ5OiBYdSBMdSA8bHV4dS5rZXJuZWxAYnl0ZWRhbmNlLmNvbT4KPiA+IC0tLQo+
-ID4gIGRyaXZlcnMvaXJxY2hpcC9pcnEtcmlzY3YtaW50Yy5jIHwgMzIgKysrKysrKysrKysrKysr
-KysrKysrKysrKystLS0tLS0KPiA+ICAxIGZpbGUgY2hhbmdlZCwgMjYgaW5zZXJ0aW9ucygrKSwg
-NiBkZWxldGlvbnMoLSkKPiA+Cj4gPiBkaWZmIC0tZ2l0IGEvZHJpdmVycy9pcnFjaGlwL2lycS1y
-aXNjdi1pbnRjLmMgYi9kcml2ZXJzL2lycWNoaXAvaXJxLXJpc2N2LWludGMuYwo+ID4gaW5kZXgg
-ZjY1M2MxM2RlNjJiLi5iYzJlYzI2YWE5ZTkgMTAwNjQ0Cj4gPiAtLS0gYS9kcml2ZXJzL2lycWNo
-aXAvaXJxLXJpc2N2LWludGMuYwo+ID4gKysrIGIvZHJpdmVycy9pcnFjaGlwL2lycS1yaXNjdi1p
-bnRjLmMKPiA+IEBAIC0yNiwyMCArMjYsNDAgQEAgc3RhdGljIHVuc2lnbmVkIGludCByaXNjdl9p
-bnRjX25yX2lycXMgX19yb19hZnRlcl9pbml0ID0gQklUU19QRVJfTE9ORzsKPiA+ICBzdGF0aWMg
-dW5zaWduZWQgaW50IHJpc2N2X2ludGNfY3VzdG9tX2Jhc2UgX19yb19hZnRlcl9pbml0ID0gQklU
-U19QRVJfTE9ORzsKPiA+ICBzdGF0aWMgdW5zaWduZWQgaW50IHJpc2N2X2ludGNfY3VzdG9tX25y
-X2lycXMgX19yb19hZnRlcl9pbml0Owo+ID4KPiA+ICtzdGF0aWMgdW5zaWduZWQgaW50IHJpc2N2
-X3ByaW9faXJxc1tdID0gewo+ID4gKyNpZmRlZiBDT05GSUdfUklTQ1ZfTV9NT0RFCj4gPiArICAg
-ICAgIElSUV9NX0VYVCwgSVJRX01fU09GVCwgSVJRX01fVElNRVIsCj4gPiArI2VuZGlmCj4gPiAr
-ICAgICAgIElSUV9TX0VYVCwgSVJRX1NfU09GVCwgSVJRX1NfVElNRVIsIElSUV9TX0dFWFQsCj4g
-PiArICAgICAgIElSUV9WU19FWFQsIElSUV9WU19TT0ZULCBJUlFfVlNfVElNRVIsCj4gPiArICAg
-ICAgIElSUV9QTVVfT1ZGLAo+ID4gK307Cj4gPiArCj4gPiAgc3RhdGljIHZvaWQgcmlzY3ZfaW50
-Y19pcnEoc3RydWN0IHB0X3JlZ3MgKnJlZ3MpCj4gPiAgewo+ID4gLSAgICAgICB1bnNpZ25lZCBs
-b25nIGNhdXNlID0gcmVncy0+Y2F1c2UgJiB+Q0FVU0VfSVJRX0ZMQUc7Cj4gPiAtCj4gPiAtICAg
-ICAgIGlmIChnZW5lcmljX2hhbmRsZV9kb21haW5faXJxKGludGNfZG9tYWluLCBjYXVzZSkpCj4g
-PiAtICAgICAgICAgICAgICAgcHJfd2Fybl9yYXRlbGltaXRlZCgiRmFpbGVkIHRvIGhhbmRsZSBp
-bnRlcnJ1cHQgKGNhdXNlOiAlbGQpXG4iLCBjYXVzZSk7Cj4gPiArICAgICAgIHVuc2lnbmVkIGxv
-bmcgcGVuZGluZyA9IGNzcl9yZWFkKENTUl9JUCkgJiBjc3JfcmVhZChDU1JfSUUpOwo+ID4gKyAg
-ICAgICB1bnNpZ25lZCBpbnQgaTsKPiA+ICsKPiA+ICsgICAgICAgZm9yIChpID0gMDsgaSA8IEFS
-UkFZX1NJWkUocmlzY3ZfcHJpb19pcnFzKTsgaSsrKQo+ID4gKyAgICAgICAgICAgICAgIGlmIChw
-ZW5kaW5nICYgKDFVTCA8PCByaXNjdl9wcmlvX2lycXNbaV0pKQo+ID4gKyAgICAgICAgICAgICAg
-ICAgICAgICAgaWYgKGdlbmVyaWNfaGFuZGxlX2RvbWFpbl9pcnEoaW50Y19kb21haW4sIHJpc2N2
-X3ByaW9faXJxc1tpXSkpCj4gPiArICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHByX3dh
-cm5fcmF0ZWxpbWl0ZWQoIkZhaWxlZCB0byBoYW5kbGUgaW50ZXJydXB0IChjYXVzZTogJXUpXG4i
-LAo+ID4gKyAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
-IHJpc2N2X3ByaW9faXJxc1tpXSk7Cj4KPiBUaGlzIGlzIG92ZXJyaWRpbmcgdGhlIGJ1aWx0aW4g
-cHJpb3JpdHkgYXNzaWdubWVudCBmb3IgbG9jYWwgaW50ZXJydXB0cyBhcwo+IGRlZmluZWQgYnkg
-dGhlIFJJU0MtViBwcml2aWxlZ2VkIHNwZWNpZmljYXRpb24gZm9yIG5vbi1BSUEgc3lzdGVtcwo+
-IHdoaWNoIGNoYW5nZXMgdGhlIGV4cGVjdGVkIGJlaGF2aW91ciBvbiBleGlzdGluZyBwbGF0Zm9y
-bXMuCj4KPiA+ICB9Cj4gPgo+ID4gIHN0YXRpYyB2b2lkIHJpc2N2X2ludGNfYWlhX2lycShzdHJ1
-Y3QgcHRfcmVncyAqcmVncykKPiA+ICB7Cj4gPiAgICAgICAgIHVuc2lnbmVkIGxvbmcgdG9waTsK
-PiA+ICsgICAgICAgdW5zaWduZWQgbG9uZyBwZW5kaW5nOwo+ID4gKyAgICAgICB1bnNpZ25lZCBp
-bnQgaTsKPiA+ICsKPiA+ICsgICAgICAgd2hpbGUgKCh0b3BpID0gY3NyX3JlYWQoQ1NSX1RPUEkp
-KSkgewo+ID4gKyAgICAgICAgICAgICAgIHBlbmRpbmcgPSBjc3JfcmVhZChDU1JfSVApICYgY3Ny
-X3JlYWQoQ1NSX0lFKTsKPiA+Cj4gPiAtICAgICAgIHdoaWxlICgodG9waSA9IGNzcl9yZWFkKENT
-Ul9UT1BJKSkpCj4gPiAtICAgICAgICAgICAgICAgZ2VuZXJpY19oYW5kbGVfZG9tYWluX2lycShp
-bnRjX2RvbWFpbiwgdG9waSA+PiBUT1BJX0lJRF9TSElGVCk7Cj4gPiArICAgICAgICAgICAgICAg
-Zm9yIChpID0gMDsgaSA8IEFSUkFZX1NJWkUocmlzY3ZfcHJpb19pcnFzKTsgaSsrKQo+ID4gKyAg
-ICAgICAgICAgICAgICAgICAgICAgaWYgKHBlbmRpbmcgJiAoMVVMIDw8IHJpc2N2X3ByaW9faXJx
-c1tpXSkpCj4gPiArICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIGdlbmVyaWNfaGFuZGxl
-X2RvbWFpbl9pcnEoaW50Y19kb21haW4sIHJpc2N2X3ByaW9faXJxc1tpXSk7Cj4gPiArICAgICAg
-IH0KPgo+IFRoZSBBSUEgc3BlY2lmaWNhdGlvbiBhbHJlYWR5IHByb3ZpZGVzIGEgbWVjaGFuaXNt
-IHRvIGNoYW5nZQo+IHByaW9yaXRpZXMgb2YgbG9jYWwgaW50ZXJydXB0cy4gVGhlIGZpcm13YXJl
-IG9yIGJvb3Rsb2FkZXIgY2FuIGFsd2F5cwo+IHByb3ZpZGUgY3VzdG9tIHByaW9yaXRpZXMgdG8g
-bG9jYWwgaW50ZXJydXB0cy4KPgo+IEluIGdlbmVyYWwsIHJlcXVpcmluZyBjZXJ0YWluIGxvY2Fs
-IGludGVycnVwdHMgdG8gaGF2ZSBoaWdoZXIgcHJpb3JpdHkgaXMKPiBwbGF0Zm9ybSBvciB1c2Ut
-Y2FzZSBzcGVjaWZpYyBhbmQgc2hvdWxkIGJlIGRvbmUgYXMgQUlBIGNvbmZpZ3VyYXRpb24KPiBp
-biBmaXJtd2FyZSBvciBib290bG9hZGVyLgo+Cj4gTkFLIHRvIHRoaXMgcGF0Y2ggZnJvbSBteSBz
-aWRlIHNpbmNlIGl0IGlzIGp1c3QgYWRkaW5nIGEgc29mdHdhcmUKPiB3b3JrLWFyb3VuZCBmb3Ig
-YSBtaXNzaW5nIHN0YW5kYXJkIHdhdGNoZG9nIGluIHRoZSBSSVNDLVYKPiBlY29zeXN0ZW0uCj4K
-PiBPbmUgcG9zc2libGUgYXBwcm9hY2ggaXMgdG8gbGV0IHBsYXRmb3JtcyBoYXZlIHRoZWlyIGlt
-cGxlbWVudGF0aW9uCj4gc3BlY2lmaWMgTS1tb2RlIHdhdGNoZG9nIGFuZCBmb3Igc3VwZXJ2aXNv
-ciBzb2Z0d2FyZSAoYm90aCBIUyBhbmQKPiBWUy1tb2RlKSB3ZSBjYW4gaGF2ZSBTQkkgYmFzZWQg
-d2F0Y2hkb2cgd2hlcmUgdGhlIHN1cGVydmlzb3IKPiB3YXRjaGRvZyBleHBpcnkgaXMgYW4gU1NF
-IChoaWdoZXIgcHJpb3JpdHkgdGhhbiBhbGwgbG9jYWwgaW50ZXJydXB0cykuCj4KPiBSZWdhcmRz
-LAo+IEFudXAKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-CmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3Jn
-Cmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+On Wed, Jan 15, 2025 at 07:13:28PM +0800, Celeste Liu wrote:
+> Some macro defined in stddef.h are useful and have been used in many
+> code in selftests. Copy them to tools/include so developers needn't
+> create their copy in every files.
+> 
+> Remove some definitions like NULL and true/false to be suitable to
+> non-kernel environment.
+> 
+> Signed-off-by: Celeste Liu <uwu@coelacanthus.name>
+> ---
+>  tools/include/linux/stddef.h      | 85 +++++++++++++++++++++++++++++++++++++++
+>  tools/include/uapi/linux/stddef.h |  6 +--
+>  2 files changed, 87 insertions(+), 4 deletions(-)
+> 
+> diff --git a/tools/include/linux/stddef.h b/tools/include/linux/stddef.h
+> new file mode 100644
+> index 0000000000000000000000000000000000000000..55f3964d9a3d9f9f9345a75248eec027c56faef9
+> --- /dev/null
+> +++ b/tools/include/linux/stddef.h
+> @@ -0,0 +1,85 @@
+> +/* SPDX-License-Identifier: GPL-2.0 */
+> +#ifndef _LINUX_STDDEF_H
+> +#define _LINUX_STDDEF_H
+> +
+> +#include <uapi/linux/stddef.h>
+> +
+> +/**
+> + * sizeof_field() - Report the size of a struct field in bytes
+> + *
+> + * @TYPE: The structure containing the field of interest
+> + * @MEMBER: The field to return the size of
+> + */
+> +#define sizeof_field(TYPE, MEMBER) sizeof((((TYPE *)0)->MEMBER))
+> +
+> +/**
+> + * offsetofend() - Report the offset of a struct field within the struct
+> + *
+> + * @TYPE: The type of the structure
+> + * @MEMBER: The member within the structure to get the end offset of
+> + */
+> +#define offsetofend(TYPE, MEMBER) \
+> +	(offsetof(TYPE, MEMBER)	+ sizeof_field(TYPE, MEMBER))
+> +
+> +/**
+> + * struct_group() - Wrap a set of declarations in a mirrored struct
+> + *
+> + * @NAME: The identifier name of the mirrored sub-struct
+> + * @MEMBERS: The member declarations for the mirrored structs
+> + *
+> + * Used to create an anonymous union of two structs with identical
+> + * layout and size: one anonymous and one named. The former can be
+> + * used normally without sub-struct naming, and the latter can be
+> + * used to reason about the start, end, and size of the group of
+> + * struct members.
+> + */
+> +#define struct_group(NAME, MEMBERS...)	\
+> +	__struct_group(/* no tag */, NAME, /* no attrs */, MEMBERS)
+> +
+> +/**
+> + * struct_group_attr() - Create a struct_group() with trailing attributes
+> + *
+> + * @NAME: The identifier name of the mirrored sub-struct
+> + * @ATTRS: Any struct attributes to apply
+> + * @MEMBERS: The member declarations for the mirrored structs
+> + *
+> + * Used to create an anonymous union of two structs with identical
+> + * layout and size: one anonymous and one named. The former can be
+> + * used normally without sub-struct naming, and the latter can be
+> + * used to reason about the start, end, and size of the group of
+> + * struct members. Includes structure attributes argument.
+> + */
+> +#define struct_group_attr(NAME, ATTRS, MEMBERS...) \
+> +	__struct_group(/* no tag */, NAME, ATTRS, MEMBERS)
+> +
+> +/**
+> + * struct_group_tagged() - Create a struct_group with a reusable tag
+> + *
+> + * @TAG: The tag name for the named sub-struct
+> + * @NAME: The identifier name of the mirrored sub-struct
+> + * @MEMBERS: The member declarations for the mirrored structs
+> + *
+> + * Used to create an anonymous union of two structs with identical
+> + * layout and size: one anonymous and one named. The former can be
+> + * used normally without sub-struct naming, and the latter can be
+> + * used to reason about the start, end, and size of the group of
+> + * struct members. Includes struct tag argument for the named copy,
+> + * so the specified layout can be reused later.
+> + */
+> +#define struct_group_tagged(TAG, NAME, MEMBERS...) \
+> +	__struct_group(TAG, NAME, /* no attrs */, MEMBERS)
+> +
+> +/**
+> + * DECLARE_FLEX_ARRAY() - Declare a flexible array usable in a union
+> + *
+> + * @TYPE: The type of each flexible array element
+> + * @NAME: The name of the flexible array member
+> + *
+> + * In order to have a flexible array member in a union or alone in a
+> + * struct, it needs to be wrapped in an anonymous struct with at least 1
+> + * named member, but that member can be empty.
+> + */
+> +#define DECLARE_FLEX_ARRAY(TYPE, NAME) \
+> +	__DECLARE_FLEX_ARRAY(TYPE, NAME)
+> +
+> +#endif
+> diff --git a/tools/include/uapi/linux/stddef.h b/tools/include/uapi/linux/stddef.h
+> index bb6ea517efb51177a7983fadad9b590b12b786e5..f2548fd95f6e1d8cb218d52918bb81a3317d10b1 100644
+> --- a/tools/include/uapi/linux/stddef.h
+> +++ b/tools/include/uapi/linux/stddef.h
+> @@ -1,8 +1,6 @@
+>  /* SPDX-License-Identifier: GPL-2.0 WITH Linux-syscall-note */
+> -#ifndef _LINUX_STDDEF_H
+> -#define _LINUX_STDDEF_H
+> -
+> -
+> +#ifndef _UAPI_LINUX_STDDEF_H
+> +#define _UAPI_LINUX_STDDEF_H
+>  
+>  #ifndef __always_inline
+>  #define __always_inline __inline__
+> 
+> -- 
+> 2.48.0
+>
+
+Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
