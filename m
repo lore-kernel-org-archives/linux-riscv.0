@@ -4,120 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50BA2C02180
-	for <linux-riscv@archiver.kernel.org>; Wed, 15 Jan 2025 07:09:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E57CBC02183
+	for <linux-riscv@archiver.kernel.org>; Wed, 15 Jan 2025 07:29:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:To:From:Reply-To:Cc:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=QYxB2G9Bcq4NsmnuTqO+9ov8y1w1hzUrPxjGH+6lj1c=; b=ldb6Sjia+VG61o
-	c5rvRLNf4LOEN2Qr5FInLi8Er5Mo61KfA+yyr+5nuRFFtV1M990h8bglchvrENBgyPie0joTKLc/5
-	pPI0EBtZx6SLYxrqOsTEwKwW1SCEP8H3SAgJOYR4fG5Qlyuup+Ro/Zhw5w2tn9CKxVjhMUvKWYHNJ
-	EA+EuJuBIfm0cyO1I+Wv5veSw0EsVsC9HSyOBIe/hdD3L6sTilgye1gXWzameczMmk5GgNvswAYOK
-	znc+SIYGO6NiHD7mBzAxVnKUJj3jmhz5Y4eNCdlpvUOwOHR/pSUecVEQRRxPwEN6VhiwGbzu9zrbT
-	eBJbk7XuAeEHgMqqZJVg==;
+	List-Owner; bh=iRa5XUeDmiDmRq2RoxTAFSTVlrj5ZI7slxMPZoYk5No=; b=RYJxwyGpcYKb/n
+	TwO51Qi0Txnmhgt4Sez/jYQCGFN/kQD3RCZuEswqQCHf3xc5N88mgdeL1t3uSgs9QQblCa2wyhS6C
+	ntv9pIy1Ukj7Jq09CntJTxYnkLZ8b1WC7qj43i0ObRYuJ2DmE2fzxvxLHmqmoL0NcPdSlK7X2xy5r
+	/y8wnSSHa0n2XF+4vf99VcrVWW4nPk10jHCy3ukksV/BhR8+b+t9t7N+wNNpyDcZwAiCCyYk08ZyS
+	X7HiMghTogzTBVhNbw8stVLoONURk7uhYDbSNh6DoscsyepcwW7sOZoHY8DPcAsMezNcWU5bq/tKl
+	qLZnYutYMDtagShe0G+A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXxWZ-0000000Au4k-0ozJ;
-	Wed, 15 Jan 2025 07:09:11 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1tXxq9-0000000AwL8-3p83;
+	Wed, 15 Jan 2025 07:29:25 +0000
+Received: from bayard.4d2.org ([5.78.89.93])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXxVW-0000000Atqr-0gyW
-	for linux-riscv@bombadil.infradead.org;
-	Wed, 15 Jan 2025 07:08:06 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-Id:Date:Subject:To:From:Sender:Reply-To:Cc:
-	Content-Type:Content-ID:Content-Description;
-	bh=Sywd5ibf/76z5+rkZ7ijeWmGFF2MBuEBBfOcYOD/r6A=; b=jqltuF9zCJUp35NpaAmIikcy06
-	UAxwI4UVgUorGhMPwbGXDjRy+rWFMNGwVsBbBf5Wcrsr3a+joeuL/Zg3ZZsTyMEcoYYrzhIslGi/w
-	0wvMCXWLAc/rEfotYzpXTOsY25icdQ0l0YXJdITm4QNmgPBAd0+/ubfxanTB/VoEpEqRoEMIfg+fi
-	2EcrJ3XutAmwN4t+YueIv/oTURE7BstXf/JovftfqVnFTNoq0IRl+YwCIi9Mt0ZRX7mr+gVOhBBh2
-	fdxn3md6wdTFCv7QUVUdYO22PYRTDtHIkdoeODYaRdtTq1ZNeF/RzYIyuWOoh7EELOVbJjdZbsrWY
-	t2y1pvKQ==;
-Received: from mail-ot1-x32d.google.com ([2607:f8b0:4864:20::32d])
-	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXxVT-0000000AnIj-1GF4
+	id 1tXxq6-0000000AwK0-281z
 	for linux-riscv@lists.infradead.org;
-	Wed, 15 Jan 2025 07:08:04 +0000
-Received: by mail-ot1-x32d.google.com with SMTP id 46e09a7af769-71e2766994bso3216886a34.3
-        for <linux-riscv@lists.infradead.org>; Tue, 14 Jan 2025 23:08:01 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1736924880; x=1737529680; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:to:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=Sywd5ibf/76z5+rkZ7ijeWmGFF2MBuEBBfOcYOD/r6A=;
-        b=N5oA3lvRxjr+LqvFMx+mVCB2bKWz5/VrexAIuI2ug69u4lsjGt7TbwfM+qMwkk/aKO
-         Z0ChRenZXMYjomlx7Azq7bp2xIUvRSYHye/eQX4mk0sh5D1e6aFSKPtSotksTl9W3uRU
-         I2HaywuI03W67PpfseXD2LD/oqKo+tbnyPGLsgblVYOH+88JqOtCM2neGyoBATDRVDN2
-         RJF7EzdN3BoW9jPGE7TMiFK+5eBod0pdYIARHktC8WIQLvDz5QWE4oFMo5LMuGZ4ZwQl
-         FiIsCbOB9ViYu0dsknbHdn/qonG8E6SFTdz6gOkZpCD2EwNJNIxAHUn9ihOHppH30tsO
-         2ngQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1736924880; x=1737529680;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=Sywd5ibf/76z5+rkZ7ijeWmGFF2MBuEBBfOcYOD/r6A=;
-        b=JknkqieTYfEeNhLdTovhW/fkKeU94FoAcP/regLFAgN67NPn0k8lnnWMVEitv5j1tc
-         snE5iZ/XjCuYFNMyiPtW+KZu4G/TjT64t4oiLhkNgAH2hNw/oml0gQMpkI7esVm2jlty
-         OvWmEZEY8b2Ya4tw8aRp+CpZZxm2EDjUWF6OgzU3kJYxwY40oc0Na0b6nnOeAIsFnYKq
-         /3MmjSZT5q+Fx3boFTZM/VTCuMiQOjOyCVgc9ejQ+BsFE/HSihxA4a096OvBl13I4IM9
-         5aAVUYBXRPBu0ceeXlSpSo7joBAeAHWs+tKP62cRVH/z4AGe+0ncRC0hSz+DzXe+34Qh
-         qZew==
-X-Forwarded-Encrypted: i=1; AJvYcCU6TrvN7fWKCSp2oRu6vgDl9v0x4Wgx+J7u8IvV20LqJVLlhUqiMOZv3PQOY4Z2xD5hoirclMkZkr27sQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0YyAGJe+Bj4aybW3ockS3iNxNvXo0I6cAanm9fmnd48ZWPCeNPiK
-	pS8yRsjnz/jWewwBZQ3+qO/USsMTOlMsybWl5O/IWGD87kk2GYnC
-X-Gm-Gg: ASbGncvo77kLysBHArSunpwTr/IK3g2iAbB7VsOyPKeyMUXm0moO/5aoK/n19e+oIRq
-	TZDLBMSgYTtSL/iiBHpeehwxghQqJDhTshJ/oVD7eVAyD4dvZxAGF6ytCbSzHJnGnpYdMH/Kbe9
-	Cb86J22ntAAkmmJzbe+h2s7lcNkDe3BUvRkUe21Ku6e78ZSbG0wnOjVJn/HfF5Ukpnet7x8A1ZC
-	YiXvVHY4v2eehv3afSNw2+aQx4T3E2iaXcBC/C3Y7W+GDacvK6rjy+N/1JQCzOVe1s=
-X-Google-Smtp-Source: AGHT+IGnl0S3Vd8pXkdIN3HJE5SIE22G/XRqd7+QGJZecFn/BIUmK5lpK0e90tA5t6cvwvK4WGpw4g==
-X-Received: by 2002:a05:6830:670f:b0:71d:6543:e83f with SMTP id 46e09a7af769-721e2e2e8f8mr16534130a34.11.1736924880145;
-        Tue, 14 Jan 2025 23:08:00 -0800 (PST)
-Received: from localhost.localdomain ([122.8.183.87])
-        by smtp.gmail.com with ESMTPSA id 46e09a7af769-72318538401sm5407820a34.7.2025.01.14.23.07.56
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 14 Jan 2025 23:07:59 -0800 (PST)
-From: Chen Wang <unicornxw@gmail.com>
-To: kw@linux.com,
-	u.kleine-koenig@baylibre.com,
-	aou@eecs.berkeley.edu,
-	arnd@arndb.de,
-	bhelgaas@google.com,
-	unicorn_wang@outlook.com,
-	conor+dt@kernel.org,
-	guoren@kernel.org,
-	inochiama@outlook.com,
-	krzk+dt@kernel.org,
-	lee@kernel.org,
-	lpieralisi@kernel.org,
-	manivannan.sadhasivam@linaro.org,
-	palmer@dabbelt.com,
-	paul.walmsley@sifive.com,
-	pbrobinson@gmail.com,
-	robh@kernel.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-pci@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	chao.wei@sophgo.com,
-	xiaoguang.xing@sophgo.com,
-	fengchun.li@sophgo.com,
-	helgaas@kernel.org
-Subject: [PATCH v3 5/5] riscv: sophgo: dts: enable pcie for PioneerBox
-Date: Wed, 15 Jan 2025 15:07:50 +0800
-Message-Id: <eb2e8c619a4dd53f9bb1aa33add4f85d4ffa7d79.1736923025.git.unicorn_wang@outlook.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <cover.1736923025.git.unicorn_wang@outlook.com>
-References: <cover.1736923025.git.unicorn_wang@outlook.com>
+	Wed, 15 Jan 2025 07:29:24 +0000
+Received: from bayard.4d2.org (bayard.4d2.org [127.0.0.1])
+	by bayard.4d2.org (Postfix) with ESMTP id B8D06122FE26;
+	Tue, 14 Jan 2025 23:29:17 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=4d2.org; s=mail;
+	t=1736926157; bh=6nZ7MSfskgPOfJaGxHTVHLkypF/3zP7VLSUDpv6jkFY=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=jrqWg6vRcCsCxus4T8JQ7/eNQZkjzrtfZy84Nw0CZVTvUKmKv+d7mlYnMmAE0JaXF
+	 HdV4VdMBuOep40wnFqi6PtmJSclZk7s64Ngg0+sh9bfzcuDms87f0NofE4uqr/1lQ/
+	 iX7nIAmlr2ku57/79ltk+WuYIInmNUJBucrNoxCPFbP3slj8wwFKE6GY51QleULCXS
+	 3F5yQzdDpG1naRTm159aj6a1jMdM71cUw2r5Hn0gcv7f5xFgAzAYzprGD07+Vcrr4+
+	 zojEeuXfQVP26WeyzuSbSJLjjg2xHVqOLkHBo6bqWppIy3fGT/UMWvPx4bcW+AsPWf
+	 4Febtcv1IupYg==
+X-Virus-Scanned: amavisd-new at 4d2.org
+Received: from bayard.4d2.org ([127.0.0.1])
+ by bayard.4d2.org (bayard.4d2.org [127.0.0.1]) (amavisd-new, port 10024)
+ with ESMTP id 8jdWJcIIIEqu; Tue, 14 Jan 2025 23:29:16 -0800 (PST)
+Received: from ketchup (unknown [183.217.83.74])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: heylenay@4d2.org)
+	by bayard.4d2.org (Postfix) with ESMTPSA id 4CE85122FE1A;
+	Tue, 14 Jan 2025 23:29:11 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=4d2.org; s=mail;
+	t=1736926156; bh=6nZ7MSfskgPOfJaGxHTVHLkypF/3zP7VLSUDpv6jkFY=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=c0NMRBc5R6vRo1jNMVN18tfgamNJHbNzBtBK713yGo92DK4NIY+Si47vQS6LVXnMb
+	 83ntH91xItw2OjCTMGkzLG4L3Y5SppI7fX/np0GPuxQc+Qw6KTbKD2bdtZzb0dLg7n
+	 D2LVOJa+cVqvJ5ewscDV7EEJiN0vYp5Hd+5cQ+X9HpQKzxk4KIT6BdjaiRad+u3YNg
+	 oB0H6C9d40F06xMmhxIDVF9o0TowzRKEmBQpwEL4/s0YKMGyrl+J5wcRTQFPslltSF
+	 B2Xc6CiFcw+Maz6W4VRUYYzBsRGVabPLQ3/ZDROODVUjnbscAqlhNWA0gM7RelzAAU
+	 /TTFj87psIw4Q==
+Date: Wed, 15 Jan 2025 07:29:00 +0000
+From: Haylen Chu <heylenay@4d2.org>
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Haylen Chu <heylenay@outlook.com>, Yixun Lan <dlan@gentoo.org>,
+	linux-riscv@lists.infradead.org, linux-clk@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	Inochi Amaoto <inochiama@outlook.com>,
+	Chen Wang <unicornxdotw@foxmail.com>,
+	Jisheng Zhang <jszhang@kernel.org>,
+	Meng Zhang <zhangmeng.kevin@linux.spacemit.com>
+Subject: Re: [PATCH v4 1/4] dt-bindings: clock: spacemit: Add clock
+ controllers of Spacemit K1 SoC
+Message-ID: <Z4djvOcKuFhYbfKv@ketchup>
+References: <20250103215636.19967-2-heylenay@4d2.org>
+ <20250103215636.19967-3-heylenay@4d2.org>
+ <coyp227rh643slvrrtlls6zc4r2fgvajrvsw63xpyxno7b73wy@cvsjtsghmnx4>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <coyp227rh643slvrrtlls6zc4r2fgvajrvsw63xpyxno7b73wy@cvsjtsghmnx4>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250115_070803_390497_750B8CA4 
-X-CRM114-Status: UNSURE (   7.84  )
+X-CRM114-CacheID: sfid-20250114_232922_867163_4DA72ED4 
+X-CRM114-Status: UNSURE (   9.96  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -135,41 +102,28 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Chen Wang <unicorn_wang@outlook.com>
+On Sat, Jan 04, 2025 at 10:58:54AM +0100, Krzysztof Kozlowski wrote:
+> On Fri, Jan 03, 2025 at 09:56:34PM +0000, Haylen Chu wrote:
+> > +#define CLK_PLL3_80		32
+> > +#define CLK_PLL3_40		33
+> > +#define CLK_PLL3_20		34
+> > +#define CLK_APBS_NUM		35
+> 
+> Binding looks fine, thanks for the changes, but now I noticed this
+> define.  Please drop. Number of clocks is rarely useful as a binding and
+> usually leading to ABI issues.
+> 
+> Same for all other clock controllers below.
 
-Enable pcie controllers for PioneerBox, which uses SG2042 SoC.
+Okay, will drop it.
 
-Signed-off-by: Chen Wang <unicorn_wang@outlook.com>
----
- arch/riscv/boot/dts/sophgo/sg2042-milkv-pioneer.dts | 12 ++++++++++++
- 1 file changed, 12 insertions(+)
+> 
+> Best regards,
+> Krzysztof
+> 
 
-diff --git a/arch/riscv/boot/dts/sophgo/sg2042-milkv-pioneer.dts b/arch/riscv/boot/dts/sophgo/sg2042-milkv-pioneer.dts
-index be596d01ff8d..e63445cc7d18 100644
---- a/arch/riscv/boot/dts/sophgo/sg2042-milkv-pioneer.dts
-+++ b/arch/riscv/boot/dts/sophgo/sg2042-milkv-pioneer.dts
-@@ -60,6 +60,18 @@ mcu: syscon@17 {
- 	};
- };
- 
-+&pcie_rc0 {
-+	status = "okay";
-+};
-+
-+&pcie_rc1 {
-+	status = "okay";
-+};
-+
-+&pcie_rc2 {
-+	status = "okay";
-+};
-+
- &sd {
- 	bus-width = <4>;
- 	no-sdio;
--- 
-2.34.1
-
+Thanks,
+Haylen Chu
 
 _______________________________________________
 linux-riscv mailing list
