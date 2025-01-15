@@ -4,81 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 706F6C02180
-	for <linux-riscv@archiver.kernel.org>; Wed, 15 Jan 2025 19:20:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 385B2C02180
+	for <linux-riscv@archiver.kernel.org>; Wed, 15 Jan 2025 20:10:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=xIk6Tm/3A4/3hGf7DKkbGUgMVBKgCjrzXNBd80HxZr8=; b=WerbXEPBg2rjSH
-	XZyWoDpG7n1JjzwxJqQuezgD7ByS8dwg0Bfxil6si6dBcN2wrO5N/l1vT9dO8tlb9KgdUE3D9n6bz
-	cSdIOtlRmAxcmmP+9W6pStFHfELYrcfvykoeuBqQyF15ACZvSFHNUmyL2YPbtTpDCFUBBO+ZSJLAV
-	apm8V5QrDtx3sIoMoOf5i1LlYvrmsBwOAbkmj2oMAPsmCKz2J5wksoscIJ4F56JheNUwY8GizQ/kE
-	vBm+38hvsAgENcsiqYykj4BdK++xebbI2bnXJ+n9eh3XItUBpY8RA2Z+UFiQXNzlp9lXN2luxEkHX
-	aMLDo/xEYsBHERy2KMDg==;
+	List-Owner; bh=YWJARZgGS1TLVMVlSxp1YqeXoBmIZtqBlC4LiDWxM8U=; b=19t4vFutiS66i3
+	1XhXCezlgyLzNa5oKEgwFearouDNSCJi1fUkH1qp7V1SrrFMrk77UGDjHeX8Ou8bksw1gdOGfP5oA
+	ZrObP7a6VQKDdavXuCtmgwMssjThhZ2IikRCM1BQ7yleIdCPCB4qixpBqk4ysuWBHnZQe6FarZ2bR
+	agdv5wNiSspWXwqFIqIsECH2QaAmeL5LfSDnE8hahBMFGQOuMSBDacDqi/zZNsju6LUj0VhFF06qy
+	swlFXQgXMhe8mOvhw2oVWbvkKOA1vkVrXu8j6v5lEwiYJRSZAItm+Fi/g2+vBR2DY9Pfg5vUq4k97
+	Lw/b1UdjfOBOcdTwzA0g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tY8wH-0000000CtDk-3u7M;
-	Wed, 15 Jan 2025 19:20:29 +0000
-Received: from mail-pl1-x62d.google.com ([2607:f8b0:4864:20::62d])
+	id 1tY9ix-0000000CyCv-3kJE;
+	Wed, 15 Jan 2025 20:10:47 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tY8wF-0000000CtCk-24md
-	for linux-riscv@lists.infradead.org;
-	Wed, 15 Jan 2025 19:20:29 +0000
-Received: by mail-pl1-x62d.google.com with SMTP id d9443c01a7336-21649a7bcdcso602165ad.1
-        for <linux-riscv@lists.infradead.org>; Wed, 15 Jan 2025 11:20:27 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1736968827; x=1737573627; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=1PfuB3vRfPVBICpHqZhZTqmTegPN7rFSn8G0geS43CU=;
-        b=j1Vp6AAsMZL5IzVn4Vf9hQ/HJuwo4mg0SBazHZg03WQ1CFGeh+zB5Nt4g4EB86wStg
-         FaDTsXY/q1vmkBnhu08B1T6tcIuTbV7G3KO8JaUMGf5+OjEqwzAS2N7ns7qOXC2Q54Ne
-         eBlgVFHUV/EBHiOqK/FWmj/4ACzM7VGupfyju97p5IIMnaNgKfDvSmrorzXFeUxakCtn
-         DgeBH6Jx1uvGYhGX1wWSqGWBqgrnsU5ayjgREzcRzbit9mRy4WDfUOWj/SlotsI1DFZ4
-         /1NudDzxTioEPTioKkGOf8tF7VXqczplXKBBoiHbOv00DwOJogPGBy/RYDb+lc2V8Cgc
-         OF+w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1736968827; x=1737573627;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=1PfuB3vRfPVBICpHqZhZTqmTegPN7rFSn8G0geS43CU=;
-        b=dO+1SMSwoH9NjroyIWmBqzGDGDiTmKwQMp3SKVDEfZ30tpYadAX8jU3pa90vzxmuaT
-         CzHQaNYl8Amnc6vyxPaSCz8fHlZYO+/jig4RR9qo2uHY1/tAecaolcTlc3HO1SVbo4v6
-         YxZmJURaUCUeBnb2GjHRSNdpan8Kv1GPug330jZxPKLJf2Q3urquLAAamyH0MuVJEWgn
-         ZthuKtxWZA4wmJWi5q90oVIjcjQI7Yjivaj19PWOSDCqRw8xsYPXCzuAwqfue1UA4eCm
-         JcXuGLAus8oCdgcapbYUg0GZe8DL5G9wVvEvhCpT2TzaHp8o3qhm4u77yT7EmNzqmKCS
-         GCHQ==
-X-Gm-Message-State: AOJu0YzaEpfWW9i/gP+3YLEhNTHQiKbJD9RBkstYonTHGYgM2BUTf5GK
-	J3o/CB0r80jgjIHYwJNo0AWsVj+6eRVvo5CHoMdf+DIlzC1zMwXETxvcIVXFQti2l3Sm45XjspQ
-	K
-X-Gm-Gg: ASbGncuxsVzBs1DbKjTNtgg+N6g8inVzOe+8PI8BJIYLQAd9m6Bx2PGulRFthnlxL2r
-	/zcLijgpaURrH+YMgqWFbz4egsDJZY2lmeZ5s/8qUCI6c6D61h80MW7LrkSFBih5muZ8lQHJ5cC
-	RrU3GlgDt9oHj2Aurfq8JgYtpLpI0coOp+0gUcgZUMIKmffILZW3UoBRtJIzaP/F+0vU8TGhPDq
-	QlebTKoqC6+KyHgeRW7IqRNv1Gct5A6+XJqSCwvzSk8Vu5QwH6V
-X-Google-Smtp-Source: AGHT+IHSDm6tRDGGlav4LSgtZXxFS3rS94Qdt+anyG4mU1v2bcB31JUk8nQYmiIrKOr7+cjYGvcbNA==
-X-Received: by 2002:a05:6a20:8413:b0:1e1:9fef:e974 with SMTP id adf61e73a8af0-1e88d10e94dmr53771001637.24.1736968826823;
-        Wed, 15 Jan 2025 11:20:26 -0800 (PST)
-Received: from ghost ([2601:647:6700:64d0:4be4:f35b:eb2a:bdff])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-72d406a980esm9527905b3a.180.2025.01.15.11.20.25
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 15 Jan 2025 11:20:26 -0800 (PST)
-Date: Wed, 15 Jan 2025 11:20:24 -0800
-From: Charlie Jenkins <charlie@rivosinc.com>
-To: Palmer Dabbelt <palmer@rivosinc.com>
-Cc: linux-riscv@lists.infradead.org
-Subject: Re: [PATCH] RISC-V: Mark riscv_v_init() as __init
-Message-ID: <Z4gKeLnO7nWyYM3a@ghost>
-References: <20250115180251.31444-1-palmer@rivosinc.com>
+	id 1tY9hd-0000000CxxV-2yvs;
+	Wed, 15 Jan 2025 20:09:27 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 41F7BA42164;
+	Wed, 15 Jan 2025 20:07:36 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D9A6BC4CED1;
+	Wed, 15 Jan 2025 20:09:22 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1736971763;
+	bh=HKd2BYN0EJzvcqr3Xx3Vueop4tDJh+K1d/v1F43ixq4=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=mMh7oPcJEGeeR1CbLFNvT6sYm/PkFQwDWfBsQ90yztglpZ3/YZEBVnarQ1AC7szWo
+	 7TIaoC/5Ds9yuqwsCSv511HrZQrz9DYKTCs5teywBQChtbtwCLdUU15B57wDXyESFf
+	 A/x13wKP5lj3nSG+MtRjOv+yVwR6g+BlMg1RaQLmyhmo5lqJ4XKmsH9giN7zUcgT0G
+	 JjdlmRxxbsFDdoqRPMfd7BNNsEMs0mR8Cyqj/oCkFnsbRsTmQflWeOU3bRrVWJH9mq
+	 wFz46x9sk38sYnuYTKWOXCW+bAgDPbIH7khSU1whNzE/e3Hn5P+2qU6Lun6bUVc/Ly
+	 lJaxe0RpKwpyA==
+Date: Wed, 15 Jan 2025 20:09:21 +0000
+From: Wei Liu <wei.liu@kernel.org>
+To: Joel Granados <joel.granados@kernel.org>
+Cc: Thomas =?iso-8859-1?Q?Wei=DFschuh?= <linux@weissschuh.net>,
+	Kees Cook <kees@kernel.org>, Luis Chamberlain <mcgrof@kernel.org>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
+	linux-s390@vger.kernel.org, linux-crypto@vger.kernel.org,
+	openipmi-developer@lists.sourceforge.net,
+	intel-gfx@lists.freedesktop.org, dri-devel@lists.freedesktop.org,
+	intel-xe@lists.freedesktop.org, linux-hyperv@vger.kernel.org,
+	linux-rdma@vger.kernel.org, linux-raid@vger.kernel.org,
+	linux-scsi@vger.kernel.org, linux-serial@vger.kernel.org,
+	xen-devel@lists.xenproject.org, linux-aio@kvack.org,
+	linux-fsdevel@vger.kernel.org, netfs@lists.linux.dev,
+	codalist@coda.cs.cmu.edu, linux-mm@kvack.org,
+	linux-nfs@vger.kernel.org, ocfs2-devel@lists.linux.dev,
+	fsverity@lists.linux.dev, linux-xfs@vger.kernel.org,
+	io-uring@vger.kernel.org, bpf@vger.kernel.org,
+	kexec@lists.infradead.org, linux-trace-kernel@vger.kernel.org,
+	linux-hardening@vger.kernel.org, apparmor@lists.ubuntu.com,
+	linux-security-module@vger.kernel.org, keyrings@vger.kernel.org,
+	Song Liu <song@kernel.org>,
+	"Steven Rostedt (Google)" <rostedt@goodmis.org>,
+	"Martin K. Petersen" <martin.petersen@oracle.com>,
+	"Darrick J. Wong" <djwong@kernel.org>,
+	Jani Nikula <jani.nikula@intel.com>,
+	Corey Minyard <cminyard@mvista.com>, Wei Liu <wei.liu@kernel.org>
+Subject: Re: [PATCH v2] treewide: const qualify ctl_tables where applicable
+Message-ID: <Z4gV8QNnafm-iCC4@liuwe-devbox-debian-v2>
+References: <20250110-jag-ctl_table_const-v2-1-0000e1663144@kernel.org>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20250115180251.31444-1-palmer@rivosinc.com>
+In-Reply-To: <20250110-jag-ctl_table_const-v2-1-0000e1663144@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250115_112027_781509_72D58ECF 
-X-CRM114-Status: GOOD (  17.37  )
+X-CRM114-CacheID: sfid-20250115_120925_815868_468455B6 
+X-CRM114-Status: GOOD (  11.44  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,36 +94,23 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jan 15, 2025 at 10:02:51AM -0800, Palmer Dabbelt wrote:
-> This trips up with Xtheadvector enabled, but as far as I can tell it's
-> just been an issue since the original patchset.
-> 
-> Fixes: 7ca7a7b9b635 ("riscv: Add sysctl to set the default vector rule for new processes")
-> Signed-off-by: Palmer Dabbelt <palmer@rivosinc.com>
+On Fri, Jan 10, 2025 at 03:16:08PM +0100, Joel Granados wrote:
+[...]
+> diff --git a/drivers/hv/hv_common.c b/drivers/hv/hv_common.c
+> index 7a35c82976e0..9453f0c26f2a 100644
+> --- a/drivers/hv/hv_common.c
+> +++ b/drivers/hv/hv_common.c
+> @@ -141,7 +141,7 @@ static int sysctl_record_panic_msg = 1;
+>   * sysctl option to allow the user to control whether kmsg data should be
+>   * reported to Hyper-V on panic.
+>   */
+> -static struct ctl_table hv_ctl_table[] = {
+> +static const struct ctl_table hv_ctl_table[] = {
+>  	{
+>  		.procname	= "hyperv_record_panic_msg",
+>  		.data		= &sysctl_record_panic_msg,
 
-Reviewed-by: Charlie Jenkins <charlie@rivosinc.com>
-Tested-by: Charlie Jenkins <charlie@rivosinc.com>
-
-> ---
->  arch/riscv/kernel/vector.c | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
-> 
-> diff --git a/arch/riscv/kernel/vector.c b/arch/riscv/kernel/vector.c
-> index 61ded78fcaec..aba5805119c3 100644
-> --- a/arch/riscv/kernel/vector.c
-> +++ b/arch/riscv/kernel/vector.c
-> @@ -319,7 +319,7 @@ static int __init riscv_v_sysctl_init(void)
->  static int __init riscv_v_sysctl_init(void) { return 0; }
->  #endif /* ! CONFIG_SYSCTL */
->  
-> -static int riscv_v_init(void)
-> +static int __init riscv_v_init(void)
->  {
->  	return riscv_v_sysctl_init();
->  }
-> -- 
-> 2.45.2
-> 
+Acked-by: Wei Liu <wei.liu@kernel.org>
 
 _______________________________________________
 linux-riscv mailing list
