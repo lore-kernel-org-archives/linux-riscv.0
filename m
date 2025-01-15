@@ -4,67 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7CF0AC02183
-	for <linux-riscv@archiver.kernel.org>; Wed, 15 Jan 2025 07:06:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DE905C02180
+	for <linux-riscv@archiver.kernel.org>; Wed, 15 Jan 2025 07:07:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:To
-	:From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=A2JjMr3Ut6hcNHOiE5xiUATWqhYmChdMVpXv2ZDurH4=; b=TVgHYhwpHQDxSh
-	aolkfXUN67MOQl9Qs1R4baz7SLVkVFcjY9yKYVxrak+CjlIxDcdlcV/6AQhgrEKQxie+KgXJXA4ND
-	Qlw1rV+/l/E+EPDPv68fl/+DLs/1YOIEJLgbAgDR3Z6GeyZUk1GpTadC8wO6SPtFsW2bZi4j1QF0B
-	RoJK+JH1+1HLB5BxMfM4aupxB8/N/3gEz8m+n42w5xl+nEpOrgqlANV8HBhR/Xp+lC7ZzpKUpNiD5
-	oRskRRoVxxmtuWUDLz9oNee0y0nd7bl6ik7n4yuuIWqXvJ4wLkyp8MnGzrqX7/J+XYxgkQHMihqZ+
-	d20vqbQOOXpfBbqYr3UA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:To:From:Reply-To:Cc:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=m/h7iPkS5bM8+BYCbwdNmMSStF5V6By5xCbEF2IRiuM=; b=01kUnlgguxsTw6
+	oYX73JxSJUP2SF/OnTPCkCOa4w2NhvmA+PUqLNFRTJpzqX9D2q37lknvIdyftqVm4CgUlWHyU+KVO
+	Onynb8j878IvtOmkv+kLKPVWo5Teg1lFGocXZunt7aWpV0cjge41aYkbL7MRLfOTnzbi0YLWNke85
+	FAQ2vvLC0eMS0cthHboTq/iIS0yR+/AjG8vhYU7Z/V3ZCCZa1gHCjzwQGPyK+yBncHbiruB5WVcyj
+	eaim0IFjmwEPrpVIFBRsTWM6igS9Y3HjMhyMS73gN4souzQFACOoyXwPfmZv+jv9/zn9Ver2/oGb6
+	I22TVLBiK3HBD2aPBIGA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXxTa-0000000At7s-3TNz;
-	Wed, 15 Jan 2025 07:06:07 +0000
-Received: from mail-oi1-x22b.google.com ([2607:f8b0:4864:20::22b])
+	id 1tXxUt-0000000AtWy-1qWG;
+	Wed, 15 Jan 2025 07:07:27 +0000
+Received: from mail-oo1-xc2f.google.com ([2607:f8b0:4864:20::c2f])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXxTY-0000000At7J-16Di
+	id 1tXxUF-0000000AtMa-2Fzf
 	for linux-riscv@lists.infradead.org;
-	Wed, 15 Jan 2025 07:06:05 +0000
-Received: by mail-oi1-x22b.google.com with SMTP id 5614622812f47-3eba5848ee4so1671139b6e.3
-        for <linux-riscv@lists.infradead.org>; Tue, 14 Jan 2025 23:06:03 -0800 (PST)
+	Wed, 15 Jan 2025 07:06:48 +0000
+Received: by mail-oo1-xc2f.google.com with SMTP id 006d021491bc7-5f4c111991bso296854eaf.0
+        for <linux-riscv@lists.infradead.org>; Tue, 14 Jan 2025 23:06:47 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1736924763; x=1737529563; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:to
-         :from:from:to:cc:subject:date:message-id:reply-to;
-        bh=oI5ZjcuPckd6Ch/6DIyVBb1ek8gxp9mfdlh3C8bbL+g=;
-        b=TFMmY0usF0zHEuPtUBp1O92U8CfaFQCVqVwtghut7rOw0We+28Rq7vmKuR4PrReSbd
-         UCxvdWF7VONM/HAz+3zpdEUbFot41VjMle/zeiYcaS6n4vUQyPqKZAvh023HjjF6R7M4
-         ZCNdj00+v8B/K9P/7aa3692XAzBVUT/UaxXDa94kyNeCtjW86BCZ1Kr5TYZbbjm1OFmr
-         03u5E7OpgaLHGPyi88oF1nfeXE9IaElkaJupOyNozNLGHznT0s1OJ4/ekQ1UZkAERLVM
-         PK6Gd3BA9naY+whZKTrUugfpUtEl4LmxljNXcLEH14IH8g15PYQXmX8YkgPUj9HKfya4
-         bW5A==
+        d=gmail.com; s=20230601; t=1736924806; x=1737529606; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:to:from:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=A6LsDSRxso3EvoawgFxcfFBhG8RtxCRF21ny5YM/h+8=;
+        b=YfaFSc+72b4J9qY/QJCm0GcMM7+wHZb+CipazXwbrBzYHeMpyeo7ykUsTVIk6w3CVM
+         eo8foKM/IJvAK2mdz6tlh3q7jnlPoEBLgt48db8QL0hOD3r7nldFSie1yrb2oaTe3D7L
+         kh2u/wwsWQ06HfQcX7UGWsWTugNh2TWrbMr+OzlCVndL9dTD+gsHqXlxB+j9Km/pvWPL
+         g7XRXyx7jUykS6z7dIdWEXmAeRpKwLlZlj/DZJ+uri0ValhqQO3cveLaDjwwgFqqI/oc
+         a5phmjBoca2rC/pfPbJJHQhb7N49D5pg0/em5OWGhEtZGBd8Rml+L0FzTVY1t1dEmhM/
+         MCgA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1736924763; x=1737529563;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:to
-         :from:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=oI5ZjcuPckd6Ch/6DIyVBb1ek8gxp9mfdlh3C8bbL+g=;
-        b=rgFR2v1GWimqmhIgcvfsDFbzh1I9l1NRsJgXH+FPPCfO2gnLB/QKaeXNZz/zb4pENg
-         hpObBWxcBQ6ekPHheL48LKIrGEpm6vQYiisKM8TH4QJ6oOJBbR+hoHDSpKEaCh5WKdhk
-         tfpmskPvRHvglDn1drrWmNwFj6Vkpph4KtKtzuU8fF5ESRnUiaJo98a8FjC7IlvY0/mC
-         a65QGKWWR+RQJT6JsWXNKHJrP4ZEX8l61x6i24qB8dJdA2W7VTxY9/y1aWTfg5HcXG6r
-         1RJ3By4fKCsYMP94+7gXJKTPCYmqKZ+4I5jiRk//7CvHKPzrPiHTm/H0NxAilt/jEk6i
-         52jQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXvvKv7t49rfigR0Cpw1tFr2Rq7L7G2mvHoDfwgU72Q/R3hnn5IKgMGqK6OU+yzfOJka1NUnBUtSimnBQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0YyPA7h3I8PvaEYt4yFeMZI22Sof/I3e4+wlQLmHJHmv1xl3UPYM
-	aAcvIjjV7SK0DhoIr3Q4gF1ImBPzsdfyo+YlyMtj/2IhfHoQjkpT
-X-Gm-Gg: ASbGncvfOmvJHvS4ntkoQC/h8xTR+j3mdijNofnv9IJJKsXEnGY7b/yOQ9MQ52/OeBQ
-	VVsR2kUcHMYE3Q8Gy/zgl+Wow6Ma9CV+QSbyS9jE5UfyzK3SPddQNMSmlmkX/u9Faueiczv6BQ9
-	6Ew4Nb1DQYKKbyMe2YnB77PZbXiRhukFvIirAHgOzv5lQGSWsHxYoiftbL5yTx1ovxLoON6G1O0
-	FYEsMSMZeAZYpOSf++jsGB5poLDb8sknTm9zmKEvVReXpEtfwodUvs+llQwfduhb90=
-X-Google-Smtp-Source: AGHT+IFkR6nnCpwOXELoB6VRu3HqkfESX5AtlZc9JkL6/31ySuvemmaJeL/mLBsU0qBVg79TjKGu2w==
-X-Received: by 2002:a05:6808:398c:b0:3ea:6149:d6fd with SMTP id 5614622812f47-3ef2ebb9028mr20514321b6e.2.1736924763079;
-        Tue, 14 Jan 2025 23:06:03 -0800 (PST)
+        d=1e100.net; s=20230601; t=1736924806; x=1737529606;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=A6LsDSRxso3EvoawgFxcfFBhG8RtxCRF21ny5YM/h+8=;
+        b=skGcRHTC6qPAXd1CMfpQe4E4c1pmZxFV35QRf7TX5IM6EIK5JcLwqijuZl6+aMLVyp
+         z5El1AMiluXYy4jq9wh1Wgne5gw2M+Rf5cnbLZ3nYdz3f++AaUOS0AQITlsQ/ysxeaVg
+         TO+3IISPwaoYyHCA3IIjTldewvWLSRfaapqnsXi7ykSlVMVEexCGbheZPJN2FiLhN1dq
+         S6lk416kDug7Ynp8qy1YFoGlFN81QxuPmmIZZLPHVu1/A/aqny0dCfk+NFL6JorA/3YF
+         sOZRCDnRXQgeclpvLar+403SdCYXCPF/zleyJ6PQZj/FZqHnAY/oEST5wwohjT0WSRCs
+         dOKQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXWx3n9+7k02Gmvl5EeX1yrXEXpJ6oS2QCaOhnv/h8rRM19B/S6fIEfKsA7m6gnEIgZQ1srwy6Ux08FBA==@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywt/uGqZCDqH/PTDV3sQlm7dGkMF+VV4nEgOFYunn+NFjM9WrnA
+	L6ZjpqzcFhtxdWS4bgYJ8uLT9MIMfRv0etPBLlZ9YmhnPWpvDMcC
+X-Gm-Gg: ASbGnctQVT5wsj39IE2ejnlzNEwYB+XPFZqHdblzbD9zo72vSTf2D5hM8wgzu31vPGQ
+	PHAFga7tRXgp0PqyJjIn+2IoUER4dGxpYX5uJrc3JX1mxTrtAuM0WkN4M88kOKbVFucL4/Le8vn
+	ZSzh9/n9oOreo+o/pJWsFi/zvLAm0JIsATrDtkE/uELZu56WZ8OtEt9HVSG2hK+6Rp+R23Kf+RM
+	acrdRBBRp8INLOAcOy0gkjKL66pnOrRLF7rDbDhRxFVrzkory1nrRM59/acg3Y7y20=
+X-Google-Smtp-Source: AGHT+IG1BnRm1bURx9ei4lbPam8um8KU2KsMP9ifZa/V7dvLXRAArhlchv75sptxdIonaHl6GhtQiA==
+X-Received: by 2002:a4a:d682:0:b0:5f3:3d75:7d8f with SMTP id 006d021491bc7-5f8fa888b40mr1218310eaf.2.1736924806485;
+        Tue, 14 Jan 2025 23:06:46 -0800 (PST)
 Received: from localhost.localdomain ([122.8.183.87])
-        by smtp.gmail.com with ESMTPSA id 5614622812f47-3f0379eff52sm4779278b6e.40.2025.01.14.23.05.59
+        by smtp.gmail.com with ESMTPSA id 46e09a7af769-723185383e7sm5428507a34.11.2025.01.14.23.06.44
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 14 Jan 2025 23:06:01 -0800 (PST)
+        Tue, 14 Jan 2025 23:06:45 -0800 (PST)
 From: Chen Wang <unicornxw@gmail.com>
 To: kw@linux.com,
 	u.kleine-koenig@baylibre.com,
@@ -91,14 +93,16 @@ To: kw@linux.com,
 	xiaoguang.xing@sophgo.com,
 	fengchun.li@sophgo.com,
 	helgaas@kernel.org
-Subject: [PATCH v3 0/5] Add PCIe support to Sophgo SG2042 SoC
-Date: Wed, 15 Jan 2025 15:05:52 +0800
-Message-Id: <cover.1736923025.git.unicorn_wang@outlook.com>
+Subject: [PATCH v3 1/5] dt-bindings: pci: Add Sophgo SG2042 PCIe host
+Date: Wed, 15 Jan 2025 15:06:37 +0800
+Message-Id: <5a784afde48c44b5a8f376f02c5f30ccff8a3312.1736923025.git.unicorn_wang@outlook.com>
 X-Mailer: git-send-email 2.34.1
+In-Reply-To: <cover.1736923025.git.unicorn_wang@outlook.com>
+References: <cover.1736923025.git.unicorn_wang@outlook.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250114_230604_305955_1E108BA6 
-X-CRM114-Status: GOOD (  16.16  )
+X-CRM114-CacheID: sfid-20250114_230647_576606_25BB2BBB 
+X-CRM114-Status: GOOD (  15.05  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,102 +121,167 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Chen Wang <unicorn_wang@outlook.com>
 
-Sophgo's SG2042 SoC uses Cadence PCIe core to implement RC mode.
+Add binding for Sophgo SG2042 PCIe host controller.
 
-SG2042 PCIe controller supports two ways to report MSI:
-
-Method A, the PICe controller implements an MSI interrupt controller
-inside, and connect to PLIC upward through one interrupt line. Provides
-memory-mapped msi address, and by programming the upper 32 bits of the
-address to zero, it can be compatible with old pcie devices that only
-support 32-bit msi address.
-
-Method B, the PICe controller connects to PLIC upward through an
-independent MSI controller "sophgo,sg2042-msi" on the SOC. The MSI
-controller provides multiple(up to 32) interrupt sources to PLIC.
-Compared with the first method, the advantage is that the interrupt
-source is expanded, but because for SG2042, the msi address provided
-by the MSI controller is fixed and only supports 64-bit address(> 2^32),
-it is not compatible with old pcie devices that only support 32-bit
-msi address.
-
-This patchset depends on another patchset for the SG2042 MSI controller[msi].
-If you want to have a test, you need to apply the corresponding patchset.
-
-Link: https://lore.kernel.org/linux-riscv/cover.1736921549.git.unicorn_wang@outlook.com/ [msi]
-
-Thanks,
-Chen
-
+Signed-off-by: Chen Wang <unicorn_wang@outlook.com>
 ---
-
-Changes in v3:
-
-  The patch series is based on v6.13-rc7.
-
-  Fixed following issues as per comments from Rob Herring, Bjorn Helgaas, thanks.
-
-  - Driver binding:
-    - Fallback to still using "sophgo,link-id" instead of "sophgo,pcie-port",
-      and improve the description of this property.
-    - Some text improvements.
-  - Improve driver code:
-    - Removed CONFIG_SMP.
-    - Removed checking of CONFIG_PCIE_CADENCE_HOST
-    - Improved Kconfig to select some dependencies explicitly.
-    - Some text improvements.
-
-Changes in v2:
-
-  The patch series is based on v6.13-rc2. You can simply review or test the
-  patches at the link [2].
-
-  Fixed following issues as per comments from Rob Herring, Bjorn Helgaas, thanks.
-
-  - Improve driver binding description
-    - Define a new embeded object property msi to replace the "sophgo,internal-msi".
-    - Rename "sophgo,link-id" to "sophgo,pcie-port" as per suggestion from Bjorn,
-      and add more explanaion for this property.
-    - Use msi-parent.
-  - Improve driver code:
-    - Improve coding style.
-    - Fix a bug and make sure num_applied_vecs updated with the max value.
-    - Use the MSI parent model.
-    - Remove .cpu_addr_fixup.
-    - Reorder Kconfig menu item to keep them in alphabetical order by vendor.
-
-Changes in v1:
-
-  The patch series is based on v6.12-rc7. You can simply review or test the
-  patches at the link [1].
-
-Link: https://lore.kernel.org/linux-riscv/cover.1731303328.git.unicorn_wang@outlook.com/ [1]
-Link: https://lore.kernel.org/linux-riscv/cover.1733726572.git.unicorn_wang@outlook.com/ [2]
----
-
-Chen Wang (5):
-  dt-bindings: pci: Add Sophgo SG2042 PCIe host
-  PCI: sg2042: Add Sophgo SG2042 PCIe driver
-  dt-bindings: mfd: syscon: Add sg2042 pcie ctrl compatible
-  riscv: sophgo: dts: add pcie controllers for SG2042
-  riscv: sophgo: dts: enable pcie for PioneerBox
-
- .../devicetree/bindings/mfd/syscon.yaml       |   2 +
- .../bindings/pci/sophgo,sg2042-pcie-host.yaml | 147 +++++
- .../boot/dts/sophgo/sg2042-milkv-pioneer.dts  |  12 +
- arch/riscv/boot/dts/sophgo/sg2042.dtsi        |  89 +++
- drivers/pci/controller/cadence/Kconfig        |  13 +
- drivers/pci/controller/cadence/Makefile       |   1 +
- drivers/pci/controller/cadence/pcie-sg2042.c  | 528 ++++++++++++++++++
- 7 files changed, 792 insertions(+)
+ .../bindings/pci/sophgo,sg2042-pcie-host.yaml | 147 ++++++++++++++++++
+ 1 file changed, 147 insertions(+)
  create mode 100644 Documentation/devicetree/bindings/pci/sophgo,sg2042-pcie-host.yaml
- create mode 100644 drivers/pci/controller/cadence/pcie-sg2042.c
 
-
-base-commit: 5bc55a333a2f7316b58edc7573e8e893f7acb532
-prerequisite-patch-id: d3c733a9ccc3fb4c62f145edcc692a0ca9484e53
-prerequisite-patch-id: bd8d797ce40a6c2b460872eda31a7685ddba0d67
-prerequisite-patch-id: f9b3c6061c52320f85ca4144e3d580fa6d0e54ef
+diff --git a/Documentation/devicetree/bindings/pci/sophgo,sg2042-pcie-host.yaml b/Documentation/devicetree/bindings/pci/sophgo,sg2042-pcie-host.yaml
+new file mode 100644
+index 000000000000..f98e71822144
+--- /dev/null
++++ b/Documentation/devicetree/bindings/pci/sophgo,sg2042-pcie-host.yaml
+@@ -0,0 +1,147 @@
++# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/pci/sophgo,sg2042-pcie-host.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: Sophgo SG2042 PCIe Host (Cadence PCIe Wrapper)
++
++description:
++  Sophgo SG2042 PCIe host controller is based on the Cadence PCIe core.
++
++maintainers:
++  - Chen Wang <unicorn_wang@outlook.com>
++
++properties:
++  compatible:
++    const: sophgo,sg2042-pcie-host
++
++  reg:
++    maxItems: 2
++
++  reg-names:
++    items:
++      - const: reg
++      - const: cfg
++
++  vendor-id:
++    const: 0x1f1c
++
++  device-id:
++    const: 0x2042
++
++  msi:
++    type: object
++    $ref: /schemas/interrupt-controller/msi-controller.yaml#
++    unevaluatedProperties: false
++
++    properties:
++      compatible:
++        items:
++          - const: sophgo,sg2042-pcie-msi
++
++      interrupts:
++        maxItems: 1
++
++      interrupt-names:
++        const: msi
++
++  msi-parent: true
++
++  sophgo,link-id:
++    $ref: /schemas/types.yaml#/definitions/uint32
++    description: |
++      SG2042 uses Cadence IP, every IP is composed of 2 cores (called link0
++      & link1 as Cadence's term). Each core corresponds to a host bridge,
++      and each host bridge has only one root port. Their configuration
++      registers are completely independent. SG2042 integrates two Cadence IPs,
++      so there can actually be up to four host bridges. "sophgo,link-id" is
++      used to identify which core/link the PCIe host bridge node corresponds to.
++
++      The Cadence IP has two modes of operation, selected by a strap pin.
++
++      In the single-link mode, the Cadence PCIe core instance associated
++      with Link0 is connected to all the lanes and the Cadence PCIe core
++      instance associated with Link1 is inactive.
++
++      In the dual-link mode, the Cadence PCIe core instance associated
++      with Link0 is connected to the lower half of the lanes and the
++      Cadence PCIe core instance associated with Link1 is connected to
++      the upper half of the lanes.
++
++      SG2042 contains 2 Cadence IPs and configures the Cores as below:
++
++                     +-- Core (Link0) <---> pcie_rc0  +-----------------+
++                     |                                |                 |
++      Cadence IP 1 --+                                | cdns_pcie0_ctrl |
++                     |                                |                 |
++                     +-- Core (Link1) <---> disabled  +-----------------+
++
++                     +-- Core (Link0) <---> pcie_rc1  +-----------------+
++                     |                                |                 |
++      Cadence IP 2 --+                                | cdns_pcie1_ctrl |
++                     |                                |                 |
++                     +-- Core (Link1) <---> pcie_rc2  +-----------------+
++
++      pcie_rcX is PCIe node ("sophgo,sg2042-pcie-host") defined in DTS.
++
++      Sophgo defines some new register files to add support for their MSI
++      controller inside PCIe. These new register files are defined in DTS as
++      syscon node ("sophgo,sg2042-pcie-ctrl"), i.e. "cdns_pcie0_ctrl" /
++      "cdns_pcie1_ctrl". cdns_pcieX_ctrl contains some registers shared by
++      pcie_rcX, even two RC (Link)s may share different bits of the same
++      register. For example, cdns_pcie1_ctrl contains registers shared by
++      link0 & link1 for Cadence IP 2.
++
++      "sophgo,link-id" is defined to distinguish the two RC's in one Cadence IP,
++      so we can know what registers (bits) we should use.
++
++  sophgo,syscon-pcie-ctrl:
++    $ref: /schemas/types.yaml#/definitions/phandle
++    description:
++      Phandle to the PCIe System Controller DT node. It's required to
++      access some MSI operation registers shared by PCIe RCs.
++
++allOf:
++  - $ref: cdns-pcie-host.yaml#
++
++required:
++  - compatible
++  - reg
++  - reg-names
++  - vendor-id
++  - device-id
++  - sophgo,link-id
++  - sophgo,syscon-pcie-ctrl
++
++unevaluatedProperties: false
++
++examples:
++  - |
++    #include <dt-bindings/interrupt-controller/irq.h>
++
++    pcie@62000000 {
++      compatible = "sophgo,sg2042-pcie-host";
++      device_type = "pci";
++      reg = <0x62000000  0x00800000>,
++            <0x48000000  0x00001000>;
++      reg-names = "reg", "cfg";
++      #address-cells = <3>;
++      #size-cells = <2>;
++      ranges = <0x81000000 0 0x00000000 0xde000000 0 0x00010000>,
++               <0x82000000 0 0xd0400000 0xd0400000 0 0x0d000000>;
++      bus-range = <0x00 0xff>;
++      vendor-id = <0x1f1c>;
++      device-id = <0x2042>;
++      cdns,no-bar-match-nbits = <48>;
++      sophgo,link-id = <0>;
++      sophgo,syscon-pcie-ctrl = <&cdns_pcie1_ctrl>;
++      msi-parent = <&msi_pcie>;
++      msi_pcie: msi {
++        compatible = "sophgo,sg2042-pcie-msi";
++        msi-controller;
++        interrupt-parent = <&intc>;
++        interrupts = <123 IRQ_TYPE_LEVEL_HIGH>;
++        interrupt-names = "msi";
++      };
++    };
 -- 
 2.34.1
 
