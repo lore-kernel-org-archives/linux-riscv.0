@@ -4,101 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6891EE77188
-	for <linux-riscv@archiver.kernel.org>; Wed, 15 Jan 2025 02:41:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E682E77188
+	for <linux-riscv@archiver.kernel.org>; Wed, 15 Jan 2025 03:03:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:To:From:Reply-To:Cc:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=JOTMjmVOwz8zunZj7dszqJpZm9AA5TsOGK5Xz0wgyZU=; b=maFkGpshgjgci3
-	+Egjpxb8LEBKyFlLLXGrqHdkilOaUITlRYTE3LPbXCzoLFxRjJvLysgmsUenXkcD3ZNnN+AnFldDz
-	7iIPWkeSr4aN+i9rw85Jq7RHgMo0KshOV1omsJaZuDalRp/HFkvgnKVd9ng0ec/Dgf+uDYpXm3oBO
-	G8IqkSDEiuHDt9DNaexzO86NkwGriuEa0W8OwUoAE0YKoHuABzxlNJ2wTimeduwBrExeyIEKX0iC9
-	he84xaVMrm0Q/dCYmud7FZv4wY6B0tGj4ZiEaWUay27Dfi3Dgsuj7uclNXTmjXhMuRdNhWtLfS3a1
-	IPcykYCZB+jjrELF2DAw==;
+	Content-Transfer-Encoding:Content-Type:MIME-Version:List-Subscribe:List-Help:
+	List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:Subject:Cc:To
+	:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=TcEEzW6U1NTbKGqwVHQ2dtyRuHY8WVfNIxUsldm4HRY=; b=E2nfCq/LTkmZIy
+	RXzD8MY8pMcjtbPUG2K1jlpzSseERMT1qrGkSNwQAOPS3igxkqc8xGZqxjE/CaV4rjrmx+fFWoBtK
+	sUm9Lrh0UjtYrG8hQ94OGqA1zXl/Naftpf8Mq3Dh8mshNM0U1fOA47gWyuXrsstG3o/of17edoDC9
+	Ul+pEErNvV2ZgvQClFBbaJeBtGSx0pkjUr9AOssAzn8pB7clHfSjnfqf6qL9tdZAR/lGnk1KG75hq
+	e4xGKqlwfB1WdLRNnWWftJ9LXK0V7Wq32pKMCS7tdArnHLMzEwjv2OY7WQuCmLs3TsclEWW5IXPB4
+	6n1fwErw+vj1NAXjx9Jg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXtLT-0000000AR3J-2W0v;
-	Wed, 15 Jan 2025 02:41:27 +0000
-Received: from mail-pl1-x633.google.com ([2607:f8b0:4864:20::633])
+	id 1tXtgg-0000000ATV2-2wiF;
+	Wed, 15 Jan 2025 03:03:22 +0000
+Received: from mail-pl1-x62d.google.com ([2607:f8b0:4864:20::62d])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXtLQ-0000000AR0z-2Xnu
+	id 1tXtge-0000000ATUi-2g5g
 	for linux-riscv@lists.infradead.org;
-	Wed, 15 Jan 2025 02:41:25 +0000
-Received: by mail-pl1-x633.google.com with SMTP id d9443c01a7336-216401de828so102997325ad.3
-        for <linux-riscv@lists.infradead.org>; Tue, 14 Jan 2025 18:41:24 -0800 (PST)
+	Wed, 15 Jan 2025 03:03:21 +0000
+Received: by mail-pl1-x62d.google.com with SMTP id d9443c01a7336-2163b0c09afso114207655ad.0
+        for <linux-riscv@lists.infradead.org>; Tue, 14 Jan 2025 19:03:19 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bytedance.com; s=google; t=1736908884; x=1737513684; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:to:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=Y6H6/Xpe5szI3425MURKDC2kUnYsqHlXT/4n1BN4R7E=;
-        b=kfoK2ui07SLaXRPLzZrYawbE3CIuwyPE73k50aM8uMOqtaJtWjQgjWx7VdyRhf8lPe
-         0p5VUj5XgM7aTlP3cOhxrS9p5Bu94jwayP/tlDI6Qe80kQz36+T/6Qe69B5GmhAPuPfW
-         PP9dgP5i6P9MCoB76Dn0Ed6gufFnSo/UdV4y2MoIylHSg7Gh+aaeYs7pKH3QugfSQxoX
-         dG3K8o7VrA+bDfPYuxuO7rREjQgyj8Y8zfXaYYEJ0rA7HHSFm+cOdzJg04+w6iBcUde9
-         oazuIBiFM0g03tW+9JZ3I85NeMX0Kp+N1oe116BtleDblS0O0hMfmxGhEBVzf6ZToR63
-         a5RA==
+        d=sifive.com; s=google; t=1736910199; x=1737514999; darn=lists.infradead.org;
+        h=message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=4pFOsksjub0O6BKOG2DctEoxnB4foUbo5c3Iev//NN8=;
+        b=fXVgpa7+a7K/QguqaWO2ajvwXVBEDpu9e1BbryG0VwhOMtZssbJabAz+hDNA7HTDwn
+         WQHYNqdaiERc96xg+no64z+LPnOdX0W6BAX5f8NpycNdruOWXC3FL1jRvRep5VoiejUA
+         8l2TRyrk1YTAilGlxqiP2JM308kU6Ne21t89EY3jJKj0JQylbmXEpQbM0Q5giGEMxGsF
+         /kZVyaZQI7NOu1lx3Nhs97YX8tBrQ8Ph5IY7mo73LyhenVKM23YJoEJlSy96zMRPexcl
+         VvhODx+xPHIk4rZ832e8c0UVpbhkUFAangc2Y8pwYRgvjCUTCVJ2g6hz4N2MPbe/zE8K
+         qcGA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1736908884; x=1737513684;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:to:from:x-gm-message-state:from:to:cc
+        d=1e100.net; s=20230601; t=1736910199; x=1737514999;
+        h=message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=Y6H6/Xpe5szI3425MURKDC2kUnYsqHlXT/4n1BN4R7E=;
-        b=CG6ti9N4jbxQVkoSiH5L8u43DtFvK+T1TTDTUg98oAc7HOFpUMAfQ+yU+OpDeiJ1xh
-         pcFoSYR80emXAwUXfZ7o3knjoafghdiasp43pkY4wC3ro25Qo9XJd7Rd64xPgsBO546Y
-         jDDn+gefqcjwwjzwwpGVRFD6HdGSmikfty216BOYied//Q7RWJV6MincGIObyVh0CJEO
-         /zlA38C6KSfwcar8MRm93pgOZoaGgpQBzIJRj9fX0dnCRrIzlwwL72G5k7/+bFqAO5vy
-         aZg8LUXIGYQb2GRhgcyv+vi0T+TN2CF9o8s7+n+ueG1a7TVFfiXX6XoH/q1hC8lIk8MH
-         x+IQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUxjk5+OCgVsLN2sbXW/kWvwLguCFhjo8lIykUPYkCuzKlZ8AwMDON7qfoY82xNoyXsTdr1glAS8jsbSA==@lists.infradead.org
-X-Gm-Message-State: AOJu0YyLYBAz9HtDz7gb0LJe3xDUiQBGzhGj6/o7I6cOxoULEaHPoUjB
-	C/vLaX2dEG8TkxpgFNCNsmPAPmyDtpEBsNKZRMm+2irNi0fEi+wO79W0UrWSy1A=
-X-Gm-Gg: ASbGnct708TWDMbqhsaTFwgB1jvXoOtY1wNQzu2kfvy1a24nAImnyyR3449c3+QvVmB
-	eIl9GFVnFRO5fTJ1FQoQuoxIpb/PWUbgkgbUl+X3nGCvNTevsODbdJXwyOhZEEg2Rf03nahOZpS
-	+FYgxrbf0lOJNYM9/bXvamwsgBhZjhJd86dz+DBV4y/Ry0+yvp0bfPWNUQlWw4DdUQkhX1RJNKJ
-	obnPJ44GLWmP+7LtfbXBIbT28bW1EWzcV4reQvfaTgDHzP3hrByJLA7XhS3yvpYqX4Gvqga5Ypx
-	OR6Sp+g+f+YNHak=
-X-Google-Smtp-Source: AGHT+IEvCBxOGHR3ybaItyvONDS8hALHgTqmx4phzF1QLDXR5oLeIKvQn/ktwaSu8a6RAzuXtynCUQ==
-X-Received: by 2002:a05:6a00:35c6:b0:725:4109:5b5f with SMTP id d2e1a72fcca58-72d21f3233cmr46085088b3a.8.1736908883633;
-        Tue, 14 Jan 2025 18:41:23 -0800 (PST)
-Received: from L6YN4KR4K9.bytedance.net ([139.177.225.227])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-72d40680e67sm8321841b3a.139.2025.01.14.18.41.13
-        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Tue, 14 Jan 2025 18:41:23 -0800 (PST)
-From: Yunhui Cui <cuiyunhui@bytedance.com>
-To: ajones@ventanamicro.com,
-	alexghiti@rivosinc.com,
-	andybnac@gmail.com,
-	aou@eecs.berkeley.edu,
-	charlie@rivosinc.com,
-	cleger@rivosinc.com,
-	conor.dooley@microchip.com,
-	conor@kernel.org,
-	corbet@lwn.net,
-	cuiyunhui@bytedance.com,
-	evan@rivosinc.com,
-	jesse@rivosinc.com,
-	linux-doc@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-kselftest@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	palmer@dabbelt.com,
+        bh=4pFOsksjub0O6BKOG2DctEoxnB4foUbo5c3Iev//NN8=;
+        b=eXLgOg2+gNUN1/K38/2+sW6Y7adlL7mXwRKBxvuu6PqUyCtgAOvIxtDadotHYZBo6Y
+         WYD5uD/3MsF7N/IqNteQZxfHdhqrlC+WdnB4616vSJg0GSr5vL+QH+TBgG3W5tNSOY/t
+         Rw5n7FqJ/AiQsQ3muVkN/F7XDXpvpFFtumYy7phuf7GgfkAFVtu5qrRoeWxnlQd+7fOz
+         1HdwDvV+sA55N8sPgQ4d0EJrxUxPtnaqra03DAVWLLtPaODxfJ4okJR4UO/HB4tK+NRs
+         YJ/Z3L9QQijiQgm/fc9/St8EshhdPyPjASW0V6OcO4plzqS3hgPRQKW6pB2M/GCBP8P8
+         1kBQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVn8/8cAVXj9RzaIMo/YPRZ7c4MgAK8x6oQFk3O5WqluE9dbHelSbktkEjfp/ebxMwu5hG2xh3iOurs1Q==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw3IZNsxCZwTlx6pc38vyCingZcE8D/NiczQxFbRikPe2BOcBZz
+	w4/yNPdu0upqzhtuwIl+EsbGmVRXatvNunZytQGkITdFxRfsiYDYjElTkAnCIPU=
+X-Gm-Gg: ASbGncutWD/L2pdMHv7oKtA14RZeao/+RJGFWudI+zjv7JZ75cEbQzr3aof/peaHcdD
+	XSuKp72HFfuHB5fsis9rKGDuHkcUgkUNqdiAv+PVlnMb6Cw2Z1VJUY/jxqtih0f382I+IVp187S
+	nF8rWyv1iLTyvaU+8y22+UYG2MOEvBya55f1PqHqerhERSgyFNNmDMkmmj7O6BRRwP7VYM4nEGS
+	muYwEZN14FzkfBom+v5SDin0y92L4J5mU0jWf0EydfFuu3AymIVh8m6Uv79pcSvFbQVFhyFNFC6
+	Y+U=
+X-Google-Smtp-Source: AGHT+IHW/OudNH8nKEGYTcmbRjkDHNnTx51q5XxoGDRShfAUh9zNbosxSEMnJSoL54yuXDXA3J9w9g==
+X-Received: by 2002:a05:6a20:c799:b0:1e1:72ce:fefc with SMTP id adf61e73a8af0-1e88d11cb13mr49342319637.22.1736910199248;
+        Tue, 14 Jan 2025 19:03:19 -0800 (PST)
+Received: from hsinchu26.internal.sifive.com ([210.176.154.34])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-72d40568dccsm8123668b3a.47.2025.01.14.19.03.15
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 14 Jan 2025 19:03:18 -0800 (PST)
+From: Zong Li <zong.li@sifive.com>
+To: joro@8bytes.org,
+	will@kernel.org,
+	robin.murphy@arm.com,
+	tjeznach@rivosinc.com,
 	paul.walmsley@sifive.com,
-	samuel.holland@sifive.com,
-	shuah@kernel.org
-Subject: [PATCH v5 3/3] RISC-V: selftests: Add TEST_ZICBOM into CBO tests
-Date: Wed, 15 Jan 2025 10:40:24 +0800
-Message-Id: <20250115024024.84365-4-cuiyunhui@bytedance.com>
-X-Mailer: git-send-email 2.39.2 (Apple Git-143)
-In-Reply-To: <20250115024024.84365-1-cuiyunhui@bytedance.com>
-References: <20250115024024.84365-1-cuiyunhui@bytedance.com>
-MIME-Version: 1.0
+	palmer@dabbelt.com,
+	aou@eecs.berkeley.edu,
+	luxu.kernel@bytedance.com,
+	linux-kernel@vger.kernel.org,
+	iommu@lists.linux.dev,
+	linux-riscv@lists.infradead.org
+Cc: Zong Li <zong.li@sifive.com>
+Subject: [PATCH 0/2] RISC-V IOMMU HPM support
+Date: Wed, 15 Jan 2025 11:03:04 +0800
+Message-Id: <20250115030306.29735-1-zong.li@sifive.com>
+X-Mailer: git-send-email 2.17.1
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250114_184124_642766_3FC75200 
-X-CRM114-Status: GOOD (  14.37  )
+X-CRM114-CacheID: sfid-20250114_190320_697873_A1FA6036 
+X-CRM114-Status: UNSURE (   9.09  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,166 +98,45 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add test for Zicbom and its block size into CBO tests, when
-Zicbom is present, test that cbo.clean/flush may be issued and works.
-As the software can't verify the clean/flush functions, we just judged
-that cbo.clean/flush isn't executed illegally.
+This serie implements the RISC-V IOMMU hardware performance monitor
+includes both counting and sampling modes.
 
-Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
-Reviewed-by: Samuel Holland <samuel.holland@sifive.com>
-Signed-off-by: Yunhui Cui <cuiyunhui@bytedance.com>
----
- tools/testing/selftests/riscv/hwprobe/cbo.c | 66 +++++++++++++++++----
- 1 file changed, 55 insertions(+), 11 deletions(-)
+The specification does not define an event ID for counting the number of
+clock cycles, meaning there is no associated `iohpmevt0`. However, we
+need an event for counting cycle, so we reserve the maximum event ID for
+it.
 
-diff --git a/tools/testing/selftests/riscv/hwprobe/cbo.c b/tools/testing/selftests/riscv/hwprobe/cbo.c
-index a40541bb7c7d..5e96ef785d0d 100644
---- a/tools/testing/selftests/riscv/hwprobe/cbo.c
-+++ b/tools/testing/selftests/riscv/hwprobe/cbo.c
-@@ -50,6 +50,14 @@ static void cbo_clean(char *base) { cbo_insn(base, 1); }
- static void cbo_flush(char *base) { cbo_insn(base, 2); }
- static void cbo_zero(char *base)  { cbo_insn(base, 4); }
- 
-+static void test_no_cbo_inval(void *arg)
-+{
-+	ksft_print_msg("Testing cbo.inval instruction remain privileged\n");
-+	illegal_insn = false;
-+	cbo_inval(&mem[0]);
-+	ksft_test_result(illegal_insn, "No cbo.inval\n");
-+}
-+
- static void test_no_zicbom(void *arg)
- {
- 	ksft_print_msg("Testing Zicbom instructions remain privileged\n");
-@@ -61,10 +69,6 @@ static void test_no_zicbom(void *arg)
- 	illegal_insn = false;
- 	cbo_flush(&mem[0]);
- 	ksft_test_result(illegal_insn, "No cbo.flush\n");
--
--	illegal_insn = false;
--	cbo_inval(&mem[0]);
--	ksft_test_result(illegal_insn, "No cbo.inval\n");
- }
- 
- static void test_no_zicboz(void *arg)
-@@ -81,6 +85,30 @@ static bool is_power_of_2(__u64 n)
- 	return n != 0 && (n & (n - 1)) == 0;
- }
- 
-+static void test_zicbom(void *arg)
-+{
-+	struct riscv_hwprobe pair = {
-+		.key = RISCV_HWPROBE_KEY_ZICBOM_BLOCK_SIZE,
-+	};
-+	cpu_set_t *cpus = (cpu_set_t *)arg;
-+	__u64 block_size;
-+	long rc;
-+
-+	rc = riscv_hwprobe(&pair, 1, sizeof(cpu_set_t), (unsigned long *)cpus, 0);
-+	block_size = pair.value;
-+	ksft_test_result(rc == 0 && pair.key == RISCV_HWPROBE_KEY_ZICBOM_BLOCK_SIZE &&
-+			 is_power_of_2(block_size), "Zicbom block size\n");
-+	ksft_print_msg("Zicbom block size: %llu\n", block_size);
-+
-+	illegal_insn = false;
-+	cbo_clean(&mem[block_size]);
-+	ksft_test_result(!illegal_insn, "cbo.clean\n");
-+
-+	illegal_insn = false;
-+	cbo_flush(&mem[block_size]);
-+	ksft_test_result(!illegal_insn, "cbo.flush\n");
-+}
-+
- static void test_zicboz(void *arg)
- {
- 	struct riscv_hwprobe pair = {
-@@ -129,7 +157,7 @@ static void test_zicboz(void *arg)
- 	ksft_test_result_pass("cbo.zero check\n");
- }
- 
--static void check_no_zicboz_cpus(cpu_set_t *cpus)
-+static void check_no_zicbo_cpus(cpu_set_t *cpus, __u64 cbo)
- {
- 	struct riscv_hwprobe pair = {
- 		.key = RISCV_HWPROBE_KEY_IMA_EXT_0,
-@@ -137,6 +165,7 @@ static void check_no_zicboz_cpus(cpu_set_t *cpus)
- 	cpu_set_t one_cpu;
- 	int i = 0, c = 0;
- 	long rc;
-+	char *cbostr;
- 
- 	while (i++ < CPU_COUNT(cpus)) {
- 		while (!CPU_ISSET(c, cpus))
-@@ -148,10 +177,13 @@ static void check_no_zicboz_cpus(cpu_set_t *cpus)
- 		rc = riscv_hwprobe(&pair, 1, sizeof(cpu_set_t), (unsigned long *)&one_cpu, 0);
- 		assert(rc == 0 && pair.key == RISCV_HWPROBE_KEY_IMA_EXT_0);
- 
--		if (pair.value & RISCV_HWPROBE_EXT_ZICBOZ)
--			ksft_exit_fail_msg("Zicboz is only present on a subset of harts.\n"
--					   "Use taskset to select a set of harts where Zicboz\n"
--					   "presence (present or not) is consistent for each hart\n");
-+		cbostr = cbo == RISCV_HWPROBE_EXT_ZICBOZ ? "Zicboz" : "Zicbom";
-+
-+		if (pair.value & cbo)
-+			ksft_exit_fail_msg("%s is only present on a subset of harts.\n"
-+					   "Use taskset to select a set of harts where %s\n"
-+					   "presence (present or not) is consistent for each hart\n",
-+					   cbostr, cbostr);
- 		++c;
- 	}
- }
-@@ -159,7 +191,9 @@ static void check_no_zicboz_cpus(cpu_set_t *cpus)
- enum {
- 	TEST_ZICBOZ,
- 	TEST_NO_ZICBOZ,
-+	TEST_ZICBOM,
- 	TEST_NO_ZICBOM,
-+	TEST_NO_CBO_INVAL,
- };
- 
- static struct test_info {
-@@ -169,7 +203,9 @@ static struct test_info {
- } tests[] = {
- 	[TEST_ZICBOZ]		= { .nr_tests = 3, test_zicboz },
- 	[TEST_NO_ZICBOZ]	= { .nr_tests = 1, test_no_zicboz },
--	[TEST_NO_ZICBOM]	= { .nr_tests = 3, test_no_zicbom },
-+	[TEST_ZICBOM]		= { .nr_tests = 3, test_zicbom },
-+	[TEST_NO_ZICBOM]	= { .nr_tests = 2, test_no_zicbom },
-+	[TEST_NO_CBO_INVAL]	= { .nr_tests = 1, test_no_cbo_inval },
- };
- 
- int main(int argc, char **argv)
-@@ -189,6 +225,7 @@ int main(int argc, char **argv)
- 		assert(rc == 0);
- 		tests[TEST_NO_ZICBOZ].enabled = true;
- 		tests[TEST_NO_ZICBOM].enabled = true;
-+		tests[TEST_NO_CBO_INVAL].enabled = true;
- 	}
- 
- 	rc = sched_getaffinity(0, sizeof(cpu_set_t), &cpus);
-@@ -206,7 +243,14 @@ int main(int argc, char **argv)
- 		tests[TEST_ZICBOZ].enabled = true;
- 		tests[TEST_NO_ZICBOZ].enabled = false;
- 	} else {
--		check_no_zicboz_cpus(&cpus);
-+		check_no_zicbo_cpus(&cpus, RISCV_HWPROBE_EXT_ZICBOZ);
-+	}
-+
-+	if (pair.value & RISCV_HWPROBE_EXT_ZICBOM) {
-+		tests[TEST_ZICBOM].enabled = true;
-+		tests[TEST_NO_ZICBOM].enabled = false;
-+	} else {
-+		check_no_zicbo_cpus(&cpus, RISCV_HWPROBE_EXT_ZICBOM);
- 	}
- 
- 	for (i = 0; i < ARRAY_SIZE(tests); ++i)
+The interrupt handler needs to be a primary handler instead of a
+threaded function because 'pt_regs` is empty when threading the IRQ.
+However `pt_regs` is required by perf_event_overflow()
+
+Changed in RFC:
+- Rebase onto v6.13-rc7
+- Clear interrupt pending before handling interrupt
+- Fix the counter value issue caused by OF bit in the cycle counter.
+- Invoke riscv_iommu_hpm_disable() instead of riscv_iommu_pmu_uninit()
+  in riscv_iommu_remove()
+
+Zong Li (2):
+  iommu/riscv: add RISC-V IOMMU PMU support
+  iommu/riscv: support HPM and interrupt handling
+
+ drivers/iommu/riscv/Makefile     |   2 +-
+ drivers/iommu/riscv/iommu-bits.h |  16 +
+ drivers/iommu/riscv/iommu-pmu.c  | 486 +++++++++++++++++++++++++++++++
+ drivers/iommu/riscv/iommu.c      |  65 +++++
+ drivers/iommu/riscv/iommu.h      |   8 +
+ 5 files changed, 576 insertions(+), 1 deletion(-)
+ create mode 100644 drivers/iommu/riscv/iommu-pmu.c
+
 -- 
-2.39.2
+2.17.1
 
 
 _______________________________________________
