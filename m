@@ -4,77 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0A7CFC02180
-	for <linux-riscv@archiver.kernel.org>; Wed, 15 Jan 2025 07:55:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A254BC02185
+	for <linux-riscv@archiver.kernel.org>; Wed, 15 Jan 2025 09:02:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
+	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Y8V4kybNDwy0rgwxb/0I89xoCtp8YEUivEjelx8Zz1U=; b=Ory0PeM+pjze7M
-	Rm//rT6p3ApjGEvX2LiPpYzfxwDVqDy6k1/FLCQW2uilowCrHIylK3jhRrq9uLrG5Z9hIf6kCu+5/
-	8SmlmvO5XnKLVPxxe0BWWHFsK3Llw1VJJdpp0y07KNtogb7Dpn71pN9BMNDAVYwWHHkABLyZLLWty
-	VuTO0qBKMZ8zd3NgGAK6zu2t3ZlAoMPdskCcyRRiqar4F8Zy7mvOqRr0cyEx+fVefLfl4hwx2/8bM
-	KrzvRcoylQ+UfLB+srXksLJL+TuQwZCxbEZWS0pCOzYND6kCiPmMgn6M60njuAiZre2KtZBGSKu/t
-	jQ+W/dPB95O7OIGINnVg==;
+	List-Owner; bh=ouzjTQHZp8sgWH63UoY5rAfGT3CVDUWaI68C96kdZi4=; b=4kaM7VlMCCck1D
+	6OvcIcRAvXcYbjBZs2xUwoIYENNzxrJy/VcuURKA/oSYXlfVUTFWiuxhV6De4TmcF8om/b3pVyr9G
+	IOlRMB4PE7EivuuYLYkGbGd66ZWmuTvB9iEL0ABdASDHODQJko9N7gJa5K/GG+tSbV+imeb+Tzjji
+	Iuk7nNyV2iyJnj8CME7IGO6ZNobw5jxpwH8SjiLwdyu8Oix5SjlOAvUypvHyXKeI/2EFY1VLy7v+q
+	2qBS0Wfpg3puJF4oBWNecNEBVIrn80UjYcRYZjBhRQZQMk+uwf9TQ5qRacmqtR/dahaP2pJBpiexi
+	U5yORhcjZfQBPiBFDoOw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXyF0-0000000B0Yr-1Z1D;
-	Wed, 15 Jan 2025 07:55:06 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1tXzIG-0000000BCvS-22xE;
+	Wed, 15 Jan 2025 09:02:32 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXyBv-0000000B0E9-1ciX;
-	Wed, 15 Jan 2025 07:51:56 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 69D6E5C5B24;
-	Wed, 15 Jan 2025 07:51:13 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6238DC4CEE1;
-	Wed, 15 Jan 2025 07:51:53 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1736927514;
-	bh=S+Nj9hWyHRIvjq4/IofNhfaffIn9jAcgTDLhxg1rvvY=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Uvx066fLqOkq2FDBqACzgccc8KScMXLxd3zQL2qcA9RJrLq4iZ/CHhD78v5CxM1Yk
-	 Djx0jQGp96X5lQlvUP/UMAnHU6y8YWZWhkQ0jiP83h6FUNw8+AGjQi08OFNboPk2Hs
-	 0AO8kCkJFJuAOQC0W49As/pvzkQ89cPY+6YkcOt6MHq9EegqjowGZfWmoGY1v4uHLY
-	 AmaiUoDl8d4P1UklxcvjU9PA2McMP6jve23VVlvkHcY3PJ9YU7EkpQXB3qUuPF9B2e
-	 ocVh3yQEiLF2ZYFdFtwfkeyqbU2AmmaF7GBaUKjISO7EjPfLW/kIUsqxgw2Hii+OH4
-	 s+dpNfCHXZOhQ==
-Date: Wed, 15 Jan 2025 07:51:50 +0000
-From: Vinod Koul <vkoul@kernel.org>
-To: Andras Szemzo <szemzo.andras@gmail.com>
-Cc: Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@csie.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>,
-	Linus Walleij <linus.walleij@linaro.org>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Maxime Ripard <mripard@kernel.org>,
-	Kishon Vijay Abraham I <kishon@kernel.org>,
-	Ulf Hansson <ulf.hansson@linaro.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <u.kleine-koenig@baylibre.com>,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
-	linux-kernel@vger.kernel.org, linux-phy@lists.infradead.org,
-	linux-gpio@vger.kernel.org, linux-pm@vger.kernel.org,
-	linux-riscv@lists.infradead.org
-Subject: Re: [PATCH 10/12] dt-bindings: phy: allwinner: add v853 usb phy
-Message-ID: <Z4dpFqffMJ31ml2y@vaman>
-References: <20250110123923.270626-1-szemzo.andras@gmail.com>
- <20250110123923.270626-11-szemzo.andras@gmail.com>
+	id 1tXyBT-0000000B03K-18le
+	for linux-riscv@lists.infradead.org;
+	Wed, 15 Jan 2025 07:51:29 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1736927484;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=76g+ehOGqy/SEvjWWgvRWr2mJbRu3eotidTcR3l0/T0=;
+	b=f2frici8pSxX4ny/2/9NknhpilSGDG8hUeUz60Tlxkcet80knDIfCVFGF9Q7h8R2OaUa4O
+	oPnmdMEXftZCkTURtlErGT+aE/jPrrwaWWEcQy/s5bUfNggFzXuR52fq2nrQOEENCfQboE
+	IedSAAwtiuWLRZOTu3PG0AikW0XSDsc=
+Received: from mx-prod-mc-04.mail-002.prod.us-west-2.aws.redhat.com
+ (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
+ relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-197-diEROnh5NYuaXbbgtka3Kg-1; Wed,
+ 15 Jan 2025 02:51:22 -0500
+X-MC-Unique: diEROnh5NYuaXbbgtka3Kg-1
+X-Mimecast-MFC-AGG-ID: diEROnh5NYuaXbbgtka3Kg
+Received: from mx-prod-int-02.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-02.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.15])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mx-prod-mc-04.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id CC0401955DB8;
+	Wed, 15 Jan 2025 07:51:20 +0000 (UTC)
+Received: from oldenburg.str.redhat.com (unknown [10.2.16.35])
+	by mx-prod-int-02.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 6A340195608A;
+	Wed, 15 Jan 2025 07:51:18 +0000 (UTC)
+From: Florian Weimer <fweimer@redhat.com>
+To: "Maciej W. Rozycki" <macro@orcam.me.uk>
+Cc: Jeff Law <jeffreyalaw@gmail.com>,  linux-riscv@lists.infradead.org,
+  Palmer Dabbelt <palmer@rivosinc.com>,  Xu Lu <luxu.kernel@bytedance.com>
+Subject: Re: Page sizes supported by RISC-V
+In-Reply-To: <alpine.DEB.2.21.2501150631330.50458@angie.orcam.me.uk> (Maciej
+	W. Rozycki's message of "Wed, 15 Jan 2025 06:51:37 +0000 (GMT)")
+References: <878qvbzqfx.fsf@oldenburg.str.redhat.com>
+	<e55950a2-beb0-4f2a-81da-1c66724116d7@gmail.com>
+	<8734lixzss.fsf@oldenburg.str.redhat.com>
+	<cbbc9925-12a5-4043-a6c5-ccd1ef0997c8@gmail.com>
+	<31ce4016-9420-4143-ae31-faf36a878cb4@gmail.com>
+	<alpine.DEB.2.21.2501150631330.50458@angie.orcam.me.uk>
+Date: Wed, 15 Jan 2025 08:51:15 +0100
+Message-ID: <87msfsldl8.fsf@oldenburg.str.redhat.com>
+User-Agent: Gnus/5.13 (Gnus v5.13)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20250110123923.270626-11-szemzo.andras@gmail.com>
+X-Scanned-By: MIMEDefang 3.0 on 10.30.177.15
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: rk0Ve2cD5LtperPxbsvA9vIrbgL0Opazp2oYByh7bEU_1736927481
+X-Mimecast-Originator: redhat.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250114_235155_465097_B41ECD77 
-X-CRM114-Status: GOOD (  13.52  )
+X-CRM114-CacheID: sfid-20250114_235127_381109_8BA01DCB 
+X-CRM114-Status: GOOD (  19.21  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,53 +88,50 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 10-01-25, 13:39, Andras Szemzo wrote:
-> Document Allwinner v853 USB phy.
-> 
-> Signed-off-by: Andras Szemzo <szemzo.andras@gmail.com>
-> ---
->  .../phy/allwinner,sun8i-v853-usb-phy.yaml     | 89 +++++++++++++++++++
->  1 file changed, 89 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/phy/allwinner,sun8i-v853-usb-phy.yaml
-> 
-> diff --git a/Documentation/devicetree/bindings/phy/allwinner,sun8i-v853-usb-phy.yaml b/Documentation/devicetree/bindings/phy/allwinner,sun8i-v853-usb-phy.yaml
-> new file mode 100644
-> index 000000000000..773c3f476db8
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/phy/allwinner,sun8i-v853-usb-phy.yaml
-> @@ -0,0 +1,89 @@
-> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/phy/allwinner,sun8i-v853-usb-phy.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: Allwinner V853 USB PHY
-> +
-> +maintainers:
-> +  - Chen-Yu Tsai <wens@csie.org>
-> +  - Maxime Ripard <mripard@kernel.org>
-> +
-> +properties:
-> +  "#phy-cells":
-> +    const: 1
-> +
-> +  compatible:
-> +    const:
-> +	- allwinner,sun8i-v853-usb-phy
-
-Does this really need a new binding document, if so why... Cant this be
-added to one of the existing docs which driver uses?
-
--- 
-~Vinod
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+KiBNYWNpZWogVy4gUm96eWNraToKCj4gT24gVHVlLCAxNCBKYW4gMjAyNSwgSmVmZiBMYXcgd3Jv
+dGU6Cj4KPj4gPj4gSSB1bmRlcnN0YW5kIHRoYXQgbm90IG1ha2luZyBhIGNhbGwgaW4gdGhlIHNw
+ZWNpZmljYXRpb25zIGF2b2lkcyB0aGUKPj4gPj4gbmVlZCB0byByZXNvbHZlIHRoZXNlIGNvbmZs
+aWN0cy7CoCBCdXQgaWYgeW91IGRvbid0IGRlZmluZSBhIG1heGltdW0gcGFnZQo+PiA+PiBzaXpl
+IHRoZXJlLCBpdCBpcyBlZmZlY3RpdmVseSBzcGVjaWZpZWQgYXMgNDA5NiBieXRlcy7CoCBUaGlz
+IHdpbGwgY2F1c2UKPj4gPj4gcHJvYmxlbXMgaWYgZGlzdHJpYnV0aW9ucyB0YXJnZXRpbmcgbGFy
+Z2Ugc3lzdGVtcyB3YW50IGEgbGFyZ2VyIHBhZ2UKPj4gPj4gc2l6ZSBiZWNhdXNlIGl0IGJldHRl
+ciBhbGlnbnMgd2l0aCB0aGUga2luZCBvZiBoYXJkd2FyZSB0aGV5IHRhcmdldC4KPj4gPj4gSXQn
+cyByZWFsbHkgYmFkIGZvciBjcm9zcy1kaXN0cmlidXRpb24gYmluYXJ5IGNvbXBhdGliaWxpdHks
+IHNvbWV0aGluZwo+PiA+PiB0aGF0J3MgaW1wb3J0YW50IG91dHNpZGUgdGhlIGVtYmVkZGVkIHNw
+YWNlIGFuZCBwcm9iYWJseSBuZWNlc3NhcnkgZm9yCj4+ID4+IG1haW5zdHJlYW1pbmcuCj4+ID4+
+Cj4+ID4+IChPZiBjb3Vyc2UgeW91IGtub3cgYWxsIHRoaXMuIDgtKQo+PiA+IFl1cC7CoCBPbmNl
+IGl0J3MgYmFrZWQgaW50byBvbmUgc2lnbmlmaWNhbnQgZGlzdHJvLCBpdCdzIGRvaW5nIHRvIGJl
+IAo+PiA+IGJsb29keSBoYXJkIHRvIGNoYW5nZS7CoCBJJ20gc3VyZSB3ZSBib3RoIHJlbWVtYmVy
+IHRoZSBQUEMgcGFnZXNpemUgc3R1ZmYgCj4+ID4gZnJvbSBhIGZldyB5ZWFycyBiYWNrIDsoCj4+
+ID4gCj4+ID4gSSBzdHJvbmdseSBzdXNwZWN0IHRoZSBsYWNrIG9mIHNwZWNpZmljYXRpb24gaGVy
+ZSBpcyBtZWFuIHRvIGdpdmUgCj4+ID4gZGVncmVlcyBvZiBmcmVlZG9tIHRvIHRoZSBpbXBsZW1l
+bnRvcnMsIGJ1dCBzb21ldGltZXMgdGhvc2Ugd3JpdGluZyB0aGUgCj4+ID4gc3BlY3MgZG9uJ3Qg
+cmVhbGx5IHVuZGVyc3RhbmQgdGhlIGltcGxpY2F0aW9uIG9mIGxlYXZpbmcgdGhpbmdzIGxpa2Ug
+Cj4+ID4gdGhpcyB1bnNwZWNpZmllZCBhbmQgaG93IG11Y2ggcGFpbiBpdCByZWFsbHkgY2F1c2Vz
+IGluIHRoZSBlbmQuCj4+IFNvIHJlc3VycmVjdGluZyB0aGlzIGRpc2N1c3Npb24uCj4+IAo+PiBJ
+cyB0aGVyZSBhbnkgcmVhbGlzdGljIGNoYW5jZSBvZiBidW1waW5nIHRoZSBtaW5pbXVtIHBhZ2Vz
+aXplIGZvciByaXNjLXYgCj4+IGF0IHRoaXMgcG9pbnQ/ICBYdSBMdSBhbmQgaGlzIHRlYW0gaGF2
+ZSBzb21lIGNvbXBlbGxpbmcgZGF0YSB0aGF0IAo+PiBpbmRpY2F0ZXMgbW92aW5nIGZvcndhcmQg
+dG8gNjRrIGNvdWxkIGJlIGhpZ2hseSBwcm9maXRhYmxlLiAgVGhhdCB3b3JrIAo+PiB3YXMgZG9u
+ZSBvbiBhYXJjaDY0LCBidXQgc2hvdWxkIGJlIGdlbmVyYWxseSBhcHBsaWNhYmxlIHRvIHJpc2N2
+IGFzIHdlbGwuCj4KPiBDYW4ndCB3ZSBzaW1wbHkgbWFrZSBhIHJlYXNvbmFibGUgZ3Vlc3MvYXNz
+dW1wdGlvbiBqdXN0IGZvciB0aGUgcHVycG9zZSAKPiBvZiB0b29saW5nPwoKVGhhdCByZWFzb25h
+YmxlIGRlZmF1bHQgZXhpc3RzIHRvZGF5IGFuZCBpcyA0MDk2LiAgU29tZSBlZmZvcnQgaXMKcmVx
+dWlyZWQgdG8gY2hhbmdlIHRoYXQuCgo+IEJhc2VkIG9uIHRoZSBleHBlcmllbmNlIHdpdGggTUlQ
+Uy9BQXJjaDY0IHNoYXJlZCBoZXJlIHRoZXJlIHNob3VsZCBiZSBubwo+IGRpc2FncmVlbWVudCBh
+cyB0byBnb2luZyBmb3IgYXQgbGVhc3QgNjRLaUIgSSBzdXBwb3NlLiAgVGhlbiBzaGFsbCB3ZSBn
+byAKPiBiZXlvbmQgdG8gbGVhdmUgcm9vbSBmb3Igc29tZSBleHBhbnNpb24sIHN1Y2ggYXMgZm9y
+IDI1NktpQj8KClRoZSBhbHRlcm5hdGl2ZSB3b3VsZCBiZSB0byBmaXggTGludXggc28gdGhhdCBp
+dCBzdXBwb3J0cyBtdWx0aXBsZSBwYWdlCnNpemVzLiAgVGhlbiBmcm9tIGFuIGFwcGxpY2F0aW9u
+IHBlcnNwZWN0aXZlIChhbmQgZHluYW1pYyBsaW5rZXIKcGVyc3BlY3RpdmUpLCB0aGUgcGFnZSBz
+aXplIGNvdWxkIHJlbWFpbiBhdCA0MDk2IGJ5dGVzLiAgSSB1bmRlcnN0YW5kCnRoaXMgaXMgZGlm
+ZmljdWx0IGJlY2F1c2Ugb25jZSB5b3UgaGF2ZSBtdWx0aXBsZSBwYWdlIHNpemVzLCB0aGVyZSBh
+cmUKY29uY2VybnMgcmVnYXJkaW5nIGZyYWdtZW50YXRpb24uCgpUaGFua3MsCkZsb3JpYW4KCgpf
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNj
+diBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlz
+dHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
