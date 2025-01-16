@@ -4,59 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1A57C02183
-	for <linux-riscv@archiver.kernel.org>; Thu, 16 Jan 2025 21:08:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 62DB6C02183
+	for <linux-riscv@archiver.kernel.org>; Thu, 16 Jan 2025 21:09:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	MIME-Version:References:Message-ID:In-Reply-To:Subject:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XZQ+a+DMCESs9MVIKe2fsLF0pVzodjpXE7ErUySIIvs=; b=FKmmK6b0wmV/4VBUOtrpZMKwy+
-	mwrYCTrYV41xrrNgqYdPwuAd0aVfaE3Ys8kQqKoqWtKpBvXa6BwWT4Uu4Wkm00ssZp6KTo430z2SO
-	Q5BETNpYgOwNs769OlbC5UwhS5Fn7by27U8+PlRekAPjlhgLEmrMJBELeYN7M1EGyabwlaYjFMsie
-	USKz2aXhcw/e/maQouPUu97nsy2zDbgFkycUJ/eitftgcpNnFOwQHbBW2ZabN7+bzIELmHLi85B6N
-	u4uo5yUy+5d6TcBQJC11vTfV4H5pLQ/nGn9KM5idMJuvUmoL2i2tRJfLkuGdB/K3j5YBbqaKJeFBm
-	+Yvf2tPQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=n5le+zi8APLcuUg9wA1z3PYSPQMkFX35lGBhGg/0W0g=; b=eoc3OMpdSUuTxL
+	2UIqI2+ehy/3bgOSUxgtl8/lGX8E943KrFgHbME0/lQE5/jtyej00MGi6HkhiYcxUDne3I3u4re0X
+	ttRdENhO0mJ48QVFilRLsOPfb9Z+ywQ4kJPBekzEtJ0aVTSl2V7XwLHA6I7Vevb6lGGLfcIjYUBMK
+	YbgckdfY5HIU8jQDfxD2nn3MJAgcyeng42+3/O2mxaiClUm4UW3SNA05qxJDWbEjtlvH0i0XlsmnW
+	rE1zJTKXdF2azx/xaUsg0WGAhpDE7clRVpAu5tFBvGVF+FaQ2HphGbdmEZLLVJFpCtV/6QHtQlm/l
+	eJRTGCQf9dE69ksSoPhQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tYX5w-0000000G6Z0-1LTs;
-	Thu, 16 Jan 2025 21:08:04 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1tYX7E-0000000G6kM-0bKP;
+	Thu, 16 Jan 2025 21:09:24 +0000
+Received: from mail-pl1-x62d.google.com ([2607:f8b0:4864:20::62d])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tYX5t-0000000G6X2-3OMM
+	id 1tYX7C-0000000G6jy-078h
 	for linux-riscv@lists.infradead.org;
-	Thu, 16 Jan 2025 21:08:03 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 77096A4277F;
-	Thu, 16 Jan 2025 21:06:12 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 27BB0C4CED6;
-	Thu, 16 Jan 2025 21:07:58 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1737061680;
-	bh=jz4mFU9u1twIuaW1pCTzx/vWfeheqpZU6b45voKJ0ZI=;
-	h=Date:From:To:cc:Subject:In-Reply-To:References:From;
-	b=JgJhFSFlpSgBwC33cUPlLEwY7nroUBe4Dh4dJJ1Qbrf5FiYoxOrVTwPsTUcxxfRFU
-	 BfPi2xogBfE+QgsczG8EqWUNKWtN9TWbjTpe00eeUlDg/q0ggTEq2iMMOuG2iOSYS0
-	 cuuRUi9Eb9n4m/y9LibBZbDIhP/n3R8EddH/XQ75ywVAjo5zVH0ncK3WhKrOQtxfXP
-	 yHB6WuTxiAKzrk3XZyc83WHb/ow7ffLfGY9t5c7rjRFO1leS+gfsrvlKE1t6JGXnEw
-	 Dk92qEqVbimIs50isLxQCVjD+KR1csIFVVVcsKRPf1TRQC96vpaMIlbvnKyedvA4Kk
-	 GAoAla+4VpnAQ==
-Date: Thu, 16 Jan 2025 13:07:56 -0800 (PST)
-From: Stefano Stabellini <sstabellini@kernel.org>
-X-X-Sender: sstabellini@ubuntu-linux-20-04-desktop
-To: =?UTF-8?Q?Milan_=C4=90oki=C4=87?= <milandjokic1995@gmail.com>
-Subject: Re: [PATCH] riscv: Add initial Xen guest support for RISC-Vgh
-In-Reply-To: <CAKp59VG=MV2=gCFqsC16EpP9oGa=eDBFJbwn-vS5q8oKyM_ZJQ@mail.gmail.com>
-Message-ID: <alpine.DEB.2.22.394.2501161304480.2684657@ubuntu-linux-20-04-desktop>
-References: <e4a649a7fdfc8fcf5f48a0bc4e76e5d546078083.1736868605.git.Slavisa.Petrovic@rt-rk.com> <alpine.DEB.2.22.394.2501141554170.2684657@ubuntu-linux-20-04-desktop> <2f1432e6-0d27-48fd-b034-475284f14233@gmail.com> <CAKp59VEOiXo+OKwPNiomtXNCsfDURCXaDktooi5JSoTSdhc90w@mail.gmail.com>
- <alpine.DEB.2.22.394.2501151313590.2684657@ubuntu-linux-20-04-desktop> <CAKp59VG=MV2=gCFqsC16EpP9oGa=eDBFJbwn-vS5q8oKyM_ZJQ@mail.gmail.com>
-User-Agent: Alpine 2.22 (DEB 394 2020-01-19)
+	Thu, 16 Jan 2025 21:09:23 +0000
+Received: by mail-pl1-x62d.google.com with SMTP id d9443c01a7336-2166651f752so32296175ad.3
+        for <linux-riscv@lists.infradead.org>; Thu, 16 Jan 2025 13:09:21 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1737061761; x=1737666561; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=xLy6fiGQSiUhs1Gv7gi/9ehtHmgmcyfRdTPntzghr9M=;
+        b=hIZUEASBRMHmUdW02l9GURcNF63w41twHjwtN96dFkp+wcOL2iH/lMFjDiu7rspxQ+
+         Fk9DD0Gq/WSruy00eqLccBXOE2TQOZTRdwwMMyYdbi3lCoj4cPVIelHSwNbmXkZ8CrLm
+         du6Z/IDfbMaBo5lMIUczbR3Ev0g943tmE2L3Sg9PffFNsfCHgPwUlj/aRDpR6GYqs2mS
+         yW9gSFTaiQS3zcCBvWMPcS4Q99453uiqaEAx8nv4BtJWYJelsGqumKRYIhgkCK8ncsvn
+         Z8B1ud5w4q9V5OmEqFbgStj+sbTJRkj8jIqgVMjGdZYMkYZHH8J4FWMj/dCYv4meCws7
+         /KAg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1737061761; x=1737666561;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=xLy6fiGQSiUhs1Gv7gi/9ehtHmgmcyfRdTPntzghr9M=;
+        b=j8IhsagMrmAwzHbo0jQ6ehWPDWOoK4WzJ8syvvw2CuXWjpSy0Cpflh85x8ckY1z4DZ
+         WtdLXflvUazmjwckKCDBUSaHcb3DYB63QP41eV8jqFMzfX0i3E0eEBpTZgsIw7ThAm32
+         Yb0IfPvvREWGburVG9I3OYyzJu3onEynBcvLB/VDdmrd7nhhrB9hH1dMLCl5IJTSsptl
+         cyRYLkB88e3wWVvIXWMcL6V1JevbR9z0Aei/ACtOt32BlOpdr72G+nYcxGqT6D7o268q
+         dT7Lvih1ZYJsAXCkRqQqA1zEzzFBy8bfoDmJxB46z7HRk2slernevzci6NSbgmPdqDPT
+         cTZA==
+X-Forwarded-Encrypted: i=1; AJvYcCVudsEET6S6317AkBv3VlyNVsGQMbcYEcx0mSf/T7xyp40JPzLzWJQKMHtrXV3KQiQhMThr7jqEX1ifFw==@lists.infradead.org
+X-Gm-Message-State: AOJu0YyQtlXYJOoU1P9lxPf3enC17hkpxoNzhb6+EAf9aI+87uvslDdV
+	hqxg+rHO7n9mTxB4XZE62XGwsfRc68636laSah3Rgq4HORY78fEkG6hxiTHpdof7Y02NQbDIaQl
+	vpb8=
+X-Gm-Gg: ASbGncsr7b8h/i1uwovgvCu15BAynWPrJpCeC21K24IMFrauKwqnuYoXZj9Bus1az1/
+	CAxCRXddpiasZbdW9zHvbgztuYB+8TEQiMv2ag2ODDTZYrTKBXx85NiFa+JfOOM3QVu/alOHX0y
+	jJue9EaMHIqy2TEtcMB+vSaj78670FO5aVkiOHVAU/Bn7FXSWEQ3wYce/GKQbJJHxaeF4+B8NKE
+	UT3pP8o/ANNhHcQQk1H+esmQWpguyb4+13ngrmaH7zBs4Y=
+X-Google-Smtp-Source: AGHT+IHn8r6fyORqvt70F1/RiXRVvEfOUziTFNpWxfLgt7XnjW5G2Mmw6jp8xmfIuHpGfdjO4Hfobg==
+X-Received: by 2002:aa7:88d1:0:b0:729:35b:542e with SMTP id d2e1a72fcca58-72dafb90892mr371241b3a.16.1737061761171;
+        Thu, 16 Jan 2025 13:09:21 -0800 (PST)
+Received: from ghost ([50.145.13.30])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-72dab9c8e37sm429311b3a.119.2025.01.16.13.09.20
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 16 Jan 2025 13:09:20 -0800 (PST)
+Date: Thu, 16 Jan 2025 13:09:18 -0800
+From: Charlie Jenkins <charlie@rivosinc.com>
+To: Xu Lu <luxu.kernel@bytedance.com>
+Cc: anup@brainfault.org, tglx@linutronix.de, paul.walmsley@sifive.com,
+	palmer@dabbelt.com, lihangjing@bytedance.com,
+	xieyongji@bytedance.com, linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] irqchip: riscv: Order normal writes and IPI writes
+Message-ID: <Z4l1fklnUPyTSLO4@ghost>
+References: <20250116120710.51673-1-luxu.kernel@bytedance.com>
 MIME-Version: 1.0
-Content-Type: multipart/mixed; boundary="8323329-352887263-1737061680=:2684657"
+Content-Disposition: inline
+In-Reply-To: <20250116120710.51673-1-luxu.kernel@bytedance.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250116_130802_000774_C76A1397 
-X-CRM114-Status: GOOD (  50.27  )
+X-CRM114-CacheID: sfid-20250116_130922_066827_4B715C9C 
+X-CRM114-Status: GOOD (  15.69  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,129 +94,62 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: jgross@suse.com, Stefano Stabellini <sstabellini@kernel.org>, Milan.Djokic@rt-rk.com, rafael.j.wysocki@intel.com, linux-kernel@vger.kernel.org, Oleksii Kurochko <oleksii.kurochko@gmail.com>, oleksandr_tyshchenko@epam.com, iommu@lists.linux.dev, aou@eecs.berkeley.edu, palmer@dabbelt.com, paul.walmsley@sifive.com, xen-devel@lists.xenproject.org, linux-riscv@lists.infradead.org, Slavisa.Petrovic@rt-rk.com, takakura@valinux.co.jp
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-  This message is in MIME format.  The first part should be readable text,
-  while the remaining parts are likely unreadable without MIME-aware tools.
+On Thu, Jan 16, 2025 at 08:07:10PM +0800, Xu Lu wrote:
+> Replace writel_relaxed() with writel() when issuing IPI to ensure all
+> previous write operations made by current CPU are visible to other CPUs.
 
---8323329-352887263-1737061680=:2684657
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8BIT
+Did you experience an ordering issue from this?
 
-On Thu, 16 Jan 2025, Milan Đokić wrote:
-> On Wed, Jan 15, 2025 at 10:14 PM Stefano Stabellini
-> <sstabellini@kernel.org> wrote:
-> >
-> > On Wed, 15 Jan 2025, Milan Đokić wrote:
-> > > Hello Stefano, Oleksii
-> > >
-> > > On Wed, Jan 15, 2025 at 5:30 PM Oleksii Kurochko
-> > > <oleksii.kurochko@gmail.com> wrote:
-> > > >
-> > > > Hi Stefano,
-> > > >
-> > > > On 1/15/25 1:01 AM, Stefano Stabellini wrote:
-> > > >
-> > > > +Oleksii
-> > > >
-> > > > On Tue, 14 Jan 2025, Milan Djokic wrote:
-> > > >
-> > > > From: Slavisa Petrovic <Slavisa.Petrovic@rt-rk.com>
-> > > >
-> > > > This patch introduces initial support for running RISC-V as a Xen guest.
-> > > > It provides the necessary infrastructure and stubs for Xen-specific
-> > > > operations. Key changes include:
-> > > >
-> > > > - Modifications to the RISC-V kernel to integrate Xen-specific hypercalls
-> > > >   and interfaces, with function implementations stubbed for future work.
-> > > > - Introduction of Xen-specific headers for RISC-V, including event
-> > > >   handling, hypervisor interaction, and page management. Functions are
-> > > >   defined but not yet implemented.
-> > > > - Stub implementations for memory management, grant tables, and context
-> > > >   switching in the Xen environment, allowing further development and
-> > > >   integration.
-> > > >
-> > > > Signed-off-by: Milan Djokic <Milan.Djokic@rt-rk.com>
-> > > > Signed-off-by: Slavisa Petrovic <Slavisa.Petrovic@rt-rk.com>
-> > > >
-> > > > Hi Milan, Slavisa,
-> > > >
-> > > > Thank you very much for your contribution! Which Xen tree are you using
-> > > > for development?
-> > > >
-> > > > They are using [1] and have separate branches on top of latest. So we are in
-> > > > sync. Also, if you are interested we have created a task/epics for this feature in
-> > > > [1] so you could also check there some details:
-> > > > 1. https://gitlab.com/groups/xen-project/people/olkur/-/epics/5
-> > > > 2. https://gitlab.com/xen-project/people/olkur/xen/-/issues/12
-> > > >
-> > > >  I am asking because RISC-V support in Xen is still in
-> > > > the process of being upstreamed, and [1] is the tree that consolidates
-> > > > all patches currently on the to-be-upstreamed list.
-> > > >
-> > > > While the specific Xen tree you are using is not particularly important
-> > > > at this stage, and using [1] is not a requirement, I am asking because
-> > > > it is essential to align on the hypervisor ABI, especially regarding any
-> > > > details that have not yet been upstreamed. Specifically, is there
-> > > > anything in this patch series that relies on features not yet upstream
-> > > > in Xen?
-> > > >
-> > > > There are few features but some things which are Rt-Tk's branch in [1] could go
-> > > > without waiting for these features to be upstreamed.
-> > > >
-> > > > Thanks.
-> > > >
-> > > > ~ Oleksii
-> > > >
-> > > > [1] https://gitlab.com/xen-project/people/olkur/xen/-/tree/latest?ref_type=heads
-> > >
-> > > As Oleksii already explained, we are working in sync with his latest
-> > > branch where most of the risc port is done.
-> >
-> > Perfect, I was hoping you'd say that! :-)
-> > It is great to have you on board.
-> >
-> >
-> > > I would just add that this patch introduces kernel risc-v hypercall
-> > > support on which only our branch on xen tree depends on. Therefore, it
-> > > won't disrupt any functionality with current upstream Xen, it will
-> > > just introduce kernel functionality which is not used from Xen side
-> > > until our branch is merged upstream.
-> >
-> > Ideally, we should upstream the Xen side of an interface first to Xen,
-> > then add support for the interface to Linux. Let me make a concrete
-> > example. Let's say that you upstream hypercall support to Linux first,
-> > using SBI_ECALL defined as 0xE. Then, during the upstreaming process,
-> > the Xen community decides to change SBI_ECALL to 0XEA1 to make it the
-> > same as ARM. You'd have to change the Linux code again to fix it. To
-> > avoid this, it is best to wait upstreaming the Linux side, until the Xen
-> > side is Acked.
-> >
-> Sure, I got your point. This is actually one of the things we were not
-> sure about (whether we should upstream Linux or Xen side first).
-> Anyways it's good that we got review comments. We'll fix this patch
-> according to suggestions and send it back when Xen side is upstream.
+- Charlie
 
-Thank you! In general, "first upstream to Xen, then to Linux" is a good
-guideline, but we can be flexible. For instance, in the case of
-hypercalls that seem pretty obvious how we are going to implement them,
-it might be sufficient to send a simple patch to Xen to add a document
-under xen.git/docs/ to document how the hypercall ABI will look like on
-RISC-V, without the implementation. With that document committed to
-xen.git, we can go forward with upstreaming the Linux side, even if the
-upstream Xen implementation is still lacking.
---8323329-352887263-1737061680=:2684657
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+> 
+> Signed-off-by: Xu Lu <luxu.kernel@bytedance.com>
+> ---
+>  drivers/irqchip/irq-riscv-imsic-early.c      | 2 +-
+>  drivers/irqchip/irq-thead-c900-aclint-sswi.c | 2 +-
+>  2 files changed, 2 insertions(+), 2 deletions(-)
+> 
+> diff --git a/drivers/irqchip/irq-riscv-imsic-early.c b/drivers/irqchip/irq-riscv-imsic-early.c
+> index c5c2e6929a2f..275df5005705 100644
+> --- a/drivers/irqchip/irq-riscv-imsic-early.c
+> +++ b/drivers/irqchip/irq-riscv-imsic-early.c
+> @@ -27,7 +27,7 @@ static void imsic_ipi_send(unsigned int cpu)
+>  {
+>  	struct imsic_local_config *local = per_cpu_ptr(imsic->global.local, cpu);
+>  
+> -	writel_relaxed(IMSIC_IPI_ID, local->msi_va);
+> +	writel(IMSIC_IPI_ID, local->msi_va);
+>  }
+>  
+>  static void imsic_ipi_starting_cpu(void)
+> diff --git a/drivers/irqchip/irq-thead-c900-aclint-sswi.c b/drivers/irqchip/irq-thead-c900-aclint-sswi.c
+> index b0e366ade427..8ff6e7a1363b 100644
+> --- a/drivers/irqchip/irq-thead-c900-aclint-sswi.c
+> +++ b/drivers/irqchip/irq-thead-c900-aclint-sswi.c
+> @@ -31,7 +31,7 @@ static DEFINE_PER_CPU(void __iomem *, sswi_cpu_regs);
+>  
+>  static void thead_aclint_sswi_ipi_send(unsigned int cpu)
+>  {
+> -	writel_relaxed(0x1, per_cpu(sswi_cpu_regs, cpu));
+> +	writel(0x1, per_cpu(sswi_cpu_regs, cpu));
+>  }
+>  
+>  static void thead_aclint_sswi_ipi_clear(void)
+> -- 
+> 2.20.1
+> 
+> 
+> _______________________________________________
+> linux-riscv mailing list
+> linux-riscv@lists.infradead.org
+> http://lists.infradead.org/mailman/listinfo/linux-riscv
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---8323329-352887263-1737061680=:2684657--
-
