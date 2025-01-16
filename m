@@ -4,64 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CAB49C02183
-	for <linux-riscv@archiver.kernel.org>; Thu, 16 Jan 2025 16:46:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 96F4FC02183
+	for <linux-riscv@archiver.kernel.org>; Thu, 16 Jan 2025 16:49:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+N8LLCjtY9+FX2nO4BLIydxoF+g4wZfaeKKw6l/1yfo=; b=PKLPQWJ1jA6ZIU6hyluY9sS/me
-	AfsT0EA1PrSkMozPOLEMP1VFYHOafQMHlZyabIldlJUSPuOkY/3wqHzZed/PdddD7dXPGInEAY1Kk
-	Je7W9RSG2U3FEL/gd0Q/BOhq3lNjcfeVF18RcRSmfYXjyiynVnJqTPkmrnHuolv5YZzs9zCea27U9
-	v5Uw89oaGuNXSg0baB7lATlj2yiskDY7rXCcSMnvrDHlXpspJQYEuOPuLt8/48ie33ncAdNZuxiHW
-	dJCBI7Xqljv+mfY7MnR7J2KrrJ/fCQaMhM5vfoW4XQyitSHBVojy+8zJKjCXKN1fwmFEopZDMwmwm
-	tvx7cmVQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Subject:References:In-Reply-To:
+	Message-Id:To:From:Date:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=AEEilbS6GlCrs2TYXT69ohj4XF6rq14hiPAdl+tahPk=; b=e4uwhVDqkAGSst
+	Wun6Zo0ZJeqrFeEUmngka5G9aBvXAu+Fuziw9828OXL85qecyMJTb36QS/kZ7rKdBnM54UIasE2If
+	hETMxshwwsW9Hc8G1XqjeRlSM3fu9ONQedFC61bs3YRl4xo3yAJJu6F/jblQ8rd8ceGn1KF0YbIUu
+	WUVzPiKN+qJVwXBWvpPK62eeGMMrDAz3Fr6nyNXP/GvJAh5Cb8sJdDeT8K7CSeY7VW9YzldbbRT2d
+	PF+GMNvnFlowYGzCHKlarYrI4/mYfT/mZmDyN1xjqUJocc1WDO2mn93ZIp+5/th2xtWZo7n7YAGYA
+	BbvmW8JQHPcIfEmQnInw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tYT0l-0000000FZAH-409p;
-	Thu, 16 Jan 2025 16:46:27 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tYT44-0000000FZTs-36p8;
+	Thu, 16 Jan 2025 16:49:52 +0000
+Received: from fout-b1-smtp.messagingengine.com ([202.12.124.144])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tYT0j-0000000FZ8y-0slE
+	id 1tYT42-0000000FZTR-0KkT
 	for linux-riscv@lists.infradead.org;
-	Thu, 16 Jan 2025 16:46:26 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 056685C4ED1;
-	Thu, 16 Jan 2025 16:45:44 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A581DC4CED6;
-	Thu, 16 Jan 2025 16:46:21 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1737045984;
-	bh=L/KZG4Pm9PuHsf+j03WeS+nOje6TuEkm+2ySm7d+8gE=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=rOfFT6hzINfBNG2t5Ib7U6Py9ZdRmVfFv4p5E5ARNWl0UfYKz+JM87qYpw114/8v7
-	 +OM7BfMT183k0cdGd6LHwGhxgZmUY+rO/OeOiNM221osCENMeW2mfIwdVCYj235ZEA
-	 CQgCTLnmrB+XOQXQinlOsrRxxWKGN3tEvHL1Er1dnRrycMJ0VcKeqYHL+uwFWXltKC
-	 vXgGHMG9+4GtMN1LqLStiFDs7bYVq1/e/oVp4K9Xt03l/0DyvbEzlBDj2i2gDczd0S
-	 ZhyY/jPEyrdgM6ISRnREe77DVAOIm4CYrKwKFrwi3oA9Pr58m8+9c22zz9C57K78xO
-	 NRdOteiiOwIJA==
-Date: Thu, 16 Jan 2025 16:46:19 +0000
-From: Conor Dooley <conor@kernel.org>
-To: Bjorn Helgaas <helgaas@kernel.org>
-Cc: daire.mcnamara@microchip.com, linux-pci@vger.kernel.org,
-	devicetree@vger.kernel.org, conor.dooley@microchip.com,
-	lpieralisi@kernel.org, kw@linux.com, robh@kernel.org,
-	bhelgaas@google.com, linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org, krzk+dt@kernel.org,
-	conor+dt@kernel.org, ilpo.jarvinen@linux.intel.com,
-	kevin.xie@starfivetech.com
-Subject: Re: [PATCH v10 1/3] PCI: microchip: Fix outbound address translation
- tables
-Message-ID: <20250116-debatable-hazelnut-6501986373fa@spud>
-References: <20250115001309.GA508227@bhelgaas>
- <20250116154253.GA584488@bhelgaas>
+	Thu, 16 Jan 2025 16:49:51 +0000
+Received: from phl-compute-10.internal (phl-compute-10.phl.internal [10.202.2.50])
+	by mailfout.stl.internal (Postfix) with ESMTP id 85908114015E;
+	Thu, 16 Jan 2025 11:49:48 -0500 (EST)
+Received: from phl-imap-11 ([10.202.2.101])
+  by phl-compute-10.internal (MEProxy); Thu, 16 Jan 2025 11:49:48 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
+	:cc:content-transfer-encoding:content-type:content-type:date
+	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to; s=fm2; t=1737046188;
+	 x=1737132588; bh=P5XEoRIU6R8iKZqDv1WNMWR/Ys7A+lJYA0/6g97taqY=; b=
+	ZX5vdrzMQeSNRNLxoR3mbpQptn85pU121DSMcloP7VgKCsyHEapJ0CJV5WYTtxUF
+	Bxr0Qcxo5NInJCU8AQMmdrTntZnxesUcn6BRTeCFxWQjrQaa3QFc5KIygJ89dfoS
+	PExIWcOQRdbm9WLrHQrVLIhFPVXb0ByxXV1p157jvj/nM6utOSdVHsEP7l2zLyxG
+	E/dAQNKfGNMdHT9CH9ZBNg9hI8OF/Jmh9o0PMYfQnDWLMfQackwS8ptT9iOWkret
+	sDg1r33k18LKpnu90NEFExBg0SsSFNUOPuShM6eWr3DrvF+YvuBW8VncT9sK1lsA
+	c3Q2RpbmoVZFKaf/iFezeA==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm2; t=1737046188; x=
+	1737132588; bh=P5XEoRIU6R8iKZqDv1WNMWR/Ys7A+lJYA0/6g97taqY=; b=E
+	85ecyC4HDIsNhNG7pBSQlNmBWcPYmKEsh/xXSt+tDpxIMiflDNIq5ZLOGAhzFgFx
+	MnRueVB1WUMw6S0HiYZWrmF2H2qhstN3hPoHQATtqnzDac6dyQSUtIttRyFnhPfN
+	13Sux1ezfmLvKCH7pRRI/YxPIfTBxcsZkTxfEqWo3htaDYAkEE6GpOJXleLXcoeL
+	Hh/FD8GYte41Se43cnPTXwFpndUNM28g/1sJMTChZEKpPk0hNVIqtFOgAX/7jRS/
+	PgddsTtuu2PKC8PDsI3spC3t3Jz9G/3h3nGYjwQ9aXDE+umFeGa1TR0EiJ2kcvfg
+	Mjxf+fdcT1P9ypvXdsG8Q==
+X-ME-Sender: <xms:qjiJZ4Aa0JmixKo-eBuktCxVodO-u7DYYerlrqKgH586seohfASnEg>
+    <xme:qjiJZ6hkYCvn8qCAw4gVvmjXZ7s5aqEOF9xR2mcI08OxbXd_71o5i_sCMKk2HuIFZ
+    BelCTFGtd2jEWkcB1Y>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefuddrudeiuddgledtucetufdoteggodetrfdotf
+    fvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdggtfgfnhhsuhgsshgtrhhisggvpdfu
+    rfetoffkrfgpnffqhgenuceurghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnh
+    htshculddquddttddmnecujfgurhepofggfffhvfevkfgjfhfutgfgsehtjeertdertddt
+    necuhfhrohhmpedftehrnhguuceuvghrghhmrghnnhdfuceorghrnhgusegrrhhnuggsrd
+    guvgeqnecuggftrfgrthhtvghrnhephfdthfdvtdefhedukeetgefggffhjeeggeetfefg
+    gfevudegudevledvkefhvdeinecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpe
+    hmrghilhhfrhhomheprghrnhgusegrrhhnuggsrdguvgdpnhgspghrtghpthhtohepledp
+    mhhouggvpehsmhhtphhouhhtpdhrtghpthhtoheptgihhiestgihhihsvghlfhdrnhgrmh
+    gvpdhrtghpthhtohepughlrghnsehgvghnthhoohdrohhrghdprhgtphhtthhopehinhho
+    tghhihgrmhgrsehgmhgrihhlrdgtohhmpdhrtghpthhtohepmhhrrdgsohhsshhmrghntd
+    ejheesghhmrghilhdrtghomhdprhgtphhtthhopehufihusehitggvnhhofiihrdhmvgdp
+    rhgtphhtthhopegtohhnohhrsehkvghrnhgvlhdrohhrghdprhgtphhtthhopehsohgtse
+    hkvghrnhgvlhdrohhrghdprhgtphhtthhopeiihhgrnhhgmhgvnhhgrdhkvghvihhnsehl
+    ihhnuhigrdhsphgrtggvmhhithdrtghomhdprhgtphhtthhopehlihhnuhigqdhrihhstg
+    hvsehlihhsthhsrdhinhhfrhgruggvrggurdhorhhg
+X-ME-Proxy: <xmx:qjiJZ7kjuoTVsnkM5tyzGUotO5dqoCzD5RshTjVI4zdVUa6JdumGIQ>
+    <xmx:qjiJZ-zXyGCbTH61g15Mdf3wxv3z2AjueF207SLPruXeY8jAvcHzLw>
+    <xmx:qjiJZ9S7VZnOzgGNYedBlvebhQRF8vQLxLpQ2hzqaLXibA_9QCMOkA>
+    <xmx:qjiJZ5YNmNAIgseb-i_KoIH0qNl06rmjoSsCfxDVNbnzutOvQ6zBWw>
+    <xmx:rDiJZ4FsDe_5TYfZQ-_kdTbIJLL2NChbwMqplZEi07lWtRGCvQfZzG2_>
+Feedback-ID: i56a14606:Fastmail
+Received: by mailuser.phl.internal (Postfix, from userid 501)
+	id 4BD102220072; Thu, 16 Jan 2025 11:49:46 -0500 (EST)
+X-Mailer: MessagingEngine.com Webmail Interface
 MIME-Version: 1.0
-In-Reply-To: <20250116154253.GA584488@bhelgaas>
+Date: Thu, 16 Jan 2025 17:49:24 +0100
+From: "Arnd Bergmann" <arnd@arndb.de>
+To: "Yixun Lan" <dlan@gentoo.org>, soc@kernel.org
+Message-Id: <6a8bb914-858e-479d-a7d9-09e0ff688160@app.fastmail.com>
+In-Reply-To: <20250108142122-GYA3300457@gentoo>
+References: <20250108142122-GYA3300457@gentoo>
+Subject: Re: [GIT PULL] RISC-V SpacemiT Devicetrees for v6.14
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250116_084625_340937_5283058E 
-X-CRM114-Status: GOOD (  32.53  )
+X-CRM114-CacheID: sfid-20250116_084950_178045_44610795 
+X-CRM114-Status: GOOD (  13.13  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,152 +106,62 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============5469574870533706291=="
+Cc: Meng Zhang <zhangmeng.kevin@linux.spacemit.com>, Inochi Amaoto <inochiama@gmail.com>, Jesse Taube <mr.bossman075@gmail.com>, Yangyu Chen <cyy@cyyself.name>, Conor Dooley <conor@kernel.org>, linux-riscv <linux-riscv@lists.infradead.org>
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On Wed, Jan 8, 2025, at 15:21, Yixun Lan wrote:
+> Hi Arnd,
+>
+> Here is SpacemiT's device tree changes for 6.14 cycle.
+> All patches have been merged in linux-next tree for testing.
+>
+>
+> ----------------------------------------------------------------
+> RISC-V SpacemiT DT changes for 6.14
+> - basic device tree support
+> - pinctrl dt node info
+> - update MAINTAINERS info
+>
 
---===============5469574870533706291==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="dISYL3zSj/IQb+CW"
-Content-Disposition: inline
+Sorry for the delay in pulling this. I just had a look and found
+that your branch is based on -rc3 while the soc tree is currently
+using 6.13-rc2. I try hard to avoid unnecessary backmerges of
+upstream contents into my tree, so it would be nice if you could
+rebase it onto 6.13-rc1 or 6.13-rc2 and resend.
 
+While looking through the contents, I also found a mistake
+in the contents:
 
---dISYL3zSj/IQb+CW
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
++++ b/arch/riscv/boot/dts/spacemit/k1.dtsi
+@@ -0,0 +1,459 @@
+...
++       aliases {
++               serial0 = &uart0;
++               serial1 = &uart2;
++               serial2 = &uart3;
++               serial3 = &uart4;
++               serial4 = &uart5;
++               serial5 = &uart6;
++               serial6 = &uart7;
++               serial7 = &uart8;
++               serial8 = &uart9;
++       };
 
-On Thu, Jan 16, 2025 at 09:42:53AM -0600, Bjorn Helgaas wrote:
-> On Tue, Jan 14, 2025 at 06:13:10PM -0600, Bjorn Helgaas wrote:
-> > On Fri, Oct 11, 2024 at 03:00:41PM +0100, daire.mcnamara@microchip.com =
-wrote:
-> > > From: Daire McNamara <daire.mcnamara@microchip.com>
-> > >=20
-> > > On Microchip PolarFire SoC (MPFS) the PCIe Root Port can be behind on=
-e of
-> > > three general-purpose Fabric Interface Controller (FIC) buses that
-> > > encapsulate an AXI-M interface. That FIC is responsible for managing
-> > > the translations of the upper 32-bits of the AXI-M address. On MPFS,
-> > > the Root Port driver needs to take account of that outbound address
-> > > translation done by the parent FIC bus before setting up its own
-> > > outbound address translation tables.  In all cases on MPFS,
-> > > the remaining outbound address translation tables are 32-bit only.
-> > >=20
-> > > Limit the outbound address translation tables to 32-bit only.
-> >=20
-> > I don't quite understand what this is saying.  It seems like the code
-> > keeps only the low 32 bits of a PCI address and throws away any
-> > address bits above the low 32.
-> >=20
-> > If that's what the FIC does, I wouldn't describe the FIC as
-> > "translating the upper 32 bits" since it sounds like the translation
-> > is just truncation.
-> >=20
-> > I guess it must be more complicated than that?  I assume you can still
-> > reach BARs that have PCI addresses above 4GB using CPU loads/stores?
-> >=20
-> > The apertures through the host bridge for MMIO access are described by
-> > DT ranges properties, so this must be something that can't be
-> > described that way?
->=20
-> Ping?  I'd really like to understand this before the v6.14 merge
-> window opens on Sunday.
+The aliases here should be in the k1-bananapi-f3.dts file,
+not in the k1.dtsi file, since the mapping between exposed
+UART devices and those available in the chip is board
+specific. You normally want to list only those devices
+that are marked status="okay" on that board.
 
-Daire's been having some issues getting onto the corporate VPN to send
-his reply, I've pasted it below on his behalf:
+I would suggest you fix this in a patch on top of your
+existing commits, but make it part of the pull request.
 
-There are 3 Fabric Inter Connect (FIC) buses on PolarFire SoC - each of
-these FIC buses contain an AXI master bus and are 64-bits wide. These
-AXI-Masters (each with an individual 64-bit AXI base address =E2=80=93 for =
-example
-FIC1=E2=80=99s AXI Master has a base address of 0x2000000000) are connected=
- to
-general purpose FPGA logic. This FPGA logic is, in turn, connected to a
-2nd 32-bit AXI master which is attached to the PCIe block in RootPort mode.
-Conceptually, on the other side of this configurable logic, there is a
-32-bit bus to a hard PCIe rootport.  So, again conceptually, outbound addre=
-ss
-translation looks like this:
-
-                 Processor Complex =C3=A0 FIC (64-bit AXI-M) =C3=A0 Configu=
-rable Logic =C3=A0 32-bit AXI-M =C3=A0 PCIe Rootport
-		 (This how it came to me from Daire, I think the =C3=A1 is meant to
-		 be an arrow)
-
- This allows a designer two broad choices:
-
-    Choice of FIC (effectively choice of AXI bus)
-    Ability to offset the AXI address of any peripherals they add in the
-    Fabric.
-
-=20
-
-So, for the case of an outbound AXI address, from the processors=E2=80=99 p=
-oint
-of view (or Linux=E2=80=99 point of view if you prefer), the processor uses=
- a
-64-bit AXI address, then =E2=80=93 in a very general way of viewing the pro=
-cess
-and thinking only about accessing the PCIe device =E2=80=93 the FPGA logic =
-can
-be configured to adjust that AXI-M address to any arbitrary =E2=80=9Caddres=
-s=E2=80=9D
-before it passes that new =E2=80=9Caddress=E2=80=9D to the Root Port over a=
- second 32-bit
-AXI bus (the main constraint is that the FPGA logic can only use a 32-bit
-address on that AXI-M interface to the Root Port).
-
-=20
-
-To manage this complexity, Microchip have design rules for customers
-building their FPGA logic where we strongly recommend that they only
-interact with  the upper 32 bits of the 64-bit address in the FPGA logic
-and pass the lower 32 bits through (unmodified) to the AXI-M side of the
-PCIe Root Port. This allows them to =E2=80=9Cmove=E2=80=9D a 64-bit AXI-M w=
-indow for their
-PCIe Root Port (as viewed by the processor) for their particular design =E2=
-=80=93
-if they need to - so that they can also access any other AXI-M windows
-associated with any other peripherals they might add to their design.
-
-=20
-
-In practise, so far, all customers, and our own internal boards have all
-started by using one of two major reference designs from us (one using FIC1
-where the AXI-M window destined for the PCIe Root Port starts at 0x20000000=
-00
-and one using FIC2 where its AXI-M window, again destined for the PCIe Root
-Port starts at 0x3000000000).
-
-best,
-
-daire
-
---dISYL3zSj/IQb+CW
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZ4k32wAKCRB4tDGHoIJi
-0r8aAP9OljF2t/djmQEXjTcwQv5O/kjOlC4cmIz8YFYInFE7uQEAir30agpuqLBv
-IoeWvvIUCLBDbl111pYfb88kL/pz0gY=
-=NBkU
------END PGP SIGNATURE-----
-
---dISYL3zSj/IQb+CW--
-
-
---===============5469574870533706291==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+      Arnd
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============5469574870533706291==--
-
