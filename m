@@ -4,47 +4,47 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9DF92C02183
-	for <linux-riscv@archiver.kernel.org>; Thu, 16 Jan 2025 17:50:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8A9D9C02183
+	for <linux-riscv@archiver.kernel.org>; Thu, 16 Jan 2025 18:03:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oHIFUEovvgFCTfDddO9S22XCtxpM4HTMhRZd4tXGbTc=; b=RJXy1pArLhza81EeKrA/6VxES7
-	apDX3mRIz8JKIFzXX3F0odeGl05gNf7cHoxaUwkD8ZS4bMwFtTts3Na4XfHVfMVsP9lttfRluP5Dp
-	+qCoeM6lDFcSjH7vHdyvIMt0o2HfZUq/TYAYcaerDMrGCcyIEglXARKzDTzFUj1wI9A41CVnt1pku
-	zB7C1SG8Rz3bVFL3Bs5lBFUXosdG+7/wGKt80RsgPK6APbN531jWd0qN1MUci0Ie32Q11FQ4GxORN
-	XKCadeZvHgVK3940ZAdFzk0DBetnxtQSM+b7yGAl4OdDRxQCa8EdGuCFofA88bLQkE7zUeJkpHz/T
-	RlC19fjQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
+	List-Owner; bh=cTwSaPJxwVnzjskxMtysk88DfttgYbIcH0OiIJfBofQ=; b=T0e62pa12IazbW
+	S3PE6eXFg8kvtohzQ5cYR+5g7iWMjUbE7IYw6AMYUDsweN2E0QANt5rSRKp26qyWZvDRpCbPynMLT
+	HJHw+B77WKr2RSm8FpgpM3z43cwz1w3xM7UD4yUPkVv7zLprz13JmC9q85FcGARKjZoErIjFgIQxV
+	hVQstuaInY5E/A+JpmdZyv6iRQGj/AZIFIQYRlXjoI+BImC0aH5I2Ec/A3z5i6QROrBlJ8yu7ylSV
+	Y/M9dQ9OHQLJwjHm9vi2xPAfWOS5c64B+DFhlAZn9gVy8UvUTN+ie5MyLvrpZ1o2yca82dBdx2uMb
+	co7acWAl54AdrWfqc/zw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tYU0B-0000000FjJJ-0sD9;
-	Thu, 16 Jan 2025 17:49:55 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1tYUCq-0000000FkcV-33uT;
+	Thu, 16 Jan 2025 18:03:00 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tYTw3-0000000FiiF-2LI9
+	id 1tYUCo-0000000FkcA-1usa
 	for linux-riscv@lists.infradead.org;
-	Thu, 16 Jan 2025 17:45:40 +0000
+	Thu, 16 Jan 2025 18:02:59 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 5973C5C5EF9;
-	Thu, 16 Jan 2025 17:44:58 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CBB72C4CEE3;
-	Thu, 16 Jan 2025 17:45:35 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 89959A4252A;
+	Thu, 16 Jan 2025 18:01:09 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 01540C4CED6;
+	Thu, 16 Jan 2025 18:02:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1737049538;
-	bh=qOP/8quEcjkZRdzXe+Lb3c+dZNV8PtSVtkdwFebc86U=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Ucq6Fxsp3FaH9qF1zKC7O752HhKjVflCMr7HG6CEY28cdgbyyGfIj90PidSNJ9X8K
-	 LdrloCEKQNLLcihvhXUDdj0Snb2k5oNExy1Dd9bihoNkRaFnp4YB02HO01Yn3205GY
-	 R6dpXDb7+lRfsrQWEHtjXSC9vYFbSq9qgLa/U2RqeXaGX9/xAoxV56NY8U9XRu6zbP
-	 MODAVVfE2OKoEqZLEU1KLW3PHjrk0EhONL0vI1A9y5csqNaMKNKdfj9qEyd7RFUlBz
-	 haDVmJ7EQ1FnzAh3Z3lQgU9BrG2Zx81zMypJMgA6+R4z4LGG2+bomk21cmJ/EAFgkJ
-	 z79sGq50Wi4vg==
-Date: Thu, 16 Jan 2025 17:45:33 +0000
-From: Conor Dooley <conor@kernel.org>
-To: Bjorn Helgaas <helgaas@kernel.org>
+	s=k20201202; t=1737050577;
+	bh=eugSbl6YVyckkhsPnw8vMEXY4d/2zv4a2tp5QGDe/Ao=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:From;
+	b=LxFUn4gbUoWDJDFHUbtU+tbnkQu5vCUDtfT2bQhYa49M4uum4DdD4+9woetHBO7Z+
+	 1KNZGDJhJjCK4VYbJMxIRnMrVs0Jrg88qTKcr/0Ow5SLP3p8Xe/ZC+Bf71sIZDfjTD
+	 J764f16ckCZeob5bgE6xvM/LTdqnaSkW6tioBViLB84DHPt8VZKVPdH3VMjbeT380r
+	 3ABJwHSzr7R911oBpqCjS93Z0g48PUwi6kbby5jQiIHU516+pSa2Y0+z8s3NK3pZek
+	 s1h35z7hbD8s+fyFG92TlApYnVgO0j78LK9fKVjwJGNgZt7hR6x2E7MN/aByESCiUz
+	 H0+4kHNlR/uOA==
+Date: Thu, 16 Jan 2025 12:02:55 -0600
+From: Bjorn Helgaas <helgaas@kernel.org>
+To: Conor Dooley <conor@kernel.org>
 Cc: daire.mcnamara@microchip.com, linux-pci@vger.kernel.org,
 	devicetree@vger.kernel.org, conor.dooley@microchip.com,
 	lpieralisi@kernel.org, kw@linux.com, robh@kernel.org,
@@ -54,14 +54,13 @@ Cc: daire.mcnamara@microchip.com, linux-pci@vger.kernel.org,
 	kevin.xie@starfivetech.com, Frank Li <Frank.Li@nxp.com>
 Subject: Re: [PATCH v10 1/3] PCI: microchip: Fix outbound address translation
  tables
-Message-ID: <20250116-removed-evoke-1908811ab92a@spud>
-References: <20250116-debatable-hazelnut-6501986373fa@spud>
- <20250116170722.GA589558@bhelgaas>
+Message-ID: <20250116180255.GA593378@bhelgaas>
 MIME-Version: 1.0
-In-Reply-To: <20250116170722.GA589558@bhelgaas>
+Content-Disposition: inline
+In-Reply-To: <20250116-removed-evoke-1908811ab92a@spud>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250116_094539_690682_C66B6202 
-X-CRM114-Status: GOOD (  44.02  )
+X-CRM114-CacheID: sfid-20250116_100258_636575_3E08A652 
+X-CRM114-Status: GOOD (  46.91  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,203 +72,140 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============5035361410441653762=="
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
---===============5035361410441653762==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="yFBjah3xDxz6Ta9d"
-Content-Disposition: inline
-
-
---yFBjah3xDxz6Ta9d
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-On Thu, Jan 16, 2025 at 11:07:22AM -0600, Bjorn Helgaas wrote:
-> [+cc Frank, original patch at
-> https://lore.kernel.org/r/20241011140043.1250030-2-daire.mcnamara@microch=
-ip.com]
->=20
-> On Thu, Jan 16, 2025 at 04:46:19PM +0000, Conor Dooley wrote:
-> > On Thu, Jan 16, 2025 at 09:42:53AM -0600, Bjorn Helgaas wrote:
-> > > On Tue, Jan 14, 2025 at 06:13:10PM -0600, Bjorn Helgaas wrote:
-> > > > On Fri, Oct 11, 2024 at 03:00:41PM +0100, daire.mcnamara@microchip.=
-com wrote:
-> > > > > From: Daire McNamara <daire.mcnamara@microchip.com>
-> > > > >=20
-> > > > > On Microchip PolarFire SoC (MPFS) the PCIe Root Port can be behin=
-d one of
-> > > > > three general-purpose Fabric Interface Controller (FIC) buses that
-> > > > > encapsulate an AXI-M interface. That FIC is responsible for manag=
-ing
-> > > > > the translations of the upper 32-bits of the AXI-M address. On MP=
-FS,
-> > > > > the Root Port driver needs to take account of that outbound addre=
-ss
-> > > > > translation done by the parent FIC bus before setting up its own
-> > > > > outbound address translation tables.  In all cases on MPFS,
-> > > > > the remaining outbound address translation tables are 32-bit only.
-> > > > >=20
-> > > > > Limit the outbound address translation tables to 32-bit only.
-> > > >=20
-> > > > I don't quite understand what this is saying.  It seems like the co=
-de
-> > > > keeps only the low 32 bits of a PCI address and throws away any
-> > > > address bits above the low 32.
-> > > >=20
-> > > > If that's what the FIC does, I wouldn't describe the FIC as
-> > > > "translating the upper 32 bits" since it sounds like the translation
-> > > > is just truncation.
-> > > >=20
-> > > > I guess it must be more complicated than that?  I assume you can st=
-ill
-> > > > reach BARs that have PCI addresses above 4GB using CPU loads/stores?
-> > > >=20
-> > > > The apertures through the host bridge for MMIO access are described=
- by
-> > > > DT ranges properties, so this must be something that can't be
-> > > > described that way?
-> > >=20
-> > > Ping?  I'd really like to understand this before the v6.14 merge
-> > > window opens on Sunday.
-> >=20
-> > Daire's been having some issues getting onto the corporate VPN to send
-> > his reply, I've pasted it below on his behalf:
-> >=20
-> > There are 3 Fabric Inter Connect (FIC) buses on PolarFire SoC - each of
-> > these FIC buses contain an AXI master bus and are 64-bits wide. These
-> > AXI-Masters (each with an individual 64-bit AXI base address =E2=80=93 =
-for example
-> > FIC1=E2=80=99s AXI Master has a base address of 0x2000000000) are conne=
-cted to
-> > general purpose FPGA logic. This FPGA logic is, in turn, connected to a
-> > 2nd 32-bit AXI master which is attached to the PCIe block in RootPort m=
-ode.
-> > Conceptually, on the other side of this configurable logic, there is a
-> > 32-bit bus to a hard PCIe rootport.  So, again conceptually, outbound a=
-ddress
-> > translation looks like this:
-> >=20
-> >                  Processor Complex =C3=A0 FIC (64-bit AXI-M) =C3=A0 Con=
-figurable Logic =C3=A0 32-bit AXI-M =C3=A0 PCIe Rootport
-> > 		 (This how it came to me from Daire, I think the =C3=A1 is meant to
-> > 		 be an arrow)
-> >=20
-> >  This allows a designer two broad choices:
-> >=20
-> >     Choice of FIC (effectively choice of AXI bus)
-> >     Ability to offset the AXI address of any peripherals they add in the
-> >     Fabric.
-> >=20
-> > So, for the case of an outbound AXI address, from the processors=E2=80=
-=99 point
-> > of view (or Linux=E2=80=99 point of view if you prefer), the processor =
-uses a
-> > 64-bit AXI address, then =E2=80=93 in a very general way of viewing the=
- process
-> > and thinking only about accessing the PCIe device =E2=80=93 the FPGA lo=
-gic can
-> > be configured to adjust that AXI-M address to any arbitrary =E2=80=9Cad=
-dress=E2=80=9D
-> > before it passes that new =E2=80=9Caddress=E2=80=9D to the Root Port ov=
-er a second 32-bit
-> > AXI bus (the main constraint is that the FPGA logic can only use a 32-b=
-it
-> > address on that AXI-M interface to the Root Port).
-> >=20
-> > To manage this complexity, Microchip have design rules for customers
-> > building their FPGA logic where we strongly recommend that they only
-> > interact with  the upper 32 bits of the 64-bit address in the FPGA logic
-> > and pass the lower 32 bits through (unmodified) to the AXI-M side of the
-> > PCIe Root Port. This allows them to =E2=80=9Cmove=E2=80=9D a 64-bit AXI=
--M window for their
-> > PCIe Root Port (as viewed by the processor) for their particular design=
- =E2=80=93
-> > if they need to - so that they can also access any other AXI-M windows
-> > associated with any other peripherals they might add to their design.
-> >=20
-> > In practise, so far, all customers, and our own internal boards have all
-> > started by using one of two major reference designs from us (one using =
-FIC1
-> > where the AXI-M window destined for the PCIe Root Port starts at 0x2000=
-000000
-> > and one using FIC2 where its AXI-M window, again destined for the PCIe =
-Root
-> > Port starts at 0x3000000000).
->=20
-> Is there something special about this that cannot be described by a DT
-> 'ranges' property?  This sounds conceptually similar to Frank's nice
-> picture at
-> https://lore.kernel.org/r/20241119-pci_fixup_addr-v8-2-c4bfa5193288@nxp.c=
-om
-
-
-Aye, it is similar, it is described using ranges properties, will end
-up looking something like:
-
-	fabric-pcie-bus@3000000000 {
-		compatible =3D "simple-bus";
-		#address-cells =3D <2>;
-		#size-cells =3D <2>;
-		ranges =3D <0x0 0x40000000 0x0 0x40000000 0x0 0x20000000>,
-			 <0x30 0x0 0x30 0x0 0x10 0x0>;
-		dma-ranges =3D <0x0 0x0 0x0 0x80000000 0x0 0x4000000>,
-			     <0x0 0x4000000 0x0 0xc4000000 0x0 0x6000000>,
-			     <0x0 0xa000000 0x0 0x8a000000 0x0 0x8000000>,
-			     <0x0 0x12000000 0x14 0x12000000 0x0 0x10000000>,
-			     <0x0 0x22000000 0x10 0x22000000 0x0 0x5e000000>;
-
-		pcie: pcie@3000000000 {
-			compatible =3D "microchip,pcie-host-1.0";
-			#address-cells =3D <0x3>;
-			#interrupt-cells =3D <0x1>;
-			#size-cells =3D <0x2>;
-			device_type =3D "pci";
-
-			dma-noncoherent;
-			reg =3D <0x30 0x0 0x0 0x8000000>, <0x0 0x43008000 0x0 0x2000>, <0x0 0x43=
-00a000 0x0 0x2000>;
-
-			ranges =3D <0x43000000 0x0 0x9000000 0x30 0x9000000 0x0 0xf000000>,
-				 <0x1000000 0x0 0x8000000 0x30 0x8000000 0x0 0x1000000>,
-				 <0x3000000 0x0 0x18000000 0x30 0x18000000 0x0 0x70000000>;
-			dma-ranges =3D <0x3000000 0x0 0x80000000 0x0 0x0 0x0 0x4000000>,
-				     <0x3000000 0x0 0x84000000 0x0 0x4000000 0x0 0x6000000>,
-				     <0x3000000 0x0 0x8a000000 0x0 0xa000000 0x0 0x8000000>,
-				     <0x3000000 0x0 0x92000000 0x0 0x12000000 0x0 0x10000000>,
-				     <0x3000000 0x0 0xa2000000 0x0 0x22000000 0x0 0x5e000000>;
-
-		};
-	}
-
---yFBjah3xDxz6Ta9d
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZ4lFvQAKCRB4tDGHoIJi
-0qtcAP49fmVAgECTuswfawK4vHkMxyczR291gBQanA8nSsCuPAD/aWEAeO/P2KKi
-U+3aGKeRF4LybysHe9WUxd2mcXFQHwo=
-=66OP
------END PGP SIGNATURE-----
-
---yFBjah3xDxz6Ta9d--
-
-
---===============5035361410441653762==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============5035361410441653762==--
-
+T24gVGh1LCBKYW4gMTYsIDIwMjUgYXQgMDU6NDU6MzNQTSArMDAwMCwgQ29ub3IgRG9vbGV5IHdy
+b3RlOgo+IE9uIFRodSwgSmFuIDE2LCAyMDI1IGF0IDExOjA3OjIyQU0gLTA2MDAsIEJqb3JuIEhl
+bGdhYXMgd3JvdGU6Cj4gPiBbK2NjIEZyYW5rLCBvcmlnaW5hbCBwYXRjaCBhdAo+ID4gaHR0cHM6
+Ly9sb3JlLmtlcm5lbC5vcmcvci8yMDI0MTAxMTE0MDA0My4xMjUwMDMwLTItZGFpcmUubWNuYW1h
+cmFAbWljcm9jaGlwLmNvbV0KPiA+IAo+ID4gT24gVGh1LCBKYW4gMTYsIDIwMjUgYXQgMDQ6NDY6
+MTlQTSArMDAwMCwgQ29ub3IgRG9vbGV5IHdyb3RlOgo+ID4gPiBPbiBUaHUsIEphbiAxNiwgMjAy
+NSBhdCAwOTo0Mjo1M0FNIC0wNjAwLCBCam9ybiBIZWxnYWFzIHdyb3RlOgo+ID4gPiA+IE9uIFR1
+ZSwgSmFuIDE0LCAyMDI1IGF0IDA2OjEzOjEwUE0gLTA2MDAsIEJqb3JuIEhlbGdhYXMgd3JvdGU6
+Cj4gPiA+ID4gPiBPbiBGcmksIE9jdCAxMSwgMjAyNCBhdCAwMzowMDo0MVBNICswMTAwLCBkYWly
+ZS5tY25hbWFyYUBtaWNyb2NoaXAuY29tIHdyb3RlOgo+ID4gPiA+ID4gPiBGcm9tOiBEYWlyZSBN
+Y05hbWFyYSA8ZGFpcmUubWNuYW1hcmFAbWljcm9jaGlwLmNvbT4KPiA+ID4gPiA+ID4gCj4gPiA+
+ID4gPiA+IE9uIE1pY3JvY2hpcCBQb2xhckZpcmUgU29DIChNUEZTKSB0aGUgUENJZSBSb290IFBv
+cnQgY2FuIGJlIGJlaGluZCBvbmUgb2YKPiA+ID4gPiA+ID4gdGhyZWUgZ2VuZXJhbC1wdXJwb3Nl
+IEZhYnJpYyBJbnRlcmZhY2UgQ29udHJvbGxlciAoRklDKSBidXNlcyB0aGF0Cj4gPiA+ID4gPiA+
+IGVuY2Fwc3VsYXRlIGFuIEFYSS1NIGludGVyZmFjZS4gVGhhdCBGSUMgaXMgcmVzcG9uc2libGUg
+Zm9yIG1hbmFnaW5nCj4gPiA+ID4gPiA+IHRoZSB0cmFuc2xhdGlvbnMgb2YgdGhlIHVwcGVyIDMy
+LWJpdHMgb2YgdGhlIEFYSS1NIGFkZHJlc3MuIE9uIE1QRlMsCj4gPiA+ID4gPiA+IHRoZSBSb290
+IFBvcnQgZHJpdmVyIG5lZWRzIHRvIHRha2UgYWNjb3VudCBvZiB0aGF0IG91dGJvdW5kIGFkZHJl
+c3MKPiA+ID4gPiA+ID4gdHJhbnNsYXRpb24gZG9uZSBieSB0aGUgcGFyZW50IEZJQyBidXMgYmVm
+b3JlIHNldHRpbmcgdXAgaXRzIG93bgo+ID4gPiA+ID4gPiBvdXRib3VuZCBhZGRyZXNzIHRyYW5z
+bGF0aW9uIHRhYmxlcy4gIEluIGFsbCBjYXNlcyBvbiBNUEZTLAo+ID4gPiA+ID4gPiB0aGUgcmVt
+YWluaW5nIG91dGJvdW5kIGFkZHJlc3MgdHJhbnNsYXRpb24gdGFibGVzIGFyZSAzMi1iaXQgb25s
+eS4KPiA+ID4gPiA+ID4gCj4gPiA+ID4gPiA+IExpbWl0IHRoZSBvdXRib3VuZCBhZGRyZXNzIHRy
+YW5zbGF0aW9uIHRhYmxlcyB0byAzMi1iaXQgb25seS4KPiA+ID4gPiA+IAo+ID4gPiA+ID4gSSBk
+b24ndCBxdWl0ZSB1bmRlcnN0YW5kIHdoYXQgdGhpcyBpcyBzYXlpbmcuICBJdCBzZWVtcyBsaWtl
+IHRoZSBjb2RlCj4gPiA+ID4gPiBrZWVwcyBvbmx5IHRoZSBsb3cgMzIgYml0cyBvZiBhIFBDSSBh
+ZGRyZXNzIGFuZCB0aHJvd3MgYXdheSBhbnkKPiA+ID4gPiA+IGFkZHJlc3MgYml0cyBhYm92ZSB0
+aGUgbG93IDMyLgo+ID4gPiA+ID4gCj4gPiA+ID4gPiBJZiB0aGF0J3Mgd2hhdCB0aGUgRklDIGRv
+ZXMsIEkgd291bGRuJ3QgZGVzY3JpYmUgdGhlIEZJQyBhcwo+ID4gPiA+ID4gInRyYW5zbGF0aW5n
+IHRoZSB1cHBlciAzMiBiaXRzIiBzaW5jZSBpdCBzb3VuZHMgbGlrZSB0aGUgdHJhbnNsYXRpb24K
+PiA+ID4gPiA+IGlzIGp1c3QgdHJ1bmNhdGlvbi4KPiA+ID4gPiA+IAo+ID4gPiA+ID4gSSBndWVz
+cyBpdCBtdXN0IGJlIG1vcmUgY29tcGxpY2F0ZWQgdGhhbiB0aGF0PyAgSSBhc3N1bWUgeW91IGNh
+biBzdGlsbAo+ID4gPiA+ID4gcmVhY2ggQkFScyB0aGF0IGhhdmUgUENJIGFkZHJlc3NlcyBhYm92
+ZSA0R0IgdXNpbmcgQ1BVIGxvYWRzL3N0b3Jlcz8KPiA+ID4gPiA+IAo+ID4gPiA+ID4gVGhlIGFw
+ZXJ0dXJlcyB0aHJvdWdoIHRoZSBob3N0IGJyaWRnZSBmb3IgTU1JTyBhY2Nlc3MgYXJlIGRlc2Ny
+aWJlZCBieQo+ID4gPiA+ID4gRFQgcmFuZ2VzIHByb3BlcnRpZXMsIHNvIHRoaXMgbXVzdCBiZSBz
+b21ldGhpbmcgdGhhdCBjYW4ndCBiZQo+ID4gPiA+ID4gZGVzY3JpYmVkIHRoYXQgd2F5Pwo+ID4g
+PiA+IAo+ID4gPiA+IFBpbmc/ICBJJ2QgcmVhbGx5IGxpa2UgdG8gdW5kZXJzdGFuZCB0aGlzIGJl
+Zm9yZSB0aGUgdjYuMTQgbWVyZ2UKPiA+ID4gPiB3aW5kb3cgb3BlbnMgb24gU3VuZGF5Lgo+ID4g
+PiAKPiA+ID4gRGFpcmUncyBiZWVuIGhhdmluZyBzb21lIGlzc3VlcyBnZXR0aW5nIG9udG8gdGhl
+IGNvcnBvcmF0ZSBWUE4gdG8gc2VuZAo+ID4gPiBoaXMgcmVwbHksIEkndmUgcGFzdGVkIGl0IGJl
+bG93IG9uIGhpcyBiZWhhbGY6Cj4gPiA+IAo+ID4gPiBUaGVyZSBhcmUgMyBGYWJyaWMgSW50ZXIg
+Q29ubmVjdCAoRklDKSBidXNlcyBvbiBQb2xhckZpcmUgU29DIC0gZWFjaCBvZgo+ID4gPiB0aGVz
+ZSBGSUMgYnVzZXMgY29udGFpbiBhbiBBWEkgbWFzdGVyIGJ1cyBhbmQgYXJlIDY0LWJpdHMgd2lk
+ZS4gVGhlc2UKPiA+ID4gQVhJLU1hc3RlcnMgKGVhY2ggd2l0aCBhbiBpbmRpdmlkdWFsIDY0LWJp
+dCBBWEkgYmFzZSBhZGRyZXNzIOKAkyBmb3IgZXhhbXBsZQo+ID4gPiBGSUMx4oCZcyBBWEkgTWFz
+dGVyIGhhcyBhIGJhc2UgYWRkcmVzcyBvZiAweDIwMDAwMDAwMDApIGFyZSBjb25uZWN0ZWQgdG8K
+PiA+ID4gZ2VuZXJhbCBwdXJwb3NlIEZQR0EgbG9naWMuIFRoaXMgRlBHQSBsb2dpYyBpcywgaW4g
+dHVybiwgY29ubmVjdGVkIHRvIGEKPiA+ID4gMm5kIDMyLWJpdCBBWEkgbWFzdGVyIHdoaWNoIGlz
+IGF0dGFjaGVkIHRvIHRoZSBQQ0llIGJsb2NrIGluIFJvb3RQb3J0IG1vZGUuCj4gPiA+IENvbmNl
+cHR1YWxseSwgb24gdGhlIG90aGVyIHNpZGUgb2YgdGhpcyBjb25maWd1cmFibGUgbG9naWMsIHRo
+ZXJlIGlzIGEKPiA+ID4gMzItYml0IGJ1cyB0byBhIGhhcmQgUENJZSByb290cG9ydC4gIFNvLCBh
+Z2FpbiBjb25jZXB0dWFsbHksIG91dGJvdW5kIGFkZHJlc3MKPiA+ID4gdHJhbnNsYXRpb24gbG9v
+a3MgbGlrZSB0aGlzOgo+ID4gPiAKPiA+ID4gICAgICAgICAgICAgICAgICBQcm9jZXNzb3IgQ29t
+cGxleCDDoCBGSUMgKDY0LWJpdCBBWEktTSkgw6AgQ29uZmlndXJhYmxlIExvZ2ljIMOgIDMyLWJp
+dCBBWEktTSDDoCBQQ0llIFJvb3Rwb3J0Cj4gPiA+IAkJIChUaGlzIGhvdyBpdCBjYW1lIHRvIG1l
+IGZyb20gRGFpcmUsIEkgdGhpbmsgdGhlIMOhIGlzIG1lYW50IHRvCj4gPiA+IAkJIGJlIGFuIGFy
+cm93KQo+ID4gPiAKPiA+ID4gIFRoaXMgYWxsb3dzIGEgZGVzaWduZXIgdHdvIGJyb2FkIGNob2lj
+ZXM6Cj4gPiA+IAo+ID4gPiAgICAgQ2hvaWNlIG9mIEZJQyAoZWZmZWN0aXZlbHkgY2hvaWNlIG9m
+IEFYSSBidXMpCj4gPiA+ICAgICBBYmlsaXR5IHRvIG9mZnNldCB0aGUgQVhJIGFkZHJlc3Mgb2Yg
+YW55IHBlcmlwaGVyYWxzIHRoZXkgYWRkIGluIHRoZQo+ID4gPiAgICAgRmFicmljLgo+ID4gPiAK
+PiA+ID4gU28sIGZvciB0aGUgY2FzZSBvZiBhbiBvdXRib3VuZCBBWEkgYWRkcmVzcywgZnJvbSB0
+aGUgcHJvY2Vzc29yc+KAmSBwb2ludAo+ID4gPiBvZiB2aWV3IChvciBMaW51eOKAmSBwb2ludCBv
+ZiB2aWV3IGlmIHlvdSBwcmVmZXIpLCB0aGUgcHJvY2Vzc29yIHVzZXMgYQo+ID4gPiA2NC1iaXQg
+QVhJIGFkZHJlc3MsIHRoZW4g4oCTIGluIGEgdmVyeSBnZW5lcmFsIHdheSBvZiB2aWV3aW5nIHRo
+ZSBwcm9jZXNzCj4gPiA+IGFuZCB0aGlua2luZyBvbmx5IGFib3V0IGFjY2Vzc2luZyB0aGUgUENJ
+ZSBkZXZpY2Ug4oCTIHRoZSBGUEdBIGxvZ2ljIGNhbgo+ID4gPiBiZSBjb25maWd1cmVkIHRvIGFk
+anVzdCB0aGF0IEFYSS1NIGFkZHJlc3MgdG8gYW55IGFyYml0cmFyeSDigJxhZGRyZXNz4oCdCj4g
+PiA+IGJlZm9yZSBpdCBwYXNzZXMgdGhhdCBuZXcg4oCcYWRkcmVzc+KAnSB0byB0aGUgUm9vdCBQ
+b3J0IG92ZXIgYSBzZWNvbmQgMzItYml0Cj4gPiA+IEFYSSBidXMgKHRoZSBtYWluIGNvbnN0cmFp
+bnQgaXMgdGhhdCB0aGUgRlBHQSBsb2dpYyBjYW4gb25seSB1c2UgYSAzMi1iaXQKPiA+ID4gYWRk
+cmVzcyBvbiB0aGF0IEFYSS1NIGludGVyZmFjZSB0byB0aGUgUm9vdCBQb3J0KS4KPiA+ID4gCj4g
+PiA+IFRvIG1hbmFnZSB0aGlzIGNvbXBsZXhpdHksIE1pY3JvY2hpcCBoYXZlIGRlc2lnbiBydWxl
+cyBmb3IgY3VzdG9tZXJzCj4gPiA+IGJ1aWxkaW5nIHRoZWlyIEZQR0EgbG9naWMgd2hlcmUgd2Ug
+c3Ryb25nbHkgcmVjb21tZW5kIHRoYXQgdGhleSBvbmx5Cj4gPiA+IGludGVyYWN0IHdpdGggIHRo
+ZSB1cHBlciAzMiBiaXRzIG9mIHRoZSA2NC1iaXQgYWRkcmVzcyBpbiB0aGUgRlBHQSBsb2dpYwo+
+ID4gPiBhbmQgcGFzcyB0aGUgbG93ZXIgMzIgYml0cyB0aHJvdWdoICh1bm1vZGlmaWVkKSB0byB0
+aGUgQVhJLU0gc2lkZSBvZiB0aGUKPiA+ID4gUENJZSBSb290IFBvcnQuIFRoaXMgYWxsb3dzIHRo
+ZW0gdG8g4oCcbW92ZeKAnSBhIDY0LWJpdCBBWEktTSB3aW5kb3cgZm9yIHRoZWlyCj4gPiA+IFBD
+SWUgUm9vdCBQb3J0IChhcyB2aWV3ZWQgYnkgdGhlIHByb2Nlc3NvcikgZm9yIHRoZWlyIHBhcnRp
+Y3VsYXIgZGVzaWduIOKAkwo+ID4gPiBpZiB0aGV5IG5lZWQgdG8gLSBzbyB0aGF0IHRoZXkgY2Fu
+IGFsc28gYWNjZXNzIGFueSBvdGhlciBBWEktTSB3aW5kb3dzCj4gPiA+IGFzc29jaWF0ZWQgd2l0
+aCBhbnkgb3RoZXIgcGVyaXBoZXJhbHMgdGhleSBtaWdodCBhZGQgdG8gdGhlaXIgZGVzaWduLgo+
+ID4gPiAKPiA+ID4gSW4gcHJhY3Rpc2UsIHNvIGZhciwgYWxsIGN1c3RvbWVycywgYW5kIG91ciBv
+d24gaW50ZXJuYWwgYm9hcmRzIGhhdmUgYWxsCj4gPiA+IHN0YXJ0ZWQgYnkgdXNpbmcgb25lIG9m
+IHR3byBtYWpvciByZWZlcmVuY2UgZGVzaWducyBmcm9tIHVzIChvbmUgdXNpbmcgRklDMQo+ID4g
+PiB3aGVyZSB0aGUgQVhJLU0gd2luZG93IGRlc3RpbmVkIGZvciB0aGUgUENJZSBSb290IFBvcnQg
+c3RhcnRzIGF0IDB4MjAwMDAwMDAwMAo+ID4gPiBhbmQgb25lIHVzaW5nIEZJQzIgd2hlcmUgaXRz
+IEFYSS1NIHdpbmRvdywgYWdhaW4gZGVzdGluZWQgZm9yIHRoZSBQQ0llIFJvb3QKPiA+ID4gUG9y
+dCBzdGFydHMgYXQgMHgzMDAwMDAwMDAwKS4KPiA+IAo+ID4gSXMgdGhlcmUgc29tZXRoaW5nIHNw
+ZWNpYWwgYWJvdXQgdGhpcyB0aGF0IGNhbm5vdCBiZSBkZXNjcmliZWQgYnkgYSBEVAo+ID4gJ3Jh
+bmdlcycgcHJvcGVydHk/ICBUaGlzIHNvdW5kcyBjb25jZXB0dWFsbHkgc2ltaWxhciB0byBGcmFu
+aydzIG5pY2UKPiA+IHBpY3R1cmUgYXQKPiA+IGh0dHBzOi8vbG9yZS5rZXJuZWwub3JnL3IvMjAy
+NDExMTktcGNpX2ZpeHVwX2FkZHItdjgtMi1jNGJmYTUxOTMyODhAbnhwLmNvbQo+IAo+IEF5ZSwg
+aXQgaXMgc2ltaWxhciwgaXQgaXMgZGVzY3JpYmVkIHVzaW5nIHJhbmdlcyBwcm9wZXJ0aWVzLCB3
+aWxsIGVuZAo+IHVwIGxvb2tpbmcgc29tZXRoaW5nIGxpa2U6CgpTbyBpcyB0aGlzIHBhdGNoIGEg
+c3ltcHRvbSB0aGF0IGlzIHRlbGxpbmcgdXMgd2UncmUgbm90IHBheWluZwphdHRlbnRpb24gdG8g
+J3JhbmdlcycgY29ycmVjdGx5PwoKVGhlIHdob2xlIHBvaW50IG9mIEZyYW5rJ3MgcGF0Y2hlcyBp
+cyB0byBnZXQgcmlkIG9mIGhhcmQtY29kZWQgbWFza3MKbGlrZSBNQ19PVVRCT1VORF9UUkFOU19U
+QkxfTUFTSyBiZWNhdXNlIGJlY2F1c2UgJ3Jhbmdlcycgc2hvdWxkCmFscmVhZHkgY29udGFpbiB0
+aGF0IGluZm9ybWF0aW9uLgoKSWYgJ3JhbmdlcycgaXMgc3VmZmljZW50IHRvIGRlc2NyaWJlIHRo
+ZSBhZGRyZXNzIHNwYWNlcyBhbmQKdHJhbnNsYXRpb25zIGJldHdlZW4gdGhlbSwgdGhlIGRyaXZl
+ciB3b3VsZG4ndCBuZWVkIHRvIGJlIGNvbmNlcm5lZAp3aXRoIEZJQyBhbmQgQVhJLU0gYWRkcmVz
+c2VzOyB0aGV5IHdvdWxkIGp1c3QgYmUgZGVzY3JpYmVkIGluIGEKZ2VuZXJpYyB3YXkgaW4gdGhl
+IERUICdyYW5nZXMnLgoKPiAJZmFicmljLXBjaWUtYnVzQDMwMDAwMDAwMDAgewo+IAkJY29tcGF0
+aWJsZSA9ICJzaW1wbGUtYnVzIjsKPiAJCSNhZGRyZXNzLWNlbGxzID0gPDI+Owo+IAkJI3NpemUt
+Y2VsbHMgPSA8Mj47Cj4gCQlyYW5nZXMgPSA8MHgwIDB4NDAwMDAwMDAgMHgwIDB4NDAwMDAwMDAg
+MHgwIDB4MjAwMDAwMDA+LAo+IAkJCSA8MHgzMCAweDAgMHgzMCAweDAgMHgxMCAweDA+Owo+IAkJ
+ZG1hLXJhbmdlcyA9IDwweDAgMHgwIDB4MCAweDgwMDAwMDAwIDB4MCAweDQwMDAwMDA+LAo+IAkJ
+CSAgICAgPDB4MCAweDQwMDAwMDAgMHgwIDB4YzQwMDAwMDAgMHgwIDB4NjAwMDAwMD4sCj4gCQkJ
+ICAgICA8MHgwIDB4YTAwMDAwMCAweDAgMHg4YTAwMDAwMCAweDAgMHg4MDAwMDAwPiwKPiAJCQkg
+ICAgIDwweDAgMHgxMjAwMDAwMCAweDE0IDB4MTIwMDAwMDAgMHgwIDB4MTAwMDAwMDA+LAo+IAkJ
+CSAgICAgPDB4MCAweDIyMDAwMDAwIDB4MTAgMHgyMjAwMDAwMCAweDAgMHg1ZTAwMDAwMD47Cj4g
+Cj4gCQlwY2llOiBwY2llQDMwMDAwMDAwMDAgewo+IAkJCWNvbXBhdGlibGUgPSAibWljcm9jaGlw
+LHBjaWUtaG9zdC0xLjAiOwo+IAkJCSNhZGRyZXNzLWNlbGxzID0gPDB4Mz47Cj4gCQkJI2ludGVy
+cnVwdC1jZWxscyA9IDwweDE+Owo+IAkJCSNzaXplLWNlbGxzID0gPDB4Mj47Cj4gCQkJZGV2aWNl
+X3R5cGUgPSAicGNpIjsKPiAKPiAJCQlkbWEtbm9uY29oZXJlbnQ7Cj4gCQkJcmVnID0gPDB4MzAg
+MHgwIDB4MCAweDgwMDAwMDA+LCA8MHgwIDB4NDMwMDgwMDAgMHgwIDB4MjAwMD4sIDwweDAgMHg0
+MzAwYTAwMCAweDAgMHgyMDAwPjsKPiAKPiAJCQlyYW5nZXMgPSA8MHg0MzAwMDAwMCAweDAgMHg5
+MDAwMDAwIDB4MzAgMHg5MDAwMDAwIDB4MCAweGYwMDAwMDA+LAo+IAkJCQkgPDB4MTAwMDAwMCAw
+eDAgMHg4MDAwMDAwIDB4MzAgMHg4MDAwMDAwIDB4MCAweDEwMDAwMDA+LAo+IAkJCQkgPDB4MzAw
+MDAwMCAweDAgMHgxODAwMDAwMCAweDMwIDB4MTgwMDAwMDAgMHgwIDB4NzAwMDAwMDA+Owo+IAkJ
+CWRtYS1yYW5nZXMgPSA8MHgzMDAwMDAwIDB4MCAweDgwMDAwMDAwIDB4MCAweDAgMHgwIDB4NDAw
+MDAwMD4sCj4gCQkJCSAgICAgPDB4MzAwMDAwMCAweDAgMHg4NDAwMDAwMCAweDAgMHg0MDAwMDAw
+IDB4MCAweDYwMDAwMDA+LAo+IAkJCQkgICAgIDwweDMwMDAwMDAgMHgwIDB4OGEwMDAwMDAgMHgw
+IDB4YTAwMDAwMCAweDAgMHg4MDAwMDAwPiwKPiAJCQkJICAgICA8MHgzMDAwMDAwIDB4MCAweDky
+MDAwMDAwIDB4MCAweDEyMDAwMDAwIDB4MCAweDEwMDAwMDAwPiwKPiAJCQkJICAgICA8MHgzMDAw
+MDAwIDB4MCAweGEyMDAwMDAwIDB4MCAweDIyMDAwMDAwIDB4MCAweDVlMDAwMDAwPjsKPiAKPiAJ
+CX07Cj4gCX0KCgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5v
+cmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNj
+dgo=
