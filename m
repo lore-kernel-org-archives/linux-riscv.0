@@ -4,173 +4,149 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A240C02182
-	for <linux-riscv@archiver.kernel.org>; Tue, 21 Jan 2025 18:18:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 500CBC0218C
+	for <linux-riscv@archiver.kernel.org>; Tue, 21 Jan 2025 18:18:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Subject:From:Cc:To:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=RhoJuP+1exLZ6h11Ho7jbBtAVcZMXl1MSETMFg637fk=; b=s3htnDlRr4WNtq
-	jbsFXmQvztfkA1m2zhuuEXT3vB1spopzL671XoqkQAnedd/XlIPDwcUDlFiLGZzhpCveq0aJlW7Uh
-	nP50LkjK9npAxXqc2kXpMI67EZ3mRoSG525Zq/p5M2Bjuf5iOkj5vjv2DQq12tgX2FnvvuBP7Mvp/
-	UiRggG7QW4VtuZtIEay2Fq6cG6xCywxtYv2m07Eosx9MxPDWhHkwlaFD1LaXtVW6F8TqpnMlw0zEG
-	1xsBoefuQZCJvbDVVAdFF9nhaF4qmnVJvJ0TQXX4n9I/zqRJNvEi7xtObwCtRdUSv/UDEB+sRfXq+
-	dfIb6fghR59EOfgVFw7Q==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=TBeClw2MHE5AKnFyg7p7nde0M+JRkzx527c3XKx6+P4=; b=fpFntHjN1zYhkc
+	up3v9RhGVneSb8s/eUaxm8Pl3LVsEdPs82PhsoE+3Aafl70Qu5Dqt/ZhM97nGqauZCoJqD2HwxVGL
+	bHM51vapWzMo/FZlyv74aopFFVqs/qsuaM5bFSSsVinltTYVJw0tLI+aAuV+iK+1eK7P4tj19lpSV
+	kbsmsKI4Ukbp7FJixrpX4u9j1i00XT+9JdpmIil8wKM3HTOokVgksh6Dgymz2T/apzKtgEWOld9b/
+	78cwTnz5v2TXM5+NLo7a2V2iRXl0+N28LDE0ysaG+vropZ/xuL5NhR2AOrCQusMCUKRZv4KHQk+0t
+	fu3sJwJBGiX+tliL3bMg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1taIpq-00000008a1E-2rp6;
-	Tue, 21 Jan 2025 18:18:46 +0000
-Received: from mail-co1nam11on20619.outbound.protection.outlook.com ([2a01:111:f403:2416::619] helo=NAM11-CO1-obe.outbound.protection.outlook.com)
+	id 1taIpr-00000008a1n-3ZTA;
+	Tue, 21 Jan 2025 18:18:47 +0000
+Received: from mail.alien8.de ([65.109.113.108])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tXkC0-0000000961k-3e9p;
-	Tue, 14 Jan 2025 16:55:06 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=jOTnj8JYlJ1t/3asLyw6WA9ISWb7hNuMR/hkDubl0AZodLjeoPmHWTj2jNWW5zj+QRJTgNsAm/eBlDRf2CGoLi9L3s6JygFpYT9KD6u6SiAWkHaqkQ/SNTK8MEEVfFndQoE/oIviPfTAlFjCcl8tMTv9lClHJfwyf0/CO+dHCBCSO79LbzzrooJiK3FVnCJsX/IgXdHcahE/BHbGrv6k9NU8PdCyyC1xlbnv6NmbNMdey2DmxJIoeAeWmIEtk6z0hP6PiZGakiDyYTK+x/zunXT4OecZ0wmSdQj6NHUDI/QettHR8GipqRkShj1CpB9AxPBEJnUzc10rp+UF8oDvCg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=nAmMv73ifLveKrdhR68wLYsTc5hAw3qavuYYVdtH1/M=;
- b=Zdmp2JGlKAsxI9nBuJTKUZMdA1IKSd3tlVt8TwZmTv/PBR8ntZggps7ZjZmV6XbfCQuFsXlNduAo5GJklH34uFdOVNNILhk8zZu01GP5w/ja4hdudvhSXCbxM9RJ0Y/rwx2DbJdJMZ0Fo77duNfy0tMGKnsNypq32Uj8s8n502cCDq8W2AXyJ25BEz4tkHI91f8KcmWaVsIDDb0bDYvuyNwJHhcOcJ7aHTbhRvuD5gdvuA5DKof+3DMSrizrBATLUTfRqufGGhgVhSIp0Auyk97AzQZh9qxIxNSEltNeYodQ++v08NQGAMmZB1B6dO3ngS5cPbet5CHni0ljbx2qmQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
- header.d=amd.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=nAmMv73ifLveKrdhR68wLYsTc5hAw3qavuYYVdtH1/M=;
- b=Di/Wboe6TToesZasOUZUWx1cjHl9wnZG2BQcLzadl5IvhTsQBpVBNFuCMujiwZzJNMvbuK7uFUKJPmH9Nk1dsbgBYQ5pbFw3G7+V3Z/D0GYKt+Dsrk1RBBTGndVJfzA7QHIRj2w+en+W1cWyNAUK5GqmTGcktho4o66GT6b+Xxc=
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=amd.com;
-Received: from DM4PR12MB5070.namprd12.prod.outlook.com (2603:10b6:5:389::22)
- by PH0PR12MB8823.namprd12.prod.outlook.com (2603:10b6:510:28e::22) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8356.13; Tue, 14 Jan
- 2025 16:55:00 +0000
-Received: from DM4PR12MB5070.namprd12.prod.outlook.com
- ([fe80::20a9:919e:fd6b:5a6e]) by DM4PR12MB5070.namprd12.prod.outlook.com
- ([fe80::20a9:919e:fd6b:5a6e%7]) with mapi id 15.20.8335.017; Tue, 14 Jan 2025
- 16:55:00 +0000
-Message-ID: <ff8daeb1-4839-b070-dd94-a7692ac94008@amd.com>
-Date: Tue, 14 Jan 2025 10:54:53 -0600
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
- Thunderbird/102.15.1
-To: "Kirill A. Shutemov" <kirill.shutemov@linux.intel.com>
+	id 1tYN8B-0000000EVWA-2Y5f;
+	Thu, 16 Jan 2025 10:29:45 +0000
+Received: from localhost (localhost.localdomain [127.0.0.1])
+	by mail.alien8.de (SuperMail on ZX Spectrum 128k) with ESMTP id C3C7840E02BE;
+	Thu, 16 Jan 2025 10:29:39 +0000 (UTC)
+X-Virus-Scanned: Debian amavisd-new at mail.alien8.de
+Received: from mail.alien8.de ([127.0.0.1])
+	by localhost (mail.alien8.de [127.0.0.1]) (amavisd-new, port 10026)
+	with ESMTP id MFOmT_gDX9aa; Thu, 16 Jan 2025 10:29:37 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=alien8.de; s=alien8;
+	t=1737023375; bh=GQBvA11kyxIGOlMc4gw5ALfkgQqX/TyrIH9O3oAvLFA=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=FM40lE/0clitssFsEKe5JK0a143dAnkAItQNq6yMfahZmpGeSTt09D5HGf0pFLbt8
+	 ulpp29oYaFstDERke8ThqjtXoN04wo6eTBNIkCpJpYEXzS9U9b6shsRrnjlVJY+eKW
+	 TBn1/+CZ9ngMH08pwT66FQz7AXQy6uCPmHYlis0QOsac6iB9mWKsXjQbzbnmjnFYRL
+	 rZuO8syduQMjrFLSjkGi0HDUyE5i/fs8xiEFxdQfkwB7MgmrqT5n5XzifvkD8pCoqz
+	 5X1jUm0gItWfUGbyRkcvKB+w0NCTaoWmvE8UGl8msx3A8F9pgsooW7AjKtjxpPd8Lg
+	 Fb16TJfn+gMvgYR9ZsMlvBBT0VyKZ8xqAHFUwbZBUJJBetncTrqjjppvD9l7XGyf4m
+	 juTTN1zpyhjrfd7TJsAviRyvUSFuCvbml3Dt2L9NGpEIVm/zwFrWYVYuT654H8gFk2
+	 2Yj2R3th9hwTaGTH/t/mjjo+AyzreQe3eFBzv5ejybagmNkRrbkC3tIXtHARl+Igxz
+	 KDg7YnAEPlNEP63WkcD8y4HxsuP37idpXVeYFeL/U5iPMx4eRF2w1AcbW6UgXuHjtO
+	 b3RYhp+4K4Ia7A1PVcGG9NkyVI2JCvCFPMGn35tDMiM9QmJ3MEVxqzNgvDl6r7hKMW
+	 MGq/1HBafOJLETwhOQ5EmCKY=
+Received: from zn.tnic (p200300ea971f93c3329c23fFFEa6a903.dip0.t-ipconnect.de [IPv6:2003:ea:971f:93c3:329c:23ff:fea6:a903])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (P-256) server-signature ECDSA (P-256) server-digest SHA256)
+	(No client certificate requested)
+	by mail.alien8.de (SuperMail on ZX Spectrum 128k) with ESMTPSA id 9F55140E028B;
+	Thu, 16 Jan 2025 10:27:52 +0000 (UTC)
+Date: Thu, 16 Jan 2025 11:27:47 +0100
+From: Borislav Petkov <bp@alien8.de>
+To: Brendan Jackman <jackmanb@google.com>
 Cc: Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>,
- Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>,
- x86@kernel.org, "H. Peter Anvin" <hpa@zytor.com>,
- Andy Lutomirski <luto@kernel.org>, Albert Ou <aou@eecs.berkeley.edu>,
- Alexei Starovoitov <ast@kernel.org>, Andrea Parri <parri.andrea@gmail.com>,
- Arnd Bergmann <arnd@arndb.de>, Daniel Borkmann <daniel@iogearbox.net>,
- Eric Chan <ericchancf@google.com>, Jason Gunthorpe <jgg@ziepe.ca>,
- Kai Huang <kai.huang@intel.com>, Kefeng Wang <wangkefeng.wang@huawei.com>,
- Kent Overstreet <kent.overstreet@linux.dev>,
- Palmer Dabbelt <palmer@rivosinc.com>,
- Paul Walmsley <paul.walmsley@sifive.com>,
- Russell King <linux@armlinux.org.uk>,
- Samuel Holland <samuel.holland@sifive.com>,
- Suren Baghdasaryan <surenb@google.com>, Yuntao Wang <ytcoode@gmail.com>,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-riscv@lists.infradead.org, stable@vger.kernel.org,
- Ashish Kalra <ashish.kalra@amd.com>, "Maciej W. Rozycki" <macro@orcam.me.uk>
-From: Tom Lendacky <thomas.lendacky@amd.com>
-Subject: Re: [PATCHv3 2/2] x86/mm: Make memremap(MEMREMAP_WB) map memory as
- encrypted by default
-X-ClientProxiedBy: SA0PR11CA0074.namprd11.prod.outlook.com
- (2603:10b6:806:d2::19) To DM4PR12MB5070.namprd12.prod.outlook.com
- (2603:10b6:5:389::22)
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	"H. Peter Anvin" <hpa@zytor.com>, Andy Lutomirski <luto@kernel.org>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Richard Henderson <richard.henderson@linaro.org>,
+	Matt Turner <mattst88@gmail.com>, Vineet Gupta <vgupta@kernel.org>,
+	Russell King <linux@armlinux.org.uk>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Guo Ren <guoren@kernel.org>,
+	Brian Cain <bcain@quicinc.com>, Huacai Chen <chenhuacai@kernel.org>,
+	WANG Xuerui <kernel@xen0n.name>,
+	Geert Uytterhoeven <geert@linux-m68k.org>,
+	Michal Simek <monstr@monstr.eu>,
+	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+	Dinh Nguyen <dinguyen@kernel.org>, Jonas Bonn <jonas@southpole.se>,
+	Stefan Kristiansson <stefan.kristiansson@saunalahti.fi>,
+	Stafford Horne <shorne@gmail.com>,
+	"James E.J. Bottomley" <James.Bottomley@hansenpartnership.com>,
+	Helge Deller <deller@gmx.de>, Michael Ellerman <mpe@ellerman.id.au>,
+	Nicholas Piggin <npiggin@gmail.com>,
+	Christophe Leroy <christophe.leroy@csgroup.eu>,
+	Naveen N Rao <naveen@kernel.org>,
+	Madhavan Srinivasan <maddy@linux.ibm.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Heiko Carstens <hca@linux.ibm.com>,
+	Vasily Gorbik <gor@linux.ibm.com>,
+	Alexander Gordeev <agordeev@linux.ibm.com>,
+	Christian Borntraeger <borntraeger@linux.ibm.com>,
+	Sven Schnelle <svens@linux.ibm.com>,
+	Yoshinori Sato <ysato@users.sourceforge.jp>,
+	Rich Felker <dalias@libc.org>,
+	John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>,
+	"David S. Miller" <davem@davemloft.net>,
+	Andreas Larsson <andreas@gaisler.com>,
+	Richard Weinberger <richard@nod.at>,
+	Anton Ivanov <anton.ivanov@cambridgegreys.com>,
+	Johannes Berg <johannes@sipsolutions.net>,
+	Chris Zankel <chris@zankel.net>, Max Filippov <jcmvbkbc@gmail.com>,
+	Arnd Bergmann <arnd@arndb.de>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Juri Lelli <juri.lelli@redhat.com>,
+	Vincent Guittot <vincent.guittot@linaro.org>,
+	Dietmar Eggemann <dietmar.eggemann@arm.com>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	Ben Segall <bsegall@google.com>, Mel Gorman <mgorman@suse.de>,
+	Valentin Schneider <vschneid@redhat.com>,
+	Uladzislau Rezki <urezki@gmail.com>,
+	Christoph Hellwig <hch@infradead.org>,
+	Masami Hiramatsu <mhiramat@kernel.org>,
+	Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
+	Mike Rapoport <rppt@kernel.org>,
+	Arnaldo Carvalho de Melo <acme@kernel.org>,
+	Namhyung Kim <namhyung@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>,
+	Adrian Hunter <adrian.hunter@intel.com>,
+	Dennis Zhou <dennis@kernel.org>, Tejun Heo <tj@kernel.org>,
+	Christoph Lameter <cl@linux.com>,
+	Sean Christopherson <seanjc@google.com>,
+	Paolo Bonzini <pbonzini@redhat.com>,
+	Ard Biesheuvel <ardb@kernel.org>,
+	Josh Poimboeuf <jpoimboe@kernel.org>,
+	Pawan Gupta <pawan.kumar.gupta@linux.intel.com>, x86@kernel.org,
+	linux-kernel@vger.kernel.org, linux-alpha@vger.kernel.org,
+	linux-snps-arc@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org, linux-csky@vger.kernel.org,
+	linux-hexagon@vger.kernel.org, loongarch@lists.linux.dev,
+	linux-m68k@lists.linux-m68k.org, linux-mips@vger.kernel.org,
+	linux-openrisc@vger.kernel.org, linux-parisc@vger.kernel.org,
+	linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
+	linux-s390@vger.kernel.org, linux-sh@vger.kernel.org,
+	sparclinux@vger.kernel.org, linux-um@lists.infradead.org,
+	linux-arch@vger.kernel.org, linux-mm@kvack.org,
+	linux-trace-kernel@vger.kernel.org,
+	linux-perf-users@vger.kernel.org, kvm@vger.kernel.org,
+	linux-efi@vger.kernel.org
+Subject: Re: [PATCH RFC v2 01/29] mm: asi: Make some utility functions
+ noinstr compatible
+Message-ID: <20250116102747.GAZ4jfI9HG3K-PW7nf@fat_crate.local>
+References: <20250110-asi-rfc-v2-v2-0-8419288bc805@google.com>
+ <20250110-asi-rfc-v2-v2-1-8419288bc805@google.com>
+ <20250116001858.GDZ4hQctZe_PFvJ0AJ@fat_crate.local>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DM4PR12MB5070:EE_|PH0PR12MB8823:EE_
-X-MS-Office365-Filtering-Correlation-Id: cf4e36ef-cf90-4c2a-e242-08dd34bc2e70
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|7416014|376014|1800799024;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?ayt0T2NRZHRuYVpESnc4RHh5ZENCdU5sWHZEUmp1L2JVSDdDMW1WdlQyL3ll?=
- =?utf-8?B?U2hKdk16UXZFSE8wREV5R1dwT09IVWp6dmFOaXZQVDB4ZnV3SDAwbG5YVkNy?=
- =?utf-8?B?SitHOHZ1OUp1L3d4R0tRbml3WFA5RmNTZDlLNVAvd2h3eFo3SGNwQWZJOVNK?=
- =?utf-8?B?eDc0SGRoL0lCMTFUVTFFMnJNMU9KemxwN0RrcDFjbHp6cE50aWV1b1ZnbTlk?=
- =?utf-8?B?dWFvN1NEZkIxK2NzLzhJZjkwaHVFKzZ5dWhINTlUMm9yT0IyajhGdU9yQXpo?=
- =?utf-8?B?d2o5Nk9wYjhkNUFGblU2djNwZkpadTB2UVBNOVlNTEdKSStSMzF2L1VWTGxZ?=
- =?utf-8?B?bENxTysrTkd6RXo3Ny9IVTByUUR1cEZtalBueVJ4TUlQS0VNaWVpZjNnUmgr?=
- =?utf-8?B?SE1EbzdsTEM1WWE0bGo2TzM2dkxVbCthbUpQQVo0UGlJSWd5cWFvM01KcG4r?=
- =?utf-8?B?UDd4T1dqOEl2SDY0RmtoYUJHazVDb2JMNTJHbGZsWGpFOTROZFQzdnRSK1pl?=
- =?utf-8?B?YmFQYkhLcmNGaTdaMFVBOGRPcDBydyt0WGpraDBKSisrazM0U0VFbGhibEVB?=
- =?utf-8?B?OTFQZStuTFQxRmlod1BMa3FuSlo4RThhcDBLV3lNeE5aSFpUTmErOUxoNWpK?=
- =?utf-8?B?UXZOVitwblVkTWpKcmNxd2w5UHVXYXVQa1VwWFUxMy9tTGxETzAwK0pjZ2tZ?=
- =?utf-8?B?Q1pzd0NKTmd2UHJjTitFNklIZVZyTjR1Ly9oT3ZUSzE4V0xBL01OdmNxS3lz?=
- =?utf-8?B?WmxmNmRTVE5HYk9GZUdWWGMvRGZmcVUvMXY3TzlTaC9Dc3lGejBrYkE5YnF4?=
- =?utf-8?B?QWl3NGdUamJTT2UrYWtNbkVnYTdFRWphTnZVR1RibTRmQWQyYi9QWnhVL1ZL?=
- =?utf-8?B?YWk1Y2s3VGtHTGVLSHZ1TnpvZHEwYklUUHV1QzBkbEZlb0FFL3VMdlJuYTFE?=
- =?utf-8?B?eTM3Z2hBYndTZDRPS1MyVW9kZjdmYUlRNVRMTHVXMXFQeUFKWTR3NGFmWE9E?=
- =?utf-8?B?eEdsYVdtT2E1OFFqUXN1Titpb3FabW44eG96NFpRc0xzUk4zN0NlVDhHUlEw?=
- =?utf-8?B?NmpVMHUrOGd3eFZ6OWRxV2M3Y0psQ25pVXg5RXBONmh6Mk9hQjlsZStOSzht?=
- =?utf-8?B?Y2Q5S29vWjluTEVOanhTMVZOV0xRMUwzWG90STJNN01jK3pZSzZIQy9rMUp2?=
- =?utf-8?B?Zk0vRW9qZVZ2U09GUFFuU1k5alorNE56VldPanYrbVEvck1ncnVKcElEc0l6?=
- =?utf-8?B?NklOaE9UUzkrMWY2WE1jMzhFTkFGY00vKzE1S0tGK3B6NnFhS2g5VHpvckh6?=
- =?utf-8?B?REE2WTI5QWtHRUFMUWY0eG1JL01IWFJKSTNWb2hzck5qSnZZUTRFNUF6Yis4?=
- =?utf-8?B?Mm1MMWFhZ1JMVkg2Y2txNFAvOEZBUGFKczRJazg4eVR0Qm1oYlRYdzdlMHBW?=
- =?utf-8?B?NTM3WDc3Wmt1c1p2L3NzeTdTRW1zU040Q2RDTHowVjViL1RlVkUvbnM1M1M4?=
- =?utf-8?B?TGRDZ3Q0T3EvMU5MYUJGQkc0Y0RqQldPN2FJazhoRlRsYzEyLzJMQzdhUG9H?=
- =?utf-8?B?UnQvKzFmcnQ1bVpiZXNkckxBZnFzNTMyNjlQdXRwb1ZCNnYvV3JZR0NyQVIz?=
- =?utf-8?B?VGh5MEhCNjVFNVlIamlERS9lVi9LYlJjQmRqOE1hNE16SmxRTUtlM1FCNTlM?=
- =?utf-8?B?Q2tvRURVSVNCVHBBQmtWVjJDeENsZ2Y5ODhwUjlZSkNQbGE0cENTQk5GMEVl?=
- =?utf-8?B?aFVLWXRyQUtmNTlyS25PVmJJLzd0YlhrT3BueTVaYTIzNHRSMFdiTnlRNDFm?=
- =?utf-8?B?WS9JbkM3eTZIRkZZMk82SVpQNkhqcTFkMkpWY0VrTmdoWFVVUXE3K3AxV2Mz?=
- =?utf-8?Q?TvMMLJhh9bBjk?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DM4PR12MB5070.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(7416014)(376014)(1800799024);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?QUhqYWdLRTdITFpjN0REeFpSMExRTGV6WnVHRUc0UmVYcktCRTRMRlh0TGs1?=
- =?utf-8?B?NERnNnk4LzhYVFRMaytBR1A1c3Y3UW5rTWxoV2xNeTBVNTM4VmJRODNWLzBT?=
- =?utf-8?B?cTZFS3YyZDNCY0l6eHRPdFJrT1c2NFJRZEh2Q3RVY2FOSWdvRTRVeDJ5VHk0?=
- =?utf-8?B?dnpKY0JqRmduQVFFL29XNHJ5QW42dzdSNWNtWE9QZCtMS1NzVFR5YnF4REwy?=
- =?utf-8?B?VC92Ym5DalRleWhGVGF3S2FqelM1NWxwYm1xOEFGUWxSaGxpVkRqMCtkcXpU?=
- =?utf-8?B?R0hsRE9TUGE0ckhlYXJSUnE0clR2UG9CUmJpa0NpSHVWaWhlMitwWlBZNFQy?=
- =?utf-8?B?L0VzK1N2ay9ZTStWZjZpWjcwV1h1UHgrbFRVc2dJQlFGQ0FuN09URVVnS2Fl?=
- =?utf-8?B?VHlyZXNHUGFUUUdmVHBNS3pKRXlITTBuZTFFQS9lVFMxTnNUQUMrOEkxWjFV?=
- =?utf-8?B?cm5yNllhS2FwZk82c3FUd1J5NzFPdWNJZEpaQkdjMzlPQmo4Smc3ZnU0NUFl?=
- =?utf-8?B?ZkVnSGs3aU90SjBmT0lxeWFJUTVEVnJJWGJyWllaNjRIemFPaXR6SjlpbGo5?=
- =?utf-8?B?NUlVemMvU1FueDFXY1FUU0pveis0aldsSnJtOHdOTjdIZmpjM1Z5bUpORm9i?=
- =?utf-8?B?bTI2b2N4QXJqQlUrcHIwd3BGekdZQ05KMFdqbld0UGVEYkpibE1PNG9nQVpX?=
- =?utf-8?B?MCtGZlhPd2VhdW1Ycm9pSVFyRElpd3hlNC9sWWpnZUxUZHp4eWd3YzZMQ285?=
- =?utf-8?B?WmsyY3pSMHc4aEVzMnhaTzhxbkowOTJkN095OEQwUDNWTDYvQWpySk5ld1Fu?=
- =?utf-8?B?aUgreVpkT3EyTWZ3TGZlQXBLTTFmQVJWYjhmcXByaGhhL1oxeUlJT3R0RlRh?=
- =?utf-8?B?ZWI5M21kYkhNQ204eHNmb20zcXg4ZlhxRlNpc3J3Tm53ZWJPRmdMQ2tNUnJI?=
- =?utf-8?B?OVV1VWxoR0Myb283c0trS3VodGd6WnZUUHF0RDFKQU9RZnAyQVlxK0xKY0RN?=
- =?utf-8?B?ZDFtZHhBUTBYQzNVbXNjNmRvNFAyZWhCQTc2R3JyaFFsR09QT0s5MEFkQWJn?=
- =?utf-8?B?WG5mbUJWV2t4NURSQlBFWU1EUlFORUdaYTNXNm5xU29DaysrMUkyS0tBRnk2?=
- =?utf-8?B?TlNISmNoUW05eThFYm1LeWFRY2FmSzcrT0dxS0FPUjRCdlBnU005MHdsd2l1?=
- =?utf-8?B?elpsanpvQVE3M200Z09LTysvUXZydjE5RDVzWGlkdHhndWFRckRYckhZZTdt?=
- =?utf-8?B?TDh0NmgzU1UzMW1wZ2hnaTYwdW1LSFdCZUNNbk9rWnNVVElWRGdJL2MwRFla?=
- =?utf-8?B?SFJEbGg5N2c5RGJYNDFoamJiTVk3YzRoT3pVTHR3QTdUZ0gwblM3aFZOa0V3?=
- =?utf-8?B?bzZJV1dQK3lMbHpUVWVaK05MTlhsYlVrZ2FwV2hrVEVObWtJTlF4VXZYck8x?=
- =?utf-8?B?VUxPSDk4ZmZKQ1Zya3NtSWo3TWcyUCtnWDNyVFdFdXY3czhMMDhMV2JnQkp5?=
- =?utf-8?B?MDdlWjNSd1lqWitINWZmS24vMXhaWjFTSWpHUml2VWxJMzlIaVhXdlUrcnFW?=
- =?utf-8?B?SmJjajdlYXprZk55ejNZUzFiSm40YkxyYWNJd0lweFFXeEo0QnFSU3JJL3R3?=
- =?utf-8?B?N3NhazJ6d2twWmg3Ky9oelpxN0Y1cUJDMVFHRWRnK1JMaytWTVVCcGJQVTlR?=
- =?utf-8?B?OTZLeC9ERCtPYWhwZ00xaWg5YkZsYVg5MlJzU1k3UkxXR0tWOXpWQm9mWFVO?=
- =?utf-8?B?OFlZZFh5dU5KUmN1anQvbkMrd3B2TE9ZQXdQVDFkTDhlNXFsZkI4eWxBZnY0?=
- =?utf-8?B?cloyRGhnK2EzanJmOWN1QkhkZ3RIUUVManZBL3ZLVUFlS1Nib3UwSUVrc09G?=
- =?utf-8?B?NVFOWDNNdGtnd3ZIR0UzK3lQd1dtajlxR21mQ2dMN0pHbG0yMDE4TGlOR05Y?=
- =?utf-8?B?UTkzRnhKT0NyWk9FU2VMWFVMTnVqZk9ieHdJOGJkeWhqQ25Zd0ZmdU1pZDk1?=
- =?utf-8?B?TWRFTnI3YUVwb3dCcjRacTk4VGF4OFlyd29kRlFIbzlkQTh2U0VsWU5ucTRS?=
- =?utf-8?B?MGRGL0ZtK3haL2NibkwyRFNEWC9jaWl5MTJoVHVwL3pjM1l0bnZmOUZicUs3?=
- =?utf-8?Q?fvw0K495ZKiRKPN+YmfjCsFMt?=
-X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: cf4e36ef-cf90-4c2a-e242-08dd34bc2e70
-X-MS-Exchange-CrossTenant-AuthSource: DM4PR12MB5070.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 14 Jan 2025 16:55:00.0852
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: lhiU7/DP4JTb1OizpJzdM3deUFaFwM74pEPlk0+dytOZmZfu6PUFdYlp5z6cdZE5QkFOvsEvX1r8pAHyMkErmw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH0PR12MB8823
-X-Bad-Reply: 'Re:' in Subject but no References or In-Reply-To headers
+Content-Disposition: inline
+In-Reply-To: <20250116001858.GDZ4hQctZe_PFvJ0AJ@fat_crate.local>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250114_085504_914432_EE0C8EFA 
-X-CRM114-Status: GOOD (  20.18  )
+X-CRM114-CacheID: sfid-20250116_022943_803656_928E4E09 
+X-CRM114-Status: GOOD (  11.92  )
 X-Mailman-Approved-At: Tue, 21 Jan 2025 10:18:46 -0800
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -188,103 +164,19 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 1/14/25 09:06, Tom Lendacky wrote:
-> On 1/14/25 08:44, Kirill A. Shutemov wrote:
->> On Tue, Jan 14, 2025 at 08:33:39AM -0600, Tom Lendacky wrote:
->>> On 1/14/25 01:27, Kirill A. Shutemov wrote:
->>>> On Mon, Jan 13, 2025 at 02:47:56PM -0600, Tom Lendacky wrote:
->>>>> On 1/13/25 07:14, Kirill A. Shutemov wrote:
->>>>>> Currently memremap(MEMREMAP_WB) can produce decrypted/shared mapping:
->>>>>>
->>>>>> memremap(MEMREMAP_WB)
->>>>>>   arch_memremap_wb()
->>>>>>     ioremap_cache()
->>>>>>       __ioremap_caller(.encrytped = false)
->>>>>>
->>>>>> In such cases, the IORES_MAP_ENCRYPTED flag on the memory will determine
->>>>>> if the resulting mapping is encrypted or decrypted.
->>>>>>
->>>>>> Creating a decrypted mapping without explicit request from the caller is
->>>>>> risky:
->>>>>>
->>>>>>   - It can inadvertently expose the guest's data and compromise the
->>>>>>     guest.
->>>>>>
->>>>>>   - Accessing private memory via shared/decrypted mapping on TDX will
->>>>>>     either trigger implicit conversion to shared or #VE (depending on
->>>>>>     VMM implementation).
->>>>>>
->>>>>>     Implicit conversion is destructive: subsequent access to the same
->>>>>>     memory via private mapping will trigger a hard-to-debug #VE crash.
->>>>>>
->>>>>> The kernel already provides a way to request decrypted mapping
->>>>>> explicitly via the MEMREMAP_DEC flag.
->>>>>>
->>>>>> Modify memremap(MEMREMAP_WB) to produce encrypted/private mapping by
->>>>>> default unless MEMREMAP_DEC is specified.
->>>>>>
->>>>>> Fix the crash due to #VE on kexec in TDX guests if CONFIG_EISA is enabled.
->>>>>
->>>>> This patch causes my bare-metal system to crash during boot when using
->>>>> mem_encrypt=on:
->>>>>
->>>>> [    2.392934] efi: memattr: Entry type should be RuntimeServiceCode/Data
->>>>> [    2.393731] efi: memattr: ! 0x214c42f01f1162a-0xee70ac7bd1a9c629 [type=2028324321|attr=0x6590648fa4209879]
->>>>
->>>> Could you try if this helps?
->>>>
->>>> diff --git a/drivers/firmware/efi/memattr.c b/drivers/firmware/efi/memattr.c
->>>> index c38b1a335590..b5051dcb7c1d 100644
->>>> --- a/drivers/firmware/efi/memattr.c
->>>> +++ b/drivers/firmware/efi/memattr.c
->>>> @@ -160,7 +160,7 @@ int __init efi_memattr_apply_permissions(struct mm_struct *mm,
->>>>  	if (WARN_ON(!efi_enabled(EFI_MEMMAP)))
->>>>  		return 0;
->>>>  
->>>> -	tbl = memremap(efi_mem_attr_table, tbl_size, MEMREMAP_WB);
->>>> +	tbl = memremap(efi_mem_attr_table, tbl_size, MEMREMAP_WB | MEMREMAP_DEC);
->>>
->>> Well that would work for SME where EFI tables/data are not encrypted,
->>> but will break for SEV where EFI tables/data are encrypted.
->>
->> Hm. Why would it break for SEV? It brings the situation back to what it
->> was before the patch.
-> 
-> Ah, true. I can try it and see how much further SME gets. Hopefully it
-> doesn't turn into a whack-a-mole thing.
+On Thu, Jan 16, 2025 at 01:18:58AM +0100, Borislav Petkov wrote:
+> Long story short, lemme try to poke around tomorrow to try to figure out what
+> actually happens. It could be caused by the part of Rik's patches and this one
+> inlining things. We'll see...
 
-Unfortunately, it is turning into a whack-a-mole thing.
+Looks transient... The very similar guest boots fine on another machine. Let's
+watch this...
 
-But it looks the following works for SME:
+-- 
+Regards/Gruss,
+    Boris.
 
-diff --git a/arch/x86/mm/ioremap.c b/arch/x86/mm/ioremap.c
-index 3c36f3f5e688..ff3cd5fc8508 100644
---- a/arch/x86/mm/ioremap.c
-+++ b/arch/x86/mm/ioremap.c
-@@ -505,7 +505,7 @@ EXPORT_SYMBOL(iounmap);
- 
- void *arch_memremap_wb(phys_addr_t phys_addr, size_t size, unsigned long flags)
- {
--	if (flags & MEMREMAP_DEC)
-+	if (flags & MEMREMAP_DEC || cc_platform_has(CC_ATTR_HOST_MEM_ENCRYPT))
- 		return (void __force *)ioremap_cache(phys_addr, size);
- 
- 	return (void __force *)ioremap_encrypted(phys_addr, size);
-
-
-I haven't had a chance to test the series on SEV, yet.
-
-Thanks,
-Tom
-
-> 
-> Thanks,
-> Tom
-> 
->>
->> Note that that __ioremap_caller() would still check io_desc.flags before
->> mapping it as decrypted.
->>
+https://people.kernel.org/tglx/notes-about-netiquette
 
 _______________________________________________
 linux-riscv mailing list
