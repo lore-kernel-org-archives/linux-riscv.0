@@ -4,93 +4,169 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3AE2CE77188
-	for <linux-riscv@archiver.kernel.org>; Thu, 16 Jan 2025 04:58:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D4D60C02180
+	for <linux-riscv@archiver.kernel.org>; Thu, 16 Jan 2025 05:16:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Cc:From:References:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Sv0BA+DJPp+FGeKOqUD/y0XyyVCb7twAlfiY+Q7ARU8=; b=wQS9GOECO3sMKU
-	+F8vjRqXuOd1ma5FBUgca823ElspcHzz0ZEdgKxdYUNledkXg38oGvE6B9oHcvckCRg3k+SRHfEkd
-	ojEs/8sUEeeM6zErXLVFBuxJyOfDeO17O+MGP7psbJh0VW6XLv1VO4h8hC9AbzsIkeboC18Y6em9U
-	a+wHTv4Ty9zuCTd+6IpEMsb3UVN4pDLi1r/+r8IW4meNb0wncBYF5MUjHDGiCAm2vrZ01ucJibZY6
-	20pyVHP6rKkVBEp5nXHUIObvWqoLo6Ib6al3zdCcGAsdqoeninpSA1YTqRdBJQ8vxs/sZgIXrOl4B
-	k73sG4eeBHxyQ5iIU/Yw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:From:
+	References:Cc:To:Subject:Date:Message-ID:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Owner;
+	bh=E+rT6LdhqKPRIOiOAaU5i6m1zRIb7Y/0XvvWauXsUIc=; b=mC8KObRMU7lCfLVdeU79CD8UAv
+	36ORtspcJIh+u9R39YGYW6H4Zk2CqWIn4ib0adAUMU4FS4RenIAsA5VHylLO+Poynf1ybqYdpXMh8
+	ztJZ3YWvaTw85hSQ5V2J1oQoDvAuNiwBYuo/I5+0Ci6jMzXZzW7JGJNZ1+UozzTSMrPex6nCRsD4L
+	aAbbWT9LfXvyBZ24hxxCneNXr1EPDkbRAQF+zrNPStGKMJQRwUhKAVXgkxSyGhO3w62dShjxf9o3E
+	/Z5/Enr7Zh+99ciMQmF15tPf51kHz9PmNSDtHyuQLhvTj570w4Ka2CuKxgPMbQ82Y+8NI//HhJzYX
+	j9anKO7Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tYHxe-0000000Dpuz-0DKL;
-	Thu, 16 Jan 2025 04:58:30 +0000
-Received: from mail-io1-xd2a.google.com ([2607:f8b0:4864:20::d2a])
+	id 1tYIEZ-0000000Dr4H-34Ay;
+	Thu, 16 Jan 2025 05:15:59 +0000
+Received: from mail-dm6nam04on20625.outbound.protection.outlook.com ([2a01:111:f403:2409::625] helo=NAM04-DM6-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tYHxb-0000000Dpuh-3D5G
-	for linux-riscv@lists.infradead.org;
-	Thu, 16 Jan 2025 04:58:28 +0000
-Received: by mail-io1-xd2a.google.com with SMTP id ca18e2360f4ac-844e7bc6d84so20844139f.0
-        for <linux-riscv@lists.infradead.org>; Wed, 15 Jan 2025 20:58:26 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sifive.com; s=google; t=1737003506; x=1737608306; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:cc:from:content-language
-         :references:to:subject:user-agent:mime-version:date:message-id:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=AFLg8GSDpsapBIGiAyBWLlK/6kmfSioivJ/IsRLirXs=;
-        b=E94XBPy7UKrGu6/6I60BaCTnkKU+cFNanoH4VDFrzouNTwQJKY+t1KM1gExHR2DPjA
-         1KuhkwhQv28Br1UoKuvOb+lz3ja6BwqkzJFZ3Tu8j3+bNqVUDmNLhsScgFpUXRXKzxx8
-         jefPLe30l2JmKAf93alWjwDMhLmFG+ET6mD/C3JX+/C2Ezbbqaio9YABBzbQtR2vCCEd
-         DuUo3IOKYNlxlveMIEmkGvqnVTlFZy4dF+i9kaEUajdSeLrYs5h5+bNStEN1r1kSgmeo
-         LwUOtfNvWsA0vroRbrifFlDGg3WF2J6rF8N0klScQwT0Sig6x6dxqfWE5/6mQTicLQr4
-         CPqg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1737003506; x=1737608306;
-        h=content-transfer-encoding:in-reply-to:cc:from:content-language
-         :references:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=AFLg8GSDpsapBIGiAyBWLlK/6kmfSioivJ/IsRLirXs=;
-        b=BMsWdChuqsYrd/bw3ymZDe5oXTGaw8/BXnMeoqBkPZqHU4keP4GkqcgyU0kI+bqjH8
-         0UobDQvBnskE9tw8he9Pz7RXSyEi7ZZjvErplE8jNq+tX6Bn4FdAm4Qgddh9OzR90mtr
-         kOWU1UiKtdNjUkfJQB1I4NimQTm/1x6vrtoyJYFVbGS5ptcbPu5+SbCD3laeqLNTfv/S
-         A0pCcB0biQJg6UFM58f8SnqBaCd1rSGRspgy6PPDYQQYruZdZdy772S+kpIw8s96G/m/
-         1j8xKnS70E3mDq49Wn7extUnve00KocQ/1wr7dk9J79aplTWTr1G8Br8TnOkR6ALyY+1
-         jrzg==
-X-Forwarded-Encrypted: i=1; AJvYcCU2y5DHzTVnSY7IiUu+sevEpxeHqeRWEsNZau+0wTrZrPGx+/gmZOVqxt1jwS38AmZ6PcoySvNt88pA4w==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx1yaxMZ+2uWkK1bELjZma3SuUjOE7oaH8RE/UHYqHZ8oZ2otzK
-	X4L5r7U57YdGYIE/fpByNUP+KVmc17H7xvqBob2BEJvczX/2n/WjiPsLh8XJBKs=
-X-Gm-Gg: ASbGncvo/mUtqypkUJx4wbPP78EnS0SJLoKoydlZdq2bHoIptwYaC8ijtwFYNPtadDj
-	r6CTaWZC4hTf0h6mUh+HR/b9zmreVKC3jpTOd4AznTcAm3oSCOcxCw/te6EC4c56UILEp5NFlFk
-	cF+UcZekyHqQfReMimOwKzrnqwdhTDq8ESTYiDEnKSv9Oxm9glu0y6x/8uB98bE8s5BkqFsjaRE
-	E4N1KYtfUqLCU198aJvtqs0GmRPB4nKIbiHuteK2DwFOf2Gb5QMD5/jpzlSx3YBH/9RLBwZcxaO
-	8J9F
-X-Google-Smtp-Source: AGHT+IGCURJWIVYousmDxQfZtWRFVgJilSrZTA63b4XTXZvjX1GtlsFKkKGE3cWs27mtEc5QXAwz2A==
-X-Received: by 2002:a05:6602:7288:b0:82a:a4e7:5539 with SMTP id ca18e2360f4ac-84f672d8530mr532921139f.2.1737003506302;
-        Wed, 15 Jan 2025 20:58:26 -0800 (PST)
-Received: from [100.64.0.1] ([165.188.116.9])
-        by smtp.gmail.com with ESMTPSA id ca18e2360f4ac-84d61fca4f0sm425517139f.44.2025.01.15.20.58.24
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 15 Jan 2025 20:58:25 -0800 (PST)
-Message-ID: <8d03404e-c9eb-485e-9280-27a06937c347@sifive.com>
-Date: Wed, 15 Jan 2025 22:58:23 -0600
-MIME-Version: 1.0
+	id 1tYIDG-0000000Dqvu-0UYN;
+	Thu, 16 Jan 2025 05:14:39 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=LjZ98UknIUQ002KLRPkYcojXGrguXdurcE3xn0zAxpkL7gc192PLa9pwfsYvQ7/CIMqPZ14/buTQkMcTNzNhpYIOhyUVX5mRlRpqA+iQPEBho9/O2yijsYLBdq/YIADysL/XHFG+3U9PlxsI+92JP2oEj6N2to0dV7dm2xy/YlkqXAHolOqTlZwcAhPoHxkyUsQ7zgto1i4c95FpzsuevgRZMX/8/7KyOxM2FNuDcZHAheK0Q1l9cVQOadmNrhacZBdNybcyJbMJBHgAJD2gX8cSLAy0ntcaafpjoqkaNzdTbvsb/H6cwdZnlg9TXY66ts8KT20sTmB0dpeY/Ggpdg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=SvnnRfgmJRCl8LKiuPTml/D1QiaX/r5oMNb2TY0TZlc=;
+ b=XeHuIKjCwgJQurDBopY3nH4oaR6d7ESIMMujmfDy69k20dKQ06SjwG8oFLoxi0P0VxDNzON0dAXHDuDHoTX2JOk3NCx2i3y/xV46jRcrm66DlYIv0JZ84ufZx+0VXTplwYuDEkY1ts1H4I7cq0q/dl8R8CHmRO+4npaneSnDeYvv8u7/eBKiNU0L23l5FjjxhL9vSfOqMBk3J0IlRfPzmHpESARR93/iDGlSiurbQc1xS+vFTR/hWM4G1RZb53qeRTz7kTQEgvaJb3xN0E0ysA2NI9Pta4Ue5Z3hVKLHO/nSLOBK4gDt3bnL2wPGTlgl1hZKl7yNkUAoU5tdV5l73Q==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
+ header.d=amd.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=SvnnRfgmJRCl8LKiuPTml/D1QiaX/r5oMNb2TY0TZlc=;
+ b=z9zQD55xNQ1yYEtQ82ZXRHEK7aPhGlUl7rsjJXvPVByf7BfS82gBOTg9L2Hm3Zq0nS6AB7/0X7Iv6hsEbOudwXURGjun1cDFoJ73Jd8mrOzRR/i/ltajiWJmcEHpT1NuDpbIyl6iO2/ryB6UWwSFQ2LqKeITDCCCohoYHU7U0l4=
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=amd.com;
+Received: from DS7PR12MB6214.namprd12.prod.outlook.com (2603:10b6:8:96::13) by
+ SJ1PR12MB6316.namprd12.prod.outlook.com (2603:10b6:a03:455::22) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8356.14; Thu, 16 Jan
+ 2025 05:14:32 +0000
+Received: from DS7PR12MB6214.namprd12.prod.outlook.com
+ ([fe80::17e6:16c7:6bc1:26fb]) by DS7PR12MB6214.namprd12.prod.outlook.com
+ ([fe80::17e6:16c7:6bc1:26fb%4]) with mapi id 15.20.8356.010; Thu, 16 Jan 2025
+ 05:14:31 +0000
+Message-ID: <ee027335-f1b9-4637-bc79-27a610c1ab08@amd.com>
+Date: Thu, 16 Jan 2025 10:44:20 +0530
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 2/3] RISC-V: hwprobe: Expose Zicbom extension and its
- block size
-To: Yunhui Cui <cuiyunhui@bytedance.com>
-References: <20250115024024.84365-1-cuiyunhui@bytedance.com>
- <20250115024024.84365-3-cuiyunhui@bytedance.com>
+Subject: Re: [PATCH v2 8/9] KVM: selftests: Add infrastructure for getting
+ vCPU binary stats
+To: Sean Christopherson <seanjc@google.com>, Marc Zyngier <maz@kernel.org>,
+ Oliver Upton <oliver.upton@linux.dev>, Anup Patel <anup@brainfault.org>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Christian Borntraeger <borntraeger@linux.ibm.com>,
+ Janosch Frank <frankja@linux.ibm.com>,
+ Claudio Imbrenda <imbrenda@linux.ibm.com>,
+ Paolo Bonzini <pbonzini@redhat.com>
+Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+ kvm@vger.kernel.org, kvm-riscv@lists.infradead.org,
+ linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20250111005049.1247555-1-seanjc@google.com>
+ <20250111005049.1247555-9-seanjc@google.com>
 Content-Language: en-US
-From: Samuel Holland <samuel.holland@sifive.com>
-Cc: ajones@ventanamicro.com, alexghiti@rivosinc.com, andybnac@gmail.com,
- aou@eecs.berkeley.edu, charlie@rivosinc.com, cleger@rivosinc.com,
- conor.dooley@microchip.com, conor@kernel.org, corbet@lwn.net,
- evan@rivosinc.com, jesse@rivosinc.com, linux-doc@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org,
- linux-riscv@lists.infradead.org, palmer@dabbelt.com,
- paul.walmsley@sifive.com, shuah@kernel.org
-In-Reply-To: <20250115024024.84365-3-cuiyunhui@bytedance.com>
+From: Manali Shukla <manali.shukla@amd.com>
+In-Reply-To: <20250111005049.1247555-9-seanjc@google.com>
+X-ClientProxiedBy: PN2PR01CA0084.INDPRD01.PROD.OUTLOOK.COM
+ (2603:1096:c01:23::29) To DS7PR12MB6214.namprd12.prod.outlook.com
+ (2603:10b6:8:96::13)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DS7PR12MB6214:EE_|SJ1PR12MB6316:EE_
+X-MS-Office365-Filtering-Correlation-Id: 74f3beb2-644f-4e8e-10a7-08dd35eca86c
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|366016|7416014|1800799024|921020|7053199007;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?VVh3bDBQTEN5aUt6RE1QRWtEdUtvMTIrcDBoQU96T3VjUGM3LzcvcE5jVERu?=
+ =?utf-8?B?VlpOZWZ2UFBmR3FWVG1EVjV0QjdDWTFwU1hvNDI0bFhMOE5QNE53ay9JclJR?=
+ =?utf-8?B?VVZET2VYWlY5NWQzV3doazFkeEFjUEhHWHFQODlTekMrZ3RHd2g4U01RTHI4?=
+ =?utf-8?B?dTl2SlU3RmxaQWovQ0pBWlVMSDN3RmZveGI2Qi9EU1VIUjZCU2J1Z2pXc3Ft?=
+ =?utf-8?B?TEFITHRLQXZvMGduTFNUMDcybFdJRXd6TWErT3lxcWgxQjBWd3VSblQ4RVJS?=
+ =?utf-8?B?N3d5ZDkxbVZ6Y29TTTFYWklSWEtZeXdHYkJWUjFDNEtWajIrL2dkS28zYXhp?=
+ =?utf-8?B?S3hyUnc1MUltN2licVg2OUozRjJjb1o5NlVSTUJla2RqOFFCdHhsUEUwRU5o?=
+ =?utf-8?B?U2RUNnEvVjJuRStXUmdrMUNZQVNUMGFOZFRWZWQwLzNxdTRFYWdEakRGT3Ba?=
+ =?utf-8?B?VVBHNE1mYVpPVDlYM0k4dFlQejVEZEtKNG5vM21FUGtxZW9xb3k3a2Zmc2w2?=
+ =?utf-8?B?OG1MTzVVSEMyaFY5SmY1ZXNCdUJwUEV4bG1LYkdZQ25Xc2hMWlVTNUZESFkx?=
+ =?utf-8?B?TkVXVktZUkRBZk04dXlUYmVJUVppVWpLRU1KOE1jTlVRQk96c1NtMlZBS0Rn?=
+ =?utf-8?B?OFNYcGFpMGxkMXdBdnBlcUFPZ2crTGs1NU1qMVRoZzZaWVpUWGtwSmRPbUVH?=
+ =?utf-8?B?ZEhSU0FNRi9HZWdIUFcvK0E1U3RKclFLc2NUY0M1aUdoWVZDR2ZlVWRkYXM2?=
+ =?utf-8?B?d2lJNzliREpJbHlFcHlOeEhqNWgvVTJvV1doTmJZOVpEY1Rpd1QrNm9IWnJT?=
+ =?utf-8?B?UlZNZGxVOEFBTHlhTUFQNW9XZkk0S0hNaTVla1FwYUhLZEFFZ2Z6NUMyYWJJ?=
+ =?utf-8?B?M3FvZXlpWjhjRWVLanZpN2o1M2crS0d3NCt2REYxckE1UWxya2YvSExTOTFv?=
+ =?utf-8?B?cUxPcUl3YmdNNWFEK0Izek9oZGt3akRaSDdOTWdkUVF6N1poUDFMbU9pOTQy?=
+ =?utf-8?B?MzVBUS9VcWUvRFhtTkh0b1hHZGxFUnJDbHgvN0dSUVcwNDNCTHdyR3Mwenpi?=
+ =?utf-8?B?L0FaTFFtcHpwZzBFTTlHYVJoUHFKeVU5anZqZUd0U1ZpVFdNTVN5Z015YXlL?=
+ =?utf-8?B?QjFFeWRMdVFBNmFJM1B4K0d1eWVLUEQreTZONEJaTjhnUHBKYlMxL2hDWDU1?=
+ =?utf-8?B?QUsrNTQvVUtLdGhnWVVBQXlIY1B4dXEzVzRjV1gzZ2VhVy9YSk8wcVl3b00r?=
+ =?utf-8?B?bFVNdnF1YXpDbkpzcnlrK1o1NzZDMnZmeldNYmxMN0VNQjNmVmFkVGZGamFF?=
+ =?utf-8?B?OVlsR21xQnZacWU5WmFWelE5YmtXVmorK2E0Mi9nTXQzVUxieDZ0NFhqak9q?=
+ =?utf-8?B?N1RoVEJOcmRKcEo3U1JEUzBtTzNSQ1lGSVp6WjJ5OWxjTWhsQXNEOUN2Q3lK?=
+ =?utf-8?B?NmVwZit6dTNkcVdHWGlNa2ZJc1RuL0VDVHB0WmtoZ3V5ZXBxY2VaRExGS1R2?=
+ =?utf-8?B?YlFvQkFNWGhyZW9MZDZ3UmhONFNoemxZWnp6Q2JHSjlQTFNIaG9zK28xTlE0?=
+ =?utf-8?B?dWNUaGcwL1lQNU5sT2NiUTJKRzdBY3hiZjRTdXlyN1hqM2pqRUZEZkZjTE5z?=
+ =?utf-8?B?ZWQwS05jcW1qci9HRUdOTklMT3hPMlF6YkNtK3NvWG0vQzNEQkV1RXM3N091?=
+ =?utf-8?B?Y0JZQ3NuZFI1YW40NldabTZoNkxMYkdXcExES2pNR1FQamN3UEVoTTU5M1Q1?=
+ =?utf-8?B?bXpocUxncmJIeFFaWUNKNm51cWlya2lqNDRlalBHeFpnc2pFY2ErNng2SkFz?=
+ =?utf-8?B?SkpXa1k1STNKRnVUZWR6dkw4eGtaVXNFTDlQRG5nM3dwVTdOdDN6MGE0ditJ?=
+ =?utf-8?B?bXI3TCs0RTZMMEFSRW8yaEs3UGlHWFQ0YXgrd010VmxxUGc9PQ==?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DS7PR12MB6214.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(366016)(7416014)(1800799024)(921020)(7053199007);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?SmREZ0FzTWJod2lpU2JiWWFWK3N3aGF2L2t1Q1U3aVJUSVpqaXhIRHFQS2tB?=
+ =?utf-8?B?a09XME4zRXpIMm1qM0xMeHM1MG5keFVRMncwV2JZcnVHZlo5elZUaFltNHJX?=
+ =?utf-8?B?TTRxMGJzL2x6VXhZRzg0Nlh3eXhqc0Zhemo1SUdoZVBVTzlvaFhEYUF1NlZU?=
+ =?utf-8?B?dE42aTVxS3YvYnhBVmNVdzN3MSt4d1IrR0xIMXVjcUNMR2ZoNGtQU1JuOUkv?=
+ =?utf-8?B?OE1uQXRuV1h6VkVwSTlSaWMySVFGM2xvYTdwRjBKTldubHIyYWs1WDdER1dX?=
+ =?utf-8?B?NzNLYks3ck1panZCUXNxUDhkOTBBUVRZUDRlenZ6K3Q2V1hyaEh4dUZWdjRk?=
+ =?utf-8?B?SDVndzlxcm0wemRzQ3JWY1VBWHgxR0xVYTZRdE1zK0ljaXV6MWNOU2dWZnd1?=
+ =?utf-8?B?YmplZFZiYzBiSWVyR3BEN3dTSnBRZnJTUlg3WmsvNERzd1I5ZTVUOHdvNFJk?=
+ =?utf-8?B?MjJFbk5OMDBiK1pZVUpySWg5cnF5dGdOdDFYdlBRTnBpWDZacjVscks5bGx0?=
+ =?utf-8?B?ZUlHcS95eDdjaDlOQk41YXVPTVV5VEdYbGZVS2FFcS9mWURRcWpRV21pbVVw?=
+ =?utf-8?B?eGRlaHgrOFlnWkJrQ2xWSDhFK2ZlOThocjJuQThrdEhXSTR2UG90eG5QWk41?=
+ =?utf-8?B?aXZDK3FhU1pMV2tjVUhnbys0K285b0h3TGF0RFJleDBidS81TThjU3VTalFG?=
+ =?utf-8?B?ZVhkSnpOb0hyNkMxb1ZlaER2L2V0WFNSK3p3NzV2bXdmL3RkTWxJYlVYVGhL?=
+ =?utf-8?B?ZkpIUkVmNEF0amZ6aVNRazdRMWJTV3JMK3hDT1BVQjZXME1zZ2RINk9VVWxa?=
+ =?utf-8?B?VmZnbXpMeTFFT0lqa2F5eEEzQnZmLzVBdTMvKy95NEk2dlhlYzNtcWFqTFJ5?=
+ =?utf-8?B?alU3REUwVFJYbmdSYU5wVUxQWXQvbTdyOFl2c2l1R0JsRVJoNGsxeEZzbDBw?=
+ =?utf-8?B?aFRiK0ZJQnM1YXU3Y3lSNzIrM1JWVXhDa0pOUEdmeFIwZ25BVTBudkVUKzFR?=
+ =?utf-8?B?Y0NYM1kralJXZTQ4SWg4d2ROQXBRMWtYQ2hZRkxPSjVuOFRwMDBEdGJoM2Iv?=
+ =?utf-8?B?ZDN0UHhGcFFNRGJ4cU9zQnowMUVCaG5Pc2FSQjZFZXlGTU5zZ0k2VkE1bGU3?=
+ =?utf-8?B?b0tmQ1p6bWpBQzVEcXA2TzU0YUpYRzkxU3ZDdi9SVHF2YzdZRWtuTjYyNWx4?=
+ =?utf-8?B?cEZvV0dOODdyRWtzUFk3MmpKTCtoYXdIZmplMUlnTmhpb21sbWliY3JLNXNQ?=
+ =?utf-8?B?dEF2UnFMMjNYbllwVkVQNHRkbUg1MlU5RUZ1dGhMWlNPbnBWdzhmemVWeWJY?=
+ =?utf-8?B?TlU3c2thZ3NlTmtuQjB5UGNIdjdMcWN4S0E5OWRsVHpJSFYwdTJGazBVTHJr?=
+ =?utf-8?B?ZW9hQ2o2cDNUSHJHOTVvbE5JblFOYytnOE5GYTBuU0RwVElOYy9iUTFGWkZw?=
+ =?utf-8?B?azlOY2xXcE1VVDBNUTdzdm9jQ2xBTEZhd3BtMXM1L3U3M1J3clpHU2dBRXNO?=
+ =?utf-8?B?YkF4ZHpuL1RWNDBKbWFqM1RsSVgxQmh3S2I0TytPdEMyY25LTldrZjU4Myth?=
+ =?utf-8?B?c2R4NTIyUHNkeDRpajNTUW8wb0NzeThwSUE4WHlxK1RpaTBHcDd4emlKcTBT?=
+ =?utf-8?B?WStZaWgwRVAwakh6V3dGQTQ0azI3VGZUSysvcnJZL0ZHTEwzdE1XSS9ENmw4?=
+ =?utf-8?B?K0JoemltbU13cm1OVUFTYkFNYkxETHN6K0xsYW5HQWs5TCtqTklrekJscHlk?=
+ =?utf-8?B?aWpuYUdXdG9XWFBuUFdQTHZvdEhVZm5JYXRHdHYycmRoVDd5K0FXMFh1WDcr?=
+ =?utf-8?B?NG1uL0FaTHhVT0xvK2pOcnh6aHBnZ2xmdkQ2MFhxVzdBMDczUHNjVjh3RkM0?=
+ =?utf-8?B?aEp2bld2TXZHTTdMSnlkRnI5bmp6TkpRRlo0TFFnM1RWQzRGMEJDVWZUcjRC?=
+ =?utf-8?B?N1BBa1M4VUlMVFBTSFJVb1Jwbk0zd0NrZ3d6OU5RbkJOL3JlMG1nTU1ERjVy?=
+ =?utf-8?B?MlBTY1picHFjRlIyVFlSRlFJWjc5V1RVOFV6dFQ5TFJhYm5LUmhWdkJKbld5?=
+ =?utf-8?B?WExoMGt1c0c5NTVONGxXRzk2dzZRRG9tTGFoZ2NQeXA0K1cyTUwyaXJkREgv?=
+ =?utf-8?Q?YeL/7OiBR22Di/p56HikXiWgm?=
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 74f3beb2-644f-4e8e-10a7-08dd35eca86c
+X-MS-Exchange-CrossTenant-AuthSource: DS7PR12MB6214.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 16 Jan 2025 05:14:31.4306
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: jYYtBrxMiecqF33iEj8FV7krlQ5+vjcQqIWV+qIyv7yLq4n8rmmTnJk1SYKFoIr8JD2MySJloyGpuAg8xYfqzA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ1PR12MB6316
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250115_205827_825268_2FCA5E7B 
-X-CRM114-Status: UNSURE (   6.59  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250115_211438_222801_4E021F14 
+X-CRM114-Status: GOOD (  28.35  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,20 +183,156 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 2025-01-14 8:40 PM, Yunhui Cui wrote:
-> Expose Zicbom through hwprobe and also provide a key to extract its
-> respective block size.
+On 1/11/2025 6:20 AM, Sean Christopherson wrote:
+> Now that the binary stats cache infrastructure is largely scope agnostic,
+> add support for vCPU-scoped stats.  Like VM stats, open and cache the
+> stats FD when the vCPU is created so that it's guaranteed to be valid when
+> vcpu_get_stats() is invoked.
 > 
-> Signed-off-by: Yunhui Cui <cuiyunhui@bytedance.com>
+> Account for the extra per-vCPU file descriptor in kvm_set_files_rlimit(),
+> so that tests that create large VMs don't run afoul of resource limits.
+> 
+> To sanity check that the infrastructure actually works, and to get a bit
+> of bonus coverage, add an assert in x86's xapic_ipi_test to verify that
+> the number of HLTs executed by the test matches the number of HLT exits
+> observed by KVM.
+> 
+> Signed-off-by: Sean Christopherson <seanjc@google.com>
 > ---
->  Documentation/arch/riscv/hwprobe.rst  | 6 ++++++
->  arch/riscv/include/asm/hwprobe.h      | 2 +-
->  arch/riscv/include/uapi/asm/hwprobe.h | 2 ++
->  arch/riscv/kernel/sys_hwprobe.c       | 6 ++++++
->  4 files changed, 15 insertions(+), 1 deletion(-)
+>  .../testing/selftests/kvm/include/kvm_util.h  | 20 +++++++-----
+>  tools/testing/selftests/kvm/lib/kvm_util.c    | 32 ++++++++-----------
+>  .../selftests/kvm/x86/xapic_ipi_test.c        |  2 ++
+>  3 files changed, 27 insertions(+), 27 deletions(-)
+> 
+> diff --git a/tools/testing/selftests/kvm/include/kvm_util.h b/tools/testing/selftests/kvm/include/kvm_util.h
+> index d4670b5962ab..373912464fb4 100644
+> --- a/tools/testing/selftests/kvm/include/kvm_util.h
+> +++ b/tools/testing/selftests/kvm/include/kvm_util.h
+> @@ -61,6 +61,7 @@ struct kvm_vcpu {
+>  #ifdef __x86_64__
+>  	struct kvm_cpuid2 *cpuid;
+>  #endif
+> +	struct kvm_binary_stats stats;
+>  	struct kvm_dirty_gfn *dirty_gfns;
+>  	uint32_t fetch_index;
+>  	uint32_t dirty_gfns_count;
+> @@ -534,17 +535,20 @@ void read_stat_data(int stats_fd, struct kvm_stats_header *header,
+>  		    struct kvm_stats_desc *desc, uint64_t *data,
+>  		    size_t max_elements);
+>  
+> -void __vm_get_stat(struct kvm_vm *vm, const char *stat_name, uint64_t *data,
+> -		   size_t max_elements);
+> +void kvm_get_stat(struct kvm_binary_stats *stats, const char *name,
+> +		  uint64_t *data, size_t max_elements);
+>  
+> -#define vm_get_stat(vm, stat)				\
+> -({							\
+> -	uint64_t data;					\
+> -							\
+> -	__vm_get_stat(vm, #stat, &data, 1);		\
+> -	data;						\
+> +#define __get_stat(stats, stat)							\
+> +({										\
+> +	uint64_t data;								\
+> +										\
+> +	kvm_get_stat(stats, #stat, &data, 1);					\
+> +	data;									\
+>  })
+>  
+> +#define vm_get_stat(vm, stat) __get_stat(&(vm)->stats, stat)
+> +#define vcpu_get_stat(vcpu, stat) __get_stat(&(vcpu)->stats, stat)
+> +
+>  void vm_create_irqchip(struct kvm_vm *vm);
+>  
+>  static inline int __vm_create_guest_memfd(struct kvm_vm *vm, uint64_t size,
+> diff --git a/tools/testing/selftests/kvm/lib/kvm_util.c b/tools/testing/selftests/kvm/lib/kvm_util.c
+> index f49bb504fa72..b1c3c7260902 100644
+> --- a/tools/testing/selftests/kvm/lib/kvm_util.c
+> +++ b/tools/testing/selftests/kvm/lib/kvm_util.c
+> @@ -415,10 +415,11 @@ static uint64_t vm_nr_pages_required(enum vm_guest_mode mode,
+>  void kvm_set_files_rlimit(uint32_t nr_vcpus)
+>  {
+>  	/*
+> -	 * Number of file descriptors required, nr_vpucs vCPU fds + an arbitrary
+> -	 * number for everything else.
+> +	 * Each vCPU will open two file descriptors: the vCPU itself and the
+> +	 * vCPU's binary stats file descriptor.  Add an arbitrary amount of
+> +	 * buffer for all other files a test may open.
+>  	 */
+> -	int nr_fds_wanted = nr_vcpus + 100;
+> +	int nr_fds_wanted = nr_vcpus * 2 + 100;
+>  	struct rlimit rl;
+>  
+>  	/*
+> @@ -746,6 +747,8 @@ static void vm_vcpu_rm(struct kvm_vm *vm, struct kvm_vcpu *vcpu)
+>  	ret = close(vcpu->fd);
+>  	TEST_ASSERT(!ret,  __KVM_SYSCALL_ERROR("close()", ret));
+>  
+> +	kvm_stats_release(&vcpu->stats);
+> +
+>  	list_del(&vcpu->list);
+>  
+>  	vcpu_arch_free(vcpu);
+> @@ -1339,6 +1342,11 @@ struct kvm_vcpu *__vm_vcpu_add(struct kvm_vm *vm, uint32_t vcpu_id)
+>  	TEST_ASSERT(vcpu->run != MAP_FAILED,
+>  		    __KVM_SYSCALL_ERROR("mmap()", (int)(unsigned long)MAP_FAILED));
+>  
+> +	if (kvm_has_cap(KVM_CAP_BINARY_STATS_FD))
+> +		vcpu->stats.fd = vcpu_get_stats_fd(vcpu);
+> +	else
+> +		vcpu->stats.fd = -1;
+> +
+>  	/* Add to linked-list of VCPUs. */
+>  	list_add(&vcpu->list, &vm->vcpus);
+>  
+> @@ -2251,23 +2259,9 @@ void read_stat_data(int stats_fd, struct kvm_stats_header *header,
+>  		    desc->name, size, ret);
+>  }
+>  
+> -/*
+> - * Read the data of the named stat
+> - *
+> - * Input Args:
+> - *   vm - the VM for which the stat should be read
+> - *   stat_name - the name of the stat to read
+> - *   max_elements - the maximum number of 8-byte values to read into data
+> - *
+> - * Output Args:
+> - *   data - the buffer into which stat data should be read
+> - *
+> - * Read the data values of a specified stat from the binary stats interface.
+> - */
+> -void __vm_get_stat(struct kvm_vm *vm, const char *name, uint64_t *data,
+> -		   size_t max_elements)
+> +void kvm_get_stat(struct kvm_binary_stats *stats, const char *name,
+> +		  uint64_t *data, size_t max_elements)
+>  {
+> -	struct kvm_binary_stats *stats = &vm->stats;
+>  	struct kvm_stats_desc *desc;
+>  	size_t size_desc;
+>  	int i;
+> diff --git a/tools/testing/selftests/kvm/x86/xapic_ipi_test.c b/tools/testing/selftests/kvm/x86/xapic_ipi_test.c
+> index a76078a08ff8..574a944763b7 100644
+> --- a/tools/testing/selftests/kvm/x86/xapic_ipi_test.c
+> +++ b/tools/testing/selftests/kvm/x86/xapic_ipi_test.c
+> @@ -465,6 +465,8 @@ int main(int argc, char *argv[])
+>  	cancel_join_vcpu_thread(threads[0], params[0].vcpu);
+>  	cancel_join_vcpu_thread(threads[1], params[1].vcpu);
+>  
+> +	TEST_ASSERT_EQ(data->hlt_count, vcpu_get_stat(params[0].vcpu, halt_exits));
+> +
+>  	fprintf(stderr,
+>  		"Test successful after running for %d seconds.\n"
+>  		"Sending vCPU sent %lu IPIs to halting vCPU\n"
 
-Reviewed-by: Samuel Holland <samuel.holland@sifive.com>
+I have tested this infrastructure with xapic_ipi_test and ipi hlt test [1] on AMD system.
 
+Tested-by: Manali Shukla <Manali.Shukla@amd.com>
+
+[1]: https://lore.kernel.org/kvm/20250103081828.7060-1-manali.shukla@amd.com/T/#mda361fc0892e6949d98de2a4a79f68fc362a2893
+
+
+-Manali
 
 _______________________________________________
 linux-riscv mailing list
