@@ -4,69 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 216B3C02183
-	for <linux-riscv@archiver.kernel.org>; Thu, 16 Jan 2025 23:10:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 09F6BC02187
+	for <linux-riscv@archiver.kernel.org>; Thu, 16 Jan 2025 23:10:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=YX84auhU5xTI6RZEHe19qX/MWMzVqARMRrKW4tomgok=; b=jk0UHcNrtuTcU5
-	NR2051Md0T3rgqEhr9/KIvIlEEaeEImznlvajNy8bkvEYRNC8MTmd8585dhGdNMBiQXSbMvqCDSBt
-	PVWpnbImZJPsBAbi88mGd3cASvCsCuS97FRWVWrExB0tdCBRepE8dROevnoB1bKbNLCvI2afipK8U
-	mSK1uFMVvg3zc3NVgGlNEHY7jPiCZqCWghFsb/mkWFUJeuZSdE3HZTtXOzjAru5LPTi4QlfXyGqV8
-	5ieav23WBl5CYQFGnLlM2VRikm9k7VTd60upG7MB80CgX2eU8I/DhLqICs8lHDCxHize6qr2NNf/q
-	AWqJ0zgmoU08Ucz7DmlQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=KTKZWEHFwJPHEGU1hh4l6ST+Y5g2dEzimVAw6Avqxqk=; b=U4hy32ymptjhE1
+	kC41jDY6a1Ma+fcB4xPYqQVPKsHWG1d7q90KeiaCBtwb3n28giHxgMEz/xlKYF1ai5T+fj87JYFtd
+	nRAbpG1LeU7YGdnMitwTZLvz882JAEm4GOvOd2zjqtBTq+NjBRwfVOaKuoH7QvJ2aFLGG+VmrhE8k
+	5lVJ6MCl2iEhbgbtEu1/EbfUL0biXmeHCZMPurICQskXDtqsTFAdb+DIqOmJRQ3Xg2jC/1qRLMvUL
+	bFqBE/T3Bnxuy/is/OVQd0bg6ZS/nKw8H7pULfV0brClv9+DCM8+8EvennAzvK6q7qJCXBbAfuNpM
+	MOEzDLuQuiIM+1sZ1Kjw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tYZ0I-0000000GJcY-3OLe;
-	Thu, 16 Jan 2025 23:10:22 +0000
+	id 1tYZ0R-0000000GJgo-1ZGX;
+	Thu, 16 Jan 2025 23:10:31 +0000
 Received: from mail-wr1-x434.google.com ([2a00:1450:4864:20::434])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tYZ0F-0000000GJae-2g99
+	id 1tYZ0P-0000000GJfG-34h3
 	for linux-riscv@lists.infradead.org;
-	Thu, 16 Jan 2025 23:10:21 +0000
-Received: by mail-wr1-x434.google.com with SMTP id ffacd0b85a97d-385df53e559so1166690f8f.3
-        for <linux-riscv@lists.infradead.org>; Thu, 16 Jan 2025 15:10:18 -0800 (PST)
+	Thu, 16 Jan 2025 23:10:30 +0000
+Received: by mail-wr1-x434.google.com with SMTP id ffacd0b85a97d-385deda28b3so983896f8f.0
+        for <linux-riscv@lists.infradead.org>; Thu, 16 Jan 2025 15:10:29 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1737069017; x=1737673817; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=q8uJh+xH3eI/c9V3pGChrDiSvCKIcHtU+7c19/VbDB0=;
-        b=mRKXOl2WBbf3JIIw0PEnUU67ikrvp1Gi3X6XzhpOyWYhWaxa+/qmbLe1NXSgpK9NOK
-         r6TL4r6CvX21iH/kezOG/DuM4rfne3ATdtBKbsizvxMiLbYoiawm10UgPqGJldCN8a8A
-         CpidsVFhbF3iRg1h62xZJm9XzrbXpo0REMfpXut4Zq3MLG9a6JKLDQOlVCPm6XKjKPWv
-         c56OOVCwQ1jlaAzpGdlsAShmrAwh0dXHKOwfNFsDf6KhXTDRVYL7y+W/3LWE/Q3c7gXS
-         /hJGJLeHFVHyDiM6+yVAsQusyFgqcIznR13WTC/IfzruaZ5qWuAySgitBQiIMGsn8LaV
-         i9+w==
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1737069028; x=1737673828; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=ih0D7I8XCBuUn8cwCzLwA9EVpPglV1xp5bSahtqmwB0=;
+        b=mAbKnUHl06iJxcEHDIbUuDE4+diTi8QRLrvwkRK2yIY0V9xyNYIJRLBMfJC3bQRE20
+         CvLI0Tj7nxuFB9JYrc+W3D74rlq4Qz7jgxvmz8zKujf0BLUeKhqIg0EYwB2SaNItUBne
+         x6YLwO/xc5DgjdAWF4ckkSyFuoocS0ObUeVSdT4Yh7GP3QzC1pIcHHMkVsZ68y5qFN4y
+         yMmj1mG94mLPKSChFp3jUCDn7XeBsiKmSAytyuCRDThSG5Hpl2UNIJI4OS/J3432Ufdm
+         38c5ogcd++pY8Q8xStolhEAyaSs0M5ENcP7NfNTerqKCP/Cg/tsBc99xOw305kJ3SoM9
+         sVDg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1737069017; x=1737673817;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=q8uJh+xH3eI/c9V3pGChrDiSvCKIcHtU+7c19/VbDB0=;
-        b=Gfq2Qlsd8sUhzIAdabQUuZyQCeXqREWAq/DOlVTyQTaFlKXSld/QKavs2+XuVXhe/M
-         7TvN0CAhoanZwybpYkJp6/uBCnp5szd7NqemEFj/iuy1tyC9ox9ymLONv5znXmcKZkPD
-         7QNPqmPlCo0zyOyPy4bD9UM0vibupRVSQxw+sJzpWePQeBO+Hui7XfgcRWPYa3fx2mGa
-         IXpgv+y62o44djIzkQyZp1h9mnLyZ9POLMyepdUuB6DUqZ5nnBawL6rwooZfk9dAmAUy
-         rwfLdgbQ0/F4RBdlYoq5Q8xFFU5wpol0BJ8l8EfESJ6jN4d8NFsM2srkDQunx8vworVg
-         CGgw==
-X-Forwarded-Encrypted: i=1; AJvYcCVzF7wjYQ7nIC9AHc9waasYlYj6LbA1VHYmRL0l7vuzBvu9i28F0y3sdL+a/U66fXMiLooxjhtpotiIQw==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz5AYhDrLxdlSVD1ZOuXbqBoLqLYEmI1QMytHiD13tNEu/RwvYn
-	VHbNe8E/WK3tm25QXjTErqg9QnludYGDY90FZM8FleROJxwVoW2FuOh2kD05D58=
-X-Gm-Gg: ASbGncvWiK38dwrO9Hkwel0+vEJ+fvm43bhoVVLF9STynxq5mYtYiz0eitsOYe3MRDo
-	QglE0EGfNBIWfqO2SkpTQBBVHmJFhQTK8FMooCbJzN7Yn5fVFQxM5i9t3203I8oQUkjnj4bUMbS
-	do0oUW8yov3YiFDiOxuPlpa59Ue9Cwv9dZyzBH5RjTNvUphlX1LeJXZh1Oynm9016cVFdjzy1k1
-	C0ceJ19qYv0aytX4f2RyW3MyRicFJ8s1p+HtNbAIK53mh71VtOzt92WY0nH/jqQEg4ZgNjsx8P5
-	5N1KbdSVK2WvAxeF
-X-Google-Smtp-Source: AGHT+IF0eMc8RsiD3vYznSPkvx/UK3bXs0kRUnvDYnuRW301R33pMrAUnJVLjjR2VGZTLTvqShRQuA==
-X-Received: by 2002:a5d:5848:0:b0:38b:e1b3:16dc with SMTP id ffacd0b85a97d-38bf57d339amr277724f8f.50.1737069017185;
-        Thu, 16 Jan 2025 15:10:17 -0800 (PST)
+        d=1e100.net; s=20230601; t=1737069028; x=1737673828;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=ih0D7I8XCBuUn8cwCzLwA9EVpPglV1xp5bSahtqmwB0=;
+        b=BKsqoTDWUydjMpSl58mhdRB2x9utQlHqWBMyGgYbaesGhTOR7oLwZ4yjVvd8Ead1Np
+         sg/Y3ZXoaqdhvWppNjP75ErzaD9eTcly0NMAzdQJwyaM9gwRsHgH77zv6zRV+VitGK2X
+         lN+zy7DPAfEIXBOuLxOudVHAL+whXpx+s8YaPsiLUqZrGg+PY+7IDImXYwWPWt2rBqG6
+         N6naiBwisqpO8sDvCaw46P23qvZ29iRA8V8QlYAzXLx/76fsK3mL4l9v5+AvWj7sQWM+
+         SJuGXCvo90LJnkuL1UWG3FfYyS8YzJmrZHqQ19M8Hs3sOGfIwRMjxVieon259yd2f05R
+         DvzQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUrA3sT6sP/RX5I8ntoTuwnU72ob8WaQAl8aeOCBYGC3aIgG0leqXLl7zSaZJ4cnzz7hkxMfO+/Tr8dTg==@lists.infradead.org
+X-Gm-Message-State: AOJu0YzEvI7h+Zk0XBBjt++M90JwxR/TNredB5QaRUqb/V9/yTXW6I4r
+	0I9zDzWpwHPhgxGaBY5bMKa+0kBGUBCGdcsM17XmjEFlMMJioLntZ7kHu8jEqmg=
+X-Gm-Gg: ASbGnctupmiDJRkV8f5orTVrTkTm12+2VwhEs5H6ca3eOgM5czeI02aEhIxHTcuwclJ
+	Tditz/DipFRrjUFNxDzCuwdTI6pxkX4yOy3g44/M76mLT5U8NRm28oDPKIZyY703MSfKsmOfGGw
+	1z7Y4ElJDj7wotY5G8i7pYjfP0gTqW+shjH9RDS0SuCN1ZqVS7e+sBk+ooyhLY2r4mJCtXefJx3
+	dy5Qr77jIDNle3sz3iyjzSsmF/mP7aKTLkd9symdwrbRBLlfI9icB2oHhib9I8gaWGfXl/VuJ+Q
+	1iBKmRs3dVMvQfpw
+X-Google-Smtp-Source: AGHT+IGZkSeIeWLg78b7QIySnUPbuLbB0vhAavzUj7u+Y4mZGnlfT+raQ/EoGquZ508s9+cVypWC2g==
+X-Received: by 2002:adf:ffca:0:b0:38a:88e2:e6aa with SMTP id ffacd0b85a97d-38bf56745bcmr243859f8f.29.1737069028398;
+        Thu, 16 Jan 2025 15:10:28 -0800 (PST)
 Received: from rkanwal-XPS-15-9520.uk.rivosinc.com ([2a02:c7c:75ac:6300:b3f2:3a24:1767:7db0])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-38bf322b337sm974991f8f.59.2025.01.16.15.10.16
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-38bf322b337sm974991f8f.59.2025.01.16.15.10.27
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 16 Jan 2025 15:10:16 -0800 (PST)
+        Thu, 16 Jan 2025 15:10:28 -0800 (PST)
 From: Rajnesh Kanwal <rkanwal@rivosinc.com>
 To: linux-kernel@vger.kernel.org,
 	linux-riscv@lists.infradead.org
@@ -92,14 +93,16 @@ Cc: linux-perf-users@vger.kernel.org,
 	kaiwenxue1@gmail.com,
 	vincent.chen@sifive.com,
 	Rajnesh Kanwal <rkanwal@rivosinc.com>
-Subject: [PATCH v2 0/7] riscv: pmu: Add support for Control Transfer Records Ext.
-Date: Thu, 16 Jan 2025 23:09:48 +0000
-Message-Id: <20250116230955.867152-1-rkanwal@rivosinc.com>
+Subject: [PATCH v2 1/7] perf: Increase the maximum number of samples to 256.
+Date: Thu, 16 Jan 2025 23:09:49 +0000
+Message-Id: <20250116230955.867152-2-rkanwal@rivosinc.com>
 X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20250116230955.867152-1-rkanwal@rivosinc.com>
+References: <20250116230955.867152-1-rkanwal@rivosinc.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250116_151019_902786_715EC80D 
-X-CRM114-Status: GOOD (  12.86  )
+X-CRM114-CacheID: sfid-20250116_151029_772917_ED9F8615 
+X-CRM114-Status: GOOD (  12.94  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,64 +119,60 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This series enables Control Transfer Records extension support on riscv
-architecture. This extension is similar to Arch LBR in x86 and BRBE in ARM.
-The Extension has been ratified and the latest release can be found here [0]
+RISCV CTR extension support a maximum depth of 256 last branch records.
+The 127 entries limit results in corrupting CTR entries for RISC-V if
+configured to be 256 entries. This will not impact any other architectures
+as it is just increasing maximum limit of possible entries.
 
-CTR extension depends on both the implementation of S-mode and Sscsrind
-extension v1.0.0 [1]. CTR access ctrsource, ctrtartget and ctrdata CSRs using
-sscsrind extension.
+Signed-off-by: Rajnesh Kanwal <rkanwal@rivosinc.com>
+---
+ tools/perf/util/machine.c | 21 ++++++++++++++-------
+ 1 file changed, 14 insertions(+), 7 deletions(-)
 
-The series is based on Smcdeleg/Ssccfg counter delegation extension [2]
-patches [3]. CTR itself doesn't depend on counter delegation support. This
-rebase is basically to include the Smcsrind patches.
-
-The last patch is in the perf tool to allow processing 256 entries. Without
-this perf seems to consider that sample as corrupted and discards it.
-
-Here is the link to a quick guide [4] to setup and run a basic perf demo on
-Linux to use CTR Ext.
-
-Qemu patches can be found here:
-https://github.com/rajnesh-kanwal/qemu/tree/b4/ctr_upstream_v5
-
-Opensbi patch can be found here:
-https://github.com/rajnesh-kanwal/opensbi/tree/ctr_upstream_v2
-
-Linux kernel patches can be found here:
-https://github.com/rajnesh-kanwal/linux/tree/b4/ctr_upstream_v2
-
-[0]: https://github.com/riscv/riscv-control-transfer-records/releases/tag/v1.0
-[1]: https://github.com/riscvarchive/riscv-indirect-csr-access/releases/tag/v1.0.0
-[2]: https://github.com/riscvarchive/riscv-smcdeleg-ssccfg/releases/tag/v1.0.0
-[3]: https://lore.kernel.org/lkml/20250114-counter_delegation-v2-0-8ba74cdb851b@rivosinc.com/
-[4]: https://github.com/rajnesh-kanwal/linux/wiki/Running-CTR-basic-demo-on-QEMU-RISC%E2%80%90V-Virt-machine
-
-Rajnesh Kanwal (7):
-  perf: Increase the maximum number of samples to 256.
-  riscv: pmu: Add Control transfer records CSR definations.
-  riscv: Add Control Transfer Records extension parsing
-  dt-bindings: riscv: add Sxctr ISA extension description
-  riscv: pmu: Add infrastructure for Control Transfer Record
-  riscv: pmu: Add driver for Control Transfer Records Ext.
-  riscv: pmu: Integrate CTR Ext support in riscv_pmu_dev driver
-
- .../devicetree/bindings/riscv/extensions.yaml |  14 +
- MAINTAINERS                                   |   1 +
- arch/riscv/include/asm/csr.h                  |  83 +++
- arch/riscv/include/asm/hwcap.h                |   4 +
- arch/riscv/kernel/cpufeature.c                |   2 +
- drivers/perf/Kconfig                          |  11 +
- drivers/perf/Makefile                         |   1 +
- drivers/perf/riscv_ctr.c                      | 608 ++++++++++++++++++
- drivers/perf/riscv_pmu_common.c               |  23 +-
- drivers/perf/riscv_pmu_dev.c                  |  82 +++
- drivers/perf/riscv_pmu_legacy.c               |   2 +
- include/linux/perf/riscv_pmu.h                |  55 ++
- tools/perf/util/machine.c                     |  21 +-
- 13 files changed, 898 insertions(+), 9 deletions(-)
- create mode 100644 drivers/perf/riscv_ctr.c
-
+diff --git a/tools/perf/util/machine.c b/tools/perf/util/machine.c
+index 27d5345d2b30..f2eb3c20274e 100644
+--- a/tools/perf/util/machine.c
++++ b/tools/perf/util/machine.c
+@@ -2174,25 +2174,32 @@ static void save_iterations(struct iterations *iter,
+ 		iter->cycles += be[i].flags.cycles;
+ }
+ 
+-#define CHASHSZ 127
+-#define CHASHBITS 7
+-#define NO_ENTRY 0xff
++#define CHASHBITS 8
++#define NO_ENTRY 0xffU
+ 
+-#define PERF_MAX_BRANCH_DEPTH 127
++#define PERF_MAX_BRANCH_DEPTH 256
+ 
+ /* Remove loops. */
++/* Note: Last entry (i==ff) will never be checked against NO_ENTRY
++ * so it's safe to have an unsigned char array to process 256 entries
++ * without causing clash between last entry and NO_ENTRY value.
++ */
+ static int remove_loops(struct branch_entry *l, int nr,
+ 			struct iterations *iter)
+ {
+ 	int i, j, off;
+-	unsigned char chash[CHASHSZ];
++	unsigned char chash[PERF_MAX_BRANCH_DEPTH];
+ 
+ 	memset(chash, NO_ENTRY, sizeof(chash));
+ 
+-	BUG_ON(PERF_MAX_BRANCH_DEPTH > 255);
++	BUG_ON(PERF_MAX_BRANCH_DEPTH > 256);
+ 
+ 	for (i = 0; i < nr; i++) {
+-		int h = hash_64(l[i].from, CHASHBITS) % CHASHSZ;
++		/* Remainder division by PERF_MAX_BRANCH_DEPTH is not
++		 * needed as hash_64 will anyway limit the hash
++		 * to CHASHBITS
++		 */
++		int h = hash_64(l[i].from, CHASHBITS);
+ 
+ 		/* no collision handling for now */
+ 		if (chash[h] == NO_ENTRY) {
 -- 
 2.34.1
 
