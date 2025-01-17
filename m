@@ -4,64 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0084CC02183
-	for <linux-riscv@archiver.kernel.org>; Fri, 17 Jan 2025 10:53:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9819AC02188
+	for <linux-riscv@archiver.kernel.org>; Fri, 17 Jan 2025 11:01:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=juyoKDl4MihZ+CK2LvPm7zl0lLTCRJ1efZtZ63VqOyM=; b=PM5gZi+iZLstI/qcYs+LKN6HB9
-	u59+D0VYR+eU7csnOr/mERNaW4fcUYkbthdGyJ8l3tjMkk5oJm/+1yLhU/bESZOTvSJLiRjVZgYz7
-	PeQsYUgrKfNrv08AD8Y5bMPVMdfG3oKYKVnLhsesvM0fmnvXARSJzEQsTL2S4O5LdPWmMO9vH8c/h
-	YzD+W1WfJmV2PxXPWNbqZZCbiyl5OvNEd9I4KDg+xHAQvMpZD6m3yubG8O4xowjlWHdo26HVF4O3n
-	Hib3n2lRx2tdxWMHnhpywPexqsgLH7tAjEeJIY5McZDEiwBq5p8tYkvx9NLf7oFwTupeA8uf4MvfE
-	qLegG5VA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=tiE74e99YYujBn2RCAQY0qgqddalvXWidtJ128/2Bv8=; b=AHgWV/IdNE7q0S
+	ChBsTYfc9ebsXz2+q0QAIsYH8waP7e9x9dub6brtACTCQw7DVwqIEnbUANIT9HjW5LiKjbbEEQJJB
+	b2iLYSwgSXfAZHOI7SfYgIt4xeQ31YxhLE0q8LVdcM95DW3gjKRpXDIEI7a1HGi+VzlLuSdXFO5Yd
+	PLkzP0eopQH5wG8oTFb8yF+CTkmKi7BI0uG/CKOtZxOIXYptF3Jg5COCwA5HkLEacdczJSI3Djh0C
+	9ELsx52AjFHyACaclHU12qxcjctGNvms4frFWg2wNk4DvVprk68u8ucikulT89GcYwezp+5qr8Iv4
+	G8nrYejbu0jes9NMzlAQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tYjyQ-000000004mu-3nvq;
-	Fri, 17 Jan 2025 10:53:10 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1tYk6p-000000005iN-3sea;
+	Fri, 17 Jan 2025 11:01:51 +0000
+Received: from mail-lf1-x12e.google.com ([2a00:1450:4864:20::12e])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tYjyO-000000004mB-0w7U
+	id 1tYk6m-000000005hW-1jiO
 	for linux-riscv@lists.infradead.org;
-	Fri, 17 Jan 2025 10:53:09 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 15229A42BD1;
-	Fri, 17 Jan 2025 10:51:19 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AC224C4CEE2;
-	Fri, 17 Jan 2025 10:53:03 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1737111186;
-	bh=clfmPsDnhw+wE0upSIEwc6wMMI+dZgv1+mZMbJmb82g=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=lQ5DSdcEkUPFYvHlXHE2A3iioHbUm8cVXx7u1kaT7Q4abfLBMul8QHLM+H2CrzTwG
-	 CQPn9ykaK3DoxKpj/p3PaPfli9VfxF8SZ8hCXhqRiF4UpKgG2cYbqCn09M7Bz6GQtM
-	 /cycsAhuI07gz5fGKLirnUrQYpvLGkA8DvCgABOSgdSP3/Nf/2T25oXYf49z7FjUUv
-	 HxC5EriEIOsFfPxHXXULyjjGHv6qct9NEQHDayaGFHUn7CiZ5YVuB1/UJBcucq5hoC
-	 oiBTn7cLIxPGBlf6C7e5hi0chkCkNjtUw/3VxSngzPzVJpl/2Vd2gnkj4bpFWyws8O
-	 o8TllyWw8ENAg==
-Date: Fri, 17 Jan 2025 10:53:01 +0000
-From: Conor Dooley <conor@kernel.org>
-To: Bjorn Helgaas <helgaas@kernel.org>
-Cc: daire.mcnamara@microchip.com, linux-pci@vger.kernel.org,
-	devicetree@vger.kernel.org, conor.dooley@microchip.com,
-	lpieralisi@kernel.org, kw@linux.com, robh@kernel.org,
-	bhelgaas@google.com, linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org, krzk+dt@kernel.org,
-	conor+dt@kernel.org, ilpo.jarvinen@linux.intel.com,
-	kevin.xie@starfivetech.com, Frank Li <Frank.Li@nxp.com>
-Subject: Re: [PATCH v10 1/3] PCI: microchip: Fix outbound address translation
- tables
-Message-ID: <20250117-curliness-flashback-83519e708b52@spud>
-References: <20250116-removed-evoke-1908811ab92a@spud>
- <20250116180255.GA593378@bhelgaas>
+	Fri, 17 Jan 2025 11:01:49 +0000
+Received: by mail-lf1-x12e.google.com with SMTP id 2adb3069b0e04-54025432becso2177326e87.1
+        for <linux-riscv@lists.infradead.org>; Fri, 17 Jan 2025 03:01:47 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1737111706; x=1737716506; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=2/hfVNdiD8ZF1+lHEjxob8Hwbpl53iD8/OV5iv22cOQ=;
+        b=Rrts7F3IGVAuxEI27Fs86oojxWQZ1jV8V4Khz9lPfPidrxRwFDZIY9QSfgF65t/7Ys
+         776l1CprcpGu+Kq8FG+FTNcZGWFf/UJC/dTxyomBMCGPkCP9F9W6UnNpPpptZ4W79p8e
+         tB2eVTEwkUgBODF+kVzLb2DE4WwKupZY8tmOofJLG9oEQ5OMDugPmticHGNxeVQR5DXP
+         roAufUnryiHa9LNfjzothihC89yCeUEFYw+B8enJrLXc3dhMpEMvi80sX14Hj8UZv5yA
+         R178qk6yjBjguXXrPiHrsE5C2ixtI237W/4QGAimEMk4Vi59RxrvkO7yT21RDU/RGOBN
+         NWwg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1737111706; x=1737716506;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=2/hfVNdiD8ZF1+lHEjxob8Hwbpl53iD8/OV5iv22cOQ=;
+        b=K9OYGYVv6VkJj8g5o48mXk9xpyrcXntuZjjSWz/Ch6+8e/Nf2sTj3ZZoxo0oqZdYNS
+         cV7q/R+CyHtG7hKPwlgQek087Dd60ErFkCaBhIeE85+5kx5MVapdM8ro4ZUPCJYH+ey8
+         UsIpvv+AaiUrJDwTIMsNF1Jsuv8MYkdpOgFW1edJyRaLMRFM7+362DsgDVfzHzt4ZPW3
+         UaGO1ty/b1RQ+nwVT/XYSc98bq3UvUiOfdhlNo9JBzuk0rSFhOsYv+TPeaaiySKo6J2e
+         FSQgR+tJjaL0W81QfIt1RS2WQ2jpINLtpcl35C2tUALYP6CS4/gfLo4eZQS3uFdYaxgL
+         4HDQ==
+X-Gm-Message-State: AOJu0Yw2O1DQPvN6NlvQVXM+sP4EbZKtaDGSDQ2iyW6vgUte8LSiCbKG
+	b6zgsSPVxy+mADLYYjGGMs3j1PPbmWgXDttkoedOKRl+rjCV9jAu
+X-Gm-Gg: ASbGnctzMLGbv5JHJ7vvp54HqwuF5bDuYq0NPkH/wRc8ezfi4c0CTcfLL2PMLRp9PkZ
+	Rzjm/WgAbZL1Z/MLax5zddGw8TyBzw83q5+nybrmfOMgYDM65y7L3kgUSGER5Zrt9m4mR14XQ6K
+	d2qe1GtYXmccVsnXELS2sGStGkYIWyZ3uE4jUOe5+YVbar/yC76cVNgCmUbH+dUd4yU/21bGCOp
+	sW/fazJuaetyvsKzf4vvJh0NKtcHTi73n+ExXGT+R+q4IsY
+X-Google-Smtp-Source: AGHT+IGe9It4lgmzQxKKvYmVgRpdLyID9nZin78MkWk3aMz0P/C1ucyECRHRA+UcEu1r+TOQPaKuzg==
+X-Received: by 2002:a05:6512:128d:b0:542:238d:d714 with SMTP id 2adb3069b0e04-5439c2855e3mr811983e87.32.1737111705421;
+        Fri, 17 Jan 2025 03:01:45 -0800 (PST)
+Received: from curiosity ([5.188.167.4])
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5439af7364esm313195e87.162.2025.01.17.03.01.42
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 17 Jan 2025 03:01:44 -0800 (PST)
+Date: Fri, 17 Jan 2025 14:01:41 +0300
+From: Sergey Matyukevich <geomatsi@gmail.com>
+To: Christoph Hellwig <hch@lst.de>
+Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Alexandre Ghiti <alexghiti@rivosinc.com>,
+	Conor Dooley <conor.dooley@microchip.com>,
+	Robin Murphy <robin.murphy@arm.com>,
+	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
+	Geert Uytterhoeven <geert+renesas@glider.be>
+Subject: Re: [PATCH] riscv: select DMA_DIRECT_REMAP by RISCV_ISA_SVPBMT and
+ ERRATA_THEAD_MAE
+Message-ID: <Z4o4lVb_AUiQcvM5@curiosity>
+References: <20250116172950.1989748-1-geomatsi@gmail.com>
+ <20250117075238.GA25422@lst.de>
+ <Z4oXF2ewizIIk1cL@curiosity>
+ <20250117095832.GB2585@lst.de>
 MIME-Version: 1.0
-In-Reply-To: <20250116180255.GA593378@bhelgaas>
+Content-Disposition: inline
+In-Reply-To: <20250117095832.GB2585@lst.de>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250117_025308_388153_79E820EE 
-X-CRM114-Status: GOOD (  50.90  )
+X-CRM114-CacheID: sfid-20250117_030148_451537_FDCBAEE0 
+X-CRM114-Status: GOOD (  24.51  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,208 +101,67 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============3783947251229432325=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+Hi Christoph,
 
---===============3783947251229432325==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="naCVrCOd0vJ9L2aC"
-Content-Disposition: inline
+On Fri, Jan 17, 2025 at 10:58:32AM +0100, Christoph Hellwig wrote:
+> On Fri, Jan 17, 2025 at 11:38:47AM +0300, Sergey Matyukevich wrote:
+> > > Please explain what this is supposed to solve, because the above
+> > > explanation dosn't make any sense.  DMA_DIRECT_REMAP is one
+> > > of the implementations supporting dma coherent allocatiosn for
+> > > non-coherent devices.  So selecting it from something that
+> > > just keyes off support for an extension, but not the dma
+> > > implementation is wrong.
+> > 
+> > Now DMA_DIRECT_REMAP is selected either by Zicbom (standard) or XTheadCmo
+> > (vendor) RISC-V extensions.
+> 
+> Because they need DMA_DIRECT_REMAP to implement DMA coherent.
+> 
+> > However neither of them can help to implement
+> > DMA_DIRECT_REMAP on RISC-V. So selection of DMA_DIRECT_REMAP has been
+> > moved in Kconfigs to Svpbmt and XTheadMae extensions.
+> 
+> But Svpbmt does not imply that you even need DMA_DIRECT_REMAP.
+> 
+> Are you tying to solve a problem here?  If so can you explain it?
 
+Sure. In brief, this about the choice between DMA_GLOBAL_POOL and
+DMA_DIRECT_REMAP. We can use either of them to work with non-coherent
+devices. But on RISC-V those two options require different extensions.
 
---naCVrCOd0vJ9L2aC
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+If we select DMA_GLOBAL_POOL, then we need only cache operations. So on
+RISC-V it is enough to have Zicbom (standard) or XTheadCmo (vendor) or
+any other vendor specific cache ops implemented using RISCV_ALTERNATIVE
+or RISCV_NONSTANDARD_CACHE_OPS.
 
-On Thu, Jan 16, 2025 at 12:02:55PM -0600, Bjorn Helgaas wrote:
-> On Thu, Jan 16, 2025 at 05:45:33PM +0000, Conor Dooley wrote:
-> > On Thu, Jan 16, 2025 at 11:07:22AM -0600, Bjorn Helgaas wrote:
-> > > [+cc Frank, original patch at
-> > > https://lore.kernel.org/r/20241011140043.1250030-2-daire.mcnamara@mic=
-rochip.com]
-> > >=20
-> > > On Thu, Jan 16, 2025 at 04:46:19PM +0000, Conor Dooley wrote:
-> > > > On Thu, Jan 16, 2025 at 09:42:53AM -0600, Bjorn Helgaas wrote:
-> > > > > On Tue, Jan 14, 2025 at 06:13:10PM -0600, Bjorn Helgaas wrote:
-> > > > > > On Fri, Oct 11, 2024 at 03:00:41PM +0100, daire.mcnamara@microc=
-hip.com wrote:
-> > > > > > > From: Daire McNamara <daire.mcnamara@microchip.com>
-> > > > > > >=20
-> > > > > > > On Microchip PolarFire SoC (MPFS) the PCIe Root Port can be b=
-ehind one of
-> > > > > > > three general-purpose Fabric Interface Controller (FIC) buses=
- that
-> > > > > > > encapsulate an AXI-M interface. That FIC is responsible for m=
-anaging
-> > > > > > > the translations of the upper 32-bits of the AXI-M address. O=
-n MPFS,
-> > > > > > > the Root Port driver needs to take account of that outbound a=
-ddress
-> > > > > > > translation done by the parent FIC bus before setting up its =
-own
-> > > > > > > outbound address translation tables.  In all cases on MPFS,
-> > > > > > > the remaining outbound address translation tables are 32-bit =
-only.
-> > > > > > >=20
-> > > > > > > Limit the outbound address translation tables to 32-bit only.
-> > > > > >=20
-> > > > > > I don't quite understand what this is saying.  It seems like th=
-e code
-> > > > > > keeps only the low 32 bits of a PCI address and throws away any
-> > > > > > address bits above the low 32.
-> > > > > >=20
-> > > > > > If that's what the FIC does, I wouldn't describe the FIC as
-> > > > > > "translating the upper 32 bits" since it sounds like the transl=
-ation
-> > > > > > is just truncation.
-> > > > > >=20
-> > > > > > I guess it must be more complicated than that?  I assume you ca=
-n still
-> > > > > > reach BARs that have PCI addresses above 4GB using CPU loads/st=
-ores?
-> > > > > >=20
-> > > > > > The apertures through the host bridge for MMIO access are descr=
-ibed by
-> > > > > > DT ranges properties, so this must be something that can't be
-> > > > > > described that way?
-> > > > >=20
-> > > > > Ping?  I'd really like to understand this before the v6.14 merge
-> > > > > window opens on Sunday.
-> > > >=20
-> > > > Daire's been having some issues getting onto the corporate VPN to s=
-end
-> > > > his reply, I've pasted it below on his behalf:
-> > > >=20
-> > > > There are 3 Fabric Inter Connect (FIC) buses on PolarFire SoC - eac=
-h of
-> > > > these FIC buses contain an AXI master bus and are 64-bits wide. The=
-se
-> > > > AXI-Masters (each with an individual 64-bit AXI base address =E2=80=
-=93 for example
-> > > > FIC1=E2=80=99s AXI Master has a base address of 0x2000000000) are c=
-onnected to
-> > > > general purpose FPGA logic. This FPGA logic is, in turn, connected =
-to a
-> > > > 2nd 32-bit AXI master which is attached to the PCIe block in RootPo=
-rt mode.
-> > > > Conceptually, on the other side of this configurable logic, there i=
-s a
-> > > > 32-bit bus to a hard PCIe rootport.  So, again conceptually, outbou=
-nd address
-> > > > translation looks like this:
-> > > >=20
-> > > >                  Processor Complex =C3=A0 FIC (64-bit AXI-M) =C3=A0=
- Configurable Logic =C3=A0 32-bit AXI-M =C3=A0 PCIe Rootport
-> > > > 		 (This how it came to me from Daire, I think the =C3=A1 is meant =
-to
-> > > > 		 be an arrow)
-> > > >=20
-> > > >  This allows a designer two broad choices:
-> > > >=20
-> > > >     Choice of FIC (effectively choice of AXI bus)
-> > > >     Ability to offset the AXI address of any peripherals they add i=
-n the
-> > > >     Fabric.
-> > > >=20
-> > > > So, for the case of an outbound AXI address, from the processors=E2=
-=80=99 point
-> > > > of view (or Linux=E2=80=99 point of view if you prefer), the proces=
-sor uses a
-> > > > 64-bit AXI address, then =E2=80=93 in a very general way of viewing=
- the process
-> > > > and thinking only about accessing the PCIe device =E2=80=93 the FPG=
-A logic can
-> > > > be configured to adjust that AXI-M address to any arbitrary =E2=80=
-=9Caddress=E2=80=9D
-> > > > before it passes that new =E2=80=9Caddress=E2=80=9D to the Root Por=
-t over a second 32-bit
-> > > > AXI bus (the main constraint is that the FPGA logic can only use a =
-32-bit
-> > > > address on that AXI-M interface to the Root Port).
-> > > >=20
-> > > > To manage this complexity, Microchip have design rules for customers
-> > > > building their FPGA logic where we strongly recommend that they only
-> > > > interact with  the upper 32 bits of the 64-bit address in the FPGA =
-logic
-> > > > and pass the lower 32 bits through (unmodified) to the AXI-M side o=
-f the
-> > > > PCIe Root Port. This allows them to =E2=80=9Cmove=E2=80=9D a 64-bit=
- AXI-M window for their
-> > > > PCIe Root Port (as viewed by the processor) for their particular de=
-sign =E2=80=93
-> > > > if they need to - so that they can also access any other AXI-M wind=
-ows
-> > > > associated with any other peripherals they might add to their desig=
-n.
-> > > >=20
-> > > > In practise, so far, all customers, and our own internal boards hav=
-e all
-> > > > started by using one of two major reference designs from us (one us=
-ing FIC1
-> > > > where the AXI-M window destined for the PCIe Root Port starts at 0x=
-2000000000
-> > > > and one using FIC2 where its AXI-M window, again destined for the P=
-CIe Root
-> > > > Port starts at 0x3000000000).
-> > >=20
-> > > Is there something special about this that cannot be described by a DT
-> > > 'ranges' property?  This sounds conceptually similar to Frank's nice
-> > > picture at
-> > > https://lore.kernel.org/r/20241119-pci_fixup_addr-v8-2-c4bfa5193288@n=
-xp.com
-> >=20
-> > Aye, it is similar, it is described using ranges properties, will end
-> > up looking something like:
->=20
-> So is this patch a symptom that is telling us we're not paying
-> attention to 'ranges' correctly?
+Using DMA_DIRECT_REMAP requires not only cache management operations,
+but also a way to modify page attributes, e.g. to mark it non-cacheable. 
+So on RISC-V in addition to CMO extensions we also need extensions for
+page-based memory types such as Svpbmt (standard) or XTheadMae (vendor).
 
-Sounds to me like there's something missing core wise, if you've got
-several drivers having to figure it out themselves.
+Current RISC-V Kconfig files enable DMA_DIRECT_REMAP for Zicbom and
+XTheadCmo. According to the above comments, this is not good:
+- it is wrong since Zicbom alone is not enough for DMA_DIRECT_REMAP
+- it prevents using DMA_GLOBAL_POOL for platforms without support for
+  page-based memory attributes
 
-> The whole point of Frank's patches is to get rid of hard-coded masks
-> like MC_OUTBOUND_TRANS_TBL_MASK because because 'ranges' should
-> already contain that information.
->=20
-> If 'ranges' is sufficent to describe the address spaces and
-> translations between them, the driver wouldn't need to be concerned
-> with FIC and AXI-M addresses; they would just be described in a
-> generic way in the DT 'ranges'.
+My suggestion was to move DMA_DIRECT_REMAP to the Kconfig entries for
+Svpbmt and XTheadMae. In this case platforms without Svpbmt support
+can disable it in kernel config and switch to DMA_GLOBAL_POOL instead.
 
-Daire seems to think what Frank's done should work here, but it'd need
-to be looked into of course. Devicetree should look the same in both
-cases, do you want it as a new version or as a follow up?
+IIUC one of your concerns was selecting DMA_DIRECT_REMAP under config
+option not related to DMA implementations. Does it make sense to add
+additional layer similar to RISCV_DMA_NONCOHERENT ?
 
-Cheers,
-Conor.
-
---naCVrCOd0vJ9L2aC
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZ4o2jQAKCRB4tDGHoIJi
-0hSSAP0fEWQvc3fUi1kJp3+GUXrZ4y7lgnUcHMqA08pU14t3eQEAnPJd7wB6gOtp
-/WWYI7OeLb1eK2w4ioOJM1NSePWCCgk=
-=ioTQ
------END PGP SIGNATURE-----
-
---naCVrCOd0vJ9L2aC--
-
-
---===============3783947251229432325==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+Regards,
+Sergey
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============3783947251229432325==--
-
