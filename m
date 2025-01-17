@@ -4,142 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 027E4C02185
-	for <linux-riscv@archiver.kernel.org>; Fri, 17 Jan 2025 13:45:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E4AD2C02183
+	for <linux-riscv@archiver.kernel.org>; Fri, 17 Jan 2025 14:04:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
-	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=STAofUpIPYAFC0npfMLcl13/4/YreZOErvshL2UQQMU=; b=itji82rDvGXLeV
-	hgKk3lYdkXk0YL6rmGzKNxfADTkosSnKtqFdXpMxpsL1Vp6SrfsUw4D4wSqjTfffXrYuuSDv1XVK0
-	4AL5RRYB8AaPR/Tx2mW0bdNm9eiJkDlZegp9DfUz4G7ZZoxwOhq8VQwozMg2TQBppNSq9Q6PyKyjU
-	SrfnAL8hm5ADSxrn7VrhPzUYUVbvA1FsHsc1A4H1gOTs/3aYCKiDdvTuYMNxoG4k/mqdHb8JdIHyi
-	GSBoXRh4MUo3OSdyeYeIDhj/Wg6Mq36mWs+wVVHybe0i3diL4JdLqitNUiXxtwfh2DmyQgPDze9iq
-	X1NebPfkG7y5lnR5XgIw==;
+	List-Owner; bh=/D0AquDoZsofnTcUaoLgScgDd74d85uyNxXIUcDFbOU=; b=WqB2seEZnZ+w46
+	zeHlWfifbkn2wqifggz8Bvwp+8eQpvLn+N2kpZDpjqUKC3A5SBoezw4mNsAIc6jXMJ0Vzb+N2JEeM
+	7lQzgT6jYrij2nDzupwjsUc6AML/v52jjXhmUhNyC+vy8AXqa1rvsvH/mFdp2EfJ3dwKu1ZrV84wO
+	C6/vnGHc+LZdxeCJkgEkH/+HLevd93fLoqFhahOb2FhS30AEghm9vFnHojRtsAPGjfr20JB1TzR9q
+	/UK1Jt+iXxEmG59vbTHk07tpONJZbcdYQ89gKNDZ79b5uEF6ilA1igKJrt7YCKJfZcDkpJks07KNm
+	29Z72qCzDu1noxC3ZRtQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tYmek-00000000Nid-3GB5;
-	Fri, 17 Jan 2025 13:45:02 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1tYmxv-00000000PvF-048J;
+	Fri, 17 Jan 2025 14:04:51 +0000
+Received: from freeshell.de ([116.202.128.144])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tYmeh-00000000Nge-3nw2
+	id 1tYmxs-00000000Puj-19gX
 	for linux-riscv@lists.infradead.org;
-	Fri, 17 Jan 2025 13:45:01 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1737121499;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=HEKKhsO2kOL/qF9SHnIE9a8dcD47/tUh4wLid3vzvOo=;
-	b=dHjdNyLax0qZVxM9TIJC6GF6oJJeIcbVv3BEyemoowgxe3PJIrBsA7l8Ktyvd5P5emCgVd
-	PEHTgRd538zCRI+sHUdDKDRqRcoBmxgg9z/A3YMmE2j0ehxAnOuOGW6bEz99LM1Akwt8ut
-	zuGD+qxG2M8Y9BO54zSvwAuyaSxxx+Y=
-Received: from mail-qt1-f199.google.com (mail-qt1-f199.google.com
- [209.85.160.199]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-575-pxfg4s89P2ujcoavvD6Q_Q-1; Fri, 17 Jan 2025 08:44:58 -0500
-X-MC-Unique: pxfg4s89P2ujcoavvD6Q_Q-1
-X-Mimecast-MFC-AGG-ID: pxfg4s89P2ujcoavvD6Q_Q
-Received: by mail-qt1-f199.google.com with SMTP id d75a77b69052e-467b19b5641so42993641cf.3
-        for <linux-riscv@lists.infradead.org>; Fri, 17 Jan 2025 05:44:57 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1737121497; x=1737726297;
-        h=mime-version:message-id:date:references:in-reply-to:subject:cc:to
-         :from:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=HEKKhsO2kOL/qF9SHnIE9a8dcD47/tUh4wLid3vzvOo=;
-        b=uQI+k86BU0fYGrj+NDvlaokKauqaDHpUd0oxTSXtIxtdfoPOZxvGg24WrGYZ7J6MNu
-         dZcNHMAgjeOEN15TLQMFWypokw3wEdRPNU70wzMOgcqNYykSu5VA0Z77yj/Eq4hy7YAC
-         vKIn+aQ5JRWfft+95L1ZA0SVDRa55aEb7Z9OvcvyroNkUwy6B2KWLMYFOhfWu2qIrT15
-         YqVgDKV0JkoLnZ11R2UvNlaeE0kJjQoB00UllgnTXTe1/OaOgXgr1oFaahaS97xkrgaZ
-         Z1J3bVe7SRBKSU+zb3Qr7uiVS+PYmG5sUhjqbmpFQGfHhrfIhW7FwrSY7GSt1rwdoSlN
-         khQQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVESMoK8glLF4RirQsSxkToE0Qd4Y9gbj94qt2Fi/zmL9qyiKXTx/5xv4CWOKTqEavagYOZHrEhx4DmSQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz2fUgAA6hAU1Fn61cESG4eqtZVER8aNPSBD5sQ6I0ryVFPaXzF
-	opBL7qvTmexELCr9lg1TWfXyfe4vwPztcNoVLS0o3jr2lghkgaEnawhVi6X1LnQfT5NfQQADKSU
-	ETV+XEGG0V4/6q3S+3B9EAG/U2llND4kJ+c73DkWyB9uBqEov1ZQ/J/jIHYJU7v26Qw==
-X-Gm-Gg: ASbGncvn7PsMwOpXneYg2ywdWPzit0dxKScnLjZ1Rl2YqZczKtUduiu6ZUf0furvpPY
-	FgMAnG+zdQU/wJ28wCp9MBbuA4c7HFJaS1bkmtzQrQj4pgTi+lepD1sUt9CdCNxr46bZ3gP2vds
-	cnrYrheSz2H1K5FCLxkBp6NYOLVkkheChd9YBBTOa2vKf3Ezen33NSnz0vl/ygKzKXtS2C1aPt8
-	yUswg+jfpqFqH/y+6PWs25jTe/iLIBQoglGBp/tJXBa76JdiYSAnaDpi+R+nZwsziuIsBO0F4/G
-	rZs2O52mc+wGqXrssHb38nrPQAjRJdCXef2tDH2YDw==
-X-Received: by 2002:a05:622a:1387:b0:467:674d:237f with SMTP id d75a77b69052e-46e12ad5f7bmr40519531cf.11.1737121496660;
-        Fri, 17 Jan 2025 05:44:56 -0800 (PST)
-X-Google-Smtp-Source: AGHT+IHmIl4MCDkHkFsxi8fUyXS99BtrKRZsY+6w06Ii3eQgKuqou3xcsKirOxy10aWGIFujuL9O5w==
-X-Received: by 2002:a05:622a:1387:b0:467:674d:237f with SMTP id d75a77b69052e-46e12ad5f7bmr40518371cf.11.1737121496270;
-        Fri, 17 Jan 2025 05:44:56 -0800 (PST)
-Received: from vschneid-thinkpadt14sgen2i.remote.csb (213-44-141-166.abo.bbox.fr. [213.44.141.166])
-        by smtp.gmail.com with ESMTPSA id d75a77b69052e-46e1042ef63sm11228641cf.71.2025.01.17.05.44.44
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 17 Jan 2025 05:44:55 -0800 (PST)
-From: Valentin Schneider <vschneid@redhat.com>
-To: Dave Hansen <dave.hansen@intel.com>, linux-kernel@vger.kernel.org,
- x86@kernel.org, virtualization@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org, loongarch@lists.linux.dev,
- linux-riscv@lists.infradead.org, linux-perf-users@vger.kernel.org,
- xen-devel@lists.xenproject.org, kvm@vger.kernel.org,
- linux-arch@vger.kernel.org, rcu@vger.kernel.org,
- linux-hardening@vger.kernel.org, linux-mm@kvack.org,
- linux-kselftest@vger.kernel.org, bpf@vger.kernel.org,
- bcm-kernel-feedback-list@broadcom.com
-Cc: Peter Zijlstra <peterz@infradead.org>, Juergen Gross <jgross@suse.com>,
- Ajay Kaher <ajay.kaher@broadcom.com>, Alexey Makhalov
- <alexey.amakhalov@broadcom.com>, Russell King <linux@armlinux.org.uk>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Huacai Chen <chenhuacai@kernel.org>, WANG Xuerui <kernel@xen0n.name>, Paul
- Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>,
- Albert Ou <aou@eecs.berkeley.edu>, Thomas Gleixner <tglx@linutronix.de>,
- Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, Dave
- Hansen <dave.hansen@linux.intel.com>, "H. Peter Anvin" <hpa@zytor.com>,
- Arnaldo Carvalho de Melo <acme@kernel.org>, Namhyung Kim
- <namhyung@kernel.org>, Mark Rutland <mark.rutland@arm.com>, Alexander
- Shishkin <alexander.shishkin@linux.intel.com>, Jiri Olsa
- <jolsa@kernel.org>, Ian Rogers <irogers@google.com>, Adrian Hunter
- <adrian.hunter@intel.com>, "Liang, Kan" <kan.liang@linux.intel.com>, Boris
- Ostrovsky <boris.ostrovsky@oracle.com>, Josh Poimboeuf
- <jpoimboe@kernel.org>, Pawan Gupta <pawan.kumar.gupta@linux.intel.com>,
- Sean Christopherson <seanjc@google.com>, Paolo Bonzini
- <pbonzini@redhat.com>, Andy Lutomirski <luto@kernel.org>, Arnd Bergmann
- <arnd@arndb.de>, Frederic Weisbecker <frederic@kernel.org>, "Paul E.
- McKenney" <paulmck@kernel.org>, Jason Baron <jbaron@akamai.com>, Steven
- Rostedt <rostedt@goodmis.org>, Ard Biesheuvel <ardb@kernel.org>, Neeraj
- Upadhyay <neeraj.upadhyay@kernel.org>, Joel Fernandes
- <joel@joelfernandes.org>, Josh Triplett <josh@joshtriplett.org>, Boqun
- Feng <boqun.feng@gmail.com>, Uladzislau Rezki <urezki@gmail.com>, Mathieu
- Desnoyers <mathieu.desnoyers@efficios.com>, Lai Jiangshan
- <jiangshanlai@gmail.com>, Zqiang <qiang.zhang1211@gmail.com>, Juri Lelli
- <juri.lelli@redhat.com>, Clark Williams <williams@redhat.com>, Yair
- Podemsky <ypodemsk@redhat.com>, Tomas Glozar <tglozar@redhat.com>, Vincent
- Guittot <vincent.guittot@linaro.org>, Dietmar Eggemann
- <dietmar.eggemann@arm.com>, Ben Segall <bsegall@google.com>, Mel Gorman
- <mgorman@suse.de>, Kees Cook <kees@kernel.org>, Andrew Morton
- <akpm@linux-foundation.org>, Christoph Hellwig <hch@infradead.org>, Shuah
- Khan <shuah@kernel.org>, Sami Tolvanen <samitolvanen@google.com>, Miguel
- Ojeda <ojeda@kernel.org>, Alice Ryhl <aliceryhl@google.com>, "Mike
- Rapoport (Microsoft)" <rppt@kernel.org>, Samuel Holland
- <samuel.holland@sifive.com>, Rong Xu <xur@google.com>, Nicolas Saenz
- Julienne <nsaenzju@redhat.com>, Geert Uytterhoeven <geert@linux-m68k.org>,
- Yosry Ahmed <yosryahmed@google.com>, "Kirill A. Shutemov"
- <kirill.shutemov@linux.intel.com>, "Masami Hiramatsu (Google)"
- <mhiramat@kernel.org>, Jinghao Jia <jinghao7@illinois.edu>, Luis
- Chamberlain <mcgrof@kernel.org>, Randy Dunlap <rdunlap@infradead.org>,
- Tiezhu Yang <yangtiezhu@loongson.cn>
-Subject: Re: [PATCH v4 26/30] x86,tlb: Make __flush_tlb_global()
- noinstr-compliant
-In-Reply-To: <52311c3d-83cf-4dc4-bbcb-5fbca8eb249c@intel.com>
-References: <20250114175143.81438-1-vschneid@redhat.com>
- <20250114175143.81438-27-vschneid@redhat.com>
- <52311c3d-83cf-4dc4-bbcb-5fbca8eb249c@intel.com>
-Date: Fri, 17 Jan 2025 14:44:42 +0100
-Message-ID: <xhsmh5xmdh7w5.mognet@vschneid-thinkpadt14sgen2i.remote.csb>
+	Fri, 17 Jan 2025 14:04:49 +0000
+Received: from [IPV6:2605:59c0:20f3:a400:5304:e921:4d34:736a] (unknown [IPv6:2605:59c0:20f3:a400:5304:e921:4d34:736a])
+	(Authenticated sender: e)
+	by freeshell.de (Postfix) with ESMTPSA id DDA7BB4B438D;
+	Fri, 17 Jan 2025 15:04:40 +0100 (CET)
+Message-ID: <dd3aefec-0e1a-4025-812b-daa67a53f4ee@freeshell.de>
+Date: Fri, 17 Jan 2025 06:04:38 -0800
 MIME-Version: 1.0
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: EGgRmHiMDvQWJzuv8bvxA9AYet_kwxxqeI4QAlNkSG8_1737121497
-X-Mimecast-Originator: redhat.com
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v1 1/2] riscv: dts: starfive: jh7110: pciephy0 USB 3.0
+ configuration registers
+To: Minda Chen <minda.chen@starfivetech.com>, Conor Dooley <conor@kernel.org>
+Cc: Emil Renner Berthing <kernel@esmil.dk>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
+ "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
+References: <20250102183746.411526-1-e@freeshell.de>
+ <20250102183746.411526-2-e@freeshell.de>
+ <20250113-mushiness-snugness-0f55574e3956@spud>
+ <SHXPR01MB0863DBF85A9874C9F93ECD25E618A@SHXPR01MB0863.CHNPR01.prod.partner.outlook.cn>
+ <20250114-recollect-dictate-104e890d116e@spud>
+ <SHXPR01MB08631714C914911D343372ACE619A@SHXPR01MB0863.CHNPR01.prod.partner.outlook.cn>
+Content-Language: en-US
+From: E Shattow <e@freeshell.de>
+In-Reply-To: <SHXPR01MB08631714C914911D343372ACE619A@SHXPR01MB0863.CHNPR01.prod.partner.outlook.cn>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250117_054500_019001_C335B88A 
-X-CRM114-Status: GOOD (  17.77  )
+X-CRM114-CacheID: sfid-20250117_060448_465012_88114057 
+X-CRM114-Status: GOOD (  16.79  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -151,48 +68,78 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 14/01/25 13:45, Dave Hansen wrote:
-> On 1/14/25 09:51, Valentin Schneider wrote:
->> +	cr4 = this_cpu_read(cpu_tlbstate.cr4);
->> +	asm volatile("mov %0,%%cr4": : "r" (cr4 ^ X86_CR4_PGE) : "memory");
->> +	asm volatile("mov %0,%%cr4": : "r" (cr4) : "memory");
->> +	/*
->> +	 * In lieu of not having the pinning crap, hard fail if CR4 doesn't
->> +	 * match the expected value. This ensures that anybody doing dodgy gets
->> +	 * the fallthrough check.
->> +	 */
->> +	BUG_ON(cr4 != this_cpu_read(cpu_tlbstate.cr4));
->
-> Let's say someone managed to write to cpu_tlbstate.cr4 where they
-> cleared one of the pinned bits.
->
-> Before this patch, CR4 pinning would WARN_ONCE() about it pretty quickly
-> and also reset the cleared bits.
->
-> After this patch, the first native_flush_tlb_global() can clear pinned
-> bits, at least until native_write_cr4() gets called the next time. That
-> seems like it'll undermine CR4 pinning at least somewhat.
->
+Hi Minda,
 
-The BUG_ON() should still catch any pinned bit mishandling, however...
+On 1/15/25 02:58, Minda Chen wrote:
+> 
+> 
+>>
+>> On Tue, Jan 14, 2025 at 05:42:28AM +0000, Minda Chen wrote:
+>>>
+>>>
+>>>>
+>>>> On Thu, Jan 02, 2025 at 10:37:36AM -0800, E Shattow wrote:
+>>>>> StarFive JH7110 contains a Cadence USB2.0+USB3.0 controller IP
+>>>>> block that may exclusively use pciephy0 for USB3.0 connectivity.
+>>>>> Add the register offsets for the driver to enable/disable USB3.0 on
+>> pciephy0.
+>>>>>
+>>>>> Signed-off-by: E Shattow <e@freeshell.de>
+>>>>> ---
+>>>>>   arch/riscv/boot/dts/starfive/jh7110.dtsi | 2 ++
+>>>>>   1 file changed, 2 insertions(+)
+>>>>>
+>>>>> diff --git a/arch/riscv/boot/dts/starfive/jh7110.dtsi
+>>>>> b/arch/riscv/boot/dts/starfive/jh7110.dtsi
+>>>>> index 0d8339357bad..75ff07303e8b 100644
+>>>>> --- a/arch/riscv/boot/dts/starfive/jh7110.dtsi
+>>>>> +++ b/arch/riscv/boot/dts/starfive/jh7110.dtsi
+>>>>> @@ -611,6 +611,8 @@ usbphy0: phy@10200000 {
+>>>>>   		pciephy0: phy@10210000 {
+>>>>>   			compatible = "starfive,jh7110-pcie-phy";
+>>>>>   			reg = <0x0 0x10210000 0x0 0x10000>;
+>>>>> +			starfive,sys-syscon = <&sys_syscon 0x18>;
+>>>>> +			starfive,stg-syscon = <&stg_syscon 0x148 0x1f4>;
+>>>>
+>>>> Why weren't these added in the first place? Minda, do you know?
+>>>>
+>>> The driver only require to set syscon register while the PHY attach to
+>>> Cadence USB.(star64 board case) The PHY default attach to PCIe0, VF2 board
+>> do not set any setting. So I don't set it.
+>>
+>> Does this mean that the change should be made in files where it will only affect
+>> non-VF2 boards, or is it harmless if applied to the VF2 also?
+> Harmless. The PCIe PHY driver still set the PCIe mode syscon setting.
 
-> What keeps native_write_cr4() from being noinstr-compliant now? Is it
-> just the WARN_ONCE()?
->
+Sounds good to me. However some tangent topic related to this series:
 
-I don't think that's even an issue since __WARN_printf() wraps the print in
-instrumentation_{begin,end}(). In v3 I made native_write_cr4() noinstr and
-added a non-noinstr wrapper to be used in existing callsites.
+Our questions and answers in this discussion are a representation of 
+what is missing from the documentation.
 
-AFAICT if acceptable we could make the whole thing noinstr and stick with
-that; Peter, is there something I missed that made you write the handmade
-noinstr CR4 RMW?
+What do I want to know? :  "pdrstn split sw usbpipe plugen" abbreviation.
 
+What are the full words that is from?
+
+I will guess the words are:
+
+"Power domain reset negative? Split... Switch? USB pipeline plug enable?"
+
+When this is explained for me I will send a patch to add information 
+into documentation at dt-bindings/phy/starfive,jh7110-pcie-phy.yaml 
+file. I know that the functionality is already said in discussion;  What 
+I want are the full words to expand the "pdrstn split sw usbpipe plugen" 
+as any abbreviation would also be expanded and explained in documentation.
+
+It would be difficult to improve the documentation before our discussion 
+about this series here. Now it is clear what questions and answers are 
+missing from documentation.
+
+-E
 
 _______________________________________________
 linux-riscv mailing list
