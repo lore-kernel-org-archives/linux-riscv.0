@@ -4,54 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 27C8EC02183
-	for <linux-riscv@archiver.kernel.org>; Fri, 17 Jan 2025 09:58:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 68EA1C02183
+	for <linux-riscv@archiver.kernel.org>; Fri, 17 Jan 2025 10:36:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
+	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Tiv9IhPb3TGJCjMZXEKnO/z1q/has7l9wjvra6B6t/0=; b=BYThk2QUUVnafu
-	C+FdfCmBXVjipuunJH3i00iOr3rZWlRo0J6qsofubTqzPq9KynCzBrO71Dv1LCRCCELTFzYxZhPUH
-	dNaHzBcYeRFc8hIbxz6kXoUG4rhQ0rBcWKjvNIqrJZ2xHbAguPESuCBG6UbpFITIHuD5ZI9GzVvM2
-	f/l7yNKHgPs+5rYTWZkZXJ8CB4Aj9o5KL6vozjSSv8y2UZSmCAuWrX2DUO8dx/k1rISmd5qMh7nY7
-	GNx6aZ/Ihv7Ac3dKNEgE74K9PoNUpVi7OGybvzVcSJhFIqHBsYBzbUJBWmbu5NTVfe7OEHoNum4jI
-	NVpNUGE/wYNA+AXH+BZQ==;
+	List-Owner; bh=pHJ1YD4jR/Bc/o5YJKrwhQpjuRB5ZhkoW/RFCQnfzoQ=; b=rgfUtfzFtznuoX
+	GfoRcxyoSzXq+sOWFTRt5Qvn/2oB41E6N9U4rzXDHczgS6u/Wj5ApUlNvZq13UPXbSqmemnkkU7Mc
+	Z3iNHlWbnqIuwjiOjQKgNn+i6Lw9de2z/LeuSFJUHLPg0piIQFx09d9KIkual7J95AhDH5+UTkejZ
+	qPToj+Gk4MfgmiBp2fYp2Jhcrzs3dkYXGm9X/+9KQF+IbBh3COb+fqqVcxssJM/WiWlFypkzkJQGB
+	PQNPwuTIGk+S1ppsBDNPTvPGFdn84G6PKQtGrwnyw3ysjcXHOboXM/64XAXHdZFEnUmzwUEE6fQrl
+	atqozZ3g87rCqWzJiqeA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tYj7g-0000000HW9s-2ZTR;
-	Fri, 17 Jan 2025 09:58:40 +0000
-Received: from verein.lst.de ([213.95.11.211])
+	id 1tYjhk-000000002Vt-1g85;
+	Fri, 17 Jan 2025 10:35:56 +0000
+Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tYj7e-0000000HW93-3L9o
+	id 1tYjhh-000000002Tx-0x9W
 	for linux-riscv@lists.infradead.org;
-	Fri, 17 Jan 2025 09:58:40 +0000
-Received: by verein.lst.de (Postfix, from userid 2407)
-	id 81DB168BEB; Fri, 17 Jan 2025 10:58:32 +0100 (CET)
-Date: Fri, 17 Jan 2025 10:58:32 +0100
-From: Christoph Hellwig <hch@lst.de>
-To: Sergey Matyukevich <geomatsi@gmail.com>
-Cc: Christoph Hellwig <hch@lst.de>, linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org, Palmer Dabbelt <palmer@dabbelt.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Alexandre Ghiti <alexghiti@rivosinc.com>,
-	Conor Dooley <conor.dooley@microchip.com>,
-	Robin Murphy <robin.murphy@arm.com>,
-	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
-	Geert Uytterhoeven <geert+renesas@glider.be>
-Subject: Re: [PATCH] riscv: select DMA_DIRECT_REMAP by RISCV_ISA_SVPBMT and
- ERRATA_THEAD_MAE
-Message-ID: <20250117095832.GB2585@lst.de>
-References: <20250116172950.1989748-1-geomatsi@gmail.com> <20250117075238.GA25422@lst.de> <Z4oXF2ewizIIk1cL@curiosity>
+	Fri, 17 Jan 2025 10:35:54 +0000
+From: Thomas Gleixner <tglx@linutronix.de>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1737110151;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=kJ2kv/1rlnnXeEw5Xrh2XCElzdIj6/ZqbMeXkDt/4sE=;
+	b=1ufwZp+MdggMD1gfYxrxBv5RrtmNfABJtcVSxXENkw7ofHq1hNwdimO1I8RWvPhVLFi6pJ
+	BbcZ84hriEpEJcB4hCR3Pl0FE17k1jaIRdkNuStD4NNUN27WAXXIGNAsuBdco8Egz0TZtK
+	FtWKb8zS0+KLGiKhdvh0o80Lxu7N/nyLQKw79MQu3l3X87+3Hpl6JIiJ0vVEuyA6BmKeR3
+	ZXXdNHOodgexoQmHFNGPxXfs5olVV4o++OKYGAQlWgJShG+3ii/9EbA8p5OWFuAMQfTP6h
+	BIdYStwvEXtD1zHjhOl3Izjx8LlFGmPdl96IYCkCETz5Wf/kjKvDONNV5919dA==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1737110151;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=kJ2kv/1rlnnXeEw5Xrh2XCElzdIj6/ZqbMeXkDt/4sE=;
+	b=H/k683fbRi1hdZKWI7aHHNFZY7076K+lLa7jz8AcCkMrM44Fd/RnkBqAEGuFC+YA7xxw6Q
+	y+OP+6x8JJiFPLBg==
+To: Charlie Jenkins <charlie@rivosinc.com>, Xu Lu <luxu.kernel@bytedance.com>
+Cc: anup@brainfault.org, paul.walmsley@sifive.com, palmer@dabbelt.com,
+ lihangjing@bytedance.com, xieyongji@bytedance.com,
+ linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] irqchip: riscv: Order normal writes and IPI writes
+In-Reply-To: <Z4l1fklnUPyTSLO4@ghost>
+References: <20250116120710.51673-1-luxu.kernel@bytedance.com>
+ <Z4l1fklnUPyTSLO4@ghost>
+Date: Fri, 17 Jan 2025 11:35:51 +0100
+Message-ID: <87ldv9afso.ffs@tglx>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <Z4oXF2ewizIIk1cL@curiosity>
-User-Agent: Mutt/1.5.17 (2007-11-01)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250117_015838_988851_EED007C1 
-X-CRM114-Status: GOOD (  15.94  )
+X-CRM114-CacheID: sfid-20250117_023553_406473_8352CBC7 
+X-CRM114-Status: UNSURE (   7.68  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,26 +78,40 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jan 17, 2025 at 11:38:47AM +0300, Sergey Matyukevich wrote:
-> > Please explain what this is supposed to solve, because the above
-> > explanation dosn't make any sense.  DMA_DIRECT_REMAP is one
-> > of the implementations supporting dma coherent allocatiosn for
-> > non-coherent devices.  So selecting it from something that
-> > just keyes off support for an extension, but not the dma
-> > implementation is wrong.
-> 
-> Now DMA_DIRECT_REMAP is selected either by Zicbom (standard) or XTheadCmo
-> (vendor) RISC-V extensions.
+Charlie!
 
-Because they need DMA_DIRECT_REMAP to implement DMA coherent.
+On Thu, Jan 16 2025 at 13:09, Charlie Jenkins wrote:
+> On Thu, Jan 16, 2025 at 08:07:10PM +0800, Xu Lu wrote:
+>> Replace writel_relaxed() with writel() when issuing IPI to ensure all
+>> previous write operations made by current CPU are visible to other CPUs.
+>
+> Did you experience an ordering issue from this?
 
-> However neither of them can help to implement
-> DMA_DIRECT_REMAP on RISC-V. So selection of DMA_DIRECT_REMAP has been
-> moved in Kconfigs to Svpbmt and XTheadMae extensions.
+That's not the right question.
 
-But Svpbmt does not imply that you even need DMA_DIRECT_REMAP.
+      CPU 0                     CPU 1
+      store A   // data
+      store B   // IPI
+                                IPI handler
+                                load A
 
-Are you tying to solve a problem here?  If so can you explain it?
+The real question is whether the RISC-V memory model guarantees under
+all circumstances that A is globally visible before the IPI handler
+load. If so, then the writel_relaxed() is fine. If not, the fence is
+required.
+
+That's not a question of observation. It's a question of facts defined
+by the architecture. People have wasted months to analyze such fails
+which tend to happen once every blue moon with no other trace than
+"something went wrong" ....
+
+> - Charlie
+
+Please trim your replies...
+
+Thanks,
+
+        tglx
 
 _______________________________________________
 linux-riscv mailing list
