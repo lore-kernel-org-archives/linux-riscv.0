@@ -4,109 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E05B1C02183
-	for <linux-riscv@archiver.kernel.org>; Fri, 17 Jan 2025 07:28:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8A722C02183
+	for <linux-riscv@archiver.kernel.org>; Fri, 17 Jan 2025 07:52:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:References:Message-Id:Cc:Date:
-	In-Reply-To:From:Subject:Mime-Version:Reply-To:Content-ID:Content-Description
-	:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=wSumIL1HqEYvtyB1YzQlivcdfrTGvlBSGlZZSHZCjFU=; b=rIW+DiAXQ9pJN3
-	xriCA/bleWDTFVyfS6zwrclkKRyHkepDOS5fw11dPgjE/GLLYDfHGw62VEC612qG/m8MhtJZEGKS6
-	a284uIHZYMXRea7tJRNvstb/rbtP6rmb249GoFJblAoICi4tygKXBEUrWUkXKtMGB5rHIb/7VJ0IO
-	3N8ma9estySsZcS3YPUcdx7kQ+vwhru3oRzdkS/iJf4kIVlj6HrUJc6hE+I73vTQexve6ugq+sAa/
-	eyK+FCosMoj0Fsx/9UWyS8DeF/Im8oha0CX+ScYpQdJobDIXPys3mWG3eHyVXhuQHv+SG5Uav64YH
-	I4So/QPZ0m2SJiB45LXg==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=OZkqFqbxnMDqalrbPbbsux3Byo1nfTXNM2fMOCAPURM=; b=gXHM2+sJfNJHh/
+	+hiRGwfTn9xJySRZk32Ev+SBR2a/tMmNwIp30h0HMUSjOXZnpEHT/EiatZiW5TJuj6EJVqUjQXwlV
+	1PU4G1iPz9RTBI78FK4//bwP9cBWvRXZZoueje/B3ZAvPfgKSHy4jSWfMDj0sjexl+cAYilR1kS+R
+	E9wHgxJcTBgbgg8XtK6ZEn1412YaZRcrB9RaoTcBIJNMbkKcGLF9s1JdGKtHBvBn9pktYXJDvs2Pp
+	vvGIuToREOTgOCP672wXicJsjy/waEi2WqaZHXrB3ouUUxAaIV8g6aBmkMJqvhCZxTENwYZdwKRtu
+	6Jn7z/StkILqUmx0klyw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tYgmE-0000000HCkw-1K3u;
-	Fri, 17 Jan 2025 07:28:22 +0000
-Received: from mail-ed1-x52f.google.com ([2a00:1450:4864:20::52f])
+	id 1tYh9x-0000000HFlu-1uVH;
+	Fri, 17 Jan 2025 07:52:53 +0000
+Received: from verein.lst.de ([213.95.11.211])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tYgkv-0000000HCNA-3IZT;
-	Fri, 17 Jan 2025 07:27:03 +0000
-Received: by mail-ed1-x52f.google.com with SMTP id 4fb4d7f45d1cf-5d647d5df90so3080098a12.2;
-        Thu, 16 Jan 2025 23:27:01 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1737098820; x=1737703620; darn=lists.infradead.org;
-        h=to:references:message-id:content-transfer-encoding:cc:date
-         :in-reply-to:from:subject:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=F24Ywam/p+ofkibybtKEAiJQBVKXbmYXTkvfrfJmGwk=;
-        b=jH6Zp0i1qqhQBSpmDlkLbDSk9kfTfzOYnWM5aKSKDUgp02gmhuiV3z2XJIZw/JNeYk
-         JLjkJ5J8ro1QvXuxFpi0V89gXkAS47SjG6gfjhf2lHclMR2Oe4b0t4gE65UlNpI8haVD
-         PZ1AfsQxtgPShwBCXeDvhSQY1xKwAytDsQNwRBZTmL9Sn9PEFQ6mE10RvDKKwhLt6aG+
-         EzVpoHN0otSsdkWataB7wrOIU+KsDR6Qjo7dn3BFo3MioHSgqfEaZKq8rAha5fv1nNLH
-         0qaocKJG9/sl5Qn7BCgvHnrzecklWtklqld7nIn2GmaQW39Lda12UBfS/twP4ZqjcZF+
-         o0kA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1737098820; x=1737703620;
-        h=to:references:message-id:content-transfer-encoding:cc:date
-         :in-reply-to:from:subject:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=F24Ywam/p+ofkibybtKEAiJQBVKXbmYXTkvfrfJmGwk=;
-        b=dyW06D7/8VFRbpkJMuA9Gm3AqqvBPUz/gLtK26dgQjeyFpOdf1V8huMpe4e5QYjrLo
-         GlwzgxJH3+kvTZQsQhsj5erAhOdEhJEGBjIx8hQr3ef0Kjd4sprQz/2RKnQUJuJkweq9
-         tSWkRuyUkv9kQZDX3hKwgV707eCctpHDK1jzT63oIU80vkhTCpdx7gkQ39wgGfr3l77s
-         TCcTawpaPywQ0anaQFImQiqQsU8YbA28uAyd4Q2BChwFZMSMwDULw74KdwhkWB0F7IPM
-         XTCRXPs3TbCVRbh5rMOYqSNveEWz5vvcPedd935XUfXVS8OfzRbcjVEZhpijoljtnKtE
-         2cZQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUGrlk3bkWCn4RrDeWh0ROXCUUIUCOi7YFTOPkmgV1vjcB0dg+mlEAb2h24Ugr/+hIno4WZZBPHg6M4SK8=@lists.infradead.org, AJvYcCUc/BwTsHalv8soqrgVrgwkx8kCIWqIpvK7OL6gfSwGdmGje/00VVfoh3byYW89s4AIRpWqd6TUlPtX@lists.infradead.org, AJvYcCWsxAQXC2pECeOULlxg0ttjR9V9LZ544mvvNgOGS+8JYF7XAR3rlD220lQeUqGjr8wp4ekZQnYJiY3KgH0pNKBX@lists.infradead.org
-X-Gm-Message-State: AOJu0YwWShZhuOmRRXwZ7tTofCt2emI3REwPMdzO98QFtGGoLWB63dz3
-	KbglPKxKCUwk2A0knACySo8zESGFVrQzpjzl6s8NpPRVpXiJCsfv
-X-Gm-Gg: ASbGncsZq1Ly/rYA/q58uZMWFEpZi5WqlkYYvU3wBFtskaQqhHuUp52HDIVh4OVWe24
-	65YHyE70lBBn3pZ3wZEVXzNdfxI44uyRSx2vwIwoMyEuRqTWELVQSTG8WyToVQqwvdvMvOF0Ffg
-	dNhA0WCJHB+eyRyXnEOh36CEE/HyTJpY8ZIK/Oha8a4//asllmDww0uFTqHqNDxj0cq8D/IEtrQ
-	DlrmD3SLdf4hm1F/aiUBevJtB0pbJdMxlNrNNpsh/u/OMv+5lbpOjK7yU7Z338+aAzqZg8M1vua
-	21/4YWVoBsRYKUZWC04=
-X-Google-Smtp-Source: AGHT+IEJ47ULSJP3koS5kB9oV3dzXmmnz2xu5B2PxtVsCDw5X7zWmfzS9Fwll8RLJEa/W2eN3Ozjlw==
-X-Received: by 2002:a05:6402:26c2:b0:5d2:7199:ae5 with SMTP id 4fb4d7f45d1cf-5db7d2e3014mr1246401a12.5.1737098819744;
-        Thu, 16 Jan 2025 23:26:59 -0800 (PST)
-Received: from smtpclient.apple (185.174.17.62.zt.hu. [185.174.17.62])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-5db73edccd4sm1072439a12.77.2025.01.16.23.26.57
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Thu, 16 Jan 2025 23:26:59 -0800 (PST)
-Mime-Version: 1.0 (Mac OS X Mail 16.0 \(3776.700.51\))
-Subject: Re: [PATCH 10/12] dt-bindings: phy: allwinner: add v853 usb phy
-From: =?utf-8?B?QW5kcsOhcyBTemVtesWR?= <szemzo.andras@gmail.com>
-In-Reply-To: <Z4dpFqffMJ31ml2y@vaman>
-Date: Fri, 17 Jan 2025 08:26:46 +0100
-Cc: Michael Turquette <mturquette@baylibre.com>,
- Stephen Boyd <sboyd@kernel.org>,
- Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>,
- Chen-Yu Tsai <wens@csie.org>,
- Jernej Skrabec <jernej.skrabec@gmail.com>,
- Samuel Holland <samuel@sholland.org>,
- Linus Walleij <linus.walleij@linaro.org>,
- Philipp Zabel <p.zabel@pengutronix.de>,
- Maxime Ripard <mripard@kernel.org>,
- Kishon Vijay Abraham I <kishon@kernel.org>,
- Ulf Hansson <ulf.hansson@linaro.org>,
- Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>,
- Albert Ou <aou@eecs.berkeley.edu>,
- =?utf-8?Q?Uwe_Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>,
- Florian Fainelli <florian.fainelli@broadcom.com>,
- linux-clk@vger.kernel.org,
- devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org,
- linux-sunxi@lists.linux.dev,
- linux-kernel@vger.kernel.org,
- linux-phy@lists.infradead.org,
- linux-gpio@vger.kernel.org,
- linux-pm@vger.kernel.org,
- linux-riscv@lists.infradead.org
-Message-Id: <2D99DF28-4CC0-443D-8E5F-A2AC12EE47B7@gmail.com>
-References: <20250110123923.270626-1-szemzo.andras@gmail.com>
- <20250110123923.270626-11-szemzo.andras@gmail.com> <Z4dpFqffMJ31ml2y@vaman>
-To: Vinod Koul <vkoul@kernel.org>
-X-Mailer: Apple Mail (2.3776.700.51)
+	id 1tYh9u-0000000HFkQ-2iQK
+	for linux-riscv@lists.infradead.org;
+	Fri, 17 Jan 2025 07:52:52 +0000
+Received: by verein.lst.de (Postfix, from userid 2407)
+	id 3B12A68BFE; Fri, 17 Jan 2025 08:52:38 +0100 (CET)
+Date: Fri, 17 Jan 2025 08:52:38 +0100
+From: Christoph Hellwig <hch@lst.de>
+To: Sergey Matyukevich <geomatsi@gmail.com>
+Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Alexandre Ghiti <alexghiti@rivosinc.com>,
+	Conor Dooley <conor.dooley@microchip.com>,
+	Robin Murphy <robin.murphy@arm.com>,
+	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
+	Geert Uytterhoeven <geert+renesas@glider.be>,
+	Christoph Hellwig <hch@lst.de>
+Subject: Re: [PATCH] riscv: select DMA_DIRECT_REMAP by RISCV_ISA_SVPBMT and
+ ERRATA_THEAD_MAE
+Message-ID: <20250117075238.GA25422@lst.de>
+References: <20250116172950.1989748-1-geomatsi@gmail.com>
+MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20250116172950.1989748-1-geomatsi@gmail.com>
+User-Agent: Mutt/1.5.17 (2007-11-01)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250116_232701_822831_0CE3BB7B 
-X-CRM114-Status: GOOD (  14.90  )
+X-CRM114-CacheID: sfid-20250116_235250_836798_D1933D7A 
+X-CRM114-Status: GOOD (  12.61  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,38 +64,27 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Cgo+IE9uIDE1IEphbiAyMDI1LCBhdCAwODo1MSwgVmlub2QgS291bCA8dmtvdWxAa2VybmVsLm9y
-Zz4gd3JvdGU6Cj4gCj4gT24gMTAtMDEtMjUsIDEzOjM5LCBBbmRyYXMgU3plbXpvIHdyb3RlOgo+
-PiBEb2N1bWVudCBBbGx3aW5uZXIgdjg1MyBVU0IgcGh5Lgo+PiAKPj4gU2lnbmVkLW9mZi1ieTog
-QW5kcmFzIFN6ZW16byA8c3plbXpvLmFuZHJhc0BnbWFpbC5jb20+Cj4+IC0tLQo+PiAuLi4vcGh5
-L2FsbHdpbm5lcixzdW44aS12ODUzLXVzYi1waHkueWFtbCAgICAgfCA4OSArKysrKysrKysrKysr
-KysrKysrCj4+IDEgZmlsZSBjaGFuZ2VkLCA4OSBpbnNlcnRpb25zKCspCj4+IGNyZWF0ZSBtb2Rl
-IDEwMDY0NCBEb2N1bWVudGF0aW9uL2RldmljZXRyZWUvYmluZGluZ3MvcGh5L2FsbHdpbm5lcixz
-dW44aS12ODUzLXVzYi1waHkueWFtbAo+PiAKPj4gZGlmZiAtLWdpdCBhL0RvY3VtZW50YXRpb24v
-ZGV2aWNldHJlZS9iaW5kaW5ncy9waHkvYWxsd2lubmVyLHN1bjhpLXY4NTMtdXNiLXBoeS55YW1s
-IGIvRG9jdW1lbnRhdGlvbi9kZXZpY2V0cmVlL2JpbmRpbmdzL3BoeS9hbGx3aW5uZXIsc3VuOGkt
-djg1My11c2ItcGh5LnlhbWwKPj4gbmV3IGZpbGUgbW9kZSAxMDA2NDQKPj4gaW5kZXggMDAwMDAw
-MDAwMDAwLi43NzNjM2Y0NzZkYjgKPj4gLS0tIC9kZXYvbnVsbAo+PiArKysgYi9Eb2N1bWVudGF0
-aW9uL2RldmljZXRyZWUvYmluZGluZ3MvcGh5L2FsbHdpbm5lcixzdW44aS12ODUzLXVzYi1waHku
-eWFtbAo+PiBAQCAtMCwwICsxLDg5IEBACj4+ICsjIFNQRFgtTGljZW5zZS1JZGVudGlmaWVyOiAo
-R1BMLTIuMC1vbmx5IE9SIEJTRC0yLUNsYXVzZSkKPj4gKyVZQU1MIDEuMgo+PiArLS0tCj4+ICsk
-aWQ6IGh0dHA6Ly9kZXZpY2V0cmVlLm9yZy9zY2hlbWFzL3BoeS9hbGx3aW5uZXIsc3VuOGktdjg1
-My11c2ItcGh5LnlhbWwjCj4+ICskc2NoZW1hOiBodHRwOi8vZGV2aWNldHJlZS5vcmcvbWV0YS1z
-Y2hlbWFzL2NvcmUueWFtbCMKPj4gKwo+PiArdGl0bGU6IEFsbHdpbm5lciBWODUzIFVTQiBQSFkK
-Pj4gKwo+PiArbWFpbnRhaW5lcnM6Cj4+ICsgIC0gQ2hlbi1ZdSBUc2FpIDx3ZW5zQGNzaWUub3Jn
-Pgo+PiArICAtIE1heGltZSBSaXBhcmQgPG1yaXBhcmRAa2VybmVsLm9yZz4KPj4gKwo+PiArcHJv
-cGVydGllczoKPj4gKyAgIiNwaHktY2VsbHMiOgo+PiArICAgIGNvbnN0OiAxCj4+ICsKPj4gKyAg
-Y29tcGF0aWJsZToKPj4gKyAgICBjb25zdDoKPj4gKwktIGFsbHdpbm5lcixzdW44aS12ODUzLXVz
-Yi1waHkKPiAKPiBEb2VzIHRoaXMgcmVhbGx5IG5lZWQgYSBuZXcgYmluZGluZyBkb2N1bWVudCwg
-aWYgc28gd2h5Li4uIENhbnQgdGhpcyBiZQo+IGFkZGVkIHRvIG9uZSBvZiB0aGUgZXhpc3Rpbmcg
-ZG9jcyB3aGljaCBkcml2ZXIgdXNlcz8KPiAKClllcywgdGhhdCB3YXMgbXkgZmlyc3QgaW50ZW50
-aW9uIHRvbywgYnV0IGRpZG7igJl0IGtub3cgaG93IHRvIGRvIGl0IHByb3BlcnksIGJ1dCBJ4oCZ
-bGwgcmVtb3ZlIGl0CmFuZCBhZGQgdG8gb25lIG9mIHRoZSBleGlzdGluZyBkb2MuCgo+IC0tIAo+
-IH5WaW5vZAoKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-CmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3Jn
-Cmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+On Thu, Jan 16, 2025 at 08:29:35PM +0300, Sergey Matyukevich wrote:
+> Select DMA_DIRECT_REMAP for the RISC-V extensions that allow to set
+> page-based memory types in PTEs according to the requested DMA
+> attributes. This is the purpose of Svpbmt or XTheadMae extensions.
+> Zicbom or XTheadCmo serve a different purpose, providing instructions
+> to flush/invalidate cache blocks.
+
+Please explain what this is supposed to solve, because the above
+explanation dosn't make any sense.  DMA_DIRECT_REMAP is one
+of the implementations supporting dma coherent allocatiosn for
+non-coherent devices.  So selecting it from something that
+just keyes off support for an extension, but not the dma
+implementation is wrong.
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
