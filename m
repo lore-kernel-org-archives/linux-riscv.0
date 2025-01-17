@@ -4,161 +4,118 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C12ABC02183
-	for <linux-riscv@archiver.kernel.org>; Fri, 17 Jan 2025 17:17:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 77E6AC02183
+	for <linux-riscv@archiver.kernel.org>; Fri, 17 Jan 2025 17:20:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:Date:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=hVPVXgTQUYPyKYDTLVxtON18t2yn77vGzlp58m0VJb4=; b=TlyrBfsWEwxYfQ
-	rEuVYFTCyqdlVN/wS4JYh26vtvii8y7W8RvfA9u0gB1vtAjj7wt4ejnYyCY1VRU2sMySX8aisiL7h
-	tFSxk2zzCjq9onYDVt1jXpiPJWcka8Dpzf8IPRAgIcXR0nSfi51/DoyUgYC4Of21ddS/SvBUpPHya
-	nACGoRJ+TeYfOsVkJcdGqWmvRoew3DUisR9KJn0zEy5GLabEHqx/zVzntyL0egkHfFAETtgcsxXB8
-	E95TKhDBIAjXsiM1XdkZIXKrrQ4ZfYJx6m3no/+1i8chd5ahnLbwleZQs6SWkIjI/D/72ZdkfIfxa
-	vwwUFijgrAl8eBrJaLZw==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID:
+	References:Mime-Version:In-Reply-To:Date:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Owner;
+	bh=G4vv5al9TlXOnkhC9icLM9RkHToU8TnqdA30sRoh++k=; b=cW5NBicow8IJFxS6il1hrNLjiJ
+	FW6poI/EK5b9xxl1tw7MXao6mnUc1JCThyzjRF36n4JBXZ7xGCDKp9+BTuCapV6bli8Lnt3oGknWM
+	j18SGBNwQYx4sAC+xb17xYZN8Q86BV3+mb7IgT1ikmphTBvaSIoqo9fBUlc9vyLIfsOuhJyKC206g
+	hUnU88B7cLiIFmLqI6rrr7Kv+GfOlGXeUHLSYF55mjxCLRKgKkqYZ/p2ayIWxtrPUWWlw7hGxP8NS
+	BmnmxvwjwK6VHFT2PaTUly7kkMDYBtyu6g+RPmF1x+jY617xzGrf4IIg3Ck2oCYZrQDIodThrceYM
+	YUXOAb/Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tYpyg-00000000wPm-0uNN;
-	Fri, 17 Jan 2025 17:17:50 +0000
-Received: from mail-lj1-x230.google.com ([2a00:1450:4864:20::230])
+	id 1tYq1W-00000000wlO-0IGc;
+	Fri, 17 Jan 2025 17:20:46 +0000
+Received: from mail-pl1-x649.google.com ([2607:f8b0:4864:20::649])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tYowd-00000000jmA-398a;
-	Fri, 17 Jan 2025 16:11:40 +0000
-Received: by mail-lj1-x230.google.com with SMTP id 38308e7fff4ca-305d840926fso18090651fa.2;
-        Fri, 17 Jan 2025 08:11:38 -0800 (PST)
+	id 1tYpwQ-00000000w3Y-34Cn
+	for linux-riscv@lists.infradead.org;
+	Fri, 17 Jan 2025 17:15:32 +0000
+Received: by mail-pl1-x649.google.com with SMTP id d9443c01a7336-2178115051dso44450825ad.1
+        for <linux-riscv@lists.infradead.org>; Fri, 17 Jan 2025 09:15:29 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1737130297; x=1737735097; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:date:from:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=Mwf/8xvajfVfuiw0AKepwMJBFKP0lwWuKM/onBPK6d8=;
-        b=c6ZX/W4TPAzOYgqwrfRTUriPy4Xv4XBc5gd4v2/bzBa00H/wwla1fdDU0COxUWm+9p
-         jFw7qdKnoVMref+n0Q2TG1ktEOdsY/tik42LA4QaM4S2KlVztfdSvMCGtR2vGYAXf5EY
-         BA79k7ZxQx/dhE8XeWQPE4ceWXOCCzwPH7C9VKHc/frmaf1rAqvZBIReUlcljxazCyoJ
-         p92piYoo813ae9toJyRX0njmESguNcNX80o9kQXgkYdvY98HyfcbdZteiYCIlOTq5vpd
-         h9PA3rRzizgKaAKUw+OsZyRnA+87rRHmozer8EEWzlEg2Zg61DO1FqhE3QcwqZXW/DFR
-         T6Rg==
+        d=google.com; s=20230601; t=1737134129; x=1737738929; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:from:to:cc:subject:date:message-id:reply-to;
+        bh=/pcx17eniD+ASjh3teIfjrJN/d55a+1SMCIjE05N6Y0=;
+        b=zttRI2SODOA2JjE61Y/01AnIpRrQYvAzSo00TWby6t6n99RBppCqDZRk81QL/ciooo
+         NtwFq0hbxbaLPiGE63AwiIIs6treFB9pxTpKh0ujrbyRK9BRZAcygl/BocEQO86m5C2f
+         Ay79PMYLs5AVRCy+utQ2t4HDt/DFRW+wFrLImBbWNlxfgMn8gSqzYEyb/nVVHgcQnfQR
+         IcKV801YWlGXapQO/zE0dEpj+n0HadRTyOF8geBeXTKmAvNdNsGswHetiySjZJTTrzTq
+         OrkNbc0dZtpV+32Q8mamHlXc3q/cR8JpkeX4cAHfnct5h+g2BtJBYHfGiYXyb3ivLs8q
+         NZ+w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1737130297; x=1737735097;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:date:from
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=Mwf/8xvajfVfuiw0AKepwMJBFKP0lwWuKM/onBPK6d8=;
-        b=SffiUgTralAMP1HGpYU9AqXM6ARXZtkYDU8dqxQKyrq/O+wQIXLdwyU1NBuEbQrRFU
-         LRQ8TMhd2pfHfUC/sJ1JNybpMmCiHaklWaEGOTVYHnxXgZJaTc8/Ml5BTbyom0KO5pyZ
-         khCBgib3NoQGIXlKLiQ8dJTC6JjOMsJwAnvYehlwZh0xvC7fTgP53P5dvSvQrzQ0+wS1
-         9tOEHmNFrGWsIahBbCaXhiZnDyN5VguPWkF5qzniKSRBtM1tjeMbZf7WwrGHxeufkg0M
-         KYXWSjYoVo4UpSmnWBLCu81xPVnI7lUqjYTEfB541q3u6i/k3WwCLjgWsTC+47ncC1sv
-         oUSA==
-X-Forwarded-Encrypted: i=1; AJvYcCWHurEBhhmEFOI+aFeNO/mxQ/VqcSn+t+qRppM3a4GJDRW0ziqU2wfU+tfPC/N8TWrW61ELSMHRxGwFESw=@lists.infradead.org, AJvYcCWWrC2d3gE1ZeQUSehNlEb082U8jfXSPr+qVnOAprV2CJBFjNquCWE3HvsaxkZAxXE/WSCrKS+PnteL1jnHb74O@lists.infradead.org
-X-Gm-Message-State: AOJu0YwF9e/TYa4KpSOcCysP0h5k4mjJnR8N/i0Ajz9WwA3oCpGtz+3i
-	JFyHdmijOGj0TQlSBKxT21Jngospde2bp+gp6ji+R5KfnQuogGF6
-X-Gm-Gg: ASbGnctshszv47C2V7wHb6hwooC1B0NKYcNRt0L0sgP9Sobo/aluGU5fuZAkaghlfQZ
-	K4megNYA1j4AOZFdNVEt6ROeAKbWCDSA0Hp2NyAC0rxMN4r32BYF0ROaxN+nDdpKk8ReLBaUxQJ
-	EMvgRtY+yA2YSx4HQz6m9ikgHENPLIzPv330XLAftR7gK/vTDuLlsS60VGLav3BJuZgshlOcD82
-	jatPSAp3mZcsrPTlHYmE0UvncQJr+XhStK0gzZ3Px9FIIO+v5u+JxKKRjanNDngdlbZWRRyuBhN
-	pfIaoBf9trs=
-X-Google-Smtp-Source: AGHT+IFH9kfhzB42dITXdZg9xXnIuIrCtLCGkWK8kDwmfncKlFAzifmDHoUZVUHtKkW5iC7Zz8oHDA==
-X-Received: by 2002:a2e:bc27:0:b0:302:40ec:a1b3 with SMTP id 38308e7fff4ca-3072caa166amr12690871fa.21.1737130297134;
-        Fri, 17 Jan 2025 08:11:37 -0800 (PST)
-Received: from pc636 (host-217-213-93-172.mobileonline.telia.com. [217.213.93.172])
-        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-3072a4ed4bcsm4854351fa.71.2025.01.17.08.11.32
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 17 Jan 2025 08:11:36 -0800 (PST)
-From: Uladzislau Rezki <urezki@gmail.com>
-X-Google-Original-From: Uladzislau Rezki <urezki@pc636>
-Date: Fri, 17 Jan 2025 17:11:30 +0100
+        d=1e100.net; s=20230601; t=1737134129; x=1737738929;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=/pcx17eniD+ASjh3teIfjrJN/d55a+1SMCIjE05N6Y0=;
+        b=CS/UKwfM/CM6cJHlJ2VzvYo7z6U+x8XNLYHjRilwzCC206B5AveoaEt8CITpS9kQ3V
+         QoNLXFekSHNBAzHL0X1/CF+VLiPvpJvo3qGgp5JA/9T5M/7GsB25xMWgdmtenKbpLs0U
+         ubALXBk0a41AlaUu81m4l1l6JI18ips2wyJnIUp1T5vbEpqSdcf29JZSG5pFiYc2ZBTp
+         01Gl186SIj1huPBLXNcC1pYkRbmf1jSBRQGhLWFqXqs84yp10YQ4SwMbe2XO1czlGyWh
+         vfmPtaq2aIVVM7YOkt34UJ5DTg0hjBIR1qxnpVbwZT5Lxbde7wLuCntW4y00COpGWk8X
+         DPDA==
+X-Forwarded-Encrypted: i=1; AJvYcCU6toT6gycOyEVST/FsNfI5BVadBZn+8YttU1ExGdJqEbnMtxLlXgV+EQrEAnNfpgmIWgnM+RE3GB2RNQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0YwSjzyOURE7sKOHQFCKTzvbCLAmqkILmI/Q9oi+xyUNpyY9T9DT
+	8E3e5cC7dRrGDarUn5EnDhdlovqR6nFaA/zOWXlT8f8hy9TZmkFrPNyU2W0NLcDRk54buYrvwdr
+	t8A==
+X-Google-Smtp-Source: AGHT+IFBt8EUJmCBrYJSR6SbgIXxnZj6fm10TNGjaAj4XRK+x0dRIzGirCE9VGAaKkDPtl0zEYTqCFRnILs=
+X-Received: from pfbcv2.prod.google.com ([2002:a05:6a00:44c2:b0:725:a760:4c72])
+ (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6a00:148d:b0:725:eb85:f802
+ with SMTP id d2e1a72fcca58-72daf930e3cmr5815077b3a.2.1737134128872; Fri, 17
+ Jan 2025 09:15:28 -0800 (PST)
+Date: Fri, 17 Jan 2025 09:15:27 -0800
+In-Reply-To: <xhsmhed11hiuy.mognet@vschneid-thinkpadt14sgen2i.remote.csb>
+Mime-Version: 1.0
+References: <20250114175143.81438-1-vschneid@redhat.com> <20250114175143.81438-26-vschneid@redhat.com>
+ <Z4bTlZkqihaAyGb4@google.com> <xhsmhed11hiuy.mognet@vschneid-thinkpadt14sgen2i.remote.csb>
+Message-ID: <Z4qQL89GZ_gk0vpu@google.com>
+Subject: Re: [PATCH v4 25/30] context_tracking,x86: Defer kernel text patching IPIs
+From: Sean Christopherson <seanjc@google.com>
 To: Valentin Schneider <vschneid@redhat.com>
-Cc: Jann Horn <jannh@google.com>, linux-kernel@vger.kernel.org,
-	x86@kernel.org, virtualization@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, loongarch@lists.linux.dev,
-	linux-riscv@lists.infradead.org, linux-perf-users@vger.kernel.org,
-	xen-devel@lists.xenproject.org, kvm@vger.kernel.org,
-	linux-arch@vger.kernel.org, rcu@vger.kernel.org,
-	linux-hardening@vger.kernel.org, linux-mm@kvack.org,
-	linux-kselftest@vger.kernel.org, bpf@vger.kernel.org,
-	bcm-kernel-feedback-list@broadcom.com,
-	Juergen Gross <jgross@suse.com>,
-	Ajay Kaher <ajay.kaher@broadcom.com>,
-	Alexey Makhalov <alexey.amakhalov@broadcom.com>,
-	Russell King <linux@armlinux.org.uk>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Huacai Chen <chenhuacai@kernel.org>,
-	WANG Xuerui <kernel@xen0n.name>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	"H. Peter Anvin" <hpa@zytor.com>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Arnaldo Carvalho de Melo <acme@kernel.org>,
-	Namhyung Kim <namhyung@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>,
-	Adrian Hunter <adrian.hunter@intel.com>,
-	"Liang, Kan" <kan.liang@linux.intel.com>,
-	Boris Ostrovsky <boris.ostrovsky@oracle.com>,
-	Josh Poimboeuf <jpoimboe@kernel.org>,
-	Pawan Gupta <pawan.kumar.gupta@linux.intel.com>,
-	Sean Christopherson <seanjc@google.com>,
-	Paolo Bonzini <pbonzini@redhat.com>,
-	Andy Lutomirski <luto@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
-	Frederic Weisbecker <frederic@kernel.org>,
-	"Paul E. McKenney" <paulmck@kernel.org>,
-	Jason Baron <jbaron@akamai.com>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	Ard Biesheuvel <ardb@kernel.org>,
-	Neeraj Upadhyay <neeraj.upadhyay@kernel.org>,
-	Joel Fernandes <joel@joelfernandes.org>,
-	Josh Triplett <josh@joshtriplett.org>,
-	Boqun Feng <boqun.feng@gmail.com>,
-	Uladzislau Rezki <urezki@gmail.com>,
-	Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
-	Lai Jiangshan <jiangshanlai@gmail.com>,
-	Zqiang <qiang.zhang1211@gmail.com>,
-	Juri Lelli <juri.lelli@redhat.com>,
-	Clark Williams <williams@redhat.com>,
-	Yair Podemsky <ypodemsk@redhat.com>,
-	Tomas Glozar <tglozar@redhat.com>,
-	Vincent Guittot <vincent.guittot@linaro.org>,
-	Dietmar Eggemann <dietmar.eggemann@arm.com>,
-	Ben Segall <bsegall@google.com>, Mel Gorman <mgorman@suse.de>,
-	Kees Cook <kees@kernel.org>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Christoph Hellwig <hch@infradead.org>,
-	Shuah Khan <shuah@kernel.org>,
-	Sami Tolvanen <samitolvanen@google.com>,
-	Miguel Ojeda <ojeda@kernel.org>, Alice Ryhl <aliceryhl@google.com>,
-	"Mike Rapoport (Microsoft)" <rppt@kernel.org>,
-	Samuel Holland <samuel.holland@sifive.com>,
-	Rong Xu <xur@google.com>,
-	Nicolas Saenz Julienne <nsaenzju@redhat.com>,
-	Geert Uytterhoeven <geert@linux-m68k.org>,
-	Yosry Ahmed <yosryahmed@google.com>,
-	"Kirill A. Shutemov" <kirill.shutemov@linux.intel.com>,
-	"Masami Hiramatsu (Google)" <mhiramat@kernel.org>,
-	Jinghao Jia <jinghao7@illinois.edu>,
-	Luis Chamberlain <mcgrof@kernel.org>,
-	Randy Dunlap <rdunlap@infradead.org>,
+Cc: linux-kernel@vger.kernel.org, x86@kernel.org, 
+	virtualization@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+	loongarch@lists.linux.dev, linux-riscv@lists.infradead.org, 
+	linux-perf-users@vger.kernel.org, xen-devel@lists.xenproject.org, 
+	kvm@vger.kernel.org, linux-arch@vger.kernel.org, rcu@vger.kernel.org, 
+	linux-hardening@vger.kernel.org, linux-mm@kvack.org, 
+	linux-kselftest@vger.kernel.org, bpf@vger.kernel.org, 
+	bcm-kernel-feedback-list@broadcom.com, Peter Zijlstra <peterz@infradead.org>, 
+	Nicolas Saenz Julienne <nsaenzju@redhat.com>, Juergen Gross <jgross@suse.com>, 
+	Ajay Kaher <ajay.kaher@broadcom.com>, Alexey Makhalov <alexey.amakhalov@broadcom.com>, 
+	Russell King <linux@armlinux.org.uk>, Catalin Marinas <catalin.marinas@arm.com>, 
+	Will Deacon <will@kernel.org>, Huacai Chen <chenhuacai@kernel.org>, WANG Xuerui <kernel@xen0n.name>, 
+	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, Thomas Gleixner <tglx@linutronix.de>, 
+	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, 
+	Dave Hansen <dave.hansen@linux.intel.com>, "H. Peter Anvin" <hpa@zytor.com>, 
+	Arnaldo Carvalho de Melo <acme@kernel.org>, Namhyung Kim <namhyung@kernel.org>, 
+	Mark Rutland <mark.rutland@arm.com>, 
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>, Jiri Olsa <jolsa@kernel.org>, 
+	Ian Rogers <irogers@google.com>, Adrian Hunter <adrian.hunter@intel.com>, 
+	Kan Liang <kan.liang@linux.intel.com>, Boris Ostrovsky <boris.ostrovsky@oracle.com>, 
+	Josh Poimboeuf <jpoimboe@kernel.org>, Pawan Gupta <pawan.kumar.gupta@linux.intel.com>, 
+	Paolo Bonzini <pbonzini@redhat.com>, Andy Lutomirski <luto@kernel.org>, Arnd Bergmann <arnd@arndb.de>, 
+	Frederic Weisbecker <frederic@kernel.org>, "Paul E. McKenney" <paulmck@kernel.org>, 
+	Jason Baron <jbaron@akamai.com>, Steven Rostedt <rostedt@goodmis.org>, 
+	Ard Biesheuvel <ardb@kernel.org>, Neeraj Upadhyay <neeraj.upadhyay@kernel.org>, 
+	Joel Fernandes <joel@joelfernandes.org>, Josh Triplett <josh@joshtriplett.org>, 
+	Boqun Feng <boqun.feng@gmail.com>, Uladzislau Rezki <urezki@gmail.com>, 
+	Mathieu Desnoyers <mathieu.desnoyers@efficios.com>, Lai Jiangshan <jiangshanlai@gmail.com>, 
+	Zqiang <qiang.zhang1211@gmail.com>, Juri Lelli <juri.lelli@redhat.com>, 
+	Clark Williams <williams@redhat.com>, Yair Podemsky <ypodemsk@redhat.com>, 
+	Tomas Glozar <tglozar@redhat.com>, Vincent Guittot <vincent.guittot@linaro.org>, 
+	Dietmar Eggemann <dietmar.eggemann@arm.com>, Ben Segall <bsegall@google.com>, 
+	Mel Gorman <mgorman@suse.de>, Kees Cook <kees@kernel.org>, 
+	Andrew Morton <akpm@linux-foundation.org>, Christoph Hellwig <hch@infradead.org>, 
+	Shuah Khan <shuah@kernel.org>, Sami Tolvanen <samitolvanen@google.com>, 
+	Miguel Ojeda <ojeda@kernel.org>, Alice Ryhl <aliceryhl@google.com>, 
+	"Mike Rapoport (Microsoft)" <rppt@kernel.org>, Samuel Holland <samuel.holland@sifive.com>, Rong Xu <xur@google.com>, 
+	Geert Uytterhoeven <geert@linux-m68k.org>, Yosry Ahmed <yosryahmed@google.com>, 
+	"Kirill A. Shutemov" <kirill.shutemov@linux.intel.com>, 
+	"Masami Hiramatsu (Google)" <mhiramat@kernel.org>, Jinghao Jia <jinghao7@illinois.edu>, 
+	Luis Chamberlain <mcgrof@kernel.org>, Randy Dunlap <rdunlap@infradead.org>, 
 	Tiezhu Yang <yangtiezhu@loongson.cn>
-Subject: Re: [PATCH v4 29/30] x86/mm, mm/vmalloc: Defer
- flush_tlb_kernel_range() targeting NOHZ_FULL CPUs
-Message-ID: <Z4qBMqcMg16p57av@pc636>
-References: <20250114175143.81438-1-vschneid@redhat.com>
- <20250114175143.81438-30-vschneid@redhat.com>
- <CAG48ez1Mh+DOy0ysOo7Qioxh1W7xWQyK9CLGNU9TGOsLXbg=gQ@mail.gmail.com>
- <xhsmh34hhh37q.mognet@vschneid-thinkpadt14sgen2i.remote.csb>
-MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <xhsmh34hhh37q.mognet@vschneid-thinkpadt14sgen2i.remote.csb>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250117_081139_786639_7DA4B13E 
-X-CRM114-Status: GOOD (  25.97  )
+X-CRM114-CacheID: sfid-20250117_091530_762342_742A0F32 
+X-CRM114-Status: GOOD (  21.62  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -170,43 +127,45 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gRnJpLCBKYW4gMTcsIDIwMjUgYXQgMDQ6MjU6NDVQTSArMDEwMCwgVmFsZW50aW4gU2NobmVp
-ZGVyIHdyb3RlOgo+IE9uIDE0LzAxLzI1IDE5OjE2LCBKYW5uIEhvcm4gd3JvdGU6Cj4gPiBPbiBU
-dWUsIEphbiAxNCwgMjAyNSBhdCA2OjUx4oCvUE0gVmFsZW50aW4gU2NobmVpZGVyIDx2c2NobmVp
-ZEByZWRoYXQuY29tPiB3cm90ZToKPiA+PiB2dW5tYXAoKSdzIGlzc3VlZCBmcm9tIGhvdXNla2Vl
-cGluZyBDUFVzIGFyZSBhIHJlbGF0aXZlbHkgY29tbW9uIHNvdXJjZSBvZgo+ID4+IGludGVyZmVy
-ZW5jZSBmb3IgaXNvbGF0ZWQgTk9IWl9GVUxMIENQVXMsIGFzIHRoZXkgYXJlIGhpdCBieSB0aGUK
-PiA+PiBmbHVzaF90bGJfa2VybmVsX3JhbmdlKCkgSVBJcy4KPiA+Pgo+ID4+IEdpdmVuIHRoYXQg
-Q1BVcyBleGVjdXRpbmcgaW4gdXNlcnNwYWNlIGRvIG5vdCBhY2Nlc3MgZGF0YSBpbiB0aGUgdm1h
-bGxvYwo+ID4+IHJhbmdlLCB0aGVzZSBJUElzIGNvdWxkIGJlIGRlZmVycmVkIHVudGlsIHRoZWly
-IG5leHQga2VybmVsIGVudHJ5Lgo+ID4+Cj4gPj4gRGVmZXJyYWwgdnMgZWFybHkgZW50cnkgZGFu
-Z2VyIHpvbmUKPiA+PiA9PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PQo+ID4+Cj4g
-Pj4gVGhpcyByZXF1aXJlcyBhIGd1YXJhbnRlZSB0aGF0IG5vdGhpbmcgaW4gdGhlIHZtYWxsb2Mg
-cmFuZ2UgY2FuIGJlIHZ1bm1hcCdkCj4gPj4gYW5kIHRoZW4gYWNjZXNzZWQgaW4gZWFybHkgZW50
-cnkgY29kZS4KPiA+Cj4gPiBJbiBvdGhlciB3b3JkcywgaXQgbmVlZHMgYSBndWFyYW50ZWUgdGhh
-dCBubyB2bWFsbG9jIGFsbG9jYXRpb25zIHRoYXQKPiA+IGhhdmUgYmVlbiBjcmVhdGVkIGluIHRo
-ZSB2bWFsbG9jIHJlZ2lvbiB3aGlsZSB0aGUgQ1BVIHdhcyBpZGxlIGNhbgo+ID4gdGhlbiBiZSBh
-Y2Nlc3NlZCBkdXJpbmcgZWFybHkgZW50cnksIHJpZ2h0Pwo+IAo+IEknbSBub3Qgc3VyZSBpZiB0
-aGF0IHdvdWxkIGJlIGEgcHJvYmxlbSAobm90IGFuIG1tIGV4cGVydCwgcGxlYXNlIGRvCj4gY29y
-cmVjdCBtZSkgLSBsb29raW5nIGF0IHZtYXBfcGFnZXNfcmFuZ2UoKSwgZmx1c2hfY2FjaGVfdm1h
-cCgpIGlzbid0Cj4gZGVmZXJyZWQgYW55d2F5Lgo+IAo+IFNvIGFmdGVyIHZtYXBwaW5nIHNvbWV0
-aGluZywgSSB3b3VsZG4ndCBleHBlY3QgaXNvbGF0ZWQgQ1BVcyB0byBoYXZlCj4gaW52YWxpZCBU
-TEIgZW50cmllcyBmb3IgdGhlIG5ld2x5IHZtYXBwZWQgcGFnZS4KPiAKPiBIb3dldmVyLCB1cG9u
-IHZ1bm1hcCdpbmcgc29tZXRoaW5nLCB0aGUgVExCIGZsdXNoIGlzIGRlZmVycmVkLCBhbmQgdGh1
-cwo+IHN0YWxlIFRMQiBlbnRyaWVzIGNhbiBhbmQgd2lsbCByZW1haW4gb24gaXNvbGF0ZWQgQ1BV
-cywgdXAgdW50aWwgdGhleQo+IGV4ZWN1dGUgdGhlIGRlZmVycmVkIGZsdXNoIHRoZW1zZWx2ZXMg
-KElPVyBmb3IgdGhlIGVudGlyZSBkdXJhdGlvbiBvZiB0aGUKPiAiZGFuZ2VyIHpvbmUiKS4KPiAK
-PiBEb2VzIHRoYXQgbWFrZSBzZW5zZT8KPiAKUHJvYmFibHkgaSBhbSBtaXNzaW5nIHNvbWV0aGlu
-ZyBhbmQgbmVlZCB0byBoYXZlIGEgbG9vayBhdCB5b3VyIHBhdGNoZXMsCmJ1dCBob3cgZG8geW91
-IGd1YXJhbnRlZSB0aGF0IG5vLW9uZSBtYXAgc2FtZSBhcmUgdGhhdCB5b3UgZGVmZXIgZm9yIFRM
-QgpmbHVzaGluZz8KCkFzIG5vdGVkIGJ5IEphbm4sIHdlIGFscmVhZHkgZGVmZXIgYSBUTEIgZmx1
-c2hpbmcgYnkgYmFja2luZyBmcmVlZCBhcmVhcwp1bnRpbCBjZXJ0YWluIHRocmVzaG9sZCBhbmQg
-anVzdCBhZnRlciB3ZSBjcm9zcyBpdCB3ZSBkbyBhIGZsdXNoLgoKLS0KVWxhZHppc2xhdSBSZXpr
-aQoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgt
-cmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDov
-L2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
+On Fri, Jan 17, 2025, Valentin Schneider wrote:
+> On 14/01/25 13:13, Sean Christopherson wrote:
+> > On Tue, Jan 14, 2025, Valentin Schneider wrote:
+> >> +/**
+> >> + * is_kernel_noinstr_text - checks if the pointer address is located in the
+> >> + *                    .noinstr section
+> >> + *
+> >> + * @addr: address to check
+> >> + *
+> >> + * Returns: true if the address is located in .noinstr, false otherwise.
+> >> + */
+> >> +static inline bool is_kernel_noinstr_text(unsigned long addr)
+> >> +{
+> >> +	return addr >= (unsigned long)__noinstr_text_start &&
+> >> +	       addr < (unsigned long)__noinstr_text_end;
+> >> +}
+> >
+> > This doesn't do the right thing for modules, which matters because KVM can be
+> > built as a module on x86, and because context tracking understands transitions
+> > to GUEST mode, i.e. CPUs that are running in a KVM guest will be treated as not
+> > being in the kernel, and thus will have IPIs deferred.  If KVM uses a static key
+> > or branch between guest_state_enter_irqoff() and guest_state_exit_irqoff(), the
+> > patching code won't wait for CPUs to exit guest mode, i.e. KVM could theoretically
+> > use the wrong static path.
+> 
+> AFAICT guest_state_{enter,exit}_irqoff() are only used in noinstr functions
+> and thus such a static key usage should at the very least be caught and
+> warned about by objtool - when this isn't built as a module.
+
+That doesn't magically do the right thing though.  If KVM is built as a module,
+is_kernel_noinstr_text() will get false negatives even for static keys/branches
+that are annotaed as NOINSTR.
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
