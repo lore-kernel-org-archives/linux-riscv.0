@@ -4,82 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 596C8C02185
-	for <linux-riscv@archiver.kernel.org>; Sat, 18 Jan 2025 19:35:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5C784C02187
+	for <linux-riscv@archiver.kernel.org>; Sat, 18 Jan 2025 21:12:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=4HlB7uUwA5d82aDnzhnRUYgmSwsZnogyYBdBVfVprIc=; b=w56uXcRrBn6dD9
-	cUtF5f4qPUIz/H175CbQ0SO0wWnL7LQM7fuubgqMmeVHWoHok8G8XdKsOaWA7Yz8ZKTTqSRb+ygyu
-	BKiAo1kDdGwaDWD/WpYSkrUwLcotuBdbEOBYUjmNK0o1Elxn1wLrdgNr+Q9fgKVeCrzUmVx0tXjkR
-	ZAqscOzF9f5Sgfd24W1qn/IueU00Q00Tmjts4CUcZFEyMqvLhX0YliRhMYDNnnEs8ktoEwzo4dpb6
-	41u6HOnsBloQu8ZM5IzBDl6Zq18k6bGbcaOJ70OsFEDEd/TuGgdLnNwmeDHMoSiPMHxgvtgq/q3WN
-	LEMCdyqvVpbFGOTiLcdA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=E56YjnxT+8BajwT7T4Y98xBK4TYlwzBJfgp5ZMr/XK0=; b=DDcCf462ZzgY4+
+	2aNpGiyWGD3Fn+65JbnDZncbn6y2cZHW5EsiekZzUygA5ju8idKt+hS4k1mCVDv5JQfp/hooC9QQJ
+	5ViZOo1qw2Q0NGVn5lW4gMNrcMgPFJPykn4Px2E9EKC8olPFTp3twYrIPNcEfvhqCfteST4M+MQub
+	8LfzPE/ZzboY3TnZsusIBgX6rb8hNvpL+3eKH3NBqB9Dd0pW3vWbYSD4rNa87O/BE6o3MntWASlLr
+	ofVAKCExV9bZiphDxVVeNb7hgmptcOUREc7FvM14+pdaiof410TVymZxCuSkRkVl2okeIlZ820017
+	/ZvuNQURc8hNT5MMKGSQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tZEbY-00000002rlH-1aCZ;
-	Sat, 18 Jan 2025 19:35:36 +0000
-Received: from mail-oa1-x2f.google.com ([2001:4860:4864:20::2f])
+	id 1tZG6y-00000002wD2-2shg;
+	Sat, 18 Jan 2025 21:12:08 +0000
+Received: from smtp-65.smtpout.orange.fr ([80.12.242.65] helo=smtp.smtpout.orange.fr)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tZEbV-00000002rkw-1Kn1
-	for linux-riscv@lists.infradead.org;
-	Sat, 18 Jan 2025 19:35:34 +0000
-Received: by mail-oa1-x2f.google.com with SMTP id 586e51a60fabf-29f87f1152cso1763350fac.2
-        for <linux-riscv@lists.infradead.org>; Sat, 18 Jan 2025 11:35:32 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1737228932; x=1737833732; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=7MrfbNVa+vEUhmI7it8p4ZhL2eEh4kP04zy09ykGdXE=;
-        b=geQHJ7ZSQDm5DbhGbyWVoi8h9nWi1f+n1fVH+ey+veSscoFOdE6+IJuzgrySGFUgcb
-         F9TPup9EdLi679zfyIn6KqPntChVLKDN6ax6kVaweflqOCjD0Jm0gZW/5UsY3XlIJyBC
-         h/yq1qvK6q02ZcuaZ0kXHsjF/pvyawMWenQSCvNPCAcTyAFETEnEZyEqbbz3bV25YLYs
-         l0te2X89yaWNtSnQZwbCfSd7uXq5PXK2Bc9EfEHUInS61BT8iDB1SIUQvRvPKeG/Yn7z
-         NsqUnHN1/LdqVWEnRyikAuF0dqBO+q2kxA3KiLx3ZrynDIduIYeBrFneAtpvwABeAR1N
-         ywnQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1737228932; x=1737833732;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=7MrfbNVa+vEUhmI7it8p4ZhL2eEh4kP04zy09ykGdXE=;
-        b=TPzKpg0ea+rRg2Hita5gZBqDmK7I/NyKov7xRJEUDjAnKIkpkTcEk50XyHTXVc99fk
-         2mDSKCSZsUZodYbc6VBM+SVwzKvSZw1Km/eR1RtY7jyN3OwjBqkAxyKnvXP5v8bF1z/M
-         OC04RNBzs//AEa9BzdhWOGDWZtuBgJvGIusoX7ii6PjiFwhbi+1Sno0FiBLCtvZRotcp
-         l+58xDvMle0jtNf5xiWEJnpaLeYFpn2cUc7GzcGX95cucl4L77BKbif+y6h2XMN5kPwI
-         bjLogQeA1uPFro/FeTSF5KPeslchsWyb0K/lfpiPzFuh30WYiCXlJIrIfPX6PqMQb2RZ
-         gnZw==
-X-Forwarded-Encrypted: i=1; AJvYcCUQrrSx4BQjxbTIRU3+znkKu9HhbMXLGEV21xT9yWhP4kc/h7IL09lFQjtrcD4Ly0+a7ddVg7b3Zy+Qqw==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yydl1n3O4lC80nyvhswxRO92GfuPrME3cr9qvzTRu2/l5BveAhw
-	Z6DumnMihiYeKV0T3N+Hjm73KstLzga8NmdQBhuaO2C0McBHLBPixcsWwyKK0IIZzbVYPkKm9YB
-	rqrBcZk2sGG8JV23lHp/BFZuYDJw=
-X-Gm-Gg: ASbGnctRBmLV/iziYONU5BpLB/f5GROBP8mpiPlsueFDh2gcai3lOZa7t7ujlEMJk7H
-	kXgf3rN3MqLYeExK93F/oGQobpWNAOJOv6qR8R6aKcGkdD0oWEmE3
-X-Google-Smtp-Source: AGHT+IE1McJwHFC67NA6spi9j7f2khCAH+9zQzGUcWJS6/2ltDVN2K6T4/6V+nRGxyE0YeDlNSbMEZaOfbzc3kD3fvc=
-X-Received: by 2002:a05:6870:794:b0:297:26a9:32ef with SMTP id
- 586e51a60fabf-2b1c0cd175amr4410115fac.33.1737228932234; Sat, 18 Jan 2025
- 11:35:32 -0800 (PST)
+	id 1tZG5b-00000002w5h-3o4E;
+	Sat, 18 Jan 2025 21:10:48 +0000
+Received: from fedora.home ([90.11.132.44])
+	by smtp.orange.fr with ESMTPA
+	id ZG5KtqKB8C4UXZG5Ot28t8; Sat, 18 Jan 2025 22:10:34 +0100
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=wanadoo.fr;
+	s=t20230301; t=1737234634;
+	bh=AXmfmYFLgFLyYWM2a/Vc8EsNfX0u6O7RsuTm2Dc3z1k=;
+	h=From:To:Subject:Date:Message-ID:MIME-Version;
+	b=uOFfkpFkxwNPtsJGkcqoB2K4XzoTM1t3j0oh6MM3Fibqkav3TI5rEHoEFJCv/x6vS
+	 RDTL00Cn8MDpokr1QGyIm8Js6tPKvrXhy2s9Lx5VznHEibWDvpAkyc2I6myxkth0tt
+	 EHWU4QY9fXV+5c9jhWyNy04fVsONk5yDy/XeKfOnpjGXhFkcxfDIrmZ25IZ9xMxmLQ
+	 loDdvQtvmgV6Rs36+AdYRTJQd1DeRKUWNKYQ9Gp3OPx+4dAfOvo2CcaS8ArENc6/td
+	 QAvKDbKZpbnSD2TtLuK7pKOCgW+IO2SIPeLygblto/wZSbXHE+3vAzSmd9Uxv0s832
+	 zqKmfowMx+6HA==
+X-ME-Helo: fedora.home
+X-ME-Auth: Y2hyaXN0b3BoZS5qYWlsbGV0QHdhbmFkb28uZnI=
+X-ME-Date: Sat, 18 Jan 2025 22:10:34 +0100
+X-ME-IP: 90.11.132.44
+From: Christophe JAILLET <christophe.jaillet@wanadoo.fr>
+To: Jonathan Corbet <corbet@lwn.net>,
+	Paul Cercueil <paul@crapouillou.net>,
+	Bin Liu <b-liu@ti.com>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Conor Dooley <conor.dooley@microchip.com>,
+	Daire McNamara <daire.mcnamara@microchip.com>,
+	Chen-Yu Tsai <wens@csie.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Samuel Holland <samuel@sholland.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: linux-kernel@vger.kernel.org,
+	kernel-janitors@vger.kernel.org,
+	Christophe JAILLET <christophe.jaillet@wanadoo.fr>,
+	linux-doc@vger.kernel.org,
+	linux-mips@vger.kernel.org,
+	linux-usb@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-sunxi@lists.linux.dev,
+	linux-mediatek@lists.infradead.org
+Subject: [PATCH] usb: musb: Constify struct musb_fifo_cfg
+Date: Sat, 18 Jan 2025 22:10:17 +0100
+Message-ID: <26e6f3e25dc8e785d0034dd7e59918e455563e60.1737234596.git.christophe.jaillet@wanadoo.fr>
+X-Mailer: git-send-email 2.48.1
 MIME-Version: 1.0
-References: <CGME20241202100633eucas1p2a615523beaa41bac328f413e13ce471d@eucas1p2.samsung.com>
- <20241202100535.1359134-1-m.wilczynski@samsung.com>
-In-Reply-To: <20241202100535.1359134-1-m.wilczynski@samsung.com>
-From: Jassi Brar <jassisinghbrar@gmail.com>
-Date: Sat, 18 Jan 2025 13:35:21 -0600
-X-Gm-Features: AbW1kvbs62Q1olVThBj-wh39TSV0Fj2PfUydTPsE_lu2_Ox7T_U-hl21uEllgxs
-Message-ID: <CABb+yY1W=n-KygVb26v_o7Hu7ZNQjyhgA4zbbka2M9_9ZNtNnw@mail.gmail.com>
-Subject: Re: [PATCH] mailbox: th1520: Fix memory corruption due to incorrect
- array size
-To: Michal Wilczynski <m.wilczynski@samsung.com>
-Cc: drew@pdp7.com, guoren@kernel.org, wefu@redhat.com, 
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	Dan Carpenter <dan.carpenter@linaro.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250118_113533_360333_F76C6FE9 
-X-CRM114-Status: GOOD (  17.82  )
+X-CRM114-CacheID: sfid-20250118_131045_314331_2F9C772D 
+X-CRM114-Status: GOOD (  17.25  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,39 +84,208 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gTW9uLCBEZWMgMiwgMjAyNCBhdCA0OjA24oCvQU0gTWljaGFsIFdpbGN6eW5za2kKPG0ud2ls
-Y3p5bnNraUBzYW1zdW5nLmNvbT4gd3JvdGU6Cj4KPiBUaGUgZnVuY3Rpb25zIHRoMTUyMF9tYm94
-X3N1c3BlbmRfbm9pcnEgYW5kIHRoMTUyMF9tYm94X3Jlc3VtZV9ub2lycSBhcmUKPiBpbnRlbmRl
-ZCB0byBzYXZlIGFuZCByZXN0b3JlIHRoZSBpbnRlcnJ1cHQgbWFzayByZWdpc3RlcnMgaW4gdGhl
-IE1CT1gKPiBJQ1UwLiBIb3dldmVyLCB0aGUgYXJyYXkgdXNlZCB0byBzdG9yZSB0aGVzZSByZWdp
-c3RlcnMgd2FzIGluY29ycmVjdGx5Cj4gc2l6ZWQsIGxlYWRpbmcgdG8gbWVtb3J5IGNvcnJ1cHRp
-b24gd2hlbiBhY2Nlc3NpbmcgYWxsIGZvdXIgcmVnaXN0ZXJzLgo+Cj4gVGhpcyBjb21taXQgY29y
-cmVjdHMgdGhlIGFycmF5IHNpemUgdG8gYWNjb21tb2RhdGUgYWxsIGZvdXIgaW50ZXJydXB0Cj4g
-bWFzayByZWdpc3RlcnMsIHByZXZlbnRpbmcgbWVtb3J5IGNvcnJ1cHRpb24gZHVyaW5nIHN1c3Bl
-bmQgYW5kIHJlc3VtZQo+IG9wZXJhdGlvbnMuCj4KPiBGaXhlczogNWQ0ZDI2M2UxYzZiICgibWFp
-bGJveDogSW50cm9kdWNlIHN1cHBvcnQgZm9yIFQtaGVhZCBUSDE1MjAgTWFpbGJveCBkcml2ZXIi
-KQo+IFJlcG9ydGVkLWJ5OiBEYW4gQ2FycGVudGVyIDxkYW4uY2FycGVudGVyQGxpbmFyby5vcmc+
-Cj4gQ2xvc2VzOiBodHRwczovL2xvcmUua2VybmVsLm9yZy9hbGwvYTk5ZTcyYmUtODQ5MC00OTYw
-LWFkMjYtY2JmZWY2YWYyMzhmQHN0YW5sZXkubW91bnRhaW4vCj4gU2lnbmVkLW9mZi1ieTogTWlj
-aGFsIFdpbGN6eW5za2kgPG0ud2lsY3p5bnNraUBzYW1zdW5nLmNvbT4KPiAtLS0KPiAgZHJpdmVy
-cy9tYWlsYm94L21haWxib3gtdGgxNTIwLmMgfCAyICstCj4gIDEgZmlsZSBjaGFuZ2VkLCAxIGlu
-c2VydGlvbigrKSwgMSBkZWxldGlvbigtKQo+Cj4gZGlmZiAtLWdpdCBhL2RyaXZlcnMvbWFpbGJv
-eC9tYWlsYm94LXRoMTUyMC5jIGIvZHJpdmVycy9tYWlsYm94L21haWxib3gtdGgxNTIwLmMKPiBp
-bmRleCA0ZTg0NjQwYWMzYjguLjBkOTVlMTg5ODcwMiAxMDA2NDQKPiAtLS0gYS9kcml2ZXJzL21h
-aWxib3gvbWFpbGJveC10aDE1MjAuYwo+ICsrKyBiL2RyaXZlcnMvbWFpbGJveC9tYWlsYm94LXRo
-MTUyMC5jCj4gQEAgLTQxLDcgKzQxLDcgQEAKPiAgI2lmZGVmIENPTkZJR19QTV9TTEVFUAo+ICAv
-KiBzdG9yZSBNQk9YIGNvbnRleHQgYWNyb3NzIHN5c3RlbS13aWRlIHN1c3BlbmQvcmVzdW1lIHRy
-YW5zaXRpb25zICovCj4gIHN0cnVjdCB0aDE1MjBfbWJveF9jb250ZXh0IHsKPiAtICAgICAgIHUz
-MiBpbnRyX21hc2tbVEhfMTUyMF9NQk9YX0NIQU5TIC0gMV07Cj4gKyAgICAgICB1MzIgaW50cl9t
-YXNrW1RIXzE1MjBfTUJPWF9DSEFOU107Cj4gIH07Cj4gICNlbmRpZgo+CkkganVzdCByZXBsaWVk
-IHRvIGEgcGF0Y2ggZnJvbSBBZHZhaXQgRGhhbW9yaWthciB0cnlpbmcgdG8gYWRkcmVzcyB0aGUK
-c2FtZSBwcm9ibGVtIDopClRoaXMgb25lIHNlZW1zIHByb3Blci4gV2lsbCB0YWtlIGl0LgpUaGFu
-a3MKCgoKPiAtLQo+IDIuMzQuMQo+CgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMu
-aW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZv
-L2xpbnV4LXJpc2N2Cg==
+'struct musb_fifo_cfg' are not modified in these drivers.
+
+Constifying these structures moves some data to a read-only section, so
+increase overall security.
+
+On a x86_64, with allmodconfig, as an example:
+Before:
+======
+   text	   data	    bss	    dec	    hex	filename
+  64381	   5537	    202	  70120	  111e8	drivers/usb/musb/musb_core.o
+
+After:
+=====
+   text	   data	    bss	    dec	    hex	filename
+  64957	   4929	    202	  70088	  111c8	drivers/usb/musb/musb_core.o
+
+Signed-off-by: Christophe JAILLET <christophe.jaillet@wanadoo.fr>
+---
+Compile tested-only.
+---
+ .../driver-api/usb/writing_musb_glue_layer.rst     |  2 +-
+ drivers/usb/musb/jz4740.c                          |  4 ++--
+ drivers/usb/musb/mediatek.c                        |  2 +-
+ drivers/usb/musb/mpfs.c                            |  2 +-
+ drivers/usb/musb/musb_core.c                       | 14 +++++++-------
+ drivers/usb/musb/sunxi.c                           |  4 ++--
+ include/linux/usb/musb.h                           |  2 +-
+ 7 files changed, 15 insertions(+), 15 deletions(-)
+
+diff --git a/Documentation/driver-api/usb/writing_musb_glue_layer.rst b/Documentation/driver-api/usb/writing_musb_glue_layer.rst
+index e755c8551bba..0bb96ecdf527 100644
+--- a/Documentation/driver-api/usb/writing_musb_glue_layer.rst
++++ b/Documentation/driver-api/usb/writing_musb_glue_layer.rst
+@@ -613,7 +613,7 @@ endpoints configuration from the hardware, so we use line 12 instruction
+ to bypass reading the configuration from silicon, and rely on a
+ hard-coded table that describes the endpoints configuration instead::
+ 
+-    static struct musb_fifo_cfg jz4740_musb_fifo_cfg[] = {
++    static const struct musb_fifo_cfg jz4740_musb_fifo_cfg[] = {
+ 	{ .hw_ep_num = 1, .style = FIFO_TX, .maxpacket = 512, },
+ 	{ .hw_ep_num = 1, .style = FIFO_RX, .maxpacket = 512, },
+ 	{ .hw_ep_num = 2, .style = FIFO_TX, .maxpacket = 64, },
+diff --git a/drivers/usb/musb/jz4740.c b/drivers/usb/musb/jz4740.c
+index acdeb1117cd3..df56c972986f 100644
+--- a/drivers/usb/musb/jz4740.c
++++ b/drivers/usb/musb/jz4740.c
+@@ -59,7 +59,7 @@ static irqreturn_t jz4740_musb_interrupt(int irq, void *__hci)
+ 	return IRQ_NONE;
+ }
+ 
+-static struct musb_fifo_cfg jz4740_musb_fifo_cfg[] = {
++static const struct musb_fifo_cfg jz4740_musb_fifo_cfg[] = {
+ 	{ .hw_ep_num = 1, .style = FIFO_TX, .maxpacket = 512, },
+ 	{ .hw_ep_num = 1, .style = FIFO_RX, .maxpacket = 512, },
+ 	{ .hw_ep_num = 2, .style = FIFO_TX, .maxpacket = 64, },
+@@ -205,7 +205,7 @@ static const struct musb_hdrc_platform_data jz4740_musb_pdata = {
+ 	.platform_ops	= &jz4740_musb_ops,
+ };
+ 
+-static struct musb_fifo_cfg jz4770_musb_fifo_cfg[] = {
++static const struct musb_fifo_cfg jz4770_musb_fifo_cfg[] = {
+ 	{ .hw_ep_num = 1, .style = FIFO_TX, .maxpacket = 512, },
+ 	{ .hw_ep_num = 1, .style = FIFO_RX, .maxpacket = 512, },
+ 	{ .hw_ep_num = 2, .style = FIFO_TX, .maxpacket = 512, },
+diff --git a/drivers/usb/musb/mediatek.c b/drivers/usb/musb/mediatek.c
+index aa988d74b58d..c6cbe718b1da 100644
+--- a/drivers/usb/musb/mediatek.c
++++ b/drivers/usb/musb/mediatek.c
+@@ -365,7 +365,7 @@ static const struct musb_platform_ops mtk_musb_ops = {
+ #define MTK_MUSB_MAX_EP_NUM	8
+ #define MTK_MUSB_RAM_BITS	11
+ 
+-static struct musb_fifo_cfg mtk_musb_mode_cfg[] = {
++static const struct musb_fifo_cfg mtk_musb_mode_cfg[] = {
+ 	{ .hw_ep_num = 1, .style = FIFO_TX, .maxpacket = 512, },
+ 	{ .hw_ep_num = 1, .style = FIFO_RX, .maxpacket = 512, },
+ 	{ .hw_ep_num = 2, .style = FIFO_TX, .maxpacket = 512, },
+diff --git a/drivers/usb/musb/mpfs.c b/drivers/usb/musb/mpfs.c
+index 7edc8429b274..71e4271cba75 100644
+--- a/drivers/usb/musb/mpfs.c
++++ b/drivers/usb/musb/mpfs.c
+@@ -29,7 +29,7 @@ struct mpfs_glue {
+ 	struct clk *clk;
+ };
+ 
+-static struct musb_fifo_cfg mpfs_musb_mode_cfg[] = {
++static const struct musb_fifo_cfg mpfs_musb_mode_cfg[] = {
+ 	{ .hw_ep_num = 1, .style = FIFO_TX, .maxpacket = 512, },
+ 	{ .hw_ep_num = 1, .style = FIFO_RX, .maxpacket = 512, },
+ 	{ .hw_ep_num = 2, .style = FIFO_TX, .maxpacket = 512, },
+diff --git a/drivers/usb/musb/musb_core.c b/drivers/usb/musb/musb_core.c
+index 03b1154a6014..3f11bddfa18b 100644
+--- a/drivers/usb/musb/musb_core.c
++++ b/drivers/usb/musb/musb_core.c
+@@ -1270,7 +1270,7 @@ MODULE_PARM_DESC(fifo_mode, "initial endpoint configuration");
+  */
+ 
+ /* mode 0 - fits in 2KB */
+-static struct musb_fifo_cfg mode_0_cfg[] = {
++static const struct musb_fifo_cfg mode_0_cfg[] = {
+ { .hw_ep_num = 1, .style = FIFO_TX,   .maxpacket = 512, },
+ { .hw_ep_num = 1, .style = FIFO_RX,   .maxpacket = 512, },
+ { .hw_ep_num = 2, .style = FIFO_RXTX, .maxpacket = 512, },
+@@ -1279,7 +1279,7 @@ static struct musb_fifo_cfg mode_0_cfg[] = {
+ };
+ 
+ /* mode 1 - fits in 4KB */
+-static struct musb_fifo_cfg mode_1_cfg[] = {
++static const struct musb_fifo_cfg mode_1_cfg[] = {
+ { .hw_ep_num = 1, .style = FIFO_TX,   .maxpacket = 512, .mode = BUF_DOUBLE, },
+ { .hw_ep_num = 1, .style = FIFO_RX,   .maxpacket = 512, .mode = BUF_DOUBLE, },
+ { .hw_ep_num = 2, .style = FIFO_RXTX, .maxpacket = 512, .mode = BUF_DOUBLE, },
+@@ -1288,7 +1288,7 @@ static struct musb_fifo_cfg mode_1_cfg[] = {
+ };
+ 
+ /* mode 2 - fits in 4KB */
+-static struct musb_fifo_cfg mode_2_cfg[] = {
++static const struct musb_fifo_cfg mode_2_cfg[] = {
+ { .hw_ep_num = 1, .style = FIFO_TX,   .maxpacket = 512, },
+ { .hw_ep_num = 1, .style = FIFO_RX,   .maxpacket = 512, },
+ { .hw_ep_num = 2, .style = FIFO_TX,   .maxpacket = 512, },
+@@ -1298,7 +1298,7 @@ static struct musb_fifo_cfg mode_2_cfg[] = {
+ };
+ 
+ /* mode 3 - fits in 4KB */
+-static struct musb_fifo_cfg mode_3_cfg[] = {
++static const struct musb_fifo_cfg mode_3_cfg[] = {
+ { .hw_ep_num = 1, .style = FIFO_TX,   .maxpacket = 512, .mode = BUF_DOUBLE, },
+ { .hw_ep_num = 1, .style = FIFO_RX,   .maxpacket = 512, .mode = BUF_DOUBLE, },
+ { .hw_ep_num = 2, .style = FIFO_TX,   .maxpacket = 512, },
+@@ -1308,7 +1308,7 @@ static struct musb_fifo_cfg mode_3_cfg[] = {
+ };
+ 
+ /* mode 4 - fits in 16KB */
+-static struct musb_fifo_cfg mode_4_cfg[] = {
++static const struct musb_fifo_cfg mode_4_cfg[] = {
+ { .hw_ep_num =  1, .style = FIFO_TX,   .maxpacket = 512, },
+ { .hw_ep_num =  1, .style = FIFO_RX,   .maxpacket = 512, },
+ { .hw_ep_num =  2, .style = FIFO_TX,   .maxpacket = 512, },
+@@ -1339,7 +1339,7 @@ static struct musb_fifo_cfg mode_4_cfg[] = {
+ };
+ 
+ /* mode 5 - fits in 8KB */
+-static struct musb_fifo_cfg mode_5_cfg[] = {
++static const struct musb_fifo_cfg mode_5_cfg[] = {
+ { .hw_ep_num =  1, .style = FIFO_TX,   .maxpacket = 512, },
+ { .hw_ep_num =  1, .style = FIFO_RX,   .maxpacket = 512, },
+ { .hw_ep_num =  2, .style = FIFO_TX,   .maxpacket = 512, },
+@@ -1446,7 +1446,7 @@ fifo_setup(struct musb *musb, struct musb_hw_ep  *hw_ep,
+ 	return offset + (maxpacket << ((c_size & MUSB_FIFOSZ_DPB) ? 1 : 0));
+ }
+ 
+-static struct musb_fifo_cfg ep0_cfg = {
++static const struct musb_fifo_cfg ep0_cfg = {
+ 	.style = FIFO_RXTX, .maxpacket = 64,
+ };
+ 
+diff --git a/drivers/usb/musb/sunxi.c b/drivers/usb/musb/sunxi.c
+index eac1cde86be3..a6bd3e968cc7 100644
+--- a/drivers/usb/musb/sunxi.c
++++ b/drivers/usb/musb/sunxi.c
+@@ -629,7 +629,7 @@ static const struct musb_platform_ops sunxi_musb_ops = {
+ #define SUNXI_MUSB_RAM_BITS	11
+ 
+ /* Allwinner OTG supports up to 5 endpoints */
+-static struct musb_fifo_cfg sunxi_musb_mode_cfg_5eps[] = {
++static const struct musb_fifo_cfg sunxi_musb_mode_cfg_5eps[] = {
+ 	MUSB_EP_FIFO_SINGLE(1, FIFO_TX, 512),
+ 	MUSB_EP_FIFO_SINGLE(1, FIFO_RX, 512),
+ 	MUSB_EP_FIFO_SINGLE(2, FIFO_TX, 512),
+@@ -643,7 +643,7 @@ static struct musb_fifo_cfg sunxi_musb_mode_cfg_5eps[] = {
+ };
+ 
+ /* H3/V3s OTG supports only 4 endpoints */
+-static struct musb_fifo_cfg sunxi_musb_mode_cfg_4eps[] = {
++static const struct musb_fifo_cfg sunxi_musb_mode_cfg_4eps[] = {
+ 	MUSB_EP_FIFO_SINGLE(1, FIFO_TX, 512),
+ 	MUSB_EP_FIFO_SINGLE(1, FIFO_RX, 512),
+ 	MUSB_EP_FIFO_SINGLE(2, FIFO_TX, 512),
+diff --git a/include/linux/usb/musb.h b/include/linux/usb/musb.h
+index 3963e55e88a3..fbdef950f06c 100644
+--- a/include/linux/usb/musb.h
++++ b/include/linux/usb/musb.h
+@@ -61,7 +61,7 @@ struct musb_hdrc_eps_bits {
+ };
+ 
+ struct musb_hdrc_config {
+-	struct musb_fifo_cfg	*fifo_cfg;	/* board fifo configuration */
++	const struct musb_fifo_cfg	*fifo_cfg;	/* board fifo configuration */
+ 	unsigned		fifo_cfg_size;	/* size of the fifo configuration */
+ 
+ 	/* MUSB configuration-specific details */
+-- 
+2.48.1
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
