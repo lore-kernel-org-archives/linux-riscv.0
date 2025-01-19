@@ -4,72 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 249BFC02187
-	for <linux-riscv@archiver.kernel.org>; Sun, 19 Jan 2025 17:15:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8722C02187
+	for <linux-riscv@archiver.kernel.org>; Sun, 19 Jan 2025 22:28:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:To:From:Date:Reply-To:Cc:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=hfradNudwYZuwAJCSaSz9mNXchnRFPTNlC9FTMMSMxA=; b=d4HzqARgLl5+JM
-	2+cK4klgp0yfstitwwXb+oUWlpW2syEg7Gpxb5FXz3LwcmVKEUrU6CP/eEc17LN2JFKzRfJWSj4h9
-	fpXNbPxwqph4vw5SGycKI4VHP9IP7R0sS8p7RgQ+mTVkkopvO966HqLGC5CPtcZItk1Q//1LErCC9
-	a/XPqgw5u4ez9l2mxwM98jHXZ14odyxV3WC6yMlhytZexw0lyHBr1Mzsgi/ZQDnKTjwXgNhHmOCPT
-	ieJsNtKFBZhbtfKRLlvclhp2IoCfkyahYBQ6Mxt6/p9G+GUGB5x7Wm6d89kpMlrCEcW3wd3gmkK6p
-	RaWhb38Bh6tboAFK3MBA==;
+	List-Owner; bh=BuMo16yzqTZMip9kgpMJ8xgTfMUT6yiKFBqv39kJ7f4=; b=hrCPqjWRB/fsRU
+	8BB7Ri2kHfMKvxYl7qTQ2eSYg8XfKpYeNFuEhSxin0t4UBoW30HXQaZpJBFRojlsONPWc0upynvdo
+	KjKjuGR5xAt5gWNJTU3l1mw3n79M5m73H6GYfb0syRNF77Y03gMPTHu0URz+Wk7Al4XUEafbIJeqS
+	IhwRrtJFtUqICneMQ9Z3U/tL1Ug0Eese+PfCa2BhSe0K+YOu9vcLV0tFrwnk6iEBBoYSlBf48nVEc
+	OKHJ0T7TN6oCB/IUM/5gR0D/aY580l6+2WxBE9lHTtCpUlLRlFhSiWhiC6U/JzP06qpsN3ev7ybq4
+	wFrvTzkjG+s1JJVPyw3Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tZYtg-00000004AdK-393S;
-	Sun, 19 Jan 2025 17:15:40 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1tZdlu-00000004OLB-1Rer;
+	Sun, 19 Jan 2025 22:27:58 +0000
+Received: from mail-qk1-x735.google.com ([2607:f8b0:4864:20::735])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tZYtd-00000004Acz-3KzX
-	for linux-riscv@lists.infradead.org;
-	Sun, 19 Jan 2025 17:15:39 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 91112A40077
-	for <linux-riscv@lists.infradead.org>; Sun, 19 Jan 2025 17:13:48 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EDF5DC4CEE6
-	for <linux-riscv@lists.infradead.org>; Sun, 19 Jan 2025 17:15:35 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1737306936;
-	bh=Di4UFK/tpZT8+N85V7hdgzEPZmwUbG7U4GIf9VtxO4I=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=bFrED5Nqjf4pirNf8wmlXj5S93iFQdCcnT9E8+6LzJDpQl8LcZVU2Ekl9qE6zwDUq
-	 yB+L0acuQae9HLbKL+JeBL8IGYA8/cn000Tr4VVwM/IC01j+t9qU/uYg1M7PwBQEAS
-	 jR0IBtvAMWQQqXHKMVPzLMaF40eMfyqVGBsYNMot5bs0HvgAIuQoXp5twUXp2syvSG
-	 srF2Hknjq5auyqxkwlXdGJzx4z0E+ery2yhRumrZlgA3BcuzwdteDZdHriFNVnsAYy
-	 xWoQYGEBO2anqsBg2a68XVR159v1GXT4IJKMC4PX3IWdCO5avSttqgY1kjw0umRPaf
-	 fydNTxHWuWQew==
-Received: by mail-lj1-f169.google.com with SMTP id 38308e7fff4ca-3003c0c43c0so39242321fa.1
-        for <linux-riscv@lists.infradead.org>; Sun, 19 Jan 2025 09:15:35 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCX/qvdnSeC0qqH8VcBy0Io41/qG5PS4J+C3yxQcBNftUNkbXQnlhIaVMHnv2Rlx1vIWctOI8Z0G/6yFAQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0YzyAsDB8EPDO4dv327ibAdxbhnNajtbjLgHm9D0MQPg/UQQM9FH
-	YgIE5sZXLVO2eDA9QCgi01IUhMAxk2uLNyTYOIuitZZkeHC6kRAys2XHs4sQzZSRQwFV6VrtpwA
-	CeUBZTpyXuUW0PFwDA/wlMCW1Oxk=
-X-Google-Smtp-Source: AGHT+IGr4L2jHUMsDzfNAtLulKH70pYOVCMgNTSvVBpAMXbcnlvC+dHc5ISQezZZpgy6NtG0ZfBs8RijEw/Q1AjhHYM=
-X-Received: by 2002:a05:651c:1198:b0:300:3a15:8f04 with SMTP id
- 38308e7fff4ca-3072ca74fa0mr26473651fa.15.1737306934250; Sun, 19 Jan 2025
- 09:15:34 -0800 (PST)
+	id 1tZdlr-00000004OKn-2fbk;
+	Sun, 19 Jan 2025 22:27:56 +0000
+Received: by mail-qk1-x735.google.com with SMTP id af79cd13be357-7b6f19a6c04so340560685a.0;
+        Sun, 19 Jan 2025 14:27:54 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1737325674; x=1737930474; darn=lists.infradead.org;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:to:from:date:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=B1NEaOvJP6ktRyon1qt65VnsfcXxR9/jvk2LgosJ8u8=;
+        b=LdeXpAaPUA8i6SPyy/3fSQSdovSzybU/nfSaXUWbqFlyVq+D5h3fA/0stdUOW1xaFR
+         sWyV/OII6RqQJbAwCeTkT1wwIpakvDJtRS+oIrakJprv/m4ZXYXfTX+PSCOEcQHNu27V
+         cD2Kmjz+6ix3xEzn3ha64SDgIa+U6XRDg05hStv1zloxkKm5iXUDDqn6kLREd8AFhoBI
+         NV1jHndeCoxk7fjJ7yKwWFiokF6N3LIV2RvBLGCjR4cBYPjhyxTUN13a8fn7xlz7UMaj
+         X13w1kBDutvGY16pmN7mBkbReujqPFkaCdTt/+VFq1oC9INcJdZeAJpE70sTGpHeLU9e
+         zxcw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1737325674; x=1737930474;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:to:from:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=B1NEaOvJP6ktRyon1qt65VnsfcXxR9/jvk2LgosJ8u8=;
+        b=lIm13+7Oy8ekyVcCJmPSpY7LQ5jilLsAptTVlszs3c5WhThg6D0vGcUdt8RkFdyZhw
+         1+kkC+4Z1DpWDF7toqG8Hb40avrSgo3I4uSm/uZp8d+177Z0bvLtUy8i7Wp0SKfRlJTB
+         dXWjR9j9VdEcIObMX6ubiWU8V9oSGfRGVFQhPbiY63nAST+RIh3rhhQMWWWmL113D2T5
+         7Z7hG2ZQ/WTudidVtK8WJHkS+VXe3WAPkvncYnAK5Zsm52Nyw23pEw5MlbiK4qAPMQb/
+         wCfGX0PWXwfCVbp2HpGoQ052fcUcmKQzqo5lAQwKp+/DdcTAkh9GTVY8rDhK7uYV2EGZ
+         lBxg==
+X-Forwarded-Encrypted: i=1; AJvYcCVeMfegqRhXKNxiGhr9Q+jZbxf8ihj1vSSmTCZGOs8VavP7DHjN3gFGQAl/HiVU7B6yV4bWadF6Rvg8U9Y=@lists.infradead.org, AJvYcCXutUcSEBP2W86Ho4YAEvjPk5sOfNv73cIxz0Sv7dzv/iUQkjjUGjIHvhcO88je1BmKrCWO0zKNnh9pLHd5VDNs@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxtc0ShJzXVeLv4dedTdXFJmp3oD959FUQcB7eGSK6q0T1MziKr
+	X7ffPWGYUUIDbHLoGn3be5kD74+xK19SOAh7GsnIIw9kpL3DOzmB
+X-Gm-Gg: ASbGncuNP9mKvXx+ekbcSoxg38+zaxMVnVlnFufgwqSipglfO9yxYeNhFzQg2n177rr
+	Jp9sxX+4da2w6wdu+xadRXOfr4gdlJ3P5QkxWLLPpPc2zP7gWP/UqreGIsEf2+wqbbX9AZoFnfD
+	FjxS53WBHPWmVrAvlEJWR8BrGI2h3gjCbJGKCwRnX0W01+PpNNeKgKmXB9/webjZmKGntAbulqT
+	ftv/1Qnxx4FBCchUmkrP9CHprPlVBpFopROPbNqrEf/OQ==
+X-Google-Smtp-Source: AGHT+IEvXRhN3YOjdvwsWeaMRKtp+AaGrFt8Vm/FPxPy/a3iJh+S2H70++OJxxsiqffQ3B4rmvMnqw==
+X-Received: by 2002:a05:620a:44d5:b0:7b6:d1f6:3dc with SMTP id af79cd13be357-7be6321bf8cmr1874388785a.18.1737325673880;
+        Sun, 19 Jan 2025 14:27:53 -0800 (PST)
+Received: from localhost ([2001:da8:7001:11::cb])
+        by smtp.gmail.com with UTF8SMTPSA id af79cd13be357-7be61487360sm369189485a.57.2025.01.19.14.27.52
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 19 Jan 2025 14:27:53 -0800 (PST)
+Date: Mon, 20 Jan 2025 06:27:07 +0800
+From: Inochi Amaoto <inochiama@gmail.com>
+To: Alexander Sverdlin <alexander.sverdlin@gmail.com>, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, Chen Wang <unicorn_wang@outlook.com>, 
+	Inochi Amaoto <inochiama@outlook.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Arnd Bergmann <arnd@arndb.de>, 
+	devicetree@vger.kernel.org, linux-riscv@lists.infradead.org, 
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH RFC] arm64: dts: sophgo: Add initial SG2000 SoC device
+ tree
+Message-ID: <3iz53irwp7u3cvxf53j3ibcqbyojodnbxq7kgr4v6rvj3rx7ng@v3lolzcxh5ev>
+References: <19bb108e93bb58eecc6a53d78ff4e75fc380f072.camel@gmail.com>
 MIME-Version: 1.0
-References: <20250113155306.1922992-2-ardb+git@google.com> <Z4mB-I5jeGithAQX@ghost>
-In-Reply-To: <Z4mB-I5jeGithAQX@ghost>
-From: Ard Biesheuvel <ardb@kernel.org>
-Date: Sun, 19 Jan 2025 18:15:22 +0100
-X-Gmail-Original-Message-ID: <CAMj1kXE4DJnwFejNWQu784GvyJO=aGNrzuLjSxiowX_e7nW8QA@mail.gmail.com>
-X-Gm-Features: AbW1kvarTqlSljQ0HcmXnP7VsdnphtVke3R0NZBLnr3k2eZnMIXoHb1qDsjcPk8
-Message-ID: <CAMj1kXE4DJnwFejNWQu784GvyJO=aGNrzuLjSxiowX_e7nW8QA@mail.gmail.com>
-Subject: Re: [PATCH v3] kbuild: Strip runtime const RELA sections correctly
-To: Charlie Jenkins <charlie@rivosinc.com>
-Cc: Ard Biesheuvel <ardb+git@google.com>, linux-kbuild@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, Linus Torvalds <torvalds@linux-foundation.org>, 
-	Masahiro Yamada <masahiroy@kernel.org>, Alexandre Ghiti <alexghiti@rivosinc.com>, 
-	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org, 
-	Ron Economos <re@w6rz.net>
+Content-Disposition: inline
+In-Reply-To: <19bb108e93bb58eecc6a53d78ff4e75fc380f072.camel@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250119_091538_068057_74EF0ED2 
-X-CRM114-Status: GOOD (  24.56  )
+X-CRM114-CacheID: sfid-20250119_142755_718945_EA7ED252 
+X-CRM114-Status: GOOD (  31.63  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,80 +96,245 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, 16 Jan 2025 at 23:02, Charlie Jenkins <charlie@rivosinc.com> wrote:
->
-> On Mon, Jan 13, 2025 at 04:53:07PM +0100, Ard Biesheuvel wrote:
-> > From: Ard Biesheuvel <ardb@kernel.org>
-> >
-> > Due to the fact that runtime const ELF sections are named without a
-> > leading period or double underscore, the RSTRIP logic that removes the
-> > static RELA sections from vmlinux fails to identify them. This results
-> > in a situation like below, where some sections that were supposed to get
-> > removed are left behind.
-> >
-> >   [Nr] Name                              Type            Address          Off     Size   ES Flg Lk Inf Al
-> >
-> >   [58] runtime_shift_d_hash_shift        PROGBITS        ffffffff83500f50 2900f50 000014 00   A  0   0  1
-> >   [59] .relaruntime_shift_d_hash_shift   RELA            0000000000000000 55b6f00 000078 18   I 70  58  8
-> >   [60] runtime_ptr_dentry_hashtable      PROGBITS        ffffffff83500f68 2900f68 000014 00   A  0   0  1
-> >   [61] .relaruntime_ptr_dentry_hashtable RELA            0000000000000000 55b6f78 000078 18   I 70  60  8
-> >   [62] runtime_ptr_USER_PTR_MAX          PROGBITS        ffffffff83500f80 2900f80 000238 00   A  0   0  1
-> >   [63] .relaruntime_ptr_USER_PTR_MAX     RELA            0000000000000000 55b6ff0 000d50 18   I 70  62  8
-> >
-> > So tweak the match expression to strip all sections starting with .rel.
-> > While at it, consolidate the logic used by RISC-V, s390 and x86 into a
-> > single shared Makefile library command.
-> >
-> > Cc: Linus Torvalds <torvalds@linux-foundation.org>
-> > Cc: Masahiro Yamada <masahiroy@kernel.org>
-> > Cc: linux-riscv@lists.infradead.org
-> > Cc: linux-s390@vger.kernel.org
-> > Cc: Ron Economos <re@w6rz.net>
-> > Link: https://lore.kernel.org/all/CAHk-=wjk3ynjomNvFN8jf9A1k=qSc=JFF591W00uXj-qqNUxPQ@mail.gmail.com/
-> > Signed-off-by: Ard Biesheuvel <ardb@kernel.org>
-> > ---
-> > v3: put back missing 'endif' to fix the RISC-V build
-> > v2: add missing include of scripts/Makefile.lib
-> >
-> >  arch/riscv/Makefile.postlink |  8 ++------
-> >  arch/s390/Makefile.postlink  |  6 +-----
-> >  arch/x86/Makefile.postlink   |  6 +-----
-> >  scripts/Makefile.lib         |  3 +++
-> >  4 files changed, 7 insertions(+), 18 deletions(-)
-> >
-> > diff --git a/arch/riscv/Makefile.postlink b/arch/riscv/Makefile.postlink
-> > index 829b9abc91f6..750d2784f69e 100644
-> > --- a/arch/riscv/Makefile.postlink
-> > +++ b/arch/riscv/Makefile.postlink
->
-> When I compile x86 as relocatable I see the problem that you are fixing
-> here, but I don't see it on riscv.
+On Sun, Jan 12, 2025 at 01:55:05AM +0100, Alexander Sverdlin wrote:
+> Add initial device tree for the SG2000 SoC by SOPHGO (from ARM64 PoV).
+> =
 
-That is because riscv does not yet support optimized runtime
-constants. Only arm64, s390 and x86 implement this today but I'd
-expect other architectures to follow suit.
+> ---
+> Dear ARM, RISCV, DT maintainers, I'd like to ask your opinion on the
+> below patch, which I plan as a base for ARM64 BSP for dual-arch (RISCV or
+> ARM64) Cvitek SoC SG2000. The main motivation for ARM64 support is the
+> ARCH support in the upstream gcc, which is not that mature for RISCV.
+> =
 
-> It's probably better to keep around
-> this code for riscv, but I don't think it even needs this stripping? I
-> am adding Alex since he added this for riscv.
->
+> I believe it's the first time we already have quite some base in the
+> tree for a SoC, so it would be advantageous to re-use it and not
+> duplicate the same SoC structures in two places, especially having
+> in mind that Cvitek/Sophgo are still working on upstreaming and by
+> far not all HW blocks are populated in the SoC DTs. They focus primarely
+> on RISCV, so ARM64 would be dragging behind in this case if it would be
+> forked.
+> =
 
-If vmlinux is linked with --emit-relocs, the stripping is probably
-necessary, or you get a lot of metadata in vmlinux that is not needed
-for debugging.
+> On the other hand, including SoC dtsi from RISCV into ARM64 poses
+> some technical challenges by itself, obviously CPU cores have to be
+> deleted, same is true for interrupt controller. And the interrupt
+> numbers are of course difference for ARM GIC, so they have to be
+> overwritten.
+> =
 
-> Anyways this works as expected:
->
-> Reviewed-by: Charlie Jenkins <charlie@rivosinc.com>
-> Tested-by: Charlie Jenkins <charlie@rivosinc.com>
->
+> Alternatively I can split existing .dtsi included below into their
+> RISCV-specific and generic parts, so that both ARM64 and RISCV would
+> include generic part and their corresponding ARCH-specific parts
+> bringing CPU cores + interrupt controller + IRQ numbers for each and
+> every device separately.
+> =
 
-Thanks.
+> The below example isactually booting (being included into board-level
+> DT), so it's a real example I'd be ready to submit if there will be
+> no objections of the cross-ARCH include approach in general.
+> =
+
+> What are your thoughts?
+> =
+
+> =A0arch/arm64/boot/dts/sophgo/sg2000.dtsi | 164 +++++++++++++++++++++++++
+> =A01 file changed, 164 insertions(+)
+> =A0create mode 100644 arch/arm64/boot/dts/sophgo/sg2000.dtsi
+> =
+
+> diff --git a/arch/arm64/boot/dts/sophgo/sg2000.dtsi b/arch/arm64/boot/dts=
+/sophgo/sg2000.dtsi
+> new file mode 100644
+> index 000000000000..96afd342bde5
+> --- /dev/null
+> +++ b/arch/arm64/boot/dts/sophgo/sg2000.dtsi
+> @@ -0,0 +1,164 @@
+> +// SPDX-License-Identifier: (GPL-2.0 OR MIT)
+> +
+> +#include <dt-bindings/interrupt-controller/arm-gic.h>
+> +#include "../../../../riscv/boot/dts/sophgo/cv18xx.dtsi"
+> +#include "../../../../riscv/boot/dts/sophgo/cv181x.dtsi"
+> +
+
+> +/delete-node/ &cpu0;
+> +/delete-node/ &plic;
+> +/delete-node/ &clint;
+
+You can split the riscv specific device into a separate file
+so you not need to set delete-node.
+
+> +
+> +/ {
+> +	compatible =3D "sophgo,sg2000";
+> +	interrupt-parent =3D <&gic>;
+> +
+> +	memory@80000000 {
+> +		device_type =3D "memory";
+> +		reg =3D <0x80000000 0x20000000>;	/* 512MiB */
+> +	};
+> +
+> +	pmu {
+> +		compatible =3D "arm,cortex-a53-pmu";
+> +		interrupts =3D <GIC_SPI 119 IRQ_TYPE_LEVEL_HIGH>,
+> +			=A0=A0=A0=A0 <GIC_SPI 120 IRQ_TYPE_LEVEL_HIGH>;
+> +	};
+> +
+> +	timer {
+> +		compatible =3D "arm,armv8-timer";
+> +		interrupts =3D <GIC_PPI 13 (GIC_CPU_MASK_SIMPLE(2) | IRQ_TYPE_LEVEL_LO=
+W)>,
+> +			=A0=A0=A0=A0 <GIC_PPI 14 (GIC_CPU_MASK_SIMPLE(2) | IRQ_TYPE_LEVEL_LOW=
+)>,
+> +			=A0=A0=A0=A0 <GIC_PPI 11 (GIC_CPU_MASK_SIMPLE(2) | IRQ_TYPE_LEVEL_LOW=
+)>,
+> +			=A0=A0=A0=A0 <GIC_PPI 10 (GIC_CPU_MASK_SIMPLE(2) | IRQ_TYPE_LEVEL_LOW=
+)>;
+> +		always-on;
+> +		clock-frequency =3D <25000000>;
+> +	};
+> +
+> +	gic: interrupt-controller@1f01000 {
+> +		compatible =3D "arm,cortex-a15-gic";
+> +		interrupt-controller;
+> +		#interrupt-cells =3D <3>;
+> +		reg =3D <0x01f01000 0x1000>,
+> +		=A0=A0=A0=A0=A0 <0x01f02000 0x2000>;
+> +	};
+> +
+> +	soc {
+> +		/delete-property/ interrupt-parent;
+> +
+> +		pinctrl: pinctrl@3001000 {
+> +			compatible =3D "sophgo,sg2000-pinctrl";
+> +			reg =3D <0x03001000 0x1000>,
+> +			=A0=A0=A0=A0=A0 <0x05027000 0x1000>;
+> +			reg-names =3D "sys", "rtc";
+> +		};
+> +	};
+> +};
+> +
+> +&cpus {
+> +	cpu0: cpu@0 {
+> +		compatible =3D "arm,cortex-a53";
+> +		device_type =3D "cpu";
+> +		reg =3D <0>;
+> +		enable-method =3D "psci";
+> +		next-level-cache =3D <&l2>;
+> +	};
+> +
+> +	l2: l2-cache {
+> +		compatible =3D "cache";
+> +	};
+> +};
+> +
+> +&clk {
+> +	compatible =3D "sophgo,sg2000-clk";
+> +};
+> +
+> +&saradc {
+> +	interrupts =3D <GIC_SPI 84 IRQ_TYPE_EDGE_RISING>;
+> +};
+> +
+> +&dmac {
+> +	interrupts =3D <GIC_SPI 13 IRQ_TYPE_LEVEL_HIGH>;
+> +};
+> +
+> +&spi0 {
+> +	interrupts =3D <GIC_SPI 38 IRQ_TYPE_LEVEL_HIGH>;
+> +};
+> +
+> +&spi1 {
+> +	interrupts =3D <GIC_SPI 39 IRQ_TYPE_LEVEL_HIGH>;
+> +};
+> +
+> +&spi2 {
+> +	interrupts =3D <GIC_SPI 40 IRQ_TYPE_LEVEL_HIGH>;
+> +};
+> +
+> +&spi3 {
+> +	interrupts =3D <GIC_SPI 41 IRQ_TYPE_LEVEL_HIGH>;
+> +};
+> +
+> +&uart0 {
+> +	interrupts =3D <GIC_SPI 28 IRQ_TYPE_LEVEL_HIGH>;
+> +};
+> +
+> +&uart1 {
+> +	interrupts =3D <GIC_SPI 29 IRQ_TYPE_LEVEL_HIGH>;
+> +};
+> +
+> +&uart2 {
+> +	interrupts =3D <GIC_SPI 30 IRQ_TYPE_LEVEL_HIGH>;
+> +};
+> +
+> +&uart3 {
+> +	interrupts =3D <GIC_SPI 31 IRQ_TYPE_LEVEL_HIGH>;
+> +};
+> +
+> +&uart4 {
+> +	interrupts =3D <GIC_SPI 32 IRQ_TYPE_LEVEL_HIGH>;
+> +};
+> +
+> +&porta {
+> +	interrupts =3D <GIC_SPI 44 IRQ_TYPE_LEVEL_HIGH>;
+> +};
+> +
+> +&portb {
+> +	interrupts =3D <GIC_SPI 45 IRQ_TYPE_LEVEL_HIGH>;
+> +};
+> +
+> +&portc {
+> +	interrupts =3D <GIC_SPI 46 IRQ_TYPE_LEVEL_HIGH>;
+> +};
+> +
+> +&portd {
+> +	interrupts =3D <GIC_SPI 47 IRQ_TYPE_LEVEL_HIGH>;
+> +};
+> +
+> +&i2c0 {
+> +	interrupts =3D <GIC_SPI 33 IRQ_TYPE_LEVEL_HIGH>;
+> +};
+> +
+> +&i2c1 {
+> +	interrupts =3D <GIC_SPI 34 IRQ_TYPE_LEVEL_HIGH>;
+> +};
+> +
+> +&i2c2 {
+> +	interrupts =3D <GIC_SPI 35 IRQ_TYPE_LEVEL_HIGH>;
+> +};
+> +
+> +&i2c3 {
+> +	interrupts =3D <GIC_SPI 36 IRQ_TYPE_LEVEL_HIGH>;
+> +};
+> +
+> +&i2c4 {
+> +	interrupts =3D <GIC_SPI 37 IRQ_TYPE_LEVEL_HIGH>;
+> +};
+> +
+> +&emmc {
+> +	interrupts =3D <GIC_SPI 18 IRQ_TYPE_LEVEL_HIGH>;
+> +};
+> +
+> +&sdhci0 {
+> +	interrupts =3D <GIC_SPI 20 IRQ_TYPE_LEVEL_HIGH>;
+> +};
+> +
+> +&sdhci1 {
+> +	interrupts =3D <GIC_SPI 22 IRQ_TYPE_LEVEL_HIGH>;
+> +};
+> =
+
+> -- =
+
+> Alexander Sverdlin.
+> =
+
 
 _______________________________________________
 linux-riscv mailing list
