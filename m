@@ -4,63 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A335AC02182
-	for <linux-riscv@archiver.kernel.org>; Mon, 20 Jan 2025 17:23:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 38A30C0218D
+	for <linux-riscv@archiver.kernel.org>; Mon, 20 Jan 2025 17:23:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:References:MIME-Version:Message-Id:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
-	List-Owner; bh=XsPDdarFUZKl10nit6vvrgaiIsArDrmmljRssEPcjzA=; b=pXBkEWAifpEo0h
-	cq5R2AF6M7VtzNJkH4K0L0mks8DfwKks1nbE8BZJAUqZnPypG/BGGIhNkyCDp9j6kors2QQXMgO/H
-	Sa6IiFLgftW9iJzY85vhwWeUh+8HO1mdiC054XfofT952cezN5pANR9z+C+hH8FxA20BareCQ1F9/
-	gsHCpdIOXOdiSTZFIlwhwUhXFJoymDfcLUbzVrH7rRML/QI1HiSwgwyR+FgGsM4onVKO2uDXHIv+L
-	axiEw71+7Yo0LgXi8AEHQsF4ViIn2d9ET1d9C+n5T2r+8gcE37uq7NcQGH27UkpfSQXOGp/ljp4UD
-	joWvrktz0Sdw9IrAFX/A==;
+	List-Archive:List-Unsubscribe:List-Id:References:MIME-Version:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=OqvB1u1nBoighm88uiiHeR5m7yXWAWnhUqHIKnHGg8E=; b=oJA/HNgTHWyOnv
+	SOkmK8MAYkMzKiYUEEXbIarBLM3OPGNNv9OfI4v9o6G6sNOAl23n8sXN6UydgeSPWWlLlvnYHeCwO
+	9OuwYShklNV5ZIEHlZzkCqyXKTg2qMM6wA9Lo6OHEHuXhTw2JKIPcR3JnKQleWoA8G18lygATMn+2
+	wv4+jp1X3ip2DO98BrPFrY3AUXoSf0E+L7KKsVq8XmjG0+WBDh8CG2FIjzM0hZ3U3OampTZIENCpe
+	AltSWlf0fqleTINpGOFfX7C/iW/Hp3c2rO6YQeRn3V4xZaN2ahnZiCQUJgctpWugL4MZhklbmBPlz
+	T8Ep7L/8L99mdaLlqKPA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tZvUg-000000067nS-1YML;
-	Mon, 20 Jan 2025 17:23:22 +0000
+	id 1tZvUh-000000067pX-3ZDY;
+	Mon, 20 Jan 2025 17:23:23 +0000
 Received: from [210.118.77.12] (helo=mailout2.w1.samsung.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tZvSn-000000066ui-3EEO
+	id 1tZvSo-000000066vV-431c
 	for linux-riscv@lists.infradead.org;
-	Mon, 20 Jan 2025 17:21:31 +0000
+	Mon, 20 Jan 2025 17:21:32 +0000
 Received: from eucas1p2.samsung.com (unknown [182.198.249.207])
-	by mailout2.w1.samsung.com (KnoxPortal) with ESMTP id 20250120172121euoutp027e666a2e4d736ea475f1d9f27c340f37~cdlk5ljyC1548115481euoutp02n
-	for <linux-riscv@lists.infradead.org>; Mon, 20 Jan 2025 17:21:21 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.w1.samsung.com 20250120172121euoutp027e666a2e4d736ea475f1d9f27c340f37~cdlk5ljyC1548115481euoutp02n
+	by mailout2.w1.samsung.com (KnoxPortal) with ESMTP id 20250120172125euoutp023c54e907fe1c63a498c1add800240b2e~cdloh9Lbs1548115481euoutp02w
+	for <linux-riscv@lists.infradead.org>; Mon, 20 Jan 2025 17:21:25 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.w1.samsung.com 20250120172125euoutp023c54e907fe1c63a498c1add800240b2e~cdloh9Lbs1548115481euoutp02w
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1737393681;
-	bh=Gu0ryus9vacA2pmkAa3obmDZ851U5NSNS0NtIwrsbLc=;
-	h=From:To:Cc:Subject:Date:References:From;
-	b=E5iybvACkBvBialI4zwVvlq2pw2QNQVQ1xpJGAnNwCm8QC00c+z0c0cBdLmCQ6qLY
-	 sNCEMX/eDrM754floOERSXYKSy+aSwm6wVgmIhvLB5U86rJlMAvRTIJjAKC6RWCALb
-	 DkGge4M/dpDhPheVpMl6NERvLj/AJnu5I1aOwlq4=
-Received: from eusmges2new.samsung.com (unknown [203.254.199.244]) by
-	eucas1p1.samsung.com (KnoxPortal) with ESMTP id
-	20250120172120eucas1p1d54044b1448bb62b0c471ec5105c2061~cdljpKmHh0933109331eucas1p1T;
-	Mon, 20 Jan 2025 17:21:20 +0000 (GMT)
-Received: from eucas1p2.samsung.com ( [182.198.249.207]) by
-	eusmges2new.samsung.com (EUCPMTA) with SMTP id 8B.66.20409.0168E876; Mon, 20
-	Jan 2025 17:21:20 +0000 (GMT)
+	s=mail20170921; t=1737393685;
+	bh=sd08BWohXem3dBVuHX3dCJ58apCrb9/s0z26DVgq2O8=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=Td2TCgD/Zq8kxf/98vIBsGiwXE+sO5Dd59JV1aImZZZWCYU1DCtTcLwtNElpy79xd
+	 KJXu3yAwzQ0UYgwwpK/4ISV9wvF5HH6MsfoAnWtbMcf6vXeCrVrLEvu9xsHaFNdTFq
+	 laRUVucmMRQGwqKO95ZdRxhfRklMd935VfJgYkVY=
+Received: from eusmges3new.samsung.com (unknown [203.254.199.245]) by
+	eucas1p2.samsung.com (KnoxPortal) with ESMTP id
+	20250120172125eucas1p28c3c0a3da0fa486b827be5e76b2c6aea~cdln2KwWH3179431794eucas1p2S;
+	Mon, 20 Jan 2025 17:21:25 +0000 (GMT)
+Received: from eucas1p1.samsung.com ( [182.198.249.206]) by
+	eusmges3new.samsung.com (EUCPMTA) with SMTP id DF.56.20397.4168E876; Mon, 20
+	Jan 2025 17:21:24 +0000 (GMT)
 Received: from eusmtrp2.samsung.com (unknown [182.198.249.139]) by
-	eucas1p1.samsung.com (KnoxPortal) with ESMTPA id
-	20250120172119eucas1p135434171194546bc2df259bfd21458e1~cdliiL3Yz0726407264eucas1p14;
-	Mon, 20 Jan 2025 17:21:19 +0000 (GMT)
+	eucas1p2.samsung.com (KnoxPortal) with ESMTPA id
+	20250120172124eucas1p233b3f6da39e7064db62b02a66bc1ac29~cdlnW93ux1089910899eucas1p2r;
+	Mon, 20 Jan 2025 17:21:24 +0000 (GMT)
 Received: from eusmgms2.samsung.com (unknown [182.198.249.180]) by
 	eusmtrp2.samsung.com (KnoxPortal) with ESMTP id
-	20250120172119eusmtrp2f503c9eb5ec1b72007f092dece1c70b1~cdlifRrjW0490804908eusmtrp2W;
-	Mon, 20 Jan 2025 17:21:19 +0000 (GMT)
-X-AuditID: cbfec7f4-c0df970000004fb9-b7-678e8610a188
+	20250120172124eusmtrp234fa8332a1f78f797bda0b78dede1c28~cdlnWM6hV0490804908eusmtrp2h;
+	Mon, 20 Jan 2025 17:21:24 +0000 (GMT)
+X-AuditID: cbfec7f5-ed1d670000004fad-46-678e86148686
 Received: from eusmtip1.samsung.com ( [203.254.199.221]) by
-	eusmgms2.samsung.com (EUCPMTA) with SMTP id C1.95.19654.F068E876; Mon, 20
-	Jan 2025 17:21:19 +0000 (GMT)
+	eusmgms2.samsung.com (EUCPMTA) with SMTP id 58.95.19654.4168E876; Mon, 20
+	Jan 2025 17:21:24 +0000 (GMT)
 Received: from AMDC4942.home (unknown [106.210.136.40]) by
 	eusmtip1.samsung.com (KnoxPortal) with ESMTPA id
-	20250120172117eusmtip10b15c9741da2f0da703f2030601a9b3d~cdlhFFrLC1308113081eusmtip1X;
-	Mon, 20 Jan 2025 17:21:17 +0000 (GMT)
+	20250120172123eusmtip1c95c0bf6f2ec1cb55a478acbb133f612~cdlmGpqQq1013910139eusmtip1W;
+	Mon, 20 Jan 2025 17:21:23 +0000 (GMT)
 From: Michal Wilczynski <m.wilczynski@samsung.com>
 To: mturquette@baylibre.com, sboyd@kernel.org, robh@kernel.org,
 	krzk+dt@kernel.org, conor+dt@kernel.org, drew@pdp7.com, guoren@kernel.org,
@@ -74,59 +74,60 @@ Cc: linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
 	dri-devel@lists.freedesktop.org, linux-pm@vger.kernel.org, Michal Wilczynski
 	<m.wilczynski@samsung.com>
-Subject: [RFC v3 00/18] Enable drm/imagination BXM-4-64 Support for LicheePi
- 4A
-Date: Mon, 20 Jan 2025 18:20:53 +0100
-Message-Id: <20250120172111.3492708-1-m.wilczynski@samsung.com>
+Subject: [RFC v3 04/18] firmware: thead: Add AON firmware protocol driver
+Date: Mon, 20 Jan 2025 18:20:57 +0100
+Message-Id: <20250120172111.3492708-5-m.wilczynski@samsung.com>
 X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20250120172111.3492708-1-m.wilczynski@samsung.com>
 MIME-Version: 1.0
-X-Brightmail-Tracker: H4sIAAAAAAAAA01Sf1CTZRzved937/u6E3odcDyYREeSp3cgkkdPYUJnde8f3Rn/WFeXMvR1
-	Wmzo5si47kC3gcyBBJY0iAFHMElAJhuDmBABAy1UZoO7ZIBRyI/40QYFnCPYi+V/3+/n+/l8
-	P5/vcw+NixrIrfRJ2RlOLhOnhJNCwtK9dCeSycqTRF/MDkY9AxUYMq/oKXTN1ochQ2efALn6
-	GzF0f2GWRHW/36XQI9s5AjmN31BI1V1Pogm9i0TzOpcAOVpKSOTO7QTI4laTqLZziEL1CwYM
-	lc+bCVRpbQEoK6dKgO7degsNuXoINOHQ4ShL/yxabbVSyOtsIFDxTBuFGqe/ECB77XtI3XaZ
-	SHienR3UUOz0xATB/njBQ7G2xTKCbdYPUayu+SfAmmpySPaBs5VkS3sT2eGLdoy9UZnBqmu7
-	MfbS42h29uYvJJvXWAPYftUA9a7oA+G+Y1zKyTROvnt/kvDE44LkU97EszPzxzPB+QNasImG
-	zF6oVRcItEBIixgjgN9lN200HgCXa/uJdZaIcQM4VJH+ROFZXSJ5UjWAmSsGkidNA9iZ6xOQ
-	TAwcqTb4NgUyGgJqus6B9QZnxgG0jJWsKWg6gEmES9XSdQHBRMA/6oZ9Yj8mHk7NOAW8Wxhs
-	++FnnMe3wN6vx3wcfA1XmYtxnlMuhN/qBOsrIfMmbKkP5eEAOGlvpPh6G1xtNmB8nQpHzH9t
-	SD+HzTr7Rh0HH/Qt+5LhzE5Y37Kbh9+Ao9fyAb/dHw7+uYUP4A8LLFdwHvaDF7JEPPsl+KUu
-	9z/TPqNlw5SFiwOTAv6hPoJdiw48H7ygf+os/VNn6f/PUAbwGhDMKRVSCaeIkXGfRinEUoVS
-	Jok6mio1gbVffdtr91hB9eR8VAfAaNABII2HB/oFzekkIr9j4s/SOXnqEbkyhVN0gOdoIjzY
-	r6JNIxExEvEZ7hOOO8XJn0wxetPWTCw0ed+uzdseJhRlVrSnt0/nub2EIyQ11njElO+1BWzP
-	OGBS3ShnCU34/sLkud6/P3xV9tuYtqkzOunFmQVNWpo25uyl9tOKe8nNX4UtvBbR1F1YGDne
-	FZcmKb7zUBFXGXpdhQ6tOMtG5iI9d3uydYEZlPpW0FVp5dtZr1gbokvNtvNB77ur0n4VlRQ+
-	8zq2WbZjuW5v3zuyuhDPcES+1kNMXb/aj39883BBIZeTF6s+yOwMPK5UmoxgdBS21ugHI5K8
-	3y876aSV+8P/aA6HpZRc0cf7W0JS5NrL5aMuR+mOl3NtRaFs7B6l0FpUdfDoo6l8lnDHuhIz
-	E5Txp293jYcTihPiPbtwuUL8LwHHMmhEBAAA
-X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFlrEKsWRmVeSWpSXmKPExsVy+t/xu7r8bX3pBt+/slicuL6IyWLr71ns
-	Fmv2nmOymH/kHKvFvUtbmCyufH3PZrHu6QV2ixd7G1ksrq2Yy27RfGw9m8XLWffYLD723GO1
-	uLxrDpvF594jjBbbPrewWaw9cpfdYv3X+UwWCz9uZbFYsmMXo0Vb5zJWi4unXC3u3jvBYvHy
-	cg+zRdssfov/e3awW/y7tpHFYva7/ewWW95MZLU4vjbcomX/FBYHOY/3N1rZPd68fMnicbjj
-	C7vH3m8LWDx2zrrL7tGz8wyjx6ZVnWwed67tYfOYdzLQ4373cSaPzUvqPVrWHmPy6P9r4PF+
-	31U2j74tqxg9LjVfZw8QitKzKcovLUlVyMgvLrFVija0MNIztLTQMzKx1DM0No+1MjJV0rez
-	SUnNySxLLdK3S9DL+DspqeBfYMW7j2kNjE3OXYycHBICJhJf/v9k62Lk4hASWMoosfzzJ1aI
-	hIzEte6XLBC2sMSfa11QRa8YJbbu2AFWxCZgJPFg+XwwW0RgMYvE3n2VIEXMAm8ZJa7P3AjW
-	LSzgL9GxrZcRxGYRUJV4tu4+WJxXwF7i9btrUNvkJfYfPMsMEReUODnzCVANB9AgdYn184RA
-	wsxAJc1bZzNPYOSfhaRqFkLVLCRVCxiZVzGKpJYW56bnFhvpFSfmFpfmpesl5+duYgQmlm3H
-	fm7Zwbjy1Ue9Q4xMHIyHGCU4mJVEeEU/9KQL8aYkVlalFuXHF5XmpBYfYjQFunois5Rocj4w
-	teWVxBuaGZgamphZGphamhkrifOyXTmfJiSQnliSmp2aWpBaBNPHxMEp1cAUEps3z/rrnKkP
-	D89uO3vt/6+NNfxMOu/FJOue8TG3rN3oqrCD+S4Xo/sy3Rd1x3exMWu/nVAvbtIt6yLhendH
-	d9OBEwei5mk7CpdXJV+ILw1ffUyi/eGW6/2iIlPa2yeuur9macr2nv1nNQTEj56KsvtZMVW/
-	7t4LO/bM2etbGRbIr12l9r7wx5/7Z0UFVnNZHmSY4nruxcWI15ceuH3o/cxsf7irokTVe18W
-	f9e3m5Us/isUTJft/39EcKHCjw2ZE/6WrzutVbjG//3RX0Vx3zJSQ8ofvFqd3WFVd+Ly3jUf
-	BCpX5suaKyb26hhfDGBcsSPvjnhkrZpBtm2ut7Fz+ekYheD+h7dmaEd1zv6rxFKckWioxVxU
-	nAgAC5gIxbUDAAA=
-X-CMS-MailID: 20250120172119eucas1p135434171194546bc2df259bfd21458e1
+X-Brightmail-Tracker: H4sIAAAAAAAAA02Sf1CTdRzH+T7Pw/NsO6cPk45vlHHg2W9RjJOvByQFdg9HlxZ3eHp1NONx
+	EDC8TQzLBI6f0mSGkDHUAXEySEJwLOBkKxibCiybMjmDoYjWCBtzMpQMYj1U/vf6fD7vz+f9
+	fd99ebhISwby0qT7WZlUnBFCCgid6ZFlvX9xuWTjGX0Euni9HkMdf6oodLbHgiG10eKL7FYt
+	hq7NOkn03Z0rFPqtJ59ANs0pChWYWknkUNlJ5FLYfdHV7pMkch81AqRzF5KoxThGodZZNYbq
+	XB0EaujsBqj4yBlf9PPlbWjMfpFAjqsKHBWrVqHFC50UWrC1EajmDwOFtNNf+iJzy05UaKgk
+	Yp5jnCNFFDPtcBBMX+kDiunx1BJMl2qMYhRdg4Bpbz5CMqO2CyRz+tK7zPgXZow535DLFLaY
+	MEb510bGqR8mmXJtM2CsBdepHaLdgqgUNiPtACvb8PqHgtQbxjpq39QJkFPfd43IA48OlAEe
+	D9LhsLkksAzweSJaA2B5TXoZECzxAwBNiz/gXOEGcKxWRXhV3oUCdQnFDRoBfGyYJrj1aQDb
+	Z3K9TNKb4M1Gta9X5E8XEbCoPx94C5z+FUDd5EnSq1pNx8OB7y9jXibodfD0RCHlZSG9FdYZ
+	7CRnFwQNPw7hXubTMXBuuGdZ4wcvVU/+44wvaQo6anBO3yaAV0YyuWxx8L7jVa69Gk6ZtRTH
+	z8LFLjXGcRa82XF/efUQ7FKYlzkSjlrmSe8ZnH4JtnZv4NpvwLaKaZK7vhKO3PPjHrASVuhO
+	4FxbCEuLRZz6eVilOPqfqUWjWzZl4EjlLHkMBKueiKJ6Iorqf99agDeDADZbnilh5a9J2U9C
+	5eJMebZUEvpRVmY7WPrYAwvm2U6gmXKF9gKMB3oB5OEh/sKnZhQSkTBFfPBTVpaVLMvOYOW9
+	4BkeERIgrDcUSUS0RLyfTWfZfazs3ynG4wfmYQnUCzGSgYGy22V7wtY+nbTOWVO5V+qzsCpm
+	+2i11dpPOA3RlZ+vyd285Zv0YAu/q6K/wZUQu2sQ3rpz1/lKKH9zTZjLGb1rSH5er5yYL9rz
+	baPPcWn5lrfOJYbejYyMLf8gfi721Jt73w7Ly8nZ6YHuHSJTonj+eF9UbPzwYVfszIqzAUEH
+	Bw8t7A68J3hH8svDpu1RK/y+MqfeduqHPouIK9VtO+yTEiRp//3GuHFOlsxvjGAF4dat8S8m
+	VFV/LY22VXzsGE9M0r6/JjwaOKfO5U6891BpsnncVe5NqG59yU9K4VxyvicxWFPKKtP0Qk2A
+	dNLDxDVV1t2aT2KbHlvXhhDyVHHYy7hMLv4b7pGbZkcEAAA=
+X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFlrOKsWRmVeSWpSXmKPExsVy+t/xu7oibX3pBqubJSxOXF/EZLH19yx2
+	izV7zzFZzD9yjtXi3qUtTBZXvr5ns1j39AK7xYu9jSwW11bMZbdoPraezeLlrHtsFh977rFa
+	XN41h83ic+8RRottn1vYLNYeuctusf7rfCaLhR+3slgs2bGL0aKtcxmrxcVTrhZ3751gsXh5
+	uYfZom0Wv8X/PTvYLf5d28hiMfvdfnaLLW8mslocXxtu0bJ/CouDnMf7G63sHm9evmTxONzx
+	hd1j77cFLB47Z91l9+jZeYbRY9OqTjaPO9f2sHnMOxnocb/7OJPH5iX1Hi1rjzF59P818Hi/
+	7yqbR9+WVYwel5qvswcIRenZFOWXlqQqZOQXl9gqRRtaGOkZWlroGZlY6hkam8daGZkq6dvZ
+	pKTmZJalFunbJehl3DqykL3g1XTGikWHr7A0MP4s62Lk5JAQMJFont/O3sXIxSEksJRRYl/z
+	MnaIhIzEte6XLBC2sMSfa11sEEWvGCV2b53ICJJgEzCSeLB8PiuILSKwmEVi775KkCJmgbeM
+	EtdnbgTrFhbwlDi9/RQTiM0ioCox71EL2AZeAXuJhfvvsUFskJfYf/AsM4jNKeAg8f3qXrAa
+	IaCaO1e7GSHqBSVOznwCNpMZqL5562zmCYwCs5CkZiFJLWBkWsUoklpanJueW2ykV5yYW1ya
+	l66XnJ+7iRGYYrYd+7llB+PKVx/1DjEycTAeYpTgYFYS4RX90JMuxJuSWFmVWpQfX1Sak1p8
+	iNEU6O6JzFKiyfnAJJdXEm9oZmBqaGJmaWBqaWasJM7LduV8mpBAemJJanZqakFqEUwfEwen
+	VAPT5pfGB0S0Vxz3Kj668cMT+Q17Ja/POLvA89/yqV59HqLRCZ1bbq3azzN5qdWul9usVhWI
+	GgYxMu35kLdGwDOb/V/x0qOLc2+++Oh00m/VtgNvLxYeE0s6N6Vn0kzFtbMtL+axSD7T0e09
+	a2QcIclr+W7yddv/hgwltREL7uaxFT9sz68V3nMtce/jSeFhGyJqLFeqnmibGya/8cbm0783
+	nt56KEeo6bawCf+s2+fe/V6i8i9PocPmxG7eX0mlHW5W02YvXbH5wt+aOE2O7aETf171DZ8k
+	XBHq8vdwFJ9EiPKfeXslYtk6bVbWiOh+Pf3Z6J/OtXQH+UflU+/J6BhyqcdOqlOZ+0B3nsnH
+	xzlnipRYijMSDbWYi4oTATGGHlm6AwAA
+X-CMS-MailID: 20250120172124eucas1p233b3f6da39e7064db62b02a66bc1ac29
 X-Msg-Generator: CA
-X-RootMTR: 20250120172119eucas1p135434171194546bc2df259bfd21458e1
+X-RootMTR: 20250120172124eucas1p233b3f6da39e7064db62b02a66bc1ac29
 X-EPHeader: CA
 CMS-TYPE: 201P
-X-CMS-RootMailID: 20250120172119eucas1p135434171194546bc2df259bfd21458e1
-References: <CGME20250120172119eucas1p135434171194546bc2df259bfd21458e1@eucas1p1.samsung.com>
+X-CMS-RootMailID: 20250120172124eucas1p233b3f6da39e7064db62b02a66bc1ac29
+References: <20250120172111.3492708-1-m.wilczynski@samsung.com>
+	<CGME20250120172124eucas1p233b3f6da39e7064db62b02a66bc1ac29@eucas1p2.samsung.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250120_092126_080983_0D3CE5D8 
-X-CRM114-Status: GOOD (  26.48  )
+X-CRM114-CacheID: sfid-20250120_092127_278419_EC7FA584 
+X-CRM114-Status: GOOD (  30.71  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -138,192 +139,556 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-VGhlIExpY2hlZVBpIDRBIGJvYXJkLCBmZWF0dXJpbmcgdGhlIFQtSEVBRCBUSDE1MjAgU29DLCBp
-bmNsdWRlcyBhbiBJbWFnaW5hdGlvbgpUZWNobm9sb2dpZXMgQlhNLTQtNjQgR1BVLiBJbml0aWFs
-IHN1cHBvcnQgZm9yIHRoaXMgR1BVIHdhcyBwcm92aWRlZCB0aHJvdWdoIGEKZG93bnN0cmVhbSBk
-cml2ZXIgWzFdLiBSZWNlbnRseSwgZWZmb3J0cyBoYXZlIGJlZW4gbWFkZSB0byB1cHN0cmVhbSBz
-dXBwb3J0IGZvcgp0aGUgUm9ndWUgZmFtaWx5IEdQVXMsIHdoaWNoIHRoZSBCWE0tNC02NCBpcyBw
-YXJ0IG9mIFsyXS4KCldoaWxlIHRoZSBpbml0aWFsIHVwc3RyZWFtIGRyaXZlciBmb2N1c2VkIG9u
-IHRoZSBBWEUtMS0xNiBHUFUsIG5ld2VyIHBhdGNoZXMKaGF2ZSBpbnRyb2R1Y2VkIHN1cHBvcnQg
-Zm9yIHRoZSBCWFMtNC02NCBHUFUgWzNdLiBUaGUgbW9kZXJuIHVwc3RyZWFtCmRybS9pbWFnaW5h
-dGlvbiBkcml2ZXIgaXMgZXhwZWN0ZWQgdG8gc3VwcG9ydCB0aGUgQlhNLTQtNjQgYXMgd2VsbCBb
-NF1bNV0uIEFzCnRoaXMgc3VwcG9ydCBpcyBiZWluZyBkZXZlbG9wZWQsIGl0J3MgY3J1Y2lhbCB0
-byB1cHN0cmVhbSB0aGUgbmVjZXNzYXJ5IGdsdWUKY29kZSBpbmNsdWRpbmcgY2xvY2sgYW5kIHBv
-d2VyLWRvbWFpbiBkcml2ZXJzIHNvIHRoZXkncmUgcmVhZHkgZm9yIGludGVncmF0aW9uCndpdGgg
-dGhlIGRybS9pbWFnaW5hdGlvbiBkcml2ZXIuCgpSZWNlbnQgUHJvZ3Jlc3M6CgpGaXJtd2FyZSBJ
-bXByb3ZlbWVudHM6ClNpbmNlIEF1Z3VzdCwgdGhlIHZlbmRvciBoYXMgcHJvdmlkZWQgdXBkYXRl
-ZCBmaXJtd2FyZQpbNl1bN10gdGhhdCBjb3JyZWN0bHkgaW5pdGlhdGVzIHRoZSBmaXJtd2FyZSBm
-b3IgdGhlIEJYTS00LTY0LgoKTWVzYSBEcml2ZXIgVGVzdGluZzoKVGhlIHZlbmRvci1zdXBwbGll
-ZCBNZXNhIGRyaXZlciBbOF0gcGFydGlhbGx5IHdvcmtzIHdpdGggVnVsa2FuIGV4YW1wbGVzLCBz
-dWNoCmFzIHJlbmRlcmluZyBhIHRyaWFuZ2xlIHVzaW5nIFNhc2NoYSBXaWxsZW1zJyBWdWxrYW4g
-c2FtcGxlcyBbOV0uIEFsdGhvdWdoIHRoZQp0cmlhbmdsZSBpc24ndCByZW5kZXJlZCBjb3JyZWN0
-bHkgKG9ubHkgdGhlIGJsdWUgYmFja2dyb3VuZCBhcHBlYXJzKSwgc2hhZGVyCmpvYiBzdWJtaXNz
-aW9ucyBmdW5jdGlvbiBwcm9wZXJseSwgYW5kIElPQ1RMIGNhbGxzIGFyZSBjb3JyZWN0bHkgaW52
-b2tlZC4gIEZvcgp0ZXN0aW5nLCB3ZSB1c2VkIHRoZSBmb2xsb3dpbmcgcmVzb3VyY2VzOgoKS2Vy
-bmVsIFNvdXJjZTogQ3VzdG9tIGtlcm5lbCB3aXRoIG5lY2Vzc2FyeSBtb2RpZmljYXRpb25zIFsx
-MF0uCk1lc2EgRHJpdmVyOiBWZW5kb3ItcHJvdmlkZWQgTWVzYSBpbXBsZW1lbnRhdGlvbiBbMTFd
-LgoKRGVwZW5kZW5jaWVzOgpUZXN0aW5nIHJlcXVpcmVkIGEgZnVuY3Rpb25hbCBEaXNwbGF5IFBy
-b2Nlc3NpbmcgVW5pdCAoRFBVKSBhbmQgSERNSSBkcml2ZXIsCndoaWNoIGFyZSBjdXJyZW50bHkg
-bm90IHVwc3RyZWFtZWQuIEVmZm9ydHMgYXJlIHVuZGVyd2F5IHRvIHVwc3RyZWFtIHRoZSBEUFUK
-REM4MjAwIGRyaXZlciB1c2VkIGluIFN0YXJGaXZlIGJvYXJkcyBbMTJdLCB3aGljaCBpcyB0aGUg
-c2FtZSBEUFUgdXNlZCBvbiB0aGUKTGljaGVlUGkgNEEuIE9uY2UgdGhlIERQVSBhbmQgSERNSSBk
-cml2ZXJzIGFyZSB1cHN0cmVhbWVkLCBHUFUgc3VwcG9ydCBjYW4gYmUKZnVsbHkgdXBzdHJlYW0u
-CgpUZXN0aW5nIFN0YXR1czoKVGhpcyBzZXJpZXMgaGFzIGJlZW4gdGVzdGVkIGJ5IHBlcmZvcm1p
-bmcgYSBwcm9iZS1vbmx5IG9wZXJhdGlvbiwgY29uZmlybWluZwp0aGF0IHRoZSBmaXJtd2FyZSBi
-ZWdpbnMgZXhlY3V0aW9uLiBUaGUgcHJvYmUgZnVuY3Rpb24gaW5pdGlhdGVzIGZpcm13YXJlCmV4
-ZWN1dGlvbiBhbmQgd2FpdHMgZm9yIHRoZSBmaXJtd2FyZSB0byBmbGlwIGEgc3BlY2lmaWMgc3Rh
-dHVzIGJpdC4KClsgICAxMi42Mzc4ODBdIHBvd2VydnIgZmZlZjQwMDAwMC5ncHU6IFtkcm1dIGxv
-YWRlZCBmaXJtd2FyZSBwb3dlcnZyL3JvZ3VlXzM2LjUyLjEwNC4xODJfdjEuZncKWyAgIDEyLjY0
-ODk3OV0gcG93ZXJ2ciBmZmVmNDAwMDAwLmdwdTogW2RybV0gRlcgdmVyc2lvbiB2MS4wIChidWls
-ZCA2NjQ1NDM0IE9TKQpbICAgMTIuNjc4OTA2XSBbZHJtXSBJbml0aWFsaXplZCBwb3dlcnZyIDEu
-MC4wIGZvciBmZmVmNDAwMDAwLmdwdSBvbiBtaW5vciAwCgpQb3dlciBNYW5hZ2VtZW50OgpGdWxs
-IHBvd2VyIG1hbmFnZW1lbnQgY2FwYWJpbGl0aWVzIHJlcXVpcmUgaW1wbGVtZW50aW5nIHRoZSBU
-LUhFQUQgU29DIEFPTgpwcm90b2NvbCBtZXNzYWdpbmcgdmlhIHRoZSBoYXJkd2FyZSBtYWlsYm94
-LiBTdXBwb3J0IGZvciB0aGUgbWFpbGJveCB3YXMgbWVyZ2VkCmluIGtlcm5lbCA2LjEzIFsxM10s
-IGFuZCB0aGUgQU9OIHByb3RvY29sIGltcGxlbWVudGF0aW9uIGlzIHBhcnQgb2YgdGhpcwpzZXJp
-ZXMsIHNpbmNlIHYyLiBUaGVyZWZvcmUgdGhpcyBzZXJpZXMgc3VwcG9ydCBmdWxsIHBvd2VyIG1h
-bmFnZW1lbnQKY2FwYWJpbGl0aWVzIGZvciB0aGUgR1BVIGRyaXZlci4KClRoYW5rcyBLcnp5c3p0
-b2YgYW5kIFN0ZXBoZW4gZm9yIHRha2luZyB0aGUgdGltZSB0byByZXZpZXcgdGhlIGxhc3QgcmV2
-aXNpb24gIQpZb3VyIGd1aWRhbmNlIGFuZCB0aGUgZGlyZWN0aW9uIHdhcyB2ZXJ5IGhlbHBmdWwu
-CgpTaW5jZSB0aGUgbWVyZ2Ugd2luZG93IGp1c3Qgc3RhcnRlZCBJJ20gZ29pbmcgdG8ga2VlcCB0
-aGUgUkZDIHByZWZpeCBmb3IgdGhlCnYzIHJldmlzaW9uLgoKdjM6CgpEZXZpY2UgVHJlZSBDaGFu
-Z2VzOgogLSBjb25zb2xpZGF0ZWQgZGV2aWNlIHRyZWUgcmVwcmVzZW50YXRpb24gYnkgbWVyZ2lu
-ZyBhb24gYW5kIHBvd2VyLWRvbWFpbiBub2RlcwogICB3aGlsZSBtYWludGFpbmluZyBzZXBhcmF0
-ZSBkcml2ZXJzIGludGVybmFsbHkKIC0gcG93ZXItZG9tYWluIGRyaXZlciBpcyBub3cgaW5zdGFu
-dGlhdGVkIGZyb20gd2l0aGluIHRoZSBhb24gZHJpdmVyCiAtIHVwZGF0ZWQgaW1nLHBvd2VydnIt
-cm9ndWUueWFtbCB0byB1c2UgYWxsT2YgYW5kIG9uZU9mIGZvciBiZXR0ZXIgc2NoZW1hCiAgIG9y
-Z2FuaXphdGlvbgoKQVAgQ2xvY2sgRHJpdmVyIEltcHJvdmVtZW50czoKIC0gcmV3b3JrZWQgZHJp
-dmVyIHRvIHN1cHBvcnQgbXVsdGlwbGUgY2xvY2sgY29udHJvbGxlcnMgdGhyb3VnaCAuY29tcGF0
-aWJsZQogICBhbmQgLmRhdGEgaW5zdGVhZCBvZiB1c2luZyBtdWx0aXBsZSBhZGRyZXNzIHNwYWNl
-cyBpbiBkdC1iaW5kaW5nLiBUaGlzIGNoYW5nZQogICBhbGxvd3MgdG8gcmUtdXNlIHRoZSBkcml2
-ZXIgY29kZSBmb3IgbXVsdGlwbGUgY2xvY2sgY29udHJvbGxlcnMuCgpDb2RlIFF1YWxpdHkgYW5k
-IERvY3VtZW50YXRpb246CiAtIGZpeGVkIG9wdGlvbmFsIG1vZHVsZSBkZXBlbmRlbmNpZXMgaW4g
-S2NvbmZpZwogLSBhZGRlZCBrZXJuZWwtZG9jIGNvbW1lbnRzIGZvciBhbGwgZXhwb3J0ZWQgZnVu
-Y3Rpb25zCiAtIGltcGxlbWVudGVkIHRoMTUyMF9hb25fcmVtb3ZlKCkgdG8gcHJvcGVybHkgY2xl
-YW4gdXAgbWFpbGJveCBjaGFubmVsCiAgIHJlc291cmNlcwogLSByZW1vdmVkIHVubmVjZXNzYXJ5
-IG9mLmggaGVhZGVyIGluIG11bHRpcGxlIGRyaXZlcnMKIC0gcmVmYWN0b3JlZCByZXNldCBkcml2
-ZXIgdG8gdXNlIHplcm8gY2VsbHMKCnYyOgoKUmVtb3ZlZCBBUF9TVUJTWVMgY2xvY2sgcmVmYWN0
-b3JpbmcgY29tbWl0cyAoMS02KToKIC0gaW5zdGVhZCBvZiByZWZhY3RvcmluZywgSSBvcHRlZCB0
-byBleHRlbmQgdGhlIGN1cnJlbnQgZHJpdmVyIGFuZCBpdHMKICAgYXNzb2NpYXRlZCBkZXZpY2Ug
-dHJlZSBub2RlIHRvIGluY2x1ZGUgc3VwcG9ydCBmb3IgYSBzZWNvbmQgYWRkcmVzcyBzcGFjZS4K
-CkV4cGFuZGVkIHBhdGNoc2V0IHNjb3BlIHRvIGZ1bGx5IHN1cHBvcnQgcG93ZXIgbWFuYWdlbWVu
-dCBjYXBhYmlsaXRpZXM6CiAtIGludHJvZHVjZWQgYSBuZXcgZmlybXdhcmUgZHJpdmVyIHRvIG1h
-bmFnZSBwb3dlci1yZWxhdGVkIG9wZXJhdGlvbnMuCiAtIHJld3JvdGUgdGhlIHBvd2VyLWRvbWFp
-biBkcml2ZXIgdG8gZnVuY3Rpb24gYWxvbmdzaWRlIHRoZSBmaXJtd2FyZSBkcml2ZXIuCiAgIFRo
-ZXNlIG5vZGVzIGluIHRoZSBkZXZpY2UgdHJlZSBsYWNrIGRpcmVjdCBhZGRyZXNzIHNwYWNlcywg
-ZGVzcGl0ZQogICByZXByZXNlbnRpbmcgSFcgYmxvY2tzLiBDb250cm9sIGlzIGFjaGlldmVkIHZp
-YSBmaXJtd2FyZSBwcm90b2NvbCBtZXNzYWdlcwogICB0cmFuc21pdHRlZCB0aHJvdWdoIGEgbWFp
-bGJveCB0byB0aGUgRTkwMiBjb3JlLgoKSW1wbGVtZW50ZWQgYSByZXNldCBjb250cm9sbGVyIGZv
-ciB0aGUgVEgxNTIwIFNvQzoKIC0gZGV2ZWxvcGVkIGEgcmVzZXQgY29udHJvbGxlciBkcml2ZXIg
-Zm9yIHRoZSBUSDE1MjAgdG8gbWFuYWdlIHJlc2V0CiAgIHNlcXVlbmNlcy4KIC0gdXBkYXRlZCB0
-aGUgZHJtL2ltYWdpbmF0aW9uIGRyaXZlciB0byBhY3QgYXMgYSByZXNldCBjb250cm9sbGVyIGNv
-bnN1bWVyLgogICBXaGlsZSB0aGlzIHBhdGNoc2V0IGlzIGZvY3VzZWQgb24gdGhlIExQSTRBIGJv
-YXJkLCB0aGUgcmVzZXQgY29udHJvbGxlciBpcwogICBkZXNpZ25lZCB0byBiZSB1c2VmdWwgZm9y
-IG90aGVyIGJvYXJkcywgc3VjaCBhcyB0aGUgQlBJLTNGLCB3aGljaCBhbHNvIHJlcXVpcmUKICAg
-YSByZXNldCBzZXF1ZW5jZSBhZnRlciBwb3dlci11cC4KClVwZGF0ZWQgZHQtYmluZGluZ3M6CiAt
-IGFkZGVkIG5ldyBkdC1iaW5kaW5ncyBmb3IgcG93ZXIsIHJlc2V0LCBhbmQgZmlybXdhcmUgbm9k
-ZXMuCiAtIHVwZGF0ZWQgdGhlIHBvd2VydnIgZHQtYmluZGluZyB0byBpbmNsdWRlIHJlc2V0IHN1
-cHBvcnQgYW5kIG5ldyBjb21wYXRpYmxlcy4KIC0gcmFuIGR0YnNfY2hlY2sgYW5kIGR0X2JpbmRp
-bmdfY2hlY2sgdG8gZW5zdXJlIGNvbXBsaWFuY2UuCgpBZGRyZXNzZWQgY29kZSBxdWFsaXR5Ogog
-LSByZXNvbHZlZCBhbGwgY2hlY2twYXRjaCBpc3N1ZXMgdXNpbmcgLS1zdHJpY3QsIGV4Y2VwdCBm
-b3IgdGhlIGNhbGwgdG8KICAgZGV2bV9jbGtfaHdfcmVnaXN0ZXJfZ2F0ZV9wYXJlbnRfZGF0YSgp
-LiAgVGhlIGN1cnJlbnQgaW1wbGVtZW50YXRpb24gcmVtYWlucwogICBwcmVmZXJhYmxlIGluIHRo
-aXMgY29udGV4dCwgYW5kIGNsYW5nLWZvcm1hdCBhbGlnbnMgd2l0aCB0aGlzIGNob2ljZS4KCkFs
-c28gaW5jbHVkZWQgdGhlIG1haWxib3ggZGV2aWNlIHRyZWUgY29tbWl0LCBhbHJlYWR5IHF1ZXVl
-ZCBmb3IgNi4xNCBbMTRdIGZvcgpjb21wbGV0ZW5lc3MuCgpSZWZlcmVuY2VzOgoKWzFdIERvd25z
-dHJlYW0gRHJpdmVyIFNvdXJjZToKwqDCoMKgwqBodHRwczovL2dpdGxhYi5mcmVlZGVza3RvcC5v
-cmcvZnJhbmtiaW5ucy9wb3dlcnZyLy0vYmxvYi9jYjE5Mjk5MzIwOTU2NDlhMjRmMDUxYjljZmRk
-MmNkMmNlYWIzNWNiL2RyaXZlcnMvZ3B1L2RybS9pbWctcm9ndWUvS2NvbmZpZwoKWzJdIEluaXRp
-YWwgVXBzdHJlYW0gRHJpdmVyIFNlcmllczoKwqDCoMKgwqBodHRwczovL2xvcmUua2VybmVsLm9y
-Zy9hbGwvY292ZXIuMTcwMDY2ODg0My5naXQuZG9uYWxkLnJvYnNvbkBpbWd0ZWMuY29tLwoKWzNd
-IEJYUy00LTY0IEdQVSBTdXBwb3J0IFBhdGNoZXM6CsKgwqDCoMKgaHR0cHM6Ly9sb3JlLmtlcm5l
-bC5vcmcvYWxsLzIwMjQxMTA1LXNldHMtYnhzLTQtNjQtcGF0Y2gtdjEtdjEtMC00ZWQzMGU4NjU4
-OTJAaW1ndGVjLmNvbS8KCls0XSBGaXJtd2FyZSBJc3N1ZSBEaXNjdXNzaW9uIDE6CsKgwqDCoMKg
-aHR0cHM6Ly9naXRsYWIuZnJlZWRlc2t0b3Aub3JnL2ltYWdpbmF0aW9uL2xpbnV4LWZpcm13YXJl
-Ly0vaXNzdWVzLzEKCls1XSBGaXJtd2FyZSBJc3N1ZSBEaXNjdXNzaW9uIDI6CsKgwqDCoMKgaHR0
-cHM6Ly9naXRsYWIuZnJlZWRlc2t0b3Aub3JnL2ltYWdpbmF0aW9uL2xpbnV4LWZpcm13YXJlLy0v
-aXNzdWVzLzIKCls2XSBGaXJtd2FyZSBVcGRhdGUgQ29tbWl0IDE6CsKgwqDCoMKgaHR0cHM6Ly9n
-aXRsYWIuZnJlZWRlc2t0b3Aub3JnL2ltYWdpbmF0aW9uL2xpbnV4LWZpcm13YXJlLy0vY29tbWl0
-LzZhYzIyNDdlOWExZDE4MzdhZjQ5NWZiNmQwZmJkNmYzNTU0N2MyZDEKCls3XSBGaXJtd2FyZSBV
-cGRhdGUgQ29tbWl0IDI6CsKgwqDCoMKgaHR0cHM6Ly9naXRsYWIuZnJlZWRlc2t0b3Aub3JnL2lt
-YWdpbmF0aW9uL2xpbnV4LWZpcm13YXJlLy0vY29tbWl0L2VmYmViYzkwZjI1YWRiMmIyZTE0OTll
-M2NjMjRlYTNmM2MzZTRmNGMKCls4XSBWZW5kb3ItUHJvdmlkZWQgTWVzYSBEcml2ZXI6CsKgwqDC
-oMKgaHR0cHM6Ly9naXRsYWIuZnJlZWRlc2t0b3Aub3JnL2ltYWdpbmF0aW9uL21lc2EvLS90cmVl
-L2Rldi9kZXZpbmZvCgpbOV0gU2FzY2hhIFdpbGxlbXMnIFZ1bGthbiBTYW1wbGVzOiDCoMKgwqDC
-oGh0dHBzOi8vZ2l0aHViLmNvbS9TYXNjaGFXaWxsZW1zL1Z1bGthbgoKWzEwXSBUZXN0IEtlcm5l
-bCBTb3VyY2U6CiAgICBodHRwczovL2dpdGh1Yi5jb20vbXdpbGN6eS9saW51eC90cmVlLzJfRGVj
-ZW1iZXJfcmVmZXJlbmNlX2xpbnV4X2tlcm5lbF9pbWFnaW5hdGlvbgoKWzExXSBUZXN0IE1lc2Eg
-RHJpdmVyOgogICAgaHR0cHM6Ly9naXRodWIuY29tL213aWxjenkvbWVzYS1yZWZlcmVuY2UKClsx
-Ml0gRFBVIERDODIwMCBEcml2ZXIgVXBzdHJlYW0gQXR0ZW1wdDoKwqDCoMKgwqBodHRwczovL2xv
-cmUua2VybmVsLm9yZy9hbGwvMjAyNDExMjAwNjE4NDguMTk2NzU0LTEta2VpdGguemhhb0BzdGFy
-Zml2ZXRlY2guY29tLwoKWzEzXSBQdWxsIHJlcXVlc3Qga2VybmVsIDYuMTMgZm9yIG1haWxib3gK
-ICAgIGh0dHBzOi8vbG9yZS5rZXJuZWwub3JnL2FsbC9DQUJiK3lZMzNxbml2Sy1QenFwU01nbXRi
-RmlkNG5TOHdjTnZQN3dFRDlEWHJZQXlMS2dAbWFpbC5nbWFpbC5jb20vCgpbMTRdIE1haWxib3gg
-Y29tbWl0IHF1ZXVlZCBmb3IgNi4xNAogICAgaHR0cHM6Ly9sb3JlLmtlcm5lbC5vcmcvYWxsLzIw
-MjQxMTA0MTAwNzM0LjEyNzYxMTYtNC1tLndpbGN6eW5za2lAc2Ftc3VuZy5jb20vCgpNaWNoYWwg
-V2lsY3p5bnNraSAoMTgpOgogIGR0LWJpbmRpbmdzOiBjbG9jazogQWRkIFZPIHN1YnN5c3RlbSBj
-bG9jayBjb250cm9sbGVyIHN1cHBvcnQKICBjbGs6IHRoZWFkOiBBZGQgY2xvY2sgc3VwcG9ydCBm
-b3IgVk8gc3Vic3lzdGVtIGluIFQtSGVhZCBUSDE1MjAgU29DCiAgZHQtYmluZGluZ3M6IGZpcm13
-YXJlOiB0aGVhZCx0aDE1MjA6IEFkZCBzdXBwb3J0IGZvciBmaXJtd2FyZSBub2RlCiAgZmlybXdh
-cmU6IHRoZWFkOiBBZGQgQU9OIGZpcm13YXJlIHByb3RvY29sIGRyaXZlcgogIHBtZG9tYWluOiB0
-aGVhZDogQWRkIHBvd2VyLWRvbWFpbiBkcml2ZXIgZm9yIFRIMTUyMAogIHJpc2N2OiBFbmFibGUg
-UE1fR0VORVJJQ19ET01BSU5TIGZvciBULUhlYWQgU29DcwogIGR0LWJpbmRpbmdzOiByZXNldDog
-QWRkIFQtSEVBRCBUSDE1MjAgU29DIFJlc2V0IENvbnRyb2xsZXIKICByZXNldDogdGhlYWQ6IEFk
-ZCBUSDE1MjAgcmVzZXQgY29udHJvbGxlciBkcml2ZXIKICBkcm0vaW1hZ2luYXRpb246IEFkZCBy
-ZXNldCBjb250cm9sbGVyIHN1cHBvcnQgZm9yIEdQVSBpbml0aWFsaXphdGlvbgogIGR0LWJpbmRp
-bmdzOiBncHU6IEFkZCAncmVzZXRzJyBwcm9wZXJ0eSBmb3IgR1BVIGluaXRpYWxpemF0aW9uCiAg
-ZHQtYmluZGluZ3M6IGdwdTogQWRkIGNvbXBhdGlibGVzIGZvciBULUhFQUQgVEgxNTIwIEdQVQog
-IGRybS9pbWFnaW5hdGlvbjogQWRkIHN1cHBvcnQgZm9yIElNRyBCWE0tNC02NCBHUFUKICBkcm0v
-aW1hZ2luYXRpb246IEVuYWJsZSBQb3dlclZSIGRyaXZlciBmb3IgUklTQy1WCiAgcmlzY3Y6IGR0
-czogdGhlYWQ6IEFkZCBkZXZpY2UgdHJlZSBWTyBjbG9jayBjb250cm9sbGVyCiAgcmlzY3Y6IGR0
-czogdGhlYWQ6IEFkZCBtYWlsYm94IG5vZGUKICByaXNjdjogZHRzOiB0aGVhZDogSW50cm9kdWNl
-IHBvd2VyIGRvbWFpbiBub2RlcyB3aXRoIGFvbiBmaXJtd2FyZQogIHJpc2N2OiBkdHM6IHRoZWFk
-OiBJbnRyb2R1Y2UgcmVzZXQgY29udHJvbGxlciBub2RlCiAgcmlzY3Y6IGR0czogdGhlYWQ6IEFk
-ZCBHUFUgbm9kZSB0byBUSDE1MjAgZGV2aWNlIHRyZWUKCiAuLi4vYmluZGluZ3MvY2xvY2svdGhl
-YWQsdGgxNTIwLWNsay1hcC55YW1sICAgfCAgMTYgKy0KIC4uLi9iaW5kaW5ncy9maXJtd2FyZS90
-aGVhZCx0aDE1MjAtYW9uLnlhbWwgICB8ICA1MyArKysrCiAuLi4vYmluZGluZ3MvZ3B1L2ltZyxw
-b3dlcnZyLXJvZ3VlLnlhbWwgICAgICAgfCAgNTggKysrLQogLi4uL2JpbmRpbmdzL3Jlc2V0L3Ro
-ZWFkLHRoMTUyMC1yZXNldC55YW1sICAgIHwgIDQ0ICsrKwogTUFJTlRBSU5FUlMgICAgICAgICAg
-ICAgICAgICAgICAgICAgICAgICAgICAgIHwgICA3ICsKIGFyY2gvcmlzY3YvS2NvbmZpZy5zb2Nz
-ICAgICAgICAgICAgICAgICAgICAgICB8ICAgMSArCiBhcmNoL3Jpc2N2L2Jvb3QvZHRzL3RoZWFk
-L3RoMTUyMC5kdHNpICAgICAgICAgfCAgNDkgKysrKwogZHJpdmVycy9jbGsvdGhlYWQvY2xrLXRo
-MTUyMC1hcC5jICAgICAgICAgICAgIHwgMTk3ICsrKysrKysrKysrLS0KIGRyaXZlcnMvZmlybXdh
-cmUvS2NvbmZpZyAgICAgICAgICAgICAgICAgICAgICB8ICAgOSArCiBkcml2ZXJzL2Zpcm13YXJl
-L01ha2VmaWxlICAgICAgICAgICAgICAgICAgICAgfCAgIDEgKwogZHJpdmVycy9maXJtd2FyZS90
-aGVhZCx0aDE1MjAtYW9uLmMgICAgICAgICAgIHwgMjcxICsrKysrKysrKysrKysrKysrKwogZHJp
-dmVycy9ncHUvZHJtL2ltYWdpbmF0aW9uL0tjb25maWcgICAgICAgICAgIHwgICAyICstCiBkcml2
-ZXJzL2dwdS9kcm0vaW1hZ2luYXRpb24vcHZyX2RldmljZS5jICAgICAgfCAgMjEgKysKIGRyaXZl
-cnMvZ3B1L2RybS9pbWFnaW5hdGlvbi9wdnJfZGV2aWNlLmggICAgICB8ICAgOSArCiBkcml2ZXJz
-L2dwdS9kcm0vaW1hZ2luYXRpb24vcHZyX2Rydi5jICAgICAgICAgfCAgIDEgKwogZHJpdmVycy9n
-cHUvZHJtL2ltYWdpbmF0aW9uL3B2cl9wb3dlci5jICAgICAgIHwgIDE1ICstCiBkcml2ZXJzL3Bt
-ZG9tYWluL0tjb25maWcgICAgICAgICAgICAgICAgICAgICAgfCAgIDEgKwogZHJpdmVycy9wbWRv
-bWFpbi9NYWtlZmlsZSAgICAgICAgICAgICAgICAgICAgIHwgICAxICsKIGRyaXZlcnMvcG1kb21h
-aW4vdGhlYWQvS2NvbmZpZyAgICAgICAgICAgICAgICB8ICAxMiArCiBkcml2ZXJzL3BtZG9tYWlu
-L3RoZWFkL01ha2VmaWxlICAgICAgICAgICAgICAgfCAgIDIgKwogZHJpdmVycy9wbWRvbWFpbi90
-aGVhZC90aDE1MjAtcG0tZG9tYWlucy5jICAgIHwgMTc0ICsrKysrKysrKysrCiBkcml2ZXJzL3Jl
-c2V0L0tjb25maWcgICAgICAgICAgICAgICAgICAgICAgICAgfCAgMTAgKwogZHJpdmVycy9yZXNl
-dC9NYWtlZmlsZSAgICAgICAgICAgICAgICAgICAgICAgIHwgICAxICsKIGRyaXZlcnMvcmVzZXQv
-cmVzZXQtdGgxNTIwLmMgICAgICAgICAgICAgICAgICB8IDE0NCArKysrKysrKysrCiAuLi4vZHQt
-YmluZGluZ3MvY2xvY2svdGhlYWQsdGgxNTIwLWNsay1hcC5oICAgfCAgMzMgKysrCiAuLi4vZHQt
-YmluZGluZ3MvZmlybXdhcmUvdGhlYWQsdGgxNTIwLWFvbi5oICAgfCAgMTggKysKIC4uLi9saW51
-eC9maXJtd2FyZS90aGVhZC90aGVhZCx0aDE1MjAtYW9uLmggICB8IDE4NiArKysrKysrKysrKysK
-IDI3IGZpbGVzIGNoYW5nZWQsIDEyOTMgaW5zZXJ0aW9ucygrKSwgNDMgZGVsZXRpb25zKC0pCiBj
-cmVhdGUgbW9kZSAxMDA2NDQgRG9jdW1lbnRhdGlvbi9kZXZpY2V0cmVlL2JpbmRpbmdzL2Zpcm13
-YXJlL3RoZWFkLHRoMTUyMC1hb24ueWFtbAogY3JlYXRlIG1vZGUgMTAwNjQ0IERvY3VtZW50YXRp
-b24vZGV2aWNldHJlZS9iaW5kaW5ncy9yZXNldC90aGVhZCx0aDE1MjAtcmVzZXQueWFtbAogY3Jl
-YXRlIG1vZGUgMTAwNjQ0IGRyaXZlcnMvZmlybXdhcmUvdGhlYWQsdGgxNTIwLWFvbi5jCiBjcmVh
-dGUgbW9kZSAxMDA2NDQgZHJpdmVycy9wbWRvbWFpbi90aGVhZC9LY29uZmlnCiBjcmVhdGUgbW9k
-ZSAxMDA2NDQgZHJpdmVycy9wbWRvbWFpbi90aGVhZC9NYWtlZmlsZQogY3JlYXRlIG1vZGUgMTAw
-NjQ0IGRyaXZlcnMvcG1kb21haW4vdGhlYWQvdGgxNTIwLXBtLWRvbWFpbnMuYwogY3JlYXRlIG1v
-ZGUgMTAwNjQ0IGRyaXZlcnMvcmVzZXQvcmVzZXQtdGgxNTIwLmMKIGNyZWF0ZSBtb2RlIDEwMDY0
-NCBpbmNsdWRlL2R0LWJpbmRpbmdzL2Zpcm13YXJlL3RoZWFkLHRoMTUyMC1hb24uaAogY3JlYXRl
-IG1vZGUgMTAwNjQ0IGluY2x1ZGUvbGludXgvZmlybXdhcmUvdGhlYWQvdGhlYWQsdGgxNTIwLWFv
-bi5oCgotLSAKMi4zNC4xCgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJh
-ZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51
-eC1yaXNjdgo=
+The T-Head TH1520 SoC uses an E902 co-processor running Always-On (AON)
+firmware to manage power, clock, and other system resources [1]. This
+patch introduces a driver implementing the AON firmware protocol,
+allowing the Linux kernel to communicate with the firmware via mailbox
+channels.  Through an RPC-based interface, the kernel can initiate power
+state transitions, update resource configurations, and perform other
+AON-related tasks.
+
+Link: https://openbeagle.org/beaglev-ahead/beaglev-ahead/-/blob/main/docs/TH1520%20System%20User%20Manual.pdf [1]
+
+Signed-off-by: Michal Wilczynski <m.wilczynski@samsung.com>
+---
+ MAINTAINERS                                   |   2 +
+ drivers/firmware/Kconfig                      |   9 +
+ drivers/firmware/Makefile                     |   1 +
+ drivers/firmware/thead,th1520-aon.c           | 271 ++++++++++++++++++
+ .../linux/firmware/thead/thead,th1520-aon.h   | 186 ++++++++++++
+ 5 files changed, 469 insertions(+)
+ create mode 100644 drivers/firmware/thead,th1520-aon.c
+ create mode 100644 include/linux/firmware/thead/thead,th1520-aon.h
+
+diff --git a/MAINTAINERS b/MAINTAINERS
+index c56a1fb6e02a..c96a1e6c8831 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -20191,11 +20191,13 @@ F:	Documentation/devicetree/bindings/net/thead,th1520-gmac.yaml
+ F:	Documentation/devicetree/bindings/pinctrl/thead,th1520-pinctrl.yaml
+ F:	arch/riscv/boot/dts/thead/
+ F:	drivers/clk/thead/clk-th1520-ap.c
++F:	drivers/firmware/thead,th1520-aon.c
+ F:	drivers/mailbox/mailbox-th1520.c
+ F:	drivers/net/ethernet/stmicro/stmmac/dwmac-thead.c
+ F:	drivers/pinctrl/pinctrl-th1520.c
+ F:	include/dt-bindings/clock/thead,th1520-clk-ap.h
+ F:	include/dt-bindings/firmware/thead,th1520-aon.h
++F:	include/linux/firmware/thead/thead,th1520-aon.h
+ 
+ RNBD BLOCK DRIVERS
+ M:	Md. Haris Iqbal <haris.iqbal@ionos.com>
+diff --git a/drivers/firmware/Kconfig b/drivers/firmware/Kconfig
+index 71d8b26c4103..4d84288cc290 100644
+--- a/drivers/firmware/Kconfig
++++ b/drivers/firmware/Kconfig
+@@ -212,6 +212,15 @@ config SYSFB_SIMPLEFB
+ 
+ 	  If unsure, say Y.
+ 
++config TH1520_AON_PROTOCOL
++	tristate "Always-On firmware protocol"
++	depends on ARCH_THEAD || COMPILE_TEST
++	help
++	  Power, clock, and resource management capabilities on the TH1520 SoC are
++	  managed by the E902 core. Firmware running on this core communicates with
++	  the kernel through the Always-On protocol, using hardware mailbox as a medium.
++	  Say yes if you need such capabilities.
++
+ config TI_SCI_PROTOCOL
+ 	tristate "TI System Control Interface (TISCI) Message Protocol"
+ 	depends on TI_MESSAGE_MANAGER
+diff --git a/drivers/firmware/Makefile b/drivers/firmware/Makefile
+index 7a8d486e718f..5db9c042430c 100644
+--- a/drivers/firmware/Makefile
++++ b/drivers/firmware/Makefile
+@@ -18,6 +18,7 @@ obj-$(CONFIG_RASPBERRYPI_FIRMWARE) += raspberrypi.o
+ obj-$(CONFIG_FW_CFG_SYSFS)	+= qemu_fw_cfg.o
+ obj-$(CONFIG_SYSFB)		+= sysfb.o
+ obj-$(CONFIG_SYSFB_SIMPLEFB)	+= sysfb_simplefb.o
++obj-$(CONFIG_TH1520_AON_PROTOCOL) += thead,th1520-aon.o
+ obj-$(CONFIG_TI_SCI_PROTOCOL)	+= ti_sci.o
+ obj-$(CONFIG_TRUSTED_FOUNDATIONS) += trusted_foundations.o
+ obj-$(CONFIG_TURRIS_MOX_RWTM)	+= turris-mox-rwtm.o
+diff --git a/drivers/firmware/thead,th1520-aon.c b/drivers/firmware/thead,th1520-aon.c
+new file mode 100644
+index 000000000000..32d159f46ebb
+--- /dev/null
++++ b/drivers/firmware/thead,th1520-aon.c
+@@ -0,0 +1,271 @@
++// SPDX-License-Identifier: GPL-2.0
++/*
++ * Copyright (C) 2021 Alibaba Group Holding Limited.
++ * Copyright (c) 2024 Samsung Electronics Co., Ltd.
++ * Author: Michal Wilczynski <m.wilczynski@samsung.com>
++ */
++
++#include <linux/firmware/thead/thead,th1520-aon.h>
++#include <linux/mailbox_client.h>
++#include <linux/mailbox_controller.h>
++#include <linux/mod_devicetable.h>
++#include <linux/of_platform.h>
++#include <linux/platform_device.h>
++
++#include <dt-bindings/firmware/thead,th1520-aon.h>
++
++#define MAX_RX_TIMEOUT (msecs_to_jiffies(3000))
++#define MAX_TX_TIMEOUT 500
++
++struct th1520_aon_chan {
++	struct platform_device *pd;
++	struct mbox_chan *ch;
++	struct th1520_aon_rpc_ack_common ack_msg;
++	struct mbox_client cl;
++	struct completion done;
++
++	/* make sure only one RPC is perfomed at a time */
++	struct mutex transaction_lock;
++};
++
++struct th1520_aon_msg_req_set_resource_power_mode {
++	struct th1520_aon_rpc_msg_hdr hdr;
++	u16 resource;
++	u16 mode;
++	u16 reserved[10];
++} __packed __aligned(1);
++
++/*
++ * This type is used to indicate error response for most functions.
++ */
++enum th1520_aon_error_codes {
++	LIGHT_AON_ERR_NONE = 0, /* Success */
++	LIGHT_AON_ERR_VERSION = 1, /* Incompatible API version */
++	LIGHT_AON_ERR_CONFIG = 2, /* Configuration error */
++	LIGHT_AON_ERR_PARM = 3, /* Bad parameter */
++	LIGHT_AON_ERR_NOACCESS = 4, /* Permission error (no access) */
++	LIGHT_AON_ERR_LOCKED = 5, /* Permission error (locked) */
++	LIGHT_AON_ERR_UNAVAILABLE = 6, /* Unavailable (out of resources) */
++	LIGHT_AON_ERR_NOTFOUND = 7, /* Not found */
++	LIGHT_AON_ERR_NOPOWER = 8, /* No power */
++	LIGHT_AON_ERR_IPC = 9, /* Generic IPC error */
++	LIGHT_AON_ERR_BUSY = 10, /* Resource is currently busy/active */
++	LIGHT_AON_ERR_FAIL = 11, /* General I/O failure */
++	LIGHT_AON_ERR_LAST
++};
++
++static int th1520_aon_linux_errmap[LIGHT_AON_ERR_LAST] = {
++	0, /* LIGHT_AON_ERR_NONE */
++	-EINVAL, /* LIGHT_AON_ERR_VERSION */
++	-EINVAL, /* LIGHT_AON_ERR_CONFIG */
++	-EINVAL, /* LIGHT_AON_ERR_PARM */
++	-EACCES, /* LIGHT_AON_ERR_NOACCESS */
++	-EACCES, /* LIGHT_AON_ERR_LOCKED */
++	-ERANGE, /* LIGHT_AON_ERR_UNAVAILABLE */
++	-EEXIST, /* LIGHT_AON_ERR_NOTFOUND */
++	-EPERM, /* LIGHT_AON_ERR_NOPOWER */
++	-EPIPE, /* LIGHT_AON_ERR_IPC */
++	-EBUSY, /* LIGHT_AON_ERR_BUSY */
++	-EIO, /* LIGHT_AON_ERR_FAIL */
++};
++
++static inline int th1520_aon_to_linux_errno(int errno)
++{
++	if (errno >= LIGHT_AON_ERR_NONE && errno < LIGHT_AON_ERR_LAST)
++		return th1520_aon_linux_errmap[errno];
++
++	return -EIO;
++}
++
++static void th1520_aon_rx_callback(struct mbox_client *c, void *rx_msg)
++{
++	struct th1520_aon_chan *aon_chan =
++		container_of(c, struct th1520_aon_chan, cl);
++	struct th1520_aon_rpc_msg_hdr *hdr =
++		(struct th1520_aon_rpc_msg_hdr *)rx_msg;
++	u8 recv_size = sizeof(struct th1520_aon_rpc_msg_hdr) + hdr->size;
++
++	if (recv_size != sizeof(struct th1520_aon_rpc_ack_common)) {
++		dev_err(c->dev, "Invalid ack size, not completing\n");
++		return;
++	}
++
++	memcpy(&aon_chan->ack_msg, rx_msg, recv_size);
++	complete(&aon_chan->done);
++}
++
++/**
++ * th1520_aon_call_rpc() - Send an RPC request to the TH1520 AON subsystem
++ * @aon_chan: Pointer to the AON channel structure
++ * @msg: Pointer to the message (RPC payload) that will be sent
++ *
++ * This function sends an RPC message to the TH1520 AON subsystem via mailbox.
++ * It takes the provided @msg buffer, formats it with version and service flags,
++ * then blocks until the RPC completes or times out. The completion is signaled
++ * by the `aon_chan->done` completion, which is waited upon for a duration
++ * defined by `MAX_RX_TIMEOUT`.
++ *
++ * Return:
++ * * 0 on success
++ * * -ETIMEDOUT if the RPC call times out
++ * * A negative error code if the mailbox send fails or if AON responds with
++ *   a non-zero error code (converted via th1520_aon_to_linux_errno()).
++ */
++int th1520_aon_call_rpc(struct th1520_aon_chan *aon_chan, void *msg)
++{
++	struct th1520_aon_rpc_msg_hdr *hdr = msg;
++	int ret;
++
++	mutex_lock(&aon_chan->transaction_lock);
++	reinit_completion(&aon_chan->done);
++
++	RPC_SET_VER(hdr, TH1520_AON_RPC_VERSION);
++	RPC_SET_SVC_ID(hdr, hdr->svc);
++	RPC_SET_SVC_FLAG_MSG_TYPE(hdr, RPC_SVC_MSG_TYPE_DATA);
++	RPC_SET_SVC_FLAG_ACK_TYPE(hdr, RPC_SVC_MSG_NEED_ACK);
++
++	ret = mbox_send_message(aon_chan->ch, msg);
++	if (ret < 0) {
++		dev_err(aon_chan->cl.dev, "RPC send msg failed: %d\n", ret);
++		goto out;
++	}
++
++	if (!wait_for_completion_timeout(&aon_chan->done, MAX_RX_TIMEOUT)) {
++		dev_err(aon_chan->cl.dev, "RPC send msg timeout\n");
++		mutex_unlock(&aon_chan->transaction_lock);
++		return -ETIMEDOUT;
++	}
++
++	ret = aon_chan->ack_msg.err_code;
++
++out:
++	mutex_unlock(&aon_chan->transaction_lock);
++
++	return th1520_aon_to_linux_errno(ret);
++}
++EXPORT_SYMBOL_GPL(th1520_aon_call_rpc);
++
++/**
++ * th1520_aon_power_update() - Change power state of a resource via TH1520 AON
++ * @aon_chan: Pointer to the AON channel structure
++ * @rsrc: Resource ID whose power state needs to be updated
++ * @power_on: Boolean indicating whether the resource should be powered on (true)
++ *            or powered off (false)
++ *
++ * This function requests the TH1520 AON subsystem to set the power mode of the
++ * given resource (@rsrc) to either on or off. It constructs the message in
++ * `struct th1520_aon_msg_req_set_resource_power_mode` and then invokes
++ * th1520_aon_call_rpc() to make the request. If the AON call fails, an error
++ * message is logged along with the specific return code.
++ *
++ * Return:
++ * * 0 on success
++ * * A negative error code in case of failures (propagated from
++ *   th1520_aon_call_rpc()).
++ */
++int th1520_aon_power_update(struct th1520_aon_chan *aon_chan, u16 rsrc,
++			    bool power_on)
++{
++	struct th1520_aon_msg_req_set_resource_power_mode msg = {};
++	struct th1520_aon_rpc_msg_hdr *hdr = &msg.hdr;
++	int ret;
++
++	hdr->svc = TH1520_AON_RPC_SVC_PM;
++	hdr->func = TH1520_AON_PM_FUNC_SET_RESOURCE_POWER_MODE;
++	hdr->size = TH1520_AON_RPC_MSG_NUM;
++
++	RPC_SET_BE16(&msg.resource, 0, rsrc);
++	RPC_SET_BE16(&msg.resource, 2,
++		     (power_on ? TH1520_AON_PM_PW_MODE_ON :
++				 TH1520_AON_PM_PW_MODE_OFF));
++
++	ret = th1520_aon_call_rpc(aon_chan, &msg);
++	if (ret)
++		dev_err(aon_chan->cl.dev, "failed to power %s resource %d ret %d\n",
++			power_on ? "up" : "off", rsrc, ret);
++
++	return ret;
++}
++EXPORT_SYMBOL_GPL(th1520_aon_power_update);
++
++static int th1520_aon_probe(struct platform_device *pdev)
++{
++	struct device *dev = &pdev->dev;
++	struct th1520_aon_chan *aon_chan;
++	struct mbox_client *cl;
++	int ret;
++	struct platform_device_info pdevinfo = {
++		.name = "th1520-pd",
++		.id = PLATFORM_DEVID_AUTO,
++		.parent = dev,
++	};
++
++	aon_chan = devm_kzalloc(dev, sizeof(*aon_chan), GFP_KERNEL);
++	if (!aon_chan)
++		return -ENOMEM;
++
++	cl = &aon_chan->cl;
++	cl->dev = dev;
++	cl->tx_block = true;
++	cl->tx_tout = MAX_TX_TIMEOUT;
++	cl->rx_callback = th1520_aon_rx_callback;
++
++	aon_chan->ch = mbox_request_channel_byname(cl, "aon");
++	if (IS_ERR(aon_chan->ch)) {
++		ret = PTR_ERR(aon_chan->ch);
++		return dev_err_probe(dev, ret, "Failed to request aon mbox chan\n");
++	}
++
++	mutex_init(&aon_chan->transaction_lock);
++	init_completion(&aon_chan->done);
++
++	platform_set_drvdata(pdev, aon_chan);
++
++	aon_chan->pd = platform_device_register_full(&pdevinfo);
++	ret = PTR_ERR_OR_ZERO(aon_chan->pd);
++	if (ret) {
++		dev_err(dev, "Failed to register child device 'th1520-pd': %d\n", ret);
++		goto free_mbox_chan;
++	}
++
++	ret = devm_of_platform_populate(dev);
++	if (ret)
++		goto unregister_pd;
++
++	return 0;
++
++unregister_pd:
++	platform_device_unregister(aon_chan->pd);
++free_mbox_chan:
++	mbox_free_channel(aon_chan->ch);
++
++	return ret;
++}
++
++static void th1520_aon_remove(struct platform_device *pdev)
++{
++	struct th1520_aon_chan *aon_chan = platform_get_drvdata(pdev);
++
++	platform_device_unregister(aon_chan->pd);
++	mbox_free_channel(aon_chan->ch);
++}
++
++static const struct of_device_id th1520_aon_match[] = {
++	{ .compatible = "thead,th1520-aon" },
++	{ /* Sentinel */ }
++};
++MODULE_DEVICE_TABLE(of, th1520_aon_match);
++
++static struct platform_driver th1520_aon_driver = {
++	.driver = {
++		.name = "th1520-aon",
++		.of_match_table = th1520_aon_match,
++	},
++	.probe = th1520_aon_probe,
++	.remove = th1520_aon_remove,
++};
++module_platform_driver(th1520_aon_driver);
++
++MODULE_AUTHOR("Michal Wilczynski <m.wilczynski@samsung.com>");
++MODULE_DESCRIPTION("T-HEAD TH1520 Always-On firmware driver");
++MODULE_LICENSE("GPL");
+diff --git a/include/linux/firmware/thead/thead,th1520-aon.h b/include/linux/firmware/thead/thead,th1520-aon.h
+new file mode 100644
+index 000000000000..3daa17c01d17
+--- /dev/null
++++ b/include/linux/firmware/thead/thead,th1520-aon.h
+@@ -0,0 +1,186 @@
++/* SPDX-License-Identifier: GPL-2.0 */
++/*
++ * Copyright (C) 2021 Alibaba Group Holding Limited.
++ */
++
++#ifndef _THEAD_AON_H
++#define _THEAD_AON_H
++
++#include <linux/device.h>
++#include <linux/types.h>
++
++#define AON_RPC_MSG_MAGIC (0xef)
++#define TH1520_AON_RPC_VERSION 2
++#define TH1520_AON_RPC_MSG_NUM 7
++
++extern struct th1520_aon_chan *aon_chan;
++
++enum th1520_aon_rpc_svc {
++	TH1520_AON_RPC_SVC_UNKNOWN = 0,
++	TH1520_AON_RPC_SVC_PM = 1,
++	TH1520_AON_RPC_SVC_MISC = 2,
++	TH1520_AON_RPC_SVC_AVFS = 3,
++	TH1520_AON_RPC_SVC_SYS = 4,
++	TH1520_AON_RPC_SVC_WDG = 5,
++	TH1520_AON_RPC_SVC_LPM = 6,
++	TH1520_AON_RPC_SVC_MAX = 0x3F,
++};
++
++enum th1520_aon_misc_func {
++	TH1520_AON_MISC_FUNC_UNKNOWN = 0,
++	TH1520_AON_MISC_FUNC_SET_CONTROL = 1,
++	TH1520_AON_MISC_FUNC_GET_CONTROL = 2,
++	TH1520_AON_MISC_FUNC_REGDUMP_CFG = 3,
++};
++
++enum th1520_aon_wdg_func {
++	TH1520_AON_WDG_FUNC_UNKNOWN = 0,
++	TH1520_AON_WDG_FUNC_START = 1,
++	TH1520_AON_WDG_FUNC_STOP = 2,
++	TH1520_AON_WDG_FUNC_PING = 3,
++	TH1520_AON_WDG_FUNC_TIMEOUTSET = 4,
++	TH1520_AON_WDG_FUNC_RESTART = 5,
++	TH1520_AON_WDG_FUNC_GET_STATE = 6,
++	TH1520_AON_WDG_FUNC_POWER_OFF = 7,
++	TH1520_AON_WDG_FUNC_AON_WDT_ON = 8,
++	TH1520_AON_WDG_FUNC_AON_WDT_OFF = 9,
++};
++
++enum th1520_aon_sys_func {
++	TH1520_AON_SYS_FUNC_UNKNOWN = 0,
++	TH1520_AON_SYS_FUNC_AON_RESERVE_MEM = 1,
++};
++
++enum th1520_aon_lpm_func {
++	TH1520_AON_LPM_FUNC_UNKNOWN = 0,
++	TH1520_AON_LPM_FUNC_REQUIRE_STR = 1,
++	TH1520_AON_LPM_FUNC_RESUME_STR = 2,
++	TH1520_AON_LPM_FUNC_REQUIRE_STD = 3,
++	TH1520_AON_LPM_FUNC_CPUHP = 4,
++	TH1520_AON_LPM_FUNC_REGDUMP_CFG = 5,
++};
++
++enum th1520_aon_pm_func {
++	TH1520_AON_PM_FUNC_UNKNOWN = 0,
++	TH1520_AON_PM_FUNC_SET_RESOURCE_REGULATOR = 1,
++	TH1520_AON_PM_FUNC_GET_RESOURCE_REGULATOR = 2,
++	TH1520_AON_PM_FUNC_SET_RESOURCE_POWER_MODE = 3,
++	TH1520_AON_PM_FUNC_PWR_SET = 4,
++	TH1520_AON_PM_FUNC_PWR_GET = 5,
++	TH1520_AON_PM_FUNC_CHECK_FAULT = 6,
++	TH1520_AON_PM_FUNC_GET_TEMPERATURE = 7,
++};
++
++struct th1520_aon_rpc_msg_hdr {
++	u8 ver; /* version of msg hdr */
++	u8 size; /*  msg size ,uinit in bytes,the size includes rpc msg header self */
++	u8 svc; /* rpc main service id */
++	u8 func; /* rpc sub func id of specific service, sent by caller */
++} __packed __aligned(1);
++
++struct th1520_aon_rpc_ack_common {
++	struct th1520_aon_rpc_msg_hdr hdr;
++	u8 err_code;
++} __packed __aligned(1);
++
++#define RPC_SVC_MSG_TYPE_DATA 0
++#define RPC_SVC_MSG_TYPE_ACK 1
++#define RPC_SVC_MSG_NEED_ACK 0
++#define RPC_SVC_MSG_NO_NEED_ACK 1
++
++#define RPC_GET_VER(MESG) ((MESG)->ver)
++#define RPC_SET_VER(MESG, VER) ((MESG)->ver = (VER))
++#define RPC_GET_SVC_ID(MESG) ((MESG)->svc & 0x3F)
++#define RPC_SET_SVC_ID(MESG, ID) ((MESG)->svc |= 0x3F & (ID))
++#define RPC_GET_SVC_FLAG_MSG_TYPE(MESG) (((MESG)->svc & 0x80) >> 7)
++#define RPC_SET_SVC_FLAG_MSG_TYPE(MESG, TYPE) ((MESG)->svc |= (TYPE) << 7)
++#define RPC_GET_SVC_FLAG_ACK_TYPE(MESG) (((MESG)->svc & 0x40) >> 6)
++#define RPC_SET_SVC_FLAG_ACK_TYPE(MESG, ACK) ((MESG)->svc |= (ACK) << 6)
++
++#define RPC_SET_BE64(MESG, OFFSET, SET_DATA)                                \
++	do {                                                                \
++		u8 *data = (u8 *)(MESG);                                    \
++		u64 _offset = (OFFSET);                                     \
++		u64 _set_data = (SET_DATA);                                 \
++		data[_offset + 7] = _set_data & 0xFF;                       \
++		data[_offset + 6] = (_set_data & 0xFF00) >> 8;              \
++		data[_offset + 5] = (_set_data & 0xFF0000) >> 16;           \
++		data[_offset + 4] = (_set_data & 0xFF000000) >> 24;         \
++		data[_offset + 3] = (_set_data & 0xFF00000000) >> 32;       \
++		data[_offset + 2] = (_set_data & 0xFF0000000000) >> 40;     \
++		data[_offset + 1] = (_set_data & 0xFF000000000000) >> 48;   \
++		data[_offset + 0] = (_set_data & 0xFF00000000000000) >> 56; \
++	} while (0)
++
++#define RPC_SET_BE32(MESG, OFFSET, SET_DATA)			    \
++	do {							    \
++		u8 *data = (u8 *)(MESG);			    \
++		u64 _offset = (OFFSET);				    \
++		u64 _set_data = (SET_DATA);			    \
++		data[_offset + 3] = (_set_data) & 0xFF;		    \
++		data[_offset + 2] = (_set_data & 0xFF00) >> 8;	    \
++		data[_offset + 1] = (_set_data & 0xFF0000) >> 16;   \
++		data[_offset + 0] = (_set_data & 0xFF000000) >> 24; \
++	} while (0)
++
++#define RPC_SET_BE16(MESG, OFFSET, SET_DATA)		       \
++	do {						       \
++		u8 *data = (u8 *)(MESG);		       \
++		u64 _offset = (OFFSET);			       \
++		u64 _set_data = (SET_DATA);		       \
++		data[_offset + 1] = (_set_data) & 0xFF;	       \
++		data[_offset + 0] = (_set_data & 0xFF00) >> 8; \
++	} while (0)
++
++#define RPC_SET_U8(MESG, OFFSET, SET_DATA)	  \
++	do {					  \
++		u8 *data = (u8 *)(MESG);	  \
++		data[OFFSET] = (SET_DATA) & 0xFF; \
++	} while (0)
++
++#define RPC_GET_BE64(MESG, OFFSET, PTR)                                      \
++	do {                                                                 \
++		u8 *data = (u8 *)(MESG);                                     \
++		u64 _offset = (OFFSET);                                      \
++		*(u32 *)(PTR) =                                              \
++			(data[_offset + 7] | data[_offset + 6] << 8 |        \
++			 data[_offset + 5] << 16 | data[_offset + 4] << 24 | \
++			 data[_offset + 3] << 32 | data[_offset + 2] << 40 | \
++			 data[_offset + 1] << 48 | data[_offset + 0] << 56); \
++	} while (0)
++
++#define RPC_GET_BE32(MESG, OFFSET, PTR)                                      \
++	do {                                                                 \
++		u8 *data = (u8 *)(MESG);                                     \
++		u64 _offset = (OFFSET);                                      \
++		*(u32 *)(PTR) =                                              \
++			(data[_offset + 3] | data[_offset + 2] << 8 |        \
++			 data[_offset + 1] << 16 | data[_offset + 0] << 24); \
++	} while (0)
++
++#define RPC_GET_BE16(MESG, OFFSET, PTR)                                       \
++	do {                                                                  \
++		u8 *data = (u8 *)(MESG);                                      \
++		u64 _offset = (OFFSET);                                       \
++		*(u16 *)(PTR) = (data[_offset + 1] | data[_offset + 0] << 8); \
++	} while (0)
++
++#define RPC_GET_U8(MESG, OFFSET, PTR)          \
++	do {                                   \
++		u8 *data = (u8 *)(MESG);       \
++		*(u8 *)(PTR) = (data[OFFSET]); \
++	} while (0)
++
++/*
++ * Defines for SC PM Power Mode
++ */
++#define TH1520_AON_PM_PW_MODE_OFF 0 /* Power off */
++#define TH1520_AON_PM_PW_MODE_STBY 1 /* Power in standby */
++#define TH1520_AON_PM_PW_MODE_LP 2 /* Power in low-power */
++#define TH1520_AON_PM_PW_MODE_ON 3 /* Power on */
++
++int th1520_aon_call_rpc(struct th1520_aon_chan *aon_chan, void *msg);
++int th1520_aon_power_update(struct th1520_aon_chan *aon_chan, u16 rsrc,
++			    bool power_on);
++
++#endif /* _THEAD_AON_H */
+-- 
+2.34.1
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
