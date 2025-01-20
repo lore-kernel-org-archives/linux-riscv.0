@@ -4,59 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A212FC02182
-	for <linux-riscv@archiver.kernel.org>; Mon, 20 Jan 2025 18:51:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B49A3C02181
+	for <linux-riscv@archiver.kernel.org>; Mon, 20 Jan 2025 18:51:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
 	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
 	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=p2ZhKnKWx67TfSqtAy0UoVyClacqGzirsyJqLv8GCI4=; b=qy9HpWpjesv1jUVbcQEksctbkm
-	3LCB4xYyLAL9cJknR92f2iQHx1ie2KcTcrTiDXhjmp1TW+J8no0aTMpuHveaF+aLJSqx/sVPfeP4C
-	e7nOIktE37Pb9ub/V6dCZDKtJ2ZBNDnro/yXVledrwJv+GiYYQlPGkZtz7mnZ8XVJsmT4u0PK7Lmi
-	cf5RATOYjtfzG3se0nlOGrvzfjYkseUHnN5GeaKtPUMP7S4U8nnd5rI7OIh8faa2e4p+Z4stKIBvP
-	oqcfZA2J+wlE8p9DzmfTKfWTA/k5oAj21bB2HJxU5anVBO199PdpCyXGKEyl71B6VpWWyb+rZUQrI
-	Vmmse4wA==;
+	bh=Mnhw9pMz5+VIV9hKmMdZdDPxpJVDMIrbaD35NM7XC8U=; b=ir1tbxJ6Uucw8bMQQU36Zf0dkc
+	NDrVB+VBhoibD0oCvEY5wuTttvH5KUJoKPEdx0g/eX0ynwf4kMAGuCZep6OCbmJwlClM5/OVUhN4y
+	IF57i7EmqPKRKqAHE3xY3TkfdJRzMEVwoRkIddaU9V9IK/DdLzD/Q8Jrplh/Rn4h4RtYZZC01sex2
+	SZoTLAC0tFsd73oV5tufgw8Bt6TjiATYHEBL5srjUqbmKSTpHG2rdv/SNWQW5vJ2T8lKCND6nu4tT
+	ED1Kj4BDDLqccFLA1ruxq1uOndnQxxSzsJoxR6cV8ORmFcvIjr2mHzJcBTVk13cDyrWxpFaQzIwAE
+	06xgJEHg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tZwrP-00000006Gyx-36mO;
-	Mon, 20 Jan 2025 18:50:55 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1tZwrQ-00000006GzD-1QY3;
+	Mon, 20 Jan 2025 18:50:56 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tZwpR-00000006GhB-4ARN
+	id 1tZwqa-00000006Gpr-23ip
 	for linux-riscv@lists.infradead.org;
-	Mon, 20 Jan 2025 18:48:55 +0000
+	Mon, 20 Jan 2025 18:50:06 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id BADFC5C5DD2;
-	Mon, 20 Jan 2025 18:48:12 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AAEA1C4CEDD;
-	Mon, 20 Jan 2025 18:48:51 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id CC0A6A41349;
+	Mon, 20 Jan 2025 18:48:15 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id ECD7AC4CEE0;
+	Mon, 20 Jan 2025 18:49:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1737398933;
-	bh=GZutBfscRYJGhhKNcd1tZMGNtgevFdUbAYAC9mCXcP8=;
+	s=k20201202; t=1737399003;
+	bh=keQ4qpXup8ODEZvZQDL7I6+dJQgVZs+X5f48QgI9A9I=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Qs/Gp87UqlKgFENHwy8ZwjdbksdB1sxjMCFh6fnFyH/i8Ldy+xZGDnDXr8EjLpDKV
-	 dElp0VYiHmAUjK59QXtle/IaN2F/h7cBe8xFK2JB0gbTXdsKo156atPmEoYLegMOLM
-	 MaJ+Ryz4a7cuchKUiwwQMt3W7MYLctopJrsAydjgrg/Ia+zliKkQaDyOA6CpO53xWq
-	 +btd9aDYPoNdwYkm94xXjcwYqIenjSxjSK2eNuUKYbK2aOFICP6hIfIiYx/xUwREoq
-	 zH1W+O42FrkhUNfAGATudtD5PIVOiZxHO3/HDW4gZZbwxy5tICTc9tyJodRf0feiZg
-	 rkQhFhXQAdGdA==
-Date: Mon, 20 Jan 2025 18:48:49 +0000
+	b=DWaoDoSCrm7ialgf0hjFKpRmwL51vstfVgmob4KF/lVjA1N28AQHIIpq8ncoPdzUt
+	 MwQxqcr6Sl7ap0g8CpA//mGugUgsRLQlYwpsuulewNwuUWR1clN3sGI5+lZdDZNjBY
+	 nsqjjB6pKlwiS1J25TR/cMyNmxBMAIU3KwMQO6VZydTM8ubMkp7plz2LDKxzx8/Qs9
+	 FXkXaofXFdWuOBq4vb4lnxoz3Qx8ozBo3N/PmILjQ3E4slzGIFRvjQw0MJ7zsPTEI2
+	 WjWva/Gd/RaCm9eeGgoGE7szv1ddC5aYM/qfHU7eYEkBM7TFSxnxMcXKPrVMBLLVD4
+	 g7lvpuM8UpvrA==
+Date: Mon, 20 Jan 2025 18:49:56 +0000
 From: Conor Dooley <conor@kernel.org>
-To: Chuanhong Guo <gch981213@gmail.com>
-Cc: Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2] riscv: add Siflower RISC-V SoC family Kconfig support
-Message-ID: <20250120-skyrocket-fiftieth-5fd770df030f@spud>
-References: <20250120022359.125952-1-gch981213@gmail.com>
+To: Rajnesh Kanwal <rkanwal@rivosinc.com>
+Cc: linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+	linux-perf-users@vger.kernel.org, adrian.hunter@intel.com,
+	alexander.shishkin@linux.intel.com, ajones@ventanamicro.com,
+	anup@brainfault.org, acme@kernel.org, atishp@rivosinc.com,
+	beeman@rivosinc.com, brauner@kernel.org, heiko@sntech.de,
+	irogers@google.com, mingo@redhat.com, james.clark@arm.com,
+	renyu.zj@linux.alibaba.com, jolsa@kernel.org,
+	jisheng.teoh@starfivetech.com, palmer@dabbelt.com, will@kernel.org,
+	kaiwenxue1@gmail.com, vincent.chen@sifive.com
+Subject: Re: [PATCH v2 4/7] dt-bindings: riscv: add Sxctr ISA extension
+ description
+Message-ID: <20250120-twisted-reward-b3b620c80368@spud>
+References: <20250116230955.867152-1-rkanwal@rivosinc.com>
+ <20250116230955.867152-5-rkanwal@rivosinc.com>
 MIME-Version: 1.0
-In-Reply-To: <20250120022359.125952-1-gch981213@gmail.com>
+In-Reply-To: <20250116230955.867152-5-rkanwal@rivosinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250120_104854_079517_37F8107E 
-X-CRM114-Status: GOOD (  16.30  )
+X-CRM114-CacheID: sfid-20250120_105004_655958_320B5E00 
+X-CRM114-Status: GOOD (  15.33  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,79 +75,92 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============8374709144449109429=="
+Content-Type: multipart/mixed; boundary="===============0562590066483878402=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
---===============8374709144449109429==
+--===============0562590066483878402==
 Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="pIa+gMzMc7XUDoG8"
+	protocol="application/pgp-signature"; boundary="sM0OwTrQXpmguZwj"
 Content-Disposition: inline
 
 
---pIa+gMzMc7XUDoG8
+--sM0OwTrQXpmguZwj
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
 
-On Mon, Jan 20, 2025 at 10:23:58AM +0800, Chuanhong Guo wrote:
-> Siflower RISC-V SoCs, including SF21A6826, SF21H8898 and some other
-> upcomping chips, are RISC-V chips with T-Head C908 cores for home
-> routers and gateways. Add a Kconfig entry named ARCH_SIFLOWER for
-> them.
-> Notably these chips uses ARM PL011 for UART. ARM_AMBA is selected
-> for its driver.
+On Thu, Jan 16, 2025 at 11:09:52PM +0000, Rajnesh Kanwal wrote:
+> Add the S[m|s]ctr ISA extension description.
 >=20
-> Signed-off-by: Chuanhong Guo <gch981213@gmail.com>
-
-This needs to be in a series with the user (your dts)
-
+> Signed-off-by: Rajnesh Kanwal <rkanwal@rivosinc.com>
 > ---
+>  .../devicetree/bindings/riscv/extensions.yaml      | 14 ++++++++++++++
+>  1 file changed, 14 insertions(+)
 >=20
-> Changes since v1:
->  * removed deprecated SOC_ symbol
->=20
->  arch/riscv/Kconfig.socs | 6 ++++++
->  1 file changed, 6 insertions(+)
->=20
-> diff --git a/arch/riscv/Kconfig.socs b/arch/riscv/Kconfig.socs
-> index 1916cf7ba450..64a49e7ea03e 100644
-> --- a/arch/riscv/Kconfig.socs
-> +++ b/arch/riscv/Kconfig.socs
-> @@ -19,6 +19,12 @@ config ARCH_SIFIVE
->  	help
->  	  This enables support for SiFive SoC platform hardware.
+> diff --git a/Documentation/devicetree/bindings/riscv/extensions.yaml b/Do=
+cumentation/devicetree/bindings/riscv/extensions.yaml
+> index 848354e3048f..8322503f0773 100644
+> --- a/Documentation/devicetree/bindings/riscv/extensions.yaml
+> +++ b/Documentation/devicetree/bindings/riscv/extensions.yaml
+> @@ -167,6 +167,13 @@ properties:
+>  	    extension allows other ISA extension to use indirect CSR access
+>  	    mechanism in M-mode.
 > =20
-> +config ARCH_SIFLOWER
-> +	bool "Siflower RISC-V SoCs"
-> +	select ARM_AMBA if TTY
-> +	help
-> +	  This enables support for Siflower RISC-V SoC platform hardware.
+> +        - const: smctr
+> +          description: |
+> +            The standard Smctr supervisor-level extension for the machin=
+e mode
+> +            to enable recording limited branch history in a register-acc=
+essible
+> +            internal core storage. Smctr depend on both the implementati=
+on of
+> +            S-mode and the Sscsrind extension.
+
+Please, like the other extensions, cite the commit (and repo) where the
+extension was frozen or ratified.
+
 > +
->  config ARCH_SOPHGO
->  	bool "Sophgo SoCs"
->  	help
+>  	- const: sscsrind
+>            description: |
+>              The standard Sscsrind supervisor-level extension extends the
+> @@ -193,6 +200,13 @@ properties:
+>              and mode-based filtering as ratified at commit 01d1df0 ("Add=
+ ability
+>              to manually trigger workflow. (#2)") of riscv-count-overflow.
+> =20
+> +        - const: ssctr
+> +          description: |
+> +            The standard Ssctr supervisor-level extension enables record=
+ing of
+> +            limited branch history in a register-accessible internal core
+> +            storage. Ssctr depend on both the implementation of S-mode a=
+nd the
+> +            Sscsrind extension.
+> +
+>          - const: ssnpm
+>            description: |
+>              The standard Ssnpm extension for next-mode pointer masking as
 > --=20
-> 2.48.1
->=20
+> 2.34.1
 >=20
 
---pIa+gMzMc7XUDoG8
+--sM0OwTrQXpmguZwj
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZ46akQAKCRB4tDGHoIJi
-0nG3AP4zsiYNNmP5blQZEhPkfZOhDmkjXFoPLcE5bqvnG2xLyQD/bugvud8R+xnf
-gwC24Eobl/z/VdgHs3hBGyUXX6wRNAY=
-=HySm
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZ46a1AAKCRB4tDGHoIJi
+0uceAQCeRb1R/n532c4D/yxFavhS7J4RaH2P2lS4hTeORUDMxwD/bwxHJoeYil2Q
+1ihodOZfON2tgzlq45m6l5hCvoAuhQA=
+=AF6L
 -----END PGP SIGNATURE-----
 
---pIa+gMzMc7XUDoG8--
+--sM0OwTrQXpmguZwj--
 
 
---===============8374709144449109429==
+--===============0562590066483878402==
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
@@ -151,5 +171,5 @@ linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
 
---===============8374709144449109429==--
+--===============0562590066483878402==--
 
