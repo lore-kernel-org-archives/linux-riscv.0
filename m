@@ -4,131 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC40FC02185
-	for <linux-riscv@archiver.kernel.org>; Mon, 20 Jan 2025 17:23:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 498A7C02182
+	for <linux-riscv@archiver.kernel.org>; Mon, 20 Jan 2025 17:23:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:References:MIME-Version:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=+Ucu2HtJGsDloWah8uah8Z8wtowc4lYnqxtVCludeyA=; b=d8YqoJ2+LN/nXD
-	HhdKxyfRjn1YJ2Z5h5kN4eG27gR3uivhiVqGINSqLCHMXr7CqJnZSaZrRuYFQNDPvUTVOeoxVJ/oN
-	K5d/O9mmunESsHOvTStKD6FiyIHhJK0sknfqD6VTffQp63EeLkrxBZ8c0Lla5jEa/qmHOyxehL0X0
-	sCbRNvPmB/l7iTh3hNeRhjkC1HduVv/CzGjYOg75GuiLSJBKSkaNhaXk+Lr3nr8JOmGXzoA2NeNK2
-	XfWYyBHaKP7hs5flO6IujnOK+dBSgd5aOctLZHdG26ECa0pPfQQPgXijMQMqibeJywDciKQWMjulI
-	lhzfdeWm/vwlJXFoAj3Q==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=suVl2KvYha13Ph61yaQD9h1Q9xvsMeNDEpHhHutZXLw=; b=M0JReBMCC6ODN0aBLIuIui5oUv
+	ml6ZRyMAp4bqNaFqhqPMBkeqMSa9ZfUp5PHB+prvSmEI1h8Vt0LdQcedtq4Udxv89SZiirx7GSiuS
+	AMRpxE6oru5jmtgZeaA13nndM6T8/o5Zuq/VPtQezZqUSuDH1gUsgUx6IRnK8F8KIJWzUq25DW3ti
+	oLwy8tMWXFrfgET3On7AtLOJbWHiom3ivcesSAhEagmm3G6O9i952yFXYMrI6o+HgsFNTaV1awkjw
+	2++YhXPO7VHuZDiLUOxbb+bOJgs0mA9W28Vk/leONvxZXQzjI9WB2EjTlqZ4d/NzcWHBeg4Nbnr6t
+	3ZQ4s+2Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tZvUf-000000067mO-0N8A;
-	Mon, 20 Jan 2025 17:23:21 +0000
-Received: from [210.118.77.11] (helo=mailout1.w1.samsung.com)
+	id 1tZvUe-000000067lv-2ArQ;
+	Mon, 20 Jan 2025 17:23:20 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tZvSn-000000066uf-2YOu
+	id 1tZvOi-000000066IO-3gez
 	for linux-riscv@lists.infradead.org;
-	Mon, 20 Jan 2025 17:21:27 +0000
-Received: from eucas1p2.samsung.com (unknown [182.198.249.207])
-	by mailout1.w1.samsung.com (KnoxPortal) with ESMTP id 20250120172122euoutp01a6f89031d9af3c56faa04c4650fdbfec~cdllMphL_2441324413euoutp01A
-	for <linux-riscv@lists.infradead.org>; Mon, 20 Jan 2025 17:21:22 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout1.w1.samsung.com 20250120172122euoutp01a6f89031d9af3c56faa04c4650fdbfec~cdllMphL_2441324413euoutp01A
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1737393682;
-	bh=75pm72ggHUIqP3+dethg3BurkDTyHOTsalwjt+PQCA8=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=IL0l1jDd3R8nicKIRpo0WJN0kbh0LAJa1x6f+EAHXOzhFFpASosneI9lOV9gk3qCh
-	 NM/bX+1JpoBQC61sONUsD9DxCa2BMtM+KCcfpo/cOOWQHKUsWpNdLHUcvNykvorRnD
-	 pB2GQvM8LqtUjQpTdteT1VfP8JDpFXVxOOhhVq2M=
-Received: from eusmges1new.samsung.com (unknown [203.254.199.242]) by
-	eucas1p1.samsung.com (KnoxPortal) with ESMTP id
-	20250120172121eucas1p1f93550ca5c3e7ec69557cf12bb56f3e3~cdlktPaRl2176121761eucas1p12;
-	Mon, 20 Jan 2025 17:21:21 +0000 (GMT)
-Received: from eucas1p2.samsung.com ( [182.198.249.207]) by
-	eusmges1new.samsung.com (EUCPMTA) with SMTP id 49.7B.20821.1168E876; Mon, 20
-	Jan 2025 17:21:21 +0000 (GMT)
-Received: from eusmtrp2.samsung.com (unknown [182.198.249.139]) by
-	eucas1p2.samsung.com (KnoxPortal) with ESMTPA id
-	20250120172120eucas1p23993cdbbe65e82054b9cb92fb704103b~cdljvebjP1089210892eucas1p2v;
-	Mon, 20 Jan 2025 17:21:20 +0000 (GMT)
-Received: from eusmgms2.samsung.com (unknown [182.198.249.180]) by
-	eusmtrp2.samsung.com (KnoxPortal) with ESMTP id
-	20250120172120eusmtrp2828d30292814060899a01fa45f60c4d7~cdljtAqTQ0490804908eusmtrp2X;
-	Mon, 20 Jan 2025 17:21:20 +0000 (GMT)
-X-AuditID: cbfec7f2-b09c370000005155-fd-678e86115997
-Received: from eusmtip1.samsung.com ( [203.254.199.221]) by
-	eusmgms2.samsung.com (EUCPMTA) with SMTP id B3.95.19654.0168E876; Mon, 20
-	Jan 2025 17:21:20 +0000 (GMT)
-Received: from AMDC4942.home (unknown [106.210.136.40]) by
-	eusmtip1.samsung.com (KnoxPortal) with ESMTPA id
-	20250120172119eusmtip1a1bb99905ece7dc819bf973c83cd0780~cdliVh0BW1307113071eusmtip1M;
-	Mon, 20 Jan 2025 17:21:19 +0000 (GMT)
-From: Michal Wilczynski <m.wilczynski@samsung.com>
-To: mturquette@baylibre.com, sboyd@kernel.org, robh@kernel.org,
-	krzk+dt@kernel.org, conor+dt@kernel.org, drew@pdp7.com, guoren@kernel.org,
-	wefu@redhat.com, jassisinghbrar@gmail.com, paul.walmsley@sifive.com,
-	palmer@dabbelt.com, aou@eecs.berkeley.edu, frank.binns@imgtec.com,
-	matt.coster@imgtec.com, maarten.lankhorst@linux.intel.com,
-	mripard@kernel.org, tzimmermann@suse.de, airlied@gmail.com, simona@ffwll.ch,
-	ulf.hansson@linaro.org, jszhang@kernel.org, p.zabel@pengutronix.de,
-	m.szyprowski@samsung.com
-Cc: linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
-	dri-devel@lists.freedesktop.org, linux-pm@vger.kernel.org, Michal Wilczynski
-	<m.wilczynski@samsung.com>
-Subject: [RFC v3 01/18] dt-bindings: clock: Add VO subsystem clock
- controller support
-Date: Mon, 20 Jan 2025 18:20:54 +0100
-Message-Id: <20250120172111.3492708-2-m.wilczynski@samsung.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20250120172111.3492708-1-m.wilczynski@samsung.com>
+	Mon, 20 Jan 2025 17:17:14 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 3E29D5C0701;
+	Mon, 20 Jan 2025 17:16:31 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 07188C4AF09;
+	Mon, 20 Jan 2025 17:17:08 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1737393431;
+	bh=A923nmZtkqZm56LOWMtx0sXfsZZxUxKhZX5aBe4AcaM=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=P0kRbRymS6KzeYybpOJMY0LyrBu2anpENyASGOFzqsfF3et6I9aqi+ys8LIMOqctb
+	 oOT1/wBk43bEhp0BNqoPu8w51qc0YJFsBybwQq1gzmUv4uDAb7GbOwDrXVOoZ3Wn7l
+	 LyEKmJZaXxtWsdMKeTBdj+OyYE+HFtuFWPjOEhtGeI7wKaZr+YbQInE5EhqfQIxIiI
+	 rUFSsWYp0H44nbdUqbWNfuSkv7Ajm06aXknG+YRcLN6ABY0C7xyHApOgPz+rHOAX6d
+	 r9f9H9pLjvi5F/iVJv7xWb9gnVu0Qj8ZljxYbSBLkJ+Dhi9KMQ0gCGXyjnwLXiCcpX
+	 hRm7NbhNs10lg==
+Date: Mon, 20 Jan 2025 17:17:06 +0000
+From: Conor Dooley <conor@kernel.org>
+To: Charlie Jenkins <charlie@rivosinc.com>
+Cc: Eric Biggers <ebiggers@kernel.org>, linux-riscv@lists.infradead.org,
+	Conor Dooley <conor.dooley@microchip.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	=?iso-8859-1?Q?Cl=E9ment_L=E9ger?= <cleger@rivosinc.com>,
+	Andy Chiu <andybnac@gmail.com>, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Subject: Re: [PATCH v2 5/5] dt-bindings: riscv: document vector crypto
+ requirements
+Message-ID: <20250120-veggie-yin-826152e1398f@spud>
+References: <20241024-fanning-enrage-bcc39f8ed47d@spud>
+ <20241024-pungent-lasso-42dd3512a3c8@spud>
+ <20241025022411.GB1781@sol.localdomain>
+ <20241025024224.GC1781@sol.localdomain>
+ <20241025-defile-blaming-12fc1e3a62e0@spud>
+ <Z4r73Iq5IWM8Z633@ghost>
 MIME-Version: 1.0
-X-Brightmail-Tracker: H4sIAAAAAAAAA02Se0xTVxzHPffe3luaAZcK8wyIGxi2TDcee5iDPBRQc6bLdFucxmSRZtwU
-	AxTTwjZEI6U8BNuKzsks8pwbb5nYMkpEtEMKc7KBAm6TR3hM6EDW8vBBhFFu3fzv+/39Puf3
-	/f2SIyTFP9KewoOyJE4uk8T70iKqoe3xr2+6ZWmlgeldPqi9r4xAhgUdg2qaOwlU3NopQAPd
-	egLdmZum0cWx3xg03qykUG9FIYNUbXU0mtAN0MiqHhCg203naTSjaQWoYSaDRrWt/Qyqmysm
-	UKnVQKELjU0AZeV8L0BdP29D/QPtFJq4rSZRls4VLV1pZNBi7yUKFTxoYZB+8pQAmWv3ooyW
-	M9SWtXj6biaDJycmKPzT8VkGN8+XUNio62ew2vgLwPVVOTS+13uFxkUdH+LBE2YCX75wDGfU
-	thH45NNAPH21h8ZafRXA3ao+Zrd4vyg0hos/+DknDwiPFsWmX1sSHPrT88uzTUoqDUx45AIn
-	IWTfgbPt1UQuEAnFbAWAuSNDDG9mAVyYt5C8mQEw/1oN+ezJZc1XDqocQMviqIOaBPC+qhbY
-	KZp9Cw6VFwvsDXc2k4KZN5TAbkj2PoANo+dpO7Wa3QtVep3ArinWDxYZtCsZzuxmaCu4SPN5
-	L8OW67dW6k7sFviwp5nhGTfYcW6UsmtymVEZClbWgGytCPYMnl5OEy6brXBsgePnrIYWs57h
-	tTdcMhYTvE6EQwab47Yj0Kg2O3QIvNf5hLaPIdnXYV1TAF+OgHkFJ0h+ugu8O+XGb+ACTzfk
-	O8rO8HiWmKdfhV+rNf+FdlY0OEIx7Bm3CvKAj+65W3TP3aL7P7cEkFVgDZesSJByiiAZ94W/
-	QpKgSJZJ/T9LTKgHy3/75qLZ1ggKLVZ/EyCEwASgkPR1d/b4Ry0VO8dIUg5z8sQD8uR4TmEC
-	XkLKd41zWUumVMxKJUlcHMcd4uTPuoTQyTONiNDu6I7fr4k+ctPkmhyZ7yRLtb7XY0mX7IsO
-	uxFRoA8c/iSo73qUdtuqt7GqZL3n7x7q0sPFhHflcH/lGwEfnfu4e7tryUmqMa7GFiwY0Wb7
-	T8nLBoerh27tyPGKjokMAqVDm+asm89Wz35XlDobbvp2o6G7nH08hfFwMJfw4saQv/dcrdke
-	ht/dM5aEo0oGXzhKhISvioh7/+krD0/didzwaZRE+USp7bhUH/Gaqhzk+Xzj/0f0Mc1fZZbK
-	Kp/QFP2uR8px77Cu1E3e5l1+Z0J3j7jtLJeYhNnZ7ujR1g3V+35waUvJMa71wg+8ucLsIL91
-	L/WlMbbg2MkD8wMfjPkc1fhSilhJ0HpSrpD8C9igPU9KBAAA
-X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFlrKKsWRmVeSWpSXmKPExsVy+t/xu7oCbX3pBqfWSVmcuL6IyWLr71ns
-	Fmv2nmOymH/kHKvFvUtbmCyufH3PZrHu6QV2ixd7G1ksrq2Yy27RfGw9m8XLWffYLD723GO1
-	uLxrDpvF594jjBbbPrewWaw9cpfdYv3X+UwWCz9uZbFYsmMXo0Vb5zJWi4unXC3u3jvBYvHy
-	cg+zRdssfov/e3awW/y7tpHFYva7/ewWW95MZLU4vjbcomX/FBYHOY/3N1rZPd68fMnicbjj
-	C7vH3m8LWDx2zrrL7tGz8wyjx6ZVnWwed67tYfOYdzLQ4373cSaPzUvqPVrWHmPy6P9r4PF+
-	31U2j74tqxg9LjVfZw8QitKzKcovLUlVyMgvLrFVija0MNIztLTQMzKx1DM0No+1MjJV0rez
-	SUnNySxLLdK3S9DLaDrwn7XgtlTFtF2NLA2ML0W7GDk5JARMJDb3TmYHsYUEljJKXPodCRGX
-	kbjW/ZIFwhaW+HOti62LkQuo5hWjxJMNv1lBEmwCRhIPls8Hs0UEFrNI7N1XCVLELPCWUeL6
-	zI1g3cICoRKzH/1mBLFZBFQl5m3tYwaxeQXsJT7NXscGsUFeYv/Bs2BxTgEHie9X90JdZC9x
-	52o3I0S9oMTJmU/AZjID1Tdvnc08gVFgFpLULCSpBYxMqxhFUkuLc9Nzi430ihNzi0vz0vWS
-	83M3MQLTy7ZjP7fsYFz56qPeIUYmDsZDjBIczEoivKIfetKFeFMSK6tSi/Lji0pzUosPMZoC
-	3T2RWUo0OR+Y4PJK4g3NDEwNTcwsDUwtzYyVxHnZrpxPExJITyxJzU5NLUgtgulj4uCUamDq
-	T5PyE2abqnhyr+qBi2a/eU7dvbZsiRSrf/wma7HvHMWnBc0rdfI6z71XkbG/let12d2Rbd3p
-	LOEy+8l1y6/Vx1xZL6/D1tjxhuHrCzmjp5d4Q1SWN/LFfbvZ9HhDp/XFF1LV6wUfbdN7P33x
-	DpvF5/QPf150eAVT0frG010i7TwnN3hMXN7T6vTnm8fy5VqP9M+fPMG46ER9xDLP3UVnDlc5
-	b1HZ5fJSKezIPwFfdvfSo5GGcqtF+tJFlm+vePuu/NVO1vAz9mdPrZipwba5bt3C95MKpDYf
-	rY2MNWY2X2d+SjQr/Gm78g0W1q/v2s0/F4nETgj4L/91U9ceLuk/zysLfxvz67+WfLWtIPG4
-	EktxRqKhFnNRcSIAg8FS+7gDAAA=
-X-CMS-MailID: 20250120172120eucas1p23993cdbbe65e82054b9cb92fb704103b
-X-Msg-Generator: CA
-X-RootMTR: 20250120172120eucas1p23993cdbbe65e82054b9cb92fb704103b
-X-EPHeader: CA
-CMS-TYPE: 201P
-X-CMS-RootMailID: 20250120172120eucas1p23993cdbbe65e82054b9cb92fb704103b
-References: <20250120172111.3492708-1-m.wilczynski@samsung.com>
-	<CGME20250120172120eucas1p23993cdbbe65e82054b9cb92fb704103b@eucas1p2.samsung.com>
+In-Reply-To: <Z4r73Iq5IWM8Z633@ghost>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250120_092126_052351_7D755F97 
-X-CRM114-Status: GOOD (  12.08  )
+X-CRM114-CacheID: sfid-20250120_091713_004041_F0DCE6E0 
+X-CRM114-Status: GOOD (  20.31  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -140,114 +80,84 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============6545400745202065866=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add a separate compatible string "thead,th1520-clk-vo" to describe the
-Video Output (VO) subsystem clock controller in the T-Head TH1520 SoC.
-The VO subsystem configures the clock gates for HDMI, MIPI, and GPU
-components. Meanwhile, the existing AP sub-system clock controller
-remains responsible for the CPU, DPU, GMAC, and TEE PLLs.
 
-Signed-off-by: Michal Wilczynski <m.wilczynski@samsung.com>
----
- .../bindings/clock/thead,th1520-clk-ap.yaml   | 16 +++++++--
- .../dt-bindings/clock/thead,th1520-clk-ap.h   | 33 +++++++++++++++++++
- 2 files changed, 46 insertions(+), 3 deletions(-)
+--===============6545400745202065866==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="PHDwxKNkyYTSVlll"
+Content-Disposition: inline
 
-diff --git a/Documentation/devicetree/bindings/clock/thead,th1520-clk-ap.yaml b/Documentation/devicetree/bindings/clock/thead,th1520-clk-ap.yaml
-index 0129bd0ba4b3..e9ee8152ed5a 100644
---- a/Documentation/devicetree/bindings/clock/thead,th1520-clk-ap.yaml
-+++ b/Documentation/devicetree/bindings/clock/thead,th1520-clk-ap.yaml
-@@ -8,7 +8,8 @@ title: T-HEAD TH1520 AP sub-system clock controller
- 
- description: |
-   The T-HEAD TH1520 AP sub-system clock controller configures the
--  CPU, DPU, GMAC and TEE PLLs.
-+  CPU, DPU, GMAC and TEE PLLs. Additionally the VO subsystem configures
-+  the clock gates for the HDMI, MIPI and the GPU.
- 
-   SoC reference manual
-   https://openbeagle.org/beaglev-ahead/beaglev-ahead/-/blob/main/docs/TH1520%20System%20User%20Manual.pdf
-@@ -20,14 +21,16 @@ maintainers:
- 
- properties:
-   compatible:
--    const: thead,th1520-clk-ap
-+    enum:
-+      - thead,th1520-clk-ap
-+      - thead,th1520-clk-vo
- 
-   reg:
-     maxItems: 1
- 
-   clocks:
-     items:
--      - description: main oscillator (24MHz)
-+      - description: main oscillator (24MHz) or CLK_VIDEO_PLL
- 
-   "#clock-cells":
-     const: 1
-@@ -51,3 +54,10 @@ examples:
-         clocks = <&osc>;
-         #clock-cells = <1>;
-     };
-+
-+    clock-controller@ff010000 {
-+        compatible = "thead,th1520-clk-vo";
-+        reg = <0xff010000 0x1000>;
-+        clocks = <&clk CLK_VIDEO_PLL>;
-+        #clock-cells = <1>;
-+    };
-diff --git a/include/dt-bindings/clock/thead,th1520-clk-ap.h b/include/dt-bindings/clock/thead,th1520-clk-ap.h
-index a199784b3512..470fa34f9a9d 100644
---- a/include/dt-bindings/clock/thead,th1520-clk-ap.h
-+++ b/include/dt-bindings/clock/thead,th1520-clk-ap.h
-@@ -93,4 +93,37 @@
- #define CLK_SRAM3		83
- #define CLK_PLL_GMAC_100M	84
- #define CLK_UART_SCLK		85
-+
-+/* VO clocks */
-+#define CLK_AXI4_VO_ACLK		0
-+#define CLK_GPU_CORE			1
-+#define CLK_GPU_CFG_ACLK		2
-+#define CLK_DPU_PIXELCLK0		3
-+#define CLK_DPU_PIXELCLK1		4
-+#define CLK_DPU_HCLK			5
-+#define CLK_DPU_ACLK			6
-+#define CLK_DPU_CCLK			7
-+#define CLK_HDMI_SFR			8
-+#define CLK_HDMI_PCLK			9
-+#define CLK_HDMI_CEC			10
-+#define CLK_MIPI_DSI0_PCLK		11
-+#define CLK_MIPI_DSI1_PCLK		12
-+#define CLK_MIPI_DSI0_CFG		13
-+#define CLK_MIPI_DSI1_CFG		14
-+#define CLK_MIPI_DSI0_REFCLK		15
-+#define CLK_MIPI_DSI1_REFCLK		16
-+#define CLK_HDMI_I2S			17
-+#define CLK_X2H_DPU1_ACLK		18
-+#define CLK_X2H_DPU_ACLK		19
-+#define CLK_AXI4_VO_PCLK		20
-+#define CLK_IOPMP_VOSYS_DPU_PCLK	21
-+#define CLK_IOPMP_VOSYS_DPU1_PCLK	22
-+#define CLK_IOPMP_VOSYS_GPU_PCLK	23
-+#define CLK_IOPMP_DPU1_ACLK		24
-+#define CLK_IOPMP_DPU_ACLK		25
-+#define CLK_IOPMP_GPU_ACLK		26
-+#define CLK_MIPIDSI0_PIXCLK		27
-+#define CLK_MIPIDSI1_PIXCLK		28
-+#define CLK_HDMI_PIXCLK			29
-+
- #endif
--- 
-2.34.1
 
+--PHDwxKNkyYTSVlll
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+On Fri, Jan 17, 2025 at 04:54:52PM -0800, Charlie Jenkins wrote:
+> On Fri, Oct 25, 2024 at 05:53:49PM +0100, Conor Dooley wrote:
+> > On Thu, Oct 24, 2024 at 07:42:24PM -0700, Eric Biggers wrote:
+> > > On Thu, Oct 24, 2024 at 07:24:11PM -0700, Eric Biggers wrote:
+> > > > On Thu, Oct 24, 2024 at 01:34:33PM +0100, Conor Dooley wrote:
+> > > > > From: Conor Dooley <conor.dooley@microchip.com>
+> > > > >=20
+> > > > > Section 35.2. Extensions Overview of [1] says:
+> > > > > | The Zvknhb and Zvbc Vector Crypto Extensions --and accordingly =
+the composite extensions Zvkn and
+> > > > > | Zvks-- (sic) require a Zve64x base, or application ("V") base V=
+ector Extension.
+> > > > > | All of the other Vector Crypto Extensions can be built on any e=
+mbedded (Zve*) or application ("V") base
+> > > > > | Vector Extension
+> > > > >=20
+> > > > > Apply these rules in the binding, so that invalid combinations ca=
+n be
+> > > > > avoided.
+> > > >=20
+> > > > It looks like that part of the spec is wrong, though.  The Zvknhb a=
+nd Zvbc are
+> > > > correct, but the list of the composite extensions that at least one=
+ of them is
+> > > > included in is: Zvkn, Zvknc, Zvkng, Zvksc.
+> > > >=20
+> > >=20
+> > > I am attempting to fix this in
+> > > https://github.com/riscv/riscv-isa-manual/pull/1697
+> >=20
+> > Looks like at least one person agrees with you, but I'll wait til that's
+> > merged before submitting another version. Thanks for reporting it.
+>=20
+> It's been merged now :)
+
+Ye, I actually respun this last week, but opted to wait until after the
+merge window to send another revision.
+
+--PHDwxKNkyYTSVlll
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZ46FEgAKCRB4tDGHoIJi
+0gzMAQDPuabHzzsol76+F6jUE8gwHHdY0OM8zByhgJ9+8VW86AEAnIAt+Wjm4iz7
+Qk5p7MJZlDnf/Hb03lLSLz/Y+QcRGQI=
+=8OWo
+-----END PGP SIGNATURE-----
+
+--PHDwxKNkyYTSVlll--
+
+
+--===============6545400745202065866==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============6545400745202065866==--
+
