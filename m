@@ -4,82 +4,131 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11409C02182
-	for <linux-riscv@archiver.kernel.org>; Mon, 20 Jan 2025 16:19:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DE2E6C02185
+	for <linux-riscv@archiver.kernel.org>; Mon, 20 Jan 2025 17:23:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:References:MIME-Version:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=P+uPahv2GfCa0MjCjHBRQOcJeoqLT+hujbXcooxBH2A=; b=pjfiMqD1gIclaH
-	rgrqXdVNdvGGq/mpOSXEDZfMMTLN1ET8Iiu86aLQuiZ+AuDbUkkTRqk3XkwRNT81mAa93/wfjp0fR
-	ucyajuVu10cL1ets+CeOPL5d8/J/0AzNCjgHx8hatr6YipSv/vgXUis86RfdSCN9WGdjG8kAoRrFT
-	V4mkWxkaRbhkL38QmKk1T7HNaPukM1YXkddte+0UcWedVRdeHubb40+QUrFkdfGqT7oLRc4kiuMT2
-	JMD7ast78k0bFepmIlC9MaQ+axduCoghTtyy2tN9XEb5jfWsWAfIvsux1g/XQevTF4hBtAZWjHKAZ
-	Q7iT8LxlugV7ZFfz/OTw==;
+	List-Owner; bh=w6KokuUXXcg1rvhkNNFUAy/+ws0gCJC+KOz+8zaqB/s=; b=NH7L/MpELarS8f
+	V5HKOiyQabld0NqIJLGkektE/wezWdRtnrU+8HnuX6jkPo3ES6YQAcux8/oIcutvp0/DMcU8WBbXm
+	Oeuaaeo66SgLDNr9kjP2UlONNWq1dsMKB8njyQkPn8TueOm4uujv+0PvcXuXrOEBL0Luh9y0Y61iE
+	y0QWEZtOAr/KNDkaKEab32sWYW/W7mNGDJsOmJE0QpFcB/Ngl422b0suFokK0D4tHVuZWjKTS9LxG
+	RU0G/ysulx6B43D49ELoC90Sa2ZXZ/Ccnk5iSr0K45iS6mvEYMjYZ7FhYevP8L93UJGwMPykmN8Fj
+	TS6VyhNpYmcjSL/dcEjA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tZuV7-00000005yuk-17kn;
-	Mon, 20 Jan 2025 16:19:45 +0000
-Received: from mail-oo1-xc2f.google.com ([2607:f8b0:4864:20::c2f])
+	id 1tZvUf-000000067mt-2udT;
+	Mon, 20 Jan 2025 17:23:21 +0000
+Received: from [210.118.77.11] (helo=mailout1.w1.samsung.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tZuV5-00000005yuP-1O28
+	id 1tZvSn-000000066uk-2hMd
 	for linux-riscv@lists.infradead.org;
-	Mon, 20 Jan 2025 16:19:44 +0000
-Received: by mail-oo1-xc2f.google.com with SMTP id 006d021491bc7-5fa2685c5c0so2089471eaf.3
-        for <linux-riscv@lists.infradead.org>; Mon, 20 Jan 2025 08:19:42 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1737389982; x=1737994782; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=+T/dIQ467Pa8ZD5wlg+bKAWEAxn3LDzHlpZLZ1k1N6w=;
-        b=PK/Vxhq3fidBYhi1p8N3PypUfQVFPzEXeu/ly4vTc2w8dhb8mLC5diciR7wvpZ3I/9
-         pDzwRrvWd7i3gGgu16fxLev2bYa+DR/AnQtvbw6lyZX/BhGM4T/UpYQHgXwVFOQSWvpo
-         3TPjVSxvz/xfMVZgyMUbv1r0PQLmnADkxtc1tYQxLG9VNZIDThuURrnwn2NdUJultWep
-         3sNv6U3GtM+8ll5nnkfeW+3ZuBUFQ+z7/Zu2XWn05uZpB5XMOmVT4w5kSIiwTp3RS+K3
-         M6+obPPxsuUDC1kA1dyJDqTqcKWRRKSpmiZjHzBWY9637UnjPXZna/p90KJeNsAsbBCr
-         uoYQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1737389982; x=1737994782;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=+T/dIQ467Pa8ZD5wlg+bKAWEAxn3LDzHlpZLZ1k1N6w=;
-        b=qmYGLiRXAWgnanQFcQtUIZ8Hq9kNwqI8/16VyIW+FfsR57+hzeSSXgJIOHyIRFdI2P
-         Cv7dZ3gol9xw+Z4LszyWLcVrqXpPDKEVTGFzYvQmeccDAMcVos86FKQxNJ4qoXh2Snhb
-         y4MYZBT5a3IR+xSBOKkVcohJ7a8EpPX7j+8E1sKl6YEeoG1z8vbaGCxMP4H41OyiTlvI
-         WRXenNDtmUF0Oo6nyRDhLAraTYtLx5mAHPskLYA2GMLm+Cc53oNF/cAQ3JsxdFKJbtTq
-         gmwscC8IVStpw3jrVeIB3dQBj5Zz6ikBZJYoH+nx7SJSMxFXcvkojQeSKizbR1gDqMoX
-         lR/w==
-X-Forwarded-Encrypted: i=1; AJvYcCWNFtL/dwAU/tahFnwoxWxZOzzXdUAlLhM2XRAvtnNXv+orUe/v12Q9IGznHyCWyk/oAMSAGqHgvVWm6w==@lists.infradead.org
-X-Gm-Message-State: AOJu0YzV8Ll0V55mXbGfA9+oOO/lcsXOJHu7W+Rn/oWfJvBxQ9R9xGcq
-	wDdQavE6w7r/XC6hYqbejV/zVcgd59/2eyG73gbMpO6BWrnh31uo2qJkKlaXqMcvHgDO9FLP+er
-	txSoYhE4a8l4Ds3vW+e+TezaH0MLIkamF
-X-Gm-Gg: ASbGnctYpQ/9BtTCQa3Tp8/IlzYwdNlUEJhZE3/P/n+z6ydu7rh3OlRf/a5ivKYxw2z
-	CUGKvqUAeV52ExAVJRSWi9YaBJ6HUlvDx7cWFwKrGgBLqnS2v0i4M
-X-Google-Smtp-Source: AGHT+IHnTLKJ1iOMm82p/HqF4s1+0fn4hSD8bTysYRk+SmjK8L03MIUhxh/1RPy0nrzKuIVkAqZW1U4p7MaKhWJ4pH4=
-X-Received: by 2002:a05:6871:2281:b0:29e:34dc:b0 with SMTP id
- 586e51a60fabf-2b1c0c541e8mr6969151fac.25.1737389981709; Mon, 20 Jan 2025
- 08:19:41 -0800 (PST)
+	Mon, 20 Jan 2025 17:21:30 +0000
+Received: from eucas1p1.samsung.com (unknown [182.198.249.206])
+	by mailout1.w1.samsung.com (KnoxPortal) with ESMTP id 20250120172123euoutp01a1f5dbbd4d9aa1f7d8fbeb7ae8fc4b11~cdlmV8HbE2441324413euoutp01D
+	for <linux-riscv@lists.infradead.org>; Mon, 20 Jan 2025 17:21:23 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout1.w1.samsung.com 20250120172123euoutp01a1f5dbbd4d9aa1f7d8fbeb7ae8fc4b11~cdlmV8HbE2441324413euoutp01D
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1737393683;
+	bh=0ETZ637pDMV7GrYjE/vZu7/autur8GcFWWIpYOcLCQI=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=FqVzm7A1DvRuGQ+WD8RVjgaHGW/WZNrDvn7ADxuAm9CxTK/dZAuM7SC5ixWQn8SOz
+	 i/XJb4MYqpSE4dnswOZ2jDgyGfKiOcTFLX4TW4WJjfblJ9EUg+j1cXZcEIj6iuaA5C
+	 vCBtGyg8DYjd8XwXJdUjrihE/kqdOfHEf2jvvBBE=
+Received: from eusmges2new.samsung.com (unknown [203.254.199.244]) by
+	eucas1p1.samsung.com (KnoxPortal) with ESMTP id
+	20250120172122eucas1p1f0f947143efe3c08e6d9e273ccc69a3e~cdll4ybSz0936109361eucas1p1Z;
+	Mon, 20 Jan 2025 17:21:22 +0000 (GMT)
+Received: from eucas1p2.samsung.com ( [182.198.249.207]) by
+	eusmges2new.samsung.com (EUCPMTA) with SMTP id 0F.66.20409.2168E876; Mon, 20
+	Jan 2025 17:21:22 +0000 (GMT)
+Received: from eusmtrp2.samsung.com (unknown [182.198.249.139]) by
+	eucas1p2.samsung.com (KnoxPortal) with ESMTPA id
+	20250120172121eucas1p24ed47f684da5f1dcf0df7735e21f2b4c~cdlk9kNL11089910899eucas1p2q;
+	Mon, 20 Jan 2025 17:21:21 +0000 (GMT)
+Received: from eusmgms2.samsung.com (unknown [182.198.249.180]) by
+	eusmtrp2.samsung.com (KnoxPortal) with ESMTP id
+	20250120172121eusmtrp2c870ca6fdedf79b556f49f9b2170fd57~cdlk6yscY0490804908eusmtrp2b;
+	Mon, 20 Jan 2025 17:21:21 +0000 (GMT)
+X-AuditID: cbfec7f4-c0df970000004fb9-bb-678e8612db2a
+Received: from eusmtip1.samsung.com ( [203.254.199.221]) by
+	eusmgms2.samsung.com (EUCPMTA) with SMTP id A5.95.19654.1168E876; Mon, 20
+	Jan 2025 17:21:21 +0000 (GMT)
+Received: from AMDC4942.home (unknown [106.210.136.40]) by
+	eusmtip1.samsung.com (KnoxPortal) with ESMTPA id
+	20250120172120eusmtip1e9d3558706edcb5753a4f7e294197100~cdljmdK_p1308113081eusmtip1Y;
+	Mon, 20 Jan 2025 17:21:20 +0000 (GMT)
+From: Michal Wilczynski <m.wilczynski@samsung.com>
+To: mturquette@baylibre.com, sboyd@kernel.org, robh@kernel.org,
+	krzk+dt@kernel.org, conor+dt@kernel.org, drew@pdp7.com, guoren@kernel.org,
+	wefu@redhat.com, jassisinghbrar@gmail.com, paul.walmsley@sifive.com,
+	palmer@dabbelt.com, aou@eecs.berkeley.edu, frank.binns@imgtec.com,
+	matt.coster@imgtec.com, maarten.lankhorst@linux.intel.com,
+	mripard@kernel.org, tzimmermann@suse.de, airlied@gmail.com, simona@ffwll.ch,
+	ulf.hansson@linaro.org, jszhang@kernel.org, p.zabel@pengutronix.de,
+	m.szyprowski@samsung.com
+Cc: linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+	dri-devel@lists.freedesktop.org, linux-pm@vger.kernel.org, Michal Wilczynski
+	<m.wilczynski@samsung.com>
+Subject: [RFC v3 02/18] clk: thead: Add clock support for VO subsystem in
+ T-Head TH1520 SoC
+Date: Mon, 20 Jan 2025 18:20:55 +0100
+Message-Id: <20250120172111.3492708-3-m.wilczynski@samsung.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20250120172111.3492708-1-m.wilczynski@samsung.com>
 MIME-Version: 1.0
-References: <20241217113134.3508333-1-valentina.fernandezalanis@microchip.com> <20250120121955.GA3525889@ax162>
-In-Reply-To: <20250120121955.GA3525889@ax162>
-From: Jassi Brar <jassisinghbrar@gmail.com>
-Date: Mon, 20 Jan 2025 10:19:30 -0600
-X-Gm-Features: AbW1kvZJgYzNR41b1_Dbh5-5hRR8Qhmy3g3DVfFUVOvzlrzH8EQEW5RnW27gQHM
-Message-ID: <CABb+yY0jbBzhgGEo2wTczF14ndOa2=Bcs6FE8BjLt4icWcxAmw@mail.gmail.com>
-Subject: Re: [PATCH v6 0/4] Add Microchip IPC mailbox
-To: Nathan Chancellor <nathan@kernel.org>
-Cc: paul.walmsley@sifive.com, palmer@dabbelt.com, conor.dooley@microchip.com, 
-	conor+dt@kernel.org, robh@kernel.org, krzk+dt@kernel.org, 
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	devicetree@vger.kernel.org, 
-	Valentina Fernandez <valentina.fernandezalanis@microchip.com>
+X-Brightmail-Tracker: H4sIAAAAAAAAA02SfUxTZxTG9957ubd0K16rzlcxU2Ho2CY69vVmGIUE8ZLFTKcBpyGjmXfV
+	8VHSCkxnIlDAwkpFgqEUXFnnoOsEIpaOEigBocgmZQMtHQJlG4goUFlBp4gMuHXzv+ec8zt5
+	npMcHi78iVzLO5Z4nJUmiuL9SD5hsj7q2iLMVom3pU28ia716jBUO6uh0KVGG4a0rTYvNNht
+	xNCNGReJqkZ+pdCdxnQC2fUXKCS3VpNoTDNIoinloBfqqS8lkTuvFSCTO5NEla0DFKqe0WLo
+	26laAl2sqwcoO6fcC/328y40MHiNQGM9Shxla5ah+YY6Cj21XyZQyWQThYzj57xQe2U0ymwq
+	JEJfYVyOLIoZHxsjmKuKaYppfFBGMGbNAMUozdcBU2PIIZl+ewPJfNOxj3F+3Y4xVy6eZjIr
+	rRhzdm4b47LcJBmV0QCYbnkvtVd4iL/9CBt/LIWVbt0Ryz96x+oikyYPfml0x6WBGx/mAm8e
+	pN+Bs09+98oFfJ6Q1gNYobQQXDENYIemxDNxA+h4YiOerRj+0HmoCgBnzvwIuGIcwEvDKmqR
+	IulgOFShXVpfSWcRMKstfYnC6VEATcOl5CK1go6BDkU+tqgJOgAqXFNLWkDvhGr7NMn5rYdN
+	zZ34ovamQ+HDm40UxyyHHcXDS5nwBUZeW4IvGkD6Mh8qp8o8YcPho+46nNMr4N12I8XpdXDe
+	rMU4LYFDtX97mFPQrGz36BDYb3u8EIK3YBAIq+u3cu0wWK8rX2pD2gc6JpZzEXxggakI59oC
+	qMgWcvQmeF6Z95+pTW/ymDJwqLmAygcbNc8do3nuGM3/vmUAN4DVbLIsQczKghPZ1CCZKEGW
+	nCgO+kySUAMWfvuXp+3TdaDi7lRQC8B4oAVAHu63UrDqvlIsFBwRnTjJSiWfSpPjWVkL8OUR
+	fqsFuqYssZAWi46zcSybxEqfTTGe99o0LKUgcLRw3/0Q1Rhdqr3151cF1z8XzF6hseHAIf2E
+	OPzVA3OpIf6TFZb1u0whUWczonTLLHOa04df2HTy9oXW/fwkp70vYre/ImDD+fE18pbcqJqR
+	Il9N35n8vW2usJg4Jf/ew/nu1x7Iv2+Rhr03Itng/0XgrOT2YcGe/qLyx8aq8KGNn0jf3Zwq
+	UIZa1NYPfF2dEboqtcIa2xwZZbWvyzxQqt7hEJPb85x5RHF02wm3eY0zwyYOSykWHtr5g/mj
+	GFNGTYQ6MSc1+P0+n6vzL62yfCdTVd/6Z1RyLnnPy9Hpb0cWzntLNt+resP58eSpzi2Gg381
+	+AcYYnu6evdHarte1Gf4EbKjordex6Uy0b9ElNYcSgQAAA==
+X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFlrCKsWRmVeSWpSXmKPExsVy+t/xu7qCbX3pBh3n9C1OXF/EZLH19yx2
+	izV7zzFZzD9yjtXi3qUtTBZXvr5ns1j39AK7xYu9jSwW11bMZbdoPraezeLlrHtsFh977rFa
+	XN41h83ic+8RRottn1vYLNYeuctusf7rfCaLhR+3slgs2bGL0aKtcxmrxcVTrhZ3751gsXh5
+	uYfZom0Wv8X/PTvYLf5d28hiMfvdfnaLLW8mslocXxtu0bJ/CouDnMf7G63sHm9evmTxONzx
+	hd1j77cFLB47Z91l9+jZeYbRY9OqTjaPO9f2sHnMOxnocb/7OJPH5iX1Hi1rjzF59P818Hi/
+	7yqbR9+WVYwel5qvswcIRenZFOWXlqQqZOQXl9gqRRtaGOkZWlroGZlY6hkam8daGZkq6dvZ
+	pKTmZJalFunbJehlvDj2nq3gXUTFls/ZDYxXvLsYOTkkBEwkVj1cxNLFyMUhJLCUUeLJuenM
+	EAkZiWvdL1kgbGGJP9e62CCKXjFKrP93GSzBJmAk8WD5fFYQW0RgMYvE3n2VIEXMAm8ZJa7P
+	3AhUxMEhLBAt0bZUDaSGRUBVouP9RyYQm1fAXmLGtS9sEAvkJfYfPAu2mFPAQeL71b3sILYQ
+	UM2dq92MEPWCEidnPgHbywxU37x1NvMERoFZSFKzkKQWMDKtYhRJLS3OTc8tNtIrTswtLs1L
+	10vOz93ECEwu24793LKDceWrj3qHGJk4GA8xSnAwK4nwin7oSRfiTUmsrEotyo8vKs1JLT7E
+	aAp090RmKdHkfGB6yyuJNzQzMDU0MbM0MLU0M1YS52W7cj5NSCA9sSQ1OzW1ILUIpo+Jg1Oq
+	gcl0u/dq9q9S29hYVKaxlWSVhsfN23Wo4ffq+j8fV4crsheos1VyZb04tunPzOv7Lhuwvao8
+	0fvpAJNq3L6ZITf5lu+oe3/tvdiuSaeWu951vcD7e++UkMsWGze+j5v1U8Uu/PnPjucbPkY5
+	bmBY33Xbg1M4j3Pv1ONv1Dw3yk68LfF6q05He3uYqcKChruzmXWMMsqvl3+wjihZE1VkG3dn
+	wTLzudmMenpSa5M8V1iYmK37wzfJa/nRe37W2yYKOgadqLjY9ba/4g+72OUVq9IPuTMWnk/S
+	+VbrzpxuGp82IWfdJmvf4DLrlCl9cnckvCTq5qc3m+mZXTZhX3P7wTfrB3JBa1dvnfbxRG3T
+	vOdKLMUZiYZazEXFiQDbGQmgtwMAAA==
+X-CMS-MailID: 20250120172121eucas1p24ed47f684da5f1dcf0df7735e21f2b4c
+X-Msg-Generator: CA
+X-RootMTR: 20250120172121eucas1p24ed47f684da5f1dcf0df7735e21f2b4c
+X-EPHeader: CA
+CMS-TYPE: 201P
+X-CMS-RootMailID: 20250120172121eucas1p24ed47f684da5f1dcf0df7735e21f2b4c
+References: <20250120172111.3492708-1-m.wilczynski@samsung.com>
+	<CGME20250120172121eucas1p24ed47f684da5f1dcf0df7735e21f2b4c@eucas1p2.samsung.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250120_081943_367646_F87450AE 
-X-CRM114-Status: GOOD (  19.74  )
+X-CRM114-CacheID: sfid-20250120_092126_050578_5EBE95A7 
+X-CRM114-Status: GOOD (  17.02  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,85 +140,316 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gTW9uLCBKYW4gMjAsIDIwMjUgYXQgNjoyMOKAr0FNIE5hdGhhbiBDaGFuY2VsbG9yIDxuYXRo
-YW5Aa2VybmVsLm9yZz4gd3JvdGU6Cj4KPiBIaSBKYXNzaSwKPgo+IE9uIFR1ZSwgRGVjIDE3LCAy
-MDI0IGF0IDExOjMxOjMwQU0gKzAwMDAsIFZhbGVudGluYSBGZXJuYW5kZXogd3JvdGU6Cj4gLi4u
-Cj4gPiBUaGlzIHNlcmllcyBhZGRzIHN1cHBvcnQgZm9yIHRoZSBNaWNyb2NoaXAgSW50ZXItUHJv
-Y2Vzc29yIENvbW11bmljYXRpb24KPiA+IChJUEMpIG1haWxib3ggZHJpdmVyLgo+IC4uLgo+ID4g
-VmFsZW50aW5hIEZlcm5hbmRleiAoNCk6Cj4gPiAgIHJpc2N2OiBzYmk6IHZlbmRvcmlkX2xpc3Q6
-IEFkZCBNaWNyb2NoaXAgVGVjaG5vbG9neSB0byB0aGUgdmVuZG9yIGxpc3QKPiA+ICAgcmlzY3Y6
-IGV4cG9ydCBfX2NwdWlkX3RvX2hhcnRpZF9tYXAKPiA+ICAgZHQtYmluZGluZ3M6IG1haWxib3g6
-IGFkZCBiaW5kaW5nIGZvciBNaWNyb2NoaXAgSVBDIG1haWxib3ggY29udHJvbGxlcgo+ID4gICBt
-YWlsYm94OiBhZGQgTWljcm9jaGlwIElQQyBzdXBwb3J0Cj4KPiBJIHNlZSB0aGlzIHNlcmllcyBp
-cyBub3cgaW4gbmV4dC0yMDI1MDEyMCBidXQgeW91IG9ubHkgYXBwbGllZCBwYXRjaGVzIDMKPiBh
-bmQgNCwgc28gdGhlIGJ1aWxkIGlzIGJyb2tlbjoKPgo+ICAgSW4gZmlsZSBpbmNsdWRlZCBmcm9t
-IGRyaXZlcnMvbWFpbGJveC9tYWlsYm94LW1jaHAtaXBjLXNiaS5jOjIyOgo+ICAgZHJpdmVycy9t
-YWlsYm94L21haWxib3gtbWNocC1pcGMtc2JpLmM6IEluIGZ1bmN0aW9uICdtY2hwX2lwY19zYmlf
-Y2hhbl9zZW5kJzoKPiAgIGRyaXZlcnMvbWFpbGJveC9tYWlsYm94LW1jaHAtaXBjLXNiaS5jOjI5
-OjQyOiBlcnJvcjogJ01JQ1JPQ0hJUF9WRU5ET1JfSUQnIHVuZGVjbGFyZWQgKGZpcnN0IHVzZSBp
-biB0aGlzIGZ1bmN0aW9uKQo+ICAgICAgMjkgfCAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
-ICAgICAgICAgICAgIE1JQ1JPQ0hJUF9WRU5ET1JfSUQpCj4gICAgICAgICB8ICAgICAgICAgICAg
-ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgXn5+fn5+fn5+fn5+fn5+fn5+fgo+ICAgYXJj
-aC9yaXNjdi9pbmNsdWRlL2FzbS9zYmkuaDo0MzY6NTY6IG5vdGU6IGluIGRlZmluaXRpb24gb2Yg
-bWFjcm8gJ3NiaV9lY2FsbCcKPiAgICAgNDM2IHwgICAgICAgICAgICAgICAgIF9fc2JpX2VjYWxs
-KGEwLCBhMSwgYTIsIGEzLCBhNCwgYTUsIGYsIGUpCj4gICAgICAgICB8ICAgICAgICAgICAgICAg
-ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBeCj4gICBkcml2ZXJzL21h
-aWxib3gvbWFpbGJveC1tY2hwLWlwYy1zYmkuYzoxMjE6MjU6IG5vdGU6IGluIGV4cGFuc2lvbiBv
-ZiBtYWNybyAnU0JJX0VYVF9NSUNST0NISVBfVEVDSE5PTE9HWScKPiAgICAgMTIxIHwgICAgICAg
-ICByZXQgPSBzYmlfZWNhbGwoU0JJX0VYVF9NSUNST0NISVBfVEVDSE5PTE9HWSwgY29tbWFuZCwg
-Y2hhbm5lbCwKPiAgICAgICAgIHwgICAgICAgICAgICAgICAgICAgICAgICAgXn5+fn5+fn5+fn5+
-fn5+fn5+fn5+fn5+fn5+fgo+ICAgZHJpdmVycy9tYWlsYm94L21haWxib3gtbWNocC1pcGMtc2Jp
-LmM6Mjk6NDI6IG5vdGU6IGVhY2ggdW5kZWNsYXJlZCBpZGVudGlmaWVyIGlzIHJlcG9ydGVkIG9u
-bHkgb25jZSBmb3IgZWFjaCBmdW5jdGlvbiBpdCBhcHBlYXJzIGluCj4gICAgICAyOSB8ICAgICAg
-ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgTUlDUk9DSElQX1ZFTkRPUl9JRCkK
-PiAgICAgICAgIHwgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBefn5+
-fn5+fn5+fn5+fn5+fn5+Cj4gICBhcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL3NiaS5oOjQzNjo1Njog
-bm90ZTogaW4gZGVmaW5pdGlvbiBvZiBtYWNybyAnc2JpX2VjYWxsJwo+ICAgICA0MzYgfCAgICAg
-ICAgICAgICAgICAgX19zYmlfZWNhbGwoYTAsIGExLCBhMiwgYTMsIGE0LCBhNSwgZiwgZSkKPiAg
-ICAgICAgIHwgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
-ICAgICAgIF4KPiAgIGRyaXZlcnMvbWFpbGJveC9tYWlsYm94LW1jaHAtaXBjLXNiaS5jOjEyMToy
-NTogbm90ZTogaW4gZXhwYW5zaW9uIG9mIG1hY3JvICdTQklfRVhUX01JQ1JPQ0hJUF9URUNITk9M
-T0dZJwo+ICAgICAxMjEgfCAgICAgICAgIHJldCA9IHNiaV9lY2FsbChTQklfRVhUX01JQ1JPQ0hJ
-UF9URUNITk9MT0dZLCBjb21tYW5kLCBjaGFubmVsLAo+ICAgICAgICAgfCAgICAgICAgICAgICAg
-ICAgICAgICAgICBefn5+fn5+fn5+fn5+fn5+fn5+fn5+fn5+fn5+Cj4gICBkcml2ZXJzL21haWxi
-b3gvbWFpbGJveC1tY2hwLWlwYy1zYmkuYzogSW4gZnVuY3Rpb24gJ21jaHBfaXBjX3NiaV9zZW5k
-JzoKPiAgIGRyaXZlcnMvbWFpbGJveC9tYWlsYm94LW1jaHAtaXBjLXNiaS5jOjI5OjQyOiBlcnJv
-cjogJ01JQ1JPQ0hJUF9WRU5ET1JfSUQnIHVuZGVjbGFyZWQgKGZpcnN0IHVzZSBpbiB0aGlzIGZ1
-bmN0aW9uKQo+ICAgICAgMjkgfCAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
-ICAgIE1JQ1JPQ0hJUF9WRU5ET1JfSUQpCj4gICAgICAgICB8ICAgICAgICAgICAgICAgICAgICAg
-ICAgICAgICAgICAgICAgICAgICAgXn5+fn5+fn5+fn5+fn5+fn5+fgo+ICAgYXJjaC9yaXNjdi9p
-bmNsdWRlL2FzbS9zYmkuaDo0MzY6NTY6IG5vdGU6IGluIGRlZmluaXRpb24gb2YgbWFjcm8gJ3Ni
-aV9lY2FsbCcKPiAgICAgNDM2IHwgICAgICAgICAgICAgICAgIF9fc2JpX2VjYWxsKGEwLCBhMSwg
-YTIsIGEzLCBhNCwgYTUsIGYsIGUpCj4gICAgICAgICB8ICAgICAgICAgICAgICAgICAgICAgICAg
-ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBeCj4gICBkcml2ZXJzL21haWxib3gvbWFp
-bGJveC1tY2hwLWlwYy1zYmkuYzoxMzQ6MjU6IG5vdGU6IGluIGV4cGFuc2lvbiBvZiBtYWNybyAn
-U0JJX0VYVF9NSUNST0NISVBfVEVDSE5PTE9HWScKPiAgICAgMTM0IHwgICAgICAgICByZXQgPSBz
-YmlfZWNhbGwoU0JJX0VYVF9NSUNST0NISVBfVEVDSE5PTE9HWSwgY29tbWFuZCwgYWRkcmVzcywK
-PiAgICAgICAgIHwgICAgICAgICAgICAgICAgICAgICAgICAgXn5+fn5+fn5+fn5+fn5+fn5+fn5+
-fn5+fn5+fgo+ICAgZHJpdmVycy9tYWlsYm94L21haWxib3gtbWNocC1pcGMtc2JpLmM6IEluIGZ1
-bmN0aW9uICdtY2hwX2lwY19wcm9iZSc6Cj4gICBkcml2ZXJzL21haWxib3gvbWFpbGJveC1tY2hw
-LWlwYy1zYmkuYzoyOTo0MjogZXJyb3I6ICdNSUNST0NISVBfVkVORE9SX0lEJyB1bmRlY2xhcmVk
-IChmaXJzdCB1c2UgaW4gdGhpcyBmdW5jdGlvbikKPiAgICAgIDI5IHwgICAgICAgICAgICAgICAg
-ICAgICAgICAgICAgICAgICAgICAgICAgICBNSUNST0NISVBfVkVORE9SX0lEKQo+ICAgICAgICAg
-fCAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIF5+fn5+fn5+fn5+fn5+
-fn5+fn4KPiAgIGRyaXZlcnMvbWFpbGJveC9tYWlsYm94LW1jaHAtaXBjLXNiaS5jOjQyMDozNTog
-bm90ZTogaW4gZXhwYW5zaW9uIG9mIG1hY3JvICdTQklfRVhUX01JQ1JPQ0hJUF9URUNITk9MT0dZ
-Jwo+ICAgICA0MjAgfCAgICAgICAgIHJldCA9IHNiaV9wcm9iZV9leHRlbnNpb24oU0JJX0VYVF9N
-SUNST0NISVBfVEVDSE5PTE9HWSk7Cj4gICAgICAgICB8ICAgICAgICAgICAgICAgICAgICAgICAg
-ICAgICAgICAgICBefn5+fn5+fn5+fn5+fn5+fn5+fn5+fn5+fn5+Cj4KPiBDYW4geW91IHBsZWFz
-ZSBmaXggdGhpcz8gSXQgaXMgYSBsaXR0bGUgZnJ1c3RyYXRpbmcgdGhpcyBpcyBoYXBwZW5pbmcK
-PiBqdXN0IGFzIHRoZSBtZXJnZSB3aW5kb3cgb3BlbnMuLi4KPgpVc3VhbGx5IHRoZSBwbGF0Zm9y
-bSBzcGVjaWZpYyBzdHVmZiBnb2VzIHZpYSB0aGUgcGxhdGZvcm0gdHJlZSwgZm9yCmV4YW1wbGUg
-dGhlcmUgaXNuJ3QgYW55dGhpbmcgJ21haWxib3gnIGFib3V0IE1JQ1JPQ0hJUF9WRU5ET1JfSUQg
-YW5kCl9fY3B1aWRfdG9faGFydGlkX21hcC4KSSBwaWNrIG9ubHkgbWFpbGJveCBwYXRjaGVzIHVu
-bGVzcyB0aGUgbWFpbnRhaW5lciBhY2tzIGFuZCB3YW50cyBtZSB0bwpwaWNrIHBsYXRmb3JtIG9u
-ZXMuIFRob3VnaCBJIHNob3VsZCBoYXZlIG5vdGVkIHRoYXQgSSBhbSBwaWNraW5nIG9ubHkKbWFp
-bGJveCBzdHVmZiwgYnV0IG9rIEkgd2lsbCBxdWV1ZSB0aGVtIG5vdy4KVGhueAoKX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGlu
-ZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJh
-ZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
+The T-Head TH1520 SoC integrates a variety of clocks for its subsystems,
+including the Application Processor (AP) and the Video Output (VO) [1].
+Up until now, the T-Head clock driver only supported AP clocks.
+
+This commit extends the driver to provide clock functionality for the VO
+subsystem. At this stage, the focus is on implementing the VO clock
+gates, as these are currently the most relevant and required components
+for enabling and disabling the VO subsystem functionality.  Future
+enhancements may introduce additional VO-related clocks as necessary.
+
+Link: https://openbeagle.org/beaglev-ahead/beaglev-ahead/-/blob/main/docs/TH1520%20System%20User%20Manual.pdf [1]
+
+Signed-off-by: Michal Wilczynski <m.wilczynski@samsung.com>
+---
+ drivers/clk/thead/clk-th1520-ap.c | 197 +++++++++++++++++++++++++-----
+ 1 file changed, 169 insertions(+), 28 deletions(-)
+
+diff --git a/drivers/clk/thead/clk-th1520-ap.c b/drivers/clk/thead/clk-th1520-ap.c
+index 1015fab95251..2897b732624b 100644
+--- a/drivers/clk/thead/clk-th1520-ap.c
++++ b/drivers/clk/thead/clk-th1520-ap.c
+@@ -847,6 +847,67 @@ static CCU_GATE(CLK_SRAM1, sram1_clk, "sram1", axi_aclk_pd, 0x20c, BIT(3), 0);
+ static CCU_GATE(CLK_SRAM2, sram2_clk, "sram2", axi_aclk_pd, 0x20c, BIT(2), 0);
+ static CCU_GATE(CLK_SRAM3, sram3_clk, "sram3", axi_aclk_pd, 0x20c, BIT(1), 0);
+ 
++static CCU_GATE(CLK_AXI4_VO_ACLK, axi4_vo_aclk, "axi4-vo-aclk",
++		video_pll_clk_pd, 0x0, BIT(0), 0);
++static CCU_GATE(CLK_GPU_CORE, gpu_core_clk, "gpu-core-clk", video_pll_clk_pd,
++		0x0, BIT(3), 0);
++static CCU_GATE(CLK_GPU_CFG_ACLK, gpu_cfg_aclk, "gpu-cfg-aclk",
++		video_pll_clk_pd, 0x0, BIT(4), 0);
++static CCU_GATE(CLK_DPU_PIXELCLK0, dpu0_pixelclk, "dpu0-pixelclk",
++		video_pll_clk_pd, 0x0, BIT(5), 0);
++static CCU_GATE(CLK_DPU_PIXELCLK1, dpu1_pixelclk, "dpu1-pixelclk",
++		video_pll_clk_pd, 0x0, BIT(6), 0);
++static CCU_GATE(CLK_DPU_HCLK, dpu_hclk, "dpu-hclk", video_pll_clk_pd, 0x0,
++		BIT(7), 0);
++static CCU_GATE(CLK_DPU_ACLK, dpu_aclk, "dpu-aclk", video_pll_clk_pd, 0x0,
++		BIT(8), 0);
++static CCU_GATE(CLK_DPU_CCLK, dpu_cclk, "dpu-cclk", video_pll_clk_pd, 0x0,
++		BIT(9), 0);
++static CCU_GATE(CLK_HDMI_SFR, hdmi_sfr_clk, "hdmi-sfr-clk", video_pll_clk_pd,
++		0x0, BIT(10), 0);
++static CCU_GATE(CLK_HDMI_PCLK, hdmi_pclk, "hdmi-pclk", video_pll_clk_pd, 0x0,
++		BIT(11), 0);
++static CCU_GATE(CLK_HDMI_CEC, hdmi_cec_clk, "hdmi-cec-clk", video_pll_clk_pd,
++		0x0, BIT(12), 0);
++static CCU_GATE(CLK_MIPI_DSI0_PCLK, mipi_dsi0_pclk, "mipi-dsi0-pclk",
++		video_pll_clk_pd, 0x0, BIT(13), 0);
++static CCU_GATE(CLK_MIPI_DSI1_PCLK, mipi_dsi1_pclk, "mipi-dsi1-pclk",
++		video_pll_clk_pd, 0x0, BIT(14), 0);
++static CCU_GATE(CLK_MIPI_DSI0_CFG, mipi_dsi0_cfg_clk, "mipi-dsi0-cfg-clk",
++		video_pll_clk_pd, 0x0, BIT(15), 0);
++static CCU_GATE(CLK_MIPI_DSI1_CFG, mipi_dsi1_cfg_clk, "mipi-dsi1-cfg-clk",
++		video_pll_clk_pd, 0x0, BIT(16), 0);
++static CCU_GATE(CLK_MIPI_DSI0_REFCLK, mipi_dsi0_refclk, "mipi-dsi0-refclk",
++		video_pll_clk_pd, 0x0, BIT(17), 0);
++static CCU_GATE(CLK_MIPI_DSI1_REFCLK, mipi_dsi1_refclk, "mipi-dsi1-refclk",
++		video_pll_clk_pd, 0x0, BIT(18), 0);
++static CCU_GATE(CLK_HDMI_I2S, hdmi_i2s_clk, "hdmi-i2s-clk", video_pll_clk_pd,
++		0x0, BIT(19), 0);
++static CCU_GATE(CLK_X2H_DPU1_ACLK, x2h_dpu1_aclk, "x2h-dpu1-aclk",
++		video_pll_clk_pd, 0x0, BIT(20), 0);
++static CCU_GATE(CLK_X2H_DPU_ACLK, x2h_dpu_aclk, "x2h-dpu-aclk",
++		video_pll_clk_pd, 0x0, BIT(21), 0);
++static CCU_GATE(CLK_AXI4_VO_PCLK, axi4_vo_pclk, "axi4-vo-pclk",
++		video_pll_clk_pd, 0x0, BIT(22), 0);
++static CCU_GATE(CLK_IOPMP_VOSYS_DPU_PCLK, iopmp_vosys_dpu_pclk,
++		"iopmp-vosys-dpu-pclk", video_pll_clk_pd, 0x0, BIT(23), 0);
++static CCU_GATE(CLK_IOPMP_VOSYS_DPU1_PCLK, iopmp_vosys_dpu1_pclk,
++		"iopmp-vosys-dpu1-pclk", video_pll_clk_pd, 0x0, BIT(24), 0);
++static CCU_GATE(CLK_IOPMP_VOSYS_GPU_PCLK, iopmp_vosys_gpu_pclk,
++		"iopmp-vosys-gpu-pclk", video_pll_clk_pd, 0x0, BIT(25), 0);
++static CCU_GATE(CLK_IOPMP_DPU1_ACLK, iopmp_dpu1_aclk, "iopmp-dpu1-aclk",
++		video_pll_clk_pd, 0x0, BIT(27), 0);
++static CCU_GATE(CLK_IOPMP_DPU_ACLK, iopmp_dpu_aclk, "iopmp-dpu-aclk",
++		video_pll_clk_pd, 0x0, BIT(28), 0);
++static CCU_GATE(CLK_IOPMP_GPU_ACLK, iopmp_gpu_aclk, "iopmp-gpu-aclk",
++		video_pll_clk_pd, 0x0, BIT(29), 0);
++static CCU_GATE(CLK_MIPIDSI0_PIXCLK, mipi_dsi0_pixclk, "mipi-dsi0-pixclk",
++		video_pll_clk_pd, 0x0, BIT(30), 0);
++static CCU_GATE(CLK_MIPIDSI1_PIXCLK, mipi_dsi1_pixclk, "mipi-dsi1-pixclk",
++		video_pll_clk_pd, 0x0, BIT(31), 0);
++static CCU_GATE(CLK_HDMI_PIXCLK, hdmi_pixclk, "hdmi-pixclk", video_pll_clk_pd,
++		0x4, BIT(0), 0);
++
+ static CLK_FIXED_FACTOR_HW(gmac_pll_clk_100m, "gmac-pll-clk-100m",
+ 			   &gmac_pll_clk.common.hw, 10, 1, 0);
+ 
+@@ -963,7 +1024,38 @@ static struct ccu_common *th1520_gate_clks[] = {
+ 	&sram3_clk.common,
+ };
+ 
+-#define NR_CLKS	(CLK_UART_SCLK + 1)
++static struct ccu_common *th1520_vo_gate_clks[] = {
++	&axi4_vo_aclk.common,
++	&gpu_core_clk.common,
++	&gpu_cfg_aclk.common,
++	&dpu0_pixelclk.common,
++	&dpu1_pixelclk.common,
++	&dpu_hclk.common,
++	&dpu_aclk.common,
++	&dpu_cclk.common,
++	&hdmi_sfr_clk.common,
++	&hdmi_pclk.common,
++	&hdmi_cec_clk.common,
++	&mipi_dsi0_pclk.common,
++	&mipi_dsi1_pclk.common,
++	&mipi_dsi0_cfg_clk.common,
++	&mipi_dsi1_cfg_clk.common,
++	&mipi_dsi0_refclk.common,
++	&mipi_dsi1_refclk.common,
++	&hdmi_i2s_clk.common,
++	&x2h_dpu1_aclk.common,
++	&x2h_dpu_aclk.common,
++	&axi4_vo_pclk.common,
++	&iopmp_vosys_dpu_pclk.common,
++	&iopmp_vosys_dpu1_pclk.common,
++	&iopmp_vosys_gpu_pclk.common,
++	&iopmp_dpu1_aclk.common,
++	&iopmp_dpu_aclk.common,
++	&iopmp_gpu_aclk.common,
++	&mipi_dsi0_pixclk.common,
++	&mipi_dsi1_pixclk.common,
++	&hdmi_pixclk.common
++};
+ 
+ static const struct regmap_config th1520_clk_regmap_config = {
+ 	.reg_bits = 32,
+@@ -972,8 +1064,44 @@ static const struct regmap_config th1520_clk_regmap_config = {
+ 	.fast_io = true,
+ };
+ 
++struct th1520_plat_data {
++	struct ccu_common **th1520_pll_clks;
++	struct ccu_common **th1520_div_clks;
++	struct ccu_common **th1520_mux_clks;
++	struct ccu_common **th1520_gate_clks;
++
++	int nr_clks;
++	int nr_pll_clks;
++	int nr_div_clks;
++	int nr_mux_clks;
++	int nr_gate_clks;
++};
++
++static const struct th1520_plat_data th1520_ap_platdata = {
++	.th1520_pll_clks = th1520_pll_clks,
++	.th1520_div_clks = th1520_div_clks,
++	.th1520_mux_clks = th1520_mux_clks,
++	.th1520_gate_clks = th1520_gate_clks,
++
++	.nr_clks = CLK_UART_SCLK + 1,
++
++	.nr_pll_clks = ARRAY_SIZE(th1520_pll_clks),
++	.nr_div_clks = ARRAY_SIZE(th1520_div_clks),
++	.nr_mux_clks = ARRAY_SIZE(th1520_mux_clks),
++	.nr_gate_clks = ARRAY_SIZE(th1520_gate_clks),
++};
++
++static const struct th1520_plat_data th1520_vo_platdata = {
++	.th1520_gate_clks = th1520_vo_gate_clks,
++
++	.nr_clks = CLK_HDMI_PIXCLK + 1,
++
++	.nr_gate_clks = ARRAY_SIZE(th1520_vo_gate_clks),
++};
++
+ static int th1520_clk_probe(struct platform_device *pdev)
+ {
++	const struct th1520_plat_data *plat_data;
+ 	struct device *dev = &pdev->dev;
+ 	struct clk_hw_onecell_data *priv;
+ 
+@@ -982,11 +1110,17 @@ static int th1520_clk_probe(struct platform_device *pdev)
+ 	struct clk_hw *hw;
+ 	int ret, i;
+ 
+-	priv = devm_kzalloc(dev, struct_size(priv, hws, NR_CLKS), GFP_KERNEL);
++	plat_data = device_get_match_data(&pdev->dev);
++	if (!plat_data) {
++		dev_err(&pdev->dev, "Error: No device match data found\n");
++		return -ENODEV;
++	}
++
++	priv = devm_kzalloc(dev, struct_size(priv, hws, plat_data->nr_clks), GFP_KERNEL);
+ 	if (!priv)
+ 		return -ENOMEM;
+ 
+-	priv->num = NR_CLKS;
++	priv->num = plat_data->nr_clks;
+ 
+ 	base = devm_platform_ioremap_resource(pdev, 0);
+ 	if (IS_ERR(base))
+@@ -996,35 +1130,35 @@ static int th1520_clk_probe(struct platform_device *pdev)
+ 	if (IS_ERR(map))
+ 		return PTR_ERR(map);
+ 
+-	for (i = 0; i < ARRAY_SIZE(th1520_pll_clks); i++) {
+-		struct ccu_pll *cp = hw_to_ccu_pll(&th1520_pll_clks[i]->hw);
++	for (i = 0; i < plat_data->nr_pll_clks; i++) {
++		struct ccu_pll *cp = hw_to_ccu_pll(&plat_data->th1520_pll_clks[i]->hw);
+ 
+-		th1520_pll_clks[i]->map = map;
++		plat_data->th1520_pll_clks[i]->map = map;
+ 
+-		ret = devm_clk_hw_register(dev, &th1520_pll_clks[i]->hw);
++		ret = devm_clk_hw_register(dev, &plat_data->th1520_pll_clks[i]->hw);
+ 		if (ret)
+ 			return ret;
+ 
+ 		priv->hws[cp->common.clkid] = &cp->common.hw;
+ 	}
+ 
+-	for (i = 0; i < ARRAY_SIZE(th1520_div_clks); i++) {
+-		struct ccu_div *cd = hw_to_ccu_div(&th1520_div_clks[i]->hw);
++	for (i = 0; i < plat_data->nr_div_clks; i++) {
++		struct ccu_div *cd = hw_to_ccu_div(&plat_data->th1520_div_clks[i]->hw);
+ 
+-		th1520_div_clks[i]->map = map;
++		plat_data->th1520_div_clks[i]->map = map;
+ 
+-		ret = devm_clk_hw_register(dev, &th1520_div_clks[i]->hw);
++		ret = devm_clk_hw_register(dev, &plat_data->th1520_div_clks[i]->hw);
+ 		if (ret)
+ 			return ret;
+ 
+ 		priv->hws[cd->common.clkid] = &cd->common.hw;
+ 	}
+ 
+-	for (i = 0; i < ARRAY_SIZE(th1520_mux_clks); i++) {
+-		struct ccu_mux *cm = hw_to_ccu_mux(&th1520_mux_clks[i]->hw);
++	for (i = 0; i < plat_data->nr_mux_clks; i++) {
++		struct ccu_mux *cm = hw_to_ccu_mux(&plat_data->th1520_mux_clks[i]->hw);
+ 		const struct clk_init_data *init = cm->common.hw.init;
+ 
+-		th1520_mux_clks[i]->map = map;
++		plat_data->th1520_mux_clks[i]->map = map;
+ 		hw = devm_clk_hw_register_mux_parent_data_table(dev,
+ 								init->name,
+ 								init->parent_data,
+@@ -1040,10 +1174,10 @@ static int th1520_clk_probe(struct platform_device *pdev)
+ 		priv->hws[cm->common.clkid] = hw;
+ 	}
+ 
+-	for (i = 0; i < ARRAY_SIZE(th1520_gate_clks); i++) {
+-		struct ccu_gate *cg = hw_to_ccu_gate(&th1520_gate_clks[i]->hw);
++	for (i = 0; i < plat_data->nr_gate_clks; i++) {
++		struct ccu_gate *cg = hw_to_ccu_gate(&plat_data->th1520_gate_clks[i]->hw);
+ 
+-		th1520_gate_clks[i]->map = map;
++		plat_data->th1520_gate_clks[i]->map = map;
+ 
+ 		hw = devm_clk_hw_register_gate_parent_data(dev,
+ 							   cg->common.hw.init->name,
+@@ -1056,19 +1190,21 @@ static int th1520_clk_probe(struct platform_device *pdev)
+ 		priv->hws[cg->common.clkid] = hw;
+ 	}
+ 
+-	ret = devm_clk_hw_register(dev, &osc12m_clk.hw);
+-	if (ret)
+-		return ret;
+-	priv->hws[CLK_OSC12M] = &osc12m_clk.hw;
++	if (plat_data == &th1520_ap_platdata) {
++		ret = devm_clk_hw_register(dev, &osc12m_clk.hw);
++		if (ret)
++			return ret;
++		priv->hws[CLK_OSC12M] = &osc12m_clk.hw;
+ 
+-	ret = devm_clk_hw_register(dev, &gmac_pll_clk_100m.hw);
+-	if (ret)
+-		return ret;
+-	priv->hws[CLK_PLL_GMAC_100M] = &gmac_pll_clk_100m.hw;
++		ret = devm_clk_hw_register(dev, &gmac_pll_clk_100m.hw);
++		if (ret)
++			return ret;
++		priv->hws[CLK_PLL_GMAC_100M] = &gmac_pll_clk_100m.hw;
+ 
+-	ret = devm_clk_hw_register(dev, &emmc_sdio_ref_clk.hw);
+-	if (ret)
+-		return ret;
++		ret = devm_clk_hw_register(dev, &emmc_sdio_ref_clk.hw);
++		if (ret)
++			return ret;
++	}
+ 
+ 	ret = devm_of_clk_add_hw_provider(dev, of_clk_hw_onecell_get, priv);
+ 	if (ret)
+@@ -1080,6 +1216,11 @@ static int th1520_clk_probe(struct platform_device *pdev)
+ static const struct of_device_id th1520_clk_match[] = {
+ 	{
+ 		.compatible = "thead,th1520-clk-ap",
++		.data = &th1520_ap_platdata,
++	},
++	{
++		.compatible = "thead,th1520-clk-vo",
++		.data = &th1520_vo_platdata,
+ 	},
+ 	{ /* sentinel */ },
+ };
+-- 
+2.34.1
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
