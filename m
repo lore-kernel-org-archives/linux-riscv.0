@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 18EFDC02185
-	for <linux-riscv@archiver.kernel.org>; Tue, 21 Jan 2025 10:02:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B3A3C02182
+	for <linux-riscv@archiver.kernel.org>; Tue, 21 Jan 2025 10:08:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=kKaVV9qGzt0VC+EvR8lvqcIOmDYHC3RThFd9pVf5ZFo=; b=KD9hnfdFA+gYR2
-	Rob5iG9bod9wx5pX3jtsXpyMeQY4UzsGu9DAXTYzgx1PdzdXqQzo7kbSpqg3ioA+aEgX1gjKnajGu
-	E5ZT/LC6e592SXOib8J1oeqoO9pYFVDJaTgSqUIPzNAkInk1IVeVc5b4rvb3yV8Q5+6lRIxPLXywD
-	VWcmgV0ee7lo2nsqXVnoB3WBoaNeUMUU3VBmaHZS28tmmgCBjT2SUINX5NgBOtxgRIhdDc37RTo8Z
-	8fFH6vGglBboloFi89jtg8igJV1vLJsSqBmreNCnFChkc5u5w47B4lmFw8KbSMAjqR23dkPAty2/X
-	zc+TNEe/k0/ARSsU6Pqg==;
+	List-Owner; bh=8poUql5f6amQESgyBBeYibihGGTqX7ng/1uzXxJdQAs=; b=C6Um51ytNjPBsW
+	DqergzNvLsAbaYjRCz4+i7SRUvTit5Ehd8TjAoWtY0wkn6aP+BHfWy8HnpTkjfHHI0esFmBAwxY5z
+	xA1HI0hD+rEhiA2A1BuhSY+y9uO5kzo4U0ucY7J6Qgy2uqpx5EuwrcoGlAIzYBt3V1SVzvaOnrRmJ
+	MF7Ppi7cj2BOwX1KlGKdvEhqZh3FRz9MRVg+EpN7cco9tMLoow+hRWdpX6smMJo58+a8yC2ZvdT46
+	bLFuu4yFhG+cdANL2vZnFukInU5AMta/EUhUf+Du6qQgQ5GKBdnwwgaf/O6Ul6/H6gsFksAEaOAxZ
+	gNp+H8YIBKaXU+5L8naQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1taB5u-00000007W28-1D6z;
-	Tue, 21 Jan 2025 10:02:50 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1taBBc-00000007Weh-0Kjl;
+	Tue, 21 Jan 2025 10:08:44 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1taB5r-00000007W0v-3koQ
+	id 1taBBZ-00000007We5-2QO6
 	for linux-riscv@lists.infradead.org;
-	Tue, 21 Jan 2025 10:02:49 +0000
+	Tue, 21 Jan 2025 10:08:42 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 84BF6A41412;
-	Tue, 21 Jan 2025 10:00:59 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 39776C4CEDF;
-	Tue, 21 Jan 2025 10:02:46 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 8EEF55C4B49;
+	Tue, 21 Jan 2025 10:08:00 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2CB28C4CEDF;
+	Tue, 21 Jan 2025 10:08:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1737453766;
-	bh=Q6TsjNYIIprFxCUPZ9GtMLBRF/ZSTzZhy68jSq2lqBo=;
+	s=k20201202; t=1737454120;
+	bh=ENLFzy2bE8WWpAn62FWGklWq2J5NXPzsV7mwFUV66PY=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=mOmfQ/CouM9psLIfX+6WLjQI1DnfrPm0jwMpQHhAHvTPLdRuZO2mm2jaCD0r57hfR
-	 AJuJReUzRS8Q3e/Tmfov8jC2S+HD5vKH9uOcq0WN5FLoV+S4ajQoJGPoGoULgTtQC2
-	 hnlkMkEssj8YB+v5oW1sgpDZLw/RL904b+q92ob9X+f4tqJm04bpdSi6Zrbe4lIH7C
-	 t8vlUk/mBD/nmvrInq6JkvtIaTH1R6bqJADZmHHB0ta9AVoBz9S7nB2S+NZgcihALA
-	 k9OuOfpRxotV/572BpKTpQuJVjcw1k1n04QcKZomBbX2AX0Zti1nEnfucpVOitYBWY
-	 j2u9SyrQUxw7w==
-Date: Tue, 21 Jan 2025 11:02:44 +0100
+	b=JCRBH20svciWwvTa1Did37XrBO0s064B/DTFoypK1t6MGJT27w12BeFGtHmYxV/as
+	 Odlu0WA8tRCdm7psEPen+TsZFqLn0UeVZYRUxEio7Yk6Kq1cjB0Vtx80OibDX0Y4wE
+	 AaRb+IxQGAJYbrccGynrYdSQLoKxXr6U2MoveJsF/FpyAcclzvOvwegFdDJmPtLOrc
+	 XmWBTm9SghFul+y1OV88u+wVxBQ7i2HdSjwhPpkDwOcI6FrfIcW2EKdhIIkQU7V/4U
+	 DLy0MOxumGpT8ESf4cG1G+R+BJqMIcOWJsah9f6MrNTdT/CVR7kSBZ/EGBVRxBZaTx
+	 l1CsnM4qWBSZg==
+Date: Tue, 21 Jan 2025 11:08:38 +0100
 From: Krzysztof Kozlowski <krzk@kernel.org>
 To: Michal Wilczynski <m.wilczynski@samsung.com>
 Cc: mturquette@baylibre.com, sboyd@kernel.org, robh@kernel.org, 
@@ -54,18 +54,18 @@ Cc: mturquette@baylibre.com, sboyd@kernel.org, robh@kernel.org,
 	jszhang@kernel.org, p.zabel@pengutronix.de, m.szyprowski@samsung.com, 
 	linux-clk@vger.kernel.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
 	linux-riscv@lists.infradead.org, dri-devel@lists.freedesktop.org, linux-pm@vger.kernel.org
-Subject: Re: [RFC v3 05/18] pmdomain: thead: Add power-domain driver for
- TH1520
-Message-ID: <20250121-mature-marigold-ammonite-b379d2@krzk-bin>
+Subject: Re: [RFC v3 11/18] dt-bindings: gpu: Add compatibles for T-HEAD
+ TH1520 GPU
+Message-ID: <20250121-tiny-crazy-goshawk-dce1dc@krzk-bin>
 References: <20250120172111.3492708-1-m.wilczynski@samsung.com>
- <CGME20250120172125eucas1p141540607f423eea4c55b2bd22ff5adf0@eucas1p1.samsung.com>
- <20250120172111.3492708-6-m.wilczynski@samsung.com>
+ <CGME20250120172134eucas1p18cbf29a4ade281df10efce210cc8893e@eucas1p1.samsung.com>
+ <20250120172111.3492708-12-m.wilczynski@samsung.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20250120172111.3492708-6-m.wilczynski@samsung.com>
+In-Reply-To: <20250120172111.3492708-12-m.wilczynski@samsung.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250121_020248_070498_C9575F8B 
-X-CRM114-Status: GOOD (  18.40  )
+X-CRM114-CacheID: sfid-20250121_020841_660551_0C2C3EFA 
+X-CRM114-Status: GOOD (  10.03  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,81 +82,70 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jan 20, 2025 at 06:20:58PM +0100, Michal Wilczynski wrote:
-> The T-Head TH1520 SoC contains multiple power islands that can be
-> programmatically turned on and off using the AON (Always-On) protocol
-> and a hardware mailbox [1]. The relevant mailbox driver has already been
-> merged into the mainline kernel in commit 5d4d263e1c6b ("mailbox:
-> Introduce support for T-head TH1520 Mailbox driver");
-> 
-> This commit introduces a power-domain driver for the TH1520 SoC, which
+On Mon, Jan 20, 2025 at 06:21:04PM +0100, Michal Wilczynski wrote:
+>    reg:
+>      maxItems: 1
+> @@ -25,11 +30,8 @@ properties:
+>      maxItems: 3
+>  
+>    clock-names:
+> -    items:
+> -      - const: core
+> -      - const: mem
+> -      - const: sys
+>      minItems: 1
+> +    maxItems: 3
 
-Please do not use "This commit/patch/change", but imperative mood. See
-longer explanation here:
-https://elixir.bootlin.com/linux/v5.17.1/source/Documentation/process/submitting-patches.rst#L95
+So what is the third item? It cannot be anything, but must be
+constrained.
 
-> is using AON firmware protocol to communicate with E902 core through the
-> hardware mailbox. This way it can send power on/off commands to the E902
-> core.
+I understand that you clean it up and maybe the cleaning is correct, but
+it should be separate commit with its own explanation.
 
-...
+>  
+>    interrupts:
+>      maxItems: 1
+> @@ -47,8 +49,6 @@ required:
+>    - clock-names
+>    - interrupts
+>  
+> -additionalProperties: false
+> -
+>  allOf:
+>    - if:
+>        properties:
+> @@ -58,7 +58,28 @@ allOf:
+>      then:
+>        properties:
+>          clocks:
+> +          minItems: 1
 
-> diff --git a/drivers/pmdomain/thead/Makefile b/drivers/pmdomain/thead/Makefile
-> new file mode 100644
-> index 000000000000..adfdf5479c68
-> --- /dev/null
-> +++ b/drivers/pmdomain/thead/Makefile
-> @@ -0,0 +1,2 @@
-> +# SPDX-License-Identifier: GPL-2.0-only
-> +obj-$(CONFIG_TH1520_PM_DOMAINS)		+= th1520-pm-domains.o
-> diff --git a/drivers/pmdomain/thead/th1520-pm-domains.c b/drivers/pmdomain/thead/th1520-pm-domains.c
-> new file mode 100644
-> index 000000000000..d913ad40fb76
-> --- /dev/null
-> +++ b/drivers/pmdomain/thead/th1520-pm-domains.c
-> @@ -0,0 +1,174 @@
-> +// SPDX-License-Identifier: GPL-2.0
-> +/*
-> + * Copyright (C) 2021 Alibaba Group Holding Limited.
-> + * Copyright (c) 2024 Samsung Electronics Co., Ltd.
-> + * Author: Michal Wilczynski <m.wilczynski@samsung.com>
-> + */
+Drop minItems here.
+
+>            maxItems: 1
+> +        clock-names:
+> +          items:
+> +            - const: core
 > +
-> +#include <linux/firmware/thead/thead,th1520-aon.h>
-> +#include <linux/slab.h>
-> +#include <linux/platform_device.h>
-> +#include <linux/pm_domain.h>
+> +  - if:
+> +      properties:
+> +        compatible:
+> +          contains:
+> +            const: thead,th1520-gpu
+> +    then:
+> +      properties:
+> +        clocks:
+> +          minItems: 2
+> +          maxItems: 2
+> +        clock-names:
+> +          items:
+> +            - const: core
+> +            - const: sys
 > +
-> +#include <dt-bindings/firmware/thead,th1520-aon.h>
+> +unevaluatedProperties: false
 
-So here it is used... I don't understand why power domain is under
-firmware. Please move it to proper directory and name the file exactly
-the same as bindings doc which this belongs to.
-
-
-> +
-> +struct th1520_power_domain {
-> +	struct th1520_aon_chan *aon_chan;
-> +	struct generic_pm_domain genpd;
-> +	u32 rsrc;
-> +};
-> +
-> +struct th1520_power_info {
-> +	const char *name;
-> +	u32 rsrc;
-> +};
-> +
-> +static const struct th1520_power_info th1520_pd_ranges[] = {
-> +	{ "vdec", TH1520_AON_VDEC_PD },
-
-Why TH1520_AON_XXX aren't the indices?
-
-> +	{ "npu", TH1520_AON_NPU_PD },
-> +	{ "venc", TH1520_AON_VENC_PD },
-> +	{ "gpu", TH1520_AON_GPU_PD },
-> +	{ "dsp0", TH1520_AON_DSP0_PD },
-> +	{ "dsp1", TH1520_AON_DSP1_PD }
-> +};
+That's not explained. Does not look correct, either, unless you fix some
+issue, but then again: separate commit.
 
 Best regards,
 Krzysztof
