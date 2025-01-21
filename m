@@ -4,83 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64386C02182
-	for <linux-riscv@archiver.kernel.org>; Tue, 21 Jan 2025 08:37:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7455C02182
+	for <linux-riscv@archiver.kernel.org>; Tue, 21 Jan 2025 08:40:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Date:Cc:To:From:Subject:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=5/ZBGC0kCCKJoNjrGcSEF9x0QYLsTqC2E+38De506bI=; b=HImM9WkK8of/oF
-	cTpANhaVBSBQzjORtOlP33g1JnchepotmVoTXZ/FHJBBd2TAxkdtb3oEtL+KaIVbq9Nl0bmXPxdNR
-	/RPpUNijRW5rvpZPsok1pifbJWEcEINnoq8eER8yloqTGFObEjT4hWwnw8w+7r52Vxt+3skgQeMFA
-	7YYq5i+6wHI8jQHPa2lUPkNPtjz/yPQmUy1GQ7UQxzBMvZKwSJMGdYrUSaNBITtCj1JGgX+ry0WRK
-	aIHBWxiBVQPXMSRof12r+/qa/46TRaB5oOgwQnPpQRmQ5mvGl3Qm9+5F62lLmhok9j4ozuijrmARB
-	bhkHNo3owXaau4U5x5Vg==;
+	List-Owner; bh=+dutCkHpxOX0tDtjpTYnRwa3278AcJfzy/oSGw+ZW0E=; b=qVphAAzwTwGHY7
+	zs1PwbGW08I02teXzKIhzfG8FtCzXVspdsXcX5dCf41kX8yEIUrzOJlXVghH5tVlLLTYFEISgPUj1
+	BTs7RJdcsp6I+pfk63AUmIwDQ9uVoPMo20QCM1nPUWPNCJ8sIV/hj2/tE4Bquk7Z8JqM8168QGAam
+	hHosug/YILjee+mQKFEkKiw75Ys/rShqKsMmfEosVUzOgdCmUq25UMafD+ijAZoWV/szABZZHoQjK
+	CZdG44/GXuUF2g2D7L7wLP5r77BuEoYs2PTHkNqe3TE8vIZh5gmiDjY+bCVNTM1qFycctX71N3GT1
+	ix54Kj6BI0NPvKnLLbMg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1ta9lR-00000007HWv-2jaA;
-	Tue, 21 Jan 2025 08:37:37 +0000
-Received: from mail-il1-x12c.google.com ([2607:f8b0:4864:20::12c])
+	id 1ta9oV-00000007Hpi-1qyT;
+	Tue, 21 Jan 2025 08:40:47 +0000
+Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1ta9lQ-00000007HWP-01Ky
+	id 1ta9oT-00000007HpL-0ari
 	for linux-riscv@lists.infradead.org;
-	Tue, 21 Jan 2025 08:37:37 +0000
-Received: by mail-il1-x12c.google.com with SMTP id e9e14a558f8ab-3ce915a8a25so18886295ab.1
-        for <linux-riscv@lists.infradead.org>; Tue, 21 Jan 2025 00:37:35 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sifive.com; s=google; t=1737448654; x=1738053454; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=EErsvLFUMtwyIbJnbfERrawyL1tVSt57dS6Who8TTyY=;
-        b=Ewq3APTjmTZD5KMq2D9fwuaEpm3nfokdSvrXqkC0xsn6n2piJzcxe0SCMREh5XNkCt
-         8gJaEzUOs78jedBDgXIXezFpV32i8Z/IvVnAtH3NTANeIlvKtGRgni5MaUK5MNXEAsZ9
-         Uo5/UwzuGrmzsGZu1cPGzxtYOYbjvWfFj0lmDmCNoZ44c1C5ss9bB8bP6Ghcl42YJWDI
-         LWapleEkDpTAPZe7zzvaJo9vDKC+yX9BHdaW9LZW6A1MqUUVD19sAm1Cn8ElwyM5Vgjf
-         8sY7ZNnFfOD4xsZE7GcUvJ/dj2KtG0bxqZ39NGciWYhVmWMrTo0QPUhSOmRPdHvRkWEX
-         shtg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1737448654; x=1738053454;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=EErsvLFUMtwyIbJnbfERrawyL1tVSt57dS6Who8TTyY=;
-        b=Vs50dnV3QEMcVRDAnJBxYuNhBNHUgdXxBDyJlNdXUpGm5Cse3L/5GtI+XrzQlBmENY
-         8ngF/yjZfPAipEaKNjvdusfU1MDa/bZAKHrpwoa9CxAL3/GCYJ89HaOV4YZ9wViuiDMM
-         mZhQ97t2ZUW5K8PyjZh9OGB/W9H0YHv3Kuj1XdTXJtLUlGjdsU/GTUwxrm+J/Wh9wTLO
-         UCzns1T81THR/KuUZUTSw02MGuONzGvOKyxhwKcgKXcFtPljTZWTTAVqjlKRlh3S/Lvp
-         4GLAcQKJPQY4PAME5WyqxckmjNVZ44Kwi4VjQK+9mZ9DgkXMX6f3gNRi3ls2QIdI3NCI
-         ZySw==
-X-Forwarded-Encrypted: i=1; AJvYcCUPyhAC9hJhNW8wUybS8lVtZu3PR3h2IhT4mMJsPoXYvGOPu8Y4iGT47+knLNhdLAbXQGzcfis9Sh0KaQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0YzWXjsvUCfHUNna/hwJi9biTu8sUPVYaIw+ssXxic9ck3OUxmYN
-	oYP5w2NQhtwoflNPEINlffnd1vn7Rodebg1LgvSnDliBAmFRhMFld70eKHPu/Le6MtQjT+xkifW
-	cELfFlCEdgge8e7kxRcAx/5MR7V+BphY27dDIqw==
-X-Gm-Gg: ASbGnctUYo4ZSvTwe6ozv6lif+v9FxUYEEFCG3u07Cg422fYbHIeUy7++9gL3SNLOiL
-	Xyax1gjShofJDGWZ4SvJV3OUwtEPrmxrLToQD/Wn1PceqZ/J4ji86wg==
-X-Google-Smtp-Source: AGHT+IEC2oPzCFfgCD9zHXuJFglchxr8YhWRFH5WN/dbnSoPI76AiG7cPO+FnSUDX0oL8rjqJZtBboWg3N3DPymAVwM=
-X-Received: by 2002:a05:6e02:1aa8:b0:3cf:6d33:d40d with SMTP id
- e9e14a558f8ab-3cf742812e4mr123041605ab.0.1737448654288; Tue, 21 Jan 2025
- 00:37:34 -0800 (PST)
+	Tue, 21 Jan 2025 08:40:46 +0000
+Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
+	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
+	(Exim 4.92)
+	(envelope-from <p.zabel@pengutronix.de>)
+	id 1ta9o8-0002nl-E3; Tue, 21 Jan 2025 09:40:24 +0100
+Received: from lupine.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::4e] helo=lupine)
+	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <p.zabel@pengutronix.de>)
+	id 1ta9o6-0014s0-2e;
+	Tue, 21 Jan 2025 09:40:22 +0100
+Received: from pza by lupine with local (Exim 4.96)
+	(envelope-from <p.zabel@pengutronix.de>)
+	id 1ta9o6-0001o9-2I;
+	Tue, 21 Jan 2025 09:40:22 +0100
+Message-ID: <8f231c35fbb7304ee781d9c8d1eaeaf5753374de.camel@pengutronix.de>
+Subject: Re: [RFC v3 08/18] reset: thead: Add TH1520 reset controller driver
+From: Philipp Zabel <p.zabel@pengutronix.de>
+To: Michal Wilczynski <m.wilczynski@samsung.com>, mturquette@baylibre.com, 
+ sboyd@kernel.org, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+  drew@pdp7.com, guoren@kernel.org, wefu@redhat.com,
+ jassisinghbrar@gmail.com,  paul.walmsley@sifive.com, palmer@dabbelt.com,
+ aou@eecs.berkeley.edu,  frank.binns@imgtec.com, matt.coster@imgtec.com, 
+ maarten.lankhorst@linux.intel.com, mripard@kernel.org, tzimmermann@suse.de,
+  airlied@gmail.com, simona@ffwll.ch, ulf.hansson@linaro.org,
+ jszhang@kernel.org,  m.szyprowski@samsung.com
+Cc: linux-clk@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
+	dri-devel@lists.freedesktop.org, linux-pm@vger.kernel.org
+Date: Tue, 21 Jan 2025 09:40:22 +0100
+In-Reply-To: <20250120172111.3492708-9-m.wilczynski@samsung.com>
+References: <20250120172111.3492708-1-m.wilczynski@samsung.com>
+	 <CGME20250120172129eucas1p236f71df4e30f821f7682263ee8ecec06@eucas1p2.samsung.com>
+	 <20250120172111.3492708-9-m.wilczynski@samsung.com>
+User-Agent: Evolution 3.46.4-2 
 MIME-Version: 1.0
-References: <20250115030306.29735-1-zong.li@sifive.com> <20250115030306.29735-3-zong.li@sifive.com>
- <6301d20b-d51d-4f96-94ea-134e065d398e@arm.com> <CANXhq0oDv0b_S=6EmETAUkjQxo3Zz5fZ-yeP-9hHSMW9Ak5=sg@mail.gmail.com>
- <b0dadc40-638e-4f14-8a5c-70c306bc4650@arm.com>
-In-Reply-To: <b0dadc40-638e-4f14-8a5c-70c306bc4650@arm.com>
-From: Zong Li <zong.li@sifive.com>
-Date: Tue, 21 Jan 2025 16:37:23 +0800
-X-Gm-Features: AbW1kvZ71HK_s4sWjLIFCatGdv6WaJXav0vR9gPNHa6MZdgG5R3zyOGc7TZo4Rc
-Message-ID: <CANXhq0oqeTJfSsDy0VKhfdeOssO7JVtz=XjZcFiLCbgkxK4zqw@mail.gmail.com>
-Subject: Re: [PATCH 2/2] iommu/riscv: support HPM and interrupt handling
-To: Robin Murphy <robin.murphy@arm.com>
-Cc: joro@8bytes.org, will@kernel.org, tjeznach@rivosinc.com, 
-	paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu, 
-	luxu.kernel@bytedance.com, linux-kernel@vger.kernel.org, 
-	iommu@lists.linux.dev, linux-riscv@lists.infradead.org
+X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
+X-SA-Exim-Mail-From: p.zabel@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-riscv@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250121_003736_100387_F5F469D6 
-X-CRM114-Status: GOOD (  37.29  )
+X-CRM114-CacheID: sfid-20250121_004045_209495_E10C06A5 
+X-CRM114-Status: GOOD (  29.52  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,127 +81,176 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gRnJpLCBKYW4gMTcsIDIwMjUgYXQgODo0NeKAr1BNIFJvYmluIE11cnBoeSA8cm9iaW4ubXVy
-cGh5QGFybS5jb20+IHdyb3RlOgo+Cj4gT24gMjAyNS0wMS0xNyAyOjQ2IGFtLCBab25nIExpIHdy
-b3RlOgo+ID4gT24gVGh1LCBKYW4gMTYsIDIwMjUgYXQgNTo1NuKAr0FNIFJvYmluIE11cnBoeSA8
-cm9iaW4ubXVycGh5QGFybS5jb20+IHdyb3RlOgo+ID4+Cj4gPj4gT24gMjAyNS0wMS0xNSAzOjAz
-IGFtLCBab25nIExpIHdyb3RlOgo+ID4+PiBJbml0aWFsaXplIHRoZSBQTVUgYW5kIHVuaW5pdGlh
-bGl6ZSBpdCB3aGVuIGRyaXZlciBpcyByZW1vdmVkLgo+ID4+PiBJbnRlcnJ1cHQgaGFuZGxpbmcg
-aXMgYWxzbyBpbXBsZW1lbnRlZCwgYW5kIHRoZSBoYW5kbGVyIG5lZWRzCj4gPj4+IHRvIGJlIGEg
-cHJpbWFyeSBoYW5kbGVyIGluc3RlYWQgb2YgYSB0aHJlYWRlZCBmdW5jdGlvbiBiZWNhdXNlCj4g
-Pj4+IHB0X3JlZ3MgaXMgZW1wdHkgd2hlbiB0aHJlYWRpbmcgdGhlIElSUS4gSG93ZXZlciwgcHRf
-cmVncyBpcwo+ID4+PiByZXF1aXJlZCBieSBwZXJmX2V2ZW50X292ZXJmbG93Lgo+ID4+Pgo+ID4+
-PiBTaWduZWQtb2ZmLWJ5OiBab25nIExpIDx6b25nLmxpQHNpZml2ZS5jb20+Cj4gPj4+IFRlc3Rl
-ZC1ieTogWHUgTHUgPGx1eHUua2VybmVsQGJ5dGVkYW5jZS5jb20+Cj4gPj4+IC0tLQo+ID4+PiAg
-ICBkcml2ZXJzL2lvbW11L3Jpc2N2L2lvbW11LmMgfCA2NSArKysrKysrKysrKysrKysrKysrKysr
-KysrKysrKysrKysrKysrCj4gPj4+ICAgIDEgZmlsZSBjaGFuZ2VkLCA2NSBpbnNlcnRpb25zKCsp
-Cj4gPj4+Cj4gPj4+IGRpZmYgLS1naXQgYS9kcml2ZXJzL2lvbW11L3Jpc2N2L2lvbW11LmMgYi9k
-cml2ZXJzL2lvbW11L3Jpc2N2L2lvbW11LmMKPiA+Pj4gaW5kZXggOGEwNWRlZjc3NGJkLi4yMGFl
-OTA0NzE0ODQgMTAwNjQ0Cj4gPj4+IC0tLSBhL2RyaXZlcnMvaW9tbXUvcmlzY3YvaW9tbXUuYwo+
-ID4+PiArKysgYi9kcml2ZXJzL2lvbW11L3Jpc2N2L2lvbW11LmMKPiA+Pj4gQEAgLTU1Miw2ICs1
-NTIsNjIgQEAgc3RhdGljIGlycXJldHVybl90IHJpc2N2X2lvbW11X2ZsdHFfcHJvY2VzcyhpbnQg
-aXJxLCB2b2lkICpkYXRhKQo+ID4+PiAgICAgICAgcmV0dXJuIElSUV9IQU5ETEVEOwo+ID4+PiAg
-ICB9Cj4gPj4+Cj4gPj4+ICsvKgo+ID4+PiArICogSU9NTVUgSGFyZHdhcmUgcGVyZm9ybWFuY2Ug
-bW9uaXRvcgo+ID4+PiArICovCj4gPj4+ICsKPiA+Pj4gKy8qIEhQTSBpbnRlcnJ1cHQgcHJpbWFy
-eSBoYW5kbGVyICovCj4gPj4+ICtzdGF0aWMgaXJxcmV0dXJuX3QgcmlzY3ZfaW9tbXVfaHBtX2ly
-cV9oYW5kbGVyKGludCBpcnEsIHZvaWQgKmRldl9pZCkKPiA+Pj4gK3sKPiA+Pj4gKyAgICAgc3Ry
-dWN0IHJpc2N2X2lvbW11X2RldmljZSAqaW9tbXUgPSAoc3RydWN0IHJpc2N2X2lvbW11X2Rldmlj
-ZSAqKWRldl9pZDsKPiA+Pj4gKwo+ID4+PiArICAgICAvKiBDbGVhciBwZXJmb3JtYW5jZSBtb25p
-dG9yaW5nIGludGVycnVwdCBwZW5kaW5nICovCj4gPj4+ICsgICAgIHJpc2N2X2lvbW11X3dyaXRl
-bChpb21tdSwgUklTQ1ZfSU9NTVVfUkVHX0lQU1IsIFJJU0NWX0lPTU1VX0lQU1JfUE1JUCk7Cj4g
-Pj4+ICsKPiA+Pj4gKyAgICAgLyogUHJvY2VzcyBwbXUgaXJxICovCj4gPj4+ICsgICAgIHJpc2N2
-X2lvbW11X3BtdV9oYW5kbGVfaXJxKCZpb21tdS0+cG11KTsKPiA+Pj4gKwo+ID4+PiArICAgICBy
-ZXR1cm4gSVJRX0hBTkRMRUQ7Cj4gPj4+ICt9Cj4gPj4+ICsKPiA+Pj4gKy8qIEhQTSBpbml0aWFs
-aXphdGlvbiAqLwo+ID4+PiArc3RhdGljIGludCByaXNjdl9pb21tdV9ocG1fZW5hYmxlKHN0cnVj
-dCByaXNjdl9pb21tdV9kZXZpY2UgKmlvbW11KQo+ID4+PiArewo+ID4+PiArICAgICBpbnQgcmM7
-Cj4gPj4+ICsKPiA+Pj4gKyAgICAgaWYgKCEoaW9tbXUtPmNhcHMgJiBSSVNDVl9JT01NVV9DQVBB
-QklMSVRJRVNfSFBNKSkKPiA+Pj4gKyAgICAgICAgICAgICByZXR1cm4gMDsKPiA+Pj4gKwo+ID4+
-PiArICAgICAvKgo+ID4+PiArICAgICAgKiBwdF9yZWdzIGlzIGVtcHR5IHdoZW4gdGhyZWFkaW5n
-IHRoZSBJUlEsIGJ1dCBwdF9yZWdzIGlzIG5lY2Vzc2FyeQo+ID4+PiArICAgICAgKiBieSBwZXJm
-X2V2ZW50X292ZXJmbG93LiBVc2UgcHJpbWFyeSBoYW5kbGVyIGluc3RlYWQgb2YgdGhyZWFkCj4g
-Pj4+ICsgICAgICAqIGZ1bmN0aW9uIGZvciBQTSBJUlEuCj4gPj4+ICsgICAgICAqCj4gPj4+ICsg
-ICAgICAqIFNldCB0aGUgSVJRRl9PTkVTSE9UIGZsYWcgYmVjYXVzZSB0aGlzIElSUSBtaWdodCBi
-ZSBzaGFyZWQgd2l0aAo+ID4+PiArICAgICAgKiBvdGhlciB0aHJlYWRlZCBJUlFzIGJ5IG90aGVy
-IHF1ZXVlcy4KPiA+Pj4gKyAgICAgICovCj4gPj4+ICsgICAgIHJjID0gZGV2bV9yZXF1ZXN0X2ly
-cShpb21tdS0+ZGV2LAo+ID4+PiArICAgICAgICAgICAgICAgICAgICAgICAgICAgaW9tbXUtPmly
-cXNbcmlzY3ZfaW9tbXVfcXVldWVfdmVjKGlvbW11LCBSSVNDVl9JT01NVV9JUFNSX1BNSVApXSwK
-PiA+Pj4gKyAgICAgICAgICAgICAgICAgICAgICAgICAgIHJpc2N2X2lvbW11X2hwbV9pcnFfaGFu
-ZGxlciwgSVJRRl9PTkVTSE9UIHwgSVJRRl9TSEFSRUQsIE5VTEwsIGlvbW11KTsKPiA+Pgo+ID4+
-IEhtbSwgc2hhcmVkIGludGVycnVwdHMgYXJlIHRyaWNreSBmb3IgUE1Vcywgc2luY2UgcGVyZiBy
-ZXF1aXJlcyBhbnkgSVJRCj4gPj4gaGFuZGxlciB0b3VjaGluZyBhIFBNVSBpcyBydW5uaW5nIG9u
-IHBtdS0+Y3B1LCBzbyB5b3UgaGF2ZSB0byBiZSB2ZXJ5Cj4gPj4gY2FyZWZ1bCBhYm91dCBtYWlu
-dGFpbmluZyBhZmZpbml0eSBhbmQgbm90IGxldHRpbmcgYW55b25lIGVsc2UgY2hhbmdlIGl0Cj4g
-Pj4gYmVoaW5kIHlvdXIgYmFjay4KPiA+Pgo+ID4+IFRoZSBvdGhlciB0aGluZyBpcyB0aGF0IGlm
-IGl0IHJlYWxseSBpcyBzaGFyZWQsIGF0IHRoaXMgcG9pbnQgeW91IGNvdWxkCj4gPj4gbm93IGJl
-IGluIHJpc2N2X2lvbW11X3BtdV9oYW5kbGVfaXJxKCkgZGVyZWZlcmVuY2luZyBOVUxMLgo+ID4K
-PiA+IFllcywgdGhlIFBNVSBJUlEgbGluZSBjb3VsZCBiZSBzaGFyZWQgd2l0aCB0aGUgY29tbWFu
-ZCBxdWV1ZSwgZmF1bHQKPiA+IHF1ZXVlLCBhbmQgcGFnZS1yZXF1ZXN0IHF1ZXVlLgo+ID4gQ291
-bGQgeW91IHBsZWFzZSBwcm92aWRlIG1vcmUgdGlwcyBvbiB3aGF0IGlzIG1lYW50IGJ5ICJkZXJl
-ZmVyZW5jaW5nCj4gPiBOVUxMIGluIHJpc2N2X2lvbW11X3BtdV9oYW5kbGVfaXJxKCkiPwo+ID4g
-SSBkb24ndCBjb21wbGV0ZSB1bmRlcnN0YW5kIHdoYXQgbmVlZHMgdG8gYmUgZG9uZSB0aGVyZS4K
-PiA+IFRoYW5rcwo+Cj4gSW4gZ2VuZXJhbCBpdCdzIG5vdCBhIGdyZWF0IGlkZWEgdG8gcmVnaXN0
-ZXIgYW4gSVJRIGhhbmRsZXIgYmVmb3JlIHRoZQo+IGRhdGEgcGFzc2VkIHRvIHRoYXQgaGFuZGxl
-ciBpcyBpbml0aWFsaXNlZC4gV2hhdCBpcyBwb2ludGVkIHRvIGJ5Cj4gKCZpb21tdS0+cG11KS0+
-cmVnICsgUklTQ1ZfSU9NTVVfUkVHX0lPQ09VTlRPVkYgaWYgdGhlIElSUSBmaXJlcyByaWdodAo+
-IG5vdyAoYW5kL29yIGlmIENPTkZJR19ERUJVR19TSElSUSBldmVyIGdldHMgZml4ZWQpPyA7KQoK
-U29ycnkgZm9yIHRoZSBtaXN1bmRlcnN0YW5kaW5nIGVhcmxpZXI7IEkgdW5kZXJzdGFuZCBub3cu
-IEkgdGhpbmsgSQptaWdodCBuZWVkIHRvIGV4Y2hhbmdlIHRoZSBJUlEgcmVxdWVzdCBhbmQgUE1V
-IGluaXRpYWxpemF0aW9uLAplbnN1cmluZyB0aGF0IHRoZSBQTVUgaW5zdGFuY2UgaXMgaW5pdGlh
-bGl6ZWQgYmVmb3JlIGEgUE1VIGludGVycnVwdAphcnJpdmVzLiBUaGFua3MhCgo+Cj4gKE9LLCBp
-dCdzIG5vdCAqbGl0ZXJhbGx5KiBOVUxMLCBidXQgaGV5Li4uKQo+Cj4gVGhhbmtzLAo+IFJvYmlu
-Lgo+Cj4gPj4KPiA+Pj4gKyAgICAgaWYgKHJjKQo+ID4+PiArICAgICAgICAgICAgIHJldHVybiBy
-YzsKPiA+Pj4gKwo+ID4+PiArICAgICByZXR1cm4gcmlzY3ZfaW9tbXVfcG11X2luaXQoJmlvbW11
-LT5wbXUsIGlvbW11LT5yZWcsIGRldl9uYW1lKGlvbW11LT5kZXYpKTsKPiA+Pj4gK30KPiA+Pj4g
-Kwo+ID4+PiArLyogSFBNIHVuaW5pdGlhbGl6YXRpb24gKi8KPiA+Pj4gK3N0YXRpYyB2b2lkIHJp
-c2N2X2lvbW11X2hwbV9kaXNhYmxlKHN0cnVjdCByaXNjdl9pb21tdV9kZXZpY2UgKmlvbW11KQo+
-ID4+PiArewo+ID4+PiArICAgICBpZiAoIShpb21tdS0+Y2FwcyAmIFJJU0NWX0lPTU1VX0NBUEFC
-SUxJVElFU19IUE0pKQo+ID4+PiArICAgICAgICAgICAgIHJldHVybjsKPiA+Pj4gKwo+ID4+PiAr
-ICAgICBkZXZtX2ZyZWVfaXJxKGlvbW11LT5kZXYsCj4gPj4+ICsgICAgICAgICAgICAgICAgICAg
-aW9tbXUtPmlycXNbcmlzY3ZfaW9tbXVfcXVldWVfdmVjKGlvbW11LCBSSVNDVl9JT01NVV9JUFNS
-X1BNSVApXSwKPiA+Pj4gKyAgICAgICAgICAgICAgICAgICBpb21tdSk7Cj4gPj4+ICsKPiA+Pj4g
-KyAgICAgcmlzY3ZfaW9tbXVfcG11X3VuaW5pdCgmaW9tbXUtPnBtdSk7Cj4gPj4+ICt9Cj4gPj4+
-ICsKPiA+Pj4gICAgLyogTG9va3VwIGFuZCBpbml0aWFsaXplIGRldmljZSBjb250ZXh0IGluZm8g
-c3RydWN0dXJlLiAqLwo+ID4+PiAgICBzdGF0aWMgc3RydWN0IHJpc2N2X2lvbW11X2RjICpyaXNj
-dl9pb21tdV9nZXRfZGMoc3RydWN0IHJpc2N2X2lvbW11X2RldmljZSAqaW9tbXUsCj4gPj4+ICAg
-ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHVuc2lnbmVkIGlu
-dCBkZXZpZCkKPiA+Pj4gQEAgLTE1OTYsNiArMTY1Miw5IEBAIHZvaWQgcmlzY3ZfaW9tbXVfcmVt
-b3ZlKHN0cnVjdCByaXNjdl9pb21tdV9kZXZpY2UgKmlvbW11KQo+ID4+PiAgICAgICAgcmlzY3Zf
-aW9tbXVfaW9kaXJfc2V0X21vZGUoaW9tbXUsIFJJU0NWX0lPTU1VX0REVFBfSU9NTVVfTU9ERV9P
-RkYpOwo+ID4+PiAgICAgICAgcmlzY3ZfaW9tbXVfcXVldWVfZGlzYWJsZSgmaW9tbXUtPmNtZHEp
-Owo+ID4+PiAgICAgICAgcmlzY3ZfaW9tbXVfcXVldWVfZGlzYWJsZSgmaW9tbXUtPmZsdHEpOwo+
-ID4+PiArCj4gPj4+ICsgICAgIGlmIChpb21tdS0+Y2FwcyAmIFJJU0NWX0lPTU1VX0NBUEFCSUxJ
-VElFU19IUE0pCj4gPj4+ICsgICAgICAgICAgICAgcmlzY3ZfaW9tbXVfcG11X3VuaW5pdCgmaW9t
-bXUtPnBtdSk7Cj4gPj4+ICAgIH0KPiA+Pj4KPiA+Pj4gICAgaW50IHJpc2N2X2lvbW11X2luaXQo
-c3RydWN0IHJpc2N2X2lvbW11X2RldmljZSAqaW9tbXUpCj4gPj4+IEBAIC0xNjM1LDYgKzE2OTQs
-MTAgQEAgaW50IHJpc2N2X2lvbW11X2luaXQoc3RydWN0IHJpc2N2X2lvbW11X2RldmljZSAqaW9t
-bXUpCj4gPj4+ICAgICAgICBpZiAocmMpCj4gPj4+ICAgICAgICAgICAgICAgIGdvdG8gZXJyX3F1
-ZXVlX2Rpc2FibGU7Cj4gPj4+Cj4gPj4+ICsgICAgIHJjID0gcmlzY3ZfaW9tbXVfaHBtX2VuYWJs
-ZShpb21tdSk7Cj4gPj4+ICsgICAgIGlmIChyYykKPiA+Pj4gKyAgICAgICAgICAgICBnb3RvIGVy
-cl9ocG1fZGlzYWJsZTsKPiA+Pj4gKwo+ID4+Cj4gPj4gSSB3b3VsZCBsZWF2ZSB0aGlzIHVudGls
-IGFmdGVyIHRoZSB3aG9sZSBJT01NVSBzZXR1cCBoYXMgc3VjY2VlZGVkLiBUaGUKPiA+PiBQTVUg
-aXMgbm90IGNyaXRpY2FsIHRvIElPTU1VIG9wZXJhdGlvbiwgc28gYXQgdGhhdCBwb2ludCBhbiBl
-cnJvciBpcyBub3QKPiA+PiBmYXRhbCwgaXQganVzdCBtZWFucyB5b3UgZG9uJ3QgZ2V0IGEgUE1V
-LCB0aHVzIHRoZXJlIHNob3VsZG4ndCBuZWVkIHRvCj4gPj4gYmUgYW55IGNsZWFudXAgb3V0c2lk
-ZSByaXNjdl9pb21tdV9ocG1fZW5hYmxlKCkgaXRzZWxmLgo+ID4KPiA+IFRoYW5rcyBmb3IgcG9p
-bnRpbmcgdGhpcyBvdXQuIFBNVSBmYWlsdXJlIHNob3VsZG4ndCBjYXVzZSB0aGUgZW50aXJlCj4g
-PiBJT01NVSB0byBmYWlsLCBsZXQgbWUgbW9kaWZ5IGl0IGluIHRoZSBuZXh0IHZlcnNpb24uCj4g
-Pgo+ID4+Cj4gPj4gVGhhbmtzLAo+ID4+IFJvYmluLgo+ID4+Cj4gPj4+ICAgICAgICByYyA9IGlv
-bW11X2RldmljZV9zeXNmc19hZGQoJmlvbW11LT5pb21tdSwgTlVMTCwgTlVMTCwgInJpc2N2LWlv
-bW11QCVzIiwKPiA+Pj4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBkZXZfbmFt
-ZShpb21tdS0+ZGV2KSk7Cj4gPj4+ICAgICAgICBpZiAocmMpIHsKPiA+Pj4gQEAgLTE2NTMsNiAr
-MTcxNiw4IEBAIGludCByaXNjdl9pb21tdV9pbml0KHN0cnVjdCByaXNjdl9pb21tdV9kZXZpY2Ug
-KmlvbW11KQo+ID4+PiAgICBlcnJfcmVtb3ZlX3N5c2ZzOgo+ID4+PiAgICAgICAgaW9tbXVfZGV2
-aWNlX3N5c2ZzX3JlbW92ZSgmaW9tbXUtPmlvbW11KTsKPiA+Pj4gICAgZXJyX2lvZGlyX29mZjoK
-PiA+Pj4gKyAgICAgcmlzY3ZfaW9tbXVfaHBtX2Rpc2FibGUoaW9tbXUpOwo+ID4+PiArZXJyX2hw
-bV9kaXNhYmxlOgo+ID4+PiAgICAgICAgcmlzY3ZfaW9tbXVfaW9kaXJfc2V0X21vZGUoaW9tbXUs
-IFJJU0NWX0lPTU1VX0REVFBfSU9NTVVfTU9ERV9PRkYpOwo+ID4+PiAgICBlcnJfcXVldWVfZGlz
-YWJsZToKPiA+Pj4gICAgICAgIHJpc2N2X2lvbW11X3F1ZXVlX2Rpc2FibGUoJmlvbW11LT5mbHRx
-KTsKPiA+Pgo+CgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-XwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9y
-ZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2
-Cg==
+On Mo, 2025-01-20 at 18:21 +0100, Michal Wilczynski wrote:
+> Introduce reset controller driver for the T-HEAD TH1520 SoC. The
+> controller manages hardware reset lines for various SoC subsystems, such
+> as the GPU.
+
+This statement is confusing, given the implementation only handles a
+single (GPU) reset control.
+
+> By exposing these resets via the Linux reset subsystem,
+> drivers can request and control hardware resets to reliably initialize
+> or recover key components.
+> 
+> Signed-off-by: Michal Wilczynski <m.wilczynski@samsung.com>
+> ---
+>  MAINTAINERS                  |   1 +
+>  drivers/reset/Kconfig        |  10 +++
+>  drivers/reset/Makefile       |   1 +
+>  drivers/reset/reset-th1520.c | 144 +++++++++++++++++++++++++++++++++++
+>  4 files changed, 156 insertions(+)
+>  create mode 100644 drivers/reset/reset-th1520.c
+> 
+> diff --git a/MAINTAINERS b/MAINTAINERS
+> index 1b6e894500ef..18382a356b12 100644
+> --- a/MAINTAINERS
+> +++ b/MAINTAINERS
+> @@ -20197,6 +20197,7 @@ F:	drivers/mailbox/mailbox-th1520.c
+>  F:	drivers/net/ethernet/stmicro/stmmac/dwmac-thead.c
+>  F:	drivers/pinctrl/pinctrl-th1520.c
+>  F:	drivers/pmdomain/thead/
+> +F:	drivers/reset/reset-th1520.c
+>  F:	include/dt-bindings/clock/thead,th1520-clk-ap.h
+>  F:	include/dt-bindings/firmware/thead,th1520-aon.h
+>  F:	include/linux/firmware/thead/thead,th1520-aon.h
+> diff --git a/drivers/reset/Kconfig b/drivers/reset/Kconfig
+> index 5b3abb6db248..fa0943c3d1de 100644
+> --- a/drivers/reset/Kconfig
+> +++ b/drivers/reset/Kconfig
+> @@ -272,6 +272,16 @@ config RESET_SUNXI
+>  	help
+>  	  This enables the reset driver for Allwinner SoCs.
+>  
+> +config RESET_TH1520
+> +	tristate "T-HEAD 1520 reset controller"
+> +	depends on ARCH_THEAD || COMPILE_TEST
+> +	select REGMAP_MMIO
+> +	help
+> +	  This driver provides support for the T-HEAD TH1520 SoC reset controller,
+> +	  which manages hardware reset lines for SoC components such as the GPU.
+> +	  Enable this option if you need to control hardware resets on TH1520-based
+> +	  systems.
+> +
+>  config RESET_TI_SCI
+>  	tristate "TI System Control Interface (TI-SCI) reset driver"
+>  	depends on TI_SCI_PROTOCOL || (COMPILE_TEST && TI_SCI_PROTOCOL=n)
+> diff --git a/drivers/reset/Makefile b/drivers/reset/Makefile
+> index 677c4d1e2632..d6c2774407ae 100644
+> --- a/drivers/reset/Makefile
+> +++ b/drivers/reset/Makefile
+> @@ -35,6 +35,7 @@ obj-$(CONFIG_RESET_SIMPLE) += reset-simple.o
+>  obj-$(CONFIG_RESET_SOCFPGA) += reset-socfpga.o
+>  obj-$(CONFIG_RESET_SUNPLUS) += reset-sunplus.o
+>  obj-$(CONFIG_RESET_SUNXI) += reset-sunxi.o
+> +obj-$(CONFIG_RESET_TH1520) += reset-th1520.o
+>  obj-$(CONFIG_RESET_TI_SCI) += reset-ti-sci.o
+>  obj-$(CONFIG_RESET_TI_SYSCON) += reset-ti-syscon.o
+>  obj-$(CONFIG_RESET_TI_TPS380X) += reset-tps380x.o
+> diff --git a/drivers/reset/reset-th1520.c b/drivers/reset/reset-th1520.c
+> new file mode 100644
+> index 000000000000..e4278f49c62f
+> --- /dev/null
+> +++ b/drivers/reset/reset-th1520.c
+> @@ -0,0 +1,144 @@
+> +// SPDX-License-Identifier: GPL-2.0
+> +/*
+> + * Copyright (c) 2024 Samsung Electronics Co., Ltd.
+> + * Author: Michal Wilczynski <m.wilczynski@samsung.com>
+> + */
+> +
+> +#include <linux/mod_devicetable.h>
+> +#include <linux/platform_device.h>
+> +#include <linux/reset-controller.h>
+> +#include <linux/regmap.h>
+> +
+> + /* register offset in VOSYS_REGMAP */
+> +#define TH1520_GPU_RST_CFG		0x0
+> +#define TH1520_GPU_RST_CFG_MASK		GENMASK(2, 0)
+> +
+> +/* register values */
+> +#define TH1520_GPU_SW_GPU_RST		BIT(0)
+> +#define TH1520_GPU_SW_CLKGEN_RST	BIT(1)
+> +
+> +struct th1520_reset_priv {
+> +	struct reset_controller_dev rcdev;
+> +	struct regmap *map;
+> +};
+> +
+> +static inline struct th1520_reset_priv *
+> +to_th1520_reset(struct reset_controller_dev *rcdev)
+> +{
+> +	return container_of(rcdev, struct th1520_reset_priv, rcdev);
+> +}
+> +
+> +static void th1520_rst_gpu_enable(struct regmap *reg)
+> +{
+> +	int val;
+> +
+> +	/* if the GPU is not in a reset state it, put it into one */
+> +	regmap_read(reg, TH1520_GPU_RST_CFG, &val);
+> +	if (val)
+> +		regmap_update_bits(reg, TH1520_GPU_RST_CFG,
+> +				   TH1520_GPU_RST_CFG_MASK, 0x0);
+> +
+> +	/* rst gpu clkgen */
+> +	regmap_set_bits(reg, TH1520_GPU_RST_CFG, TH1520_GPU_SW_CLKGEN_RST);
+> +
+> +	/*
+> +	 * According to the hardware manual, a delay of at least 32 clock
+> +	 * cycles is required between de-asserting the clkgen reset and
+> +	 * de-asserting the GPU reset. Assuming a worst-case scenario with
+> +	 * a very high GPU clock frequency, a delay of 1 microsecond is
+> +	 * sufficient to ensure this requirement is met across all
+> +	 * feasible GPU clock speeds.
+> +	 */
+> +	udelay(1);
+> +
+> +	/* rst gpu */
+> +	regmap_set_bits(reg, TH1520_GPU_RST_CFG, TH1520_GPU_SW_GPU_RST);
+
+This sequence of TH1520_GPU_RST_CFG register accesses should be
+protected by a lock.
+
+[...]
+> +static int th1520_reset_assert(struct reset_controller_dev *rcdev, unsigned long id)
+> +{
+> +	struct th1520_reset_priv *priv = to_th1520_reset(rcdev);
+> +
+> +	th1520_rst_gpu_disable(priv->map);
+> +
+> +	return 0;
+> +}
+> +
+> +static int th1520_reset_deassert(struct reset_controller_dev *rcdev, unsigned long id)
+> +{
+> +	struct th1520_reset_priv *priv = to_th1520_reset(rcdev);
+> +
+> +	th1520_rst_gpu_enable(priv->map);
+> +
+> +	return 0;
+> +}
+> +
+> +static int th1520_reset_xlate(struct reset_controller_dev *rcdev,
+> +			      const struct of_phandle_args *reset_spec)
+> +{
+> +	return 0;
+> +}
+
+These all explicitly handle only a single reset control, which is in
+conflict with the commit message of this patch and the dt-binding
+patch. Will more reset controls be added to this driver in the future?
+
+
+regards
+Philipp
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
