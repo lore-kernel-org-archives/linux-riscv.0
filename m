@@ -4,87 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 582D7C02182
-	for <linux-riscv@archiver.kernel.org>; Tue, 21 Jan 2025 07:50:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8FCE5C02182
+	for <linux-riscv@archiver.kernel.org>; Tue, 21 Jan 2025 08:25:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mjrDRBJnj3Yl4/+cJiDyA8VWtZlgDw0DXj4pj6/txSs=; b=16AIxeYDQqpxQGtMj80YVnFywR
-	BGts74zr9txuOHFt2frby2Q04W4uuNfRxIqNQ1VljL38U5dykfHhLB65mUJ431qXL8gk+GZTITQxA
-	bNZ+XOtGaStAUlNJaDbzFv6ULkCtAbRAy4wAPp21+o0SA7+0aGN+3IV8fB7u+teaBdwpvVBrrablV
-	ZZwYSO9RAXYjLiA6hKaqQxBg01nYSObSQnyb8rJTO6zEZcPFjyQwFukA4+i4uNd/D/LkiFkZIzQOF
-	VcOQKoaFpR8obCulQcw8MA5FpXJ4IMwsHb8kBCVPS7Z51hw++b1GLVoZKN3GTuLUbAhAgidcalcS8
-	mtH48aKw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Date:Cc:To:From:Subject:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=MhhrAIjp6OWK1nERT40cGPzBrDMOMt2tIkd/h85K9mQ=; b=wOXVb+Oh6f4F84
+	wNa/VL/XOOibjO3DtYm4SkBFb/7fM8h0VjMpTqx4CwQjTlClSOE/pf4Q2yIDEKtr3chWPBaDBnGjJ
+	HFCWEkpdyckirUz/6RKT0mtEGQwY+owZxuFnk4jtT5mMW61Ifl2bpfAVXoLdDayw77uQLADN/7pfg
+	GGQbHes4ovP9rp79yFtp1nLcjNKGX4UDptj/ciyDUmksO9X1+eORGzIIOibrynxAWK4tqw0JeFKwA
+	8HbxfRuDvs3rHjAIfPFEcGDvaOWlAKKFD1NZ8QzWL2Uil4DAESU8HgZS7ieSfe1x0ZjTnBlXP2czb
+	U+fNGgyu7+VacuY5Wkig==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1ta91r-00000007AnX-3k2m;
-	Tue, 21 Jan 2025 07:50:31 +0000
-Received: from mail-ed1-x52a.google.com ([2a00:1450:4864:20::52a])
+	id 1ta9Ze-00000007Fni-3cnj;
+	Tue, 21 Jan 2025 08:25:26 +0000
+Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1ta8zC-00000007AND-2P65
+	id 1ta9Zc-00000007FnJ-0AoX
 	for linux-riscv@lists.infradead.org;
-	Tue, 21 Jan 2025 07:47:48 +0000
-Received: by mail-ed1-x52a.google.com with SMTP id 4fb4d7f45d1cf-5d3d479b1e6so7869719a12.2
-        for <linux-riscv@lists.infradead.org>; Mon, 20 Jan 2025 23:47:46 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1737445665; x=1738050465; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=kHmkI/T2A61pfMW4kkHpuFAyeZJfqURmpjk9vDwC6vA=;
-        b=VbmrvnGsXc8IHyIKlWOvriAnbPOUp3jX2zPEA00D4WrjCsj4Ft3YPiAuIM+JDplRQ1
-         jE6w6gp38FWgwH/UYG5yooKyT0bAnXK9/Q35WbCepNd3hATSnA7QRJlBYgqW+5+t+pkS
-         9EknLICGp1nig4GsHjiWA9ooCbcvCX4YJMokALdlHAYa234tz1gwnZ8FcpPy45nnozX2
-         O/9fAg/6jF3OsFmVB/J4/CU5x9FXp0uaYoObiIAMTa2M/Di+xegeiefn4N/ArRX26Tcj
-         PIfw6NgdvEsj+aLH1Mqvf1rAUVpsYbSCBMRTOJjN56HfmRmIQ1WyVxjceqStnGVcVHPr
-         i8kA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1737445665; x=1738050465;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=kHmkI/T2A61pfMW4kkHpuFAyeZJfqURmpjk9vDwC6vA=;
-        b=l53s7G4+PuyAN4cpwJHqaYef+vUr1fRyUJT/su3l2hsYaueyat+hJZ1Tw9pVkI4RYJ
-         GqGW23L7vCx9MQuy5u6jIExdpRuleiKwHdqe/5hL1kMr2zPZe5RV5jt1VlxqGBfUHeb1
-         OfYkT2PrQdwgKpzWxelrx2cwyXV+BhsdWCiZVehCjXTmShfQAX2kVJrTGY9l/Lt5CUgD
-         I0UE5Ws5tcwXACziJmiqNcGjLrnUmX906a05SQDJs+vSeu/8d1riZZXEugQl0vTWfb8j
-         c20Qk+vSxNJR3Nk8KbAknwDCI9hwkMGh21lL5QqPcB4CnUQaOGffSNVlG9PxObSYmyMd
-         jGnA==
-X-Forwarded-Encrypted: i=1; AJvYcCX6rjhi4aS6kn3/TElzl50yFNXofV2Efh99U7QJJRgQBIK7lh94Sb6gQBo6OAGLv3qhPbBaed2WpC8WQg==@lists.infradead.org
-X-Gm-Message-State: AOJu0YzKL83Rtt709G9Ll4QBA/cDtsHAkbaKaH/6KDYkNYqpzxrVrtkO
-	mLW2rtD7YdjEsGIExzEokOjfFc1NPGV8/cDVNy41lWBfYdG+v0u+L5dNXx4AkTg=
-X-Gm-Gg: ASbGncuhfIfY5hrZqsVrJDIcKbIZANnSXV9OE7gO00cxOYTJAEZntFJEReursybyGUE
-	E9zHmj7wXKMp44ctgkUcI1zhf3NyGpTP7e+tRc8rp8jNPxZZANjWk0GFlwsBEmNELVtYItpnESB
-	k8JNgP9qCTzCsypd3ombaQl97rad0vgjaxGrEAXhJ5Hhn99aaCChOERKdwWpIw6cziEsvqb4+yH
-	X/RcQa6QhC/J09aqqymr7zNEt4uH797oiaspcj7kypd3jUyPkKBvN+QxAaiBXfvCs0XZ4yEba4=
-X-Google-Smtp-Source: AGHT+IEUBI4P116ENXHw5hP8hTyNuBlon7g16FyxICqd0dia9ly16Gi5SE6Z2QYr/PYvdKeGO8w7jQ==
-X-Received: by 2002:a05:6402:3487:b0:5d0:fb56:3f with SMTP id 4fb4d7f45d1cf-5db7d2f5b5cmr33434489a12.12.1737445665056;
-        Mon, 20 Jan 2025 23:47:45 -0800 (PST)
-Received: from localhost ([2a02:8071:b783:6940:36f3:9aff:fec2:7e46])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ab384f86fa4sm717866666b.143.2025.01.20.23.47.44
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 20 Jan 2025 23:47:44 -0800 (PST)
-Date: Tue, 21 Jan 2025 08:47:42 +0100
-From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>
-To: Nylon Chen <nylon.chen@sifive.com>
-Cc: linux-kernel@vger.kernel.org, linux-pwm@vger.kernel.org, 
-	devicetree@vger.kernel.org, Paul Walmsley <paul.walmsley@sifive.com>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Samuel Holland <samuel.holland@sifive.com>, linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v10 0/3] Change PWM-controlled LED pin active mode and
- algorithm
-Message-ID: <zneb3qwgf52zitcbq4wz76shnmhwfkabbsts3sussjpc5s5tsz@uneaxdfp4m2f>
-References: <20241224093902.1632627-1-nylon.chen@sifive.com>
- <zqkx7cx5nalslfmxeoxdnsjbvrvzajrjybsmsyeyc65a64sntr@gpc5qp6aoyp7>
- <CAHh=Yk-_0rKB=FG6Voif2MDjtRxzUA5vXDP2J-o5=8ru1ewt0w@mail.gmail.com>
- <CAHh=Yk-TosOmwEughfK9mMx-=DgzWK5H_bf6H641SGh1ue8BrA@mail.gmail.com>
+	Tue, 21 Jan 2025 08:25:25 +0000
+Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
+	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
+	(Exim 4.92)
+	(envelope-from <p.zabel@pengutronix.de>)
+	id 1ta9Z6-0008Ps-UH; Tue, 21 Jan 2025 09:24:52 +0100
+Received: from lupine.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::4e] helo=lupine)
+	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <p.zabel@pengutronix.de>)
+	id 1ta9Z3-0014lS-0a;
+	Tue, 21 Jan 2025 09:24:49 +0100
+Received: from pza by lupine with local (Exim 4.96)
+	(envelope-from <p.zabel@pengutronix.de>)
+	id 1ta9Z3-0001U4-0B;
+	Tue, 21 Jan 2025 09:24:49 +0100
+Message-ID: <518c440a74b592099b1f5dddd95dbc23615dd034.camel@pengutronix.de>
+Subject: Re: [RFC v3 09/18] drm/imagination: Add reset controller support
+ for GPU initialization
+From: Philipp Zabel <p.zabel@pengutronix.de>
+To: Michal Wilczynski <m.wilczynski@samsung.com>, mturquette@baylibre.com, 
+ sboyd@kernel.org, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+  drew@pdp7.com, guoren@kernel.org, wefu@redhat.com,
+ jassisinghbrar@gmail.com,  paul.walmsley@sifive.com, palmer@dabbelt.com,
+ aou@eecs.berkeley.edu,  frank.binns@imgtec.com, matt.coster@imgtec.com, 
+ maarten.lankhorst@linux.intel.com, mripard@kernel.org, tzimmermann@suse.de,
+  airlied@gmail.com, simona@ffwll.ch, ulf.hansson@linaro.org,
+ jszhang@kernel.org,  m.szyprowski@samsung.com
+Cc: linux-clk@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
+	dri-devel@lists.freedesktop.org, linux-pm@vger.kernel.org
+Date: Tue, 21 Jan 2025 09:24:48 +0100
+In-Reply-To: <20250120172111.3492708-10-m.wilczynski@samsung.com>
+References: <20250120172111.3492708-1-m.wilczynski@samsung.com>
+	 <CGME20250120172131eucas1p1ed7fc14a96c66b1dc9e14e9fc7cbb2b7@eucas1p1.samsung.com>
+	 <20250120172111.3492708-10-m.wilczynski@samsung.com>
+User-Agent: Evolution 3.46.4-2 
 MIME-Version: 1.0
-In-Reply-To: <CAHh=Yk-TosOmwEughfK9mMx-=DgzWK5H_bf6H641SGh1ue8BrA@mail.gmail.com>
+X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
+X-SA-Exim-Mail-From: p.zabel@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-riscv@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250120_234746_615873_F29E0AC1 
-X-CRM114-Status: GOOD (  17.22  )
+X-CRM114-CacheID: sfid-20250121_002524_089613_797B67F9 
+X-CRM114-Status: GOOD (  26.10  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,139 +82,158 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============6962639236208895192=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On Mo, 2025-01-20 at 18:21 +0100, Michal Wilczynski wrote:
+> Certain platforms, such as the T-Head TH1520 and Banana Pi BPI-F3,
+> require a controlled GPU reset sequence during the power-up procedure
+> to ensure proper initialization. Without this reset, the GPU may remain
+> in an undefined state, potentially leading to stability or performance
+> issues.
+> 
+> This commit integrates a dedicated reset controller within the
+> drm/imagination driver. By doing so, the driver can coordinate the
+> necessary reset operations as part of the normal GPU bring-up process,
+> improving reliability and ensuring that the hardware is ready for
+> operation.
+> 
+> Signed-off-by: Michal Wilczynski <m.wilczynski@samsung.com>
+> ---
+>  drivers/gpu/drm/imagination/pvr_device.c | 21 +++++++++++++++++++++
+>  drivers/gpu/drm/imagination/pvr_device.h |  9 +++++++++
+>  drivers/gpu/drm/imagination/pvr_power.c  | 15 ++++++++++++++-
+>  3 files changed, 44 insertions(+), 1 deletion(-)
+> 
+> diff --git a/drivers/gpu/drm/imagination/pvr_device.c b/drivers/gpu/drm/imagination/pvr_device.c
+> index 1704c0268589..7ae9875d8d74 100644
+> --- a/drivers/gpu/drm/imagination/pvr_device.c
+> +++ b/drivers/gpu/drm/imagination/pvr_device.c
+> @@ -25,6 +25,7 @@
+>  #include <linux/interrupt.h>
+>  #include <linux/platform_device.h>
+>  #include <linux/pm_runtime.h>
+> +#include <linux/reset.h>
+>  #include <linux/slab.h>
+>  #include <linux/stddef.h>
+>  #include <linux/types.h>
+> @@ -120,6 +121,21 @@ static int pvr_device_clk_init(struct pvr_device *pvr_dev)
+>  	return 0;
+>  }
+>  
+> +static int pvr_device_reset_init(struct pvr_device *pvr_dev)
+> +{
+> +	struct drm_device *drm_dev = from_pvr_device(pvr_dev);
+> +	struct reset_control *reset;
+> +
+> +	reset = devm_reset_control_get_exclusive_by_index(drm_dev->dev, 0);
 
---===============6962639236208895192==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="dyaujgonqzvowikd"
-Content-Disposition: inline
+The dt-bindings only specify a single reset. No need to request by
+index. Please use:
 
+	reset = devm_reset_control_get_exclusive(drm_dev->dev, NULL);
 
---dyaujgonqzvowikd
-Content-Type: text/plain; protected-headers=v1; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH v10 0/3] Change PWM-controlled LED pin active mode and
- algorithm
-MIME-Version: 1.0
+instead. Or devm_reset_control_get_optional_exclusive(), perhaps? See
+below.
 
-Hello,
+> +	if (IS_ERR(reset))
+> +		return dev_err_probe(drm_dev->dev, PTR_ERR(reset),
+> +				     "failed to get gpu reset line\n");
+> +
+> +	pvr_dev->reset = reset;
+> +
+> +	return 0;
+> +}
+> +
+>  /**
+>   * pvr_device_process_active_queues() - Process all queue related events.
+>   * @pvr_dev: PowerVR device to check
+> @@ -509,6 +525,11 @@ pvr_device_init(struct pvr_device *pvr_dev)
+>  	if (err)
+>  		return err;
+>  
+> +	/* Get the reset line for the GPU */
+> +	err = pvr_device_reset_init(pvr_dev);
+> +	if (err)
+> +		return err;
+> +
+>  	/* Explicitly power the GPU so we can access control registers before the FW is booted. */
+>  	err = pm_runtime_resume_and_get(dev);
+>  	if (err)
+> diff --git a/drivers/gpu/drm/imagination/pvr_device.h b/drivers/gpu/drm/imagination/pvr_device.h
+> index 6d0dfacb677b..f6576c08111c 100644
+> --- a/drivers/gpu/drm/imagination/pvr_device.h
+> +++ b/drivers/gpu/drm/imagination/pvr_device.h
+> @@ -131,6 +131,15 @@ struct pvr_device {
+>  	 */
+>  	struct clk *mem_clk;
+>  
+> +	/**
+> +	 * @reset: Optional reset line.
 
-On Sun, Jan 19, 2025 at 03:03:16PM +0800, Nylon Chen wrote:
-> I ran some basic tests by changing the period and duty cycle in both
-> decreasing and increasing sequences (see the script below).
+This looks like the reset control really should be made optional in
+pvr_device_reset_init().
 
-What is clk_get_rate(ddata->clk) for you?
+> +	 *
+> +	 * This may be used on some platforms to provide a reset line that needs to be de-asserted
+> +	 * after power-up procedure. It would also need to be asserted after the power-down
+> +	 * procedure.
+> +	 */
+> +	struct reset_control *reset;
+> +
+>  	/** @irq: IRQ number. */
+>  	int irq;
+>  
+> diff --git a/drivers/gpu/drm/imagination/pvr_power.c b/drivers/gpu/drm/imagination/pvr_power.c
+> index ba7816fd28ec..87a955600d8b 100644
+> --- a/drivers/gpu/drm/imagination/pvr_power.c
+> +++ b/drivers/gpu/drm/imagination/pvr_power.c
+> @@ -15,6 +15,7 @@
+>  #include <linux/mutex.h>
+>  #include <linux/platform_device.h>
+>  #include <linux/pm_runtime.h>
+> +#include <linux/reset.h>
+>  #include <linux/timer.h>
+>  #include <linux/types.h>
+>  #include <linux/workqueue.h>
+> @@ -252,6 +253,9 @@ pvr_power_device_suspend(struct device *dev)
+>  	clk_disable_unprepare(pvr_dev->sys_clk);
+>  	clk_disable_unprepare(pvr_dev->core_clk);
+>  
+> +	if (pvr_dev->reset)
+> +		err = reset_control_assert(pvr_dev->reset);
 
-> # Backward testing for period (decreasing)
-> echo "Testing period backward..."
->=20
-> seq 15000 -1 5000 | while read p; do
->=20
->    echo $p > /sys/class/pwm/pwmchip1/pwm0/period
->=20
->    echo "Testing period: $p"
->=20
-> done
->=20
->=20
-> # Forward testing for period (increasing)
-> echo "Testing period forward..."
->=20
-> seq 5000 1 15000 | while read p; do
->=20
->    echo $p > /sys/class/pwm/pwmchip1/pwm0/period
->=20
->    echo "Testing period: $p"
->=20
-> done
->=20
->=20
-> # Backward testing for duty cycle (decreasing)
-> echo "Testing duty cycle backward..."
->=20
-> for duty in $(seq 10000 -1 0); do
->=20
->    echo $duty > /sys/class/pwm/pwmchip1/pwm0/duty_cycle
->=20
->    echo "Testing duty cycle: $duty"
->=20
-> done
->=20
->=20
-> # Forward testing for duty cycle (increasing)
->=20
-> echo "Testing duty cycle forward..."
->=20
-> for duty in $(seq 0 1 10000); do
->=20
->    echo $duty > /sys/class/pwm/pwmchip1/pwm0/duty_cycle
->=20
->    echo "Testing duty cycle: $duty"
->=20
-> done
->=20
->=20
->=20
-> In these particular tests, I didn=E2=80=99t see any functional difference=
- or
-> unexpected behavior whether I used DIV64_U64_ROUND_CLOSEST() or
-> DIV64_U64_ROUND_UP.
-> Of course, there=E2=80=99s a chance my tests haven=E2=80=99t covered ever=
-y scenario,
-> so there could still be edge cases I missed.
+No need for conditional assert, reset_control_assert(NULL) is a no-op.
+Just use:
 
-Just to be sure: You have PWM_DEBUG enabled?
+	err = reset_control_assert(pvr_dev->reset);
 
-> From what I understand, your main concern is to ensure we never end up
-> with a duty cycle that=E2=80=99s smaller than what the user requested, wh=
-ich a
-> round-up approach would help guarantee. If you still recommend making
-> that change to achieve the desired behavior, I=E2=80=99m happy to update =
-the
-> code accordingly(CLOSEST->UP).
+> +
+>  err_drm_dev_exit:
+>  	drm_dev_exit(idx);
+>  
+> @@ -282,16 +286,25 @@ pvr_power_device_resume(struct device *dev)
+>  	if (err)
+>  		goto err_sys_clk_disable;
+>  
+> +	if (pvr_dev->reset) {
+> +		err = reset_control_deassert(pvr_dev->reset);
+> +		if (err)
+> +			goto err_mem_clk_disable;
+> +	}
 
-No, .apply should round down and so to ensure that
+Same as above, reset_control_deassert(NULL) returns 0:
 
-	pwm_get_state(mypwm, &state);
-	pwm_apply(mypwm, &state);
+	err = reset_control_deassert(pvr_dev->reset);
+	if (err)
+		goto err_mem_clk_disable;
 
-doesn't modify the hardware setting, .get_state has to round up.
-
-Best regards
-Uwe
-
---dyaujgonqzvowikd
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmePURwACgkQj4D7WH0S
-/k4KHwgAksGlvkYerZMMatVBQBOBykMcM1jl46uNHrfephJDzn4WlDzbMVC1a2DO
-15zT2WHJv5YKFuS3jSnB3xuq8cHdUze+weVYVvcKgroXGNhkuRwVARYajV847z/o
-zWKaTl+rBY2tf5GMlnclyKZpxw/IvAKujAIgadlLC/Ui/l4GmZTNqTWzBORY1Xs6
-57bSKt+b2LoOOS1s+I1xVHtwr+wvm8IGc8QG7zOMOBdnhNhV51urb4AYW4rEFjaI
-OlaiLo65Q3dWDyzhRFI70Xqj8wZzGWdD9jrRIOLa7KpILC2D2R9j0QPh29nWiOVN
-McjvrtGwuuEYx2N15HJvEx891ujqJw==
-=DgUB
------END PGP SIGNATURE-----
-
---dyaujgonqzvowikd--
-
-
---===============6962639236208895192==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+regards
+Philipp
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============6962639236208895192==--
-
