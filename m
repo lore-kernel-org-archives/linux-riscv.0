@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B3A3C02182
-	for <linux-riscv@archiver.kernel.org>; Tue, 21 Jan 2025 10:08:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E0E7C02185
+	for <linux-riscv@archiver.kernel.org>; Tue, 21 Jan 2025 10:09:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=8poUql5f6amQESgyBBeYibihGGTqX7ng/1uzXxJdQAs=; b=C6Um51ytNjPBsW
-	DqergzNvLsAbaYjRCz4+i7SRUvTit5Ehd8TjAoWtY0wkn6aP+BHfWy8HnpTkjfHHI0esFmBAwxY5z
-	xA1HI0hD+rEhiA2A1BuhSY+y9uO5kzo4U0ucY7J6Qgy2uqpx5EuwrcoGlAIzYBt3V1SVzvaOnrRmJ
-	MF7Ppi7cj2BOwX1KlGKdvEhqZh3FRz9MRVg+EpN7cco9tMLoow+hRWdpX6smMJo58+a8yC2ZvdT46
-	bLFuu4yFhG+cdANL2vZnFukInU5AMta/EUhUf+Du6qQgQ5GKBdnwwgaf/O6Ul6/H6gsFksAEaOAxZ
-	gNp+H8YIBKaXU+5L8naQ==;
+	List-Owner; bh=/Y7t8+JVduHTtWy3fovxLIioj1aMesDWxmvJSqjqQ7Q=; b=u7Q3oeFzoTuGFc
+	7DF+1k+FFuVSxeFaQZWFBme0cPOQ3r4UiybgtSuk/8Bw+7ItGlW4LBY3HL3z5KhTSvLHr/GyOniFb
+	NaJQTnBATx3AawYRrdwMs6W9Ck1CZOo7KgdHPt9qqRhz35UEBYebIFdd2ozv9b7g//pCb8Ju8H42B
+	vNTja1QnO5LN9uaiUWByE+dKU36Dt9d/R9Xcpt84rl9RvnmBWtrDIQjxogcKb/MiRtjA5MHRQV71F
+	8QKEiQ/UY/cHMCWCAmwbbynD2wymxwLmi0qX68uxPn/GnSdhs7td7C03D0z2gMTOSzsICTR7jLtSH
+	+oSNw+1WigdjEq9AN1NQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1taBBc-00000007Weh-0Kjl;
-	Tue, 21 Jan 2025 10:08:44 +0000
+	id 1taBCi-00000007WtO-3ZiC;
+	Tue, 21 Jan 2025 10:09:52 +0000
 Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1taBBZ-00000007We5-2QO6
+	id 1taBCf-00000007Wrn-4C2X
 	for linux-riscv@lists.infradead.org;
-	Tue, 21 Jan 2025 10:08:42 +0000
+	Tue, 21 Jan 2025 10:09:51 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 8EEF55C4B49;
-	Tue, 21 Jan 2025 10:08:00 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2CB28C4CEDF;
-	Tue, 21 Jan 2025 10:08:40 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id E6BD55C108B;
+	Tue, 21 Jan 2025 10:09:08 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8C1A6C4CEDF;
+	Tue, 21 Jan 2025 10:09:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1737454120;
-	bh=ENLFzy2bE8WWpAn62FWGklWq2J5NXPzsV7mwFUV66PY=;
+	s=k20201202; t=1737454189;
+	bh=iKXCTaunJbbRfM7uFpg3sysGlHLpmUBaQn4ftpbByNk=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=JCRBH20svciWwvTa1Did37XrBO0s064B/DTFoypK1t6MGJT27w12BeFGtHmYxV/as
-	 Odlu0WA8tRCdm7psEPen+TsZFqLn0UeVZYRUxEio7Yk6Kq1cjB0Vtx80OibDX0Y4wE
-	 AaRb+IxQGAJYbrccGynrYdSQLoKxXr6U2MoveJsF/FpyAcclzvOvwegFdDJmPtLOrc
-	 XmWBTm9SghFul+y1OV88u+wVxBQ7i2HdSjwhPpkDwOcI6FrfIcW2EKdhIIkQU7V/4U
-	 DLy0MOxumGpT8ESf4cG1G+R+BJqMIcOWJsah9f6MrNTdT/CVR7kSBZ/EGBVRxBZaTx
-	 l1CsnM4qWBSZg==
-Date: Tue, 21 Jan 2025 11:08:38 +0100
+	b=a4vNfWTm0j9rRNxhZuaSage+sdEk8JCmjCoa3wLc6Z5/AfCSE/L5DZ23foA2UuP/8
+	 eZXlut+CC8hHE5fHnUGnxVpiAnr89DM+5ZjN4NZIPc6x9HL5ibNUtdeT6Oj/qTQh4G
+	 ruzNd/xMzX95yJ4RDyU+foZRT3hi1ioh3dngg/tOtyEFUlhhMmFNRUatah7N7TdsiQ
+	 X4Sw3QA3SvgmLclgpjef4/V9xq47jdsGcY9TNc+VyduufFh+1IZM5ijEiUnRHFmQoU
+	 Ctics4OdqCYxK3KkXTIU6egITiZsI7F/SNS7xUid0gegywWRk7zX92P+2sD07bXnUK
+	 x2vhHUKEuLTDA==
+Date: Tue, 21 Jan 2025 11:09:46 +0100
 From: Krzysztof Kozlowski <krzk@kernel.org>
 To: Michal Wilczynski <m.wilczynski@samsung.com>
 Cc: mturquette@baylibre.com, sboyd@kernel.org, robh@kernel.org, 
@@ -54,18 +54,19 @@ Cc: mturquette@baylibre.com, sboyd@kernel.org, robh@kernel.org,
 	jszhang@kernel.org, p.zabel@pengutronix.de, m.szyprowski@samsung.com, 
 	linux-clk@vger.kernel.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
 	linux-riscv@lists.infradead.org, dri-devel@lists.freedesktop.org, linux-pm@vger.kernel.org
-Subject: Re: [RFC v3 11/18] dt-bindings: gpu: Add compatibles for T-HEAD
- TH1520 GPU
-Message-ID: <20250121-tiny-crazy-goshawk-dce1dc@krzk-bin>
+Subject: Re: [RFC v3 10/18] dt-bindings: gpu: Add 'resets' property for GPU
+ initialization
+Message-ID: <20250121-thankful-discreet-hawk-2fdc26@krzk-bin>
 References: <20250120172111.3492708-1-m.wilczynski@samsung.com>
- <CGME20250120172134eucas1p18cbf29a4ade281df10efce210cc8893e@eucas1p1.samsung.com>
- <20250120172111.3492708-12-m.wilczynski@samsung.com>
+ <CGME20250120172133eucas1p232c85cb934148427e52dd939c974a82b@eucas1p2.samsung.com>
+ <20250120172111.3492708-11-m.wilczynski@samsung.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20250120172111.3492708-12-m.wilczynski@samsung.com>
+In-Reply-To: <20250120172111.3492708-11-m.wilczynski@samsung.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250121_020841_660551_0C2C3EFA 
-X-CRM114-Status: GOOD (  10.03  )
+X-CRM114-CacheID: sfid-20250121_020950_080461_103C2045 
+X-CRM114-Status: UNSURE (   9.75  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,70 +83,19 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jan 20, 2025 at 06:21:04PM +0100, Michal Wilczynski wrote:
->    reg:
->      maxItems: 1
-> @@ -25,11 +30,8 @@ properties:
->      maxItems: 3
->  
->    clock-names:
-> -    items:
-> -      - const: core
-> -      - const: mem
-> -      - const: sys
->      minItems: 1
-> +    maxItems: 3
+On Mon, Jan 20, 2025 at 06:21:03PM +0100, Michal Wilczynski wrote:
+> Many RISC-V boards featuring Imagination Technologies GPUs require a
+> reset line to be de-asserted as part of the GPU power-up sequence. To
+> support this, add a 'resets' property (and corresponding 'reset-names')
+> to the GPU device tree bindings. This ensures the GPU can be properly
+> initialized on these platforms.
+> 
+> Signed-off-by: Michal Wilczynski <m.wilczynski@samsung.com>
+> ---
+>  Documentation/devicetree/bindings/gpu/img,powervr-rogue.yaml | 3 +++
+>  1 file changed, 3 insertions(+)
 
-So what is the third item? It cannot be anything, but must be
-constrained.
-
-I understand that you clean it up and maybe the cleaning is correct, but
-it should be separate commit with its own explanation.
-
->  
->    interrupts:
->      maxItems: 1
-> @@ -47,8 +49,6 @@ required:
->    - clock-names
->    - interrupts
->  
-> -additionalProperties: false
-> -
->  allOf:
->    - if:
->        properties:
-> @@ -58,7 +58,28 @@ allOf:
->      then:
->        properties:
->          clocks:
-> +          minItems: 1
-
-Drop minItems here.
-
->            maxItems: 1
-> +        clock-names:
-> +          items:
-> +            - const: core
-> +
-> +  - if:
-> +      properties:
-> +        compatible:
-> +          contains:
-> +            const: thead,th1520-gpu
-> +    then:
-> +      properties:
-> +        clocks:
-> +          minItems: 2
-> +          maxItems: 2
-> +        clock-names:
-> +          items:
-> +            - const: core
-> +            - const: sys
-> +
-> +unevaluatedProperties: false
-
-That's not explained. Does not look correct, either, unless you fix some
-issue, but then again: separate commit.
+Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 
 Best regards,
 Krzysztof
