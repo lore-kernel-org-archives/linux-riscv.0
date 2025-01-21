@@ -4,84 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0615AC02182
-	for <linux-riscv@archiver.kernel.org>; Tue, 21 Jan 2025 17:42:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63AD9C02182
+	for <linux-riscv@archiver.kernel.org>; Tue, 21 Jan 2025 18:13:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
 	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
 	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cUd7ggOG5qZFOXYV5psawq2dpEtISP7C5UKFiciMfyw=; b=ahTqr5xxPYTHOwx1XsbCIfP9gX
-	yrseyJWURwK5DUkHAfobrAS1IQpbNF7sROrN21tMhNmMYQNfOP9oOZv98ZMk+8BvkmBgi1lsAQDiA
-	5aisz8eRlQHEkIgXFSswlaOWZqVN4kp1qhgBIL76kVUEuq2ghtY0eWE2arPmtYDn3M2uAzZuiD33U
-	Xbi4asmjV5qyrt1sFoMomWlSGn5S0Ko39TOPX5bryEgRXiU3o2TTUuKJ8m9Nt0ktGmyuDO8dfpCJ/
-	9VZhrBu3fpgSJJ+VIk2j+mq/amfApaZayXMWxy1AUPZUFeIZ3506963dJ6UnHnL27bUHLYLHa30nl
-	sZ09PRTw==;
+	bh=q1K6ZCkrA4cfX5ilU+ZON2NmmIPC2wl977O6K/UP+6A=; b=m5nXrOU7yDsb9t447d0IzWHADU
+	WYBANaVSq/N8FAic1OBjsoYxDHpYf5bvze0Q2lnnhkoJk1RL5Btpnv6LmTZE90ZCtYK+S7ycW6h00
+	jacGyMx80m+rWiqysaYpXbCPBPoGqQ87nWjy0ly8UMNPdFaGBdbk/IYOdvlbv8VmU8E52Nk7bbm4F
+	kOYllu7ttE1w1V486ZxL9tFaDQSPLJx2ZralFwayrjdpFJ7Yy0dPDY0yzmPuLVV+KacGqcl7YZNrg
+	na4Ev15eNQ3uzRkwBfLv84easAliXK5k81gGTGe2Z/3yU1MWZRVF79NfoL/652FjIMi096ePrdZdJ
+	R66p4XTQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1taIG9-00000008Vdn-1NQa;
-	Tue, 21 Jan 2025 17:41:53 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1taIl1-00000008ZT4-1L5S;
+	Tue, 21 Jan 2025 18:13:47 +0000
+Received: from mail-wr1-x42c.google.com ([2a00:1450:4864:20::42c])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1taIDM-00000008VC0-4APY;
-	Tue, 21 Jan 2025 17:39:02 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 77C60A41E83;
-	Tue, 21 Jan 2025 17:37:12 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6F280C4CEE0;
-	Tue, 21 Jan 2025 17:38:55 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1737481139;
-	bh=t1rkrWpngB8qu0qIipVwW9LLPcWHKJVK6COBi/J1BpY=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=ajfIfNQBvTue6CtD5VhVhF9/E2qk9jDjJhV0NzExcP2VkUx2aLsxcK11UR6pvlP0H
-	 olSn3FNnAN5QhBbvmrZ5pv6E+g7+a4dn9oacfDi6HGdT4S+Pz465IlabRPZzfAcr7m
-	 qsGjvYwD2qgU01EskQgB7xLgQzliLJEQaxRcBPhzrmaI9Er1z7M0zCEoZwLX0OGrT4
-	 QvCItcV3iN9LCLnrJ4CpMGluKkBd9Pc1VNM2PDVY2QVnZjjb0aH+sayIqrrxEsSZNN
-	 T/3MGzsyw+zHg9V3egoPLxPyR821zp63YIGFy422sATrTQznzlmwmEgVk9J0K1Tf5T
-	 amnyGMfni45hw==
-Date: Tue, 21 Jan 2025 17:38:53 +0000
-From: Conor Dooley <conor@kernel.org>
-To: Stephen Boyd <sboyd@kernel.org>
-Cc: Conor Dooley <conor.dooley@microchip.com>,
-	Jerome Brunet <jbrunet@baylibre.com>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	linux-kernel@vger.kernel.org,
-	Daire McNamara <daire.mcnamara@microchip.com>,
-	pierre-henry.moussay@microchip.com,
-	valentina.fernandezalanis@microchip.com,
-	Michael Turquette <mturquette@baylibre.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Jassi Brar <jassisinghbrar@gmail.com>, Lee Jones <lee@kernel.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Kevin Hilman <khilman@baylibre.com>,
-	Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	linux-riscv@lists.infradead.org, linux-clk@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-amlogic@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v1 08/11] clk: move meson clk-regmap implementation to
- common code
-Message-ID: <20250121-cheddar-kissing-bea27c6f2726@spud>
-References: <20241002-private-unequal-33cfa6101338@spud>
- <20241002-hula-unwashed-1c4ddbadbec2@spud>
- <2b49c4df-a34a-42c5-8d44-9e47da630fe8@linaro.org>
- <1jwmiqsks3.fsf@starbuckisacylon.baylibre.com>
- <20241003-tacking-ladylike-dfe2b633e647@spud>
- <20241106-freefall-slider-db379b05821e@spud>
- <430bde3b35382e640843e32a9f351326.sboyd@kernel.org>
- <20241128-monstrous-embargo-a665d921410d@wendy>
- <e53adbf9fdf6e3f142083b0d40d074ca.sboyd@kernel.org>
- <20241206-threaten-showing-1214491f3899@spud>
+	id 1taIjW-00000008ZEM-0w97
+	for linux-riscv@lists.infradead.org;
+	Tue, 21 Jan 2025 18:12:16 +0000
+Received: by mail-wr1-x42c.google.com with SMTP id ffacd0b85a97d-386329da1d9so3325755f8f.1
+        for <linux-riscv@lists.infradead.org>; Tue, 21 Jan 2025 10:12:13 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1737483132; x=1738087932; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=2ATWl2w60Z+sGkeI0mcnx/4T0KHdRkIjZ8D4tZCsI0Y=;
+        b=JNNcUQpqZDoouxiWxvYR5Ewi9l639c+216O6MKaIi1Tx8bb9pqZmhfZ+YAHoZu72J0
+         Zzr395sdmrDTK6z+WgPhhn1L3dl0Zd9oULd3b1J3rJctHTA8jlBEgf0phwl5pCiNscQ1
+         nel83JHjOteUPiARFjeDF6JTF/iABnoeex6v01mDA9Eb8+lIJ8a+fllNB7Q3YZHwk7FD
+         qGUF89JRvgMhUZDKW7WOEHMcpSmqJNK1jAo0K04Gap1hbiAGY2sxFaISLzrj0/CDN7ZP
+         3nZVgH5dXhCrdSqOhE9xhK3flTJQTkTQXFXwZmJc+yY+COrmHwX4ztkPQ91oU/GXWQQm
+         /Vdw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1737483132; x=1738087932;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=2ATWl2w60Z+sGkeI0mcnx/4T0KHdRkIjZ8D4tZCsI0Y=;
+        b=I+JWN952/IR4RkfSFcfn6Qk3HT92UWYMsyL3TWFM3IwQnRibFCkSB2fAXIJEOiGDka
+         +cOHwRF0giz2s/nXyNjL4gDfoidRQAPIV5avLh321V/CklIVn8ZLBmE8xD27kAKqhPjp
+         J9BvYmxnmBz7OJFc2xoiH4aD1aR+WR5MuDwPA8L6qTwvHuBE2TnBicuCE8fQXfMera/W
+         kq2JSkki0wte/5+7URTCl0514r2+0za91mpH3LTnH8GyGCzZlLDA1aqZqqvrmyTEa0yd
+         KBZedylSOpR2rFQsRA5dih2Y25XJ6CKbPgD543uC7ah72sMdkoOzlxAu/DY3F+D3R1Pu
+         rw3w==
+X-Forwarded-Encrypted: i=1; AJvYcCUSJh1SI6zsWus+l/LnFA4tjhPW5ixUVrmmTZl4kokU1h2q805wnQBD3HEnPqTgINNdcQXFtuOMiXZzkw==@lists.infradead.org
+X-Gm-Message-State: AOJu0YxG8Kvve8gpzCyj4sdd4Sa8b7m89O4xtjr0/PrcpsM54sbx/+Ly
+	ViW9X/sb4VoSQ+O6pkAsU4e8/tZUxpEkuIkkhORQ5G7hqNBOGdtSbF7/DTUmaJM=
+X-Gm-Gg: ASbGnct0UZ6eE93gvAfLAKttOTgwWQSYIvjdsHx1qXl8TcfPLVehiHT+nIQV8JpNj7D
+	xW1Sf1rg5tJBqHapcTUaF3afI0SpodfpblWsfuPLka50lIeUNC8xX8dpn0nNeh+Dc87lIO4TXPg
+	us2PeP1e3sb42TcjXxfcyQh77UH8G2e0t406M9Fca5CY+e5pkskd14JKXCuje0TV5KY4w2SSo0X
+	LG1qA7OsWQ8Diy9E2kB13jJnz4NvLLhW+kkogBH2sSeV0S6jYxbtdQ4Oh10/8BBB265ltKOK6i1
+	GieJAburq/Lk/9CuY0rAoH5nAyGkt4mNBpTp
+X-Google-Smtp-Source: AGHT+IEjt4N7MJCEhKaZiHurWidGu495CgMG2Na/7KPIXm7oitJAqBfxZ0jP9XuVkrg802ep53//rQ==
+X-Received: by 2002:a5d:6c6f:0:b0:385:f3fb:46aa with SMTP id ffacd0b85a97d-38bf57a91acmr17612253f8f.43.1737483132532;
+        Tue, 21 Jan 2025 10:12:12 -0800 (PST)
+Received: from localhost (p200300f65f0afb0400000000000001b9.dip0.t-ipconnect.de. [2003:f6:5f0a:fb04::1b9])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-38bf321537dsm14275228f8f.13.2025.01.21.10.12.11
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 21 Jan 2025 10:12:12 -0800 (PST)
+Date: Tue, 21 Jan 2025 19:12:10 +0100
+From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>
+To: Nylon Chen <nylon.chen@sifive.com>
+Cc: linux-kernel@vger.kernel.org, linux-pwm@vger.kernel.org, 
+	devicetree@vger.kernel.org, Paul Walmsley <paul.walmsley@sifive.com>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Samuel Holland <samuel.holland@sifive.com>, linux-riscv@lists.infradead.org
+Subject: Re: [PATCH v10 0/3] Change PWM-controlled LED pin active mode and
+ algorithm
+Message-ID: <7bcnckef23w6g47ll5l3bktygedrcfvr7fk3qjuq2swtoffhec@zs4w4tuh6qvm>
+References: <20241224093902.1632627-1-nylon.chen@sifive.com>
+ <zqkx7cx5nalslfmxeoxdnsjbvrvzajrjybsmsyeyc65a64sntr@gpc5qp6aoyp7>
+ <CAHh=Yk-_0rKB=FG6Voif2MDjtRxzUA5vXDP2J-o5=8ru1ewt0w@mail.gmail.com>
+ <CAHh=Yk-TosOmwEughfK9mMx-=DgzWK5H_bf6H641SGh1ue8BrA@mail.gmail.com>
+ <zneb3qwgf52zitcbq4wz76shnmhwfkabbsts3sussjpc5s5tsz@uneaxdfp4m2f>
+ <CAHh=Yk_oTdURhkna_saF6mrA9gDY=+v_j5NoY_7jTDLuZ=EXtg@mail.gmail.com>
 MIME-Version: 1.0
-In-Reply-To: <20241206-threaten-showing-1214491f3899@spud>
+In-Reply-To: <CAHh=Yk_oTdURhkna_saF6mrA9gDY=+v_j5NoY_7jTDLuZ=EXtg@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250121_093901_156282_007284B5 
-X-CRM114-Status: GOOD (  38.15  )
+X-CRM114-CacheID: sfid-20250121_101214_263761_81D91CB1 
+X-CRM114-Status: GOOD (  17.95  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,121 +99,115 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============8783741932847852099=="
+Content-Type: multipart/mixed; boundary="===============3204147665256856109=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
---===============8783741932847852099==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="0nzZXl//t82IHPg6"
+--===============3204147665256856109==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="5j2h6qzt3k55kxw2"
 Content-Disposition: inline
 
 
---0nzZXl//t82IHPg6
-Content-Type: text/plain; charset=us-ascii
+--5j2h6qzt3k55kxw2
+Content-Type: text/plain; protected-headers=v1; charset=utf-8
 Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH v10 0/3] Change PWM-controlled LED pin active mode and
+ algorithm
+MIME-Version: 1.0
 
-Hey Stephen,
+On Tue, Jan 21, 2025 at 04:47:46PM +0800, Nylon Chen wrote:
+> Uwe Kleine-K=C3=B6nig <u.kleine-koenig@baylibre.com> =E6=96=BC 2025=E5=B9=
+=B41=E6=9C=8821=E6=97=A5 =E9=80=B1=E4=BA=8C =E4=B8=8B=E5=8D=883:47=E5=AF=AB=
+=E9=81=93=EF=BC=9A
+> >
+> > Hello,
+> >
+> > On Sun, Jan 19, 2025 at 03:03:16PM +0800, Nylon Chen wrote:
+> > > I ran some basic tests by changing the period and duty cycle in both
+> > > decreasing and increasing sequences (see the script below).
+> >
+> > What is clk_get_rate(ddata->clk) for you?
+> 130 MHz
 
-Any thoughts on the example I gave below?
+OK, so the possible period lengths are
 
-On Fri, Dec 06, 2024 at 01:56:08PM +0000, Conor Dooley wrote:
-> On Tue, Dec 03, 2024 at 02:50:31PM -0800, Stephen Boyd wrote:
-> > Quoting Conor Dooley (2024-11-28 02:36:16)
-> > > On Thu, Nov 14, 2024 at 05:29:54PM -0800, Stephen Boyd wrote:
-> > > > Quoting Conor Dooley (2024-11-06 04:56:25)
-> > > > > My use case doesn't
-> > > > > actually need the registration code changes either as, currently,=
- only reg
-> > > > > gets set at runtime, but leaving that out is a level of incomplet=
-e I'd not
-> > > > > let myself away with.
-> > > > > Obviously shoving the extra members into the clk structs has the =
-downside
-> > > > > of taking up a pointer and a offset worth of memory for each cloc=
-k of
-> > > > > that type registered, but it is substantially easier to support d=
-evices
-> > > > > with multiple regmaps that way. Probably moot though since the ap=
-proach you
-> > > > > suggested in the thread linked above that implements a clk_hw_get=
-_regmap()
-> > > > > has to store a pointer to the regmap's identifier which would tak=
-e up an
-> > > > > identical amount of memory.
-> > > >=20
-> > > > We don't need to store the regmap identifier in the struct clk. We =
-can
-> > > > store it in the 'struct clk_init_data' with some new field, and onl=
-y do
-> > > > that when/if we actually need to. We would need to pass the init da=
-ta to
-> > > > the clk_ops::init() callback though. We currently knock that out du=
-ring
-> > > > registration so that clk_hw->init is NULL. Probably we can just set=
- that
-> > > > to NULL after the init routine runs in __clk_core_init().
-> > > >=20
-> > > > Long story short, don't add something to 'struct clk_core', 'struct
-> > > > clk', or 'struct clk_hw' for these details. We can have a 'struct
-> > > > clk_regmap_hw' that everyone else can build upon:
-> > > >=20
-> > > >   struct clk_regmap_hw {
-> > > >         struct regmap *regmap;
-> > > >         struct clk_hw hw;
-> > > >   };
-> > >=20
-> > > What's the point of this? I don't understand why you want to do this =
-over
-> > > what clk_divider et al already do, where clk_hw and the iomem pointer
-> > > are in the struct itself.
-> >=20
-> > Can you give an example? I don't understand what you're suggesting. I
-> > prefer a struct clk_regmap_hw like above so that the existing struct
-> > clk_hw in the kernel aren't increased by a pointer. SoC drivers can use
-> > the same struct as a replacement for their struct clk_hw member today.
->=20
-> Best example I guess is to link what I did? This one is the core
-> changes:
-> https://git.kernel.org/pub/scm/linux/kernel/git/conor/linux.git/commit/?h=
-=3Dsyscon-rework-2&id=3D35904222355e971c24b3eb9b9fad3dd0c38d1393
-> clk-gate has my original hack that I did while trying to figure out
-> what you wanted, clk-divider-regmap is a 99% copy of clk-divider with
-> the types, function names and readl()/writel() implementations modified.
-> Before your last set of comments I was doing something identical to the
-> clk-gate change for clk-divider also.
-> Here's the changes required to my driver to make it work with the
-> updated:
-> https://git.kernel.org/pub/scm/linux/kernel/git/conor/linux.git/commit/?h=
-=3Dsyscon-rework-2&id=3Dea40211fe20f8bc6ef0320b93e1baa5b3f244601
-> It's pretty much a drop in replacement, other than the additional
-> complexity in probe.
->=20
-> Hopefully that either gets my point across or lets you spot why I don't
-> understand the benefit of a wrapper around clk_hw.
->=20
-> Cheers,
-> Conor.
+	(1 << (16 + scale)) / (130 MHz)
 
+for scale in [0, .. 15], right? That's
 
+	2^scale * 504123.07692307694 ns
 
---0nzZXl//t82IHPg6
+So testing period in the range between 5000 ns and 15000 ns isn't
+sensible? Did I get something wrong? If the above is right, switching
+between period=3D1008246 ns and 1008247 ns is likely to trigger a
+warning.
+
+Maybe also something like
+
+diff --git a/drivers/pwm/core.c b/drivers/pwm/core.c
+index 7e863c2cd44b..6c82aca84472 100644
+--- a/drivers/pwm/core.c
++++ b/drivers/pwm/core.c
+@@ -2247,9 +2247,10 @@ static void pwm_dbg_show(struct pwm_chip *chip, stru=
+ct seq_file *s)
+=20
+ 	for (i =3D 0; i < chip->npwm; i++) {
+ 		struct pwm_device *pwm =3D &chip->pwms[i];
+-		struct pwm_state state;
++		struct pwm_state state, hwstate;
+=20
+ 		pwm_get_state(pwm, &state);
++		pwm_get_state_hw(pwm, &hwstate);
+=20
+ 		seq_printf(s, " pwm-%-3d (%-20.20s):", i, pwm->label);
+=20
+@@ -2259,8 +2260,8 @@ static void pwm_dbg_show(struct pwm_chip *chip, struc=
+t seq_file *s)
+ 		if (state.enabled)
+ 			seq_puts(s, " enabled");
+=20
+-		seq_printf(s, " period: %llu ns", state.period);
+-		seq_printf(s, " duty: %llu ns", state.duty_cycle);
++		seq_printf(s, " period: %llu (%llu) ns", state.period, hwstate.period);
++		seq_printf(s, " duty: %llu (%llu) ns", state.duty_cycle, hwstate.duty_cy=
+cle);
+ 		seq_printf(s, " polarity: %s",
+ 			   state.polarity ? "inverse" : "normal");
+=20
+
+is useful for debugging to see what is actually implemented for a given
+request.
+
+Having said that, I don't like struct pwm_sifive_ddata::real_period and
+pwm_sifive_ddata::approx_period. These complicate the calculation and
+=2Eget_state should better calculate the period instead of just sticking
+to ddata->real_period.
+
+Best regards
+Uwe
+
+--5j2h6qzt3k55kxw2
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZ4/brQAKCRB4tDGHoIJi
-0nEMAP9cytqQKQB1hDGGUuuWB8kfRUG6ZyWTRYsNGzXuc2Ue7gEA8dAE6AfxgRC9
-ekDfb4tyAyN/mrt6sVTLQWKZX1CKqwg=
-=UWpp
+iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmeP43gACgkQj4D7WH0S
+/k5jDwf/Z8ZyPbdZfE5yI1ZGDLTJiKlqXt2/IGKvjygXoU5XWSqpR+NzbQOOBVOG
+shlMIS3QeyzfpmSnM+/sSIoFViagCMioQjmkSIBzr2Eg/vsaHGzm3YhuLL9UQNC7
+Cz7N1NgR77RWyRYmVXBnrYpOhJ6TZkGo0cyFOANh5geMBJmT+MBCnzTSRLqux0rf
+Yqe8N4Xpg3KEpzbM9W0QflCOlvmpL+cgy9a/omhpb4hdn407p52Ce9UYHs+V9OfK
+Fy9PKP7KzcwKPOBH2eXosK6ifpAOAxmCQrWSkKsyO8oqZDR89jancE7VMKEvqeNd
+uYSjdmRNxlJgFtRL2P/w7KCoRysVoA==
+=hiTK
 -----END PGP SIGNATURE-----
 
---0nzZXl//t82IHPg6--
+--5j2h6qzt3k55kxw2--
 
 
---===============8783741932847852099==
+--===============3204147665256856109==
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
@@ -218,5 +218,5 @@ linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
 
---===============8783741932847852099==--
+--===============3204147665256856109==--
 
