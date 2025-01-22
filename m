@@ -4,110 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6F3F9C02182
-	for <linux-riscv@archiver.kernel.org>; Wed, 22 Jan 2025 21:19:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A1F3C02181
+	for <linux-riscv@archiver.kernel.org>; Wed, 22 Jan 2025 21:33:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=aQa3TXslYgYaM5qcb91vDZfqcGS23pcJ/ZfeiMN9+Rw=; b=3Zd6i+SzSwXoXk
-	5H3daM8gjYYyBtDaPS/kG8mZLNzt1DtD2IPopT2joaHnusbX6f7kyDFBXHq5qrp35eB7RLs58v5s1
-	u55v1HcEAkLDskzkPAl7RSGedaJ1+m9pBhMfn8Jr70DEeo/l/YtS3JLfJBXbTUK+1u7MN5ZAsXbZi
-	B4f+Xwyqn2p+JZerQZ/EqcuD8L2aAmyvps5oaX3rFTcumHppBmGd3qC4qZbFWgDERNEQWyC2yYGNG
-	yiCNDnR5134KQmTCwWusbd4MQ2VpYpjnlJ/vdNlSaz3sbkUZbx0XGxoUpEiTbf7+7YvliJkhfVCmw
-	qgZQQiRUVN6K+tEZ5H/g==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
+	List-Owner; bh=9H5hZW9s3f0kqhMF6aAvo+OQtMOeRPDPNem7/ZatxQE=; b=K1qYgdiEY3EU1E
+	Y2+t70oSsxmnpRfHWfQYAQzGBuzYFetykr+wc8sNXpEUkn4U6E2+iE2ASsZjDGUBoHzNd2MD16L6G
+	U+0ulE/Gs1XfjX3EV70nzQSgUtJhDv2y5XX2yscO9H1dEv8bRymO0s2YUsmTaKDRrbDMJPicmqtvI
+	ruDcINcDoLTmFNXhqORnOfXrGcnrctvexbtHhLHG79QNio+pWe2q6Rda5nNsNRJ0Q7oGO/MQKplnw
+	ja8mNMtCwFDWS54b5zVJbkUxjCH0HBJsXWqHQqm60hnOMFWkYlTpwTb6hktGbIRiZXhiZ/XdnHr7Z
+	C35CNoeaE2mXJy/aPQuQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tai8Y-0000000BE9w-0F33;
-	Wed, 22 Jan 2025 21:19:46 +0000
-Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5])
+	id 1taiLV-0000000BFKv-2nhe;
+	Wed, 22 Jan 2025 21:33:09 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tai8U-0000000BE99-424h;
-	Wed, 22 Jan 2025 21:19:44 +0000
-Received: from pps.filterd (m0360072.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 50MHQxkg012829;
-	Wed, 22 Jan 2025 21:17:07 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
-	:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=pp1; bh=esFAzaN6g7njZiCCkaClyDhZIQCDyB
-	L4ZttyeT6NCzw=; b=MD/1i4r7lMchVZDMxCd4+OmTL+gqvz4EsoCc3lhjzl61q/
-	dWCbk7Dc9E+/mkxibxIfcO+5M2miNjCQj+Zb6N7aFJSgK9pEAqx6PGNDi1udxJ2D
-	5GRkpG+GUOuS40Gu4kk1nLVzuQ6b0Ms8Wu06boltLFfDgJ845roakAZxLi7ece1K
-	21P0Y61Gf0j8zaE10R3dSPAxGJBBECX5J1pPuXnnL27yt6dWzGu7RpbRMXnWFft4
-	1i9lfntcbQEcz44pnsvGFWB7JR/kgZ5jistInR187FAC2imqV46/9k08iOuxZ7q0
-	9o0IVrdT0Bd2ZHNbMuzwATcn0fOtey6n4VrpyBow==
-Received: from ppma12.dal12v.mail.ibm.com (dc.9e.1632.ip4.static.sl-reverse.com [50.22.158.220])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 44avcp3s7s-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 22 Jan 2025 21:17:07 +0000 (GMT)
-Received: from pps.filterd (ppma12.dal12v.mail.ibm.com [127.0.0.1])
-	by ppma12.dal12v.mail.ibm.com (8.18.1.2/8.18.1.2) with ESMTP id 50MKlol5019223;
-	Wed, 22 Jan 2025 21:17:06 GMT
-Received: from smtprelay06.fra02v.mail.ibm.com ([9.218.2.230])
-	by ppma12.dal12v.mail.ibm.com (PPS) with ESMTPS id 448pmsjk01-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 22 Jan 2025 21:17:06 +0000
-Received: from smtpav03.fra02v.mail.ibm.com (smtpav03.fra02v.mail.ibm.com [10.20.54.102])
-	by smtprelay06.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 50MLH4Kc13697392
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Wed, 22 Jan 2025 21:17:04 GMT
-Received: from smtpav03.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 6C62A2004D;
-	Wed, 22 Jan 2025 21:17:04 +0000 (GMT)
-Received: from smtpav03.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id A40CD20043;
-	Wed, 22 Jan 2025 21:17:00 +0000 (GMT)
-Received: from li-008a6a4c-3549-11b2-a85c-c5cc2836eea2.ibm.com (unknown [9.171.77.114])
-	by smtpav03.fra02v.mail.ibm.com (Postfix) with ESMTPS;
-	Wed, 22 Jan 2025 21:17:00 +0000 (GMT)
-Date: Wed, 22 Jan 2025 22:16:58 +0100
-From: Alexander Gordeev <agordeev@linux.ibm.com>
-To: Heiko Carstens <hca@linux.ibm.com>, Kevin Brodsky <kevin.brodsky@arm.com>
-Cc: linux-mm@kvack.org, Andrew Morton <akpm@linux-foundation.org>,
-        Catalin Marinas <catalin.marinas@arm.com>,
-        Dave Hansen <dave.hansen@linux.intel.com>,
-        Linus Walleij <linus.walleij@linaro.org>,
-        Andy Lutomirski <luto@kernel.org>,
-        Peter Zijlstra <peterz@infradead.org>,
-        "Mike Rapoport (IBM)" <rppt@kernel.org>,
-        Ryan Roberts <ryan.roberts@arm.com>,
-        Thomas Gleixner <tglx@linutronix.de>, Will Deacon <will@kernel.org>,
-        Matthew Wilcox <willy@infradead.org>,
-        Qi Zheng <zhengqi.arch@bytedance.com>, linux-alpha@vger.kernel.org,
-        linux-arch@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-        linux-csky@vger.kernel.org, linux-hexagon@vger.kernel.org,
-        linux-kernel@vger.kernel.org, linux-m68k@lists.linux-m68k.org,
-        linux-mips@vger.kernel.org, linux-openrisc@vger.kernel.org,
-        linux-parisc@vger.kernel.org, linux-riscv@lists.infradead.org,
-        linux-s390@vger.kernel.org, linux-snps-arc@lists.infradead.org,
-        linux-um@lists.infradead.org, loongarch@lists.linux.dev,
-        x86@kernel.org
-Subject: Re: [PATCH v2 6/6] mm: Introduce ctor/dtor at PGD level
-Message-ID: <Z5FgSn0y/c9pItED@li-008a6a4c-3549-11b2-a85c-c5cc2836eea2.ibm.com>
-References: <20250103184415.2744423-1-kevin.brodsky@arm.com>
- <20250103184415.2744423-7-kevin.brodsky@arm.com>
- <Z4/NTRDBXEEimdvc@li-008a6a4c-3549-11b2-a85c-c5cc2836eea2.ibm.com>
- <20250122074954.8685-A-hca@linux.ibm.com>
- <Z5D7TSR3AttkC0Jf@li-008a6a4c-3549-11b2-a85c-c5cc2836eea2.ibm.com>
+	id 1taiLS-0000000BFKR-2rCJ
+	for linux-riscv@lists.infradead.org;
+	Wed, 22 Jan 2025 21:33:08 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 606445C2511;
+	Wed, 22 Jan 2025 21:32:25 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 427FFC4CED2;
+	Wed, 22 Jan 2025 21:33:05 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1737581585;
+	bh=t/PUmyDqQjOM3NJQYXmc2AiphKcUaKRy63lOZHv1bSU=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:From;
+	b=G/oDyyl26vQOZBi7lsPKiHRP0D40odETzwNTgA6oJHXbngjSg31rCQ6ZuwYOK/dsp
+	 LfF7TcTdD+gh3/+tZFl6I9Tfb+S+fxhTgLhzNCXVMGF54RfDUOpdpt3M39nhX62n2e
+	 f7ujshMhbre7llf62XCeRxlVOY1pD+wDw3Y3ZbmM1zjZTckDCrDi0gnQAJ08hexBT6
+	 eAKVCaS5ejWE/gIn34C1LNIVmpSwMY3+j5tJxAQBn2QrENICUY7rqdQvGn/vx0VpOz
+	 bEDFi3jKn1N5/5Ms+ZLqyK1Do7/XmoBE/XClY3MlQVCxlJL1ujKQxVXGgBY1RX0X+y
+	 VuUDgjokNUMSQ==
+Date: Wed, 22 Jan 2025 15:33:03 -0600
+From: Bjorn Helgaas <helgaas@kernel.org>
+To: Chen Wang <unicornxw@gmail.com>
+Cc: kw@linux.com, u.kleine-koenig@baylibre.com, aou@eecs.berkeley.edu,
+	arnd@arndb.de, bhelgaas@google.com, unicorn_wang@outlook.com,
+	conor+dt@kernel.org, guoren@kernel.org, inochiama@outlook.com,
+	krzk+dt@kernel.org, lee@kernel.org, lpieralisi@kernel.org,
+	manivannan.sadhasivam@linaro.org, palmer@dabbelt.com,
+	paul.walmsley@sifive.com, pbrobinson@gmail.com, robh@kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-pci@vger.kernel.org, linux-riscv@lists.infradead.org,
+	chao.wei@sophgo.com, xiaoguang.xing@sophgo.com,
+	fengchun.li@sophgo.com
+Subject: Re: [PATCH v3 2/5] PCI: sg2042: Add Sophgo SG2042 PCIe driver
+Message-ID: <20250122213303.GA1102149@bhelgaas>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <Z5D7TSR3AttkC0Jf@li-008a6a4c-3549-11b2-a85c-c5cc2836eea2.ibm.com>
-X-TM-AS-GCONF: 00
-X-Proofpoint-ORIG-GUID: lJbHIFaitD84VbMmVKAwv1LP_Khu2fra
-X-Proofpoint-GUID: lJbHIFaitD84VbMmVKAwv1LP_Khu2fra
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1057,Hydra:6.0.680,FMLib:17.12.68.34
- definitions=2025-01-22_09,2025-01-22_02,2024-11-22_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 impostorscore=0 adultscore=0
- bulkscore=0 mlxlogscore=925 spamscore=0 phishscore=0 mlxscore=0
- suspectscore=0 lowpriorityscore=0 priorityscore=1501 clxscore=1015
- malwarescore=0 classifier=spam adjust=0 reason=mlx scancount=1
- engine=8.19.0-2411120000 definitions=main-2501220151
+In-Reply-To: <ddedd8f76f83fea2c6d3887132d2fe6f2a6a02c1.1736923025.git.unicorn_wang@outlook.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250122_131943_113079_A2F084A2 
-X-CRM114-Status: GOOD (  32.09  )
+X-CRM114-CacheID: sfid-20250122_133306_815814_CDCCA957 
+X-CRM114-Status: GOOD (  36.37  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,92 +79,225 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jan 22, 2025 at 03:06:05PM +0100, Alexander Gordeev wrote:
+On Wed, Jan 15, 2025 at 03:06:57PM +0800, Chen Wang wrote:
+> From: Chen Wang <unicorn_wang@outlook.com>
+> 
+> Add support for PCIe controller in SG2042 SoC. The controller
+> uses the Cadence PCIe core programmed by pcie-cadence*.c. The
+> PCIe controller will work in host mode only.
 
-Hi Kevin,
+> + * pcie-sg2042 - PCIe controller driver for Sophgo SG2042 SoC
 
-> On Wed, Jan 22, 2025 at 08:49:54AM +0100, Heiko Carstens wrote:
-> > > >  static inline pgd_t *pgd_alloc(struct mm_struct *mm)
-> > > >  {
-> > > > -	return (pgd_t *) crst_table_alloc(mm);
-> > > > +	unsigned long *table = crst_table_alloc(mm);
-> > > > +
-> > > > +	if (!table)
-> > > > +		return NULL;
-> > > 
-> > > I do not know status of this series, but FWIW, this call is missed:
-> > > 
-> > > 	crst_table_init(table, _REGION1_ENTRY_EMPTY); 
-> > 
-> > Why is that missing?
-> 
-> Because the follow-up pagetable_pgd_ctor() is called against uninitialized
-> page table, while other pagetable_pXd_ctor() variants are called against
-> initialized one. I could imagine complications as result of that.
-> 
-> Whether Region1 table is the right choice is a big question though, as you
-> noticed below.
+I'm guessing this is the first of a *family* of Sophgo SoCs, so
+"sg2042" looks like it might be a little too specific if there will be
+things like "sg3042" etc added in the future.
 
-As discussed with Heiko, we do not want to add the extra crst_table_init() call
-at least due to performance impact. So please ignore my comment.
+> +#include "../../../irqchip/irq-msi-lib.h"
 
-> > A pgd table can be a Region1, Region2, or Region3 table. The only caller of
-> > this function is mm_init() via mm_alloc_pgd(); and right after mm_alloc_pgd()
-> > there is a call to init_new_context() which will initialize the pgd correctly.
-> 
-> init_new_context() is in a way a constructor as well, so whole thing looks odd
-> to me. But I do not immedeately see a better way :(
-> 
-> > I guess what really gets odd, and might be broken (haven't checked yet) is
-> > what happens on dynamic upgrade of page table levels (->crst_table_upgrade()).
-> 
-> Hmm, that is a good point.
-> 
-> > With that a pgd may become a pud, and with that we get an imbalance with
-> > the ctor/dtor calls for the various page table levels when they get freed
-> 
-> The ctor/dtor mismatch should not be a problem, as pagetable_pgd|p4d|pud_ctor()
-> are the same and there is one pagetable_dtor() for all top levels as of now.
-> But if it ever comes to separate implementations, then we are in the world
-> of pain.
-> 
-> > again. Plus, at first glance, it looks also broken that we have open-coded
-> > crst_alloc() calls instead of using the "proper" page table allocation API
-> > within crst_table_upgrade(), which again would cause an imbalance.
-> 
-> This is a good point too.
+I know you're using this path because you're relying on Marc's
+work in progress [1].
 
-The below bits are seems to be missed. We will test it and send a patch.
+But I don't want to carry around an #include like this in drivers/pci
+while we're waiting for that, so I think you should use the existing
+published MSI model until after Marc's update is merged.  Otherwise we
+might end up with this ugly path here and no real path to migrate to
+the published, supported one.
 
-diff --git a/arch/s390/mm/pgalloc.c b/arch/s390/mm/pgalloc.c
-index a4e761902093..d33f55b7ee98 100644
---- a/arch/s390/mm/pgalloc.c
-+++ b/arch/s390/mm/pgalloc.c
-@@ -88,12 +88,14 @@ int crst_table_upgrade(struct mm_struct *mm, unsigned long end)
- 		if (unlikely(!p4d))
- 			goto err_p4d;
- 		crst_table_init(p4d, _REGION2_ENTRY_EMPTY);
-+		pagetable_p4d_ctor(virt_to_ptdesc(p4d));
- 	}
- 	if (end > _REGION1_SIZE) {
- 		pgd = crst_table_alloc(mm);
- 		if (unlikely(!pgd))
- 			goto err_pgd;
- 		crst_table_init(pgd, _REGION1_ENTRY_EMPTY);
-+		pagetable_pgd_ctor(virt_to_ptdesc(pgd));
- 	}
- 
- 	spin_lock_bh(&mm->page_table_lock);
-@@ -130,6 +132,7 @@ int crst_table_upgrade(struct mm_struct *mm, unsigned long end)
- 	return 0;
- 
- err_pgd:
-+	pagetable_dtor(virt_to_ptdesc(p4d));
- 	crst_table_free(mm, p4d);
- err_p4d:
- 	return -ENOMEM;
+[1] https://lore.kernel.org/linux-riscv/20241204124549.607054-2-maz@kernel.org/
 
-Thanks!
+> + * SG2042 PCIe controller supports two ways to report MSI:
+> + *
+> + * - Method A, the PCIe controller implements an MSI interrupt controller
+> + *   inside, and connect to PLIC upward through one interrupt line.
+> + *   Provides memory-mapped MSI address, and by programming the upper 32
+> + *   bits of the address to zero, it can be compatible with old PCIe devices
+> + *   that only support 32-bit MSI address.
+> + *
+> + * - Method B, the PCIe controller connects to PLIC upward through an
+> + *   independent MSI controller "sophgo,sg2042-msi" on the SOC. The MSI
+> + *   controller provides multiple(up to 32) interrupt sources to PLIC.
+
+Maybe expand "PLIC" the first time?
+
+s/SOC/SoC/ to match previous uses, e.g., in commit log
+s/multiple(up to 32)/up to 32/
+
+> + *   Compared with the first method, the advantage is that the interrupt
+> + *   source is expanded, but because for SG2042, the MSI address provided by
+> + *   the MSI controller is fixed and only supports 64-bit address(> 2^32),
+> + *   it is not compatible with old PCIe devices that only support 32-bit MSI
+> + *   address.
+
+"Supporting 64-bit address" means supporting any address from 0 to
+2^64 - 1, but I don't think that's what you mean here.
+
+I think what you mean here is that with Method B, the MSI address is
+fixed and it can only be above 4GB.
+
+> +#define REG_CLEAR_LINK0_BIT	2
+> +#define REG_CLEAR_LINK1_BIT	3
+> +#define REG_STATUS_LINK0_BIT	2
+> +#define REG_STATUS_LINK1_BIT	3
+
+> +static void sg2042_pcie_msi_clear_status(struct sg2042_pcie *pcie)
+> +{
+> +	u32 status, clr_msi_in_bit;
+> +
+> +	if (pcie->link_id == 1)
+> +		clr_msi_in_bit = BIT(REG_CLEAR_LINK1_BIT);
+> +	else
+> +		clr_msi_in_bit = BIT(REG_CLEAR_LINK0_BIT);
+
+Why not put the BIT() in the #defines for REG_CLEAR_LINK0_BIT,
+REG_STATUS_LINK0_BIT, ...?  Then this code is slightly simpler, and
+you can use similar style in sg2042_pcie_msi_chained_isr() instead of
+shifting there.
+
+> +	regmap_read(pcie->syscon, REG_CLEAR, &status);
+> +	status |= clr_msi_in_bit;
+> +	regmap_write(pcie->syscon, REG_CLEAR, status);
+
+> +static void sg2042_pcie_msi_irq_compose_msi_msg(struct irq_data *d,
+> +						struct msi_msg *msg)
+> +{
+> +	struct sg2042_pcie *pcie = irq_data_get_irq_chip_data(d);
+> +	struct device *dev = pcie->cdns_pcie->dev;
+> +
+> +	msg->address_lo = lower_32_bits(pcie->msi_phys) + BYTE_NUM_PER_MSI_VEC * d->hwirq;
+> +	msg->address_hi = upper_32_bits(pcie->msi_phys);
+
+This seems a little suspect because adding "BYTE_NUM_PER_MSI_VEC *
+d->hwirq" could cause overflow into the upper 32 bits.  I think you
+should add first, then take the lower/upper 32 bits of the 64-bit
+result.
+
+> +	if (d->hwirq > pcie->num_applied_vecs)
+> +		pcie->num_applied_vecs = d->hwirq;
+
+"num_applied_vecs" is a bit of a misnomer; it's actually the *max*
+hwirq.
+
+> +static const struct irq_domain_ops sg2042_pcie_msi_domain_ops = {
+> +	.alloc	= sg2042_pcie_irq_domain_alloc,
+> +	.free	= sg2042_pcie_irq_domain_free,
+
+Mention "msi" in these function names, e.g.,
+sg2042_pcie_msi_domain_alloc().
+
+> +static int sg2042_pcie_init_msi_data(struct sg2042_pcie *pcie)
+> +{
+> ...
+> +	/* Program the MSI address and size */
+> +	if (pcie->link_id == 1) {
+> +		regmap_write(pcie->syscon, REG_LINK1_MSI_ADDR_LOW,
+> +			     lower_32_bits(pcie->msi_phys));
+> +		regmap_write(pcie->syscon, REG_LINK1_MSI_ADDR_HIGH,
+> +			     upper_32_bits(pcie->msi_phys));
+> +
+> +		regmap_read(pcie->syscon, REG_LINK1_MSI_ADDR_SIZE, &value);
+> +		value = (value & REG_LINK1_MSI_ADDR_SIZE_MASK) | MAX_MSI_IRQS;
+> +		regmap_write(pcie->syscon, REG_LINK1_MSI_ADDR_SIZE, value);
+> +	} else {
+> +		regmap_write(pcie->syscon, REG_LINK0_MSI_ADDR_LOW,
+> +			     lower_32_bits(pcie->msi_phys));
+> +		regmap_write(pcie->syscon, REG_LINK0_MSI_ADDR_HIGH,
+> +			     upper_32_bits(pcie->msi_phys));
+> +
+> +		regmap_read(pcie->syscon, REG_LINK0_MSI_ADDR_SIZE, &value);
+> +		value = (value & REG_LINK0_MSI_ADDR_SIZE_MASK) | (MAX_MSI_IRQS << 16);
+> +		regmap_write(pcie->syscon, REG_LINK0_MSI_ADDR_SIZE, value);
+> +	}
+
+Would be nicer to set temporaries to the link_id-dependent values (as
+you did elsewhere) so it's obvious that the code is identical, e.g.,
+
+  if (pcie->link_id == 1) {
+    msi_addr = REG_LINK1_MSI_ADDR_LOW;
+    msi_addr_size = REG_LINK1_MSI_ADDR_SIZE;
+    msi_addr_size_mask = REG_LINK1_MSI_ADDR_SIZE;
+  } else {
+    ...
+  }
+
+  regmap_write(pcie->syscon, msi_addr, lower_32_bits(pcie->msi_phys));
+  regmap_write(pcie->syscon, msi_addr + 4, upper_32_bits(pcie->msi_phys));
+  ...
+
+> +
+> +	return 0;
+> +}
+> +
+> +static irqreturn_t sg2042_pcie_msi_handle_irq(struct sg2042_pcie *pcie)
+
+Which driver are you using as a template for function names and code
+structure?  There are probably a dozen different names for functions
+that iterate like this around a call to generic_handle_domain_irq(),
+but you've managed to come up with a new one.  If you can pick a
+similar name to copy, it makes it easier to compare drivers and find
+and fix defects across them.
+
+> +{
+> +	u32 i, pos;
+> +	unsigned long val;
+> +	u32 status, num_vectors;
+> +	irqreturn_t ret = IRQ_NONE;
+> +
+> +	num_vectors = pcie->num_applied_vecs;
+> +	for (i = 0; i <= num_vectors; i++) {
+> +		status = readl((void *)(pcie->msi_virt + i * BYTE_NUM_PER_MSI_VEC));
+> +		if (!status)
+> +			continue;
+> +
+> +		ret = IRQ_HANDLED;
+> +		val = status;
+
+I don't think you need both val and status.
+
+> +		pos = 0;
+> +		while ((pos = find_next_bit(&val, MAX_MSI_IRQS_PER_CTRL,
+> +					    pos)) != MAX_MSI_IRQS_PER_CTRL) {
+
+Most drivers use for_each_set_bit() here.
+
+> +			generic_handle_domain_irq(pcie->msi_domain,
+> +						  (i * MAX_MSI_IRQS_PER_CTRL) +
+> +						  pos);
+> +			pos++;
+> +		}
+> +		writel(0, ((void *)(pcie->msi_virt) + i * BYTE_NUM_PER_MSI_VEC));
+> +	}
+> +	return ret;
+> +}
+
+> +static int sg2042_pcie_setup_msi(struct sg2042_pcie *pcie,
+> +				 struct device_node *msi_node)
+> +{
+> +	struct device *dev = pcie->cdns_pcie->dev;
+> +	struct fwnode_handle *fwnode = of_node_to_fwnode(dev->of_node);
+> +	struct irq_domain *parent_domain;
+> +	int ret = 0;
+
+Pointless initialization of "ret".
+
+> +	if (!of_property_read_bool(msi_node, "msi-controller"))
+> +		return -ENODEV;
+> +
+> +	ret = of_irq_get_byname(msi_node, "msi");
+> +	if (ret <= 0) {
+> +		dev_err(dev, "%pOF: failed to get MSI irq\n", msi_node);
+> +		return ret;
+> +	}
+> +	pcie->msi_irq = ret;
+> +
+> +	irq_set_chained_handler_and_data(pcie->msi_irq,
+> +					 sg2042_pcie_msi_chained_isr, pcie);
+> +
+> +	parent_domain = irq_domain_create_linear(fwnode, MSI_DEF_NUM_VECTORS,
+> +						 &sg2042_pcie_msi_domain_ops, pcie);
+
+Wrap to fit in 80 columns like 99% of the rest of this file.
+
+Bjorn
 
 _______________________________________________
 linux-riscv mailing list
