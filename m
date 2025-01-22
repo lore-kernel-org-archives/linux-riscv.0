@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A1F3C02181
-	for <linux-riscv@archiver.kernel.org>; Wed, 22 Jan 2025 21:33:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8883BC02181
+	for <linux-riscv@archiver.kernel.org>; Wed, 22 Jan 2025 22:22:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Message-ID:
 	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
-	List-Owner; bh=9H5hZW9s3f0kqhMF6aAvo+OQtMOeRPDPNem7/ZatxQE=; b=K1qYgdiEY3EU1E
-	Y2+t70oSsxmnpRfHWfQYAQzGBuzYFetykr+wc8sNXpEUkn4U6E2+iE2ASsZjDGUBoHzNd2MD16L6G
-	U+0ulE/Gs1XfjX3EV70nzQSgUtJhDv2y5XX2yscO9H1dEv8bRymO0s2YUsmTaKDRrbDMJPicmqtvI
-	ruDcINcDoLTmFNXhqORnOfXrGcnrctvexbtHhLHG79QNio+pWe2q6Rda5nNsNRJ0Q7oGO/MQKplnw
-	ja8mNMtCwFDWS54b5zVJbkUxjCH0HBJsXWqHQqm60hnOMFWkYlTpwTb6hktGbIRiZXhiZ/XdnHr7Z
-	C35CNoeaE2mXJy/aPQuQ==;
+	List-Owner; bh=N7p33OV4LGmXyX9TrdwYYGfsI03fL9P9g+FliCfSxG0=; b=lxNF/1C3we9xsD
+	tnh3Q4yHI60E0oAqDFVKZONkNME1JYBRz06XxlA06GrUt/SV2V1t1H9fOYls8aVojKJgbWJhJMpN3
+	3Pq3y2WMjPjVV2Qf2rBnXyC+MgFADpU4w8Q1Z2Bdy1fZK/zPNi3l7ymFKcXFKrOFs8jyXiarMLI1k
+	tm1uFAHbCWN/3dECpnLUsrvFDGoeQk9n0suem2X/cmWQWRje3Jkcl/8cbrFWFaH06N9pLxEEtnMSx
+	9HUUbugO3Ca4YZdyCIg6QOmfL/lL+Z1lEupz2hfCzDdZzaS6Pgf4W3C07wbQCXk0a+fmZqEEWyFxj
+	QkdXbA3dMBWx5PN9LPvA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1taiLV-0000000BFKv-2nhe;
-	Wed, 22 Jan 2025 21:33:09 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1taj6g-0000000BIeS-3IyC;
+	Wed, 22 Jan 2025 22:21:54 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1taiLS-0000000BFKR-2rCJ
+	id 1taj6d-0000000BIe6-3SY8
 	for linux-riscv@lists.infradead.org;
-	Wed, 22 Jan 2025 21:33:08 +0000
+	Wed, 22 Jan 2025 22:21:53 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 606445C2511;
-	Wed, 22 Jan 2025 21:32:25 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 427FFC4CED2;
-	Wed, 22 Jan 2025 21:33:05 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 9CC7DA42982;
+	Wed, 22 Jan 2025 22:20:03 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7BD0BC4CED2;
+	Wed, 22 Jan 2025 22:21:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1737581585;
-	bh=t/PUmyDqQjOM3NJQYXmc2AiphKcUaKRy63lOZHv1bSU=;
+	s=k20201202; t=1737584510;
+	bh=AzO+JSyUzXy+qOi48e/wWlbvtBwFmI982O1QafOWLBI=;
 	h=Date:From:To:Cc:Subject:In-Reply-To:From;
-	b=G/oDyyl26vQOZBi7lsPKiHRP0D40odETzwNTgA6oJHXbngjSg31rCQ6ZuwYOK/dsp
-	 LfF7TcTdD+gh3/+tZFl6I9Tfb+S+fxhTgLhzNCXVMGF54RfDUOpdpt3M39nhX62n2e
-	 f7ujshMhbre7llf62XCeRxlVOY1pD+wDw3Y3ZbmM1zjZTckDCrDi0gnQAJ08hexBT6
-	 eAKVCaS5ejWE/gIn34C1LNIVmpSwMY3+j5tJxAQBn2QrENICUY7rqdQvGn/vx0VpOz
-	 bEDFi3jKn1N5/5Ms+ZLqyK1Do7/XmoBE/XClY3MlQVCxlJL1ujKQxVXGgBY1RX0X+y
-	 VuUDgjokNUMSQ==
-Date: Wed, 22 Jan 2025 15:33:03 -0600
+	b=YLpMLA+fOsLxhzm+tRIKfItoVnMCSXfHODRhiGgrbOreEEFRijdrx1EMv6n1ekqUx
+	 MDUDM9CK6pNTZ29qBiHhZO0TKxQiP3/Y7W4M2/PfepN8vREFabp2BSIe7Okfg839vV
+	 x3kLPG2WWkjldTHsuAlmiL75boIz/uFBfP2sWilWKCUYQSq5FvdHTvtPMj6UXD0tcP
+	 KYzbhmexHmIO6+KCzEnS3E7pNjBwYPQovyeH/2g9Ad1s1gj2Gd0h2RZ8higcDSMTeZ
+	 gDCP7W3vXZ7hwtuBRhiTfIkpJSRaga5lzrB39Y9vtjJEsOeO11rcqSmfKVoVQsXPGE
+	 vQJ7pTEerJ7Hg==
+Date: Wed, 22 Jan 2025 16:21:47 -0600
 From: Bjorn Helgaas <helgaas@kernel.org>
 To: Chen Wang <unicornxw@gmail.com>
 Cc: kw@linux.com, u.kleine-koenig@baylibre.com, aou@eecs.berkeley.edu,
@@ -55,14 +55,14 @@ Cc: kw@linux.com, u.kleine-koenig@baylibre.com, aou@eecs.berkeley.edu,
 	linux-pci@vger.kernel.org, linux-riscv@lists.infradead.org,
 	chao.wei@sophgo.com, xiaoguang.xing@sophgo.com,
 	fengchun.li@sophgo.com
-Subject: Re: [PATCH v3 2/5] PCI: sg2042: Add Sophgo SG2042 PCIe driver
-Message-ID: <20250122213303.GA1102149@bhelgaas>
+Subject: Re: [PATCH v3 1/5] dt-bindings: pci: Add Sophgo SG2042 PCIe host
+Message-ID: <20250122222147.GA1117670@bhelgaas>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <ddedd8f76f83fea2c6d3887132d2fe6f2a6a02c1.1736923025.git.unicorn_wang@outlook.com>
+In-Reply-To: <5a784afde48c44b5a8f376f02c5f30ccff8a3312.1736923025.git.unicorn_wang@outlook.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250122_133306_815814_CDCCA957 
-X-CRM114-Status: GOOD (  36.37  )
+X-CRM114-CacheID: sfid-20250122_142151_998326_A1CE35EF 
+X-CRM114-Status: GOOD (  22.40  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,223 +79,152 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jan 15, 2025 at 03:06:57PM +0800, Chen Wang wrote:
+On Wed, Jan 15, 2025 at 03:06:37PM +0800, Chen Wang wrote:
 > From: Chen Wang <unicorn_wang@outlook.com>
 > 
-> Add support for PCIe controller in SG2042 SoC. The controller
-> uses the Cadence PCIe core programmed by pcie-cadence*.c. The
-> PCIe controller will work in host mode only.
+> Add binding for Sophgo SG2042 PCIe host controller.
 
-> + * pcie-sg2042 - PCIe controller driver for Sophgo SG2042 SoC
+> +  sophgo,link-id:
+> +    $ref: /schemas/types.yaml#/definitions/uint32
+> +    description: |
+> +      SG2042 uses Cadence IP, every IP is composed of 2 cores (called link0
+> +      & link1 as Cadence's term). Each core corresponds to a host bridge,
+> +      and each host bridge has only one root port. Their configuration
+> +      registers are completely independent. SG2042 integrates two Cadence IPs,
+> +      so there can actually be up to four host bridges. "sophgo,link-id" is
+> +      used to identify which core/link the PCIe host bridge node corresponds to.
 
-I'm guessing this is the first of a *family* of Sophgo SoCs, so
-"sg2042" looks like it might be a little too specific if there will be
-things like "sg3042" etc added in the future.
+IIUC, the registers of Cadence IP 1 and IP 2 are completely
+independent, and if you describe both of them, you would have separate
+"pcie@62000000" stanzas with separate 'reg' and 'ranges' properties.
 
-> +#include "../../../irqchip/irq-msi-lib.h"
+From the driver, it does not look like the registers for Link0 and
+Link1 are independent, since the driver claims the
+"sophgo,sg2042-pcie-host", which includes two Cores, and it tests
+pcie->link_id to select the correct register address and bit mask.
 
-I know you're using this path because you're relying on Marc's
-work in progress [1].
+"sophgo,link-id" corresponds to Cadence documentation, but I think it
+is somewhat misleading in the binding because a PCIe "Link" refers to
+the downstream side of a Root Port.  If we use "link-id" to identify
+either Core0 or Core1 of a Cadence IP, it sort of bakes in the
+idea that there can never be more than one Root Port per Core.
 
-But I don't want to carry around an #include like this in drivers/pci
-while we're waiting for that, so I think you should use the existing
-published MSI model until after Marc's update is merged.  Otherwise we
-might end up with this ugly path here and no real path to migrate to
-the published, supported one.
+Since each Core is the root of a separate PCI hierarchy, it seems like
+maybe there should be a stanza for the Core so there's a place where
+per-hierarchy things like "linux,pci-domain" properties could go,
+e.g.,
 
-[1] https://lore.kernel.org/linux-riscv/20241204124549.607054-2-maz@kernel.org/
+  pcie@62000000 {		// IP 1, single-link mode
+    compatible = "sophgo,sg2042-pcie-host";
+    reg = <...>;
+    ranges = <...>;
 
-> + * SG2042 PCIe controller supports two ways to report MSI:
-> + *
-> + * - Method A, the PCIe controller implements an MSI interrupt controller
-> + *   inside, and connect to PLIC upward through one interrupt line.
-> + *   Provides memory-mapped MSI address, and by programming the upper 32
-> + *   bits of the address to zero, it can be compatible with old PCIe devices
-> + *   that only support 32-bit MSI address.
-> + *
-> + * - Method B, the PCIe controller connects to PLIC upward through an
-> + *   independent MSI controller "sophgo,sg2042-msi" on the SOC. The MSI
-> + *   controller provides multiple(up to 32) interrupt sources to PLIC.
+    core0 {
+      sophgo,core-id = <0>;
+      linux,pci-domain = <0>;
 
-Maybe expand "PLIC" the first time?
+      port {
+        num-lanes = <4>;	// all lanes
+      };
+    };
+  };
 
-s/SOC/SoC/ to match previous uses, e.g., in commit log
-s/multiple(up to 32)/up to 32/
+  pcie@82000000 {		// IP 2, dual-link mode
+    compatible = "sophgo,sg2042-pcie-host";
+    reg = <...>;
+    ranges = <...>;
 
-> + *   Compared with the first method, the advantage is that the interrupt
-> + *   source is expanded, but because for SG2042, the MSI address provided by
-> + *   the MSI controller is fixed and only supports 64-bit address(> 2^32),
-> + *   it is not compatible with old PCIe devices that only support 32-bit MSI
-> + *   address.
+    core0 {
+      sophgo,core-id = <0>;
+      linux,pci-domain = <1>;
 
-"Supporting 64-bit address" means supporting any address from 0 to
-2^64 - 1, but I don't think that's what you mean here.
+      port {
+        num-lanes = <2>;	// half of lanes
+      };
+    };
 
-I think what you mean here is that with Method B, the MSI address is
-fixed and it can only be above 4GB.
+    core1 {
+      sophgo,core-id = <1>;
+      linux,pci-domain = <2>;
 
-> +#define REG_CLEAR_LINK0_BIT	2
-> +#define REG_CLEAR_LINK1_BIT	3
-> +#define REG_STATUS_LINK0_BIT	2
-> +#define REG_STATUS_LINK1_BIT	3
+      port {
+        num-lanes = <2>;	// half of lanes
+      };
+    };
+  };
 
-> +static void sg2042_pcie_msi_clear_status(struct sg2042_pcie *pcie)
-> +{
-> +	u32 status, clr_msi_in_bit;
+> +      The Cadence IP has two modes of operation, selected by a strap pin.
 > +
-> +	if (pcie->link_id == 1)
-> +		clr_msi_in_bit = BIT(REG_CLEAR_LINK1_BIT);
-> +	else
-> +		clr_msi_in_bit = BIT(REG_CLEAR_LINK0_BIT);
-
-Why not put the BIT() in the #defines for REG_CLEAR_LINK0_BIT,
-REG_STATUS_LINK0_BIT, ...?  Then this code is slightly simpler, and
-you can use similar style in sg2042_pcie_msi_chained_isr() instead of
-shifting there.
-
-> +	regmap_read(pcie->syscon, REG_CLEAR, &status);
-> +	status |= clr_msi_in_bit;
-> +	regmap_write(pcie->syscon, REG_CLEAR, status);
-
-> +static void sg2042_pcie_msi_irq_compose_msi_msg(struct irq_data *d,
-> +						struct msi_msg *msg)
-> +{
-> +	struct sg2042_pcie *pcie = irq_data_get_irq_chip_data(d);
-> +	struct device *dev = pcie->cdns_pcie->dev;
+> +      In the single-link mode, the Cadence PCIe core instance associated
+> +      with Link0 is connected to all the lanes and the Cadence PCIe core
+> +      instance associated with Link1 is inactive.
 > +
-> +	msg->address_lo = lower_32_bits(pcie->msi_phys) + BYTE_NUM_PER_MSI_VEC * d->hwirq;
-> +	msg->address_hi = upper_32_bits(pcie->msi_phys);
-
-This seems a little suspect because adding "BYTE_NUM_PER_MSI_VEC *
-d->hwirq" could cause overflow into the upper 32 bits.  I think you
-should add first, then take the lower/upper 32 bits of the 64-bit
-result.
-
-> +	if (d->hwirq > pcie->num_applied_vecs)
-> +		pcie->num_applied_vecs = d->hwirq;
-
-"num_applied_vecs" is a bit of a misnomer; it's actually the *max*
-hwirq.
-
-> +static const struct irq_domain_ops sg2042_pcie_msi_domain_ops = {
-> +	.alloc	= sg2042_pcie_irq_domain_alloc,
-> +	.free	= sg2042_pcie_irq_domain_free,
-
-Mention "msi" in these function names, e.g.,
-sg2042_pcie_msi_domain_alloc().
-
-> +static int sg2042_pcie_init_msi_data(struct sg2042_pcie *pcie)
-> +{
-> ...
-> +	/* Program the MSI address and size */
-> +	if (pcie->link_id == 1) {
-> +		regmap_write(pcie->syscon, REG_LINK1_MSI_ADDR_LOW,
-> +			     lower_32_bits(pcie->msi_phys));
-> +		regmap_write(pcie->syscon, REG_LINK1_MSI_ADDR_HIGH,
-> +			     upper_32_bits(pcie->msi_phys));
+> +      In the dual-link mode, the Cadence PCIe core instance associated
+> +      with Link0 is connected to the lower half of the lanes and the
+> +      Cadence PCIe core instance associated with Link1 is connected to
+> +      the upper half of the lanes.
 > +
-> +		regmap_read(pcie->syscon, REG_LINK1_MSI_ADDR_SIZE, &value);
-> +		value = (value & REG_LINK1_MSI_ADDR_SIZE_MASK) | MAX_MSI_IRQS;
-> +		regmap_write(pcie->syscon, REG_LINK1_MSI_ADDR_SIZE, value);
-> +	} else {
-> +		regmap_write(pcie->syscon, REG_LINK0_MSI_ADDR_LOW,
-> +			     lower_32_bits(pcie->msi_phys));
-> +		regmap_write(pcie->syscon, REG_LINK0_MSI_ADDR_HIGH,
-> +			     upper_32_bits(pcie->msi_phys));
+> +      SG2042 contains 2 Cadence IPs and configures the Cores as below:
 > +
-> +		regmap_read(pcie->syscon, REG_LINK0_MSI_ADDR_SIZE, &value);
-> +		value = (value & REG_LINK0_MSI_ADDR_SIZE_MASK) | (MAX_MSI_IRQS << 16);
-> +		regmap_write(pcie->syscon, REG_LINK0_MSI_ADDR_SIZE, value);
-> +	}
-
-Would be nicer to set temporaries to the link_id-dependent values (as
-you did elsewhere) so it's obvious that the code is identical, e.g.,
-
-  if (pcie->link_id == 1) {
-    msi_addr = REG_LINK1_MSI_ADDR_LOW;
-    msi_addr_size = REG_LINK1_MSI_ADDR_SIZE;
-    msi_addr_size_mask = REG_LINK1_MSI_ADDR_SIZE;
-  } else {
-    ...
-  }
-
-  regmap_write(pcie->syscon, msi_addr, lower_32_bits(pcie->msi_phys));
-  regmap_write(pcie->syscon, msi_addr + 4, upper_32_bits(pcie->msi_phys));
-  ...
-
+> +                     +-- Core (Link0) <---> pcie_rc0  +-----------------+
+> +                     |                                |                 |
+> +      Cadence IP 1 --+                                | cdns_pcie0_ctrl |
+> +                     |                                |                 |
+> +                     +-- Core (Link1) <---> disabled  +-----------------+
 > +
-> +	return 0;
-> +}
+> +                     +-- Core (Link0) <---> pcie_rc1  +-----------------+
+> +                     |                                |                 |
+> +      Cadence IP 2 --+                                | cdns_pcie1_ctrl |
+> +                     |                                |                 |
+> +                     +-- Core (Link1) <---> pcie_rc2  +-----------------+
 > +
-> +static irqreturn_t sg2042_pcie_msi_handle_irq(struct sg2042_pcie *pcie)
-
-Which driver are you using as a template for function names and code
-structure?  There are probably a dozen different names for functions
-that iterate like this around a call to generic_handle_domain_irq(),
-but you've managed to come up with a new one.  If you can pick a
-similar name to copy, it makes it easier to compare drivers and find
-and fix defects across them.
-
-> +{
-> +	u32 i, pos;
-> +	unsigned long val;
-> +	u32 status, num_vectors;
-> +	irqreturn_t ret = IRQ_NONE;
+> +      pcie_rcX is PCIe node ("sophgo,sg2042-pcie-host") defined in DTS.
 > +
-> +	num_vectors = pcie->num_applied_vecs;
-> +	for (i = 0; i <= num_vectors; i++) {
-> +		status = readl((void *)(pcie->msi_virt + i * BYTE_NUM_PER_MSI_VEC));
-> +		if (!status)
-> +			continue;
+> +      Sophgo defines some new register files to add support for their MSI
+> +      controller inside PCIe. These new register files are defined in DTS as
+> +      syscon node ("sophgo,sg2042-pcie-ctrl"), i.e. "cdns_pcie0_ctrl" /
+> +      "cdns_pcie1_ctrl". cdns_pcieX_ctrl contains some registers shared by
+> +      pcie_rcX, even two RC (Link)s may share different bits of the same
+> +      register. For example, cdns_pcie1_ctrl contains registers shared by
+> +      link0 & link1 for Cadence IP 2.
 > +
-> +		ret = IRQ_HANDLED;
-> +		val = status;
+> +      "sophgo,link-id" is defined to distinguish the two RC's in one Cadence IP,
+> +      so we can know what registers (bits) we should use.
 
-I don't think you need both val and status.
-
-> +		pos = 0;
-> +		while ((pos = find_next_bit(&val, MAX_MSI_IRQS_PER_CTRL,
-> +					    pos)) != MAX_MSI_IRQS_PER_CTRL) {
-
-Most drivers use for_each_set_bit() here.
-
-> +			generic_handle_domain_irq(pcie->msi_domain,
-> +						  (i * MAX_MSI_IRQS_PER_CTRL) +
-> +						  pos);
-> +			pos++;
-> +		}
-> +		writel(0, ((void *)(pcie->msi_virt) + i * BYTE_NUM_PER_MSI_VEC));
-> +	}
-> +	return ret;
-> +}
-
-> +static int sg2042_pcie_setup_msi(struct sg2042_pcie *pcie,
-> +				 struct device_node *msi_node)
-> +{
-> +	struct device *dev = pcie->cdns_pcie->dev;
-> +	struct fwnode_handle *fwnode = of_node_to_fwnode(dev->of_node);
-> +	struct irq_domain *parent_domain;
-> +	int ret = 0;
-
-Pointless initialization of "ret".
-
-> +	if (!of_property_read_bool(msi_node, "msi-controller"))
-> +		return -ENODEV;
+> +examples:
+> +  - |
+> +    #include <dt-bindings/interrupt-controller/irq.h>
 > +
-> +	ret = of_irq_get_byname(msi_node, "msi");
-> +	if (ret <= 0) {
-> +		dev_err(dev, "%pOF: failed to get MSI irq\n", msi_node);
-> +		return ret;
-> +	}
-> +	pcie->msi_irq = ret;
-> +
-> +	irq_set_chained_handler_and_data(pcie->msi_irq,
-> +					 sg2042_pcie_msi_chained_isr, pcie);
-> +
-> +	parent_domain = irq_domain_create_linear(fwnode, MSI_DEF_NUM_VECTORS,
-> +						 &sg2042_pcie_msi_domain_ops, pcie);
+> +    pcie@62000000 {
+> +      compatible = "sophgo,sg2042-pcie-host";
+> +      device_type = "pci";
+> +      reg = <0x62000000  0x00800000>,
+> +            <0x48000000  0x00001000>;
+> +      reg-names = "reg", "cfg";
+> +      #address-cells = <3>;
+> +      #size-cells = <2>;
+> +      ranges = <0x81000000 0 0x00000000 0xde000000 0 0x00010000>,
+> +               <0x82000000 0 0xd0400000 0xd0400000 0 0x0d000000>;
+> +      bus-range = <0x00 0xff>;
+> +      vendor-id = <0x1f1c>;
+> +      device-id = <0x2042>;
+> +      cdns,no-bar-match-nbits = <48>;
+> +      sophgo,link-id = <0>;
+> +      sophgo,syscon-pcie-ctrl = <&cdns_pcie1_ctrl>;
+> +      msi-parent = <&msi_pcie>;
+> +      msi_pcie: msi {
+> +        compatible = "sophgo,sg2042-pcie-msi";
+> +        msi-controller;
+> +        interrupt-parent = <&intc>;
+> +        interrupts = <123 IRQ_TYPE_LEVEL_HIGH>;
+> +        interrupt-names = "msi";
+> +      };
+> +    };
 
-Wrap to fit in 80 columns like 99% of the rest of this file.
+It would be helpful for me if the example showed how both link-id 0
+and link-id 1 would be used (or whatever they end up being named).
+I assume both have to be somewhere in the same pcie@62000000 device to
+make this work.
 
 Bjorn
 
