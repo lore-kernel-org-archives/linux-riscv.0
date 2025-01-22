@@ -4,152 +4,110 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 25EB2C02182
-	for <linux-riscv@archiver.kernel.org>; Wed, 22 Jan 2025 13:58:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AED95C02181
+	for <linux-riscv@archiver.kernel.org>; Wed, 22 Jan 2025 14:11:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:From:References:To:Subject:
-	Date:Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pooiCtzyCnzrJoEf4EmdHuTmHjhVBmyuQrxudFtH+qc=; b=wUT271CrpWQjIbHLdRCp4rHvUR
-	HNqSdfDhEUhtX4HYIL3sa4EqtFrJeBDZPNJ2wf+/LRnsnnRRkzx2Tg8hUvBhToHd+vIvORgw5EAeV
-	DWxhzQTuWi6JdptSXteUaKMMtpy2S4Ml+D4P+6F29O0LGjl/bVm082zce//p6TTIP1D3Ba3upTe3c
-	VGymRMZ2IJ23xGP4OLFSdpPWJF+QoxX43w1fN8bulUFr0YerKMWUEqfD95/X42RM2e60dSV1XHmKy
-	nF2BKCcwiiS3BM4kAYbH+et5pwvWkvWBm5iGeWMZwq095SjSW9DmMFmB9dflxZlXXAMImMIOJIwXE
-	3BPf1JBg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=ooynYAOYEzoFCwXOoQFtn8gnWtCk4GEsO8vE6ld5ufw=; b=LXutUbUwWqgNSc
+	rCNMaKtfA47acpeb6WRKUM3ZRutlHk5JyWE1Fe49+DGuo3wGe8KEsUBya3ctgK0HuyRnHZJnw1gqQ
+	BfA/ejur5I2yGlU3BelDZqTZF8OKywGhE0kRzqYVmrH78LWcj40BUMkAhbEZuX4gqATrifEq609rr
+	Oi3N8G/TAhQC7FI/VVlRNDX8nfcmuL/xjxpzJqCyc22QF5XlXsWbRDxumUJp9JjFP+4tMI/j4e0RI
+	fi6QaQ0xkwnt892zKUOl5ZiOittIqFcgBbT1ftvXJfdfKyq+JZQPA7bQoASnsv5ZDuCacd2mkgmVz
+	76xqQQzBqhG0/vKpicLQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tabFQ-0000000ALkQ-1M20;
-	Wed, 22 Jan 2025 13:58:24 +0000
-Received: from mail-centralindiaazolkn190100000.outbound.protection.outlook.com ([2a01:111:f403:d409::] helo=PNYPR01CU001.outbound.protection.outlook.com)
+	id 1tabRs-0000000ANtu-3Jx1;
+	Wed, 22 Jan 2025 14:11:16 +0000
+Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tabBk-0000000ALAU-0BX5
-	for linux-riscv@lists.infradead.org;
-	Wed, 22 Jan 2025 13:54:37 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=JWohJEk05KTmx3m5Iu0WaXOVfw1EJLxvKFWsIz4kuABSuzPOOwpmfFTpTf5d63uXsNX1RUhiHKz/Rbrmoki0EgPMMI64qPvaavZDXpHOEF660txHUJ2piqnaQJndxM6fxjTXEwKERU3SX8tezrawoUFIGvyaUxvnC7j7mZcZDPYJ7ktnldyIotSUKtpt4fv0tzidRcRcIvm8S3IhrlBiJU1hTkZAk6MRv+RI3EahDcteDUCjdwvCDwvsd5KdR85hBaUd0cevDfd7KssgjFk8kkMQxjsKH9o9LdHuot74Ra3HOR97YUBXpLHW/Go1xOGXUK16fjkhDEpzGwY7zARz7Q==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=0Y9TQTYj0zwJnYJ7dI+kc5h5IcmmalPCVSBZPDtiU5A=;
- b=RMZ4EDWTeHWJWgM1d3qIaWXsdf7aWZee0dLlZbqD7PsvFFCnK1jFdE3Z7JSnfFl8YYCv7VNfWnrH46uACKOWX6WzDHrTrw29lKxM+xwUHsRDtpx7YS2IvM5Kz9IQXBcMGZ7kMX9N3BDKWQuTZZYFcRjP/jYTB6xQ6zdrPAfXGDtekosl/dzquzy3jn5yP5xMcW7CDFuZ2AODi5A4RTV/QOx6VDseMkqjKJuPCCX15jb9ch2FEWYPgrc4N2ILE7sPW/t/IEkoGiunwLl56srIh7nNNM/RHCpnkKyeP9MYr6ZkbWuYVokGUI3vqyOzre+E5JIOsqeFljK419SnuOQm/w==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
- dkim=none; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=0Y9TQTYj0zwJnYJ7dI+kc5h5IcmmalPCVSBZPDtiU5A=;
- b=uP1I2+O3XPw60vHgaIhaK4EsDiv33mxdOmwNadbK8ZNlio6c/dRt93Cqfi8LSkXP7nxshGjqvkfAkAH4O+QCnLndiv7iPDUJsQEmJ2+XaeETvqIoc7jZWNFJOL3EzoXlIRLYMgFIQ6eVgQxlutsRmbBYAHZkXmP+nbKzOe70JsMQWRUwwnS9YOhG/opLbS7wR0R+PmHd3PLEO3gGbxFhuUqqhOcpBM0WLBW0AIess/c7oGVCqC9A8m+mLIn15j0W/5GqLKSOAGBjigfYPQUKb/zTukIkbTZzPQge/7Z6XdTxLNxxgDuyQ2srAp9ZkWyNXHZZ/zuFqZuVLNIutdVy+A==
-Received: from BM1PR01MB2545.INDPRD01.PROD.OUTLOOK.COM (2603:1096:b00:44::15)
- by MAYPR01MB10617.INDPRD01.PROD.OUTLOOK.COM (2603:1096:a01:152::8) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8356.22; Wed, 22 Jan
- 2025 13:54:23 +0000
-Received: from BM1PR01MB2545.INDPRD01.PROD.OUTLOOK.COM
- ([fe80::954a:952d:8108:b869]) by BM1PR01MB2545.INDPRD01.PROD.OUTLOOK.COM
- ([fe80::954a:952d:8108:b869%3]) with mapi id 15.20.8356.020; Wed, 22 Jan 2025
- 13:54:23 +0000
-Message-ID: <BM1PR01MB2545B1CE7F4B917E9015F4ABFEE12@BM1PR01MB2545.INDPRD01.PROD.OUTLOOK.COM>
-Date: Wed, 22 Jan 2025 21:54:16 +0800
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 2/3] irqchip: Add the Sophgo SG2042 MSI interrupt
- controller
-To: Inochi Amaoto <inochiama@gmail.com>, Chen Wang <unicornxw@gmail.com>,
- u.kleine-koenig@baylibre.com, aou@eecs.berkeley.edu, arnd@arndb.de,
- conor+dt@kernel.org, guoren@kernel.org, inochiama@outlook.com,
- krzk+dt@kernel.org, palmer@dabbelt.com, paul.walmsley@sifive.com,
- robh@kernel.org, tglx@linutronix.de, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
- chao.wei@sophgo.com, xiaoguang.xing@sophgo.com, fengchun.li@sophgo.com,
- samuel.holland@sifive.com, christophe.jaillet@wanadoo.fr
-References: <cover.1736921549.git.unicorn_wang@outlook.com>
- <b5c2f13aa94f68c3415a1292678e16db33f291cd.1736921549.git.unicorn_wang@outlook.com>
- <6b4n7jbflkaparryguq2kjdg4bpfy4vgpzucd456awbhl362po@zytqbodpm2wc>
-From: Chen Wang <unicorn_wang@outlook.com>
-In-Reply-To: <6b4n7jbflkaparryguq2kjdg4bpfy4vgpzucd456awbhl362po@zytqbodpm2wc>
-X-ClientProxiedBy: TYAPR01CA0104.jpnprd01.prod.outlook.com
- (2603:1096:404:2a::20) To BM1PR01MB2545.INDPRD01.PROD.OUTLOOK.COM
- (2603:1096:b00:44::15)
-X-Microsoft-Original-Message-ID: <591bbc7a-7ca9-4916-b3a5-a7fded14be22@outlook.com>
+	id 1tabNO-0000000ANDa-0Osm;
+	Wed, 22 Jan 2025 14:06:39 +0000
+Received: from pps.filterd (m0360072.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 50M7XQw7013738;
+	Wed, 22 Jan 2025 14:06:10 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
+	:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=pp1; bh=lzD+7TZXT2sRDxJfc726niuQB3RO28
+	6sYGqYL650DZ4=; b=pM55oaCkrG4O2Dq5LyDq7yUqgYEHoGWcDynb+cv/6amQGv
+	CSmA/4xHSIiJybxZQFG6ojn8mE7UozWjpvy4MM7gIMIcL1pTI9SIcFqkQ1kbhafz
+	X53gHxEK3qD3CZSLKuVEK4z0NAY5u6JEC+L7nMD99cIZzTyFR+l/Wtu6MJvwGX2V
+	IJVscUMPZbaPO/OdXOyaJR4ONTy4KfzZyBc/vm05niTL9IIUz+nnphrVv7czqVeM
+	wsN6QPjda0kXip9FvOsBHAquLX9cqkuFgdbti0RIf62uF+/PF8fUC1U+TMIoOvjz
+	+glf2u/CA/TL5TQYzSbjWk7Wfgj0d3pTM7lec5CA==
+Received: from ppma22.wdc07v.mail.ibm.com (5c.69.3da9.ip4.static.sl-reverse.com [169.61.105.92])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 44avcp1q7a-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 22 Jan 2025 14:06:09 +0000 (GMT)
+Received: from pps.filterd (ppma22.wdc07v.mail.ibm.com [127.0.0.1])
+	by ppma22.wdc07v.mail.ibm.com (8.18.1.2/8.18.1.2) with ESMTP id 50MDHXj7024252;
+	Wed, 22 Jan 2025 14:06:09 GMT
+Received: from smtprelay04.fra02v.mail.ibm.com ([9.218.2.228])
+	by ppma22.wdc07v.mail.ibm.com (PPS) with ESMTPS id 448q0y8uwa-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 22 Jan 2025 14:06:09 +0000
+Received: from smtpav05.fra02v.mail.ibm.com (smtpav05.fra02v.mail.ibm.com [10.20.54.104])
+	by smtprelay04.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 50ME67Kp19399076
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Wed, 22 Jan 2025 14:06:07 GMT
+Received: from smtpav05.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 06BE120043;
+	Wed, 22 Jan 2025 14:06:07 +0000 (GMT)
+Received: from smtpav05.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 46B9320040;
+	Wed, 22 Jan 2025 14:06:06 +0000 (GMT)
+Received: from li-008a6a4c-3549-11b2-a85c-c5cc2836eea2.ibm.com (unknown [9.155.204.135])
+	by smtpav05.fra02v.mail.ibm.com (Postfix) with ESMTPS;
+	Wed, 22 Jan 2025 14:06:06 +0000 (GMT)
+Date: Wed, 22 Jan 2025 15:06:05 +0100
+From: Alexander Gordeev <agordeev@linux.ibm.com>
+To: Heiko Carstens <hca@linux.ibm.com>
+Cc: Kevin Brodsky <kevin.brodsky@arm.com>, linux-mm@kvack.org,
+        Andrew Morton <akpm@linux-foundation.org>,
+        Catalin Marinas <catalin.marinas@arm.com>,
+        Dave Hansen <dave.hansen@linux.intel.com>,
+        Linus Walleij <linus.walleij@linaro.org>,
+        Andy Lutomirski <luto@kernel.org>,
+        Peter Zijlstra <peterz@infradead.org>,
+        "Mike Rapoport (IBM)" <rppt@kernel.org>,
+        Ryan Roberts <ryan.roberts@arm.com>,
+        Thomas Gleixner <tglx@linutronix.de>, Will Deacon <will@kernel.org>,
+        Matthew Wilcox <willy@infradead.org>,
+        Qi Zheng <zhengqi.arch@bytedance.com>, linux-alpha@vger.kernel.org,
+        linux-arch@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+        linux-csky@vger.kernel.org, linux-hexagon@vger.kernel.org,
+        linux-kernel@vger.kernel.org, linux-m68k@lists.linux-m68k.org,
+        linux-mips@vger.kernel.org, linux-openrisc@vger.kernel.org,
+        linux-parisc@vger.kernel.org, linux-riscv@lists.infradead.org,
+        linux-s390@vger.kernel.org, linux-snps-arc@lists.infradead.org,
+        linux-um@lists.infradead.org, loongarch@lists.linux.dev,
+        x86@kernel.org
+Subject: Re: [PATCH v2 6/6] mm: Introduce ctor/dtor at PGD level
+Message-ID: <Z5D7TSR3AttkC0Jf@li-008a6a4c-3549-11b2-a85c-c5cc2836eea2.ibm.com>
+References: <20250103184415.2744423-1-kevin.brodsky@arm.com>
+ <20250103184415.2744423-7-kevin.brodsky@arm.com>
+ <Z4/NTRDBXEEimdvc@li-008a6a4c-3549-11b2-a85c-c5cc2836eea2.ibm.com>
+ <20250122074954.8685-A-hca@linux.ibm.com>
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: BM1PR01MB2545:EE_|MAYPR01MB10617:EE_
-X-MS-Office365-Filtering-Correlation-Id: 5f974768-8855-4ff3-b19a-08dd3aec46ce
-X-MS-Exchange-SLBlob-MailProps: rYPt1fhvLTXc97ntej+WqDiQNM+UKxVkq+cgCOpkQkTxxp6p2HuVYm1I65FTo4zkjxO7mmH+jbcGdI7U+GvJdD/l62xKSRXR2YTcU3QnMcqcKHAbbKT+DFj7Kl23fjinB/Fbj0Q1+uqKwcg6a5OvYY+uLJGcqj+VkX3Zn63dolUx7NTixZ4M0uHrYvLOvSCzW0i6sNyAv5nliytiKOR+k2rfe8hzJOIAfC2yg5D6grfOWNhVw+rFr0nFZyzCDp1k2snMxDq8JnAlia+Bv0q7KJGPHMHh0lLR7nZEOiD23jQAoW2b/H6rJyJsb6m+0IQCzop1kpGr7kEAmdrxe+ciQ7ER5Zim3rCDqCDG4SHrP9j92e3Z4w7kZ+lil/rebWTLH0Inx9eRfaRrAR92PYUjGWQ1voPMHSDmHbjuHmw311Dpy8ZrHB+3+iDVF7d5E5aTT9zsr68rj06/3A1WH29EaqM9eCe/LrWa22Eo5AQC58dXnjU3MBqX/PnWPt+p6ICyodQTbKfVLRrAric/wUEYyWW5CBdStHRmftQPmmY3ySbNtbzawtVckrDb6GvMsWvGU0slvafMcWYAF62dxODNGfALiTBKCpZS5EgdU1g+XLsLvWUSSJ4tctMmmBsFptEviZIxpcZ85MIo8Rlubzd0A0BJiFe881PXj4i/x1RnFJjtpWCbIuVpZSlQgrl/VLTIZxOK379sPerFgjG78/g+vA==
-X-Microsoft-Antispam: BCL:0;ARA:14566002|19110799003|7092599003|5072599009|8060799006|461199028|15080799006|6090799003|440099028|3412199025|19111999003;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?bzhMQ2VGdnc0MjF0eEE0eW5XT0NHbnVMMVNVSHoyY2Z4Q2JDVmlOeEJYaWJS?=
- =?utf-8?B?THF6OHBiblU5cHVJWUZIdzBDN3lrUnAzQUgrOXZtZzRrWW5YWDd2eHBJMjU2?=
- =?utf-8?B?SUVodEpmLzZGeXhFZk1aVUxDTXg0d2xQVEtzL0d0WFA2eStCTmxLU0hOYzly?=
- =?utf-8?B?eHc2N3RpYUxCaFp5ekp6Q0pRSTFPTE9ueFBLSW90QTNBMmdrU0xmMjhacXJy?=
- =?utf-8?B?TVphVm51dGFyUDNZY0FTVjNTTmVBWEp1RlQ3aWYzOTlCRlQ5aytFMWtlUnRT?=
- =?utf-8?B?WUt1eSs5NW9FMWNvMlVETVppY2pld2pnWGRIVys2cjM3eU1yUjdjeFlrNEkz?=
- =?utf-8?B?cExRZ1Z1MmxldFRaWStIKzZWOSt3WDdaMmpDNTI5Uks4cmlVaXhUV3pUelZ0?=
- =?utf-8?B?bUJvTW5tS3UwdGdCbytQcTdTNHUvS011ZEdTQk1pNmt4SjlyKzlZUUpZZzZC?=
- =?utf-8?B?eUwrVUFzelBSZmRDaSs0N0FxQ0xQaDJiOTcvUFpndzlLQXFKdlRSeGEyRk0y?=
- =?utf-8?B?YkJtMWVBRnNqbU5Bdm10TWlWR3JpaFpMQUs1K0duaUNtV1ZURUk0cms3TVlh?=
- =?utf-8?B?UW5peWRXZDhYTVRmNm04cytNamNnUzRBYUgyTXFGdUZkZW96b0VDK2tDQ0Nh?=
- =?utf-8?B?Rmxwb3h4QWIwUXZPQkxHK3RERzM0UERUUzdsNTFuTHlWR3RSeXlHdVQwYVNa?=
- =?utf-8?B?cVlZZC8rbTJxYURrMmplMUFwZFlueTk3L2kwcm04TGJ0Q2pibm1rWG5VeWJI?=
- =?utf-8?B?U1RZSm1lZkNPQW13MlJDSjA5QW9DTkhrQi95MG5rblU4UXJqeERCZS9HN3JU?=
- =?utf-8?B?aDNrSlNZcXpoQ05QcmFYRmNZbUZ1eXkyTHB4NnExYW9PNUczczJqRmRUaEFx?=
- =?utf-8?B?R1k1UGQ0a2dZUW5JQy9YNWRlNTB3eDNVRUVibGtlZDVOKzl2TktaVlJUV1RU?=
- =?utf-8?B?VVpCaGcxRFloYktLYmJFZFJlYUpIUnMvdEc1eXQyRkFkZXBzM1dGSHRBU3ZY?=
- =?utf-8?B?dkNDdHJmK0NZNXJyZHo2OGtVSFk3empvOHVWWG10RFBBU0pZenlxalI2d3Jl?=
- =?utf-8?B?dWoyZkFiVFdZWlJwbVQyQnhHQ2dGYXBXRE5iYlh6d2tsQmdBejZUSjNONEhB?=
- =?utf-8?B?VXlLeFQ5Rmh3YWNMcWR2UVZJbTFIMCtxR0UvZTZiQW5RT3VvOHpvcEZLbktx?=
- =?utf-8?B?cnBReFFGTVBGeW1INWtrYitJUGJ6UTRwVEFRbFFvMHNPYzE2SUp3QVhkVGZo?=
- =?utf-8?B?Z2VBVXBueGFOcXdjUm5vNzdZMTdxNUl6MGFXVjk2N3hGd0VJR2Jrd3RQaWxI?=
- =?utf-8?B?T0tpRXI4dU1lRUtXeUtGRVk2TzUyWUlUYVEyMm5VSytJcm9JSzNpK0NOOU9r?=
- =?utf-8?B?dXJOYkZwMVRvMlBtek1USmdCZjVSamVraFNXN1Z4d254NWNjbzBjbUs1bDNl?=
- =?utf-8?B?Z3FyR3pyaHlCNlk3aGhOWFdyd2h0SS9qU2NlZjNOUmo1WDJLajJiblpGUzZN?=
- =?utf-8?Q?2wmSP7bOFkb3yIt1qaFdCG/HoGc?=
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?c3NxN2R3Sk41UE5BMjFXWXJ1ZnNtc3NXRjV5Sy9QTk50TENJbElTTitveU91?=
- =?utf-8?B?MWEyREpHZ1JLMGhib0V6TnFTaVh5QjlOY1hRNmZsQ21oR1VtZlhNL0pmcHN1?=
- =?utf-8?B?RUo0ek1DdGQ1anNnMWhnejlTbjlwMG5SWGE1VEc0bUV1NkM5YU5rcmlaa2xq?=
- =?utf-8?B?bThuR2V6aGJ3VStvcXJKenZOcnNOdFVHR1RkN2x5UW1ZZ0hkVTk4YzVrZk9I?=
- =?utf-8?B?NVJINUU1eGpVQjZBdysvOCs2SXBjWGlUNzNzU1lyWFZPa1VsVktKUVIvMTlH?=
- =?utf-8?B?bWxPdjQ5NVE4YTlacW1YRk9JSDF5VjJwVVcrUFJmVnRqUVFVUUpGc1Zhd3JM?=
- =?utf-8?B?Z0xnV3FFUmhVLzhJT1BNVmsxWXIyVE4zSzl4alRMSDRDa1RVaXdub1UwZ3NP?=
- =?utf-8?B?VURLcGJyN3dLS1hCQVdnSVExT3RaeFFuRjNzT2NxMVI4VjV4Y0NOMkN4aUNw?=
- =?utf-8?B?dE1RTWw1eE1wU0NSOEZMRi9nKytkdVJadGxxeHVqNmExOTZuc2hKNHY0VzhL?=
- =?utf-8?B?Nm84Wi85Q3c0cTlzSC83M2RWOHM3ZU84OEl3VkpZOFdpZXBZNm9ZcEs5RHJG?=
- =?utf-8?B?a3BhNHVPSnNLSnFhY2VZUnc3MFp6WjAvVXdVVUNpbUFwY0V6NFBWeHB4b2k1?=
- =?utf-8?B?K0dKYjJYWHNoOElhZlFqUXhUWUZsakFseHVKYUJVRldxdWlzdXNrajdNQ3kx?=
- =?utf-8?B?RkxlUXlNZDBIS29tSFYyYTE2c0pZRnkvdDBKcWhkeW4wb1VMa2c4d1pQRzVP?=
- =?utf-8?B?WEVMbmkzTjZGYjEwajJnejlZb1RYOGRRRG5GcURXaVl1bGRJT1RIdEZKZ0dv?=
- =?utf-8?B?R1dVeTJSVUNSdXM0eCtiVFpHK0l6V3dHa21odmIwdlIwWEgvVWVEczMzdkxV?=
- =?utf-8?B?VnVHWVRMOVMrdk1oYlBVMlRrRmZXMGluOVpTNWJYWjRkNVBESnZTbzVZWWtS?=
- =?utf-8?B?TUJ6Q3E5YmEwSHhTWXZ4eXQ4MzlocENTTzhrNW1KcE1WNUFqNFlwdnRSQXg4?=
- =?utf-8?B?Zll2QlZXR2l6N0tpRExBV0hlV3RSanRaTEhnV3RVRXUrTkJBN09KZEpFOFRH?=
- =?utf-8?B?K1N0RHpuOHgvOWVINVJXaDBBTDIwWlo3YW1YcUZyMnBpaThwY2xiTk9jUDc0?=
- =?utf-8?B?cWpYbmlucGVUekdEd1Q1TUZaRzhha3NMWkVHQ0s2NGR6T2UrOHB5TjhXcE1n?=
- =?utf-8?B?dkUzM3hncGgvNFJMWDFBeGxsVWxEMHVCUmFkeDZvYVRwRVA0UDdHcGl6UjlB?=
- =?utf-8?B?bjlRMlNhYitTT0NWUk5xYnBsdEw5cEpMN09ncURxU1JFSSswUlZWVWhJQXgx?=
- =?utf-8?B?eU5sbld2TVNQMVBCRjBPckpXTHNVUEJoUm9WUHNtTjd2N0piZXh3VGo0c0RL?=
- =?utf-8?B?SUZxYkZYaWM0cDhWc2ZqM1QvRzlkSUN5cU56M05hV1FJSVFNUWJmWkw3Qzlh?=
- =?utf-8?B?VnFnOEdIMDFua0RNa202Mk9xUmdTbHF1SytTdzhaTW1CRUhtMGR2a2dpbk5Y?=
- =?utf-8?B?RERrWThnTkp1WXNBWUw1NUlEWlViVmIxbDNPak5JNkNmeVJzZ3R6a0c3VERr?=
- =?utf-8?B?cDZQeGJ1ZzNlWlFieW5QM2RYdXNtV3dxU044YnJuV1NPblQzcWttWXNZeTZu?=
- =?utf-8?B?TzR6ZHdKVTVjcHN2WXc5dXN0djNkU0JMdnIxVEQzSW1VTkJta0txL1d0NXVu?=
- =?utf-8?B?LzJsd0dOR29XdGVRMXpqcGpiWVFiRWZFKy9wNEpBc0hFTGxza2ZFcGJIaVJK?=
- =?utf-8?Q?rkD2NiuE1Y3O9yT5ZRKsMo8apm48Q/dlBOA66sa?=
-X-OriginatorOrg: outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 5f974768-8855-4ff3-b19a-08dd3aec46ce
-X-MS-Exchange-CrossTenant-AuthSource: BM1PR01MB2545.INDPRD01.PROD.OUTLOOK.COM
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 22 Jan 2025 13:54:23.3508
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
-X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: MAYPR01MB10617
+Content-Disposition: inline
+In-Reply-To: <20250122074954.8685-A-hca@linux.ibm.com>
+X-TM-AS-GCONF: 00
+X-Proofpoint-ORIG-GUID: hnL1myQOEbP9JlWEuwvdB13NGgqHi6w6
+X-Proofpoint-GUID: hnL1myQOEbP9JlWEuwvdB13NGgqHi6w6
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1057,Hydra:6.0.680,FMLib:17.12.68.34
+ definitions=2025-01-22_06,2025-01-22_02,2024-11-22_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 impostorscore=0 adultscore=0
+ bulkscore=0 mlxlogscore=742 spamscore=0 phishscore=0 mlxscore=0
+ suspectscore=0 lowpriorityscore=0 priorityscore=1501 clxscore=1015
+ malwarescore=0 classifier=spam adjust=0 reason=mlx scancount=1
+ engine=8.19.0-2411120000 definitions=main-2501220104
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250122_055436_089630_61906141 
-X-CRM114-Status: UNSURE (   9.06  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250122_060638_245137_68B93799 
+X-CRM114-Status: GOOD (  23.29  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -161,44 +119,60 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On Wed, Jan 22, 2025 at 08:49:54AM +0100, Heiko Carstens wrote:
+> > >  static inline pgd_t *pgd_alloc(struct mm_struct *mm)
+> > >  {
+> > > -	return (pgd_t *) crst_table_alloc(mm);
+> > > +	unsigned long *table = crst_table_alloc(mm);
+> > > +
+> > > +	if (!table)
+> > > +		return NULL;
+> > 
+> > I do not know status of this series, but FWIW, this call is missed:
+> > 
+> > 	crst_table_init(table, _REGION1_ENTRY_EMPTY); 
+> 
+> Why is that missing?
 
-On 2025/1/20 10:43, Inochi Amaoto wrote:
-> On Wed, Jan 15, 2025 at 02:33:45PM +0800, Chen Wang wrote:
+Because the follow-up pagetable_pgd_ctor() is called against uninitialized
+page table, while other pagetable_pXd_ctor() variants are called against
+initialized one. I could imagine complications as result of that.
 
-[......]
+Whether Region1 table is the right choice is a big question though, as you
+noticed below.
 
->> +#define SG2042_MSI_FLAGS_REQUIRED (MSI_FLAG_USE_DEF_DOM_OPS |	\
->> +				   MSI_FLAG_USE_DEF_CHIP_OPS)
->> +
->> +#define SG2042_MSI_FLAGS_SUPPORTED MSI_GENERIC_FLAGS_MASK
->> +
-> I think it is just OK to set the flag directly in the msi_parent_ops.
-This shouldn't be a big problem, maybe it will be convenient for future 
-expansion.
->> +static struct msi_parent_ops sg2042_msi_parent_ops = {
->> +	.required_flags		= SG2042_MSI_FLAGS_REQUIRED,
->> +	.supported_flags	= SG2042_MSI_FLAGS_SUPPORTED,
->> +	.bus_select_mask	= MATCH_PCI_MSI,
->> +	.bus_select_token	= DOMAIN_BUS_NEXUS,
->> +	.prefix			= "SG2042-",
->> +	.init_dev_msi_info	= msi_lib_init_dev_msi_info,
->> +};
-> This struct should be const.
+> A pgd table can be a Region1, Region2, or Region3 table. The only caller of
+> this function is mm_init() via mm_alloc_pgd(); and right after mm_alloc_pgd()
+> there is a call to init_new_context() which will initialize the pgd correctly.
 
-Yes, will fix this in next version.
+init_new_context() is in a way a constructor as well, so whole thing looks odd
+to me. But I do not immedeately see a better way :(
 
-Thanks,
+> I guess what really gets odd, and might be broken (haven't checked yet) is
+> what happens on dynamic upgrade of page table levels (->crst_table_upgrade()).
 
-Chen
+Hmm, that is a good point.
 
-[......]
+> With that a pgd may become a pud, and with that we get an imbalance with
+> the ctor/dtor calls for the various page table levels when they get freed
 
+The ctor/dtor mismatch should not be a problem, as pagetable_pgd|p4d|pud_ctor()
+are the same and there is one pagetable_dtor() for all top levels as of now.
+But if it ever comes to separate implementations, then we are in the world
+of pain.
 
+> again. Plus, at first glance, it looks also broken that we have open-coded
+> crst_alloc() calls instead of using the "proper" page table allocation API
+> within crst_table_upgrade(), which again would cause an imbalance.
+
+This is a good point too.
+
+Many thanks!
 
 _______________________________________________
 linux-riscv mailing list
