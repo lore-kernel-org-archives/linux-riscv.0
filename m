@@ -4,116 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5BE4C02181
-	for <linux-riscv@archiver.kernel.org>; Wed, 22 Jan 2025 07:47:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6E53DC02181
+	for <linux-riscv@archiver.kernel.org>; Wed, 22 Jan 2025 07:50:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=wZnkJ78w9/UKEmoIDsS4YsMPoshnCcsNB8B4O1VF7ZA=; b=VtmLETfQIGykkk
-	PfjUpYxHNZngjLbUiwb/tOQITE8l2gZXWsOY981smLwmIlla8Bc7hVg4doqlWfAonHDNpc7znIDKb
-	8mdkCElpLKN12U5D2IMm26Dmbtv4zg+2+4iz/wcZiHzmPQygVfZ6X1v3XTfqfJYtnlD5CUM9wGZ/G
-	eFdmr/sH9kPMLPUP1BhdOHS2MPqgE9iRorSGy3rOCV3NIo6RHaCJTlJU7przZC1UfJmCdh/QH7Oyl
-	xq8nY8eVNlvqkb2/HoAXkbkdhEjzW3OcDMymaqijA5jfVwttAOkz+EPlAh9h9cWSol/gKA7l2HLRC
-	DnCPBJbJjEDTUibHk9eA==;
+	List-Owner; bh=OknqEtjn9s/m3pLu+nt8kirD2Yfbz+YRaBcH9HVKwJw=; b=1av+KV/rOWa7hu
+	+n2+PZG/k+CjaQ+plY5bzSbfzUw+sWXC9lb52D4YdGQ5JQQ4kUgGOjhnc1K3SX8j/BklVrKQ/V/kw
+	CC4tBhfmAhQQ+IFXncrsQEjTNmZSfBp5LPInjyFSbz/pVYgmTNRW4pmxnAi0wfFkr3ZZg9Ipc9t2E
+	6yk0x0pj2ddsXFaJadw5CsfVUB/TLCD5xtVWbtKCbfP0wqqdTH48kjyMKjPgSLfGmua2AQKuHpxxU
+	YCPHTJ9RiLSIqmmN037Ie126s5bHK3/L0jF4PdV3eLor5pq+Fe65b9uSlNw7Zvo52XwiczqYpi46Y
+	kyGJCEoAnN5niKGO+RBQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1taVSD-00000009dKw-2vda;
-	Wed, 22 Jan 2025 07:47:13 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1taVVY-00000009dex-0trs;
+	Wed, 22 Jan 2025 07:50:40 +0000
+Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1taVSB-00000009dKL-0VXt
-	for linux-riscv@lists.infradead.org;
-	Wed, 22 Jan 2025 07:47:12 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 936C65C408B;
-	Wed, 22 Jan 2025 07:46:29 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 89E25C4CED6;
-	Wed, 22 Jan 2025 07:47:01 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1737532029;
-	bh=IcJL7yEhgm8bDZ/wZh8pao68jVu2AZ38Uox2cispOiU=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=bymbqyUjslOFEZ78TvAJ7aFWrQcQTFlw/WU2mcXONUywpmg3hmW5MGtAorqsR9q5K
-	 rkhpIxaMzbW/TE3/IpDGcw2AS28vbl4wUGX0pzoXZTxwGRsOvEInV8d9akQGPDZY9w
-	 JGZSvJhlDwii1Y3ABWbBxofT1esRkkmaYpv0FhE/HGUMe8Lo2D/9JIycYv7Gy0Tt4s
-	 YlhIINHFSaw7fQSMJ5i/AigNlELjD/U58z7Hl8gZWcpei3y8AmpFNJGI0fZazqQyLX
-	 JV7/8XjWOC9oRHTMEfwmgCKJFHVmusyhmL/XIIkcl9seYgoQnZ++D6/Z/szbHCBr3z
-	 A7zjfC9KKkzAQ==
-Message-ID: <508d6120-53df-4db1-ab62-5f4c49358cbf@kernel.org>
-Date: Wed, 22 Jan 2025 08:46:59 +0100
+	id 1taVVT-00000009de6-1IlU;
+	Wed, 22 Jan 2025 07:50:36 +0000
+Received: from pps.filterd (m0356516.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 50M2A4Je009705;
+	Wed, 22 Jan 2025 07:49:59 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
+	:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=pp1; bh=YOmEKaCYp7BVYdSA921evwSGcBIDRQ
+	EOB9Qf7IL5hrk=; b=WKfRRI1lHye/PfeRq0CM+invZscqmJxiyfMJj6RqKDo+k0
+	oHw8bxFR10u4InxfkGzbtPQRnmjjRIxYD+e4Hdc6VNWvxRNBhElChMEKYTQww/ne
+	kooQLVgHcJbjlXo8YwFiHbBQ8lYIn1j20/tkdmwE9rGrifbH6of2GaRERifgPxvN
+	e6jGjgMPTSpOWNSK//eRAMpTyDt03PLcgP0/2Qj42QpNbLO975g3w4J/8kekr9qF
+	dPd8DDCPlAQUGXVLnf/2L8EUh+BlP8RuxoA5walvWUcYL4qLgoLMxpcBdMKwAzI/
+	K9cmGJQE5Hsas24CZr5x5+mJxBXMWUxPL2+9HvXg==
+Received: from ppma12.dal12v.mail.ibm.com (dc.9e.1632.ip4.static.sl-reverse.com [50.22.158.220])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 44aee1bs75-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 22 Jan 2025 07:49:59 +0000 (GMT)
+Received: from pps.filterd (ppma12.dal12v.mail.ibm.com [127.0.0.1])
+	by ppma12.dal12v.mail.ibm.com (8.18.1.2/8.18.1.2) with ESMTP id 50M4kx3X019330;
+	Wed, 22 Jan 2025 07:49:58 GMT
+Received: from smtprelay03.fra02v.mail.ibm.com ([9.218.2.224])
+	by ppma12.dal12v.mail.ibm.com (PPS) with ESMTPS id 448pmsfk01-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 22 Jan 2025 07:49:58 +0000
+Received: from smtpav01.fra02v.mail.ibm.com (smtpav01.fra02v.mail.ibm.com [10.20.54.100])
+	by smtprelay03.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 50M7nu1d48300472
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Wed, 22 Jan 2025 07:49:56 GMT
+Received: from smtpav01.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id B223620040;
+	Wed, 22 Jan 2025 07:49:56 +0000 (GMT)
+Received: from smtpav01.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 4B9362004B;
+	Wed, 22 Jan 2025 07:49:56 +0000 (GMT)
+Received: from osiris (unknown [9.152.212.60])
+	by smtpav01.fra02v.mail.ibm.com (Postfix) with ESMTPS;
+	Wed, 22 Jan 2025 07:49:56 +0000 (GMT)
+Date: Wed, 22 Jan 2025 08:49:54 +0100
+From: Heiko Carstens <hca@linux.ibm.com>
+To: Alexander Gordeev <agordeev@linux.ibm.com>
+Cc: Kevin Brodsky <kevin.brodsky@arm.com>, linux-mm@kvack.org,
+        Andrew Morton <akpm@linux-foundation.org>,
+        Catalin Marinas <catalin.marinas@arm.com>,
+        Dave Hansen <dave.hansen@linux.intel.com>,
+        Linus Walleij <linus.walleij@linaro.org>,
+        Andy Lutomirski <luto@kernel.org>,
+        Peter Zijlstra <peterz@infradead.org>,
+        "Mike Rapoport (IBM)" <rppt@kernel.org>,
+        Ryan Roberts <ryan.roberts@arm.com>,
+        Thomas Gleixner <tglx@linutronix.de>, Will Deacon <will@kernel.org>,
+        Matthew Wilcox <willy@infradead.org>,
+        Qi Zheng <zhengqi.arch@bytedance.com>, linux-alpha@vger.kernel.org,
+        linux-arch@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+        linux-csky@vger.kernel.org, linux-hexagon@vger.kernel.org,
+        linux-kernel@vger.kernel.org, linux-m68k@lists.linux-m68k.org,
+        linux-mips@vger.kernel.org, linux-openrisc@vger.kernel.org,
+        linux-parisc@vger.kernel.org, linux-riscv@lists.infradead.org,
+        linux-s390@vger.kernel.org, linux-snps-arc@lists.infradead.org,
+        linux-um@lists.infradead.org, loongarch@lists.linux.dev,
+        x86@kernel.org
+Subject: Re: [PATCH v2 6/6] mm: Introduce ctor/dtor at PGD level
+Message-ID: <20250122074954.8685-A-hca@linux.ibm.com>
+References: <20250103184415.2744423-1-kevin.brodsky@arm.com>
+ <20250103184415.2744423-7-kevin.brodsky@arm.com>
+ <Z4/NTRDBXEEimdvc@li-008a6a4c-3549-11b2-a85c-c5cc2836eea2.ibm.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC v3 05/18] pmdomain: thead: Add power-domain driver for
- TH1520
-To: Michal Wilczynski <m.wilczynski@samsung.com>
-Cc: mturquette@baylibre.com, sboyd@kernel.org, robh@kernel.org,
- krzk+dt@kernel.org, conor+dt@kernel.org, drew@pdp7.com, guoren@kernel.org,
- wefu@redhat.com, jassisinghbrar@gmail.com, paul.walmsley@sifive.com,
- palmer@dabbelt.com, aou@eecs.berkeley.edu, frank.binns@imgtec.com,
- matt.coster@imgtec.com, maarten.lankhorst@linux.intel.com,
- mripard@kernel.org, tzimmermann@suse.de, airlied@gmail.com, simona@ffwll.ch,
- ulf.hansson@linaro.org, jszhang@kernel.org, p.zabel@pengutronix.de,
- m.szyprowski@samsung.com, linux-clk@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-riscv@lists.infradead.org, dri-devel@lists.freedesktop.org,
- linux-pm@vger.kernel.org
-References: <20250120172111.3492708-1-m.wilczynski@samsung.com>
- <CGME20250120172125eucas1p141540607f423eea4c55b2bd22ff5adf0@eucas1p1.samsung.com>
- <20250120172111.3492708-6-m.wilczynski@samsung.com>
- <20250121-mature-marigold-ammonite-b379d2@krzk-bin>
- <ce69a49d-6221-458d-b0e5-0f3507f1aeac@samsung.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 fv0=
-In-Reply-To: <ce69a49d-6221-458d-b0e5-0f3507f1aeac@samsung.com>
+Content-Disposition: inline
+In-Reply-To: <Z4/NTRDBXEEimdvc@li-008a6a4c-3549-11b2-a85c-c5cc2836eea2.ibm.com>
+X-TM-AS-GCONF: 00
+X-Proofpoint-ORIG-GUID: qTola2ylJwUaTSt4IdPRfZSdT02Tio3Q
+X-Proofpoint-GUID: qTola2ylJwUaTSt4IdPRfZSdT02Tio3Q
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1057,Hydra:6.0.680,FMLib:17.12.68.34
+ definitions=2025-01-22_03,2025-01-22_02,2024-11-22_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 impostorscore=0 clxscore=1011
+ lowpriorityscore=0 mlxlogscore=674 priorityscore=1501 bulkscore=0
+ spamscore=0 malwarescore=0 phishscore=0 suspectscore=0 mlxscore=0
+ adultscore=0 classifier=spam adjust=0 reason=mlx scancount=1
+ engine=8.19.0-2411120000 definitions=main-2501220053
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250121_234711_299013_DCC4F9E7 
-X-CRM114-Status: GOOD (  18.36  )
+X-CRM114-CacheID: sfid-20250121_235035_465474_044475BF 
+X-CRM114-Status: GOOD (  21.59  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -130,97 +123,43 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 21/01/2025 22:42, Michal Wilczynski wrote:
+On Tue, Jan 21, 2025 at 05:37:33PM +0100, Alexander Gordeev wrote:
+> On Fri, Jan 03, 2025 at 06:44:15PM +0000, Kevin Brodsky wrote:
 > 
+> Hi Kevin,
+> ...
+> > diff --git a/arch/s390/include/asm/pgalloc.h b/arch/s390/include/asm/pgalloc.h
+> > index 5fced6d3c36b..b19b6ed2ab53 100644
+> > --- a/arch/s390/include/asm/pgalloc.h
+> > +++ b/arch/s390/include/asm/pgalloc.h
+> > @@ -130,11 +130,18 @@ static inline void pud_populate(struct mm_struct *mm, pud_t *pud, pmd_t *pmd)
+> >  
+> >  static inline pgd_t *pgd_alloc(struct mm_struct *mm)
+> >  {
+> > -	return (pgd_t *) crst_table_alloc(mm);
+> > +	unsigned long *table = crst_table_alloc(mm);
+> > +
+> > +	if (!table)
+> > +		return NULL;
 > 
-> On 1/21/25 11:02, Krzysztof Kozlowski wrote:
->> On Mon, Jan 20, 2025 at 06:20:58PM +0100, Michal Wilczynski wrote:
->>> The T-Head TH1520 SoC contains multiple power islands that can be
->>> programmatically turned on and off using the AON (Always-On) protocol
->>> and a hardware mailbox [1]. The relevant mailbox driver has already been
->>> merged into the mainline kernel in commit 5d4d263e1c6b ("mailbox:
->>> Introduce support for T-head TH1520 Mailbox driver");
->>>
->>> This commit introduces a power-domain driver for the TH1520 SoC, which
->>
->> Please do not use "This commit/patch/change", but imperative mood. See
->> longer explanation here:
->> https://protect2.fireeye.com/v1/url?k=2123f702-40a8e22d-21227c4d-74fe485cbfe7-afb876722bdc8fc5&q=1&e=e5dabc89-5f0c-4819-9008-76faafc3c1bc&u=https%3A%2F%2Felixir.bootlin.com%2Flinux%2Fv5.17.1%2Fsource%2FDocumentation%2Fprocess%2Fsubmitting-patches.rst%23L95
->>
->>> is using AON firmware protocol to communicate with E902 core through the
->>> hardware mailbox. This way it can send power on/off commands to the E902
->>> core.
->>
->> ...
->>
->>> diff --git a/drivers/pmdomain/thead/Makefile b/drivers/pmdomain/thead/Makefile
->>> new file mode 100644
->>> index 000000000000..adfdf5479c68
->>> --- /dev/null
->>> +++ b/drivers/pmdomain/thead/Makefile
->>> @@ -0,0 +1,2 @@
->>> +# SPDX-License-Identifier: GPL-2.0-only
->>> +obj-$(CONFIG_TH1520_PM_DOMAINS)		+= th1520-pm-domains.o
->>> diff --git a/drivers/pmdomain/thead/th1520-pm-domains.c b/drivers/pmdomain/thead/th1520-pm-domains.c
->>> new file mode 100644
->>> index 000000000000..d913ad40fb76
->>> --- /dev/null
->>> +++ b/drivers/pmdomain/thead/th1520-pm-domains.c
->>> @@ -0,0 +1,174 @@
->>> +// SPDX-License-Identifier: GPL-2.0
->>> +/*
->>> + * Copyright (C) 2021 Alibaba Group Holding Limited.
->>> + * Copyright (c) 2024 Samsung Electronics Co., Ltd.
->>> + * Author: Michal Wilczynski <m.wilczynski@samsung.com>
->>> + */
->>> +
->>> +#include <linux/firmware/thead/thead,th1520-aon.h>
->>> +#include <linux/slab.h>
->>> +#include <linux/platform_device.h>
->>> +#include <linux/pm_domain.h>
->>> +
->>> +#include <dt-bindings/firmware/thead,th1520-aon.h>
->>
->> So here it is used... I don't understand why power domain is under
->> firmware. Please move it to proper directory and name the file exactly
->> the same as bindings doc which this belongs to.
+> I do not know status of this series, but FWIW, this call is missed:
 > 
-> The power-domain driver has no bindings doc. It's a child driver of the AON
-> node.
+> 	crst_table_init(table, _REGION1_ENTRY_EMPTY); 
 
-OK, not changing my comment, though.
+Why is that missing?
 
-> 
->>
->>
->>> +
->>> +struct th1520_power_domain {
->>> +	struct th1520_aon_chan *aon_chan;
->>> +	struct generic_pm_domain genpd;
->>> +	u32 rsrc;
->>> +};
->>> +
->>> +struct th1520_power_info {
->>> +	const char *name;
->>> +	u32 rsrc;
->>> +};
->>> +
->>> +static const struct th1520_power_info th1520_pd_ranges[] = {
->>> +	{ "vdec", TH1520_AON_VDEC_PD },
->>
->> Why TH1520_AON_XXX aren't the indices?
-> 
-> These power-domain constants are defined by the AON firmware protocol,
-> which dictates the exact IDs (e.g., 1 for NPU). They are not just array
-> indices; we must use these specific values to communicate with the
-> firmware correctly. Using array indices starting with 1 would be
-> unusual.
+A pgd table can be a Region1, Region2, or Region3 table. The only caller of
+this function is mm_init() via mm_alloc_pgd(); and right after mm_alloc_pgd()
+there is a call to init_new_context() which will initialize the pgd correctly.
 
-Then that's a no. Binding constants do not represent values used by your
-hardware. The binding constant should start from 0.
+I guess what really gets odd, and might be broken (haven't checked yet) is
+what happens on dynamic upgrade of page table levels (->crst_table_upgrade()).
 
-Best regards,
-Krzysztof
+With that a pgd may become a pud, and with that we get an imbalance with
+the ctor/dtor calls for the various page table levels when they get freed
+again. Plus, at first glance, it looks also broken that we have open-coded
+crst_alloc() calls instead of using the "proper" page table allocation API
+within crst_table_upgrade(), which again would cause an imbalance.
 
 _______________________________________________
 linux-riscv mailing list
