@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DD65CC02182
-	for <linux-riscv@archiver.kernel.org>; Wed, 22 Jan 2025 07:44:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 290C2C02182
+	for <linux-riscv@archiver.kernel.org>; Wed, 22 Jan 2025 07:45:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
 	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=in7EtOCxWWSkNyWowrT2CTZw+fzPXidTaE8kmLh/N3w=; b=QZRHKqrNjVAbtD
-	RoMzbS8xduBsipK+izdaan68SX6Jq1lv8p5+Tlcugr4aKG3es7OGV4J0FGi7TsTXNGwtzA6yJJ1Kz
-	MKfXWuLQHQ8B0u/g0j3LmlYrl2BhNoxFDa20qxYxDFSQKQECAGTLle86wVLB0Nhxfd8lou8CbxELE
-	gkXXUw273uClyOsXdQXBV7QPoD/Rm0OVgeY8UbvXg3EK+niywpqcf3JEtC5X/5hD86KXc083BK81a
-	pvBYyKbnLp09bPkrC8jaVrYyK1qumKfj2OUjm0inHGatbmQAErbsaF9WtO+zlm17BpQZQcVMStR4h
-	hMYDdvSIGX9nb2x2NQEA==;
+	List-Owner; bh=tsVJofuz/EUwhJWaT6PtfgmsVBDFdJAtBD8hienXAiE=; b=UjpP+fdO6IzqCv
+	sXsPv9BCqbPuAHsQjbm/eeM9Crev04tghZ2WqbZf+tiGY4MW0ItAv0Nr8Vu01/Nok1aZw1de5YcNe
+	Zm8IFc82MJZ/DH2lzkgLDrrj9v9z5YLZ26OQlJWGNEo9OvZD2lplbXCWoCtj83MCpRul2tZT5MPq4
+	rr+KF5xEz0h/TsFkJWakhXMCRIbTO6PvHufypxm2O4houvfF1cjVyXheh7gKbTqnbvA8z0ZSG/R8f
+	VaLbPxwOD/ga0x88eKuPDghMSJhcg/wrx1Or5/hDlAhtGjeGEtoP5tv0fBQvJNWpmDUsKOXAjUYXt
+	/h3prcKUWP09HsIWau/w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1taVPS-00000009cx9-0Jk7;
-	Wed, 22 Jan 2025 07:44:22 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1taVQE-00000009d7U-30P3;
+	Wed, 22 Jan 2025 07:45:10 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1taVPP-00000009cvT-0JkZ
+	id 1taVQC-00000009d6r-2lq4
 	for linux-riscv@lists.infradead.org;
-	Wed, 22 Jan 2025 07:44:20 +0000
+	Wed, 22 Jan 2025 07:45:09 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 890A05C5BD6;
-	Wed, 22 Jan 2025 07:43:37 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 73D87C4CED6;
-	Wed, 22 Jan 2025 07:44:09 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 8E0F65C5BF4;
+	Wed, 22 Jan 2025 07:44:27 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CB96EC4CED6;
+	Wed, 22 Jan 2025 07:44:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1737531857;
-	bh=6hmpeOLVmNPCEJz4gTuZE2inQNbfyQ4ZBcEWfrl0WGQ=;
+	s=k20201202; t=1737531907;
+	bh=jdWZU7kFs1EGlYK6lGC7SbOqK0+gXAh737oaITjmdw8=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=K9W5Y/dNMuWHCj/eHNPQ+hzQ1JZEl2xf08jiqVslfQnFTkcPMQo+fcotSgkDTHgT0
-	 SpWlfWFpsrse6cEb5+8QF66zcWyi14tTw+pL3iyloRRHwqXPXogPXc9d426uUDvCFm
-	 lU9SGDzuwvJqt/86jJ/BdwZJutG5akd0lINkVocYR95qE/ltDcZB07SgpznGW5EHjr
-	 UvdwBeafU2nJKJ/c3fKxYNAbLxxbqBZvdoiWIHfx3jjFNGDAKAzsqvLFhlOGIQLIdU
-	 HZl6a3tSdRpnaIznL7xYHiMcogCzJnf21HfKLp1wanIYgbtnmyFLUu57a+2n8iLLcf
-	 /5ESBphv7roqQ==
-Message-ID: <99c1ac06-cbb4-4319-b006-9f7095509803@kernel.org>
-Date: Wed, 22 Jan 2025 08:44:07 +0100
+	b=mtHrG3msqsZbskloOltinEQJqWIbRPhel0Pr7a1vknidkgPm4DoXiGyGlUOHSmhtS
+	 6sLILTMhvaUt4VZOPNeYAfQzZ5NWMlSiJXqGQBnwEXTUxEpRmm5tug1Sej0z4ejgb+
+	 6rk9uImHYMMCBVOMQkowOc56cWb+lTgXHHfXXLNMXkEfTcwo+pegCwMKUgEkU42HsN
+	 6OFcxy/1/dKpGjuQcrKy+0W4f9gX/b8XUfO2Hq1o152QHEHNEjIkRfdJGe+kGfYFCa
+	 Fy5tYnaCWXyxSUQfmlKXwkgvs0uOJMB+mwLRLVwJcwbq3XeI4OaYVku9Y1Gj6cavAQ
+	 L1Ck3AwF1oVTg==
+Message-ID: <251f8319-f865-493f-9fe0-7512d7bb042b@kernel.org>
+Date: Wed, 22 Jan 2025 08:44:56 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC v3 01/18] dt-bindings: clock: Add VO subsystem clock
- controller support
+Subject: Re: [RFC v3 03/18] dt-bindings: firmware: thead,th1520: Add support
+ for firmware node
 To: Michal Wilczynski <m.wilczynski@samsung.com>
 Cc: mturquette@baylibre.com, sboyd@kernel.org, robh@kernel.org,
  krzk+dt@kernel.org, conor+dt@kernel.org, drew@pdp7.com, guoren@kernel.org,
@@ -61,10 +61,10 @@ Cc: mturquette@baylibre.com, sboyd@kernel.org, robh@kernel.org,
  linux-riscv@lists.infradead.org, dri-devel@lists.freedesktop.org,
  linux-pm@vger.kernel.org
 References: <20250120172111.3492708-1-m.wilczynski@samsung.com>
- <CGME20250120172120eucas1p23993cdbbe65e82054b9cb92fb704103b@eucas1p2.samsung.com>
- <20250120172111.3492708-2-m.wilczynski@samsung.com>
- <20250121-raptor-of-terrific-perfection-cafc27@krzk-bin>
- <8af66556-90d9-4360-ac38-f300f487f55a@samsung.com>
+ <CGME20250120172123eucas1p13564bf2d07000506caf44cf55bda7fd9@eucas1p1.samsung.com>
+ <20250120172111.3492708-4-m.wilczynski@samsung.com>
+ <20250121-lively-cocky-lorikeet-e0a3db@krzk-bin>
+ <167cdd54-895d-4ecf-873a-b5a1bbc11eb8@samsung.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -110,10 +110,11 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  uZwJCLykjad45hsWcOGk3OcaAGQS6NDlfhM6O9aYNwGL6tGt/6BkRikNOs7VDEa4/HlbaSJo
  7FgndGw1kWmkeL6oQh7wBvYll2buKod4qYntmNKEicoHGU+x91Gcan8mCoqhJkbqrL7+nXG2
  5Q/GS5M9RFWS+nYyJh+c3OcfKqVcZQNANItt7+ULzdNJuhvTRRdC3g9hmCEuNSr+CLMdnRBY fv0=
-In-Reply-To: <8af66556-90d9-4360-ac38-f300f487f55a@samsung.com>
+In-Reply-To: <167cdd54-895d-4ecf-873a-b5a1bbc11eb8@samsung.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250121_234419_250680_10DDFDBE 
-X-CRM114-Status: GOOD (  13.06  )
+X-CRM114-CacheID: sfid-20250121_234508_817777_3B0AEBAB 
+X-CRM114-Status: UNSURE (   8.53  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -130,46 +131,21 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 21/01/2025 22:29, Michal Wilczynski wrote:
-> 
-> 
-> On 1/21/25 10:47, Krzysztof Kozlowski wrote:
->> On Mon, Jan 20, 2025 at 06:20:54PM +0100, Michal Wilczynski wrote:
->>>  properties:
->>>    compatible:
->>> -    const: thead,th1520-clk-ap
->>> +    enum:
->>> +      - thead,th1520-clk-ap
->>> +      - thead,th1520-clk-vo
->>>  
->>>    reg:
->>>      maxItems: 1
->>>  
->>>    clocks:
->>>      items:
->>> -      - description: main oscillator (24MHz)
->>> +      - description: main oscillator (24MHz) or CLK_VIDEO_PLL
+On 21/01/2025 22:31, Michal Wilczynski wrote:
+>>> +#define TH1520_AON_VDEC_PD	1
+>>> +#define TH1520_AON_NPU_PD	2
+>>> +#define TH1520_AON_VENC_PD	3
+>>> +#define TH1520_AON_GPU_PD	4
+>>> +#define TH1520_AON_DSP0_PD	5
+>>> +#define TH1520_AON_DSP1_PD	6
 >>
->> thead,th1520-clk-ap gets also VIDEO_PLL? Aren't both serving the same
->> purpose from these devices point of view? Bindings are telling what this
->> device is expecting.
+>> I don't see these being used in the driver. Can you point me?
 > 
-> Since thead,th1520-clk-ap configures PLL clocks it takes the oscillator
-> 24MHz as an input, so no.
-> 
-> The VO subsystem takes as an input VIDEO_PLL that's configured by the
-> AP.
+> Those are used in the power-domain driver
+> [RFC v3 05/18] pmdomain: thead: Add power-domain driver for TH1520:
+> https://lore.kernel.org/all/20250120172111.3492708-6-m.wilczynski@samsung.com/
 
-I understood that, but you really did not answer to my question. How is
-the input called? Not how is the clock called.
-
-> 
-> I could do something like this if this needs to be formally expressed in
-> the schema:
-
-It is enough to put it in description.
-
-
+Then this is wrong patch and wrong filename.
 
 Best regards,
 Krzysztof
