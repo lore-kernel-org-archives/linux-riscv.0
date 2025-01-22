@@ -4,83 +4,110 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3914FC02181
-	for <linux-riscv@archiver.kernel.org>; Wed, 22 Jan 2025 20:06:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6F3F9C02182
+	for <linux-riscv@archiver.kernel.org>; Wed, 22 Jan 2025 21:19:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=B+xt9wbQuo3Lmd5a77wXmi6SPTMmuSE69adUuPN865Q=; b=A+J5W0fxURkf55
-	e298B81kdxQ64EuZcvdTlkuHLS6PtVzncvgWTeBSsosTBrHhR4vPJd/k4wImcxf3VtsERlp+pSYSU
-	PNIIsuUHA6XeQBuI1TGMmwdk3RkD8Lxh++MihFXzk+nbUQJkzn2zTxiyEjoWQtrSgWZysc7fYLIiX
-	NReLIAwS7aOelsEoFXXAv+7xijqQ2fvP6zHhAc3d5s5fn6CL9Z0HMF4B2UBpx0W+CdIR+OgBywPtU
-	Y1fpmsx9abpzMPgk0ZLpGuMFcTpMDkzzTslU/zBnYmDd5C8xhL/4Ub3cF4MuYzI3eSzy2V/SG+JqN
-	z2my3jGXfsegczslOktA==;
+	List-Owner; bh=aQa3TXslYgYaM5qcb91vDZfqcGS23pcJ/ZfeiMN9+Rw=; b=3Zd6i+SzSwXoXk
+	5H3daM8gjYYyBtDaPS/kG8mZLNzt1DtD2IPopT2joaHnusbX6f7kyDFBXHq5qrp35eB7RLs58v5s1
+	u55v1HcEAkLDskzkPAl7RSGedaJ1+m9pBhMfn8Jr70DEeo/l/YtS3JLfJBXbTUK+1u7MN5ZAsXbZi
+	B4f+Xwyqn2p+JZerQZ/EqcuD8L2aAmyvps5oaX3rFTcumHppBmGd3qC4qZbFWgDERNEQWyC2yYGNG
+	yiCNDnR5134KQmTCwWusbd4MQ2VpYpjnlJ/vdNlSaz3sbkUZbx0XGxoUpEiTbf7+7YvliJkhfVCmw
+	qgZQQiRUVN6K+tEZ5H/g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tagzo-0000000B8Nq-15nw;
-	Wed, 22 Jan 2025 20:06:40 +0000
-Received: from mail-pl1-x62a.google.com ([2607:f8b0:4864:20::62a])
+	id 1tai8Y-0000000BE9w-0F33;
+	Wed, 22 Jan 2025 21:19:46 +0000
+Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tagxA-0000000B7yI-0Ed9
-	for linux-riscv@lists.infradead.org;
-	Wed, 22 Jan 2025 20:03:57 +0000
-Received: by mail-pl1-x62a.google.com with SMTP id d9443c01a7336-216728b1836so1431975ad.0
-        for <linux-riscv@lists.infradead.org>; Wed, 22 Jan 2025 12:03:55 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=lixom-net.20230601.gappssmtp.com; s=20230601; t=1737576235; x=1738181035; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=u1bgavdzA6vjKZxygqub9VCVMgsHYIiDDbEG48FTIeM=;
-        b=0nz+zF6mp8M7xchQzGTKzHolj4AiF9LNWq+OfkaSyP8hbV7W+CcwBeV4EbBpWw6png
-         7b9p+bXyJ3FM4897gF4ewlyuS/I77Pts7Od5QrtFs7VM10JA3S8f/hUSjIu9Yw472edc
-         qvZbsza380Rv9p66DOfsSPziG9lq0oZM8LFtGX7SaR2Af/ytfn1paF2gaBkGor+7B4XV
-         +LbRhfvpCsBB3LJsoGd275Et9y4urHlLRr5qMBC0cNM0gIyLjrNpwP5VnIgyZvuQv9ew
-         cEVcSaLl4MwcljK9gK+K/GyMXKFtS3dcy87ten/6ToCIflhI9EKgEEHmAEHCtFZyi0vl
-         nRMQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1737576235; x=1738181035;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=u1bgavdzA6vjKZxygqub9VCVMgsHYIiDDbEG48FTIeM=;
-        b=wSajq2quaYm78BvVhj+UAR6xXiMlcpSOsRqL8OaMr2KOUitLln6oa2rk3jVX45w6pn
-         IeEoJLUD0NUOxsBSH/dTo3/C0kl8iodJXoQ/r8DlHHXFkFSdb2wFK18ud6UwQPmt5ARR
-         Nku41+55k8SLSqg0qppJ8c2eWjqA6+xwZo0LXNTvjEMvBSxN7/9H9H1kLnogjtuiPBGW
-         6NgMBJ1rRTAjNSt5/EyDxamXio2GpR+WkshZO2xDGCLIaygo8SIgzAqbMQ3hm4dzpCPN
-         7+BA0WmcAtlSZL7A/0IN+umFbvVOsDIimzTXrCxmvB/y1HEDnvqBY0l99ZlKZmzkf33j
-         WuCw==
-X-Forwarded-Encrypted: i=1; AJvYcCVMijCcb7YaMTu5aN5YUP6zEohT7lDD3p446klvao8+icdTS9hsbBq+rvMWNgTcGJ4SHnNLUFsdOnCzkQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0YzqIXpOw6SJGtnmwLHAeFwHdpKGGi/H5uUPAKseMBS0FM3ZBH6d
-	l/xeYDCmmBYHqBrWWnezAozzdThOBMQfANB4ZCXq/xMDhuyhvOie1ht+fnvxqAY=
-X-Gm-Gg: ASbGncvZOqz0V+buCPyHr4MiatnHj3nJ1g5/pKMttc8mTuit43JsYYvlb7iDYBLs8b7
-	wtZ+4CA7QF6ppThfg1kazUxi7DoJXmk/CCjU8mFpl27ScQ0SrEFJejdzPCOaGq/+MtNYc7svK5z
-	ffmmohF0V1NyYeq0JeR8ULx7c5oJs5Ofuq2nYsesMljZ4L3N4ROdLcEst3R9c/sxqv6mkz0OFdZ
-	7uoG+1If8yS/xqsB7Jt+1jVCTbOOpkawA/pkiZpQlw1dR0POzNZi4OkmEqAswAKCTcLPBIloey6
-	9S7WMKW4SmlaRuJtjNoaqPzpMjisHWLztiQ=
-X-Google-Smtp-Source: AGHT+IGYQoN/4V8moHcEtxB7o+Ard05IbWUKGDVqlmDureSsrLAV5hr6LIlCLWp033igRwLyKLj1LA==
-X-Received: by 2002:a05:6a21:3388:b0:1e1:a8b7:b45d with SMTP id adf61e73a8af0-1eb2145ffc2mr35115554637.4.1737576234673;
-        Wed, 22 Jan 2025 12:03:54 -0800 (PST)
-Received: from localhost (99-152-116-91.lightspeed.sntcca.sbcglobal.net. [99.152.116.91])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-a9bcc322a55sm11089789a12.27.2025.01.22.12.03.53
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 22 Jan 2025 12:03:54 -0800 (PST)
-Date: Wed, 22 Jan 2025 12:03:48 -0800
-From: Olof Johansson <olof@lixom.net>
-To: Yixun Lan <dlan@gentoo.org>
-Subject: Re: [PATCH v4 1/4] dt-bindings: gpio: spacemit: add support for K1
- SoC
-Message-ID: <Z5FPJLzAEVXGWJnE@chonkvm.lixom.net>
-References: <20250121-03-k1-gpio-v4-0-4641c95c0194@gentoo.org>
- <20250121-03-k1-gpio-v4-1-4641c95c0194@gentoo.org>
+	id 1tai8U-0000000BE99-424h;
+	Wed, 22 Jan 2025 21:19:44 +0000
+Received: from pps.filterd (m0360072.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 50MHQxkg012829;
+	Wed, 22 Jan 2025 21:17:07 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
+	:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=pp1; bh=esFAzaN6g7njZiCCkaClyDhZIQCDyB
+	L4ZttyeT6NCzw=; b=MD/1i4r7lMchVZDMxCd4+OmTL+gqvz4EsoCc3lhjzl61q/
+	dWCbk7Dc9E+/mkxibxIfcO+5M2miNjCQj+Zb6N7aFJSgK9pEAqx6PGNDi1udxJ2D
+	5GRkpG+GUOuS40Gu4kk1nLVzuQ6b0Ms8Wu06boltLFfDgJ845roakAZxLi7ece1K
+	21P0Y61Gf0j8zaE10R3dSPAxGJBBECX5J1pPuXnnL27yt6dWzGu7RpbRMXnWFft4
+	1i9lfntcbQEcz44pnsvGFWB7JR/kgZ5jistInR187FAC2imqV46/9k08iOuxZ7q0
+	9o0IVrdT0Bd2ZHNbMuzwATcn0fOtey6n4VrpyBow==
+Received: from ppma12.dal12v.mail.ibm.com (dc.9e.1632.ip4.static.sl-reverse.com [50.22.158.220])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 44avcp3s7s-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 22 Jan 2025 21:17:07 +0000 (GMT)
+Received: from pps.filterd (ppma12.dal12v.mail.ibm.com [127.0.0.1])
+	by ppma12.dal12v.mail.ibm.com (8.18.1.2/8.18.1.2) with ESMTP id 50MKlol5019223;
+	Wed, 22 Jan 2025 21:17:06 GMT
+Received: from smtprelay06.fra02v.mail.ibm.com ([9.218.2.230])
+	by ppma12.dal12v.mail.ibm.com (PPS) with ESMTPS id 448pmsjk01-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 22 Jan 2025 21:17:06 +0000
+Received: from smtpav03.fra02v.mail.ibm.com (smtpav03.fra02v.mail.ibm.com [10.20.54.102])
+	by smtprelay06.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 50MLH4Kc13697392
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Wed, 22 Jan 2025 21:17:04 GMT
+Received: from smtpav03.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 6C62A2004D;
+	Wed, 22 Jan 2025 21:17:04 +0000 (GMT)
+Received: from smtpav03.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id A40CD20043;
+	Wed, 22 Jan 2025 21:17:00 +0000 (GMT)
+Received: from li-008a6a4c-3549-11b2-a85c-c5cc2836eea2.ibm.com (unknown [9.171.77.114])
+	by smtpav03.fra02v.mail.ibm.com (Postfix) with ESMTPS;
+	Wed, 22 Jan 2025 21:17:00 +0000 (GMT)
+Date: Wed, 22 Jan 2025 22:16:58 +0100
+From: Alexander Gordeev <agordeev@linux.ibm.com>
+To: Heiko Carstens <hca@linux.ibm.com>, Kevin Brodsky <kevin.brodsky@arm.com>
+Cc: linux-mm@kvack.org, Andrew Morton <akpm@linux-foundation.org>,
+        Catalin Marinas <catalin.marinas@arm.com>,
+        Dave Hansen <dave.hansen@linux.intel.com>,
+        Linus Walleij <linus.walleij@linaro.org>,
+        Andy Lutomirski <luto@kernel.org>,
+        Peter Zijlstra <peterz@infradead.org>,
+        "Mike Rapoport (IBM)" <rppt@kernel.org>,
+        Ryan Roberts <ryan.roberts@arm.com>,
+        Thomas Gleixner <tglx@linutronix.de>, Will Deacon <will@kernel.org>,
+        Matthew Wilcox <willy@infradead.org>,
+        Qi Zheng <zhengqi.arch@bytedance.com>, linux-alpha@vger.kernel.org,
+        linux-arch@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+        linux-csky@vger.kernel.org, linux-hexagon@vger.kernel.org,
+        linux-kernel@vger.kernel.org, linux-m68k@lists.linux-m68k.org,
+        linux-mips@vger.kernel.org, linux-openrisc@vger.kernel.org,
+        linux-parisc@vger.kernel.org, linux-riscv@lists.infradead.org,
+        linux-s390@vger.kernel.org, linux-snps-arc@lists.infradead.org,
+        linux-um@lists.infradead.org, loongarch@lists.linux.dev,
+        x86@kernel.org
+Subject: Re: [PATCH v2 6/6] mm: Introduce ctor/dtor at PGD level
+Message-ID: <Z5FgSn0y/c9pItED@li-008a6a4c-3549-11b2-a85c-c5cc2836eea2.ibm.com>
+References: <20250103184415.2744423-1-kevin.brodsky@arm.com>
+ <20250103184415.2744423-7-kevin.brodsky@arm.com>
+ <Z4/NTRDBXEEimdvc@li-008a6a4c-3549-11b2-a85c-c5cc2836eea2.ibm.com>
+ <20250122074954.8685-A-hca@linux.ibm.com>
+ <Z5D7TSR3AttkC0Jf@li-008a6a4c-3549-11b2-a85c-c5cc2836eea2.ibm.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20250121-03-k1-gpio-v4-1-4641c95c0194@gentoo.org>
+In-Reply-To: <Z5D7TSR3AttkC0Jf@li-008a6a4c-3549-11b2-a85c-c5cc2836eea2.ibm.com>
+X-TM-AS-GCONF: 00
+X-Proofpoint-ORIG-GUID: lJbHIFaitD84VbMmVKAwv1LP_Khu2fra
+X-Proofpoint-GUID: lJbHIFaitD84VbMmVKAwv1LP_Khu2fra
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1057,Hydra:6.0.680,FMLib:17.12.68.34
+ definitions=2025-01-22_09,2025-01-22_02,2024-11-22_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 impostorscore=0 adultscore=0
+ bulkscore=0 mlxlogscore=925 spamscore=0 phishscore=0 mlxscore=0
+ suspectscore=0 lowpriorityscore=0 priorityscore=1501 clxscore=1015
+ malwarescore=0 classifier=spam adjust=0 reason=mlx scancount=1
+ engine=8.19.0-2411120000 definitions=main-2501220151
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250122_120356_315868_079B2265 
-X-CRM114-Status: GOOD (  24.75  )
+X-CRM114-CacheID: sfid-20250122_131943_113079_A2F084A2 
+X-CRM114-Status: GOOD (  32.09  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,111 +119,97 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Rob Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Meng Zhang <zhangmeng.kevin@linux.spacemit.com>, linux-gpio@vger.kernel.org, Linus Walleij <linus.walleij@linaro.org>, linux-kernel@vger.kernel.org, Conor Dooley <conor@kernel.org>, Yangyu Chen <cyy@cyyself.name>, devicetree@vger.kernel.org, linux-riscv@lists.infradead.org, Palmer Dabbelt <palmer@dabbelt.com>, Jesse Taube <mr.bossman075@gmail.com>, Jisheng Zhang <jszhang@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>, Inochi Amaoto <inochiama@outlook.com>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Bartosz Golaszewski <brgl@bgdev.pl>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi,
+On Wed, Jan 22, 2025 at 03:06:05PM +0100, Alexander Gordeev wrote:
 
-On Tue, Jan 21, 2025 at 11:38:11AM +0800, Yixun Lan wrote:
-> The GPIO controller of K1 support basic functions as input/output,
-> all pins can be used as interrupt which route to one IRQ line,
-> trigger type can be select between rising edge, failing edge, or both.
-> There are four GPIO ports, each consisting of 32 pins.
+Hi Kevin,
+
+> On Wed, Jan 22, 2025 at 08:49:54AM +0100, Heiko Carstens wrote:
+> > > >  static inline pgd_t *pgd_alloc(struct mm_struct *mm)
+> > > >  {
+> > > > -	return (pgd_t *) crst_table_alloc(mm);
+> > > > +	unsigned long *table = crst_table_alloc(mm);
+> > > > +
+> > > > +	if (!table)
+> > > > +		return NULL;
+> > > 
+> > > I do not know status of this series, but FWIW, this call is missed:
+> > > 
+> > > 	crst_table_init(table, _REGION1_ENTRY_EMPTY); 
+> > 
+> > Why is that missing?
 > 
-> Signed-off-by: Yixun Lan <dlan@gentoo.org>
-> ---
->  .../devicetree/bindings/gpio/spacemit,k1-gpio.yaml | 116 +++++++++++++++++++++
->  1 file changed, 116 insertions(+)
+> Because the follow-up pagetable_pgd_ctor() is called against uninitialized
+> page table, while other pagetable_pXd_ctor() variants are called against
+> initialized one. I could imagine complications as result of that.
 > 
-> diff --git a/Documentation/devicetree/bindings/gpio/spacemit,k1-gpio.yaml b/Documentation/devicetree/bindings/gpio/spacemit,k1-gpio.yaml
-> new file mode 100644
-> index 0000000000000000000000000000000000000000..dd9459061aecfcba84e6a3c5052fbcddf6c61150
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/gpio/spacemit,k1-gpio.yaml
-> @@ -0,0 +1,116 @@
-> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/gpio/spacemit,k1-gpio.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: SpacemiT K1 GPIO controller
-> +
-> +maintainers:
-> +  - Yixun Lan <dlan@gentoo.org>
-> +
-> +description:
-> +  The controller's registers are organized as sets of eight 32-bit
-> +  registers with each set of port controlling 32 pins.  A single
-> +  interrupt line is shared for all of the pins by the controller.
-> +  Each port will be represented as child nodes with the generic
-> +  GPIO-controller properties in this bindings file.
+> Whether Region1 table is the right choice is a big question though, as you
+> noticed below.
 
-There's only one interrupt line for all ports, but you have a binding that
-duplicates them for every set of ports. That seems overly complicated,
-doesn't it? They'd all bind the same handler, so there's no benefit in
-providing the flexibility,.
+As discussed with Heiko, we do not want to add the extra crst_table_init() call
+at least due to performance impact. So please ignore my comment.
 
-> +properties:
-> +  $nodename:
-> +    pattern: "^gpio@[0-9a-f]+$"
-> +
-> +  compatible:
-> +    const: spacemit,k1-gpio
-> +
-> +  reg:
-> +    maxItems: 1
-> +
-> +  "#address-cells":
-> +    const: 1
-> +
-> +  "#size-cells":
-> +    const: 0
-> +
-> +patternProperties:
-> +  "^gpio-port@[0-9a-f]+$":
-> +    type: object
-> +    properties:
-> +      compatible:
-> +        const: spacemit,k1-gpio-port
-> +
-> +      reg:
-> +        maxItems: 1
-> +
-> +      gpio-controller: true
-> +
-> +      "#gpio-cells":
-> +        const: 2
-> +
-> +      gpio-ranges: true
-> +
-> +      interrupts:
-> +        maxItems: 1
-> +
-> +      interrupt-controller: true
-> +
-> +      "#interrupt-cells":
-> +        const: 2
-> +        description:
-> +          The first cell is the GPIO number, the second should specify interrupt
-> +          flag. The controller does not support level interrupts, so flags of
-> +          IRQ_TYPE_LEVEL_HIGH, IRQ_TYPE_LEVEL_LOW should not be used.
-> +          Refer <dt-bindings/interrupt-controller/irq.h> for valid flags.
+> > A pgd table can be a Region1, Region2, or Region3 table. The only caller of
+> > this function is mm_init() via mm_alloc_pgd(); and right after mm_alloc_pgd()
+> > there is a call to init_new_context() which will initialize the pgd correctly.
+> 
+> init_new_context() is in a way a constructor as well, so whole thing looks odd
+> to me. But I do not immedeately see a better way :(
+> 
+> > I guess what really gets odd, and might be broken (haven't checked yet) is
+> > what happens on dynamic upgrade of page table levels (->crst_table_upgrade()).
+> 
+> Hmm, that is a good point.
+> 
+> > With that a pgd may become a pud, and with that we get an imbalance with
+> > the ctor/dtor calls for the various page table levels when they get freed
+> 
+> The ctor/dtor mismatch should not be a problem, as pagetable_pgd|p4d|pud_ctor()
+> are the same and there is one pagetable_dtor() for all top levels as of now.
+> But if it ever comes to separate implementations, then we are in the world
+> of pain.
+> 
+> > again. Plus, at first glance, it looks also broken that we have open-coded
+> > crst_alloc() calls instead of using the "proper" page table allocation API
+> > within crst_table_upgrade(), which again would cause an imbalance.
+> 
+> This is a good point too.
 
-Same here, since there's no real flexibility between the banks, it might
-make sense to consider a 3-cell GPIO specifier instead, and having
-the first cell indicate bank. I could see this argument go in either
-direction, but I'm not sure I understand why to provide a gpio-controller
-per bank.
+The below bits are seems to be missed. We will test it and send a patch.
 
-Comparing to say Rockchip, where each bank has a separate interrupt line
--- so there the granularity makes sense.
+diff --git a/arch/s390/mm/pgalloc.c b/arch/s390/mm/pgalloc.c
+index a4e761902093..d33f55b7ee98 100644
+--- a/arch/s390/mm/pgalloc.c
++++ b/arch/s390/mm/pgalloc.c
+@@ -88,12 +88,14 @@ int crst_table_upgrade(struct mm_struct *mm, unsigned long end)
+ 		if (unlikely(!p4d))
+ 			goto err_p4d;
+ 		crst_table_init(p4d, _REGION2_ENTRY_EMPTY);
++		pagetable_p4d_ctor(virt_to_ptdesc(p4d));
+ 	}
+ 	if (end > _REGION1_SIZE) {
+ 		pgd = crst_table_alloc(mm);
+ 		if (unlikely(!pgd))
+ 			goto err_pgd;
+ 		crst_table_init(pgd, _REGION1_ENTRY_EMPTY);
++		pagetable_pgd_ctor(virt_to_ptdesc(pgd));
+ 	}
+ 
+ 	spin_lock_bh(&mm->page_table_lock);
+@@ -130,6 +132,7 @@ int crst_table_upgrade(struct mm_struct *mm, unsigned long end)
+ 	return 0;
+ 
+ err_pgd:
++	pagetable_dtor(virt_to_ptdesc(p4d));
+ 	crst_table_free(mm, p4d);
+ err_p4d:
+ 	return -ENOMEM;
 
-
--Olof
+Thanks!
 
 _______________________________________________
 linux-riscv mailing list
