@@ -4,138 +4,136 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3C1D8C02181
-	for <linux-riscv@archiver.kernel.org>; Wed, 22 Jan 2025 10:43:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3907BC02181
+	for <linux-riscv@archiver.kernel.org>; Wed, 22 Jan 2025 11:26:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:References:In-Reply-To:From:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=T+aSkF/xdKcfmOHfsAPCP0cqdWYwBGMXX4UWr2pw9cA=; b=jAIDrR0xPdFMEU
-	Wjkv157Y0Bj2vMCxU/w3b3IsH3+JMS1HO6qpOWkV8h57iiv9KKzASUeNKGRbsFHglqwhDQbNaQQN0
-	P3kE2n/tJOCslwCkqTsVRNVsOeaq9L9VNmSmwRx/1jzw/xay2hCACKZoFlcAuqmHFU4LzqQ3c8ygM
-	uZp71DZHkbpnO8fodz7RnhwcfEwJ/1aGz3eIeYlz+sT/HrTIk8O/l51TwCPdC867zIT4KywcKdutA
-	fQX7FslzKdFPab7edUgjwCLUYuBA3b9Ks00GcLFkRiJuSmH457i9AbqnDVRWNdlyuJtDEP69FEt00
-	ut2ivaaAgr+vjonSE5KQ==;
+	List-Owner; bh=o2fL8tv61dxaAIbsT2YPvf5LQGLj6BYkKoPt0RolruY=; b=y0gr/WhTShm0TN
+	ndQHLTiufNTDpeQba7hWRgutHE7g2l4YMMYKOIW3F1U1j+nMDyx7FWcnM2yZT8WZWX0TLyYStJBXn
+	fbN7tJKuAvQRwboXGItt4Bj/z745HbcDsStqPzlGNdo8r89WnC3+fpCa1YijoIgkW4mzFAC7fuOwu
+	G7vGvW+v2geNeceNLxJD58qK2dhLCdjxUnUyRO6g61PeCHjupG3CWqjv6nZSOLwZ4HPNjmFurLFFW
+	tXMiAiQpnCGiu3b8HhisbGV6tD8BJYxfY02nHNezMix9If65b4ADsHo7DfgbJ3q+OGsd47mhWHQmJ
+	rX4G2eZvGzhrFeH3Hd9A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1taYD1-00000009z4Z-3Ad1;
-	Wed, 22 Jan 2025 10:43:43 +0000
-Received: from mail-bjschn02on20728.outbound.protection.partner.outlook.cn ([2406:e500:4440:2::728] helo=CHN02-BJS-obe.outbound.protection.partner.outlook.cn)
+	id 1taYsd-0000000A2rf-3PdG;
+	Wed, 22 Jan 2025 11:26:43 +0000
+Received: from mailout1.w1.samsung.com ([210.118.77.11])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1taYBL-00000009ymr-44lC
+	id 1taYsb-0000000A2qJ-323F
 	for linux-riscv@lists.infradead.org;
-	Wed, 22 Jan 2025 10:42:02 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=Q+fYDuu9l91X4eprnvc23IeX/N7LYnMT2/jh7t8O1P0ERVXqz7xa18gqUZr/hIBcIvaQ0Glf43Hni8ygRyb8uI7C0YHqK6HJFpZTd/vnw/tGptS1qQb+nMiUwsCHGKHOnyOIgXyX5UviqWhiLetiXJ/pGfk56+yiZqrHlcp7Ljz9dqJENbLgbmNCLibHmFbU1oFhj6ugwKH1csLNeEy9WoHDedDtGLxLRbl6DN8JXgIA0/jvUOM7gk1VduEAPOEathPFjlGSHFx/ClCem+RrX4Qfhb56tO1WeTWe+AbmJsbUKA5Hw/Zv7JczluzrloMRNIOX9glD9/AI/fW4FO8mKg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=U9TXrGQIUlcUP6dfyFiTfiAJIkXCv6LFPKyhP1s9QBY=;
- b=PtEgBZwEUi48QTiqW1MA5esKsBBi1jW5QDhPfkhTKS86NAfN8nK7zKlK2OjMQ6XHCLPxq9df81JE8A5QqqVDl9+DlfHKBtKInJTEVKNuOWFYT5KGChtX1/EsE33uErNGn5EECMcndPKv2IVRKdQ8Yxh/SLSXO9oczepe8687oPO9yGxwmMtGAeYL2LIATS3AX0fpZMDjXfvjCsztptFajTs5rt7tcIJnpb5Kxa3pTfGZg5nJah7pmCbyIcl1REAW6YFlMjsVYf6V5TPldLKrzuOvqaNHlc9p64bx2CKAtQ94Skt+4LIcrwKnzBCWnb91maI8+j6BusrcldkgHKL7lA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=starfivetech.com; dmarc=pass action=none
- header.from=starfivetech.com; dkim=pass header.d=starfivetech.com; arc=none
-Received: from BJXPR01MB0855.CHNPR01.prod.partner.outlook.cn
- (2406:e500:c211:18::12) by BJXPR01MB0854.CHNPR01.prod.partner.outlook.cn
- (2406:e500:c211:19::23) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8356.19; Wed, 22 Jan
- 2025 10:41:35 +0000
-Received: from BJXPR01MB0855.CHNPR01.prod.partner.outlook.cn
- ([fe80::f06:366f:7b4b:4c9]) by BJXPR01MB0855.CHNPR01.prod.partner.outlook.cn
- ([fe80::f06:366f:7b4b:4c9%5]) with mapi id 15.20.8356.017; Wed, 22 Jan 2025
- 10:41:34 +0000
-From: Minda Chen <minda.chen@starfivetech.com>
-To: E Shattow <e@freeshell.de>, Conor Dooley <conor@kernel.org>
-CC: Emil Renner Berthing <kernel@esmil.dk>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Paul Walmsley
-	<paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
-	<aou@eecs.berkeley.edu>, "linux-riscv@lists.infradead.org"
-	<linux-riscv@lists.infradead.org>, "devicetree@vger.kernel.org"
-	<devicetree@vger.kernel.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH v1 1/2] riscv: dts: starfive: jh7110: pciephy0 USB 3.0
- configuration registers
-Thread-Topic: [PATCH v1 1/2] riscv: dts: starfive: jh7110: pciephy0 USB 3.0
- configuration registers
-Thread-Index: AQHbZessMJgcIL10+UmGw9zpa2rChbMVwlmQgADRYoCAARlKYIADWKIAgAei6jA=
-Date: Wed, 22 Jan 2025 10:41:34 +0000
-Message-ID: <BJXPR01MB08553280FF7E342451053A6FE6E1A@BJXPR01MB0855.CHNPR01.prod.partner.outlook.cn>
-References: <20250102183746.411526-1-e@freeshell.de>
- <20250102183746.411526-2-e@freeshell.de>
- <20250113-mushiness-snugness-0f55574e3956@spud>
- <SHXPR01MB0863DBF85A9874C9F93ECD25E618A@SHXPR01MB0863.CHNPR01.prod.partner.outlook.cn>
- <20250114-recollect-dictate-104e890d116e@spud>
- <SHXPR01MB08631714C914911D343372ACE619A@SHXPR01MB0863.CHNPR01.prod.partner.outlook.cn>
- <dd3aefec-0e1a-4025-812b-daa67a53f4ee@freeshell.de>
-In-Reply-To: <dd3aefec-0e1a-4025-812b-daa67a53f4ee@freeshell.de>
-Accept-Language: en-US
-Content-Language: zh-CN
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=starfivetech.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: BJXPR01MB0855:EE_|BJXPR01MB0854:EE_
-x-ms-office365-filtering-correlation-id: f6debd74-f880-4c04-a8fc-08dd3ad15790
-x-ms-exchange-senderadcheck: 1
-x-microsoft-antispam: BCL:0;ARA:13230040|41320700013|366016|1800799024|7416014|38070700018;
-x-microsoft-antispam-message-info: rx0ORIaFVG7b1nc2oGm9Q82f/Nyfp1pX07f1ZuGIEratC4z//4r6x0Ea+iVCB0D8hz7BThbutxPQLPbtX1sBjKEEPB2FDO0TajeYJGbXtPnPb7yKF9Lp58C31hIVx8atO/iNNr1N0gLBcEcBqkyt0x87EfBBWs36u53GFFVkQlcUi3xKr84QF0Fz3GfQb7C5eiWovxtEcAmFwg2YFep2mZ95atm50t0AIJUY0pejF7WjkfbcPcxwYZ4HDWlxr4KQUYQn0uSxIjh05jtJS8GfgGmCinuSuRQ5Uj56qm/6vd+U3uUqFmlORppSNBov4Q3dLb/G72f+uHivb4CoFhPCy0A0cjf+0EFH49QZwXGy6j2aEVoS8J5NFUd869W5epw3V4JUFpwbvZAX9gQUHxBhJUZqeU+mVsZg82zo0qkXRTrmF5l3g1QUcnapFBEUTl7sn3V9X6c50IyNingySOjXLxj9X2lr+Yft7X6fVwsD8HrOOIg2VItr1bnln7Nr34mRYgr/aC2v6n698xHh7woQ5QV33DF64KqhNhMiSrHwFhctv+4ej4D9BIbQaPLfgUSAwSCUyDeOOzqThKNsi01CdWCIjITql40tjCqE8KVYwaY=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:zh-cn;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:BJXPR01MB0855.CHNPR01.prod.partner.outlook.cn;PTR:;CAT:NONE;SFS:(13230040)(41320700013)(366016)(1800799024)(7416014)(38070700018);DIR:OUT;SFP:1102;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?utf-8?B?YWxLcm5WNDVONkRXekxoWDhwWjkrL2l5cFlKdnUzK1h3dUp1SVM0NkhjVUY1?=
- =?utf-8?B?L2hVWWhPRWNMRHdmUzdxTDN4Z2UxWFdDNGlvdjVBaS9Vai9IWHJubHRFTlpr?=
- =?utf-8?B?ckdpRWpoQmtLZzJ2ZGJnd21aVFBWN1l5SFVtUFRyYzRUd1dpeGdoa3BkMHdl?=
- =?utf-8?B?OTMwUlliTEJvaFFmMkQvWTlJT254VC9YckI2cEl5OEI3Sm1lU2pRQ2pxZVFG?=
- =?utf-8?B?MFR2ejBpbTkrak5iYldNcHYyYVhyMHMxclc0aE85MGlMa1hHeDhYSGRGcTN4?=
- =?utf-8?B?L3lCS2swK1VBcVVHMnRKRjYvUk4xUkhUZnhGUnVNUWFMUkM2bmtlaGtvcUxo?=
- =?utf-8?B?bWg3cklrMFp3eE9RcTNiaExMNHh6MTNBRm9td0Ivd1BYOFk0Yk9KeFQzT00r?=
- =?utf-8?B?aUFvRmlEYnphNnFjM3FVSERvWkhaTXZuc1VrdmdFOUE3UWlJQytZbVB1NVJV?=
- =?utf-8?B?WjJzZkxXNGpKc0x4Kzk3aUxRMmFLd0llUVBxdy9vcUxqbDd3cGVZZVo5Yk5Q?=
- =?utf-8?B?ZDNQWWtuWnFSTERWVlBMdm9BZDR0dFprSEZTV2Jncm4wN21ZZjExMytXOTJs?=
- =?utf-8?B?K0VwQmovdEV4T2J2RWRHdG1tcUkxbE9oYngwTDVwUlBlVmJXQnhXRnNhTGRM?=
- =?utf-8?B?bTduVVlURzhSZ2w4bis4WDh2d1RCamlzaG5sd0duL1NnV0tVSUJLaXYvZXNa?=
- =?utf-8?B?c3pLcGNOdis4UkZSK1F1aXM3YS9aUVUrbjNPTDY2cWJpa1pUU1R0eU5MRERQ?=
- =?utf-8?B?MHEvUnFmdEpibnVWSjRsTTRDOGtHTlRXZHNSNWJvZG15QlZjeldTWFUrVmVj?=
- =?utf-8?B?d0JDaWxXOHl2d0RNVUEvZHEwRmQyZVUrL1pxN3krRUM1MmFTeVR4QjR0WXg2?=
- =?utf-8?B?NVJOWklzZkNoRU5SODBOeU02dEUzbzJ2OGsvbkNjVWorVGRTYUpmN0lCVmxR?=
- =?utf-8?B?R0l1ZDFaUFdTaU1KQkJ3NEJDcFIvRzRpQUoreWVORXZqZVJiWWc1Uitzb3Y2?=
- =?utf-8?B?aHZmb2VuS2JNZFR2eVFZRW9wQ0dORkwwRC9ia0oxMVppQms3NURPYmZjRGhO?=
- =?utf-8?B?emJEQWU1K1ExeHZCNUpBczVWZElmNGdUS3VlL2xJVDJEUjJ3V2NYWWZzN2hm?=
- =?utf-8?B?d2Y0eFZwNFZRTkJCSDhIMlVDdUQzQWhWd3RsUHMwbXdWY0Y3eEtHL0FqQzNS?=
- =?utf-8?B?cjdib1NhY2ZiMGFQMGhOM1dXOVFWdmNDQUVYbHFvWVNua0tNR1hEdjR3eU5l?=
- =?utf-8?B?a2NLcUFibWNqVkd0VjF6cVRzQTEwREJ4UVhJS3F0amxYNGxnSm9JNU04VHIy?=
- =?utf-8?B?RE02RGcyTEovaWFaSWRtMUwxbnJXQS96QkFKVW1McXRMeUVmakZqTCtScFps?=
- =?utf-8?B?Unl1RVowTEVDV21PcEgzcU5aeTBCZEYvYUgzdkhLRVUxTTVYeCt4NkpyL0h6?=
- =?utf-8?B?QWdHdkNCNm5xbzhSSWFvMVRnNVF2c04wUkFMcU13aTFvSHBqN3ZJQndZNUs3?=
- =?utf-8?B?L1F6N2pGOGN5VGFsNDN6czlMOUJIY3NwcW5xMlh5Umx1ZEtudFhjZUF1S1g1?=
- =?utf-8?B?aFdqVVozeFpRSVgwS3Q3SEp4R0tCZGRvTFdNRDhuL2RWSk0vSTR0dmJCalNw?=
- =?utf-8?B?V1ZsSzYrdWs5Y2M1S1VGcGhSMzlhZy9IYW5LSWhLNkwxdjlaNytmZCtxS2xw?=
- =?utf-8?B?aTBzVlQxWXZYQ0lXOHcrbGdPK0lkWG0yZldtbGF3TTBPV3BKZlc1aW5qQmpN?=
- =?utf-8?B?TDdTK1oyY2lIQmVONlJWY0g1ZVh6NHM2NStSUDdiWml0M2dqRTZ6eDNBby9D?=
- =?utf-8?B?Q3lGdkZsbnVoeEFwNnB2c0ZUVnBYMkwrODhIUzdBSWxyTms0enp5QUl0a2pt?=
- =?utf-8?B?K211ZEhxNytnalI5SXFaMU9qMDdyUkdVZk1raTFabmRPSjBPSWg5V0xueE5t?=
- =?utf-8?B?YmZuOWlQQXZ4aVFrczBjMU40L0QvSEJoTlY5RnhlR0ErREYvUmlEV0dkaVRx?=
- =?utf-8?B?VmNwV0Jha3ZRV2JEK0Era2sxczUvejNVbjBzR0FwZWpoaVlRVXlnN1ZCTk51?=
- =?utf-8?B?Y3NsN2FiNXd1S1FZS25nZ2lLMWtrcjBidFM0SjIyMnpjaUlMUW96RTlZSXF0?=
- =?utf-8?B?NjJRMFBtUW9XaWIxWE9aK2FvOHAwdHNiaWJmc3V0ZWFqY0pocUtXT2phVHNR?=
- =?utf-8?B?Rnc9PQ==?=
+	Wed, 22 Jan 2025 11:26:43 +0000
+Received: from eucas1p2.samsung.com (unknown [182.198.249.207])
+	by mailout1.w1.samsung.com (KnoxPortal) with ESMTP id 20250122112638euoutp01c24d7ec2515308b7b13e958c5da3725c~dACbypdkX1217512175euoutp01e
+	for <linux-riscv@lists.infradead.org>; Wed, 22 Jan 2025 11:26:38 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout1.w1.samsung.com 20250122112638euoutp01c24d7ec2515308b7b13e958c5da3725c~dACbypdkX1217512175euoutp01e
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1737545198;
+	bh=OzxWzg2x4Cwra8cOzJYDj90iXRfkcTkglD4PrGOpiHg=;
+	h=Date:Subject:To:Cc:From:In-Reply-To:References:From;
+	b=DepA5NlqeUt02ysoT0EcLIYirtddGNlMSRjc67BsvcDGplQDsI1M7dCKFmH+oSFYF
+	 /jg6JFeP/oC2+lrwY7gWCmvWX3HXs48G7Z9huQwo+SxFtjBeonTmvo/ljhuBa93r00
+	 SmP5aTDLGAB9Y5Eat1EqBkaHkC4URyZ/p225y7ZA=
+Received: from eusmges2new.samsung.com (unknown [203.254.199.244]) by
+	eucas1p2.samsung.com (KnoxPortal) with ESMTP id
+	20250122112638eucas1p2f059d8a9c27573ee8c32779c005dfda6~dACbU8nb_2646526465eucas1p2Z;
+	Wed, 22 Jan 2025 11:26:38 +0000 (GMT)
+Received: from eucas1p1.samsung.com ( [182.198.249.206]) by
+	eusmges2new.samsung.com (EUCPMTA) with SMTP id 00.E9.20409.DE5D0976; Wed, 22
+	Jan 2025 11:26:37 +0000 (GMT)
+Received: from eusmtrp1.samsung.com (unknown [182.198.249.138]) by
+	eucas1p1.samsung.com (KnoxPortal) with ESMTPA id
+	20250122112637eucas1p162414679b12de45b2ee26ba1e486012a~dACa1rwpX0353603536eucas1p1L;
+	Wed, 22 Jan 2025 11:26:37 +0000 (GMT)
+Received: from eusmgms1.samsung.com (unknown [182.198.249.179]) by
+	eusmtrp1.samsung.com (KnoxPortal) with ESMTP id
+	20250122112637eusmtrp1661b45e773e44a602e6c9802c17c36fb~dACa0lb0T1389913899eusmtrp1Z;
+	Wed, 22 Jan 2025 11:26:37 +0000 (GMT)
+X-AuditID: cbfec7f4-c39fa70000004fb9-22-6790d5edcf8d
+Received: from eusmtip2.samsung.com ( [203.254.199.222]) by
+	eusmgms1.samsung.com (EUCPMTA) with SMTP id 7C.11.19920.DE5D0976; Wed, 22
+	Jan 2025 11:26:37 +0000 (GMT)
+Received: from [192.168.1.44] (unknown [106.210.136.40]) by
+	eusmtip2.samsung.com (KnoxPortal) with ESMTPA id
+	20250122112636eusmtip23592639f5b607ab9234dcf41545997a5~dACZigDrR0994809948eusmtip2S;
+	Wed, 22 Jan 2025 11:26:36 +0000 (GMT)
+Message-ID: <9039d98b-ea3b-401a-804c-8c60ec714b99@samsung.com>
+Date: Wed, 22 Jan 2025 12:26:35 +0100
 MIME-Version: 1.0
-X-OriginatorOrg: starfivetech.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: BJXPR01MB0855.CHNPR01.prod.partner.outlook.cn
-X-MS-Exchange-CrossTenant-Network-Message-Id: f6debd74-f880-4c04-a8fc-08dd3ad15790
-X-MS-Exchange-CrossTenant-originalarrivaltime: 22 Jan 2025 10:41:34.8006
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 06fe3fa3-1221-43d3-861b-5a4ee687a85c
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: oZ5DoGfg60Qp/oE7GolU+kr/+Fds8kuKwRZmsC5tsZ5z9jAeU+VR7f52nTNQ5GrIVD3PxsIfBbxjEFSJVgx3+Zzy6fylE8MCa4mCgsID/MQ=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: BJXPR01MB0854
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFC v3 05/18] pmdomain: thead: Add power-domain driver for
+ TH1520
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: mturquette@baylibre.com, sboyd@kernel.org, robh@kernel.org,
+	krzk+dt@kernel.org, conor+dt@kernel.org, drew@pdp7.com, guoren@kernel.org,
+	wefu@redhat.com, jassisinghbrar@gmail.com, paul.walmsley@sifive.com,
+	palmer@dabbelt.com, aou@eecs.berkeley.edu, frank.binns@imgtec.com,
+	matt.coster@imgtec.com, maarten.lankhorst@linux.intel.com,
+	mripard@kernel.org, tzimmermann@suse.de, airlied@gmail.com, simona@ffwll.ch,
+	ulf.hansson@linaro.org, jszhang@kernel.org, p.zabel@pengutronix.de,
+	m.szyprowski@samsung.com, linux-clk@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org, dri-devel@lists.freedesktop.org,
+	linux-pm@vger.kernel.org
+Content-Language: en-US
+From: Michal Wilczynski <m.wilczynski@samsung.com>
+In-Reply-To: <508d6120-53df-4db1-ab62-5f4c49358cbf@kernel.org>
+X-Brightmail-Tracker: H4sIAAAAAAAAA02Se1BUZRjG/facPWdZZ+mwwPBFJsWIE8wESDV9ZpEQ2rEpQ4yhTNKdPC64
+	3NyFLpYTDJe4LLfCqI0NRG2JBcSV5RYLM7ixXHIxlEWJRbRlasEFV4gQFGI5WPz3m+d933me
+	55uPhwl1hCcvNiGZkSaI4rwJPt7Ydd/4rG2wSByYrkGoe6iSg7SLChLV6IwcVK43ctHoQAMH
+	Xft7mkB141dI9JcuDUemKiWJ0rvOE8iqGCVQf389iezyUS662lpGoJl8PUCNMxkEqtWbSXTa
+	rsXR2eZWgLJyfuSi33p3IfNoN46sV+UYylI8hpbbmkm0ZLqAo++nOkjUcKeYiwy1USijowTf
+	uZmevp5J0nesVpy+lD1L0rq5CpxuUZhJWt7yK6A11TkEPWJqI+gfevbRN/MMHPri2S/ojNou
+	Dl34MJCebh8k6IKGakAPpA+R4cID/JePMHGxHzHSgODD/JgC3VNJp70+MXbfwlJBnmcucOJB
+	6nlov5zPzQV8npCqArCgvgI4BkJqFkDL7B6WZwAsVTs/OlDWzmHsgQrA+fszHHbJBuCSws/B
+	AioY6vUleC7g8XDKB96+8AYru8Ce7yy4g90pL3hz+FvSwa7UPni5Z2yV3ShfOPTwn9VAGNXG
+	hd+U1HMdA4zygMOW8lUvggqCY6ryVd1pxWtIM0ewO16wyVaGsUEH+XDozGcsh0FL1SmSZVc4
+	YWhY402w72s5znIiHNPeW7v9HLbIDWu8A44YFwhHF2wl3PnWAFYOgZcmlJhDhpQzvG5zYRM4
+	w68aS9dkAczOErLbW+Epef5/psaqRk4R8FasexTFuo6KdV0U//tWALwaeDApsngxIwtKYD72
+	l4niZSkJYv8PE+M1YOWH9y0ZZpuBasLu3wk4PNAJIA/zdhO435WLhYIjok9PMNLEQ9KUOEbW
+	CZ7g4d4egsqOTLGQEouSGQnDJDHSR1MOz8kzlZN+Yzg08FBTDqZyC9s4cMxTMlmiezX6xbaj
+	G9/UPki5slCnUSb1qiN3+c2fC5gXas9IYiJDorek4ScXu8zdU3urTkb57L9Vuqcv3+4xrnVx
+	r3x3g9s49/2kB9WmylikyN9uM/W3Th1OzyyTWU/4HFyOqhuJyfDNC74Rp7W4vkSONM/GFds2
+	b90eIXp6f41Mon9c6WoJey1hk9z6Xp/g3rnii5PhYcd3CH/uPRYRcXz59ZDUDdhOkST7z4Pq
+	n1zvFi7sjT7wyxalxry7vWjM+nto/DtHn/zghYnwZ9SF7ZPdbbcj7aHXgpqmBWYgfLvmlT9U
+	yaYo5q0vpYvqyNCQhW3P+arTJN64LEa0zQ+TykT/As9ATV5QBAAA
+X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFrrIKsWRmVeSWpSXmKPExsVy+t/xe7pvr05IN/h6Q9zixPVFTBZbf89i
+	t1iz9xyTxfwj51gt7l3awmRx5et7Not1Ty+wW7zY28hicW3FXHaL5mPr2SxezrrHZnH+/AZ2
+	i48991gtLu+aw2bxufcIo8W2zy1sFmuP3GW3WPhxK4vFkh27GC3aOpexWlw85Wpx994JFouX
+	l3uYLdpm8Vv837OD3eLftY0sFrPf7We32PJmIqvF8bXhFi37p7A4yHm8v9HK7vHm5UsWj8Md
+	X9g99n5bwOKxc9Zddo+enWcYPTat6mTzuHNtD5vHvJOBHve7jzN5bF5S79Gy9hiTR/9fA4/3
+	+66yefRtWcXocan5OnuAUJSeTVF+aUmqQkZ+cYmtUrShhZGeoaWFnpGJpZ6hsXmslZGpkr6d
+	TUpqTmZZapG+XYJeRt9ehYKF8hXnTjxkbmDslupi5OSQEDCRmLv2GzOILSSwlFHib386RFxG
+	4lr3SxYIW1jiz7Uuti5GLqCa14wSnbdOgDXwCthJHDkyBaiIg4NFQFXi0UYviLCgxMmZT8B6
+	RQXkJe7fmsEOYgsLBEqcPfkAzBYR0JS4/vc7K8hMZoE9rBKHN39mgzjiBZPE+bnSIDazgLjE
+	rSfzmUBsNgEjiQfL57OC2JxAe69v+sYGspdZQF1i/TwhiHJ5ie1v5zBPYBSaheSMWUgmzULo
+	mIWkYwEjyypGkdTS4tz03GJDveLE3OLSvHS95PzcTYzAtLXt2M/NOxjnvfqod4iRiYPxEKME
+	B7OSCK/oh550Id6UxMqq1KL8+KLSnNTiQ4ymwJCYyCwlmpwPTJx5JfGGZgamhiZmlgamlmbG
+	SuK8bpfPpwkJpCeWpGanphakFsH0MXFwSjUwaVebRzd5u/z82cZ9v73A72d9WdicU3unRiff
+	qvIQqb+pcu9qVu/TsuTXK/3SmVteTItzqc29/K1c68fRwoTMyzmm5wxeb7G9/M7Gc1+DYPb2
+	/fNFwvr3NP1awST2ZUqu65UdfueffT7kYvh1zoapnxj4nas/C1oELznjPGHt5tNKOtmLP6q/
+	m2U6/9v7NM9jC63rUxeeD/OQsmzNT/No673U5DrRcJXZk+DoTQX3bl1jv5nb/HiyE/dNrbsx
+	B70zDTKXdt2+alaV9vW1H8st5kd5j3tYA36ovv+xo/hfk1bS5GtXui8ev+bhe5jL7Z7Wpa+P
+	ngUyMP/h3LDx7auP8hduKq6ufjj12OaAN0+mnlBiKc5INNRiLipOBAA7w6co5AMAAA==
+X-CMS-MailID: 20250122112637eucas1p162414679b12de45b2ee26ba1e486012a
+X-Msg-Generator: CA
+X-RootMTR: 20250120172125eucas1p141540607f423eea4c55b2bd22ff5adf0
+X-EPHeader: CA
+CMS-TYPE: 201P
+X-CMS-RootMailID: 20250120172125eucas1p141540607f423eea4c55b2bd22ff5adf0
+References: <20250120172111.3492708-1-m.wilczynski@samsung.com>
+	<CGME20250120172125eucas1p141540607f423eea4c55b2bd22ff5adf0@eucas1p1.samsung.com>
+	<20250120172111.3492708-6-m.wilczynski@samsung.com>
+	<20250121-mature-marigold-ammonite-b379d2@krzk-bin>
+	<ce69a49d-6221-458d-b0e5-0f3507f1aeac@samsung.com>
+	<508d6120-53df-4db1-ab62-5f4c49358cbf@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250122_024200_013028_7F091384 
-X-CRM114-Status: GOOD (  32.63  )
+X-CRM114-CacheID: sfid-20250122_032642_028318_4FDA58E8 
+X-CRM114-Status: GOOD (  23.07  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -154,80 +152,108 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 
 
+On 1/22/25 08:46, Krzysztof Kozlowski wrote:
+> On 21/01/2025 22:42, Michal Wilczynski wrote:
+>>
+>>
+>> On 1/21/25 11:02, Krzysztof Kozlowski wrote:
+>>> On Mon, Jan 20, 2025 at 06:20:58PM +0100, Michal Wilczynski wrote:
+>>>> The T-Head TH1520 SoC contains multiple power islands that can be
+>>>> programmatically turned on and off using the AON (Always-On) protocol
+>>>> and a hardware mailbox [1]. The relevant mailbox driver has already been
+>>>> merged into the mainline kernel in commit 5d4d263e1c6b ("mailbox:
+>>>> Introduce support for T-head TH1520 Mailbox driver");
+>>>>
+>>>> This commit introduces a power-domain driver for the TH1520 SoC, which
+>>>
+>>> Please do not use "This commit/patch/change", but imperative mood. See
+>>> longer explanation here:
+>>> https://protect2.fireeye.com/v1/url?k=2123f702-40a8e22d-21227c4d-74fe485cbfe7-afb876722bdc8fc5&q=1&e=e5dabc89-5f0c-4819-9008-76faafc3c1bc&u=https%3A%2F%2Felixir.bootlin.com%2Flinux%2Fv5.17.1%2Fsource%2FDocumentation%2Fprocess%2Fsubmitting-patches.rst%23L95
+>>>
+>>>> is using AON firmware protocol to communicate with E902 core through the
+>>>> hardware mailbox. This way it can send power on/off commands to the E902
+>>>> core.
+>>>
+>>> ...
+>>>
+>>>> diff --git a/drivers/pmdomain/thead/Makefile b/drivers/pmdomain/thead/Makefile
+>>>> new file mode 100644
+>>>> index 000000000000..adfdf5479c68
+>>>> --- /dev/null
+>>>> +++ b/drivers/pmdomain/thead/Makefile
+>>>> @@ -0,0 +1,2 @@
+>>>> +# SPDX-License-Identifier: GPL-2.0-only
+>>>> +obj-$(CONFIG_TH1520_PM_DOMAINS)		+= th1520-pm-domains.o
+>>>> diff --git a/drivers/pmdomain/thead/th1520-pm-domains.c b/drivers/pmdomain/thead/th1520-pm-domains.c
+>>>> new file mode 100644
+>>>> index 000000000000..d913ad40fb76
+>>>> --- /dev/null
+>>>> +++ b/drivers/pmdomain/thead/th1520-pm-domains.c
+>>>> @@ -0,0 +1,174 @@
+>>>> +// SPDX-License-Identifier: GPL-2.0
+>>>> +/*
+>>>> + * Copyright (C) 2021 Alibaba Group Holding Limited.
+>>>> + * Copyright (c) 2024 Samsung Electronics Co., Ltd.
+>>>> + * Author: Michal Wilczynski <m.wilczynski@samsung.com>
+>>>> + */
+>>>> +
+>>>> +#include <linux/firmware/thead/thead,th1520-aon.h>
+>>>> +#include <linux/slab.h>
+>>>> +#include <linux/platform_device.h>
+>>>> +#include <linux/pm_domain.h>
+>>>> +
+>>>> +#include <dt-bindings/firmware/thead,th1520-aon.h>
+>>>
+>>> So here it is used... I don't understand why power domain is under
+>>> firmware. Please move it to proper directory and name the file exactly
+>>> the same as bindings doc which this belongs to.
+>>
+>> The power-domain driver has no bindings doc. It's a child driver of the AON
+>> node.
+> 
+> OK, not changing my comment, though.
+> 
+>>
+>>>
+>>>
+>>>> +
+>>>> +struct th1520_power_domain {
+>>>> +	struct th1520_aon_chan *aon_chan;
+>>>> +	struct generic_pm_domain genpd;
+>>>> +	u32 rsrc;
+>>>> +};
+>>>> +
+>>>> +struct th1520_power_info {
+>>>> +	const char *name;
+>>>> +	u32 rsrc;
+>>>> +};
+>>>> +
+>>>> +static const struct th1520_power_info th1520_pd_ranges[] = {
+>>>> +	{ "vdec", TH1520_AON_VDEC_PD },
+>>>
+>>> Why TH1520_AON_XXX aren't the indices?
+>>
+>> These power-domain constants are defined by the AON firmware protocol,
+>> which dictates the exact IDs (e.g., 1 for NPU). They are not just array
+>> indices; we must use these specific values to communicate with the
+>> firmware correctly. Using array indices starting with 1 would be
+>> unusual.
+> 
+> Then that's a no. Binding constants do not represent values used by your
+> hardware. The binding constant should start from 0.
+
+Would it be a problem if those overlapped ? There is one more value that
+I skipped for now TH_1520_AON_AUDIO, that is indeed a 0. I skipped it
+cause trying to turn it on/off, caused a crash in the firmware, which
+stopped responding for a while. With this extra constant I would be able
+to use those values as an indices, but would need to add extra code in
+the driver to work around the issue.
 
 > 
-> Hi Minda,
+> Best regards,
+> Krzysztof
 > 
-> On 1/15/25 02:58, Minda Chen wrote:
-> >
-> >
-> >>
-> >> On Tue, Jan 14, 2025 at 05:42:28AM +0000, Minda Chen wrote:
-> >>>
-> >>>
-> >>>>
-> >>>> On Thu, Jan 02, 2025 at 10:37:36AM -0800, E Shattow wrote:
-> >>>>> StarFive JH7110 contains a Cadence USB2.0+USB3.0 controller IP
-> >>>>> block that may exclusively use pciephy0 for USB3.0 connectivity.
-> >>>>> Add the register offsets for the driver to enable/disable USB3.0
-> >>>>> on
-> >> pciephy0.
-> >>>>>
-> >>>>> Signed-off-by: E Shattow <e@freeshell.de>
-> >>>>> ---
-> >>>>>   arch/riscv/boot/dts/starfive/jh7110.dtsi | 2 ++
-> >>>>>   1 file changed, 2 insertions(+)
-> >>>>>
-> >>>>> diff --git a/arch/riscv/boot/dts/starfive/jh7110.dtsi
-> >>>>> b/arch/riscv/boot/dts/starfive/jh7110.dtsi
-> >>>>> index 0d8339357bad..75ff07303e8b 100644
-> >>>>> --- a/arch/riscv/boot/dts/starfive/jh7110.dtsi
-> >>>>> +++ b/arch/riscv/boot/dts/starfive/jh7110.dtsi
-> >>>>> @@ -611,6 +611,8 @@ usbphy0: phy@10200000 {
-> >>>>>   		pciephy0: phy@10210000 {
-> >>>>>   			compatible = "starfive,jh7110-pcie-phy";
-> >>>>>   			reg = <0x0 0x10210000 0x0 0x10000>;
-> >>>>> +			starfive,sys-syscon = <&sys_syscon 0x18>;
-> >>>>> +			starfive,stg-syscon = <&stg_syscon 0x148 0x1f4>;
-> >>>>
-> >>>> Why weren't these added in the first place? Minda, do you know?
-> >>>>
-> >>> The driver only require to set syscon register while the PHY attach
-> >>> to Cadence USB.(star64 board case) The PHY default attach to PCIe0,
-> >>> VF2 board
-> >> do not set any setting. So I don't set it.
-> >>
-> >> Does this mean that the change should be made in files where it will
-> >> only affect
-> >> non-VF2 boards, or is it harmless if applied to the VF2 also?
-> > Harmless. The PCIe PHY driver still set the PCIe mode syscon setting.
-> 
-> Sounds good to me. However some tangent topic related to this series:
-> 
-> Our questions and answers in this discussion are a representation of what is
-> missing from the documentation.
-> 
-> What do I want to know? :  "pdrstn split sw usbpipe plugen" abbreviation.
-> 
-> What are the full words that is from?
-> 
-> I will guess the words are:
-> 
-> "Power domain reset negative? Split... Switch? USB pipeline plug enable?"
-> 
-> When this is explained for me I will send a patch to add information into
-> documentation at dt-bindings/phy/starfive,jh7110-pcie-phy.yaml
-> file. I know that the functionality is already said in discussion;  What I want are
-> the full words to expand the "pdrstn split sw usbpipe plugen"
-> as any abbreviation would also be expanded and explained in documentation.
-> 
-> It would be difficult to improve the documentation before our discussion about
-> this series here. Now it is clear what questions and answers are missing from
-> documentation.
-> 
-> -E
-In my view, pdrstn split sw usbpipe is bit17 setting. Set to 1 is mean split the PCIe PHY from
-Cadence USB controller.
+
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
