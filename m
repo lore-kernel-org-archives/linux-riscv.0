@@ -4,61 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 445FAC0218C
-	for <linux-riscv@archiver.kernel.org>; Thu, 23 Jan 2025 17:16:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 789D8C0218B
+	for <linux-riscv@archiver.kernel.org>; Thu, 23 Jan 2025 17:35:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=bjjFenbjfwMt9ibExfh3vwYPEIhaVbE/P2U5P+hZ36M=; b=qh62Pah9nZL6gQ
-	XHgY1JZz+nGkJjadvI+RcvQad0G4XZuF3MvV/Y28pM+VU1nexS7EQxgrrdWfZ3HwjmZTNK8blJZKR
-	QOKbyRQ8PmiFSlWpcgYQ3gP/SaSFZra6MBD6KNK4iK7Hzq5HVkkvxeE3k5cJgS81Zd/VzGj5HokBW
-	cYBrZR5mrlfWyURhBHYkqronosi10U6Z3EDa1Lp5SyjFCQmmnl1K5upyC4L5YfHtU+OOfRFUkh/3i
-	2KTgnSu2tcl4sImqoaluRmP5yjvLIxJiMROpgBhNlYP7zrTaH/y5TrNT0fewMCMFI3UQFUcCVRwFM
-	hejacZsOw22des2C5xQw==;
+	List-Owner; bh=X/MjlbqBsLM55EQzcn5oJPf/wvz8LYOtZTteQn0mCgA=; b=2pcOb2o7Wi7d3Q
+	+rf7XQ/DzRbi6LLDU7QupPuE3CIs7FZuy08NGsMk+6bXzDwUy/lw0FS9p8KKLjR4WKh0O39kT3OJj
+	pVP1uMeTlYiI30/zb8pyZHE0nQGP/q+2/f5WNPnHrRz1Y0o895E8SfFoGG6Nynh9kBiSvjrDt+xGL
+	yvmoynC/X+xJEiRcr/dsommTUClhV3aHeDtbEPuYQTheA8Ht3tf55WQyYl5ZfZQzSzvIVfTzHF0hM
+	chKvHngg5qv79bezXsiw3Oe9+l3Mj7HkR83vccmOj1GJ7/C9GdPwivKP8Vv5WOisLl93/lkrcM6e3
+	oAGKQSCscqGsR2r+k4IA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tb0og-0000000CuVk-2oQx;
-	Thu, 23 Jan 2025 17:16:30 +0000
+	id 1tb16T-0000000CxMN-49mm;
+	Thu, 23 Jan 2025 17:34:53 +0000
 Received: from mgamail.intel.com ([192.198.163.8])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tb0l8-0000000Ctmm-0dH8
+	id 1tb16S-0000000CxLY-12K5
 	for linux-riscv@lists.infradead.org;
-	Thu, 23 Jan 2025 17:12:52 +0000
+	Thu, 23 Jan 2025 17:34:53 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1737652370; x=1769188370;
+  t=1737653692; x=1769189692;
   h=date:from:to:cc:subject:message-id:references:
    mime-version:in-reply-to;
-  bh=rDXm5sDl2r4l01cOX4A8xd7ltWj9yMuNU2uwB3Qo2C0=;
-  b=TLS4Jcy7zdmFBn+Dku35NHxOhOMxTdhJjLLdvHNc6Rh63puR10Q7r9CP
-   yxhVi8o0TmegzxZi48MPvhACh8yu2MQ/JON9l+MFND3AZ8DFnWa07/y8q
-   ELZ3qySWecmh1v0zGp6rEAYp9hjRjIpxwMDnsoGr+o/QACkQE27TE9TEH
-   ipoLrWIIu10AKwd04E+KOXeMUseyQ9WYbMfDwMT5JowhCMR/HRmCIflvM
-   3OJsI0c+U8wiekHOHncNoYd30TYJUWUvoNfhnNwSn9KTjcETBH80nIuGE
-   VMUdekH07R96FoXURT2D0S/cZfmnJEwyJYQXg8wtGLgZgSKAh5yqGgjRQ
-   A==;
-X-CSE-ConnectionGUID: zZ47yfBpSpqW+6GdLuVbPg==
-X-CSE-MsgGUID: P04U4/B1RM6c57Y/dlpR/A==
-X-IronPort-AV: E=McAfee;i="6700,10204,11324"; a="55711488"
+  bh=Vi0yvCwo30fwVsqjLO0cONScA/8TLk0SHxBzQlbNSOA=;
+  b=NIVTlryw+8tzOvlKaGlPelDh6OlMObfPFCjzbkS917BeGkV5Z05Uj275
+   wvme1THRLKZpojfrPdQlqsPVY25Ll+ZGGUWz1HqlvBXYbDBvtLq+7zQOm
+   LIr9EE9gRODqg8cRXKl5c/MhK2a9XG9r4cvylAE95FWaGhWpj7TtF5ZlT
+   a8tZuiVawlhMrUz/RjnZkL6toIkGE3ahWQJrdoHDgXL40Uq5wgGaqwIZn
+   U+ymY36zqSBrcL1+f5kFt9drK41QIOzH0ldfPN4rBkO39CmE3GVpi8Xl3
+   Z9by0bk4kNyj2JCtEAENkuzVmnQWDUOIF1BeSa4VUWbZ4IAQTWbkPic4s
+   w==;
+X-CSE-ConnectionGUID: f5+XfUw5RFSEV3CisHEojw==
+X-CSE-MsgGUID: IdOVPbMmS0aYPkD1ve2/ig==
+X-IronPort-AV: E=McAfee;i="6700,10204,11324"; a="55715292"
 X-IronPort-AV: E=Sophos;i="6.13,229,1732608000"; 
-   d="scan'208";a="55711488"
-Received: from orviesa009.jf.intel.com ([10.64.159.149])
-  by fmvoesa102.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Jan 2025 09:12:47 -0800
-X-CSE-ConnectionGUID: j+JYnxesRNeJ8vKamkYjAg==
-X-CSE-MsgGUID: 7krEaXifSqiNZvh20tZZyg==
+   d="scan'208";a="55715292"
+Received: from orviesa008.jf.intel.com ([10.64.159.148])
+  by fmvoesa102.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Jan 2025 09:34:51 -0800
+X-CSE-ConnectionGUID: fCU09iDaQ72rUo9Zyl9MFA==
+X-CSE-MsgGUID: t4CAraI5QsqUroLarf1qXg==
 X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.13,229,1732608000"; 
-   d="scan'208";a="107329231"
+X-IronPort-AV: E=Sophos;i="6.12,224,1728975600"; 
+   d="scan'208";a="108403010"
 Received: from lkp-server01.sh.intel.com (HELO d63d4d77d921) ([10.239.97.150])
-  by orviesa009.jf.intel.com with ESMTP; 23 Jan 2025 09:12:44 -0800
+  by orviesa008.jf.intel.com with ESMTP; 23 Jan 2025 09:34:48 -0800
 Received: from kbuild by d63d4d77d921 with local (Exim 4.96)
 	(envelope-from <lkp@intel.com>)
-	id 1tb0kz-000bQp-02;
-	Thu, 23 Jan 2025 17:12:41 +0000
-Date: Fri, 24 Jan 2025 01:12:24 +0800
+	id 1tb16L-000bRf-1R;
+	Thu, 23 Jan 2025 17:34:45 +0000
+Date: Fri, 24 Jan 2025 01:34:04 +0800
 From: kernel test robot <lkp@intel.com>
 To: Charlie Jenkins <charlie@rivosinc.com>,
 	Paul Walmsley <paul.walmsley@sifive.com>,
@@ -72,16 +72,15 @@ To: Charlie Jenkins <charlie@rivosinc.com>,
 Cc: oe-kbuild-all@lists.linux.dev, linux-riscv@lists.infradead.org,
 	linux-kernel@vger.kernel.org, loongarch@lists.linux.dev,
 	Charlie Jenkins <charlie@rivosinc.com>
-Subject: Re: [PATCH 3/4] loongarch: entry: Migrate ret_from_fork() to C
-Message-ID: <202501240042.hEXt9u9r-lkp@intel.com>
-References: <20250122-riscv_optimize_entry-v1-3-4ee95559cfd0@rivosinc.com>
+Subject: Re: [PATCH 4/4] entry: Inline syscall_exit_to_user_mode()
+Message-ID: <202501240101.mSdGpEoH-lkp@intel.com>
+References: <20250122-riscv_optimize_entry-v1-4-4ee95559cfd0@rivosinc.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20250122-riscv_optimize_entry-v1-3-4ee95559cfd0@rivosinc.com>
+In-Reply-To: <20250122-riscv_optimize_entry-v1-4-4ee95559cfd0@rivosinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250123_091250_242796_F76D461E 
-X-CRM114-Status: UNSURE (   9.45  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250123_093452_327707_15906735 
+X-CRM114-Status: GOOD (  16.26  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,202 +105,86 @@ kernel test robot noticed the following build errors:
 
 url:    https://github.com/intel-lab-lkp/linux/commits/Charlie-Jenkins/riscv-entry-Convert-ret_from_fork-to-C/20250123-065957
 base:   ffd294d346d185b70e28b1a28abe367bbfe53c04
-patch link:    https://lore.kernel.org/r/20250122-riscv_optimize_entry-v1-3-4ee95559cfd0%40rivosinc.com
-patch subject: [PATCH 3/4] loongarch: entry: Migrate ret_from_fork() to C
-config: loongarch-allnoconfig (https://download.01.org/0day-ci/archive/20250124/202501240042.hEXt9u9r-lkp@intel.com/config)
-compiler: loongarch64-linux-gcc (GCC) 14.2.0
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250124/202501240042.hEXt9u9r-lkp@intel.com/reproduce)
+patch link:    https://lore.kernel.org/r/20250122-riscv_optimize_entry-v1-4-4ee95559cfd0%40rivosinc.com
+patch subject: [PATCH 4/4] entry: Inline syscall_exit_to_user_mode()
+config: x86_64-randconfig-072-20250123 (https://download.01.org/0day-ci/archive/20250124/202501240101.mSdGpEoH-lkp@intel.com/config)
+compiler: gcc-12 (Debian 12.2.0-14) 12.2.0
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250124/202501240101.mSdGpEoH-lkp@intel.com/reproduce)
 
 If you fix the issue in a separate patch/commit (i.e. not just a new version of
 the same patch/commit), kindly add following tags
 | Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202501240042.hEXt9u9r-lkp@intel.com/
+| Closes: https://lore.kernel.org/oe-kbuild-all/202501240101.mSdGpEoH-lkp@intel.com/
 
 All errors (new ones prefixed by >>):
 
-   arch/loongarch/kernel/process.c: In function 'ret_from_kernel_thread':
->> arch/loongarch/kernel/process.c:76:1: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
-      76 | {
-         | ^
-   arch/loongarch/kernel/process.c:105:1: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
-     105 | {
-         | ^
-   arch/loongarch/kernel/process.c:110:1: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
-     110 | {
-         | ^
-   arch/loongarch/kernel/process.c:114:1: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
-     114 | {
-         | ^
-   arch/loongarch/kernel/process.c:151:1: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
-     151 | {
-         | ^
-   arch/loongarch/kernel/process.c:160:1: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
-     160 | {
-         | ^
-   arch/loongarch/kernel/process.c:169:1: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
-     169 | {
-         | ^
-   arch/loongarch/kernel/process.c:234:1: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
-     234 | {
-         | ^
-   arch/loongarch/kernel/process.c:257:1: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
-     257 | {
-         | ^
-   arch/loongarch/kernel/process.c:279:1: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
-     279 | {
-         | ^
-   arch/loongarch/kernel/process.c:296:1: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
-     296 | {
-         | ^
-   arch/loongarch/kernel/process.c:317:1: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
-     317 | {
-         | ^
-   arch/loongarch/kernel/process.c:338:1: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
-     338 | {
-         | ^
-   In file included from include/asm-generic/percpu.h:7,
-                    from arch/loongarch/include/asm/percpu.h:184,
-                    from include/linux/irqflags.h:19,
-                    from include/linux/spinlock.h:59,
-                    from include/linux/sched.h:2171,
-                    from include/linux/ratelimit.h:6,
-                    from include/linux/dev_printk.h:16,
-                    from include/linux/device.h:15,
-                    from include/linux/node.h:18,
-                    from include/linux/cpu.h:17,
-                    from arch/loongarch/kernel/process.c:13:
->> arch/loongarch/kernel/process.c:345:43: error: storage class specified for parameter 'backtrace_csd'
-     345 | static DEFINE_PER_CPU(call_single_data_t, backtrace_csd);
-         |                                           ^~~~~~~~~~~~~
-   include/linux/percpu-defs.h:104:44: note: in definition of macro 'DEFINE_PER_CPU_SECTION'
-     104 |         __PCPU_ATTRS(sec) __typeof__(type) name
-         |                                            ^~~~
-   arch/loongarch/kernel/process.c:345:8: note: in expansion of macro 'DEFINE_PER_CPU'
-     345 | static DEFINE_PER_CPU(call_single_data_t, backtrace_csd);
-         |        ^~~~~~~~~~~~~~
->> arch/loongarch/kernel/process.c:345:43: error: section attribute not allowed for 'backtrace_csd'
-     345 | static DEFINE_PER_CPU(call_single_data_t, backtrace_csd);
-         |                                           ^~~~~~~~~~~~~
-   include/linux/percpu-defs.h:104:44: note: in definition of macro 'DEFINE_PER_CPU_SECTION'
-     104 |         __PCPU_ATTRS(sec) __typeof__(type) name
-         |                                            ^~~~
-   arch/loongarch/kernel/process.c:345:8: note: in expansion of macro 'DEFINE_PER_CPU'
-     345 | static DEFINE_PER_CPU(call_single_data_t, backtrace_csd);
-         |        ^~~~~~~~~~~~~~
->> arch/loongarch/kernel/process.c:346:23: error: storage class specified for parameter 'backtrace_csd_busy'
-     346 | static struct cpumask backtrace_csd_busy;
-         |                       ^~~~~~~~~~~~~~~~~~
-   arch/loongarch/kernel/process.c:349:1: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
-     349 | {
-         | ^
-   arch/loongarch/kernel/process.c:355:1: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
-     355 | {
-         | ^
-   arch/loongarch/kernel/process.c:379:1: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
-     379 | {
-         | ^
-   arch/loongarch/kernel/process.c:385:1: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
-     385 | {
-         | ^
->> arch/loongarch/kernel/process.c:70:35: error: old-style parameter declarations in prototyped function definition
-      70 | void noinstr __no_stack_protector ret_from_kernel_thread(struct task_struct *prev,
-         |                                   ^~~~~~~~~~~~~~~~~~~~~~
->> arch/loongarch/kernel/process.c:402: error: expected '{' at end of input
+   In file included from arch/x86/include/asm/bug.h:99,
+                    from include/linux/bug.h:5,
+                    from include/linux/thread_info.h:13,
+                    from include/linux/sched.h:14,
+                    from arch/x86/mm/fault.c:7:
+   include/linux/entry-common.h: In function 'syscall_exit_to_user_mode_work':
+>> include/linux/entry-common.h:397:34: error: 'CONTEXT_KERNEL' undeclared (first use in this function); did you mean 'PERF_CONTEXT_KERNEL'?
+     397 |         CT_WARN_ON(ct_state() != CONTEXT_KERNEL);
+         |                                  ^~~~~~~~~~~~~~
+   include/asm-generic/bug.h:123:32: note: in definition of macro 'WARN_ON'
+     123 |         int __ret_warn_on = !!(condition);                              \
+         |                                ^~~~~~~~~
+   include/linux/entry-common.h:397:9: note: in expansion of macro 'CT_WARN_ON'
+     397 |         CT_WARN_ON(ct_state() != CONTEXT_KERNEL);
+         |         ^~~~~~~~~~
+   include/linux/entry-common.h:397:34: note: each undeclared identifier is reported only once for each function it appears in
+     397 |         CT_WARN_ON(ct_state() != CONTEXT_KERNEL);
+         |                                  ^~~~~~~~~~~~~~
+   include/asm-generic/bug.h:123:32: note: in definition of macro 'WARN_ON'
+     123 |         int __ret_warn_on = !!(condition);                              \
+         |                                ^~~~~~~~~
+   include/linux/entry-common.h:397:9: note: in expansion of macro 'CT_WARN_ON'
+     397 |         CT_WARN_ON(ct_state() != CONTEXT_KERNEL);
+         |         ^~~~~~~~~~
 
 
-vim +76 arch/loongarch/kernel/process.c
+vim +397 include/linux/entry-common.h
 
-803b0fc5c3f2baa Huacai Chen     2022-05-31  @13  #include <linux/cpu.h>
-803b0fc5c3f2baa Huacai Chen     2022-05-31   14  #include <linux/init.h>
-803b0fc5c3f2baa Huacai Chen     2022-05-31   15  #include <linux/kernel.h>
-803b0fc5c3f2baa Huacai Chen     2022-05-31   16  #include <linux/errno.h>
-5c881018646d666 Charlie Jenkins 2025-01-22   17  #include <linux/entry-common.h>
-803b0fc5c3f2baa Huacai Chen     2022-05-31   18  #include <linux/sched.h>
-803b0fc5c3f2baa Huacai Chen     2022-05-31   19  #include <linux/sched/debug.h>
-803b0fc5c3f2baa Huacai Chen     2022-05-31   20  #include <linux/sched/task.h>
-803b0fc5c3f2baa Huacai Chen     2022-05-31   21  #include <linux/sched/task_stack.h>
-edffa33c7bb5a73 Qing Zhang      2023-02-25   22  #include <linux/hw_breakpoint.h>
-803b0fc5c3f2baa Huacai Chen     2022-05-31   23  #include <linux/mm.h>
-803b0fc5c3f2baa Huacai Chen     2022-05-31   24  #include <linux/stddef.h>
-803b0fc5c3f2baa Huacai Chen     2022-05-31   25  #include <linux/unistd.h>
-803b0fc5c3f2baa Huacai Chen     2022-05-31   26  #include <linux/export.h>
-803b0fc5c3f2baa Huacai Chen     2022-05-31   27  #include <linux/ptrace.h>
-803b0fc5c3f2baa Huacai Chen     2022-05-31   28  #include <linux/mman.h>
-803b0fc5c3f2baa Huacai Chen     2022-05-31   29  #include <linux/personality.h>
-803b0fc5c3f2baa Huacai Chen     2022-05-31   30  #include <linux/sys.h>
-803b0fc5c3f2baa Huacai Chen     2022-05-31   31  #include <linux/completion.h>
-803b0fc5c3f2baa Huacai Chen     2022-05-31   32  #include <linux/kallsyms.h>
-803b0fc5c3f2baa Huacai Chen     2022-05-31   33  #include <linux/random.h>
-803b0fc5c3f2baa Huacai Chen     2022-05-31   34  #include <linux/prctl.h>
-803b0fc5c3f2baa Huacai Chen     2022-05-31   35  #include <linux/nmi.h>
-803b0fc5c3f2baa Huacai Chen     2022-05-31   36  
-803b0fc5c3f2baa Huacai Chen     2022-05-31   37  #include <asm/asm.h>
-803b0fc5c3f2baa Huacai Chen     2022-05-31   38  #include <asm/bootinfo.h>
-803b0fc5c3f2baa Huacai Chen     2022-05-31   39  #include <asm/cpu.h>
-803b0fc5c3f2baa Huacai Chen     2022-05-31   40  #include <asm/elf.h>
-c718a0bad75ccef Bibo Mao        2023-09-20   41  #include <asm/exec.h>
-803b0fc5c3f2baa Huacai Chen     2022-05-31   42  #include <asm/fpu.h>
-bd3c5798484aa9a Qi Hu           2023-09-06   43  #include <asm/lbt.h>
-803b0fc5c3f2baa Huacai Chen     2022-05-31   44  #include <asm/io.h>
-803b0fc5c3f2baa Huacai Chen     2022-05-31   45  #include <asm/irq.h>
-803b0fc5c3f2baa Huacai Chen     2022-05-31   46  #include <asm/irq_regs.h>
-803b0fc5c3f2baa Huacai Chen     2022-05-31   47  #include <asm/loongarch.h>
-803b0fc5c3f2baa Huacai Chen     2022-05-31   48  #include <asm/pgtable.h>
-803b0fc5c3f2baa Huacai Chen     2022-05-31   49  #include <asm/processor.h>
-803b0fc5c3f2baa Huacai Chen     2022-05-31   50  #include <asm/reg.h>
-5c881018646d666 Charlie Jenkins 2025-01-22   51  #include <asm/switch_to.h>
-49232773d8233ed Qing Zhang      2022-08-06   52  #include <asm/unwind.h>
-803b0fc5c3f2baa Huacai Chen     2022-05-31   53  #include <asm/vdso.h>
-803b0fc5c3f2baa Huacai Chen     2022-05-31   54  
-09f33601bf940f9 Huacai Chen     2022-12-10   55  #ifdef CONFIG_STACKPROTECTOR
-09f33601bf940f9 Huacai Chen     2022-12-10   56  #include <linux/stackprotector.h>
-09f33601bf940f9 Huacai Chen     2022-12-10   57  unsigned long __stack_chk_guard __read_mostly;
-09f33601bf940f9 Huacai Chen     2022-12-10   58  EXPORT_SYMBOL(__stack_chk_guard);
-09f33601bf940f9 Huacai Chen     2022-12-10   59  #endif
-09f33601bf940f9 Huacai Chen     2022-12-10   60  
-803b0fc5c3f2baa Huacai Chen     2022-05-31   61  /*
-803b0fc5c3f2baa Huacai Chen     2022-05-31   62   * Idle related variables and functions
-803b0fc5c3f2baa Huacai Chen     2022-05-31   63   */
-803b0fc5c3f2baa Huacai Chen     2022-05-31   64  
-803b0fc5c3f2baa Huacai Chen     2022-05-31   65  unsigned long boot_option_idle_override = IDLE_NO_OVERRIDE;
-803b0fc5c3f2baa Huacai Chen     2022-05-31   66  EXPORT_SYMBOL(boot_option_idle_override);
-803b0fc5c3f2baa Huacai Chen     2022-05-31   67  
-5c881018646d666 Charlie Jenkins 2025-01-22   68  asmlinkage void restore_and_ret(void);
-5c881018646d666 Charlie Jenkins 2025-01-22   69  asmlinkage void ret_from_fork_asm(void);
-5c881018646d666 Charlie Jenkins 2025-01-22  @70  void noinstr __no_stack_protector ret_from_kernel_thread(struct task_struct *prev,
-5c881018646d666 Charlie Jenkins 2025-01-22   71  							 struct pt_regs *regs,
-5c881018646d666 Charlie Jenkins 2025-01-22   72  							 int (*fn)(void *),
-5c881018646d666 Charlie Jenkins 2025-01-22   73  							 void *fn_arg)
-803b0fc5c3f2baa Huacai Chen     2022-05-31   74  
-803b0fc5c3f2baa Huacai Chen     2022-05-31   75  void start_thread(struct pt_regs *regs, unsigned long pc, unsigned long sp)
-803b0fc5c3f2baa Huacai Chen     2022-05-31  @76  {
-803b0fc5c3f2baa Huacai Chen     2022-05-31   77  	unsigned long crmd;
-803b0fc5c3f2baa Huacai Chen     2022-05-31   78  	unsigned long prmd;
-803b0fc5c3f2baa Huacai Chen     2022-05-31   79  	unsigned long euen;
-803b0fc5c3f2baa Huacai Chen     2022-05-31   80  
-803b0fc5c3f2baa Huacai Chen     2022-05-31   81  	/* New thread loses kernel privileges. */
-803b0fc5c3f2baa Huacai Chen     2022-05-31   82  	crmd = regs->csr_crmd & ~(PLV_MASK);
-803b0fc5c3f2baa Huacai Chen     2022-05-31   83  	crmd |= PLV_USER;
-803b0fc5c3f2baa Huacai Chen     2022-05-31   84  	regs->csr_crmd = crmd;
-803b0fc5c3f2baa Huacai Chen     2022-05-31   85  
-803b0fc5c3f2baa Huacai Chen     2022-05-31   86  	prmd = regs->csr_prmd & ~(PLV_MASK);
-803b0fc5c3f2baa Huacai Chen     2022-05-31   87  	prmd |= PLV_USER;
-803b0fc5c3f2baa Huacai Chen     2022-05-31   88  	regs->csr_prmd = prmd;
-803b0fc5c3f2baa Huacai Chen     2022-05-31   89  
-803b0fc5c3f2baa Huacai Chen     2022-05-31   90  	euen = regs->csr_euen & ~(CSR_EUEN_FPEN);
-803b0fc5c3f2baa Huacai Chen     2022-05-31   91  	regs->csr_euen = euen;
-803b0fc5c3f2baa Huacai Chen     2022-05-31   92  	lose_fpu(0);
-bd3c5798484aa9a Qi Hu           2023-09-06   93  	lose_lbt(0);
-c2396651309eba2 Xi Ruoyao       2024-01-17   94  	current->thread.fpu.fcsr = boot_cpu_data.fpu_csr0;
-803b0fc5c3f2baa Huacai Chen     2022-05-31   95  
-803b0fc5c3f2baa Huacai Chen     2022-05-31   96  	clear_thread_flag(TIF_LSX_CTX_LIVE);
-803b0fc5c3f2baa Huacai Chen     2022-05-31   97  	clear_thread_flag(TIF_LASX_CTX_LIVE);
-bd3c5798484aa9a Qi Hu           2023-09-06   98  	clear_thread_flag(TIF_LBT_CTX_LIVE);
-803b0fc5c3f2baa Huacai Chen     2022-05-31   99  	clear_used_math();
-803b0fc5c3f2baa Huacai Chen     2022-05-31  100  	regs->csr_era = pc;
-803b0fc5c3f2baa Huacai Chen     2022-05-31  101  	regs->regs[3] = sp;
-803b0fc5c3f2baa Huacai Chen     2022-05-31  102  }
-803b0fc5c3f2baa Huacai Chen     2022-05-31  103  
+   378	
+   379	/**
+   380	 * syscall_exit_to_user_mode_work - Handle work before returning to user mode
+   381	 * @regs:	Pointer to currents pt_regs
+   382	 *
+   383	 * Same as step 1 and 2 of syscall_exit_to_user_mode() but without calling
+   384	 * exit_to_user_mode() to perform the final transition to user mode.
+   385	 *
+   386	 * Calling convention is the same as for syscall_exit_to_user_mode() and it
+   387	 * returns with all work handled and interrupts disabled. The caller must
+   388	 * invoke exit_to_user_mode() before actually switching to user mode to
+   389	 * make the final state transitions. Interrupts must stay disabled between
+   390	 * return from this function and the invocation of exit_to_user_mode().
+   391	 */
+   392	static __always_inline void syscall_exit_to_user_mode_work(struct pt_regs *regs)
+   393	{
+   394		unsigned long work = READ_ONCE(current_thread_info()->syscall_work);
+   395		unsigned long nr = syscall_get_nr(current, regs);
+   396	
+ > 397		CT_WARN_ON(ct_state() != CONTEXT_KERNEL);
+   398	
+   399		if (IS_ENABLED(CONFIG_PROVE_LOCKING)) {
+   400			if (WARN(irqs_disabled(), "syscall %lu left IRQs disabled", nr))
+   401				local_irq_enable();
+   402		}
+   403	
+   404		rseq_syscall(regs);
+   405	
+   406		/*
+   407		 * Do one-time syscall specific work. If these work items are
+   408		 * enabled, we want to run them exactly once per syscall exit with
+   409		 * interrupts enabled.
+   410		 */
+   411		if (unlikely(work & SYSCALL_WORK_EXIT))
+   412			syscall_exit_work(regs, work);
+   413		local_irq_disable_exit_to_user();
+   414		exit_to_user_mode_prepare(regs);
+   415	}
+   416	
 
 -- 
 0-DAY CI Kernel Test Service
