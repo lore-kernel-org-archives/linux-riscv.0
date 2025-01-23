@@ -4,59 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 064F8C02182
-	for <linux-riscv@archiver.kernel.org>; Thu, 23 Jan 2025 15:16:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1B170C02182
+	for <linux-riscv@archiver.kernel.org>; Thu, 23 Jan 2025 17:16:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GOcMoxUPgT+PyQr0oupZVI1f4bVBFFhGaj8btW7P2g4=; b=3ZFhKtPLLyxN/GoCMKv/Qw6l35
-	07Vqx6F5ku0yNMCsRYqQKxjNpM3TSK1WRcSmDocYfe2ggNGT1Nu+gnClFgTR17I3LexZXrN5lqHlY
-	jBHgmULCyyIMaJz8n7z/j5SCp54gSCYMSXgFLXLiDckpiDiTHurup9dnjDqlQoNSd+/4AwsgMNKgz
-	anKqYpuQUCrUNSnAuCQGkXcPCRmKWfvAx5LhQvWyM80YinMMjHqC3Lj7xyF9cBvCqjxlkxp4FwMrt
-	Lp5U4OKw+JXkmyXjGKfpx52+rTn37C8TfeFDmfynxk+r2CBAp+LgUKjFr6oYI0Vd0OcE7FCuS1UmF
-	Kx3SGGig==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=pzIeQZx2mvQ7TkZBwPdl/1CSzOCq7azzPFFKWgGHTVk=; b=a886t3VaB1MrCU
+	QinjTVOplUq1ZWvSkvDBKNCL56S5kiM1LnDVKIkznkhrvQMOh+ASuCt/sC9r8CjCtVfJXFdl2hxJj
+	oHXCe9jvmvMxfe4BDObL7eMjk9nH2jMEmee3o6GOrTTC+esy7hj3DpnZNeVDqCa1mI+CEcc6+KJyB
+	2mTzGmxNRvLhSOteSzxF5oiAVPtYBRI0Q/5OG6Q1gWU2HcqL2deDg++UjlgfLcBeqt+3mytY0nOn9
+	DTO2DvbZcC2fXCNnNhD1emA50FEbY6rLAtDN7scQ0ju3ZTTEqwQ+gOv8JrFWfiLMeR+GGFnYqiX8x
+	+D3iJFChRRxYnV5PZ1CQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tayw8-0000000Cgsy-4Aps;
-	Thu, 23 Jan 2025 15:16:04 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1tb0oh-0000000CuVs-177C;
+	Thu, 23 Jan 2025 17:16:31 +0000
+Received: from mgamail.intel.com ([198.175.65.21])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tayw6-0000000Cgsd-0Vk4
+	id 1tb0lA-0000000CtoK-1nvF
 	for linux-riscv@lists.infradead.org;
-	Thu, 23 Jan 2025 15:16:03 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id B2AA7A40BB7;
-	Thu, 23 Jan 2025 15:14:13 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 39CC1C4CED3;
-	Thu, 23 Jan 2025 15:16:00 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1737645360;
-	bh=hO/M+SZqqgKYIoTGLg+jgxAyd+xAFmjSZk4ZQKtWISQ=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=U4IYR7U/zgYenZLCTxVYUZ3IMKNHciTZEPhw4L/gNt+aTAUX04QIojTIda7KH1+hY
-	 Sp+56BCI5LQ8bi6nBG1hveC3p5Jl5DvuOneHLPIgcsfE/ql3NzBYapPNnU/44uJNdC
-	 FOCkijyLN2WihEL62h5H+3aX3C3EUZhEe9vIePY7MGVW1Uc2jid3faEOiGioGHvP8V
-	 Bn1oj6iI/v+Telmp7f5Ib0jPR82NQDDwmw9WIpq5IFNCWKGd/URhKSiMhmEKkoKTLP
-	 DKB0KsxrRiHreHUhz+fsF/p1T6EGJc3TYbondNiqH6PSho4Gg5jShjIBbR8RYZWil1
-	 22msgHVBZXyOw==
-Date: Thu, 23 Jan 2025 16:15:57 +0100
-From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <ukleinek@kernel.org>
-To: Conor Dooley <conor@kernel.org>
-Cc: linux-pwm@vger.kernel.org, Conor Dooley <conor.dooley@microchip.com>, 
-	stable@vger.kernel.org, Daire McNamara <daire.mcnamara@microchip.com>, 
-	Thierry Reding <thierry.reding@gmail.com>, linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v1] pwm: microchip-core: fix incorrect comparison with
- max period
-Message-ID: <r3dybh3ef4lbneruiae4s5co6mkgsowwucba6niqv23tfycyza@qnklz4w5rnnr>
-References: <20250122-pastor-fancied-0b993da2d2d2@spud>
+	Thu, 23 Jan 2025 17:12:54 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1737652373; x=1769188373;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=72EgORSnANnV38wbPsZBehRg9IUMQUAma7ZLXPqx6k4=;
+  b=Sw62OaGPgj43N3kHLSv1uQjnSqbg/BpJCl0E/4UJpCRxPkcSVyRNUOf5
+   st9ixmD72mFecPHoJRn2I0c+PtwGxEHl+ZBA9QdjwBqUR+SejMkGb+nQq
+   KmJhxawBQ4ddcw19MRGegwevqJLxgy+SxpPOufayEnvMw4+lBcnT5qx3n
+   5cU0sRWlwL5+FeObHORXKdM34swxAlaBph1vrFqVWU67uqPcKs6wyjMlb
+   OqP1BMLWVNgaHLdwYu239d6w7KZMKvdWLx36ZfnkuqWnnoMwCWw3nYCiv
+   FqDkr8adey83RVhMloIowCWFbeiuIYbKqSx/aNPBBncbWMFBARZwsTn4E
+   g==;
+X-CSE-ConnectionGUID: rzmIuO65Q1iYklsZy4RIeA==
+X-CSE-MsgGUID: rw/1ICnbSO63qXcATJlKzQ==
+X-IronPort-AV: E=McAfee;i="6700,10204,11324"; a="38053850"
+X-IronPort-AV: E=Sophos;i="6.13,229,1732608000"; 
+   d="scan'208";a="38053850"
+Received: from orviesa001.jf.intel.com ([10.64.159.141])
+  by orvoesa113.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Jan 2025 09:12:50 -0800
+X-CSE-ConnectionGUID: 6vxV2VRDR8mPAsL5dwom+Q==
+X-CSE-MsgGUID: tBoXpY+EQ2Kj/C0jM/xkzg==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.12,224,1728975600"; 
+   d="scan'208";a="144764755"
+Received: from lkp-server01.sh.intel.com (HELO d63d4d77d921) ([10.239.97.150])
+  by orviesa001.jf.intel.com with ESMTP; 23 Jan 2025 09:12:46 -0800
+Received: from kbuild by d63d4d77d921 with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1tb0l0-000bQs-1A;
+	Thu, 23 Jan 2025 17:12:42 +0000
+Date: Fri, 24 Jan 2025 01:12:23 +0800
+From: kernel test robot <lkp@intel.com>
+To: Charlie Jenkins <charlie@rivosinc.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Huacai Chen <chenhuacai@kernel.org>,
+	WANG Xuerui <kernel@xen0n.name>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Andy Lutomirski <luto@kernel.org>,
+	Alexandre Ghiti <alexghiti@rivosinc.com>
+Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+	loongarch@lists.linux.dev, Charlie Jenkins <charlie@rivosinc.com>
+Subject: Re: [PATCH 4/4] entry: Inline syscall_exit_to_user_mode()
+Message-ID: <202501240036.hxoscXJM-lkp@intel.com>
+References: <20250122-riscv_optimize_entry-v1-4-4ee95559cfd0@rivosinc.com>
 MIME-Version: 1.0
-In-Reply-To: <20250122-pastor-fancied-0b993da2d2d2@spud>
+Content-Disposition: inline
+In-Reply-To: <20250122-riscv_optimize_entry-v1-4-4ee95559cfd0@rivosinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250123_071602_224559_59A8B4AF 
-X-CRM114-Status: GOOD (  13.20  )
+X-CRM114-CacheID: sfid-20250123_091252_523355_278CFE10 
+X-CRM114-Status: GOOD (  12.57  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,85 +92,88 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============5934115806428233080=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+Hi Charlie,
 
---===============5934115806428233080==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="a56xps3gn2qlgwig"
-Content-Disposition: inline
+kernel test robot noticed the following build errors:
 
+[auto build test ERROR on ffd294d346d185b70e28b1a28abe367bbfe53c04]
 
---a56xps3gn2qlgwig
-Content-Type: text/plain; protected-headers=v1; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH v1] pwm: microchip-core: fix incorrect comparison with
- max period
-MIME-Version: 1.0
+url:    https://github.com/intel-lab-lkp/linux/commits/Charlie-Jenkins/riscv-entry-Convert-ret_from_fork-to-C/20250123-065957
+base:   ffd294d346d185b70e28b1a28abe367bbfe53c04
+patch link:    https://lore.kernel.org/r/20250122-riscv_optimize_entry-v1-4-4ee95559cfd0%40rivosinc.com
+patch subject: [PATCH 4/4] entry: Inline syscall_exit_to_user_mode()
+config: x86_64-randconfig-071-20250123 (https://download.01.org/0day-ci/archive/20250124/202501240036.hxoscXJM-lkp@intel.com/config)
+compiler: clang version 19.1.3 (https://github.com/llvm/llvm-project ab51eccf88f5321e7c60591c5546b254b6afab99)
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250124/202501240036.hxoscXJM-lkp@intel.com/reproduce)
 
-Hello Conor,
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202501240036.hxoscXJM-lkp@intel.com/
 
-On Wed, Jan 22, 2025 at 02:42:56PM +0000, Conor Dooley wrote:
-> From: Conor Dooley <conor.dooley@microchip.com>
->=20
-> In mchp_core_pwm_apply_locked(), if hw_period_steps is equal to its max,
-> an error is reported and .apply fails. The max value is actually a
-> permitted value however, and so this check can fail where multiple
-> channels are enabled.
->=20
-> For example, the first channel to be configured requests a period that
-> sets hw_period_steps to the maximum value, and when a second channel
-> is enabled the driver reads hw_period_steps back from the hardware and
-> finds it to be the maximum possible value, triggering the warning on a
-> permitted value. The value to be avoided is 255 (PERIOD_STEPS_MAX + 1),
-> as that will produce undesired behaviour, so test for greater than,
-> rather than equal to.
->=20
-> Fixes: 2bf7ecf7b4ff ("pwm: add microchip soft ip corePWM driver")
-> CC: stable@vger.kernel.org
-> Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
+All errors (new ones prefixed by >>):
 
-Applied to
-
-	https://git.kernel.org/pub/scm/linux/kernel/git/ukleinek/linux.git pwm/fix=
-es
-
-which I intend to send to Linus next week.
-
-Best regards
-Uwe
-
---a56xps3gn2qlgwig
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmeSXSsACgkQj4D7WH0S
-/k7MxAf9H63osdnsvlMLvftXzklq8mHrUZ0AzQydxMcDuwrFSkDpOV0V4fgOM2Op
-tQHZ7fLR74Hj2XUZpFgMTeZ8ZgsEI6ri9EcDzMQFGZTDV2qbkic2+6B9EOIwaWaX
-E5Vyri0ZoI89mm1hfPIO3Qwe+ApftvMnsAJtgsImP0JX/r0ZxAmFk+5wuBqcakR4
-bJ/kzTmuBdAdypT+yNzf8KpMtmRzdSQKKJd2qM0yE05/HMlgsjqzSmWJkwPI6H5V
-CmxmkAs1y82xZ8jaOSBwFxDNiHj5glGOb0xY/gKf3CWAEr3s6YiA3kdlDV0q6o2P
-Iv0/ROtuw/PVnWvoyweffxJYh22Cdw==
-=fEw6
------END PGP SIGNATURE-----
-
---a56xps3gn2qlgwig--
+   In file included from arch/x86/kernel/ptrace.c:40:
+   In file included from arch/x86/include/asm/traps.h:9:
+   In file included from arch/x86/include/asm/idtentry.h:11:
+>> include/linux/entry-common.h:397:27: error: use of undeclared identifier 'CONTEXT_KERNEL'
+     397 |         CT_WARN_ON(ct_state() != CONTEXT_KERNEL);
+         |                                  ^
+   1 error generated.
 
 
---===============5934115806428233080==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+vim +/CONTEXT_KERNEL +397 include/linux/entry-common.h
+
+   378	
+   379	/**
+   380	 * syscall_exit_to_user_mode_work - Handle work before returning to user mode
+   381	 * @regs:	Pointer to currents pt_regs
+   382	 *
+   383	 * Same as step 1 and 2 of syscall_exit_to_user_mode() but without calling
+   384	 * exit_to_user_mode() to perform the final transition to user mode.
+   385	 *
+   386	 * Calling convention is the same as for syscall_exit_to_user_mode() and it
+   387	 * returns with all work handled and interrupts disabled. The caller must
+   388	 * invoke exit_to_user_mode() before actually switching to user mode to
+   389	 * make the final state transitions. Interrupts must stay disabled between
+   390	 * return from this function and the invocation of exit_to_user_mode().
+   391	 */
+   392	static __always_inline void syscall_exit_to_user_mode_work(struct pt_regs *regs)
+   393	{
+   394		unsigned long work = READ_ONCE(current_thread_info()->syscall_work);
+   395		unsigned long nr = syscall_get_nr(current, regs);
+   396	
+ > 397		CT_WARN_ON(ct_state() != CONTEXT_KERNEL);
+   398	
+   399		if (IS_ENABLED(CONFIG_PROVE_LOCKING)) {
+   400			if (WARN(irqs_disabled(), "syscall %lu left IRQs disabled", nr))
+   401				local_irq_enable();
+   402		}
+   403	
+   404		rseq_syscall(regs);
+   405	
+   406		/*
+   407		 * Do one-time syscall specific work. If these work items are
+   408		 * enabled, we want to run them exactly once per syscall exit with
+   409		 * interrupts enabled.
+   410		 */
+   411		if (unlikely(work & SYSCALL_WORK_EXIT))
+   412			syscall_exit_work(regs, work);
+   413		local_irq_disable_exit_to_user();
+   414		exit_to_user_mode_prepare(regs);
+   415	}
+   416	
+
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============5934115806428233080==--
-
