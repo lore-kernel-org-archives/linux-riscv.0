@@ -4,61 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3B79BC02182
-	for <linux-riscv@archiver.kernel.org>; Thu, 23 Jan 2025 11:44:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 43943C02182
+	for <linux-riscv@archiver.kernel.org>; Thu, 23 Jan 2025 12:12:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Subject:Cc:To:From:Message-ID:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=K2JIMMjIu3SxAKTi+2Q4pt9SpRj/T0YPLPkGyZAPWoA=; b=ZX9XlT+PJPxLT2
-	c9Tg8xhNPp9jur5MReJYzV78yTcqr8g2mk0lsHP34wixP77ldjO+Z90F/wepktXpUchU1HAWhuJEk
-	P4HWpu/E1HZqIgGduWl03eJejJWM2+EV1h96c3PBFoJrBSDu6DmUwLTRCOMEb6tuKidGximrlNKjl
-	jeTNC5svgfrzknLMmxupkM0AxCgPeiPRqrmMcCx9UbJdQzBKkjJmX8l4JTaEeyuOvPdFraB/+eSkj
-	WUYAcEciSCUnRBykoST9m1fXIu/PylBJtYZqbzjZ9reZXOgBRANKGg3DR9VnYLpXxUFJMZzOdqwMY
-	BOksBxVkGET6d1+SAAwQ==;
+	List-Owner; bh=mjRLsS6/uhroFWJWNOPVD8yg1loyw2tDZa5MujblId0=; b=uTitQemL7Pk2v/
+	WOB59fcbAMwZSKm9qUXwiR5+bxZvBMc1Km65QcfWVs4Ril1HCDL67ZlER0z/Jpq76fci+vW4ZGP9D
+	5P6rS6qE7841OmQSCtCZsGX2ftPnafd+qJAvEYqGsB5+PEYWgZwGoErhZoeruumhh8ypWsQc0BxUO
+	P7/vbH1Dy8JY9sS6qLoDHE96wWIMqme4LEMpDH6b3n4JN0OlPombKlcjBHZzkW0ZS57zlU8BurjKP
+	cewLEXtpmDFftViHzH3rzDxhmomEBhtdB9mcGe9VRNUVBrU17Wy6V7F2K2LeVseDDtjxWLMH6audr
+	BSx0Gv9Z3l2hcQ2G/qOQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tavdV-0000000CNI0-2rUq;
-	Thu, 23 Jan 2025 11:44:37 +0000
-Received: from freeshell.de ([2a01:4f8:231:482b::2])
+	id 1taw4B-0000000CQ6M-28VM;
+	Thu, 23 Jan 2025 12:12:11 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tavY4-0000000CLub-21G4
+	id 1taw48-0000000CQ60-2Ld2
 	for linux-riscv@lists.infradead.org;
-	Thu, 23 Jan 2025 11:39:02 +0000
-Received: from [IPV6:2605:59c0:20f3:a400:5304:e921:4d34:736a] (unknown [IPv6:2605:59c0:20f3:a400:5304:e921:4d34:736a])
-	(Authenticated sender: e)
-	by freeshell.de (Postfix) with ESMTPSA id ECA41B4B455B;
-	Thu, 23 Jan 2025 12:38:52 +0100 (CET)
-Message-ID: <bce19eaf-11bf-4ce8-bc15-dffb96cae9d4@freeshell.de>
-Date: Thu, 23 Jan 2025 03:38:51 -0800
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v1 1/2] riscv: dts: starfive: jh7110: pciephy0 USB 3.0
- configuration registers
-To: Minda Chen <minda.chen@starfivetech.com>, Conor Dooley <conor@kernel.org>
-Cc: Emil Renner Berthing <kernel@esmil.dk>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
- "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
-References: <20250102183746.411526-1-e@freeshell.de>
- <20250102183746.411526-2-e@freeshell.de>
- <20250113-mushiness-snugness-0f55574e3956@spud>
- <SHXPR01MB0863DBF85A9874C9F93ECD25E618A@SHXPR01MB0863.CHNPR01.prod.partner.outlook.cn>
- <20250114-recollect-dictate-104e890d116e@spud>
- <SHXPR01MB08631714C914911D343372ACE619A@SHXPR01MB0863.CHNPR01.prod.partner.outlook.cn>
- <dd3aefec-0e1a-4025-812b-daa67a53f4ee@freeshell.de>
- <BJXPR01MB08553280FF7E342451053A6FE6E1A@BJXPR01MB0855.CHNPR01.prod.partner.outlook.cn>
-Content-Language: en-US
-From: E Shattow <e@freeshell.de>
-In-Reply-To: <BJXPR01MB08553280FF7E342451053A6FE6E1A@BJXPR01MB0855.CHNPR01.prod.partner.outlook.cn>
+	Thu, 23 Jan 2025 12:12:09 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 243635C5805;
+	Thu, 23 Jan 2025 12:11:27 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 219C7C4CED3;
+	Thu, 23 Jan 2025 12:12:07 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1737634327;
+	bh=dKZvrf9HUMJiplbfkhdSNsOVNqxCZF9z5W+m6OzsrZE=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=FIwhRLM4K50u5L38giWBy/7KLArFN7AgRp356rYlhbneQ5nn6vWiLWzONc0+oqd4Q
+	 vezI5X69TKBOd+hOr1OBaBz8RAH8ZMjWl4/aq1L15afgTysQ962hU1MCHwyyx+EBQP
+	 4ZCOY3ggy/87u2Bu/T7wm+Nult7kB+S8tmE416C8nCz0rizTvGibNSjZFaeV1op7Ha
+	 YsEBdwUR4LOPEYQIG9Wjzw+exhiN90ANsH2f3IEG18ppSdWVn8Ie3cNzoiNgus6eoq
+	 W6HOF6MGtPW/FglngQH+NeJRFOPlNK9VWoXkO38PHFFojFMlV4KOTpHVwyvLVzFMXz
+	 Pwr2mWDZWvJMg==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1taw44-00EiS9-DM;
+	Thu, 23 Jan 2025 12:12:04 +0000
+Date: Thu, 23 Jan 2025 12:12:03 +0000
+Message-ID: <86msfhviek.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
+Cc: Chen Wang <unicorn_wang@outlook.com>,
+	Chen Wang <unicornxw@gmail.com>,
+	kw@linux.com,
+	u.kleine-koenig@baylibre.com,
+	aou@eecs.berkeley.edu,
+	arnd@arndb.de,
+	bhelgaas@google.com,
+	conor+dt@kernel.org,
+	guoren@kernel.org,
+	inochiama@outlook.com,
+	krzk+dt@kernel.org,
+	lee@kernel.org,
+	lpieralisi@kernel.org,
+	palmer@dabbelt.com,
+	paul.walmsley@sifive.com,
+	pbrobinson@gmail.com,
+	robh@kernel.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-pci@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	chao.wei@sophgo.com,
+	xiaoguang.xing@sophgo.com,
+	fengchun.li@sophgo.com,
+	helgaas@kernel.org
+Subject: Re: [PATCH v3 2/5] PCI: sg2042: Add Sophgo SG2042 PCIe driver
+In-Reply-To: <20250122173451.5c7pdchnyee7iy6t@thinkpad>
+References: <cover.1736923025.git.unicorn_wang@outlook.com>
+	<ddedd8f76f83fea2c6d3887132d2fe6f2a6a02c1.1736923025.git.unicorn_wang@outlook.com>
+	<20250119122353.v3tzitthmu5tu3dg@thinkpad>
+	<BM1PR01MB254540560C1281CE9898A5A0FEE12@BM1PR01MB2545.INDPRD01.PROD.OUTLOOK.COM>
+	<20250122173451.5c7pdchnyee7iy6t@thinkpad>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: manivannan.sadhasivam@linaro.org, unicorn_wang@outlook.com, unicornxw@gmail.com, kw@linux.com, u.kleine-koenig@baylibre.com, aou@eecs.berkeley.edu, arnd@arndb.de, bhelgaas@google.com, conor+dt@kernel.org, guoren@kernel.org, inochiama@outlook.com, krzk+dt@kernel.org, lee@kernel.org, lpieralisi@kernel.org, palmer@dabbelt.com, paul.walmsley@sifive.com, pbrobinson@gmail.com, robh@kernel.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, linux-pci@vger.kernel.org, linux-riscv@lists.infradead.org, chao.wei@sophgo.com, xiaoguang.xing@sophgo.com, fengchun.li@sophgo.com, helgaas@kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250123_033900_695139_90DD9A20 
-X-CRM114-Status: GOOD (  28.13  )
+X-CRM114-CacheID: sfid-20250123_041208_686082_1A6B1758 
+X-CRM114-Status: GOOD (  21.64  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,139 +106,77 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
-
-On 1/22/25 02:41, Minda Chen wrote:
+On Wed, 22 Jan 2025 17:34:51 +0000,
+Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org> wrote:
 > 
+> + Marc (for the IRQCHIP implementation review)
 > 
+> On Wed, Jan 22, 2025 at 09:28:12PM +0800, Chen Wang wrote:
+> > 
+> > > > +static int sg2042_pcie_setup_msi(struct sg2042_pcie *pcie,
+> > > > +				 struct device_node *msi_node)
+> > > > +{
+> > > > +	struct device *dev = pcie->cdns_pcie->dev;
+> > > > +	struct fwnode_handle *fwnode = of_node_to_fwnode(dev->of_node);
+> > > > +	struct irq_domain *parent_domain;
+> > > > +	int ret = 0;
+> > > > +
+> > > > +	if (!of_property_read_bool(msi_node, "msi-controller"))
+> > > > +		return -ENODEV;
+> > > > +
+> > > > +	ret = of_irq_get_byname(msi_node, "msi");
+> > > > +	if (ret <= 0) {
+> > > > +		dev_err(dev, "%pOF: failed to get MSI irq\n", msi_node);
+> > > > +		return ret;
+> > > > +	}
+> > > > +	pcie->msi_irq = ret;
+> > > > +
+> > > > +	irq_set_chained_handler_and_data(pcie->msi_irq,
+> > > > +					 sg2042_pcie_msi_chained_isr, pcie);
+> > > > +
+> > > > +	parent_domain = irq_domain_create_linear(fwnode, MSI_DEF_NUM_VECTORS,
+> > > > +						 &sg2042_pcie_msi_domain_ops, pcie);
+> > > > +	if (!parent_domain) {
+> > > > +		dev_err(dev, "%pfw: Failed to create IRQ domain\n", fwnode);
+> > > > +		return -ENOMEM;
+> > > > +	}
+> > > > +	irq_domain_update_bus_token(parent_domain, DOMAIN_BUS_NEXUS);
+> > > > +
+> > > The MSI controller is wired to PLIC isn't it? If so, why can't you use
+> > > hierarchial MSI domain implementation as like other controller drivers?
+> > 
+> > The method used here is somewhat similar to dw_pcie_allocate_domains() in
+> > drivers/pci/controller/dwc/pcie-designware-host.c. This MSI controller is
+> > about Method A, the PCIe controller implements an MSI interrupt controller
+> > inside, and connect to PLIC upward through only ONE interrupt line. Because
+> > MSI to PLIC is multiple to one, I use linear mode here and use chained ISR
+> > to handle the interrupts.
+> > 
 > 
->>
->> Hi Minda,
->>
->> On 1/15/25 02:58, Minda Chen wrote:
->>>
->>>
->>>>
->>>> On Tue, Jan 14, 2025 at 05:42:28AM +0000, Minda Chen wrote:
->>>>>
->>>>>
->>>>>>
->>>>>> On Thu, Jan 02, 2025 at 10:37:36AM -0800, E Shattow wrote:
->>>>>>> StarFive JH7110 contains a Cadence USB2.0+USB3.0 controller IP
->>>>>>> block that may exclusively use pciephy0 for USB3.0 connectivity.
->>>>>>> Add the register offsets for the driver to enable/disable USB3.0
->>>>>>> on
->>>> pciephy0.
->>>>>>>
->>>>>>> Signed-off-by: E Shattow <e@freeshell.de>
->>>>>>> ---
->>>>>>>    arch/riscv/boot/dts/starfive/jh7110.dtsi | 2 ++
->>>>>>>    1 file changed, 2 insertions(+)
->>>>>>>
->>>>>>> diff --git a/arch/riscv/boot/dts/starfive/jh7110.dtsi
->>>>>>> b/arch/riscv/boot/dts/starfive/jh7110.dtsi
->>>>>>> index 0d8339357bad..75ff07303e8b 100644
->>>>>>> --- a/arch/riscv/boot/dts/starfive/jh7110.dtsi
->>>>>>> +++ b/arch/riscv/boot/dts/starfive/jh7110.dtsi
->>>>>>> @@ -611,6 +611,8 @@ usbphy0: phy@10200000 {
->>>>>>>    		pciephy0: phy@10210000 {
->>>>>>>    			compatible = "starfive,jh7110-pcie-phy";
->>>>>>>    			reg = <0x0 0x10210000 0x0 0x10000>;
->>>>>>> +			starfive,sys-syscon = <&sys_syscon 0x18>;
->>>>>>> +			starfive,stg-syscon = <&stg_syscon 0x148 0x1f4>;
->>>>>>
->>>>>> Why weren't these added in the first place? Minda, do you know?
->>>>>>
->>>>> The driver only require to set syscon register while the PHY attach
->>>>> to Cadence USB.(star64 board case) The PHY default attach to PCIe0,
->>>>> VF2 board
->>>> do not set any setting. So I don't set it.
->>>>
->>>> Does this mean that the change should be made in files where it will
->>>> only affect
->>>> non-VF2 boards, or is it harmless if applied to the VF2 also?
->>> Harmless. The PCIe PHY driver still set the PCIe mode syscon setting.
->>
->> Sounds good to me. However some tangent topic related to this series:
->>
->> Our questions and answers in this discussion are a representation of what is
->> missing from the documentation.
->>
->> What do I want to know? :  "pdrstn split sw usbpipe plugen" abbreviation.
->>
->> What are the full words that is from?
->>
->> I will guess the words are:
->>
->> "Power domain reset negative? Split... Switch? USB pipeline plug enable?"
->>
->> When this is explained for me I will send a patch to add information into
->> documentation at dt-bindings/phy/starfive,jh7110-pcie-phy.yaml
->> file. I know that the functionality is already said in discussion;  What I want are
->> the full words to expand the "pdrstn split sw usbpipe plugen"
->> as any abbreviation would also be expanded and explained in documentation.
->>
->> It would be difficult to improve the documentation before our discussion about
->> this series here. Now it is clear what questions and answers are missing from
->> documentation.
->>
->> -E
-> In my view, pdrstn split sw usbpipe is bit17 setting. Set to 1 is mean split the PCIe PHY from
-> Cadence USB controller.
+> Hmm, ok. I'm not an IRQCHIP expert, but I'll defer to Marc to review the IRQCHIP
+> implementation part.
 
-Hi, Minda. Yes, the functional description is very good.
+I don't offer this service anymore, I'm afraid.
 
-What I want to know is the language "pdrstn" for example, was this from 
-StarFive and someone you can ask what those words are ? Else is it from 
-Cadence and I should next ask some design person from Cadence company? I 
-want to show in documentation what is the long word (or many words) that 
-are changed to short words and become "pdrstn split sw usbpipe plugen".
+As for the "I create my own non-hierarchical IRQ domain", this is
+something that happens for all completely mis-designed interrupt
+controllers, MSI or not, that multiplex interrupts.
 
-When I read "pdrstn split sw usbpipe plugen":
+These implementations are stuck in the previous century, and seeing
+this on modern designs, for a "server SoC", is really pathetic.
 
-pdrstn = ?  I do not know, it is different than any word I know. This 
-could be like Power Domain (or Power Delivery), Reset, Negative... Pulse 
-Data Rate Standard... Plug Drivers Transmission... it is non-sense to 
-guess. I prefer in writing documentation to give some information that 
-is accurate.
+maybe you now understand why I don't offer this sort of reviewing
+service anymore.
 
-split = split. Ok. I think this is true. You provide us code and good 
-description that bit17 setting is a "split" action so this is easy for 
-understanding.
+	M.
 
-sw = ? maybe this is "switch"?  or "software", "southwest", "signal 
-watch", "sine wave", ... probably switch.
-
-usbpipe = 'pipe' is a connection. okay, this is acceptable. It is a 
-"pipe" connection of Cadence IP block with a different part of JH7110 
-design (PCIe?)
-
-plugen = plug enable? I do not think of any different possible words for 
-this, so it may be that.
-
-I am aware this request is not any better for us to understand the code. 
-We do know what the code does - Thank you, I appreciate your time! The 
-English word choices are not very interesting (?) but I want to be 
-accurate for documentation.
-
-Someone at a moment in past time decided "pdrstn split sw usbpipe 
-plugen" is a good description for this. Who is that person? What are 
-those long words they did change into confusing short form? :-)
-
-If you can ask around and maybe someone at StarFive does know?  Else you 
-can confirm that it was something "not documented" and I will explain in 
-documentation that it was "not documented" this exact source of words 
-for "pdrstn split sw usbpipe plugen". We can substitute a functional 
-description with or without a source of the words.
-
-Best regards,
-
-E Shattow
+-- 
+Without deviation from the norm, progress is not possible.
 
 _______________________________________________
 linux-riscv mailing list
