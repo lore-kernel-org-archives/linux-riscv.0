@@ -4,61 +4,185 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9B9CAC0218C
-	for <linux-riscv@archiver.kernel.org>; Fri, 24 Jan 2025 10:46:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E2A08C02181
+	for <linux-riscv@archiver.kernel.org>; Fri, 24 Jan 2025 10:48:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:Subject:
 	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=VUsx1+WD+PBU6UsRSLXcP22O+mS499eszKHRdXChFko=; b=DNEg3Ly5xA9RWm
-	NazzoWGO/Xn8MpRwcf7gX87MDq5XOdSmzIxHV/hTYcAz/BnFr6Dp56uuzylN9pTSoc8EDgGafW3q+
-	aHmngLC3IvZcP471Z1OlESy3bcVsQ/+/sIO7WHidEnpJFYN+G6Q0DOEJef+lZr+Gyd9U//bzSjz0A
-	K73m9on4VA7oCK+xcGnjnDwWPYYk7yO+OEpIsItu/jYCGC/GMmU4PkHhrgni3kb60tQR+L7OlpYVq
-	eqoaj8xEy7cWMX3i25TDXY5aAaM3Npkzq8m0EPIP4E9lrPG0hJuJM8WXfCq/HdlavDRll9TVc+mV/
-	DG5tTxInYKV5Qsa1qvsQ==;
+	List-Owner; bh=i4sCBIbKZsEpyNUC91aUf9c2Q3JbJBO8fsHcO+iltz8=; b=f6zGKyQGVGLXVD
+	hlxTIMrbyAWob9ZIm6WaJvIluTEIypK7SoV15oBWBejMao7VXAMz/MYBT8Y3P+g8o+V4OZfNKUzYk
+	sEkMI9ytRu1g4odh7fN+MIVnQ80V8XH0BCPWrxpmFqdwfW0bQ7IhWxrHOyRzPrFJ1tfRIHSo+cYhb
+	5/XG/bc7d2zFzcOeYsElsm+QfenHbxQhWeOxMXOsVAqb6Db++DwDN7oaKKK26FyBnCHdMWiE/bkU+
+	nbFR/aX5xkAuFoflMLTbub1ZN/MC59nKjgRG7daq6jTh1g0g2fyHBcubX1i5Wx7+aw5IbmVufDDaa
+	w1nz0hu9So6bL53WkdJQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tbHD4-0000000EUKw-1h27;
-	Fri, 24 Jan 2025 10:46:46 +0000
-Received: from freeshell.de ([2a01:4f8:231:482b::2])
+	id 1tbHF7-0000000EUYd-0mea;
+	Fri, 24 Jan 2025 10:48:53 +0000
+Received: from mail-bn8nam04on20624.outbound.protection.outlook.com ([2a01:111:f403:2408::624] helo=NAM04-BN8-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tbHCn-0000000EUGq-1XJY
-	for linux-riscv@lists.infradead.org;
-	Fri, 24 Jan 2025 10:46:31 +0000
-Received: from [IPV6:2605:59c0:20f3:a400:5304:e921:4d34:736a] (unknown [IPv6:2605:59c0:20f3:a400:5304:e921:4d34:736a])
-	(Authenticated sender: e)
-	by freeshell.de (Postfix) with ESMTPSA id E8C17B4B325B;
-	Fri, 24 Jan 2025 11:46:23 +0100 (CET)
-Message-ID: <9d4783b1-3dfe-482c-a963-ccc66c9b0f1a@freeshell.de>
-Date: Fri, 24 Jan 2025 02:46:22 -0800
+	id 1tbHF4-0000000EUXB-103r;
+	Fri, 24 Jan 2025 10:48:51 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=zSEBHvK2N2aor+hK5LGetpqh/Roq4RE062Ied/RYZyeLMmNWjiBCxaOAdrZL0Pl3SIzQUG4sjtxOb23rwqcmoXZQ8vk8vLCAa1vfXpdSvzPSxnSmaZw4QcesJOH1bDQJGUjREyQRuvUWo+fGuecvBv+A6Ia8NqosO1abjj76gAyiYDf+itdlb0+Ne28y1o00hSnKvS33knadF0uX9s11psvW4KaHxRU63+dq9kJKyBONOdR6GdSMbOGqL3H+cIUxFukqoxxT2sb5Y/RCvLw1Bqz2L8J80Xs1PGDoKbXdxtinc7zLCmv4seGnYuHVhMGmq8xpzIRzBEnrTBLMulhFKQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=cwVvFaV9aZnIyo9GynOO/BvAClq3gm1jIac8yqCvAwc=;
+ b=J1f8q0nZHpw8h9cOW6AYg+muF8gXT6maM0qXPSBmdcdyo8sjtXUMgghcNMU9c9mJGzN8xxeA4xEZinsZPsIdCJVSCisw4NRqzmomsQpwloxel4O2ilL3bhGhz2PMwqMpOyc/6w4kYH899OK5ltirhlWy1CfSIxDY4E/92NVIEaTLARXyRysbqWjO6Fy2uFPzCsWrzVFHxP4g/KZQ23YaQPEeyQr6FKi8BFP4hBCr1i8VVCftJXoDSHEU+RrjrhNupRsXdIP0SgvRFxlwZrguddMkXdyuQ9QVL3zQFRqsefw2hwk0z3qchVuih+31lIwtRqQ2JJX0ooYQ5YPG3BF+2g==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 165.204.84.17) smtp.rcpttodomain=redhat.com smtp.mailfrom=amd.com; dmarc=pass
+ (p=quarantine sp=quarantine pct=100) action=none header.from=amd.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=cwVvFaV9aZnIyo9GynOO/BvAClq3gm1jIac8yqCvAwc=;
+ b=QtCnc4hWjSJiYO68q+59zcxwqbjygQLbPhpdGpjQYfKLf723X+8ycyiTSPnIQ+ssntv4+KBQi/MfL+/3JMxEpbeZnbp8aYbdPbfr9c2R4ABg6zPf0YNP0WsXAU/fkHwBMt1QTGSqNRKSwKsFEHdcZZCoL3C402yDcmEWPw20MVg=
+Received: from PH8PR15CA0019.namprd15.prod.outlook.com (2603:10b6:510:2d2::21)
+ by SA3PR12MB7806.namprd12.prod.outlook.com (2603:10b6:806:31d::21) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8356.20; Fri, 24 Jan
+ 2025 10:48:43 +0000
+Received: from SJ1PEPF00002327.namprd03.prod.outlook.com
+ (2603:10b6:510:2d2:cafe::1f) by PH8PR15CA0019.outlook.office365.com
+ (2603:10b6:510:2d2::21) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.8356.22 via Frontend Transport; Fri,
+ 24 Jan 2025 10:48:43 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 165.204.84.17)
+ smtp.mailfrom=amd.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=amd.com;
+Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
+ 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
+ client-ip=165.204.84.17; helo=SATLEXMB04.amd.com; pr=C
+Received: from SATLEXMB04.amd.com (165.204.84.17) by
+ SJ1PEPF00002327.mail.protection.outlook.com (10.167.242.90) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.20.8377.8 via Frontend Transport; Fri, 24 Jan 2025 10:48:43 +0000
+Received: from [10.136.33.41] (10.180.168.240) by SATLEXMB04.amd.com
+ (10.181.40.145) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Fri, 24 Jan
+ 2025 04:48:22 -0600
+Message-ID: <8c298b9e-d7c2-4a27-b993-e3bca28f8237@amd.com>
+Date: Fri, 24 Jan 2025 16:18:19 +0530
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v1 1/5] riscv: dts: starfive: jh7110-common: replace
- syscrg clock assignments
-To: Conor Dooley <conor@kernel.org>, Hal Feng <hal.feng@starfivetech.com>
-Cc: Emil Renner Berthing <kernel@esmil.dk>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
- "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
- Minda Chen <minda.chen@starfivetech.com>
-References: <20250102194530.418127-1-e@freeshell.de>
- <20250102194530.418127-2-e@freeshell.de>
- <20250104-mutilated-unpaved-008eebdb200a@spud>
- <56c372c3-bb8b-4150-9b34-a6cca906d740@freeshell.de>
- <20250106-suggest-waltz-47d7f7760069@spud>
- <ZQ2PR01MB1307A9E106AE06E144875D6EE619A@ZQ2PR01MB1307.CHNPR01.prod.partner.outlook.cn>
- <20250115-bunkmate-reluctant-a9bad52d8a04@spud>
+Subject: Re: [PATCH v4 25/30] context_tracking,x86: Defer kernel text patching
+ IPIs
+To: Valentin Schneider <vschneid@redhat.com>, <linux-kernel@vger.kernel.org>,
+	<x86@kernel.org>, <virtualization@lists.linux.dev>,
+	<linux-arm-kernel@lists.infradead.org>, <loongarch@lists.linux.dev>,
+	<linux-riscv@lists.infradead.org>, <linux-perf-users@vger.kernel.org>,
+	<xen-devel@lists.xenproject.org>, <kvm@vger.kernel.org>,
+	<linux-arch@vger.kernel.org>, <rcu@vger.kernel.org>,
+	<linux-hardening@vger.kernel.org>, <linux-mm@kvack.org>,
+	<linux-kselftest@vger.kernel.org>, <bpf@vger.kernel.org>,
+	<bcm-kernel-feedback-list@broadcom.com>
+CC: Peter Zijlstra <peterz@infradead.org>, Nicolas Saenz Julienne
+	<nsaenzju@redhat.com>, Juergen Gross <jgross@suse.com>, Ajay Kaher
+	<ajay.kaher@broadcom.com>, Alexey Makhalov <alexey.amakhalov@broadcom.com>,
+	Russell King <linux@armlinux.org.uk>, Catalin Marinas
+	<catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, Huacai Chen
+	<chenhuacai@kernel.org>, WANG Xuerui <kernel@xen0n.name>, Paul Walmsley
+	<paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
+	<aou@eecs.berkeley.edu>, Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar
+	<mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, Dave Hansen
+	<dave.hansen@linux.intel.com>, "H. Peter Anvin" <hpa@zytor.com>, Arnaldo
+ Carvalho de Melo <acme@kernel.org>, Namhyung Kim <namhyung@kernel.org>, Mark
+ Rutland <mark.rutland@arm.com>, Alexander Shishkin
+	<alexander.shishkin@linux.intel.com>, Jiri Olsa <jolsa@kernel.org>, Ian
+ Rogers <irogers@google.com>, Adrian Hunter <adrian.hunter@intel.com>, "Liang,
+ Kan" <kan.liang@linux.intel.com>, Boris Ostrovsky
+	<boris.ostrovsky@oracle.com>, Josh Poimboeuf <jpoimboe@kernel.org>, Pawan
+ Gupta <pawan.kumar.gupta@linux.intel.com>, Sean Christopherson
+	<seanjc@google.com>, Paolo Bonzini <pbonzini@redhat.com>, Andy Lutomirski
+	<luto@kernel.org>, Arnd Bergmann <arnd@arndb.de>, Frederic Weisbecker
+	<frederic@kernel.org>, "Paul E. McKenney" <paulmck@kernel.org>, Jason Baron
+	<jbaron@akamai.com>, Steven Rostedt <rostedt@goodmis.org>, Ard Biesheuvel
+	<ardb@kernel.org>, Neeraj Upadhyay <neeraj.upadhyay@kernel.org>, Joel
+ Fernandes <joel@joelfernandes.org>, Josh Triplett <josh@joshtriplett.org>,
+	Boqun Feng <boqun.feng@gmail.com>, Uladzislau Rezki <urezki@gmail.com>,
+	Mathieu Desnoyers <mathieu.desnoyers@efficios.com>, Lai Jiangshan
+	<jiangshanlai@gmail.com>, Zqiang <qiang.zhang1211@gmail.com>, Juri Lelli
+	<juri.lelli@redhat.com>, Clark Williams <williams@redhat.com>, Yair Podemsky
+	<ypodemsk@redhat.com>, Tomas Glozar <tglozar@redhat.com>, Vincent Guittot
+	<vincent.guittot@linaro.org>, Dietmar Eggemann <dietmar.eggemann@arm.com>,
+	Ben Segall <bsegall@google.com>, Mel Gorman <mgorman@suse.de>, Kees Cook
+	<kees@kernel.org>, Andrew Morton <akpm@linux-foundation.org>, Christoph
+ Hellwig <hch@infradead.org>, Shuah Khan <shuah@kernel.org>, Sami Tolvanen
+	<samitolvanen@google.com>, Miguel Ojeda <ojeda@kernel.org>, Alice Ryhl
+	<aliceryhl@google.com>, "Mike Rapoport (Microsoft)" <rppt@kernel.org>, Samuel
+ Holland <samuel.holland@sifive.com>, Rong Xu <xur@google.com>, Geert
+ Uytterhoeven <geert@linux-m68k.org>, Yosry Ahmed <yosryahmed@google.com>,
+	"Kirill A. Shutemov" <kirill.shutemov@linux.intel.com>, "Masami Hiramatsu
+ (Google)" <mhiramat@kernel.org>, Jinghao Jia <jinghao7@illinois.edu>, Luis
+ Chamberlain <mcgrof@kernel.org>, Randy Dunlap <rdunlap@infradead.org>, Tiezhu
+ Yang <yangtiezhu@loongson.cn>
+References: <20250114175143.81438-1-vschneid@redhat.com>
+ <20250114175143.81438-26-vschneid@redhat.com>
 Content-Language: en-US
-From: E Shattow <e@freeshell.de>
-In-Reply-To: <20250115-bunkmate-reluctant-a9bad52d8a04@spud>
+From: K Prateek Nayak <kprateek.nayak@amd.com>
+In-Reply-To: <20250114175143.81438-26-vschneid@redhat.com>
+X-Originating-IP: [10.180.168.240]
+X-ClientProxiedBy: SATLEXMB04.amd.com (10.181.40.145) To SATLEXMB04.amd.com
+ (10.181.40.145)
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SJ1PEPF00002327:EE_|SA3PR12MB7806:EE_
+X-MS-Office365-Filtering-Correlation-Id: 600ffd5d-1ae7-41e0-e57b-08dd3c64abd5
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|82310400026|1800799024|7416014|36860700013|921020;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?eGI4dEMxdFNsNzRsU2VWVmlmOTM0OVQ0cm1QdjlOTDlxa2tWcjR4NHlEOXZW?=
+ =?utf-8?B?b3UrcW5BamtEb1Nya0pWRDFPY3hRZDViek1ERGg0eVgzWXJmYkh4WVJRLzdR?=
+ =?utf-8?B?MEc3NWNTaTNobU9EckwyajdiMkVxQUJBYlZjYU5LajVVSmlQOWlDaGs0alBk?=
+ =?utf-8?B?cWlONUUyVlQ3c0hsS1ZTb0ROV0VsUVhVWmprTmxnZm1MNGhYRFpmRlJnVVFK?=
+ =?utf-8?B?UEdlOThNUC96dkNGQXJFSmRBU2JmTXdmRnBBWHNNS3Jhd3piOGpQTGJtUmhY?=
+ =?utf-8?B?R3FZdHd1R3V5UVZVS25GWjJISm5uYjlRMmhuVERUWERqZ1V5bHFCdURjdlNW?=
+ =?utf-8?B?R05Ua3dlUFcrUktoVDUvVnhoeGdQamtSQ3l4RDBGT25EU2w1dkJLbHhldGJp?=
+ =?utf-8?B?YUxFTTI3Q3FlRDFwT3hPMUI0Sjl4R1JMbStQZEt6R0c2WWlSMDc1azlmNzY3?=
+ =?utf-8?B?MmQ4NTdsd3JjWjJZUDZRVSs3d3hhMXlBVVVMai9nY0VMSHlRMjNvMkJYbkFq?=
+ =?utf-8?B?RVkzcWZOczNLYWprR1Ryb2lRbFkxQ2ZHY3RMN0xkY3lpOVFqS3QwSnQyRElJ?=
+ =?utf-8?B?SEt4TjhLWm00YWl0NUlQeVA0b2paQTM0azBleHVLcE9USTJEYlo4WnZFNkFv?=
+ =?utf-8?B?c2VtZm1wRW42TVRiK3BxWlFDS3NkT0t3SWNrYmZ6N3lRd3FFZjNKYWdQaXJQ?=
+ =?utf-8?B?Wml2ZE1qaEpxdEVxcDBiK2x1T21RVWJZZXhGVmlEOFVOVzIxZTV2a21zeUFa?=
+ =?utf-8?B?UlVRR2hpM2xJcGFETkpxMGd6MGtiTFNmSE8yQ2lBY1k3TmtYM0lzZkN0Q1Ry?=
+ =?utf-8?B?cG9FYlFlb2w0QXJBV3VGdnNXaWl5VThoc1VGVEFWSTQwRHZvUitCRTJCaFBB?=
+ =?utf-8?B?eTRuRFMxblZ5OHZ6Zm5MbU82N1NPdVRYZllvNU5XM3UrYkdPOC91VUl3dnRL?=
+ =?utf-8?B?aVdZazAzVyt4ZXozVzJqaGFFZjYxMXc4bXhRVVFhMXBCaXdGdkg5VjEyemR2?=
+ =?utf-8?B?cTNCS0owUDZvQit6bHpjbkYwYlZOcU5CdzlkVS9Jc2hCMXhXS080ci9qL1Vs?=
+ =?utf-8?B?Rk9sTmZNdG9mZ3FlTndKU2trK2l0ME1VaTl1Rkd0MzltbWhNZ1pPMTU0Y1pp?=
+ =?utf-8?B?ck1PNytGcTlUWmpoV1RpY0JGZFdIcDJ6UkdNdTRsR3JxMy9xY2ZEMmtBRkFT?=
+ =?utf-8?B?MkN2TVBiYWpaWXR2S2UrZG01blNiaFdrRStiR0k0K3ArRTc2UkMzaHVnRnIx?=
+ =?utf-8?B?RTFjc1RZa1lhWTdJb2IxZ0ZFeUhBbFl5NHFJSmg1eENEV24yUDV1dkZ3S0xr?=
+ =?utf-8?B?eUdhclkvRGN5ekRwVmY1QVMwNWd6d3g4SzdVOVl5WnQ3NEFFQ2dMYUorOXhk?=
+ =?utf-8?B?Nkw5OTZyZ2ZLZGhwV0lmdzNLaW5QS1ora2pBSXlvUlJGWWNVaXB6bFBFZUJ5?=
+ =?utf-8?B?WENVOFd5ZVMvaFZsU25mb1BQNXF3cE5lRzN4eUM1dzdzenBEbFMwVXR0TjZN?=
+ =?utf-8?B?T24wK3VyLzFBMW50a21KUllmSmQ3MEJPdW9sQ1hDc0VHN2ZTVm9zTTJXTWZW?=
+ =?utf-8?B?ck9Kc1ZMRXlEcDZzQnBnTG9weWt6MDNDbW5jOFdnVlpReDdCTXlJMFl4WCtO?=
+ =?utf-8?B?SGxHQUZaRmxlR2xibmJiT3VPTElNUEhGcnp2Q0UrTHFHd3VtdzhWKzl6b2k5?=
+ =?utf-8?B?MTl6UGZNWWovM3pMcmRvTjFHbFk5Njk0QVZZcnNWOUhtZ011S2YvSVBCWU1G?=
+ =?utf-8?B?U1I0NVlrR3lnUEl2ZFM1b21UQ2d3YVF2OVZoOFQ4S0pLRGRudTZ4ZHBmNE95?=
+ =?utf-8?B?am9UaGFHTTNnL2pORlRpVDZJdDlHUS9TYVVVRzFpem5FdXBDNk9rOHBKVjhr?=
+ =?utf-8?B?eDMzTWQ4d1A4U1VaUmRUNmNsNHJuaElOQWdlZXVWaEk1L0tPSTVaMUgvN2N5?=
+ =?utf-8?B?MUkwRjdvdnFHa0VUeXlMVEtPUlRzRm1QNFI3V2p0OFpwNm81dlJ5SHp5aVpt?=
+ =?utf-8?Q?VrP+GI9ukCMThuvNcrCduETSHbKQ3Y=3D?=
+X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:SATLEXMB04.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(376014)(82310400026)(1800799024)(7416014)(36860700013)(921020);DIR:OUT;SFP:1101;
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Jan 2025 10:48:43.2233
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 600ffd5d-1ae7-41e0-e57b-08dd3c64abd5
+X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[SATLEXMB04.amd.com]
+X-MS-Exchange-CrossTenant-AuthSource: SJ1PEPF00002327.namprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA3PR12MB7806
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250124_024629_584505_9B25ED80 
-X-CRM114-Status: GOOD (  30.44  )
+X-CRM114-CacheID: sfid-20250124_024850_287733_FDC2C30B 
+X-CRM114-Status: GOOD (  15.48  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,156 +199,42 @@ Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+Hello Valentin,
 
-On 1/15/25 01:35, Conor Dooley wrote:
-> On Wed, Jan 15, 2025 at 06:33:08AM +0000, Hal Feng wrote:
->>> On 07.01.25 04:08, Conor Dooley wrote:
->>> On Sat, Jan 04, 2025 at 01:04:30PM -0800, E Shattow wrote:
->>>> Hi, Conor  (added CC: Minda Chen, Hal Feng)
->>>>
->>>> On 1/4/25 10:33, Conor Dooley wrote:
->>>>> On Thu, Jan 02, 2025 at 11:45:07AM -0800, E Shattow wrote:
->>>>>> Replace syscrg assignments of clocks, clock parents, and rates,
->>>>>> for compatibility with downstream boot loader SPL secondary
->>>>>> program loader.
->>>>>>
->>>>>> Signed-off-by: E Shattow <e@freeshell.de>
->>>>>> ---
->>>>>>    arch/riscv/boot/dts/starfive/jh7110-common.dtsi | 12 +++++++++---
->>>>>>    1 file changed, 9 insertions(+), 3 deletions(-)
->>>>>>
->>>>>> diff --git a/arch/riscv/boot/dts/starfive/jh7110-common.dtsi
->>>>>> b/arch/riscv/boot/dts/starfive/jh7110-common.dtsi
->>>>>> index 48fb5091b817..55c6743100a7 100644
->>>>>> --- a/arch/riscv/boot/dts/starfive/jh7110-common.dtsi
->>>>>> +++ b/arch/riscv/boot/dts/starfive/jh7110-common.dtsi
->>>>>> @@ -359,9 +359,15 @@ spi_dev0: spi@0 {
->>>>>>    };
->>>>>>    &syscrg {
->>>>>> -	assigned-clocks = <&syscrg JH7110_SYSCLK_CPU_CORE>,
->>>>>> -			  <&pllclk JH7110_PLLCLK_PLL0_OUT>;
->>>>>> -	assigned-clock-rates = <500000000>, <1500000000>;
->>>>>> +	assigned-clocks = <&syscrg JH7110_SYSCLK_CPU_ROOT>,
->>>>>> +			  <&syscrg JH7110_SYSCLK_BUS_ROOT>,
->>>>>> +			  <&syscrg JH7110_SYSCLK_PERH_ROOT>,
->>>>>> +			  <&syscrg JH7110_SYSCLK_QSPI_REF>;
->>>>>> +	assigned-clock-parents = <&pllclk JH7110_PLLCLK_PLL0_OUT>,
->>>>>> +				 <&pllclk JH7110_PLLCLK_PLL2_OUT>,
->>>>>> +				 <&pllclk JH7110_PLLCLK_PLL2_OUT>,
->>>>>> +				 <&syscrg JH7110_SYSCLK_QSPI_REF_SRC>;
->>>>>> +	assigned-clock-rates = <0>, <0>, <0>, <0>;
->>>>>
->>>>> Why is assigned rates here 0s, rather than the property just removed?
->>>>>
->>>>>>    };
->>>>>>    &sysgpio {
->>>>>> --
->>>>>> 2.45.2
->>>>>>
->>>>
->>>> Assigned rates all zeroes is how it is in U-Boot. Removing the
->>>> assigned-clock-rates property as suggested does work in U-Boot and
->>>> Linux both.
->>>>
->>>> For context, U-Boot fails when replacing assigned-clocks to
->>>> JH7110_SYSCLK_CPU_CORE (500MHz) and JH7110_PLLCLK_PLL0_OUT
->>> (1500MHz)
->>>> from Linux. So I tried to merge all properties together and in testing
->>>> then U-Boot failed (or I did it wrong). However replacing the Linux
->>>> properties with the U-Boot configuration (above) on Linux does work for
->>> both.
->>>>
->>>> I do not know if this is correct but I can test any suggestions and
->>>> report if they are working.
->>>>
->>>> Do these changes make sense? Are there other variations I should test?
->>>
->>> I'd like the commit message to at least explain why these clocks need to be
->>> set to zero (I assume that means disabled?). Maybe the StarFive folks know
->>> why it is required?
->>
->> Here "assigned-clock-rates = <0>, ..." means skipping setting clock rates.
->> You can refer to
->> https://github.com/devicetree-org/dt-schema/blob/main/dtschema/schemas/clock/clock.yaml/
-> 
-> If you check the wording there, it says:
->    To skip setting parent or rate of a clock its corresponding entry should be
->    set to 0, or can be omitted if it is not followed by any non-zero entry.
-> Since all clocks are being set to 0 above, we should be in the "can be
-> omitted" case for the entire property, no? That would...
-> 
->> Linux here setting JH7110_SYSCLK_CPU_CORE to 500MHz and JH7110_PLLCLK_PLL0_OUT
->> to 1500MHz are for increasing the CPU frequency to 1500MHz.
->>
->> VF2 u-boot is still running at 1000MHz now. You failed to set JH7110_PLLCLK_PLL0_OUT
->> to 1500MHz, because CPU power supply voltage needs to be increased before running at
->> 1500MHz.
+On 1/14/2025 11:21 PM, Valentin Schneider wrote:
+> [..snip..]
+> diff --git a/include/linux/context_tracking_work.h b/include/linux/context_tracking_work.h
+> index c68245f8d77c5..931ade1dcbcc2 100644
+> --- a/include/linux/context_tracking_work.h
+> +++ b/include/linux/context_tracking_work.h
+> @@ -5,12 +5,12 @@
+>   #include <linux/bitops.h>
+>   
+>   enum {
+> -	CT_WORK_n_OFFSET,
+> +	CT_WORK_SYNC,
 
-Conor / Hal,  how does this work:
+nit.
 
-Are these the minimum and maximum values for CPU frequency, CPU CORE and 
-PLL0 OUT ?
+Shouldn't this be "CT_WORK_SYNC_OFFSET"?
 
->>
->> I think a better choice now is changing Linux device tree as follows:
->>
->> &syscrg {
->> 	assigned-clocks = <&syscrg JH7110_SYSCLK_CPU_ROOT>,
->> 			  <&syscrg JH7110_SYSCLK_BUS_ROOT>,
->> 			  <&syscrg JH7110_SYSCLK_PERH_ROOT>,
->> 			  <&syscrg JH7110_SYSCLK_QSPI_REF>,
->> 			  <&syscrg JH7110_SYSCLK_CPU_CORE>,
->> 			  <&pllclk JH7110_PLLCLK_PLL0_OUT>;
->> 	assigned-clock-parents = <&pllclk JH7110_PLLCLK_PLL0_OUT>,
->> 				 <&pllclk JH7110_PLLCLK_PLL2_OUT>,
->> 				 <&pllclk JH7110_PLLCLK_PLL2_OUT>,
->> 				 <&syscrg JH7110_SYSCLK_QSPI_REF_SRC>;
->> 	assigned-clock-rates = <0>, <0>, <0>, <0>, <500000000>, <1500000000>;
->> };
-> 
-> ...make this one a reasonable change...
-> 
->> For u-boot, if there is no requirement to run u-boot at 1500MHz, just keep
->> &syscrg {
->> 	assigned-clock-rates = <0>, <0>, <0>, <0>;
->> };
-> 
-> ...but not this one.
-> 
->> in u-boot device tree. If we need running 1500MHz in u-boot, I will send a patch
->> to implement it and then &syscrg{...} in u-boot device tree can be dropped.
->>
->> Best regards,
->> Hal
+I believe it gets fixed in Patch 29/30 when "CT_WORK_TLBI_OFFSET" is
+added but perhaps that can be moved here to preserve bisection.
 
-Hal,
+>   	CT_WORK_MAX_OFFSET
+>   };
+>   
+>   enum ct_work {
+> -	CT_WORK_n        = BIT(CT_WORK_n_OFFSET),
+> +	CT_WORK_SYNC     = BIT(CT_WORK_SYNC_OFFSET),
+>   	CT_WORK_MAX      = BIT(CT_WORK_MAX_OFFSET)
+>   };
+>   
 
-What voltage (and speed) has less heat output?
+-- 
+Thanks and Regards,
+Prateek
 
-I think it must be configured to be *reliable first* as it is pictured 
-being a developer board on a person's desk (with no extra accessory - no 
-fans, heatsink, etc.) and for example doing work as of a Linux kernel 
-compile with using all cores.
-
-We should not force a configuration that will fail for the common 
-situation. What voltage and clock speed is the best for continuous 
-reliable operation of a JH7110 CPU with no added heatsink or fan and at 
-ambient temperature?
-
-Does CPU frequency range need to be given in devicetree? Can instead 
-this be done with userspace tool or Linux subsystem at runtime?
-
-The thermal dissipation of JH7110 CPU will be depend on the board layout 
-and physical application. So, my opinion here:  I think any minimum and 
-maximum CPU frequency limit that is given by manufacturer recommendation 
-of safe continuous operation is okay for dts include. If some part of 
-this frequency range is not reliable (from undervolt, or overheat) then 
-it is a "no" from me in Linux and in U-Boot. The fact of failing to boot 
-(in U-Boot) because JH7110 CPU default voltage is not high enough for 
-1500MHz operation tells me this is a wrong idea or there is missing code 
-in U-Boot to select a default sane clock speed and voltage.
-
--E
 
 _______________________________________________
 linux-riscv mailing list
