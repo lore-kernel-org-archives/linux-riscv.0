@@ -4,101 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1CEF2C02181
-	for <linux-riscv@archiver.kernel.org>; Fri, 24 Jan 2025 04:01:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 81590C02181
+	for <linux-riscv@archiver.kernel.org>; Fri, 24 Jan 2025 07:09:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:To:From:Reply-To:Cc:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=JOTMjmVOwz8zunZj7dszqJpZm9AA5TsOGK5Xz0wgyZU=; b=p4hT5Ju3YoxGXb
-	iPDWrpk0NX6AxbfR085CcAfJFBuQoU4h/beWFMDveIMz2VhGN1ipvWCSvEkz33rpBJfyOcO0LOnNx
-	z7ayHXaxObK4ElmJ2Ljbe+nSntSCa96VYa+HhnILWjXl6nNmvA3ZJP8n8p0Lq4onat4VDJrXsVu6x
-	DOJBIzs4iVxehmKyW5mhf7zrXAmDcpHFxa7MiVy0d5ZNVwTZSW7/9BSVQaU6WqjlJtcA4LBnehEm5
-	Nki0xFkkZWW9HJftAjYoooJN6Xt2wOzo2HfvK/g4uqeHUVDXzhDyT1mjkHvMHk1FySmmHbYqF4VsI
-	HlzaYlRzhxdKVVN4/zUg==;
+	List-Owner; bh=fns8D7nhE78cD36Pm6iqyjtGKB6ZBbzTvDhYGGBCaXo=; b=fbHuOTeipNN25Z
+	M7WDMg7cgQutv4I1lAL2JTk+NeEFeb3Api6uKfbs2LFa2AqMopt07hOh6THwJkYB3ay2tWRt2o8so
+	/luUHsIES6sWiba//VkTrnW/I9FxDLoPfjJENwORiedPke6KTHC94hQB2g9MPDCEIoX7DhP+Zlbpv
+	gfL/gVmrcKuwFML+bjQNv5mq31PB5ChrMzGo9YnZomUMOm4duCYvWlHbceQteV8/nt0STA7vXgAOs
+	C6Amyh1PBCjYZAz9Y9LXq3SI1zYbV7BMulpkK0mzm5YNdD229Pmw4JP7PZWgZ5fuDfV9eoUnRcCX6
+	a6vdGuxgzXaTFP/cNVwQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tbAsi-0000000DquK-2OoL;
-	Fri, 24 Jan 2025 04:01:20 +0000
-Received: from mail-pl1-x62a.google.com ([2607:f8b0:4864:20::62a])
+	id 1tbDom-0000000E4UJ-3lXZ;
+	Fri, 24 Jan 2025 07:09:28 +0000
+Received: from relay5-d.mail.gandi.net ([2001:4b98:dc4:8::225])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tbAsf-0000000Dqsa-4BTS
+	id 1tbDoj-0000000E4Tg-358a
 	for linux-riscv@lists.infradead.org;
-	Fri, 24 Jan 2025 04:01:19 +0000
-Received: by mail-pl1-x62a.google.com with SMTP id d9443c01a7336-216395e151bso22526645ad.0
-        for <linux-riscv@lists.infradead.org>; Thu, 23 Jan 2025 20:01:17 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bytedance.com; s=google; t=1737691277; x=1738296077; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:to:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=Y6H6/Xpe5szI3425MURKDC2kUnYsqHlXT/4n1BN4R7E=;
-        b=TQ4WAQzzMUKvYH9C6IokBNOHp6dAyzVD4IM2OwSuZUli3DacoC+o/fP4Wh6zHBOOVg
-         FukzgUAMXO8bG0ez4ClksHAYcKVXXsy0SLFfzXvDGifFYrlEAMPdvHr/LcNnGnaJmSkU
-         zg9VVFo3hWYfrZtxBtDbj1+lole3O33olsnalng6jpuqDrxaU5i4T+k9ZaAvi67DYgiR
-         YFVGDX0oOK5q7ZeRw3hTV88oeIHAuN3ACN7Hf1inHuIeP141mBjptlXk0943nBrdSMdV
-         E+VoyzE4jRECGAiHZQWnmYyDAzUE027HIPO9WfgQJuk27XMZoCz3b6EjFo3o3I4KYxSK
-         BrEQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1737691277; x=1738296077;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=Y6H6/Xpe5szI3425MURKDC2kUnYsqHlXT/4n1BN4R7E=;
-        b=Plt45obdAYshZ+xViC3GVTtlfyf3IiECU4dBvJcKMPM88y9YdSn7VZiSIfAiECMQp2
-         PcxCStEc5A0Hf8otRZQP9wwue16tAoU28VS86dh2Fc/kiiJ+1P9bR6mBotkCWdotWT9z
-         +LpBvtG9U2Z1QONySNpsJi6GfUpgwZW7YbptXwSVRB+J942ykiPAR1hGVibZlvpW8fBs
-         hFWmcGOIFv4rFOh4WEwXsXtfBIkgFSwVWwi4nJdaX3BPQ4ES9UmpwD5Onbj0bQg4MqaI
-         pksk6EBPbEBbdjYLn2dTQKDuubcl+4O4e3v7heay68eHX1Bpl++zGRivKG1nE90ck0Mh
-         cKRA==
-X-Forwarded-Encrypted: i=1; AJvYcCV/Ye5ccU/ZjMyE2+Fcuxf9xFYWAPf/ixPURoe88Wa0FdUZhkTYesHndCbUcGt8M0zj8HsteFHulyozEA==@lists.infradead.org
-X-Gm-Message-State: AOJu0YxyMUZ2TNZxU5LrCmv+jvEO26/4EC1mzOqkKDe8l1o8qg9/DpVj
-	k4P4Spem5zvt3SSlmwfsRdAmu+EhuHzshp2dcNBdj2CPkOe9WbQuWhpJiF1Ke1w=
-X-Gm-Gg: ASbGnctEApcxHw46xPqmgT9MC/uz+Z7KsjKVKMNjYRN0JZnPf0Nl8pmOBBxfuE4i6BQ
-	wLq7URy27Hp2TPVPvjrcMTl/nuBYkzUJZaklQefKJPG9YBYkhmVURT1QYL+T61XGPeHlz5Qke1+
-	AcW6mscUyt/gr3DbB5rRpqXBYa15oWbvskua0t+KLBHMyZtSKj8PYSkV+WQgC6D7dNrExskBPQt
-	yQQyzCXfQoAFVsCzpbD3X71TIuzwDgp6pROr184db+hfAOcbV9SYLjUERzBPCLVC5iQi2M26z36
-	D/WiC06iYBdKoUij9duz8OqfN6v2zYgnpE1QUq3/OZdXrYkmXg==
-X-Google-Smtp-Source: AGHT+IEmNJ9PTxDO/9xUv7qTG6D6YOowwQFpMMoo6I4xfnFmtGI8+HqdGOFtB4iDinl8gA0atu0SWA==
-X-Received: by 2002:a17:903:124b:b0:215:98e7:9b1 with SMTP id d9443c01a7336-21d993177a2mr87590995ad.5.1737691277079;
-        Thu, 23 Jan 2025 20:01:17 -0800 (PST)
-Received: from L6YN4KR4K9.bytedance.net ([2408:8406:78d1:bf49:24c4:f518:9b3b:36de])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-21da4141d67sm6758915ad.153.2025.01.23.20.01.10
-        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Thu, 23 Jan 2025 20:01:16 -0800 (PST)
-From: Yunhui Cui <cuiyunhui@bytedance.com>
-To: ajones@ventanamicro.com,
-	alexghiti@rivosinc.com,
-	andybnac@gmail.com,
-	aou@eecs.berkeley.edu,
-	charlie@rivosinc.com,
-	cleger@rivosinc.com,
-	conor.dooley@microchip.com,
-	conor@kernel.org,
-	corbet@lwn.net,
-	cuiyunhui@bytedance.com,
-	evan@rivosinc.com,
-	jesse@rivosinc.com,
-	linux-doc@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-kselftest@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	palmer@dabbelt.com,
-	paul.walmsley@sifive.com,
-	samuel.holland@sifive.com,
-	shuah@kernel.org
-Subject: [PATCH v6 3/3] RISC-V: selftests: Add TEST_ZICBOM into CBO tests
-Date: Fri, 24 Jan 2025 11:59:59 +0800
-Message-Id: <20250124035959.45499-4-cuiyunhui@bytedance.com>
-X-Mailer: git-send-email 2.39.2 (Apple Git-143)
-In-Reply-To: <20250124035959.45499-1-cuiyunhui@bytedance.com>
-References: <20250124035959.45499-1-cuiyunhui@bytedance.com>
+	Fri, 24 Jan 2025 07:09:27 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id 675D51C0004;
+	Fri, 24 Jan 2025 07:09:19 +0000 (UTC)
+Message-ID: <3c2d171a-1e6c-459e-b254-e9684a4e5ba4@ghiti.fr>
+Date: Fri, 24 Jan 2025 08:09:16 +0100
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/4] riscv: entry: Convert ret_from_fork() to C
+To: Charlie Jenkins <charlie@rivosinc.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Huacai Chen <chenhuacai@kernel.org>,
+ WANG Xuerui <kernel@xen0n.name>, Thomas Gleixner <tglx@linutronix.de>,
+ Peter Zijlstra <peterz@infradead.org>, Andy Lutomirski <luto@kernel.org>,
+ Alexandre Ghiti <alexghiti@rivosinc.com>
+Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+ loongarch@lists.linux.dev
+References: <20250122-riscv_optimize_entry-v1-0-4ee95559cfd0@rivosinc.com>
+ <20250122-riscv_optimize_entry-v1-1-4ee95559cfd0@rivosinc.com>
+Content-Language: en-US
+From: Alexandre Ghiti <alex@ghiti.fr>
+In-Reply-To: <20250122-riscv_optimize_entry-v1-1-4ee95559cfd0@rivosinc.com>
+X-GND-Sasl: alex@ghiti.fr
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250123_200118_034797_7B685EE1 
-X-CRM114-Status: GOOD (  14.51  )
+X-CRM114-CacheID: sfid-20250123_230926_066701_B4299637 
+X-CRM114-Status: GOOD (  16.92  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,166 +62,126 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add test for Zicbom and its block size into CBO tests, when
-Zicbom is present, test that cbo.clean/flush may be issued and works.
-As the software can't verify the clean/flush functions, we just judged
-that cbo.clean/flush isn't executed illegally.
+Hi Charlie,
 
-Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
-Reviewed-by: Samuel Holland <samuel.holland@sifive.com>
-Signed-off-by: Yunhui Cui <cuiyunhui@bytedance.com>
----
- tools/testing/selftests/riscv/hwprobe/cbo.c | 66 +++++++++++++++++----
- 1 file changed, 55 insertions(+), 11 deletions(-)
+On 22/01/2025 23:56, Charlie Jenkins wrote:
+> Move the main section of ret_from_fork() to C to allow inlining of
+> syscall_exit_to_user_mode().
+>
+> Signed-off-by: Charlie Jenkins <charlie@rivosinc.com>
+> ---
+>   arch/riscv/include/asm/asm-prototypes.h |  1 +
+>   arch/riscv/kernel/entry.S               | 15 ++++++---------
+>   arch/riscv/kernel/process.c             | 14 ++++++++++++--
+>   3 files changed, 19 insertions(+), 11 deletions(-)
+>
+> diff --git a/arch/riscv/include/asm/asm-prototypes.h b/arch/riscv/include/asm/asm-prototypes.h
+> index cd627ec289f163a630b73dd03dd52a6b28692997..733ff609778797001006c33bba9e3cc5b1f15387 100644
+> --- a/arch/riscv/include/asm/asm-prototypes.h
+> +++ b/arch/riscv/include/asm/asm-prototypes.h
+> @@ -52,6 +52,7 @@ DECLARE_DO_ERROR_INFO(do_trap_ecall_s);
+>   DECLARE_DO_ERROR_INFO(do_trap_ecall_m);
+>   DECLARE_DO_ERROR_INFO(do_trap_break);
+>   
+> +asmlinkage void ret_from_fork(void *fn_arg, int (*fn)(void *), struct pt_regs *regs);
+>   asmlinkage void handle_bad_stack(struct pt_regs *regs);
+>   asmlinkage void do_page_fault(struct pt_regs *regs);
+>   asmlinkage void do_irq(struct pt_regs *regs);
+> diff --git a/arch/riscv/kernel/entry.S b/arch/riscv/kernel/entry.S
+> index 33a5a9f2a0d4e1eeccfb3621b9e518b88e1b0704..9225c322279aa90e737b1d7144db084319cf8103 100644
+> --- a/arch/riscv/kernel/entry.S
+> +++ b/arch/riscv/kernel/entry.S
+> @@ -319,17 +319,14 @@ SYM_CODE_END(handle_kernel_stack_overflow)
+>   ASM_NOKPROBE(handle_kernel_stack_overflow)
+>   #endif
+>   
+> -SYM_CODE_START(ret_from_fork)
+> +SYM_CODE_START(ret_from_fork_asm)
+>   	call schedule_tail
+> -	beqz s0, 1f	/* not from kernel thread */
+> -	/* Call fn(arg) */
+> -	move a0, s1
+> -	jalr s0
+> -1:
+> -	move a0, sp /* pt_regs */
+> -	call syscall_exit_to_user_mode
+> +	move a0, s1 /* fn */
+> +	move a1, s0 /* fn_arg */
 
-diff --git a/tools/testing/selftests/riscv/hwprobe/cbo.c b/tools/testing/selftests/riscv/hwprobe/cbo.c
-index a40541bb7c7d..5e96ef785d0d 100644
---- a/tools/testing/selftests/riscv/hwprobe/cbo.c
-+++ b/tools/testing/selftests/riscv/hwprobe/cbo.c
-@@ -50,6 +50,14 @@ static void cbo_clean(char *base) { cbo_insn(base, 1); }
- static void cbo_flush(char *base) { cbo_insn(base, 2); }
- static void cbo_zero(char *base)  { cbo_insn(base, 4); }
- 
-+static void test_no_cbo_inval(void *arg)
-+{
-+	ksft_print_msg("Testing cbo.inval instruction remain privileged\n");
-+	illegal_insn = false;
-+	cbo_inval(&mem[0]);
-+	ksft_test_result(illegal_insn, "No cbo.inval\n");
-+}
-+
- static void test_no_zicbom(void *arg)
- {
- 	ksft_print_msg("Testing Zicbom instructions remain privileged\n");
-@@ -61,10 +69,6 @@ static void test_no_zicbom(void *arg)
- 	illegal_insn = false;
- 	cbo_flush(&mem[0]);
- 	ksft_test_result(illegal_insn, "No cbo.flush\n");
--
--	illegal_insn = false;
--	cbo_inval(&mem[0]);
--	ksft_test_result(illegal_insn, "No cbo.inval\n");
- }
- 
- static void test_no_zicboz(void *arg)
-@@ -81,6 +85,30 @@ static bool is_power_of_2(__u64 n)
- 	return n != 0 && (n & (n - 1)) == 0;
- }
- 
-+static void test_zicbom(void *arg)
-+{
-+	struct riscv_hwprobe pair = {
-+		.key = RISCV_HWPROBE_KEY_ZICBOM_BLOCK_SIZE,
-+	};
-+	cpu_set_t *cpus = (cpu_set_t *)arg;
-+	__u64 block_size;
-+	long rc;
-+
-+	rc = riscv_hwprobe(&pair, 1, sizeof(cpu_set_t), (unsigned long *)cpus, 0);
-+	block_size = pair.value;
-+	ksft_test_result(rc == 0 && pair.key == RISCV_HWPROBE_KEY_ZICBOM_BLOCK_SIZE &&
-+			 is_power_of_2(block_size), "Zicbom block size\n");
-+	ksft_print_msg("Zicbom block size: %llu\n", block_size);
-+
-+	illegal_insn = false;
-+	cbo_clean(&mem[block_size]);
-+	ksft_test_result(!illegal_insn, "cbo.clean\n");
-+
-+	illegal_insn = false;
-+	cbo_flush(&mem[block_size]);
-+	ksft_test_result(!illegal_insn, "cbo.flush\n");
-+}
-+
- static void test_zicboz(void *arg)
- {
- 	struct riscv_hwprobe pair = {
-@@ -129,7 +157,7 @@ static void test_zicboz(void *arg)
- 	ksft_test_result_pass("cbo.zero check\n");
- }
- 
--static void check_no_zicboz_cpus(cpu_set_t *cpus)
-+static void check_no_zicbo_cpus(cpu_set_t *cpus, __u64 cbo)
- {
- 	struct riscv_hwprobe pair = {
- 		.key = RISCV_HWPROBE_KEY_IMA_EXT_0,
-@@ -137,6 +165,7 @@ static void check_no_zicboz_cpus(cpu_set_t *cpus)
- 	cpu_set_t one_cpu;
- 	int i = 0, c = 0;
- 	long rc;
-+	char *cbostr;
- 
- 	while (i++ < CPU_COUNT(cpus)) {
- 		while (!CPU_ISSET(c, cpus))
-@@ -148,10 +177,13 @@ static void check_no_zicboz_cpus(cpu_set_t *cpus)
- 		rc = riscv_hwprobe(&pair, 1, sizeof(cpu_set_t), (unsigned long *)&one_cpu, 0);
- 		assert(rc == 0 && pair.key == RISCV_HWPROBE_KEY_IMA_EXT_0);
- 
--		if (pair.value & RISCV_HWPROBE_EXT_ZICBOZ)
--			ksft_exit_fail_msg("Zicboz is only present on a subset of harts.\n"
--					   "Use taskset to select a set of harts where Zicboz\n"
--					   "presence (present or not) is consistent for each hart\n");
-+		cbostr = cbo == RISCV_HWPROBE_EXT_ZICBOZ ? "Zicboz" : "Zicbom";
-+
-+		if (pair.value & cbo)
-+			ksft_exit_fail_msg("%s is only present on a subset of harts.\n"
-+					   "Use taskset to select a set of harts where %s\n"
-+					   "presence (present or not) is consistent for each hart\n",
-+					   cbostr, cbostr);
- 		++c;
- 	}
- }
-@@ -159,7 +191,9 @@ static void check_no_zicboz_cpus(cpu_set_t *cpus)
- enum {
- 	TEST_ZICBOZ,
- 	TEST_NO_ZICBOZ,
-+	TEST_ZICBOM,
- 	TEST_NO_ZICBOM,
-+	TEST_NO_CBO_INVAL,
- };
- 
- static struct test_info {
-@@ -169,7 +203,9 @@ static struct test_info {
- } tests[] = {
- 	[TEST_ZICBOZ]		= { .nr_tests = 3, test_zicboz },
- 	[TEST_NO_ZICBOZ]	= { .nr_tests = 1, test_no_zicboz },
--	[TEST_NO_ZICBOM]	= { .nr_tests = 3, test_no_zicbom },
-+	[TEST_ZICBOM]		= { .nr_tests = 3, test_zicbom },
-+	[TEST_NO_ZICBOM]	= { .nr_tests = 2, test_no_zicbom },
-+	[TEST_NO_CBO_INVAL]	= { .nr_tests = 1, test_no_cbo_inval },
- };
- 
- int main(int argc, char **argv)
-@@ -189,6 +225,7 @@ int main(int argc, char **argv)
- 		assert(rc == 0);
- 		tests[TEST_NO_ZICBOZ].enabled = true;
- 		tests[TEST_NO_ZICBOM].enabled = true;
-+		tests[TEST_NO_CBO_INVAL].enabled = true;
- 	}
- 
- 	rc = sched_getaffinity(0, sizeof(cpu_set_t), &cpus);
-@@ -206,7 +243,14 @@ int main(int argc, char **argv)
- 		tests[TEST_ZICBOZ].enabled = true;
- 		tests[TEST_NO_ZICBOZ].enabled = false;
- 	} else {
--		check_no_zicboz_cpus(&cpus);
-+		check_no_zicbo_cpus(&cpus, RISCV_HWPROBE_EXT_ZICBOZ);
-+	}
-+
-+	if (pair.value & RISCV_HWPROBE_EXT_ZICBOM) {
-+		tests[TEST_ZICBOM].enabled = true;
-+		tests[TEST_NO_ZICBOM].enabled = false;
-+	} else {
-+		check_no_zicbo_cpus(&cpus, RISCV_HWPROBE_EXT_ZICBOM);
- 	}
- 
- 	for (i = 0; i < ARRAY_SIZE(tests); ++i)
--- 
-2.39.2
+
+You pass the arguments in the right order but the comments are wrong (s1 
+contains fn_arg and s0 fn).
+
+
+> +	move a2, sp /* pt_regs */
+> +	call ret_from_fork
+>   	j ret_from_exception
+> -SYM_CODE_END(ret_from_fork)
+> +SYM_CODE_END(ret_from_fork_asm)
+>   
+>   #ifdef CONFIG_IRQ_STACKS
+>   /*
+> diff --git a/arch/riscv/kernel/process.c b/arch/riscv/kernel/process.c
+> index 58b6482c2bf662bf5224ca50c8e21a68760a6b41..0d07e6d8f6b57beba438dbba5e8c74a014582bee 100644
+> --- a/arch/riscv/kernel/process.c
+> +++ b/arch/riscv/kernel/process.c
+> @@ -17,7 +17,9 @@
+>   #include <linux/ptrace.h>
+>   #include <linux/uaccess.h>
+>   #include <linux/personality.h>
+> +#include <linux/entry-common.h>
+>   
+> +#include <asm/asm-prototypes.h>
+>   #include <asm/unistd.h>
+>   #include <asm/processor.h>
+>   #include <asm/csr.h>
+> @@ -36,7 +38,7 @@ unsigned long __stack_chk_guard __read_mostly;
+>   EXPORT_SYMBOL(__stack_chk_guard);
+>   #endif
+>   
+> -extern asmlinkage void ret_from_fork(void);
+> +extern asmlinkage void ret_from_fork_asm(void);
+>   
+>   void noinstr arch_cpu_idle(void)
+>   {
+> @@ -206,6 +208,14 @@ int arch_dup_task_struct(struct task_struct *dst, struct task_struct *src)
+>   	return 0;
+>   }
+>   
+> +asmlinkage void ret_from_fork(void *fn_arg, int (*fn)(void *), struct pt_regs *regs)
+> +{
+> +	if (unlikely(fn))
+> +		fn(fn_arg);
+> +
+> +	syscall_exit_to_user_mode(regs);
+> +}
+> +
+>   int copy_thread(struct task_struct *p, const struct kernel_clone_args *args)
+>   {
+>   	unsigned long clone_flags = args->flags;
+> @@ -242,7 +252,7 @@ int copy_thread(struct task_struct *p, const struct kernel_clone_args *args)
+>   	p->thread.riscv_v_flags = 0;
+>   	if (has_vector())
+>   		riscv_v_thread_alloc(p);
+> -	p->thread.ra = (unsigned long)ret_from_fork;
+> +	p->thread.ra = (unsigned long)ret_from_fork_asm;
+>   	p->thread.sp = (unsigned long)childregs; /* kernel sp */
+>   	return 0;
+>   }
+>
+
+With the comment fix, you can add:
+
+Reviewed-by: Alexandre Ghiti <alexghiti@rivosinc.com>
+
+Thanks,
+
+Alex
 
 
 _______________________________________________
