@@ -4,85 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 42CEAC02182
-	for <linux-riscv@archiver.kernel.org>; Thu, 23 Jan 2025 23:19:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 44E96C02181
+	for <linux-riscv@archiver.kernel.org>; Fri, 24 Jan 2025 03:27:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=tUPLOcYLKmROwnav06vXyE1SLeiv03F4qacAVTgZakA=; b=ZbfE/Ra2f+iq4A
-	wq19Jy1g+OEqt4mgJgVWFG/N0TXRh87GDeDk/Xjzy7qneIC5WTIOET6x62vg37eRSjSYHVdkta0Q8
-	gWvtAFdcn25RXSGZD7BB289njYQhSnpTSTzQZDjt2zH3kzxhPoLHxyLV9zrjCYKlMzCmetIg7WR7q
-	sz1hKEewOjR8JhozyFRq7fNxOSbhKNGav5efJlvoqT3qXkKwW4V5qSZlCFDLRDHrb+Slt8T2Ed3rP
-	oJyY1R0d4chWUSIvkPZKQvXLfbMWd2/QW2mbEC+t3VDRC6dOBYwYdZRS9Lv35Ss/FK70KdvDIo6yr
-	oQ1O0QVfdOGE3Vmwbr0w==;
+	List-Owner; bh=Aki7Is+kC3XytmUrrNtPPYo7KiOr4mw13S6t19Wnl+s=; b=1BYO72CEpQWZ/o
+	Bkg+cpB+o3sShL4Ohy9bjtcvxEAiW8mxkSJzgxs2ObDE4QA8UroonODCuQ5Y07f6/pp8cgFmODo9e
+	mSohlOTmA9lPT0F22FEtwn57NmvggbjmVEKSHHxgeqPbFrjxi2jbcbJxzzcsykNqnb2yEwcnYV+49
+	DSkF9HsRhe2sBkBDjvL49bOGUJubwwY8wmMtqx/5WjtJDx3o+ORpCS/5FL0BCBdj90nBc247VWd3s
+	1Aggdf4arlGLKqoz2BEPN09zNFyW/+aB/jM+AP3eguF0fyiKkJoss7ij66d9pqH7GH4x3L8pYPtUr
+	am1Fa0mg7YiB2ZI1W65Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tb6Tw-0000000DTis-37To;
-	Thu, 23 Jan 2025 23:19:28 +0000
-Received: from mail-pl1-x62c.google.com ([2607:f8b0:4864:20::62c])
+	id 1tbALM-0000000DoAK-13hO;
+	Fri, 24 Jan 2025 03:26:52 +0000
+Received: from mail-ot1-x334.google.com ([2607:f8b0:4864:20::334])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tb6Tt-0000000DTiU-2UXJ
+	id 1tbALJ-0000000Do9S-1tuh
 	for linux-riscv@lists.infradead.org;
-	Thu, 23 Jan 2025 23:19:27 +0000
-Received: by mail-pl1-x62c.google.com with SMTP id d9443c01a7336-2164b1f05caso25447055ad.3
-        for <linux-riscv@lists.infradead.org>; Thu, 23 Jan 2025 15:19:24 -0800 (PST)
+	Fri, 24 Jan 2025 03:26:51 +0000
+Received: by mail-ot1-x334.google.com with SMTP id 46e09a7af769-71e565708beso884646a34.1
+        for <linux-riscv@lists.infradead.org>; Thu, 23 Jan 2025 19:26:48 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=lixom-net.20230601.gappssmtp.com; s=20230601; t=1737674364; x=1738279164; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=jfONWgM4B+rw2JH14h+1A74u4ndlqnjc1n9HGrEwEIU=;
-        b=Q0NdVmujgDukSi3z4nOwFLZSQoc85AsP/ILfRluLzutEwbZ/SJFfprt8Gc1shvzsg3
-         TWw2Yu2duE5PJDeclx6917LNh+fMFbbwhGfbYOd6BEv/oKsMHOXksIKRdlo3CR6sUBI9
-         OZqnW7bcc+zaKbFVMDtVRB29S0hfNSkJuMHnf0YvYmJMbRpL/9+xFYy5ViDLWUdD45BI
-         Nu9AIhoDs1g/UnRi0Q9NjswPS31XtNvOt4YiMtIS/jBiTN+Jzau4bPKfET1gfNqQoW0p
-         YjTz1m9IfjCAq74GWihU22H2zGm+6mKiGV4ZmGjwuacgcfL8oK2w+AXpnlHaKpf+yOzZ
-         X8vg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1737674364; x=1738279164;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+        d=bytedance.com; s=google; t=1737689207; x=1738294007; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=jfONWgM4B+rw2JH14h+1A74u4ndlqnjc1n9HGrEwEIU=;
-        b=q+NwmmnGSjN4R07nSVueywAx7Lp15ic+gIl2eQSn4kelHOgL0VbTvL/OzPksJsBKcK
-         PAJ4KM9HtuNsiZZElD+wnt5B4R0dbagD6lrNaD5Zec1ajBoHeWAe9oOCD8OIZydcnYyu
-         dZVyOtt33rSW0M3TWAOEh2mhC75Lc2LGDZnGjlD0Fzg38RvLaN695c8SHDQJG0+wglY2
-         exJg10EGuYdYh5LbQA4sH+/kn7RzyHjkAEXmcDaG1gqOfqf54L2n23a7ldOnpBdk7yyi
-         +IY2Jl7i8qfosDAnOmDWmDJJ8lBMg1pn7ws3cMG+6V8EYiTE1KxeEhEoBfe4qMI8cndF
-         43Bw==
-X-Forwarded-Encrypted: i=1; AJvYcCXEET9Ru23cWtvPmniCcF7v6zmemBH44ygf55SdjfPCZVD+ehr/R91W44sUO1Tt50Lj2uSWdPdPE0GhVg==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx4zeu9sOGd/TDLDh3Ua92aE6/6c7RDStR6cnvFn88EYMIpROTT
-	XYqeLeTFdYfw1pX93at14ydjR880AoXWqZv5DvtSRlQ9ZTz+VANT0qAGeMAhnOw=
-X-Gm-Gg: ASbGncsOj6LS+iRiWZ3EzRXVHfBuzCLqClWkKD4oWu52JKhiXXVf3OchYZ5ekWTGrCp
-	Lh2MWLce3pAnHI99BOflSgmuII4B98xHUes5006J4bQj4xHCHk6G7unP+Bacz7Uk2vMyHlaFGq2
-	8HDl7crtQevH06djBgNbe/2wKag/a91E6N1TduRBSvKsiUpI+yEwIDlb/B8xORfZ7PvmintODc3
-	/3cj65X1XkSDym6wS+imJp6UoCaNqrPTvShlxYckKatAh5/ssx9jyqLqRCcak8uDeuNPNW+/LvT
-	rntl8coMp/kBgQdGxnYh3cElLrGhJ5Zpu8SXBjN5obXRxA==
-X-Google-Smtp-Source: AGHT+IG9D69/A30bCSG56XByEivne0LZ4eTvZXYB8a9hFGTFSDJHXfcZ7shZT7kJGwKsgbTgNynaAA==
-X-Received: by 2002:a05:6a20:8423:b0:1e1:ca27:89f0 with SMTP id adf61e73a8af0-1eb215bec54mr45503593637.37.1737674364069;
-        Thu, 23 Jan 2025 15:19:24 -0800 (PST)
-Received: from localhost (99-152-116-91.lightspeed.sntcca.sbcglobal.net. [99.152.116.91])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-ac4907f076dsm426261a12.37.2025.01.23.15.19.23
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 23 Jan 2025 15:19:23 -0800 (PST)
-Date: Thu, 23 Jan 2025 15:19:18 -0800
-From: Olof Johansson <olof@lixom.net>
-To: Yixun Lan <dlan@gentoo.org>
-Subject: Re: [PATCH v4 1/4] dt-bindings: gpio: spacemit: add support for K1
- SoC
-Message-ID: <Z5LOdh-4UxRtteOy@chonkvm.lixom.net>
-References: <20250121-03-k1-gpio-v4-0-4641c95c0194@gentoo.org>
- <20250121-03-k1-gpio-v4-1-4641c95c0194@gentoo.org>
- <Z5FPJLzAEVXGWJnE@chonkvm.lixom.net>
- <20250123113042-GYA38135@gentoo>
+        bh=+wYF9SYVPXBWNDoppVRqkp4GObHclaiBorKPLUibZhw=;
+        b=a6Ypzh9CVQtSITm0FPF7DwTAOrpOqhk50hHH1utB02QVe23n1JBdCMae0ltOwB1Xzy
+         qF3vXQRAdwwW6/S05Qx86ozx5QIHNf605rQGbPrBeHg5nGIGR6TwjspuTjOVewQy8K4S
+         9sMfKxw/oKtGJk9iU+VQbd1k/Pzgh73tgXg6t3ewOR1iYkRb09ugCZIFZmMNSTZhHmwA
+         5JyJSaho0Jlsjabz3FrosJuovRWSBqjBfoNOtm7NZIJcgWvJS0XJR+IxLtgQ+wEpoWZp
+         n2Ug0vUeEYfm3Uo652pkXXksRYMsDN+D1VIVr5Ti8uZbAKMkj3R3dY9InVYKYFMqUmUT
+         zpJw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1737689207; x=1738294007;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=+wYF9SYVPXBWNDoppVRqkp4GObHclaiBorKPLUibZhw=;
+        b=j/khuq24wa8j0a0Xc6bE6cPOcQU51KpsbPISQS8XvPA/8ABiTzhXtgC2kkzfrUeRRz
+         K/U32zX6HDpADkBAAkKKmESmyiHBsx+YW2/IGBqSYXvl2BjSYzzqyhLWBo3AWGPPagDo
+         ZLB4tbY7ShrrmQTbDR8xH0FSDSshFb9RFixJH3+bCOdBwEz4uvHSMVtgLI0RzJx+6wP8
+         2TMpw9cfTXifsvm/0FInVqXOTyR3xVH2wuLt4I5TqvKk8Clm0PpWuCrZi2UjPeSQrDML
+         O0j7482CbQjFI8guhSJsAmz0pqVIU+DY/szrpBGKJWXiQqrJvJSHCx/3OWeNq9I9YGe4
+         jzYg==
+X-Forwarded-Encrypted: i=1; AJvYcCXhHV2Bum/PELwcqw4mqLGNsHROt14u616JazOWreB8R3tI/U1NggdA074GSWmwQ+mQIZz/tv9OE7mgaw==@lists.infradead.org
+X-Gm-Message-State: AOJu0YyHFXOHDiCfEyrfjw9LwF+NbZYl84tL413ydID3AUXppW+rfQT9
+	WKLg6xPcaPQetZd+C0B8Wx2KMw7u9dVmNQPeikRPiCvWbwp+hpYuALiVeuR7bfO8Iy7SkwB7XYs
+	vq2WhAVl0Q0Cx3bXmctvSqgASwFzIOSvl9hacvQ==
+X-Gm-Gg: ASbGncsbXjJOYbODs+PVaa6NopRYyF5wobJsecJvDuFmJ3+J+7xTeLJW6Q+TOQkD2qC
+	iJI7mRkWBYl36/n31ZSw7K7HSGT1nhnMMIfBconHiBveGpqfLqXtcgPg1BPE26ijz
+X-Google-Smtp-Source: AGHT+IFGnKLva7FD+LaCZWDZWwF1THCBFHRVpsQutJS5kXSNOriJYKOl1H7ykN+A+qzX7nta9YxDL/rzI0cKEjaNzAA=
+X-Received: by 2002:a05:6870:2f0d:b0:29e:5522:8eea with SMTP id
+ 586e51a60fabf-2b1c0b6cdc0mr17604012fac.38.1737689207038; Thu, 23 Jan 2025
+ 19:26:47 -0800 (PST)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20250123113042-GYA38135@gentoo>
+References: <20250115024024.84365-1-cuiyunhui@bytedance.com>
+ <20250115024024.84365-3-cuiyunhui@bytedance.com> <20250121-4990d96a861a4ddd304abc33@orel>
+In-Reply-To: <20250121-4990d96a861a4ddd304abc33@orel>
+From: yunhui cui <cuiyunhui@bytedance.com>
+Date: Fri, 24 Jan 2025 11:26:36 +0800
+X-Gm-Features: AWEUYZmWZdjm8pzj4zzIf6rTTBzAFecQ8H3gVQ0i5poz74_c15zJ4cOjObQZY58
+Message-ID: <CAEEQ3wnZK2xkQ0+pnNCEvXJ6TUVnCHrkL_VNfhK=9Duy0yKNoA@mail.gmail.com>
+Subject: Re: [External] Re: [PATCH v5 2/3] RISC-V: hwprobe: Expose Zicbom
+ extension and its block size
+To: Andrew Jones <ajones@ventanamicro.com>
+Cc: alexghiti@rivosinc.com, andybnac@gmail.com, aou@eecs.berkeley.edu, 
+	charlie@rivosinc.com, cleger@rivosinc.com, conor.dooley@microchip.com, 
+	conor@kernel.org, corbet@lwn.net, evan@rivosinc.com, jesse@rivosinc.com, 
+	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-kselftest@vger.kernel.org, linux-riscv@lists.infradead.org, 
+	palmer@dabbelt.com, paul.walmsley@sifive.com, samuel.holland@sifive.com, 
+	shuah@kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250123_151925_909497_FDA7AA4E 
-X-CRM114-Status: GOOD (  38.43  )
+X-CRM114-CacheID: sfid-20250123_192649_814433_D2DE2145 
+X-CRM114-Status: GOOD (  14.86  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,142 +95,34 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Rob Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Meng Zhang <zhangmeng.kevin@linux.spacemit.com>, linux-gpio@vger.kernel.org, Linus Walleij <linus.walleij@linaro.org>, linux-kernel@vger.kernel.org, Conor Dooley <conor@kernel.org>, Yangyu Chen <cyy@cyyself.name>, devicetree@vger.kernel.org, linux-riscv@lists.infradead.org, Palmer Dabbelt <palmer@dabbelt.com>, Jesse Taube <mr.bossman075@gmail.com>, Jisheng Zhang <jszhang@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>, Inochi Amaoto <inochiama@outlook.com>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Bartosz Golaszewski <brgl@bgdev.pl>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jan 23, 2025 at 11:30:42AM +0000, Yixun Lan wrote:
-> Hi Olof:
->  thanks for your reivew
-> 
-> On 12:03 Wed 22 Jan     , Olof Johansson wrote:
-> > Hi,
-> > 
-> > On Tue, Jan 21, 2025 at 11:38:11AM +0800, Yixun Lan wrote:
-> > > The GPIO controller of K1 support basic functions as input/output,
-> > > all pins can be used as interrupt which route to one IRQ line,
-> > > trigger type can be select between rising edge, failing edge, or both.
-> > > There are four GPIO ports, each consisting of 32 pins.
-> > > 
-> > > Signed-off-by: Yixun Lan <dlan@gentoo.org>
-> > > ---
-> > >  .../devicetree/bindings/gpio/spacemit,k1-gpio.yaml | 116 +++++++++++++++++++++
-> > >  1 file changed, 116 insertions(+)
-> > > 
-> > > diff --git a/Documentation/devicetree/bindings/gpio/spacemit,k1-gpio.yaml b/Documentation/devicetree/bindings/gpio/spacemit,k1-gpio.yaml
-> > > new file mode 100644
-> > > index 0000000000000000000000000000000000000000..dd9459061aecfcba84e6a3c5052fbcddf6c61150
-> > > --- /dev/null
-> > > +++ b/Documentation/devicetree/bindings/gpio/spacemit,k1-gpio.yaml
-> > > @@ -0,0 +1,116 @@
-> > > +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> > > +%YAML 1.2
-> > > +---
-> > > +$id: http://devicetree.org/schemas/gpio/spacemit,k1-gpio.yaml#
-> > > +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> > > +
-> > > +title: SpacemiT K1 GPIO controller
-> > > +
-> > > +maintainers:
-> > > +  - Yixun Lan <dlan@gentoo.org>
-> > > +
-> > > +description:
-> > > +  The controller's registers are organized as sets of eight 32-bit
-> > > +  registers with each set of port controlling 32 pins.  A single
-> > > +  interrupt line is shared for all of the pins by the controller.
-> > > +  Each port will be represented as child nodes with the generic
-> > > +  GPIO-controller properties in this bindings file.
-> > 
-> > There's only one interrupt line for all ports, but you have a binding that
-> > duplicates them for every set of ports. That seems overly complicated,
-> > doesn't it? They'd all bind the same handler, so there's no benefit in
-> > providing the flexibility,.
-> > 
-> yes, all ports share same interrupt line, but each port has its own
-> irq related handling register, so it make sense to describe as per gpio irqchip
-> 
-> also see comments below
-> 
-> > > +properties:
-> > > +  $nodename:
-> > > +    pattern: "^gpio@[0-9a-f]+$"
-> > > +
-> > > +  compatible:
-> > > +    const: spacemit,k1-gpio
-> > > +
-> > > +  reg:
-> > > +    maxItems: 1
-> > > +
-> > > +  "#address-cells":
-> > > +    const: 1
-> > > +
-> > > +  "#size-cells":
-> > > +    const: 0
-> > > +
-> > > +patternProperties:
-> > > +  "^gpio-port@[0-9a-f]+$":
-> > > +    type: object
-> > > +    properties:
-> > > +      compatible:
-> > > +        const: spacemit,k1-gpio-port
-> > > +
-> > > +      reg:
-> > > +        maxItems: 1
-> > > +
-> > > +      gpio-controller: true
-> > > +
-> > > +      "#gpio-cells":
-> > > +        const: 2
-> > > +
-> > > +      gpio-ranges: true
-> > > +
-> > > +      interrupts:
-> > > +        maxItems: 1
-> > > +
-> > > +      interrupt-controller: true
-> > > +
-> > > +      "#interrupt-cells":
-> > > +        const: 2
-> > > +        description:
-> > > +          The first cell is the GPIO number, the second should specify interrupt
-> > > +          flag. The controller does not support level interrupts, so flags of
-> > > +          IRQ_TYPE_LEVEL_HIGH, IRQ_TYPE_LEVEL_LOW should not be used.
-> > > +          Refer <dt-bindings/interrupt-controller/irq.h> for valid flags.
-> > 
-> > Same here, since there's no real flexibility between the banks, it might
-> > make sense to consider a 3-cell GPIO specifier instead, and having
-> how to handle the fourth gpio port? I would like to have uniform driver for all ports
-> 
-> > the first cell indicate bank. I could see this argument go in either
-> > direction, but I'm not sure I understand why to provide a gpio-controller
-> > per bank.
-> > 
-> 
-> IIUC, your suggestion here was same as the implementation of patch v3 of this driver[1],
->  while combining all four ports into one irqchip, which NACKed by maintainer[2].
->  I tend to agree having a gpio-controller per bank provide more flexibility,
->  easy to leverage generic gpio framework, even each port can be disabled or enabled,
->  and IMO having shared irq handler isn't really a problem..
-> 
-> [1] https://lore.kernel.org/r/20241225-03-k1-gpio-v3-0-27bb7b441d62@gentoo.org
-> [2] https://lore.kernel.org/r/CACRpkdZPD2C2iPwOX_kW1Ug8jVkdHhhc7iFycHtzj5LQ0XWNgQ@mail.gmail.com
-> https://lore.kernel.org/r/CACRpkdYgGho=VQabonq4HccEiXBH2qM76K45oDaV1Jyi0xZ-YA@mail.gmail.com
-
-Hmm, I don't understand the reasoning there, but it's not my subsystem.
-
-It seems worse to me to misdescribe the hardware as separate blocks
-with a device-tree binding that no longer describes the actual hardware,
-but it's not up to me.
-
-Let's get the platform support merged, ignore my feedback here -- we need more
-SoCs supported upstream and this code is good enough to go in as-is.
-
-
--Olof
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+SGkgZHJldywKCk9uIFR1ZSwgSmFuIDIxLCAyMDI1IGF0IDExOjI54oCvUE0gQW5kcmV3IEpvbmVz
+IDxham9uZXNAdmVudGFuYW1pY3JvLmNvbT4gd3JvdGU6Cj4KPiBPbiBXZWQsIEphbiAxNSwgMjAy
+NSBhdCAxMDo0MDoyM0FNICswODAwLCBZdW5odWkgQ3VpIHdyb3RlOgo+ID4gRXhwb3NlIFppY2Jv
+bSB0aHJvdWdoIGh3cHJvYmUgYW5kIGFsc28gcHJvdmlkZSBhIGtleSB0byBleHRyYWN0IGl0cwo+
+ID4gcmVzcGVjdGl2ZSBibG9jayBzaXplLgo+ID4KPiA+IFNpZ25lZC1vZmYtYnk6IFl1bmh1aSBD
+dWkgPGN1aXl1bmh1aUBieXRlZGFuY2UuY29tPgo+ID4gLS0tCj4gPiAgRG9jdW1lbnRhdGlvbi9h
+cmNoL3Jpc2N2L2h3cHJvYmUucnN0ICB8IDYgKysrKysrCj4gPiAgYXJjaC9yaXNjdi9pbmNsdWRl
+L2FzbS9od3Byb2JlLmggICAgICB8IDIgKy0KPiA+ICBhcmNoL3Jpc2N2L2luY2x1ZGUvdWFwaS9h
+c20vaHdwcm9iZS5oIHwgMiArKwo+ID4gIGFyY2gvcmlzY3Yva2VybmVsL3N5c19od3Byb2JlLmMg
+ICAgICAgfCA2ICsrKysrKwo+ID4gIDQgZmlsZXMgY2hhbmdlZCwgMTUgaW5zZXJ0aW9ucygrKSwg
+MSBkZWxldGlvbigtKQo+ID4KPgo+IEFzIHRoZSBib3QgcG9pbnRzIG91dCwgd2UgbmVlZCB0byBh
+ZGQgdGhlIGZvbGxvd2luZyB0byB0aGlzIHBhdGNoLgpPSywgSSdsbCB1cGRhdGUgYSB2ZXJzaW9u
+IGFuZCBjaGFuZ2UgaHdwcm9iZV9leHQwX2hhcydzIHNlY29uZCBwYXJhbSB0byB1NjQuCgo+Cj4g
+VGhhbmtzLAo+IGRyZXcKPgo+IGRpZmYgLS1naXQgYS9hcmNoL3Jpc2N2L2tlcm5lbC9zeXNfaHdw
+cm9iZS5jIGIvYXJjaC9yaXNjdi9rZXJuZWwvc3lzX2h3cHJvYmUuYwo+IGluZGV4IGNiOTNhZGZm
+ZmM0OC4uNmI1YjI0YjM5OWMzIDEwMDY0NAo+IC0tLSBhL2FyY2gvcmlzY3Yva2VybmVsL3N5c19o
+d3Byb2JlLmMKPiArKysgYi9hcmNoL3Jpc2N2L2tlcm5lbC9zeXNfaHdwcm9iZS5jCj4gQEAgLTE2
+MCw3ICsxNjAsNyBAQCBzdGF0aWMgdm9pZCBod3Byb2JlX2lzYV9leHQwKHN0cnVjdCByaXNjdl9o
+d3Byb2JlICpwYWlyLAo+ICAgICAgICAgcGFpci0+dmFsdWUgJj0gfm1pc3Npbmc7Cj4gIH0KPgo+
+IC1zdGF0aWMgYm9vbCBod3Byb2JlX2V4dDBfaGFzKGNvbnN0IHN0cnVjdCBjcHVtYXNrICpjcHVz
+LCB1bnNpZ25lZCBsb25nIGV4dCkKPiArc3RhdGljIGJvb2wgaHdwcm9iZV9leHQwX2hhcyhjb25z
+dCBzdHJ1Y3QgY3B1bWFzayAqY3B1cywgdTY0IGV4dCkKPiAgewo+ICAgICAgICAgc3RydWN0IHJp
+c2N2X2h3cHJvYmUgcGFpcjsKPgoKVGhhbmtzLApZdW5odWkKCl9fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51
+eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21h
+aWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
