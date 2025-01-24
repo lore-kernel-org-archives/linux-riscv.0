@@ -4,93 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 650A0C02181
-	for <linux-riscv@archiver.kernel.org>; Fri, 24 Jan 2025 07:56:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AFB04C0218B
+	for <linux-riscv@archiver.kernel.org>; Fri, 24 Jan 2025 09:10:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=XJW4wxnvUrVH2gDvYG0o5PvhM3TmbZq2IVeLGUMWmMc=; b=JLXEmNLjcLD5lc
-	VGgq79zaObRBhIm799ZXqtAR711vjzBOCZLBJUU09aAf+UUrHZ2BBxWYEl5v/aflmdAVoltM6Ikx0
-	2TGUvVYfalSKMGX11PnfCWpLG/wxch2IuBRcuCPp1dDoWMjvLNohy0rMg9Zinh4hxwpb9qflc2bPP
-	ebSuib4elReJMgBLCQNHnMf4vcLfGlynhNQAKIjyWze3/cx865bzvkvsUTkaCShDknXmeZtL2Hwce
-	DWk/a6k7bvmwBR1lGeS0GX3FV4HHr6y0hlWSVuoUwaMkw5XZU8fb6B9v/bb259TB6Pmw2fy5lLMFN
-	EkptBrar1xG6eOIKU8hw==;
+	List-Owner; bh=+gFPLpqMxFSTDESkbuZMRS2Popl6a+BuaiNhSoTyZZo=; b=VBMrYf6MPUPO2E
+	m5PqtTJGDiY+J4LuhJGyESqk7zFvczmWJFMgJu4LlEXR+V9HcAYGtySHaaVOoV3oLgULORjwPIoPj
+	eJnBD2UPACa+BfbQHCzOWyrUMl81wwhp15uul20nkz0MtoTMDIHUM/OIaXC5HcG6DFGzVxj9k18Eg
+	BoI1pGtYoRuyKaA1Xpmdi62iowPy2P6EtMTjUPcvc9JXIy0sP5c4bdaaqM0qjcl4OJsK374ldWoTy
+	MC7kegX9Fb8Aadz09Nd+WMH8wTwH0pQC7m0Ubx/9UMTh5BU484s72RVUbcFVEvyOtpu0D6oKtHslt
+	Ozy1h/1TgRBwi2fdtt3Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tbEYA-0000000EApS-3ktZ;
-	Fri, 24 Jan 2025 07:56:22 +0000
-Received: from mail-pj1-x1029.google.com ([2607:f8b0:4864:20::1029])
+	id 1tbFhK-0000000EKcW-3zBH;
+	Fri, 24 Jan 2025 09:09:54 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tbEY7-0000000EAom-3kcI
+	id 1tbFd7-0000000EK2w-2K82
 	for linux-riscv@lists.infradead.org;
-	Fri, 24 Jan 2025 07:56:21 +0000
-Received: by mail-pj1-x1029.google.com with SMTP id 98e67ed59e1d1-2f42992f608so2744319a91.0
-        for <linux-riscv@lists.infradead.org>; Thu, 23 Jan 2025 23:56:19 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1737705379; x=1738310179; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=Puavfv6Mwo40wvE/QGDVA8qgrBgZXijyP93Qz2d9GhQ=;
-        b=Kf4PHUO/df+m0W0YapI2wPOpyaiFiN+V+qBTVYzzVm3p6NK2h1Swr9S/GGt/5q+L0F
-         3o51bFWowwyTJe3kjahWkS1Aex/Qoze7nEQbqXFIpKTzCJVTQ14NeYHft9WDsaxp38J1
-         Z2QJ0Y2hYMETrDRXcggA7tgEQseJgV/N/N86nvXPYDsDegPQ/hxTf9mWLvD3CuQMTrsO
-         Z28b1w3g0NT47F01oKFNCIzca0FJKllQ9ErulAPxFdevAODbEk/a+nlJeo5m36utqFrp
-         YKu8hZ2H8d/gPePqhqpWnhrTCyh8sZzq2hX2ZQQyjGPFxMvljkD0HvYO9XRU+fF95O9D
-         nvHw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1737705379; x=1738310179;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=Puavfv6Mwo40wvE/QGDVA8qgrBgZXijyP93Qz2d9GhQ=;
-        b=I97v/6N60GMJzW+29tcroZM9GQ+YdDvL8cvxkJuo5SjxNYrtQ5El/KBynHbYY1gsyY
-         iUBg5kX0MU9kCu8WDC735uXo8bPU3QIm91PBeA7LkhZpIu9SLLzxegmJvv9Z8S0Sza18
-         lCZHVCXZf6eI2WHDpGOzhvKOOe2l7namPRugawgw/0N9gMv/jMPrA2C2NpGe/hlzGyu+
-         27fQt6oHHVypafX6nsCY/4dw5FJjfz8SUnVFzXmNNJ6YEXa8HlymtvC/G5fiH/p+FglJ
-         f6urXXKZnOtVgKVEAhrptNAN4ZJAL//TbtdXh1MnMyZWUQz7sHsYgMph+z4Tfoieap9T
-         XBxQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVvd/GOegxCA6q0p5kGXEB9ftyEoKIJxmBg+mWpaw0Ui1BU28AdeHh1/rveKqThCrM/xMRDPLHmapDYAQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0YwjMd5DLUnhLwm4jKswSeg54OmvjqGb1E/rUOExQGE4FypRwmln
-	yPYcxPKaz5LRG7TXbDvftppgUenOJzeWWUu88+m9ttMSK+QqdXj0t4Ca+OeSh4tePdMsYuYcN+d
-	mHfs=
-X-Gm-Gg: ASbGncst3QLRUsX3dsvunIt+281ChC67Uo4ymaVudGlrfjgeI8g8zMEQEsmZVyV/e8K
-	bLozBjoBTkhaIu9xl2MXBlPGEoIgPi4rKxIfcNKL8+OaGATawLlopMZvnPAEYM1ucxGvwP3LHWA
-	OsXVauPIBRpn3rxvwGOO1/ZjpYTMz54GazkCiHQKzwKuXxOTpWmenoxLndTHcZ6Ir2Dw3JxH6tW
-	eJ5H823RHzXSQgdPG5mqKYvRMPWNRq2AfSYhu1LiHaH4awz8ADC67hv8lb9Jt22yKHE5k6/GbvW
-X-Google-Smtp-Source: AGHT+IGtfy5k0PlhMUnKgepez8xy7+vWZVhDSj6+NmuJiXytfOUnL0FH4Jlly+P6YjqyMghE081Vyg==
-X-Received: by 2002:aa7:9a83:0:b0:725:e325:ab3a with SMTP id d2e1a72fcca58-72daf97a541mr41394847b3a.14.1737705378949;
-        Thu, 23 Jan 2025 23:56:18 -0800 (PST)
-Received: from ghost ([2601:647:6700:64d0:db66:c77e:13aa:17a4])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-72f8a7614e9sm1238956b3a.109.2025.01.23.23.56.17
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 23 Jan 2025 23:56:18 -0800 (PST)
-Date: Thu, 23 Jan 2025 23:56:16 -0800
-From: Charlie Jenkins <charlie@rivosinc.com>
-To: Alexandre Ghiti <alex@ghiti.fr>
-Cc: Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Huacai Chen <chenhuacai@kernel.org>,
-	WANG Xuerui <kernel@xen0n.name>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Andy Lutomirski <luto@kernel.org>,
-	Alexandre Ghiti <alexghiti@rivosinc.com>,
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
-	loongarch@lists.linux.dev
-Subject: Re: [PATCH 1/4] riscv: entry: Convert ret_from_fork() to C
-Message-ID: <Z5NHoNI2UFc6q_O8@ghost>
-References: <20250122-riscv_optimize_entry-v1-0-4ee95559cfd0@rivosinc.com>
- <20250122-riscv_optimize_entry-v1-1-4ee95559cfd0@rivosinc.com>
- <3c2d171a-1e6c-459e-b254-e9684a4e5ba4@ghiti.fr>
+	Fri, 24 Jan 2025 09:05:34 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 1A0FEA412D1
+	for <linux-riscv@lists.infradead.org>; Fri, 24 Jan 2025 09:03:45 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 125F4C4CEE2
+	for <linux-riscv@lists.infradead.org>; Fri, 24 Jan 2025 09:05:32 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1737709532;
+	bh=Lqlp7MyQNz39W8P9ZqUKNLj/uTj0W2CY9rnVn7UkN6E=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=k8M2dPctcUrkDwaW6JFaPB4remmUAl44Da+yQc2Z/jr4ebyvLBNPY0Eo6FYaL9+LM
+	 AInUQvIgtcbbWfol0t8hSVLUlRQQrrMzV/QiXiTy50QWIo4BZAbT3x9wGSZh1hQvW3
+	 tnNMf+zUnuP83Gb/edLPiLZ6+9dEh6D1sm/tX1aZHiP32I87f0SFSv36vAPFfh4Cw7
+	 V1elVpskHZuVDWsQV1rWWp0k1Ev5tCLgNS6eN97okaLrO6ez77vRx6ohScGcMuJE+s
+	 c7DsP9+yW0rTmXJ92CgPuPLMujYWOfCvy45pGQcv0JHnfEAEolDkPAorWn/xPcCCE7
+	 oGVrOas/2X0Kw==
+Received: by mail-ej1-f47.google.com with SMTP id a640c23a62f3a-ab2bb0822a4so376373866b.3
+        for <linux-riscv@lists.infradead.org>; Fri, 24 Jan 2025 01:05:32 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCWX5xWi79QTIhSJVjWobmg6/ddw903kf6lOIRo+93Ti3hSDhfUFA07ezJxOZ910V8YLW3ZMgqVfRbSULQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0YwtOxb6H+4vvhPykwY7GiU6fdMVn+2BBtX1aI/Kv8eH3jvA0iYD
+	nRae/XoN30HBd5oarkRzOU/hWRxB1N5LJuUv2XRdz3vYdkQ4WoMd6uYByl1juZWK3VFFM/EQa1C
+	YaY4CvkkO1YGHYNy6kwEsIFmmyas=
+X-Google-Smtp-Source: AGHT+IHG0k2FyeWUT/medUJbo4t6MJmnpFSJ3HJ1L4LPVA5YC4vbKPPO3C/X37BPV/1UrON5UcNYFMH8y1ldCcFm3/M=
+X-Received: by 2002:a17:907:7ba9:b0:ab2:c0c8:383f with SMTP id
+ a640c23a62f3a-ab38b0b684fmr2975925866b.1.1737709530490; Fri, 24 Jan 2025
+ 01:05:30 -0800 (PST)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <3c2d171a-1e6c-459e-b254-e9684a4e5ba4@ghiti.fr>
+References: <20250123-riscv_optimize_entry-v2-0-7c259492d508@rivosinc.com> <20250123-riscv_optimize_entry-v2-3-7c259492d508@rivosinc.com>
+In-Reply-To: <20250123-riscv_optimize_entry-v2-3-7c259492d508@rivosinc.com>
+From: Huacai Chen <chenhuacai@kernel.org>
+Date: Fri, 24 Jan 2025 17:05:21 +0800
+X-Gmail-Original-Message-ID: <CAAhV-H7RSn2ek5CeLnohTcrh=0unDNmaLDq+yDH2oqshoeRMNQ@mail.gmail.com>
+X-Gm-Features: AWEUYZnmCgndjX3TxIbo0KY3PK02_EADQhJH2tzMemU92v6WAVFWS0P9mXQrh4Y
+Message-ID: <CAAhV-H7RSn2ek5CeLnohTcrh=0unDNmaLDq+yDH2oqshoeRMNQ@mail.gmail.com>
+Subject: Re: [PATCH v2 3/4] loongarch: entry: Migrate ret_from_fork() to C
+To: Charlie Jenkins <charlie@rivosinc.com>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	WANG Xuerui <kernel@xen0n.name>, Thomas Gleixner <tglx@linutronix.de>, 
+	Peter Zijlstra <peterz@infradead.org>, Andy Lutomirski <luto@kernel.org>, 
+	Alexandre Ghiti <alexghiti@rivosinc.com>, linux-riscv@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, loongarch@lists.linux.dev
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250123_235619_937211_2CDD7B27 
-X-CRM114-Status: GOOD (  22.87  )
+X-CRM114-CacheID: sfid-20250124_010533_736213_A3E11868 
+X-CRM114-Status: GOOD (  18.07  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,130 +81,154 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jan 24, 2025 at 08:09:16AM +0100, Alexandre Ghiti wrote:
-> Hi Charlie,
-> 
-> On 22/01/2025 23:56, Charlie Jenkins wrote:
-> > Move the main section of ret_from_fork() to C to allow inlining of
-> > syscall_exit_to_user_mode().
-> > 
-> > Signed-off-by: Charlie Jenkins <charlie@rivosinc.com>
-> > ---
-> >   arch/riscv/include/asm/asm-prototypes.h |  1 +
-> >   arch/riscv/kernel/entry.S               | 15 ++++++---------
-> >   arch/riscv/kernel/process.c             | 14 ++++++++++++--
-> >   3 files changed, 19 insertions(+), 11 deletions(-)
-> > 
-> > diff --git a/arch/riscv/include/asm/asm-prototypes.h b/arch/riscv/include/asm/asm-prototypes.h
-> > index cd627ec289f163a630b73dd03dd52a6b28692997..733ff609778797001006c33bba9e3cc5b1f15387 100644
-> > --- a/arch/riscv/include/asm/asm-prototypes.h
-> > +++ b/arch/riscv/include/asm/asm-prototypes.h
-> > @@ -52,6 +52,7 @@ DECLARE_DO_ERROR_INFO(do_trap_ecall_s);
-> >   DECLARE_DO_ERROR_INFO(do_trap_ecall_m);
-> >   DECLARE_DO_ERROR_INFO(do_trap_break);
-> > +asmlinkage void ret_from_fork(void *fn_arg, int (*fn)(void *), struct pt_regs *regs);
-> >   asmlinkage void handle_bad_stack(struct pt_regs *regs);
-> >   asmlinkage void do_page_fault(struct pt_regs *regs);
-> >   asmlinkage void do_irq(struct pt_regs *regs);
-> > diff --git a/arch/riscv/kernel/entry.S b/arch/riscv/kernel/entry.S
-> > index 33a5a9f2a0d4e1eeccfb3621b9e518b88e1b0704..9225c322279aa90e737b1d7144db084319cf8103 100644
-> > --- a/arch/riscv/kernel/entry.S
-> > +++ b/arch/riscv/kernel/entry.S
-> > @@ -319,17 +319,14 @@ SYM_CODE_END(handle_kernel_stack_overflow)
-> >   ASM_NOKPROBE(handle_kernel_stack_overflow)
-> >   #endif
-> > -SYM_CODE_START(ret_from_fork)
-> > +SYM_CODE_START(ret_from_fork_asm)
-> >   	call schedule_tail
-> > -	beqz s0, 1f	/* not from kernel thread */
-> > -	/* Call fn(arg) */
-> > -	move a0, s1
-> > -	jalr s0
-> > -1:
-> > -	move a0, sp /* pt_regs */
-> > -	call syscall_exit_to_user_mode
-> > +	move a0, s1 /* fn */
-> > +	move a1, s0 /* fn_arg */
-> 
-> 
-> You pass the arguments in the right order but the comments are wrong (s1
-> contains fn_arg and s0 fn).
-
-Oh thank you! I originally had it in this order but then moved it around
-to reduce the amount of register shuffling that is needed on the C side,
-I will fix in the next version.
-
-- Charlie
-
-> 
-> 
-> > +	move a2, sp /* pt_regs */
-> > +	call ret_from_fork
-> >   	j ret_from_exception
-> > -SYM_CODE_END(ret_from_fork)
-> > +SYM_CODE_END(ret_from_fork_asm)
-> >   #ifdef CONFIG_IRQ_STACKS
-> >   /*
-> > diff --git a/arch/riscv/kernel/process.c b/arch/riscv/kernel/process.c
-> > index 58b6482c2bf662bf5224ca50c8e21a68760a6b41..0d07e6d8f6b57beba438dbba5e8c74a014582bee 100644
-> > --- a/arch/riscv/kernel/process.c
-> > +++ b/arch/riscv/kernel/process.c
-> > @@ -17,7 +17,9 @@
-> >   #include <linux/ptrace.h>
-> >   #include <linux/uaccess.h>
-> >   #include <linux/personality.h>
-> > +#include <linux/entry-common.h>
-> > +#include <asm/asm-prototypes.h>
-> >   #include <asm/unistd.h>
-> >   #include <asm/processor.h>
-> >   #include <asm/csr.h>
-> > @@ -36,7 +38,7 @@ unsigned long __stack_chk_guard __read_mostly;
-> >   EXPORT_SYMBOL(__stack_chk_guard);
-> >   #endif
-> > -extern asmlinkage void ret_from_fork(void);
-> > +extern asmlinkage void ret_from_fork_asm(void);
-> >   void noinstr arch_cpu_idle(void)
-> >   {
-> > @@ -206,6 +208,14 @@ int arch_dup_task_struct(struct task_struct *dst, struct task_struct *src)
-> >   	return 0;
-> >   }
-> > +asmlinkage void ret_from_fork(void *fn_arg, int (*fn)(void *), struct pt_regs *regs)
-> > +{
-> > +	if (unlikely(fn))
-> > +		fn(fn_arg);
-> > +
-> > +	syscall_exit_to_user_mode(regs);
-> > +}
-> > +
-> >   int copy_thread(struct task_struct *p, const struct kernel_clone_args *args)
-> >   {
-> >   	unsigned long clone_flags = args->flags;
-> > @@ -242,7 +252,7 @@ int copy_thread(struct task_struct *p, const struct kernel_clone_args *args)
-> >   	p->thread.riscv_v_flags = 0;
-> >   	if (has_vector())
-> >   		riscv_v_thread_alloc(p);
-> > -	p->thread.ra = (unsigned long)ret_from_fork;
-> > +	p->thread.ra = (unsigned long)ret_from_fork_asm;
-> >   	p->thread.sp = (unsigned long)childregs; /* kernel sp */
-> >   	return 0;
-> >   }
-> > 
-> 
-> With the comment fix, you can add:
-> 
-> Reviewed-by: Alexandre Ghiti <alexghiti@rivosinc.com>
-> 
-> Thanks,
-> 
-> Alex
-> 
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+SGksIENoYXJsaWUsCgpPbiBGcmksIEphbiAyNCwgMjAyNSBhdCAzOjE14oCvQU0gQ2hhcmxpZSBK
+ZW5raW5zIDxjaGFybGllQHJpdm9zaW5jLmNvbT4gd3JvdGU6Cj4KPiBMb29uZ2FyY2ggaXMgdGhl
+IG9ubHkgYXJjaGl0ZWN0dXJlIHRoYXQgY2FsbHMKV2UgdXN1YWxseSB1c2UgIkxvb25nQXJjaCIg
+aW5zdGVhZCBvZiAibG9vbmdhcmNoIiBvciAiTG9vbmdhcmNoIi4KCj4gc3lzY2FsbF9leGl0X3Rv
+X3VzZXJfbW9kZSgpIGZyb20gYXNtLiBNb3ZlIHRoZSBjYWxsIGludG8gQyBzbyB0aGF0IHRoaXMK
+PiBmdW5jdGlvbiBjYW4gYmUgaW5saW5lZCBhY3Jvc3MgYWxsIGFyY2hpdGVjdHVyZXMuCj4KPiBT
+aWduZWQtb2ZmLWJ5OiBDaGFybGllIEplbmtpbnMgPGNoYXJsaWVAcml2b3NpbmMuY29tPgo+IC0t
+LQo+ICBhcmNoL2xvb25nYXJjaC9pbmNsdWRlL2FzbS9hc20tcHJvdG90eXBlcy5oIHwgIDUgKysr
+KysKPiAgYXJjaC9sb29uZ2FyY2gvaW5jbHVkZS9hc20vc3dpdGNoX3RvLmggICAgICB8ICA4ICsr
+KysrKysKPiAgYXJjaC9sb29uZ2FyY2gva2VybmVsL2VudHJ5LlMgICAgICAgICAgICAgICB8IDIy
+ICsrKysrKysrKy0tLS0tLS0tLS0KPiAgYXJjaC9sb29uZ2FyY2gva2VybmVsL3Byb2Nlc3MuYyAg
+ICAgICAgICAgICB8IDM0ICsrKysrKysrKysrKysrKysrKysrKysrKy0tLS0tCj4gIDQgZmlsZXMg
+Y2hhbmdlZCwgNTEgaW5zZXJ0aW9ucygrKSwgMTggZGVsZXRpb25zKC0pCj4KPiBkaWZmIC0tZ2l0
+IGEvYXJjaC9sb29uZ2FyY2gvaW5jbHVkZS9hc20vYXNtLXByb3RvdHlwZXMuaCBiL2FyY2gvbG9v
+bmdhcmNoL2luY2x1ZGUvYXNtL2FzbS1wcm90b3R5cGVzLmgKPiBpbmRleCA1MWYyMjRiY2ZjNjU0
+MjI4YWU0MjNlOWEwNjZiMjViMzUxMDJhNWI5Li4wMTk1ZDQzMDlmZDI5Zjk0NjY0ZDVmMzQyNDcx
+OThjNzY5MDMzYjFiIDEwMDY0NAo+IC0tLSBhL2FyY2gvbG9vbmdhcmNoL2luY2x1ZGUvYXNtL2Fz
+bS1wcm90b3R5cGVzLmgKPiArKysgYi9hcmNoL2xvb25nYXJjaC9pbmNsdWRlL2FzbS9hc20tcHJv
+dG90eXBlcy5oCj4gQEAgLTEyLDMgKzEyLDggQEAgX19pbnQxMjhfdCBfX2FzaGx0aTMoX19pbnQx
+MjhfdCBhLCBpbnQgYik7Cj4gIF9faW50MTI4X3QgX19hc2hydGkzKF9faW50MTI4X3QgYSwgaW50
+IGIpOwo+ICBfX2ludDEyOF90IF9fbHNocnRpMyhfX2ludDEyOF90IGEsIGludCBiKTsKPiAgI2Vu
+ZGlmCj4gKwo+ICthc21saW5rYWdlIHZvaWQgbm9pbnN0ciBfX25vX3N0YWNrX3Byb3RlY3RvciBy
+ZXRfZnJvbV9rZXJuZWxfdGhyZWFkKHN0cnVjdCB0YXNrX3N0cnVjdCAqcHJldiwKPiArICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgIHN0cnVjdCBwdF9yZWdzICpyZWdzLAo+ICsgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgaW50ICgqZm4pKHZvaWQgKiks
+Cj4gKyAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICB2b2lkICpmbl9hcmcpOwpJdCBpcyBhIGxpdHRsZSBzdHJhbmdlIHRoYXQg
+d2Ugb25seSBuZWVkIHRvIGRlY2xhcmUKcmV0X2Zyb21fa2VybmVsX3RocmVhZCgpIGJ1dCBub3Qg
+cmV0X2Zyb21fZm9yaygpLgoKPiBkaWZmIC0tZ2l0IGEvYXJjaC9sb29uZ2FyY2gvaW5jbHVkZS9h
+c20vc3dpdGNoX3RvLmggYi9hcmNoL2xvb25nYXJjaC9pbmNsdWRlL2FzbS9zd2l0Y2hfdG8uaAo+
+IGluZGV4IDViMjI1YWZmM2JhMjFhYTA2ZDA3MTNiYzhlNzNlMWI5NDEzODk2MzAuLmExYzU1NzZm
+MWZkMTQ1NjcwZTEzMDM4YmVjNmRkMzkwNDg2MDk5YWIgMTAwNjQ0Cj4gLS0tIGEvYXJjaC9sb29u
+Z2FyY2gvaW5jbHVkZS9hc20vc3dpdGNoX3RvLmgKPiArKysgYi9hcmNoL2xvb25nYXJjaC9pbmNs
+dWRlL2FzbS9zd2l0Y2hfdG8uaAo+IEBAIC0yNiw2ICsyNiwxNCBAQCBleHRlcm4gYXNtbGlua2Fn
+ZSBzdHJ1Y3QgdGFza19zdHJ1Y3QgKl9fc3dpdGNoX3RvKHN0cnVjdCB0YXNrX3N0cnVjdCAqcHJl
+diwKPiAgICAgICAgICAgICAgICAgICAgICAgICBzdHJ1Y3QgdGFza19zdHJ1Y3QgKm5leHQsIHN0
+cnVjdCB0aHJlYWRfaW5mbyAqbmV4dF90aSwKPiAgICAgICAgICAgICAgICAgICAgICAgICB2b2lk
+ICpzY2hlZF9yYSwgdm9pZCAqc2NoZWRfY2ZhKTsKPgo+ICt2b2lkIG5vaW5zdHIgX19ub19zdGFj
+a19wcm90ZWN0b3IgcmV0X2Zyb21fa2VybmVsX3RocmVhZChzdHJ1Y3QgdGFza19zdHJ1Y3QgKnBy
+ZXYsCj4gKyAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgc3RydWN0IHB0X3JlZ3MgKnJlZ3MsCj4gKyAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgaW50ICgqZm4pKHZvaWQgKiksCj4gKyAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgdm9pZCAq
+Zm5fYXJnKTsKPiArCj4gK3ZvaWQgbm9pbnN0ciBfX25vX3N0YWNrX3Byb3RlY3RvciByZXRfZnJv
+bV9mb3JrKHN0cnVjdCB0YXNrX3N0cnVjdCAqcHJldiwKPiArICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICBzdHJ1Y3QgcHRfcmVncyAqcmVncyk7Cj4gKwpJIHBy
+ZWZlciBhbHBoYS1iZXRpY2FsIG9yZGVyLCB3aGljaCBtZWFucyBwdXQgcmV0X2Zyb21fZm9yaygp
+IGJlZm9yZQpyZXRfZnJvbV9rZXJuZWxfdGhyZWFkKCkuCgo+ICAvKgo+ICAgKiBGb3IgbmV3bHkg
+Y3JlYXRlZCBrZXJuZWwgdGhyZWFkcyBzd2l0Y2hfdG8oKSB3aWxsIHJldHVybiB0bwo+ICAgKiBy
+ZXRfZnJvbV9rZXJuZWxfdGhyZWFkLCBuZXdseSBjcmVhdGVkIHVzZXIgdGhyZWFkcyB0byByZXRf
+ZnJvbV9mb3JrLgo+IGRpZmYgLS1naXQgYS9hcmNoL2xvb25nYXJjaC9rZXJuZWwvZW50cnkuUyBi
+L2FyY2gvbG9vbmdhcmNoL2tlcm5lbC9lbnRyeS5TCj4gaW5kZXggNDhlN2UzNGUzNTVlODNlYWU4
+MTY1OTU3YmEyZWFjMDVhOGJmMTdkZi4uMmFiYzI5ZTU3MzgxMGUwMDBmMmZlZjQ2NDZkZGNhMGRi
+YjgwZWFiZSAxMDA2NDQKPiAtLS0gYS9hcmNoL2xvb25nYXJjaC9rZXJuZWwvZW50cnkuUwo+ICsr
+KyBiL2FyY2gvbG9vbmdhcmNoL2tlcm5lbC9lbnRyeS5TCj4gQEAgLTc3LDI0ICs3NywyMiBAQCBT
+WU1fQ09ERV9TVEFSVChoYW5kbGVfc3lzY2FsbCkKPiAgU1lNX0NPREVfRU5EKGhhbmRsZV9zeXNj
+YWxsKQo+ICBfQVNNX05PS1BST0JFKGhhbmRsZV9zeXNjYWxsKQo+Cj4gLVNZTV9DT0RFX1NUQVJU
+KHJldF9mcm9tX2ZvcmspCj4gK1NZTV9DT0RFX1NUQVJUKHJldF9mcm9tX2ZvcmtfYXNtKQo+ICAg
+ICAgICAgVU5XSU5EX0hJTlRfUkVHUwo+IC0gICAgICAgYmwgICAgICAgICAgICAgIHNjaGVkdWxl
+X3RhaWwgICAgICAgICAgICMgYTAgPSBzdHJ1Y3QgdGFza19zdHJ1Y3QgKnByZXYKPiAtICAgICAg
+IG1vdmUgICAgICAgICAgICBhMCwgc3AKPiAtICAgICAgIGJsICAgICAgICAgICAgICBzeXNjYWxs
+X2V4aXRfdG9fdXNlcl9tb2RlCj4gKyAgICAgICBtb3ZlICAgICAgICAgICAgYTEsIHNwCj4gKyAg
+ICAgICBibCAgICAgICAgICAgICAgcmV0X2Zyb21fZm9yawo+ICAgICAgICAgUkVTVE9SRV9TVEFU
+SUMKPiAgICAgICAgIFJFU1RPUkVfU09NRQo+ICAgICAgICAgUkVTVE9SRV9TUF9BTkRfUkVUCj4g
+LVNZTV9DT0RFX0VORChyZXRfZnJvbV9mb3JrKQo+ICtTWU1fQ09ERV9FTkQocmV0X2Zyb21fZm9y
+a19hc20pCj4KPiAtU1lNX0NPREVfU1RBUlQocmV0X2Zyb21fa2VybmVsX3RocmVhZCkKPiArU1lN
+X0NPREVfU1RBUlQocmV0X2Zyb21fa2VybmVsX3RocmVhZF9hc20pCj4gICAgICAgICBVTldJTkRf
+SElOVF9SRUdTCj4gLSAgICAgICBibCAgICAgICAgICAgICAgc2NoZWR1bGVfdGFpbCAgICAgICAg
+ICAgIyBhMCA9IHN0cnVjdCB0YXNrX3N0cnVjdCAqcHJldgo+IC0gICAgICAgbW92ZSAgICAgICAg
+ICAgIGEwLCBzMQo+IC0gICAgICAgamlybCAgICAgICAgICAgIHJhLCBzMCwgMAo+IC0gICAgICAg
+bW92ZSAgICAgICAgICAgIGEwLCBzcAo+IC0gICAgICAgYmwgICAgICAgICAgICAgIHN5c2NhbGxf
+ZXhpdF90b191c2VyX21vZGUKPiArICAgICAgIG1vdmUgICAgICAgICAgICBhMSwgc3AKPiArICAg
+ICAgIG1vdmUgICAgICAgICAgICBhMiwgczAKPiArICAgICAgIG1vdmUgICAgICAgICAgICBhMywg
+czEKPiArICAgICAgIGJsICAgICAgICAgICAgICByZXRfZnJvbV9rZXJuZWxfdGhyZWFkCj4gICAg
+ICAgICBSRVNUT1JFX1NUQVRJQwo+ICAgICAgICAgUkVTVE9SRV9TT01FCj4gICAgICAgICBSRVNU
+T1JFX1NQX0FORF9SRVQKPiAtU1lNX0NPREVfRU5EKHJldF9mcm9tX2tlcm5lbF90aHJlYWQpCj4g
+K1NZTV9DT0RFX0VORChyZXRfZnJvbV9rZXJuZWxfdGhyZWFkX2FzbSkKPiBkaWZmIC0tZ2l0IGEv
+YXJjaC9sb29uZ2FyY2gva2VybmVsL3Byb2Nlc3MuYyBiL2FyY2gvbG9vbmdhcmNoL2tlcm5lbC9w
+cm9jZXNzLmMKPiBpbmRleCA2ZTU4ZjY1NDU1YzdjYTNlYWUyZTg4ZWQ4NTJjODY1NWE2NzAxZTVj
+Li4xNmNjOTQ5ZmU0MzQ0M2Q3MGYxZDg2NWNlMDQ1OTVjMmQ4YzE2MTViIDEwMDY0NAo+IC0tLSBh
+L2FyY2gvbG9vbmdhcmNoL2tlcm5lbC9wcm9jZXNzLmMKPiArKysgYi9hcmNoL2xvb25nYXJjaC9r
+ZXJuZWwvcHJvY2Vzcy5jCj4gQEAgLTE0LDYgKzE0LDcgQEAKPiAgI2luY2x1ZGUgPGxpbnV4L2lu
+aXQuaD4KPiAgI2luY2x1ZGUgPGxpbnV4L2tlcm5lbC5oPgo+ICAjaW5jbHVkZSA8bGludXgvZXJy
+bm8uaD4KPiArI2luY2x1ZGUgPGxpbnV4L2VudHJ5LWNvbW1vbi5oPgo+ICAjaW5jbHVkZSA8bGlu
+dXgvc2NoZWQuaD4KPiAgI2luY2x1ZGUgPGxpbnV4L3NjaGVkL2RlYnVnLmg+Cj4gICNpbmNsdWRl
+IDxsaW51eC9zY2hlZC90YXNrLmg+Cj4gQEAgLTMzLDYgKzM0LDcgQEAKPiAgI2luY2x1ZGUgPGxp
+bnV4L3ByY3RsLmg+Cj4gICNpbmNsdWRlIDxsaW51eC9ubWkuaD4KPgo+ICsjaW5jbHVkZSA8YXNt
+L2FzbS1wcm90b3R5cGVzLmg+Cj4gICNpbmNsdWRlIDxhc20vYXNtLmg+Cj4gICNpbmNsdWRlIDxh
+c20vYm9vdGluZm8uaD4KPiAgI2luY2x1ZGUgPGFzbS9jcHUuaD4KPiBAQCAtNDcsNiArNDksNyBA
+QAo+ICAjaW5jbHVkZSA8YXNtL3BndGFibGUuaD4KPiAgI2luY2x1ZGUgPGFzbS9wcm9jZXNzb3Iu
+aD4KPiAgI2luY2x1ZGUgPGFzbS9yZWcuaD4KPiArI2luY2x1ZGUgPGFzbS9zd2l0Y2hfdG8uaD4K
+PiAgI2luY2x1ZGUgPGFzbS91bndpbmQuaD4KPiAgI2luY2x1ZGUgPGFzbS92ZHNvLmg+Cj4KPiBA
+QCAtNjMsOCArNjYsOSBAQCBFWFBPUlRfU1lNQk9MKF9fc3RhY2tfY2hrX2d1YXJkKTsKPiAgdW5z
+aWduZWQgbG9uZyBib290X29wdGlvbl9pZGxlX292ZXJyaWRlID0gSURMRV9OT19PVkVSUklERTsK
+PiAgRVhQT1JUX1NZTUJPTChib290X29wdGlvbl9pZGxlX292ZXJyaWRlKTsKPgo+IC1hc21saW5r
+YWdlIHZvaWQgcmV0X2Zyb21fZm9yayh2b2lkKTsKPiAtYXNtbGlua2FnZSB2b2lkIHJldF9mcm9t
+X2tlcm5lbF90aHJlYWQodm9pZCk7Cj4gK2FzbWxpbmthZ2Ugdm9pZCByZXN0b3JlX2FuZF9yZXQo
+dm9pZCk7Cj4gK2FzbWxpbmthZ2Ugdm9pZCByZXRfZnJvbV9mb3JrX2FzbSh2b2lkKTsKPiArYXNt
+bGlua2FnZSB2b2lkIHJldF9mcm9tX2tlcm5lbF90aHJlYWRfYXNtKHZvaWQpOwo+Cj4gIHZvaWQg
+c3RhcnRfdGhyZWFkKHN0cnVjdCBwdF9yZWdzICpyZWdzLCB1bnNpZ25lZCBsb25nIHBjLCB1bnNp
+Z25lZCBsb25nIHNwKQo+ICB7Cj4gQEAgLTEzOCw2ICsxNDIsMjQgQEAgaW50IGFyY2hfZHVwX3Rh
+c2tfc3RydWN0KHN0cnVjdCB0YXNrX3N0cnVjdCAqZHN0LCBzdHJ1Y3QgdGFza19zdHJ1Y3QgKnNy
+YykKPiAgICAgICAgIHJldHVybiAwOwo+ICB9Cj4KPiArYXNtbGlua2FnZSB2b2lkIG5vaW5zdHIg
+X19ub19zdGFja19wcm90ZWN0b3IgcmV0X2Zyb21fa2VybmVsX3RocmVhZChzdHJ1Y3QgdGFza19z
+dHJ1Y3QgKnByZXYsCj4gKyAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICBzdHJ1Y3QgcHRfcmVncyAqcmVncywKPiArICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgIGludCAoKmZuKSh2b2lkICopLAo+ICsgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgdm9pZCAqZm5fYXJnKQo+ICt7Cj4g
+KyAgICAgICBzY2hlZHVsZV90YWlsKHByZXYpOwo+ICsKPiArICAgICAgIGZuKGZuX2FyZyk7Cj4g
+KwpUaGUgdHdvIGJsYW5rIGxpbmVzIGNhbiBiZSByZW1vdmVkLCBhbmQgYWdhaW4sIEkgcHJlZmVy
+IGFscGhhLWJldGljYWwKb3JkZXIsIHdoaWNoIG1lYW5zIHB1dCByZXRfZnJvbV9mb3JrKCkgYmVm
+b3JlCnJldF9mcm9tX2tlcm5lbF90aHJlYWQoKS4KCkh1YWNhaQoKPiArICAgICAgIHN5c2NhbGxf
+ZXhpdF90b191c2VyX21vZGUocmVncyk7Cj4gK30KPiArCj4gK3ZvaWQgbm9pbnN0ciBfX25vX3N0
+YWNrX3Byb3RlY3RvciByZXRfZnJvbV9mb3JrKHN0cnVjdCB0YXNrX3N0cnVjdCAqcHJldiwgc3Ry
+dWN0IHB0X3JlZ3MgKnJlZ3MpCj4gK3sKPiArICAgICAgIHNjaGVkdWxlX3RhaWwocHJldik7Cj4g
+KyAgICAgICBzeXNjYWxsX2V4aXRfdG9fdXNlcl9tb2RlKHJlZ3MpOwo+ICt9Cj4gKwo+ICAvKgo+
+ICAgKiBDb3B5IGFyY2hpdGVjdHVyZS1zcGVjaWZpYyB0aHJlYWQgc3RhdGUKPiAgICovCj4gQEAg
+LTE2NSw4ICsxODcsOCBAQCBpbnQgY29weV90aHJlYWQoc3RydWN0IHRhc2tfc3RydWN0ICpwLCBj
+b25zdCBzdHJ1Y3Qga2VybmVsX2Nsb25lX2FyZ3MgKmFyZ3MpCj4gICAgICAgICAgICAgICAgIHAt
+PnRocmVhZC5yZWcwMyA9IGNoaWxka3NwOwo+ICAgICAgICAgICAgICAgICBwLT50aHJlYWQucmVn
+MjMgPSAodW5zaWduZWQgbG9uZylhcmdzLT5mbjsKPiAgICAgICAgICAgICAgICAgcC0+dGhyZWFk
+LnJlZzI0ID0gKHVuc2lnbmVkIGxvbmcpYXJncy0+Zm5fYXJnOwo+IC0gICAgICAgICAgICAgICBw
+LT50aHJlYWQucmVnMDEgPSAodW5zaWduZWQgbG9uZylyZXRfZnJvbV9rZXJuZWxfdGhyZWFkOwo+
+IC0gICAgICAgICAgICAgICBwLT50aHJlYWQuc2NoZWRfcmEgPSAodW5zaWduZWQgbG9uZylyZXRf
+ZnJvbV9rZXJuZWxfdGhyZWFkOwo+ICsgICAgICAgICAgICAgICBwLT50aHJlYWQucmVnMDEgPSAo
+dW5zaWduZWQgbG9uZylyZXRfZnJvbV9rZXJuZWxfdGhyZWFkX2FzbTsKPiArICAgICAgICAgICAg
+ICAgcC0+dGhyZWFkLnNjaGVkX3JhID0gKHVuc2lnbmVkIGxvbmcpcmV0X2Zyb21fa2VybmVsX3Ro
+cmVhZF9hc207Cj4gICAgICAgICAgICAgICAgIG1lbXNldChjaGlsZHJlZ3MsIDAsIHNpemVvZihz
+dHJ1Y3QgcHRfcmVncykpOwo+ICAgICAgICAgICAgICAgICBjaGlsZHJlZ3MtPmNzcl9ldWVuID0g
+cC0+dGhyZWFkLmNzcl9ldWVuOwo+ICAgICAgICAgICAgICAgICBjaGlsZHJlZ3MtPmNzcl9jcm1k
+ID0gcC0+dGhyZWFkLmNzcl9jcm1kOwo+IEBAIC0xODIsOCArMjA0LDggQEAgaW50IGNvcHlfdGhy
+ZWFkKHN0cnVjdCB0YXNrX3N0cnVjdCAqcCwgY29uc3Qgc3RydWN0IGtlcm5lbF9jbG9uZV9hcmdz
+ICphcmdzKQo+ICAgICAgICAgICAgICAgICBjaGlsZHJlZ3MtPnJlZ3NbM10gPSB1c3A7Cj4KPiAg
+ICAgICAgIHAtPnRocmVhZC5yZWcwMyA9ICh1bnNpZ25lZCBsb25nKSBjaGlsZHJlZ3M7Cj4gLSAg
+ICAgICBwLT50aHJlYWQucmVnMDEgPSAodW5zaWduZWQgbG9uZykgcmV0X2Zyb21fZm9yazsKPiAt
+ICAgICAgIHAtPnRocmVhZC5zY2hlZF9yYSA9ICh1bnNpZ25lZCBsb25nKSByZXRfZnJvbV9mb3Jr
+Owo+ICsgICAgICAgcC0+dGhyZWFkLnJlZzAxID0gKHVuc2lnbmVkIGxvbmcpIHJldF9mcm9tX2Zv
+cmtfYXNtOwo+ICsgICAgICAgcC0+dGhyZWFkLnNjaGVkX3JhID0gKHVuc2lnbmVkIGxvbmcpIHJl
+dF9mcm9tX2ZvcmtfYXNtOwo+Cj4gICAgICAgICAvKgo+ICAgICAgICAgICogTmV3IHRhc2tzIGxv
+c2UgcGVybWlzc2lvbiB0byB1c2UgdGhlIGZwdS4gVGhpcyBhY2NlbGVyYXRlcyBjb250ZXh0Cj4K
+PiAtLQo+IDIuNDMuMAo+CgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFk
+ZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4
+LXJpc2N2Cg==
