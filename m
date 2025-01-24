@@ -4,72 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AFB04C0218B
-	for <linux-riscv@archiver.kernel.org>; Fri, 24 Jan 2025 09:10:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9B9CAC0218C
+	for <linux-riscv@archiver.kernel.org>; Fri, 24 Jan 2025 10:46:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=+gFPLpqMxFSTDESkbuZMRS2Popl6a+BuaiNhSoTyZZo=; b=VBMrYf6MPUPO2E
-	m5PqtTJGDiY+J4LuhJGyESqk7zFvczmWJFMgJu4LlEXR+V9HcAYGtySHaaVOoV3oLgULORjwPIoPj
-	eJnBD2UPACa+BfbQHCzOWyrUMl81wwhp15uul20nkz0MtoTMDIHUM/OIaXC5HcG6DFGzVxj9k18Eg
-	BoI1pGtYoRuyKaA1Xpmdi62iowPy2P6EtMTjUPcvc9JXIy0sP5c4bdaaqM0qjcl4OJsK374ldWoTy
-	MC7kegX9Fb8Aadz09Nd+WMH8wTwH0pQC7m0Ubx/9UMTh5BU484s72RVUbcFVEvyOtpu0D6oKtHslt
-	Ozy1h/1TgRBwi2fdtt3Q==;
+	List-Owner; bh=VUsx1+WD+PBU6UsRSLXcP22O+mS499eszKHRdXChFko=; b=DNEg3Ly5xA9RWm
+	NazzoWGO/Xn8MpRwcf7gX87MDq5XOdSmzIxHV/hTYcAz/BnFr6Dp56uuzylN9pTSoc8EDgGafW3q+
+	aHmngLC3IvZcP471Z1OlESy3bcVsQ/+/sIO7WHidEnpJFYN+G6Q0DOEJef+lZr+Gyd9U//bzSjz0A
+	K73m9on4VA7oCK+xcGnjnDwWPYYk7yO+OEpIsItu/jYCGC/GMmU4PkHhrgni3kb60tQR+L7OlpYVq
+	eqoaj8xEy7cWMX3i25TDXY5aAaM3Npkzq8m0EPIP4E9lrPG0hJuJM8WXfCq/HdlavDRll9TVc+mV/
+	DG5tTxInYKV5Qsa1qvsQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tbFhK-0000000EKcW-3zBH;
-	Fri, 24 Jan 2025 09:09:54 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1tbHD4-0000000EUKw-1h27;
+	Fri, 24 Jan 2025 10:46:46 +0000
+Received: from freeshell.de ([2a01:4f8:231:482b::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tbFd7-0000000EK2w-2K82
+	id 1tbHCn-0000000EUGq-1XJY
 	for linux-riscv@lists.infradead.org;
-	Fri, 24 Jan 2025 09:05:34 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 1A0FEA412D1
-	for <linux-riscv@lists.infradead.org>; Fri, 24 Jan 2025 09:03:45 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 125F4C4CEE2
-	for <linux-riscv@lists.infradead.org>; Fri, 24 Jan 2025 09:05:32 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1737709532;
-	bh=Lqlp7MyQNz39W8P9ZqUKNLj/uTj0W2CY9rnVn7UkN6E=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=k8M2dPctcUrkDwaW6JFaPB4remmUAl44Da+yQc2Z/jr4ebyvLBNPY0Eo6FYaL9+LM
-	 AInUQvIgtcbbWfol0t8hSVLUlRQQrrMzV/QiXiTy50QWIo4BZAbT3x9wGSZh1hQvW3
-	 tnNMf+zUnuP83Gb/edLPiLZ6+9dEh6D1sm/tX1aZHiP32I87f0SFSv36vAPFfh4Cw7
-	 V1elVpskHZuVDWsQV1rWWp0k1Ev5tCLgNS6eN97okaLrO6ez77vRx6ohScGcMuJE+s
-	 c7DsP9+yW0rTmXJ92CgPuPLMujYWOfCvy45pGQcv0JHnfEAEolDkPAorWn/xPcCCE7
-	 oGVrOas/2X0Kw==
-Received: by mail-ej1-f47.google.com with SMTP id a640c23a62f3a-ab2bb0822a4so376373866b.3
-        for <linux-riscv@lists.infradead.org>; Fri, 24 Jan 2025 01:05:32 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCWX5xWi79QTIhSJVjWobmg6/ddw903kf6lOIRo+93Ti3hSDhfUFA07ezJxOZ910V8YLW3ZMgqVfRbSULQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0YwtOxb6H+4vvhPykwY7GiU6fdMVn+2BBtX1aI/Kv8eH3jvA0iYD
-	nRae/XoN30HBd5oarkRzOU/hWRxB1N5LJuUv2XRdz3vYdkQ4WoMd6uYByl1juZWK3VFFM/EQa1C
-	YaY4CvkkO1YGHYNy6kwEsIFmmyas=
-X-Google-Smtp-Source: AGHT+IHG0k2FyeWUT/medUJbo4t6MJmnpFSJ3HJ1L4LPVA5YC4vbKPPO3C/X37BPV/1UrON5UcNYFMH8y1ldCcFm3/M=
-X-Received: by 2002:a17:907:7ba9:b0:ab2:c0c8:383f with SMTP id
- a640c23a62f3a-ab38b0b684fmr2975925866b.1.1737709530490; Fri, 24 Jan 2025
- 01:05:30 -0800 (PST)
+	Fri, 24 Jan 2025 10:46:31 +0000
+Received: from [IPV6:2605:59c0:20f3:a400:5304:e921:4d34:736a] (unknown [IPv6:2605:59c0:20f3:a400:5304:e921:4d34:736a])
+	(Authenticated sender: e)
+	by freeshell.de (Postfix) with ESMTPSA id E8C17B4B325B;
+	Fri, 24 Jan 2025 11:46:23 +0100 (CET)
+Message-ID: <9d4783b1-3dfe-482c-a963-ccc66c9b0f1a@freeshell.de>
+Date: Fri, 24 Jan 2025 02:46:22 -0800
 MIME-Version: 1.0
-References: <20250123-riscv_optimize_entry-v2-0-7c259492d508@rivosinc.com> <20250123-riscv_optimize_entry-v2-3-7c259492d508@rivosinc.com>
-In-Reply-To: <20250123-riscv_optimize_entry-v2-3-7c259492d508@rivosinc.com>
-From: Huacai Chen <chenhuacai@kernel.org>
-Date: Fri, 24 Jan 2025 17:05:21 +0800
-X-Gmail-Original-Message-ID: <CAAhV-H7RSn2ek5CeLnohTcrh=0unDNmaLDq+yDH2oqshoeRMNQ@mail.gmail.com>
-X-Gm-Features: AWEUYZnmCgndjX3TxIbo0KY3PK02_EADQhJH2tzMemU92v6WAVFWS0P9mXQrh4Y
-Message-ID: <CAAhV-H7RSn2ek5CeLnohTcrh=0unDNmaLDq+yDH2oqshoeRMNQ@mail.gmail.com>
-Subject: Re: [PATCH v2 3/4] loongarch: entry: Migrate ret_from_fork() to C
-To: Charlie Jenkins <charlie@rivosinc.com>
-Cc: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	WANG Xuerui <kernel@xen0n.name>, Thomas Gleixner <tglx@linutronix.de>, 
-	Peter Zijlstra <peterz@infradead.org>, Andy Lutomirski <luto@kernel.org>, 
-	Alexandre Ghiti <alexghiti@rivosinc.com>, linux-riscv@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, loongarch@lists.linux.dev
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v1 1/5] riscv: dts: starfive: jh7110-common: replace
+ syscrg clock assignments
+To: Conor Dooley <conor@kernel.org>, Hal Feng <hal.feng@starfivetech.com>
+Cc: Emil Renner Berthing <kernel@esmil.dk>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
+ "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+ Minda Chen <minda.chen@starfivetech.com>
+References: <20250102194530.418127-1-e@freeshell.de>
+ <20250102194530.418127-2-e@freeshell.de>
+ <20250104-mutilated-unpaved-008eebdb200a@spud>
+ <56c372c3-bb8b-4150-9b34-a6cca906d740@freeshell.de>
+ <20250106-suggest-waltz-47d7f7760069@spud>
+ <ZQ2PR01MB1307A9E106AE06E144875D6EE619A@ZQ2PR01MB1307.CHNPR01.prod.partner.outlook.cn>
+ <20250115-bunkmate-reluctant-a9bad52d8a04@spud>
+Content-Language: en-US
+From: E Shattow <e@freeshell.de>
+In-Reply-To: <20250115-bunkmate-reluctant-a9bad52d8a04@spud>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250124_010533_736213_A3E11868 
-X-CRM114-Status: GOOD (  18.07  )
+X-CRM114-CacheID: sfid-20250124_024629_584505_9B25ED80 
+X-CRM114-Status: GOOD (  30.44  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,154 +70,163 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-SGksIENoYXJsaWUsCgpPbiBGcmksIEphbiAyNCwgMjAyNSBhdCAzOjE14oCvQU0gQ2hhcmxpZSBK
-ZW5raW5zIDxjaGFybGllQHJpdm9zaW5jLmNvbT4gd3JvdGU6Cj4KPiBMb29uZ2FyY2ggaXMgdGhl
-IG9ubHkgYXJjaGl0ZWN0dXJlIHRoYXQgY2FsbHMKV2UgdXN1YWxseSB1c2UgIkxvb25nQXJjaCIg
-aW5zdGVhZCBvZiAibG9vbmdhcmNoIiBvciAiTG9vbmdhcmNoIi4KCj4gc3lzY2FsbF9leGl0X3Rv
-X3VzZXJfbW9kZSgpIGZyb20gYXNtLiBNb3ZlIHRoZSBjYWxsIGludG8gQyBzbyB0aGF0IHRoaXMK
-PiBmdW5jdGlvbiBjYW4gYmUgaW5saW5lZCBhY3Jvc3MgYWxsIGFyY2hpdGVjdHVyZXMuCj4KPiBT
-aWduZWQtb2ZmLWJ5OiBDaGFybGllIEplbmtpbnMgPGNoYXJsaWVAcml2b3NpbmMuY29tPgo+IC0t
-LQo+ICBhcmNoL2xvb25nYXJjaC9pbmNsdWRlL2FzbS9hc20tcHJvdG90eXBlcy5oIHwgIDUgKysr
-KysKPiAgYXJjaC9sb29uZ2FyY2gvaW5jbHVkZS9hc20vc3dpdGNoX3RvLmggICAgICB8ICA4ICsr
-KysrKysKPiAgYXJjaC9sb29uZ2FyY2gva2VybmVsL2VudHJ5LlMgICAgICAgICAgICAgICB8IDIy
-ICsrKysrKysrKy0tLS0tLS0tLS0KPiAgYXJjaC9sb29uZ2FyY2gva2VybmVsL3Byb2Nlc3MuYyAg
-ICAgICAgICAgICB8IDM0ICsrKysrKysrKysrKysrKysrKysrKysrKy0tLS0tCj4gIDQgZmlsZXMg
-Y2hhbmdlZCwgNTEgaW5zZXJ0aW9ucygrKSwgMTggZGVsZXRpb25zKC0pCj4KPiBkaWZmIC0tZ2l0
-IGEvYXJjaC9sb29uZ2FyY2gvaW5jbHVkZS9hc20vYXNtLXByb3RvdHlwZXMuaCBiL2FyY2gvbG9v
-bmdhcmNoL2luY2x1ZGUvYXNtL2FzbS1wcm90b3R5cGVzLmgKPiBpbmRleCA1MWYyMjRiY2ZjNjU0
-MjI4YWU0MjNlOWEwNjZiMjViMzUxMDJhNWI5Li4wMTk1ZDQzMDlmZDI5Zjk0NjY0ZDVmMzQyNDcx
-OThjNzY5MDMzYjFiIDEwMDY0NAo+IC0tLSBhL2FyY2gvbG9vbmdhcmNoL2luY2x1ZGUvYXNtL2Fz
-bS1wcm90b3R5cGVzLmgKPiArKysgYi9hcmNoL2xvb25nYXJjaC9pbmNsdWRlL2FzbS9hc20tcHJv
-dG90eXBlcy5oCj4gQEAgLTEyLDMgKzEyLDggQEAgX19pbnQxMjhfdCBfX2FzaGx0aTMoX19pbnQx
-MjhfdCBhLCBpbnQgYik7Cj4gIF9faW50MTI4X3QgX19hc2hydGkzKF9faW50MTI4X3QgYSwgaW50
-IGIpOwo+ICBfX2ludDEyOF90IF9fbHNocnRpMyhfX2ludDEyOF90IGEsIGludCBiKTsKPiAgI2Vu
-ZGlmCj4gKwo+ICthc21saW5rYWdlIHZvaWQgbm9pbnN0ciBfX25vX3N0YWNrX3Byb3RlY3RvciBy
-ZXRfZnJvbV9rZXJuZWxfdGhyZWFkKHN0cnVjdCB0YXNrX3N0cnVjdCAqcHJldiwKPiArICAgICAg
-ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
-ICAgIHN0cnVjdCBwdF9yZWdzICpyZWdzLAo+ICsgICAgICAgICAgICAgICAgICAgICAgICAgICAg
-ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgaW50ICgqZm4pKHZvaWQgKiks
-Cj4gKyAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
-ICAgICAgICAgICAgICB2b2lkICpmbl9hcmcpOwpJdCBpcyBhIGxpdHRsZSBzdHJhbmdlIHRoYXQg
-d2Ugb25seSBuZWVkIHRvIGRlY2xhcmUKcmV0X2Zyb21fa2VybmVsX3RocmVhZCgpIGJ1dCBub3Qg
-cmV0X2Zyb21fZm9yaygpLgoKPiBkaWZmIC0tZ2l0IGEvYXJjaC9sb29uZ2FyY2gvaW5jbHVkZS9h
-c20vc3dpdGNoX3RvLmggYi9hcmNoL2xvb25nYXJjaC9pbmNsdWRlL2FzbS9zd2l0Y2hfdG8uaAo+
-IGluZGV4IDViMjI1YWZmM2JhMjFhYTA2ZDA3MTNiYzhlNzNlMWI5NDEzODk2MzAuLmExYzU1NzZm
-MWZkMTQ1NjcwZTEzMDM4YmVjNmRkMzkwNDg2MDk5YWIgMTAwNjQ0Cj4gLS0tIGEvYXJjaC9sb29u
-Z2FyY2gvaW5jbHVkZS9hc20vc3dpdGNoX3RvLmgKPiArKysgYi9hcmNoL2xvb25nYXJjaC9pbmNs
-dWRlL2FzbS9zd2l0Y2hfdG8uaAo+IEBAIC0yNiw2ICsyNiwxNCBAQCBleHRlcm4gYXNtbGlua2Fn
-ZSBzdHJ1Y3QgdGFza19zdHJ1Y3QgKl9fc3dpdGNoX3RvKHN0cnVjdCB0YXNrX3N0cnVjdCAqcHJl
-diwKPiAgICAgICAgICAgICAgICAgICAgICAgICBzdHJ1Y3QgdGFza19zdHJ1Y3QgKm5leHQsIHN0
-cnVjdCB0aHJlYWRfaW5mbyAqbmV4dF90aSwKPiAgICAgICAgICAgICAgICAgICAgICAgICB2b2lk
-ICpzY2hlZF9yYSwgdm9pZCAqc2NoZWRfY2ZhKTsKPgo+ICt2b2lkIG5vaW5zdHIgX19ub19zdGFj
-a19wcm90ZWN0b3IgcmV0X2Zyb21fa2VybmVsX3RocmVhZChzdHJ1Y3QgdGFza19zdHJ1Y3QgKnBy
-ZXYsCj4gKyAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
-ICAgICAgc3RydWN0IHB0X3JlZ3MgKnJlZ3MsCj4gKyAgICAgICAgICAgICAgICAgICAgICAgICAg
-ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgaW50ICgqZm4pKHZvaWQgKiksCj4gKyAgICAg
-ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgdm9pZCAq
-Zm5fYXJnKTsKPiArCj4gK3ZvaWQgbm9pbnN0ciBfX25vX3N0YWNrX3Byb3RlY3RvciByZXRfZnJv
-bV9mb3JrKHN0cnVjdCB0YXNrX3N0cnVjdCAqcHJldiwKPiArICAgICAgICAgICAgICAgICAgICAg
-ICAgICAgICAgICAgICAgICAgICAgICAgICBzdHJ1Y3QgcHRfcmVncyAqcmVncyk7Cj4gKwpJIHBy
-ZWZlciBhbHBoYS1iZXRpY2FsIG9yZGVyLCB3aGljaCBtZWFucyBwdXQgcmV0X2Zyb21fZm9yaygp
-IGJlZm9yZQpyZXRfZnJvbV9rZXJuZWxfdGhyZWFkKCkuCgo+ICAvKgo+ICAgKiBGb3IgbmV3bHkg
-Y3JlYXRlZCBrZXJuZWwgdGhyZWFkcyBzd2l0Y2hfdG8oKSB3aWxsIHJldHVybiB0bwo+ICAgKiBy
-ZXRfZnJvbV9rZXJuZWxfdGhyZWFkLCBuZXdseSBjcmVhdGVkIHVzZXIgdGhyZWFkcyB0byByZXRf
-ZnJvbV9mb3JrLgo+IGRpZmYgLS1naXQgYS9hcmNoL2xvb25nYXJjaC9rZXJuZWwvZW50cnkuUyBi
-L2FyY2gvbG9vbmdhcmNoL2tlcm5lbC9lbnRyeS5TCj4gaW5kZXggNDhlN2UzNGUzNTVlODNlYWU4
-MTY1OTU3YmEyZWFjMDVhOGJmMTdkZi4uMmFiYzI5ZTU3MzgxMGUwMDBmMmZlZjQ2NDZkZGNhMGRi
-YjgwZWFiZSAxMDA2NDQKPiAtLS0gYS9hcmNoL2xvb25nYXJjaC9rZXJuZWwvZW50cnkuUwo+ICsr
-KyBiL2FyY2gvbG9vbmdhcmNoL2tlcm5lbC9lbnRyeS5TCj4gQEAgLTc3LDI0ICs3NywyMiBAQCBT
-WU1fQ09ERV9TVEFSVChoYW5kbGVfc3lzY2FsbCkKPiAgU1lNX0NPREVfRU5EKGhhbmRsZV9zeXNj
-YWxsKQo+ICBfQVNNX05PS1BST0JFKGhhbmRsZV9zeXNjYWxsKQo+Cj4gLVNZTV9DT0RFX1NUQVJU
-KHJldF9mcm9tX2ZvcmspCj4gK1NZTV9DT0RFX1NUQVJUKHJldF9mcm9tX2ZvcmtfYXNtKQo+ICAg
-ICAgICAgVU5XSU5EX0hJTlRfUkVHUwo+IC0gICAgICAgYmwgICAgICAgICAgICAgIHNjaGVkdWxl
-X3RhaWwgICAgICAgICAgICMgYTAgPSBzdHJ1Y3QgdGFza19zdHJ1Y3QgKnByZXYKPiAtICAgICAg
-IG1vdmUgICAgICAgICAgICBhMCwgc3AKPiAtICAgICAgIGJsICAgICAgICAgICAgICBzeXNjYWxs
-X2V4aXRfdG9fdXNlcl9tb2RlCj4gKyAgICAgICBtb3ZlICAgICAgICAgICAgYTEsIHNwCj4gKyAg
-ICAgICBibCAgICAgICAgICAgICAgcmV0X2Zyb21fZm9yawo+ICAgICAgICAgUkVTVE9SRV9TVEFU
-SUMKPiAgICAgICAgIFJFU1RPUkVfU09NRQo+ICAgICAgICAgUkVTVE9SRV9TUF9BTkRfUkVUCj4g
-LVNZTV9DT0RFX0VORChyZXRfZnJvbV9mb3JrKQo+ICtTWU1fQ09ERV9FTkQocmV0X2Zyb21fZm9y
-a19hc20pCj4KPiAtU1lNX0NPREVfU1RBUlQocmV0X2Zyb21fa2VybmVsX3RocmVhZCkKPiArU1lN
-X0NPREVfU1RBUlQocmV0X2Zyb21fa2VybmVsX3RocmVhZF9hc20pCj4gICAgICAgICBVTldJTkRf
-SElOVF9SRUdTCj4gLSAgICAgICBibCAgICAgICAgICAgICAgc2NoZWR1bGVfdGFpbCAgICAgICAg
-ICAgIyBhMCA9IHN0cnVjdCB0YXNrX3N0cnVjdCAqcHJldgo+IC0gICAgICAgbW92ZSAgICAgICAg
-ICAgIGEwLCBzMQo+IC0gICAgICAgamlybCAgICAgICAgICAgIHJhLCBzMCwgMAo+IC0gICAgICAg
-bW92ZSAgICAgICAgICAgIGEwLCBzcAo+IC0gICAgICAgYmwgICAgICAgICAgICAgIHN5c2NhbGxf
-ZXhpdF90b191c2VyX21vZGUKPiArICAgICAgIG1vdmUgICAgICAgICAgICBhMSwgc3AKPiArICAg
-ICAgIG1vdmUgICAgICAgICAgICBhMiwgczAKPiArICAgICAgIG1vdmUgICAgICAgICAgICBhMywg
-czEKPiArICAgICAgIGJsICAgICAgICAgICAgICByZXRfZnJvbV9rZXJuZWxfdGhyZWFkCj4gICAg
-ICAgICBSRVNUT1JFX1NUQVRJQwo+ICAgICAgICAgUkVTVE9SRV9TT01FCj4gICAgICAgICBSRVNU
-T1JFX1NQX0FORF9SRVQKPiAtU1lNX0NPREVfRU5EKHJldF9mcm9tX2tlcm5lbF90aHJlYWQpCj4g
-K1NZTV9DT0RFX0VORChyZXRfZnJvbV9rZXJuZWxfdGhyZWFkX2FzbSkKPiBkaWZmIC0tZ2l0IGEv
-YXJjaC9sb29uZ2FyY2gva2VybmVsL3Byb2Nlc3MuYyBiL2FyY2gvbG9vbmdhcmNoL2tlcm5lbC9w
-cm9jZXNzLmMKPiBpbmRleCA2ZTU4ZjY1NDU1YzdjYTNlYWUyZTg4ZWQ4NTJjODY1NWE2NzAxZTVj
-Li4xNmNjOTQ5ZmU0MzQ0M2Q3MGYxZDg2NWNlMDQ1OTVjMmQ4YzE2MTViIDEwMDY0NAo+IC0tLSBh
-L2FyY2gvbG9vbmdhcmNoL2tlcm5lbC9wcm9jZXNzLmMKPiArKysgYi9hcmNoL2xvb25nYXJjaC9r
-ZXJuZWwvcHJvY2Vzcy5jCj4gQEAgLTE0LDYgKzE0LDcgQEAKPiAgI2luY2x1ZGUgPGxpbnV4L2lu
-aXQuaD4KPiAgI2luY2x1ZGUgPGxpbnV4L2tlcm5lbC5oPgo+ICAjaW5jbHVkZSA8bGludXgvZXJy
-bm8uaD4KPiArI2luY2x1ZGUgPGxpbnV4L2VudHJ5LWNvbW1vbi5oPgo+ICAjaW5jbHVkZSA8bGlu
-dXgvc2NoZWQuaD4KPiAgI2luY2x1ZGUgPGxpbnV4L3NjaGVkL2RlYnVnLmg+Cj4gICNpbmNsdWRl
-IDxsaW51eC9zY2hlZC90YXNrLmg+Cj4gQEAgLTMzLDYgKzM0LDcgQEAKPiAgI2luY2x1ZGUgPGxp
-bnV4L3ByY3RsLmg+Cj4gICNpbmNsdWRlIDxsaW51eC9ubWkuaD4KPgo+ICsjaW5jbHVkZSA8YXNt
-L2FzbS1wcm90b3R5cGVzLmg+Cj4gICNpbmNsdWRlIDxhc20vYXNtLmg+Cj4gICNpbmNsdWRlIDxh
-c20vYm9vdGluZm8uaD4KPiAgI2luY2x1ZGUgPGFzbS9jcHUuaD4KPiBAQCAtNDcsNiArNDksNyBA
-QAo+ICAjaW5jbHVkZSA8YXNtL3BndGFibGUuaD4KPiAgI2luY2x1ZGUgPGFzbS9wcm9jZXNzb3Iu
-aD4KPiAgI2luY2x1ZGUgPGFzbS9yZWcuaD4KPiArI2luY2x1ZGUgPGFzbS9zd2l0Y2hfdG8uaD4K
-PiAgI2luY2x1ZGUgPGFzbS91bndpbmQuaD4KPiAgI2luY2x1ZGUgPGFzbS92ZHNvLmg+Cj4KPiBA
-QCAtNjMsOCArNjYsOSBAQCBFWFBPUlRfU1lNQk9MKF9fc3RhY2tfY2hrX2d1YXJkKTsKPiAgdW5z
-aWduZWQgbG9uZyBib290X29wdGlvbl9pZGxlX292ZXJyaWRlID0gSURMRV9OT19PVkVSUklERTsK
-PiAgRVhQT1JUX1NZTUJPTChib290X29wdGlvbl9pZGxlX292ZXJyaWRlKTsKPgo+IC1hc21saW5r
-YWdlIHZvaWQgcmV0X2Zyb21fZm9yayh2b2lkKTsKPiAtYXNtbGlua2FnZSB2b2lkIHJldF9mcm9t
-X2tlcm5lbF90aHJlYWQodm9pZCk7Cj4gK2FzbWxpbmthZ2Ugdm9pZCByZXN0b3JlX2FuZF9yZXQo
-dm9pZCk7Cj4gK2FzbWxpbmthZ2Ugdm9pZCByZXRfZnJvbV9mb3JrX2FzbSh2b2lkKTsKPiArYXNt
-bGlua2FnZSB2b2lkIHJldF9mcm9tX2tlcm5lbF90aHJlYWRfYXNtKHZvaWQpOwo+Cj4gIHZvaWQg
-c3RhcnRfdGhyZWFkKHN0cnVjdCBwdF9yZWdzICpyZWdzLCB1bnNpZ25lZCBsb25nIHBjLCB1bnNp
-Z25lZCBsb25nIHNwKQo+ICB7Cj4gQEAgLTEzOCw2ICsxNDIsMjQgQEAgaW50IGFyY2hfZHVwX3Rh
-c2tfc3RydWN0KHN0cnVjdCB0YXNrX3N0cnVjdCAqZHN0LCBzdHJ1Y3QgdGFza19zdHJ1Y3QgKnNy
-YykKPiAgICAgICAgIHJldHVybiAwOwo+ICB9Cj4KPiArYXNtbGlua2FnZSB2b2lkIG5vaW5zdHIg
-X19ub19zdGFja19wcm90ZWN0b3IgcmV0X2Zyb21fa2VybmVsX3RocmVhZChzdHJ1Y3QgdGFza19z
-dHJ1Y3QgKnByZXYsCj4gKyAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
-ICAgICAgICAgICAgICAgICAgICAgICAgICBzdHJ1Y3QgcHRfcmVncyAqcmVncywKPiArICAgICAg
-ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
-ICAgIGludCAoKmZuKSh2b2lkICopLAo+ICsgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
-ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgdm9pZCAqZm5fYXJnKQo+ICt7Cj4g
-KyAgICAgICBzY2hlZHVsZV90YWlsKHByZXYpOwo+ICsKPiArICAgICAgIGZuKGZuX2FyZyk7Cj4g
-KwpUaGUgdHdvIGJsYW5rIGxpbmVzIGNhbiBiZSByZW1vdmVkLCBhbmQgYWdhaW4sIEkgcHJlZmVy
-IGFscGhhLWJldGljYWwKb3JkZXIsIHdoaWNoIG1lYW5zIHB1dCByZXRfZnJvbV9mb3JrKCkgYmVm
-b3JlCnJldF9mcm9tX2tlcm5lbF90aHJlYWQoKS4KCkh1YWNhaQoKPiArICAgICAgIHN5c2NhbGxf
-ZXhpdF90b191c2VyX21vZGUocmVncyk7Cj4gK30KPiArCj4gK3ZvaWQgbm9pbnN0ciBfX25vX3N0
-YWNrX3Byb3RlY3RvciByZXRfZnJvbV9mb3JrKHN0cnVjdCB0YXNrX3N0cnVjdCAqcHJldiwgc3Ry
-dWN0IHB0X3JlZ3MgKnJlZ3MpCj4gK3sKPiArICAgICAgIHNjaGVkdWxlX3RhaWwocHJldik7Cj4g
-KyAgICAgICBzeXNjYWxsX2V4aXRfdG9fdXNlcl9tb2RlKHJlZ3MpOwo+ICt9Cj4gKwo+ICAvKgo+
-ICAgKiBDb3B5IGFyY2hpdGVjdHVyZS1zcGVjaWZpYyB0aHJlYWQgc3RhdGUKPiAgICovCj4gQEAg
-LTE2NSw4ICsxODcsOCBAQCBpbnQgY29weV90aHJlYWQoc3RydWN0IHRhc2tfc3RydWN0ICpwLCBj
-b25zdCBzdHJ1Y3Qga2VybmVsX2Nsb25lX2FyZ3MgKmFyZ3MpCj4gICAgICAgICAgICAgICAgIHAt
-PnRocmVhZC5yZWcwMyA9IGNoaWxka3NwOwo+ICAgICAgICAgICAgICAgICBwLT50aHJlYWQucmVn
-MjMgPSAodW5zaWduZWQgbG9uZylhcmdzLT5mbjsKPiAgICAgICAgICAgICAgICAgcC0+dGhyZWFk
-LnJlZzI0ID0gKHVuc2lnbmVkIGxvbmcpYXJncy0+Zm5fYXJnOwo+IC0gICAgICAgICAgICAgICBw
-LT50aHJlYWQucmVnMDEgPSAodW5zaWduZWQgbG9uZylyZXRfZnJvbV9rZXJuZWxfdGhyZWFkOwo+
-IC0gICAgICAgICAgICAgICBwLT50aHJlYWQuc2NoZWRfcmEgPSAodW5zaWduZWQgbG9uZylyZXRf
-ZnJvbV9rZXJuZWxfdGhyZWFkOwo+ICsgICAgICAgICAgICAgICBwLT50aHJlYWQucmVnMDEgPSAo
-dW5zaWduZWQgbG9uZylyZXRfZnJvbV9rZXJuZWxfdGhyZWFkX2FzbTsKPiArICAgICAgICAgICAg
-ICAgcC0+dGhyZWFkLnNjaGVkX3JhID0gKHVuc2lnbmVkIGxvbmcpcmV0X2Zyb21fa2VybmVsX3Ro
-cmVhZF9hc207Cj4gICAgICAgICAgICAgICAgIG1lbXNldChjaGlsZHJlZ3MsIDAsIHNpemVvZihz
-dHJ1Y3QgcHRfcmVncykpOwo+ICAgICAgICAgICAgICAgICBjaGlsZHJlZ3MtPmNzcl9ldWVuID0g
-cC0+dGhyZWFkLmNzcl9ldWVuOwo+ICAgICAgICAgICAgICAgICBjaGlsZHJlZ3MtPmNzcl9jcm1k
-ID0gcC0+dGhyZWFkLmNzcl9jcm1kOwo+IEBAIC0xODIsOCArMjA0LDggQEAgaW50IGNvcHlfdGhy
-ZWFkKHN0cnVjdCB0YXNrX3N0cnVjdCAqcCwgY29uc3Qgc3RydWN0IGtlcm5lbF9jbG9uZV9hcmdz
-ICphcmdzKQo+ICAgICAgICAgICAgICAgICBjaGlsZHJlZ3MtPnJlZ3NbM10gPSB1c3A7Cj4KPiAg
-ICAgICAgIHAtPnRocmVhZC5yZWcwMyA9ICh1bnNpZ25lZCBsb25nKSBjaGlsZHJlZ3M7Cj4gLSAg
-ICAgICBwLT50aHJlYWQucmVnMDEgPSAodW5zaWduZWQgbG9uZykgcmV0X2Zyb21fZm9yazsKPiAt
-ICAgICAgIHAtPnRocmVhZC5zY2hlZF9yYSA9ICh1bnNpZ25lZCBsb25nKSByZXRfZnJvbV9mb3Jr
-Owo+ICsgICAgICAgcC0+dGhyZWFkLnJlZzAxID0gKHVuc2lnbmVkIGxvbmcpIHJldF9mcm9tX2Zv
-cmtfYXNtOwo+ICsgICAgICAgcC0+dGhyZWFkLnNjaGVkX3JhID0gKHVuc2lnbmVkIGxvbmcpIHJl
-dF9mcm9tX2ZvcmtfYXNtOwo+Cj4gICAgICAgICAvKgo+ICAgICAgICAgICogTmV3IHRhc2tzIGxv
-c2UgcGVybWlzc2lvbiB0byB1c2UgdGhlIGZwdS4gVGhpcyBhY2NlbGVyYXRlcyBjb250ZXh0Cj4K
-PiAtLQo+IDIuNDMuMAo+CgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFk
-ZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4
-LXJpc2N2Cg==
+
+On 1/15/25 01:35, Conor Dooley wrote:
+> On Wed, Jan 15, 2025 at 06:33:08AM +0000, Hal Feng wrote:
+>>> On 07.01.25 04:08, Conor Dooley wrote:
+>>> On Sat, Jan 04, 2025 at 01:04:30PM -0800, E Shattow wrote:
+>>>> Hi, Conor  (added CC: Minda Chen, Hal Feng)
+>>>>
+>>>> On 1/4/25 10:33, Conor Dooley wrote:
+>>>>> On Thu, Jan 02, 2025 at 11:45:07AM -0800, E Shattow wrote:
+>>>>>> Replace syscrg assignments of clocks, clock parents, and rates,
+>>>>>> for compatibility with downstream boot loader SPL secondary
+>>>>>> program loader.
+>>>>>>
+>>>>>> Signed-off-by: E Shattow <e@freeshell.de>
+>>>>>> ---
+>>>>>>    arch/riscv/boot/dts/starfive/jh7110-common.dtsi | 12 +++++++++---
+>>>>>>    1 file changed, 9 insertions(+), 3 deletions(-)
+>>>>>>
+>>>>>> diff --git a/arch/riscv/boot/dts/starfive/jh7110-common.dtsi
+>>>>>> b/arch/riscv/boot/dts/starfive/jh7110-common.dtsi
+>>>>>> index 48fb5091b817..55c6743100a7 100644
+>>>>>> --- a/arch/riscv/boot/dts/starfive/jh7110-common.dtsi
+>>>>>> +++ b/arch/riscv/boot/dts/starfive/jh7110-common.dtsi
+>>>>>> @@ -359,9 +359,15 @@ spi_dev0: spi@0 {
+>>>>>>    };
+>>>>>>    &syscrg {
+>>>>>> -	assigned-clocks = <&syscrg JH7110_SYSCLK_CPU_CORE>,
+>>>>>> -			  <&pllclk JH7110_PLLCLK_PLL0_OUT>;
+>>>>>> -	assigned-clock-rates = <500000000>, <1500000000>;
+>>>>>> +	assigned-clocks = <&syscrg JH7110_SYSCLK_CPU_ROOT>,
+>>>>>> +			  <&syscrg JH7110_SYSCLK_BUS_ROOT>,
+>>>>>> +			  <&syscrg JH7110_SYSCLK_PERH_ROOT>,
+>>>>>> +			  <&syscrg JH7110_SYSCLK_QSPI_REF>;
+>>>>>> +	assigned-clock-parents = <&pllclk JH7110_PLLCLK_PLL0_OUT>,
+>>>>>> +				 <&pllclk JH7110_PLLCLK_PLL2_OUT>,
+>>>>>> +				 <&pllclk JH7110_PLLCLK_PLL2_OUT>,
+>>>>>> +				 <&syscrg JH7110_SYSCLK_QSPI_REF_SRC>;
+>>>>>> +	assigned-clock-rates = <0>, <0>, <0>, <0>;
+>>>>>
+>>>>> Why is assigned rates here 0s, rather than the property just removed?
+>>>>>
+>>>>>>    };
+>>>>>>    &sysgpio {
+>>>>>> --
+>>>>>> 2.45.2
+>>>>>>
+>>>>
+>>>> Assigned rates all zeroes is how it is in U-Boot. Removing the
+>>>> assigned-clock-rates property as suggested does work in U-Boot and
+>>>> Linux both.
+>>>>
+>>>> For context, U-Boot fails when replacing assigned-clocks to
+>>>> JH7110_SYSCLK_CPU_CORE (500MHz) and JH7110_PLLCLK_PLL0_OUT
+>>> (1500MHz)
+>>>> from Linux. So I tried to merge all properties together and in testing
+>>>> then U-Boot failed (or I did it wrong). However replacing the Linux
+>>>> properties with the U-Boot configuration (above) on Linux does work for
+>>> both.
+>>>>
+>>>> I do not know if this is correct but I can test any suggestions and
+>>>> report if they are working.
+>>>>
+>>>> Do these changes make sense? Are there other variations I should test?
+>>>
+>>> I'd like the commit message to at least explain why these clocks need to be
+>>> set to zero (I assume that means disabled?). Maybe the StarFive folks know
+>>> why it is required?
+>>
+>> Here "assigned-clock-rates = <0>, ..." means skipping setting clock rates.
+>> You can refer to
+>> https://github.com/devicetree-org/dt-schema/blob/main/dtschema/schemas/clock/clock.yaml/
+> 
+> If you check the wording there, it says:
+>    To skip setting parent or rate of a clock its corresponding entry should be
+>    set to 0, or can be omitted if it is not followed by any non-zero entry.
+> Since all clocks are being set to 0 above, we should be in the "can be
+> omitted" case for the entire property, no? That would...
+> 
+>> Linux here setting JH7110_SYSCLK_CPU_CORE to 500MHz and JH7110_PLLCLK_PLL0_OUT
+>> to 1500MHz are for increasing the CPU frequency to 1500MHz.
+>>
+>> VF2 u-boot is still running at 1000MHz now. You failed to set JH7110_PLLCLK_PLL0_OUT
+>> to 1500MHz, because CPU power supply voltage needs to be increased before running at
+>> 1500MHz.
+
+Conor / Hal,  how does this work:
+
+Are these the minimum and maximum values for CPU frequency, CPU CORE and 
+PLL0 OUT ?
+
+>>
+>> I think a better choice now is changing Linux device tree as follows:
+>>
+>> &syscrg {
+>> 	assigned-clocks = <&syscrg JH7110_SYSCLK_CPU_ROOT>,
+>> 			  <&syscrg JH7110_SYSCLK_BUS_ROOT>,
+>> 			  <&syscrg JH7110_SYSCLK_PERH_ROOT>,
+>> 			  <&syscrg JH7110_SYSCLK_QSPI_REF>,
+>> 			  <&syscrg JH7110_SYSCLK_CPU_CORE>,
+>> 			  <&pllclk JH7110_PLLCLK_PLL0_OUT>;
+>> 	assigned-clock-parents = <&pllclk JH7110_PLLCLK_PLL0_OUT>,
+>> 				 <&pllclk JH7110_PLLCLK_PLL2_OUT>,
+>> 				 <&pllclk JH7110_PLLCLK_PLL2_OUT>,
+>> 				 <&syscrg JH7110_SYSCLK_QSPI_REF_SRC>;
+>> 	assigned-clock-rates = <0>, <0>, <0>, <0>, <500000000>, <1500000000>;
+>> };
+> 
+> ...make this one a reasonable change...
+> 
+>> For u-boot, if there is no requirement to run u-boot at 1500MHz, just keep
+>> &syscrg {
+>> 	assigned-clock-rates = <0>, <0>, <0>, <0>;
+>> };
+> 
+> ...but not this one.
+> 
+>> in u-boot device tree. If we need running 1500MHz in u-boot, I will send a patch
+>> to implement it and then &syscrg{...} in u-boot device tree can be dropped.
+>>
+>> Best regards,
+>> Hal
+
+Hal,
+
+What voltage (and speed) has less heat output?
+
+I think it must be configured to be *reliable first* as it is pictured 
+being a developer board on a person's desk (with no extra accessory - no 
+fans, heatsink, etc.) and for example doing work as of a Linux kernel 
+compile with using all cores.
+
+We should not force a configuration that will fail for the common 
+situation. What voltage and clock speed is the best for continuous 
+reliable operation of a JH7110 CPU with no added heatsink or fan and at 
+ambient temperature?
+
+Does CPU frequency range need to be given in devicetree? Can instead 
+this be done with userspace tool or Linux subsystem at runtime?
+
+The thermal dissipation of JH7110 CPU will be depend on the board layout 
+and physical application. So, my opinion here:  I think any minimum and 
+maximum CPU frequency limit that is given by manufacturer recommendation 
+of safe continuous operation is okay for dts include. If some part of 
+this frequency range is not reliable (from undervolt, or overheat) then 
+it is a "no" from me in Linux and in U-Boot. The fact of failing to boot 
+(in U-Boot) because JH7110 CPU default voltage is not high enough for 
+1500MHz operation tells me this is a wrong idea or there is missing code 
+in U-Boot to select a default sane clock speed and voltage.
+
+-E
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
