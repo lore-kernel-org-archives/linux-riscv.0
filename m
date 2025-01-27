@@ -4,83 +4,136 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6088EC0218C
-	for <linux-riscv@archiver.kernel.org>; Mon, 27 Jan 2025 15:44:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9F15C0218A
+	for <linux-riscv@archiver.kernel.org>; Mon, 27 Jan 2025 15:52:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=LSs+I5hQcnk/AiyeHQxj456a+o5fQ3bcFjjMyG1omjk=; b=QIzgVpCNrxZ+eV
-	Fx//bWjWML5uuKRti1frBfRWlSekcV2gPd/3tkoWf01t6AjC7qmyCfnAMz9t4OA47UdYfcTc84xWO
-	yWYExmPXB/jQN0w3y9hLkdJ7WYVEn0BBOMB/2+EtZMbuqTIuxHd1oD0sqEKeBhGN+TggeGg3gHVY3
-	JD7BZUsDjn3pKNlbIeN2darKTLOSrYXoSttiGnoPIB4JnYaMsYXIf9A0z+2Jq5DC541a8oyrBCYSc
-	n+SlBZ3mYcnowIEbp2pBP9wYO45AmL98m0lJNFO6FZ6MeCUJzz/rP6lVUhGWSV+mQlzvavJTnGwzZ
-	E24LcAfAzuSRcwYNDQQA==;
+	List-Owner; bh=aCmVJHLR2nF6lPDmqGuSKX4k/tfB4OGtm27OIJ16NUw=; b=dEsn4SOPR+tWP2
+	Yb510xfnU7D/hIG7RkKyWW1y9UElOe6QRkoPYfgLdQiNmFQ181v/Uuofg8WZIJ4H5c/PCciYNGl/+
+	9+iEu5d1/CIzhvg6xGUSvvflJpF6uRZhUsgyM4yAB5IcroTijWtdidbriy8yqy7nILfGc/G3skrF+
+	iAn3lcPcHVNviLfLaWDm2+UKp8QZOHbxciO9FmbPlnWn6si+0d7P4XKva8KKxr6V1YP/To1x1XJaq
+	L5c6QBMwYCRycx2/ferpn6KdyxrJ0j5eheoVZ9/LO6vvH/0fe1LbMx/Kl67FZNTNYXrXbIXtJX0FT
+	GiL1G0BGa5ZJgZqhIiHg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tcRHQ-00000002dXn-1zDg;
-	Mon, 27 Jan 2025 15:44:04 +0000
-Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
+	id 1tcRPG-00000002eSz-2S5V;
+	Mon, 27 Jan 2025 15:52:10 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tcRG9-00000002dIt-1Ylu;
-	Mon, 27 Jan 2025 15:42:45 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=casper.20170209; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=754tTQ0Xv0FV1pAPiQ7XMzOqvV5Ru3eT2/4MtIxHkKc=; b=Pyozw0tsKLD9gp97o+N6ZbHkTo
-	Il8/2Vpa4F0aqTQ5eLNtncdojFavxqC+3hOoMyt2pPZYgpxoa7oSXp+1z19h2FwdJ9ksectEr6L5y
-	pdndzuM9IJbuYbMGyY8OnttTeia0ZsfUEQN3vE3Kvu3ywzVzVm7PiaoVN1j+XGx7cGtNMyIWcHM2K
-	IHU9EJmiTnsw2atKedPjlIYgnndG3plYffG/psV0clxoDlPsLg9vBJ8MCt7RCyZQNR2Rl4uIk2hOI
-	SGpvgckCCBw+KC2Pto4K/lzMPYNt+Lyqoqjs99RL8H5P/AQH7nlJDuMDpJ1IZ/IMsyAIp8YsG+ytq
-	PlpOQ/eA==;
-Received: from willy by casper.infradead.org with local (Exim 4.98 #2 (Red Hat Linux))
-	id 1tcRG3-00000009b8r-2Zcd;
-	Mon, 27 Jan 2025 15:42:39 +0000
-Date: Mon, 27 Jan 2025 15:42:39 +0000
-From: Matthew Wilcox <willy@infradead.org>
-To: Jani Nikula <jani.nikula@intel.com>
-Cc: Joel Granados <joel.granados@kernel.org>,
+	id 1tcRPB-00000002eNo-3Vso;
+	Mon, 27 Jan 2025 15:52:08 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id B5CFFA41826;
+	Mon, 27 Jan 2025 15:50:17 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 87519C4CED2;
+	Mon, 27 Jan 2025 15:51:50 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1737993124;
+	bh=lKShl/TiOp2ZoXo/jImChQXPJ2hMZLXx2pOut7WiptI=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=Opi/ZOMV/zfLovkaRrjcFN22SaJmB+XJGtnDJ/cIoGIjT25SkYRyAorU+UjcclWyd
+	 6DePEaUZ/QK4W0yHLc5Kb3ieU/uOi+zRZdhIrfh5zorrG9bSfVDQc9h0dR9gO+3bHq
+	 ul1VD9PJ3iJuekF+lfnqBztVCR/WhUeMwXxaqNSwUyFJREhVmoO8Vtntzw4FAiTB00
+	 00OvDbjpP1jbVZyUSglO9BK2uxJ3fZYicWL3MsWiS1eDM68OxCFUf3tPPbIQwtET/k
+	 cGteI6qIszlohfI51re4Bs3hb3htIsly4LrqymlfAEdhSawB5JdAEcLJmnZm2zRPZn
+	 N7W92SLp2WhHA==
+Date: Mon, 27 Jan 2025 15:51:47 +0000
+From: Will Deacon <will@kernel.org>
+To: Jann Horn <jannh@google.com>
+Cc: Valentin Schneider <vschneid@redhat.com>, linux-kernel@vger.kernel.org,
+	x86@kernel.org, virtualization@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, loongarch@lists.linux.dev,
+	linux-riscv@lists.infradead.org, linux-perf-users@vger.kernel.org,
+	xen-devel@lists.xenproject.org, kvm@vger.kernel.org,
+	linux-arch@vger.kernel.org, rcu@vger.kernel.org,
+	linux-hardening@vger.kernel.org, linux-mm@kvack.org,
+	linux-kselftest@vger.kernel.org, bpf@vger.kernel.org,
+	bcm-kernel-feedback-list@broadcom.com,
+	Juergen Gross <jgross@suse.com>,
+	Ajay Kaher <ajay.kaher@broadcom.com>,
+	Alexey Makhalov <alexey.amakhalov@broadcom.com>,
+	Russell King <linux@armlinux.org.uk>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Huacai Chen <chenhuacai@kernel.org>,
+	WANG Xuerui <kernel@xen0n.name>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	"H. Peter Anvin" <hpa@zytor.com>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Arnaldo Carvalho de Melo <acme@kernel.org>,
+	Namhyung Kim <namhyung@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>,
+	Adrian Hunter <adrian.hunter@intel.com>,
+	"Liang, Kan" <kan.liang@linux.intel.com>,
+	Boris Ostrovsky <boris.ostrovsky@oracle.com>,
+	Josh Poimboeuf <jpoimboe@kernel.org>,
+	Pawan Gupta <pawan.kumar.gupta@linux.intel.com>,
+	Sean Christopherson <seanjc@google.com>,
+	Paolo Bonzini <pbonzini@redhat.com>,
+	Andy Lutomirski <luto@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
+	Frederic Weisbecker <frederic@kernel.org>,
+	"Paul E. McKenney" <paulmck@kernel.org>,
+	Jason Baron <jbaron@akamai.com>,
+	Steven Rostedt <rostedt@goodmis.org>,
 	Ard Biesheuvel <ardb@kernel.org>,
-	Alexander Gordeev <agordeev@linux.ibm.com>,
-	Thomas =?iso-8859-1?Q?Wei=DFschuh?= <linux@weissschuh.net>,
-	Kees Cook <kees@kernel.org>, Luis Chamberlain <mcgrof@kernel.org>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
-	linux-s390@vger.kernel.org, linux-crypto@vger.kernel.org,
-	openipmi-developer@lists.sourceforge.net,
-	intel-gfx@lists.freedesktop.org, dri-devel@lists.freedesktop.org,
-	intel-xe@lists.freedesktop.org, linux-hyperv@vger.kernel.org,
-	linux-rdma@vger.kernel.org, linux-raid@vger.kernel.org,
-	linux-scsi@vger.kernel.org, linux-serial@vger.kernel.org,
-	xen-devel@lists.xenproject.org, linux-aio@kvack.org,
-	linux-fsdevel@vger.kernel.org, netfs@lists.linux.dev,
-	codalist@coda.cs.cmu.edu, linux-mm@kvack.org,
-	linux-nfs@vger.kernel.org, ocfs2-devel@lists.linux.dev,
-	fsverity@lists.linux.dev, linux-xfs@vger.kernel.org,
-	io-uring@vger.kernel.org, bpf@vger.kernel.org,
-	kexec@lists.infradead.org, linux-trace-kernel@vger.kernel.org,
-	linux-hardening@vger.kernel.org, apparmor@lists.ubuntu.com,
-	linux-security-module@vger.kernel.org, keyrings@vger.kernel.org,
-	Song Liu <song@kernel.org>,
-	"Steven Rostedt (Google)" <rostedt@goodmis.org>,
-	"Martin K. Petersen" <martin.petersen@oracle.com>,
-	"Darrick J. Wong" <djwong@kernel.org>,
-	Corey Minyard <cminyard@mvista.com>
-Subject: Re: Re: Re: [PATCH v2] treewide: const qualify ctl_tables where
- applicable
-Message-ID: <Z5epb86xkHQ3BLhp@casper.infradead.org>
-References: <20250110-jag-ctl_table_const-v2-1-0000e1663144@kernel.org>
- <Z4+jwDBrZNRgu85S@li-008a6a4c-3549-11b2-a85c-c5cc2836eea2.ibm.com>
- <nslqrapp4v3rknjgtfk4cg64ha7rewrrg24aslo2e5jmxfwce5@t4chrpuk632k>
- <CAMj1kXEZPe8zk7s67SADK9wVH3cfBup-sAZSC6_pJyng9QT7aw@mail.gmail.com>
- <f4lfo2fb7ajogucsvisfd5sg2avykavmkizr6ycsllcrco4mo3@qt2zx4zp57zh>
- <87jzag9ugx.fsf@intel.com>
+	Neeraj Upadhyay <neeraj.upadhyay@kernel.org>,
+	Joel Fernandes <joel@joelfernandes.org>,
+	Josh Triplett <josh@joshtriplett.org>,
+	Boqun Feng <boqun.feng@gmail.com>,
+	Uladzislau Rezki <urezki@gmail.com>,
+	Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
+	Lai Jiangshan <jiangshanlai@gmail.com>,
+	Zqiang <qiang.zhang1211@gmail.com>,
+	Juri Lelli <juri.lelli@redhat.com>,
+	Clark Williams <williams@redhat.com>,
+	Yair Podemsky <ypodemsk@redhat.com>,
+	Tomas Glozar <tglozar@redhat.com>,
+	Vincent Guittot <vincent.guittot@linaro.org>,
+	Dietmar Eggemann <dietmar.eggemann@arm.com>,
+	Ben Segall <bsegall@google.com>, Mel Gorman <mgorman@suse.de>,
+	Kees Cook <kees@kernel.org>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Christoph Hellwig <hch@infradead.org>,
+	Shuah Khan <shuah@kernel.org>,
+	Sami Tolvanen <samitolvanen@google.com>,
+	Miguel Ojeda <ojeda@kernel.org>, Alice Ryhl <aliceryhl@google.com>,
+	"Mike Rapoport (Microsoft)" <rppt@kernel.org>,
+	Samuel Holland <samuel.holland@sifive.com>,
+	Rong Xu <xur@google.com>,
+	Nicolas Saenz Julienne <nsaenzju@redhat.com>,
+	Geert Uytterhoeven <geert@linux-m68k.org>,
+	Yosry Ahmed <yosryahmed@google.com>,
+	"Kirill A. Shutemov" <kirill.shutemov@linux.intel.com>,
+	"Masami Hiramatsu (Google)" <mhiramat@kernel.org>,
+	Jinghao Jia <jinghao7@illinois.edu>,
+	Luis Chamberlain <mcgrof@kernel.org>,
+	Randy Dunlap <rdunlap@infradead.org>,
+	Tiezhu Yang <yangtiezhu@loongson.cn>
+Subject: Re: [PATCH v4 29/30] x86/mm, mm/vmalloc: Defer
+ flush_tlb_kernel_range() targeting NOHZ_FULL CPUs
+Message-ID: <20250127155146.GB25757@willie-the-truck>
+References: <20250114175143.81438-1-vschneid@redhat.com>
+ <20250114175143.81438-30-vschneid@redhat.com>
+ <CAG48ez1Mh+DOy0ysOo7Qioxh1W7xWQyK9CLGNU9TGOsLXbg=gQ@mail.gmail.com>
+ <xhsmh34hhh37q.mognet@vschneid-thinkpadt14sgen2i.remote.csb>
+ <CAG48ez3H8OVP1GxBLdmFgusvT1gQhwu2SiXbgi8T9uuCYVK52w@mail.gmail.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <87jzag9ugx.fsf@intel.com>
+In-Reply-To: <CAG48ez3H8OVP1GxBLdmFgusvT1gQhwu2SiXbgi8T9uuCYVK52w@mail.gmail.com>
+User-Agent: Mutt/1.10.1 (2018-07-13)
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250127_075206_004727_B30D792D 
+X-CRM114-Status: GOOD (  37.73  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,20 +145,70 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jan 27, 2025 at 04:55:58PM +0200, Jani Nikula wrote:
-> You could have static const within functions too. You get the rodata
-> protection and function local scope, best of both worlds?
-
-timer_active is on the stack, so it can't be static const.
-
-Does this really need to be cc'd to such a wide distribution list?
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gRnJpLCBKYW4gMTcsIDIwMjUgYXQgMDQ6NTI6MTlQTSArMDEwMCwgSmFubiBIb3JuIHdyb3Rl
+Ogo+IE9uIEZyaSwgSmFuIDE3LCAyMDI1IGF0IDQ6MjXigK9QTSBWYWxlbnRpbiBTY2huZWlkZXIg
+PHZzY2huZWlkQHJlZGhhdC5jb20+IHdyb3RlOgo+ID4gT24gMTQvMDEvMjUgMTk6MTYsIEphbm4g
+SG9ybiB3cm90ZToKPiA+ID4gT24gVHVlLCBKYW4gMTQsIDIwMjUgYXQgNjo1MeKAr1BNIFZhbGVu
+dGluIFNjaG5laWRlciA8dnNjaG5laWRAcmVkaGF0LmNvbT4gd3JvdGU6Cj4gPiA+PiB2dW5tYXAo
+KSdzIGlzc3VlZCBmcm9tIGhvdXNla2VlcGluZyBDUFVzIGFyZSBhIHJlbGF0aXZlbHkgY29tbW9u
+IHNvdXJjZSBvZgo+ID4gPj4gaW50ZXJmZXJlbmNlIGZvciBpc29sYXRlZCBOT0haX0ZVTEwgQ1BV
+cywgYXMgdGhleSBhcmUgaGl0IGJ5IHRoZQo+ID4gPj4gZmx1c2hfdGxiX2tlcm5lbF9yYW5nZSgp
+IElQSXMuCj4gPiA+Pgo+ID4gPj4gR2l2ZW4gdGhhdCBDUFVzIGV4ZWN1dGluZyBpbiB1c2Vyc3Bh
+Y2UgZG8gbm90IGFjY2VzcyBkYXRhIGluIHRoZSB2bWFsbG9jCj4gPiA+PiByYW5nZSwgdGhlc2Ug
+SVBJcyBjb3VsZCBiZSBkZWZlcnJlZCB1bnRpbCB0aGVpciBuZXh0IGtlcm5lbCBlbnRyeS4KPiA+
+ID4+Cj4gPiA+PiBEZWZlcnJhbCB2cyBlYXJseSBlbnRyeSBkYW5nZXIgem9uZQo+ID4gPj4gPT09
+PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT0KPiA+ID4+Cj4gPiA+PiBUaGlzIHJlcXVp
+cmVzIGEgZ3VhcmFudGVlIHRoYXQgbm90aGluZyBpbiB0aGUgdm1hbGxvYyByYW5nZSBjYW4gYmUg
+dnVubWFwJ2QKPiA+ID4+IGFuZCB0aGVuIGFjY2Vzc2VkIGluIGVhcmx5IGVudHJ5IGNvZGUuCj4g
+PiA+Cj4gPiA+IEluIG90aGVyIHdvcmRzLCBpdCBuZWVkcyBhIGd1YXJhbnRlZSB0aGF0IG5vIHZt
+YWxsb2MgYWxsb2NhdGlvbnMgdGhhdAo+ID4gPiBoYXZlIGJlZW4gY3JlYXRlZCBpbiB0aGUgdm1h
+bGxvYyByZWdpb24gd2hpbGUgdGhlIENQVSB3YXMgaWRsZSBjYW4KPiA+ID4gdGhlbiBiZSBhY2Nl
+c3NlZCBkdXJpbmcgZWFybHkgZW50cnksIHJpZ2h0Pwo+ID4KPiA+IEknbSBub3Qgc3VyZSBpZiB0
+aGF0IHdvdWxkIGJlIGEgcHJvYmxlbSAobm90IGFuIG1tIGV4cGVydCwgcGxlYXNlIGRvCj4gPiBj
+b3JyZWN0IG1lKSAtIGxvb2tpbmcgYXQgdm1hcF9wYWdlc19yYW5nZSgpLCBmbHVzaF9jYWNoZV92
+bWFwKCkgaXNuJ3QKPiA+IGRlZmVycmVkIGFueXdheS4KPiAKPiBmbHVzaF9jYWNoZV92bWFwKCkg
+aXMgYWJvdXQgc3R1ZmYgbGlrZSBmbHVzaGluZyBkYXRhIGNhY2hlcyBvbgo+IGFyY2hpdGVjdHVy
+ZXMgd2l0aCB2aXJ0dWFsbHkgaW5kZXhlZCBjYWNoZXM7IHRoYXQgZG9lc24ndCBkbyBUTEIKPiBt
+YWludGVuYW5jZS4gV2hlbiB5b3UgbG9vayBmb3IgaXRzIGRlZmluaXRpb24gb24geDg2IG9yIGFy
+bTY0LCB5b3UnbGwKPiBzZWUgdGhhdCB0aGV5IHVzZSB0aGUgZ2VuZXJpYyBpbXBsZW1lbnRhdGlv
+biB3aGljaCBpcyBzaW1wbHkgYW4gZW1wdHkKPiBpbmxpbmUgZnVuY3Rpb24uCj4gCj4gPiBTbyBh
+ZnRlciB2bWFwcGluZyBzb21ldGhpbmcsIEkgd291bGRuJ3QgZXhwZWN0IGlzb2xhdGVkIENQVXMg
+dG8gaGF2ZQo+ID4gaW52YWxpZCBUTEIgZW50cmllcyBmb3IgdGhlIG5ld2x5IHZtYXBwZWQgcGFn
+ZS4KPiA+Cj4gPiBIb3dldmVyLCB1cG9uIHZ1bm1hcCdpbmcgc29tZXRoaW5nLCB0aGUgVExCIGZs
+dXNoIGlzIGRlZmVycmVkLCBhbmQgdGh1cwo+ID4gc3RhbGUgVExCIGVudHJpZXMgY2FuIGFuZCB3
+aWxsIHJlbWFpbiBvbiBpc29sYXRlZCBDUFVzLCB1cCB1bnRpbCB0aGV5Cj4gPiBleGVjdXRlIHRo
+ZSBkZWZlcnJlZCBmbHVzaCB0aGVtc2VsdmVzIChJT1cgZm9yIHRoZSBlbnRpcmUgZHVyYXRpb24g
+b2YgdGhlCj4gPiAiZGFuZ2VyIHpvbmUiKS4KPiA+Cj4gPiBEb2VzIHRoYXQgbWFrZSBzZW5zZT8K
+PiAKPiBUaGUgZGVzaWduIGlkZWEgd3J0IFRMQiBmbHVzaGVzIGluIHRoZSB2bWFwIGNvZGUgaXMg
+dGhhdCB5b3UgZG9uJ3QgZG8KPiBUTEIgZmx1c2hlcyB3aGVuIHlvdSB1bm1hcCBzdHVmZiBvciB3
+aGVuIHlvdSBtYXAgc3R1ZmYsIGJlY2F1c2UgZG9pbmcKPiBUTEIgZmx1c2hlcyBhY3Jvc3MgdGhl
+IGVudGlyZSBzeXN0ZW0gb24gZXZlcnkgdm1hcC92dW5tYXAgd291bGQgYmUgYQo+IGJpdCBjb3N0
+bHk7IGluc3RlYWQgeW91IGp1c3QgZG8gYmF0Y2hlZCBUTEIgZmx1c2hlcyBpbiBiZXR3ZWVuLCBp
+bgo+IF9fcHVyZ2Vfdm1hcF9hcmVhX2xhenkoKS4KPiAKPiBJbiBvdGhlciB3b3JkcywgdGhlIGJh
+c2ljIGlkZWEgaXMgdGhhdCB5b3UgY2FuIGtlZXAgY2FsbGluZyB2bWFwKCkgYW5kCj4gdnVubWFw
+KCkgYSBidW5jaCBvZiB0aW1lcyB3aXRob3V0IGV2ZXIgZG9pbmcgVExCIGZsdXNoZXMgdW50aWwg
+eW91IHJ1bgo+IG91dCBvZiB2aXJ0dWFsIG1lbW9yeSBpbiB0aGUgdm1hcCByZWdpb247IHRoZW4g
+eW91IGRvIG9uZSBiaWcgVExCCj4gZmx1c2gsIGFuZCBhZnRlcndhcmRzIHlvdSBjYW4gcmV1c2Ug
+dGhlIGZyZWUgdmlydHVhbCBhZGRyZXNzIHNwYWNlIGZvcgo+IG5ldyBhbGxvY2F0aW9ucyBhZ2Fp
+bi4KPiAKPiBTbyBpZiB5b3UgImRlZmVyIiB0aGF0IGJhdGNoZWQgVExCIGZsdXNoIGZvciBDUFVz
+IHRoYXQgYXJlIG5vdAo+IGN1cnJlbnRseSBydW5uaW5nIGluIHRoZSBrZXJuZWwsIEkgdGhpbmsg
+dGhlIGNvbnNlcXVlbmNlIGlzIHRoYXQgdGhvc2UKPiBDUFVzIG1heSBlbmQgdXAgd2l0aCBpbmNv
+aGVyZW50IFRMQiBzdGF0ZSBhZnRlciBhIHJlYWxsb2NhdGlvbiBvZiB0aGUKPiB2aXJ0dWFsIGFk
+ZHJlc3Mgc3BhY2UuCj4gCj4gQWN0dWFsbHksIEkgdGhpbmsgdGhpcyB3b3VsZCBtZWFuIHRoYXQg
+eW91ciBvcHRpbWl6YXRpb24gaXMgZGlzYWxsb3dlZAo+IGF0IGxlYXN0IG9uIGFybTY0IC0gSSdt
+IG5vdCBzdXJlIGFib3V0IHRoZSBleGFjdCB3b3JkaW5nLCBidXQgYXJtNjQKPiBoYXMgYSAiYnJl
+YWsgYmVmb3JlIG1ha2UiIHJ1bGUgdGhhdCBmb3JiaWRzIGNvbmZsaWN0aW5nIHdyaXRhYmxlCj4g
+YWRkcmVzcyB0cmFuc2xhdGlvbnMgb3Igc29tZXRoaW5nIGxpa2UgdGhhdC4KClllcywgdGhhdCB3
+b3VsZCBkZWZpbml0ZWx5IGJlIGEgcHJvYmxlbS4gVGhlcmUncyBhbHNvIHRoZSBtb3JlIG9idmlv
+dXMKaXNzdWUgdGhhdCB0aGUgQ25QICgiQ29tbW9uIG5vdCBQcml2YXRlIikgZmVhdHVyZSBvZiBz
+b21lIEFybSBDUFVzIG1lYW5zCnRoYXQgVExCIGVudHJpZXMgY2FuIGJlIHNoYXJlZCBiZXR3ZWVu
+IGNvcmVzLCBzbyB0aGUgd2hvbGUgaWRlYSBvZiB1c2luZwphIENQVSdzIGV4Y2VwdGlvbiBsZXZl
+bCB0byBwcmVkaWNhdGUgaW52YWxpZGF0aW9uIGlzIGZsYXdlZCBvbiBzdWNoIGEKc3lzdGVtLgoK
+V2lsbAoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGlu
+dXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0
+cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
