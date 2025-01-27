@@ -4,142 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB366C02188
-	for <linux-riscv@archiver.kernel.org>; Mon, 27 Jan 2025 11:17:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5BA6AC02188
+	for <linux-riscv@archiver.kernel.org>; Mon, 27 Jan 2025 13:51:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
-	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=eBE0GYpybfF54NmCIFk5jcLcCxueUtaaEfyQH7qFg0Y=; b=ZfvrObAkvrluQa
-	D7eSBxcUbGfSRgrFdeY9lDcJuMb3eGoBaKoGi8dzpYUpDtRtOPPMmUIYdvPNtilLpx2Ap5bPL4PW6
-	Qn6qUUZLDhb/fp+d3DUmCUeQ1B12/5nkY7EoRBHrD81/N67Cr8KIgW16jeaNb1cguAMXfpwXVH5q7
-	u3EHc+M+E39MXjjkVaz79uqLTzfiPfBYOC+aN9KAujDZ2YOOugHtszgww7Sp9XM6RbQmOrznGG8Ck
-	mimVEGM1RKMxoV5TkIK1NDcXX48E0TEJ6+wn+2JV+bTIkA4tWPTFso/pln7OcCfabOSlqFY1X0FD8
-	1tiTYSdB+pvhTz9o5oiw==;
+	List-Owner; bh=SOvLVbEB7ri8YMmoMQn0QGgkc2AOMv9O9rL/xM8fHeQ=; b=kwuBGfvr9DPCXT
+	+nggHi0cot/9JYMxTpjHiSYTqaW2JG1i9PIWbpEm8veWr9f87y0Rsw/1MLm1hzfqUaCDbS4F0pfHM
+	iUVUadMVCz0OPDubExIdoZDYxGWy6wlce5iE1gMw38l2/R5tUvRxOfNgNkyYj1Sfy9iqGcKWzI+xQ
+	azRXwzTyyMxr844AsfQAGKlrg+cITqyUl7ZjqtEHf0dMysvFnVM33EIHtrLVAkgmcvuB+SWZfxRjR
+	po8oQRhsCIQALoKnSdWpmI6wnILsteRqsOLNpsxwsu/xmtVoyc1U9qKB943A+WiU6Zh9hDYfur08T
+	jDsGWwTvfbmsQo+2+zEw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tcN7F-00000002CTI-1TNX;
-	Mon, 27 Jan 2025 11:17:17 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1tcPWR-00000002Q0b-2dVH;
+	Mon, 27 Jan 2025 13:51:27 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tcN7A-00000002CR5-11rk
-	for linux-riscv@lists.infradead.org;
-	Mon, 27 Jan 2025 11:17:14 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1737976629;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=0llw80E8nAjg6kMfEOzoPei4nanpbue7YefsY9gW++w=;
-	b=COsELM3dgMzqvxES3yiE/1iCKTW6mckRJV7B8/AVvEmfEs3SAt58Asoo0IgFILoNYu5k29
-	fBFSTjEQXJS4MWwknSPRBkiv8c2Xy/Cc+zdBfzbAHLOzoyM7Z/f6FRWzeb8BFXztoPRlie
-	qe9GX2oHEkEnaCuf0iM8NV5Gi4TtJI8=
-Received: from mail-wr1-f70.google.com (mail-wr1-f70.google.com
- [209.85.221.70]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-446-as3oM__9OrKBlwtFTYkzbA-1; Mon, 27 Jan 2025 06:17:08 -0500
-X-MC-Unique: as3oM__9OrKBlwtFTYkzbA-1
-X-Mimecast-MFC-AGG-ID: as3oM__9OrKBlwtFTYkzbA
-Received: by mail-wr1-f70.google.com with SMTP id ffacd0b85a97d-385ed79291eso2297427f8f.0
-        for <linux-riscv@lists.infradead.org>; Mon, 27 Jan 2025 03:17:07 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1737976627; x=1738581427;
-        h=content-transfer-encoding:mime-version:message-id:date:references
-         :in-reply-to:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=0llw80E8nAjg6kMfEOzoPei4nanpbue7YefsY9gW++w=;
-        b=a7kJnG35FzsJkIm4gpcYahWmarFrERNbUpIczgMiihfNUxAOVXQgqfksOsw6QLOrP+
-         4hO7aUaQfklIgoHK3R0x2FoddDoGI/F9IdlvXUmZQKbUtrnwKE52+BInquA80qkvW6kW
-         c2MsAPXVvncnlWIzzPwy5lVDXYX693bTLrFibTm1Vg/iFUkf6kVcfe6HXEEKb9GcQjOa
-         Dcj7f/K8f8ROo/lL3GjetCw5g3PQZQJqb+6GyTLcAGDdkElKrRThMbAFreFWU9cLhQeC
-         2Aj+XypWMKN1I/+pyksOqRBtV84b+LLqQsPu2daB+ucpfjY19wpBKVfhpNt449Vmx73L
-         E7Dw==
-X-Forwarded-Encrypted: i=1; AJvYcCUxdbm678hALv18ScLx4suae1rsABtYDFT2435m1WFVpucJIe6y3kLF0niRmWvUS6CNweea06kpolX3AA==@lists.infradead.org
-X-Gm-Message-State: AOJu0YwQCWvaWSnoSng06lQ9gSGnYetirjdl4Pr6WEJZKYuovlnHcIr6
-	dvYVs02wGVT50GzpQw2/ztdnwP55yATIP84j7YYTZ1BqufDNdSBPwH6bP0yo1ntYiuwtX1VeYWe
-	kScfuFEGEXHyRdMnRgRRm5Mvpd+9tA3vqmv7snx7sVHPUSKavEsyLMUCvVt+uSCdMPQ==
-X-Gm-Gg: ASbGnctXv5Hf+eZzptJnlLkRmdHsrARhko7J/gn8oQ8WJoSHAFCzBpZPcK3CwxXTRDC
-	ZTYxXgqAr8KJejs2T1/sToJInRF3oTXFfMjHfeagIFck7ogAkl4ZjsLkxPIJ1EspLRSywv4TPmc
-	xwwwLNae3CN/vNkVT8UFUdo62NSUUubCU23I0yfozMO5tX0SOElE8Qtjfx4uMHYccyiE2umPB1H
-	hjirCos5y8ESskh0lmaq1UwjsrSyS6n2OwSKSo03cf2vheVH5ls/ojGvib31PQ0sL9Q6GQC7nsM
-	3vHEW51NBCYI7CCCpRAXVSNsgiGGNyw6wkWpvrpnc9k5/hlrGKAd4q4n2sMv0HIiag==
-X-Received: by 2002:a05:600c:6d46:b0:434:92f8:54a8 with SMTP id 5b1f17b1804b1-438bcfd440dmr101053155e9.0.1737976626880;
-        Mon, 27 Jan 2025 03:17:06 -0800 (PST)
-X-Google-Smtp-Source: AGHT+IE5ZBkhc7Mo57S55YqkWjUaKcE0DvJ7v1EsH72AA8CbL1E0vvN/eQHzrpNG4sI4i71C/vJTUQ==
-X-Received: by 2002:a05:600c:6d46:b0:434:92f8:54a8 with SMTP id 5b1f17b1804b1-438bcfd440dmr101052395e9.0.1737976626396;
-        Mon, 27 Jan 2025 03:17:06 -0800 (PST)
-Received: from vschneid-thinkpadt14sgen2i.remote.csb (213-44-141-166.abo.bbox.fr. [213.44.141.166])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-438bd48a145sm128093025e9.16.2025.01.27.03.17.03
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 27 Jan 2025 03:17:05 -0800 (PST)
-From: Valentin Schneider <vschneid@redhat.com>
-To: Frederic Weisbecker <frederic@kernel.org>
-Cc: linux-kernel@vger.kernel.org, x86@kernel.org,
- virtualization@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
- loongarch@lists.linux.dev, linux-riscv@lists.infradead.org,
- linux-perf-users@vger.kernel.org, xen-devel@lists.xenproject.org,
- kvm@vger.kernel.org, linux-arch@vger.kernel.org, rcu@vger.kernel.org,
- linux-hardening@vger.kernel.org, linux-mm@kvack.org,
- linux-kselftest@vger.kernel.org, bpf@vger.kernel.org,
- bcm-kernel-feedback-list@broadcom.com, Juergen Gross <jgross@suse.com>,
- Ajay Kaher <ajay.kaher@broadcom.com>, Alexey Makhalov
- <alexey.amakhalov@broadcom.com>, Russell King <linux@armlinux.org.uk>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Huacai Chen <chenhuacai@kernel.org>, WANG Xuerui <kernel@xen0n.name>, Paul
- Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>,
- Albert Ou <aou@eecs.berkeley.edu>, Thomas Gleixner <tglx@linutronix.de>,
- Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, Dave
- Hansen <dave.hansen@linux.intel.com>, "H. Peter Anvin" <hpa@zytor.com>,
- Peter Zijlstra <peterz@infradead.org>, Arnaldo Carvalho de Melo
- <acme@kernel.org>, Namhyung Kim <namhyung@kernel.org>, Mark Rutland
- <mark.rutland@arm.com>, Alexander Shishkin
- <alexander.shishkin@linux.intel.com>, Jiri Olsa <jolsa@kernel.org>, Ian
- Rogers <irogers@google.com>, Adrian Hunter <adrian.hunter@intel.com>,
- "Liang, Kan" <kan.liang@linux.intel.com>, Boris Ostrovsky
- <boris.ostrovsky@oracle.com>, Josh Poimboeuf <jpoimboe@kernel.org>, Pawan
- Gupta <pawan.kumar.gupta@linux.intel.com>, Sean Christopherson
- <seanjc@google.com>, Paolo Bonzini <pbonzini@redhat.com>, Andy Lutomirski
- <luto@kernel.org>, Arnd Bergmann <arnd@arndb.de>, "Paul E. McKenney"
- <paulmck@kernel.org>, Jason Baron <jbaron@akamai.com>, Steven Rostedt
- <rostedt@goodmis.org>, Ard Biesheuvel <ardb@kernel.org>, Neeraj Upadhyay
- <neeraj.upadhyay@kernel.org>, Joel Fernandes <joel@joelfernandes.org>,
- Josh Triplett <josh@joshtriplett.org>, Boqun Feng <boqun.feng@gmail.com>,
- Uladzislau Rezki <urezki@gmail.com>, Mathieu Desnoyers
- <mathieu.desnoyers@efficios.com>, Lai Jiangshan <jiangshanlai@gmail.com>,
- Zqiang <qiang.zhang1211@gmail.com>, Juri Lelli <juri.lelli@redhat.com>,
- Clark Williams <williams@redhat.com>, Yair Podemsky <ypodemsk@redhat.com>,
- Tomas Glozar <tglozar@redhat.com>, Vincent Guittot
- <vincent.guittot@linaro.org>, Dietmar Eggemann <dietmar.eggemann@arm.com>,
- Ben Segall <bsegall@google.com>, Mel Gorman <mgorman@suse.de>, Kees Cook
- <kees@kernel.org>, Andrew Morton <akpm@linux-foundation.org>, Christoph
- Hellwig <hch@infradead.org>, Shuah Khan <shuah@kernel.org>, Sami Tolvanen
- <samitolvanen@google.com>, Miguel Ojeda <ojeda@kernel.org>, Alice Ryhl
- <aliceryhl@google.com>, "Mike Rapoport (Microsoft)" <rppt@kernel.org>,
- Samuel Holland <samuel.holland@sifive.com>, Rong Xu <xur@google.com>,
- Nicolas Saenz Julienne <nsaenzju@redhat.com>, Geert Uytterhoeven
- <geert@linux-m68k.org>, Yosry Ahmed <yosryahmed@google.com>, "Kirill A.
- Shutemov" <kirill.shutemov@linux.intel.com>, "Masami Hiramatsu (Google)"
- <mhiramat@kernel.org>, Jinghao Jia <jinghao7@illinois.edu>, Luis
- Chamberlain <mcgrof@kernel.org>, Randy Dunlap <rdunlap@infradead.org>,
- Tiezhu Yang <yangtiezhu@loongson.cn>
-Subject: Re: [PATCH v4 22/30] context_tracking: Exit CT_STATE_IDLE upon
- irq/nmi entry
-In-Reply-To: <Z5A6NPqVGoZ32YsN@pavilion.home>
-References: <20250114175143.81438-1-vschneid@redhat.com>
- <20250114175143.81438-23-vschneid@redhat.com>
- <Z5A6NPqVGoZ32YsN@pavilion.home>
-Date: Mon, 27 Jan 2025 12:17:03 +0100
-Message-ID: <xhsmh5xm0pkuo.mognet@vschneid-thinkpadt14sgen2i.remote.csb>
+	id 1tcPV3-00000002Pe3-0nX3;
+	Mon, 27 Jan 2025 13:50:03 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 554B0A4154E;
+	Mon, 27 Jan 2025 13:48:13 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 881ACC4CED2;
+	Mon, 27 Jan 2025 13:49:59 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1737985800;
+	bh=laZX1iWKmTFe6EBXe6dQ6V5dBHky9feUPubV8bbHYy0=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=ITreSYYkYqJo0yzT/NmeCNaU8ylN9fF82uixbVQhbAMNhn/x1ksvsdeN2BZIjx7Av
+	 6jRzLOfnz1KOiZ8BN/+a6yzSKjX86nOzP6ewnKK12LbyYoLRgr6MitIVZMs+Q9nRjt
+	 1O56sOuQWf9/oW9JBeL1K1Ep9SPnbGRY0gAqf1BfWdrmsV6P6rbrAzrEzJaWATIpCg
+	 PxgyGHOSh+1Dp+na/sGNdWcGsgzNCRs4/nnMHS16Kt8UOkwJO9cYsDiIOKruHAZkDs
+	 tuJVwo0MPlNeiRHuQkLVgJEWRQ8mSboCfx8PwGZonQ0+bdJkEjI8BLPDWS5oZchNDY
+	 iBi9Q4ViZ4cfA==
+Date: Mon, 27 Jan 2025 14:49:55 +0100
+From: Joel Granados <joel.granados@kernel.org>
+To: Ard Biesheuvel <ardb@kernel.org>
+Cc: Alexander Gordeev <agordeev@linux.ibm.com>, 
+	Thomas =?utf-8?Q?Wei=C3=9Fschuh?= <linux@weissschuh.net>, Kees Cook <kees@kernel.org>, 
+	Luis Chamberlain <mcgrof@kernel.org>, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org, 
+	linux-s390@vger.kernel.org, linux-crypto@vger.kernel.org, 
+	openipmi-developer@lists.sourceforge.net, intel-gfx@lists.freedesktop.org, dri-devel@lists.freedesktop.org, 
+	intel-xe@lists.freedesktop.org, linux-hyperv@vger.kernel.org, linux-rdma@vger.kernel.org, 
+	linux-raid@vger.kernel.org, linux-scsi@vger.kernel.org, linux-serial@vger.kernel.org, 
+	xen-devel@lists.xenproject.org, linux-aio@kvack.org, linux-fsdevel@vger.kernel.org, 
+	netfs@lists.linux.dev, codalist@coda.cs.cmu.edu, linux-mm@kvack.org, 
+	linux-nfs@vger.kernel.org, ocfs2-devel@lists.linux.dev, fsverity@lists.linux.dev, 
+	linux-xfs@vger.kernel.org, io-uring@vger.kernel.org, bpf@vger.kernel.org, 
+	kexec@lists.infradead.org, linux-trace-kernel@vger.kernel.org, 
+	linux-hardening@vger.kernel.org, apparmor@lists.ubuntu.com, linux-security-module@vger.kernel.org, 
+	keyrings@vger.kernel.org, Song Liu <song@kernel.org>, 
+	"Steven Rostedt (Google)" <rostedt@goodmis.org>, "Martin K. Petersen" <martin.petersen@oracle.com>, 
+	"Darrick J. Wong" <djwong@kernel.org>, Jani Nikula <jani.nikula@intel.com>, 
+	Corey Minyard <cminyard@mvista.com>
+Subject: Re: Re: Re: [PATCH v2] treewide: const qualify ctl_tables where
+ applicable
+Message-ID: <f4lfo2fb7ajogucsvisfd5sg2avykavmkizr6ycsllcrco4mo3@qt2zx4zp57zh>
+References: <20250110-jag-ctl_table_const-v2-1-0000e1663144@kernel.org>
+ <Z4+jwDBrZNRgu85S@li-008a6a4c-3549-11b2-a85c-c5cc2836eea2.ibm.com>
+ <nslqrapp4v3rknjgtfk4cg64ha7rewrrg24aslo2e5jmxfwce5@t4chrpuk632k>
+ <CAMj1kXEZPe8zk7s67SADK9wVH3cfBup-sAZSC6_pJyng9QT7aw@mail.gmail.com>
 MIME-Version: 1.0
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: W4H_02UyaoIelFCANIh2fWvAfbxDeyR5afT5Yx-E90w_1737976627
-X-Mimecast-Originator: redhat.com
+Content-Disposition: inline
+In-Reply-To: <CAMj1kXEZPe8zk7s67SADK9wVH3cfBup-sAZSC6_pJyng9QT7aw@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250127_031712_366650_76F54F83 
-X-CRM114-Status: GOOD (  21.05  )
+X-CRM114-CacheID: sfid-20250127_055001_385228_4A289846 
+X-CRM114-Status: GOOD (  32.41  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -151,51 +86,79 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gMjIvMDEvMjUgMDE6MjIsIEZyZWRlcmljIFdlaXNiZWNrZXIgd3JvdGU6Cj4gTGUgVHVlLCBK
-YW4gMTQsIDIwMjUgYXQgMDY6NTE6MzVQTSArMDEwMCwgVmFsZW50aW4gU2NobmVpZGVyIGEgw6lj
-cml0IDoKPj4gY3Rfbm1pX3tlbnRlciwgZXhpdH0oKSBvbmx5IHRvdWNoZXMgdGhlIFJDVSB3YXRj
-aGluZyBjb3VudGVyIGFuZCBkb2Vzbid0Cj4+IG1vZGlmeSB0aGUgYWN0dWFsIENUIHN0YXRlIHBh
-cnQgY29udGV4dF90cmFja2luZy5zdGF0ZS4gVGhpcyBtZWFucyB0aGF0Cj4+IHVwb24gcmVjZWl2
-aW5nIGFuIElSUSB3aGVuIGlkbGUsIHRoZSBDVF9TVEFURV9JRExFLT5DVF9TVEFURV9LRVJORUwK
-Pj4gdHJhbnNpdGlvbiBvbmx5IGhhcHBlbnMgaW4gY3RfaWRsZV9leGl0KCkuCj4+Cj4+IE9uZSBj
-YW4gbm90ZSB0aGF0IGN0X25taV9lbnRlcigpIGNhbiBvbmx5IGV2ZXIgYmUgZW50ZXJlZCB3aXRo
-IHRoZSBDVCBzdGF0ZQo+PiBhcyBlaXRoZXIgQ1RfU1RBVEVfS0VSTkVMIG9yIENUX1NUQVRFX0lE
-TEUsIGFzIGFuIElSUS9OTUkgaGFwcGVubmluZyBpbiB0aGUKPj4gQ1RfU1RBVEVfVVNFUiBvciBD
-VF9TVEFURV9HVUVTVCBzdGF0ZXMgd2lsbCBiZSByb3V0ZWQgZG93biB0byBjdF91c2VyX2V4aXQo
-KS4KPgo+IEFyZSB5b3Ugc3VyZT8gQW4gTk1JIGNhbiBmaXJlIGJldHdlZW4gZ3Vlc3Rfc3RhdGVf
-ZW50ZXJfaXJxb2ZmKCkgYW5kCj4gX19zdm1fdmNwdV9ydW4oKS4KClVyZ2gsIHlvdSdyZSBxdWl0
-ZSByaWdodC4KCj4gQW5kIE5NSXMgaW50ZXJydXB0aW5nIHVzZXJzcGFjZSBkb24ndCBjYWxsCj4g
-ZW50ZXJfZnJvbV91c2VyX21vZGUoKS4gSW4gZmFjdCB0aGV5IGRvbid0IGNhbGwgaXJxZW50cnlf
-ZW50ZXJfZnJvbV91c2VyX21vZGUoKQo+IGxpa2UgcmVndWxhciBJUlFzIGJ1dCBpcnFlbnRyeV9u
-bWlfZW50ZXIoKSBpbnN0ZWFkLiBXZWxsIHRoYXQncyBmb3IgYXJjaHMKPiBpbXBsZW1lbnRpbmcg
-Y29tbW9uIGVudHJ5IGNvZGUsIEkgY2FuJ3Qgc3BlYWsgZm9yIHRoZSBvdGhlcnMuCj4KClRoYXQg
-SSBkaWRuJ3QgcmVhbGl6ZSwgc28gdGhhbmsgeW91IGZvciBwb2ludGluZyBpdCBvdXQuIEhhdmlu
-ZyBhbm90aGVyCmxvb2sgbm93LCBJIG1pc3Rvb2sgREVGSU5FX0lEVEVOVFJZX1JBVyhleGNfaW50
-MykgZm9yIHRoZSBnZW5lcmFsIGNhc2UKd2hlbiBpdCByZWFsbHkgaXNuJ3QgOigKCj4gVW5pZnlp
-bmcgdGhlIGJlaGF2aW91ciBiZXR3ZWVuIHVzZXIgYW5kIGlkbGUgc3VjaCB0aGF0IHRoZSBJUlFz
-L05NSXMgZXhpdCB0aGUKPiBDVF9TVEFURSBjYW4gYmUgaW50ZXJlc3RpbmcgYnV0IEkgZmVhciB0
-aGlzIG1heSBub3QgY29tZSBmb3IgZnJlZS4gWW91IHdvdWxkCj4gbmVlZCB0byBzYXZlIHRoZSBv
-bGQgc3RhdGUgb24gSVJRL05NSSBlbnRyeSBhbmQgcmVzdG9yZSBpdCBvbiBleGl0Lgo+CgpUaGF0
-J3Mgd2hhdCBJIHRyaWVkIHRvIGF2b2lkLCBidXQgaXQgc291bmRzIGxpa2UgdGhlcmUncyBubyBu
-aWNlIHdheSBhcm91bmQgaXQuCgo+IERvIHdlIHJlYWxseSBuZWVkIGl0Pwo+CgpXZWxsLCBteSBw
-cm9ibGVtIHdpdGggbm90IGRvaW5nIElETEUtPktFUk5FTCB0cmFuc2l0aW9ucyBvbiBJUlEvTk1J
-IGlzIHRoYXQKdGhpcyBsZWFkcyB0aGUgSVBJIGRlZmVycmFsIGxvZ2ljIHRvIG9ic2VydmUgYSB0
-ZWNobmljYWxseS1vdXQtb2Ytc3luYyBzYXRlCmZvciByZW1vdGUgQ1BVcy4gQ29uc2lkZXI6Cgog
-IENQVXggICAgICAgICAgICBDUFV5CiAgICAgICAgICAgICAgICAgICAgc3RhdGUgOj0gQ1RfU1RB
-VEVfSURMRQogICAgICAgICAgICAgICAgICAgIC4uLgogICAgICAgICAgICAgICAgICAgIH4+SVJR
-CiAgICAgICAgICAgICAgICAgICAgLi4uCiAgICAgICAgICAgICAgICAgICAgY3Rfbm1pX2VudGVy
-KCkKICAgICAgICAgICAgICAgICAgICBbaW4gdGhlIGtlcm5lbCBwcm9wZXIgYnkgbm93XQoKICB0
-ZXh0X3Bva2VfYnBfYmF0Y2goKQogICAgY3Rfc2V0X2NwdV93b3JrKENQVXksIENUX1dPUktfU1lO
-QykKICAgICAgUkVBRCBDUFV5IGN0LT5zdGF0ZQogICAgICBgLT4gQ1RfSURMRV9TVEFURQogICAg
-ICBgLT4gZGVmZXIgSVBJCgoKSSB0aG91Z2h0IHRoaXMgbWVhbnQgSSB3b3VsZCBuZWVkIHRvIHRo
-cm93IG91dCB0aGUgImRlZmVyIElQSXMgaWYgQ1BVIGlzCmlkbGUiIHBhcnQsIGJ1dCBBSVVJIHRo
-aXMgYWxzbyBhZmZlY3RzIENUX1NUQVRFX1VTRVIgYW5kIENUX1NUQVRFX0dVRVNULAp3aGljaCBp
-cyBhIGJ1bW1lciA6KAoKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRl
-YWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgt
-cmlzY3YK
+On Wed, Jan 22, 2025 at 01:41:35PM +0100, Ard Biesheuvel wrote:
+> On Wed, 22 Jan 2025 at 13:25, Joel Granados <joel.granados@kernel.org> wrote:
+> >
+> > On Tue, Jan 21, 2025 at 02:40:16PM +0100, Alexander Gordeev wrote:
+> > > On Fri, Jan 10, 2025 at 03:16:08PM +0100, Joel Granados wrote:
+> > >
+> > > Hi Joel,
+> > >
+> > > > Add the const qualifier to all the ctl_tables in the tree except for
+> > > > watchdog_hardlockup_sysctl, memory_allocation_profiling_sysctls,
+> > > > loadpin_sysctl_table and the ones calling register_net_sysctl (./net,
+> > > > drivers/inifiniband dirs). These are special cases as they use a
+> > > > registration function with a non-const qualified ctl_table argument or
+> > > > modify the arrays before passing them on to the registration function.
+> > > >
+> > > > Constifying ctl_table structs will prevent the modification of
+> > > > proc_handler function pointers as the arrays would reside in .rodata.
+> > > > This is made possible after commit 78eb4ea25cd5 ("sysctl: treewide:
+> > > > constify the ctl_table argument of proc_handlers") constified all the
+> > > > proc_handlers.
+> > >
+> > > I could identify at least these occurences in s390 code as well:
+> > Hey Alexander
+> >
+> > Thx for bringing these to my attention. I had completely missed them as
+> > the spatch only deals with ctl_tables outside functions.
+> >
+> > Short answer:
+> > These should not be included in the current patch because they are a
+> > different pattern from how sysctl tables are usually used. So I will not
+> > include them.
+> >
+> > With that said, I think it might be interesting to look closer at them
+> > as they seem to be complicating the proc_handler (I have to look at them
+> > closer).
+> >
+> > I see that they are defining a ctl_table struct within the functions and
+> > just using the data (from the incoming ctl_table) to forward things down
+> > to proc_do{u,}intvec_* functions. This is very odd and I have only seen
+> > it done in order to change the incoming ctl_table (which is not what is
+> > being done here).
+> >
+> > I will take a closer look after the merge window and circle back with
+> > more info. Might take me a while as I'm not very familiar with s390
+> > code; any additional information on why those are being used inside the
+> > functions would be helpfull.
+> >
+> 
+> Using const data on the stack is not as useful, because the stack is
+> always mapped writable.
+> 
+> Global data structures marked 'const' will be moved into an ELF
+> section that is typically mapped read-only in its entirely, and so the
+> data cannot be modified by writing to it directly. No such protection
+> is possible for the stack, and so the constness there is only enforced
+> at compile time.
+I completely agree with you. No reason to use const within those
+functions. But why define those ctl_tables in function to begin with.
+Can't you just use the ones that are defined outside the functions?
+
+Best
+
+
+-- 
+
+Joel Granados
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
