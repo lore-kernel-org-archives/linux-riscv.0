@@ -4,83 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C7CF2C02188
-	for <linux-riscv@archiver.kernel.org>; Mon, 27 Jan 2025 16:38:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B3017C02188
+	for <linux-riscv@archiver.kernel.org>; Mon, 27 Jan 2025 16:40:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=pObNDanqbxEPp63vO+Iia4G2DuAqdmcQ5ac44qv9KS0=; b=HqKJDPY6D9VQIJ
-	xtRLCoNxv0PgVwrQnO8DZofOpJjOgeS0oy/lw+3gLd4lzJ10TaiHWN7YwGAqcUue31v15BBen5LT0
-	HgR1x7Iqdi0V4TJG+CCJsgFJSF3lGL/uPO+cRI0qEk8mrzyg/5c1SaVk20hBTk3Ib3U5i4FgyXhSe
-	wlF206Ac1Td6BRuNwszAjTGStM9zKcdp0isSHEQyHdSa9UM6FM+1B1s8LpoaKagfXQ81Ggo6yt57B
-	XLSo1rpjP3/J1F76Zh2k7QgLZPRqB1I/NBarYx1j36yN3MV9kdiWlzE1ahqXvHxgQy5GA4AP71klb
-	J3zQ9tuZ1NPt5tYVouCA==;
+	List-Owner; bh=we+4HDx46fO6zJBpmoF1XYZ5BiA2F2eSCgZ61OjtQ1I=; b=yD/bywbmz2rERj
+	cu0TXiiowINiVGhX3Ra6ceKm1A4btFP4OVGqBQ/oWVS5XLh41YFELWs7FH5fb6t+Q+WVOFfUeI7b3
+	UMDBNHcP2AjOyBlzx28vvF5eC2c8O6O02f51oJdQmCdb4CPE9DNA0uHyJtUlgyXu/g5mtwPtD20wD
+	+B2XGb+po0aeHL85VnHZk7GaNTfHthAo0xl9e3RhZjx0eEhFnmplq109fu7AB8YHHhWgiu8kTUgid
+	gsLo11OGl1LHWQRLvQvLaPyVUZ+LTywcmD48O7mV7jxwnnU3vkTxF92TjMELsSjPZb2RNbvAK3wCx
+	4MCrkZIV9G+hmqobxg9Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tcS7q-00000002niA-0jNf;
-	Mon, 27 Jan 2025 16:38:14 +0000
-Received: from mail-pj1-x1034.google.com ([2607:f8b0:4864:20::1034])
+	id 1tcSAB-00000002nxU-1pnv;
+	Mon, 27 Jan 2025 16:40:39 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tcS7n-00000002nhg-1VMe
-	for linux-riscv@lists.infradead.org;
-	Mon, 27 Jan 2025 16:38:12 +0000
-Received: by mail-pj1-x1034.google.com with SMTP id 98e67ed59e1d1-2ee76befe58so7998863a91.2
-        for <linux-riscv@lists.infradead.org>; Mon, 27 Jan 2025 08:38:10 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bytedance.com; s=google; t=1737995890; x=1738600690; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=HMOdLWgzruCtPh1k1RLn1fjsT+4UwMCnqF4YXgLhyqY=;
-        b=jHtRQC4ls+frs4olp6Y4DQUs8UUa+CvJy1/pMIkBvZxS8rfbQq/nyEK/F9g1fIbYvp
-         vDnlnARy3svujed+KpzhOp8oJPQEzorCEGN2zTzUCr3pr1ZHCH5j1WmE/lKzAaPIB35p
-         OFxr3reLeJeaO1gUr9evrGeuuDjYqcvo1x9Su5MKyDuHG3Su5UdUIMrVIU5R2Oeszl5z
-         k1dcfO/mGou/3mgaeidkiV8dwQAHfyLGMXD1OdrNe/ykQigsYKklbSOnWrtiurLd94ZL
-         JRrDf7pRildOHDZtyFpSOJhF7tI4UIJ68Wgutbr0Ej1uggsedA1QCJ6NWvEbHCsI4dbI
-         sYUg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1737995890; x=1738600690;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=HMOdLWgzruCtPh1k1RLn1fjsT+4UwMCnqF4YXgLhyqY=;
-        b=Hcn4DGbspYXkSEsIRP7s0mgN2R7ukQg2mOM37vvHDmNoD+M27DIVDTivK1ex9bIkUH
-         hBSAPpvYIUgxk88XGjk/c9U988FnIq/ObSmV9tE7oeRb/jDTjY9f7MCZ0bG2IvnUY8w5
-         iwbK5PI4OBH6fOw7m9v8/aLlcpdg2e84XR/wvAO3G4B5UvRqC2nFlLNqeXOSAJYon1DW
-         TOB5cgXi9RmS03DYUgU9Lsbmvysfu5aNMpOXJm3GN3zaI/frjRgj4t/D+9oPae9H993H
-         DoyvLKkygAqfXKABDhxUeomSeEGicrtG7DsED2bdBgVGKvBzl0x+EEzsjnWIHnDRbTPX
-         acDg==
-X-Forwarded-Encrypted: i=1; AJvYcCUxPE50jvFLSs3Y2NYgHnh9Psxa91EYSQ9/3cSX0X8PWOZBKyT1dj+eotxGmw568duyzXkCbMjmHEpctA==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxwe6TN9+AxSbP4u7rU2Zqod4WGoneu7zCksC5LsaOzIL5HIV8i
-	Qw8aJeooxMOacgmyVyM4JEAcWtSNSQ1dEQCPy57T3Rsy4bT/AgL6VgTTvIcBsfvSOKT1Zi+ixq7
-	2k9WD4CtCPvAX4hNsBWy9yd75TCpk81TdcirmFQ==
-X-Gm-Gg: ASbGnctD1pNUzdYc2k6zyGMGBnzXT0Yp2L1aHBgujvQ95b52WHQnHd6HUlhPLsqK0nx
-	RFiQGkEZYoynYwj93p1kFCRl1+Ncmp2JBuXpiA46pjXGqFltVP4M7vw8xFR/QDX3m
-X-Google-Smtp-Source: AGHT+IFRYQDgGAlxpuyP6F5Z7RaISZNaZ2D+OJF5GWa9/zTfvuVdKObwEF+LucM85N/3Px+2rORXWhlhlMLAJb/FB3o=
-X-Received: by 2002:a17:90b:3d4e:b0:2ee:7870:8835 with SMTP id
- 98e67ed59e1d1-2f782d97f47mr67401510a91.33.1737995880453; Mon, 27 Jan 2025
- 08:38:00 -0800 (PST)
+	id 1tcS8o-00000002nqw-3RE7;
+	Mon, 27 Jan 2025 16:39:16 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 059E35C1178;
+	Mon, 27 Jan 2025 16:38:34 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D40C3C4CED2;
+	Mon, 27 Jan 2025 16:39:09 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1737995953;
+	bh=fmZlVwU6uR12bQbSxMQf1gRYU1EYKK1u0Z90fzYu2zc=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=KjbXtwYylY77rIpZgK3aGfJ56B1/5Xw37p2eUDiAEdIfdrEuMSNA4Cm5qPP4ZRW0v
+	 NPofe0Y4Rjf9IIo9dFFq4V/yQY8fpvCThe7/ZMffHtIvOIwRUFgf09d7RS5v4mKh8k
+	 vonNl59vSBwaT8RKyBTUXlEOL0Jjo2wwyyjaE2pJrKji8YizjYv69Le9B0XMksAjl5
+	 O+jbchyBHlqeiCTTnqxadWhPuV0eI63+E53B3F8rRzs+vg7nCyQvA/Hn9SzDgbAyx2
+	 HcfPYVwKfTpHiwfJAN8b7bE1E31SKSXV9eEcsPxzf+sdAph0HPbgBYkWigadPBVumj
+	 e/W2scjh0n5wA==
+Date: Mon, 27 Jan 2025 16:39:06 +0000
+From: Will Deacon <will@kernel.org>
+To: Eliav Farber <farbere@amazon.com>
+Cc: linux@armlinux.org.uk, catalin.marinas@arm.com, mpe@ellerman.id.au,
+	npiggin@gmail.com, christophe.leroy@csgroup.eu, naveen@kernel.org,
+	maddy@linux.ibm.com, paul.walmsley@sifive.com, palmer@dabbelt.com,
+	aou@eecs.berkeley.edu, tglx@linutronix.de,
+	akpm@linux-foundation.org, bhe@redhat.com, hbathini@linux.ibm.com,
+	sourabhjain@linux.ibm.com, adityag@linux.ibm.com,
+	songshuaishuai@tinylab.org, takakura@valinux.co.jp,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
+	jonnyc@amazon.com
+Subject: Re: [PATCH v6 1/2] kexec: Consolidate
+ machine_kexec_mask_interrupts() implementation
+Message-ID: <20250127163905.GC25757@willie-the-truck>
+References: <20241204142003.32859-1-farbere@amazon.com>
+ <20241204142003.32859-2-farbere@amazon.com>
 MIME-Version: 1.0
-References: <20250127093846.98625-1-luxu.kernel@bytedance.com> <a7d9b0e5-7ef6-457e-ace6-c56e745c3150@app.fastmail.com>
-In-Reply-To: <a7d9b0e5-7ef6-457e-ace6-c56e745c3150@app.fastmail.com>
-From: Xu Lu <luxu.kernel@bytedance.com>
-Date: Tue, 28 Jan 2025 00:37:49 +0800
-X-Gm-Features: AWEUYZmDP1k6aWrWrlOgQTMC7s5NBiXPrHUqeHPlh8HrZuvgn9WCfnSSwa7uIx4
-Message-ID: <CAPYmKFtx6GNE5r-R33aiHeF-qgFESH0sbsorttjJ88wTL8yr9w@mail.gmail.com>
-Subject: Re: [External] Re: [PATCH RESEND] irqchip: riscv: Order normal writes
- and IPI writes
-To: Arnd Bergmann <arnd@arndb.de>
-Cc: Thomas Gleixner <tglx@linutronix.de>, Anup Patel <anup@brainfault.org>, 
-	Charlie Jenkins <charlie@rivosinc.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, lihangjing@bytedance.com, 
-	Xie Yongji <xieyongji@bytedance.com>, linux-riscv@lists.infradead.org, 
-	linux-kernel@vger.kernel.org
+Content-Disposition: inline
+In-Reply-To: <20241204142003.32859-2-farbere@amazon.com>
+User-Agent: Mutt/1.10.1 (2018-07-13)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250127_083811_588126_8959E1B0 
-X-CRM114-Status: GOOD (  21.03  )
+X-CRM114-CacheID: sfid-20250127_083914_946604_F237D203 
+X-CRM114-Status: GOOD (  22.22  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,47 +77,122 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gVHVlLCBKYW4gMjgsIDIwMjUgYXQgMTI6MjPigK9BTSBBcm5kIEJlcmdtYW5uIDxhcm5kQGFy
-bmRiLmRlPiB3cm90ZToKPgo+IE9uIE1vbiwgSmFuIDI3LCAyMDI1LCBhdCAxMDozOCwgWHUgTHUg
-d3JvdGU6Cj4gPiBSSVNDLVYgZGlzdGluZ3Vpc2hlcyBiZXR3ZWVuIG5vcm1hbCBtZW1vcnkgYWNj
-ZXNzZXMgYW5kIGRldmljZSBJL08gYW5kCj4gPiB1c2VzIEZFTkNFIGluc3RydWN0aW9uIHRvIG9y
-ZGVyIHRoZW0gYXMgdmlld2VkIGJ5IG90aGUgUklTQy1WIGhhcnRzIGFuZAo+ID4gZXh0ZXJuYWwg
-ZGV2aWNlcyBvciBjb3Byb2Nlc3NvcnMuIFRoZSBGRU5DRSBpbnN0cnVjdGlvbiBjYW4gb3JkZXIg
-YW55Cj4gPiBjb21iaW5hdGlvbiBvZiBkZXZpY2UgaW5wdXQoSSksIGRldmljZSBvdXRwdXQoTyks
-IG1lbW9yeSByZWFkcyhSKSBhbmQKPiA+IG1lbW9yeSB3cml0ZXMoVykuIEZvciBleGFtcGxlLCAn
-ZmVuY2UgdywgbycgY2FuIGJlIHVzZWQgdG8gZW5zdXJlIGFsbAo+ID4gbWVtb3J5IHdyaXRlcyBm
-cm9tIGluc3RydWN0aW9ucyBwcmVjZWRpbmcgdGhlIEZFTkNFIGluc3RydWN0aW9uIGFwcGVhcgo+
-ID4gZWFybGllciBpbiB0aGUgZ2xvYmFsIG1lbW9yeSBvcmRlciB0aGFuIGRldmljZSBvdXRwdXQg
-d3JpdGVzIGZyb20KPiA+IGluc3RydWN0aW9ucyBhZnRlciB0aGUgRkVOQ0UgaW5zdHJ1Y3Rpb24u
-Cj4KPiBUaGVyZSBpcyBub3RoaW5nIHJpc2MtdiBzcGVjaWZpYyBpbiBoZXJlIHJlYWxseSwgaXQn
-cyBqdXN0IGEgYnVnCj4gaW4gdGhlIGRyaXZlcjogd3JpdGVsKCkgbWVhbnMgYWNjZXNzIHRoZSBt
-bWlvIHJlZ2lzdGVyIHdpdGggYXBwcm9wcmlhdGUKPiBiYXJyaWVycywgd2hpbGUgd3JpdGVsX3Jl
-bGF4ZWQoKSBpcyBhIHNwZWNpYWwgY2FzZSB0aGF0IHNob3VsZAo+IG9ubHkgZXZlciBiZSB1c2Vk
-IGlmIGEgcGFydGljdWxhciBmdW5jdGlvbiBpcyBzZW5zaXRpdmUgdG8KPiBwZXJmb3JtYW5jZSBh
-bmQgbmV2ZXIgbmVlZHMgdG8gYmUgc2VyaWFsaXplZC4KPgo+ID4gZGlmZiAtLWdpdCBhL2RyaXZl
-cnMvaXJxY2hpcC9pcnEtdGhlYWQtYzkwMC1hY2xpbnQtc3N3aS5jCj4gPiBiL2RyaXZlcnMvaXJx
-Y2hpcC9pcnEtdGhlYWQtYzkwMC1hY2xpbnQtc3N3aS5jCj4gPiBpbmRleCBiMGUzNjZhZGU0Mjcu
-LjhmZjZlN2ExMzYzYiAxMDA2NDQKPiA+IC0tLSBhL2RyaXZlcnMvaXJxY2hpcC9pcnEtdGhlYWQt
-YzkwMC1hY2xpbnQtc3N3aS5jCj4gPiArKysgYi9kcml2ZXJzL2lycWNoaXAvaXJxLXRoZWFkLWM5
-MDAtYWNsaW50LXNzd2kuYwo+ID4gQEAgLTMxLDcgKzMxLDcgQEAgc3RhdGljIERFRklORV9QRVJf
-Q1BVKHZvaWQgX19pb21lbSAqLCBzc3dpX2NwdV9yZWdzKTsKPiA+Cj4gPiAgc3RhdGljIHZvaWQg
-dGhlYWRfYWNsaW50X3Nzd2lfaXBpX3NlbmQodW5zaWduZWQgaW50IGNwdSkKPiA+ICB7Cj4gPiAt
-ICAgICB3cml0ZWxfcmVsYXhlZCgweDEsIHBlcl9jcHUoc3N3aV9jcHVfcmVncywgY3B1KSk7Cj4g
-PiArICAgICB3cml0ZWwoMHgxLCBwZXJfY3B1KHNzd2lfY3B1X3JlZ3MsIGNwdSkpOwo+ID4gIH0K
-PiA+Cj4gPiAgc3RhdGljIHZvaWQgdGhlYWRfYWNsaW50X3Nzd2lfaXBpX2NsZWFyKHZvaWQpCj4g
-PiAtLQo+Cj4gdGhlYWRfYWNsaW50X3Nzd2lfaXBpX2NsZWFyKCkgc2VlbXMgdG8gaGF2ZSB0aGUg
-c2FtZSBidWcsCj4gaXQgYWxzbyB1c2VzIHRoZSBfcmVsYXhlZCgpIHZlcnNpb24gZm9yIG5vIGFw
-cGFyZW50IHJlYXNvbi4KCkhpIEFybmQsCgpUaGVyZSBzZWVtcyBubyBuZWVkIHRvIG1vZGlmeSB0
-aGVhZF9hY2xpbnRfc3N3aV9pcGlfY2xlYXIoKSBhcyBpdCBvbmx5CmNsZWFycyBwZW5kaW5nIElQ
-SSBvbiBjdXJyZW50IGhhcnQuIE5vIG90aGVyIGhhcnRzIHJlcXVpcmUgdG8gc2VlCnN0cmljdCBv
-cmRlciBiZXR3ZWVuIHByZWNlZGluZyBtZW1vcnkgd3JpdGVzIGFuZCB0aGlzIEFDTElOVCBNTUlP
-CndyaXRlLiBQbGVhc2UgY29ycmVjdCBtZSBpZiBJIG1pc3NlZCBhbnl0aGluZy4KClRoYW5rcywK
-Clh1IEx1Cgo+Cj4gICAgICBBcm5kCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMu
-aW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZv
-L2xpbnV4LXJpc2N2Cg==
+On Wed, Dec 04, 2024 at 02:20:02PM +0000, Eliav Farber wrote:
+> Consolidate the machine_kexec_mask_interrupts implementation into a common
+> function located in a new file: kernel/irq/kexec.c. This removes duplicate
+> implementations from architecture-specific files in arch/arm, arch/arm64,
+> arch/powerpc, and arch/riscv, reducing code duplication and improving
+> maintainability.
+> 
+> The new implementation retains architecture-specific behavior for
+> CONFIG_GENERIC_IRQ_KEXEC_CLEAR_VM_FORWARD, which was previously implemented
+> for ARM64. When enabled (currently for ARM64), it clears the active state
+> of interrupts forwarded to virtual machines (VMs) before handling other
+> interrupt masking operations.
+> 
+> Signed-off-by: Eliav Farber <farbere@amazon.com>
+> ---
+> V5 -> V6:
+>  - Change GENERIC_IRQ_KEXEC_CLEAR_VM_FORWARD to not be user selectable.
+> 
+>  arch/arm/kernel/machine_kexec.c   | 23 ------------------
+>  arch/arm64/Kconfig                |  1 +
+>  arch/arm64/kernel/machine_kexec.c | 31 ------------------------
+>  arch/powerpc/include/asm/kexec.h  |  1 -
+>  arch/powerpc/kexec/core.c         | 22 -----------------
+>  arch/powerpc/kexec/core_32.c      |  1 +
+>  arch/riscv/kernel/machine_kexec.c | 23 ------------------
+>  include/linux/irq.h               |  3 +++
+>  kernel/irq/Kconfig                |  6 +++++
+>  kernel/irq/Makefile               |  2 +-
+>  kernel/irq/kexec.c                | 40 +++++++++++++++++++++++++++++++
+>  11 files changed, 52 insertions(+), 101 deletions(-)
+>  create mode 100644 kernel/irq/kexec.c
+> 
+> diff --git a/arch/arm/kernel/machine_kexec.c b/arch/arm/kernel/machine_kexec.c
+> index 80ceb5bd2680..dd430477e7c1 100644
+> --- a/arch/arm/kernel/machine_kexec.c
+> +++ b/arch/arm/kernel/machine_kexec.c
+> @@ -127,29 +127,6 @@ void crash_smp_send_stop(void)
+>  	cpus_stopped = 1;
+>  }
+>  
+> -static void machine_kexec_mask_interrupts(void)
+> -{
+> -	unsigned int i;
+> -	struct irq_desc *desc;
+> -
+> -	for_each_irq_desc(i, desc) {
+> -		struct irq_chip *chip;
+> -
+> -		chip = irq_desc_get_chip(desc);
+> -		if (!chip)
+> -			continue;
+> -
+> -		if (chip->irq_eoi && irqd_irq_inprogress(&desc->irq_data))
+> -			chip->irq_eoi(&desc->irq_data);
+> -
+> -		if (chip->irq_mask)
+> -			chip->irq_mask(&desc->irq_data);
+> -
+> -		if (chip->irq_disable && !irqd_irq_disabled(&desc->irq_data))
+> -			chip->irq_disable(&desc->irq_data);
+> -	}
+> -}
+> -
+>  void machine_crash_shutdown(struct pt_regs *regs)
+>  {
+>  	local_irq_disable();
+> diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
+> index 100570a048c5..dcc3551cf6c2 100644
+> --- a/arch/arm64/Kconfig
+> +++ b/arch/arm64/Kconfig
+> @@ -149,6 +149,7 @@ config ARM64
+>  	select GENERIC_IDLE_POLL_SETUP
+>  	select GENERIC_IOREMAP
+>  	select GENERIC_IRQ_IPI
+> +	select GENERIC_IRQ_KEXEC_CLEAR_VM_FORWARD
+
+Is this really specific to VMs? In the new code, it's just controlling
+this part of the old code:
+
+> diff --git a/arch/arm64/kernel/machine_kexec.c b/arch/arm64/kernel/machine_kexec.c
+> index 82e2203d86a3..6f121a0164a4 100644
+> --- a/arch/arm64/kernel/machine_kexec.c
+> +++ b/arch/arm64/kernel/machine_kexec.c
+> @@ -207,37 +207,6 @@ void machine_kexec(struct kimage *kimage)
+>  	BUG(); /* Should never get here. */
+>  }
+>  
+> -static void machine_kexec_mask_interrupts(void)
+> -{
+> -	unsigned int i;
+> -	struct irq_desc *desc;
+> -
+> -	for_each_irq_desc(i, desc) {
+> -		struct irq_chip *chip;
+> -		int ret;
+> -
+> -		chip = irq_desc_get_chip(desc);
+> -		if (!chip)
+> -			continue;
+> -
+> -		/*
+> -		 * First try to remove the active state. If this
+> -		 * fails, try to EOI the interrupt.
+> -		 */
+> -		ret = irq_set_irqchip_state(i, IRQCHIP_STATE_ACTIVE, false);
+
+which is about active interrupts. Why can't that happen for the host?
+
+Will
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
