@@ -4,68 +4,105 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20EA7C02188
-	for <linux-riscv@archiver.kernel.org>; Mon, 27 Jan 2025 16:02:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2BFB0C0218A
+	for <linux-riscv@archiver.kernel.org>; Mon, 27 Jan 2025 16:23:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=047t92hkNqlqb3sO260ZhSQ61ew78p7b8qYSBWndtmk=; b=vm9gaznFTvhVAa
-	owvSUrbAgIzGro6ThRFNbmZ701Cap8e6Q5X0lvfK+2ZzN9yeITtiggDDkMKLudaReKxYEDoo9WuJA
-	BIwe++binKCadu+UW4F6Hb9KWqKI9FE7Y6q7tXi6N9Dg43lgwhD1CD3BcEeYuidhnaN8Nt06YchMa
-	2q+GWTgReCgmUu0lt7hjIdDpi7xewOCJjNQEEAb0eCiz3NwRnodhrWiMVw3F38uoA5Fo5ULTuaiMb
-	kgKV6qK0XY24UqR75nWjiwi1poQs8uXOHvSSYQcBaC6Db9tqh5o4kf1fmyrRJiTEP1z2h2it0g3QS
-	aDUuqBh9xFbRlmoUIWrg==;
+	List-Archive:List-Unsubscribe:List-Id:Subject:References:In-Reply-To:
+	Message-Id:Cc:To:From:Date:MIME-Version:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Owner;
+	bh=KPt2w7cPhLHbXUMUvOY7Z2VFwrQn1Pp00nQYl3gnypc=; b=sd2SDChtb6gJ9e2AwHp73IjI55
+	tCp4p5u9bOgwkc3JKORDCLUZ9OERM7Oh8qtUI6vrwBPkzD9BjgOgA2UBROEG2brErTG+zo9NTbW7Z
+	JxTKtgZdUZoZUxD05IwPaB/KPQxee2ZqRWUvsEyhr0yeX4ByNDy3dg9wmXlZ3xqGxUwbUMtisvPvP
+	bNQdYD60PfhjF/16XP9AIuTUCdBkwKbmDq4hgQXO0ndwVphbvK2ylgbADhv7pR1tqU4hyGrtETSER
+	VsXwtRUXqkdsPgb+G3wIhRS7U0g1dg9zyBNWYw6OCcFlfni5yQk6ePa4G95q6dwOA/dPjXM2UeEEk
+	5d6riRfg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tcRZU-00000002i1p-2wkI;
-	Mon, 27 Jan 2025 16:02:44 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1tcRtC-00000002lTk-3kwo;
+	Mon, 27 Jan 2025 16:23:06 +0000
+Received: from fout-a7-smtp.messagingengine.com ([103.168.172.150])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tcRZT-00000002i1e-2sLq;
-	Mon, 27 Jan 2025 16:02:43 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=SXnX6yfCJ4lo25sKBuf0Jih5OsMg7kJt7yHBT/wi2JQ=; b=an/mRK4icZzCqPPHMN609Ff0wL
-	Qs2pgoOW69THhWB5T5gY6nH/4fK6Y72Gx049NYy4Jjyug2T3/ZqGxinuzmLsukap/98K7qe6Bqwy6
-	7MFOHakKvuHQ9yFf/ZaTeVhJH7QQNtJt3R+A5YsNVDHyFh2+dFXHFqOqCuLPafjvgw/Ko394Ybr25
-	5i168RQSG388+3kPTU4tUR6sth73mFYsatyAk065qko7xleaRiAMsQW6PIOD1KtmnXAMGvNjM/h8P
-	qmlTj2NGgL7VPHXjuGCxbahpRIiTN3LvPQJXH47YXPZraFzPsPy0cSXa1hMT4QUnZnKtVWB2tSt2P
-	1b8AU+gg==;
-Received: from 77-249-17-89.cable.dynamic.v4.ziggo.nl ([77.249.17.89] helo=noisy.programming.kicks-ass.net)
-	by desiato.infradead.org with esmtpsa (Exim 4.98 #2 (Red Hat Linux))
-	id 1tcRZN-0000000Eiwv-24hm;
-	Mon, 27 Jan 2025 16:02:37 +0000
-Received: by noisy.programming.kicks-ass.net (Postfix, from userid 1000)
-	id 145F93004DE; Mon, 27 Jan 2025 17:02:37 +0100 (CET)
-Date: Mon, 27 Jan 2025 17:02:36 +0100
-From: Peter Zijlstra <peterz@infradead.org>
-To: Qi Zheng <zhengqi.arch@bytedance.com>
-Cc: kevin.brodsky@arm.com, riel@surriel.com, vishal.moola@gmail.com,
-	david@redhat.com, jannh@google.com, hughd@google.com,
-	willy@infradead.org, yuzhao@google.com, muchun.song@linux.dev,
-	akpm@linux-foundation.org, will@kernel.org, aneesh.kumar@kernel.org,
-	npiggin@gmail.com, arnd@arndb.de, dave.hansen@linux.intel.com,
-	rppt@kernel.org, alexghiti@rivosinc.com, linux-mm@kvack.org,
-	linux-kernel@vger.kernel.org, linux-csky@vger.kernel.org,
-	linux-hexagon@vger.kernel.org, loongarch@lists.linux.dev,
-	linux-m68k@lists.linux-m68k.org, linux-mips@vger.kernel.org,
-	linux-openrisc@vger.kernel.org, linux-sh@vger.kernel.org,
-	linux-um@lists.infradead.org, x86@kernel.org,
-	linux-riscv@lists.infradead.org
-Subject: Re: [PATCH 4/5] x86: pgtable: unconditionally use tlb_remove_table()
-Message-ID: <20250127160236.GJ16742@noisy.programming.kicks-ass.net>
-References: <cover.1737637631.git.zhengqi.arch@bytedance.com>
- <00bf7935d65826eee547ac195d7854b1c946dbc5.1737637631.git.zhengqi.arch@bytedance.com>
- <20250124113854.GA15996@noisy.programming.kicks-ass.net>
- <45651097-c056-49e3-9cc8-c289c1c0030d@bytedance.com>
+	id 1tcRt9-00000002lSu-3CA7
+	for linux-riscv@lists.infradead.org;
+	Mon, 27 Jan 2025 16:23:05 +0000
+Received: from phl-compute-10.internal (phl-compute-10.phl.internal [10.202.2.50])
+	by mailfout.phl.internal (Postfix) with ESMTP id 61E6F13801E9;
+	Mon, 27 Jan 2025 11:23:02 -0500 (EST)
+Received: from phl-imap-11 ([10.202.2.101])
+  by phl-compute-10.internal (MEProxy); Mon, 27 Jan 2025 11:23:02 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
+	:cc:content-transfer-encoding:content-type:content-type:date
+	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to; s=fm2; t=1737994982;
+	 x=1738081382; bh=ApVJqWJrmAI+GPk+oFV8g7rgJ0iBONaFFyXlKmkLfs4=; b=
+	zouG8SAm1KWB2csr0aKKjF77qSzd2OYDy0xGnQrmnZKSWN1D916uQdppeKlHxXoX
+	Yq+vx5nCbHh4E9KsLQN9tHiHbRgJJH8v3x9VYmAE9IhEdMEx5tQK+iTVrA1oy1rc
+	A4WcKTaCNyNVJxdfG+SDj2CBS5FQPYK40dun8Kp+YZr0SKtJcSkHZbkVLgdVS3Kp
+	nEkz8FnQwzPFB9XZCSDigRHh/GhRGkmISMLgmXafey2epOcAvjBAKC3dYB8f0x2W
+	ODG7STA2YwKADnfvHaeHY29vovk76VHCAwrGA+ULkKBEpj0AGrNfkff/U5FfM3NU
+	P1rmxF5SctX3ksCeBkdDqw==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1737994982; x=
+	1738081382; bh=ApVJqWJrmAI+GPk+oFV8g7rgJ0iBONaFFyXlKmkLfs4=; b=b
+	W2LJgmdgeGsMyCnWZDAPHla8B3nCuhP7H2HgwxZRlrZZemDx86CMWEQK1Pur9Khs
+	MmN3JJtv35Dibajhtb2gFzfGJxT/wYevvB44FbcMutRegnD/J4ordet4dcT1ZKTh
+	0NmjIC7IEuC0u84EwvQjRHKnaxFOTG0dmCTA/bWFpMdtvx17hMMRNVsV8r7Zoqvs
+	aRQYEpgiOExwwC5PdlsZ0q0ICOFKNJYZlYQ8PRtW0A94mY9+23jCNSH+xp0IkLUG
+	lqmXdmkCLXJ1B/iIu8TJd03cfTlB5XhaLUhdldnpDRru1nMqOFRNJCBK+rnX3O6N
+	Zwk7wz7pB3NtnFIR7Ad0w==
+X-ME-Sender: <xms:5bKXZ3MrgXQ_W86hHqmx9kIhiqc5EUh2-73IU6vzfIr7zQv6VCI30g>
+    <xme:5bKXZx_uArhesD1-X16NciEe_9IS3gqgJWSjmJWFwHFpQhnCWEU_pUJqhylR_VcUN
+    DDU_xHA0NrC_-VQmR0>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefuddrudejgedgudefieehucetufdoteggodetrf
+    dotffvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdggtfgfnhhsuhgsshgtrhhisggv
+    pdfurfetoffkrfgpnffqhgenuceurghilhhouhhtmecufedttdenucesvcftvggtihhpih
+    gvnhhtshculddquddttddmnecujfgurhepofggfffhvfevkfgjfhfutgfgsehtjeertder
+    tddtnecuhfhrohhmpedftehrnhguuceuvghrghhmrghnnhdfuceorghrnhgusegrrhhnug
+    gsrdguvgeqnecuggftrfgrthhtvghrnhephfdthfdvtdefhedukeetgefggffhjeeggeet
+    fefggfevudegudevledvkefhvdeinecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrg
+    hmpehmrghilhhfrhhomheprghrnhgusegrrhhnuggsrdguvgdpnhgspghrtghpthhtohep
+    uddtpdhmohguvgepshhmthhpohhuthdprhgtphhtthhopegrnhhuphessghrrghinhhfrg
+    hulhhtrdhorhhgpdhrtghpthhtoheplhhihhgrnhhgjhhinhhgsegshihtvggurghntggv
+    rdgtohhmpdhrtghpthhtoheplhhugihurdhkvghrnhgvlhessgihthgvuggrnhgtvgdrtg
+    homhdprhgtphhtthhopeigihgvhihonhhgjhhisegshihtvggurghntggvrdgtohhmpdhr
+    tghpthhtohepphgrlhhmvghrsegurggssggvlhhtrdgtohhmpdhrtghpthhtohepthhglh
+    igsehlihhnuhhtrhhonhhigidruggvpdhrtghpthhtoheplhhinhhugidqrhhishgtvhes
+    lhhishhtshdrihhnfhhrrgguvggrugdrohhrghdprhgtphhtthhopegthhgrrhhlihgvse
+    hrihhvohhsihhntgdrtghomhdprhgtphhtthhopehprghulhdrfigrlhhmshhlvgihsehs
+    ihhfihhvvgdrtghomh
+X-ME-Proxy: <xmx:5bKXZ2SVI1miQAHh9zRnKxt2d4Xgw6jOObXHwopzOJ7y-QXpZEu03g>
+    <xmx:5bKXZ7vfcaG8ivSbLmcYMTsQUfQ-Oj2eRXmGkKzoBeGzDlLppp042g>
+    <xmx:5bKXZ_cIJrPyUGPTuT5KOy26x789KgCOPB5fGfxksCfl_uRk9MBYag>
+    <xmx:5bKXZ31X2mlEs1T91sCUGAyjKGm_sHrZoaY5m1jh09eSnBUOw0IC6A>
+    <xmx:5rKXZz5len_WW0ofp6Bc8HtyoCkD4iaf40ex6ytHHK88fXHG461jhg7Z>
+Feedback-ID: i56a14606:Fastmail
+Received: by mailuser.phl.internal (Postfix, from userid 501)
+	id 9C8572220072; Mon, 27 Jan 2025 11:23:01 -0500 (EST)
+X-Mailer: MessagingEngine.com Webmail Interface
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <45651097-c056-49e3-9cc8-c289c1c0030d@bytedance.com>
+Date: Mon, 27 Jan 2025 17:21:46 +0100
+From: "Arnd Bergmann" <arnd@arndb.de>
+To: "Xu Lu" <luxu.kernel@bytedance.com>,
+ "Thomas Gleixner" <tglx@linutronix.de>, "Anup Patel" <anup@brainfault.org>,
+ "Charlie Jenkins" <charlie@rivosinc.com>,
+ "Paul Walmsley" <paul.walmsley@sifive.com>,
+ "Palmer Dabbelt" <palmer@dabbelt.com>
+Cc: lihangjing@bytedance.com, "Xie Yongji" <xieyongji@bytedance.com>,
+ linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+Message-Id: <a7d9b0e5-7ef6-457e-ace6-c56e745c3150@app.fastmail.com>
+In-Reply-To: <20250127093846.98625-1-luxu.kernel@bytedance.com>
+References: <20250127093846.98625-1-luxu.kernel@bytedance.com>
+Subject: Re: [PATCH RESEND] irqchip: riscv: Order normal writes and IPI writes
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250127_082303_873104_1B598A5B 
+X-CRM114-Status: GOOD (  14.28  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,27 +119,42 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jan 24, 2025 at 09:00:58PM +0800, Qi Zheng wrote:
-> 
-> 
-> On 2025/1/24 19:38, Peter Zijlstra wrote:
-> > On Thu, Jan 23, 2025 at 09:26:17PM +0800, Qi Zheng wrote:
-> > > If the CONFIG_MMU_GATHER_TABLE_FREE is disabled, the tlb_remove_table()
-> > > will fall back to pagetable_dtor() + tlb_remove_page(). So let's use
-> > > tlb_remove_table() unconditionally to free page table pages.
-> > > 
-> > > Signed-off-by: Qi Zheng <zhengqi.arch@bytedance.com>
-> > > Suggested-by: Peter Zijlstra (Intel) <peterz@infradead.org>
-> > 
-> > I think we can clean up more :-)
-> 
-> Yes, but Rik van Riel has already done the same thing in his patch series
-> [1], so I was originally planning to wait for his patch to be
-> merged into the linux-next branch, and then rebase this series onto his
-> patch.
+On Mon, Jan 27, 2025, at 10:38, Xu Lu wrote:
+> RISC-V distinguishes between normal memory accesses and device I/O and
+> uses FENCE instruction to order them as viewed by othe RISC-V harts and
+> external devices or coprocessors. The FENCE instruction can order any
+> combination of device input(I), device output(O), memory reads(R) and
+> memory writes(W). For example, 'fence w, o' can be used to ensure all
+> memory writes from instructions preceding the FENCE instruction appear
+> earlier in the global memory order than device output writes from
+> instructions after the FENCE instruction.
 
-Duh, yeah, I've actually seen those patches and totally forgot he did
-that... -ETOOMUCHEMAIL :/
+There is nothing risc-v specific in here really, it's just a bug
+in the driver: writel() means access the mmio register with appropriate
+barriers, while writel_relaxed() is a special case that should
+only ever be used if a particular function is sensitive to
+performance and never needs to be serialized.
+
+> diff --git a/drivers/irqchip/irq-thead-c900-aclint-sswi.c 
+> b/drivers/irqchip/irq-thead-c900-aclint-sswi.c
+> index b0e366ade427..8ff6e7a1363b 100644
+> --- a/drivers/irqchip/irq-thead-c900-aclint-sswi.c
+> +++ b/drivers/irqchip/irq-thead-c900-aclint-sswi.c
+> @@ -31,7 +31,7 @@ static DEFINE_PER_CPU(void __iomem *, sswi_cpu_regs);
+> 
+>  static void thead_aclint_sswi_ipi_send(unsigned int cpu)
+>  {
+> -	writel_relaxed(0x1, per_cpu(sswi_cpu_regs, cpu));
+> +	writel(0x1, per_cpu(sswi_cpu_regs, cpu));
+>  }
+> 
+>  static void thead_aclint_sswi_ipi_clear(void)
+> -- 
+
+thead_aclint_sswi_ipi_clear() seems to have the same bug,
+it also uses the _relaxed() version for no apparent reason.
+
+     Arnd
 
 _______________________________________________
 linux-riscv mailing list
