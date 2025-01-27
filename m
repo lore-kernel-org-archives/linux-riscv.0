@@ -4,94 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F2FC7C0218C
-	for <linux-riscv@archiver.kernel.org>; Mon, 27 Jan 2025 09:39:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4DD2CC0218C
+	for <linux-riscv@archiver.kernel.org>; Mon, 27 Jan 2025 09:40:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=CCu4mRWzudTXH+JWJtuYCBJWHHe728RHJS98PVCI4GE=; b=0P6o6dTjtAKV1b
-	jjW9rof2KkpNzlJjLxDShQ2dCCMxakSKA+Nq0lovcv0JOE5sFCQ7YVR6tFQ9X++TJdyeSOurcUmUy
-	apAgcqkNcFcqRJ6H80KwKsz5pvd14HqA94XG5CZQuikxJvtKgWF8a85FW01xYPF3+47NjYxjrE8NL
-	tW9sQkyFvvdVwLq3lBuPtFnpxjM7KYky0VBGr90O25ZRJrZcs0ptcs9eGIDTLwLpw/qj7GsphS8l8
-	hI/G7BKwqLCHMscfbUjehr6HJ+fhnwMORBYs19B9OLPzc/nxQkp4D8/KGOi9Py712PRSHzI29KDQR
-	g5DQc3gReqbLALsztOXQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=P0ah5+mkE/28rYqDbuQJ32MiTUtbkm7APuKhbQKRcdU=; b=YY5SP5SWa19Xug
+	7dT0ef9UGNB125AunFqDL02jXHVFbaHb3me8QgRC1kzSNnmOxutUu5DNES0rku2sgfONiJY6iFP+E
+	gJHXnekHO81pcbI8CKdcvYoDkJywgHxoVQ1URUhUMWt4bSnTy6IAtwlFl+QnBUuH2ss5hoE0YqVEw
+	0oiNnULQly4VhxCDAhwhTjPDqWX2gmU/N5RPlzgH5xf3FrEKOAV7HRTmG8FShA9OeM9gp1sN2Jv5h
+	KT0eeeFUGXSPSK4vWB6PzrLZqHKrrHOUSbj5Lqxn/jaZQNK3lSgRlQ6cw1lMkLh5XowSGZqHQXdq6
+	xzKinjsSPGgm5fON8Wmw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tcLah-000000021yS-2bpf;
-	Mon, 27 Jan 2025 09:39:35 +0000
-Received: from mail-wm1-x336.google.com ([2a00:1450:4864:20::336])
+	id 1tcLby-000000022PL-1yeL;
+	Mon, 27 Jan 2025 09:40:54 +0000
+Received: from mail-pl1-x633.google.com ([2607:f8b0:4864:20::633])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tcLYu-000000021a0-0uGp
+	id 1tcLa8-000000021ov-138J
 	for linux-riscv@lists.infradead.org;
-	Mon, 27 Jan 2025 09:37:45 +0000
-Received: by mail-wm1-x336.google.com with SMTP id 5b1f17b1804b1-4361b0ec57aso44708245e9.0
-        for <linux-riscv@lists.infradead.org>; Mon, 27 Jan 2025 01:37:43 -0800 (PST)
+	Mon, 27 Jan 2025 09:39:01 +0000
+Received: by mail-pl1-x633.google.com with SMTP id d9443c01a7336-2161eb95317so71651455ad.1
+        for <linux-riscv@lists.infradead.org>; Mon, 27 Jan 2025 01:38:56 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1737970662; x=1738575462; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=Pa3kN5Pj/U9dm1V/qwQhRimY+zw1O6zUoccW70uHpSw=;
-        b=VmJpENrpN+vkDYTmpDYsIe4wB6gvavnoG9JYIy73Q0cmbhOXQYGKQ8eeFI9x9Jq8cR
-         rxPYO4rLswF3o3OZVR5W2/cTB70etlDHjrMe/yF4yVTwH3xCMJkqVhjhZ+J1ttLktF5l
-         s2suiG7hrWPFNCip3y0ZfhiFxEndnaO3eke7nsZML+ih08gL4LYFjUdzc12P1KLeJ+jD
-         r708VaV05rDGoJ3MSDNwrSA9w6nTzTe3EJRDA5iyJnZGC6irEL6QiJFCvbtHM86NMkMx
-         fNMOkVNDW8Q1p7G4k4ntajurS0wz2csCIJ8EXL49vRv+upuu9FsJjiLIo9/TGsfa5266
-         QtUA==
+        d=bytedance.com; s=google; t=1737970736; x=1738575536; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=nBZ4D1tJ1W6TkH10mNjcGXtl3KHxxjn0+jKOGshQuOE=;
+        b=cEs6G+NLWXNNWWZ98qttNrDiEkOrJZS04WSUNBlTimqooMWU1dKS2+NfIvgmkclU8j
+         EVu66SmbCfs5sxxMM7pXAl8rf9AVikUhIlcNfnrI8h9UbQk7gl2+GAJEBg9BTTVDM9tn
+         PopFtYv3q3r/Z/lux2fARpiZZOci+ftO4oeaFiNJIkYztERLW3esSXU6W/s53CBoMipt
+         q0fjlSWZb8E90Ntq62zwo51S1IfZLb5Db2ItFbV2c7egEVoeM9PFzWvofPUdQSPAMWqR
+         Svl+C8VZjSoEtql+/a5K0IaNx1gVYsM/baYsR1lbFzFh6pveE9RXAr1N1oMYW7Cwtdju
+         jh3A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1737970662; x=1738575462;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=Pa3kN5Pj/U9dm1V/qwQhRimY+zw1O6zUoccW70uHpSw=;
-        b=KM36ZHet3aMiOeMdLAOaf2mXWsAhC/DgtFnQw7JACWdCQxh5Yx10OeVHs9oPdN7sN+
-         O4nS4VyWH424A2vBZeS7U2BKXgFTcICqnSM/t+HJ53jUVfFI28GvJUYcKX2R5cIk1iHV
-         S7+tyeUai2gsy4ZV4cnRy/Y18LhGzpVCadqiq0+vFk1BFC6KpSJxLAFEMU1GNIz49woJ
-         +qFbcoTT0QmG7sP3l3NIkc7fAHpxSbv1W70T+UrXAv2YfiWFGXQgddjAG3BdoSyHU77J
-         9hXIlNXa8yuq2w8Z+zchHP4QHC51XMhe+zTf+k48IqHKPOkQRAwOAZd1M0yQ3JnNCevO
-         WrgQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUW0u4MzNoQilUiBrDh1pcxgwwosVbdCnAH1+cKbqfd2jIvBEE9iQ5I8n9lAKkL4YTMlDC6G2SHzuBwrw==@lists.infradead.org
-X-Gm-Message-State: AOJu0YziyyLauYr0Rt7HNgxPTZKlhCZFOL4l/nH7F+s6mHIs5uJoD4Ke
-	yt5IbmOlV65uPEPcBuhJE/4PlFXq0eYBxY1Yj7XdE3CqOGnZN8AqLDd3uk6bO/Q=
-X-Gm-Gg: ASbGnctxw7WLAumDltu8hr/+SKGEHkn0/6xpnZ7iqKetadmg/cReRxvE/41FzpefBlk
-	ZJoRk/jbv3nbGbgwEwxI/c7M7qQwozHlkcYUrLeMTXHsLmd2JJ0ZcbN1sN0uUqWUnoQSnQd9Des
-	MVPtVM/3bEnSI+v86z6kFiKnlq4Y8AnXBRJvhDXMDPWNtGI9Me8BhWOv3q7WjjyvU1ECqSLTcza
-	ntMa632r/+RzQVarn2yPlIL8yI4TctpdqeQiLNwPAxb2t7Q7DyLqkevWrZ7DxtLyxAL904u/OmH
-	/6a992BqU03VSs81IRLuGuPYkL3TEW8=
-X-Google-Smtp-Source: AGHT+IHlygR1Rem42sW1brqnRYg+b7cppikaFDk94wrGvPPrCI76J4t5Wx9vdAYW3HFrhkgLyStnBg==
-X-Received: by 2002:a05:600c:4f05:b0:434:fe62:28c1 with SMTP id 5b1f17b1804b1-438913ef83bmr346516855e9.18.1737970662539;
-        Mon, 27 Jan 2025 01:37:42 -0800 (PST)
-Received: from alex-rivos.ba.rivosinc.com ([2001:861:3382:ef90:3e22:3e78:ce5a:32c3])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-438b1718741sm100844135e9.0.2025.01.27.01.37.41
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 27 Jan 2025 01:37:42 -0800 (PST)
-From: Alexandre Ghiti <alexghiti@rivosinc.com>
-To: Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Ryan Roberts <ryan.roberts@arm.com>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
+        d=1e100.net; s=20230601; t=1737970736; x=1738575536;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=nBZ4D1tJ1W6TkH10mNjcGXtl3KHxxjn0+jKOGshQuOE=;
+        b=H2t6vsCRiHzKmRL0E5Dae8czUk4R4nl8quWyEp90HMlSHFZHZ5o533tuJc+QiTrDKO
+         DTAqTHFSOSA1gz8mwYEyURkXuuOBP23vyxElho/I6Lu5ZWmwwJOVyBNBQ26Vx9SF4Rhl
+         Tf6Lxk8j4a8R8oFDbJt+iY0nmQvuORQWZVGHWfhFnBuPD3xW/T0rpT7ZSuw1DZB04WKy
+         auTx2WwmxU2s8lsTcnLwqB++bTHEoylEdAbxiNJcMDLAK01Sn05CWjOoBCeoEseW3g5G
+         i/2wjH/4AZQAUyPCEwVbrKIMkg/BpSIqOz8cLXpGRBN1qZ2T6xmyPYoZ0rI4cSnk4svU
+         u/dA==
+X-Forwarded-Encrypted: i=1; AJvYcCU3yzyC036XAzyP7FRj0rS8ZKTa/bpdz3n5bRvg7KBd+Qh+Z6TtY0NqN2+YKjOhFxYfXbUc++4c5PDsTw==@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywyp/IdvepG/jVeCUNABE8QhG3WpxdysWm8KdCpwvDApQ7CSyOH
+	BcCKD/IcVfipDYd8BcJK6ZK4Zw9FhCJWPjbLO86h+joaNUH0jVz4EskUoxXaWV0=
+X-Gm-Gg: ASbGncsrgOs3UX5vMii2BFiWrIFgEi9YywDlTCQWEDoxnwiQN1FkoLcAGpLb9BYJMPD
+	UA0jiD5Gq4O0oaaMcDpIPcagl09vXqkM81P+boQO4rnX6ic/wcydJ/jnSlD1XyhATaNhatV7xAa
+	L2qoa4vxulJbHWWyQKUquDR9obcb1MJWay1f1VCE8pDmXtl+AGovBP7V2rv9txPMPitpbz/+F/V
+	jOiAeM5m8j+L+aqpdGlceG7g9e7JarC5GDAq0Ukmi+IBpJ1cVJsiUqb0pSJ56YBKt/5wgjl734v
+	Xr1OXwFi9wAp7cqyFUA56BMOqX7Nz3Lw0GyNE6WWmQ==
+X-Google-Smtp-Source: AGHT+IETKwfqNE6+LUefp51bAMetIMLbA43PTxyjl4cfwvVpnzMMAYTSq2DLVQgYP2Jax1dm3aYnRQ==
+X-Received: by 2002:a17:903:41c3:b0:216:386e:dca with SMTP id d9443c01a7336-21c3554c994mr574535425ad.30.1737970735803;
+        Mon, 27 Jan 2025 01:38:55 -0800 (PST)
+Received: from J9GPGXL7NT.bytedance.net ([139.177.225.240])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-21da3d9c59asm58710975ad.29.2025.01.27.01.38.51
+        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
+        Mon, 27 Jan 2025 01:38:55 -0800 (PST)
+From: Xu Lu <luxu.kernel@bytedance.com>
+To: tglx@linutronix.de,
+	anup@brainfault.org,
+	charlie@rivosinc.com,
+	paul.walmsley@sifive.com,
+	palmer@dabbelt.com
+Cc: lihangjing@bytedance.com,
+	xieyongji@bytedance.com,
 	linux-riscv@lists.infradead.org,
-	linux-mm@kvack.org
-Cc: Alexandre Ghiti <alexghiti@rivosinc.com>
-Subject: [PATCH v4 2/9] riscv: Restore the pfn in a NAPOT pte when manipulated by core mm code
-Date: Mon, 27 Jan 2025 10:35:23 +0100
-Message-Id: <20250127093530.19548-3-alexghiti@rivosinc.com>
-X-Mailer: git-send-email 2.39.2
-In-Reply-To: <20250127093530.19548-1-alexghiti@rivosinc.com>
-References: <20250127093530.19548-1-alexghiti@rivosinc.com>
+	linux-kernel@vger.kernel.org,
+	Xu Lu <luxu.kernel@bytedance.com>
+Subject: [PATCH RESEND] irqchip: riscv: Order normal writes and IPI writes
+Date: Mon, 27 Jan 2025 17:38:46 +0800
+Message-Id: <20250127093846.98625-1-luxu.kernel@bytedance.com>
+X-Mailer: git-send-email 2.39.5 (Apple Git-154)
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250127_013744_248554_A8379761 
-X-CRM114-Status: GOOD (  24.76  )
+X-CRM114-CacheID: sfid-20250127_013900_290315_670C39B0 
+X-CRM114-Status: GOOD (  12.67  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,228 +102,61 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The core mm code expects to be able to extract the pfn from a pte. NAPOT
-mappings work differently since its ptes actually point to the first pfn
-of the mapping, the other bits being used to encode the size of the
-mapping.
+RISC-V distinguishes between normal memory accesses and device I/O and
+uses FENCE instruction to order them as viewed by othe RISC-V harts and
+external devices or coprocessors. The FENCE instruction can order any
+combination of device input(I), device output(O), memory reads(R) and
+memory writes(W). For example, 'fence w, o' can be used to ensure all
+memory writes from instructions preceding the FENCE instruction appear
+earlier in the global memory order than device output writes from
+instructions after the FENCE instruction.
 
-So modify ptep_get() so that it returns a pte value that contains the
-*real* pfn (which is then different from what the HW expects) and right
-before storing the ptes to the page table, reset the pfn LSBs to the
-size of the mapping.
+RISC-V issues IPI by writing certain value to IMSIC/ACLINT MMIO
+registers, which is regarded as device output operation. However, the
+existing implementation of IMSIC/ACLINT driver issues IPI via
+writel_relaxed(), which does not guarantee the order of device output
+operation and preceding memory writes. Then the hart receiving IPI may
+not have seen the latest data yet.
 
-And make sure that all NAPOT mappings are set using set_ptes().
+This commit fixes this by replacing writel_relaxed() with writel() when
+issuing IPI, which will use 'fence w, o' to ensure all previous writes
+made by current hart are visible to other harts before they receive
+the IPI.
 
-Signed-off-by: Alexandre Ghiti <alexghiti@rivosinc.com>
+Signed-off-by: Xu Lu <luxu.kernel@bytedance.com>
 ---
- arch/riscv/include/asm/pgtable-64.h | 11 ++++
- arch/riscv/include/asm/pgtable.h    | 91 ++++++++++++++++++++++++++---
- arch/riscv/mm/hugetlbpage.c         |  9 +--
- 3 files changed, 96 insertions(+), 15 deletions(-)
+ drivers/irqchip/irq-riscv-imsic-early.c      | 2 +-
+ drivers/irqchip/irq-thead-c900-aclint-sswi.c | 2 +-
+ 2 files changed, 2 insertions(+), 2 deletions(-)
 
-diff --git a/arch/riscv/include/asm/pgtable-64.h b/arch/riscv/include/asm/pgtable-64.h
-index 0897dd99ab8d..cddbe426f618 100644
---- a/arch/riscv/include/asm/pgtable-64.h
-+++ b/arch/riscv/include/asm/pgtable-64.h
-@@ -104,6 +104,17 @@ enum napot_cont_order {
- #define napot_cont_mask(order)	(~(napot_cont_size(order) - 1UL))
- #define napot_pte_num(order)	BIT(order)
- 
-+static inline bool is_napot_order(unsigned int order)
-+{
-+	unsigned int napot_order;
-+
-+	for_each_napot_order(napot_order)
-+		if (order == napot_order)
-+			return true;
-+
-+	return false;
-+}
-+
- #ifdef CONFIG_RISCV_ISA_SVNAPOT
- #define HUGE_MAX_HSTATE		(2 + (NAPOT_ORDER_MAX - NAPOT_CONT_ORDER_BASE))
- #else
-diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
-index 050fdc49b5ad..82b264423b25 100644
---- a/arch/riscv/include/asm/pgtable.h
-+++ b/arch/riscv/include/asm/pgtable.h
-@@ -296,6 +296,8 @@ static inline unsigned long pte_napot(pte_t pte)
- 	return pte_val(pte) & _PAGE_NAPOT;
- }
- 
-+#define pte_valid_napot(pte)	(pte_present(pte) && pte_napot(pte))
-+
- static inline pte_t pte_mknapot(pte_t pte, unsigned int order)
+diff --git a/drivers/irqchip/irq-riscv-imsic-early.c b/drivers/irqchip/irq-riscv-imsic-early.c
+index c5c2e6929a2f..275df5005705 100644
+--- a/drivers/irqchip/irq-riscv-imsic-early.c
++++ b/drivers/irqchip/irq-riscv-imsic-early.c
+@@ -27,7 +27,7 @@ static void imsic_ipi_send(unsigned int cpu)
  {
- 	int pos = order - 1 + _PAGE_PFN_SHIFT;
-@@ -305,6 +307,12 @@ static inline pte_t pte_mknapot(pte_t pte, unsigned int order)
- 	return __pte((pte_val(pte) & napot_mask) | napot_bit | _PAGE_NAPOT);
+ 	struct imsic_local_config *local = per_cpu_ptr(imsic->global.local, cpu);
+ 
+-	writel_relaxed(IMSIC_IPI_ID, local->msi_va);
++	writel(IMSIC_IPI_ID, local->msi_va);
  }
  
-+/* pte at entry must *not* encode the mapping size in the pfn LSBs. */
-+static inline pte_t pte_clear_napot(pte_t pte)
-+{
-+	return __pte(pte_val(pte) & ~_PAGE_NAPOT);
-+}
-+
- #else
+ static void imsic_ipi_starting_cpu(void)
+diff --git a/drivers/irqchip/irq-thead-c900-aclint-sswi.c b/drivers/irqchip/irq-thead-c900-aclint-sswi.c
+index b0e366ade427..8ff6e7a1363b 100644
+--- a/drivers/irqchip/irq-thead-c900-aclint-sswi.c
++++ b/drivers/irqchip/irq-thead-c900-aclint-sswi.c
+@@ -31,7 +31,7 @@ static DEFINE_PER_CPU(void __iomem *, sswi_cpu_regs);
  
- static __always_inline bool has_svnapot(void) { return false; }
-@@ -314,17 +322,14 @@ static inline unsigned long pte_napot(pte_t pte)
- 	return 0;
- }
- 
-+#define pte_valid_napot(pte)	false
-+
- #endif /* CONFIG_RISCV_ISA_SVNAPOT */
- 
- /* Yields the page frame number (PFN) of a page table entry */
- static inline unsigned long pte_pfn(pte_t pte)
+ static void thead_aclint_sswi_ipi_send(unsigned int cpu)
  {
--	unsigned long res  = __page_val_to_pfn(pte_val(pte));
--
--	if (has_svnapot() && pte_napot(pte))
--		res = res & (res - 1UL);
--
--	return res;
-+	return __page_val_to_pfn(pte_val(pte));
+-	writel_relaxed(0x1, per_cpu(sswi_cpu_regs, cpu));
++	writel(0x1, per_cpu(sswi_cpu_regs, cpu));
  }
  
- #define pte_page(x)     pfn_to_page(pte_pfn(x))
-@@ -559,8 +564,13 @@ static inline void __set_pte_at(struct mm_struct *mm, pte_t *ptep, pte_t pteval)
- 
- #define PFN_PTE_SHIFT		_PAGE_PFN_SHIFT
- 
--static inline void set_ptes(struct mm_struct *mm, unsigned long addr,
--		pte_t *ptep, pte_t pteval, unsigned int nr)
-+static inline pte_t __ptep_get(pte_t *ptep)
-+{
-+	return READ_ONCE(*ptep);
-+}
-+
-+static inline void __set_ptes(struct mm_struct *mm, unsigned long addr,
-+			      pte_t *ptep, pte_t pteval, unsigned int nr)
- {
- 	page_table_check_ptes_set(mm, ptep, pteval, nr);
- 
-@@ -569,10 +579,13 @@ static inline void set_ptes(struct mm_struct *mm, unsigned long addr,
- 		if (--nr == 0)
- 			break;
- 		ptep++;
-+
-+		if (unlikely(pte_valid_napot(pteval)))
-+			continue;
-+
- 		pte_val(pteval) += 1 << _PAGE_PFN_SHIFT;
- 	}
- }
--#define set_ptes set_ptes
- 
- static inline void pte_clear(struct mm_struct *mm,
- 	unsigned long addr, pte_t *ptep)
-@@ -627,6 +640,66 @@ static inline int ptep_clear_flush_young(struct vm_area_struct *vma,
- 	return ptep_test_and_clear_young(vma, address, ptep);
- }
- 
-+#ifdef CONFIG_RISCV_ISA_SVNAPOT
-+static inline void set_ptes(struct mm_struct *mm, unsigned long addr,
-+			    pte_t *ptep, pte_t pteval, unsigned int nr)
-+{
-+	if (unlikely(pte_valid_napot(pteval))) {
-+		unsigned int order = ilog2(nr);
-+
-+		if (!is_napot_order(order)) {
-+			/*
-+			 * Something's weird, we are given a NAPOT pte but the
-+			 * size of the mapping is not a known NAPOT mapping
-+			 * size, so clear the NAPOT bit and map this without
-+			 * NAPOT support: core mm only manipulates pte with the
-+			 * real pfn so we know the pte is valid without the N
-+			 * bit.
-+			 */
-+			pr_err("Incorrect NAPOT mapping, resetting.\n");
-+			pteval = pte_clear_napot(pteval);
-+		} else {
-+			/*
-+			 * NAPOT ptes that arrive here only have the N bit set
-+			 * and their pfn does not contain the mapping size, so
-+			 * set that here.
-+			 */
-+			pteval = pte_mknapot(pteval, order);
-+		}
-+	}
-+
-+	__set_ptes(mm, addr, ptep, pteval, nr);
-+}
-+#define set_ptes			set_ptes
-+
-+static inline pte_t ptep_get(pte_t *ptep)
-+{
-+	pte_t pte = __ptep_get(ptep);
-+
-+	/*
-+	 * The pte we load has the N bit set and the size of the mapping in
-+	 * the pfn LSBs: keep the N bit and replace the mapping size with
-+	 * the *real* pfn since the core mm code expects to find it there.
-+	 * The mapping size will be reset just before being written to the
-+	 * page table in set_ptes().
-+	 */
-+	if (unlikely(pte_valid_napot(pte))) {
-+		unsigned int order = napot_cont_order(pte);
-+		int pos = order - 1 + _PAGE_PFN_SHIFT;
-+		unsigned long napot_mask = ~GENMASK(pos, _PAGE_PFN_SHIFT);
-+		pte_t *orig_ptep = PTR_ALIGN_DOWN(ptep, sizeof(*ptep) * napot_pte_num(order));
-+
-+		pte = __pte((pte_val(pte) & napot_mask) + ((ptep - orig_ptep) << _PAGE_PFN_SHIFT));
-+	}
-+
-+	return pte;
-+}
-+#define ptep_get			ptep_get
-+#else
-+#define set_ptes			__set_ptes
-+#define ptep_get			__ptep_get
-+#endif /* CONFIG_RISCV_ISA_SVNAPOT */
-+
- #define pgprot_nx pgprot_nx
- static inline pgprot_t pgprot_nx(pgprot_t _prot)
- {
-diff --git a/arch/riscv/mm/hugetlbpage.c b/arch/riscv/mm/hugetlbpage.c
-index 6b09cd1ef41c..59ed26ce6857 100644
---- a/arch/riscv/mm/hugetlbpage.c
-+++ b/arch/riscv/mm/hugetlbpage.c
-@@ -256,8 +256,7 @@ void set_huge_pte_at(struct mm_struct *mm,
- 
- 	clear_flush(mm, addr, ptep, pgsize, pte_num);
- 
--	for (i = 0; i < pte_num; i++, ptep++, addr += pgsize)
--		set_pte_at(mm, addr, ptep, pte);
-+	set_ptes(mm, addr, ptep, pte, pte_num);
- }
- 
- int huge_ptep_set_access_flags(struct vm_area_struct *vma,
-@@ -284,8 +283,7 @@ int huge_ptep_set_access_flags(struct vm_area_struct *vma,
- 	if (pte_young(orig_pte))
- 		pte = pte_mkyoung(pte);
- 
--	for (i = 0; i < pte_num; i++, addr += PAGE_SIZE, ptep++)
--		set_pte_at(mm, addr, ptep, pte);
-+	set_ptes(mm, addr, ptep, pte, pte_num);
- 
- 	return true;
- }
-@@ -325,8 +323,7 @@ void huge_ptep_set_wrprotect(struct mm_struct *mm,
- 
- 	orig_pte = pte_wrprotect(orig_pte);
- 
--	for (i = 0; i < pte_num; i++, addr += PAGE_SIZE, ptep++)
--		set_pte_at(mm, addr, ptep, orig_pte);
-+	set_ptes(mm, addr, ptep, orig_pte, pte_num);
- }
- 
- pte_t huge_ptep_clear_flush(struct vm_area_struct *vma,
+ static void thead_aclint_sswi_ipi_clear(void)
 -- 
-2.39.2
+2.20.1
 
 
 _______________________________________________
