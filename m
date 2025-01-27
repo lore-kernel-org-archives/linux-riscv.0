@@ -4,81 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E8152C02188
-	for <linux-riscv@archiver.kernel.org>; Mon, 27 Jan 2025 14:27:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B587DC02188
+	for <linux-riscv@archiver.kernel.org>; Mon, 27 Jan 2025 14:57:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
+	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=3PqQvqcHIITVo9r99NSvusq09BWzYDR/xwuuZ2cSmTc=; b=nVnOnvGnE52MIZ
-	wfxLoOfox/Isn7TLZA5MH6j70JYKBqYluN6PGd1u8NCfi7f+g9rHzWktKEqDQ+Lfw4BkcRw/JcW5l
-	n2W2IjoHknvl+BJFieGBRW27Y3oEMDaiiFbj7wFGd4Jg4zNcLb7Bxyk4+4F+KR5HnOvsdYG6v11Qk
-	vRUmvLdXX/KtceJaioGaQAgjSz5PRaSI7dTbnBRYFFkVsUCmZEMPkdYya+Qumo41Oou2s+AoAIo6O
-	HmxnL9++7AJiWiRN2FBByG4K0UyEB8nWTTEeG8wiEoZMHEB6e8MYkfyW25io+dian5/RCyGcXrZln
-	0Cq2/LZbRm/dbzKlqaFQ==;
+	List-Owner; bh=HWpgVF6EKBTysSMoauH6X8AgCr6btZntwK2QRlDeQJs=; b=CHH+OW9F9Bda4U
+	VOKRq5dTsOWbkuQhaGkIA2cnxv3kMrDhxvJhr3pf7DuWLDTweVo+ZqW2yKJLqlJtiIwP6+UI+y16T
+	vgcQwW8ubrRzC6URToFhNWvbm94+iZETQWaq3GlQUeor7692Js+8uJZWG4J+gDX65IcRlL4nVsr2t
+	N6K+JnlSR7UfMlNXfPb+lN650Ywy0lapeIDIjQ6IiJT3+NWSiUu2Ug6sTDSKyV+TBsmITe8kAAtKy
+	OTqtT6zB5e+TCc30UtBbEsTRpeAxIGmy8ZsTbWazs9M+IzLT+4QT6miW+r+qEIs8MSz4vqMNpk4Zk
+	qAmqjLxwwnCdG8ddotdw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tcQ4w-00000002V2Z-2L5T;
-	Mon, 27 Jan 2025 14:27:06 +0000
-Received: from mail-pj1-x1029.google.com ([2607:f8b0:4864:20::1029])
+	id 1tcQYX-00000002XkK-2Yhk;
+	Mon, 27 Jan 2025 14:57:41 +0000
+Received: from mgamail.intel.com ([192.198.163.9])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tcQ4t-00000002V29-1en2
-	for linux-riscv@lists.infradead.org;
-	Mon, 27 Jan 2025 14:27:05 +0000
-Received: by mail-pj1-x1029.google.com with SMTP id 98e67ed59e1d1-2f44353649aso5917140a91.0
-        for <linux-riscv@lists.infradead.org>; Mon, 27 Jan 2025 06:27:02 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bytedance.com; s=google; t=1737988022; x=1738592822; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=Mr1gvl4+jgxR1YjwWGEoCmbPtqlGFCxFzwSUBwlTg5g=;
-        b=NRf+B85sFkm3d7WucKU/2F/zjSml8gaGiQs+k251RgliYUwgT1UPjZnWN/dtnX/bih
-         knPZOwme83zkJTVsjsuVcSXsCBbmU/Og/m0AY8kyFpUs47CNfiEYg+iShZKtDznQG9/r
-         Y2Ps6bpHGYY7lZRdAL/mieXl+JqKTldw6n4CV7g135ih29gRUjhSVTauLvOb/GbNUcNA
-         O63/1J2ARfYu6BDFokHdAH8goRXln9LRyZ3MqgSJq+ujHH+E5NHOGBNnUt6JKexmg9mE
-         DZJ74C3a/ivnvyhpwWUC1ezLx2pLgT9izWYPrSGEEMk+BYIIG/rKqha6KBGn5mcio2ca
-         IgOg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1737988022; x=1738592822;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=Mr1gvl4+jgxR1YjwWGEoCmbPtqlGFCxFzwSUBwlTg5g=;
-        b=jYk+gbCDB9loFxFm9VpZ4uTLrxH/hiaO1PCjjS55xNNsynHtu6hHRTibpYoCHACGgO
-         oismyHthuUE0W/mCwSRllxoKDAiim9vdMc8ak9jTk/DLTEP8JhwAzUTCtLhusEreRFPh
-         ppR51DeUX2gL/4oEwtGivhrpxyxzmkHBn0xzf+tJBwXAkMFdrBm03XIa4B8lAG1xNfS1
-         Ta+M7k/8swftGE4e9oy0aGkm9LNrUQw836tERxb5tk8LsJ7DDxV6WHudxg5YUtizJn87
-         cgGP5cXFzMvyuoWfPNPcdMZwbYmit1XibhETPNLGS0oxXK+EgfFu1Jmul5zXEcCVba2Q
-         /KTw==
-X-Forwarded-Encrypted: i=1; AJvYcCW7zaa+Xql+AO3co6tRs19QU37zdVl3VVz9XLelo6S0OtLL5X8n+ljfcJv6VhdbmomKUapnIRHkAIB1+Q==@lists.infradead.org
-X-Gm-Message-State: AOJu0YxA/+h1H7MlHYl59qhsOIm15FaDapUHlAffvWuDAu/wb/8paC+u
-	gkjlSPB0wRhZEiqPTWqcyN/FHAqtJ0vrBFdwGpcBW6N74s05xteGg2JpLmWXzXRYgGWKftoSv5F
-	N9tNTQC/o2boo1QDLqeKFagSQluc2fE//M7XtQYtnLFi9kyCeEE8=
-X-Gm-Gg: ASbGncuPyGj2KDy40YH0N6zs4a5WdsHnvHVqKsA7R7CtDqD1AuEa/o7s++WtD6CGgUf
-	gd1YJjy/pl4EiIcPJVZzMXCyBsl7zUC8Si7+ViE9UIkpGtzrcprAFf/bqxNn/h2PU
-X-Google-Smtp-Source: AGHT+IEVT0BIKKgxee0mdgJApLGVy0fsY5iRywAW8z25QrF3HHNozL4WdtwXksPd22QrFAK/Cz23CbfrF0hfm5bi1Kk=
-X-Received: by 2002:a17:90b:3a46:b0:2ee:7538:be70 with SMTP id
- 98e67ed59e1d1-2f782c513f7mr53150139a91.5.1737988021818; Mon, 27 Jan 2025
- 06:27:01 -0800 (PST)
+	id 1tcQXA-00000002XWd-24X8;
+	Mon, 27 Jan 2025 14:56:18 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1737989776; x=1769525776;
+  h=from:to:cc:subject:in-reply-to:references:date:
+   message-id:mime-version;
+  bh=jgZ2GO8S3cXCdWyE6ZvOdFoqm0rhCqZC3ICQKad44uQ=;
+  b=AHdTslY5vV6zKb8MKxB27H8Bt4jok9OsA2p9XmnI1YhkdTd2ytSGKdLu
+   rtB+yYf2JI2Cf/HREXZZsFOzrFA4de9arZDuV+lsiG3QTugKIzqcN3Pl5
+   GZx29PDgQdxZQeKO71Tcrgr9VNrZu/jY1l/PmZRPApngOddXBytwterru
+   0SuIUfm2N4K2G2G+y2/qkuc9NsvfhGtE5yyZtZebKBJpCGUanq93BNZ2T
+   4P1JABQdENcPVjxa1auws0b4T6ODyc1ALl+pIlVQjvzxPWtBF4ShtkOIc
+   JyuNCBiI+CFMDtdtoAnzqiwKvstz8dpN5oOHNLEcYXZHtn4oxPggDHSeO
+   g==;
+X-CSE-ConnectionGUID: R3UXd7E2QDqYuaf835g+xQ==
+X-CSE-MsgGUID: VUQ9L50zQNamNSF0EewFrg==
+X-IronPort-AV: E=McAfee;i="6700,10204,11328"; a="49104685"
+X-IronPort-AV: E=Sophos;i="6.13,238,1732608000"; 
+   d="scan'208";a="49104685"
+Received: from orviesa005.jf.intel.com ([10.64.159.145])
+  by fmvoesa103.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 27 Jan 2025 06:56:13 -0800
+X-CSE-ConnectionGUID: Z9Coz29cQ6uqfPwc/L4sHg==
+X-CSE-MsgGUID: XE2pskZGQO2Q6A9y4rThjA==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.12,224,1728975600"; 
+   d="scan'208";a="113598177"
+Received: from bergbenj-mobl1.ger.corp.intel.com (HELO localhost) ([10.245.246.14])
+  by orviesa005-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 27 Jan 2025 06:56:01 -0800
+From: Jani Nikula <jani.nikula@intel.com>
+To: Joel Granados <joel.granados@kernel.org>, Ard Biesheuvel <ardb@kernel.org>
+Cc: Alexander Gordeev <agordeev@linux.ibm.com>, Thomas =?utf-8?Q?Wei=C3=9F?=
+ =?utf-8?Q?schuh?=
+ <linux@weissschuh.net>, Kees Cook <kees@kernel.org>, Luis Chamberlain
+ <mcgrof@kernel.org>, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+ linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
+ linux-crypto@vger.kernel.org, openipmi-developer@lists.sourceforge.net,
+ intel-gfx@lists.freedesktop.org, dri-devel@lists.freedesktop.org,
+ intel-xe@lists.freedesktop.org, linux-hyperv@vger.kernel.org,
+ linux-rdma@vger.kernel.org, linux-raid@vger.kernel.org,
+ linux-scsi@vger.kernel.org, linux-serial@vger.kernel.org,
+ xen-devel@lists.xenproject.org, linux-aio@kvack.org,
+ linux-fsdevel@vger.kernel.org, netfs@lists.linux.dev,
+ codalist@coda.cs.cmu.edu, linux-mm@kvack.org, linux-nfs@vger.kernel.org,
+ ocfs2-devel@lists.linux.dev, fsverity@lists.linux.dev,
+ linux-xfs@vger.kernel.org, io-uring@vger.kernel.org, bpf@vger.kernel.org,
+ kexec@lists.infradead.org, linux-trace-kernel@vger.kernel.org,
+ linux-hardening@vger.kernel.org, apparmor@lists.ubuntu.com,
+ linux-security-module@vger.kernel.org, keyrings@vger.kernel.org, Song Liu
+ <song@kernel.org>, "Steven Rostedt (Google)" <rostedt@goodmis.org>,
+ "Martin K. Petersen" <martin.petersen@oracle.com>, "Darrick J. Wong"
+ <djwong@kernel.org>, Corey Minyard <cminyard@mvista.com>
+Subject: Re: Re: Re: [PATCH v2] treewide: const qualify ctl_tables where
+ applicable
+In-Reply-To: <f4lfo2fb7ajogucsvisfd5sg2avykavmkizr6ycsllcrco4mo3@qt2zx4zp57zh>
+Organization: Intel Finland Oy - BIC 0357606-4 - Westendinkatu 7, 02160 Espoo
+References: <20250110-jag-ctl_table_const-v2-1-0000e1663144@kernel.org>
+ <Z4+jwDBrZNRgu85S@li-008a6a4c-3549-11b2-a85c-c5cc2836eea2.ibm.com>
+ <nslqrapp4v3rknjgtfk4cg64ha7rewrrg24aslo2e5jmxfwce5@t4chrpuk632k>
+ <CAMj1kXEZPe8zk7s67SADK9wVH3cfBup-sAZSC6_pJyng9QT7aw@mail.gmail.com>
+ <f4lfo2fb7ajogucsvisfd5sg2avykavmkizr6ycsllcrco4mo3@qt2zx4zp57zh>
+Date: Mon, 27 Jan 2025 16:55:58 +0200
+Message-ID: <87jzag9ugx.fsf@intel.com>
 MIME-Version: 1.0
-References: <20250127093846.98625-1-luxu.kernel@bytedance.com> <87plk88s1o.ffs@tglx>
-In-Reply-To: <87plk88s1o.ffs@tglx>
-From: Xu Lu <luxu.kernel@bytedance.com>
-Date: Mon, 27 Jan 2025 22:26:50 +0800
-X-Gm-Features: AWEUYZlOyZPfHFjwvGv-vahEw3f4yC-hPNfW_f4vT6Lzsxqh2fJa3d0evyu_0gQ
-Message-ID: <CAPYmKFtQVxYTurHox+ykLPL7MqsMyx8MFZabN1y5eO_EJzU02Q@mail.gmail.com>
-Subject: Re: [External] Re: [PATCH RESEND] irqchip: riscv: Order normal writes
- and IPI writes
-To: Thomas Gleixner <tglx@linutronix.de>
-Cc: anup@brainfault.org, charlie@rivosinc.com, paul.walmsley@sifive.com, 
-	palmer@dabbelt.com, lihangjing@bytedance.com, xieyongji@bytedance.com, 
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250127_062703_684921_207D4980 
-X-CRM114-Status: GOOD (  22.19  )
+X-CRM114-CacheID: sfid-20250127_065616_543853_20781414 
+X-CRM114-Status: GOOD (  29.83  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,47 +103,83 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gTW9uLCBKYW4gMjcsIDIwMjUgYXQgNjozM+KAr1BNIFRob21hcyBHbGVpeG5lciA8dGdseEBs
-aW51dHJvbml4LmRlPiB3cm90ZToKPgo+IE9uIE1vbiwgSmFuIDI3IDIwMjUgYXQgMTc6MzgsIFh1
-IEx1IHdyb3RlOgo+Cj4gVGhpcyBpcyBub3QgYSBSRVNFTkQuIFRoZSBjaGFuZ2UgbG9nIGhhcyBi
-ZWVuIG1vZGlmaWVkLCBubz8KClN1cmUsIHRoZSBjaGFuZ2UgbG9nIGhhcyBiZWVuIG1vZGlmaWVk
-LiBJIHdpbGwgcGF5IGF0dGVudGlvbiBuZXh0IHRpbWUuCgo+Cj4gVGhlIHByZWZpeCBpcyBpbmNv
-cnJlY3QuIFNlZQo+Cj4gICBodHRwczovL3d3dy5rZXJuZWwub3JnL2RvYy9odG1sL2xhdGVzdC9w
-cm9jZXNzL21haW50YWluZXItdGlwLmh0bWwKPgo+ID4gUklTQy1WIGRpc3Rpbmd1aXNoZXMgYmV0
-d2VlbiBub3JtYWwgbWVtb3J5IGFjY2Vzc2VzIGFuZCBkZXZpY2UgSS9PIGFuZAo+Cj4gV2hhdCBp
-cyBhIG5vcm1hbCBtZW1vcnkgd3JpdGU/IEFyZSB0aGVyZSBhYm5vcm1hbCBtZW1vcnkgd3JpdGVz
-IHRvbz8KClNvcnJ5IGZvciB0aGUgbWlzbGVhZGluZy4gQnkgbm9ybWFsIG1lbW9yeSB3cml0ZSwg
-SSBtZWFuIG1lbW9yeSB3cml0ZXMKYW5kIHdhbnQgdG8gZGlzdGluZ3Vpc2ggaXQgZnJvbSBNTUlP
-IHdyaXRlcy4KCj4KPiA+IHVzZXMgRkVOQ0UgaW5zdHJ1Y3Rpb24gdG8gb3JkZXIgdGhlbSBhcyB2
-aWV3ZWQgYnkgb3RoZSBSSVNDLVYgaGFydHMgYW5kCj4gPiBleHRlcm5hbCBkZXZpY2VzIG9yIGNv
-cHJvY2Vzc29ycy4gVGhlIEZFTkNFIGluc3RydWN0aW9uIGNhbiBvcmRlciBhbnkKPiA+IGNvbWJp
-bmF0aW9uIG9mIGRldmljZSBpbnB1dChJKSwgZGV2aWNlIG91dHB1dChPKSwgbWVtb3J5IHJlYWRz
-KFIpIGFuZAo+ID4gbWVtb3J5IHdyaXRlcyhXKS4gRm9yIGV4YW1wbGUsICdmZW5jZSB3LCBvJyBj
-YW4gYmUgdXNlZCB0byBlbnN1cmUgYWxsCj4KPiBDYW4gYmU/IEl0IF9pc18gdXNlZCwgbm8/CgpZ
-ZXMsIGl0IF9pc18gdXNlZC4gJ0NhbiBiZScgaXMgbm90IGFjY3VyYXRlLgoKPgo+ID4gbWVtb3J5
-IHdyaXRlcyBmcm9tIGluc3RydWN0aW9ucyBwcmVjZWRpbmcgdGhlIEZFTkNFIGluc3RydWN0aW9u
-IGFwcGVhcgo+ID4gZWFybGllciBpbiB0aGUgZ2xvYmFsIG1lbW9yeSBvcmRlciB0aGFuIGRldmlj
-ZSBvdXRwdXQgd3JpdGVzIGZyb20KPiA+IGluc3RydWN0aW9ucyBhZnRlciB0aGUgRkVOQ0UgaW5z
-dHJ1Y3Rpb24uCj4gPgo+ID4gUklTQy1WIGlzc3VlcyBJUEkgYnkgd3JpdGluZyBjZXJ0YWluIHZh
-bHVlIHRvIElNU0lDL0FDTElOVCBNTUlPCj4gPiByZWdpc3RlcnMsIHdoaWNoIGlzIHJlZ2FyZGVk
-IGFzIGRldmljZSBvdXRwdXQgb3BlcmF0aW9uLiBIb3dldmVyLCB0aGUKPiA+IGV4aXN0aW5nIGlt
-cGxlbWVudGF0aW9uIG9mIElNU0lDL0FDTElOVCBkcml2ZXIgaXNzdWVzIElQSSB2aWEKPiA+IHdy
-aXRlbF9yZWxheGVkKCksIHdoaWNoIGRvZXMgbm90IGd1YXJhbnRlZSB0aGUgb3JkZXIgb2YgZGV2
-aWNlIG91dHB1dAo+ID4gb3BlcmF0aW9uIGFuZCBwcmVjZWRpbmcgbWVtb3J5IHdyaXRlcy4gVGhl
-biB0aGUgaGFydCByZWNlaXZpbmcgSVBJIG1heQo+ID4gbm90IGhhdmUgc2VlbiB0aGUgbGF0ZXN0
-IGRhdGEgeWV0Lgo+ID4KPiA+IFRoaXMgY29tbWl0IGZpeGVzIHRoaXMgYnkgcmVwbGFjaW5nIHdy
-aXRlbF9yZWxheGVkKCkgd2l0aCB3cml0ZWwoKQo+ID4gd2hlbgo+Cj4gJ1RoaXMgY29tbWl0JyBp
-cyBlcXVhbGx5IHdyb25nIGFzICdUaGlzIHBhdGNoJy4gU2VlIERvY3VtZW50YXRpb24vcHJvY2Vz
-cy8KClRoYW5rcyB2ZXJ5IG11Y2guIEkgd2lsbCBjaGVjayB0aGUgZG9jdW1lbnRzLgoKQmVzdCBS
-ZWdhcmRzLAoKWHUgTHUKCj4KPiA+IGlzc3VpbmcgSVBJLCB3aGljaCB3aWxsIHVzZSAnZmVuY2Ug
-dywgbycgdG8gZW5zdXJlIGFsbCBwcmV2aW91cyB3cml0ZXMKPiA+IG1hZGUgYnkgY3VycmVudCBo
-YXJ0IGFyZSB2aXNpYmxlIHRvIG90aGVyIGhhcnRzIGJlZm9yZSB0aGV5IHJlY2VpdmUKPiA+IHRo
-ZSBJUEkuCj4KPiBJJ3ZlIGZpeGVkIGl0IHVwIGZvciB5b3UuCj4KPiBUaGFua3MsCj4KPiAgICAg
-ICAgIHRnbHgKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-CmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3Jn
-Cmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+On Mon, 27 Jan 2025, Joel Granados <joel.granados@kernel.org> wrote:
+> On Wed, Jan 22, 2025 at 01:41:35PM +0100, Ard Biesheuvel wrote:
+>> On Wed, 22 Jan 2025 at 13:25, Joel Granados <joel.granados@kernel.org> wrote:
+>> >
+>> > On Tue, Jan 21, 2025 at 02:40:16PM +0100, Alexander Gordeev wrote:
+>> > > On Fri, Jan 10, 2025 at 03:16:08PM +0100, Joel Granados wrote:
+>> > >
+>> > > Hi Joel,
+>> > >
+>> > > > Add the const qualifier to all the ctl_tables in the tree except for
+>> > > > watchdog_hardlockup_sysctl, memory_allocation_profiling_sysctls,
+>> > > > loadpin_sysctl_table and the ones calling register_net_sysctl (./net,
+>> > > > drivers/inifiniband dirs). These are special cases as they use a
+>> > > > registration function with a non-const qualified ctl_table argument or
+>> > > > modify the arrays before passing them on to the registration function.
+>> > > >
+>> > > > Constifying ctl_table structs will prevent the modification of
+>> > > > proc_handler function pointers as the arrays would reside in .rodata.
+>> > > > This is made possible after commit 78eb4ea25cd5 ("sysctl: treewide:
+>> > > > constify the ctl_table argument of proc_handlers") constified all the
+>> > > > proc_handlers.
+>> > >
+>> > > I could identify at least these occurences in s390 code as well:
+>> > Hey Alexander
+>> >
+>> > Thx for bringing these to my attention. I had completely missed them as
+>> > the spatch only deals with ctl_tables outside functions.
+>> >
+>> > Short answer:
+>> > These should not be included in the current patch because they are a
+>> > different pattern from how sysctl tables are usually used. So I will not
+>> > include them.
+>> >
+>> > With that said, I think it might be interesting to look closer at them
+>> > as they seem to be complicating the proc_handler (I have to look at them
+>> > closer).
+>> >
+>> > I see that they are defining a ctl_table struct within the functions and
+>> > just using the data (from the incoming ctl_table) to forward things down
+>> > to proc_do{u,}intvec_* functions. This is very odd and I have only seen
+>> > it done in order to change the incoming ctl_table (which is not what is
+>> > being done here).
+>> >
+>> > I will take a closer look after the merge window and circle back with
+>> > more info. Might take me a while as I'm not very familiar with s390
+>> > code; any additional information on why those are being used inside the
+>> > functions would be helpfull.
+>> >
+>> 
+>> Using const data on the stack is not as useful, because the stack is
+>> always mapped writable.
+>> 
+>> Global data structures marked 'const' will be moved into an ELF
+>> section that is typically mapped read-only in its entirely, and so the
+>> data cannot be modified by writing to it directly. No such protection
+>> is possible for the stack, and so the constness there is only enforced
+>> at compile time.
+> I completely agree with you. No reason to use const within those
+> functions. But why define those ctl_tables in function to begin with.
+> Can't you just use the ones that are defined outside the functions?
+
+You could have static const within functions too. You get the rodata
+protection and function local scope, best of both worlds?
+
+BR,
+Jani.
+
+
+-- 
+Jani Nikula, Intel
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
