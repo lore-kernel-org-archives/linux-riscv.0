@@ -4,135 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CFEBCC0218A
-	for <linux-riscv@archiver.kernel.org>; Tue, 28 Jan 2025 16:33:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 68090C02190
+	for <linux-riscv@archiver.kernel.org>; Tue, 28 Jan 2025 16:58:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:References:In-Reply-To:Cc:To:From:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=L2hT1e1uLWQ0mk20sfokns1vuKErlQECkPWYkBaDflQ=; b=DAIXWL8+nWD8sD
-	7Tuy+SHgOIbKoGrYCr4AswvLLSNSuOhCEz6Hkx63EWBfSBoA0tE3FXU+dfjGCeVfLl8vaB0ycq2xu
-	RlEqCO8g2pF+oNYmK9mJyEAl2WrKKV1/x4ApENvmu4O0AKOsklLJpPAYx5b4R9ZzDJY5fA3E7ozU+
-	gIvC9bePhvwWraTGQae2BOlVSrnlpzjo3sLvWJktxWW6adix1Q5QJpxw4YTZvWfJyX9cCkS9CeL2S
-	Yoa/eG0UaV2a5U1uAltcURtJuQUv14mNbSbQV9Z5PQPhmpts3ngXc2ct560ssrK/pmGC6Dmo6dc55
-	rXpbuLIYhqyH9yGU+JJA==;
+	List-Owner; bh=XvvxGFyDVe7rhM1LubTg7ayRPeQg/2KtHaFb2Se6OJE=; b=kgs3bBbkfcrBbN
+	8m5rppdGg046k7mq9S2G5N5x9DxE/UFF44HwudKyyodD+N7KURweorkxPsr7DmCETiTj0kVcQlgqE
+	gicfeXmqC6FS935eD7YtuObhTZp8e76n6RT6NDFtviu2lYFef5311kqBd/GPon1XyCfziUZ3wxBTr
+	p+rrZhV07fanDq/xT0Or7qYuDjgH4649WYmyaKU+7iWCe5w5Llmr8v0T+5XpAFRkiNgiHDE5ZRrH4
+	fb4sNtzQqrTCtSsbC7Wa2Y6Rk/nqP8adafXTSGh+rVKkaiBzzFC75iGtudhAW5SIkl7qdM8rljqEI
+	r4pvXImmV6+SfWBm1rlg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tcoWv-00000005L8y-2skV;
-	Tue, 28 Jan 2025 16:33:37 +0000
-Received: from [210.118.77.12] (helo=mailout2.w1.samsung.com)
+	id 1tcoup-00000005PCP-3rdl;
+	Tue, 28 Jan 2025 16:58:19 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tcoQo-00000005Jnd-2rXW
+	id 1tcoun-00000005PBu-2fnP
 	for linux-riscv@lists.infradead.org;
-	Tue, 28 Jan 2025 16:27:20 +0000
-Received: from eucas1p1.samsung.com (unknown [182.198.249.206])
-	by mailout2.w1.samsung.com (KnoxPortal) with ESMTP id 20250128162712euoutp0273a10b5f1a0658fd5d63e46d7b27db36~e6AlBsGg32738927389euoutp02B
-	for <linux-riscv@lists.infradead.org>; Tue, 28 Jan 2025 16:27:12 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.w1.samsung.com 20250128162712euoutp0273a10b5f1a0658fd5d63e46d7b27db36~e6AlBsGg32738927389euoutp02B
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1738081632;
-	bh=fFbTh+PWSmdRFBoGu9O4DUva9iXla1md7758aeiDLz4=;
-	h=Date:Subject:From:To:Cc:In-Reply-To:References:From;
-	b=TFmaGkOaOngHdMQ/pXWXbzPxRWkXqYTQQ7blYdU3MnDfl4Ui55OQEmZS92nkRU0QK
-	 9TX/PY4ci0p5GYDsRhsOWS2re8kN/l4fph6zMyF8e9fF3u2UyhZjQvigLMkKzbjp+H
-	 aiwUFOqcNtxzG4ahagzXxHPBOw/dUlGvc2SLwdcg=
-Received: from eusmges2new.samsung.com (unknown [203.254.199.244]) by
-	eucas1p1.samsung.com (KnoxPortal) with ESMTP id
-	20250128162712eucas1p1c6f2938e96b8144aaccff7d0c3905440~e6Akmdgug0040500405eucas1p1R;
-	Tue, 28 Jan 2025 16:27:12 +0000 (GMT)
-Received: from eucas1p2.samsung.com ( [182.198.249.207]) by
-	eusmges2new.samsung.com (EUCPMTA) with SMTP id 6C.C2.20409.06509976; Tue, 28
-	Jan 2025 16:27:12 +0000 (GMT)
-Received: from eusmtrp1.samsung.com (unknown [182.198.249.138]) by
-	eucas1p2.samsung.com (KnoxPortal) with ESMTPA id
-	20250128162711eucas1p2bfe8403d51943e5d5e7bc99c165a3a3b~e6AkKpP0F2095320953eucas1p2R;
-	Tue, 28 Jan 2025 16:27:11 +0000 (GMT)
-Received: from eusmgms2.samsung.com (unknown [182.198.249.180]) by
-	eusmtrp1.samsung.com (KnoxPortal) with ESMTP id
-	20250128162711eusmtrp14491c4910474d6a0c0a4fb4333444735~e6AkJufsr1458214582eusmtrp1e;
-	Tue, 28 Jan 2025 16:27:11 +0000 (GMT)
-X-AuditID: cbfec7f4-c0df970000004fb9-38-67990560a4fa
-Received: from eusmtip1.samsung.com ( [203.254.199.221]) by
-	eusmgms2.samsung.com (EUCPMTA) with SMTP id 84.F2.19654.F5509976; Tue, 28
-	Jan 2025 16:27:11 +0000 (GMT)
-Received: from [192.168.1.44] (unknown [106.210.136.40]) by
-	eusmtip1.samsung.com (KnoxPortal) with ESMTPA id
-	20250128162710eusmtip144e6661f192407d315ac892b5ee175de~e6Ai2D0jv2024520245eusmtip1G;
-	Tue, 28 Jan 2025 16:27:10 +0000 (GMT)
-Message-ID: <51846fb3-3d86-4ba7-8504-0725d3cd738f@samsung.com>
-Date: Tue, 28 Jan 2025 17:27:10 +0100
+	Tue, 28 Jan 2025 16:58:18 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id C9F895C60FC
+	for <linux-riscv@lists.infradead.org>; Tue, 28 Jan 2025 16:57:36 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 60F4EC4CEEC
+	for <linux-riscv@lists.infradead.org>; Tue, 28 Jan 2025 16:58:16 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1738083496;
+	bh=y0G/CNUpOShOI21G2rXVvvmIYC7FYgCkYYNmc2IXvb0=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=jcnvgYKcqmBb61GSD68TxjoEjj0LXe3WZBmBGGn9fWCWJ8yanWHrpbCZ/5ELUrJIK
+	 gAvjAwegHqkbQY4lSItbsbP9NVc6aZz1gJEVm/lqxykxYB9SE3ZpDzxqZiAOejT9W+
+	 W806RdH6d+0khAyUdR0fhS38zNaPsDANx1zgvg3YZCetkQZdEtgtQom6WH9xQI0HLR
+	 4gkGoI+d6WqXx2R17sK05xfQhjctLuID45bIv098Pakd5MCCeAKLCZ6DVgaqdTiL3X
+	 pWCl1+sPXbO6L7gw4CWAAVdKsbunNw+rdFl2AZ7vc1i5bOJXOpLSHT76oBAi3aMo8x
+	 1kKcltAko2eFw==
+Received: by mail-lf1-f42.google.com with SMTP id 2adb3069b0e04-53e399e3310so6205509e87.1
+        for <linux-riscv@lists.infradead.org>; Tue, 28 Jan 2025 08:58:16 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCUVgbgSJGILsq1CZdQ/uu28sTIXwSP9VuSPwf5Dc2/hGb1ctZiFj7M4kEgtap37/kjYh/BU2s5s07GLIQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0YxjxMamVEI+2yKEhlcm8I4YS9Ix03+PPxiObPxbB0/8JpcJRo3o
+	qxHMdAMm0uDporGqbs35PZtbZ0ApA4rgeUbRl0hTqEHLgQVjFAxM3G2TWBehRoqH2ZTa1nMPJJg
+	exEV3OEG/+cNIIhtXzIHUx8e+0Q==
+X-Google-Smtp-Source: AGHT+IGZBJ5sNC4e/lfqrnbWISj/cWgnjLcnpHkbkXiOQn3yUrA0tM+/GVs4Jx8zNEw9eiDrE3RJVIQzxYNeXv8+DK8=
+X-Received: by 2002:a05:6512:159b:b0:540:358e:36b9 with SMTP id
+ 2adb3069b0e04-5439c2807e3mr17546566e87.45.1738083494575; Tue, 28 Jan 2025
+ 08:58:14 -0800 (PST)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC v3 04/18] firmware: thead: Add AON firmware protocol
- driver
-From: Michal Wilczynski <m.wilczynski@samsung.com>
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: mturquette@baylibre.com, sboyd@kernel.org, robh@kernel.org,
-	krzk+dt@kernel.org, conor+dt@kernel.org, drew@pdp7.com, guoren@kernel.org,
-	wefu@redhat.com, jassisinghbrar@gmail.com, paul.walmsley@sifive.com,
-	palmer@dabbelt.com, aou@eecs.berkeley.edu, frank.binns@imgtec.com,
-	matt.coster@imgtec.com, maarten.lankhorst@linux.intel.com,
-	mripard@kernel.org, tzimmermann@suse.de, airlied@gmail.com, simona@ffwll.ch,
-	ulf.hansson@linaro.org, jszhang@kernel.org, p.zabel@pengutronix.de,
-	m.szyprowski@samsung.com, linux-clk@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org, dri-devel@lists.freedesktop.org,
-	linux-pm@vger.kernel.org
-Content-Language: en-US
-In-Reply-To: <0324973c-2180-4077-a000-b7b6d895b7aa@samsung.com>
-X-Brightmail-Tracker: H4sIAAAAAAAAA02SfUxbZRTGfW9v771tUrgUTF9Rx0LG4pyygajvnEPmmLlomGiWmGwaaLa7
-	DsdX2nXTzY/yMdygncCQj4IWcANsVj5qYaWhVFltGczC2AZIoEyFZCDIKh1kKMXRdsp/v/Oc
-	5815zslLcYRXiVAqNeM4K80Qp4UTfLzd9qD/+RRupWR72QqJeobrMNT2t5pEl80ODGmsDi5y
-	DhowdOv+PIGapgZIdNecjaOhxq9JlGtrJtC02kmg/v4WErmUTi66aaom0ILKClD7Qh6BdNZx
-	EtW62nB00WgCKP9cPRfd6N2Lxp09OJq+qeSgfHUgWu00ksgz1Iqjqj8tJDLMFnORXfceyrOU
-	4nEbmPmRMyQzOz2NM1fPuknGvFiDMx3qcZJRdlwHjF57jmDGhjoJ5ptr7zAThXaM+f7i50ye
-	zoYxX65sZ+a7bhPMeYMWMIO5w2SS8AD/1cNsWuoJVrotNoV/tLbBCrLs/I+Gij2EAgxQBYBH
-	QToGDruNnALAp4R0I4AaTTnmK9wANiunuL5iAcAC8yLn0ZOl7y75XQ0AFlsq/cUcgNcNjfia
-	S0DHQu3UIrnGOB0Bq1ZngE8PgtcqJ72ex+kwODFa4fUE02/DpsLb3DUm6Gh4p0Hj5RB6Cxxe
-	WfLG4NCdXFhW2uJtcGgRHJ3UYGvMo1+D5TmDmE8Pg1fmqr0bQfoGH2p6nf7c8bDngRv3cTCc
-	sRtIHz8F+y4o/XomvNP2l9//CexQ2v28E445lokCQD0csAU2m7b55N2wtWTWK0M6AI7MBfki
-	BMCS9nKOTxbAs/lCn3sz/Eqp+m+oo7EdKwLh6nVXUa9bTL1uGfX/c2sArgUiVi5Ll7Cy6Az2
-	ZKRMnC6TZ0giD2Wm68HDf97nsbuNoGHGFdkNMAp0A0hxwkMEHzgqJELBYfHHp1hpZrJUnsbK
-	usGTFB4uEtRZzkiEtER8nD3Gslms9FEXo3ihCuwIoGZsn5bxkuIU708I5LlGg+HyclhOb32x
-	2Fl193Rl4NYBUXCmsui5mOVC4Hol+V7r6hPchJgR3bGTp35sUaTMHjwR77miv9WVwB9SyWP7
-	E7+oFWe/+Fn2rpyDNaKc0Q8jdrwRVb/pH0dKyB8Hdr+ZzFv1MBx4vvDbH5Rq+87ZIzNxqKKl
-	7d6cqeunsYSquv18W6i1ZE+QfrDnLVFAoCL/UFGWLnSxQOdOTFrauO/dkR1btYmWpgu1P0ed
-	Rpd6m2o8Val79728oflpV/DqZOnvGf3teboJ3saA/fH66vL7quG53wBm6vvlGVWAxbVnl/Yx
-	2vBr9EutParNEamvv7Ap0WwOx2VHxVHPcqQy8b+TFE+hVgQAAA==
-X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFrrKKsWRmVeSWpSXmKPExsVy+t/xu7rxrDPTDXauU7c4cX0Rk8XW37PY
-	LdbsPcdkMf/IOVaLe5e2MFlc+fqezWLd0wvsFi/2NrJYXFsxl92i+dh6NouXs+6xWZw/v4Hd
-	4mPPPVaLy7vmsFl87j3CaLHtcwubxdojd9ktFn7cymKxZMcuRou2zmWsFhdPuVrcvXeCxeLl
-	5R5mi7ZZ/Bb/9+xgt/h3bSOLxex3+9kttryZyGpxfG24Rcv+KSwOch7vb7Sye7x5+ZLF43DH
-	F3aPvd8WsHjsnHWX3aNn5xlGj02rOtk87lzbw+Yx72Sgx/3u40wem5fUe7SsPcbk0f/XwOP9
-	vqtsHn1bVjF6XGq+zh4gFKVnU5RfWpKqkJFfXGKrFG1oYaRnaGmhZ2RiqWdobB5rZWSqpG9n
-	k5Kak1mWWqRvl6CXsXD5EcaC41wV1yb+Y2tgvMDRxcjJISFgIvF95VKmLkYuDiGBpYwSyy5e
-	ZoNIyEhc637JAmELS/y51sUGUfSaUWJFywZ2kASvgJ3EqqffwGwWAVWJ2f9fMULEBSVOznwC
-	1iwqIC9x/9YMsBphAV+JJdf2M4HYbAJGEg+Wz2cFsUUENCWu//3OCrKAWWAPq8ThzZ+htq1n
-	krj0cRVYB7OAuMStJ/PBbE4Be4npTZeAbA6guLrE+nlCECXyEtvfzmGewCg0C8kds5B0z0Lo
-	mIWkYwEjyypGkdTS4tz03GIjveLE3OLSvHS95PzcTYzA9LXt2M8tOxhXvvqod4iRiYPxEKME
-	B7OSCG/suRnpQrwpiZVVqUX58UWlOanFhxhNgWExkVlKNDkfmEDzSuINzQxMDU3MLA1MLc2M
-	lcR52a6cTxMSSE8sSc1OTS1ILYLpY+LglGpgmhkpFen85fHhW6F71sgEGC2b/zmMNytTba3N
-	NM17uwImv+WVYYrSZg97kSPq0bX01u+rglURPc0PJzoVvVnw58WZd73fXs6Wd02+UH7jgvf/
-	3pD2SUfCHJ8V+HvH7i4tvNPq5c/IsPjmD7v1lp9+C68MvPg3Mrty9oO6KdbZFdd331TRPnPV
-	Vdjo5xXbFvuPHhGu0Y/W73g1adGZdXc4F0nlcfHtvTu/43tjfpTo5h+af7lbP025rhj6zTro
-	tFLjguldRU0GqqFCL2bU/3l8omxxs1T024LqCFPV7Qrdhx85aXuJMB+vVX2oxe92vfJ7s8jk
-	0IVPTnZvL5zWF/ux7PbZtnVzPj8IbjfpXXzxpRJLcUaioRZzUXEiAD4ihYDoAwAA
-X-CMS-MailID: 20250128162711eucas1p2bfe8403d51943e5d5e7bc99c165a3a3b
-X-Msg-Generator: CA
-X-RootMTR: 20250120172124eucas1p233b3f6da39e7064db62b02a66bc1ac29
-X-EPHeader: CA
-CMS-TYPE: 201P
-X-CMS-RootMailID: 20250120172124eucas1p233b3f6da39e7064db62b02a66bc1ac29
-References: <20250120172111.3492708-1-m.wilczynski@samsung.com>
-	<CGME20250120172124eucas1p233b3f6da39e7064db62b02a66bc1ac29@eucas1p2.samsung.com>
-	<20250120172111.3492708-5-m.wilczynski@samsung.com>
-	<20250121-small-ruby-seahorse-7475d0@krzk-bin>
-	<0324973c-2180-4077-a000-b7b6d895b7aa@samsung.com>
+References: <20250121-03-k1-gpio-v4-0-4641c95c0194@gentoo.org>
+ <20250121-03-k1-gpio-v4-1-4641c95c0194@gentoo.org> <Z5FPJLzAEVXGWJnE@chonkvm.lixom.net>
+ <20250123113042-GYA38135@gentoo> <Z5LOdh-4UxRtteOy@chonkvm.lixom.net>
+ <20250127181726.GA538260-robh@kernel.org> <20250128031712-GYB47737@gentoo> <CACRpkdYbSOHD9UH5=+qjztxS3Cq_rxaoOT9tFtD8ZWm9zQGnPw@mail.gmail.com>
+In-Reply-To: <CACRpkdYbSOHD9UH5=+qjztxS3Cq_rxaoOT9tFtD8ZWm9zQGnPw@mail.gmail.com>
+From: Rob Herring <robh@kernel.org>
+Date: Tue, 28 Jan 2025 10:58:01 -0600
+X-Gmail-Original-Message-ID: <CAL_Jsq+f56DoH5YTV85ZqP52sMzkOtHtjWzQ7Tu4FhKSjTSpEQ@mail.gmail.com>
+X-Gm-Features: AWEUYZnuV1NO_CdVjSEHj4BGZlEY-zMnXERRyRsEZ22al7MVrBDW1ebcFa4k10c
+Message-ID: <CAL_Jsq+f56DoH5YTV85ZqP52sMzkOtHtjWzQ7Tu4FhKSjTSpEQ@mail.gmail.com>
+Subject: Re: [PATCH v4 1/4] dt-bindings: gpio: spacemit: add support for K1 SoC
+To: Linus Walleij <linus.walleij@linaro.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250128_082719_238322_40BAB0DA 
-X-CRM114-Status: GOOD (  13.83  )
+X-CRM114-CacheID: sfid-20250128_085817_761956_523515EE 
+X-CRM114-Status: GOOD (  16.93  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -144,63 +79,31 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Cc: devicetree@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>, Meng Zhang <zhangmeng.kevin@linux.spacemit.com>, Yixun Lan <dlan@gentoo.org>, linux-gpio@vger.kernel.org, Bartosz Golaszewski <brgl@bgdev.pl>, linux-kernel@vger.kernel.org, Conor Dooley <conor@kernel.org>, Yangyu Chen <cyy@cyyself.name>, Palmer Dabbelt <palmer@dabbelt.com>, Jesse Taube <mr.bossman075@gmail.com>, Jisheng Zhang <jszhang@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>, Olof Johansson <olof@lixom.net>, Inochi Amaoto <inochiama@outlook.com>, Krzysztof Kozlowski <krzk+dt@kernel.org>, linux-riscv@lists.infradead.org
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
-
-On 1/28/25 16:54, Michal Wilczynski wrote:
-> 
-> 
-> On 1/21/25 10:56, Krzysztof Kozlowski wrote:
-> 
->>> diff --git a/include/linux/firmware/thead/thead,th1520-aon.h b/include/linux/firmware/thead/thead,th1520-aon.h
->>> new file mode 100644
->>> index 000000000000..3daa17c01d17
->>> --- /dev/null
->>> +++ b/include/linux/firmware/thead/thead,th1520-aon.h
->>> @@ -0,0 +1,186 @@
->>> +/* SPDX-License-Identifier: GPL-2.0 */
->>> +/*
->>> + * Copyright (C) 2021 Alibaba Group Holding Limited.
->>> + */
->>> +
->>> +#ifndef _THEAD_AON_H
->>> +#define _THEAD_AON_H
->>> +
->>> +#include <linux/device.h>
->>> +#include <linux/types.h>
->>> +
->>> +#define AON_RPC_MSG_MAGIC (0xef)
->>> +#define TH1520_AON_RPC_VERSION 2
->>> +#define TH1520_AON_RPC_MSG_NUM 7
->>> +
->>> +extern struct th1520_aon_chan *aon_chan;
->>
->> Drop all externs.
-> 
-> This is required so the code will compile as the
-> int th1520_aon_call_rpc(struct th1520_aon_chan *aon_chan, void *msg);
-> is non static and exposed in the same header.
-> 
-> I really would like to keep th1520_aon_call_rpc in this header, as it
-> could be useful for other drivers to construct their own RPC calls to
-> reboot or shutdown the system e.g watchdog.
-
-Oh I get it, simply drop extern not the whole expression, sorry it's
-fine.
-
-> 
->>
->>
->> Best regards,
->> Krzysztof
->>
->>
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gVHVlLCBKYW4gMjgsIDIwMjUgYXQgMTA6MDPigK9BTSBMaW51cyBXYWxsZWlqIDxsaW51cy53
+YWxsZWlqQGxpbmFyby5vcmc+IHdyb3RlOgo+Cj4gT24gVHVlLCBKYW4gMjgsIDIwMjUgYXQgNDox
+N+KAr0FNIFlpeHVuIExhbiA8ZGxhbkBnZW50b28ub3JnPiB3cm90ZToKPgo+ID4gW1JvYl0KPiA+
+ID4gSWYgTGludXggY2FuJ3QgaGFuZGxlIDEgbm9kZSBmb3IgTiBncGlvX2NoaXAncywgdGhlbiB0
+aGF0J3MgYSBMaW51eAo+ID4gPiBwcm9ibGVtLiBNYXliZSBpdCBjYW4sIElESy4KPiA+Cj4gPiBJ
+IGhhdmVuJ3Qgc2VlbiBzb210aGluZyBsaWtlIHRoaXMgdG8gcmVnaXN0ZXIgMSBub2RlIGZvciBt
+dWx0aSBncGlvX2NoaXBzLi4KPiA+IFRvIGdwaW8vcGluY3RybCBtYWludGFpbmVyIChMaW51cyBX
+YWxsZWlqKSwgZG8geW91IGhhdmUgc3VnZ2VzdGlvbiBvbiB0aGlzPwo+Cj4gRm9yIExpbnV4IHdl
+IGNhbiBjYWxsIGJncGlvX2luaXQoKSB0aHJlZSB0aW1lcyBhbmQKPiBkZXZtX2dwaW9jaGlwX2Fk
+ZF9kYXRhKCkgdGhyZWUgdGltZXMgb24gdGhlIHJlc3VsdCBhbmQgaWYgd2UgdXNlIHRoZQo+IGFw
+cHJvYWNoIHdpdGggdGhyZWUgY2VsbHMgKHdoZXJlIHRoZSBzZWNvbmQgaXMgaW5zdGFuY2UgMCwx
+LDIgYW5kIHRoZQo+IGxhc3Qgb25lIHRoZSBvZmZzZXQgMC4uMzEpIHRoZW4gaXQgd2lsbCB3b3Jr
+IGFsbCBqdXN0IHRoZSBzYW1lIEkgZ3Vlc3M/Cj4KPiBmb28tZ3Bpb3MgPCZncGlvIDIgNyBHUElP
+X0FDVElWRV9MT1c+Owo+Cj4gZm9yIG9mZnNldCA3IG9uIGJsb2NrIDIgZm9yIGV4YW1wbGUuCj4K
+PiBXZSBuZWVkIGEgY3VzdG9tIHhsYXRlIGZ1bmN0aW9uIEkgc3VwcG9zZS4KPgo+IEl0IGp1c3Qg
+aGFzIG5vdCBiZWVuIGRvbmUgdGhhdCB3YXkgYmVmb3JlLCBldmVyeWJvZHkganVzdCBkaWQKPiAy
+LWNlbGwgR1BJT3MuCgpZb3UgY2FuIGRvIGVpdGhlciAzIGNlbGxzIG9yIDIgY2VsbHMgc3BsaXR0
+aW5nIHRoZSAxc3QgY2VsbCBpbnRvCjxiYW5rPjxpbmRleD4uIEknbSBwcmV0dHkgc3VyZSB3ZSBo
+YXZlIHNvbWUgY2FzZXMgb2YgdGhlIGxhdHRlci4KClJvYgoKX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4
+LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFp
+bG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
