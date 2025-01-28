@@ -4,63 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF512C02190
-	for <linux-riscv@archiver.kernel.org>; Tue, 28 Jan 2025 19:48:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8DB7AC02192
+	for <linux-riscv@archiver.kernel.org>; Tue, 28 Jan 2025 19:48:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:References:MIME-Version:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=WFrVbLthGFox3pOILuyp/42IzWawp9zMKZPbEw76fak=; b=dEZULTmzJzktGR
-	6SRHegD5nSgezxqnS5k9ZJc/CcSWyaGmdH59rt6kDOfdAnsn0UTMZN8maudwcb93Klp2weKvmq363
-	O9KYlN5asZ51rSvPQ4xzM3AjOMAoxeUfIZmUdsHd4JkCKxNa7A6ILPYL9aG/sRKM054Ah/obskWyU
-	/UGelLCeJysT13zP1/TAZ8+zrxeQIpb6USyfsHucSwbQx0AUukbPazpcRMPmI+4Eaq2GGtv51j+SA
-	oJiJjvv6gP8U8a7yPdOgNTRLl47ul7upuMmYBH+HXq82TmZOCgta45IkjXKnAArPfk+W3+RvAPmxe
-	Z0vtNFuUXGTvyuF5glPg==;
+	List-Owner; bh=EBycXvv43xlLW3thPUNUBxLUUYRfiKlwJNp5CONK5lo=; b=KH1+HYRiHJ6d5q
+	XOZLUTC9f6KpUNgGmbTQ1ZPuWf4wIFy4bwzbjrYfvCOR0EiOFKETNZf02rHQhzKeydCHpaCeoVJYN
+	Oiq0TW0zdERCc0Ae+Mlm05zjAoq+ej3Mm6crwKR1kfBaDZMfGr1kPfukDIV47MoTGQJS/0xSqeS0H
+	0AsWS+YRDO/t0S/iSrNgctRRRCIfHRO408JesxaKr9Uka2MDBgNyWV+8BceG1GwoIucfdNlQ+1F1V
+	+POKqnR5mnK64j8aWaBYRFV/qARfcBM1z2nz4Uh2Wo+5p5dfIw3bTvPU/jqhoO9JBJKxTUyWYRc3g
+	oIWmp+HoJSY1bp34GJ+Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tcrZk-00000005jQe-1Et0;
-	Tue, 28 Jan 2025 19:48:44 +0000
-Received: from mailout1.w1.samsung.com ([210.118.77.11])
+	id 1tcrZo-00000005jVg-2kbn;
+	Tue, 28 Jan 2025 19:48:48 +0000
+Received: from mailout2.w1.samsung.com ([210.118.77.12])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tcrZe-00000005jKH-07pN
+	id 1tcrZf-00000005jLE-2uF3
 	for linux-riscv@lists.infradead.org;
-	Tue, 28 Jan 2025 19:48:42 +0000
+	Tue, 28 Jan 2025 19:48:43 +0000
 Received: from eucas1p1.samsung.com (unknown [182.198.249.206])
-	by mailout1.w1.samsung.com (KnoxPortal) with ESMTP id 20250128194830euoutp01be40e7afd4ee1d6a46a7f4a21f84cbcf~e8wU9LmL71604516045euoutp01L
-	for <linux-riscv@lists.infradead.org>; Tue, 28 Jan 2025 19:48:30 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout1.w1.samsung.com 20250128194830euoutp01be40e7afd4ee1d6a46a7f4a21f84cbcf~e8wU9LmL71604516045euoutp01L
+	by mailout2.w1.samsung.com (KnoxPortal) with ESMTP id 20250128194836euoutp0249f9aeefd1d53b2a7a6cb2968080af8f~e8watwiC00773407734euoutp02D
+	for <linux-riscv@lists.infradead.org>; Tue, 28 Jan 2025 19:48:36 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.w1.samsung.com 20250128194836euoutp0249f9aeefd1d53b2a7a6cb2968080af8f~e8watwiC00773407734euoutp02D
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1738093710;
-	bh=wuhyuqSqo6HVIvqyUq2c5/LF8oCKIYFSYyPVyjnS8rI=;
+	s=mail20170921; t=1738093716;
+	bh=GvH+KGxOLMWPvCT3kvkzzW6sq/iRIHCpZUQmHgtdxxI=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=aBYe0YSqdY6ZUwOeFx71GCb1C03rn/9a8Au2a/CzgTmHvq0H4Wwa+9I9IruYeRmhf
-	 UaB2NV6GSXWHo4gdirtQKyh87d6uGMp4hrROFzecfkLkbkMbdasroh8J/9kxBC6L0H
-	 eeS2CotlwNOU4N6/2hhtB6OgissxRV9Y50TGM/hs=
+	b=SnxOy01idwZCQxjeXu7oZRZ7JQAMpImZaVmqn9sOcpKPuE8Mb8ngRrGctAQ5dukqQ
+	 vAfRN/uPLIuHSHprhDunijGzTJB2ywljUHH5eXQH9XTpDzkE+LGny+UjZsbdmLF53s
+	 lTnXvnbRhZqjO9bLSBCqUkhLl6M/h8ZpZkfwNiiA=
 Received: from eusmges3new.samsung.com (unknown [203.254.199.245]) by
 	eucas1p1.samsung.com (KnoxPortal) with ESMTP id
-	20250128194828eucas1p16f6db58a3aad64fd828ed674245d0edf~e8wT6XUQh1987819878eucas1p1g;
-	Tue, 28 Jan 2025 19:48:28 +0000 (GMT)
-Received: from eucas1p2.samsung.com ( [182.198.249.207]) by
-	eusmges3new.samsung.com (EUCPMTA) with SMTP id 04.A2.20397.C8439976; Tue, 28
-	Jan 2025 19:48:28 +0000 (GMT)
+	20250128194835eucas1p1706e00ae514b5bd95ce262b8a094ea95~e8wZoHDCE1601116011eucas1p1v;
+	Tue, 28 Jan 2025 19:48:35 +0000 (GMT)
+Received: from eucas1p1.samsung.com ( [182.198.249.206]) by
+	eusmges3new.samsung.com (EUCPMTA) with SMTP id 4A.A2.20397.29439976; Tue, 28
+	Jan 2025 19:48:34 +0000 (GMT)
 Received: from eusmtrp2.samsung.com (unknown [182.198.249.139]) by
 	eucas1p2.samsung.com (KnoxPortal) with ESMTPA id
-	20250128194827eucas1p25db822456e223563b8b411f77754c760~e8wS0WXeY2286822868eucas1p2D;
-	Tue, 28 Jan 2025 19:48:27 +0000 (GMT)
+	20250128194834eucas1p2f7581075b9f238c84e83c5fa210bc3ea~e8wY5FQXD2210922109eucas1p28;
+	Tue, 28 Jan 2025 19:48:34 +0000 (GMT)
 Received: from eusmgms1.samsung.com (unknown [182.198.249.179]) by
 	eusmtrp2.samsung.com (KnoxPortal) with ESMTP id
-	20250128194827eusmtrp2fa8a7dd8db73e1d7aa3cd3476609e775~e8wSzfD833008430084eusmtrp2U;
-	Tue, 28 Jan 2025 19:48:27 +0000 (GMT)
-X-AuditID: cbfec7f5-e59c770000004fad-ca-6799348cae46
+	20250128194834eusmtrp20cde8efdfd5ef2c18bb7078830b7e71c~e8wY4VdD23008430084eusmtrp2a;
+	Tue, 28 Jan 2025 19:48:34 +0000 (GMT)
+X-AuditID: cbfec7f5-ed1d670000004fad-d5-67993492d94c
 Received: from eusmtip1.samsung.com ( [203.254.199.221]) by
-	eusmgms1.samsung.com (EUCPMTA) with SMTP id 20.E0.19920.B8439976; Tue, 28
-	Jan 2025 19:48:27 +0000 (GMT)
+	eusmgms1.samsung.com (EUCPMTA) with SMTP id 36.E0.19920.29439976; Tue, 28
+	Jan 2025 19:48:34 +0000 (GMT)
 Received: from AMDC4942.home (unknown [106.210.136.40]) by
 	eusmtip1.samsung.com (KnoxPortal) with ESMTPA id
-	20250128194826eusmtip1e3aeec7153dc209e425cb81b17f4a530~e8wRg5Wgq0291602916eusmtip1Y;
-	Tue, 28 Jan 2025 19:48:26 +0000 (GMT)
+	20250128194832eusmtip167a13b0c44d313dc80857f97a9e2a371~e8wXlE_jb0756107561eusmtip1P;
+	Tue, 28 Jan 2025 19:48:32 +0000 (GMT)
 From: Michal Wilczynski <m.wilczynski@samsung.com>
 To: mturquette@baylibre.com, sboyd@kernel.org, robh@kernel.org,
 	krzk+dt@kernel.org, conor+dt@kernel.org, drew@pdp7.com, guoren@kernel.org,
@@ -74,61 +74,60 @@ Cc: linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
 	dri-devel@lists.freedesktop.org, linux-pm@vger.kernel.org, Michal Wilczynski
 	<m.wilczynski@samsung.com>
-Subject: [PATCH v4 02/18] clk: thead: Add clock support for VO subsystem in
- T-Head TH1520 SoC
-Date: Tue, 28 Jan 2025 20:48:00 +0100
-Message-Id: <20250128194816.2185326-3-m.wilczynski@samsung.com>
+Subject: [PATCH v4 07/18] riscv: Enable PM_GENERIC_DOMAINS for T-Head SoCs
+Date: Tue, 28 Jan 2025 20:48:05 +0100
+Message-Id: <20250128194816.2185326-8-m.wilczynski@samsung.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20250128194816.2185326-1-m.wilczynski@samsung.com>
 MIME-Version: 1.0
-X-Brightmail-Tracker: H4sIAAAAAAAAA01SfUxTVxzNfe/1vdfG6qPivNpmi2Rzjo2PTTfuZJm4KXnGGTHTycw218hL
-	IQI1LagTyGC0BFhB0KlYFKQhtTI6vtryIQzBQpFpt1FEDaXDydz4GA0CylBwwMPN/875/c65
-	5/ySS+MSG7majolP4FTx8lg/UkTY2v/5OUC34awi+GRBEOq4ZcCQ9bGeQuVNTgwV250C5Omy
-	YKh70kuiH/74hUJ/NaURqMd0nkLp7RUkGtR7SDSm8wiQq+EcicZz7ADZxjUkMtv7KFQxWYyh
-	kjErgUrrGgDKyDIK0K+dW1Gfp4NAgy4djjL0y9DTxjoKzfZUEahwtJlClpF8AXKY9yJN83dE
-	2Ius97aWYkcGBwn2auYExTY9vECw9fo+itXVXwdsdVkWybp7Gkm26Nou9rdvHRhbU/o1qzG3
-	Y+zxmWDW++NNks21lAG2K/0WFSHZJ3oviouNOcypgt7/UhT95LRWcGg08qhlogakgu7t2UBI
-	Q2YDHO3qBNlAREsYE4DTmiyMJxMAXu09KeDJOICulibBM4vR1kLyi4sAXtK24TwZAfB6qoaa
-	V5HMW7D/YvGC3ZfRElDblraQgjN/AmgbODfnp+nlzH5Y7lk1byCYV2DalT4wj8XMJng500jx
-	cS/B5pYb+DwWMmGwesZE8BofeO3swALG5zTp1kKc11eJoHdQxuMtsH36xmLt5XDIYVl8Uwaf
-	1hdjPFbCfuuDRW8yrNc5FnEodDunF2rizGuwoiGIH2+G/efbqPkxZJbC23/78A2WwhO2Mzg/
-	FsPMDAmvXgtP6XL+C3WabIuhLDzz6AqeB9bon7tF/9wt+v9zLwC8DKzkEtVxCk69Pp47EqiW
-	x6kT4xWBB5Rx1WDua/8065isA6ahscBWgNGgFUAa9/MVf+4sUEjEUfKvjnEq5X5VYiynbgVS
-	mvBbKTY0axUSRiFP4A5y3CFO9WyL0cLVqViJueUTpA1wqn3CfPfticj/vdBfn5y8Ne/I66XK
-	+2sue4KCU0zpGmW3wDZr3TlDC4uScrZUln+6ojTqhSzLh++GTPRu+ua4dJug/+Abu0o+9v1+
-	dwcrDZAdiNxe+86qgf6wmPu5YdOOj5KyZEOR7hBn7+nQtSu6l9UG3cwviEj/IuVx6bon0pcP
-	10Q7T+U+JKM7h/eOjtgNWt3de8Pr7xm8yinv27P+9nVoanPKXTpUBg0usnVamhLesKNmT4L5
-	TuBnD9qPFTcKvUvyuVcduyVH82r9NZOVXe5LrqmNEX0fPPIPD6+3mUMqi6qHa1XZxjvZ8duM
-	ZretSjPqMUYtQaKNSX6EOlr+pj+uUsv/BeRC2DNJBAAA
-X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFlrKKsWRmVeSWpSXmKPExsVy+t/xu7rdJjPTDdrfqVmcuL6IyWLr71ns
-	Fmv2nmOymH/kHKvFvUtbmCyufH3PZrHu6QV2ixd7G1ksrq2Yy27RfGw9m8XLWffYLD723GO1
-	uLxrDpvF594jjBbbPrewWaw9cpfdYv3X+UwWCz9uZbFYsmMXo0Vb5zJWi4unXC3u3jvBYvHy
-	cg+zRdssfov/e3awW/y7tpHFYva7/ewWW95MZLU4vjbcomX/FBYHOY/3N1rZPd68fMnicbjj
-	C7vH3m8LWDx2zrrL7tGz8wyjx6ZVnWwed67tYfOYdzLQ4373cSaPzUvqPVrWHmPy6P9r4PF+
-	31U2j74tqxg9LjVfZw8QitKzKcovLUlVyMgvLrFVija0MNIztLTQMzKx1DM0No+1MjJV0rez
-	SUnNySxLLdK3S9DL+DOtlbXgXUTFli+bGRsYr3h3MXJySAiYSCzbdpCti5GLQ0hgKaPEwp8f
-	2CASMhLXul+yQNjCEn+udYHFhQReMUpsuJsJYrMJGEk8WD6fFcQWEVjMIrF3XyXIIGaBt4wS
-	12duBGsWFoiVWH9nDzOIzSKgKtF44C4jiM0rYC+xu2MZO8QCeYn9B8+C1XAKOEhs+ruCBWKZ
-	vcSjtzPYIOoFJU7OfAIWZwaqb946m3kCo8AsJKlZSFILGJlWMYqklhbnpucWG+oVJ+YWl+al
-	6yXn525iBKaXbcd+bt7BOO/VR71DjEwcjIcYJTiYlUR4Y8/NSBfiTUmsrEotyo8vKs1JLT7E
-	aAp090RmKdHkfGCCyyuJNzQzMDU0MbM0MLU0M1YS53W7fD5NSCA9sSQ1OzW1ILUIpo+Jg1Oq
-	gcnsT+ak6H1vGW/d9TyYfcDD5AP/Ct/Cz2mHkvcFPSoJsxSb+lSm/6lw4BOpw18k7m47tPmM
-	zXnj/+26EQv6XcrfXXLZvTBp/2zGt5Mu9x5JOxu+5lT81Sb+ls6AbTvvJN1r+FH6XOnz5ftO
-	Da2ek11zdyjuK76rH9+SbFzVbfZjmXadwd36fXU9iixS8XaHftj89z5cKhJu/kdx3aUwSw05
-	g8h7cysfNp9SYNZqu7Njld/WRDEFhwYj5ZN7hU9yVF9wffvmaTtvzKMPD8um7/svkMht8KJH
-	4mziv1lPA8ymrLjz4/6vyZwvODhuHpw0MUXms6xRftJSVi5tViEj0w9VbgwiSx/+i8hX8oo8
-	7a3EUpyRaKjFXFScCADkG4BQuAMAAA==
-X-CMS-MailID: 20250128194827eucas1p25db822456e223563b8b411f77754c760
+X-Brightmail-Tracker: H4sIAAAAAAAAA02SbUxTVxjHc+69vfe2irtUFo5u2QJRiS68qR9OguJL3Hb34sL8gA7YpBmX
+	wqAFWsDh2AShiFA2ZCxqYRYdgwZBoEKlCHYitBWx4Z1uA8YGysoYjFGMgwCjtG5++53/eZ7z
+	e57k0LhQR26lY6XJnEwqivcmBYTO+I/Ft2jvZXFApTYImYeuYahxSUWh6lYLhtTtFh4a7W3A
+	UP/CLIluPOqm0O+tmQQa1HxLoSxjLYlsqlESzSlHeaivuZRE8wXtAOnms0lU0z5CodoFNYau
+	zjUSqLypGaCc8xU81NP5OhoZNRPI1qfEUY7qBbTa0kShlcF6ApXMGCjUMH2Bh0w1x1G2oZg4
+	+Ao7a1VQ7LTNRrD3cu0U2/qkjGD1qhGKVeq7AKutOk+yw4MtJHvl/vvsL/kmjL1ZfobNrjFi
+	7FfLAezsnQGS/bKhCrC9WUNUiDBMsC+Ki49N5WT+wZGCmJKaLiyxmP+p8nY3mQEeUHmAT0Nm
+	L6xQn8XygIAWMhoAzyluAOfBDuBS05DrMA+g9soM71nL6k8a0sFCphJAdZWvk6cB1PzxmoNJ
+	Zjccq1TzHM0ejIKAio7M9ZdwZhJA3UTpevdm5m1oHn+KO5hgtsOicj1wsBtzALbkqXCn7VVo
+	uPtwnfnMQahd1hDOGnd4//LEOuNrNVmNJbhDAJkaAexSDri2OwJ7hjMxJ2+GU6YGV/4yXNWr
+	XXkCHGv82yVLh3qlycVBcNiyuDYovSbYCWub/Z3xITjQVIA7YshsgtY/3Z0jbIJFuouu2A3m
+	5gid1TvgN8qC/6QWjc4lZeF0tY1XCLxUzy2jem4Z1f/eMoBXAU8uRS4Rc/I9Uu6Un1wkkadI
+	xX4fJ0i0YO1rP1gxLTQBzdScXxvAaNAGII17e7h9aLkkFrpFidJOc7KEk7KUeE7eBl6iCW9P
+	t2sGhVjIiEXJXBzHJXKyZ7cYzd+agXmNn4v1ayO8L0Qv/9Wx+11ayJYvhayEfNSvL46+VGst
+	Hqh/x55U8ES68bA9hjt5avG01DPp64sH8O6wrp5K02SRwB5+yxCwz+rrM7njRL2pL+NWp7ni
+	i6XryIcOjPtxZUyTNBif9uLGMUPoYVFmWeJURODots+5laPcrmiyk+91PGJmIKrNf3wu7Q6z
+	4ZPC5WMPk0O7fMKrfSMm76lvA2vdZ28FbK/79aw9/Y069oMOw6HFUFi4IcNmjezwcG/RbMv/
+	XiYx9Dc/nYiN/CHuveuB+9ONN+35Yd89ku1/M2hLakyuR/dvfElw75GRE0cfW86E73wMkHEL
+	2vPzXT1RmmoODvcm5DGiwF24TC76F71bPNJJBAAA
+X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFlrGKsWRmVeSWpSXmKPExsVy+t/xu7qTTGamG/xew2Fx4voiJoutv2ex
+	W6zZe47JYv6Rc6wW9y5tYbK48vU9m8W6pxfYLV7sbWSxuLZiLrtF87H1bBYvZ91js/jYc4/V
+	4vKuOWwWn3uPMFps+9zCZrH2yF12i/Vf5zNZLPy4lcViyY5djBZtnctYLS6ecrW4e+8Ei8XL
+	yz3MFm2z+C3+79nBbvHv2kYWi9nv9rNbbHkzkdXi+Npwi5b9U1gc5Dze32hl93jz8iWLx+GO
+	L+wee78tYPHYOesuu0fPzjOMHptWdbJ53Lm2h81j3slAj/vdx5k8Ni+p92hZe4zJo/+vgcf7
+	fVfZPPq2rGL0uNR8nT1AKErPpii/tCRVISO/uMRWKdrQwkjP0NJCz8jEUs/Q2DzWyshUSd/O
+	JiU1J7MstUjfLkEvY/baM0wFUzgrenZfYGtgPM3excjJISFgIvH/1gq2LkYuDiGBpYwSn76t
+	gUrISFzrfskCYQtL/LnWBVX0ilHi7oMfbCAJNgEjiQfL57OC2CICi1kk9u6rBCliFnjLKHF9
+	5kawbmEBL4kTj38wg9gsAqoSk5bsZASxeQXsJfZ0zWKG2CAvsf/gWTCbU8BBYtPfFWC9QkA1
+	j97OYIOoF5Q4OfMJWJwZqL5562zmCYwCs5CkZiFJLWBkWsUoklpanJueW2yoV5yYW1yal66X
+	nJ+7iRGYYLYd+7l5B+O8Vx/1DjEycTAeYpTgYFYS4Y09NyNdiDclsbIqtSg/vqg0J7X4EKMp
+	0N0TmaVEk/OBKS6vJN7QzMDU0MTM0sDU0sxYSZzX7fL5NCGB9MSS1OzU1ILUIpg+Jg5OqQam
+	jFeKB1Wv1AilM2jsDtYP/NBQtV9o4e0cvdApQesdDxRzvBd8devrkn3/G0p2Tfr7K3yDVGFl
+	H+OOI7rGniceFTdtW/FISu0Re87Ts7Nb+mYZZjMZTwwrX/w62/hL+BT1ZWmTHn49uINrY+Kk
+	cLGFzTY/DWtklmyrurvDavKU30EezEfvfD+yZb0xW/1U1V+7WlUlYyf9eXYoeC7XCd3+XcLT
+	TN835i0+XC9kYPTmaOPefbve/Z3OySL7Rfjhe5GFz+PYcq5v0O/j9TMUED+z8YpH9OLftg3N
+	ZueTGc+sOmVRcv5R8ZesIGbhsg/6p55N3vEy9PnGV2sWS60VaE3j0Tz+4XD9DhfXGqEo/xcX
+	pZRYijMSDbWYi4oTAWPpytO5AwAA
+X-CMS-MailID: 20250128194834eucas1p2f7581075b9f238c84e83c5fa210bc3ea
 X-Msg-Generator: CA
-X-RootMTR: 20250128194827eucas1p25db822456e223563b8b411f77754c760
+X-RootMTR: 20250128194834eucas1p2f7581075b9f238c84e83c5fa210bc3ea
 X-EPHeader: CA
 CMS-TYPE: 201P
-X-CMS-RootMailID: 20250128194827eucas1p25db822456e223563b8b411f77754c760
+X-CMS-RootMailID: 20250128194834eucas1p2f7581075b9f238c84e83c5fa210bc3ea
 References: <20250128194816.2185326-1-m.wilczynski@samsung.com>
-	<CGME20250128194827eucas1p25db822456e223563b8b411f77754c760@eucas1p2.samsung.com>
+	<CGME20250128194834eucas1p2f7581075b9f238c84e83c5fa210bc3ea@eucas1p2.samsung.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250128_114838_337400_66DEBEAA 
-X-CRM114-Status: GOOD (  17.23  )
+X-CRM114-CacheID: sfid-20250128_114839_995456_D5320AB3 
+X-CRM114-Status: GOOD (  10.79  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -145,306 +144,37 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The T-Head TH1520 SoC integrates a variety of clocks for its subsystems,
-including the Application Processor (AP) and the Video Output (VO) [1].
-Up until now, the T-Head clock driver only supported AP clocks.
+T-Head SoCs feature separate power domains (power islands) for major
+components like the GPU, Audio, and NPU. To manage the power states of
+these components effectively, the kernel requires generic power domain
+support.
 
-This commit extends the driver to provide clock functionality for the VO
-subsystem. At this stage, the focus is on implementing the VO clock
-gates, as these are currently the most relevant and required components
-for enabling and disabling the VO subsystem functionality.  Future
-enhancements may introduce additional VO-related clocks as necessary.
+This commit enables `CONFIG_PM_GENERIC_DOMAINS` for T-Head SoCs,
+allowing the power domain driver for these components to be compiled and
+integrated. This ensures proper power management and energy efficiency
+on T-Head platforms.
 
-Link: https://openbeagle.org/beaglev-ahead/beaglev-ahead/-/blob/main/docs/TH1520%20System%20User%20Manual.pdf [1]
+By selecting `PM_GENERIC_DOMAINS`, we provide the necessary framework
+for the power domain drivers to function correctly on RISC-V
+architecture with T-Head SoCs.
 
 Signed-off-by: Michal Wilczynski <m.wilczynski@samsung.com>
 ---
- drivers/clk/thead/clk-th1520-ap.c | 197 +++++++++++++++++++++++++-----
- 1 file changed, 169 insertions(+), 28 deletions(-)
+ arch/riscv/Kconfig.socs | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/drivers/clk/thead/clk-th1520-ap.c b/drivers/clk/thead/clk-th1520-ap.c
-index 4c9555fc6184..57972589f120 100644
---- a/drivers/clk/thead/clk-th1520-ap.c
-+++ b/drivers/clk/thead/clk-th1520-ap.c
-@@ -847,6 +847,67 @@ static CCU_GATE(CLK_SRAM1, sram1_clk, "sram1", axi_aclk_pd, 0x20c, BIT(3), 0);
- static CCU_GATE(CLK_SRAM2, sram2_clk, "sram2", axi_aclk_pd, 0x20c, BIT(2), 0);
- static CCU_GATE(CLK_SRAM3, sram3_clk, "sram3", axi_aclk_pd, 0x20c, BIT(1), 0);
+diff --git a/arch/riscv/Kconfig.socs b/arch/riscv/Kconfig.socs
+index 1916cf7ba450..83833ded8908 100644
+--- a/arch/riscv/Kconfig.socs
++++ b/arch/riscv/Kconfig.socs
+@@ -53,6 +53,7 @@ config ARCH_THEAD
+ 	bool "T-HEAD RISC-V SoCs"
+ 	depends on MMU && !XIP_KERNEL
+ 	select ERRATA_THEAD
++	select PM_GENERIC_DOMAINS if PM
+ 	help
+ 	  This enables support for the RISC-V based T-HEAD SoCs.
  
-+static CCU_GATE(CLK_AXI4_VO_ACLK, axi4_vo_aclk, "axi4-vo-aclk",
-+		video_pll_clk_pd, 0x0, BIT(0), 0);
-+static CCU_GATE(CLK_GPU_CORE, gpu_core_clk, "gpu-core-clk", video_pll_clk_pd,
-+		0x0, BIT(3), 0);
-+static CCU_GATE(CLK_GPU_CFG_ACLK, gpu_cfg_aclk, "gpu-cfg-aclk",
-+		video_pll_clk_pd, 0x0, BIT(4), 0);
-+static CCU_GATE(CLK_DPU_PIXELCLK0, dpu0_pixelclk, "dpu0-pixelclk",
-+		video_pll_clk_pd, 0x0, BIT(5), 0);
-+static CCU_GATE(CLK_DPU_PIXELCLK1, dpu1_pixelclk, "dpu1-pixelclk",
-+		video_pll_clk_pd, 0x0, BIT(6), 0);
-+static CCU_GATE(CLK_DPU_HCLK, dpu_hclk, "dpu-hclk", video_pll_clk_pd, 0x0,
-+		BIT(7), 0);
-+static CCU_GATE(CLK_DPU_ACLK, dpu_aclk, "dpu-aclk", video_pll_clk_pd, 0x0,
-+		BIT(8), 0);
-+static CCU_GATE(CLK_DPU_CCLK, dpu_cclk, "dpu-cclk", video_pll_clk_pd, 0x0,
-+		BIT(9), 0);
-+static CCU_GATE(CLK_HDMI_SFR, hdmi_sfr_clk, "hdmi-sfr-clk", video_pll_clk_pd,
-+		0x0, BIT(10), 0);
-+static CCU_GATE(CLK_HDMI_PCLK, hdmi_pclk, "hdmi-pclk", video_pll_clk_pd, 0x0,
-+		BIT(11), 0);
-+static CCU_GATE(CLK_HDMI_CEC, hdmi_cec_clk, "hdmi-cec-clk", video_pll_clk_pd,
-+		0x0, BIT(12), 0);
-+static CCU_GATE(CLK_MIPI_DSI0_PCLK, mipi_dsi0_pclk, "mipi-dsi0-pclk",
-+		video_pll_clk_pd, 0x0, BIT(13), 0);
-+static CCU_GATE(CLK_MIPI_DSI1_PCLK, mipi_dsi1_pclk, "mipi-dsi1-pclk",
-+		video_pll_clk_pd, 0x0, BIT(14), 0);
-+static CCU_GATE(CLK_MIPI_DSI0_CFG, mipi_dsi0_cfg_clk, "mipi-dsi0-cfg-clk",
-+		video_pll_clk_pd, 0x0, BIT(15), 0);
-+static CCU_GATE(CLK_MIPI_DSI1_CFG, mipi_dsi1_cfg_clk, "mipi-dsi1-cfg-clk",
-+		video_pll_clk_pd, 0x0, BIT(16), 0);
-+static CCU_GATE(CLK_MIPI_DSI0_REFCLK, mipi_dsi0_refclk, "mipi-dsi0-refclk",
-+		video_pll_clk_pd, 0x0, BIT(17), 0);
-+static CCU_GATE(CLK_MIPI_DSI1_REFCLK, mipi_dsi1_refclk, "mipi-dsi1-refclk",
-+		video_pll_clk_pd, 0x0, BIT(18), 0);
-+static CCU_GATE(CLK_HDMI_I2S, hdmi_i2s_clk, "hdmi-i2s-clk", video_pll_clk_pd,
-+		0x0, BIT(19), 0);
-+static CCU_GATE(CLK_X2H_DPU1_ACLK, x2h_dpu1_aclk, "x2h-dpu1-aclk",
-+		video_pll_clk_pd, 0x0, BIT(20), 0);
-+static CCU_GATE(CLK_X2H_DPU_ACLK, x2h_dpu_aclk, "x2h-dpu-aclk",
-+		video_pll_clk_pd, 0x0, BIT(21), 0);
-+static CCU_GATE(CLK_AXI4_VO_PCLK, axi4_vo_pclk, "axi4-vo-pclk",
-+		video_pll_clk_pd, 0x0, BIT(22), 0);
-+static CCU_GATE(CLK_IOPMP_VOSYS_DPU_PCLK, iopmp_vosys_dpu_pclk,
-+		"iopmp-vosys-dpu-pclk", video_pll_clk_pd, 0x0, BIT(23), 0);
-+static CCU_GATE(CLK_IOPMP_VOSYS_DPU1_PCLK, iopmp_vosys_dpu1_pclk,
-+		"iopmp-vosys-dpu1-pclk", video_pll_clk_pd, 0x0, BIT(24), 0);
-+static CCU_GATE(CLK_IOPMP_VOSYS_GPU_PCLK, iopmp_vosys_gpu_pclk,
-+		"iopmp-vosys-gpu-pclk", video_pll_clk_pd, 0x0, BIT(25), 0);
-+static CCU_GATE(CLK_IOPMP_DPU1_ACLK, iopmp_dpu1_aclk, "iopmp-dpu1-aclk",
-+		video_pll_clk_pd, 0x0, BIT(27), 0);
-+static CCU_GATE(CLK_IOPMP_DPU_ACLK, iopmp_dpu_aclk, "iopmp-dpu-aclk",
-+		video_pll_clk_pd, 0x0, BIT(28), 0);
-+static CCU_GATE(CLK_IOPMP_GPU_ACLK, iopmp_gpu_aclk, "iopmp-gpu-aclk",
-+		video_pll_clk_pd, 0x0, BIT(29), 0);
-+static CCU_GATE(CLK_MIPIDSI0_PIXCLK, mipi_dsi0_pixclk, "mipi-dsi0-pixclk",
-+		video_pll_clk_pd, 0x0, BIT(30), 0);
-+static CCU_GATE(CLK_MIPIDSI1_PIXCLK, mipi_dsi1_pixclk, "mipi-dsi1-pixclk",
-+		video_pll_clk_pd, 0x0, BIT(31), 0);
-+static CCU_GATE(CLK_HDMI_PIXCLK, hdmi_pixclk, "hdmi-pixclk", video_pll_clk_pd,
-+		0x4, BIT(0), 0);
-+
- static CLK_FIXED_FACTOR_HW(gmac_pll_clk_100m, "gmac-pll-clk-100m",
- 			   &gmac_pll_clk.common.hw, 10, 1, 0);
- 
-@@ -963,7 +1024,38 @@ static struct ccu_common *th1520_gate_clks[] = {
- 	&sram3_clk.common,
- };
- 
--#define NR_CLKS	(CLK_UART_SCLK + 1)
-+static struct ccu_common *th1520_vo_gate_clks[] = {
-+	&axi4_vo_aclk.common,
-+	&gpu_core_clk.common,
-+	&gpu_cfg_aclk.common,
-+	&dpu0_pixelclk.common,
-+	&dpu1_pixelclk.common,
-+	&dpu_hclk.common,
-+	&dpu_aclk.common,
-+	&dpu_cclk.common,
-+	&hdmi_sfr_clk.common,
-+	&hdmi_pclk.common,
-+	&hdmi_cec_clk.common,
-+	&mipi_dsi0_pclk.common,
-+	&mipi_dsi1_pclk.common,
-+	&mipi_dsi0_cfg_clk.common,
-+	&mipi_dsi1_cfg_clk.common,
-+	&mipi_dsi0_refclk.common,
-+	&mipi_dsi1_refclk.common,
-+	&hdmi_i2s_clk.common,
-+	&x2h_dpu1_aclk.common,
-+	&x2h_dpu_aclk.common,
-+	&axi4_vo_pclk.common,
-+	&iopmp_vosys_dpu_pclk.common,
-+	&iopmp_vosys_dpu1_pclk.common,
-+	&iopmp_vosys_gpu_pclk.common,
-+	&iopmp_dpu1_aclk.common,
-+	&iopmp_dpu_aclk.common,
-+	&iopmp_gpu_aclk.common,
-+	&mipi_dsi0_pixclk.common,
-+	&mipi_dsi1_pixclk.common,
-+	&hdmi_pixclk.common
-+};
- 
- static const struct regmap_config th1520_clk_regmap_config = {
- 	.reg_bits = 32,
-@@ -972,8 +1064,44 @@ static const struct regmap_config th1520_clk_regmap_config = {
- 	.fast_io = true,
- };
- 
-+struct th1520_plat_data {
-+	struct ccu_common **th1520_pll_clks;
-+	struct ccu_common **th1520_div_clks;
-+	struct ccu_common **th1520_mux_clks;
-+	struct ccu_common **th1520_gate_clks;
-+
-+	int nr_clks;
-+	int nr_pll_clks;
-+	int nr_div_clks;
-+	int nr_mux_clks;
-+	int nr_gate_clks;
-+};
-+
-+static const struct th1520_plat_data th1520_ap_platdata = {
-+	.th1520_pll_clks = th1520_pll_clks,
-+	.th1520_div_clks = th1520_div_clks,
-+	.th1520_mux_clks = th1520_mux_clks,
-+	.th1520_gate_clks = th1520_gate_clks,
-+
-+	.nr_clks = CLK_UART_SCLK + 1,
-+
-+	.nr_pll_clks = ARRAY_SIZE(th1520_pll_clks),
-+	.nr_div_clks = ARRAY_SIZE(th1520_div_clks),
-+	.nr_mux_clks = ARRAY_SIZE(th1520_mux_clks),
-+	.nr_gate_clks = ARRAY_SIZE(th1520_gate_clks),
-+};
-+
-+static const struct th1520_plat_data th1520_vo_platdata = {
-+	.th1520_gate_clks = th1520_vo_gate_clks,
-+
-+	.nr_clks = CLK_HDMI_PIXCLK + 1,
-+
-+	.nr_gate_clks = ARRAY_SIZE(th1520_vo_gate_clks),
-+};
-+
- static int th1520_clk_probe(struct platform_device *pdev)
- {
-+	const struct th1520_plat_data *plat_data;
- 	struct device *dev = &pdev->dev;
- 	struct clk_hw_onecell_data *priv;
- 
-@@ -982,11 +1110,17 @@ static int th1520_clk_probe(struct platform_device *pdev)
- 	struct clk_hw *hw;
- 	int ret, i;
- 
--	priv = devm_kzalloc(dev, struct_size(priv, hws, NR_CLKS), GFP_KERNEL);
-+	plat_data = device_get_match_data(&pdev->dev);
-+	if (!plat_data) {
-+		dev_err(&pdev->dev, "Error: No device match data found\n");
-+		return -ENODEV;
-+	}
-+
-+	priv = devm_kzalloc(dev, struct_size(priv, hws, plat_data->nr_clks), GFP_KERNEL);
- 	if (!priv)
- 		return -ENOMEM;
- 
--	priv->num = NR_CLKS;
-+	priv->num = plat_data->nr_clks;
- 
- 	base = devm_platform_ioremap_resource(pdev, 0);
- 	if (IS_ERR(base))
-@@ -996,35 +1130,35 @@ static int th1520_clk_probe(struct platform_device *pdev)
- 	if (IS_ERR(map))
- 		return PTR_ERR(map);
- 
--	for (i = 0; i < ARRAY_SIZE(th1520_pll_clks); i++) {
--		struct ccu_pll *cp = hw_to_ccu_pll(&th1520_pll_clks[i]->hw);
-+	for (i = 0; i < plat_data->nr_pll_clks; i++) {
-+		struct ccu_pll *cp = hw_to_ccu_pll(&plat_data->th1520_pll_clks[i]->hw);
- 
--		th1520_pll_clks[i]->map = map;
-+		plat_data->th1520_pll_clks[i]->map = map;
- 
--		ret = devm_clk_hw_register(dev, &th1520_pll_clks[i]->hw);
-+		ret = devm_clk_hw_register(dev, &plat_data->th1520_pll_clks[i]->hw);
- 		if (ret)
- 			return ret;
- 
- 		priv->hws[cp->common.clkid] = &cp->common.hw;
- 	}
- 
--	for (i = 0; i < ARRAY_SIZE(th1520_div_clks); i++) {
--		struct ccu_div *cd = hw_to_ccu_div(&th1520_div_clks[i]->hw);
-+	for (i = 0; i < plat_data->nr_div_clks; i++) {
-+		struct ccu_div *cd = hw_to_ccu_div(&plat_data->th1520_div_clks[i]->hw);
- 
--		th1520_div_clks[i]->map = map;
-+		plat_data->th1520_div_clks[i]->map = map;
- 
--		ret = devm_clk_hw_register(dev, &th1520_div_clks[i]->hw);
-+		ret = devm_clk_hw_register(dev, &plat_data->th1520_div_clks[i]->hw);
- 		if (ret)
- 			return ret;
- 
- 		priv->hws[cd->common.clkid] = &cd->common.hw;
- 	}
- 
--	for (i = 0; i < ARRAY_SIZE(th1520_mux_clks); i++) {
--		struct ccu_mux *cm = hw_to_ccu_mux(&th1520_mux_clks[i]->hw);
-+	for (i = 0; i < plat_data->nr_mux_clks; i++) {
-+		struct ccu_mux *cm = hw_to_ccu_mux(&plat_data->th1520_mux_clks[i]->hw);
- 		const struct clk_init_data *init = cm->common.hw.init;
- 
--		th1520_mux_clks[i]->map = map;
-+		plat_data->th1520_mux_clks[i]->map = map;
- 		hw = devm_clk_hw_register_mux_parent_data_table(dev,
- 								init->name,
- 								init->parent_data,
-@@ -1040,10 +1174,10 @@ static int th1520_clk_probe(struct platform_device *pdev)
- 		priv->hws[cm->common.clkid] = hw;
- 	}
- 
--	for (i = 0; i < ARRAY_SIZE(th1520_gate_clks); i++) {
--		struct ccu_gate *cg = hw_to_ccu_gate(&th1520_gate_clks[i]->hw);
-+	for (i = 0; i < plat_data->nr_gate_clks; i++) {
-+		struct ccu_gate *cg = hw_to_ccu_gate(&plat_data->th1520_gate_clks[i]->hw);
- 
--		th1520_gate_clks[i]->map = map;
-+		plat_data->th1520_gate_clks[i]->map = map;
- 
- 		hw = devm_clk_hw_register_gate_parent_data(dev,
- 							   cg->common.hw.init->name,
-@@ -1057,19 +1191,21 @@ static int th1520_clk_probe(struct platform_device *pdev)
- 		priv->hws[cg->common.clkid] = hw;
- 	}
- 
--	ret = devm_clk_hw_register(dev, &osc12m_clk.hw);
--	if (ret)
--		return ret;
--	priv->hws[CLK_OSC12M] = &osc12m_clk.hw;
-+	if (plat_data == &th1520_ap_platdata) {
-+		ret = devm_clk_hw_register(dev, &osc12m_clk.hw);
-+		if (ret)
-+			return ret;
-+		priv->hws[CLK_OSC12M] = &osc12m_clk.hw;
- 
--	ret = devm_clk_hw_register(dev, &gmac_pll_clk_100m.hw);
--	if (ret)
--		return ret;
--	priv->hws[CLK_PLL_GMAC_100M] = &gmac_pll_clk_100m.hw;
-+		ret = devm_clk_hw_register(dev, &gmac_pll_clk_100m.hw);
-+		if (ret)
-+			return ret;
-+		priv->hws[CLK_PLL_GMAC_100M] = &gmac_pll_clk_100m.hw;
- 
--	ret = devm_clk_hw_register(dev, &emmc_sdio_ref_clk.hw);
--	if (ret)
--		return ret;
-+		ret = devm_clk_hw_register(dev, &emmc_sdio_ref_clk.hw);
-+		if (ret)
-+			return ret;
-+	}
- 
- 	ret = devm_of_clk_add_hw_provider(dev, of_clk_hw_onecell_get, priv);
- 	if (ret)
-@@ -1081,6 +1217,11 @@ static int th1520_clk_probe(struct platform_device *pdev)
- static const struct of_device_id th1520_clk_match[] = {
- 	{
- 		.compatible = "thead,th1520-clk-ap",
-+		.data = &th1520_ap_platdata,
-+	},
-+	{
-+		.compatible = "thead,th1520-clk-vo",
-+		.data = &th1520_vo_platdata,
- 	},
- 	{ /* sentinel */ },
- };
 -- 
 2.34.1
 
