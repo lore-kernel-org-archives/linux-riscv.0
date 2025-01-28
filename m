@@ -4,54 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5F0FC0218F
-	for <linux-riscv@archiver.kernel.org>; Tue, 28 Jan 2025 03:17:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 59A81C0218D
+	for <linux-riscv@archiver.kernel.org>; Tue, 28 Jan 2025 04:23:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=0SzSz9LlfrOBYdpxZs6uhQqzuqHINmQ0qKMgQ/LX1P0=; b=vEbu3I/lhWaKOA
-	wCwNbuQXBasL6tSQGXMZVTVRHJ+/bpHVJ6d9mJKncmIwqRbnIGedr0ygEScj742OFdLhTHhZr4fy+
-	GlY/UK4ILdl1vmhFAQFvvWll4/8fdc5MKhybpYaY/e0pxNhXKqhvvljXiyRsKiYmjXIw435LhexgJ
-	4wJuoiFHJx3Hk23ulJmYoohuNn5Z6z3k12B4Obxsf7qCyl7/EmudpWPrlNQ78l4xyouZzhN30RgVe
-	MOLl5BDUr1GX93hTsS07FEJTrVRP2Yplm4lNKzr43XVpzKlmKTQIlK0kwRUgpOpnu+oC4UyBux7zA
-	hGt20jgeA561kJ2ncj1Q==;
+	List-Archive:List-Unsubscribe:List-Id:To:Message-Id:MIME-Version:Subject:Date
+	:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=2lVoNf83kw/DESK62VKeQQVtUE//r4UWs5jQ6jf7neQ=; b=PNbe2viP18rXus
+	LUMBYzl+fA1pJgqpkbWzUUgdpQ0taBqn4uDymIRJcwupGFIqL72q1afBTszVJV0MlyrTvYXbHxbjL
+	WGJPsUM6ohjshxrnQOqmqcn1GNzks4tzgImN0yP+p8sopWFfNUNdVTBzwUrMCiI25/UOj0leklsml
+	rixBKzmuoWhP8G1pe/m1vCUWV+u2IoKEjbz+eLhDWyvPDdp0G6Hp+Vgfe7QygvSUu7D3c+AmTXOYW
+	B8kodffesM1tB0ILhwrSmrwPomQUKwddxxJ1IMODt+7mxh9wYf9SlmAHEnJ6t/f34i0hjfsvuGfuF
+	gkOqfL3H6trOLQC+oJnA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tcc6S-000000040D8-1kiA;
-	Tue, 28 Jan 2025 03:17:28 +0000
-Received: from mail.gentoo.org ([2001:470:ea4a:1:5054:ff:fec7:86e4] helo=smtp.gentoo.org)
+	id 1tcd8K-000000042OV-1y47;
+	Tue, 28 Jan 2025 04:23:28 +0000
+Received: from woodpecker.gentoo.org ([140.211.166.183] helo=smtp.gentoo.org)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tcc6P-000000040Ce-1YCD
+	id 1tcd8H-000000042O5-1Lu5
 	for linux-riscv@lists.infradead.org;
-	Tue, 28 Jan 2025 03:17:26 +0000
-Received: from localhost (unknown [116.232.60.140])
+	Tue, 28 Jan 2025 04:23:26 +0000
+Received: from [127.0.0.1] (unknown [116.232.60.140])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: dlan)
-	by smtp.gentoo.org (Postfix) with ESMTPSA id B2AFA343787;
-	Tue, 28 Jan 2025 03:17:16 +0000 (UTC)
-Date: Tue, 28 Jan 2025 03:17:12 +0000
+	by smtp.gentoo.org (Postfix) with ESMTPSA id E345D343581;
+	Tue, 28 Jan 2025 04:23:16 +0000 (UTC)
 From: Yixun Lan <dlan@gentoo.org>
-To: Rob Herring <robh@kernel.org>
-Subject: Re: [PATCH v4 1/4] dt-bindings: gpio: spacemit: add support for K1
- SoC
-Message-ID: <20250128031712-GYB47737@gentoo>
-References: <20250121-03-k1-gpio-v4-0-4641c95c0194@gentoo.org>
- <20250121-03-k1-gpio-v4-1-4641c95c0194@gentoo.org>
- <Z5FPJLzAEVXGWJnE@chonkvm.lixom.net>
- <20250123113042-GYA38135@gentoo>
- <Z5LOdh-4UxRtteOy@chonkvm.lixom.net>
- <20250127181726.GA538260-robh@kernel.org>
+Date: Tue, 28 Jan 2025 12:22:52 +0800
+Subject: [PATCH] MAINTAINERS: spacemit: update various info
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20250127181726.GA538260-robh@kernel.org>
+Message-Id: <20250128-k1-maintainer-1-v1-1-e5dec4f379eb@gentoo.org>
+X-B4-Tracking: v=1; b=H4sIAJtbmGcC/x2MMQqAMAwAvyKZDTTRgvoVcSg2ahCrtCKC+HeLw
+ w033D2QJKok6IoHolyadA9ZqCxgXFyYBdVnBzZsDXGDK+HmNJwZiUhopbZkWs+OK8jVEWXS+z/
+ 2w/t+E4yIEWEAAAA=
+X-Change-ID: 20250128-k1-maintainer-1-5e45109d2a23
+To: Paul Walmsley <paul.walmsley@sifive.com>, 
+ Palmer Dabbelt <palmer@dabbelt.com>
+X-Mailer: b4 0.15-dev
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1058; i=dlan@gentoo.org;
+ h=from:subject:message-id; bh=p6KU/SgyEOlkeT46rnX6gRJRS45BoDhxbwx01TtZJDQ=;
+ b=owEBzQIy/ZANAwAKATGq6kdZTbvtAcsmYgBnmFuxRUZZwhzGuJ/gHNR4f948psYZrAXIDBEon
+ dmv6/Bvs7uJApMEAAEKAH0WIQS1urjJwxtxFWcCI9wxqupHWU277QUCZ5hbsV8UgAAAAAAuAChp
+ c3N1ZXItZnByQG5vdGF0aW9ucy5vcGVucGdwLmZpZnRoaG9yc2VtYW4ubmV0QjVCQUI4QzlDMzF
+ CNzExNTY3MDIyM0RDMzFBQUVBNDc1OTREQkJFRAAKCRAxqupHWU277UASD/0b4GlbXp5c8ZX1Ba
+ 3j8FSvY2Me2hcGBbdlGKiLnFjk8qqGtZ76qxclx7z7oaCY4Rtagi6Z/WWznZo4lg2sJWGkdn5K8
+ OcLfoWS2WbYy6ALD0k2lUtCtybM01Laq3srQxljpZV1IXDJ5d8YwKe+EacS/lLiGXt46fwPiunx
+ 6Yd5p0WkQmt05G11Lz3Ytkpxs71eiUfRrct3M/+jvmhUtwjGtcYlRLWDH5IzqQrhDWwtoCpbBH0
+ FW5X13JiBU/rzIXcYvQSTkl0jXPHpEtKtzmz47lOGsi+EF1uNw7tqQ5KmdZAc8+OWE7uYjXEAlE
+ A+zR7ClwBc53+i78WoFjKbB/lkJixhcIVjVhuMbD/69jdJhmJcmhCFs9KKSt6MSOSqvgdBc8Fcp
+ PuVS1GSv78LVg+B6m9lmKA243D4erh902v46Cso4JtMZ23GKbWFCLcrcoP+aGNvb6di8U32a/20
+ PtbhJa321YPSWEceHfdk4LVAFsPRGmsXPsRIj/6opF0E8YBzkEv28Y4Ke3N/p+NOeiUV2X1ME5j
+ wCqdrLirx7HRkCdoBiCn6FcKppi6b/UxDeyQoqoAyGtzQLesmEnD6k4E9fcq6HzWmw1/dhd1x/M
+ M2ZUTC/25wRsLbBfepWhK0LSYvHRiWaTncHYUDrRBrTWos6Twy/cdn+aDKM1WpvzembA==
+X-Developer-Key: i=dlan@gentoo.org; a=openpgp;
+ fpr=50B03A1A5CBCD33576EF8CD7920C0DBCAABEFD55
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250127_191725_445000_7C3C0664 
-X-CRM114-Status: GOOD (  46.92  )
+X-CRM114-CacheID: sfid-20250127_202325_395640_C63ADD4B 
+X-CRM114-Status: UNSURE (   8.99  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -63,180 +78,47 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: devicetree@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>, Meng Zhang <zhangmeng.kevin@linux.spacemit.com>, linux-gpio@vger.kernel.org, Linus Walleij <linus.walleij@linaro.org>, linux-kernel@vger.kernel.org, Conor Dooley <conor@kernel.org>, Yangyu Chen <cyy@cyyself.name>, linux-riscv@lists.infradead.org, Palmer Dabbelt <palmer@dabbelt.com>, Jesse Taube <mr.bossman075@gmail.com>, Jisheng Zhang <jszhang@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>, Olof Johansson <olof@lixom.net>, Inochi Amaoto <inochiama@outlook.com>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Bartosz Golaszewski <brgl@bgdev.pl>
+Cc: Meng Zhang <zhangmeng.kevin@linux.spacemit.com>, Yixun Lan <dlan@gentoo.org>, linux-kernel@vger.kernel.org, Conor Dooley <conor@kernel.org>, Yangyu Chen <cyy@cyyself.name>, Alex Elder <elder@kernel.org>, Inochi Amaoto <inochiama@outlook.com>, Jesse Taube <mr.bossman075@gmail.com>, Jisheng Zhang <jszhang@kernel.org>, linux-riscv@lists.infradead.org, spacemit@lists.linux.dev
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Rob:
+Add a wiki page to track status of mainline effort, add a dedicated
+mailing list which can reduce the email's CC list a bit, the irc
+channel should be useful for people to communicate.
 
-On 12:17 Mon 27 Jan     , Rob Herring wrote:
-> On Thu, Jan 23, 2025 at 03:19:18PM -0800, Olof Johansson wrote:
-> > On Thu, Jan 23, 2025 at 11:30:42AM +0000, Yixun Lan wrote:
-> > > Hi Olof:
-> > >  thanks for your reivew
-> > > 
-> > > On 12:03 Wed 22 Jan     , Olof Johansson wrote:
-> > > > Hi,
-> > > > 
-> > > > On Tue, Jan 21, 2025 at 11:38:11AM +0800, Yixun Lan wrote:
-> > > > > The GPIO controller of K1 support basic functions as input/output,
-> > > > > all pins can be used as interrupt which route to one IRQ line,
-> > > > > trigger type can be select between rising edge, failing edge, or both.
-> > > > > There are four GPIO ports, each consisting of 32 pins.
-> > > > > 
-> > > > > Signed-off-by: Yixun Lan <dlan@gentoo.org>
-> > > > > ---
-> > > > >  .../devicetree/bindings/gpio/spacemit,k1-gpio.yaml | 116 +++++++++++++++++++++
-> > > > >  1 file changed, 116 insertions(+)
-> > > > > 
-> > > > > diff --git a/Documentation/devicetree/bindings/gpio/spacemit,k1-gpio.yaml b/Documentation/devicetree/bindings/gpio/spacemit,k1-gpio.yaml
-> > > > > new file mode 100644
-> > > > > index 0000000000000000000000000000000000000000..dd9459061aecfcba84e6a3c5052fbcddf6c61150
-> > > > > --- /dev/null
-> > > > > +++ b/Documentation/devicetree/bindings/gpio/spacemit,k1-gpio.yaml
-> > > > > @@ -0,0 +1,116 @@
-> > > > > +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> > > > > +%YAML 1.2
-> > > > > +---
-> > > > > +$id: http://devicetree.org/schemas/gpio/spacemit,k1-gpio.yaml#
-> > > > > +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> > > > > +
-> > > > > +title: SpacemiT K1 GPIO controller
-> > > > > +
-> > > > > +maintainers:
-> > > > > +  - Yixun Lan <dlan@gentoo.org>
-> > > > > +
-> > > > > +description:
-> > > > > +  The controller's registers are organized as sets of eight 32-bit
-> > > > > +  registers with each set of port controlling 32 pins.  A single
-> > > > > +  interrupt line is shared for all of the pins by the controller.
-> > > > > +  Each port will be represented as child nodes with the generic
-> > > > > +  GPIO-controller properties in this bindings file.
-> > > > 
-> > > > There's only one interrupt line for all ports, but you have a binding that
-> > > > duplicates them for every set of ports. That seems overly complicated,
-> > > > doesn't it? They'd all bind the same handler, so there's no benefit in
-> > > > providing the flexibility,.
-> > > > 
-> > > yes, all ports share same interrupt line, but each port has its own
-> > > irq related handling register, so it make sense to describe as per gpio irqchip
-> > > 
-> > > also see comments below
-> > > 
-> > > > > +properties:
-> > > > > +  $nodename:
-> > > > > +    pattern: "^gpio@[0-9a-f]+$"
-> > > > > +
-> > > > > +  compatible:
-> > > > > +    const: spacemit,k1-gpio
-> > > > > +
-> > > > > +  reg:
-> > > > > +    maxItems: 1
-> > > > > +
-> > > > > +  "#address-cells":
-> > > > > +    const: 1
-> > > > > +
-> > > > > +  "#size-cells":
-> > > > > +    const: 0
-> > > > > +
-> > > > > +patternProperties:
-> > > > > +  "^gpio-port@[0-9a-f]+$":
-> > > > > +    type: object
-> > > > > +    properties:
-> > > > > +      compatible:
-> > > > > +        const: spacemit,k1-gpio-port
-> > > > > +
-> > > > > +      reg:
-> > > > > +        maxItems: 1
-> > > > > +
-> > > > > +      gpio-controller: true
-> > > > > +
-> > > > > +      "#gpio-cells":
-> > > > > +        const: 2
-> > > > > +
-> > > > > +      gpio-ranges: true
-> > > > > +
-> > > > > +      interrupts:
-> > > > > +        maxItems: 1
-> > > > > +
-> > > > > +      interrupt-controller: true
-> > > > > +
-> > > > > +      "#interrupt-cells":
-> > > > > +        const: 2
-> > > > > +        description:
-> > > > > +          The first cell is the GPIO number, the second should specify interrupt
-> > > > > +          flag. The controller does not support level interrupts, so flags of
-> > > > > +          IRQ_TYPE_LEVEL_HIGH, IRQ_TYPE_LEVEL_LOW should not be used.
-> > > > > +          Refer <dt-bindings/interrupt-controller/irq.h> for valid flags.
-> > > > 
-> > > > Same here, since there's no real flexibility between the banks, it might
-> > > > make sense to consider a 3-cell GPIO specifier instead, and having
-> > > how to handle the fourth gpio port? I would like to have uniform driver for all ports
-> > > 
-> > > > the first cell indicate bank. I could see this argument go in either
-> > > > direction, but I'm not sure I understand why to provide a gpio-controller
-> > > > per bank.
-> > > > 
-> > > 
-> > > IIUC, your suggestion here was same as the implementation of patch v3 of this driver[1],
-> > >  while combining all four ports into one irqchip, which NACKed by maintainer[2].
-> > >  I tend to agree having a gpio-controller per bank provide more flexibility,
-> > >  easy to leverage generic gpio framework, even each port can be disabled or enabled,
-> > >  and IMO having shared irq handler isn't really a problem..
-> > > 
-> > > [1] https://lore.kernel.org/r/20241225-03-k1-gpio-v3-0-27bb7b441d62@gentoo.org
-> > > [2] https://lore.kernel.org/r/CACRpkdZPD2C2iPwOX_kW1Ug8jVkdHhhc7iFycHtzj5LQ0XWNgQ@mail.gmail.com
-> > > https://lore.kernel.org/r/CACRpkdYgGho=VQabonq4HccEiXBH2qM76K45oDaV1Jyi0xZ-YA@mail.gmail.com
-> > 
-> > Hmm, I don't understand the reasoning there, but it's not my subsystem.
-> > 
-> > It seems worse to me to misdescribe the hardware as separate blocks
-> > with a device-tree binding that no longer describes the actual hardware,
-> > but it's not up to me.
-> 
-> I agree. It's clearly 1 block given the first 3 banks are interleaved.
-> 
-yes, it's kind of weird hardware design, the first 3 gpio are register interleaved,
-while the 4th has independent space
+Signed-off-by: Yixun Lan <dlan@gentoo.org>
+---
+Add additional wiki, mailing list, irc information
+---
+ MAINTAINERS | 3 +++
+ 1 file changed, 3 insertions(+)
 
-> If Linux can't handle 1 node for N gpio_chip's, then that's a Linux 
-> problem. Maybe it can, IDK. 
-I haven't seen somthing like this to register 1 node for multi gpio_chips..
-To gpio/pinctrl maintainer (Linus Walleij), do you have suggestion on this?
+diff --git a/MAINTAINERS b/MAINTAINERS
+index d49306cc17e3403dbc06e2c7927d6cfce514481b..bf30f31e412fb50af8c0aa49fd25483ef229d37c 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -20326,7 +20326,10 @@ F:	drivers/perf/riscv_pmu_sbi.c
+ RISC-V SPACEMIT SoC Support
+ M:	Yixun Lan <dlan@gentoo.org>
+ L:	linux-riscv@lists.infradead.org
++L:	spacemit@lists.linux.dev
+ S:	Maintained
++W:	https://github.com/spacemit-com/linux/wiki
++C:	irc://irc.libera.chat/spacemit
+ T:	git https://github.com/spacemit-com/linux
+ F:	arch/riscv/boot/dts/spacemit/
+ N:	spacemit
 
->The lookup from a DT node to gpio_chip just 
-> needs to match on more than just DT node pointer, but look at the node 
-> ptr and arg cells.
-> 
-IIUC, are you suggesting to add a index cells to match additional gpio bank?
-so the underlying driver can still register 4 gpio chips?
+---
+base-commit: f34b580514c9816a317764e6b138ec66a4adab25
+change-id: 20250128-k1-maintainer-1-5e45109d2a23
 
-               gpio: gpio@d4019000 {
-                        compatible = "spacemit,k1-gpio";
-                        reg = <0x0 0xd4019000 0x0 0x800>;
-                        interrupt-controller;
-			#interrupt-cells = <3>; // additional cell
-                        gpio-controller;
-                        #gpio-cells = <3>; // additional cell
-			...
-		};
-
-on comsumer side, it will be something like this:
-		gpios = <&gpio INDEX0 0 GPIO_ACTIVE_HIGH>;
-		interrupts = <&gpio INDEX0 0 IRQ_TYPE_EDGE_RISING>;
-(INDEX0 possiblely can be numeric vale (0, 1, 2, 3) or register base: 0x0 0x4 0x8 0x100)
-
-one thing I'm not sure about how to map the pinctrl pins via "gpio-ranges" to each gpio_chip,
-currently, in v4 verion, this info is populated via sub node of gpios (port1, port2 ...)
-
-I will investigate more on this.. but need suggestion to know if I proceed at right direction
-
+Best regards,
 -- 
-Yixun Lan (dlan)
-Gentoo Linux Developer
-GPG Key ID AABEFD55
+Yixun Lan
+
 
 _______________________________________________
 linux-riscv mailing list
