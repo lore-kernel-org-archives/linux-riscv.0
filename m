@@ -4,63 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 36568C02192
-	for <linux-riscv@archiver.kernel.org>; Tue, 28 Jan 2025 19:48:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 070B5C02198
+	for <linux-riscv@archiver.kernel.org>; Tue, 28 Jan 2025 19:48:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:References:MIME-Version:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=UJ8gaLMp60+cB+4SQRdfCf58kOThUiZoM9LlL4m6KyA=; b=mpEQ/Pv1wpuYlc
-	QZ4dnsKYB3egWsOMekSQtM28yUy3LBP+MgxHYtBq2owSjteS2z3CwgIfiJyPI46C+l0vfYS3FFIzY
-	2o0OKRHCbiileizA2pbkcwOC6ZCF91HDrFrwjtT2z6Qf/jEhizkNvDUFmH5S9vDNgXje4Mk5hmGii
-	SBqwuPejmo3qa847q/tG9uqZANvpEbDhRtrhCaNni3q4UjcmBG5ktWMiFCak/2y5PpXQqgRTcVFa6
-	bYzAHLZIDm6DftACygqBY7yvo4AxWQ9+H5JxobqreuwcqEBBEIwQBxR8OkvacEmCRRDSGr/uexAY3
-	Bm36KYrFt27yPugoQ0yA==;
+	List-Owner; bh=PNY+mSbeCxhl8Zys83L1w6P1S/RJCfR8Ebc0apvhXhc=; b=riGvRSFWnlsKoR
+	jV5AP8TQB7ZN1Y9KwfM8D6NegdlSkqmB6D7CXH4BGWlkp5zQ8rgCr/crc6cz1TUj6/jKZbyehuDgj
+	XA5m+Xari03BKv4dsUMY9hrDPuMJ9FgYWi5XgxoVifmUgpP+L+0y/POLtnRB0ZViiOUik0xgtMnSh
+	zvvmS31KMCPwAsgbdh6TxXuM6pDDPRe2MRyHVSZ/9nvOMWR6w339YnNNq2/ghd+vVOVa1fzCzYVq3
+	k5nbMMBrnmxVzaSoQNQrnnTL4zTFNrIzowfgTs4zpIVDwaHWPhUV7fA0NakSR2ojT0JTIG0bD4LrL
+	Ly1OBoH51wI2cJn+CioA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tcrZj-00000005jPo-1nvh;
-	Tue, 28 Jan 2025 19:48:43 +0000
+	id 1tcrZq-00000005jXI-3DkA;
+	Tue, 28 Jan 2025 19:48:50 +0000
 Received: from mailout1.w1.samsung.com ([210.118.77.11])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tcrZe-00000005jKF-07pH
+	id 1tcrZh-00000005jO6-33qX
 	for linux-riscv@lists.infradead.org;
-	Tue, 28 Jan 2025 19:48:41 +0000
+	Tue, 28 Jan 2025 19:48:45 +0000
 Received: from eucas1p1.samsung.com (unknown [182.198.249.206])
-	by mailout1.w1.samsung.com (KnoxPortal) with ESMTP id 20250128194828euoutp016c4103295e541ef32ff63a9681bf0805~e8wTn-hgi0285702857euoutp017
-	for <linux-riscv@lists.infradead.org>; Tue, 28 Jan 2025 19:48:28 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout1.w1.samsung.com 20250128194828euoutp016c4103295e541ef32ff63a9681bf0805~e8wTn-hgi0285702857euoutp017
+	by mailout1.w1.samsung.com (KnoxPortal) with ESMTP id 20250128194838euoutp013f925c756cdc9e9bcd01f76231524a52~e8wce5zTk1604516045euoutp01Z
+	for <linux-riscv@lists.infradead.org>; Tue, 28 Jan 2025 19:48:38 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout1.w1.samsung.com 20250128194838euoutp013f925c756cdc9e9bcd01f76231524a52~e8wce5zTk1604516045euoutp01Z
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1738093708;
-	bh=j9l5aDCxr3DvU3/2cWqH3XQcq0oWDa3VyAGZPsGNHMI=;
+	s=mail20170921; t=1738093718;
+	bh=BRfXiCNbDurUVJ5VSr3Gpt82Gc/sxIvyoF9J+yTRQL8=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=o52tYm49SKNdyWOhBFvW6/TLzFcLCn+YD84lzExi40BcY0V+sx9ELy/Z2E0FI7fxO
-	 iu0VHirErDDGUVIRCez8sWB4mduUtZSu5MYYPG9fh3yNLYdD6xURwj0CdIt0paeF/R
-	 9ULdaSyqmuXky0T597E8xg4v8dNEmpBxMwLx7rGw=
-Received: from eusmges1new.samsung.com (unknown [203.254.199.242]) by
-	eucas1p2.samsung.com (KnoxPortal) with ESMTP id
-	20250128194827eucas1p2ab121d8e6f920a042d87623a8e1c7b03~e8wSqtcau2211822118eucas1p2A;
-	Tue, 28 Jan 2025 19:48:27 +0000 (GMT)
-Received: from eucas1p2.samsung.com ( [182.198.249.207]) by
-	eusmges1new.samsung.com (EUCPMTA) with SMTP id F8.F8.20821.B8439976; Tue, 28
-	Jan 2025 19:48:27 +0000 (GMT)
+	b=BIrWZFydedBJhM1VcBI5RXYTCSxhm6WlE4McBLrh+ch1Tl9mtFmaSW+jETTkObabZ
+	 c+aZ6B10QKJoSEQCVSNFs4QcZaQw35D5P4iXg8drpc9S8K9El3U5uokUS0Iayv9d3P
+	 PIzcSzV+kTa4zZ6YuK+S2/MHkAYbuUealrrT8NYc=
+Received: from eusmges3new.samsung.com (unknown [203.254.199.245]) by
+	eucas1p1.samsung.com (KnoxPortal) with ESMTP id
+	20250128194837eucas1p182e641b15a24bd233e61178c4c44d819~e8wb3whYQ1987319873eucas1p1o;
+	Tue, 28 Jan 2025 19:48:37 +0000 (GMT)
+Received: from eucas1p1.samsung.com ( [182.198.249.206]) by
+	eusmges3new.samsung.com (EUCPMTA) with SMTP id 2E.A2.20397.59439976; Tue, 28
+	Jan 2025 19:48:37 +0000 (GMT)
 Received: from eusmtrp2.samsung.com (unknown [182.198.249.139]) by
 	eucas1p1.samsung.com (KnoxPortal) with ESMTPA id
-	20250128194826eucas1p1b18e5af64e66b06da985b194d022273c~e8wRqSHFU1989019890eucas1p1m;
-	Tue, 28 Jan 2025 19:48:26 +0000 (GMT)
+	20250128194836eucas1p151c4fc83a17173fd1b79bfc959976301~e8wbbZBvK1601016010eucas1p1w;
+	Tue, 28 Jan 2025 19:48:36 +0000 (GMT)
 Received: from eusmgms2.samsung.com (unknown [182.198.249.180]) by
 	eusmtrp2.samsung.com (KnoxPortal) with ESMTP id
-	20250128194826eusmtrp279bcbff1fdae98bf8f72216d19949843~e8wRn8wBU2963629636eusmtrp2k;
-	Tue, 28 Jan 2025 19:48:26 +0000 (GMT)
-X-AuditID: cbfec7f2-b11c470000005155-87-6799348bbf2c
+	20250128194836eusmtrp234310a698ca7f3b0b403fe837b8080e2~e8wbatirj3008430084eusmtrp2c;
+	Tue, 28 Jan 2025 19:48:36 +0000 (GMT)
+X-AuditID: cbfec7f5-e59c770000004fad-da-67993495c733
 Received: from eusmtip1.samsung.com ( [203.254.199.221]) by
-	eusmgms2.samsung.com (EUCPMTA) with SMTP id 3E.AB.19654.A8439976; Tue, 28
-	Jan 2025 19:48:26 +0000 (GMT)
+	eusmgms2.samsung.com (EUCPMTA) with SMTP id F5.BB.19654.49439976; Tue, 28
+	Jan 2025 19:48:36 +0000 (GMT)
 Received: from AMDC4942.home (unknown [106.210.136.40]) by
 	eusmtip1.samsung.com (KnoxPortal) with ESMTPA id
-	20250128194824eusmtip1254d86ca0f63e60db4fa04696aac0927~e8wQNZfZy2620826208eusmtip1l;
-	Tue, 28 Jan 2025 19:48:24 +0000 (GMT)
+	20250128194835eusmtip15c3f1bbeec8f39b0feab98990e3558e5~e8waCiFjz0819608196eusmtip1L;
+	Tue, 28 Jan 2025 19:48:35 +0000 (GMT)
 From: Michal Wilczynski <m.wilczynski@samsung.com>
 To: mturquette@baylibre.com, sboyd@kernel.org, robh@kernel.org,
 	krzk+dt@kernel.org, conor+dt@kernel.org, drew@pdp7.com, guoren@kernel.org,
@@ -74,61 +74,60 @@ Cc: linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
 	dri-devel@lists.freedesktop.org, linux-pm@vger.kernel.org, Michal Wilczynski
 	<m.wilczynski@samsung.com>
-Subject: [PATCH v4 01/18] dt-bindings: clock: thead: Add TH1520 VO clock
- controller
-Date: Tue, 28 Jan 2025 20:47:59 +0100
-Message-Id: <20250128194816.2185326-2-m.wilczynski@samsung.com>
+Subject: [PATCH v4 09/18] reset: thead: Add TH1520 reset controller driver
+Date: Tue, 28 Jan 2025 20:48:07 +0100
+Message-Id: <20250128194816.2185326-10-m.wilczynski@samsung.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20250128194816.2185326-1-m.wilczynski@samsung.com>
 MIME-Version: 1.0
-X-Brightmail-Tracker: H4sIAAAAAAAAA02Se0xTZxjG851zek5pVjxUjB/i0FXBsQyQBeaXzNsyZ45bxsSNmJHs0sCx
-	ELm4VjYlZMJKgUKrUzc2C4zLuoFMhEFbKBSKWClQqQy5mAjoMpijgA2XkqlBRjm4+d/vfZ/3
-	+Z73TT4+LmokN/ETU06yshRJkpgUEMbOR7dCCiIuSXfWZvmhruEKDBmeaCl0pdWBoVKrg4fG
-	+vUYGnC7SHR1oo9Cf7dmEWioqoRCis5aEk1qx0g0qx7jodvNxSSa11gBMs5nk6jGOkqhWncp
-	hspnDQTSNTUDlKP6hYd+73kbjY51EWjythpHOdp1aNncRKGnQ78RqOihhUL66fM8ZKs5irIt
-	3xL7AxjXHSXFTE9OEsz1vAWKaV0sIxiTdpRi1KabgKmvVpHMyJCZZH7sjmbuFdgwpkF3hsmu
-	6cSYc0s7GVfbIMmc1VcDpl8xTB0WxQp2x7NJiV+wsrC9nwkSKh/eI070vXgq93EblgkUMB94
-	8SEdAQeu2Hj5QMAX0VUAXi9fJDyCiF4A0F38ESfMA5g3oiGfOfI1BowTKgFUFH69VkwDuGi2
-	rNpJ+jV4v7J09V1fWklA5Y0s4Clw+gGAxvHi1bfW0zGwp0y36iDoQDja1svzsJDeB8cvewye
-	vC3Qcq0X97AXvR/WL1UR3IwP7L40vsr4yozCUIR7AiBdI4C6qT6CMx+A3bmVFMfrodOmX+PN
-	cNlUinGcCu8b5nCOM6BJbVvjN+CI4/HKovyVgGBY2xzGtd+ED8wKzNOGtDe8M+PDreANLxi/
-	x7m2EObliLjpIPidWvNfqKPKuBbKwJbGEuob8JL2uWO0zx2j/T+3DODVYCObJk+WsvLwFPbL
-	ULkkWZ6WIg2NS02uByt/2/7UNtcESpyzoR0A44MOAPm42Ff4seMHqUgYLzmdzspSP5WlJbHy
-	DuDPJ8QbhRUWpVRESyUn2eMse4KVPVMxvtemTKyQTTEPs1+pu6JiXKq6Dw4HReyZqX4iiPlp
-	YFr56HXfyHZvjcs65nc0Mv2t1EHK773Ciam6uq1FLa7Pt9gd706UH3/1T+XFhVgVWrdHrE1M
-	93ZatbGfLM3BtIz0XOZ01GhgXOTmiPYYp/uFrl0+0X/08AdCWgpuDgUZeC0ZRxrUf8lcQYTJ
-	KJg4F79tZvvVAwnF9q27/gk+eCivwJ3lPHLqvPdZf9+9LzdssAROg96i4O363XHBZT/b8YuH
-	lj8cylE1tt9NFP+67eCxHTl+aQGZg7xb72+omN0313s5vKf/hs9y7JkWVUP0OzvU/pniMPtU
-	SL9MY9OhuwG64Ypj10zRUYNiQp4gCX8Fl8kl/wIauOeoSgQAAA==
-X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFlrGKsWRmVeSWpSXmKPExsVy+t/xu7pdJjPTDTp+C1ucuL6IyWLr71ns
-	Fmv2nmOymH/kHKvFvUtbmCyufH3PZrHu6QV2ixd7G1ksrq2Yy27RfGw9m8XLWffYLD723GO1
-	uLxrDpvF594jjBbbPrewWaw9cpfdYv3X+UwWCz9uZbFYsmMXo0Vb5zJWi4unXC3u3jvBYvHy
-	cg+zRdssfov/e3awW/y7tpHFYva7/ewWW95MZLU4vjbcomX/FBYHOY/3N1rZPd68fMnicbjj
-	C7vH3m8LWDx2zrrL7tGz8wyjx6ZVnWwed67tYfOYdzLQ4373cSaPzUvqPVrWHmPy6P9r4PF+
-	31U2j74tqxg9LjVfZw8QitKzKcovLUlVyMgvLrFVija0MNIztLTQMzKx1DM0No+1MjJV0rez
-	SUnNySxLLdK3S9DLWP7uPkvBBdmK9l/7mBoYmyW6GDk5JARMJLp6tzJ1MXJxCAksZZRo6L7G
-	CpGQkbjW/ZIFwhaW+HOtiw2i6BWjxMmzm9lAEmwCRhIPls8HaxARWMwisXdfJUgRs8BbRonr
-	MzeCdQsLBEv8X3CbCcRmEVCVuLvvLFgDr4C9xJOVjYwQG+Ql9h88ywxicwo4SGz6uwKsVwio
-	5tHbGWwQ9YISJ2c+AYszA9U3b53NPIFRYBaS1CwkqQWMTKsYRVJLi3PTc4uN9IoTc4tL89L1
-	kvNzNzECE8y2Yz+37GBc+eqj3iFGJg7GQ4wSHMxKIryx52akC/GmJFZWpRblxxeV5qQWH2I0
-	Bbp7IrOUaHI+MMXllcQbmhmYGpqYWRqYWpoZK4nzsl05nyYkkJ5YkpqdmlqQWgTTx8TBKdXA
-	pHuFcR/nvjRDlsU8pxaE/dZobt4rGPUhWif12+r4psNrZ1ZvMbbO+7/ijswUm2cZf16uvCR2
-	lG/2Eo7CfXGPzvis+H55taxYxcQVMR5dgu/W/Xi1RbF4q9DButTAY38bP/5uaTl5vvLNzwj1
-	opUlSW3Tb7hI8afrFDzJlKz5+fXzsfpcLemI+Z/Y9pp1Kkey3tzzwVxZvM5rkut75mn+3/om
-	FVrEKB+vizzezz99ccMfZoserVC7hO9G5XnuC26UzOUw2zLps7F/56HoV+73FW415RdJL/su
-	EcKTsKOGP+xt4LltPNW3De2nqk+a8GFHvfa2dd2Gcz4k6Spr2a7ou8q3qdp843HJ6DI9lsr9
-	SizFGYmGWsxFxYkASnpl3LkDAAA=
-X-CMS-MailID: 20250128194826eucas1p1b18e5af64e66b06da985b194d022273c
+X-Brightmail-Tracker: H4sIAAAAAAAAA01Se0xbZRz1u/f23lIt3HVk+8SJGTqXEWRsLuaDbWbP5E5idEZcojHa0JvC
+	eHS2oGIMDNqSgUUeYZl0YHG8ChlDoFSeowKjgNCNV7sIBVy2lSICHYXhY8yWy3T/nd855/ed
+	80s+Pi4ykgH82MQkVp4ojg8iBYSx90/LaxcPFEnD7tu3oT7bFQw1/a2l0NUOC4Z0PRYemhox
+	YGhsZZFE1+7dotBsRzqBrPoSCil760jk1E6RyKWZ4qHR1mISLef0AGRcVpGotsdOoboVHYZ+
+	cDURqLy5FaDMrEoeGh44iexTfQRyjmpwlKn1Q4/bmym0bq0n0OWFTgoZ5vN5yFx7Bqk6C4kj
+	gczibTXFzDudBNN9wU0xHaulBNOitVOMpmUQMA01WSQzaW0nme/7TzPT35gxprE8jVHV9mJM
+	7qMwZvH6OMl8a6gBzIjSRr0r+lBwSMLGx37Oyve++akgxth/k3cu8+CXJWWp50Hjvmzgw4f0
+	AXh/2EBkAwFfROsB/MfcjXODG8BfhwYpblj2KCYX8WTljmmaxwlVAHZrft90zQNou1pFel0k
+	vR/OVOk2XP60moDqG+nAO+C0A0Dj3WKPi8/fSr8FK9pSvAsEvQu2/XSL58VC+gh06fJ4XNxL
+	sPPnIdyLfTx8wyM9wXm2wP6iuxsY93iUTZc3ikO6XuBpkUtxyyeg+cbs5kNb4ZzZsMnvgI9b
+	dBiHZXCm6QHO4a9hi8a8iQ/CSctfGz1xeg+sa93L0Ufhkn6O8NKQ9oW3/9jCVfCFBcZLOEcL
+	4YVMEed+FV7U5PwXatEbN0MZqLROgDywU/vUMdqnjtH+n1sK8BqwnU1WJEhZxeuJ7BehCnGC
+	IjlRGhotS2gAnq/9y7p5pRno51yhXQDjgy4A+XiQv/Bjy3dSkVAiTvmKlcs+kSfHs4ou8AKf
+	CNouvNKplopoqTiJjWPZc6z8iYrxfQLOY8wH8w/O9DizbWfLD0tmw9LiIqpH92ebhJKaieHu
+	Z8UL2xSSkxEDGVhp5L33Zk+nPBRnlb2f55ehjI4KwQTX3hmLs7vN0KUhqh+eXSs9pBrKHeyI
+	raCOq1/J0Cwl9w8EzsW8/GNtfk4hNk2v+U5YOz7ru7MjI35XdHPk8+sF/bujJBZVQEhO8HMB
+	zySMFVkrSiscSVnyBv1afmSzItUv/NiQeqd9xLBQeSL4sMM3/yNefmPBxKS7zVngaH/D4ZYB
+	GeMsqT6+eHPctPh217j/knt3uOlFv1Orkb9FrB/jWQfHbOFle4prKqNXJwu7lVji0VMhjqh0
+	vD6NDb8+k8oGBhGKGPG+YFyuEP8LAcK3VkkEAAA=
+X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFlrCKsWRmVeSWpSXmKPExsVy+t/xu7pTTGamG1y+YmRx4voiJoutv2ex
+	W6zZe47JYv6Rc6wW9y5tYbK48vU9m8W6pxfYLV7sbWSxuLZiLrtF87H1bBYvZ91js/jYc4/V
+	4vKuOWwWn3uPMFps+9zCZrH2yF12i/Vf5zNZLPy4lcViyY5djBZtnctYLS6ecrW4e+8Ei8XL
+	yz3MFm2z+C3+79nBbvHv2kYWi9nv9rNbbHkzkdXi+Npwi5b9U1gc5Dze32hl93jz8iWLx+GO
+	L+wee78tYPHYOesuu0fPzjOMHptWdbJ53Lm2h81j3slAj/vdx5k8Ni+p92hZe4zJo/+vgcf7
+	fVfZPPq2rGL0uNR8nT1AKErPpii/tCRVISO/uMRWKdrQwkjP0NJCz8jEUs/Q2DzWyshUSd/O
+	JiU1J7MstUjfLkEvY9vJ86wFbdYVcxfXNTBuNuxi5OSQEDCReHTgPmsXIxeHkMBSRolTX5Yx
+	QiRkJK51v2SBsIUl/lzrYoMoesUo0XV+BlgRm4CRxIPl81lBbBGBxSwSe/dVghQxC7xllLg+
+	cyNQNweHsICXxNLdlSA1LAKqEru3XwCr5xVwkPg4fwIrxAJ5if0HzzKD2JxA8U1/V4AtFhKw
+	l3j0dgYbRL2gxMmZT8DizED1zVtnM09gFJiFJDULSWoBI9MqRpHU0uLc9NxiI73ixNzi0rx0
+	veT83E2MwOSy7djPLTsYV776qHeIkYmD8RCjBAezkghv7LkZ6UK8KYmVValF+fFFpTmpxYcY
+	TYHunsgsJZqcD0xveSXxhmYGpoYmZpYGppZmxkrivGxXzqcJCaQnlqRmp6YWpBbB9DFxcEo1
+	MPF1hh5LzTbdWjNfKqSt9uPCFzwNrmqPz0Tdm3Fck3GG6Jzj8/as/Ny3KMuyVqDr4KMOGROH
+	YvnG+/nfLkyy35Tza5rI9LS19Z13XdNUF5SqFnvu5Z8j2rZ37+6CkjnLm9dv+5FiyzqRX/1l
+	r5Qi35cz0W3tmptNdvFxl7ZHPt0Z+FFqUbDSrZY/dRMmVYYcvXF45VyOkA77ybNKKz1TORbw
+	/Vir2e3os3SVn7YQh8ypbQ29y/eY75LZwR3z30z3zLEnLyZmMq287NOwzCrqpVrs9wenpx8Q
+	2rRVhvfvl6Y/GmEy4ifeNUvsMHzId0ph+trolPl/829vX2x67pHpEnVOHmeODQtev7pSIHZy
+	UYASS3FGoqEWc1FxIgCCaRZQtwMAAA==
+X-CMS-MailID: 20250128194836eucas1p151c4fc83a17173fd1b79bfc959976301
 X-Msg-Generator: CA
-X-RootMTR: 20250128194826eucas1p1b18e5af64e66b06da985b194d022273c
+X-RootMTR: 20250128194836eucas1p151c4fc83a17173fd1b79bfc959976301
 X-EPHeader: CA
 CMS-TYPE: 201P
-X-CMS-RootMailID: 20250128194826eucas1p1b18e5af64e66b06da985b194d022273c
+X-CMS-RootMailID: 20250128194836eucas1p151c4fc83a17173fd1b79bfc959976301
 References: <20250128194816.2185326-1-m.wilczynski@samsung.com>
-	<CGME20250128194826eucas1p1b18e5af64e66b06da985b194d022273c@eucas1p1.samsung.com>
+	<CGME20250128194836eucas1p151c4fc83a17173fd1b79bfc959976301@eucas1p1.samsung.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250128_114838_344481_B2C79B2C 
-X-CRM114-Status: GOOD (  11.67  )
+X-CRM114-CacheID: sfid-20250128_114842_086337_B8E209D4 
+X-CRM114-Status: GOOD (  29.21  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -145,107 +144,249 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add device tree bindings for the TH1520 Video Output (VO) subsystem
-clock controller. The VO sub-system manages clock gates for multimedia
-components including HDMI, MIPI, and GPU.
-
-Document the VIDEO_PLL requirements for the VO clock controller, which
-receives its input from the AP clock controller. The VIDEO_PLL is a
-Silicon Creations Sigma-Delta (integer) PLL typically running at 792 MHz
-with maximum FOUTVCO of 2376 MHz.
-
-This binding complements the existing AP sub-system clock controller
-which manages CPU, DPU, GMAC and TEE PLLs.
+Add reset controller driver for the T-HEAD TH1520 SoC that manages
+hardware reset lines for various subsystems. The driver currently
+implements support for GPU reset control, with infrastructure in place
+to extend support for NPU and Watchdog Timer resets in future updates.
 
 Signed-off-by: Michal Wilczynski <m.wilczynski@samsung.com>
 ---
- .../bindings/clock/thead,th1520-clk-ap.yaml   | 17 ++++++++--
- .../dt-bindings/clock/thead,th1520-clk-ap.h   | 33 +++++++++++++++++++
- 2 files changed, 47 insertions(+), 3 deletions(-)
+ MAINTAINERS                  |   1 +
+ drivers/reset/Kconfig        |  10 ++
+ drivers/reset/Makefile       |   1 +
+ drivers/reset/reset-th1520.c | 178 +++++++++++++++++++++++++++++++++++
+ 4 files changed, 190 insertions(+)
+ create mode 100644 drivers/reset/reset-th1520.c
 
-diff --git a/Documentation/devicetree/bindings/clock/thead,th1520-clk-ap.yaml b/Documentation/devicetree/bindings/clock/thead,th1520-clk-ap.yaml
-index 0129bd0ba4b3..9d058c00ab3d 100644
---- a/Documentation/devicetree/bindings/clock/thead,th1520-clk-ap.yaml
-+++ b/Documentation/devicetree/bindings/clock/thead,th1520-clk-ap.yaml
-@@ -8,7 +8,8 @@ title: T-HEAD TH1520 AP sub-system clock controller
+diff --git a/MAINTAINERS b/MAINTAINERS
+index b4e21d814481..d71b8c68ae48 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -20352,6 +20352,7 @@ F:	drivers/mailbox/mailbox-th1520.c
+ F:	drivers/net/ethernet/stmicro/stmmac/dwmac-thead.c
+ F:	drivers/pinctrl/pinctrl-th1520.c
+ F:	drivers/pmdomain/thead/
++F:	drivers/reset/reset-th1520.c
+ F:	include/dt-bindings/clock/thead,th1520-clk-ap.h
+ F:	include/dt-bindings/power/thead,th1520-power.h
+ F:	include/dt-bindings/reset/thead,th1520-reset.h
+diff --git a/drivers/reset/Kconfig b/drivers/reset/Kconfig
+index 5b3abb6db248..fa0943c3d1de 100644
+--- a/drivers/reset/Kconfig
++++ b/drivers/reset/Kconfig
+@@ -272,6 +272,16 @@ config RESET_SUNXI
+ 	help
+ 	  This enables the reset driver for Allwinner SoCs.
  
- description: |
-   The T-HEAD TH1520 AP sub-system clock controller configures the
--  CPU, DPU, GMAC and TEE PLLs.
-+  CPU, DPU, GMAC and TEE PLLs. Additionally the VO subsystem configures
-+  the clock gates for the HDMI, MIPI and the GPU.
- 
-   SoC reference manual
-   https://openbeagle.org/beaglev-ahead/beaglev-ahead/-/blob/main/docs/TH1520%20System%20User%20Manual.pdf
-@@ -20,14 +21,24 @@ maintainers:
- 
- properties:
-   compatible:
--    const: thead,th1520-clk-ap
-+    enum:
-+      - thead,th1520-clk-ap
-+      - thead,th1520-clk-vo
- 
-   reg:
-     maxItems: 1
- 
-   clocks:
-     items:
--      - description: main oscillator (24MHz)
-+      - description: |
-+          One input clock:
-+          - For "thead,th1520-clk-ap": the clock input must be the 24 MHz
-+            main oscillator.
-+          - For "thead,th1520-clk-vo": the clock input must be the VIDEO_PLL,
-+            which is configured by the AP clock controller. According to the
-+            TH1520 manual, VIDEO_PLL is a Silicon Creations Sigma-Delta PLL
-+            (integer PLL) typically running at 792 MHz (FOUTPOSTDIV), with
-+            a maximum FOUTVCO of 2376 MHz.
- 
-   "#clock-cells":
-     const: 1
-diff --git a/include/dt-bindings/clock/thead,th1520-clk-ap.h b/include/dt-bindings/clock/thead,th1520-clk-ap.h
-index a199784b3512..470fa34f9a9d 100644
---- a/include/dt-bindings/clock/thead,th1520-clk-ap.h
-+++ b/include/dt-bindings/clock/thead,th1520-clk-ap.h
-@@ -93,4 +93,37 @@
- #define CLK_SRAM3		83
- #define CLK_PLL_GMAC_100M	84
- #define CLK_UART_SCLK		85
++config RESET_TH1520
++	tristate "T-HEAD 1520 reset controller"
++	depends on ARCH_THEAD || COMPILE_TEST
++	select REGMAP_MMIO
++	help
++	  This driver provides support for the T-HEAD TH1520 SoC reset controller,
++	  which manages hardware reset lines for SoC components such as the GPU.
++	  Enable this option if you need to control hardware resets on TH1520-based
++	  systems.
 +
-+/* VO clocks */
-+#define CLK_AXI4_VO_ACLK		0
-+#define CLK_GPU_CORE			1
-+#define CLK_GPU_CFG_ACLK		2
-+#define CLK_DPU_PIXELCLK0		3
-+#define CLK_DPU_PIXELCLK1		4
-+#define CLK_DPU_HCLK			5
-+#define CLK_DPU_ACLK			6
-+#define CLK_DPU_CCLK			7
-+#define CLK_HDMI_SFR			8
-+#define CLK_HDMI_PCLK			9
-+#define CLK_HDMI_CEC			10
-+#define CLK_MIPI_DSI0_PCLK		11
-+#define CLK_MIPI_DSI1_PCLK		12
-+#define CLK_MIPI_DSI0_CFG		13
-+#define CLK_MIPI_DSI1_CFG		14
-+#define CLK_MIPI_DSI0_REFCLK		15
-+#define CLK_MIPI_DSI1_REFCLK		16
-+#define CLK_HDMI_I2S			17
-+#define CLK_X2H_DPU1_ACLK		18
-+#define CLK_X2H_DPU_ACLK		19
-+#define CLK_AXI4_VO_PCLK		20
-+#define CLK_IOPMP_VOSYS_DPU_PCLK	21
-+#define CLK_IOPMP_VOSYS_DPU1_PCLK	22
-+#define CLK_IOPMP_VOSYS_GPU_PCLK	23
-+#define CLK_IOPMP_DPU1_ACLK		24
-+#define CLK_IOPMP_DPU_ACLK		25
-+#define CLK_IOPMP_GPU_ACLK		26
-+#define CLK_MIPIDSI0_PIXCLK		27
-+#define CLK_MIPIDSI1_PIXCLK		28
-+#define CLK_HDMI_PIXCLK			29
+ config RESET_TI_SCI
+ 	tristate "TI System Control Interface (TI-SCI) reset driver"
+ 	depends on TI_SCI_PROTOCOL || (COMPILE_TEST && TI_SCI_PROTOCOL=n)
+diff --git a/drivers/reset/Makefile b/drivers/reset/Makefile
+index 677c4d1e2632..d6c2774407ae 100644
+--- a/drivers/reset/Makefile
++++ b/drivers/reset/Makefile
+@@ -35,6 +35,7 @@ obj-$(CONFIG_RESET_SIMPLE) += reset-simple.o
+ obj-$(CONFIG_RESET_SOCFPGA) += reset-socfpga.o
+ obj-$(CONFIG_RESET_SUNPLUS) += reset-sunplus.o
+ obj-$(CONFIG_RESET_SUNXI) += reset-sunxi.o
++obj-$(CONFIG_RESET_TH1520) += reset-th1520.o
+ obj-$(CONFIG_RESET_TI_SCI) += reset-ti-sci.o
+ obj-$(CONFIG_RESET_TI_SYSCON) += reset-ti-syscon.o
+ obj-$(CONFIG_RESET_TI_TPS380X) += reset-tps380x.o
+diff --git a/drivers/reset/reset-th1520.c b/drivers/reset/reset-th1520.c
+new file mode 100644
+index 000000000000..48afbc9f1cdd
+--- /dev/null
++++ b/drivers/reset/reset-th1520.c
+@@ -0,0 +1,178 @@
++// SPDX-License-Identifier: GPL-2.0
++/*
++ * Copyright (c) 2024 Samsung Electronics Co., Ltd.
++ * Author: Michal Wilczynski <m.wilczynski@samsung.com>
++ */
 +
- #endif
++#include <linux/of.h>
++#include <linux/platform_device.h>
++#include <linux/reset-controller.h>
++#include <linux/regmap.h>
++
++#include <dt-bindings/reset/thead,th1520-reset.h>
++
++ /* register offset in VOSYS_REGMAP */
++#define TH1520_GPU_RST_CFG		0x0
++#define TH1520_GPU_RST_CFG_MASK		GENMASK(2, 0)
++
++/* register values */
++#define TH1520_GPU_SW_GPU_RST		BIT(0)
++#define TH1520_GPU_SW_CLKGEN_RST	BIT(1)
++
++struct th1520_reset_priv {
++	struct reset_controller_dev rcdev;
++	struct regmap *map;
++	struct mutex gpu_seq_lock;  /* protects gpu assert/deassert sequence */
++};
++
++static inline struct th1520_reset_priv *
++to_th1520_reset(struct reset_controller_dev *rcdev)
++{
++	return container_of(rcdev, struct th1520_reset_priv, rcdev);
++}
++
++static void th1520_rst_gpu_enable(struct regmap *reg,
++				  struct mutex *gpu_seq_lock)
++{
++	int val;
++
++	mutex_lock(gpu_seq_lock);
++
++	/* if the GPU is not in a reset state it, put it into one */
++	regmap_read(reg, TH1520_GPU_RST_CFG, &val);
++	if (val)
++		regmap_update_bits(reg, TH1520_GPU_RST_CFG,
++				   TH1520_GPU_RST_CFG_MASK, 0x0);
++
++	/* rst gpu clkgen */
++	regmap_set_bits(reg, TH1520_GPU_RST_CFG, TH1520_GPU_SW_CLKGEN_RST);
++
++	/*
++	 * According to the hardware manual, a delay of at least 32 clock
++	 * cycles is required between de-asserting the clkgen reset and
++	 * de-asserting the GPU reset. Assuming a worst-case scenario with
++	 * a very high GPU clock frequency, a delay of 1 microsecond is
++	 * sufficient to ensure this requirement is met across all
++	 * feasible GPU clock speeds.
++	 */
++	udelay(1);
++
++	/* rst gpu */
++	regmap_set_bits(reg, TH1520_GPU_RST_CFG, TH1520_GPU_SW_GPU_RST);
++
++	mutex_unlock(gpu_seq_lock);
++}
++
++static void th1520_rst_gpu_disable(struct regmap *reg,
++				   struct mutex *gpu_seq_lock)
++{
++	mutex_lock(gpu_seq_lock);
++
++	regmap_update_bits(reg, TH1520_GPU_RST_CFG, TH1520_GPU_RST_CFG_MASK, 0x0);
++
++	mutex_unlock(gpu_seq_lock);
++}
++
++static int th1520_reset_assert(struct reset_controller_dev *rcdev, unsigned long id)
++{
++	struct th1520_reset_priv *priv = to_th1520_reset(rcdev);
++
++	switch (id) {
++	case TH1520_RESET_ID_GPU:
++		th1520_rst_gpu_disable(priv->map, &priv->gpu_seq_lock);
++		break;
++	default:
++		return -EINVAL;
++	}
++
++	return 0;
++}
++
++static int th1520_reset_deassert(struct reset_controller_dev *rcdev, unsigned long id)
++{
++	struct th1520_reset_priv *priv = to_th1520_reset(rcdev);
++
++	switch (id) {
++	case TH1520_RESET_ID_GPU:
++		th1520_rst_gpu_enable(priv->map, &priv->gpu_seq_lock);
++		break;
++	default:
++		return -EINVAL;
++	}
++
++	return 0;
++}
++
++static int th1520_reset_xlate(struct reset_controller_dev *rcdev,
++			      const struct of_phandle_args *reset_spec)
++{
++	unsigned int index = reset_spec->args[0];
++
++	/* currently, only GPU reset is implemented in this driver */
++	if (index == TH1520_RESET_ID_GPU)
++		return index;
++
++	return -EOPNOTSUPP;
++}
++
++static const struct reset_control_ops th1520_reset_ops = {
++	.assert	= th1520_reset_assert,
++	.deassert = th1520_reset_deassert,
++};
++
++static const struct regmap_config th1520_reset_regmap_config = {
++	.reg_bits = 32,
++	.val_bits = 32,
++	.reg_stride = 4,
++	.fast_io = true,
++};
++
++static int th1520_reset_probe(struct platform_device *pdev)
++{
++	struct device *dev = &pdev->dev;
++	struct th1520_reset_priv *priv;
++	void __iomem *base;
++
++	priv = devm_kzalloc(dev, sizeof(*priv), GFP_KERNEL);
++	if (!priv)
++		return -ENOMEM;
++
++	base = devm_platform_ioremap_resource(pdev, 0);
++	if (IS_ERR(base))
++		return PTR_ERR(base);
++
++	priv->map = devm_regmap_init_mmio(dev, base,
++					  &th1520_reset_regmap_config);
++	if (IS_ERR(priv->map))
++		return PTR_ERR(priv->map);
++
++	mutex_init(&priv->gpu_seq_lock);
++
++	priv->rcdev.owner = THIS_MODULE;
++	priv->rcdev.nr_resets = 1;
++	priv->rcdev.ops = &th1520_reset_ops;
++	priv->rcdev.of_node = dev->of_node;
++	priv->rcdev.of_xlate = th1520_reset_xlate;
++	priv->rcdev.of_reset_n_cells = 1;
++
++	return devm_reset_controller_register(dev, &priv->rcdev);
++}
++
++static const struct of_device_id th1520_reset_match[] = {
++	{ .compatible = "thead,th1520-reset" },
++	{ /* sentinel */ }
++};
++MODULE_DEVICE_TABLE(of, th1520_reset_match);
++
++static struct platform_driver th1520_reset_driver = {
++	.driver = {
++		.name = "th1520-reset",
++		.of_match_table = th1520_reset_match,
++	},
++	.probe = th1520_reset_probe,
++};
++module_platform_driver(th1520_reset_driver);
++
++MODULE_AUTHOR("Michal Wilczynski <m.wilczynski@samsung.com>");
++MODULE_DESCRIPTION("T-HEAD TH1520 SoC reset controller");
++MODULE_LICENSE("GPL");
 -- 
 2.34.1
 
