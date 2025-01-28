@@ -4,63 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8DB7AC02192
-	for <linux-riscv@archiver.kernel.org>; Tue, 28 Jan 2025 19:48:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95F6FC0218A
+	for <linux-riscv@archiver.kernel.org>; Tue, 28 Jan 2025 19:48:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:References:MIME-Version:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=EBycXvv43xlLW3thPUNUBxLUUYRfiKlwJNp5CONK5lo=; b=KH1+HYRiHJ6d5q
-	XOZLUTC9f6KpUNgGmbTQ1ZPuWf4wIFy4bwzbjrYfvCOR0EiOFKETNZf02rHQhzKeydCHpaCeoVJYN
-	Oiq0TW0zdERCc0Ae+Mlm05zjAoq+ej3Mm6crwKR1kfBaDZMfGr1kPfukDIV47MoTGQJS/0xSqeS0H
-	0AsWS+YRDO/t0S/iSrNgctRRRCIfHRO408JesxaKr9Uka2MDBgNyWV+8BceG1GwoIucfdNlQ+1F1V
-	+POKqnR5mnK64j8aWaBYRFV/qARfcBM1z2nz4Uh2Wo+5p5dfIw3bTvPU/jqhoO9JBJKxTUyWYRc3g
-	oIWmp+HoJSY1bp34GJ+Q==;
+	List-Owner; bh=LvvmfbeYdfSWl/AIDIJEaRgZo+BgJfM6dBrd5EjNCao=; b=dRxwNHRinesHDU
+	VFWrVHE7cZCPl0By3sybpX7PR/0kpztmQJLCGQ7GfbvZ1e1/FrmAErxEskau5r3KQ69De1zwbqlGw
+	Lw7/yubLPvrA7clarxpSfqCMeloN9LbwD6nvbUr2Sjb1as+mX75D0u2eZ2oiL0CrN/V8RYYvyWs8G
+	p/kaXK0m11dVvs3rG13y8nYcqiZ8AB3jndimMVc28OwVkXWka4LnUtXQp5G8AZjgjXDUirVyb/2eJ
+	JTtrtapJp9X6pOKwjL0nsSlp3BLSZybenl6FejWTNlwRK3PooG2RZc0fWUIE0ULwh4YO9dtTz6k+u
+	QOfBcMWO1QfsDnyPXm5w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tcrZo-00000005jVg-2kbn;
-	Tue, 28 Jan 2025 19:48:48 +0000
+	id 1tcrZq-00000005jWu-0QEZ;
+	Tue, 28 Jan 2025 19:48:50 +0000
 Received: from mailout2.w1.samsung.com ([210.118.77.12])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tcrZf-00000005jLE-2uF3
+	id 1tcrZh-00000005jNp-1st2
 	for linux-riscv@lists.infradead.org;
-	Tue, 28 Jan 2025 19:48:43 +0000
-Received: from eucas1p1.samsung.com (unknown [182.198.249.206])
-	by mailout2.w1.samsung.com (KnoxPortal) with ESMTP id 20250128194836euoutp0249f9aeefd1d53b2a7a6cb2968080af8f~e8watwiC00773407734euoutp02D
-	for <linux-riscv@lists.infradead.org>; Tue, 28 Jan 2025 19:48:36 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.w1.samsung.com 20250128194836euoutp0249f9aeefd1d53b2a7a6cb2968080af8f~e8watwiC00773407734euoutp02D
+	Tue, 28 Jan 2025 19:48:44 +0000
+Received: from eucas1p2.samsung.com (unknown [182.198.249.207])
+	by mailout2.w1.samsung.com (KnoxPortal) with ESMTP id 20250128194840euoutp0212096fdd13acd04d74749720c3c698ec~e8wedtnUy2670226702euoutp02Y
+	for <linux-riscv@lists.infradead.org>; Tue, 28 Jan 2025 19:48:40 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.w1.samsung.com 20250128194840euoutp0212096fdd13acd04d74749720c3c698ec~e8wedtnUy2670226702euoutp02Y
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1738093716;
-	bh=GvH+KGxOLMWPvCT3kvkzzW6sq/iRIHCpZUQmHgtdxxI=;
+	s=mail20170921; t=1738093720;
+	bh=ZYBRmW5t2GpCZtOdW6RPCwHBIk2zBYiTkDA13XDEtW4=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=SnxOy01idwZCQxjeXu7oZRZ7JQAMpImZaVmqn9sOcpKPuE8Mb8ngRrGctAQ5dukqQ
-	 vAfRN/uPLIuHSHprhDunijGzTJB2ywljUHH5eXQH9XTpDzkE+LGny+UjZsbdmLF53s
-	 lTnXvnbRhZqjO9bLSBCqUkhLl6M/h8ZpZkfwNiiA=
-Received: from eusmges3new.samsung.com (unknown [203.254.199.245]) by
-	eucas1p1.samsung.com (KnoxPortal) with ESMTP id
-	20250128194835eucas1p1706e00ae514b5bd95ce262b8a094ea95~e8wZoHDCE1601116011eucas1p1v;
-	Tue, 28 Jan 2025 19:48:35 +0000 (GMT)
+	b=VAmp3YGtt/afem4W6kd0GjProjMLNMmADbZE7lu1Zhf7gd/kT3Pzm1aZQiILNsAK/
+	 N2ylkXQro3hHI//fBpXxw8hb/8nK4h2cFBnsCECFln6I8hRmbGvjEY8K2ZSWhEzD0R
+	 AzuecuN/yU+FQzyLpf7Ctzby8GCrZBLJRWy65OEA=
+Received: from eusmges1new.samsung.com (unknown [203.254.199.242]) by
+	eucas1p2.samsung.com (KnoxPortal) with ESMTP id
+	20250128194838eucas1p2d1c38c43bb0dbc2368835a9b395f43c6~e8wdOwKIM2210922109eucas1p2-;
+	Tue, 28 Jan 2025 19:48:38 +0000 (GMT)
 Received: from eucas1p1.samsung.com ( [182.198.249.206]) by
-	eusmges3new.samsung.com (EUCPMTA) with SMTP id 4A.A2.20397.29439976; Tue, 28
-	Jan 2025 19:48:34 +0000 (GMT)
+	eusmges1new.samsung.com (EUCPMTA) with SMTP id 1D.F8.20821.69439976; Tue, 28
+	Jan 2025 19:48:38 +0000 (GMT)
 Received: from eusmtrp2.samsung.com (unknown [182.198.249.139]) by
-	eucas1p2.samsung.com (KnoxPortal) with ESMTPA id
-	20250128194834eucas1p2f7581075b9f238c84e83c5fa210bc3ea~e8wY5FQXD2210922109eucas1p28;
-	Tue, 28 Jan 2025 19:48:34 +0000 (GMT)
-Received: from eusmgms1.samsung.com (unknown [182.198.249.179]) by
+	eucas1p1.samsung.com (KnoxPortal) with ESMTPA id
+	20250128194838eucas1p1829115b2b05d209a7c277eccf56e0b90~e8wcpMNv41988619886eucas1p10;
+	Tue, 28 Jan 2025 19:48:38 +0000 (GMT)
+Received: from eusmgms2.samsung.com (unknown [182.198.249.180]) by
 	eusmtrp2.samsung.com (KnoxPortal) with ESMTP id
-	20250128194834eusmtrp20cde8efdfd5ef2c18bb7078830b7e71c~e8wY4VdD23008430084eusmtrp2a;
-	Tue, 28 Jan 2025 19:48:34 +0000 (GMT)
-X-AuditID: cbfec7f5-ed1d670000004fad-d5-67993492d94c
+	20250128194838eusmtrp2c4b9da3b48e09b6efa5f6cbe0f24fd16~e8wcoeocA3008430084eusmtrp2f;
+	Tue, 28 Jan 2025 19:48:38 +0000 (GMT)
+X-AuditID: cbfec7f2-b11c470000005155-99-67993496f2fe
 Received: from eusmtip1.samsung.com ( [203.254.199.221]) by
-	eusmgms1.samsung.com (EUCPMTA) with SMTP id 36.E0.19920.29439976; Tue, 28
-	Jan 2025 19:48:34 +0000 (GMT)
+	eusmgms2.samsung.com (EUCPMTA) with SMTP id E7.BB.19654.69439976; Tue, 28
+	Jan 2025 19:48:38 +0000 (GMT)
 Received: from AMDC4942.home (unknown [106.210.136.40]) by
 	eusmtip1.samsung.com (KnoxPortal) with ESMTPA id
-	20250128194832eusmtip167a13b0c44d313dc80857f97a9e2a371~e8wXlE_jb0756107561eusmtip1P;
-	Tue, 28 Jan 2025 19:48:32 +0000 (GMT)
+	20250128194836eusmtip17d32b73588c20ebc10d406239e436948~e8wbTFR8q0756107561eusmtip1Q;
+	Tue, 28 Jan 2025 19:48:36 +0000 (GMT)
 From: Michal Wilczynski <m.wilczynski@samsung.com>
 To: mturquette@baylibre.com, sboyd@kernel.org, robh@kernel.org,
 	krzk+dt@kernel.org, conor+dt@kernel.org, drew@pdp7.com, guoren@kernel.org,
@@ -74,60 +74,61 @@ Cc: linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
 	dri-devel@lists.freedesktop.org, linux-pm@vger.kernel.org, Michal Wilczynski
 	<m.wilczynski@samsung.com>
-Subject: [PATCH v4 07/18] riscv: Enable PM_GENERIC_DOMAINS for T-Head SoCs
-Date: Tue, 28 Jan 2025 20:48:05 +0100
-Message-Id: <20250128194816.2185326-8-m.wilczynski@samsung.com>
+Subject: [PATCH v4 10/18] drm/imagination: Add reset controller support for
+ GPU initialization
+Date: Tue, 28 Jan 2025 20:48:08 +0100
+Message-Id: <20250128194816.2185326-11-m.wilczynski@samsung.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20250128194816.2185326-1-m.wilczynski@samsung.com>
 MIME-Version: 1.0
-X-Brightmail-Tracker: H4sIAAAAAAAAA02SbUxTVxjHc+69vfe2irtUFo5u2QJRiS68qR9OguJL3Hb34sL8gA7YpBmX
-	wqAFWsDh2AShiFA2ZCxqYRYdgwZBoEKlCHYitBWx4Z1uA8YGysoYjFGMgwCjtG5++53/eZ7z
-	e57k0LhQR26lY6XJnEwqivcmBYTO+I/Ft2jvZXFApTYImYeuYahxSUWh6lYLhtTtFh4a7W3A
-	UP/CLIluPOqm0O+tmQQa1HxLoSxjLYlsqlESzSlHeaivuZRE8wXtAOnms0lU0z5CodoFNYau
-	zjUSqLypGaCc8xU81NP5OhoZNRPI1qfEUY7qBbTa0kShlcF6ApXMGCjUMH2Bh0w1x1G2oZg4
-	+Ao7a1VQ7LTNRrD3cu0U2/qkjGD1qhGKVeq7AKutOk+yw4MtJHvl/vvsL/kmjL1ZfobNrjFi
-	7FfLAezsnQGS/bKhCrC9WUNUiDBMsC+Ki49N5WT+wZGCmJKaLiyxmP+p8nY3mQEeUHmAT0Nm
-	L6xQn8XygIAWMhoAzyluAOfBDuBS05DrMA+g9soM71nL6k8a0sFCphJAdZWvk6cB1PzxmoNJ
-	Zjccq1TzHM0ejIKAio7M9ZdwZhJA3UTpevdm5m1oHn+KO5hgtsOicj1wsBtzALbkqXCn7VVo
-	uPtwnfnMQahd1hDOGnd4//LEOuNrNVmNJbhDAJkaAexSDri2OwJ7hjMxJ2+GU6YGV/4yXNWr
-	XXkCHGv82yVLh3qlycVBcNiyuDYovSbYCWub/Z3xITjQVIA7YshsgtY/3Z0jbIJFuouu2A3m
-	5gid1TvgN8qC/6QWjc4lZeF0tY1XCLxUzy2jem4Z1f/eMoBXAU8uRS4Rc/I9Uu6Un1wkkadI
-	xX4fJ0i0YO1rP1gxLTQBzdScXxvAaNAGII17e7h9aLkkFrpFidJOc7KEk7KUeE7eBl6iCW9P
-	t2sGhVjIiEXJXBzHJXKyZ7cYzd+agXmNn4v1ayO8L0Qv/9Wx+11ayJYvhayEfNSvL46+VGst
-	Hqh/x55U8ES68bA9hjt5avG01DPp64sH8O6wrp5K02SRwB5+yxCwz+rrM7njRL2pL+NWp7ni
-	i6XryIcOjPtxZUyTNBif9uLGMUPoYVFmWeJURODots+5laPcrmiyk+91PGJmIKrNf3wu7Q6z
-	4ZPC5WMPk0O7fMKrfSMm76lvA2vdZ28FbK/79aw9/Y069oMOw6HFUFi4IcNmjezwcG/RbMv/
-	XiYx9Dc/nYiN/CHuveuB+9ONN+35Yd89ku1/M2hLakyuR/dvfElw75GRE0cfW86E73wMkHEL
-	2vPzXT1RmmoODvcm5DGiwF24TC76F71bPNJJBAAA
-X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFlrGKsWRmVeSWpSXmKPExsVy+t/xu7qTTGamG/xew2Fx4voiJoutv2ex
+X-Brightmail-Tracker: H4sIAAAAAAAAA02SfUxTZxTG9957e2/bWHYpJr6TiZFEN52r0BD3bjpSJyx3mjRuzkxdzOzm
+	XXWjlLQw1LhY+WgAwekGAkUKOIKVjTE+2lFGYWClIFgYdC1h8pEpsjJchxSCbMgoFzf/+z3P
+	eU7OOW9ePi62kGv5J+ITWU28Ii6cFBKW9kfOly9HFSojeh9EoA7PVQyZ/zZQ6FubE0MldicP
+	DffVY8g14yPRd2O9FPrddo5AblMxhVLbq0nkNQyTaCp7mIf6G6+QaDrHDpBlOo1EVfYhClXP
+	lGCobMpMoPKGRoD0mRU89POtWDQ03EEgb382jvSGZ9FiUwOFHrtrCFT0ZwuF6icv8ZCj6j2U
+	1pJLyMIY30A6xUx6vQRzI8NPMbbZUoKxGoYoJtvaDZjaykySueNuIhlj59vMyHkHxtSVn2XS
+	qtox5ouFCMbX/AvJXKivBExfqofaJz4s3HmMjTvxGavZFn1UeLx7/gaWcHHDSYtuhtABd2gW
+	4PMhHQV78iOygJAvpk0AmuwjJCf8AI7n3KQ4MQ2gb3ia96TDeOsg518D8O4fZTgnJgF0jxUs
+	dQj4JC2Fo9dKeIHCajqdgOk3z4GAwOlxAC33rpCBVAh9FNr017EAE/RGeH0ilwiwiJZBy1zB
+	MkN6PWxpvY0HWLDk1y6YVjLBsLPw3jLjS5lUc9HyGpCuEkLvYAnONcfA3PuNPI5D4ISjnuL4
+	ebhoLcE4VsNR88OV/BlozXas8A54xzlPBm7G6c2wunEbZ++CxVl6inuKIDjwIJhbIQh+acnH
+	OVsEM/RiLr0J5mXn/DfUabKsDGVga0oqfhFsMDx1jOGpYwz/zy0FeCVYwyZpVUpWGxnPJku0
+	CpU2KV4p+UitqgVLX7vrseNhAyiemJK0AYwP2gDk4+GrRUecBUqx6Jji1GlWo/5AkxTHattA
+	KJ8IXyO62pKuFNNKRSL7KcsmsJonVYwvWKvD8hIzuwefaUr2Kx1eVVeYxJ9s3ZvvevWT817U
+	lKDuvCwb3L5JZjCLxqWgWRcs73ju/QjxdultU8xvJ/s9MV0HpOpDzO7W1y+ddo0OGCvmJKe+
+	iv1RkCpf/GlHef3eXF3G57tVoYf2H17XE/R1u++FxZZX5rLWbe2NvXtWVlF75pt8qeygXPbx
+	Iq1P0b+j7ra4XhyfTdylMeYF75ndl1lnXBjxVGf1VRm3FnkM97FH0ZM+VVTSlkjHXIPhyPrY
+	jqhV0j01P6REMe+q5w+4Cv7ayDb4d3rLknI+XHWhnXhp/1vRpc1v9IRsrpHHy3rHmn8tjJSn
+	2LttItv3/wjm36zzhRW+Fk5ojysit+AareJfcH0YuUkEAAA=
+X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFlrKKsWRmVeSWpSXmKPExsVy+t/xu7rTTGamG1zbzGNx4voiJoutv2ex
 	W6zZe47JYv6Rc6wW9y5tYbK48vU9m8W6pxfYLV7sbWSxuLZiLrtF87H1bBYvZ91js/jYc4/V
 	4vKuOWwWn3uPMFps+9zCZrH2yF12i/Vf5zNZLPy4lcViyY5djBZtnctYLS6ecrW4e+8Ei8XL
 	yz3MFm2z+C3+79nBbvHv2kYWi9nv9rNbbHkzkdXi+Npwi5b9U1gc5Dze32hl93jz8iWLx+GO
 	L+wee78tYPHYOesuu0fPzjOMHptWdbJ53Lm2h81j3slAj/vdx5k8Ni+p92hZe4zJo/+vgcf7
 	fVfZPPq2rGL0uNR8nT1AKErPpii/tCRVISO/uMRWKdrQwkjP0NJCz8jEUs/Q2DzWyshUSd/O
-	JiU1J7MstUjfLkEvY/baM0wFUzgrenZfYGtgPM3excjJISFgIvH/1gq2LkYuDiGBpYwSn76t
-	gUrISFzrfskCYQtL/LnWBVX0ilHi7oMfbCAJNgEjiQfL57OC2CICi1kk9u6rBCliFnjLKHF9
-	5kawbmEBL4kTj38wg9gsAqoSk5bsZASxeQXsJfZ0zWKG2CAvsf/gWTCbU8BBYtPfFWC9QkA1
-	j97OYIOoF5Q4OfMJWJwZqL5562zmCYwCs5CkZiFJLWBkWsUoklpanJueW2yoV5yYW1yal66X
-	nJ+7iRGYYLYd+7l5B+O8Vx/1DjEycTAeYpTgYFYS4Y09NyNdiDclsbIqtSg/vqg0J7X4EKMp
-	0N0TmaVEk/OBKS6vJN7QzMDU0MTM0sDU0sxYSZzX7fL5NCGB9MSS1OzU1ILUIpg+Jg5OqQam
-	jFeKB1Wv1AilM2jsDtYP/NBQtV9o4e0cvdApQesdDxRzvBd8devrkn3/G0p2Tfr7K3yDVGFl
-	H+OOI7rGniceFTdtW/FISu0Re87Ts7Nb+mYZZjMZTwwrX/w62/hL+BT1ZWmTHn49uINrY+Kk
-	cLGFzTY/DWtklmyrurvDavKU30EezEfvfD+yZb0xW/1U1V+7WlUlYyf9eXYoeC7XCd3+XcLT
-	TN835i0+XC9kYPTmaOPefbve/Z3OySL7Rfjhe5GFz+PYcq5v0O/j9TMUED+z8YpH9OLftg3N
-	ZueTGc+sOmVRcv5R8ZesIGbhsg/6p55N3vEy9PnGV2sWS60VaE3j0Tz+4XD9DhfXGqEo/xcX
-	pZRYijMSDbWYi4oTAWPpytO5AwAA
-X-CMS-MailID: 20250128194834eucas1p2f7581075b9f238c84e83c5fa210bc3ea
+	JiU1J7MstUjfLkEv48yvw0wFExQrtjV8ZWlgvCbdxcjBISFgIjHvVEQXIxeHkMBSRonWLxeZ
+	uhg5geIyEte6X7JA2MISf651sUEUvWKU2DRlOyNIgk3ASOLB8vmsILaIwGIWib37KkGKmAXe
+	Mkpcn7kRrFtYIE6isWkKmM0ioCqx8hWEzSvgILHtxwyoDfIS+w+eZQaxOYHim/6uAIsLCdhL
+	PHo7gw2iXlDi5MwnYHFmoPrmrbOZJzAKzEKSmoUktYCRaRWjSGppcW56brGRXnFibnFpXrpe
+	cn7uJkZgetl27OeWHYwrX33UO8TIxMF4iFGCg1lJhDf23Ix0Id6UxMqq1KL8+KLSnNTiQ4ym
+	QHdPZJYSTc4HJri8knhDMwNTQxMzSwNTSzNjJXFetivn04QE0hNLUrNTUwtSi2D6mDg4pRqY
+	TJ89u37EOOz+19abq5sEMgU+aysc1u1L4e7/uzVceHX377V1UXOdhcq/vOPv9w5KV35nFtMT
+	e3xNT2pZT9bbPPnMVsO425mFzyxTuviZTD/kf8y7xDfH/6KGYL7r35u+p0oeZj7N2vOizrvf
+	wcreieP1u8MuQbkv5JmuPOXKad5Z9FPYe8431pApaawv1RYu+G/n/i6IdWNig2Wj1o8wmSvm
+	U/s1hC/Xsv3z+GYWpL6z4/bDzKKLsVVbWjy+xURFhn1/tHyhU/r/9LSTR3/teFwmuFu3IFo+
+	Kc+1XOhyImNYUH/1lCk3Ds4U5AwwvV0475fbmUzpDXvyDxyuXH565e3Die5rUp8wGzJ4rldi
+	Kc5INNRiLipOBABUgEkKuAMAAA==
+X-CMS-MailID: 20250128194838eucas1p1829115b2b05d209a7c277eccf56e0b90
 X-Msg-Generator: CA
-X-RootMTR: 20250128194834eucas1p2f7581075b9f238c84e83c5fa210bc3ea
+X-RootMTR: 20250128194838eucas1p1829115b2b05d209a7c277eccf56e0b90
 X-EPHeader: CA
 CMS-TYPE: 201P
-X-CMS-RootMailID: 20250128194834eucas1p2f7581075b9f238c84e83c5fa210bc3ea
+X-CMS-RootMailID: 20250128194838eucas1p1829115b2b05d209a7c277eccf56e0b90
 References: <20250128194816.2185326-1-m.wilczynski@samsung.com>
-	<CGME20250128194834eucas1p2f7581075b9f238c84e83c5fa210bc3ea@eucas1p2.samsung.com>
+	<CGME20250128194838eucas1p1829115b2b05d209a7c277eccf56e0b90@eucas1p1.samsung.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250128_114839_995456_D5320AB3 
-X-CRM114-Status: GOOD (  10.79  )
+X-CRM114-CacheID: sfid-20250128_114841_767934_29E26953 
+X-CRM114-Status: GOOD (  22.16  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -144,36 +145,136 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T-Head SoCs feature separate power domains (power islands) for major
-components like the GPU, Audio, and NPU. To manage the power states of
-these components effectively, the kernel requires generic power domain
-support.
+Certain platforms, such as the T-Head TH1520 and Banana Pi BPI-F3,
+require a controlled GPU reset sequence during the power-up procedure
+to ensure proper initialization. Without this reset, the GPU may remain
+in an undefined state, potentially leading to stability or performance
+issues.
 
-This commit enables `CONFIG_PM_GENERIC_DOMAINS` for T-Head SoCs,
-allowing the power domain driver for these components to be compiled and
-integrated. This ensures proper power management and energy efficiency
-on T-Head platforms.
-
-By selecting `PM_GENERIC_DOMAINS`, we provide the necessary framework
-for the power domain drivers to function correctly on RISC-V
-architecture with T-Head SoCs.
+This commit integrates a dedicated reset controller within the
+drm/imagination driver. By doing so, the driver can coordinate the
+necessary reset operations as part of the normal GPU bring-up process,
+improving reliability and ensuring that the hardware is ready for
+operation.
 
 Signed-off-by: Michal Wilczynski <m.wilczynski@samsung.com>
 ---
- arch/riscv/Kconfig.socs | 1 +
- 1 file changed, 1 insertion(+)
+ drivers/gpu/drm/imagination/pvr_device.c | 21 +++++++++++++++++++++
+ drivers/gpu/drm/imagination/pvr_device.h |  9 +++++++++
+ drivers/gpu/drm/imagination/pvr_power.c  | 12 +++++++++++-
+ 3 files changed, 41 insertions(+), 1 deletion(-)
 
-diff --git a/arch/riscv/Kconfig.socs b/arch/riscv/Kconfig.socs
-index 1916cf7ba450..83833ded8908 100644
---- a/arch/riscv/Kconfig.socs
-+++ b/arch/riscv/Kconfig.socs
-@@ -53,6 +53,7 @@ config ARCH_THEAD
- 	bool "T-HEAD RISC-V SoCs"
- 	depends on MMU && !XIP_KERNEL
- 	select ERRATA_THEAD
-+	select PM_GENERIC_DOMAINS if PM
- 	help
- 	  This enables support for the RISC-V based T-HEAD SoCs.
+diff --git a/drivers/gpu/drm/imagination/pvr_device.c b/drivers/gpu/drm/imagination/pvr_device.c
+index 1704c0268589..ef73e95157ee 100644
+--- a/drivers/gpu/drm/imagination/pvr_device.c
++++ b/drivers/gpu/drm/imagination/pvr_device.c
+@@ -25,6 +25,7 @@
+ #include <linux/interrupt.h>
+ #include <linux/platform_device.h>
+ #include <linux/pm_runtime.h>
++#include <linux/reset.h>
+ #include <linux/slab.h>
+ #include <linux/stddef.h>
+ #include <linux/types.h>
+@@ -120,6 +121,21 @@ static int pvr_device_clk_init(struct pvr_device *pvr_dev)
+ 	return 0;
+ }
+ 
++static int pvr_device_reset_init(struct pvr_device *pvr_dev)
++{
++	struct drm_device *drm_dev = from_pvr_device(pvr_dev);
++	struct reset_control *reset;
++
++	reset = devm_reset_control_get_optional_exclusive(drm_dev->dev, NULL);
++	if (IS_ERR(reset))
++		return dev_err_probe(drm_dev->dev, PTR_ERR(reset),
++				     "failed to get gpu reset line\n");
++
++	pvr_dev->reset = reset;
++
++	return 0;
++}
++
+ /**
+  * pvr_device_process_active_queues() - Process all queue related events.
+  * @pvr_dev: PowerVR device to check
+@@ -509,6 +525,11 @@ pvr_device_init(struct pvr_device *pvr_dev)
+ 	if (err)
+ 		return err;
+ 
++	/* Get the reset line for the GPU */
++	err = pvr_device_reset_init(pvr_dev);
++	if (err)
++		return err;
++
+ 	/* Explicitly power the GPU so we can access control registers before the FW is booted. */
+ 	err = pm_runtime_resume_and_get(dev);
+ 	if (err)
+diff --git a/drivers/gpu/drm/imagination/pvr_device.h b/drivers/gpu/drm/imagination/pvr_device.h
+index 6d0dfacb677b..f6576c08111c 100644
+--- a/drivers/gpu/drm/imagination/pvr_device.h
++++ b/drivers/gpu/drm/imagination/pvr_device.h
+@@ -131,6 +131,15 @@ struct pvr_device {
+ 	 */
+ 	struct clk *mem_clk;
+ 
++	/**
++	 * @reset: Optional reset line.
++	 *
++	 * This may be used on some platforms to provide a reset line that needs to be de-asserted
++	 * after power-up procedure. It would also need to be asserted after the power-down
++	 * procedure.
++	 */
++	struct reset_control *reset;
++
+ 	/** @irq: IRQ number. */
+ 	int irq;
+ 
+diff --git a/drivers/gpu/drm/imagination/pvr_power.c b/drivers/gpu/drm/imagination/pvr_power.c
+index ba7816fd28ec..e39460d594bd 100644
+--- a/drivers/gpu/drm/imagination/pvr_power.c
++++ b/drivers/gpu/drm/imagination/pvr_power.c
+@@ -15,6 +15,7 @@
+ #include <linux/mutex.h>
+ #include <linux/platform_device.h>
+ #include <linux/pm_runtime.h>
++#include <linux/reset.h>
+ #include <linux/timer.h>
+ #include <linux/types.h>
+ #include <linux/workqueue.h>
+@@ -252,6 +253,8 @@ pvr_power_device_suspend(struct device *dev)
+ 	clk_disable_unprepare(pvr_dev->sys_clk);
+ 	clk_disable_unprepare(pvr_dev->core_clk);
+ 
++	err = reset_control_assert(pvr_dev->reset);
++
+ err_drm_dev_exit:
+ 	drm_dev_exit(idx);
+ 
+@@ -282,16 +285,23 @@ pvr_power_device_resume(struct device *dev)
+ 	if (err)
+ 		goto err_sys_clk_disable;
+ 
++	err = reset_control_deassert(pvr_dev->reset);
++	if (err)
++		goto err_mem_clk_disable;
++
+ 	if (pvr_dev->fw_dev.booted) {
+ 		err = pvr_power_fw_enable(pvr_dev);
+ 		if (err)
+-			goto err_mem_clk_disable;
++			goto err_reset_assert;
+ 	}
+ 
+ 	drm_dev_exit(idx);
+ 
+ 	return 0;
+ 
++err_reset_assert:
++	reset_control_assert(pvr_dev->reset);
++
+ err_mem_clk_disable:
+ 	clk_disable_unprepare(pvr_dev->mem_clk);
  
 -- 
 2.34.1
