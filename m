@@ -4,100 +4,127 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 40551C0218D
-	for <linux-riscv@archiver.kernel.org>; Wed, 29 Jan 2025 17:20:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E0BFEC0218D
+	for <linux-riscv@archiver.kernel.org>; Wed, 29 Jan 2025 18:53:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
-	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=YFgdP1Hdh0cpoSb+GioWimaJMJROW4PXf6ua5Yv+VMM=; b=3rUlA8TIbUvZBx
-	//j5jkKilPuODiUk/v9rAMBPHzINeZm5OFOPlzbtXn6lJ57c0DLDagXgknM33OFLbWH0mH6EDcU5/
-	+cFHSmuMsDMrCKPEW8Fga4zT/bmfBBd4utFNpP4AWb/58Ur1uwAWzOOegXKGqXmY/1oGvms6fVZAw
-	9ZcS3S1mtVuTtJ0Dx5hr5hn0y93xyKr7UUsacaPwNctPgx1A5e7y1+TNnLY2VSpHSGE0Iy9PSTdYE
-	3BuEuyByiDIpPkcCFXIYnjc2SP86NMhQ6A8xJMaSvsiuCbT7efPv5bBQsRBlQD4WfCwpIyLsMXBnV
-	4rwnhO1gt9r32lO4tlYA==;
+	List-Owner; bh=A8AD2XjPvX47divOTp4k3nGAVC5LgWjRxszgTskCKKY=; b=VK3WFAAYVZtSFc
+	pZ8z7caIDLefo8Sq5HYTX0nc2eIQX4ml6L+A6S0hWV/+TEjMu3vil1pYIXXoPP10I6zcuEMOzm2WD
+	WKlh3PAXxY+nvbM93+Z7hGcj4PSVCXuZXotvATmlHplj2dmsEU6HMKFuc9xNFGNA/3AkvhZ6pXkbP
+	JifS+8ZcCs8pNZ0grVzLU9jV4QLRbX94Ef8mXyOu/KOCGKWS1EN0G/PYt21/8yOnmhVDaapFFvF7/
+	soHBU8oDEs9MJ/t2Xdlp05smdjk91TOxDueVexQnJcR/Uqu608XBYPcuY8S0rrepX11+2waNFC8e7
+	ACWfronIUBinUSkoYnaA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tdBjc-00000007TAf-1QLZ;
-	Wed, 29 Jan 2025 17:20:16 +0000
-Received: from smtp-out2.suse.de ([195.135.223.131])
+	id 1tdDBT-00000007e12-1IIF;
+	Wed, 29 Jan 2025 18:53:07 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tdBjZ-00000007T8v-45Uw
+	id 1tdDBP-00000007dyV-0xCy
 	for linux-riscv@lists.infradead.org;
-	Wed, 29 Jan 2025 17:20:15 +0000
-Received: from hawking.nue2.suse.org (unknown [10.168.4.11])
-	by smtp-out2.suse.de (Postfix) with ESMTP id 19CA11F365;
-	Wed, 29 Jan 2025 17:20:12 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1738171212; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
+	Wed, 29 Jan 2025 18:53:06 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1738176782;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 in-reply-to:in-reply-to:references:references;
-	bh=8PVjeOTkMBSAcHcY2G8sb0Gayt/prH91RL5Rc6LjVwc=;
-	b=tdcLNM04Cqj+90LwHPVXU9pD7aEcIG0dz44MyQoHcPJ1RHkL7YdkQe4sJrCEP5w7EOw6iV
-	SjKu9vm7rTmQ0lomV3p/o0Z1sS0rCn84O7m2vRQxISNeeOAkZELuSz4d9ao9W7b+ihn10W
-	HBr34EZ9mxmW26uPhIwenHhiw+sXbX4=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1738171212;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=8PVjeOTkMBSAcHcY2G8sb0Gayt/prH91RL5Rc6LjVwc=;
-	b=7NcLMcMH+mw0wonQIjB2h7Ygzbns9AdLEGyOVYKp/gC3mPlgG1PGA6H9bIgtW00RfCNo6u
-	tEDcdyzHDLR3/8AQ==
-Authentication-Results: smtp-out2.suse.de;
-	none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1738171212; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=8PVjeOTkMBSAcHcY2G8sb0Gayt/prH91RL5Rc6LjVwc=;
-	b=tdcLNM04Cqj+90LwHPVXU9pD7aEcIG0dz44MyQoHcPJ1RHkL7YdkQe4sJrCEP5w7EOw6iV
-	SjKu9vm7rTmQ0lomV3p/o0Z1sS0rCn84O7m2vRQxISNeeOAkZELuSz4d9ao9W7b+ihn10W
-	HBr34EZ9mxmW26uPhIwenHhiw+sXbX4=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1738171212;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=8PVjeOTkMBSAcHcY2G8sb0Gayt/prH91RL5Rc6LjVwc=;
-	b=7NcLMcMH+mw0wonQIjB2h7Ygzbns9AdLEGyOVYKp/gC3mPlgG1PGA6H9bIgtW00RfCNo6u
-	tEDcdyzHDLR3/8AQ==
-Received: by hawking.nue2.suse.org (Postfix, from userid 17005)
-	id 05E514AAD7B; Wed, 29 Jan 2025 18:20:12 +0100 (CET)
-From: Andreas Schwab <schwab@suse.de>
-To: linux-riscv@lists.infradead.org
-Cc: linux-kernel@vger.kernel.org,  linux-fsdevel@vger.kernel.org
-Subject: Re: Multigrain timestamps do not work on RISC-V
-In-Reply-To: <mvmv7ty3pd8.fsf@suse.de> (Andreas Schwab's message of "Wed, 29
-	Jan 2025 11:07:15 +0100")
-References: <mvmv7ty3pd8.fsf@suse.de>
-Date: Wed, 29 Jan 2025 18:20:11 +0100
-Message-ID: <mvmikpx4jw4.fsf@suse.de>
-User-Agent: Gnus/5.13 (Gnus v5.13)
+	bh=vlOChQEKTp5JX+pbfAOT77vMe8ez+6+Y0ab8kJl+7mw=;
+	b=WRb+khmgHLgCAl1ujK3GxAUAs6JFnnHfwClFvM/UcfI8UgankvZFXiJRxTTLHPUQfn3zNX
+	AaixfGeMWAsrccNl/sO2FFDtoi9kkCpbjcGe/yxGeHVsp0d/yNMKia6/18U8FvG2PwpMDe
+	90awVkH19OibJqO0Hbo7eDWyGs6QBwM=
+Received: from mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com
+ (ec2-35-165-154-97.us-west-2.compute.amazonaws.com [35.165.154.97]) by
+ relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-626-9t9EmevBOu69KQmdLrigRQ-1; Wed,
+ 29 Jan 2025 13:52:59 -0500
+X-MC-Unique: 9t9EmevBOu69KQmdLrigRQ-1
+X-Mimecast-MFC-AGG-ID: 9t9EmevBOu69KQmdLrigRQ
+Received: from mx-prod-int-04.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-04.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.40])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 39AD7180034F;
+	Wed, 29 Jan 2025 18:52:48 +0000 (UTC)
+Received: from dhcp-27-174.brq.redhat.com (unknown [10.45.226.29])
+	by mx-prod-int-04.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with SMTP id 3326919560AA;
+	Wed, 29 Jan 2025 18:52:16 +0000 (UTC)
+Received: by dhcp-27-174.brq.redhat.com (nbSMTP-1.00) for uid 1000
+	oleg@redhat.com; Wed, 29 Jan 2025 19:52:21 +0100 (CET)
+Date: Wed, 29 Jan 2025 19:51:49 +0100
+From: Oleg Nesterov <oleg@redhat.com>
+To: "Dmitry V. Levin" <ldv@strace.io>
+Cc: Alexey Gladkov <legion@kernel.org>,
+	Charlie Jenkins <charlie@rivosinc.com>,
+	Eugene Syromyatnikov <evgsyr@gmail.com>,
+	Mike Frysinger <vapier@gentoo.org>,
+	Renzo Davoli <renzo@cs.unibo.it>,
+	Davide Berardi <berardi.dav@gmail.com>,
+	strace-devel@lists.strace.io, Vineet Gupta <vgupta@kernel.org>,
+	Russell King <linux@armlinux.org.uk>, Will Deacon <will@kernel.org>,
+	Guo Ren <guoren@kernel.org>, Brian Cain <bcain@quicinc.com>,
+	Huacai Chen <chenhuacai@kernel.org>,
+	WANG Xuerui <kernel@xen0n.name>,
+	Geert Uytterhoeven <geert@linux-m68k.org>,
+	Michal Simek <monstr@monstr.eu>,
+	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+	Dinh Nguyen <dinguyen@kernel.org>, Jonas Bonn <jonas@southpole.se>,
+	Stefan Kristiansson <stefan.kristiansson@saunalahti.fi>,
+	Stafford Horne <shorne@gmail.com>,
+	"James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>,
+	Helge Deller <deller@gmx.de>, Michael Ellerman <mpe@ellerman.id.au>,
+	Nicholas Piggin <npiggin@gmail.com>,
+	Christophe Leroy <christophe.leroy@csgroup.eu>,
+	Naveen N Rao <naveen@kernel.org>,
+	Madhavan Srinivasan <maddy@linux.ibm.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Heiko Carstens <hca@linux.ibm.com>,
+	Vasily Gorbik <gor@linux.ibm.com>,
+	Alexander Gordeev <agordeev@linux.ibm.com>,
+	Christian Borntraeger <borntraeger@linux.ibm.com>,
+	Sven Schnelle <svens@linux.ibm.com>,
+	Yoshinori Sato <ysato@users.sourceforge.jp>,
+	Rich Felker <dalias@libc.org>,
+	John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>,
+	"David S. Miller" <davem@davemloft.net>,
+	Andreas Larsson <andreas@gaisler.com>,
+	Richard Weinberger <richard@nod.at>,
+	Anton Ivanov <anton.ivanov@cambridgegreys.com>,
+	Johannes Berg <johannes@sipsolutions.net>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
+	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
+	"H. Peter Anvin" <hpa@zytor.com>, Chris Zankel <chris@zankel.net>,
+	Max Filippov <jcmvbkbc@gmail.com>, Arnd Bergmann <arnd@arndb.de>,
+	Shuah Khan <shuah@kernel.org>, linux-snps-arc@lists.infradead.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-csky@vger.kernel.org, linux-hexagon@vger.kernel.org,
+	loongarch@lists.linux.dev, linux-m68k@lists.linux-m68k.org,
+	linux-mips@vger.kernel.org, linux-openrisc@vger.kernel.org,
+	linux-parisc@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
+	linux-sh@vger.kernel.org, sparclinux@vger.kernel.org,
+	linux-um@lists.infradead.org, linux-arch@vger.kernel.org,
+	linux-kselftest@vger.kernel.org, linux-api@vger.kernel.org
+Subject: Re: [PATCH v3 0/6] ptrace: introduce PTRACE_SET_SYSCALL_INFO API
+Message-ID: <20250129185149.GA25901@redhat.com>
+References: <20250128091445.GA8257@strace.io>
 MIME-Version: 1.0
-X-Spamd-Result: default: False [-4.20 / 50.00];
-	BAYES_HAM(-3.00)[99.99%];
-	NEURAL_HAM_LONG(-1.00)[-1.000];
-	NEURAL_HAM_SHORT(-0.20)[-1.000];
-	RCVD_NO_TLS_LAST(0.10)[];
-	MIME_GOOD(-0.10)[text/plain];
-	FROM_HAS_DN(0.00)[];
-	ARC_NA(0.00)[];
-	MIME_TRACE(0.00)[0:+];
-	RCVD_COUNT_ONE(0.00)[1];
-	MID_RHS_MATCH_FROM(0.00)[];
-	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
-	TO_MATCH_ENVRCPT_ALL(0.00)[];
-	FUZZY_BLOCKED(0.00)[rspamd.com];
-	FROM_EQ_ENVFROM(0.00)[];
-	TO_DN_NONE(0.00)[];
-	RCPT_COUNT_THREE(0.00)[3]
+In-Reply-To: <20250128091445.GA8257@strace.io>
+User-Agent: Mutt/1.5.24 (2015-08-30)
+X-Scanned-By: MIMEDefang 3.0 on 10.30.177.40
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: 1uccqSbsVTisRxKvtzlPpxESqjo5zxcIryok3NeDaFs_1738176773
+X-Mimecast-Originator: redhat.com
+Content-Disposition: inline
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250129_092014_155541_591C88EC 
-X-CRM114-Status: UNSURE (   7.29  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250129_105303_329277_10ACAB6B 
+X-CRM114-Status: GOOD (  11.55  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,58 +141,24 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Jan 29 2025, Andreas Schwab wrote:
+On 01/28, Dmitry V. Levin wrote:
+>
+>     * ptrace: Add explicit padding to the end of struct ptrace_syscall_info,
+>       simplify obtaining of user ptrace_syscall_info,
+>       do not introduce PTRACE_SYSCALL_INFO_SIZE_VER0
+>     * ptrace: Change the return type of ptrace_set_syscall_info_* functions
+>       from "unsigned long" to "int"
+>     * ptrace: Add -ERANGE check to ptrace_set_syscall_info_exit,
+>       add comments to -ERANGE checks
+>     * ptrace: Update comments about supported syscall stops
+>     * selftests: Extend set_syscall_info test, fix for mips n32
 
-> My guess would be that something in inode_set_ctime_current is going
-> wrong.
+Again, I can't review 1-3, I know nothing about the non-x86 architectures.
 
-The bug is in the arch_cmpxchg macros in <asm/cmpxchg.h>, they mishandle
-atomic exchange of u32 values:
+As for 4-6, feel free to add
 
-    # fs/inode.c:2802: 	if (cns == now.tv_nsec && inode->i_ctime_sec == now.tv_sec) {
-    #NO_APP
-            ld	a5,-96(s0)		# _33, now.tv_nsec
-    # fs/inode.c:2802: 	if (cns == now.tv_nsec && inode->i_ctime_sec == now.tv_sec) {
-            slli	a4,s2,32	#, _49, cns
-            srli	a4,a4,32	#, _49, _49
-    # fs/inode.c:2802: 	if (cns == now.tv_nsec && inode->i_ctime_sec == now.tv_sec) {
-            beq	a4,a5,.L1248	#, _49, _33,
-    .L1205:
-            addi	a3,s1,120	#, __ai_ptr, inode
-    .L1221:
-    # fs/inode.c:2809: 	if (try_cmpxchg(&inode->i_ctime_nsec, &cur, now.tv_nsec)) {
-    #APP
-    # 2809 "fs/inode.c" 1
-            0:	lr.w a2, 0(a3)	# __ret, *__ai_ptr_20
-            bne  a2, a4, 1f	# __ret, _49
+Reviewed-by: Oleg Nesterov <oleg@redhat.com>
 
-Here the unsigned extended value of cur (a4) is compared with the sign
-extended value of inode->i_ctime_nsec (a2).  They cannot match if cur
-has I_CTIME_QUERIED set (the sign bit).  The lr/sc loop is exited before
-the store conditional is executed.
-
-            sc.w.rl a1, a5, 0(a3)	# __rc, _33, *__ai_ptr_20
-            bnez a1, 0b	# __rc
-            fence rw,rw
-    1:
-
-    # 0 "" 2
-    #NO_APP
-            sext.w	a5,a2	# __ret, __ret
-
-A redundant sign extension of the current contents of inode->i_ctime_nsec.
-
-    # fs/inode.c:2809: 	if (try_cmpxchg(&inode->i_ctime_nsec, &cur, now.tv_nsec)) {
-            bne	a5,s2,.L1211	#, __ret, cns,
-
-Here the sign extended value of inode->i_ctime_nsec (a5) is compared
-with the sign extended expected value (s2).  They match, and try_cmpxchg
-returns true, but the store never happend.
-
--- 
-Andreas Schwab, SUSE Labs, schwab@suse.de
-GPG Key fingerprint = 0196 BAD8 1CE9 1970 F4BE  1748 E4D4 88E3 0EEA B9D7
-"And now for something completely different."
 
 _______________________________________________
 linux-riscv mailing list
