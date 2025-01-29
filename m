@@ -4,65 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8D14BC0218D
-	for <linux-riscv@archiver.kernel.org>; Wed, 29 Jan 2025 00:57:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DE2CFC02193
+	for <linux-riscv@archiver.kernel.org>; Wed, 29 Jan 2025 01:42:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
-	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=2aHb6LfIl1aopajyhYZqX4ZBNqp9iyOAdOgwbDhaxsY=; b=oAQv9tqy9GCxgx
-	F+h0ibAIdOntbttgTQZy9JZqeXZliOmkfMFzMjQmSww+lSdgvfVal73eaf5gnk9+E4w9DaycWpSG5
-	B51AAoP92nBO3ZAmYaTxVU2myEcEkAvFTAvY/dssoqv+niPMl74aINyjYFzU6f2jAW0uYtNW5qLBq
-	ABYroUy3dbchffc/ubQDW6AKHHZnIF/I4npPTMRBihE+p02BleR/Vf2vRNKBxuCjZ6/9e4mQGMSaM
-	gvkHp95f9WinNGGCbxkkf0lINGatdnwdN52HXmylrypzHauab53nTxz+tV5vciZgPhLsKAB1Ew6fe
-	3rIj070+O14cmVUfZToQ==;
+	List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:References:
+	In-Reply-To:To:Cc:From:MIME-Version:Date:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Owner;
+	bh=xl4GLKg3A5+Ao9cZV03A361OphVxzC4l7t+rtxAF2UE=; b=XXbHCZtc8P497ON65klZ/U6LXV
+	/Xrx8KWSa7x5rkC706ooGQAQxGXjVWFNUiV+WrBnwBkIVsHNcRYUOzv6EGafzputOs39a/WR41ArY
+	QicbjsnVBonYalUkaWFFgI7E1XbCaoMtAcpbgcHUqDJiR07B+dYBa+AP/VIitSW1EluisN29NZuvg
+	XV8QUL9pyh1MYz6MwsqJVKcbBAmcRquEQmjfb4L8RH/cqLGHE/jdNoBx7Q+E59XdiDNBCUwJ7TFsa
+	0J7l4692Oc4/qQDcJtzpjuMHQJlSYG5YPaOxEk/zxyVzGSb5FRcMDBXpVMUCKjCSdXXD8XO0NRqsz
+	zwyyK7tg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tcwOD-000000067TB-3vvD;
-	Wed, 29 Jan 2025 00:57:09 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1tcx5y-00000006B5h-1xel;
+	Wed, 29 Jan 2025 01:42:22 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tcwMs-000000067G4-2ELP;
-	Wed, 29 Jan 2025 00:55:48 +0000
+	id 1tcx5v-00000006B5J-16S1
+	for linux-riscv@lists.infradead.org;
+	Wed, 29 Jan 2025 01:42:20 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 6219CA415EA;
-	Wed, 29 Jan 2025 00:53:58 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DF0E2C4CED3;
-	Wed, 29 Jan 2025 00:55:44 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 711055C623A;
+	Wed, 29 Jan 2025 01:41:38 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 08C8CC4CED3;
+	Wed, 29 Jan 2025 01:42:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1738112144;
-	bh=7lLgfsbUvvXkuZ/CHyObEqTqK07OIPpnMi3L8CLFkWY=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=a0Tp33LEr5mdpx4Jdes8W04nWqwEaLorvXlTwLQeltYmYb4klZ+1dz2ywlTC1b8vX
-	 3+k4ui1fUmLbcFjL5APZZHqXajEfDw8XK18yEtuoVQbYLE2/KJ3OWDxcoyJSsIsYNE
-	 DtQEthCyYqS56sQa1kB1Swn6qPUBhCaLAgWkwja3f55uChLvycrhuijZWm8POhmtni
-	 ykUeyJuvAvFNmoLZJQP4RIXBzVayDzL59pE6M7xHqHJCz+rWiTvl4EPHbNFmFx8Chm
-	 4j7efWWME8OF3uvIkfJk+9cFoNkYjHICLOSesiRjPTBgLZGNKhAvpDasPjs5mHTnv5
-	 F99y903Tt3oVw==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id EAE01380AA66;
-	Wed, 29 Jan 2025 00:56:11 +0000 (UTC)
+	s=k20201202; t=1738114938;
+	bh=XsBY+N8Xy+Xq/wB4sa5tol2/3SUkstHmrkcWo6Zmqwo=;
+	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
+	b=Ww5gOyeXthUxw1WP6Z+SUn2RxAFSBx01TRULJHQT6xdG6EEEdVrN2bjEKFDQGZd6L
+	 riF1Mc3K4WWIw1KS8xctGA1uFXYcd1rcA1WQQS60O+g97Spg3fxW+Y0PZ9XK9hwaQk
+	 9GkmQs8SMQUR6SMwMLqJF82u2hiVChnX9p37Wl+K+x+Ce0i/qI1MSN+FNBdSNajLMn
+	 uj5jOh4R0aCBdpn1RFo1shsl7Zr33hH5291xELxoVry9lPpjZ9pUgutq90RGaevLDC
+	 8crQXJw7hC3lahBd5Js/8woZOz4Ca9DoKDpRa3GH1XsyRvk3JlEz9uQJDzLba0oRs8
+	 KRaFQL65b6PHw==
+Date: Tue, 28 Jan 2025 19:42:17 -0600
 MIME-Version: 1.0
-Subject: Re: [f2fs-dev] [PATCH v4 00/19] Wire up CRC32 library functions to
- arch-optimized code
-From: patchwork-bot+f2fs@kernel.org
-Message-Id: <173811217076.3973351.8137382917166262630.git-patchwork-notify@kernel.org>
-Date: Wed, 29 Jan 2025 00:56:10 +0000
-References: <20241202010844.144356-1-ebiggers@kernel.org>
-In-Reply-To: <20241202010844.144356-1-ebiggers@kernel.org>
-To: Eric Biggers <ebiggers@kernel.org>
-Cc: linux-kernel@vger.kernel.org, linux-arch@vger.kernel.org,
- linux-s390@vger.kernel.org, linux-scsi@vger.kernel.org, x86@kernel.org,
- linux-mips@vger.kernel.org, linux-f2fs-devel@lists.sourceforge.net,
- linux-crypto@vger.kernel.org, loongarch@lists.linux.dev,
- sparclinux@vger.kernel.org, linux-riscv@lists.infradead.org,
- linux-ext4@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
- linux-arm-kernel@lists.infradead.org
+From: "Rob Herring (Arm)" <robh@kernel.org>
+Cc: guoren@kernel.org, krzk+dt@kernel.org, aou@eecs.berkeley.edu, 
+ airlied@gmail.com, wefu@redhat.com, ulf.hansson@linaro.org, 
+ jszhang@kernel.org, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, jassisinghbrar@gmail.com, 
+ linux-pm@vger.kernel.org, dri-devel@lists.freedesktop.org, 
+ linux-clk@vger.kernel.org, palmer@dabbelt.com, 
+ maarten.lankhorst@linux.intel.com, mripard@kernel.org, 
+ mturquette@baylibre.com, p.zabel@pengutronix.de, m.szyprowski@samsung.com, 
+ linux-riscv@lists.infradead.org, simona@ffwll.ch, drew@pdp7.com, 
+ frank.binns@imgtec.com, conor+dt@kernel.org, tzimmermann@suse.de, 
+ sboyd@kernel.org, paul.walmsley@sifive.com, matt.coster@imgtec.com
+To: Michal Wilczynski <m.wilczynski@samsung.com>
+In-Reply-To: <20250128194816.2185326-13-m.wilczynski@samsung.com>
+References: <20250128194816.2185326-1-m.wilczynski@samsung.com>
+ <CGME20250128194841eucas1p29048dc05a26475d8323a7a318a8c7a25@eucas1p2.samsung.com>
+ <20250128194816.2185326-13-m.wilczynski@samsung.com>
+Message-Id: <173811493702.543459.14627465568650161345.robh@kernel.org>
+Subject: Re: [PATCH v4 12/18] dt-bindings: gpu: Add support for T-HEAD
+ TH1520 GPU
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250128_165546_702317_576D15DE 
-X-CRM114-Status: GOOD (  11.04  )
+X-CRM114-CacheID: sfid-20250128_174219_428242_70AB97BD 
+X-CRM114-Status: GOOD (  12.06  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,70 +84,50 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hello:
 
-This series was applied to jaegeuk/f2fs.git (dev)
-by Eric Biggers <ebiggers@google.com>:
-
-On Sun,  1 Dec 2024 17:08:25 -0800 you wrote:
-> This patchset applies to v6.13-rc1 and is also available in git via:
+On Tue, 28 Jan 2025 20:48:10 +0100, Michal Wilczynski wrote:
+> Add bindings for the PowerVR BXM-4-64 GPU integrated in the T-HEAD
+> TH1520 SoC.  This GPU requires two clocks.
 > 
->     git fetch https://git.kernel.org/pub/scm/linux/kernel/git/ebiggers/linux.git crc32-lib-v4
+> Document the integration details including clock, reset, power domain
+> and interrupt assignments. Add a dt-bindings example showing the proper
+> usage of the compatible string "thead,th1520-gpu" along with
+> "img,img-bxm".
 > 
-> CRC32 is a family of common non-cryptographic integrity check algorithms
-> that are fairly fast with a portable C implementation and become far
-> faster still with the CRC32 or carryless multiplication instructions
-> that most CPUs have.  9 architectures already have optimized code for at
-> least some CRC32 variants; however, except for arm64 this optimized code
-> was only accessible through the crypto API, not the library functions.
+> Signed-off-by: Michal Wilczynski <m.wilczynski@samsung.com>
+> ---
+>  .../bindings/gpu/img,powervr-rogue.yaml       | 39 +++++++++++++++++--
+>  1 file changed, 35 insertions(+), 4 deletions(-)
 > 
-> [...]
 
-Here is the summary with links:
-  - [f2fs-dev,v4,01/19] lib/crc32: drop leading underscores from __crc32c_le_base
-    https://git.kernel.org/jaegeuk/f2fs/c/0a499a7e9819
-  - [f2fs-dev,v4,02/19] lib/crc32: improve support for arch-specific overrides
-    https://git.kernel.org/jaegeuk/f2fs/c/d36cebe03c3a
-  - [f2fs-dev,v4,03/19] lib/crc32: expose whether the lib is really optimized at runtime
-    https://git.kernel.org/jaegeuk/f2fs/c/b5ae12e0ee09
-  - [f2fs-dev,v4,04/19] crypto: crc32 - don't unnecessarily register arch algorithms
-    https://git.kernel.org/jaegeuk/f2fs/c/780acb2543ea
-  - [f2fs-dev,v4,05/19] arm/crc32: expose CRC32 functions through lib
-    https://git.kernel.org/jaegeuk/f2fs/c/1e1b6dbc3d9c
-  - [f2fs-dev,v4,06/19] loongarch/crc32: expose CRC32 functions through lib
-    https://git.kernel.org/jaegeuk/f2fs/c/72f51a4f4b07
-  - [f2fs-dev,v4,07/19] mips/crc32: expose CRC32 functions through lib
-    https://git.kernel.org/jaegeuk/f2fs/c/289c270eab5e
-  - [f2fs-dev,v4,08/19] powerpc/crc32: expose CRC32 functions through lib
-    https://git.kernel.org/jaegeuk/f2fs/c/372ff60ac4dd
-  - [f2fs-dev,v4,09/19] s390/crc32: expose CRC32 functions through lib
-    https://git.kernel.org/jaegeuk/f2fs/c/008071917dfc
-  - [f2fs-dev,v4,10/19] sparc/crc32: expose CRC32 functions through lib
-    https://git.kernel.org/jaegeuk/f2fs/c/0f60a8ace577
-  - [f2fs-dev,v4,11/19] x86/crc32: update prototype for crc_pcl()
-    https://git.kernel.org/jaegeuk/f2fs/c/64e3586c0b61
-  - [f2fs-dev,v4,12/19] x86/crc32: update prototype for crc32_pclmul_le_16()
-    https://git.kernel.org/jaegeuk/f2fs/c/1e6b72e60a5a
-  - [f2fs-dev,v4,13/19] x86/crc32: expose CRC32 functions through lib
-    https://git.kernel.org/jaegeuk/f2fs/c/55d1ecceb8d6
-  - [f2fs-dev,v4,14/19] bcachefs: Explicitly select CRYPTO from BCACHEFS_FS
-    https://git.kernel.org/jaegeuk/f2fs/c/cc354fa7f016
-  - [f2fs-dev,v4,15/19] lib/crc32: make crc32c() go directly to lib
-    https://git.kernel.org/jaegeuk/f2fs/c/38a9a5121c3b
-  - [f2fs-dev,v4,16/19] ext4: switch to using the crc32c library
-    https://git.kernel.org/jaegeuk/f2fs/c/f2b4fa19647e
-  - [f2fs-dev,v4,17/19] jbd2: switch to using the crc32c library
-    https://git.kernel.org/jaegeuk/f2fs/c/dd348f054b24
-  - [f2fs-dev,v4,18/19] f2fs: switch to using the crc32 library
-    https://git.kernel.org/jaegeuk/f2fs/c/3ca4bec40ee2
-  - [f2fs-dev,v4,19/19] scsi: target: iscsi: switch to using the crc32c library
-    https://git.kernel.org/jaegeuk/f2fs/c/31e4cdde4d8b
+My bot found errors running 'make dt_binding_check' on your patch:
 
-You are awesome, thank you!
--- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
+yamllint warnings/errors:
 
+dtschema/dtc warnings/errors:
+Error: Documentation/devicetree/bindings/gpu/img,powervr-rogue.example.dts:46.28-29 syntax error
+FATAL ERROR: Unable to parse input tree
+make[2]: *** [scripts/Makefile.dtbs:131: Documentation/devicetree/bindings/gpu/img,powervr-rogue.example.dtb] Error 1
+make[2]: *** Waiting for unfinished jobs....
+make[1]: *** [/builds/robherring/dt-review-ci/linux/Makefile:1506: dt_binding_check] Error 2
+make: *** [Makefile:251: __sub-make] Error 2
+
+doc reference errors (make refcheckdocs):
+
+See https://patchwork.ozlabs.org/project/devicetree-bindings/patch/20250128194816.2185326-13-m.wilczynski@samsung.com
+
+The base for the series is generally the latest rc1. A different dependency
+should be noted in *this* patch.
+
+If you already ran 'make dt_binding_check' and didn't see the above
+error(s), then make sure 'yamllint' is installed and dt-schema is up to
+date:
+
+pip3 install dtschema --upgrade
+
+Please check and re-submit after running the above command yourself. Note
+that DT_SCHEMA_FILES can be set to your schema file to speed up checking
+your schema. However, it must be unset to test all examples with your schema.
 
 
 _______________________________________________
