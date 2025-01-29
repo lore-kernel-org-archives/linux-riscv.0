@@ -4,94 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 21596C0218D
-	for <linux-riscv@archiver.kernel.org>; Wed, 29 Jan 2025 10:07:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9890EC02193
+	for <linux-riscv@archiver.kernel.org>; Wed, 29 Jan 2025 12:05:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:CC:Subject
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=Ca9VKZIzyHHrKcZyK8yalviHif+HiNNzDkG7csaHcjQ=; b=Ih/mAwquO+Wa+O
-	v7zLpWPxr91IUB/x1hcKKBexU4YgA4WjvVx37UJ6H9HLvvQ/AIyRtx5vNLDvU876Lip+/xbiSBBfO
-	w1CKTZc3yMMGy4wWlvZxOtvr0qWrt7PFiC3GPFAbqkFUdt8SK8eszAW7iPfM6db6afkwS+ENwNdc+
-	LQnVqTgehJiqjYVCmFE+nFYLvaNs/MAvSMgTnZza4hTV0BQPbHftHdXdNO1ZqIwbBdZZL+sdJf6qB
-	tvHeijK1yblplYfYzaWAjmh1Hnqn2EUZtWxAauaynRDLO+SSM5mQhludqGdH081Z9MHW27zFCixVx
-	OcrIz9wK6jCbG/LyYQ2g==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Date:Cc:To:From:Subject:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=qeT/AhGMLyLFkJCRwvDp4/z2VeBWq3D/l9n3VY5rkb0=; b=vSZEHL0B36nPEh
+	4r3AxJvXe0DmmV/HeDJbupai5jEzBOBCd34Jrv8xd8mLfq2sOEXh7MH7KsNyusSmSULxBGV6m56H6
+	lBOuMn8bOcojMBy3FwEG4fNJjSweMegPl/HxY2Mfam9O5xskov2gP2RgtYgWVrePjApciN6ifRkZh
+	anO42UxU5FbC1AiPP407EAadkWkhIKHTIoGc2AcUlWZF+WNv86LUN2o8/vaTe3ptGAiFLOMEnwzvo
+	FJFVECCe3ngVZ9xmQi/Sx9rQqEBawrRWHu4A6m0y/aUkfTD+cfJpbQGg5zKukNaNuuL840C7hFYop
+	ipP703sCXyd2aLIl9SQA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1td4yf-00000006ilF-1eVt;
-	Wed, 29 Jan 2025 10:07:21 +0000
-Received: from smtp-out1.suse.de ([195.135.223.130])
+	id 1td6pF-00000006uR6-0SFY;
+	Wed, 29 Jan 2025 12:05:45 +0000
+Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1td4yd-00000006ikr-12G3
+	id 1td6pC-00000006uQS-28v5
 	for linux-riscv@lists.infradead.org;
-	Wed, 29 Jan 2025 10:07:20 +0000
-Received: from hawking.nue2.suse.org (unknown [10.168.4.11])
-	by smtp-out1.suse.de (Postfix) with ESMTP id 56CD82110B;
-	Wed, 29 Jan 2025 10:07:16 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1738145236; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type;
-	bh=5ikMhmS5uA6dvME6rfAVoE9R8KwgeLx7HG7MYXnof8c=;
-	b=oEjLPLnlMT6TYPAXEs/HijeCUDeDHFEUpWcXfmevnnQnFsWOmsLd09xlswPgq0UMMH1RwJ
-	QPQlGH1mT/8GZwrgXQT3R1vtX4mJukQ7u9kXzhxtkg39HFpbyTKwZdMWTt9AzjTvbHfZjP
-	ZgTCEaq/D29QPNsjwWbAfwFvtdbSYSQ=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1738145236;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type;
-	bh=5ikMhmS5uA6dvME6rfAVoE9R8KwgeLx7HG7MYXnof8c=;
-	b=3uNhU259tVrZHf8CG0+hxpUJzPh8Fk/fBcQcaRl0clkapH+YqI6fBpvrAMY2402FJlcRu5
-	OJWxMoFyKJQZr7Dw==
-Authentication-Results: smtp-out1.suse.de;
-	none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1738145236; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type;
-	bh=5ikMhmS5uA6dvME6rfAVoE9R8KwgeLx7HG7MYXnof8c=;
-	b=oEjLPLnlMT6TYPAXEs/HijeCUDeDHFEUpWcXfmevnnQnFsWOmsLd09xlswPgq0UMMH1RwJ
-	QPQlGH1mT/8GZwrgXQT3R1vtX4mJukQ7u9kXzhxtkg39HFpbyTKwZdMWTt9AzjTvbHfZjP
-	ZgTCEaq/D29QPNsjwWbAfwFvtdbSYSQ=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1738145236;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type;
-	bh=5ikMhmS5uA6dvME6rfAVoE9R8KwgeLx7HG7MYXnof8c=;
-	b=3uNhU259tVrZHf8CG0+hxpUJzPh8Fk/fBcQcaRl0clkapH+YqI6fBpvrAMY2402FJlcRu5
-	OJWxMoFyKJQZr7Dw==
-Received: by hawking.nue2.suse.org (Postfix, from userid 17005)
-	id DF14C4AAD7B; Wed, 29 Jan 2025 11:07:15 +0100 (CET)
-From: Andreas Schwab <schwab@suse.de>
-To: linux-riscv@lists.infradead.org
-Subject: Multigrain timestamps do not work on RISC-V
-CC: linux-kernel@vger.kernel.org, linux-fsdevel@vger.kernel.org
-Date: Wed, 29 Jan 2025 11:07:15 +0100
-Message-ID: <mvmv7ty3pd8.fsf@suse.de>
-User-Agent: Gnus/5.13 (Gnus v5.13)
+	Wed, 29 Jan 2025 12:05:44 +0000
+Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
+	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
+	(Exim 4.92)
+	(envelope-from <p.zabel@pengutronix.de>)
+	id 1td6oV-00084D-9t; Wed, 29 Jan 2025 13:04:59 +0100
+Received: from lupine.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::4e] helo=lupine)
+	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <p.zabel@pengutronix.de>)
+	id 1td6oP-002SPe-2U;
+	Wed, 29 Jan 2025 13:04:53 +0100
+Received: from pza by lupine with local (Exim 4.96)
+	(envelope-from <p.zabel@pengutronix.de>)
+	id 1td6oP-000561-27;
+	Wed, 29 Jan 2025 13:04:53 +0100
+Message-ID: <f79109bad50ed926af7ffc06bc3ab155fe6224ed.camel@pengutronix.de>
+Subject: Re: [PATCH v4 09/18] reset: thead: Add TH1520 reset controller
+ driver
+From: Philipp Zabel <p.zabel@pengutronix.de>
+To: Michal Wilczynski <m.wilczynski@samsung.com>, mturquette@baylibre.com, 
+ sboyd@kernel.org, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+  drew@pdp7.com, guoren@kernel.org, wefu@redhat.com,
+ jassisinghbrar@gmail.com,  paul.walmsley@sifive.com, palmer@dabbelt.com,
+ aou@eecs.berkeley.edu,  frank.binns@imgtec.com, matt.coster@imgtec.com, 
+ maarten.lankhorst@linux.intel.com, mripard@kernel.org, tzimmermann@suse.de,
+  airlied@gmail.com, simona@ffwll.ch, ulf.hansson@linaro.org,
+ jszhang@kernel.org,  m.szyprowski@samsung.com
+Cc: linux-clk@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
+	dri-devel@lists.freedesktop.org, linux-pm@vger.kernel.org
+Date: Wed, 29 Jan 2025 13:04:53 +0100
+In-Reply-To: <20250128194816.2185326-10-m.wilczynski@samsung.com>
+References: <20250128194816.2185326-1-m.wilczynski@samsung.com>
+	 <CGME20250128194836eucas1p151c4fc83a17173fd1b79bfc959976301@eucas1p1.samsung.com>
+	 <20250128194816.2185326-10-m.wilczynski@samsung.com>
+User-Agent: Evolution 3.46.4-2 
 MIME-Version: 1.0
-X-Spamd-Result: default: False [-4.18 / 50.00];
-	BAYES_HAM(-2.98)[99.89%];
-	NEURAL_HAM_LONG(-1.00)[-1.000];
-	NEURAL_HAM_SHORT(-0.20)[-0.999];
-	MIME_GOOD(-0.10)[text/plain];
-	RCVD_NO_TLS_LAST(0.10)[];
-	MIME_TRACE(0.00)[0:+];
-	ARC_NA(0.00)[];
-	RCVD_COUNT_ONE(0.00)[1];
-	MID_RHS_MATCH_FROM(0.00)[];
-	FROM_HAS_DN(0.00)[];
-	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
-	FROM_EQ_ENVFROM(0.00)[];
-	RCPT_COUNT_THREE(0.00)[3];
-	TO_DN_NONE(0.00)[];
-	FUZZY_BLOCKED(0.00)[rspamd.com];
-	TO_MATCH_ENVRCPT_ALL(0.00)[];
-	DBL_BLOCKED_OPENRESOLVER(0.00)[opensuse.org:url]
+X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
+X-SA-Exim-Mail-From: p.zabel@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-riscv@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250129_020719_430957_4FC6E31F 
-X-CRM114-Status: UNSURE (   5.62  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250129_040542_551109_F0B7A414 
+X-CRM114-Status: GOOD (  19.66  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,30 +87,82 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The statx06 test in the LTP testsuite fails since the multigrain
-timestamp feature was merged:
+On Di, 2025-01-28 at 20:48 +0100, Michal Wilczynski wrote:
+> Add reset controller driver for the T-HEAD TH1520 SoC that manages
+> hardware reset lines for various subsystems. The driver currently
+> implements support for GPU reset control, with infrastructure in place
+> to extend support for NPU and Watchdog Timer resets in future updates.
+> 
+> Signed-off-by: Michal Wilczynski <m.wilczynski@samsung.com>
+> ---
+>  MAINTAINERS | 1 +
+>  drivers/reset/Kconfig | 10 ++
+>  drivers/reset/Makefile | 1 +
+>  drivers/reset/reset-th1520.c | 178 +++++++++++++++++++++++++++++++++++
+>  4 files changed, 190 insertions(+)
+>  create mode 100644 drivers/reset/reset-th1520.c
+> 
+[...]
+> diff --git a/drivers/reset/reset-th1520.c b/drivers/reset/reset-th1520.c
+> new file mode 100644
+> index 000000000000..48afbc9f1cdd
+> --- /dev/null
+> +++ b/drivers/reset/reset-th1520.c
+> @@ -0,0 +1,178 @@
+[...]
+> +static int th1520_reset_xlate(struct reset_controller_dev *rcdev,
+> + const struct of_phandle_args *reset_spec)
+> +{
+> + unsigned int index = reset_spec->args[0];
+> +
+> + /* currently, only GPU reset is implemented in this driver */
+> + if (index == TH1520_RESET_ID_GPU)
+> + return index;
+> +
+> + return -EOPNOTSUPP;
 
-https://openqa.opensuse.org/tests/4800409#step/statx06/7
+It is customary to return -EINVAL for unsupported resets.
 
-The issue is that the nsec part of ctime does not change from the time
-the file is created:
+Further, you don't have to implement a custom .of_xlate at all.
+With nr_resets being set to 1, and because TH1520_RESET_ID_GPU happens
+to be 0, the of_reset_simple_xlate() default implementation will do
+exactly the same.
 
-$ touch xx
-$ stat -c $'mtime %y\nctime %z' xx
-mtime 2025-01-29 09:43:44.677442605 +0100
-ctime 2025-01-29 09:43:44.677442605 +0100
-$ touch xx
-$ stat -c $'mtime %y\nctime %z' xx
-mtime 2025-01-29 09:43:51.641581658 +0100
-ctime 2025-01-29 09:43:51.677442605 +0100
+[...]
+> +static int th1520_reset_probe(struct platform_device *pdev)
+> +{
+> + struct device *dev = &pdev->dev;
+> + struct th1520_reset_priv *priv;
+> + void __iomem *base;
+> +
+> + priv = devm_kzalloc(dev, sizeof(*priv), GFP_KERNEL);
+> + if (!priv)
+> + return -ENOMEM;
+> +
+> + base = devm_platform_ioremap_resource(pdev, 0);
+> + if (IS_ERR(base))
+> + return PTR_ERR(base);
+> +
+> + priv->map = devm_regmap_init_mmio(dev, base,
+> + &th1520_reset_regmap_config);
+> + if (IS_ERR(priv->map))
+> + return PTR_ERR(priv->map);
+> +
+> + mutex_init(&priv->gpu_seq_lock);
+> +
+> + priv->rcdev.owner = THIS_MODULE;
+> + priv->rcdev.nr_resets = 1;
+> + priv->rcdev.ops = &th1520_reset_ops;
+> + priv->rcdev.of_node = dev->of_node;
+>    A. > + priv->rcdev.of_xlate = th1520_reset_xlate;
+> + priv->rcdev.of_reset_n_cells = 1;
 
-My guess would be that something in inode_set_ctime_current is going
-wrong.
+You could just drop these two lines again. With that,
 
--- 
-Andreas Schwab, SUSE Labs, schwab@suse.de
-GPG Key fingerprint = 0196 BAD8 1CE9 1970 F4BE  1748 E4D4 88E3 0EEA B9D7
-"And now for something completely different."
+Reviewed-by: Philipp Zabel <p.zabel@pengutronix.de>
+
+regards
+Philipp
 
 _______________________________________________
 linux-riscv mailing list
