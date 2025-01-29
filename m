@@ -4,127 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E0BFEC0218D
-	for <linux-riscv@archiver.kernel.org>; Wed, 29 Jan 2025 18:53:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28149C0218D
+	for <linux-riscv@archiver.kernel.org>; Wed, 29 Jan 2025 20:39:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=A8AD2XjPvX47divOTp4k3nGAVC5LgWjRxszgTskCKKY=; b=VK3WFAAYVZtSFc
-	pZ8z7caIDLefo8Sq5HYTX0nc2eIQX4ml6L+A6S0hWV/+TEjMu3vil1pYIXXoPP10I6zcuEMOzm2WD
-	WKlh3PAXxY+nvbM93+Z7hGcj4PSVCXuZXotvATmlHplj2dmsEU6HMKFuc9xNFGNA/3AkvhZ6pXkbP
-	JifS+8ZcCs8pNZ0grVzLU9jV4QLRbX94Ef8mXyOu/KOCGKWS1EN0G/PYt21/8yOnmhVDaapFFvF7/
-	soHBU8oDEs9MJ/t2Xdlp05smdjk91TOxDueVexQnJcR/Uqu608XBYPcuY8S0rrepX11+2waNFC8e7
-	ACWfronIUBinUSkoYnaA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=tlRkH+uG7oQpAWxdBUUsJxlwgIn6dLF90KXT2TnM5lk=; b=UQ+MZJrKn1ATZa
+	QkEYh4cUu/XU1cDBpoc51glscfLKU5SFQn2BlTGpEufRw8/YWCOv9qdp1ZdIAcYBFyhk9j3cM9e6J
+	vPLUStHkoESb0okJlXSqQcgC5rDWiNmmVBQF63oF4OqfApw94R+vtV2yj8ctWkU5J3w+vy8AW7YxT
+	o/H4XWfWQM/cBimB874lznN0zpJ4PoWzED18BjL6Lml3GjQI71T5Krbk6MdALkdFB3KeCYSjafxMc
+	E/6/dayvPmlOBn0c0HvSpTxIOOW2sfarpKVXhUN5uA4uWtEm+Ry5mlm2Zv3VqKfBrFXXdNw3yci05
+	eFlNEwCtglE3838hEseQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tdDBT-00000007e12-1IIF;
-	Wed, 29 Jan 2025 18:53:07 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1tdEqR-00000007lef-0lbS;
+	Wed, 29 Jan 2025 20:39:31 +0000
+Received: from mail-pj1-x102a.google.com ([2607:f8b0:4864:20::102a])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tdDBP-00000007dyV-0xCy
+	id 1tdEqN-00000007leJ-3GTx
 	for linux-riscv@lists.infradead.org;
-	Wed, 29 Jan 2025 18:53:06 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1738176782;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=vlOChQEKTp5JX+pbfAOT77vMe8ez+6+Y0ab8kJl+7mw=;
-	b=WRb+khmgHLgCAl1ujK3GxAUAs6JFnnHfwClFvM/UcfI8UgankvZFXiJRxTTLHPUQfn3zNX
-	AaixfGeMWAsrccNl/sO2FFDtoi9kkCpbjcGe/yxGeHVsp0d/yNMKia6/18U8FvG2PwpMDe
-	90awVkH19OibJqO0Hbo7eDWyGs6QBwM=
-Received: from mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com
- (ec2-35-165-154-97.us-west-2.compute.amazonaws.com [35.165.154.97]) by
- relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-626-9t9EmevBOu69KQmdLrigRQ-1; Wed,
- 29 Jan 2025 13:52:59 -0500
-X-MC-Unique: 9t9EmevBOu69KQmdLrigRQ-1
-X-Mimecast-MFC-AGG-ID: 9t9EmevBOu69KQmdLrigRQ
-Received: from mx-prod-int-04.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-04.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.40])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 39AD7180034F;
-	Wed, 29 Jan 2025 18:52:48 +0000 (UTC)
-Received: from dhcp-27-174.brq.redhat.com (unknown [10.45.226.29])
-	by mx-prod-int-04.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with SMTP id 3326919560AA;
-	Wed, 29 Jan 2025 18:52:16 +0000 (UTC)
-Received: by dhcp-27-174.brq.redhat.com (nbSMTP-1.00) for uid 1000
-	oleg@redhat.com; Wed, 29 Jan 2025 19:52:21 +0100 (CET)
-Date: Wed, 29 Jan 2025 19:51:49 +0100
-From: Oleg Nesterov <oleg@redhat.com>
-To: "Dmitry V. Levin" <ldv@strace.io>
-Cc: Alexey Gladkov <legion@kernel.org>,
-	Charlie Jenkins <charlie@rivosinc.com>,
-	Eugene Syromyatnikov <evgsyr@gmail.com>,
-	Mike Frysinger <vapier@gentoo.org>,
-	Renzo Davoli <renzo@cs.unibo.it>,
-	Davide Berardi <berardi.dav@gmail.com>,
-	strace-devel@lists.strace.io, Vineet Gupta <vgupta@kernel.org>,
-	Russell King <linux@armlinux.org.uk>, Will Deacon <will@kernel.org>,
-	Guo Ren <guoren@kernel.org>, Brian Cain <bcain@quicinc.com>,
-	Huacai Chen <chenhuacai@kernel.org>,
-	WANG Xuerui <kernel@xen0n.name>,
-	Geert Uytterhoeven <geert@linux-m68k.org>,
-	Michal Simek <monstr@monstr.eu>,
-	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
-	Dinh Nguyen <dinguyen@kernel.org>, Jonas Bonn <jonas@southpole.se>,
-	Stefan Kristiansson <stefan.kristiansson@saunalahti.fi>,
-	Stafford Horne <shorne@gmail.com>,
-	"James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>,
-	Helge Deller <deller@gmx.de>, Michael Ellerman <mpe@ellerman.id.au>,
-	Nicholas Piggin <npiggin@gmail.com>,
-	Christophe Leroy <christophe.leroy@csgroup.eu>,
-	Naveen N Rao <naveen@kernel.org>,
-	Madhavan Srinivasan <maddy@linux.ibm.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Heiko Carstens <hca@linux.ibm.com>,
-	Vasily Gorbik <gor@linux.ibm.com>,
-	Alexander Gordeev <agordeev@linux.ibm.com>,
-	Christian Borntraeger <borntraeger@linux.ibm.com>,
-	Sven Schnelle <svens@linux.ibm.com>,
-	Yoshinori Sato <ysato@users.sourceforge.jp>,
-	Rich Felker <dalias@libc.org>,
-	John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>,
-	"David S. Miller" <davem@davemloft.net>,
-	Andreas Larsson <andreas@gaisler.com>,
-	Richard Weinberger <richard@nod.at>,
-	Anton Ivanov <anton.ivanov@cambridgegreys.com>,
-	Johannes Berg <johannes@sipsolutions.net>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
-	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
-	"H. Peter Anvin" <hpa@zytor.com>, Chris Zankel <chris@zankel.net>,
-	Max Filippov <jcmvbkbc@gmail.com>, Arnd Bergmann <arnd@arndb.de>,
-	Shuah Khan <shuah@kernel.org>, linux-snps-arc@lists.infradead.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-csky@vger.kernel.org, linux-hexagon@vger.kernel.org,
-	loongarch@lists.linux.dev, linux-m68k@lists.linux-m68k.org,
-	linux-mips@vger.kernel.org, linux-openrisc@vger.kernel.org,
-	linux-parisc@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
-	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
-	linux-sh@vger.kernel.org, sparclinux@vger.kernel.org,
-	linux-um@lists.infradead.org, linux-arch@vger.kernel.org,
-	linux-kselftest@vger.kernel.org, linux-api@vger.kernel.org
-Subject: Re: [PATCH v3 0/6] ptrace: introduce PTRACE_SET_SYSCALL_INFO API
-Message-ID: <20250129185149.GA25901@redhat.com>
-References: <20250128091445.GA8257@strace.io>
+	Wed, 29 Jan 2025 20:39:29 +0000
+Received: by mail-pj1-x102a.google.com with SMTP id 98e67ed59e1d1-2ee51f8c47dso43550a91.1
+        for <linux-riscv@lists.infradead.org>; Wed, 29 Jan 2025 12:39:27 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1738183166; x=1738787966; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=S9xPFsm0CiACHEgTpvga5kyDZr2nERop/dzgTmhGmOM=;
+        b=T/L76O5IlXLE2wAkaepXGYOS1xm2VRGpbrNV8ibXKJL75dCIAEmIwsoVFfY49Mz1I4
+         4U0Dl5nNchqIKi9loK2nHR8PY3g957e1P/w2RDcjrf2b301oyB+gTxgrIkyaX+/A9Y9u
+         JDmsDzcVTnJ4QKNMTOoI6f7ryZYTcouePxIj/+8+yZvXPznH4za+h7oyv7ENZL8k8yqp
+         0w/FMT0wAP6WxmscIYBSg1zRbi0hPNgIfwYkdQCui9s3QmPLxmsPi04rBYoybVkvE82j
+         yY3HHj2NLHAsCW+TOXP4OizP/w0sHBYX7KQEaQlbqUITSVH0ixSAmrgnk4sMiOoGTti3
+         /kcA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1738183166; x=1738787966;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=S9xPFsm0CiACHEgTpvga5kyDZr2nERop/dzgTmhGmOM=;
+        b=vq2Px6g3wxB4GUm9FGY52JC5QH56cDXG3IiJvBEkSvLtVZGzT/017VTriFJ/C6t3+e
+         A5Ooyy7i3Ux8IglUdiuPfhLlU3ogZxg4LR3pETRCqnTPxUEjyHipZNxUPHLVI0jxLoIl
+         cbrKEJ2uHMJbYFbkYelb7Yb/EHQ2KlXDkuT5RZt6tMft3LCwMEu+6qEZcSIKlG6ZCbbU
+         6uplbsyr+0ak1/Xyf66oCyXacB/99A0IR8AIDFiIIMAN+K3HOtMUt81LY+tpb7LEiB8e
+         ynoeNOD5u+1BK0vcembDod8r8fW0tRsOKact9opB7OoP1vtxh48jymhnLmqjtsgChkuu
+         UrxA==
+X-Forwarded-Encrypted: i=1; AJvYcCW1JmY6osADEPyTf+DTZUqnGHON/GAWeMS/AIa+GqvB5H8mJ/KdaGTOJlOj4g6+7smPdSLI3wyS0gecDg==@lists.infradead.org
+X-Gm-Message-State: AOJu0YyG83b5dvN5ogQR/1Fr2G15fcAVlw7qlXu13YggXfYlhkf6aEa0
+	4OomeIpJ8yUn4VhC1PoS4Jkp3mSumcuVRZQyhsqGS9CVE6aE/HUc
+X-Gm-Gg: ASbGncuFC/f9L1/ELKDt57uLpoHC1Q9StdwGTx8k9/P4XzwfD7ecQFYVdExPGV2vUbj
+	XeDDKOcMGVKip+QqjoFYHigxDAxEMrJ3YnwMX0ac1zGYlIKnwwgkPEeTBePHyUEZJX6bp+FxBG1
+	4TRCdipaobzN9N2YqCGTvAKrcl74cVJTSYhaNnWCjOppAE+vA3K6BXXjUu//0sh+DSjh/gjnZvJ
+	lGmMGv+Dk5AhHY+E2rF/wMe297qWMu5P5jpIPlsMwWweb2B/9DRGnRk2SwCakOv0ZRwcXZ0Yu1d
+	l5m2jBeVZYP1/e6Fbg0gf4umEMx5D9i+m93IYw==
+X-Google-Smtp-Source: AGHT+IH/P2WEy3n6NCJq5a9VrQTr/6ukzXoqXEvnPXyP5dqSLuvd5EP8ueh6qCxGdt4GzAViGJMuNQ==
+X-Received: by 2002:a17:90a:e7c6:b0:2ef:19d0:2261 with SMTP id 98e67ed59e1d1-2f83abff386mr7141423a91.16.1738183166470;
+        Wed, 29 Jan 2025 12:39:26 -0800 (PST)
+Received: from newslab242.. (pc51.csie.ntu.edu.tw. [140.112.31.242])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-2f83bf9498asm2252519a91.32.2025.01.29.12.39.23
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 29 Jan 2025 12:39:26 -0800 (PST)
+From: Chin Yik Ming <yikming2222@gmail.com>
+To: conor@kernel.org
+Cc: paul.walmsley@sifive.com,
+	palmer@dabbelt.com,
+	aou@eecs.berkeley.edu,
+	charlie@rivosinc.com,
+	ajones@ventanamicro.com,
+	samuel.holland@sifive.com,
+	cleger@rivosinc.com,
+	andybnac@gmail.com,
+	alexghiti@rivosinc.com,
+	peterlin@andestech.com,
+	linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	yikming2222@gmail.com
+Subject: [PATCH] riscv: Simplify base extension checks and direct boolean return
+Date: Thu, 30 Jan 2025 04:38:43 +0800
+Message-Id: <20250129203843.1136838-1-yikming2222@gmail.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-In-Reply-To: <20250128091445.GA8257@strace.io>
-User-Agent: Mutt/1.5.24 (2015-08-30)
-X-Scanned-By: MIMEDefang 3.0 on 10.30.177.40
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: 1uccqSbsVTisRxKvtzlPpxESqjo5zxcIryok3NeDaFs_1738176773
-X-Mimecast-Originator: redhat.com
-Content-Disposition: inline
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250129_105303_329277_10ACAB6B 
-X-CRM114-Status: GOOD (  11.55  )
+X-CRM114-CacheID: sfid-20250129_123927_819311_9F0A5A3D 
+X-CRM114-Status: UNSURE (   9.77  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -141,23 +107,56 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 01/28, Dmitry V. Levin wrote:
->
->     * ptrace: Add explicit padding to the end of struct ptrace_syscall_info,
->       simplify obtaining of user ptrace_syscall_info,
->       do not introduce PTRACE_SYSCALL_INFO_SIZE_VER0
->     * ptrace: Change the return type of ptrace_set_syscall_info_* functions
->       from "unsigned long" to "int"
->     * ptrace: Add -ERANGE check to ptrace_set_syscall_info_exit,
->       add comments to -ERANGE checks
->     * ptrace: Update comments about supported syscall stops
->     * selftests: Extend set_syscall_info test, fix for mips n32
+Reduce three lines checking to single line using a ternary conditional
+expression for getting the base extension word. In addition, the
+test_bit macro function already return a boolean which matches the
+return type of the caller, so directly return the result of the test_bit
+macro function.
 
-Again, I can't review 1-3, I know nothing about the non-x86 architectures.
+Signed-off-by: Chin Yik Ming <yikming2222@gmail.com>
+---
+ arch/riscv/kernel/cpufeature.c        | 6 ++----
+ arch/riscv/kernel/vendor_extensions.c | 2 +-
+ 2 files changed, 3 insertions(+), 5 deletions(-)
 
-As for 4-6, feel free to add
-
-Reviewed-by: Oleg Nesterov <oleg@redhat.com>
+diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
+index c0916ed318c2..32525b69ab99 100644
+--- a/arch/riscv/kernel/cpufeature.c
++++ b/arch/riscv/kernel/cpufeature.c
+@@ -49,9 +49,7 @@ struct riscv_isainfo hart_isa[NR_CPUS];
+  */
+ unsigned long riscv_isa_extension_base(const unsigned long *isa_bitmap)
+ {
+-	if (!isa_bitmap)
+-		return riscv_isa[0];
+-	return isa_bitmap[0];
++	return !isa_bitmap ? riscv_isa[0] : isa_bitmap[0];
+ }
+ EXPORT_SYMBOL_GPL(riscv_isa_extension_base);
+ 
+@@ -72,7 +70,7 @@ bool __riscv_isa_extension_available(const unsigned long *isa_bitmap, unsigned i
+ 	if (bit >= RISCV_ISA_EXT_MAX)
+ 		return false;
+ 
+-	return test_bit(bit, bmap) ? true : false;
++	return test_bit(bit, bmap);
+ }
+ EXPORT_SYMBOL_GPL(__riscv_isa_extension_available);
+ 
+diff --git a/arch/riscv/kernel/vendor_extensions.c b/arch/riscv/kernel/vendor_extensions.c
+index a8126d118341..62f55bc779e9 100644
+--- a/arch/riscv/kernel/vendor_extensions.c
++++ b/arch/riscv/kernel/vendor_extensions.c
+@@ -51,6 +51,6 @@ bool __riscv_isa_vendor_extension_available(int cpu, unsigned long vendor, unsig
+ 	if (bit >= RISCV_ISA_VENDOR_EXT_MAX)
+ 		return false;
+ 
+-	return test_bit(bit, bmap->isa) ? true : false;
++	return test_bit(bit, bmap->isa);
+ }
+ EXPORT_SYMBOL_GPL(__riscv_isa_vendor_extension_available);
+-- 
+2.34.1
 
 
 _______________________________________________
