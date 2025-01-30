@@ -4,60 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF8BCC0218D
-	for <linux-riscv@archiver.kernel.org>; Wed, 29 Jan 2025 23:28:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8DEB2C0218A
+	for <linux-riscv@archiver.kernel.org>; Thu, 30 Jan 2025 08:42:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Date:Cc:To:From:Subject:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
+	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=lru9AAVSMAW7jt9zqRkI/fcHIqiSp75XL1KohDj12kg=; b=wkf1KYIIoU+WIW
-	Lq3Dq1MWUBhyI9YR2B0p0w2i0uNbQTAdEp5UHeTrvSp7GxUHWHqcxY+o0L4I/ypfAaBqqgaaL4iYj
-	nznvXPaQxfO24MFy91Hk89MSkp7LJ4tR0io42CXkoH8QMrMY1SBa/obOeh0RWo2pYeMt6nefdG6p/
-	Apsa5XaqZB7sX0Kkm5lmPJcLZe9Sw1S9mVyXqBjom3MxbtIcPY7trjDNLaKt7MEZ4W+jlMhTs2aEG
-	QfYToMOxlF9SBAeBdiS3buSUOsPXHUhSDOP3SCIwd48m1GkUmtT+WbF1voC9u+kAicjMxdvTLOndC
-	9sytKONT84G/7NXn30JQ==;
+	List-Owner; bh=1AoCRT6wPag3tQkdwSwAHFI2KfrU0tsHUWXmbZ5AroU=; b=Bey9pV3TXHo+2h
+	6S8+vjXML0GwvEeYipXtO7dCsJ2ZsdCb+QHlZgQXoE01XMALxbsOxjTxSskrb7b8ISj3ZEXZIzdCU
+	euFTs04lgoNFobYE/3fQxChQuHJK7vKDNq381/rvSwlTnIoC/uIfJNUg+AB8UZ+jvw16UsWORQsrr
+	6JHPGLP0kAk7Hg909JW54r18QTmZfG+l8wx+GuUgL8Dll2mlUgZ7TJEMFahfdlQCfPSpbRMOKJHnQ
+	gGyvdoJxHvt6Duq/sPkGp/bTebGeUvTYb/6zNMlruj9Rtqq4/lmjOFY1Q5g5GHz+ssVKkZFKZXmhr
+	pg94b258q5E/ttr9I0ug==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tdHU9-00000007xRs-08Qz;
-	Wed, 29 Jan 2025 23:28:41 +0000
+	id 1tdQ83-00000008R6W-3ql7;
+	Thu, 30 Jan 2025 08:42:27 +0000
 Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tdHU6-00000007xRP-43Hi
+	id 1tdQ81-00000008R5a-2nCf
 	for linux-riscv@lists.infradead.org;
-	Wed, 29 Jan 2025 23:28:40 +0000
+	Thu, 30 Jan 2025 08:42:26 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 5B6FF5C5CCD;
-	Wed, 29 Jan 2025 23:27:58 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BC4EBC4CED1;
-	Wed, 29 Jan 2025 23:28:37 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 232665C5D97;
+	Thu, 30 Jan 2025 08:41:45 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6E7D8C4CED2;
+	Thu, 30 Jan 2025 08:42:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1738193318;
-	bh=fbMzY2Z+t1cYmvMFD9g32OtU6/uJSnbJN5PrOM9htjM=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References:From;
-	b=gHXCb/OvL7vocFCjOzTdIu5QQWBp2QTWT56wpO/EjefiVNQ45gvGEAyEULPU7oFyw
-	 +JCfOWIJEnkGcQ75fMtG4LDD0sjoygmSKxn2zUdqolS0uZwbVqZ0EzJ3AJ6/cFNjDY
-	 11n2nebIhJ2VXVC5jh5LpklQz5jp/Lpc9F55TDz35jEpr6i0P3fYfCqnaHYfGSA4At
-	 nQsKg3aRS4X5dZ13DPHpKmeWiVXroupPQX670w+d1cuxjFX11QoaSeTdtaXaVblr8g
-	 45dQyjlyMCRYAOS38n6AGQnKohcCcKWImxb3t5jk5lVBevd3yDdZszTdUQDyL1MWRJ
-	 BIPCupLCjZPxA==
-Message-ID: <fe719cdf52e9fc48955f116ea2e23ea8136e4d87.camel@kernel.org>
-Subject: Re: Multigrain timestamps do not work on RISC-V
-From: Jeff Layton <jlayton@kernel.org>
-To: Andreas Schwab <schwab@suse.de>, linux-riscv@lists.infradead.org
-Cc: linux-kernel@vger.kernel.org, linux-fsdevel@vger.kernel.org
-Date: Wed, 29 Jan 2025 18:28:36 -0500
-In-Reply-To: <f704b0c40c393d1c326f13d043505960924f879a.camel@kernel.org>
-References: <mvmv7ty3pd8.fsf@suse.de> <mvmikpx4jw4.fsf@suse.de>
-	 <f704b0c40c393d1c326f13d043505960924f879a.camel@kernel.org>
-Autocrypt: addr=jlayton@kernel.org; prefer-encrypt=mutual; keydata=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 QZIQXVeAA+smfTT0tDrisj1U5x6ZB9b3nBg65kc=
-User-Agent: Evolution 3.54.3 (3.54.3-1.fc41) 
+	s=k20201202; t=1738226544;
+	bh=Hns6xwQBsveKR1vKW31yktZyPYFYoDOUmz4ZKRbjlTo=;
+	h=From:To:Cc:Subject:In-Reply-To:References:Date:From;
+	b=vMzj4MYKtAiqJ6RLff4zJDABl7+halshmCh0EvHM/8X2HgrGzphOmm/IaTDLL2HEf
+	 p/9fD1tMNFp222OgdU2zOCRlhTlG1kDFeqYBoKW52i0oegKOaJ8nlfMprSIcYMsyW1
+	 hwW7EUpyvJUayUv6fvRpQ1ViC3pJtLfUsXYSMuNMQyJ8gcKVZh04FkyCfRClMXX3Gk
+	 1dIlONxzZo0i7Oe9+E5qtuou5p4mAtt/K2wF2pCxM+pe0jJT2VEL960qR8Q4l1yeew
+	 p96p4fQVsGo7jz/LkVhj4gAqLH3vvZbuA0bUSwt85euHZ8Uum/sFSH+zLERjXHR5xn
+	 6PyU2iGEfGhdw==
+From: =?utf-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>
+To: Chunyan Zhang <zhangchunyan@iscas.ac.cn>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Paul Walmsley
+ <paul.walmsley@sifive.com>, Alexandre Ghiti <alex@ghiti.fr>, Andrew Morton
+ <akpm@linux-foundation.org>
+Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, Chunyan
+ Zhang <zhang.lyra@gmail.com>, Alistair Popple <apopple@nvidia.com>,
+ linux-mm@kvack.org
+Subject: Re: [PATCH V5 1/3] riscv: mm: Prepare for reusing PTE RSW bit(9)
+In-Reply-To: <20241113095833.1805746-2-zhangchunyan@iscas.ac.cn>
+References: <20241113095833.1805746-1-zhangchunyan@iscas.ac.cn>
+ <20241113095833.1805746-2-zhangchunyan@iscas.ac.cn>
+Date: Thu, 30 Jan 2025 09:42:21 +0100
+Message-ID: <87frl0snf6.fsf@all.your.base.are.belong.to.us>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250129_152839_109567_3F214A33 
-X-CRM114-Status: GOOD (  15.14  )
+X-CRM114-CacheID: sfid-20250130_004225_746661_2B4EBE33 
+X-CRM114-Status: UNSURE (   7.30  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,80 +72,22 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, 2025-01-29 at 18:06 -0500, Jeff Layton wrote:
-> On Wed, 2025-01-29 at 18:20 +0100, Andreas Schwab wrote:
-> > On Jan 29 2025, Andreas Schwab wrote:
-> > 
-> > > My guess would be that something in inode_set_ctime_current is going
-> > > wrong.
-> > 
-> > The bug is in the arch_cmpxchg macros in <asm/cmpxchg.h>, they mishandle
-> > atomic exchange of u32 values:
-> > 
-> >     # fs/inode.c:2802: 	if (cns == now.tv_nsec && inode->i_ctime_sec == now.tv_sec) {
-> >     #NO_APP
-> >             ld	a5,-96(s0)		# _33, now.tv_nsec
-> >     # fs/inode.c:2802: 	if (cns == now.tv_nsec && inode->i_ctime_sec == now.tv_sec) {
-> >             slli	a4,s2,32	#, _49, cns
-> >             srli	a4,a4,32	#, _49, _49
-> >     # fs/inode.c:2802: 	if (cns == now.tv_nsec && inode->i_ctime_sec == now.tv_sec) {
-> >             beq	a4,a5,.L1248	#, _49, _33,
-> >     .L1205:
-> >             addi	a3,s1,120	#, __ai_ptr, inode
-> >     .L1221:
-> >     # fs/inode.c:2809: 	if (try_cmpxchg(&inode->i_ctime_nsec, &cur, now.tv_nsec)) {
-> >     #APP
-> >     # 2809 "fs/inode.c" 1
-> >             0:	lr.w a2, 0(a3)	# __ret, *__ai_ptr_20
-> >             bne  a2, a4, 1f	# __ret, _49
-> > 
-> > Here the unsigned extended value of cur (a4) is compared with the sign
-> > extended value of inode->i_ctime_nsec (a2).  They cannot match if cur
-> > has I_CTIME_QUERIED set (the sign bit).  The lr/sc loop is exited before
-> > the store conditional is executed.
-> > 
-> >             sc.w.rl a1, a5, 0(a3)	# __rc, _33, *__ai_ptr_20
-> >             bnez a1, 0b	# __rc
-> >             fence rw,rw
-> >     1:
-> > 
-> >     # 0 "" 2
-> >     #NO_APP
-> >             sext.w	a5,a2	# __ret, __ret
-> > 
-> > A redundant sign extension of the current contents of inode->i_ctime_nsec.
-> > 
-> >     # fs/inode.c:2809: 	if (try_cmpxchg(&inode->i_ctime_nsec, &cur, now.tv_nsec)) {
-> >             bne	a5,s2,.L1211	#, __ret, cns,
-> > 
-> > Here the sign extended value of inode->i_ctime_nsec (a5) is compared
-> > with the sign extended expected value (s2).  They match, and try_cmpxchg
-> > returns true, but the store never happend.
-> > 
-> 
-> Wow, nice catch! Had me worried there for a bit!
-> 
-
-For the record: 
-
-Bit 30 is also unused. When I wrote these patches, I considered using
-that instead of the sign bit since I wasn't sure whether I might run
-into problems using the sign bit.
-
-Obviously, fixing the macro seems like the better solution, but if
-fixing this efficiently is a problem, then moving I_CTIME_QUERIED to
-bit 30 is also an option.
-
-Cheers,
--- 
-Jeff Layton <jlayton@kernel.org>
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+Q2h1bnlhbiBaaGFuZyA8emhhbmdjaHVueWFuQGlzY2FzLmFjLmNuPiB3cml0ZXM6Cgo+IFRoZSBQ
+VEUgYml0KDkpIG9uIFJJU0MtViBpcyByZXNlcnZlZCBmb3Igc29mdHdhcmUsIGl0IGlzIHVzZWQg
+YnkgZGV2bWFwCj4gbm93IHdoaWNoIGhhcyB0byBiZSBkaXNhYmxlZCBpZiB3ZSB3YW50IHRvIHVz
+ZSBiaXQoOSkgZm9yIG90aGVyIGZlYXR1cmVzLAo+IHNpbmNlIHRoZXJlJ3Mgbm8gbW9yZSBmcmVl
+IFBURSBiaXQgb24gUklTQy1WIG5vdy4KPgo+IFNvIHRvIG1ha2UgQVJDSF9IQVNfUFRFX0RFVk1B
+UCBzZWxlY3RhYmxlLCB0aGlzIHBhdGNoIHVzZXMgaXQgYXMKPiB0aGUgYnVpbGQgY29uZGl0aW9u
+IG9mIGRldm1hcCBkZWZpbml0aW9ucy4KCkhlYWRzLXVwOiBJdCBzZWVtcyBsaWtlIEFsaXN0YWly
+J3Mgc2VyaWVzIFsxXSB0aGF0IHJlbW92ZXMgdGhlIGRldm1hcApQVEUgYml0IHdpbGwgbW9zdCBs
+aWtlbHkgbGFuZCBpbiA2LjE1LgoKCkJqw7ZybgoKWzFdIGh0dHBzOi8vbG9yZS5rZXJuZWwub3Jn
+L2xpbnV4LW1tL2NvdmVyLjExMTg5ODY0Njg0ZTMxMjYwZDE0MDg3NzlmYWM5ZGI4MDEyMjA0N2Iu
+MTczNjQ4ODc5OS5naXQtc2VyaWVzLmFwb3BwbGVAbnZpZGlhLmNvbS8KCl9fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlz
+dApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQu
+b3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
