@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BD20DC0218F
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CFD92C02195
 	for <linux-riscv@archiver.kernel.org>; Thu, 30 Jan 2025 14:10:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -12,54 +12,55 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
 	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=QGzlpKQ9qsSF62K7VeDCE75mknO9qXZs/yMtSiYBvFE=; b=bDLkzEdBWBhvFE
-	GA4xlmUhZVRRO0drxxH6LmPnEry3fl+wy3eETEm5iQctCKRBMXz99tqiUpqQPi2D4ZS5lmSRHL5rN
-	SollKsurpYZOVEgUC2VWBcVS+Fuw0ubR3oHHYgX4JWFGmjJH5QwRurT7Qkv1dJP6EBZUR0OX7OA4U
-	jpqfmZn7LcZW3uyunZi6wLcSS3UaVIJxriAl2j2VESF9XSFQeeMWgqO8MXAwjLRlXcy1USg6ZqvT7
-	HyRLxm6e14L8v/VQY7dAAjzTHNmh4dTvegx+8CZ+lK+x0r8YZgvKP+KS+O+lx3/glxs6YTEXSj4+8
-	OpCIXepoS+az2j+LRW4g==;
+	List-Owner; bh=dkR7vomTOZkafMtcYovm4Uu5RPntiH6LvcGq+pACyV4=; b=1DsruihOSbuC2+
+	cPKs3cQv3M79ycBkAmCReydk82RoGQbPMlmBwPaKvH6InbjLae6FLc9mIYfngXuv0xRu0z0e/EPUb
+	IKBNvPs2hdnbhr75BdD0MPz1WbtR7fKvPNSrniziuAbVlLieOA9x/+7GY1BIHhGrua+vUcNoWk166
+	X9M0N2xqmihY9kqUHYx+26oZheFucmRn2ShWaThJyGQR8yt39K4igyZ5a7k8epBq6UrtQHAokVib9
+	M83Hm0pC/F612BnOMeZ3O6bzOGZMKUC5iHB7Fszsz8Kuq9GCcFYu4N8itbNhfpjfEvNpcmLpx2e2k
+	9HTAkA8LtQJERSGNjVJA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tdVFM-00000008wN9-0z3b;
-	Thu, 30 Jan 2025 14:10:20 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1tdVFL-00000008wMQ-2Rye;
+	Thu, 30 Jan 2025 14:10:19 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tdVFJ-00000008wKW-2EjS
+	id 1tdVFH-00000008wJH-3q7g
 	for linux-riscv@lists.infradead.org;
 	Thu, 30 Jan 2025 14:10:18 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 25676A41A99;
-	Thu, 30 Jan 2025 14:08:30 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 83485C4CED2;
-	Thu, 30 Jan 2025 14:10:16 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 3ABE85C6038;
+	Thu, 30 Jan 2025 14:09:35 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id F0206C4CEE0;
+	Thu, 30 Jan 2025 14:10:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1738246216;
-	bh=CbMMJF1uQMgPSz1soY9p3lNPl/Y6u9Wb56FJLQKyfSo=;
+	s=k20201202; t=1738246215;
+	bh=gAB9uXM+mzKAnOJm4WDzv7NrurFgJ8yv0HwEZuN0vEM=;
 	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=QwVDph6HjKDRoF7VVkblK2s4GXMm7YUaZyR2O+5ZDZSY8UFdaws5nM6s4tKUlljOd
-	 u0AVW43U64Rh+kxwkMZyjbpYbg6bPxkXHafV/3Bykl/i0Q/BGwJLPKiPhzVy3IbEtg
-	 Y8MGnjeqmoUsFF9SRVM2lfRmUzcuqdLOpO6cuK+mihuVO/ihUc5XpeNFAzcIgn9/OR
-	 fdgUt/LiNxN2dKLao4zEQj204vp0i4x4Oq2o3Z7zRZRLXgwmHksVkniCWX1biku70h
-	 LWgNGPpggnY2vUrcJZNVPlF6uDJO5wkrX1QcjIT+K2jggCBNUYlmayzaDvQ8oEQv6G
-	 8PES+PGMogm0w==
+	b=JFgL0D+pIOR7mYWIT8c7JyfpDpVVX1jPS+Qf9Auu7deL2K3kYHffWESrxmQbSy02D
+	 g393bUZumPvkXgq80/hlG1GyHr2m9QvntEu9tBH+QWT0PY9rk4Xvf0Q5clRPSMiqTi
+	 KnYZjfshz+D+R08PH2Byn7SwbwFLSZJUx94oH6HImEEsQHGDt7bQzo0+RQGYJfm9A/
+	 J/leE7FOJ8zvv7jbAqvhz3oOcw6XTASz1+jauF42kXDbS3fjcWFzZM/CVWfw//BpDI
+	 icl7h56nvGPEcoTwBU8E6Rpk4dFHITVlKJ+3nRuS6LCI0d1eGDAxefAxWHGoYPLRsj
+	 zJR2lIF1RehNw==
 Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id EBB7A380AA66;
-	Thu, 30 Jan 2025 14:10:43 +0000 (UTC)
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 70F86380AA66;
+	Thu, 30 Jan 2025 14:10:42 +0000 (UTC)
 MIME-Version: 1.0
-Subject: Re: [PATCH] riscv/futex: Optimize atomic cmpxchg
+Subject: Re: [PATCH] riscv: add a warning when physical memory address overflows
 From: patchwork-bot+linux-riscv@kernel.org
-Message-Id: <173824624249.971083.10928021960691626990.git-patchwork-notify@kernel.org>
-Date: Thu, 30 Jan 2025 14:10:42 +0000
-References: <20241113183321.491113-1-dave@stgolabs.net>
-In-Reply-To: <20241113183321.491113-1-dave@stgolabs.net>
-To: Davidlohr Bueso <dave@stgolabs.net>
-Cc: linux-riscv@lists.infradead.org, palmer@dabbelt.com, jimw@sifive.com,
- guoren@kernel.org, dlustig@nvidia.com, parri.andrea@gmail.com,
- boqun.feng@gmail.com, peterz@infradead.org, will@kernel.org,
+Message-Id: <173824624099.971083.29484788191658517.git-patchwork-notify@kernel.org>
+Date: Thu, 30 Jan 2025 14:10:40 +0000
+References: <20240814062625.19794-1-cuiyunhui@bytedance.com>
+In-Reply-To: <20240814062625.19794-1-cuiyunhui@bytedance.com>
+To: yunhui cui <cuiyunhui@bytedance.com>
+Cc: linux-riscv@lists.infradead.org, punit.agrawal@bytedance.com,
+ paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
+ alexghiti@rivosinc.com, chenjiahao16@huawei.com, guoren@kernel.org,
+ vishal.moola@gmail.com, stuart.menefy@codasip.com,
  linux-kernel@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250130_061017_632413_CC6565E9 
-X-CRM114-Status: UNSURE (   8.06  )
+X-CRM114-CacheID: sfid-20250130_061015_994197_6F5C0B88 
+X-CRM114-Status: UNSURE (   8.29  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -82,18 +83,19 @@ Hello:
 This patch was applied to riscv/linux.git (for-next)
 by Palmer Dabbelt <palmer@rivosinc.com>:
 
-On Wed, 13 Nov 2024 10:33:21 -0800 you wrote:
-> Remove redundant release/acquire barriers, optimizing the lr/sc sequence
-> to provide conditional RCsc synchronization, per the RVWMO.
+On Wed, 14 Aug 2024 14:26:25 +0800 you wrote:
+> The part of physical memory that exceeds the size of the linear mapping
+> will be discarded. When the system starts up normally, a warning message
+> will be printed to prevent confusion caused by the mismatch between the
+> system memory and the actual physical memory.
 > 
-> Signed-off-by: Davidlohr Bueso <dave@stgolabs.net>
-> ---
->  arch/riscv/include/asm/futex.h | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
+> Signed-off-by: Yunhui Cui <cuiyunhui@bytedance.com>
+> 
+> [...]
 
 Here is the summary with links:
-  - riscv/futex: Optimize atomic cmpxchg
-    https://git.kernel.org/riscv/c/9d0593da9459
+  - riscv: add a warning when physical memory address overflows
+    https://git.kernel.org/riscv/c/101971298be2
 
 You are awesome, thank you!
 -- 
