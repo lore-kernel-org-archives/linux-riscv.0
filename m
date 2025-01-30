@@ -4,60 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20FB1C02190
-	for <linux-riscv@archiver.kernel.org>; Thu, 30 Jan 2025 10:03:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7FD6CC0218A
+	for <linux-riscv@archiver.kernel.org>; Thu, 30 Jan 2025 11:22:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=6J9Lv88gP9gtoPfOlx6wHCGhIklinvHnq0kw88HltAo=; b=Hp8B58qscZwiA5
-	e+KdKUuzbxxD1jY+CykQ5DszGJsYQ6zFwFI+XCbDzJMex9HFoflsk2Ji6ZpxOu0iH0kYaB6h9CPP8
-	zdAIt4kpv+Y8peqRICXH8CwyJeE3xiZFzdaqU6srk/56M6n5tu0ySqr/UYXtSuuH8mnMTJwTGJaXJ
-	uJJ65PEm8kei/XkQVB9WvqeIHR2GKOx6o8+2ZXDcp4xicfodw5wPzM2UJ8b+xPvIOn6WXRm+x8iOK
-	JXG0UMT4P2IVTKZdkgbFOWWfMxwyfOb5nWMir4M4hov7s4ALaHLwNmRBNyBxRb9zp2XIKB+oOME9d
-	65xTKNRLvIFGtqsrxLoA==;
+	List-Owner; bh=pqxmhalOR9kvOlWhx6PAJq4wHbOQEtsAJfU/yyKmgo4=; b=5B62i+tB0ZbHtZ
+	hM5JJaxcVGWdTDLQX/N/e4bGshEVf1moGPoM7ST4rIWw+rfsGAMLJ+qHMfEYGKmVTKiYLjicbYWI7
+	5KQtgHYKwD9nGmcINTmZksuUKLjQJnj0SW/xqVLwqXV910AQQa3C4v4Fl85xrJF88a1gbKwr7E4Nq
+	g4XdiaO8RvFuUefSIwfpLCSNuFejplXDxAhbriEHAqQMZBP9/NbvbSfJzEOrqmg0KErXAVACTpOUO
+	bz46yhoazBcZhzjTsFXQtVARdVNffmHVKbDxEI0mFGyaJKfwsgv+tiG9jbjjjKYHQj4z7kdY9Bsl1
+	j6W+u8NZ/znlTNPwd+AQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tdROK-00000008ZbK-3zkD;
-	Thu, 30 Jan 2025 10:03:20 +0000
-Received: from relay4-d.mail.gandi.net ([217.70.183.196])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tdRN0-00000008ZDC-1IiP;
-	Thu, 30 Jan 2025 10:01:59 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id 2040D43423;
-	Thu, 30 Jan 2025 10:01:38 +0000 (UTC)
-Message-ID: <03594835-6f12-4582-a4f7-cbb1630dba91@ghiti.fr>
-Date: Thu, 30 Jan 2025 11:01:37 +0100
+	id 1tdScg-00000008hRj-34fi;
+	Thu, 30 Jan 2025 11:22:14 +0000
+Received: from vmicros1.altlinux.org ([194.107.17.57])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tdScd-00000008hQv-3GRo;
+	Thu, 30 Jan 2025 11:22:13 +0000
+Received: from mua.local.altlinux.org (mua.local.altlinux.org [192.168.1.14])
+	by vmicros1.altlinux.org (Postfix) with ESMTP id 2914072C97D;
+	Thu, 30 Jan 2025 14:22:08 +0300 (MSK)
+Received: by mua.local.altlinux.org (Postfix, from userid 508)
+	id F28277CCB3A; Thu, 30 Jan 2025 13:22:07 +0200 (IST)
+Date: Thu, 30 Jan 2025 13:22:07 +0200
+From: "Dmitry V. Levin" <ldv@strace.io>
+To: Sven Schnelle <svens@linux.ibm.com>
+Cc: linux-snps-arc@lists.infradead.org, Rich Felker <dalias@libc.org>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Andreas Larsson <andreas@gaisler.com>,
+	John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>,
+	x86@kernel.org, Arnd Bergmann <arnd@arndb.de>,
+	linux-kernel@vger.kernel.org,
+	"James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>,
+	Guo Ren <guoren@kernel.org>, linux-csky@vger.kernel.org,
+	"H. Peter Anvin" <hpa@zytor.com>, sparclinux@vger.kernel.org,
+	linux-hexagon@vger.kernel.org, WANG Xuerui <kernel@xen0n.name>,
+	Will Deacon <will@kernel.org>,
+	Eugene Syromyatnikov <evgsyr@gmail.com>,
+	Anton Ivanov <anton.ivanov@cambridgegreys.com>,
+	Jonas Bonn <jonas@southpole.se>, linux-s390@vger.kernel.org,
+	Alexander Gordeev <agordeev@linux.ibm.com>,
+	Madhavan Srinivasan <maddy@linux.ibm.com>,
+	Vasily Gorbik <gor@linux.ibm.com>,
+	Yoshinori Sato <ysato@users.sourceforge.jp>,
+	linux-sh@vger.kernel.org, Michael Ellerman <mpe@ellerman.id.au>,
+	Helge Deller <deller@gmx.de>, Huacai Chen <chenhuacai@kernel.org>,
+	Russell King <linux@armlinux.org.uk>,
+	Christophe Leroy <christophe.leroy@csgroup.eu>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	Ingo Molnar <mingo@redhat.com>, Vineet Gupta <vgupta@kernel.org>,
+	Christian Borntraeger <borntraeger@linux.ibm.com>,
+	strace-devel@lists.strace.io, linux-arch@vger.kernel.org,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Mike Frysinger <vapier@gentoo.org>,
+	Davide Berardi <berardi.dav@gmail.com>,
+	Renzo Davoli <renzo@cs.unibo.it>, linux-um@lists.infradead.org,
+	Heiko Carstens <hca@linux.ibm.com>,
+	Charlie Jenkins <charlie@rivosinc.com>,
+	Naveen N Rao <naveen@kernel.org>,
+	Nicholas Piggin <npiggin@gmail.com>,
+	Stefan Kristiansson <stefan.kristiansson@saunalahti.fi>,
+	Borislav Petkov <bp@alien8.de>, loongarch@lists.linux.dev,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Stafford Horne <shorne@gmail.com>,
+	linux-arm-kernel@lists.infradead.org,
+	Brian Cain <bcain@quicinc.com>,
+	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+	linux-parisc@vger.kernel.org, linux-openrisc@vger.kernel.org,
+	linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+	Oleg Nesterov <oleg@redhat.com>, Dinh Nguyen <dinguyen@kernel.org>,
+	linux-riscv@lists.infradead.org,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Richard Weinberger <richard@nod.at>,
+	Johannes Berg <johannes@sipsolutions.net>,
+	Alexey Gladkov <legion@kernel.org>,
+	"David S. Miller" <davem@davemloft.net>
+Subject: Re: [PATCH v3 2/6] syscall.h: add syscall_set_arguments() and
+ syscall_set_return_value()
+Message-ID: <20250130112207.GA6617@strace.io>
+References: <20250128091626.GB8601@strace.io>
+ <yt9dwmecya4g.fsf@linux.ibm.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 2/4] riscv: add support for SBI Supervisor Software
- Events extension
-Content-Language: en-US
-To: =?UTF-8?B?Q2zDqW1lbnQgTMOpZ2Vy?= <cleger@rivosinc.com>,
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, linux-riscv@lists.infradead.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-Cc: Himanshu Chauhan <hchauhan@ventanamicro.com>,
- Anup Patel <apatel@ventanamicro.com>, Xu Lu <luxu.kernel@bytedance.com>,
- Atish Patra <atishp@atishpatra.org>
-References: <20241206163102.843505-1-cleger@rivosinc.com>
- <20241206163102.843505-3-cleger@rivosinc.com>
- <a21df8a8-a50f-49df-a098-69faa51ed8cb@ghiti.fr>
- <649fdead-09b0-4f94-a6ff-099fc970d890@rivosinc.com>
- <a0012a8d-0c2b-4948-b5c7-7d8efdf1cab0@ghiti.fr>
- <32cc0753-a033-4f55-8aca-09416f62faa8@rivosinc.com>
-From: Alexandre Ghiti <alex@ghiti.fr>
-In-Reply-To: <32cc0753-a033-4f55-8aca-09416f62faa8@rivosinc.com>
-X-GND-State: clean
-X-GND-Score: -100
-X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgdehheduucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpefkffggfgfuvfevfhfhjggtgfesthekredttddvjeenucfhrhhomheptehlvgigrghnughrvgcuifhhihhtihcuoegrlhgvgiesghhhihhtihdrfhhrqeenucggtffrrghtthgvrhhnpedtgeeuhffhveeujeetveevieekleekvdffudefleevgefgieekkefggefhtddtveenucfkphepudelfedrfeefrdehjedrudelleenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepihhnvghtpeduleefrdeffedrheejrdduleelpdhhvghloheplgduledvrdduieekrddvuddrvdehngdpmhgrihhlfhhrohhmpegrlhgvgiesghhhihhtihdrfhhrpdhnsggprhgtphhtthhopedutddprhgtphhtthhopegtlhgvghgvrhesrhhivhhoshhinhgtrdgtohhmpdhrtghpthhtohepphgruhhlrdifrghlmhhslhgvhiesshhifhhivhgvrdgtohhmpdhrtghpthhtohepphgrlhhmvghrsegurggssggvlhhtrdgtohhmpdhrtghpthhtoheplhhinhhugidqrhhishgtvheslhhishhtshdrihhnfhhrrgguvggrugdrohhrghdprhgtphhtthhopehlihhnuhigqdhkvghrnhgvlhesvhhgvghrrdhkvghrnhgvlhdrohhrghdprhgtphhtthhop
- ehlihhnuhigqdgrrhhmqdhkvghrnhgvlheslhhishhtshdrihhnfhhrrgguvggrugdrohhrghdprhgtphhtthhopehhtghhrghuhhgrnhesvhgvnhhtrghnrghmihgtrhhordgtohhmpdhrtghpthhtoheprghprghtvghlsehvvghnthgrnhgrmhhitghrohdrtghomh
-X-GND-Sasl: alex@ghiti.fr
+Content-Disposition: inline
+In-Reply-To: <yt9dwmecya4g.fsf@linux.ibm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250130_020158_477588_7DC9D92B 
-X-CRM114-Status: GOOD (  14.46  )
+X-CRM114-CacheID: sfid-20250130_032212_154713_81903EFB 
+X-CRM114-Status: GOOD (  25.45  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,41 +106,84 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-SGkgQ2zDqW1lbnQsCgpPbiAyOC8wMS8yMDI1IDA5OjEwLCBDbMOpbWVudCBMw6lnZXIgd3JvdGU6
-Cj4KPiBPbiAyNy8wMS8yMDI1IDA5OjA5LCBBbGV4YW5kcmUgR2hpdGkgd3JvdGU6Cj4+PiBJIGJl
-bGlldmUgdGhlIGdvYWwgaXMgbm90IHRoZSBzYW1lLiBVc2luZyBDT05GSUdfVk1BUF9TVEFDSyBh
-bGxvd3MgdGhlCj4+PiBrZXJuZWwgZXhjZXB0aW9uIGhhbmRsaW5nIHRvIGNhdGNoIGFueSBzdGFj
-ayBvdmVyZmxvdyB3aGVuIGVudGVyaW5nIHRoZQo+Pj4ga2VybmVsIGFuZCB0aHVzIHVzaW5nIHZt
-YWxsb2MgaXMgcmVxdWlyZWQgdG8gYWxsb2NhdGUgdHdpY2UgdGhlIHBhZ2UKPj4+IHNpemUgKG92
-ZXJmbG93IGlzIHdoZW4gc3AgaXMgbG9jYXRlZCBpbiB0aGUgdXBwZXIgaGFsZiBvZiB0aGUgYWxs
-b2NhdGVkCj4+PiB2bWFsbG9jIHN0YWNrLiBTbyBiYXNpY2FsbHksIHRoaXMgaXMgdHdvIGRpc3Rp
-bmN0IHB1cnBvc2VzLgo+Pj4KPj4+IEFGQUlVLCBrdm1hbGxvYyBhbGxvd3MgdG8gZmFsbGJhY2sg
-dG8gdm1hbGxvYyBpZiBrbWFsbG9jIGZhaWxzLiBUaGlzIGlzCj4+PiBub3Qgd2hhdCB3ZSBhcmUg
-bG9va2luZyBmb3IgaGVyZSBzaW5jZSBvdXIgYWxsb2NhdGlvbiBzaXplIGlzIGFsd2F5cwo+Pj4g
-cXVpdGUgc21hbGwgYW5kIGtub3duIChTVEFDS19TSVpFIGJhc2ljYWxseSkuCj4+Pgo+Pj4gQnV0
-IEkgbWlnaHQgYmUgbWlzc2luZyBzb21ldGhpbmcuCj4+Cj4+IGFyY2hfYWxsb2Nfdm1hcF9zdGFj
-aygpIG9ubHkgdm1hbGxvYyB0aGUgc3RhY2sgYW5kIGRvZXMgbm90IGltcGxlbWVudAo+PiBhbnkg
-c3RhY2sgb3ZlcmZsb3cgbWVjaGFuaXNtLCBzbyBJJ20gc3RpbGwgdW5zdXJlIHdlIG5lZWQgdGhl
-IGRlZmluZS4KPiBIaSBBbGV4LAo+Cj4gU28gYWN0dWFsbHksIHRoZSBzdGFjayBvdmVyZmxvdyBj
-aGVjayBpdHNlbGYgaXMgZG9uZSBpbiB0aGUgZXhjZXB0aW9uCj4gZW50cnkuIEl0IGNoZWNrIGlm
-IHRoZSBzdGFjayBwb2ludGVyIGRpZCBwYXNzZWQgaW4gdGhlIHVwcGVyIHBhcnQgb2YgdGhlCj4g
-dm1hbGxvYyBhbGxvY2F0aW9uIChzZWUgZW50cnkuUzoxMjIpLiBJbiB0aGlzIGFsbG9jYXRpb24s
-IHRoZSBzdGFjayBzaXplCj4gaXMgYWN0dWFsbHkgKiAyOgo+Cj4gI2lmZGVmIENPTkZJR19WTUFQ
-X1NUQUNLCj4gI2RlZmluZSBUSFJFQURfQUxJR04gICAgICAgICAgICAoMiAqIFRIUkVBRF9TSVpF
-KQo+ICNlbHNlCj4gI2RlZmluZSBUSFJFQURfQUxJR04gICAgICAgICAgICBUSFJFQURfU0laRQo+
-ICNlbmRpZgo+Cj4gU28gZXZlbiB0aG91Z2ggaXQgZG9lcyBub3RoaW5nIHNwZWNpYWwgYnkgaXRz
-ZWxmLCBpdCBjZW50cmFsaXplIHRoZQo+IGFsbG9jYXRpb24gc2l6ZS9tZXRob2QuIEFuZCBzaXpl
-IHRoZSBzaXplIGlzIGxhcmdlciwgdXNpbmcgdmFtbGxvYyBtYWtlcwo+IHNlbnNlIEkgZ3Vlc3Mu
-IFRoZSBzYW1lIG1lY2hhbmlzbSBpcyB1c2VkIHRvIGFsbG9jYXRlIGlycSBzdGFjayBhcyB3ZWxs
-LgoKCllvdSdyZSByaWdodCwgaXQgbWFrZXMgc2Vuc2UhIE5pdDogd2UgY2FuIGF2b2lkIHRoZSBp
-ZmRlZiBieSB1c2luZyAKSVNfRU5BQkxFRCgpIGJ1dCBkbyBhcyB5b3UgcHJlZmVyLgoKVGhhbmtz
-IGZvciB0aGUgZXhwbGFuYXRpb24sCgpBbGV4CgoKPgo+IFRoYW5rcywKPgo+IENsw6ltZW50Cj4K
-Pj4gVGhhbmtzLAo+Pgo+PiBBbGV4CgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMu
-aW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZv
-L2xpbnV4LXJpc2N2Cg==
+On Thu, Jan 30, 2025 at 09:33:03AM +0100, Sven Schnelle wrote:
+> "Dmitry V. Levin" <ldv@strace.io> writes:
+> 
+> > These functions are going to be needed on all HAVE_ARCH_TRACEHOOK
+> > architectures to implement PTRACE_SET_SYSCALL_INFO API.
+> >
+> > This partially reverts commit 7962c2eddbfe ("arch: remove unused
+> > function syscall_set_arguments()") by reusing some of old
+> > syscall_set_arguments() implementations.
+> >
+> > Signed-off-by: Dmitry V. Levin <ldv@strace.io>
+> > Tested-by: Charlie Jenkins <charlie@rivosinc.com>
+> > Reviewed-by: Charlie Jenkins <charlie@rivosinc.com>
+> > ---
+> >  arch/arc/include/asm/syscall.h        | 14 +++++++++++
+> >  arch/arm/include/asm/syscall.h        | 13 ++++++++++
+> >  arch/arm64/include/asm/syscall.h      | 13 ++++++++++
+> >  arch/csky/include/asm/syscall.h       | 13 ++++++++++
+> >  arch/hexagon/include/asm/syscall.h    | 14 +++++++++++
+> >  arch/loongarch/include/asm/syscall.h  |  8 ++++++
+> >  arch/mips/include/asm/syscall.h       | 32 ++++++++++++++++++++++++
+> >  arch/nios2/include/asm/syscall.h      | 11 ++++++++
+> >  arch/openrisc/include/asm/syscall.h   |  7 ++++++
+> >  arch/parisc/include/asm/syscall.h     | 12 +++++++++
+> >  arch/powerpc/include/asm/syscall.h    | 10 ++++++++
+> >  arch/riscv/include/asm/syscall.h      |  9 +++++++
+> >  arch/s390/include/asm/syscall.h       | 12 +++++++++
+> >  arch/sh/include/asm/syscall_32.h      | 12 +++++++++
+> >  arch/sparc/include/asm/syscall.h      | 10 ++++++++
+> >  arch/um/include/asm/syscall-generic.h | 14 +++++++++++
+> >  arch/x86/include/asm/syscall.h        | 36 +++++++++++++++++++++++++++
+> >  arch/xtensa/include/asm/syscall.h     | 11 ++++++++
+> >  include/asm-generic/syscall.h         | 16 ++++++++++++
+> >  19 files changed, 267 insertions(+)
+> >
+> > diff --git a/arch/s390/include/asm/syscall.h b/arch/s390/include/asm/syscall.h
+> > index 27e3d804b311..b3dd883699e7 100644
+> > --- a/arch/s390/include/asm/syscall.h
+> > +++ b/arch/s390/include/asm/syscall.h
+> > @@ -78,6 +78,18 @@ static inline void syscall_get_arguments(struct task_struct *task,
+> >  	args[0] = regs->orig_gpr2 & mask;
+> >  }
+> >  
+> > +static inline void syscall_set_arguments(struct task_struct *task,
+> > +					 struct pt_regs *regs,
+> > +					 const unsigned long *args)
+> > +{
+> > +	unsigned int n = 6;
+> > +
+> > +	while (n-- > 0)
+> > +		if (n > 0)
+> > +			regs->gprs[2 + n] = args[n];
+> > +	regs->orig_gpr2 = args[0];
+> > +}
+> 
+> Could that be changed to something like:
+> 
+> for (int n = 1; n < 6; n++)
+>         regs->gprs[2 + n] = args[n];
+> regs->orig_gpr2 = args[0];
+> 
+> I think this is way easier to parse.
+
+I don't mind changing syscall_set_arguments() this way, but it just
+mirrors syscall_get_arguments(), so I think it would be better if these
+two functions were written in the same style.  Would you like to change
+syscall_get_arguments() as well?
+
+
+-- 
+ldv
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
