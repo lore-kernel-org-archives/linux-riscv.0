@@ -4,165 +4,103 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 437F1C0218A
-	for <linux-riscv@archiver.kernel.org>; Thu, 30 Jan 2025 09:27:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 19445C02190
+	for <linux-riscv@archiver.kernel.org>; Thu, 30 Jan 2025 09:29:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
 	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=f5g0O1dSVywz9LYtK8NMMakJAYt7f5InTba8vU7e9qE=; b=SNfF/H3q87yZa3
-	aDj692PMFZhmFgJOFFu0wMDd6smTClzRKcfmkt1/QfRsZIYoOljJRjFsGgEUgaiw94sFa0K/P/yUz
-	k0P126LinPDDUkULBBCfPiYHagPa1nJd81zKeUo789YSWIWe3z114nrHis/NT2aweOxZ8EWiRNdhe
-	BlaRKkmwrrQ7xVqbjluAJO7+F09k/Rx2G8F33wQP1k5w59UAW6eOCYI4C77sIbOXv9zYmK27EY3Do
-	cZ8oaAJYbAmrU8BRD9BNLBrQ36jkUjwOxPD5thubNOED0NzHM1k375zdyn7OE6zFzR/jTG/fV1KU0
-	2vrFfUXZFfM8/RoSaFrg==;
+	List-Owner; bh=W0PhZRhhWSfRH8YiZ3UHtO2jXMe20tVhjtTZFQPNitQ=; b=b4wEEkmmPSZcXa
+	f0ENw76mrv8pnxfTOQMZfWLjkVtElHa2l7kkowhIHAK2Cx7NpDN0RxY4cQRX8arVVR6d+Y3QwCEhG
+	ABX0P1NpVFMnL9iBWPGIRWHdqfGDFbz/FTq22U4+uugFVr/zqG6CQ7kfdYsYR4KRPvkE9+x7QkKJi
+	DXv/iZPFV0jEiwhYp02BrS7JsdVhhSZicieHe4uGogUDF0GD91rvFXgmAET1/4RjevbYKeg9DEkB2
+	xJeCSmOFyJr0O9D0chlsv704VpRlFKbgNWv6FCV7jvGK1ZxpcDrr40R5wdI1IpR2P+JJYehD6+RBs
+	NY4WWU8N7SGwckAGAIhw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tdQpC-00000008VIM-40Oz;
-	Thu, 30 Jan 2025 09:27:02 +0000
-Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
+	id 1tdQri-00000008Vq5-2XO3;
+	Thu, 30 Jan 2025 09:29:38 +0000
+Received: from smtp-out2.suse.de ([2a07:de40:b251:101:10:150:64:2])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tdQp9-00000008VGg-2UJ0;
-	Thu, 30 Jan 2025 09:27:00 +0000
-Received: from pps.filterd (m0353729.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 50U5OAmX012556;
-	Thu, 30 Jan 2025 09:25:35 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
-	:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=pp1; bh=ENEt8TNFIIQna4oUkl6ZCfI1AZ3n0X
-	WJoliPvJndSUA=; b=GwOLwzTmFKIJ+S/G/NDcueBX18kFIQDozO4Emp5FNyAE83
-	LlV8nb0N5Bm6GmF5rJqj+NqKVtw41Fu0SdvorBdgMNdaaBYADm/bLytgCkSMwXuA
-	iwBm6dlH41JVpb/ySdvAi7UUJVaC/ZdRGzHWxxHx7TTRfvejugAD9ULeVB2y7y6P
-	SAsUNb0P96I/u5Laf36dVl5YhZS2/9Dx+cCv0EEOC1hCePh9PimW1Fq0lCgz8Npv
-	BG1V0Ms7SqQOkVthuXoWasQs9yCyIkH3v4NRg30eAfifJVDwlW+u1J8spbIuh7M/
-	fmg4P7PW5a4zD9z6VHTFRUR0ynPP4BvYS/C0wQmQ==
-Received: from pps.reinject (localhost [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 44g38810r5-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 30 Jan 2025 09:25:35 +0000 (GMT)
-Received: from m0353729.ppops.net (m0353729.ppops.net [127.0.0.1])
-	by pps.reinject (8.18.0.8/8.18.0.8) with ESMTP id 50U9P48j030487;
-	Thu, 30 Jan 2025 09:25:34 GMT
-Received: from ppma11.dal12v.mail.ibm.com (db.9e.1632.ip4.static.sl-reverse.com [50.22.158.219])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 44g38810r1-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 30 Jan 2025 09:25:34 +0000 (GMT)
-Received: from pps.filterd (ppma11.dal12v.mail.ibm.com [127.0.0.1])
-	by ppma11.dal12v.mail.ibm.com (8.18.1.2/8.18.1.2) with ESMTP id 50U5FMJt018905;
-	Thu, 30 Jan 2025 09:25:33 GMT
-Received: from smtprelay01.fra02v.mail.ibm.com ([9.218.2.227])
-	by ppma11.dal12v.mail.ibm.com (PPS) with ESMTPS id 44dd01n2ct-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 30 Jan 2025 09:25:33 +0000
-Received: from smtpav02.fra02v.mail.ibm.com (smtpav02.fra02v.mail.ibm.com [10.20.54.101])
-	by smtprelay01.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 50U9PSJL47907140
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Thu, 30 Jan 2025 09:25:28 GMT
-Received: from smtpav02.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 7F98F200D7;
-	Thu, 30 Jan 2025 08:33:04 +0000 (GMT)
-Received: from smtpav02.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id B9EC7200D6;
-	Thu, 30 Jan 2025 08:33:03 +0000 (GMT)
-Received: from tuxmaker.linux.ibm.com (unknown [9.152.85.9])
-	by smtpav02.fra02v.mail.ibm.com (Postfix) with ESMTPS;
-	Thu, 30 Jan 2025 08:33:03 +0000 (GMT)
-From: Sven Schnelle <svens@linux.ibm.com>
-To: "Dmitry V. Levin" <ldv@strace.io>
-Cc: Oleg Nesterov <oleg@redhat.com>, Alexey Gladkov <legion@kernel.org>,
-        Charlie Jenkins <charlie@rivosinc.com>,
-        Eugene Syromyatnikov
- <evgsyr@gmail.com>,
-        Mike Frysinger <vapier@gentoo.org>, Renzo Davoli
- <renzo@cs.unibo.it>,
-        Davide Berardi <berardi.dav@gmail.com>, strace-devel@lists.strace.io,
-        Vineet Gupta <vgupta@kernel.org>,
-        Russell
- King <linux@armlinux.org.uk>, Will Deacon <will@kernel.org>,
-        Guo Ren
- <guoren@kernel.org>, Brian Cain <bcain@quicinc.com>,
-        Huacai Chen
- <chenhuacai@kernel.org>, WANG Xuerui <kernel@xen0n.name>,
-        Thomas
- Bogendoerfer <tsbogend@alpha.franken.de>,
-        Dinh Nguyen
- <dinguyen@kernel.org>, Jonas Bonn <jonas@southpole.se>,
-        Stefan
- Kristiansson <stefan.kristiansson@saunalahti.fi>,
-        Stafford Horne
- <shorne@gmail.com>,
-        "James E.J. Bottomley"
- <James.Bottomley@HansenPartnership.com>,
-        Helge Deller <deller@gmx.de>,
-        Madhavan Srinivasan <maddy@linux.ibm.com>,
-        Michael Ellerman
- <mpe@ellerman.id.au>,
-        Nicholas Piggin <npiggin@gmail.com>,
-        Christophe
- Leroy <christophe.leroy@csgroup.eu>,
-        Naveen N Rao <naveen@kernel.org>,
-        Paul Walmsley <paul.walmsley@sifive.com>,
-        Palmer Dabbelt
- <palmer@dabbelt.com>,
-        Albert Ou <aou@eecs.berkeley.edu>, Heiko Carstens
- <hca@linux.ibm.com>,
-        Vasily Gorbik <gor@linux.ibm.com>,
-        Alexander
- Gordeev <agordeev@linux.ibm.com>,
-        Christian Borntraeger
- <borntraeger@linux.ibm.com>,
-        Yoshinori Sato <ysato@users.sourceforge.jp>,
-        Rich Felker <dalias@libc.org>,
-        John Paul Adrian Glaubitz
- <glaubitz@physik.fu-berlin.de>,
-        "David S. Miller" <davem@davemloft.net>,
-        Andreas Larsson <andreas@gaisler.com>,
-        Richard Weinberger
- <richard@nod.at>,
-        Anton Ivanov <anton.ivanov@cambridgegreys.com>,
-        Johannes Berg <johannes@sipsolutions.net>,
-        Thomas Gleixner
- <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>,
-        Borislav Petkov
- <bp@alien8.de>,
-        Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
-        "H. Peter Anvin" <hpa@zytor.com>, Chris Zankel
- <chris@zankel.net>,
-        Max Filippov <jcmvbkbc@gmail.com>, Arnd Bergmann
- <arnd@arndb.de>,
-        linux-snps-arc@lists.infradead.org, linux-kernel@vger.kernel.org,
-        linux-arm-kernel@lists.infradead.org, linux-csky@vger.kernel.org,
-        linux-hexagon@vger.kernel.org, loongarch@lists.linux.dev,
-        linux-mips@vger.kernel.org, linux-openrisc@vger.kernel.org,
-        linux-parisc@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
-        linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
-        linux-sh@vger.kernel.org, sparclinux@vger.kernel.org,
-        linux-um@lists.infradead.org, linux-arch@vger.kernel.org
-Subject: Re: [PATCH v3 2/6] syscall.h: add syscall_set_arguments() and
- syscall_set_return_value()
-In-Reply-To: <20250128091626.GB8601@strace.io> (Dmitry V. Levin's message of
-	"Tue, 28 Jan 2025 11:16:26 +0200")
-References: <20250128091626.GB8601@strace.io>
-Date: Thu, 30 Jan 2025 09:33:03 +0100
-Message-ID: <yt9dwmecya4g.fsf@linux.ibm.com>
+	id 1tdQrf-00000008VpX-4258
+	for linux-riscv@lists.infradead.org;
+	Thu, 30 Jan 2025 09:29:37 +0000
+Received: from hawking.nue2.suse.org (unknown [10.168.4.11])
+	by smtp-out2.suse.de (Postfix) with ESMTP id 4DD6920D93;
+	Thu, 30 Jan 2025 09:29:34 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
+	t=1738229374; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=dA9EIQPA3LlcVtB+tMezspGE+fONF9lDmcS9FOPkdmo=;
+	b=UkxQk9bacpOhOwz8sAB4aQyluRJpDgdZP+NRzPJcAotWbzoQaZXSJS+ls9RZlLDF0BD2TS
+	kbGPzgl8UBTCFieY0d+mFbKXkRZ0whGJNU/jDM7j9iO1B/H5qGUV3bBQe+Nsv3bmUvkEoe
+	+hXDbRmuyv7HcPwgkp+KY3179mjv990=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
+	s=susede2_ed25519; t=1738229374;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=dA9EIQPA3LlcVtB+tMezspGE+fONF9lDmcS9FOPkdmo=;
+	b=8YQr3t8sgBwk3x3rLY+1xQabuwyXCwp4z43GG0+ZkcjvJ8p6zXIZ7WjAVB3S/UDGwRze5c
+	vLPAjPZx4WelWgCA==
+Authentication-Results: smtp-out2.suse.de;
+	none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
+	t=1738229374; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=dA9EIQPA3LlcVtB+tMezspGE+fONF9lDmcS9FOPkdmo=;
+	b=UkxQk9bacpOhOwz8sAB4aQyluRJpDgdZP+NRzPJcAotWbzoQaZXSJS+ls9RZlLDF0BD2TS
+	kbGPzgl8UBTCFieY0d+mFbKXkRZ0whGJNU/jDM7j9iO1B/H5qGUV3bBQe+Nsv3bmUvkEoe
+	+hXDbRmuyv7HcPwgkp+KY3179mjv990=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
+	s=susede2_ed25519; t=1738229374;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=dA9EIQPA3LlcVtB+tMezspGE+fONF9lDmcS9FOPkdmo=;
+	b=8YQr3t8sgBwk3x3rLY+1xQabuwyXCwp4z43GG0+ZkcjvJ8p6zXIZ7WjAVB3S/UDGwRze5c
+	vLPAjPZx4WelWgCA==
+Received: by hawking.nue2.suse.org (Postfix, from userid 17005)
+	id 3E72C4A056A; Thu, 30 Jan 2025 10:29:34 +0100 (CET)
+From: Andreas Schwab <schwab@suse.de>
+To: Jeff Layton <jlayton@kernel.org>
+Cc: linux-riscv@lists.infradead.org,  linux-kernel@vger.kernel.org,
+  linux-fsdevel@vger.kernel.org
+Subject: Re: Multigrain timestamps do not work on RISC-V
+In-Reply-To: <fe719cdf52e9fc48955f116ea2e23ea8136e4d87.camel@kernel.org> (Jeff
+	Layton's message of "Wed, 29 Jan 2025 18:28:36 -0500")
+References: <mvmv7ty3pd8.fsf@suse.de> <mvmikpx4jw4.fsf@suse.de>
+	<f704b0c40c393d1c326f13d043505960924f879a.camel@kernel.org>
+	<fe719cdf52e9fc48955f116ea2e23ea8136e4d87.camel@kernel.org>
+Date: Thu, 30 Jan 2025 10:29:34 +0100
+Message-ID: <mvma5b84pkx.fsf@suse.de>
 User-Agent: Gnus/5.13 (Gnus v5.13)
 MIME-Version: 1.0
-X-TM-AS-GCONF: 00
-X-Proofpoint-ORIG-GUID: _PT8AYkS--OiAY9k3Cx2fgjUXkzP0l7n
-X-Proofpoint-GUID: HYavPV8yQaPduF9AV11zSUaS5ZQTGJu6
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1057,Hydra:6.0.680,FMLib:17.12.68.34
- definitions=2025-01-30_05,2025-01-29_01,2024-11-22_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 lowpriorityscore=0
- mlxlogscore=851 phishscore=0 clxscore=1011 adultscore=0 priorityscore=1501
- spamscore=0 impostorscore=0 malwarescore=0 suspectscore=0 mlxscore=0
- bulkscore=0 classifier=spam adjust=0 reason=mlx scancount=1
- engine=8.19.0-2411120000 definitions=main-2501300069
+X-Spamd-Result: default: False [-4.20 / 50.00];
+	BAYES_HAM(-3.00)[99.99%];
+	NEURAL_HAM_LONG(-1.00)[-1.000];
+	NEURAL_HAM_SHORT(-0.20)[-0.999];
+	MIME_GOOD(-0.10)[text/plain];
+	RCVD_NO_TLS_LAST(0.10)[];
+	RCVD_COUNT_ONE(0.00)[1];
+	TO_DN_SOME(0.00)[];
+	MIME_TRACE(0.00)[0:+];
+	ARC_NA(0.00)[];
+	FROM_HAS_DN(0.00)[];
+	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
+	FROM_EQ_ENVFROM(0.00)[];
+	MID_RHS_MATCH_FROM(0.00)[];
+	TO_MATCH_ENVRCPT_ALL(0.00)[];
+	FUZZY_BLOCKED(0.00)[rspamd.com];
+	RCPT_COUNT_THREE(0.00)[4]
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250130_012659_637943_EC474E29 
-X-CRM114-Status: GOOD (  22.58  )
+X-CRM114-CacheID: sfid-20250130_012936_145880_924CB281 
+X-CRM114-Status: UNSURE (   7.27  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -179,67 +117,20 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-"Dmitry V. Levin" <ldv@strace.io> writes:
+On Jan 29 2025, Jeff Layton wrote:
 
-> These functions are going to be needed on all HAVE_ARCH_TRACEHOOK
-> architectures to implement PTRACE_SET_SYSCALL_INFO API.
->
-> This partially reverts commit 7962c2eddbfe ("arch: remove unused
-> function syscall_set_arguments()") by reusing some of old
-> syscall_set_arguments() implementations.
->
-> Signed-off-by: Dmitry V. Levin <ldv@strace.io>
-> Tested-by: Charlie Jenkins <charlie@rivosinc.com>
-> Reviewed-by: Charlie Jenkins <charlie@rivosinc.com>
-> ---
->  arch/arc/include/asm/syscall.h        | 14 +++++++++++
->  arch/arm/include/asm/syscall.h        | 13 ++++++++++
->  arch/arm64/include/asm/syscall.h      | 13 ++++++++++
->  arch/csky/include/asm/syscall.h       | 13 ++++++++++
->  arch/hexagon/include/asm/syscall.h    | 14 +++++++++++
->  arch/loongarch/include/asm/syscall.h  |  8 ++++++
->  arch/mips/include/asm/syscall.h       | 32 ++++++++++++++++++++++++
->  arch/nios2/include/asm/syscall.h      | 11 ++++++++
->  arch/openrisc/include/asm/syscall.h   |  7 ++++++
->  arch/parisc/include/asm/syscall.h     | 12 +++++++++
->  arch/powerpc/include/asm/syscall.h    | 10 ++++++++
->  arch/riscv/include/asm/syscall.h      |  9 +++++++
->  arch/s390/include/asm/syscall.h       | 12 +++++++++
->  arch/sh/include/asm/syscall_32.h      | 12 +++++++++
->  arch/sparc/include/asm/syscall.h      | 10 ++++++++
->  arch/um/include/asm/syscall-generic.h | 14 +++++++++++
->  arch/x86/include/asm/syscall.h        | 36 +++++++++++++++++++++++++++
->  arch/xtensa/include/asm/syscall.h     | 11 ++++++++
->  include/asm-generic/syscall.h         | 16 ++++++++++++
->  19 files changed, 267 insertions(+)
->
-> diff --git a/arch/s390/include/asm/syscall.h b/arch/s390/include/asm/syscall.h
-> index 27e3d804b311..b3dd883699e7 100644
-> --- a/arch/s390/include/asm/syscall.h
-> +++ b/arch/s390/include/asm/syscall.h
-> @@ -78,6 +78,18 @@ static inline void syscall_get_arguments(struct task_struct *task,
->  	args[0] = regs->orig_gpr2 & mask;
->  }
->  
-> +static inline void syscall_set_arguments(struct task_struct *task,
-> +					 struct pt_regs *regs,
-> +					 const unsigned long *args)
-> +{
-> +	unsigned int n = 6;
-> +
-> +	while (n-- > 0)
-> +		if (n > 0)
-> +			regs->gprs[2 + n] = args[n];
-> +	regs->orig_gpr2 = args[0];
-> +}
+> Obviously, fixing the macro seems like the better solution, but if
+> fixing this efficiently is a problem, then moving I_CTIME_QUERIED to
+> bit 30 is also an option.
 
-Could that be changed to something like:
+There is no need to change it, the fix for arch_cmpxchg is pretty
+straight forward, see
+<https://lore.kernel.org/all/mvmed0k4prh.fsf@suse.de/>.
 
-for (int n = 1; n < 6; n++)
-        regs->gprs[2 + n] = args[n];
-regs->orig_gpr2 = args[0];
-
-I think this is way easier to parse.
+-- 
+Andreas Schwab, SUSE Labs, schwab@suse.de
+GPG Key fingerprint = 0196 BAD8 1CE9 1970 F4BE  1748 E4D4 88E3 0EEA B9D7
+"And now for something completely different."
 
 _______________________________________________
 linux-riscv mailing list
