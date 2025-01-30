@@ -4,63 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CFD92C02195
-	for <linux-riscv@archiver.kernel.org>; Thu, 30 Jan 2025 14:10:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4359CC0218A
+	for <linux-riscv@archiver.kernel.org>; Thu, 30 Jan 2025 14:11:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
 	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=dkR7vomTOZkafMtcYovm4Uu5RPntiH6LvcGq+pACyV4=; b=1DsruihOSbuC2+
-	cPKs3cQv3M79ycBkAmCReydk82RoGQbPMlmBwPaKvH6InbjLae6FLc9mIYfngXuv0xRu0z0e/EPUb
-	IKBNvPs2hdnbhr75BdD0MPz1WbtR7fKvPNSrniziuAbVlLieOA9x/+7GY1BIHhGrua+vUcNoWk166
-	X9M0N2xqmihY9kqUHYx+26oZheFucmRn2ShWaThJyGQR8yt39K4igyZ5a7k8epBq6UrtQHAokVib9
-	M83Hm0pC/F612BnOMeZ3O6bzOGZMKUC5iHB7Fszsz8Kuq9GCcFYu4N8itbNhfpjfEvNpcmLpx2e2k
-	9HTAkA8LtQJERSGNjVJA==;
+	List-Owner; bh=NJep3ou1h+kI4Pkdhn+bxqJfTo23a6R2eDpwIglgB+0=; b=eYQKQQ7++TnQ+F
+	sVapI/LfdlfOyniOz+d4AiL9I+LlqVzzZPDREkmfriFTi+06hxdX0IWf7Ce/n3l+jztifOMzfoWGw
+	YdIRY89dt/gKvAd+/GJUpJ45DP3F+O/w7PIuAsj2IRb7OXDOM3240nXklqyDnDCaBZPWJUFo2Jp65
+	x9VhrY1rx93XxthKsQ8r12c4JBCmZiS4/49X4Dw9VzCfnj+qnAR2nckv3OoRxRAfnKYuf1y6sp2Zm
+	VacY3A6rI4f++eyRLBq0urBoF9plL+uIOD4DYS1eSYVemzlY5IinLcgWkW402B5JsyhzMzDE+9e3r
+	FKNHPkgSNMhfORzgyH7w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tdVFL-00000008wMQ-2Rye;
-	Thu, 30 Jan 2025 14:10:19 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1tdVGg-00000008wo6-3U09;
+	Thu, 30 Jan 2025 14:11:42 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tdVFH-00000008wJH-3q7g
-	for linux-riscv@lists.infradead.org;
-	Thu, 30 Jan 2025 14:10:18 +0000
+	id 1tdVFK-00000008wLZ-3pwq;
+	Thu, 30 Jan 2025 14:10:20 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 3ABE85C6038;
-	Thu, 30 Jan 2025 14:09:35 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id F0206C4CEE0;
-	Thu, 30 Jan 2025 14:10:14 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 83505A41ABA;
+	Thu, 30 Jan 2025 14:08:31 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 078F6C4CEE0;
+	Thu, 30 Jan 2025 14:10:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1738246215;
-	bh=gAB9uXM+mzKAnOJm4WDzv7NrurFgJ8yv0HwEZuN0vEM=;
+	s=k20201202; t=1738246218;
+	bh=9+g/CdbDGQY0MKh8KuXIORy84Cune0MY5qj0W7Kj2Qs=;
 	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=JFgL0D+pIOR7mYWIT8c7JyfpDpVVX1jPS+Qf9Auu7deL2K3kYHffWESrxmQbSy02D
-	 g393bUZumPvkXgq80/hlG1GyHr2m9QvntEu9tBH+QWT0PY9rk4Xvf0Q5clRPSMiqTi
-	 KnYZjfshz+D+R08PH2Byn7SwbwFLSZJUx94oH6HImEEsQHGDt7bQzo0+RQGYJfm9A/
-	 J/leE7FOJ8zvv7jbAqvhz3oOcw6XTASz1+jauF42kXDbS3fjcWFzZM/CVWfw//BpDI
-	 icl7h56nvGPEcoTwBU8E6Rpk4dFHITVlKJ+3nRuS6LCI0d1eGDAxefAxWHGoYPLRsj
-	 zJR2lIF1RehNw==
+	b=tjr7SdDBr3+Fs5IbJYELFc574X1htZLZbpExQuJpDk6mlc5B3WtoRHftpc2AuN4jI
+	 xquntxyf3Wx3YVhFUFadZRK2T/ZZIBkq38GU5TeMsAXqXcwyEAFvoj8SvpmmHK1a4D
+	 o4U2lBqkVv1HLfl5so3xYsMVWLVHMKLUth3KVKM6KGPPAY/NBHXJy30Zyc8U34a1KE
+	 k1GkM8ffZTFa6U1c5ldyoqgp0Gy8/UsZpsuO8Jqj7HjN/Ud9VjP1+NAgI6zSpV7qjG
+	 vZZt+SxdpF0paX7sLwgIwnwZwCKwu3BvJfJqMBdSimzREinVNOGl7tUsnk/ZfhrOSU
+	 hs20squu2pOCA==
 Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 70F86380AA66;
-	Thu, 30 Jan 2025 14:10:42 +0000 (UTC)
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 71114380AA66;
+	Thu, 30 Jan 2025 14:10:45 +0000 (UTC)
 MIME-Version: 1.0
-Subject: Re: [PATCH] riscv: add a warning when physical memory address overflows
+Subject: Re: [PATCH v4 0/4] defconfig: drop RT_GROUP_SCHED=y
 From: patchwork-bot+linux-riscv@kernel.org
-Message-Id: <173824624099.971083.29484788191658517.git-patchwork-notify@kernel.org>
-Date: Thu, 30 Jan 2025 14:10:40 +0000
-References: <20240814062625.19794-1-cuiyunhui@bytedance.com>
-In-Reply-To: <20240814062625.19794-1-cuiyunhui@bytedance.com>
-To: yunhui cui <cuiyunhui@bytedance.com>
-Cc: linux-riscv@lists.infradead.org, punit.agrawal@bytedance.com,
- paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
- alexghiti@rivosinc.com, chenjiahao16@huawei.com, guoren@kernel.org,
- vishal.moola@gmail.com, stuart.menefy@codasip.com,
- linux-kernel@vger.kernel.org
+Message-Id: <173824624400.971083.13259437466133760961.git-patchwork-notify@kernel.org>
+Date: Thu, 30 Jan 2025 14:10:44 +0000
+References: <20250115-fix-riscv-rt_group_sched-v4-0-607606fe73a5@coelacanthus.name>
+In-Reply-To: <20250115-fix-riscv-rt_group_sched-v4-0-607606fe73a5@coelacanthus.name>
+To: Celeste Liu <uwu@coelacanthus.name>
+Cc: linux-riscv@lists.infradead.org, paul.walmsley@sifive.com,
+ palmer@dabbelt.com, aou@eecs.berkeley.edu, guoren@kernel.org,
+ anup@brainfault.org, heinrich.schuchardt@canonical.com,
+ chenhuacai@kernel.org, kernel@xen0n.name, ysato@users.sourceforge.jp,
+ dalias@libc.org, glaubitz@physik.fu-berlin.de, linux@armlinux.org.uk,
+ florian.fainelli@broadcom.com, bcm-kernel-feedback-list@broadcom.com,
+ rjui@broadcom.com, sbranden@broadcom.com, tony@atomide.com,
+ thierry.reding@gmail.com, jonathanh@nvidia.com, aaro.koskinen@iki.fi,
+ andreas@kemnade.info, khilman@baylibre.com, rogerq@kernel.org,
+ palmer@rivosinc.com, linux-kernel@vger.kernel.org, loongarch@lists.linux.dev,
+ linux-sh@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-rpi-kernel@lists.infradead.org, linux-omap@vger.kernel.org,
+ linux-tegra@vger.kernel.org, charlie@rivosinc.com, xry111@xry111.site,
+ wahrenst@gmx.net, treding@nvidia.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250130_061015_994197_6F5C0B88 
-X-CRM114-Status: UNSURE (   8.29  )
+X-CRM114-CacheID: sfid-20250130_061019_016575_8852E100 
+X-CRM114-Status: UNSURE (   9.69  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -80,22 +88,29 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 Hello:
 
-This patch was applied to riscv/linux.git (for-next)
+This series was applied to riscv/linux.git (for-next)
 by Palmer Dabbelt <palmer@rivosinc.com>:
 
-On Wed, 14 Aug 2024 14:26:25 +0800 you wrote:
-> The part of physical memory that exceeds the size of the linear mapping
-> will be discarded. When the system starts up normally, a warning message
-> will be printed to prevent confusion caused by the mismatch between the
-> system memory and the actual physical memory.
-> 
-> Signed-off-by: Yunhui Cui <cuiyunhui@bytedance.com>
+On Wed, 15 Jan 2025 04:41:19 +0800 you wrote:
+> For cgroup v1, if turned on, and there's any cgroup in the "cpu" hierarchy it
+> needs an RT budget assigned, otherwise the processes in it will not be able to
+> get RT at all. The problem with RT group scheduling is that it requires the
+> budget assigned but there's no way we could assign a default budget, since the
+> values to assign are both upper and lower time limits, are absolute, and need to
+> be sum up to < 1 for each individal cgroup. That means we cannot really come up
+> with values that would work by default in the general case.[1]
 > 
 > [...]
 
 Here is the summary with links:
-  - riscv: add a warning when physical memory address overflows
-    https://git.kernel.org/riscv/c/101971298be2
+  - [v4,1/4] riscv: defconfig: drop RT_GROUP_SCHED=y
+    https://git.kernel.org/riscv/c/26f2d6de4179
+  - [v4,2/4] loongarch: defconfig: drop RT_GROUP_SCHED=y
+    (no matching commit)
+  - [v4,3/4] sh: defconfig: drop RT_GROUP_SCHED=y from sdk7786/urquell
+    (no matching commit)
+  - [v4,4/4] arm: defconfig: drop RT_GROUP_SCHED=y from bcm2835/tegra/omap2plus
+    (no matching commit)
 
 You are awesome, thank you!
 -- 
