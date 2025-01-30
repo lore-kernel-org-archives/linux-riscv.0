@@ -4,72 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4359CC0218A
-	for <linux-riscv@archiver.kernel.org>; Thu, 30 Jan 2025 14:11:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7F4DEC0218A
+	for <linux-riscv@archiver.kernel.org>; Thu, 30 Jan 2025 14:19:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
-	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=NJep3ou1h+kI4Pkdhn+bxqJfTo23a6R2eDpwIglgB+0=; b=eYQKQQ7++TnQ+F
-	sVapI/LfdlfOyniOz+d4AiL9I+LlqVzzZPDREkmfriFTi+06hxdX0IWf7Ce/n3l+jztifOMzfoWGw
-	YdIRY89dt/gKvAd+/GJUpJ45DP3F+O/w7PIuAsj2IRb7OXDOM3240nXklqyDnDCaBZPWJUFo2Jp65
-	x9VhrY1rx93XxthKsQ8r12c4JBCmZiS4/49X4Dw9VzCfnj+qnAR2nckv3OoRxRAfnKYuf1y6sp2Zm
-	VacY3A6rI4f++eyRLBq0urBoF9plL+uIOD4DYS1eSYVemzlY5IinLcgWkW402B5JsyhzMzDE+9e3r
-	FKNHPkgSNMhfORzgyH7w==;
+	List-Owner; bh=FKiiRGFV9rEDgSVVCNI8SUH4BuwVJKfcMm1mdVHlEQs=; b=XqJrRof/TLRbQO
+	UdDPjZW5xqaquGvMGF1AI6CS4aWDhhrp7jqMFJGYkVjo/nKruwUJ+w/pYuQZkfTJSWUmsSwQ82scN
+	LsSlrib+iBEEtQ10ovxTo3kPUTOssYlyuoSmq9oFK96O9YwNLU8bkyIEYru4ZB7OhhY4XNfMJbFdQ
+	IHH/XHcM4BhR+lpegSBnoPbg79MEnO2qJgu+9Pa+wF5y+RqUBpqIlK+Z6PLDOd3n7UF2Sq1huktNG
+	cWw5QUjOmKVTOTJxO+F8MJS17zYRQaGUpkot0i42Cea7mc2NO1oqpmaappExpqCKGyve5doWXNB1O
+	JrauwqFYJirMSyX/HElA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tdVGg-00000008wo6-3U09;
-	Thu, 30 Jan 2025 14:11:42 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1tdVNn-00000008xbH-1JcO;
+	Thu, 30 Jan 2025 14:19:03 +0000
+Received: from relay8-d.mail.gandi.net ([217.70.183.201])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tdVFK-00000008wLZ-3pwq;
-	Thu, 30 Jan 2025 14:10:20 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 83505A41ABA;
-	Thu, 30 Jan 2025 14:08:31 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 078F6C4CEE0;
-	Thu, 30 Jan 2025 14:10:18 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1738246218;
-	bh=9+g/CdbDGQY0MKh8KuXIORy84Cune0MY5qj0W7Kj2Qs=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=tjr7SdDBr3+Fs5IbJYELFc574X1htZLZbpExQuJpDk6mlc5B3WtoRHftpc2AuN4jI
-	 xquntxyf3Wx3YVhFUFadZRK2T/ZZIBkq38GU5TeMsAXqXcwyEAFvoj8SvpmmHK1a4D
-	 o4U2lBqkVv1HLfl5so3xYsMVWLVHMKLUth3KVKM6KGPPAY/NBHXJy30Zyc8U34a1KE
-	 k1GkM8ffZTFa6U1c5ldyoqgp0Gy8/UsZpsuO8Jqj7HjN/Ud9VjP1+NAgI6zSpV7qjG
-	 vZZt+SxdpF0paX7sLwgIwnwZwCKwu3BvJfJqMBdSimzREinVNOGl7tUsnk/ZfhrOSU
-	 hs20squu2pOCA==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 71114380AA66;
-	Thu, 30 Jan 2025 14:10:45 +0000 (UTC)
+	id 1tdVNk-00000008xam-0WMe
+	for linux-riscv@lists.infradead.org;
+	Thu, 30 Jan 2025 14:19:01 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id 6B91E41DF3;
+	Thu, 30 Jan 2025 14:18:55 +0000 (UTC)
+Message-ID: <c9cbc2be-d1fd-44ef-aa14-fd25a5ff8490@ghiti.fr>
+Date: Thu, 30 Jan 2025 15:18:54 +0100
 MIME-Version: 1.0
-Subject: Re: [PATCH v4 0/4] defconfig: drop RT_GROUP_SCHED=y
-From: patchwork-bot+linux-riscv@kernel.org
-Message-Id: <173824624400.971083.13259437466133760961.git-patchwork-notify@kernel.org>
-Date: Thu, 30 Jan 2025 14:10:44 +0000
-References: <20250115-fix-riscv-rt_group_sched-v4-0-607606fe73a5@coelacanthus.name>
-In-Reply-To: <20250115-fix-riscv-rt_group_sched-v4-0-607606fe73a5@coelacanthus.name>
-To: Celeste Liu <uwu@coelacanthus.name>
-Cc: linux-riscv@lists.infradead.org, paul.walmsley@sifive.com,
- palmer@dabbelt.com, aou@eecs.berkeley.edu, guoren@kernel.org,
- anup@brainfault.org, heinrich.schuchardt@canonical.com,
- chenhuacai@kernel.org, kernel@xen0n.name, ysato@users.sourceforge.jp,
- dalias@libc.org, glaubitz@physik.fu-berlin.de, linux@armlinux.org.uk,
- florian.fainelli@broadcom.com, bcm-kernel-feedback-list@broadcom.com,
- rjui@broadcom.com, sbranden@broadcom.com, tony@atomide.com,
- thierry.reding@gmail.com, jonathanh@nvidia.com, aaro.koskinen@iki.fi,
- andreas@kemnade.info, khilman@baylibre.com, rogerq@kernel.org,
- palmer@rivosinc.com, linux-kernel@vger.kernel.org, loongarch@lists.linux.dev,
- linux-sh@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-rpi-kernel@lists.infradead.org, linux-omap@vger.kernel.org,
- linux-tegra@vger.kernel.org, charlie@rivosinc.com, xry111@xry111.site,
- wahrenst@gmx.net, treding@nvidia.com
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] riscv/atomic: Do proper sign extension also for unsigned
+ in arch_cmpxchg
+Content-Language: en-US
+To: Andreas Schwab <schwab@suse.de>, linux-riscv@lists.infradead.org
+Cc: linux-kernel@vger.kernel.org
+References: <mvmed0k4prh.fsf@suse.de>
+From: Alexandre Ghiti <alex@ghiti.fr>
+In-Reply-To: <mvmed0k4prh.fsf@suse.de>
+X-GND-State: clean
+X-GND-Score: -100
+X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgdeitdefucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpefkffggfgfuvfevfhfhjggtgfesthejredttddvjeenucfhrhhomheptehlvgigrghnughrvgcuifhhihhtihcuoegrlhgvgiesghhhihhtihdrfhhrqeenucggtffrrghtthgvrhhnpedvledugfelffetkefgleehtedvuefggfeitdeuteegtdeffeelieelheeikedvudenucffohhmrghinhepsghoohhtlhhinhdrtghomhenucfkphepvdgrtdegmegtvggttdemuddutdejmedvvdduleemiegtuggrmeefudefrgemjeelsgdtmegsuggtvdenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepihhnvghtpedvrgdtgeemtggvtgdtmeduuddtjeemvddvudelmeeitggurgemfedufegrmeejlegstdemsggutgdvpdhhvghloheplgfkrfggieemvdgrtdegmegtvggttdemuddutdejmedvvdduleemiegtuggrmeefudefrgemjeelsgdtmegsuggtvdgnpdhmrghilhhfrhhomheprghlvgigsehghhhithhirdhfrhdpnhgspghrtghpthhtohepfedprhgtphhtthhopehstghhfigrsgesshhushgvrdguvgdprhgtphhtthhopehlihhnuhigqdhrihhstghvsehlihhsthhsrdhinhhfrhgruggvrggurdhorhhgpdhrtghpt
+ hhtoheplhhinhhugidqkhgvrhhnvghlsehvghgvrhdrkhgvrhhnvghlrdhorhhg
+X-GND-Sasl: alex@ghiti.fr
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250130_061019_016575_8852E100 
-X-CRM114-Status: UNSURE (   9.69  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250130_061900_302620_39FD2520 
+X-CRM114-Status: GOOD (  15.30  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,42 +60,51 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hello:
+Hi Andreas,
 
-This series was applied to riscv/linux.git (for-next)
-by Palmer Dabbelt <palmer@rivosinc.com>:
+On 30/01/2025 10:25, Andreas Schwab wrote:
+> Sign extend also an unsigned compare value to match what lr.w is doing.
+> Otherwise try_cmpxchg may spuriously return true when used on a u32 value
+> that has the sign bit set, as it happens often in inode_set_ctime_current.
+>
+> Do this in three conversion steps.  The first conversion to long is needed
+> to avoid a -Wpointer-to-int-cast warning when arch_cmpxchg is used with a
+> pointer type.  Then convert to int and back to long to always sign extend
+> the 32-bit value to 64-bit.
+>
+> Fixes: 6c58f25e6938 ("riscv/atomic: Fix sign extension for RV64I")
+> Signed-off-by: Andreas Schwab <schwab@suse.de>
+> ---
+>   arch/riscv/include/asm/cmpxchg.h | 2 +-
+>   1 file changed, 1 insertion(+), 1 deletion(-)
+>
+> diff --git a/arch/riscv/include/asm/cmpxchg.h b/arch/riscv/include/asm/cmpxchg.h
+> index 4cadc56220fe..427c41dde643 100644
+> --- a/arch/riscv/include/asm/cmpxchg.h
+> +++ b/arch/riscv/include/asm/cmpxchg.h
+> @@ -231,7 +231,7 @@
+>   		__arch_cmpxchg(".w", ".w" sc_sfx, ".w" cas_sfx,		\
+>   			       sc_prepend, sc_append,			\
+>   			       cas_prepend, cas_append,			\
+> -			       __ret, __ptr, (long), __old, __new);	\
+> +			       __ret, __ptr, (long)(int)(long), __old, __new);	\
+>   		break;							\
+>   	case 8:								\
+>   		__arch_cmpxchg(".d", ".d" sc_sfx, ".d" cas_sfx,		\
 
-On Wed, 15 Jan 2025 04:41:19 +0800 you wrote:
-> For cgroup v1, if turned on, and there's any cgroup in the "cpu" hierarchy it
-> needs an RT budget assigned, otherwise the processes in it will not be able to
-> get RT at all. The problem with RT group scheduling is that it requires the
-> budget assigned but there's no way we could assign a default budget, since the
-> values to assign are both upper and lower time limits, are absolute, and need to
-> be sum up to < 1 for each individal cgroup. That means we cannot really come up
-> with values that would work by default in the general case.[1]
-> 
-> [...]
 
-Here is the summary with links:
-  - [v4,1/4] riscv: defconfig: drop RT_GROUP_SCHED=y
-    https://git.kernel.org/riscv/c/26f2d6de4179
-  - [v4,2/4] loongarch: defconfig: drop RT_GROUP_SCHED=y
-    (no matching commit)
-  - [v4,3/4] sh: defconfig: drop RT_GROUP_SCHED=y from sdk7786/urquell
-    (no matching commit)
-  - [v4,4/4] arm: defconfig: drop RT_GROUP_SCHED=y from bcm2835/tegra/omap2plus
-    (no matching commit)
+That's a nice catch indeed. IIUC, we have the same issue here 
+https://elixir.bootlin.com/linux/v6.13/source/arch/riscv/include/asm/futex.h#L89 
+right?
 
-You are awesome, thank you!
--- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
+hanks,
 
+Alex
 
 
 _______________________________________________
