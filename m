@@ -4,68 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EE2D3C02195
-	for <linux-riscv@archiver.kernel.org>; Fri, 31 Jan 2025 15:39:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 918DBC0218F
+	for <linux-riscv@archiver.kernel.org>; Fri, 31 Jan 2025 15:40:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	MIME-Version:In-Reply-To:References:Message-ID:Date:Subject:CC:To:From:
 	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
 	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gbt501J3wE4eHufz1HVNdpTBjWTBBD6Po9Dww1E2P0I=; b=mukHpXmXM34PJOuQK8MqjctYks
-	ynxs4FGsR391/IptRGGxMVpkVIkvqCT8R2ZiXGkFC6MqTIpRB+zl+BFdY/7Kem4CNhBoKNDNjv58k
-	5VYdp+fhzqNsvmQuwP3+mSLCy/KLWAJ9B+QAGXA1RE5fOQHz7RD2rZPpRFU4k0BSsYpdfNilXLb3J
-	rLboQenZtURQEiM/2lnpbFN90kKI1Bu1nPin+rkTMdT2qusaVszHDzIeC2E8tv+8qZ/U3TdttkHIf
-	qPz029ROGAeAURrypmplGTAz+FNGCuEkvXMxYu7opBQrO2+g/wB2zZHRgC1i1ow12FBvH4P48pOqc
-	rQAgwQ9A==;
+	bh=Krt3cGNH7cODffDq/GFN9TcDor14ZP1Dn/UkpPca68g=; b=a61z65GSWz0jiCE1kOJ7LfiQwm
+	FkBUeoAIduMyLYInP6oIhl8O7UwXS0ehT4nBuK5TAyAq8KRzmDrlcoJuus/0N//ml5j/1RmC3qxBS
+	JliYd1/xMtT5q47cFdI+p/+YS0znfkgOlowiF2crAITCRAtXB4U9zmKCy+EnlFh1YlGa8p1i8Jp7c
+	oCoO3Ox0U2habn3SdKyuIbpPji9QVoXhJBY4iM4Xkd8wxdkxEg+1EoiyL/dCIebCk2XgFA9D9K5kf
+	Z4Az68oDS0eYQLXmGpvWi1+X4y4EFNMwg97rZehMd9dtZyaJYHFeW1IE3qpcZyrmpsgEAv/DNvjFM
+	9vCeqXWg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tdt7Z-0000000Are0-3CFZ;
-	Fri, 31 Jan 2025 15:39:53 +0000
+	id 1tdt7f-0000000Arg3-0yT8;
+	Fri, 31 Jan 2025 15:39:59 +0000
 Received: from mx07-00376f01.pphosted.com ([185.132.180.163])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tdt7V-0000000ArbZ-0j1R
+	id 1tdt7d-0000000Arer-1rUs
 	for linux-riscv@lists.infradead.org;
-	Fri, 31 Jan 2025 15:39:50 +0000
+	Fri, 31 Jan 2025 15:39:58 +0000
 Received: from pps.filterd (m0168889.ppops.net [127.0.0.1])
-	by mx07-00376f01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 50VF56W1028214;
-	Fri, 31 Jan 2025 15:39:25 GMT
+	by mx07-00376f01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 50VF56W2028214;
+	Fri, 31 Jan 2025 15:39:44 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=imgtec.com; h=cc
 	:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=dk201812; bh=DMHJHtFARTRcNs/xTMQWU5YFs
-	/AQNFi+ikCg3usARSk=; b=ARsGUDcn5/MaZ8DbRyPJKFumER4dFhB7vlvxGeMde
-	/bcSEW3P8DtvTirMp4euxL827dVrX1GCqIrRKHqaB/B8+lWSg4mrVww14SF6LoCR
-	7RRXEWOIu8Z0Ou2SAC478lgx9BKpjH++45eNu14TJM15l8HF3TMoFSXySNGQFBX6
-	z39PYmMzrwTR4ZMorJo7espDd0EWVgWtUlgkip+SrmYWYqT6/MvACigYmPzjrwBL
-	e4bxQOoYEQGGcMlWiNQjLKMID5v2Y21EItRzbbPwRkvuom1jX1Wa1cSSv5I2lM+a
-	MaiBuRDJaxnfwjAAnWVtU6jtFi0S25GOce3SWfNZas9RA==
-Received: from lo2p265cu024.outbound.protection.outlook.com (mail-uksouthazlp17011029.outbound.protection.outlook.com [40.93.67.29])
-	by mx07-00376f01.pphosted.com (PPS) with ESMTPS id 44ep3c302s-2
+	:references:subject:to; s=dk201812; bh=4S52QNc0oLKOsf3Qz5WCgbcpg
+	oK+MJMIM8ZC43ztLY8=; b=y2d3qYiarIJT6Vgxw0ERPo4O+qAL9pmridU/ncSas
+	93uTGzK+A+UWKz2G50KSRKs1unK0Mm9wJZoqrmoxjG95nHJkgszx3tzseZj5NsTR
+	smmtNBOQlOqpYdEk39qw2zqOSIuVsxtvIvxp2kkbFFMw3wcX8FH9xAHwMcvhJr66
+	q/FQaArJcwgBLZvnxv8WGYGjQI/HwmgKdoYOF12MfN6wcZo46EZm/SHo3n7qRLFz
+	FVhRGxet+CegFHc+KTg831kUFoe4S8eNEs/ZVMCOZiKc92/owQV0XNkfSoIKt3U2
+	6bxCyIlVdCbBpi2FzLp+9f2UWkUq2RMeY3T6fM1MpfYuA==
+Received: from lo0p265cu003.outbound.protection.outlook.com (mail-uksouthazlp17012052.outbound.protection.outlook.com [40.93.67.52])
+	by mx07-00376f01.pphosted.com (PPS) with ESMTPS id 44ep3c302y-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 31 Jan 2025 15:39:23 +0000 (GMT)
+	Fri, 31 Jan 2025 15:39:43 +0000 (GMT)
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Sg5GdLe1SnhyZBXwtyaYKdLRbGySkdMjK5+gf1U81PLtTH2uRFRdCDO+nRJ3j1SQRGJ+/u2uhgAc8ScJfqH72HS4hAwuW771lU6jzbIPX73qsj0r7p6AWLueky+7ac0nvnu5aTjh9qorYNfOYlnlf7ZHdZbgcpX1KEE12KNutaMGkGmOnzt9DhpkAAU0q8dV3TpXTk8siPjit+8r4jJQ4h9OfLt1BGUt+c1kezqPDhV7DNH0Usl3Q9luh6AQhbQgbNEbw0f0RguSi8Z9T9HXm2kv6WL8NC5h174XxPduSFKbGEAMy690GYW9RXVBXMlT7ViDy366PDq9YRrS6t3Zbg==
+ b=Gw3Z+F3eNaBqOxRtTrSr8VEcazyRTc0kQMgZELfaKYbWbrratG8ljBUNqelcufUf4qm8DaddcCsvwhPZyo86fgUYnI+k49eBoNZ0sk9wRjj/xRPGSjfjWjo24XAkaz3g21ucfOuYqbddNZ69T775WSJRI2XVestuBbUkwVA7O7qM1gJcy2NQwPXnXb74kW04ZX9SHkv4B+WWae3WRQYXbq4h5j68kyEd5DkeZBnZRO28JRvdcJWS79B9fjuIONK+ZK8U/HaLiyd9i3+84wAf11lp50JLTU/YOEfdRUvC/PUabSOTxC8xmpn06Iq5Dh8lsuDhJbtQajvMa3JZL8j2Cg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=DMHJHtFARTRcNs/xTMQWU5YFs/AQNFi+ikCg3usARSk=;
- b=r7TLK6Io3+023We+ccx+i0+OE5md0Tl1rqEAZ5ZSlnslsQ+5qLwbegxcTUXEQaSDEVmCcTCebRqpgRhfpBRPc+23kW3mSdQi96IPztqVJQg+qK8Nqd5utFazCHEkuaa8PvSff53Aainc7qkXmZVAVkonAJFlGOzjHfaPrJLLl7NwKGxfjhVe9Wm/M+Il6a+KnmGBaNRZ2qabwZi40kJuojmkAQz0J4VcHD1RV2TRWPJUF98T7PlJ+OnkzmYNTjVYyp2GiXSlJ0mz3vUX2nSaDy7sN0xW2mea4iVRzMnxeZO78C3J7dXOhi7yTcPh1snT73jtJfckFlJQma4pmT0ZhQ==
+ bh=4S52QNc0oLKOsf3Qz5WCgbcpgoK+MJMIM8ZC43ztLY8=;
+ b=vk3IavfCn/4AZhBf6v4cYmp10juuy6SYklx5IM80GBH1Fl/GhwHl/4n5HJBn1sn+aWMv+lqEnzdayHD94mI4Mlt808zsp2bwUGn/W7/So3Lh2xUQ6BsPY1RYt73YBhOpkcb9OR5D9gI2XRChMQU8iJ8hVfEyz8zx3fcO9B7EUlqbgWjOKOnbz1kvlaRr/XuTW+3qkLwShU21tH9jmZAFekpkNZ6hqaINgAhIaGd9ifO7+Mf1vnnzKWehUReJMgNtCFiDHMG/MTgiq5NkxU/zhkbOhFw5bLu0BS52n+BuRehwjZYb/X4aGvwdIrrSqRc7xYlVle/b2r55yUcuhcpe2A==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
  smtp.mailfrom=imgtec.com; dmarc=pass action=none header.from=imgtec.com;
  dkim=pass header.d=imgtec.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=IMGTecCRM.onmicrosoft.com; s=selector2-IMGTecCRM-onmicrosoft-com;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=DMHJHtFARTRcNs/xTMQWU5YFs/AQNFi+ikCg3usARSk=;
- b=k1b/cUWI8IrCGIkdq+omQYyduAtErHObBACbh69hG0zwTgP9f3u9cPx3WGyJAqcc40EfzV8KpReFme/nthfXdGa8K7wZ84DkB8rpc+bpoocYn2Ci8MwzlMwWDsIbk8cdo81PQaWtgGYuKrQiJZmJ7BB2VkgsH9yEsJdbyShHOJE=
+ bh=4S52QNc0oLKOsf3Qz5WCgbcpgoK+MJMIM8ZC43ztLY8=;
+ b=PmRu2T4eR+p9J8ZT8Mm5JFcc4HgX1Z7GQTiUWtRdl4rXI6B+FwVfFdZc2SSRtyAmW7X6hImsbngpte0WtOTpbtpgF3UlLg+6E9EkOjBvEwSRJkRzNXKXPzxFmmctRaLOaMBKEKiouVHQeVp4BCt8GHci06NBzpBW9YFGHYNX7sY=
 Received: from CWXP265MB3397.GBRP265.PROD.OUTLOOK.COM (2603:10a6:400:e7::8) by
  LO0P265MB5503.GBRP265.PROD.OUTLOOK.COM (2603:10a6:600:287::8) with Microsoft
  SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.8398.20; Fri, 31 Jan 2025 15:39:22 +0000
+ 15.20.8398.20; Fri, 31 Jan 2025 15:39:42 +0000
 Received: from CWXP265MB3397.GBRP265.PROD.OUTLOOK.COM
  ([fe80::8e9d:6b2f:9881:1e15]) by CWXP265MB3397.GBRP265.PROD.OUTLOOK.COM
  ([fe80::8e9d:6b2f:9881:1e15%6]) with mapi id 15.20.8398.020; Fri, 31 Jan 2025
- 15:39:22 +0000
+ 15:39:41 +0000
 From: Matt Coster <Matt.Coster@imgtec.com>
 To: Michal Wilczynski <m.wilczynski@samsung.com>,
         "mturquette@baylibre.com"
@@ -104,118 +104,119 @@ CC: "linux-clk@vger.kernel.org" <linux-clk@vger.kernel.org>,
         "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
         "dri-devel@lists.freedesktop.org" <dri-devel@lists.freedesktop.org>,
         "linux-pm@vger.kernel.org" <linux-pm@vger.kernel.org>
-Subject: Re: [PATCH v4 02/18] clk: thead: Add clock support for VO subsystem
- in T-Head TH1520 SoC
-Thread-Topic: [PATCH v4 02/18] clk: thead: Add clock support for VO subsystem
- in T-Head TH1520 SoC
-Thread-Index: AQHbc/ZMZNoZego2hUqkbD0QP2EI2w==
-Date: Fri, 31 Jan 2025 15:39:22 +0000
-Message-ID: <cf668998-4f86-4a85-8137-7a8f689c2aa9@imgtec.com>
+Subject: Re: [PATCH v4 12/18] dt-bindings: gpu: Add support for T-HEAD TH1520
+ GPU
+Thread-Topic: [PATCH v4 12/18] dt-bindings: gpu: Add support for T-HEAD TH1520
+ GPU
+Thread-Index: AQHbc/ZYt0fdrtsWzkiY4ycg3g+HiA==
+Date: Fri, 31 Jan 2025 15:39:41 +0000
+Message-ID: <2fe3d93f-62ac-4439-ac17-d81137f6410a@imgtec.com>
 References: <20250128194816.2185326-1-m.wilczynski@samsung.com>
- <CGME20250128194827eucas1p25db822456e223563b8b411f77754c760@eucas1p2.samsung.com>
- <20250128194816.2185326-3-m.wilczynski@samsung.com>
-In-Reply-To: <20250128194816.2185326-3-m.wilczynski@samsung.com>
+ <CGME20250128194841eucas1p29048dc05a26475d8323a7a318a8c7a25@eucas1p2.samsung.com>
+ <20250128194816.2185326-13-m.wilczynski@samsung.com>
+In-Reply-To: <20250128194816.2185326-13-m.wilczynski@samsung.com>
 Accept-Language: en-GB, en-US
 Content-Language: en-US
 X-MS-Has-Attach: yes
 X-MS-TNEF-Correlator: 
 x-ms-publictraffictype: Email
 x-ms-traffictypediagnostic: CWXP265MB3397:EE_|LO0P265MB5503:EE_
-x-ms-office365-filtering-correlation-id: 82e63df7-6bb1-44a2-3eb9-08dd420d6f1d
+x-ms-office365-filtering-correlation-id: 4c0e4822-821c-417a-cb3c-08dd420d7ad4
 x-ms-exchange-senderadcheck: 1
 x-ms-exchange-antispam-relay: 0
 x-microsoft-antispam: BCL:0;ARA:13230040|376014|7416014|366016|1800799024|38070700018|921020;
-x-microsoft-antispam-message-info: =?utf-8?B?Um5hWHNrSEc3NXNVdzJVbE40MlpQVFRaeUxuUlMrZjd3RjZVY1RPdDR5UUdG?=
- =?utf-8?B?TEc1Nm9FWVFMdmJ2dkpJMzlpb2pmQ1pGSWVUVUt6SEFZYWxWd0JjSlJLckdr?=
- =?utf-8?B?ZzhjMFVDcEZVUFQyQlVEVEJnUEU0V0g5OVJ0S3gxZUNUaGFTb24vYTdvL0tR?=
- =?utf-8?B?S0VZWTl1U0Y5b3NkN3UvSXFJaXR5T0JiM1llNDlzbms5SFh0LzUxbTBDdGt2?=
- =?utf-8?B?OVhVNlltVDhSVnJHYnhabnZxZnRhUGU3ckE5YWRIdjV1Z25aZlprWE4rV0xy?=
- =?utf-8?B?ZjhzNFF5MC9GVG9XMnp5QXk3OEpMbE9BMk5mRkd3SEhBZDdGS0pyZ0RSbUFl?=
- =?utf-8?B?dEkwbGM3ZWV3NktMVzhvVmxvaWxuOVluRlhvUVNyTXVKNHRtMUY1b3NhVHU2?=
- =?utf-8?B?QisraGVFT3JrcGg4SCtveW5MejJLTFltc0EyZ2k0a1hQT3czRDkrTTlXYmEz?=
- =?utf-8?B?NTROeHhpSkwzRlRBdWtrRGtuOThLYW1Tc3cyYVRLMEhZdElZcGVCbkJUMzNU?=
- =?utf-8?B?QnBySk1MWDFYNk42ZzdhUkQ1Vyt0d1RDaDJhaEp6djBHTkl0Mk5xQmtrWlpR?=
- =?utf-8?B?eDE1d005TDJCSzF1RDcwMUtEbzMrWnBkU3o2NjM4bWlYaGxUZVNhaXczNWpm?=
- =?utf-8?B?TTJWL0tZck9MZktlVjFsRjNBcXl4dkg4V3czOHlkWnprZEVBV29tYzcra25K?=
- =?utf-8?B?bTNDZXFFdGREWkpNOGZtTnFaeDBoZ0VzQ2lWWU5xbWNqTEdjSXAzWkd5OTJK?=
- =?utf-8?B?cEJBb2Q0TXVNQjhJZlpWdmhUWCtwWGgrRlNpRnVRdXF6cGIrT1NDbmdwTTdP?=
- =?utf-8?B?amtsN0RJMFNSKzVFOFhjSXR3cnZXMThEWm9lcnVGWlp1VksydG5YQU9NYVFm?=
- =?utf-8?B?UjFLY3YrN0xONGp1Mzlwc25zUVJyVjRucFRLL2NvMU45M3g0NU8xVFU5UGFJ?=
- =?utf-8?B?RWp0UVU2SDZsMnZyV2FzOGN2bEVrSGVNdWppYUViNXU0dEVwd1R1VHFPNTdJ?=
- =?utf-8?B?aWRXNTZQWUtoSXJlcEMzVlFxVzdnb2djU3paSTZVZGtJQmZidHl1bVdHajQy?=
- =?utf-8?B?UkZPWU1VeitjY09zVFRDdVdjdTFHZ2JZZFZhZEd6SUk4ZEs2K1hBUWE1blhq?=
- =?utf-8?B?akFhWm9SSytMZ1dFbnFoaFR0Um1BVVV5N2hGRUczczU1Z21zWS9uc0FmcUln?=
- =?utf-8?B?cFVFa1dJOGNRYWIyYzRIblJnRmhubVN0RXIwN3NMUDJ1NHRKVWl1QlRMMEF6?=
- =?utf-8?B?Z1BYYTRrditVYVNnSzJBRWJ3U0Y3ZzNPYTdUaEExaGdBRDAyVG9DZ0NqWDBV?=
- =?utf-8?B?UGF4akVldmVySGJ5ZW5mdFp6Wi9HSnpUMzZBTEpsWW1pK2FDOUptRmlVeFAy?=
- =?utf-8?B?TVNpdG9xRUdMMUp0dlpOSnVEbjI1OGhWS1lNaDF6RmdqaUN4SVMrUnVHUHA3?=
- =?utf-8?B?YXdkcnJla3F4U2JwWCtRMzdMUzFXaGE0RXpxMlZCbWhlck5qbm81OG5xaDQy?=
- =?utf-8?B?OGRXbWNTbmp6S0FyZFNIZkZLRjZFWGZpWUtnNXpQUGtIVHk4dlorZmtwOUlV?=
- =?utf-8?B?alc2akNWZE9FeHVIMGtOQnR5eWRSelBibDRSbGpWV2lMcis0d0YycTdvL2lL?=
- =?utf-8?B?eVhJcUFhQWhWeG1VcmRNU0djS2c5UkN4c3A5c0N6UXgvZEZWUnJEM1VPNEdM?=
- =?utf-8?B?cEU5NWlPYUNZQnBleHVWeTNtT2NLcFFzWHNLcklvNjVtWjQ0SWx1bDJIeGVN?=
- =?utf-8?B?RzFBaE14YTVzSUhnd2VNSFdyYlFRS0dmOUVXVUNIenVuQWlVV08rTUpZRGNP?=
- =?utf-8?B?M3ZtczBZSGFuUTNFSDZYRVhUZlNpdW9pYnlPT3VWRnNVeDZaYmRPbk1jR3Y3?=
- =?utf-8?B?dnJ5U1hSNGZEdTFMajJEbmlxVzV5SFNyd3F1K01KTDNySEZMTTZ2d0JTZVhU?=
- =?utf-8?Q?uC2Xy9+5La0=3D?=
+x-microsoft-antispam-message-info: =?utf-8?B?V2ZyakpHbktOZk5vdExTTWRIN1c3M0N2N1hDUnozVENwWTVrQ29ubjBSWWFD?=
+ =?utf-8?B?R09XYkRZSkR5RTRHcXVhSFphMWx3OHlnZ1V0MGFnOTZTVWx5UVQzV3Iwbndp?=
+ =?utf-8?B?VWRhN3RMZjFiWUFqdmdSOXlSYTRyU1FNRmlCRlZuK21ERVV1ZUxIZ2ZEY3A5?=
+ =?utf-8?B?ckNyeFkvWnR1Z2RVMlF5ZUFRNkEySkRObUE5WjFaREdFVm1BWUpzL1lJNHFa?=
+ =?utf-8?B?eTZWekN4OVNRNlkrMC91Mlh1R2hURURjNk5xZ1RCKzFYMGcwNkpFeXRrRXVX?=
+ =?utf-8?B?blRKVWd2ZE81TVNNUzdDeWFxUmZKRkJxK3dza1RibGVaWWJDZk1EVXgydlM1?=
+ =?utf-8?B?RDc4cTAyczUvb1l2SDFTWWxERGE0aHVnMG9sRkVaWGNHRFpyL0hMS2FXTURJ?=
+ =?utf-8?B?dFdIUGpYdEJmbVI0NFhvb3NzWWR1SXltT0k2TkNpVjBhQkkrSzhqQnFrZUFP?=
+ =?utf-8?B?UWd1TVZBQSs1Nkk5NVlvb1hobGRaMFNxcjFORXBERnZrYXJjUFV6V1dJZHhn?=
+ =?utf-8?B?d0hVaGxGNk1lSXN3S1BIQU1ZY1pPYWtMSzQyaUhlSzRXRjRJTnB6MHhJTllJ?=
+ =?utf-8?B?bFl5WDhYMFVjSG1tRU9hc3d6cWFhUUxoZ1l3WWhBZG04a2s3VGVoMEVuR25r?=
+ =?utf-8?B?Tko1N2Y2c3l1dklHMndQOVJMTjFENHE2Y2p4TWtMb08vSVVGdHJhZFBxWXMr?=
+ =?utf-8?B?enE5NjJBbWJGOTFuVzJBd0Yxc3hvTVhxUkdQWEVCa2U2TzZlMENHQ0lQR2hJ?=
+ =?utf-8?B?L3cxcnVnN21oL050MHFjV3ZIUWN6T1RHZXdkZXY5VE1MQ1hsblZaanJlZld4?=
+ =?utf-8?B?SWRjQ1B4Z2UwVE1xOVRxUEM0S0xzSWpVSkNoUlBLWnNBL2UyWXR3YlNiYXBF?=
+ =?utf-8?B?d3dFUlhPcnUwRGVXQ0w3TWFDUk1zWW1VWER3S2dWRGFZbE5iMFNPYW5GOHhM?=
+ =?utf-8?B?WWZnSkp4RU54djJLSFNDSzNaNElxZTdPdmNjaHM5ODg2aUZnQ1J0TXVoT3ZY?=
+ =?utf-8?B?bWhwc0xEYVNOTUFBVE1mbFNTN2ZlSkxrNXA5aHZDWmdvd0tPcllvN3J0aE0y?=
+ =?utf-8?B?L3ArcEE3VS9mdi9PWERMQ2ZKczU2L2FudURWWUtmd285azN5QUdkVWcyUzZx?=
+ =?utf-8?B?UXJob3BSVGhrRnduNTJ5MFVDcFNkb3BqeWJIYXhtamliOVFRUEJDTkMvY1c5?=
+ =?utf-8?B?YWFHUG1KWXltcnh5NUIveVZvUndPbXErWi9tQmhpTk1FVFFua3pwTHJNdis3?=
+ =?utf-8?B?SEZITW5UMEtZSGpqS3FnSUlFZ3A5Tzl6RXVlVzhTajE0NWt1SVhQSnZLZXRG?=
+ =?utf-8?B?bUJEWDYwTWVZY3diZlJrWHNRaU1vSlVCL3BJdTJjZ3RFeG1uRHpYcWI2QjZu?=
+ =?utf-8?B?bGc3SWFFbHBjMCtLTVU5V2NaWVZ6R2o3UDBtY3M0VkxaQ3o4d3lLVHI0MnNR?=
+ =?utf-8?B?bHo4b3ZyY2xnYUQrM3hXWVp4ZzVGN3gwdmRUQlI3clI3ekQrNElUVmgvTkhu?=
+ =?utf-8?B?dzdYeUhNakJpUWM5T2tjR2hPend4dWQxd1JrNTdNYXVHeGlwblVqTG9LTzUx?=
+ =?utf-8?B?ZHFLeHFqSzYreisrTHQreUdvTXJiMmtoV0k4TlNqOGk5K25xeC9kYkpHUzRU?=
+ =?utf-8?B?Rjc3dmdtUGtrZ3NVY01VeVlBcFZIaTJSdjdadEgybHVrSStPN3RxczdiSHRE?=
+ =?utf-8?B?bG5PNjhFRStkME5yU29CWUJBenUrZnVrMVFPTCtBYnFONlVwTjJtLzBPa2k3?=
+ =?utf-8?B?NWVKblJucUY4QWEzajI1dG9VL0RuZnFZcENqNnY5dGQ3aURicnhvZFVpUHp6?=
+ =?utf-8?B?QnQ4QkdGbmFpQjJRblI3VW92NVY3YWk1QXg0ZllIMWFkeVlaalNNblg3WDI4?=
+ =?utf-8?B?VERweU5sZEUyYm5HZDZxdVFkQllGNVY4bE9rc3JNc0NuOFZHZ0JGRkp3bkNw?=
+ =?utf-8?B?SnZaRmwrYUJwTElrSUo0a1dwUWtGTUZBeXI5bFhmd0hIUWU0aVc3bVhWeTBE?=
+ =?utf-8?B?clBRQ2dqQlZRPT0=?=
 x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CWXP265MB3397.GBRP265.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(366016)(1800799024)(38070700018)(921020);DIR:OUT;SFP:1102;
 x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?utf-8?B?VDFqTkxvMHdJZjdGQ3BhOGVBZlp3K21kQ0tPQ1pBZ2lQVmdxSUdtcGxxU3By?=
- =?utf-8?B?bVBzMFFOL0t4RGRnYXBPUkdyb1g0U0NFOHRva2IwMjhRaUk4b21KTlY2M0NO?=
- =?utf-8?B?STZWNjBKbVNCUkFuUll4WUsrNUZkbzNKMlB3SytZNzNQSGRJd3U3alVTSDNV?=
- =?utf-8?B?UGhvd1loRCszOVhueGNKYmNOYzRHU2djMWlXbHJRanh2WXJieUdtYTZMRkNr?=
- =?utf-8?B?QXJBR2labDUxWnYyOU0rcWlheVdnSkQ0eVFhRG8zMjE0aEJwOUZwdGNEOWNy?=
- =?utf-8?B?RHNscHhxMEVlZVRZQ25TSEtENnVMZXRvVVg1TnNPNFB0ZVBiOXhVQVFlMC9V?=
- =?utf-8?B?MEhpTkk4amtSZ0xxR3IyN1NpcDRMNHp2dVNFdzBPRVg4WTc3WDQ2SUoyRHJZ?=
- =?utf-8?B?ayt6SFlkSEJIYUd4STdLVHRFOXNoRzkreU83eXpBZXVSMTk0SHFWYThiOUZ5?=
- =?utf-8?B?OVFCbmxzQjdEaG1ZZTdlM1h6aFdJVXlFVFZrWVE2T0RqcHRZclhwOFljdkxU?=
- =?utf-8?B?RmNsb0tTbDhMbXlPR1JGMFdSMHpIQ0JWVHJQSVZzQ0hXY2QyTDlpVlhpYXZz?=
- =?utf-8?B?WlhnT1JSbWIzZ3V4RjdmOEJldkJ0aHVNSjdkTWRLOEkzNzQwUXBzc3ZSR3ZW?=
- =?utf-8?B?MStxTVpyOWVLN2dRM0tJcThOYVN4ZzZ4cE5XRlh6elNzYWhtRXNQaE5NUVFE?=
- =?utf-8?B?T0NTTjdxZmJIK01Eb3RYR29BYUtaQzkxQk81UEdaZStZa0kydEZiWG9lZmF1?=
- =?utf-8?B?ODFxekU1UDJ4ZUZpS0hyMERuaXpDNVBVWkdkVkpIVEprcElrMllwL1N5Mlky?=
- =?utf-8?B?UFgzbGZZWkZLd1NIdSs3ai9MaFNmSHlyVUtSbGtwNlJoUmVkdGQ2VFVWb3hT?=
- =?utf-8?B?bGlTcVhZMkhQSXhYTlNCL2pKWVZoSWRyMktLK2ZaN2kvZlhaWUtCVitnbE04?=
- =?utf-8?B?SjZLWEhrSEZXUExkcGVXOWRDZk42b1BIeDA4Rm1hMXgzTUJ4akg3c2wreWtj?=
- =?utf-8?B?UDhaSzFlbmkzU0gvMlorN2ViRnB4V1FmMTFvN0h6cVJoeVFoZnRUZnZFMXBE?=
- =?utf-8?B?THZjMUwzdzA2Z3daMy9RZEZMOGJBTGROc0pXYlcyeHhrbVI2ZFJVY0piQkRJ?=
- =?utf-8?B?N3lFbDV2ajVyWFVMWEJmbi95WmZpY0pERTNiV0pobWM5bnZ0empJUDFiT3Mz?=
- =?utf-8?B?V1djck1jMDVMSU0xaHNBYXVoZzBPUFVoZ3pwNXNFbGhDWGd5SGxYemszRktj?=
- =?utf-8?B?VnZ1WG5ubXlGZys1RzlrNSsyc0pzSUlKMWVmckNjREwya1p4aFlCcFdNcFNL?=
- =?utf-8?B?QmFqOUR1SEo3VkliVWlrb0xPNVpjQVZKd0NCK1lMdzlpODBVUGJpVmdNelpG?=
- =?utf-8?B?K2NNSHBHdXY0TFVnR2ZHWWE0Z2dWN3RjQVVBeUpGU1VmYnUxc2xoV0V0a1N2?=
- =?utf-8?B?T3V5ZjJrY1E0WlJSa3lVVXdKa1lkVTJ0TWp4Q1dTRlhLNjlYZERRdzdzYVkx?=
- =?utf-8?B?R3A0ajd0NytBZkxPMW95TjZPaUpvYk1QWEo1UzR3MTk5aUI0d1ErV040bWYy?=
- =?utf-8?B?dEgwcEJaam5HV3hEbE95dXl1VnVGZ0V6QzNXYm1pOEtQZjkyc0x4K1dWaTIx?=
- =?utf-8?B?bnhiaGJlN1hwMUlYWk9VUGh3K2ZPa0xXc0hFejB2YXVVMHBxTTBac29FRzVu?=
- =?utf-8?B?SUdpYWI0d2E0NXV0OFpyQjFMZFRwNDVacnZtZjY0aVd2RFJXdDRwK0h0ZVow?=
- =?utf-8?B?cDlvbnVldkdtZjhqd245OUFhYm94MVlwMVh1NGVrMjlZdGtpVmZyKzU3SVFa?=
- =?utf-8?B?bWJqN3MvNHJkWjFaTnRzM2NWTXhmYitzM2o5RDQzbytnS2FHVC9yMTN6dmdI?=
- =?utf-8?B?eXZMdCtma0JMZ1hQRGh5bjNjZFphVGZNbU1ydUUzRThDbzNVM2MwbVRiOGZn?=
- =?utf-8?B?djFtdUxjUytDZUgzTEZPM3Y4VHNjUUJJY2JpRmZTcnpwL0ViMHFieFBpNyts?=
- =?utf-8?B?b1dyWDNsU1dpcGpNTzlncFAxK095YVQ4MUsvOG5XQVA4eG52VytGNjNwR01U?=
- =?utf-8?B?cXNCUVVCelk4bUluc1JtNGZuTVB0dU9DSUFBeXY5dG0yR1JJNDlGcmJCMUJT?=
- =?utf-8?B?TGkyZUM3L3cxRlRnekRCdnpPRzJnZ21nMFBZZTBnczJkVFcwMDRFaW1CTzZv?=
- =?utf-8?B?eXc9PQ==?=
+x-ms-exchange-antispam-messagedata-0: =?utf-8?B?SDlXQU1HR3NzRyswdGdUK053NnRtMUFQdlZzUm9FNHpXamNJUDhpb3JnTkZH?=
+ =?utf-8?B?NUxIaENaem5PQ3U3cFd3MlJCUW4wZ2FnQVU2eU5RcGJrVnFKN015Y2ZVRENa?=
+ =?utf-8?B?bytwYmdFV0RhR0s4VFdkV3U1S0I3a1BpT2YvNzZRT1YvZ0xtd3c2UGJIYlFr?=
+ =?utf-8?B?d2hDOGQzVnMxdmpEa2ZNaG5SbUhNU0trb0w3MGZLdHMydnNMSGY0aXJneVhI?=
+ =?utf-8?B?Nlp5YlN1c1NUMDNCSmt4YzdndjMybXNBNlFiSjJtaUpFMHA1VkxPZGlCdDVh?=
+ =?utf-8?B?ZndXNkhacnVzVTB3STBhOU9jUTc5blFmekM4WGoyQlF5T0xtYXc1WUErZk1Z?=
+ =?utf-8?B?S01PYVV5UWtRQ1V1bm85dlVOWGV0QUZzWWNONEZ2UWlJbHpsbnVzaVFXdk5a?=
+ =?utf-8?B?OWRlaGNzUVRvYndoU3FQcUhBUlliYWdIRFY2TjJoTUtFdU1kUjB1MmpFaVMw?=
+ =?utf-8?B?azNTVnpzSUZQTWFxQks4dE5tT21lTHRPczFIQXA5bUtOWmxRdExXdmFEYk9u?=
+ =?utf-8?B?djlJcENtQVpFQjhaMlQweFZhaXhoaWo2MVJwODdSMDU4OEdEQkNxbUxVR3pL?=
+ =?utf-8?B?bnBkczZTMlR5UzJVL0F5aWQyTEtqaFBXOVZabTdlQ3VoejZjSkt2TmZmMGZ1?=
+ =?utf-8?B?UmsvdTdSMEY3SHdOZklXMFBOZi9STW5RRllZaHNwZ2dFby9BWlBzbmdxdU9q?=
+ =?utf-8?B?YkxqUGQ1Q2tXZ3hUSjZUYkg5Zm5mL2RoczlEMG40UlVmMlZ4Tk0yRHZOSjNU?=
+ =?utf-8?B?Ny8yaCtPZ2V4aDVncWVCTXBpbWsydmVNYTJlK3dyWkVaR24xcXNGZVZOelhX?=
+ =?utf-8?B?K3BSTjZCZHJGdUpMcUlUblBKMkVUZEEwcXl2dTgxeEtkZEpUOTA5YlE0RHpZ?=
+ =?utf-8?B?dEZTODRGVjZ5Q2UvdUVIcW5LL2h5VmZJcW1mYncxbXROSDJNM2lTZ2g2KzJF?=
+ =?utf-8?B?Qm5aeGQrT1VvbEJIUEtoWnhjblJRU3JEaXpoL1hhYnlnNG43bEt6UWpiV3ZT?=
+ =?utf-8?B?UCtPZGtiWlRyQUwveXlSVlFpL0RRVlpXK3VDVmtBRXNjQkNVZWlqbG10ZXZI?=
+ =?utf-8?B?bFduWjFna0Z2ckY5MVMya1Zzak5mK3k0WjkwWEE5TlFZSjV6L0FBMDMyemsz?=
+ =?utf-8?B?NTlSaW0rR2U2ZFNoS1gwRmJJZnJxRHF6UnB5cnhrZjgvc0lScFc3dFl0VzNI?=
+ =?utf-8?B?YXJQd1pRQ1ZPNlhmb3UvVW1ENjdscmtOZnJVeW5jMVRYdExyc2JVSzNIZXFZ?=
+ =?utf-8?B?dUQ3blRkaUVNbDFLcDE2RGhDOFVaV3N0QlY3VXZSYUlObTFDNUsyYkNhaE5J?=
+ =?utf-8?B?czBvdzA4MEpoRjdtOFVtMkwzcy93N3ltcXJYRVpLa3N0ZmhHd0hoS2tEQUlr?=
+ =?utf-8?B?VXhCOXo3RC9zOGg5RGgxNUNLSTkvM3BJWGlWSVBoZ1dsaldoWU1rbytVdlU3?=
+ =?utf-8?B?RTJpNFA4Yy9BN3JSWjlPaU5iV095MGZ4Y3U4dVdBZGNvU1huL0pFZ1NDcWxG?=
+ =?utf-8?B?RWg3ZFQ5bEdJYkRVRmNPR0R4bjRjQ1d5WVBBNUJ2WVVWVWczWVVndWQ3WVV2?=
+ =?utf-8?B?YW5oSS9KdndxblhMcXp2U0lIeUxQbnluL0R2UERmY3FyUXRTTy9vUE9PbVZ3?=
+ =?utf-8?B?ZWtxRVhYd09FbU9jeEdxcDFuNTE4TXB4Nkp6c1U3QjZhMmhGWEI3Y2tzRUtU?=
+ =?utf-8?B?R0UxTUI5R2NhSGJSc0tKNHkxa2VkUGd3elFxMnhsVHRjWk1CMUdNZXA1SG5h?=
+ =?utf-8?B?V0FXNXdEU2paNWVUaXlHTFdqcjk1b0tsMWp0ekhuR3F5WStrQk52N2xraW44?=
+ =?utf-8?B?OTVvZlROT3hsVlFkd3NmY01qdWN6SFdabktMZHFTSFRzR3kxMnEwZEM5NEts?=
+ =?utf-8?B?RzlUeU56cm53VDRad1dSUmtBako3c2hLbVVSSXMrUFlyQ29nMFVqdnMrMjE5?=
+ =?utf-8?B?NjdpQ0ZXclF3NUd5T1RtbUJnbE5MSkQ0UElBaVQ3UEE0Uk1RUm0yZDQ2U0V4?=
+ =?utf-8?B?QUtkWEk3Z0xOeGkzZ1JldEJ3ZjA2c1U2RzFJYVRrWmtpM1lZV3hFRUtZMWov?=
+ =?utf-8?B?MlZVZDVySkljdHZrN3Vqekp0VWxBWVdoeGxWMkdRZ0VHNnMwbGpmZUtFaDlo?=
+ =?utf-8?B?ZWo5WGtIbzNQeVJkMVd6ZGlvUVlwMVdqNnpUUlFNci9UWW41UkdJL2ZRWUVz?=
+ =?utf-8?B?R0E9PQ==?=
 MIME-Version: 1.0
 X-OriginatorOrg: imgtec.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
 X-MS-Exchange-CrossTenant-AuthSource: CWXP265MB3397.GBRP265.PROD.OUTLOOK.COM
-X-MS-Exchange-CrossTenant-Network-Message-Id: 82e63df7-6bb1-44a2-3eb9-08dd420d6f1d
-X-MS-Exchange-CrossTenant-originalarrivaltime: 31 Jan 2025 15:39:22.2487
+X-MS-Exchange-CrossTenant-Network-Message-Id: 4c0e4822-821c-417a-cb3c-08dd420d7ad4
+X-MS-Exchange-CrossTenant-originalarrivaltime: 31 Jan 2025 15:39:41.8832
  (UTC)
 X-MS-Exchange-CrossTenant-fromentityheader: Hosted
 X-MS-Exchange-CrossTenant-id: 0d5fd8bb-e8c2-4e0a-8dd5-2c264f7140fe
 X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: 8+SSvVV0JZfWFGinSxUxvp99Br4zHitvulIuNklIcCnVcRPQOqtCG1BWlxxjLJYuSk9Za/RAMf0ifTrzNJ36OA==
+X-MS-Exchange-CrossTenant-userprincipalname: N41UDLQ6YCWho4wqCwQX2A2kFRBCL/+nLniwlEMp2avkXerni8BNKyNpB1hffRHOVo806H5kKZYAWR8pKXyaDw==
 X-MS-Exchange-Transport-CrossTenantHeadersStamped: LO0P265MB5503
-X-Proofpoint-GUID: inlET9cWfCZ5wqKY4zeUFlg1coGWmucq
-X-Authority-Analysis: v=2.4 cv=PoBpbxM3 c=1 sm=1 tr=0 ts=679ceeac cx=c_pps a=mRJfeTHGti1YOx0CH8CfHg==:117 a=wKuvFiaSGQ0qltdbU6+NXLB8nM8=:19 a=Ol13hO9ccFRV9qXi2t6ftBPywas=:19 a=xqWC_Br6kY4A:10 a=VdSt8ZQiCzkA:10 a=WnR_qW7rlZcA:10 a=NgoYpvdbvlAA:10
- a=xVOUUHzFAAAA:8 a=hD80L64hAAAA:8 a=r_1tXGB3AAAA:8 a=3yQmnoH8_tkYcm3O6ZwA:9 a=QEXdDO2ut3YA:10 a=ISgEDxiQpJvkg5DMPToA:9 a=FfaGCDsud1wA:10 a=BFkDlhTjP3qpOTzr41qL:22 a=t8nPyN_e6usw4ciXM-Pk:22
-X-Proofpoint-ORIG-GUID: inlET9cWfCZ5wqKY4zeUFlg1coGWmucq
+X-Proofpoint-GUID: lSn58D18wfumlDUVw804SCDnQy3mQ5yG
+X-Authority-Analysis: v=2.4 cv=PoBpbxM3 c=1 sm=1 tr=0 ts=679ceec0 cx=c_pps a=+8G7KV7MoNjfk4g9SO/OOg==:117 a=wKuvFiaSGQ0qltdbU6+NXLB8nM8=:19 a=Ol13hO9ccFRV9qXi2t6ftBPywas=:19 a=xqWC_Br6kY4A:10 a=VdSt8ZQiCzkA:10 a=WnR_qW7rlZcA:10 a=NgoYpvdbvlAA:10
+ a=hD80L64hAAAA:8 a=r_1tXGB3AAAA:8 a=-fQqvUCQEPmyFsL1sjYA:9 a=QEXdDO2ut3YA:10 a=IuWS7esrMLBfnw7xo7YA:9 a=FfaGCDsud1wA:10 a=t8nPyN_e6usw4ciXM-Pk:22
+X-Proofpoint-ORIG-GUID: lSn58D18wfumlDUVw804SCDnQy3mQ5yG
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250131_073949_523046_E98ED01A 
-X-CRM114-Status: GOOD (  15.65  )
+X-CRM114-CacheID: sfid-20250131_073957_789182_5803CA74 
+X-CRM114-Status: GOOD (  17.37  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -227,18 +228,18 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============7166837470090979133=="
+Content-Type: multipart/mixed; boundary="===============5155138423533567104=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
---===============7166837470090979133==
+--===============5155138423533567104==
 Content-Language: en-US
 Content-Type: multipart/signed; micalg=pgp-sha256;
 	protocol="application/pgp-signature";
-	boundary="------------jkuz8klicTr03P3PrhKep0KO"
+	boundary="------------icqSmFcs0ol6qu0Qgm0EhTR5"
 
---------------jkuz8klicTr03P3PrhKep0KO
-Content-Type: multipart/mixed; boundary="------------KMUnNqRXVfTSk0ZKCUXePycU";
+--------------icqSmFcs0ol6qu0Qgm0EhTR5
+Content-Type: multipart/mixed; boundary="------------cd8sO06lL6Rmmg9xS505TJSh";
  protected-headers="v1"
 From: Matt Coster <matt.coster@imgtec.com>
 To: Michal Wilczynski <m.wilczynski@samsung.com>, mturquette@baylibre.com,
@@ -252,392 +253,148 @@ To: Michal Wilczynski <m.wilczynski@samsung.com>, mturquette@baylibre.com,
 Cc: linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
  linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
  dri-devel@lists.freedesktop.org, linux-pm@vger.kernel.org
-Message-ID: <cf668998-4f86-4a85-8137-7a8f689c2aa9@imgtec.com>
-Subject: Re: [PATCH v4 02/18] clk: thead: Add clock support for VO subsystem
- in T-Head TH1520 SoC
+Message-ID: <2fe3d93f-62ac-4439-ac17-d81137f6410a@imgtec.com>
+Subject: Re: [PATCH v4 12/18] dt-bindings: gpu: Add support for T-HEAD TH1520
+ GPU
 References: <20250128194816.2185326-1-m.wilczynski@samsung.com>
- <CGME20250128194827eucas1p25db822456e223563b8b411f77754c760@eucas1p2.samsung.com>
- <20250128194816.2185326-3-m.wilczynski@samsung.com>
-In-Reply-To: <20250128194816.2185326-3-m.wilczynski@samsung.com>
+ <CGME20250128194841eucas1p29048dc05a26475d8323a7a318a8c7a25@eucas1p2.samsung.com>
+ <20250128194816.2185326-13-m.wilczynski@samsung.com>
+In-Reply-To: <20250128194816.2185326-13-m.wilczynski@samsung.com>
 
---------------KMUnNqRXVfTSk0ZKCUXePycU
+--------------cd8sO06lL6Rmmg9xS505TJSh
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: quoted-printable
 
 On 28/01/2025 19:48, Michal Wilczynski wrote:
-> The T-Head TH1520 SoC integrates a variety of clocks for its subsystems=
-,
-> including the Application Processor (AP) and the Video Output (VO) [1].=
+> Add bindings for the PowerVR BXM-4-64 GPU integrated in the T-HEAD
+> TH1520 SoC.  This GPU requires two clocks.
 
-> Up until now, the T-Head clock driver only supported AP clocks.
->=20
-> This commit extends the driver to provide clock functionality for the V=
-O
-> subsystem. At this stage, the focus is on implementing the VO clock
-> gates, as these are currently the most relevant and required components=
+None of the IMG Rogue GPUs use two clocks; they're all either one or
+three. The TRM for the TH1520 I have shows the standard three (core,
+cfg and mem). I mentioned this on P2 ("clk: thead: Add clock support for
+VO subsystem in T-Head TH1520 SoC"); can you add the missing clock here
+too?
 
-> for enabling and disabling the VO subsystem functionality.  Future
-> enhancements may introduce additional VO-related clocks as necessary.
->=20
-> Link: https://openbeagle.org/beaglev-ahead/beaglev-ahead/-/blob/main/do=
-cs/TH1520%20System%20User%20Manual.pdf  [1]
+> Document the integration details including clock, reset, power domain
+> and interrupt assignments. Add a dt-bindings example showing the proper=
+
+> usage of the compatible string "thead,th1520-gpu" along with
+> "img,img-bxm".
 >=20
 > Signed-off-by: Michal Wilczynski <m.wilczynski@samsung.com>
 > ---
->  drivers/clk/thead/clk-th1520-ap.c | 197 +++++++++++++++++++++++++-----=
+>  .../bindings/gpu/img,powervr-rogue.yaml       | 39 +++++++++++++++++--=
 
->  1 file changed, 169 insertions(+), 28 deletions(-)
+>  1 file changed, 35 insertions(+), 4 deletions(-)
 >=20
-> diff --git a/drivers/clk/thead/clk-th1520-ap.c b/drivers/clk/thead/clk-=
-th1520-ap.c
-> index 4c9555fc6184..57972589f120 100644
-> --- a/drivers/clk/thead/clk-th1520-ap.c
-> +++ b/drivers/clk/thead/clk-th1520-ap.c
-> @@ -847,6 +847,67 @@ static CCU_GATE(CLK_SRAM1, sram1_clk, "sram1", axi=
-_aclk_pd, 0x20c, BIT(3), 0);
->  static CCU_GATE(CLK_SRAM2, sram2_clk, "sram2", axi_aclk_pd, 0x20c, BIT=
-(2), 0);
->  static CCU_GATE(CLK_SRAM3, sram3_clk, "sram3", axi_aclk_pd, 0x20c, BIT=
-(1), 0);
+> diff --git a/Documentation/devicetree/bindings/gpu/img,powervr-rogue.ya=
+ml b/Documentation/devicetree/bindings/gpu/img,powervr-rogue.yaml
+> index bb607d4b1e07..b0d9635704d8 100644
+> --- a/Documentation/devicetree/bindings/gpu/img,powervr-rogue.yaml
+> +++ b/Documentation/devicetree/bindings/gpu/img,powervr-rogue.yaml
+> @@ -12,10 +12,15 @@ maintainers:
 > =20
-> +static CCU_GATE(CLK_AXI4_VO_ACLK, axi4_vo_aclk, "axi4-vo-aclk",
-> +		video_pll_clk_pd, 0x0, BIT(0), 0);
-> +static CCU_GATE(CLK_GPU_CORE, gpu_core_clk, "gpu-core-clk", video_pll_=
-clk_pd,
-> +		0x0, BIT(3), 0);
-> +static CCU_GATE(CLK_GPU_CFG_ACLK, gpu_cfg_aclk, "gpu-cfg-aclk",
-> +		video_pll_clk_pd, 0x0, BIT(4), 0);
+>  properties:
+>    compatible:
+> -    items:
+> -      - enum:
+> -          - ti,am62-gpu
+> -      - const: img,img-axe # IMG AXE GPU model/revision is fully disco=
+verable
+> +    oneOf:
+> +      - items:
+> +          - enum:
+> +              - ti,am62-gpu
+> +          - const: img,img-axe # IMG AXE GPU model/revision is fully d=
+iscoverable
+> +      - items:
+> +          - enum:
+> +              - thead,th1520-gpu
+> +          - const: img,img-bxm
 
-I see CORE and CFG clocks here; what about MEM? It's listed in the
-linked TRM as BIT(2).
+This is going to be the main conflict between this series and the other
+B-Series series I mentioned on the cover letter. One of the main changes
+in that series is to rework how our compatible strings are structured;
+that would make this "thead,th1520-gpu", "img,img-bxm-4-64",
+"img,img-rogue". Would you mind holding this change back until the other
+series lands so we can avoid carrying a second deprecated compatible
+string?
+
+> =20
+>    reg:
+>      maxItems: 1
+> @@ -60,6 +65,17 @@ allOf:
+>          clocks:
+>            maxItems: 1
+> =20
+> +  - if:
+> +      properties:
+> +        compatible:
+> +          contains:
+> +            const: thead,th1520-gpu
+> +    then:
+> +      properties:
+> +        clocks:
+> +          minItems: 2
+> +          maxItems: 2
+
+As mentioned before, this doesn't represent the hardware. Please bump to
+3 and add the missing clock.
+
+> +
+>  examples:
+>    - |
+>      #include <dt-bindings/interrupt-controller/irq.h>
+> @@ -74,3 +90,18 @@ examples:
+>          interrupts =3D <GIC_SPI 86 IRQ_TYPE_LEVEL_HIGH>;
+>          power-domains =3D <&k3_pds 187 TI_SCI_PD_EXCLUSIVE>;
+>      };
+> +
+> +    #include <dt-bindings/clock/thead,th1520-clk-ap.h>
+> +    #include <dt-bindings/power/thead,th1520-power.h>
+> +    #include <dt-bindings/reset/thead,th1520-reset.h>
+> +
+> +    gpu: gpu@fff0000 {
+> +        compatible =3D "thead,th1520-gpu", "img,img-bxm";
+> +        reg =3D <0xfff0000 0x1000>;
+> +        interrupt-parent =3D <&plic>;
+> +        interrupts =3D <102 IRQ_TYPE_LEVEL_HIGH>;
+> +        clocks =3D <&clk CLK_GPU_CORE>, <&clk CLK_GPU_CFG_ACLK>;
+> +        clock-names =3D "core", "mem";
+
+You have CFG mapped to "mem" here. Out of curiosity, was that mismatch
+required to make things work?
 
 Cheers,
 Matt
 
-> +static CCU_GATE(CLK_DPU_PIXELCLK0, dpu0_pixelclk, "dpu0-pixelclk",
-> +		video_pll_clk_pd, 0x0, BIT(5), 0);
-> +static CCU_GATE(CLK_DPU_PIXELCLK1, dpu1_pixelclk, "dpu1-pixelclk",
-> +		video_pll_clk_pd, 0x0, BIT(6), 0);
-> +static CCU_GATE(CLK_DPU_HCLK, dpu_hclk, "dpu-hclk", video_pll_clk_pd, =
-0x0,
-> +		BIT(7), 0);
-> +static CCU_GATE(CLK_DPU_ACLK, dpu_aclk, "dpu-aclk", video_pll_clk_pd, =
-0x0,
-> +		BIT(8), 0);
-> +static CCU_GATE(CLK_DPU_CCLK, dpu_cclk, "dpu-cclk", video_pll_clk_pd, =
-0x0,
-> +		BIT(9), 0);
-> +static CCU_GATE(CLK_HDMI_SFR, hdmi_sfr_clk, "hdmi-sfr-clk", video_pll_=
-clk_pd,
-> +		0x0, BIT(10), 0);
-> +static CCU_GATE(CLK_HDMI_PCLK, hdmi_pclk, "hdmi-pclk", video_pll_clk_p=
-d, 0x0,
-> +		BIT(11), 0);
-> +static CCU_GATE(CLK_HDMI_CEC, hdmi_cec_clk, "hdmi-cec-clk", video_pll_=
-clk_pd,
-> +		0x0, BIT(12), 0);
-> +static CCU_GATE(CLK_MIPI_DSI0_PCLK, mipi_dsi0_pclk, "mipi-dsi0-pclk",
-> +		video_pll_clk_pd, 0x0, BIT(13), 0);
-> +static CCU_GATE(CLK_MIPI_DSI1_PCLK, mipi_dsi1_pclk, "mipi-dsi1-pclk",
-> +		video_pll_clk_pd, 0x0, BIT(14), 0);
-> +static CCU_GATE(CLK_MIPI_DSI0_CFG, mipi_dsi0_cfg_clk, "mipi-dsi0-cfg-c=
-lk",
-> +		video_pll_clk_pd, 0x0, BIT(15), 0);
-> +static CCU_GATE(CLK_MIPI_DSI1_CFG, mipi_dsi1_cfg_clk, "mipi-dsi1-cfg-c=
-lk",
-> +		video_pll_clk_pd, 0x0, BIT(16), 0);
-> +static CCU_GATE(CLK_MIPI_DSI0_REFCLK, mipi_dsi0_refclk, "mipi-dsi0-ref=
-clk",
-> +		video_pll_clk_pd, 0x0, BIT(17), 0);
-> +static CCU_GATE(CLK_MIPI_DSI1_REFCLK, mipi_dsi1_refclk, "mipi-dsi1-ref=
-clk",
-> +		video_pll_clk_pd, 0x0, BIT(18), 0);
-> +static CCU_GATE(CLK_HDMI_I2S, hdmi_i2s_clk, "hdmi-i2s-clk", video_pll_=
-clk_pd,
-> +		0x0, BIT(19), 0);
-> +static CCU_GATE(CLK_X2H_DPU1_ACLK, x2h_dpu1_aclk, "x2h-dpu1-aclk",
-> +		video_pll_clk_pd, 0x0, BIT(20), 0);
-> +static CCU_GATE(CLK_X2H_DPU_ACLK, x2h_dpu_aclk, "x2h-dpu-aclk",
-> +		video_pll_clk_pd, 0x0, BIT(21), 0);
-> +static CCU_GATE(CLK_AXI4_VO_PCLK, axi4_vo_pclk, "axi4-vo-pclk",
-> +		video_pll_clk_pd, 0x0, BIT(22), 0);
-> +static CCU_GATE(CLK_IOPMP_VOSYS_DPU_PCLK, iopmp_vosys_dpu_pclk,
-> +		"iopmp-vosys-dpu-pclk", video_pll_clk_pd, 0x0, BIT(23), 0);
-> +static CCU_GATE(CLK_IOPMP_VOSYS_DPU1_PCLK, iopmp_vosys_dpu1_pclk,
-> +		"iopmp-vosys-dpu1-pclk", video_pll_clk_pd, 0x0, BIT(24), 0);
-> +static CCU_GATE(CLK_IOPMP_VOSYS_GPU_PCLK, iopmp_vosys_gpu_pclk,
-> +		"iopmp-vosys-gpu-pclk", video_pll_clk_pd, 0x0, BIT(25), 0);
-> +static CCU_GATE(CLK_IOPMP_DPU1_ACLK, iopmp_dpu1_aclk, "iopmp-dpu1-aclk=
-",
-> +		video_pll_clk_pd, 0x0, BIT(27), 0);
-> +static CCU_GATE(CLK_IOPMP_DPU_ACLK, iopmp_dpu_aclk, "iopmp-dpu-aclk",
-> +		video_pll_clk_pd, 0x0, BIT(28), 0);
-> +static CCU_GATE(CLK_IOPMP_GPU_ACLK, iopmp_gpu_aclk, "iopmp-gpu-aclk",
-> +		video_pll_clk_pd, 0x0, BIT(29), 0);
-> +static CCU_GATE(CLK_MIPIDSI0_PIXCLK, mipi_dsi0_pixclk, "mipi-dsi0-pixc=
-lk",
-> +		video_pll_clk_pd, 0x0, BIT(30), 0);
-> +static CCU_GATE(CLK_MIPIDSI1_PIXCLK, mipi_dsi1_pixclk, "mipi-dsi1-pixc=
-lk",
-> +		video_pll_clk_pd, 0x0, BIT(31), 0);
-> +static CCU_GATE(CLK_HDMI_PIXCLK, hdmi_pixclk, "hdmi-pixclk", video_pll=
-_clk_pd,
-> +		0x4, BIT(0), 0);
-> +
->  static CLK_FIXED_FACTOR_HW(gmac_pll_clk_100m, "gmac-pll-clk-100m",
->  			   &gmac_pll_clk.common.hw, 10, 1, 0);
-> =20
-> @@ -963,7 +1024,38 @@ static struct ccu_common *th1520_gate_clks[] =3D =
-{
->  	&sram3_clk.common,
->  };
-> =20
-> -#define NR_CLKS	(CLK_UART_SCLK + 1)
-> +static struct ccu_common *th1520_vo_gate_clks[] =3D {
-> +	&axi4_vo_aclk.common,
-> +	&gpu_core_clk.common,
-> +	&gpu_cfg_aclk.common,
-> +	&dpu0_pixelclk.common,
-> +	&dpu1_pixelclk.common,
-> +	&dpu_hclk.common,
-> +	&dpu_aclk.common,
-> +	&dpu_cclk.common,
-> +	&hdmi_sfr_clk.common,
-> +	&hdmi_pclk.common,
-> +	&hdmi_cec_clk.common,
-> +	&mipi_dsi0_pclk.common,
-> +	&mipi_dsi1_pclk.common,
-> +	&mipi_dsi0_cfg_clk.common,
-> +	&mipi_dsi1_cfg_clk.common,
-> +	&mipi_dsi0_refclk.common,
-> +	&mipi_dsi1_refclk.common,
-> +	&hdmi_i2s_clk.common,
-> +	&x2h_dpu1_aclk.common,
-> +	&x2h_dpu_aclk.common,
-> +	&axi4_vo_pclk.common,
-> +	&iopmp_vosys_dpu_pclk.common,
-> +	&iopmp_vosys_dpu1_pclk.common,
-> +	&iopmp_vosys_gpu_pclk.common,
-> +	&iopmp_dpu1_aclk.common,
-> +	&iopmp_dpu_aclk.common,
-> +	&iopmp_gpu_aclk.common,
-> +	&mipi_dsi0_pixclk.common,
-> +	&mipi_dsi1_pixclk.common,
-> +	&hdmi_pixclk.common
-> +};
-> =20
->  static const struct regmap_config th1520_clk_regmap_config =3D {
->  	.reg_bits =3D 32,
-> @@ -972,8 +1064,44 @@ static const struct regmap_config th1520_clk_regm=
-ap_config =3D {
->  	.fast_io =3D true,
->  };
-> =20
-> +struct th1520_plat_data {
-> +	struct ccu_common **th1520_pll_clks;
-> +	struct ccu_common **th1520_div_clks;
-> +	struct ccu_common **th1520_mux_clks;
-> +	struct ccu_common **th1520_gate_clks;
-> +
-> +	int nr_clks;
-> +	int nr_pll_clks;
-> +	int nr_div_clks;
-> +	int nr_mux_clks;
-> +	int nr_gate_clks;
-> +};
-> +
-> +static const struct th1520_plat_data th1520_ap_platdata =3D {
-> +	.th1520_pll_clks =3D th1520_pll_clks,
-> +	.th1520_div_clks =3D th1520_div_clks,
-> +	.th1520_mux_clks =3D th1520_mux_clks,
-> +	.th1520_gate_clks =3D th1520_gate_clks,
-> +
-> +	.nr_clks =3D CLK_UART_SCLK + 1,
-> +
-> +	.nr_pll_clks =3D ARRAY_SIZE(th1520_pll_clks),
-> +	.nr_div_clks =3D ARRAY_SIZE(th1520_div_clks),
-> +	.nr_mux_clks =3D ARRAY_SIZE(th1520_mux_clks),
-> +	.nr_gate_clks =3D ARRAY_SIZE(th1520_gate_clks),
-> +};
-> +
-> +static const struct th1520_plat_data th1520_vo_platdata =3D {
-> +	.th1520_gate_clks =3D th1520_vo_gate_clks,
-> +
-> +	.nr_clks =3D CLK_HDMI_PIXCLK + 1,
-> +
-> +	.nr_gate_clks =3D ARRAY_SIZE(th1520_vo_gate_clks),
-> +};
-> +
->  static int th1520_clk_probe(struct platform_device *pdev)
->  {
-> +	const struct th1520_plat_data *plat_data;
->  	struct device *dev =3D &pdev->dev;
->  	struct clk_hw_onecell_data *priv;
-> =20
-> @@ -982,11 +1110,17 @@ static int th1520_clk_probe(struct platform_devi=
-ce *pdev)
->  	struct clk_hw *hw;
->  	int ret, i;
-> =20
-> -	priv =3D devm_kzalloc(dev, struct_size(priv, hws, NR_CLKS), GFP_KERNE=
-L);
-> +	plat_data =3D device_get_match_data(&pdev->dev);
-> +	if (!plat_data) {
-> +		dev_err(&pdev->dev, "Error: No device match data found\n");
-> +		return -ENODEV;
-> +	}
-> +
-> +	priv =3D devm_kzalloc(dev, struct_size(priv, hws, plat_data->nr_clks)=
-, GFP_KERNEL);
->  	if (!priv)
->  		return -ENOMEM;
-> =20
-> -	priv->num =3D NR_CLKS;
-> +	priv->num =3D plat_data->nr_clks;
-> =20
->  	base =3D devm_platform_ioremap_resource(pdev, 0);
->  	if (IS_ERR(base))
-> @@ -996,35 +1130,35 @@ static int th1520_clk_probe(struct platform_devi=
-ce *pdev)
->  	if (IS_ERR(map))
->  		return PTR_ERR(map);
-> =20
-> -	for (i =3D 0; i < ARRAY_SIZE(th1520_pll_clks); i++) {
-> -		struct ccu_pll *cp =3D hw_to_ccu_pll(&th1520_pll_clks[i]->hw);
-> +	for (i =3D 0; i < plat_data->nr_pll_clks; i++) {
-> +		struct ccu_pll *cp =3D hw_to_ccu_pll(&plat_data->th1520_pll_clks[i]-=
->hw);
-> =20
-> -		th1520_pll_clks[i]->map =3D map;
-> +		plat_data->th1520_pll_clks[i]->map =3D map;
-> =20
-> -		ret =3D devm_clk_hw_register(dev, &th1520_pll_clks[i]->hw);
-> +		ret =3D devm_clk_hw_register(dev, &plat_data->th1520_pll_clks[i]->hw=
-);
->  		if (ret)
->  			return ret;
-> =20
->  		priv->hws[cp->common.clkid] =3D &cp->common.hw;
->  	}
-> =20
-> -	for (i =3D 0; i < ARRAY_SIZE(th1520_div_clks); i++) {
-> -		struct ccu_div *cd =3D hw_to_ccu_div(&th1520_div_clks[i]->hw);
-> +	for (i =3D 0; i < plat_data->nr_div_clks; i++) {
-> +		struct ccu_div *cd =3D hw_to_ccu_div(&plat_data->th1520_div_clks[i]-=
->hw);
-> =20
-> -		th1520_div_clks[i]->map =3D map;
-> +		plat_data->th1520_div_clks[i]->map =3D map;
-> =20
-> -		ret =3D devm_clk_hw_register(dev, &th1520_div_clks[i]->hw);
-> +		ret =3D devm_clk_hw_register(dev, &plat_data->th1520_div_clks[i]->hw=
-);
->  		if (ret)
->  			return ret;
-> =20
->  		priv->hws[cd->common.clkid] =3D &cd->common.hw;
->  	}
-> =20
-> -	for (i =3D 0; i < ARRAY_SIZE(th1520_mux_clks); i++) {
-> -		struct ccu_mux *cm =3D hw_to_ccu_mux(&th1520_mux_clks[i]->hw);
-> +	for (i =3D 0; i < plat_data->nr_mux_clks; i++) {
-> +		struct ccu_mux *cm =3D hw_to_ccu_mux(&plat_data->th1520_mux_clks[i]-=
->hw);
->  		const struct clk_init_data *init =3D cm->common.hw.init;
-> =20
-> -		th1520_mux_clks[i]->map =3D map;
-> +		plat_data->th1520_mux_clks[i]->map =3D map;
->  		hw =3D devm_clk_hw_register_mux_parent_data_table(dev,
->  								init->name,
->  								init->parent_data,
-> @@ -1040,10 +1174,10 @@ static int th1520_clk_probe(struct platform_dev=
-ice *pdev)
->  		priv->hws[cm->common.clkid] =3D hw;
->  	}
-> =20
-> -	for (i =3D 0; i < ARRAY_SIZE(th1520_gate_clks); i++) {
-> -		struct ccu_gate *cg =3D hw_to_ccu_gate(&th1520_gate_clks[i]->hw);
-> +	for (i =3D 0; i < plat_data->nr_gate_clks; i++) {
-> +		struct ccu_gate *cg =3D hw_to_ccu_gate(&plat_data->th1520_gate_clks[=
-i]->hw);
-> =20
-> -		th1520_gate_clks[i]->map =3D map;
-> +		plat_data->th1520_gate_clks[i]->map =3D map;
-> =20
->  		hw =3D devm_clk_hw_register_gate_parent_data(dev,
->  							   cg->common.hw.init->name,
-> @@ -1057,19 +1191,21 @@ static int th1520_clk_probe(struct platform_dev=
-ice *pdev)
->  		priv->hws[cg->common.clkid] =3D hw;
->  	}
-> =20
-> -	ret =3D devm_clk_hw_register(dev, &osc12m_clk.hw);
-> -	if (ret)
-> -		return ret;
-> -	priv->hws[CLK_OSC12M] =3D &osc12m_clk.hw;
-> +	if (plat_data =3D=3D &th1520_ap_platdata) {
-> +		ret =3D devm_clk_hw_register(dev, &osc12m_clk.hw);
-> +		if (ret)
-> +			return ret;
-> +		priv->hws[CLK_OSC12M] =3D &osc12m_clk.hw;
-> =20
-> -	ret =3D devm_clk_hw_register(dev, &gmac_pll_clk_100m.hw);
-> -	if (ret)
-> -		return ret;
-> -	priv->hws[CLK_PLL_GMAC_100M] =3D &gmac_pll_clk_100m.hw;
-> +		ret =3D devm_clk_hw_register(dev, &gmac_pll_clk_100m.hw);
-> +		if (ret)
-> +			return ret;
-> +		priv->hws[CLK_PLL_GMAC_100M] =3D &gmac_pll_clk_100m.hw;
-> =20
-> -	ret =3D devm_clk_hw_register(dev, &emmc_sdio_ref_clk.hw);
-> -	if (ret)
-> -		return ret;
-> +		ret =3D devm_clk_hw_register(dev, &emmc_sdio_ref_clk.hw);
-> +		if (ret)
-> +			return ret;
-> +	}
-> =20
->  	ret =3D devm_of_clk_add_hw_provider(dev, of_clk_hw_onecell_get, priv)=
-;
->  	if (ret)
-> @@ -1081,6 +1217,11 @@ static int th1520_clk_probe(struct platform_devi=
-ce *pdev)
->  static const struct of_device_id th1520_clk_match[] =3D {
->  	{
->  		.compatible =3D "thead,th1520-clk-ap",
-> +		.data =3D &th1520_ap_platdata,
-> +	},
-> +	{
-> +		.compatible =3D "thead,th1520-clk-vo",
-> +		.data =3D &th1520_vo_platdata,
->  	},
->  	{ /* sentinel */ },
->  };
+> +        power-domains =3D <&pd TH1520_GPU_PD>;
+> +        resets =3D <&rst TH1520_RESET_ID_GPU>;
+> +    };
 
 --=20
 Matt Coster
 E: matt.coster@imgtec.com
 
---------------KMUnNqRXVfTSk0ZKCUXePycU--
+--------------cd8sO06lL6Rmmg9xS505TJSh--
 
---------------jkuz8klicTr03P3PrhKep0KO
+--------------icqSmFcs0ol6qu0Qgm0EhTR5
 Content-Type: application/pgp-signature; name="OpenPGP_signature.asc"
 Content-Description: OpenPGP digital signature
 Content-Disposition: attachment; filename="OpenPGP_signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-wnsEABYIACMWIQS4qDmoJvwmKhjY+nN5vBnz2d5qsAUCZ5zuqQUDAAAAAAAKCRB5vBnz2d5qsGUY
-AP0UZWWYOE+oYUoeOOg2Ux6JWNh8HmNYan7GqLTCGSrdUgD/UTmT5CHcOSjvzpAcupso5Fqmv1F+
-eSrWBqyt/Yl5HAI=
-=Q3pb
+wnsEABYIACMWIQS4qDmoJvwmKhjY+nN5vBnz2d5qsAUCZ5zuvQUDAAAAAAAKCRB5vBnz2d5qsJUF
+AQCD0JKAnBga6in10i6NbGYj4gArSjkg1YgWrQJ9UxDGJwD+LBl8Iw3i7RREhUwVo3SkQSEToBX6
+6h9jXgpfJQOOGQw=
+=lgkj
 -----END PGP SIGNATURE-----
 
---------------jkuz8klicTr03P3PrhKep0KO--
+--------------icqSmFcs0ol6qu0Qgm0EhTR5--
 
 
---===============7166837470090979133==
+--===============5155138423533567104==
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
@@ -648,5 +405,5 @@ linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
 
---===============7166837470090979133==--
+--===============5155138423533567104==--
 
