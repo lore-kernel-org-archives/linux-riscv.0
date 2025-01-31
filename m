@@ -4,88 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F90FC0218A
-	for <linux-riscv@archiver.kernel.org>; Thu, 30 Jan 2025 23:13:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EE1DCC0218A
+	for <linux-riscv@archiver.kernel.org>; Fri, 31 Jan 2025 00:43:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=d/be757B39RLHsPsZvW8mnU38WWIJpKusyfyGqRRBsA=; b=LAY9xCjvS1Y3rW
-	Fxq/WGgtgKXlxQd5FzWCCI9rnJc7+2VvqY3Bhg9hoKx0vYUY6X4kCf/iQeneqTHARBVhQCXP3r75i
-	wLo0qj6ENF591Z8IQ+jd0Nx8eL9VbMaPwb16LMAGar+MbChc0sh3GrK2Atw3AV9V4aptkF0A9HvIk
-	jdHDXAXoaQ0iQ8eBQtmdcZIxI91L/EIEY1DHPnGhrSP7uF+VkpqmqMSfgrsXOY7Ta1qNbhnYeYKz0
-	dGkAMJo0zdQ0HQ5bLE1zMtvVPpLOud5HyvTPuxTj8Cvmh0ucXojKTZEsgIJThHfiae5eU/6saGYbU
-	GtnMm38IfKNYZMFHAjxg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=fioPKyWwNh0DxCWOgttF5NA2UP4zZwz3xNw3qN1vmJw=; b=qO9PGNajuzDZpxTxGfOFw1bLnQ
+	MFIJC7okEkBXvHgVY45GxphQxuMDCmtcRXM+W0ZD6D//plYLjvNNglwQqKtAwN5tYReScwo96DdHP
+	MMGizkExgQCdc7tw84tBjPGqRe+HZMeRgmUakvE2EIK7Q9mtfx20vFpAEcVNpIP97VyV4CBvzs7dL
+	z867hnqsl+tlceItyETKFk3MWoLfQEGPfl2zuy919mf9y9d2W84ijOBdiFlMrlHFJ5YHyFr/EXKOs
+	9v0nNVgKZqEGI9SPpqkXDycJgFmnVKXvysUr1d62XMZ7lWMJirYtHChsjiOr4BGwIrNMEv9Ca5TZa
+	EUsKM3xg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tddig-00000009lQb-389V;
-	Thu, 30 Jan 2025 23:13:10 +0000
-Received: from mail-pl1-x643.google.com ([2607:f8b0:4864:20::643])
+	id 1tdf7v-00000009rCz-2WtG;
+	Fri, 31 Jan 2025 00:43:19 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tddie-00000009lQF-2TEB
+	id 1tdf7t-00000009rCf-38CH
 	for linux-riscv@lists.infradead.org;
-	Thu, 30 Jan 2025 23:13:10 +0000
-Received: by mail-pl1-x643.google.com with SMTP id d9443c01a7336-2167141dfa1so24211275ad.1
-        for <linux-riscv@lists.infradead.org>; Thu, 30 Jan 2025 15:13:08 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1738278788; x=1738883588; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=K6dfakJZdLAgCLB5QxI47D4nLXvZUFbWeh8LMAiWIx8=;
-        b=ffqZTTUyKk81FZUzZh4tZ9lrbecFR25ABhR8EAnLDMb9XsZEnUavK1a1QFQ15F++7f
-         x4fXORf7EBftCywr9iLnS8n//IsMpNY5fe3a2TA8Xfem1dmE4Gg4EQa3bMTxoc8y7sgj
-         v4j/9IoZes0ArkVUK2AN9o1DhJ64bqznYZEhlID1XsnSoWnh3dhb7Kf+60F4tX5frhjS
-         uXNYMxcWApP3Uw7dGrf0XQQzq6esI0TbvA7NlzTQyucxj6z9HiXP6hpJY2RcajXA3H0h
-         pHHj+UkQxqJhRSwzdlFSNlM7LGTK0g5IqnUjX+qQ9yJ9eub+Hf7CJljn3PkPIJshOoyj
-         5k4A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1738278788; x=1738883588;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=K6dfakJZdLAgCLB5QxI47D4nLXvZUFbWeh8LMAiWIx8=;
-        b=d67KoubQlV/+t1CXIYxsCQLLl84D5eYz0EqX73MtONypbeoV5kXS/v8hxEeyXw1gg2
-         6lapUOIqYwz95BVHu2eXKsS/md+Sik5PovZrGG5gCt8ARF/0q5y/cTMRnh9JhLprRvgn
-         X5ji9mlV0xvB8jfn+ESDuCFkt/7VUpBRAs5Na1wf7dM5pxaxnV3u64Nx2v4ms7lemVz7
-         PfNQX67BY7lmWQz5IsjFkCuj9bHHYIvvF0w4DTLRQgmaL8MkQ/Dxzns3Y9n3riALQyX/
-         Q2rVvlKeUPMmU/VAgAbD1znMqZDy60kSf3UgBs0vXR0ODr3q5xFGtpcLLHPcA7NcStYj
-         EEXA==
-X-Forwarded-Encrypted: i=1; AJvYcCVPzERwueDp6Aez8YmvAfxBX70k8HcGyt14sjv62kIsdxqGD+GRdplF0e6tFQgxLyyPn/ekQCK12Y6zIQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0YxYar0wmxFvSAqKovAIYiY7qN9Pc5aJFORRkgaQXtft0oRjBI/6
-	a1/qHnRYmxui6VNxlan6Pw/2EEm36xC7VCSPgUjFM/l7/YTm9k6Ce2toR07Orxs=
-X-Gm-Gg: ASbGncv/v3i5g8OAL/ltb2Ph3L9oWQI3a675EEViza8hqVIpWMWSoh6voPzpcbCOg3i
-	T1qwTGycPpM3qEYtvUQdfECk1GNm3yihuW/bSBy8XYqZDjL5jmFW69T8fLNgv3ZVEKXIBBYCFVN
-	DIa4Cgs6SYesbL8iF+6HaXdyx0iCTEwZXAcIWBg+0tr/rJQsqchR3glVv6GusEMPkYu69Lj0ki+
-	GADF/CnxJNcbJWFdg15ILk1bqV/sElesaM2JcC9XBqX+boM0UyzU7tvz5B12kR0u1rNC2qEtKXy
-	ty+Itf9HgQ==
-X-Google-Smtp-Source: AGHT+IFR+xkUyuD9Idpx53cQ1xaBXJ7eENhvPjOTRC1EpcZkFaHTLVnV1MPZnMD4/mIj5d+OuSxDWw==
-X-Received: by 2002:a05:6a20:7fa8:b0:1d8:c74d:1ca0 with SMTP id adf61e73a8af0-1ed96f566b8mr1641037637.11.1738278787833;
-        Thu, 30 Jan 2025 15:13:07 -0800 (PST)
-Received: from ghost ([2001:428:6405:1e0:b5f7:fece:b619:6703])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-acebe384317sm1893526a12.19.2025.01.30.15.13.06
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 30 Jan 2025 15:13:07 -0800 (PST)
-Date: Thu, 30 Jan 2025 15:13:05 -0800
-From: Charlie Jenkins <charlie@rivosinc.com>
-To: Emil Renner Berthing <emil.renner.berthing@canonical.com>
-Cc: Paul Walmsley <paul.walmsley@sifive.com>,
+	Fri, 31 Jan 2025 00:43:18 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 59ED6A40A1B;
+	Fri, 31 Jan 2025 00:41:30 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B4DFFC4CED2;
+	Fri, 31 Jan 2025 00:43:14 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1738284196;
+	bh=osraKWffuRHi5+Fhgf1LBp5HE5wFaVm6SYw/LayD9sQ=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=jP2AQrKj6JoQ+QiZt4GZH8uInvOkEkg9jcocIfDTt+/9FLrG4JPI1USmF7qLYjb1K
+	 68GGOzKwtKzBC9yusZjLtcDt3fWF4yioMk6TlL/tFJO4Zo/X4wY8CTVpF+K7ytz/I7
+	 IMkYyrD+72HNyMg3esuosSBrf3wMbGSZE9CzhriFYxVcawtBr8PLCzZlA76lhsIXMu
+	 c8zTwSd+/ZEllWdPFRjxHIvoUd7NWluRdUgEfRISLcVoZ6exTTIkDmFr+NESdMrSa+
+	 NKr5NnuzE3iuTHjCjdYWtX2nJ2xhgqw16qgsfb8jnlvkTKDF5V2/jbUhUdSrCzywqy
+	 /l57sIdJzg0AQ==
+Date: Fri, 31 Jan 2025 00:43:12 +0000
+From: Conor Dooley <conor@kernel.org>
+To: Charlie Jenkins <charlie@rivosinc.com>
+Cc: Aleksandar Rikalo <arikalo@gmail.com>, linux-riscv@lists.infradead.org,
+	Paul Walmsley <paul.walmsley@sifive.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
-	Ard Biesheuvel <ardb@kernel.org>,
-	Ben Dooks <ben.dooks@codethink.co.uk>,
-	Pasha Bouzarjomehri <pasha@rivosinc.com>,
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3] riscv: Add runtime constant support
-Message-ID: <Z5wHgRG6eZKFevUQ@ghost>
-References: <20250128-runtime_const_riscv-v3-1-11922989e2d3@rivosinc.com>
- <CAJM55Z-J9EUotSW_Q0ERF=Vd0nEEhTv4SRHm96uNNxG1r6EsMQ@mail.gmail.com>
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Andrew Jones <ajones@ventanamicro.com>,
+	Christoph =?iso-8859-1?Q?M=FCllner?= <christoph.muellner@vrull.eu>,
+	linux-kernel@vger.kernel.org,
+	Djordje Todorovic <djordje.todorovic@htecgroup.com>
+Subject: Re: [PATCH v3] riscv: Fix the PAUSE Opcode for MIPS P8700.
+Message-ID: <20250131-unknotted-yoga-bccacad0c6d3@spud>
+References: <20250129131703.733098-1-arikalo@gmail.com>
+ <20250129-museum-slider-3bb634d124de@spud>
+ <Z5wEKS9q8-nYPO7h@ghost>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <CAJM55Z-J9EUotSW_Q0ERF=Vd0nEEhTv4SRHm96uNNxG1r6EsMQ@mail.gmail.com>
+In-Reply-To: <Z5wEKS9q8-nYPO7h@ghost>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250130_151308_637456_2E10E04F 
-X-CRM114-Status: GOOD (  35.96  )
+X-CRM114-CacheID: sfid-20250130_164317_926657_695D4501 
+X-CRM114-Status: GOOD (  34.16  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,282 +74,136 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============8943735309950411931=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jan 29, 2025 at 04:30:49AM -0500, Emil Renner Berthing wrote:
-> Charlie Jenkins wrote:
-> > Implement the runtime constant infrastructure for riscv. Use this
-> > infrastructure to generate constants to be used by the d_hash()
-> > function.
-> >
-> > This is the riscv variant of commit 94a2bc0f611c ("arm64: add 'runtime
-> > constant' support") and commit e3c92e81711d ("runtime constants: add
-> > x86 architecture support").
-> >
-> > Signed-off-by: Charlie Jenkins <charlie@rivosinc.com>
-> > ---
-> > Ard brought this to my attention in this patch [1].
-> >
-> > [1] https://lore.kernel.org/lkml/CAMj1kXE4DJnwFejNWQu784GvyJO=aGNrzuLjSxiowX_e7nW8QA@mail.gmail.com/
-> > ---
-> > Changes in v3:
-> > - Leverage "pack" instruction for runtime_const_ptr() to reduce hot path
-> >   by 3 instructions if Zbkb is supported. Suggested by Pasha Bouzarjomehri (pasha@rivosinc.com)
-> > - Link to v2: https://lore.kernel.org/r/20250127-runtime_const_riscv-v2-1-95ae7cf97a39@rivosinc.com
-> >
-> > Changes in v2:
-> > - Treat instructions as __le32 and do proper conversions (Ben)
-> > - Link to v1: https://lore.kernel.org/r/20250127-runtime_const_riscv-v1-1-795b023ea20b@rivosinc.com
-> > ---
-> >  arch/riscv/include/asm/runtime-const.h | 194 +++++++++++++++++++++++++++++++++
-> >  arch/riscv/kernel/vmlinux.lds.S        |   3 +
-> >  2 files changed, 197 insertions(+)
-> >
-> > diff --git a/arch/riscv/include/asm/runtime-const.h b/arch/riscv/include/asm/runtime-const.h
-> > new file mode 100644
-> > index 0000000000000000000000000000000000000000..0ecbe6967013900781b0b1048d4622f676b64076
-> > --- /dev/null
-> > +++ b/arch/riscv/include/asm/runtime-const.h
-> > @@ -0,0 +1,194 @@
-> > +/* SPDX-License-Identifier: GPL-2.0 */
-> > +#ifndef _ASM_RISCV_RUNTIME_CONST_H
-> > +#define _ASM_RISCV_RUNTIME_CONST_H
-> > +
-> > +#include <asm/alternative.h>
-> > +#include <asm/cacheflush.h>
-> > +#include <asm/text-patching.h>
-> > +#include <linux/uaccess.h>
-> > +
-> > +#ifdef CONFIG_32BIT
-> > +#define runtime_const_ptr(sym)					\
-> > +({								\
-> > +	typeof(sym) __ret, __tmp;				\
-> > +	asm_inline("1:\t"					\
-> > +		".option push"					\
-> > +		".option norvc"					\
-> > +		"lui	%[__ret],0x89abd\n\t"			\
-> > +		"addi	%[__ret],-0x211\n\t"			\
-> > +		".option pop"					\
-> > +		".pushsection runtime_ptr_" #sym ",\"a\"\n\t"	\
-> > +		".long 1b - .\n\t"				\
-> > +		".popsection"					\
-> > +		: [__ret] "=r" (__ret));			\
-> > +	__ret;							\
-> > +})
-> > +#else
-> > +/*
-> > + * Loading 64-bit constants into a register from immediates is a non-trivial
-> > + * task on riscv64. To get it somewhat performant, load 32 bits into two
-> > + * different registers and then combine the results.
-> > + *
-> > + * If the processor supports the Zbkb extension, we can combine the final
-> > + * "slli,slli,srli,add" into the single "pack" instruction. If the processor
-> > + * doesn't support Zbkb but does support the Zbb extension, we can
-> > + * combine the final "slli,srli,add" into one instruction "add.uw".
-> > + */
-> > +#define runtime_const_ptr(sym)						\
-> > +({									\
-> > +	typeof(sym) __ret, __tmp;					\
-> > +	asm_inline("1:\t"						\
-> > +		".option push\n\t"					\
-> > +		".option norvc\n\t"					\
-> > +		"lui	%[__ret],0x89abd\n\t"				\
-> > +		"lui	%[__tmp],0x1234\n\t"				\
-> > +		"addiw	%[__ret],%[__ret],-0x211\n\t"			\
-> > +		"addiw	%[__tmp],%[__tmp],0x567\n\t"			\
-> > +		ALTERNATIVE_2(						\
-> > +			"slli	%[__tmp],%[__tmp],32\n\t"		\
-> > +			"slli	%[__ret],%[__ret],32\n\t"		\
-> > +			"srli	%[__ret],%[__ret],32\n\t"		\
-> > +			"add	%[__ret],%[__ret],%[__tmp]\n\t",	\
-> > +			".option push\n\t"				\
-> > +			".option arch,+zba\n\t"				\
-> > +			"slli	%[__tmp],%[__tmp],32\n\t"		\
-> > +			"add.uw %[__ret],%[__ret],%[__tmp]\n\t"		\
-> > +			"nop\n\t"					\
-> > +			"nop\n\t"					\
-> > +			".option pop\n\t",				\
-> > +			0, RISCV_ISA_EXT_ZBA, 1,			\
-> > +			".option push\n\t"				\
-> > +			".option arch,+zbkb\n\t"			\
-> > +			"pack	%[__ret],%[__ret],%[__tmp]\n\t"		\
-> > +			"nop\n\t"					\
-> > +			"nop\n\t"					\
-> > +			"nop\n\t"					\
-> > +			".option pop\n\t",				\
-> > +			0, RISCV_ISA_EXT_ZBKB, 1			\
-> > +		)							\
-> > +		".option pop\n\t"					\
-> > +		".pushsection runtime_ptr_" #sym ",\"a\"\n\t"		\
-> > +		".long 1b - .\n\t"					\
-> > +		".popsection"						\
-> > +		: [__ret] "=r" (__ret), [__tmp] "=r" (__tmp));		\
-> > +	__ret;								\
-> > +})
-> > +#endif
-> > +
-> > +#ifdef CONFIG_32BIT
-> > +#define SRLI "srli "
-> > +#else
-> > +#define SRLI "srliw "
-> > +#endif
-> > +
-> > +#define runtime_const_shift_right_32(val, sym)			\
-> > +({								\
-> > +	u32 __ret;						\
-> > +	asm_inline("1:\t"					\
-> > +		".option push\n\t"				\
-> > +		".option norvc\n\t"				\
-> > +		SRLI "%[__ret],%[__val],12\n\t"			\
-> > +		".option pop\n\t"				\
-> > +		".pushsection runtime_shift_" #sym ",\"a\"\n\t"	\
-> > +		".long 1b - .\n\t"				\
-> > +		".popsection"					\
-> > +		: [__ret] "=r" (__ret)				\
-> > +		: [__val] "r" (val));				\
-> > +	__ret;							\
-> > +})
-> > +
-> > +#define runtime_const_init(type, sym) do {			\
-> > +	extern s32 __start_runtime_##type##_##sym[];		\
-> > +	extern s32 __stop_runtime_##type##_##sym[];		\
-> > +								\
-> > +	runtime_const_fixup(__runtime_fixup_##type,		\
-> > +			    (unsigned long)(sym),		\
-> > +			    __start_runtime_##type##_##sym,	\
-> > +			    __stop_runtime_##type##_##sym);	\
-> > +} while (0)
-> > +
-> > +static inline void __runtime_fixup_caches(void *where, unsigned int insns)
-> > +{
-> > +	/* On riscv there are currently only cache-wide flushes so va is ignored. */
-> > +	__always_unused uintptr_t va = (uintptr_t)where;
-> > +
-> > +	flush_icache_range(va, va + 4*insns);
-> > +}
-> > +
-> > +/*
-> > + * The 32-bit immediate is stored in a lui+addi pairing.
-> > + * lui holds the upper 20 bits of the immediate in the first 20 bits of the instruction.
-> > + * addi holds the lower 12 bits of the immediate in the first 12 bits of the instruction.
-> > + */
-> > +static inline void __runtime_fixup_32(u32 *lui, u32 *addi, unsigned int val)
-> > +{
-> > +	unsigned int lower_immediate, upper_immediate;
-> > +	u32 lui_insn = le32_to_cpu(*lui);
-> > +	u32 addi_insn = le32_to_cpu(*addi);
-> 
-> Because of the compressed extensions RISC-V instructions are only aligned on
-> 16bit boundaries, so is there another reason you know that these two
-> instructions are 32bit aligned? Otherwise you're adding unaligned accesses
-> here.
 
-Great point, thank you. I will add a ".align 4" to the beginning of
-these instructions to force the alignment.
+--===============8943735309950411931==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="AWGKnN15am8RC/Ax"
+Content-Disposition: inline
 
-- Charlie
 
-> 
-> /Emil
-> 
-> > +	__le32 addi_res, lui_res;
-> > +
-> > +	lower_immediate = sign_extend32(val, 11);
-> > +	upper_immediate = (val - lower_immediate);
-> > +
-> > +	if (upper_immediate & 0xfffff000) {
-> > +		/* replace upper 20 bits of lui with upper immediate */
-> > +		lui_insn &= 0x00000fff;
-> > +		lui_insn |= upper_immediate & 0xfffff000;
-> > +	} else {
-> > +		/* replace lui with nop if immediate is small enough to fit in addi */
-> > +		lui_insn = 0x00000013;
-> > +	}
-> > +
-> > +	if (lower_immediate & 0x00000fff) {
-> > +		/* replace upper 12 bits of addi with lower 12 bits of val */
-> > +		addi_insn &= 0x000fffff;
-> > +		addi_insn |= (lower_immediate & 0x00000fff) << 20;
-> > +	} else {
-> > +		/* replace addi with nop if lower_immediate is empty */
-> > +		addi_insn = 0x00000013;
-> > +	}
-> > +
-> > +	addi_res = cpu_to_le32(addi_insn);
-> > +	lui_res = cpu_to_le32(lui_insn);
-> > +	patch_insn_write(addi, &addi_res, sizeof(addi_res));
-> > +	patch_insn_write(lui, &lui_res, sizeof(lui_res));
-> > +}
-> > +
-> > +static inline void __runtime_fixup_ptr(void *where, unsigned long val)
-> > +{
-> > +	if (IS_ENABLED(CONFIG_32BIT)) {
-> > +		__runtime_fixup_32(where, where + 4, val);
-> > +		__runtime_fixup_caches(where, 2);
-> > +	} else {
-> > +		__runtime_fixup_32(where, where + 8, val);
-> > +		__runtime_fixup_32(where + 4, where + 12, val >> 32);
-> > +		__runtime_fixup_caches(where, 4);
-> > +	}
-> > +}
-> > +
-> > +/*
-> > + * Replace the least significant 5 bits of the srli/srliw immediate that is
-> > + * located at bits 20-24
-> > + */
-> > +static inline void __runtime_fixup_shift(void *where, unsigned long val)
-> > +{
-> > +	u32 insn = le32_to_cpu(*(__le32 *)where);
-> > +	__le32 res;
-> > +
-> > +	insn &= 0xfe0fffff;
-> > +	insn |= (val & 0b11111) << 20;
-> > +
-> > +	res = cpu_to_le32(insn);
-> > +	patch_text_nosync(where, &res, sizeof(insn));
-> > +}
-> > +
-> > +static inline void runtime_const_fixup(void (*fn)(void *, unsigned long),
-> > +				       unsigned long val, s32 *start, s32 *end)
-> > +{
-> > +	while (start < end) {
-> > +		fn(*start + (void *)start, val);
-> > +		start++;
-> > +	}
-> > +}
-> > +
-> > +#endif /* _ASM_RISCV_RUNTIME_CONST_H */
-> > diff --git a/arch/riscv/kernel/vmlinux.lds.S b/arch/riscv/kernel/vmlinux.lds.S
-> > index 002ca58dd998cb78b662837b5ebac988fb6c77bb..61bd5ba6680a786bf1db7dc37bf1acda0639b5c7 100644
-> > --- a/arch/riscv/kernel/vmlinux.lds.S
-> > +++ b/arch/riscv/kernel/vmlinux.lds.S
-> > @@ -97,6 +97,9 @@ SECTIONS
-> >  	{
-> >  		EXIT_DATA
-> >  	}
-> > +
-> > +	RUNTIME_CONST_VARIABLES
-> > +
-> >  	PERCPU_SECTION(L1_CACHE_BYTES)
-> >
-> >  	.rel.dyn : {
-> >
-> > ---
-> > base-commit: ffd294d346d185b70e28b1a28abe367bbfe53c04
-> > change-id: 20250123-runtime_const_riscv-6cd854ee2817
-> > --
-> > - Charlie
-> >
-> >
-> > _______________________________________________
-> > linux-riscv mailing list
-> > linux-riscv@lists.infradead.org
-> > http://lists.infradead.org/mailman/listinfo/linux-riscv
+--AWGKnN15am8RC/Ax
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+On Thu, Jan 30, 2025 at 02:58:49PM -0800, Charlie Jenkins wrote:
+> On Wed, Jan 29, 2025 at 04:19:58PM +0000, Conor Dooley wrote:
+> > On Wed, Jan 29, 2025 at 02:17:03PM +0100, Aleksandar Rikalo wrote:
+> > > From: Djordje Todorovic <djordje.todorovic@htecgroup.com>
+> > >=20
+> > > The riscv MIPS P8700 uses a different opcode for PAUSE.
+> > > It is a =E2=80=98hint=E2=80=99 encoding of the SLLI instruction, with=
+ rd=3D0, rs1=3D0 and
+> > > imm=3D5. It will behave as a NOP instruction if no additional behavior
+> > > beyond that of SLLI is implemented.
+> >=20
+> > You say p8700, but the erratum will be applied on all systems that are
+> > identified as using a mips cpu. Why's that?
+> >=20
+> > > +void mips_errata_patch_func(struct alt_entry *begin,
+> > > +					     struct alt_entry *end,
+> > > +					     unsigned long archid,
+> > > +					     unsigned long impid,
+> > > +					     unsigned int stage)
+> > > +{
+> > > +	struct alt_entry *alt;
+> > > +
+> > > +	BUILD_BUG_ON(ERRATA_MIPS_NUMBER >=3D RISCV_VENDOR_EXT_ALTERNATIVES_=
+BASE);
+> > > +
+> > > +	if (stage =3D=3D RISCV_ALTERNATIVES_EARLY_BOOT)
+> > > +		return;
+> > > +
+> > > +	for (alt =3D begin; alt < end; alt++) {
+> > > +		if (alt->vendor_id !=3D MIPS_VENDOR_ID)
+> > > +			continue;
+> > > +
+> > > +		if (alt->patch_id >=3D ERRATA_MIPS_NUMBER) {
+> > > +			WARN(1, "MIPS errata id:%d not in kernel errata list\n",
+> > > +			     alt->patch_id);
+> > > +			continue;
+> > > +		}
+> > > +
+> > > +		mutex_lock(&text_mutex);
+> > > +		patch_text_nosync(ALT_OLD_PTR(alt), ALT_ALT_PTR(alt), alt->alt_len=
+);
+> > > +		mutex_unlock(&text_mutex);
+> > > +	}
+> > > +}
+> >=20
+> > > diff --git a/tools/arch/riscv/include/asm/vdso/processor.h b/tools/ar=
+ch/riscv/include/asm/vdso/processor.h
+> > > index 662aca039848..880f26a24f69 100644
+> > > --- a/tools/arch/riscv/include/asm/vdso/processor.h
+> > > +++ b/tools/arch/riscv/include/asm/vdso/processor.h
+> > > @@ -14,7 +14,10 @@ static inline void cpu_relax(void)
+> > >  	__asm__ __volatile__ ("div %0, %0, zero" : "=3Dr" (dummy));
+> > >  #endif
+> > > =20
+> > > -#ifdef CONFIG_TOOLCHAIN_HAS_ZIHINTPAUSE
+> > > +#ifdef CONFIG_ERRATA_MIPS_P8700_PAUSE_OPCODE
+> > > +    /* MIPS P8700 pause opcode */
+> > > +    __asm__ __volatile__ (".4byte 0x00501013");
+> > > +#elif CONFIG_TOOLCHAIN_HAS_ZIHINTPAUSE
+> > >  	/*
+> > >  	 * Reduce instruction retirement.
+> > >  	 * This assumes the PC changes.
+> >=20
+> > What about when the erratum is enabled and the toolchain supports
+> > Zihintpause?
+>=20
+> So the other way to do this is having an hwprobe call to check if the
+> currently running processor is effected by this. However I was concerned
+> about the performance penalty of calling hwprobe here in the previous
+> version so I had suggested to use a flag instead so there is not the
+> penalty on other architectures. This does make it invalid to enable
+> this errata in the defconfig. This is a precedent for how we want to
+> handle errata in tools.
+
+Gonna have to be marked non-portable then, if enabling it results in
+tools that might malfunction on other platforms.
+
+> > Why don't you use the same implementation as the !tools
+> > copy of the header? (I'm not sure why they're different in the first
+> > place).
+>=20
+> It is different because the headers in tools are userspace so it doesn't
+> make sense to have alternatives.
+
+I assume that's an answer to the first part, and not the bit in
+brackets since the "first place" difference is about using the .4byte
+versus having an ifdef/else and you're talking about alternatives.
+That looks to have been some sort of sync issue or oversight in
+6da111574baff, no?
+
+--AWGKnN15am8RC/Ax
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZ5wcoAAKCRB4tDGHoIJi
+0kGxAP9gLiRmKNud2bm4Gduu7MiGiDBQE0OTEQ+uFliEN11tFwEA4ORbhIgElazM
+/i2u5edP/3BVuE3y6mhHA1KLijH4Ewg=
+=et18
+-----END PGP SIGNATURE-----
+
+--AWGKnN15am8RC/Ax--
+
+
+--===============8943735309950411931==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============8943735309950411931==--
+
