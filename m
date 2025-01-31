@@ -4,72 +4,218 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E20CAC0218F
-	for <linux-riscv@archiver.kernel.org>; Fri, 31 Jan 2025 15:10:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1B02FC02190
+	for <linux-riscv@archiver.kernel.org>; Fri, 31 Jan 2025 15:39:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=sXqPIEo9DaWLRxJxPUOi4Og18PPCMeYYURXH+H9BfW8=; b=4YOPuAgLJLlGRR
-	KNw3aFmbwgoM7NzEA7CFU3bLHd8f+fY4CZ7wLhawiNK24OyRAtv70N9gDvxhR44afV5t5WDbQvnys
-	Yc9kCEiQYv1/F71lbw0FoEMEL8LRL1xHgPpngb5WUIHidpOvE4Fh9mMNbw1DAzFvJITALZIxF9pN7
-	DY4VnYDNwfg/GwO+4HdNvEfbJUvKhNMlS/fEwHR31F0SEztBNkCbItetkwjgHW787ZwrP0THV0AZ4
-	YYIkmqFVp5z64iW28XVXG5NKEFNBgdZUc8fL83EQVAsLwTGcOGc/71JPdbKn107xKRY5K6rg1UpEl
-	dEPj9QjxQdEmA4MSiG/Q==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	MIME-Version:In-Reply-To:References:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=958xCGjYIeRWmurWjFL+yPs5Nnam3EUXU0CQrqik2mI=; b=Oq7m8y0TGnxPtSOz+x8AAPfPTv
+	hAJpmmsejhzYgt77gYnahU6h9PB42MJFf8uXySDJVM8WqDzA6q94HL9+24YjRMKTKEiLhpwkCxLAU
+	5ahYZtcG35G59Qb3o2cBv4mRgD3zV8PGPJDCh+ckzeUtEiBE5f+wOOPZNKIm8FKFxmzE5Fhh7cVS6
+	wSMtTblHjfTNdm+vBkE6JW1xKE7tIiMLy/MDF/SlHjpJUI15JbOUhMx/PvlM1LKZc9H0CnKr1Vssq
+	WiCynW1A/r8YQtLdBpHTeQZ5G93djkrzzvL9O6xPXhAoCQapCWLkqIkOQnZPrHwC+E8xZgW6D+APo
+	OT/IgEng==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tdsfM-0000000AoZX-1yQ2;
-	Fri, 31 Jan 2025 15:10:44 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1tdt7W-0000000Arcl-2Zst;
+	Fri, 31 Jan 2025 15:39:50 +0000
+Received: from mx07-00376f01.pphosted.com ([185.132.180.163])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tdsfJ-0000000AoZB-4AeW
+	id 1tdt7U-0000000Arbb-15pI
 	for linux-riscv@lists.infradead.org;
-	Fri, 31 Jan 2025 15:10:43 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id AEAD7A41653
-	for <linux-riscv@lists.infradead.org>; Fri, 31 Jan 2025 15:08:54 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id F1A9CC4CEDF
-	for <linux-riscv@lists.infradead.org>; Fri, 31 Jan 2025 15:10:40 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1738336241;
-	bh=eX0cVA2yp71nvD7An+e7tafzcanp+36FNBsdUymO1Lg=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=jo4hQjC5aXakRQngnuNqTei/aintLDideMNfRRMpoHKdagZd5dGCa9ntGDzqkZvxx
-	 tjxNoP4rC9xGhTf26llA1C/FXgbksxQUxV0wb6eRKSKviQqTFvceQuWEPQAzG25xpU
-	 1DyTLB4R/PyDE5syvJ5JTKw/uWoLqdb2ZVc6Gud0gC94BX9r2hAZh0G0CZeXy4/BDZ
-	 P//v8CKaDoI3WzYonswB3dLmuR3R/JOUqn+HmhVi5/O1D4sLcnGI5W1PCtnsfwpi76
-	 JQUBaDVdVHiIXwWsFOadepXsQ7rBxIULMsiWOY1MQiG50924Yncf/e4v7Z1RvC2jMd
-	 2pi680JBilq0g==
-Received: by mail-lf1-f54.google.com with SMTP id 2adb3069b0e04-5401bd6ccadso2134941e87.2
-        for <linux-riscv@lists.infradead.org>; Fri, 31 Jan 2025 07:10:40 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCWNQY+zP3l/MkY8ajqMAmrRE25z98dWF/sBut4m++Lo7Ut+zb2tnBXZDAN++Tg8e6KDp2G0kLJjFLgayw==@lists.infradead.org
-X-Gm-Message-State: AOJu0YyVsi6HU2YJbPijRVXw3mMt9CgyooR55X1IPbU+kLa0GrW/X1QJ
-	3xOn6BlZ/NO3Ac2/c781uNJ9LQ2qjjtYJucPrZLXP46DygRYqqfPNxjFkof4imoHyF4JuSotgAY
-	R4/8g8BmFdIT3HiWRNv4eqtU9j1w=
-X-Google-Smtp-Source: AGHT+IEa5D7ILTAFw/tuud1q0Rc56l9olpgCHLQg0r7/Z2bDIApocb2GXjNIBwm86F2MUJw8DwMA84TcH2H9Zj6R7x4=
-X-Received: by 2002:a05:6512:3a8e:b0:542:8d45:cb3e with SMTP id
- 2adb3069b0e04-543e4beb1d2mr4122940e87.18.1738336239628; Fri, 31 Jan 2025
- 07:10:39 -0800 (PST)
+	Fri, 31 Jan 2025 15:39:49 +0000
+Received: from pps.filterd (m0168889.ppops.net [127.0.0.1])
+	by mx07-00376f01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 50VF57SC028275;
+	Fri, 31 Jan 2025 15:39:30 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=imgtec.com; h=cc
+	:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=dk201812; bh=E2kqLpb6yR80iDCdcO1JkFrzz
+	7udp4XX+Q/QSoqP73A=; b=xvqc/iSE/h9tpzKyjupxfr+r54q96k0zuABeSCNA8
+	iGTwiLAVrFgvKwCujXGWDk2SKgCtvckhgr5p1Y27sJeIBbOn6INPczKepgfqamWH
+	5sHiGYnfJ0EOva8a5dRtcsxW1j9hRai94p0R+ulynVRCxYub9zD0y+OEYkfeKdPb
+	W6XnMROkuvC7RGkexmis3VJhedjwS8ufXeN/PUFJj6OZW0Rk9zhtLjGMfabg7x8f
+	HblJeR2s2AEMDDKSILyx0DhzL2BjFmTjTYjjNgN9z3Xce/pO9Tce5T3F/2SibtOc
+	/j2XvtRso8tqDoe/wIEx7Eq33QrAPVzvtZB462CckaAaQ==
+Received: from lo2p265cu024.outbound.protection.outlook.com (mail-uksouthazlp17011026.outbound.protection.outlook.com [40.93.67.26])
+	by mx07-00376f01.pphosted.com (PPS) with ESMTPS id 44ep3c302v-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Fri, 31 Jan 2025 15:39:28 +0000 (GMT)
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=bRTgvOH2cSfGsKiFpuXZbggLYXPw5T9C86wjNGB9L6KJ1frw9gdEaex7HrN48I4TU6r8v6guZt1+FSbL6n+yw5NNAsGfK3X4KXJlWvKC3n5vPnv63pKLpm2+Up0hrgXmyaeqIGpouw0X+YrIHf6u8Zc/ji0DZ4eo4sXIg4vsFRwjBCczfVw7pSaTp3ThZh7lHMe3mHpcoNmPp9p/KCCeEzuRkcwQdrq7K0vIJNv3I1/U7saetnJ67gcRwMb70lYzHMJThdRjn5Mee2qOPMeMtG34kGZRizqLLhJQosADHDXjG1Poce4DU/ofvg7DJsUFBugTRolZZeTxeldnI9CbYQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=E2kqLpb6yR80iDCdcO1JkFrzz7udp4XX+Q/QSoqP73A=;
+ b=LTKg0d+s0Da/oeWQVxQwthLrQZ5D7wG0HKQzGFNkLPMLT8kaGzGWMcz14aCYPU5wRQ4XBb2jAEqh0ZxygKHGL3DQv/BIMwg7VU0cepRnpl2TmkvgBoFNjtJjJvyFEiRrKLK7Qyq6eqVNpodqMgpOAA7OMmrKBdjweJ26bh1FzGuFobmPhPjYhMd4LBNSzJb9jHMoIgJiMnbqyv8xBZWc+Mgn8yJ31Qy3uroxJ3VEEGK4WHmA5dr6wYJeOpfha4arA6KAwYCXHudYziB6pWdxTo7waDdo86VeFQwCyETgsuBAETgEft1m3qX2qsiVQc1lOUhudaNaDNxTXwebHWMPUA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=imgtec.com; dmarc=pass action=none header.from=imgtec.com;
+ dkim=pass header.d=imgtec.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=IMGTecCRM.onmicrosoft.com; s=selector2-IMGTecCRM-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=E2kqLpb6yR80iDCdcO1JkFrzz7udp4XX+Q/QSoqP73A=;
+ b=P2Hz8YKggOwJlb6UYMuvDBsltyobhhQkICbeLyRX6C2200BgSTdv32ncZ3plohUDz+rlEFDi21QkjMozoPfJAkguusbOvR508pU3d2MUZxWQ+c38mLZM3wBXPHWyAV+eZ5f6GUloyn8IRql4U1itM7g0YJz0oAWBZb3ap/52VPo=
+Received: from CWXP265MB3397.GBRP265.PROD.OUTLOOK.COM (2603:10a6:400:e7::8) by
+ LO0P265MB5503.GBRP265.PROD.OUTLOOK.COM (2603:10a6:600:287::8) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.8398.20; Fri, 31 Jan 2025 15:39:26 +0000
+Received: from CWXP265MB3397.GBRP265.PROD.OUTLOOK.COM
+ ([fe80::8e9d:6b2f:9881:1e15]) by CWXP265MB3397.GBRP265.PROD.OUTLOOK.COM
+ ([fe80::8e9d:6b2f:9881:1e15%6]) with mapi id 15.20.8398.020; Fri, 31 Jan 2025
+ 15:39:26 +0000
+From: Matt Coster <Matt.Coster@imgtec.com>
+To: Michal Wilczynski <m.wilczynski@samsung.com>,
+        "mturquette@baylibre.com"
+	<mturquette@baylibre.com>,
+        "sboyd@kernel.org" <sboyd@kernel.org>,
+        "robh@kernel.org" <robh@kernel.org>,
+        "krzk+dt@kernel.org"
+	<krzk+dt@kernel.org>,
+        "conor+dt@kernel.org" <conor+dt@kernel.org>,
+        "drew@pdp7.com" <drew@pdp7.com>,
+        "guoren@kernel.org" <guoren@kernel.org>,
+        "wefu@redhat.com" <wefu@redhat.com>,
+        "jassisinghbrar@gmail.com"
+	<jassisinghbrar@gmail.com>,
+        "paul.walmsley@sifive.com"
+	<paul.walmsley@sifive.com>,
+        "palmer@dabbelt.com" <palmer@dabbelt.com>,
+        "aou@eecs.berkeley.edu" <aou@eecs.berkeley.edu>,
+        Frank Binns
+	<Frank.Binns@imgtec.com>,
+        "maarten.lankhorst@linux.intel.com"
+	<maarten.lankhorst@linux.intel.com>,
+        "mripard@kernel.org"
+	<mripard@kernel.org>,
+        "tzimmermann@suse.de" <tzimmermann@suse.de>,
+        "airlied@gmail.com" <airlied@gmail.com>,
+        "simona@ffwll.ch" <simona@ffwll.ch>,
+        "ulf.hansson@linaro.org" <ulf.hansson@linaro.org>,
+        "jszhang@kernel.org"
+	<jszhang@kernel.org>,
+        "p.zabel@pengutronix.de" <p.zabel@pengutronix.de>,
+        "m.szyprowski@samsung.com" <m.szyprowski@samsung.com>
+CC: "linux-clk@vger.kernel.org" <linux-clk@vger.kernel.org>,
+        "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+        "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+        "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
+        "dri-devel@lists.freedesktop.org" <dri-devel@lists.freedesktop.org>,
+        "linux-pm@vger.kernel.org" <linux-pm@vger.kernel.org>
+Subject: Re: [PATCH v4 09/18] reset: thead: Add TH1520 reset controller driver
+Thread-Topic: [PATCH v4 09/18] reset: thead: Add TH1520 reset controller
+ driver
+Thread-Index: AQHbc/ZOhStD0GzR6Uu093CNg6Udrw==
+Date: Fri, 31 Jan 2025 15:39:26 +0000
+Message-ID: <816db99d-7088-4c1a-af03-b9a825ac09dc@imgtec.com>
+References: <20250128194816.2185326-1-m.wilczynski@samsung.com>
+ <CGME20250128194836eucas1p151c4fc83a17173fd1b79bfc959976301@eucas1p1.samsung.com>
+ <20250128194816.2185326-10-m.wilczynski@samsung.com>
+In-Reply-To: <20250128194816.2185326-10-m.wilczynski@samsung.com>
+Accept-Language: en-GB, en-US
+Content-Language: en-US
+X-MS-Has-Attach: yes
+X-MS-TNEF-Correlator: 
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: CWXP265MB3397:EE_|LO0P265MB5503:EE_
+x-ms-office365-filtering-correlation-id: 7fa9bdbf-dae2-4f92-bb5b-08dd420d7178
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|376014|7416014|366016|1800799024|38070700018|921020;
+x-microsoft-antispam-message-info: =?utf-8?B?eTZqOUhsUytTNTJxZklNMVBiUHJaR3FaYzVUV3djUzJ0MWcvVGU5TGV3MVV0?=
+ =?utf-8?B?eUxndDhiNEwxVm9YZm5JSG9oZFA0K1RpSDBxMDZ1K2lGb3Uzb0NPV1RUbmxX?=
+ =?utf-8?B?R3hnY3lvSW1wWEpXTS9VV0UwYzhjSkJ1UTZrUUpqb2NPYVRjNDVWRTBDSTBX?=
+ =?utf-8?B?ajRXb0NwZlVydmJLYzRmYUVGRmVhTlBRT1hrT2FrWUlmWldZdlhTTUc5bzZI?=
+ =?utf-8?B?czFtb1dhOTdZenUwNUpGMHZET1NaeTJaaWFmejdMNUNGSDRGbSt4NFdoaEhB?=
+ =?utf-8?B?NnZTZkpvOTI4a0FhcG9HWXFMZU53K2VZUU14bEVKWjhCRXVNYnJiL1NHVU05?=
+ =?utf-8?B?UmI4RUVhVDlaVEtKSy9hdkFmTGF2aUFoWHFPcmw1eXM5MGxjWTFvNURHb0RV?=
+ =?utf-8?B?UkZJSU5xOGJuTjZTMkRnZk5zVXhKWld2WkNsQmtuZnFkNmpZNmU0V3M3QUEz?=
+ =?utf-8?B?NXRFNGY2NEZjVWszUVplUmR5MzhPM2ZSc2E3SXB4WEZGQ2pDNVU0d04wQS9m?=
+ =?utf-8?B?ck1oNG9QOExtMnh4T1pkeXZIYjMrUUh2bWt3QjViL2NPZ2JMa0JoSUs3QkN1?=
+ =?utf-8?B?cFJibmFtVFozSU1NUll6VWRlbFNjTUtPKzZUbGlHOTJXbVBuOHdlSnJ5aHJ5?=
+ =?utf-8?B?djZ2WDhIcmx5OHE1S2U2VW1PSjhGTkhKdFBZNHdqYy8rbG82QVE2Vzk0Wkg3?=
+ =?utf-8?B?T1MyalpiazdxYVJLTHVRMkZ2SXVabE02QkFadmlwemhISHpXaGF6ZG1Sb0Zm?=
+ =?utf-8?B?WTlRQW4zOHBSb1Q2NlQ5eVkyNFAxN0FNV3U2Q2RDZXk1S2NNMmJWSHl6ZUhK?=
+ =?utf-8?B?Tno1WFdhZXc3dU9Delg1ZWpVWmNsUXdvOW1WY0phWHJ4djFKTEZLSzloM3pM?=
+ =?utf-8?B?cDZqdzlvVjQ2Y3JGalBPZWwzL293YlkxdEZpZjFqZXJGTGFqMnFjVVlLUm41?=
+ =?utf-8?B?bkZrSUlQODZFRitsbFdxMnlBOGsvVzhLL20xekRSaHZIamVrM0d0cXpMZStl?=
+ =?utf-8?B?M3ZRMFVvZEVRMTlYVVlwdEpMR2htWTkyVFhvR3RveFRDNHJMT1RRQUlIck92?=
+ =?utf-8?B?amdLYzNjdU1wVTRuWldPTlo1cHNLaW53c3lzY3B4QW52LzZ4LzBRcXNQUXVh?=
+ =?utf-8?B?OXlaMnhmNHlxQmc4dkMwWU92UVppRmw1cnNsa3h4a2JaNXZnOTlQU2Fkby84?=
+ =?utf-8?B?WHBaWW1DaGxibkwzSi82VU1oaHYxSmYyR082bjhJdXBlZWx1bjhuVndBR2Nq?=
+ =?utf-8?B?ZGdDSFBBb1hCQ1hsd0IvOWhXVVRtckNHUDd0N3RPYTNwTE54UEU3ZkZCZkk5?=
+ =?utf-8?B?RVRhbWV1dTljR2RBQUNNRmx4UE9XS09id3p2dkNXandBY09EMGJkU2FBRTFO?=
+ =?utf-8?B?QTJJM05PRm1VN1VvU2FFcVgyUnZIK2VlZG1MZ1lGK2p0NlV3cGlYV1N4UmxS?=
+ =?utf-8?B?RlRpWkU5eDBGVmJya3dQUmo5ZVVOb0hPZ3phSzVhQnE3MUZBMTRFcC9YaVBD?=
+ =?utf-8?B?SG1nVmFyck5IU0lzTUEwNytUOHNISzdIa28rZ1A2b244SVl1RGFVQ25zUms5?=
+ =?utf-8?B?MUgvRm5Rdnp0Mmc1OXh4NkRBd0w0MXpRWXlQNlFndHJiWXRPYStqQTc4ZXZW?=
+ =?utf-8?B?RDRCcnAzK1JtNU5pTHlLcE1Qd1JtN281ajJiZzFLaHgwTERtWXVnc1RLaU5w?=
+ =?utf-8?B?QlVSVGxhTlM4a3pScnB2cjg4dkx0VWE3alJySjVZSkg3L1gyV0NaZWt4dWVi?=
+ =?utf-8?B?YlhiMWNMWVlyV2d6WGRqSG1TU28zakhBblAvb1NQZU5RUjlkbk1ibFpkU01v?=
+ =?utf-8?B?enlEV2YwRVkvUVFjN3R2alVzN0JQRGdhaDN3Z0VHYkhKSWRQZERuYUJ5SXJi?=
+ =?utf-8?B?MlJCSkw0eWVHcklDUzdZWGdOTVFzcmpVd2ZpNU4yTnhEbEFLK1R6WTVFaFdt?=
+ =?utf-8?B?dnJvM2xOSHRkd3VMWi9pZmkyZkEraE14N1Nudm1hMDI1YUJVMFE3N0MrTXVC?=
+ =?utf-8?B?K1h4T0Q2V0ZBPT0=?=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CWXP265MB3397.GBRP265.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(366016)(1800799024)(38070700018)(921020);DIR:OUT;SFP:1102;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?utf-8?B?K3ZJakxwMGFGVkdJQWpBSG9JcUdmK3ZPcUY2Q3J3c3JibWxVRjVFV00ybkky?=
+ =?utf-8?B?NVJOVzRyUE9hbG1sYUxnVXEyWUxGNldrWlJFT1dSM2tjdUczaWF1WGNkWDRD?=
+ =?utf-8?B?UmZGVFlRLzdZdW1ya0lDNzh4bGNZS1hka29FZDNaZmJVWFluaktKL25QYVI4?=
+ =?utf-8?B?bW5NUVVHdkJqcncrTktBVUFBbGtHWllmWUo3cmJkV2ZvdW5RclFWRVhEUGRw?=
+ =?utf-8?B?b2R3ZVk5YzlmMXhYb0xLNVhBNllxRlhWSzYza3l6eEUxTTVnMFpEa0E1YmNG?=
+ =?utf-8?B?clIzVmo0WlpmVU43c0dYUTN3R2QvczlNQ0ZkcUlwM3FmS3M2WUptVEEzT0pQ?=
+ =?utf-8?B?aytWdjZKbjhrbG1CbFdjRThIVFVWZHpVby9TT2xubCtoOXZmOC96c3NOVlJr?=
+ =?utf-8?B?MnJGWFlEcUxRazBWN1h6RzdSNDVETkdBakk1TUhMZVh6WnFLdzAwNy9rS1V2?=
+ =?utf-8?B?b3dJaHdLa3ZHdTBxRjhqVFZwbzZBdDkzaVdNM00rUXlUS3RWR3EzRkNpcDFn?=
+ =?utf-8?B?V1pmaXpKWkNCbEZDcHRGOG03aWYrVTBqL2RtbmRmZ1VCZzhuRlhSWGpza1Ny?=
+ =?utf-8?B?SlV3VGF4QTVQK2tMYWtuQkxNYmROcTR0Z2VlTmI0UjZlbFRmQjU3WE5mRzJ3?=
+ =?utf-8?B?WEg1Wi9BN3NFd1J1L1V1UUdsN2Rwc1pYSlZTQkJKY3d6cXMwc1ZmZ0lOM0Jj?=
+ =?utf-8?B?NFBzRWVaWlJlSHRGMmtURmdnNkxLRnIwODVmWDVaWGU1dGtnSUNCN1h4bXI0?=
+ =?utf-8?B?VWpmZjFaUUlxR1huMHJEeW13cU9DN2lWWi9tUlQwTGk0cXFBS3JnbFdHWlRH?=
+ =?utf-8?B?V3JOOXdFbFpqbkkyaWp3cHZZTmNJZ0R3SHhkdEJDdHNvWUdOTkJkOGVMUTNR?=
+ =?utf-8?B?eTBEdlpPSCt2M0t0ekhDSmxWN1UxUkdRSWdraFkvT2R1T0pselJjN3M5VHZ4?=
+ =?utf-8?B?OUZ1ay9yNlRpQVdGMW9SYmhPNnd2Qm5lUSsvMlRFb0ppM0pQVklOS3F0NUt1?=
+ =?utf-8?B?TG1NUjB5dU5LTUdaeGNkNmNJWmFIQ2V2TXRBLzIwR2lxWW93SklOZkZ6VUMx?=
+ =?utf-8?B?WmxYWWVGZ1p1anlUak9JRjhRWGtaL2paekxhYjAvMDNCL2tmVG85a1hwTnBt?=
+ =?utf-8?B?MnIzWWY1UmVOVVV4RmRDWWZsOEN3UXlzMVNOcG5DRzRHSHpPMU5KSWJBNDI0?=
+ =?utf-8?B?dGlra0lJZW9LV2d4eFh2THhjRlJKb1VaOStVK3EvZEJjN2dJcXhNc3locWxk?=
+ =?utf-8?B?UW12RVQ3WlJ5emhvWGY5bE12R2FmNVNiRVd4TDdXTlgvVHZsL1lzbTlLL1FP?=
+ =?utf-8?B?U1dySDQ3L055WXB3K1QwdmdGd0tqVTVWZW80alNtNXVYamJtMm9LVlpCbDg2?=
+ =?utf-8?B?S1VBaGFDTkYwWWpqQnc5VkdkVDZObnd6STFzbTdMZnBRWUJvUjkrTXhNR2ZI?=
+ =?utf-8?B?Q0dJSGdpV09LYlF0YXB1Wm9kTEZja3JqT0NxbEs5bHl2ZTR6cHlIWW4xbk8r?=
+ =?utf-8?B?cnU0a1FJQ0dJcUV6MXExd051TmxLSWNzdWRpUE9sbzljVjNWM1dQd2lCM1Yy?=
+ =?utf-8?B?SVdwN1FIUFJBcVA0REJhR3VrUUZObmx0YUlrOWY5V3RDNG04V3cvbmlpWDNB?=
+ =?utf-8?B?bzRCUkxYaUpvY3lGRGVkMkVXYnBtdGpFNE5FTkVLQStGalRCa0E2aWRzZzZy?=
+ =?utf-8?B?cmNpVUgvUm5iM3ZsLzEwV2hrbXA0Uk16YXJDQXpRWSsreTlUMVNvaGYraUJa?=
+ =?utf-8?B?bW4wK0JMbkdXRkZZT3J0bjgwU2Q1NURpSjNqVUtBT3N5T3puOVBsd09zNUV2?=
+ =?utf-8?B?cCtNdlRnMGt5RUtNQzBBUTlKYWN3K0FrcVkxOFlnQWZUTkRTQll2dC9Yc0RD?=
+ =?utf-8?B?cEorZ28yVlNjZ3hTalJJeGs4c1VaQTJYQytiNjdhRUhhUXZiSGNoSzMyQzB1?=
+ =?utf-8?B?Q0JvVHBlSlovbHhSalIyUkpER0t2SG5aaHFlaFZLL2dEOWtxWjlMMm5RSHI3?=
+ =?utf-8?B?QXZnSmFXNHIreHhpSjNBVDFUQVI3UkQ4enQyUStBMVBJd3ROenhHZS81VEgv?=
+ =?utf-8?B?R3YydEFsbGxFb3Z3UDkzczdaOWlzZ0xkeUREcEIyRDdiYWFFVG1XNnQwVnFs?=
+ =?utf-8?B?Y0RXQTJjQXVma2FleWR5OG5OT05hQndxa0FLZ2sxdkhGSzdWTUhkbjJiNjNJ?=
+ =?utf-8?B?blE9PQ==?=
 MIME-Version: 1.0
-References: <20250122-strip_unneeded-v1-1-ac29a726cb41@rivosinc.com>
- <20250131035245.GA47826@ax162> <Z5xzkwwZAWRRLCdj@ghost>
-In-Reply-To: <Z5xzkwwZAWRRLCdj@ghost>
-From: Masahiro Yamada <masahiroy@kernel.org>
-Date: Sat, 1 Feb 2025 00:10:02 +0900
-X-Gmail-Original-Message-ID: <CAK7LNAR=1sNs+hOW8gL=7xOs=gHLToTAnAUTF1SizroYoui8sg@mail.gmail.com>
-X-Gm-Features: AWEUYZnyZe5mPzh78I__zpHIfZytPX5pJn8z98JOPt3b9lu7WLwCwryXByvCTvU
-Message-ID: <CAK7LNAR=1sNs+hOW8gL=7xOs=gHLToTAnAUTF1SizroYoui8sg@mail.gmail.com>
-Subject: Re: [PATCH] kbuild: Use --strip-unneeded with INSTALL_MOD_STRIP
-To: Charlie Jenkins <charlie@rivosinc.com>
-Cc: Nathan Chancellor <nathan@kernel.org>, Nicolas Schier <nicolas@fjasle.eu>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, linux-kbuild@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
+X-OriginatorOrg: imgtec.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: CWXP265MB3397.GBRP265.PROD.OUTLOOK.COM
+X-MS-Exchange-CrossTenant-Network-Message-Id: 7fa9bdbf-dae2-4f92-bb5b-08dd420d7178
+X-MS-Exchange-CrossTenant-originalarrivaltime: 31 Jan 2025 15:39:26.1616
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 0d5fd8bb-e8c2-4e0a-8dd5-2c264f7140fe
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: AiUJhdD6PeXJIuAxufajYjJYX9i6/HznHCKmiD5n5MIP2UGO8PBJWt0Jz9J9EU+ZgRwxHenJ6ER+p/TYA679qQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: LO0P265MB5503
+X-Proofpoint-GUID: Vdof7l0TVdwyVN1hxtkvwR4seTxytxNm
+X-Authority-Analysis: v=2.4 cv=PoBpbxM3 c=1 sm=1 tr=0 ts=679ceeb1 cx=c_pps a=/lXe6HOdRU+sJltUoZpKYw==:117 a=wKuvFiaSGQ0qltdbU6+NXLB8nM8=:19 a=Ol13hO9ccFRV9qXi2t6ftBPywas=:19 a=xqWC_Br6kY4A:10 a=VdSt8ZQiCzkA:10 a=WnR_qW7rlZcA:10 a=NgoYpvdbvlAA:10
+ a=hD80L64hAAAA:8 a=r_1tXGB3AAAA:8 a=JChVGnZoar0qVcAQ6v4A:9 a=QEXdDO2ut3YA:10 a=vP7pQmnE2WyvIZqpF2wA:9 a=FfaGCDsud1wA:10 a=t8nPyN_e6usw4ciXM-Pk:22
+X-Proofpoint-ORIG-GUID: Vdof7l0TVdwyVN1hxtkvwR4seTxytxNm
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250131_071042_156842_BE9121A2 
-X-CRM114-Status: GOOD (  24.28  )
+X-CRM114-CacheID: sfid-20250131_073948_616823_40F4F0CF 
+X-CRM114-Status: GOOD (  15.61  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,66 +227,353 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: multipart/mixed; boundary="===============8336520147384999281=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gRnJpLCBKYW4gMzEsIDIwMjUgYXQgMzo1NOKAr1BNIENoYXJsaWUgSmVua2lucyA8Y2hhcmxp
-ZUByaXZvc2luYy5jb20+IHdyb3RlOgo+Cj4gT24gVGh1LCBKYW4gMzAsIDIwMjUgYXQgMDg6NTI6
-NDVQTSAtMDcwMCwgTmF0aGFuIENoYW5jZWxsb3Igd3JvdGU6Cj4gPiBPbiBXZWQsIEphbiAyMiwg
-MjAyNSBhdCAwNzoxNzoyNlBNIC0wODAwLCBDaGFybGllIEplbmtpbnMgd3JvdGU6Cj4gPiA+IE9u
-IHJpc2N2LCBrZXJuZWwgbW9kdWxlcyBlbmQgdXAgd2l0aCBhIHNpZ25pZmljYW50IG51bWJlciBv
-ZiBsb2NhbAo+ID4gPiBzeW1ib2xzLiBUaGlzIGJlY29tZXMgYXBwYXJlbnQgd2hlbiBjb21waWxp
-bmcgbW9kdWxlcyB3aXRoIGRlYnVnIHN5bWJvbHMKPiA+ID4gZW5hYmxlZC4gVXNpbmcgYW1kZ3B1
-LmtvIGFzIGFuIGV4YW1wbGUgb2YgYSBsYXJnZSBtb2R1bGUsIG9uIHJpc2N2IHRoZQo+ID4gPiBz
-aXplIGlzIDc1NE1CIChubyBzdHJpcHBpbmcpLCA1M01CICgtLXN0cmlwLWRlYnVnKSwgYW5kIDIx
-TUIKPiA+ID4gKC0tc3RyaXAtdW5uZWVkZWQpLiBPTiB4ODYsIGFtZGdwdS5rbyBpcyA0ODJNQiAo
-bm8gc3RyaXBwaW5nKSwgMjFNQgo+ID4gPiAoLS1zdHJpcC1kZWJ1ZyksIGFuZCAyME1CICgtLXN0
-cmlwLXVubmVlZGVkKS4KPiA+ID4KPiA+ID4gVXNlIC0tc3RyaXAtdW5uZWVkZWQgaW5zdGVhZCBv
-ZiAtLXN0cmlwLWRlYnVnIHRvIHN0cmlwIG1vZHVsZXMgc28KPiA+ID4gZGVjcmVhc2UgdGhlIHNp
-emUgb2YgdGhlIHJlc3VsdGluZyBtb2R1bGVzLiBUaGlzIGlzIHBhcnRpY3VsYXJseQo+ID4gPiBy
-ZWxldmFudCBmb3IgcmlzY3YsIGJ1dCBhbHNvIG1hcmdpbmFsbHkgYWlkcyBvdGhlciBhcmNoaXRl
-Y3R1cmVzLgo+ID4gPgo+ID4gPiBTaWduZWQtb2ZmLWJ5OiBDaGFybGllIEplbmtpbnMgPGNoYXJs
-aWVAcml2b3NpbmMuY29tPgo+ID4KPiA+IElzIHRoZXJlIGFueSBzb3J0IG9mIHJlZ3Jlc3Npb24g
-cmlzayB3aXRoIHRoaXMgcGF0Y2g/IElmIHNvLCBhbm90aGVyCj4gPiBvcHRpb24gbWF5IGJlIHRv
-IGdpdmUgYW5vdGhlciBsZXZlbCB0byBJTlNUQUxMX01PRF9TVFJJUCBsaWtlIDIgc28gdGhhdAo+
-ID4gSU5TVEFMTF9NT0RfU1RSSVA9MSBjb250aW51ZXMgdG8gYmVoYXZlIGFzIGJlZm9yZSBidXQg
-cGVvcGxlIGNhbiBlYXNpbHkKPiA+IG9wdCBpbnRvIHRoaXMgb3B0aW9uLiBObyBzdHJvbmcgb3Bp
-bmlvbiBiZWNhdXNlIEkgYW0gbm90IHN1cmUgYnV0IHdhcwo+ID4gbm90IHN1cmUgaWYgaXQgd2Fz
-IGNvbnNpZGVyZWQuCj4KPiBJIGRvIG5vdCBiZWxpZXZlIHRoaXMgd291bGQgY2F1c2UgcmVncmVz
-c2lvbnMuIFRoZSBkZXNjcmlwdGlvbiBvbiBnbnUKPiBzdHJpcCBpczoKPgo+ICJSZW1vdmUgYWxs
-IHN5bWJvbHMgdGhhdCBhcmUgbm90IG5lZWRlZCBmb3IgcmVsb2NhdGlvbiBwcm9jZXNzaW5nIGlu
-Cj4gYWRkaXRpb24gdG8gZGVidWdnaW5nIHN5bWJvbHMgYW5kIHNlY3Rpb25zIHN0cmlwcGVkIGJ5
-IC0tc3RyaXAtZGVidWcuIgo+Cj4gVGhlIGRlc2NyaXB0aW9uIG9uIGxsdm0tc3RyaXAgaXM6Cj4K
-PiAiUmVtb3ZlIGZyb20gdGhlIG91dHB1dCBhbGwgbG9jYWwgb3IgdW5kZWZpbmVkIHN5bWJvbHMg
-dGhhdCBhcmUgbm90Cj4gcmVxdWlyZWQgYnkgcmVsb2NhdGlvbnMuIEFsc28gcmVtb3ZlIGFsbCBk
-ZWJ1ZyBzZWN0aW9ucy4iCj4KPiBnbnUgc3RyaXAgLS1zdHJpcC11bm5lZWRlZCBzdHJpcHMgc2xp
-Z2h0bHkgbW9yZSBhZ2dyZXNzaXZlbHkgYnV0IGl0IGRvZXMKPiBub3QgYXBwZWFyIHRoaXMgY2F1
-c2VzIGFueSBpc3N1ZXMuCj4KPiA+Cj4gPiBSZWdhcmRsZXNzOgo+ID4KPiA+IFJldmlld2VkLWJ5
-OiBOYXRoYW4gQ2hhbmNlbGxvciA8bmF0aGFuQGtlcm5lbC5vcmc+Cj4KPiBUaGFua3MhCj4KCgpJ
-dCBpcyB0cnVlIC0tc3RyaXAtdW5uZWVkZWQgZHJvcHMgYSBsb3Qgb2YgY29tcGlsZXItZ2VuZXJh
-dGVkIHN5bWJvbHMsIGJ1dAppdCBhbHNvIGRyb3BzIHJlYWwgc3ltYm9scyB0aGF0IG9yaWdpbmF0
-ZSBpbiB0aGUgc291cmNlIGNvZGUuCgpTbywgdGhpcyB3b3VsZCBnaXZlIHVzZXItdmlzaWJsZSBj
-aGFuZ2VzIGZvciBrYWxsc3ltcyBhdCBsZWFzdC4KCgokIHJpc2N2NjQtbGludXgtZ251LW5tICAt
-bgovdG1wL3N0cmlwLXVubmVlZGVkL2xpYi9tb2R1bGVzLzYuMTMuMC0wOTc2MC1nNjllODU4ZTBi
-OGIyL2tlcm5lbC9kcml2ZXJzL2dwdS9kcm0vYW1kL2FtZGdwdS9hbWRncHUua28KID4gL3RtcC9z
-eW1ib2wtd2l0aC1zdHJpcC11bm5lZWRlZAokIHJpc2N2NjQtbGludXgtZ251LW5tICAtbgovdG1w
-L3N0cmlwLWRlYnVnL2xpYi9tb2R1bGVzLzYuMTMuMC0wOTc2MC1nNjllODU4ZTBiOGIyL2tlcm5l
-bC9kcml2ZXJzL2dwdS9kcm0vYW1kL2FtZGdwdS9hbWRncHUua28KID4gL3RtcC9zeW1ib2wtd2l0
-aC1zdHJpcC1kZWJ1ZwoKJCAgZGlmZiAtdSAvdG1wL3N5bWJvbC13aXRoLXN0cmlwLWRlYnVnICAv
-dG1wL3N5bWJvbC13aXRoLXN0cmlwLXVubmVlZGVkCiBbIHNuaXAgXQogMDAwMDAwMDAwMDE2NzZj
-YyB0IHV2ZF92Nl8wX3JpbmdfdGVzdF9yaW5nCiAwMDAwMDAwMDAwMTY3ODAyIHQgdXZkX3Y2XzBf
-cmluZ19lbWl0X3BpcGVsaW5lX3N5bmMKIDAwMDAwMDAwMDAxNjdhMDIgdCB1dmRfdjZfMF9yaW5n
-X2VtaXRfZmVuY2UKLTAwMDAwMDAwMDAxNjdiNTggciBDU1dUQ0guMgotMDAwMDAwMDAwMDE2N2I2
-OCByIGFibV9zZXR0aW5ncwotMDAwMDAwMDAwMDE2N2I4MCByIGFibV9jb25maWcKLTAwMDAwMDAw
-MDAxNjdiOTAgciBtaW5fcmVkdWN0aW9uX3RhYmxlX3ZfMl8yCi0wMDAwMDAwMDAwMTY3YmEwIHIg
-bWF4X3JlZHVjdGlvbl90YWJsZV92XzJfMgotMDAwMDAwMDAwMDE2N2JiMCByIG1pbl9yZWR1Y3Rp
-b25fdGFibGUKLTAwMDAwMDAwMDAxNjdiYzAgciBtYXhfcmVkdWN0aW9uX3RhYmxlCi0wMDAwMDAw
-MDAwMTY3YmQwIHIgY3VzdG9tX2JhY2tsaWdodF9jdXJ2ZTAKIDAwMDAwMDAwMDAxNjdjMzggciBh
-Ym1fc2V0dGluZ3NfY29uZmlnMgogMDAwMDAwMDAwMDE2N2M3MCByIGFibV9zZXR0aW5nc19jb25m
-aWcxCiAwMDAwMDAwMDAwMTY3Y2E4IHIgYWJtX3NldHRpbmdzX2NvbmZpZzAKCgoKCi0tCkJlc3Qg
-UmVnYXJkcwpNYXNhaGlybyBZYW1hZGEKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0
-cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGlu
-Zm8vbGludXgtcmlzY3YK
+--===============8336520147384999281==
+Content-Language: en-US
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature";
+	boundary="------------Eq0VbxlsoI0QTtXd7lSPZZ0a"
+
+--------------Eq0VbxlsoI0QTtXd7lSPZZ0a
+Content-Type: multipart/mixed; boundary="------------stfDEBxv52PnsQ3UmECCE0Oy";
+ protected-headers="v1"
+From: Matt Coster <matt.coster@imgtec.com>
+To: Michal Wilczynski <m.wilczynski@samsung.com>, mturquette@baylibre.com,
+ sboyd@kernel.org, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+ drew@pdp7.com, guoren@kernel.org, wefu@redhat.com, jassisinghbrar@gmail.com,
+ paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
+ frank.binns@imgtec.com, maarten.lankhorst@linux.intel.com,
+ mripard@kernel.org, tzimmermann@suse.de, airlied@gmail.com, simona@ffwll.ch,
+ ulf.hansson@linaro.org, jszhang@kernel.org, p.zabel@pengutronix.de,
+ m.szyprowski@samsung.com
+Cc: linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+ dri-devel@lists.freedesktop.org, linux-pm@vger.kernel.org
+Message-ID: <816db99d-7088-4c1a-af03-b9a825ac09dc@imgtec.com>
+Subject: Re: [PATCH v4 09/18] reset: thead: Add TH1520 reset controller driver
+References: <20250128194816.2185326-1-m.wilczynski@samsung.com>
+ <CGME20250128194836eucas1p151c4fc83a17173fd1b79bfc959976301@eucas1p1.samsung.com>
+ <20250128194816.2185326-10-m.wilczynski@samsung.com>
+In-Reply-To: <20250128194816.2185326-10-m.wilczynski@samsung.com>
+
+--------------stfDEBxv52PnsQ3UmECCE0Oy
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+On 28/01/2025 19:48, Michal Wilczynski wrote:
+> Add reset controller driver for the T-HEAD TH1520 SoC that manages
+> hardware reset lines for various subsystems. The driver currently
+> implements support for GPU reset control, with infrastructure in place
+> to extend support for NPU and Watchdog Timer resets in future updates.
+>=20
+> Signed-off-by: Michal Wilczynski <m.wilczynski@samsung.com>
+> ---
+>  MAINTAINERS                  |   1 +
+>  drivers/reset/Kconfig        |  10 ++
+>  drivers/reset/Makefile       |   1 +
+>  drivers/reset/reset-th1520.c | 178 +++++++++++++++++++++++++++++++++++=
+
+>  4 files changed, 190 insertions(+)
+>  create mode 100644 drivers/reset/reset-th1520.c
+>=20
+> diff --git a/MAINTAINERS b/MAINTAINERS
+> index b4e21d814481..d71b8c68ae48 100644
+> --- a/MAINTAINERS
+> +++ b/MAINTAINERS
+> @@ -20352,6 +20352,7 @@ F:	drivers/mailbox/mailbox-th1520.c
+>  F:	drivers/net/ethernet/stmicro/stmmac/dwmac-thead.c
+>  F:	drivers/pinctrl/pinctrl-th1520.c
+>  F:	drivers/pmdomain/thead/
+> +F:	drivers/reset/reset-th1520.c
+>  F:	include/dt-bindings/clock/thead,th1520-clk-ap.h
+>  F:	include/dt-bindings/power/thead,th1520-power.h
+>  F:	include/dt-bindings/reset/thead,th1520-reset.h
+> diff --git a/drivers/reset/Kconfig b/drivers/reset/Kconfig
+> index 5b3abb6db248..fa0943c3d1de 100644
+> --- a/drivers/reset/Kconfig
+> +++ b/drivers/reset/Kconfig
+> @@ -272,6 +272,16 @@ config RESET_SUNXI
+>  	help
+>  	  This enables the reset driver for Allwinner SoCs.
+> =20
+> +config RESET_TH1520
+> +	tristate "T-HEAD 1520 reset controller"
+> +	depends on ARCH_THEAD || COMPILE_TEST
+> +	select REGMAP_MMIO
+> +	help
+> +	  This driver provides support for the T-HEAD TH1520 SoC reset contro=
+ller,
+> +	  which manages hardware reset lines for SoC components such as the G=
+PU.
+> +	  Enable this option if you need to control hardware resets on TH1520=
+-based
+> +	  systems.
+> +
+>  config RESET_TI_SCI
+>  	tristate "TI System Control Interface (TI-SCI) reset driver"
+>  	depends on TI_SCI_PROTOCOL || (COMPILE_TEST && TI_SCI_PROTOCOL=3Dn)
+> diff --git a/drivers/reset/Makefile b/drivers/reset/Makefile
+> index 677c4d1e2632..d6c2774407ae 100644
+> --- a/drivers/reset/Makefile
+> +++ b/drivers/reset/Makefile
+> @@ -35,6 +35,7 @@ obj-$(CONFIG_RESET_SIMPLE) +=3D reset-simple.o
+>  obj-$(CONFIG_RESET_SOCFPGA) +=3D reset-socfpga.o
+>  obj-$(CONFIG_RESET_SUNPLUS) +=3D reset-sunplus.o
+>  obj-$(CONFIG_RESET_SUNXI) +=3D reset-sunxi.o
+> +obj-$(CONFIG_RESET_TH1520) +=3D reset-th1520.o
+>  obj-$(CONFIG_RESET_TI_SCI) +=3D reset-ti-sci.o
+>  obj-$(CONFIG_RESET_TI_SYSCON) +=3D reset-ti-syscon.o
+>  obj-$(CONFIG_RESET_TI_TPS380X) +=3D reset-tps380x.o
+> diff --git a/drivers/reset/reset-th1520.c b/drivers/reset/reset-th1520.=
+c
+> new file mode 100644
+> index 000000000000..48afbc9f1cdd
+> --- /dev/null
+> +++ b/drivers/reset/reset-th1520.c
+> @@ -0,0 +1,178 @@
+> +// SPDX-License-Identifier: GPL-2.0
+> +/*
+> + * Copyright (c) 2024 Samsung Electronics Co., Ltd.
+> + * Author: Michal Wilczynski <m.wilczynski@samsung.com>
+> + */
+> +
+> +#include <linux/of.h>
+> +#include <linux/platform_device.h>
+> +#include <linux/reset-controller.h>
+> +#include <linux/regmap.h>
+> +
+> +#include <dt-bindings/reset/thead,th1520-reset.h>
+> +
+> + /* register offset in VOSYS_REGMAP */
+> +#define TH1520_GPU_RST_CFG		0x0
+> +#define TH1520_GPU_RST_CFG_MASK		GENMASK(2, 0)
+> +
+> +/* register values */
+> +#define TH1520_GPU_SW_GPU_RST		BIT(0)
+> +#define TH1520_GPU_SW_CLKGEN_RST	BIT(1)
+> +
+> +struct th1520_reset_priv {
+> +	struct reset_controller_dev rcdev;
+> +	struct regmap *map;
+> +	struct mutex gpu_seq_lock;  /* protects gpu assert/deassert sequence =
+*/
+> +};
+> +
+> +static inline struct th1520_reset_priv *
+> +to_th1520_reset(struct reset_controller_dev *rcdev)
+> +{
+> +	return container_of(rcdev, struct th1520_reset_priv, rcdev);
+> +}
+> +
+> +static void th1520_rst_gpu_enable(struct regmap *reg,
+> +				  struct mutex *gpu_seq_lock)
+> +{
+> +	int val;
+> +
+> +	mutex_lock(gpu_seq_lock);
+> +
+> +	/* if the GPU is not in a reset state it, put it into one */
+> +	regmap_read(reg, TH1520_GPU_RST_CFG, &val);
+> +	if (val)
+> +		regmap_update_bits(reg, TH1520_GPU_RST_CFG,
+> +				   TH1520_GPU_RST_CFG_MASK, 0x0);
+> +
+> +	/* rst gpu clkgen */
+> +	regmap_set_bits(reg, TH1520_GPU_RST_CFG, TH1520_GPU_SW_CLKGEN_RST);
+
+Do you know what this resets? From our side, the GPU only has a single
+reset line (which I assume to be GPU_RESET).
+
+> +
+> +	/*
+> +	 * According to the hardware manual, a delay of at least 32 clock
+> +	 * cycles is required between de-asserting the clkgen reset and
+> +	 * de-asserting the GPU reset. Assuming a worst-case scenario with
+> +	 * a very high GPU clock frequency, a delay of 1 microsecond is
+> +	 * sufficient to ensure this requirement is met across all
+> +	 * feasible GPU clock speeds.
+> +	 */
+> +	udelay(1);
+
+I don't love that this procedure appears in the platform reset driver.
+I appreciate it may not be clear from the SoC TRM, but this is the
+standard reset procedure for all IMG Rogue GPUs. The currently
+supported TI SoC handles this in silicon, when power up/down requests
+are sent so we never needed to encode it in the driver before.
+
+Strictly speaking, the 32 cycle delay is required between power and
+clocks being enabled and the reset line being deasserted. If nothing
+here touches power or clocks (which I don't think it should), the delay
+could potentially be lifted to the GPU driver.
+
+Is it expected that if a device exposes a reset in devicetree that it
+can be cleanly reset without interaction with the device driver itself?
+I.E. in this case, is it required that the reset driver alone can cleanly=
+
+reset the GPU?
+
+Cheers,
+Matt
+
+> +
+> +	/* rst gpu */
+> +	regmap_set_bits(reg, TH1520_GPU_RST_CFG, TH1520_GPU_SW_GPU_RST);
+> +
+> +	mutex_unlock(gpu_seq_lock);
+> +}
+> +
+> +static void th1520_rst_gpu_disable(struct regmap *reg,
+> +				   struct mutex *gpu_seq_lock)
+> +{
+> +	mutex_lock(gpu_seq_lock);
+> +
+> +	regmap_update_bits(reg, TH1520_GPU_RST_CFG, TH1520_GPU_RST_CFG_MASK, =
+0x0);
+> +
+> +	mutex_unlock(gpu_seq_lock);
+> +}
+> +
+> +static int th1520_reset_assert(struct reset_controller_dev *rcdev, uns=
+igned long id)
+> +{
+> +	struct th1520_reset_priv *priv =3D to_th1520_reset(rcdev);
+> +
+> +	switch (id) {
+> +	case TH1520_RESET_ID_GPU:
+> +		th1520_rst_gpu_disable(priv->map, &priv->gpu_seq_lock);
+> +		break;
+> +	default:
+> +		return -EINVAL;
+> +	}
+> +
+> +	return 0;
+> +}
+> +
+> +static int th1520_reset_deassert(struct reset_controller_dev *rcdev, u=
+nsigned long id)
+> +{
+> +	struct th1520_reset_priv *priv =3D to_th1520_reset(rcdev);
+> +
+> +	switch (id) {
+> +	case TH1520_RESET_ID_GPU:
+> +		th1520_rst_gpu_enable(priv->map, &priv->gpu_seq_lock);
+> +		break;
+> +	default:
+> +		return -EINVAL;
+> +	}
+> +
+> +	return 0;
+> +}
+> +
+> +static int th1520_reset_xlate(struct reset_controller_dev *rcdev,
+> +			      const struct of_phandle_args *reset_spec)
+> +{
+> +	unsigned int index =3D reset_spec->args[0];
+> +
+> +	/* currently, only GPU reset is implemented in this driver */
+> +	if (index =3D=3D TH1520_RESET_ID_GPU)
+> +		return index;
+> +
+> +	return -EOPNOTSUPP;
+> +}
+> +
+> +static const struct reset_control_ops th1520_reset_ops =3D {
+> +	.assert	=3D th1520_reset_assert,
+> +	.deassert =3D th1520_reset_deassert,
+> +};
+> +
+> +static const struct regmap_config th1520_reset_regmap_config =3D {
+> +	.reg_bits =3D 32,
+> +	.val_bits =3D 32,
+> +	.reg_stride =3D 4,
+> +	.fast_io =3D true,
+> +};
+> +
+> +static int th1520_reset_probe(struct platform_device *pdev)
+> +{
+> +	struct device *dev =3D &pdev->dev;
+> +	struct th1520_reset_priv *priv;
+> +	void __iomem *base;
+> +
+> +	priv =3D devm_kzalloc(dev, sizeof(*priv), GFP_KERNEL);
+> +	if (!priv)
+> +		return -ENOMEM;
+> +
+> +	base =3D devm_platform_ioremap_resource(pdev, 0);
+> +	if (IS_ERR(base))
+> +		return PTR_ERR(base);
+> +
+> +	priv->map =3D devm_regmap_init_mmio(dev, base,
+> +					  &th1520_reset_regmap_config);
+> +	if (IS_ERR(priv->map))
+> +		return PTR_ERR(priv->map);
+> +
+> +	mutex_init(&priv->gpu_seq_lock);
+> +
+> +	priv->rcdev.owner =3D THIS_MODULE;
+> +	priv->rcdev.nr_resets =3D 1;
+> +	priv->rcdev.ops =3D &th1520_reset_ops;
+> +	priv->rcdev.of_node =3D dev->of_node;
+> +	priv->rcdev.of_xlate =3D th1520_reset_xlate;
+> +	priv->rcdev.of_reset_n_cells =3D 1;
+> +
+> +	return devm_reset_controller_register(dev, &priv->rcdev);
+> +}
+> +
+> +static const struct of_device_id th1520_reset_match[] =3D {
+> +	{ .compatible =3D "thead,th1520-reset" },
+> +	{ /* sentinel */ }
+> +};
+> +MODULE_DEVICE_TABLE(of, th1520_reset_match);
+> +
+> +static struct platform_driver th1520_reset_driver =3D {
+> +	.driver =3D {
+> +		.name =3D "th1520-reset",
+> +		.of_match_table =3D th1520_reset_match,
+> +	},
+> +	.probe =3D th1520_reset_probe,
+> +};
+> +module_platform_driver(th1520_reset_driver);
+> +
+> +MODULE_AUTHOR("Michal Wilczynski <m.wilczynski@samsung.com>");
+> +MODULE_DESCRIPTION("T-HEAD TH1520 SoC reset controller");
+> +MODULE_LICENSE("GPL");
+
+--=20
+Matt Coster
+E: matt.coster@imgtec.com
+
+--------------stfDEBxv52PnsQ3UmECCE0Oy--
+
+--------------Eq0VbxlsoI0QTtXd7lSPZZ0a
+Content-Type: application/pgp-signature; name="OpenPGP_signature.asc"
+Content-Description: OpenPGP digital signature
+Content-Disposition: attachment; filename="OpenPGP_signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+wnsEABYIACMWIQS4qDmoJvwmKhjY+nN5vBnz2d5qsAUCZ5zurQUDAAAAAAAKCRB5vBnz2d5qsDp1
+AP49IZ6CKPHDFz7d+wf06aIvtyJ6blscksofDOfdzx7YMgD/SYZInCl/c7DHc490x4D54cfVD/aV
+SQ5qTs+pXv1oWgI=
+=5t8f
+-----END PGP SIGNATURE-----
+
+--------------Eq0VbxlsoI0QTtXd7lSPZZ0a--
+
+
+--===============8336520147384999281==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============8336520147384999281==--
+
