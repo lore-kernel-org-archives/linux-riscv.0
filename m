@@ -4,89 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 02C77C0218A
-	for <linux-riscv@archiver.kernel.org>; Fri, 31 Jan 2025 01:31:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0CDCEC02190
+	for <linux-riscv@archiver.kernel.org>; Fri, 31 Jan 2025 03:53:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=0TaWQ6Dh3842eJ++GQA/UQxePhweLmnRgOwcOUWdkqk=; b=4Kf6yyUQOWtNwS
-	loMcg/bE5JmiySvvfx3F7+kL0BPHRB+M8C10sZKuhJKN9jSeoKQQNjga1gA1gkS2elVHn6zZSEjsa
-	Yrnzii8Hh+0eEqcjCoJ+iSk43HbMbI5mTMCSRWpPJIJPW0GkS3FvSi+AgmIXywzYyMPDkJahJrTNh
-	gg86aYKXg67ixnRj/3MmLpQhtCXbXRHWr1VZsmllvRYhLTGc3D2J0O/HbzYFRiAjvIz9ofnGz4X4y
-	bfiL/pdYCa44gujI6wSSm1y4E/FJsBmj3UMJKtaUMzC1PhI8F2VNv7uAvewZP1ZiJwPTF16neOB1O
-	SoSsF9CZNSJKTuqJqbxQ==;
+	List-Owner; bh=sTr/3slRT3ZIFcdmKKoE/wfu8WCyTgtFWF0X195zJEQ=; b=KSAYEHH+lMPy/g
+	Ph4mRoQNGvU2JXBOKYMxNFLxtrDSfjOhhdPUlmo9WornQx9TOGWHwqJhv6OT0xutZ4uy7YxKgL9DK
+	R7TDlekYIHPrhgy8bLEv0bb3wFMncn9Hm0TA2S0JvRNswk4QzfI7bKhpJhW/DoHP+vVYCh6v+C5ax
+	G/vcH6C9mEQ3FUW+nMVHzPsh5Iix2dX50LXPC6gyvbo1vdcKk3eEk4YmPRLV0GJZ+SkKE/7ePOe1O
+	+1c+xSM3kY6l8fZ6ovTeVXYw7aYEZEFy+RSWRXCCqqXpiXd0Xll5cq2ZaGMLZpj/71jRBBJk3p90g
+	h35wjt1GYd4vohXzJS2w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tdfsp-00000009tx5-2ZMX;
-	Fri, 31 Jan 2025 01:31:47 +0000
-Received: from mail-pl1-x632.google.com ([2607:f8b0:4864:20::632])
+	id 1tdi5Z-00000009yWo-1Qbo;
+	Fri, 31 Jan 2025 03:53:05 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tdfsn-00000009twj-1O7G
+	id 1tdi5M-00000009yU8-0ogX
 	for linux-riscv@lists.infradead.org;
-	Fri, 31 Jan 2025 01:31:46 +0000
-Received: by mail-pl1-x632.google.com with SMTP id d9443c01a7336-2161eb94cceso17827575ad.2
-        for <linux-riscv@lists.infradead.org>; Thu, 30 Jan 2025 17:31:44 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=tenstorrent.com; s=google; t=1738287104; x=1738891904; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=MG19W4SOPIaZi7OCinPeczwbesfkNxF5n0JVFRzeQlA=;
-        b=F9z+Sw3XK45B5zurQ/mSRC12+CqQ3A2KMaD250n8IY6pIVsWn/Va3TzCTXYZRvOZaQ
-         m57dMe/v/e7jiu/M3mnw3qThT1M8e3S5VlJ1etqqXAx5t/aAHCWpzEMczdB4LbadRLmv
-         MTjCJLOf+Uu8JVuXxiVBT1RI+iM9N1bA4ULpXajPiTrnTIGGgYrV7pp9/NPcsZ4lSqUn
-         RTkDXSpuV0KsrtYGiSFo6k0kLp7nlv6Q3vmUDJ1wlYJB7mhLCRduURksnyKz2VYGib/p
-         aK3OeT4t5FlZBYNXMfMvBce3/1ROXClhVSRlVh0DvyAFHzGVw2pr6p+wQDSOAd8qKZxF
-         KtOw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1738287104; x=1738891904;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=MG19W4SOPIaZi7OCinPeczwbesfkNxF5n0JVFRzeQlA=;
-        b=DAEU8O+3EnbAPTvT38dBX5ShKZU87e9QMCEausiUbrmYJXri3ihxN+/ZS0cQ0eWlfQ
-         gqlHcRgcSZNZcWruNZd9nbpH2gm3+MmTeipImNrb9yW+MnYERa2vRQ6v2ny7hBmj9Szt
-         o0EIeJVG8SC5sIHA8g0HzJMIeUvprgWewhGyHeIE2gJblCexZiHKXpMfzehg2wgGnwVc
-         74oyiz+bof76tzheM7sHvqOYwdzdMnxLI4xD0HBL6eUNj6YKeRt1CEOPlBOioAa6PiV1
-         Gu5RLtvdOEAEwzLc5+jeN0St1ivTaMynTanZ6VV87z9RECh9EWXpY0fdFrheLdXwmHIn
-         NydQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXzYy7i9qI2d2Pe/Aajx0z9YnX8cGWeI9nilk6KfeXonPkCMkuTnmKjyFDIjwQwZ6CQPYMS3dsUm039Xg==@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywiqv7xAt0Cf2+fh1799nRgQ01NbRsoyrTM/jUQwJzm5M2cKP7R
-	4YoSpB6u2ElECo4iUpvsklHttFGET0CW3L8uBWl4I5LzyjN3CdzjYZ2T4cHM8A==
-X-Gm-Gg: ASbGncvKe0l4WAsEoUHrpeSOu6TUD1w0cUQ1BOqRkO5iW9LnHoC4rcWVZoM3aYTQGXh
-	nWoswHUP9iK5bmvmHMOtH2MDJrO0qwcAn39xoEs77vvGqbMN1eUgm+oMqpRdblmsHBRD/ctU/kE
-	RpHANLFdBbdvuKrVlYsAYJuzUtT+patT7kS7KDtEtIE3GeTlRIeBmzB86d+nBH46qz5Gl4xHPye
-	XiwXTlp428RwDLFfyA7CiesCJvOJtnvEWeM3nepr2mtarG00F45tKeToPDXpbMPqsWTtMVz/JfM
-	zq5qp6fPNaOwRjqB75w95rVYsxZS1Bk2AQ==
-X-Google-Smtp-Source: AGHT+IF4Q8nENVfklGPnhiKtH5eyOQErysoSYV+Lhn5dkRBbuxx/QIH4nFvnyXq4lmP1dfXh+avEog==
-X-Received: by 2002:a17:903:22c4:b0:216:1cfa:2bbf with SMTP id d9443c01a7336-21dd7dd87famr149812315ad.35.1738287103992;
-        Thu, 30 Jan 2025 17:31:43 -0800 (PST)
-Received: from [192.168.50.113] ([27.96.222.7])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-2f83bc97e7csm5137597a91.9.2025.01.30.17.31.40
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 30 Jan 2025 17:31:43 -0800 (PST)
-Message-ID: <f1218075-94a5-429a-ab35-f47d3e79e80e@tenstorrent.com>
-Date: Fri, 31 Jan 2025 12:31:38 +1100
+	Fri, 31 Jan 2025 03:52:53 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 84A21A40395;
+	Fri, 31 Jan 2025 03:51:04 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B2514C4CED1;
+	Fri, 31 Jan 2025 03:52:48 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1738295570;
+	bh=njGK8iN76Oh6efZ3eYndONqjWO4nZts2aTh5Qwm06q8=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=VrcwTeejcr447esdjqdHAx+u0A096YrEtae4pPOXUX6v/4HlcjMMuhlgf08XkFwfq
+	 /SB6sLEReFfHqWgtzhzqtHGqS+n+h5mJGj3pGaghrIoqBWXxoMZKpHmNuwU/ANs7Fc
+	 RY+NplL3jeitTomUjc/cn7n7lQRbJBB6F5/pwZMiKtB8d/G2smmsf5eCOxfnGclwx0
+	 oNg2JdNNSjIid5OJnKjujl+ABhvagUCm50SKMgZm2cI1meugqP+47T+STlmoFmMHZk
+	 DIYnUFzTqQlm9XMoDa6PmiIzanShM/BG94Anw8xP0ILOapPlplA2Ifmd0+xP6TRNHs
+	 +VDRhuJZK0FPw==
+Date: Thu, 30 Jan 2025 20:52:45 -0700
+From: Nathan Chancellor <nathan@kernel.org>
+To: Charlie Jenkins <charlie@rivosinc.com>
+Cc: Masahiro Yamada <masahiroy@kernel.org>,
+	Nicolas Schier <nicolas@fjasle.eu>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, linux-kbuild@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
+Subject: Re: [PATCH] kbuild: Use --strip-unneeded with INSTALL_MOD_STRIP
+Message-ID: <20250131035245.GA47826@ax162>
+References: <20250122-strip_unneeded-v1-1-ac29a726cb41@rivosinc.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 2/4] riscv: uaccess: use input constraints for ptr of
- __put_user
-To: Jessica Clarke <jrtc27@jrtc27.com>, charlie@rivosinc.com
-Cc: palmer@dabbelt.com, aou@eecs.berkeley.edu, paul.walmsley@sifive.com,
- linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
- Jisheng Zhang <jszhang@kernel.org>
-References: <20241118230112.2872978-1-cyrilbur@tenstorrent.com>
- <20241118230112.2872978-3-cyrilbur@tenstorrent.com>
- <EA2CB85E-E210-402E-B891-2F4420E55CDB@jrtc27.com>
-Content-Language: en-US
-From: Cyril Bur <cyrilbur@tenstorrent.com>
-In-Reply-To: <EA2CB85E-E210-402E-B891-2F4420E55CDB@jrtc27.com>
+Content-Disposition: inline
+In-Reply-To: <20250122-strip_unneeded-v1-1-ac29a726cb41@rivosinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250130_173145_379379_C5E833BB 
-X-CRM114-Status: GOOD (  20.61  )
+X-CRM114-CacheID: sfid-20250130_195252_307496_4AADA5CE 
+X-CRM114-Status: GOOD (  18.68  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,66 +71,61 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-CgpPbiAxOC8xLzIwMjUgOTozNCBhbSwgSmVzc2ljYSBDbGFya2Ugd3JvdGU6Cj4gT24gMTggTm92
-IDIwMjQsIGF0IDIzOjAxLCBDeXJpbCBCdXIgPGN5cmlsYnVyQHRlbnN0b3JyZW50LmNvbT4gd3Jv
-dGU6Cj4+Cj4+IEZyb206IEppc2hlbmcgWmhhbmcgPGpzemhhbmdAa2VybmVsLm9yZz4KPj4KPj4g
-SSBiZWxpZXZlIHRoZSBvdXRwdXQgY29uc3RyYWludHMgIj1tIiBpcyBub3QgbmVjZXNzYXJ5LCBi
-ZWNhdXNlCj4+IHRoZSBpbnN0cnVjdGlvbiBpdHNlbGYgaXMgIndyaXRlIiwgd2UgZG9uJ3QgbmVl
-ZCB0aGUgY29tcGlsZXIKPj4gdG8gIndyaXRlIiBmb3IgdXMuIFNvIHRlbGwgY29tcGlsZXIgd2Ug
-cmVhZCBmcm9tIG1lbW9yeSBpbnN0ZWFkCj4+IG9mIHdyaXRpbmcuCj4gCj4gVGhhdOKAmXMgbm90
-IHdoYXQgPW0gZG9lcy4gPW0gdGVsbHMgdGhlIGNvbXBpbGVyIOKAnHRoaXMgYXNzZW1ibHkgd2ls
-bCBiZQo+IHdyaXRpbmcgdG8gdGhpcyBtZW1vcnkgbG9jYXRpb24sIGFuZCBuZWVkcyB0aGUgYWRk
-cmVzcyBvZiB0aGUgbG9jYXRpb24KPiBmb3IgdGhhdCBvcGVyYW5k4oCdLiBJZiB5b3UgbW92ZSBp
-dCBmcm9tIGFuIG91dHB1dCB0byBhbiBpbnB1dCB0aGVuIHlvdQo+IGdldCB0aGUgc2FtZSBhc3Nl
-bWJseSBnZW5lcmF0ZWQsIGJ1dCB0aGUgY29tcGlsZXIgYmVsaWV2ZXMgeW91IGFyZQo+ICpyZWFk
-aW5nKiBmcm9tIHRoYXQgbWVtb3J5LCBub3QgKndyaXRpbmcqIHRvIGl0LCBhbmQgc28gZG9lcyBu
-b3QKPiBiZWxpZXZlIHRoZSBtZW1vcnkgbWF5IGJlIGNsb2JiZXJlZC4KPiAKPiBOb3csIGl0IG1h
-eSB3ZWxsIGJlIHRoYXQsIGJ5IHZpcnR1ZSBvZiB0aGlzIGJlaW5nIHVzZXJzcGFjZSBtZW1vcnkg
-dGhhdAo+IGlzIG9ubHkgZXZlciBhY2Nlc3NlZCB2aWEgYXNzZW1ibHksIGFuZCBhbnkgaW5saW5l
-IGFzc2VtYmx5IGJlaW5nCj4gbWFya2VkIHZvbGF0aWxlLCB0aGlzIGluIGVmZmVjdCBkb2VzbuKA
-mXQgbWF0dGVyLiBCdXQgaXQgaXMgc3RpbGwKPiB0ZWNobmljYWxseSB3cm9uZyB0byBtb2RlbCBp
-dCB0aGF0IHdheSwgYW5kIHlvdSBjYW5ub3QgdXNlIHRoZQo+IGp1c3RpZmljYXRpb24geW91IGFy
-ZSB1c2luZywgYmVjYXVzZSBpdCBpcyBmYWxzZSwgYW5kIGRlbW9uc3RyYXRlcyBhCj4gbGFjayBv
-ZiB1bmRlcnN0YW5kaW5nIGZvciBob3cgaW5saW5lIGFzc2VtYmx5IHdvcmtzLiBJdCBoYXMgdG8g
-YmUKPiBjb3JyZWN0bHkganVzdGlmaWVkLgo+IAo+IChJIGRvIG5vdGUgdGhhdCBuZWl0aGVyIHg4
-NiBub3IgYXJtNjQgc2VlbXMgdG8gbW9kZWwgdGhpcyBhcyBhbiBvdXRwdXQpCj4gCj4gSmVzcwoK
-R29vZCBwb2ludHMsIEkgYWdyZWUuIEkgYW0gaGFwcHkgdG8gcmVzcGluIHRoaXMgcGF0Y2ggbW92
-ZSB0aGUgPW0gdG8gCm91dHB1dCBjb25zdHJhaW50LgoKQENoYXJsaWUgUGxlYXNlIGxldCBtZSBr
-bm93IGlmIHlvdSB3b3VsZCBsaWtlIG1lIHRvIGtlZXAgeW91ciB0YWdzIG9uIAp0aGUgdHdlYWtl
-ZCB2ZXJzaW9uLgoKVGhhbmtzLAoKQ3lyaWwKPiAKPj4gU2lnbmVkLW9mZi1ieTogSmlzaGVuZyBa
-aGFuZyA8anN6aGFuZ0BrZXJuZWwub3JnPgo+PiBTaWduZWQtb2ZmLWJ5OiBDeXJpbCBCdXIgPGN5
-cmlsYnVyQHRlbnN0b3JyZW50LmNvbT4KPj4gLS0tCj4+IGFyY2gvcmlzY3YvaW5jbHVkZS9hc20v
-dWFjY2Vzcy5oIHwgMTggKysrKysrKysrLS0tLS0tLS0tCj4+IDEgZmlsZSBjaGFuZ2VkLCA5IGlu
-c2VydGlvbnMoKyksIDkgZGVsZXRpb25zKC0pCj4+Cj4+IGRpZmYgLS1naXQgYS9hcmNoL3Jpc2N2
-L2luY2x1ZGUvYXNtL3VhY2Nlc3MuaCBiL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20vdWFjY2Vzcy5o
-Cj4+IGluZGV4IDA5ZDRjYTM3NTIyYy4uODRiMDg0ZTM4OGE3IDEwMDY0NAo+PiAtLS0gYS9hcmNo
-L3Jpc2N2L2luY2x1ZGUvYXNtL3VhY2Nlc3MuaAo+PiArKysgYi9hcmNoL3Jpc2N2L2luY2x1ZGUv
-YXNtL3VhY2Nlc3MuaAo+PiBAQCAtMTg2LDExICsxODYsMTEgQEAgZG8geyBcCj4+IF9fdHlwZW9m
-X18oKihwdHIpKSBfX3ggPSB4OyBcCj4+IF9fYXNtX18gX192b2xhdGlsZV9fICggXAo+PiAiMTpc
-biIgXAo+PiAtICIgIiBpbnNuICIgJXoyLCAlMVxuIiBcCj4+ICsgIiAiIGluc24gIiAlejEsICUy
-XG4iIFwKPj4gIjI6XG4iIFwKPj4gX0FTTV9FWFRBQkxFX1VBQ0NFU1NfRVJSKDFiLCAyYiwgJTAp
-IFwKPj4gLSA6ICIrciIgKGVyciksICI9bSIgKCoocHRyKSkgXAo+PiAtIDogInJKIiAoX194KSk7
-IFwKPj4gKyA6ICIrciIgKGVycikgXAo+PiArIDogInJKIiAoX194KSwgIm0iKCoocHRyKSkpOyBc
-Cj4+IH0gd2hpbGUgKDApCj4+Cj4+ICNpZmRlZiBDT05GSUdfNjRCSVQKPj4gQEAgLTIwMywxNiAr
-MjAzLDE2IEBAIGRvIHsgXAo+PiB1NjQgX194ID0gKF9fdHlwZW9mX18oKHgpLSh4KSkpKHgpOyBc
-Cj4+IF9fYXNtX18gX192b2xhdGlsZV9fICggXAo+PiAiMTpcbiIgXAo+PiAtICIgc3cgJXozLCAl
-MVxuIiBcCj4+ICsgIiBzdyAlejEsICUzXG4iIFwKPj4gIjI6XG4iIFwKPj4gLSAiIHN3ICV6NCwg
-JTJcbiIgXAo+PiArICIgc3cgJXoyLCAlNFxuIiBcCj4+ICIzOlxuIiBcCj4+IF9BU01fRVhUQUJM
-RV9VQUNDRVNTX0VSUigxYiwgM2IsICUwKSBcCj4+IF9BU01fRVhUQUJMRV9VQUNDRVNTX0VSUigy
-YiwgM2IsICUwKSBcCj4+IC0gOiAiK3IiIChlcnIpLCBcCj4+IC0gIj1tIiAoX19wdHJbX19MU1dd
-KSwgXAo+PiAtICI9bSIgKF9fcHRyW19fTVNXXSkgXAo+PiAtIDogInJKIiAoX194KSwgInJKIiAo
-X194ID4+IDMyKSk7IFwKPj4gKyA6ICIrciIgKGVycikgXAo+PiArIDogInJKIiAoX194KSwgInJK
-IiAoX194ID4+IDMyKSwgXAo+PiArICJtIiAoX19wdHJbX19MU1ddKSwgXAo+PiArICJtIiAoX19w
-dHJbX19NU1ddKSk7IFwKPj4gfSB3aGlsZSAoMCkKPj4gI2VuZGlmIC8qIENPTkZJR182NEJJVCAq
-Lwo+Pgo+PiAtLSAKPj4gMi4zNC4xCj4+Cj4+Cj4+IF9fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fCj4+IGxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdAo+PiBsaW51
-eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCj4+IGh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3Jn
-L21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YKPiAKCgpfX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgt
-cmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWls
-bWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+On Wed, Jan 22, 2025 at 07:17:26PM -0800, Charlie Jenkins wrote:
+> On riscv, kernel modules end up with a significant number of local
+> symbols. This becomes apparent when compiling modules with debug symbols
+> enabled. Using amdgpu.ko as an example of a large module, on riscv the
+> size is 754MB (no stripping), 53MB (--strip-debug), and 21MB
+> (--strip-unneeded). ON x86, amdgpu.ko is 482MB (no stripping), 21MB
+> (--strip-debug), and 20MB (--strip-unneeded).
+> 
+> Use --strip-unneeded instead of --strip-debug to strip modules so
+> decrease the size of the resulting modules. This is particularly
+> relevant for riscv, but also marginally aids other architectures.
+> 
+> Signed-off-by: Charlie Jenkins <charlie@rivosinc.com>
+
+Is there any sort of regression risk with this patch? If so, another
+option may be to give another level to INSTALL_MOD_STRIP like 2 so that
+INSTALL_MOD_STRIP=1 continues to behave as before but people can easily
+opt into this option. No strong opinion because I am not sure but was
+not sure if it was considered.
+
+Regardless:
+
+Reviewed-by: Nathan Chancellor <nathan@kernel.org>
+
+> ---
+>  scripts/Makefile.modinst | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+> 
+> diff --git a/scripts/Makefile.modinst b/scripts/Makefile.modinst
+> index f97c9926ed31b2b14601ff7773a2ea48b225628b..c22f35f6b9db3cac3923b9e787b219f752570642 100644
+> --- a/scripts/Makefile.modinst
+> +++ b/scripts/Makefile.modinst
+> @@ -80,7 +80,7 @@ quiet_cmd_install = INSTALL $@
+>  ifdef INSTALL_MOD_STRIP
+>  
+>  ifeq ($(INSTALL_MOD_STRIP),1)
+> -strip-option := --strip-debug
+> +strip-option := --strip-unneeded
+>  else
+>  strip-option := $(INSTALL_MOD_STRIP)
+>  endif
+> 
+> ---
+> base-commit: ffd294d346d185b70e28b1a28abe367bbfe53c04
+> change-id: 20250122-strip_unneeded-cab729310056
+> -- 
+> - Charlie
+> 
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
