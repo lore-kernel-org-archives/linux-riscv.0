@@ -4,70 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B68F0C02194
-	for <linux-riscv@archiver.kernel.org>; Sat,  1 Feb 2025 07:21:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E4ABC0218A
+	for <linux-riscv@archiver.kernel.org>; Sat,  1 Feb 2025 07:24:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:To:From:Subject:References:Mime-Version
 	:Message-Id:In-Reply-To:Date:Reply-To:Cc:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=xYl4u2vuCda6n0vpWc8055n2PB4i/fgphcxB5S61SjY=; b=yctiT6xFarj0Yk
-	apBZVqyA++gFHxFZscv332rAd0VhTI7Mpa4Gb0kY2NvP86/3a7+ff5aw6qCvws4OAEbHkoZwdPeR/
-	OwcqIOeZf0kZOsLubbSRKTxSrEz4uOJY4kTcnPrOkswdld22ubqwGrF5sEVyohUiHDwDQ+46C6nRE
-	245xrnqil2PDRQHjgIWSk25KcgdqhQm1Yapc46XDwjdZHNqF3qvaHaPzQ47F9Hw8uGcSQSxNkELbW
-	vtByJ+f9HX9YtPfgHmxC+TLcAii71ZQzxRAHiYLXbA8usFSNklqkzuAi6oYDoLGmkgM/y2L4GZdFR
-	zgconetv7Tz/Cm8f+nTQ==;
+	List-Owner; bh=Lg+CeXuzgitmJV8dc6ZjAtdmb8dd0h3AXaIDQbrlb3A=; b=cUqDv+UhEyscib
+	ik47jTWlqvYjscS2U7BOyInXrvPHc6GhGU9a1tjS5X80w1ktyS81g9l4L89zKJVHA80Iq9jH85eZl
+	xIn48jzdSC+btbDLKgmE6iXiVk5Ze0O/IUUc5NG0GWtJD6QG9jgIW/v6wkVmnSCG93vI5pqMjgXo7
+	TCeouQTLMJtYOBEz66nvHg9OsYsrbBOjfZyWHbRtTNUDwNmRtHkyFN72N+TdrtvhVMwLr5XkF/AEU
+	2D9mlAB2Fvyuwc9BZx30g2jPJSBxUeP38gnouXE/wimaf0u8YTkx+Amnn0G2ayjJpzfgEY7SSl7hy
+	hsTuJ3CLzQEaI7cXSO/Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1te7pC-0000000Bz0T-49BT;
-	Sat, 01 Feb 2025 07:21:54 +0000
-Received: from mail-yw1-x114a.google.com ([2607:f8b0:4864:20::114a])
+	id 1te7rl-0000000BzSJ-47IO;
+	Sat, 01 Feb 2025 07:24:33 +0000
+Received: from mail-yw1-x1149.google.com ([2607:f8b0:4864:20::1149])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1te7ir-0000000Bxv7-3nLd
+	id 1te7it-0000000BxwV-2FcQ
 	for linux-riscv@lists.infradead.org;
-	Sat, 01 Feb 2025 07:15:23 +0000
-Received: by mail-yw1-x114a.google.com with SMTP id 00721157ae682-6f46924f63eso26771637b3.0
-        for <linux-riscv@lists.infradead.org>; Fri, 31 Jan 2025 23:15:21 -0800 (PST)
+	Sat, 01 Feb 2025 07:15:24 +0000
+Received: by mail-yw1-x1149.google.com with SMTP id 00721157ae682-6f46ad8a390so25340677b3.1
+        for <linux-riscv@lists.infradead.org>; Fri, 31 Jan 2025 23:15:23 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1738394120; x=1738998920; darn=lists.infradead.org;
-        h=to:from:subject:references:mime-version:message-id:in-reply-to:date
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=6oWJvm0R16L7fRLZvEz9h+mLtC3Mv5Bopy8dJVFTFJA=;
-        b=a53OdosIOwRDdigD/L78EC4c6R1FLLhT560PKeMKn7t140UIbaJMUizamVy/Vg8Skn
-         xfLqYQFuwUdTha7DVLTNiSZ36rz7uL1JZ7/35onrjUAkHlci9y6RIWQeCqzsI/rO3I8O
-         Fu/1PjibCaoD6vEpH8ZOEDkSxTFbMBrrr6tZBY8PmrN4YobkJfVxg5c65m71N/P/4Zq0
-         8DXtP908PnhwlU6xZ4FtQ5ea7nTDea1YOW3ojPCq/+0wKV6ReCqkfigZc7kLlk2XpgwY
-         Phhvfk6rheGoPbntmCnfei0SAK2F6QqxURNIdGxKx7HOcB6c4fzDp1FweGFScQG7zA3Y
-         5Y1w==
+        d=google.com; s=20230601; t=1738394122; x=1738998922; darn=lists.infradead.org;
+        h=content-transfer-encoding:to:from:subject:references:mime-version
+         :message-id:in-reply-to:date:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=n2p4BgBlwJg7VuXE9RH9vyknGo38+Elq2Bwl6+1TcLc=;
+        b=CqxpLAtcSIVYMKJituDf2kqsahNBcUIhYvPg5XxauCdjzq5S9cJxU7LelIj5mo4E/r
+         +G65lS0q89ZHZUVz+C9C/OnG4X7DW71ERq3VoZ0uAQoQ5xcPLN3OGsh8t7W1pM+tXY+I
+         xna4jMb/M1M0g/3zu4NdPPzaV60DtuhqDKpjZPVzV15VZnqM2tWTNoNRk2RXDocQv427
+         EKfSeAdHKqZryX/ZbMPlxMNpy3qWYSeaexzWx+vGUgiOKnB6eof7i95TDokl4psOXuVv
+         12ANZA9CRJAj+wH4r6wmOaJ0mdVmCeTr2z9KdjJvlicbVmzWMorrmp5AiDV/3Uwstq2A
+         WlPA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1738394120; x=1738998920;
-        h=to:from:subject:references:mime-version:message-id:in-reply-to:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=6oWJvm0R16L7fRLZvEz9h+mLtC3Mv5Bopy8dJVFTFJA=;
-        b=E+S2pQaPxfnFY6vZfT8LIXUQPIT1u5FwfthqWcVr3P04oFurTQrmiTbmByOAMwbQ5b
-         CeB9ZMw8T0xC1jBGrmHZc37qxB2viJObIq0v81+D3AdqU2xo4xX4AlPDHvwKeMzImOGI
-         e5EXDmBPR1Zb/VNhbp/M/dKz3uEsi/vURwG39oelRXzrPY4pejW8liRqDOJggg9Y7AaI
-         XE8nFt4XsUGHapnYQz+44Qdl6G7Ef+LniieksDyNuR9YX31q1WRGMA9YOuokQi00PrbP
-         Az6BWe3ehw5rJM2yEMatxpxea9Zo3jE/nn4n7ZDodfWgNj3Wp9kto5fAX8+SDLQW2Zaq
-         eFJw==
-X-Forwarded-Encrypted: i=1; AJvYcCWGqv+V8Gasxec1Lu7oSWcxiB3b8ds9hFDBgpqJ8ypouRES2IndB1W/D6t72Vm3b1BSwnrEF+AB62Bsog==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzx3LSW/G53cBWE22VEYkYXSmq0aYwTwJKaNq5yhGbo2bUBxzjF
-	R70x2Y7i/WE3pQEKUaRreMC+67vfqoRWzTFN9AsBaSbyxtb+tfliSwongwg0IEvZmhvV9xP8865
-	TsiqXow==
-X-Google-Smtp-Source: AGHT+IFbIHGqcM7SDT3LYA9zs0KWwsJnfZdSQF4R/Y9g49E1uFDNpkk2nfE4pN/zarsmMdRIy5bqZYmYeKKV
+        d=1e100.net; s=20230601; t=1738394122; x=1738998922;
+        h=content-transfer-encoding:to:from:subject:references:mime-version
+         :message-id:in-reply-to:date:x-gm-message-state:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=n2p4BgBlwJg7VuXE9RH9vyknGo38+Elq2Bwl6+1TcLc=;
+        b=py6RemWkWbV/DS3pvHJtlG6Fhp5VyRiJT1EAypnigM+kmGFz8HFEEmzOqCkIRhaqU7
+         /cQT35CIQywmSX0okpAmVyrmnJPF3Gov7k92yAuFg0BfTwXWDT+AdLfFe+SNupLF3gA2
+         uyuc457jxTyzvdJ3PExTF8qUXt8Ke0IjvzOPMKs2A8N1vDEDE4saL5KLdLV/uOLr+puc
+         iwBUtND3xzOl/kSYnMtRMnVA2/QDoQSfvMCvb0t0WxlAMHVZ0HTAM2U8aVtnBUQntwWC
+         /wIXZdUgt3cpSBSIxuEU5MYDO9QS/m5YQkoNwZcXf2t42SkErOM6o/maUBYFcSXJU5Kp
+         Rk4w==
+X-Forwarded-Encrypted: i=1; AJvYcCVk+5lxw1vVTMAU9tGq/GXpfUoKlysIb88TLd+VIA8VS1XSc+CsH+oUkJqb7nZZB0Pm2Uyeh52PS9SNfw==@lists.infradead.org
+X-Gm-Message-State: AOJu0YyZ4tr02PmnO0q+D1e429J90S6bOOp0G0mQz/OTLTKbi5vW82+m
+	FJ6xcYXAkx9qRTs8tvql8WgcgnzlyvSYXJJ0o6TUgQNXLcaJHs6HpYIp6SFtgrq5Z3D6WF1cIIB
+	v+Wp8rQ==
+X-Google-Smtp-Source: AGHT+IEK39TIsn0m3MP/5oNb4U2nd1MWIlCQZVSl/E90OW64f8W0hXi4MQLMdrwvLzordeaL0lFrwurIdZ/O
 X-Received: from irogers.svl.corp.google.com ([2620:15c:2c5:11:de26:87db:e4d0:62b6])
- (user=irogers job=sendgmr) by 2002:a05:690c:3403:b0:6ee:9a08:7686 with SMTP
- id 00721157ae682-6f8c19ec149mr408487b3.4.1738394120141; Fri, 31 Jan 2025
- 23:15:20 -0800 (PST)
-Date: Fri, 31 Jan 2025 23:14:53 -0800
+ (user=irogers job=sendgmr) by 2002:a05:690c:b82:b0:6ef:94b3:730b with SMTP id
+ 00721157ae682-6f7a845d709mr396727b3.7.1738394122344; Fri, 31 Jan 2025
+ 23:15:22 -0800 (PST)
+Date: Fri, 31 Jan 2025 23:14:54 -0800
 In-Reply-To: <20250201071455.718247-1-irogers@google.com>
-Message-Id: <20250201071455.718247-6-irogers@google.com>
+Message-Id: <20250201071455.718247-7-irogers@google.com>
 Mime-Version: 1.0
 References: <20250201071455.718247-1-irogers@google.com>
 X-Mailer: git-send-email 2.48.1.362.g079036d154-goog
-Subject: [PATCH v1 5/7] perf trace beauty: Add syscalltbl.sh generating all
- system call tables
+Subject: [PATCH v1 6/7] perf syscalltbl: Use lookup table containing multiple architectures
 From: Ian Rogers <irogers@google.com>
 To: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
 	Arnaldo Carvalho de Melo <acme@kernel.org>, Namhyung Kim <namhyung@kernel.org>, 
@@ -85,8 +86,8 @@ To: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>,
 	linux-perf-users@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
 	linux-csky@vger.kernel.org, linux-riscv@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250131_231521_940972_972D4098 
-X-CRM114-Status: GOOD (  19.54  )
+X-CRM114-CacheID: sfid-20250131_231523_578265_0F268BB4 
+X-CRM114-Status: GOOD (  17.20  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,341 +99,190 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Rather than generating individual syscall header files generate a
-single trace/beauty/generated/syscalltbl.c. In a syscalltbls array
-have references to each architectures tables along with the
-corresponding e_machine. When the 32-bit or 64-bit table is ambiguous,
-match the perf binary's type. For ARM32 don't use the arm64 32-bit
-table which is smaller. EM_NONE is present for is no machine matches.
-
-Conditionally compile the tables, only having the appropriate 32 and
-64-bit table. If ALL_SYSCALLTBL is defined all tables can be
-compiled.
-
-Signed-off-by: Ian Rogers <irogers@google.com>
----
- tools/perf/Makefile.perf              |   9 +
- tools/perf/trace/beauty/syscalltbl.sh | 274 ++++++++++++++++++++++++++
- 2 files changed, 283 insertions(+)
- create mode 100755 tools/perf/trace/beauty/syscalltbl.sh
-
-diff --git a/tools/perf/Makefile.perf b/tools/perf/Makefile.perf
-index 55d6ce9ea52f..793e702f9aaf 100644
---- a/tools/perf/Makefile.perf
-+++ b/tools/perf/Makefile.perf
-@@ -559,6 +559,14 @@ beauty_ioctl_outdir := $(beauty_outdir)/ioctl
- # Create output directory if not already present
- $(shell [ -d '$(beauty_ioctl_outdir)' ] || mkdir -p '$(beauty_ioctl_outdir)')
- 
-+syscall_array := $(beauty_outdir)/syscalltbl.c
-+syscall_tbl := $(srctree)/tools/perf/trace/beauty/syscalltbl.sh
-+syscall_tbl_data := $(srctree)/tools/scripts/syscall.tbl \
-+	$(wildcard $(srctree)/tools/perf/arch/*/entry/syscalls/syscall*.tbl)
-+
-+$(syscall_array): $(syscall_tbl) $(syscall_tbl_data)
-+	$(Q)$(SHELL) '$(syscall_tbl)' $(srctree)/tools $@
-+
- fs_at_flags_array := $(beauty_outdir)/fs_at_flags_array.c
- fs_at_flags_tbl := $(srctree)/tools/perf/trace/beauty/fs_at_flags.sh
- 
-@@ -878,6 +886,7 @@ build-dir   = $(or $(__build-dir),.)
- 
- prepare: $(OUTPUT)PERF-VERSION-FILE $(OUTPUT)common-cmds.h archheaders \
- 	arm64-sysreg-defs \
-+	$(syscall_array) \
- 	$(fs_at_flags_array) \
- 	$(clone_flags_array) \
- 	$(drm_ioctl_array) \
-diff --git a/tools/perf/trace/beauty/syscalltbl.sh b/tools/perf/trace/beauty/syscalltbl.sh
-new file mode 100755
-index 000000000000..635924dc5f59
---- /dev/null
-+++ b/tools/perf/trace/beauty/syscalltbl.sh
-@@ -0,0 +1,274 @@
-+#!/bin/sh
-+# SPDX-License-Identifier: GPL-2.0
-+#
-+# Generate all syscall tables.
-+#
-+# Each line of the syscall table should have the following format:
-+#
-+# NR ABI NAME [NATIVE] [COMPAT]
-+#
-+# NR       syscall number
-+# ABI      ABI name
-+# NAME     syscall name
-+# NATIVE   native entry point (optional)
-+# COMPAT   compat entry point (optional)
-+
-+set -e
-+
-+usage() {
-+       cat >&2 <<EOF
-+usage: $0 <TOOLS DIRECTORY> <OUTFILE>
-+
-+  <TOOLS DIRECTORY>    path to kernel tools directory
-+  <OUTFILE>            output header file
-+EOF
-+       exit 1
-+}
-+
-+if [ $# -ne 2 ]; then
-+       usage
-+fi
-+tools_dir=$1
-+outfile=$2
-+
-+build_tables() {
-+	infile="$1"
-+	outfile="$2"
-+	abis=$(echo "($3)" | tr ',' '|')
-+	e_machine="$4"
-+
-+	if [ ! -f "$infile" ]
-+	then
-+		echo "Missing file $infile"
-+		exit 1
-+	fi
-+	sorted_table=$(mktemp /tmp/syscalltbl.XXXXXX)
-+	grep -E "^[0-9]+[[:space:]]+$abis" "$infile" | sort -n > "$sorted_table"
-+
-+	echo "static const char *const syscall_num_to_name_${e_machine}[] = {" >> "$outfile"
-+	# the params are: nr abi name entry compat
-+	# use _ for intentionally unused variables according to SC2034
-+	while read -r nr _ name _ _; do
-+		echo "	[$nr] = \"$name\"," >> "$outfile"
-+	done < "$sorted_table"
-+	echo "};" >> "$outfile"
-+
-+	echo "static const uint16_t syscall_sorted_names_${e_machine}[] = {" >> "$outfile"
-+
-+	# When sorting by name, add a suffix of 0s upto 20 characters so that
-+	# system calls that differ with a numerical suffix don't sort before
-+	# those without. This default behavior of sort differs from that of
-+	# strcmp used at runtime. Use sed to strip the trailing 0s suffix
-+	# afterwards.
-+	grep -E "^[0-9]+[[:space:]]+$abis" "$infile" | awk '{printf $3; for (i = length($3); i < 20; i++) { printf "0"; }; print " " $1}'| sort | sed 's/\([a-zA-Z1-9]\+\)0\+ \([0-9]\+\)/\1 \2/' > "$sorted_table"
-+	while read -r name nr; do
-+		echo "	$nr,	/* $name */" >> "$outfile"
-+	done < "$sorted_table"
-+	echo "};" >> "$outfile"
-+
-+	rm -f "$sorted_table"
-+}
-+
-+rm -f "$outfile"
-+cat >> "$outfile" <<EOF
-+#include <elf.h>
-+#include <stdint.h>
-+#include <asm/bitsperlong.h>
-+#include <linux/kernel.h>
-+
-+struct syscalltbl {
-+       const char *const *num_to_name;
-+       const uint16_t *sorted_names;
-+       uint16_t e_machine;
-+       uint16_t num_to_name_len;
-+       uint16_t sorted_names_len;
-+};
-+
-+#if defined(ALL_SYSCALLTBL) || defined(__alpha__)
-+EOF
-+build_tables "$tools_dir/perf/arch/alpha/entry/syscalls/syscall.tbl" "$outfile" common,64 EM_ALPHA
-+cat >> "$outfile" <<EOF
-+#endif // defined(ALL_SYSCALLTBL) || defined(__alpha__)
-+
-+#if defined(ALL_SYSCALLTBL) || defined(__arm__) || defined(__aarch64__)
-+EOF
-+build_tables "$tools_dir/perf/arch/arm/entry/syscalls/syscall.tbl" "$outfile" common,32,oabi EM_ARM
-+build_tables "$tools_dir/perf/arch/arm64/entry/syscalls/syscall_64.tbl" "$outfile" common,64,renameat,rlimit,memfd_secret EM_AARCH64
-+cat >> "$outfile" <<EOF
-+#endif // defined(ALL_SYSCALLTBL) || defined(__arm__) || defined(__aarch64__)
-+
-+#if defined(ALL_SYSCALLTBL) || defined(__csky__)
-+EOF
-+build_tables "$tools_dir/scripts/syscall.tbl" "$outfile" common,32,csky,time32,stat64,rlimit EM_CSKY
-+cat >> "$outfile" <<EOF
-+#endif // defined(ALL_SYSCALLTBL) || defined(__csky__)
-+
-+#if defined(ALL_SYSCALLTBL) || defined(__mips__)
-+EOF
-+build_tables "$tools_dir/perf/arch/mips/entry/syscalls/syscall_n64.tbl" "$outfile" common,64,n64 EM_MIPS
-+cat >> "$outfile" <<EOF
-+#endif // defined(ALL_SYSCALLTBL) || defined(__mips__)
-+
-+#if defined(ALL_SYSCALLTBL) || defined(__hppa__)
-+#if __BITS_PER_LONG != 64
-+EOF
-+build_tables "$tools_dir/perf/arch/parisc/entry/syscalls/syscall.tbl" "$outfile" common,32 EM_PARISC
-+echo "#else" >> "$outfile"
-+build_tables "$tools_dir/perf/arch/parisc/entry/syscalls/syscall.tbl" "$outfile" common,64 EM_PARISC
-+cat >> "$outfile" <<EOF
-+#endif //__BITS_PER_LONG != 64
-+#endif // defined(ALL_SYSCALLTBL) || defined(__hppa__)
-+
-+#if defined(ALL_SYSCALLTBL) || defined(__powerpc__) || defined(__powerpc64__)
-+EOF
-+build_tables "$tools_dir/perf/arch/powerpc/entry/syscalls/syscall.tbl" "$outfile" common,32,nospu EM_PPC
-+build_tables "$tools_dir/perf/arch/powerpc/entry/syscalls/syscall.tbl" "$outfile" common,64,nospu EM_PPC64
-+cat >> "$outfile" <<EOF
-+#endif // defined(ALL_SYSCALLTBL) || defined(__powerpc__) || defined(__powerpc64__)
-+
-+#if defined(ALL_SYSCALLTBL) || defined(__riscv)
-+#if __BITS_PER_LONG != 64
-+EOF
-+build_tables "$tools_dir/scripts/syscall.tbl" "$outfile" common,32,riscv,memfd_secret EM_RISCV
-+echo "#else" >> "$outfile"
-+build_tables "$tools_dir/scripts/syscall.tbl" "$outfile" common,64,riscv,rlimit,memfd_secret EM_RISCV
-+cat >> "$outfile" <<EOF
-+#endif //__BITS_PER_LONG != 64
-+#endif // defined(ALL_SYSCALLTBL) || defined(__riscv)
-+#if defined(ALL_SYSCALLTBL) || defined(__s390x__)
-+EOF
-+build_tables "$tools_dir/perf/arch/s390/entry/syscalls/syscall.tbl" "$outfile" common,64,renameat,rlimit,memfd_secret EM_S390
-+cat >> "$outfile" <<EOF
-+#endif // defined(ALL_SYSCALLTBL) || defined(__s390x__)
-+
-+#if defined(ALL_SYSCALLTBL) || defined(__sh__)
-+EOF
-+build_tables "$tools_dir/perf/arch/sh/entry/syscalls/syscall.tbl" "$outfile" common,32 EM_SH
-+cat >> "$outfile" <<EOF
-+#endif // defined(ALL_SYSCALLTBL) || defined(__sh__)
-+
-+#if defined(ALL_SYSCALLTBL) || defined(__sparc64__) || defined(__sparc__)
-+#if __BITS_PER_LONG != 64
-+EOF
-+build_tables "$tools_dir/perf/arch/sparc/entry/syscalls/syscall.tbl" "$outfile" common,32 EM_SPARC
-+echo "#else" >> "$outfile"
-+build_tables "$tools_dir/perf/arch/sparc/entry/syscalls/syscall.tbl" "$outfile" common,64 EM_SPARC
-+cat >> "$outfile" <<EOF
-+#endif //__BITS_PER_LONG != 64
-+#endif // defined(ALL_SYSCALLTBL) || defined(__sparc64__) || defined(__sparc__)
-+
-+#if defined(ALL_SYSCALLTBL) || defined(__i386__) || defined(__x86_64__)
-+EOF
-+build_tables "$tools_dir/perf/arch/x86/entry/syscalls/syscall_32.tbl" "$outfile" common,32,i386 EM_386
-+build_tables "$tools_dir/perf/arch/x86/entry/syscalls/syscall_64.tbl" "$outfile" common,64 EM_X86_64
-+cat >> "$outfile" <<EOF
-+#endif // defined(ALL_SYSCALLTBL) || defined(__i386__) || defined(__x86_64__)
-+
-+#if defined(ALL_SYSCALLTBL) || defined(__xtensa__)
-+EOF
-+build_tables "$tools_dir/perf/arch/xtensa/entry/syscalls/syscall.tbl" "$outfile" common,32 EM_XTENSA
-+cat >> "$outfile" <<EOF
-+#endif // defined(ALL_SYSCALLTBL) || defined(__xtensa__)
-+
-+#if __BITS_PER_LONG != 64
-+EOF
-+build_tables "$tools_dir/scripts/syscall.tbl" "$outfile" common,32 EM_NONE
-+echo "#else" >> "$outfile"
-+build_tables "$tools_dir/scripts/syscall.tbl" "$outfile" common,64 EM_NONE
-+echo "#endif //__BITS_PER_LONG != 64" >> "$outfile"
-+
-+build_outer_table() {
-+       e_machine=$1
-+       outfile="$2"
-+       cat >> "$outfile" <<EOF
-+       {
-+	      .num_to_name = syscall_num_to_name_$e_machine,
-+	      .sorted_names = syscall_sorted_names_$e_machine,
-+	      .e_machine = $e_machine,
-+	      .num_to_name_len = ARRAY_SIZE(syscall_num_to_name_$e_machine),
-+	      .sorted_names_len = ARRAY_SIZE(syscall_sorted_names_$e_machine),
-+       },
-+EOF
-+}
-+
-+cat >> "$outfile" <<EOF
-+static const struct syscalltbl syscalltbls[] = {
-+#if defined(ALL_SYSCALLTBL) || defined(__alpha__)
-+EOF
-+build_outer_table EM_ALPHA "$outfile"
-+cat >> "$outfile" <<EOF
-+#endif // defined(ALL_SYSCALLTBL) || defined(__alpha__)
-+
-+#if defined(ALL_SYSCALLTBL) || defined(__arm__) || defined(__aarch64__)
-+EOF
-+build_outer_table EM_ARM "$outfile"
-+build_outer_table EM_AARCH64 "$outfile"
-+cat >> "$outfile" <<EOF
-+#endif // defined(ALL_SYSCALLTBL) || defined(__arm__) || defined(__aarch64__)
-+
-+#if defined(ALL_SYSCALLTBL) || defined(__csky__)
-+EOF
-+build_outer_table EM_CSKY "$outfile"
-+cat >> "$outfile" <<EOF
-+#endif // defined(ALL_SYSCALLTBL) || defined(__csky__)
-+
-+#if defined(ALL_SYSCALLTBL) || defined(__mips__)
-+EOF
-+build_outer_table EM_MIPS "$outfile"
-+cat >> "$outfile" <<EOF
-+#endif // defined(ALL_SYSCALLTBL) || defined(__mips__)
-+
-+#if defined(ALL_SYSCALLTBL) || defined(__hppa__)
-+EOF
-+build_outer_table EM_PARISC "$outfile"
-+cat >> "$outfile" <<EOF
-+#endif // defined(ALL_SYSCALLTBL) || defined(__hppa__)
-+
-+#if defined(ALL_SYSCALLTBL) || defined(__powerpc__) || defined(__powerpc64__)
-+EOF
-+build_outer_table EM_PPC "$outfile"
-+build_outer_table EM_PPC64 "$outfile"
-+cat >> "$outfile" <<EOF
-+#endif // defined(ALL_SYSCALLTBL) || defined(__powerpc__) || defined(__powerpc64__)
-+
-+#if defined(ALL_SYSCALLTBL) || defined(__riscv)
-+EOF
-+build_outer_table EM_RISCV "$outfile"
-+cat >> "$outfile" <<EOF
-+#endif // defined(ALL_SYSCALLTBL) || defined(__riscv)
-+
-+#if defined(ALL_SYSCALLTBL) || defined(__s390x__)
-+EOF
-+build_outer_table EM_S390 "$outfile"
-+cat >> "$outfile" <<EOF
-+#endif // defined(ALL_SYSCALLTBL) || defined(__s390x__)
-+
-+#if defined(ALL_SYSCALLTBL) || defined(__sh__)
-+EOF
-+build_outer_table EM_SH "$outfile"
-+cat >> "$outfile" <<EOF
-+#endif // defined(ALL_SYSCALLTBL) || defined(__sh__)
-+
-+#if defined(ALL_SYSCALLTBL) || defined(__sparc64__) || defined(__sparc__)
-+EOF
-+build_outer_table EM_SPARC "$outfile"
-+cat >> "$outfile" <<EOF
-+#endif // defined(ALL_SYSCALLTBL) || defined(__sparc64__) || defined(__sparc__)
-+
-+#if defined(ALL_SYSCALLTBL) || defined(__i386__) || defined(__x86_64__)
-+EOF
-+build_outer_table EM_386 "$outfile"
-+build_outer_table EM_X86_64 "$outfile"
-+cat >> "$outfile" <<EOF
-+#endif // defined(ALL_SYSCALLTBL) || defined(__i386__) || defined(__x86_64__)
-+
-+#if defined(ALL_SYSCALLTBL) || defined(__xtensa__)
-+EOF
-+build_outer_table EM_XTENSA "$outfile"
-+cat >> "$outfile" <<EOF
-+#endif // defined(ALL_SYSCALLTBL) || defined(__xtensa__)
-+EOF
-+build_outer_table EM_NONE "$outfile"
-+cat >> "$outfile" <<EOF
-+};
-+EOF
--- 
-2.48.1.362.g079036d154-goog
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+U3dpdGNoIHRvIHVzZSB0aGUgbG9va3VwIHRhYmxlIGNvbnRhaW5pbmcgYWxsIGFyY2hpdGVjdHVy
+ZXMgcmF0aGVyCnRoYW4gdGFibGVzIG1hdGNoaW5nIHRoZSBwZXJmIGJpbmFyeS4KClRoaXMgZml4
+ZXMgcGVyZiB0cmFjZSB3aGVuIGV4ZWN1dGVkIG9uIGEgMzItYml0IGkzODYgYmluYXJ5IG9uIGFu
+Cng4Ni02NCBtYWNoaW5lLiBOb3RlIGluIHRoZSBmb2xsb3dpbmcgdGhlIHN5c3RlbSBjYWxsIG5h
+bWVzIG9mIHRoZQozMi1iaXQgaTM4NiBiaW5hcnkgYXMgc2VlbiBieSBhbiB4ODYtNjQgcGVyZi4K
+CkJlZm9yZToKYGBgCiAgICAgICAgID8gKCAgICAgICAgICk6IGEub3V0LzQ0NzI5NiAgLi4uIFtj
+b250aW51ZWRdOiBtdW5tYXAoKSkgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgPSAwCiAgICAgMC4wMjQgKCAwLjAwMSBtcyk6IGEub3V0LzQ0NzI5NiByZWN2ZnJvbSh1
+YnVmOiAweDIsIHNpemU6IDQxNjA1ODU3MDgsIGZsYWdzOiBET05UUk9VVEV8Q1RSVU5DfFRSVU5D
+fERPTlRXQUlUfEVPUnxXQUlUQUxMfEZJTnxTWU58Q09ORklSTXxSU1R8RVJSUVVFVUV8Tk9TSUdO
+QUx8V0FJVEZPUk9ORXxCQVRDSHxTT0NLX0RFVk1FTXxaRVJPQ09QWXxGQVNUT1BFTnxDTVNHX0NM
+T0VYRUN8MHg5MWY4MDAwMCwgYWRkcjogMHhlMzAsIGFkZHJfbGVuOiAweGZmY2U0MzhjKSA9IDE0
+NzUxOTg5NzYKICAgICAwLjA0MiAoIDAuMDAzIG1zKTogYS5vdXQvNDQ3Mjk2IGxnZXR4YXR0cihu
+YW1lOiAiIiwgdmFsdWU6IDB4Mywgc2l6ZTogMzQpICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICA9IDQxNjAzNDQwNjQKICAgICAwLjA1NCAoIDAuMDAzIG1zKTogYS5vdXQvNDQ3Mjk2IGR1cDIo
+b2xkZmQ6IC0xMzQ0MjI3NDQsIG5ld2ZkOiA0KSAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICA9IC0xIEVOT0VOVCAoTm8gc3VjaCBmaWxlIG9yIGRpcmVjdG9yeSkKICAgICAwLjA2
+MCAoIDAuMDA5IG1zKTogYS5vdXQvNDQ3Mjk2IHByZWFkdihmZDogNDI5NDk2NzE5NiwgdmVjOiAo
+c3RydWN0IGlvdmVjKXsuaW92X2Jhc2UgPSAodm9pZCAqKTB4MmU2NDZjMmY2Mzc0NjUyZiwuaW92
+X2xlbiA9IChfX2tlcm5lbF9zaXplX3QpNzMwNzE5OTY2NTMzNTU5NDg2Nyx9LCB2bGVuOiA1NTcw
+NTYsIHBvc19oOiA0MTYwNTg1NzA4KSA9IDMKICAgICAwLjA3NCAoIDAuMDA0IG1zKTogYS5vdXQv
+NDQ3Mjk2IGxnZXR4YXR0cihuYW1lOiAiIiwgdmFsdWU6IDB4MSwgc2l6ZTogMikgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICA9IDQxNjAyMzc1NjgKICAgICAwLjA4MCAoIDAuMDAxIG1zKTog
+YS5vdXQvNDQ3Mjk2IGxzdGF0KGZpbGVuYW1lOiAiIiwgc3RhdGJ1ZjogMHgxOTNmNikgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICA9IDAKICAgICAwLjA4OSAoIDAuMDA3IG1zKTogYS5v
+dXQvNDQ3Mjk2IHByZWFkdihmZDogNDI5NDk2NzE5NiwgdmVjOiAoc3RydWN0IGlvdmVjKXsuaW92
+X2Jhc2UgPSAodm9pZCAqKTB4MzgzMzY5MmY2MjY5NmMyZiwuaW92X2xlbiA9IChfX2tlcm5lbF9z
+aXplX3QpMzI3NjQ5Nzg0NTk4NzU4NTMzNCx9LCB2bGVuOiA1NTcwNTYsIHBvc19oOiA0MTYwNTg1
+NzA4KSA9IDMKICAgICAwLjA5NyAoIDAuMDAyIG1zKTogYS5vdXQvNDQ3Mjk2IGNsb3NlKGZkOiAz
+PC9wcm9jLzQ0NzI5Ni9zdGF0dXM+KSAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICA9IDUxMgogICAgIDAuMTAzICggMC4wMDIgbXMpOiBhLm91dC80NDcyOTYgbGdldHhhdHRyKG5h
+bWU6ICIiLCB2YWx1ZTogMHgxLCBzaXplOiAyMDUwKSAgICAgICAgICAgICAgICAgICAgICAgICAg
+ID0gNDE1NzkzNTYxNgogICAgIDAuMTA3ICggMC4wMDcgbXMpOiBhLm91dC80NDcyOTYgbGdldHhh
+dHRyKHBhdGhuYW1lOiAiIiwgbmFtZTogIiIsIHZhbHVlOiAweDUsIHNpemU6IDIwNjYpICAgICAg
+ICAgICAgID0gNDE1ODA3ODk3NgogICAgIDAuMTE2ICggMC4wMDMgbXMpOiBhLm91dC80NDcyOTYg
+bGdldHhhdHRyKHBhdGhuYW1lOiAiIiwgbmFtZTogIiIsIHZhbHVlOiAweDEsIHNpemU6IDIwNjYp
+ICAgICAgICAgICAgID0gNDE1OTYzOTU1MgogICAgIDAuMTIxICggMC4wMDMgbXMpOiBhLm91dC80
+NDcyOTYgbGdldHhhdHRyKHBhdGhuYW1lOiAiIiwgbmFtZTogIiIsIHZhbHVlOiAweDMsIHNpemU6
+IDIwNjYpICAgICAgICAgICAgID0gNDE2MDE4NDMyMAogICAgIDAuMTI5ICggMC4wMDIgbXMpOiBh
+Lm91dC80NDcyOTYgbGdldHhhdHRyKHBhdGhuYW1lOiAiIiwgbmFtZTogIiIsIHZhbHVlOiAweDMs
+IHNpemU6IDUwKSAgICAgICAgICAgICAgID0gNDE2MDE5NjYwOAogICAgIDAuMTM4ICggMC4wMDEg
+bXMpOiBhLm91dC80NDcyOTYgbHN0YXQoZmlsZW5hbWU6ICIiKSAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgID0gMAogICAgIDAuMTQ1ICggMC4wMDIgbXMp
+OiBhLm91dC80NDcyOTYgbXFfdGltZWRyZWNlaXZlKG1xZGVzOiA0MjkxNzA2ODAwLCB1X21zZ19w
+dHI6IDB4ZjdmOWVhNDgsIG1zZ19sZW46IDEzNDYxNjY0MCwgdV9tc2dfcHJpbzogMHhmN2ZkN2Zl
+YywgdV9hYnNfdGltZW91dDogKHN0cnVjdCBfX2tlcm5lbF90aW1lc3BlYyl7LnR2X3NlYyA9IChf
+X2tlcm5lbF90aW1lNjRfdCktNTc4MTc0MDI3Nzc3MzE3Njk2LC50dl9uc2VjID0gKGxvbmcgbG9u
+ZyBpbnQpNDE2MDM0OTM3Nix9KSA9IDAKICAgICAwLjE0OCAoIDAuMDAxIG1zKTogYS5vdXQvNDQ3
+Mjk2IG1rZGlyYXQoZGZkOiAtMTM0NjE3ODE2LCBwYXRobmFtZTogIiDvv73vv73vv70g77+977+9
+77+94paS77+977+977+94paS77+977+977+9IiwgbW9kZTogSUZSRUd8SVNVSUR8SVJVU1J8SVdH
+UlB8MHhmN2ZkMDAwMCkgPSA0NDcyOTYKICAgICAwLjE1MCAoIDAuMDAxIG1zKTogYS5vdXQvNDQ3
+Mjk2IHByb2Nlc3Nfdm1fd3JpdGV2KHBpZDogLTEzNDYxNzgxMiwgbHZlYzogKHN0cnVjdCBpb3Zl
+Yyl7Lmlvdl9iYXNlID0gKHZvaWQgKikweGY3ZjllOWM4ZjdmOWU0YzAsLmlvdl9sZW4gPSAoX19r
+ZXJuZWxfc2l6ZV90KTQxNjAzNDkzNzYsfSwgbGlvdmNudDogNDE2MDU4ODA0OCwgcnZlYzogKHN0
+cnVjdCBpb3ZlYyl7fSwgcmlvdmNudDogNDE2MDU4NTcwOCwgZmxhZ3M6IDQyOTE3MDczNTIpID0g
+MAogICAgIDAuMTk3ICggMC4wMDQgbXMpOiBhLm91dC80NDcyOTYgY2FwZ2V0KGhlYWRlcjogNDE2
+MDE4NDMyMCwgZGF0YXB0cjogODE5MikgICAgICAgICAgICAgICAgICAgICAgICAgICAgID0gMAog
+ICAgIDAuMjAyICggMC4wMDIgbXMpOiBhLm91dC80NDcyOTYgY2FwZ2V0KGhlYWRlcjogMTQ0ODY2
+OTE4NCwgZGF0YXB0cjogNDA5NikgICAgICAgICAgICAgICAgICAgICAgICAgICAgID0gMAogICAg
+IDAuMjA4ICggMC4wMDIgbXMpOiBhLm91dC80NDcyOTYgY2FwZ2V0KGhlYWRlcjogNDE2MDU3NzUz
+NiwgZGF0YXB0cjogODE5MikgICAgICAgICAgICAgICAgICAgICAgICAgICAgID0gMAogICAgIDAu
+MjIwICggMC4wMDEgbXMpOiBhLm91dC80NDcyOTYgZ2V0eGF0dHIocGF0aG5hbWU6ICIiLCBuYW1l
+OiAiY++/ve+/ve+/ve+/ve+/ve+/vSIsIHZhbHVlOiAweGY3Zjc3ZTM0LCBzaXplOiAxKSAgPSAw
+CiAgICAgMC4yMjggKCAwLjAwNSBtcyk6IGEub3V0LzQ0NzI5NiBmY2htb2QoZmQ6IC0xMzQ3Mjk3
+MjgsIG1vZGU6IElSVUdPfElXVUdPfElGUkVHfElGSUZPfElTVlRYfElYVVNSfDB4MTAwMDApID0g
+MAogICAgIDAuMjQwICggMC4wMDkgbXMpOiBhLm91dC80NDcyOTYgcHJlYWR2KGZkOiA0Mjk0OTY3
+MTk2LCB2ZWM6IDB4NTY1OGUwMDgsIHBvc19oOiA0MTYwMTkyMDUyKSAgICAgICAgICAgID0gMwog
+ICAgIDAuMjUwICggMC4wMDggbXMpOiBhLm91dC80NDcyOTYgY2xvc2UoZmQ6IDM8L3Byb2MvNDQ3
+Mjk2L3N0YXR1cz4pICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgID0gMTQzNgog
+ICAgIDAuMjYwICggMC4wMTggbXMpOiBhLm91dC80NDcyOTYgc3RhdChmaWxlbmFtZTogIiIsIHN0
+YXRidWY6IDB4ZmZjZTMyYWMpICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgID0gMTQzNgog
+ICAgIDAuMjg4ICgxMDAwLjIxMyBtcyk6IGEub3V0LzQ0NzI5NiByZWFkbGlua2F0KGJ1ZjogMHhm
+ZmNlMzFkNCwgYnVmc2l6OiA0MjkxNzAzMjQ0KSAgICAgICAgICAgICAgICAgICAgICAgPSAwCmBg
+YAoKQWZ0ZXI6CmBgYAogICAgICAgICA/ICggICAgICAgICApOiBhLm91dC80NDI5MzAgIC4uLiBb
+Y29udGludWVkXTogZXhlY3ZlKCkpICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgID0gMAogICAgIDAuMDIzICggMC4wMDIgbXMpOiBhLm91dC80NDI5MzAgYnJrKCkgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgID0gMHg1Nzc2MDAwMAogICAgIDAuMDUyICggMC4wMDMgbXMpOiBhLm91dC80NDI5MzAgYWNj
+ZXNzKGZpbGVuYW1lOiAweGY3ZjVhZjI4LCBtb2RlOiBSKSAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgID0gLTEgRU5PRU5UIChObyBzdWNoIGZpbGUgb3IgZGlyZWN0b3J5KQogICAgIDAu
+MDU5ICggMC4wMDkgbXMpOiBhLm91dC80NDI5MzAgb3BlbmF0KGRmZDogQ1dELCBmaWxlbmFtZTog
+Ii9ldGMvbGQuc28uY2FjaGUiLCBmbGFnczogUkRPTkxZfENMT0VYRUN8TEFSR0VGSUxFKSA9IDMK
+ICAgICAwLjA3OCAoIDAuMDAxIG1zKTogYS5vdXQvNDQyOTMwIGNsb3NlKGZkOiAzPC9wcm9jLzQ0
+MjkzMC9zdGF0dXM+KSAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICA9IDAKICAg
+ICAwLjA4NyAoIDAuMDA3IG1zKTogYS5vdXQvNDQyOTMwIG9wZW5hdChkZmQ6IENXRCwgZmlsZW5h
+bWU6ICIvbGliL2kzODYtbGludXgtIiwgZmxhZ3M6IFJET05MWXxDTE9FWEVDfExBUkdFRklMRSkg
+PSAzCiAgICAgMC4wOTUgKCAwLjAwMiBtcyk6IGEub3V0LzQ0MjkzMCByZWFkKGZkOiAzPC9wcm9j
+LzQ0MjkzMC9zdGF0dXM+LCBidWY6IDB4ZmZiZGJiNzAsIGNvdW50OiA1MTIpICAgICAgICAgPSA1
+MTIKICAgICAwLjEzNSAoIDAuMDAxIG1zKTogYS5vdXQvNDQyOTMwIGNsb3NlKGZkOiAzPC9wcm9j
+LzQ0MjkzMC9zdGF0dXM+KSAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICA9IDAK
+ICAgICAwLjE0OCAoIDAuMDAxIG1zKTogYS5vdXQvNDQyOTMwIHNldF90aWRfYWRkcmVzcyh0aWRw
+dHI6IDB4ZjdmMmI1MjgpICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICA9IDQ0Mjkz
+MCAoYS5vdXQpCiAgICAgMC4xNTAgKCAwLjAwMSBtcyk6IGEub3V0LzQ0MjkzMCBzZXRfcm9idXN0
+X2xpc3QoaGVhZDogMHhmN2YyYjUyYywgbGVuOiAxMikgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgPQogICAgIDAuMTk2ICggMC4wMDQgbXMpOiBhLm91dC80NDI5MzAgbXByb3RlY3Qoc3RhcnQ6
+IDB4ZjdmMDMwMDAsIGxlbjogODE5MiwgcHJvdDogUkVBRCkgICAgICAgICAgICAgICAgICAgID0g
+MAogICAgIDAuMjAyICggMC4wMDIgbXMpOiBhLm91dC80NDI5MzAgbXByb3RlY3Qoc3RhcnQ6IDB4
+NTY1OGUwMDAsIGxlbjogNDA5NiwgcHJvdDogUkVBRCkgICAgICAgICAgICAgICAgICAgID0gMAog
+ICAgIDAuMjA3ICggMC4wMDIgbXMpOiBhLm91dC80NDI5MzAgbXByb3RlY3Qoc3RhcnQ6IDB4Zjdm
+NjMwMDAsIGxlbjogODE5MiwgcHJvdDogUkVBRCkgICAgICAgICAgICAgICAgICAgID0gMAogICAg
+IDAuMjMwICggMC4wMDUgbXMpOiBhLm91dC80NDI5MzAgbXVubWFwKGFkZHI6IDB4ZjdmMTAwMDAs
+IGxlbjogMTAzNDE0KSAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgID0gMAogICAgIDAu
+MjQ0ICggMC4wMTAgbXMpOiBhLm91dC80NDI5MzAgb3BlbmF0KGRmZDogQ1dELCBmaWxlbmFtZTog
+MHg1NjU4ZDAwOCkgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgID0gMwogICAgIDAuMjU1
+ICggMC4wMDcgbXMpOiBhLm91dC80NDI5MzAgcmVhZChmZDogMzwvcHJvYy80NDI5MzAvc3RhdHVz
+PiwgYnVmOiAweGZmYmRiNjdjLCBjb3VudDogNDA5NikgICAgICAgID0gMTQzNgogICAgIDAuMjY0
+ICggMC4wMTggbXMpOiBhLm91dC80NDI5MzAgd3JpdGUoZmQ6IDE8L2Rldi9wdHMvND4sIGJ1Zjog
+LCBjb3VudDogMTQzNikgICAgICAgICAgICAgICAgICAgICAgICAgID0gMTQzNgogICAgIDAuMjky
+ICgxMDAwLjE3MyBtcyk6IGEub3V0LzQ0MjkzMCBjbG9ja19uYW5vc2xlZXAocnF0cDogeyAudHZf
+c2VjOiAxNzg2NjU0Njk0MDM3Njc3NjcwNCwgLnR2X25zZWM6IDQxNTk4NzgzMzYgfSwgcm10cDog
+MHhmZmJkYjU5YykgPSAwCiAgMTAwMC40NzggKCAgICAgICAgICk6IGEub3V0LzQ0MjkzMCBleGl0
+X2dyb3VwKCkgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgPSA/CmBgYAoKU2lnbmVkLW9mZi1ieTogSWFuIFJvZ2VycyA8aXJvZ2Vyc0Bnb29n
+bGUuY29tPgotLS0KIHRvb2xzL3BlcmYvdXRpbC9zeXNjYWxsdGJsLmMgfCA4OSArKysrKysrKysr
+KysrKysrKysrKysrKysrKy0tLS0tLS0tLS0KIDEgZmlsZSBjaGFuZ2VkLCA2NCBpbnNlcnRpb25z
+KCspLCAyNSBkZWxldGlvbnMoLSkKCmRpZmYgLS1naXQgYS90b29scy9wZXJmL3V0aWwvc3lzY2Fs
+bHRibC5jIGIvdG9vbHMvcGVyZi91dGlsL3N5c2NhbGx0YmwuYwppbmRleCA3NjBhYzRkMDg2OWYu
+LjU3MjA4M2JhMWVmZSAxMDA2NDQKLS0tIGEvdG9vbHMvcGVyZi91dGlsL3N5c2NhbGx0YmwuYwor
+KysgYi90b29scy9wZXJmL3V0aWwvc3lzY2FsbHRibC5jCkBAIC0xNSwxNiArMTUsMzkgQEAKICNp
+bmNsdWRlIDxzdHJpbmcuaD4KICNpbmNsdWRlICJzdHJpbmcyLmgiCiAKLSNpZiBfX0JJVFNfUEVS
+X0xPTkcgPT0gNjQKLSAgI2luY2x1ZGUgPGFzbS9zeXNjYWxsc182NC5oPgotI2Vsc2UKLSAgI2lu
+Y2x1ZGUgPGFzbS9zeXNjYWxsc18zMi5oPgotI2VuZGlmCisjaW5jbHVkZSAidHJhY2UvYmVhdXR5
+L2dlbmVyYXRlZC9zeXNjYWxsdGJsLmMiCiAKLWNvbnN0IGNoYXIgKnN5c2NhbGx0YmxfX25hbWUo
+aW50IGVfbWFjaGluZSBfX21heWJlX3VudXNlZCwgaW50IGlkKQorc3RhdGljIGNvbnN0IHN0cnVj
+dCBzeXNjYWxsdGJsICpmaW5kX3RhYmxlKGludCBlX21hY2hpbmUpCiB7Ci0JaWYgKGlkID49IDAg
+JiYgaWQgPD0gKGludClBUlJBWV9TSVpFKHN5c2NhbGxfbnVtX3RvX25hbWUpKQotCQlyZXR1cm4g
+c3lzY2FsbF9udW1fdG9fbmFtZVtpZF07CisJc3RhdGljIGNvbnN0IHN0cnVjdCBzeXNjYWxsdGJs
+ICpsYXN0X3RhYmxlOworCXN0YXRpYyBpbnQgbGFzdF90YWJsZV9tYWNoaW5lID0gRU1fTk9ORTsK
+KworCS8qIFRhYmxlcyBvbmx5IGV4aXN0IGZvciBFTV9TUEFSQy4gKi8KKwlpZiAoZV9tYWNoaW5l
+ID09IEVNX1NQQVJDVjkpCisJCWVfbWFjaGluZSA9IEVNX1NQQVJDOworCisJaWYgKGxhc3RfdGFi
+bGVfbWFjaGluZSA9PSBlX21hY2hpbmUgJiYgZV9tYWNoaW5lICE9IEVNX05PTkUpCisJCXJldHVy
+biBsYXN0X3RhYmxlOworCisJZm9yIChzaXplX3QgaSA9IDA7IGkgPCBBUlJBWV9TSVpFKHN5c2Nh
+bGx0YmxzKTsgaSsrKSB7CisJCWNvbnN0IHN0cnVjdCBzeXNjYWxsdGJsICplbnRyeSA9ICZzeXNj
+YWxsdGJsc1tpXTsKKworCQlpZiAoZW50cnktPmVfbWFjaGluZSAhPSBlX21hY2hpbmUgJiYgZW50
+cnktPmVfbWFjaGluZSAhPSBFTV9OT05FKQorCQkJY29udGludWU7CisKKwkJbGFzdF90YWJsZSA9
+IGVudHJ5OworCQlsYXN0X3RhYmxlX21hY2hpbmUgPSBlX21hY2hpbmU7CisJCXJldHVybiBlbnRy
+eTsKKwl9CisJcmV0dXJuIE5VTEw7Cit9CisKK2NvbnN0IGNoYXIgKnN5c2NhbGx0YmxfX25hbWUo
+aW50IGVfbWFjaGluZSwgaW50IGlkKQoreworCWNvbnN0IHN0cnVjdCBzeXNjYWxsdGJsICp0YWJs
+ZSA9IGZpbmRfdGFibGUoZV9tYWNoaW5lKTsKKworCWlmICh0YWJsZSAmJiBpZCA+PSAwICYmIGlk
+IDwgdGFibGUtPm51bV90b19uYW1lX2xlbikKKwkJcmV0dXJuIHRhYmxlLT5udW1fdG9fbmFtZVtp
+ZF07CiAJcmV0dXJuIE5VTEw7CiB9CiAKQEAgLTQxLDM4ICs2NCw1NCBAQCBzdGF0aWMgaW50IHN5
+c2NhbGxjbXBuYW1lKGNvbnN0IHZvaWQgKnZrZXksIGNvbnN0IHZvaWQgKnZlbnRyeSkKIAlyZXR1
+cm4gc3RyY21wKGtleS0+bmFtZSwga2V5LT50YmxbKmVudHJ5XSk7CiB9CiAKLWludCBzeXNjYWxs
+dGJsX19pZChpbnQgZV9tYWNoaW5lIF9fbWF5YmVfdW51c2VkLCBjb25zdCBjaGFyICpuYW1lKQor
+aW50IHN5c2NhbGx0YmxfX2lkKGludCBlX21hY2hpbmUsIGNvbnN0IGNoYXIgKm5hbWUpCiB7Ci0J
+c3RydWN0IHN5c2NhbGxfY21wX2tleSBrZXkgPSB7Ci0JCS5uYW1lID0gbmFtZSwKLQkJLnRibCA9
+IHN5c2NhbGxfbnVtX3RvX25hbWUsCi0JfTsKLQljb25zdCBpbnQgKmlkID0gYnNlYXJjaCgma2V5
+LCBzeXNjYWxsX3NvcnRlZF9uYW1lcywKLQkJCQlBUlJBWV9TSVpFKHN5c2NhbGxfc29ydGVkX25h
+bWVzKSwKLQkJCQlzaXplb2Yoc3lzY2FsbF9zb3J0ZWRfbmFtZXNbMF0pLAotCQkJCXN5c2NhbGxj
+bXBuYW1lKTsKKwljb25zdCBzdHJ1Y3Qgc3lzY2FsbHRibCAqdGFibGUgPSBmaW5kX3RhYmxlKGVf
+bWFjaGluZSk7CisJc3RydWN0IHN5c2NhbGxfY21wX2tleSBrZXk7CisJY29uc3QgaW50ICppZDsK
+KworCWlmICghdGFibGUpCisJCXJldHVybiAtMTsKKworCWtleS5uYW1lID0gbmFtZTsKKwlrZXku
+dGJsID0gdGFibGUtPm51bV90b19uYW1lOworCWlkID0gYnNlYXJjaCgma2V5LCB0YWJsZS0+c29y
+dGVkX25hbWVzLCB0YWJsZS0+c29ydGVkX25hbWVzX2xlbiwKKwkJICAgICBzaXplb2YodGFibGUt
+PnNvcnRlZF9uYW1lc1swXSksIHN5c2NhbGxjbXBuYW1lKTsKIAogCXJldHVybiBpZCA/ICppZCA6
+IC0xOwogfQogCi1pbnQgc3lzY2FsbHRibF9fbnVtX2lkeChpbnQgZV9tYWNoaW5lIF9fbWF5YmVf
+dW51c2VkKQoraW50IHN5c2NhbGx0YmxfX251bV9pZHgoaW50IGVfbWFjaGluZSkKIHsKLQlyZXR1
+cm4gQVJSQVlfU0laRShzeXNjYWxsX3NvcnRlZF9uYW1lcyk7CisJY29uc3Qgc3RydWN0IHN5c2Nh
+bGx0YmwgKnRhYmxlID0gZmluZF90YWJsZShlX21hY2hpbmUpOworCisJaWYgKCF0YWJsZSkKKwkJ
+cmV0dXJuIDA7CisKKwlyZXR1cm4gdGFibGUtPnNvcnRlZF9uYW1lc19sZW47CiB9CiAKLWludCBz
+eXNjYWxsdGJsX19pZF9hdF9pZHgoaW50IGVfbWFjaGluZSBfX21heWJlX3VudXNlZCwgaW50IGlk
+eCkKK2ludCBzeXNjYWxsdGJsX19pZF9hdF9pZHgoaW50IGVfbWFjaGluZSwgaW50IGlkeCkKIHsK
+LQlyZXR1cm4gc3lzY2FsbF9zb3J0ZWRfbmFtZXNbaWR4XTsKKwljb25zdCBzdHJ1Y3Qgc3lzY2Fs
+bHRibCAqdGFibGUgPSBmaW5kX3RhYmxlKGVfbWFjaGluZSk7CisKKwlpZiAoIXRhYmxlKQorCQly
+ZXR1cm4gLTE7CisKKwlhc3NlcnQoaWR4ID49IDAgJiYgaWR4IDwgdGFibGUtPnNvcnRlZF9uYW1l
+c19sZW4pOworCXJldHVybiB0YWJsZS0+c29ydGVkX25hbWVzW2lkeF07CiB9CiAKLWludCBzeXNj
+YWxsdGJsX19zdHJnbG9ibWF0Y2hfbmV4dChpbnQgZV9tYWNoaW5lIF9fbWF5YmVfdW51c2VkLCBj
+b25zdCBjaGFyICpzeXNjYWxsX2dsb2IsIGludCAqaWR4KQoraW50IHN5c2NhbGx0YmxfX3N0cmds
+b2JtYXRjaF9uZXh0KGludCBlX21hY2hpbmUsIGNvbnN0IGNoYXIgKnN5c2NhbGxfZ2xvYiwgaW50
+ICppZHgpCiB7Ci0JZm9yIChpbnQgaSA9ICppZHggKyAxOyBpIDwgKGludClBUlJBWV9TSVpFKHN5
+c2NhbGxfc29ydGVkX25hbWVzKTsgKytpKSB7Ci0JCWNvbnN0IGNoYXIgKm5hbWUgPSBzeXNjYWxs
+X251bV90b19uYW1lW3N5c2NhbGxfc29ydGVkX25hbWVzW2ldXTsKKwljb25zdCBzdHJ1Y3Qgc3lz
+Y2FsbHRibCAqdGFibGUgPSBmaW5kX3RhYmxlKGVfbWFjaGluZSk7CisKKwlmb3IgKGludCBpID0g
+KmlkeCArIDE7IHRhYmxlICYmIGkgPCB0YWJsZS0+c29ydGVkX25hbWVzX2xlbjsgKytpKSB7CisJ
+CWNvbnN0IGNoYXIgKm5hbWUgPSB0YWJsZS0+bnVtX3RvX25hbWVbdGFibGUtPnNvcnRlZF9uYW1l
+c1tpXV07CiAKIAkJaWYgKHN0cmdsb2JtYXRjaChuYW1lLCBzeXNjYWxsX2dsb2IpKSB7CiAJCQkq
+aWR4ID0gaTsKLQkJCXJldHVybiBzeXNjYWxsX3NvcnRlZF9uYW1lc1tpXTsKKwkJCXJldHVybiB0
+YWJsZS0+c29ydGVkX25hbWVzW2ldOwogCQl9CiAJfQogCi0tIAoyLjQ4LjEuMzYyLmcwNzkwMzZk
+MTU0LWdvb2cKCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+XwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9y
+ZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2
+Cg==
