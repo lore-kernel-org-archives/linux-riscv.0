@@ -4,94 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6BB1DC02193
-	for <linux-riscv@archiver.kernel.org>; Mon,  3 Feb 2025 10:06:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA4E7C02193
+	for <linux-riscv@archiver.kernel.org>; Mon,  3 Feb 2025 10:45:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:CC:Subject
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=EJxwJUNkxz0aeiw+s+QU5xvti+11fzjWlc8t+XA7Wmo=; b=mn/D+7eRbc9kxo
-	RQH9+m5usdw5zgNxQY47A9RvDWb3izENmuGkOhTiI7G+7MFEducDsoHbXfmd+iSd7eW+WL/0Hg6Co
-	YYZCFyZ06r7372cuFkmDm7fjsBovuHtGqT+21oPha5uIqTQer3ylqTWH4qRTXOGfMJ05TRQWUBMiu
-	v8GY54zmzFKNNnwKNzBFj9HxLWAwdKqrfK3DVxD7Q1VQClX/re7OqOx6IdtV8po+qkoLgoYLOLR0v
-	7ydLujJl4NurL32xBRxMt7rxT4YgwnwuQ5gTsGgqd/keqQPjf/ydy3DktvMVoXrzYa/EBOF2gPi/2
-	rEYhNY+DLRIfFUYeXP8A==;
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=5MRh2LxRzb77YA12QUbEAdzwbHmkzgERdHuPfLhuHkY=; b=r/OMvqoBJMf7mr
+	qJGoyREuM85DI5DrvsyuUvh6+IWmMLE6STdW9Ejdq6oNze0I5xKOcGi2zhVgE7S8WbVOhDw+IY7v2
+	p7rXU2mLuOsLouD2bQSohGn6nB+aFujNszQmGCpXjVfj4e6n/WoDfB37/gQTaFpaEBf5HCkd8aabC
+	nWc7wZitHZkBy50nqmYy79/659v+7hnwgi8qy0YECF3JXDHtSVqhSorJQbH5xn7C8f7exZzfZ1EgO
+	av1x7wBIOD7DQ+bcHmDEr6XR18ajEcd21Xf7f6ejnTSSEPtwgGEqGqM9l18VLZygolYiaxS0OnXDh
+	K+LNEBBFCFUaCJCT/UTA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tetLA-0000000F56D-1HhQ;
-	Mon, 03 Feb 2025 10:06:04 +0000
-Received: from smtp-out2.suse.de ([195.135.223.131])
+	id 1tetxb-0000000F9ZN-2ANO;
+	Mon, 03 Feb 2025 10:45:47 +0000
+Received: from mgamail.intel.com ([192.198.163.10])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tetL7-0000000F55Q-3vDU
+	id 1teszR-0000000F1iV-0KCY
 	for linux-riscv@lists.infradead.org;
-	Mon, 03 Feb 2025 10:06:03 +0000
-Received: from hawking.nue2.suse.org (unknown [10.168.4.11])
-	by smtp-out2.suse.de (Postfix) with ESMTP id 405A81F37C;
-	Mon,  3 Feb 2025 10:06:00 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1738577160; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type;
-	bh=z8WWUCewt8GWdziJ/b+QfhI909T7AMMSL3etFAdSg5I=;
-	b=k+4MV07YEKE3WVQPcdYfmNRLjGuoGcSkZzHx+QMS7dR+v39cN65qC/so+uYHTvBymFW36W
-	1kp40fddEGEyg3Hk4Fw3WSqWCrTYrXTVL07d+iUcZsXc1AFut7DoXGgnqIF6xF2uhRGrRR
-	1/JthrOVxXwryIlRBhcpcHJ+XILZpaM=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1738577160;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type;
-	bh=z8WWUCewt8GWdziJ/b+QfhI909T7AMMSL3etFAdSg5I=;
-	b=jL0Yl/3s3T0ZgX1pPpyYOZ0LVh3jtpm+ZmNeR/2Xi4vykMTKIethMnzqQacrRgrOSyFoG/
-	cvCib8sF75tQO6BQ==
-Authentication-Results: smtp-out2.suse.de;
-	none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1738577160; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type;
-	bh=z8WWUCewt8GWdziJ/b+QfhI909T7AMMSL3etFAdSg5I=;
-	b=k+4MV07YEKE3WVQPcdYfmNRLjGuoGcSkZzHx+QMS7dR+v39cN65qC/so+uYHTvBymFW36W
-	1kp40fddEGEyg3Hk4Fw3WSqWCrTYrXTVL07d+iUcZsXc1AFut7DoXGgnqIF6xF2uhRGrRR
-	1/JthrOVxXwryIlRBhcpcHJ+XILZpaM=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1738577160;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type;
-	bh=z8WWUCewt8GWdziJ/b+QfhI909T7AMMSL3etFAdSg5I=;
-	b=jL0Yl/3s3T0ZgX1pPpyYOZ0LVh3jtpm+ZmNeR/2Xi4vykMTKIethMnzqQacrRgrOSyFoG/
-	cvCib8sF75tQO6BQ==
-Received: by hawking.nue2.suse.org (Postfix, from userid 17005)
-	id 3224F4A0551; Mon,  3 Feb 2025 11:06:00 +0100 (CET)
-From: Andreas Schwab <schwab@suse.de>
-To: linux-riscv@lists.infradead.org
-Subject: [PATCH] riscv/futex: sign extend compare value in atomic cmpxchg
-CC: linux-kernel@vger.kernel.org
-Date: Mon, 03 Feb 2025 11:06:00 +0100
-Message-ID: <mvmfrkv2vhz.fsf@suse.de>
-User-Agent: Gnus/5.13 (Gnus v5.13)
+	Mon, 03 Feb 2025 09:43:38 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1738575817; x=1770111817;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=aQY5nT189S5QUoHa13vFWQRg/WET3r3m2ffZ4yejuzQ=;
+  b=eHBh3SPcLRimgSFdiQ6rrfE69oukDuc5ycUmeQOgmy6xsuisuCYdrG4S
+   P5DoKIXNN+z4isPK86fiW9M6S9Z6W8uHEMoFtqN+d5tLWKCgtKoeJuPmW
+   QO/1T5WN3isxcSmLoz1wkhqIktExv8Yhy35hUAFyv5JeA4tzzVnW4y5Gc
+   80l1JihWYInQEQPstxD4pRvlvDctSn/eF4Fkdc2gAmqNw5jIf4Lb9FO0R
+   RRkNqIowTYQ6m8muPZE1vMQmsutQqbS2kqroRd9IhCb0BbPhEuIQDmyc1
+   oKgwcT0SsrMRb9CQmoxP6NAgGYC3Gv5RHIR2eOkwWnFoFaFBfdGVeZxkf
+   g==;
+X-CSE-ConnectionGUID: c8rJ5zJLS5SinlqZ6pKvQg==
+X-CSE-MsgGUID: WSXZatp2SCKMYNOaf8E14A==
+X-IronPort-AV: E=McAfee;i="6700,10204,11314"; a="50476125"
+X-IronPort-AV: E=Sophos;i="6.12,310,1728975600"; 
+   d="scan'208";a="50476125"
+Received: from orviesa005.jf.intel.com ([10.64.159.145])
+  by fmvoesa104.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 03 Feb 2025 01:43:36 -0800
+X-CSE-ConnectionGUID: LLrcAqr0Rlm/ruY5605yCQ==
+X-CSE-MsgGUID: oFZ70KHIRg+AEWH/Kc4nCw==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.12,224,1728975600"; 
+   d="scan'208";a="115392397"
+Received: from smile.fi.intel.com ([10.237.72.58])
+  by orviesa005.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 03 Feb 2025 01:43:30 -0800
+Received: from andy by smile.fi.intel.com with local (Exim 4.98)
+	(envelope-from <andriy.shevchenko@linux.intel.com>)
+	id 1teszG-00000007mu6-17QX;
+	Mon, 03 Feb 2025 11:43:26 +0200
+Date: Mon, 3 Feb 2025 11:43:26 +0200
+From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+To: Anup Patel <apatel@ventanamicro.com>
+Subject: Re: [RFC PATCH v2 12/17] ACPI: property: Add support for nargs_prop
+ in acpi_fwnode_get_reference_args()
+Message-ID: <Z6CPvteWv89Xo70j@smile.fi.intel.com>
+References: <20250203084906.681418-1-apatel@ventanamicro.com>
+ <20250203084906.681418-13-apatel@ventanamicro.com>
 MIME-Version: 1.0
-X-Spamd-Result: default: False [-4.20 / 50.00];
-	BAYES_HAM(-3.00)[99.99%];
-	NEURAL_HAM_LONG(-1.00)[-1.000];
-	NEURAL_HAM_SHORT(-0.20)[-0.986];
-	MIME_GOOD(-0.10)[text/plain];
-	RCVD_NO_TLS_LAST(0.10)[];
-	MID_RHS_MATCH_FROM(0.00)[];
-	ARC_NA(0.00)[];
-	MIME_TRACE(0.00)[0:+];
-	RCVD_COUNT_ONE(0.00)[1];
-	RCPT_COUNT_TWO(0.00)[2];
-	FROM_HAS_DN(0.00)[];
-	FUZZY_BLOCKED(0.00)[rspamd.com];
-	FROM_EQ_ENVFROM(0.00)[];
-	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
-	TO_DN_NONE(0.00)[];
-	TO_MATCH_ENVRCPT_ALL(0.00)[];
-	DBL_BLOCKED_OPENRESOLVER(0.00)[suse.de:mid,suse.de:email]
+Content-Disposition: inline
+In-Reply-To: <20250203084906.681418-13-apatel@ventanamicro.com>
+Organization: Intel Finland Oy - BIC 0357606-4 - Westendinkatu 7, 02160 Espoo
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250203_020602_116829_31D6695D 
-X-CRM114-Status: UNSURE (   9.12  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250203_014337_132038_0C0717BD 
+X-CRM114-Status: GOOD (  14.31  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,43 +84,41 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Cc: "Rafael J . Wysocki" <rafael@kernel.org>, Michael Turquette <mturquette@baylibre.com>, Paul Walmsley <paul.walmsley@sifive.com>, Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <ukleinek@kernel.org>, linux-riscv@lists.infradead.org, linux-clk@vger.kernel.org, Rob Herring <robh@kernel.org>, Anup Patel <anup@brainfault.org>, Bartosz Golaszewski <brgl@bgdev.pl>, Jassi Brar <jassisinghbrar@gmail.com>, Linus Walleij <linus.walleij@linaro.org>, Andrew Jones <ajones@ventanamicro.com>, devicetree@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>, Leyfoon Tan <leyfoon.tan@starfivetech.com>, Atish Patra <atishp@atishpatra.org>, Thomas Gleixner <tglx@linutronix.de>, Mika Westerberg <mika.westerberg@linux.intel.com>, Stephen Boyd <sboyd@kernel.org>, linux-kernel@vger.kernel.org, Samuel Holland <samuel.holland@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Rahul Pathak <rpathak@ventanamicro.com>, Len Brown <lenb@kernel.org>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Make sure the compare value in the lr/sc loop is sign extended to match
-what lr.w does.  Fortunately, due to the compiler keeping the register
-contents sign extended anyway the lack of the explicit extension didn't
-result in wrong code so far, but this cannot be relied upon.
+On Mon, Feb 03, 2025 at 02:19:01PM +0530, Anup Patel wrote:
+> From: Sunil V L <sunilvl@ventanamicro.com>
+> 
+> fwnode_get_reference_args() which is common for both DT and ACPI passes
+> a property name like #mbox-cells which needs to be fetched from the
+> reference node to determine the number of arguments needed for the
+> property. However, the ACPI version of this function doesn't support
+> this and simply ignores the parameter passed from the wrapper function.
+> Add support for dynamically finding number of arguments by reading the
+> nargs property value. Update the callers to pass extra parameter.
 
-Fixes: b90edb33010b ("RISC-V: Add futex support.")
-Signed-off-by: Andreas Schwab <schwab@suse.de>
----
- arch/riscv/include/asm/futex.h | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+I don't like this (implementation).
 
-diff --git a/arch/riscv/include/asm/futex.h b/arch/riscv/include/asm/futex.h
-index fc8130f995c1..6907c456ac8c 100644
---- a/arch/riscv/include/asm/futex.h
-+++ b/arch/riscv/include/asm/futex.h
-@@ -93,7 +93,7 @@ futex_atomic_cmpxchg_inatomic(u32 *uval, u32 __user *uaddr,
- 		_ASM_EXTABLE_UACCESS_ERR(1b, 3b, %[r])	\
- 		_ASM_EXTABLE_UACCESS_ERR(2b, 3b, %[r])	\
- 	: [r] "+r" (ret), [v] "=&r" (val), [u] "+m" (*uaddr), [t] "=&r" (tmp)
--	: [ov] "Jr" (oldval), [nv] "Jr" (newval)
-+	: [ov] "Jr" ((long)(int)oldval), [nv] "Jr" (newval)
- 	: "memory");
- 	__disable_user_access();
- 
--- 
-2.48.1
+It seems that we basically have two parameters which values are duplicating
+each other. This is error prone API and confusing in the cases when both are
+defined. If you want property, add a new API that takes const char *nargs
+and relies on the property be present.
 
+Your patch becomes much simpler, and solution is robust against potential
+confusion on how to treat the corner cases.
+
+Note, Rafael might have different opinion and his has the last word. But
+here just my view on the implementation details.
 
 -- 
-Andreas Schwab, SUSE Labs, schwab@suse.de
-GPG Key fingerprint = 0196 BAD8 1CE9 1970 F4BE  1748 E4D4 88E3 0EEA B9D7
-"And now for something completely different."
+With Best Regards,
+Andy Shevchenko
+
+
 
 _______________________________________________
 linux-riscv mailing list
