@@ -4,122 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6F463C02193
-	for <linux-riscv@archiver.kernel.org>; Mon,  3 Feb 2025 08:43:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 24C5DC02193
+	for <linux-riscv@archiver.kernel.org>; Mon,  3 Feb 2025 08:49:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
-	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=H3EoVxizoKSin3J5p49LxTVg41GgpmMfLLwtFUza9ic=; b=k9kGdgjHXi9+gt
-	92h9zlUXzPYoaWUGMxc15QQj0oxYQ+r14N7NrU1e1PXTf3f7+Piovk9jWcSgOTrMlJslrjoyx8igr
-	kI5mvbo45gmmcWADCqRdRSU/yr5m4bnak0xMqBxQgNMrArxU4sUNk3UQBj6gb7XBallMarCjKRrBR
-	BCSGhP4fLcjUwa/D/68Zss/p9S2ldlXTBTiGrLRgJG3OWHH6BNH6c4xnED/HNN+UE3rzexbWoaolO
-	BGdUUS+G8IiMlQHUyCDknZadverTik3yvj3qghvpxve3M04eJigmFHKNkWA+n7eunzMrtjabHgY/J
-	Vy6SJg+8k7rcuRwp26Pw==;
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:To
+	:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=e6IkiIiRXvgkWS3ubnaLJ5Tpfh2odDFddaat4HzB6q0=; b=4sdxJ7UkokX+6C
+	w60rXT5vriem5EZUIJR5lCBlCvvFyCHO+6leMLSQmzLJYu/K156o7WCRAn1FBZj1AvmHGCEE5jgNE
+	vZ6wfIdbRSAjGfjGHw5VqD5ZCM2+4m0huJy2gf2Q4bBRD8sBNNR7cDEGoD1ZgXvSr5ak2QWDmK5ag
+	g5k0bD9O6eAp+pEqyqk6DuL5e34g5k9seucWhTT5LksKNR/62O6W5bi8wcB96PyWBsZTAnzPDLJiI
+	g4stYAtdQtJhq1d5HZ9kRZvwwGZyACzG6zwlySvYtZ3JXlpM+eAnc/8j+lDnndnmB8+N9LXK46Bn5
+	4ycDA7tEOWRHeYCFDoyg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tes2l-0000000EstU-00mC;
-	Mon, 03 Feb 2025 08:42:59 +0000
-Received: from smtp-out2.suse.de ([2a07:de40:b251:101:10:150:64:2])
+	id 1tes93-0000000Etcl-3BXi;
+	Mon, 03 Feb 2025 08:49:29 +0000
+Received: from mail-qt1-x832.google.com ([2607:f8b0:4864:20::832])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tes2i-0000000Essp-3V4z
+	id 1tes90-0000000EtcE-1rek
 	for linux-riscv@lists.infradead.org;
-	Mon, 03 Feb 2025 08:42:58 +0000
-Received: from hawking.nue2.suse.org (unknown [IPv6:2a07:de40:a101:3:92b1:1cff:fe69:ddc])
-	by smtp-out2.suse.de (Postfix) with ESMTP id 4266E1F37C;
-	Mon,  3 Feb 2025 08:42:55 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1738572175; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=n4KmZoQfw8THBhrTIiwcH+di+9FGYYevhJ3k+w9c0xc=;
-	b=ZRYXQX62EiH6D6fHevn7HpphdOaypDmDwrTpW7Cwo+d1b/O+2w3L2YhJAbrZenn8Ax6FS6
-	c8981AUwCheJOZr5SqbnPbR7FSIjh1iZoWWzTZTjqH3MkQf2UUoTdzT93+VhuL2G2POO6z
-	HLCzl+TC02gaVHILLiDqws9L3ZdTri4=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1738572175;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=n4KmZoQfw8THBhrTIiwcH+di+9FGYYevhJ3k+w9c0xc=;
-	b=WhfXxchtS4RjUIWr3l54PdGjWM1HtrSqRPzqPTTvVn4e73Mp6DkrGzkNsq2orSTcKdJQXj
-	W3h2uh+1LdGnxPAw==
-Authentication-Results: smtp-out2.suse.de;
-	dkim=pass header.d=suse.de header.s=susede2_rsa header.b=ZRYXQX62;
-	dkim=pass header.d=suse.de header.s=susede2_ed25519 header.b=WhfXxcht
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1738572175; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=n4KmZoQfw8THBhrTIiwcH+di+9FGYYevhJ3k+w9c0xc=;
-	b=ZRYXQX62EiH6D6fHevn7HpphdOaypDmDwrTpW7Cwo+d1b/O+2w3L2YhJAbrZenn8Ax6FS6
-	c8981AUwCheJOZr5SqbnPbR7FSIjh1iZoWWzTZTjqH3MkQf2UUoTdzT93+VhuL2G2POO6z
-	HLCzl+TC02gaVHILLiDqws9L3ZdTri4=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1738572175;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=n4KmZoQfw8THBhrTIiwcH+di+9FGYYevhJ3k+w9c0xc=;
-	b=WhfXxchtS4RjUIWr3l54PdGjWM1HtrSqRPzqPTTvVn4e73Mp6DkrGzkNsq2orSTcKdJQXj
-	W3h2uh+1LdGnxPAw==
-Received: by hawking.nue2.suse.org (Postfix, from userid 17005)
-	id 1EB8B4A0551; Mon,  3 Feb 2025 09:42:55 +0100 (CET)
-From: Andreas Schwab <schwab@suse.de>
-To: Jessica Clarke <jrtc27@jrtc27.com>
-Cc: Alexandre Ghiti <alex@ghiti.fr>,  linux-riscv@lists.infradead.org,
-  linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] riscv/atomic: Do proper sign extension also for
- unsigned in arch_cmpxchg
-In-Reply-To: <CC2D9220-F8DE-4CC8-ACAD-7B1A21E276FE@jrtc27.com> (Jessica
-	Clarke's message of "Thu, 30 Jan 2025 17:21:28 +0000")
-References: <mvmed0k4prh.fsf@suse.de>
-	<c9cbc2be-d1fd-44ef-aa14-fd25a5ff8490@ghiti.fr>
-	<mvm5xlw4anb.fsf@suse.de>
-	<ac53a62e-4f89-49c9-a755-fdfa7a582337@ghiti.fr>
-	<mvmwmec2t7u.fsf@suse.de>
-	<CC2D9220-F8DE-4CC8-ACAD-7B1A21E276FE@jrtc27.com>
-Date: Mon, 03 Feb 2025 09:42:55 +0100
-Message-ID: <mvmo6zj2zcg.fsf@suse.de>
-User-Agent: Gnus/5.13 (Gnus v5.13)
+	Mon, 03 Feb 2025 08:49:27 +0000
+Received: by mail-qt1-x832.google.com with SMTP id d75a77b69052e-467b955e288so45733101cf.1
+        for <linux-riscv@lists.infradead.org>; Mon, 03 Feb 2025 00:49:25 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ventanamicro.com; s=google; t=1738572565; x=1739177365; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=qYXXlTk5HduQbMTIlt80IsYvDUjFzMF5KSYRQGJL3Uk=;
+        b=m8XNpIuXn6fDNVOsARKlhZu8nsrsAGOTmT4jQwEtHVUH1ZEg423Jo1fQLsZAkXylnF
+         lspR/BUrd1OgJ4pDdqUg/DpxdOJxnPm9rIlQGiCmveROXi5qPCRxG6PUDl8622zSivpp
+         5pJvJU7HBukbDcsy2/hXF8g7HO9COAWnQa35EgOfWU1kzZ3OdX5hnmE613fQYbonPQBp
+         vTAWNbYpOm5HZgwcOWcL4Rr8RONutAct3fcF11FDFFwfyrk0qHIXRmhRmKHN073kwHY6
+         D6ryLUHpyj/yd+V4L2qxmp9KRaffiOCDJXSLYnDWH8Xk1J7N4WV3W5WywEcpXv3dRPBS
+         G6rQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1738572565; x=1739177365;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=qYXXlTk5HduQbMTIlt80IsYvDUjFzMF5KSYRQGJL3Uk=;
+        b=BVpcbzWx9krZX1BgCouOYBH+dYBolkJFV3/hiNbGDJPUCHPFcU9VvZibZDy9IXqcKM
+         aItEbGW32+EHvNXOKrpG1YTW4R9Ncl0N/VwcRhkrmn4r2spPQcR4ewf8ZaiCxLEllIVN
+         F9aQsxC3OIdjmmoxfkm/xLv++90iPYxgCMAsK5GMP79g4K3bo5qpijvNu5ZYrKmjTcUd
+         B6z5vUfcNdn/TFSRb39JmRUq6hcwBICM0cQLQ257Bw3LeqSt/PLhpjoNSgTlaGkKPkv/
+         esuZUj8polDuG2VQggsNSzi5UXRwNcPZslPlyZfL0bVZCf49lrhSgd3nXH6+Ekt7rs5i
+         CQ8w==
+X-Forwarded-Encrypted: i=1; AJvYcCVSmnvhhMrXQ8dlKkVwoOdjabUEiGfXDaF8Aajs4ioE49uAxLYhwAroDBEKsJA1vzfKOmQVnjsQ1+uz5g==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzgz5N3GA5zh4exBdqAb2GL+lcRu9TK+zODTNYzSviQ5ygY6tii
+	0YPBNFLxS0vX96RQRZpiEZW01lgfI6hXMt6uQpQe2HxtTGBLpI9mMA+cyzrOWjY=
+X-Gm-Gg: ASbGncs6KnVUreQ1M7tFNbWp0+YnY98kUjYL+osEURwLxl00Zcght0U/zcdKL2Sf50M
+	RJutsITNeh+lisCopD6vwP8+xjNo6tdWSXKV5bf3+eam6zP5FrdanS0ghfd7lP/+Im0iTiP58df
+	f15DU0eB7DPprlVUin0S6MfL1alR4vqWwxtPWiFrIfZSQi8dGOjYgGr5DsUhRkPYny5a1p3J3rd
+	VLrc/so3B7PzyGdFgZk02NALpldqndcP0XUi585wnyAkqGzuXwTpli4zui1XyHeGynKEh9NGhHP
+	Y2r9klbNWQAPnlc0NsNN2xSCC0QY3oFh19gFrrcvwDNQEIc3IIarVao=
+X-Google-Smtp-Source: AGHT+IGH0XTcN/X29iLH8kRSIgCwIt85vlSYKgmJJ/8YJqUZ2p1KY2bxWsy8EAgScZgVFzZwv6JhNQ==
+X-Received: by 2002:ac8:584f:0:b0:467:5e4f:3d1 with SMTP id d75a77b69052e-46fd0b924b4mr302004001cf.33.1738572564583;
+        Mon, 03 Feb 2025 00:49:24 -0800 (PST)
+Received: from anup-ubuntu-vm.localdomain ([103.97.166.196])
+        by smtp.gmail.com with ESMTPSA id d75a77b69052e-46fdf0e3089sm47657911cf.46.2025.02.03.00.49.12
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 03 Feb 2025 00:49:23 -0800 (PST)
+From: Anup Patel <apatel@ventanamicro.com>
+To: Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Jassi Brar <jassisinghbrar@gmail.com>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	"Rafael J . Wysocki" <rafael@kernel.org>,
+	Mika Westerberg <mika.westerberg@linux.intel.com>,
+	Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
+	Linus Walleij <linus.walleij@linaro.org>,
+	Bartosz Golaszewski <brgl@bgdev.pl>,
+	=?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <ukleinek@kernel.org>
+Subject: [RFC PATCH v2 00/17] Linux SBI MPXY and RPMI drivers
+Date: Mon,  3 Feb 2025 14:18:49 +0530
+Message-ID: <20250203084906.681418-1-apatel@ventanamicro.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-X-Spamd-Result: default: False [2.70 / 50.00];
-	BAYES_HAM(-3.00)[99.99%];
-	HFILTER_HOSTNAME_UNKNOWN(2.50)[];
-	RDNS_NONE(2.00)[];
-	ONCE_RECEIVED(1.20)[];
-	HFILTER_HELO_IP_A(1.00)[hawking.nue2.suse.org];
-	NEURAL_HAM_LONG(-1.00)[-1.000];
-	HFILTER_HELO_NORES_A_OR_MX(0.30)[hawking.nue2.suse.org];
-	R_DKIM_ALLOW(-0.20)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
-	RCVD_NO_TLS_LAST(0.10)[];
-	MIME_GOOD(-0.10)[text/plain];
-	NEURAL_HAM_SHORT(-0.09)[-0.440];
-	MX_GOOD(-0.01)[];
-	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
-	FUZZY_BLOCKED(0.00)[rspamd.com];
-	MIME_TRACE(0.00)[0:+];
-	ARC_NA(0.00)[];
-	DIRECT_TO_MX(0.00)[Gnus/5.13 (Gnus v5.13)];
-	DKIM_TRACE(0.00)[suse.de:+];
-	TO_DN_SOME(0.00)[];
-	FROM_EQ_ENVFROM(0.00)[];
-	FROM_HAS_DN(0.00)[];
-	TO_MATCH_ENVRCPT_ALL(0.00)[];
-	MID_RHS_MATCH_FROM(0.00)[];
-	RCPT_COUNT_THREE(0.00)[4];
-	RCVD_COUNT_ONE(0.00)[1];
-	DBL_BLOCKED_OPENRESOLVER(0.00)[suse.de:email,suse.de:dkim,suse.de:mid]
-X-Spamd-Bar: ++
-X-Rspamd-Queue-Id: 4266E1F37C
-X-Rspamd-Action: no action
-X-Rspamd-Server: rspamd2.dmz-prg2.suse.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250203_004257_024224_86E643B2 
-X-CRM114-Status: UNSURE (   7.05  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250203_004926_487475_BA0BCD42 
+X-CRM114-Status: GOOD (  19.34  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -131,31 +100,109 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Cc: Anup Patel <apatel@ventanamicro.com>, devicetree@vger.kernel.org, Andrew Jones <ajones@ventanamicro.com>, Leyfoon Tan <leyfoon.tan@starfivetech.com>, Anup Patel <anup@brainfault.org>, Atish Patra <atishp@atishpatra.org>, linux-kernel@vger.kernel.org, Samuel Holland <samuel.holland@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, linux-riscv@lists.infradead.org, Len Brown <lenb@kernel.org>, linux-clk@vger.kernel.org, Rahul Pathak <rpathak@ventanamicro.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Jan 30 2025, Jessica Clarke wrote:
+The SBI v3.0 MPXY extension [1] and RPMI v1.0 [2] specifications are
+in stable state and under ARC review at the RISC-V International so
+as part of the RVI process we would like to receive an early feedback
+on the device tree bindings and mailbox drivers hence this series.
 
-> On 30 Jan 2025, at 15:53, Andreas Schwab <schwab@suse.de> wrote:
->> 
->> On Jan 30 2025, Alexandre Ghiti wrote:
->> 
->>> a2 is used as it is passed by the calling function, so we can't be sure a2
->>> is sign extended to me, what am I missing?
->> 
->> 32-bit scalar arguments are guaranteed to be sign extended on entry.
->
-> Firstly, the calling convention is irrelevant if the function is
-> inlined, which this almost always will be.
+Currently, most of the RPMI and MPXY drivers are in OpenSBI whereas
+for Linux only has SBI MPXY mailbox controller driver, RPMI clock
+driver.and RPMI system MSI driver This series also includes ACPI
+support for SBI MPXY mailbox controller and RPMI system MSI drivers.
 
-This is only about the non-inlined variant.
+These patches can be found in the riscv_sbi_mpxy_mailbox_v2 branch at:
+https://github.com/avpatel/linux.git
+
+To test these patches, boot Linux on "virt,rpmi=on,aia=aplic-imsic"
+machine with OpenSBI and QEMU from the dev-upstream QEMU branch at:
+https://github.com/ventanamicro/opensbi.git
+https://github.com/ventanamicro/qemu.git
+
+[1] https://github.com/riscv-non-isa/riscv-sbi-doc/releases
+[2] https://github.com/riscv-non-isa/riscv-rpmi/releases
+
+Changes since v1:
+ - Addressed DT bindings related comments in PATCH2, PATCH3, and
+   PATCH7 of v1 series
+ - Addressed comments in PATCH6 and PATCH8 of v1 series
+ - New PATCH6 in v2 series to allow fwnode based mailbox channel
+   request
+ - New PATCH10 and PATCH11 to add RPMI system MSI based interrupt
+   controller driver
+ - New PATCH12 to PATCH16 which adds ACPI support in SBI MPXY
+   mailbox driver and RPMI system MSI driver
+ - New PATCH17 to enable required kconfig option to allow graceful
+   shutdown on QEMU virt machine
+
+Anup Patel (11):
+  riscv: Add new error codes defined by SBI v3.0
+  dt-bindings: mailbox: Add bindings for RPMI shared memory transport
+  dt-bindings: mailbox: Add bindings for RISC-V SBI MPXY extension
+  RISC-V: Add defines for the SBI message proxy extension
+  mailbox: Add common header for RPMI messages sent via mailbox
+  mailbox: Allow controller specific mapping using fwnode
+  mailbox: Add RISC-V SBI message proxy (MPXY) based mailbox driver
+  dt-bindings: clock: Add bindings for RISC-V RPMI clock service group
+  dt-bindings: interrupt-controller: Add bindings for RISC-V RPMI system
+    MSI
+  irqchip: Add driver for the RISC-V RPMI system MSI service group
+  RISC-V: Enable GPIO keyboard and event device in RV64 defconfig
+
+Rahul Pathak (1):
+  clk: Add clock driver for the RISC-V RPMI clock service group
+
+Sunil V L (5):
+  ACPI: property: Add support for nargs_prop in
+    acpi_fwnode_get_reference_args()
+  ACPI: scan: Update honor list for RPMI System MSI
+  ACPI: RISC-V: Add RPMI System MSI to GSI mapping
+  mailbox/riscv-sbi-mpxy: Add ACPI support
+  irqchip/riscv-rpmi-sysmsi: Add ACPI support
+
+ .../bindings/clock/riscv,rpmi-clock.yaml      |   77 ++
+ .../riscv,rpmi-system-msi.yaml                |   89 ++
+ .../mailbox/riscv,rpmi-shmem-mbox.yaml        |  150 +++
+ .../bindings/mailbox/riscv,sbi-mpxy-mbox.yaml |   54 +
+ arch/riscv/configs/defconfig                  |    2 +
+ arch/riscv/include/asm/irq.h                  |    1 +
+ arch/riscv/include/asm/sbi.h                  |   70 ++
+ drivers/acpi/property.c                       |   15 +-
+ drivers/acpi/riscv/irq.c                      |   33 +
+ drivers/acpi/scan.c                           |    2 +
+ drivers/clk/Kconfig                           |    8 +
+ drivers/clk/Makefile                          |    1 +
+ drivers/clk/clk-rpmi.c                        |  601 ++++++++++
+ drivers/gpio/gpiolib-acpi.c                   |    2 +-
+ drivers/irqchip/Kconfig                       |    7 +
+ drivers/irqchip/Makefile                      |    1 +
+ drivers/irqchip/irq-riscv-rpmi-sysmsi.c       |  315 +++++
+ drivers/mailbox/Kconfig                       |   11 +
+ drivers/mailbox/Makefile                      |    2 +
+ drivers/mailbox/mailbox.c                     |   44 +-
+ drivers/mailbox/riscv-sbi-mpxy-mbox.c         | 1027 +++++++++++++++++
+ drivers/pwm/core.c                            |    2 +-
+ include/linux/acpi.h                          |   12 +-
+ include/linux/mailbox/riscv-rpmi-message.h    |  235 ++++
+ include/linux/mailbox_controller.h            |    3 +
+ 25 files changed, 2737 insertions(+), 27 deletions(-)
+ create mode 100644 Documentation/devicetree/bindings/clock/riscv,rpmi-clock.yaml
+ create mode 100644 Documentation/devicetree/bindings/interrupt-controller/riscv,rpmi-system-msi.yaml
+ create mode 100644 Documentation/devicetree/bindings/mailbox/riscv,rpmi-shmem-mbox.yaml
+ create mode 100644 Documentation/devicetree/bindings/mailbox/riscv,sbi-mpxy-mbox.yaml
+ create mode 100644 drivers/clk/clk-rpmi.c
+ create mode 100644 drivers/irqchip/irq-riscv-rpmi-sysmsi.c
+ create mode 100644 drivers/mailbox/riscv-sbi-mpxy-mbox.c
+ create mode 100644 include/linux/mailbox/riscv-rpmi-message.h
 
 -- 
-Andreas Schwab, SUSE Labs, schwab@suse.de
-GPG Key fingerprint = 0196 BAD8 1CE9 1970 F4BE  1748 E4D4 88E3 0EEA B9D7
-"And now for something completely different."
+2.43.0
+
 
 _______________________________________________
 linux-riscv mailing list
