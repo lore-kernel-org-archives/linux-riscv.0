@@ -4,82 +4,145 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C7F93C02192
-	for <linux-riscv@archiver.kernel.org>; Mon,  3 Feb 2025 17:07:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C4670C02192
+	for <linux-riscv@archiver.kernel.org>; Mon,  3 Feb 2025 17:58:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:References:In-Reply-To:From:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=cq6ar1Qj3uZHHUbIhoSAXulsN3STwmUneHh6CJfLgGs=; b=a8IfUEjiTRoTNJ
-	d5We5xWwV8RxUeK+H5ca0WuUHifMagN3prf/pExlAVnwG9vuFmCn/j4dMUesfmcBoK9x1niJxllLc
-	VUZrPacWMpijGWc5CWZ7OxDYjrkwburZkI05sXGBBGxRq0FtnpMkRpcfbs9bdkw6YLVuViK4v0rqu
-	UvJeB3JiqXHu2S35SguXNobFud4cedxT0M7pAFzK+cnr1TwZXKVR8y1sD/tGE/x2f0Vs33mxdPhx0
-	WAxr0DInVOertC+jUe4EiO4v3NTA2OaRvZILmLlWcz3tFiAilTDLhbzJlbCR/yn5o1qveEcbNkdt5
-	6BMeW95IykqUymw6oF5A==;
+	List-Owner; bh=4z2N6JpjPTAuLZ5G5U4YI6WCAcXLpPTf+AYxz18Q0cw=; b=CSzJZz9E4M+6g4
+	TwC/idkcZjwSX8I3gtH6HZw0hemhVNNmSjnpQQJ8PrvdFn8Qr3yrK1WWk0r+UAFYsEuk2F3lwhHUp
+	Af/5L32dxQTkc7bY2CeabJKjugj7rAESTQ5+bVlcQwjWR4hcXZDxZhh0oatoVPXcMlXEGvM6qR0ZE
+	VZf7gcLK+bjsv57Q7QmMUCbEj7LKN3jo2iAMSMzOHQGzix+n5Qsn+vGZ27vlh/S7e5wkAXpRvr9PP
+	hkj/ISILKC5SrzVzLPZq5YVgX9zV+Q72E/0WHbAfq/0CIj0QJFR8kpoQ8uwy1YUtkmg56pKnMQFDM
+	jLpjL2fV8d7gOYDMDqjw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tezuZ-0000000G5Zj-2viG;
-	Mon, 03 Feb 2025 17:07:03 +0000
-Received: from mgamail.intel.com ([192.198.163.16])
+	id 1tf0iR-0000000GBpC-1kWa;
+	Mon, 03 Feb 2025 17:58:35 +0000
+Received: from [210.118.77.11] (helo=mailout1.w1.samsung.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tezuW-0000000G5Yz-2Pc0
+	id 1tf0iO-0000000GBnx-0HYK
 	for linux-riscv@lists.infradead.org;
-	Mon, 03 Feb 2025 17:07:02 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1738602421; x=1770138421;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=EiQB0sYBQAho8pe6u94W/tfr8rXHV1YpEzUOZK+DVUo=;
-  b=cQnPUVbLdMIXwHmrSWyerkeZ48qxfDlUBcP+iBdp6Qipnn0fVRuvI9PY
-   CgK7bdEvGIwCbLOkGtZrjYgcyO1WsF78SqKvSLbvcN0xhoI6ZmGO+9SAu
-   9SCdl3++kMQMtMgr0FJlsOvylddvbtkwWC0LT+/vhGKgfxLRyZ0TlkPgp
-   JoCNR3hcME6zP/A3/Js6dVJJUimchiiq3tc4Pj/+dg8bzvYbjX9orhs1C
-   Y4P1hI/DtpTYhJumdb3uTlkohV4eS8OwyCu9/RoOH6PJvFl5/O/N0Amq0
-   tG7Bw1s46ipoLEnR4si5tt8HHNEg7CaqWINJyYEbqq/fobcZEw6ZSJwJ8
-   Q==;
-X-CSE-ConnectionGUID: akp3FqN6TNOhsZQgA9hkGw==
-X-CSE-MsgGUID: ETUVGuehRcydm9Xc+w8kZA==
-X-IronPort-AV: E=McAfee;i="6700,10204,11335"; a="26706708"
-X-IronPort-AV: E=Sophos;i="6.13,256,1732608000"; 
-   d="scan'208";a="26706708"
-Received: from orviesa010.jf.intel.com ([10.64.159.150])
-  by fmvoesa110.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 03 Feb 2025 09:06:57 -0800
-X-CSE-ConnectionGUID: ia0Qpw0DQfCrdKcIAo414Q==
-X-CSE-MsgGUID: HrHf0u6URWuyOeJPMYIroQ==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.12,224,1728975600"; 
-   d="scan'208";a="110150579"
-Received: from lkp-server01.sh.intel.com (HELO d63d4d77d921) ([10.239.97.150])
-  by orviesa010.jf.intel.com with ESMTP; 03 Feb 2025 09:06:54 -0800
-Received: from kbuild by d63d4d77d921 with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1tezuO-000rE7-0S;
-	Mon, 03 Feb 2025 17:06:52 +0000
-Date: Tue, 4 Feb 2025 01:06:51 +0800
-From: kernel test robot <lkp@intel.com>
-To: Charlie Jenkins <charlie@rivosinc.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Ard Biesheuvel <ardb@kernel.org>,
-	Ben Dooks <ben.dooks@codethink.co.uk>,
-	Pasha Bouzarjomehri <pasha@rivosinc.com>,
-	Emil Renner Berthing <emil.renner.berthing@canonical.com>
-Cc: oe-kbuild-all@lists.linux.dev, linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Charlie Jenkins <charlie@rivosinc.com>
-Subject: Re: [PATCH v4] riscv: Add runtime constant support
-Message-ID: <202502040018.8DyjnzNe-lkp@intel.com>
-References: <20250130-runtime_const_riscv-v4-1-2d36c41b7b9c@rivosinc.com>
+	Mon, 03 Feb 2025 17:58:34 +0000
+Received: from eucas1p2.samsung.com (unknown [182.198.249.207])
+	by mailout1.w1.samsung.com (KnoxPortal) with ESMTP id 20250203175827euoutp012230f56d45e8df8721465b3623fcc321~gxH9FC_7d0194001940euoutp017
+	for <linux-riscv@lists.infradead.org>; Mon,  3 Feb 2025 17:58:27 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout1.w1.samsung.com 20250203175827euoutp012230f56d45e8df8721465b3623fcc321~gxH9FC_7d0194001940euoutp017
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1738605507;
+	bh=oB8LLzwbooAPaWEM+Y0kHxlx9ubp+CpytH8cBLFeUhQ=;
+	h=Date:Subject:To:Cc:From:In-Reply-To:References:From;
+	b=mUURczHtAoTDbB0FbnYUwVZAVREebzKDnEFfXDG5T8nQP5dp0MpaixNHgpf3pdV/n
+	 qvKCtOFjhW1ipbrSb1w0nSZomMuJINZ3EhMr85fHx6PAuhAlapsP6WZP+mQ6cxoArr
+	 jNtbebyCSRmJmrerNcvsFvRn22J+EMMuMe499H/4=
+Received: from eusmges3new.samsung.com (unknown [203.254.199.245]) by
+	eucas1p1.samsung.com (KnoxPortal) with ESMTP id
+	20250203175826eucas1p1f91a7a22351ac258c5dc7954ded52990~gxH8Y55o92679526795eucas1p1T;
+	Mon,  3 Feb 2025 17:58:26 +0000 (GMT)
+Received: from eucas1p1.samsung.com ( [182.198.249.206]) by
+	eusmges3new.samsung.com (EUCPMTA) with SMTP id 38.40.20397.2C301A76; Mon,  3
+	Feb 2025 17:58:26 +0000 (GMT)
+Received: from eusmtrp2.samsung.com (unknown [182.198.249.139]) by
+	eucas1p1.samsung.com (KnoxPortal) with ESMTPA id
+	20250203175824eucas1p183992086c6d11614686d9c3a5bd69141~gxH7IYZ161697816978eucas1p1k;
+	Mon,  3 Feb 2025 17:58:24 +0000 (GMT)
+Received: from eusmgms2.samsung.com (unknown [182.198.249.180]) by
+	eusmtrp2.samsung.com (KnoxPortal) with ESMTP id
+	20250203175824eusmtrp29bb55cb77fc80cea7f96c94fb56fc8c2~gxH7HlxyW1484114841eusmtrp2D;
+	Mon,  3 Feb 2025 17:58:24 +0000 (GMT)
+X-AuditID: cbfec7f5-e59c770000004fad-4e-67a103c294ba
+Received: from eusmtip2.samsung.com ( [203.254.199.222]) by
+	eusmgms2.samsung.com (EUCPMTA) with SMTP id 39.88.19654.0C301A76; Mon,  3
+	Feb 2025 17:58:24 +0000 (GMT)
+Received: from [192.168.1.44] (unknown [106.210.136.40]) by
+	eusmtip2.samsung.com (KnoxPortal) with ESMTPA id
+	20250203175823eusmtip2f86af6640dd3450e986c7e1d73c09e1b~gxH56OqW11343113431eusmtip2d;
+	Mon,  3 Feb 2025 17:58:23 +0000 (GMT)
+Message-ID: <c7a441bc-8465-46fe-a883-2a7eee3d3922@samsung.com>
+Date: Mon, 3 Feb 2025 18:58:23 +0100
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20250130-runtime_const_riscv-v4-1-2d36c41b7b9c@rivosinc.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 12/18] dt-bindings: gpu: Add support for T-HEAD
+ TH1520 GPU
+To: Matt Coster <Matt.Coster@imgtec.com>, "mturquette@baylibre.com"
+	<mturquette@baylibre.com>, "sboyd@kernel.org" <sboyd@kernel.org>,
+	"robh@kernel.org" <robh@kernel.org>, "krzk+dt@kernel.org"
+	<krzk+dt@kernel.org>, "conor+dt@kernel.org" <conor+dt@kernel.org>,
+	"drew@pdp7.com" <drew@pdp7.com>, "guoren@kernel.org" <guoren@kernel.org>,
+	"wefu@redhat.com" <wefu@redhat.com>, "jassisinghbrar@gmail.com"
+	<jassisinghbrar@gmail.com>, "paul.walmsley@sifive.com"
+	<paul.walmsley@sifive.com>, "palmer@dabbelt.com" <palmer@dabbelt.com>,
+	"aou@eecs.berkeley.edu" <aou@eecs.berkeley.edu>, Frank Binns
+	<Frank.Binns@imgtec.com>, "maarten.lankhorst@linux.intel.com"
+	<maarten.lankhorst@linux.intel.com>, "mripard@kernel.org"
+	<mripard@kernel.org>, "tzimmermann@suse.de" <tzimmermann@suse.de>,
+	"airlied@gmail.com" <airlied@gmail.com>, "simona@ffwll.ch"
+	<simona@ffwll.ch>, "ulf.hansson@linaro.org" <ulf.hansson@linaro.org>,
+	"jszhang@kernel.org" <jszhang@kernel.org>, "p.zabel@pengutronix.de"
+	<p.zabel@pengutronix.de>, "m.szyprowski@samsung.com"
+	<m.szyprowski@samsung.com>
+Cc: "linux-clk@vger.kernel.org" <linux-clk@vger.kernel.org>,
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
+	"dri-devel@lists.freedesktop.org" <dri-devel@lists.freedesktop.org>,
+	"linux-pm@vger.kernel.org" <linux-pm@vger.kernel.org>
+Content-Language: en-US
+From: Michal Wilczynski <m.wilczynski@samsung.com>
+In-Reply-To: <2fe3d93f-62ac-4439-ac17-d81137f6410a@imgtec.com>
+X-Brightmail-Tracker: H4sIAAAAAAAAA02Se1BUVRzHOffevXdZW7isOJygWlsayjQUZepkjeGMTjfDChtn7eFjzTsL
+	8bJdyKQEGoHBZaFdgxFXZQEdQYZH4bIPBHbakBXIHcJ4yGOhGWDkFW5g6CYQy7Xiv8/v9/ue
+	7+8xh4+LGshAfkxCEqtIkMVJSAFhbHnkeMWGl8i3GLsE6FZPKYbq/tZRqLLRgSF9s4OHnJ0G
+	DP32YIZE1aMdFLrX+C2BussvUeh0Sw2JxnVOErnUTh66U3+RRLO5zQAZZzNIVNU8SKESVx2B
+	rpjrAco6c5WHfm3bjQadtwg0fkeNoyydL1pqMFNosftHAl34w0ohw5SWh+xVUpRhzScinmVm
+	ejMpZmp8nGB+zp6jmMa/ignGohukGLXlF8DUVpwhmYHuBpIpao1ihnLsGHP9ShqTUdWCMd8t
+	bGFmmrpIJs9QAZjO0z3UB6KPBW8eY+NivmQVm3ccEUQvNY6Sx++Jv+oZrCHTwVyACvD5kA6H
+	OWPhKuDNF9HlALYVbVcBwTLPAaianwRcMAvgYksrz6PyPLCprRhXKANw8GoeyQXTABpmb1Ae
+	lZDeASuvuYCHCfoFOPy4n8fl/WDr+RHCw+toMRzqK1zRr6U/hN1l7hVXf9rEh3nXh1YKOJ2O
+	w2xNKscBsG9Ej3mYpLfC4TL9iqn3cjOT2YVzGjE0TV/EPUaQvi2Avf3tODf3Lmi+PUdwvBZO
+	2A0Ux8/AJQtnCulEOFz35xP9N9Citj/hN+CAw016DobTG2BN/WYuvRP+lHOX4O7oA3un/bgR
+	fOBZ4zmcSwthdpaIU4fAAnXuf00d5UZMAyS6VVfRrVpSt2oZ3f99iwFRAQLYZGW8nFVuS2BP
+	hCpl8crkBHnoZ4nxtWD5g7cv2h+YQfmEK9QGMD6wAcjHJf7CdlOxXCQ8JjuZwioSDyuS41il
+	DQTxCUmAsNSaKRfRclkSG8uyx1nFv1WM7x2YjvmaH56NMyURbMTGduppt+pFef3A0fbzXQVr
+	Qr5+Var/pKT5ix/eXn/gbk16Ssqa6tLHG1yiSYnE7pY2fCSNmjz1vdJXGnjTOypy/cS+dYWp
+	bz1K22VVl73v9Nf0BucdbD36Uv9zoe4bvwf0AK3p9ViX9PLO0uAi7d6N782bxMzh4HOjqQ+j
+	ver8+nbfVGoPdGA+lWnzW+uN217bG85T1X5aZNgjaAqrHiugN22P3198sinfeW0kaKIktT/C
+	ViTC7cITC1OHQoI6JL0tmlPPHxHff2e/RR3pUGVrw7wOjsV4zeWqLPrMGeVTbZ3vau4X7mla
+	8M2P7eiYij60L3LT5c9zSHGShFBGy8JexhVK2T+FywTjTwQAAA==
+X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFrrIKsWRmVeSWpSXmKPExsVy+t/xe7oHmBemG9zZZGpx4voiJoutv2ex
+	W6zZe47JYv6Rc6wW9y5tYbK48vU9m8W6pxfYLV7sbWSxuLZiLrtF87H1bBYvZ91js/jYc4/V
+	4vKuOWwWn3uPMFps+9zCZrH2yF12i4Uft7JYLNmxi9GirXMZq8XFU64Wd++dYLF4ebmH2aJt
+	Fr/F/z072C3+XdvIYjH73X52iy1vJrJaHF8bbtGyfwqLg6zH+xut7B5vXr5k8Tjc8YXdY++3
+	BSweO2fdZffo2XmG0WPTqk42jzvX9rB5zDsZ6HG/+ziTx+Yl9R4ta48xefT/NfB4v+8qm0ff
+	llWMHpear7MHCEXp2RTll5akKmTkF5fYKkUbWhjpGVpa6BmZWOoZGpvHWhmZKunb2aSk5mSW
+	pRbp2yXoZfzf+5St4IV8xfW769kaGL+IdzFyckgImEgc6tnP1MXIxSEksJRR4vDifjaIhIzE
+	te6XLBC2sMSfa11sEEWvGSVOTZ3FBJLgFbCTWLPyIyOIzSKgIvHgz21WiLigxMmZT8CaRQXk
+	Je7fmsEOYgsLBEtMnvGPEWSQiMBeDoldN36ygDjMAg3MEqtm32CGWPGPUeL6jTdgdzALiEvc
+	ejIfbB2bgJHEg+XzwVZwAq3evuMjUAMHUI26xPp5QhDl8hLb385hnsAoNAvJIbOQTJqF0DEL
+	SccCRpZVjCKppcW56bnFRnrFibnFpXnpesn5uZsYgWlr27GfW3Ywrnz1Ue8QIxMH4yFGCQ5m
+	JRHe09sXpAvxpiRWVqUW5ccXleakFh9iNAUGxkRmKdHkfGDizCuJNzQzMDU0MbM0MLU0M1YS
+	52W7cj5NSCA9sSQ1OzW1ILUIpo+Jg1OqgWnBxjfK2euWe5yxcmi05vfcsNVE49rL/bM8vHlU
+	Am7qM9zOX7RKMXndI5miDFHNp/ZhfBOEZQ33dj6RWHBkj+y5mmyXMjbjV6ma3s2fQ6yConcs
+	f51c5nvbecs227Ovvyfzf7cWPCgS3GllomS1k5+lerWnWG/H+vkp12+WqN25sSzt9KbZD/bJ
+	qHVN3rVAKnDl7IM9eeGq3LaZG75LTzoZ3Ml29nvn49Syi4/XNIeoXpsdXf/hfPBcxXZ5yW8/
+	ZE5ekL7846m4z/XLM47xrGd2++kb7b5h/o29iyPaU+JVAtn6pp7SbTnSo9Ko8jmpeWfYytd8
+	CetuK6m2SH9WCPWYK6byRn6nkJVSo1ffPCWW4oxEQy3mouJEAMgz11fkAwAA
+X-CMS-MailID: 20250203175824eucas1p183992086c6d11614686d9c3a5bd69141
+X-Msg-Generator: CA
+X-RootMTR: 20250128194841eucas1p29048dc05a26475d8323a7a318a8c7a25
+X-EPHeader: CA
+CMS-TYPE: 201P
+X-CMS-RootMailID: 20250128194841eucas1p29048dc05a26475d8323a7a318a8c7a25
+References: <20250128194816.2185326-1-m.wilczynski@samsung.com>
+	<CGME20250128194841eucas1p29048dc05a26475d8323a7a318a8c7a25@eucas1p2.samsung.com>
+	<20250128194816.2185326-13-m.wilczynski@samsung.com>
+	<2fe3d93f-62ac-4439-ac17-d81137f6410a@imgtec.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250203_090700_680361_37967E67 
-X-CRM114-Status: UNSURE (   9.74  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250203_095832_788089_2A6A2208 
+X-CRM114-Status: GOOD (  25.21  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,53 +159,121 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Charlie,
-
-kernel test robot noticed the following build errors:
-
-[auto build test ERROR on ffd294d346d185b70e28b1a28abe367bbfe53c04]
-
-url:    https://github.com/intel-lab-lkp/linux/commits/Charlie-Jenkins/riscv-Add-runtime-constant-support/20250131-092950
-base:   ffd294d346d185b70e28b1a28abe367bbfe53c04
-patch link:    https://lore.kernel.org/r/20250130-runtime_const_riscv-v4-1-2d36c41b7b9c%40rivosinc.com
-patch subject: [PATCH v4] riscv: Add runtime constant support
-config: riscv-randconfig-002-20250203 (https://download.01.org/0day-ci/archive/20250204/202502040018.8DyjnzNe-lkp@intel.com/config)
-compiler: riscv32-linux-gcc (GCC) 14.2.0
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250204/202502040018.8DyjnzNe-lkp@intel.com/reproduce)
-
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202502040018.8DyjnzNe-lkp@intel.com/
-
-All errors (new ones prefixed by >>):
-
-   In file included from fs/dcache.c:38:
-   arch/riscv/include/asm/runtime-const.h: In function '__runtime_fixup_ptr':
-   arch/riscv/include/asm/runtime-const.h:167:63: warning: right shift count >= width of type [-Wshift-count-overflow]
-     167 |                 __runtime_fixup_32(where + 4, where + 12, val >> 32);
-         |                                                               ^~
-   fs/dcache.c: In function 'd_hash':
-   arch/riscv/include/asm/runtime-const.h:13:28: warning: unused variable '__tmp' [-Wunused-variable]
-      13 |         typeof(sym) __ret, __tmp;                               \
-         |                            ^~~~~
-   fs/dcache.c:112:16: note: in expansion of macro 'runtime_const_ptr'
-     112 |         return runtime_const_ptr(dentry_hashtable) +
-         |                ^~~~~~~~~~~~~~~~~
-   fs/dcache.c: Assembler messages:
->> fs/dcache.c:116: Error: illegal operands `addi a0,-0x211'
 
 
-vim +116 fs/dcache.c
+On 1/31/25 16:39, Matt Coster wrote:
+> On 28/01/2025 19:48, Michal Wilczynski wrote:
+>> Add bindings for the PowerVR BXM-4-64 GPU integrated in the T-HEAD
+>> TH1520 SoC.  This GPU requires two clocks.
+> 
+> None of the IMG Rogue GPUs use two clocks; they're all either one or
+> three. The TRM for the TH1520 I have shows the standard three (core,
+> cfg and mem). I mentioned this on P2 ("clk: thead: Add clock support for
+> VO subsystem in T-Head TH1520 SoC"); can you add the missing clock here
+> too?
+> 
+>> Document the integration details including clock, reset, power domain
+>> and interrupt assignments. Add a dt-bindings example showing the proper
+>> usage of the compatible string "thead,th1520-gpu" along with
+>> "img,img-bxm".
+>>
+>> Signed-off-by: Michal Wilczynski <m.wilczynski@samsung.com>
+>> ---
+>>  .../bindings/gpu/img,powervr-rogue.yaml       | 39 +++++++++++++++++--
+>>  1 file changed, 35 insertions(+), 4 deletions(-)
+>>
+>> diff --git a/Documentation/devicetree/bindings/gpu/img,powervr-rogue.yaml b/Documentation/devicetree/bindings/gpu/img,powervr-rogue.yaml
+>> index bb607d4b1e07..b0d9635704d8 100644
+>> --- a/Documentation/devicetree/bindings/gpu/img,powervr-rogue.yaml
+>> +++ b/Documentation/devicetree/bindings/gpu/img,powervr-rogue.yaml
+>> @@ -12,10 +12,15 @@ maintainers:
+>>  
+>>  properties:
+>>    compatible:
+>> -    items:
+>> -      - enum:
+>> -          - ti,am62-gpu
+>> -      - const: img,img-axe # IMG AXE GPU model/revision is fully discoverable
+>> +    oneOf:
+>> +      - items:
+>> +          - enum:
+>> +              - ti,am62-gpu
+>> +          - const: img,img-axe # IMG AXE GPU model/revision is fully discoverable
+>> +      - items:
+>> +          - enum:
+>> +              - thead,th1520-gpu
+>> +          - const: img,img-bxm
+> 
+> This is going to be the main conflict between this series and the other
+> B-Series series I mentioned on the cover letter. One of the main changes
+> in that series is to rework how our compatible strings are structured;
+> that would make this "thead,th1520-gpu", "img,img-bxm-4-64",
+> "img,img-rogue". Would you mind holding this change back until the other
+> series lands so we can avoid carrying a second deprecated compatible
+> string?
 
-ceb5bdc2d246f6 Nicholas Piggin 2011-01-07  115  
-94bdd655caba20 Al Viro         2016-04-15 @116  #define IN_LOOKUP_SHIFT 10
-94bdd655caba20 Al Viro         2016-04-15  117  static struct hlist_bl_head in_lookup_hashtable[1 << IN_LOOKUP_SHIFT];
-94bdd655caba20 Al Viro         2016-04-15  118  
+Sure that's completely fine !
 
--- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+> 
+>>  
+>>    reg:
+>>      maxItems: 1
+>> @@ -60,6 +65,17 @@ allOf:
+>>          clocks:
+>>            maxItems: 1
+>>  
+>> +  - if:
+>> +      properties:
+>> +        compatible:
+>> +          contains:
+>> +            const: thead,th1520-gpu
+>> +    then:
+>> +      properties:
+>> +        clocks:
+>> +          minItems: 2
+>> +          maxItems: 2
+> 
+> As mentioned before, this doesn't represent the hardware. Please bump to
+> 3 and add the missing clock.
+> 
+>> +
+>>  examples:
+>>    - |
+>>      #include <dt-bindings/interrupt-controller/irq.h>
+>> @@ -74,3 +90,18 @@ examples:
+>>          interrupts = <GIC_SPI 86 IRQ_TYPE_LEVEL_HIGH>;
+>>          power-domains = <&k3_pds 187 TI_SCI_PD_EXCLUSIVE>;
+>>      };
+>> +
+>> +    #include <dt-bindings/clock/thead,th1520-clk-ap.h>
+>> +    #include <dt-bindings/power/thead,th1520-power.h>
+>> +    #include <dt-bindings/reset/thead,th1520-reset.h>
+>> +
+>> +    gpu: gpu@fff0000 {
+>> +        compatible = "thead,th1520-gpu", "img,img-bxm";
+>> +        reg = <0xfff0000 0x1000>;
+>> +        interrupt-parent = <&plic>;
+>> +        interrupts = <102 IRQ_TYPE_LEVEL_HIGH>;
+>> +        clocks = <&clk CLK_GPU_CORE>, <&clk CLK_GPU_CFG_ACLK>;
+>> +        clock-names = "core", "mem";
+> 
+> You have CFG mapped to "mem" here. Out of curiosity, was that mismatch
+> required to make things work?
+
+Yeah exactly, I understand that from the GPU perspective there are three
+clocks, but only two are programmable from the SoC perspective.
+
+So maybe a placeholder clock should be added in the devicetree then,
+since the clock exists, but is reserved.
+
+> 
+> Cheers,
+> Matt
+> 
+>> +        power-domains = <&pd TH1520_GPU_PD>;
+>> +        resets = <&rst TH1520_RESET_ID_GPU>;
+>> +    };
+> 
 
 _______________________________________________
 linux-riscv mailing list
