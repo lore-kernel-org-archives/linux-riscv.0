@@ -4,67 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA47AC02192
-	for <linux-riscv@archiver.kernel.org>; Mon,  3 Feb 2025 19:20:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 62B9FC02197
+	for <linux-riscv@archiver.kernel.org>; Mon,  3 Feb 2025 19:20:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
 	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=B05C+9PEhspjVlsaJ7IaOFQ85AiEvPjOp0juydfxSJE=; b=A8FTIJE/pc8l2A
-	9nitRiMzIgo3hiG3RGaybUaa9SsagMF2nUubXg5P7TB1MXPe4Z0qwpWKyoUy2g3UEQB4549gCueqX
-	4D/2B0IQJAf61MR9ok7iFL+ppYEV1PGdI5hkrLTTv/R00Ey/OXaZAkk6muhVvdRwEOZfRpEIODeAo
-	0DQlBbahpBju1r8fuS/YiKvIInpKo85F+rAJ5vlr8FYmKkyC3Oa/ix7WUtu8Q1PJsKYfaOBhnt7hi
-	kV8wv1ewTUNqTNxzExuxmLewksl6p+EQ0hilZ1j7eD3zW3DBc3+eYpfNquXzIYqL2LrElYdpF5pFu
-	uK4FT/4T3S6rSzQ74+dw==;
+	List-Owner; bh=+GZC4Bc4Y9BSZ7iql8Y/iIf/HZy6VFA4OUInbsJSv+g=; b=GeRSGvq2JF+Pqj
+	tYvVWEP7rZOzRcqdNWBfSCfq1ZCMj5jU3gd8FwDy2to+IymdmDGOXxNYS9liGeEpOcQfg6X892Uwg
+	xYhkAPhukE8WPzGy4tpc0/lRmV+QtweLrUjTf2dRozXXUBc32f2W6h7ml88rPY+GDjhBW9e0NNvcM
+	Myd3DMDe5hUTnM36EKJageEAABTu0tP3x4Bu9gNJJjtX7dfMgsHGiWgmthrfARygvXi42ahPn6ZPE
+	iuwuhBn3Q8EswJ/W5oqDW70iqK7Rj0JRYcglxX2m+/KX+LupzG53d88RmtPCzWPih1U+omJ2WICwf
+	dgNA/kIv0AjVQYRyFKLA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tf1zs-0000000GS0U-3AsD;
-	Mon, 03 Feb 2025 19:20:40 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1tf1zt-0000000GS0q-1UbK;
+	Mon, 03 Feb 2025 19:20:41 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tf1uo-0000000GQEs-2KBn;
-	Mon, 03 Feb 2025 19:15:27 +0000
+	id 1tf1uq-0000000GQFU-0q4L
+	for linux-riscv@lists.infradead.org;
+	Mon, 03 Feb 2025 19:15:29 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 168875C6791;
-	Mon,  3 Feb 2025 19:14:46 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9CC92C4CED2;
-	Mon,  3 Feb 2025 19:15:25 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 395D4A41C0E;
+	Mon,  3 Feb 2025 19:13:41 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 202F2C4CED2;
+	Mon,  3 Feb 2025 19:15:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1738610125;
-	bh=BDPM7u1CRvEI1Kn3lZuF8kskwCiEX3Kitywmg+8MwZU=;
+	s=k20201202; t=1738610127;
+	bh=KSPtOuW3Y7uccCGPaz4N71aPVV/qLhJF4x/HtTZprdU=;
 	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=hYhm3W1QYCkDsN1crFMcC5vC3MonK+qkCAOz+WwdhOVUHZ0HLjZTQAsg3tl7o9s8H
-	 BU+bqi9jyOYbxwC9ei76Mq8ptcXqsd5SOh/+8og70lDYJL3RqtnPerGIZTHCANkamQ
-	 Yckq82B8xZnfo+4rNvq7hQkLnKU+EQGYkdYhQiJAOqj4uCdhBQcjpFfp1P/bTDp3Yi
-	 HOV2GGByqpfdPESu++AwzdFyQr0pmhKP6IC3N45Oo9VeJUx9wz3qUds6G2jzdwYpTR
-	 CH+85Ld4snwX3gUvih7vhRHBGwI6rZla+uTR8mjJBtjlPBw44r3zYQ1Yg3dnH2nSQb
-	 8qk8l0+zUOkqw==
+	b=gbsokPPOVbAr+hxpRjIjdqcnKS1OFLw8GFFoluTtrExBNLY5rOPJUKQYmgP/AeWE/
+	 UFHoJ2hP4/KozSthIcub+Hg0FdVir3qx/B9fqaNV2LwTjw3mt1EnxlIVMJjizpaUfq
+	 2vvdT98DmNVkppjCml1GIvQK47rCZm95Fve8BN5c1d6FMoOQ7g6TpZkhelj7Tpqdra
+	 3xWna/9xhy4H9t2pH3QTgoYWCwOr2sNp5ffKSsRpJrgZA2DZlnLqDlt/x0lqq3GWKQ
+	 Qyx9L0vSC/zdLO9fCL+26suauKkZGBikBkdRtR9l1IABnxIfgTKGLpmKlDbw0duHzp
+	 nyGju3Agg2VOw==
 Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id EB437380AA67;
-	Mon,  3 Feb 2025 19:15:53 +0000 (UTC)
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 70CC7380AA67;
+	Mon,  3 Feb 2025 19:15:55 +0000 (UTC)
 MIME-Version: 1.0
-Subject: Re: [PATCH v2 00/12] pm: Introduce devm_pm_set_wake_irq
+Subject: Re: [PATCH v3] tools: perf: tests: Fix code reading for riscv
 From: patchwork-bot+linux-riscv@kernel.org
-Message-Id: <173861015275.3409359.13632354633861115390.git-patchwork-notify@kernel.org>
-Date: Mon, 03 Feb 2025 19:15:52 +0000
-References: <20250103-wake_irq-v2-0-e3aeff5e9966@nxp.com>
-In-Reply-To: <20250103-wake_irq-v2-0-e3aeff5e9966@nxp.com>
-To: Peng Fan <peng.fan@oss.nxp.com>
-Cc: linux-riscv@lists.infradead.org, rafael@kernel.org, len.brown@intel.com,
- pavel@ucw.cz, gregkh@linuxfoundation.org, dmitry.torokhov@gmail.com,
- alexandre.belloni@bootlin.com, mcoquelin.stm32@gmail.com,
- alexandre.torgue@foss.st.com, linus.walleij@linaro.org,
- conor.dooley@microchip.com, daire.mcnamara@microchip.com,
- linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-input@vger.kernel.org, linux-rtc@vger.kernel.org,
- linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
- peng.fan@nxp.com
+Message-Id: <173861015401.3409359.1963171242133274809.git-patchwork-notify@kernel.org>
+Date: Mon, 03 Feb 2025 19:15:54 +0000
+References: <20241219-perf_fix_riscv_obj_reading-v3-1-a7d644dcfa50@rivosinc.com>
+In-Reply-To: <20241219-perf_fix_riscv_obj_reading-v3-1-a7d644dcfa50@rivosinc.com>
+To: Charlie Jenkins <charlie@rivosinc.com>
+Cc: linux-riscv@lists.infradead.org, peterz@infradead.org, mingo@redhat.com,
+ acme@kernel.org, namhyung@kernel.org, mark.rutland@arm.com,
+ alexander.shishkin@linux.intel.com, jolsa@kernel.org, irogers@google.com,
+ adrian.hunter@intel.com, paul.walmsley@sifive.com, palmer@dabbelt.com,
+ aou@eecs.berkeley.edu, nathan@kernel.org, ndesaulniers@google.com,
+ morbo@google.com, justinstitt@google.com, linux-perf-users@vger.kernel.org,
+ linux-kernel@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250203_111526_678753_461EA3D0 
-X-CRM114-Status: GOOD (  10.32  )
+X-CRM114-CacheID: sfid-20250203_111528_303672_EAFFE455 
+X-CRM114-Status: UNSURE (   8.76  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,47 +82,22 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 Hello:
 
-This series was applied to riscv/linux.git (fixes)
-by Rafael J. Wysocki <rafael.j.wysocki@intel.com>:
+This patch was applied to riscv/linux.git (fixes)
+by Arnaldo Carvalho de Melo <acme@redhat.com>:
 
-On Fri, 03 Jan 2025 16:41:12 +0800 you wrote:
-> This was a retry to address [1][2], to let common code handle
-> dev_pm_clear_wake_irq. Then no need to call dev_pm_clear_wake_irq
-> in each driver.remove() hook and error handling path.
+On Thu, 19 Dec 2024 13:44:25 -0800 you wrote:
+> After binutils commit e43d876 which was first included in binutils 2.41,
+> riscv no longer supports dumping in the middle of instructions. Increase
+> the objdump window by 2-bytes to ensure that any instruction that sits
+> on the boundary of the specified stop-address is not cut in half.
 > 
-> In this patchset, I include input and rtc patches to show the usage
-> to avoid introducing an API without users. There are still
-> other places using dev_pm_clear_wake_irq. If this patchset is
-> good for you, I could start to clean up other drivers such as mmc and
-> etc.
+> Signed-off-by: Charlie Jenkins <charlie@rivosinc.com>
 > 
 > [...]
 
 Here is the summary with links:
-  - [v2,01/12] PM: sleep: wakeirq: Introduce device-managed variant of dev_pm_set_wake_irq
-    https://git.kernel.org/riscv/c/fd8318a32573
-  - [v2,02/12] input: keyboard: ep93xx_keypad: Use devm_pm_set_wake_irq
-    (no matching commit)
-  - [v2,03/12] input: keyboard: omap4_keypad: Use devm_pm_set_wake_irq
-    (no matching commit)
-  - [v2,04/12] input: misc: nxp-bbnsm-pwrkey: Use resource managed API to simplify code
-    (no matching commit)
-  - [v2,05/12] input: touchscreen: ti_am335x_tsc: Use resource managed API to simplify code
-    (no matching commit)
-  - [v2,06/12] rtc: stm32: Use resource managed API to simplify code
-    (no matching commit)
-  - [v2,07/12] rtc: nxp-bbnsm: Use resource managed API to simplify code
-    (no matching commit)
-  - [v2,08/12] rtc: ds1343: Use devm_pm_set_wake_irq
-    (no matching commit)
-  - [v2,09/12] rtc: pm8xxx: Use devm_pm_set_wake_irq
-    (no matching commit)
-  - [v2,10/12] rtc: ab8500: Use resource managed API to simplify code
-    (no matching commit)
-  - [v2,11/12] rtc: mpfs: Use devm_pm_set_wake_irq
-    (no matching commit)
-  - [v2,12/12] rtc: pl031: Use resource managed API to simplify code
-    (no matching commit)
+  - [v3] tools: perf: tests: Fix code reading for riscv
+    https://git.kernel.org/riscv/c/0f9ad973b095
 
 You are awesome, thank you!
 -- 
