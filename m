@@ -4,105 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8616BC02196
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4548FC02193
 	for <linux-riscv@archiver.kernel.org>; Mon,  3 Feb 2025 07:00:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:References:Message-Id:Cc:Date:
-	In-Reply-To:From:Subject:Mime-Version:Reply-To:Content-ID:Content-Description
-	:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=n3ZEnbszyaTZMHFMigiuDmb4zOLaFyFXxuxo+PIff7o=; b=C9CGOeRcGq1qqT
-	CR9in/GyVjB67p0BZEV8Sjyc2hNRk8t6nAwLGBcHMalQMLcPxaahbkQJ983pBTHZUrxMmojL5v9Vl
-	fQcUdnFNTXh0SL42VrSTgRcetGcXTSAqv4mKE/PQK14KqKRKlaRhIJVF9gxA93+Z7/v6qULjbmg2g
-	dxuloIpI7aLC/jQ44Vp6MeBtuUxb6yhGi3MoUA2OYxEqtSgT6otBeKgrAakEqR+mgeh7qHHn3ZCcR
-	qZouQgI0zCl7nvzXIuLDDQK4+e9MyQz1ttX7CpmmzUct0tI8G1tjYE2IVZrTIJseZwr6McPLYnwcE
-	Ilzoa5IiPCXiIT7JIz0Q==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=poX19Ssfj9s235t7NacJnSiJxjUeLZWlLT+BC+9AMlQ=; b=R15lV0p/qTztUF
+	lUIs5EOlyAMDuOWBkHWP2Adu4blPoLlEBZrEXILlvZ61m1aq0nXSvLrfc82H8DuBhNTSXqGd8XBc5
+	wa/53uP0NZi1p5ioaHSRLtva69Y70Bc/YTHUfnJ2adUrBManZuBQ+2P9Zk4YATC51b3MWCvo1IKe9
+	9dz6I22JpsZRevauwQL4uqbAFYGOG/oJOF8dj7ooG62Lp2rQ5vnjzLSZGdorI1ZRkd765X6tOkSSJ
+	5Sm+A7gWIdavLZhsoTOGEyR0f6UAWqm6ndf6pbB6DMrab6GFaeLKH//GtOwS1y+y8FiSW2OMl7emm
+	/ptIiFIGBzkyrPl4PqIA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1teqRL-0000000EgDj-0Fk1;
-	Mon, 03 Feb 2025 07:00:15 +0000
-Received: from mail-wm1-x336.google.com ([2a00:1450:4864:20::336])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1teqQf-0000000Eg70-0sB2
-	for linux-riscv@lists.infradead.org;
-	Mon, 03 Feb 2025 06:59:35 +0000
-Received: by mail-wm1-x336.google.com with SMTP id 5b1f17b1804b1-43626213fffso30753845e9.1
-        for <linux-riscv@lists.infradead.org>; Sun, 02 Feb 2025 22:59:32 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=jrtc27.com; s=gmail.jrtc27.user; t=1738565971; x=1739170771; darn=lists.infradead.org;
-        h=to:references:message-id:content-transfer-encoding:cc:date
-         :in-reply-to:from:subject:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=vFYnAZUFUao61yVy6zNuCPtiUmdvsXsUKmfDPfyAsoM=;
-        b=d0STJXPHmn9sca5BCEWIVRUz81zIicOU6x1OLCmAwpuCn4U2sfeMc4HLQqC1Ij7/uX
-         GOINk8jRDobGz6FygqU1kVshBMkb7vym3gnmpD1IcQ0v2gzr7IdSb9OmDk6u9RimaLcn
-         gKTYNHMiIVesJTj4EROjWzq/FTUzWh9rqK2jr5EWBh3r69G8KT4NkCN8/HHZg9Y09Ved
-         DY/GqW8s8xkYxkr6BUnDDsYXnlEJ9f/dUotBY5nri+AjIMUIl5i+EFqfWU8Wg/FX1BG2
-         uiLmUgM2Q+2ADXpHWP6E1nJrI8HVBbpRoRDZV2M8ZvOarKQWFPxjsd2iIffYnTPVIBfU
-         oorg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1738565971; x=1739170771;
-        h=to:references:message-id:content-transfer-encoding:cc:date
-         :in-reply-to:from:subject:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=vFYnAZUFUao61yVy6zNuCPtiUmdvsXsUKmfDPfyAsoM=;
-        b=K/rtqJNZOorP/m+F+J5oFWV2YPbJ+kro/K+1sWn6+zO3gj2ZrrzT/9tYx1Xcsw4niy
-         CTlnRFtb666mOsZyUVF+Tx00njFCq/YPPxAMopoaZ2dEOak0sndZfPmOUVvktoX+9r6h
-         ceBACr0xfgWCi9d39O6oZtDJCMNPDhJHDqkehZ3rv8vh3cJOcknlgyDoRs0tO0FQybmc
-         nDsSHvwF7MlAtI9CdDtid77fWkb/OVXtjPBVBlmPiWRSQCYt51KSAJFbZcyjmnHRY2mk
-         hofE+dk3vWj9Hu+hAE1zN7IgxkpwGxbka178LqByx1CKQgGJWWsZXWCNVgmtjGRnOemQ
-         KdWA==
-X-Forwarded-Encrypted: i=1; AJvYcCWvnaC1DLSQ0MAbRtzjaBErJQavJfhheLLtLcG+u5yUxm5cdNgK34XGgwk58rLCYGcddrI/nEK3ByHVQQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0YxQYtR4bBbhfVG9HoxSb3lmWcGdrt8Gsfxbk0fPfFN9pynUybnV
-	fhmV2FthFIvSo4JsGcg/Ap33Sz2KJUj9st+fii5gIaTF6wLm65kZTJbZOqiPYGY=
-X-Gm-Gg: ASbGncvmotR/j7/xb1ZquG/+dBSuSttmsG09Aj/M4B0jQFpN/AqRP0UGJce69TT7ZhX
-	T7qi5yW2RZ6SS7XepmRKV8Uw64OiYI4sYr3NsRh4ojrpjFMXIObSPAT7oRpHfJm8aB9euka0myA
-	Gn9rdyq/uYOUhIMDd0LxarcyFlsPMRm4MQOghB7Ju7q6yuUMgveW/IeCu7VHvIpNPTcPWQdKK+A
-	mjVoqi9Ml7Ly5c2Zu+O0NNP9pfWdhlQEstTiZEG2B72CnWO5vrcicKfB5VXZ7jdYC6FVKGE6KX6
-	rT6EluoIIyWsW/bltm4EE6MFJnDC
-X-Google-Smtp-Source: AGHT+IHc7TsMH05mlkvzaFMBpTxzhfd0jlMSaJGgcjOwELt4l0ZR8Uoj4RfcTaQK8b7AR3LEmPTKuA==
-X-Received: by 2002:a05:6000:1a8a:b0:38a:8d32:2707 with SMTP id ffacd0b85a97d-38c60f77922mr10339567f8f.26.1738565971037;
-        Sun, 02 Feb 2025 22:59:31 -0800 (PST)
-Received: from smtpclient.apple ([131.111.5.201])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-38c5c1cfccasm12025244f8f.92.2025.02.02.22.59.29
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Sun, 02 Feb 2025 22:59:30 -0800 (PST)
-Mime-Version: 1.0 (Mac OS X Mail 16.0 \(3826.300.87.4.3\))
-Subject: Re: [PATCH v2] riscv: Use Zalrsc extension to implement atomic
- functions
-From: Jessica Clarke <jrtc27@jrtc27.com>
-In-Reply-To: <20250202-clammy-skewed-eb0a0fce18f1@spud>
-Date: Mon, 3 Feb 2025 06:59:18 +0000
-Cc: Aleksandar Rikalo <arikalo@gmail.com>,
- Charlie Jenkins <charlie@rivosinc.com>,
- linux-riscv@lists.infradead.org,
- Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>,
- Albert Ou <aou@eecs.berkeley.edu>,
- Will Deacon <will@kernel.org>,
- Peter Zijlstra <peterz@infradead.org>,
- Boqun Feng <boqun.feng@gmail.com>,
- Mark Rutland <mark.rutland@arm.com>,
- Yury Norov <yury.norov@gmail.com>,
- Rasmus Villemoes <linux@rasmusvillemoes.dk>,
- Andrea Parri <parri.andrea@gmail.com>,
- Leonardo Bras <leobras@redhat.com>,
- Guo Ren <guoren@kernel.org>,
- Samuel Holland <samuel.holland@sifive.com>,
- Eric Chan <ericchancf@google.com>,
- linux-kernel@vger.kernel.org,
- Djordje Todorovic <djordje.todorovic@htecgroup.com>
-Message-Id: <D0D039F7-26EE-4687-9836-DE076006F2F0@jrtc27.com>
-References: <20241225082412.36727-1-arikalo@gmail.com>
- <Z4CSpE9UKkJNM_g5@ghost>
- <CAGQJe6oA8oiZmg0HGW7KrjdOJ7nXNK9hQFm4jdQ6n0WTG6i-vA@mail.gmail.com>
- <20250202-clammy-skewed-eb0a0fce18f1@spud>
-To: Conor Dooley <conor@kernel.org>
-X-Mailer: Apple Mail (2.3826.300.87.4.3)
+	id 1teqRJ-0000000EgDM-3yZ5;
+	Mon, 03 Feb 2025 07:00:13 +0000
+Received: from vmicros1.altlinux.org ([194.107.17.57])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1teqQ3-0000000Efzv-0e3O;
+	Mon, 03 Feb 2025 06:58:57 +0000
+Received: from mua.local.altlinux.org (mua.local.altlinux.org [192.168.1.14])
+	by vmicros1.altlinux.org (Postfix) with ESMTP id 863D472C8CC;
+	Mon,  3 Feb 2025 09:58:49 +0300 (MSK)
+Received: by mua.local.altlinux.org (Postfix, from userid 508)
+	id 590A67CCB3B; Mon,  3 Feb 2025 08:58:49 +0200 (IST)
+Date: Mon, 3 Feb 2025 08:58:49 +0200
+From: "Dmitry V. Levin" <ldv@strace.io>
+To: Andrew Morton <akpm@linux-foundation.org>
+Cc: Oleg Nesterov <oleg@redhat.com>, Alexey Gladkov <legion@kernel.org>,
+	Charlie Jenkins <charlie@rivosinc.com>,
+	Eugene Syromyatnikov <evgsyr@gmail.com>,
+	Mike Frysinger <vapier@gentoo.org>,
+	Renzo Davoli <renzo@cs.unibo.it>,
+	Davide Berardi <berardi.dav@gmail.com>,
+	Vineet Gupta <vgupta@kernel.org>,
+	Russell King <linux@armlinux.org.uk>, Will Deacon <will@kernel.org>,
+	Guo Ren <guoren@kernel.org>, Brian Cain <bcain@quicinc.com>,
+	Huacai Chen <chenhuacai@kernel.org>,
+	WANG Xuerui <kernel@xen0n.name>,
+	Geert Uytterhoeven <geert@linux-m68k.org>,
+	Michal Simek <monstr@monstr.eu>,
+	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+	Dinh Nguyen <dinguyen@kernel.org>, Jonas Bonn <jonas@southpole.se>,
+	Stefan Kristiansson <stefan.kristiansson@saunalahti.fi>,
+	Stafford Horne <shorne@gmail.com>,
+	"James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>,
+	Helge Deller <deller@gmx.de>, Michael Ellerman <mpe@ellerman.id.au>,
+	Nicholas Piggin <npiggin@gmail.com>,
+	Christophe Leroy <christophe.leroy@csgroup.eu>,
+	Naveen N Rao <naveen@kernel.org>,
+	Madhavan Srinivasan <maddy@linux.ibm.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Heiko Carstens <hca@linux.ibm.com>,
+	Vasily Gorbik <gor@linux.ibm.com>,
+	Alexander Gordeev <agordeev@linux.ibm.com>,
+	Christian Borntraeger <borntraeger@linux.ibm.com>,
+	Sven Schnelle <svens@linux.ibm.com>,
+	Yoshinori Sato <ysato@users.sourceforge.jp>,
+	Rich Felker <dalias@libc.org>,
+	John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>,
+	"David S. Miller" <davem@davemloft.net>,
+	Andreas Larsson <andreas@gaisler.com>,
+	Richard Weinberger <richard@nod.at>,
+	Anton Ivanov <anton.ivanov@cambridgegreys.com>,
+	Johannes Berg <johannes@sipsolutions.net>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
+	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
+	"H. Peter Anvin" <hpa@zytor.com>, Chris Zankel <chris@zankel.net>,
+	Max Filippov <jcmvbkbc@gmail.com>, Arnd Bergmann <arnd@arndb.de>,
+	Shuah Khan <shuah@kernel.org>, strace-devel@lists.strace.io,
+	linux-snps-arc@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-csky@vger.kernel.org,
+	linux-hexagon@vger.kernel.org, loongarch@lists.linux.dev,
+	linux-m68k@lists.linux-m68k.org, linux-mips@vger.kernel.org,
+	linux-openrisc@vger.kernel.org, linux-parisc@vger.kernel.org,
+	linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
+	linux-s390@vger.kernel.org, linux-sh@vger.kernel.org,
+	sparclinux@vger.kernel.org, linux-um@lists.infradead.org,
+	linux-arch@vger.kernel.org, linux-kselftest@vger.kernel.org,
+	linux-api@vger.kernel.org
+Subject: [PATCH v4 0/7] ptrace: introduce PTRACE_SET_SYSCALL_INFO API
+Message-ID: <20250203065849.GA14120@strace.io>
+MIME-Version: 1.0
+Content-Disposition: inline
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250202_225933_261328_FC05ECC1 
-X-CRM114-Status: GOOD (  17.49  )
+X-CRM114-CacheID: sfid-20250202_225855_526153_A0F2F2E2 
+X-CRM114-Status: GOOD (  19.62  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,55 +107,138 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gMiBGZWIgMjAyNSwgYXQgMjA6MDgsIENvbm9yIERvb2xleSA8Y29ub3JAa2VybmVsLm9yZz4g
-d3JvdGU6Cj4gCj4gT24gU2F0LCBGZWIgMDEsIDIwMjUgYXQgMDE6MDQ6MjVQTSArMDEwMCwgQWxl
-a3NhbmRhciBSaWthbG8gd3JvdGU6Cj4+IE9uIEZyaSwgSmFuIDEwLCAyMDI1IGF0IDQ6MjPigK9B
-TSBDaGFybGllIEplbmtpbnMgPGNoYXJsaWVAcml2b3NpbmMuY29tPiB3cm90ZToKPj4gCj4+Pj4g
-RnJvbTogQ2hhby15aW5nIEZ1IDxjZnVAbWlwcy5jb20+Cj4+Pj4gCj4+Pj4gVXNlIG9ubHkgTFIv
-U0MgaW5zdHJ1Y3Rpb25zIHRvIGltcGxlbWVudCBhdG9taWMgZnVuY3Rpb25zLgo+Pj4gCj4+PiBJ
-biB0aGUgcHJldmlvdXMgcGF0Y2ggeW91IG1lbnRpb24gdGhhdCB0aGlzIGlzIHRvIHN1cHBvcnQg
-TUlQUyBQODcwMC4gQ2FuCj4+PiB5b3UgZXhwYW5kIG9uIHdoeSB0aGlzIGNoYW5nZSBpcyByZXF1
-aXJlZD8gVGhlIGRhdGFzaGVldCBhdCBbMV0gc2F5czoKPj4+IAo+Pj4gIlRoZSBQODcwMCBjb3Jl
-IGlzIGNvbmZpZ3VyZWQgdG8gc3VwcG9ydCB0aGUgUlY2NEdDWmJhX1piYiAoRyA9IElNQUZEKQo+
-Pj4gU3RhbmRhcmQgSVNBLiBJdCBpbmNsdWRlcyB0aGUgUlY2NEkgYmFzZSBJU0EsIE11bHRpcGx5
-IChNKSwgQXRvbWljIChBKSwKPj4+IFNpbmdsZS1QcmVjaXNpb24gRmxvYXRpbmcgUG9pbnQgKEYp
-LCBEb3VibGUgKEQpLCBDb21wcmVzc2VkIChDKSBSSVNDLVYKPj4+IGV4dGVuc2lvbnMsIGFzIHdl
-bGwgYXMgdGhlIGFzIHdlbGwgYXMgdGhlIGJpdC1tYW5pcHVsYXRpb24gZXh0ZW5zaW9ucwo+Pj4g
-KFpiYSkgYW5kIChaYmIpIgo+Pj4gCj4+PiBUaGUgIkEiIGV4dGVuc2lvbiBpcyBhIHBhcnQgb2Yg
-IkciIHdoaWNoIGlzIG1vc3RseSBhc3N1bWVkIHRvIGV4aXN0IGluCj4+PiB0aGUga2VybmVsLiBB
-ZGRpdGlvbmFsbHksIGhhdmluZyB0aGlzIGJlIGEgY29tcGlsYXRpb24gZmxhZyB3aWxsIGNhdXNl
-Cj4+PiB0cmFwcyBvbiBnZW5lcmljIGtlcm5lbHMuIFdlIGdlbmVyYWxseSB0cnkgdG8gcHVzaCBl
-dmVyeXRoaW5nIHdlIGNhbgo+Pj4gaW50byBydW50aW1lIGZlYXR1cmUgZGV0ZWN0aW9uIHNpbmNl
-IHRoZXJlIGFyZSBzbyBtYW55IHBvc3NpYmxlIHZhcmlhbnRzCj4+PiBvZiByaXNjdi4KPj4+IAo+
-Pj4gRXhwcmVzc2luZyBub3QgYmVpbmcgYWJsZSB0byBwZXJmb3JtIGEgZmVhdHVyZSBsaWtlIHRo
-aXMgaXMgbm9ybWFsbHkKPj4+IGJldHRlciBleHByZXNzZWQgYXMgYW4gZXJyYXRhLiBUaGVuIGdl
-bmVyaWMga2VybmVscyB3aWxsIGJlIGFibGUgdG8KPj4+IGluY2x1ZGUgdGhpcywgYW5kIGFueWJv
-ZHkgd2hvIGRvZXNuJ3Qgd2FudCB0byBoYXZlIHRoZSBleHRyYSBub3BzCj4+PiBpbnRyb2R1Y2Vk
-IGNhbiBkaXNhYmxlIHRoZSBlcnJhdGEuIEEgc2ltaWxhciBhcHByb2FjaCB0byB3aGF0IEkgcG9p
-bnRlZAo+Pj4gb3V0IGxhc3QgdGltZSBzaG91bGQgd29yayBoZXJlIHRvbyAoYnV0IHdpdGggbW9y
-ZSBwbGFjZXMgdG8gcmVwbGFjZSkKPj4+IFsyXS4KPj4+IAo+Pj4gWzFdIGh0dHBzOi8vbWlwcy5j
-b20vd3AtY29udGVudC91cGxvYWRzLzIwMjQvMTEvUDg3MDBfRGF0YV9TaGVldC5wZGYKPj4+IFsy
-XSBodHRwczovL2xvcmUua2VybmVsLm9yZy9sa21sL1oyLVVOZndjQVFZWnFWQlVAZ2hvc3QvVC8K
-Pj4gCj4+IFNvIGZhciB3ZSBoYXZlbid0IGZvdW5kIGEgd2F5IHRvIGRvIHRoaXMgdXNpbmcgZXJy
-YXRhLgo+IAo+IFlvdSBtZWFuIHVzaW5nIGFsdGVybmF0aXZlcz8gTm90IGltcGxlbWVudGluZyBB
-LCBidXQgaW5zdGVhZAo+IGltcGxlbWVudGluZyBaYWxyc2MsIGlzIG5vdCBhbiBlcnJhdHVtLiBJ
-dCdzIGEgZGVzaWduIGRlY2lzaW9uLgo+IAo+PiBUaGVyZSdzIG5vIHdheQo+PiB0byBwYXRjaCBv
-bmUgaW5zdHJ1Y3Rpb24gd2l0aCBtdWx0aXBsZSBvbmVzLAo+IAo+IEhhdmUgeW91IGxvb2tlZCBh
-dCBob3cgdGhlIGFsdGVybmF0aXZlcyB3b3JrPyBUaGVyZSdzIG5vIHJlcXVpcmVtZW50Cj4gdGhh
-dCB0aGUgc2VxdWVuY2VzIGhhdmUgdGhlIHNhbWUgbnVtYmVyIG9mIGluc3RydWN0aW9ucywgcGFk
-ZGluZyBpcwo+IGFsbG93ZWQuCj4gCj4+IGFuZCB3ZSBhbHNvIG5lZWQgYW4gZXh0cmEKPj4gKHRl
-bXBvcmFyeSkgcmVnaXN0ZXIuCj4+IAo+PiBBIENQVSBjYW4gaW1wbGVtZW50IHRoZSBaYWxyc2Mg
-ZXh0ZW5zaW9uIFsxXSBpbnN0ZWFkIG9mICJjb21wbGV0ZSBBIgo+PiAod2hpY2ggUDg3MDAgZG9l
-cykuCj4+PiBGcm9tICJaYWFtbyBhbmQgWmFscnNjIEV4dGVuc2lvbnMiIHNwZWM6Cj4gCj4gV2h5
-IGRvZXMgdGhpcyBzdGF0ZW1lbnQgZGlmZmVyIGZyb20gdGhlIFA4NzAwIGRhdGFzaGVldCBsaW5r
-ZWQgYWJvdmU/CgpJbiBhbiBMTFZNIHBhdGNoIHNldmVyYWwgd2Vla3MgYWdvIGl0IHdhcyBzYWlk
-IHRoYXQgWmFhbW8gaXMKaW1wbGVtZW50ZWQgaW4gZmlybXdhcmUgYnkgdHJhcHBpbmcgYW5kIGVt
-dWxhdGluZyB3aXRoIExSL1NDLgoKSmVzcwoKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBs
-aXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlz
-dGluZm8vbGludXgtcmlzY3YK
+PTRACE_SET_SYSCALL_INFO is a generic ptrace API that complements
+PTRACE_GET_SYSCALL_INFO by letting the ptracer modify details of
+system calls the tracee is blocked in.
+
+This API allows ptracers to obtain and modify system call details
+in a straightforward and architecture-agnostic way.
+
+Current implementation supports changing only those bits of system call
+information that are used by strace, namely, syscall number, syscall
+arguments, and syscall return value.
+
+Support of changing additional details returned by PTRACE_GET_SYSCALL_INFO,
+such as instruction pointer and stack pointer, could be added later if
+needed, by using struct ptrace_syscall_info.flags to specify the additional
+details that should be set.  Currently, "flags" and "reserved" fields of
+struct ptrace_syscall_info must be initialized with zeroes; "arch",
+"instruction_pointer", and "stack_pointer" fields are ignored.
+
+PTRACE_SET_SYSCALL_INFO currently supports only PTRACE_SYSCALL_INFO_ENTRY,
+PTRACE_SYSCALL_INFO_EXIT, and PTRACE_SYSCALL_INFO_SECCOMP operations.
+Other operations could be added later if needed.
+
+Ideally, PTRACE_SET_SYSCALL_INFO should have been introduced along with
+PTRACE_GET_SYSCALL_INFO, but it didn't happen.  The last straw that
+convinced me to implement PTRACE_SET_SYSCALL_INFO was apparent failure
+to provide an API of changing the first system call argument on riscv
+architecture [1].
+
+ptrace(2) man page:
+
+long ptrace(enum __ptrace_request request, pid_t pid, void *addr, void *data);
+...
+PTRACE_SET_SYSCALL_INFO
+       Modify information about the system call that caused the stop.
+       The "data" argument is a pointer to struct ptrace_syscall_info
+       that specifies the system call information to be set.
+       The "addr" argument should be set to sizeof(struct ptrace_syscall_info)).
+
+[1] https://lore.kernel.org/all/59505464-c84a-403d-972f-d4b2055eeaac@gmail.com/
+
+Notes:
+    v4:
+    * Split out syscall_set_return_value() for hexagon into a separate patch
+    * s390: Change the style of syscall_set_arguments() implementation as
+      requested
+    * Add more Reviewed-by
+    * v3: https://lore.kernel.org/all/20250128091445.GA8257@strace.io/
+
+    v3:
+    * powerpc: Submit syscall_set_return_value() fix for "sc" case separately
+    * mips: Do not introduce erroneous argument truncation on mips n32,
+      add a detailed description to the commit message of the
+      mips_get_syscall_arg() change
+    * ptrace: Add explicit padding to the end of struct ptrace_syscall_info,
+      simplify obtaining of user ptrace_syscall_info,
+      do not introduce PTRACE_SYSCALL_INFO_SIZE_VER0
+    * ptrace: Change the return type of ptrace_set_syscall_info_* functions
+      from "unsigned long" to "int"
+    * ptrace: Add -ERANGE check to ptrace_set_syscall_info_exit(),
+      add comments to -ERANGE checks
+    * ptrace: Update comments about supported syscall stops
+    * selftests: Extend set_syscall_info test, fix for mips n32
+    * Add Tested-by and Reviewed-by
+
+    v2:
+    * Add patch to fix syscall_set_return_value() on powerpc
+    * Add patch to fix mips_get_syscall_arg() on mips
+    * Add syscall_set_return_value() implementation on hexagon
+    * Add syscall_set_return_value() invocation to syscall_set_nr()
+      on arm and arm64.
+    * Fix syscall_set_nr() and mips_set_syscall_arg() on mips
+    * Add a comment to syscall_set_nr() on arc, powerpc, s390, sh,
+      and sparc
+    * Remove redundant ptrace_syscall_info.op assignments in
+      ptrace_get_syscall_info_*
+    * Minor style tweaks in ptrace_get_syscall_info_op()
+    * Remove syscall_set_return_value() invocation from
+      ptrace_set_syscall_info_entry()
+    * Skip syscall_set_arguments() invocation in case of syscall number -1
+      in ptrace_set_syscall_info_entry() 
+    * Split ptrace_syscall_info.reserved into ptrace_syscall_info.reserved
+      and ptrace_syscall_info.flags
+    * Use __kernel_ulong_t instead of unsigned long in set_syscall_info test
+
+    v1:
+
+Dmitry V. Levin (7):
+  mips: fix mips_get_syscall_arg() for o32
+  hexagon: add syscall_set_return_value()
+  syscall.h: add syscall_set_arguments()
+  syscall.h: introduce syscall_set_nr()
+  ptrace_get_syscall_info: factor out ptrace_get_syscall_info_op
+  ptrace: introduce PTRACE_SET_SYSCALL_INFO request
+  selftests/ptrace: add a test case for PTRACE_SET_SYSCALL_INFO
+
+ arch/arc/include/asm/syscall.h                |  25 +
+ arch/arm/include/asm/syscall.h                |  37 ++
+ arch/arm64/include/asm/syscall.h              |  29 +
+ arch/csky/include/asm/syscall.h               |  13 +
+ arch/hexagon/include/asm/syscall.h            |  21 +
+ arch/loongarch/include/asm/syscall.h          |  15 +
+ arch/m68k/include/asm/syscall.h               |   7 +
+ arch/microblaze/include/asm/syscall.h         |   7 +
+ arch/mips/include/asm/syscall.h               |  70 ++-
+ arch/nios2/include/asm/syscall.h              |  16 +
+ arch/openrisc/include/asm/syscall.h           |  13 +
+ arch/parisc/include/asm/syscall.h             |  19 +
+ arch/powerpc/include/asm/syscall.h            |  20 +
+ arch/riscv/include/asm/syscall.h              |  16 +
+ arch/s390/include/asm/syscall.h               |  21 +
+ arch/sh/include/asm/syscall_32.h              |  24 +
+ arch/sparc/include/asm/syscall.h              |  22 +
+ arch/um/include/asm/syscall-generic.h         |  19 +
+ arch/x86/include/asm/syscall.h                |  43 ++
+ arch/xtensa/include/asm/syscall.h             |  18 +
+ include/asm-generic/syscall.h                 |  30 +
+ include/uapi/linux/ptrace.h                   |   7 +-
+ kernel/ptrace.c                               | 179 +++++-
+ tools/testing/selftests/ptrace/Makefile       |   2 +-
+ .../selftests/ptrace/set_syscall_info.c       | 514 ++++++++++++++++++
+ 25 files changed, 1140 insertions(+), 47 deletions(-)
+ create mode 100644 tools/testing/selftests/ptrace/set_syscall_info.c
+
+-- 
+ldv
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
