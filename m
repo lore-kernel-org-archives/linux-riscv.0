@@ -4,94 +4,138 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E4D15C02195
-	for <linux-riscv@archiver.kernel.org>; Mon,  3 Feb 2025 08:52:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 39560C02192
+	for <linux-riscv@archiver.kernel.org>; Mon,  3 Feb 2025 09:32:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=APB0al3fEhGNhLIhBvu/Kxax8EvWWLOVQ6GGAFJBjNI=; b=Zb1EOnc5o6SlGN
-	g1+7zY7Hr9uiwIgYmsD5pPvFIHFepwoBrhJKmF+Y1zVy7+K9lR/vbI9bGYhE+J4bJUqDsKaYGVSS9
-	lKyyaBmzGORhL5LekKJNd8sA4Fy6BuJLWs6WV8KNXr8mE3WB70n2ya53sD5hfbOpu4SA83+MkooSS
-	oV/iz88yHazzcVM0plmPjNQIzr7m1eu90h0ht0WbJKCdeVwZ56vdX295iA8rcYOjDIwgZ1uNsj8qk
-	6OTghVNzGSiDdlf3qfB4/ZN/apFm/y/1wWVzxNwhGkNCReAXLgcum+zk0Xt3hEq8Itxs6caKrrD9y
-	iND0U+pUrbYOfnjvIkqQ==;
+	List-Owner; bh=iRN8SwsAbFqvJUjyY9xW98gYPMs7CbQj0irAUVPnVrY=; b=gis0uTfY1nXtzA
+	+Zw/CtrIxhuyaVm45c4pONwIAs6YkTAzo/p+YcRAtDfIaTaDXRjfJTUQBSo9XYj89qv0bYw6IJnnq
+	8Y6Oub9cPiMDxBajSp8/AriqOWXCa6WIXaZD/G4fWBhomCVXgpsJ/DYk3hXEANQ6WbfI9O9HQ39Nc
+	dkAKflYxpxn5YL7Pipb50afD6EaE1q/bW+X/rBiDVeHg5gAFtwwkwp4YoMEpMTgFkqe/wlpQPfVYa
+	3YtIfsgmniLPUsuiJHrKnqqVupbM9EHe6X7xYQh116H/dIZO+Ph+GhPxH+Y4myDLGuz2DyPWLAzGe
+	PKdubHMAAFKKwKdrnnQg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tesC9-0000000Eup1-2DPi;
-	Mon, 03 Feb 2025 08:52:41 +0000
-Received: from mail-qt1-x832.google.com ([2607:f8b0:4864:20::832])
+	id 1tesoF-0000000F08r-0cwq;
+	Mon, 03 Feb 2025 09:32:03 +0000
+Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tesC8-0000000Euoa-02ZG
-	for linux-riscv@lists.infradead.org;
-	Mon, 03 Feb 2025 08:52:41 +0000
-Received: by mail-qt1-x832.google.com with SMTP id d75a77b69052e-46c8474d8daso30064591cf.3
-        for <linux-riscv@lists.infradead.org>; Mon, 03 Feb 2025 00:52:39 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1738572759; x=1739177559; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=bMc6tRRbVVjIuFrimhD5cbba2O5fSdoBYlM+WudqAOg=;
-        b=E4cLqZJm+OqcNMoMPyex9eXvLZvxX8QoSE0shPjBO6VaTX68A/YJ6dt0yXI918qteo
-         7rCibIQ5b9wH/dlgSCGiSKegucGUJbD7Gx3X5Nd/JAF6CScbmc1pLEv4VL27oC9v98Fc
-         E5Pa1Qnp79vxOa/vMFaIxrnFii8CBK9xyfw6ZSNB1HtxMFuKwKcd3uQVZCkQaa4/Dv67
-         E87+UDQeMexHo1/cWKDq3KALNbvBQBZsAbJfI25NYTxKMZrrwE5hMHS/0/1T/t5SIfj2
-         AcoMrKUVKV9F9pVZer4camH5X3bBfFJjGo/1DGYbWh3NZukgazf6Bnk8u+QJNkjKtXCg
-         Oj3g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1738572759; x=1739177559;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=bMc6tRRbVVjIuFrimhD5cbba2O5fSdoBYlM+WudqAOg=;
-        b=L+tHtljQrRyfeqPn4skrFwoloXbdzXPNscgCL5efHNXK6fsNqey0OGo5mytfbk2u/X
-         xTcR9Eky5nUdY5kwcsBbozo2jA499A6txPJvWtHHhaL2ofGxJNZkPkxit/YD4gEzADfJ
-         k8y7wag/XjDbNMgo6O2QXBuGkN2E6XeS27OsbP2XrTC5UFGPR85nxrGkEp2J39VkwXrw
-         kAS07PmUosiRKgrMSze5qtsAMxP1QbauoEAQnWSaALgIxeesG6+LwgVoVx50eiL4d95U
-         wc9sddG7AHcGDXANvr/hdd405052Fo/YemJbWSUHHJkMPr+YxGpMe+vQHeXAVvl51GO/
-         cYtg==
-X-Forwarded-Encrypted: i=1; AJvYcCWar1BXRUj8lKks1XkLphTgUWU1nyigw6+J4QKpSwPP5xvbsCyfj7CXJs4pRrSjHrftLXrxNx5RgiozkQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0YyC+dehaGCEVIKzE6POCxDaADyhTTdTCng56+cbUQg9m0ecRbIm
-	YaPT7dLpg6SvCYgDT+oOoZ6AAbUOpQxkkDs8+Qs09WOzACwzGIO/rTeHrcRzzbo=
-X-Gm-Gg: ASbGncugztGMt+ed8VLYZkaOBkQoeC5SdMgAxFNYYK2Myj7ET0vNCW3CUlBNQU2GegY
-	XeOioaG+MebSovdl1Jx6M6F5k7JYhsMPRpvWuS2AoUu+MiPH2A6mYwXZbbAjpXDGAlfYgnCmacO
-	sHHXkMFRqwHruk4qBtdatRSDTqVN/CLzy6LT8x0CqtXZ7OjTRzRekAJwhGnBuKROe0RbdIazUy4
-	5q4B4PmCOeDMqga6Kv9pyEwv+EC+89h7B9e/yeBZ25GXvFaNCapGoQPxgagLPi6YWeqjD3p7CRR
-	jF5SYZOqwkkbFRjaNKTe/q5vk6K1fL6M4rnjt02jIXv+s/BpClsCUXs=
-X-Google-Smtp-Source: AGHT+IFAdiGU/iUBycYCxgRM5DsqzJFg3ES5gi2sqFYcXQtsQPK6UBgEZ5OP+FdlHA0Q+Cdlc8Fv6A==
-X-Received: by 2002:a05:622a:134e:b0:46c:7152:317e with SMTP id d75a77b69052e-46fd0b753famr297039461cf.42.1738572758960;
-        Mon, 03 Feb 2025 00:52:38 -0800 (PST)
-Received: from anup-ubuntu-vm.localdomain ([103.97.166.196])
-        by smtp.gmail.com with ESMTPSA id d75a77b69052e-46fdf0e3089sm47657911cf.46.2025.02.03.00.52.27
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 03 Feb 2025 00:52:38 -0800 (PST)
-From: Anup Patel <apatel@ventanamicro.com>
-To: Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Jassi Brar <jassisinghbrar@gmail.com>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	"Rafael J . Wysocki" <rafael@kernel.org>,
-	Mika Westerberg <mika.westerberg@linux.intel.com>,
-	Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
-	Linus Walleij <linus.walleij@linaro.org>,
-	Bartosz Golaszewski <brgl@bgdev.pl>,
-	=?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <ukleinek@kernel.org>
-Subject: [RFC PATCH v2 16/17] irqchip/riscv-rpmi-sysmsi: Add ACPI support
-Date: Mon,  3 Feb 2025 14:19:05 +0530
-Message-ID: <20250203084906.681418-17-apatel@ventanamicro.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20250203084906.681418-1-apatel@ventanamicro.com>
-References: <20250203084906.681418-1-apatel@ventanamicro.com>
+	id 1tesmU-0000000Ezod-2LVX;
+	Mon, 03 Feb 2025 09:30:15 +0000
+Received: from pps.filterd (m0353725.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 51320bgd006146;
+	Mon, 3 Feb 2025 09:29:48 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
+	:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=pp1; bh=HOOVTMKGmYfDs61vIKKu/2n6mo1Uqh
+	rzh3Nw0X9R5us=; b=sc7OrPzM94Qro1TPoi9WldL23dl8EhUQA0uUcOii03fm/0
+	ZWjWgFI+dUHnyykPX4KurBljs5VF0FTUDOZVPKQ0Nic1W5aixU4tXgMwUo9Ej4Sp
+	IhX2kpJQptytYHQ7XzYAy9RoZviZkDVVyjToIShTjmSz3tGfHU97EQ/GMBty3KDe
+	U7Y/o3wrR/8Po81HWdFM8acEVLigG7jG/rrAvF0q3j95Qgp65mDoim4AyXlTi4+s
+	JSs5sBEVEVSX1pC6uB3pEJ+UczNnVeDbO13pZiffvHI9SIwAVPdnyEwhgbJoiLlY
+	rEhklncisvpySSfLHaTqfnQztgOZ+zZlXlJpmmmA==
+Received: from ppma12.dal12v.mail.ibm.com (dc.9e.1632.ip4.static.sl-reverse.com [50.22.158.220])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 44jmmy9m6k-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 03 Feb 2025 09:29:47 +0000 (GMT)
+Received: from pps.filterd (ppma12.dal12v.mail.ibm.com [127.0.0.1])
+	by ppma12.dal12v.mail.ibm.com (8.18.1.2/8.18.1.2) with ESMTP id 5136tpND016288;
+	Mon, 3 Feb 2025 09:29:46 GMT
+Received: from smtprelay04.fra02v.mail.ibm.com ([9.218.2.228])
+	by ppma12.dal12v.mail.ibm.com (PPS) with ESMTPS id 44hwxs5syv-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 03 Feb 2025 09:29:46 +0000
+Received: from smtpav04.fra02v.mail.ibm.com (smtpav04.fra02v.mail.ibm.com [10.20.54.103])
+	by smtprelay04.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 5139Th5c21955204
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Mon, 3 Feb 2025 09:29:43 GMT
+Received: from smtpav04.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 0F9EF200D4;
+	Mon,  3 Feb 2025 09:29:43 +0000 (GMT)
+Received: from smtpav04.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 4A882200D3;
+	Mon,  3 Feb 2025 09:29:39 +0000 (GMT)
+Received: from li-008a6a4c-3549-11b2-a85c-c5cc2836eea2.ibm.com (unknown [9.179.20.74])
+	by smtpav04.fra02v.mail.ibm.com (Postfix) with ESMTPS;
+	Mon,  3 Feb 2025 09:29:39 +0000 (GMT)
+Date: Mon, 3 Feb 2025 10:29:37 +0100
+From: Alexander Gordeev <agordeev@linux.ibm.com>
+To: "Dmitry V. Levin" <ldv@strace.io>
+Cc: Andrew Morton <akpm@linux-foundation.org>, Oleg Nesterov <oleg@redhat.com>,
+        Alexey Gladkov <legion@kernel.org>,
+        Charlie Jenkins <charlie@rivosinc.com>,
+        Eugene Syromyatnikov <evgsyr@gmail.com>,
+        Mike Frysinger <vapier@gentoo.org>, Renzo Davoli <renzo@cs.unibo.it>,
+        Davide Berardi <berardi.dav@gmail.com>,
+        Vineet Gupta <vgupta@kernel.org>, Russell King <linux@armlinux.org.uk>,
+        Will Deacon <will@kernel.org>, Guo Ren <guoren@kernel.org>,
+        Brian Cain <bcain@quicinc.com>, Huacai Chen <chenhuacai@kernel.org>,
+        WANG Xuerui <kernel@xen0n.name>,
+        Geert Uytterhoeven <geert@linux-m68k.org>,
+        Michal Simek <monstr@monstr.eu>,
+        Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+        Dinh Nguyen <dinguyen@kernel.org>, Jonas Bonn <jonas@southpole.se>,
+        Stefan Kristiansson <stefan.kristiansson@saunalahti.fi>,
+        Stafford Horne <shorne@gmail.com>,
+        "James E.J. Bottomley" <James.Bottomley@hansenpartnership.com>,
+        Helge Deller <deller@gmx.de>, Michael Ellerman <mpe@ellerman.id.au>,
+        Nicholas Piggin <npiggin@gmail.com>,
+        Christophe Leroy <christophe.leroy@csgroup.eu>,
+        Naveen N Rao <naveen@kernel.org>,
+        Madhavan Srinivasan <maddy@linux.ibm.com>,
+        Paul Walmsley <paul.walmsley@sifive.com>,
+        Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+        Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>,
+        Christian Borntraeger <borntraeger@linux.ibm.com>,
+        Sven Schnelle <svens@linux.ibm.com>,
+        Yoshinori Sato <ysato@users.sourceforge.jp>,
+        Rich Felker <dalias@libc.org>,
+        John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>,
+        "David S. Miller" <davem@davemloft.net>,
+        Andreas Larsson <andreas@gaisler.com>,
+        Richard Weinberger <richard@nod.at>,
+        Anton Ivanov <anton.ivanov@cambridgegreys.com>,
+        Johannes Berg <johannes@sipsolutions.net>,
+        Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>,
+        Borislav Petkov <bp@alien8.de>,
+        Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
+        "H. Peter Anvin" <hpa@zytor.com>, Chris Zankel <chris@zankel.net>,
+        Max Filippov <jcmvbkbc@gmail.com>, Arnd Bergmann <arnd@arndb.de>,
+        Shuah Khan <shuah@kernel.org>, strace-devel@lists.strace.io,
+        linux-snps-arc@lists.infradead.org, linux-kernel@vger.kernel.org,
+        linux-arm-kernel@lists.infradead.org, linux-csky@vger.kernel.org,
+        linux-hexagon@vger.kernel.org, loongarch@lists.linux.dev,
+        linux-m68k@lists.linux-m68k.org, linux-mips@vger.kernel.org,
+        linux-openrisc@vger.kernel.org, linux-parisc@vger.kernel.org,
+        linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
+        linux-s390@vger.kernel.org, linux-sh@vger.kernel.org,
+        sparclinux@vger.kernel.org, linux-um@lists.infradead.org,
+        linux-arch@vger.kernel.org, linux-kselftest@vger.kernel.org,
+        linux-api@vger.kernel.org
+Subject: Re: [PATCH v4 0/7] ptrace: introduce PTRACE_SET_SYSCALL_INFO API
+Message-ID: <Z6CMgVm8QKEMRf8L@li-008a6a4c-3549-11b2-a85c-c5cc2836eea2.ibm.com>
+References: <20250203065849.GA14120@strace.io>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20250203065849.GA14120@strace.io>
+X-TM-AS-GCONF: 00
+X-Proofpoint-GUID: tAr2MtM5PWIBRxaWi6Br0hi8CNE4am_9
+X-Proofpoint-ORIG-GUID: tAr2MtM5PWIBRxaWi6Br0hi8CNE4am_9
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1057,Hydra:6.0.680,FMLib:17.12.68.34
+ definitions=2025-02-03_03,2025-01-31_02,2024-11-22_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 clxscore=1011 malwarescore=0
+ phishscore=0 impostorscore=0 priorityscore=1501 mlxscore=0
+ lowpriorityscore=0 mlxlogscore=836 bulkscore=0 spamscore=0 adultscore=0
+ suspectscore=0 classifier=spam adjust=0 reason=mlx scancount=1
+ engine=8.19.0-2501170000 definitions=main-2502030071
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250203_005240_053700_1E686D01 
-X-CRM114-Status: GOOD (  20.61  )
+X-CRM114-CacheID: sfid-20250203_013014_709682_A94176C1 
+X-CRM114-Status: GOOD (  13.11  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,124 +147,38 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Anup Patel <apatel@ventanamicro.com>, devicetree@vger.kernel.org, Andrew Jones <ajones@ventanamicro.com>, Leyfoon Tan <leyfoon.tan@starfivetech.com>, Anup Patel <anup@brainfault.org>, Atish Patra <atishp@atishpatra.org>, linux-kernel@vger.kernel.org, Samuel Holland <samuel.holland@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, linux-riscv@lists.infradead.org, Len Brown <lenb@kernel.org>, linux-clk@vger.kernel.org, Rahul Pathak <rpathak@ventanamicro.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Sunil V L <sunilvl@ventanamicro.com>
+On Mon, Feb 03, 2025 at 08:58:49AM +0200, Dmitry V. Levin wrote:
 
-Add ACPI support for the RISC-V RPMI system MSI based irqchip driver.
+Hi Dmitry,
 
-Signed-off-by: Sunil V L <sunilvl@ventanamicro.com>
-Signed-off-by: Anup Patel <apatel@ventanamicro.com>
----
- drivers/irqchip/Kconfig                 |  2 +-
- drivers/irqchip/irq-riscv-rpmi-sysmsi.c | 34 ++++++++++++++++++++++++-
- 2 files changed, 34 insertions(+), 2 deletions(-)
+> PTRACE_SET_SYSCALL_INFO is a generic ptrace API that complements
+> PTRACE_GET_SYSCALL_INFO by letting the ptracer modify details of
+> system calls the tracee is blocked in.
+...
 
-diff --git a/drivers/irqchip/Kconfig b/drivers/irqchip/Kconfig
-index 2ae44354735b..cf96382113ce 100644
---- a/drivers/irqchip/Kconfig
-+++ b/drivers/irqchip/Kconfig
-@@ -599,7 +599,7 @@ config RISCV_IMSIC_PCI
- 
- config RISCV_RPMI_SYSMSI
- 	bool
--	depends on MAILBOX
-+	depends on RISCV && MAILBOX
- 	select IRQ_DOMAIN_HIERARCHY
- 	select GENERIC_MSI_IRQ
- 	default RISCV
-diff --git a/drivers/irqchip/irq-riscv-rpmi-sysmsi.c b/drivers/irqchip/irq-riscv-rpmi-sysmsi.c
-index 3022f0924c94..1f03241920bb 100644
---- a/drivers/irqchip/irq-riscv-rpmi-sysmsi.c
-+++ b/drivers/irqchip/irq-riscv-rpmi-sysmsi.c
-@@ -8,6 +8,7 @@
- #include <linux/cpu.h>
- #include <linux/interrupt.h>
- #include <linux/irqchip.h>
-+#include <linux/irqchip/riscv-imsic.h>
- #include <linux/mailbox_client.h>
- #include <linux/mailbox/riscv-rpmi-message.h>
- #include <linux/module.h>
-@@ -215,6 +216,7 @@ static int rpmi_sysmsi_probe(struct platform_device *pdev)
- {
- 	struct device *dev = &pdev->dev;
- 	struct rpmi_sysmsi_priv *priv;
-+	u32 id;
- 	int rc;
- 
- 	priv = devm_kzalloc(dev, sizeof(*priv), GFP_KERNEL);
-@@ -223,6 +225,15 @@ static int rpmi_sysmsi_probe(struct platform_device *pdev)
- 	priv->dev = dev;
- 	platform_set_drvdata(pdev, priv);
- 
-+	if (!is_of_node(dev->fwnode)) {
-+		rc = riscv_acpi_get_gsi_info(dev->fwnode, &priv->gsi_base, &id,
-+					     &priv->nr_irqs, NULL);
-+		if (rc) {
-+			dev_err(dev, "failed to find GSI mapping\n");
-+			return rc;
-+		}
-+	}
-+
- 	/* Setup mailbox client */
- 	priv->client.dev		= priv->dev;
- 	priv->client.rx_callback	= NULL;
-@@ -252,8 +263,16 @@ static int rpmi_sysmsi_probe(struct platform_device *pdev)
- 		 * then we need to set it explicitly before using any platform
- 		 * MSI functions.
- 		 */
--		if (is_of_node(dev->fwnode))
-+		if (is_of_node(dev->fwnode)) {
- 			of_msi_configure(dev, to_of_node(dev->fwnode));
-+		} else {
-+			struct irq_domain *msi_domain;
-+
-+			msi_domain = irq_find_matching_fwnode(imsic_acpi_get_fwnode(dev),
-+							      DOMAIN_BUS_PLATFORM_MSI);
-+			if (msi_domain)
-+				dev_set_msi_domain(dev, msi_domain);
-+		}
- 
- 		if (!dev_get_msi_domain(dev))
- 			return -EPROBE_DEFER;
-@@ -264,6 +283,10 @@ static int rpmi_sysmsi_probe(struct platform_device *pdev)
- 					  priv->nr_irqs, priv, priv))
- 		return dev_err_probe(dev, -ENOMEM, "failed to create MSI irq domain\n");
- 
-+#ifdef CONFIG_ACPI
-+	if (!acpi_disabled)
-+		acpi_dev_clear_dependencies(ACPI_COMPANION(dev));
-+#endif
- 	dev_info(dev, "%d system MSIs registered\n", priv->nr_irqs);
- 	return 0;
- }
-@@ -273,10 +296,19 @@ static const struct of_device_id rpmi_sysmsi_match[] = {
- 	{}
- };
- 
-+#ifdef CONFIG_ACPI
-+static const struct acpi_device_id acpi_rpmi_sysmsi_match[] = {
-+	{ "RSCV0006", 0 },
-+	{}
-+};
-+MODULE_DEVICE_TABLE(acpi, acpi_rpmi_sysmsi_match);
-+#endif
-+
- static struct platform_driver rpmi_sysmsi_driver = {
- 	.driver = {
- 		.name		= "rpmi-sysmsi",
- 		.of_match_table	= rpmi_sysmsi_match,
-+		.acpi_match_table	= ACPI_PTR(acpi_rpmi_sysmsi_match),
- 	},
- 	.probe = rpmi_sysmsi_probe,
- };
--- 
-2.43.0
+FWIW, I am getting these on s390:
 
+# ./tools/testing/selftests/ptrace/set_syscall_info 
+TAP version 13
+1..1
+# Starting 1 tests from 1 test cases.
+#  RUN           global.set_syscall_info ...
+# set_syscall_info.c:87:set_syscall_info:Expected exp_entry->nr (-1) == info->entry.nr (65535)
+# set_syscall_info.c:88:set_syscall_info:wait #3: PTRACE_GET_SYSCALL_INFO #2: syscall nr mismatch
+# set_syscall_info: Test terminated by assertion
+#          FAIL  global.set_syscall_info
+not ok 1 global.set_syscall_info
+# FAILED: 0 / 1 tests passed.
+# Totals: pass:0 fail:1 xfail:0 xpass:0 skip:0 error:0
+
+I remember one of the earlier versions (v1 or v2) was working for me.
+
+Thanks!
 
 _______________________________________________
 linux-riscv mailing list
