@@ -4,105 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BDF0FC02197
-	for <linux-riscv@archiver.kernel.org>; Mon,  3 Feb 2025 19:05:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2748FC02192
+	for <linux-riscv@archiver.kernel.org>; Mon,  3 Feb 2025 19:11:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=b8toXd5Ojtit7GjWhSO3ualTHRutb9AI6t244H4pI0E=; b=wkrHmxB7EQCx24
-	OPVjapXmAIYu3FwFc2QuwixMuHugBXzQdGAENMIUi3QHv8Z6eRies5DSaLjkP4tbvNc2iHtJt+W+h
-	zAHNmIABQUDVs+7mZTbmRbmphpb7QidEANg4C8je2W5Dbs1FTigZrIqLRQyZQP9R+IYzJDilt8Kut
-	j3vNAcejC7+9vtKisIoRfv67Usuo11NssiaviakBFCOjsL4n6t8eUKImb+Ks0fxrRsygsbGq998lW
-	uUF7F/hBzM4x7nHzrWJ6CjngKqJRCL6ecLlDmVH29dtKJ7qsJgGpN0zwmvmXcqkUa52ec8ssbvpI+
-	H8Xru59Fi+zn9sGHazgg==;
+	List-Owner; bh=Odwjq0gQK3Fx8dAEy+gL3K8Phx1BQH87KvK7qLKp4C4=; b=uBK/yKpcO3ICo1
+	xx4AWoVDf5ZZvXYe4NlvvENUnSlZRgpj04BSDRl4MUhfNplAT3EuevyP/D3R/bEPihH2oIBe6xwWc
+	1itf5wX5ZPifr8wvdeR35J9P9tXKtrCCRZ2O2R5inbhQ5vRrxGbxy3ePoxVTn5Mje6JSP4IZsotks
+	Ze5+YzFGqHlfyO58/jHE817z1JBoKcDnWDNwsAmEgdgS+Yu76oe5QPnR23TDVEh9f7J26MAda3o/J
+	shuE24IQsMlhO0ZYLv1T4BJES2Qylzys/H6NJf6RElQT5j11Ag1xBLyAUY0ylMUM6aYocBkVw0d65
+	qMNfDuUBdxs5px4+UPeQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tf1lU-0000000GP5I-0Db2;
-	Mon, 03 Feb 2025 19:05:48 +0000
-Received: from mail-pl1-x62d.google.com ([2607:f8b0:4864:20::62d])
+	id 1tf1qZ-0000000GPRg-0ECn;
+	Mon, 03 Feb 2025 19:11:03 +0000
+Received: from mail-il1-x136.google.com ([2607:f8b0:4864:20::136])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tf1i8-0000000GO9m-28Kw
+	id 1tf1qX-0000000GPQn-1Y9o
 	for linux-riscv@lists.infradead.org;
-	Mon, 03 Feb 2025 19:02:22 +0000
-Received: by mail-pl1-x62d.google.com with SMTP id d9443c01a7336-2166360285dso78865715ad.1
-        for <linux-riscv@lists.infradead.org>; Mon, 03 Feb 2025 11:02:20 -0800 (PST)
+	Mon, 03 Feb 2025 19:11:02 +0000
+Received: by mail-il1-x136.google.com with SMTP id e9e14a558f8ab-3ce82195aa0so18475ab.0
+        for <linux-riscv@lists.infradead.org>; Mon, 03 Feb 2025 11:11:01 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1738609340; x=1739214140; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=6+cVOS5FJmIAsNqPulg8a9PrdBe6p9kJKl40HshGULo=;
-        b=TIfPIE2YfeYfV8JnLEhKRBsL8ZEEUzBkGJi0EP1nLzg4LIv++esPrYVWmPrpJj3A/z
-         /63JfNeXsiEIpSX6S8NV0yNiek0BmdSlGjzH63rRXwP/se5xcnz8k5yEh8CyOKViuIKN
-         ClbJsrU1Kqvlyw3g9xHvdMCVHQfLmHAkrPEtq9CSfrq2FxmM4DQnE+h7b+54yj27qH0V
-         VKNkL2jrB8+cfy87B8DgcrDt0rqZOTOFQ1DFh2+3U29pph8LCbJikALu5mE3Tte7dYX0
-         WiBOR6XtvNtFOyW2FsTktPTKbCs8kJU0E67vR5xqA7M1QFDtMXSoIfSNEwXICidEGr3u
-         9y+g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1738609340; x=1739214140;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+        d=google.com; s=20230601; t=1738609860; x=1739214660; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=6+cVOS5FJmIAsNqPulg8a9PrdBe6p9kJKl40HshGULo=;
-        b=KwS8JvBhOjQwU67d/j5qI8gjS/Ml9hcuURcB1rkOULB0q2oso2NvHbiVhcWsidxcft
-         ulTUO7Z77u5aMoALlDSSC2u6TrgyZTVohYQ61MGPThBzBYwd4HES+wKWtT29RGUwrFRk
-         0yMJVTxjPG3oDo2VyPOzzPadIoSrECBBpgO8aX+2sM++WejopuHrEkyBRY+d69dBS4Zo
-         kx/g2Iizbmz/dIWDdwIdzS1iT4MleN/GVKm3KRD8YPG9KWBRklAtuUYt8lwUCW0+wQxI
-         7ua7WfwBVEdtJGsF2JfNn3M74k0x1hpvSwD5QX5QVx04Pzr5s/5LRxlk7lRqaxSZH9mB
-         fuOw==
-X-Forwarded-Encrypted: i=1; AJvYcCWFj/AzOkVjY1LiXvpxHHIsXhOJfl7B9atHPe695slGZfT1L4GeK4TUZFWgx5G/XeTTisjVbzZvOXMpHA==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yysv47UpAxQvEeRrg7/Wo0cAfRXEFcNvShbcJo9p1UnBuvRv/IB
-	rUdhGeJ/3Dh9ZrA/E9oYsDzL0xcmjxod+tUDOef+Sf64QUHaLNvDGAdxNXLfTDw=
-X-Gm-Gg: ASbGnct2lwRsONa5Oxz3vPd6WDBwN/cNd2ZqQShswGh3AdQQnS9KR9Hn8PdirtemPwZ
-	7hZzxaDB/DTuLJ57xioVdRZdZsZItu7SrhtBPEm24w+cEheiStJ2OYfqSF9P7NdOq3gU1OWKx38
-	qg9Z9Ij7zc9BNzbLwT3nEuMxc7DKMBXLoVSLXVIIdcjH+uvglmburBiezuycy4kaj/fzEpCL+xY
-	BNTAHWc/FBzITpKOlP+PUzO/Y40elQCbn8vWl6xnSgK93TdKJN5y4gUkrbVkKJwSZMLpgFJL7R5
-	O9Ieo/ZtnSA=
-X-Google-Smtp-Source: AGHT+IGcN0Vo5CKWdsr1pwOo6noYRq4z5e3fkA1+iadto7tAVdbWOLyGP+oftVvWDTpnF5AAlr0ojg==
-X-Received: by 2002:a17:902:db02:b0:216:69ca:7714 with SMTP id d9443c01a7336-21dd7c46297mr353702245ad.11.1738609339800;
-        Mon, 03 Feb 2025 11:02:19 -0800 (PST)
-Received: from ghost ([2601:647:6700:64d0:4f63:f9d5:2cbd:2947])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-21de31fcd3esm79813435ad.104.2025.02.03.11.02.16
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 03 Feb 2025 11:02:19 -0800 (PST)
-Date: Mon, 3 Feb 2025 11:02:14 -0800
-From: Charlie Jenkins <charlie@rivosinc.com>
-To: Ian Rogers <irogers@google.com>
-Cc: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>,
-	Arnaldo Carvalho de Melo <acme@kernel.org>,
-	Namhyung Kim <namhyung@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Jiri Olsa <jolsa@kernel.org>,
-	Adrian Hunter <adrian.hunter@intel.com>,
-	Kan Liang <kan.liang@linux.intel.com>,
-	John Garry <john.g.garry@oracle.com>, Will Deacon <will@kernel.org>,
-	James Clark <james.clark@linaro.org>,
-	Mike Leach <mike.leach@linaro.org>, Leo Yan <leo.yan@linux.dev>,
-	Guo Ren <guoren@kernel.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Bibo Mao <maobibo@loongson.cn>,
-	Arnd Bergmann <arnd@arndb.de>, Huacai Chen <chenhuacai@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Jiri Slaby <jirislaby@kernel.org>,
-	=?iso-8859-1?Q?Bj=F6rn_T=F6pel?= <bjorn@rivosinc.com>,
-	Howard Chu <howardchu95@gmail.com>, linux-kernel@vger.kernel.org,
-	linux-perf-users@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-csky@vger.kernel.org,
-	linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v1 0/7] perf: Support multiple system call tables in the
- build
-Message-ID: <Z6EStkn-YZ8zaO7u@ghost>
-References: <20250201071455.718247-1-irogers@google.com>
+        bh=UuQ0P6aa5euSiNOGk5a0mkHvd4tUoriLp9ElbvjCQv4=;
+        b=tzInDDBfaqFm5JkCQ5LmQDGrKf4mQbMeVbY9OKOJb74VUbGg96eQx6DOAR8+oiZZ+C
+         CDwENzmDwMO1faaCw/zZf+G5tlJwgXvtG4vpsR+I9er01EWNiOJr2nHjiMOs6Tw8LXeh
+         c4CE72xDS4obv+Gmgsq4llJmEF91WpHDErmHMp0kOLMN2pz/fw1c9nNMh9aBRc++luNa
+         tPc/f/m056ETZN/ESG/CC7j+//N69HmkoGW/xh7sZsofek3a7fyeve6O2nb/aVUQYtRv
+         w9xDaohKlNnfwBveSEBQHUttlxAVtpsvxgBYRQez8aT1p7fvjc7s8ThhLIDWMMmAPjYB
+         3ODA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1738609860; x=1739214660;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=UuQ0P6aa5euSiNOGk5a0mkHvd4tUoriLp9ElbvjCQv4=;
+        b=Rt+XL5YRAFYYIbqj0yWpxPSjap9TsHHqeaAqEfPv/eyXAmrZFnNr20AmhAXX5LUo/k
+         ntgjxwSsuxFzJ5wr/yCD4AFJnht0otzJjxHPq+8udrdDdL7QC9S4wh+Sl0DckdKPz7Ip
+         vcFX73zuX0ncyLwrs4Yk8weiZB1yzAvfcykvNaTTzx9cL6LfcXIt83QFPSzqxAMp/0/v
+         aXYX114aXCYNnVQRbfyazK1kr7V8C5pdafmfDOa/cd8/KjvWzr7T2Dp8PK4FqH9jVRCh
+         2FLSztFZ0jSk+jdReGQAqTDilhp7BVBqfmVcYO2fHHNXSmo8EypOpPtll/gLV/htupet
+         MKMw==
+X-Forwarded-Encrypted: i=1; AJvYcCXQoekawPZ2SBSSxn/7YvFZw4enjQ5fRMilKjGwPhWd1mAtAryKckmSna9ULd7zIA+BQLqMl9BW9zZ0mA==@lists.infradead.org
+X-Gm-Message-State: AOJu0YyrN7aLdq7A9hhnBdbjQ44cD+5bwlx+jNBb5mqNyxDLPma3nwWZ
+	7/l98oA5DJ+7mICDs67p2xswOgO5mMS1L/GHRmyhzvY5cdlbL0kVYXaLOqnXglcegF21yPgHIvn
+	5a+uXvvVsDlmLkYTpPbuHG0wKAQAV6J0D7NAE
+X-Gm-Gg: ASbGncsBMSDJlUwrsjd7pDgHJm5BB7ptCWLv7Tv/pB4xMGwd6uFex7dyfvBhV0+5E6E
+	JjsV5UOdzVQxvGubcowiJJbnYJMW8eMDI234wGsy2hecW4Zb2J+5JFIzSeMqLMgz4KsqIrt8+IY
+	nvQyhpOEXcXWZR95Qx2DpAdVI=
+X-Google-Smtp-Source: AGHT+IGFam83cjFexWYWxYML0aNMo7d0bERNXXrQRxxhtI+ko75GLdGDjsk3yHchwpsCyHuJtDvXW2RiHXR1t2nBo34=
+X-Received: by 2002:a92:c544:0:b0:3ce:3873:48d4 with SMTP id
+ e9e14a558f8ab-3d03fbc113dmr232265ab.4.1738609860250; Mon, 03 Feb 2025
+ 11:11:00 -0800 (PST)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20250201071455.718247-1-irogers@google.com>
+References: <20250201071455.718247-1-irogers@google.com> <Z6EStkn-YZ8zaO7u@ghost>
+In-Reply-To: <Z6EStkn-YZ8zaO7u@ghost>
+From: Ian Rogers <irogers@google.com>
+Date: Mon, 3 Feb 2025 11:10:49 -0800
+X-Gm-Features: AWEUYZkIMZtV_LyqmOa-QL7z_3riCEn0NPF-ooDjGEkZz_zb41gccBqBZrEDEvk
+Message-ID: <CAP-5=fXRz_8CKNz4Fr-=0yhKbf_QE2ND+PPykSAO5p8wcUz7xA@mail.gmail.com>
+Subject: Re: [PATCH v1 0/7] perf: Support multiple system call tables in the build
+To: Charlie Jenkins <charlie@rivosinc.com>
+Cc: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
+	Arnaldo Carvalho de Melo <acme@kernel.org>, Namhyung Kim <namhyung@kernel.org>, 
+	Mark Rutland <mark.rutland@arm.com>, 
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>, Jiri Olsa <jolsa@kernel.org>, 
+	Adrian Hunter <adrian.hunter@intel.com>, Kan Liang <kan.liang@linux.intel.com>, 
+	John Garry <john.g.garry@oracle.com>, Will Deacon <will@kernel.org>, 
+	James Clark <james.clark@linaro.org>, Mike Leach <mike.leach@linaro.org>, 
+	Leo Yan <leo.yan@linux.dev>, Guo Ren <guoren@kernel.org>, 
+	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, Bibo Mao <maobibo@loongson.cn>, 
+	Arnd Bergmann <arnd@arndb.de>, Huacai Chen <chenhuacai@kernel.org>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Jiri Slaby <jirislaby@kernel.org>, 
+	=?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@rivosinc.com>, 
+	Howard Chu <howardchu95@gmail.com>, linux-kernel@vger.kernel.org, 
+	linux-perf-users@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-csky@vger.kernel.org, linux-riscv@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250203_110220_583080_725EA54B 
-X-CRM114-Status: GOOD (  21.08  )
+X-CRM114-CacheID: sfid-20250203_111101_412591_C0623F20 
+X-CRM114-Status: GOOD (  28.12  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,156 +103,166 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jan 31, 2025 at 11:14:48PM -0800, Ian Rogers wrote:
-> This work builds on the clean up of system call tables and removal of
-> libaudit by Charlie Jenkins <charlie@rivosinc.com>.
-> 
-> The system call table in perf trace is used to map system call numbers
-> to names and vice versa. Prior to these changes, a single table
-> matching the perf binary's build was present. The table would be
-> incorrect if tracing say a 32-bit binary from a 64-bit version of
-> perf, the names and numbers wouldn't match.
-> 
-> Change the build so that a single system call file is built and the
-> potentially multiple tables are identifiable from the ELF machine type
-> of the process being examined. To determine the ELF machine type, the
-> executable's header is read from /proc/pid/exe with fallbacks to using
-> the perf's binary type when unknown.
-> 
-> Remove some runtime types used by the system call tables and make
-> equivalents generated at build time.
-
-Our approaches are very different but I sent out a patch to do this a
-couple of weeks ago [1].
-
-Did you look at that and decide you didn't like the approach?
-
-- Charlie
-
-> 
-> Ian Rogers (7):
->   perf syscalltble: Remove syscall_table.h
->   perf trace: Reorganize syscalls
->   perf syscalltbl: Remove struct syscalltbl
->   perf thread: Add support for reading the e_machine type for a thread
->   perf trace beauty: Add syscalltbl.sh generating all system call tables
->   perf syscalltbl: Use lookup table containing multiple architectures
->   perf build: Remove Makefile.syscalls
-> 
->  tools/perf/Makefile.perf                      |  10 +-
->  tools/perf/arch/alpha/entry/syscalls/Kbuild   |   2 -
->  .../alpha/entry/syscalls/Makefile.syscalls    |   5 -
->  tools/perf/arch/alpha/include/syscall_table.h |   2 -
->  tools/perf/arch/arc/entry/syscalls/Kbuild     |   2 -
->  .../arch/arc/entry/syscalls/Makefile.syscalls |   3 -
->  tools/perf/arch/arc/include/syscall_table.h   |   2 -
->  tools/perf/arch/arm/entry/syscalls/Kbuild     |   4 -
->  .../arch/arm/entry/syscalls/Makefile.syscalls |   2 -
->  tools/perf/arch/arm/include/syscall_table.h   |   2 -
->  tools/perf/arch/arm64/entry/syscalls/Kbuild   |   3 -
->  .../arm64/entry/syscalls/Makefile.syscalls    |   6 -
->  tools/perf/arch/arm64/include/syscall_table.h |   8 -
->  tools/perf/arch/csky/entry/syscalls/Kbuild    |   2 -
->  .../csky/entry/syscalls/Makefile.syscalls     |   3 -
->  tools/perf/arch/csky/include/syscall_table.h  |   2 -
->  .../perf/arch/loongarch/entry/syscalls/Kbuild |   2 -
->  .../entry/syscalls/Makefile.syscalls          |   3 -
->  .../arch/loongarch/include/syscall_table.h    |   2 -
->  tools/perf/arch/mips/entry/syscalls/Kbuild    |   2 -
->  .../mips/entry/syscalls/Makefile.syscalls     |   5 -
->  tools/perf/arch/mips/include/syscall_table.h  |   2 -
->  tools/perf/arch/parisc/entry/syscalls/Kbuild  |   3 -
->  .../parisc/entry/syscalls/Makefile.syscalls   |   6 -
->  .../perf/arch/parisc/include/syscall_table.h  |   8 -
->  tools/perf/arch/powerpc/entry/syscalls/Kbuild |   3 -
->  .../powerpc/entry/syscalls/Makefile.syscalls  |   6 -
->  .../perf/arch/powerpc/include/syscall_table.h |   8 -
->  tools/perf/arch/riscv/entry/syscalls/Kbuild   |   2 -
->  .../riscv/entry/syscalls/Makefile.syscalls    |   4 -
->  tools/perf/arch/riscv/include/syscall_table.h |   8 -
->  tools/perf/arch/s390/entry/syscalls/Kbuild    |   2 -
->  .../s390/entry/syscalls/Makefile.syscalls     |   5 -
->  tools/perf/arch/s390/include/syscall_table.h  |   2 -
->  tools/perf/arch/sh/entry/syscalls/Kbuild      |   2 -
->  .../arch/sh/entry/syscalls/Makefile.syscalls  |   4 -
->  tools/perf/arch/sh/include/syscall_table.h    |   2 -
->  tools/perf/arch/sparc/entry/syscalls/Kbuild   |   3 -
->  .../sparc/entry/syscalls/Makefile.syscalls    |   5 -
->  tools/perf/arch/sparc/include/syscall_table.h |   8 -
->  tools/perf/arch/x86/entry/syscalls/Kbuild     |   3 -
->  .../arch/x86/entry/syscalls/Makefile.syscalls |   6 -
->  tools/perf/arch/x86/include/syscall_table.h   |   8 -
->  tools/perf/arch/xtensa/entry/syscalls/Kbuild  |   2 -
->  .../xtensa/entry/syscalls/Makefile.syscalls   |   4 -
->  .../perf/arch/xtensa/include/syscall_table.h  |   2 -
->  tools/perf/builtin-trace.c                    | 275 +++++++++++-------
->  tools/perf/scripts/Makefile.syscalls          |  61 ----
->  tools/perf/scripts/syscalltbl.sh              |  86 ------
->  tools/perf/trace/beauty/syscalltbl.sh         | 274 +++++++++++++++++
->  tools/perf/util/syscalltbl.c                  | 142 ++++-----
->  tools/perf/util/syscalltbl.h                  |  22 +-
->  tools/perf/util/thread.c                      |  50 ++++
->  tools/perf/util/thread.h                      |  14 +-
->  54 files changed, 598 insertions(+), 506 deletions(-)
->  delete mode 100644 tools/perf/arch/alpha/entry/syscalls/Kbuild
->  delete mode 100644 tools/perf/arch/alpha/entry/syscalls/Makefile.syscalls
->  delete mode 100644 tools/perf/arch/alpha/include/syscall_table.h
->  delete mode 100644 tools/perf/arch/arc/entry/syscalls/Kbuild
->  delete mode 100644 tools/perf/arch/arc/entry/syscalls/Makefile.syscalls
->  delete mode 100644 tools/perf/arch/arc/include/syscall_table.h
->  delete mode 100644 tools/perf/arch/arm/entry/syscalls/Kbuild
->  delete mode 100644 tools/perf/arch/arm/entry/syscalls/Makefile.syscalls
->  delete mode 100644 tools/perf/arch/arm/include/syscall_table.h
->  delete mode 100644 tools/perf/arch/arm64/entry/syscalls/Kbuild
->  delete mode 100644 tools/perf/arch/arm64/entry/syscalls/Makefile.syscalls
->  delete mode 100644 tools/perf/arch/arm64/include/syscall_table.h
->  delete mode 100644 tools/perf/arch/csky/entry/syscalls/Kbuild
->  delete mode 100644 tools/perf/arch/csky/entry/syscalls/Makefile.syscalls
->  delete mode 100644 tools/perf/arch/csky/include/syscall_table.h
->  delete mode 100644 tools/perf/arch/loongarch/entry/syscalls/Kbuild
->  delete mode 100644 tools/perf/arch/loongarch/entry/syscalls/Makefile.syscalls
->  delete mode 100644 tools/perf/arch/loongarch/include/syscall_table.h
->  delete mode 100644 tools/perf/arch/mips/entry/syscalls/Kbuild
->  delete mode 100644 tools/perf/arch/mips/entry/syscalls/Makefile.syscalls
->  delete mode 100644 tools/perf/arch/mips/include/syscall_table.h
->  delete mode 100644 tools/perf/arch/parisc/entry/syscalls/Kbuild
->  delete mode 100644 tools/perf/arch/parisc/entry/syscalls/Makefile.syscalls
->  delete mode 100644 tools/perf/arch/parisc/include/syscall_table.h
->  delete mode 100644 tools/perf/arch/powerpc/entry/syscalls/Kbuild
->  delete mode 100644 tools/perf/arch/powerpc/entry/syscalls/Makefile.syscalls
->  delete mode 100644 tools/perf/arch/powerpc/include/syscall_table.h
->  delete mode 100644 tools/perf/arch/riscv/entry/syscalls/Kbuild
->  delete mode 100644 tools/perf/arch/riscv/entry/syscalls/Makefile.syscalls
->  delete mode 100644 tools/perf/arch/riscv/include/syscall_table.h
->  delete mode 100644 tools/perf/arch/s390/entry/syscalls/Kbuild
->  delete mode 100644 tools/perf/arch/s390/entry/syscalls/Makefile.syscalls
->  delete mode 100644 tools/perf/arch/s390/include/syscall_table.h
->  delete mode 100644 tools/perf/arch/sh/entry/syscalls/Kbuild
->  delete mode 100644 tools/perf/arch/sh/entry/syscalls/Makefile.syscalls
->  delete mode 100644 tools/perf/arch/sh/include/syscall_table.h
->  delete mode 100644 tools/perf/arch/sparc/entry/syscalls/Kbuild
->  delete mode 100644 tools/perf/arch/sparc/entry/syscalls/Makefile.syscalls
->  delete mode 100644 tools/perf/arch/sparc/include/syscall_table.h
->  delete mode 100644 tools/perf/arch/x86/entry/syscalls/Kbuild
->  delete mode 100644 tools/perf/arch/x86/entry/syscalls/Makefile.syscalls
->  delete mode 100644 tools/perf/arch/x86/include/syscall_table.h
->  delete mode 100644 tools/perf/arch/xtensa/entry/syscalls/Kbuild
->  delete mode 100644 tools/perf/arch/xtensa/entry/syscalls/Makefile.syscalls
->  delete mode 100644 tools/perf/arch/xtensa/include/syscall_table.h
->  delete mode 100644 tools/perf/scripts/Makefile.syscalls
->  delete mode 100755 tools/perf/scripts/syscalltbl.sh
->  create mode 100755 tools/perf/trace/beauty/syscalltbl.sh
-> 
-> -- 
-> 2.48.1.362.g079036d154-goog
-> 
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gTW9uLCBGZWIgMywgMjAyNSBhdCAxMTowMuKAr0FNIENoYXJsaWUgSmVua2lucyA8Y2hhcmxp
+ZUByaXZvc2luYy5jb20+IHdyb3RlOgo+Cj4gT24gRnJpLCBKYW4gMzEsIDIwMjUgYXQgMTE6MTQ6
+NDhQTSAtMDgwMCwgSWFuIFJvZ2VycyB3cm90ZToKPiA+IFRoaXMgd29yayBidWlsZHMgb24gdGhl
+IGNsZWFuIHVwIG9mIHN5c3RlbSBjYWxsIHRhYmxlcyBhbmQgcmVtb3ZhbCBvZgo+ID4gbGliYXVk
+aXQgYnkgQ2hhcmxpZSBKZW5raW5zIDxjaGFybGllQHJpdm9zaW5jLmNvbT4uCj4gPgo+ID4gVGhl
+IHN5c3RlbSBjYWxsIHRhYmxlIGluIHBlcmYgdHJhY2UgaXMgdXNlZCB0byBtYXAgc3lzdGVtIGNh
+bGwgbnVtYmVycwo+ID4gdG8gbmFtZXMgYW5kIHZpY2UgdmVyc2EuIFByaW9yIHRvIHRoZXNlIGNo
+YW5nZXMsIGEgc2luZ2xlIHRhYmxlCj4gPiBtYXRjaGluZyB0aGUgcGVyZiBiaW5hcnkncyBidWls
+ZCB3YXMgcHJlc2VudC4gVGhlIHRhYmxlIHdvdWxkIGJlCj4gPiBpbmNvcnJlY3QgaWYgdHJhY2lu
+ZyBzYXkgYSAzMi1iaXQgYmluYXJ5IGZyb20gYSA2NC1iaXQgdmVyc2lvbiBvZgo+ID4gcGVyZiwg
+dGhlIG5hbWVzIGFuZCBudW1iZXJzIHdvdWxkbid0IG1hdGNoLgo+ID4KPiA+IENoYW5nZSB0aGUg
+YnVpbGQgc28gdGhhdCBhIHNpbmdsZSBzeXN0ZW0gY2FsbCBmaWxlIGlzIGJ1aWx0IGFuZCB0aGUK
+PiA+IHBvdGVudGlhbGx5IG11bHRpcGxlIHRhYmxlcyBhcmUgaWRlbnRpZmlhYmxlIGZyb20gdGhl
+IEVMRiBtYWNoaW5lIHR5cGUKPiA+IG9mIHRoZSBwcm9jZXNzIGJlaW5nIGV4YW1pbmVkLiBUbyBk
+ZXRlcm1pbmUgdGhlIEVMRiBtYWNoaW5lIHR5cGUsIHRoZQo+ID4gZXhlY3V0YWJsZSdzIGhlYWRl
+ciBpcyByZWFkIGZyb20gL3Byb2MvcGlkL2V4ZSB3aXRoIGZhbGxiYWNrcyB0byB1c2luZwo+ID4g
+dGhlIHBlcmYncyBiaW5hcnkgdHlwZSB3aGVuIHVua25vd24uCj4gPgo+ID4gUmVtb3ZlIHNvbWUg
+cnVudGltZSB0eXBlcyB1c2VkIGJ5IHRoZSBzeXN0ZW0gY2FsbCB0YWJsZXMgYW5kIG1ha2UKPiA+
+IGVxdWl2YWxlbnRzIGdlbmVyYXRlZCBhdCBidWlsZCB0aW1lLgo+Cj4gT3VyIGFwcHJvYWNoZXMg
+YXJlIHZlcnkgZGlmZmVyZW50IGJ1dCBJIHNlbnQgb3V0IGEgcGF0Y2ggdG8gZG8gdGhpcyBhCj4g
+Y291cGxlIG9mIHdlZWtzIGFnbyBbMV0uCj4KPiBEaWQgeW91IGxvb2sgYXQgdGhhdCBhbmQgZGVj
+aWRlIHlvdSBkaWRuJ3QgbGlrZSB0aGUgYXBwcm9hY2g/CgpNaXNzaW5nIGxpbms/CgpUaGUgcGF0
+Y2hlcyBnZW5lcmF0aW5nIGEgc3lzY2FsbChfMzJ8XzY0KT8uaCBsYW5kZWQuIFRoZXNlIGNoYW5n
+ZXMKdGFrZSB5b3VyIGNoYW5nZXMgYW5kIG1ha2UgaXQgc28gdGhhdCB3ZSBqdXN0IHJ1biB0aGUg
+c2NyaXB0IG9uY2UKYnVpbGRpbmcgYSBoZWFkZXIgZmlsZSBmb3IgYWxsIGFyY2hpdGVjdHVyZXMu
+IE9uIHg4NiB3ZSB0aGVuIGhhdmUgdGhlCnRhYmxlcyBiZSBndWFyZGVkIGJ5IGlmZGVmcyBvbiBp
+Mzg2IGFuZCB4ODYtNjQuIFRoZW4gcmF0aGVyIHRoYW4gdGhlCnRhYmxlIGp1c3QgbWF0Y2hpbmcg
+dGhlIGhvc3QgYXJjaGl0ZWN0dXJlIHRoZSBFTEYgbWFjaGluZSBpcyB1c2VkIGZvcgp0aGUgZXhl
+Y3V0YWJsZSBydW5uaW5nLgoKVGhhbmtzLApJYW4KCj4gLSBDaGFybGllCj4KPiA+Cj4gPiBJYW4g
+Um9nZXJzICg3KToKPiA+ICAgcGVyZiBzeXNjYWxsdGJsZTogUmVtb3ZlIHN5c2NhbGxfdGFibGUu
+aAo+ID4gICBwZXJmIHRyYWNlOiBSZW9yZ2FuaXplIHN5c2NhbGxzCj4gPiAgIHBlcmYgc3lzY2Fs
+bHRibDogUmVtb3ZlIHN0cnVjdCBzeXNjYWxsdGJsCj4gPiAgIHBlcmYgdGhyZWFkOiBBZGQgc3Vw
+cG9ydCBmb3IgcmVhZGluZyB0aGUgZV9tYWNoaW5lIHR5cGUgZm9yIGEgdGhyZWFkCj4gPiAgIHBl
+cmYgdHJhY2UgYmVhdXR5OiBBZGQgc3lzY2FsbHRibC5zaCBnZW5lcmF0aW5nIGFsbCBzeXN0ZW0g
+Y2FsbCB0YWJsZXMKPiA+ICAgcGVyZiBzeXNjYWxsdGJsOiBVc2UgbG9va3VwIHRhYmxlIGNvbnRh
+aW5pbmcgbXVsdGlwbGUgYXJjaGl0ZWN0dXJlcwo+ID4gICBwZXJmIGJ1aWxkOiBSZW1vdmUgTWFr
+ZWZpbGUuc3lzY2FsbHMKPiA+Cj4gPiAgdG9vbHMvcGVyZi9NYWtlZmlsZS5wZXJmICAgICAgICAg
+ICAgICAgICAgICAgIHwgIDEwICstCj4gPiAgdG9vbHMvcGVyZi9hcmNoL2FscGhhL2VudHJ5L3N5
+c2NhbGxzL0tidWlsZCAgIHwgICAyIC0KPiA+ICAuLi4vYWxwaGEvZW50cnkvc3lzY2FsbHMvTWFr
+ZWZpbGUuc3lzY2FsbHMgICAgfCAgIDUgLQo+ID4gIHRvb2xzL3BlcmYvYXJjaC9hbHBoYS9pbmNs
+dWRlL3N5c2NhbGxfdGFibGUuaCB8ICAgMiAtCj4gPiAgdG9vbHMvcGVyZi9hcmNoL2FyYy9lbnRy
+eS9zeXNjYWxscy9LYnVpbGQgICAgIHwgICAyIC0KPiA+ICAuLi4vYXJjaC9hcmMvZW50cnkvc3lz
+Y2FsbHMvTWFrZWZpbGUuc3lzY2FsbHMgfCAgIDMgLQo+ID4gIHRvb2xzL3BlcmYvYXJjaC9hcmMv
+aW5jbHVkZS9zeXNjYWxsX3RhYmxlLmggICB8ICAgMiAtCj4gPiAgdG9vbHMvcGVyZi9hcmNoL2Fy
+bS9lbnRyeS9zeXNjYWxscy9LYnVpbGQgICAgIHwgICA0IC0KPiA+ICAuLi4vYXJjaC9hcm0vZW50
+cnkvc3lzY2FsbHMvTWFrZWZpbGUuc3lzY2FsbHMgfCAgIDIgLQo+ID4gIHRvb2xzL3BlcmYvYXJj
+aC9hcm0vaW5jbHVkZS9zeXNjYWxsX3RhYmxlLmggICB8ICAgMiAtCj4gPiAgdG9vbHMvcGVyZi9h
+cmNoL2FybTY0L2VudHJ5L3N5c2NhbGxzL0tidWlsZCAgIHwgICAzIC0KPiA+ICAuLi4vYXJtNjQv
+ZW50cnkvc3lzY2FsbHMvTWFrZWZpbGUuc3lzY2FsbHMgICAgfCAgIDYgLQo+ID4gIHRvb2xzL3Bl
+cmYvYXJjaC9hcm02NC9pbmNsdWRlL3N5c2NhbGxfdGFibGUuaCB8ICAgOCAtCj4gPiAgdG9vbHMv
+cGVyZi9hcmNoL2Nza3kvZW50cnkvc3lzY2FsbHMvS2J1aWxkICAgIHwgICAyIC0KPiA+ICAuLi4v
+Y3NreS9lbnRyeS9zeXNjYWxscy9NYWtlZmlsZS5zeXNjYWxscyAgICAgfCAgIDMgLQo+ID4gIHRv
+b2xzL3BlcmYvYXJjaC9jc2t5L2luY2x1ZGUvc3lzY2FsbF90YWJsZS5oICB8ICAgMiAtCj4gPiAg
+Li4uL3BlcmYvYXJjaC9sb29uZ2FyY2gvZW50cnkvc3lzY2FsbHMvS2J1aWxkIHwgICAyIC0KPiA+
+ICAuLi4vZW50cnkvc3lzY2FsbHMvTWFrZWZpbGUuc3lzY2FsbHMgICAgICAgICAgfCAgIDMgLQo+
+ID4gIC4uLi9hcmNoL2xvb25nYXJjaC9pbmNsdWRlL3N5c2NhbGxfdGFibGUuaCAgICB8ICAgMiAt
+Cj4gPiAgdG9vbHMvcGVyZi9hcmNoL21pcHMvZW50cnkvc3lzY2FsbHMvS2J1aWxkICAgIHwgICAy
+IC0KPiA+ICAuLi4vbWlwcy9lbnRyeS9zeXNjYWxscy9NYWtlZmlsZS5zeXNjYWxscyAgICAgfCAg
+IDUgLQo+ID4gIHRvb2xzL3BlcmYvYXJjaC9taXBzL2luY2x1ZGUvc3lzY2FsbF90YWJsZS5oICB8
+ICAgMiAtCj4gPiAgdG9vbHMvcGVyZi9hcmNoL3BhcmlzYy9lbnRyeS9zeXNjYWxscy9LYnVpbGQg
+IHwgICAzIC0KPiA+ICAuLi4vcGFyaXNjL2VudHJ5L3N5c2NhbGxzL01ha2VmaWxlLnN5c2NhbGxz
+ICAgfCAgIDYgLQo+ID4gIC4uLi9wZXJmL2FyY2gvcGFyaXNjL2luY2x1ZGUvc3lzY2FsbF90YWJs
+ZS5oICB8ICAgOCAtCj4gPiAgdG9vbHMvcGVyZi9hcmNoL3Bvd2VycGMvZW50cnkvc3lzY2FsbHMv
+S2J1aWxkIHwgICAzIC0KPiA+ICAuLi4vcG93ZXJwYy9lbnRyeS9zeXNjYWxscy9NYWtlZmlsZS5z
+eXNjYWxscyAgfCAgIDYgLQo+ID4gIC4uLi9wZXJmL2FyY2gvcG93ZXJwYy9pbmNsdWRlL3N5c2Nh
+bGxfdGFibGUuaCB8ICAgOCAtCj4gPiAgdG9vbHMvcGVyZi9hcmNoL3Jpc2N2L2VudHJ5L3N5c2Nh
+bGxzL0tidWlsZCAgIHwgICAyIC0KPiA+ICAuLi4vcmlzY3YvZW50cnkvc3lzY2FsbHMvTWFrZWZp
+bGUuc3lzY2FsbHMgICAgfCAgIDQgLQo+ID4gIHRvb2xzL3BlcmYvYXJjaC9yaXNjdi9pbmNsdWRl
+L3N5c2NhbGxfdGFibGUuaCB8ICAgOCAtCj4gPiAgdG9vbHMvcGVyZi9hcmNoL3MzOTAvZW50cnkv
+c3lzY2FsbHMvS2J1aWxkICAgIHwgICAyIC0KPiA+ICAuLi4vczM5MC9lbnRyeS9zeXNjYWxscy9N
+YWtlZmlsZS5zeXNjYWxscyAgICAgfCAgIDUgLQo+ID4gIHRvb2xzL3BlcmYvYXJjaC9zMzkwL2lu
+Y2x1ZGUvc3lzY2FsbF90YWJsZS5oICB8ICAgMiAtCj4gPiAgdG9vbHMvcGVyZi9hcmNoL3NoL2Vu
+dHJ5L3N5c2NhbGxzL0tidWlsZCAgICAgIHwgICAyIC0KPiA+ICAuLi4vYXJjaC9zaC9lbnRyeS9z
+eXNjYWxscy9NYWtlZmlsZS5zeXNjYWxscyAgfCAgIDQgLQo+ID4gIHRvb2xzL3BlcmYvYXJjaC9z
+aC9pbmNsdWRlL3N5c2NhbGxfdGFibGUuaCAgICB8ICAgMiAtCj4gPiAgdG9vbHMvcGVyZi9hcmNo
+L3NwYXJjL2VudHJ5L3N5c2NhbGxzL0tidWlsZCAgIHwgICAzIC0KPiA+ICAuLi4vc3BhcmMvZW50
+cnkvc3lzY2FsbHMvTWFrZWZpbGUuc3lzY2FsbHMgICAgfCAgIDUgLQo+ID4gIHRvb2xzL3BlcmYv
+YXJjaC9zcGFyYy9pbmNsdWRlL3N5c2NhbGxfdGFibGUuaCB8ICAgOCAtCj4gPiAgdG9vbHMvcGVy
+Zi9hcmNoL3g4Ni9lbnRyeS9zeXNjYWxscy9LYnVpbGQgICAgIHwgICAzIC0KPiA+ICAuLi4vYXJj
+aC94ODYvZW50cnkvc3lzY2FsbHMvTWFrZWZpbGUuc3lzY2FsbHMgfCAgIDYgLQo+ID4gIHRvb2xz
+L3BlcmYvYXJjaC94ODYvaW5jbHVkZS9zeXNjYWxsX3RhYmxlLmggICB8ICAgOCAtCj4gPiAgdG9v
+bHMvcGVyZi9hcmNoL3h0ZW5zYS9lbnRyeS9zeXNjYWxscy9LYnVpbGQgIHwgICAyIC0KPiA+ICAu
+Li4veHRlbnNhL2VudHJ5L3N5c2NhbGxzL01ha2VmaWxlLnN5c2NhbGxzICAgfCAgIDQgLQo+ID4g
+IC4uLi9wZXJmL2FyY2gveHRlbnNhL2luY2x1ZGUvc3lzY2FsbF90YWJsZS5oICB8ICAgMiAtCj4g
+PiAgdG9vbHMvcGVyZi9idWlsdGluLXRyYWNlLmMgICAgICAgICAgICAgICAgICAgIHwgMjc1ICsr
+KysrKysrKysrLS0tLS0tLQo+ID4gIHRvb2xzL3BlcmYvc2NyaXB0cy9NYWtlZmlsZS5zeXNjYWxs
+cyAgICAgICAgICB8ICA2MSAtLS0tCj4gPiAgdG9vbHMvcGVyZi9zY3JpcHRzL3N5c2NhbGx0Ymwu
+c2ggICAgICAgICAgICAgIHwgIDg2IC0tLS0tLQo+ID4gIHRvb2xzL3BlcmYvdHJhY2UvYmVhdXR5
+L3N5c2NhbGx0Ymwuc2ggICAgICAgICB8IDI3NCArKysrKysrKysrKysrKysrKwo+ID4gIHRvb2xz
+L3BlcmYvdXRpbC9zeXNjYWxsdGJsLmMgICAgICAgICAgICAgICAgICB8IDE0MiArKysrLS0tLS0K
+PiA+ICB0b29scy9wZXJmL3V0aWwvc3lzY2FsbHRibC5oICAgICAgICAgICAgICAgICAgfCAgMjIg
+Ky0KPiA+ICB0b29scy9wZXJmL3V0aWwvdGhyZWFkLmMgICAgICAgICAgICAgICAgICAgICAgfCAg
+NTAgKysrKwo+ID4gIHRvb2xzL3BlcmYvdXRpbC90aHJlYWQuaCAgICAgICAgICAgICAgICAgICAg
+ICB8ICAxNCArLQo+ID4gIDU0IGZpbGVzIGNoYW5nZWQsIDU5OCBpbnNlcnRpb25zKCspLCA1MDYg
+ZGVsZXRpb25zKC0pCj4gPiAgZGVsZXRlIG1vZGUgMTAwNjQ0IHRvb2xzL3BlcmYvYXJjaC9hbHBo
+YS9lbnRyeS9zeXNjYWxscy9LYnVpbGQKPiA+ICBkZWxldGUgbW9kZSAxMDA2NDQgdG9vbHMvcGVy
+Zi9hcmNoL2FscGhhL2VudHJ5L3N5c2NhbGxzL01ha2VmaWxlLnN5c2NhbGxzCj4gPiAgZGVsZXRl
+IG1vZGUgMTAwNjQ0IHRvb2xzL3BlcmYvYXJjaC9hbHBoYS9pbmNsdWRlL3N5c2NhbGxfdGFibGUu
+aAo+ID4gIGRlbGV0ZSBtb2RlIDEwMDY0NCB0b29scy9wZXJmL2FyY2gvYXJjL2VudHJ5L3N5c2Nh
+bGxzL0tidWlsZAo+ID4gIGRlbGV0ZSBtb2RlIDEwMDY0NCB0b29scy9wZXJmL2FyY2gvYXJjL2Vu
+dHJ5L3N5c2NhbGxzL01ha2VmaWxlLnN5c2NhbGxzCj4gPiAgZGVsZXRlIG1vZGUgMTAwNjQ0IHRv
+b2xzL3BlcmYvYXJjaC9hcmMvaW5jbHVkZS9zeXNjYWxsX3RhYmxlLmgKPiA+ICBkZWxldGUgbW9k
+ZSAxMDA2NDQgdG9vbHMvcGVyZi9hcmNoL2FybS9lbnRyeS9zeXNjYWxscy9LYnVpbGQKPiA+ICBk
+ZWxldGUgbW9kZSAxMDA2NDQgdG9vbHMvcGVyZi9hcmNoL2FybS9lbnRyeS9zeXNjYWxscy9NYWtl
+ZmlsZS5zeXNjYWxscwo+ID4gIGRlbGV0ZSBtb2RlIDEwMDY0NCB0b29scy9wZXJmL2FyY2gvYXJt
+L2luY2x1ZGUvc3lzY2FsbF90YWJsZS5oCj4gPiAgZGVsZXRlIG1vZGUgMTAwNjQ0IHRvb2xzL3Bl
+cmYvYXJjaC9hcm02NC9lbnRyeS9zeXNjYWxscy9LYnVpbGQKPiA+ICBkZWxldGUgbW9kZSAxMDA2
+NDQgdG9vbHMvcGVyZi9hcmNoL2FybTY0L2VudHJ5L3N5c2NhbGxzL01ha2VmaWxlLnN5c2NhbGxz
+Cj4gPiAgZGVsZXRlIG1vZGUgMTAwNjQ0IHRvb2xzL3BlcmYvYXJjaC9hcm02NC9pbmNsdWRlL3N5
+c2NhbGxfdGFibGUuaAo+ID4gIGRlbGV0ZSBtb2RlIDEwMDY0NCB0b29scy9wZXJmL2FyY2gvY3Nr
+eS9lbnRyeS9zeXNjYWxscy9LYnVpbGQKPiA+ICBkZWxldGUgbW9kZSAxMDA2NDQgdG9vbHMvcGVy
+Zi9hcmNoL2Nza3kvZW50cnkvc3lzY2FsbHMvTWFrZWZpbGUuc3lzY2FsbHMKPiA+ICBkZWxldGUg
+bW9kZSAxMDA2NDQgdG9vbHMvcGVyZi9hcmNoL2Nza3kvaW5jbHVkZS9zeXNjYWxsX3RhYmxlLmgK
+PiA+ICBkZWxldGUgbW9kZSAxMDA2NDQgdG9vbHMvcGVyZi9hcmNoL2xvb25nYXJjaC9lbnRyeS9z
+eXNjYWxscy9LYnVpbGQKPiA+ICBkZWxldGUgbW9kZSAxMDA2NDQgdG9vbHMvcGVyZi9hcmNoL2xv
+b25nYXJjaC9lbnRyeS9zeXNjYWxscy9NYWtlZmlsZS5zeXNjYWxscwo+ID4gIGRlbGV0ZSBtb2Rl
+IDEwMDY0NCB0b29scy9wZXJmL2FyY2gvbG9vbmdhcmNoL2luY2x1ZGUvc3lzY2FsbF90YWJsZS5o
+Cj4gPiAgZGVsZXRlIG1vZGUgMTAwNjQ0IHRvb2xzL3BlcmYvYXJjaC9taXBzL2VudHJ5L3N5c2Nh
+bGxzL0tidWlsZAo+ID4gIGRlbGV0ZSBtb2RlIDEwMDY0NCB0b29scy9wZXJmL2FyY2gvbWlwcy9l
+bnRyeS9zeXNjYWxscy9NYWtlZmlsZS5zeXNjYWxscwo+ID4gIGRlbGV0ZSBtb2RlIDEwMDY0NCB0
+b29scy9wZXJmL2FyY2gvbWlwcy9pbmNsdWRlL3N5c2NhbGxfdGFibGUuaAo+ID4gIGRlbGV0ZSBt
+b2RlIDEwMDY0NCB0b29scy9wZXJmL2FyY2gvcGFyaXNjL2VudHJ5L3N5c2NhbGxzL0tidWlsZAo+
+ID4gIGRlbGV0ZSBtb2RlIDEwMDY0NCB0b29scy9wZXJmL2FyY2gvcGFyaXNjL2VudHJ5L3N5c2Nh
+bGxzL01ha2VmaWxlLnN5c2NhbGxzCj4gPiAgZGVsZXRlIG1vZGUgMTAwNjQ0IHRvb2xzL3BlcmYv
+YXJjaC9wYXJpc2MvaW5jbHVkZS9zeXNjYWxsX3RhYmxlLmgKPiA+ICBkZWxldGUgbW9kZSAxMDA2
+NDQgdG9vbHMvcGVyZi9hcmNoL3Bvd2VycGMvZW50cnkvc3lzY2FsbHMvS2J1aWxkCj4gPiAgZGVs
+ZXRlIG1vZGUgMTAwNjQ0IHRvb2xzL3BlcmYvYXJjaC9wb3dlcnBjL2VudHJ5L3N5c2NhbGxzL01h
+a2VmaWxlLnN5c2NhbGxzCj4gPiAgZGVsZXRlIG1vZGUgMTAwNjQ0IHRvb2xzL3BlcmYvYXJjaC9w
+b3dlcnBjL2luY2x1ZGUvc3lzY2FsbF90YWJsZS5oCj4gPiAgZGVsZXRlIG1vZGUgMTAwNjQ0IHRv
+b2xzL3BlcmYvYXJjaC9yaXNjdi9lbnRyeS9zeXNjYWxscy9LYnVpbGQKPiA+ICBkZWxldGUgbW9k
+ZSAxMDA2NDQgdG9vbHMvcGVyZi9hcmNoL3Jpc2N2L2VudHJ5L3N5c2NhbGxzL01ha2VmaWxlLnN5
+c2NhbGxzCj4gPiAgZGVsZXRlIG1vZGUgMTAwNjQ0IHRvb2xzL3BlcmYvYXJjaC9yaXNjdi9pbmNs
+dWRlL3N5c2NhbGxfdGFibGUuaAo+ID4gIGRlbGV0ZSBtb2RlIDEwMDY0NCB0b29scy9wZXJmL2Fy
+Y2gvczM5MC9lbnRyeS9zeXNjYWxscy9LYnVpbGQKPiA+ICBkZWxldGUgbW9kZSAxMDA2NDQgdG9v
+bHMvcGVyZi9hcmNoL3MzOTAvZW50cnkvc3lzY2FsbHMvTWFrZWZpbGUuc3lzY2FsbHMKPiA+ICBk
+ZWxldGUgbW9kZSAxMDA2NDQgdG9vbHMvcGVyZi9hcmNoL3MzOTAvaW5jbHVkZS9zeXNjYWxsX3Rh
+YmxlLmgKPiA+ICBkZWxldGUgbW9kZSAxMDA2NDQgdG9vbHMvcGVyZi9hcmNoL3NoL2VudHJ5L3N5
+c2NhbGxzL0tidWlsZAo+ID4gIGRlbGV0ZSBtb2RlIDEwMDY0NCB0b29scy9wZXJmL2FyY2gvc2gv
+ZW50cnkvc3lzY2FsbHMvTWFrZWZpbGUuc3lzY2FsbHMKPiA+ICBkZWxldGUgbW9kZSAxMDA2NDQg
+dG9vbHMvcGVyZi9hcmNoL3NoL2luY2x1ZGUvc3lzY2FsbF90YWJsZS5oCj4gPiAgZGVsZXRlIG1v
+ZGUgMTAwNjQ0IHRvb2xzL3BlcmYvYXJjaC9zcGFyYy9lbnRyeS9zeXNjYWxscy9LYnVpbGQKPiA+
+ICBkZWxldGUgbW9kZSAxMDA2NDQgdG9vbHMvcGVyZi9hcmNoL3NwYXJjL2VudHJ5L3N5c2NhbGxz
+L01ha2VmaWxlLnN5c2NhbGxzCj4gPiAgZGVsZXRlIG1vZGUgMTAwNjQ0IHRvb2xzL3BlcmYvYXJj
+aC9zcGFyYy9pbmNsdWRlL3N5c2NhbGxfdGFibGUuaAo+ID4gIGRlbGV0ZSBtb2RlIDEwMDY0NCB0
+b29scy9wZXJmL2FyY2gveDg2L2VudHJ5L3N5c2NhbGxzL0tidWlsZAo+ID4gIGRlbGV0ZSBtb2Rl
+IDEwMDY0NCB0b29scy9wZXJmL2FyY2gveDg2L2VudHJ5L3N5c2NhbGxzL01ha2VmaWxlLnN5c2Nh
+bGxzCj4gPiAgZGVsZXRlIG1vZGUgMTAwNjQ0IHRvb2xzL3BlcmYvYXJjaC94ODYvaW5jbHVkZS9z
+eXNjYWxsX3RhYmxlLmgKPiA+ICBkZWxldGUgbW9kZSAxMDA2NDQgdG9vbHMvcGVyZi9hcmNoL3h0
+ZW5zYS9lbnRyeS9zeXNjYWxscy9LYnVpbGQKPiA+ICBkZWxldGUgbW9kZSAxMDA2NDQgdG9vbHMv
+cGVyZi9hcmNoL3h0ZW5zYS9lbnRyeS9zeXNjYWxscy9NYWtlZmlsZS5zeXNjYWxscwo+ID4gIGRl
+bGV0ZSBtb2RlIDEwMDY0NCB0b29scy9wZXJmL2FyY2gveHRlbnNhL2luY2x1ZGUvc3lzY2FsbF90
+YWJsZS5oCj4gPiAgZGVsZXRlIG1vZGUgMTAwNjQ0IHRvb2xzL3BlcmYvc2NyaXB0cy9NYWtlZmls
+ZS5zeXNjYWxscwo+ID4gIGRlbGV0ZSBtb2RlIDEwMDc1NSB0b29scy9wZXJmL3NjcmlwdHMvc3lz
+Y2FsbHRibC5zaAo+ID4gIGNyZWF0ZSBtb2RlIDEwMDc1NSB0b29scy9wZXJmL3RyYWNlL2JlYXV0
+eS9zeXNjYWxsdGJsLnNoCj4gPgo+ID4gLS0KPiA+IDIuNDguMS4zNjIuZzA3OTAzNmQxNTQtZ29v
+Zwo+ID4KCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxp
+bnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0
+dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
