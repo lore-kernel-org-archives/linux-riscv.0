@@ -4,58 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8FDF2C02192
-	for <linux-riscv@archiver.kernel.org>; Mon,  3 Feb 2025 22:51:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AAE7EC02192
+	for <linux-riscv@archiver.kernel.org>; Mon,  3 Feb 2025 22:58:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=X0kPYDGTDiTKKUcX5XKc7sMN+IbQ0rru1Y9TZ3U4SvA=; b=QMMzWWNgOJts7Z
-	EPEyDCjGs4s1Agj0Uakdmmfr+0mL8LciC2Hs0eC4O2Z2jHAugJV58UgJaWa/n35IV9fD9YacMTrMl
-	wt8nuSJNfiLKR2p++J+E2Y+QRKDCPpLiR4HTqv/hg2Dn6Le8r5fNrN1cepjhfrNdOmtsX6OyMLb4O
-	bFnvUpOJF71GolMEuoKcXPpm+vrtzPqOX3DMYQ7qYM9sNWO67N9IzqzpLVVho/f1gPYUBW5/dnGym
-	bB+zXpOtkkh4Ed3r7cnFAzv/EXdJLMAKKMWxL3DwX+AJ0FP+MIeuATss1z4wBp/Y5PnDv1618lXeR
-	PIPn2HMrf+iVuE+uIwCQ==;
+	List-Owner; bh=8lmF6kGiONWcxRmHv5hHDqCivnu1aX4Qk/yNIsP0APY=; b=00NemBZYNVqyx/
+	6qZoHGcHe1Zc+FAoVschhzyNrCz4jf7Y38GWK9NUqWAXK9TFuwTG/twwuNt2FrYOnhQbVGNWDnYoV
+	R3yHT+kQgNCHICNf9wXZhPzNDjeoeVJZaGwBSiYKksYOTYTTeehcrH7hlgH9VgMs765iOXu9dWBr0
+	mcDPtd6giUjzAjGcDEVUq2jtvjHj3/eHgI3KINcpqJh9g68xKAQoRkAu4mFm3fRzazK3nBGRR9c5j
+	kGXKCz9y0ehtG5QlCfrebVR3Tv+baD3GKyk4ON+Wr28Pz1o2oxXc0MMGpY6EeMz8q89vSscWQCpdR
+	InOSiQdXYUhN9PlctONw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tf5I9-0000000GpX4-1LOD;
-	Mon, 03 Feb 2025 22:51:45 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1tf5P0-0000000Gq2F-4BHD;
+	Mon, 03 Feb 2025 22:58:51 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tf5I7-0000000GpWk-0Dtj
+	id 1tf5Oy-0000000Gq1s-1HdL
 	for linux-riscv@lists.infradead.org;
-	Mon, 03 Feb 2025 22:51:44 +0000
+	Mon, 03 Feb 2025 22:58:49 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id B1EA2A40776;
-	Mon,  3 Feb 2025 22:49:55 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 540E4C4CEE0;
-	Mon,  3 Feb 2025 22:51:41 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 09A85A41EA5;
+	Mon,  3 Feb 2025 22:57:01 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AD641C4CEE0;
+	Mon,  3 Feb 2025 22:58:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1738623101;
-	bh=iYGhuwkNNXZEPUxNZb0JxEm0OoeaCNKV9fe+AsGA27o=;
+	s=k20201202; t=1738623526;
+	bh=Y2i2DGPHFIdPzHIKRjI2VaiGai6KPkZD5HD5AgVbUAE=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=p7YMIw/NSk6lI7jrB6tw2ZC1zNUsQafp0f5SoMz7IzGaa08BT4HSR2sOCcCL3JBd4
-	 wqhu/lxxL7nsJlTzIReAsfosNZ8feBne3/PjPKTIIVpX1pCvcyWxEzAxKCw4f63wGv
-	 skaGSOXSow5S9tFhdHVQgPNTxi79Vst1Z/VT5tK5yYKUBp186mFpPvwNGm5866nUL5
-	 c+OydER8px3twwe3ZrmKT0TloQrL+f3YTpsmzzD+CEnirr4BSTvGV+UGZ+7ca7jgMQ
-	 pYSfjT6yhITMASwBLI2vphmNbcBLFXt7+iTmUo/KOKKuC3reDGGEPWBkWqFMGkQ5np
-	 ZvX4Fa9mGWSgg==
-Date: Mon, 3 Feb 2025 16:51:40 -0600
+	b=Bu/ttkABWOv8ImptMUZPmLd6yVlBnvEYryrcUuO5mpAzi0G13tf/REo+nUP7NMCMa
+	 8/M3cwu9sLZ7iC0tV+LjpnwiKNLBtZYqw9NL6ueVHfD+mnuFhKA01xtgCvsvL1Jya/
+	 92t5ubXCT1EUx5iONeES2CLkvwUWQN1S158wEwT7sy66GEoxM+vFYw60JtUQ9pfuAN
+	 DNzck0fTmUivSqiPLNf37XOLZBX8kaKrAV1tVj8HVVURN3+w9HEq00Aui//abRIhDI
+	 +9GRMkisd0AHgEDK89ysExyuMVCJFfQhVp/BIsAAxBIAEAj3BasW62kcKWuihaTUxX
+	 HrM3/YdU4k82Q==
+Date: Mon, 3 Feb 2025 16:58:45 -0600
 From: Rob Herring <robh@kernel.org>
 To: Anup Patel <apatel@ventanamicro.com>
-Subject: Re: [RFC PATCH v2 08/17] dt-bindings: clock: Add bindings for RISC-V
- RPMI clock service group
-Message-ID: <20250203225140.GA483650-robh@kernel.org>
+Subject: Re: [RFC PATCH v2 10/17] dt-bindings: interrupt-controller: Add
+ bindings for RISC-V RPMI system MSI
+Message-ID: <20250203225845.GA491419-robh@kernel.org>
 References: <20250203084906.681418-1-apatel@ventanamicro.com>
- <20250203084906.681418-9-apatel@ventanamicro.com>
+ <20250203084906.681418-11-apatel@ventanamicro.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20250203084906.681418-9-apatel@ventanamicro.com>
+In-Reply-To: <20250203084906.681418-11-apatel@ventanamicro.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250203_145143_226081_A6770CA5 
-X-CRM114-Status: GOOD (  20.90  )
+X-CRM114-CacheID: sfid-20250203_145848_475779_DC61D7A0 
+X-CRM114-Status: GOOD (  20.13  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,29 +73,30 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Feb 03, 2025 at 02:18:57PM +0530, Anup Patel wrote:
-> Add device tree bindings for the clock service group defined by the
-> RISC-V platform management interface (RPMI) specification.
+On Mon, Feb 03, 2025 at 02:18:59PM +0530, Anup Patel wrote:
+> Add device tree bindings for the system MSI service group based interrupt
+> controller defined by the RISC-V platform management interface (RPMI)
+> specification.
 > 
 > Signed-off-by: Anup Patel <apatel@ventanamicro.com>
 > ---
->  .../bindings/clock/riscv,rpmi-clock.yaml      | 77 +++++++++++++++++++
->  1 file changed, 77 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/clock/riscv,rpmi-clock.yaml
+>  .../riscv,rpmi-system-msi.yaml                | 89 +++++++++++++++++++
+>  1 file changed, 89 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/interrupt-controller/riscv,rpmi-system-msi.yaml
 > 
-> diff --git a/Documentation/devicetree/bindings/clock/riscv,rpmi-clock.yaml b/Documentation/devicetree/bindings/clock/riscv,rpmi-clock.yaml
+> diff --git a/Documentation/devicetree/bindings/interrupt-controller/riscv,rpmi-system-msi.yaml b/Documentation/devicetree/bindings/interrupt-controller/riscv,rpmi-system-msi.yaml
 > new file mode 100644
-> index 000000000000..c08491c04926
+> index 000000000000..e6c297e66c99
 > --- /dev/null
-> +++ b/Documentation/devicetree/bindings/clock/riscv,rpmi-clock.yaml
-> @@ -0,0 +1,77 @@
+> +++ b/Documentation/devicetree/bindings/interrupt-controller/riscv,rpmi-system-msi.yaml
+> @@ -0,0 +1,89 @@
 > +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
 > +%YAML 1.2
 > +---
-> +$id: http://devicetree.org/schemas/clock/riscv,rpmi-clock.yaml#
+> +$id: http://devicetree.org/schemas/interrupt-controller/riscv,rpmi-system-msi.yaml#
 > +$schema: http://devicetree.org/meta-schemas/core.yaml#
 > +
-> +title: RISC-V RPMI clock service group based clock controller
+> +title: RISC-V RPMI system MSI service group based interrupt controller
 > +
 > +maintainers:
 > +  - Anup Patel <anup@brainfault.org>
@@ -106,8 +107,14 @@ On Mon, Feb 03, 2025 at 02:18:57PM +0530, Anup Patel wrote:
 > +  software can send/receive RPMI messages via SBI MPXY extension [2]
 > +  or some dedicated supervisor-mode RPMI transport.
 > +
-> +  The RPMI specification [1] defines clock service group for accessing
-> +  system clocks managed by a platform microcontroller.
+> +  The RPMI specification [1] defines system MSI service group which
+> +  allow application processors to receive MSIs upon system events
+> +  such as P2A doorbell, graceful shutdown/reboot request, CPU hotplug
+> +  event, memory hotplug event, etc from the platform microcontroller.
+
+I'm confused by this description and what the binding has. This "device" 
+is receiving interrupts and generating MSIs based on those interrupts? 
+
 > +
 > +  ===========================================
 > +  References
@@ -119,17 +126,20 @@ On Mon, Feb 03, 2025 at 02:18:57PM +0530, Anup Patel wrote:
 > +  [2] RISC-V Supervisor Binary Interface (SBI)
 > +      https://github.com/riscv-non-isa/riscv-sbi-doc/releases
 > +
+> +allOf:
+> +  - $ref: /schemas/interrupt-controller.yaml#
+> +
 > +properties:
 > +  compatible:
 > +    oneOf:
 > +      - description:
 > +          Intended for use by the SBI implementation in machine mode or
 > +          software in supervisor mode.
-> +        const: riscv,rpmi-clock
+> +        const: riscv,rpmi-system-msi
 > +
 > +      - description:
 > +          Intended for use by the SBI implementation in machine mode.
-> +        const: riscv,rpmi-mpxy-clock
+> +        const: riscv,rpmi-mpxy-system-msi
 > +
 > +  mboxes:
 > +    maxItems: 1
@@ -141,33 +151,21 @@ On Mon, Feb 03, 2025 at 02:18:57PM +0530, Anup Patel wrote:
 > +    description:
 > +      The SBI MPXY channel id to be used for providing RPMI access to
 > +      the supervisor software. This property is mandatory when using
-> +      riscv,rpmi-mpxy-clock compatible string.
-
-That constraint can be expressed as:
-
-dependentSchemas:
-  riscv,sbi-mpxy-channel-id:
-    properties:
-      compatible:
-        const: riscv,rpmi-mpxy-clock
-
-Please double check that works.
-
+> +      riscv,rpmi-mpxy-system-msi compatible string.
 > +
-> +  "#clock-cells":
+> +  msi-parent: true
+> +
+> +  interrupt-controller: true
+> +
+> +  "#interrupt-cells":
 > +    const: 1
-> +    description:
-> +      This property is mandatory when using riscv,rpmi-clock compatible string.
-
-Similar constraint here.
-
-Though the only thing the 2 compatibles have in common is 'mboxes'. I 
-think it would be better to just split this into 2 docs.
-
 > +
 > +required:
 > +  - compatible
 > +  - mboxes
+> +  - msi-parent
+> +  - interrupt-controller
+> +  - "#interrupt-cells"
 > +
 > +additionalProperties: false
 > +
@@ -177,16 +175,17 @@ think it would be better to just split this into 2 docs.
 
 mailbox {
 
+Though generally we don't show providers for a consumer schema.
+
 > +          compatible = "riscv,sbi-mpxy-mbox";
 > +          #mbox-cells = <2>;
 > +    };
-> +    rpmi-clk {
-
-clock-controller {
-
-> +        compatible = "riscv,rpmi-clock";
-> +        mboxes = <&mpxy_mbox 0x1000 0x0>;
-> +        #clock-cells = <1>;
+> +    rpmi_sysmsi_intc: interrupt-controller {
+> +        compatible = "riscv,rpmi-system-msi";
+> +        mboxes = <&mpxy_mbox 0x2000 0x0>;
+> +        msi-parent = <&imsic_slevel>;
+> +        interrupt-controller;
+> +        #interrupt-cells = <1>;
 > +    };
 > +...
 > -- 
