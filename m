@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1DBEAC02192
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61063C02198
 	for <linux-riscv@archiver.kernel.org>; Mon,  3 Feb 2025 19:19:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -12,54 +12,56 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
 	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=StoQTUJjEj/epqP50/tj1qsmYOEoyjUy4FJDMWh3amQ=; b=sWpSXA0APythRc
-	yjNIFPbBX+DTbw8/53aNqtjIwmkNXCOHcepj+N1IIKoZOSDzxSNMuvxZ/65j1qEonZoj8WMiaKzGu
-	BE4DZhhakOBevSalXursxvt1XZtU1P9IMJbJGHd0V2Tsd6q/iuZ9F/lLYcRfgeS/Kq5dC8h2IGk8E
-	4fKQ5dwtXIHukmtvs4zq7XSRGBYrqHHkyFjRzNTKejiEyLH2hZ5yH6didHJUyTP8InaLZ1vsqawWj
-	oXxWZZ7euEh1yuYSPLVuTP8kpNNJdF17Qck6x2j/jKfegVt6JroNcviE5ki4F5u7WybSowu3MJprF
-	7wYj2cbkxMM93PmzW8aQ==;
+	List-Owner; bh=xZ0R6UjQidlR40pf0H0QUSuVez7YD9GbFUUthlYTl5M=; b=aMdMuhrfP7BeoC
+	ZIOsOmNxb7nfDHCPpcV/xYBMtYdta8WYanS6Ju/kzQX1z4ywWAp6GpXvwaOvGB+mhbsJnZ9bJDtRQ
+	gvov21S6KZfjmRmNTInYUbv8+W0XQ097IEv8uv6DRj1MapF3wYTUBOYuGF+MvnKujwkfY+EBXZwIY
+	hsEZmO698jzfYCRahF4EinVdN2LgJnSEglRn7qDcNXoIg/FVD5TMKTqc9UHIC+jT+t5T6fiJxpsgk
+	baUL+VQ4HBFH3o/dBAAB788Yq6Pi7AtsiYRcZ46kPAqTzRKzu/7zLwvu5/yuanW+crrYfffScDelH
+	Eh6eJroNiBlPKZOPvp1w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tf1yb-0000000GRRa-1dTw;
-	Mon, 03 Feb 2025 19:19:21 +0000
+	id 1tf1yc-0000000GRSZ-1EDP;
+	Mon, 03 Feb 2025 19:19:22 +0000
 Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tf1ul-0000000GQCa-3FQg;
-	Mon, 03 Feb 2025 19:15:25 +0000
+	id 1tf1un-0000000GQEL-1WKL
+	for linux-riscv@lists.infradead.org;
+	Mon, 03 Feb 2025 19:15:26 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id C0FD6A41C20;
-	Mon,  3 Feb 2025 19:13:36 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D2CCFC4CEE3;
-	Mon,  3 Feb 2025 19:15:22 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 6711FA41C1A;
+	Mon,  3 Feb 2025 19:13:38 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6B609C4CEE3;
+	Mon,  3 Feb 2025 19:15:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1738610122;
-	bh=x4p1X9nOXxuhn4jEPid5fzjCvgZ4D3ZQU2ymjtjqU9E=;
+	s=k20201202; t=1738610124;
+	bh=EHqDeqDddNIApfCVLPDVdinDu5ErQOOB8uPUawpqjOA=;
 	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=SwiVodep/1/nWnRpopWbBGkkYwgqp6zjbivmPprSBDK7KEzSCdK2xq2o+52mpu2gS
-	 3zr7qNPdshAge0rXr1UkK0d0mAXUpI6C5KURLWQlqmy5xPSQEXP2peKrPfu9dENBeF
-	 q+QHs8EZaSp7fpT9t6Vgp36iZU34R/kSW4Mkw6R0EhsAK+RCRciPYLnz7OBuILt8Am
-	 ETjGYMXis2V0Vs6zUv5LGIP2vjtDlRM79Qr7rsaQ6x+eaH1FGxqQd3r8aZDTQ/nUCD
-	 B5QbsGm5nrDJVkFPaDDVc5Opb0m7VLr6fZRFl30v+USNqmOxNibUohAJO9AxpoXhrl
-	 2uh4Gek08nD7w==
+	b=AVgbLtYIrdpvCq52oUDxyK4YHXb5iofWOH/lli5LhAaiyHBvqP3CWsOW5Hy6tiW4l
+	 9vuNOIg2goB/R2/vlCShLYIBOaDk6p2ocLHMvJyb3HL8EzScQRTtJ3Bn6+d8Fj5c0S
+	 TtzSvNdOtLb1UNaf7MwOs/1ya8lU8UhQXGj4PyAQw9xjEFt6WooODqVkhzx+K2c5is
+	 Gr0D5CsHvLosSWL1UH9pKeN1aCWNDNLGRzsVUIwy1ndfd5+7vcAr2VdK1icmGdNkPX
+	 FfV7qW9d/zY836F6LxZ9KRc8+NDQrHWQgY5n6mVKrU4HbotvExgOWhRtkbe0QC//FL
+	 npmInPiPK1kwQ==
 Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 33FB5380AA67;
-	Mon,  3 Feb 2025 19:15:51 +0000 (UTC)
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id ADDA2380AA67;
+	Mon,  3 Feb 2025 19:15:52 +0000 (UTC)
 MIME-Version: 1.0
-Subject: Re: [PATCH v2 0/3] Collect guest/host statistics during the redirected
- traps
+Subject: Re: [PATCH v2 0/1] iommu/riscv: Add platform msi support
 From: patchwork-bot+linux-riscv@kernel.org
-Message-Id: <173861014984.3409359.10285498075782232366.git-patchwork-notify@kernel.org>
-Date: Mon, 03 Feb 2025 19:15:49 +0000
-References: <20241224-kvm_guest_stat-v2-0-08a77ac36b02@rivosinc.com>
-In-Reply-To: <20241224-kvm_guest_stat-v2-0-08a77ac36b02@rivosinc.com>
-To: Atish Kumar Patra <atishp@rivosinc.com>
-Cc: linux-riscv@lists.infradead.org, anup@brainfault.org,
- atishp@atishpatra.org, paul.walmsley@sifive.com, palmer@dabbelt.com,
- kvm@vger.kernel.org, kvm-riscv@lists.infradead.org,
- linux-kernel@vger.kernel.org, zhouquan@iscas.ac.cn
+Message-Id: <173861015130.3409359.9807283652658448466.git-patchwork-notify@kernel.org>
+Date: Mon, 03 Feb 2025 19:15:51 +0000
+References: <20241112133504.491984-3-ajones@ventanamicro.com>
+In-Reply-To: <20241112133504.491984-3-ajones@ventanamicro.com>
+To: Andrew Jones <ajones@ventanamicro.com>
+Cc: linux-riscv@lists.infradead.org, iommu@lists.linux.dev,
+ linux-kernel@vger.kernel.org, tjeznach@rivosinc.com,
+ samuel.holland@sifive.com, joro@8bytes.org, will@kernel.org,
+ robin.murphy@arm.com, paul.walmsley@sifive.com, palmer@dabbelt.com,
+ aou@eecs.berkeley.edu
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250203_111523_880895_1BD2FA97 
-X-CRM114-Status: GOOD (  10.42  )
+X-CRM114-CacheID: sfid-20250203_111525_464849_697756FC 
+X-CRM114-Status: UNSURE (   9.06  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,27 +80,22 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 Hello:
 
-This series was applied to riscv/linux.git (fixes)
-by Anup Patel <anup@brainfault.org>:
+This patch was applied to riscv/linux.git (fixes)
+by Joerg Roedel <jroedel@suse.de>:
 
-On Tue, 24 Dec 2024 13:04:52 -0800 you wrote:
-> As discussed in the patch[1], this series adds the host statistics for
-> traps that are redirected to the guest. Since there are 1-1 mapping for
-> firmware counters as well, this series enables those so that the guest
-> can collect information about these exits via perf if required.
+On Tue, 12 Nov 2024 14:35:05 +0100 you wrote:
+> Add MSI support for a platform IOMMU. May be tested with QEMU when
+> including [1].
 > 
-> I have included the patch[1] as well in this series as it has not been
-> applied and there will be likely conflicts while merging both.
+> Based on linux-next commit 28955f4fa282 ("Add linux-next specific files for 20241112")
+> 
+> [1] https://lore.kernel.org/all/20241106133407.604587-1-dbarboza@ventanamicro.com/
 > 
 > [...]
 
 Here is the summary with links:
-  - [v2,1/3] RISC-V: KVM: Redirect instruction access fault trap to guest
-    https://git.kernel.org/riscv/c/51c58956732b
-  - [v2,2/3] RISC-V: KVM: Update firmware counters for various events
-    https://git.kernel.org/riscv/c/2f15b5eaff79
-  - [v2,3/3] RISC-V: KVM: Add new exit statstics for redirected traps
-    https://git.kernel.org/riscv/c/af79caa83f6a
+  - [v2,1/1] iommu/riscv: Add support for platform msi
+    https://git.kernel.org/riscv/c/d5f88acdd6ff
 
 You are awesome, thank you!
 -- 
