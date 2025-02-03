@@ -4,49 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6CEAFC02192
-	for <linux-riscv@archiver.kernel.org>; Mon,  3 Feb 2025 13:57:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8F539C02194
+	for <linux-riscv@archiver.kernel.org>; Mon,  3 Feb 2025 14:20:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:Message-ID:
-	In-Reply-To:Subject:cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
+	:In-Reply-To:Subject:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=GokmLEYrdfNhPI1ydakrvVzg64AaBb7D5aYd0QLqkrQ=; b=z9Lk+U4R7kqo0Z
-	GwU/6eK5PcyzUYhfZ2+0aO/2GmevfAwWI0dFuLu9y8W/z7exj+pmJWjFyo7XiUDhCu7qmKSLu/69a
-	1AIVxP/j+SZA29+0qysNrqpz5mpobA1XKKQIeCyxaspwbDTcsiipH+6wHiEkMw/UiSuL+LzJZBGNl
-	IkemmNuwQt2NzGZkMnV9u+DTwiEqLQMK4PlrEGYhvdhFTeDi4GMSqEQ44DcEp9+OjP4EOfmg9ECUr
-	Cau4U2xQ4XuC3rz3H/BaHIGOk5VeEAZExpr/gXL3O42d0OSGk37LtCdQ/F89ZzDoarLyE9btDfSwC
-	fxwrJobIquMk25QwvFCA==;
+	List-Owner; bh=R0hQt+hM+if1BCL3sHt8jlqnmke0qbaxvgdpLyVC0Ns=; b=n0VhPlHNArZsRz
+	9wTapoZ1rX+nyr2/PE0+/nzMQt6t1VJVM1JLq8B2f2qzfUjKLlUsJLrwQtlQBTPWSL1CBrY/u+1Ee
+	QE0tWFHfflpncADZ/0epgsUhCBcQ4dFujNL8WdpyxZV3+P90Tov2a8qMvtmusRBTNF8OyrLpx05Qd
+	WA+Ngb3eOo80TU6NoEkcW48mQVv0DWm57iR6zl1duQtOjuLfe0QPKgsa2YzpnMtwGsFHGYWcyRqFJ
+	qf/ZsqUaH6Xh21aZu7WvijJAtH7odn9wOxIGH445zDvbzA/dMFchFzPs6bRN1As+TSDi0pfTD5FKT
+	/+6vnYeU0gawjrHobL8w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tewxG-0000000FaZB-2p5L;
-	Mon, 03 Feb 2025 13:57:38 +0000
-Received: from angie.orcam.me.uk ([78.133.224.34])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tewxE-0000000FaY4-1GCH
-	for linux-riscv@lists.infradead.org;
-	Mon, 03 Feb 2025 13:57:37 +0000
-Received: by angie.orcam.me.uk (Postfix, from userid 500)
-	id BA45492009C; Mon,  3 Feb 2025 14:57:30 +0100 (CET)
-Received: from localhost (localhost [127.0.0.1])
-	by angie.orcam.me.uk (Postfix) with ESMTP id B7E6F92009B;
-	Mon,  3 Feb 2025 13:57:30 +0000 (GMT)
-Date: Mon, 3 Feb 2025 13:57:30 +0000 (GMT)
-From: "Maciej W. Rozycki" <macro@orcam.me.uk>
-To: Jessica Clarke <jrtc27@jrtc27.com>
-cc: Andreas Schwab <schwab@suse.de>, Alexandre Ghiti <alex@ghiti.fr>, 
-    linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] riscv/atomic: Do proper sign extension also for unsigned
- in arch_cmpxchg
-In-Reply-To: <CC2D9220-F8DE-4CC8-ACAD-7B1A21E276FE@jrtc27.com>
-Message-ID: <alpine.DEB.2.21.2502030510390.41663@angie.orcam.me.uk>
-References: <mvmed0k4prh.fsf@suse.de> <c9cbc2be-d1fd-44ef-aa14-fd25a5ff8490@ghiti.fr> <mvm5xlw4anb.fsf@suse.de> <ac53a62e-4f89-49c9-a755-fdfa7a582337@ghiti.fr> <mvmwmec2t7u.fsf@suse.de> <CC2D9220-F8DE-4CC8-ACAD-7B1A21E276FE@jrtc27.com>
-User-Agent: Alpine 2.21 (DEB 202 2017-01-01)
+	id 1texJj-0000000FeD9-2vJv;
+	Mon, 03 Feb 2025 14:20:51 +0000
+Received: from galois.linutronix.de ([193.142.43.55])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1texGn-0000000FdcM-3AmH;
+	Mon, 03 Feb 2025 14:17:51 +0000
+From: Thomas Gleixner <tglx@linutronix.de>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1738592268;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=J85aJuJVnCtJF5A7o6Xk9eZppKHaaO4RuNSzWv4mXis=;
+	b=Mf8dvdSfuCus0IcvuuE5SN1Zl0DFclaAOSmSDUPvlBIzIb3XYgoP7bFYtytu0JuQhQ8vMc
+	tAWVKC2ttVgKRJOdjfT09T/8NjB5PmdtLbZHNIObKtUDoL/fdIC+5CUgvvNJVQqq6fLmYL
+	qjMq6iP4uu+mtYcHjXp64k9s95PiJ04xGIJwJi7gwr28jDZgoUmi5vxvF5FvYVbFAwFFbA
+	kbknquNU4xeTXnGWhamxjUEOmLZGU1yvE36fZa4ukglnKUnZ8CjV+kKwKvhe4S5lLTJjI0
+	sDW02M+ZDNzYq0gZ2XdGa8tbYZoSjqZ5cuBjJJlIn7XJoEO8Y7gZ4zS789rvMA==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1738592268;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=J85aJuJVnCtJF5A7o6Xk9eZppKHaaO4RuNSzWv4mXis=;
+	b=Mafj2AVKQixDU9txGK8CdHh1AG0JOnfTDQPBdQG03PJFTImSaoxh+QBrJGMJCIZqlQhtLI
+	spX3B9cl0wUjMNAA==
+To: Anup Patel <apatel@ventanamicro.com>
+Subject: Re: [PATCH v2 00/11] RISC-V IMSIC driver improvements
+In-Reply-To: <20241214172549.8842-1-apatel@ventanamicro.com>
+References: <20241214172549.8842-1-apatel@ventanamicro.com>
+Date: Mon, 03 Feb 2025 15:17:48 +0100
+Message-ID: <87tt9bnmcz.ffs@tglx>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250203_055736_497409_15C41C3D 
-X-CRM114-Status: UNSURE (   9.63  )
+X-CRM114-CacheID: sfid-20250203_061749_931761_1CC527E3 
+X-CRM114-Status: UNSURE (   7.26  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -59,28 +68,26 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Cc: Anup Patel <apatel@ventanamicro.com>, Andrew Lunn <andrew@lunn.ch>, imx@lists.linux.dev, Marc Zyngier <maz@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, Atish Patra <atishp@atishpatra.org>, linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, Palmer Dabbelt <palmer@dabbelt.com>, Pengutronix Kernel Team <kernel@pengutronix.de>, Paul Walmsley <paul.walmsley@sifive.com>, Anup Patel <anup@brainfault.org>, Andrew Jones <ajones@ventanamicro.com>, Shawn Guo <shawnguo@kernel.org>, Gregory Clement <gregory.clement@bootlin.com>, linux-arm-kernel@lists.infradead.org, Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, 30 Jan 2025, Jessica Clarke wrote:
+Anup!
 
-> >> a2 is used as it is passed by the calling function, so we can't be sure a2
-> >> is sign extended to me, what am I missing?
-> > 
-> > 32-bit scalar arguments are guaranteed to be sign extended on entry.
-> 
-> Firstly, the calling convention is irrelevant if the function is
-> inlined, which this almost always will be.
+On Sat, Dec 14 2024 at 22:55, Anup Patel wrote:
+> This series is based on recent discussion on LKML:
+> https://lore.kernel.org/lkml/20241114161845.502027-18-ajones@ventanamicro.com/
+>
+> It primarily focuses on moving to RISC-V IMSIC driver use common MSI
+> lib and GENERIC_PENDING_IRQ.
 
- Umm, that would be a compiler bug then, as inlining is supposed not to 
-change language semantics.  IOW the compiler is expected to explicitly 
-sign-extend the arguments of an inlined function at their evaluation point 
-just as it would at an actual function call unless the compiler is able to 
-prove they have come out sign-extended already from previous operations.
+Can you please respin this series on top of rc1?
 
-  Maciej
+Thanks,
+
+        tglx
 
 _______________________________________________
 linux-riscv mailing list
