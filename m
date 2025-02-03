@@ -4,75 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA4E7C02193
-	for <linux-riscv@archiver.kernel.org>; Mon,  3 Feb 2025 10:45:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 40611C02192
+	for <linux-riscv@archiver.kernel.org>; Mon,  3 Feb 2025 10:57:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=5MRh2LxRzb77YA12QUbEAdzwbHmkzgERdHuPfLhuHkY=; b=r/OMvqoBJMf7mr
-	qJGoyREuM85DI5DrvsyuUvh6+IWmMLE6STdW9Ejdq6oNze0I5xKOcGi2zhVgE7S8WbVOhDw+IY7v2
-	p7rXU2mLuOsLouD2bQSohGn6nB+aFujNszQmGCpXjVfj4e6n/WoDfB37/gQTaFpaEBf5HCkd8aabC
-	nWc7wZitHZkBy50nqmYy79/659v+7hnwgi8qy0YECF3JXDHtSVqhSorJQbH5xn7C8f7exZzfZ1EgO
-	av1x7wBIOD7DQ+bcHmDEr6XR18ajEcd21Xf7f6ejnTSSEPtwgGEqGqM9l18VLZygolYiaxS0OnXDh
-	K+LNEBBFCFUaCJCT/UTA==;
+	List-Owner; bh=pS16XKuutiik95YX2Qpn2XWv4wVzwD1ljIlvMzVOANs=; b=b3RC/k/kSJTFC1
+	M7s24zwgcq1Z+MdvVSxfiVMScPZ1LAn8O2EXEXK4PeveEJfnD4uwuh1vnpE+oXLyJS66iUT7Ba5zh
+	zEZSlByirVmfb14WxRMGkNPcutHReWmVFeNd2O+hxRK0F4eBW6gH+yZrMS/rJtRfcIOilnz0MexE4
+	6/z5HpJyVUgRTK0POLUH8n80fFxMepUGFuE7kwgtEYzVyoVSRMKvAkpSj/Wu2Aol5R8ugXownxKnt
+	5Bk7+775qetUiIXVWQIfb9ajl1cTzOaz//Us4klKBNzkRHyx19bh2V/8ZrPdRlw8Hn+yokTjFbQ5h
+	w93L+Kh7sTZSM12TWGyw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tetxb-0000000F9ZN-2ANO;
-	Mon, 03 Feb 2025 10:45:47 +0000
-Received: from mgamail.intel.com ([192.198.163.10])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1teszR-0000000F1iV-0KCY
-	for linux-riscv@lists.infradead.org;
-	Mon, 03 Feb 2025 09:43:38 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1738575817; x=1770111817;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=aQY5nT189S5QUoHa13vFWQRg/WET3r3m2ffZ4yejuzQ=;
-  b=eHBh3SPcLRimgSFdiQ6rrfE69oukDuc5ycUmeQOgmy6xsuisuCYdrG4S
-   P5DoKIXNN+z4isPK86fiW9M6S9Z6W8uHEMoFtqN+d5tLWKCgtKoeJuPmW
-   QO/1T5WN3isxcSmLoz1wkhqIktExv8Yhy35hUAFyv5JeA4tzzVnW4y5Gc
-   80l1JihWYInQEQPstxD4pRvlvDctSn/eF4Fkdc2gAmqNw5jIf4Lb9FO0R
-   RRkNqIowTYQ6m8muPZE1vMQmsutQqbS2kqroRd9IhCb0BbPhEuIQDmyc1
-   oKgwcT0SsrMRb9CQmoxP6NAgGYC3Gv5RHIR2eOkwWnFoFaFBfdGVeZxkf
-   g==;
-X-CSE-ConnectionGUID: c8rJ5zJLS5SinlqZ6pKvQg==
-X-CSE-MsgGUID: WSXZatp2SCKMYNOaf8E14A==
-X-IronPort-AV: E=McAfee;i="6700,10204,11314"; a="50476125"
-X-IronPort-AV: E=Sophos;i="6.12,310,1728975600"; 
-   d="scan'208";a="50476125"
-Received: from orviesa005.jf.intel.com ([10.64.159.145])
-  by fmvoesa104.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 03 Feb 2025 01:43:36 -0800
-X-CSE-ConnectionGUID: LLrcAqr0Rlm/ruY5605yCQ==
-X-CSE-MsgGUID: oFZ70KHIRg+AEWH/Kc4nCw==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.12,224,1728975600"; 
-   d="scan'208";a="115392397"
-Received: from smile.fi.intel.com ([10.237.72.58])
-  by orviesa005.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 03 Feb 2025 01:43:30 -0800
-Received: from andy by smile.fi.intel.com with local (Exim 4.98)
-	(envelope-from <andriy.shevchenko@linux.intel.com>)
-	id 1teszG-00000007mu6-17QX;
-	Mon, 03 Feb 2025 11:43:26 +0200
-Date: Mon, 3 Feb 2025 11:43:26 +0200
-From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-To: Anup Patel <apatel@ventanamicro.com>
-Subject: Re: [RFC PATCH v2 12/17] ACPI: property: Add support for nargs_prop
- in acpi_fwnode_get_reference_args()
-Message-ID: <Z6CPvteWv89Xo70j@smile.fi.intel.com>
-References: <20250203084906.681418-1-apatel@ventanamicro.com>
- <20250203084906.681418-13-apatel@ventanamicro.com>
+	id 1teu8n-0000000FAlx-2vi4;
+	Mon, 03 Feb 2025 10:57:21 +0000
+Received: from vmicros1.altlinux.org ([194.107.17.57])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tetnu-0000000F8R7-0waq;
+	Mon, 03 Feb 2025 10:35:48 +0000
+Received: from mua.local.altlinux.org (mua.local.altlinux.org [192.168.1.14])
+	by vmicros1.altlinux.org (Postfix) with ESMTP id 33C4872C8CC;
+	Mon,  3 Feb 2025 13:35:43 +0300 (MSK)
+Received: by mua.local.altlinux.org (Postfix, from userid 508)
+	id 1956F7CCB3A; Mon,  3 Feb 2025 12:35:43 +0200 (IST)
+Date: Mon, 3 Feb 2025 12:35:43 +0200
+From: "Dmitry V. Levin" <ldv@strace.io>
+To: Alexander Gordeev <agordeev@linux.ibm.com>
+Cc: linux-snps-arc@lists.infradead.org, Rich Felker <dalias@libc.org>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Andreas Larsson <andreas@gaisler.com>,
+	John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>,
+	x86@kernel.org, linux-kernel@vger.kernel.org,
+	"James E.J. Bottomley" <James.Bottomley@hansenpartnership.com>,
+	Guo Ren <guoren@kernel.org>, linux-csky@vger.kernel.org,
+	linux-kselftest@vger.kernel.org, "H. Peter Anvin" <hpa@zytor.com>,
+	sparclinux@vger.kernel.org, linux-hexagon@vger.kernel.org,
+	WANG Xuerui <kernel@xen0n.name>, linux-api@vger.kernel.org,
+	Will Deacon <will@kernel.org>,
+	Eugene Syromyatnikov <evgsyr@gmail.com>,
+	Anton Ivanov <anton.ivanov@cambridgegreys.com>,
+	Jonas Bonn <jonas@southpole.se>, linux-s390@vger.kernel.org,
+	Madhavan Srinivasan <maddy@linux.ibm.com>,
+	Vasily Gorbik <gor@linux.ibm.com>,
+	Yoshinori Sato <ysato@users.sourceforge.jp>,
+	linux-sh@vger.kernel.org, Michael Ellerman <mpe@ellerman.id.au>,
+	Helge Deller <deller@gmx.de>, Huacai Chen <chenhuacai@kernel.org>,
+	Russell King <linux@armlinux.org.uk>,
+	Christophe Leroy <christophe.leroy@csgroup.eu>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	Ingo Molnar <mingo@redhat.com>,
+	Geert Uytterhoeven <geert@linux-m68k.org>,
+	Vineet Gupta <vgupta@kernel.org>,
+	Christian Borntraeger <borntraeger@linux.ibm.com>,
+	Arnd Bergmann <arnd@arndb.de>, linux-arch@vger.kernel.org,
+	Shuah Khan <shuah@kernel.org>, Albert Ou <aou@eecs.berkeley.edu>,
+	Mike Frysinger <vapier@gentoo.org>,
+	Davide Berardi <berardi.dav@gmail.com>,
+	Renzo Davoli <renzo@cs.unibo.it>, linux-um@lists.infradead.org,
+	Heiko Carstens <hca@linux.ibm.com>, strace-devel@lists.strace.io,
+	Charlie Jenkins <charlie@rivosinc.com>,
+	Naveen N Rao <naveen@kernel.org>,
+	Nicholas Piggin <npiggin@gmail.com>,
+	Stefan Kristiansson <stefan.kristiansson@saunalahti.fi>,
+	linux-m68k@lists.linux-m68k.org, Borislav Petkov <bp@alien8.de>,
+	loongarch@lists.linux.dev, Paul Walmsley <paul.walmsley@sifive.com>,
+	Stafford Horne <shorne@gmail.com>,
+	Johannes Berg <johannes@sipsolutions.net>,
+	linux-arm-kernel@lists.infradead.org,
+	Brian Cain <bcain@quicinc.com>, Michal Simek <monstr@monstr.eu>,
+	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+	linux-parisc@vger.kernel.org, linux-openrisc@vger.kernel.org,
+	linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+	Oleg Nesterov <oleg@redhat.com>, Dinh Nguyen <dinguyen@kernel.org>,
+	linux-riscv@lists.infradead.org,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Sven Schnelle <svens@linux.ibm.com>,
+	Richard Weinberger <richard@nod.at>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Alexey Gladkov <legion@kernel.org>,
+	"David S. Miller" <davem@davemloft.net>
+Subject: Re: [PATCH v4 0/7] ptrace: introduce PTRACE_SET_SYSCALL_INFO API
+Message-ID: <20250203103542.GA16165@strace.io>
+References: <20250203065849.GA14120@strace.io>
+ <Z6CMgVm8QKEMRf8L@li-008a6a4c-3549-11b2-a85c-c5cc2836eea2.ibm.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20250203084906.681418-13-apatel@ventanamicro.com>
-Organization: Intel Finland Oy - BIC 0357606-4 - Westendinkatu 7, 02160 Espoo
+In-Reply-To: <Z6CMgVm8QKEMRf8L@li-008a6a4c-3549-11b2-a85c-c5cc2836eea2.ibm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250203_014337_132038_0C0717BD 
-X-CRM114-Status: GOOD (  14.31  )
+X-CRM114-CacheID: sfid-20250203_023546_591166_D1BC158C 
+X-CRM114-Status: GOOD (  15.36  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,41 +108,53 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: "Rafael J . Wysocki" <rafael@kernel.org>, Michael Turquette <mturquette@baylibre.com>, Paul Walmsley <paul.walmsley@sifive.com>, Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <ukleinek@kernel.org>, linux-riscv@lists.infradead.org, linux-clk@vger.kernel.org, Rob Herring <robh@kernel.org>, Anup Patel <anup@brainfault.org>, Bartosz Golaszewski <brgl@bgdev.pl>, Jassi Brar <jassisinghbrar@gmail.com>, Linus Walleij <linus.walleij@linaro.org>, Andrew Jones <ajones@ventanamicro.com>, devicetree@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>, Leyfoon Tan <leyfoon.tan@starfivetech.com>, Atish Patra <atishp@atishpatra.org>, Thomas Gleixner <tglx@linutronix.de>, Mika Westerberg <mika.westerberg@linux.intel.com>, Stephen Boyd <sboyd@kernel.org>, linux-kernel@vger.kernel.org, Samuel Holland <samuel.holland@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Rahul Pathak <rpathak@ventanamicro.com>, Len Brown <lenb@kernel.org>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Feb 03, 2025 at 02:19:01PM +0530, Anup Patel wrote:
-> From: Sunil V L <sunilvl@ventanamicro.com>
+On Mon, Feb 03, 2025 at 10:29:37AM +0100, Alexander Gordeev wrote:
+> On Mon, Feb 03, 2025 at 08:58:49AM +0200, Dmitry V. Levin wrote:
 > 
-> fwnode_get_reference_args() which is common for both DT and ACPI passes
-> a property name like #mbox-cells which needs to be fetched from the
-> reference node to determine the number of arguments needed for the
-> property. However, the ACPI version of this function doesn't support
-> this and simply ignores the parameter passed from the wrapper function.
-> Add support for dynamically finding number of arguments by reading the
-> nargs property value. Update the callers to pass extra parameter.
+> Hi Dmitry,
+> 
+> > PTRACE_SET_SYSCALL_INFO is a generic ptrace API that complements
+> > PTRACE_GET_SYSCALL_INFO by letting the ptracer modify details of
+> > system calls the tracee is blocked in.
+> ...
+> 
+> FWIW, I am getting these on s390:
+> 
+> # ./tools/testing/selftests/ptrace/set_syscall_info 
+> TAP version 13
+> 1..1
+> # Starting 1 tests from 1 test cases.
+> #  RUN           global.set_syscall_info ...
+> # set_syscall_info.c:87:set_syscall_info:Expected exp_entry->nr (-1) == info->entry.nr (65535)
+> # set_syscall_info.c:88:set_syscall_info:wait #3: PTRACE_GET_SYSCALL_INFO #2: syscall nr mismatch
+> # set_syscall_info: Test terminated by assertion
+> #          FAIL  global.set_syscall_info
+> not ok 1 global.set_syscall_info
+> # FAILED: 0 / 1 tests passed.
+> # Totals: pass:0 fail:1 xfail:0 xpass:0 skip:0 error:0
+> 
+> I remember one of the earlier versions (v1 or v2) was working for me.
+> 
+> Thanks!
 
-I don't like this (implementation).
+In v3, this test was extended to check whether PTRACE_GET_SYSCALL_INFO
+called immediately after PTRACE_SET_SYSCALL_INFO returns the same syscall
+number, and on s390 it apparently doesn't, thanks to its implementation
+of syscall_get_nr() that returns 0xffff in this case.
 
-It seems that we basically have two parameters which values are duplicating
-each other. This is error prone API and confusing in the cases when both are
-defined. If you want property, add a new API that takes const char *nargs
-and relies on the property be present.
+To workaround this, we could either change syscall_get_nr() to return -1
+in this case, or add an #ifdef __s390x__ exception to the test.
 
-Your patch becomes much simpler, and solution is robust against potential
-confusion on how to treat the corner cases.
+What would you prefer?
 
-Note, Rafael might have different opinion and his has the last word. But
-here just my view on the implementation details.
 
 -- 
-With Best Regards,
-Andy Shevchenko
-
-
+ldv
 
 _______________________________________________
 linux-riscv mailing list
