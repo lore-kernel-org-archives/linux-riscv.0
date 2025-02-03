@@ -4,94 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28101C0219C
-	for <linux-riscv@archiver.kernel.org>; Mon,  3 Feb 2025 10:00:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6BB1DC02193
+	for <linux-riscv@archiver.kernel.org>; Mon,  3 Feb 2025 10:06:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=qlPZT3/nwFa6O9Qw84GV3kTrGIpE7oTjsk9v7DTnRq4=; b=ER25fl8REi10Ml
-	EqsdcZkTYhwGEfahXlYb7Sw9TS0A9b20XLdWWE6SImepO27S4sNLbE04WyTXMqFPwNWjKJDILnb5L
-	+CKW72e18ebw2SvTB+/5wgxKyxT4w79TTbnwE2AyBq6KvwxblE0qiTBD5jDpbfL05gbr+de4Vcg0z
-	elxmgvDH/H/aykjVi3K8CN5OgCimegSDIFCPqHwTmiqeE32XrEyHIJ8ypPgd5dxp+B4e+7TeIVkUs
-	nx+/+tFu13KdMsX+4gEKZXlzNb5a8bh3j/G1DDloJ2qoyOOGLZAe7MfM8LFDqpgbB8KwRB3/t+e0U
-	Vc//PSqfQLSrnxHvI9BA==;
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:CC:Subject
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=EJxwJUNkxz0aeiw+s+QU5xvti+11fzjWlc8t+XA7Wmo=; b=mn/D+7eRbc9kxo
+	RQH9+m5usdw5zgNxQY47A9RvDWb3izENmuGkOhTiI7G+7MFEducDsoHbXfmd+iSd7eW+WL/0Hg6Co
+	YYZCFyZ06r7372cuFkmDm7fjsBovuHtGqT+21oPha5uIqTQer3ylqTWH4qRTXOGfMJ05TRQWUBMiu
+	v8GY54zmzFKNNnwKNzBFj9HxLWAwdKqrfK3DVxD7Q1VQClX/re7OqOx6IdtV8po+qkoLgoYLOLR0v
+	7ydLujJl4NurL32xBRxMt7rxT4YgwnwuQ5gTsGgqd/keqQPjf/ydy3DktvMVoXrzYa/EBOF2gPi/2
+	rEYhNY+DLRIfFUYeXP8A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tetG9-0000000F3zr-3V7l;
-	Mon, 03 Feb 2025 10:00:53 +0000
-Received: from mail-qt1-x831.google.com ([2607:f8b0:4864:20::831])
+	id 1tetLA-0000000F56D-1HhQ;
+	Mon, 03 Feb 2025 10:06:04 +0000
+Received: from smtp-out2.suse.de ([195.135.223.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tesCK-0000000Eurp-2lLR
+	id 1tetL7-0000000F55Q-3vDU
 	for linux-riscv@lists.infradead.org;
-	Mon, 03 Feb 2025 08:52:53 +0000
-Received: by mail-qt1-x831.google.com with SMTP id d75a77b69052e-46783d44db0so38916961cf.1
-        for <linux-riscv@lists.infradead.org>; Mon, 03 Feb 2025 00:52:52 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1738572771; x=1739177571; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=lrS6UZq8voK5d6I6M8hMOQP+PQdCTVat6aZNVhGKd/U=;
-        b=FhA53F0TznAV1o3hcHosWIm3wBFSwaU2GNPbZRB8gfZ0lc3mMUKa0Nla+H3GM3zXSy
-         XE1yHpgbJ5UItHqGW5sFFqdEC+MBwmI13tDSKe10v3YykaR/JSiO8I4PeES29J8uOUcU
-         xaEcJ9qfGDL2q5LiYnZ8TyAdRvts8qKdnFZqfKnGu3DEhPJNZOb3sSoqiv0OGyazcKvq
-         WRFAHLZx0ybkzej8XVhZFUT3nQm28FeBHyrkGtPr3CRpwWKNkvmAgHRs07SaVLiGKbvl
-         aR1PPB2S3wZ2cDrLhI/u5Hi08+ABMi6ytquiRG+UEjAjFguSoxIg1EnXp5vBLyUK9rNu
-         s9fA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1738572771; x=1739177571;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=lrS6UZq8voK5d6I6M8hMOQP+PQdCTVat6aZNVhGKd/U=;
-        b=nKdjRms8ftscVCxOa0m3jIjI7pIoUNJiJfxzWEDbG38ZlE/M5fixvnNAjNuluaBPZv
-         HVx/GlzcOuXgmFePpfm1pmVS4shl0L5vHUM4X04rAvWWi6NYaiq/37Y7xtaWpVqZWGHO
-         HtYroioZGm0ajXeiFK49MWKoUWNwCDqEvHaBEnV6c1kYRb4GCnRe0AjmGW100T/Nqzku
-         F0+mLHEDnst5/FgBZ8UJ4KgX4Cu9OuiNwRNZcSrhtusxfx8yHKeMkUDILal5lazVRITI
-         GoFxoR6ULTKEtFhdQtURaglmVCfbNQV5ZJm8RosEi8C3EUO528XLJvngf9Ey4vIPSNy7
-         N6UA==
-X-Forwarded-Encrypted: i=1; AJvYcCXJf3n17NljMwNh7uW80MjkVdcba/sqS7Umo1n0MRG8eouTxRJZ6qkRrwmYBa8AHD1JQU92rUEYVWMNJA==@lists.infradead.org
-X-Gm-Message-State: AOJu0YwEwfPX6F8QFkTsegVyBdAXPTyzmkx6yFsA5CIjKSuRU96gsUXL
-	A5LKqxEAkjW6sseCi9UUivDLOyNj+/vVjpSHrzZEYIeEmnuPw2G+I0q92WXNIeE=
-X-Gm-Gg: ASbGncvGE1OIpfcXID18n+dbv6jUuaxA/pTNJvn8YmhAwgnNKGn1CJQkFRTnlOLE0TK
-	NPrs8/ar+6ue/E63sP3ro5SY6snlnRsZz5frZ5Lm3dP4YAon8iO6HJ9ED4ckfzy9ww0EKvj70VE
-	3SdnbeOjAabSOpTe0DmmpRKwsuGvKdTZT5X0DoZo3RrcDMlQlJkZ2sNCUSucDZKAUr9VoPwueYe
-	Vb71JULXZ8M+ObWdmDGVYPXzSzz0hOUuJFLUJh8Wcaq9jijvqH/f51c2dWyyKIaHu1p/okxmfZU
-	+O1/cg7/e1/aN3xttgohARoVmwj3Bb/giu8DqijS0k5owa9NQiwnFs0=
-X-Google-Smtp-Source: AGHT+IHCJxve5T10aPiQPDTrvWu69tjDV21FWaMmTfndSVMbeYY2fptctuonpJUVJro58XKkYYFZeQ==
-X-Received: by 2002:ac8:5f8f:0:b0:467:672a:abb6 with SMTP id d75a77b69052e-46fd0acbcebmr285604751cf.23.1738572771412;
-        Mon, 03 Feb 2025 00:52:51 -0800 (PST)
-Received: from anup-ubuntu-vm.localdomain ([103.97.166.196])
-        by smtp.gmail.com with ESMTPSA id d75a77b69052e-46fdf0e3089sm47657911cf.46.2025.02.03.00.52.39
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 03 Feb 2025 00:52:50 -0800 (PST)
-From: Anup Patel <apatel@ventanamicro.com>
-To: Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Jassi Brar <jassisinghbrar@gmail.com>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	"Rafael J . Wysocki" <rafael@kernel.org>,
-	Mika Westerberg <mika.westerberg@linux.intel.com>,
-	Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
-	Linus Walleij <linus.walleij@linaro.org>,
-	Bartosz Golaszewski <brgl@bgdev.pl>,
-	=?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <ukleinek@kernel.org>
-Subject: [RFC PATCH v2 17/17] RISC-V: Enable GPIO keyboard and event device in RV64 defconfig
-Date: Mon,  3 Feb 2025 14:19:06 +0530
-Message-ID: <20250203084906.681418-18-apatel@ventanamicro.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20250203084906.681418-1-apatel@ventanamicro.com>
-References: <20250203084906.681418-1-apatel@ventanamicro.com>
+	Mon, 03 Feb 2025 10:06:03 +0000
+Received: from hawking.nue2.suse.org (unknown [10.168.4.11])
+	by smtp-out2.suse.de (Postfix) with ESMTP id 405A81F37C;
+	Mon,  3 Feb 2025 10:06:00 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
+	t=1738577160; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type;
+	bh=z8WWUCewt8GWdziJ/b+QfhI909T7AMMSL3etFAdSg5I=;
+	b=k+4MV07YEKE3WVQPcdYfmNRLjGuoGcSkZzHx+QMS7dR+v39cN65qC/so+uYHTvBymFW36W
+	1kp40fddEGEyg3Hk4Fw3WSqWCrTYrXTVL07d+iUcZsXc1AFut7DoXGgnqIF6xF2uhRGrRR
+	1/JthrOVxXwryIlRBhcpcHJ+XILZpaM=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
+	s=susede2_ed25519; t=1738577160;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type;
+	bh=z8WWUCewt8GWdziJ/b+QfhI909T7AMMSL3etFAdSg5I=;
+	b=jL0Yl/3s3T0ZgX1pPpyYOZ0LVh3jtpm+ZmNeR/2Xi4vykMTKIethMnzqQacrRgrOSyFoG/
+	cvCib8sF75tQO6BQ==
+Authentication-Results: smtp-out2.suse.de;
+	none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
+	t=1738577160; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type;
+	bh=z8WWUCewt8GWdziJ/b+QfhI909T7AMMSL3etFAdSg5I=;
+	b=k+4MV07YEKE3WVQPcdYfmNRLjGuoGcSkZzHx+QMS7dR+v39cN65qC/so+uYHTvBymFW36W
+	1kp40fddEGEyg3Hk4Fw3WSqWCrTYrXTVL07d+iUcZsXc1AFut7DoXGgnqIF6xF2uhRGrRR
+	1/JthrOVxXwryIlRBhcpcHJ+XILZpaM=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
+	s=susede2_ed25519; t=1738577160;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type;
+	bh=z8WWUCewt8GWdziJ/b+QfhI909T7AMMSL3etFAdSg5I=;
+	b=jL0Yl/3s3T0ZgX1pPpyYOZ0LVh3jtpm+ZmNeR/2Xi4vykMTKIethMnzqQacrRgrOSyFoG/
+	cvCib8sF75tQO6BQ==
+Received: by hawking.nue2.suse.org (Postfix, from userid 17005)
+	id 3224F4A0551; Mon,  3 Feb 2025 11:06:00 +0100 (CET)
+From: Andreas Schwab <schwab@suse.de>
+To: linux-riscv@lists.infradead.org
+Subject: [PATCH] riscv/futex: sign extend compare value in atomic cmpxchg
+CC: linux-kernel@vger.kernel.org
+Date: Mon, 03 Feb 2025 11:06:00 +0100
+Message-ID: <mvmfrkv2vhz.fsf@suse.de>
+User-Agent: Gnus/5.13 (Gnus v5.13)
 MIME-Version: 1.0
+X-Spamd-Result: default: False [-4.20 / 50.00];
+	BAYES_HAM(-3.00)[99.99%];
+	NEURAL_HAM_LONG(-1.00)[-1.000];
+	NEURAL_HAM_SHORT(-0.20)[-0.986];
+	MIME_GOOD(-0.10)[text/plain];
+	RCVD_NO_TLS_LAST(0.10)[];
+	MID_RHS_MATCH_FROM(0.00)[];
+	ARC_NA(0.00)[];
+	MIME_TRACE(0.00)[0:+];
+	RCVD_COUNT_ONE(0.00)[1];
+	RCPT_COUNT_TWO(0.00)[2];
+	FROM_HAS_DN(0.00)[];
+	FUZZY_BLOCKED(0.00)[rspamd.com];
+	FROM_EQ_ENVFROM(0.00)[];
+	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
+	TO_DN_NONE(0.00)[];
+	TO_MATCH_ENVRCPT_ALL(0.00)[];
+	DBL_BLOCKED_OPENRESOLVER(0.00)[suse.de:mid,suse.de:email]
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250203_005252_695868_4A71F63C 
-X-CRM114-Status: UNSURE (   9.39  )
+X-CRM114-CacheID: sfid-20250203_020602_116829_31D6695D 
+X-CRM114-Status: UNSURE (   9.12  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -104,37 +103,43 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Anup Patel <apatel@ventanamicro.com>, devicetree@vger.kernel.org, Andrew Jones <ajones@ventanamicro.com>, Leyfoon Tan <leyfoon.tan@starfivetech.com>, Anup Patel <anup@brainfault.org>, Atish Patra <atishp@atishpatra.org>, linux-kernel@vger.kernel.org, Samuel Holland <samuel.holland@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, linux-riscv@lists.infradead.org, Len Brown <lenb@kernel.org>, linux-clk@vger.kernel.org, Rahul Pathak <rpathak@ventanamicro.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The GPIO keyboard and event device can be used to receive graceful
-shutdown or reboot input keys so let us enable it by default for
-RV64 (just like ARM64).
+Make sure the compare value in the lr/sc loop is sign extended to match
+what lr.w does.  Fortunately, due to the compiler keeping the register
+contents sign extended anyway the lack of the explicit extension didn't
+result in wrong code so far, but this cannot be relied upon.
 
-Signed-off-by: Anup Patel <apatel@ventanamicro.com>
+Fixes: b90edb33010b ("RISC-V: Add futex support.")
+Signed-off-by: Andreas Schwab <schwab@suse.de>
 ---
- arch/riscv/configs/defconfig | 2 ++
- 1 file changed, 2 insertions(+)
+ arch/riscv/include/asm/futex.h | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/arch/riscv/configs/defconfig b/arch/riscv/configs/defconfig
-index 0f7dcbe3c45b..06265b6febba 100644
---- a/arch/riscv/configs/defconfig
-+++ b/arch/riscv/configs/defconfig
-@@ -142,6 +142,8 @@ CONFIG_MICREL_PHY=y
- CONFIG_MICROSEMI_PHY=y
- CONFIG_MOTORCOMM_PHY=y
- CONFIG_INPUT_MOUSEDEV=y
-+CONFIG_INPUT_EVDEV=y
-+CONFIG_KEYBOARD_GPIO=y
- CONFIG_KEYBOARD_SUN4I_LRADC=m
- CONFIG_SERIAL_8250=y
- CONFIG_SERIAL_8250_CONSOLE=y
+diff --git a/arch/riscv/include/asm/futex.h b/arch/riscv/include/asm/futex.h
+index fc8130f995c1..6907c456ac8c 100644
+--- a/arch/riscv/include/asm/futex.h
++++ b/arch/riscv/include/asm/futex.h
+@@ -93,7 +93,7 @@ futex_atomic_cmpxchg_inatomic(u32 *uval, u32 __user *uaddr,
+ 		_ASM_EXTABLE_UACCESS_ERR(1b, 3b, %[r])	\
+ 		_ASM_EXTABLE_UACCESS_ERR(2b, 3b, %[r])	\
+ 	: [r] "+r" (ret), [v] "=&r" (val), [u] "+m" (*uaddr), [t] "=&r" (tmp)
+-	: [ov] "Jr" (oldval), [nv] "Jr" (newval)
++	: [ov] "Jr" ((long)(int)oldval), [nv] "Jr" (newval)
+ 	: "memory");
+ 	__disable_user_access();
+ 
 -- 
-2.43.0
+2.48.1
 
+
+-- 
+Andreas Schwab, SUSE Labs, schwab@suse.de
+GPG Key fingerprint = 0196 BAD8 1CE9 1970 F4BE  1748 E4D4 88E3 0EEA B9D7
+"And now for something completely different."
 
 _______________________________________________
 linux-riscv mailing list
