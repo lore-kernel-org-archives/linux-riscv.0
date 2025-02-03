@@ -4,70 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 827EAC02192
-	for <linux-riscv@archiver.kernel.org>; Mon,  3 Feb 2025 19:18:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63C7AC02197
+	for <linux-riscv@archiver.kernel.org>; Mon,  3 Feb 2025 19:18:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
 	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=/9kbIaNq5ESziOuawJzO3mt9Zmt3AC/WGDw3IaY3iYs=; b=sKPOYKYqwAE4/Y
-	h2CqgpcpwQtoiO3BxCClyih2RcAyqGQjm3PJScwbvlXnl3JpXdNWx68izl0OzVjQ0qejhC7ZQMk/P
-	QI4OxP6cSs/fLrGft/S0jMEPnHZoZYebMe2qPrs4AsSEkl6Uy+J4/F66oKv1fzdk4wF26/DwNHVOn
-	fQKjKPevyPQlA/JYuQqhGFuokdu/tftFtpp6sZSiyEcJri6972Uussp5+wlc3NeL7b6FKyusDUlqu
-	Cwm5tP6h6VJOgRPSl78BKKCwyDsBA83+XS6rOn1vM3jm3+euB/J91nC52FoZLaOSCNEQEq+AhgPJE
-	+ygS9Tsy4cT+nTalUdbQ==;
+	List-Owner; bh=xa5IlxIfn+lw2nlNu5bw7pbO+nvFa61h1Zp/qAXl0u4=; b=L97MNDTf9k3WtS
+	MJf05KIkoMbIfFJfKSefKLgtmB9lDox8TGP0uvUQWGhlGaxSaMFrNNAVzvxT0j7Cy61b2Q9uVi/Uc
+	oBMngzo7tRlbHafRCewVEgFzAsOlLK7JK2yT1xok++bz0JqIQcJnnu+KpEyrRsnPYlgiS7mpd8FMR
+	PEM+3NuQHv3kry6aDAwudUzXC3kUFUFomRl0769pYaLRAt2r6KNDLSlhNxy8j96gLgOk56T4drb4y
+	wbp8H7w7Wv6MRe6QxOhShi9xoqA08ymUv9lYP2qNireNTqCK0Z0uu7qRLfjAoH+AchdQzCHIcIlTK
+	LPEifBvTrXY2njkKivVg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tf1xF-0000000GQvY-2Jtt;
-	Mon, 03 Feb 2025 19:17:57 +0000
+	id 1tf1xH-0000000GQx3-1urE;
+	Mon, 03 Feb 2025 19:17:59 +0000
 Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tf1ub-0000000GQ52-19Tu;
-	Mon, 03 Feb 2025 19:15:14 +0000
+	id 1tf1uc-0000000GQ5U-1rIU;
+	Mon, 03 Feb 2025 19:15:15 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 2C971A41C00;
-	Mon,  3 Feb 2025 19:13:26 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3405DC4CEE8;
-	Mon,  3 Feb 2025 19:15:12 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 7C077A41C0E;
+	Mon,  3 Feb 2025 19:13:27 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 68442C4CED2;
+	Mon,  3 Feb 2025 19:15:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1738610112;
-	bh=8HQ4a1E4SDVOQ5YBvLQgJdIjKRquxOBX3OP+awOzn44=;
+	s=k20201202; t=1738610113;
+	bh=LsOe7ZzlPhqEAOvTiMeWa8iiWUe9V2RCk8jcWcixhvI=;
 	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=qEtWCcTqxtSD1UgKWJSa3crMG4kGSavYOQGcCcI4V2cyH4DOILJiyITwiSJtgrhHJ
-	 leMpKr+OZgSpraWb0RiKFAKjm2zqvuhyymj1LfT8j1LOjp2fCtL0lg6qoyRWBlojQI
-	 ZiaJmTEaG54Lo9sr/U8i6GeSmTgxwh0kIBhsKt5unGdN62jNr4PwFCDw08fmRqfzFL
-	 BX4XCHouDDkARe7MVneI8SuivabGbQ0ef19DQGBgsurLFrWhryNqMG+dh8YZhkYfEY
-	 oasu2bD4iIR5M3wZq53wObBELHA9T5YPUy+0+nOm85VEduVf6KsFBTNEF9j2Fb88zz
-	 VG58pi8j5CwdQ==
+	b=G7l6g2ZIizTNYrxkBbzlrHOv4+1Ln/d/XodEN9IIjNpde3v5XMCTHWxOixZzN9q8S
+	 rN949faoH1AmsOIYguVjeAET/42q9AfHISAy4DRFQbEgHWCmSBiO+usYkZKWGdjuEc
+	 aMQcBIql2D2qg7gA+RBA9RSmdWEwkbG4N1MdJNl2d9Oi/XsgVsIqSxEPtd0MwyVq7S
+	 Ri2Te1NlEdebGxFUQQ9BBxdOCgHNEZMN3+9wi/ffVR0/mr+a7tjOtFCkp3Ji/v/6sF
+	 AnmSnhQNv9bBphD2MWs1sV6pTXMH9eZXUNtFKd4EDmS8MTdZO0pDDD7PU5plQAIbCr
+	 GFDVqeo3/KTzQ==
 Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 71824380AA67;
-	Mon,  3 Feb 2025 19:15:40 +0000 (UTC)
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id AE0DC380AA67;
+	Mon,  3 Feb 2025 19:15:41 +0000 (UTC)
 MIME-Version: 1.0
-Subject: Re: [PATCH v2 0/6] Account page tables at all levels
+Subject: Re: [PATCH v2 0/4] RISC-V: KVM: Allow Svvptc/Zabha/Ziccrse exts for
+ guests
 From: patchwork-bot+linux-riscv@kernel.org
-Message-Id: <173861013901.3409359.14741114405031556153.git-patchwork-notify@kernel.org>
-Date: Mon, 03 Feb 2025 19:15:39 +0000
-References: <20250103184415.2744423-1-kevin.brodsky@arm.com>
-In-Reply-To: <20250103184415.2744423-1-kevin.brodsky@arm.com>
-To: Kevin Brodsky <kevin.brodsky@arm.com>
-Cc: linux-riscv@lists.infradead.org, linux-mm@kvack.org,
- akpm@linux-foundation.org, catalin.marinas@arm.com,
- dave.hansen@linux.intel.com, linus.walleij@linaro.org, luto@kernel.org,
- peterz@infradead.org, rppt@kernel.org, ryan.roberts@arm.com,
- tglx@linutronix.de, will@kernel.org, willy@infradead.org,
- zhengqi.arch@bytedance.com, linux-alpha@vger.kernel.org,
- linux-arch@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-csky@vger.kernel.org, linux-hexagon@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-m68k@lists.linux-m68k.org,
- linux-mips@vger.kernel.org, linux-openrisc@vger.kernel.org,
- linux-parisc@vger.kernel.org, linux-s390@vger.kernel.org,
- linux-snps-arc@lists.infradead.org, linux-um@lists.infradead.org,
- loongarch@lists.linux.dev, x86@kernel.org
+Message-Id: <173861014052.3409359.2500361473907016635.git-patchwork-notify@kernel.org>
+Date: Mon, 03 Feb 2025 19:15:40 +0000
+References: <cover.1732854096.git.zhouquan@iscas.ac.cn>
+In-Reply-To: <cover.1732854096.git.zhouquan@iscas.ac.cn>
+To: Quan Zhou <zhouquan@iscas.ac.cn>
+Cc: linux-riscv@lists.infradead.org, anup@brainfault.org,
+ ajones@ventanamicro.com, atishp@atishpatra.org, paul.walmsley@sifive.com,
+ palmer@dabbelt.com, aou@eecs.berkeley.edu, linux-kernel@vger.kernel.org,
+ kvm@vger.kernel.org, kvm-riscv@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250203_111513_383381_71EB4C36 
-X-CRM114-Status: UNSURE (   8.89  )
+X-CRM114-CacheID: sfid-20250203_111514_555094_7BFB3AD4 
+X-CRM114-Status: UNSURE (   7.48  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -88,34 +80,30 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 Hello:
 
 This series was applied to riscv/linux.git (fixes)
-by Andrew Morton <akpm@linux-foundation.org>:
+by Anup Patel <anup@brainfault.org>:
 
-On Fri,  3 Jan 2025 18:44:09 +0000 you wrote:
-> v1: https://lore.kernel.org/linux-mm/20241219164425.2277022-1-kevin.brodsky@arm.com/
+On Mon,  2 Dec 2024 11:21:26 +0800 you wrote:
+> From: Quan Zhou <zhouquan@iscas.ac.cn>
 > 
-> This series should be considered in conjunction with Qi's series [1].
-> Together, they ensure that page table ctor/dtor are called at all levels
-> (PTE to PGD) and all architectures, where page tables are regular pages.
-> Besides the improvement in accounting and general cleanup, this also
-> create a single place where construction/destruction hooks can be called
-> for all page tables, namely the now-generic pagetable_dtor() introduced
-> by Qi, and __pagetable_ctor() introduced in this series.
+> Advertise Svvptc/Zabha/Ziccrse extensions to KVM guest
+> when underlying host supports it.
+> 
+> ---
+> Change since v1:
+> - Arrange Svvptc in alphabetical order (Andrew)
+> - Add Reviewed-by tags
 > 
 > [...]
 
 Here is the summary with links:
-  - [v2,1/6] mm: Move common part of pagetable_*_ctor to helper
-    https://git.kernel.org/riscv/c/11e2400b21a3
-  - [v2,2/6] parisc: mm: Ensure pagetable_pmd_[cd]tor are called
-    https://git.kernel.org/riscv/c/3565522e15eb
-  - [v2,3/6] m68k: mm: Add calls to pagetable_pmd_[cd]tor
-    https://git.kernel.org/riscv/c/1879688e5c42
-  - [v2,4/6] ARM: mm: Rename PGD helpers
-    https://git.kernel.org/riscv/c/94771023712a
-  - [v2,5/6] asm-generic: pgalloc: Provide generic __pgd_{alloc,free}
-    https://git.kernel.org/riscv/c/a9b3c355c2e6
-  - [v2,6/6] mm: Introduce ctor/dtor at PGD level
-    https://git.kernel.org/riscv/c/d95936a2267c
+  - [v2,1/4] RISC-V: KVM: Allow Svvptc extension for Guest/VM
+    https://git.kernel.org/riscv/c/0f8915859716
+  - [v2,2/4] RISC-V: KVM: Allow Zabha extension for Guest/VM
+    https://git.kernel.org/riscv/c/679e132c0ae2
+  - [v2,3/4] RISC-V: KVM: Allow Ziccrse extension for Guest/VM
+    https://git.kernel.org/riscv/c/79be257b579e
+  - [v2,4/4] KVM: riscv: selftests: Add Svvptc/Zabha/Ziccrse exts to get-reg-list test
+    https://git.kernel.org/riscv/c/144dfe4017bf
 
 You are awesome, thank you!
 -- 
