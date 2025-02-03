@@ -4,85 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 88C2BC02195
-	for <linux-riscv@archiver.kernel.org>; Mon,  3 Feb 2025 15:59:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95D8FC02195
+	for <linux-riscv@archiver.kernel.org>; Mon,  3 Feb 2025 16:03:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
-	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	bh=EVbRUJYj1R9aPIuTkVy2GBOOyXPL1YqGLSHx6ZoUmrw=; b=yq2nzaHy1ipw7hCDsm8OgcIDFj
-	SeC19obxbU205pTmfIgP8mtJ062Q4e8qH9DzZvA/AqZiKC5W4fEqaddXaG47quqSvH7Az+AeNCeSM
-	jVQlNNlPsdRSHDBIm6hYkSzV6T6B9n3CUbm3FhFzVTQT+6wIHcll4cYyqnaCDNXgwa4NHiCpNvOml
-	i4rKPaLV5mNzMq7pZAaO3/xuB/sST9Xl2rs8UyrRZZLcsas98Nf9bSHEkOEKiS2202xeEuricOX2F
-	NFOwMyuuW1tZAmnFSxm7ZQEf3ctbOJRZ+dXoJkqDcxcRprH90EuieQV00u87kijbc9oDHhh/TIGUy
-	ICsO+svQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=lRc3CD8Xp08xaWqStrwuuJeuMVkNHhspHdxq8ITYDrQ=; b=RuqfT4S6797Nod
+	sh5TSrv7Zl2vqj7vuqWWSeiG1TJHvEYaIMu1bgHLXwTiGXoyl08fOHSzyXYE8KCF7LX0laG6/jqju
+	b+Y4L/RJJxN+t4BOWoL7XDfzJDWmEcR5JV4KbbpuykfuuUOM9qmFzKnEjrCT6mlrAllJjC1F3mU8I
+	8ucE8uaBChCpDtW2ImqJrNCEMqklGSKUN9lIP0oVgAlyQSaO4SnuL/L6GWoBOfwB8XAl/z4aZQsj7
+	Hg/el4PWLzyMmJjKfBV3Fg5rt4Oy/6L5vO9w+jdcBdwkhG+fKhFFnqC693aQ+bFihR7UD+qBndDUn
+	pYFaVf/mhQ5SjUcixNHQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1teyrJ-0000000Fw21-3Aq4;
-	Mon, 03 Feb 2025 15:59:37 +0000
-Received: from mail-pl1-x630.google.com ([2607:f8b0:4864:20::630])
+	id 1teyur-0000000Fwk7-0XrU;
+	Mon, 03 Feb 2025 16:03:17 +0000
+Received: from mail-il1-x135.google.com ([2607:f8b0:4864:20::135])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1teyrG-0000000Fw12-1TYa
+	id 1teytW-0000000FwYQ-0IUc
 	for linux-riscv@lists.infradead.org;
-	Mon, 03 Feb 2025 15:59:35 +0000
-Received: by mail-pl1-x630.google.com with SMTP id d9443c01a7336-21654fdd5daso78983555ad.1
-        for <linux-riscv@lists.infradead.org>; Mon, 03 Feb 2025 07:59:33 -0800 (PST)
+	Mon, 03 Feb 2025 16:01:55 +0000
+Received: by mail-il1-x135.google.com with SMTP id e9e14a558f8ab-3ce7c4115e8so17769805ab.1
+        for <linux-riscv@lists.infradead.org>; Mon, 03 Feb 2025 08:01:53 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=dabbelt-com.20230601.gappssmtp.com; s=20230601; t=1738598373; x=1739203173; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:to:from:cc
-         :in-reply-to:subject:date:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=f5WM9ndKvA26UIZeHIPCkUlE9Zv9sxLm8VjPdFITu6k=;
-        b=OEw2yD3D4cuxUSAQ7ouIIxgSd0iZv9E0ZthpW0feuU5MwfHkC4TqPkJxutx2dPsppX
-         dBLDPHypKNmEfQkRNp5fgmrVslet+4HK1uyufe4I391L3Epnv92AchVYOAYDYnxqGTvG
-         puc15SCuSHtoBP5yVpYhC6Qe8fu+jjQLcBdbIrV+XJWrl6NVD1hync0cfn4sP8/wWbl2
-         NokLOzm86e2Jj43wa9/a+B7VOPUYGuzQIPDvK2PZLes2o7MJUu4NWKB/wAUZ+i5/S88a
-         2MHHphOhGM0UkSrAp5zRfOQtv9idqY/y/0V0aGV0AnjDwu4CwqDrNfZit0UyCE49YVoD
-         aAZw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1738598373; x=1739203173;
-        h=content-transfer-encoding:mime-version:message-id:to:from:cc
-         :in-reply-to:subject:date:x-gm-message-state:from:to:cc:subject:date
+        d=brainfault-org.20230601.gappssmtp.com; s=20230601; t=1738598512; x=1739203312; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=f5WM9ndKvA26UIZeHIPCkUlE9Zv9sxLm8VjPdFITu6k=;
-        b=cCFzUNHqTNGihZ0ExHwc4UDXMPypSEEj2bW9CNFBL2okeD0sJJKGm1zqiAqXGaoFh1
-         OOFBfF/GQazRx9eRIpchvT4c7H1+ACGdnIdXBR+yiVimo3Nz67uFf/WBSgoDTqUSnCpl
-         /zjf9wCynFnEsa+t61b/RsmYX9L+6p/iS5/4aPgOfBBEhF62ayPR31AvJOZmyq2LLC9T
-         a/E5cN7SZQGgU1n3JCB691mF+lhDUNuI68gfGfSLBI+cWR8a+CJje9MdugHDLcb9T3yq
-         p348s0mibWGryS4wMY7wN/CAJUbp7RHidpJtYsNhkv/XMdhi9dY4SiEDWGLdAGrhK6w7
-         l/nA==
-X-Forwarded-Encrypted: i=1; AJvYcCWQEPspdnh9pQ4l2eAvuRg1VOnbiGcgRbxaa8xtGxg24kHCaLhbtmrpufeAcuFNoxky7EeeHJU1gtU8OA==@lists.infradead.org
-X-Gm-Message-State: AOJu0YzkFMfLaBPHKO9umE977ulgJJllf4WuAmKlFvlkGNHaD6ZnRALY
-	MSlNxnmiLigr/GN8x4WNgy0tSICCiXKn/g4MO1ipydWBzVlBmh4ismVZBu0K4r8=
-X-Gm-Gg: ASbGncvXDStyftrvOtEyudD15Ac1c93zuhhDKFESGb2yOAacofSJ/kf2fLy2NQJ7CRB
-	l2kY/I7aZgbO9LXF9sr6AfVppIaDwybbfS+LSkaXUsd2wg6FCDdKH/3OKpaEmCEVIlS1+D8KN/i
-	6IcHB4KgUhBwIVVYHGJCK+gEaXbBqJ68np0t/ytClPsYIO817/kiDAIdfTNqhkpgWlUZ/9mbW4D
-	2603y9yODsI0RphLHSMxsrb2DWJ/dI2tofoUAnxITowWeZDqZ1HnUJUCEbhRtMmnb5Ax+0MYKVZ
-	U0+hoNNX
-X-Google-Smtp-Source: AGHT+IEvrjfNkAkF5z8tTOHc/531hwMvQ6V42TC/2Zg2DMiMr0heP/1FCPKQPrgN+EdObeq8c1tilw==
-X-Received: by 2002:a17:902:d492:b0:216:6f1a:1c81 with SMTP id d9443c01a7336-21dd7c35597mr341125995ad.2.1738598372667;
-        Mon, 03 Feb 2025 07:59:32 -0800 (PST)
-Received: from localhost ([50.145.13.30])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-acec0a65716sm6799959a12.68.2025.02.03.07.59.31
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 03 Feb 2025 07:59:31 -0800 (PST)
-Date: Mon, 03 Feb 2025 07:59:31 -0800 (PST)
-X-Google-Original-Date: Sun, 19 Jan 2025 13:37:48 PST (-0800)
-Subject: Re: [External] Re: [PATCH] riscv: add a warning when physical memory address overflows
-In-Reply-To: <87fromgalp.fsf@bytedance.com>
-CC: alex@ghiti.fr, punit.agrawal@bytedance.com,
-  Paul Walmsley <paul.walmsley@sifive.com>, aou@eecs.berkeley.edu, alexghiti@rivosinc.com, chenjiahao16@huawei.com,
-  guoren@kernel.org, vishal.moola@gmail.com, stuart.menefy@codasip.com,
-  linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, cuiyunhui@bytedance.com
-From: Palmer Dabbelt <palmer@dabbelt.com>
-To: punit.agrawal@bytedance.com
-Message-ID: <mhng-0cc06470-8584-474e-9fe0-dc6731fdef44@palmer-ri-x1c9a>
-Mime-Version: 1.0 (MHng)
+        bh=GRCaqWuU09U3T2jXMnWL1ADrKkzTr/bvXQmYgmOjVmE=;
+        b=yAm5Rux0BO27sISDHE+aVuj/c+PKjSxAC1e4ch2vzRHZun/4Gtb8zjglNKp1fyNu0X
+         k7KmcZ4nnDRj4UMiGQ510/PHYigtOl3tgTcrNIfsz1WYFi6f9WIHr43YUHrSZ75yS2a7
+         VElJIhfdCjupMKL+QYWWSEUj/7YZVpbNQafpW778fNewbhheN/CgBeud8tvPI2vY8o3N
+         FhlNZJ/9EwJUiOHl3h+TXEO2SpjOd6/8hNfM5xdVNnR6NLuw+z5TXCSPG2FmK9Pb/dx4
+         GASK8K9efzAlxvF8s9n514Y2huGTXAkC1DgNwm1M6Whr3nWOXoxaRBsqweyRUi6SrEgF
+         tffw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1738598512; x=1739203312;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=GRCaqWuU09U3T2jXMnWL1ADrKkzTr/bvXQmYgmOjVmE=;
+        b=FG6h/oISLvPhCXxtws1KS7FuQFNvdXvdtlXwR7ZWmFnZ6zpM/YyA/5DJ3TxxMahGnd
+         8EVNV3FnLF8DKhPwPfkU08qetupoc+EZGsiFsuB6D8HI6uZ/u4tJYAP/YeTBfEjE5lfj
+         PmilheQ9r2/BpLZ0NBbkWj3MH9NAXcfHbade8DbNbEhQ61EkSa5ktycxxI0UlKUcUVHy
+         DKEkgKdOkSl5geJy76WMW2HYYbIbUEY/OK4wulum3Ww/Q/J/jfDo7lL6IcocwM6GL5rY
+         PhHUlkQiCsfYpspIArLvydV+Za1af55NV7461SLioAFH7ndTiqIdSAwxLFEopRU59ufh
+         fosA==
+X-Forwarded-Encrypted: i=1; AJvYcCUCBaL90RpslX2cDEGmZq/UlRODKAf+3rhmR44ABZfM8uxEqcflQ6V5P/yfYUHS5R6yMY6BKhkU+vsNdQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0YxDuAPfgSkqW8uCGO4f2Oo45XwRhZJLSGzfi7WyqyNOWaVjY0OF
+	oEo7MlNxNmdhaiG5fuI/kwrsCKLg12cCaqmapsTTAY2qOn7HMqxpwtEOe+RXgI/q+YApoTXEF+A
+	XmPm4ySiX1AUc5JFTYDm6QFSnaa9Fgk93k6IaQQ==
+X-Gm-Gg: ASbGnctJRzg/Hfp6IReSGRb43rCk2ApvDGO5Njnf69OvxeMuU9MnPQOFbhWKDLVDvI5
+	FOiAXrc+YPhvRQVGLyJDzXF7hn41fvOaXdkaZbZcmutZmzltcTo92KhGgRVhSLsSExj07XdBvtQ
+	==
+X-Google-Smtp-Source: AGHT+IGh48EGwTYFSKrKDNbwh6iM4EsoVfBSxF4gz8U4VFmSmI9atHaxKvm8zrK7zrd+YcMu62K8X5RTMCsgFSldYNE=
+X-Received: by 2002:a05:6e02:1809:b0:3cf:c7bc:4523 with SMTP id
+ e9e14a558f8ab-3d008eec85emr149079765ab.6.1738598512548; Mon, 03 Feb 2025
+ 08:01:52 -0800 (PST)
+MIME-Version: 1.0
+References: <20241214172549.8842-1-apatel@ventanamicro.com> <87tt9bnmcz.ffs@tglx>
+In-Reply-To: <87tt9bnmcz.ffs@tglx>
+From: Anup Patel <anup@brainfault.org>
+Date: Mon, 3 Feb 2025 21:31:41 +0530
+X-Gm-Features: AWEUYZlO5PZddtosW3YVPDmyhEnZw9_BooCQby6hNDlavzyqwz_yNvI7qNklqJg
+Message-ID: <CAAhSdy26zZNOfD8CW_MaYq0PrZCVef6gqD7b=D1KWNZpcqYjrA@mail.gmail.com>
+Subject: Re: [PATCH v2 00/11] RISC-V IMSIC driver improvements
+To: Thomas Gleixner <tglx@linutronix.de>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250203_075934_547693_0DD0D3F1 
-X-CRM114-Status: GOOD (  21.91  )
+X-CRM114-CacheID: sfid-20250203_080154_102176_C8C7CE97 
+X-CRM114-Status: UNSURE (   9.70  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,81 +88,21 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
+Cc: Anup Patel <apatel@ventanamicro.com>, Andrew Lunn <andrew@lunn.ch>, imx@lists.linux.dev, Marc Zyngier <maz@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, Atish Patra <atishp@atishpatra.org>, linux-kernel@vger.kernel.org, Palmer Dabbelt <palmer@dabbelt.com>, Pengutronix Kernel Team <kernel@pengutronix.de>, Paul Walmsley <paul.walmsley@sifive.com>, linux-riscv@lists.infradead.org, Andrew Jones <ajones@ventanamicro.com>, Shawn Guo <shawnguo@kernel.org>, Gregory Clement <gregory.clement@bootlin.com>, linux-arm-kernel@lists.infradead.org, Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, 23 Oct 2024 07:25:22 PDT (-0700), punit.agrawal@bytedance.com wrote:
-> Hi Palmer,
->
-> [...]
->
->>> On 14/08/2024 08:26, Yunhui Cui wrote:
->>> > The part of physical memory that exceeds the size of the linear mapping
->>> > will be discarded. When the system starts up normally, a warning message
->>> > will be printed to prevent confusion caused by the mismatch between the
->>> > system memory and the actual physical memory.
->>> >
->>> > Signed-off-by: Yunhui Cui <cuiyunhui@bytedance.com>
->>> > ---
->>> >   arch/riscv/mm/init.c | 8 ++++++--
->>> >   1 file changed, 6 insertions(+), 2 deletions(-)
->>> >
->>> > diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
->>> > index 52290c9bd04bd..c93164dc51658 100644
->>> > --- a/arch/riscv/mm/init.c
->>> > +++ b/arch/riscv/mm/init.c
->>> > @@ -236,8 +236,12 @@ static void __init setup_bootmem(void)
->>> >        */
->>> >       if (IS_ENABLED(CONFIG_64BIT)) {
->>> >               max_mapped_addr = __pa(PAGE_OFFSET) + KERN_VIRT_SIZE;
->>> > -             memblock_cap_memory_range(phys_ram_base,
->>> > -                                       max_mapped_addr - phys_ram_base);
->>> > +             if (memblock_end_of_DRAM() > max_mapped_addr) {
->>> > +                     memblock_cap_memory_range(phys_ram_base,
->>> > +                                               max_mapped_addr - phys_ram_base);
->>> > +                     pr_warn("Physical memory overflows the linear mapping size: region above 0x%llx removed",
->>> > +                             max_mapped_addr);
->>> > +             }
->>> >       }
->>> >
->>> >
->>>
->>>
->>> A bit weird to review and test my own patch, but here it is anyway :)
->>>
->>> Reviewed-by: Alexandre Ghiti <alexghiti@rivosinc.com>
->>>
->>> Tested-by: Alexandre Ghiti <alexghiti@rivosinc.com>
->
-> Looks like the patch has been ready for a while now. If there are no
-> further problems, can it be merged please?
-
-It didn't build, I squashed in a 
-
-diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
-index 8f8b76aaf99a..9641e4ad387f 100644
---- a/arch/riscv/mm/init.c
-+++ b/arch/riscv/mm/init.c
-@@ -259,8 +259,8 @@ static void __init setup_bootmem(void)
- 		if (memblock_end_of_DRAM() > max_mapped_addr) {
- 			memblock_cap_memory_range(phys_ram_base,
- 						  max_mapped_addr - phys_ram_base);
--			pr_warn("Physical memory overflows the linear mapping size: region above 0x%llx removed",
--				max_mapped_addr);
-+			pr_warn("Physical memory overflows the linear mapping size: region above %pa removed",
-+				&max_mapped_addr);
- 		}
- 	}
-
-to fix it.
-
-
->
-> [...]
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gTW9uLCBGZWIgMywgMjAyNSBhdCA3OjQ34oCvUE0gVGhvbWFzIEdsZWl4bmVyIDx0Z2x4QGxp
+bnV0cm9uaXguZGU+IHdyb3RlOgo+Cj4gQW51cCEKPgo+IE9uIFNhdCwgRGVjIDE0IDIwMjQgYXQg
+MjI6NTUsIEFudXAgUGF0ZWwgd3JvdGU6Cj4gPiBUaGlzIHNlcmllcyBpcyBiYXNlZCBvbiByZWNl
+bnQgZGlzY3Vzc2lvbiBvbiBMS01MOgo+ID4gaHR0cHM6Ly9sb3JlLmtlcm5lbC5vcmcvbGttbC8y
+MDI0MTExNDE2MTg0NS41MDIwMjctMTgtYWpvbmVzQHZlbnRhbmFtaWNyby5jb20vCj4gPgo+ID4g
+SXQgcHJpbWFyaWx5IGZvY3VzZXMgb24gbW92aW5nIHRvIFJJU0MtViBJTVNJQyBkcml2ZXIgdXNl
+IGNvbW1vbiBNU0kKPiA+IGxpYiBhbmQgR0VORVJJQ19QRU5ESU5HX0lSUS4KPgo+IENhbiB5b3Ug
+cGxlYXNlIHJlc3BpbiB0aGlzIHNlcmllcyBvbiB0b3Agb2YgcmMxPwoKU3VyZSwgSSB3aWxsIHJl
+YmFzZSBhbmQgc2VuZCB2MyB0b21vcnJvdy4KClRoYW5rcywKQW51cAoKX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0
+CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5v
+cmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
