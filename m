@@ -4,70 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8CC9FC02196
-	for <linux-riscv@archiver.kernel.org>; Mon,  3 Feb 2025 10:00:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CAE06C02192
+	for <linux-riscv@archiver.kernel.org>; Mon,  3 Feb 2025 10:00:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=HCyDXLF/5ZMHGXzXi1Q9kZywrq2D5WjrQkWt6wE+xB4=; b=BbJ3VLfWoEVthC
-	KkHkx+f7U0JHeTVKFULPJsGT30B90ljD4pfXcRuoK06KE6riPOEc9+HC3N32Fn2LsB0uPVezcKiSG
-	igdETqoJWCYodEQbDmwfcqQSFlkGSqWBKImp9iYNxJPxpkvCScahqLCOLUU/LKbVikwaaCGhBe6Z7
-	gak6bE6IeNJMl9otdxwl4B+3K/RPxKAjzc/UuvHWHoe2qNCEX3lqMwa2MH/3zQ4jNZ68+tClqnB45
-	ccWytZgaTGO95P8GqX7zck7ZW3796sC2tlByrqnVTHatTNObXLkhuNKWRVdUr0flAWCkFJ2AFAXBg
-	L9AOanl6a4ZxLHJep+xw==;
+	List-Owner; bh=GMYHaXjhzrGJKYb1NmhwfbCYsj3esRQv3P3hbInzoKw=; b=qFDElwmTTNQbXq
+	94s/nFSOlYQN8Dm9zfIGm25bjHzZIJ23fhRbwNEhjWd7b6greN8GT68OYk7cbJ25rNXF/05FQR8ht
+	abKQFpW5cO/7+84cA99h4QEKOhMyBt2z29zEAE8qeHXAE5ZZ8GqCR9u/2CDSCu8ELnxE7RQIKgAl0
+	Cz+weAsefDJX7Begvmjw0WfyNktm0hpL/eSEd5Y8jxgFeUqz7zE8VR3/7ENZXEvuASB1pDCa4XE66
+	kBXD27LD/zXZ0/yMww4lg2yHGuVEZZJAWYzcjll0jFI0loXDA61r7Qdp7Oe8m9XpXIx0zajGewlAy
+	Z0GuWxH2WhdHVWGStyBg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tetG4-0000000F3vE-49ph;
-	Mon, 03 Feb 2025 10:00:49 +0000
-Received: from mail-qt1-x829.google.com ([2607:f8b0:4864:20::829])
+	id 1tetG6-0000000F3wm-3258;
+	Mon, 03 Feb 2025 10:00:50 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tesAk-0000000EuPL-3m0L
+	id 1tesB2-0000000EuVM-2C4N
+	for linux-riscv@bombadil.infradead.org;
+	Mon, 03 Feb 2025 08:51:32 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=xvjolPh9gzwNtAL7PAOP6t0zOgR6ztGKXQcTpBeekWw=; b=OzBIqei0W1zKZz6bnaTuB3fzz2
+	6TyF6+AVWzMZF6T/1sXAFtaBPCVbHdKUpY/15nyP6BpUYnGxJOBq7e4eD+UffQD5bGwlgYI7IcHW2
+	ce1C83UG1PbWh/0e/Mstkmfl7hSkafHsAEhQPQeloDevamyOjhxv8tKHTcqUxq5IGK+oI09EXTR6e
+	lyCkTQtA1bAAYJ5hnCqNlJbb23+WgZ/2JMElnVsJ2wbyzkEC8MkKtZ7AkkMicCj57cWoMWdJ/XwC9
+	0BpPIKsRv2P2TXOtiyjsJP+Pd3sBU8plZM3fTLJOkjv4MecOZ/ktzkBvr+0dAElBAyLt/yHFtmhaZ
+	TxDKffEw==;
+Received: from mail-qt1-x82e.google.com ([2607:f8b0:4864:20::82e])
+	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tesAy-0000000G0wy-3gMn
 	for linux-riscv@lists.infradead.org;
-	Mon, 03 Feb 2025 08:51:16 +0000
-Received: by mail-qt1-x829.google.com with SMTP id d75a77b69052e-46788c32a69so54865671cf.2
-        for <linux-riscv@lists.infradead.org>; Mon, 03 Feb 2025 00:51:14 -0800 (PST)
+	Mon, 03 Feb 2025 08:51:31 +0000
+Received: by mail-qt1-x82e.google.com with SMTP id d75a77b69052e-4679eacf25cso26960811cf.3
+        for <linux-riscv@lists.infradead.org>; Mon, 03 Feb 2025 00:51:26 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1738572674; x=1739177474; darn=lists.infradead.org;
+        d=ventanamicro.com; s=google; t=1738572685; x=1739177485; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=mNMswL89rPnF+U4OZQa/pIwmxpLPHsuGFLy4htGB7c0=;
-        b=SUaRt5NVx7/EH9XEDLK5yzTXLHa9lHRiGbBauKKBElT78KzaXepFjZzbsUTBu+yWoG
-         7Yv29/di5b3Uqofp8A31eTBriwUPt8/h5wqP6cEmRePYDYAUc/k0efkSN+8Cyhhxwexs
-         6xSK0qCf35IU+teOYewY99veAWedKx5f/2AiJ8swopGrWhVnuz3c54U0p39Ho+JzCP3Y
-         mBMssECpOrWC9bbUBwZ5mYNAnPDYmmc8yrn/L8diCkw8c3Y5WqmZco33g3pKoD+CF99Y
-         He+fKooAfo2Rd2ESu0wPKUPWevW5FbFcyeoY4m2M/tjN2OnpSUj91zhIoU/pBhdwikDY
-         AqGg==
+        bh=xvjolPh9gzwNtAL7PAOP6t0zOgR6ztGKXQcTpBeekWw=;
+        b=cJjkD0evz2yEuf90xPl7WjYKgeRvo8wBaxOgfZ0IUOvV3EIY0OYHuHq9c0UFQvDzFc
+         AJ/CHKgYlrdv4ZG9vNlyS+uNB2xkLV5tHwWvZUraZgTpmF3GI2Gu86eLlqWiT3CtJMQ4
+         k86dI8ygVwxxgkfEozRBlGRjBCcz/mufrwrl7M976Vv81SX7r9VtFHzyJcDW+4mHsXCI
+         A0YzfKKNjiEGxhZuycvAsz0BDwzw3P5dHuELyhfzIP+mLYfccgK23djL67kGlGBkHrWg
+         uwUYJBQJX8gW7vwSFz7JyMAcHM9IcCtK+nDAQYqkvw2MXey+E8WM6QOjmeUKwoSEfMev
+         e7dw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1738572674; x=1739177474;
+        d=1e100.net; s=20230601; t=1738572685; x=1739177485;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=mNMswL89rPnF+U4OZQa/pIwmxpLPHsuGFLy4htGB7c0=;
-        b=FrgwyWLvXNunBokNAJWnHCJAvKirJeYyUslsElWvo+dm6RWrigBi2qUwtdtAF7VfRR
-         Y1iSD4/zQwI9oRH2pd/v0HwtFPVK2jJcOSxDh2YAgXC40yTf7xGWphnZ55UNJsmXL4gu
-         Q/mKkus3/R85E4AoQllFPc93mWk1TKAuwRmnIMOF4RTN6S62eIvHbFGgyDtUqPJ10TH0
-         el5eBcQkncRA14X3ISFDqNg1NxUFNZs4do25PC9oxQRkjDgVr1W+EVLXnYoOJhdnR87d
-         kbau9SDXyP6705VsCHxcxow954LZ3nqsLjFs6d8XMQ/F6299i5VWpnMmtgC6vH1hb2Dp
-         ruvA==
-X-Forwarded-Encrypted: i=1; AJvYcCWHwRGCP8oEvs6bbLuKaRReUQ/Q40/ALUFZ6Et55mRoWkco2jt1Haz58zAqc9+yAAgM6ljA/2o7d4T2iA==@lists.infradead.org
-X-Gm-Message-State: AOJu0YwYCb5ryHXNQsz1mMUHhvjwpFqBsZv0N/mOqarDrIKCyVr3pcvn
-	DX61GHBHaLrrx8lnRMAl8iW7BRgtdPSFd0NGswPhtUeEivtzo2HDEmb5cIZ8IDw=
-X-Gm-Gg: ASbGncunLcyzK+lzF2S8zYfeSK5t4qPR1V/e5e9CtNv/Qnsb9fr5tVX0fkyJJdZpaUV
-	WPFtQ2F6guebQMbb/vSJttm2HwrkEimuRglFcz4MSCm1uew6pMbA5czs+LptDC/hIk1xaTbjFEN
-	zfjEx5KtfcWCTpQTMy0BoicZQXGNLe7+XVdjsgk8BNkqLTv23PdF6Af5jj96VSAhqU9HfWRb8B+
-	uO2zlxmW7OG1DSmfeh3WD5jpe7xyQzcFCGhpuw5cc8hdN/nEG72JbbGll0/PfLOY/5nL9Z9WHBD
-	VXgI8feaqaQ05GOt+6pb32WwqMz5fd+RfNCdpIQjYrtwfVBOPypC29Y=
-X-Google-Smtp-Source: AGHT+IH1kXWH/83kat5jYFyTGDIX1wmSy54yG8iehUZRbgobiZDmLjsQ5r1/uyiJd9l4c4LLIWggzQ==
-X-Received: by 2002:a05:622a:1c16:b0:45f:788:b1ad with SMTP id d75a77b69052e-46fd0ace3f5mr351238861cf.27.1738572673453;
-        Mon, 03 Feb 2025 00:51:13 -0800 (PST)
+        bh=xvjolPh9gzwNtAL7PAOP6t0zOgR6ztGKXQcTpBeekWw=;
+        b=jKK6o19WkiHxLV2TrRJ8tewLEUVhTekz39hFkXOgJI2KCNJqIsQ2dfcl2EYpaxNpj6
+         NT0w3mdNHoY5cuhJRAW8D6dPqBf7m99HtliymswX3roUU9vdPvPfdT8cGzQ3otprNxYp
+         aRy8LNIthtmB4ziMqV2ynNtEq2jJ/B0tsJpHSl4efWUQfh83U/NIitu5QIqw0eqHZxkJ
+         XVaby5yyLIhn2qvYfuaf09+5+fBTp04RcVocTJiEsP56NhTp6pjT6N+Z1z3xjjcD/BL7
+         c7Pzm0s3IrB//25LO8S43SaiAIDK6i6atPnJEnWFQ4P8S36ov3VBKsVp5OA2FsvQiCAh
+         kDrg==
+X-Forwarded-Encrypted: i=1; AJvYcCVTNZA+rTomYrhro4Vht2xK799kU7kS8WlBPTT4o6VS7PoVEjPCCUjmXJKiXU4GihZf1Y3Trg+iEkB4XA==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxs7Gu/7lOVTxsjKADp2MAgYheANjA4FZ396FJyqd9YfNWr5XIY
+	IPMqsO/gq/GXkL0yPjz3Ip9+52LNEhTLB8N1oqrC2FgQI6TbFLdjhWX92g7wfhY=
+X-Gm-Gg: ASbGncuNB50xbKjscwKl2/2YY2lIpa03yfmINL0tjMkX2w+tqh+5w5BxpP0lZ5SgXON
+	JYhC1xp020lm/ebYlU2NPF9XWdiGq1FzgSbKg3VScXnzC8/gZS18PV/AEsO+4ImBtm7AEEyIKho
+	kuuXn/ezu2jcKK4KlV/0gUoGOQ5WQuXE6Aif9JrPlOp12XMepkJSkfdXhrzeEytIw/o+HAuwn97
+	h7OYpemzc9ftaRIFbjf65T4YMVyY/vZn2wlljb42b+XECW8rZ47fRt91DUQywUhI1VCNuaTDxHq
+	HMIio/TY4/cvs6CJO2EACd3XeXWdOa3WlNeSctX2VFC8THhoyza4lK0=
+X-Google-Smtp-Source: AGHT+IFPm/vGjoafGFVBb0pWO9IDvnrcujPXX6jDysAgsWknrhSPZ6VlgmiZ8V/8drmHUDea6Xx6YA==
+X-Received: by 2002:ac8:59d0:0:b0:467:76cc:622d with SMTP id d75a77b69052e-46fd0a13014mr330274181cf.11.1738572685403;
+        Mon, 03 Feb 2025 00:51:25 -0800 (PST)
 Received: from anup-ubuntu-vm.localdomain ([103.97.166.196])
-        by smtp.gmail.com with ESMTPSA id d75a77b69052e-46fdf0e3089sm47657911cf.46.2025.02.03.00.51.01
+        by smtp.gmail.com with ESMTPSA id d75a77b69052e-46fdf0e3089sm47657911cf.46.2025.02.03.00.51.14
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 03 Feb 2025 00:51:12 -0800 (PST)
+        Mon, 03 Feb 2025 00:51:24 -0800 (PST)
 From: Anup Patel <apatel@ventanamicro.com>
 To: Michael Turquette <mturquette@baylibre.com>,
 	Stephen Boyd <sboyd@kernel.org>,
@@ -82,16 +97,16 @@ To: Michael Turquette <mturquette@baylibre.com>,
 	Linus Walleij <linus.walleij@linaro.org>,
 	Bartosz Golaszewski <brgl@bgdev.pl>,
 	=?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <ukleinek@kernel.org>
-Subject: [RFC PATCH v2 09/17] clk: Add clock driver for the RISC-V RPMI clock service group
-Date: Mon,  3 Feb 2025 14:18:58 +0530
-Message-ID: <20250203084906.681418-10-apatel@ventanamicro.com>
+Subject: [RFC PATCH v2 10/17] dt-bindings: interrupt-controller: Add bindings for RISC-V RPMI system MSI
+Date: Mon,  3 Feb 2025 14:18:59 +0530
+Message-ID: <20250203084906.681418-11-apatel@ventanamicro.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20250203084906.681418-1-apatel@ventanamicro.com>
 References: <20250203084906.681418-1-apatel@ventanamicro.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250203_005114_950286_D4CD8DF0 
-X-CRM114-Status: GOOD (  23.43  )
+X-CRM114-CacheID: sfid-20250203_085129_133189_0AA244AC 
+X-CRM114-Status: GOOD (  14.76  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,690 +124,111 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Rahul Pathak <rpathak@ventanamicro.com>
+Add device tree bindings for the system MSI service group based interrupt
+controller defined by the RISC-V platform management interface (RPMI)
+specification.
 
-The RPMI specification defines a clock service group which can be
-accessed via SBI MPXY extension or dedicated S-mode RPMI transport.
-
-Add mailbox client based clock driver for the RISC-V RPMI clock
-service group.
-
-Co-developed-by: Anup Patel <apatel@ventanamicro.com>
 Signed-off-by: Anup Patel <apatel@ventanamicro.com>
-Signed-off-by: Rahul Pathak <rpathak@ventanamicro.com>
 ---
- drivers/clk/Kconfig                        |   8 +
- drivers/clk/Makefile                       |   1 +
- drivers/clk/clk-rpmi.c                     | 601 +++++++++++++++++++++
- include/linux/mailbox/riscv-rpmi-message.h |  16 +
- 4 files changed, 626 insertions(+)
- create mode 100644 drivers/clk/clk-rpmi.c
+ .../riscv,rpmi-system-msi.yaml                | 89 +++++++++++++++++++
+ 1 file changed, 89 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/interrupt-controller/riscv,rpmi-system-msi.yaml
 
-diff --git a/drivers/clk/Kconfig b/drivers/clk/Kconfig
-index 713573b6c86c..d89308c7f75c 100644
---- a/drivers/clk/Kconfig
-+++ b/drivers/clk/Kconfig
-@@ -493,6 +493,14 @@ config COMMON_CLK_SP7021
- 	  Not all features of the PLL are currently supported
- 	  by the driver.
- 
-+config COMMON_CLK_RPMI
-+	tristate "Clock driver based on RISC-V RPMI"
-+	depends on MAILBOX
-+	default RISCV
-+	help
-+	  Support for clocks based on the clock service group defined by
-+	  the RISC-V platform management interface (RPMI) specification.
-+
- source "drivers/clk/actions/Kconfig"
- source "drivers/clk/analogbits/Kconfig"
- source "drivers/clk/baikal-t1/Kconfig"
-diff --git a/drivers/clk/Makefile b/drivers/clk/Makefile
-index bf4bd45adc3a..b8588ab789c3 100644
---- a/drivers/clk/Makefile
-+++ b/drivers/clk/Makefile
-@@ -84,6 +84,7 @@ obj-$(CONFIG_CLK_LS1028A_PLLDIG)	+= clk-plldig.o
- obj-$(CONFIG_COMMON_CLK_PWM)		+= clk-pwm.o
- obj-$(CONFIG_CLK_QORIQ)			+= clk-qoriq.o
- obj-$(CONFIG_COMMON_CLK_RK808)		+= clk-rk808.o
-+obj-$(CONFIG_COMMON_CLK_RPMI)		+= clk-rpmi.o
- obj-$(CONFIG_COMMON_CLK_HI655X)		+= clk-hi655x.o
- obj-$(CONFIG_COMMON_CLK_S2MPS11)	+= clk-s2mps11.o
- obj-$(CONFIG_COMMON_CLK_SCMI)           += clk-scmi.o
-diff --git a/drivers/clk/clk-rpmi.c b/drivers/clk/clk-rpmi.c
+diff --git a/Documentation/devicetree/bindings/interrupt-controller/riscv,rpmi-system-msi.yaml b/Documentation/devicetree/bindings/interrupt-controller/riscv,rpmi-system-msi.yaml
 new file mode 100644
-index 000000000000..dcd6da00603b
+index 000000000000..e6c297e66c99
 --- /dev/null
-+++ b/drivers/clk/clk-rpmi.c
-@@ -0,0 +1,601 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/*
-+ * RISC-V MPXY Based Clock Driver
-+ *
-+ * Copyright (C) 2024 Ventana Micro Systems Ltd.
-+ */
-+
-+#include <linux/clk-provider.h>
-+#include <linux/err.h>
-+#include <linux/mailbox_client.h>
-+#include <linux/module.h>
-+#include <linux/platform_device.h>
-+#include <linux/mailbox/riscv-rpmi-message.h>
-+
-+#define RPMI_CLK_DISCRETE_MAX_NUM_RATES		16
-+#define RPMI_CLK_NAME_LEN			16
-+
-+#define GET_RATE_U64(hi_u32, lo_u32)	((u64)(hi_u32) << 32 | (lo_u32))
-+
-+enum rpmi_clk_config {
-+	RPMI_CLK_DISABLE = 0,
-+	RPMI_CLK_ENABLE = 1,
-+};
-+
-+enum rpmi_clk_type {
-+	RPMI_CLK_DISCRETE = 0,
-+	RPMI_CLK_LINEAR = 1,
-+	RPMI_CLK_TYPE_MAX_IDX,
-+};
-+
-+struct rpmi_clk_context {
-+	struct device *dev;
-+	struct mbox_chan *chan;
-+	struct mbox_client client;
-+	u32 max_msg_data_size;
-+};
-+
-+union rpmi_clk_rates {
-+	u64 discrete[RPMI_CLK_DISCRETE_MAX_NUM_RATES];
-+	struct {
-+		u64 min;
-+		u64 max;
-+		u64 step;
-+	} linear;
-+};
-+
-+struct rpmi_clk {
-+	struct rpmi_clk_context *context;
-+	u32 id;
-+	u32 num_rates;
-+	u32 transition_latency;
-+	enum rpmi_clk_type type;
-+	union rpmi_clk_rates *rates;
-+	char name[RPMI_CLK_NAME_LEN];
-+	struct clk_hw hw;
-+};
-+
-+#define to_rpmi_clk(clk)	container_of(clk, struct rpmi_clk, hw)
-+
-+struct rpmi_get_num_clocks_rx {
-+	s32 status;
-+	u32 num_clocks;
-+};
-+
-+struct rpmi_get_attrs_tx {
-+	__le32 clkid;
-+};
-+
-+struct rpmi_get_attrs_rx {
-+	s32 status;
-+	u32 flags;
-+	u32 num_rates;
-+	u32 transition_latency;
-+	char name[RPMI_CLK_NAME_LEN];
-+};
-+
-+struct rpmi_get_supp_rates_tx {
-+	__le32 clkid;
-+	__le32 clk_rate_idx;
-+};
-+
-+struct rpmi_clk_rate_discrete {
-+	u32 lo;
-+	u32 hi;
-+};
-+
-+struct rpmi_clk_rate_linear {
-+	u32 min_lo;
-+	u32 min_hi;
-+	u32 max_lo;
-+	u32 max_hi;
-+	u32 step_lo;
-+	u32 step_hi;
-+};
-+
-+struct rpmi_get_supp_rates_rx {
-+	u32 status;
-+	u32 flags;
-+	u32 remaining;
-+	u32 returned;
-+	u32 rates[];
-+};
-+
-+struct rpmi_get_rate_tx {
-+	__le32 clkid;
-+};
-+
-+struct rpmi_get_rate_rx {
-+	u32 status;
-+	u32 lo;
-+	u32 hi;
-+};
-+
-+struct rpmi_set_rate_tx {
-+	__le32 clkid;
-+	__le32 flags;
-+	__le32 lo;
-+	__le32 hi;
-+};
-+
-+struct rpmi_set_rate_rx {
-+	u32 status;
-+};
-+
-+struct rpmi_set_config_tx {
-+	__le32 clkid;
-+	__le32 config;
-+};
-+
-+struct rpmi_set_config_rx {
-+	u32 status;
-+};
-+
-+static int rpmi_clk_get_num_clocks(struct rpmi_clk_context *context)
-+{
-+	struct rpmi_get_num_clocks_rx rx;
-+	struct rpmi_mbox_message msg;
-+	int ret;
-+
-+	rpmi_mbox_init_send_with_response(&msg, RPMI_CLK_SRV_GET_NUM_CLOCKS,
-+					  NULL, 0, &rx, sizeof(rx));
-+	ret = rpmi_mbox_send_message(context->chan, &msg);
-+	if (ret)
-+		return ret;
-+	if (rx.status)
-+		return rpmi_to_linux_error(rx.status);
-+
-+	return rx.num_clocks;
-+}
-+
-+static int rpmi_clk_get_attrs(u32 clkid, struct rpmi_clk *rpmi_clk)
-+{
-+	struct rpmi_clk_context *context = rpmi_clk->context;
-+	struct rpmi_mbox_message msg;
-+	struct rpmi_get_attrs_tx tx;
-+	struct rpmi_get_attrs_rx rx;
-+	u8 format;
-+	int ret;
-+
-+	tx.clkid = cpu_to_le32(clkid);
-+	rpmi_mbox_init_send_with_response(&msg, RPMI_CLK_SRV_GET_ATTRIBUTES,
-+					  &tx, sizeof(tx), &rx, sizeof(rx));
-+	ret = rpmi_mbox_send_message(context->chan, &msg);
-+	if (ret)
-+		return ret;
-+	if (rx.status)
-+		return rpmi_to_linux_error(rx.status);
-+
-+	rpmi_clk->id = clkid;
-+	rpmi_clk->num_rates = rx.num_rates;
-+	rpmi_clk->transition_latency = rx.transition_latency;
-+	strscpy(rpmi_clk->name, rx.name, RPMI_CLK_NAME_LEN);
-+
-+	format = rx.flags & 3U;
-+	if (format >= RPMI_CLK_TYPE_MAX_IDX)
-+		return -EINVAL;
-+
-+	rpmi_clk->type = format;
-+
-+	return 0;
-+}
-+
-+static int rpmi_clk_get_supported_rates(u32 clkid, struct rpmi_clk *rpmi_clk)
-+{
-+	struct rpmi_clk_context *context = rpmi_clk->context;
-+	struct rpmi_clk_rate_discrete *rate_discrete;
-+	struct rpmi_clk_rate_linear *rate_linear;
-+	struct rpmi_get_supp_rates_rx *rx;
-+	struct rpmi_get_supp_rates_tx tx;
-+	struct rpmi_mbox_message msg;
-+	size_t clk_rate_idx = 0;
-+	int ret, rateidx, j;
-+
-+	tx.clkid = cpu_to_le32(clkid);
-+	tx.clk_rate_idx = 0;
-+
-+	/*
-+	 * Make sure we allocate rx buffer sufficient to be accommodate all
-+	 * the rates sent in one RPMI message.
-+	 */
-+	rx = devm_kzalloc(context->dev, context->max_msg_data_size, GFP_KERNEL);
-+	if (!rx)
-+		return -ENOMEM;
-+
-+	rpmi_mbox_init_send_with_response(&msg, RPMI_CLK_SRV_GET_SUPPORTED_RATES,
-+					  &tx, sizeof(tx), rx, context->max_msg_data_size);
-+	ret = rpmi_mbox_send_message(context->chan, &msg);
-+	if (ret)
-+		return ret;
-+	if (rx->status)
-+		return rpmi_to_linux_error(rx->status);
-+	if (!rx->returned)
-+		return -EINVAL;
-+
-+	if (rpmi_clk->type == RPMI_CLK_DISCRETE) {
-+		rate_discrete = (struct rpmi_clk_rate_discrete *)rx->rates;
-+
-+		for (rateidx = 0; rateidx < rx->returned; rateidx++) {
-+			rpmi_clk->rates->discrete[rateidx] =
-+					GET_RATE_U64(rate_discrete[rateidx].hi,
-+						     rate_discrete[rateidx].lo);
-+		}
-+
-+		/*
-+		 * Keep sending the request message until all
-+		 * the rates are received.
-+		 */
-+		while (rx->remaining) {
-+			clk_rate_idx += rx->returned;
-+			tx.clk_rate_idx = cpu_to_le32(clk_rate_idx);
-+
-+			rpmi_mbox_init_send_with_response(&msg,
-+							  RPMI_CLK_SRV_GET_SUPPORTED_RATES,
-+							  &tx, sizeof(tx),
-+							  rx, context->max_msg_data_size);
-+			ret = rpmi_mbox_send_message(context->chan, &msg);
-+			if (ret)
-+				return ret;
-+			if (rx->status)
-+				return rpmi_to_linux_error(rx->status);
-+			if (!rx->returned)
-+				return -EINVAL;
-+
-+			for (j = 0; j < rx->returned; j++) {
-+				if (rateidx >= (clk_rate_idx + rx->returned))
-+					break;
-+				rpmi_clk->rates->discrete[rateidx++] =
-+					GET_RATE_U64(rate_discrete[j].hi,
-+						     rate_discrete[j].lo);
-+			}
-+		}
-+	} else if (rpmi_clk->type == RPMI_CLK_LINEAR) {
-+		rate_linear = (struct rpmi_clk_rate_linear *)rx->rates;
-+
-+		rpmi_clk->rates->linear.min =
-+				GET_RATE_U64(rate_linear->min_hi,
-+					     rate_linear->min_lo);
-+		rpmi_clk->rates->linear.max =
-+				GET_RATE_U64(rate_linear->max_hi,
-+					     rate_linear->max_lo);
-+		rpmi_clk->rates->linear.step =
-+				GET_RATE_U64(rate_linear->step_hi,
-+					     rate_linear->step_lo);
-+	}
-+
-+	devm_kfree(context->dev, rx);
-+	return 0;
-+}
-+
-+static unsigned long rpmi_clk_recalc_rate(struct clk_hw *hw,
-+					  unsigned long parent_rate)
-+{
-+	struct rpmi_clk *rpmi_clk = to_rpmi_clk(hw);
-+	struct rpmi_clk_context *context = rpmi_clk->context;
-+	struct rpmi_mbox_message msg;
-+	struct rpmi_get_rate_tx tx;
-+	struct rpmi_get_rate_rx rx;
-+	int ret;
-+
-+	tx.clkid = cpu_to_le32(rpmi_clk->id);
-+
-+	rpmi_mbox_init_send_with_response(&msg, RPMI_CLK_SRV_GET_RATE,
-+					  &tx, sizeof(tx), &rx, sizeof(rx));
-+	ret = rpmi_mbox_send_message(context->chan, &msg);
-+	if (ret)
-+		return ret;
-+	if (rx.status)
-+		return rx.status;
-+
-+	return GET_RATE_U64(rx.hi, rx.lo);
-+}
-+
-+static int rpmi_clk_determine_rate(struct clk_hw *hw,
-+				   struct clk_rate_request *req)
-+{
-+	struct rpmi_clk *rpmi_clk = to_rpmi_clk(hw);
-+	u64 fmin, fmax, ftmp;
-+
-+	/* Keep the requested rate if the clock format
-+	 * is of discrete type. Let the platform which
-+	 * is actually controlling the clock handle that.
-+	 */
-+	if (rpmi_clk->type == RPMI_CLK_DISCRETE)
-+		goto out;
-+
-+	fmin = rpmi_clk->rates->linear.min;
-+	fmax = rpmi_clk->rates->linear.max;
-+
-+	if (req->rate <= fmin) {
-+		req->rate = fmin;
-+		goto out;
-+	} else if (req->rate >= fmax) {
-+		req->rate = fmax;
-+		goto out;
-+	}
-+
-+	ftmp = req->rate - fmin;
-+	ftmp += rpmi_clk->rates->linear.step - 1;
-+	do_div(ftmp, rpmi_clk->rates->linear.step);
-+
-+	req->rate = ftmp * rpmi_clk->rates->linear.step + fmin;
-+out:
-+	return 0;
-+}
-+
-+static int rpmi_clk_set_rate(struct clk_hw *hw, unsigned long rate,
-+			     unsigned long parent_rate)
-+{
-+	struct rpmi_clk *rpmi_clk = to_rpmi_clk(hw);
-+	struct rpmi_clk_context *context = rpmi_clk->context;
-+	struct rpmi_mbox_message msg;
-+	struct rpmi_set_rate_tx tx;
-+	struct rpmi_set_rate_rx rx;
-+	int ret;
-+
-+	tx.clkid = cpu_to_le32(rpmi_clk->id);
-+	tx.lo = cpu_to_le32(lower_32_bits(rate));
-+	tx.hi = cpu_to_le32(upper_32_bits(rate));
-+
-+	rpmi_mbox_init_send_with_response(&msg, RPMI_CLK_SRV_SET_RATE,
-+					  &tx, sizeof(tx), &rx, sizeof(rx));
-+	ret = rpmi_mbox_send_message(context->chan, &msg);
-+	if (ret)
-+		return ret;
-+	if (rx.status)
-+		return rpmi_to_linux_error(rx.status);
-+
-+	return 0;
-+}
-+
-+static int rpmi_clk_enable(struct clk_hw *hw)
-+{
-+	struct rpmi_clk *rpmi_clk = to_rpmi_clk(hw);
-+	struct rpmi_clk_context *context = rpmi_clk->context;
-+	struct rpmi_mbox_message msg;
-+	struct rpmi_set_config_tx tx;
-+	struct rpmi_set_config_rx rx;
-+	int ret;
-+
-+	tx.config = cpu_to_le32(RPMI_CLK_ENABLE);
-+	tx.clkid = cpu_to_le32(rpmi_clk->id);
-+
-+	rpmi_mbox_init_send_with_response(&msg, RPMI_CLK_SRV_SET_CONFIG,
-+					  &tx, sizeof(tx), &rx, sizeof(rx));
-+	ret = rpmi_mbox_send_message(context->chan, &msg);
-+	if (ret)
-+		return ret;
-+	if (rx.status)
-+		return rpmi_to_linux_error(rx.status);
-+
-+	return 0;
-+}
-+
-+static void rpmi_clk_disable(struct clk_hw *hw)
-+{
-+	struct rpmi_clk *rpmi_clk = to_rpmi_clk(hw);
-+	struct rpmi_clk_context *context = rpmi_clk->context;
-+	struct rpmi_mbox_message msg;
-+	struct rpmi_set_config_tx tx;
-+	struct rpmi_set_config_rx rx;
-+	int ret;
-+
-+	tx.config = cpu_to_le32(RPMI_CLK_DISABLE);
-+	tx.clkid = cpu_to_le32(rpmi_clk->id);
-+
-+	rpmi_mbox_init_send_with_response(&msg, RPMI_CLK_SRV_SET_CONFIG,
-+					  &tx, sizeof(tx), &rx, sizeof(rx));
-+	ret = rpmi_mbox_send_message(context->chan, &msg);
-+	if (ret || rx.status)
-+		pr_err("Failed to disable clk-%u\n", rpmi_clk->id);
-+}
-+
-+static const struct clk_ops rpmi_clk_ops = {
-+	.recalc_rate = rpmi_clk_recalc_rate,
-+	.determine_rate = rpmi_clk_determine_rate,
-+	.set_rate = rpmi_clk_set_rate,
-+	.prepare = rpmi_clk_enable,
-+	.unprepare = rpmi_clk_disable,
-+};
-+
-+static struct clk_hw *rpmi_clk_enumerate(struct rpmi_clk_context *context, u32 clkid)
-+{
-+	struct device *dev = context->dev;
-+	unsigned long min_rate, max_rate;
-+	union rpmi_clk_rates *rates;
-+	struct rpmi_clk *rpmi_clk;
-+	struct clk_init_data init = {};
-+	struct clk_hw *clk_hw;
-+	int ret;
-+
-+	rates = devm_kzalloc(dev, sizeof(union rpmi_clk_rates), GFP_KERNEL);
-+	if (!rates)
-+		return ERR_PTR(-ENOMEM);
-+
-+	rpmi_clk = devm_kzalloc(dev, sizeof(struct rpmi_clk), GFP_KERNEL);
-+	if (!rpmi_clk)
-+		return ERR_PTR(-ENOMEM);
-+
-+	rpmi_clk->context = context;
-+	rpmi_clk->rates = rates;
-+
-+	ret = rpmi_clk_get_attrs(clkid, rpmi_clk);
-+	if (ret)
-+		return dev_err_ptr_probe(dev, ret,
-+			"Failed to get clk-%u attributes, %d\n", clkid, ret);
-+
-+	ret = rpmi_clk_get_supported_rates(clkid, rpmi_clk);
-+	if (ret)
-+		return dev_err_ptr_probe(dev, ret,
-+			"Get supported rates failed for clk-%u, %d\n", clkid, ret);
-+
-+	init.flags = CLK_GET_RATE_NOCACHE;
-+	init.num_parents = 0;
-+	init.ops = &rpmi_clk_ops;
-+	init.name = rpmi_clk->name;
-+	clk_hw = &rpmi_clk->hw;
-+	clk_hw->init = &init;
-+
-+	ret = devm_clk_hw_register(dev, clk_hw);
-+	if (ret)
-+		return dev_err_ptr_probe(dev, ret, "Unable to register clk-%u\n", clkid);
-+
-+	if (rpmi_clk->type == RPMI_CLK_DISCRETE) {
-+		min_rate = rpmi_clk->rates->discrete[0];
-+		max_rate = rpmi_clk->rates->discrete[rpmi_clk->num_rates -  1];
-+	} else {
-+		min_rate = rpmi_clk->rates->linear.min;
-+		max_rate = rpmi_clk->rates->linear.max;
-+	}
-+
-+	clk_hw_set_rate_range(clk_hw, min_rate, max_rate);
-+
-+	return clk_hw;
-+}
-+
-+static int rpmi_clk_probe(struct platform_device *pdev)
-+{
-+	struct device *dev = &pdev->dev;
-+	struct clk_hw_onecell_data *clk_data;
-+	struct rpmi_clk_context *context;
-+	struct rpmi_mbox_message msg;
-+	int ret, num_clocks, i;
-+	struct clk_hw *hw_ptr;
-+
-+	/* Allocate RPMI clock context */
-+	context = devm_kzalloc(dev, sizeof(*context), GFP_KERNEL);
-+	if (!context)
-+		return -ENOMEM;
-+	context->dev = dev;
-+	platform_set_drvdata(pdev, context);
-+
-+	/* Setup mailbox client */
-+	context->client.dev		= context->dev;
-+	context->client.rx_callback	= NULL;
-+	context->client.tx_block	= false;
-+	context->client.knows_txdone	= true;
-+	context->client.tx_tout		= 0;
-+
-+	/* Request mailbox channel */
-+	context->chan = mbox_request_channel(&context->client, 0);
-+	if (IS_ERR(context->chan))
-+		return PTR_ERR(context->chan);
-+
-+	/* Validate RPMI specification version */
-+	rpmi_mbox_init_get_attribute(&msg, RPMI_MBOX_ATTR_SPEC_VERSION);
-+	ret = rpmi_mbox_send_message(context->chan, &msg);
-+	if (ret) {
-+		dev_err_probe(dev, ret, "Failed to get spec version\n");
-+		goto fail_free_channel;
-+	}
-+	if (msg.attr.value < RPMI_MKVER(1, 0)) {
-+		ret = dev_err_probe(dev, -EINVAL,
-+				    "msg protocol version mismatch, expected 0x%x, found 0x%x\n",
-+				    RPMI_MKVER(1, 0), msg.attr.value);
-+		goto fail_free_channel;
-+	}
-+
-+	/* Validate clock service group ID */
-+	rpmi_mbox_init_get_attribute(&msg, RPMI_MBOX_ATTR_SERVICEGROUP_ID);
-+	ret = rpmi_mbox_send_message(context->chan, &msg);
-+	if (ret) {
-+		dev_err_probe(dev, ret, "Failed to get service group ID\n");
-+		goto fail_free_channel;
-+	}
-+	if (msg.attr.value != RPMI_SRVGRP_CLOCK) {
-+		ret = dev_err_probe(dev, -EINVAL,
-+				    "service group match failed, expected 0x%x, found 0x%x\n",
-+				    RPMI_SRVGRP_CLOCK, msg.attr.value);
-+		goto fail_free_channel;
-+	}
-+
-+	/* Validate clock service group version */
-+	rpmi_mbox_init_get_attribute(&msg, RPMI_MBOX_ATTR_SERVICEGROUP_VERSION);
-+	ret = rpmi_mbox_send_message(context->chan, &msg);
-+	if (ret) {
-+		dev_err_probe(dev, ret, "Failed to get service group version\n");
-+		goto fail_free_channel;
-+	}
-+	if (msg.attr.value < RPMI_MKVER(1, 0)) {
-+		ret = dev_err_probe(dev, -EINVAL,
-+				    "service group version failed, expected 0x%x, found 0x%x\n",
-+				    RPMI_MKVER(1, 0), msg.attr.value);
-+		goto fail_free_channel;
-+	}
-+
-+	/* Save the maximum message data size of mailbox channel */
-+	rpmi_mbox_init_get_attribute(&msg, RPMI_MBOX_ATTR_MAX_MSG_DATA_SIZE);
-+	ret = rpmi_mbox_send_message(context->chan, &msg);
-+	if (ret) {
-+		dev_err_probe(dev, ret, "Failed to get max message data size\n");
-+		goto fail_free_channel;
-+	}
-+	context->max_msg_data_size = msg.attr.value;
-+
-+	/* Find-out number of clocks */
-+	num_clocks = rpmi_clk_get_num_clocks(context);
-+	if (num_clocks < 1) {
-+		ret = dev_err_probe(dev, -ENODEV, "No clocks found\n");
-+		goto fail_free_channel;
-+	}
-+
-+	/* Allocate clock data */
-+	clk_data = devm_kzalloc(dev, struct_size(clk_data, hws, num_clocks),
-+				GFP_KERNEL);
-+	if (!clk_data) {
-+		ret = -ENOMEM;
-+		goto fail_free_channel;
-+	}
-+	clk_data->num = num_clocks;
-+
-+	/* Setup clock data */
-+	for (i = 0; i < clk_data->num; i++) {
-+		hw_ptr = rpmi_clk_enumerate(context, i);
-+		if (IS_ERR(hw_ptr)) {
-+			ret = dev_err_probe(dev, PTR_ERR(hw_ptr),
-+					    "failed to register clk-%d\n", i);
-+			goto fail_free_channel;
-+		}
-+		clk_data->hws[i] = hw_ptr;
-+	}
-+
-+	/* Register clock HW provider */
-+	ret = devm_of_clk_add_hw_provider(dev, of_clk_hw_onecell_get, clk_data);
-+	if (ret) {
-+		dev_err_probe(dev, ret, "failed to register clock HW provider\n");
-+		goto fail_free_channel;
-+	}
-+
-+	return 0;
-+
-+fail_free_channel:
-+	mbox_free_channel(context->chan);
-+	return ret;
-+}
-+
-+static void rpmi_clk_remove(struct platform_device *pdev)
-+{
-+	struct rpmi_clk_context *context = platform_get_drvdata(pdev);
-+
-+	mbox_free_channel(context->chan);
-+}
-+
-+static const struct of_device_id rpmi_clk_of_match[] = {
-+	{ .compatible = "riscv,rpmi-clock" },
-+	{ }
-+};
-+MODULE_DEVICE_TABLE(of, rpmi_clk_of_match);
-+
-+static struct platform_driver rpmi_clk_driver = {
-+	.driver = {
-+		.name = "riscv-rpmi-clock",
-+		.of_match_table = rpmi_clk_of_match,
-+	},
-+	.probe = rpmi_clk_probe,
-+	.remove = rpmi_clk_remove,
-+};
-+module_platform_driver(rpmi_clk_driver);
-+
-+MODULE_AUTHOR("Rahul Pathak <rpathak@ventanamicro.com>");
-+MODULE_DESCRIPTION("Clock Driver based on RPMI message protocol");
-+MODULE_LICENSE("GPL");
-diff --git a/include/linux/mailbox/riscv-rpmi-message.h b/include/linux/mailbox/riscv-rpmi-message.h
-index 2747a1840937..f43d0874ad68 100644
---- a/include/linux/mailbox/riscv-rpmi-message.h
-+++ b/include/linux/mailbox/riscv-rpmi-message.h
-@@ -89,6 +89,22 @@ static inline int rpmi_to_linux_error(int rpmi_error)
- 	}
- }
- 
-+/** RPMI service group IDs */
-+#define RPMI_SRVGRP_CLOCK		0x00008
-+
-+/** RPMI clock service IDs */
-+enum rpmi_clock_service_id {
-+	RPMI_CLK_SRV_ENABLE_NOTIFICATION = 0x01,
-+	RPMI_CLK_SRV_GET_NUM_CLOCKS = 0x02,
-+	RPMI_CLK_SRV_GET_ATTRIBUTES = 0x03,
-+	RPMI_CLK_SRV_GET_SUPPORTED_RATES = 0x04,
-+	RPMI_CLK_SRV_SET_CONFIG = 0x05,
-+	RPMI_CLK_SRV_GET_CONFIG = 0x06,
-+	RPMI_CLK_SRV_SET_RATE = 0x07,
-+	RPMI_CLK_SRV_GET_RATE = 0x08,
-+	RPMI_CLK_SRV_ID_MAX_COUNT,
-+};
-+
- /** RPMI linux mailbox attribute IDs */
- enum rpmi_mbox_attribute_id {
- 	RPMI_MBOX_ATTR_SPEC_VERSION = 0,
++++ b/Documentation/devicetree/bindings/interrupt-controller/riscv,rpmi-system-msi.yaml
+@@ -0,0 +1,89 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/interrupt-controller/riscv,rpmi-system-msi.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: RISC-V RPMI system MSI service group based interrupt controller
++
++maintainers:
++  - Anup Patel <anup@brainfault.org>
++
++description: |
++  The RISC-V Platform Management Interface (RPMI) [1] defines a
++  messaging protocol which is modular and extensible. The supervisor
++  software can send/receive RPMI messages via SBI MPXY extension [2]
++  or some dedicated supervisor-mode RPMI transport.
++
++  The RPMI specification [1] defines system MSI service group which
++  allow application processors to receive MSIs upon system events
++  such as P2A doorbell, graceful shutdown/reboot request, CPU hotplug
++  event, memory hotplug event, etc from the platform microcontroller.
++
++  ===========================================
++  References
++  ===========================================
++
++  [1] RISC-V Platform Management Interface (RPMI)
++      https://github.com/riscv-non-isa/riscv-rpmi/releases
++
++  [2] RISC-V Supervisor Binary Interface (SBI)
++      https://github.com/riscv-non-isa/riscv-sbi-doc/releases
++
++allOf:
++  - $ref: /schemas/interrupt-controller.yaml#
++
++properties:
++  compatible:
++    oneOf:
++      - description:
++          Intended for use by the SBI implementation in machine mode or
++          software in supervisor mode.
++        const: riscv,rpmi-system-msi
++
++      - description:
++          Intended for use by the SBI implementation in machine mode.
++        const: riscv,rpmi-mpxy-system-msi
++
++  mboxes:
++    maxItems: 1
++    description:
++      Mailbox channel of the underlying RPMI transport or SBI message proxy.
++
++  riscv,sbi-mpxy-channel-id:
++    $ref: /schemas/types.yaml#/definitions/uint32
++    description:
++      The SBI MPXY channel id to be used for providing RPMI access to
++      the supervisor software. This property is mandatory when using
++      riscv,rpmi-mpxy-system-msi compatible string.
++
++  msi-parent: true
++
++  interrupt-controller: true
++
++  "#interrupt-cells":
++    const: 1
++
++required:
++  - compatible
++  - mboxes
++  - msi-parent
++  - interrupt-controller
++  - "#interrupt-cells"
++
++additionalProperties: false
++
++examples:
++  - |
++    mpxy_mbox: sbi-mpxy-mbox {
++          compatible = "riscv,sbi-mpxy-mbox";
++          #mbox-cells = <2>;
++    };
++    rpmi_sysmsi_intc: interrupt-controller {
++        compatible = "riscv,rpmi-system-msi";
++        mboxes = <&mpxy_mbox 0x2000 0x0>;
++        msi-parent = <&imsic_slevel>;
++        interrupt-controller;
++        #interrupt-cells = <1>;
++    };
++...
 -- 
 2.43.0
 
