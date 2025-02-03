@@ -4,110 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 62B67C0218F
-	for <linux-riscv@archiver.kernel.org>; Sun,  2 Feb 2025 21:34:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AF200C0218F
+	for <linux-riscv@archiver.kernel.org>; Mon,  3 Feb 2025 01:41:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=IsfNTd7z6ny+et9eJrRPKxItzX1mJS8LExFb5o3w26M=; b=y0oQhBgGbkFy9w
-	0IXxjO/rWp0Yr8dse7xQSNYUJO9jhhhwn3pZH5bTMXTtiY1C+RwrhZDyJPt/1nrQQDoXlXo1Xkh9U
-	CfRwkhiMpOfGz3NCvhPnOpnPZ4gW0yFbFkMEhILUgJxmPVWzj6SFl8mXxr/i6GSiYPpT2O5tT0Nyr
-	Hq6/MKO8UaDmT2IYigLDHvkb+Ppzz8GrT0rdRjIwRrwQlshuHkN88FT0rbWP6K4rygZGiAFMcSLnK
-	9NkMapdvCyKLVe4OiibOhVF+G+fK+umxV84y/e1Qb6gl4PUqemCNPLpyvStLXnoDT6wLyX/+64MHo
-	bB+vjyKpdaKRFqZlzSAQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=M+zEuJ01Wz+VISfuH1N4KYdtjBR6UDNh/+0g/tNchWU=; b=cJ5B7xVatSwUOx
+	z2B5bCCL/PCdAeZLylcvQrfEzfXSn2g5s89NUjzgFZnSPxMeHlarYKvE4akslKcZ23wWoXrfzfWzk
+	u4q+47eARD4ka2puUPPKxGHhUQLwh6rnq4FTF5QiKsnJ1OVjoJLKZyefnawvBtoek7EKplL5LgT1D
+	CsKBQr0PK+oqxTsa96L7sRZCLTiXUdwOGmyM3e8/b5D5UxMwBiuJsG0Pt/0h9hq/ZVlmcFiTvucVo
+	iDFIoKEEyVtJVTR9v36F2JAtpFIYRBDIKY1NHHuO2me7g6gvFdlCVN4xwoALu+imhsVRt8k6ZOOno
+	yjpkmAjBwYrEyzLjyVeA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tehbf-0000000ECZ4-45PJ;
-	Sun, 02 Feb 2025 21:34:19 +0000
-Received: from mout.gmx.net ([212.227.15.15])
+	id 1telT8-0000000EOds-32YA;
+	Mon, 03 Feb 2025 01:41:46 +0000
+Received: from freeshell.de ([2a01:4f8:231:482b::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tehbd-0000000ECXw-0dpA;
-	Sun, 02 Feb 2025 21:34:19 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmx.net;
-	s=s31663417; t=1738532026; x=1739136826; i=j.neuschaefer@gmx.net;
-	bh=G2eHfhQuejodnDOibyT663weFQ71Yl8E8QZl/5oxVv0=;
-	h=X-UI-Sender-Class:Date:From:To:Cc:Subject:Message-ID:References:
-	 MIME-Version:Content-Type:Content-Transfer-Encoding:In-Reply-To:
-	 cc:content-transfer-encoding:content-type:date:from:message-id:
-	 mime-version:reply-to:subject:to;
-	b=lNI4wnLn373mkDHyreS/4go2WqLLFqysiF0LW3XiW1x/TglUrcPjkWZnauK8Ui1R
-	 XU0ggv4mZdMXv3WIM/qA8OqL7HzNFmRqsXPGeFv9qLqrDmBT9CieOrZXNo3TRsVwk
-	 5M5fmis0I0ZqKFicCRUGYCSGRY00DySlih9CvpHUYhrtW0TI+4+LHWAK3xKKq9uiR
-	 AF9sgaalNQduw0ptfF6P0GLSwGBTtZ2Sbnp0wUl9NT0xaO+o63RoPV2h2xRaj9KRH
-	 T47MTCEDaWQ9lzGI6z2ONFo/9+tBc9+MSvoR7Cu76PREt+9/X+8/eolBYqU9OY5tI
-	 ME/oP5Cwa5qXcTCPKA==
-X-UI-Sender-Class: 724b4f7f-cbec-4199-ad4e-598c01a50d3a
-Received: from probook ([89.1.210.218]) by mail.gmx.net (mrgmx005
- [212.227.17.190]) with ESMTPSA (Nemesis) id 1MAfYw-1tlHAA11D6-007KTC; Sun, 02
- Feb 2025 22:33:46 +0100
-Date: Sun, 2 Feb 2025 22:33:36 +0100
-From: =?utf-8?Q?J=2E_Neusch=C3=A4fer?= <j.neuschaefer@gmx.net>
-To: "A. Wilcox" <AWilcox@wilcox-tech.com>
-Cc: Arnd Bergmann <arnd@kernel.org>, kvm@vger.kernel.org,
-	Arnd Bergmann <arnd@arndb.de>,
-	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
-	Huacai Chen <chenhuacai@kernel.org>,
-	Jiaxun Yang <jiaxun.yang@flygoat.com>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Nicholas Piggin <npiggin@gmail.com>,
-	Christophe Leroy <christophe.leroy@csgroup.eu>,
-	Naveen N Rao <naveen@kernel.org>,
-	Madhavan Srinivasan <maddy@linux.ibm.com>,
-	Alexander Graf <graf@amazon.com>, Crystal Wood <crwood@redhat.com>,
-	Anup Patel <anup@brainfault.org>,
-	Atish Patra <atishp@atishpatra.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
+	id 1telT6-0000000EOd6-15SS
+	for linux-riscv@lists.infradead.org;
+	Mon, 03 Feb 2025 01:41:45 +0000
+Received: from hay.lan. (unknown [IPv6:2605:59c0:20f3:a400:6ecf:39ff:fe00:8375])
+	(Authenticated sender: e)
+	by freeshell.de (Postfix) with ESMTPSA id B841EB2232DD;
+	Mon,  3 Feb 2025 02:41:35 +0100 (CET)
+From: E Shattow <e@freeshell.de>
+To: Paul Walmsley <paul.walmsley@sifive.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Sean Christopherson <seanjc@google.com>,
-	Paolo Bonzini <pbonzini@redhat.com>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
-	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
-	"H. Peter Anvin" <hpa@zytor.com>,
-	Vitaly Kuznetsov <vkuznets@redhat.com>,
-	David Woodhouse <dwmw2@infradead.org>, Paul Durrant <paul@xen.org>,
-	Marc Zyngier <maz@kernel.org>, linux-kernel@vger.kernel.org,
-	linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
-	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v2 4/5] powerpc: kvm: drop 32-bit book3s
-Message-ID: <Z5_ksID8Gv_Tg5F7@probook>
-References: <20241221214223.3046298-1-arnd@kernel.org>
- <20241221214223.3046298-5-arnd@kernel.org>
- <9B9E07F0-3373-4F59-BE4C-E6C425B3C36D@Wilcox-Tech.com>
+	Albert Ou <aou@eecs.berkeley.edu>
+Cc: linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	E Shattow <e@freeshell.de>
+Subject: [PATCH v2 0/5] riscv: dts: starfive: jh7110-common: Sync downstream U-Boot changes
+Date: Sun,  2 Feb 2025 17:37:06 -0800
+Message-ID: <20250203013730.269558-1-e@freeshell.de>
+X-Mailer: git-send-email 2.47.2
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <9B9E07F0-3373-4F59-BE4C-E6C425B3C36D@Wilcox-Tech.com>
-X-Provags-ID: V03:K1:9/xKYk+mj967yFEydW37x3unDxvlzZDdriScJwSUFGFBVPwz408
- R4O7IVTtnXePPO+gVIX8jktVCSK3SLk5KSpqblHo9ocA7Uo1TTIFaSqN1IJ0B/nSnHdz+v4
- BQJUDyiTjBjastoDpF/hhIklw774C2Nk4pN/wxnwAA2nZ2/XzPYAWN671OjQUfPE/hjZF1w
- siMMlhFzAtG6iMd99XMIg==
-UI-OutboundReport: notjunk:1;M01:P0:lvJI8XggPhM=;4W9A0Oo2CZWjUIca1pWrNgsKvKX
- z8V5mRgOrYvpaHbx85mspd7QV2ItcjEq+fbuEkib8xY69HipoOK+VJcOAfiLKjAnQJa/cEWvo
- CyiUn1zvL9+XgfNLjZDQvyYLO0OegTg5uO6ds6wuAoImA3OZR02zmCDlQoBOZ9Os/C7ncaKHX
- 70bHqXPyIx5rnA5PX8W9/Gx/G2VS6JmbZloyyR+qYGwoXMa82ikMXsHgpXshd/zLqq4sSRHoV
- brXeZgfYB3/4Q/i8lba34oeUVPvRB47g7yr3WhGmhykJVM3QHf5w+IWCNM4T4JwjPSqcbUnBy
- pW5753Wdt1o3+XSulwpYV+SF3ehRAAk8zx7oc1eskQUwPEFPv3oL1tNRzd7KDJ7QGTMXKcMRR
- yJQnkoyomns15uYcWXEWc4eJ0Q3nqODjrT7/oPRM6PfF1axZPTcN9Ivt/coi8oAHzidpeZRw0
- 1Nj7DtAAuIiIqTiXFnM71/83afL3vQKgrXVDhbGQ1eHgcUKHDNURj8Ov+oopEjNcqjdlWGWoN
- y/06JKYTlBaAC0sx1Fr8k1oOerFxYn2v0A6Nocs597aQ1BLqzSDJUkMmq+p9P2Xm8dVSsGGu4
- +4an3otnMm7ZdorWY7g0UeLINMt1RvZyhf3fM1MuxetqEnqnIxXuoEaAUo/5g5Axxnc7d+90+
- CqQvSZiR32dd7HV8x/oBhj3492A7USPGpPBHD4yhGucmE0EQGVrTjkK8T9VYH8nj9cnnIYytQ
- c78FwW3q6Jv7eRX43bsv6QZUi4Y1zzlJYyE8P/w9Z+DTvFNbOjo4v0JtfT9UWCC2FhaBW9Oqe
- anaWkC6cv6od7SLhWicorQPsOM2UcDiSTAWA1JBBk92fj+U5TadCXASiSa9qQiymc4ZHM3yzO
- lM7OUKempveM0+57H8oZtb5No0NKCLwN9BQw0eLJ5IAWaDGAEIDJxt+ql7gxKacp5U/eU07Qj
- +x4rzmw88GtPCbybRi41JUDTYLunI5I5clPvmpGMh+Q+iArBl4xRCVHV5M51h1gBJZkv85dmD
- aH2sWMqQaEJ7FBWhGUSRu1GLj09VqIO7JAoY2C9TpRmf/ao9g02EJaYOiaCtGJWsPsri7Jq9g
- rHR6DYNhdqLKm2SF8kAE86rpcJ8B0HKl2UyhO/OCxLvlUOemuYGVqW3BDk5RgNpYgKaXWeuiW
- ThzTcYCT9+ztyzdFsFjgwtA56kVcQc7C+VVodKwz9RtObFvhrK1yC2CXdCA+KcPiSnCTKvqes
- 2EQX8ZYBWmYwZFGRWQrJtQmcKMRszV78bn8FnLMJ/9/2KEifFR7S9q34teR7+FFb4iUM9FW6x
- 3zyl/UGrzimjzwEO+HD7CetGSspTpweqegk7AqIu8he+lY=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250202_133417_583924_67326F78 
-X-CRM114-Status: GOOD (  21.43  )
+X-CRM114-CacheID: sfid-20250202_174144_468436_CFD69C7D 
+X-CRM114-Status: UNSURE (   3.96  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,41 +59,40 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gU2F0LCBEZWMgMjEsIDIwMjQgYXQgMDg6MTM6MTJQTSAtMDYwMCwgQS4gV2lsY294IHdyb3Rl
-Ogo+IE9uIERlYyAyMSwgMjAyNCwgYXQgMzo0MuKAr1BNLCBBcm5kIEJlcmdtYW5uIDxhcm5kQGtl
-cm5lbC5vcmc+IHdyb3RlOgo+ID4KPiA+IEZyb206IEFybmQgQmVyZ21hbm4gPGFybmRAYXJuZGIu
-ZGU+Cj4gPgo+ID4gU3VwcG9ydCBmb3IgS1ZNIG9uIDMyLWJpdCBCb29rIElJSS1zIGltcGxlbWVu
-dGF0aW9ucyB3YXMgYWRkZWQgaW4gMjAxMAo+ID4gYW5kIHN1cHBvcnRzIFBvd2VyTWFjLCBDSFJQ
-LCBhbmQgZW1iZWRkZWQgcGxhdGZvcm1zIHVzaW5nIHRoZSBGcmVlc2NhbGUgRzQKPiA+IChtcGM3
-NHh4KSwgZTMwMCAobXBjODN4eCkgYW5kIGU2MDAgKG1wYzg2eHgpIENQVXMgZnJvbSAyMDAzIHRv
-IDIwMDkuCj4gPgo+ID4gRWFybGllciA2MDMvNjA0Lzc1MCBtYWNoaW5lcyBtaWdodCB3b3JrIGJ1
-dCB3b3VsZCBiZSBldmVuIG1vcmUgbGltaXRlZAo+ID4gYnkgdGhlaXIgYXZhaWxhYmxlIG1lbW9y
-eS4KPiA+Cj4gPiBUaGUgb25seSBsaWtlbHkgdXNlcnMgb2YgS1ZNIG9uIGFueSBvZiB0aGVzZSB3
-ZXJlIHRoZSBmaW5hbCBBcHBsZQo+ID4gUG93ZXJNYWMvUG93ZXJCb29rL2lCb29rIEc0IG1vZGVs
-cyB3aXRoIDJHQiBvZiBSQU0gdGhhdCB3ZXJlIGF0IHRoZSBoaWdoCj4gPiBlbmQgMjAgeWVhcnMg
-YWdvIGJ1dCBhcmUganVzdCBhcyBvYnNvbGV0ZSBhcyB0aGVpciB4ODYtMzIgY291bnRlcnBhcnRz
-Lgo+ID4gVGhlIGNvZGUgaGFzIGJlZW4gb3JwaGFuZWQgc2luY2UgMjAyMy4KPiA+Cj4gPiBUaGVy
-ZSBpcyBzdGlsbCBhIG5lZWQgdG8gc3VwcG9ydCAzMi1iaXQgZ3Vlc3RzIGluIG9yZGVyIHRvIGJl
-dHRlcgo+ID4gZGVidWcgcHJvYmxlbXMgb24gcHBjMzIga2VybmVscy4gVGhpcyBzaG91bGQgd29y
-ayBpbiB0aGVvcnkgb24gYm90aAo+ID4gNjQtYml0IGJvb2tlIGFuZCBvbiA2NC1iaXQgYm9vazNz
-IGhvc3RzLCBidXQgaXQgd291bGQgYmUgZ29vZCB0bwo+ID4gY29uZmlybSB0aGF0IHRoaXMgaXMg
-c3RpbGwgdGhlIGNhc2UgYmVmb3JlIHRoZSBrbm93biB3b3JraW5nIG9wdGlvbgo+ID4gZ2V0cyBy
-ZW1vdmVkLgpbLi4uXQo+IFRoYXQgc2FpZCwgSSB3b3VsZCBsaWtlIHRvIGtlZXAgdGhlIHN1cHBv
-cnQgYWxpdmUgZm9yIG1vcmUgdGhhbiBqdXN0Cj4gcHBjMzIga2VybmVsIHRlc3RpbmcuICBUaGVy
-ZSBhcmUgcGxlbnR5IG9mIFBvd2VyIE1hY3Mgd2l0aCBlbm91Z2gKPiBtZW1vcnkgdG8gcnVuIHNv
-bWUgZW52aXJvbm1lbnRzIHdpdGhpbiBLVk0uICBBZMOpbGll4oCZcyBuZXcgcmVsZWFzZQo+IGJv
-b3RzIGEgZnVsbCBYRkNFIGRlc2t0b3AgaW4gdW5kZXIgMzAwIE1CIFJBTSwgc28gZXZlbiBhIDEg
-R0IgbWFjaGluZQo+IGhhcyBlbm91Z2ggbWVtb3J5IHRvIHJ1biBBbWlnYU9TLCBNYWMgT1MgOSwg
-b3IgYW5vdGhlciBYRkNFIGluIEtWTS4KCkZXSVcsIEkgc2Vjb25kIHRoaXMuIEkgZG8gaW50ZW5k
-IHRvIGdldCBLVk0gdG8gcnVuIG9uIG15IGUzMDAtYmFzZWQKYm9hcmQgZm9yIHNvbWUgcmVsYXRp
-dmVseSBsaWdodCBndWVzdHMgc3VjaCBhcyBNYWMgT1MgOS4gSSBzdXNwZWN0IEkKd29uJ3QgYmUg
-YWJsZSB0byBjb250cmlidXRlIG11Y2ggdG8gdGhlIG1haW50ZW5hbmNlLCB0aG91Z2guCgpCZXN0
-IHJlZ2FyZHMsCkouIE5ldXNjaMOkZmVyCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlz
-dHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3Rp
-bmZvL2xpbnV4LXJpc2N2Cg==
+U-Boot boot loader has adopted using the Linux dt-rebasing tree for dts
+with StarFive VisionFive2 board target (and related JH7110 common boards).
+Sync the minimum changes from jh7110-common.dtsi needed for boot so these
+can be dropped from U-Boot.
+
+Changes since v1:
+  Do not set unused eeprom label.
+  Do not set no-op zero-value assigned-clock-rates, adjust commit message.
+
+E Shattow (5):
+  riscv: dts: starfive: jh7110-common: replace syscrg clock assignments
+  riscv: dts: starfive: jh7110-common: qspi flash setting read-delay 2
+    cycles max 100MHz
+  riscv: dts: starfive: jh7110-common: assign 24MHz clock-frequency to
+    uart0
+  riscv: dts: starfive: jh7110-common: add eeprom node to i2c5
+  riscv: dts: starfive: jh7110-common: bootph-pre-ram hinting needed by
+    boot  loader
+
+ .../boot/dts/starfive/jh7110-common.dtsi      | 28 +++++++++++++++----
+ 1 file changed, 23 insertions(+), 5 deletions(-)
+
+
+base-commit: 708d55db3edbe2ccf88d94b5f2e2b404bc0ba37c
+-- 
+2.47.2
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
