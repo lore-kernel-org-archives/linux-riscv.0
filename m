@@ -4,56 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BFECEC02195
-	for <linux-riscv@archiver.kernel.org>; Mon,  3 Feb 2025 15:34:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DC925C02195
+	for <linux-riscv@archiver.kernel.org>; Mon,  3 Feb 2025 15:43:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
-	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=FlDlnc3XjfH89ZxUS3suu55zBlAl7bpMtptHy03f9xA=; b=tb1TWv/Gp1mR8c
-	ZcntUdZdwhQS5//RSvFamA3+3O8cTDBFHa8aJ6pKZArwb/2phTg4MZYYtOwtqmSNn4YtVPWYhKsyU
-	Uc43M/donYgv+rcx3LfONAid1m7hnymDbIyALt7/AiA8JT8Obl49CmIYFlq7TuCh/VmPshKdNxyGV
-	/5N8GsZTqtpEC32IvXXkkv5AT/nHXGYqRlMHPZ5WuVmENkk/EvDZfFdchp4sUx3DZ+Fq3ctO/3z1q
-	GudyiB7y7wiiLYQeE8WF3+fQxGy/a9jyhf2fGtQf0+GDlwvIrsqf9uaLyW6xAI9jXpd94UdrHcM48
-	JqK3kt6H6VxUKgys05ew==;
+	List-Owner; bh=403kRKJ7YtR6a+zAlwxoQRjSPh8zXoThEX2TAb6h7BY=; b=jmpMf4zGAp3pXw
+	y+QZ+7FTB7djosXo3h7CRZjOZ8lKaN5sN/4i20SI8N+NrpCde5IlSPNPCZVeUY5uSPou+VHaCzhYv
+	m6kFPuVNjf+IwU3sNFCm2knQ2eCl36bDx2gOfzTYMzZjSizzFNP+YFZsoewBXgdMZCGTK0xJ72pLH
+	h2IISjD9leKRaLxznX8PJCCaCthD6FjaCZ/Hw3SLDh5GtDlvA5yUYJHDtkCa0zRg+Tbenjx2W6F9o
+	TPgjDFSr9Q6ZsgQ3dIS2FyIPZzP9T52Calyh54TdLi0TVG7hGf2IHqGrH8tHQx4BdHXhVPDpJlJ/B
+	CgoRTrupVP/OK6Hg1oaQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1teySs-0000000Ft2r-3WAj;
-	Mon, 03 Feb 2025 15:34:22 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1teyc4-0000000FuNh-3NWS;
+	Mon, 03 Feb 2025 15:43:52 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1teySR-0000000FsyF-3JuR
+	id 1teyZP-0000000Fu0d-2ybZ
 	for linux-riscv@lists.infradead.org;
-	Mon, 03 Feb 2025 15:33:57 +0000
+	Mon, 03 Feb 2025 15:41:09 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 4E457A4149F;
-	Mon,  3 Feb 2025 15:32:08 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BD9F6C4CED2;
-	Mon,  3 Feb 2025 15:33:53 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1738596834;
-	bh=1AMEL90TOYAiTq+wyZ9+Tqush4WsmqodawyJnoTLY5Y=;
-	h=From:To:Cc:Subject:In-Reply-To:References:Date:From;
-	b=agTwQGhXyE39J4X2qXtC6qzQG0GXRcmfDq7EvYDSRIDLznwnvxI4aubVD0DpFhtSn
-	 l7viQmzRItspd+UwHpdIllNI242e7TsPZRu6SVkwAgJJIPRpe5GEajdt+PB0EIHagb
-	 P7iHxcitpmN5w/Z4iIIIZIFNZWqpvo+XitifKURkboN0yG2uCHxRBr2IUZgpoiZzqP
-	 ZWKQfQJmUEO8VSthBJ2tpyzmzQaEo2Wzy7LdZSEv4teZDFh+2bJSBmk+NoDk0PaJsV
-	 laHiei6F+JyPO2CQE3V+3AgjicN39CW1qhxRV/7qxrnikCW/M7iMF5T5tUKkYSis37
-	 5mh20xK5N1suA==
-From: =?utf-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>
-To: Andreas Schwab <schwab@suse.de>, linux-riscv@lists.infradead.org
-Cc: linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] riscv/futex: sign extend compare value in atomic cmpxchg
-In-Reply-To: <mvmfrkv2vhz.fsf@suse.de>
-References: <mvmfrkv2vhz.fsf@suse.de>
-Date: Mon, 03 Feb 2025 16:33:50 +0100
-Message-ID: <87jza7oxep.fsf@all.your.base.are.belong.to.us>
+	by nyc.source.kernel.org (Postfix) with ESMTP id AE767A41502;
+	Mon,  3 Feb 2025 15:39:20 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2F0F4C4CED2;
+	Mon,  3 Feb 2025 15:41:05 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linuxfoundation.org;
+	s=korg; t=1738597266;
+	bh=t+e9M1T7gZCHqn15b4A9fYXOSiUPiS6xvK01k5AQCmg=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=r3XnTynnOTgsMtTNZO+Y1s25XmD2mIHCFryVo7nwyZI3zyudiqt6et+qxVlGT1B3r
+	 pLYigZcxI3ih+eNjJ8EpjVzU1RPmO/yjtmjv1XJcDcwKrbHtRWX9ZZcA8Bc0LZhyeO
+	 WZUUX39QMbBMfXqpEs6rdmznsK9cTbI85PX26Ma0=
+Date: Mon, 3 Feb 2025 16:41:03 +0100
+From: Greg KH <gregkh@linuxfoundation.org>
+To: guoren@kernel.org
+Cc: palmer@dabbelt.com, conor@kernel.org, geert+renesas@glider.be,
+	prabhakar.mahadev-lad.rj@bp.renesas.com,
+	yoshihiro.shimoda.uh@renesas.com, linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org, linux-usb@vger.kernel.org,
+	Guo Ren <guoren@linux.alibaba.com>, stable@vger.kernel.org,
+	kernel test robot <lkp@intel.com>
+Subject: Re: [PATCH V2] usb: gadget: udc: renesas_usb3: Fix compiler warning
+Message-ID: <2025020324-siding-custodian-b21d@gregkh>
+References: <20250122081231.47594-1-guoren@kernel.org>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20250122081231.47594-1-guoren@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250203_073355_892498_18D08FAD 
-X-CRM114-Status: GOOD (  14.13  )
+X-CRM114-CacheID: sfid-20250203_074107_810545_812F3044 
+X-CRM114-Status: UNSURE (   8.94  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -65,43 +69,40 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-QW5kcmVhcyBTY2h3YWIgPHNjaHdhYkBzdXNlLmRlPiB3cml0ZXM6Cgo+IE1ha2Ugc3VyZSB0aGUg
-Y29tcGFyZSB2YWx1ZSBpbiB0aGUgbHIvc2MgbG9vcCBpcyBzaWduIGV4dGVuZGVkIHRvIG1hdGNo
-Cj4gd2hhdCBsci53IGRvZXMuICBGb3J0dW5hdGVseSwgZHVlIHRvIHRoZSBjb21waWxlciBrZWVw
-aW5nIHRoZSByZWdpc3Rlcgo+IGNvbnRlbnRzIHNpZ24gZXh0ZW5kZWQgYW55d2F5IHRoZSBsYWNr
-IG9mIHRoZSBleHBsaWNpdCBleHRlbnNpb24gZGlkbid0Cj4gcmVzdWx0IGluIHdyb25nIGNvZGUg
-c28gZmFyLCBidXQgdGhpcyBjYW5ub3QgYmUgcmVsaWVkIHVwb24uCj4KPiBGaXhlczogYjkwZWRi
-MzMwMTBiICgiUklTQy1WOiBBZGQgZnV0ZXggc3VwcG9ydC4iKQo+IFNpZ25lZC1vZmYtYnk6IEFu
-ZHJlYXMgU2Nod2FiIDxzY2h3YWJAc3VzZS5kZT4KCkhtbSwgaW4gdGhpcyBzY2VuYXJpbyB3ZSAq
-Y2FuKiByZWx5IG9uIGl0LCBubyAoaW5saW5lIHZzIG1hY3JvKT8KClJlZ2FyZGxlc3MsIGhhdmlu
-ZyBhbiBleHBsaWNpdCBjYXN0IHRoZXJlIGRvZXNuJ3QgaHVydCwgYW5kIG1ha2UgaXQgbW9yZQpv
-YnZpb3VzIQoKUmV2aWV3ZWQtYnk6IEJqw7ZybiBUw7ZwZWwgPGJqb3JuQHJpdm9zaW5jLmNvbT4K
-CkxldCdzIGFkZCBhIGxpbmsgdG8gSmVzc2ljYSdzIGNvbW1lbnQgYXMgd2VsbDoKTGluazogaHR0
-cHM6Ly9sb3JlLmtlcm5lbC5vcmcvbGludXgtcmlzY3YvQ0MyRDkyMjAtRjhERS00Q0M4LUFDQUQt
-N0IxQTIxRTI3NkZFQGpydGMyNy5jb20vCgo+IC0tLQo+ICBhcmNoL3Jpc2N2L2luY2x1ZGUvYXNt
-L2Z1dGV4LmggfCAyICstCj4gIDEgZmlsZSBjaGFuZ2VkLCAxIGluc2VydGlvbigrKSwgMSBkZWxl
-dGlvbigtKQo+Cj4gZGlmZiAtLWdpdCBhL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20vZnV0ZXguaCBi
-L2FyY2gvcmlzY3YvaW5jbHVkZS9hc20vZnV0ZXguaAo+IGluZGV4IGZjODEzMGY5OTVjMS4uNjkw
-N2M0NTZhYzhjIDEwMDY0NAo+IC0tLSBhL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20vZnV0ZXguaAo+
-ICsrKyBiL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20vZnV0ZXguaAo+IEBAIC05Myw3ICs5Myw3IEBA
-IGZ1dGV4X2F0b21pY19jbXB4Y2hnX2luYXRvbWljKHUzMiAqdXZhbCwgdTMyIF9fdXNlciAqdWFk
-ZHIsCj4gIAkJX0FTTV9FWFRBQkxFX1VBQ0NFU1NfRVJSKDFiLCAzYiwgJVtyXSkJXAo+ICAJCV9B
-U01fRVhUQUJMRV9VQUNDRVNTX0VSUigyYiwgM2IsICVbcl0pCVwKPiAgCTogW3JdICIrciIgKHJl
-dCksIFt2XSAiPSZyIiAodmFsKSwgW3VdICIrbSIgKCp1YWRkciksIFt0XSAiPSZyIiAodG1wKQo+
-IC0JOiBbb3ZdICJKciIgKG9sZHZhbCksIFtudl0gIkpyIiAobmV3dmFsKQo+ICsJOiBbb3ZdICJK
-ciIgKChsb25nKShpbnQpb2xkdmFsKSwgW252XSAiSnIiIChuZXd2YWwpCj4gIAk6ICJtZW1vcnki
-KTsKPiAgCV9fZGlzYWJsZV91c2VyX2FjY2VzcygpOwo+ICAKPiAtLSAKPiAyLjQ4LjEKPgo+Cj4g
-LS0gCj4gQW5kcmVhcyBTY2h3YWIsIFNVU0UgTGFicywgc2Nod2FiQHN1c2UuZGUKPiBHUEcgS2V5
-IGZpbmdlcnByaW50ID0gMDE5NiBCQUQ4IDFDRTkgMTk3MCBGNEJFICAxNzQ4IEU0RDQgODhFMyAw
-RUVBIEI5RDcKPiAiQW5kIG5vdyBmb3Igc29tZXRoaW5nIGNvbXBsZXRlbHkgZGlmZmVyZW50LiIK
-Pgo+IF9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCj4gbGlu
-dXgtcmlzY3YgbWFpbGluZyBsaXN0Cj4gbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwo+
-IGh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
-Cl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJp
-c2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9s
-aXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+On Wed, Jan 22, 2025 at 03:12:31AM -0500, guoren@kernel.org wrote:
+> From: Guo Ren <guoren@linux.alibaba.com>
+> 
+> drivers/usb/gadget/udc/renesas_usb3.c: In function 'renesas_usb3_probe':
+> drivers/usb/gadget/udc/renesas_usb3.c:2638:73: warning: '%d'
+> directive output may be truncated writing between 1 and 11 bytes into a
+> region of size 6 [-Wformat-truncation=]
+> 2638 |   snprintf(usb3_ep->ep_name, sizeof(usb3_ep->ep_name), "ep%d", i);
+>                                     ^~~~~~~~~~~~~~~~~~~~~~~~     ^~   ^
+> 
+> Fixes: 746bfe63bba3 ("usb: gadget: renesas_usb3: add support for Renesas
+> USB3.0 peripheral controller")
+
+Please don't wrap lines here.
+
+> Cc: stable@vger.kernel.org
+> Reported-by: kernel test robot <lkp@intel.com>
+> Closes: https://lore.kernel.org/oe-kbuild-all/202501201409.BIQPtkeB-lkp@intel.com/
+> Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
+> Signed-off-by: Guo Ren <guoren@kernel.org>
+
+No need to sign off twice on a commit, I'll just drop the last one as
+that doesn't match the From: line here.
+
+thanks,
+
+greg k-h
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
