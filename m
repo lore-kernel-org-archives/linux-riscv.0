@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A4A15C0219B
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BCCA3C02198
 	for <linux-riscv@archiver.kernel.org>; Tue,  4 Feb 2025 17:35:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -12,47 +12,47 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=hjrfz4XncdIy8qkP4c2cK+WnimtsWJF9TeaGtomms8E=; b=r0xjcOfKY3CorT
-	xxeBo/CIHrTKO+dlKdo/Bj/3MGYYFeG4+qGj/zMs+2cROek65lCg7p5VybI0Kxzn0QlMwz5sYt4Gi
-	0CvI0GDvsEeQUZkmcHZYa+Hs+gQn2cHFIB1G9u0VFapG9xCR0Fud7lDwSm0M5IEKLKNN2jaDLGFjA
-	qUbUg0De6sDd6OOv2HKjI/SxaCxXQqbKAACXneSMaaLHnHrlBmnpXBan0UbfJbo/13L1PFJUHWVIl
-	+EBQEbYV8dcnnlC8w0V1hAj6L6rUhZKpyR0BrwGEHy9XdkWfHbkaYv9RM17tBw921K7CSzDJFUwj1
-	lF0tPi5CaLm1AtIShSZg==;
+	List-Owner; bh=266Z0AdIHBLz7GPfIHnFsCFQcOTdIv7KmJ6/mc6CgOc=; b=mwRmjTEZ6rCICb
+	e7XWzV90hf9EUYSy6+Kd72Or2FvJuKBEb3dR8ZOsyVYQjZCEeLea2iB1Kd30+Tw7yh27zgT3PPcwm
+	uLptXGNzZx+3a0JXJtuI59uOGJnuq/jQviMzvBpAA0cr8zdPUwhq3P9H0TDOs+3SL67ninkfbTnnq
+	CQsTN/RHKYXR4ngxGA183WhkPQESfflvK7OQULmmvnZCQ6TQvL14uI2uUMINryysljk1n/LjEcf1D
+	PiMmHDr1rn1t2pjsdsx7JgaRTMHJd7+fRXNQ/LKJpe+03NWVjmCrJAzLjlNa6ITT+e+/4febMYTcG
+	+rWnmJkalUY9+VPNvQUg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfMq2-0000000177c-1PZF;
-	Tue, 04 Feb 2025 17:35:54 +0000
+	id 1tfMq0-0000000174o-0rFI;
+	Tue, 04 Feb 2025 17:35:52 +0000
 Received: from mgamail.intel.com ([198.175.65.20])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfMpb-000000016vn-0FHQ;
-	Tue, 04 Feb 2025 17:35:28 +0000
+	id 1tfMoz-000000016fx-30yw;
+	Tue, 04 Feb 2025 17:34:50 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1738690527; x=1770226527;
+  t=1738690489; x=1770226489;
   h=from:to:cc:subject:date:message-id:in-reply-to:
    references:mime-version:content-transfer-encoding;
-  bh=7SPlp9QEiWP+nB12GdV91yF1dqiTepZdICL7iZuq4h4=;
-  b=mpFAEIXAsrrIMBAcnIvCKJz0uXT/PV3jYGdsm2nGrycSggR92krYDUDV
-   z60eDyZ65u18zUxm1kRCJcpBr3p+37+AlhMOZ0EEIoRxJ26Mb+qdvqGbc
-   YA/Mof5ZB8+G+LYxLDwTGj4mODCPKpqA2+eQqGH050Su+kuJD7qhZrpBR
-   6l4dmgLhYm8P+2Yf4UJoZhByx7cJweIzinBUzOOiF2NCADNz6VVF2dPtL
-   ENh8gKGRbgQBLcnB0plRnGQwdOa0s2XrL8oysy4Jyxi7WlC+rG2d+HdRy
-   uMxJtn774w/BI47RG4J1YLPe5nTY7l44Vh5BRxkmYQCuZnQ1ZnZocaT0n
-   g==;
-X-CSE-ConnectionGUID: CvfOLJpaSb+3INz2lxi8Mg==
-X-CSE-MsgGUID: REgNd3IdS+ecdE2qEUowtA==
-X-IronPort-AV: E=McAfee;i="6700,10204,11336"; a="38930504"
+  bh=LrFP/S58o6ICJkrRaOG0zWteTvtIiSjG9jGn/c23LW4=;
+  b=Ie/fh6xiqA66AZcYQ4Y6orvCz4F+I7OgQtmMq3hkvXhFg0wI6qGc1M0l
+   16382plnKRpFu35/2VUtIw8fLA0L0AO4pOfxriHivoBuXqooHcjtcYlzU
+   PrgKOqI0VL9F/WYaqj8pGDZo2vNjQHTazzFSjhwmWx5ST7uCaqYnYvR2S
+   isXiBe4usojrGFk2FQ0xAMTsmwRthgr5JSGN4sFcurUYZe0yiTNErIbeR
+   qfwabJrGAwTf3HF1clPTzspGTBHGA2gBiDT5F8gx/FIeSDi3hjnnLF5Pi
+   vWQB8qNxEMS7npas28kV5fDS5kS1n31hvv7hQA/YNkDgZn+2KBqqC6M0S
+   Q==;
+X-CSE-ConnectionGUID: 7jFYQz1fSqaUsTg2rtrOOg==
+X-CSE-MsgGUID: YCZqZDfwTj6A+Mp2M4ZQPw==
+X-IronPort-AV: E=McAfee;i="6700,10204,11336"; a="38930327"
 X-IronPort-AV: E=Sophos;i="6.13,259,1732608000"; 
-   d="scan'208";a="38930504"
+   d="scan'208";a="38930327"
 Received: from orviesa001.jf.intel.com ([10.64.159.141])
-  by orvoesa112.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 04 Feb 2025 09:35:25 -0800
-X-CSE-ConnectionGUID: /sEOqI4kSuqYrX4FgQuozA==
-X-CSE-MsgGUID: zBO7dwN1RyyrRSQp4bH21Q==
+  by orvoesa112.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 04 Feb 2025 09:34:49 -0800
+X-CSE-ConnectionGUID: hsBgrPAEQzS1k8EGLwQyaA==
+X-CSE-MsgGUID: MO+fRiNSTeubDAn41XyOaA==
 X-ExtLoop1: 1
 X-IronPort-AV: E=Sophos;i="6.12,224,1728975600"; 
-   d="scan'208";a="147866447"
+   d="scan'208";a="147866143"
 Received: from mjarzebo-mobl1.ger.corp.intel.com (HELO wieczorr-mobl1.intel.com) ([10.245.244.61])
-  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 04 Feb 2025 09:35:14 -0800
+  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 04 Feb 2025 09:34:37 -0800
 From: Maciej Wieczor-Retman <maciej.wieczor-retman@intel.com>
 To: luto@kernel.org,
 	xin@zytor.com,
@@ -108,16 +108,16 @@ Cc: kasan-dev@googlegroups.com,
 	linux-mm@kvack.org,
 	llvm@lists.linux.dev,
 	linux-doc@vger.kernel.org
-Subject: [PATCH 04/15] kasan: arm64: x86: risc-v: Make special tags arch specific
-Date: Tue,  4 Feb 2025 18:33:45 +0100
-Message-ID: <cdb119dcade0cea25745c920aba8434c27e4c93b.1738686764.git.maciej.wieczor-retman@intel.com>
+Subject: [PATCH 01/15] kasan: Allocation enhancement for dense tag-based mode
+Date: Tue,  4 Feb 2025 18:33:42 +0100
+Message-ID: <808cc6516f47d5f5e811d2c237983767952f3743.1738686764.git.maciej.wieczor-retman@intel.com>
 X-Mailer: git-send-email 2.47.1
 In-Reply-To: <cover.1738686764.git.maciej.wieczor-retman@intel.com>
 References: <cover.1738686764.git.maciej.wieczor-retman@intel.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250204_093527_180432_E97A40CF 
-X-CRM114-Status: GOOD (  19.54  )
+X-CRM114-CacheID: sfid-20250204_093449_826765_1BC56646 
+X-CRM114-Status: GOOD (  21.26  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -134,213 +134,198 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-KASAN's tag-based mode defines multiple special tag values. They're
-reserved for:
-- Native kernel value. On arm64 it's 0xFF and it causes an early return
-  in the tag checking function.
-- Invalid value. 0xFE marks an area as freed / unallocated. It's also
-  the value that is used to initialize regions of shadow memory.
-- Max value. 0xFD is the highest value that can be randomly generated
-  for a new tag.
+Tag-based KASAN (on arm64) works by generating a random 8-bit tag and
+putting it in both the top byte of the pointer (that points to the
+allocated memory) and into all bytes of shadow memory that correspond to
+the chunk of allocated regular memory. Each byte of shadow memory covers
+a 16 byte chunk of allocated memory - a value called KASAN granularity.
+This means that out-of-bounds memory accesses that happen inside the 16
+bytes can't be caught.
 
-Metadata macro is also defined:
-- Tag width equal to 8.
+The dense mode offers reducing the tag width from 8 to 4 bits and
+storing two tags in one byte of shadow memory - one in the upper 4 bits
+of the byte and one in the lower 4. This way one byte of shadow memory
+can cover 32 bytes of allocated memory while still keeping the "16 bytes
+per one tag" granularity. The lower 4 bits of each shadow byte map bytes
+of memory with offsets 0-15 and the upper 4 bits map offsets 16-31.
 
-Tag-based mode on x86 is going to use 4 bit wide tags so all the above
-values need to be changed accordingly.
+Example:
+The example below shows how the shadow memory looks like after
+allocating 48 bytes of memory in both normal tag-based mode and the
+dense mode. The contents of shadow memory are overlaid onto address
+offsets that they relate to in the allocated kernel memory. Each cell
+|    | symbolizes one byte of shadow memory.
 
-Make tags arch specific for x86, risc-v and arm64. On x86 the values
-just lose the top 4 bits.
+= The regular tag based mode:
+- Randomly generated 8-bit tag equals 0xAB.
+- 0xFE is the tag that symbolizes unallocated memory.
 
-Replace hardcoded kernel tag value and tag width with macros in KASAN's
-non-arch specific code.
+Shadow memory contents:           |  0xAB  |  0xAB  |  0xAB  |  0xFE  |
+Shadow memory address offsets:    0        1        2        3        4
+Allocated memory address offsets: 0        16       32       48       64
+
+= The dense tag based mode:
+- Randomly generated 4-bit tag equals 0xC.
+- 0xE is the tag that symbolizes unallocated memory.
+
+Shadow memory contents:           |0xC 0xC |0xC 0xE |0xE 0xE |0xE 0xE |
+Shadow memory address offsets:    0        1        2        3        4
+Allocated memory address offsets: 0        32       64       96       128
+
+Add a new config option and defines that can override the standard
+system of one tag per one shadow byte.
+
+Add alternative version of the kasan_poison() that deals with tags not
+being aligned to byte size in shadow memory.
 
 Signed-off-by: Maciej Wieczor-Retman <maciej.wieczor-retman@intel.com>
 ---
- MAINTAINERS                         |  2 +-
- arch/arm64/include/asm/kasan-tags.h |  9 +++++++++
- arch/riscv/include/asm/kasan-tags.h | 12 ++++++++++++
- arch/riscv/include/asm/kasan.h      |  4 ----
- arch/x86/include/asm/kasan-tags.h   |  9 +++++++++
- include/linux/kasan-tags.h          | 12 +++++++++++-
- include/linux/kasan.h               |  4 +++-
- include/linux/mm.h                  |  6 +++---
- include/linux/page-flags-layout.h   |  7 +------
- 9 files changed, 49 insertions(+), 16 deletions(-)
- create mode 100644 arch/arm64/include/asm/kasan-tags.h
- create mode 100644 arch/riscv/include/asm/kasan-tags.h
- create mode 100644 arch/x86/include/asm/kasan-tags.h
+ include/linux/kasan.h | 18 ++++++++++++++++++
+ lib/Kconfig.kasan     | 21 +++++++++++++++++++++
+ mm/kasan/kasan.h      |  4 +---
+ mm/kasan/shadow.c     | 33 ++++++++++++++++++++++++++++++---
+ 4 files changed, 70 insertions(+), 6 deletions(-)
 
-diff --git a/MAINTAINERS b/MAINTAINERS
-index b878ddc99f94..45671faa3b6f 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -12227,7 +12227,7 @@ L:	kasan-dev@googlegroups.com
- S:	Maintained
- B:	https://bugzilla.kernel.org/buglist.cgi?component=Sanitizers&product=Memory%20Management
- F:	Documentation/dev-tools/kasan.rst
--F:	arch/*/include/asm/*kasan.h
-+F:	arch/*/include/asm/*kasan*.h
- F:	arch/*/mm/kasan_init*
- F:	include/linux/kasan*.h
- F:	lib/Kconfig.kasan
-diff --git a/arch/arm64/include/asm/kasan-tags.h b/arch/arm64/include/asm/kasan-tags.h
-new file mode 100644
-index 000000000000..9e835da95f6b
---- /dev/null
-+++ b/arch/arm64/include/asm/kasan-tags.h
-@@ -0,0 +1,9 @@
-+/* SPDX-License-Identifier: GPL-2.0 */
-+#ifndef __ASM_KASAN_TAGS_H
-+#define __ASM_KASAN_TAGS_H
-+
-+#define KASAN_TAG_KERNEL	0xFF /* native kernel pointers tag */
-+
-+#define KASAN_TAG_WIDTH 8
-+
-+#endif /* ASM_KASAN_TAGS_H */
-diff --git a/arch/riscv/include/asm/kasan-tags.h b/arch/riscv/include/asm/kasan-tags.h
-new file mode 100644
-index 000000000000..83d7dcc8af74
---- /dev/null
-+++ b/arch/riscv/include/asm/kasan-tags.h
-@@ -0,0 +1,12 @@
-+/* SPDX-License-Identifier: GPL-2.0 */
-+#ifndef __ASM_KASAN_TAGS_H
-+#define __ASM_KASAN_TAGS_H
-+
-+#ifdef CONFIG_KASAN_SW_TAGS
-+#define KASAN_TAG_KERNEL	0x7f /* native kernel pointers tag */
-+#endif
-+
-+#define KASAN_TAG_WIDTH 8
-+
-+#endif /* ASM_KASAN_TAGS_H */
-+
-diff --git a/arch/riscv/include/asm/kasan.h b/arch/riscv/include/asm/kasan.h
-index f6b378ba936d..27938e0d5233 100644
---- a/arch/riscv/include/asm/kasan.h
-+++ b/arch/riscv/include/asm/kasan.h
-@@ -41,10 +41,6 @@
- 
- #define KASAN_SHADOW_OFFSET	_AC(CONFIG_KASAN_SHADOW_OFFSET, UL)
- 
--#ifdef CONFIG_KASAN_SW_TAGS
--#define KASAN_TAG_KERNEL	0x7f /* native kernel pointers tag */
--#endif
--
- #define arch_kasan_set_tag(addr, tag)	__tag_set(addr, tag)
- #define arch_kasan_reset_tag(addr)	__tag_reset(addr)
- #define arch_kasan_get_tag(addr)	__tag_get(addr)
-diff --git a/arch/x86/include/asm/kasan-tags.h b/arch/x86/include/asm/kasan-tags.h
-new file mode 100644
-index 000000000000..68ba385bc75c
---- /dev/null
-+++ b/arch/x86/include/asm/kasan-tags.h
-@@ -0,0 +1,9 @@
-+/* SPDX-License-Identifier: GPL-2.0 */
-+#ifndef __ASM_KASAN_TAGS_H
-+#define __ASM_KASAN_TAGS_H
-+
-+#define KASAN_TAG_KERNEL	0xF /* native kernel pointers tag */
-+
-+#define KASAN_TAG_WIDTH		4
-+
-+#endif /* ASM_KASAN_TAGS_H */
-diff --git a/include/linux/kasan-tags.h b/include/linux/kasan-tags.h
-index e07c896f95d3..b4aacfa8709b 100644
---- a/include/linux/kasan-tags.h
-+++ b/include/linux/kasan-tags.h
-@@ -2,7 +2,17 @@
- #ifndef _LINUX_KASAN_TAGS_H
- #define _LINUX_KASAN_TAGS_H
- 
--#include <asm/kasan.h>
-+#if defined(CONFIG_KASAN_SW_TAGS) || defined(CONFIG_KASAN_HW_TAGS)
-+#include <asm/kasan-tags.h>
-+#endif
-+
-+#ifdef CONFIG_KASAN_SW_TAGS_DENSE
-+#define KASAN_TAG_WIDTH		4
-+#endif
-+
-+#ifndef KASAN_TAG_WIDTH
-+#define KASAN_TAG_WIDTH		0
-+#endif
- 
- #ifndef KASAN_TAG_KERNEL
- #define KASAN_TAG_KERNEL	0xFF /* native kernel pointers tag */
 diff --git a/include/linux/kasan.h b/include/linux/kasan.h
-index 5a3e9bec21c2..83146367170a 100644
+index 03b440658817..ea0f5acd875b 100644
 --- a/include/linux/kasan.h
 +++ b/include/linux/kasan.h
-@@ -88,7 +88,9 @@ static inline u8 kasan_get_shadow_tag(const void *addr)
+@@ -35,6 +35,24 @@ typedef unsigned int __bitwise kasan_vmalloc_flags_t;
  
+ /* Software KASAN implementations use shadow memory. */
+ 
++#ifdef CONFIG_KASAN_SW_TAGS_DENSE
++#define KASAN_GRANULE_SHIFT	(KASAN_SHADOW_SCALE_SHIFT - 1)
++#define KASAN_SHADOW_SCALE_SIZE	(1UL << KASAN_SHADOW_SCALE_SHIFT)
++static inline u8 kasan_dense_tag(u8 tag)
++{
++	return (tag << KASAN_TAG_WIDTH | tag);
++}
++#else
++#define KASAN_GRANULE_SHIFT	KASAN_SHADOW_SCALE_SHIFT
++#define KASAN_SHADOW_SCALE_SIZE	(1UL << KASAN_GRANULE_SHIFT)
++static inline u8 kasan_dense_tag(u8 tag)
++{
++	return tag;
++}
++#endif
++
++#define KASAN_GRANULE_SIZE	(1UL << KASAN_GRANULE_SHIFT)
++
  #ifdef CONFIG_KASAN_SW_TAGS
  /* This matches KASAN_TAG_INVALID. */
--#define KASAN_SHADOW_INIT 0xFE
-+#ifndef KASAN_SHADOW_INIT
-+#define KASAN_SHADOW_INIT KASAN_TAG_INVALID
-+#endif
- #else
- #define KASAN_SHADOW_INIT 0
+ #define KASAN_SHADOW_INIT 0xFE
+diff --git a/lib/Kconfig.kasan b/lib/Kconfig.kasan
+index 98016e137b7f..d08b4e9bf477 100644
+--- a/lib/Kconfig.kasan
++++ b/lib/Kconfig.kasan
+@@ -19,6 +19,13 @@ config ARCH_DISABLE_KASAN_INLINE
+ 	  Disables both inline and stack instrumentation. Selected by
+ 	  architectures that do not support these instrumentation types.
+ 
++config ARCH_HAS_KASAN_SW_TAGS_DENSE
++	bool
++	help
++	  Enables option to compile tag-based KASAN with densely packed tags -
++	  two 4-bit tags per one byte of shadow memory. Set on architectures
++	  that have 4-bit tag macros.
++
+ config CC_HAS_KASAN_GENERIC
+ 	def_bool $(cc-option, -fsanitize=kernel-address)
+ 
+@@ -223,4 +230,18 @@ config KASAN_EXTRA_INFO
+ 	  boot parameter, it will add 8 * stack_ring_size bytes of additional
+ 	  memory consumption.
+ 
++config KASAN_SW_TAGS_DENSE
++	bool "Two 4-bit tags in one shadow memory byte"
++	depends on KASAN_SW_TAGS
++	depends on ARCH_HAS_KASAN_SW_TAGS_DENSE
++	help
++	  Enables packing two tags into one shadow byte to half the memory usage
++	  compared to normal tag-based mode.
++
++	  After setting this option, tag width macro is set to 4 and size macros
++	  are adjusted based on used KASAN_SHADOW_SCALE_SHIFT.
++
++	  ARCH_HAS_KASAN_SW_TAGS_DENSE is needed for this option since the
++	  special tag macros need to be properly set for 4-bit wide tags.
++
+ endif # KASAN
+diff --git a/mm/kasan/kasan.h b/mm/kasan/kasan.h
+index 72da5ddcceaa..0e04c5e2c405 100644
+--- a/mm/kasan/kasan.h
++++ b/mm/kasan/kasan.h
+@@ -128,9 +128,7 @@ static inline bool kasan_requires_meta(void)
+ 
+ #endif /* CONFIG_KASAN_GENERIC */
+ 
+-#if defined(CONFIG_KASAN_GENERIC) || defined(CONFIG_KASAN_SW_TAGS)
+-#define KASAN_GRANULE_SIZE	(1UL << KASAN_SHADOW_SCALE_SHIFT)
+-#else
++#ifdef CONFIG_KASAN_HW_TAGS
+ #include <asm/mte-kasan.h>
+ #define KASAN_GRANULE_SIZE	MTE_GRANULE_SIZE
  #endif
-diff --git a/include/linux/mm.h b/include/linux/mm.h
-index 61fff5d34ed5..ddca2f63a5f6 100644
---- a/include/linux/mm.h
-+++ b/include/linux/mm.h
-@@ -1813,7 +1813,7 @@ static inline u8 page_kasan_tag(const struct page *page)
+diff --git a/mm/kasan/shadow.c b/mm/kasan/shadow.c
+index d6210ca48dda..368503f54b87 100644
+--- a/mm/kasan/shadow.c
++++ b/mm/kasan/shadow.c
+@@ -123,7 +123,8 @@ EXPORT_SYMBOL(__hwasan_memcpy);
  
- 	if (kasan_enabled()) {
- 		tag = (page->flags >> KASAN_TAG_PGSHIFT) & KASAN_TAG_MASK;
--		tag ^= 0xff;
-+		tag ^= KASAN_TAG_KERNEL;
- 	}
+ void kasan_poison(const void *addr, size_t size, u8 value, bool init)
+ {
+-	void *shadow_start, *shadow_end;
++	u8 *shadow_start, *shadow_end, *shadow_start_aligned, *shadow_end_aligned, tag;
++	u64 addr64, addr_start_aligned, addr_end_aligned;
  
- 	return tag;
-@@ -1826,7 +1826,7 @@ static inline void page_kasan_tag_set(struct page *page, u8 tag)
- 	if (!kasan_enabled())
+ 	if (!kasan_arch_is_ready())
+ 		return;
+@@ -134,16 +135,42 @@ void kasan_poison(const void *addr, size_t size, u8 value, bool init)
+ 	 * addresses to this function.
+ 	 */
+ 	addr = kasan_reset_tag(addr);
++	addr64 = (u64)addr;
+ 
+-	if (WARN_ON((unsigned long)addr & KASAN_GRANULE_MASK))
++	if (WARN_ON(addr64 & KASAN_GRANULE_MASK))
+ 		return;
+ 	if (WARN_ON(size & KASAN_GRANULE_MASK))
  		return;
  
--	tag ^= 0xff;
-+	tag ^= KASAN_TAG_KERNEL;
- 	old_flags = READ_ONCE(page->flags);
- 	do {
- 		flags = old_flags;
-@@ -1845,7 +1845,7 @@ static inline void page_kasan_tag_reset(struct page *page)
+ 	shadow_start = kasan_mem_to_shadow(addr);
+ 	shadow_end = kasan_mem_to_shadow(addr + size);
++	addr_start_aligned = round_up(addr64, KASAN_SHADOW_SCALE_SIZE);
++	addr_end_aligned = round_down(addr64 + size, KASAN_SHADOW_SCALE_SIZE);
++	shadow_start_aligned = kasan_mem_to_shadow((void *)addr_start_aligned);
++	shadow_end_aligned = kasan_mem_to_shadow((void *)addr_end_aligned);
++
++	/* If size is empty just return. */
++	if (!size)
++		return;
  
- static inline u8 page_kasan_tag(const struct page *page)
- {
--	return 0xff;
-+	return KASAN_TAG_KERNEL;
+-	__memset(shadow_start, value, shadow_end - shadow_start);
++	/* Memset the first unaligned tag in shadow memory. */
++	if (addr64 % KASAN_SHADOW_SCALE_SIZE) {
++		tag = *shadow_start & KASAN_TAG_MASK;
++		tag |= value << KASAN_TAG_WIDTH;
++		*shadow_start = tag;
++	}
++
++	/* Memset the middle aligned part in shadow memory. */
++	tag = kasan_dense_tag(value);
++	__memset(shadow_start_aligned, tag, shadow_end_aligned - shadow_start_aligned);
++
++	/* Memset the last unaligned tag in shadow memory. */
++	if ((addr64 + size) % KASAN_SHADOW_SCALE_SIZE) {
++		tag = KASAN_TAG_MASK << KASAN_TAG_WIDTH;
++		tag &= *shadow_end;
++		tag |= value;
++		*shadow_end = tag;
++	}
  }
+ EXPORT_SYMBOL_GPL(kasan_poison);
  
- static inline void page_kasan_tag_set(struct page *page, u8 tag) { }
-diff --git a/include/linux/page-flags-layout.h b/include/linux/page-flags-layout.h
-index 7d79818dc065..ac3576f409ad 100644
---- a/include/linux/page-flags-layout.h
-+++ b/include/linux/page-flags-layout.h
-@@ -3,6 +3,7 @@
- #define PAGE_FLAGS_LAYOUT_H
- 
- #include <linux/numa.h>
-+#include <linux/kasan-tags.h>
- #include <generated/bounds.h>
- 
- /*
-@@ -72,12 +73,6 @@
- #define NODE_NOT_IN_PAGE_FLAGS	1
- #endif
- 
--#if defined(CONFIG_KASAN_SW_TAGS) || defined(CONFIG_KASAN_HW_TAGS)
--#define KASAN_TAG_WIDTH 8
--#else
--#define KASAN_TAG_WIDTH 0
--#endif
--
- #ifdef CONFIG_NUMA_BALANCING
- #define LAST__PID_SHIFT 8
- #define LAST__PID_MASK  ((1 << LAST__PID_SHIFT)-1)
 -- 
 2.47.1
 
