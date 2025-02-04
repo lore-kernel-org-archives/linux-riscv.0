@@ -4,82 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A3698C0218F
-	for <linux-riscv@archiver.kernel.org>; Tue,  4 Feb 2025 08:03:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 627EEC0218F
+	for <linux-riscv@archiver.kernel.org>; Tue,  4 Feb 2025 08:04:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=6v3rCrAC9Tc9WC5bpmjJ6SnsLvxn/j3fkS4MH5jVyLE=; b=lvxV0pV1Xz+Hxq
-	Gs9287OberUr43qNCUPePp2R90D/+uhaYY/Iksxwz1PnOlxIkABeAiTs9h4I+h9/UusH8SzGhFPXj
-	soD0iuWNvvSjApgdzQf+WG6rWICd9jis6Y8tIl1uvHORCjNjK9V5aQSBgV7j4LtnJgY+zpDea9F9T
-	0RNoHyqvpkfihXL1Oq4WbyEDkUFAjXIAJr/GDJ1QdN8BwujljzPvoqRo+IcJ6jx2HEBr6wTQYfDZE
-	vk3cVJ61eG2VwKz+0/1xq7F3fftfhTDlrH97s7fVK+02Usp7UdJnHvXURD7pDTJ92hs/0iylr4pLI
-	KzZEGmaD++sZ0Zm6KYBw==;
+	List-Owner; bh=V37SBZb5WAC0QITnhI3G2cAobVhQUoIQPrwS4FNbPcY=; b=5CZoNMV33+y90b
+	XaEC0oNial0zqSHO4uPE1w6SQ85nvBTN1FYkU9W46FSW05FoGrmIWuZ82WHd0JblxaUazYPeTe5Wh
+	yIOZp4JxHvnR91ysXONBo6sKldJt8JoJ0XNEJyotEuXowh3kV0QZMRDtCOkXf0TU6DaaCpBH8YZKi
+	5WzNbAiwX/WOOkuafQ/IfaBD4Dvsy2f6T7ESqGXaHC1yGlyNACUCf4GvvYLVG+d+6GT6jzXqF/TPw
+	GVUOZxc1Q9hbSp9v9mEUihHWtgXL6y93XZVF+aMUfAy0u5VHkzepkrugw5rVmNI+jCtm8EnazEwjv
+	/x3RCh9R5QUFDA2yUzlA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfDtu-0000000HUCp-0GGK;
-	Tue, 04 Feb 2025 08:03:18 +0000
-Received: from mail-qk1-x736.google.com ([2607:f8b0:4864:20::736])
+	id 1tfDvD-0000000HUMD-0zkp;
+	Tue, 04 Feb 2025 08:04:39 +0000
+Received: from mail-qk1-x72c.google.com ([2607:f8b0:4864:20::72c])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfDm5-0000000HSoW-1C4x
+	id 1tfDmE-0000000HSsR-3MXj
 	for linux-riscv@lists.infradead.org;
-	Tue, 04 Feb 2025 07:55:14 +0000
-Received: by mail-qk1-x736.google.com with SMTP id af79cd13be357-7b98a2e3b3eso290201085a.2
-        for <linux-riscv@lists.infradead.org>; Mon, 03 Feb 2025 23:55:12 -0800 (PST)
+	Tue, 04 Feb 2025 07:55:24 +0000
+Received: by mail-qk1-x72c.google.com with SMTP id af79cd13be357-7b6ed0de64aso455749285a.0
+        for <linux-riscv@lists.infradead.org>; Mon, 03 Feb 2025 23:55:22 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1738655712; x=1739260512; darn=lists.infradead.org;
+        d=ventanamicro.com; s=google; t=1738655722; x=1739260522; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=zXz6fvQA0XjFVpb2cpM8OodOs5mmbZEn6PcelI8ZWow=;
-        b=nCXhPJS129mXHl8LjkLJpQXnN8qDONxJoosT4r1dWpAiKa1481PWWHbN08LAcHvg8d
-         1XCr6BHQsm5sheBCweuxVrHfCuzlnamFtZ0LiGIulmQf1+LqXDSH5s8+dDHZqZGfeZTi
-         S1ZZqLE62xs7k0spvAWWiNG0ozXkdloTzOCLpBRW7VggQXgQgwsa/McVCpN/F+DxHmD3
-         N4OQAST+PTn42lxEN2JgX6SMImpQdxUbuLHEswnWBWjdeBy2hjeHhaTLO79JE+3BQAyA
-         iksg9asm3egzT8Jd0NuQnzg7xz7WDRhX6rfoAFiAAd6RgrkGnA1Ctr1EPQncR2E4Vat7
-         lw7Q==
+        bh=ZnRpk/p9sKuCOyv2KZjNLOO6T+xrx1m13lZc/9SNpSQ=;
+        b=HGWb5V3LuorlC20A3R8l9dP9WR75SIUcCEu8BruGb6sQRGYIGKOfOd7OADt/ecQYKN
+         zrnr++AXTDjgtm4GyOWMko9jAjsVsXz6fDk6Ef5xEN/9zM3+rfPmEj/xejXJX/q3lEHK
+         pJVPoocqNdH67T42Sv01n1E7YLe/kEzqykjwGtTkRi7B6x+9pCgUi4N5L0dP0c07BHYM
+         PoQH6ONbl0ojMHCUhCp3GHwwIc2OI9whUhMXCQah4gVRHH8n1GiDwXNo8xqAyF7ehy/C
+         K1lEktCbe3nWB1/by8DFJ/jW6YMS820JVyAksCF27P6ODAGdgaKti+yezLQO8mW9HZBI
+         jADQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1738655712; x=1739260512;
+        d=1e100.net; s=20230601; t=1738655722; x=1739260522;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=zXz6fvQA0XjFVpb2cpM8OodOs5mmbZEn6PcelI8ZWow=;
-        b=jbQ5/82eDbl9utBS62YPwwb6ARbrj+5mF0L8fXgkJf1M5fUctJ/Pib4eJbG4bxYfhH
-         sC7Ml7B8EZ1Qm+dNRq5I33VptoQOYwHtZSguUMx6zGCgScdVIW14Dr+NrJczUpah9LCQ
-         upkrZQOLiZb3ZT/vEBQwkU/HWrF15sMN/iWfntu+tnby2whKIa2rymH6DW4wFUj13UZ7
-         s7n0/eZQdhPxprPKljcy3Y2dmcNQRR/u7N7tW/e7Y0b3c+yDtunFYe5iwaLMMGKLD4Xv
-         PX7LctiuspNaM9nb5D6+QSsWjsdsoPBnk5crOW71hUxErjpugyVivSMtbw5PjieX/2H1
-         GIeg==
-X-Forwarded-Encrypted: i=1; AJvYcCXwzuqR8XzwFlW8DBsdh8iBRbWdrgS41pJ9xJ+fmagabAeGqFYWP7AviKqvDKveJx2gNh+I2sXUmuX5jg==@lists.infradead.org
-X-Gm-Message-State: AOJu0YylkieaFtFkvFoXwQZZcV28n55aSQgeDnkjru12qcQLzautq5xt
-	h13ErU62mlNPnyebr1jw4mdGcFCyI2JKaKBQCbdlh6X1T1xDYg/HHm6vXowiiWc=
-X-Gm-Gg: ASbGncv3+U20rzubVQGtpKcxuS4z36EwjF3Pzo6rtvrbDbjGfnJSUoYXiGY5GrJ1EVV
-	da/lDGe0ZBimcwCbHMe/mA9ij8ldhrL3POfQjnXSBcITrN/IxhwuwZatR434DeK4lbYovJgb1ID
-	VyITBAODE28lO4/n0gECNh9ITpQMlNu/w8kBcXcOrA332/huOcDfL2Dtd8JyXh3wGVJG1HYnShQ
-	zAxWwfWYWiNN+IWtuG54CnShjFa8J9xmDFWsXudY1QhbM91gx2MeeWGX9QkbDA9c+Q56fTdJHLn
-	9dE/kqL99OALNX8C2I4KmHR0+aLXGMVERZumq4qbGOh8ZnZqTs9D8xI=
-X-Google-Smtp-Source: AGHT+IEygJlzRE1f+LllQAS/xZozPVCC5zlNa0cJxT7IbmhuAFZYxlHSMSOoINty/Bxd6fyVjhK48w==
-X-Received: by 2002:a05:620a:2b8a:b0:7b6:6c6f:fb5c with SMTP id af79cd13be357-7bffcce52e1mr3541223185a.15.1738655711939;
-        Mon, 03 Feb 2025 23:55:11 -0800 (PST)
+        bh=ZnRpk/p9sKuCOyv2KZjNLOO6T+xrx1m13lZc/9SNpSQ=;
+        b=A7APJOSBvadntc3BYww9CsXuzbvv2xH9Wp8lzxWTpxxIkpk7cH6Og6h+JpGXez5P03
+         CAYoNE4UODTLkxh7BHTC7ptarPeCh354Sg8CMLprjTKzxpYXehT/ii3Hzu7Sl941CRuH
+         MWQmAsMaILEEvo/USJB4uzd0RJPqgAtQ31DoBjDvztSf0ev4vB2ZH51eotvTdCm9trVt
+         wWQTxVtJaNLpUplJ5MwpzHq6PtcYEhG7oke8rMGsZgpFc0oAAQxR7RpgQ6nHWD046+y7
+         sWcPt5XwGXvm/blfCNyZsOFbBYoEEkl/FOo7LprEHzR4cSYqiwfj75UAPrYQGSa21zH+
+         u5kA==
+X-Forwarded-Encrypted: i=1; AJvYcCWEa1pxONjWk67pp1QkQlGu8C9TH4npywVIQX5bNzqn+Wb+Umyp0V9cCGZZ0i5qimNbsydCxGIC6rvHvQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0YzBH9tk9yDPuPN2g16OjpcK1PAxiLudBwtec+stplKw+Myl3Efj
+	vdT5S9Y7yw3zthMGfPEWJML6EfJ/kbZj5+iSwhLLlrs3CgklAswGVRQqoEgZFKU=
+X-Gm-Gg: ASbGncumu1kGdI45zvDzCCKooO7CLMqCwyPkokdwKokJEn4Jp8IKl3u1N/rJVmIfhpF
+	yIF7fCgoqlLXOO8WXdBNMk/8Fwd/rqr/TCEmO4b2jXZKjlqxuEfgQEx15Gm5pZN+2diYKO4RkqO
+	Cv19haus3WoEd8H3AEy4gvQ4HKN52ohC/4V8qCL6P/nce+Ly05iSfAeNb3RqeXaRyyJwJO/g5Mr
+	8dTpBQzqag65JyfgqiPDmC2wH78cKrqvKWJFR1WTceNWASAkfZCzaLC+wmpm2H9YC9p1Ksjj52s
+	4BACRD7ObZvYeD9A90WF1nIy0yC0mDtxAsy0rqo8Z5nzrEBImzswYWo=
+X-Google-Smtp-Source: AGHT+IHxtxKg5RW+0tra7ErqT2l5lv/l4qXvXUJ8U9uiGwIl5QtJCesqdAm7TRDDQSFPGUYW4TnQ4g==
+X-Received: by 2002:a05:620a:1993:b0:7b6:d710:22ad with SMTP id af79cd13be357-7c02eca3a0amr362876885a.27.1738655721837;
+        Mon, 03 Feb 2025 23:55:21 -0800 (PST)
 Received: from anup-ubuntu-vm.localdomain ([103.97.166.196])
-        by smtp.gmail.com with ESMTPSA id af79cd13be357-7c00a8d05ddsm613373185a.39.2025.02.03.23.55.01
+        by smtp.gmail.com with ESMTPSA id af79cd13be357-7c00a8d05ddsm613373185a.39.2025.02.03.23.55.12
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 03 Feb 2025 23:55:10 -0800 (PST)
+        Mon, 03 Feb 2025 23:55:20 -0800 (PST)
 From: Anup Patel <apatel@ventanamicro.com>
 To: Thomas Gleixner <tglx@linutronix.de>
-Subject: [PATCH v3 05/10] genirq: Introduce common irq_force_complete_move() implementation
-Date: Tue,  4 Feb 2025 13:24:00 +0530
-Message-ID: <20250204075405.824721-6-apatel@ventanamicro.com>
+Subject: [PATCH v3 06/10] RISC-V: Enable GENERIC_PENDING_IRQ and GENERIC_PENDING_IRQ_CHIPFLAGS
+Date: Tue,  4 Feb 2025 13:24:01 +0530
+Message-ID: <20250204075405.824721-7-apatel@ventanamicro.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20250204075405.824721-1-apatel@ventanamicro.com>
 References: <20250204075405.824721-1-apatel@ventanamicro.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250203_235513_323073_8266E554 
-X-CRM114-Status: GOOD (  11.28  )
+X-CRM114-CacheID: sfid-20250203_235522_854243_368A3C8B 
+X-CRM114-Status: UNSURE (   8.35  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,64 +98,28 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The GENERIC_PENDING_IRQ requires an arch specific implementation
-of irq_force_complete_move(). At the moment, only x86 implements
-this but for RISC-V the irq_force_complete_move() is only needed
-when RISC-V IMSIC driver is in use and not needed otherwise.
-
-To address the above, introduce common weak implementation of
-the irq_force_complete_move() which lets irqchip do the actual
-irq_force_complete_move().
+Enable GENERIC_PENDING_IRQ and GENERIC_PENDING_IRQ_CHIPFLAGS for RISC-V
+so that RISC-V irqchips can support delayed irq mirgration in the
+interrupt context.
 
 Signed-off-by: Anup Patel <apatel@ventanamicro.com>
 ---
- include/linux/irq.h    | 5 +++++
- kernel/irq/migration.c | 9 +++++++++
- 2 files changed, 14 insertions(+)
+ arch/riscv/Kconfig | 2 ++
+ 1 file changed, 2 insertions(+)
 
-diff --git a/include/linux/irq.h b/include/linux/irq.h
-index 8daa17f0107a..1884fa4ec9b5 100644
---- a/include/linux/irq.h
-+++ b/include/linux/irq.h
-@@ -486,6 +486,7 @@ static inline irq_hw_number_t irqd_to_hwirq(struct irq_data *d)
-  * @ipi_send_mask:	send an IPI to destination cpus in cpumask
-  * @irq_nmi_setup:	function called from core code before enabling an NMI
-  * @irq_nmi_teardown:	function called from core code after disabling an NMI
-+ * @irq_force_complete_move:	optional function to force complete pending irq move
-  * @flags:		chip specific flags
-  */
- struct irq_chip {
-@@ -537,6 +538,10 @@ struct irq_chip {
- 	int		(*irq_nmi_setup)(struct irq_data *data);
- 	void		(*irq_nmi_teardown)(struct irq_data *data);
- 
-+#if defined(CONFIG_SMP) && defined(CONFIG_GENERIC_PENDING_IRQ)
-+	void		(*irq_force_complete_move)(struct irq_data *data);
-+#endif
-+
- 	unsigned long	flags;
- };
- 
-diff --git a/kernel/irq/migration.c b/kernel/irq/migration.c
-index eb150afd671f..2920024475a3 100644
---- a/kernel/irq/migration.c
-+++ b/kernel/irq/migration.c
-@@ -5,6 +5,15 @@
- 
- #include "internals.h"
- 
-+void __weak irq_force_complete_move(struct irq_desc *desc)
-+{
-+	struct irq_data *d = irq_desc_get_irq_data(desc);
-+	struct irq_chip *chip = irq_data_get_irq_chip(d);
-+
-+	if (chip && chip->irq_force_complete_move)
-+		chip->irq_force_complete_move(d);
-+}
-+
- /**
-  * irq_fixup_move_pending - Cleanup irq move pending from a dying CPU
-  * @desc:		Interrupt descriptor to clean up
+diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+index 7612c52e9b1e..3c19e6ca832d 100644
+--- a/arch/riscv/Kconfig
++++ b/arch/riscv/Kconfig
+@@ -111,6 +111,8 @@ config RISCV
+ 	select GENERIC_IRQ_SHOW
+ 	select GENERIC_IRQ_SHOW_LEVEL
+ 	select GENERIC_LIB_DEVMEM_IS_ALLOWED
++	select GENERIC_PENDING_IRQ if SMP
++	select GENERIC_PENDING_IRQ_CHIPFLAGS if SMP
+ 	select GENERIC_PCI_IOMAP
+ 	select GENERIC_PTDUMP if MMU
+ 	select GENERIC_SCHED_CLOCK
 -- 
 2.43.0
 
