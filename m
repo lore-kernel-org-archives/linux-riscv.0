@@ -4,69 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6F017C02194
-	for <linux-riscv@archiver.kernel.org>; Tue,  4 Feb 2025 20:01:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D0BA1C02199
+	for <linux-riscv@archiver.kernel.org>; Tue,  4 Feb 2025 20:01:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=nAiGOf4Th7dmjfrU3bdPO3+3gXF0xN1nw69RFO3KNY0=; b=qrTb88+RuSdFDc
-	YRBU7R0PCI5LKVQeVfcuii4V6vCKOa9msAyLXBERaY+GXd7tm+71Y/wa4jvLs6fxVyKt7LPAX2imw
-	IdVZceu+1MYEfR24kXPc24zP3HSKJrDa28c3i8iandJqnuU3yjOkFjfls3KCs1YYw82GW0nk8th5p
-	qS+vXPEfF6OiiDoNnPOXYbF14Q9HsNrCIJkXPnLtsmcQZXVxZ7/RfexqIrmM33dyxEYpat1/EVlr/
-	FI4O8oZna60lwSIaRBuB6uJOs5q/xOT6DGWJLexCwZuEmj+zQGUqSyltpiROc3r0Di/GiMPzRef/e
-	MIz5PTbrkcTYD3OyjCmg==;
+	List-Owner; bh=sAbTDyS8uNjxiSUz4c+yVNV0teMEq4PCCGjKQoiaBl0=; b=sg39lmqb7ZKynn
+	gr4qytFFIcQRwZ/aksYZEs9rQJZgB58VeR4/83lVAkxgdZWEgQcPB/vgqTdRgl7CIlN8v1VputzH9
+	VkJfj14he4uc2POB/prU/tXLR6INvWTmjA0gP+YSr2GRrjHtKC7QkqfPtaG4yQwYRAih7zITnvan8
+	kEHgZb442I/tYuwBl/LjLuAfwVv0V1vL5FFnflb4pbqlOtc/MgqBMS7a8ahmfMNaEcBwFoURdVZLP
+	w1Bdwz5lrCvlYq1wkR7OhhP0BYfXPnziqlQYO2gnwAZeHEd+X126Q3I2dZLCP9dO/Yyq91QdcoKH+
+	8WYdW3MMx4+WpqW2s9Bg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfP6T-00000001SWK-2fTE;
-	Tue, 04 Feb 2025 20:01:01 +0000
+	id 1tfP6V-00000001SY8-3i3U;
+	Tue, 04 Feb 2025 20:01:03 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfMqd-000000017gY-3ztA;
-	Tue, 04 Feb 2025 17:36:31 +0000
+	id 1tfMr2-000000017tA-2SrN;
+	Tue, 04 Feb 2025 17:36:56 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
 	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
 	Content-Type:Content-ID:Content-Description;
-	bh=OjOreTL+Ot1aK4xRTqvixmr6X+5Hdo5QfDrtzsBAFBk=; b=cF9BjhlLs5jGI6B+rtjcQ7R//+
-	EMtDfW371mUM0XVPARAM71Kgf/cfqAx0ui52m1W0XinQF6OIYfYiXhynoYukET4I1bbb1JukE6KuI
-	N9ILiK63nwX3VOHwLBt8EEAaoccSzgsuHpyXPmpvjLOZKUDOB6K3GDXBJ09H/ZckvfVbgH1XuUy+p
-	27TLJa1wVZVFTxEPyVpkdlQINJweZ7kx1hZLBBG/Wadrt+jScjJW4kjh74W0hrPWw0/ZIKsGBPvRT
-	7qJhOOofklWLgzoiNZOL4+nDSa3qPiQhc0cVnRZccIbwWm+mXVlWXIcvKD9zm/ZdwymBcQcx2Dp3N
-	JHGO6L0g==;
+	bh=wcThim39EYPHxXLHIVD/RA5qpLaRNquzUdH4zXdFJ+w=; b=YA0hyO2EoSy5o5sd3CNHcsm2k1
+	Ej0g1bYGP4ymlQ5hXmasRBOKebLAqNuFf0J4H6hgIXmds7T5hIZIsmalF33TUoSis5orLwQDwDVqK
+	M78V5y3WhOPtVVVE17v/2t2D7Vj9QHElUoAtX/0Br1IBNoaTj229y9mxhgXZHNQHoDi/JNaW0bDD9
+	RFMZ6B8MzhdI8dTFoCqHiDyly/QfDTb0ESNIhUT1e/nDjDOls2IX9n5GKwbcNGm+a2NbvwZyQ62eC
+	hlEzfc/cd87YIgISn5oatbgYI21KCQP/9yiigllaGY/vG9OlJk5psqwXhBqnSvZbU+Ix8WAbsrWi7
+	fEzJbeRA==;
 Received: from mgamail.intel.com ([198.175.65.20])
 	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfMqZ-0000000GLsT-2Kaa;
-	Tue, 04 Feb 2025 17:36:30 +0000
+	id 1tfMqz-0000000GM17-2QF7;
+	Tue, 04 Feb 2025 17:36:55 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1738690587; x=1770226587;
+  t=1738690613; x=1770226613;
   h=from:to:cc:subject:date:message-id:in-reply-to:
    references:mime-version:content-transfer-encoding;
-  bh=ZPDKrg9roFM67mEQ2fI48/uwWPYPBpbE1ZWp7rfkzQw=;
-  b=OzKLEZRcGnEafPuWzqcBa2H/6WpLfuxAPAQKLEg+q0BEnRqRSm549NYD
-   CJd00DexTfsg5MFYeUUdGd7nX9aNaXTU57Gwcx1LKymI7cM7Sib/0jzbe
-   Y9ZbE3nOGscJs7gB7xwfuBBre2j8iA9T2jBSfUGfhd1tvFEeSV1VqdOMM
-   TIO8+ZF3S1VXNPkSX0eEpdl9ZQD2MckykDnD2uY2ZdZW8cra2Eh5PM1pF
-   MGwFiR+HFhadiAKiNJL4kgU9Y2rEDnxOdKHQ06PnpATfH1MKE5WVQO55x
-   DBY+/6GIcbm3lrik/UrpKk9ylLYZ+EsDRzDcdfhO4hR7bkYQZkXS5/ROQ
-   Q==;
-X-CSE-ConnectionGUID: PDqFjK0LQGOzIpkL9EBZcw==
-X-CSE-MsgGUID: UQRW6WyYRT++i02erQ2Gqg==
-X-IronPort-AV: E=McAfee;i="6700,10204,11336"; a="38930848"
+  bh=EUgvSoD6ZXvZMdQY8EXK092WIVXF++/3+F17U+GxOWU=;
+  b=CWAB+BXHZ2GM4DhILaTk5HeAJ6vUIBQsu6QRGt6n5Eha5enrPIJ/q3/3
+   B655tMNN1brqCn2fCzMVZG9+qVtKJGG9sthgV9r0W9bqunWEoDEi1k6mu
+   3rD1yOIXWCp0pbYm6mMbh569ajBUzK3ePw5VDZYZu9wIxmY5uu0BTkGA4
+   wa7GxqCsi5ojt9EZ8bTrUHWsb49FITy7TRx4NyhWCKZARkeOUigwE0Ypf
+   37iUqmd/xNmvwn17CtlPX9Y7tJBBoaeFGZzQIyooUixVhmubEPK4P2Ilg
+   DLe9TSDfU5vMnjSkRZNOBcQtTqadbq01CE3E0P4q6TH+YUt6+YaOnVVTx
+   g==;
+X-CSE-ConnectionGUID: pVim1VIZTySXLQmIm/LYrQ==
+X-CSE-MsgGUID: RmhbzAmYST+HgvWubX73gw==
+X-IronPort-AV: E=McAfee;i="6700,10204,11336"; a="38930979"
 X-IronPort-AV: E=Sophos;i="6.13,259,1732608000"; 
-   d="scan'208";a="38930848"
+   d="scan'208";a="38930979"
 Received: from orviesa001.jf.intel.com ([10.64.159.141])
-  by orvoesa112.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 04 Feb 2025 09:36:26 -0800
-X-CSE-ConnectionGUID: jXIRAGRVSi6AV3rBRiAebw==
-X-CSE-MsgGUID: yAFfDOxmTeCrIA01iFfVXA==
+  by orvoesa112.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 04 Feb 2025 09:36:51 -0800
+X-CSE-ConnectionGUID: P6du7V6VScafjuMIXvnbWA==
+X-CSE-MsgGUID: W7s9nIAMS+GBPujRL+zY2g==
 X-ExtLoop1: 1
 X-IronPort-AV: E=Sophos;i="6.12,224,1728975600"; 
-   d="scan'208";a="147866806"
+   d="scan'208";a="147866889"
 Received: from mjarzebo-mobl1.ger.corp.intel.com (HELO wieczorr-mobl1.intel.com) ([10.245.244.61])
-  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 04 Feb 2025 09:36:14 -0800
+  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 04 Feb 2025 09:36:39 -0800
 From: Maciej Wieczor-Retman <maciej.wieczor-retman@intel.com>
 To: luto@kernel.org,
 	xin@zytor.com,
@@ -122,17 +122,16 @@ Cc: kasan-dev@googlegroups.com,
 	linux-mm@kvack.org,
 	llvm@lists.linux.dev,
 	linux-doc@vger.kernel.org
-Subject: [PATCH 09/15] x86: Physical address comparison in current_mm pgd check
-Date: Tue,  4 Feb 2025 18:33:50 +0100
-Message-ID: <fde443d0e67f76a51e7ab4e96647705840f53ddb.1738686764.git.maciej.wieczor-retman@intel.com>
+Subject: [PATCH 11/15] x86: LAM initialization
+Date: Tue,  4 Feb 2025 18:33:52 +0100
+Message-ID: <01104816cdd0d430ac843847a8056d07b8770be0.1738686764.git.maciej.wieczor-retman@intel.com>
 X-Mailer: git-send-email 2.47.1
 In-Reply-To: <cover.1738686764.git.maciej.wieczor-retman@intel.com>
 References: <cover.1738686764.git.maciej.wieczor-retman@intel.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250204_173627_955976_C4C56D53 
-X-CRM114-Status: UNSURE (   8.84  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250204_173653_950719_9831F02A 
+X-CRM114-Status: GOOD (  11.40  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -149,32 +148,51 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-With KASAN software tag-based mode enabled PGD pointer stored in
-current_mm structure is tagged while the same pointer computed through
-__va(read_cr3_pa()) ends up with the tag space filled with ones.
+To make use of KASAN's tag based mode on x86 Linear Address Masking
+(LAM) needs to be enabled. To do that the 28th bit in CR4 needs to be
+set.
 
-Use current_mm->pgd' physical address and drop the __va() so the
-VM_WARN_ON_ONCE can work properly and not report false positives while
-KASAN is enabled.
+Set the bit in early memory initialization.
+
+When launching secondary CPUs the LAM bit gets lost. To avoid this it
+needs to get added in a mask in head_64.S. The bit mask permits some
+bits of CR4 to pass from the primary CPU to the secondary CPUs without
+being cleared.
 
 Signed-off-by: Maciej Wieczor-Retman <maciej.wieczor-retman@intel.com>
 ---
- arch/x86/mm/tlb.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ arch/x86/kernel/head_64.S | 3 +++
+ arch/x86/mm/init.c        | 3 +++
+ 2 files changed, 6 insertions(+)
 
-diff --git a/arch/x86/mm/tlb.c b/arch/x86/mm/tlb.c
-index 86593d1b787d..95e3dc1fb766 100644
---- a/arch/x86/mm/tlb.c
-+++ b/arch/x86/mm/tlb.c
-@@ -1295,7 +1295,7 @@ bool nmi_uaccess_okay(void)
- 	if (loaded_mm != current_mm)
- 		return false;
+diff --git a/arch/x86/kernel/head_64.S b/arch/x86/kernel/head_64.S
+index 16752b8dfa89..7cdafcedbc70 100644
+--- a/arch/x86/kernel/head_64.S
++++ b/arch/x86/kernel/head_64.S
+@@ -199,6 +199,9 @@ SYM_INNER_LABEL(common_startup_64, SYM_L_LOCAL)
+ 	 *  there will be no global TLB entries after the execution."
+ 	 */
+ 	movl	$(X86_CR4_PAE | X86_CR4_LA57), %edx
++#ifdef CONFIG_ADDRESS_MASKING
++	orl	$X86_CR4_LAM_SUP, %edx
++#endif
+ #ifdef CONFIG_X86_MCE
+ 	/*
+ 	 * Preserve CR4.MCE if the kernel will enable #MC support.
+diff --git a/arch/x86/mm/init.c b/arch/x86/mm/init.c
+index eb503f53c319..4dc3679fedd1 100644
+--- a/arch/x86/mm/init.c
++++ b/arch/x86/mm/init.c
+@@ -756,6 +756,9 @@ void __init init_mem_mapping(void)
+ 	probe_page_size_mask();
+ 	setup_pcid();
  
--	VM_WARN_ON_ONCE(current_mm->pgd != __va(read_cr3_pa()));
-+	VM_WARN_ON_ONCE(__pa(current_mm->pgd) != read_cr3_pa());
- 
- 	return true;
- }
++	if (boot_cpu_has(X86_FEATURE_LAM) && IS_ENABLED(CONFIG_KASAN_SW_TAGS))
++		cr4_set_bits_and_update_boot(X86_CR4_LAM_SUP);
++
+ #ifdef CONFIG_X86_64
+ 	end = max_pfn << PAGE_SHIFT;
+ #else
 -- 
 2.47.1
 
