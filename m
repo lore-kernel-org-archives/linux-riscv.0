@@ -4,175 +4,132 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C8CC0C02199
-	for <linux-riscv@archiver.kernel.org>; Tue,  4 Feb 2025 20:01:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D11D5C02193
+	for <linux-riscv@archiver.kernel.org>; Tue,  4 Feb 2025 21:05:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=lFkXsqKQMG9WTNob7vJTCqvX/EtnvG0yd3traO0ZrOE=; b=kpigKMRB4CbRXE
-	T/NQrnc1qfn7A50Cw4BwKRW/93WJ11J/SwTv86AZ2YDKSTDm0fQoBBCsSw2TBv2ePq/09nekEPKA9
-	zOuwB6Zgs6iE02FfMYOcD1H6pBdgsRG+UCQiyvYIawAQ8DTUFTmlFJdvIoCBTovcgmzgM3Db/nxl4
-	4a3zONmUk4XWbDExv0Wm6ULZqaDWEL3bdQ5QfLaoBv9Djp4dPJ6XhfLhRLQleArrERAe9Euw6kjfu
-	O15Ava7N/BrIdnRp4OP/RQ6y3qDph0AiHZi5pR+bdmUixxHjD2ANCRz7hYdFUTAvVlFbwsPvR/Ggb
-	OL6I0mb4R8JTJD4wK53g==;
+	List-Owner; bh=YZ0YdMzguVo62+2/85VzmO+O44YtO6r1lkqX5Kpv8Ns=; b=wx0O0bcLQMVFqN
+	nI0+E9nsgLzt+sMmJuFrBQ/Vpky4E8SMkJoUSuX8x92rUigXHtloMSNqvtHQlaiiz5biRagtqX31o
+	OBGMDoqsGuIQo5cpeT2aVs6IcndOVgRWfNzk2TOV0NUYuVlxlWqGXwMLevwT7qofFdbckA1dU9H6Z
+	QWfbnO8J+7U+37sh/wfv/ou8AxGeguRGUEDSCGE2kLtr0K6NadzvIfjKLvnRvorR3/USzFLUr3IAp
+	5LLKXdcn1ZZl767PJYb1tOeD2Ywp/yaeYolk8qYgK0c6M8xuAQ9vqPIbf2rkdfx9Bu8x3GOXZ17cg
+	qina06yW+0k2cQCwd1GA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfP6o-00000001T0y-2IdO;
-	Tue, 04 Feb 2025 20:01:22 +0000
-Received: from mail-bn1nam02on20610.outbound.protection.outlook.com ([2a01:111:f403:2407::610] helo=NAM02-BN1-obe.outbound.protection.outlook.com)
+	id 1tfQ6j-00000001YKl-2e1Z;
+	Tue, 04 Feb 2025 21:05:21 +0000
+Received: from mgamail.intel.com ([192.198.163.16])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfNlY-00000001ELM-16S3;
-	Tue, 04 Feb 2025 18:35:22 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=bq494OBm6Am9nUA2fweUsSfH2iiZY1K3OaqOO7csnvsUVKX+DE2je2lAlFvtSyJUETfJMgR2Xe2FOnBYaFYkDv0poP+EH7mmmnna1rYcut4L05rW3SVuDBFUW0XSn2nIe2J1xjFHHPYdxVJKIXpfLuwv9Stw2Y4aO9wHc+RX9ciplwFbcfu9kckruD5CRlY6PTqrKO/yv87xp/xSzNC8dfUeJ+cYNs2JpSGBiiIuGY6/RF9CLw2SozPsGhXdyNQIjOBQdo6K0/Le54DuIeyPHeqWWMYZA+yznlGR0BWcUvw0qT3MSACTaTcfmFv+A6op3W6nIwf71bRdS3K0qq5AtQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=SUs7YNq7X7OVVnvw1bMuq+cIhDHdPe/00qWrT3ifJ+4=;
- b=gGha0cg7p7U3lu/HGb6gI/5waulhHRXTcOAaMeBL6HIjm1oIzoAR8G6uyGlwzpZyAPTDvW5fr8HeBMNHMCCmQNJLoXPnA3XKttPDXBxTgkfHZNUragJFgTPmkktiHtSnP+dIK0UozzuBG9CRbw9wQwOwvRkO4WbcylePG8iU1/8QQ4s6wL14weFubYh9DZU2ytv0gX3RZTe7Eaj5xbIbkLNuuiIV3E8aeedEaLPOwjPYevDLWqerMCDPsuNw9eLwBHbO6ROfBeB/xth28KUvMAe54v+3sFSo5aQa0K2HGaAHtB34dcTq5KScztkTuNGJJN3T5Ol0ZAdnuEHnBN3CRQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=SUs7YNq7X7OVVnvw1bMuq+cIhDHdPe/00qWrT3ifJ+4=;
- b=cEfGD+XrVNCRZHHfARv25IM5x22KhcYgLze0dlwuiiny7XmZO76vVYc7UO9ZpEWyiADmBmxxaqdIp8AfZUSJjcvsHYLHb0c/2dMX9Jn3/pjjmhYx3YH/JO9WaAyia6HH2hRpeMBB3tMbXM/SHIkEuUFLY99VzDz4vprHOmePkDfLK248pmu9SS06sdWQK25CHQSgRy2ZS1yD59oenAjSzze2XZdIQ822t5BrbZS1ReNhR+ATnWicMLzD0gCAuGglCzVjHzl5b59j0VN0Y6q20yl/x2kxVhPwetADYGhUVxz466M4S1ypg1u/1XzL0wipevAVTorRRAIObk0sXWJJ6Q==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from CH3PR12MB8659.namprd12.prod.outlook.com (2603:10b6:610:17c::13)
- by CY5PR12MB6573.namprd12.prod.outlook.com (2603:10b6:930:43::21) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8398.24; Tue, 4 Feb
- 2025 18:35:07 +0000
-Received: from CH3PR12MB8659.namprd12.prod.outlook.com
- ([fe80::6eb6:7d37:7b4b:1732]) by CH3PR12MB8659.namprd12.prod.outlook.com
- ([fe80::6eb6:7d37:7b4b:1732%6]) with mapi id 15.20.8398.025; Tue, 4 Feb 2025
- 18:35:07 +0000
-From: Jason Gunthorpe <jgg@nvidia.com>
-To: Alim Akhtar <alim.akhtar@samsung.com>,
-	Alyssa Rosenzweig <alyssa@rosenzweig.io>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	asahi@lists.linux.dev,
-	Lu Baolu <baolu.lu@linux.intel.com>,
-	David Woodhouse <dwmw2@infradead.org>,
-	Heiko Stuebner <heiko@sntech.de>,
-	iommu@lists.linux.dev,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Jonathan Hunter <jonathanh@nvidia.com>,
-	Joerg Roedel <joro@8bytes.org>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-riscv@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	linux-samsung-soc@vger.kernel.org,
-	linux-sunxi@lists.linux.dev,
-	linux-tegra@vger.kernel.org,
-	Marek Szyprowski <m.szyprowski@samsung.com>,
-	Hector Martin <marcan@marcan.st>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Robin Murphy <robin.murphy@arm.com>,
-	Samuel Holland <samuel@sholland.org>,
-	Suravee Suthikulpanit <suravee.suthikulpanit@amd.com>,
-	Sven Peter <sven@svenpeter.dev>,
-	Thierry Reding <thierry.reding@gmail.com>,
-	Tomasz Jeznach <tjeznach@rivosinc.com>,
-	Krishna Reddy <vdumpa@nvidia.com>,
-	Chen-Yu Tsai <wens@csie.org>,
-	Will Deacon <will@kernel.org>
-Cc: Bagas Sanjaya <bagasdotme@gmail.com>,
-	Joerg Roedel <jroedel@suse.de>,
-	Pasha Tatashin <pasha.tatashin@soleen.com>,
-	patches@lists.linux.dev,
-	David Rientjes <rientjes@google.com>,
-	Matthew Wilcox <willy@infradead.org>
-Subject: [PATCH 18/19] iommu: Update various drivers to pass in lg2sz instead of order to iommu pages
-Date: Tue,  4 Feb 2025 14:34:59 -0400
-Message-ID: <18-v1-416f64558c7c+2a5-iommu_pages_jgg@nvidia.com>
-In-Reply-To: <0-v1-416f64558c7c+2a5-iommu_pages_jgg@nvidia.com>
-References: 
-X-ClientProxiedBy: MN2PR14CA0009.namprd14.prod.outlook.com
- (2603:10b6:208:23e::14) To CH3PR12MB8659.namprd12.prod.outlook.com
- (2603:10b6:610:17c::13)
+	id 1tfQ6g-00000001YKK-3TfL;
+	Tue, 04 Feb 2025 21:05:19 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1738703119; x=1770239119;
+  h=message-id:date:mime-version:subject:to:cc:references:
+   from:in-reply-to:content-transfer-encoding;
+  bh=cTEE1FYq21KfXTOwWnzEdtVlwskDuVhdFB7haDFkklE=;
+  b=bSlr9VRBVeJg8aTLttejFEnCq8/8eNKp7vmoLc+b7+D2BRcPhAq7Edt8
+   EZSNedgVthW8H2qiDFpBH6fM4S/hOfP+rEvlxq7NgqoDIkJCZR1o3Hkd+
+   tIfW50fo4KPlYOt7rULVUecNjYZ+gy2zKqIMN3EUT2YibE6/Uq71fl6ey
+   eiqgx50GESZYB7+Pdyeu3Dy5n9isGrNlCkqc+HDye9c0pkE1aUifEfD4O
+   nrVKvfNPDrtuOC8RTb+oEoOMf1u1hFD6cBeWYorMrJVoxRQ8KmAHVzGWv
+   yAX5XvNkO/1pCXJrJYdrvqiT97QVj22j3sRElBZJ1kkMmNUGOfr5W4Pg5
+   g==;
+X-CSE-ConnectionGUID: xY0N8gaFRc6wULKIhJ/hvw==
+X-CSE-MsgGUID: /zgtxyT1R6mPtiXKZLio8w==
+X-IronPort-AV: E=McAfee;i="6700,10204,11336"; a="26849372"
+X-IronPort-AV: E=Sophos;i="6.13,259,1732608000"; 
+   d="scan'208";a="26849372"
+Received: from orviesa005.jf.intel.com ([10.64.159.145])
+  by fmvoesa110.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 04 Feb 2025 13:05:18 -0800
+X-CSE-ConnectionGUID: 9dF2FT5NRFWiRHULia/eYQ==
+X-CSE-MsgGUID: L8qAtL/DQqe33Kcw+D4mcQ==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.12,224,1728975600"; 
+   d="scan'208";a="115895089"
+Received: from jdoman-mobl3.amr.corp.intel.com (HELO [10.125.110.55]) ([10.125.110.55])
+  by orviesa005-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 04 Feb 2025 13:05:17 -0800
+Message-ID: <fb30574a-d238-424c-a464-0f7a5707c46a@intel.com>
+Date: Tue, 4 Feb 2025 13:05:18 -0800
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CH3PR12MB8659:EE_|CY5PR12MB6573:EE_
-X-MS-Office365-Filtering-Correlation-Id: 1816033c-2933-45f8-3a92-08dd454aa3be
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|1800799024|366016|921020;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?Zy/1A1OAPXMveBPo+wc4XGWKeDfU6FSMpfWxOWqL/UoZ+ddtBORV0Aq0LMDf?=
- =?us-ascii?Q?VcV9yZqs2M8wUTtF9pXGsFCCj5lCyau/RbeVuzJLiveJ3cimK98DTNxliQBv?=
- =?us-ascii?Q?NXWk18tt8LxzGy2ZgrPjtH1vv992hzS4wcZSI4ZpfZOC50tKeVf8PYQNrE3w?=
- =?us-ascii?Q?1oKEi/zLizLxkZV+NgrqVGUKXkol9D+O+HA6xKgr/EqBOrlB8IRtXWgFJwl4?=
- =?us-ascii?Q?iNnuJRHUwqgSncDhln9g45FXNKXaAm0UZRrhtDuKzoV5Abyk/gVvShJ55B+C?=
- =?us-ascii?Q?xBj1IW107fdKeKc6SM34+KlXuwrOCIepHjyDXAuGUbBTjNA/89+Bp1sA9nUR?=
- =?us-ascii?Q?TXy2abD9/dcpc6n38Y7NCuyxZcYIVp0epecWSinHWO7mOpbDwc/txm5fUP8A?=
- =?us-ascii?Q?ilIhdTsIz0JB+a1Zhm3umXjk2lAct38S0TAG9ql6ry6RAc8OIJxn9/s5AZUd?=
- =?us-ascii?Q?8wd8Hja4KE4mxoA3wab/2o0AzK3wUUtQLHWFmZUv+tioBUBl8NX+NkvrubmZ?=
- =?us-ascii?Q?eCg2Lv6CLwgo1z+e57KNMX7y5eDKVbOYcKqlYCB3z1UPhSJ+1sXheARLCf+U?=
- =?us-ascii?Q?ywq2OcYp7GOtf1VPLM/K196kM/bm+UVdwlQq95evPMq+ozSfvztbz14ZDxed?=
- =?us-ascii?Q?sQwabOSZvDCeInn0cUX8Vi20HTCUSswKDwY/fHC7YnIkLMzcCGmxik+ASXT+?=
- =?us-ascii?Q?gvqTJwAApCAcqRwLc4hxnjM2c2ENSD4Acbb6RRJdgBO8b7irrV1Yfi0fqdqn?=
- =?us-ascii?Q?DDZSW7VuwTQ3wIvRCVFvusHixYll3WpLApH/DyvLejgDpQF+4CRPb94/Pf60?=
- =?us-ascii?Q?stbWJsmt2OEVGzEmpOXMCeH7IZQQ1vejMX9cS0rVgbd+rMMUMtK/MYmlOzbl?=
- =?us-ascii?Q?oij2nPTs7NpqzqG2xyvBAA59NtQQk7y1CN8mI4WYw0CL3rWQVS4Xyuf8KyYQ?=
- =?us-ascii?Q?6og6j8RjzG9ADlbMtLYIYbUOlU9FacLpUWByi8wwgN9izQIDhm3CqgSEV5m7?=
- =?us-ascii?Q?YuzuzyuLOonzfqm1ZOnVCJsUazHDpVGG1c1KF1TK7n4n5UMDmQgeTww5rMq4?=
- =?us-ascii?Q?6VbgK5pIP5h5TDJx5mJm6oFXhf5rggu7xH+jN1VcqKyExRzujG66qIyx0Rm9?=
- =?us-ascii?Q?3EZqYMruQ6j1EHR+TOtA9Vls3f07CPU2rmKkkb5eAMhhkOQ+ckRYrCR9Chbb?=
- =?us-ascii?Q?Pd70dOBuX6kO6F6HpRqaf3b2nSGcHpeoD4HL4zHuASMyH+5GrUHDfLzG+9yx?=
- =?us-ascii?Q?GbKMhPlcUw3rHWe7zPfQnJNPgl5vREdBvnQm101+uKgzKzmIOLf44cPEgdnD?=
- =?us-ascii?Q?rnQulnxAMed8SuAeR/VBcLRZBNNkojr3F+/1n8u2L7Dyt5G7eUG9Q152SCAG?=
- =?us-ascii?Q?ep5WDHMS0ITOzwcm3JZA8UecV5wlO61S9smNoTkw5TXnjoJFBog7F6NKVwHn?=
- =?us-ascii?Q?JBo1SpsQT08=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH3PR12MB8659.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(1800799024)(366016)(921020);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?63xIVvAU9sbDIVTtEpgZyo/8/4rb8HnPmPoFV6BXJD5Yy/z/n+SQuYDsPM/V?=
- =?us-ascii?Q?4Qz9B90wrAe9h9ofm3uxE6DNdlwE6vnS1TatQmue08ZSHNYwBGLGeZGkKlHL?=
- =?us-ascii?Q?5qnBULU4r45Aq+fw8UqXjnCnK/lW9AmxoQvDA8cRXK/oQwHOFnXbo5WQKzM5?=
- =?us-ascii?Q?hdzsstjQVCo/8kt0MTgOjizWxW4VWm76e8b6oNmoWON5zcNDHrOcrlidj15D?=
- =?us-ascii?Q?p3v/Cx8E61UKDtgiF8rp4X0eiFd6tkhddUljDrX9MiPwzXEx3xKeyIcwhrAC?=
- =?us-ascii?Q?PG3iJfZp/0VHRYwdke4n1YWXm3utjWNqFCZKMKewluCA59Snmj5Dl2MIjd2F?=
- =?us-ascii?Q?K0UZSfXZm5H39EhROq3b2v0QFrv7nIoGKncnSufydhmp6hHb3Fv5PsFklV8K?=
- =?us-ascii?Q?mjmI4QZK4LnD57YEwoe6pG9o0F+XseKZwEpo9DDyGmmJGQhHvdQO2Un4gD+C?=
- =?us-ascii?Q?nYhjvw8PFlpsxEXcTEIqhImgEjRf4endPyao9ei1ov0va/PK5PSsmv4aqEZj?=
- =?us-ascii?Q?UUI54zrKMCfX914dJmHnWm2+xLEC35XqXiDzDEm+O31bUDYrMYKRN7qB//qZ?=
- =?us-ascii?Q?RCdtUcngzlUAuabcix2yUvz2oaKEhBd4agdrEcD+i9nhCvwIWeVq8fiazNov?=
- =?us-ascii?Q?Ja2rDAxoyxEoJh6IsryFnwUiz08J+MxQiAijr/2e0mG7BxGZJ7m8v3H58EMk?=
- =?us-ascii?Q?TI2Kc8lY/0D7k46L9HD+RIH50bqcHLmz0v59nQKIJ/AqBXNA70v5BdaeeiAV?=
- =?us-ascii?Q?O7Du29iyJbOPY6dGAohgYZrewzueACmR9AKvFimA534kOXy4wuDR5Y4YLcKC?=
- =?us-ascii?Q?yklhZ3V85njIsmuDZksy2OIQITIuQGfZI5lT8JsDRHlB0nyXvzQFRBXnZJe2?=
- =?us-ascii?Q?z+LpshUReSRuK0nnUO7F9d00xRgj7OQE9xc3sweAB15GXe/br5g1oA/FjnYa?=
- =?us-ascii?Q?veuKL4DaQggStfOhPVCL5WR9F/2AhUO3BQdEk27YExz1fWCijhRF6Wx/J8Q7?=
- =?us-ascii?Q?bpjoSILmBa4Kx+JNfzvYAX/x0dZTCsZQtMZ0q9L2cEF1uvwUSLAhZDh7cyFS?=
- =?us-ascii?Q?y640n6z8Mof0CGuybMN7d0oFhyqatQbv+ae64hZ9Octo5zsjZwbUO7R0+UOR?=
- =?us-ascii?Q?v6qTINRRDFcycKs20K6udiUwFbS6FFFrN75Fyd8jON87DuZJhdovh+Y2TLjW?=
- =?us-ascii?Q?B7KhdJ7IDx5TPkCJWkmZavVwGZ32k1sE7/hT7MBl079FnWCGrwXvuzxJNB0/?=
- =?us-ascii?Q?Z17gaR2eyQEIGmYyCj34TepEGbSHUnGt2qx/2QUztSK/QtOBVnmNtbo9/ZBi?=
- =?us-ascii?Q?PBB88R9NVeAU6KmhKBzL9OAyNbC6pCqpS01gZzkLX9n1JmBJAMmZbK53NudO?=
- =?us-ascii?Q?8Jr2w+mBcrV/jnoL95acEbio4teeDdBM0O7xwd9CkAriSnCjk8yC/QRKuMri?=
- =?us-ascii?Q?io6uEqz9aBKSMMkg/kdqJESBfr3ORO8c9Smmqk/yYHq8ye2sFfrMuGGIF2e8?=
- =?us-ascii?Q?DT05goPr5yBJ4Mkk2E246ghw74tzDu5pV1Q2bydi4PqwFKzgfH3F1m1yPeLu?=
- =?us-ascii?Q?tqcG/Yq051h+bOIR1SU=3D?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 1816033c-2933-45f8-3a92-08dd454aa3be
-X-MS-Exchange-CrossTenant-AuthSource: CH3PR12MB8659.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 04 Feb 2025 18:35:03.6959
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: ruTbsMaf1g2yrfxfb1XIysGpuk8wf9AUYrWqqApaJHydJ+GY+9AkVWMfgamV651P
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CY5PR12MB6573
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 00/15] kasan: x86: arm64: risc-v: KASAN tag-based mode for
+ x86
+To: "Christoph Lameter (Ampere)" <cl@gentwo.org>,
+ Maciej Wieczor-Retman <maciej.wieczor-retman@intel.com>
+Cc: luto@kernel.org, xin@zytor.com, kirill.shutemov@linux.intel.com,
+ palmer@dabbelt.com, tj@kernel.org, andreyknvl@gmail.com, brgerst@gmail.com,
+ ardb@kernel.org, dave.hansen@linux.intel.com, jgross@suse.com,
+ will@kernel.org, akpm@linux-foundation.org, arnd@arndb.de, corbet@lwn.net,
+ dvyukov@google.com, richard.weiyang@gmail.com, ytcoode@gmail.com,
+ tglx@linutronix.de, hpa@zytor.com, seanjc@google.com,
+ paul.walmsley@sifive.com, aou@eecs.berkeley.edu, justinstitt@google.com,
+ jason.andryuk@amd.com, glider@google.com, ubizjak@gmail.com,
+ jannh@google.com, bhe@redhat.com, vincenzo.frascino@arm.com,
+ rafael.j.wysocki@intel.com, ndesaulniers@google.com, mingo@redhat.com,
+ catalin.marinas@arm.com, junichi.nomura@nec.com, nathan@kernel.org,
+ ryabinin.a.a@gmail.com, dennis@kernel.org, bp@alien8.de,
+ kevinloughlin@google.com, morbo@google.com, dan.j.williams@intel.com,
+ julian.stecklina@cyberus-technology.de, peterz@infradead.org,
+ kees@kernel.org, kasan-dev@googlegroups.com, x86@kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-riscv@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linux-mm@kvack.org, llvm@lists.linux.dev,
+ linux-doc@vger.kernel.org
+References: <cover.1738686764.git.maciej.wieczor-retman@intel.com>
+ <8bd9c793-aac6-a330-ea8f-3bde0230a20b@gentwo.org>
+From: Dave Hansen <dave.hansen@intel.com>
+Content-Language: en-US
+Autocrypt: addr=dave.hansen@intel.com; keydata=
+ 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
+In-Reply-To: <8bd9c793-aac6-a330-ea8f-3bde0230a20b@gentwo.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250204_103520_431463_3F00A772 
-X-CRM114-Status: GOOD (  15.26  )
+X-CRM114-CacheID: sfid-20250204_130518_873663_6EBF7631 
+X-CRM114-Status: GOOD (  10.07  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -189,213 +146,23 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Convert most of the places calling get_order() as an argument to the
-iommu-pages allocator into order_base_2() or the _sz flavour
-instead. These places already have an exact size, there is no particular
-reason to use order here.
+On 2/4/25 10:58, Christoph Lameter (Ampere) wrote:
+> ARM64 supports MTE which is hardware support for tagging 16 byte granules
+> and verification of tags in pointers all in hardware and on some platforms
+> with *no* performance penalty since the tag is stored in the ECC areas of
+> DRAM and verified at the same time as the ECC.
+> 
+> Could we get support for that? This would allow us to enable tag checking
+> in production systems without performance penalty and no memory overhead.
 
-Signed-off-by: Jason Gunthorpe <jgg@nvidia.com>
----
- drivers/iommu/amd/init.c        | 29 ++++++++++++++---------------
- drivers/iommu/intel/dmar.c      |  7 ++++---
- drivers/iommu/io-pgtable-arm.c  |  4 ++--
- drivers/iommu/io-pgtable-dart.c | 12 +++---------
- drivers/iommu/sun50i-iommu.c    |  4 ++--
- 5 files changed, 25 insertions(+), 31 deletions(-)
+At least on the Intel side, there's no trajectory for doing something
+like the MTE architecture for memory tagging. The DRAM "ECC" area is in
+very high demand and if anything things are moving away from using ECC
+"bits" for anything other than actual ECC. Even the MKTME+integrity
+(used for TDX) metadata is probably going to find a new home at some point.
 
-diff --git a/drivers/iommu/amd/init.c b/drivers/iommu/amd/init.c
-index 7d77929bc63af3..70c038a80874bf 100644
---- a/drivers/iommu/amd/init.c
-+++ b/drivers/iommu/amd/init.c
-@@ -640,8 +640,8 @@ static int __init find_last_devid_acpi(struct acpi_table_header *table, u16 pci_
- /* Allocate per PCI segment device table */
- static inline int __init alloc_dev_table(struct amd_iommu_pci_seg *pci_seg)
- {
--	pci_seg->dev_table = iommu_alloc_pages(GFP_KERNEL | GFP_DMA32,
--					       get_order(pci_seg->dev_table_size));
-+	pci_seg->dev_table = iommu_alloc_pages_sz(GFP_KERNEL | GFP_DMA32,
-+						  pci_seg->dev_table_size);
- 	if (!pci_seg->dev_table)
- 		return -ENOMEM;
- 
-@@ -657,8 +657,8 @@ static inline void free_dev_table(struct amd_iommu_pci_seg *pci_seg)
- /* Allocate per PCI segment IOMMU rlookup table. */
- static inline int __init alloc_rlookup_table(struct amd_iommu_pci_seg *pci_seg)
- {
--	pci_seg->rlookup_table = iommu_alloc_pages(GFP_KERNEL,
--						   get_order(pci_seg->rlookup_table_size));
-+	pci_seg->rlookup_table =
-+		iommu_alloc_pages_sz(GFP_KERNEL, pci_seg->rlookup_table_size);
- 	if (pci_seg->rlookup_table == NULL)
- 		return -ENOMEM;
- 
-@@ -673,8 +673,8 @@ static inline void free_rlookup_table(struct amd_iommu_pci_seg *pci_seg)
- 
- static inline int __init alloc_irq_lookup_table(struct amd_iommu_pci_seg *pci_seg)
- {
--	pci_seg->irq_lookup_table = iommu_alloc_pages(GFP_KERNEL,
--						      get_order(pci_seg->rlookup_table_size));
-+	pci_seg->irq_lookup_table =
-+		iommu_alloc_pages_sz(GFP_KERNEL, pci_seg->rlookup_table_size);
- 	kmemleak_alloc(pci_seg->irq_lookup_table,
- 		       pci_seg->rlookup_table_size, 1, GFP_KERNEL);
- 	if (pci_seg->irq_lookup_table == NULL)
-@@ -694,8 +694,8 @@ static int __init alloc_alias_table(struct amd_iommu_pci_seg *pci_seg)
- {
- 	int i;
- 
--	pci_seg->alias_table = iommu_alloc_pages(GFP_KERNEL,
--						 get_order(pci_seg->alias_table_size));
-+	pci_seg->alias_table =
-+		iommu_alloc_pages_sz(GFP_KERNEL, pci_seg->alias_table_size);
- 	if (!pci_seg->alias_table)
- 		return -ENOMEM;
- 
-@@ -721,8 +721,7 @@ static void __init free_alias_table(struct amd_iommu_pci_seg *pci_seg)
-  */
- static int __init alloc_command_buffer(struct amd_iommu *iommu)
- {
--	iommu->cmd_buf = iommu_alloc_pages(GFP_KERNEL,
--					   get_order(CMD_BUFFER_SIZE));
-+	iommu->cmd_buf = iommu_alloc_pages_sz(GFP_KERNEL, CMD_BUFFER_SIZE);
- 
- 	return iommu->cmd_buf ? 0 : -ENOMEM;
- }
-@@ -826,7 +825,7 @@ void *__init iommu_alloc_4k_pages(struct amd_iommu *iommu, gfp_t gfp,
- 				  size_t size)
- {
- 	int order = get_order(size);
--	void *buf = iommu_alloc_pages(gfp, order);
-+	void *buf = iommu_alloc_pages_lg2(gfp, order + PAGE_SHIFT);
- 
- 	if (buf &&
- 	    check_feature(FEATURE_SNP) &&
-@@ -927,11 +926,11 @@ static int iommu_init_ga_log(struct amd_iommu *iommu)
- 	if (!AMD_IOMMU_GUEST_IR_VAPIC(amd_iommu_guest_ir))
- 		return 0;
- 
--	iommu->ga_log = iommu_alloc_pages(GFP_KERNEL, get_order(GA_LOG_SIZE));
-+	iommu->ga_log = iommu_alloc_pages_sz(GFP_KERNEL, GA_LOG_SIZE);
- 	if (!iommu->ga_log)
- 		goto err_out;
- 
--	iommu->ga_log_tail = iommu_alloc_pages(GFP_KERNEL, get_order(8));
-+	iommu->ga_log_tail = iommu_alloc_pages_sz(GFP_KERNEL, 8);
- 	if (!iommu->ga_log_tail)
- 		goto err_out;
- 
-@@ -1026,8 +1025,8 @@ static bool __copy_device_table(struct amd_iommu *iommu)
- 	if (!old_devtb)
- 		return false;
- 
--	pci_seg->old_dev_tbl_cpy = iommu_alloc_pages(GFP_KERNEL | GFP_DMA32,
--						     get_order(pci_seg->dev_table_size));
-+	pci_seg->old_dev_tbl_cpy = iommu_alloc_pages_sz(
-+		GFP_KERNEL | GFP_DMA32, pci_seg->dev_table_size);
- 	if (pci_seg->old_dev_tbl_cpy == NULL) {
- 		pr_err("Failed to allocate memory for copying old device table!\n");
- 		memunmap(old_devtb);
-diff --git a/drivers/iommu/intel/dmar.c b/drivers/iommu/intel/dmar.c
-index 9f424acf474e94..ce87cfae4eaaa3 100644
---- a/drivers/iommu/intel/dmar.c
-+++ b/drivers/iommu/intel/dmar.c
-@@ -1681,7 +1681,6 @@ int dmar_enable_qi(struct intel_iommu *iommu)
- {
- 	struct q_inval *qi;
- 	void *desc;
--	int order;
- 
- 	if (!ecap_qis(iommu->ecap))
- 		return -ENOENT;
-@@ -1702,8 +1701,10 @@ int dmar_enable_qi(struct intel_iommu *iommu)
- 	 * Need two pages to accommodate 256 descriptors of 256 bits each
- 	 * if the remapping hardware supports scalable mode translation.
- 	 */
--	order = ecap_smts(iommu->ecap) ? 1 : 0;
--	desc = iommu_alloc_pages_node(iommu->node, GFP_ATOMIC, order);
-+	desc = iommu_alloc_pages_node_lg2(iommu->node, GFP_ATOMIC,
-+					  ecap_smts(iommu->ecap) ?
-+						  order_base_2(SZ_8K) :
-+						  order_base_2(SZ_4K));
- 	if (!desc) {
- 		kfree(qi);
- 		iommu->qi = NULL;
-diff --git a/drivers/iommu/io-pgtable-arm.c b/drivers/iommu/io-pgtable-arm.c
-index 8727d8e1e02f45..0e1dd519c3b9b3 100644
---- a/drivers/iommu/io-pgtable-arm.c
-+++ b/drivers/iommu/io-pgtable-arm.c
-@@ -263,14 +263,14 @@ static void *__arm_lpae_alloc_pages(size_t size, gfp_t gfp,
- 				    void *cookie)
- {
- 	struct device *dev = cfg->iommu_dev;
--	int order = get_order(size);
- 	dma_addr_t dma;
- 	void *pages;
- 
- 	if (cfg->alloc)
- 		pages = cfg->alloc(cookie, size, gfp);
- 	else
--		pages = iommu_alloc_pages_node(dev_to_node(dev), gfp, order);
-+		pages = iommu_alloc_pages_node_lg2(dev_to_node(dev), gfp,
-+						   order_base_2(size));
- 
- 	if (!pages)
- 		return NULL;
-diff --git a/drivers/iommu/io-pgtable-dart.c b/drivers/iommu/io-pgtable-dart.c
-index a4cbd8a8a2976e..3b57d14baa9c1d 100644
---- a/drivers/iommu/io-pgtable-dart.c
-+++ b/drivers/iommu/io-pgtable-dart.c
-@@ -107,13 +107,6 @@ static phys_addr_t iopte_to_paddr(dart_iopte pte,
- 	return paddr;
- }
- 
--static void *__dart_alloc_pages(size_t size, gfp_t gfp)
--{
--	int order = get_order(size);
--
--	return iommu_alloc_pages(gfp, order);
--}
--
- static int dart_init_pte(struct dart_io_pgtable *data,
- 			     unsigned long iova, phys_addr_t paddr,
- 			     dart_iopte prot, int num_entries,
-@@ -255,7 +248,7 @@ static int dart_map_pages(struct io_pgtable_ops *ops, unsigned long iova,
- 
- 	/* no L2 table present */
- 	if (!pte) {
--		cptep = __dart_alloc_pages(tblsz, gfp);
-+		cptep = iommu_alloc_pages_sz(gfp, tblsz);
- 		if (!cptep)
- 			return -ENOMEM;
- 
-@@ -412,7 +405,8 @@ apple_dart_alloc_pgtable(struct io_pgtable_cfg *cfg, void *cookie)
- 	cfg->apple_dart_cfg.n_ttbrs = 1 << data->tbl_bits;
- 
- 	for (i = 0; i < cfg->apple_dart_cfg.n_ttbrs; ++i) {
--		data->pgd[i] = __dart_alloc_pages(DART_GRANULE(data), GFP_KERNEL);
-+		data->pgd[i] =
-+			iommu_alloc_pages_sz(GFP_KERNEL, DART_GRANULE(data));
- 		if (!data->pgd[i])
- 			goto out_free_data;
- 		cfg->apple_dart_cfg.ttbr[i] = virt_to_phys(data->pgd[i]);
-diff --git a/drivers/iommu/sun50i-iommu.c b/drivers/iommu/sun50i-iommu.c
-index 3d77aed8507373..d0e515bf5dd1f6 100644
---- a/drivers/iommu/sun50i-iommu.c
-+++ b/drivers/iommu/sun50i-iommu.c
-@@ -690,8 +690,8 @@ sun50i_iommu_domain_alloc_paging(struct device *dev)
- 	if (!sun50i_domain)
- 		return NULL;
- 
--	sun50i_domain->dt = iommu_alloc_pages(GFP_KERNEL | GFP_DMA32,
--					      get_order(DT_SIZE));
-+	sun50i_domain->dt =
-+		iommu_alloc_pages_sz(GFP_KERNEL | GFP_DMA32, DT_SIZE);
- 	if (!sun50i_domain->dt)
- 		goto err_free_domain;
- 
--- 
-2.43.0
-
+This shouldn't be a surprise to anyone on cc here. If it is, you should
+probably be reaching out to Intel over your normal channels.
 
 _______________________________________________
 linux-riscv mailing list
