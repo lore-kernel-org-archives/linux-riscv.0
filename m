@@ -4,82 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0BD32C0218F
-	for <linux-riscv@archiver.kernel.org>; Tue,  4 Feb 2025 08:02:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A3698C0218F
+	for <linux-riscv@archiver.kernel.org>; Tue,  4 Feb 2025 08:03:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=XBv2U+c5IvPwO2C8LUTxhlcPAj/YnqmQrKSTAwUrHa8=; b=e80es8z54ieTCG
-	nk1jNvMdWY/ZMyHnUsNJK+pnJmjZp97I77kpBddEgACc1bY+E3+32btQ70mUyMBbRL0tlOmLIJmYC
-	cncgpB7kZmO72gdNNlEd9KZtuPCHJPYiTm9fGYsggoyxeSYq9t4QnbglsKlPdYoRPsMbEpTVqgiGE
-	nft6n9jFgl0Zd8Ymp9NmytRCJwpvUQH6AuJuW4oBSOrbNtQPCbeme+WCfnNCscKPOmFZQPdquVA1I
-	E4T/5MsAhBJbEN5m8as3loBxCcIdbfYL8gQWfatru+VLvbi54eOTXoFhxhwa1yd1/ZLgOIpokCMbc
-	jF8U6tWlvlnRqJMPDKSQ==;
+	List-Owner; bh=6v3rCrAC9Tc9WC5bpmjJ6SnsLvxn/j3fkS4MH5jVyLE=; b=lvxV0pV1Xz+Hxq
+	Gs9287OberUr43qNCUPePp2R90D/+uhaYY/Iksxwz1PnOlxIkABeAiTs9h4I+h9/UusH8SzGhFPXj
+	soD0iuWNvvSjApgdzQf+WG6rWICd9jis6Y8tIl1uvHORCjNjK9V5aQSBgV7j4LtnJgY+zpDea9F9T
+	0RNoHyqvpkfihXL1Oq4WbyEDkUFAjXIAJr/GDJ1QdN8BwujljzPvoqRo+IcJ6jx2HEBr6wTQYfDZE
+	vk3cVJ61eG2VwKz+0/1xq7F3fftfhTDlrH97s7fVK+02Usp7UdJnHvXURD7pDTJ92hs/0iylr4pLI
+	KzZEGmaD++sZ0Zm6KYBw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfDsZ-0000000HTzj-37XH;
-	Tue, 04 Feb 2025 08:01:55 +0000
-Received: from mail-qk1-x72f.google.com ([2607:f8b0:4864:20::72f])
+	id 1tfDtu-0000000HUCp-0GGK;
+	Tue, 04 Feb 2025 08:03:18 +0000
+Received: from mail-qk1-x736.google.com ([2607:f8b0:4864:20::736])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfDlu-0000000HSke-23dH
+	id 1tfDm5-0000000HSoW-1C4x
 	for linux-riscv@lists.infradead.org;
-	Tue, 04 Feb 2025 07:55:03 +0000
-Received: by mail-qk1-x72f.google.com with SMTP id af79cd13be357-7be6fdeee35so833565485a.1
-        for <linux-riscv@lists.infradead.org>; Mon, 03 Feb 2025 23:55:02 -0800 (PST)
+	Tue, 04 Feb 2025 07:55:14 +0000
+Received: by mail-qk1-x736.google.com with SMTP id af79cd13be357-7b98a2e3b3eso290201085a.2
+        for <linux-riscv@lists.infradead.org>; Mon, 03 Feb 2025 23:55:12 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1738655701; x=1739260501; darn=lists.infradead.org;
+        d=ventanamicro.com; s=google; t=1738655712; x=1739260512; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=zt4BUR1O09akAiE35kyzRFyQQsTBDdGx/Mpea27bkKs=;
-        b=luop/B/7+rMbcP8IvWJeVoxA50+3qyBC0u/9POCIKbeIX2P9jh0+4ZgtEhfW2zXsQS
-         bgJ67rrTyHMSXTLU/Wiq0HPG4QVPQt4uZfh4SFFHSm9gmW8Z9i/fV1INx3nN6WjuIcnp
-         OKEyeicXr9a6mhi0niFM3FKVJ187gOywUvC8kUaTuIxOAyFCVPPSlStfYKRR3fwvKKnu
-         ZgA/3UVNkoqitzZQhGEfbv6JdSeDSxGtKdTLO+Y1x+AaYEkSZw5fgmY5pp3sSDYNze6M
-         m5Z5aogCXIoMrWuTGq5tDbWN6hh6MNeuZD7ecTpG5e/j4YSXhP4VvOgo17sH8nUwxyRb
-         rj/Q==
+        bh=zXz6fvQA0XjFVpb2cpM8OodOs5mmbZEn6PcelI8ZWow=;
+        b=nCXhPJS129mXHl8LjkLJpQXnN8qDONxJoosT4r1dWpAiKa1481PWWHbN08LAcHvg8d
+         1XCr6BHQsm5sheBCweuxVrHfCuzlnamFtZ0LiGIulmQf1+LqXDSH5s8+dDHZqZGfeZTi
+         S1ZZqLE62xs7k0spvAWWiNG0ozXkdloTzOCLpBRW7VggQXgQgwsa/McVCpN/F+DxHmD3
+         N4OQAST+PTn42lxEN2JgX6SMImpQdxUbuLHEswnWBWjdeBy2hjeHhaTLO79JE+3BQAyA
+         iksg9asm3egzT8Jd0NuQnzg7xz7WDRhX6rfoAFiAAd6RgrkGnA1Ctr1EPQncR2E4Vat7
+         lw7Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1738655701; x=1739260501;
+        d=1e100.net; s=20230601; t=1738655712; x=1739260512;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=zt4BUR1O09akAiE35kyzRFyQQsTBDdGx/Mpea27bkKs=;
-        b=YKNqNl9nu4ysuY6AAxECnHqMfojN1544R4GxwQLi047tKgplYXhMhdssEmXvqreQZg
-         u2vgdg5EYuBmUra0864ymUsMYz7/8MNdXZPFWQBpXNFn7MR+y86YdMsbXLWOqqYnFv+6
-         +w0+XOYPQZ37nPQ4qmrZewtPI+Cb7XUKUuxcsAhPhgr3zSINUtf0TCsYexwXNBTHrmrR
-         nPIwKUGVOe4oNpe6ZROyTmmkD0rPkX4avcIfL6nkRq2ZBWf8XPbMYILVCHhY1BS4OGwt
-         KiOBF4A3UsAmHynLg0oTGLZsqnwCtnukA3G77lJd9cP2Q7xo05vvTSM9n+AmmJLNTAdK
-         pEpw==
-X-Forwarded-Encrypted: i=1; AJvYcCVF1lRnS/wY8NxhroOrLFCzx0DDT1i2YOTIXg7+f0hlCVlPfvl9vD5Ko1o9vVnFaxVYVvsc7KOHKxnzGg==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx9+o8wtj+Zxd2YRc8L7TwopGYiANGcYptrxdEAzZMVAYD2vzQv
-	iB6rYJJIgJH7Fb4TWQ1oPRKmfbUaj9PnH3MUoa2eD09Yq5ca+9fholizrzIQToo=
-X-Gm-Gg: ASbGncsCMSIDOLb966V/fEv5EUO6EM0wOdyTkpdFC7cDxPeEziK9Welim+fBHn87/K2
-	QEp/ufa/TIn0Juy4wFUQM1e/36VMVWSoASY3jnZr/R3OUZCWeQt2hJqHFmI4XhjjgwkDF7r+MXV
-	7DdLtpt42rNzpVPGQWVRxO1gCthqn1aF9j0/QGkJAl324KxSJwGfBKbMh++XBqhaWs62Jupg51g
-	PbI6pHsjKQeDeRfNwHp0SabOiHe3wkiZZPGPL4rztZ1GlrK4sYDX8fn+8wX7Bbux9ywlYRcBHiD
-	C1ZtIJnYCLrvAdN0gfDlrynHuNVaWElT+ejLadijYXqxnk+FMfQoAmY=
-X-Google-Smtp-Source: AGHT+IEHo/ibp+o6qeQRlJusLW8jVVXpZtzwcNrNItHHxjlGS/8JBTsdvSnSG8vOxPC1otd04HpYwA==
-X-Received: by 2002:a05:620a:240a:b0:7be:3965:7452 with SMTP id af79cd13be357-7bffcd06b08mr4023625385a.32.1738655701483;
-        Mon, 03 Feb 2025 23:55:01 -0800 (PST)
+        bh=zXz6fvQA0XjFVpb2cpM8OodOs5mmbZEn6PcelI8ZWow=;
+        b=jbQ5/82eDbl9utBS62YPwwb6ARbrj+5mF0L8fXgkJf1M5fUctJ/Pib4eJbG4bxYfhH
+         sC7Ml7B8EZ1Qm+dNRq5I33VptoQOYwHtZSguUMx6zGCgScdVIW14Dr+NrJczUpah9LCQ
+         upkrZQOLiZb3ZT/vEBQwkU/HWrF15sMN/iWfntu+tnby2whKIa2rymH6DW4wFUj13UZ7
+         s7n0/eZQdhPxprPKljcy3Y2dmcNQRR/u7N7tW/e7Y0b3c+yDtunFYe5iwaLMMGKLD4Xv
+         PX7LctiuspNaM9nb5D6+QSsWjsdsoPBnk5crOW71hUxErjpugyVivSMtbw5PjieX/2H1
+         GIeg==
+X-Forwarded-Encrypted: i=1; AJvYcCXwzuqR8XzwFlW8DBsdh8iBRbWdrgS41pJ9xJ+fmagabAeGqFYWP7AviKqvDKveJx2gNh+I2sXUmuX5jg==@lists.infradead.org
+X-Gm-Message-State: AOJu0YylkieaFtFkvFoXwQZZcV28n55aSQgeDnkjru12qcQLzautq5xt
+	h13ErU62mlNPnyebr1jw4mdGcFCyI2JKaKBQCbdlh6X1T1xDYg/HHm6vXowiiWc=
+X-Gm-Gg: ASbGncv3+U20rzubVQGtpKcxuS4z36EwjF3Pzo6rtvrbDbjGfnJSUoYXiGY5GrJ1EVV
+	da/lDGe0ZBimcwCbHMe/mA9ij8ldhrL3POfQjnXSBcITrN/IxhwuwZatR434DeK4lbYovJgb1ID
+	VyITBAODE28lO4/n0gECNh9ITpQMlNu/w8kBcXcOrA332/huOcDfL2Dtd8JyXh3wGVJG1HYnShQ
+	zAxWwfWYWiNN+IWtuG54CnShjFa8J9xmDFWsXudY1QhbM91gx2MeeWGX9QkbDA9c+Q56fTdJHLn
+	9dE/kqL99OALNX8C2I4KmHR0+aLXGMVERZumq4qbGOh8ZnZqTs9D8xI=
+X-Google-Smtp-Source: AGHT+IEygJlzRE1f+LllQAS/xZozPVCC5zlNa0cJxT7IbmhuAFZYxlHSMSOoINty/Bxd6fyVjhK48w==
+X-Received: by 2002:a05:620a:2b8a:b0:7b6:6c6f:fb5c with SMTP id af79cd13be357-7bffcce52e1mr3541223185a.15.1738655711939;
+        Mon, 03 Feb 2025 23:55:11 -0800 (PST)
 Received: from anup-ubuntu-vm.localdomain ([103.97.166.196])
-        by smtp.gmail.com with ESMTPSA id af79cd13be357-7c00a8d05ddsm613373185a.39.2025.02.03.23.54.52
+        by smtp.gmail.com with ESMTPSA id af79cd13be357-7c00a8d05ddsm613373185a.39.2025.02.03.23.55.01
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 03 Feb 2025 23:55:01 -0800 (PST)
+        Mon, 03 Feb 2025 23:55:10 -0800 (PST)
 From: Anup Patel <apatel@ventanamicro.com>
 To: Thomas Gleixner <tglx@linutronix.de>
-Subject: [PATCH v3 04/10] irqchip/riscv-imsic: Move to common MSI lib
-Date: Tue,  4 Feb 2025 13:23:59 +0530
-Message-ID: <20250204075405.824721-5-apatel@ventanamicro.com>
+Subject: [PATCH v3 05/10] genirq: Introduce common irq_force_complete_move() implementation
+Date: Tue,  4 Feb 2025 13:24:00 +0530
+Message-ID: <20250204075405.824721-6-apatel@ventanamicro.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20250204075405.824721-1-apatel@ventanamicro.com>
 References: <20250204075405.824721-1-apatel@ventanamicro.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250203_235502_544968_A8699578 
-X-CRM114-Status: GOOD (  16.41  )
+X-CRM114-CacheID: sfid-20250203_235513_323073_8266E554 
+X-CRM114-Status: GOOD (  11.28  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,189 +97,64 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Thomas Gleixner <tglx@linutronix.de>
+The GENERIC_PENDING_IRQ requires an arch specific implementation
+of irq_force_complete_move(). At the moment, only x86 implements
+this but for RISC-V the irq_force_complete_move() is only needed
+when RISC-V IMSIC driver is in use and not needed otherwise.
 
-Simplify the leaf MSI domain handling in the RISC-V IMSIC driver by
-using msi_lib_init_dev_msi_info() and msi_lib_irq_domain_select()
-provided by common MSI lib.
+To address the above, introduce common weak implementation of
+the irq_force_complete_move() which lets irqchip do the actual
+irq_force_complete_move().
 
-Signed-off-by: Thomas Gleixner <tglx@linutronix.de>
-Signed-off-by: Andrew Jones <ajones@ventanamicro.com>
 Signed-off-by: Anup Patel <apatel@ventanamicro.com>
 ---
- drivers/irqchip/Kconfig                    |   8 +-
- drivers/irqchip/irq-riscv-imsic-platform.c | 114 +--------------------
- 2 files changed, 6 insertions(+), 116 deletions(-)
+ include/linux/irq.h    | 5 +++++
+ kernel/irq/migration.c | 9 +++++++++
+ 2 files changed, 14 insertions(+)
 
-diff --git a/drivers/irqchip/Kconfig b/drivers/irqchip/Kconfig
-index be063bfb50c4..bc3f12af2dc7 100644
---- a/drivers/irqchip/Kconfig
-+++ b/drivers/irqchip/Kconfig
-@@ -589,13 +589,7 @@ config RISCV_IMSIC
- 	select IRQ_DOMAIN_HIERARCHY
- 	select GENERIC_IRQ_MATRIX_ALLOCATOR
- 	select GENERIC_MSI_IRQ
--
--config RISCV_IMSIC_PCI
--	bool
--	depends on RISCV_IMSIC
--	depends on PCI
--	depends on PCI_MSI
--	default RISCV_IMSIC
-+	select IRQ_MSI_LIB
+diff --git a/include/linux/irq.h b/include/linux/irq.h
+index 8daa17f0107a..1884fa4ec9b5 100644
+--- a/include/linux/irq.h
++++ b/include/linux/irq.h
+@@ -486,6 +486,7 @@ static inline irq_hw_number_t irqd_to_hwirq(struct irq_data *d)
+  * @ipi_send_mask:	send an IPI to destination cpus in cpumask
+  * @irq_nmi_setup:	function called from core code before enabling an NMI
+  * @irq_nmi_teardown:	function called from core code after disabling an NMI
++ * @irq_force_complete_move:	optional function to force complete pending irq move
+  * @flags:		chip specific flags
+  */
+ struct irq_chip {
+@@ -537,6 +538,10 @@ struct irq_chip {
+ 	int		(*irq_nmi_setup)(struct irq_data *data);
+ 	void		(*irq_nmi_teardown)(struct irq_data *data);
  
- config SIFIVE_PLIC
- 	bool
-diff --git a/drivers/irqchip/irq-riscv-imsic-platform.c b/drivers/irqchip/irq-riscv-imsic-platform.c
-index dc6f63f657e4..2fab20d2ce3e 100644
---- a/drivers/irqchip/irq-riscv-imsic-platform.c
-+++ b/drivers/irqchip/irq-riscv-imsic-platform.c
-@@ -20,6 +20,7 @@
- #include <linux/spinlock.h>
- #include <linux/smp.h>
- 
-+#include "irq-msi-lib.h"
- #include "irq-riscv-imsic-state.h"
- 
- static bool imsic_cpu_page_phys(unsigned int cpu, unsigned int guest_index,
-@@ -201,22 +202,6 @@ static void imsic_irq_domain_free(struct irq_domain *domain, unsigned int virq,
- 	irq_domain_free_irqs_parent(domain, virq, nr_irqs);
- }
- 
--static int imsic_irq_domain_select(struct irq_domain *domain, struct irq_fwspec *fwspec,
--				   enum irq_domain_bus_token bus_token)
--{
--	const struct msi_parent_ops *ops = domain->msi_parent_ops;
--	u32 busmask = BIT(bus_token);
--
--	if (fwspec->fwnode != domain->fwnode || fwspec->param_count != 0)
--		return 0;
--
--	/* Handle pure domain searches */
--	if (bus_token == ops->bus_select_token)
--		return 1;
--
--	return !!(ops->bus_select_mask & busmask);
--}
--
- #ifdef CONFIG_GENERIC_IRQ_DEBUGFS
- static void imsic_irq_debug_show(struct seq_file *m, struct irq_domain *d,
- 				 struct irq_data *irqd, int ind)
-@@ -233,110 +218,21 @@ static void imsic_irq_debug_show(struct seq_file *m, struct irq_domain *d,
- static const struct irq_domain_ops imsic_base_domain_ops = {
- 	.alloc		= imsic_irq_domain_alloc,
- 	.free		= imsic_irq_domain_free,
--	.select		= imsic_irq_domain_select,
-+	.select		= msi_lib_irq_domain_select,
- #ifdef CONFIG_GENERIC_IRQ_DEBUGFS
- 	.debug_show	= imsic_irq_debug_show,
- #endif
++#if defined(CONFIG_SMP) && defined(CONFIG_GENERIC_PENDING_IRQ)
++	void		(*irq_force_complete_move)(struct irq_data *data);
++#endif
++
+ 	unsigned long	flags;
  };
  
--#ifdef CONFIG_RISCV_IMSIC_PCI
--
--static void imsic_pci_mask_irq(struct irq_data *d)
--{
--	pci_msi_mask_irq(d);
--	irq_chip_mask_parent(d);
--}
--
--static void imsic_pci_unmask_irq(struct irq_data *d)
--{
--	irq_chip_unmask_parent(d);
--	pci_msi_unmask_irq(d);
--}
--
--#define MATCH_PCI_MSI		BIT(DOMAIN_BUS_PCI_MSI)
--
--#else
--
--#define MATCH_PCI_MSI		0
--
--#endif
--
--static bool imsic_init_dev_msi_info(struct device *dev,
--				    struct irq_domain *domain,
--				    struct irq_domain *real_parent,
--				    struct msi_domain_info *info)
--{
--	const struct msi_parent_ops *pops = real_parent->msi_parent_ops;
--
--	/* MSI parent domain specific settings */
--	switch (real_parent->bus_token) {
--	case DOMAIN_BUS_NEXUS:
--		if (WARN_ON_ONCE(domain != real_parent))
--			return false;
--#ifdef CONFIG_SMP
--		info->chip->irq_set_affinity = irq_chip_set_affinity_parent;
--#endif
--		break;
--	default:
--		WARN_ON_ONCE(1);
--		return false;
--	}
--
--	/* Is the target supported? */
--	switch (info->bus_token) {
--#ifdef CONFIG_RISCV_IMSIC_PCI
--	case DOMAIN_BUS_PCI_DEVICE_MSI:
--	case DOMAIN_BUS_PCI_DEVICE_MSIX:
--		info->chip->irq_mask = imsic_pci_mask_irq;
--		info->chip->irq_unmask = imsic_pci_unmask_irq;
--		break;
--#endif
--	case DOMAIN_BUS_DEVICE_MSI:
--		/*
--		 * Per-device MSI should never have any MSI feature bits
--		 * set. It's sole purpose is to create a dumb interrupt
--		 * chip which has a device specific irq_write_msi_msg()
--		 * callback.
--		 */
--		if (WARN_ON_ONCE(info->flags))
--			return false;
--
--		/* Core managed MSI descriptors */
--		info->flags |= MSI_FLAG_ALLOC_SIMPLE_MSI_DESCS |
--			       MSI_FLAG_FREE_MSI_DESCS;
--		break;
--	case DOMAIN_BUS_WIRED_TO_MSI:
--		break;
--	default:
--		WARN_ON_ONCE(1);
--		return false;
--	}
--
--	/* Use hierarchial chip operations re-trigger */
--	info->chip->irq_retrigger = irq_chip_retrigger_hierarchy;
--
--	/*
--	 * Mask out the domain specific MSI feature flags which are not
--	 * supported by the real parent.
--	 */
--	info->flags &= pops->supported_flags;
--
--	/* Enforce the required flags */
--	info->flags |= pops->required_flags;
--
--	return true;
--}
--
--#define MATCH_PLATFORM_MSI		BIT(DOMAIN_BUS_PLATFORM_MSI)
--
- static const struct msi_parent_ops imsic_msi_parent_ops = {
- 	.supported_flags	= MSI_GENERIC_FLAGS_MASK |
- 				  MSI_FLAG_PCI_MSIX,
- 	.required_flags		= MSI_FLAG_USE_DEF_DOM_OPS |
--				  MSI_FLAG_USE_DEF_CHIP_OPS,
-+				  MSI_FLAG_USE_DEF_CHIP_OPS |
-+				  MSI_FLAG_PCI_MSI_MASK_PARENT,
- 	.bus_select_token	= DOMAIN_BUS_NEXUS,
- 	.bus_select_mask	= MATCH_PCI_MSI | MATCH_PLATFORM_MSI,
--	.init_dev_msi_info	= imsic_init_dev_msi_info,
-+	.init_dev_msi_info	= msi_lib_init_dev_msi_info,
- };
+diff --git a/kernel/irq/migration.c b/kernel/irq/migration.c
+index eb150afd671f..2920024475a3 100644
+--- a/kernel/irq/migration.c
++++ b/kernel/irq/migration.c
+@@ -5,6 +5,15 @@
  
- int imsic_irqdomain_init(void)
+ #include "internals.h"
+ 
++void __weak irq_force_complete_move(struct irq_desc *desc)
++{
++	struct irq_data *d = irq_desc_get_irq_data(desc);
++	struct irq_chip *chip = irq_data_get_irq_chip(d);
++
++	if (chip && chip->irq_force_complete_move)
++		chip->irq_force_complete_move(d);
++}
++
+ /**
+  * irq_fixup_move_pending - Cleanup irq move pending from a dying CPU
+  * @desc:		Interrupt descriptor to clean up
 -- 
 2.43.0
 
