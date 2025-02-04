@@ -4,55 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E0BCDC02194
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F13E1C02193
 	for <linux-riscv@archiver.kernel.org>; Tue,  4 Feb 2025 17:35:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=JauczmagxZIhr3poQjUVeYRCQBF1DT1ARvSPtxTHojA=; b=r1tpDNivXu0+Rq
-	bhfyl399DSgX+53uhFoIZDRah/dSmhsPAVQhAV0G4UENyMDq5mfSyTyvOTCV31fOfgBUOQ1cwzTI4
-	oxKSLBl7yaCYvl/c85ZJkrklWVNaKA8iEwNtrWc2hunhfMuvnlZDamyakvH8B9ggoIFMaohBzqAVe
-	M32Fii3CSQUZoKAHQqbqRTQE/UQ9+ULQX1fF2laXGZqbt0j0N+f1ANU+FR+at08lSe3RQKfB3G5T7
-	ZTY/uuWhqyOkyzlM2QEhSRc8b3kPJ/26Ak66XJNBDguFiRfZaE1cP/9B1z8c4dMaxatOmX3LXv+VI
-	DSAvFYOXwYjLvcUgjixQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=mtUbipf6E5trEUN4gltyrniLzBOrLHYPamENTgBi/VQ=; b=NazkMeizoUCcqv
+	11T0m57J6VikBs4kMyzkAHZO25XyWdGUum/XrDerHMBJbNoTA4lu5VaHr99PZ0tM9p2BwOrXKrOqS
+	Lp+MENxjtBfpjcDInTcdi08n1n8GkNfc6H/bsbxSZKefwvZG4kcnpLj67BsGr6D/+306LzboE4GHq
+	YJwYhAeuVQulxgd0kKtlYjjEkf5zbQ9EFATPa3PVm3trYRBFBbIIttXhVjoUzJE6QbqGBWhc1bUNv
+	pyZFPfuJzG2HE8jDFi/CWn4jmS95hsCPrP0HTZdrfUazOpos7biOSUAZz59KRPLB1npxxBy6GdQqD
+	LIz2r+Nkj2QhrL0NX0jw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfMpz-0000000174V-2fzq;
-	Tue, 04 Feb 2025 17:35:51 +0000
+	id 1tfMq0-00000001759-3hH8;
+	Tue, 04 Feb 2025 17:35:52 +0000
 Received: from mgamail.intel.com ([198.175.65.20])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfMot-000000016fx-0vD8;
-	Tue, 04 Feb 2025 17:34:44 +0000
+	id 1tfMpG-000000016n6-0EMs;
+	Tue, 04 Feb 2025 17:35:07 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1738690483; x=1770226483;
-  h=from:to:cc:subject:date:message-id:mime-version:
-   content-transfer-encoding;
-  bh=gkSVi874oZamWXqTFhaAOZ4pp4va5gatG6W8+kcuVHA=;
-  b=fBMsuqgOs59Pecnr6lTgOEtxjHipg3n14C+YxuqPOPRvqWkB6RrxPOpl
-   g2vjzRcvlWznAPa8zdIBA2s3CNTC/g7rcYK0oDq27xdCsr6LV0uIGS7nV
-   I9X8lkoyHvd7IuFflfbGYcxOOjYQQxYBcS+BbeFVlKlIXk1OE8DyYfTFp
-   qYBpbQpvgVcRSuoIj0KGlZpoUI0Acof2PzjkeSrIk9vxvFrIpo/mO8ap+
-   fI9AbtR5q1k7X6LwQn/ct01wTA6oljFhv4xlGV/qOo9lANqtvKBC7GZyk
-   DEC8Hppsp3rMGNc/iI6IJqPXQkhCG4PIzFGfjfnMGmSZlH5xffg55NMjT
-   Q==;
-X-CSE-ConnectionGUID: hZSP2fjPS+uIABJd1AAIdA==
-X-CSE-MsgGUID: YrFzi7XNRvGAucpalQ24mg==
-X-IronPort-AV: E=McAfee;i="6700,10204,11336"; a="38930260"
+  t=1738690506; x=1770226506;
+  h=from:to:cc:subject:date:message-id:in-reply-to:
+   references:mime-version:content-transfer-encoding;
+  bh=aHGhpjph+eDn968NL6XwKtEp1WbZxR8Rwtm1kIwOPTc=;
+  b=Rufk0rAbWg2sNISQsQphLLXIzm50vQe2J5XKJ47wS9ocHJVCOz1dc2RV
+   a3p30EuwmX6PAv9QhFiy+tNnjk2MF+gZs8I6dvJvnX/j0GESFppww3LAj
+   s+l68OXJW4LrJXyMpA/5lG0vz70+lxlgNJ7jP1oXOPhAaNOb6FDwfhu+h
+   TJPxPOQSC1Bsw3IWCvkNCfi4n00u/a758N6LyOqOmcTd8QS659Yz+IBBY
+   gwa40HkYNni2MxC4OiQyjXhjFgDAzW0Y6VtvKIy9B89jOWPRPZHrgOoMc
+   ygTZcJNK/CapE0pJod+by0Wtg02AiGo+iBg8NBxdGKnYtbSHElAutvgEK
+   g==;
+X-CSE-ConnectionGUID: LxMqgJH+Qa6m9zsKd4RPUQ==
+X-CSE-MsgGUID: vopx7qgpRqa6j0gTRDKR7Q==
+X-IronPort-AV: E=McAfee;i="6700,10204,11336"; a="38930394"
 X-IronPort-AV: E=Sophos;i="6.13,259,1732608000"; 
-   d="scan'208";a="38930260"
+   d="scan'208";a="38930394"
 Received: from orviesa001.jf.intel.com ([10.64.159.141])
-  by orvoesa112.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 04 Feb 2025 09:34:37 -0800
-X-CSE-ConnectionGUID: prkHYuVRSJ2uR8d8lQLj6Q==
-X-CSE-MsgGUID: /nP6Sa9pRLaAvJF1jo5+uA==
+  by orvoesa112.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 04 Feb 2025 09:35:04 -0800
+X-CSE-ConnectionGUID: eBbq5MWaSZONJhS+dGPi8A==
+X-CSE-MsgGUID: mjasgO5WTcSBmxRL24BE0w==
 X-ExtLoop1: 1
 X-IronPort-AV: E=Sophos;i="6.12,224,1728975600"; 
-   d="scan'208";a="147866051"
+   d="scan'208";a="147866217"
 Received: from mjarzebo-mobl1.ger.corp.intel.com (HELO wieczorr-mobl1.intel.com) ([10.245.244.61])
-  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 04 Feb 2025 09:34:25 -0800
+  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 04 Feb 2025 09:34:49 -0800
 From: Maciej Wieczor-Retman <maciej.wieczor-retman@intel.com>
 To: luto@kernel.org,
 	xin@zytor.com,
@@ -108,14 +108,16 @@ Cc: kasan-dev@googlegroups.com,
 	linux-mm@kvack.org,
 	llvm@lists.linux.dev,
 	linux-doc@vger.kernel.org
-Subject: [PATCH 00/15] kasan: x86: arm64: risc-v: KASAN tag-based mode for x86
-Date: Tue,  4 Feb 2025 18:33:41 +0100
-Message-ID: <cover.1738686764.git.maciej.wieczor-retman@intel.com>
+Subject: [PATCH 02/15] kasan: Tag checking with dense tag-based mode
+Date: Tue,  4 Feb 2025 18:33:43 +0100
+Message-ID: <8f790bb7e166c1ea2e5003318149eb1d7aba3596.1738686764.git.maciej.wieczor-retman@intel.com>
 X-Mailer: git-send-email 2.47.1
+In-Reply-To: <cover.1738686764.git.maciej.wieczor-retman@intel.com>
+References: <cover.1738686764.git.maciej.wieczor-retman@intel.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250204_093443_338296_1A08D2BD 
-X-CRM114-Status: GOOD (  28.55  )
+X-CRM114-CacheID: sfid-20250204_093506_214183_9B3AEFF8 
+X-CRM114-Status: GOOD (  28.09  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -132,234 +134,332 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-======= Introduction
-The patchset aims to add a KASAN tag-based mode for the x86 architecture
-with the help of the new CPU feature called Linear Address Masking
-(LAM). Main improvement introduced by the series is 4x lower memory
-usage compared to KASAN's generic mode, the only currently available
-mode on x86.
+In KASAN's tag-based mode (arm64) when a memory access occurs, the tag
+stored in the top 8 bits of the pointer is compared with tags saved in
+the region of the shadow memory that maps to memory the pointer points
+to. If any of the tags in the shadow memory region do not match the one
+stored in the pointer an error report is generated.
 
-There are two logical parts to this series. The first one attempts to
-add a new memory saving mechanism called "dense mode" to the generic
-part of the tag-based KASAN code. The second one focuses on implementing
-and enabling the tag-based mode for the x86 architecture by using LAM.
+With the introduction of the dense mode, tags won't necessarily occupy
+whole bytes of shadow memory if the previously allocated memory wasn't
+aligned to 32 bytes - which is the coverage of one shadow byte.
 
-======= How KASAN tag-based mode works?
-When enabled, memory accesses and allocations are augmented by the
-compiler during kernel compilation. Instrumentation functions are added
-to each memory allocation and each pointer dereference.
+Add an alternative implementation of kasan_check_range() that performs
+special checks on first and last bytes of shadow memory ranges if the
+originally allocated memory wasn't aligned to 32 bytes.
 
-The allocation related functions generate a random tag and save it in
-two places: in shadow memory that maps to the allocated memory, and in
-the top bits of the pointer that points to the allocated memory. Storing
-the tag in the top of the pointer is possible because of Top-Byte Ignore
-(TBI) on arm64 architecture and LAM on x86.
-
-The access related functions are performing a comparison between the tag
-stored in the pointer and the one stored in shadow memory. If the tags
-don't match an out of bounds error must have occurred and so an error
-report is generated.
-
-The general idea for the tag-based mode is very well explained in the
-series with the original implementation [1].
-
-[1] https://lore.kernel.org/all/cover.1544099024.git.andreyknvl@google.com/
-
-======= What is the new "dense mode"?
-To further save memory the dense mode is introduced. The idea is that
-normally one shadow byte stores one tag and this one tag covers one
-granule of allocated memory which is 16 bytes. In the dense mode, one
-tag still covers 16 bytes of allocated memory but is shortened in length
-from 8 bits to 4 bits which makes it possible to store two tags in one
-shadow memory byte.
-
-=== Example:
-The example below shows how the shadow memory looks like after
-allocating 48 bytes of memory in both normal tag-based mode and the
-dense mode. The contents of shadow memory are overlaid onto address
-offsets that they relate to in the allocated kernel memory. Each cell
-|        | symbolizes one byte of shadow memory.
-
-= The regular tag based mode:
-- Randomly generated 8-bit tag equals 0xAB.
-- 0xFE is the tag that symbolizes unallocated memory.
-
-Shadow memory contents:           |  0xAB  |  0xAB  |  0xAB  |  0xFE  |
-Shadow memory address offsets:    0        1        2        3        4
-Allocated memory address offsets: 0        16       32       48       64
-
-= The dense tag based mode:
-- Randomly generated 4-bit tag equals 0xC.
-- 0xE is the tag that symbolizes unallocated memory.
-
-Shadow memory contents:           |0xC 0xC |0xC 0xE |0xE 0xE |0xE 0xE |
-Shadow memory address offsets:    0        1        2        3        4
-Allocated memory address offsets: 0        32       64       96       128
-
-=== Dense mode benefits summary
-For a small price of a couple of bit shifts, the dense mode uses only
-half the memory compared to the current arm64 tag-based mode, while
-still preserving the 16 byte tag granularity which allows catching
-smaller offsets of out of bounds errors.
-
-======= Differences summary compared to the arm64 tag-based mode
-- Tag width:
-	- Tag width influences the chance of a tag mismatch due to two
-	  tags from different allocations having the same value. The
-	  bigger the possible range of tag values the lower the chance
-	  of that happening.
-	- Shortening the tag width from 8 bits to 4, while helping with
-	  memory usage also increases the chance of not reporting an
-	  error. 4 bit tags have a ~7% chance of a tag mismatch.
-
-- TBI and LAM
-	- TBI in arm64 allows for storing metadata in the top 8 bits of
-	  the virtual address.
-	- LAM in x86 allows storing tags in bits [62:57] of the pointer.
-	  To maximize memory savings the tag width is reduced to bits
-	  [60:57].
-
-======= Testing
-Checked all the kunits for both software tags and generic KASAN after
-making changes.
-
-In generic mode the results were:
-
-kasan: pass:59 fail:0 skip:13 total:72
-Totals: pass:59 fail:0 skip:13 total:72
-ok 1 kasan
-
-and for software tags:
-
-kasan: pass:63 fail:0 skip:9 total:72
-Totals: pass:63 fail:0 skip:9 total:72
-ok 1 kasan
-
-======= Benchmarks
-All tests were ran on a Sierra Forest server platform with 512GB of
-memory. The only differences between the tests were kernel options:
-	- CONFIG_KASAN
-	- CONFIG_KASAN_GENERIC
-	- CONFIG_KASAN_SW_TAGS
-	- CONFIG_KASAN_INLINE [1]
-	- CONFIG_KASAN_OUTLINE [1]
-
-Used memory in GBs after boot [2][3]:
-* 14 for clean kernel
-* 91 / 90 for generic KASAN (inline/outline)
-* 31 for tag-based KASAN
-
-Boot time (until login prompt):
-* 03:48 for clean kernel
-* 08:02 / 09:45 for generic KASAN (inline/outline)
-* 08:50 for dense tag-based KASAN
-* 04:50 for dense tag-based KASAN with stacktrace disabled [4]
-
-Compilation time comparison (10 cores):
-* 7:27 for clean kernel
-* 8:21/7:44 for generic KASAN (inline/outline)
-* 7:41 for tag-based KASAN
-
-Network performance [5]:
-* 13.7 Gbits/sec for clean kernel
-* 2.25 Gbits/sec for generic KASAN inline
-* 1.50 Gbits/sec for generic KASAN outline
-* 1.55 Gbits/sec for dense tag-based KASAN
-* 2.86 Gbits/sec for dense tag-based KASAN with stacktrace disabled
-
-[1] Based on hwasan and asan compiler parameters used in
-scripts/Makefile.kasan it looks like inline/outline modes have a bigger
-impact on generic mode than the tag-based mode. In the former inlining
-actually increases the kernel image size and improves performance. In
-the latter it un-inlines some code portions for debugging purposes when
-the outline mode is chosen but no real difference is visible in
-performance and kernel image size.
-
-[2] Used "cat /proc/meminfo | grep MemAvailable" and then subtracted
-that from the total memory of the system. Initially wanted to use "grep
-Slab" similarly to the cover letter for arm64 tag-based series but
-because the tests were ran on a system with 512GB of RAM and memory
-usage was more split up between different categories this better shows
-the memory savings.
-
-[3] If the 14 GBs from the clean build were subtracted from the KASAN
-measurements one can see that the tag-based mode uses about 4x less of
-the additional memory compared to the generic mode.
-
-[4] Memory allocation and freeing performance suffers heavily from saving
-stacktraces that can be later displayed in error reports.
-
-[5] Measured as `iperf -s & iperf -c 127.0.0.1 -t 30`.
-
-======= Compilation
-Clang was used to compile the series (make LLVM=1) since gcc doesn't
-seem to have support for KASAN tag-based compiler instrumentation on
-x86.
-
-======= Dependencies
-Series is based on risc-v series [1] that's currently in review. Because
-of this for the time being it only applies cleanly on top of 6.12
-mainline kernel. Will rebase on the newest kernel once the risc-v series
-is also rebased.
-
-[1] https://lore.kernel.org/all/20241022015913.3524425-1-samuel.holland@sifive.com/
-
-Maciej Wieczor-Retman (15):
-  kasan: Allocation enhancement for dense tag-based mode
-  kasan: Tag checking with dense tag-based mode
-  kasan: Vmalloc dense tag-based mode support
-  kasan: arm64: x86: risc-v: Make special tags arch specific
-  x86: Add arch specific kasan functions
-  x86: Reset tag for virtual to physical address conversions
-  mm: Pcpu chunk address tag reset
-  x86: Physical address comparisons in fill_p*d/pte
-  x86: Physical address comparison in current_mm pgd check
-  x86: KASAN raw shadow memory PTE init
-  x86: LAM initialization
-  x86: Minimal SLAB alignment
-  x86: runtime_const used for KASAN_SHADOW_END
-  x86: Make software tag-based kasan available
-  kasan: Add mititgation and debug modes
-
- Documentation/arch/x86/x86_64/mm.rst |  6 +-
- MAINTAINERS                          |  2 +-
- arch/arm64/include/asm/kasan-tags.h  |  9 +++
- arch/riscv/include/asm/kasan-tags.h  | 12 ++++
- arch/riscv/include/asm/kasan.h       |  4 --
- arch/x86/Kconfig                     | 11 +++-
- arch/x86/boot/compressed/misc.h      |  2 +
- arch/x86/include/asm/kasan-tags.h    |  9 +++
- arch/x86/include/asm/kasan.h         | 50 +++++++++++++--
- arch/x86/include/asm/page.h          | 17 +++--
- arch/x86/include/asm/page_64.h       |  2 +-
- arch/x86/kernel/head_64.S            |  3 +
- arch/x86/kernel/setup.c              |  2 +
- arch/x86/kernel/vmlinux.lds.S        |  1 +
- arch/x86/mm/init.c                   |  3 +
- arch/x86/mm/init_64.c                |  8 +--
- arch/x86/mm/kasan_init_64.c          | 24 +++++--
- arch/x86/mm/physaddr.c               |  1 +
- arch/x86/mm/tlb.c                    |  2 +-
- include/linux/kasan-tags.h           | 12 +++-
- include/linux/kasan.h                | 94 +++++++++++++++++++++++-----
- include/linux/mm.h                   |  6 +-
- include/linux/page-flags-layout.h    |  7 +--
- lib/Kconfig.kasan                    | 49 +++++++++++++++
- mm/kasan/Makefile                    |  3 +
- mm/kasan/dense.c                     | 83 ++++++++++++++++++++++++
- mm/kasan/kasan.h                     | 27 +-------
- mm/kasan/report.c                    |  6 +-
- mm/kasan/report_sw_tags.c            | 12 ++--
- mm/kasan/shadow.c                    | 47 ++++++++++----
- mm/kasan/sw_tags.c                   |  8 +++
- mm/kasan/tags.c                      |  5 ++
- mm/percpu-vm.c                       |  2 +-
- 33 files changed, 432 insertions(+), 97 deletions(-)
- create mode 100644 arch/arm64/include/asm/kasan-tags.h
- create mode 100644 arch/riscv/include/asm/kasan-tags.h
- create mode 100644 arch/x86/include/asm/kasan-tags.h
+Signed-off-by: Maciej Wieczor-Retman <maciej.wieczor-retman@intel.com>
+---
+ include/linux/kasan.h     | 47 +++++++++++++++-------
+ mm/kasan/Makefile         |  3 ++
+ mm/kasan/dense.c          | 83 +++++++++++++++++++++++++++++++++++++++
+ mm/kasan/kasan.h          |  2 +-
+ mm/kasan/report.c         |  2 +-
+ mm/kasan/report_sw_tags.c | 12 ++----
+ mm/kasan/sw_tags.c        |  8 ++++
+ 7 files changed, 133 insertions(+), 24 deletions(-)
  create mode 100644 mm/kasan/dense.c
 
+diff --git a/include/linux/kasan.h b/include/linux/kasan.h
+index ea0f5acd875b..5a3e9bec21c2 100644
+--- a/include/linux/kasan.h
++++ b/include/linux/kasan.h
+@@ -33,6 +33,20 @@ typedef unsigned int __bitwise kasan_vmalloc_flags_t;
+ 
+ #include <linux/pgtable.h>
+ 
++#ifndef kasan_mem_to_shadow
++static inline void *kasan_mem_to_shadow(const void *addr)
++{
++	void *scaled;
++
++	if (IS_ENABLED(CONFIG_KASAN_GENERIC))
++		scaled = (void *)((unsigned long)addr >> KASAN_SHADOW_SCALE_SHIFT);
++	else
++		scaled = (void *)((long)addr >> KASAN_SHADOW_SCALE_SHIFT);
++
++	return KASAN_SHADOW_OFFSET + scaled;
++}
++#endif
++
+ /* Software KASAN implementations use shadow memory. */
+ 
+ #ifdef CONFIG_KASAN_SW_TAGS_DENSE
+@@ -53,6 +67,25 @@ static inline u8 kasan_dense_tag(u8 tag)
+ 
+ #define KASAN_GRANULE_SIZE	(1UL << KASAN_GRANULE_SHIFT)
+ 
++#ifdef CONFIG_KASAN_SW_TAGS_DENSE
++static inline u8 kasan_get_shadow_tag(const void *ptr)
++{
++	u8 shadow_byte = *(u8 *)kasan_mem_to_shadow(ptr);
++	unsigned long addr = (unsigned long)ptr;
++	int shift;
++
++	shift = !!(addr & KASAN_GRANULE_SIZE) * KASAN_TAG_WIDTH;
++	shadow_byte >>= shift;
++
++	return shadow_byte & KASAN_TAG_KERNEL;
++}
++#else
++static inline u8 kasan_get_shadow_tag(const void *addr)
++{
++	return (*(u8 *)kasan_mem_to_shadow(addr));
++}
++#endif
++
+ #ifdef CONFIG_KASAN_SW_TAGS
+ /* This matches KASAN_TAG_INVALID. */
+ #define KASAN_SHADOW_INIT 0xFE
+@@ -73,20 +106,6 @@ extern p4d_t kasan_early_shadow_p4d[MAX_PTRS_PER_P4D];
+ int kasan_populate_early_shadow(const void *shadow_start,
+ 				const void *shadow_end);
+ 
+-#ifndef kasan_mem_to_shadow
+-static inline void *kasan_mem_to_shadow(const void *addr)
+-{
+-	void *scaled;
+-
+-	if (IS_ENABLED(CONFIG_KASAN_GENERIC))
+-		scaled = (void *)((unsigned long)addr >> KASAN_SHADOW_SCALE_SHIFT);
+-	else
+-		scaled = (void *)((long)addr >> KASAN_SHADOW_SCALE_SHIFT);
+-
+-	return KASAN_SHADOW_OFFSET + scaled;
+-}
+-#endif
+-
+ int kasan_add_zero_shadow(void *start, unsigned long size);
+ void kasan_remove_zero_shadow(void *start, unsigned long size);
+ 
+diff --git a/mm/kasan/Makefile b/mm/kasan/Makefile
+index b88543e5c0cc..3a460abd4c18 100644
+--- a/mm/kasan/Makefile
++++ b/mm/kasan/Makefile
+@@ -5,6 +5,7 @@ KCOV_INSTRUMENT := n
+ 
+ # Disable ftrace to avoid recursion.
+ CFLAGS_REMOVE_common.o = $(CC_FLAGS_FTRACE)
++CFLAGS_REMOVE_dense.o = $(CC_FLAGS_FTRACE)
+ CFLAGS_REMOVE_generic.o = $(CC_FLAGS_FTRACE)
+ CFLAGS_REMOVE_init.o = $(CC_FLAGS_FTRACE)
+ CFLAGS_REMOVE_quarantine.o = $(CC_FLAGS_FTRACE)
+@@ -24,6 +25,7 @@ CC_FLAGS_KASAN_RUNTIME += -fno-stack-protector
+ CC_FLAGS_KASAN_RUNTIME += -DDISABLE_BRANCH_PROFILING
+ 
+ CFLAGS_common.o := $(CC_FLAGS_KASAN_RUNTIME)
++CFLAGS_dense.o := $(CC_FLAGS_KASAN_RUNTIME)
+ CFLAGS_generic.o := $(CC_FLAGS_KASAN_RUNTIME)
+ CFLAGS_init.o := $(CC_FLAGS_KASAN_RUNTIME)
+ CFLAGS_quarantine.o := $(CC_FLAGS_KASAN_RUNTIME)
+@@ -49,6 +51,7 @@ RUSTFLAGS_kasan_test_rust.o := $(RUSTFLAGS_KASAN)
+ CFLAGS_kasan_test_module.o := $(CFLAGS_KASAN_TEST)
+ 
+ obj-y := common.o report.o
++obj-$(CONFIG_KASAN_SW_TAGS_DENSE) += dense.o
+ obj-$(CONFIG_KASAN_GENERIC) += init.o generic.o report_generic.o shadow.o quarantine.o
+ obj-$(CONFIG_KASAN_HW_TAGS) += hw_tags.o report_hw_tags.o tags.o report_tags.o
+ obj-$(CONFIG_KASAN_SW_TAGS) += init.o report_sw_tags.o shadow.o sw_tags.o tags.o report_tags.o
+diff --git a/mm/kasan/dense.c b/mm/kasan/dense.c
+new file mode 100644
+index 000000000000..306bbbfdce29
+--- /dev/null
++++ b/mm/kasan/dense.c
+@@ -0,0 +1,83 @@
++// SPDX-License-Identifier: GPL-2.0
++
++#include "kasan.h"
++
++static __always_inline bool kasan_check_range_inline(const void *addr,
++						     size_t size, bool write,
++						     unsigned long ret_ip)
++{
++	u8 *shadow_first, *shadow_last, *shadow, *shadow_first_aligned, *shadow_last_aligned;
++	u64 addr_start_aligned, addr_end_aligned;
++	u8 tag, kasan_granule_offset;
++	size_t aligned_size;
++	void *untagged_addr;
++
++	if (unlikely(size == 0))
++		return true;
++
++	if (unlikely(addr + size < addr))
++		return !kasan_report(addr, size, write, ret_ip);
++
++	tag = get_tag((const void *)addr);
++
++	/*
++	 * Ignore accesses for pointers tagged with native kernel
++	 * pointer tag to suppress false positives caused by kmap.
++	 *
++	 * Some kernel code was written to account for archs that don't keep
++	 * high memory mapped all the time, but rather map and unmap particular
++	 * pages when needed. Instead of storing a pointer to the kernel memory,
++	 * this code saves the address of the page structure and offset within
++	 * that page for later use. Those pages are then mapped and unmapped
++	 * with kmap/kunmap when necessary and virt_to_page is used to get the
++	 * virtual address of the page. For arm64 (that keeps the high memory
++	 * mapped all the time), kmap is turned into a page_address call.
++
++	 * The issue is that with use of the page_address + virt_to_page
++	 * sequence the top byte value of the original pointer gets lost (gets
++	 * set to KASAN_TAG_KERNEL).
++	 */
++	if (tag == KASAN_TAG_KERNEL)
++		return true;
++
++	untagged_addr = kasan_reset_tag((void *)round_down((u64)addr, KASAN_GRANULE_SIZE));
++	if (unlikely(!addr_has_metadata(untagged_addr)))
++		return !kasan_report(addr, size, write, ret_ip);
++
++	kasan_granule_offset = ((u64)addr & KASAN_GRANULE_MASK);
++	aligned_size = round_up(size + kasan_granule_offset, KASAN_GRANULE_SIZE);
++	shadow_first = kasan_mem_to_shadow(untagged_addr);
++	shadow_last = kasan_mem_to_shadow(untagged_addr + aligned_size);
++	addr_start_aligned = round_up((u64)untagged_addr, KASAN_SHADOW_SCALE_SIZE);
++	addr_end_aligned = round_down((u64)untagged_addr + aligned_size, KASAN_SHADOW_SCALE_SIZE);
++	shadow_first_aligned = kasan_mem_to_shadow((void *)addr_start_aligned);
++	shadow_last_aligned = kasan_mem_to_shadow((void *)addr_end_aligned);
++
++	/* Check the first unaligned tag in shadow memory. */
++	if ((u64)untagged_addr % KASAN_SHADOW_SCALE_SIZE) {
++		if (unlikely((*shadow_first >> KASAN_TAG_WIDTH) != tag))
++			return !kasan_report(addr, size, write, ret_ip);
++	}
++
++	/* Check the middle aligned part in shadow memory. */
++	for (shadow = shadow_first_aligned; shadow < shadow_last_aligned; shadow++) {
++		if (unlikely(*shadow != ((tag << KASAN_TAG_WIDTH) | tag)))
++			return !kasan_report(addr, size, write, ret_ip);
++	}
++
++	/* Check the last unaligned tag in shadow memory. */
++	if (((u64)untagged_addr + aligned_size) % KASAN_SHADOW_SCALE_SIZE) {
++		if (unlikely((*shadow_last & KASAN_TAG_MASK) != tag))
++			return !kasan_report(addr, size, write, ret_ip);
++	}
++
++	return true;
++}
++
++#if IS_ENABLED(CONFIG_KASAN_SW_TAGS_DENSE)
++bool kasan_check_range(const void *addr, size_t size, bool write,
++		       unsigned long ret_ip)
++{
++	return kasan_check_range_inline(addr, size, write, ret_ip);
++}
++#endif
+diff --git a/mm/kasan/kasan.h b/mm/kasan/kasan.h
+index 0e04c5e2c405..d29bd0e65020 100644
+--- a/mm/kasan/kasan.h
++++ b/mm/kasan/kasan.h
+@@ -183,7 +183,7 @@ static inline bool kasan_requires_meta(void)
+ #define META_BYTES_PER_BLOCK 1
+ #define META_BLOCKS_PER_ROW 16
+ #define META_BYTES_PER_ROW (META_BLOCKS_PER_ROW * META_BYTES_PER_BLOCK)
+-#define META_MEM_BYTES_PER_ROW (META_BYTES_PER_ROW * KASAN_GRANULE_SIZE)
++#define META_MEM_BYTES_PER_ROW (META_BYTES_PER_ROW * KASAN_SHADOW_SCALE_SIZE)
+ #define META_ROWS_AROUND_ADDR 2
+ 
+ #define KASAN_STACK_DEPTH 64
+diff --git a/mm/kasan/report.c b/mm/kasan/report.c
+index c08097715686..ee9e406b0cdb 100644
+--- a/mm/kasan/report.c
++++ b/mm/kasan/report.c
+@@ -436,7 +436,7 @@ static int meta_pointer_offset(const void *row, const void *addr)
+ 	 *    plus 1 byte for space.
+ 	 */
+ 	return 3 + (BITS_PER_LONG / 8) * 2 +
+-		(addr - row) / KASAN_GRANULE_SIZE * 3 + 1;
++		(addr - row) / KASAN_SHADOW_SCALE_SIZE * 3 + 1;
+ }
+ 
+ static void print_memory_metadata(const void *addr)
+diff --git a/mm/kasan/report_sw_tags.c b/mm/kasan/report_sw_tags.c
+index 689e94f9fe3c..1ac5c7a9011d 100644
+--- a/mm/kasan/report_sw_tags.c
++++ b/mm/kasan/report_sw_tags.c
+@@ -39,7 +39,7 @@ const void *kasan_find_first_bad_addr(const void *addr, size_t size)
+ 	if (!addr_has_metadata(p))
+ 		return p;
+ 
+-	while (p < end && tag == *(u8 *)kasan_mem_to_shadow(p))
++	while (p < end && tag == kasan_get_shadow_tag(p))
+ 		p += KASAN_GRANULE_SIZE;
+ 
+ 	return p;
+@@ -48,7 +48,6 @@ const void *kasan_find_first_bad_addr(const void *addr, size_t size)
+ size_t kasan_get_alloc_size(void *object, struct kmem_cache *cache)
+ {
+ 	size_t size = 0;
+-	u8 *shadow;
+ 
+ 	/*
+ 	 * Skip the addr_has_metadata check, as this function only operates on
+@@ -59,13 +58,11 @@ size_t kasan_get_alloc_size(void *object, struct kmem_cache *cache)
+ 	 * The loop below returns 0 for freed objects, for which KASAN cannot
+ 	 * calculate the allocation size based on the metadata.
+ 	 */
+-	shadow = (u8 *)kasan_mem_to_shadow(object);
+ 	while (size < cache->object_size) {
+-		if (*shadow != KASAN_TAG_INVALID)
++		if (kasan_get_shadow_tag(object + size) != KASAN_TAG_INVALID)
+ 			size += KASAN_GRANULE_SIZE;
+ 		else
+ 			return size;
+-		shadow++;
+ 	}
+ 
+ 	return cache->object_size;
+@@ -78,9 +75,8 @@ void kasan_metadata_fetch_row(char *buffer, void *row)
+ 
+ void kasan_print_tags(u8 addr_tag, const void *addr)
+ {
+-	u8 *shadow = (u8 *)kasan_mem_to_shadow(addr);
+-
+-	pr_err("Pointer tag: [%02x], memory tag: [%02x]\n", addr_tag, *shadow);
++	pr_err("Pointer tag: [%02x], memory tag: [%02x]\n", addr_tag,
++	       kasan_get_shadow_tag(addr));
+ }
+ 
+ #ifdef CONFIG_KASAN_STACK
+diff --git a/mm/kasan/sw_tags.c b/mm/kasan/sw_tags.c
+index 32435d33583a..7a6b8ea9bf78 100644
+--- a/mm/kasan/sw_tags.c
++++ b/mm/kasan/sw_tags.c
+@@ -79,6 +79,7 @@ u8 __hwasan_generate_tag(void)
+ }
+ EXPORT_SYMBOL(__hwasan_generate_tag);
+ 
++#if !IS_ENABLED(CONFIG_KASAN_SW_TAGS_DENSE)
+ bool kasan_check_range(const void *addr, size_t size, bool write,
+ 			unsigned long ret_ip)
+ {
+@@ -127,17 +128,24 @@ bool kasan_check_range(const void *addr, size_t size, bool write,
+ 
+ 	return true;
+ }
++#endif
+ 
+ bool kasan_byte_accessible(const void *addr)
+ {
+ 	u8 tag = get_tag(addr);
+ 	void *untagged_addr = kasan_reset_tag(addr);
+ 	u8 shadow_byte;
++	int shift;
+ 
+ 	if (!addr_has_metadata(untagged_addr))
+ 		return false;
+ 
+ 	shadow_byte = READ_ONCE(*(u8 *)kasan_mem_to_shadow(untagged_addr));
++	if (IS_ENABLED(CONFIG_KASAN_SW_TAGS_DENSE)) {
++		shift = !!((u64)addr & BIT(KASAN_TAG_WIDTH)) * KASAN_TAG_WIDTH;
++		shadow_byte = (shadow_byte >> shift) & KASAN_TAG_KERNEL;
++	}
++
+ 	return tag == KASAN_TAG_KERNEL || tag == shadow_byte;
+ }
+ 
 -- 
 2.47.1
 
