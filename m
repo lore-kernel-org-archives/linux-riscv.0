@@ -4,106 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DE248C0218F
-	for <linux-riscv@archiver.kernel.org>; Tue,  4 Feb 2025 04:18:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8697DC0218F
+	for <linux-riscv@archiver.kernel.org>; Tue,  4 Feb 2025 06:35:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Ws1q6EwS6XE1cZHnFAY6s5wnf0ZI9G4i+WCSNRoCbrk=; b=BOQIue134gBzjw
-	87RQ+YdEJlfrYlw4y0YPkptP3lpHq4xBoSztFRHQoa2/8BJSzB5wpo9tW1hOlqN1+/OYaDD+4zEsU
-	q+PIUECtVGqGpmcVM69EVWhtyJtS9ORojM5vCAMWcaH/iOuKymQm93gccWToWvk78BN8QjXO9jw8E
-	WhjTaPodTWQTUKldj7KESFxbNTwSzTxAtynrGZMzW0f1vILGymaGOslCHQ2WfwNPZnIII/p6yha4T
-	MBSkO08pcgqtTPn+GgaggYFKo9veCG5ET/P3stpbC7mtv/9JxDAmqpGbe7fc58TZ7HXW1aTtV4xQA
-	HtSKNUvt9+T7cfFDjNhg==;
+	List-Owner; bh=xN3RZlUIMRVRi2d3gyJjZAOnk2xvrgOVSgjQ0pQg9go=; b=RRBp1OikKQ8UCo
+	Efqxh8CgN4+mEvL9X/Yxi27KAXe9sCSK5zsHdUOw1Th8rv3pe/dBCb5yKS4DLdRYi2bBAldMByD3e
+	d24Nyu0kcqiiK0xiFXas5f5e8NgtqZ8Ho1qTXv/MUB9DCs+hK4YwcPa40sfPfNYHFdUD+hye+X2PC
+	qEQlMooUt1y2q8DCXZIICI3Ls68ecIA+3dt9drxb8ZMgMhiWoKSlBHdup8oy5mxsGzcnUJ0sAdaur
+	qm2oRQW37n0x8IjCK/ANY/Ss+xAMLq3hYOxp/1LFbm89eca/x0spBGLBIWZ8xITphDrErna9yxG35
+	ZGCTHUzayPr695AR0aHg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfAOY-0000000HDUY-3MuT;
-	Tue, 04 Feb 2025 04:18:42 +0000
-Received: from mail-qk1-x733.google.com ([2607:f8b0:4864:20::733])
+	id 1tfCWz-0000000HNEt-28qG;
+	Tue, 04 Feb 2025 06:35:33 +0000
+Received: from mail-pj1-x1031.google.com ([2607:f8b0:4864:20::1031])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfAOW-0000000HDUD-2BwP
+	id 1tfCWv-0000000HNDK-3LRB
 	for linux-riscv@lists.infradead.org;
-	Tue, 04 Feb 2025 04:18:41 +0000
-Received: by mail-qk1-x733.google.com with SMTP id af79cd13be357-7b6f7d7e128so574899785a.1
-        for <linux-riscv@lists.infradead.org>; Mon, 03 Feb 2025 20:18:40 -0800 (PST)
+	Tue, 04 Feb 2025 06:35:31 +0000
+Received: by mail-pj1-x1031.google.com with SMTP id 98e67ed59e1d1-2ee786b3277so6716733a91.1
+        for <linux-riscv@lists.infradead.org>; Mon, 03 Feb 2025 22:35:29 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1738642719; x=1739247519; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=1DvyAG/gibJ4Np4As+DdlCtpsc8Q7r5eOByPQszzk7g=;
-        b=S+ySeidHvj72puIrqw479sdIkgOBcNIwI74UCXHAyGZJGpNvV0H5GaiWcVd79St/0D
-         gpxoyLlck4otnCWjJlbqqha69Q2KUnARqeLLty5zLQzctE2SqvB2pIo4Pc2/JPFUjMvi
-         ZherJFG8/4b2B/DLBYQ6HtB6nId+2nYor3IcAFR4fMn3UXK7V4d/8tQeZvkoMNltpfu5
-         A9rtgSxHaEJ/H0SfQxtyCzOT5xKi64Kq27PhMqG048/mU0Bnq8Y+UcsLgqgTHpI6Kebv
-         xuOOBBnUrNrHVyxF/Xs3fAcZD7sNAzcaKWSPoC8J4aks1vhXmtAxsEHZkYW5TCQyAC68
-         Q8zA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1738642719; x=1739247519;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1738650928; x=1739255728; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=1DvyAG/gibJ4Np4As+DdlCtpsc8Q7r5eOByPQszzk7g=;
-        b=XpcGRTWXL2xnaNrGcG46Gusxzr8SRXhgrcdM1Ghn92a/N8JBFVzx+Rqo8QQg5vOHzB
-         Q3a1fQjwnJ9YB7g9fLM4lXvv2pGfX2fGwTSVWZgtME7Np2RWOPLkcsdVH5SFlHQztzeX
-         ycT1/gXKW7eGGSqMbjLl0beGhfgQ5XCPi3s3T0b6kx/aUnrBgpTGnIWlk+DpE9E2kZIF
-         z3VcPG7IL76uwt4BizEGCaPLed/dbFRaceN5hpPEoHVdqF7Aqv6XcN6ozWYqBvK9sJ/o
-         aRZJ4OGUZ9Pva8TsmjXd/YpEp4bk07+o7J1oTNJAb+CBRDxS3I6xZMTt5ybRFzdrSxv3
-         sQGg==
-X-Forwarded-Encrypted: i=1; AJvYcCXoD2T8wjY0CTpmy5kQlbikT+HAUgFRIEf+syeUSxZIHWGcVE33xvcbq4BXT8nj/PKGM58eO/kceeRM2A==@lists.infradead.org
-X-Gm-Message-State: AOJu0YxXd8XpZoXXvQ0UWcE8l5QaLdV7UAC27uWjPX0t11AKxf9PCO9E
-	ybfNI1ox0m7gYAx9fAAMKg+lxR3nzHR6fFdR9uS+/VStWDEy6c3U0bTr1cOhJg0=
-X-Gm-Gg: ASbGncs18ThmS4dFdAL19kS9ZgC633fdfwkm5Gklav/LnYh+u1usWREvKabaXs6IoRO
-	7yyj5WsggHHdi4VSxix8eOHRFKmdX7Z2PTImtYL+Z26ZO8V5HIPSkt0TVBjvVTIYaoZ7fm0BTXn
-	WRVR5nYsS3xYt79lXqOdA5RqKH8qABsWEmE1ba6rpCw6hxBI+GewoRHMwlnMe5/rniSkpzoO4Gm
-	nd9yPAQ2J23Du4EB94/TgamEryMwO2YxnRRZRQ26gQIcd+3j6q6DWOGaOh7zr2BE5m2gu14+ncD
-	c05yrY6M42sJcdyqDTQCOK8=
-X-Google-Smtp-Source: AGHT+IE0f4QugKabfRRSBRleOS2KB1pvcyWkZ6UoqvN4crpYoZxJOEqx3b/6o3pkY3LuZEm1BmbQlA==
-X-Received: by 2002:a05:620a:3d84:b0:7b1:ab32:b71e with SMTP id af79cd13be357-7c02eb7da0bmr280078885a.0.1738642719178;
-        Mon, 03 Feb 2025 20:18:39 -0800 (PST)
-Received: from sunil-laptop ([103.97.166.196])
-        by smtp.gmail.com with ESMTPSA id af79cd13be357-7c00a90571csm597775385a.83.2025.02.03.20.18.26
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 03 Feb 2025 20:18:37 -0800 (PST)
-Date: Tue, 4 Feb 2025 09:48:22 +0530
-From: Sunil V L <sunilvl@ventanamicro.com>
-To: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-Cc: Anup Patel <apatel@ventanamicro.com>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Jassi Brar <jassisinghbrar@gmail.com>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	"Rafael J . Wysocki" <rafael@kernel.org>,
-	Mika Westerberg <mika.westerberg@linux.intel.com>,
-	Linus Walleij <linus.walleij@linaro.org>,
-	Bartosz Golaszewski <brgl@bgdev.pl>,
-	Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <ukleinek@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Len Brown <lenb@kernel.org>,
-	Rahul Pathak <rpathak@ventanamicro.com>,
-	Leyfoon Tan <leyfoon.tan@starfivetech.com>,
-	Atish Patra <atishp@atishpatra.org>,
-	Andrew Jones <ajones@ventanamicro.com>,
-	Samuel Holland <samuel.holland@sifive.com>,
-	Anup Patel <anup@brainfault.org>, linux-clk@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [RFC PATCH v2 16/17] irqchip/riscv-rpmi-sysmsi: Add ACPI support
-Message-ID: <Z6GVDuhNyjFQ4OKT@sunil-laptop>
-References: <20250203084906.681418-1-apatel@ventanamicro.com>
- <20250203084906.681418-17-apatel@ventanamicro.com>
- <Z6COlL_5n2AfRADL@smile.fi.intel.com>
+        bh=NMHiHPDNCUJ48N5qcuZlI6iRMY6kpg7JJf8A3gbeaKQ=;
+        b=TKjkdgzjxs/RHi6ymx6QP13o8xA4c3+ueMsC1WaCgroMb1w4zTUWR3rgajq4tYdiQE
+         D6Ss+GnsePAYB7PqeVEQdCkBn+Cdm/snwnxK4f4YGsScaQXCd+bKMVvFQrfJJa9el442
+         v9EhGwdkt3/F6v+HVd0Ls0+TubA+fywgH7RTiZtxA96po4gDiWuPAnvtJmgY/9o+l2Y9
+         fUPdThTzudwk5OiMTUfCb0aM9bAydyWDDTGOz1KDB1iDih1S1SwtDJ82pOEvbM/QtiQU
+         Ybsp4oIalBcyf72LosDkWQ7JDmWR7JzQ+0ezkM4HGlCyx4goCkOAr9l9eueZ4tvPZH6f
+         mXdg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1738650928; x=1739255728;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=NMHiHPDNCUJ48N5qcuZlI6iRMY6kpg7JJf8A3gbeaKQ=;
+        b=DTrSBcsiwMR1YU1mLR58uZ+B9bF2MPMU0LpxTjOXDrknE5JNM2XR0ZBuCdefgI9hJz
+         P1u2BGcmsgYucNnv3g1NAwt/hvrak+GvuFdJ99v+J1CIeQj/GJssITqbZOUuCK4zK8IW
+         oqDkxLXvGHjxbHkeuUtBZ8PBy0ywG5VtE1BCOPwMz4ZpD3cD8FjL07K1msvNfdmKS9QW
+         x82rR8d12huKVP7vyDU5JSPoOe6jkeyUdOHG05w+vGwN1hsydqv2F/qgiyBtzKXAFYza
+         8E09jWep659i8loh4jWaGNDQhmA5aFsIyyKCD61UbN8kRw94MzjnvmEkJ0CR97imXYEm
+         b9wA==
+X-Forwarded-Encrypted: i=1; AJvYcCUNhPjwMUtKWUrgerD+AOgOe3TeW7EGIJ5EzRBCR8GE5/PLSRxzVLaFK9sU5swBz7cwt3sBXOunL0+L4w==@lists.infradead.org
+X-Gm-Message-State: AOJu0YyCkepF91esxwutXHnz+A1QSOIQ+/FbB4UKsWRqekUNjoNgMxnj
+	wmhCVcHLI62qkxr+/lhWAy73oMEFQUM/6dC8E0Dg6WAzkWjKLv2XmuRp4F35svGtd2/9menhda8
+	goFXLBSirzHdthO7A1TQ8yDJ4gkGf1prbpeL1OA==
+X-Gm-Gg: ASbGnctXgEwvx8DbcY5tH6N0Y7RG7Eg82FkWaV0YhMH4DAROPYPOu1YB7ff+eEOS+aV
+	eu+VHcbgJ/Bn4TYy2Xo2qkAJ/OS2nbi2WJEmsfxC/RhSUgfGLA2J/tDhWtchSX/Pk3svnNNkW5y
+	g=
+X-Google-Smtp-Source: AGHT+IFG/yEpW4K/pBHBk3/3BqLXGkFedpykl/V/VPy5N/H80JyAnUu1lUWvkGlaAAzc1oYTPiZqDlNAWdxjP6mgSAs=
+X-Received: by 2002:a05:6a00:2d8e:b0:725:cfa3:bc76 with SMTP id
+ d2e1a72fcca58-72fd0bce05cmr36986225b3a.4.1738650928448; Mon, 03 Feb 2025
+ 22:35:28 -0800 (PST)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <Z6COlL_5n2AfRADL@smile.fi.intel.com>
+References: <20250127-counter_delegation-v3-0-64894d7e16d5@rivosinc.com>
+ <20250127-counter_delegation-v3-9-64894d7e16d5@rivosinc.com> <20250128-jubilance-mosaic-e3a81199aec8@spud>
+In-Reply-To: <20250128-jubilance-mosaic-e3a81199aec8@spud>
+From: Atish Kumar Patra <atishp@rivosinc.com>
+Date: Mon, 3 Feb 2025 22:35:18 -0800
+X-Gm-Features: AWEUYZmuaq61PKoOBoJPiVshD43YM3UyPResBSMNdOEGC5qC9mJGFE-MKtc9ZW4
+Message-ID: <CAHBxVyFVYwQ=aiB+RBrQNMQiu4K4uzPgyz8Tn=dUjeN8KKd=sw@mail.gmail.com>
+Subject: Re: [PATCH v3 09/21] RISC-V: Add Smcntrpmf extension parsing
+To: Conor Dooley <conor@kernel.org>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Anup Patel <anup@brainfault.org>, Atish Patra <atishp@atishpatra.org>, 
+	Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
+	Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
+	Arnaldo Carvalho de Melo <acme@kernel.org>, Namhyung Kim <namhyung@kernel.org>, 
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>, Jiri Olsa <jolsa@kernel.org>, 
+	Ian Rogers <irogers@google.com>, Adrian Hunter <adrian.hunter@intel.com>, weilin.wang@intel.com, 
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	devicetree@vger.kernel.org, kvm@vger.kernel.org, 
+	kvm-riscv@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
+	linux-perf-users@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250203_201840_576985_E6486FF4 
-X-CRM114-Status: GOOD (  22.01  )
+X-CRM114-CacheID: sfid-20250203_223530_101826_AE519581 
+X-CRM114-Status: GOOD (  17.07  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,95 +100,48 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Feb 03, 2025 at 11:38:28AM +0200, Andy Shevchenko wrote:
-> On Mon, Feb 03, 2025 at 02:19:05PM +0530, Anup Patel wrote:
-> > From: Sunil V L <sunilvl@ventanamicro.com>
-> > 
-> > Add ACPI support for the RISC-V RPMI system MSI based irqchip driver.
-> 
-> ...
-> 
-> > +	if (!is_of_node(dev->fwnode)) {
-> 
-> Please, use dev_fwnode(),
-> 
-> But why do you need this? Can't the below simply become a no-op without
-> this check?
-> 
-> > +		rc = riscv_acpi_get_gsi_info(dev->fwnode, &priv->gsi_base, &id,
-> 
-> Ditto.
-> 
-> > +					     &priv->nr_irqs, NULL);
-> > +		if (rc) {
-> > +			dev_err(dev, "failed to find GSI mapping\n");
-> > +			return rc;
-> > +		}
-> > +	}
-> 
-> ...
-> 
-> >  		 * then we need to set it explicitly before using any platform
-> >  		 * MSI functions.
-> >  		 */
-> > -		if (is_of_node(dev->fwnode))
-> > +		if (is_of_node(dev->fwnode)) {
-> >  			of_msi_configure(dev, to_of_node(dev->fwnode));
-> > +		} else {
-> > +			struct irq_domain *msi_domain;
-> > +
-> > +			msi_domain = irq_find_matching_fwnode(imsic_acpi_get_fwnode(dev),
-> > +							      DOMAIN_BUS_PLATFORM_MSI);
-> 
-> > +			if (msi_domain)
-> 
-> Hmm... The OF case above assumes this check is not needed. Why is it special
-> otherwise?
-> 
-> > +				dev_set_msi_domain(dev, msi_domain);
-> > +		}
-> >  
-> >  		if (!dev_get_msi_domain(dev))
-> 
-> Even here you have a check for NULL, so I believe the conditional is simply
-> redundant.
-> 
-> ...
-> 
-> > +#ifdef CONFIG_ACPI
-> 
-> > +	if (!acpi_disabled)
-> 
-> Why?
-> 
-> > +		acpi_dev_clear_dependencies(ACPI_COMPANION(dev));
-> > +#endif
-> 
-> ...
-> 
-> > +#ifdef CONFIG_ACPI
-> 
-> Drop this ugly ifdeffery along with ACPI_PTR(). They are more harmful than
-> useful.
-> 
-> ...
-> 
-> > +static const struct acpi_device_id acpi_rpmi_sysmsi_match[] = {
-> > +	{ "RSCV0006", 0 },
-> 
-> Drop ', 0' part as it may be converted to a pointer in the future.
-> 
-Thanks!. Let me address your comments in next revision.
-
-Thanks,
-Sunil
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gVHVlLCBKYW4gMjgsIDIwMjUgYXQgMTA6MTHigK9BTSBDb25vciBEb29sZXkgPGNvbm9yQGtl
+cm5lbC5vcmc+IHdyb3RlOgo+Cj4gT24gTW9uLCBKYW4gMjcsIDIwMjUgYXQgMDg6NTk6NTBQTSAt
+MDgwMCwgQXRpc2ggUGF0cmEgd3JvdGU6Cj4gPiBTbWNudHJwbWYgZXh0ZW5zaW9uIGFsbG93cyBN
+LW1vZGUgdG8gZW5hYmxlIHByaXZpbGVnZSBtb2RlIGZpbHRlcmluZwo+ID4gZm9yIGN5Y2xlL2lu
+c3RyZXQgY291bnRlcnMuIEhvd2V2ZXIsIHRoZSBjeWNsZWNmZy9pbnN0cmV0Y2ZnIENTUnMgYXJl
+Cj4gPiBvbmx5IGF2YWlsYWJsZSBvbmx5IGluIFNzY2NmZyBvbmx5IFNtY250cnBtZiBpcyBwcmVz
+ZW50Lgo+ID4KPiA+IFRoYXQncyB3aHksIGtlcm5lbCBuZWVkcyB0byBkZXRlY3QgcHJlc2VuY2Ug
+b2YgU21jbnRycG1mIGV4dGVuc2lvbiBhbmQKPiA+IGVuYWJsZSBwcml2aWxlZ2UgbW9kZSBmaWx0
+ZXJpbmcgZm9yIGN5Y2xlL2luc3RyZXQgY291bnRlcnMuCj4gPgo+ID4gU2lnbmVkLW9mZi1ieTog
+QXRpc2ggUGF0cmEgPGF0aXNocEByaXZvc2luYy5jb20+Cj4gPiAtLS0KPiA+ICBhcmNoL3Jpc2N2
+L2luY2x1ZGUvYXNtL2h3Y2FwLmggfCAxICsKPiA+ICBhcmNoL3Jpc2N2L2tlcm5lbC9jcHVmZWF0
+dXJlLmMgfCAxICsKPiA+ICAyIGZpbGVzIGNoYW5nZWQsIDIgaW5zZXJ0aW9ucygrKQo+ID4KPiA+
+IGRpZmYgLS1naXQgYS9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL2h3Y2FwLmggYi9hcmNoL3Jpc2N2
+L2luY2x1ZGUvYXNtL2h3Y2FwLmgKPiA+IGluZGV4IDJmNWVmMWRlZTdhYy4uNDJiMzRlMmY4MGU4
+IDEwMDY0NAo+ID4gLS0tIGEvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9od2NhcC5oCj4gPiArKysg
+Yi9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL2h3Y2FwLmgKPiA+IEBAIC0xMDQsNiArMTA0LDcgQEAK
+PiA+ICAjZGVmaW5lIFJJU0NWX0lTQV9FWFRfU01DU1JJTkQgICAgICAgICAgICAgICA5NQo+ID4g
+ICNkZWZpbmUgUklTQ1ZfSVNBX0VYVF9TU0NDRkcgICAgICAgICAgICA5Ngo+ID4gICNkZWZpbmUg
+UklTQ1ZfSVNBX0VYVF9TTUNERUxFRyAgICAgICAgICA5Nwo+ID4gKyNkZWZpbmUgUklTQ1ZfSVNB
+X0VYVF9TTUNOVFJQTUYgICAgICAgICA5OAo+ID4KPiA+ICAjZGVmaW5lIFJJU0NWX0lTQV9FWFRf
+WExJTlVYRU5WQ0ZHICAgMTI3Cj4gPgo+ID4gZGlmZiAtLWdpdCBhL2FyY2gvcmlzY3Yva2VybmVs
+L2NwdWZlYXR1cmUuYyBiL2FyY2gvcmlzY3Yva2VybmVsL2NwdWZlYXR1cmUuYwo+ID4gaW5kZXgg
+YjU4NGFhMmQ1YmMzLi5lYzA2OGM5MTMwZTUgMTAwNjQ0Cj4gPiAtLS0gYS9hcmNoL3Jpc2N2L2tl
+cm5lbC9jcHVmZWF0dXJlLmMKPiA+ICsrKyBiL2FyY2gvcmlzY3Yva2VybmVsL2NwdWZlYXR1cmUu
+Ywo+ID4gQEAgLTM5NCw2ICszOTQsNyBAQCBjb25zdCBzdHJ1Y3QgcmlzY3ZfaXNhX2V4dF9kYXRh
+IHJpc2N2X2lzYV9leHRbXSA9IHsKPiA+ICAgICAgIF9fUklTQ1ZfSVNBX0VYVF9EQVRBKHNtbXBt
+LCBSSVNDVl9JU0FfRVhUX1NNTVBNKSwKPiA+ICAgICAgIF9fUklTQ1ZfSVNBX0VYVF9TVVBFUlNF
+VChzbW5wbSwgUklTQ1ZfSVNBX0VYVF9TTU5QTSwgcmlzY3ZfeGxpbnV4ZW52Y2ZnX2V4dHMpLAo+
+ID4gICAgICAgX19SSVNDVl9JU0FfRVhUX0RBVEEoc21zdGF0ZWVuLCBSSVNDVl9JU0FfRVhUX1NN
+U1RBVEVFTiksCj4gPiArICAgICBfX1JJU0NWX0lTQV9FWFRfREFUQShzbWNudHJwbWYsIFJJU0NW
+X0lTQV9FWFRfU01DTlRSUE1GKSwKPiA+ICAgICAgIF9fUklTQ1ZfSVNBX0VYVF9EQVRBKHNtY3Ny
+aW5kLCBSSVNDVl9JU0FfRVhUX1NNQ1NSSU5EKSwKPgo+IElzbid0IHRoZSBvcmRlciBoZXJlIHdy
+b25nPwo+ICAqIDMuIFN0YW5kYXJkIHN1cGVydmlzb3ItbGV2ZWwgZXh0ZW5zaW9ucyAoc3RhcnRp
+bmcgd2l0aCAnUycpIG11c3QgYmUgbGlzdGVkCj4gICogICAgYWZ0ZXIgc3RhbmRhcmQgdW5wcml2
+aWxlZ2VkIGV4dGVuc2lvbnMuICBJZiBtdWx0aXBsZSBzdXBlcnZpc29yLWxldmVsCj4gICogICAg
+ZXh0ZW5zaW9ucyBhcmUgbGlzdGVkLCB0aGV5IG11c3QgYmUgb3JkZXJlZCBhbHBoYWJldGljYWxs
+eS4KClllYWguIEZpeGVkIGl0LiBUaGFua3MgZm9yIGNhdGNoaW5nLgoKX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0
+CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5v
+cmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
