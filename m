@@ -4,84 +4,136 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C87E9C02198
-	for <linux-riscv@archiver.kernel.org>; Wed,  5 Feb 2025 18:07:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7B365C02192
+	for <linux-riscv@archiver.kernel.org>; Wed,  5 Feb 2025 18:31:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=H9UoCFuZQ1mvLpGiGgXu9D/sFJGReehrIRxOofsl3fM=; b=WmsO+7dKsbCDcs
-	LvyCkDDEu4c9Ivw9ZoRypEKaMv0u0By9Lv74UglcWKHSUZ1H+7/opxJxU1Sg91VxfYXbSZaBCbzxz
-	+Gk1p69EOolbxBGjzQIX8PJa/iOApH98CAaHPJbnOr9dC3oRgPl1rBkEF2Tyh3kzvDvJlEZonnlS8
-	AGTptvfQwJmsQSrQ6n5NPEFvle7YIUWo5K9dGZvIykLxjED9XjaQnD3S7FnOUhreSGICACzTQWxSc
-	xguvfE9JSJl45Uo3M/b8blkKXjVfplzHQCgcfEBqFKyFsFeed3Wm4CbZIcqtlfLG7fEIg9lV/pjv9
-	niM4+0T3DsDJ5jRN28mw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=CKSZds2FooSlbZPxjV4A+RX3zCcpZuuojPSc6fJzyQ8=; b=uBYSz60j+YnvD4
+	IEjIws6eLeyxV8MKA56r8x3a76EzDh782+VvUyMmxatydHxuFka2RHW9yI1KYD1S1BM1F+yMycZSx
+	pT/9yIDKAW9aPQAJOcyxb+8yxyJewJs2oJhkzGxp49LT36pWXyPyYpERyrfxj3nVASeKTKjmkDDPT
+	OdrI7XadL1PZq8ahVirG5+pu1Q9oV8ufMH1QlhY9u3Cnd4x1H/lb1x9MsgzVIi6b5x489q4+I4gMm
+	6Q/pswcQ53Of2e2Nxw0PcEl2RODNHInC4yLs8wwCYV/jj+X9ApYsm2XSnt3/pnD1hNy3zJxhQ5sr4
+	PVUz9PuDZW/IGFjDKKlg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfjni-00000004Cgh-0k8E;
-	Wed, 05 Feb 2025 18:07:02 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1tfkB6-00000004Gkp-3PuT;
+	Wed, 05 Feb 2025 18:31:12 +0000
+Received: from mail-japaneastazolkn190100000.outbound.protection.outlook.com ([2a01:111:f403:d405::] helo=TY3P286CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfjks-00000004COc-3Afn;
-	Wed, 05 Feb 2025 18:04:06 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=M8Q/GVEhFPhQiXjlDYd3GYuKf39tJF210X9IoIT7rKs=; b=HS6bvX4dnyhLBOeesPnFPEv40D
-	VgYbL0LF37IEUnP5aitj0x+v7ZGVg+j4cEliz2S7A3m9D5UJwya3qraELemhqNvCk6Q+2Q+jrgtEW
-	8xpkze2tIUk6wAa52wj2LMDrl+ZPzL7qrA7/1Mokie6nDr8YF9HM9eerbwDwH1LZQcC/GFiVfxBJR
-	cwEnGWQ6J0C3JkhyHBczndR4KgRCTouqg8JjeEayQ3mruCjs/Z15kbvgUgo4Fe7b1Z+renGUVbOV1
-	ly/p6lSuMDDhiEy5k6UK1lJuzIrPS6vTNiCfBmz344w9di4iQPa9R/9Z1LvixrUBc4vbJdjSAPI/h
-	clXKT7jA==;
-Received: from foss.arm.com ([217.140.110.172])
-	by desiato.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfjkp-0000000GkIc-20Po;
-	Wed, 05 Feb 2025 18:04:05 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 7C4451063;
-	Wed,  5 Feb 2025 10:04:25 -0800 (PST)
-Received: from [10.57.35.21] (unknown [10.57.35.21])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 3023B3F58B;
-	Wed,  5 Feb 2025 10:03:56 -0800 (PST)
-Message-ID: <78707443-7525-42d4-a538-cb0c67cbeb55@arm.com>
-Date: Wed, 5 Feb 2025 18:03:54 +0000
+	id 1tfj19-000000043xv-2Mqp
+	for linux-riscv@lists.infradead.org;
+	Wed, 05 Feb 2025 17:16:52 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=MYJONuO1oZMIQ9nnwrWztQIyYpqL79swIJvxCpTSs/bI14NhMGsVhRkgoq5mbczuK6DdhwURJXZ4+PKAvm3A3kHD9xZl7zVxMJM6dzaW3Hro5y3d/vjh5OR1/4s3hoffPIuYEH89rIACUWpEyLaZOEJoiV437PuGJ+Aj9xpVKY+QPopLAUJcMkyOEcCe6RH9B/Ux68JgL0YFrY1SjFnERDVyCtGlH3dvk0axXqCRw0oEx1SupqGYLKCpz76dg10LWAoGonGnZiZkYX5JtHpWfTWHIn+UuBFjQl7P8oyhDPKcvBixfNfw81zz+CDv0Xh+zM2L8Rs9nFnM9qnTKIzJHQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=0BUDGG3NtL88Q0s06VhZy4U75tPLmP8bryblliudr0E=;
+ b=HnFGJJpp88aVfYM4sqmWCXenaT0FHmlS9S6pkSmE/5tHhf20rzhwJFs5iYJYhIfPZpOrwF4szsqdqGVo60iK6xlCKhRbELIro00khCbupvFgmD5PU/Y8j1nNCvNcT6G42F1P8Eyxif3YMOXNjY770ws8sRfXOfzF43pmzwwfZwUxjWjuHhV0JMUMtTeHFHzANZ82Ujy2o3Yop6pI8pQ633G3+EMubI4Aztbx+aHlEHaEjQqWOAPUDEaYHck/CoUNUQqeufYQiAd/4IhrbwrwqgUVa6s1GjDYyMQAwVM5lKt9Uy3h9gcjD2STbGhJA47URc0lhSuPNOLlVmKhdcOI1g==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
+ dkim=none; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=0BUDGG3NtL88Q0s06VhZy4U75tPLmP8bryblliudr0E=;
+ b=vQ5wotxM1dZj946IWFDNrksEN6D206CPIy5sxiGgd8y7bW7z8FZZFWLeTZLi75mvDTkUHLAagtcWqjXbLOLhqfWeqFtotDdpw0Z/Uk2ZorpbBgBrdkgqtXyMNaJ24BbaSUYVoAjf0VKk1b7DMBKLo1xH1BJJ3E18cF6XPpUxgGnsLwY6oHGIJrnag8+p6jVaxGnCTcj63Z+dPiO30EoyR0ilZlb/5iH9i+ROxbsxQcfF4G40UYLVpsVoE8NVKQ7MSPpZcaaHc9CHcbsLWPRkI/oCKGbmtVLrud0p9HGa+tII11Ihg/kluUmIaUXp8lFnxEsRD4++tAVxK3A/Yy27cg==
+Received: from TYCPR01MB8437.jpnprd01.prod.outlook.com (2603:1096:400:156::5)
+ by TYRPR01MB12364.jpnprd01.prod.outlook.com (2603:1096:405:103::11) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8422.10; Wed, 5 Feb
+ 2025 17:16:38 +0000
+Received: from TYCPR01MB8437.jpnprd01.prod.outlook.com
+ ([fe80::83e7:751f:f3af:768f]) by TYCPR01MB8437.jpnprd01.prod.outlook.com
+ ([fe80::83e7:751f:f3af:768f%5]) with mapi id 15.20.8422.010; Wed, 5 Feb 2025
+ 17:16:38 +0000
+From: Shengyu Qu <wiagn233@outlook.com>
+To: conor@kernel.org,
+	kernel@esmil.dk,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	paul.walmsley@sifive.com,
+	palmer@dabbelt.com,
+	aou@eecs.berkeley.edu,
+	linux-riscv@lists.infradead.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Cc: Shengyu Qu <wiagn233@outlook.com>
+Subject: [PATCH v1] riscv: dts: starfive: Unify regulator naming scheme
+Date: Thu,  6 Feb 2025 01:16:35 +0800
+Message-ID: <TYCPR01MB8437F6FCD14E116B6CBBA09098F72@TYCPR01MB8437.jpnprd01.prod.outlook.com>
+X-Mailer: git-send-email 2.48.1
+X-ClientProxiedBy: TYCP286CA0215.JPNP286.PROD.OUTLOOK.COM
+ (2603:1096:400:3c5::6) To TYCPR01MB8437.jpnprd01.prod.outlook.com
+ (2603:1096:400:156::5)
+X-Microsoft-Original-Message-ID: <20250205171635.7310-1-wiagn233@outlook.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 18/19] iommu: Update various drivers to pass in lg2sz
- instead of order to iommu pages
-To: Jason Gunthorpe <jgg@nvidia.com>
-Cc: Alim Akhtar <alim.akhtar@samsung.com>,
- Alyssa Rosenzweig <alyssa@rosenzweig.io>, Albert Ou <aou@eecs.berkeley.edu>,
- asahi@lists.linux.dev, Lu Baolu <baolu.lu@linux.intel.com>,
- David Woodhouse <dwmw2@infradead.org>, Heiko Stuebner <heiko@sntech.de>,
- iommu@lists.linux.dev, Jernej Skrabec <jernej.skrabec@gmail.com>,
- Jonathan Hunter <jonathanh@nvidia.com>, Joerg Roedel <joro@8bytes.org>,
- Krzysztof Kozlowski <krzk@kernel.org>, linux-arm-kernel@lists.infradead.org,
- linux-riscv@lists.infradead.org, linux-rockchip@lists.infradead.org,
- linux-samsung-soc@vger.kernel.org, linux-sunxi@lists.linux.dev,
- linux-tegra@vger.kernel.org, Marek Szyprowski <m.szyprowski@samsung.com>,
- Hector Martin <marcan@marcan.st>, Palmer Dabbelt <palmer@dabbelt.com>,
- Paul Walmsley <paul.walmsley@sifive.com>,
- Samuel Holland <samuel@sholland.org>,
- Suravee Suthikulpanit <suravee.suthikulpanit@amd.com>,
- Sven Peter <sven@svenpeter.dev>, Thierry Reding <thierry.reding@gmail.com>,
- Tomasz Jeznach <tjeznach@rivosinc.com>, Krishna Reddy <vdumpa@nvidia.com>,
- Chen-Yu Tsai <wens@csie.org>, Will Deacon <will@kernel.org>,
- Bagas Sanjaya <bagasdotme@gmail.com>, Joerg Roedel <jroedel@suse.de>,
- Pasha Tatashin <pasha.tatashin@soleen.com>, patches@lists.linux.dev,
- David Rientjes <rientjes@google.com>, Matthew Wilcox <willy@infradead.org>
-References: <18-v1-416f64558c7c+2a5-iommu_pages_jgg@nvidia.com>
- <23d4c47e-a00c-4f15-ab42-303bd2aca032@arm.com>
- <20250205161017.GB2960738@nvidia.com>
-From: Robin Murphy <robin.murphy@arm.com>
-Content-Language: en-GB
-In-Reply-To: <20250205161017.GB2960738@nvidia.com>
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: TYCPR01MB8437:EE_|TYRPR01MB12364:EE_
+X-MS-Office365-Filtering-Correlation-Id: d8b2740b-ce4d-4cf8-0ea2-08dd4608d9ad
+X-Microsoft-Antispam: BCL:0;ARA:14566002|19110799003|7092599003|15080799006|5062599005|461199028|8060799006|5072599009|440099028|3412199025|1710799026;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?4y5ouRzWp1+tPIAjERG6xRHGZENe8BNM0Nvnq8R1vf1+wwPd7R+DGHgksm/s?=
+ =?us-ascii?Q?Etq5g5AjEFU6dSqCu16nODCZyjsd4ITtI8i8+ZoNNlJvZMUA7FDXkjLtdkPD?=
+ =?us-ascii?Q?TC4N1t/Rf5QbaCOwhOTdfVQDtuA934v1gPcrXe7hk8jrPv8A/t80wqQtQkOv?=
+ =?us-ascii?Q?ax9dJIz3u1w1xEHJvFogrC/KxyxonSLJrhLdFPP30ZuEG3VwPhpGsF/No6os?=
+ =?us-ascii?Q?qPR79EtyY30LzrHO0GOOTItphSG780DzrmxQhPwjf3zCVs7Rq9nZ3qUDrlGa?=
+ =?us-ascii?Q?sZAFu/0NJky0yvW4tSCF7cvRm0GbAdd41dvtCpTaaTz2KNNBPn+UeGKOoIFf?=
+ =?us-ascii?Q?Kxh5rkEPZqWw0jmDOPwqeRpKNPm7uC5z3MIF0N81uNrJ2cwIjBwMxXqXigkW?=
+ =?us-ascii?Q?ct0EqLbx+eyXPPbuFWF9NSmyjAYRLVI9AxLFu5RjMlmi18al6tkYHINAWhbL?=
+ =?us-ascii?Q?nyuGRRxKhVN2Wc/E91YzXD9aXCBo3iPvqudctrsXBkt50SScT80ixVEIbYMr?=
+ =?us-ascii?Q?E69XqxvDPmEiWAVIvDUlD+T3CWo9OkJ9G7D2jIhp+PyA4AZo1jcBpgNFGX/t?=
+ =?us-ascii?Q?B/snUb6A70TSc+hNEylCfnrip+Y2LokF2nzwjNi8ZfXhQmjH/SBcvLPUxg2t?=
+ =?us-ascii?Q?5sD1CC86n0sZGsh7BoTQijpDIQTcl1Y3n/arScOYNuzg9Mctj1Nwwxsi5bvy?=
+ =?us-ascii?Q?C6LoW729ufJp7OKEAiei9y1jgQs18wcDjSw68YVbiLnG2N/pTt1qVAn8Px8R?=
+ =?us-ascii?Q?nQaR+Z1pLZd73yIFphqL10kE99jf9i/ywupEnOc9/uk0TuIGVFNw+XN6lQoT?=
+ =?us-ascii?Q?y97k3DNwk9upn193Uk/0cNI+uYulF66Yeo1tH/hyrLg5YQk9MGZzRQTy8iR4?=
+ =?us-ascii?Q?hUNtzeDSUuUImGK8FDmyx4sY7SWo5lMzM0Y8NCoZIZexMs24iCyQEMwIJ5aq?=
+ =?us-ascii?Q?KIw/8XbOKa7dahNNQ0dHpnaR+qU+/yxtYWPCWi+UGUWIjMw07uwhfcOCJei6?=
+ =?us-ascii?Q?qNNhP8HT5YlhbKelvN7v3DFSzMxOrk75/cjg+ULgeMMoLrRmefSSaAUbOdQU?=
+ =?us-ascii?Q?BKfizVqnwFUL56O2o+0WF4wUds5uyPfKsZ1BMRl7jtazn4lbFfezdUUq6Rws?=
+ =?us-ascii?Q?yns4s7uGI9n2?=
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?c6sCG8YTP1kGuZBYl6/jmfjQC5hp+efeKb64bB1xoRIbsIsQ46dDYchuntMO?=
+ =?us-ascii?Q?+DOt6lYuhRpCOLUyR79TVSlMsBVys00D/IP1372mWSHoPQI3xmAdTbkbglAv?=
+ =?us-ascii?Q?qnG+s7ADcsGqhJ+kiY0/WKZ663zSYgHJqSsK+remtu3sFfJcCX9fOa0loH0z?=
+ =?us-ascii?Q?wlIUHVlmS/2Vvy1RtCiWwgd6MMud6kibIqHguGMMtATkizC8fcyrCKCN/aUq?=
+ =?us-ascii?Q?u1JDh/ZstQqSRtvbqw426l7Lb5FZ6UK8j6qaTsnGiUpbe/jhYFTlgLOkOiQ4?=
+ =?us-ascii?Q?zsqGln+Pn4Zk2WJYNCidirXlyKa1Ce3bgKCRqP2US/jJhzL6C1dS8v2iLQmR?=
+ =?us-ascii?Q?vUjT46aJ0KfsDPco/oGixoDhcaR/MjVAHBBJo/vEHnQ6aMmbUuSB95TCCZED?=
+ =?us-ascii?Q?N1QBROsznQ/ARiMyZPCaJnY2RNij1dn2PyR7aY72eTvC0vpjVJqKcYYDUNKe?=
+ =?us-ascii?Q?9nOrt6u5r7vr7HEVssHp5fk+KgycmJTiLl6jSLaSCrygsQSZzxff7Ah8ovir?=
+ =?us-ascii?Q?BAjqJxCWWKAJjP+MMGjEVK7qAZ3WLVA7pFlNOi7cBA1Fcb8AR3TfwZYGXHez?=
+ =?us-ascii?Q?jBs3FbGcizsxCXyeBgqU+Qw8C8HLqqtzPz2vRyOp6uo91Bl3bdbEgLv5wTG+?=
+ =?us-ascii?Q?UrqbO3v68VtTyX3oD1B7mMTrCiTLL1P7mCjWtGrPJhvXfN7TlfZ2MWCTFbEr?=
+ =?us-ascii?Q?+WWxRWpOI1Dc9a4gRDATZuoDj1RFc+fK2qgIjUNja9eBCn5S4YFjXSA115UJ?=
+ =?us-ascii?Q?wFAZRsmJq3d1Ws4kn63rkBJPq/l/JLUymZz1WF3uLjWfLkpksjMFPKdzi+JA?=
+ =?us-ascii?Q?DIv0aO/4TpXpI4xOQ6MrcH+O2ByvKLRGZ587VChoYYIRGRjSqHVuwoo/QqBn?=
+ =?us-ascii?Q?hDsQQbZkPGnKVfA9zVqWQmXKU65WVdFe5o24W/uSTCSfYJ7gfxY8VCZwRgQR?=
+ =?us-ascii?Q?YriaYITDJVes2FE+bgliVQm8jk307trCOguunLdp7//id5mQWYpHRhHcqFF2?=
+ =?us-ascii?Q?91q1GgdGx4pPrWsq2gonsMNrrMpFkdSR4QNiD1LiLwkORWtCBTFbE40qkD1I?=
+ =?us-ascii?Q?Agx3NpFV1WuTycVt1NVA95UgPs08yPGj4pqto6+1fpSuY3mSa8zDiAV+QkJx?=
+ =?us-ascii?Q?hF7WlhrcvKDn126FmVEI9hkhUaekQmP9HW+VbaN8RNe75lcadrk6wWJCSwwI?=
+ =?us-ascii?Q?tQPw+mIbKlxJG2XDhvIXBlPUDMJU6Y7M3z3CAKKj2F4QxPK8JqlPkj3wosU4?=
+ =?us-ascii?Q?UCp1DYE5pzjFH+KsdgEHPGxL5Y4oQzx3sdgBuaq6g5DxUjv/tCdWf7DBVjc3?=
+ =?us-ascii?Q?zwo=3D?=
+X-OriginatorOrg: outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: d8b2740b-ce4d-4cf8-0ea2-08dd4608d9ad
+X-MS-Exchange-CrossTenant-AuthSource: TYCPR01MB8437.jpnprd01.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 05 Feb 2025 17:16:38.3836
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
+X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: TYRPR01MB12364
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250205_180403_832258_C402DD0A 
-X-CRM114-Status: GOOD (  21.40  )
+X-CRM114-CacheID: sfid-20250205_091651_599688_7E7B3999 
+X-CRM114-Status: UNSURE (   7.88  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,93 +145,36 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 2025-02-05 4:10 pm, Jason Gunthorpe wrote:
-> On Wed, Feb 05, 2025 at 03:47:03PM +0000, Robin Murphy wrote:
->> On 2025-02-04 6:34 pm, Jason Gunthorpe wrote:
->>> Convert most of the places calling get_order() as an argument to the
->>> iommu-pages allocator into order_base_2() or the _sz flavour
->>> instead. These places already have an exact size, there is no particular
->>> reason to use order here.
->>>
->>> Signed-off-by: Jason Gunthorpe <jgg@nvidia.com>
->>> ---
->> [...]
->>> @@ -826,7 +825,7 @@ void *__init iommu_alloc_4k_pages(struct amd_iommu *iommu, gfp_t gfp,
->>>    				  size_t size)
->>>    {
->>>    	int order = get_order(size);
->>> -	void *buf = iommu_alloc_pages(gfp, order);
->>> +	void *buf = iommu_alloc_pages_lg2(gfp, order + PAGE_SHIFT);
->>
->> This is a size, really - it's right there above.
-> 
-> I didn't want to make major surgery to this thing, but yes it
-> could be:
-> 
-> void *__init iommu_alloc_4k_pages(struct amd_iommu *iommu, gfp_t gfp,
-> 				  size_t size)
-> {
-> 	void *buf;
-> 
-> 	size = PAGE_ALIGN(size);
-> 	buf = iommu_alloc_pages_sz(gfp, size);
-> 	if (buf &&
-> 	    check_feature(FEATURE_SNP) &&
-> 	    set_memory_4k((unsigned long)buf, size / PAGE_SIZE )) {
-> 		iommu_free_page(buf);
-> 		buf = NULL;
-> 	}
-> 
-> 	return buf;
-> }
-> 
->> (although alloc_cwwb_sem() passing 1 looks highly suspicious - judging by
->> other cmd_sem references that probably should be PAGE_SIZE...)
-> 
-> Indeed, amd folks?
-> 
->>>    	if (buf &&
->>>    	    check_feature(FEATURE_SNP) &&
->> [...]
->>> @@ -1702,8 +1701,10 @@ int dmar_enable_qi(struct intel_iommu *iommu)
->>>    	 * Need two pages to accommodate 256 descriptors of 256 bits each
->>>    	 * if the remapping hardware supports scalable mode translation.
->>>    	 */
->>> -	order = ecap_smts(iommu->ecap) ? 1 : 0;
->>> -	desc = iommu_alloc_pages_node(iommu->node, GFP_ATOMIC, order);
->>> +	desc = iommu_alloc_pages_node_lg2(iommu->node, GFP_ATOMIC,
->>> +					  ecap_smts(iommu->ecap) ?
->>> +						  order_base_2(SZ_8K) :
->>> +						  order_base_2(SZ_4K));
->>
->> These are also clearly sizes.
-> 
-> I didn't make a size wrapper version of the _node_ variation because
-> there are only three callers.
-> 
->> I don't see any need to have the log2 stuff at all, I think we just
->> switch iommu_alloc_pages{_node}() to take a size and keep things
->> simple.
-> 
-> Ok it is easy to remove lg2 calls from the drivers, but I would keep
-> the internal function like this because most of the size callers have
-> constants and the order_base_2() will become a constexpr when
-> inlined. Only a few places are not like that.
+Currently, there are 3 regulators defined in JH7110's common device tree,
+but regulator names are mixed with "-" and "_". So unify them to "_",
+which is more often to be seen in other dts files.
 
-But what's the benefit of having extra stuff capable of turning a 
-constant into a different constant that doesn't represent anything we 
-actually want? We still end up doing more runtime arithmetic on lg2sz 
-within the allocation function itself to turn it into the order we 
-ultimately still need, so that arithmetic could just as well be 
-get_order(size) and have nothing to inline at all (other than NUMA_NO_NODE).
+Signed-off-by: Shengyu Qu <wiagn233@outlook.com>
+---
+ arch/riscv/boot/dts/starfive/jh7110-common.dtsi | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-Thanks,
-Robin.
+diff --git a/arch/riscv/boot/dts/starfive/jh7110-common.dtsi b/arch/riscv/boot/dts/starfive/jh7110-common.dtsi
+index 48fb5091b8176..dd2eefc295e5c 100644
+--- a/arch/riscv/boot/dts/starfive/jh7110-common.dtsi
++++ b/arch/riscv/boot/dts/starfive/jh7110-common.dtsi
+@@ -233,7 +233,7 @@ vdd_cpu: dcdc2 {
+ 				regulator-always-on;
+ 				regulator-min-microvolt = <500000>;
+ 				regulator-max-microvolt = <1540000>;
+-				regulator-name = "vdd-cpu";
++				regulator-name = "vdd_cpu";
+ 			};
+ 
+ 			emmc_vdd: aldo4 {
+-- 
+2.48.1
+
 
 _______________________________________________
 linux-riscv mailing list
