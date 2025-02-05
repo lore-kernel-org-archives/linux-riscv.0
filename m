@@ -4,170 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EC4D6C02199
-	for <linux-riscv@archiver.kernel.org>; Wed,  5 Feb 2025 17:48:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 42012C0219A
+	for <linux-riscv@archiver.kernel.org>; Wed,  5 Feb 2025 17:48:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=cYyjo3Eu7U2uhbmYy/rFqYyarnLiSIKkgcKI3aAW9JE=; b=G8vy7P1J2lwlgq
-	AAAsuzkBqflCCpB5ISQuFJoMT/hGLcgwJ1MkJ7oCGayF7tavGiihb+fc8DM5AsspHrdQ/kZanzLwy
-	R4Sr6fYddn8TRantB5DluysigQCf1YtDFDEy1kfqGaSWH6pGcG/QtpXtxOx/JLJ/hVAJDM1O3iCfA
-	Pli00WgONjt40U3IRFpUu8NcuRI/0GhacrbsWm0/qSecvfj2GJEsJkmUJ9uMGhTAMml+26/MghENL
-	OmhbvTwuyKW59cfv6MeVVabjcf21CEcBEx6Y2/+ynamVWFq/KNPR5IhIJLpGnL4mAjf4yvwDK7UHm
-	SNBLUy0PM4sBTaOAW+xw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=QthZfGlU9XSRLLRNtdrhq6wcU6g1L4zETMByaqkjDK4=; b=zjQg7yo8g0sTsF6mZi0FcBWEQP
+	IG3h6flsN188BAbgPqany4anYKl50qjXcqNBgv53gC5XgGwNRl4vEdSUBo0ABn4sltz5p4+NqOOBh
+	Crj1cEZtRaQnLFSVxDUvZPztBWXqD+e/BPGDPqS6sJF+BPDHgNrCFHAI0ifVJcIYI/OLwagVmqtEd
+	iNqtI04PuiTNDqva638uLoL6yac6V3kwYZevYxOJQExk3okQvc0d4+5zNZlszYV4NN/X7itVVwwZX
+	Iz8wmozXBmtNTKIVKr14JpuSFBYm1o4MU9pUH+3L6RGTeD/PlPFoVdE3cMPVLnPK6mffO9zwdXuwX
+	jtizGQLg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfjVI-000000049Av-2u16;
-	Wed, 05 Feb 2025 17:48:00 +0000
-Received: from mail-bn8nam11on2062a.outbound.protection.outlook.com ([2a01:111:f403:2414::62a] helo=NAM11-BN8-obe.outbound.protection.outlook.com)
+	id 1tfjVC-00000004934-16kk;
+	Wed, 05 Feb 2025 17:47:54 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfjPS-0000000484q-1Fly;
-	Wed, 05 Feb 2025 17:41:59 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=tOb4r1eeYj3wSr1TmqvQC5WXdVkKeVgsv10t8PBuLaUmJ1zmekG3MhTJxC35q+tpjgYwaP1fcwiIW1eMb1vEUrySj3T7XhLwLEAGDo83l65wRq6GZaDXvOtqKeulq8ceOaznuxK8lThnxzk+ysDVaB8RBkOtECDWKXjOpqMXbzuqKlmI/i2kdYgteTABSehOGITFbsSb58z35NfJnZYnQeXxqZvlDMT3TJbBlGMWYYzMjHoKIBoeBC3FTwHJ/vQYtNQGHjC/LXj9kasASHgQ9YfIQNrJPkEszj/dI4BK82sl7avyWxkvIU9aOhVG3zL5vlH8s7livuAx1SkKM+9JuQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=2BrriejY5Gy5j9Lkn4ywEUE3sUQ6pwKMbb2jEpy4NVQ=;
- b=ZKx/A1iHfX3vrxFNup+J4ra3pUe/9bsF5p/jLsC8Jncq/JjAlHthQydwmwy3bTNHsgv6PQ+83uQeU+jMshafJ0sBbIT1x5OmPfKI0Md9TFyN4rwZO0/fFdoKRDszuFAidef1mJn/dvJYD16Uoyp3aq+GYgUqvqBHNemBfG+XOsxYr4CHlT6tFT2ZVxbC5rNBr3TL1VZSMJQ79UP6q0LhCdBlXwn0Z6uR2buXUaViiHOFUiY44x2hTYEl66kWOfD6jrzkAINdtIl+JXc3pX5VvVaxqoqJSCoPh0XDO2uSpzN8dU4q/rRkM6wY8xYdk1GFRQ9pSstblvkDM9aaXZpthA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=2BrriejY5Gy5j9Lkn4ywEUE3sUQ6pwKMbb2jEpy4NVQ=;
- b=VZDgpuyeOadEhSvCW/1IS2OrTNZxUALmyaRD1FLeijoXNHvxUNH+xh+wareaN+LIqhX1zwwxXAW8lsmtr/q+a+q0Xhm5tc4dhuDOy4Q+nltpzWqtTXOLv48LB3Y3sMy8+zd80wnJOrbVawWeE5qTRfLIF7L+2c0Pye/qmgSMXA4d/0XDOSXp7ST6qmW1KzWh1aEz69NezQ9XJgGzsv+V7kL/aRsfTxSLCjRyGEC/x4n9u17gZRZBelU9XIh8L8KoQDmS3ryMYPoFQ1h0TenDO9CR0fEGfTxKpqRE5EfzwV1XwFTVLhF1eGxCMk3/yz1v8IM51hzh7RZTURImhok4Cg==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from CH3PR12MB8659.namprd12.prod.outlook.com (2603:10b6:610:17c::13)
- by SA3PR12MB7783.namprd12.prod.outlook.com (2603:10b6:806:314::19) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8422.10; Wed, 5 Feb
- 2025 17:41:48 +0000
-Received: from CH3PR12MB8659.namprd12.prod.outlook.com
- ([fe80::6eb6:7d37:7b4b:1732]) by CH3PR12MB8659.namprd12.prod.outlook.com
- ([fe80::6eb6:7d37:7b4b:1732%6]) with mapi id 15.20.8398.025; Wed, 5 Feb 2025
- 17:41:48 +0000
-Date: Wed, 5 Feb 2025 13:41:47 -0400
-From: Jason Gunthorpe <jgg@nvidia.com>
-To: Robin Murphy <robin.murphy@arm.com>
-Cc: Alim Akhtar <alim.akhtar@samsung.com>,
-	Alyssa Rosenzweig <alyssa@rosenzweig.io>,
-	Albert Ou <aou@eecs.berkeley.edu>, asahi@lists.linux.dev,
-	Lu Baolu <baolu.lu@linux.intel.com>,
-	David Woodhouse <dwmw2@infradead.org>,
-	Heiko Stuebner <heiko@sntech.de>, iommu@lists.linux.dev,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Jonathan Hunter <jonathanh@nvidia.com>,
-	Joerg Roedel <joro@8bytes.org>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-riscv@lists.infradead.org, linux-rockchip@lists.infradead.org,
-	linux-samsung-soc@vger.kernel.org, linux-sunxi@lists.linux.dev,
-	linux-tegra@vger.kernel.org,
-	Marek Szyprowski <m.szyprowski@samsung.com>,
-	Hector Martin <marcan@marcan.st>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Samuel Holland <samuel@sholland.org>,
-	Suravee Suthikulpanit <suravee.suthikulpanit@amd.com>,
-	Sven Peter <sven@svenpeter.dev>,
-	Thierry Reding <thierry.reding@gmail.com>,
-	Tomasz Jeznach <tjeznach@rivosinc.com>,
-	Krishna Reddy <vdumpa@nvidia.com>, Chen-Yu Tsai <wens@csie.org>,
-	Will Deacon <will@kernel.org>, Bagas Sanjaya <bagasdotme@gmail.com>,
-	Joerg Roedel <jroedel@suse.de>,
-	Pasha Tatashin <pasha.tatashin@soleen.com>, patches@lists.linux.dev,
-	David Rientjes <rientjes@google.com>,
-	Matthew Wilcox <willy@infradead.org>
-Subject: Re: [PATCH 05/19] iommu/pages: Replace iommu_free_pages() with
- iommu_free_page()
-Message-ID: <20250205174147.GC2960738@nvidia.com>
-References: <5-v1-416f64558c7c+2a5-iommu_pages_jgg@nvidia.com>
- <ff16c183-0679-423c-939d-9906da174051@arm.com>
-Content-Disposition: inline
-In-Reply-To: <ff16c183-0679-423c-939d-9906da174051@arm.com>
-X-ClientProxiedBy: BN0PR02CA0049.namprd02.prod.outlook.com
- (2603:10b6:408:e5::24) To CH3PR12MB8659.namprd12.prod.outlook.com
- (2603:10b6:610:17c::13)
+	id 1tfiLO-00000003zjk-2LBU
+	for linux-riscv@lists.infradead.org;
+	Wed, 05 Feb 2025 16:33:43 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 978B4A43850;
+	Wed,  5 Feb 2025 16:31:55 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C22FDC4CED1;
+	Wed,  5 Feb 2025 16:33:40 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1738773221;
+	bh=b5FN7Zyasw9i6k/qcwNoo9FUtmrLQ8B6OivoODJIKDc=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=f8YpoFAhfLezEahtdBWj0U53UKdwR0eKTTpmFc45NYdUJd4kEArGbxvC7zWh4W3EJ
+	 ipI44W0xTeEkgpdHil7mH4HwQnFgRvq/59rc1JsG76rCfk/QLSU0VbPPlYKOiw9kOu
+	 RwBRKK24eF5jwlxMK7k5kkfd0h6kCao4ozQJ891u4aTnxK/HOAiCBNZAlmq8OdcPWR
+	 ubS/SCeFpU15OTaRQmG31CeEDMG0Xl+vO61Fy0jIvAjJNO+nzE7341nSFqlNxMDDPi
+	 iJaVF3/W+nrON3KOqHpC6OBiA3uiGZdW7GEagW2vjSn9fI4PKDuLOXVJdeEij7cuXO
+	 LsMffDRf0nsBQ==
+Date: Wed, 5 Feb 2025 17:33:38 +0100
+From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <ukleinek@kernel.org>
+To: Chen Wang <unicorn_wang@outlook.com>
+Cc: Chen Wang <unicornxw@gmail.com>, robh@kernel.org, krzk+dt@kernel.org, 
+	conor+dt@kernel.org, inochiama@outlook.com, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-pwm@vger.kernel.org, linux-riscv@lists.infradead.org, 
+	chao.wei@sophgo.com, haijiao.liu@sophgo.com, xiaoguang.xing@sophgo.com, 
+	chunzhi.lin@sophgo.com, Sean Young <sean@mess.org>
+Subject: Re: [PATCH v7 2/3] pwm: sophgo: add driver for Sophgo SG2042 PWM
+Message-ID: <o4j72fdw6v6aiuvgeufugzptmfpmpws26zp5bf27hdq2i6cng5@yqmdasof3ynp>
+References: <cover.1738737617.git.unicorn_wang@outlook.com>
+ <ae8ea1bf0bb0a09336cd8b7f627a994630524bba.1738737617.git.unicorn_wang@outlook.com>
+ <ivgsidvdx2ypntnlopww6fiwyuzj2sadt3znyofr54dsz3c5d4@3mr25vhwlwy3>
+ <PNXPR01MB7488BA555BDE96E59741DBACFEF72@PNXPR01MB7488.INDPRD01.PROD.OUTLOOK.COM>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CH3PR12MB8659:EE_|SA3PR12MB7783:EE_
-X-MS-Office365-Filtering-Correlation-Id: 032bb964-bf8b-4205-b7d9-08dd460c5dc3
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|7416014|366016;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?6cvNJ35PDCJsU9fvKS8uxqfm2dvM8EkDE5PzQQTXiVmlBTjaMul8Fejf183Y?=
- =?us-ascii?Q?oeGtcNH7RrJiKJFoa9pl9YTh3OFpD2Ribw1cSKMhH9E9eqdnTDsFZtC4HLbr?=
- =?us-ascii?Q?LH/2f6XagYiNNyj82w+TN6ChCLRNuE4xRBjhXZrsYeBtDBFjIOBGFRNYJI6s?=
- =?us-ascii?Q?BDjbpl9Wt6ZBsc2Pj266lzhE70aclV2+38Fr522tvwkqiIYT+VS76srVZubb?=
- =?us-ascii?Q?q9VJewg4yqFAv7pygzFwc5jJZRt5UVR0Zkc2PfsqbZ1+HMTONTGWErez3CsT?=
- =?us-ascii?Q?0kKSTLD4XwJSiJskxqQa7Yvznaxg19bUtibNv69+0+LoP2f5klW4tXmUftfd?=
- =?us-ascii?Q?wi0mkOvOyaOWzr4boJmMGT1KboZqTB6jo0QVhgIeCIOl1YAg1X9HDywjeT72?=
- =?us-ascii?Q?O69vtf84Z9lwTmUmYY9gpdY9EQA7LLftzaIcxWs/OnX6HyzaJNcvikZNPN19?=
- =?us-ascii?Q?oFcJ5mr8f0GoCJvFggX0Tnj0K+WWpYZeeuHLDRGpB54MwVnMzaSZ4HzeAsLo?=
- =?us-ascii?Q?m9BwyUshLifia54DiOdS6qUGgiqRB7CbzMZ7o9xtx2kWGDHHf4fL3IwPTj/E?=
- =?us-ascii?Q?W4S1ZZRD21XFKFPu9mwEW6rPuicwgZC5NeFFizibKj6nwXexokHIhGMNiM2t?=
- =?us-ascii?Q?nKhEJ0UpKbkRta4Ro93UCWUns+bOHQ/eu+51ZVCzmwXxVbpQWpVTW2t7L3w+?=
- =?us-ascii?Q?YgUAAFuYaVYEbzTCuKutInIBar+GBtPwhFIA/pTCgEiKuQtgjiJSOXq8Ktbq?=
- =?us-ascii?Q?DJOZkGJisB7yoAUv9EEOvVkWHbfK5PjiMcxePaJdrh4+TNCyGiT/M6Pg2O8W?=
- =?us-ascii?Q?nKq4lfNtJDnCXW6iGu0VSCft4jl5OgVdLz27/xKOiftbKJiI/xGv80vvEYNX?=
- =?us-ascii?Q?19ioUeWGd4Ys6VhTKyeqpNYQ7at7JQIpytEjV2//Zvn21LkAFSJgw0f8Tcl9?=
- =?us-ascii?Q?+KMw22tgYz4lTBB/DfXBXDf4whIz2oEcvxTxcOSR2t6/q27XjNnjyH3SZkAt?=
- =?us-ascii?Q?djQyJmYm5S8SL11obOpVXbu2eBqIsFaMuMuGrhSm8z8PCacfesyY7xFVqChB?=
- =?us-ascii?Q?vbSDvZgZ8pfPH50/eJWHmDNvitfPfwCHlyNJoKGey9Ku1pJIf8oP6aGNmre8?=
- =?us-ascii?Q?UVSmdlcTrI+oIw/KWFyx4CbgIzSqUkA3XY+XeNsOKwy9vmGodpFkXUfQfnmw?=
- =?us-ascii?Q?HxRxoNLmshHDd5y4REieggGm7cqpuUKaMuw3euSOld7jI/FWP+X6LJDVV+Cp?=
- =?us-ascii?Q?0Flit2/SdNxf/IEB8cSnXe9rIHXOMNvSsKDoaPHsx4pk7ed4ZHz/sqa2vH68?=
- =?us-ascii?Q?IasXSHjRmFa/SEphlJ2HRGQkXZvjFPmx9sy9KZojl2iATAk4btx9GaPeetmy?=
- =?us-ascii?Q?AUbxieayJ8fHClPFepNsl/9ymYMv?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH3PR12MB8659.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(7416014)(366016);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?T3Ajjytf7a3EKjiRMGYFq3RGpFTQGyn1yl8qrFUtA3qeLnaHPH+UfdzjM9lR?=
- =?us-ascii?Q?IQ/7E1hsVr8s6MF8mhlfvhFl1HA5VEuIUVTgkvvuumNTa0B1bCemrblkGg+y?=
- =?us-ascii?Q?3S0Tw8iXt0qUyB4OKvYoKyIs9BJhMdKajSCyVHfC37eRsQsyafGH0Vyo1ofz?=
- =?us-ascii?Q?dIcG3R4pc+J4DG+kKvDJxg0gCnSmmIAaijpJKIx01lRBIIA5m5HzvDIwnBgu?=
- =?us-ascii?Q?ZRrSkEwnJvdkxRA+zQqr2n2q6rtr6O+TGlLvERZCeHdttkjOUSHbO8FRuH8e?=
- =?us-ascii?Q?5Nmo65Bg0Bf5lMdZz1K2CmBmpdISBzH1dlgIdSjB7xHO0PbmsZi/R+7tfqqX?=
- =?us-ascii?Q?9NWk+ksFk54y3PHsbmVcQNE5rYkbNgJ4g1u6jIvZCWPGulmq5W59AYQy+z/j?=
- =?us-ascii?Q?a3LraLxXy8vu6vJAPMTE/sb2FtaPizphiMdhrz9FPlYLgV1T+MyB29l1x8yv?=
- =?us-ascii?Q?0nCbb2JsCa56X4SoZDSc7HRCz1ds7Ku9iQqLvJMCHn9IGRstpONlngcxHG18?=
- =?us-ascii?Q?7CsUOjsCykzv7Mg4LgDVjTDbHjw1UCLkOKSH8rz4ykYUBXgu5QRd8LBll/S2?=
- =?us-ascii?Q?gg0jtL0C931B+d+NmeuZH1MS/qiu/sM0Svu7umek4i+X8XN4IUrWBaJz06mu?=
- =?us-ascii?Q?LCi/0CVmOP8NIT2/fClife6KU7QZULUcEqasAg4Xtj/p0O8wLVTGEZuXPMYz?=
- =?us-ascii?Q?xCEYYYORDQgx22zeidR9yA5EDGXikZV3+vXm2HjXnabQ28v9OlYfH/V+J+na?=
- =?us-ascii?Q?VrezRvCT9iv5Wr1reFBClUIurJ6ZMndO8z7CNWJ3eAzlfRTGc6XeL1NKmrBX?=
- =?us-ascii?Q?NKRUeBm0tzHXXv4nrgVa3KONzrY6yNbDQU3XPul8SNisycs7gMK8ASsYCNAY?=
- =?us-ascii?Q?TtR4qhpq9RBDDECMUV8EUBWYc49PHhWmH+6xhbM3qy7aMPdyPmi6l/3swy23?=
- =?us-ascii?Q?829eUkQmmDX5TZZOAZJmzDjybiaN8I25+To/hKuA/yozhHCrYCGea0DEVemS?=
- =?us-ascii?Q?ZhGONZHZsBxI12HOHZr9wC8Bwo185hTZbtsQBef8Z4c4L40BkgjUkinbSMDX?=
- =?us-ascii?Q?wt1htJrt3Mp039T1SHjjydPfAZK5b89QB9hJDZBEWgp5OeHTkC9jFlTE/LAs?=
- =?us-ascii?Q?lM7xROFudo8ypmkTBFwrLVtrs/4e9YESghNADKWW86CEMLwTO/wPDP4ZInJN?=
- =?us-ascii?Q?kRvADitBjbErWrLI2T3ancAfdniAwDO7yYv35KUG8JCp9voy57xCWWYPKQjj?=
- =?us-ascii?Q?EQdJGuiXO8Jn25KSOdXiw0lj879/Jc7Zc9BQEf5Ikn+kIpjFtxkfuQxeG4YF?=
- =?us-ascii?Q?/FGSYDsIX4iPtUDqC1zzo7DdSbDHbF5RgWpIwMrBboXAHZNaSRovCY24HsBK?=
- =?us-ascii?Q?gYj1f6ZxV8qQnW8TWIqfKyfWouMxaOG94tDtVO2vwiNQNpjXmEP/MiU5sfi/?=
- =?us-ascii?Q?PknDOVv8arQnKEgIB4vPRYGAfmIckFe+nQBBYKQvRbonujWx1nfMU9aERvD/?=
- =?us-ascii?Q?JKTLwVPpYAlJb0OfpgOmyzaytQBdki0Vu3gMHeBd3ZndBa9u//jkuU5P9Atj?=
- =?us-ascii?Q?IN3OhI/XSBH+XuK8SwW5jghO8epAnwmLsWd8EXiG?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 032bb964-bf8b-4205-b7d9-08dd460c5dc3
-X-MS-Exchange-CrossTenant-AuthSource: CH3PR12MB8659.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 05 Feb 2025 17:41:48.5727
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: KyD9E5cWunKhIxMTjE4DeTEcqMU2EfblYYMBFzzJ+5rcKyPixDmrM6po3TcnEUJ+
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA3PR12MB7783
+In-Reply-To: <PNXPR01MB7488BA555BDE96E59741DBACFEF72@PNXPR01MB7488.INDPRD01.PROD.OUTLOOK.COM>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250205_094158_337523_70F19D99 
-X-CRM114-Status: GOOD (  13.90  )
+X-CRM114-CacheID: sfid-20250205_083342_663244_ACAFD93B 
+X-CRM114-Status: GOOD (  13.93  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -179,29 +72,89 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============5197279928282460171=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Feb 05, 2025 at 03:55:58PM +0000, Robin Murphy wrote:
-> On 2025-02-04 6:34 pm, Jason Gunthorpe wrote:
-> > Now that we have a folio under the allocation iommu_free_page() can know
-> > the order of the original allocation and do the correct thing to free it.
-> > 
-> > Callers no longer need to pass in the allocation order to the free
-> > function. Just use iommu_free_page() everywhere.
-> 
-> Nit: we end up left with the _alloc_pages/_free_page combo which to me looks
-> slightly odd and uncomfortable - any chance we could go the other way and
-> align on _free_pages for consistency?
 
-Yes, I added an additional patch to change the remaining free_page to
-pages
+--===============5197279928282460171==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="gcbt5fz4vt234fhk"
+Content-Disposition: inline
 
-Jason
+
+--gcbt5fz4vt234fhk
+Content-Type: text/plain; protected-headers=v1; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH v7 2/3] pwm: sophgo: add driver for Sophgo SG2042 PWM
+MIME-Version: 1.0
+
+Hello,
+
+On Wed, Feb 05, 2025 at 08:57:20PM +0800, Chen Wang wrote:
+> On 2025/2/5 18:06, Uwe Kleine-K=F6nig wrote:
+> > I was tempted to apply this patch while reading throug it until nearly
+> > the end ...
+> >=20
+> > > +		reset_control_assert(rst);
+> >=20
+> > This is wrong (well, or unneeded). With
+> > devm_reset_control_get_optional_shared_deasserted() the devm cleanup
+> > cares for reasserting the reset.
+> >=20
+> > > +		return dev_err_probe(dev, ret, "Failed to register PWM chip\n");
+> > > +	}
+> > > +
+> > > +	return 0;
+> > > +}
+> >=20
+> > If you want I can apply and squash the following in:
+> >=20
+> > [...]
+> >=20
+> > ack?
+>=20
+> Ack.
+
+Great. Pushed to=20
+
+	https://git.kernel.org/pub/scm/linux/kernel/git/ukleinek/linux.git pwm/for=
+-next
+
+with the suggested fixup.
+
+Best regards
+Uwe
+
+--gcbt5fz4vt234fhk
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmejkt8ACgkQj4D7WH0S
+/k6tmwf/VsE147RXuGyKeMumDiqov5FrMqU5PIEyDnZc7Wz4rEBB71mQ7o0iiSMF
+tgfgCnylkVxBX9w9F4AliHkHFPYsQuGv6ibyrBim3M0JCI1M4AMTwpfmbSdPxYm4
+GufsQGUIGAIME0Hey4bsHiPFla+LOk02vO9Vcrba1eZDkn9cqfbhhWsOFTe31oR5
+EmQLlLt/n5w7JkCrknvMW4MuzSXRCgVgEyqVJyGEKY1ZHR8uxxhgwNTnHmH6Wjne
+/bSaEcAtxHyCAkO/vBx9LUdtpR2hbBoDH/80OmXYfWJ+uVWx854v8VBe9Xvuzb41
+x2EjvqOV1TcK7+7KZPb8C0D3I5PU8A==
+=pX1Z
+-----END PGP SIGNATURE-----
+
+--gcbt5fz4vt234fhk--
+
+
+--===============5197279928282460171==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============5197279928282460171==--
+
