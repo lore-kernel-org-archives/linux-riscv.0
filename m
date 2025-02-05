@@ -4,67 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7D12C02198
-	for <linux-riscv@archiver.kernel.org>; Wed,  5 Feb 2025 15:57:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D2749C02192
+	for <linux-riscv@archiver.kernel.org>; Wed,  5 Feb 2025 16:02:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Z32cGcuJ2+UeS2coOSbHKKIAaqEjXxqvN/sIhQvv0Ls=; b=G5TBKTd90F5VeG
-	iqzJMjNibwkcTga9cEqJVvM5IxIzBjfH7Ap2S1PKSE2QGQwRJSAM5dGhdXN+AwMu9nr7asY644qja
-	ekX6cRVdVnS31ckq6gKlocQRz23rt70/6n0qHrG+VNsf17PZWl9CLOU/ORFQxiaFMmwvhegMNMFqh
-	7BuYvJVsDajrWw02a5K6AgSkrf7NxRGs8imn8GCWQpJPABADf9Jd0vTrEpNKqCcbMm1G5YGIW59oM
-	o093bkSIxWRIawb/CYodPZYlHqfuDjV60Y1IY6nEqPEZqhIbzJCY1FDjQAoEN6Vc71gqS140dJ9QR
-	TWni3Tt2/baxtQkndm6g==;
+	List-Owner; bh=2YG8nvKzX+4u0NuCuwmhLP+2BJ9iTaveZFvuVOPUbm8=; b=a5a0tGLbyGnNA1
+	iTURqQiN2MZl0+WLptMP5EfXaXHQVp6fhQXBJScUrWImHM3u2exYtGOsOsP/asIuF9wTPsG4L33Jd
+	CsEV/MsPI9h2mGJsU9XtLjD1sFb0isRBpyHnYMDC8rLx8UrYrYbQ3Ok+NKB6MNwL0qubhx67Ac3Ax
+	HK/y6PdnqGSLSS6BBD4OC5qSQWBhqqxTRSYfLn4Jj0hlFuyYFs3jagfse+33pWW2M2hvJz7FKWYht
+	S96Lou5w6t7gQZeOPtI8DOAiADh3CS+Sw10olZViAgVYJyINv/0mfKUASktgL4YNzHNBeaNM4QlUK
+	G2/nqNLaWw0FmfLHLbdg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfhmP-00000003sLa-1ZIU;
-	Wed, 05 Feb 2025 15:57:33 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfhl1-00000003s5v-3KWi;
-	Wed, 05 Feb 2025 15:56:09 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 97C0A1063;
-	Wed,  5 Feb 2025 07:56:30 -0800 (PST)
-Received: from [10.57.35.21] (unknown [10.57.35.21])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 4CF773F58B;
-	Wed,  5 Feb 2025 07:56:00 -0800 (PST)
-Message-ID: <ff16c183-0679-423c-939d-9906da174051@arm.com>
-Date: Wed, 5 Feb 2025 15:55:58 +0000
+	id 1tfhrD-00000003tNH-2VEn;
+	Wed, 05 Feb 2025 16:02:31 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tfhow-00000003sqG-2N4e
+	for linux-riscv@bombadil.infradead.org;
+	Wed, 05 Feb 2025 16:00:10 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=DvFsqgBHoepkWBjGC1yP+KOn/8qryanxa+3zb4U83Ao=; b=GgEjLpY0OwT0bpWQJ+msw1DG6Y
+	HXF+wSB/qJ9eMIrKKrs+GTDRRaAl2uWELIBWNHeIfGuqmQYe6B4XSgl2ZRl/tDATVnoux6NeQnyVW
+	sHrhzFU+FhbISi9+TzD6S/NtiKT4Dwwed8h4kCBqjq4fA0YKTmvDSFQM/TURVAzpoEI+0gIjQ7n7l
+	AHV/zZ1WRro0Me1X9XCEFv+vGkxbmTw3a7DYdQV7909atto44CkE8saR4T0kt7m/m1IQfCB15qr9A
+	sUBIATpM01bzCqJGrCiQ2XYjIg6TVtye/VOtSwCivzgRmrBkk1LHQoZcgIwIZys1ixTye22Ws+SgD
+	rolWuIBg==;
+Received: from mail-pl1-x62a.google.com ([2607:f8b0:4864:20::62a])
+	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tfhot-0000000GgKm-2KCC
+	for linux-riscv@lists.infradead.org;
+	Wed, 05 Feb 2025 16:00:09 +0000
+Received: by mail-pl1-x62a.google.com with SMTP id d9443c01a7336-2163dc5155fso124409485ad.0
+        for <linux-riscv@lists.infradead.org>; Wed, 05 Feb 2025 08:00:06 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ventanamicro.com; s=google; t=1738771205; x=1739376005; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=DvFsqgBHoepkWBjGC1yP+KOn/8qryanxa+3zb4U83Ao=;
+        b=RHAUBPB2DvScUihMQzh6RFEtnszQm1n25B5Ts/O4zEC+bJIjw/PG1cbgHieFBGztkp
+         GkDdhWL/4xu4sG/n4chiE6/c9i26pXY1UPNn1RgZ4c2DOxg0gfKUm9CmV70hBWXonmvA
+         rV3KhGOmpHmYQZZesz+EFcl9EbkMBOLb1HonKP5nldiyVBpUvJfi2ik7dtTFu+8vwqnO
+         Cp2kT1Y2WUUF1nSlpc9S6foGJb43BRU3eT4aBnI0FZkGNIHnEb52xN4QenQnlkymqBwh
+         NqsmQuo06/ztNctcEJ52ETPBxXFEoF2xH9OW1/zcz46hw82L4laQdWLlJVvMF6XmvMmI
+         xqHg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1738771205; x=1739376005;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=DvFsqgBHoepkWBjGC1yP+KOn/8qryanxa+3zb4U83Ao=;
+        b=ZhFy11dBBEoqmU0wrsJ0gchSuYQapiB9jXkSafwGVnWX6yJpt2vUzZCU3aPnY+aQ4K
+         LMig6ZuDZtfJXZV+tMiZML1z1BTg/tQgp4VS6nuNep/CnILWtS9q+oV7WQqlUPT/6QkM
+         e5g4UNFtCTeL7prFX7a8B9DOI2vOPlbpvuNYf2E5NOfr5HzIfDw43MxkiviAOT1d+3h/
+         ktSRiglZAaA8iRfj9It+RDAqlsE4olbpwLtoxB8FvG+85y+pKivFUaR+dgOxQXsFZAi4
+         KgxCRjQ2pD80wEJbjW09lauEG75IOfOLKsYUpq1KmHC79PNRW3LbCczTUI8jmyVlFbE0
+         6AzQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVq9hTlaxncSjdyGnj8rCV6jt6dSeBbUAJUDMpqpAcfkl1e2tCB9OWqKBs+FksMaFjEtwh/b+7onU8AYQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0YzNjgoSoNrifeWMK6h7XdboEqXuZ3TytHLPBlRda6Zq5EqSdVkt
+	hoCxjt4+gWh/1DubAdJfRSw62jFXV2wBu315dtE3Yh3ZIckioT+3DFFxgahT55I=
+X-Gm-Gg: ASbGnct5/Us4pmmXykOLeqRHBW6cF7uKcIeBjHNZgqezQDSdD6GVOBtlKK1i2RVbS9B
+	JCkyd8VxlRaWCh7ZFT1DNBhu7eDBTnBUVnJDz+/zs1QcHzDBjI3e0ps7MTrUxslsBrUFaDSo0MM
+	xWuoigC1qVfflqtbqt45p27muQXeK7MVdy0HBsBDgXRjBv3wp5/1hn0XhCzyxgPfsDjj+EtI2ZF
+	bevfrGYikexnPhcfvIEKK9+jySYMRln9D4pG/6on3UXzMEC0f7tlT1OybCQV4DkjHWW5Yn1V0MU
+	wR8NEdatDMaHiFFLvaza0WTktJ3HLwJZHVKRlNoEt4Xci/twMZ6PtC4=
+X-Google-Smtp-Source: AGHT+IFxrHkC5lry9v73hirVrwz0VwaueSl7vlCr1NVutMq+Q53roymPHtPchmK1sMCpMcVptQ1tdg==
+X-Received: by 2002:a17:902:d28b:b0:216:410d:4c53 with SMTP id d9443c01a7336-21f17ebba71mr44908125ad.41.1738771204969;
+        Wed, 05 Feb 2025 08:00:04 -0800 (PST)
+Received: from anup-ubuntu-vm.localdomain ([103.97.166.196])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-21edddf883fsm99369015ad.4.2025.02.05.07.59.59
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 05 Feb 2025 08:00:04 -0800 (PST)
+From: Anup Patel <apatel@ventanamicro.com>
+To: Thomas Gleixner <tglx@linutronix.de>
+Subject: [PATCH v4 01/11] irqchip/riscv-imsic: Set irq_set_affinity for IMSIC base
+Date: Wed,  5 Feb 2025 21:29:37 +0530
+Message-ID: <20250205155948.81385-2-apatel@ventanamicro.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20250205155948.81385-1-apatel@ventanamicro.com>
+References: <20250205155948.81385-1-apatel@ventanamicro.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 05/19] iommu/pages: Replace iommu_free_pages() with
- iommu_free_page()
-To: Jason Gunthorpe <jgg@nvidia.com>, Alim Akhtar <alim.akhtar@samsung.com>,
- Alyssa Rosenzweig <alyssa@rosenzweig.io>, Albert Ou <aou@eecs.berkeley.edu>,
- asahi@lists.linux.dev, Lu Baolu <baolu.lu@linux.intel.com>,
- David Woodhouse <dwmw2@infradead.org>, Heiko Stuebner <heiko@sntech.de>,
- iommu@lists.linux.dev, Jernej Skrabec <jernej.skrabec@gmail.com>,
- Jonathan Hunter <jonathanh@nvidia.com>, Joerg Roedel <joro@8bytes.org>,
- Krzysztof Kozlowski <krzk@kernel.org>, linux-arm-kernel@lists.infradead.org,
- linux-riscv@lists.infradead.org, linux-rockchip@lists.infradead.org,
- linux-samsung-soc@vger.kernel.org, linux-sunxi@lists.linux.dev,
- linux-tegra@vger.kernel.org, Marek Szyprowski <m.szyprowski@samsung.com>,
- Hector Martin <marcan@marcan.st>, Palmer Dabbelt <palmer@dabbelt.com>,
- Paul Walmsley <paul.walmsley@sifive.com>,
- Samuel Holland <samuel@sholland.org>,
- Suravee Suthikulpanit <suravee.suthikulpanit@amd.com>,
- Sven Peter <sven@svenpeter.dev>, Thierry Reding <thierry.reding@gmail.com>,
- Tomasz Jeznach <tjeznach@rivosinc.com>, Krishna Reddy <vdumpa@nvidia.com>,
- Chen-Yu Tsai <wens@csie.org>, Will Deacon <will@kernel.org>
-Cc: Bagas Sanjaya <bagasdotme@gmail.com>, Joerg Roedel <jroedel@suse.de>,
- Pasha Tatashin <pasha.tatashin@soleen.com>, patches@lists.linux.dev,
- David Rientjes <rientjes@google.com>, Matthew Wilcox <willy@infradead.org>
-References: <5-v1-416f64558c7c+2a5-iommu_pages_jgg@nvidia.com>
-From: Robin Murphy <robin.murphy@arm.com>
-Content-Language: en-GB
-In-Reply-To: <5-v1-416f64558c7c+2a5-iommu_pages_jgg@nvidia.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250205_075607_932401_70535550 
-X-CRM114-Status: GOOD (  27.73  )
+X-CRM114-CacheID: sfid-20250205_160007_814755_DE8BA4C1 
+X-CRM114-Status: GOOD (  12.62  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,404 +106,78 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Cc: Anup Patel <apatel@ventanamicro.com>, Andrew Lunn <andrew@lunn.ch>, imx@lists.linux.dev, Marc Zyngier <maz@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, Atish Patra <atishp@atishpatra.org>, linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, Palmer Dabbelt <palmer@dabbelt.com>, Pengutronix Kernel Team <kernel@pengutronix.de>, Paul Walmsley <paul.walmsley@sifive.com>, Anup Patel <anup@brainfault.org>, Andrew Jones <ajones@ventanamicro.com>, Shawn Guo <shawnguo@kernel.org>, Gregory Clement <gregory.clement@bootlin.com>, linux-arm-kernel@lists.infradead.org, Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 2025-02-04 6:34 pm, Jason Gunthorpe wrote:
-> Now that we have a folio under the allocation iommu_free_page() can know
-> the order of the original allocation and do the correct thing to free it.
-> 
-> Callers no longer need to pass in the allocation order to the free
-> function. Just use iommu_free_page() everywhere.
+From: Andrew Jones <ajones@ventanamicro.com>
 
-Nit: we end up left with the _alloc_pages/_free_page combo which to me 
-looks slightly odd and uncomfortable - any chance we could go the other 
-way and align on _free_pages for consistency?
+Instead of using imsic_irq_set_affinity() for leaf MSI domains,
+use imsic_irq_set_affinity() for the non-leaf IMSIC base domain
+and use irq_chip_set_affinity_parent() for leaf MSI domains.
 
-Thanks,
-Robin.
+Signed-off-by: Andrew Jones <ajones@ventanamicro.com>
+Signed-off-by: Anup Patel <apatel@ventanamicro.com>
+---
+ drivers/irqchip/irq-riscv-imsic-platform.c | 16 +++++++++-------
+ 1 file changed, 9 insertions(+), 7 deletions(-)
 
-> Signed-off-by: Jason Gunthorpe <jgg@nvidia.com>
-> ---
->   drivers/iommu/amd/init.c            | 28 +++++++++++-----------------
->   drivers/iommu/amd/ppr.c             |  2 +-
->   drivers/iommu/exynos-iommu.c        |  8 ++++----
->   drivers/iommu/intel/irq_remapping.c |  4 ++--
->   drivers/iommu/intel/pasid.c         |  3 +--
->   drivers/iommu/intel/pasid.h         |  1 -
->   drivers/iommu/intel/prq.c           |  4 ++--
->   drivers/iommu/io-pgtable-arm.c      |  4 ++--
->   drivers/iommu/io-pgtable-dart.c     | 10 ++++------
->   drivers/iommu/iommu-pages.h         | 14 ++------------
->   drivers/iommu/riscv/iommu.c         |  6 ++----
->   drivers/iommu/sun50i-iommu.c        |  2 +-
->   12 files changed, 32 insertions(+), 54 deletions(-)
-> 
-> diff --git a/drivers/iommu/amd/init.c b/drivers/iommu/amd/init.c
-> index c5cd92edada061..f1c5041647173c 100644
-> --- a/drivers/iommu/amd/init.c
-> +++ b/drivers/iommu/amd/init.c
-> @@ -653,8 +653,7 @@ static inline int __init alloc_dev_table(struct amd_iommu_pci_seg *pci_seg)
->   
->   static inline void free_dev_table(struct amd_iommu_pci_seg *pci_seg)
->   {
-> -	iommu_free_pages(pci_seg->dev_table,
-> -			 get_order(pci_seg->dev_table_size));
-> +	iommu_free_page(pci_seg->dev_table);
->   	pci_seg->dev_table = NULL;
->   }
->   
-> @@ -671,8 +670,7 @@ static inline int __init alloc_rlookup_table(struct amd_iommu_pci_seg *pci_seg)
->   
->   static inline void free_rlookup_table(struct amd_iommu_pci_seg *pci_seg)
->   {
-> -	iommu_free_pages(pci_seg->rlookup_table,
-> -			 get_order(pci_seg->rlookup_table_size));
-> +	iommu_free_page(pci_seg->rlookup_table);
->   	pci_seg->rlookup_table = NULL;
->   }
->   
-> @@ -691,8 +689,7 @@ static inline int __init alloc_irq_lookup_table(struct amd_iommu_pci_seg *pci_se
->   static inline void free_irq_lookup_table(struct amd_iommu_pci_seg *pci_seg)
->   {
->   	kmemleak_free(pci_seg->irq_lookup_table);
-> -	iommu_free_pages(pci_seg->irq_lookup_table,
-> -			 get_order(pci_seg->rlookup_table_size));
-> +	iommu_free_page(pci_seg->irq_lookup_table);
->   	pci_seg->irq_lookup_table = NULL;
->   }
->   
-> @@ -716,8 +713,7 @@ static int __init alloc_alias_table(struct amd_iommu_pci_seg *pci_seg)
->   
->   static void __init free_alias_table(struct amd_iommu_pci_seg *pci_seg)
->   {
-> -	iommu_free_pages(pci_seg->alias_table,
-> -			 get_order(pci_seg->alias_table_size));
-> +	iommu_free_page(pci_seg->alias_table);
->   	pci_seg->alias_table = NULL;
->   }
->   
-> @@ -826,7 +822,7 @@ static void iommu_disable_command_buffer(struct amd_iommu *iommu)
->   
->   static void __init free_command_buffer(struct amd_iommu *iommu)
->   {
-> -	iommu_free_pages(iommu->cmd_buf, get_order(CMD_BUFFER_SIZE));
-> +	iommu_free_page(iommu->cmd_buf);
->   }
->   
->   void *__init iommu_alloc_4k_pages(struct amd_iommu *iommu, gfp_t gfp,
-> @@ -838,7 +834,7 @@ void *__init iommu_alloc_4k_pages(struct amd_iommu *iommu, gfp_t gfp,
->   	if (buf &&
->   	    check_feature(FEATURE_SNP) &&
->   	    set_memory_4k((unsigned long)buf, (1 << order))) {
-> -		iommu_free_pages(buf, order);
-> +		iommu_free_page(buf);
->   		buf = NULL;
->   	}
->   
-> @@ -882,14 +878,14 @@ static void iommu_disable_event_buffer(struct amd_iommu *iommu)
->   
->   static void __init free_event_buffer(struct amd_iommu *iommu)
->   {
-> -	iommu_free_pages(iommu->evt_buf, get_order(EVT_BUFFER_SIZE));
-> +	iommu_free_page(iommu->evt_buf);
->   }
->   
->   static void free_ga_log(struct amd_iommu *iommu)
->   {
->   #ifdef CONFIG_IRQ_REMAP
-> -	iommu_free_pages(iommu->ga_log, get_order(GA_LOG_SIZE));
-> -	iommu_free_pages(iommu->ga_log_tail, get_order(8));
-> +	iommu_free_page(iommu->ga_log);
-> +	iommu_free_page(iommu->ga_log_tail);
->   #endif
->   }
->   
-> @@ -2781,8 +2777,7 @@ static void early_enable_iommus(void)
->   
->   		for_each_pci_segment(pci_seg) {
->   			if (pci_seg->old_dev_tbl_cpy != NULL) {
-> -				iommu_free_pages(pci_seg->old_dev_tbl_cpy,
-> -						 get_order(pci_seg->dev_table_size));
-> +				iommu_free_page(pci_seg->old_dev_tbl_cpy);
->   				pci_seg->old_dev_tbl_cpy = NULL;
->   			}
->   		}
-> @@ -2795,8 +2790,7 @@ static void early_enable_iommus(void)
->   		pr_info("Copied DEV table from previous kernel.\n");
->   
->   		for_each_pci_segment(pci_seg) {
-> -			iommu_free_pages(pci_seg->dev_table,
-> -					 get_order(pci_seg->dev_table_size));
-> +			iommu_free_page(pci_seg->dev_table);
->   			pci_seg->dev_table = pci_seg->old_dev_tbl_cpy;
->   		}
->   
-> diff --git a/drivers/iommu/amd/ppr.c b/drivers/iommu/amd/ppr.c
-> index 7c67d69f0b8cad..0a7c32ab841707 100644
-> --- a/drivers/iommu/amd/ppr.c
-> +++ b/drivers/iommu/amd/ppr.c
-> @@ -48,7 +48,7 @@ void amd_iommu_enable_ppr_log(struct amd_iommu *iommu)
->   
->   void __init amd_iommu_free_ppr_log(struct amd_iommu *iommu)
->   {
-> -	iommu_free_pages(iommu->ppr_log, get_order(PPR_LOG_SIZE));
-> +	iommu_free_page(iommu->ppr_log);
->   }
->   
->   /*
-> diff --git a/drivers/iommu/exynos-iommu.c b/drivers/iommu/exynos-iommu.c
-> index c666ecab955d21..3c64fcdde6d294 100644
-> --- a/drivers/iommu/exynos-iommu.c
-> +++ b/drivers/iommu/exynos-iommu.c
-> @@ -932,9 +932,9 @@ static struct iommu_domain *exynos_iommu_domain_alloc_paging(struct device *dev)
->   	return &domain->domain;
->   
->   err_lv2ent:
-> -	iommu_free_pages(domain->lv2entcnt, 1);
-> +	iommu_free_page(domain->lv2entcnt);
->   err_counter:
-> -	iommu_free_pages(domain->pgtable, 2);
-> +	iommu_free_page(domain->pgtable);
->   err_pgtable:
->   	kfree(domain);
->   	return NULL;
-> @@ -975,8 +975,8 @@ static void exynos_iommu_domain_free(struct iommu_domain *iommu_domain)
->   					phys_to_virt(base));
->   		}
->   
-> -	iommu_free_pages(domain->pgtable, 2);
-> -	iommu_free_pages(domain->lv2entcnt, 1);
-> +	iommu_free_page(domain->pgtable);
-> +	iommu_free_page(domain->lv2entcnt);
->   	kfree(domain);
->   }
->   
-> diff --git a/drivers/iommu/intel/irq_remapping.c b/drivers/iommu/intel/irq_remapping.c
-> index ad795c772f21b5..31a170501d2410 100644
-> --- a/drivers/iommu/intel/irq_remapping.c
-> +++ b/drivers/iommu/intel/irq_remapping.c
-> @@ -620,7 +620,7 @@ static int intel_setup_irq_remapping(struct intel_iommu *iommu)
->   out_free_bitmap:
->   	bitmap_free(bitmap);
->   out_free_pages:
-> -	iommu_free_pages(ir_table_base, INTR_REMAP_PAGE_ORDER);
-> +	iommu_free_page(ir_table_base);
->   out_free_table:
->   	kfree(ir_table);
->   
-> @@ -641,7 +641,7 @@ static void intel_teardown_irq_remapping(struct intel_iommu *iommu)
->   			irq_domain_free_fwnode(fn);
->   			iommu->ir_domain = NULL;
->   		}
-> -		iommu_free_pages(iommu->ir_table->base, INTR_REMAP_PAGE_ORDER);
-> +		iommu_free_page(iommu->ir_table->base);
->   		bitmap_free(iommu->ir_table->bitmap);
->   		kfree(iommu->ir_table);
->   		iommu->ir_table = NULL;
-> diff --git a/drivers/iommu/intel/pasid.c b/drivers/iommu/intel/pasid.c
-> index fb59a7d35958f5..88070bb7f9b093 100644
-> --- a/drivers/iommu/intel/pasid.c
-> +++ b/drivers/iommu/intel/pasid.c
-> @@ -67,7 +67,6 @@ int intel_pasid_alloc_table(struct device *dev)
->   	}
->   
->   	pasid_table->table = dir;
-> -	pasid_table->order = order;
->   	pasid_table->max_pasid = 1 << (order + PAGE_SHIFT + 3);
->   	info->pasid_table = pasid_table;
->   
-> @@ -100,7 +99,7 @@ void intel_pasid_free_table(struct device *dev)
->   		iommu_free_page(table);
->   	}
->   
-> -	iommu_free_pages(pasid_table->table, pasid_table->order);
-> +	iommu_free_page(pasid_table->table);
->   	kfree(pasid_table);
->   }
->   
-> diff --git a/drivers/iommu/intel/pasid.h b/drivers/iommu/intel/pasid.h
-> index 668d8ece6b143c..fd0fd1a0df84cc 100644
-> --- a/drivers/iommu/intel/pasid.h
-> +++ b/drivers/iommu/intel/pasid.h
-> @@ -47,7 +47,6 @@ struct pasid_entry {
->   /* The representative of a PASID table */
->   struct pasid_table {
->   	void			*table;		/* pasid table pointer */
-> -	int			order;		/* page order of pasid table */
->   	u32			max_pasid;	/* max pasid */
->   };
->   
-> diff --git a/drivers/iommu/intel/prq.c b/drivers/iommu/intel/prq.c
-> index c2d792db52c3e2..8620327b64394b 100644
-> --- a/drivers/iommu/intel/prq.c
-> +++ b/drivers/iommu/intel/prq.c
-> @@ -338,7 +338,7 @@ int intel_iommu_enable_prq(struct intel_iommu *iommu)
->   	dmar_free_hwirq(irq);
->   	iommu->pr_irq = 0;
->   free_prq:
-> -	iommu_free_pages(iommu->prq, PRQ_ORDER);
-> +	iommu_free_page(iommu->prq);
->   	iommu->prq = NULL;
->   
->   	return ret;
-> @@ -361,7 +361,7 @@ int intel_iommu_finish_prq(struct intel_iommu *iommu)
->   		iommu->iopf_queue = NULL;
->   	}
->   
-> -	iommu_free_pages(iommu->prq, PRQ_ORDER);
-> +	iommu_free_page(iommu->prq);
->   	iommu->prq = NULL;
->   
->   	return 0;
-> diff --git a/drivers/iommu/io-pgtable-arm.c b/drivers/iommu/io-pgtable-arm.c
-> index 7632c80edea63a..b4c3729076376b 100644
-> --- a/drivers/iommu/io-pgtable-arm.c
-> +++ b/drivers/iommu/io-pgtable-arm.c
-> @@ -300,7 +300,7 @@ static void *__arm_lpae_alloc_pages(size_t size, gfp_t gfp,
->   	if (cfg->free)
->   		cfg->free(cookie, pages, size);
->   	else
-> -		iommu_free_pages(pages, order);
-> +		iommu_free_page(pages);
->   
->   	return NULL;
->   }
-> @@ -316,7 +316,7 @@ static void __arm_lpae_free_pages(void *pages, size_t size,
->   	if (cfg->free)
->   		cfg->free(cookie, pages, size);
->   	else
-> -		iommu_free_pages(pages, get_order(size));
-> +		iommu_free_page(pages);
->   }
->   
->   static void __arm_lpae_sync_pte(arm_lpae_iopte *ptep, int num_entries,
-> diff --git a/drivers/iommu/io-pgtable-dart.c b/drivers/iommu/io-pgtable-dart.c
-> index c004640640ee50..f7b939d4b7d0b9 100644
-> --- a/drivers/iommu/io-pgtable-dart.c
-> +++ b/drivers/iommu/io-pgtable-dart.c
-> @@ -262,7 +262,7 @@ static int dart_map_pages(struct io_pgtable_ops *ops, unsigned long iova,
->   
->   		pte = dart_install_table(cptep, ptep, 0, data);
->   		if (pte)
-> -			iommu_free_pages(cptep, get_order(tblsz));
-> +			iommu_free_page(cptep);
->   
->   		/* L2 table is present (now) */
->   		pte = READ_ONCE(*ptep);
-> @@ -423,8 +423,7 @@ apple_dart_alloc_pgtable(struct io_pgtable_cfg *cfg, void *cookie)
->   
->   out_free_data:
->   	while (--i >= 0) {
-> -		iommu_free_pages(data->pgd[i],
-> -				 get_order(DART_GRANULE(data)));
-> +		iommu_free_page(data->pgd[i]);
->   	}
->   	kfree(data);
->   	return NULL;
-> @@ -433,7 +432,6 @@ apple_dart_alloc_pgtable(struct io_pgtable_cfg *cfg, void *cookie)
->   static void apple_dart_free_pgtable(struct io_pgtable *iop)
->   {
->   	struct dart_io_pgtable *data = io_pgtable_to_data(iop);
-> -	int order = get_order(DART_GRANULE(data));
->   	dart_iopte *ptep, *end;
->   	int i;
->   
-> @@ -445,9 +443,9 @@ static void apple_dart_free_pgtable(struct io_pgtable *iop)
->   			dart_iopte pte = *ptep++;
->   
->   			if (pte)
-> -				iommu_free_pages(iopte_deref(pte, data), order);
-> +				iommu_free_page(iopte_deref(pte, data));
->   		}
-> -		iommu_free_pages(data->pgd[i], order);
-> +		iommu_free_page(data->pgd[i]);
->   	}
->   
->   	kfree(data);
-> diff --git a/drivers/iommu/iommu-pages.h b/drivers/iommu/iommu-pages.h
-> index 26b91940bdc146..b15e0f85b3f739 100644
-> --- a/drivers/iommu/iommu-pages.h
-> +++ b/drivers/iommu/iommu-pages.h
-> @@ -105,11 +105,10 @@ static inline void *iommu_alloc_page(gfp_t gfp)
->   }
->   
->   /**
-> - * iommu_free_pages - free page of a given order
-> + * iommu_free_page - free page of any  order
->    * @virt: virtual address of the page to be freed.
-> - * @order: page order
->    */
-> -static inline void iommu_free_pages(void *virt, int order)
-> +static inline void iommu_free_page(void *virt)
->   {
->   	struct page *page;
->   
-> @@ -121,15 +120,6 @@ static inline void iommu_free_pages(void *virt, int order)
->   	put_page(page);
->   }
->   
-> -/**
-> - * iommu_free_page - free page
-> - * @virt: virtual address of the page to be freed.
-> - */
-> -static inline void iommu_free_page(void *virt)
-> -{
-> -	iommu_free_pages(virt, 0);
-> -}
-> -
->   /**
->    * iommu_put_pages_list - free a list of pages.
->    * @page: the head of the lru list to be freed.
-> diff --git a/drivers/iommu/riscv/iommu.c b/drivers/iommu/riscv/iommu.c
-> index 8f049d4a0e2cb8..6e7df7273426da 100644
-> --- a/drivers/iommu/riscv/iommu.c
-> +++ b/drivers/iommu/riscv/iommu.c
-> @@ -48,14 +48,13 @@ static DEFINE_IDA(riscv_iommu_pscids);
->   /* Device resource-managed allocations */
->   struct riscv_iommu_devres {
->   	void *addr;
-> -	int order;
->   };
->   
->   static void riscv_iommu_devres_pages_release(struct device *dev, void *res)
->   {
->   	struct riscv_iommu_devres *devres = res;
->   
-> -	iommu_free_pages(devres->addr, devres->order);
-> +	iommu_free_page(devres->addr);
->   }
->   
->   static int riscv_iommu_devres_pages_match(struct device *dev, void *res, void *p)
-> @@ -80,12 +79,11 @@ static void *riscv_iommu_get_pages(struct riscv_iommu_device *iommu, int order)
->   			      sizeof(struct riscv_iommu_devres), GFP_KERNEL);
->   
->   	if (unlikely(!devres)) {
-> -		iommu_free_pages(addr, order);
-> +		iommu_free_page(addr);
->   		return NULL;
->   	}
->   
->   	devres->addr = addr;
-> -	devres->order = order;
->   
->   	devres_add(iommu->dev, devres);
->   
-> diff --git a/drivers/iommu/sun50i-iommu.c b/drivers/iommu/sun50i-iommu.c
-> index 8d8f11854676c0..3d77aed8507373 100644
-> --- a/drivers/iommu/sun50i-iommu.c
-> +++ b/drivers/iommu/sun50i-iommu.c
-> @@ -713,7 +713,7 @@ static void sun50i_iommu_domain_free(struct iommu_domain *domain)
->   {
->   	struct sun50i_iommu_domain *sun50i_domain = to_sun50i_domain(domain);
->   
-> -	iommu_free_pages(sun50i_domain->dt, get_order(DT_SIZE));
-> +	iommu_free_page(sun50i_domain->dt);
->   	sun50i_domain->dt = NULL;
->   
->   	kfree(sun50i_domain);
+diff --git a/drivers/irqchip/irq-riscv-imsic-platform.c b/drivers/irqchip/irq-riscv-imsic-platform.c
+index c708780e8760..5d7c30ad8855 100644
+--- a/drivers/irqchip/irq-riscv-imsic-platform.c
++++ b/drivers/irqchip/irq-riscv-imsic-platform.c
+@@ -96,9 +96,8 @@ static int imsic_irq_set_affinity(struct irq_data *d, const struct cpumask *mask
+ 				  bool force)
+ {
+ 	struct imsic_vector *old_vec, *new_vec;
+-	struct irq_data *pd = d->parent_data;
+ 
+-	old_vec = irq_data_get_irq_chip_data(pd);
++	old_vec = irq_data_get_irq_chip_data(d);
+ 	if (WARN_ON(!old_vec))
+ 		return -ENOENT;
+ 
+@@ -116,13 +115,13 @@ static int imsic_irq_set_affinity(struct irq_data *d, const struct cpumask *mask
+ 		return -ENOSPC;
+ 
+ 	/* Point device to the new vector */
+-	imsic_msi_update_msg(d, new_vec);
++	imsic_msi_update_msg(irq_get_irq_data(d->irq), new_vec);
+ 
+ 	/* Update irq descriptors with the new vector */
+-	pd->chip_data = new_vec;
++	d->chip_data = new_vec;
+ 
+-	/* Update effective affinity of parent irq data */
+-	irq_data_update_effective_affinity(pd, cpumask_of(new_vec->cpu));
++	/* Update effective affinity */
++	irq_data_update_effective_affinity(d, cpumask_of(new_vec->cpu));
+ 
+ 	/* Move state of the old vector to the new vector */
+ 	imsic_vector_move(old_vec, new_vec);
+@@ -135,6 +134,9 @@ static struct irq_chip imsic_irq_base_chip = {
+ 	.name			= "IMSIC",
+ 	.irq_mask		= imsic_irq_mask,
+ 	.irq_unmask		= imsic_irq_unmask,
++#ifdef CONFIG_SMP
++	.irq_set_affinity	= imsic_irq_set_affinity,
++#endif
+ 	.irq_retrigger		= imsic_irq_retrigger,
+ 	.irq_compose_msi_msg	= imsic_irq_compose_msg,
+ 	.flags			= IRQCHIP_SKIP_SET_WAKE |
+@@ -245,7 +247,7 @@ static bool imsic_init_dev_msi_info(struct device *dev,
+ 		if (WARN_ON_ONCE(domain != real_parent))
+ 			return false;
+ #ifdef CONFIG_SMP
+-		info->chip->irq_set_affinity = imsic_irq_set_affinity;
++		info->chip->irq_set_affinity = irq_chip_set_affinity_parent;
+ #endif
+ 		break;
+ 	default:
+-- 
+2.43.0
 
 
 _______________________________________________
