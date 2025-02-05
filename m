@@ -4,82 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3118AC02198
-	for <linux-riscv@archiver.kernel.org>; Wed,  5 Feb 2025 16:17:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6D004C02192
+	for <linux-riscv@archiver.kernel.org>; Wed,  5 Feb 2025 16:19:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=l67vx6+O+Gzz9kxEY1fAybGouRr4OJWWYxHIz/fmS4Q=; b=FsXabqEgE0u1Pg
-	R7lic0v8t7hF0sDjkku20WnbrtS5L7Cn3kqCA4k3o5uVQ5AVqeG8el86wovbXrP3JgkJnbqPOJx6V
-	XNWldaKCz60UUZ8upia9/3BW3BBRw0e5VwiFpS6giQMlSyhQrgIn05blNRIhvrqvg3oSA2bGDeKyz
-	qV0NVjq9g+gvKmAZTS83HAyHmKeirJg4LPnUg4caBl/wDcHo/gqwskwtI6RrRjs0hl0DR0DuzOB65
-	N4JWG4FVJbqgawWdoSDWjDOPrN+8C32og4ZZQ27PKM/kXUkFGkESztH52oTFtB+VOFVbYTBFxFRgO
-	Rb/RuU4TyZUtlOWH4I5g==;
+	List-Owner; bh=PIOyQ37MASH0vh0BnH8r9Xuq1Nun6AcYmexq5/k0s4A=; b=U6o9R09LFHGawj
+	oyoj+iZPbN+/GtK5FXokYNULKfBRNvE5rsJV/5OE/pERbPTea2Q59iLBCZO5anBXyGjbjw8yuj871
+	soChf638+/zgJacx41SRLCbRwtGvfnYTsTkod8wWv+GnJectDJJlYRLl7ysDpNzgBSivekdt4zrOp
+	LRxyxDBjYHe2HO/cqQHgHWtsdAUWSuFbxIyi/aMFzdw3lf3ig210bevQKFDTI8IOoXf9lYzXM/NvF
+	HE8a08otODhd40jCqW65eMng4yDyhWh/eVcL1bPJek4QQ88aDv+gFxtyWZntUlBn49Cae34HAQGa3
+	JzRj2WGiKTpEbtydJ2bQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfi60-00000003wUe-1UfI;
-	Wed, 05 Feb 2025 16:17:48 +0000
-Received: from mail-pl1-x629.google.com ([2607:f8b0:4864:20::629])
+	id 1tfi7O-00000003wxM-0hLH;
+	Wed, 05 Feb 2025 16:19:14 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfhq1-00000003t9c-3iQR
+	id 1tfhwo-00000003ud5-3FcW
 	for linux-riscv@lists.infradead.org;
-	Wed, 05 Feb 2025 16:01:19 +0000
-Received: by mail-pl1-x629.google.com with SMTP id d9443c01a7336-21670dce0a7so9323805ad.1
-        for <linux-riscv@lists.infradead.org>; Wed, 05 Feb 2025 08:01:17 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1738771277; x=1739376077; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=KEjndyBD35lV6nr6NSLWRRyly4db2axy7koFOHZTKsQ=;
-        b=H5BQ6EI99cXdEEb5C2XpukoPYtVv6fMXEktKC92eLO0CPcUqEj8FD/qB5b2I7YG4jA
-         t0wrc1577LM0vUrClIr3nUd5jlTdld/LtbpcSM2VOv7QVvVrG5uz+76dmhJOznoaH/ST
-         Q1ClcjVyLMizB3uix2L/Pjv5aeAX1u9MdGax6BYar8wqsqBbxDw8xZxghLw5d/plrLNX
-         EmMmwgc1RXpkRjsVXkvFSPhF+YuOVjlBmRNmHn8FhyhHZ2+9OC66aJQ+9xpghIawidxI
-         sGjzKij/K/UaNX4LRq3oGfkYsU38JyRCm9LnJ+AAlfDVjf/Xge2AhLQqszRWMMiWiUWh
-         kFLQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1738771277; x=1739376077;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=KEjndyBD35lV6nr6NSLWRRyly4db2axy7koFOHZTKsQ=;
-        b=KyFgfEBW+GITWcqnUYsrm+TJIP876JN+Z14rj4oUQ8SQJwRJ3ELD54lpwA6rjF9ihc
-         iL/hnlTc7DfFUGsUtNGj38c3oMWo4vdjnwbWTCCoQjh2G0clOBMdsy9Xhd38297pZpna
-         DHtnUZYg9BaCtnzArdpjfu4yGcBZDSOZcoK5EPs/0yjSuJowEGWdBRtCR8Qnq9yaaUPr
-         On+jYmzQBs7MyQ2w1g0paRH4DNT56Sfqkdeb8UJOIVv6Ck0uF05BgNhgmfcMvMjHN8k5
-         9SF0o14ds2b3n6Yh5KPDX6kTW325UTKJ3KICzSSnSv9Ygoc1KqS7UjWz4yyH0peOsFao
-         ly2Q==
-X-Forwarded-Encrypted: i=1; AJvYcCXVzMhX6JdaDorGPw+In/hwQmvtS1YQetqhpCrhGImQdwf51IzoE7QINrXwHPwPYsbZ6b7xtXG+ajBsKg==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxn2HzhezYXP17wPm0jPcDmrJ7R8vYFAiUqxr85+Jv7NSE2bNMj
-	D22i28YPxasY13L45ItGzk1l5M6rbIDOjuqqidjXk+tyHfDNzfR8ktnO9fgXbXI=
-X-Gm-Gg: ASbGnctqm+DnSVbC5mHXpOOFMm7rMRQGzeBqR7dtqET9M5m3M3EyrPjTJwrxmaQ3PrP
-	9ZIamnDvs4E2xnKidDPqbF24nmtoU56nkB0zsumqOxFfKRhRMmoa3R/a92t1WXzJxEq/ZqW+uEk
-	VgYfwxOLxb2C2J7mU3qIlU9r61Lz2nkca1YS4ZTVUzKYehAPskpWWDUKpRjt0Fvae+I3dQzpKkm
-	lap3nzwARDFXwSHYNf54GzucUSeDQMDUnoVrFfJMkAWhqzdqOe/REmNufICoavRAzz3RJqswOuq
-	ma+ZrX3CCVmPiEsjbclwAHO1xJwbtSe+sixoejzVoMIJHFsaD1qkAuE=
-X-Google-Smtp-Source: AGHT+IFTclDON/r36LodehwMg78zlP6BqfcqB9QXn3ksA4PSt60KgNQ9lMw/GuAJ5JZoMSZ1KuB8Cw==
-X-Received: by 2002:a17:903:18f:b0:21f:75c:f7d3 with SMTP id d9443c01a7336-21f17ec7bd9mr56546085ad.38.1738771275532;
-        Wed, 05 Feb 2025 08:01:15 -0800 (PST)
-Received: from anup-ubuntu-vm.localdomain ([103.97.166.196])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-21edddf883fsm99369015ad.4.2025.02.05.08.01.09
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 05 Feb 2025 08:01:14 -0800 (PST)
-From: Anup Patel <apatel@ventanamicro.com>
-To: Thomas Gleixner <tglx@linutronix.de>
-Subject: [PATCH v4 11/11] irqchip/riscv-imsic: Special handling for non-atomic device MSI update
-Date: Wed,  5 Feb 2025 21:29:47 +0530
-Message-ID: <20250205155948.81385-12-apatel@ventanamicro.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20250205155948.81385-1-apatel@ventanamicro.com>
-References: <20250205155948.81385-1-apatel@ventanamicro.com>
+	Wed, 05 Feb 2025 16:08:20 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 04E4FA437EB;
+	Wed,  5 Feb 2025 16:06:32 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 90D1AC4CED6;
+	Wed,  5 Feb 2025 16:08:15 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1738771697;
+	bh=5QR3iPATmuktdgNOBba8w7ssdWLJhWF/6VGlhDvPsj0=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=aLvIaPvweNguBRtxG2PVkZ93J3+oygkCNsj/duA3DBRj/3r2ajL31uQLqfZQHuP+b
+	 YYyzZTL9SBDDtm4zOphBLeg7YAz8V5GPFcNrKbKyRwZsoNnCNbDTgQBqu3YawlyA7+
+	 0ddiBpKLAUtLgIcQM77dRn3qbH8FScv49+C+M0+Pg/0K5kkXKZrgcmFx2Wv0QKpJ+Y
+	 2NjkMJwizwQfwQ/wg3IP2Ys1rVUjw7XHdF8+QhuwtHP+HLto0YyKutdKTfcanQwo0X
+	 jXh/D7gnUDnUZmqCHH182HqQyowp4eMAznElUf7PAUaJANnM4iwTerkGQ5Mgn2fGoD
+	 wKBNWd/d8QUMg==
+From: Conor Dooley <conor@kernel.org>
+To: linux-riscv@lists.infradead.org
+Cc: conor@kernel.org,
+	Conor Dooley <conor.dooley@microchip.com>,
+	Eric Biggers <ebiggers@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	=?UTF-8?q?Cl=C3=A9ment=20L=C3=A9ger?= <cleger@rivosinc.com>,
+	Andy Chiu <andybnac@gmail.com>,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v3 1/6] RISC-V: add vector extension validation checks
+Date: Wed,  5 Feb 2025 16:05:07 +0000
+Message-ID: <20250205-defensive-lent-04936dac6bdd@spud>
+X-Mailer: git-send-email 2.45.2
+In-Reply-To: <20250205-cobbler-unpadded-5580c1f5d946@spud>
+References: <20250205-cobbler-unpadded-5580c1f5d946@spud>
 MIME-Version: 1.0
+X-Developer-Signature: v=1; a=openpgp-sha256; l=5885; i=conor.dooley@microchip.com; h=from:subject:message-id; bh=Xll3sNeiVHrSCgmDC5jcXvVZqlI6Wuid0Q1Ycn1USfY=; b=owGbwMvMwCFWscWwfUFT0iXG02pJDOmLe6wf/TdRP7vNJMmXT6dC2U9Ca9K/CUGtD/9uEZ0fU qG9t8mpo5SFQYyDQVZMkSXxdl+L1Po/Ljuce97CzGFlAhnCwMUpABPp5mNkmN8l8++9kVgNW5+x xXQV4fj9/jWyK+cs17qz79YXs//f1jH8d/znt+z6nQdVOvK7p/nw71p3pGb2X92ijwf6os6wRK0 x4gUA
+X-Developer-Key: i=conor.dooley@microchip.com; a=openpgp; fpr=F9ECA03CF54F12CD01F1655722E2C55B37CF380C
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250205_080117_920553_BF3652C7 
-X-CRM114-Status: GOOD (  21.68  )
+X-CRM114-CacheID: sfid-20250205_080818_949620_1F56ECE3 
+X-CRM114-Status: GOOD (  17.33  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,216 +78,136 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Anup Patel <apatel@ventanamicro.com>, Andrew Lunn <andrew@lunn.ch>, imx@lists.linux.dev, Marc Zyngier <maz@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, Atish Patra <atishp@atishpatra.org>, linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, Palmer Dabbelt <palmer@dabbelt.com>, Pengutronix Kernel Team <kernel@pengutronix.de>, Paul Walmsley <paul.walmsley@sifive.com>, Anup Patel <anup@brainfault.org>, Andrew Jones <ajones@ventanamicro.com>, Shawn Guo <shawnguo@kernel.org>, Gregory Clement <gregory.clement@bootlin.com>, linux-arm-kernel@lists.infradead.org, Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Device having non-atomic MSI update might see an intermediate
-state when changing target IMSIC vector from one CPU to another.
+From: Conor Dooley <conor.dooley@microchip.com>
 
-To avoid losing interrupt to such intermediate state, do the
-following (just like x86 APIC):
- 1) First write a temporary IMSIC vector to the device which
-    has MSI address same as the old IMSIC vector but with MSI
-    data matches the new IMSIC vector.
- 2) Next write the new IMSIC vector to the device.
+Using Clement's new validation callbacks, support checking that
+dependencies have been satisfied for the vector extensions. From the
+kernel's perfective, it's not required to differentiate between the
+conditions for all the various vector subsets - it's the firmware's job
+to not report impossible combinations. Instead, the kernel only has to
+check that the correct config options are enabled and to enforce its
+requirement of the d extension being present for FPU support.
 
-Based on the above, the __imsic_local_sync() must check pending
-status of both old MSI data and new MSI data on the old CPU. In
-addition, the movement of IMSIC vector for non-atomic device MSI
-update must be done in interrupt context using IRQCHIP_MOVE_DEFERRED.
+Since vector will now be disabled proactively, there's no need to clear
+the bit in elf_hwcap in riscv_fill_hwcap() any longer.
 
-Signed-off-by: Anup Patel <apatel@ventanamicro.com>
+Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
 ---
- drivers/irqchip/irq-riscv-imsic-platform.c | 73 +++++++++++++++++++++-
- drivers/irqchip/irq-riscv-imsic-state.c    | 31 +++++++--
- 2 files changed, 98 insertions(+), 6 deletions(-)
+ arch/riscv/include/asm/cpufeature.h |  3 ++
+ arch/riscv/kernel/cpufeature.c      | 57 +++++++++++++++++++----------
+ 2 files changed, 40 insertions(+), 20 deletions(-)
 
-diff --git a/drivers/irqchip/irq-riscv-imsic-platform.c b/drivers/irqchip/irq-riscv-imsic-platform.c
-index 6bf5d63f614e..828102c46f51 100644
---- a/drivers/irqchip/irq-riscv-imsic-platform.c
-+++ b/drivers/irqchip/irq-riscv-imsic-platform.c
-@@ -64,6 +64,11 @@ static int imsic_irq_retrigger(struct irq_data *d)
+diff --git a/arch/riscv/include/asm/cpufeature.h b/arch/riscv/include/asm/cpufeature.h
+index 569140d6e639..5d9427ccbc7a 100644
+--- a/arch/riscv/include/asm/cpufeature.h
++++ b/arch/riscv/include/asm/cpufeature.h
+@@ -56,6 +56,9 @@ void __init riscv_user_isa_enable(void);
+ #define __RISCV_ISA_EXT_BUNDLE(_name, _bundled_exts) \
+ 	_RISCV_ISA_EXT_DATA(_name, RISCV_ISA_EXT_INVALID, _bundled_exts, \
+ 			    ARRAY_SIZE(_bundled_exts), NULL)
++#define __RISCV_ISA_EXT_BUNDLE_VALIDATE(_name, _bundled_exts, _validate) \
++	_RISCV_ISA_EXT_DATA(_name, RISCV_ISA_EXT_INVALID, _bundled_exts, \
++			    ARRAY_SIZE(_bundled_exts), _validate)
+ 
+ /* Used to declare extensions that are a superset of other extensions (Zvbb for instance) */
+ #define __RISCV_ISA_EXT_SUPERSET(_name, _id, _sub_exts) \
+diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
+index c6ba750536c3..40a24b08d905 100644
+--- a/arch/riscv/kernel/cpufeature.c
++++ b/arch/riscv/kernel/cpufeature.c
+@@ -109,6 +109,35 @@ static int riscv_ext_zicboz_validate(const struct riscv_isa_ext_data *data,
  	return 0;
  }
  
-+static void imsic_irq_ack(struct irq_data *d)
++static int riscv_ext_vector_x_validate(const struct riscv_isa_ext_data *data,
++				       const unsigned long *isa_bitmap)
 +{
-+	irq_move_irq(d);
++	if (!IS_ENABLED(CONFIG_RISCV_ISA_V))
++		return -EINVAL;
++
++	return 0;
 +}
 +
- static void imsic_irq_compose_vector_msg(struct imsic_vector *vec, struct msi_msg *msg)
- {
- 	phys_addr_t msi_addr;
-@@ -97,6 +102,21 @@ static int imsic_irq_set_affinity(struct irq_data *d, const struct cpumask *mask
- 				  bool force)
- {
- 	struct imsic_vector *old_vec, *new_vec;
-+	struct imsic_vector tmp_vec;
-+
-+	/*
-+	 * Requirements for the downstream irqdomains (or devices):
-+	 *
-+	 * 1) Downstream irqdomains (or devices) with atomic MSI update can
-+	 *    happily do imsic_irq_set_affinity() in the process-context on
-+	 *    any CPU so the irqchip of such irqdomains must not set the
-+	 *    IRQCHIP_MOVE_DEFERRED flag.
-+	 *
-+	 * 2) Downstream irqdomains (or devices) with non-atomic MSI update
-+	 *    must do imsic_irq_set_affinity() in the interrupt-context upon
-+	 *    next interrupt so the irqchip of such irqdomains must set the
-+	 *    IRQCHIP_MOVE_DEFERRED flag.
-+	 */
- 
- 	old_vec = irq_data_get_irq_chip_data(d);
- 	if (WARN_ON(!old_vec))
-@@ -115,6 +135,33 @@ static int imsic_irq_set_affinity(struct irq_data *d, const struct cpumask *mask
- 	if (!new_vec)
- 		return -ENOSPC;
- 
-+	/*
-+	 * Device having non-atomic MSI update might see an intermediate
-+	 * state when changing target IMSIC vector from one CPU to another.
-+	 *
-+	 * To avoid losing interrupt to such intermediate state, do the
-+	 * following (just like x86 APIC):
-+	 *
-+	 * 1) First write a temporary IMSIC vector to the device which
-+	 * has MSI address same as the old IMSIC vector but MSI data
-+	 * matches the new IMSIC vector.
-+	 *
-+	 * 2) Next write the new IMSIC vector to the device.
-+	 *
-+	 * Based on the above, the __imsic_local_sync() must check pending
-+	 * status of both old MSI data and new MSI data on the old CPU.
-+	 */
-+
-+	if (!irq_can_move_in_process_context(d) &&
-+	    new_vec->local_id != old_vec->local_id) {
-+		/* Setup temporary vector */
-+		tmp_vec.cpu = old_vec->cpu;
-+		tmp_vec.local_id = new_vec->local_id;
-+
-+		/* Point device to the temporary vector */
-+		imsic_msi_update_msg(irq_get_irq_data(d->irq), &tmp_vec);
-+	}
-+
- 	/* Point device to the new vector */
- 	imsic_msi_update_msg(irq_get_irq_data(d->irq), new_vec);
- 
-@@ -171,6 +218,7 @@ static struct irq_chip imsic_irq_base_chip = {
- 	.irq_force_complete_move = imsic_irq_force_complete_move,
- #endif
- 	.irq_retrigger		= imsic_irq_retrigger,
-+	.irq_ack		= imsic_irq_ack,
- 	.irq_compose_msi_msg	= imsic_irq_compose_msg,
- 	.flags			= IRQCHIP_SKIP_SET_WAKE |
- 				  IRQCHIP_MASK_ON_SUSPEND,
-@@ -190,7 +238,7 @@ static int imsic_irq_domain_alloc(struct irq_domain *domain, unsigned int virq,
- 		return -ENOSPC;
- 
- 	irq_domain_set_info(domain, virq, virq, &imsic_irq_base_chip, vec,
--			    handle_simple_irq, NULL, NULL);
-+			    handle_edge_irq, NULL, NULL);
- 	irq_set_noprobe(virq);
- 	irq_set_affinity(virq, cpu_online_mask);
- 	irq_data_update_effective_affinity(irq_get_irq_data(virq), cpumask_of(vec->cpu));
-@@ -229,15 +277,36 @@ static const struct irq_domain_ops imsic_base_domain_ops = {
- #endif
- };
- 
-+static bool imsic_init_dev_msi_info(struct device *dev,
-+				    struct irq_domain *domain,
-+				    struct irq_domain *real_parent,
-+				    struct msi_domain_info *info)
++static int riscv_ext_vector_float_validate(const struct riscv_isa_ext_data *data,
++					   const unsigned long *isa_bitmap)
 +{
-+	if (!msi_lib_init_dev_msi_info(dev, domain, real_parent, info))
-+		return false;
++	if (!IS_ENABLED(CONFIG_RISCV_ISA_V))
++		return -EINVAL;
 +
-+	switch (info->bus_token) {
-+	case DOMAIN_BUS_PCI_DEVICE_MSI:
-+	case DOMAIN_BUS_PCI_DEVICE_MSIX:
-+		info->chip->flags |= IRQCHIP_MOVE_DEFERRED;
-+		break;
-+	default:
-+		break;
-+	}
++	if (!IS_ENABLED(CONFIG_FPU))
++		return -EINVAL;
 +
-+	return true;
++	/*
++	 * The kernel doesn't support systems that don't implement both of
++	 * F and D, so if any of the vector extensions that do floating point
++	 * are to be usable, both floating point extensions need to be usable.
++	 */
++	if (!__riscv_isa_extension_available(isa_bitmap, RISCV_ISA_EXT_d))
++		return -EINVAL;
++
++	return 0;
 +}
 +
- static const struct msi_parent_ops imsic_msi_parent_ops = {
- 	.supported_flags	= MSI_GENERIC_FLAGS_MASK |
- 				  MSI_FLAG_PCI_MSIX,
- 	.required_flags		= MSI_FLAG_USE_DEF_DOM_OPS |
- 				  MSI_FLAG_USE_DEF_CHIP_OPS |
- 				  MSI_FLAG_PCI_MSI_MASK_PARENT,
-+	.chip_flags		= MSI_CHIP_FLAG_SET_ACK,
- 	.bus_select_token	= DOMAIN_BUS_NEXUS,
- 	.bus_select_mask	= MATCH_PCI_MSI | MATCH_PLATFORM_MSI,
--	.init_dev_msi_info	= msi_lib_init_dev_msi_info,
-+	.init_dev_msi_info	= imsic_init_dev_msi_info,
- };
- 
- int imsic_irqdomain_init(void)
-diff --git a/drivers/irqchip/irq-riscv-imsic-state.c b/drivers/irqchip/irq-riscv-imsic-state.c
-index d0148e48ab05..3a2a381e4fa1 100644
---- a/drivers/irqchip/irq-riscv-imsic-state.c
-+++ b/drivers/irqchip/irq-riscv-imsic-state.c
-@@ -126,8 +126,8 @@ void __imsic_eix_update(unsigned long base_id, unsigned long num_id, bool pend,
- 
- static bool __imsic_local_sync(struct imsic_local_priv *lpriv)
+ static int riscv_ext_zca_depends(const struct riscv_isa_ext_data *data,
+ 				 const unsigned long *isa_bitmap)
  {
--	struct imsic_local_config *mlocal;
--	struct imsic_vector *vec, *mvec;
-+	struct imsic_local_config *tlocal, *mlocal;
-+	struct imsic_vector *vec, *tvec, *mvec;
- 	bool ret = true;
- 	int i;
+@@ -326,12 +355,10 @@ const struct riscv_isa_ext_data riscv_isa_ext[] = {
+ 	__RISCV_ISA_EXT_DATA(d, RISCV_ISA_EXT_d),
+ 	__RISCV_ISA_EXT_DATA(q, RISCV_ISA_EXT_q),
+ 	__RISCV_ISA_EXT_SUPERSET(c, RISCV_ISA_EXT_c, riscv_c_exts),
+-	__RISCV_ISA_EXT_SUPERSET(v, RISCV_ISA_EXT_v, riscv_v_exts),
++	__RISCV_ISA_EXT_SUPERSET_VALIDATE(v, RISCV_ISA_EXT_v, riscv_v_exts, riscv_ext_vector_float_validate),
+ 	__RISCV_ISA_EXT_DATA(h, RISCV_ISA_EXT_h),
+-	__RISCV_ISA_EXT_SUPERSET_VALIDATE(zicbom, RISCV_ISA_EXT_ZICBOM, riscv_xlinuxenvcfg_exts,
+-					  riscv_ext_zicbom_validate),
+-	__RISCV_ISA_EXT_SUPERSET_VALIDATE(zicboz, RISCV_ISA_EXT_ZICBOZ, riscv_xlinuxenvcfg_exts,
+-					  riscv_ext_zicboz_validate),
++	__RISCV_ISA_EXT_SUPERSET_VALIDATE(zicbom, RISCV_ISA_EXT_ZICBOM, riscv_xlinuxenvcfg_exts, riscv_ext_zicbom_validate),
++	__RISCV_ISA_EXT_SUPERSET_VALIDATE(zicboz, RISCV_ISA_EXT_ZICBOZ, riscv_xlinuxenvcfg_exts, riscv_ext_zicboz_validate),
+ 	__RISCV_ISA_EXT_DATA(ziccrse, RISCV_ISA_EXT_ZICCRSE),
+ 	__RISCV_ISA_EXT_DATA(zicntr, RISCV_ISA_EXT_ZICNTR),
+ 	__RISCV_ISA_EXT_DATA(zicond, RISCV_ISA_EXT_ZICOND),
+@@ -372,11 +399,11 @@ const struct riscv_isa_ext_data riscv_isa_ext[] = {
+ 	__RISCV_ISA_EXT_DATA(ztso, RISCV_ISA_EXT_ZTSO),
+ 	__RISCV_ISA_EXT_SUPERSET(zvbb, RISCV_ISA_EXT_ZVBB, riscv_zvbb_exts),
+ 	__RISCV_ISA_EXT_DATA(zvbc, RISCV_ISA_EXT_ZVBC),
+-	__RISCV_ISA_EXT_SUPERSET(zve32f, RISCV_ISA_EXT_ZVE32F, riscv_zve32f_exts),
+-	__RISCV_ISA_EXT_DATA(zve32x, RISCV_ISA_EXT_ZVE32X),
+-	__RISCV_ISA_EXT_SUPERSET(zve64d, RISCV_ISA_EXT_ZVE64D, riscv_zve64d_exts),
+-	__RISCV_ISA_EXT_SUPERSET(zve64f, RISCV_ISA_EXT_ZVE64F, riscv_zve64f_exts),
+-	__RISCV_ISA_EXT_SUPERSET(zve64x, RISCV_ISA_EXT_ZVE64X, riscv_zve64x_exts),
++	__RISCV_ISA_EXT_SUPERSET_VALIDATE(zve32f, RISCV_ISA_EXT_ZVE32F, riscv_zve32f_exts, riscv_ext_vector_float_validate),
++	__RISCV_ISA_EXT_DATA_VALIDATE(zve32x, RISCV_ISA_EXT_ZVE32X, riscv_ext_vector_x_validate),
++	__RISCV_ISA_EXT_SUPERSET_VALIDATE(zve64d, RISCV_ISA_EXT_ZVE64D, riscv_zve64d_exts, riscv_ext_vector_float_validate),
++	__RISCV_ISA_EXT_SUPERSET_VALIDATE(zve64f, RISCV_ISA_EXT_ZVE64F, riscv_zve64f_exts, riscv_ext_vector_float_validate),
++	__RISCV_ISA_EXT_SUPERSET_VALIDATE(zve64x, RISCV_ISA_EXT_ZVE64X, riscv_zve64x_exts, riscv_ext_vector_x_validate),
+ 	__RISCV_ISA_EXT_DATA(zvfh, RISCV_ISA_EXT_ZVFH),
+ 	__RISCV_ISA_EXT_DATA(zvfhmin, RISCV_ISA_EXT_ZVFHMIN),
+ 	__RISCV_ISA_EXT_DATA(zvkb, RISCV_ISA_EXT_ZVKB),
+@@ -960,16 +987,6 @@ void __init riscv_fill_hwcap(void)
+ 		riscv_v_setup_vsize();
+ 	}
  
-@@ -169,13 +169,36 @@ static bool __imsic_local_sync(struct imsic_local_priv *lpriv)
- 		 */
- 		mvec = READ_ONCE(vec->move_next);
- 		if (mvec) {
--			if (__imsic_id_read_clear_pending(i)) {
-+			/*
-+			 * Device having non-atomic MSI update might see an
-+			 * intermediate state so check both old ID and new ID
-+			 * for pending interrupts.
-+			 *
-+			 * For details, refer imsic_irq_set_affinity().
-+			 */
-+
-+			tvec = vec->local_id == mvec->local_id ?
-+			       NULL : &lpriv->vectors[mvec->local_id];
-+			if (tvec &&
-+			    !irq_can_move_in_process_context(irq_get_irq_data(vec->irq)) &&
-+			    __imsic_id_read_clear_pending(tvec->local_id)) {
-+				/* Retrigger temporary vector if it was already in-use */
-+				if (READ_ONCE(tvec->enable)) {
-+					tlocal = per_cpu_ptr(imsic->global.local, tvec->cpu);
-+					writel_relaxed(tvec->local_id, tlocal->msi_va);
-+				}
-+
-+				mlocal = per_cpu_ptr(imsic->global.local, mvec->cpu);
-+				writel_relaxed(mvec->local_id, mlocal->msi_va);
-+			}
-+
-+			if (__imsic_id_read_clear_pending(vec->local_id)) {
- 				mlocal = per_cpu_ptr(imsic->global.local, mvec->cpu);
- 				writel_relaxed(mvec->local_id, mlocal->msi_va);
- 			}
- 
- 			WRITE_ONCE(vec->move_next, NULL);
--			imsic_vector_free(&lpriv->vectors[i]);
-+			imsic_vector_free(vec);
- 		}
- 
- skip:
+-	if (elf_hwcap & COMPAT_HWCAP_ISA_V) {
+-		/*
+-		 * ISA string in device tree might have 'v' flag, but
+-		 * CONFIG_RISCV_ISA_V is disabled in kernel.
+-		 * Clear V flag in elf_hwcap if CONFIG_RISCV_ISA_V is disabled.
+-		 */
+-		if (!IS_ENABLED(CONFIG_RISCV_ISA_V))
+-			elf_hwcap &= ~COMPAT_HWCAP_ISA_V;
+-	}
+-
+ 	memset(print_str, 0, sizeof(print_str));
+ 	for (i = 0, j = 0; i < NUM_ALPHA_EXTS; i++)
+ 		if (riscv_isa[0] & BIT_MASK(i))
 -- 
-2.43.0
+2.45.2
 
 
 _______________________________________________
