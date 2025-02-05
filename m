@@ -4,55 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BC063C02192
-	for <linux-riscv@archiver.kernel.org>; Wed,  5 Feb 2025 13:21:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D4F05C02192
+	for <linux-riscv@archiver.kernel.org>; Wed,  5 Feb 2025 14:07:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=sFh3QM2znkfTq1346xRA84gaDFgzJSLwB+FM6+bZ9Jw=; b=IdZtiT+lKvcM67
-	j7RnJTfEwRb3FufN5b4vAIWTBJyFgpTFOmJOVIEQGclaAZemLsZrUbFmJ7VnD7wAhtY54Li65ln4r
-	Xu/pLVUSDE9/TgA0bkZ6IUT/vDQOpUvzX82pfyvG2n/3OgoFwO1Pncxwpd4nGsIcQsD2C/pJOd0nh
-	7Byn8hQXUb63LwTG91ZjmjgTZitg2cG+qnY6pO2RNedXEnmdot2d3PwbeJERibVQKC8D3KBIfDxAD
-	DbjIDR4l8A7ZB0ThUaWb5O7ZJ2tNfE9yrnbzX2M9aAjNZ04A620yxoQH1WzSzg9QJ3QaqZEs8spo0
-	SnZYRqULX3RGyfaDTnGQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=M2CMt8w2yFhJ3Mt/dk2LvAWnhTvi3AsF1HTEM5vQylM=; b=SPVc8nQJW7dlqM
+	4SMZ0o2q+BqbfkkLITipYc+8HkSpUzmSB6u+NLhZE1gjG53GM+7dgPasJq4os2GZX/9cDdnrOp6Ij
+	Yf41aabbV8BT2Rywn+i/gfywfbRbCsFJkDabSbBGT9vBZkJlcc1pYtrsPN1t7bT9uibYd2VFtLWtg
+	rUZzU/bEEpv/0TcA0hI3O4RKhtvk7e77H1npICD2X8dMnCJFC+zQibeovLSYGtZWod4qtaRvDw6NV
+	IptFRNo1Uap0vjb/QK1vXC8kRrsaAuTB/AeuK7BBRO6+xywi8Lnvs6SbG0I+rnEfKZvbzuAWrQRbw
+	L9h117powm30Dhofa2sQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tffLE-00000003Nj7-0ct7;
-	Wed, 05 Feb 2025 13:21:20 +0000
-Received: from freeshell.de ([116.202.128.144])
+	id 1tfg3s-00000003Ubw-1OmF;
+	Wed, 05 Feb 2025 14:07:28 +0000
+Received: from xavier.telenet-ops.be ([2a02:1800:120:4::f00:14])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tffLB-00000003NiK-3TIx
+	id 1tfg3p-00000003Uam-132e
 	for linux-riscv@lists.infradead.org;
-	Wed, 05 Feb 2025 13:21:19 +0000
-Received: from [192.168.2.35] (unknown [98.97.25.24])
-	(Authenticated sender: e)
-	by freeshell.de (Postfix) with ESMTPSA id E28DBB4C025C;
-	Wed,  5 Feb 2025 14:21:12 +0100 (CET)
-Message-ID: <33b971dc-1266-4d13-b9b7-620c58e5a804@freeshell.de>
-Date: Wed, 5 Feb 2025 05:21:11 -0800
+	Wed, 05 Feb 2025 14:07:27 +0000
+Received: from ramsan.of.borg ([IPv6:2a02:1810:ac12:ed80:fa11:c14e:2df5:5273])
+	by xavier.telenet-ops.be with cmsmtp
+	id 9q7K2E00f3f221S01q7KkZ; Wed, 05 Feb 2025 15:07:20 +0100
+Received: from rox.of.borg ([192.168.97.57])
+	by ramsan.of.borg with esmtp (Exim 4.97)
+	(envelope-from <geert@linux-m68k.org>)
+	id 1tfg3X-0000000FvyS-315G;
+	Wed, 05 Feb 2025 15:07:19 +0100
+Received: from geert by rox.of.borg with local (Exim 4.97)
+	(envelope-from <geert@linux-m68k.org>)
+	id 1tfg3j-00000006Vpg-3DNG;
+	Wed, 05 Feb 2025 15:07:19 +0100
+From: Geert Uytterhoeven <geert+renesas@glider.be>
+To: Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Conor Dooley <conor.dooley@microchip.com>,
+	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+Cc: linux-riscv@lists.infradead.org,
+	linux-renesas-soc@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Geert Uytterhoeven <geert+renesas@glider.be>
+Subject: [PATCH v2] riscv: defconfig: Disable Renesas SoC support
+Date: Wed,  5 Feb 2025 15:07:17 +0100
+Message-ID: <e8a2fb273c8c68bd6d526b924b4212f397195b28.1738764211.git.geert+renesas@glider.be>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 2/5] riscv: dts: starfive: jh7110-common: qspi flash
- setting read-delay 2 cycles max 100MHz
-To: Emil Renner Berthing <emil.renner.berthing@canonical.com>,
- Emil Renner Berthing <kernel@esmil.dk>, Conor Dooley <conor@kernel.org>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>
-Cc: linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
- linux-riscv@lists.infradead.org, Hal Feng <hal.feng@starfivetech.com>
-References: <20250203013730.269558-1-e@freeshell.de>
- <20250203013730.269558-3-e@freeshell.de>
- <CAJM55Z9s4FMCmGaGPGBdcJWxoTNO1gupMLAq2a1fExiho5W1jw@mail.gmail.com>
-Content-Language: en-US
-From: E Shattow <e@freeshell.de>
-In-Reply-To: <CAJM55Z9s4FMCmGaGPGBdcJWxoTNO1gupMLAq2a1fExiho5W1jw@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250205_052118_013870_EC501E0A 
-X-CRM114-Status: GOOD (  15.64  )
+X-CRM114-CacheID: sfid-20250205_060725_435407_90F80C2F 
+X-CRM114-Status: UNSURE (   7.76  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,70 +74,46 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Emil,
+Follow-up to commit e36ddf3226864e09 ("riscv: defconfig: Disable RZ/Five
+peripheral support") in v6.12-rc1:
 
-On 2/5/25 02:18, Emil Renner Berthing wrote:
-> E Shattow wrote:
->> Sync qspi flash setting to read-delay=2 and spi-max-frequency 100MHz for
->> better compatibility with operating system and downstream boot loader SPL
->> secondary program loader.
-> 
-> Here you should be explaining why these values better describe the hardware. To
-> me this just reads as "u-boot does this, so let's do the same" whith doesn't
-> really explain anything.
-> 
-> /Emil
-> 
->>
->> Signed-off-by: E Shattow <e@freeshell.de>
->> Reviewed-by: Hal Feng <hal.feng@starfivetech.com>
->> ---
->>  arch/riscv/boot/dts/starfive/jh7110-common.dtsi | 4 ++--
->>  1 file changed, 2 insertions(+), 2 deletions(-)
->>
->> diff --git a/arch/riscv/boot/dts/starfive/jh7110-common.dtsi b/arch/riscv/boot/dts/starfive/jh7110-common.dtsi
->> index a5661b677687..8a59c3001339 100644
->> --- a/arch/riscv/boot/dts/starfive/jh7110-common.dtsi
->> +++ b/arch/riscv/boot/dts/starfive/jh7110-common.dtsi
->> @@ -317,8 +317,8 @@ &qspi {
->>  	nor_flash: flash@0 {
->>  		compatible = "jedec,spi-nor";
->>  		reg = <0>;
->> -		cdns,read-delay = <5>;
->> -		spi-max-frequency = <12000000>;
->> +		cdns,read-delay = <2>;
->> +		spi-max-frequency = <100000000>;
->>  		cdns,tshsl-ns = <1>;
->>  		cdns,tsd2d-ns = <1>;
->>  		cdns,tchsh-ns = <1>;
->> --
->> 2.47.2
->>
+  - Disable ARCH_RENESAS, too, as currently RZ/Five is the sole Renesas
+    RISC-V SoC,
+  - Drop no longer needed explicit disable of USB_XHCI_RCAR, which
+    depends on ARCH_RENESAS.
 
-That is true, there's not much to explain. It works at delay 2 and
-100MHz max. I tried many delay values with the pre-existing 12MHz max,
-they did not work. I don't have more information than that except what I
-wrote about on the U-Boot mailing list [1]
+Signed-off-by: Geert Uytterhoeven <geert+renesas@glider.be>
+Reviewed-by: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+---
+v2:
+  - Add Reviewed-by.
+---
+ arch/riscv/configs/defconfig | 2 --
+ 1 file changed, 2 deletions(-)
 
-[1]
-https://lore.kernel.org/u-boot/ZQ2PR01MB13072E932737DD9D65E3A250E637A@ZQ2PR01MB1307.CHNPR01.prod.partner.outlook.cn/
+diff --git a/arch/riscv/configs/defconfig b/arch/riscv/configs/defconfig
+index 0f7dcbe3c45bb597..3c8e16d71e175e0e 100644
+--- a/arch/riscv/configs/defconfig
++++ b/arch/riscv/configs/defconfig
+@@ -26,7 +26,6 @@ CONFIG_EXPERT=y
+ # CONFIG_SYSFS_SYSCALL is not set
+ CONFIG_PROFILING=y
+ CONFIG_ARCH_MICROCHIP=y
+-CONFIG_ARCH_RENESAS=y
+ CONFIG_ARCH_SIFIVE=y
+ CONFIG_ARCH_SOPHGO=y
+ CONFIG_ARCH_SPACEMIT=y
+@@ -202,7 +201,6 @@ CONFIG_USB=y
+ CONFIG_USB_OTG=y
+ CONFIG_USB_XHCI_HCD=y
+ CONFIG_USB_XHCI_PLATFORM=y
+-# CONFIG_USB_XHCI_RCAR is not set
+ CONFIG_USB_EHCI_HCD=y
+ CONFIG_USB_EHCI_HCD_PLATFORM=y
+ CONFIG_USB_OHCI_HCD=y
+-- 
+2.43.0
 
-The parameter training code in U-Boot when given max 100MHz has this at
-somewhere between delay 2 and delay 3, where delay 3 almost appears to
-work but there's data corruption, and delay 1 is totally non-functional.
-With all testing so far the delay 2 and max frequency 100MHz is reliable
-and also is a common occurrence in the Linux code base for similar qspi
-access.
-
-My testing methodology was pretty extensive and I wrote about the result
-on the U-Boot mailing list, however here we're taking the success of
-that in U-Boot and literally just applying it to Linux where it also
-happens to align with some common similar assignments for other boards
-in the devicetree code base. It works and there's no deeper insight here.
-
-Welcome to hear from anyone that might actually understand this hardware?
-
--E
 
 _______________________________________________
 linux-riscv mailing list
