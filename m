@@ -4,92 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1393DC02199
-	for <linux-riscv@archiver.kernel.org>; Wed,  5 Feb 2025 01:22:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 67F88C02194
+	for <linux-riscv@archiver.kernel.org>; Wed,  5 Feb 2025 01:22:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=hRKwbmU5qBvoQWc+V/8xtLYTXQbaV7ZdQ8JJQmB+HDc=; b=06ODJyuZNwfZ4M
-	Ab7sFdMmyWxpDs9kmNnDmRBxNorupRxO1EuoCvcmt9NzH/mlQ3HI5z5HnK9oTRor4zzurXmlYSdSN
-	NCj/vNAGaWgCR4LnKOaVrBR8IA9dZaxNY2bERaLPmcNjnlWOLMk3g6/xH1usM9rnXy2mw3p0R8+Tw
-	G1gjJOsoH1nukou0HL190brdTG2DNPKZNOQe8zFs8ouXbGjGUW6vER5sKACEgY5FmhyF0BcQMvqe3
-	oLOcA+MYguPMjSiqXZf+BILLJ7N/Y8mQ57wF2cd9hObBKW47pIZAFw/MOOjIuz0EoYAw3FsRJvJLs
-	8lFW0LsrWIiZ130oIcPQ==;
+	List-Owner; bh=vvf5U8P1ZUcySyE1vXvRk52WWtxnDT+sqWXeLjvDYqg=; b=sz125QnVVacraM
+	Vd+bz2dmBYEm2Fi6XYy33HrSQ7qoqBVaIxsLrTEG1RSiVQu9hSNrTarHJLu1YPziCeaBXxueyqDHI
+	yh0Dcd3nyEHUgk/ePYZO/bLAfXED564/47v5fsPT7g3A2AV60hiNrihqRTaCYMqDDRM04lGHgkzwp
+	EKr9puYPD02Y4lCKva0LckjWzYukETq4nmXf8rNO64qithQKrrxhOORQUuVRuLo62vk2zurtOdyEU
+	ajshVnAp/khYG+121mgVxHn5/73X0fN1UqT+Xq53vb9IhLACNDwYG+2U7pAGmNSueflj+Ef+DJ0fB
+	H7VX9D5kJFm/I5ZCNBjA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfU7G-000000021IZ-3MNl;
-	Wed, 05 Feb 2025 01:22:10 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1tfU7Z-000000021bN-3zhy;
+	Wed, 05 Feb 2025 01:22:29 +0000
+Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfU7F-000000021GI-0bwN
+	id 1tfU7X-000000021YH-2lz7
 	for linux-riscv@bombadil.infradead.org;
-	Wed, 05 Feb 2025 01:22:09 +0000
+	Wed, 05 Feb 2025 01:22:27 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
-	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=n3DM8zy+WllPP0TujEXFZ0Ycc0zGrpNRrMRWPkPmGZc=; b=M6QdiNEyyjZON7dFJBd+p6wDZG
-	/NRzhI41j9+jmZpXN8J6+7L2cut3+rHnkcpHu1QIPEkhTf7ANXLo/7GrOtH0ZI8OKF2dwhoyde0Fs
-	E+w1I/wUB8ScMeAAzpsFtP0wVQ0xOo1NcaQRZXFzzvWmnKEgT+sLtpxt+wv3RflR+bPIbeuUCYS41
-	nAY4g4RA01DhLzlkXmX5IIezjWezbqTFATxnHjienbQ1PyRcojmGd5tsb5bjsYYiCV+3Z4mVXTvC+
-	SR5S6Fxw/TjohcMx6Y741Rlldzb0Q+lkSdtQO1TBVbGtMRzjKqFhVGIJ0cOeQRmSSuxwnXMVXjQzz
-	fUSO3kAQ==;
-Received: from mail-pj1-x1029.google.com ([2607:f8b0:4864:20::1029])
-	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfU7B-0000000GTo8-23ci
+	d=infradead.org; s=casper.20170209; h=Cc:To:In-Reply-To:References:Message-Id
+	:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:Sender
+	:Reply-To:Content-ID:Content-Description;
+	bh=M49HWf8gzr6wWBf1Qtr4VOivQAEEQjfyuWgORGOVTSw=; b=I5fgoDt7tQXaJZDZclth0zdOpY
+	af+6W08kllhe7hUvJxIcyO2wa/EajwjvNRjtIlhYcqIa2u1AwPVICJomu3FvZx7go5j1qI5BjxI7y
+	SLdK7u4wpVfJ6t1alCWTypqHFQenBismq0ZeZHw+O4enMbI/MNtOsLeid5lhE8/lncJEcGXfUfw/b
+	2Ts9Aa4B7M7q/KSeUGkV8KTqO3oAqiC3q4D8tA0ip7asDeUlXCk01b7RnexvevLAbiJtdy8ozwClu
+	1XhP+AW9SuOM6p1bKQsIULLHNC/tmE0GGA+f5laQfR28DM5X0XMjsaQgQB1H6COU09rlE4iOw+ajX
+	mlKaClWQ==;
+Received: from mail-pj1-x1031.google.com ([2607:f8b0:4864:20::1031])
+	by casper.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tfU7U-00000003c6A-0WkI
 	for linux-riscv@lists.infradead.org;
-	Wed, 05 Feb 2025 01:22:07 +0000
-Received: by mail-pj1-x1029.google.com with SMTP id 98e67ed59e1d1-2f9c69aefdbso2172017a91.2
-        for <linux-riscv@lists.infradead.org>; Tue, 04 Feb 2025 17:22:03 -0800 (PST)
+	Wed, 05 Feb 2025 01:22:26 +0000
+Received: by mail-pj1-x1031.google.com with SMTP id 98e67ed59e1d1-2f9da2a7004so883215a91.0
+        for <linux-riscv@lists.infradead.org>; Tue, 04 Feb 2025 17:22:23 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1738718522; x=1739323322; darn=lists.infradead.org;
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1738718541; x=1739323341; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=n3DM8zy+WllPP0TujEXFZ0Ycc0zGrpNRrMRWPkPmGZc=;
-        b=vEuPAuOw66q6qHMQ4i7+QbPikhW2qoRyCCrQl6cSIPgDx+fSf1BQsd5sring1GrXbI
-         U9X0uRdrDnbmAd20S5R7VPiN04scvft/WI/s1HRjlRyueALmGcorNucCCpxWLYkf0Wbm
-         iT5f1RdrP67OFNdnC5+PIaWUNm/hyKTqbEBB9vXH9uxFQvMYNY0IULsKPihEejtf330r
-         uNl1NZRvaFBQ88JHpvxhrQ9zSu8VgrdOf1SqupSWKaRQ2pslyaQ0aMPO8owxPMWEuyOx
-         7UxTRxVAoRRHYpc0URI+ZGhFMmcHrlSeXkrjBlQV9B1LaPF5TZHVUYacITERozd8o5U3
-         O3ZA==
+        bh=M49HWf8gzr6wWBf1Qtr4VOivQAEEQjfyuWgORGOVTSw=;
+        b=jC8FkK43F+LPdU/9WAEB8glvSDemMhLcC6UlsRZPWrox1MTiP6DtSjR49k4yHnnxSP
+         Pd0H/BB8rQ0UyngkEyeV5NuqCwkJtjRd+WV68UCSAa8cfrOQmwgBkKWQpYmemAOsPTmw
+         ttxJCY+bHokYmGaS2gQMSAub62qFqGWjWg6+CABS3g9kWCIzKoKb+TEvRxKbElCZ/UU/
+         uYq03i+GoigYAC5Xfg3w1Yi0uH6lGOA6VSq9bgwbrZ8URpetuIZbNQugSAYo4tVMWgzK
+         BFMaBM2XeYEVAl1FGxAuDSdVAORCBQz0Hq7u6rRpxdyvshknrIctV5Jc5R4lKc4FIyvp
+         6SaQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1738718522; x=1739323322;
+        d=1e100.net; s=20230601; t=1738718541; x=1739323341;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=n3DM8zy+WllPP0TujEXFZ0Ycc0zGrpNRrMRWPkPmGZc=;
-        b=vIKFWoZVogwo8xnNT6z1adpKDL9Ysg0/xfBU6jFMfuPGnVMSV6woyoUspzntpmT1RQ
-         uS1kOdg60e6h7DfxVaw1id6pWRZzTYWYF4VNgHIupKyteo9CErS8yDXpVP5FklXCVR5H
-         O69tJhPnoN5pSGx0Z5qIY0QPkUbeE/MVFj0dQwNuLcUa9aH2mJT69JJAHFvN7j+FHc7g
-         keUDx/qLXQjzgqYlS4QNVe1WFdFPDkQVkQIiEXpqlj8ubdWOsjh8xFIzL8b9+hKmoXbq
-         plxyJ2qSb8DjBRVTKRqx20c5/V8bzVLfQrg0XWFCuq8kdZm5eFulATnli2jk/0DAKjc9
-         wKLg==
-X-Forwarded-Encrypted: i=1; AJvYcCXCBLa+Lh5SyycGU8tAlTQjxKKBDVzySH4X4QckYuUsktWDKCDLxj+ZQLFcmfEUpkU1iE9evqKriLGb0A==@lists.infradead.org
-X-Gm-Message-State: AOJu0YyEpJQyL+xrFnPagFkCn8csn6N3Nl0HktY8z6rtHU1wF+k+QTA4
-	XywdX667O1JfyOKedwOLaCvFwUCrLt8laoe7WOSD6EWjLrw9io8o+U7Y+JCGlHVVOoFavdPo+u7
-	j
-X-Gm-Gg: ASbGncv3pX6GC1UgLSAuDi6ZyeR5/jQ1OaYrMUzWgUblL68hyZKOsG8c33GI9VqbN31
-	es5p+pA6Ew8045wxai3aebOgUyF4vX0Y7/1Yr1KxbYCWCrD2TMwTogpPh2oRx/n1PectDubSpUd
-	YLMBDaQbDx7V9lME12PD7m8Qfw2L7KLswVpMiMqTPZSlDDl6d2wvnz5shgJeX5OcDlE70+0pPof
-	xQjEKMHJDU8182U/kh+HoUP8gFxxF0hrhumyh7EeBvluOnjO6QQeDRGhvlqxeTekCvzqVmhml3m
-	UVzc1tpvLGuz6TQqf/MAFsADXg==
-X-Google-Smtp-Source: AGHT+IGTMhaxmFsvWrTefkXBFDqJevilxfDmNJ8PU7kLoH+rq+SB81MDslBfLWbGGJU9DTXRp8pAhQ==
-X-Received: by 2002:a05:6a00:2287:b0:725:e499:5b86 with SMTP id d2e1a72fcca58-7303521977bmr1539398b3a.20.1738718521754;
-        Tue, 04 Feb 2025 17:22:01 -0800 (PST)
+        bh=M49HWf8gzr6wWBf1Qtr4VOivQAEEQjfyuWgORGOVTSw=;
+        b=kFrB24em9I3mLU3vcZ1oNqMMfB8Z0WmYwaOzn3qMY8+4tCW0Nc+U7vYJfoXzBaHLRG
+         VbwKV7LZsTG4da1HvegQx6XduEATfmaoJesZnw5IwncYjI8L1agHmUW8xBRy6PVDgDG7
+         VSgBzvz58X3WYyyYiS+0bq1XZgSDwSKUGtGr3WbZeTjbsPvjTB3/ZU1CFnh44wz39x0U
+         r5jXREI2cadjdF2BmOiC6yjqxMLzCWhlpYSgYsUV/vQLD3EFwTeoGAId5muWdXxeu+Xz
+         5lzBGdiwjUUJFl2P959ad8/0OhkBKREcR3v1fXGjlFyekgsbw4ThQ0q/GUJf3kyLt7UH
+         RBlA==
+X-Forwarded-Encrypted: i=1; AJvYcCW91GBgHo0OeyfO4fd7sevWUoMV7jBEGzVkNJH5jtkzeXXewrG5fEHp+mqVgauuCghKNvlSv+2sd62BnQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0YydgqGGipzgHUJaRZcgNuZpXAP/oO19o7B6yJ8GIgptf5PfzIzr
+	HKdsvPiIsav2DXrmRcXfw7Bd4IiQ8iH1kW6GVF2JjrVyw3D4kPdyrLYI3LdGeybKgmlaZGfj65n
+	7
+X-Gm-Gg: ASbGncv8LlE5wG0lRRbFM/qrbf89PanR0SMLtnmW49a/q4dGGWb4FK9m4XqeAFWIV8j
+	toItq4CZnsTj281QQ/+acysPVcpAVaKsy4qI/v8SsJQvFpOWNcDaR7XkmLadmLZi7Bwabfih3JN
+	V8l7FY9/HwWZS8fGwiuZGoDOD94gZPiBZr5VyMdQMA6EeWlWRCSt18kXgdgCJqs/DyuvKJ1tXb/
+	Zpun3c2eNgV0u5onYsdgjUAaY+9Rt1JGzt2WDfygmX3ea3Flik7ldIOL4XdOzgpdM5HGrYHhY+6
+	4ADcpSGkIDMaznZ3MB3eIJuw1Q==
+X-Google-Smtp-Source: AGHT+IFplfoY4kwYRUYkUapPyLUTmtCYI1kOBemc2Fu2DroKYmpICeBEsM6C9QAH02Mf3MaRp7pG+A==
+X-Received: by 2002:a05:6a00:3cc1:b0:72d:4d77:ccc with SMTP id d2e1a72fcca58-7303511ae5cmr1489432b3a.6.1738718540683;
+        Tue, 04 Feb 2025 17:22:20 -0800 (PST)
 Received: from debug.ba.rivosinc.com ([64.71.180.162])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-72fe69cec0fsm11457202b3a.137.2025.02.04.17.22.00
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-72fe69cec0fsm11457202b3a.137.2025.02.04.17.22.18
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 04 Feb 2025 17:22:01 -0800 (PST)
+        Tue, 04 Feb 2025 17:22:20 -0800 (PST)
 From: Deepak Gupta <debug@rivosinc.com>
-Date: Tue, 04 Feb 2025 17:21:51 -0800
-Subject: [PATCH v9 04/26] riscv: zicfiss / zicfilp extension csr and bit
- definitions
+Date: Tue, 04 Feb 2025 17:22:01 -0800
+Subject: [PATCH v9 14/26] riscv/traps: Introduce software check exception
 MIME-Version: 1.0
-Message-Id: <20250204-v5_user_cfi_series-v9-4-b37a49c5205c@rivosinc.com>
+Message-Id: <20250204-v5_user_cfi_series-v9-14-b37a49c5205c@rivosinc.com>
 References: <20250204-v5_user_cfi_series-v9-0-b37a49c5205c@rivosinc.com>
 In-Reply-To: <20250204-v5_user_cfi_series-v9-0-b37a49c5205c@rivosinc.com>
 To: Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>, 
@@ -119,8 +118,8 @@ Cc: linux-kernel@vger.kernel.org, linux-fsdevel@vger.kernel.org,
  rick.p.edgecombe@intel.com, Deepak Gupta <debug@rivosinc.com>
 X-Mailer: b4 0.14.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250205_012205_952524_288C576C 
-X-CRM114-Status: GOOD (  10.47  )
+X-CRM114-CacheID: sfid-20250205_012224_211271_1525004D 
+X-CRM114-Status: GOOD (  19.45  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -137,66 +136,120 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-zicfiss and zicfilp extension gets enabled via b3 and b2 in *envcfg CSR.
-menvcfg controls enabling for S/HS mode. henvcfg control enabling for VS
-while senvcfg controls enabling for U/VU mode.
+zicfiss / zicfilp introduces a new exception to priv isa `software check
+exception` with cause code = 18. This patch implements software check
+exception.
 
-zicfilp extension extends *status CSR to hold `expected landing pad` bit.
-A trap or interrupt can occur between an indirect jmp/call and target
-instr. `expected landing pad` bit from CPU is recorded into xstatus CSR so
-that when supervisor performs xret, `expected landing pad` state of CPU can
-be restored.
+Additionally it implements a cfi violation handler which checks for code
+in xtval. If xtval=2, it means that sw check exception happened because of
+an indirect branch not landing on 4 byte aligned PC or not landing on
+`lpad` instruction or label value embedded in `lpad` not matching label
+value setup in `x7`. If xtval=3, it means that sw check exception happened
+because of mismatch between link register (x1 or x5) and top of shadow
+stack (on execution of `sspopchk`).
 
-zicfiss adds one new CSR
-- CSR_SSP: CSR_SSP contains current shadow stack pointer.
+In case of cfi violation, SIGSEGV is raised with code=SEGV_CPERR.
+SEGV_CPERR was introduced by x86 shadow stack patches.
 
 Signed-off-by: Deepak Gupta <debug@rivosinc.com>
-Reviewed-by: Charlie Jenkins <charlie@rivosinc.com>
 ---
- arch/riscv/include/asm/csr.h | 16 ++++++++++++++++
- 1 file changed, 16 insertions(+)
+ arch/riscv/include/asm/asm-prototypes.h |  1 +
+ arch/riscv/include/asm/entry-common.h   |  2 ++
+ arch/riscv/kernel/entry.S               |  3 +++
+ arch/riscv/kernel/traps.c               | 43 +++++++++++++++++++++++++++++++++
+ 4 files changed, 49 insertions(+)
 
-diff --git a/arch/riscv/include/asm/csr.h b/arch/riscv/include/asm/csr.h
-index 6fed42e37705..2f49b9663640 100644
---- a/arch/riscv/include/asm/csr.h
-+++ b/arch/riscv/include/asm/csr.h
-@@ -18,6 +18,15 @@
- #define SR_MPP		_AC(0x00001800, UL) /* Previously Machine */
- #define SR_SUM		_AC(0x00040000, UL) /* Supervisor User Memory Access */
+diff --git a/arch/riscv/include/asm/asm-prototypes.h b/arch/riscv/include/asm/asm-prototypes.h
+index cd627ec289f1..5a27cefd7805 100644
+--- a/arch/riscv/include/asm/asm-prototypes.h
++++ b/arch/riscv/include/asm/asm-prototypes.h
+@@ -51,6 +51,7 @@ DECLARE_DO_ERROR_INFO(do_trap_ecall_u);
+ DECLARE_DO_ERROR_INFO(do_trap_ecall_s);
+ DECLARE_DO_ERROR_INFO(do_trap_ecall_m);
+ DECLARE_DO_ERROR_INFO(do_trap_break);
++DECLARE_DO_ERROR_INFO(do_trap_software_check);
  
-+/* zicfilp landing pad status bit */
-+#define SR_SPELP	_AC(0x00800000, UL)
-+#define SR_MPELP	_AC(0x020000000000, UL)
-+#ifdef CONFIG_RISCV_M_MODE
-+#define SR_ELP		SR_MPELP
-+#else
-+#define SR_ELP		SR_SPELP
-+#endif
+ asmlinkage void handle_bad_stack(struct pt_regs *regs);
+ asmlinkage void do_page_fault(struct pt_regs *regs);
+diff --git a/arch/riscv/include/asm/entry-common.h b/arch/riscv/include/asm/entry-common.h
+index b28ccc6cdeea..34ed149af5d1 100644
+--- a/arch/riscv/include/asm/entry-common.h
++++ b/arch/riscv/include/asm/entry-common.h
+@@ -40,4 +40,6 @@ static inline int handle_misaligned_store(struct pt_regs *regs)
+ }
+ #endif
+ 
++bool handle_user_cfi_violation(struct pt_regs *regs);
 +
- #define SR_FS		_AC(0x00006000, UL) /* Floating-point Status */
- #define SR_FS_OFF	_AC(0x00000000, UL)
- #define SR_FS_INITIAL	_AC(0x00002000, UL)
-@@ -212,6 +221,8 @@
- #define ENVCFG_PMM_PMLEN_16		(_AC(0x3, ULL) << 32)
- #define ENVCFG_CBZE			(_AC(1, UL) << 7)
- #define ENVCFG_CBCFE			(_AC(1, UL) << 6)
-+#define ENVCFG_LPE			(_AC(1, UL) << 2)
-+#define ENVCFG_SSE			(_AC(1, UL) << 3)
- #define ENVCFG_CBIE_SHIFT		4
- #define ENVCFG_CBIE			(_AC(0x3, UL) << ENVCFG_CBIE_SHIFT)
- #define ENVCFG_CBIE_ILL			_AC(0x0, UL)
-@@ -230,6 +241,11 @@
- #define SMSTATEEN0_HSENVCFG		(_ULL(1) << SMSTATEEN0_HSENVCFG_SHIFT)
- #define SMSTATEEN0_SSTATEEN0_SHIFT	63
- #define SMSTATEEN0_SSTATEEN0		(_ULL(1) << SMSTATEEN0_SSTATEEN0_SHIFT)
-+/*
-+ * zicfiss user mode csr
-+ * CSR_SSP holds current shadow stack pointer.
-+ */
-+#define CSR_SSP                 0x011
+ #endif /* _ASM_RISCV_ENTRY_COMMON_H */
+diff --git a/arch/riscv/kernel/entry.S b/arch/riscv/kernel/entry.S
+index 00494b54ff4a..9c00cac3f6f2 100644
+--- a/arch/riscv/kernel/entry.S
++++ b/arch/riscv/kernel/entry.S
+@@ -472,6 +472,9 @@ SYM_DATA_START_LOCAL(excp_vect_table)
+ 	RISCV_PTR do_page_fault   /* load page fault */
+ 	RISCV_PTR do_trap_unknown
+ 	RISCV_PTR do_page_fault   /* store page fault */
++	RISCV_PTR do_trap_unknown /* cause=16 */
++	RISCV_PTR do_trap_unknown /* cause=17 */
++	RISCV_PTR do_trap_software_check /* cause=18 is sw check exception */
+ SYM_DATA_END_LABEL(excp_vect_table, SYM_L_LOCAL, excp_vect_table_end)
  
- /* mseccfg bits */
- #define MSECCFG_PMM			ENVCFG_PMM
+ #ifndef CONFIG_MMU
+diff --git a/arch/riscv/kernel/traps.c b/arch/riscv/kernel/traps.c
+index 8ff8e8b36524..3f7709f4595a 100644
+--- a/arch/riscv/kernel/traps.c
++++ b/arch/riscv/kernel/traps.c
+@@ -354,6 +354,49 @@ void do_trap_ecall_u(struct pt_regs *regs)
+ 
+ }
+ 
++#define CFI_TVAL_FCFI_CODE	2
++#define CFI_TVAL_BCFI_CODE	3
++/* handle cfi violations */
++bool handle_user_cfi_violation(struct pt_regs *regs)
++{
++	bool ret = false;
++	unsigned long tval = csr_read(CSR_TVAL);
++
++	if ((tval == CFI_TVAL_FCFI_CODE && cpu_supports_indirect_br_lp_instr()) ||
++	    (tval == CFI_TVAL_BCFI_CODE && cpu_supports_shadow_stack())) {
++		do_trap_error(regs, SIGSEGV, SEGV_CPERR, regs->epc,
++			      "Oops - control flow violation");
++		ret = true;
++	}
++
++	return ret;
++}
++
++/*
++ * software check exception is defined with risc-v cfi spec. Software check
++ * exception is raised when:-
++ * a) An indirect branch doesn't land on 4 byte aligned PC or `lpad`
++ *    instruction or `label` value programmed in `lpad` instr doesn't
++ *    match with value setup in `x7`. reported code in `xtval` is 2.
++ * b) `sspopchk` instruction finds a mismatch between top of shadow stack (ssp)
++ *    and x1/x5. reported code in `xtval` is 3.
++ */
++asmlinkage __visible __trap_section void do_trap_software_check(struct pt_regs *regs)
++{
++	if (user_mode(regs)) {
++		irqentry_enter_from_user_mode(regs);
++
++		/* not a cfi violation, then merge into flow of unknown trap handler */
++		if (!handle_user_cfi_violation(regs))
++			do_trap_unknown(regs);
++
++		irqentry_exit_to_user_mode(regs);
++	} else {
++		/* sw check exception coming from kernel is a bug in kernel */
++		die(regs, "Kernel BUG");
++	}
++}
++
+ #ifdef CONFIG_MMU
+ asmlinkage __visible noinstr void do_page_fault(struct pt_regs *regs)
+ {
 
 -- 
 2.34.1
