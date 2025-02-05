@@ -4,100 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9B84C02192
-	for <linux-riscv@archiver.kernel.org>; Wed,  5 Feb 2025 19:48:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E497C02198
+	for <linux-riscv@archiver.kernel.org>; Wed,  5 Feb 2025 20:20:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=66DIFEka4J1e7vppoGD2Z2XAUxWCd+mmlD+/VxcGmto=; b=1L6nJwRGUuJgKE
-	0pSyIjnGWy7xSZPxvOq6L0f6aDvT0c3F/5Tl+RisB7VWplZAuGBpTMkThIBS1Ll7JzPUNbXYeVg7+
-	jNEfxZz+vjx4B+KU2/eENfGlcJyPCPeQN7gqQnP/Uy6GCqJ1ZeleGxPtxGCAD4RcJJ8+8hF+rHCnC
-	QbkA4BEpwviwQxtfUBwEK8legY6ES/BcN95xF8Rbtn4GpIatH5pXKu41bhN114g2cFDAjjgVwuxUT
-	ilRD9vx8DTOqEMgLy/IF4+bnemJap8XohfXKmHcJZA1+tqMNqdKLJtiOaVTVjzYEhAfzlIFbhbegR
-	uIdEEJadO5mb+5N8MIlA==;
+	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
+	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
+	bh=2euPb0A2j/w6Bv3TL5TUdxamL7Fl2gxNI9y221FRmYg=; b=nn9eNmmRxjQYm8injK2XqSLZSv
+	uzzMW+qY68b6mNzYcROi6LGZMFGGZXomTfenkfvFJVNWO3sg2TEuLibGqTi35yVn1ViY8c9Lx2jC+
+	6YyGLAbfg+wdSwm7UgckQKU0f2GBPcStdrLqxChzMGAPjBq5mqML9oQOxIygjUj/izjNW6h+iYrUW
+	sYGRteXiaeS80RNW66hYRqKUErP1Z2kc7UQL1jwfDzKewNrq+5vY24wik+T9FSWBUfv7RGRIuEYg5
+	I7GgcR4V5zpIoNDrHc52Yxkmrxo8uGWGvCqTuLt/TCmY+zbS6cw8i7HbiOANoXZX+gBrrpz2yQcDm
+	ftvUuQUg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tflNj-00000004SCA-3jvQ;
-	Wed, 05 Feb 2025 19:48:19 +0000
-Received: from omta040.useast.a.cloudfilter.net ([44.202.169.39])
+	id 1tflsd-00000004XOf-3tcR;
+	Wed, 05 Feb 2025 20:20:15 +0000
+Received: from mail-pj1-x1036.google.com ([2607:f8b0:4864:20::1036])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tflNh-00000004SB2-1mg6
+	id 1tflsZ-00000004XN8-3Zzq
 	for linux-riscv@lists.infradead.org;
-	Wed, 05 Feb 2025 19:48:19 +0000
-Received: from eig-obgw-5001a.ext.cloudfilter.net ([10.0.29.139])
-	by cmsmtp with ESMTPS
-	id fi3NtD7fq1T3hflNVtJOv0; Wed, 05 Feb 2025 19:48:05 +0000
-Received: from box5620.bluehost.com ([162.241.219.59])
-	by cmsmtp with ESMTPS
-	id flNTtiPPbHEACflNUtQRAL; Wed, 05 Feb 2025 19:48:04 +0000
-X-Authority-Analysis: v=2.4 cv=HdLfTTE8 c=1 sm=1 tr=0 ts=67a3c074
- a=30941lsx5skRcbJ0JMGu9A==:117 a=30941lsx5skRcbJ0JMGu9A==:17
- a=IkcTkHD0fZMA:10 a=T2h4t0Lz3GQA:10 a=7vwVE5O1G3EA:10 a=DfNHnWVPAAAA:8
- a=HaFmDPmJAAAA:8 a=eXBiEjBhb-fYyGQ4tMMA:9 a=QEXdDO2ut3YA:10
- a=rjTVMONInIDnV1a_A2c_:22 a=nmWuMzfKamIsx3l42hEX:22 a=hTR6fmoedSdf3N0JiVF8:22
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=w6rz.net;
-	s=default; h=Content-Transfer-Encoding:Content-Type:In-Reply-To:From:
-	References:Cc:To:Subject:MIME-Version:Date:Message-ID:Sender:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
-	List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=8j1K6FAoEkl2PfNcREOsthr+nw54d02avdm2huO3uYM=; b=AeUc6gFGydkfFWzsttzHYnc0Rv
-	e24aVJmCxwJJKYXojO2e2nJ5WmzbqdGJeKuKdyJh65HofoXmYEkniZZzM6Q+Uws8N2ERAhmP+hWqC
-	xtPNDSeKs091bxu55NO0t5Ng57mOj7AnWNM6l/KeGrsttYQoxVQ8cm2dMxB0lk1IUqVuYlSLs0WSJ
-	Bwm2G25h6pLH8MqHdSgOW328XtfzVa/kXcMJonOhk89N93OWHtW+B0bV+ihUI54eLhj/KWplpJ6H2
-	PzM5f4nd/G7jbGFjfEGmioyPhBjZq6ZhA+iHHqkCXCdfPVxn9JrK2GH/gVIRp32dQP9CBc1RrmLg5
-	0g1unjBA==;
-Received: from c-73-223-253-157.hsd1.ca.comcast.net ([73.223.253.157]:44952 helo=[10.0.1.116])
-	by box5620.bluehost.com with esmtpsa  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
-	(Exim 4.96.2)
-	(envelope-from <re@w6rz.net>)
-	id 1tflNT-000v4b-0A;
-	Wed, 05 Feb 2025 12:48:03 -0700
-Message-ID: <9b6b27f2-f1c0-4d60-8535-86d057e51c6a@w6rz.net>
-Date: Wed, 5 Feb 2025 11:47:59 -0800
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v1] riscv: Use of_property_present() to test for
- non-boolean properties
-To: Emil Renner Berthing <emil.renner.berthing@canonical.com>,
- linux-riscv@lists.infradead.org
-Cc: Steffen Persvold <spersvold@gmail.com>,
- Paul Walmsley <paul.walmsley@sifive.com>, linux-kernel@vger.kernel.org,
- Jeremy Linton <jeremy.linton@arm.com>,
- Conor Dooley <conor.dooley@microchip.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, Yunhui Cui <cuiyunhui@bytedance.com>,
- Sudeep Holla <sudeep.holla@arm.com>,
- =?UTF-8?Q?Miquel_Sabat=C3=A9_Sol=C3=A0?= <mikisabate@gmail.com>
-References: <20250205143903.413959-1-emil.renner.berthing@canonical.com>
-Content-Language: en-US
-From: Ron Economos <re@w6rz.net>
-In-Reply-To: <20250205143903.413959-1-emil.renner.berthing@canonical.com>
-X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
-X-AntiAbuse: Primary Hostname - box5620.bluehost.com
-X-AntiAbuse: Original Domain - lists.infradead.org
-X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
-X-AntiAbuse: Sender Address Domain - w6rz.net
-X-BWhitelist: no
-X-Source-IP: 73.223.253.157
-X-Source-L: No
-X-Exim-ID: 1tflNT-000v4b-0A
-X-Source: 
-X-Source-Args: 
-X-Source-Dir: 
-X-Source-Sender: c-73-223-253-157.hsd1.ca.comcast.net ([10.0.1.116]) [73.223.253.157]:44952
-X-Source-Auth: re@w6rz.net
-X-Email-Count: 10
-X-Org: HG=bhshared;ORG=bluehost;
-X-Source-Cap: d3NpeHJ6bmU7d3NpeHJ6bmU7Ym94NTYyMC5ibHVlaG9zdC5jb20=
-X-Local-Domain: yes
-X-CMAE-Envelope: MS4xfK/JLBGxV1g7jBlF6kz7m3ecyMuGQkgpO8HBGpNfJMBe9gMiF9E7PG7I9HQg3vNmSNaaeWfeqoYMMj1Wp2XqBSt2H1zKFJMp/OnpJS0yEzpL5E2pJxc1
- bIFiGiUNOEaq93jQ2Hm0G/oV168lQFBWzcOvXzM4Jm/QShwWtUBNP2HN4JfHW4lZ0DG0whvZ0/Z9qPG0Ifz4xcDdnDLwqL27RWQ=
+	Wed, 05 Feb 2025 20:20:14 +0000
+Received: by mail-pj1-x1036.google.com with SMTP id 98e67ed59e1d1-2f9f5caa37cso1099679a91.0
+        for <linux-riscv@lists.infradead.org>; Wed, 05 Feb 2025 12:20:11 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=dabbelt-com.20230601.gappssmtp.com; s=20230601; t=1738786811; x=1739391611; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:to:from:cc
+         :in-reply-to:subject:date:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=IX+Sh5T3PaL+QWEnl0hjKKEH7VOJE9BsDETeBZSLsC4=;
+        b=gipzyJ0zCYRXDAwEDqecC71PucCERJZ+QOnCoYmTooFYiMB4quDTEbhcyL7p3+7t1c
+         pTGlBoDk/ieWol/03CZ4Ta2rj1ntl2i0yWmtoAea4UNVko8RhJTgtNM89Ct8vS0ejUPx
+         bFeXKhwYjoUw4xgWdu5tnr0/DackH4rexhwRs7fZnx8Zk/5jpT4utp+NqVkIsZXxZdga
+         rMxPYeWFtVTj1hrqQ+faXUGTgjz5m0joCq6pANt5dOgK0wuqU2x9iTYyorewdY+++2x2
+         w+BZwaqf4GwfsDwHruqF/FTWwFIaCb6gpWZpbXiJhQBKAPiGnT84qWQCTeDXpX7j7pJO
+         3tiw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1738786811; x=1739391611;
+        h=content-transfer-encoding:mime-version:message-id:to:from:cc
+         :in-reply-to:subject:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=IX+Sh5T3PaL+QWEnl0hjKKEH7VOJE9BsDETeBZSLsC4=;
+        b=cARuAbTSc3aQ0gkky3q0Hre6r0uuLClYZX1VUqxChcYr5d68ZS55M8xishbYtMDfsn
+         eU/tHSOibM8osro0FqJl1wa5rsZrUzdfwG1l/47fCtBTDhGq2b1NZ6+pFt3yfy9P1lqt
+         pF1u5/0b/Jo4rmD7VqaRO+LlPwHrmbTHK+E5eDTZt4TIYwLUWaS3yeVG3aqXwB16IXjq
+         tu1uLEqHVdWyRVYcJ4KeHsSt6xUnIby5nyvGYKlyNHrn1sCt3hyijkF4MTxjfd/ZbQ75
+         YTqPuFiPRT3fyWQbfBzbKu2eygnkGLrMrB1VYAZah8fE0opGCO9DGJlfg4mhEaUdmztO
+         TKsw==
+X-Forwarded-Encrypted: i=1; AJvYcCXYceY35FlMxtaHLZPPk/SD4Ec577SVfd1xTbfiJLJtqjcQH0LGPrOouspscBp94/viXZsm0ui66Zki/g==@lists.infradead.org
+X-Gm-Message-State: AOJu0YxRYhXQlNF5wVEEAM+pGE/PypKl+RzTayP+I1o9cEwJkL5dJGTN
+	aqWUqQoLLt83vropNVgGhhLQ/506/VTQr97upWAmQg9zm31H0/bFf7OcFSD4vWg=
+X-Gm-Gg: ASbGncvzJnV8VS9qh0ATiR0gnR5eW7ZAgPJYKuIae5bCLtTpnqgqQx9Iwu6hcP+XRD6
+	5OKOqLm7TrA9APmxe1IJ21iaLeoBtxXiCmCOn7l2s0tfPTn60xB8iv3J81RaMnOw+PIcpc3aPUc
+	Fa9P/3blaNEffoJ7znr6JNrRpuM+sKUareR8X9XUPWn3OxfsbEzJrtjfKJvEjgUqPIiuAgq/NEZ
+	TItY12N+fRzMAJ632uamstGNtQVk2l6uQzNeomSuDnTOj3gfMiHA34Lc5Rbep2HOHIGACamCZ4b
+	JRKk17JeKYY4
+X-Google-Smtp-Source: AGHT+IEFjhGWBA15EiC5Nj97NLp62uuszO3tIVmMaUsJvfBeL6+xT+t6gGEWElptXMC2M0mhdTS+Lw==
+X-Received: by 2002:a17:90a:e7c8:b0:2f7:b149:538f with SMTP id 98e67ed59e1d1-2f9ff787646mr1078810a91.4.1738786810832;
+        Wed, 05 Feb 2025 12:20:10 -0800 (PST)
+Received: from localhost ([192.184.165.199])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-2f9e1d77b73sm2228736a91.12.2025.02.05.12.20.10
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 05 Feb 2025 12:20:10 -0800 (PST)
+Date: Wed, 05 Feb 2025 12:20:10 -0800 (PST)
+X-Google-Original-Date: Wed, 05 Feb 2025 12:20:08 PST (-0800)
+Subject: Re: [PATCH 04/15] kasan: arm64: x86: risc-v: Make special tags arch specific
+In-Reply-To: <cdb119dcade0cea25745c920aba8434c27e4c93b.1738686764.git.maciej.wieczor-retman@intel.com>
+CC: luto@kernel.org, xin@zytor.com, kirill.shutemov@linux.intel.com, tj@kernel.org,
+  andreyknvl@gmail.com, brgerst@gmail.com, Ard Biesheuvel <ardb@kernel.org>,
+  dave.hansen@linux.intel.com, jgross@suse.com, Will Deacon <will@kernel.org>, akpm@linux-foundation.org,
+  Arnd Bergmann <arnd@arndb.de>, corbet@lwn.net, maciej.wieczor-retman@intel.com, dvyukov@google.com,
+  richard.weiyang@gmail.com, ytcoode@gmail.com, tglx@linutronix.de, hpa@zytor.com, seanjc@google.com,
+  Paul Walmsley <paul.walmsley@sifive.com>, aou@eecs.berkeley.edu, justinstitt@google.com, jason.andryuk@amd.com,
+  glider@google.com, ubizjak@gmail.com, jannh@google.com, bhe@redhat.com, vincenzo.frascino@arm.com,
+  rafael.j.wysocki@intel.com, ndesaulniers@google.com, mingo@redhat.com,
+  Catalin Marinas <catalin.marinas@arm.com>, junichi.nomura@nec.com, nathan@kernel.org, ryabinin.a.a@gmail.com,
+  dennis@kernel.org, bp@alien8.de, kevinloughlin@google.com, morbo@google.com,
+  dan.j.williams@intel.com, julian.stecklina@cyberus-technology.de, peterz@infradead.org, cl@linux.com,
+  kees@kernel.org, kasan-dev@googlegroups.com, x86@kernel.org,
+  linux-arm-kernel@lists.infradead.org, linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+  linux-mm@kvack.org, llvm@lists.linux.dev, linux-doc@vger.kernel.org
+From: Palmer Dabbelt <palmer@dabbelt.com>
+To: maciej.wieczor-retman@intel.com
+Message-ID: <mhng-33ede5ce-7625-431b-a48f-fd6abf7f78ba@palmer-ri-x1c9>
+Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250205_114817_595225_F5BA2E9B 
-X-CRM114-Status: GOOD (  10.46  )
+X-CRM114-CacheID: sfid-20250205_122012_159992_2B19BE71 
+X-CRM114-Status: GOOD (  30.75  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,59 +109,219 @@ Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 2/5/25 06:39, Emil Renner Berthing wrote:
-> The use of of_property_read_bool() for non-boolean properties is
-> deprecated and since
+On Tue, 04 Feb 2025 09:33:45 PST (-0800), maciej.wieczor-retman@intel.com wrote:
+> KASAN's tag-based mode defines multiple special tag values. They're
+> reserved for:
+> - Native kernel value. On arm64 it's 0xFF and it causes an early return
+>   in the tag checking function.
+> - Invalid value. 0xFE marks an area as freed / unallocated. It's also
+>   the value that is used to initialize regions of shadow memory.
+> - Max value. 0xFD is the highest value that can be randomly generated
+>   for a new tag.
 >
-> commit c141ecc3cecd ("of: Warn when of_property_read_bool() is used on non-boolean properties")
+> Metadata macro is also defined:
+> - Tag width equal to 8.
 >
-> a warning is displayed when used incorrectly. Fix it by switching to
-> of_property_present() as recommended in the same commit.
+> Tag-based mode on x86 is going to use 4 bit wide tags so all the above
+> values need to be changed accordingly.
 >
-> Signed-off-by: Emil Renner Berthing <emil.renner.berthing@canonical.com>
+> Make tags arch specific for x86, risc-v and arm64. On x86 the values
+> just lose the top 4 bits.
+>
+> Replace hardcoded kernel tag value and tag width with macros in KASAN's
+> non-arch specific code.
+>
+> Signed-off-by: Maciej Wieczor-Retman <maciej.wieczor-retman@intel.com>
 > ---
->   arch/riscv/kernel/cacheinfo.c | 12 ++++++------
->   1 file changed, 6 insertions(+), 6 deletions(-)
+>  MAINTAINERS                         |  2 +-
+>  arch/arm64/include/asm/kasan-tags.h |  9 +++++++++
+>  arch/riscv/include/asm/kasan-tags.h | 12 ++++++++++++
+>  arch/riscv/include/asm/kasan.h      |  4 ----
+>  arch/x86/include/asm/kasan-tags.h   |  9 +++++++++
+>  include/linux/kasan-tags.h          | 12 +++++++++++-
+>  include/linux/kasan.h               |  4 +++-
+>  include/linux/mm.h                  |  6 +++---
+>  include/linux/page-flags-layout.h   |  7 +------
+>  9 files changed, 49 insertions(+), 16 deletions(-)
+>  create mode 100644 arch/arm64/include/asm/kasan-tags.h
+>  create mode 100644 arch/riscv/include/asm/kasan-tags.h
+>  create mode 100644 arch/x86/include/asm/kasan-tags.h
 >
-> diff --git a/arch/riscv/kernel/cacheinfo.c b/arch/riscv/kernel/cacheinfo.c
-> index 2d40736fc37c..26b085dbdd07 100644
-> --- a/arch/riscv/kernel/cacheinfo.c
-> +++ b/arch/riscv/kernel/cacheinfo.c
-> @@ -108,11 +108,11 @@ int populate_cache_leaves(unsigned int cpu)
->   	if (!np)
->   		return -ENOENT;
->   
-> -	if (of_property_read_bool(np, "cache-size"))
-> +	if (of_property_present(np, "cache-size"))
->   		ci_leaf_init(this_leaf++, CACHE_TYPE_UNIFIED, level);
-> -	if (of_property_read_bool(np, "i-cache-size"))
-> +	if (of_property_present(np, "i-cache-size"))
->   		ci_leaf_init(this_leaf++, CACHE_TYPE_INST, level);
-> -	if (of_property_read_bool(np, "d-cache-size"))
-> +	if (of_property_present(np, "d-cache-size"))
->   		ci_leaf_init(this_leaf++, CACHE_TYPE_DATA, level);
->   
->   	prev = np;
-> @@ -125,11 +125,11 @@ int populate_cache_leaves(unsigned int cpu)
->   			break;
->   		if (level <= levels)
->   			break;
-> -		if (of_property_read_bool(np, "cache-size"))
-> +		if (of_property_present(np, "cache-size"))
->   			ci_leaf_init(this_leaf++, CACHE_TYPE_UNIFIED, level);
-> -		if (of_property_read_bool(np, "i-cache-size"))
-> +		if (of_property_present(np, "i-cache-size"))
->   			ci_leaf_init(this_leaf++, CACHE_TYPE_INST, level);
-> -		if (of_property_read_bool(np, "d-cache-size"))
-> +		if (of_property_present(np, "d-cache-size"))
->   			ci_leaf_init(this_leaf++, CACHE_TYPE_DATA, level);
->   		levels = level;
->   	}
+> diff --git a/MAINTAINERS b/MAINTAINERS
+> index b878ddc99f94..45671faa3b6f 100644
+> --- a/MAINTAINERS
+> +++ b/MAINTAINERS
+> @@ -12227,7 +12227,7 @@ L:	kasan-dev@googlegroups.com
+>  S:	Maintained
+>  B:	https://bugzilla.kernel.org/buglist.cgi?component=Sanitizers&product=Memory%20Management
+>  F:	Documentation/dev-tools/kasan.rst
+> -F:	arch/*/include/asm/*kasan.h
+> +F:	arch/*/include/asm/*kasan*.h
+>  F:	arch/*/mm/kasan_init*
+>  F:	include/linux/kasan*.h
+>  F:	lib/Kconfig.kasan
+> diff --git a/arch/arm64/include/asm/kasan-tags.h b/arch/arm64/include/asm/kasan-tags.h
+> new file mode 100644
+> index 000000000000..9e835da95f6b
+> --- /dev/null
+> +++ b/arch/arm64/include/asm/kasan-tags.h
+> @@ -0,0 +1,9 @@
+> +/* SPDX-License-Identifier: GPL-2.0 */
+> +#ifndef __ASM_KASAN_TAGS_H
+> +#define __ASM_KASAN_TAGS_H
+> +
+> +#define KASAN_TAG_KERNEL	0xFF /* native kernel pointers tag */
+> +
+> +#define KASAN_TAG_WIDTH 8
+> +
+> +#endif /* ASM_KASAN_TAGS_H */
+> diff --git a/arch/riscv/include/asm/kasan-tags.h b/arch/riscv/include/asm/kasan-tags.h
+> new file mode 100644
+> index 000000000000..83d7dcc8af74
+> --- /dev/null
+> +++ b/arch/riscv/include/asm/kasan-tags.h
+> @@ -0,0 +1,12 @@
+> +/* SPDX-License-Identifier: GPL-2.0 */
+> +#ifndef __ASM_KASAN_TAGS_H
+> +#define __ASM_KASAN_TAGS_H
+> +
+> +#ifdef CONFIG_KASAN_SW_TAGS
+> +#define KASAN_TAG_KERNEL	0x7f /* native kernel pointers tag */
+> +#endif
+> +
+> +#define KASAN_TAG_WIDTH 8
+> +
+> +#endif /* ASM_KASAN_TAGS_H */
+> +
+> diff --git a/arch/riscv/include/asm/kasan.h b/arch/riscv/include/asm/kasan.h
+> index f6b378ba936d..27938e0d5233 100644
+> --- a/arch/riscv/include/asm/kasan.h
+> +++ b/arch/riscv/include/asm/kasan.h
+> @@ -41,10 +41,6 @@
+>
+>  #define KASAN_SHADOW_OFFSET	_AC(CONFIG_KASAN_SHADOW_OFFSET, UL)
+>
+> -#ifdef CONFIG_KASAN_SW_TAGS
+> -#define KASAN_TAG_KERNEL	0x7f /* native kernel pointers tag */
+> -#endif
+> -
+>  #define arch_kasan_set_tag(addr, tag)	__tag_set(addr, tag)
+>  #define arch_kasan_reset_tag(addr)	__tag_reset(addr)
+>  #define arch_kasan_get_tag(addr)	__tag_get(addr)
+> diff --git a/arch/x86/include/asm/kasan-tags.h b/arch/x86/include/asm/kasan-tags.h
+> new file mode 100644
+> index 000000000000..68ba385bc75c
+> --- /dev/null
+> +++ b/arch/x86/include/asm/kasan-tags.h
+> @@ -0,0 +1,9 @@
+> +/* SPDX-License-Identifier: GPL-2.0 */
+> +#ifndef __ASM_KASAN_TAGS_H
+> +#define __ASM_KASAN_TAGS_H
+> +
+> +#define KASAN_TAG_KERNEL	0xF /* native kernel pointers tag */
+> +
+> +#define KASAN_TAG_WIDTH		4
+> +
+> +#endif /* ASM_KASAN_TAGS_H */
+> diff --git a/include/linux/kasan-tags.h b/include/linux/kasan-tags.h
+> index e07c896f95d3..b4aacfa8709b 100644
+> --- a/include/linux/kasan-tags.h
+> +++ b/include/linux/kasan-tags.h
+> @@ -2,7 +2,17 @@
+>  #ifndef _LINUX_KASAN_TAGS_H
+>  #define _LINUX_KASAN_TAGS_H
+>
+> -#include <asm/kasan.h>
+> +#if defined(CONFIG_KASAN_SW_TAGS) || defined(CONFIG_KASAN_HW_TAGS)
+> +#include <asm/kasan-tags.h>
+> +#endif
+> +
+> +#ifdef CONFIG_KASAN_SW_TAGS_DENSE
+> +#define KASAN_TAG_WIDTH		4
+> +#endif
+> +
+> +#ifndef KASAN_TAG_WIDTH
+> +#define KASAN_TAG_WIDTH		0
+> +#endif
+>
+>  #ifndef KASAN_TAG_KERNEL
+>  #define KASAN_TAG_KERNEL	0xFF /* native kernel pointers tag */
+> diff --git a/include/linux/kasan.h b/include/linux/kasan.h
+> index 5a3e9bec21c2..83146367170a 100644
+> --- a/include/linux/kasan.h
+> +++ b/include/linux/kasan.h
+> @@ -88,7 +88,9 @@ static inline u8 kasan_get_shadow_tag(const void *addr)
+>
+>  #ifdef CONFIG_KASAN_SW_TAGS
+>  /* This matches KASAN_TAG_INVALID. */
+> -#define KASAN_SHADOW_INIT 0xFE
+> +#ifndef KASAN_SHADOW_INIT
+> +#define KASAN_SHADOW_INIT KASAN_TAG_INVALID
+> +#endif
+>  #else
+>  #define KASAN_SHADOW_INIT 0
+>  #endif
+> diff --git a/include/linux/mm.h b/include/linux/mm.h
+> index 61fff5d34ed5..ddca2f63a5f6 100644
+> --- a/include/linux/mm.h
+> +++ b/include/linux/mm.h
+> @@ -1813,7 +1813,7 @@ static inline u8 page_kasan_tag(const struct page *page)
+>
+>  	if (kasan_enabled()) {
+>  		tag = (page->flags >> KASAN_TAG_PGSHIFT) & KASAN_TAG_MASK;
+> -		tag ^= 0xff;
+> +		tag ^= KASAN_TAG_KERNEL;
+>  	}
+>
+>  	return tag;
+> @@ -1826,7 +1826,7 @@ static inline void page_kasan_tag_set(struct page *page, u8 tag)
+>  	if (!kasan_enabled())
+>  		return;
+>
+> -	tag ^= 0xff;
+> +	tag ^= KASAN_TAG_KERNEL;
+>  	old_flags = READ_ONCE(page->flags);
+>  	do {
+>  		flags = old_flags;
+> @@ -1845,7 +1845,7 @@ static inline void page_kasan_tag_reset(struct page *page)
+>
+>  static inline u8 page_kasan_tag(const struct page *page)
+>  {
+> -	return 0xff;
+> +	return KASAN_TAG_KERNEL;
+>  }
+>
+>  static inline void page_kasan_tag_set(struct page *page, u8 tag) { }
+> diff --git a/include/linux/page-flags-layout.h b/include/linux/page-flags-layout.h
+> index 7d79818dc065..ac3576f409ad 100644
+> --- a/include/linux/page-flags-layout.h
+> +++ b/include/linux/page-flags-layout.h
+> @@ -3,6 +3,7 @@
+>  #define PAGE_FLAGS_LAYOUT_H
+>
+>  #include <linux/numa.h>
+> +#include <linux/kasan-tags.h>
+>  #include <generated/bounds.h>
+>
+>  /*
+> @@ -72,12 +73,6 @@
+>  #define NODE_NOT_IN_PAGE_FLAGS	1
+>  #endif
+>
+> -#if defined(CONFIG_KASAN_SW_TAGS) || defined(CONFIG_KASAN_HW_TAGS)
+> -#define KASAN_TAG_WIDTH 8
+> -#else
+> -#define KASAN_TAG_WIDTH 0
+> -#endif
+> -
+>  #ifdef CONFIG_NUMA_BALANCING
+>  #define LAST__PID_SHIFT 8
+>  #define LAST__PID_MASK  ((1 << LAST__PID_SHIFT)-1)
 
-Works good on VisionFive 2 and Unmatched.
+Acked-by: Palmer Dabbelt <palmer@rivosinc.com> # RISC-V
 
-Tested-by: Ron Economos <re@w6rz.net>
-
+Probably best to keep this along with the rest of the patches, but LMK 
+if you want me to point something at the RISC-V tree.
 
 _______________________________________________
 linux-riscv mailing list
