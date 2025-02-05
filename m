@@ -4,87 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7DCC8C02192
-	for <linux-riscv@archiver.kernel.org>; Wed,  5 Feb 2025 15:50:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7D12C02198
+	for <linux-riscv@archiver.kernel.org>; Wed,  5 Feb 2025 15:57:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
-	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	bh=6p3a9FUurgYt6uhWjrwGzbe95JhORb1d97FzE0sc+hM=; b=N1/TDizFHKRP645VBuot4b2dL7
-	2H7XXeyy99WdJgoph8aZ7zsh3zqgtB4Sgwmp2isfBDzxC4TdJ1mNeCWf3uySRy6rQIrD1Sfi+BSIw
-	RzWf591Q3kUU26XTmj8hglfcWKOVs7pPjgkufQWdtAqVJP5b6kmHlofZqNw3L8gYO4BEuGhtXvUUJ
-	xuWUCFRMtZ+wLhnZ9nwe6WYjsl7Oq0GWfoLsjfsswv/KaLzxwnjq6yftrn3w2T23RziqzmCXtDVUi
-	LWFkwouHVw81yyEAzPiu5d6SbEMLzpJuQmWY3SPr+2dM/NtIYDjzfIxiVjSVasUczA8jap84hoUqq
-	wbvHUxbA==;
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=Z32cGcuJ2+UeS2coOSbHKKIAaqEjXxqvN/sIhQvv0Ls=; b=G5TBKTd90F5VeG
+	iqzJMjNibwkcTga9cEqJVvM5IxIzBjfH7Ap2S1PKSE2QGQwRJSAM5dGhdXN+AwMu9nr7asY644qja
+	ekX6cRVdVnS31ckq6gKlocQRz23rt70/6n0qHrG+VNsf17PZWl9CLOU/ORFQxiaFMmwvhegMNMFqh
+	7BuYvJVsDajrWw02a5K6AgSkrf7NxRGs8imn8GCWQpJPABADf9Jd0vTrEpNKqCcbMm1G5YGIW59oM
+	o093bkSIxWRIawb/CYodPZYlHqfuDjV60Y1IY6nEqPEZqhIbzJCY1FDjQAoEN6Vc71gqS140dJ9QR
+	TWni3Tt2/baxtQkndm6g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfhf5-00000003ql7-1Aun;
-	Wed, 05 Feb 2025 15:49:59 +0000
-Received: from mail-pl1-x633.google.com ([2607:f8b0:4864:20::633])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfhf2-00000003qkK-3zpJ
-	for linux-riscv@lists.infradead.org;
-	Wed, 05 Feb 2025 15:49:58 +0000
-Received: by mail-pl1-x633.google.com with SMTP id d9443c01a7336-21f01fe1ce8so30614465ad.2
-        for <linux-riscv@lists.infradead.org>; Wed, 05 Feb 2025 07:49:56 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=dabbelt-com.20230601.gappssmtp.com; s=20230601; t=1738770596; x=1739375396; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:to:from:cc
-         :in-reply-to:subject:date:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=NEF5l/p5C324GLPPrgYPBLACvzIojLaAWSwDxUoWGzM=;
-        b=fYuO2CgYRt3CgwKZnhP0vXAF69Kzf1qkHmC8bmPqLyrFYO+2+ahyN9x8s/gxh7+vQH
-         X8AfISr7lm7iEHNwYgbXUThe4m7ys//CVPjpU60HJQ1lIawSSRbDt9+8hL8fLx0kXqSn
-         BOtlpqa1t0EERz+XmcyOXpGieCFyhJBrxu7wnF3EtTNhUI2du5w5/soty5CAe91mZjf5
-         8hwj39SIjkulYDS9jZI/+9nLMc4PEfS2AuXyjWLJHLRidck5wmtz92cR1j+iQ9zsX7FH
-         eIoVa/jtZ3isowWbCOlxXKeaIvtW3VKb9BjmbBudylWKMFfT6qL7rvmEX6UOmvs4aftq
-         aiSQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1738770596; x=1739375396;
-        h=content-transfer-encoding:mime-version:message-id:to:from:cc
-         :in-reply-to:subject:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=NEF5l/p5C324GLPPrgYPBLACvzIojLaAWSwDxUoWGzM=;
-        b=WfQ1k2o7lRCjj64q2VhrbcbEl8w/CIUE0EWr2FAVK205UCje+TpbfAynYZpgrW5ndt
-         Lw/HNlxBrcuTSr8KzQwGuKzUc6JJ5PO7uaMe9YrgAr5xSMcy6tS0KKPAUVGiI+5yvx4s
-         JtNpmzExBGyUFnKTGstPtpi265TgOBO/ZdLnGERSS09t3QGorDK1XbTGFIRLJRIiRzyg
-         v63LDmBqFIX5evkV35mLrYry4MvsehD9Ie7XXOAAujJMmzKyLecpr80xn7MSme0KIXWv
-         ZLRrgUCkKSj+sLHylhjUBFxUImAps+feLpQynfumAEgrvpn9BJaoMx0UZn8WSg1xsltC
-         AAWQ==
-X-Forwarded-Encrypted: i=1; AJvYcCV/1M/nDcGGY0LtYx2YQf3WeHTRDhUa8DMBZX2vEXZg6JtHEvdge0eoLDb6BueQHCg06mDUKxw5q2iJsw==@lists.infradead.org
-X-Gm-Message-State: AOJu0YwInDhjIXp9aKfYXmFLkMCAbw+Hg3EJUEUL+ZatCsmsM+04S9ux
-	vAf8z4mSgRWF9sjFrrUJ2i6XaqAjRBiCNKQn5++QGucUZzUMSUphs1Bka80D7e0=
-X-Gm-Gg: ASbGncuPKioD+epUk9U35lZwKlkxV0HjIhAYsKyGG2PPmBXzECnKwd5dHhgy/zXKE+3
-	1d/tH1detLxpqlxLSyGvQjPRY5NVnmUoJVelzKiDzjDLmgZJ4yKrCq2466tsT1/RDtbV2B4eeVT
-	PREHFf0LN+FvGT4zANSY0CT0W0+yoTZKoaIHJLSVxDpongTM1/VROQoGP0ClomNZQYT3AnNVbxH
-	dTThpp1WDFya+VLxjsyr/EX3ZXnPAsUxXkH5tQyKDnzl5KkJav29QvLI95YIrsGp5DAW53PFXSv
-	G5EDgFmYlOfP
-X-Google-Smtp-Source: AGHT+IHUmrYCzENxX4gtpHt6Z7EYDLhXL5NzJJrm70zCOwtBKMkO6XCbLWbJF3K01CHLL2vXmPs+9Q==
-X-Received: by 2002:a17:903:22cf:b0:216:4c88:d93a with SMTP id d9443c01a7336-21f17f30666mr53671915ad.48.1738770595971;
-        Wed, 05 Feb 2025 07:49:55 -0800 (PST)
-Received: from localhost ([192.184.165.199])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-21f018162e2sm36808905ad.121.2025.02.05.07.49.55
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 05 Feb 2025 07:49:55 -0800 (PST)
-Date: Wed, 05 Feb 2025 07:49:55 -0800 (PST)
-X-Google-Original-Date: Wed, 05 Feb 2025 07:49:53 PST (-0800)
-Subject: Re: [PATCH v2] riscv: Use Zalrsc extension to implement atomic functions
-In-Reply-To: <17E9A830-AE5C-41F5-AC07-2BD9C70739BB@jrtc27.com>
-CC: Charlie Jenkins <charlie@rivosinc.com>, samuel.holland@sifive.com,
-  Conor Dooley <conor@kernel.org>, arikalo@gmail.com, linux-riscv@lists.infradead.org,
-  Paul Walmsley <paul.walmsley@sifive.com>, aou@eecs.berkeley.edu, Will Deacon <will@kernel.org>, peterz@infradead.org,
-  boqun.feng@gmail.com, Mark Rutland <mark.rutland@arm.com>, yury.norov@gmail.com,
-  linux@rasmusvillemoes.dk, parri.andrea@gmail.com, leobras@redhat.com, guoren@kernel.org,
-  ericchancf@google.com, linux-kernel@vger.kernel.org, djordje.todorovic@htecgroup.com
-From: Palmer Dabbelt <palmer@dabbelt.com>
-To: jrtc27@jrtc27.com
-Message-ID: <mhng-50508e34-b5cc-4dad-b4d4-7d2bac5a74d8@palmer-ri-x1c9>
-Mime-Version: 1.0 (MHng)
+	id 1tfhmP-00000003sLa-1ZIU;
+	Wed, 05 Feb 2025 15:57:33 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tfhl1-00000003s5v-3KWi;
+	Wed, 05 Feb 2025 15:56:09 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 97C0A1063;
+	Wed,  5 Feb 2025 07:56:30 -0800 (PST)
+Received: from [10.57.35.21] (unknown [10.57.35.21])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 4CF773F58B;
+	Wed,  5 Feb 2025 07:56:00 -0800 (PST)
+Message-ID: <ff16c183-0679-423c-939d-9906da174051@arm.com>
+Date: Wed, 5 Feb 2025 15:55:58 +0000
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 05/19] iommu/pages: Replace iommu_free_pages() with
+ iommu_free_page()
+To: Jason Gunthorpe <jgg@nvidia.com>, Alim Akhtar <alim.akhtar@samsung.com>,
+ Alyssa Rosenzweig <alyssa@rosenzweig.io>, Albert Ou <aou@eecs.berkeley.edu>,
+ asahi@lists.linux.dev, Lu Baolu <baolu.lu@linux.intel.com>,
+ David Woodhouse <dwmw2@infradead.org>, Heiko Stuebner <heiko@sntech.de>,
+ iommu@lists.linux.dev, Jernej Skrabec <jernej.skrabec@gmail.com>,
+ Jonathan Hunter <jonathanh@nvidia.com>, Joerg Roedel <joro@8bytes.org>,
+ Krzysztof Kozlowski <krzk@kernel.org>, linux-arm-kernel@lists.infradead.org,
+ linux-riscv@lists.infradead.org, linux-rockchip@lists.infradead.org,
+ linux-samsung-soc@vger.kernel.org, linux-sunxi@lists.linux.dev,
+ linux-tegra@vger.kernel.org, Marek Szyprowski <m.szyprowski@samsung.com>,
+ Hector Martin <marcan@marcan.st>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>,
+ Samuel Holland <samuel@sholland.org>,
+ Suravee Suthikulpanit <suravee.suthikulpanit@amd.com>,
+ Sven Peter <sven@svenpeter.dev>, Thierry Reding <thierry.reding@gmail.com>,
+ Tomasz Jeznach <tjeznach@rivosinc.com>, Krishna Reddy <vdumpa@nvidia.com>,
+ Chen-Yu Tsai <wens@csie.org>, Will Deacon <will@kernel.org>
+Cc: Bagas Sanjaya <bagasdotme@gmail.com>, Joerg Roedel <jroedel@suse.de>,
+ Pasha Tatashin <pasha.tatashin@soleen.com>, patches@lists.linux.dev,
+ David Rientjes <rientjes@google.com>, Matthew Wilcox <willy@infradead.org>
+References: <5-v1-416f64558c7c+2a5-iommu_pages_jgg@nvidia.com>
+From: Robin Murphy <robin.murphy@arm.com>
+Content-Language: en-GB
+In-Reply-To: <5-v1-416f64558c7c+2a5-iommu_pages_jgg@nvidia.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250205_074956_992850_9D7BE89C 
-X-CRM114-Status: GOOD (  27.58  )
+X-CRM114-CacheID: sfid-20250205_075607_932401_70535550 
+X-CRM114-Status: GOOD (  27.73  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,80 +76,407 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gTW9uLCAwMyBGZWIgMjAyNSAxMzozNDo0OCBQU1QgKC0wODAwKSwganJ0YzI3QGpydGMyNy5j
-b20gd3JvdGU6Cj4gT24gMyBGZWIgMjAyNSwgYXQgMTk6NTAsIENoYXJsaWUgSmVua2lucyA8Y2hh
-cmxpZUByaXZvc2luYy5jb20+IHdyb3RlOgo+PiAKPj4gT24gTW9uLCBGZWIgMDMsIDIwMjUgYXQg
-MDE6MzA6NDhQTSAtMDYwMCwgU2FtdWVsIEhvbGxhbmQgd3JvdGU6Cj4+PiBIaSBDaGFybGllLAo+
-Pj4gCj4+PiBPbiAyMDI1LTAyLTAzIDE6MTIgUE0sIENoYXJsaWUgSmVua2lucyB3cm90ZToKPj4+
-PiBPbiBTdW4sIEZlYiAwMiwgMjAyNSBhdCAwODowODo1MFBNICswMDAwLCBDb25vciBEb29sZXkg
-d3JvdGU6Cj4+Pj4+IE9uIFNhdCwgRmViIDAxLCAyMDI1IGF0IDAxOjA0OjI1UE0gKzAxMDAsIEFs
-ZWtzYW5kYXIgUmlrYWxvIHdyb3RlOgo+Pj4+Pj4gT24gRnJpLCBKYW4gMTAsIDIwMjUgYXQgNDoy
-M+KAr0FNIENoYXJsaWUgSmVua2lucyA8Y2hhcmxpZUByaXZvc2luYy5jb20+IHdyb3RlOgo+Pj4+
-Pj4gCj4+Pj4+Pj4+IEZyb206IENoYW8teWluZyBGdSA8Y2Z1QG1pcHMuY29tPgo+Pj4+Pj4+PiAK
-Pj4+Pj4+Pj4gVXNlIG9ubHkgTFIvU0MgaW5zdHJ1Y3Rpb25zIHRvIGltcGxlbWVudCBhdG9taWMg
-ZnVuY3Rpb25zLgo+Pj4+Pj4+IAo+Pj4+Pj4+IEluIHRoZSBwcmV2aW91cyBwYXRjaCB5b3UgbWVu
-dGlvbiB0aGF0IHRoaXMgaXMgdG8gc3VwcG9ydCBNSVBTIFA4NzAwLiBDYW4KPj4+Pj4+PiB5b3Ug
-ZXhwYW5kIG9uIHdoeSB0aGlzIGNoYW5nZSBpcyByZXF1aXJlZD8gVGhlIGRhdGFzaGVldCBhdCBb
-MV0gc2F5czoKPj4+Pj4+PiAKPj4+Pj4+PiAiVGhlIFA4NzAwIGNvcmUgaXMgY29uZmlndXJlZCB0
-byBzdXBwb3J0IHRoZSBSVjY0R0NaYmFfWmJiIChHID0gSU1BRkQpCj4+Pj4+Pj4gU3RhbmRhcmQg
-SVNBLiBJdCBpbmNsdWRlcyB0aGUgUlY2NEkgYmFzZSBJU0EsIE11bHRpcGx5IChNKSwgQXRvbWlj
-IChBKSwKPj4+Pj4+PiBTaW5nbGUtUHJlY2lzaW9uIEZsb2F0aW5nIFBvaW50IChGKSwgRG91Ymxl
-IChEKSwgQ29tcHJlc3NlZCAoQykgUklTQy1WCj4+Pj4+Pj4gZXh0ZW5zaW9ucywgYXMgd2VsbCBh
-cyB0aGUgYXMgd2VsbCBhcyB0aGUgYml0LW1hbmlwdWxhdGlvbiBleHRlbnNpb25zCj4+Pj4+Pj4g
-KFpiYSkgYW5kIChaYmIpIgo+Pj4+Pj4+IAo+Pj4+Pj4+IFRoZSAiQSIgZXh0ZW5zaW9uIGlzIGEg
-cGFydCBvZiAiRyIgd2hpY2ggaXMgbW9zdGx5IGFzc3VtZWQgdG8gZXhpc3QgaW4KPj4+Pj4+PiB0
-aGUga2VybmVsLiBBZGRpdGlvbmFsbHksIGhhdmluZyB0aGlzIGJlIGEgY29tcGlsYXRpb24gZmxh
-ZyB3aWxsIGNhdXNlCj4+Pj4+Pj4gdHJhcHMgb24gZ2VuZXJpYyBrZXJuZWxzLiBXZSBnZW5lcmFs
-bHkgdHJ5IHRvIHB1c2ggZXZlcnl0aGluZyB3ZSBjYW4KPj4+Pj4+PiBpbnRvIHJ1bnRpbWUgZmVh
-dHVyZSBkZXRlY3Rpb24gc2luY2UgdGhlcmUgYXJlIHNvIG1hbnkgcG9zc2libGUgdmFyaWFudHMK
-Pj4+Pj4+PiBvZiByaXNjdi4KPj4+Pj4+PiAKPj4+Pj4+PiBFeHByZXNzaW5nIG5vdCBiZWluZyBh
-YmxlIHRvIHBlcmZvcm0gYSBmZWF0dXJlIGxpa2UgdGhpcyBpcyBub3JtYWxseQo+Pj4+Pj4+IGJl
-dHRlciBleHByZXNzZWQgYXMgYW4gZXJyYXRhLiBUaGVuIGdlbmVyaWMga2VybmVscyB3aWxsIGJl
-IGFibGUgdG8KPj4+Pj4+PiBpbmNsdWRlIHRoaXMsIGFuZCBhbnlib2R5IHdobyBkb2Vzbid0IHdh
-bnQgdG8gaGF2ZSB0aGUgZXh0cmEgbm9wcwo+Pj4+Pj4+IGludHJvZHVjZWQgY2FuIGRpc2FibGUg
-dGhlIGVycmF0YS4gQSBzaW1pbGFyIGFwcHJvYWNoIHRvIHdoYXQgSSBwb2ludGVkCj4+Pj4+Pj4g
-b3V0IGxhc3QgdGltZSBzaG91bGQgd29yayBoZXJlIHRvbyAoYnV0IHdpdGggbW9yZSBwbGFjZXMg
-dG8gcmVwbGFjZSkKPj4+Pj4+PiBbMl0uCj4+Pj4+Pj4gCj4+Pj4+Pj4gWzFdIGh0dHBzOi8vbWlw
-cy5jb20vd3AtY29udGVudC91cGxvYWRzLzIwMjQvMTEvUDg3MDBfRGF0YV9TaGVldC5wZGYKPj4+
-Pj4+PiBbMl0gaHR0cHM6Ly9sb3JlLmtlcm5lbC5vcmcvbGttbC9aMi1VTmZ3Y0FRWVpxVkJVQGdo
-b3N0L1QvCj4+Pj4+PiAKPj4+Pj4+IFNvIGZhciB3ZSBoYXZlbid0IGZvdW5kIGEgd2F5IHRvIGRv
-IHRoaXMgdXNpbmcgZXJyYXRhLgo+Pj4+PiAKPj4+Pj4gWW91IG1lYW4gdXNpbmcgYWx0ZXJuYXRp
-dmVzPyBOb3QgaW1wbGVtZW50aW5nIEEsIGJ1dCBpbnN0ZWFkCj4+Pj4+IGltcGxlbWVudGluZyBa
-YWxyc2MsIGlzIG5vdCBhbiBlcnJhdHVtLiBJdCdzIGEgZGVzaWduIGRlY2lzaW9uLgo+Pj4+IAo+
-Pj4+IFdlIGNvdWxkIGRvIHRoZSBzYW1lIHRoaW5nIHdlIGRvIHdpdGggbWlzYWxpZ25lZCBhY2Nl
-c3MgZGV0ZWN0aW9uIGFuZAo+Pj4+IHJ1biBzb21lIGluc3RydWN0aW9ucyB0byBkZXRlcm1pbmUg
-aWYgdGhlc2UgaW5zdHJ1Y3Rpb25zIGFyZSBiZWluZwo+Pj4+IGVtdWxhdGVkLiAgSWYgdGhleSBh
-cmUgYmVpbmcgZW11bGF0ZWQsIHBhdGNoIGFsbCBvZiB0aGUgcGxhY2VzIHRvIHVzZQo+Pj4+IHph
-bHJzYy4KPj4+IAo+Pj4gSXMgdGhlIGltcGxpY2F0aW9uIGhlcmUgdGhhdCB0aGUgcmlzY3YsaXNh
-LWV4dGVuc2lvbnMgbGlzdCBwYXNzZWQgdG8gdGhlIGtlcm5lbAo+Pj4gd2lsbCBjb250YWluICJh
-IiwgZXZlbiB0aG91Z2ggdGhlIGhhcmR3YXJlIGRvZXMgbm90IHN1cHBvcnQgaXQsIGJlY2F1c2Ug
-QU1PcyBhcmUKPj4+IGVtdWxhdGVkIGluIE0tbW9kZT8KPj4+IAo+Pj4gSWYgdGhhdCBpcyBub3Qg
-dGhlIGNhc2UsIHRoZXJlIGlzIG5vIG5lZWQgZm9yIHJ1bnRpbWUgZGV0ZWN0aW9uLiBUaGUgYWx0
-ZXJuYXRpdmUKPj4+IGVudHJ5IGNhbiBjaGVjayBSSVNDVl9JU0FfRVhUX1pBQU1PICh3aGljaCB3
-b3VsZCBiZSBpbXBsaWVkIGJ5IFJJU0NWX0lTQV9FWFRfYSkKPj4+IGluIHRoZSBJU0EgYml0bWFw
-IGxpa2Ugbm9ybWFsLgo+PiAKPj4gVGhhdCB3b3VsZCBiZSBtdWNoIGJldHRlciEgSSB3YXMgdW5k
-ZXIgdGhlIGFzc3VtcHRpb24gdGhhdCB0aGUgdXNlY2FzZQo+PiBmb3IgdGhpcyBwYXRjaCB3YXMg
-dGhhdCB0aGV5IHdlcmUgcGFzc2luZyBpbiAiYSIgYW5kIHdhbnRpbmcgdG8gb25seSBnZXQKPj4g
-emFscnNjLiBXZSBzaG91bGQgYmUgYWJsZSB0byBjaGVjawo+PiBSSVNDVl9JU0FfRVhUX1pBQU1P
-L1JJU0NWX0lTQV9FWFRfWkFMUlNDIHRvIGdldCB0aGUgaW5mb3JtYXRpb24gd2l0aG91dAo+PiBy
-dW50aW1lIGRldGVjdGlvbi4KPgo+IEluIExMVk0gYXQgbGVhc3QgLW1jcHU9bWlwcy1wODcwMCBl
-bmFibGVzIHRoZSBmdWxsIEEgZXh0ZW5zaW9uLi4uCgpTbyB0aGVuIEkgdGhpbmsgd2UgbmVlZCBz
-b21lIGhlbHAgZnJvbSB0aGUgSFcgdmVuZG9yIGhlcmUuICAKU3BlY2lmaWNhbGx5OiBkbyB0aGVz
-ZSBzeXN0ZW1zIGltcGxlbWVudCBBIHZpYSBNLW1vZGUgdHJhcHMgKGllLCB3aXRoIGEgCnBlcmZv
-cm1hbmNlIHBlbmFsdHkpIG9yIGlzIHRoZXJlIHNvbWV0aGluZyBmdW5jdGlvbmFsIGVycmF0dW0g
-aW4gdGhlIEEgCmltcGxlbWVudGF0aW9uLgoKSWYgaXQncyBqdXN0IGEgcGVyZm9ybWFuY2UgdGhp
-bmcgdGhlbiB3ZSBuZWVkIHNvbWUgYmVuY2htYXJrIGp1c3RpZnlpbmcgCnRoZSBleHRyYSB3b3Jr
-LCB3aGljaCBtZWFucyBzb21lIGhhcmR3YXJlIHdlIGNhbiBwb2ludCBhdCB0byBydW4gdGhlIApi
-ZW5jaG1hcmsuICBQcm9iYWJseSBhbHNvIGJlc3QgdG8gc2hpbSB0aGlzIGluIHZpYSBhbHRlcm5h
-dGl2ZXMsIHNvIHdlIApjYW4ga2VlcCBtdWx0aS12ZW5kb3Iga2VybmVscyB3b3JraW5nLgoKSWYg
-aXQncyBhIGZ1bnRpb25hbCBpc3N1ZSB0aGVuIHdlIG5lZWQgdG8ga25vdyB3aGF0J3MgYWN0dWFs
-bHkgYnJva2VuLgoKRWl0aGVyIHdheSB0aGlzIHNob3VsZCBiZSBleHBvc2VkIHRvIHVzZXJzcGFj
-ZS4KCj4KPiBKZXNzCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFk
-Lm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJp
-c2N2Cg==
+On 2025-02-04 6:34 pm, Jason Gunthorpe wrote:
+> Now that we have a folio under the allocation iommu_free_page() can know
+> the order of the original allocation and do the correct thing to free it.
+> 
+> Callers no longer need to pass in the allocation order to the free
+> function. Just use iommu_free_page() everywhere.
+
+Nit: we end up left with the _alloc_pages/_free_page combo which to me 
+looks slightly odd and uncomfortable - any chance we could go the other 
+way and align on _free_pages for consistency?
+
+Thanks,
+Robin.
+
+> Signed-off-by: Jason Gunthorpe <jgg@nvidia.com>
+> ---
+>   drivers/iommu/amd/init.c            | 28 +++++++++++-----------------
+>   drivers/iommu/amd/ppr.c             |  2 +-
+>   drivers/iommu/exynos-iommu.c        |  8 ++++----
+>   drivers/iommu/intel/irq_remapping.c |  4 ++--
+>   drivers/iommu/intel/pasid.c         |  3 +--
+>   drivers/iommu/intel/pasid.h         |  1 -
+>   drivers/iommu/intel/prq.c           |  4 ++--
+>   drivers/iommu/io-pgtable-arm.c      |  4 ++--
+>   drivers/iommu/io-pgtable-dart.c     | 10 ++++------
+>   drivers/iommu/iommu-pages.h         | 14 ++------------
+>   drivers/iommu/riscv/iommu.c         |  6 ++----
+>   drivers/iommu/sun50i-iommu.c        |  2 +-
+>   12 files changed, 32 insertions(+), 54 deletions(-)
+> 
+> diff --git a/drivers/iommu/amd/init.c b/drivers/iommu/amd/init.c
+> index c5cd92edada061..f1c5041647173c 100644
+> --- a/drivers/iommu/amd/init.c
+> +++ b/drivers/iommu/amd/init.c
+> @@ -653,8 +653,7 @@ static inline int __init alloc_dev_table(struct amd_iommu_pci_seg *pci_seg)
+>   
+>   static inline void free_dev_table(struct amd_iommu_pci_seg *pci_seg)
+>   {
+> -	iommu_free_pages(pci_seg->dev_table,
+> -			 get_order(pci_seg->dev_table_size));
+> +	iommu_free_page(pci_seg->dev_table);
+>   	pci_seg->dev_table = NULL;
+>   }
+>   
+> @@ -671,8 +670,7 @@ static inline int __init alloc_rlookup_table(struct amd_iommu_pci_seg *pci_seg)
+>   
+>   static inline void free_rlookup_table(struct amd_iommu_pci_seg *pci_seg)
+>   {
+> -	iommu_free_pages(pci_seg->rlookup_table,
+> -			 get_order(pci_seg->rlookup_table_size));
+> +	iommu_free_page(pci_seg->rlookup_table);
+>   	pci_seg->rlookup_table = NULL;
+>   }
+>   
+> @@ -691,8 +689,7 @@ static inline int __init alloc_irq_lookup_table(struct amd_iommu_pci_seg *pci_se
+>   static inline void free_irq_lookup_table(struct amd_iommu_pci_seg *pci_seg)
+>   {
+>   	kmemleak_free(pci_seg->irq_lookup_table);
+> -	iommu_free_pages(pci_seg->irq_lookup_table,
+> -			 get_order(pci_seg->rlookup_table_size));
+> +	iommu_free_page(pci_seg->irq_lookup_table);
+>   	pci_seg->irq_lookup_table = NULL;
+>   }
+>   
+> @@ -716,8 +713,7 @@ static int __init alloc_alias_table(struct amd_iommu_pci_seg *pci_seg)
+>   
+>   static void __init free_alias_table(struct amd_iommu_pci_seg *pci_seg)
+>   {
+> -	iommu_free_pages(pci_seg->alias_table,
+> -			 get_order(pci_seg->alias_table_size));
+> +	iommu_free_page(pci_seg->alias_table);
+>   	pci_seg->alias_table = NULL;
+>   }
+>   
+> @@ -826,7 +822,7 @@ static void iommu_disable_command_buffer(struct amd_iommu *iommu)
+>   
+>   static void __init free_command_buffer(struct amd_iommu *iommu)
+>   {
+> -	iommu_free_pages(iommu->cmd_buf, get_order(CMD_BUFFER_SIZE));
+> +	iommu_free_page(iommu->cmd_buf);
+>   }
+>   
+>   void *__init iommu_alloc_4k_pages(struct amd_iommu *iommu, gfp_t gfp,
+> @@ -838,7 +834,7 @@ void *__init iommu_alloc_4k_pages(struct amd_iommu *iommu, gfp_t gfp,
+>   	if (buf &&
+>   	    check_feature(FEATURE_SNP) &&
+>   	    set_memory_4k((unsigned long)buf, (1 << order))) {
+> -		iommu_free_pages(buf, order);
+> +		iommu_free_page(buf);
+>   		buf = NULL;
+>   	}
+>   
+> @@ -882,14 +878,14 @@ static void iommu_disable_event_buffer(struct amd_iommu *iommu)
+>   
+>   static void __init free_event_buffer(struct amd_iommu *iommu)
+>   {
+> -	iommu_free_pages(iommu->evt_buf, get_order(EVT_BUFFER_SIZE));
+> +	iommu_free_page(iommu->evt_buf);
+>   }
+>   
+>   static void free_ga_log(struct amd_iommu *iommu)
+>   {
+>   #ifdef CONFIG_IRQ_REMAP
+> -	iommu_free_pages(iommu->ga_log, get_order(GA_LOG_SIZE));
+> -	iommu_free_pages(iommu->ga_log_tail, get_order(8));
+> +	iommu_free_page(iommu->ga_log);
+> +	iommu_free_page(iommu->ga_log_tail);
+>   #endif
+>   }
+>   
+> @@ -2781,8 +2777,7 @@ static void early_enable_iommus(void)
+>   
+>   		for_each_pci_segment(pci_seg) {
+>   			if (pci_seg->old_dev_tbl_cpy != NULL) {
+> -				iommu_free_pages(pci_seg->old_dev_tbl_cpy,
+> -						 get_order(pci_seg->dev_table_size));
+> +				iommu_free_page(pci_seg->old_dev_tbl_cpy);
+>   				pci_seg->old_dev_tbl_cpy = NULL;
+>   			}
+>   		}
+> @@ -2795,8 +2790,7 @@ static void early_enable_iommus(void)
+>   		pr_info("Copied DEV table from previous kernel.\n");
+>   
+>   		for_each_pci_segment(pci_seg) {
+> -			iommu_free_pages(pci_seg->dev_table,
+> -					 get_order(pci_seg->dev_table_size));
+> +			iommu_free_page(pci_seg->dev_table);
+>   			pci_seg->dev_table = pci_seg->old_dev_tbl_cpy;
+>   		}
+>   
+> diff --git a/drivers/iommu/amd/ppr.c b/drivers/iommu/amd/ppr.c
+> index 7c67d69f0b8cad..0a7c32ab841707 100644
+> --- a/drivers/iommu/amd/ppr.c
+> +++ b/drivers/iommu/amd/ppr.c
+> @@ -48,7 +48,7 @@ void amd_iommu_enable_ppr_log(struct amd_iommu *iommu)
+>   
+>   void __init amd_iommu_free_ppr_log(struct amd_iommu *iommu)
+>   {
+> -	iommu_free_pages(iommu->ppr_log, get_order(PPR_LOG_SIZE));
+> +	iommu_free_page(iommu->ppr_log);
+>   }
+>   
+>   /*
+> diff --git a/drivers/iommu/exynos-iommu.c b/drivers/iommu/exynos-iommu.c
+> index c666ecab955d21..3c64fcdde6d294 100644
+> --- a/drivers/iommu/exynos-iommu.c
+> +++ b/drivers/iommu/exynos-iommu.c
+> @@ -932,9 +932,9 @@ static struct iommu_domain *exynos_iommu_domain_alloc_paging(struct device *dev)
+>   	return &domain->domain;
+>   
+>   err_lv2ent:
+> -	iommu_free_pages(domain->lv2entcnt, 1);
+> +	iommu_free_page(domain->lv2entcnt);
+>   err_counter:
+> -	iommu_free_pages(domain->pgtable, 2);
+> +	iommu_free_page(domain->pgtable);
+>   err_pgtable:
+>   	kfree(domain);
+>   	return NULL;
+> @@ -975,8 +975,8 @@ static void exynos_iommu_domain_free(struct iommu_domain *iommu_domain)
+>   					phys_to_virt(base));
+>   		}
+>   
+> -	iommu_free_pages(domain->pgtable, 2);
+> -	iommu_free_pages(domain->lv2entcnt, 1);
+> +	iommu_free_page(domain->pgtable);
+> +	iommu_free_page(domain->lv2entcnt);
+>   	kfree(domain);
+>   }
+>   
+> diff --git a/drivers/iommu/intel/irq_remapping.c b/drivers/iommu/intel/irq_remapping.c
+> index ad795c772f21b5..31a170501d2410 100644
+> --- a/drivers/iommu/intel/irq_remapping.c
+> +++ b/drivers/iommu/intel/irq_remapping.c
+> @@ -620,7 +620,7 @@ static int intel_setup_irq_remapping(struct intel_iommu *iommu)
+>   out_free_bitmap:
+>   	bitmap_free(bitmap);
+>   out_free_pages:
+> -	iommu_free_pages(ir_table_base, INTR_REMAP_PAGE_ORDER);
+> +	iommu_free_page(ir_table_base);
+>   out_free_table:
+>   	kfree(ir_table);
+>   
+> @@ -641,7 +641,7 @@ static void intel_teardown_irq_remapping(struct intel_iommu *iommu)
+>   			irq_domain_free_fwnode(fn);
+>   			iommu->ir_domain = NULL;
+>   		}
+> -		iommu_free_pages(iommu->ir_table->base, INTR_REMAP_PAGE_ORDER);
+> +		iommu_free_page(iommu->ir_table->base);
+>   		bitmap_free(iommu->ir_table->bitmap);
+>   		kfree(iommu->ir_table);
+>   		iommu->ir_table = NULL;
+> diff --git a/drivers/iommu/intel/pasid.c b/drivers/iommu/intel/pasid.c
+> index fb59a7d35958f5..88070bb7f9b093 100644
+> --- a/drivers/iommu/intel/pasid.c
+> +++ b/drivers/iommu/intel/pasid.c
+> @@ -67,7 +67,6 @@ int intel_pasid_alloc_table(struct device *dev)
+>   	}
+>   
+>   	pasid_table->table = dir;
+> -	pasid_table->order = order;
+>   	pasid_table->max_pasid = 1 << (order + PAGE_SHIFT + 3);
+>   	info->pasid_table = pasid_table;
+>   
+> @@ -100,7 +99,7 @@ void intel_pasid_free_table(struct device *dev)
+>   		iommu_free_page(table);
+>   	}
+>   
+> -	iommu_free_pages(pasid_table->table, pasid_table->order);
+> +	iommu_free_page(pasid_table->table);
+>   	kfree(pasid_table);
+>   }
+>   
+> diff --git a/drivers/iommu/intel/pasid.h b/drivers/iommu/intel/pasid.h
+> index 668d8ece6b143c..fd0fd1a0df84cc 100644
+> --- a/drivers/iommu/intel/pasid.h
+> +++ b/drivers/iommu/intel/pasid.h
+> @@ -47,7 +47,6 @@ struct pasid_entry {
+>   /* The representative of a PASID table */
+>   struct pasid_table {
+>   	void			*table;		/* pasid table pointer */
+> -	int			order;		/* page order of pasid table */
+>   	u32			max_pasid;	/* max pasid */
+>   };
+>   
+> diff --git a/drivers/iommu/intel/prq.c b/drivers/iommu/intel/prq.c
+> index c2d792db52c3e2..8620327b64394b 100644
+> --- a/drivers/iommu/intel/prq.c
+> +++ b/drivers/iommu/intel/prq.c
+> @@ -338,7 +338,7 @@ int intel_iommu_enable_prq(struct intel_iommu *iommu)
+>   	dmar_free_hwirq(irq);
+>   	iommu->pr_irq = 0;
+>   free_prq:
+> -	iommu_free_pages(iommu->prq, PRQ_ORDER);
+> +	iommu_free_page(iommu->prq);
+>   	iommu->prq = NULL;
+>   
+>   	return ret;
+> @@ -361,7 +361,7 @@ int intel_iommu_finish_prq(struct intel_iommu *iommu)
+>   		iommu->iopf_queue = NULL;
+>   	}
+>   
+> -	iommu_free_pages(iommu->prq, PRQ_ORDER);
+> +	iommu_free_page(iommu->prq);
+>   	iommu->prq = NULL;
+>   
+>   	return 0;
+> diff --git a/drivers/iommu/io-pgtable-arm.c b/drivers/iommu/io-pgtable-arm.c
+> index 7632c80edea63a..b4c3729076376b 100644
+> --- a/drivers/iommu/io-pgtable-arm.c
+> +++ b/drivers/iommu/io-pgtable-arm.c
+> @@ -300,7 +300,7 @@ static void *__arm_lpae_alloc_pages(size_t size, gfp_t gfp,
+>   	if (cfg->free)
+>   		cfg->free(cookie, pages, size);
+>   	else
+> -		iommu_free_pages(pages, order);
+> +		iommu_free_page(pages);
+>   
+>   	return NULL;
+>   }
+> @@ -316,7 +316,7 @@ static void __arm_lpae_free_pages(void *pages, size_t size,
+>   	if (cfg->free)
+>   		cfg->free(cookie, pages, size);
+>   	else
+> -		iommu_free_pages(pages, get_order(size));
+> +		iommu_free_page(pages);
+>   }
+>   
+>   static void __arm_lpae_sync_pte(arm_lpae_iopte *ptep, int num_entries,
+> diff --git a/drivers/iommu/io-pgtable-dart.c b/drivers/iommu/io-pgtable-dart.c
+> index c004640640ee50..f7b939d4b7d0b9 100644
+> --- a/drivers/iommu/io-pgtable-dart.c
+> +++ b/drivers/iommu/io-pgtable-dart.c
+> @@ -262,7 +262,7 @@ static int dart_map_pages(struct io_pgtable_ops *ops, unsigned long iova,
+>   
+>   		pte = dart_install_table(cptep, ptep, 0, data);
+>   		if (pte)
+> -			iommu_free_pages(cptep, get_order(tblsz));
+> +			iommu_free_page(cptep);
+>   
+>   		/* L2 table is present (now) */
+>   		pte = READ_ONCE(*ptep);
+> @@ -423,8 +423,7 @@ apple_dart_alloc_pgtable(struct io_pgtable_cfg *cfg, void *cookie)
+>   
+>   out_free_data:
+>   	while (--i >= 0) {
+> -		iommu_free_pages(data->pgd[i],
+> -				 get_order(DART_GRANULE(data)));
+> +		iommu_free_page(data->pgd[i]);
+>   	}
+>   	kfree(data);
+>   	return NULL;
+> @@ -433,7 +432,6 @@ apple_dart_alloc_pgtable(struct io_pgtable_cfg *cfg, void *cookie)
+>   static void apple_dart_free_pgtable(struct io_pgtable *iop)
+>   {
+>   	struct dart_io_pgtable *data = io_pgtable_to_data(iop);
+> -	int order = get_order(DART_GRANULE(data));
+>   	dart_iopte *ptep, *end;
+>   	int i;
+>   
+> @@ -445,9 +443,9 @@ static void apple_dart_free_pgtable(struct io_pgtable *iop)
+>   			dart_iopte pte = *ptep++;
+>   
+>   			if (pte)
+> -				iommu_free_pages(iopte_deref(pte, data), order);
+> +				iommu_free_page(iopte_deref(pte, data));
+>   		}
+> -		iommu_free_pages(data->pgd[i], order);
+> +		iommu_free_page(data->pgd[i]);
+>   	}
+>   
+>   	kfree(data);
+> diff --git a/drivers/iommu/iommu-pages.h b/drivers/iommu/iommu-pages.h
+> index 26b91940bdc146..b15e0f85b3f739 100644
+> --- a/drivers/iommu/iommu-pages.h
+> +++ b/drivers/iommu/iommu-pages.h
+> @@ -105,11 +105,10 @@ static inline void *iommu_alloc_page(gfp_t gfp)
+>   }
+>   
+>   /**
+> - * iommu_free_pages - free page of a given order
+> + * iommu_free_page - free page of any  order
+>    * @virt: virtual address of the page to be freed.
+> - * @order: page order
+>    */
+> -static inline void iommu_free_pages(void *virt, int order)
+> +static inline void iommu_free_page(void *virt)
+>   {
+>   	struct page *page;
+>   
+> @@ -121,15 +120,6 @@ static inline void iommu_free_pages(void *virt, int order)
+>   	put_page(page);
+>   }
+>   
+> -/**
+> - * iommu_free_page - free page
+> - * @virt: virtual address of the page to be freed.
+> - */
+> -static inline void iommu_free_page(void *virt)
+> -{
+> -	iommu_free_pages(virt, 0);
+> -}
+> -
+>   /**
+>    * iommu_put_pages_list - free a list of pages.
+>    * @page: the head of the lru list to be freed.
+> diff --git a/drivers/iommu/riscv/iommu.c b/drivers/iommu/riscv/iommu.c
+> index 8f049d4a0e2cb8..6e7df7273426da 100644
+> --- a/drivers/iommu/riscv/iommu.c
+> +++ b/drivers/iommu/riscv/iommu.c
+> @@ -48,14 +48,13 @@ static DEFINE_IDA(riscv_iommu_pscids);
+>   /* Device resource-managed allocations */
+>   struct riscv_iommu_devres {
+>   	void *addr;
+> -	int order;
+>   };
+>   
+>   static void riscv_iommu_devres_pages_release(struct device *dev, void *res)
+>   {
+>   	struct riscv_iommu_devres *devres = res;
+>   
+> -	iommu_free_pages(devres->addr, devres->order);
+> +	iommu_free_page(devres->addr);
+>   }
+>   
+>   static int riscv_iommu_devres_pages_match(struct device *dev, void *res, void *p)
+> @@ -80,12 +79,11 @@ static void *riscv_iommu_get_pages(struct riscv_iommu_device *iommu, int order)
+>   			      sizeof(struct riscv_iommu_devres), GFP_KERNEL);
+>   
+>   	if (unlikely(!devres)) {
+> -		iommu_free_pages(addr, order);
+> +		iommu_free_page(addr);
+>   		return NULL;
+>   	}
+>   
+>   	devres->addr = addr;
+> -	devres->order = order;
+>   
+>   	devres_add(iommu->dev, devres);
+>   
+> diff --git a/drivers/iommu/sun50i-iommu.c b/drivers/iommu/sun50i-iommu.c
+> index 8d8f11854676c0..3d77aed8507373 100644
+> --- a/drivers/iommu/sun50i-iommu.c
+> +++ b/drivers/iommu/sun50i-iommu.c
+> @@ -713,7 +713,7 @@ static void sun50i_iommu_domain_free(struct iommu_domain *domain)
+>   {
+>   	struct sun50i_iommu_domain *sun50i_domain = to_sun50i_domain(domain);
+>   
+> -	iommu_free_pages(sun50i_domain->dt, get_order(DT_SIZE));
+> +	iommu_free_page(sun50i_domain->dt);
+>   	sun50i_domain->dt = NULL;
+>   
+>   	kfree(sun50i_domain);
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
