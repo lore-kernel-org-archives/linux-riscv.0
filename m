@@ -4,65 +4,105 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 07788C02192
-	for <linux-riscv@archiver.kernel.org>; Wed,  5 Feb 2025 11:01:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1222BC02192
+	for <linux-riscv@archiver.kernel.org>; Wed,  5 Feb 2025 12:57:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=r3qBoCLMwWoSWCM8Xsx1BTgVTbZNhpNa1OlKriN2Qs8=; b=FrfF9NzBfJdWQNud5iWDebDfz3
-	f3QV9ENTVI8k6GY/fTT9nIxzotNbUDB+FMjXk4IHZ7/out8znqNsh/sCnoUW6j7n02RwO53m7buQZ
-	FU8UWjl++oWRog6+fcCGQKuuDDpWr2Zqt7Iumi7ZkfOwjcrbvG9RnB1AzGEx38E0doHrMgZc7a2hJ
-	KoRbUSTFeekegl5nc6LrG6YCK5UK7HKV7BXJGs8Tw6osbrPOj5Fr8B2YLgiUXghQ9UN4TnUcbgBie
-	vLLIqUQquVOI3ALNg0MPYzvwQUp8jGkrRZk67sBwBjOtaw75X9OBWrD66QkM0J57G2P8OLJEhMif3
-	Ns9iGTNg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=yVysul94h7bXQ5MxiiLUy0bhKUz+sM84mMhWYPwDuko=; b=i2BeggqhcAuQ9F
+	kSQFWJBhVDg2Dxq9xVe5jl3O9pn+WLZU2aZ3jvLLyTbkOwfHbnfF5OyrLa9QxPF3NCm9Z89XSMvvX
+	PKmA6i6YHJOncAZkqNl7YXBwq2A45CHNxIYOHyCppe+0+QWTgqRhzaOgShwCymhOjKlzlGUDZwb7c
+	GAePq+z7xNodig1iwnjRR3pL9jEphkhY27Hx/Fm8/ogXvcja+w40KwM//4rg26qwDWFAyQ5IYUQmj
+	Pkel/6hyhpWi9OfMPqBdkYAkan14pwjlGoXWozaceagid1sUUCrAgqNN1SuqPPMUvDUtv6uyX0hxC
+	cS5/QwujeZS09FtsdVVA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfd9f-00000002zKi-3aIM;
-	Wed, 05 Feb 2025 11:01:15 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1tfexZ-00000003IxW-0FJU;
+	Wed, 05 Feb 2025 12:56:53 +0000
+Received: from mail-ed1-x533.google.com ([2a00:1450:4864:20::533])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfd2L-00000002xPX-2H2K
-	for linux-riscv@lists.infradead.org;
-	Wed, 05 Feb 2025 10:53:42 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 4E800A4342B;
-	Wed,  5 Feb 2025 10:51:54 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0E04EC4CED1;
-	Wed,  5 Feb 2025 10:53:37 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1738752820;
-	bh=T+3gl+VSZ+Qi/d9r3WJTd8uqTFyuJiVzfw6RNe53BYQ=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=iDd3SGBLbf6wfwR52kJbJY2t3d5Q//YmuOtijtnJaovsfUADjETr5rcQEVkg/fgT6
-	 yIYkpvYhOp1XZ61+yyDUhog3aPmXid9GDgs4I0JTSmEEss2ktIs6XFnhpejfbARPVg
-	 vy6M7pWW+NPFSU1n4+UMFCUmUXXe/Ipt8VRt6HJ74GroO6qfoPeeX6Qzt7ii4gL+/A
-	 l6UIEtQmS7zhPC67+PuKex27eB65jAXN4qpnz6PX7z1J5pyY3zGFuBwxH/cyHw/DOT
-	 V0eZhv1ixc50zFyAQd6YobH4WH3/PSXTHC/vLYH+WZle0pieZEONIwfPfLOh/U/Oxy
-	 2A8tmPpkxkStg==
-Date: Wed, 5 Feb 2025 10:53:35 +0000
-From: Conor Dooley <conor@kernel.org>
-To: Emil Renner Berthing <emil.renner.berthing@canonical.com>
-Cc: E Shattow <e@freeshell.de>, Emil Renner Berthing <kernel@esmil.dk>,
+	id 1tfetK-00000003Hn3-0yz5;
+	Wed, 05 Feb 2025 12:52:31 +0000
+Received: by mail-ed1-x533.google.com with SMTP id 4fb4d7f45d1cf-5d90a5581fcso12363271a12.1;
+        Wed, 05 Feb 2025 04:52:29 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1738759948; x=1739364748; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=yYwdC6FkM1FkoHrBLoPreNjUtz/aJNsrJlKRqn3rXe4=;
+        b=k2gVTEv9nnp59r18mqpBSGyJfpbt3fIxsOkuL5MHqEnetVsgBm/hJr/kA05fGP68dt
+         S33LSDkwy2sVJYBaV0k2YXI1P9HFYBtpJ7Rharr5i+L6urjbJMM3TW1xyg9LzRhjtiiv
+         6DBjqu9qp2BnD06RgWIAb6IKevmYqvS7PqpcupuQ9vliDwemU6ET7U+wtt8AYOs4haXW
+         lS0ySw7N4jopNJlJ5o1e+OlhmaK8At7KkNm0uVqDtwZ82vum15MpmCN0EenD4xlhfIiM
+         PDu5+Mo5noz57i+kMJeYTZt11mycDR+imP3Rf/+ELr+2O47vA//qrKTXgIUSDbqKMNPL
+         Xzxw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1738759948; x=1739364748;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=yYwdC6FkM1FkoHrBLoPreNjUtz/aJNsrJlKRqn3rXe4=;
+        b=FtJ9HpWDgIKwAWM8WS4vCPmRTYG31ptqjTTJ+95uR6CuFJiw7xeokBClWItjNgSLNO
+         iqjD6aX28TMe7irf95E7qtvbPvBHCN4V7SJ/fM7tWB0DWaLPzckqps2EhlizjdBDSv3r
+         jMwvdjwzWhDJEvVFuCc32smi83mTMcaoDZ6GS69GxCmZsiysKjaU82VpHYjrJQNdD/CT
+         dxjdQ9OV/i9MVMYNdyrThcm51kF5XLCevKdcaRxMG5ky679fqTHlhWqHF9ASFzdB8mti
+         N1+Y3KCZMHbKR3Pz5Gfhz6VnIs6Q8NO9dXJ1D34dXtTSjm5cLTxqCP8h1pY9cwjbzyJH
+         80Kw==
+X-Forwarded-Encrypted: i=1; AJvYcCVu2RspZ2lW6/ucdoUwS3TUKZd7S6jRVRSGYZqFj3I1eQOpLucSYs2nSHKDA/29aw3Wdnyp43FBgvKd@lists.infradead.org, AJvYcCW27vKJ5tSzilPKNZHiiYfUzqwUTODm2elYNsqsEbO0stV4bbregGdjF0VTbD9WpAev+8UXJVxVQ7JLIhM=@lists.infradead.org, AJvYcCWdp/GIgDs/9mEuoqAzyaQ7sQ9nBXML9LCwuswPKkhdMSaJYusu7HJ+5zpQHmWQFzb+7LLqIjg1FfxZrVvT7HJU@lists.infradead.org
+X-Gm-Message-State: AOJu0YwXiXZUkdNU1rPSuMP5ovQnoolLq7T7P7GybKgN3qQ4jGsF30sE
+	r3Z9VJ5yyxmvz0h1daq7epIALbPbkCqRNkK4DcS4ZVNGUwr6tbn7
+X-Gm-Gg: ASbGncsV+J5UIJeF41Fi7zzxctZ+NN9SFYuKuQTu/nN23imEAaY+3PGgchmyslFY+VN
+	kGpFDfFvTI0ocfy9e1UjGe0qmbJleykmppaJNdXu9IFOH61RrG9bIanGRrLrsh0oqcPzBXRYvgg
+	UGsxbVEIohiRBk5ayrExq5N7SiZuroBaJJbPRA3hFWbKsfnT7QpUUKdumgsl8qslJXwzo9LtAOa
+	DAIbjztRWeyAbxnZv2Z84B5qBb959IzHrUFGfBkhu+OR/7B68vkPBCbX8YMifZpXZH7wGMTwk88
+	3U3q+2763GJnEuKdi7SAugeLAmaN6O4tzlz39RvGFpVmNg==
+X-Google-Smtp-Source: AGHT+IGwwnpMG9KpubRS1ckqsKV0lRhKkSXdJJkp9LazwK0ad82cff1p5Us/UKXT3VoqZffwLnJ1uw==
+X-Received: by 2002:a05:6402:388c:b0:5d9:8877:895a with SMTP id 4fb4d7f45d1cf-5dcdb732cd0mr3409724a12.17.1738759947712;
+        Wed, 05 Feb 2025 04:52:27 -0800 (PST)
+Received: from localhost.localdomain (185.174.17.62.zt.hu. [185.174.17.62])
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-5dc724055e5sm11559997a12.45.2025.02.05.04.52.26
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 05 Feb 2025 04:52:27 -0800 (PST)
+From: Andras Szemzo <szemzo.andras@gmail.com>
+To: Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>,
 	Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Chen-Yu Tsai <wens@csie.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Samuel Holland <samuel@sholland.org>,
+	Linus Walleij <linus.walleij@linaro.org>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Maxime Ripard <mripard@kernel.org>
+Cc: Vinod Koul <vkoul@kernel.org>,
+	Kishon Vijay Abraham I <kishon@kernel.org>,
+	Ulf Hansson <ulf.hansson@linaro.org>,
 	Paul Walmsley <paul.walmsley@sifive.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v2 5/5] riscv: dts: starfive: jh7110-common:
- bootph-pre-ram hinting needed by boot loader
-Message-ID: <20250205-tricky-passport-b786aba90241@spud>
-References: <20250203013730.269558-1-e@freeshell.de>
- <20250203013730.269558-6-e@freeshell.de>
- <CAJM55Z8oWonQBbUHPbMrVmN2HG9Dwjyr6o7L7spJQFhQfj+7Pw@mail.gmail.com>
+	Albert Ou <aou@eecs.berkeley.edu>,
+	=?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	linux-clk@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-sunxi@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	linux-phy@lists.infradead.org,
+	linux-gpio@vger.kernel.org,
+	linux-pm@vger.kernel.org,
+	linux-riscv@lists.infradead.org
+Subject: [PATCH v2 00/10] Support for Allwinner V853 SoC
+Date: Wed,  5 Feb 2025 13:52:15 +0100
+Message-Id: <20250205125225.1152849-1-szemzo.andras@gmail.com>
+X-Mailer: git-send-email 2.39.5
 MIME-Version: 1.0
-In-Reply-To: <CAJM55Z8oWonQBbUHPbMrVmN2HG9Dwjyr6o7L7spJQFhQfj+7Pw@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250205_025341_641558_8BEA533E 
-X-CRM114-Status: GOOD (  11.42  )
+X-CRM114-CacheID: sfid-20250205_045230_271708_B922F216 
+X-CRM114-Status: GOOD (  16.55  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,70 +114,102 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============8903644153663972843=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+V85x is a SoC from Allwinner with video encoding targeted for the field of
+IP Camera. It integrates the single CA7 core, and a T-Head E907 RISC-V mcu.
+The SoC has the usual Allwinner peripherals and a Vivante NPU.
+V853 is a BGA package without DRAM, V851s/V851s3 has the same die with
+co-packaged 64MB/128MB DRAM (in a QFN88 package).
 
---===============8903644153663972843==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="TQwBxH4NgmwT3RhR"
-Content-Disposition: inline
+This patchset tries to add basical support for the V853 device family.
 
+Changelog - v2:
+ - rebased on 6.14-rc1
+ - add a needed gate with key support to sunxi clk
+ - rewrite the ccu-r driver
+ - fix license issues
+ - remove the pinctrl binding, as it has beed applied
+ - rework the pinctrl driver, use the new sunxi dt based mux support. This new pinctrl
+   driver depends on the new sunxi device-tree based mux support patch series [1].
+ - remove the new usb phy binding, as the v853's usb phy is very close to d1/a64
+ - add a board dts
+ - ccu: add module description
+ - ccu: fix PLL enable bits, and min multipliers
+ - ccu: change PLL flags to CLK_SET_RATE_GATE
+ - ccu: use SUNXI_CCU_M_HWS at peripheral PLLs
+ - ccu: convert the VIDEO and CSI PLLs from nm type to nkmp according to BSP
+ - ccu: cpu axi clk use pointer
+ - ccu: fix comments
+ - ccu: swap i2s1 and i2s0 bus clocks
+ - ccu: fix indentation
+ - ccu: fix RST_BUS_SPIF order
+ - ccu: convert RST_RISCV_CLK_GATING from reset to gate
 
---TQwBxH4NgmwT3RhR
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+[1]: https://lore.kernel.org/linux-sunxi/20241111005750.13071-1-andre.przywara@arm.com/T/
 
-On Wed, Feb 05, 2025 at 02:35:42AM -0800, Emil Renner Berthing wrote:
-> E Shattow wrote:
-> > Add bootph-pre-ram hinting to jh7110-common.dtsi:
-> >   - i2c5_pins and i2c-pins subnode for connection to eeprom
-> >   - eeprom node
-> >   - qspi flash configuration subnode
-> >   - memory node
-> >   - uart0 for serial console
-> >
-> >   With this the U-Boot SPL secondary program loader may drop such
-> >   overrides when using dt-rebasing with JH7110 OF_UPSTREAM board target=
-s.
-> >
-> > Signed-off-by: E Shattow <e@freeshell.de>
->=20
-> I can't find the booph-pre-ram property in any of the schemas in
-> Documentation/devicetree/bindings. Does make ARCH=3Driscv <..> dtbs_check=
- not
-> complain about this?
+Andras Szemzo (10):
+  clk: sunxi-ng: allow key feature in ccu reset and gate
+  pinctrl: sunxi: add driver for Allwinner V853
+  dt-bindings: clock: sunxi-ng: add compatibles for V853
+  clk: sunxi-ng: add CCU drivers for V853
+  dt-bindings: power: add V853 ppu bindings
+  pmdomain: sunxi: add V853 ppu support
+  dt-bindings: phy: allwinner: add v853 usb phy
+  phy: allwinner: add v853 usb phy compatible
+  ARM: dts: sun8i: add DTSI file for V853
+  ARM: dts: sun8i: add DTS file for yuzuki-lizard V851s
 
-They come directly from dt-schema:
-https://github.com/devicetree-org/dt-schema/blob/main/dtschema/schemas/boot=
-ph.yaml
+ .../clock/allwinner,sun4i-a10-ccu.yaml        |    3 +
+ .../phy/allwinner,sun50i-a64-usb-phy.yaml     |    2 +
+ .../power/allwinner,sun20i-d1-ppu.yaml        |    1 +
+ arch/arm/boot/dts/allwinner/Makefile          |    1 +
+ .../boot/dts/allwinner/sun8i-v851s-lizard.dts |  196 +++
+ arch/arm/boot/dts/allwinner/sun8i-v853.dtsi   |  656 ++++++++++
+ drivers/clk/sunxi-ng/Kconfig                  |   10 +
+ drivers/clk/sunxi-ng/Makefile                 |    4 +
+ drivers/clk/sunxi-ng/ccu-sun8i-v853-r.c       |  120 ++
+ drivers/clk/sunxi-ng/ccu-sun8i-v853-r.h       |   14 +
+ drivers/clk/sunxi-ng/ccu-sun8i-v853.c         | 1145 +++++++++++++++++
+ drivers/clk/sunxi-ng/ccu-sun8i-v853.h         |   14 +
+ drivers/clk/sunxi-ng/ccu_common.h             |    2 +
+ drivers/clk/sunxi-ng/ccu_gate.c               |    6 +
+ drivers/clk/sunxi-ng/ccu_gate.h               |   14 +
+ drivers/clk/sunxi-ng/ccu_mux.c                |    4 +-
+ drivers/clk/sunxi-ng/ccu_reset.c              |    7 +
+ drivers/clk/sunxi-ng/ccu_reset.h              |    2 +-
+ drivers/phy/allwinner/phy-sun4i-usb.c         |   10 +
+ drivers/pinctrl/sunxi/Kconfig                 |    5 +
+ drivers/pinctrl/sunxi/Makefile                |    1 +
+ drivers/pinctrl/sunxi/pinctrl-sun8i-v853.c    |   53 +
+ drivers/pmdomain/sunxi/sun20i-ppu.c           |   15 +
+ .../clock/allwinner,sun8i-v853-ccu.h          |  132 ++
+ .../clock/allwinner,sun8i-v853-r-ccu.h        |   16 +
+ .../power/allwinner,sun8i-v853-ppu.h          |   10 +
+ .../reset/allwinner,sun8i-v853-ccu.h          |   60 +
+ .../reset/allwinner,sun8i-v853-r-ccu.h        |   14 +
+ 28 files changed, 2513 insertions(+), 4 deletions(-)
+ create mode 100644 arch/arm/boot/dts/allwinner/sun8i-v851s-lizard.dts
+ create mode 100644 arch/arm/boot/dts/allwinner/sun8i-v853.dtsi
+ create mode 100644 drivers/clk/sunxi-ng/ccu-sun8i-v853-r.c
+ create mode 100644 drivers/clk/sunxi-ng/ccu-sun8i-v853-r.h
+ create mode 100644 drivers/clk/sunxi-ng/ccu-sun8i-v853.c
+ create mode 100644 drivers/clk/sunxi-ng/ccu-sun8i-v853.h
+ create mode 100644 drivers/pinctrl/sunxi/pinctrl-sun8i-v853.c
+ create mode 100644 include/dt-bindings/clock/allwinner,sun8i-v853-ccu.h
+ create mode 100644 include/dt-bindings/clock/allwinner,sun8i-v853-r-ccu.h
+ create mode 100644 include/dt-bindings/power/allwinner,sun8i-v853-ppu.h
+ create mode 100644 include/dt-bindings/reset/allwinner,sun8i-v853-ccu.h
+ create mode 100644 include/dt-bindings/reset/allwinner,sun8i-v853-r-ccu.h
 
---TQwBxH4NgmwT3RhR
-Content-Type: application/pgp-signature; name="signature.asc"
+-- 
+2.39.5
 
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZ6NDLwAKCRB4tDGHoIJi
-0hNrAP43qtVDHtQj36YwYboLuBOirdtkgVN1fUhOnVEV0Y1ATwD/YYP2G1xIul75
-f6agMqEHmTC28/AhY8PcgE/JUQIWzgQ=
-=y2pN
------END PGP SIGNATURE-----
-
---TQwBxH4NgmwT3RhR--
-
-
---===============8903644153663972843==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============8903644153663972843==--
-
