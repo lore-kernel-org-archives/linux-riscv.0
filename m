@@ -4,43 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7CA49C02192
-	for <linux-riscv@archiver.kernel.org>; Wed,  5 Feb 2025 19:31:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 221B4C02198
+	for <linux-riscv@archiver.kernel.org>; Wed,  5 Feb 2025 19:46:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:Message-ID:
-	In-Reply-To:Subject:cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=b/FnuL9LCqI4/DatAjkWJx95w1o5F6Zm+dK8vB8DvpA=; b=PXFRR80Uh9SjBG
-	4fHUUp5tDtFNCuckmKSH1u5fB8eUAsw6DGoO9I6Nu4uymtxZDaBcXzjRpEH740yjIdeJ2gJ1YNxlN
-	CZ+NzVpkI+QaaGszvSeW3+OgY3lRPcnPsLBdvl1Oqhemw4gFXO8/VCAfLKcn3uQf6R26NzFecTWGS
-	Z0evFEQYctItlZiZKPc+5papsMIV70SvWOTNQGp04W0F8/GK7bk0md7dGaefiQpytUEVHOvnN1wit
-	wUTrHzRY2+d8Tl78oCbGgyf44JH5fZVRkR2PqqIvPpnfkul1YAImyAvOxChU1jjUYDf6WjbOl1whj
-	9iqx1Zaihj0f0kD6tYDw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:Message-ID:In-Reply-To:Subject:cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=NknA8tgnIOQPYkxjEfuqORQRarV+c2+2vSVjAOnteY4=; b=fZ5TgpXUiDyrKCNPwC5vd142ZJ
+	t0zqDRDWcWhu/CRBJnibDjP0ugaGGm2UuSRDAhYFOWSNpU2eCgCHwxb/+uy+3jY6ASnxqNmz1B/55
+	2qeI+9tESkiokqLxsh9JIWpcmTj/Uwnf3W8GpRlhpgjTU4RVaOYv7L1lk2yb/aLBsHb2e0SfzgsPY
+	7a+IgbY19UKn29HnmzDnww7zqfmYI91nCxfT4hylbyid5+3ZQQx5/4kxfTF95nHpVD3EegnBhKefD
+	1HGeE7B34mwn8qe7o2ZA0Fkgd65Z2liX0KK9YVMwKu6YBJhFt9w2TzucnwBsqilLTO1j6aT7ETTuZ
+	tTw81v7Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfl7Q-00000004PiE-2J51;
-	Wed, 05 Feb 2025 19:31:28 +0000
+	id 1tflLw-00000004Rtx-1rR0;
+	Wed, 05 Feb 2025 19:46:28 +0000
 Received: from gentwo.org ([62.72.0.81])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfl7O-00000004Phi-1H3n;
-	Wed, 05 Feb 2025 19:31:27 +0000
+	id 1tflLu-00000004Rt8-1mkJ;
+	Wed, 05 Feb 2025 19:46:27 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=gentwo.org;
-	s=default; t=1738781950;
-	bh=SYRJ92XRnRT/x5NskeDXbjb8HVyYz50Z7VSg1zqM4Ew=;
+	s=default; t=1738781507;
+	bh=33IQOomqEyLTQbaYoSoQ2PJ57XbkscwA0pHsfJIANsE=;
 	h=Date:From:To:cc:Subject:In-Reply-To:References:From;
-	b=mzVxLSJNHQzpfsGg8asMfAllni44astZAk7UVDtj61QZhKUA3VzWiQKg025jlDtuO
-	 IQQGXZJGyg0hvGfUeE62Iykg9RLT5BzCQoIJZUS7GMDyP3L9aN8Xw3DfgQ68ImYJGf
-	 g1vnGP2zayjZxjDqcFnzDr9YcNKprDLECJW554HM=
+	b=hAl/xLVS2r7Z4b6dKCNGQj1YxU7mBAFZLxa0QFxRcOfg9/MMOpCcpPaUILVgfMiCD
+	 2Xzh/SDNcO2OkjjW/9VtrMp95w0TNdf6eYPrtPnCGFvHDmq2AGyBc7FSCpF2aiSDIy
+	 PXbvCiMuZZA0WsQlqrDQ4EI9w2tceEb6ut8EvkwE=
 Received: by gentwo.org (Postfix, from userid 1003)
-	id E015240285; Wed,  5 Feb 2025 10:59:10 -0800 (PST)
+	id 6887F401F1; Wed,  5 Feb 2025 10:51:47 -0800 (PST)
 Received: from localhost (localhost [127.0.0.1])
-	by gentwo.org (Postfix) with ESMTP id DDBFA401E1;
-	Wed,  5 Feb 2025 10:59:10 -0800 (PST)
-Date: Wed, 5 Feb 2025 10:59:10 -0800 (PST)
+	by gentwo.org (Postfix) with ESMTP id 6476D401E1;
+	Wed,  5 Feb 2025 10:51:47 -0800 (PST)
+Date: Wed, 5 Feb 2025 10:51:47 -0800 (PST)
 From: "Christoph Lameter (Ampere)" <cl@gentwo.org>
-To: Dave Hansen <dave.hansen@intel.com>
+To: Jessica Clarke <jrtc27@jrtc27.com>
 cc: Maciej Wieczor-Retman <maciej.wieczor-retman@intel.com>, luto@kernel.org, 
     xin@zytor.com, kirill.shutemov@linux.intel.com, palmer@dabbelt.com, 
     tj@kernel.org, andreyknvl@gmail.com, brgerst@gmail.com, ardb@kernel.org, 
@@ -62,13 +62,15 @@ cc: Maciej Wieczor-Retman <maciej.wieczor-retman@intel.com>, luto@kernel.org,
     linux-doc@vger.kernel.org
 Subject: Re: [PATCH 00/15] kasan: x86: arm64: risc-v: KASAN tag-based mode
  for x86
-In-Reply-To: <fb30574a-d238-424c-a464-0f7a5707c46a@intel.com>
-Message-ID: <3dcf7631-d839-7235-10c7-30f80d7f796a@gentwo.org>
-References: <cover.1738686764.git.maciej.wieczor-retman@intel.com> <8bd9c793-aac6-a330-ea8f-3bde0230a20b@gentwo.org> <fb30574a-d238-424c-a464-0f7a5707c46a@intel.com>
+In-Reply-To: <F974BA79-80D8-4414-9DFD-1EEF9395143C@jrtc27.com>
+Message-ID: <72837fcd-97a8-c213-0098-c8f308c3415d@gentwo.org>
+References: <cover.1738686764.git.maciej.wieczor-retman@intel.com> <8bd9c793-aac6-a330-ea8f-3bde0230a20b@gentwo.org> <F974BA79-80D8-4414-9DFD-1EEF9395143C@jrtc27.com>
 MIME-Version: 1.0
+Content-Type: multipart/mixed; boundary="8323329-1508829946-1738781507=:2407083"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250205_113126_375929_5F758BA7 
-X-CRM114-Status: GOOD (  13.39  )
+X-CRM114-CacheID: sfid-20250205_114626_495190_E96D82B8 
+X-CRM114-Status: UNSURE (   6.65  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,36 +82,37 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, 4 Feb 2025, Dave Hansen wrote:
+  This message is in MIME format.  The first part should be readable text,
+  while the remaining parts are likely unreadable without MIME-aware tools.
 
-> > Could we get support for that? This would allow us to enable tag checking
-> > in production systems without performance penalty and no memory overhead.
->
-> At least on the Intel side, there's no trajectory for doing something
-> like the MTE architecture for memory tagging. The DRAM "ECC" area is in
-> very high demand and if anything things are moving away from using ECC
-> "bits" for anything other than actual ECC. Even the MKTME+integrity
-> (used for TDX) metadata is probably going to find a new home at some point.
->
-> This shouldn't be a surprise to anyone on cc here. If it is, you should
-> probably be reaching out to Intel over your normal channels.
+--8323329-1508829946-1738781507=:2407083
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: 8BIT
 
-Intel was a competitor for our company and AFAICT has issues all over
-the place with performance given its conservative stands on technology. But
-we do not test against Intel anymore. Can someone from AMD say something?
+On Tue, 4 Feb 2025, Jessica Clarke wrote:
 
-MTE tagging is part of the processor standard for ARM64 and Linux will
-need to support the 16 byte tagging feature one way or another even if
-Intel does not like it. And AFAICT hardware tagging support is a critical
-security feature for the future.
+> It’s not “no performance penalty”, there is a cost to tracking the MTE
+> tags for checking. In asynchronous (or asymmetric) mode that’s not too
 
+
+On Ampere Processor hardware there is no penalty since the logic is build
+into the usual read/write paths. This is by design. There may be on other
+platforms that cannot do this.
+
+
+--8323329-1508829946-1738781507=:2407083
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--8323329-1508829946-1738781507=:2407083--
+
