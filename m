@@ -4,78 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20DE1C02192
-	for <linux-riscv@archiver.kernel.org>; Wed,  5 Feb 2025 07:24:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 22202C02192
+	for <linux-riscv@archiver.kernel.org>; Wed,  5 Feb 2025 07:58:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
 	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=WhPjRL80L9A6fyPhfhYZqPzUn4mZFUB7osqxgUmQwPA=; b=2O768RgQ8A0GGX
-	oOJGRfktFCFdZU6akmQL7NOnIP9NWwuDY0A9+of+Lt7YteE6A6qiRZEuxom+oHVfDpGlejSi05kqR
-	J/AIRew7YdsGAIb39AM5w+3wFlHmOFUIqJnM4bLTTb1ZXLdhtDZwFzLvAF3xpSYX0BUuYDvV32L2C
-	i0nKGxczH34hGpqt+4TvHG6v8/VPsWP2T0g0zYttp7P9Gm6m8Nny70lAc7T71eAJMr4k4Wv8EQ+kp
-	c7Yc44HXr+RMdxPiB4pcBCg/0znco7M9nU/WCHH83hiBGBGr7G69s08yJaRGJpVIqCFcTUM+cRNix
-	JDGXOwlaZqoP6V4Y54ZQ==;
+	List-Owner; bh=yQXmdffnXhdC33DOxcOtsY3s/FN5L4YZx3V//PBt3S4=; b=lbT6KWhoKGWqBj
+	TZghoiIDeEzPirXL1PVZkEAQwrJppp+sjap82rp5nBTeoH/ZCfDp8F8GyHWyC3SaP6rZwE58GT3lq
+	jeCbge3wJdl5RMkJJwL7koAhSVeOr0vNZxOBn+68f5brgR2LC9+HpJGUgvp5z5Q5dopsDHWXVpPFX
+	sNJ0dPx6PPAgb2XIHusjvDtXgCprw5EvDiK4dSvcfCun81qAVPwBBwMNw8vCUuay0x6lZYtDUN67n
+	K+DIfFFjbd7sJYV4LZ9AXKnd1iU72KR7vWNv/y2hWFD6L5IKDZplGpTdVgbHOjZWm+XDjXt3c7VUy
+	xKFjTQorwn2WXYPHXw3Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfZm2-00000002Ub8-0unL;
-	Wed, 05 Feb 2025 07:24:38 +0000
-Received: from smtpbg151.qq.com ([18.169.211.239])
+	id 1tfaJ0-00000002WyX-03NA;
+	Wed, 05 Feb 2025 07:58:42 +0000
+Received: from smtpbgau2.qq.com ([54.206.34.216])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfZlx-00000002UXL-1RK2
+	id 1tfaIw-00000002Wxx-3qnD
 	for linux-riscv@lists.infradead.org;
-	Wed, 05 Feb 2025 07:24:36 +0000
-X-QQ-mid: bizesmtpsz10t1738740211teyq6f
-X-QQ-Originating-IP: eYyzO5QSXnnXIwL7uGmtDShdouU8nJoM7QM9YL0sLyQ=
+	Wed, 05 Feb 2025 07:58:41 +0000
+X-QQ-mid: bizesmtpsz8t1738742253t7hgm8u
+X-QQ-Originating-IP: LhoYFQ+iWEQs6p+Ju1KUL8CfXjPMNyGFDkrdyseJg5Y=
 Received: from [192.168.125.117] ( [113.72.145.41])
 	by bizesmtp.qq.com (ESMTP) with 
-	id ; Wed, 05 Feb 2025 15:23:30 +0800 (CST)
+	id ; Wed, 05 Feb 2025 15:57:31 +0800 (CST)
 X-QQ-SSF: 0000000000000000000000000000000
 X-QQ-GoodBg: 0
-X-BIZMAIL-ID: 16571871631840008166
-Message-ID: <EA1B602AAF2011A6+78e19956-822a-46a5-8f67-c99ee79510d1@linux.starfivetech.com>
-Date: Wed, 5 Feb 2025 15:23:29 +0800
+X-BIZMAIL-ID: 4618514360899873354
+Message-ID: <25B3D8909DBCC21B+43663a76-4afa-44ae-95e2-3a8792de614c@linux.starfivetech.com>
+Date: Wed, 5 Feb 2025 15:57:31 +0800
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 3/5] riscv: dts: starfive: jh7110-common: assign 24MHz
- clock-frequency to uart0
-To: E Shattow <e@freeshell.de>, Conor Dooley <conor@kernel.org>,
- Emil Renner Berthing <kernel@esmil.dk>, Rob Herring <robh@kernel.org>,
+Subject: Re: [PATCH v2 5/5] riscv: dts: starfive: jh7110-common:
+ bootph-pre-ram hinting needed by boot loader
+Content-Language: en-US
+To: E Shattow <e@freeshell.de>, Emil Renner Berthing <kernel@esmil.dk>,
+ Conor Dooley <conor@kernel.org>, Rob Herring <robh@kernel.org>,
  Krzysztof Kozlowski <krzk+dt@kernel.org>,
  Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
  <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>
 Cc: linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
  linux-riscv@lists.infradead.org
 References: <20250203013730.269558-1-e@freeshell.de>
- <20250203013730.269558-4-e@freeshell.de>
-Content-Language: en-US
+ <20250203013730.269558-6-e@freeshell.de>
 From: Hal Feng <hal.feng@linux.starfivetech.com>
-In-Reply-To: <20250203013730.269558-4-e@freeshell.de>
+In-Reply-To: <20250203013730.269558-6-e@freeshell.de>
 X-QQ-SENDSIZE: 520
 Feedback-ID: bizesmtpsz:linux.starfivetech.com:qybglogicsvrgz:qybglogicsvrgz5a-1
-X-QQ-XMAILINFO: NhdiEwnVOUqElu8RlIrSrq6wW33PQPQxE+mopJvaL0gDADNO/nTo6RLC
-	ymWFITs28FUnujYHeDy0VRt7HgSOMQD1/beGj0HcJ832rVijeJX1MjKB3NpNxaDx6dIhzlZ
-	oPGsxUHvkTWxMHGFNa1RS3VHfTWh0a0Q8tyUJ0tLgYTQG7I3M6DGlO+J6qG27wnMqw8+3s4
-	taETCjZpnYgyisT1ne15fI3c3wub81mlJm3iiWFn34nniPpZM1knNNMl5+noDSvzz79lJUG
-	m76mvOmCixEEwbnQfwTpnUhn9Vf36KC3zSZpX1HxLXuTrdJ1CX6IxsqgOiOOO01FJmtjEr0
-	3Ds70ev0DG9swHuuJQfC8AIgz4fdUIklhuhsE/k0k6fbc5OQqGfbpdRjTN8zDYJkHv/eR6A
-	EQ9TfgecaLL6+O+5F8VMelgTTBzjb3LN6ULLbpPvfFoQ5FbzwBO4LtQ7ZkSf/74lnL1fABN
-	4fxYcT+5bmSLQWDQUhnHhtD7id/eLvzoO0DTTGfs+isCKbYNAsKzmcaEaw9401fwhQj0VjG
-	R3eXlE4FqnY/br09u04vPpIvzXckAbDVJt3RUPM3ADTFQDrERwVBh5DIRsbh8gtS/TmHAzt
-	3CUZlx1TmdXxlR+OyozyOsAWM0mbfQLiACPmg1oUMuJL/ekBi4HqWukiKKpXzPQ6fbWRLmb
-	6hIndQVUq3XWpU+b+/zeo2SUysv2AwJWvewjAl88Pv/UB5q5OtaCy//CBpJYrtVijYuBdfs
-	t/MIbi/oKw0Teud/ZLfpMJ0B3bG1V3y4By52dmuU4xcayl+HFoeuOOfkjJkGvwgNVnSIJov
-	IifK85KEbA9i4OpVFzk3mCcWEcFvLa4x7rD535VqGhu3d0qTdFkY9Y3i0pHvNHhx/y7+kOX
-	5zD27Q87Tw2wSClDD4IDWF0nf5VgwlGhxdTXFjxByPWuOFpqIAZ2CctvohgIxg98qWfj55g
-	6mYirkkSS6+Npi+ku/Bqvfi6C6jnLStYfmy8=
-X-QQ-XMRINFO: M/715EihBoGSf6IYSX1iLFg=
+X-QQ-XMAILINFO: Nng40AJHpBv6Fu2aJymXzS0AhJjJLn2lphaWOVuVC6W/CsVvoOiX1tHc
+	KcOwYveyuzl0rtd/49/7st8AVqv8vL1UJUVoTwuRRxv79NydJlNlDPxXy5rySkAuVyA4nb9
+	UmIjxpLgonvHAEA89X2g9/SxDTicC0tMJxZ7qKrx/5JdnvMSmxb6Etnxdtten/yR0LYwzeG
+	0Zp7Q7gvf8xEIpCvTQ8yrr+omv5Q8ixUGINFCWifrhNmvCpsDR24J8bjT2JgyhYTM+BMDD6
+	zXeiyQI80EZXZktVbEqqh/71McBeK9+MyNn4W5GNChWsADUYBOhM0noxpnseG2BXL6Eegy7
+	8ROtqpx4WxASxeXNOiqkyYvl/8E9XZCVOrQHQr3l1Hv3cVGmv4/hskaLEfSHl+7N3T3snEk
+	F1IcTT5oiVzcwC1JMtXN1FojK3baRDnL0CC9U+REPf42eMDlOQK/p+ORdgnuVOyYLFuY9jL
+	ZkGgleDe2aYQN4BxoacXiB+a8012yn9LS2q48YgzsBq+hbnED1Irq4w9y7UYLpd1JHfv31I
+	hJr1ZXMre4GdCMjMr1qpRqJTusoytFg+PQrBwmXfTNj86L6bno0wMqKC6cvnWlv6KFQmYNt
+	wLSzJqRRkxRUAMa8T6M7JVRiAVK40MVWhXA2Wp+oT22bjlKRz9nPlWOK6M/ydcix5KAOTm0
+	Xgg6nMkG5WsjoV+EK+uVHx8n+RxGgwTEVqhMclezGmw1414aIEp0J/PEBSGsrKRIrr7QeN1
+	RBo00h6lhJY1YG9WohfhNDUBxYrRtkQQQmB0GZa+Vo8AxhLscjsSM2MJBQKaxqjfKiYvvye
+	/2/1NxLqGmqsLxHh1/JkKp3LkZGYpJHzNm7hY3mfFrCJwFRGjFg61t/6VXm3f/apY8RBfRt
+	bh5utTd+mFjptQl8kPH7FvEeddYEeovhixfz4fVaJvNr9kz60Dei2TpJpxziQhH17+kEMBG
+	Jk+zO3nsmr/k6Nw1UFWmZnH928AUo1W7LfUnFSzIqYGKl8xTb69lKiQNdCDH+j6f3Il8=
+X-QQ-XMRINFO: MPJ6Tf5t3I/ycC2BItcBVIA=
 X-QQ-RECHKSPAM: 0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250204_232434_014054_5BE50C66 
-X-CRM114-Status: UNSURE (   9.49  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250204_235839_391641_D34B14DD 
+X-CRM114-Status: GOOD (  12.80  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,28 +92,76 @@ Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 On 2/3/2025 9:37 AM, E Shattow wrote:
-> Set uart0 clock-frequency for better compatibility with operating system
-> and downstream boot loader SPL secondary program loader.
+> Add bootph-pre-ram hinting to jh7110-common.dtsi:
+>   - i2c5_pins and i2c-pins subnode for connection to eeprom
+>   - eeprom node
+>   - qspi flash configuration subnode
+>   - memory node
+>   - uart0 for serial console
+> 
+>   With this the U-Boot SPL secondary program loader may drop such
+>   overrides when using dt-rebasing with JH7110 OF_UPSTREAM board targets.
 > 
 > Signed-off-by: E Shattow <e@freeshell.de>
 > ---
->  arch/riscv/boot/dts/starfive/jh7110-common.dtsi | 1 +
->  1 file changed, 1 insertion(+)
+>  arch/riscv/boot/dts/starfive/jh7110-common.dtsi | 6 ++++++
+>  1 file changed, 6 insertions(+)
 > 
 > diff --git a/arch/riscv/boot/dts/starfive/jh7110-common.dtsi b/arch/riscv/boot/dts/starfive/jh7110-common.dtsi
-> index 8a59c3001339..6bb13af82147 100644
+> index 30c5f3487c8b..c9e7ae59ee7c 100644
 > --- a/arch/riscv/boot/dts/starfive/jh7110-common.dtsi
 > +++ b/arch/riscv/boot/dts/starfive/jh7110-common.dtsi
-> @@ -635,6 +635,7 @@ GPOEN_DISABLE,
+> @@ -28,6 +28,7 @@ chosen {
+>  	memory@40000000 {
+>  		device_type = "memory";
+>  		reg = <0x0 0x40000000 0x1 0x0>;
+> +		bootph-pre-ram;
+>  	};
+>  
+>  	gpio-restart {
+> @@ -247,6 +248,7 @@ emmc_vdd: aldo4 {
+>  	};
+>  
+>  	eeprom@50 {
+> +		bootph-pre-ram;
+>  		compatible = "atmel,24c04";
+>  		reg = <0x50>;
+>  		pagesize = <16>;
+> @@ -323,6 +325,7 @@ &qspi {
+>  	nor_flash: flash@0 {
+>  		compatible = "jedec,spi-nor";
+>  		reg = <0>;
+> +		bootph-pre-ram;
+>  		cdns,read-delay = <2>;
+>  		spi-max-frequency = <100000000>;
+>  		cdns,tshsl-ns = <1>;
+> @@ -405,6 +408,7 @@ GPOEN_SYS_I2C2_DATA,
+>  	};
+>  
+>  	i2c5_pins: i2c5-0 {
+> +		bootph-pre-ram;
+>  		i2c-pins {
+>  			pinmux = <GPIOMUX(19, GPOUT_LOW,
+>  					      GPOEN_SYS_I2C5_CLK,
+> @@ -413,6 +417,7 @@ GPI_SYS_I2C5_CLK)>,
+>  					      GPOEN_SYS_I2C5_DATA,
+>  					      GPI_SYS_I2C5_DATA)>;
+>  			bias-disable; /* external pull-up */
+> +			bootph-pre-ram;
+>  			input-enable;
+>  			input-schmitt-enable;
+>  		};
+> @@ -641,6 +646,7 @@ GPOEN_DISABLE,
 >  };
 >  
 >  &uart0 {
-> +	clock-frequency = <24000000>;
+> +	bootph-pre-ram;
+>  	clock-frequency = <24000000>;
 >  	pinctrl-names = "default";
 >  	pinctrl-0 = <&uart0_pins>;
->  	status = "okay";
 
-Reviewed-by: Hal Feng <hal.feng@starfivetech.com>
+What about &mmc0, &mmc1, &qspi, &sysgpio, &mmc0_pins, &mmc1_pins, &i2c5?
+Why not add "bootph-pre-ram;" for them?
 
 Best regards,
 Hal
