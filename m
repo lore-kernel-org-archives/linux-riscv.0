@@ -4,108 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 79AA3C02194
-	for <linux-riscv@archiver.kernel.org>; Wed,  5 Feb 2025 14:16:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DE4AFC02192
+	for <linux-riscv@archiver.kernel.org>; Wed,  5 Feb 2025 14:40:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=GmQbjDBg68+CYGYA3rBLgWU7OxJclrUKgjijgVPlxqs=; b=sBOOBuW8A+xKEy
-	IxerpwDBhzru5ljgb69rnezc4gHrlvq+0PZnr7i2AxUkvCivw5G8kUL8JCxF4RHuuWB1E2sVEOl2U
-	udjkY26BanlcUktqnxCuP+NuXvk3vFs4pChzByWWFV6ZUPaih2vWnrV9UqWkpmPgvy2O5r+67rsBV
-	Fn/js6U1ahYKPB2QBWN8xKlaMkK+3U2PFueDFy/trs6zzxek+qdbgXpplCjhYIYm1+ga1tCDrSMcN
-	ZcuXNWoIx6x4cdKj9+jWSXFNooQp/8ocNUKPo5joVMGYdM36PElXclgyq4TEBPVxRdglWgjsx/6Oj
-	xHIuyhM1/8QD6c0KBJlA==;
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:To
+	:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=V3xZZ2wpnqC6ULL9arAAs6zUmjwCjpzfyoRYCsirIkE=; b=Tj6NrmjJqnTjMt
+	bd7wC9DdNA9YuOsOzkT2fIY9H4fNjD86TCS+5VdXGYuMi5lifuvoW3XAPCS5qvIdwxTXIFT6mwseh
+	sTFPXMr1kfJx5p/8yhn3MVapF0dtfOjHN/cj5DH15IXBNpwOM0qGPZpjktXW40C2anewiLa0xUZFq
+	kuRZ3/RzJ+nh6tk4f2Nbc3udIN8HBG3QrnkdcOVqjuxDZsWXSNu4FKhVWU2HOBC2Wf0jpDt7gtBQw
+	/Y3urxCy4nih6cXsFv1AKGYS1x+jlit7hEajcrg4QaKePrt10/Fm1gDFw6vLWqOcvVqwjX9uyGE0I
+	/sR+M0I6j3n4PMobr77Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfgCI-00000003VaF-1dcj;
-	Wed, 05 Feb 2025 14:16:10 +0000
-Received: from mail-ej1-x634.google.com ([2a00:1450:4864:20::634])
+	id 1tfgZT-00000003ZJ8-1vBm;
+	Wed, 05 Feb 2025 14:40:07 +0000
+Received: from smtp-relay-internal-1.canonical.com ([185.125.188.123])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfetU-00000003HsB-1KOR;
-	Wed, 05 Feb 2025 12:52:41 +0000
-Received: by mail-ej1-x634.google.com with SMTP id a640c23a62f3a-aaf900cc7fbso1383304966b.3;
-        Wed, 05 Feb 2025 04:52:40 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1738759959; x=1739364759; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=ZEOAzVx6WPB9stA5mr4n7x/fL+LclH0gvOV71KsByXY=;
-        b=Rx0oBpT+u0IEmjz3GNnYxkuk+3QIeSwVU7JC8BmUxMFF8kyD10GPrvg/dwCW7fkxuz
-         +zjlrM3AcwmOVPRPA2UaUQudGVNJis7x/mjOAF+1N/vJ5kOd6LVOZh/Sadt10Em8hraq
-         JgpADOzT12oMDMXdHVvTewSoFAIOkj2RRMM43f6rjjyCarI0/UqELw/mh4NYJQGlwWTX
-         cP9sIJEOZAib0Q7KZrOPB+loCdj48DDx+Uwt/JkQFWHdq44J8nRXJQoCoLFTYqzhEVlt
-         0O1geMQWinbtOUvfHk3eIjqi1oTikbyuFsP77ETI6P4kC2TybwLkzy9l2hyPxyLAlsBV
-         WdVw==
+	id 1tfgYY-00000003Z7v-0Gmt
+	for linux-riscv@lists.infradead.org;
+	Wed, 05 Feb 2025 14:39:11 +0000
+Received: from mail-ed1-f72.google.com (mail-ed1-f72.google.com [209.85.208.72])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by smtp-relay-internal-1.canonical.com (Postfix) with ESMTPS id 79E9A3F2BD
+	for <linux-riscv@lists.infradead.org>; Wed,  5 Feb 2025 14:39:07 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
+	s=20210705; t=1738766347;
+	bh=Dme+YavE3h7VKwtVCWsFypxmxtFZq863WhJD/6LnYDU=;
+	h=From:To:Cc:Subject:Date:Message-ID:MIME-Version;
+	b=GhXHX9pE+4J37FUAXH9VWjgMB22PXxqP3qviMwYTTcSU9qqI8sV0SHVb/vUlX++SH
+	 NcsKeEryLoCre0X1xwYhfNl5IkrpPm8/k2XCymO5bytC5XrVSUtl3cncuP+zqDmtVo
+	 QEkKFGCwVwW1prlY00Te9LMZx0DwaBFAufX1UCTELKq1h9YrEptXKhsf9Q7iD4E3n/
+	 cS0/mP84mDzkf3x4LqWW90IkgTFjiUggjciVNplp1njbzlRGA9dDjevKgV0w2yJl0C
+	 IAzrPYjhEWe6FpS0mpWmzyBs75TJMBxp1plfMRkocfxip0VgBcUmU4a1YxOk3YEh01
+	 5qaQ7N206gKWQ==
+Received: by mail-ed1-f72.google.com with SMTP id 4fb4d7f45d1cf-5d3f01eeef8so5739306a12.0
+        for <linux-riscv@lists.infradead.org>; Wed, 05 Feb 2025 06:39:07 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1738759959; x=1739364759;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=ZEOAzVx6WPB9stA5mr4n7x/fL+LclH0gvOV71KsByXY=;
-        b=IikbQPnpD8Y7NOoQJdC+YbZbgydH7VFAYwW4uHvaMfaMykEDq4NQ+jJlb07wEmU+Mq
-         JxZkvVh0QhPNT67rQj+KQceFNUf8xv8pKCMxZW/967dmcWu/X7D/Hi/39EUo0XnvRH0c
-         pAm6XrSf1/PCRdbocIYsqAd5+knwSz3Eey9pB1SnbECw7lvhXG0ypA4G1Lj4v2xZWF+m
-         AUffl1vM9LaMNXt5QJSH5CjM02mEgKRLh1kexJq8oN4jpqUzjwfAKUs4OqQaus6GmNLp
-         5zYQO8zfUqiktGkOAP/6qhHMt/uykv3bcZPvLRuF/3T/YOWBTcfRzU5e3vhFTz6r20hw
-         96mw==
-X-Forwarded-Encrypted: i=1; AJvYcCVRZsjQoV0A1y7iiIunezkWrlgWM5BaJp+bgsM8MfKXiohj+/2JBysnDZWM4o8ih+kKmo+ustUEPmooci2BCbBh@lists.infradead.org, AJvYcCWJUHRuftwbYnpSNyem0uz+GVCIcSbLHn1GeR1WyWxew+7ni00WPchfkaO/eaxVJefy4Qv++4DyqBM83no=@lists.infradead.org, AJvYcCXEVJ5xkZE6HdKOTQ1Q95Ar8T2RZoMZqpmsSSV1fLEMFHifANbJNW3DjkkTJiHYDnGngdno2FuQknh5@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzy5MFb4PxuWHdRQXvswcac3pa7YDfZG9efGul6cm4IMMtUvH9W
-	iLiASDLmV9Dk/IpIEUp2ToGuBjFjYE+HYN/61Aty1k0Ut37TAWDc
-X-Gm-Gg: ASbGncs7pSwUkbgtmKY7DAb2KaTvrRcECHVImSz8ouwhWRQOiqPNgIPtf6IZDFOFxjZ
-	5FCy9NMPtiBW8hwmG/8Kc8Ta/PmKnWQrDjPPw4tVX0UOkefrgv5DTWgSnriYYiOafJxcFJnNWLg
-	peuYO/HtD+aip3gOYAjte20oB53f7z+RDofxIARVnsAGO4WdaL5nkDxNRbA72ahd2MEbczGayDE
-	rwYphWPg39uNOS3r3KCgfAa+D1Oa2VcVVBII0M0vrKdYF5BTqYQ0pqqWN5sTPWwLfmDXOeFW5Js
-	LPcZA+MS+3/VFzxeuXFsVmpTW9pQ6KOab5wyYc0eHa35sA==
-X-Google-Smtp-Source: AGHT+IGXrMqsMiP0zkOFbpXcUy0rvilFMJQHNVAo7U33xcsXTT7GzHgk1vRH+nlowH9w2lytesYKDg==
-X-Received: by 2002:a17:907:3fa1:b0:aaf:86a2:651f with SMTP id a640c23a62f3a-ab75e2fc295mr281783466b.38.1738759958692;
-        Wed, 05 Feb 2025 04:52:38 -0800 (PST)
-Received: from localhost.localdomain (185.174.17.62.zt.hu. [185.174.17.62])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-5dc724055e5sm11559997a12.45.2025.02.05.04.52.37
+        d=1e100.net; s=20230601; t=1738766346; x=1739371146;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=Dme+YavE3h7VKwtVCWsFypxmxtFZq863WhJD/6LnYDU=;
+        b=cXJF6CIeg56+KS92pqETpTIArc67TAE2DMjtsFtpvfql7GdCfd9Ded48jBO2NfN2Mx
+         8Rbut1LTnG/dVslMCPJgH0jn7P9+EN0TTcxAEzsjuuCxzSmedo0+7Im0KIp/zrpZV7TN
+         NvwJ3sFxG+i4hCJB30sdqLFlQJRLTwxLBKSxbCB2+NbsgYec0fkc37904r6pK8VU3Bfx
+         SRIZoyVQdZoEi44CXQZZoT53iJmHxbiX0gOoL5LXggNl29tGWCWQ6mSKHKacbHIhgkxU
+         z9jh/mNwxh8vsEpzGF4Z8iK72rJITuYODNhH2yaqD56dJySnvD/zGmhpXIFiY5QtIU0p
+         z/wg==
+X-Gm-Message-State: AOJu0Ywm4Cwk2yC/bFHggECwbCCvo6hJ8W14TkPb953ff+GN0Y2ZXzr2
+	Sgp1mjMXKIYnLHjrHz/ytixQaB65pKGZV1dVYugHmeVnd3+bKwbniWeQWTjxOphCmUqygKCrulI
+	AEDvq/+KO81ru8fQGUWp4vAc4pHnhLgrTJPBTug7uft1R7u2INPSpbW/XMkbHD0bf2sTDN0OP5y
+	zt7CUnHUvZ4NwLhA==
+X-Gm-Gg: ASbGncu+uXkhEl3dpkbmGG2KipUkDJzeU8WObSlOIeZ3kmtCHEAQjiIsBmey0cZyQpy
+	IFXd2ptykWOOkSiCm/WDmbyMPbvZwcE4vYxZZ3i5guG6PyG72bwYcoWhnZojz2mHX7u0UjSQR7X
+	4D41uv3friv++OILLwH/4d6lgNRzM0oQO+SnD4xlF4Tx97yWkzM7512KNwHjE3d4paxNDAB0hd+
+	lw9ajHjWTQBQKjSh/+cyATEKDiKAQt2P7VZSUd/7sqn91pdqRxkXGzdJO27AR0dIucRbE/38OWq
+	wfcQZrcK8g0SIModU5U=
+X-Received: by 2002:a05:6402:3506:b0:5d0:cfad:f71 with SMTP id 4fb4d7f45d1cf-5dcdb775fbamr7771722a12.32.1738766346346;
+        Wed, 05 Feb 2025 06:39:06 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IF70Az63p7FGVorzWY2EiBTjmxe7ybh3PoNumytu8JuoGgxV7u2ogC9A7h+McO4xrKdNx++6w==
+X-Received: by 2002:a05:6402:3506:b0:5d0:cfad:f71 with SMTP id 4fb4d7f45d1cf-5dcdb775fbamr7771650a12.32.1738766345763;
+        Wed, 05 Feb 2025 06:39:05 -0800 (PST)
+Received: from stitch.. ([2a01:4262:1ab:c:6754:ef46:cf8c:ad7b])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ab71166a8e0sm748209766b.158.2025.02.05.06.39.04
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 05 Feb 2025 04:52:38 -0800 (PST)
-From: Andras Szemzo <szemzo.andras@gmail.com>
-To: Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Chen-Yu Tsai <wens@csie.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>,
-	Linus Walleij <linus.walleij@linaro.org>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Maxime Ripard <mripard@kernel.org>
-Cc: Vinod Koul <vkoul@kernel.org>,
-	Kishon Vijay Abraham I <kishon@kernel.org>,
-	Ulf Hansson <ulf.hansson@linaro.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	=?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	linux-clk@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-sunxi@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	linux-phy@lists.infradead.org,
-	linux-gpio@vger.kernel.org,
-	linux-pm@vger.kernel.org,
-	linux-riscv@lists.infradead.org
-Subject: [PATCH v2 06/10] pmdomain: sunxi: add V853 ppu support
-Date: Wed,  5 Feb 2025 13:52:21 +0100
-Message-Id: <20250205125225.1152849-7-szemzo.andras@gmail.com>
-X-Mailer: git-send-email 2.39.5
-In-Reply-To: <20250205125225.1152849-1-szemzo.andras@gmail.com>
-References: <20250205125225.1152849-1-szemzo.andras@gmail.com>
+        Wed, 05 Feb 2025 06:39:05 -0800 (PST)
+From: Emil Renner Berthing <emil.renner.berthing@canonical.com>
+To: linux-riscv@lists.infradead.org
+Subject: [PATCH v1] riscv: Use of_property_present() to test for non-boolean properties
+Date: Wed,  5 Feb 2025 15:39:01 +0100
+Message-ID: <20250205143903.413959-1-emil.renner.berthing@canonical.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250205_045240_369475_543648AF 
-X-CRM114-Status: GOOD (  11.08  )
+X-CRM114-CacheID: sfid-20250205_063910_365530_5EB2FED6 
+X-CRM114-Status: GOOD (  11.15  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,51 +96,61 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Cc: Steffen Persvold <spersvold@gmail.com>, Paul Walmsley <paul.walmsley@sifive.com>, linux-kernel@vger.kernel.org, Jeremy Linton <jeremy.linton@arm.com>, Conor Dooley <conor.dooley@microchip.com>, Palmer Dabbelt <palmer@dabbelt.com>, Yunhui Cui <cuiyunhui@bytedance.com>, Sudeep Holla <sudeep.holla@arm.com>, =?UTF-8?q?Miquel=20Sabat=C3=A9=20Sol=C3=A0?= <mikisabate@gmail.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-V853 has a similar ppu like Allwinner D1, add compatible and the available pd names.
+The use of of_property_read_bool() for non-boolean properties is
+deprecated and since
 
-Signed-off-by: Andras Szemzo <szemzo.andras@gmail.com>
+commit c141ecc3cecd ("of: Warn when of_property_read_bool() is used on non-boolean properties")
+
+a warning is displayed when used incorrectly. Fix it by switching to
+of_property_present() as recommended in the same commit.
+
+Signed-off-by: Emil Renner Berthing <emil.renner.berthing@canonical.com>
 ---
- drivers/pmdomain/sunxi/sun20i-ppu.c | 15 +++++++++++++++
- 1 file changed, 15 insertions(+)
+ arch/riscv/kernel/cacheinfo.c | 12 ++++++------
+ 1 file changed, 6 insertions(+), 6 deletions(-)
 
-diff --git a/drivers/pmdomain/sunxi/sun20i-ppu.c b/drivers/pmdomain/sunxi/sun20i-ppu.c
-index 8700f9dd5f75..9f002748d224 100644
---- a/drivers/pmdomain/sunxi/sun20i-ppu.c
-+++ b/drivers/pmdomain/sunxi/sun20i-ppu.c
-@@ -182,11 +182,26 @@ static const struct sun20i_ppu_desc sun20i_d1_ppu_desc = {
- 	.num_domains	= ARRAY_SIZE(sun20i_d1_ppu_pd_names),
- };
+diff --git a/arch/riscv/kernel/cacheinfo.c b/arch/riscv/kernel/cacheinfo.c
+index 2d40736fc37c..26b085dbdd07 100644
+--- a/arch/riscv/kernel/cacheinfo.c
++++ b/arch/riscv/kernel/cacheinfo.c
+@@ -108,11 +108,11 @@ int populate_cache_leaves(unsigned int cpu)
+ 	if (!np)
+ 		return -ENOENT;
  
-+static const char *const sun8i_v853_ppu_pd_names[] = {
-+	"RISCV",
-+	"NPU",
-+	"VE",
-+};
-+
-+static const struct sun20i_ppu_desc sun8i_v853_ppu_desc = {
-+	.names		= sun8i_v853_ppu_pd_names,
-+	.num_domains	= ARRAY_SIZE(sun8i_v853_ppu_pd_names),
-+};
-+
- static const struct of_device_id sun20i_ppu_of_match[] = {
- 	{
- 		.compatible	= "allwinner,sun20i-d1-ppu",
- 		.data		= &sun20i_d1_ppu_desc,
- 	},
-+	{
-+		.compatible	= "allwinner,sun8i-v853-ppu",
-+		.data		= &sun8i_v853_ppu_desc,
-+	},
- 	{ }
- };
- MODULE_DEVICE_TABLE(of, sun20i_ppu_of_match);
+-	if (of_property_read_bool(np, "cache-size"))
++	if (of_property_present(np, "cache-size"))
+ 		ci_leaf_init(this_leaf++, CACHE_TYPE_UNIFIED, level);
+-	if (of_property_read_bool(np, "i-cache-size"))
++	if (of_property_present(np, "i-cache-size"))
+ 		ci_leaf_init(this_leaf++, CACHE_TYPE_INST, level);
+-	if (of_property_read_bool(np, "d-cache-size"))
++	if (of_property_present(np, "d-cache-size"))
+ 		ci_leaf_init(this_leaf++, CACHE_TYPE_DATA, level);
+ 
+ 	prev = np;
+@@ -125,11 +125,11 @@ int populate_cache_leaves(unsigned int cpu)
+ 			break;
+ 		if (level <= levels)
+ 			break;
+-		if (of_property_read_bool(np, "cache-size"))
++		if (of_property_present(np, "cache-size"))
+ 			ci_leaf_init(this_leaf++, CACHE_TYPE_UNIFIED, level);
+-		if (of_property_read_bool(np, "i-cache-size"))
++		if (of_property_present(np, "i-cache-size"))
+ 			ci_leaf_init(this_leaf++, CACHE_TYPE_INST, level);
+-		if (of_property_read_bool(np, "d-cache-size"))
++		if (of_property_present(np, "d-cache-size"))
+ 			ci_leaf_init(this_leaf++, CACHE_TYPE_DATA, level);
+ 		levels = level;
+ 	}
 -- 
-2.39.5
+2.43.0
 
 
 _______________________________________________
