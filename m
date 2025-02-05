@@ -4,85 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AB2F3C02192
-	for <linux-riscv@archiver.kernel.org>; Wed,  5 Feb 2025 23:53:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4D6D5C02192
+	for <linux-riscv@archiver.kernel.org>; Wed,  5 Feb 2025 23:53:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
-	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	bh=ykFeGGZ3tI5fYSlX5wFO87ZvJNwM03bYSNeint1WBkE=; b=t14UUwMQHbf4+okGWfo1KfTW6a
-	hFRSVCbY1wRLx7AKqzCe0LIXQr5TwBaz2Ny6X2oZovTnGUYNK5NwzykgrSoqNcOphcnFLLZJ3L8gv
-	Ezm0ePOstToX45d4Ual3RZ5piUc4es/wQoXT8C/V/l3B3C22qs9RbNyw1SXmyQGLroy4N5tC5S1lB
-	MogH8MO8B8Th+EoJRwqUqtWInBqMJNF5qd0tCAEsFWti3ulanpBfUsTz4O/dCE1axw3DWy9M04lQB
-	V8kmPOLZn/zjx6jxEyjGL6NuCl7ccrZNpLf13qGwNYYS+s1Tkc5y1+ZTNRW2Bqh90FMlQGJHd2jtv
-	n8rtJSIA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:To:From:Cc:MIME-Version:References:
+	In-Reply-To:Message-ID:Date:Subject:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=JgllEXOJlItDvCLRxeMAvFkUlfcQoEeEZtXwLi5SLHA=; b=IlpreXp+5hZZZi
+	Av/qZ8MQXkcatIboMZcsd+DduPl0rm2ksID1mKuFtZuFt1gZ1iLSu7/DBAY6YpK2/LzlN5tv5IzMh
+	ON+CNkhLiekgpUAdgFO/FNikgZQGo+OCynHKy6YRQP5lltgcG9QbVE5JuNCMqzNXBc/VOdD2RpfBm
+	VbYKDkV73IeS48O0a5s08JtU/ShxLrXd0G1yYLDN5+W98EwZR3n2r20Tpa0slJSJqq2o7WI/A9+eI
+	4we3eJ5SBs+Caf1G3iHjtSUNmIzWYH7ll6OOb4BIIjmGCxVZwtWDrawHwr3/rIurl4lZ77e8Anhzs
+	M/6LtnoGlkNzAGOpOL+A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfpCw-00000004sRJ-2FJ8;
-	Wed, 05 Feb 2025 23:53:26 +0000
-Received: from mail-pl1-x62f.google.com ([2607:f8b0:4864:20::62f])
+	id 1tfpCx-00000004sRl-2nQE;
+	Wed, 05 Feb 2025 23:53:27 +0000
+Received: from mail-pl1-x62c.google.com ([2607:f8b0:4864:20::62c])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfpCt-00000004sQD-3m8I
+	id 1tfpCv-00000004sQj-3G2w
 	for linux-riscv@lists.infradead.org;
-	Wed, 05 Feb 2025 23:53:25 +0000
-Received: by mail-pl1-x62f.google.com with SMTP id d9443c01a7336-21661be2c2dso7214185ad.1
-        for <linux-riscv@lists.infradead.org>; Wed, 05 Feb 2025 15:53:23 -0800 (PST)
+	Wed, 05 Feb 2025 23:53:26 +0000
+Received: by mail-pl1-x62c.google.com with SMTP id d9443c01a7336-2163dc5155fso7137045ad.0
+        for <linux-riscv@lists.infradead.org>; Wed, 05 Feb 2025 15:53:25 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=dabbelt-com.20230601.gappssmtp.com; s=20230601; t=1738799603; x=1739404403; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:to:from:cc
-         :in-reply-to:subject:date:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=ra5Mbg5OY3KVHpv79LQ4A0jzyK7crMbEFKoAz+DcSV8=;
-        b=fsLPH8ReYY6gUGkMk/YDtbP5RW8HJansM577anwAOScUCOzoivK/bOHKBLUyejcoMM
-         uqnCii3sRuRy+k/QjA5AI7Twbeai1V9co03pytvCgqpBllg+e+21yzXNx7Z4Pa5PtpkQ
-         uXxtxcz7C9DiEY/0LtHCLdS1ObjCy49nP1fnplofgcmQxFITyE+nZWLmKRY18aPPQxOC
-         V3kUdVBzvs17ZEzc6cj5Y3NBdpgX0pmPuRVn6Kc6GoU9QePkB9nj5ej9g9eN79fdtVN0
-         lNkhH2dZBGCp3Nwny8PLR2BBoO+Teo4Q2MuGKvVHFD45UM1iKcYb4iL5EKrJuhcpjF6x
-         OTLQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1738799603; x=1739404403;
-        h=content-transfer-encoding:mime-version:message-id:to:from:cc
-         :in-reply-to:subject:date:x-gm-message-state:from:to:cc:subject:date
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1738799605; x=1739404405; darn=lists.infradead.org;
+        h=to:from:cc:content-transfer-encoding:mime-version:references
+         :in-reply-to:message-id:date:subject:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=ra5Mbg5OY3KVHpv79LQ4A0jzyK7crMbEFKoAz+DcSV8=;
-        b=lpAZWXuYMZoIEWYPYulsaH3dLm7tew0bQ/M3HIe9oHnMbI6c5Z3Zql7P1z3EijR/uu
-         ytuwqiyopE19hux4MySr2N86Og/zPmEzWxlunB9uIYGFNDXfIVP45sjnzwAVE0iC7Jvq
-         TwSmJNONo2W+taT6WWj+KLZWekKrHm+arp7ETdJH0v7Jqhh2jrBTlJEgoXrqWd6P8Oe4
-         GV0iTMokyd8b811T1aC3aVlmi/3btC7dNPbMpUKqvTq5/ZJpSDY+9yHBqW/p25ioIRkM
-         imQxyk0Sx6dzuxhvcZTJ8kcwY1w3xLcKuDChwpeRju0CgXmWsUtxYxbfwQWtkxArfFtj
-         ethw==
-X-Forwarded-Encrypted: i=1; AJvYcCUrnj1qXRyAI9ZFo4AA828JoMsJxbUeqiiDVSHKrzcuRizQlOqpgD9Pvom2YvO6txCj18H4jNrHNIWCjw==@lists.infradead.org
-X-Gm-Message-State: AOJu0YwKfyjaWed7Xb/Kj5kYweYs2flzMBEbG3mVYisXtEmXcIbX0CSU
-	2cDqnFssjKDExuBj2viw1hPKm7QNjuAiCtpYgeSzMQ70x3xJ6GDlIY265CXG0WI=
-X-Gm-Gg: ASbGnctJyGUduXSxfSBFAY7algBN0Rve5yLpRswKtk53sCn3DxnvEZEYrVvn3joxoi4
-	7PG5pQvYLDS4aDdV07jXdNzFACCv6Wizycw9OOQAaSLJU+MVftzmOCJeWCoi8qeTl2cG2/DxhKY
-	njd5HMV69eX2Oz/DlzgaLo3Zse74Mv6H99OMuqYWl87mVZl+txq7l3/HI8+KFBIrg0KZgDGw5zP
-	3ROWiLxd7HCXU+qUB1Kx32GmTrupeHWVxkIl9+rRTrDMnQTR119x4pYVy4pswyAgUXiYdVFEAIl
-	8oSAO7Od5+VE
-X-Google-Smtp-Source: AGHT+IESlnEloTRkMdGmIgpHf3GHd5Z19yX7ObK7xTCBbFAJo4c09Hwxk6ijfuAekNIxp8Vwcvp0xg==
-X-Received: by 2002:a05:6a00:e84:b0:725:f097:ed21 with SMTP id d2e1a72fcca58-730351b9a07mr6070010b3a.15.1738799602709;
-        Wed, 05 Feb 2025 15:53:22 -0800 (PST)
+        bh=fAML0XAoIrhVBZFyj1JHk4ov4OlHr6qrklpFhDAq2S0=;
+        b=pucpkXsnpgkHYjJmWKr572N60W9qnGsfDy3TbVHbXJoMUVuh/vsIi21JahQmG3knvZ
+         SUOAfNDfHqMeU8OzKZ3f6yeN4z12RRLQc1k06lwsDxchLicPl0c3us03a3RP6zN7Q7S+
+         BnwOZckMUD8V7J0DfS7n0K7PtyF4xyuKE4/uZ4Jv7S8H5v/Aqb/HGcnwCVCFOxowXtNt
+         SiG7jtCpWWYWOwgwyOxonJ4eSAB5RJX4UmLF0z5ASv0AWWd0D9iSldl01++Eu3D0FOn6
+         ItVoD+OAM2SL9L/MRIfmw0VFCqOk1oemPhxPTVLaGUz1cgGkpCji1aMBrOXG1qfgOZTy
+         iAlw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1738799605; x=1739404405;
+        h=to:from:cc:content-transfer-encoding:mime-version:references
+         :in-reply-to:message-id:date:subject:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=fAML0XAoIrhVBZFyj1JHk4ov4OlHr6qrklpFhDAq2S0=;
+        b=vP+0YEj9NqfmDV8XfhSzFBtxP2/5yph+e2AncucOqnE5I7UTrRKadsX7nU4QDBq+fm
+         MYdbme7tm0wVoyIc56Tq7AgSZglH5k6V/CVF4Z509K+2JYsAzcXDrVg/SKEjZ7dT0E9N
+         XG4DqC1EcHhoALVivbkxd70lAlD+zJs27Tietn3dVkO1z3MR3UnpoAfLAx0d8/O2BTYf
+         S4ExjjgaJW1JKCpYV34c+q53pM9wnGYhCfia0Pa47lWNpTJmKSSngLjYhrma6bUAB9Js
+         6Hgx+OHHTkEpw5Yoy53hq+8FBbS0JrURc7YVhrj7HZ4NipLf0/y9ravvk+Vt82ofhUMg
+         VaVg==
+X-Gm-Message-State: AOJu0YywIjcRx97PnwcbEs0GOvbOFFM5k4K47XIL9wGtAzhRZCdVLDq9
+	MdBCA45eMef+c4zHiV7ZNif0wLYgknP/UQyZd/BUFMpsyDRhJTtw5h3poCOtKGbtQeBzTzDW9+C
+	E
+X-Gm-Gg: ASbGnct+EvxWrAOkULTvF7/8Vay64iIbTbq87Nxjneqc55Ha6H31ThcEjDWy6TCO6Jy
+	hE9FJJ5Po/3fB6WSthFB8HAJn9fYgwzPEdNlzh9P0EiqhG8FJJOwdZbX2N52ZBZAZ5UfgGYu0WB
+	+jGfPziR125yTQFxI81vnylflj8f36kUyJlJlK+iPkoex8Lc3fo9davnPzR2S/Jq+NSoTp3mWOC
+	zt2GSpwHCRSwazmCotdgb6Eu4pwdtmhjz8J7r0BztEZlMHSCKfQgKYx0aol7dbX99YTx+FQyQo+
+	ZpPEvaRXxgR56A==
+X-Google-Smtp-Source: AGHT+IGligJqJeWHzAV11eOJ+aPajZTdoxK9HiLGBP/BV66Exb7uc6zWE1M5guLXcUVrU5B8rtEoCA==
+X-Received: by 2002:a17:903:1a23:b0:215:a028:4ed with SMTP id d9443c01a7336-21f17e0251cmr83366065ad.20.1738799604865;
+        Wed, 05 Feb 2025 15:53:24 -0800 (PST)
 Received: from localhost ([192.184.165.199])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-73048e1e792sm21788b3a.161.2025.02.05.15.53.21
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-acebe384317sm12309567a12.19.2025.02.05.15.53.24
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 05 Feb 2025 15:53:21 -0800 (PST)
-Date: Wed, 05 Feb 2025 15:53:21 -0800 (PST)
-X-Google-Original-Date: Wed, 05 Feb 2025 12:41:24 PST (-0800)
-Subject: Re: [PATCH v2] RISC-V: hwprobe: Use BIT macro to avoid warnings
-In-Reply-To: <422ee6c5-048d-498e-a823-97deef02326f@ghiti.fr>
-CC: jesse@rivosinc.com, linux-riscv@lists.infradead.org,
-  Paul Walmsley <paul.walmsley@sifive.com>, aou@eecs.berkeley.edu, cleger@rivosinc.com, Conor Dooley <conor@kernel.org>,
-  Evan Green <evan@rivosinc.com>, Charlie Jenkins <charlie@rivosinc.com>, ajones@ventanamicro.com,
-  linux-kernel@vger.kernel.org
-From: Palmer Dabbelt <palmer@dabbelt.com>
-To: alex@ghiti.fr
-Message-ID: <mhng-2665f589-5f29-42fa-9c6e-3b00a39c38de@palmer-ri-x1c9>
-Mime-Version: 1.0 (MHng)
+        Wed, 05 Feb 2025 15:53:24 -0800 (PST)
+Subject: [PATCH v2 1/2] RISC-V: hwprobe: Use BIT macro to avoid warnings
+Date: Wed,  5 Feb 2025 12:40:26 -0800
+Message-ID: <20250205204129.10639-2-palmer@rivosinc.com>
+X-Mailer: git-send-email 2.45.2
+In-Reply-To: <20250205204129.10639-1-palmer@rivosinc.com>
+References: <20250205204129.10639-1-palmer@rivosinc.com>
+MIME-Version: 1.0
+Cc: alex@ghiti.fr, Charlie Jenkins <charlie@rivosinc.com>, Mr.Bossman075@gmail.com,
+  Jesse Taube <jesse@rivosinc.com>, Palmer Dabbelt <palmer@rivosinc.com>
+From: Palmer Dabbelt <palmer@rivosinc.com>
+To: linux-riscv@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250205_155324_189079_2102001E 
-X-CRM114-Status: GOOD (  21.67  )
+X-CRM114-CacheID: sfid-20250205_155325_817505_D033408B 
+X-CRM114-Status: GOOD (  10.63  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,173 +93,170 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sun, 25 Aug 2024 23:28:17 PDT (-0700), alex@ghiti.fr wrote:
-> Hi Jesse,
->
-> On 22/08/2024 22:39, Jesse Taube wrote:
->> In uapi/asm/hwprobe.h file, (1 << N) is used to define the bit field
->> which causes checkpatch to warn. Use BIT(N) and BIT_ULL(N) to avoid
->> these warnings.
->>
->> Signed-off-by: Jesse Taube <jesse@rivosinc.com>
->> Reviewed-by: Charlie Jenkins <charlie@rivosinc.com>
->> Tested-by: Charlie Jenkins <charlie@rivosinc.com>
->> ---
->> V1 -> V2:
->>   - Reword commit message
->> ---
->>   arch/riscv/include/uapi/asm/hwprobe.h | 102 +++++++++++++-------------
->>   1 file changed, 51 insertions(+), 51 deletions(-)
->>
->> diff --git a/arch/riscv/include/uapi/asm/hwprobe.h b/arch/riscv/include/uapi/asm/hwprobe.h
->> index b706c8e47b02..d0874ff2fd37 100644
->> --- a/arch/riscv/include/uapi/asm/hwprobe.h
->> +++ b/arch/riscv/include/uapi/asm/hwprobe.h
->> @@ -21,57 +21,57 @@ struct riscv_hwprobe {
->>   #define RISCV_HWPROBE_KEY_MARCHID	1
->>   #define RISCV_HWPROBE_KEY_MIMPID	2
->>   #define RISCV_HWPROBE_KEY_BASE_BEHAVIOR	3
->> -#define		RISCV_HWPROBE_BASE_BEHAVIOR_IMA	(1 << 0)
->> +#define		RISCV_HWPROBE_BASE_BEHAVIOR_IMA	BIT_ULL(0)
->>   #define RISCV_HWPROBE_KEY_IMA_EXT_0	4
->> -#define		RISCV_HWPROBE_IMA_FD		(1 << 0)
->> -#define		RISCV_HWPROBE_IMA_C		(1 << 1)
->> -#define		RISCV_HWPROBE_IMA_V		(1 << 2)
->> -#define		RISCV_HWPROBE_EXT_ZBA		(1 << 3)
->> -#define		RISCV_HWPROBE_EXT_ZBB		(1 << 4)
->> -#define		RISCV_HWPROBE_EXT_ZBS		(1 << 5)
->> -#define		RISCV_HWPROBE_EXT_ZICBOZ	(1 << 6)
->> -#define		RISCV_HWPROBE_EXT_ZBC		(1 << 7)
->> -#define		RISCV_HWPROBE_EXT_ZBKB		(1 << 8)
->> -#define		RISCV_HWPROBE_EXT_ZBKC		(1 << 9)
->> -#define		RISCV_HWPROBE_EXT_ZBKX		(1 << 10)
->> -#define		RISCV_HWPROBE_EXT_ZKND		(1 << 11)
->> -#define		RISCV_HWPROBE_EXT_ZKNE		(1 << 12)
->> -#define		RISCV_HWPROBE_EXT_ZKNH		(1 << 13)
->> -#define		RISCV_HWPROBE_EXT_ZKSED		(1 << 14)
->> -#define		RISCV_HWPROBE_EXT_ZKSH		(1 << 15)
->> -#define		RISCV_HWPROBE_EXT_ZKT		(1 << 16)
->> -#define		RISCV_HWPROBE_EXT_ZVBB		(1 << 17)
->> -#define		RISCV_HWPROBE_EXT_ZVBC		(1 << 18)
->> -#define		RISCV_HWPROBE_EXT_ZVKB		(1 << 19)
->> -#define		RISCV_HWPROBE_EXT_ZVKG		(1 << 20)
->> -#define		RISCV_HWPROBE_EXT_ZVKNED	(1 << 21)
->> -#define		RISCV_HWPROBE_EXT_ZVKNHA	(1 << 22)
->> -#define		RISCV_HWPROBE_EXT_ZVKNHB	(1 << 23)
->> -#define		RISCV_HWPROBE_EXT_ZVKSED	(1 << 24)
->> -#define		RISCV_HWPROBE_EXT_ZVKSH		(1 << 25)
->> -#define		RISCV_HWPROBE_EXT_ZVKT		(1 << 26)
->> -#define		RISCV_HWPROBE_EXT_ZFH		(1 << 27)
->> -#define		RISCV_HWPROBE_EXT_ZFHMIN	(1 << 28)
->> -#define		RISCV_HWPROBE_EXT_ZIHINTNTL	(1 << 29)
->> -#define		RISCV_HWPROBE_EXT_ZVFH		(1 << 30)
->> -#define		RISCV_HWPROBE_EXT_ZVFHMIN	(1ULL << 31)
->> -#define		RISCV_HWPROBE_EXT_ZFA		(1ULL << 32)
->> -#define		RISCV_HWPROBE_EXT_ZTSO		(1ULL << 33)
->> -#define		RISCV_HWPROBE_EXT_ZACAS		(1ULL << 34)
->> -#define		RISCV_HWPROBE_EXT_ZICOND	(1ULL << 35)
->> -#define		RISCV_HWPROBE_EXT_ZIHINTPAUSE	(1ULL << 36)
->> -#define		RISCV_HWPROBE_EXT_ZVE32X	(1ULL << 37)
->> -#define		RISCV_HWPROBE_EXT_ZVE32F	(1ULL << 38)
->> -#define		RISCV_HWPROBE_EXT_ZVE64X	(1ULL << 39)
->> -#define		RISCV_HWPROBE_EXT_ZVE64F	(1ULL << 40)
->> -#define		RISCV_HWPROBE_EXT_ZVE64D	(1ULL << 41)
->> -#define		RISCV_HWPROBE_EXT_ZIMOP		(1ULL << 42)
->> -#define		RISCV_HWPROBE_EXT_ZCA		(1ULL << 43)
->> -#define		RISCV_HWPROBE_EXT_ZCB		(1ULL << 44)
->> -#define		RISCV_HWPROBE_EXT_ZCD		(1ULL << 45)
->> -#define		RISCV_HWPROBE_EXT_ZCF		(1ULL << 46)
->> -#define		RISCV_HWPROBE_EXT_ZCMOP		(1ULL << 47)
->> -#define		RISCV_HWPROBE_EXT_ZAWRS		(1ULL << 48)
->> +#define		RISCV_HWPROBE_IMA_FD		BIT_ULL(0)
->> +#define		RISCV_HWPROBE_IMA_C		BIT_ULL(1)
->> +#define		RISCV_HWPROBE_IMA_V		BIT_ULL(2)
->> +#define		RISCV_HWPROBE_EXT_ZBA		BIT_ULL(3)
->> +#define		RISCV_HWPROBE_EXT_ZBB		BIT_ULL(4)
->> +#define		RISCV_HWPROBE_EXT_ZBS		BIT_ULL(5)
->> +#define		RISCV_HWPROBE_EXT_ZICBOZ	BIT_ULL(6)
->> +#define		RISCV_HWPROBE_EXT_ZBC		BIT_ULL(7)
->> +#define		RISCV_HWPROBE_EXT_ZBKB		BIT_ULL(8)
->> +#define		RISCV_HWPROBE_EXT_ZBKC		BIT_ULL(9)
->> +#define		RISCV_HWPROBE_EXT_ZBKX		BIT_ULL(10)
->> +#define		RISCV_HWPROBE_EXT_ZKND		BIT_ULL(11)
->> +#define		RISCV_HWPROBE_EXT_ZKNE		BIT_ULL(12)
->> +#define		RISCV_HWPROBE_EXT_ZKNH		BIT_ULL(13)
->> +#define		RISCV_HWPROBE_EXT_ZKSED		BIT_ULL(14)
->> +#define		RISCV_HWPROBE_EXT_ZKSH		BIT_ULL(15)
->> +#define		RISCV_HWPROBE_EXT_ZKT		BIT_ULL(16)
->> +#define		RISCV_HWPROBE_EXT_ZVBB		BIT_ULL(17)
->> +#define		RISCV_HWPROBE_EXT_ZVBC		BIT_ULL(18)
->> +#define		RISCV_HWPROBE_EXT_ZVKB		BIT_ULL(19)
->> +#define		RISCV_HWPROBE_EXT_ZVKG		BIT_ULL(20)
->> +#define		RISCV_HWPROBE_EXT_ZVKNED	BIT_ULL(21)
->> +#define		RISCV_HWPROBE_EXT_ZVKNHA	BIT_ULL(22)
->> +#define		RISCV_HWPROBE_EXT_ZVKNHB	BIT_ULL(23)
->> +#define		RISCV_HWPROBE_EXT_ZVKSED	BIT_ULL(24)
->> +#define		RISCV_HWPROBE_EXT_ZVKSH		BIT_ULL(25)
->> +#define		RISCV_HWPROBE_EXT_ZVKT		BIT_ULL(26)
->> +#define		RISCV_HWPROBE_EXT_ZFH		BIT_ULL(27)
->> +#define		RISCV_HWPROBE_EXT_ZFHMIN	BIT_ULL(28)
->> +#define		RISCV_HWPROBE_EXT_ZIHINTNTL	BIT_ULL(29)
->> +#define		RISCV_HWPROBE_EXT_ZVFH		BIT_ULL(30)
->> +#define		RISCV_HWPROBE_EXT_ZVFHMIN	BIT_ULL(31)
->> +#define		RISCV_HWPROBE_EXT_ZFA		BIT_ULL(32)
->> +#define		RISCV_HWPROBE_EXT_ZTSO		BIT_ULL(33)
->> +#define		RISCV_HWPROBE_EXT_ZACAS		BIT_ULL(34)
->> +#define		RISCV_HWPROBE_EXT_ZICOND	BIT_ULL(35)
->> +#define		RISCV_HWPROBE_EXT_ZIHINTPAUSE	BIT_ULL(36)
->> +#define		RISCV_HWPROBE_EXT_ZVE32X	BIT_ULL(37)
->> +#define		RISCV_HWPROBE_EXT_ZVE32F	BIT_ULL(38)
->> +#define		RISCV_HWPROBE_EXT_ZVE64X	BIT_ULL(39)
->> +#define		RISCV_HWPROBE_EXT_ZVE64F	BIT_ULL(40)
->> +#define		RISCV_HWPROBE_EXT_ZVE64D	BIT_ULL(41)
->> +#define		RISCV_HWPROBE_EXT_ZIMOP		BIT_ULL(42)
->> +#define		RISCV_HWPROBE_EXT_ZCA		BIT_ULL(43)
->> +#define		RISCV_HWPROBE_EXT_ZCB		BIT_ULL(44)
->> +#define		RISCV_HWPROBE_EXT_ZCD		BIT_ULL(45)
->> +#define		RISCV_HWPROBE_EXT_ZCF		BIT_ULL(46)
->> +#define		RISCV_HWPROBE_EXT_ZCMOP		BIT_ULL(47)
->> +#define		RISCV_HWPROBE_EXT_ZAWRS		BIT_ULL(48)
->>   #define RISCV_HWPROBE_KEY_CPUPERF_0	5
->>   #define		RISCV_HWPROBE_MISALIGNED_UNKNOWN	(0 << 0)
->>   #define		RISCV_HWPROBE_MISALIGNED_EMULATED	(1 << 0)
->
->
-> Why isn't this one ^ converted too? I did not look but are there other
-> occurrences in this file that should be converted too?
+From: Jesse Taube <jesse@rivosinc.com>
 
-They're multi-bit values, I poked around looking for a macro and 
-couldn't find any.  That said, the "<< 0" doesn't do anything -- it was 
-there from back when we though we'd pack multiple values into this, but 
-we screwed up some of the value/bitmask on this one so it's deprecated.
+In uapi/asm/hwprobe.h file, (1 << N) is used to define the bit field
+which causes checkpatch to warn. Use BIT(N) and BIT_ULL(N) to avoid
+these warnings.
 
-So I'm just dropping the "<< 0"
+Signed-off-by: Jesse Taube <jesse@rivosinc.com>
+[Palmer: rebase and clean up a bit]
+Signed-off-by: Palmer Dabbelt <palmer@rivosinc.com>
+---
+ arch/riscv/include/uapi/asm/hwprobe.h | 117 +++++++++++++-------------
+ 1 file changed, 59 insertions(+), 58 deletions(-)
 
-> And what about the rest of the riscv sources?
+diff --git a/arch/riscv/include/uapi/asm/hwprobe.h b/arch/riscv/include/uapi/asm/hwprobe.h
+index c3c1cc951cb9..600ca96ae55e 100644
+--- a/arch/riscv/include/uapi/asm/hwprobe.h
++++ b/arch/riscv/include/uapi/asm/hwprobe.h
+@@ -7,6 +7,7 @@
+ #define _UAPI_ASM_HWPROBE_H
+ 
+ #include <linux/types.h>
++#include <linux/const.h>
+ 
+ /*
+  * Interface for probing hardware capabilities from userspace, see
+@@ -21,65 +22,65 @@ struct riscv_hwprobe {
+ #define RISCV_HWPROBE_KEY_MARCHID	1
+ #define RISCV_HWPROBE_KEY_MIMPID	2
+ #define RISCV_HWPROBE_KEY_BASE_BEHAVIOR	3
+-#define		RISCV_HWPROBE_BASE_BEHAVIOR_IMA	(1 << 0)
++#define		RISCV_HWPROBE_BASE_BEHAVIOR_IMA	_BITULL(0)
+ #define RISCV_HWPROBE_KEY_IMA_EXT_0	4
+-#define		RISCV_HWPROBE_IMA_FD		(1 << 0)
+-#define		RISCV_HWPROBE_IMA_C		(1 << 1)
+-#define		RISCV_HWPROBE_IMA_V		(1 << 2)
+-#define		RISCV_HWPROBE_EXT_ZBA		(1 << 3)
+-#define		RISCV_HWPROBE_EXT_ZBB		(1 << 4)
+-#define		RISCV_HWPROBE_EXT_ZBS		(1 << 5)
+-#define		RISCV_HWPROBE_EXT_ZICBOZ	(1 << 6)
+-#define		RISCV_HWPROBE_EXT_ZBC		(1 << 7)
+-#define		RISCV_HWPROBE_EXT_ZBKB		(1 << 8)
+-#define		RISCV_HWPROBE_EXT_ZBKC		(1 << 9)
+-#define		RISCV_HWPROBE_EXT_ZBKX		(1 << 10)
+-#define		RISCV_HWPROBE_EXT_ZKND		(1 << 11)
+-#define		RISCV_HWPROBE_EXT_ZKNE		(1 << 12)
+-#define		RISCV_HWPROBE_EXT_ZKNH		(1 << 13)
+-#define		RISCV_HWPROBE_EXT_ZKSED		(1 << 14)
+-#define		RISCV_HWPROBE_EXT_ZKSH		(1 << 15)
+-#define		RISCV_HWPROBE_EXT_ZKT		(1 << 16)
+-#define		RISCV_HWPROBE_EXT_ZVBB		(1 << 17)
+-#define		RISCV_HWPROBE_EXT_ZVBC		(1 << 18)
+-#define		RISCV_HWPROBE_EXT_ZVKB		(1 << 19)
+-#define		RISCV_HWPROBE_EXT_ZVKG		(1 << 20)
+-#define		RISCV_HWPROBE_EXT_ZVKNED	(1 << 21)
+-#define		RISCV_HWPROBE_EXT_ZVKNHA	(1 << 22)
+-#define		RISCV_HWPROBE_EXT_ZVKNHB	(1 << 23)
+-#define		RISCV_HWPROBE_EXT_ZVKSED	(1 << 24)
+-#define		RISCV_HWPROBE_EXT_ZVKSH		(1 << 25)
+-#define		RISCV_HWPROBE_EXT_ZVKT		(1 << 26)
+-#define		RISCV_HWPROBE_EXT_ZFH		(1 << 27)
+-#define		RISCV_HWPROBE_EXT_ZFHMIN	(1 << 28)
+-#define		RISCV_HWPROBE_EXT_ZIHINTNTL	(1 << 29)
+-#define		RISCV_HWPROBE_EXT_ZVFH		(1 << 30)
+-#define		RISCV_HWPROBE_EXT_ZVFHMIN	(1ULL << 31)
+-#define		RISCV_HWPROBE_EXT_ZFA		(1ULL << 32)
+-#define		RISCV_HWPROBE_EXT_ZTSO		(1ULL << 33)
+-#define		RISCV_HWPROBE_EXT_ZACAS		(1ULL << 34)
+-#define		RISCV_HWPROBE_EXT_ZICOND	(1ULL << 35)
+-#define		RISCV_HWPROBE_EXT_ZIHINTPAUSE	(1ULL << 36)
+-#define		RISCV_HWPROBE_EXT_ZVE32X	(1ULL << 37)
+-#define		RISCV_HWPROBE_EXT_ZVE32F	(1ULL << 38)
+-#define		RISCV_HWPROBE_EXT_ZVE64X	(1ULL << 39)
+-#define		RISCV_HWPROBE_EXT_ZVE64F	(1ULL << 40)
+-#define		RISCV_HWPROBE_EXT_ZVE64D	(1ULL << 41)
+-#define		RISCV_HWPROBE_EXT_ZIMOP		(1ULL << 42)
+-#define		RISCV_HWPROBE_EXT_ZCA		(1ULL << 43)
+-#define		RISCV_HWPROBE_EXT_ZCB		(1ULL << 44)
+-#define		RISCV_HWPROBE_EXT_ZCD		(1ULL << 45)
+-#define		RISCV_HWPROBE_EXT_ZCF		(1ULL << 46)
+-#define		RISCV_HWPROBE_EXT_ZCMOP		(1ULL << 47)
+-#define		RISCV_HWPROBE_EXT_ZAWRS		(1ULL << 48)
+-#define		RISCV_HWPROBE_EXT_SUPM		(1ULL << 49)
++#define		RISCV_HWPROBE_IMA_FD		_BITULL(0)
++#define		RISCV_HWPROBE_IMA_C		_BITULL(1)
++#define		RISCV_HWPROBE_IMA_V		_BITULL(2)
++#define		RISCV_HWPROBE_EXT_ZBA		_BITULL(3)
++#define		RISCV_HWPROBE_EXT_ZBB		_BITULL(4)
++#define		RISCV_HWPROBE_EXT_ZBS		_BITULL(5)
++#define		RISCV_HWPROBE_EXT_ZICBOZ	_BITULL(6)
++#define		RISCV_HWPROBE_EXT_ZBC		_BITULL(7)
++#define		RISCV_HWPROBE_EXT_ZBKB		_BITULL(8)
++#define		RISCV_HWPROBE_EXT_ZBKC		_BITULL(9)
++#define		RISCV_HWPROBE_EXT_ZBKX		_BITULL(10)
++#define		RISCV_HWPROBE_EXT_ZKND		_BITULL(11)
++#define		RISCV_HWPROBE_EXT_ZKNE		_BITULL(12)
++#define		RISCV_HWPROBE_EXT_ZKNH		_BITULL(13)
++#define		RISCV_HWPROBE_EXT_ZKSED		_BITULL(14)
++#define		RISCV_HWPROBE_EXT_ZKSH		_BITULL(15)
++#define		RISCV_HWPROBE_EXT_ZKT		_BITULL(16)
++#define		RISCV_HWPROBE_EXT_ZVBB		_BITULL(17)
++#define		RISCV_HWPROBE_EXT_ZVBC		_BITULL(18)
++#define		RISCV_HWPROBE_EXT_ZVKB		_BITULL(19)
++#define		RISCV_HWPROBE_EXT_ZVKG		_BITULL(20)
++#define		RISCV_HWPROBE_EXT_ZVKNED	_BITULL(21)
++#define		RISCV_HWPROBE_EXT_ZVKNHA	_BITULL(22)
++#define		RISCV_HWPROBE_EXT_ZVKNHB	_BITULL(23)
++#define		RISCV_HWPROBE_EXT_ZVKSED	_BITULL(24)
++#define		RISCV_HWPROBE_EXT_ZVKSH		_BITULL(25)
++#define		RISCV_HWPROBE_EXT_ZVKT		_BITULL(26)
++#define		RISCV_HWPROBE_EXT_ZFH		_BITULL(27)
++#define		RISCV_HWPROBE_EXT_ZFHMIN	_BITULL(28)
++#define		RISCV_HWPROBE_EXT_ZIHINTNTL	_BITULL(29)
++#define		RISCV_HWPROBE_EXT_ZVFH		_BITULL(30)
++#define		RISCV_HWPROBE_EXT_ZVFHMIN	_BITULL(31)
++#define		RISCV_HWPROBE_EXT_ZFA		_BITULL(32)
++#define		RISCV_HWPROBE_EXT_ZTSO		_BITULL(33)
++#define		RISCV_HWPROBE_EXT_ZACAS		_BITULL(34)
++#define		RISCV_HWPROBE_EXT_ZICOND	_BITULL(35)
++#define		RISCV_HWPROBE_EXT_ZIHINTPAUSE	_BITULL(36)
++#define		RISCV_HWPROBE_EXT_ZVE32X	_BITULL(37)
++#define		RISCV_HWPROBE_EXT_ZVE32F	_BITULL(38)
++#define		RISCV_HWPROBE_EXT_ZVE64X	_BITULL(39)
++#define		RISCV_HWPROBE_EXT_ZVE64F	_BITULL(40)
++#define		RISCV_HWPROBE_EXT_ZVE64D	_BITULL(41)
++#define		RISCV_HWPROBE_EXT_ZIMOP		_BITULL(42)
++#define		RISCV_HWPROBE_EXT_ZCA		_BITULL(43)
++#define		RISCV_HWPROBE_EXT_ZCB		_BITULL(44)
++#define		RISCV_HWPROBE_EXT_ZCD		_BITULL(45)
++#define		RISCV_HWPROBE_EXT_ZCF		_BITULL(46)
++#define		RISCV_HWPROBE_EXT_ZCMOP		_BITULL(47)
++#define		RISCV_HWPROBE_EXT_ZAWRS		_BITULL(48)
++#define		RISCV_HWPROBE_EXT_SUPM		_BITULL(49)
+ #define RISCV_HWPROBE_KEY_CPUPERF_0	5
+-#define		RISCV_HWPROBE_MISALIGNED_UNKNOWN	(0 << 0)
+-#define		RISCV_HWPROBE_MISALIGNED_EMULATED	(1 << 0)
+-#define		RISCV_HWPROBE_MISALIGNED_SLOW		(2 << 0)
+-#define		RISCV_HWPROBE_MISALIGNED_FAST		(3 << 0)
+-#define		RISCV_HWPROBE_MISALIGNED_UNSUPPORTED	(4 << 0)
+-#define		RISCV_HWPROBE_MISALIGNED_MASK		(7 << 0)
++#define		RISCV_HWPROBE_MISALIGNED_UNKNOWN	0
++#define		RISCV_HWPROBE_MISALIGNED_EMULATED	1
++#define		RISCV_HWPROBE_MISALIGNED_SLOW		2
++#define		RISCV_HWPROBE_MISALIGNED_FAST		3
++#define		RISCV_HWPROBE_MISALIGNED_UNSUPPORTED	4
++#define		RISCV_HWPROBE_MISALIGNED_MASK		7
+ #define RISCV_HWPROBE_KEY_ZICBOZ_BLOCK_SIZE	6
+ #define RISCV_HWPROBE_KEY_HIGHEST_VIRT_ADDRESS	7
+ #define RISCV_HWPROBE_KEY_TIME_CSR_FREQ	8
+@@ -98,6 +99,6 @@ struct riscv_hwprobe {
+ /* Increase RISCV_HWPROBE_MAX_KEY when adding items. */
+ 
+ /* Flags */
+-#define RISCV_HWPROBE_WHICH_CPUS	(1 << 0)
++#define RISCV_HWPROBE_WHICH_CPUS	BIT(0)
+ 
+ #endif
+-- 
+2.45.2
 
-Probably Jesse was just squashing the checkpatch warnings in the files 
-she touched.  Either way I think it's a reasonable cleanup, I'll send a 
-v2.
-
->
-> Thanks,
->
-> Alex
->
->
->> @@ -85,6 +85,6 @@ struct riscv_hwprobe {
->>   /* Increase RISCV_HWPROBE_MAX_KEY when adding items. */
->>
->>   /* Flags */
->> -#define RISCV_HWPROBE_WHICH_CPUS	(1 << 0)
->> +#define RISCV_HWPROBE_WHICH_CPUS	BIT(0)
->>
->>   #endif
 
 _______________________________________________
 linux-riscv mailing list
