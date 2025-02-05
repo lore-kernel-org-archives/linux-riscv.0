@@ -4,8 +4,8 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7B103C02194
-	for <linux-riscv@archiver.kernel.org>; Wed,  5 Feb 2025 10:24:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A750C02192
+	for <linux-riscv@archiver.kernel.org>; Wed,  5 Feb 2025 10:24:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
@@ -13,86 +13,86 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Mime-Version:References:In-Reply-To:From:Reply-To:Content-ID:
 	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
 	:Resent-Message-ID:List-Owner;
-	bh=ZoCE2BjN1oEW3yKS5BTS3JLhk939nMhCZQRh1Ul6sjM=; b=vzVs9zz0mm8fYgT5ke1a5TyUc9
-	n+VaFjLXnaO4HuviF5yxHnZ2Noj7H8SvGz+bAx+0oOiuAt/ym7Mjqsy2iE/sPYBjwuXO1ODCrsdB/
-	iquEHxxcHtWGhCfhTNVyLZbpmb/TQkCfaavQWaB9jcwra5iX7xqzXzRsjXJ8F/1U9q4o7fp4cVKmO
-	65kd4M2pnbYBvdH3PJZfK3GEXXhD2/egE7uKJWmGEF55MZh7qlQVEHain9lWVa2PwGhL/5ML69VNT
-	mbeflRKjcYoCrXXdy4m1cJg5GdIQDTGODMFFUGbWMn82T7jdd8ugpQemYA/DCv77BEcUfnfuyS8bH
-	C7LRZ4bw==;
+	bh=U6unLh3NvgkaevJj8Lr+HzZ/ppOOJpLF9OE40XPyZkE=; b=pit219QdghPRCKcdOyvLR/axyd
+	16eqXHCGNna2WjQYouCi2kaZE3df3qYY22kJmnTOGKrK15gmh2U8XBLQ4UbEqQTlxyKKS/G67L9+e
+	MnPPgVRI+Q1mzbjKwOOah3cdBWyL+DgzZDooyPVn7VaaySFhzbol+SdEBFy7NK2Aa201m3N8XoUsA
+	9mwyDUzVn4I1BvdxRLdxNkEqBsZ6tb52irixpMfLPlI3tZ/U2pxwUrXeyjgPwl6qcmtWY1+1SnxZp
+	4YYPbPO3ptInYTm7ztbqUnP9sPtFhntmHWdKXocI6sIpuxU7UdTlB1WSrX0gh0fagsozzaB5yXqcA
+	BjPd7tbA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfcZp-00000002rdA-1HG9;
-	Wed, 05 Feb 2025 10:24:13 +0000
-Received: from smtp-relay-internal-1.canonical.com ([185.125.188.123])
+	id 1tfcZq-00000002rdb-0P6B;
+	Wed, 05 Feb 2025 10:24:14 +0000
+Received: from smtp-relay-internal-0.canonical.com ([185.125.188.122])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfcSG-00000002qSm-1Unr
+	id 1tfcUp-00000002quv-058Z
 	for linux-riscv@lists.infradead.org;
-	Wed, 05 Feb 2025 10:16:27 +0000
+	Wed, 05 Feb 2025 10:19:04 +0000
 Received: from mail-oa1-f70.google.com (mail-oa1-f70.google.com [209.85.160.70])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by smtp-relay-internal-1.canonical.com (Postfix) with ESMTPS id CF0763F85B
-	for <linux-riscv@lists.infradead.org>; Wed,  5 Feb 2025 10:16:17 +0000 (UTC)
+	by smtp-relay-internal-0.canonical.com (Postfix) with ESMTPS id B38883F682
+	for <linux-riscv@lists.infradead.org>; Wed,  5 Feb 2025 10:19:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
-	s=20210705; t=1738750577;
-	bh=Av5C3NG7n6JTUOYj8LuXVH2zlqsaee6hvA/xGrgK+Rg=;
+	s=20210705; t=1738750740;
+	bh=qdkmBfYX7XaFvkbF82y8TuYeK5Pl9Wtpk+6BoGjJ8iE=;
 	h=From:In-Reply-To:References:Mime-Version:Date:Message-ID:Subject:
 	 To:Cc:Content-Type;
-	b=LSeUVzuxX5SYKPd78DDZTDR5Boe67EHhQpPXRsa9XSAR8Ohz98sEfrVT7As15n8lu
-	 hA35gjSiNk4lAvoDVMO7QtSGfgjl1iPi8OmubZu74yjPmUxXbfI1hKuJtXURGYgB4Y
-	 E1BKYoIl9b3praw246jksmGS1I6ux/FmcdJMxTuBAOuCIV5Kj54ydlaIpZbXBc9JAU
-	 Muh3Stke7y7CpGknBhIQRcdlagXI+/tg5rr9dBPYw2DUi0mQVcVOVenVkaWuxCArx+
-	 o4a+JoFmyS4JDPCltIosLBvZCxX0o4VIkExrKqx970X2DIK5AI8eCFj74lFXx/dhHI
-	 6hVDR6iGG4b8w==
-Received: by mail-oa1-f70.google.com with SMTP id 586e51a60fabf-2ad8e353167so4220605fac.2
-        for <linux-riscv@lists.infradead.org>; Wed, 05 Feb 2025 02:16:17 -0800 (PST)
+	b=X61hQVYlgfKRtJgUjlzeEVwbK+XctK6GPmSAuEGq4vjm6d92rvhyDXVDO2JvhpayM
+	 Nly3v1jO/ugUJ4XokffH2MNGlse3qC7vJPY5LnX0LpSzUKWzWo9Mbbbyt+fN8gTNlz
+	 5uIq2U+vML2P35Kwr2edFmRoiOas74VazQZXmRRpPdOEwn+uf2fse8r44E0Okkvhnr
+	 WqIIYos9U7g/NQxqF6fsepdbX9rtPwgI7Z4biUc8yQ8sebgzz/w5bD45FC4vbMspZu
+	 fFENW1lBF57fk/uOgWM2F/kc6kFujrrD8y/L697hw/CLkXyGxTTk4LlODA4CkrAHR4
+	 xNRkFJ8tvM45Q==
+Received: by mail-oa1-f70.google.com with SMTP id 586e51a60fabf-2b7c8cb27a2so1206129fac.1
+        for <linux-riscv@lists.infradead.org>; Wed, 05 Feb 2025 02:19:00 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1738750576; x=1739355376;
+        d=1e100.net; s=20230601; t=1738750738; x=1739355538;
         h=cc:to:subject:message-id:date:mime-version:references:in-reply-to
          :from:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=Av5C3NG7n6JTUOYj8LuXVH2zlqsaee6hvA/xGrgK+Rg=;
-        b=Urox7Y7avzQ0QtLiqr4/e8Fq6+ZY1OsQHVEUeagm5CcV2YgX8orJslaWe+O7o7F7UK
-         FboaJ1Rn0ue4aQP/iQ7MewWxY2r6LZMD0a2Ax4dkGmpEeHaqUEO4P+17s9GmvVYr4Y/X
-         +UJcG9PcpQc+VTzq5sA3Odxf0pLV5HHEAOQ/HLP5sy33Px8/s0dM6ZFnWq0inl25Lt0a
-         O6P9dOIP9HS/eFe1WmMpin4aM/tIvNsMLez3MTs18u5wlHHCfg9Jj1C9CEP1IEft2Y2/
-         CGAR1eP0GSSRN4kQ9vRIf/q4GBcBoMf/xOCb34W9RjL1GNG7S7yMHH0Js03nElMO+gRp
-         SW8g==
-X-Forwarded-Encrypted: i=1; AJvYcCUZok261C5nHNwEAU+pxBgu4UhLLPDMKL6XPVqsF+KMTCtIgxa/tp4rbdFaypUZnMMR1gQ3uhd0zBh39Q==@lists.infradead.org
-X-Gm-Message-State: AOJu0YyMNdnaywHNrrmReu1pFLlwoHAXtgSSqXCUgj8Qm3wQYBEWFG3a
-	94iok7pzG1hpz/wdTcXEptr2ogttKFz5ZKixwddOWnmwTBusHxM35XOBbjySN/Ovv393y/VR5Fb
-	a/sloQ/+97WAqwb0gSbhGsK92JeP+GZX1GMhqrR6b7Wh052r2joTv94T3SrcZdCp94Uz02V/jKv
-	2eRZr1AumnCkR2QhF+typ+ZfX+hWO8UEcqYSIeSsXR2AW2M2rpNnnnAK9L
-X-Gm-Gg: ASbGncv8B1/CMM6GjQBXvwxHVKeIlf03sfbgd5v6jp0s/aXiUDD0hQqXKcaE74Fy6OM
-	ia56zV+QSW1Vn3h8/OR8Qo4NZ0QTEu3GEb3WpqEsC+gFlL0kzfDsHX0OPMOJobL9SG3JxxvSeEc
-	it8STFN1U+Kit1xS0=
-X-Received: by 2002:a05:6871:36c4:b0:29e:4a13:603f with SMTP id 586e51a60fabf-2b804ecdf7bmr1499797fac.4.1738750576126;
-        Wed, 05 Feb 2025 02:16:16 -0800 (PST)
-X-Google-Smtp-Source: AGHT+IGsJQ7P73/5n5tnAPQgpI0ua/1rwM5j7fLIXzbO141ngEH/FiC2y/KSAGjHe9WOZwY5cCBqXocuueLiB5hV4nY=
-X-Received: by 2002:a05:6871:36c4:b0:29e:4a13:603f with SMTP id
- 586e51a60fabf-2b804ecdf7bmr1499777fac.4.1738750575796; Wed, 05 Feb 2025
- 02:16:15 -0800 (PST)
+        bh=qdkmBfYX7XaFvkbF82y8TuYeK5Pl9Wtpk+6BoGjJ8iE=;
+        b=oeKM1rjZdEzMGjjXc2KsBKXTFGvzdf5IYg4Zf7Oee49TOyudrwEL8QG4XYEmHoE2z+
+         +Z5Pv/ZiEhEBkX4EJ2cfSAXRXH/uKSKcPyF0pbup/aOm3n+w2+40vpzZ2oqWQTUhTaqT
+         Ti3KN260bjpULZeqUTHvBrsedmsh/eBxud3Gxc9a7AxozwHUM1PhgBn4tNtgGhHbSlWf
+         h2kpCPJXzWP1Ehhs/55/YFfq5uUH0zGVvWWFwNhSM76pNfvLjrXpUOG2UL6beNa6ikry
+         xcOJr5BoAONnYi+o3gEZzjVvI9cT/gBhrDlz33aB1WlwZA7sHsXSGGmVWtbnMNRt11IU
+         dB5w==
+X-Forwarded-Encrypted: i=1; AJvYcCXtTkyYIwmxH1SrixXMbcono+e4AFXbocOcQ4O1q5p6NQhidFWQL2904S8Rp2lr7BFtmuOgw0CIZSPu7g==@lists.infradead.org
+X-Gm-Message-State: AOJu0YwLcygX6vQJXmYIQbWiP+qA+zhQ8ihNrC66fC1RuFMcQQudNSn6
+	FbSX0gsuBL7dG00Uek/E9DAYOr36boVwzbRNfVoMwOYIIVfmcbElMNI5L9E79ANa6BjiS0uuNEc
+	OUvoH+K1WSNTtaBU6oPrd5kw165/ZXuogMcsX1eFWsJ8fphjDJSbapjkPHAbRQIYXe/hDrcxcyl
+	swGQKhnfypXreoWjcdOkcTfy7BiUDpj15VAjvlCmV6YY5Ghyf0F7piKCnn
+X-Gm-Gg: ASbGncsgHhVDwRuWSde/I3lgPsyKWl+NQYvTirejmNZVl8iCG6Z8R4FaLtmYgFSAUd8
+	zV8nRdET1AxC5tuxfaCYguUdvbUZqZWGv5Hg5h58+C7XSSgzY2WAZ45sWKqO4H14soMcVdcNoqo
+	dljobR0i1W1PLAYA0=
+X-Received: by 2002:a05:6871:e084:b0:297:285e:f9f4 with SMTP id 586e51a60fabf-2b8051adca4mr1499627fac.34.1738750738562;
+        Wed, 05 Feb 2025 02:18:58 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IF8qpmyypodVkKYUm5sF+zKulTYncfI/CugaO758DUSia69BHhLRf7V5DXO6RaNISNiLy1Da5yWB2DzQ0HOlGA=
+X-Received: by 2002:a05:6871:e084:b0:297:285e:f9f4 with SMTP id
+ 586e51a60fabf-2b8051adca4mr1499615fac.34.1738750738324; Wed, 05 Feb 2025
+ 02:18:58 -0800 (PST)
 Received: from 348282803490 named unknown by gmailapi.google.com with
- HTTPREST; Wed, 5 Feb 2025 02:16:15 -0800
+ HTTPREST; Wed, 5 Feb 2025 02:18:57 -0800
 Received: from 348282803490 named unknown by gmailapi.google.com with
- HTTPREST; Wed, 5 Feb 2025 02:16:15 -0800
+ HTTPREST; Wed, 5 Feb 2025 02:18:57 -0800
 From: Emil Renner Berthing <emil.renner.berthing@canonical.com>
-In-Reply-To: <20250203013730.269558-2-e@freeshell.de>
-References: <20250203013730.269558-1-e@freeshell.de> <20250203013730.269558-2-e@freeshell.de>
+In-Reply-To: <20250203013730.269558-3-e@freeshell.de>
+References: <20250203013730.269558-1-e@freeshell.de> <20250203013730.269558-3-e@freeshell.de>
 Mime-Version: 1.0
-Date: Wed, 5 Feb 2025 02:16:15 -0800
-X-Gm-Features: AWEUYZlJTl1Ykr0gfo45PSvnnmc9ItZ-0-EmoaBAoCqlMDbSjYPKQi0nAWkDg2Q
-Message-ID: <CAJM55Z-M9MsJAtPi-t=_tNV3oG_kdDiS6H=H3koJwTEwB8GJ-Q@mail.gmail.com>
-Subject: Re: [PATCH v2 1/5] riscv: dts: starfive: jh7110-common: replace
- syscrg clock assignments
-To: E Shattow <e@freeshell.de>, Conor Dooley <conor@kernel.org>, 
-	Emil Renner Berthing <kernel@esmil.dk>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>
+Date: Wed, 5 Feb 2025 02:18:57 -0800
+X-Gm-Features: AWEUYZlXlKzbHypA-jASfEJOP33KWqL31P4KBU9ridEeOOm8C_Po6yFU92yHqVE
+Message-ID: <CAJM55Z9s4FMCmGaGPGBdcJWxoTNO1gupMLAq2a1fExiho5W1jw@mail.gmail.com>
+Subject: Re: [PATCH v2 2/5] riscv: dts: starfive: jh7110-common: qspi flash
+ setting read-delay 2 cycles max 100MHz
+To: E Shattow <e@freeshell.de>, Emil Renner Berthing <kernel@esmil.dk>, Conor Dooley <conor@kernel.org>, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>
 Cc: linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-riscv@lists.infradead.org
+	linux-riscv@lists.infradead.org, Hal Feng <hal.feng@starfivetech.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250205_021625_778689_410FB676 
+X-CRM114-CacheID: sfid-20250205_021903_183282_1F43AD4E 
 X-CRM114-Status: GOOD (  11.20  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -111,40 +111,41 @@ Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 E Shattow wrote:
-> Replace syscrg assignments of clocks, clock parents, and rates with
-> default settings for compatibility with downstream boot loader SPL
+> Sync qspi flash setting to read-delay=2 and spi-max-frequency 100MHz for
+> better compatibility with operating system and downstream boot loader SPL
 > secondary program loader.
->
-> Signed-off-by: E Shattow <e@freeshell.de>
-> ---
->  arch/riscv/boot/dts/starfive/jh7110-common.dtsi | 11 ++++++++---
->  1 file changed, 8 insertions(+), 3 deletions(-)
->
-> diff --git a/arch/riscv/boot/dts/starfive/jh7110-common.dtsi b/arch/riscv/boot/dts/starfive/jh7110-common.dtsi
-> index 48fb5091b817..a5661b677687 100644
-> --- a/arch/riscv/boot/dts/starfive/jh7110-common.dtsi
-> +++ b/arch/riscv/boot/dts/starfive/jh7110-common.dtsi
-> @@ -359,9 +359,14 @@ spi_dev0: spi@0 {
->  };
->
->  &syscrg {
-> -	assigned-clocks = <&syscrg JH7110_SYSCLK_CPU_CORE>,
-> -			  <&pllclk JH7110_PLLCLK_PLL0_OUT>;
-> -	assigned-clock-rates = <500000000>, <1500000000>;
-> +	assigned-clocks = <&syscrg JH7110_SYSCLK_CPU_ROOT>,
-> +			  <&syscrg JH7110_SYSCLK_BUS_ROOT>,
-> +			  <&syscrg JH7110_SYSCLK_PERH_ROOT>,
-> +			  <&syscrg JH7110_SYSCLK_QSPI_REF>;
-> +	assigned-clock-parents = <&pllclk JH7110_PLLCLK_PLL0_OUT>,
-> +				 <&pllclk JH7110_PLLCLK_PLL2_OUT>,
-> +				 <&pllclk JH7110_PLLCLK_PLL2_OUT>,
-> +				 <&syscrg JH7110_SYSCLK_QSPI_REF_SRC>;
 
-I think Conor asked about this too, but you still don't write why it's ok to
-drop the 500MHz and 1,5GHz assignments to the cpu-core and pll0 clocks
-respectively. You should add this to the commit message itself.
+Here you should be explaining why these values better describe the hardware. To
+me this just reads as "u-boot does this, so let's do the same" whith doesn't
+really explain anything.
 
 /Emil
+
+>
+> Signed-off-by: E Shattow <e@freeshell.de>
+> Reviewed-by: Hal Feng <hal.feng@starfivetech.com>
+> ---
+>  arch/riscv/boot/dts/starfive/jh7110-common.dtsi | 4 ++--
+>  1 file changed, 2 insertions(+), 2 deletions(-)
+>
+> diff --git a/arch/riscv/boot/dts/starfive/jh7110-common.dtsi b/arch/riscv/boot/dts/starfive/jh7110-common.dtsi
+> index a5661b677687..8a59c3001339 100644
+> --- a/arch/riscv/boot/dts/starfive/jh7110-common.dtsi
+> +++ b/arch/riscv/boot/dts/starfive/jh7110-common.dtsi
+> @@ -317,8 +317,8 @@ &qspi {
+>  	nor_flash: flash@0 {
+>  		compatible = "jedec,spi-nor";
+>  		reg = <0>;
+> -		cdns,read-delay = <5>;
+> -		spi-max-frequency = <12000000>;
+> +		cdns,read-delay = <2>;
+> +		spi-max-frequency = <100000000>;
+>  		cdns,tshsl-ns = <1>;
+>  		cdns,tsd2d-ns = <1>;
+>  		cdns,tchsh-ns = <1>;
+> --
+> 2.47.2
+>
 
 _______________________________________________
 linux-riscv mailing list
