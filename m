@@ -4,85 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5CA66C02196
-	for <linux-riscv@archiver.kernel.org>; Thu,  6 Feb 2025 11:35:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 83732C02194
+	for <linux-riscv@archiver.kernel.org>; Thu,  6 Feb 2025 11:46:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Ze+TBIW48T5BCtXuNg2W63OjALSMp9EN89itQhn4jsY=; b=WiUBnFXGVh527z
-	jLxnSdRjwzkEPXpcx8gqlISnUDZwoASnHCfedtw9djHBhniDZk/bV+ASMe63rbURUy6BJ0O7e9a1Q
-	Spw7AN8Teh7M7z4ujSgCLOMwyKI1jp7Z9YL4dQwvrx/q1MeLtJQgrek3+mLDKwkc6t2fWTDk4iyKC
-	dWoAknqreccC0yn7RaCBphWUQ6v+DEQGjXMhJH8o0ehJ9hVsTqVKkXgP+NjhoLlEvpchcAcS7KlLV
-	DOfwYUiS55/IRrR4rzMIV2gBOeK0rn41K9YcjgaK2/h5dlu/vNTWOJRGfjErX1HDjElOj1/LxbwFG
-	63YZRjfpivulEcSot3+g==;
+	List-Owner; bh=mVWBil6sKfzTm772i1mGEJVq1UXQvK5taWHIkSzaoZ4=; b=3Mnol34joQYbbp
+	c3IGndN+cemqdWhGsvXmfdxD0BnEEDh/cbQrjtUl0IzmgKYfRrf92lLOnF+s7vNIG6pbGoiMgv7+z
+	EiYRE8w3WYaxPIGXj1tgJFDqWQY0gf9SIb/K/Q/dn7/dAx5rfK5rbRKABSp7mTJUrbiLDlqkpPKJ0
+	pGyRdGXirOwu/S5A+CymXYbCYs0b+7Lqq3cLrbQoEwSa23hhdZzy4IopZFWaOXAzw6scbnnFjzx9o
+	fWPK55K4mcmtxlXS/uGrR+vsSvZuDH9NGKTcz/4w1ir3u/m/5amnHiSpbs4Bx5wcoOnC7a4Ulchwk
+	iyo5XjBY0ijliLBCzpAQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tg0AD-000000069QV-0n2q;
-	Thu, 06 Feb 2025 11:35:21 +0000
-Received: from galois.linutronix.de ([193.142.43.55])
+	id 1tg0Kp-00000006BeO-0DZc;
+	Thu, 06 Feb 2025 11:46:19 +0000
+Received: from woodpecker.gentoo.org ([140.211.166.183] helo=smtp.gentoo.org)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfzc5-000000062m9-2njT;
-	Thu, 06 Feb 2025 11:00:07 +0000
-Date: Thu, 6 Feb 2025 11:59:59 +0100
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1738839601;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=ru5WdIbpSL0IOKGQMyXAT/ZbwjxtTCZKvCRArp1oQDE=;
-	b=YGZTZnxXjpdI6oZKS05b+5XvnP+boGHN1C9QVygV7IAjLA8pAEovdmFAH8xFn7WI+w/Xhp
-	8K+GjBJMH0JXK40pNxioacxcseFzn+iXVx4WoYt+J0VaxAt6ID0MNK8tJHkPrEinPnHwJG
-	q7T7uflCus2GZC60/Vo9hxiLt7lbmMt3uhYS5TbYuilZ8s9n9kIooocVm9DSgR45+vozV8
-	mKs7HvnUnL+HLLe1fD2OiCIYZL6f6ix3Bee88IjX4iDMFE94To0mtXdotTD+DhoAabPdO5
-	+hTLhUwkR8YuE1I+6rX+payvbnygcsEtyByLEI0nCsLk7XsBFKKaA2MPCL7vew==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1738839601;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=ru5WdIbpSL0IOKGQMyXAT/ZbwjxtTCZKvCRArp1oQDE=;
-	b=gSo8yfFya9Ajm2CmxNsGxQ1eCLyB3wbR/PEUj366khtBpyQwoXLrVFgUwGilu8dL/eMyJd
-	VQWqN9SewyqCZ4BQ==
-From: Thomas =?utf-8?Q?Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
-To: David Woodhouse <dwmw2@infradead.org>
-Cc: "James E.J. Bottomley" <James.Bottomley@hansenpartnership.com>, 
-	Helge Deller <deller@gmx.de>, Andy Lutomirski <luto@kernel.org>, 
-	Thomas Gleixner <tglx@linutronix.de>, Vincenzo Frascino <vincenzo.frascino@arm.com>, 
-	Anna-Maria Behnsen <anna-maria@linutronix.de>, Frederic Weisbecker <frederic@kernel.org>, 
-	Andrew Morton <akpm@linux-foundation.org>, Catalin Marinas <catalin.marinas@arm.com>, 
-	Will Deacon <will@kernel.org>, Theodore Ts'o <tytso@mit.edu>, 
-	"Jason A. Donenfeld" <Jason@zx2c4.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Huacai Chen <chenhuacai@kernel.org>, WANG Xuerui <kernel@xen0n.name>, 
-	Russell King <linux@armlinux.org.uk>, Heiko Carstens <hca@linux.ibm.com>, 
-	Vasily Gorbik <gor@linux.ibm.com>, Alexander Gordeev <agordeev@linux.ibm.com>, 
-	Christian Borntraeger <borntraeger@linux.ibm.com>, Sven Schnelle <svens@linux.ibm.com>, 
-	Thomas Bogendoerfer <tsbogend@alpha.franken.de>, Michael Ellerman <mpe@ellerman.id.au>, 
-	Nicholas Piggin <npiggin@gmail.com>, Christophe Leroy <christophe.leroy@csgroup.eu>, 
-	Naveen N Rao <naveen@kernel.org>, Madhavan Srinivasan <maddy@linux.ibm.com>, 
-	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, 
-	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org, "H. Peter Anvin" <hpa@zytor.com>, 
-	Arnd Bergmann <arnd@arndb.de>, Guo Ren <guoren@kernel.org>, linux-parisc@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-riscv@lists.infradead.org, loongarch@lists.linux.dev, linux-s390@vger.kernel.org, 
-	linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, linux-arch@vger.kernel.org, 
-	Nam Cao <namcao@linutronix.de>, linux-csky@vger.kernel.org, 
-	"Ridoux, Julien" <ridouxj@amazon.com>, "Luu, Ryan" <rluu@amazon.com>, kvm <kvm@vger.kernel.org>
-Subject: Re: [PATCH v3 00/18] vDSO: Introduce generic data storage
-Message-ID: <20250206110648-ec4cf3d0-0aef-4feb-a859-c69e53ab110c@linutronix.de>
-References: <20250204-vdso-store-rng-v3-0-13a4669dfc8c@linutronix.de>
- <ff83dc5c91b4e46bcf2d99680ec6af250fb05b27.camel@infradead.org>
+	id 1tfzI0-00000005zYP-0vor
+	for linux-riscv@lists.infradead.org;
+	Thu, 06 Feb 2025 10:39:21 +0000
+Received: from localhost (unknown [180.172.76.141])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: dlan)
+	by smtp.gentoo.org (Postfix) with ESMTPSA id C3C89342FB5;
+	Thu, 06 Feb 2025 10:39:17 +0000 (UTC)
+Date: Thu, 6 Feb 2025 10:39:13 +0000
+From: Yixun Lan <dlan@gentoo.org>
+To: Linus Walleij <linus.walleij@linaro.org>
+Subject: Re: [PATCH v4 1/4] dt-bindings: gpio: spacemit: add support for K1
+ SoC
+Message-ID: <20250206103913-GYB5367@gentoo>
+References: <20250121-03-k1-gpio-v4-0-4641c95c0194@gentoo.org>
+ <20250121-03-k1-gpio-v4-1-4641c95c0194@gentoo.org>
+ <Z5FPJLzAEVXGWJnE@chonkvm.lixom.net>
+ <20250123113042-GYA38135@gentoo>
+ <Z5LOdh-4UxRtteOy@chonkvm.lixom.net>
+ <20250127181726.GA538260-robh@kernel.org>
+ <20250128031712-GYB47737@gentoo>
+ <CACRpkdYbSOHD9UH5=+qjztxS3Cq_rxaoOT9tFtD8ZWm9zQGnPw@mail.gmail.com>
+ <CACRpkdZa887vx4Lmxk1U_8w5n7AxMnyzGexeYzhsxNGT-DTYcQ@mail.gmail.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <ff83dc5c91b4e46bcf2d99680ec6af250fb05b27.camel@infradead.org>
+In-Reply-To: <CACRpkdZa887vx4Lmxk1U_8w5n7AxMnyzGexeYzhsxNGT-DTYcQ@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250206_030005_988390_CC4A73B4 
-X-CRM114-Status: GOOD (  31.65  )
+X-CRM114-CacheID: sfid-20250206_023920_280372_06576313 
+X-CRM114-Status: GOOD (  24.48  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,80 +66,44 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="iso-8859-1"
-Content-Transfer-Encoding: quoted-printable
+Cc: Rob Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Meng Zhang <zhangmeng.kevin@linux.spacemit.com>, linux-gpio@vger.kernel.org, Bartosz Golaszewski <brgl@bgdev.pl>, linux-kernel@vger.kernel.org, Conor Dooley <conor@kernel.org>, Yangyu Chen <cyy@cyyself.name>, devicetree@vger.kernel.org, Palmer Dabbelt <palmer@dabbelt.com>, Jesse Taube <mr.bossman075@gmail.com>, Jisheng Zhang <jszhang@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>, Olof Johansson <olof@lixom.net>, Inochi Amaoto <inochiama@outlook.com>, Krzysztof Kozlowski <krzk+dt@kernel.org>, linux-riscv@lists.infradead.org
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Feb 06, 2025 at 09:31:42AM +0000, David Woodhouse wrote:
-> On Tue, 2025-02-04 at 13:05 +0100, Thomas Wei=DFschuh wrote:
-> > Currently each architecture defines the setup of the vDSO data page on
-> > its own, mostly through copy-and-paste from some other architecture.
-> > Extend the existing generic vDSO implementation to also provide generic
-> > data storage.
-> > This removes duplicated code and paves the way for further changes to
-> > the generic vDSO implementation without having to go through a lot of
-> > per-architecture changes.
-> > =
-
-> > Based on v6.14-rc1 and intended to be merged through the tip tree.
-
-Note: The real answer will need to come from the timekeeping
-maintainers, my personal two cents below.
-
-> Thanks for working on this. Is there a plan to expose the time data
-> directly to userspace in a form which is usable *other* than by
-> function calls which get the value of the clock at a given moment?
-
-There are no current plans that I am aware of.
-
-> For populating the vmclock device=B9 we need to know the actual
-> relationship between the hardware counter (TSC, arch timer, etc.) and
-> real time in order to propagate that to the guest.
-> =
-
-> I see two options for doing this:
-> =
-
->  1. Via userspace, exposing the vdso time data (and a notification when
->     it changes?) and letting the userspace VMM populate the vmclock.
->     This is complex for x86 because of TSC scaling; in fact userspace
->     doesn't currently know the precise scaling from host to guest TSC
->     so we'd have to be able to extract that from KVM.
-
-Exposing the raw vdso time data is problematic as it precludes any
-evolution to its datastructures, like the one we are currently doing.
-
-An additional, trimmed down and stable data structure could be used.
-But I don't think it makes sense. The vDSO is all about a stable
-highlevel function interface on top of an unstable data interface.
-However the vmclock needs the lowlevel data to populate its own
-datastructure, wrapping raw data access in function calls is unnecessary.
-If no functions are involved then the vDSO is not needed. The data can
-be maintained separately in any other place in the kernel and accessed
-or mapped by userspace from there.
-Also the vDSO does not have an active notification mechanism, this would
-probably be implemented through a filedescriptor, but then the data
-can also be mapped through exactly that fd.
-
->  2. In kernel, asking KVM to populate the vmclock structure much like
->     it does other pvclocks shared with the guest. KVM/x86 already uses
->     pvclock_gtod_register_notifier() to hook changes; should we expand
->     on that? The problem with that notifier is that it seems to be
->     called far more frequently than I'd expect.
-
-This sounds better, especially as any custom ABI from the host kernel to
-the VMM would look a lot like the vmclock structure anyways.
-
-Timekeeper updates are indeed very frequent, but what are the concrete
-issues? That frequency is fine for regular vDSO data page updates,
-updating the vmclock data page should be very similar.
-The timekeeper core can pass context to the notifier callbacks, maybe
-this can be used to skip some expensive steps where possible.
-
-> =B9 https://gitlab.com/qemu-project/qemu/-/commit/3634039b93cc5
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+aGkgTGludXMKClRoYW5rcyBmb3IgdGhlIHBpbmcuLgoKT24gMTA6MTggVGh1IDA2IEZlYiAgICAg
+LCBMaW51cyBXYWxsZWlqIHdyb3RlOgo+IEhpIFlpeHVuLAo+IAo+IE9uIFR1ZSwgSmFuIDI4LCAy
+MDI1IGF0IDU6MDPigK9QTSBMaW51cyBXYWxsZWlqIDxsaW51cy53YWxsZWlqQGxpbmFyby5vcmc+
+IHdyb3RlOgo+ID4gT24gVHVlLCBKYW4gMjgsIDIwMjUgYXQgNDoxN+KAr0FNIFlpeHVuIExhbiA8
+ZGxhbkBnZW50b28ub3JnPiB3cm90ZToKPiA+Cj4gPiA+IFtSb2JdCj4gPiA+ID4gSWYgTGludXgg
+Y2FuJ3QgaGFuZGxlIDEgbm9kZSBmb3IgTiBncGlvX2NoaXAncywgdGhlbiB0aGF0J3MgYSBMaW51
+eAo+ID4gPiA+IHByb2JsZW0uIE1heWJlIGl0IGNhbiwgSURLLgo+ID4gPgo+ID4gPiBJIGhhdmVu
+J3Qgc2VlbiBzb210aGluZyBsaWtlIHRoaXMgdG8gcmVnaXN0ZXIgMSBub2RlIGZvciBtdWx0aSBn
+cGlvX2NoaXBzLi4KPiA+ID4gVG8gZ3Bpby9waW5jdHJsIG1haW50YWluZXIgKExpbnVzIFdhbGxl
+aWopLCBkbyB5b3UgaGF2ZSBzdWdnZXN0aW9uIG9uIHRoaXM/Cj4gPgo+ID4gRm9yIExpbnV4IHdl
+IGNhbiBjYWxsIGJncGlvX2luaXQoKSB0aHJlZSB0aW1lcyBhbmQKPiA+IGRldm1fZ3Bpb2NoaXBf
+YWRkX2RhdGEoKSB0aHJlZSB0aW1lcyBvbiB0aGUgcmVzdWx0IGFuZCBpZiB3ZSB1c2UgdGhlCnll
+cywgZXZlbiBJJ3ZlIGFscmVhZHkgZG9uZSB0aGlzIGluIHY0Cgo+ID4gYXBwcm9hY2ggd2l0aCB0
+aHJlZSBjZWxscyAod2hlcmUgdGhlIHNlY29uZCBpcyBpbnN0YW5jZSAwLDEsMiBhbmQgdGhlCj4g
+PiBsYXN0IG9uZSB0aGUgb2Zmc2V0IDAuLjMxKSB0aGVuIGl0IHdpbGwgd29yayBhbGwganVzdCB0
+aGUgc2FtZSBJIGd1ZXNzPwo+ID4KYWdyZWUsIEkganVzdCBuZWVkIHRvIGNvbm5lY3QgZG90cy4u
+IHBhcnNlIGR0cyAmIGFkanVzdCB0aGUgZHJpdmVyIGNvZGUKCj4gPiBmb28tZ3Bpb3MgPCZncGlv
+IDIgNyBHUElPX0FDVElWRV9MT1c+Owo+ID4KPiA+IGZvciBvZmZzZXQgNyBvbiBibG9jayAyIGZv
+ciBleGFtcGxlLgo+ID4KPiA+IFdlIG5lZWQgYSBjdXN0b20geGxhdGUgZnVuY3Rpb24gSSBzdXBw
+b3NlLgo+ID4KPiA+IEl0IGp1c3QgaGFzIG5vdCBiZWVuIGRvbmUgdGhhdCB3YXkgYmVmb3JlLCBl
+dmVyeWJvZHkganVzdCBkaWQKPiA+IDItY2VsbCBHUElPcy4KPiAKPiBkb2VzIHRoaXMgYXBwcm9h
+Y2ggd29yayBmb3IgeW91PyBJIHRoaW5rIGl0J3MgdGhlIG1vc3QgZGlwbG9tYXRpYy4KPiAKSSBs
+aWtlIHRoZSBhcHByb2FjaCB3aGljaCBtYWtlIHNlbnNlCgo+IEknbSBzb3JyeSBhYm91dCB0aGUg
+aG9wZWxlc3MgYmFjay1hbmQtZm9ydGggd2l0aCB0aGUgYmluZGluZ3MsIGFsc28KPiBmb3IgY29u
+dHJpYnV0aW5nIHRvIHRoZSBtZXNzeSBkZWJhdGUuIEkgZG8gd2FudCBkZXZlbG9wZXJzIHRvIGZl
+ZWwKPiBlbmNvdXJhZ2VkIHRvIGNvbnRyaWJ1dGUgYW5kIG5vdCBnZXQgc3R1Y2sgaW4gdG9vIGxv
+bmcgZGViYXRlcy4KPiAKbm8gcHJvYmxlbSwgdGhhbmtzIGZvciB0aGUgZW5jb3VyYWdlbWVudC4u
+CgpJIHBsYW5lZCB0byBnbyBmb3IgdGhlIGltcGxlbWVudGF0aW9uLCBhbmQgcmFpc2UgYW55IGFj
+dHVhbCBwcm9ibGVtIEkKbWF5IGZpbmQsIGJ1dCBpdCB0dXJucyBvdXQgdGFraW5nIG1vcmUgdGlt
+ZSB0aGFuIEkgZXhwZWN0ZWQgKHNvbWUgcmVhc29uCnRvIGR1ZSBsb25nIGNoaW5lc2UgbmV3IHll
+YXIgaG9saWRheS4uKQoKPiBZb3VycywKPiBMaW51cyBXYWxsZWlqCgotLSAKWWl4dW4gTGFuIChk
+bGFuKQpHZW50b28gTGludXggRGV2ZWxvcGVyCkdQRyBLZXkgSUQgQUFCRUZENTUKCl9fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxp
+bmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZy
+YWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
