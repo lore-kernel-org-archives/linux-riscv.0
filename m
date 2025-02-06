@@ -4,65 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C362DC02196
-	for <linux-riscv@archiver.kernel.org>; Thu,  6 Feb 2025 11:50:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C94B3C02194
+	for <linux-riscv@archiver.kernel.org>; Thu,  6 Feb 2025 12:21:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JG4q0Xi7Xfbe56NPaBuKENppegizKJiM7+M/p+nnat0=; b=qgjmhiSjmWb2yQRKqQ9eL1e0JD
-	SdR8zMwlc1otO4h6jTNCOpOc3VVmXR5tc2/KVAderSeHXuszmFRJLRQrKxQtLTEV6NYxy3Y3NGEd0
-	iUa0QNnTSjDLeKN2nCcVOi0urWI4RA78PUuWEqZPWaMZo2t6BxTyd4JcoBhoyrnnie2kaNqgOTYS1
-	9gKHcgFgVJDFpX4hAvpAWhaNOBguRVfSQTiaB2ODabqpvki/abLwYTzQqKFzb50i3G6TArFqCdb/o
-	mBbFjSNIK2X6nfZoWpoSxuGcAdd1/8AmkZqdrGFe+2UCjSNAR49KGuRsIxobd7SDAOXt+J2+S96sQ
-	dJj8fKTw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=a7JNNbye2Jx6lFf2lxoBu55fdeKcWPLslM1larUajW8=; b=y6RGDCEkwmCtF4
+	ZAspBBriyw+xBhPAmYebA3A1v9a/Z2aWdO6mC6ZiWaZG3mRzdXzRao6xmZdr/OfbnLFiYx5yi3x2b
+	VV0k8zj7eizfi2wRT6Ohzg1aASAy8wam+/J1aO3JosLt8ql7uuzvKM02JZjHQjqUm4wZLalhQrOon
+	lByflGmRFajxeY4boRzTnJnb5i4rVAuLWBu3ov4wBnJE3uBcsY3loZoO5AwraKxkoq5U0Axry6d3h
+	TmprctNBzNc1XV8vFQaNIrDm9odGRyMAwj9gAvA5PeCYGJRctVdGJm4VBXmrvxJQL2XbitNgMpbcB
+	l1xshUQkLCIKH3JdYlqg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tg0Oy-00000006CMh-1Yua;
-	Thu, 06 Feb 2025 11:50:36 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1tg0t3-00000006GE8-03vS;
+	Thu, 06 Feb 2025 12:21:41 +0000
+Received: from mail-lj1-x22a.google.com ([2a00:1450:4864:20::22a])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfzzv-000000067u7-2ZSh
+	id 1tg0pJ-00000006FfR-0q4x
 	for linux-riscv@lists.infradead.org;
-	Thu, 06 Feb 2025 11:24:44 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id ACE84A438EE;
-	Thu,  6 Feb 2025 11:22:56 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5272FC4CEDD;
-	Thu,  6 Feb 2025 11:24:40 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1738841082;
-	bh=sNzc9rpJrSGgiXFYTxSNOLd9piOIMO0s74xHHWxepHs=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=G90odWPxAXNcL5p8b/ZM6942sxWRYqIyydeudZGXD7kDgY9UdK6wJb20MdLg/aSp0
-	 9IDUywrkI2UzLH+JdHjbcyKaq+jnZOSfai2sF8LU+n1oxJKC6fzU8scOHU7e8NC10r
-	 BTTlrg0L4UgJkjQICHlroN4o6IoU8OYMoNxQhBW5+2EHF+ClinNegdSlybx7vazQLW
-	 cgYYu+wxSa/LHSL8crd+mR/i/SpuC1eWFtX/0+FADDTDWQRREH+ptLR34MpyG6upJ5
-	 BgxACN0F58lagv7sBgUSiTBxamJ5sd6D5NBRV0pZLOkoYicvbU7d8sHXHdozPOWaxf
-	 P81Kwk0ihXTdA==
-Date: Thu, 6 Feb 2025 11:24:38 +0000
-From: Conor Dooley <conor@kernel.org>
-To: =?iso-8859-1?Q?Cl=E9ment_L=E9ger?= <cleger@rivosinc.com>
-Cc: linux-riscv@lists.infradead.org,
-	Conor Dooley <conor.dooley@microchip.com>,
-	Eric Biggers <ebiggers@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>, Andy Chiu <andybnac@gmail.com>,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3 2/6] RISC-V: add vector crypto extension validation
- checks
-Message-ID: <20250206-overcook-legibly-0350a9af8a2a@spud>
-References: <20250205-cobbler-unpadded-5580c1f5d946@spud>
- <20250205-quench-entrench-09bed8c8c823@spud>
- <00dc2fb7-da9b-42c3-9c3b-47d917df7cf6@rivosinc.com>
+	Thu, 06 Feb 2025 12:17:50 +0000
+Received: by mail-lj1-x22a.google.com with SMTP id 38308e7fff4ca-30761be8fa8so7145181fa.2
+        for <linux-riscv@lists.infradead.org>; Thu, 06 Feb 2025 04:17:48 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ventanamicro.com; s=google; t=1738844267; x=1739449067; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=kVaPm6svnrZmjjZXaQ6INFYIHurE1c31ambChU45jvE=;
+        b=B3ih57ZLZ00iPhPTdVw27m6qTDsdgnCSsw9xLlUMTv6NW73quEWeam9hHJE+LWwLc6
+         +DWvScrswwGL3fto7ewVIvQbV1nesut7BwMbUAqCOsaf5awFuafvEQUJDZvcEG+9xyV0
+         DALv+FbBTs2rh1ceYoqBAVEeXWQPMxQ6qGZmF+3UIq+EPYhMQWVwOfNYxHcchis+Xp77
+         /3efb39JniBBvJCrh4/rXTJaiiYf9Bq1HhsAW45riOKEgGexbzSDl+KwvDNN0Q2FVWzC
+         BswLmWpb1VNLz9thDY8kntY+O2UL8t/re89JZQIzCAqE1DebXJGdBFOmoGDs00am5Ze/
+         U67g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1738844267; x=1739449067;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=kVaPm6svnrZmjjZXaQ6INFYIHurE1c31ambChU45jvE=;
+        b=GNBTfqJqctfoQ9KNfoQJZPZXwtSzJFMmTJaB/tJWxBaowcDkSNkLe1YoRIpyoaGlg8
+         7u4ooic3UzDcVwTCx3fWhVDGtERpJ7HQnJ/oTz56NoQZgBwWcmC+OttZhFPlNUcR/OC7
+         R9l0urg+RHMAPF6U6alTbIUTGWuaTp8XVGM69Nzd+bS4lGk2qmBKi5/lVoD3sMS8yjdE
+         RQGj+B1mZLjoj0BS/pgdLuUdagMSkvnmIXQXSRqhw/pTATpwP0IPcwogp9jB7N2uY+n6
+         tLoVBTpLwAxSsaFK2K1nebOsEiZH+h6yjljlvhLLlSezOern2oAJRX680qxl4AV1acM9
+         duAw==
+X-Forwarded-Encrypted: i=1; AJvYcCUtEY9QgtB6NFrc1psjeCw6nPYCwS+qIRc69GqbmKanoZGKu3JCsGiCeu+zPkL+YYCTSFV3BVxh+pq5kA==@lists.infradead.org
+X-Gm-Message-State: AOJu0YwDIViF0Tt4D0KGx4eWUmGxaM+DkzS+WJ6P9qZsDgt59euelcao
+	7KZf8F3Kvq7rbmRR0vGA8e3RGAHMcb/s9zQHDrQSC2tCRFtURtyrlpSbhqiJ7hS63tFgglwonga
+	2HYLAf3nw9msUwxfyfellAidvtZEgGsLxGxEFVw==
+X-Gm-Gg: ASbGncvD1V5YsynTlqlLebUJwjWOWmWRl47aGWAO7DnpzTtwKLn1KxRJiyaG7DdXQQp
+	KiD5rxjvxZ5hanKl3Y0xGKJCTSQHPoBcYRlm+CRuatsinca3RzKTgrkBSqYkSFCuTtF1zMzbAKQ
+	==
+X-Google-Smtp-Source: AGHT+IEdOcygqBJ9zpwt9AnW8YGVVzGNtNdwXSyeVHKPWBPAI82GsWsII++eZWvLHpNnJrehz+aGVI+bK2PH2gmRR6A=
+X-Received: by 2002:a05:651c:b08:b0:2ff:c242:29c8 with SMTP id
+ 38308e7fff4ca-307cf386eaamr25840471fa.35.1738844267233; Thu, 06 Feb 2025
+ 04:17:47 -0800 (PST)
 MIME-Version: 1.0
-In-Reply-To: <00dc2fb7-da9b-42c3-9c3b-47d917df7cf6@rivosinc.com>
+References: <20250203084906.681418-1-apatel@ventanamicro.com>
+ <20250203084906.681418-12-apatel@ventanamicro.com> <871pwfp272.ffs@tglx>
+In-Reply-To: <871pwfp272.ffs@tglx>
+From: Anup Patel <apatel@ventanamicro.com>
+Date: Thu, 6 Feb 2025 17:47:34 +0530
+X-Gm-Features: AWEUYZnkWoBjjXJZwQi6NEV8e_1cUvMnkW_wF5FuGhI66P5vlROSq0JSDO_qX_Y
+Message-ID: <CAK9=C2U537LvffPLGad=LsFsN27uW2UB2X=Oxrub9v2U5vneYQ@mail.gmail.com>
+Subject: Re: [RFC PATCH v2 11/17] irqchip: Add driver for the RISC-V RPMI
+ system MSI service group
+To: Thomas Gleixner <tglx@linutronix.de>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250206_032443_784116_F24F0BB7 
-X-CRM114-Status: GOOD (  26.65  )
+X-CRM114-CacheID: sfid-20250206_041749_241145_9A21A94A 
+X-CRM114-Status: GOOD (  12.90  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,100 +89,53 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============3328457369269695740=="
+Cc: "Rafael J . Wysocki" <rafael@kernel.org>, Michael Turquette <mturquette@baylibre.com>, Paul Walmsley <paul.walmsley@sifive.com>, =?UTF-8?Q?Uwe_Kleine=2DK=C3=B6nig?= <ukleinek@kernel.org>, linux-riscv@lists.infradead.org, linux-clk@vger.kernel.org, Rob Herring <robh@kernel.org>, Anup Patel <anup@brainfault.org>, Bartosz Golaszewski <brgl@bgdev.pl>, Jassi Brar <jassisinghbrar@gmail.com>, Linus Walleij <linus.walleij@linaro.org>, Rahul Pathak <rpathak@ventanamicro.com>, devicetree@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>, Leyfoon Tan <leyfoon.tan@starfivetech.com>, Atish Patra <atishp@atishpatra.org>, Andy Shevchenko <andriy.shevchenko@linux.intel.com>, Mika Westerberg <mika.westerberg@linux.intel.com>, Stephen Boyd <sboyd@kernel.org>, linux-kernel@vger.kernel.org, Samuel Holland <samuel.holland@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Andrew Jones <ajones@ventanamicro.com>, Len Brown <lenb@kernel.org>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
---===============3328457369269695740==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="1iqbN1jWYKwYUDZR"
-Content-Disposition: inline
-
-
---1iqbN1jWYKwYUDZR
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-On Thu, Feb 06, 2025 at 11:20:35AM +0100, Cl=E9ment L=E9ger wrote:
-> On 05/02/2025 17:05, Conor Dooley wrote:
-> > From: Conor Dooley <conor.dooley@microchip.com>
-> >=20
-> > Using Clement's new validation callbacks, support checking that
-> > dependencies have been satisfied for the vector crpyto extensions.
-> > Currently riscv_isa_extension_available(<vector crypto>) will return
-> > true on systems that support the extensions but vector itself has been
-> > disabled by the kernel, adding validation callbacks will prevent such a
-> > scenario from occuring and make the behaviour of the extension detection
-> > functions more consistent with user expectations - it's not expected to
-> > have to check for vector AND the specific crypto extension.
-> >=20
-> > The 1.0.0 Vector crypto spec states:
-> > 	The Zvknhb and Zvbc Vector Crypto Extensions --and accordingly
-> > 	the composite extensions Zvkn and Zvks-- require a Zve64x base,
-> > 	or application ("V") base Vector Extension. All of the other
-> > 	Vector Crypto Extensions can be built on any embedded (Zve*) or
-> > 	application ("V") base Vector Extension.
-> > and this could be used as the basis for checking that the correct base
-> > for individual crypto extensions, but that's not really the kernel's job
-> > in my opinion and it is sufficient to leave that sort of precision to
-> > the dt-bindings. The kernel only needs to make sure that vector, in some
-> > form, is available.
-> >=20
-> > Since vector will now be disabled proactively, there's no need to clear
-> > the bit in elf_hwcap in riscv_fill_hwcap() any longer.
->=20
-> To which part of the commit does this refer to ?
-
-Copy-paste mistake when splitting in two, whoops.
-
-> > @@ -397,8 +414,8 @@ const struct riscv_isa_ext_data riscv_isa_ext[] =3D=
- {
-> >  	__RISCV_ISA_EXT_DATA(zksed, RISCV_ISA_EXT_ZKSED),
-> >  	__RISCV_ISA_EXT_DATA(zksh, RISCV_ISA_EXT_ZKSH),
-> >  	__RISCV_ISA_EXT_DATA(ztso, RISCV_ISA_EXT_ZTSO),
-> > -	__RISCV_ISA_EXT_SUPERSET(zvbb, RISCV_ISA_EXT_ZVBB, riscv_zvbb_exts),
-> > -	__RISCV_ISA_EXT_DATA(zvbc, RISCV_ISA_EXT_ZVBC),
-> > +	__RISCV_ISA_EXT_SUPERSET_VALIDATE(zvbb, RISCV_ISA_EXT_ZVBB, riscv_zvb=
-b_exts, riscv_ext_vector_x_validate),
-> > +	__RISCV_ISA_EXT_DATA_VALIDATE(zvbc, RISCV_ISA_EXT_ZVBC, riscv_ext_vec=
-tor_crypto_validate),
-
->=20
-> I'm not sure if I already made that comment, so here we go again.
-> Shouldn't Zvbb use riscv_ext_vector_crypto_validate() as well ?  The
-> spec states that Zvbb is a superset of Zvkb and Zvkb uses the
-> riscv_ext_vector_crypto_validate() validation callback. I guess Zvbc
-> should also use it based on your spec excerpt in the commmit log.
-
-Zvbc does use it, no? I'll amend the Zvbb one, there should only be two
-users of the "x" variant.
-
---1iqbN1jWYKwYUDZR
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZ6Sb9QAKCRB4tDGHoIJi
-0ldwAP983+O6h9quEOj+A8/HT/Ck02DGt4dHGhmvorY2AWRn6AEA45wAgwsU68ns
-s/Feax0psZjLxql/U1SmCwWvWvDHiAc=
-=FI6o
------END PGP SIGNATURE-----
-
---1iqbN1jWYKwYUDZR--
-
-
---===============3328457369269695740==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============3328457369269695740==--
-
+SGkgVGhvbWFzLAoKT24gTW9uLCBGZWIgMywgMjAyNSBhdCA3OjIw4oCvUE0gVGhvbWFzIEdsZWl4
+bmVyIDx0Z2x4QGxpbnV0cm9uaXguZGU+IHdyb3RlOgo+Cj4gT24gTW9uLCBGZWIgMDMgMjAyNSBh
+dCAxNDoxOSwgQW51cCBQYXRlbCB3cm90ZToKPiA+ICsKPiA+ICtzdHJ1Y3QgcnBtaV9zeXNtc2lf
+cHJpdiB7Cj4gPiArICAgICBzdHJ1Y3QgZGV2aWNlICpkZXY7Cj4gPiArICAgICBzdHJ1Y3QgbWJv
+eF9jbGllbnQgY2xpZW50Owo+ID4gKyAgICAgc3RydWN0IG1ib3hfY2hhbiAqY2hhbjsKPiA+ICsg
+ICAgIHUzMiBucl9pcnFzOwo+ID4gKyAgICAgdTMyIGdzaV9iYXNlOwo+ID4gK307Cj4KPiBBUyBy
+ZXF1ZXN0ZWQgYmVmb3JlIHBsZWFzZSB1c2UgdGFidWxhciBsYXlvdXQgZm9yIHN0cnVjdHM6Cj4K
+PiBodHRwczovL3d3dy5rZXJuZWwub3JnL2RvYy9odG1sL2xhdGVzdC9wcm9jZXNzL21haW50YWlu
+ZXItdGlwLmh0bWwjc3RydWN0LWRlY2xhcmF0aW9ucy1hbmQtaW5pdGlhbGl6ZXJzCj4KPiA+ICtz
+dGF0aWMgaW50IHJwbWlfc3lzbXNpX3NldF9tc2lfc3RhdGUoc3RydWN0IHJwbWlfc3lzbXNpX3By
+aXYgKnByaXYsCj4gPiArICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHUzMiBzeXNf
+bXNpX2luZGV4LCB1MzIgc3lzX21zaV9zdGF0ZSkKPiA+ICt7Cj4gPiArICAgICBzdHJ1Y3QgcnBt
+aV9zeXNtc2lfc2V0X21zaV9zdGF0ZV90eCB0eDsKPiA+ICsgICAgIHN0cnVjdCBycG1pX3N5c21z
+aV9zZXRfbXNpX3N0YXRlX3J4IHJ4Owo+ID4gKyAgICAgc3RydWN0IHJwbWlfbWJveF9tZXNzYWdl
+IG1zZzsKPiA+ICsgICAgIGludCByZXQ7Cj4gPiArCj4gPiArICAgICB0eC5zeXNfbXNpX2luZGV4
+ID0gc3lzX21zaV9pbmRleDsKPiA+ICsgICAgIHR4LnN5c19tc2lfc3RhdGUgPSBzeXNfbXNpX3N0
+YXRlOwo+ID4gKyAgICAgcnBtaV9tYm94X2luaXRfc2VuZF93aXRoX3Jlc3BvbnNlKCZtc2csIFJQ
+TUlfU1lTTVNJX1NSVl9TRVRfTVNJX1NUQVRFLAo+ID4gKyAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICZ0eCwgc2l6ZW9mKHR4KSwgJnJ4LCBzaXplb2YocngpKTsKPiA+ICsg
+ICAgIHJldCA9IHJwbWlfbWJveF9zZW5kX21lc3NhZ2UocHJpdi0+Y2hhbiwgJm1zZyk7Cj4gPiAr
+ICAgICBpZiAocmV0KQo+ID4gKyAgICAgICAgICAgICByZXR1cm4gcmV0Owo+ID4gKyAgICAgaWYg
+KHJ4LnN0YXR1cykKPiA+ICsgICAgICAgICAgICAgcmV0dXJuIHJwbWlfdG9fbGludXhfZXJyb3Io
+cnguc3RhdHVzKTsKPiA+ICsKPiA+ICsgICAgIHJldHVybiAwOwo+ID4gK30KPiA+ICsKPiA+ICsj
+ZGVmaW5lIHJwbWlfc3lzbXNpX21hc2soX19wcml2LCBfX21zaV9pbmRleCkgICAgICAgICAgICAg
+ICAgXAo+ID4gKyAgICAgcnBtaV9zeXNtc2lfc2V0X21zaV9zdGF0ZShfX3ByaXYsIF9fbXNpX2lu
+ZGV4LCAwKQo+ID4gKyNkZWZpbmUgcnBtaV9zeXNtc2lfdW5tYXNrKF9fcHJpdiwgX19tc2lfaW5k
+ZXgpICAgICAgICAgICAgICBcCj4gPiArICAgICBycG1pX3N5c21zaV9zZXRfbXNpX3N0YXRlKF9f
+cHJpdiwgX19tc2lfaW5kZXgsIFJQTUlfU1lTTVNJX01TSV9TVEFURV9FTkFCTEUpCj4KPiBUaGVz
+ZSBtYWNyb3MgYXJlIG5vdCByZWFsbHkgcHJvdmlkaW5nIGFueSB2YWx1ZS4KPgo+ID4gK3N0YXRp
+YyB2b2lkIHJwbWlfc3lzbXNpX2lycV9tYXNrKHN0cnVjdCBpcnFfZGF0YSAqZCkKPiA+ICt7Cj4g
+PiArICAgICBzdHJ1Y3QgcnBtaV9zeXNtc2lfcHJpdiAqcHJpdiA9IGlycV9kYXRhX2dldF9pcnFf
+Y2hpcF9kYXRhKGQpOwo+ID4gKyAgICAgaW50IHJldDsKPiA+ICsKPiA+ICsgICAgIHJldCA9IHJw
+bWlfc3lzbXNpX21hc2socHJpdiwgZC0+aHdpcnEpOwo+ID4gKyAgICAgaWYgKHJldCkKPiA+ICsg
+ICAgICAgICAgICAgZGV2X3dhcm4ocHJpdi0+ZGV2LCAiRmFpbGVkIHRvIG1hc2sgaHdpcnEgJWQg
+KGVycm9yICVkKVxuIiwKPiA+ICsgICAgICAgICAgICAgICAgICAgICAgKHUzMilkLT5od2lycSwg
+cmV0KTsKPgo+ICAgICAgICAgaWYgKHJldCkgewo+ICAgICAgICAgICAgICAgICAuLi4uCj4gICAg
+ICAgICB9Cj4KPiBodHRwczovL3d3dy5rZXJuZWwub3JnL2RvYy9odG1sL2xhdGVzdC9wcm9jZXNz
+L21haW50YWluZXItdGlwLmh0bWwjYnJhY2tldC1ydWxlcwo+Cj4gPiArICAgICBpcnFfY2hpcF9t
+YXNrX3BhcmVudChkKTsKPiA+ICt9Cj4KPiBPdGhlciB0aGFuIHRob3NlIG5pdHMsIHRoaXMgbG9v
+a3MgcmVhc29uYWJsZS4KCkkgd2lsbCBhZGRyZXNzIGFsbCBhYm92ZSBjb21tZW50cyBpbiB0aGUg
+bmV4dCByZXZpc2lvbi4KClRoYW5rcywKQW51cAoKX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2
+QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9s
+aXN0aW5mby9saW51eC1yaXNjdgo=
