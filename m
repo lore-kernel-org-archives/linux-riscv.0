@@ -4,57 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 40D3AC02194
-	for <linux-riscv@archiver.kernel.org>; Thu,  6 Feb 2025 17:49:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91CB7C02199
+	for <linux-riscv@archiver.kernel.org>; Thu,  6 Feb 2025 17:56:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=AU+yrdMqHQ5eSHHRKXhpHPTlbiR2xzTys43tbvrV26g=; b=umlAjbQx7tJyC1
-	1eLfxurf9wEsgGyNj/QnrCaoFpe1fmvdZpSWijdL10/Ql2P3KgY0WBuRcMudb8tAs+VglPWG+Sefp
-	pG3QDSIq+2yvLwaV6moBVSccQrb93cYMADYdZdFwQm2MIl7OFOWdIamfLfvFEmjwy0BVifDr8EOUm
-	0AzgrxlWHdSl5KVpyb7XXnV9pH7RIRwdJsnBuNHbuSknJw0q2QWsO+LYy4JmocGmFlVnKnUgnXaIe
-	g2oDnhgq8f7WR8WlXr7nnFgvMAbKj8WWOieA1ClTFUMfQbuYE2M2GiPG6VfA2+8XpLAc+fe9pNf+9
-	lUXd0S+Uxz/0Xb7m07QA==;
+	List-Owner; bh=DwjDtb7p0trwz/3aDYa0qVQZ7OvyoTcQd1rF/yBUHV8=; b=yjlGfRa+PeEO+9
+	TQn0vosRA2oXLsazes44Tvhi8O+avN7SzjIUYGBLby6tmOmRKAhFfcQE89NvXekfceqqP1T+VEPG0
+	9F7p9UuzTnyE/2Ad+wDt2/NTTVwAZ9zGGniAniYFufRAjADsaPGy2nHyw5bdTx22QMldT+FmlAdTd
+	37kZyvY87A8GURDLmnBG3jh+duH2tVtTUnPPkmHhqhwBn0I7tTbpBZ7XAXSOuUuOwkCiMc4EyAm/s
+	fBZujB4sEVUA2F7gulvhjhFltgJl/AUUT4zgE8J0ecopg07oLzPgdqqN7g4LobMSJn8DI8mlLuJ3E
+	y6cGnxUdekbwRj9kuVtA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tg60W-000000072VB-2BKh;
-	Thu, 06 Feb 2025 17:49:44 +0000
-Received: from mail-bn8nam04on20607.outbound.protection.outlook.com ([2a01:111:f403:2408::607] helo=NAM04-BN8-obe.outbound.protection.outlook.com)
+	id 1tg66U-000000073h7-3s7Q;
+	Thu, 06 Feb 2025 17:55:54 +0000
+Received: from mail-pl1-x630.google.com ([2607:f8b0:4864:20::630])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tg5z7-000000072Go-3zOI;
-	Thu, 06 Feb 2025 17:48:19 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=I9NE32ZdreAZPj2MaPUSBiCkg35knqriNdeVq/qIVo84vL+iDAs+8cWYlsD598i1KWrQsJFqmAzFa3PkPrj8KbHA5ygWxFC3IzQD+m3GQICPqJFNJLrHSC15Sby0bQUuq3qvMPOI77JqrzhNbnVXJYZTuBNyESPViujKM/JWlVn2cjEnXYjvVIZ6eiYfrKnxEtBbBnSu8TW4eNZECa7vuKbmQCXy7MUdF1agLLZm4Amj6HUAe7HdIn9RAab5O/zU2Rg19k2avU71hlPpRCSSHfBzK9mFNErO6JRvUT9qfoZIaC+9h+aYbVCtdR8vhCh2WWUT4QhLmP5ejkVUqPqWzA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=kW8Qrz9B3P3zYKqFJs0jd++hV5Qr6xS1PmxTkhIFD5U=;
- b=hIpTqbziFrq6/Q8hgRO90CmEcxLi+7//2Y8OQ/t7GIz0mpVnO2Rcjr2ALEFJkfQhA7z5PO5vtNlYa0dhNsP5ElTFQvKRhmxNMIzS7BUZJLMdsEaVDOVrwtof/XQJsAZzAZ8JHhNxnhFAJWQkfO7+YWJdhRFWhB4V0DWJLjWjvT6KFNP6xZoTwXaqa0++1p1b8cb43V3ncqMgCdcR3T0WNtZ7x0ahWKBwKYztFZZgSy6ZMQItj9CLQi4YN+yILeO2lo72w2xLnu7xpqnF4xLm+I0wII5mZMbJjEX1iAf9A6swsS8w0uY4ZgKBVk3MCnSTTkUsmRgoJ5B5OSp59cXtnA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=kW8Qrz9B3P3zYKqFJs0jd++hV5Qr6xS1PmxTkhIFD5U=;
- b=iteiJeiGhPOjZf5XrS+ob/r7KEJVosDvNXV8xKulQmo1l15Opkt8MAFM9TMZbTAq/peGDUM1eh8Nc2fhK0sw2UvEUqw++88kwD9tGizyf1ZD/Ck9NYdIEgKDWzSzMWAyoP/S+VAINVmXfpmMkrNfZbHmmh/38RpblGlS0HOeh5vL//HfDOQZ03ZFdOWx62MkJiD4TTEOJMgjU1cNUUK95hsB3KGClT+KPIMm1mxRPp6+JcV/VM7NeaFKrh3ZKfNoTEClOXBm+EGHi/KLs44Fu9MbhIJwV7lTuSyAJWATD61YIQfNHi+onYufy9kk01XNEk3PnkuyrLDCKUyjUPppcA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from CH3PR12MB8659.namprd12.prod.outlook.com (2603:10b6:610:17c::13)
- by LV2PR12MB5869.namprd12.prod.outlook.com (2603:10b6:408:176::16) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8422.10; Thu, 6 Feb
- 2025 17:48:09 +0000
-Received: from CH3PR12MB8659.namprd12.prod.outlook.com
- ([fe80::6eb6:7d37:7b4b:1732]) by CH3PR12MB8659.namprd12.prod.outlook.com
- ([fe80::6eb6:7d37:7b4b:1732%6]) with mapi id 15.20.8398.025; Thu, 6 Feb 2025
- 17:48:09 +0000
-Date: Thu, 6 Feb 2025 13:48:08 -0400
-From: Jason Gunthorpe <jgg@nvidia.com>
-To: Robin Murphy <robin.murphy@arm.com>
+	id 1tg655-000000073O7-4ALB
+	for linux-riscv@lists.infradead.org;
+	Thu, 06 Feb 2025 17:54:30 +0000
+Received: by mail-pl1-x630.google.com with SMTP id d9443c01a7336-21f200014f1so18119975ad.2
+        for <linux-riscv@lists.infradead.org>; Thu, 06 Feb 2025 09:54:27 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1738864467; x=1739469267; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=2Mn+sK8nChOIpeYLnv6IHwIsGNBT4gzyG/mIRD8yp0k=;
+        b=fdIP9j/U6JiM1FaxmDWsn4cKPxef2k+nmAnWy/M4LPDZcqxw0QMQAgw2hrPAfVN4b8
+         FCNKhg9JzASYazczM3NiqwM9MOPwXGnM7gWgAg42lFLuesaVO3julEznfR2wHpCynSD8
+         gVyidPEiIAsQ75BY70e40L9kzmxduvWUXx5WTv1tAU/cpeSx8Nv/TfnWl1vNeHSansFs
+         /Ag3dSC7wsvXA+6dkbOSIQ7S1+RAM8TD526ReWSJxLGuXcClHa6GGYuBbpeYF1SLJ5uV
+         0YQX59RMSpDc4O7ftrUL+Nl+Uuwi+2koWOnX1zlJS/f6vV8UzJDYyp7DtjzIqEC/iqcE
+         jYqw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1738864467; x=1739469267;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=2Mn+sK8nChOIpeYLnv6IHwIsGNBT4gzyG/mIRD8yp0k=;
+        b=nIcpr1VvSv+vNNhj8o0NP01fw3kA65G7Q1yWn2Ei+dpjZXq19jIGY3KJJK03fkhqnC
+         KLGly5CRYaTwatXYMVU1JoVjenrikteeaCLMOfQXjElOR6UVlAvnpitCKjpt6WVWIae/
+         zXKnAL+33K+bCIgI9U1epXG59CKcLnzffowWZzXQtn7Cqx8HzWNm1066LxkKLPdBOQFm
+         Mjw/Ly27tF8zCWEebKmOXgkby3lU+xwuVi6vaJJF2SHn5UtLg9NSl4e5InI7xFxH610L
+         u1NtOs3luRGPMr9XfFCKasor4Pm/EhprsvpHSNGPTdKZ8WOep8ogfF6qz0F6Kq1W1I91
+         CSZw==
+X-Forwarded-Encrypted: i=1; AJvYcCWRSXRRUv1haH3enwUIsxd2Nu/vsy5EjcMqr1EhAukBZstkpQPSOAgifAYQYv1Y9Uba6fcrR7v3j/j8ng==@lists.infradead.org
+X-Gm-Message-State: AOJu0YwuvedD1P9ZL7RHoYoKGWzIfO2xo6Z+9CRsJriRXIpGfFn9cfo+
+	aIKRBlkJOlQSRH6pnfF+KmtBmkceQIlF80DjAVRElrR7+ETMaAbbYKJik9HMDgk=
+X-Gm-Gg: ASbGncvQ8Y+qe2xNh1m0EggHsqOnUs2JPm6s+3mSHJbz3BQxFvgteYn8h+O5Zph5z/p
+	Xo0njY8vXYXvnf3d7vQ08HU5p70zWLY9IggkdrBriibt5xrvhaEnj3raNcqfr32HjeSNl8B+R65
+	moWVMejpg8Mp4HBFUlMAGkPtVkqUtyqbIWUohxoSySN/YxxfzPV5eTl4fb8CaEJFvgD8fH6QBZ4
+	zd7XO1UllKSx5pSy14gadyqvHcPlLoFjcbfv020yUxsO8w7Pl2Uj+InGDHurcKZNkzFa2xevzdt
+	E3J3ts9o5aY/02iAHMzrKhcdeojdcBuZrg==
+X-Google-Smtp-Source: AGHT+IEz4awpqkJi/c9nNKxcLNj0HJ/bkNdjww1eQVi1trMS3Hp0zWEssHNhp45gp9A4Jt7vw68l1Q==
+X-Received: by 2002:a05:6a00:882:b0:725:c8ea:b320 with SMTP id d2e1a72fcca58-7305d498d3amr215704b3a.14.1738864467255;
+        Thu, 06 Feb 2025 09:54:27 -0800 (PST)
+Received: from tjeznach.ba.rivosinc.com ([64.71.180.162])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-73048adb10csm1636427b3a.66.2025.02.06.09.54.25
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 06 Feb 2025 09:54:26 -0800 (PST)
+Date: Thu, 6 Feb 2025 09:54:24 -0800
+From: Tomasz Jeznach <tjeznach@rivosinc.com>
+To: Jason Gunthorpe <jgg@nvidia.com>
 Cc: Alim Akhtar <alim.akhtar@samsung.com>,
 	Alyssa Rosenzweig <alyssa@rosenzweig.io>,
 	Albert Ou <aou@eecs.berkeley.edu>, asahi@lists.linux.dev,
@@ -73,101 +88,30 @@ Cc: Alim Akhtar <alim.akhtar@samsung.com>,
 	Hector Martin <marcan@marcan.st>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
 	Paul Walmsley <paul.walmsley@sifive.com>,
+	Robin Murphy <robin.murphy@arm.com>,
 	Samuel Holland <samuel@sholland.org>,
 	Suravee Suthikulpanit <suravee.suthikulpanit@amd.com>,
 	Sven Peter <sven@svenpeter.dev>,
 	Thierry Reding <thierry.reding@gmail.com>,
-	Tomasz Jeznach <tjeznach@rivosinc.com>,
 	Krishna Reddy <vdumpa@nvidia.com>, Chen-Yu Tsai <wens@csie.org>,
 	Will Deacon <will@kernel.org>, Bagas Sanjaya <bagasdotme@gmail.com>,
 	Joerg Roedel <jroedel@suse.de>,
 	Pasha Tatashin <pasha.tatashin@soleen.com>, patches@lists.linux.dev,
 	David Rientjes <rientjes@google.com>,
 	Matthew Wilcox <willy@infradead.org>
-Subject: Re: [PATCH 02/19] iommu/tegra: Do not use struct page as the handle
- for pts
-Message-ID: <20250206174808.GH2960738@nvidia.com>
-References: <2-v1-416f64558c7c+2a5-iommu_pages_jgg@nvidia.com>
- <be153973-550c-4ea8-bf65-35b5ce28ac22@arm.com>
-Content-Disposition: inline
-In-Reply-To: <be153973-550c-4ea8-bf65-35b5ce28ac22@arm.com>
-X-ClientProxiedBy: BN0PR07CA0019.namprd07.prod.outlook.com
- (2603:10b6:408:141::9) To CH3PR12MB8659.namprd12.prod.outlook.com
- (2603:10b6:610:17c::13)
+Subject: Re: [PATCH 17/19] iommu/riscv: Update to use
+ iommu_alloc_pages_node_lg2()
+Message-ID: <Z6T3UCK1FI44pg7z@tjeznach.ba.rivosinc.com>
+References: <0-v1-416f64558c7c+2a5-iommu_pages_jgg@nvidia.com>
+ <17-v1-416f64558c7c+2a5-iommu_pages_jgg@nvidia.com>
+ <Z6RI3ftJTrm3UxoO@tjeznach.ba.rivosinc.com>
+ <20250206131721.GF2960738@nvidia.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CH3PR12MB8659:EE_|LV2PR12MB5869:EE_
-X-MS-Office365-Filtering-Correlation-Id: 09ac5bac-ae03-4078-5000-08dd46d66b62
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|7416014|376014|366016;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?ioBuEAk4w9w6CRcD/Dy/D3qgH8AR39rMq5flXQ68Xqr6/rUYtctqKdaSLLRx?=
- =?us-ascii?Q?nirf6XQVkdNGPy0s4gbUgYWARGzDzC7svuXBqKNPud2SXTzNfPxQ9o4N/BW4?=
- =?us-ascii?Q?n/EJ6yue4ojcp/gy88b3FiZejGwGQFqO4GtBb6wqbOCOEOKjqfSec47wiqmG?=
- =?us-ascii?Q?56Gs2A7Zu3Lq9wJEjWJw0dxArVTQmSuDa0hPwZu2zHlmQqVw6NX0AymB6EfW?=
- =?us-ascii?Q?0QA2Fu4jUpVoQgo8gkOoR28dzX0/CjHCqxg3ThRXsGH++bgOpXGmoGkmCWgv?=
- =?us-ascii?Q?DW3iNbhONVimc2/QnvT//PJwT7fx8R3jxAYVHEpqYdjRCesIex+fwcZ1kzIL?=
- =?us-ascii?Q?hZMljGpIkUy9sgbDnU8SQIyoZYqpYuHuDDpApgXK/DnJYJ8fIIOPZXQDWlUo?=
- =?us-ascii?Q?reorZotZ10JR6pueW4GwYQuS6Clcb+2lpFXlb0BOYrpqKRsNedFOiItnqpr0?=
- =?us-ascii?Q?lKeNsg5saOhcF6HPcOK85aMpKeXPbqGujDuxFKhAyIJPFu8909r3Ihxsp59N?=
- =?us-ascii?Q?+tvl/FJb0gePcCZyFIxfYdiEYoSn/oRb1fxPsjeT8AsPBLMMEdtyGo4hwSYd?=
- =?us-ascii?Q?Vp33pouM/31hfmM2Fcwownhcr7lMbv0lvkyH3gZyRvz5ZUiew8yHuZfVejxr?=
- =?us-ascii?Q?XSMu6z888dMtzq1ZOYFCPRDBxNAF0FNeHpGuuhgYEi614n8H/2UoBSy6lG1x?=
- =?us-ascii?Q?QopOMXrvv5OmhcGXcarTSQP0j90nGDF3nTHfQBWzD4aDZCz8KbYkFnTg3RSE?=
- =?us-ascii?Q?wQXkERhQTH2x/5ax0puANj6BlgfMopsFI9XsK2EoUB62xekzt2q+EqJfikmS?=
- =?us-ascii?Q?uStEyqfVoNP9S5In9LxIxTdIIuQkUmNu/osl4ItRCp9qErnQKNX9MY4h4Ucr?=
- =?us-ascii?Q?b7nwUNk1eLHour0EJwDmQGwV/jYXNt4XRO8PTbGXz91lK4a7HKPjYLfytNqH?=
- =?us-ascii?Q?r+q/kLBpi9vdoFPgfHC/1gwKwT1GaxIK4G4XKs2bBR00WJoI2bvKv2fINRUo?=
- =?us-ascii?Q?fn3dFTEJwOCcEcoAimpuxMaLuciTFHK+NQPhBBDNdfYAUG9FCQF0cseAT41J?=
- =?us-ascii?Q?YuORWjqxSsaE65zPOcvm0OTFMVzkWrVtYHFDw2cf7StDqQO6p6hJSWE4l6N0?=
- =?us-ascii?Q?r+uiHtGPtPiP8vqDlC8E8Pl5C8uuktNQrYu9Qyk3zn1luDoldyMTJZAu6ySv?=
- =?us-ascii?Q?CF6fz1ORXb8AOD/YfB9i3JB1QIjx77/bMUql8kS5qvyt8/daeV/Z25Ah7Ezr?=
- =?us-ascii?Q?M1k1YC21tppUxEMBIUf+pXaTauh0M5OqGnBDT2XsYcHzleky/zRWaO9rTV0H?=
- =?us-ascii?Q?MdMsPZa5hr1QiwbNeUsWrrOxO+pgR6EAbwBGtcBFFxRNLPjeUwsNnEp9bDji?=
- =?us-ascii?Q?0PgD0WgH3UrkxPkvbllftqs36ArG?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH3PR12MB8659.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(376014)(366016);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?eEmoZA6l5IQUXc5atFO0LozYaYzEPUMJqsBT5kRqUlBIl3FsMKOajUnGap8o?=
- =?us-ascii?Q?mCHCv3cJh17RYdXrENT1rekh7UxNR6HbbFrYaI7OgaIuZIFmP/FoNRRiXc0/?=
- =?us-ascii?Q?c5aiYkeweo8jzHUU79/He4jmNH1zAfc+MZyn9f3tJL1YPkNsC7k+LOXHtMpy?=
- =?us-ascii?Q?wh5EAtm0JmlhMssELBCDDtsbZTk/1o//aMjRyq22V6o2A+hVqH/1aJYoQ1dC?=
- =?us-ascii?Q?UBaao0p6DKT9VyHcXielS+yPYif8nD6dBo3Dyhl/+rxNX27D8OkcXp+BqUod?=
- =?us-ascii?Q?YhXxcNCqC+BtyWWocY2Y5bljbbRHuG//0sCx3z4zC9PJByV+dX6GSuKYGvxw?=
- =?us-ascii?Q?/krPGUZPsIPq5oLGMkfGSC839m/OKilU8bWLv8wn7O8KnJzi7zF7gqm+9SdU?=
- =?us-ascii?Q?eBUgM8LnsQ6Zfu+76wPO69Mfb93Jz5Avhtfy4JF8kpLeJ8hpcpRpjQOO4ZAD?=
- =?us-ascii?Q?yXoPGH8kzxuGqkkn47LYTowXW/lmRnDjT6fSqRYMa3MdEec9GMVO6AuWI59w?=
- =?us-ascii?Q?iym5CWEybfyYCd/A4Dmij8Xh6nscEqov3WfmfvcExBkSGUznouvaQKLnJMJO?=
- =?us-ascii?Q?FW/2Ww9G+ym2c7eYYy0/yeG7FhOybhf2VHUcjq2If9gsZE+4KVL7HoiHhev2?=
- =?us-ascii?Q?4eIGsNoEx6s44EfEAJwLRYqHx2NUarcw+5IHXZp6xZvnG3Uw7Q3SJSkM3F/j?=
- =?us-ascii?Q?lzgNhVGYQoqiFjuEk1+dZLOzUQSkvTYNgRMmUyGVD+wWUDHmCpNKnFcoHt7u?=
- =?us-ascii?Q?YwWOCQVsUlbn6Qt6VtKiBbWdFLeNXdRa+iCGmj/CezVvXBI75i074L/f0Rp5?=
- =?us-ascii?Q?MiROmV1EcsOB4lpok79m2l4BrUyDMAtvx3mQNyr9m4E8puS5/QaRIyqAZ6a3?=
- =?us-ascii?Q?uKVQRMUWe/bOPCRR5v+YjEHyulszAw352fwYD/mOlQ+r2BR+nPEjuFLQsbWE?=
- =?us-ascii?Q?FyXesystTv+FByhPKdOMJElvOXpwHWpCS3VIjUroe5+T1F/n6J4QBYPhtLsV?=
- =?us-ascii?Q?S3tcXr9Y99Pd/GwP15yssAdbdJ6ltVC0EYz8Nk0MWTDfajNfedMoakChn3Xg?=
- =?us-ascii?Q?GPbjtqLC7siJFGRPEoRk/c5PcNPZ8rpdkX2wvrTqqgQ9ug7desgzBkWkTVYY?=
- =?us-ascii?Q?bCTFL6Rf6amURq92DVG9k3nGUOzaTBZceVQa4WnRdUtxClUGxIo5H67xb7Ib?=
- =?us-ascii?Q?YAgvNGYKB1yKNGEppu5Bzasa6jk5iM9QfB38rScfmGBurR/3AMDk/daEKb5O?=
- =?us-ascii?Q?wBriMXG4XXwkaZOovGe0oFvppEoSPrmMMhKk/gLlClYlN/9BTiqtCXtDNyVv?=
- =?us-ascii?Q?iwDUISb+uG5JzDL6EhPQ0eDly2QeTQSIoj4QNxzK3bfGe6TYQdP72c/KdnK2?=
- =?us-ascii?Q?4QA77c05yt+7IWuqIxhStPAFzm8WcrfzgmWZb6WB2I1b3o+X2nFRzoF82iU+?=
- =?us-ascii?Q?O9GRYI8Z0X2SQAA+997Q6WYDWm9i+r6CuS5ZhfARkhd8elBaWWJlSYKf7g1K?=
- =?us-ascii?Q?e7DjrOf2yLZDrqSU0yJ1tEzrNa525mrRTZjXA2savS8LyZ6uhMrUPQrFzEF2?=
- =?us-ascii?Q?CeNt7+wYakOOv50Hh6X5yDiYD+Ejfmnp+UH0AMPY?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 09ac5bac-ae03-4078-5000-08dd46d66b62
-X-MS-Exchange-CrossTenant-AuthSource: CH3PR12MB8659.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 Feb 2025 17:48:09.7047
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: aEFACmhZ7OeSY+jPMhzDSmgRrCTTTPLcdvtJPRToMtlEOt+DB1ssnobwDfUgUeWP
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: LV2PR12MB5869
+Content-Disposition: inline
+In-Reply-To: <20250206131721.GF2960738@nvidia.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250206_094817_983595_9F4A6B2A 
-X-CRM114-Status: GOOD (  17.41  )
+X-CRM114-CacheID: sfid-20250206_095428_301101_D872185E 
+X-CRM114-Status: GOOD (  16.48  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -184,52 +128,65 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Feb 05, 2025 at 07:28:37PM +0000, Robin Murphy wrote:
-> On 2025-02-04 6:34 pm, Jason Gunthorpe wrote:
-> > Instead use the virtual address and dma_map_single() like as->pd
-> > uses. Introduce a small struct tegra_pt instead of void * to have some
-> > clarity what is using this API and add compile safety during the
-> > conversion.
+On Thu, Feb 06, 2025 at 09:17:21AM -0400, Jason Gunthorpe wrote:
+> On Wed, Feb 05, 2025 at 09:30:05PM -0800, Tomasz Jeznach wrote:
+> > > @@ -161,9 +163,8 @@ static int riscv_iommu_queue_alloc(struct riscv_iommu_device *iommu,
+> > >  	} else {
+> > >  		do {
+> > >  			const size_t queue_size = entry_size << (logsz + 1);
+> > > -			const int order = get_order(queue_size);
+> > >  
+> > > -			queue->base = riscv_iommu_get_pages(iommu, order);
+> > > +			queue->base = riscv_iommu_get_pages(iommu, queue_size);
+> > >  			queue->phys = __pa(queue->base);
+> > 
+> > All allocations must be 4k aligned, including sub-page allocs.
 > 
-> Hmm, I'm not sure it's all that clear to have a major discrepancy between
-> how different levels of pagetable are referenced
-
-Well, with a trivial conversion the pd would be u32* and the pt would
-be u32**. There is 1 usage of a tegra_pd and 7 of a tegra_pt.
-
-Spraying u32** all over the place was pretty ugly. Removing
-one of the *'s was more than I wanted to do on this old driver.
-
-So, lets a type for pd.
-
-> > @@ -596,21 +600,21 @@ static u32 *as_get_pte(struct tegra_smmu_as *as, dma_addr_t iova,
-> >   	if (!as->pts[pde]) {
-> >   		dma_addr_t dma;
-> > -		dma = dma_map_page(smmu->dev, page, 0, SMMU_SIZE_PT,
-> > -				   DMA_TO_DEVICE);
-> > +		dma = dma_map_single(smmu->dev, pt, SMMU_SIZE_PD,
+> Oh weird, so it requires 4k alignment but the HW can refuse to support
+> a 4k queue length?
 > 
-> SMMU_SIZE_PT (yeah they're numerically the same, but still...)
 
-Oops, copy pasteo
+Spec allows that. Also, hardware accepts only physical page number (so far PAGE_SIZE == 4K
+for riscv) of the base address, ignoring page offset.
 
-> > +				     DMA_TO_DEVICE);
-> >   		if (dma_mapping_error(smmu->dev, dma)) {
-> > -			__iommu_free_pages(page, 0);
-> > +			iommu_free_page(pt);
-> >   			return NULL;
-> >   		}
-> >   		if (!smmu_dma_addr_valid(smmu, dma)) {
-> >   			dma_unmap_page(smmu->dev, dma, SMMU_SIZE_PT,
-> >   				       DMA_TO_DEVICE);
+> I changed it to this:
 > 
-> All the unmaps should be converted to _single as well (and in patch #1) -
-> the APIs are not officially interchangeable.
+> +                       queue->base = riscv_iommu_get_pages(
+> +                               iommu, max(queue_size, SZ_4K));
+> 
 
-Missed, that got it on both patches
+LGTM
+
+> > >  		} while (!queue->base && logsz-- > 0);
+> > >  	}
+> > > @@ -618,7 +619,7 @@ static struct riscv_iommu_dc *riscv_iommu_get_dc(struct riscv_iommu_device *iomm
+> > >  				break;
+> > >  			}
+> > >  
+> > > -			ptr = riscv_iommu_get_pages(iommu, 0);
+> > > +			ptr = riscv_iommu_get_pages(iommu, PAGE_SIZE);
+> > >  			if (!ptr)
+> > >  				return NULL;
+> > >  
+> > > @@ -698,7 +699,7 @@ static int riscv_iommu_iodir_alloc(struct riscv_iommu_device *iommu)
+> > >  	}
+> > >  
+> > >  	if (!iommu->ddt_root) {
+> > > -		iommu->ddt_root = riscv_iommu_get_pages(iommu, 0);
+> > > +		iommu->ddt_root = riscv_iommu_get_pages(iommu, PAGE_SIZE);
+> > >  		iommu->ddt_phys = __pa(iommu->ddt_root);
+> > >  	}
+> 
+> Should these be SZ_4K as well or PAGE_SIZE?
+> 
+
+SZ_4K. For now iommu/risc-v hardware always assumes PAGE_SIZE == 4K.
+
+> Thanks,
+> Jason
 
 Thanks,
-Jason
+- Tomasz
 
 _______________________________________________
 linux-riscv mailing list
