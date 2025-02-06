@@ -4,97 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CCCD7C02196
-	for <linux-riscv@archiver.kernel.org>; Thu,  6 Feb 2025 08:46:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11A54C02194
+	for <linux-riscv@archiver.kernel.org>; Thu,  6 Feb 2025 08:58:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
-	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
+	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=sb5FYFUwu/mEbGrCOObyvJ6Pa10MuSqyG5/mlf02gW0=; b=e8dyeF5lVS2h8v
-	PDDiudSepBCrkYDUPeZhRSYs84wOR+LKLR5qdE/KhfIaWSfwEJGvFdxzSKi7/1+z9xbEcPfkqjDQM
-	FHEFTy4UeL3xRr7DgMmywFlnGmaZdD/2NIV/cbJox8l3H1/DtWxS1tm2apw+69BtwiJXbzgz1stfC
-	aHb8Hftd0THMkeUES0R1eH1Z0ba4SvOIER6pYb4uWcxujZz39t76v2rroZAGJbUwDWnD15asvpnHM
-	I8hwURIc0a53+BSypS7vVjWFjdWJH7aXkYI7+zFYm0pQ9TUXeAhwSYTQtGGAD1yJXXS8qQqBI0KY6
-	IhEMwiXMz0U96+NwdlVQ==;
+	List-Owner; bh=J6py4oO/ul1PVtptjhfdM71D9x4sR/onnv25gW8qGKg=; b=ZgvRMvn4M0Xahu
+	xBk/6riODUsJZ8+KFtRMnN7/pOmXIpFrYWTeBMMQUKTxb5BtjCAXXje3ETcwvUDL3ug0ksgTmzoiT
+	2sbSXNi0xxJO9ukVwI5m3WITw+ygwS6YM8MqB73z/6xRgvNLmsqp5/AcVrT2r6ontCqQVHAD2bmC0
+	P7J1C/jWM+W3vA3f/+JPtD6UQAP2g/kFAzRzrK6awIkeVPmYJLbUF3D2EoZXy9MTQgKibW8xjwA+c
+	QyzUoKVy6kld/H7dutiN+lQm1aqpHv1myZawv11YvtwzH+uEM1SY1Sy1LlLPWmLWvSCOEsezrO8nG
+	odzJFkhJbBB5RbtFkaMA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfxWf-00000005k9W-2zjk;
-	Thu, 06 Feb 2025 08:46:21 +0000
-Received: from mail-pj1-x102b.google.com ([2607:f8b0:4864:20::102b])
+	id 1tfxiZ-00000005llf-2roy;
+	Thu, 06 Feb 2025 08:58:39 +0000
+Received: from smtp-out2.suse.de ([195.135.223.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfwEh-00000005YJr-2p5o
+	id 1tfxiW-00000005ll8-3hTY
 	for linux-riscv@lists.infradead.org;
-	Thu, 06 Feb 2025 07:23:45 +0000
-Received: by mail-pj1-x102b.google.com with SMTP id 98e67ed59e1d1-2f9f5caa37cso1712812a91.0
-        for <linux-riscv@lists.infradead.org>; Wed, 05 Feb 2025 23:23:43 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1738826623; x=1739431423; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=mLt3uQ+5mVFCD4CpzivJzFeQzs8sYQp9bQK+aL0eLxQ=;
-        b=JkUd2FdA3e9SzRPPqk/w7/7jTtDFwUqlM/ITm6MoJqu9onSIOxn9FhjA4d/AO0XfMc
-         AegqM7zrKkkXHoO6CElsFLypPkOZsFczSRvdDu5QfGRn+o4NrtplqlxnZq2WY2zxdWi4
-         pHm+rY55dUJt8SLuPKQ26lT5BwAyo8eMkEhWmHdEG4SpNV4vvGlTbiTV1yCzKc3KDQR5
-         ILyoygiso7wd6U08YofzYWdzwejJO3MSbEzK7C2aIHdrEsSXRw/4jD81d2kk/XdhKI2B
-         RdOUao3LI3vO/0yXqtQ8CCbYKhhj1NFA27mpocp4C3BYgvKz9uiXh7fDRHpT2GrCL5Kk
-         7LKw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1738826623; x=1739431423;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=mLt3uQ+5mVFCD4CpzivJzFeQzs8sYQp9bQK+aL0eLxQ=;
-        b=aXHgNWlpQ48++wnnSvNtWUcWIvOsU7QGviE1+vwqNykx193gU41kV70BO1rEb52aPy
-         p0stAXdbbxfYBOeZVDmZxcAgnESINWOOQR284RiNzLB2zmk/hMkGxsQFUxISW/ZOhAxH
-         xsYBXhJ4LhXyl3pSK1PLnY0Cmltvhe4ueWHgduJp9ykadViS1H2wUF+p/M9eiaI/uBw9
-         c5UzVMDNreh4AhkHcWEtfc7qTRbxc0n7HiYGhRw0ChBbw52GuTYdFUss0E2qa7iw4CZT
-         GbCA4+bv1ydOZ5Z49UvelcCB0ecVqqZnfh2vdQunHAyxqNlKEk6nUwPYITUedpJyvHpA
-         Eitg==
-X-Gm-Message-State: AOJu0YxV8BdsthY9Oo3H5Umbv/uNhgXhNHJJfqc6CKuxVQFsvG+uv3PW
-	J7+RJczbxzuub9ZkTlSvV2+aa3DIdsjFSRcCOtZkPIDuReRo7B+687qb98IwAmg=
-X-Gm-Gg: ASbGncuwHgU6+kHEQwD68uk/KjpTeTaEwZYRiLdaHUvNNmlMMDFviTAADMJxsFXR1l8
-	VBUksi22loS/JxhjxHBjHMRPRUy0JPYyVu0v+S5a/HN+06nUFkPws2W5vNJennQP5QSoFDXqnqJ
-	86sU3V1FEXaUuSPbMq7vACa/NUyI6QYRQOxfJecBkUmdUPbke4S05DIV5l9KD4RWCrDYYhtWHp7
-	qaLPSxsv3vD6zcLIrDeLUPW3n1Nu2xGYlsredVy4cJsvopsbVZSlZC/4GhQk58c13GO5sYhd0sn
-	qlMdMfM7poAMs/BnVSL50tl+yGGx
-X-Google-Smtp-Source: AGHT+IE+zm5bTYTXugTwpHU711moyOZkgKemcMPApk5i6Nyzgk504/702jQ6OsU4eVbUvVfR2YHglw==
-X-Received: by 2002:a17:90b:4fd1:b0:2f9:e730:1601 with SMTP id 98e67ed59e1d1-2f9ff8a1befmr4045975a91.7.1738826623101;
-        Wed, 05 Feb 2025 23:23:43 -0800 (PST)
-Received: from atishp.ba.rivosinc.com ([64.71.180.162])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-2fa09a72292sm630883a91.27.2025.02.05.23.23.41
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 05 Feb 2025 23:23:42 -0800 (PST)
-From: Atish Patra <atishp@rivosinc.com>
-Date: Wed, 05 Feb 2025 23:23:22 -0800
-Subject: [PATCH v4 17/21] RISC-V: perf: Add legacy event encodings via
- sysfs
+	Thu, 06 Feb 2025 08:58:38 +0000
+Received: from hawking.nue2.suse.org (unknown [10.168.4.11])
+	by smtp-out2.suse.de (Postfix) with ESMTP id B4B5D1F381;
+	Thu,  6 Feb 2025 08:58:33 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
+	t=1738832313; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=8o8RvKmfC5bSrwy01wT5aWPFCBt3LDXie/ZQ3XWxPnI=;
+	b=2MiUDuvmE1kUXKZ6ftY4J6vLV1VzlPZ48GmXEsSXyNHsnQlZ/k1SkRdrvJ/duUB7OUnQxo
+	8yONjLnDteDiqxsKhOvty+FM1xWi0hNZGsl4v+0H+Veb3KNo5W51YSIUJ59O+wJ34dJd3C
+	eTQs0nrqQ2bHzqQ/wjRSpTBSD8pZBQI=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
+	s=susede2_ed25519; t=1738832313;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=8o8RvKmfC5bSrwy01wT5aWPFCBt3LDXie/ZQ3XWxPnI=;
+	b=VcnWeTmmGlG+8LdZeZQLm050NZl8GNZDC74mgQ48YKPEkuAUMURb6uqi1RL1bezqSkO6uK
+	nzOiW5t/roxxS6BQ==
+Authentication-Results: smtp-out2.suse.de;
+	none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
+	t=1738832313; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=8o8RvKmfC5bSrwy01wT5aWPFCBt3LDXie/ZQ3XWxPnI=;
+	b=2MiUDuvmE1kUXKZ6ftY4J6vLV1VzlPZ48GmXEsSXyNHsnQlZ/k1SkRdrvJ/duUB7OUnQxo
+	8yONjLnDteDiqxsKhOvty+FM1xWi0hNZGsl4v+0H+Veb3KNo5W51YSIUJ59O+wJ34dJd3C
+	eTQs0nrqQ2bHzqQ/wjRSpTBSD8pZBQI=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
+	s=susede2_ed25519; t=1738832313;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=8o8RvKmfC5bSrwy01wT5aWPFCBt3LDXie/ZQ3XWxPnI=;
+	b=VcnWeTmmGlG+8LdZeZQLm050NZl8GNZDC74mgQ48YKPEkuAUMURb6uqi1RL1bezqSkO6uK
+	nzOiW5t/roxxS6BQ==
+Received: by hawking.nue2.suse.org (Postfix, from userid 17005)
+	id A4EE94AADB9; Thu,  6 Feb 2025 09:58:33 +0100 (CET)
+From: Andreas Schwab <schwab@suse.de>
+To: Palmer Dabbelt <palmer@rivosinc.com>
+Cc: linux-riscv@lists.infradead.org,  alex@ghiti.fr,  Charlie Jenkins
+ <charlie@rivosinc.com>,  Mr.Bossman075@gmail.com,  Jesse Taube
+ <jesse@rivosinc.com>
+Subject: Re: [PATCH v2 1/2] RISC-V: hwprobe: Use BIT macro to avoid warnings
+In-Reply-To: <20250205204129.10639-2-palmer@rivosinc.com> (Palmer Dabbelt's
+	message of "Wed, 5 Feb 2025 12:40:26 -0800")
+References: <20250205204129.10639-1-palmer@rivosinc.com>
+	<20250205204129.10639-2-palmer@rivosinc.com>
+Date: Thu, 06 Feb 2025 09:58:33 +0100
+Message-ID: <mvmo6zf1mbq.fsf@suse.de>
+User-Agent: Gnus/5.13 (Gnus v5.13)
 MIME-Version: 1.0
-Message-Id: <20250205-counter_delegation-v4-17-835cfa88e3b1@rivosinc.com>
-References: <20250205-counter_delegation-v4-0-835cfa88e3b1@rivosinc.com>
-In-Reply-To: <20250205-counter_delegation-v4-0-835cfa88e3b1@rivosinc.com>
-To: Paul Walmsley <paul.walmsley@sifive.com>, 
- Palmer Dabbelt <palmer@dabbelt.com>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Anup Patel <anup@brainfault.org>, 
- Atish Patra <atishp@atishpatra.org>, Will Deacon <will@kernel.org>, 
- Mark Rutland <mark.rutland@arm.com>, Peter Zijlstra <peterz@infradead.org>, 
- Ingo Molnar <mingo@redhat.com>, Arnaldo Carvalho de Melo <acme@kernel.org>, 
- Namhyung Kim <namhyung@kernel.org>, 
- Alexander Shishkin <alexander.shishkin@linux.intel.com>, 
- Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>, 
- Adrian Hunter <adrian.hunter@intel.com>, weilin.wang@intel.com
-Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Conor Dooley <conor@kernel.org>, devicetree@vger.kernel.org, 
- kvm@vger.kernel.org, kvm-riscv@lists.infradead.org, 
- linux-arm-kernel@lists.infradead.org, linux-perf-users@vger.kernel.org, 
- Atish Patra <atishp@rivosinc.com>
-X-Mailer: b4 0.15-dev-13183
+X-Spamd-Result: default: False [-2.70 / 50.00];
+	BAYES_HAM(-3.00)[99.99%];
+	SUSPICIOUS_RECIPS(1.50)[];
+	NEURAL_HAM_LONG(-1.00)[-1.000];
+	NEURAL_HAM_SHORT(-0.20)[-0.999];
+	MIME_GOOD(-0.10)[text/plain];
+	RCVD_NO_TLS_LAST(0.10)[];
+	ARC_NA(0.00)[];
+	RCVD_COUNT_ONE(0.00)[1];
+	FREEMAIL_ENVRCPT(0.00)[gmail.com];
+	TO_DN_SOME(0.00)[];
+	MIME_TRACE(0.00)[0:+];
+	TAGGED_RCPT(0.00)[];
+	MID_RHS_MATCH_FROM(0.00)[];
+	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
+	FROM_HAS_DN(0.00)[];
+	FREEMAIL_CC(0.00)[lists.infradead.org,ghiti.fr,rivosinc.com,gmail.com];
+	RCPT_COUNT_FIVE(0.00)[6];
+	FROM_EQ_ENVFROM(0.00)[];
+	FUZZY_BLOCKED(0.00)[rspamd.com];
+	TO_MATCH_ENVRCPT_ALL(0.00)[];
+	DBL_BLOCKED_OPENRESOLVER(0.00)[suse.de:email,suse.de:mid]
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250205_232343_792100_462BF081 
-X-CRM114-Status: GOOD (  14.87  )
+X-CRM114-CacheID: sfid-20250206_005837_062511_44A06DEF 
+X-CRM114-Status: UNSURE (   7.37  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,72 +122,29 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Define sysfs details for the legacy events so that any tool can
-parse these to understand the minimum set of legacy events
-supported by the platform. The sysfs entry will describe both event
-encoding and corresponding counter map so that an perf event can be
-programmed accordingly.
+On Feb 05 2025, Palmer Dabbelt wrote:
 
-Signed-off-by: Atish Patra <atishp@rivosinc.com>
----
- drivers/perf/riscv_pmu_dev.c | 22 ++++++++++++++++++++--
- 1 file changed, 20 insertions(+), 2 deletions(-)
+> From: Jesse Taube <jesse@rivosinc.com>
+>
+> In uapi/asm/hwprobe.h file, (1 << N) is used to define the bit field
+> which causes checkpatch to warn. Use BIT(N) and BIT_ULL(N) to avoid
+> these warnings.
 
-diff --git a/drivers/perf/riscv_pmu_dev.c b/drivers/perf/riscv_pmu_dev.c
-index bbf5bcff51fc..dd4627055e7a 100644
---- a/drivers/perf/riscv_pmu_dev.c
-+++ b/drivers/perf/riscv_pmu_dev.c
-@@ -122,7 +122,20 @@ static struct attribute_group riscv_cdeleg_pmu_format_group = {
- 	.attrs = riscv_cdeleg_pmu_formats_attr,
- };
- 
-+#define RVPMU_EVENT_ATTR_RESOLVE(m) #m
-+#define RVPMU_EVENT_CMASK_ATTR(_name, _var, config, mask) \
-+	PMU_EVENT_ATTR_STRING(_name, rvpmu_event_attr_##_var, \
-+			      "event=" RVPMU_EVENT_ATTR_RESOLVE(config) \
-+			      ",counterid_mask=" RVPMU_EVENT_ATTR_RESOLVE(mask) "\n")
-+
-+#define RVPMU_EVENT_ATTR_PTR(name) (&rvpmu_event_attr_##name.attr.attr)
-+
-+static struct attribute_group riscv_cdeleg_pmu_event_group __ro_after_init = {
-+	.name = "events",
-+};
-+
- static const struct attribute_group *riscv_cdeleg_pmu_attr_groups[] = {
-+	&riscv_cdeleg_pmu_event_group,
- 	&riscv_cdeleg_pmu_format_group,
- 	NULL,
- };
-@@ -362,11 +375,14 @@ struct riscv_vendor_pmu_events {
- 	const struct riscv_pmu_event *hw_event_map;
- 	const struct riscv_pmu_event (*cache_event_map)[PERF_COUNT_HW_CACHE_OP_MAX]
- 						       [PERF_COUNT_HW_CACHE_RESULT_MAX];
-+	struct attribute **attrs_events;
- };
- 
--#define RISCV_VENDOR_PMU_EVENTS(_vendorid, _archid, _implid, _hw_event_map, _cache_event_map) \
-+#define RISCV_VENDOR_PMU_EVENTS(_vendorid, _archid, _implid, _hw_event_map, \
-+				_cache_event_map, _attrs) \
- 	{ .vendorid = _vendorid, .archid = _archid, .implid = _implid, \
--	  .hw_event_map = _hw_event_map, .cache_event_map = _cache_event_map },
-+	  .hw_event_map = _hw_event_map, .cache_event_map = _cache_event_map, \
-+	  .attrs_events = _attrs },
- 
- static struct riscv_vendor_pmu_events pmu_vendor_events_table[] = {
- };
-@@ -388,6 +404,8 @@ static void rvpmu_vendor_register_events(void)
- 		    pmu_vendor_events_table[i].archid == arch_id) {
- 			current_pmu_hw_event_map = pmu_vendor_events_table[i].hw_event_map;
- 			current_pmu_cache_event_map = pmu_vendor_events_table[i].cache_event_map;
-+			riscv_cdeleg_pmu_event_group.attrs =
-+							pmu_vendor_events_table[i].attrs_events;
- 			break;
- 		}
- 	}
+_BITUL(N) and _BITULL(N)
+
+> @@ -98,6 +99,6 @@ struct riscv_hwprobe {
+>  /* Increase RISCV_HWPROBE_MAX_KEY when adding items. */
+>  
+>  /* Flags */
+> -#define RISCV_HWPROBE_WHICH_CPUS	(1 << 0)
+> +#define RISCV_HWPROBE_WHICH_CPUS	BIT(0)
+
+s/BIT/_BITUL/
 
 -- 
-2.43.0
-
+Andreas Schwab, SUSE Labs, schwab@suse.de
+GPG Key fingerprint = 0196 BAD8 1CE9 1970 F4BE  1748 E4D4 88E3 0EEA B9D7
+"And now for something completely different."
 
 _______________________________________________
 linux-riscv mailing list
