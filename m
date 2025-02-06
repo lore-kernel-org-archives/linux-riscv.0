@@ -4,171 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F0234C02199
-	for <linux-riscv@archiver.kernel.org>; Thu,  6 Feb 2025 13:21:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5954FC02194
+	for <linux-riscv@archiver.kernel.org>; Thu,  6 Feb 2025 13:24:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=23mna5UisQjCZW6PAfEKVe+DdW6P3FgVhIcndwdLX4g=; b=lhVnEC8KF1H1sO
-	kDPk8xObKcAHTobHWHYDr26Sl9PjLkjW5jF48k5CeJ8H6npjZ56mfQWCcSh1r0/HYW3FFDFUmK/Tp
-	OTrGwqnT7k1iKXnzQMM+olS73W123Gm63LOd+Ww5HNQDr+7CwRXqDsnNAaVvb0bOa51HI8m9nVsuk
-	h3H1jSLVQK7N45C/giiaRNA1CI7VfRZooqiaDdmTJ9d2PEPIklTPMgjBRECwM8vhd93LHllh3lKTs
-	V1moGuSHmv/UWWb5pHu5pSfA1xFRrSL8j57axJRRt+kmfMw3eYMNDXDy47RGzQHXHFdJGVoujMNC5
-	p+6KgTpCH3/PeYhQ1/vA==;
+	List-Owner; bh=vc3Whss0tnkYa9yyuNwRO/UjSC+3GTWSr7Ma1mO1Uc4=; b=D4MDI+oaym8ugK
+	EZI3PCORKxifr4X78cbojNWOx5IoGPh2lIK0XuiVjGrxfV+kdOZOki6ki3/FQ2prYcb6sw9PHy0C0
+	NqQ1JxDaMxYNT+RC6oqwkKxWzveXuwD35QnxileRupxFn1UoB0OV+0AAPgimnyfMzf9TGSHDYkD5n
+	ClvSnU8I4s7IWttPFH1rZr8LKEHD8U1/f5gtEsZOf1Y84cbnsKxIKeC6Qh7eRs4Ud6xFiMDfV8q+y
+	ZtYmTCs/xo8j5RA8T+mtYkDjMUIdVJJybaB93nHvVBB5UtlrvWkUMZ96wte35JnvEigwA0MWbEjxs
+	yu2ACPEKjmDUnecRDbfg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tg1ou-00000006Ou2-0BSJ;
-	Thu, 06 Feb 2025 13:21:28 +0000
-Received: from mail-dm3nam02on20606.outbound.protection.outlook.com ([2a01:111:f403:2405::606] helo=NAM02-DM3-obe.outbound.protection.outlook.com)
+	id 1tg1rc-00000006Pfp-0Ooi;
+	Thu, 06 Feb 2025 13:24:16 +0000
+Received: from mail-pl1-x62a.google.com ([2607:f8b0:4864:20::62a])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tg1l5-00000006OBM-2hsy;
-	Thu, 06 Feb 2025 13:17:32 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=ixnV4QBUa8pN9kOn+mHE9LCNxca+perCs/9wrFM4gyWpgkLs1hL7kXMRKeBfzLMioQ1yje7HUYBYMNCtucfSIFYu0Hr211G1qXn/G9iPr8Gncir3nQu5qfYMWdyI+kBbJ6PlXqDWRMnakX2jtUATJ5qxPXf+goETkPArh5LUJ2Vto+tvZygcW5Jf3sez6Hlcgqx00OmB4OUxnFVXQtfZN7lI1zsSrPJFaWs4EbwjsPEJ0du4dHQOqA3AeUbnkb4XCz7LzfnwyXOsrMAOGZJxIHlZdyBLCMHBjAbrbkneQYCSQJOx3CVJqPALWYLaPrGKe01R6kX1liUIxQ3OrKa5/g==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=bvGBtO1g0Tf10DP3Tmh3PU4BulQZrk+/hjd9Hhf3IuE=;
- b=wn0xk/Z5CapK5PD7TZMtKOTSBpG01mpS2ZPfmPLpQCED+aSi4+S4iZS4JzH7rrJT/cktsmyAuv6vN2SIXWHhS19qc/39YNlY3hN6DPh6obd/nesWdJWZQEz2+b7sJnJJ2JLoNQwFHDPmqYSGEQEk+nlCP+pTnIbnzyBDAYFBPzx531gJY0WAhSH7tVXBzBHlTU25rLozxPG3ls+7yzquz20+fKfCuwIfj5xNp/TacBbVwloH+9w0tjFEjpdZxUlx5QH3grOJeVYU2O4bpYGfFgeTgB6+siSbfLqStpJS2OMnRabMLhSZgYlzCqf3Hs0C3M1D5HJS05KNKmnOz1brng==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=bvGBtO1g0Tf10DP3Tmh3PU4BulQZrk+/hjd9Hhf3IuE=;
- b=cdhXOGvCShpbEy4/E+rs09HnzaRUVgpkJPomhTnpaPMFJmhr03NZElo1RBduByTopsMr2bwnHQl6NIj+qMkPAbdMblUSg0OzpcbMmglNiWJiVD/o/HC9gwOqa7JeMOP0V+9q+sy2NmtcBy8IJz6bl7jlQFI9+TPPMZvatHl53/gQvxWyoL8WxDoUeEtK2tV5aD76YKN8g0+nONaHuqa/MF6EFoASsscwJLqEPV+bso2DZN9kMr3W5kEqbCH0mfSHF+5a6VCEt5ZSjSTw4sr8tlef4Utzf1gaFoOtCiNHMfwBzglp3FI2n/ZSiWV/FBTSsjBOgZnddxoqI6VNHreN7g==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from CH3PR12MB8659.namprd12.prod.outlook.com (2603:10b6:610:17c::13)
- by MW4PR12MB7239.namprd12.prod.outlook.com (2603:10b6:303:228::5) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8422.11; Thu, 6 Feb
- 2025 13:17:22 +0000
-Received: from CH3PR12MB8659.namprd12.prod.outlook.com
- ([fe80::6eb6:7d37:7b4b:1732]) by CH3PR12MB8659.namprd12.prod.outlook.com
- ([fe80::6eb6:7d37:7b4b:1732%6]) with mapi id 15.20.8398.025; Thu, 6 Feb 2025
- 13:17:22 +0000
-Date: Thu, 6 Feb 2025 09:17:21 -0400
-From: Jason Gunthorpe <jgg@nvidia.com>
-To: Tomasz Jeznach <tjeznach@rivosinc.com>
-Cc: Alim Akhtar <alim.akhtar@samsung.com>,
-	Alyssa Rosenzweig <alyssa@rosenzweig.io>,
-	Albert Ou <aou@eecs.berkeley.edu>, asahi@lists.linux.dev,
-	Lu Baolu <baolu.lu@linux.intel.com>,
-	David Woodhouse <dwmw2@infradead.org>,
-	Heiko Stuebner <heiko@sntech.de>, iommu@lists.linux.dev,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Jonathan Hunter <jonathanh@nvidia.com>,
-	Joerg Roedel <joro@8bytes.org>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-riscv@lists.infradead.org, linux-rockchip@lists.infradead.org,
-	linux-samsung-soc@vger.kernel.org, linux-sunxi@lists.linux.dev,
-	linux-tegra@vger.kernel.org,
-	Marek Szyprowski <m.szyprowski@samsung.com>,
-	Hector Martin <marcan@marcan.st>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Robin Murphy <robin.murphy@arm.com>,
-	Samuel Holland <samuel@sholland.org>,
-	Suravee Suthikulpanit <suravee.suthikulpanit@amd.com>,
-	Sven Peter <sven@svenpeter.dev>,
-	Thierry Reding <thierry.reding@gmail.com>,
-	Krishna Reddy <vdumpa@nvidia.com>, Chen-Yu Tsai <wens@csie.org>,
-	Will Deacon <will@kernel.org>, Bagas Sanjaya <bagasdotme@gmail.com>,
-	Joerg Roedel <jroedel@suse.de>,
-	Pasha Tatashin <pasha.tatashin@soleen.com>, patches@lists.linux.dev,
-	David Rientjes <rientjes@google.com>,
-	Matthew Wilcox <willy@infradead.org>
-Subject: Re: [PATCH 17/19] iommu/riscv: Update to use
- iommu_alloc_pages_node_lg2()
-Message-ID: <20250206131721.GF2960738@nvidia.com>
-References: <0-v1-416f64558c7c+2a5-iommu_pages_jgg@nvidia.com>
- <17-v1-416f64558c7c+2a5-iommu_pages_jgg@nvidia.com>
- <Z6RI3ftJTrm3UxoO@tjeznach.ba.rivosinc.com>
-Content-Disposition: inline
-In-Reply-To: <Z6RI3ftJTrm3UxoO@tjeznach.ba.rivosinc.com>
-X-ClientProxiedBy: BN0PR04CA0160.namprd04.prod.outlook.com
- (2603:10b6:408:eb::15) To CH3PR12MB8659.namprd12.prod.outlook.com
- (2603:10b6:610:17c::13)
+	id 1tg1ne-00000006OY6-1mBJ
+	for linux-riscv@lists.infradead.org;
+	Thu, 06 Feb 2025 13:20:11 +0000
+Received: by mail-pl1-x62a.google.com with SMTP id d9443c01a7336-2161eb95317so16777255ad.1
+        for <linux-riscv@lists.infradead.org>; Thu, 06 Feb 2025 05:20:09 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=bytedance.com; s=google; t=1738848009; x=1739452809; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=pf4go4iQL4QMflVyTQa4GngDZqe61egNHavae1e4JE8=;
+        b=JbzegVdOEbLN1Zue65Lig3sm95B4mkGvPI5bnL1LCvf9nrKqdNPvXo5vtE+zdWXhAe
+         M8FsCK4oM2pOd67qt7aSMkjFpproh5GfqtdOzE2n3svbsHy7vA8W59b8i0e4ts1nGLHb
+         Yll6QdiJluFr8Aaa2GobtoWVIG8QzmwQC5v+DtyDQUQgOQW74nq6Ei10LUu+O0rxeQqa
+         4Lv/zfOsLoU4/B+4Rgh6ZfGmU0+SIFCa5d/SMKzY2AZ3VL1bQxBMfRaEySSAD4I+9lMK
+         xHUlc81o4+/2ukZ2T9DkfLQpYW3H2dp+saTs3l4tqR9y8GMUZWY/kF+f4ZUS+sdH6EB3
+         0Oyw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1738848009; x=1739452809;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=pf4go4iQL4QMflVyTQa4GngDZqe61egNHavae1e4JE8=;
+        b=w/6RJgvRVw+FauXqj9oxl3Gf47go+cxIPego+Trb5i9YCWwUtqU2FrAitT/VtTckQT
+         ekMiSA7LLN6i0GceuO6xiamO5kfAuwQ7oK4TuE4Zb/YuULpL8sNW0zKr3HBadKuguSpE
+         OF7kE6kGCKYPQNJMk9pNWUX3TWtIKn+aU/H+h6a7ca9MvipQ3LlV1/uzKraaKvcgEyv3
+         v43ncO4rmiaCjdPfa72so9lQ09pavF37fWYgtv57VZukLBSAMNDlpr5kWv1sUYl1Y1lG
+         mTOtkUDXuHnLXV5prgVNmPftU7MNy6GODvzLOApy5fGOmH+jjpHVG/2U5sJDxdBNh2Rg
+         wsvA==
+X-Gm-Message-State: AOJu0Yzo0lUIOxsmdv/wn/XhIS4K37lvbvrKamHvej7DVyc7wrGKLhcr
+	spAIaxr49S/HgQCb82gxBr6CImulnOYfsCH9uMgm/ZsGjKPYJgs9n5YspioYE6Y=
+X-Gm-Gg: ASbGncsdgqmJcXhqi5mg9Jr9nGte605/HernVDhndQcl70rbTFxeYwnpzDd1JsFeQ46
+	s4fwRetJwIJthfbrkM39l6sk3AklupAvapXAIIaOY2u0SImvHgs4vHFYyXCXqdVoubh4lVu9/sP
+	xaVlvqt28FjQ//FoowwYQ6lW6zh33vugn6HtHpWLYlkiOIEEiT8niWzZN5Fg5TITpUwoIgkGubz
+	SN1wfz+7JGNaFCdVEzFs3GHHpM/J2hM/AwMitN/dljm7cmq4xbsPE4J61uQfBeg63wPxciBACv0
+	w4ojHL8QnR6kcQ8r4g==
+X-Google-Smtp-Source: AGHT+IGCPThNvLp+8va8nWxjbFE00U6UwUxIviEx1VgOqPw4pw4AKuRjGCX0YPWkMIbmGUsUZc9LiA==
+X-Received: by 2002:a17:902:cf12:b0:21f:46b:a25 with SMTP id d9443c01a7336-21f17df5701mr115615155ad.16.1738848009353;
+        Thu, 06 Feb 2025 05:20:09 -0800 (PST)
+Received: from L4CR4519N7.bytedance.net ([203.208.189.11])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-21f3683d987sm12170775ad.120.2025.02.06.05.20.04
+        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
+        Thu, 06 Feb 2025 05:20:09 -0800 (PST)
+From: Rui Qi <qirui.001@bytedance.com>
+X-Google-Original-From: Rui Qi
+To: paul.walmsley@sifive.com,
+	palmer@dabbelt.com,
+	aou@eecs.berkeley.edu,
+	ardb@kernel.org,
+	haibo1.xu@intel.com,
+	guohanjun@huawei.com,
+	sunilvl@ventanamicro.com,
+	samuel.holland@sifive.com,
+	parri.andrea@gmail.com,
+	ericchancf@google.com
+Cc: linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-efi@vger.kernel.org,
+	Rui Qi <qirui.001@bytedance.com>
+Subject: [RFC 2/5] efi: add riscv APEI generic processor error printing support
+Date: Thu,  6 Feb 2025 21:19:23 +0800
+Message-Id: <20250206131926.91289-3-qirui.001@bytedance.com>
+X-Mailer: git-send-email 2.39.3 (Apple Git-146)
+In-Reply-To: <20250206131926.91289-1-qirui.001@bytedance.com>
+References: <20250206131926.91289-1-qirui.001@bytedance.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CH3PR12MB8659:EE_|MW4PR12MB7239:EE_
-X-MS-Office365-Filtering-Correlation-Id: 241bfcde-e9cf-488a-9919-08dd46b0976b
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|366016|1800799024;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?tcoh6BLfTNYQrUurNmQX5dcHc8PRyHGEyjJmuHEYO9AjV98Xz4Xl4+f7Plrv?=
- =?us-ascii?Q?N4mFgEblZ/PD5/UwbrFZX8wL9IV7QjBa58IBfSsESybpAF5tIfKyqfWQ7YGO?=
- =?us-ascii?Q?5A3C6ryJ50nRTP9yCx/oL6JyJgRAHbVJx8Ez+TY/3SgCw3MMyPZJvi6rMcuy?=
- =?us-ascii?Q?1elziEbGk/Hxb8sm8gKIibr8xg0jN3CgcS/7Th0XfanzsIsyMGltOEnVdVnt?=
- =?us-ascii?Q?MTWIedDQylfhIeVuykIja8Ku3v5a6bc+0YekhWPzDXsaAiM/0BT8bb6TLNFO?=
- =?us-ascii?Q?C4e3ww506Q8cLDQ1WIS3CgzL5EhjCpGAEEzLHSyYHSm0GAinNBZD091odrVm?=
- =?us-ascii?Q?pZSNM1Z1t9huK9jjuns/KST3jDnzKf6S+50En1eH5xVMOBR2W0rKQaiPASPn?=
- =?us-ascii?Q?J0T1oacst8ctH7/OEq1CQhvsp5wL5QAANGz/bwMUnsIezK5YeSb0Q5hsGSM6?=
- =?us-ascii?Q?aEnTLa7tC33fkoY/l5bQkEP7E5ElIp/3J/zzLXlBECAbNHsAJDLJyebgw5ge?=
- =?us-ascii?Q?EcO4TiC82t+uhuHywKR4TWQABGqqfKXs+cvXXKBRljzvqF4SZ6xXw+3htr0Q?=
- =?us-ascii?Q?AI7QF7ShcSTjxNvT9bmSusK/4A4vIEavZ9tjXwC+5gt3xOXLWBkGQbfZZsIa?=
- =?us-ascii?Q?YFXHY4tGl+p0arpC3QgERo78wN3Dkg8BkUM7e+WQdsavZIttS94LPSh8geyM?=
- =?us-ascii?Q?lNWpOTMmQszRfXLYcdNY2stqZUQNzx3/bP55l0iTPwroTw52cfLkejbklAN8?=
- =?us-ascii?Q?JEcA0zDuei+Abe8r/hp0xk45cCLjQUT0uUBL956NWAZiaQPpEPTsGvkp9P75?=
- =?us-ascii?Q?kbq6cMORMSCfkyywL7Ff4tgAxXctoGEp2AEB25FrPAEHjTXM4pgWa6WZEneb?=
- =?us-ascii?Q?DqxIQBU8yi66VT0zr4hnijyR7jZZnM2wuHdeQkIQvMQI8Sch2Zk/7wqYq7kq?=
- =?us-ascii?Q?OmBY2AnJq2v27KZbQCYqQPDdFOR9wCdWT+O+dsUPfZniyfOEJZpVtD2yrLM/?=
- =?us-ascii?Q?4Npdrr9mpAzzF2dyiqL1uHu3olAPp92qEy/cv/wFWDDs7OLcIZqD5I+RlCmA?=
- =?us-ascii?Q?PaaXFCKbLaWZ/RyfGQuyXnVg8srb27X8ImHC3aaiM1pLcS/kbql5pu/TpeYQ?=
- =?us-ascii?Q?OVrTxJg90WFbPbXT0b9wpXqvhhj2lMtaeZ5JX5Z4CHWo086hfnnHuxgo6kP+?=
- =?us-ascii?Q?3FqugN7tK+r/qdpcP9KTqssmw5D9/0tmlVFwWjAAGQI20n+Qv7UAYnc8V8Uc?=
- =?us-ascii?Q?nQwg00aicNbZ/LT14ydJEdRKBT2v+aIv2X3ss7N4WszuJb+TAucvPqDmYC+s?=
- =?us-ascii?Q?aBSqXUk1uPOTwJhSo7E2MUQDNP+cPxKjjrLR22u0l0Gv/wIHzH/rmFTh423u?=
- =?us-ascii?Q?cKDDNVqxRymZRZDfHhuPpfAKf3me?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH3PR12MB8659.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(366016)(1800799024);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?KRkj07ZxtVvtzA1Gc1po/3FHX8h8zowcRgPicr44lisU//1R9GYEMKwQtfRo?=
- =?us-ascii?Q?c7XCSfOzhmhGPbyL/JK5C5hp2+VZIL0CDsk6oHvWtPw2K6suI/RBkB/iasBM?=
- =?us-ascii?Q?kx2Q0lDgMNtmRcRze7/ytzDZ+3sZMX/DQVUitb4AlhtvVmj3qn7FNCpD6OCf?=
- =?us-ascii?Q?+rX9IY7hFjiVBJcqvV+0r1M2Q0viAa0C3Av3sVPvRPlhIhgZuYA0cgp/khGz?=
- =?us-ascii?Q?WdxTCghdpmaMIOQSJLrnQZKIShJSyii5sCDw+8DqvNaOOiZmYq4xiS5LSR/q?=
- =?us-ascii?Q?J3F8ZqcG0HLlMh/uM92K5hF+zlT+eKxoofZ2Tkt6Svt1zz4sCAfUiq1qWQkJ?=
- =?us-ascii?Q?83sCLVR2hsza0z/DmOY4TeBXCaFo29Ufsd1tT1j+FRaTOVUUaknXYg+7TJVY?=
- =?us-ascii?Q?+PFMc0MaueD2xEk7K0n+T78e+gGWadSNJq+WFTen8rQ0mLv2soWDyxYjBx8k?=
- =?us-ascii?Q?50huEt/9R2/q58qFvOZTz/ZpjrQx0eaB9GrFaHxa9cm4cdAUXXP5qTiBEdon?=
- =?us-ascii?Q?C1v2ZqOG3vKz8gLTFy2ZPfwq6NFOGPelf6QaVrTShuo1VioxHTiyyCgVzrt2?=
- =?us-ascii?Q?OFbLupdMFZNYz5MfFpJToGoBvvk/jpUiSFxg0WZr3sBz832VgcO3OBtzdNnb?=
- =?us-ascii?Q?NuwGcooW58nZOtpoDh862mUI5so0+NdsYalO4Mj+NmLEwnR3rIotKXtnH4WD?=
- =?us-ascii?Q?GlaRQ+tpEA9O4JyC+r1kJwkfPCnRuMIKorjhcai2PfvYv3VH6rtpzBb1sS/1?=
- =?us-ascii?Q?PWyqVXjI2IH0uQ+iWuffCFONE6NG9Qbrp8K80cxn6Uqtz40tUf/fImeIwu+d?=
- =?us-ascii?Q?Ry36rVuxoXYl1+iO6/2Lc+A5UZFsh5VkdSFITi1+iSMbdqIIGWbNCWNdP/l2?=
- =?us-ascii?Q?mkRIuZwhyyNp+6YPNrpAv1k/wKwsxyVPwcXbWqPGM+QshWQHLaLbYXN5sC/I?=
- =?us-ascii?Q?I6yTSamZctYDK7U3sbxokg76jL6oFE7Sq5Qgh3FLhRCRdp0xii7Yk+M9P3LM?=
- =?us-ascii?Q?WFbmgNmd88N+dnJQ6xhAuKYfOZhXakHuzBtY+50fEQYjsA0AIxqz87deWdF0?=
- =?us-ascii?Q?aeTZTYeepKU4qWbmrHGfZcqcEa2Y5IA03d7KIAMpQKNXaNLlCKQQlGWAf8YA?=
- =?us-ascii?Q?y4JMvsQD+3bsw39PEH1i0s3LRgw+JXQSSwKK3o3f2CampaKcCUprEMqSHKyD?=
- =?us-ascii?Q?9OUiUPaDhCUQud858eFj2dOE7LPAbj2CVY8yz7dFi0sj9qqNmjgEpKQcFd/5?=
- =?us-ascii?Q?xHmAWrfzn9e5avZp1BTe61WeIGYlC9XA84y7o3El2qAREuiodeb6piNzS+N+?=
- =?us-ascii?Q?/DzzZZcHqZphtfwdr2Ajb9wuyz6J/R8AVGzhktI+RmNpAJ85UcrY+DnEq35e?=
- =?us-ascii?Q?A/C2jD57VRDizRlMEK/3uNJ1sIAuVfmC6ISpZR25ErV/VYEWUkf8zjGFO1y9?=
- =?us-ascii?Q?Ef8FAf4t7607ztY8t4GHbdgalUZ/ZF71hToPd845HWRNkgNw9jrb6RbxSn8J?=
- =?us-ascii?Q?HHhJqzwBo4aQ1ng6tT0b2iHjpK1RNEE4Yhrrv0LUWR3Z+YZO2fXUHXYXQTff?=
- =?us-ascii?Q?IKk8bvb5IETlB8dSbD4=3D?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 241bfcde-e9cf-488a-9919-08dd46b0976b
-X-MS-Exchange-CrossTenant-AuthSource: CH3PR12MB8659.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 Feb 2025 13:17:22.7420
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: owwSbsaBEmQ+2p1T3qr2auAT11+Z8FarXRqrFwaA8vOXs0wlzvOg7JxL+2vsCzjm
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: MW4PR12MB7239
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250206_051731_679660_60EF823E 
-X-CRM114-Status: GOOD (  11.62  )
+X-CRM114-CacheID: sfid-20250206_052010_462039_1E8CC99D 
+X-CRM114-Status: UNSURE (   7.32  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -185,51 +110,40 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Feb 05, 2025 at 09:30:05PM -0800, Tomasz Jeznach wrote:
-> > @@ -161,9 +163,8 @@ static int riscv_iommu_queue_alloc(struct riscv_iommu_device *iommu,
-> >  	} else {
-> >  		do {
-> >  			const size_t queue_size = entry_size << (logsz + 1);
-> > -			const int order = get_order(queue_size);
-> >  
-> > -			queue->base = riscv_iommu_get_pages(iommu, order);
-> > +			queue->base = riscv_iommu_get_pages(iommu, queue_size);
-> >  			queue->phys = __pa(queue->base);
-> 
-> All allocations must be 4k aligned, including sub-page allocs.
+From: Rui Qi <qirui.001@bytedance.com>
 
-Oh weird, so it requires 4k alignment but the HW can refuse to support
-a 4k queue length?
+Add support for riscv Common Platform Error Record (CPER).
 
-I changed it to this:
+Signed-off-by: Rui Qi <qirui.001@bytedance.com>
+---
+ drivers/firmware/efi/cper.c | 4 ++++
+ 1 file changed, 4 insertions(+)
 
-+                       queue->base = riscv_iommu_get_pages(
-+                               iommu, max(queue_size, SZ_4K));
+diff --git a/drivers/firmware/efi/cper.c b/drivers/firmware/efi/cper.c
+index b69e68ef3f02..50f84a0f2801 100644
+--- a/drivers/firmware/efi/cper.c
++++ b/drivers/firmware/efi/cper.c
+@@ -110,6 +110,7 @@ static const char * const proc_type_strs[] = {
+ 	"IA32/X64",
+ 	"IA64",
+ 	"ARM",
++	"RISCV",
+ };
+ 
+ static const char * const proc_isa_strs[] = {
+@@ -118,6 +119,9 @@ static const char * const proc_isa_strs[] = {
+ 	"X64",
+ 	"ARM A32/T32",
+ 	"ARM A64",
++	"RISCV32",
++	"RISCV64",
++
+ };
+ 
+ const char * const cper_proc_error_type_strs[] = {
+-- 
+2.20.1
 
-> >  		} while (!queue->base && logsz-- > 0);
-> >  	}
-> > @@ -618,7 +619,7 @@ static struct riscv_iommu_dc *riscv_iommu_get_dc(struct riscv_iommu_device *iomm
-> >  				break;
-> >  			}
-> >  
-> > -			ptr = riscv_iommu_get_pages(iommu, 0);
-> > +			ptr = riscv_iommu_get_pages(iommu, PAGE_SIZE);
-> >  			if (!ptr)
-> >  				return NULL;
-> >  
-> > @@ -698,7 +699,7 @@ static int riscv_iommu_iodir_alloc(struct riscv_iommu_device *iommu)
-> >  	}
-> >  
-> >  	if (!iommu->ddt_root) {
-> > -		iommu->ddt_root = riscv_iommu_get_pages(iommu, 0);
-> > +		iommu->ddt_root = riscv_iommu_get_pages(iommu, PAGE_SIZE);
-> >  		iommu->ddt_phys = __pa(iommu->ddt_root);
-> >  	}
-
-Should these be SZ_4K as well or PAGE_SIZE?
-
-Thanks,
-Jason
 
 _______________________________________________
 linux-riscv mailing list
