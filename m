@@ -4,211 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2FD39C02194
-	for <linux-riscv@archiver.kernel.org>; Thu,  6 Feb 2025 15:41:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 89384C02198
+	for <linux-riscv@archiver.kernel.org>; Thu,  6 Feb 2025 16:23:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
-	Message-ID:Subject:CC:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=7+TSLHm+Ov4tVlY4qHip0Q59DgY7ZbpMpMQZZxeSj0M=; b=vHxOkT7+Eivw8K
-	DocgXblDSsJWhEkfzms8093MEv0JEHa0qsCYQkkfxOANxNutvr2d8UDJr+6BiCwJ+ovTN3D+zJGUX
-	u14V22oIvSkJjbtkolthNY7KTmWze3E8r/09OJ2VfAC5iHW1/bKQbx3xeAwP9BtuT1BNLhME97397
-	4QnWj2BZHTjnWs81IzGQ+hNmCEWm3IAqjLPAjL19xrasj8hb+lIVJ6hjS6YtCaTblRz6UC2KDQ5bx
-	w78Ar02BQwpmMN1hixdgXOdUqdtIuXt4bYrahnf+umvk0WZyYbiXA+39zM6tMwfI4xcvb+OgD1tCM
-	RS6EVQlb814rpKIad+7Q==;
+	List-Owner; bh=XbA3OiyHs7Spg8+6tQ5FwM5fP7Ot5lieR3wvxt9fpyw=; b=mExnxT9A9aBlwb
+	7Dp31Vn6sfVZp13CaQAMa4uaIBHgitFHy6dIgBIWZYn2c0xVrEgxv1cJu5Tzmj3z4XNfgExh+/cFP
+	V6sGWkaHlL0kAEpz7VCK/URS5Q68frZ1vgA/Nik2G71UVhSFKpXUV8Pv93O5baMnDXbS5MgLQQfXz
+	fQfdW9I5knXU6O+hJGqu4bNylf2rM//hG1x6Ij5cnqO3s9b7+qHvEySsJG+JYzYNACcEWJp053kUq
+	EufQ97GlsSGHDV5gWV1b3zY2GnKlxLWImyNifD6K4vj4ehmgL1zY5NOebWppHIvdiSfzCp48Kf9ht
+	RNpyFJ7TMcFD8qcD/mEw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tg3zr-00000006jmc-2rko;
-	Thu, 06 Feb 2025 15:40:55 +0000
-Received: from mgamail.intel.com ([192.198.163.16])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tg3zX-00000006jag-1Tbo;
-	Thu, 06 Feb 2025 15:40:36 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1738856435; x=1770392435;
-  h=date:from:to:cc:subject:message-id:references:
-   content-transfer-encoding:in-reply-to:mime-version;
-  bh=FezyVjYZE8m9uhd5ZcpfOJRqXMGVrGh2veYjh3QLe64=;
-  b=Hx3GwWz+PplQttKu79wHJoh4YzOPDdZdfuRrs3zGzgX2bkovVIV+rQ5S
-   sBT9jVL5tN2ZlgrK0PaomSMZqyP8T6iomN4nWV4x2igapKte5aTXy1huh
-   I/PAGnuM1jfcKyyLDT1nNKQ9OafyvDwCsIiM9lxbQnRTuPW7Bq6zY1Bn+
-   Meaox4sLlKhgEfFW9CmpFAcKAc/9HKv60UwRYquT5U6nW2OvT8L8EY3Xi
-   z+n/yScMEVcWHz6ipbZBbpWvOpbG0xR5ZebKwEg036Yn0bi3PKVjSfjx9
-   yW0jUHzHyf/dWcSs11E8bs4kuif5w5aHSlcR2RRNbn8tY4e1ZtZysX6XV
-   A==;
-X-CSE-ConnectionGUID: OO4OSL63Rbuoa0E6MTZvcA==
-X-CSE-MsgGUID: J6zNT5VwSUq1UT8Yj3oEmA==
-X-IronPort-AV: E=McAfee;i="6700,10204,11336"; a="27068078"
-X-IronPort-AV: E=Sophos;i="6.13,264,1732608000"; 
-   d="scan'208";a="27068078"
-Received: from fmviesa010.fm.intel.com ([10.60.135.150])
-  by fmvoesa110.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 06 Feb 2025 07:40:33 -0800
-X-CSE-ConnectionGUID: ACae1aZrQLeGkz96wlm2gw==
-X-CSE-MsgGUID: JrbY9Z7+RSSD9psRSyAs3A==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.13,264,1732608000"; 
-   d="scan'208";a="111771443"
-Received: from orsmsx603.amr.corp.intel.com ([10.22.229.16])
-  by fmviesa010.fm.intel.com with ESMTP/TLS/AES256-GCM-SHA384; 06 Feb 2025 07:40:32 -0800
-Received: from orsmsx601.amr.corp.intel.com (10.22.229.14) by
- ORSMSX603.amr.corp.intel.com (10.22.229.16) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.44; Thu, 6 Feb 2025 07:40:30 -0800
-Received: from orsedg603.ED.cps.intel.com (10.7.248.4) by
- orsmsx601.amr.corp.intel.com (10.22.229.14) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.44 via Frontend Transport; Thu, 6 Feb 2025 07:40:30 -0800
-Received: from NAM12-MW2-obe.outbound.protection.outlook.com (104.47.66.46) by
- edgegateway.intel.com (134.134.137.100) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.1.2507.44; Thu, 6 Feb 2025 07:40:29 -0800
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=HzBTjieDyrgIBQmCD0seEwfCtt4AY4pyNFytrSP01wJ3y6T7U9QYoLRI5MTpWKPwaCbomh/MYAcRDxFLAi5055RhpmnMf9CSPaSqpX0IUtNiaf7/kWgz0CENpJ8xsQZR+mLAGOWzuPGcDU8NKpGoV3tEd8A78DMeadBC5Gv4Dyo74fDJY0++mQG6i3LQrWIGLcHYT+Oqk8QlIe3RpouyXembrEziJNqawZqZiIS3tUurEGslQ+nzd4INXPLdJYUiv7U8AvaQ3LgD8xzzeq2I2VNvFFro2PWvVJ0TlEbDenu04OVCJhZuFq7tZvotJqhT4rpWXlggpBMz/dI8p/rtrA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=iKvFsTeewNxNzJvrw2sa3fNT8JGOeNE3CWB1C5VFBvE=;
- b=xQDELHugtb0ycYmkIyPiErAfZD7r9OIa9Y1ot4h3aUpV5wK2wHTl3PgV2ql9QeLUpENq1qepbcw2hKpsifvNaVtNGYa5ff053JMy26ikZ3roVYVXPRlbIgl8xBxHGDl/tEixWcfErhLr3w+vHbcL8kvAzXWLRtIyeJ0y7JHBZ4uXLHs8dz2Ag8mZPIUe3vt/hWn/fkXN/KsCxLpHmKX5tPxWn0G1R/yylvonJPK2MKzUIw0sXc3jt2F+q+f8lXO/bGErRT7XUOx9v8vLfYToTX+XR2YoDMijdCCSwEmT084+9FQQ3v/ejwPBlbC9l+224Uov5HCJGE8Ow19zdvv9dg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
- dkim=pass header.d=intel.com; arc=none
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=intel.com;
-Received: from DM4PR11MB6239.namprd11.prod.outlook.com (2603:10b6:8:a7::20) by
- DM4PR11MB7352.namprd11.prod.outlook.com (2603:10b6:8:103::13) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.8422.12; Thu, 6 Feb 2025 15:40:10 +0000
-Received: from DM4PR11MB6239.namprd11.prod.outlook.com
- ([fe80::244e:154d:1b0b:5eb5]) by DM4PR11MB6239.namprd11.prod.outlook.com
- ([fe80::244e:154d:1b0b:5eb5%4]) with mapi id 15.20.8398.021; Thu, 6 Feb 2025
- 15:40:10 +0000
-Date: Thu, 6 Feb 2025 16:39:57 +0100
-From: Maciej Wieczor-Retman <maciej.wieczor-retman@intel.com>
-To: Andrey Konovalov <andreyknvl@gmail.com>
-CC: <luto@kernel.org>, <xin@zytor.com>, <kirill.shutemov@linux.intel.com>,
-	<palmer@dabbelt.com>, <tj@kernel.org>, <brgerst@gmail.com>,
-	<ardb@kernel.org>, <dave.hansen@linux.intel.com>, <jgross@suse.com>,
-	<will@kernel.org>, <akpm@linux-foundation.org>, <arnd@arndb.de>,
-	<corbet@lwn.net>, <dvyukov@google.com>, <richard.weiyang@gmail.com>,
-	<ytcoode@gmail.com>, <tglx@linutronix.de>, <hpa@zytor.com>,
-	<seanjc@google.com>, <paul.walmsley@sifive.com>, <aou@eecs.berkeley.edu>,
-	<justinstitt@google.com>, <jason.andryuk@amd.com>, <glider@google.com>,
-	<ubizjak@gmail.com>, <jannh@google.com>, <bhe@redhat.com>,
-	<vincenzo.frascino@arm.com>, <rafael.j.wysocki@intel.com>,
-	<ndesaulniers@google.com>, <mingo@redhat.com>, <catalin.marinas@arm.com>,
-	<junichi.nomura@nec.com>, <nathan@kernel.org>, <ryabinin.a.a@gmail.com>,
-	<dennis@kernel.org>, <bp@alien8.de>, <kevinloughlin@google.com>,
-	<morbo@google.com>, <dan.j.williams@intel.com>,
-	<julian.stecklina@cyberus-technology.de>, <peterz@infradead.org>,
-	<cl@linux.com>, <kees@kernel.org>, <kasan-dev@googlegroups.com>,
-	<x86@kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	<linux-mm@kvack.org>, <llvm@lists.linux.dev>, <linux-doc@vger.kernel.org>
-Subject: Re: [PATCH 10/15] x86: KASAN raw shadow memory PTE init
-Message-ID: <m5v4zoly67gqwzacoraqm7oyptwstj2ojira4qaz2bir7k6bxr@q5iuqozd6nnz>
-References: <cover.1738686764.git.maciej.wieczor-retman@intel.com>
- <28ddfb1694b19278405b4934f37d398794409749.1738686764.git.maciej.wieczor-retman@intel.com>
- <CA+fCnZfKQwNWbYEhk70ykT1+cnibCBnvZJrhAMvu_b0Y8xZTSg@mail.gmail.com>
-Content-Disposition: inline
-In-Reply-To: <CA+fCnZfKQwNWbYEhk70ykT1+cnibCBnvZJrhAMvu_b0Y8xZTSg@mail.gmail.com>
-X-ClientProxiedBy: DB9PR05CA0014.eurprd05.prod.outlook.com
- (2603:10a6:10:1da::19) To DM4PR11MB6239.namprd11.prod.outlook.com
- (2603:10b6:8:a7::20)
+	id 1tg4ei-00000006qGg-0wL0;
+	Thu, 06 Feb 2025 16:23:08 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tg4bo-00000006pqd-3A1f;
+	Thu, 06 Feb 2025 16:20:10 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 8EE9412FC;
+	Thu,  6 Feb 2025 08:20:29 -0800 (PST)
+Received: from donnerap.manchester.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id A0CB63F63F;
+	Thu,  6 Feb 2025 08:20:02 -0800 (PST)
+Date: Thu, 6 Feb 2025 16:19:58 +0000
+From: Andre Przywara <andre.przywara@arm.com>
+To: Andras Szemzo <szemzo.andras@gmail.com>
+Cc: Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
+ <sboyd@kernel.org>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski
+ <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai
+ <wens@csie.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel Holland
+ <samuel@sholland.org>, Linus Walleij <linus.walleij@linaro.org>, Philipp
+ Zabel <p.zabel@pengutronix.de>, Maxime Ripard <mripard@kernel.org>, Vinod
+ Koul <vkoul@kernel.org>, Kishon Vijay Abraham I <kishon@kernel.org>, Ulf
+ Hansson <ulf.hansson@linaro.org>, Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Uwe
+ =?UTF-8?B?S2xlaW5lLUvDtm5pZw==?= <u.kleine-koenig@baylibre.com>, Florian
+ Fainelli <florian.fainelli@broadcom.com>, linux-clk@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org,
+ linux-phy@lists.infradead.org, linux-gpio@vger.kernel.org,
+ linux-pm@vger.kernel.org, linux-riscv@lists.infradead.org
+Subject: Re: [PATCH v2 09/10] ARM: dts: sun8i: add DTSI file for V853
+Message-ID: <20250206161958.1ae885db@donnerap.manchester.arm.com>
+In-Reply-To: <20250205125225.1152849-10-szemzo.andras@gmail.com>
+References: <20250205125225.1152849-1-szemzo.andras@gmail.com>
+	<20250205125225.1152849-10-szemzo.andras@gmail.com>
+Organization: ARM
+X-Mailer: Claws Mail 3.18.0 (GTK+ 2.24.32; aarch64-unknown-linux-gnu)
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DM4PR11MB6239:EE_|DM4PR11MB7352:EE_
-X-MS-Office365-Filtering-Correlation-Id: 6692f986-8089-41ec-94a8-08dd46c489d4
-X-LD-Processed: 46c98d88-e344-4ed4-8496-4ed7712e255d,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|7416014|366016;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?Nm83MVlXS1BML2pTR0ZiMk9FSEl0dDFXcHJHZjV3QW9ZYlNubThLVkowREpp?=
- =?utf-8?B?WlAyc3V2OXdieWQ0MmRBMy91a0RMV0NWKzZ3d3FwNXE2cElrMWJoaWJOWitK?=
- =?utf-8?B?bEdFWkFhM2lEVHdhTWxOZ3JIM2ZndjRGaEJGcnJISnJxVU9lU1NyNThJQ1FW?=
- =?utf-8?B?MFZVZkozcm90LzFTR3FxczhqN2tIVG5ORkRQQ2xZYTBEYlhJWXhGc01jR2g4?=
- =?utf-8?B?Q3hyZTJBZHFOWTVvR2ZmWU1sanBXOTRJaExRamRrR1h3c1F2R1VHQzZPTEFD?=
- =?utf-8?B?K1BoOHN4RHJOb0tOYThaK2g1VDl6d1V6U21WU3JxdTU4VDJHV041WXlwa3lS?=
- =?utf-8?B?ZW00Uy9RbzNaOWlmeHRYNEx2ejVzaFJzbmtFWUJ1WGxyMDFhUEFUakpWeFFk?=
- =?utf-8?B?QkNzRTJ4bkp2QzMxQm5xMFZ3V25xN3J6T1AyMWhjTjBOZXFEMmhGR2FHZ2c5?=
- =?utf-8?B?ZzgwQkdkcjM1RE1WMTU1MmV3REQvUHBoRnBiR2ZEenUxeXF5WDZxUU4yTmtO?=
- =?utf-8?B?Rzd6UE56dHovU2djSFN6MXZqM0RtMzhCcjZEYm9Ib3piRGltQ29xcmhCT3Y4?=
- =?utf-8?B?MzNGMGNQMjhvNVpXM2xIaHpQREhPdW9Nd1gzWmJ5K0IwRVUxbjJSVjRFalhO?=
- =?utf-8?B?ZTNyV0JtNWQ1TURTNktLbGlCQU9PVzN2eXU4YmNwbEJqZC9zdXBscHg5K092?=
- =?utf-8?B?Zy9ZaFVnWTR2S3pYc3JWOG9BZC8zTmVtazBtQ1JWMHdsc3RXQzZmWUNoelI4?=
- =?utf-8?B?SkFIN0FkL3dJWmxzb3orMm1Qb2lsaVBIQ3ZBSTV3emNlU2ZsTzNHbm1ibFIy?=
- =?utf-8?B?VTAxT2RNL1lJNEpJU0E2eVIyWkQxczVUZHNCaExSYTZPaW96NEU0Sm5RYU5k?=
- =?utf-8?B?T1NOUUhJc0VoUGpxaWFrZEMySVB0SmNESHN5eERyaDIwaWpmc1lmY1RWV3g0?=
- =?utf-8?B?ZGE0N2pHa2p3YWhoRUUrME9OalZqUWhsU0tKUjliTnRNcGl4OWZZc1V2cEhJ?=
- =?utf-8?B?Ym9oY1FwZkZGck9tWjZaYkxCbC9sc2pJWEZEbjlpdzd3bGRMcFVVTHQ2R1Ar?=
- =?utf-8?B?MVU1dnNQV0REb3hVRW4wb0dsMCtaTk1XZUM5dmVLc1BVUjRQU1hmbVFST055?=
- =?utf-8?B?UGhzN3EwZ1JkTDFzREdPVjVBcDNEVngvVGNyMEJDRGRtV1l0a25pcStoV1Ny?=
- =?utf-8?B?aS9CMUlUZWdocnR6Rmw2dXIvNzY2ajdBYmxSUEF3Y09GL3lzRUtyU3dzYitD?=
- =?utf-8?B?YnZhM21Yd0J3c25TWm94REw5QWlqcmZWdVFITU44MDN6VmZCQ0xCYlA4TExa?=
- =?utf-8?B?UXpVc1hMUGRia2hQQUlkcWZPMGY2TGluTGI3ZHk1ZTNNVFc1aW95TWJqWWxo?=
- =?utf-8?B?MUJHQXNWRDFPbXlDRExTN0poQVJnd1k0VHd6N1lGR29CTkZhdlFGeGNZbkUw?=
- =?utf-8?B?eXZRZ1oraUdqQjYxeWE1VGViYk93cGRJS2krQ01RWTJ0aFlMZVpMbC9ZdVV4?=
- =?utf-8?B?Q0RUeHplN013b21JZHdHZCticVJpVkw0d0Z0b3BITmlSOUFIamNicmRTQ3RD?=
- =?utf-8?B?b1dmU2Q4V3ZYdnVmeHowYVg1UldxdEI5WkdiQ1ZzSjVDZXZTYVVXYjVNUGZu?=
- =?utf-8?B?SHVwSmRZNHR3UGZHcEJmVjUxWWRzY2MwTVVjVmtFVmNpZkx0RWMxOE9pbURh?=
- =?utf-8?B?QWdnSGp5dXBlNzZWZWxvb1M1VGxGQ0FpdUlRRjYzMTlpd2x1WGpkSnVjbyts?=
- =?utf-8?B?akRGMWFIWFowMWRPR05Fa2ttWE4xUHkyRnAyQVBLSjh5d1BiK1ZOSzlhcEZI?=
- =?utf-8?B?WCsraTNENkQ1R1hkUndVZz09?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DM4PR11MB6239.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(7416014)(366016);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?TFE3QitIcWswa0hBbjJkU3gySGxBTWl1NDJtVERHaEwxbXpWb2lXajNXVmJ6?=
- =?utf-8?B?c09nUzRQRDJYUCtZeGRWU3QxOTJ3dWpvakI3d1NmbDVHbk9henlja29VcXJ6?=
- =?utf-8?B?U1FvWWFteUhTUWI1ZjBSS1B0eEUzNlNXWnV2eUJwT3ZQZGF3dFpIRUw0cGxl?=
- =?utf-8?B?ZWZNcXpydXNRbVQvZzErblFZZFRBeloxNVlPcHlhVm1jdXFFUCtYOHh3NUFI?=
- =?utf-8?B?aFZUYnd1cWt0ZHBLZ3lUREllaVd4MTdrSHhjNXFhT013T2ZTTVdiRldpdi9U?=
- =?utf-8?B?TnB4RlY5LzhoM1dDbVdHcXZTWllsQVAyRjVITU1aWGFSUERJS3FibmZ2Y0Vj?=
- =?utf-8?B?TnZpaHNDUHhZdjZuNE9TaHRNTWxGYXh3dnk1Q2xMTEVpVEZGa0lERkk2RHRR?=
- =?utf-8?B?K0xsb3pkRE41VkxsSUhzaVFQa2wvVXhJMldlNW5tUHQwcHlHT1dsZHIwckZo?=
- =?utf-8?B?cWtrN1Z3NHBuRjRQem0rUlE5cWppM1doeWJ2MTU3MEphMVlXZU56RDc5NXVK?=
- =?utf-8?B?T2NOMHlqdCsvblFRMDJvNTUvOW5pUDJVQXZ6YkdQVTh0amlTQlE5RENTaWpl?=
- =?utf-8?B?MXk0Vk9aL1BOQmZYUjFDSkhnelpnbm9qWnp1ZERYR3dlT2ZTbGJFS2F3dGpX?=
- =?utf-8?B?RDYyU2JOdXBrUTJvYndCMjRDK3l3ak9Da3FhUlE5cW9BTmhnTEJlekNseWpz?=
- =?utf-8?B?ZHFjckZmNndtRG5wSzJzelVwS3l2VXVCcXpaeHk2YkR4WkNmT1NtbUVhM1Vq?=
- =?utf-8?B?UXBpWDd2WllKYi9YRGJsRVkyNXJlSVJ4TFAzTUZ0Sm56bTNOUTRNU0pqZXV1?=
- =?utf-8?B?NkpZcjJoazVzZ0Q0WDNqdUdpY2EzVnI5N09PV0ZjbERLL0R4dWI5U0lvamwv?=
- =?utf-8?B?bVplN21iWWVEeWtQS3NPVndkT2dhRG5idFd0NVpVcno0Tm0yQUUvU2tyaHNE?=
- =?utf-8?B?TmtvSlNTcWZyUzhiU0UxV0wvUGRoNi90S3lIN1RRWGRPNXVFZVQ2ZDU1SjZ6?=
- =?utf-8?B?dkV0ejUwZ0M5TUZ0b1dObnlpWGhZVDd4MFhVem0wNjF0QjFlUDJ2VDkyTkF4?=
- =?utf-8?B?UTZJTW1iK0YrR3dYdThQbmhYNThvcDR5S1FBbUNmL1AvM0dZZ0NYRzQ0OElN?=
- =?utf-8?B?YVF0K1lpZVRudzA2b1hRR1NJRmF5cTBZd2FBUWR2YllrL1dPc3Q2REd0NWtF?=
- =?utf-8?B?SkJMc1N5OW1qb0tvWGlwMHY1NXBWaUhjN1FIdktDTHRpZHpZNURYOUV0Nm5v?=
- =?utf-8?B?SjluWFk2MTJvbG1ySlFJMHdjVm9DOWwrZVIyM05ucFRCSC9LMC9mRFc2ekEz?=
- =?utf-8?B?YURHelA5L3hDWmdyTWphVG1ON0RxbmhUTGtHOGh2NUVNUGpDQ3hjTVlKenpw?=
- =?utf-8?B?MmZkS3VpZ0plZ09lUWQzK0k3MG5uN3RwY1FvUXR5SVRPRjJ1N2xINHhWTTVU?=
- =?utf-8?B?ZGtaNHE3dXBLQldmL2ZURkNLdDZhNGFLb0dDSVFTMzcxaEZCa203NnZGbE5T?=
- =?utf-8?B?K25UMUNMWVpYZlBROUlRL2NQbGxjTGw1NDJreE1GVGNFWDF0a1ZCNmp3aDNi?=
- =?utf-8?B?ZUFtUDN2MU1wSTFzMm5LSThvWWswNXhZajRLUC81SndnRERuV2YzcXFmeTI5?=
- =?utf-8?B?aWZUellPNHVpeEJyYVZEU2ZwRElWV2xmWG1rbERyOGJwWEZBUnhDZzJaMk5X?=
- =?utf-8?B?VDBHOUs1bUpZYXp1VEg5bmZob3VXcnFqcFJRcENRR044K1F3V2FvQksxcWE4?=
- =?utf-8?B?bkpXSHVFbGZIV0w4M3kyNW51KzBDd1BDNWRycTR3cGlOMjJNamNhK2tZUnNI?=
- =?utf-8?B?N2ZkMTNHelA3M0s4dlNYQWtORkZKeDRFbTV3eTY2U21zaGtvOWhpd3FBZGs1?=
- =?utf-8?B?TGluRjlQeTdqWlNha2NZakRZSUdBelV4V2l6TlRhS1NXajczcy9XODRtNUhG?=
- =?utf-8?B?SC80VzhXOUlSTXYzUVJtQ00vRHE1SVJFb0gzNFl0ZEV2cWJnOTl0b0Vzc0Fl?=
- =?utf-8?B?UnozYWJnQWUvRExRR2VaZzdBSGkybkpLeWdZUG5pZUJ1dS8ycThWWGQzSzJW?=
- =?utf-8?B?V0w4WjM4eDZvYUs5SnlFTUs1aUJwQ2xwN3RYZXR6Q21jTmV4WW5vZHJyWENM?=
- =?utf-8?B?eXVZdUV1MmtQdXROZUh4eDhTQXZKZTM1Ui96OXBHTWJGVkpVcmhteDNGUDZX?=
- =?utf-8?Q?bIPMvOOYA13hg0M60p8IWmk=3D?=
-X-MS-Exchange-CrossTenant-Network-Message-Id: 6692f986-8089-41ec-94a8-08dd46c489d4
-X-MS-Exchange-CrossTenant-AuthSource: DM4PR11MB6239.namprd11.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 Feb 2025 15:40:09.8986
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 46c98d88-e344-4ed4-8496-4ed7712e255d
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: aXEZsErCCoeRP3nMAmMiM0WRq3vk1drKMueS60Qu1j3sSmWV7Z/CLkMJWdMHUMcZ6mzomMum/bfC/R02JT8CUnFL+D3ycYUaqElZMvaLpNU=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM4PR11MB7352
-X-OriginatorOrg: intel.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250206_074035_451798_ADCCF602 
-X-CRM114-Status: GOOD (  15.64  )
+X-CRM114-CacheID: sfid-20250206_082008_896841_6B51D8EE 
+X-CRM114-Status: GOOD (  27.65  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -220,99 +72,782 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gMjAyNS0wMi0wNiBhdCAwMDo0NTo0OSArMDEwMCwgQW5kcmV5IEtvbm92YWxvdiB3cm90ZToK
-Pk9uIFR1ZSwgRmViIDQsIDIwMjUgYXQgNjozNuKAr1BNIE1hY2llaiBXaWVjem9yLVJldG1hbgo+
-PG1hY2llai53aWVjem9yLXJldG1hbkBpbnRlbC5jb20+IHdyb3RlOgo+Pgo+PiBJbiBLQVNBTidz
-IGdlbmVyaWMgbW9kZSB0aGUgZGVmYXVsdCB2YWx1ZSBpbiBzaGFkb3cgbWVtb3J5IGlzIHplcm8u
-Cj4+IER1cmluZyBpbml0aWFsaXphdGlvbiBvZiBzaGFkb3cgbWVtb3J5IHBhZ2VzIHRoZXkgYXJl
-IGFsbG9jYXRlZCBhbmQKPj4gemVyb2VkLgo+Pgo+PiBJbiBLQVNBTidzIHRhZy1iYXNlZCBtb2Rl
-IHRoZSBkZWZhdWx0IHRhZyBmb3IgdGhlIGFybTY0IGFyY2hpdGVjdHVyZSBpcwo+PiAweEZFIHdo
-aWNoIGNvcnJlc3BvbmRzIHRvIGFueSBtZW1vcnkgdGhhdCBzaG91bGQgbm90IGJlIGFjY2Vzc2Vk
-LiBPbiB4ODYKPj4gKHdoZXJlIHRhZ3MgYXJlIDQtYml0IHdpZGUgaW5zdGVhZCBvZiA4LWJpdCB3
-aWRlKSB0aGF0IHRhZyBpcyAweEUgc28KPj4gZHVyaW5nIHRoZSBpbml0aWFsaXphdGlvbnMgYWxs
-IHRoZSBieXRlcyBpbiBzaGFkb3cgbWVtb3J5IHBhZ2VzIHNob3VsZAo+PiBiZSBmaWxsZWQgd2l0
-aCAweEUgb3IgMHhFRSBpZiB0d28gdGFncyBzaG91bGQgYmUgcGFja2VkIGluIG9uZSBzaGFkb3cK
-Pj4gYnl0ZS4KPj4KPj4gVXNlIG1lbWJsb2NrX2FsbG9jX3RyeV9uaWRfcmF3KCkgaW5zdGVhZCBv
-ZiBtZW1ibG9ja19hbGxvY190cnlfbmlkKCkgdG8KPj4gYXZvaWQgemVyb2luZyBvdXQgdGhlIG1l
-bW9yeSBzbyBpdCBjYW4gYmUgc2V0IHdpdGggdGhlIEtBU0FOIGludmFsaWQKPj4gdGFnLgo+Pgo+
-PiBTaWduZWQtb2ZmLWJ5OiBNYWNpZWogV2llY3pvci1SZXRtYW4gPG1hY2llai53aWVjem9yLXJl
-dG1hbkBpbnRlbC5jb20+Cj4+IC0tLQo+PiAgYXJjaC94ODYvbW0va2FzYW5faW5pdF82NC5jIHwg
-MTkgKysrKysrKysrKysrKysrKy0tLQo+PiAgaW5jbHVkZS9saW51eC9rYXNhbi5oICAgICAgIHwg
-MjUgKysrKysrKysrKysrKysrKysrKysrKysrKwo+PiAgbW0va2FzYW4va2FzYW4uaCAgICAgICAg
-ICAgIHwgMTkgLS0tLS0tLS0tLS0tLS0tLS0tLQo+PiAgMyBmaWxlcyBjaGFuZ2VkLCA0MSBpbnNl
-cnRpb25zKCspLCAyMiBkZWxldGlvbnMoLSkKPj4KPj4gZGlmZiAtLWdpdCBhL2FyY2gveDg2L21t
-L2thc2FuX2luaXRfNjQuYyBiL2FyY2gveDg2L21tL2thc2FuX2luaXRfNjQuYwo+PiBpbmRleCA5
-ZGRkZjE5YTU1NzEuLjU1ZDQ2OGQ4MzY4MiAxMDA2NDQKPj4gLS0tIGEvYXJjaC94ODYvbW0va2Fz
-YW5faW5pdF82NC5jCj4+ICsrKyBiL2FyY2gveDg2L21tL2thc2FuX2luaXRfNjQuYwo+PiBAQCAt
-MzUsNiArMzUsMTggQEAgc3RhdGljIF9faW5pdCB2b2lkICplYXJseV9hbGxvYyhzaXplX3Qgc2l6
-ZSwgaW50IG5pZCwgYm9vbCBzaG91bGRfcGFuaWMpCj4+ICAgICAgICAgcmV0dXJuIHB0cjsKPj4g
-IH0KPj4KPj4gK3N0YXRpYyBfX2luaXQgdm9pZCAqZWFybHlfcmF3X2FsbG9jKHNpemVfdCBzaXpl
-LCBpbnQgbmlkLCBib29sIHNob3VsZF9wYW5pYykKPj4gK3sKPj4gKyAgICAgICB2b2lkICpwdHIg
-PSBtZW1ibG9ja19hbGxvY190cnlfbmlkX3JhdyhzaXplLCBzaXplLAo+PiArICAgICAgICAgICAg
-ICAgICAgICAgICBfX3BhKE1BWF9ETUFfQUREUkVTUyksIE1FTUJMT0NLX0FMTE9DX0FDQ0VTU0lC
-TEUsIG5pZCk7Cj4+ICsKPj4gKyAgICAgICBpZiAoIXB0ciAmJiBzaG91bGRfcGFuaWMpCj4+ICsg
-ICAgICAgICAgICAgICBwYW5pYygiJXBTOiBGYWlsZWQgdG8gYWxsb2NhdGUgcGFnZSwgbmlkPSVk
-IGZyb209JWx4XG4iLAo+PiArICAgICAgICAgICAgICAgICAgICAgKHZvaWQgKilfUkVUX0lQXywg
-bmlkLCBfX3BhKE1BWF9ETUFfQUREUkVTUykpOwo+PiArCj4+ICsgICAgICAgcmV0dXJuIHB0cjsK
-Pj4gK30KPj4gKwo+PiAgc3RhdGljIHZvaWQgX19pbml0IGthc2FuX3BvcHVsYXRlX3BtZChwbWRf
-dCAqcG1kLCB1bnNpZ25lZCBsb25nIGFkZHIsCj4+ICAgICAgICAgICAgICAgICAgICAgICAgICAg
-ICAgICAgICAgICAgdW5zaWduZWQgbG9uZyBlbmQsIGludCBuaWQpCj4+ICB7Cj4+IEBAIC02NCw4
-ICs3Niw5IEBAIHN0YXRpYyB2b2lkIF9faW5pdCBrYXNhbl9wb3B1bGF0ZV9wbWQocG1kX3QgKnBt
-ZCwgdW5zaWduZWQgbG9uZyBhZGRyLAo+PiAgICAgICAgICAgICAgICAgaWYgKCFwdGVfbm9uZSgq
-cHRlKSkKPj4gICAgICAgICAgICAgICAgICAgICAgICAgY29udGludWU7Cj4+Cj4+IC0gICAgICAg
-ICAgICAgICBwID0gZWFybHlfYWxsb2MoUEFHRV9TSVpFLCBuaWQsIHRydWUpOwo+PiAtICAgICAg
-ICAgICAgICAgZW50cnkgPSBwZm5fcHRlKFBGTl9ET1dOKF9fcGEocCkpLCBQQUdFX0tFUk5FTCk7
-Cj4+ICsgICAgICAgICAgICAgICBwID0gZWFybHlfcmF3X2FsbG9jKFBBR0VfU0laRSwgbmlkLCB0
-cnVlKTsKPj4gKyAgICAgICAgICAgICAgIG1lbXNldChwLCBQQUdFX1NJWkUsIGthc2FuX2RlbnNl
-X3RhZyhLQVNBTl9TSEFET1dfSU5JVCkpOwo+PiArICAgICAgICAgICAgICAgZW50cnkgPSBwZm5f
-cHRlKFBGTl9ET1dOKF9fcGFfbm9kZWJ1ZyhwKSksIFBBR0VfS0VSTkVMKTsKPj4gICAgICAgICAg
-ICAgICAgIHNldF9wdGVfYXQoJmluaXRfbW0sIGFkZHIsIHB0ZSwgZW50cnkpOwo+PiAgICAgICAg
-IH0gd2hpbGUgKHB0ZSsrLCBhZGRyICs9IFBBR0VfU0laRSwgYWRkciAhPSBlbmQpOwo+PiAgfQo+
-PiBAQCAtNDM3LDcgKzQ1MCw3IEBAIHZvaWQgX19pbml0IGthc2FuX2luaXQodm9pZCkKPj4gICAg
-ICAgICAgKiBpdCBtYXkgY29udGFpbiBzb21lIGdhcmJhZ2UuIE5vdyB3ZSBjYW4gY2xlYXIgYW5k
-IHdyaXRlIHByb3RlY3QgaXQsCj4+ICAgICAgICAgICogc2luY2UgYWZ0ZXIgdGhlIFRMQiBmbHVz
-aCBubyBvbmUgc2hvdWxkIHdyaXRlIHRvIGl0Lgo+PiAgICAgICAgICAqLwo+PiAtICAgICAgIG1l
-bXNldChrYXNhbl9lYXJseV9zaGFkb3dfcGFnZSwgMCwgUEFHRV9TSVpFKTsKPj4gKyAgICAgICBr
-YXNhbl9wb2lzb24oa2FzYW5fZWFybHlfc2hhZG93X3BhZ2UsIFBBR0VfU0laRSwgS0FTQU5fU0hB
-RE9XX0lOSVQsIGZhbHNlKTsKPj4gICAgICAgICBmb3IgKGkgPSAwOyBpIDwgUFRSU19QRVJfUFRF
-OyBpKyspIHsKPj4gICAgICAgICAgICAgICAgIHB0ZV90IHB0ZTsKPj4gICAgICAgICAgICAgICAg
-IHBncHJvdF90IHByb3Q7Cj4+IGRpZmYgLS1naXQgYS9pbmNsdWRlL2xpbnV4L2thc2FuLmggYi9p
-bmNsdWRlL2xpbnV4L2thc2FuLmgKPj4gaW5kZXggODMxNDYzNjcxNzBhLi5hZjgyNzJjNzQ0MDkg
-MTAwNjQ0Cj4+IC0tLSBhL2luY2x1ZGUvbGludXgva2FzYW4uaAo+PiArKysgYi9pbmNsdWRlL2xp
-bnV4L2thc2FuLmgKPj4gQEAgLTE1MSw2ICsxNTEsMzEgQEAgc3RhdGljIF9fYWx3YXlzX2lubGlu
-ZSB2b2lkIGthc2FuX3VucG9pc29uX3JhbmdlKGNvbnN0IHZvaWQgKmFkZHIsIHNpemVfdCBzaXpl
-KQo+PiAgICAgICAgICAgICAgICAgX19rYXNhbl91bnBvaXNvbl9yYW5nZShhZGRyLCBzaXplKTsK
-Pj4gIH0KPj4KPj4gKyNpZmRlZiBDT05GSUdfS0FTQU5fSFdfVEFHUwo+PiArCj4+ICtzdGF0aWMg
-aW5saW5lIHZvaWQga2FzYW5fcG9pc29uKGNvbnN0IHZvaWQgKmFkZHIsIHNpemVfdCBzaXplLCB1
-OCB2YWx1ZSwgYm9vbCBpbml0KQo+PiArewo+PiArICAgICAgIGlmIChXQVJOX09OKCh1bnNpZ25l
-ZCBsb25nKWFkZHIgJiBLQVNBTl9HUkFOVUxFX01BU0spKQo+PiArICAgICAgICAgICAgICAgcmV0
-dXJuOwo+PiArICAgICAgIGlmIChXQVJOX09OKHNpemUgJiBLQVNBTl9HUkFOVUxFX01BU0spKQo+
-PiArICAgICAgICAgICAgICAgcmV0dXJuOwo+PiArCj4+ICsgICAgICAgaHdfc2V0X21lbV90YWdf
-cmFuZ2Uoa2FzYW5fcmVzZXRfdGFnKGFkZHIpLCBzaXplLCB2YWx1ZSwgaW5pdCk7Cj4+ICt9Cj4+
-ICsKPj4gKyNlbHNlIC8qIENPTkZJR19LQVNBTl9IV19UQUdTICovCj4+ICsKPj4gKy8qKgo+PiAr
-ICoga2FzYW5fcG9pc29uIC0gbWFyayB0aGUgbWVtb3J5IHJhbmdlIGFzIGluYWNjZXNzaWJsZQo+
-PiArICogQGFkZHIgLSByYW5nZSBzdGFydCBhZGRyZXNzLCBtdXN0IGJlIGFsaWduZWQgdG8gS0FT
-QU5fR1JBTlVMRV9TSVpFCj4+ICsgKiBAc2l6ZSAtIHJhbmdlIHNpemUsIG11c3QgYmUgYWxpZ25l
-ZCB0byBLQVNBTl9HUkFOVUxFX1NJWkUKPj4gKyAqIEB2YWx1ZSAtIHZhbHVlIHRoYXQncyB3cml0
-dGVuIHRvIG1ldGFkYXRhIGZvciB0aGUgcmFuZ2UKPj4gKyAqIEBpbml0IC0gd2hldGhlciB0byBp
-bml0aWFsaXplIHRoZSBtZW1vcnkgcmFuZ2UgKG9ubHkgZm9yIGhhcmR3YXJlIHRhZy1iYXNlZCkK
-Pj4gKyAqLwo+PiArdm9pZCBrYXNhbl9wb2lzb24oY29uc3Qgdm9pZCAqYWRkciwgc2l6ZV90IHNp
-emUsIHU4IHZhbHVlLCBib29sIGluaXQpOwo+PiArCj4+ICsjZW5kaWYgLyogQ09ORklHX0tBU0FO
-X0hXX1RBR1MgKi8KPgo+UGxlYXNlIGtlZXAga2FzYW5fcG9pc29uKCkgYW5kIGthc2FuX3VucG9p
-c29uKCkgaW4gbW0va2FzYW4va2FzYW4uaDoKPnRoZXNlIGFyZSBpbnRlbmRlZCBhcyBpbnRlcm5h
-bC1vbmx5IGZ1bmN0aW9ucyAocGVyaGFwcywgd2Ugc2hvdWxkIGFkZAo+dGhpcyBpbnRvIHRoZSBj
-b21tZW50KS4gSW5zdGVhZCwgYWRkIGEgcHVycG9zZS1zcGVjaWZpYyB3cmFwcGVyCj5zaW1pbGFy
-IHRvIHRoZSBvbmVzIGluIGluY2x1ZGUvbGludXgva2FzYW4uaC4KPgoKT2theSwgZ290IGl0LCBJ
-J2xsIHBhc3MgaXQgdGhyb3VnaCBhIHdyYXBwZXIuCgo+Cj5fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fXwo+bGludXgtcmlzY3YgbWFpbGluZyBsaXN0Cj5saW51
-eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCj5odHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9t
-YWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2CgotLSAKS2luZCByZWdhcmRzCk1hY2llaiBXaWVj
-esOzci1SZXRtYW4KCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQu
-b3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlz
-Y3YK
+On Wed,  5 Feb 2025 13:52:24 +0100
+Andras Szemzo <szemzo.andras@gmail.com> wrote:
+
+Hi,
+
+> V853/V851 is a new SoC by Allwinner. Add a basic dtsi file for it.
+> 
+> Signed-off-by: Andras Szemzo <szemzo.andras@gmail.com>
+> ---
+>  arch/arm/boot/dts/allwinner/sun8i-v853.dtsi | 656 ++++++++++++++++++++
+>  1 file changed, 656 insertions(+)
+>  create mode 100644 arch/arm/boot/dts/allwinner/sun8i-v853.dtsi
+> 
+> diff --git a/arch/arm/boot/dts/allwinner/sun8i-v853.dtsi b/arch/arm/boot/dts/allwinner/sun8i-v853.dtsi
+> new file mode 100644
+> index 000000000000..8b82b8783127
+> --- /dev/null
+> +++ b/arch/arm/boot/dts/allwinner/sun8i-v853.dtsi
+> @@ -0,0 +1,656 @@
+> +// SPDX-License-Identifier: (GPL-2.0-only OR MIT)
+> +// Copyright (C) 2024 Andras Szemzo <szemzo.andras@gmail.com>
+> +
+> +#include <dt-bindings/clock/sun6i-rtc.h>
+> +#include <dt-bindings/clock/allwinner,sun8i-v853-r-ccu.h>
+> +#include <dt-bindings/reset/allwinner,sun8i-v853-r-ccu.h>
+> +#include <dt-bindings/clock/allwinner,sun8i-v853-ccu.h>
+> +#include <dt-bindings/reset/allwinner,sun8i-v853-ccu.h>
+> +#include <dt-bindings/interrupt-controller/arm-gic.h>
+> +#include <dt-bindings/power/allwinner,sun8i-v853-ppu.h>
+> +
+> +/ {
+> +	#address-cells = <1>;
+> +	#size-cells = <1>;
+> +
+> +	dcxo: dcxo-clk {
+
+What's people's opinion about the node name? Traditionally we call this
+"osc24M", in all the other SoCs except D1 and A100. So is this the new
+black?
+
+> +		compatible = "fixed-clock";
+> +		clock-output-names = "osc24M";
+> +		#clock-cells = <0>;
+> +	};
+> +
+> +	cpus {
+> +		#address-cells = <1>;
+> +		#size-cells = <0>;
+> +
+> +		cpu0: cpu@0 {
+> +			device_type = "cpu";
+> +			compatible = "arm,cortex-a7","arm,armv7";
+> +			reg = <0>;
+> +			clocks = <&ccu CLK_CPU>;
+> +			clock-names = "cpu";
+> +			clock-frequency = <912000000>;
+> +			clock-latency = <200000>;
+> +			cooling-min-level = <5>;
+> +			cooling-max-level = <0>;
+> +			#cooling-cells = <2>; /* min followed by max */
+> +			dynamic-power-coefficient = <142>;
+> +		};
+> +	};
+> +
+> +	pmu {
+> +		compatible = "arm,cortex-a7-pmu";
+> +		interrupts = <GIC_SPI 172 IRQ_TYPE_LEVEL_HIGH>,
+> +			     <GIC_SPI 173 IRQ_TYPE_LEVEL_HIGH>;
+> +		interrupt-parent = <&gic>;
+
+Please move interrupt-parent to the root node, as the first property. Then
+you can lose it here, and in the timer and soc node.
+
+> +	};
+> +
+> +	timer {
+> +		compatible = "arm,armv7-timer";
+> +		interrupts = <GIC_PPI 13 (GIC_CPU_MASK_SIMPLE(2) | IRQ_TYPE_LEVEL_LOW)>,
+> +			     <GIC_PPI 14 (GIC_CPU_MASK_SIMPLE(2) | IRQ_TYPE_LEVEL_LOW)>,
+> +			     <GIC_PPI 11 (GIC_CPU_MASK_SIMPLE(2) | IRQ_TYPE_LEVEL_LOW)>,
+> +			     <GIC_PPI 10 (GIC_CPU_MASK_SIMPLE(2) | IRQ_TYPE_LEVEL_LOW)>;
+> +		clock-frequency = <24000000>;
+
+Please remove this, and let the firmware set CNTFRQ. U-Boot does this
+automatically (in nonsec_virt.S), and it should be just a few lines to add
+to awboot's arch/arm32/arch_timer.c.
+
+Or, even better: provide proper U-Boot support ;-)
+
+> +		interrupt-parent = <&gic>;
+> +		arm,cpu-registers-not-fw-configured;
+
+Same here, please fix your firmware to configure the non-secure world
+correctly, and remove this property.
+I am happy to help you with that.
+
+> +		arm,no-tick-in-suspend;
+> +	};
+> +
+> +	soc {
+> +		compatible = "simple-bus";
+> +		ranges;
+> +		interrupt-parent = <&gic>;
+> +		#address-cells = <1>;
+> +		#size-cells = <1>;
+> +		dma-noncoherent;
+> +
+> +		pio: pinctrl@2000000 {
+> +			compatible = "allwinner,sun8i-v853-pinctrl";
+> +			reg = <0x2000000 0x800>;
+> +			interrupts = <GIC_SPI 67 IRQ_TYPE_LEVEL_HIGH>,
+> +				     <GIC_SPI 71 IRQ_TYPE_LEVEL_HIGH>,
+> +				     <GIC_SPI 73 IRQ_TYPE_LEVEL_HIGH>,
+> +				     <GIC_SPI 75 IRQ_TYPE_LEVEL_HIGH>,
+> +				     <GIC_SPI 77 IRQ_TYPE_LEVEL_HIGH>,
+> +				     <GIC_SPI 79 IRQ_TYPE_LEVEL_HIGH>,
+> +				     <GIC_SPI 81 IRQ_TYPE_LEVEL_HIGH>,
+> +				     <GIC_SPI 83 IRQ_TYPE_LEVEL_HIGH>;
+> +			clocks = <&ccu CLK_APB0>, <&dcxo>, <&rtc CLK_OSC32K>;
+> +			clock-names = "apb", "hosc", "losc";
+> +			gpio-controller;
+> +			interrupt-controller;
+> +			#gpio-cells = <3>;
+> +			#interrupt-cells = <3>;
+> +
+> +			/omit-if-no-ref/
+
+You don't need omit-if-no-ref for *all* nodes, just the more obscure ones,
+which are only used by one or two boards.
+Here I'd say, just have it for: uart2, dsi, spi3, i2c3, and remove that
+tag for the others.
+
+> +			uart0_ph9_pins: uart0-ph9-pins {
+> +				pins = "PH9", "PH10";
+> +				function = "uart0";
+> +				allwinner,pinmux = <5>;
+> +			};
+> +
+> +			/omit-if-no-ref/
+> +			uart2_pe12_pins: uart2-pe12-pins {
+> +				pins = "PE12", "PE13";
+> +				function = "uart2";
+> +				allwinner,pinmux = <6>;
+> +			};
+> +
+> +			/omit-if-no-ref/
+> +			dsi_2lane_pins: dsi-2lane-pins {
+> +				pins = "PD1", "PD2", "PD3", "PD4", "PD5", "PD6";
+> +				function = "dsi";
+> +				allwinner,pinmux = <5>;
+> +			};
+> +
+> +			/omit-if-no-ref/
+> +			spi0_pins: spi0-pins {
+> +				pins = "PC0", "PC1", "PC2", "PC3", "PC4", "PC5";
+> +				function = "spi0";
+> +				allwinner,pinmux = <4>;
+> +			};
+> +
+> +			/omit-if-no-ref/
+> +			spi3_pins: spi3-pins {
+> +				pins = "PH11", "PH12", "PH13", "PH14";
+> +				function = "spi3";
+> +				allwinner,pinmux = <6>;
+> +			};
+> +
+> +			/omit-if-no-ref/
+> +			i2c2_ph11_pins: i2c2-ph11-pins {
+> +				pins = "PH11", "PH12";
+> +				function = "i2c2";
+> +				allwinner,pinmux = <5>;
+> +			};
+> +
+> +			/omit-if-no-ref/
+> +			i2c3_ph13_pins: i2c3-ph13-pins {
+> +				pins = "PH13", "PH14";
+> +				function = "i2c3";
+> +				allwinner,pinmux = <5>;
+> +			};
+> +
+> +			/omit-if-no-ref/
+> +			mmc0_pins: mmc0-pins {
+> +				pins = "PF0", "PF1", "PF2", "PF3", "PF4", "PF5";
+> +				function = "sdc0";
+> +				allwinner,pinmux = <2>;
+> +				drive-strength = <30>;
+> +				bias-pull-up;
+> +			};
+> +
+> +			/omit-if-no-ref/
+> +			mmc1_pins: mmc1-pins {
+> +				pins = "PE0", "PE1", "PE2", "PE3", "PE4", "PE5";
+> +				function = "sdc1";
+> +				allwinner,pinmux = <6>;
+> +				drive-strength = <30>;
+> +				bias-pull-up;
+> +			};
+> +
+> +			/omit-if-no-ref/
+> +			rmii_pe_pins: rmii-pe-pins {
+> +				pins = "PE0", "PE1", "PE2", "PE3", "PE4",
+> +				       "PE5", "PE6", "PE7", "PE8", "PE9";
+> +				function = "emac";
+> +				allwinner,pinmux = <3>;
+> +			};
+> +		};
+> +
+> +		ccu: clock-controller@2001000 {
+> +			compatible = "allwinner,sun8i-v853-ccu";
+> +			reg = <0x2001000 0x1000>;
+> +			clocks = <&dcxo>,
+> +				 <&rtc CLK_IOSC>,
+> +				 <&rtc CLK_OSC32K>;
+> +			clock-names = "hosc", "iosc", "losc";
+> +			#clock-cells = <1>;
+> +			#reset-cells = <1>;
+> +		};
+> +
+> +		gpadc: adc@2009000 {
+> +			compatible = "allwinner,sun20i-d1-gpadc";
+
+Please use a fallback notation:
+	compatible = "allwinner,sun8i-v853-gpadc",
+		     "allwinner,sun20i-d1-gpadc";
+
+This allows to later add quirks should we need some for this SoC. 
+And this requires a binding patch.
+
+> +			reg = <0x2009000 0x0400>;
+> +			clocks = <&ccu CLK_BUS_GPADC>;
+> +			resets = <&ccu RST_BUS_GPADC>;
+> +			interrupts = <GIC_SPI 57 IRQ_TYPE_LEVEL_HIGH>;
+> +			status = "disabled";
+> +			#io-channel-cells = <1>;
+> +		};
+> +
+> +		i2s0: i2s@2032000 {
+> +			compatible = "allwinner,sun50i-r329-i2s";
+
+Same here, fallback compatible.
+
+> +			reg = <0x2032000 0x1000>;
+> +			interrupts = <GIC_SPI 26 IRQ_TYPE_LEVEL_HIGH>;
+> +			clocks = <&ccu CLK_BUS_I2S0>,
+> +				 <&ccu CLK_I2S0>;
+> +			clock-names = "apb", "mod";
+> +			resets = <&ccu RST_BUS_I2S0>;
+> +			dmas = <&dma 3>, <&dma 3>;
+> +			dma-names = "rx", "tx";
+> +			status = "disabled";
+> +			#sound-dai-cells = <0>;
+> +		};
+> +
+> +		i2s1: i2s@2033000 {
+> +			compatible = "allwinner,sun50i-r329-i2s";
+> +			reg = <0x2033000 0x1000>;
+> +			interrupts = <GIC_SPI 27 IRQ_TYPE_LEVEL_HIGH>;
+> +			clocks = <&ccu CLK_BUS_I2S1>,
+> +				 <&ccu CLK_I2S1>;
+> +			clock-names = "apb", "mod";
+> +			resets = <&ccu RST_BUS_I2S1>;
+> +			dmas = <&dma 4>, <&dma 4>;
+> +			dma-names = "rx", "tx";
+> +			status = "disabled";
+> +			#sound-dai-cells = <0>;
+> +		};
+> +
+> +		timer: timer@2050000 {
+> +			compatible = "allwinner,sun20i-d1-timer",
+
+This should be allwinner,sun8i-v853-timer.
+
+> +				     "allwinner,sun8i-a23-timer";
+> +			reg = <0x2050000 0xa0>;
+> +			interrupts = <GIC_SPI 59 IRQ_TYPE_LEVEL_HIGH>,
+> +				     <GIC_SPI 60 IRQ_TYPE_LEVEL_HIGH>;
+> +			clocks = <&dcxo>;
+> +		};
+> +
+> +		wdt: watchdog@20500a0 {
+> +			compatible = "allwinner,sun20i-d1-wdt-reset",
+> +				     "allwinner,sun20i-d1-wdt";
+
+Same here, use a more specific compatible, then the sun20i as a fallback.
+
+> +			reg = <0x20500a0 0x20>;
+> +			interrupts = <GIC_SPI 63 IRQ_TYPE_LEVEL_HIGH>;
+> +			clocks = <&dcxo>, <&rtc CLK_OSC32K>;
+> +			clock-names = "hosc", "losc";
+> +			status = "reserved";
+> +		};
+> +
+> +		uart0: serial@2500000 {
+> +			compatible = "snps,dw-apb-uart";
+
+The UART is an exception, it's just the generic Synopsis name, so this is
+fine.
+
+> +			reg = <0x2500000 0x400>;
+> +			reg-io-width = <4>;
+> +			reg-shift = <2>;
+> +			interrupts = <GIC_SPI 2 IRQ_TYPE_LEVEL_HIGH>;
+> +			clocks = <&ccu CLK_BUS_UART0>;
+> +			resets = <&ccu RST_BUS_UART0>;
+> +			dmas = <&dma 14>, <&dma 14>;
+> +			dma-names = "rx", "tx";
+> +			status = "disabled";
+> +		};
+> +
+> +		uart1: serial@2500400 {
+> +			compatible = "snps,dw-apb-uart";
+> +			reg = <0x2500400 0x400>;
+> +			reg-io-width = <4>;
+> +			reg-shift = <2>;
+> +			interrupts = <GIC_SPI 3 IRQ_TYPE_LEVEL_HIGH>;
+> +			clocks = <&ccu CLK_BUS_UART1>;
+> +			resets = <&ccu RST_BUS_UART1>;
+> +			dmas = <&dma 15>, <&dma 15>;
+> +			dma-names = "rx", "tx";
+> +			status = "disabled";
+> +		};
+> +
+> +		uart2: serial@2500800 {
+> +			compatible = "snps,dw-apb-uart";
+> +			reg = <0x2500800 0x400>;
+> +			reg-io-width = <4>;
+> +			reg-shift = <2>;
+> +			interrupts = <GIC_SPI 4 IRQ_TYPE_LEVEL_HIGH>;
+> +			clocks = <&ccu CLK_BUS_UART2>;
+> +			resets = <&ccu RST_BUS_UART2>;
+> +			dmas = <&dma 16>, <&dma 16>;
+> +			dma-names = "rx", "tx";
+> +			status = "disabled";
+> +		};
+> +
+> +		uart3: serial@2500c00 {
+> +			compatible = "snps,dw-apb-uart";
+> +			reg = <0x2500c00 0x400>;
+> +			reg-io-width = <4>;
+> +			reg-shift = <2>;
+> +			interrupts = <GIC_SPI 5 IRQ_TYPE_LEVEL_HIGH>;
+> +			clocks = <&ccu CLK_BUS_UART3>;
+> +			resets = <&ccu RST_BUS_UART3>;
+> +			dmas = <&dma 17>, <&dma 17>;
+> +			dma-names = "rx", "tx";
+> +			status = "disabled";
+> +		};
+> +
+> +		i2c0: i2c@2502000 {
+> +			compatible = "allwinner,sun8i-v536-i2c",
+> +				     "allwinner,sun6i-a31-i2c";
+
+This needs three compatible strings:
+			compatible = "allwinner,sun8i-v853-i2c",
+				     "allwinner,sun8i-v536-i2c",
+				     "allwinner,sun6i-a31-i2c";
+
+> +			reg = <0x2502000 0x400>;
+> +			interrupts = <GIC_SPI 9 IRQ_TYPE_LEVEL_HIGH>;
+> +			clocks = <&ccu CLK_BUS_I2C0>;
+> +			resets = <&ccu RST_BUS_I2C0>;
+> +			dmas = <&dma 43>, <&dma 43>;
+> +			dma-names = "rx", "tx";
+> +			status = "disabled";
+> +			#address-cells = <1>;
+> +			#size-cells = <0>;
+> +		};
+> +
+> +		i2c1: i2c@2502400 {
+> +			compatible = "allwinner,sun8i-v536-i2c",
+> +				     "allwinner,sun6i-a31-i2c";
+> +			reg = <0x2502400 0x400>;
+> +			interrupts = <GIC_SPI 10 IRQ_TYPE_LEVEL_HIGH>;
+> +			clocks = <&ccu CLK_BUS_I2C1>;
+> +			resets = <&ccu RST_BUS_I2C1>;
+> +			dmas = <&dma 44>, <&dma 44>;
+> +			dma-names = "rx", "tx";
+> +			status = "disabled";
+> +			#address-cells = <1>;
+> +			#size-cells = <0>;
+> +		};
+> +
+> +		i2c2: i2c@2502800 {
+> +			compatible = "allwinner,sun8i-v536-i2c",
+> +				     "allwinner,sun6i-a31-i2c";
+> +			reg = <0x2502800 0x400>;
+> +			interrupts = <GIC_SPI 11 IRQ_TYPE_LEVEL_HIGH>;
+> +			clocks = <&ccu CLK_BUS_I2C2>;
+> +			resets = <&ccu RST_BUS_I2C2>;
+> +			dmas = <&dma 45>, <&dma 45>;
+> +			dma-names = "rx", "tx";
+> +			status = "disabled";
+> +			#address-cells = <1>;
+> +			#size-cells = <0>;
+> +		};
+> +
+> +		i2c3: i2c@2502c00 {
+> +			compatible = "allwinner,sun8i-v536-i2c",
+> +				     "allwinner,sun6i-a31-i2c";
+> +			reg = <0x2502c00 0x400>;
+> +			interrupts = <GIC_SPI 12 IRQ_TYPE_LEVEL_HIGH>;
+> +			clocks = <&ccu CLK_BUS_I2C3>;
+> +			resets = <&ccu RST_BUS_I2C3>;
+> +			dmas = <&dma 46>, <&dma 46>;
+> +			dma-names = "rx", "tx";
+> +			status = "disabled";
+> +			#address-cells = <1>;
+> +			#size-cells = <0>;
+> +		};
+> +
+> +		i2c4: i2c@2503000 {
+> +			compatible = "allwinner,sun8i-v536-i2c",
+> +				     "allwinner,sun6i-a31-i2c";
+> +			reg = <0x2503000 0x400>;
+> +			interrupts = <GIC_SPI 13 IRQ_TYPE_LEVEL_HIGH>;
+> +			clocks = <&ccu CLK_BUS_I2C4>;
+> +			resets = <&ccu RST_BUS_I2C4>;
+> +			dmas = <&dma 47>, <&dma 47>;
+> +			dma-names = "rx", "tx";
+> +			status = "disabled";
+> +			#address-cells = <1>;
+> +			#size-cells = <0>;
+> +		};
+> +
+> +		syscon: syscon@3000000 {
+> +			compatible = "allwinner,sun8i-h3-system-control";
+
+I think you got the idea by now, fallbacks ... and for the others below as
+well.
+
+> +			reg = <0x3000000 0x1000>;
+> +			ranges;
+> +			#address-cells = <1>;
+> +			#size-cells = <1>;
+> +
+> +			sram_c: sram@20000 {
+> +				compatible = "mmio-sram";
+> +				reg = <0x00020000 0x21000>;
+> +				#address-cells = <1>;
+> +				#size-cells = <1>;
+> +				ranges = <0 0x00020000 0x21000>;
+> +
+> +				ve_sram: sram-section@0 {
+> +				    compatible = "allwinner,sun8i-v3s-sram-c", 
+> +						 "allwinner,sun4i-a10-sram-c1";
+> +				    reg = <0x000000 0x21000>;
+> +				};
+> +			};
+> +		};
+> +
+> +		dma: dma-controller@3002000 {
+> +			compatible = "allwinner,sun20i-d1-dma";
+> +			reg = <0x3002000 0x1000>;
+> +			interrupts = <GIC_SPI 50 IRQ_TYPE_LEVEL_HIGH>;
+> +			clocks = <&ccu CLK_BUS_DMA>, <&ccu CLK_MBUS_DMA>;
+> +			clock-names = "bus", "mbus";
+> +			resets = <&ccu RST_BUS_DMA>;
+> +			dma-channels = <16>;
+> +			dma-requests = <48>;
+> +			#dma-cells = <1>;
+> +		};
+> +
+> +		hwspinlock: hwlock@3005000 {
+> +		    compatible = "allwinner,sun6i-a31-hwspinlock";
+> +			reg = <0x3005000 0x1000>;
+> +			clocks = <&ccu CLK_BUS_SPINLOCK>;
+> +			clock-names = "ahb";
+> +			resets = <&ccu RST_BUS_SPINLOCK>;
+> +			reset-names = "ahb";
+> +			interrupts = <GIC_SPI 54 IRQ_TYPE_LEVEL_HIGH>;
+> +		};
+> +
+> +		sid: efuse@3006000 {
+> +			compatible = "allwinner,sun20i-d1-sid";
+> +			reg = <0x3006000 0x1000>;
+> +			#address-cells = <1>;
+> +			#size-cells = <1>;
+> +
+> +			ths_calib: ths-calib@14 {
+> +				reg = <0x14 0x8>;
+> +			};
+> +		};
+> +
+> +		hstimer@3008000 {
+> +			compatible = "allwinner,sun7i-a20-hstimer";
+> +			reg = <0x03008000 0x1000>;
+> +			interrupts = <GIC_SPI 55 IRQ_TYPE_LEVEL_HIGH>,
+> +				     <GIC_SPI 56 IRQ_TYPE_LEVEL_HIGH>;
+> +			clocks = <&ccu CLK_BUS_HSTIMER>;
+> +		};
+> +
+> +		gic: interrupt-controller@3021000 {
+> +			compatible = "arm,gic-400";
+
+(no fallbacks needed here, it's an actual GIC-400)
+
+> +			reg = <0x03021000 0x1000>,	/* GIC Dist */
+> +			      <0x03022000 0x2000>,	/* GIC CPU */
+> +			      <0x03024000 0x2000>,	/* GIC VCPU Control */
+> +			      <0x03026000 0x2000>;	/* GIC VCPU */
+> +			interrupts = <GIC_PPI 9 (GIC_CPU_MASK_SIMPLE(2) | IRQ_TYPE_LEVEL_HIGH)>;
+> +			interrupt-controller;
+> +			#interrupt-cells = <3>;
+> +		};
+> +
+> +		mbus: dram-controller@3102000 {
+> +			compatible = "allwinner,sun20i-d1-mbus";
+> +			reg = <0x3102000 0x1000>,
+> +			      <0x3103000 0x1000>;
+> +			reg-names = "mbus", "dram";
+> +			interrupts = <GIC_SPI 43 IRQ_TYPE_LEVEL_HIGH>;
+> +			clocks = <&ccu CLK_MBUS>,
+> +				 <&ccu CLK_DRAM>,
+> +				 <&ccu CLK_BUS_DRAM>;
+> +			clock-names = "mbus", "dram", "bus";
+> +			dma-ranges = <0 0x40000000 0x80000000>;
+> +			#address-cells = <1>;
+> +			#size-cells = <1>;
+> +			#interconnect-cells = <1>;
+> +		};
+> +
+> +		mmc0: mmc@4020000 {
+> +			compatible = "allwinner,sun20i-d1-mmc";
+> +			reg = <0x4020000 0x1000>;
+> +			interrupts = <GIC_SPI 40 IRQ_TYPE_LEVEL_HIGH>;
+> +			clocks = <&ccu CLK_BUS_MMC0>, <&ccu CLK_MMC0>;
+> +			clock-names = "ahb", "mmc";
+> +			resets = <&ccu RST_BUS_MMC0>;
+> +			reset-names = "ahb";
+> +			no-sdio;
+> +			no-mmc;
+
+I don't think we use those two properties in mainline?
+
+> +			cap-sd-highspeed;
+> +			max-frequency = <150000000>;
+> +			mmc-ddr-1_8v;
+
+This looks wrong here, definitely you should not have voltage dependent
+properties in the SoC .dtsi.
+
+And you can add the pinctrl properties already here, since there is only
+one set of pins for MMC0.
+
+> +			status = "disabled";
+> +			#address-cells = <1>;
+> +			#size-cells = <0>;
+> +		};
+> +
+> +		mmc1: mmc@4021000 {
+> +			compatible = "allwinner,sun20i-d1-mmc";
+> +			reg = <0x4021000 0x1000>;
+> +			interrupts = <GIC_SPI 41 IRQ_TYPE_LEVEL_HIGH>;
+> +			clocks = <&ccu CLK_BUS_MMC1>, <&ccu CLK_MMC1>;
+> +			clock-names = "ahb", "mmc";
+> +			resets = <&ccu RST_BUS_MMC1>;
+> +			reset-names = "ahb";
+> +			cap-sd-highspeed;
+> +			cap-mmc-highspeed;
+> +			max-frequency = <150000000>;
+> +			mmc-ddr-1_8v;
+
+same here, please remove.
+
+> +			status = "disabled";
+> +			#address-cells = <1>;
+> +			#size-cells = <0>;
+> +		};
+> +
+> +		mmc2: mmc@4022000 {
+> +			compatible = "allwinner,sun20i-d1-mmc";
+> +			reg = <0x4022000 0x1000>;
+> +			interrupts = <GIC_SPI 42 IRQ_TYPE_LEVEL_HIGH>;
+> +			clocks = <&ccu CLK_BUS_MMC2>, <&ccu CLK_MMC2>;
+> +			clock-names = "ahb", "mmc";
+> +			resets = <&ccu RST_BUS_MMC2>;
+> +			reset-names = "ahb";
+> +			no-sdio;
+> +			no-sd;
+> +			cap-mmc-highspeed;
+> +			max-frequency = <150000000>;
+> +			mmc-ddr-1_8v;
+> +			mmc-ddr-3_3v;
+
+Please leave that to the board DTs to set, they know which voltage PortC is
+running on.
+
+> +			status = "disabled";
+> +			#address-cells = <1>;
+> +			#size-cells = <0>;
+> +		};
+> +
+> +		spi0: spi@4025000 {
+> +			compatible = "allwinner,sun50i-r329-spi";
+> +			reg = <0x4025000 0x1000>;
+> +			interrupts = <GIC_SPI 15 IRQ_TYPE_LEVEL_HIGH>;
+> +			clocks = <&ccu CLK_BUS_SPI0>, <&ccu CLK_SPI0>;
+> +			clock-names = "ahb", "mod";
+> +			resets = <&ccu RST_BUS_SPI0>;
+> +			dmas = <&dma 22>, <&dma 22>;
+> +			dma-names = "rx", "tx";
+> +			num-cs = <1>;
+
+Is that so? I see SPI0_CS0, SPI0_CS1, SPI1_CS0, SPI1_CS1 pins.
+
+> +			status = "disabled";
+> +			#address-cells = <1>;
+> +			#size-cells = <0>;
+> +		};
+> +
+> +		spi1: spi@4026000 {
+> +			compatible = "allwinner,sun50i-r329-spi-dbi",
+> +				     "allwinner,sun50i-r329-spi";
+> +			reg = <0x4026000 0x1000>;
+> +			interrupts = <GIC_SPI 16 IRQ_TYPE_LEVEL_HIGH>;
+> +			clocks = <&ccu CLK_BUS_SPI1>, <&ccu CLK_SPI1>;
+> +			clock-names = "ahb", "mod";
+> +			resets = <&ccu RST_BUS_SPI1>;
+> +			dmas = <&dma 23>, <&dma 23>;
+> +			dma-names = "rx", "tx";
+> +			num-cs = <1>;
+> +			status = "disabled";
+> +			#address-cells = <1>;
+> +			#size-cells = <0>;
+> +		};
+> +
+> +		spi2: spi@4027000 {
+> +			compatible = "allwinner,sun50i-r329-spi";
+> +			reg = <0x4027000 0x1000>;
+> +			interrupts = <GIC_SPI 17 IRQ_TYPE_LEVEL_HIGH>;
+> +			clocks = <&ccu CLK_BUS_SPI2>, <&ccu CLK_SPI2>;
+> +			clock-names = "ahb", "mod";
+> +			resets = <&ccu RST_BUS_SPI2>;
+> +			dmas = <&dma 24>, <&dma 24>;
+> +			dma-names = "rx", "tx";
+> +			num-cs = <1>;
+> +			status = "disabled";
+> +			#address-cells = <1>;
+> +			#size-cells = <0>;
+> +		};
+> +
+> +		spi3: spi@4028000 {
+> +			compatible = "allwinner,sun50i-r329-spi";
+> +			reg = <0x4028000 0x1000>;
+> +			interrupts = <GIC_SPI 21 IRQ_TYPE_LEVEL_HIGH>;
+> +			clocks = <&ccu CLK_BUS_SPI3>, <&ccu CLK_SPI3>;
+> +			clock-names = "ahb", "mod";
+> +			resets = <&ccu RST_BUS_SPI3>;
+> +			dmas = <&dma 25>, <&dma 25>;
+> +			dma-names = "rx", "tx";
+> +			num-cs = <1>;
+> +			status = "disabled";
+> +			#address-cells = <1>;
+> +			#size-cells = <0>;
+> +		};
+> +
+> +		usb_otg: usb@4100000 {
+> +			compatible = "allwinner,sun8i-a33-musb";
+> +			reg = <0x4100000 0x400>;
+> +			interrupts = <GIC_SPI 29 IRQ_TYPE_LEVEL_HIGH>;
+> +			interrupt-names = "mc";
+> +			clocks = <&ccu CLK_BUS_OTG>;
+> +			resets = <&ccu RST_BUS_OTG>;
+> +			extcon = <&usbphy 0>;
+> +			phys = <&usbphy 0>;
+> +			phy-names = "usb";
+> +			status = "disabled";
+> +		};
+> +
+> +		usbphy: phy@4100400 {
+> +			compatible = "allwinner,sun8i-v853-usb-phy";
+> +			reg = <0x4100400 0x100>,
+> +			      <0x4101800 0x100>;
+> +			reg-names = "phy_ctrl",
+> +				    "pmu0";
+> +			clocks = <&ccu CLK_USB_OHCI>;
+> +			clock-names = "usb0_phy";
+> +			resets = <&ccu RST_USB_PHY>;
+> +			reset-names = "usb0_reset";
+> +			status = "disabled";
+> +			#phy-cells = <1>;
+> +		};
+> +
+> +		ehci0: usb@4101000 {
+> +			compatible = "generic-ehci";
+> +			reg = <0x4101000 0x100>;
+> +			interrupts = <GIC_SPI 30 IRQ_TYPE_LEVEL_HIGH>;
+> +			clocks = <&ccu CLK_BUS_OHCI>,
+> +				 <&ccu CLK_BUS_EHCI>,
+> +				 <&ccu CLK_USB_OHCI>;
+> +			resets = <&ccu RST_BUS_OHCI>,
+> +				 <&ccu RST_BUS_EHCI>;
+> +			phys = <&usbphy 0>;
+> +			phy-names = "usb";
+> +			status = "disabled";
+> +		};
+> +
+> +		ohci0: usb@4101400 {
+> +			compatible = "generic-ohci";
+> +			reg = <0x4101400 0x100>;
+> +			interrupts = <GIC_SPI 31 IRQ_TYPE_LEVEL_HIGH>;
+> +			clocks = <&ccu CLK_BUS_OHCI>,
+> +				 <&ccu CLK_USB_OHCI>;
+> +			resets = <&ccu RST_BUS_OHCI>;
+> +			phys = <&usbphy 0>;
+> +			phy-names = "usb";
+> +			status = "disabled";
+> +		};
+> +
+> +		ppu: power-controller@7001000 {
+> +			compatible = "allwinner,sun8i-v853-ppu";
+> +			reg = <0x7001000 0x400>;
+> +			clocks = <&r_ccu CLK_BUS_R_PPU>;
+> +			resets = <&r_ccu RST_BUS_R_PPU>;
+> +			#power-domain-cells = <1>;
+> +		};
+> +
+> +		r_ccu: clock-controller@7010000 {
+> +			compatible = "allwinner,sun8i-v853-r-ccu";
+> +			reg = <0x7010000 0x230>;
+> +			clocks = <&dcxo>,
+> +				 <&rtc CLK_IOSC>,
+> +				 <&rtc CLK_OSC32K>,
+> +				 <&ccu CLK_PLL_PERIPH_200M>,
+> +				 <&ccu CLK_PLL_AUDIO_4X>;
+> +			clock-names = "hosc",
+> +				      "iosc",
+> +				      "losc",
+> +				      "pll-periph",
+> +				      "pll-audio";
+> +			#clock-cells = <1>;
+> +			#reset-cells = <1>;
+> +		};
+> +
+> +		nmi_intc: intc-nmi@7010320 {
+> +			compatible = "allwinner,sun9i-a80-nmi";
+> +			interrupt-parent = <&gic>;
+
+not needed
+
+> +			#interrupt-cells = <2>;
+> +			#address-cells = <0>;
+> +			interrupt-controller;
+> +			reg = <0x07010320 0xc>;
+> +			interrupts = <GIC_SPI 136 IRQ_TYPE_LEVEL_HIGH>;
+
+reg and interrupts typically come right after compatible
+
+That's it for now, I will check all the numbers against the manual later,
+and verify the clock names and such.
+
+Cheers,
+Andre
+
+> +		};
+> +
+> +		rtc: rtc@7090000 {
+> +			compatible = "allwinner,sun50i-r329-rtc";
+> +			reg = <0x7090000 0x400>;
+> +			interrupts = <GIC_SPI 138 IRQ_TYPE_LEVEL_HIGH>;
+> +			clocks = <&r_ccu CLK_BUS_R_RTC>;
+> +			clock-names = "bus";
+> +			resets = <&r_ccu RST_BUS_R_RTC>;
+> +			wakeup-source;
+> +			#clock-cells = <1>;
+> +		};
+> +	};
+> +};
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
