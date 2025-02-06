@@ -4,69 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 34D32C02196
-	for <linux-riscv@archiver.kernel.org>; Thu,  6 Feb 2025 13:24:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2DA3FC0219C
+	for <linux-riscv@archiver.kernel.org>; Thu,  6 Feb 2025 13:24:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=yJ/lnizB4D7RM3p77XMYHCN3kbHC1JpUSHz7A8e0blU=; b=TfZ3QM3d126MCb
-	YhQc8WKqN1DczkDkNpkxtRju7C6JdOgYWViwuzbEdKmcFDnxdFfnjh46esubEBwJS9rbFQ3ipObHh
-	79QLeG3eeW/wHD07/RswRB+UQP4yP1ZwfJCcMQZCnPawF3sis2StwqEuM5Lo838Nhhu8XGZ6032qC
-	mqi0CXcihS7N0sxNMRknVIT0Ep7ujJp50+jztBNq6OJMVZpMr4TFgqzZHa+7CQS58IRP32wjPnNfi
-	zRTaiAmD1bG2xEx/JCHgJapD2X8Q2peeMqKo48JdxeExoPGMlqnWeB625HFtzSrSXFnJbBRKHu8yu
-	ASj0Dz8VZtE8SDEgDAMg==;
+	List-Owner; bh=1CpayLh6Bylagktyphl7eGvKaGazJgi4upaK0MHXt7o=; b=C85Y/BUZekGkji
+	+S5pdA7+aQmMFF1gIoJRFf9jfCMWSY76Q8aus4DNtXn+cI9lf12CTH0cb6cUyFoN2ryXsmuTmkeQp
+	IftOoqsGko6PldyCpCleF8z3pEZIuK1pcWq79x9y+uEsNXzdKgRGYE+7B0XSmSYvEKht2Lrc/F1Q/
+	hv6vWMGn54LZiL/ziY08M79DAU7naRd5x8ET8P2YgyAWeLSZG9bUOc7zy6Vkbyz+T/GWIebMY+9hh
+	PCpu6x5wZ7LXqrU8KlhFHHV+Y3fDdTLqU3BbQlnvXI/TNqxb/y3kCPMsrHb0OD92NHVnRTjd2T5Xv
+	pZe99Yu/zLztrWj4txpw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tg1re-00000006Phw-14X4;
-	Thu, 06 Feb 2025 13:24:18 +0000
-Received: from mail-pl1-x630.google.com ([2607:f8b0:4864:20::630])
+	id 1tg1rd-00000006Pgl-1N3m;
+	Thu, 06 Feb 2025 13:24:17 +0000
+Received: from mail-pl1-x629.google.com ([2607:f8b0:4864:20::629])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tg1nu-00000006Ocs-12aK
+	id 1tg1no-00000006Obj-4BHc
 	for linux-riscv@lists.infradead.org;
-	Thu, 06 Feb 2025 13:20:27 +0000
-Received: by mail-pl1-x630.google.com with SMTP id d9443c01a7336-21f49bd087cso766035ad.0
-        for <linux-riscv@lists.infradead.org>; Thu, 06 Feb 2025 05:20:25 -0800 (PST)
+	Thu, 06 Feb 2025 13:20:22 +0000
+Received: by mail-pl1-x629.google.com with SMTP id d9443c01a7336-21f464b9a27so3346705ad.1
+        for <linux-riscv@lists.infradead.org>; Thu, 06 Feb 2025 05:20:20 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bytedance.com; s=google; t=1738848025; x=1739452825; darn=lists.infradead.org;
+        d=bytedance.com; s=google; t=1738848020; x=1739452820; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=xce49/BY9vfXB35z8CeRZ6MSP3HJqpKyFsN4Gqyc7dc=;
-        b=PkCny4XE+TJ4tzPe4366qCDcmvZeAtmZ6sQKplp9h9tVzZ7GxzEMzP2XsQmxDQuXSW
-         MbLjwUmf4+U0T4adoz0K656r53VF2WiCfuCrwcVFVhkByfoi3chy3NxbHod/zEQtI+YM
-         KcIm0fHjuz7c+/ciyOxRihQCwYDld0gRxkcyF8NvtHzYBVxYIx3l4KOAAMOaX4L43obP
-         IlDPs5YkhJUcplLm5ORi0o8od3U3+qWESLc8UemFXjVItA9udVcf9zR7aak/UaWNtfIH
-         vnaWkvDHyhQhem5JMtAiCJQvv6/AtMuF+mErI0iScccgVc1JkdILKF4cQ14nVCSv4Ksi
-         NRJg==
+        bh=VrDRN4Xst5SkS3JM77fVw4KRP+DFTnf94c/mEjZvbjk=;
+        b=OQ4WCtThuG30x0NNwZ+mGtrPJQY4ASXg6YBsLzofHR1q2xkZMmgr9W9RdL0Wfq+gKO
+         AsvJDVw9wcz2oFe2wtvfVxoCd4HgxVBvxZGOta7hDMqMlAIpTHIRJQ8urieGp6opSgaJ
+         Yr9JJtvHWnXoRRceIIm7MDe8X8d3D5poXW4msTzZZRi/OZtav3DopfAzf4mO9+9Uyn6N
+         yOg5ncj5uIvYtIvOWQnRIgoVvvDX8CsIR8HaDBWrwAyi7IEev2o9C7jcI6zFEawDxLMU
+         9v633yHEZOaD9R3xYsbnQ7MpY0XU0TSLuYTyqmCptgjgQ5DhO6bz17eBqH/ilijTYFov
+         Kp5A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1738848025; x=1739452825;
+        d=1e100.net; s=20230601; t=1738848020; x=1739452820;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=xce49/BY9vfXB35z8CeRZ6MSP3HJqpKyFsN4Gqyc7dc=;
-        b=mR+ac83R/As3J3WHIFKpmVNrCxGhMxpTXCV4Ks5PItnY963LkR2ezq/lnFiyQB8m0M
-         ChRqVQj1cvc6g3BZQye65fMsF4ecIPfLrY1Au/d746UZ/NRc4BUrumMRgzVQMjEAYBsq
-         h5lRd/6QyRh/jq+qm4TaUbHhomK0hd+u0m6joFIGJ9pNNxRLkNe3ru17oN7GlX67Mi/X
-         offm9f7e8rSUJ/xYEBgKMBIQHj0u5WQKCfbE8p4th3oTN3LicEytPlhrtqiNvTL+urqE
-         RRuErY5t3iSXFLCdbwIrliVoU51Vhx5iqHNaqz9CfMPD1P46ivUdCHpt3nXmFl1sYYB9
-         Tg3Q==
-X-Gm-Message-State: AOJu0YzlDsS6aBvXwdgERIRXmM3yCnPUKw9JTBez+aM9vn0GAqLJfEKR
-	AsRG+hPHv48thYAdnldj1C6l16zXgmY2luBwEK57d0L/SutoFyyb6BEIDlAArLI=
-X-Gm-Gg: ASbGncv+WtrxynQ8hZrzoqVLtoLIzw79QUcz8RkhPiw9/6CcNzL5nIyCZJ5CVmhfsyt
-	RtghX56KGRDH7GKVw6DlNFmdRgHIpvsIlTowI7GxZ3ycmrkWOPkqQeu/Bd1DqxYyPBlFyaX2PGM
-	ux4rlMOQY8YwH0NLGJto6V6l0kwnGK2g2DiaYUJNgshhDVJI0mnnIqU7bQKNA6YkGyRbvOnC+rR
-	ZHIxtH1e2bT8wyUie5nzW26vTQN1cY1QnFeqT8pyQhImXvfFvNA734UZ07JQVFEaXWbIzvMJpIy
-	cyQc0WSF8QUNDiYkjA==
-X-Google-Smtp-Source: AGHT+IFcNT/rNgI2uCAPNRIwNCrMXf037u5qAVa3V5iSa1fu7wy92g99/HkKLyrbAq4szqQ1+3GzCQ==
-X-Received: by 2002:a17:902:eccc:b0:21f:1af3:b318 with SMTP id d9443c01a7336-21f1af3b387mr108852145ad.53.1738848025272;
-        Thu, 06 Feb 2025 05:20:25 -0800 (PST)
+        bh=VrDRN4Xst5SkS3JM77fVw4KRP+DFTnf94c/mEjZvbjk=;
+        b=k+FXFfUYg8jlwxSv6lcQN00Guyr+YqRaab9SMGTZrpBO4E9TYT5/HAHZR8oNagbg6S
+         yk6WaeztHjfQHHCfFhv5MnGO1O2IyByiyLB+lisfliTcDu9hLQjojkkpgID60YbpVUa9
+         LzRreFczwBQ4ISs9MHk/OAuwIhdHWEdxlGWiTPksZ+w4foR2vh3pEMZpg0Da6PmRK5u9
+         Sm//1fDBj3PFhuQs2lAexdJuRsDeA12Goazf2L7IiVlyjreUHMlgaHji6dxJ+0UY9RJB
+         08B+lCUwReC6TyWbSw8Kpz3gBVgDoGqNPsnbNbprSYvn/wuIQzXKfP5nUMuNHaWx/Iuc
+         2d4w==
+X-Gm-Message-State: AOJu0Yx3llcYNwGvnzhY8nV+qbidzNkB0YbioPv1FvvnPyDV+435F8Wo
+	eIIvR2dbYNV4hJSUQmLDwegSnCaUPmO+OiZLfh+5lJuphW435RZZFJAK6NFK7C4=
+X-Gm-Gg: ASbGncttjYFbBLxDdS8UI0fLroR6NyAIRKJRr1yv1zmvgBE1Bn+KqW1bL6XEyezmI5O
+	9cveCo1HhCU3A95t1LpJr61ika2xYV5trmmp+AkAtl3QQ+DUcDVpI2WzwxESzCdML1uV9zJyZmY
+	4ZB77jEd/MswvnNPasuSAR+ey7uLxibQx9LqmOPMRiZjhk1AqzzX2UiKQsVN3bQ9Fzl6CH00pks
+	9cI9OxKlk8K0aLvbaQZeKToQ820EVkqi/9XJ39CMtYd10AwEBLzwn5tCmQYBXvoNZax6EqPGN0H
+	Ow3sJmXsIUiIobZQQQ==
+X-Google-Smtp-Source: AGHT+IFoKcEdPqNHWZEzdZAOUsizoappgIzPDtN89x/XcnGf3N+z1xzF2ftk+OYeq3D0U9lyU9Xq3Q==
+X-Received: by 2002:a17:903:2406:b0:215:8dd3:536a with SMTP id d9443c01a7336-21f17e2a49fmr111715285ad.4.1738848019982;
+        Thu, 06 Feb 2025 05:20:19 -0800 (PST)
 Received: from L4CR4519N7.bytedance.net ([203.208.189.11])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-21f3683d987sm12170775ad.120.2025.02.06.05.20.20
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-21f3683d987sm12170775ad.120.2025.02.06.05.20.15
         (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Thu, 06 Feb 2025 05:20:25 -0800 (PST)
+        Thu, 06 Feb 2025 05:20:19 -0800 (PST)
 From: Rui Qi <qirui.001@bytedance.com>
 X-Google-Original-From: Rui Qi
 To: paul.walmsley@sifive.com,
@@ -83,16 +83,16 @@ Cc: linux-riscv@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	linux-efi@vger.kernel.org,
 	Rui Qi <qirui.001@bytedance.com>
-Subject: [RFC 5/5] RISC-V: define ioremap_cache
-Date: Thu,  6 Feb 2025 21:19:26 +0800
-Message-Id: <20250206131926.91289-6-qirui.001@bytedance.com>
+Subject: [RFC 4/5] RISC-V: ACPI: define arch_apei_get_mem_attribute
+Date: Thu,  6 Feb 2025 21:19:25 +0800
+Message-Id: <20250206131926.91289-5-qirui.001@bytedance.com>
 X-Mailer: git-send-email 2.39.3 (Apple Git-146)
 In-Reply-To: <20250206131926.91289-1-qirui.001@bytedance.com>
 References: <20250206131926.91289-1-qirui.001@bytedance.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250206_052026_291553_5D0FF9F9 
-X-CRM114-Status: UNSURE (   6.36  )
+X-CRM114-CacheID: sfid-20250206_052021_033775_FB67290E 
+X-CRM114-Status: UNSURE (   8.50  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -112,30 +112,44 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Rui Qi <qirui.001@bytedance.com>
 
-Define ioremap_cache for riscv, otherwise it will
-cause compile errors for bert.c and einj.c
+we need arch_apei_get_mem_attribute to get protection bits
+for a given physical address. These protection
+bits are then used to map the physical address.
 
 Signed-off-by: Rui Qi <qirui.001@bytedance.com>
 ---
- arch/riscv/include/asm/io.h | 5 +++++
- 1 file changed, 5 insertions(+)
+ arch/riscv/include/asm/acpi.h | 18 ++++++++++++++++++
+ 1 file changed, 18 insertions(+)
 
-diff --git a/arch/riscv/include/asm/io.h b/arch/riscv/include/asm/io.h
-index 1c5c641075d2..c81d2de007bc 100644
---- a/arch/riscv/include/asm/io.h
-+++ b/arch/riscv/include/asm/io.h
-@@ -134,6 +134,11 @@ __io_writes_outs(outs, u64, q, __io_pbr(), __io_paw())
- #endif
+diff --git a/arch/riscv/include/asm/acpi.h b/arch/riscv/include/asm/acpi.h
+index 6e13695120bc..c35dd4e5a84d 100644
+--- a/arch/riscv/include/asm/acpi.h
++++ b/arch/riscv/include/asm/acpi.h
+@@ -90,6 +90,24 @@ static inline void acpi_get_cbo_block_size(struct acpi_table_header *table,
  
- #include <asm-generic/io.h>
-+#define ioremap_cache ioremap_cache
-+static inline void __iomem *ioremap_cache(phys_addr_t addr, size_t size)
+ #endif /* CONFIG_ACPI */
+ 
++#ifdef CONFIG_ACPI_APEI
++/*
++ * acpi_disable_cmcff is used in drivers/acpi/apei/hest.c for disabling
++ * IA-32 Architecture Corrected Machine Check (CMC) Firmware-First mode
++ * with a kernel command line parameter "acpi=nocmcoff". But we don't
++ * have this IA-32 specific feature on RISC-V, this definition is only
++ * for compatibility.
++ */
++#define acpi_disable_cmcff 1
++static inline pgprot_t arch_apei_get_mem_attribute(phys_addr_t addr)
 +{
-+	return (__force void *)ioremap_prot(addr, size, _PAGE_KERNEL);
++	return PAGE_KERNEL_IO;
 +}
- 
- #ifdef CONFIG_MMU
- #define arch_memremap_wb(addr, size)	\
++
++#else
++#define acpi_disable_cmcff 0
++#endif
++
+ #ifdef CONFIG_ACPI_NUMA
+ void acpi_map_cpus_to_nodes(void);
+ #else
 -- 
 2.20.1
 
