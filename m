@@ -4,67 +4,137 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 24652C02194
-	for <linux-riscv@archiver.kernel.org>; Thu,  6 Feb 2025 20:34:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B4B82C02196
+	for <linux-riscv@archiver.kernel.org>; Thu,  6 Feb 2025 21:41:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=q1l/NhgTzbzP3FklCo2oLelLafg4WFFJJAIOpun4WXA=; b=yqtbZnwpIv5I8H
-	bb0GvHQtcXc7KpSuDAA6wiNMamFtANk5+p1mRMohHSzqkH5YzY0IZ4zYURRw9+xuHjIsS6iELr880
-	PEJSVp0I+0YFh3IOxCwomJe4L70ew1N+uuyhXVruClmnUxsQ2ExKpr3MxeWTCNaPJnDSUPYMCIuuA
-	6/MwDCo2ftKodrVlA/r5F47J1A7ojCqyY1HyJ46M84PoBlegtCHojUvzcmsw32fn4y0qDUXI7emH8
-	FjziPKX4ILKHA2dOGRBR41JHh3Rwgne0bzbnucw1Kpvo5UCoIOTPk8WShzMuS2bSP/rlFBZr1GkQD
-	7//GFYGo7Pv88HczHZYQ==;
+	List-Owner; bh=xb0b7mPfMqAfCEP6SbpGlkYUr4XmHrMkPaWROaGOjE4=; b=Y1455SH64sRr7/
+	iqksFM64w1esXHs5BLm8pDXGh2Ievotiec3l0vIc1Nxm2ZWy0aygVCb9vlXE8ksbVGkiD6RtOqgAQ
+	yco9dlIJjMqVgKOAji1E/EOvKwa5zV3q4g0rSkmi9T5/fi7N5ZkdRw/5Dqif5WyJxak9NTNC5nZe6
+	mLwTQ8k1xzODQJlYqutKjvo0aFpuhDOQyZPUeoAYEYrKVbJ60lUGfRZrqo/NwHNnn0Oaa/W/pLbqL
+	kl/9d+q7tuwh8MU4pvCU50zoIPOxUO3vGQsJ6Gl/ECsAGVJYDVpTW1aBcEABTEaP24zZ6baMglTZb
+	iIj1lV+8bFfv6I7b75Iw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tg8Zm-00000007Uu9-2lUd;
-	Thu, 06 Feb 2025 20:34:18 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1tg9cs-00000007bNC-0UND;
+	Thu, 06 Feb 2025 21:41:34 +0000
+Received: from mgamail.intel.com ([192.198.163.13])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tg8YO-00000007UcW-1VKY
-	for linux-riscv@lists.infradead.org;
-	Thu, 06 Feb 2025 20:32:53 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 20B565C10AD;
-	Thu,  6 Feb 2025 20:32:12 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 42420C4CEDD;
-	Thu,  6 Feb 2025 20:32:51 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1738873971;
-	bh=tE1MQSssWRPkyAdKF+cx2AexR3VCxsTGGA+pMOq6590=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=HduQn2eSwfu1X8WAhqGAhVSKoAKdX/WFlcReTW04EakWFYD6Fa+TCanQX+yFynXnX
-	 Ia3x/hwCL8tckRlG6v9iMUvpA8Uv4l15M4577fY9C2hRZEuL2S67OpJ8slLsCnDaTe
-	 WvkBSYLIS4A4gbhQnBlg/ST8Mo7bt/xaqr7aGGGRD9JxVVIJCbO+dGGAnh/U9zclXp
-	 H825igQZ8LUqxPfnPGDjunZlaresd8EO3sd4YO2C3d/Tkv99XzL7pmxTsrkSRkr0l9
-	 kfsxftgqPmq0sC3wjws6X+lKQjOTMAZn8Aiu+tmdw+/TymScPL3kqD2SC9TFUCvJDE
-	 5jCDWOgyoN1Eg==
-Date: Thu, 6 Feb 2025 12:32:49 -0800
-From: Eric Biggers <ebiggers@kernel.org>
-To: Conor Dooley <conor@kernel.org>
-Cc: linux-riscv@lists.infradead.org,
-	Conor Dooley <conor.dooley@microchip.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	=?iso-8859-1?Q?Cl=E9ment_L=E9ger?= <cleger@rivosinc.com>,
-	Andy Chiu <andybnac@gmail.com>, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3 2/6] RISC-V: add vector crypto extension validation
- checks
-Message-ID: <20250206203249.GC1237@sol.localdomain>
-References: <20250205-cobbler-unpadded-5580c1f5d946@spud>
- <20250205-quench-entrench-09bed8c8c823@spud>
+	id 1tg9cp-00000007bMg-0P6U;
+	Thu, 06 Feb 2025 21:41:32 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1738878091; x=1770414091;
+  h=message-id:date:mime-version:subject:to:cc:references:
+   from:in-reply-to:content-transfer-encoding;
+  bh=3OgHs6tzCrAw+gGCDLhhtpN/agDfB2Z70E0T/xuo+TU=;
+  b=l5NBXOdvEmt50CBu7EhIPS5nDnbbFqktQfe/OOuK+GKmbohNTiDpcWWs
+   +1K9yo1QEZQ2E948NANx2eQ8+r7XTZB0+nd/xDzaf0BbVHsHMRbfD5hek
+   o0MO4QqpFxi1UyhxeA/NZEFwODwv8BGb0ZALTdv275UtmKEc/9KxB7kna
+   KSqOAgT1W6jqPQBxvwtYQuDbf3cK4mOczSdnpi65oXav0R54sd3doAE4D
+   kNuvyU3Bw2VnuOHuHHGiQqhcnjmI4x+qJBnF853cYmhGUGfcp8SyVQFZB
+   WnrfmV6HrtM7kfRS7JpsFqnuzf2thfvn+Ap6rLtvlSz1W4q6In1q1wXMy
+   g==;
+X-CSE-ConnectionGUID: yOos/fpVRJqfwL0FKsyBuA==
+X-CSE-MsgGUID: rpDjHxIASnehgRe98UaHXg==
+X-IronPort-AV: E=McAfee;i="6700,10204,11336"; a="42345032"
+X-IronPort-AV: E=Sophos;i="6.13,265,1732608000"; 
+   d="scan'208";a="42345032"
+Received: from orviesa005.jf.intel.com ([10.64.159.145])
+  by fmvoesa107.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 06 Feb 2025 13:41:28 -0800
+X-CSE-ConnectionGUID: 6H771ns0SpuSxG9hNzP1oQ==
+X-CSE-MsgGUID: Z+csMKT7SBO/Wvx19isNiQ==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.12,224,1728975600"; 
+   d="scan'208";a="116528569"
+Received: from dnelso2-mobl.amr.corp.intel.com (HELO [10.125.111.17]) ([10.125.111.17])
+  by orviesa005-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 06 Feb 2025 13:41:27 -0800
+Message-ID: <239de2b9-0787-4105-a481-418dbd4d861e@intel.com>
+Date: Thu, 6 Feb 2025 13:41:29 -0800
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20250205-quench-entrench-09bed8c8c823@spud>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 00/15] kasan: x86: arm64: risc-v: KASAN tag-based mode for
+ x86
+To: "Christoph Lameter (Ampere)" <cl@gentwo.org>,
+ Jessica Clarke <jrtc27@jrtc27.com>
+Cc: Maciej Wieczor-Retman <maciej.wieczor-retman@intel.com>, luto@kernel.org,
+ xin@zytor.com, kirill.shutemov@linux.intel.com, palmer@dabbelt.com,
+ tj@kernel.org, andreyknvl@gmail.com, brgerst@gmail.com, ardb@kernel.org,
+ dave.hansen@linux.intel.com, jgross@suse.com, will@kernel.org,
+ akpm@linux-foundation.org, arnd@arndb.de, corbet@lwn.net,
+ dvyukov@google.com, richard.weiyang@gmail.com, ytcoode@gmail.com,
+ tglx@linutronix.de, hpa@zytor.com, seanjc@google.com,
+ paul.walmsley@sifive.com, aou@eecs.berkeley.edu, justinstitt@google.com,
+ jason.andryuk@amd.com, glider@google.com, ubizjak@gmail.com,
+ jannh@google.com, bhe@redhat.com, vincenzo.frascino@arm.com,
+ rafael.j.wysocki@intel.com, ndesaulniers@google.com, mingo@redhat.com,
+ catalin.marinas@arm.com, junichi.nomura@nec.com, nathan@kernel.org,
+ ryabinin.a.a@gmail.com, dennis@kernel.org, bp@alien8.de,
+ kevinloughlin@google.com, morbo@google.com, dan.j.williams@intel.com,
+ julian.stecklina@cyberus-technology.de, peterz@infradead.org,
+ kees@kernel.org, kasan-dev@googlegroups.com, x86@kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-riscv@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linux-mm@kvack.org, llvm@lists.linux.dev,
+ linux-doc@vger.kernel.org, "Shutemov, Kirill" <kirill.shutemov@intel.com>
+References: <cover.1738686764.git.maciej.wieczor-retman@intel.com>
+ <8bd9c793-aac6-a330-ea8f-3bde0230a20b@gentwo.org>
+ <F974BA79-80D8-4414-9DFD-1EEF9395143C@jrtc27.com>
+ <72837fcd-97a8-c213-0098-c8f308c3415d@gentwo.org>
+ <29A74A26-E922-4A4F-9B4A-8DB0336B99DF@jrtc27.com>
+ <94f81328-a135-b99b-7f73-43fb77bd7292@gentwo.org>
+From: Dave Hansen <dave.hansen@intel.com>
+Content-Language: en-US
+Autocrypt: addr=dave.hansen@intel.com; keydata=
+ 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
+In-Reply-To: <94f81328-a135-b99b-7f73-43fb77bd7292@gentwo.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250206_123252_438125_10C60FD4 
-X-CRM114-Status: UNSURE (   8.95  )
+X-CRM114-CacheID: sfid-20250206_134131_143383_B06B16E3 
+X-CRM114-Status: UNSURE (   8.77  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -82,21 +152,27 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Feb 05, 2025 at 04:05:08PM +0000, Conor Dooley wrote:
-> The 1.0.0 Vector crypto spec states:
-> 	The Zvknhb and Zvbc Vector Crypto Extensions --and accordingly
-> 	the composite extensions Zvkn and Zvks-- require a Zve64x base,
-> 	or application ("V") base Vector Extension. All of the other
-> 	Vector Crypto Extensions can be built on any embedded (Zve*) or
-> 	application ("V") base Vector Extension.
+On 2/6/25 11:11, Christoph Lameter (Ampere) wrote:
+> I also see that KASAN_HW_TAGS exist but this means that the tags can only
+> be used with CONFIG_KASAN which is a kernel configuration for debug
+> purposes.
+> 
+> What we are interested in is a *production* implementation with minimal
+> software overhead that will be the default on ARM64 if the appropriate
+> hardware is detected. 
 
-As previously discussed, the above paragraph incorrectly lists the set of crypto
-extensions that require support for 64-bit elements.  I have fixed this in the
-latest RISC-V ISA manual.  It looks like this patch would still do the same
-thing either way, since it actually just checks that vector is available in some
-form.  But this is not the best version of the manual to quote from.
+Ahh, interesting. I'd assumed that once folks had in-hardware tag checks
+that they'd just turn on CONFIG_KASAN and be happy.  Guess not!
 
-- Eric
+> That in turn will hopefully allow other software instrumentation
+> that is currently used to keep small objects secure and in turn
+> creates overhead.
+OK, so KASAN as-is is too broad. Are you saying that the kernel
+_currently_ have "software instrumentation" like SLAB
+redzoning/poisoning and you'd like to see MTE used to replace those?
+
+Are you just interested in small objects?  What counts as small?  I
+assume it's anything roughly <PAGE_SIZE.
 
 _______________________________________________
 linux-riscv mailing list
