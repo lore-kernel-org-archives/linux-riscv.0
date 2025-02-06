@@ -4,60 +4,112 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1E64C02199
-	for <linux-riscv@archiver.kernel.org>; Thu,  6 Feb 2025 04:23:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 40CCAC02196
+	for <linux-riscv@archiver.kernel.org>; Thu,  6 Feb 2025 05:31:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=18O1tuSp//6yeVAkkvRVyDeO49RhxOnD8HuwYvlpvbk=; b=xio+BacoFTiPNY
-	RjO0n/ltTEpMhrhxLQ4cHnnyAqXakKZ5bqcPbBSwO3eWjLNuifVz2f2QUfuFDg0knZrEXA6VZYhwE
-	hyliIkY0NwlY5aFiRrFvrGOLBnE8TRl31bfTAS1vZ3XYz4pEtdjk/uPKvK8Ncrq9FCg8ndslew9N1
-	qFWv0EoUnW+3/KgqV3VFizKHlh7JccQa4oCNgJuRVihtLzNAX65soC+2UXgjRCIO8iong45zxkYB7
-	X8MOMTdNAU8goKZGYwc3Yro//NFnDzpFl/w9yqI2gRLtm3/S8hrhNRZMqKfC/lOdMZHYCT9HIy+Xm
-	7Jic0fXUcV3ulb107WAw==;
+	List-Owner; bh=0WGNePNPnuQU35dbsM8RPbn1HHsVU08Ckd86Ys93GCA=; b=12zm/9ORHZZ+nU
+	inIvKs09BkJo+GVze3f/sf8UBQoJQ+eyjSQ8Egk//Oh2qpcjGSU1JzZ73yNBUDU8sVAVSdcXZxGBY
+	1KzobOCMJDbA9CUvC8TTlP8UhXKjLSDevFIVcvjEGxjMU2/cjDhTRFaIXkLanbVukDsimXpqJjh1X
+	0ZOc2lcWdsdF7cuTjjNA2rU2p5idqpuXB6A8shgCg8WeDx+KDdTuc24nZVfR4YMmOhG+Lhp+rXAVA
+	EtLWs0o3meda7OU8vETOuqQZ8YodGmGVKtndRQZJSD+TO3VWOpg/zJeLIDUE4pclrHuLKgMPbPzuY
+	g2Kh3BhmHYE+OTKG/fSg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tftQE-00000005B9d-08D5;
-	Thu, 06 Feb 2025 04:23:26 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tftOn-00000005B2x-3y1Q;
-	Thu, 06 Feb 2025 04:21:59 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 823831007;
-	Wed,  5 Feb 2025 20:22:19 -0800 (PST)
-Received: from [10.163.34.115] (unknown [10.163.34.115])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id F38B13F5A1;
-	Wed,  5 Feb 2025 20:21:48 -0800 (PST)
-Message-ID: <d5a2b423-2e13-48a1-b3b7-8e1c638bf716@arm.com>
-Date: Thu, 6 Feb 2025 09:51:45 +0530
+	id 1tfuUG-00000005HAX-0pQ4;
+	Thu, 06 Feb 2025 05:31:40 +0000
+Received: from mail-pl1-x630.google.com ([2607:f8b0:4864:20::630])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tfuSo-00000005H4V-2WGb
+	for linux-riscv@lists.infradead.org;
+	Thu, 06 Feb 2025 05:30:13 +0000
+Received: by mail-pl1-x630.google.com with SMTP id d9443c01a7336-21f16af1f71so7762865ad.3
+        for <linux-riscv@lists.infradead.org>; Wed, 05 Feb 2025 21:30:09 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1738819809; x=1739424609; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=pRoJEJRUPVObRh6bcpNHZcCJSeUoo6qbmkVpHeNteUs=;
+        b=f2iTzNMd0r6J4YutlIZtEDWZSGE2qg113t7f6X3UusRvz1uWmGC94/KraHhR8rIJ5m
+         dEZQiGrDqSBWAJqdxIs3O3cpTm5bIC4XmM+858a5XlZsyN85qBDZYDH8B2PCQJBS4gZw
+         O42PBxnzQaxh0/NXJYsGo8z/5oWaAsTepLi2v4Qq2GGhQTJkyaTRTHMhL3xW/Op7I8ss
+         wYXcK6+D/gYJBSfxK/LIDPSpE83Q7t5D3IMnYXmKIVbrWyLPbNfkqLi9tyySvG9qd2yR
+         NoOEBo9AuPttJI6oaBN+gTTfuLyHRDNlZ4PJ24for5dGplCu23AdOd3vtjfX0aHlG+R9
+         3I2w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1738819809; x=1739424609;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=pRoJEJRUPVObRh6bcpNHZcCJSeUoo6qbmkVpHeNteUs=;
+        b=Qnr0a8LW3YHWhSg8dPfpl/WQYluAvQw//VcC/3Ys76AGa5khuq2zmP3kM2LP4zZKM8
+         oPWx0ZdBKvpkYw81b+m1BgnpVkPD6Tgbo6OoxphDIjK3hwjJFoIpIEjKkuLWBv4nK81z
+         HhOY4XrGE2R9iOA+YHxpuDlPShwHTaWiCypdxkVXBeH7ofQvW0vzX+z5EDOrvxf5kVP9
+         Gyb3hwqyLkgj44VmAT2NEEQORJRtGWdvVHZiiFgYUnOLZVb/+12I9xd6MamSXkjsCH0W
+         LTbmcXzXW6ZubW82Jj3rBLYbGUh6JFj9cxxk0bBAtFea5DEscanCugQMWaXDrDhA8Jjc
+         Q+OA==
+X-Forwarded-Encrypted: i=1; AJvYcCWdrm8WucUFNE/Z4QjlUilK1Ypx0+f8Wq5gYLxr2Xo7WkSuv3myrI/CTcQkEQImL4l4TGIMekdT9Lup/A==@lists.infradead.org
+X-Gm-Message-State: AOJu0YxOhFNHBq9MYCZRfUujcd+A6OcdvaxJASh7pk9BvsYQDhRe3Qyu
+	Ic5pq7UuTMZOA0mg4a5GqWYJOMaL6j554XdlFofHDeia7AmoaVCam6qoLzeej1U=
+X-Gm-Gg: ASbGncumh/Pu4Z9WAEDtTjJPV+1f6I98DTzYa6p7Pt6Vt39kQcOQHait+dslDcryLLR
+	G+ms3ITCOCezilluolqgxuN35GbkI7lx3qxIOrlhUmKz6J6z8eNILgQ+OI94rBeC/S02PlEYjj/
+	Y9sJ7r5KlsF0rhABwkM5UhXbh5Jvf2mvCfwkhWV1uUNEIWn585lYV7WuUQT9oWWezfpEjaGnBPt
+	TmUgMMJyjZNB+3vpNDnad25Hoq83JRA+JcQ20C83vFUbBmmxyGbt0KYh2P7lq6OzcWPcWCJVfhz
+	CKySnb+8WPZjk5JaleIdC6+N6ajobLmINg==
+X-Google-Smtp-Source: AGHT+IE1tNZkBLKVThcpOUcjJPjEE6LeUB5SuPAtY9c/ZHJbnXa2ZNVKpzCci8Lb0vwwFKWpOtSe+Q==
+X-Received: by 2002:a17:902:d28b:b0:216:410d:4c53 with SMTP id d9443c01a7336-21f17ebba71mr74788475ad.41.1738819809035;
+        Wed, 05 Feb 2025 21:30:09 -0800 (PST)
+Received: from tjeznach.ba.rivosinc.com ([64.71.180.162])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-21f3653c997sm3459215ad.78.2025.02.05.21.30.07
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 05 Feb 2025 21:30:08 -0800 (PST)
+Date: Wed, 5 Feb 2025 21:30:05 -0800
+From: Tomasz Jeznach <tjeznach@rivosinc.com>
+To: Jason Gunthorpe <jgg@nvidia.com>
+Cc: Alim Akhtar <alim.akhtar@samsung.com>,
+	Alyssa Rosenzweig <alyssa@rosenzweig.io>,
+	Albert Ou <aou@eecs.berkeley.edu>, asahi@lists.linux.dev,
+	Lu Baolu <baolu.lu@linux.intel.com>,
+	David Woodhouse <dwmw2@infradead.org>,
+	Heiko Stuebner <heiko@sntech.de>, iommu@lists.linux.dev,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Jonathan Hunter <jonathanh@nvidia.com>,
+	Joerg Roedel <joro@8bytes.org>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-riscv@lists.infradead.org, linux-rockchip@lists.infradead.org,
+	linux-samsung-soc@vger.kernel.org, linux-sunxi@lists.linux.dev,
+	linux-tegra@vger.kernel.org,
+	Marek Szyprowski <m.szyprowski@samsung.com>,
+	Hector Martin <marcan@marcan.st>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Robin Murphy <robin.murphy@arm.com>,
+	Samuel Holland <samuel@sholland.org>,
+	Suravee Suthikulpanit <suravee.suthikulpanit@amd.com>,
+	Sven Peter <sven@svenpeter.dev>,
+	Thierry Reding <thierry.reding@gmail.com>,
+	Krishna Reddy <vdumpa@nvidia.com>, Chen-Yu Tsai <wens@csie.org>,
+	Will Deacon <will@kernel.org>, Bagas Sanjaya <bagasdotme@gmail.com>,
+	Joerg Roedel <jroedel@suse.de>,
+	Pasha Tatashin <pasha.tatashin@soleen.com>, patches@lists.linux.dev,
+	David Rientjes <rientjes@google.com>,
+	Matthew Wilcox <willy@infradead.org>
+Subject: Re: [PATCH 17/19] iommu/riscv: Update to use
+ iommu_alloc_pages_node_lg2()
+Message-ID: <Z6RI3ftJTrm3UxoO@tjeznach.ba.rivosinc.com>
+References: <0-v1-416f64558c7c+2a5-iommu_pages_jgg@nvidia.com>
+ <17-v1-416f64558c7c+2a5-iommu_pages_jgg@nvidia.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH V2] mm/ptdump: Drop GENERIC_PTDUMP
-To: Mark Rutland <mark.rutland@arm.com>
-Cc: linux-mm@kvack.org, steven.price@arm.com, christophe.leroy@csgroup.eu,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Jonathan Corbet <corbet@lwn.net>, Marc Zyngier <maz@kernel.org>,
- Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>,
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Heiko Carstens <hca@linux.ibm.com>,
- Vasily Gorbik <gor@linux.ibm.com>, Thomas Gleixner <tglx@linutronix.de>,
- Ingo Molnar <mingo@redhat.com>, Andrew Morton <akpm@linux-foundation.org>,
- linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org,
- linux-kernel@vger.kernel.org, kvmarm@lists.linux.dev,
- linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
- linux-s390@vger.kernel.org
-References: <20250205050039.1506377-1-anshuman.khandual@arm.com>
- <Z6M23dR5wvZKW4JE@J2N7QTR9R3>
-Content-Language: en-US
-From: Anshuman Khandual <anshuman.khandual@arm.com>
-In-Reply-To: <Z6M23dR5wvZKW4JE@J2N7QTR9R3>
+Content-Disposition: inline
+In-Reply-To: <17-v1-416f64558c7c+2a5-iommu_pages_jgg@nvidia.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250205_202158_080556_898E973F 
-X-CRM114-Status: GOOD (  26.79  )
+X-CRM114-CacheID: sfid-20250205_213010_879424_286EC84C 
+X-CRM114-Status: GOOD (  21.42  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,181 +126,83 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
-
-On 2/5/25 15:31, Mark Rutland wrote:
-> On Wed, Feb 05, 2025 at 10:30:39AM +0530, Anshuman Khandual wrote:
->> GENERIC_PTDUMP does not guard any code but instead just used for platform's
->> subscription into core ptdump defined under PTDUMP_CORE, which is selected.
+On Tue, Feb 04, 2025 at 02:34:58PM -0400, Jason Gunthorpe wrote:
+> One part of RISCV already has a computed size, the other part seems to use
+> PAGE_SIZE (which is probably SZ_4K?). Convert the call.
 > 
-> Selected by what?
-
-I guess that sentence was incomplete. PTDUMP_CORE gets selected by all
-the real users which requires core PTDUMP to be built and enabled.
-
-arch/arm64/kvm/Kconfig: select PTDUMP_CORE	/* config PTDUMP_STAGE2_DEBUGFS */
-arch/x86/Kconfig.debug: select PTDUMP_CORE	/* config EFI_PGT_DUMP */
-
-mm/Kconfig.debug:       select PTDUMP_CORE	/* config PTDUMP_DEBUGFS */
-mm/Kconfig.debug:       select PTDUMP_CORE	/* config DEBUG_WX */
-
+> Signed-off-by: Jason Gunthorpe <jgg@nvidia.com>
+> ---
+>  drivers/iommu/riscv/iommu.c | 15 ++++++++-------
+>  1 file changed, 8 insertions(+), 7 deletions(-)
 > 
->> Instead use PTDUMP_CORE for platform subscription and drop GENERIC_PTDUMP.
->> Cc: Catalin Marinas <catalin.marinas@arm.com>
->> Cc: Will Deacon <will@kernel.org>
->> Cc: Jonathan Corbet <corbet@lwn.net>
->> Cc: Marc Zyngier <maz@kernel.org>
->> Cc: Michael Ellerman <mpe@ellerman.id.au>
->> Cc: Nicholas Piggin <npiggin@gmail.com>
->> Cc: Paul Walmsley <paul.walmsley@sifive.com>
->> Cc: Palmer Dabbelt <palmer@dabbelt.com>
->> Cc: Heiko Carstens <hca@linux.ibm.com>
->> Cc: Vasily Gorbik <gor@linux.ibm.com>
->> Cc: Thomas Gleixner <tglx@linutronix.de>
->> Cc: Ingo Molnar <mingo@redhat.com>
->> Cc: Andrew Morton <akpm@linux-foundation.org>
->> Cc: linux-arm-kernel@lists.infradead.org
->> Cc: linux-doc@vger.kernel.org
->> Cc: linux-kernel@vger.kernel.org
->> Cc: kvmarm@lists.linux.dev
->> Cc: linuxppc-dev@lists.ozlabs.org
->> Cc: linux-riscv@lists.infradead.org
->> Cc: linux-s390@vger.kernel.org
->> Cc: linux-mm@kvack.org
->> Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
->> ---
->> This patch applies on v6.14-rc1
->>
->> Changes in V2:
->>
->> - Keep arch/powerpc/Kconfig alphabetically sorted per Christophe
->>
->> Changes in V1:
->>
->> https://lore.kernel.org/all/20241217034807.2541349-1-anshuman.khandual@arm.com/
->>
->>  Documentation/arch/arm64/ptdump.rst       | 1 -
->>  arch/arm64/Kconfig                        | 2 +-
->>  arch/arm64/kvm/Kconfig                    | 3 +--
->>  arch/powerpc/Kconfig                      | 2 +-
->>  arch/powerpc/configs/mpc885_ads_defconfig | 1 -
->>  arch/riscv/Kconfig                        | 2 +-
->>  arch/s390/Kconfig                         | 2 +-
->>  arch/x86/Kconfig                          | 2 +-
->>  arch/x86/Kconfig.debug                    | 2 +-
->>  kernel/configs/debug.config               | 1 -
->>  mm/Kconfig.debug                          | 8 ++------
->>  11 files changed, 9 insertions(+), 17 deletions(-)
->>
->> diff --git a/Documentation/arch/arm64/ptdump.rst b/Documentation/arch/arm64/ptdump.rst
->> index 5dcfc5d7cddf..61ca040a885b 100644
->> --- a/Documentation/arch/arm64/ptdump.rst
->> +++ b/Documentation/arch/arm64/ptdump.rst
->> @@ -22,7 +22,6 @@ offlining of memory being accessed by the ptdump code.
->>  In order to dump the kernel page tables, enable the following
->>  configurations and mount debugfs::
->>  
->> - CONFIG_GENERIC_PTDUMP=y
->>   CONFIG_PTDUMP_CORE=y
->>   CONFIG_PTDUMP_DEBUGFS=y
->>  
->> diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
->> index fcdd0ed3eca8..1f516bed81dd 100644
->> --- a/arch/arm64/Kconfig
->> +++ b/arch/arm64/Kconfig
->> @@ -157,7 +157,7 @@ config ARM64
->>  	select GENERIC_IRQ_SHOW_LEVEL
->>  	select GENERIC_LIB_DEVMEM_IS_ALLOWED
->>  	select GENERIC_PCI_IOMAP
->> -	select GENERIC_PTDUMP
->> +	select PTDUMP_CORE
->>  	select GENERIC_SCHED_CLOCK
->>  	select GENERIC_SMP_IDLE_THREAD
->>  	select GENERIC_TIME_VSYSCALL
+> diff --git a/drivers/iommu/riscv/iommu.c b/drivers/iommu/riscv/iommu.c
+> index 549bd8d0615d75..b7cee3d651b179 100644
+> --- a/drivers/iommu/riscv/iommu.c
+> +++ b/drivers/iommu/riscv/iommu.c
+> @@ -65,13 +65,15 @@ static int riscv_iommu_devres_pages_match(struct device *dev, void *res, void *p
+>  	return devres->addr == target->addr;
+>  }
+>  
+> -static void *riscv_iommu_get_pages(struct riscv_iommu_device *iommu, int order)
+> +static void *riscv_iommu_get_pages(struct riscv_iommu_device *iommu,
+> +				   unsigned int size)
+>  {
+>  	struct riscv_iommu_devres *devres;
+>  	void *addr;
+>  
+> -	addr = iommu_alloc_pages_node(dev_to_node(iommu->dev),
+> -				      GFP_KERNEL_ACCOUNT, order);
+> +	addr = iommu_alloc_pages_node_lg2(dev_to_node(iommu->dev),
+> +					  GFP_KERNEL_ACCOUNT,
+> +					  order_base_2(size));
+>  	if (unlikely(!addr))
+>  		return NULL;
+>  
+> @@ -161,9 +163,8 @@ static int riscv_iommu_queue_alloc(struct riscv_iommu_device *iommu,
+>  	} else {
+>  		do {
+>  			const size_t queue_size = entry_size << (logsz + 1);
+> -			const int order = get_order(queue_size);
+>  
+> -			queue->base = riscv_iommu_get_pages(iommu, order);
+> +			queue->base = riscv_iommu_get_pages(iommu, queue_size);
+>  			queue->phys = __pa(queue->base);
+
+All allocations must be 4k aligned, including sub-page allocs.
+
+Note from IOMMU/RISC-V spec:
+
+"If the command-queue has 256 or fewer entries then the base address of the
+queue is always aligned to 4-KiB."
+
+I can't find this to be guaranteed with new allocation API.
+
+>  		} while (!queue->base && logsz-- > 0);
+>  	}
+> @@ -618,7 +619,7 @@ static struct riscv_iommu_dc *riscv_iommu_get_dc(struct riscv_iommu_device *iomm
+>  				break;
+>  			}
+>  
+> -			ptr = riscv_iommu_get_pages(iommu, 0);
+> +			ptr = riscv_iommu_get_pages(iommu, PAGE_SIZE);
+>  			if (!ptr)
+>  				return NULL;
+>  
+> @@ -698,7 +699,7 @@ static int riscv_iommu_iodir_alloc(struct riscv_iommu_device *iommu)
+>  	}
+>  
+>  	if (!iommu->ddt_root) {
+> -		iommu->ddt_root = riscv_iommu_get_pages(iommu, 0);
+> +		iommu->ddt_root = riscv_iommu_get_pages(iommu, PAGE_SIZE);
+>  		iommu->ddt_phys = __pa(iommu->ddt_root);
+>  	}
+>  
+> -- 
+> 2.43.0
 > 
-> This change means that the ptdump core code will be built regardless of
-> whether any users are selected:
-> 
->   [mark@lakrids:~/src/linux]% git grep CONFIG_PTDUMP_CORE
->   Documentation/arch/arm64/ptdump.rst: CONFIG_PTDUMP_CORE=y
->   arch/arm64/include/asm/ptdump.h:#ifdef CONFIG_PTDUMP_CORE
->   arch/arm64/include/asm/ptdump.h:#endif /* CONFIG_PTDUMP_CORE */
->   arch/arm64/mm/Makefile:obj-$(CONFIG_PTDUMP_CORE)        += ptdump.o
->   arch/powerpc/mm/Makefile:obj-$(CONFIG_PTDUMP_CORE)      += ptdump/
->   arch/riscv/mm/Makefile:obj-$(CONFIG_PTDUMP_CORE) += ptdump.o
->   arch/s390/mm/Makefile:obj-$(CONFIG_PTDUMP_CORE) += dump_pagetables.o
->   arch/x86/mm/Makefile:obj-$(CONFIG_PTDUMP_CORE)  += dump_pagetables.o
->   mm/Makefile:obj-$(CONFIG_PTDUMP_CORE) += ptdump.o
-> 
-> GENERIC_PTDUMP means "this architecture uses generic ptdump code for
-> ptdump", i.e. the architecture implements all the necessary bits for
-> that to work *IF* it is built.
-> 
-> PTDUMP_CORE means "actually build the core ptdump code".
-> 
-> If everyone uses the generic ptdump code now, maybe it's worth renaming
-> GENERIC_PTDUMP to ARCH_HAS_PTDUMP or something like that, but I don't
-> think this change makes sense as-is.
 
-Seems like a combination of ARCH_HAS_CORE_PTDUMP for subscription and
-CORE_PTDUMP for actual enablement will make things clear. _CORE_ here
-would still let platforms define their own CONFIG_PTDUMP if preferred
-and not subscribe the generic CORE_DUMP.
-
-currently GENERIC_PTDUMP and CORE_PTDUMP just seems disjoint, because
-GENERIC_PTDUMP does not not appear to be the platform opt in required
-for CORE_PTDUMP.
-
-There is another problem.
-
-mm/Kconfig.debug
-
-config DEBUG_WX
-        bool "Warn on W+X mappings at boot"
-        depends on ARCH_HAS_DEBUG_WX
-        depends on MMU
-        select PTDUMP_CORE
-        help
-
-Before selecting PTDUMP_CORE it does not ensure platform has opted in
-via GENERIC_PTDUMP or not. Instead it should be
-
-config DEBUG_WX
-        bool "Warn on W+X mappings at boot"
-        depends on ARCH_HAS_DEBUG_WX
-	depends on GENERIC_PTDUMP
-	depends on 
-        depends on MMU
-        select PTDUMP_CORE
-        help
-
-PTDUMP_STAGE2_DEBUGFS on arm64 does that where as EFI_PGT_DUMP on x86
-does not. Although it will be ideal but that's not a problem if the
-platform knows for sure that it opts in GENERIC_PTDUMP.
-
-> 
-> [...]
-> 
->> diff --git a/kernel/configs/debug.config b/kernel/configs/debug.config
->> index 20552f163930..8aafd050b754 100644
->> --- a/kernel/configs/debug.config
->> +++ b/kernel/configs/debug.config
->> @@ -73,7 +73,6 @@ CONFIG_DEBUG_VM=y
->>  CONFIG_DEBUG_VM_PGFLAGS=y
->>  CONFIG_DEBUG_VM_RB=y
->>  CONFIG_DEBUG_VM_VMACACHE=y
->> -CONFIG_GENERIC_PTDUMP=y
->>  CONFIG_KASAN=y
->>  CONFIG_KASAN_GENERIC=y
->>  CONFIG_KASAN_INLINE=y
-> 
-> I think this is wrong today, and removing it is the right thing to do.
-> 
-> Architectures with support will select this themselves, and on
-> architectures without support this either does nothing or causes a build
-> failure.
-
-Alright, will separate this change out first.
+best,
+- Tomasz
 
 _______________________________________________
 linux-riscv mailing list
