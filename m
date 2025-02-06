@@ -4,108 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11A54C02194
-	for <linux-riscv@archiver.kernel.org>; Thu,  6 Feb 2025 08:58:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3ADFEC02194
+	for <linux-riscv@archiver.kernel.org>; Thu,  6 Feb 2025 09:01:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
-	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
+	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=J6py4oO/ul1PVtptjhfdM71D9x4sR/onnv25gW8qGKg=; b=ZgvRMvn4M0Xahu
-	xBk/6riODUsJZ8+KFtRMnN7/pOmXIpFrYWTeBMMQUKTxb5BtjCAXXje3ETcwvUDL3ug0ksgTmzoiT
-	2sbSXNi0xxJO9ukVwI5m3WITw+ygwS6YM8MqB73z/6xRgvNLmsqp5/AcVrT2r6ontCqQVHAD2bmC0
-	P7J1C/jWM+W3vA3f/+JPtD6UQAP2g/kFAzRzrK6awIkeVPmYJLbUF3D2EoZXy9MTQgKibW8xjwA+c
-	QyzUoKVy6kld/H7dutiN+lQm1aqpHv1myZawv11YvtwzH+uEM1SY1Sy1LlLPWmLWvSCOEsezrO8nG
-	odzJFkhJbBB5RbtFkaMA==;
+	List-Owner; bh=cCKaky2Vz8YRJ0nqhqq1zCrXJzzY5iOy21PZLvaWL6U=; b=BOuZwTnv8P+J0Q
+	LUCjBzxL0dqVVT1WSzSyExIIA7quvc00EPVxEXilPz8+6o9Ncd3dy4z/zc2Na+FG8hd7xZUmLlGGY
+	oaIVtAMnZWJX1cpqAHoI2w40BfdhRdCZifzHupoT04Kr2uWXALL2iWBmKBuX1rX5XRSJod0Up2yrb
+	Qt6moQL7WtuivqOe9K/mkB5JUshI1HY+YyGC3pPVdvc5iYux02vT9LNMG4/Q666NIcAEf5eX5Y1Dz
+	7Qsb3N1KrGdfaMSvALwVWxcJME+lrVtAqu6ohCi+gdLe/m6axCgXjZgdv6l5HJ3x7OH2gYbNIr27c
+	GvhlRcWA7EIa/PfNBTww==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfxiZ-00000005llf-2roy;
-	Thu, 06 Feb 2025 08:58:39 +0000
-Received: from smtp-out2.suse.de ([195.135.223.131])
+	id 1tfxl8-00000005m6V-1mj5;
+	Thu, 06 Feb 2025 09:01:18 +0000
+Received: from mail-pj1-x102c.google.com ([2607:f8b0:4864:20::102c])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfxiW-00000005ll8-3hTY
+	id 1tfwEm-00000005YPT-1B54
 	for linux-riscv@lists.infradead.org;
-	Thu, 06 Feb 2025 08:58:38 +0000
-Received: from hawking.nue2.suse.org (unknown [10.168.4.11])
-	by smtp-out2.suse.de (Postfix) with ESMTP id B4B5D1F381;
-	Thu,  6 Feb 2025 08:58:33 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1738832313; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=8o8RvKmfC5bSrwy01wT5aWPFCBt3LDXie/ZQ3XWxPnI=;
-	b=2MiUDuvmE1kUXKZ6ftY4J6vLV1VzlPZ48GmXEsSXyNHsnQlZ/k1SkRdrvJ/duUB7OUnQxo
-	8yONjLnDteDiqxsKhOvty+FM1xWi0hNZGsl4v+0H+Veb3KNo5W51YSIUJ59O+wJ34dJd3C
-	eTQs0nrqQ2bHzqQ/wjRSpTBSD8pZBQI=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1738832313;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=8o8RvKmfC5bSrwy01wT5aWPFCBt3LDXie/ZQ3XWxPnI=;
-	b=VcnWeTmmGlG+8LdZeZQLm050NZl8GNZDC74mgQ48YKPEkuAUMURb6uqi1RL1bezqSkO6uK
-	nzOiW5t/roxxS6BQ==
-Authentication-Results: smtp-out2.suse.de;
-	none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1738832313; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=8o8RvKmfC5bSrwy01wT5aWPFCBt3LDXie/ZQ3XWxPnI=;
-	b=2MiUDuvmE1kUXKZ6ftY4J6vLV1VzlPZ48GmXEsSXyNHsnQlZ/k1SkRdrvJ/duUB7OUnQxo
-	8yONjLnDteDiqxsKhOvty+FM1xWi0hNZGsl4v+0H+Veb3KNo5W51YSIUJ59O+wJ34dJd3C
-	eTQs0nrqQ2bHzqQ/wjRSpTBSD8pZBQI=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1738832313;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=8o8RvKmfC5bSrwy01wT5aWPFCBt3LDXie/ZQ3XWxPnI=;
-	b=VcnWeTmmGlG+8LdZeZQLm050NZl8GNZDC74mgQ48YKPEkuAUMURb6uqi1RL1bezqSkO6uK
-	nzOiW5t/roxxS6BQ==
-Received: by hawking.nue2.suse.org (Postfix, from userid 17005)
-	id A4EE94AADB9; Thu,  6 Feb 2025 09:58:33 +0100 (CET)
-From: Andreas Schwab <schwab@suse.de>
-To: Palmer Dabbelt <palmer@rivosinc.com>
-Cc: linux-riscv@lists.infradead.org,  alex@ghiti.fr,  Charlie Jenkins
- <charlie@rivosinc.com>,  Mr.Bossman075@gmail.com,  Jesse Taube
- <jesse@rivosinc.com>
-Subject: Re: [PATCH v2 1/2] RISC-V: hwprobe: Use BIT macro to avoid warnings
-In-Reply-To: <20250205204129.10639-2-palmer@rivosinc.com> (Palmer Dabbelt's
-	message of "Wed, 5 Feb 2025 12:40:26 -0800")
-References: <20250205204129.10639-1-palmer@rivosinc.com>
-	<20250205204129.10639-2-palmer@rivosinc.com>
-Date: Thu, 06 Feb 2025 09:58:33 +0100
-Message-ID: <mvmo6zf1mbq.fsf@suse.de>
-User-Agent: Gnus/5.13 (Gnus v5.13)
+	Thu, 06 Feb 2025 07:23:49 +0000
+Received: by mail-pj1-x102c.google.com with SMTP id 98e67ed59e1d1-2f9d17ac130so746866a91.3
+        for <linux-riscv@lists.infradead.org>; Wed, 05 Feb 2025 23:23:48 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1738826628; x=1739431428; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=EEHs3b5phPFn3BF7F+ULl9Hz6SGERFY3irR7WbMG6GA=;
+        b=f7/jHbAvKj0AJ7bnIUnvmip8pbymK1FCKAqeO030qoI5V5r/Y53DmAE+RVUgxp2cNX
+         TGWsrdQ0FNpLnUfAPuAl/JG83MKoVcvjPkPbYFBQTenKO6UkzbC2Y6tupoZ8GvefhsHx
+         R2y9oAwyL+hGkfgDbMMdA6qrym5UCnw89XJ03qOXac5U93Kzf8uCSr12bW8yTLtRlYyD
+         xrpg9nAB2viERR4CQcJLMfRE9FpZfUeEg4aYstQVAQ8eKMBaJXndsX4ohoT6/nbIfvie
+         HyqyVkloknqu7YduLiFTQhZzzy/2YYy+LEvzI3zGatU9mY1XoDViqROa+xcEUIS/UW1j
+         hF/g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1738826628; x=1739431428;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=EEHs3b5phPFn3BF7F+ULl9Hz6SGERFY3irR7WbMG6GA=;
+        b=L/27U/+LO0ZroRX696VPfcKoDGJcbUaGllx43MbUAuOHCra+4Pf+v4Krd8XakmIfjO
+         Zo80oEgtHc9F9Ly9Obwuqp5ZwFT7c9n/A32lkN7jtvMDW7IpXdV+44vQ0qXQxteeHEI1
+         QhFDSvcxr4fHI3fQiJrCraUSBJbohS8TgIWapwxCgncc9hVJwt9alXNMqjonxOfvvE4I
+         AT3uFwrWbllnauQga1T4fKQ2MHwFHG0Fy+xZCxO8oU7yS63SLZcC0fV8fe+5U6yLI1tW
+         wZg1cry2pwG8bQ7l+wc/kkz3I1DbV3N5t8razcTGI7ZwQ+pc0ZhkjFdmVGB/1Yb12u4y
+         v3Tw==
+X-Gm-Message-State: AOJu0YxVHePkV7jRUSFtcbDZ1BbviiVcvTQPKaWtEplzPclbOhZKjTTY
+	GjRoxg42tcaqtPl9fIQdlNBTpSKIFrwaZ2ugniVTXWKyU3X0Mtxk3uY9epz+GxQ=
+X-Gm-Gg: ASbGncvyo4xbbNkQiNujvWiLGkoibwCc6sp2WzSvum5oyWWOtCb9hE891Pb515whniy
+	Qs/MY5lmpXpsKcJ11CfSMG0auze/WL0mhp2p7hQ1KH6dvP+6hdfbyfZ1OH3Vz22FI6wtUa82bW3
+	834jROUGaQ5I3kyW1tfZgYijXjzW0uwTvojqt6GpnSTz+MpYhXJeoaX2xMSgVOmI/g2txh+w5hQ
+	7PHz/fHOGfMpxkQItCTapouNkUKutlPkDizcDlCFKLP9xbay5SMXRlr32DBiZ06XhxSfDnGtr2y
+	wkKVkLSkP9fYUMvmqDEn85kIZfTD
+X-Google-Smtp-Source: AGHT+IEP7EfP8VYTZfd5HpBEgA2d9buHDVtURDszS/7//CqJNqgdAtdkSc3vqiKyaUdxMxfHiRPc5Q==
+X-Received: by 2002:a17:90b:5108:b0:2ee:ba84:5cac with SMTP id 98e67ed59e1d1-2f9e0753cc2mr9646959a91.7.1738826627792;
+        Wed, 05 Feb 2025 23:23:47 -0800 (PST)
+Received: from atishp.ba.rivosinc.com ([64.71.180.162])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-2fa09a72292sm630883a91.27.2025.02.05.23.23.46
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 05 Feb 2025 23:23:47 -0800 (PST)
+From: Atish Patra <atishp@rivosinc.com>
+Date: Wed, 05 Feb 2025 23:23:25 -0800
+Subject: [PATCH v4 20/21] tools/perf: Pass the Counter constraint values in
+ the pmu events
 MIME-Version: 1.0
-X-Spamd-Result: default: False [-2.70 / 50.00];
-	BAYES_HAM(-3.00)[99.99%];
-	SUSPICIOUS_RECIPS(1.50)[];
-	NEURAL_HAM_LONG(-1.00)[-1.000];
-	NEURAL_HAM_SHORT(-0.20)[-0.999];
-	MIME_GOOD(-0.10)[text/plain];
-	RCVD_NO_TLS_LAST(0.10)[];
-	ARC_NA(0.00)[];
-	RCVD_COUNT_ONE(0.00)[1];
-	FREEMAIL_ENVRCPT(0.00)[gmail.com];
-	TO_DN_SOME(0.00)[];
-	MIME_TRACE(0.00)[0:+];
-	TAGGED_RCPT(0.00)[];
-	MID_RHS_MATCH_FROM(0.00)[];
-	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
-	FROM_HAS_DN(0.00)[];
-	FREEMAIL_CC(0.00)[lists.infradead.org,ghiti.fr,rivosinc.com,gmail.com];
-	RCPT_COUNT_FIVE(0.00)[6];
-	FROM_EQ_ENVFROM(0.00)[];
-	FUZZY_BLOCKED(0.00)[rspamd.com];
-	TO_MATCH_ENVRCPT_ALL(0.00)[];
-	DBL_BLOCKED_OPENRESOLVER(0.00)[suse.de:email,suse.de:mid]
+Message-Id: <20250205-counter_delegation-v4-20-835cfa88e3b1@rivosinc.com>
+References: <20250205-counter_delegation-v4-0-835cfa88e3b1@rivosinc.com>
+In-Reply-To: <20250205-counter_delegation-v4-0-835cfa88e3b1@rivosinc.com>
+To: Paul Walmsley <paul.walmsley@sifive.com>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Anup Patel <anup@brainfault.org>, 
+ Atish Patra <atishp@atishpatra.org>, Will Deacon <will@kernel.org>, 
+ Mark Rutland <mark.rutland@arm.com>, Peter Zijlstra <peterz@infradead.org>, 
+ Ingo Molnar <mingo@redhat.com>, Arnaldo Carvalho de Melo <acme@kernel.org>, 
+ Namhyung Kim <namhyung@kernel.org>, 
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>, 
+ Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>, 
+ Adrian Hunter <adrian.hunter@intel.com>, weilin.wang@intel.com
+Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Conor Dooley <conor@kernel.org>, devicetree@vger.kernel.org, 
+ kvm@vger.kernel.org, kvm-riscv@lists.infradead.org, 
+ linux-arm-kernel@lists.infradead.org, linux-perf-users@vger.kernel.org, 
+ Atish Patra <atishp@rivosinc.com>
+X-Mailer: b4 0.15-dev-13183
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250206_005837_062511_44A06DEF 
-X-CRM114-Status: UNSURE (   7.37  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250205_232348_434587_A9906665 
+X-CRM114-Status: GOOD (  11.84  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,29 +111,53 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Feb 05 2025, Palmer Dabbelt wrote:
+RISC-V doesn't have any standard event to counter mapping discovery
+mechanism in the ISA. The ISA defines 29 programmable counters and
+platforms can choose to implement any number of them and map any
+events to any counters. Thus, the perf tool need to inform the driver
+about the counter mapping of each events.
 
-> From: Jesse Taube <jesse@rivosinc.com>
->
-> In uapi/asm/hwprobe.h file, (1 << N) is used to define the bit field
-> which causes checkpatch to warn. Use BIT(N) and BIT_ULL(N) to avoid
-> these warnings.
+The current perf infrastructure only parses the 'Counter' constraints
+in metrics. This patch extends that to pass in the pmu events so that
+any driver can retrieve those values via perf attributes if defined
+accordingly.
 
-_BITUL(N) and _BITULL(N)
+Signed-off-by: Atish Patra <atishp@rivosinc.com>
+---
+ tools/perf/pmu-events/jevents.py | 9 +++++++++
+ 1 file changed, 9 insertions(+)
 
-> @@ -98,6 +99,6 @@ struct riscv_hwprobe {
->  /* Increase RISCV_HWPROBE_MAX_KEY when adding items. */
->  
->  /* Flags */
-> -#define RISCV_HWPROBE_WHICH_CPUS	(1 << 0)
-> +#define RISCV_HWPROBE_WHICH_CPUS	BIT(0)
-
-s/BIT/_BITUL/
+diff --git a/tools/perf/pmu-events/jevents.py b/tools/perf/pmu-events/jevents.py
+index 28acd598dd7c..c21945238469 100755
+--- a/tools/perf/pmu-events/jevents.py
++++ b/tools/perf/pmu-events/jevents.py
+@@ -274,6 +274,11 @@ class JsonEvent:
+         return fixed[name.lower()]
+       return event
+ 
++    def counter_list_to_bitmask(counterlist):
++      counter_ids = list(map(int, counterlist.split(',')))
++      bitmask = sum(1 << pos for pos in counter_ids)
++      return bitmask
++
+     def unit_to_pmu(unit: str) -> Optional[str]:
+       """Convert a JSON Unit to Linux PMU name."""
+       if not unit or unit == "core":
+@@ -427,6 +432,10 @@ class JsonEvent:
+       else:
+         raise argparse.ArgumentTypeError('Cannot find arch std event:', arch_std)
+ 
++    if self.counters['list']:
++      bitmask = counter_list_to_bitmask(self.counters['list'])
++      event += f',counterid_mask={bitmask:#x}'
++
+     self.event = real_event(self.name, event)
+ 
+   def __repr__(self) -> str:
 
 -- 
-Andreas Schwab, SUSE Labs, schwab@suse.de
-GPG Key fingerprint = 0196 BAD8 1CE9 1970 F4BE  1748 E4D4 88E3 0EEA B9D7
-"And now for something completely different."
+2.43.0
+
 
 _______________________________________________
 linux-riscv mailing list
