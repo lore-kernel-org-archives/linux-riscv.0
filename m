@@ -4,111 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63CFFC02196
-	for <linux-riscv@archiver.kernel.org>; Thu,  6 Feb 2025 05:54:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B007FC02196
+	for <linux-riscv@archiver.kernel.org>; Thu,  6 Feb 2025 06:15:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=//ho3pkKv0jg5ei4uqU4GkuWzUEHugkhRzTnafYNWaQ=; b=qGPl3g6GirUqdY
-	pMRO4EPrsGYdljGy/nTPGEhGMPJ/32hIqPDOk8GVyU0JdsUJm3RFwPiVKQ1+mXvXKcLdQSl3J78oQ
-	ZyfgnWHXtYLTVlSJu0UvU0CBoMEWs7Mdtdizz1PklcRchW+MTylPmZB+Tle6tAyGYvzAWnSITXl8s
-	Gc4VD8Pnp3H/Jnhi3BBgjKZQy4fd3gt34ONLoIfeI4Y1du+p5RGXFPzVDbZNsWinAsZvdWetAY+Rc
-	kfwFkVZyMKt4yK+Z+3nemSSkEFW1Oz+KfFpdc+AvvoDAkqxEMUpG+aC2XcY896Pu4BV8DkfgpVGUX
-	QzWr4RkB7gEqgr2KaVlA==;
+	List-Owner; bh=hV2iY39chgUW+qn8uIpCDsmoFXuV0YCw3q6P6dhGz+s=; b=oryqSdxTsF9H1U
+	UGgyA4WteILKCXQCvIp5kR8LwjxxIU+/oCuGQdj2Jgr8F80G2C4hVSrSIX6lOySAjHFzWTRGzRDkd
+	DVxMQKM9yp5JnLwPUBUxEGPF/FxbvTWBs/gGJ8oezcLlonx2vZSM8WMFjUydy1OIcyxg51F83e+31
+	T0S8Acp+aI5MPChTAlpkTNYVnZv3Z/wonAxAo9kvP0L0ziU70rd+sTecsIMAronPX1v1VFfJSsoYm
+	QrGYVkHNuijWQp9nwAn84n60G828kUzHnOOdIZAj1+bwxHHGu2uOpHtTKuho2SZMXWLdLEF/Wqeea
+	tMyfr6ApnG326+V2Nfiw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfuqR-00000005K6l-0tFn;
-	Thu, 06 Feb 2025 05:54:35 +0000
-Received: from mail-pl1-x62f.google.com ([2607:f8b0:4864:20::62f])
+	id 1tfvAL-00000005Mgd-1m80;
+	Thu, 06 Feb 2025 06:15:09 +0000
+Received: from mail-pj1-x1036.google.com ([2607:f8b0:4864:20::1036])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tfup0-00000005JyT-3DfE
+	id 1tfvAI-00000005Mg7-3yUG
 	for linux-riscv@lists.infradead.org;
-	Thu, 06 Feb 2025 05:53:08 +0000
-Received: by mail-pl1-x62f.google.com with SMTP id d9443c01a7336-21f169e9595so8392295ad.2
-        for <linux-riscv@lists.infradead.org>; Wed, 05 Feb 2025 21:53:06 -0800 (PST)
+	Thu, 06 Feb 2025 06:15:08 +0000
+Received: by mail-pj1-x1036.google.com with SMTP id 98e67ed59e1d1-2f833af7a09so700937a91.2
+        for <linux-riscv@lists.infradead.org>; Wed, 05 Feb 2025 22:15:06 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1738821186; x=1739425986; darn=lists.infradead.org;
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1738822506; x=1739427306; darn=lists.infradead.org;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=U5ldcxqakXbm8AP3lHPyZs0Noc32OWjVSFhOYUYpAno=;
-        b=0Mo/hnrRL9Gva56NBKALw640MJLrMj/l2ptBc8G+TkoyMxQ8tYpGk5wyXk/hFNGxYS
-         PBTlmmL4enYAqaJ3lbqcNp5VrXTf/3qOPzFbHlA0+Cjh3R/omiGenpK/BoeC6mBohq9j
-         E7voT5pDTzyieH31GvzPSB0Fv+wLtRTHO7mnp7PtUVI+d70+pF+UJTao0xzMHRLXJSE/
-         Nn3JDPJ8jK9GtZnszhVoA65p+BlQLAu+1VTwVTSXvOPNeXCEeJuRDPJ1GCPfnpxI2Oft
-         hL4nDM/gP8MyLnKWAlHUI67Nk6kIo3NIXrPXHMvkYo9rTsSmXlwHboHPo2DUpesAHpUi
-         Musw==
+        bh=TM79uKolxyBlDOrOyvuXpI1JGsS08omcZT8YRtNESMU=;
+        b=16FKWfi43kEFoDDH0I2YIl5mfz1euqy6za5yeQp8X1OkTtSs5e4ml4FpYoZGP4bF1W
+         /pRdsi7MmRoInGqz/5ysSIW5aTXrtGjtvih09XAR4wY6KjQwv6mRr1MB6SlSVzmu4jUl
+         AiaG2Y3a2DvnuPnGe1jNDUicy6l7T9Z3LRIqEhm3Y7LHLsfHfkzH/yaDdjuSYsVcoKSi
+         /AqC5ekzEwpXblb17ze5+WGg9gcxGTYae/v4yla/C72ZsJhA7ebCO8GX8JzGuMdFtMeV
+         JL9tdOGth+91kX9sxt43GQxJdO+fHMNO40rdseBQXk88etwYtaQY9UQJHEaoezL5bi11
+         TKtw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1738821186; x=1739425986;
+        d=1e100.net; s=20230601; t=1738822506; x=1739427306;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=U5ldcxqakXbm8AP3lHPyZs0Noc32OWjVSFhOYUYpAno=;
-        b=H7lQOsfTXGh8e/ZsiuHCp9ay2cc9jnunjy8MdCLXB5JgYHFae1DJlWAmjUtibbAmyd
-         G3c3Rb4r4j7R6Bw1dfg+9HqF47GO3wciIm3o5HHlJrhfzXPyoO4OGURokd89TgWqepdY
-         dhJ6iMyeTSpKD16J1atMAdwTgTXiWlyhf/2XeRMlEEvKQgO7663ipxzBCZFJgXZdDuOD
-         rx5bVFcoWxZxtA9b5rE36TYVwJ4Q4/+Rlvfv3plK4OUjQYgTiF0pY12aw/MolBquaObs
-         2vi/InyxrAfRIM0Cb5E5fbbexv07iX9InLwUfMV6qF5UrBNzXncAxEjIWITtTbREXBxv
-         6sCQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVB6J9Yc3UyCRYKFvs328McFS77mRRP7qclbfBWNeZlWrjhrS6bz9OnaNGCzC7bXpfVDd/dC3xcqbk2NA==@lists.infradead.org
-X-Gm-Message-State: AOJu0YzdLHnA/dtZ3qROprQAll7ASYD4ZiksDd4C51HD/m5a1PPGRaHt
-	kaUG5ouWReXFj/tFpJFzb0iiyQ1rgg0yrpw4dKnxJUysrQvdo+alm+UeA23e87s=
-X-Gm-Gg: ASbGncvBQkIxYtnDdLAGnXqsgQQBt3CeL2Pw05yYNjtVzwY+tBmfoJ2F1WuJtVDrFQE
-	pHSsOhiWD7tEnQ9D0jlDcp1ZajVMLEUYH9SERCDHSOoacXaLrd25WNPrCkIqUGHOge6Hxvg+rqj
-	wbbR7MmPWdCMep22boO/RdIt7orepEKLggdPSZouNZ1Z+sLeVcG/gs4DMY0aYnAEsUdApwIf6B4
-	aCZIqF06EsikeLsXlMcDcWm4Pp/E0MC5VjWCj4rvi7r0GVwhvTZ3pNOFi9RxB2xdGQiIE1arHmg
-	p7lJdcRHGsTlhLIUuoGs6UPOYwi5oWGzlg==
-X-Google-Smtp-Source: AGHT+IGCr9xd2Dhw5KUTmjMsz2hIPxrdWNp4ze88e5FpvAsB5Znxk1UOOvf/vmpixanfPva87r8KEw==
-X-Received: by 2002:a17:902:c403:b0:21f:35fd:1b6a with SMTP id d9443c01a7336-21f35fd2116mr20176495ad.51.1738821185899;
-        Wed, 05 Feb 2025 21:53:05 -0800 (PST)
+        bh=TM79uKolxyBlDOrOyvuXpI1JGsS08omcZT8YRtNESMU=;
+        b=tiUEfSF0qBYbdWwlC0R4tdwvFSDYMIuSEakqAq4HqajmqNByk4P4x0eWT8j5gktmWr
+         PoHKEXfzRJUU9l5WZqZ0eOSK0SSQl7VOq5S28O0KtA/jL+eu7ldUcDcaS76j1xO7K0dS
+         2gupxz40QGJH5O1GY9E7g0d6uqtLpS0whV6KFFIDu0rfSPfvcQfkE9Inb8F40jRX3woQ
+         qQHY3+K2y47yFQmqyCCVSEZTnoGex7d2BBhpV7RM+N3CXq9pL26O4IhUjXNUfCCavlTe
+         rt0D9oY1aiSB1C2r68hWYFH9pUZQ9emPVVVEkbzWg6/6x1p7XoRs9x2UhM9JZR4s9UbC
+         AhHw==
+X-Gm-Message-State: AOJu0Yy9mqeBBUR7wYMUoz6DlLEnf049Yi6RWh++U5vKikUoLl3ud6Pl
+	zB3kd4hkIN+5/yamhK0gPCMv2iQaCCcvpeN3+pwFei3mvcNt0VlrP0rTm1jOXXY=
+X-Gm-Gg: ASbGncvbAjWqm0rihdDZ2rsJ1pG2TUWM2bVSwhgmje6qZdFik7sB0kqWcAJqEeB9vdB
+	qdSToLDyXnVUu/9t/lERVPwajyjfFeO1SXk6GUd6cMWTjF+TYcnVe0QGBTAOWDZDXqkgRzIHmsG
+	kWHPxXpJTOOSf+tzRAGNF4EhZ+t3OttEwDGmT1JzhOkbrGR8y5BtoNJo49qz9oyi+RRi397aD0o
+	kKwyGPjjVCfrvvX9yyunBmWlDRd1ysjSG17K2xUrL6J79vC1Jq553FSyVf7nKIsQB/zsHVPvlJX
+	XKaeJw97+UUOxvNs/EnPCdfCu+iL6dLbXQ==
+X-Google-Smtp-Source: AGHT+IHHI4Fk2RhahhWlcZopHqqsAq9Md4PgPbOPDMqDoa+6jQPlFXiqVIuLO/HcwrNxNClahIr3pQ==
+X-Received: by 2002:a05:6a00:1d88:b0:71e:4930:162c with SMTP id d2e1a72fcca58-730350fe44amr8208242b3a.6.1738822505731;
+        Wed, 05 Feb 2025 22:15:05 -0800 (PST)
 Received: from tjeznach.ba.rivosinc.com ([64.71.180.162])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-21f3687c746sm3841885ad.180.2025.02.05.21.53.03
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-73048ad2604sm491635b3a.49.2025.02.05.22.15.05
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 05 Feb 2025 21:53:05 -0800 (PST)
-Date: Wed, 5 Feb 2025 21:53:02 -0800
+        Wed, 05 Feb 2025 22:15:05 -0800 (PST)
+Date: Wed, 5 Feb 2025 22:15:03 -0800
 From: Tomasz Jeznach <tjeznach@rivosinc.com>
-To: Jason Gunthorpe <jgg@nvidia.com>
-Cc: Alim Akhtar <alim.akhtar@samsung.com>,
-	Alyssa Rosenzweig <alyssa@rosenzweig.io>,
-	Albert Ou <aou@eecs.berkeley.edu>, asahi@lists.linux.dev,
-	Lu Baolu <baolu.lu@linux.intel.com>,
-	David Woodhouse <dwmw2@infradead.org>,
-	Heiko Stuebner <heiko@sntech.de>, iommu@lists.linux.dev,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Jonathan Hunter <jonathanh@nvidia.com>,
-	Joerg Roedel <joro@8bytes.org>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-riscv@lists.infradead.org, linux-rockchip@lists.infradead.org,
-	linux-samsung-soc@vger.kernel.org, linux-sunxi@lists.linux.dev,
-	linux-tegra@vger.kernel.org,
-	Marek Szyprowski <m.szyprowski@samsung.com>,
-	Hector Martin <marcan@marcan.st>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Robin Murphy <robin.murphy@arm.com>,
-	Samuel Holland <samuel@sholland.org>,
-	Suravee Suthikulpanit <suravee.suthikulpanit@amd.com>,
-	Sven Peter <sven@svenpeter.dev>,
-	Thierry Reding <thierry.reding@gmail.com>,
-	Krishna Reddy <vdumpa@nvidia.com>, Chen-Yu Tsai <wens@csie.org>,
-	Will Deacon <will@kernel.org>, Bagas Sanjaya <bagasdotme@gmail.com>,
-	Joerg Roedel <jroedel@suse.de>,
-	Pasha Tatashin <pasha.tatashin@soleen.com>, patches@lists.linux.dev,
-	David Rientjes <rientjes@google.com>,
-	Matthew Wilcox <willy@infradead.org>
-Subject: Re: [PATCH 09/19] iommu/riscv: Convert to use struct iommu_pages_list
-Message-ID: <Z6ROPsbXHYlQ0TgF@tjeznach.ba.rivosinc.com>
-References: <0-v1-416f64558c7c+2a5-iommu_pages_jgg@nvidia.com>
- <9-v1-416f64558c7c+2a5-iommu_pages_jgg@nvidia.com>
+To: Palmer Dabbelt <palmer@rivosinc.com>
+Cc: linux-riscv@lists.infradead.org, alex@ghiti.fr,
+	Charlie Jenkins <charlie@rivosinc.com>, Mr.Bossman075@gmail.com
+Subject: Re: [PATCH v2 2/2] RISC-V: Use BIT_ULL(x) instead of 1ULL << x
+Message-ID: <Z6RTZ9lVVP7iEWrh@tjeznach.ba.rivosinc.com>
+References: <20250205204129.10639-1-palmer@rivosinc.com>
+ <20250205204129.10639-3-palmer@rivosinc.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <9-v1-416f64558c7c+2a5-iommu_pages_jgg@nvidia.com>
+In-Reply-To: <20250205204129.10639-3-palmer@rivosinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250205_215306_799293_55EE714C 
-X-CRM114-Status: GOOD (  20.28  )
+X-CRM114-CacheID: sfid-20250205_221506_996114_98BA4A5C 
+X-CRM114-Status: GOOD (  17.10  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,66 +97,100 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Feb 04, 2025 at 02:34:50PM -0400, Jason Gunthorpe wrote:
-> Change the internal freelist to use struct iommu_pages_list.
+On Wed, Feb 05, 2025 at 12:40:27PM -0800, Palmer Dabbelt wrote:
+> There were a few of these outside hwprobe, so I figured it was easier to
+> just clean them up too.
 > 
-> riscv uses this page list to free page table levels that are replaced
-> with leaf ptes.
-> 
-> Signed-off-by: Jason Gunthorpe <jgg@nvidia.com>
+> Signed-off-by: Palmer Dabbelt <palmer@rivosinc.com>
 > ---
->  drivers/iommu/riscv/iommu.c | 9 +++++----
->  1 file changed, 5 insertions(+), 4 deletions(-)
+>  arch/riscv/include/asm/csr.h       | 10 +++++-----
+>  arch/riscv/include/asm/kasan.h     |  2 +-
+>  tools/arch/riscv/include/asm/csr.h | 20 ++++++++++----------
+>  3 files changed, 16 insertions(+), 16 deletions(-)
 > 
-> diff --git a/drivers/iommu/riscv/iommu.c b/drivers/iommu/riscv/iommu.c
-> index 6e7df7273426da..549bd8d0615d75 100644
-> --- a/drivers/iommu/riscv/iommu.c
-> +++ b/drivers/iommu/riscv/iommu.c
-> @@ -1085,7 +1085,8 @@ static void riscv_iommu_iotlb_sync(struct iommu_domain *iommu_domain,
->  #define _io_pte_entry(pn, prot)	((_PAGE_PFN_MASK & ((pn) << _PAGE_PFN_SHIFT)) | (prot))
+> diff --git a/arch/riscv/include/asm/csr.h b/arch/riscv/include/asm/csr.h
+> index 6fed42e37705..181867da7fe3 100644
+> --- a/arch/riscv/include/asm/csr.h
+> +++ b/arch/riscv/include/asm/csr.h
+> @@ -221,15 +221,15 @@
 >  
->  static void riscv_iommu_pte_free(struct riscv_iommu_domain *domain,
-> -				 unsigned long pte, struct list_head *freelist)
-> +				 unsigned long pte,
-> +				 struct iommu_pages_list *freelist)
->  {
->  	unsigned long *ptr;
->  	int i;
-> @@ -1103,7 +1104,7 @@ static void riscv_iommu_pte_free(struct riscv_iommu_domain *domain,
->  	}
+>  /* Smstateen bits */
+>  #define SMSTATEEN0_AIA_IMSIC_SHIFT	58
+> -#define SMSTATEEN0_AIA_IMSIC		(_ULL(1) << SMSTATEEN0_AIA_IMSIC_SHIFT)
+> +#define SMSTATEEN0_AIA_IMSIC		BIT_ULL(SMSTATEEN0_AIA_IMSIC_SHIFT)
+>  #define SMSTATEEN0_AIA_SHIFT		59
+> -#define SMSTATEEN0_AIA			(_ULL(1) << SMSTATEEN0_AIA_SHIFT)
+> +#define SMSTATEEN0_AIA			BIT_ULL(SMSTATEEN0_AIA_SHIFT)
+>  #define SMSTATEEN0_AIA_ISEL_SHIFT	60
+> -#define SMSTATEEN0_AIA_ISEL		(_ULL(1) << SMSTATEEN0_AIA_ISEL_SHIFT)
+> +#define SMSTATEEN0_AIA_ISEL		BIT_ULL(SMSTATEEN0_AIA_ISEL_SHIFT)
+>  #define SMSTATEEN0_HSENVCFG_SHIFT	62
+> -#define SMSTATEEN0_HSENVCFG		(_ULL(1) << SMSTATEEN0_HSENVCFG_SHIFT)
+> +#define SMSTATEEN0_HSENVCFG		BIT_ULL(SMSTATEEN0_HSENVCFG_SHIFT)
+>  #define SMSTATEEN0_SSTATEEN0_SHIFT	63
+> -#define SMSTATEEN0_SSTATEEN0		(_ULL(1) << SMSTATEEN0_SSTATEEN0_SHIFT)
+> +#define SMSTATEEN0_SSTATEEN0		BIT_ULL(SMSTATEEN0_SSTATEEN0_SHIFT)
 >  
->  	if (freelist)
-> -		list_add_tail(&virt_to_page(ptr)->lru, freelist);
-> +		iommu_pages_list_add(freelist, ptr);
->  	else
->  		iommu_free_page(ptr);
->  }
-> @@ -1192,7 +1193,7 @@ static int riscv_iommu_map_pages(struct iommu_domain *iommu_domain,
->  	unsigned long *ptr;
->  	unsigned long pte, old, pte_prot;
->  	int rc = 0;
-> -	LIST_HEAD(freelist);
-> +	struct iommu_pages_list freelist = IOMMU_PAGES_LIST_INIT(freelist);
+>  /* mseccfg bits */
+>  #define MSECCFG_PMM			ENVCFG_PMM
+> diff --git a/arch/riscv/include/asm/kasan.h b/arch/riscv/include/asm/kasan.h
+> index e6a0071bdb56..70660f431f8f 100644
+> --- a/arch/riscv/include/asm/kasan.h
+> +++ b/arch/riscv/include/asm/kasan.h
+> @@ -25,7 +25,7 @@
+>   */
+>  #define KASAN_SHADOW_SCALE_SHIFT	3
 >  
->  	if (!(prot & IOMMU_WRITE))
->  		pte_prot = _PAGE_BASE | _PAGE_READ;
-> @@ -1223,7 +1224,7 @@ static int riscv_iommu_map_pages(struct iommu_domain *iommu_domain,
+> -#define KASAN_SHADOW_SIZE	(UL(1) << ((VA_BITS - 1) - KASAN_SHADOW_SCALE_SHIFT))
+> +#define KASAN_SHADOW_SIZE	BIT_ULL((VA_BITS - 1) - KASAN_SHADOW_SCALE_SHIFT)
+>  /*
+>   * Depending on the size of the virtual address space, the region may not be
+>   * aligned on PGDIR_SIZE, so force its alignment to ease its population.
+> diff --git a/tools/arch/riscv/include/asm/csr.h b/tools/arch/riscv/include/asm/csr.h
+> index 0dfc09254f99..902d607c282e 100644
+> --- a/tools/arch/riscv/include/asm/csr.h
+> +++ b/tools/arch/riscv/include/asm/csr.h
+> @@ -203,16 +203,16 @@
+>  #define ENVCFG_FIOM			_AC(0x1, UL)
 >  
->  	*mapped = size;
->  
-> -	if (!list_empty(&freelist)) {
-> +	if (!iommu_pages_list_empty(&freelist)) {
->  		/*
->  		 * In 1.0 spec version, the smallest scope we can use to
->  		 * invalidate all levels of page table (i.e. leaf and non-leaf)
-> -- 
-> 2.43.0
-> 
+>  /* Smstateen bits */
+> -#define SMSTATEEN0_AIA_IMSIC_SHIFT	58
+> -#define SMSTATEEN0_AIA_IMSIC		(_ULL(1) << SMSTATEEN0_AIA_IMSIC_SHIFT)
+> -#define SMSTATEEN0_AIA_SHIFT		59
+> -#define SMSTATEEN0_AIA			(_ULL(1) << SMSTATEEN0_AIA_SHIFT)
+> -#define SMSTATEEN0_AIA_ISEL_SHIFT	60
+> -#define SMSTATEEN0_AIA_ISEL		(_ULL(1) << SMSTATEEN0_AIA_ISEL_SHIFT)
+> -#define SMSTATEEN0_HSENVCFG_SHIFT	62
+> -#define SMSTATEEN0_HSENVCFG		(_ULL(1) << SMSTATEEN0_HSENVCFG_SHIFT)
+> -#define SMSTATEEN0_SSTATEEN0_SHIFT	63
+> -#define SMSTATEEN0_SSTATEEN0		(_ULL(1) << SMSTATEEN0_SSTATEEN0_SHIFT)
+> +#define SMSTATEEN0_AIA_IMSIC_SHIFT	BIT_ULL(58)
+> +#define SMSTATEEN0_AIA_IMSIC		BIT_ULL(SMSTATEEN0_AIA_IMSIC_SHIFT)
+> +#define SMSTATEEN0_AIA_SHIFT		BIT_ULL(59)
+> +#define SMSTATEEN0_AIA			BIT_ULL(SMSTATEEN0_AIA_SHIFT)
+> +#define SMSTATEEN0_AIA_ISEL_SHIFT	BIT_ULL(60)
+> +#define SMSTATEEN0_AIA_ISEL		BIT_ULL(SMSTATEEN0_AIA_ISEL_SHIFT)
+> +#define SMSTATEEN0_HSENVCFG_SHIFT	BIT_ULL(62)
+> +#define SMSTATEEN0_HSENVCFG		BIT_ULL(SMSTATEEN0_HSENVCFG_SHIFT)
+> +#define SMSTATEEN0_SSTATEEN0_SHIFT	BIT_ULL(63)
+> +#define SMSTATEEN0_SSTATEEN0		BIT_ULL(SMSTATEEN0_SSTATEEN0_SHIFT)
+>
 
-Reviewed-by: Tomasz Jeznach <tjeznach@rivosinc.com>
+Do not wrap _SHIFT values with BIT_ULL(). Likely caused by too aggressive `sed //`.
 
-Thanks,
+best,
 - Tomasz
+
+>  /* symbolic CSR names: */
+>  #define CSR_CYCLE		0xc00
+> -- 
+> 2.45.2
+> 
+> 
+> _______________________________________________
+> linux-riscv mailing list
+> linux-riscv@lists.infradead.org
+> http://lists.infradead.org/mailman/listinfo/linux-riscv
 
 _______________________________________________
 linux-riscv mailing list
