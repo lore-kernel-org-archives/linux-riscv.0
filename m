@@ -4,73 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D6AC8C02199
-	for <linux-riscv@archiver.kernel.org>; Fri,  7 Feb 2025 12:12:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 515B2C02194
+	for <linux-riscv@archiver.kernel.org>; Fri,  7 Feb 2025 12:22:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:MIME-Version:Subject:
-	Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=xYEev0QbaH4dZXsHiqOYR4HAfTHx0R5dlOWZpJqXcn4=; b=V//LjwhuSc1jVj
-	vdnOiLAhcs4fezQ0O4qPC2KEamAxWgUz0S5pqhapFIQrjw74wJOnVHO4V+VaZHd5OOkNXYLDr8pcf
-	soYXtN34eA8mdnFDj/45J70HH7BHvoAf3zHyGKcysauw+bxnr/PkgGOhKMLq6xa+6/XnGTvJgH1hT
-	M6qlkxEGUbBcr9H13wCjFOsPehy+w/nrBVy5Uaugqu4/S0aWH4tKtvLweK2hvCZ1OAFZwe4axCIIH
-	vEoKHFuaNSOjdQjIvYcZQjjA2y2S8zFF7ThgZaLMmpZfOBk+fvx/vcFgZqH2t4HPB9zSwvHSAVjIy
-	d1F4Q8ahRPSPnJMoe2/Q==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:
+	Mime-Version:References:In-Reply-To:From:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Owner;
+	bh=uI15rJ74AFFVsAAvZVuhzA2eVdoHm7O4eMJSi1o0TiA=; b=U4T+fwC5zy0XE2IlszfYR6zpYZ
+	hNMu7hJ2v+pg+9yvdxbkCuhJIdYcIX1bhi+kKntzxxl8GYnwLdXzyX9kl5gSCYgwi2YBlBJZOABZz
+	NlRQtiUmsxOXEwj+wrzo2O8OmvUZOaFIeWwAVjvTzyLpfvg9W6dRo5C8UgeH1njrJU8yh271nL/hC
+	jVhhxnAmsNFmn++/m934ycDk+LETe8Yjf1Rfgdg8n++XAwV/8t0izplAFO5SY03UrdFXMdTRaHeRa
+	OQK26eL0Lx5Ncm5dgUXiTORzXZrsELaMeId7KmLao1hbxOaLsZWMj/OS8aG0hAL225TVADGIWIZRI
+	gO9jLK7g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tgNDX-00000009SWx-2mC3;
-	Fri, 07 Feb 2025 12:12:19 +0000
-Received: from woodpecker.gentoo.org ([2001:470:ea4a:1:5054:ff:fec7:86e4] helo=smtp.gentoo.org)
+	id 1tgNMx-00000009UIm-1fkD;
+	Fri, 07 Feb 2025 12:22:03 +0000
+Received: from smtp-relay-internal-1.canonical.com ([185.125.188.123])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tgNDU-00000009SVb-30eU
+	id 1tgNMu-00000009UIB-0toT
 	for linux-riscv@lists.infradead.org;
-	Fri, 07 Feb 2025 12:12:17 +0000
-Received: from [127.0.0.1] (unknown [180.172.76.141])
+	Fri, 07 Feb 2025 12:22:02 +0000
+Received: from mail-oi1-f200.google.com (mail-oi1-f200.google.com [209.85.167.200])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	(Authenticated sender: dlan)
-	by smtp.gentoo.org (Postfix) with ESMTPSA id 1D9FF342FDD;
-	Fri, 07 Feb 2025 12:12:11 +0000 (UTC)
-From: Yixun Lan <dlan@gentoo.org>
-Date: Fri, 07 Feb 2025 20:11:42 +0800
-Subject: [PATCH] pinctrl: spacemit: enable config option
-MIME-Version: 1.0
-Message-Id: <20250207-k1-pinctrl-option-v1-1-e8a7e4d8404f@gentoo.org>
-X-B4-Tracking: v=1; b=H4sIAH34pWcC/x2MQQqAIBAAvyJ7bsEkC/pKdKhcaylMVCIQ/550H
- JiZDJECU4RRZAj0cOTbVWgbAduxuJ2QTWVQUmmp5IBni57dlsKFt0/VRkN6Ndb0a6cIaucDWX7
- /5zSX8gFzfmeRYwAAAA==
-X-Change-ID: 20250207-k1-pinctrl-option-de5bdfd6b42e
-To: Linus Walleij <linus.walleij@linaro.org>, 
- Paul Walmsley <paul.walmsley@sifive.com>, 
- Palmer Dabbelt <palmer@dabbelt.com>
-Cc: Alex Elder <elder@kernel.org>, linux-riscv@lists.infradead.org, 
- linux-kernel@vger.kernel.org, linux-gpio@vger.kernel.org, 
- spacemit@lists.linux.dev, Yixun Lan <dlan@gentoo.org>
-X-Mailer: b4 0.15-dev
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1848; i=dlan@gentoo.org;
- h=from:subject:message-id; bh=JHVNcI3xg4IrPDaXnnLHrbwRcYBbXD8MmMYM+m8cIxY=;
- b=owEBzQIy/ZANAwAKATGq6kdZTbvtAcsmYgBnpfiYZWflhguUmnNsz2Ee2Fm6knaCOFupVZUID
- MU7bzEB0NSJApMEAAEKAH0WIQS1urjJwxtxFWcCI9wxqupHWU277QUCZ6X4mF8UgAAAAAAuAChp
- c3N1ZXItZnByQG5vdGF0aW9ucy5vcGVucGdwLmZpZnRoaG9yc2VtYW4ubmV0QjVCQUI4QzlDMzF
- CNzExNTY3MDIyM0RDMzFBQUVBNDc1OTREQkJFRAAKCRAxqupHWU277c0xD/9QSxsI/yGV+w8nXX
- IyjEUQiRt+ioHM9mdbjlpQZlxg064SV6PFNJhvuyZuXKslsnava4tySY1VwWVWggZsguyD0ZlHI
- drKklsQ19Lj7Fhr140KgPHzLldl7OSqLU0aBLkpWTEZcS4UWA2Sxh4PbLWVZZ4zOxyrDN5npP/Z
- tGgI+Eaa/BzLj5UaavGoC8uRnVPXpvcCBWDCojGT3Mm2j1rvBJNt4uCO86DT6qGo11xaFP8obJB
- ftB4g5d/W/MeMvphkXHWDFzgmYX5Q8MhGw2CwhpsuOt30JyVNmHzOqWEvHQXpQzQShWuJJakYgx
- VCrpGvlkeJhzWb6Ga2c1dsTlgZGmWZQKQH8nVN+3FOCRAqO8tWKd3zgcewPuHI5YZOt0261YL06
- x0oDhWqFkhdrA7AKMnd94Lmx1W1ZbQom2/Wg53Ap99Y8aDCVy9dK1Q2fuCJOcd1HWAcvN896506
- 1JNVtB+3eWIJbYHSJr9U34dkd8vMWLZ4gYO4Ayo1q822S2N94wxv2BJ9yrgAYdNM9FbeWZr27x+
- cxUGLS1sRTXbCavDMvuPd3Hg3WybmGA6ZcsVDuQZmd4t2h5hKawvDfnAqNYMhn0gIe28ung7IyO
- D/3nwcEUsaSeJQ3W3nlzvWeFpLy4/FK0b9VKK9sgRSpok1OgK2KUeyyt+ER6f3aCLJ0w==
-X-Developer-Key: i=dlan@gentoo.org; a=openpgp;
- fpr=50B03A1A5CBCD33576EF8CD7920C0DBCAABEFD55
+	by smtp-relay-internal-1.canonical.com (Postfix) with ESMTPS id 90F863F291
+	for <linux-riscv@lists.infradead.org>; Fri,  7 Feb 2025 12:21:55 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
+	s=20210705; t=1738930915;
+	bh=bLYbBkGBrBPKD0BA+zFMlOKFJsc5hMvXA5oz9aSTjyU=;
+	h=From:In-Reply-To:References:Mime-Version:Date:Message-ID:Subject:
+	 To:Cc:Content-Type;
+	b=aI1IA//7pBo/FYAoSPXPE2XyU2iIbqSQjBCQY71OX+J3m1pQC3JIFSjAprHms9sbO
+	 bJ1tHvYjxjCwEc49BM10dOhbUCgI6ecJ00SZrtjhcuH6Y9B4M5frQdOLZnmUI5IIYG
+	 HaMdmR5fB9WhixmplYxSMzCIAhG8M/qiHKGETFryu6bxaiRtnX6cQoULoh+tCwuJia
+	 PoacAZX8jbVT6lGd5dmPqFAOlUEMZUkAkgdZ717JgD8IRRzWGuqMkBhZQbbBKNar8Y
+	 d+fbxR8Lg1jrCgrH7DcFx0q65ofs0SvgMMxMEUvOfeOv+39MzzbozLO3t5pJ53Q2B7
+	 /tYtTGkWJmgfA==
+Received: by mail-oi1-f200.google.com with SMTP id 5614622812f47-3ececfdeb82so692264b6e.2
+        for <linux-riscv@lists.infradead.org>; Fri, 07 Feb 2025 04:21:55 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1738930914; x=1739535714;
+        h=cc:to:subject:message-id:date:mime-version:references:in-reply-to
+         :from:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=bLYbBkGBrBPKD0BA+zFMlOKFJsc5hMvXA5oz9aSTjyU=;
+        b=CkGu+KDHPcpTYLevLJhZIcOi3VWvi8CZw2RjB0dOsujfl49InrNexCx1jiJkkxFd35
+         zWUrTUoCKexW0URz/v7GHIIgvmCDFXiKDFVTDV3DUABYDkHrF6fEBuoqb9kR/pM8v0n5
+         8jvTgxqnH4GgLVsw16A5hc7DBvsDTR3m8gRZpxx3sTZGacLiDi8m8WLVFeHJyANJ1rU9
+         +HiAC1t8htNZzcIVCynP2pw5v+1uFyinystkg2QU0EyKLnhaZYnTExBzsmDaNNpZUVhc
+         RSZIszEBgeXM10lsgW9Rylv73kTQfpxAMrigNAd46p18W7Qbee7M63FKgoOuzhhGSUoV
+         5W2A==
+X-Forwarded-Encrypted: i=1; AJvYcCUfr4FYqBxvv4s4JrIJHYokqJKbpOy9p/5RdCuwta5Zb6JjN8IReKyKwHM9fs6lpzE3Z4G3q09bWkQGGw==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz9A8Bs3shALMYniB170IgDC97hDIF2IdgYgDfTJQjYvbZe1UNA
+	Kk/hdtscMo4tWS9OAjqPU6P56I1MgKzM4ucBHyywRd3cEUJLJnWXPVOLkJCkQegGqVtyb4EYm22
+	ifbin9XZ7+Tx8XWVzAMlTa1ppny/j/4dFhjOO2CymGFiSla34h3I2NDFToibKuH6O0QjD781CIk
+	w2JTVjlsYwEKmtVh62HoYGkiag/iO/fgBxJxMEdiFFyjxquEdHPCSB//RO9NgZjWZG
+X-Gm-Gg: ASbGnctzI8j5ptN9jRrL4YkqBaUhya7Eyyj1+QIbhlGCMHfMRZSmz2eBld8hKdZga7J
+	uoiGiQwjTRcOH2lUMrYQLD3kws/WtkGBmMDI7IbcYDpn5fAHBJClTnX9RjTn9Sg==
+X-Received: by 2002:a05:6808:1a22:b0:3e7:5b06:ff61 with SMTP id 5614622812f47-3f392324bbdmr2004976b6e.21.1738930914177;
+        Fri, 07 Feb 2025 04:21:54 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IH0nrruP1KWAtV3Ixvpat5sYozBaFXe8iNBwq/tYngmUIbKou/lN0W5ZFA5kCc2px9kPN8lYrh9JqD5uo1u+aw=
+X-Received: by 2002:a05:6808:1a22:b0:3e7:5b06:ff61 with SMTP id
+ 5614622812f47-3f392324bbdmr2004957b6e.21.1738930913755; Fri, 07 Feb 2025
+ 04:21:53 -0800 (PST)
+Received: from 348282803490 named unknown by gmailapi.google.com with
+ HTTPREST; Fri, 7 Feb 2025 04:21:53 -0800
+Received: from 348282803490 named unknown by gmailapi.google.com with
+ HTTPREST; Fri, 7 Feb 2025 04:21:53 -0800
+From: Emil Renner Berthing <emil.renner.berthing@canonical.com>
+In-Reply-To: <981a3f30-c646-423a-a2dd-e19fef5c69e5@freeshell.de>
+References: <20250203013730.269558-1-e@freeshell.de> <20250203013730.269558-2-e@freeshell.de>
+ <CAJM55Z-M9MsJAtPi-t=_tNV3oG_kdDiS6H=H3koJwTEwB8GJ-Q@mail.gmail.com> <981a3f30-c646-423a-a2dd-e19fef5c69e5@freeshell.de>
+Mime-Version: 1.0
+Date: Fri, 7 Feb 2025 04:21:53 -0800
+X-Gm-Features: AWEUYZlUXTw9uJtoXI-0CyJ4qca5NzN8JB2qd0nSma75DDzMHwSqSLFJSPEnyhI
+Message-ID: <CAJM55Z9HTLoE3ShMfyqN=-KeC+EY_kQ+JSvFpxpX1gumio1Brg@mail.gmail.com>
+Subject: Re: [PATCH v2 1/5] riscv: dts: starfive: jh7110-common: replace
+ syscrg clock assignments
+To: E Shattow <e@freeshell.de>, 
+	Emil Renner Berthing <emil.renner.berthing@canonical.com>, Conor Dooley <conor@kernel.org>, 
+	Emil Renner Berthing <kernel@esmil.dk>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>
+Cc: linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-riscv@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250207_041216_789641_18260164 
-X-CRM114-Status: UNSURE (   9.96  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250207_042200_578631_B9B43D0D 
+X-CRM114-Status: GOOD (  25.66  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,59 +111,79 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Pinctrl is an essential driver for SpacemiT's SoC,
-so let's enable it by default for this SoC.
+E Shattow wrote:
+>
+>
+> On 2/5/25 02:16, Emil Renner Berthing wrote:
+> > E Shattow wrote:
+> >> Replace syscrg assignments of clocks, clock parents, and rates with
+> >> default settings for compatibility with downstream boot loader SPL
+> >> secondary program loader.
+> >>
+> >> Signed-off-by: E Shattow <e@freeshell.de>
+> >> ---
+> >>  arch/riscv/boot/dts/starfive/jh7110-common.dtsi | 11 ++++++++---
+> >>  1 file changed, 8 insertions(+), 3 deletions(-)
+> >>
+> >> diff --git a/arch/riscv/boot/dts/starfive/jh7110-common.dtsi b/arch/riscv/boot/dts/starfive/jh7110-common.dtsi
+> >> index 48fb5091b817..a5661b677687 100644
+> >> --- a/arch/riscv/boot/dts/starfive/jh7110-common.dtsi
+> >> +++ b/arch/riscv/boot/dts/starfive/jh7110-common.dtsi
+> >> @@ -359,9 +359,14 @@ spi_dev0: spi@0 {
+> >>  };
+> >>
+> >>  &syscrg {
+> >> -	assigned-clocks = <&syscrg JH7110_SYSCLK_CPU_CORE>,
+> >> -			  <&pllclk JH7110_PLLCLK_PLL0_OUT>;
+> >> -	assigned-clock-rates = <500000000>, <1500000000>;
+> >> +	assigned-clocks = <&syscrg JH7110_SYSCLK_CPU_ROOT>,
+> >> +			  <&syscrg JH7110_SYSCLK_BUS_ROOT>,
+> >> +			  <&syscrg JH7110_SYSCLK_PERH_ROOT>,
+> >> +			  <&syscrg JH7110_SYSCLK_QSPI_REF>;
+> >> +	assigned-clock-parents = <&pllclk JH7110_PLLCLK_PLL0_OUT>,
+> >> +				 <&pllclk JH7110_PLLCLK_PLL2_OUT>,
+> >> +				 <&pllclk JH7110_PLLCLK_PLL2_OUT>,
+> >> +				 <&syscrg JH7110_SYSCLK_QSPI_REF_SRC>;
+> >
+> > I think Conor asked about this too, but you still don't write why it's ok to
+> > drop the 500MHz and 1,5GHz assignments to the cpu-core and pll0 clocks
+> > respectively. You should add this to the commit message itself.
+> >
+> > /Emil
+>
+> Is this a remedy for a bug in the JH7110 CPU? I'm not clear why tweaking
+> the frequencies and increasing core voltage was ever needed.
 
-The CONFIG_PINCTRL_SPACEMIT_K1 isn't enabled when using
-'make defconfig' to select kernel configuration options.
-This result in a broken uart driver where fail at probe()
-stage due to no pins found.
+I think it's quite common for SoCs come out of reset in a safe slow clock
+configuration and then expect software to set clock speeds to what the chip is
+really capable of.
 
-Fixes: a83c29e1d145 ("pinctrl: spacemit: add support for SpacemiT K1 SoC")
-Reported-by: Alex Elder <elder@kernel.org>
-Signed-off-by: Yixun Lan <dlan@gentoo.org>
----
-This should fix problem that CONFIG_PINCTRL_SPACEMIT_K1 is not enabled
-when using make defconfig, thus fail to initilize uart driver which requst
-pins during probe stage.
----
- arch/riscv/Kconfig.socs          | 1 +
- drivers/pinctrl/spacemit/Kconfig | 1 +
- 2 files changed, 2 insertions(+)
+> This goes back to series "clk: starfive: jh7110-sys: Fix lower rate of
+> CPUfreq by setting PLL0 rate to 1.5GHz" [1].
+>
+> Since [1] I have had problems with several passively cooled Milk-V Mars
+> CM Lite systems powering off due to thermal limits. My experience then
+> is that the specialized 1.5GHz operation is not appropriate for all
+> JH7110 CPU board layouts and applications.
 
-diff --git a/arch/riscv/Kconfig.socs b/arch/riscv/Kconfig.socs
-index 1916cf7ba450ec9958265de2ca41dc504d4d2f7c..17606940bb5239d0fdfc6b5aefb50eeb982d14aa 100644
---- a/arch/riscv/Kconfig.socs
-+++ b/arch/riscv/Kconfig.socs
-@@ -26,6 +26,7 @@ config ARCH_SOPHGO
- 
- config ARCH_SPACEMIT
- 	bool "SpacemiT SoCs"
-+	select PINCTRL
- 	help
- 	  This enables support for SpacemiT SoC platform hardware.
- 
-diff --git a/drivers/pinctrl/spacemit/Kconfig b/drivers/pinctrl/spacemit/Kconfig
-index 168f8a5ffbb952cbeae3e3401c11149558e0a84b..aa3dea535def87ed75d86bc555b2b90643adbdea 100644
---- a/drivers/pinctrl/spacemit/Kconfig
-+++ b/drivers/pinctrl/spacemit/Kconfig
-@@ -7,6 +7,7 @@ config PINCTRL_SPACEMIT_K1
- 	tristate "SpacemiT K1 SoC Pinctrl driver"
- 	depends on ARCH_SPACEMIT || COMPILE_TEST
- 	depends on OF
-+	default ARCH_SPACEMIT
- 	select GENERIC_PINCTRL_GROUPS
- 	select GENERIC_PINMUX_FUNCTIONS
- 	select GENERIC_PINCONF
+If that's the case then maybe only lower the clock speed on the Mars CM Lite
+boards.
 
----
-base-commit: 2014c95afecee3e76ca4a56956a936e23283f05b
-change-id: 20250207-k1-pinctrl-option-de5bdfd6b42e
+> Hal says I failed to get these assignments in Linux to work in U-Boot
+> because U-Boot doesn't have driver support to increase CPU voltage, and
+> Hal offering to add this to a driver in U-Boot... but that's the wrong
+> way around in my opinion, unless there's some defect in the JH7110 CPU
+> that it won't run reliably with hardware defaults.
+>
+> 1:
+> https://lore.kernel.org/all/20240603020607.25122-1-xingyu.wu@starfivetech.com/
+>
+> What is the correct thing to do here?
 
-Best regards,
--- 
-Yixun Lan
+I really don't think slowing down all the boards because of missing code in
+U-Boot is the right solution, but Hal also answered in the old thread.
 
+/Emil
 
 _______________________________________________
 linux-riscv mailing list
