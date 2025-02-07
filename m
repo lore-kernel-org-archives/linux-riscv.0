@@ -4,99 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D29EC02194
-	for <linux-riscv@archiver.kernel.org>; Fri,  7 Feb 2025 10:30:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 77157C02196
+	for <linux-riscv@archiver.kernel.org>; Fri,  7 Feb 2025 10:57:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ky89DBPVhftB1qyNlCpvTZsknVgQhfd+J0BJDANesIA=; b=KgLlueABOn6173
-	sXOuhrYoXxZgN+GFfd7DJ3STbZge2jmA+DAQiIIuaHzSz174NVBSsuxggdrydSCaVX9cUE1Wfq+Pw
-	ZECENHefV+uD3HNBu1w/d5JLjIMKqt8pK7zEBZYNPYyGAw9qEZqie30A2SUPet04UnVFl01w3oV1h
-	DvZ0IGZ0sdZTEk2F33jrMNQDrlilVM31RW34G4jAws9PdG+C9hWc+6Bf+tTM0AKbuKUCpb39jWCQM
-	lt1zQAf4SSzeoempvnItgRtdbAfchJdE6Fs+joMIErAzMmoZ6D5aWf3rsWf6eHIntV+sgeoKMf8Qr
-	7ZtUJdPqHmNBYyeGSijg==;
+	List-Owner; bh=Gwkc0C0uO6gVfO4OIjjy9wgAB/tWykAz06lt7LyCKqc=; b=I0s5l2NiR1pI5u
+	AD5Mw8d5wOsGV8DzvRD4xwqAwoKr+hub1UzXbHuDwwJov67jYwvlwdgOstb5zUvcACWwm0xiMxLfk
+	VThuJ8OuZ1gAhEmE5my0p9gmn06Q1em0vaHgPU6k1u67ZugBYbVYUKPcfk8auIWTVak6sCZjTCyex
+	f0xO6tU5oFRJ6iYStfhjD/6+r5QgzPfH9KRETs3KurvpjAVzNXM39L7GE/kmGcTgBCcqymUGcHy2h
+	yErPLsbbQLUAgQTkcwktcyVpY9lzRU6T6M1N0xJw0OV/eIuB69b2TKHYOtJ1QdaEatPu1y1QMx2NQ
+	HKJC1oun25zlwTi7UAcA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tgLdB-00000009Cq2-35p4;
-	Fri, 07 Feb 2025 10:30:41 +0000
-Received: from mail-wm1-x333.google.com ([2a00:1450:4864:20::333])
+	id 1tgM2g-00000009HPF-3MT5;
+	Fri, 07 Feb 2025 10:57:02 +0000
+Received: from mail.gentoo.org ([2001:470:ea4a:1:5054:ff:fec7:86e4] helo=smtp.gentoo.org)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tgLbm-00000009CVt-0wf5
+	id 1tgM2B-00000009HI7-3tT5
 	for linux-riscv@lists.infradead.org;
-	Fri, 07 Feb 2025 10:29:16 +0000
-Received: by mail-wm1-x333.google.com with SMTP id 5b1f17b1804b1-436326dcb1cso12753235e9.0
-        for <linux-riscv@lists.infradead.org>; Fri, 07 Feb 2025 02:29:13 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1738924152; x=1739528952; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=kZecQt9IpEJ7wbD4TyHVoTgZZnQwqJP3yUkd6SaQ1fo=;
-        b=UtKzgx1N1crJZ11lK67wtikJsjccEwo9jscSOpXkurLDgYW6LD4t12tgdcbFioY/2Z
-         0Lo3qzcm2IkYPS+VWsVpWHL0qOgV999J+6Aa4764IB1k7NI+9P45BdqIPpL+dMGx/HkX
-         qJXUfC/up2b7MFuckza6l9LkNPtW+hCZokWVv63/VhwybsXJz9set97uIoGuFAeuGPBQ
-         beW6M14vn9UA3AvnUHeCRM/cQ+6iZf89uNrTWE4faL7NHmujNOIEdAxW0UbiK01zNa5d
-         0lVA4Mbhch2/LvOpiufW1S99bLTLq9DXrqYumYwUzgye4tcISicW3RdVmADtjhcKD5w6
-         bmbw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1738924152; x=1739528952;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=kZecQt9IpEJ7wbD4TyHVoTgZZnQwqJP3yUkd6SaQ1fo=;
-        b=pB9wyqYmqRyhmzugyPBB/lFbdj35euQf1RKtsVM+VMFY7ebGFNv2F5D3BbylvKiqiu
-         0Er7NdqkLjX3Vxs97rq1ifeV6K3c6P8dm0eH/YimQsKLqJlPoCImvZKJYUv/vQHX3xY7
-         +kOQkU4dWFtVf7n/5V1yqLonShtoBwcFVC36V6UAKiD/NNkRYRX6Ug7C7o2NmnJjum+D
-         LKbA9sGFoZmMUdsj+sqSnL8h3/IDMabjdglg6FmGLujn7HrTmm2y8hoOa/hsHgnur2kS
-         Wfw1ON4EKx4jcyrrVIeXjd7NY8eHDpH5F2OTq20lKnT4uao6nPS3dkwHHbr0ZnUNYzFF
-         QNmg==
-X-Gm-Message-State: AOJu0YxHChpTWnII/BdABl5Ykq8bk0ojtk4Aby1R4OO8hRK1HBDuNZEk
-	wycwub+ugKIJKNizdgpzzCJ33K4QXuZ/jbhlgCIuqCMWm/RUrw94c1I/le6F/WM=
-X-Gm-Gg: ASbGncuGDJXGW08hf2swj8TEt44yK0XuD0Rktxqzlv+glsq1D6qV/RxouoF1066/rKD
-	0Lh2sTow4Gi5wBuuGqrHQlvQrElSJaAR7X9UaDYAVQfcRA0y9vNFMYoP6A9UiTM0w5s6445kte7
-	LqfMrJRT40Nz6scYFPl1+M8DMKorSUflM+dL7EZCuleDeaspIf09saf+iYNLwc650en906Jm8O5
-	bzNLZTKthBC0RwgyX+6yk6OAlaWthCYFvZ7lgyOa4OupisjWdZFY6D9erhEbw2jbrspGHjDUHHp
-	/4KC2MbI3lIXl1MLmzne1n8Mvf+Szm6jnnx23OS0wAFo3LfPyLrcdgjsq4Bb
-X-Google-Smtp-Source: AGHT+IHCoYm88N9w7MLKhv47jx2sJHV5XaJtNjy2Kt9tKO8gApEJnGbxZzlJthncRDoGbW5dA9LdfQ==
-X-Received: by 2002:a05:600c:c19:b0:436:fb02:e68 with SMTP id 5b1f17b1804b1-4392497f9cbmr21820835e9.2.1738924150908;
-        Fri, 07 Feb 2025 02:29:10 -0800 (PST)
-Received: from ?IPV6:2a01:e0a:e17:9700:16d2:7456:6634:9626? ([2a01:e0a:e17:9700:16d2:7456:6634:9626])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4390d933794sm87719805e9.7.2025.02.07.02.29.09
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 07 Feb 2025 02:29:10 -0800 (PST)
-Message-ID: <586dc43d-74cd-413b-86e2-545384ad796f@rivosinc.com>
-Date: Fri, 7 Feb 2025 11:29:08 +0100
+	Fri, 07 Feb 2025 10:56:33 +0000
+Received: from localhost (unknown [180.172.76.141])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: dlan)
+	by smtp.gentoo.org (Postfix) with ESMTPSA id 73D1C340CC9;
+	Fri, 07 Feb 2025 10:56:28 +0000 (UTC)
+Date: Fri, 7 Feb 2025 10:56:17 +0000
+From: Yixun Lan <dlan@gentoo.org>
+To: Linus Walleij <linus.walleij@linaro.org>,
+	Bartosz Golaszewski <brgl@bgdev.pl>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Conor Dooley <conor@kernel.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>
+Subject: Re: [PATCH v4 2/4] gpio: spacemit: add support for K1 SoC
+Message-ID: <20250207105617-GYC5367@gentoo>
+References: <20250121-03-k1-gpio-v4-0-4641c95c0194@gentoo.org>
+ <20250121-03-k1-gpio-v4-2-4641c95c0194@gentoo.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 12/21] RISC-V: perf: Modify the counter discovery
- mechanism
-To: Atish Patra <atishp@rivosinc.com>,
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Anup Patel <anup@brainfault.org>,
- Atish Patra <atishp@atishpatra.org>, Will Deacon <will@kernel.org>,
- Mark Rutland <mark.rutland@arm.com>, Peter Zijlstra <peterz@infradead.org>,
- Ingo Molnar <mingo@redhat.com>, Arnaldo Carvalho de Melo <acme@kernel.org>,
- Namhyung Kim <namhyung@kernel.org>,
- Alexander Shishkin <alexander.shishkin@linux.intel.com>,
- Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>,
- Adrian Hunter <adrian.hunter@intel.com>, weilin.wang@intel.com
-Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
- Conor Dooley <conor@kernel.org>, devicetree@vger.kernel.org,
- kvm@vger.kernel.org, kvm-riscv@lists.infradead.org,
- linux-arm-kernel@lists.infradead.org, linux-perf-users@vger.kernel.org
-References: <20250205-counter_delegation-v4-0-835cfa88e3b1@rivosinc.com>
- <20250205-counter_delegation-v4-12-835cfa88e3b1@rivosinc.com>
-Content-Language: en-US
-From: =?UTF-8?B?Q2zDqW1lbnQgTMOpZ2Vy?= <cleger@rivosinc.com>
-In-Reply-To: <20250205-counter_delegation-v4-12-835cfa88e3b1@rivosinc.com>
+Content-Disposition: inline
+In-Reply-To: <20250121-03-k1-gpio-v4-2-4641c95c0194@gentoo.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250207_022914_526726_7C73BBA1 
-X-CRM114-Status: GOOD (  39.74  )
+X-CRM114-CacheID: sfid-20250207_025631_996138_1A51CEFF 
+X-CRM114-Status: GOOD (  22.57  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,258 +63,123 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Cc: devicetree@vger.kernel.org, Meng Zhang <zhangmeng.kevin@linux.spacemit.com>, linux-gpio@vger.kernel.org, linux-kernel@vger.kernel.org, Jesse Taube <mr.bossman075@gmail.com>, Yangyu Chen <cyy@cyyself.name>, Inochi Amaoto <inochiama@outlook.com>, Jisheng Zhang <jszhang@kernel.org>, linux-riscv@lists.infradead.org, spacemit@lists.linux.dev, Emil Renner Berthing <kernel@esmil.dk>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
-
-On 06/02/2025 08:23, Atish Patra wrote:
-> If both counter delegation and SBI PMU is present, the counter
-> delegation will be used for hardware pmu counters while the SBI PMU
-> will be used for firmware counters. Thus, the driver has to probe
-> the counters info via SBI PMU to distinguish the firmware counters.
+On 11:38 Tue 21 Jan     , Yixun Lan wrote:
+> Implement GPIO functionality which capable of setting pin as
+> input, output. Also, each pin can be used as interrupt which
+> support rising, failing, or both edge type trigger.
 > 
-> The hybrid scheme also requires improvements of the informational
-> logging messages to indicate the user about underlying interface
-> used for each use case.
-> 
-> Signed-off-by: Atish Patra <atishp@rivosinc.com>
+> Signed-off-by: Yixun Lan <dlan@gentoo.org>
 > ---
->  drivers/perf/riscv_pmu_dev.c | 118 ++++++++++++++++++++++++++++++++-----------
->  1 file changed, 88 insertions(+), 30 deletions(-)
+>  drivers/gpio/Kconfig            |   7 +
+>  drivers/gpio/Makefile           |   1 +
+>  drivers/gpio/gpio-spacemit-k1.c | 295 ++++++++++++++++++++++++++++++++++++++++
+>  3 files changed, 303 insertions(+)
 > 
-> diff --git a/drivers/perf/riscv_pmu_dev.c b/drivers/perf/riscv_pmu_dev.c
-> index 6b43d844eaea..5ddf4924c5b3 100644
-> --- a/drivers/perf/riscv_pmu_dev.c
-> +++ b/drivers/perf/riscv_pmu_dev.c
-> @@ -66,6 +66,10 @@ static bool sbi_v2_available;
->  static DEFINE_STATIC_KEY_FALSE(sbi_pmu_snapshot_available);
->  #define sbi_pmu_snapshot_available() \
->  	static_branch_unlikely(&sbi_pmu_snapshot_available)
-> +static DEFINE_STATIC_KEY_FALSE(riscv_pmu_sbi_available);
-> +static DEFINE_STATIC_KEY_FALSE(riscv_pmu_cdeleg_available);
-> +static bool cdeleg_available;
-> +static bool sbi_available;
+> diff --git a/drivers/gpio/Kconfig b/drivers/gpio/Kconfig
+> index 56fee58e281e7cac7f287eb04e4c17a17f75ed04..c153f5439649da020ee42c38e88cb8df31a8e307 100644
+> --- a/drivers/gpio/Kconfig
+> +++ b/drivers/gpio/Kconfig
+> @@ -654,6 +654,13 @@ config GPIO_SNPS_CREG
+>  	  where only several fields in register belong to GPIO lines and
+>  	  each GPIO line owns a field with different length and on/off value.
 >  
->  static struct attribute *riscv_arch_formats_attr[] = {
->  	&format_attr_event.attr,
-> @@ -88,7 +92,8 @@ static int sysctl_perf_user_access __read_mostly = SYSCTL_USER_ACCESS;
->  
->  /*
->   * This structure is SBI specific but counter delegation also require counter
-> - * width, csr mapping. Reuse it for now.
-> + * width, csr mapping. Reuse it for now we can have firmware counters for
-> + * platfroms with counter delegation support.
->   * RISC-V doesn't have heterogeneous harts yet. This need to be part of
->   * per_cpu in case of harts with different pmu counters
->   */
-> @@ -100,6 +105,8 @@ static unsigned int riscv_pmu_irq;
->  
->  /* Cache the available counters in a bitmask */
->  static unsigned long cmask;
-> +/* Cache the available firmware counters in another bitmask */
-> +static unsigned long firmware_cmask;
->  
->  struct sbi_pmu_event_data {
->  	union {
-> @@ -778,35 +785,49 @@ static int rvpmu_sbi_find_num_ctrs(void)
->  		return sbi_err_map_linux_errno(ret.error);
->  }
->  
-> -static int rvpmu_sbi_get_ctrinfo(int nctr, unsigned long *mask)
-> +static int rvpmu_deleg_find_ctrs(void)
+> +config GPIO_SPACEMIT_K1
+> +	bool "SPACEMIT K1 GPIO support"
+> +	depends on ARCH_SPACEMIT || COMPILE_TEST
+> +	select GPIOLIB_IRQCHIP
+> +	help
+> +	  Say yes here to support the SpacemiT's K1 GPIO device.
+> +
+>  config GPIO_SPEAR_SPICS
+>  	bool "ST SPEAr13xx SPI Chip Select as GPIO support"
+>  	depends on PLAT_SPEAR
+> diff --git a/drivers/gpio/Makefile b/drivers/gpio/Makefile
+> index af3ba4d81b583842893ea69e677fbe2abf31bc7b..6709ce511a0cf10310a94521c85a2d382dcfa696 100644
+> --- a/drivers/gpio/Makefile
+> +++ b/drivers/gpio/Makefile
+> @@ -156,6 +156,7 @@ obj-$(CONFIG_GPIO_SIOX)			+= gpio-siox.o
+>  obj-$(CONFIG_GPIO_SL28CPLD)		+= gpio-sl28cpld.o
+>  obj-$(CONFIG_GPIO_SLOPPY_LOGIC_ANALYZER) += gpio-sloppy-logic-analyzer.o
+>  obj-$(CONFIG_GPIO_SODAVILLE)		+= gpio-sodaville.o
+> +obj-$(CONFIG_GPIO_SPACEMIT_K1)		+= gpio-spacemit-k1.o
+>  obj-$(CONFIG_GPIO_SPEAR_SPICS)		+= gpio-spear-spics.o
+>  obj-$(CONFIG_GPIO_SPRD)			+= gpio-sprd.o
+>  obj-$(CONFIG_GPIO_STMPE)		+= gpio-stmpe.o
+> diff --git a/drivers/gpio/gpio-spacemit-k1.c b/drivers/gpio/gpio-spacemit-k1.c
+> new file mode 100644
+> index 0000000000000000000000000000000000000000..de0491af494c10f528095efee9b3a140bdcc0b0d
+> --- /dev/null
+> +++ b/drivers/gpio/gpio-spacemit-k1.c
+> @@ -0,0 +1,295 @@
+> +// SPDX-License-Identifier: GPL-2.0 OR MIT
+> +/*
+> + * Copyright (C) 2023-2025 SpacemiT (Hangzhou) Technology Co. Ltd
+> + * Copyright (c) 2025 Yixun Lan <dlan@gentoo.org>
+> + */
+> +
+omit ..
+> +static int spacemit_gpio_get_ports(struct device *dev, struct spacemit_gpio *gpio,
+> +				   void __iomem *regs)
 > +{
-> +	/* TODO */
-> +	return -1;
-> +}
+> +	struct spacemit_gpio_port *port;
+> +	u32 i = 0, offset;
 > +
-> +static int rvpmu_sbi_get_ctrinfo(int nsbi_ctr, int ndeleg_ctr)
-
-Hi Atish,
-
-These parameters could be unsigned I think.
-
->  {
->  	struct sbiret ret;
-> -	int i, num_hw_ctr = 0, num_fw_ctr = 0;
-> +	int i, num_hw_ctr = 0, num_fw_ctr = 0, num_ctr = 0;
->  	union sbi_pmu_ctr_info cinfo;
->  
-> -	pmu_ctr_list = kcalloc(nctr, sizeof(*pmu_ctr_list), GFP_KERNEL);
-> -	if (!pmu_ctr_list)
-> -		return -ENOMEM;
-> -
-> -	for (i = 0; i < nctr; i++) {
-> +	for (i = 0; i < nsbi_ctr; i++) {
->  		ret = sbi_ecall(SBI_EXT_PMU, SBI_EXT_PMU_COUNTER_GET_INFO, i, 0, 0, 0, 0, 0);
->  		if (ret.error)
->  			/* The logical counter ids are not expected to be contiguous */
->  			continue;
->  
-> -		*mask |= BIT(i);
-> -
->  		cinfo.value = ret.value;
->  		if (cinfo.type == SBI_PMU_CTR_TYPE_FW)
->  			num_fw_ctr++;
-> -		else
+> +	gpio->nr_ports = device_get_child_node_count(dev);
+> +	if (gpio->nr_ports == 0)
+> +		return -ENODEV;
 > +
-> +		if (!cdeleg_available) {
-
-What is the rationale for using additional boolean identical to the
-static keys ? Reducing the amount of code patch site in cold path ? If
-so, I guess you can use static_key_enabled(&riscv_pmu_cdeleg_available).
-But your solution is fine as well, it just duplicates two identical values.
-
->  			num_hw_ctr++;
-> -		pmu_ctr_list[i].value = cinfo.value;
-> +			cmask |= BIT(i);
-> +			pmu_ctr_list[i].value = cinfo.value;
-> +		} else if (cinfo.type == SBI_PMU_CTR_TYPE_FW) {
-> +			/* Track firmware counters in a different mask */
-> +			firmware_cmask |= BIT(i);
-> +			pmu_ctr_list[i].value = cinfo.value;
-> +		}
-> +
->  	}
->  
-> -	pr_info("%d firmware and %d hardware counters\n", num_fw_ctr, num_hw_ctr);
-> +	if (cdeleg_available) {
-> +		pr_info("%d firmware and %d hardware counters\n", num_fw_ctr, ndeleg_ctr);
-> +		num_ctr = num_fw_ctr + ndeleg_ctr;
-> +	} else {
-> +		pr_info("%d firmware and %d hardware counters\n", num_fw_ctr, num_hw_ctr);
-> +		num_ctr = nsbi_ctr;
-> +	}
->  
-> -	return 0;
-> +	return num_ctr;
->  }
->  
->  static inline void rvpmu_sbi_stop_all(struct riscv_pmu *pmu)
-> @@ -1067,16 +1088,33 @@ static void rvpmu_ctr_stop(struct perf_event *event, unsigned long flag)
->  	/* TODO: Counter delegation implementation */
->  }
->  
-> -static int rvpmu_find_num_ctrs(void)
-> +static int rvpmu_find_ctrs(void)
->  {
-> -	return rvpmu_sbi_find_num_ctrs();
-> -	/* TODO: Counter delegation implementation */
-> -}
-> +	int num_sbi_counters = 0, num_deleg_counters = 0, num_counters = 0;
->  
-> -static int rvpmu_get_ctrinfo(int nctr, unsigned long *mask)
-> -{
-> -	return rvpmu_sbi_get_ctrinfo(nctr, mask);
-> -	/* TODO: Counter delegation implementation */
-> +	/*
-> +	 * We don't know how many firmware counters available. Just allocate
-> +	 * for maximum counters driver can support. The default is 64 anyways.
-> +	 */
-> +	pmu_ctr_list = kcalloc(RISCV_MAX_COUNTERS, sizeof(*pmu_ctr_list),
-> +			       GFP_KERNEL);
-> +	if (!pmu_ctr_list)
+> +	gpio->ports = devm_kcalloc(dev, gpio->nr_ports, sizeof(*gpio->ports), GFP_KERNEL);
+> +	if (!gpio->ports)
 > +		return -ENOMEM;
 > +
-> +	if (cdeleg_available)
-> +		num_deleg_counters = rvpmu_deleg_find_ctrs();
+> +	device_for_each_child_node_scoped(dev, fwnode)  {
+> +		port		= &gpio->ports[i];
+> +		port->fwnode	= fwnode;
+> +		port->index	= i++;
 > +
-> +	/* This is required for firmware counters even if the above is true */
-> +	if (sbi_available)
-> +		num_sbi_counters = rvpmu_sbi_find_num_ctrs();
+> +		if (fwnode_property_read_u32(fwnode, "reg", &offset))
+> +			return -EINVAL;
 > +
-> +	if (num_sbi_counters >= RISCV_MAX_COUNTERS || num_deleg_counters >= RISCV_MAX_COUNTERS)
-> +		return -ENOSPC;
-
-Why is this using '>=' ? You allocated space for RISCV_MAX_COUNTERS, so
-RISCV_MAX_COUNTERS should fit right ?
-
-> +
-> +	/* cache all the information about counters now */
-> +	num_counters = rvpmu_sbi_get_ctrinfo(num_sbi_counters, num_deleg_counters);
-> +
-> +	return num_counters;
-
-return rvpmu_sbi_get_ctrinfo(num_sbi_counters, num_deleg_counters);
-
->  }
->  
->  static int rvpmu_event_map(struct perf_event *event, u64 *econfig)
-> @@ -1377,12 +1415,21 @@ static int rvpmu_device_probe(struct platform_device *pdev)
->  	int ret = -ENODEV;
->  	int num_counters;
->  
-> -	pr_info("SBI PMU extension is available\n");
-> +	if (cdeleg_available) {
-> +		pr_info("hpmcounters will use the counter delegation ISA extension\n");
-> +		if (sbi_available)
-> +			pr_info("Firmware counters will be use SBI PMU extension\n");
-
-s/will be use/will use
-
-> +		else
-> +			pr_info("Firmware counters will be not available as SBI PMU extension is not present\n");
-
-s/will be not/will not
-
-> +	} else if (sbi_available) {
-> +		pr_info("Both hpmcounters and firmware counters will use SBI PMU extension\n");
+> +		port->base	= regs + offset;
+> +		port->irq	= fwnode_irq_get(fwnode, 0);
 > +	}
 > +
->  	pmu = riscv_pmu_alloc();
->  	if (!pmu)
->  		return -ENOMEM;
->  
-> -	num_counters = rvpmu_find_num_ctrs();
-> +	num_counters = rvpmu_find_ctrs();
->  	if (num_counters < 0) {
->  		pr_err("SBI PMU extension doesn't provide any counters\n");
->  		goto out_free;
-> @@ -1394,9 +1441,6 @@ static int rvpmu_device_probe(struct platform_device *pdev)
->  		pr_info("SBI returned more than maximum number of counters. Limiting the number of counters to %d\n", num_counters);
->  	}
->  
-> -	/* cache all the information about counters now */
-> -	if (rvpmu_get_ctrinfo(num_counters, &cmask))
-> -		goto out_free;
->  
->  	ret = rvpmu_setup_irqs(pmu, pdev);
->  	if (ret < 0) {
-> @@ -1486,13 +1530,27 @@ static int __init rvpmu_devinit(void)
->  	int ret;
->  	struct platform_device *pdev;
->  
-> -	if (sbi_spec_version < sbi_mk_version(0, 3) ||
-> -	    !sbi_probe_extension(SBI_EXT_PMU)) {
-> -		return 0;
-> +	if (sbi_spec_version >= sbi_mk_version(0, 3) &&
-> +	    sbi_probe_extension(SBI_EXT_PMU)) {
-> +		static_branch_enable(&riscv_pmu_sbi_available);
-> +		sbi_available = true;
->  	}
->  
->  	if (sbi_spec_version >= sbi_mk_version(2, 0))
->  		sbi_v2_available = true;
-> +	/*
-> +	 * We need all three extensions to be present to access the counters
-> +	 * in S-mode via Supervisor Counter delegation.
-> +	 */
-> +	if (riscv_isa_extension_available(NULL, SSCCFG) &&
-> +	    riscv_isa_extension_available(NULL, SMCDELEG) &&
-> +	    riscv_isa_extension_available(NULL, SSCSRIND)) {
-> +		static_branch_enable(&riscv_pmu_cdeleg_available);
-> +		cdeleg_available = true;
-> +	}
+> +	return 0;
+> +}
 > +
-> +	if (!(sbi_available || cdeleg_available))
-> +		return 0;
->  
->  	ret = cpuhp_setup_state_multi(CPUHP_AP_PERF_RISCV_STARTING,
->  				      "perf/riscv/pmu:starting",
-> 
+> +static int spacemit_gpio_add_port(struct spacemit_gpio *gpio, int index)
+> +{
+> +	struct spacemit_gpio_port *port;
+> +	struct device *dev = gpio->dev;
+> +	struct gpio_irq_chip *girq;
+> +	void __iomem *dat, *set, *clr, *dirin, *dirout;
+> +	int ret;
+> +
+> +	port = &gpio->ports[index];
+> +	port->gpio = gpio;
+> +
+> +	dat	= port->base + GPLR;
+> +	set	= port->base + GPSR;
+> +	clr	= port->base + GPCR;
+> +	dirin	= port->base + GCDR;
+> +	dirout	= port->base + GSDR;
+> +
+> +	/* This registers 32 GPIO lines per port */
+> +	ret = bgpio_init(&port->gc, dev, 4, dat, set, clr, dirout, dirin,
+> +			 BGPIOF_UNREADABLE_REG_SET | BGPIOF_UNREADABLE_REG_DIR);
 
+Esmil point out bgpio_init() require a GPIO_GENERIC dependency, will fix it
+
+-- 
+Yixun Lan (dlan)
+Gentoo Linux Developer
+GPG Key ID AABEFD55
 
 _______________________________________________
 linux-riscv mailing list
