@@ -4,88 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 01022C02194
-	for <linux-riscv@archiver.kernel.org>; Fri,  7 Feb 2025 18:46:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B529BC02196
+	for <linux-riscv@archiver.kernel.org>; Fri,  7 Feb 2025 19:01:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=QK5dPJXnBkK/dmXko+yG5V+e5kgufgMURL4qhLfsRKA=; b=JQluh3/xz8ClFt
-	/rPJwPXavP/DWcIInqz6MPhUwEYfg7LnmdY931rwxnTJAMnqPpny3RhCXtfwfswyhTLmiRsJe4yNT
-	R2vtJFF7cjoxvoLqE5zEjZTi+Zed8oiclPBProFc1mx4RBQUcZU99i+8Z1bhSNsiexZaKgBAMp2sg
-	p3jEMB1VB5kcycu1iedi28e2GuP8PUm6kv3noWYAdM0GL6+4UeEQOu7JQ5CCofuNroxBepTc4S+xw
-	cD45SNhmrm54aohJQ68uv2X3yjIzpBG3HZoAum6QqTgZi/SZucd8c6XNtjniqLDTp4EEhMK69mgar
-	WF41Txe7BhlhbAx+onHw==;
+	List-Owner; bh=4E+0lxx+pj3KoyQuS0IJyES9r2RELvJglQopR/34ibI=; b=3z75yLyH997M56
+	HDCZiEFg/ZBxmUTTEtTRxjkIpAX7416AaLr3L5IvhAmbTCoxoBWhG6Q34O3w5eccn9hYFnFzBpIkP
+	41Rmwwh7uu2aIzZ37IyjwglYYCPpc9sHI4WFQV5s+EEwm+laqUE4YejpQssFJ6N9aCAqtXj53VoT7
+	EQXq3EnzlnbNjBtzYPsue3liDV9PLi6q98vLa9Ff3syNbo7rgiptwmWOwg3gJ2AmZSJ9QEHPQz8rw
+	+T77LugEgBMCaO39yDpkUbScTSyqF1mRIL9wcn5oE7fKN7QA+c8Vxa0wcJRiLiJXnNlSoBWLss2yZ
+	4XG8sRV5byAqvbxThgFg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tgTMz-0000000Am8c-1cWk;
-	Fri, 07 Feb 2025 18:46:29 +0000
-Received: from mail-wm1-x330.google.com ([2a00:1450:4864:20::330])
+	id 1tgTbW-0000000ApR0-42FP;
+	Fri, 07 Feb 2025 19:01:30 +0000
+Received: from mail-il1-x12e.google.com ([2607:f8b0:4864:20::12e])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tgR5y-0000000AFj2-0t4h
+	id 1tgSeS-0000000AbGD-1nkD
 	for linux-riscv@lists.infradead.org;
-	Fri, 07 Feb 2025 16:20:47 +0000
-Received: by mail-wm1-x330.google.com with SMTP id 5b1f17b1804b1-436ce2ab251so15370885e9.1
-        for <linux-riscv@lists.infradead.org>; Fri, 07 Feb 2025 08:20:46 -0800 (PST)
+	Fri, 07 Feb 2025 18:00:29 +0000
+Received: by mail-il1-x12e.google.com with SMTP id e9e14a558f8ab-3cfeff44d94so6351095ab.0
+        for <linux-riscv@lists.infradead.org>; Fri, 07 Feb 2025 10:00:27 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1738945245; x=1739550045; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=ZaGa43r2JveY8ihF44rUo4WO7W9CMxjRpmYKl91QS2U=;
-        b=YxLIZiF1QbnBGAo/KKQn7sTKUBlfYT9nCw5QllSEoksg9U7csz8yccBcfyKYVz4Wir
-         fZ+v1HviybPpy/FoeujDrqMyYsiD0uoz6kCTXwz78K9lK2kTB09g6nzsrLhdVcAdcOpJ
-         jK85Yt6RJ1JW/kCCYYDKSqfgDet21akHr330YUsP9nGdTaTqmy5A4qMGe1OJTlIO2jJ3
-         okrHynuyT36aUfnKLiHQI9ynhx4OYe8VFdlGh5pk5yvPzAVE3DvcpIKLGIAp5N1B0Zxs
-         Y5lKGwBwi7seQW3gn4Aq3fTqwPVoTIkFtrE5Qkv3ccexvg6G+JVpTybJqHYwlwMDcV2m
-         6iqw==
+        d=riscstar-com.20230601.gappssmtp.com; s=20230601; t=1738951227; x=1739556027; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=xMNhNJkx3fFqX0U1Zs6VO58/T6R6XQxl18p8Q1ICoic=;
+        b=YIiV+VfPC1grMKLK/YkbhVJTKoaBBhAWQ37YvBzTFEepxhA1vPsWon2robC1mtXmvx
+         1/Xs9zStCMkafANLiZXAbkmMGRPetG4ydP38ZpgGpBdJeoOKa3jBSbHOLajHq4IaXKs5
+         ruMrZHadPUbQpztySEIXmiy7m6IcREb2C0L4HcaV8uqCK/hHW6q0vA28/b+mChk5Ao5d
+         HiGFB2T2xhA1MIZ9bftFlIWPI7CP9TdwR8DBEVLSwJVXJXe8QN2Qua+ZbnPGbaAxPcIA
+         uNIqvaIcEZrPDnT9gGHUbYtJk/67KKhuCnY0yJuE5Ym0xh8FfqD9dnLTQ4CZ9nn/OvKJ
+         EVsA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1738945245; x=1739550045;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=ZaGa43r2JveY8ihF44rUo4WO7W9CMxjRpmYKl91QS2U=;
-        b=jEDhv5ohONImU4f90fAPZs8lJwLm0YravFTkd+s9VMfUZiqpgTj61R6chIPwdycCch
-         U5xcCQsbxQ5adZwMccZXXm2dCLxmFjOPL+XrcfFwNLtI3JYxVa7goD2DCmWabFTGrr7T
-         re0zgj9L5eJIJiBq9QEjuIOu6dt5qwsxDf4JKgW1UFMgABCbMN4L5NaGe+S/5gyWAO7r
-         jR+CSzTdKpbCkOQo9cjFw/DxKtTd6/GIER3qkQ9QXkUivTpp6Ci+w1eMir4OgmtawicA
-         JHxsTD7iRZzXkUPAds0sG7sHufCYK8biVbn4zWec16gR16DWbEP8G17b8J/KQys40TIc
-         H1pA==
-X-Gm-Message-State: AOJu0YxZ4XrI5+J+i8JbxLdctpL5tB6JrQLSbOC6h3U7SeLg8575Zfbt
-	JiBivxq/dRqIATxkfpsQsGUSK5CcTRNJCjgYOrM8i+P1VLkT7SJTuttXQeCAtC+9r3k+KlziOue
-	JQH4=
-X-Gm-Gg: ASbGnct32iXZ81MOMDY86qEXgzUC+A5qhzdwoXqTF7Xjy+Ve79IHWd5Gse1noDYP2kq
-	htQkEc/7gU3QSzSpeyOYOJ311aK3WBr6xxnP2iJ0jY/EOeMNS0Fh/+JiR83FeAwyT2B1k6Y/ZY6
-	JugG9jTUkdl6v6UMGdiA8Rewyz1ZELYcxVZQ7WERxYkIITYAYgbEyPj6Qi4JGe0mSw6FJ44x/Km
-	Uu0ndTFNk/tH5YCnF33nytoGA/7XG1nCMaMvVYGmjp+nZQiRD1iOZFGKUfrwzbNICcp8l4v9SSj
-	maohXRvnsa2WAmRSJk3wsrPYO5VL0mc6TUiGXSSqDipevVLMuzWERP3PBw==
-X-Google-Smtp-Source: AGHT+IEsxHTbv/ApYqI1Db4PbE3wHNdmjENh4/dQ6JTZy1CmXAHF/WRV8cibN7pL6QAb7qvzWGRwaQ==
-X-Received: by 2002:a05:600c:6a88:b0:434:fbda:1f44 with SMTP id 5b1f17b1804b1-439249a4033mr32953915e9.19.1738945244744;
-        Fri, 07 Feb 2025 08:20:44 -0800 (PST)
-Received: from localhost (089144193052.atnat0002.highway.a1.net. [89.144.193.52])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-38dbde0ff44sm4891569f8f.76.2025.02.07.08.20.43
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 07 Feb 2025 08:20:44 -0800 (PST)
-From: Andrew Jones <ajones@ventanamicro.com>
-To: linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Cc: paul.walmsley@sifive.com,
-	palmer@dabbelt.com,
-	charlie@rivosinc.com,
-	jesse@rivosinc.com,
-	Anup Patel <apatel@ventanamicro.com>
-Subject: [PATCH 8/9] riscv: Implement check_unaligned_access_table
-Date: Fri,  7 Feb 2025 17:19:48 +0100
-Message-ID: <20250207161939.46139-19-ajones@ventanamicro.com>
-X-Mailer: git-send-email 2.48.1
-In-Reply-To: <20250207161939.46139-11-ajones@ventanamicro.com>
-References: <20250207161939.46139-11-ajones@ventanamicro.com>
+        d=1e100.net; s=20230601; t=1738951227; x=1739556027;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=xMNhNJkx3fFqX0U1Zs6VO58/T6R6XQxl18p8Q1ICoic=;
+        b=lzOmo8RN7IrGo26nTPByfccJgHZaYKY7xPnF4VZNAbrbX4fKWdam81/YRN9W/Q+31M
+         wf84PzmFIdpL742PVA203Rn+cIEy9TrqDV/Iw0Cf+fuHQJO2DOzZRYYsHQUzRZ1LZZB+
+         LfDknjINiBNureWDVn076mPMB1E+Aquw4VYk5jf9m2IYvj1iEexYOeSXFEGl6sJ2M7Ro
+         mtDErxfcCRX2EnatjNfP5ounT8Gq7d2oVisIw4yeSk2Rx128KasEI4hfQZh00a2GkUoL
+         Ixl/1Evtf/HgNXEtEETH7yFNzIf1Fm9Fc8zkWBLqZ+UP2nyLLf5Up84MC13XiBB+eLmY
+         nP2A==
+X-Forwarded-Encrypted: i=1; AJvYcCXUlaLpnrj3C6aTC84IY7DmlkhEKQtVJrSeJD9/y6u3re3VnjY73sElvwIuuFPEwP0otoEgd4XNINz5EQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0YxbRkS+uDUSDefsoXk0fEhe+X5ZrWXzypDVsVSbcpOpM+e8kgZT
+	zU9EO3i16gDLmQS3Pdd8sKnfQgSUDdCLDl6ZcOvZos1kYkEF8cByLzTzWBzIBx8=
+X-Gm-Gg: ASbGncs26ytNPGWRW7EnrupADbs5n7iOtTgZu2A95S49EYQ3gZiS/SGIzT3YcOTUp7s
+	UfTZ2t8PS3gYLCjDpkOhRVMOQVzuzBb1H2obt/3KwaZta3o6xS+p5OdUANMkMwgdzK+n5Bxjirr
+	SM1fqREIrj8spHjGSZqi56edK7Y95fvCVjHpd6w8zNTMPQMzQf6WZeTnLP56m1EldIVmG9v9Vf+
+	fzfS6j4Nb7YIeyl4yVVW88auLmmEKy+GGpoN0wm/ePYVzVJwAas12rKtFbuS2WMBaui5fHShMHB
+	wGCTuYhI10cv31vh+nzeTRZRBR5KjwADrRzBO3Nqyv89un5mE9msH8E=
+X-Google-Smtp-Source: AGHT+IGt1SBRGKsD6WpAiEsXocNvoOHnb4Bn+U0x/Qz/EiAOgMhIEF8/efAO7K9USdddQwvdoBY1EA==
+X-Received: by 2002:a05:6e02:20c9:b0:3ce:4b12:fa17 with SMTP id e9e14a558f8ab-3d13df1d891mr32114905ab.19.1738951226514;
+        Fri, 07 Feb 2025 10:00:26 -0800 (PST)
+Received: from [172.22.22.28] (c-73-228-159-35.hsd1.mn.comcast.net. [73.228.159.35])
+        by smtp.gmail.com with ESMTPSA id e9e14a558f8ab-3d05e9a0e52sm8627095ab.61.2025.02.07.10.00.25
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 07 Feb 2025 10:00:26 -0800 (PST)
+Message-ID: <8c43a1ac-ae57-4e90-a791-3f1eb61b6c70@riscstar.com>
+Date: Fri, 7 Feb 2025 12:00:24 -0600
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] pinctrl: spacemit: enable config option
+To: Yixun Lan <dlan@gentoo.org>, Linus Walleij <linus.walleij@linaro.org>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>
+Cc: Alex Elder <elder@kernel.org>, linux-riscv@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linux-gpio@vger.kernel.org,
+ spacemit@lists.linux.dev
+References: <20250207-k1-pinctrl-option-v1-1-e8a7e4d8404f@gentoo.org>
+Content-Language: en-US
+From: Alex Elder <elder@riscstar.com>
+In-Reply-To: <20250207-k1-pinctrl-option-v1-1-e8a7e4d8404f@gentoo.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250207_082046_249566_BFDC88A2 
-X-CRM114-Status: GOOD (  15.69  )
+X-CRM114-CacheID: sfid-20250207_100028_665494_B94C25ED 
+X-CRM114-Status: GOOD (  17.21  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,143 +96,67 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Define the table entry type and implement the table lookup to find
-unaligned access types by id registers which is used to skip probing.
+On 2/7/25 6:11 AM, Yixun Lan wrote:
+> Pinctrl is an essential driver for SpacemiT's SoC,
+> so let's enable it by default for this SoC.
+> 
+> The CONFIG_PINCTRL_SPACEMIT_K1 isn't enabled when using
+> 'make defconfig' to select kernel configuration options.
+> This result in a broken uart driver where fail at probe()
+> stage due to no pins found.
+> 
+> Fixes: a83c29e1d145 ("pinctrl: spacemit: add support for SpacemiT K1 SoC")
+> Reported-by: Alex Elder <elder@kernel.org>
+> Signed-off-by: Yixun Lan <dlan@gentoo.org>
+> ---
+> This should fix problem that CONFIG_PINCTRL_SPACEMIT_K1 is not enabled
+> when using make defconfig, thus fail to initilize uart driver which requst
+> pins during probe stage.
 
-Signed-off-by: Andrew Jones <ajones@ventanamicro.com>
----
- arch/riscv/kernel/unaligned_access_speed.c | 91 +++++++++++++++++++++-
- 1 file changed, 89 insertions(+), 2 deletions(-)
+Thanks Yixun.
 
-diff --git a/arch/riscv/kernel/unaligned_access_speed.c b/arch/riscv/kernel/unaligned_access_speed.c
-index f8497097e79d..bd6db4c42daf 100644
---- a/arch/riscv/kernel/unaligned_access_speed.c
-+++ b/arch/riscv/kernel/unaligned_access_speed.c
-@@ -12,6 +12,7 @@
- #include <linux/types.h>
- #include <asm/cpufeature.h>
- #include <asm/hwprobe.h>
-+#include <asm/sbi.h>
- #include <asm/vector.h>
- 
- #include "copy-unaligned.h"
-@@ -230,11 +231,89 @@ static int __init lock_and_set_unaligned_access_static_branch(void)
- 
- arch_initcall_sync(lock_and_set_unaligned_access_static_branch);
- 
--static bool check_unaligned_access_table(void)
-+/*
-+ * An unaligned_access_table_entry maps harts (or collections of harts) to
-+ * unaligned access types. @level is used to determine whether @marchid and/or
-+ * @mimpid should to be considered. All (level, mvendorid, marchid, mimpid)
-+ * tuples formed from each table entry must be unique.
-+ */
-+enum id_level {
-+	LEVEL_VENDOR,
-+	LEVEL_ARCH,
-+	LEVEL_IMP,
-+};
-+struct unaligned_access_table_entry {
-+	enum id_level level;
-+	u32 mvendorid;
-+	ulong marchid;
-+	ulong mimpid;
-+	long type;
-+};
-+
-+static struct unaligned_access_table_entry unaligned_access_table_entries[] = {
-+};
-+
-+/*
-+ * Search unaligned_access_table_entries[] for the most specific match,
-+ * i.e. if there are two entries, one with mvendorid = V and level = VENDOR
-+ * and another with mvendorid = V, level = ARCH, and marchid = A, then
-+ * a hart with {V,A,?} will match the latter while a hart with {V,!A,?}
-+ * will match the former.
-+ */
-+static bool __check_unaligned_access_table(int cpu, long *ptr, int nr_entries,
-+					   struct unaligned_access_table_entry table[])
- {
-+	struct unaligned_access_table_entry *entry, *match = NULL;
-+	u32 mvendorid = riscv_cached_mvendorid(cpu);
-+	ulong marchid = riscv_cached_marchid(cpu);
-+	ulong mimpid = riscv_cached_mimpid(cpu);
-+	int i;
-+
-+	for (i = 0; i < nr_entries; ++i) {
-+		entry = &table[i];
-+
-+		switch (entry->level) {
-+		case LEVEL_VENDOR:
-+			if (!match && entry->mvendorid == mvendorid) {
-+				/* The match, unless we find an ARCH or IMP level match. */
-+				match = entry;
-+			}
-+			break;
-+		case LEVEL_ARCH:
-+			if (entry->mvendorid == mvendorid && entry->marchid == marchid) {
-+				/* The match, unless we find an IMP level match. */
-+				match = entry;
-+			}
-+			break;
-+		case LEVEL_IMP:
-+			if (entry->mvendorid == mvendorid && entry->marchid == marchid &&
-+			    entry->mimpid == mimpid) {
-+				match = entry;
-+				goto matched;
-+			}
-+			break;
-+		}
-+	}
-+
-+	if (match) {
-+matched:
-+		*ptr = match->type;
-+		return true;
-+	}
-+
- 	return false;
- }
- 
-+static bool check_unaligned_access_table(void)
-+{
-+	int cpu = smp_processor_id();
-+	long *ptr = per_cpu_ptr(&misaligned_access_speed, cpu);
-+
-+	return __check_unaligned_access_table(cpu, ptr,
-+					      ARRAY_SIZE(unaligned_access_table_entries),
-+					      unaligned_access_table_entries);
-+}
-+
- static int riscv_online_cpu(unsigned int cpu)
- {
- 	if (check_unaligned_access_table())
-@@ -380,9 +459,17 @@ static int __init vec_check_unaligned_access_speed_all_cpus(void *unused __alway
- }
- #endif
- 
-+static struct unaligned_access_table_entry vec_unaligned_access_table_entries[] = {
-+};
-+
- static bool check_vector_unaligned_access_table(void)
- {
--	return false;
-+	int cpu = smp_processor_id();
-+	long *ptr = per_cpu_ptr(&vector_misaligned_access, cpu);
-+
-+	return __check_unaligned_access_table(cpu, ptr,
-+					      ARRAY_SIZE(vec_unaligned_access_table_entries),
-+					      vec_unaligned_access_table_entries);
- }
- 
- static int riscv_online_cpu_vec(unsigned int cpu)
--- 
-2.48.1
+Tested-by: Alex Elder <elder@riscstar.com>
+
+> ---
+>   arch/riscv/Kconfig.socs          | 1 +
+>   drivers/pinctrl/spacemit/Kconfig | 1 +
+>   2 files changed, 2 insertions(+)
+> 
+> diff --git a/arch/riscv/Kconfig.socs b/arch/riscv/Kconfig.socs
+> index 1916cf7ba450ec9958265de2ca41dc504d4d2f7c..17606940bb5239d0fdfc6b5aefb50eeb982d14aa 100644
+> --- a/arch/riscv/Kconfig.socs
+> +++ b/arch/riscv/Kconfig.socs
+> @@ -26,6 +26,7 @@ config ARCH_SOPHGO
+>   
+>   config ARCH_SPACEMIT
+>   	bool "SpacemiT SoCs"
+> +	select PINCTRL
+>   	help
+>   	  This enables support for SpacemiT SoC platform hardware.
+>   
+> diff --git a/drivers/pinctrl/spacemit/Kconfig b/drivers/pinctrl/spacemit/Kconfig
+> index 168f8a5ffbb952cbeae3e3401c11149558e0a84b..aa3dea535def87ed75d86bc555b2b90643adbdea 100644
+> --- a/drivers/pinctrl/spacemit/Kconfig
+> +++ b/drivers/pinctrl/spacemit/Kconfig
+> @@ -7,6 +7,7 @@ config PINCTRL_SPACEMIT_K1
+>   	tristate "SpacemiT K1 SoC Pinctrl driver"
+>   	depends on ARCH_SPACEMIT || COMPILE_TEST
+>   	depends on OF
+> +	default ARCH_SPACEMIT
+>   	select GENERIC_PINCTRL_GROUPS
+>   	select GENERIC_PINMUX_FUNCTIONS
+>   	select GENERIC_PINCONF
+> 
+> ---
+> base-commit: 2014c95afecee3e76ca4a56956a936e23283f05b
+> change-id: 20250207-k1-pinctrl-option-de5bdfd6b42e
+> 
+> Best regards,
 
 
 _______________________________________________
