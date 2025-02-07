@@ -4,80 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D2F62C02194
-	for <linux-riscv@archiver.kernel.org>; Fri,  7 Feb 2025 21:27:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE220C0219E
+	for <linux-riscv@archiver.kernel.org>; Fri,  7 Feb 2025 22:56:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
 	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:Message-ID:
 	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/75ytcGUaQ2e88TsxBcGLGrzrdcWIsPxSkrtG8x+gdg=; b=pGQI9NITE3TeVUW/0e7s2Vr89v
-	xbhfwhypRp6bkiASV0Lb1vj0HR+TTH/RdHn/0wypKvnGJGJwiRDbrCBsio3UAmK3vqzK271iLzd0b
-	YDzFIRH3A0sAoQv8TnNEEJVCn6ubeidoI0sR4Fmf8BzngWAkn9IYyB3INKKURWdwnnx6Zbi5fZesI
-	OUpsJibT1tnfi+Wur4h3psGtthllx4RNbXs/LHBPF+6lnh+2EovLU19goLtxcOaBukGYKFO1jxkts
-	qacfaeAmUTWPbsfipGNnfAwpbQQQR+QsW63dMTnvZBt/ivDl4PCNUrsClXgHT/gmY7vZj3tPkYRL/
-	moNn1Meg==;
+	bh=wAkIIUYdygpf73fbUWN56sodiWFYgGw6k5Genex7S1U=; b=bAMF5a8ZXQy3WuU5K/KpcIjrP+
+	DVd73MFcaFP9Qu8au+Tkxi6aPirYlGGVPifgK7WGU9vU+BiDmtGLL5rWynF8xaEp/R0N1SpuFFAxS
+	5KXWLfbTichzTSGhgb/HdslLWdiwLKFearJImzJxwgoXKZQjWgksNsCgJ4U97fKV8rphSiycln2Lp
+	lgsW4GISwniMgDVlgsyfYPVuzJyLRh398fm6YRh5ap0jazNOUUPyZTESGU4wxr6PijczX3nKYBxqq
+	iAWWtm2SUglKu+Q23MKVgzF0UQ0JvE2dzEUKldT1U9Siz5iCrL9BCMTnsOo0oRiWbG0G6/sQAitWX
+	4azSw7EA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tgVsH-0000000BCZ5-3JKx;
-	Fri, 07 Feb 2025 21:26:57 +0000
-Received: from mail-pl1-x633.google.com ([2607:f8b0:4864:20::633])
+	id 1tgXGs-0000000BSJU-42OI;
+	Fri, 07 Feb 2025 22:56:26 +0000
+Received: from mail-pj1-x102e.google.com ([2607:f8b0:4864:20::102e])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tgVsF-0000000BCYR-1aff
+	id 1tgX56-0000000BQq5-04BD
 	for linux-riscv@lists.infradead.org;
-	Fri, 07 Feb 2025 21:26:57 +0000
-Received: by mail-pl1-x633.google.com with SMTP id d9443c01a7336-21f55fbb72bso19855365ad.2
-        for <linux-riscv@lists.infradead.org>; Fri, 07 Feb 2025 13:26:55 -0800 (PST)
+	Fri, 07 Feb 2025 22:44:18 +0000
+Received: by mail-pj1-x102e.google.com with SMTP id 98e67ed59e1d1-2fa21145217so3082665a91.3
+        for <linux-riscv@lists.infradead.org>; Fri, 07 Feb 2025 14:44:15 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1738963614; x=1739568414; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=HVmE+Tt35mu4vWqHOKjrmfxx5g5d6DsZZLA0kmOgFzY=;
-        b=d53W0ypaVJnE7Xi8TITALxLmdeKboyS7I6ds1It/901O7txy1PrhbMMs52aLwvkLpZ
-         Sklxn9v6R75uQRp91eOHQ76zVeVqB0VsCK3OUPB8VwdLLyqGjc280t/lh+iF/Te6aFql
-         PEJtlq3WjtFUvnxq/otOgQXHKg7HWEQad3EeKo8DKBYfvlNabHOlKc7q6i6F73C2L3AZ
-         EQ/xwR7AVsY5E1sjTC/ZmaazerBpuB1uPKiSB4o2qma0T+HWxcTi823z559xDCL4o+pu
-         W0Uz06ZOSZZspuMqgoWhs2s6y86Q9JYDhm8XZpYcukVNJgQcv1u8w0zIfJwJnjFO9HKF
-         dj3g==
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1738968255; x=1739573055; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=o2ipDsFh+4Wi6+DfKBkgvbX5MRHqphXmotwjlbhmRh4=;
+        b=WFcKozbZIX+BEd9CQ/KDheMq+wgYXkpTldSUMlLBvPkOYVaes3Z3RU6fbBVPdCvrao
+         Kp9AySjfO4VtSLZ3yEdNdFJn6S2bemYVlzp3pkC+3puczhFaoF5BAoCRztp6eGV+f/WN
+         0w8YjQyvHcmMdfpxWr3eRjoGngy/WfCXRsNbzRra0TdySzOLxohiWcbKJlW7nylS/0A5
+         VE69C42HECfyAJxFxkjRxyVvyNkluXFUZ+nzDr8h9q0Vc2by0r+dZX5WVqMebox3pXvB
+         Gw8Sf5YkkbsAnT7+CpHs8AVRu/GxWBJOGycGKqf/ds/fS3CxubydkVldBkyv8+bKlvZG
+         hprg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1738963614; x=1739568414;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=HVmE+Tt35mu4vWqHOKjrmfxx5g5d6DsZZLA0kmOgFzY=;
-        b=X0AM98Ycd0ewyrW80Qe25MVuRnNHQLRIUlD1GIpN6M4gwfAavRXBGuCGDhFkQse7L8
-         njQ8BJ6d6EK3LThS9q0P/MAxTRM/gDLIX8SbF7U1CujYiM98HcN7xsyVOGU9NEx/JBSi
-         9OkJkianhfuP+6dESit7wWyIEBtferMZRSjafLVEyrkObBhLvZ5C+0gWxavYcQYjDiNJ
-         dsW9IEhxsRbU5kI8A7ycoWg58kprspo2q9zjd4gZcCpMCPjl8sHFcMDk3WH05dkWkro5
-         EGD9bOBj385ouOvQAgVh0U61OClOzBVMCE7rdVP/nphMs1E4cGu6Rf+FJoFMudXY3Suv
-         GPfA==
-X-Forwarded-Encrypted: i=1; AJvYcCVJAQNJpjDKKCOIRY+ApopvNibSlQOGOEiPhRShCEi/ja1QxRJEucv85QFP7dbASogzicYXCus8OHL+mA==@lists.infradead.org
-X-Gm-Message-State: AOJu0YwF1xSpEwr+w+hJEO2huhgybIgZIWEblFigulSIyvCh3+tVPgJX
-	TiuP+v1bxj4vI9M+q+vuWf4+y9OQXoyPPkeZJWe0d313Xk+B2e6G2FrMJxr/AFw=
-X-Gm-Gg: ASbGncsTO8mWSzzVn7if6hcdJcwxPALHRDxynTa8lTluBzR4H4a8HfkERNQFVJSu5F5
-	4eVS7CInda+DV7lSAgmKxiwnc4k0X8rVaJuG8fgu5ihKR6ndZ8RpCxa3L/Bk8w6Ds7UKHk6Ljti
-	xpLWpRtUyU6L8zpyZTYz8ab8bMaZlbgFTZ5215q4aaGI8a7jeI4Tob63H8pQr4pLJtkTc7gZyHP
-	ytYNJV28n4oyl0P24WMFNXcQ7RogN7oA2M/N+VJUsjVO5aFX4rt1fF05kwKrAAFajrereNCtGFw
-	MyQHrB5Oq/g652bX6+vs3UoIbA==
-X-Google-Smtp-Source: AGHT+IE9Oev0Y7C5Xmqtwl/B+JiwmKuI48iGekPbKSdtVdA99oMBiZeUkT8jvrSGxyy3gXBYBBsXzA==
-X-Received: by 2002:a17:902:d4cc:b0:21f:6a36:7bf3 with SMTP id d9443c01a7336-21f6a369009mr6855425ad.12.1738963614537;
-        Fri, 07 Feb 2025 13:26:54 -0800 (PST)
+        d=1e100.net; s=20230601; t=1738968255; x=1739573055;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=o2ipDsFh+4Wi6+DfKBkgvbX5MRHqphXmotwjlbhmRh4=;
+        b=rw5N7PO6sYWpChqiNbCFbCSf4iv0NL1XB66COL2N7lLtIDrjVPwb7N6tHm1N79Q1rN
+         UY7z+pKzeNTCk2hnSVA6/VXhYaxAzVWbhMJHufj+zN+CLUPUb8K9YkveDIWDUvfziKRl
+         EgSLAO52XdMPGpkzTswXCz7jK+6eAR8X/10Uui9B+/U4ocyzrKzPOLmiPwk1h/O3MHzB
+         Lc+silsXPPOpAC+I7Exo35U+JI5Pgd+SmSH1zwGFpSm0ZBRw9ShXCbsD/bT5TmBKe+6/
+         +NuhsbB0N0INk7jfat0rIELFci93Vo3OIBK1uAyU8yKBkCnn+Q4autWn7uC8k0heKWNr
+         g1pg==
+X-Forwarded-Encrypted: i=1; AJvYcCVyJIwUGsZISWajcPHdSy3TTezKzLW2jgtTOAa5suIFs+teAY0/E+b4g/nGCfzA+kNqqQxrkEaafDkH/A==@lists.infradead.org
+X-Gm-Message-State: AOJu0YxX42GHnqadkVHFPxvkngU4xog2AtQOCtFJIMBXsVdUK51cvT+M
+	v+uqgWnZVFg0QV1H1qBe9hVF3cQIHixbK82IbhZQZHNZSP5XVCbFmk5SzglK7mg=
+X-Gm-Gg: ASbGnctF81IHHeMIZn7jEnGlruEc2+NoJnk0+8ue/LGnU9KLHGB/Yh0EDium9vKgNWd
+	FGOEtKO36ne6XrAXiDQY6TIhuAoZqgVv08CA7osZwcQJcAvrtB+Ns09AobfVxVDDWNr26RBRdtG
+	txZGVCzaflOn/0p9DhxcdDNv2n9a94gHLbQiUU/fb6xugEItajMPhHIhszsbuW256dJVuXjjNrE
+	OltXHogF8SkRJmDX3+buc8BiRMYOw2dDFqSLLzKH4U4ChWtpU+LdmzU+fuInx6neGEV5TPDAhHZ
+	AdBrKMVPSdtbQC3abwgviJniSw==
+X-Google-Smtp-Source: AGHT+IH0ObGSX9Z5Li4uWD9lYbrpJL6WiQ/fR0RPEu4WFLYzu4KaceG7QOyaNMgDiAsQ/fdeHHOGVA==
+X-Received: by 2002:a17:90b:19d8:b0:2ee:6d04:9dac with SMTP id 98e67ed59e1d1-2fa243f02dcmr6699334a91.32.1738968254644;
+        Fri, 07 Feb 2025 14:44:14 -0800 (PST)
 Received: from debug.ba.rivosinc.com ([64.71.180.162])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-21f3683d551sm35131205ad.110.2025.02.07.13.26.52
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-2f9bf6f268fsm5069384a91.0.2025.02.07.14.44.12
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 07 Feb 2025 13:26:54 -0800 (PST)
-Date: Fri, 7 Feb 2025 13:26:50 -0800
+        Fri, 07 Feb 2025 14:44:14 -0800 (PST)
+Date: Fri, 7 Feb 2025 14:44:10 -0800
 From: Deepak Gupta <debug@rivosinc.com>
-To: =?iso-8859-1?Q?Cl=E9ment_L=E9ger?= <cleger@rivosinc.com>
+To: Vlastimil Babka <vbabka@suse.cz>
 Cc: Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>,
 	Borislav Petkov <bp@alien8.de>,
 	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
 	"H. Peter Anvin" <hpa@zytor.com>,
 	Andrew Morton <akpm@linux-foundation.org>,
 	"Liam R. Howlett" <Liam.Howlett@oracle.com>,
-	Vlastimil Babka <vbabka@suse.cz>,
 	Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
 	Paul Walmsley <paul.walmsley@sifive.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
@@ -98,19 +96,21 @@ Cc: Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>,
 	alistair.francis@wdc.com, richard.henderson@linaro.org,
 	jim.shu@sifive.com, andybnac@gmail.com, kito.cheng@sifive.com,
 	charlie@rivosinc.com, atishp@rivosinc.com, evan@rivosinc.com,
-	alexghiti@rivosinc.com, samitolvanen@google.com, broonie@kernel.org,
+	cleger@rivosinc.com, alexghiti@rivosinc.com,
+	samitolvanen@google.com, broonie@kernel.org,
 	rick.p.edgecombe@intel.com
-Subject: Re: [PATCH v9 14/26] riscv/traps: Introduce software check exception
-Message-ID: <Z6Z6mhiQ3DmsNZe9@debug.ba.rivosinc.com>
+Subject: Re: [PATCH v9 01/26] mm: helper `is_shadow_stack_vma` to check
+ shadow stack vma
+Message-ID: <Z6aMuuXMQAu7Tcvm@debug.ba.rivosinc.com>
 References: <20250204-v5_user_cfi_series-v9-0-b37a49c5205c@rivosinc.com>
- <20250204-v5_user_cfi_series-v9-14-b37a49c5205c@rivosinc.com>
- <fec3b7be-4259-4eef-87f9-b2cee5718cae@rivosinc.com>
+ <20250204-v5_user_cfi_series-v9-1-b37a49c5205c@rivosinc.com>
+ <6543c6b6-da86-4c10-9b8c-e5fe6f6f7da9@suse.cz>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <fec3b7be-4259-4eef-87f9-b2cee5718cae@rivosinc.com>
+In-Reply-To: <6543c6b6-da86-4c10-9b8c-e5fe6f6f7da9@suse.cz>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250207_132655_605972_0490AF2B 
-X-CRM114-Status: GOOD (  11.22  )
+X-CRM114-CacheID: sfid-20250207_144416_327761_4C6F7481 
+X-CRM114-Status: GOOD (  21.42  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,41 +122,117 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="iso-8859-1"; Format="flowed"
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Clement,
-
-Thanks for looking at it. Inline
-On Thu, Feb 06, 2025 at 02:49:09PM +0100, Cl=E9ment L=E9ger wrote:
+On Fri, Feb 07, 2025 at 10:27:10AM +0100, Vlastimil Babka wrote:
+>On 2/5/25 02:21, Deepak Gupta wrote:
+>> VM_SHADOW_STACK (alias to VM_HIGH_ARCH_5) is used to encode shadow stack
 >
->
->On 05/02/2025 02:22, Deepak Gupta wrote:
->> zicfiss / zicfilp introduces a new exception to priv isa `software check
->> exception` with cause code =3D 18. This patch implements software check
->> exception.
->
->Hey Deepak,
->
->While not directly related to this patch, is the exception 18 delegation
->documented in the SBI doc ? I mean, should we specify that it is always
->delegated when implementing FWFT LANDING_PAD/SHADOW_STACK ?
+>I see that arm GCS uses VM_HIGH_ARCH_6.
 
-I don't think it's document in SBI spec anywhere. Should it be ?
-
-
-In code, opensbi delegates the exception (SW_CHECK)
-https://github.com/riscv-software-src/opensbi/commit/110524441a827e026db354=
-7ed03c5723b9c9e211
+Stale commit message. I thought I had fixed it.
+Sorry about that, will fix it.
 
 >
->Thanks,
+>> VMA on three architectures (x86 shadow stack, arm GCS and RISC-V shadow
 >
->Cl=E9ment
+>And RISC-V doesn't define it at all, not even in this patchset, or did I
+>miss it somewhere?
 >
+>> stack). In case architecture doesn't implement shadow stack, it's VM_NONE
+>> Introducing a helper `is_shadow_stack_vma` to determine shadow stack vma
+>> or not.
+>
+>This looks like an unfinished sentence. As if it was to continue with "...
+>will allow us to ..." what?
+>
+>I'm not against a helper but this changelog is rather confusing and also
+>code in arch/x86 and arch/arm64 isn't converted to the helper but testing
+>VM_SHADOW_STACK still.
+
+Yes I didn't pay attention during rebase, will update the commit message.
+>
+>> Signed-off-by: Deepak Gupta <debug@rivosinc.com>
+>> Reviewed-by: Mark Brown <broonie@kernel.org>
+>> ---
+>>  mm/gup.c  |  2 +-
+>>  mm/mmap.c |  2 +-
+>>  mm/vma.h  | 10 +++++++---
+>>  3 files changed, 9 insertions(+), 5 deletions(-)
 >>
+>> diff --git a/mm/gup.c b/mm/gup.c
+>> index 3883b307780e..8c64f3ff34ab 100644
+>> --- a/mm/gup.c
+>> +++ b/mm/gup.c
+>> @@ -1291,7 +1291,7 @@ static int check_vma_flags(struct vm_area_struct *vma, unsigned long gup_flags)
+>>  		    !writable_file_mapping_allowed(vma, gup_flags))
+>>  			return -EFAULT;
+>>
+>> -		if (!(vm_flags & VM_WRITE) || (vm_flags & VM_SHADOW_STACK)) {
+>> +		if (!(vm_flags & VM_WRITE) || is_shadow_stack_vma(vm_flags)) {
+>>  			if (!(gup_flags & FOLL_FORCE))
+>>  				return -EFAULT;
+>>  			/*
+>> diff --git a/mm/mmap.c b/mm/mmap.c
+>> index cda01071c7b1..7b6be4eec35d 100644
+>> --- a/mm/mmap.c
+>> +++ b/mm/mmap.c
+>> @@ -648,7 +648,7 @@ SYSCALL_DEFINE1(old_mmap, struct mmap_arg_struct __user *, arg)
+>>   */
+>>  static inline unsigned long stack_guard_placement(vm_flags_t vm_flags)
+>>  {
+>> -	if (vm_flags & VM_SHADOW_STACK)
+>> +	if (is_shadow_stack_vma(vm_flags))
+>>  		return PAGE_SIZE;
+>>
+>>  	return 0;
+>> diff --git a/mm/vma.h b/mm/vma.h
+>> index a2e8710b8c47..47482a25f5c3 100644
+>> --- a/mm/vma.h
+>> +++ b/mm/vma.h
+>> @@ -278,7 +278,7 @@ static inline struct vm_area_struct *vma_prev_limit(struct vma_iterator *vmi,
+>>  }
+>>
+>>  /*
+>> - * These three helpers classifies VMAs for virtual memory accounting.
+>> + * These four helpers classifies VMAs for virtual memory accounting.
+>>   */
+>>
+>>  /*
+>> @@ -289,6 +289,11 @@ static inline bool is_exec_mapping(vm_flags_t flags)
+>>  	return (flags & (VM_EXEC | VM_WRITE | VM_STACK)) == VM_EXEC;
+>>  }
+>>
+>> +static inline bool is_shadow_stack_vma(vm_flags_t vm_flags)
+>> +{
+>> +	return !!(vm_flags & VM_SHADOW_STACK);
+>> +}
+>> +
+>>  /*
+>>   * Stack area (including shadow stacks)
+>>   *
+>> @@ -297,7 +302,7 @@ static inline bool is_exec_mapping(vm_flags_t flags)
+>>   */
+>>  static inline bool is_stack_mapping(vm_flags_t flags)
+>>  {
+>> -	return ((flags & VM_STACK) == VM_STACK) || (flags & VM_SHADOW_STACK);
+>> +	return ((flags & VM_STACK) == VM_STACK) || is_shadow_stack_vma(flags);
+>>  }
+>>
+>>  /*
+>> @@ -308,7 +313,6 @@ static inline bool is_data_mapping(vm_flags_t flags)
+>>  	return (flags & (VM_WRITE | VM_SHARED | VM_STACK)) == VM_WRITE;
+>>  }
+>>
+>> -
+>>  static inline void vma_iter_config(struct vma_iterator *vmi,
+>>  		unsigned long index, unsigned long last)
+>>  {
+>>
+>
 
 _______________________________________________
 linux-riscv mailing list
