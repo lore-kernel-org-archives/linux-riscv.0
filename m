@@ -4,98 +4,134 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D3360C02194
-	for <linux-riscv@archiver.kernel.org>; Fri,  7 Feb 2025 18:19:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F333CC02194
+	for <linux-riscv@archiver.kernel.org>; Fri,  7 Feb 2025 18:39:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=EPHQQuxehNeidBrXAdUHdLbsSWuKbkpY2YcB5S51PiQ=; b=wNdMUp2g01V3Z5
-	43qaZqdZTkZslCXYXsSqvf8NwtgSQK/NmplN3fCaw+u0MXrZuuaoIteHik7048mscDyKzoH3Zt/LY
-	StgtmYZIhR8dcPTwzd/dZY6BPV6CMzi3keunAAIIUKSVGhWRFFcS6iwT7EFEZzaS6IUCcpxhMqp8T
-	/2MnMfO4iFVh/tIW2hSppYaOOl7BkpDGxw1dCr57CzbAMCwdGweAfCdjRQS4lkbOj1xenTsxQlv6d
-	Zf0qlyJSKaCuOIWB0ViSMjM/D47d8hmGcajZSYZ8UnjGGCfctE1gKts1ZZCDh3b19Bvk98muugirJ
-	oim1uG1+baRF0pEERDyA==;
+	List-Owner; bh=3YXLvSb1/xFx3KIK3INVnjslFB2zQeEVY3efu6i2hsg=; b=x4AjEsc4u3Geyd
+	J6OJFyBvibtpgetsi9u7WY9vY2tFHyI07IgF/xXMQHujNZp1ZNiPqIU+qBag3OWqjCrUH+OJHj8FZ
+	BJ+CDXjKbgY0tXQq1zmRkyPkFObVNLCboJ6XNnBZbxwGpMaIcPSGCSYJOGZCcdkwFG840+PzEK7/v
+	9kgm2mYt1upd/L2UMfy6BXF1bjNqe/G35cTzqFIBT/KVmlIuDmpVO2MamMKlXYyPqmhPqoZq2J4bl
+	WgaRmBwmHUmONz+r4WAyFyEuj02mH6Ub4mefTy2d7C/xYWR3KW8jFeIFV5cDN7QxHY+0ugvx5zczo
+	oAs/nVjx9Dov1iqzwVFQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tgSx8-0000000AfIF-2uct;
-	Fri, 07 Feb 2025 18:19:46 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1tgTFo-0000000Ajy2-2Tky;
+	Fri, 07 Feb 2025 18:39:04 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tgSx7-0000000AfHP-0ErC
-	for linux-riscv@bombadil.infradead.org;
-	Fri, 07 Feb 2025 18:19:45 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=/CHphRywyfKXY1w+bSATOxT7wdCR+rjwInOvuQLnRYI=; b=V7PTJSXBUuBbE/BkaKUXecDIZo
-	c1gWKnAMtDKtmkjounylw7bkL7jH9LkiulQzEJ8X28LuVQbk1RWy3saOlskWrEJy5C9pT8xFB8Jjv
-	DGyBDyLxfdh/PTJvvRgYigwi3cAdT3OgF9wRl3zjSFvT4c8Jb9Aya+ZTkkNsQmkYCf4SZyDt5aah3
-	8L2YpcNhVWwKxJH2gFUsLbtJyJAl1fkixK0npWe1iMQNmEDafGzgFF6CWuMqr9jJsFQdN/ul4AejX
-	AJNKPQIP5jaoJiBp64cykSgoDbZHgxShj9fMTaK6+ZGUHBMJ6kgVfw3VDtujybjZYByqRkkxB9DEf
-	uVjZ+0rA==;
-Received: from mail-wr1-x42e.google.com ([2a00:1450:4864:20::42e])
-	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tgSx4-0000000HHqJ-000J
-	for linux-riscv@lists.infradead.org;
-	Fri, 07 Feb 2025 18:19:43 +0000
-Received: by mail-wr1-x42e.google.com with SMTP id ffacd0b85a97d-38dc0cd94a6so977900f8f.0
-        for <linux-riscv@lists.infradead.org>; Fri, 07 Feb 2025 10:19:40 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1738952379; x=1739557179; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=/CHphRywyfKXY1w+bSATOxT7wdCR+rjwInOvuQLnRYI=;
-        b=mGa1+PiZczLRsGHgOiZt41waHcGXiN02D/e3fF1gg/PB1Ixwbu62nOi+2Q3cAWyKPi
-         uO9r4ZWW4R7k/FCugT0x01WTL94PEFSk+tRYuyJ4SpUyq9/kIovNbRtW/f+C0Pts5okn
-         F2z5uO/AxiTGEMl/rpuQS4f5Nd3e+x7xiGfYw/xKnLX/QxdlgR/toG4q/HaCd1D35lXf
-         iQYG12Yi8oNiqvefuvnBq1dE150c4p55g2CHphK6R2WIIHeM6GKjUxAZAcfJM2E37v5T
-         +LiAzFpHc2qbPXAYbLC0NCJQ3cOAnwutjY0Fj+MDESmuJmheYl2tbqxk2pNeBbqnW06Z
-         Tpvg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1738952379; x=1739557179;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=/CHphRywyfKXY1w+bSATOxT7wdCR+rjwInOvuQLnRYI=;
-        b=jl+jwIvqWqPzSmVNACP+1z31IcAB8cJLatzwAtgBH9l12bwL03ilGnCvxE3vKPbEhP
-         dKiSOsF6VwjjZG66F8qz/cUQiSsAs4YQYGfPqCqzrDnUzsy/RKk/QH1qHr+mwU/NZc6w
-         uX6t1efRMG5OJTGfMRQDCSfkpqGq2W2eHWjZu96EF+CMhFzjCMO9UsDeVhQd6dmu0roC
-         qntKDIMHwlikKrzKLCApdvjcsRb9JNL8OFa19jI1HPkGkIxBSd6HA2WAuwcwm7r0QFMg
-         sNHRZiw2FKvCfoBUqlR41+uhAawLARHnnzcCdOwQMNDGNUrOQe5duRdxxwEarTOSalks
-         5qxQ==
-X-Gm-Message-State: AOJu0Yw6gbBX7Y44YzizM50gAy9RWJEUNEUWJZdzhagw0PcH8ZvEJP6l
-	j7EdU6Jvu5+7LFgUUtxJW+YRZdzpTyw66zwUt1RMP4jEKqRNMLn8fpLwYtG+gn3yBAhYi4u7LIH
-	a5wo=
-X-Gm-Gg: ASbGnctC/8ogPkaDLZvVrd0Hcsu24mq58v7cE0f1zOB0SVHtYwXAfI6/s4vEYVi2O6s
-	7B7z+Mdi0tRKa1h7+x+lljOPRjfYRI+PvjlM46FGb+q3XdtKiAynpk6ll3/qU3/4B5WB+3s5cO0
-	szS+50MuhlHYVoDk6y/wGkEFmcblY6+8NukWEBDYTDwqeYRx86aAWkq3cPPUp6VT1UC1K0B+WR2
-	AQj1dhmUIGupeF50FzpX+1xc6WMqJrYVsUjKW4Jfxl9yR8TYtFD+G4laonYNHoyVn3NZQn1Dncv
-	2xiCiNHZ6LLrA2Axai34
-X-Google-Smtp-Source: AGHT+IESpbzq9eU/T+PKbhe6gpMPCCz2c+/E7FjLPKy4iVsuXujczUZ3khyzCNdXzMJiSORJcLFpSQ==
-X-Received: by 2002:a5d:6da4:0:b0:38d:d12a:4160 with SMTP id ffacd0b85a97d-38dd12a4874mr826092f8f.54.1738952379451;
-        Fri, 07 Feb 2025 10:19:39 -0800 (PST)
-Received: from localhost ([2a00:11b1:103b:18b0:943f:8e0:c299:6db0])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-38dcdb54668sm1806478f8f.35.2025.02.07.10.19.37
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 07 Feb 2025 10:19:39 -0800 (PST)
-Date: Fri, 7 Feb 2025 19:19:35 +0100
-From: Andrew Jones <ajones@ventanamicro.com>
-To: linux-riscv@lists.infradead.org
-Cc: cleger@rivosinc.com
-Subject: Re: [PATCH 8/9] riscv: Implement check_unaligned_access_table
-Message-ID: <20250207-ed32c2f6c418ba86ca82d455@orel>
-References: <20250207161939.46139-11-ajones@ventanamicro.com>
- <20250207181048.6045-2-ajones@ventanamicro.com>
+	id 1tgTEo-0000000Ajii-0bKB;
+	Fri, 07 Feb 2025 18:38:03 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id BA41AA439E4;
+	Fri,  7 Feb 2025 18:36:14 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C4FB8C4CED1;
+	Fri,  7 Feb 2025 18:37:59 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1738953480;
+	bh=nKtIeXe1WybNWDzZwu5Tk8fpz5emsmZs04c0W6ceGA0=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=NlQrJCswb2tfBHdOL//Nqi1duhWdmo0hhnvyFyfXR+kDIctwxBbNZGMh0uVXpdrpn
+	 VtrsS32dlVeABXURIIGFmPTMZ88JEy/aky3D6z70pfkEKIebKtTmA3OIqxmZ3iDcEH
+	 trWQP7mjMuGosKO+a09FIi/HB1+rytKm2YepWGLYPhGRvhc49fQbsTVEVzSz1vy8KY
+	 6YWoxRaVR88tPNIw47TXvof69pWZuIN0NCuUntVn/ixzcMSAUzD+pD+us46BW7ocRi
+	 X6a7pzBJZI/SEPEJ2Eua3jvdWjb6R21icBFzIt4mEif2XISSYrHb7WAcNTWLbqa0Er
+	 f0yIWw7KhrZxA==
+Date: Fri, 7 Feb 2025 19:37:57 +0100
+From: Frederic Weisbecker <frederic@kernel.org>
+To: Valentin Schneider <vschneid@redhat.com>
+Cc: linux-kernel@vger.kernel.org, x86@kernel.org,
+	virtualization@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, loongarch@lists.linux.dev,
+	linux-riscv@lists.infradead.org, linux-perf-users@vger.kernel.org,
+	xen-devel@lists.xenproject.org, kvm@vger.kernel.org,
+	linux-arch@vger.kernel.org, rcu@vger.kernel.org,
+	linux-hardening@vger.kernel.org, linux-mm@kvack.org,
+	linux-kselftest@vger.kernel.org, bpf@vger.kernel.org,
+	bcm-kernel-feedback-list@broadcom.com,
+	Juergen Gross <jgross@suse.com>,
+	Ajay Kaher <ajay.kaher@broadcom.com>,
+	Alexey Makhalov <alexey.amakhalov@broadcom.com>,
+	Russell King <linux@armlinux.org.uk>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Huacai Chen <chenhuacai@kernel.org>,
+	WANG Xuerui <kernel@xen0n.name>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	"H. Peter Anvin" <hpa@zytor.com>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Arnaldo Carvalho de Melo <acme@kernel.org>,
+	Namhyung Kim <namhyung@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>,
+	Adrian Hunter <adrian.hunter@intel.com>,
+	"Liang, Kan" <kan.liang@linux.intel.com>,
+	Boris Ostrovsky <boris.ostrovsky@oracle.com>,
+	Josh Poimboeuf <jpoimboe@kernel.org>,
+	Pawan Gupta <pawan.kumar.gupta@linux.intel.com>,
+	Sean Christopherson <seanjc@google.com>,
+	Paolo Bonzini <pbonzini@redhat.com>,
+	Andy Lutomirski <luto@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
+	"Paul E. McKenney" <paulmck@kernel.org>,
+	Jason Baron <jbaron@akamai.com>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	Ard Biesheuvel <ardb@kernel.org>,
+	Neeraj Upadhyay <neeraj.upadhyay@kernel.org>,
+	Joel Fernandes <joel@joelfernandes.org>,
+	Josh Triplett <josh@joshtriplett.org>,
+	Boqun Feng <boqun.feng@gmail.com>,
+	Uladzislau Rezki <urezki@gmail.com>,
+	Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
+	Lai Jiangshan <jiangshanlai@gmail.com>,
+	Zqiang <qiang.zhang1211@gmail.com>,
+	Juri Lelli <juri.lelli@redhat.com>,
+	Clark Williams <williams@redhat.com>,
+	Yair Podemsky <ypodemsk@redhat.com>,
+	Tomas Glozar <tglozar@redhat.com>,
+	Vincent Guittot <vincent.guittot@linaro.org>,
+	Dietmar Eggemann <dietmar.eggemann@arm.com>,
+	Ben Segall <bsegall@google.com>, Mel Gorman <mgorman@suse.de>,
+	Kees Cook <kees@kernel.org>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Christoph Hellwig <hch@infradead.org>,
+	Shuah Khan <shuah@kernel.org>,
+	Sami Tolvanen <samitolvanen@google.com>,
+	Miguel Ojeda <ojeda@kernel.org>, Alice Ryhl <aliceryhl@google.com>,
+	"Mike Rapoport (Microsoft)" <rppt@kernel.org>,
+	Samuel Holland <samuel.holland@sifive.com>,
+	Rong Xu <xur@google.com>,
+	Nicolas Saenz Julienne <nsaenzju@redhat.com>,
+	Geert Uytterhoeven <geert@linux-m68k.org>,
+	Yosry Ahmed <yosryahmed@google.com>,
+	"Kirill A. Shutemov" <kirill.shutemov@linux.intel.com>,
+	"Masami Hiramatsu (Google)" <mhiramat@kernel.org>,
+	Jinghao Jia <jinghao7@illinois.edu>,
+	Luis Chamberlain <mcgrof@kernel.org>,
+	Randy Dunlap <rdunlap@infradead.org>,
+	Tiezhu Yang <yangtiezhu@loongson.cn>
+Subject: Re: [PATCH v4 22/30] context_tracking: Exit CT_STATE_IDLE upon
+ irq/nmi entry
+Message-ID: <Z6ZTBXUiEOLVcSKp@pavilion.home>
+References: <20250114175143.81438-1-vschneid@redhat.com>
+ <20250114175143.81438-23-vschneid@redhat.com>
+ <Z5A6NPqVGoZ32YsN@pavilion.home>
+ <xhsmh5xm0pkuo.mognet@vschneid-thinkpadt14sgen2i.remote.csb>
+ <xhsmhbjvdk7kq.mognet@vschneid-thinkpadt14sgen2i.remote.csb>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20250207181048.6045-2-ajones@ventanamicro.com>
+In-Reply-To: <xhsmhbjvdk7kq.mognet@vschneid-thinkpadt14sgen2i.remote.csb>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250207_181942_137533_DF4866AE 
-X-CRM114-Status: GOOD (  26.60  )
+X-CRM114-CacheID: sfid-20250207_103802_305745_249B0591 
+X-CRM114-Status: GOOD (  26.48  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,153 +143,95 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+Le Fri, Feb 07, 2025 at 06:06:45PM +0100, Valentin Schneider a =E9crit :
+> On 27/01/25 12:17, Valentin Schneider wrote:
+> > On 22/01/25 01:22, Frederic Weisbecker wrote:
+> >> And NMIs interrupting userspace don't call
+> >> enter_from_user_mode(). In fact they don't call irqentry_enter_from_us=
+er_mode()
+> >> like regular IRQs but irqentry_nmi_enter() instead. Well that's for ar=
+chs
+> >> implementing common entry code, I can't speak for the others.
+> >>
+> >
+> > That I didn't realize, so thank you for pointing it out. Having another
+> > look now, I mistook DEFINE_IDTENTRY_RAW(exc_int3) for the general case
+> > when it really isn't :(
+> >
+> >> Unifying the behaviour between user and idle such that the IRQs/NMIs e=
+xit the
+> >> CT_STATE can be interesting but I fear this may not come for free. You=
+ would
+> >> need to save the old state on IRQ/NMI entry and restore it on exit.
+> >>
+> >
+> > That's what I tried to avoid, but it sounds like there's no nice way ar=
+ound it.
+> >
+> >> Do we really need it?
+> >>
+> >
+> > Well, my problem with not doing IDLE->KERNEL transitions on IRQ/NMI is =
+that
+> > this leads the IPI deferral logic to observe a technically-out-of-sync =
+sate
+> > for remote CPUs. Consider:
+> >
+> >   CPUx            CPUy
+> >                     state :=3D CT_STATE_IDLE
+> >                     ...
+> >                     ~>IRQ
+> >                     ...
+> >                     ct_nmi_enter()
+> >                     [in the kernel proper by now]
+> >
+> >   text_poke_bp_batch()
+> >     ct_set_cpu_work(CPUy, CT_WORK_SYNC)
+> >       READ CPUy ct->state
+> >       `-> CT_IDLE_STATE
+> >       `-> defer IPI
+> >
+> >
+> > I thought this meant I would need to throw out the "defer IPIs if CPU is
+> > idle" part, but AIUI this also affects CT_STATE_USER and CT_STATE_GUEST,
+> > which is a bummer :(
+> =
 
-This is the same as the other 8/9 (for those of you that received it). For
-whatever reason, the linux-riscv mailing list dropped the original 8/9,
-though, so I've sent it again.
+> Soooo I've been thinking...
+> =
 
-Thanks,
-drew
+> Isn't
+> =
 
-On Fri, Feb 07, 2025 at 07:10:49PM +0100, Andrew Jones wrote:
-> Define the table entry type and implement the table lookup to find
-> unaligned access types by id registers which is used to skip probing.
-> 
-> Signed-off-by: Andrew Jones <ajones@ventanamicro.com>
-> ---
->  arch/riscv/kernel/unaligned_access_speed.c | 91 +++++++++++++++++++++-
->  1 file changed, 89 insertions(+), 2 deletions(-)
-> 
-> diff --git a/arch/riscv/kernel/unaligned_access_speed.c b/arch/riscv/kernel/unaligned_access_speed.c
-> index f8497097e79d..bd6db4c42daf 100644
-> --- a/arch/riscv/kernel/unaligned_access_speed.c
-> +++ b/arch/riscv/kernel/unaligned_access_speed.c
-> @@ -12,6 +12,7 @@
->  #include <linux/types.h>
->  #include <asm/cpufeature.h>
->  #include <asm/hwprobe.h>
-> +#include <asm/sbi.h>
->  #include <asm/vector.h>
->  
->  #include "copy-unaligned.h"
-> @@ -230,11 +231,89 @@ static int __init lock_and_set_unaligned_access_static_branch(void)
->  
->  arch_initcall_sync(lock_and_set_unaligned_access_static_branch);
->  
-> -static bool check_unaligned_access_table(void)
-> +/*
-> + * An unaligned_access_table_entry maps harts (or collections of harts) to
-> + * unaligned access types. @level is used to determine whether @marchid and/or
-> + * @mimpid should to be considered. All (level, mvendorid, marchid, mimpid)
-> + * tuples formed from each table entry must be unique.
-> + */
-> +enum id_level {
-> +	LEVEL_VENDOR,
-> +	LEVEL_ARCH,
-> +	LEVEL_IMP,
-> +};
-> +struct unaligned_access_table_entry {
-> +	enum id_level level;
-> +	u32 mvendorid;
-> +	ulong marchid;
-> +	ulong mimpid;
-> +	long type;
-> +};
-> +
-> +static struct unaligned_access_table_entry unaligned_access_table_entries[] = {
-> +};
-> +
-> +/*
-> + * Search unaligned_access_table_entries[] for the most specific match,
-> + * i.e. if there are two entries, one with mvendorid = V and level = VENDOR
-> + * and another with mvendorid = V, level = ARCH, and marchid = A, then
-> + * a hart with {V,A,?} will match the latter while a hart with {V,!A,?}
-> + * will match the former.
-> + */
-> +static bool __check_unaligned_access_table(int cpu, long *ptr, int nr_entries,
-> +					   struct unaligned_access_table_entry table[])
->  {
-> +	struct unaligned_access_table_entry *entry, *match = NULL;
-> +	u32 mvendorid = riscv_cached_mvendorid(cpu);
-> +	ulong marchid = riscv_cached_marchid(cpu);
-> +	ulong mimpid = riscv_cached_mimpid(cpu);
-> +	int i;
-> +
-> +	for (i = 0; i < nr_entries; ++i) {
-> +		entry = &table[i];
-> +
-> +		switch (entry->level) {
-> +		case LEVEL_VENDOR:
-> +			if (!match && entry->mvendorid == mvendorid) {
-> +				/* The match, unless we find an ARCH or IMP level match. */
-> +				match = entry;
-> +			}
-> +			break;
-> +		case LEVEL_ARCH:
-> +			if (entry->mvendorid == mvendorid && entry->marchid == marchid) {
-> +				/* The match, unless we find an IMP level match. */
-> +				match = entry;
-> +			}
-> +			break;
-> +		case LEVEL_IMP:
-> +			if (entry->mvendorid == mvendorid && entry->marchid == marchid &&
-> +			    entry->mimpid == mimpid) {
-> +				match = entry;
-> +				goto matched;
-> +			}
-> +			break;
-> +		}
-> +	}
-> +
-> +	if (match) {
-> +matched:
-> +		*ptr = match->type;
-> +		return true;
-> +	}
-> +
->  	return false;
->  }
->  
-> +static bool check_unaligned_access_table(void)
-> +{
-> +	int cpu = smp_processor_id();
-> +	long *ptr = per_cpu_ptr(&misaligned_access_speed, cpu);
-> +
-> +	return __check_unaligned_access_table(cpu, ptr,
-> +					      ARRAY_SIZE(unaligned_access_table_entries),
-> +					      unaligned_access_table_entries);
-> +}
-> +
->  static int riscv_online_cpu(unsigned int cpu)
->  {
->  	if (check_unaligned_access_table())
-> @@ -380,9 +459,17 @@ static int __init vec_check_unaligned_access_speed_all_cpus(void *unused __alway
->  }
->  #endif
->  
-> +static struct unaligned_access_table_entry vec_unaligned_access_table_entries[] = {
-> +};
-> +
->  static bool check_vector_unaligned_access_table(void)
->  {
-> -	return false;
-> +	int cpu = smp_processor_id();
-> +	long *ptr = per_cpu_ptr(&vector_misaligned_access, cpu);
-> +
-> +	return __check_unaligned_access_table(cpu, ptr,
-> +					      ARRAY_SIZE(vec_unaligned_access_table_entries),
-> +					      vec_unaligned_access_table_entries);
->  }
->  
->  static int riscv_online_cpu_vec(unsigned int cpu)
-> -- 
-> 2.48.1
-> 
+>   (context_tracking.state & CT_RCU_WATCHING)
+> =
+
+> pretty much a proxy for knowing whether a CPU is executing in kernelspace,
+> including NMIs?
+
+You got it!
+
+> =
+
+> NMI interrupts userspace/VM/idle -> ct_nmi_enter()   -> it becomes true
+> IRQ interrupts idle              -> ct_irq_enter()   -> it becomes true
+> IRQ interrupts userspace         -> __ct_user_exit() -> it becomes true
+> IRQ interrupts VM                -> __ct_user_exit() -> it becomes true
+> =
+
+> IOW, if I gate setting deferred work by checking for this instead of
+> explicitely CT_STATE_KERNEL, "it should work" and prevent the
+> aforementioned issue? Or should I be out drinking instead? :-)
+
+Exactly it should work! Now that doesn't mean you can't go out
+for a drink :-)
+
+Thanks.
 
 _______________________________________________
 linux-riscv mailing list
