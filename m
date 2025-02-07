@@ -4,81 +4,212 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75C1AC02196
-	for <linux-riscv@archiver.kernel.org>; Fri,  7 Feb 2025 08:33:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 753E9C0219B
+	for <linux-riscv@archiver.kernel.org>; Fri,  7 Feb 2025 09:16:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
+	Message-ID:Subject:CC:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=lEGZnWzoovVp4oISOsV0xSDZRRtoaLwrWN9Hcwep6/4=; b=Z8squ+mcwcEakn
-	i/YL1fTKwcPa6qibBDuTsvimzVdZZJmsaIOmbzLHzDUISDIMjCmZK8VxWSR+9jgKw3O/F0UymSqgR
-	Nb1H5WHXf8C4Y0NMFmBrR28wjgyhMQ85vnm2e0QA5qlqhdSXy03Rx2DfQvBEtW9yOnqW7G1M9l0EE
-	nGOm4mNYSfWyE1oik8lk1+rQu0cH4q4U0qiu9xCJuChq6Zl3Kjdxqs5r9kbJN8WWHbzgt0SIdNbfj
-	BcoU2O9HSxopciCbiX4/o5pp65rDe/Ba1QioQl1ge3PoMyhuvj/Hityv/Zcj3OR0tGAj/VbM7oTNK
-	HhGcfEjSBxMaQnH70QTQ==;
+	List-Owner; bh=RFqSG47fR58+NR/OGTixndm+aqmtzWIU21YKVUrc1Ik=; b=dCjK3SEfBf+IkA
+	6z8MUOWoPFpS/BokvoHCmy+YoiFlAnYlOkkGfm+LwjG963YO34h07eyY7L0q2gGs1xFppkZyKnGxa
+	fE0zypyghweM1N9ZK9mZuoXE5KcpR2oTa01BAQMKSp0cYDMHfk6LWU9Hsi17FoJT9Qnbwq2LXi/wU
+	D/jjoOJj/bWcnwyec8UwhOg84kuDr8Cvm22PCDnkU/JBDPHGyIg8WMApbMiNiInUfS75Dosvw6r6p
+	8X5kY8n7kTDeNiY144IuMrjVwWGnpq+gtcdYcghEBJZNWfKwknjHkJaW43SI6i7frWk5ZG8f1jV2v
+	cvAuYRbp8JM6101/h6uQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tgJnM-00000008pfY-0PnV;
-	Fri, 07 Feb 2025 08:33:04 +0000
-Received: from smtpbgbr2.qq.com ([54.207.22.56])
+	id 1tgKTB-00000008ylw-34U6;
+	Fri, 07 Feb 2025 09:16:17 +0000
+Received: from mgamail.intel.com ([192.198.163.10])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tgJnG-00000008peg-3Rai
-	for linux-riscv@lists.infradead.org;
-	Fri, 07 Feb 2025 08:33:02 +0000
-X-QQ-mid: bizesmtpsz4t1738917093t6p35lw
-X-QQ-Originating-IP: F3vYl0ctFhV2QVNdxoiZ+gl2R3+YyxEuwE/J1iVBRD0=
-Received: from [192.168.60.235] ( [183.27.97.113])
-	by bizesmtp.qq.com (ESMTP) with 
-	id ; Fri, 07 Feb 2025 16:31:30 +0800 (CST)
-X-QQ-SSF: 0000000000000000000000000000000
-X-QQ-GoodBg: 0
-X-BIZMAIL-ID: 5179800746963532279
-Message-ID: <05B9953079BA21AF+fffef577-a880-4ed6-a71b-14ec82aeea97@linux.starfivetech.com>
-Date: Fri, 7 Feb 2025 16:31:29 +0800
+	id 1tgKMD-00000008xE5-1kue;
+	Fri, 07 Feb 2025 09:09:06 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1738919345; x=1770455345;
+  h=date:from:to:cc:subject:message-id:references:
+   content-transfer-encoding:in-reply-to:mime-version;
+  bh=EV7GTSX2a9+OMQL0AsNLeGSx7JejqFOTn9DQ1+C0Bgs=;
+  b=S+6CsYvAGY1OB1NoYJbHakLj2fmSLdwjVZYSKJXGtsYWRsAvLZW+9Zpt
+   LgjOcpsA1565Ilt60h2Rt143hup75rdc65CoYn4uSZIPY6Z1p9XU+37WN
+   Q6i4xyY6Up7neGirrgegfwd2Lcxtkq/dt4urmTRLUVtx55Pjlw5S/C9k0
+   clz2RqZjg2MevyjnNt1O7We/3gQBVnq/ScpY01EpuBhNPzrKh4CpcX1MV
+   EPNqdZmdo5slsULLTmjumbhwRtXrmAYnoYNCsjw7gBkYNpMSzfTz6FL33
+   vieNr/rO5SoHvkcfP8TNftMidc/F0/3KgKy0fPMwN4tNhqm0fvMePl84f
+   A==;
+X-CSE-ConnectionGUID: pcqj7zvTSDq8r1DLE8O07A==
+X-CSE-MsgGUID: dgQZCW8FSfSfcyi77VRzTQ==
+X-IronPort-AV: E=McAfee;i="6700,10204,11314"; a="50988501"
+X-IronPort-AV: E=Sophos;i="6.12,310,1728975600"; 
+   d="scan'208";a="50988501"
+Received: from orviesa002.jf.intel.com ([10.64.159.142])
+  by fmvoesa104.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 07 Feb 2025 01:09:03 -0800
+X-CSE-ConnectionGUID: OHN67XRDR8aBD4qQsQZ5xQ==
+X-CSE-MsgGUID: yA54H6mASl6p32Q0wtKnmw==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.13,266,1732608000"; 
+   d="scan'208";a="142353210"
+Received: from orsmsx603.amr.corp.intel.com ([10.22.229.16])
+  by orviesa002.jf.intel.com with ESMTP/TLS/AES256-GCM-SHA384; 07 Feb 2025 01:09:03 -0800
+Received: from orsmsx601.amr.corp.intel.com (10.22.229.14) by
+ ORSMSX603.amr.corp.intel.com (10.22.229.16) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.44; Fri, 7 Feb 2025 01:09:02 -0800
+Received: from ORSEDG601.ED.cps.intel.com (10.7.248.6) by
+ orsmsx601.amr.corp.intel.com (10.22.229.14) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.44 via Frontend Transport; Fri, 7 Feb 2025 01:09:02 -0800
+Received: from NAM10-BN7-obe.outbound.protection.outlook.com (104.47.70.41) by
+ edgegateway.intel.com (134.134.137.102) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.1.2507.44; Fri, 7 Feb 2025 01:09:02 -0800
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=wB9HMw0V8Id9RAy6aU++GS90Hefc/JvsYx32SfrrgRwh8Xz8QxjoCndBj6J7kfhf/H2dmNXdyNGtLbaXYgTujbSRniNmKT2BgRRDbxHMNSMQyz+9uldlwbNXa5Q5pF3hA5Jj3+XWeBeKlUa1CY0eOhkr66MdnNyLGGRfMy2F/mmLccK7pMlBkAYt3FE5HyjL+yu2s7AKiuGmr1UerzVHiX0oEcrKln5KD9kvSUK+laTaEI6kbJrtY1J8y5FOkRGqJIpmnq3CGBfAdvmyOq4rjjsXxaM7iUAu/pQz+vNpccm06hDeBDsFKN/gy5juIsoogtJF+kkCdsuiOp/Su9MSrg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=BJSy9gzINKFA69OPpzB2FlUs6y0rieQ8UdBOik9lHBk=;
+ b=W7u9oXD1wtdlopERuzEjShO1GUMIQH5RZ2QJcOMxlxwc1swcqy/AMwVKeAVajg/6YnYn5f4vbGwgkbBGZ8K/E/hLuWXOzPiISE2ROGnYTFTZFmA5I5a9usUp2c2W/AsJN6r63cI9hsFcFdmUH1ERzuOYSGXGurBZDV1y9q5Kkh8ataMnac4X9c5K/ZKZT+0UWIOl/iVSLfvaR2W1Kjdxju27jTgpmmYrVFiH4EE/+a/JWmNlQdZYsPYJQdHl7eRoUXgjbAW32eZHiUYpcbdWFm3WvlMik1COd/wybGt76ZbnXk+xwUEYBw0VQmv5YKcXlDnx0oBOyu6Wq8A6bzuoZg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
+ dkim=pass header.d=intel.com; arc=none
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=intel.com;
+Received: from MN0PR11MB6231.namprd11.prod.outlook.com (2603:10b6:208:3c4::15)
+ by SA1PR11MB8596.namprd11.prod.outlook.com (2603:10b6:806:3b5::18) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8398.24; Fri, 7 Feb
+ 2025 09:08:28 +0000
+Received: from MN0PR11MB6231.namprd11.prod.outlook.com
+ ([fe80::a137:ffd0:97a3:1db4]) by MN0PR11MB6231.namprd11.prod.outlook.com
+ ([fe80::a137:ffd0:97a3:1db4%4]) with mapi id 15.20.8422.012; Fri, 7 Feb 2025
+ 09:08:28 +0000
+Date: Fri, 7 Feb 2025 10:08:17 +0100
+From: Maciej Wieczor-Retman <maciej.wieczor-retman@intel.com>
+To: Andrey Konovalov <andreyknvl@gmail.com>
+CC: <luto@kernel.org>, <xin@zytor.com>, <kirill.shutemov@linux.intel.com>,
+	<palmer@dabbelt.com>, <tj@kernel.org>, <brgerst@gmail.com>,
+	<ardb@kernel.org>, <dave.hansen@linux.intel.com>, <jgross@suse.com>,
+	<will@kernel.org>, <akpm@linux-foundation.org>, <arnd@arndb.de>,
+	<corbet@lwn.net>, <dvyukov@google.com>, <richard.weiyang@gmail.com>,
+	<ytcoode@gmail.com>, <tglx@linutronix.de>, <hpa@zytor.com>,
+	<seanjc@google.com>, <paul.walmsley@sifive.com>, <aou@eecs.berkeley.edu>,
+	<justinstitt@google.com>, <jason.andryuk@amd.com>, <glider@google.com>,
+	<ubizjak@gmail.com>, <jannh@google.com>, <bhe@redhat.com>,
+	<vincenzo.frascino@arm.com>, <rafael.j.wysocki@intel.com>,
+	<ndesaulniers@google.com>, <mingo@redhat.com>, <catalin.marinas@arm.com>,
+	<junichi.nomura@nec.com>, <nathan@kernel.org>, <ryabinin.a.a@gmail.com>,
+	<dennis@kernel.org>, <bp@alien8.de>, <kevinloughlin@google.com>,
+	<morbo@google.com>, <dan.j.williams@intel.com>,
+	<julian.stecklina@cyberus-technology.de>, <peterz@infradead.org>,
+	<cl@linux.com>, <kees@kernel.org>, <kasan-dev@googlegroups.com>,
+	<x86@kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	<linux-mm@kvack.org>, <llvm@lists.linux.dev>, <linux-doc@vger.kernel.org>
+Subject: Re: [PATCH 15/15] kasan: Add mititgation and debug modes
+Message-ID: <mngxg6wmbfzw62yhlavo6qcx3wsdkdgz3qsxahfjbs2bngxicp@7pbj2i2a6nah>
+References: <cover.1738686764.git.maciej.wieczor-retman@intel.com>
+ <450a1fe078b0e07bf2e4f3098c9110c9959c6524.1738686764.git.maciej.wieczor-retman@intel.com>
+ <CA+fCnZcG0nv1_ezc+yu3Wj_7iS0r_QfK9OcDnK-MRmJ=BF4iJg@mail.gmail.com>
+Content-Disposition: inline
+In-Reply-To: <CA+fCnZcG0nv1_ezc+yu3Wj_7iS0r_QfK9OcDnK-MRmJ=BF4iJg@mail.gmail.com>
+X-ClientProxiedBy: DU2PR04CA0296.eurprd04.prod.outlook.com
+ (2603:10a6:10:28c::31) To MN0PR11MB6231.namprd11.prod.outlook.com
+ (2603:10b6:208:3c4::15)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 1/5] riscv: dts: starfive: jh7110-common: replace
- syscrg clock assignments
-To: E Shattow <e@freeshell.de>,
- Emil Renner Berthing <emil.renner.berthing@canonical.com>,
- Conor Dooley <conor@kernel.org>, Emil Renner Berthing <kernel@esmil.dk>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>
-Cc: linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
- linux-riscv@lists.infradead.org, Hal Feng <hal.feng@starfivetech.com>
-References: <20250203013730.269558-1-e@freeshell.de>
- <20250203013730.269558-2-e@freeshell.de>
- <CAJM55Z-M9MsJAtPi-t=_tNV3oG_kdDiS6H=H3koJwTEwB8GJ-Q@mail.gmail.com>
- <981a3f30-c646-423a-a2dd-e19fef5c69e5@freeshell.de>
-Content-Language: en-US
-From: Hal Feng <hal.feng@linux.starfivetech.com>
-In-Reply-To: <981a3f30-c646-423a-a2dd-e19fef5c69e5@freeshell.de>
-X-QQ-SENDSIZE: 520
-Feedback-ID: bizesmtpsz:linux.starfivetech.com:qybglogicsvrgz:qybglogicsvrgz5a-1
-X-QQ-XMAILINFO: M1zv3ViCPTTk1ePHphXj+cnm8Qo/jTgUWdS6Pm1n8ejKocCSbm4th2Qm
-	Pr2D7NLHdDlicoStsbKRSHlXRqFVnDW8aVfSiAv+nLeIWFX2G0G+bptMAs868FEeLH6f9Y2
-	W1gUkWZrpH4PKlLH6Uc5vRu1CD+/SS1yBhWu1bcB4UsnIHMeIkTkCKMEYYfeLbFjlccorSm
-	vEgj6WSyZfIpx2L/SKedQyu5z+ZGDxYIlGtCbTwvQZDove7A/HRLCf/D4DSdmFo6WLZgWr9
-	dDC7Lfn38xwKn7CQ8o3kzlRAKlaei0HWBBhClQdjcANi0r7QZAIK1cscDARoaRrW0RX36z1
-	QIxt2iA/mfkkvNBoTs/DPDYjYn26ClkgTFwOTPWoMPTI3o+7F8BkDpFml4U8rKnRiXQm+dp
-	Fm7+OsF1XW33kBqlvegxFdjCz5yaKjnzeAF379HXXdWC7S0qG+EX1MhfPQ7j5vWP3O7yfgz
-	H0f/a04C60mWi0lsaFDKBFB6s8aU5dW4ORfP13b8ER4NR1zeZMKQnMYDE9ZcnKpIgogk3PH
-	QsJ76gBBFhmvnPLhCKQTfoAof9Azy3oyc+Efrp9zrIUxAexZOQbiPXXrzg3wd1paJdoIvgH
-	8WpDmD08PjZJ9Y3erdt36bev8toaSmgm2sQomogABj+v4+bvXzcIZ9hcP0NiuXrYHRjbdAx
-	CcnWdGbm/DmvK0nG9p6hyRdZojiSj+JQprUexpHPgbquv0CCF7SNKJWffl1DWgYoHaI4tpK
-	A2oYqoa3U65HIOO1arBZ+djfbr2h7Yna8yGoVCuE2V35ubjW1OdS1Y6wNvaHqb/v+RkjL99
-	mMC0J4IvbxOqtCygFjoCJoJ1/NyxtXZoGeSlYH0H7A6EEkyTWHzsp7LH/I/2+Vr/Zci82o2
-	hcNiKULaLZ5O6rp1WUaDo0WFkAHbd1xepzJYxvmmn0QrgQ5y2az0Tjx7wTOLYAfgF5Kaxls
-	MQUeCIYE3j4TFrHVWX4axSiVaHzft38448Lg=
-X-QQ-XMRINFO: NI4Ajvh11aEj8Xl/2s1/T8w=
-X-QQ-RECHKSPAM: 0
-/bin/ln: failed to create hard link 'reaver_cache/prob_good/20250205_045309_156119_468548BF': File exists
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: MN0PR11MB6231:EE_|SA1PR11MB8596:EE_
+X-MS-Office365-Filtering-Correlation-Id: 4667784a-15e4-40c4-8a82-08dd4756fc3c
+X-LD-Processed: 46c98d88-e344-4ed4-8496-4ed7712e255d,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|7416014|366016;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?VHlKbHVwZ0IrSUZoSHZyWVpZaHQ1WVNCN1JGdDZQQ1BHUUxKSkdhZlJBRFRK?=
+ =?utf-8?B?SWtNRzJUM3A2dW5mWGdJcEFQbjl0QzFEZmRiVCtCQ2JzbmwxdGUyK2V0bW5y?=
+ =?utf-8?B?cTBUd1FjZURidXdwQlNNYllSK05jZmNUODlBa2xEbThaVjlJcmNxQ0pWa1B3?=
+ =?utf-8?B?WVpGeUZRZlBPb0J4S0RGS2kzaDJMV21Qeit2b3hDeVVFWUtFNmhOY3hqSU5I?=
+ =?utf-8?B?M21RYlBrc0REQk5pSDNMV3hiVHJaY1FDMlNURVJNK2FWUTkvbFE5cDhiSjBB?=
+ =?utf-8?B?Q043bCtrQUgwOXo1ZTVaRi82V0VtY243UnJ1bDRoN05iZGIvaksvaHlXbmdi?=
+ =?utf-8?B?V2ZtalV6MVU0VDVXSDh1c25BWjFQWXJ5Ukozc3A3SUlqOVBUcUpseVJibjAy?=
+ =?utf-8?B?Tmx0T2pLTXZBL0Z6UUJIN1dmZWZCM1lkSllCOGtSUTFjbU0rTG5sYncybHlj?=
+ =?utf-8?B?cElRRWtvUE16MHU2WTVBaERybXROcHN1MEtJMmtGTUdpbjVQUi9kcUxSbVlu?=
+ =?utf-8?B?aWJmUHlVZFdaMGJuSzRaT1JhcCtNVGVDdmI2MzRUVzZjOG0vbHg1aENEMnhN?=
+ =?utf-8?B?U05SRlZFbk85TW5GVGVhZmxOT3JMMXdPSWdta0RPeFBobHVYSHQ1MXNsM005?=
+ =?utf-8?B?UzlFeUE0R0laQUlYcCs5MnlBT0NYcllGVEdtd3I1dDNPdVRMckxlTEl2U0cz?=
+ =?utf-8?B?QzNYdG52aEJTdlBFS3NpWHBMdFpSbXJpTVZjaUcvK2hPMlI4UEprQ3lhNlll?=
+ =?utf-8?B?ZHh6OTV3Z2FUWHRhb01pL3BLYTc2S3I4eGs0aVlEZ1pXdjZTRUlrQU5RUE1k?=
+ =?utf-8?B?bG1QWStDeXZMdGRzdUQ3dm5RcVpscHBuZHlLckVmTHlMV21COUVYRSsrWjZK?=
+ =?utf-8?B?UUNjLzlTYWZ0VGtiYjRYMndFanNSd3VzUE13cWdLL05hamtWRGYwMDJxYTEv?=
+ =?utf-8?B?cHlicEZoaVlKSGV4YVZHUmM0cE1pTTNsV1pPb0g0OWJyRmhGdTF1bEo0OTdq?=
+ =?utf-8?B?MWFsUW96SklsZ3FnRUlCWk1QOW01YUVOTWtwdU9MNkxHZmtYeHNsT1piRWds?=
+ =?utf-8?B?R1BiUXcxaFdFWGlFMTBTKzBHR2FhNm9uU1hxL0tuY3BvRzk0eUR1aXJRejIx?=
+ =?utf-8?B?bHUxNzhxdTI5bzBWVlZmNVJxSUI4OC9Na1F3ZGI3TU5tTENLYjYvbllWemsz?=
+ =?utf-8?B?Q1paOXYyOGF1TjNic0RTNjBEdjVOay91VGRXRFhuc3Q4MmprNkxOUjZMRGpD?=
+ =?utf-8?B?c2c2ZmJBVy94bGFnMkFWenFGTEt3N1VCMitoVUFrNlZaekduUmpIZmZwNVR6?=
+ =?utf-8?B?aGxLLzMzWDF1MUJibTEwM0IwbjRkL1lrNDR1UWJtdVpBSlR0UmRLK1pQTGRm?=
+ =?utf-8?B?YThCcVlMdmkyeldRSEZzVG9FUkpYelhIemVyQzJXL2NaUGZjQTE4QUU0WCtU?=
+ =?utf-8?B?OHFqcWhLRmhCUW5ZY28wbVlDZTI1Y3pPck02djFzQnNNeXltS29jSDl1eWxC?=
+ =?utf-8?B?dTFFVkI2K21IamdPUDNvdjJXRVd5ZUp3TnlxV3lnaVA3aWZzcGtTcnRPSGlV?=
+ =?utf-8?B?YzU0WHR4ZnBBc0E5QlkvcUpJSm1pajRzbzQvV2lPSlNWNnFUYzNMMS9aN3cy?=
+ =?utf-8?B?Tit0d1c1ME9lYlR1djJ5bWJzMkRUakRCekpxNGFCR0hHb3V1Ym1GOTljc2J0?=
+ =?utf-8?B?NXN2b1pJdktiM0xJbkFpWjROeFc3OVM1N3Fjc2liYzFQSWkvdkFxSEdiZHYz?=
+ =?utf-8?B?ekh5bWxONzk0U0NCSUdzUHo4ODhOMXpEL3pnZEUzakQwUGlqZmJJSWRmTTRK?=
+ =?utf-8?B?VnhBVWJjWTIwMS83SzZ2Zz09?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MN0PR11MB6231.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(7416014)(366016);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?WDRnVm1HamJwSVlBN05UZ3YxcGljR0VkUWNBeW1sRW5PVXpCRW45cjllQ0Fq?=
+ =?utf-8?B?bnlDbVBLdFVNMnZPSHpMQ0ltLzJncnNLY0dlaUNFU3hRdjhqeS90aHZJczFH?=
+ =?utf-8?B?M2VQUkRjSU9NYVEwM1F2dFFROWw4MktKeFUxbnhNMjdxOWNqUkVqdXRaTE5h?=
+ =?utf-8?B?cDhtdkNqSnpxNEpaUG1DVytESTlwV3NoWE0zU1RrTzNTZ1M3R09XcmVYWGRI?=
+ =?utf-8?B?V053ZVVGSmVpU1A5Zlp4L3Z0NjMvaC9RcDhnNklqMVN0QVR6djlBdWJkc0F1?=
+ =?utf-8?B?UmpwaUV4U1Jhem1USXVIVG1mTHphS3J6dUFCcGZjZWxaZGZMTGVIamRrWis0?=
+ =?utf-8?B?dWIzWnBwNjEzNCtzSHE4NlZ0Q1NYdWhWV0NpdFRkSFltaEhMTytuUFQ2OHAv?=
+ =?utf-8?B?R3lWc0taY29kVTRRRjZlS3E3R05qU05JOVZ3YlhXYTdmc2QwUjBxOWNrU0s0?=
+ =?utf-8?B?VGxVaEhsbVJpNFNodXQ4ZnJVZStLM3gvb3pKNnBNZzBjMnczaTlZMW0zcURo?=
+ =?utf-8?B?c2NySFZvdXljcFhyZGxzSWdrVnhHc3ZRU1NyRWVwRU1vOTFhQ05ZaGZRbnRj?=
+ =?utf-8?B?cWJRNE03Yy91QVdVUVVwdmxqN25PeEp2MVFpandEVzdBZ2tCNnJoWHF2cVpz?=
+ =?utf-8?B?bXErWXk2NENyUVQ3QUR2dnlkbXk0STJCZVJsS1JGWkw0a2Z2NUZDaEFzaCty?=
+ =?utf-8?B?VGY1SFRBaEplbTRRWDZGQ1lhSXJhNFQyRGU3V0drY0QwTFozWE5DcUVjUFN6?=
+ =?utf-8?B?cndveDc5RVdHTjgzUHNOQjJKTjFMSUFET3lxQXQ5VktpYXFDeWhzeS9IaUNT?=
+ =?utf-8?B?MHFjVDV5TFIxNEFpN2tTbk5EekxOcnBRdmpoMCs4RW94WnVhVDljWlRFeGs3?=
+ =?utf-8?B?cThLU1daTDZVNFFnV0MwaUNDSDNlUmY3OEVnNUxsZG1aUEdoMDY5MGFhQmpr?=
+ =?utf-8?B?eXBUVVZPd0pzbTZjZk40Zk1oT3QzYzUwUFlNOEJzbUFjVFh2Y3ZlVXBST1Rm?=
+ =?utf-8?B?QWRneTkwOFdpK2phNzh6SS85ZDdLVmlpRTdSRXBLZElpUFpjWXF0QktMQmxv?=
+ =?utf-8?B?SU9JVXZpcmdIUHZmdmJ1NGpFQjF4TEh5QXVuV0d6TzBhRy9CY2kxKzFpL3NI?=
+ =?utf-8?B?MUE5Mm53V05pZGpvb0tWOWZIZWV1MnJuSXV3VW5FYWRpYTVKZFpQN1Zwa3Vu?=
+ =?utf-8?B?SEYvUVRRSTZxZSs2N0Q3YjhtNldvWDM4NVF6VHFEekNpVlJNYXFrMmhpeUNF?=
+ =?utf-8?B?bXlKSG54QVI3d3FyM2VWZHN5dHdrbkE2d2VUYW5sa0QxQWZIRGZPMzBVVTNr?=
+ =?utf-8?B?ZGFaaUFreXl1RlBheW1ZdGRYSmVHdVdBZ1RPMm1vMTNSUEwyK0JaQU9wYkVh?=
+ =?utf-8?B?a2V3dUdSSGJ3YlluT1BOM1RKMitUbnFORUZGZEUvRmtpQjkwYzI5ZUQwN3dh?=
+ =?utf-8?B?SFJiVkJIbmVweVJxVzBYVUFEZHRySnNOZWtPTFROUUsvaWF2aFJnSkt6c09G?=
+ =?utf-8?B?N2ZyZ2F5YzNwbyt4OXBsaisvekh1bllBSWZmVEpMdzdISy9mNlVDL0pkUjlu?=
+ =?utf-8?B?MFFnZ3dvQ3Yram0vV28wNGlmY2FPQVlmbjB1ek1lM3I4R1J6OExnbDJWcGI0?=
+ =?utf-8?B?OHJBN2NSL3d0WTBuZUhIK0R1TExialZnR081OGdGa3VMcXRZenlOV01vSnpo?=
+ =?utf-8?B?T2pqdXRlcWlVWFVDd3RzZTdFWTFsaHpkQXBQTnJaK0FXekN3MGlJSXpFRTJT?=
+ =?utf-8?B?QnJ1UE9tNUViaVZHdWNWR3NJajJFeEJweFdCTkNhWFBKV2JHaEhMWnUyNEI0?=
+ =?utf-8?B?dmtMeTIxVjFBS24vblltdEFVWkdPOXRlZmIwMW92aHFtbUF0amdOOEp6YSsv?=
+ =?utf-8?B?a0xjQWxYcDQ4THVTNEphcG56aEZXQUxxZTViczZDRENBWmhEcXdoblRNM3V2?=
+ =?utf-8?B?SEtlSmtmdUFrMXJyRERNN3NXM21LYlJJc0dTRHFjS3hSWmhodXFaSnEzYmJx?=
+ =?utf-8?B?QmowNkFsOU1qblI2S242L1hCVjR6Ri9yQm5NU2haeHAvMFFnRXA3cFFyRWpR?=
+ =?utf-8?B?VTIxU29CWTBManhsM01qaDhwczNyNi9ZLzN6K3NnUHRyaCtTSG1UU2hUMXFo?=
+ =?utf-8?B?NVoxMklCY21Ldm80R0t0bXJ6YVVwd3MrV25od0p4emtTQXFJc0xSZDNpa1B6?=
+ =?utf-8?Q?ZHhfCnYhGvW8qGpNjnwBG9w=3D?=
+X-MS-Exchange-CrossTenant-Network-Message-Id: 4667784a-15e4-40c4-8a82-08dd4756fc3c
+X-MS-Exchange-CrossTenant-AuthSource: MN0PR11MB6231.namprd11.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 07 Feb 2025 09:08:28.2163
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 46c98d88-e344-4ed4-8496-4ed7712e255d
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: ig3etpMTkqTnyAcz4fLPJy/YmrKVf9iuqj2rEYfkWagmmgVS/p/NONKy4UwDRoJHKkzDbxwcGT1QTimzaKefBlouZrYtvlB9v8eWQ+0sEXk=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA1PR11MB8596
+X-OriginatorOrg: intel.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250205_045309_156119_468548BF 
-X-CRM114-Status: GOOD (  28.04  )
+X-CRM114-CacheID: sfid-20250207_010905_469730_E102B152 
+X-CRM114-Status: GOOD (  14.14  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,218 +221,45 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 2/5/2025 8:52 PM, E Shattow wrote:
-> 
-> 
-> On 2/5/25 02:16, Emil Renner Berthing wrote:
->> E Shattow wrote:
->>> Replace syscrg assignments of clocks, clock parents, and rates with
->>> default settings for compatibility with downstream boot loader SPL
->>> secondary program loader.
->>>
->>> Signed-off-by: E Shattow <e@freeshell.de>
->>> ---
->>>  arch/riscv/boot/dts/starfive/jh7110-common.dtsi | 11 ++++++++---
->>>  1 file changed, 8 insertions(+), 3 deletions(-)
->>>
->>> diff --git a/arch/riscv/boot/dts/starfive/jh7110-common.dtsi b/arch/riscv/boot/dts/starfive/jh7110-common.dtsi
->>> index 48fb5091b817..a5661b677687 100644
->>> --- a/arch/riscv/boot/dts/starfive/jh7110-common.dtsi
->>> +++ b/arch/riscv/boot/dts/starfive/jh7110-common.dtsi
->>> @@ -359,9 +359,14 @@ spi_dev0: spi@0 {
->>>  };
->>>
->>>  &syscrg {
->>> -	assigned-clocks = <&syscrg JH7110_SYSCLK_CPU_CORE>,
->>> -			  <&pllclk JH7110_PLLCLK_PLL0_OUT>;
->>> -	assigned-clock-rates = <500000000>, <1500000000>;
->>> +	assigned-clocks = <&syscrg JH7110_SYSCLK_CPU_ROOT>,
->>> +			  <&syscrg JH7110_SYSCLK_BUS_ROOT>,
->>> +			  <&syscrg JH7110_SYSCLK_PERH_ROOT>,
->>> +			  <&syscrg JH7110_SYSCLK_QSPI_REF>;
->>> +	assigned-clock-parents = <&pllclk JH7110_PLLCLK_PLL0_OUT>,
->>> +				 <&pllclk JH7110_PLLCLK_PLL2_OUT>,
->>> +				 <&pllclk JH7110_PLLCLK_PLL2_OUT>,
->>> +				 <&syscrg JH7110_SYSCLK_QSPI_REF_SRC>;
->> 
->> I think Conor asked about this too, but you still don't write why it's ok to
->> drop the 500MHz and 1,5GHz assignments to the cpu-core and pll0 clocks
->> respectively. You should add this to the commit message itself.
->> 
->> /Emil
-> 
-> Is this a remedy for a bug in the JH7110 CPU? I'm not clear why tweaking
-> the frequencies and increasing core voltage was ever needed.
-> 
-> This goes back to series "clk: starfive: jh7110-sys: Fix lower rate of
-> CPUfreq by setting PLL0 rate to 1.5GHz" [1].
-> 
-> Since [1] I have had problems with several passively cooled Milk-V Mars
-> CM Lite systems powering off due to thermal limits. My experience then
-> is that the specialized 1.5GHz operation is not appropriate for all
-> JH7110 CPU board layouts and applications.
-> 
-> Hal says I failed to get these assignments in Linux to work in U-Boot
-> because U-Boot doesn't have driver support to increase CPU voltage, and
-> Hal offering to add this to a driver in U-Boot... but that's the wrong
-> way around in my opinion, unless there's some defect in the JH7110 CPU
-> that it won't run reliably with hardware defaults.
-> 
-> 1:
-> https://lore.kernel.org/all/20240603020607.25122-1-xingyu.wu@starfivetech.com/
-> 
-> What is the correct thing to do here?
-> 
-> -E
-> 
-> From mboxrd@z Thu Jan  1 00:00:00 1970
-> Return-Path: <linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org>
-> X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
-> 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
-> Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
-> 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-> 	(No client certificate requested)
-> 	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9A24C02192
-> 	for <linux-riscv@archiver.kernel.org>; Wed,  5 Feb 2025 13:10:59 +0000 (UTC)
-> DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-> 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-> 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-> 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-> 	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-> 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-> 	List-Owner; bh=GY86gaXkDRjEBAUNvogHkHuyO230wjLSabDM8v7zKQQ=; b=Un7uhhDTAT8/9N
-> 	FxyCZTIeuEf9Tz2EWguoSASPTIRzVsA8OD+zansoq7n0Em+ejnESLoVicWRdNflaSCojelA6mxlZr
-> 	79fy10oRgiIKMOAb1fwJcsq+rGF8jSdXwi0a2zKjGYb4u4ZNy/uLBiIynsSH/VCYysTKQK6p7wAiC
-> 	7RYsK3WfvbZKMTBmH2vKxA7ERtfZGfNAJqRjHzBM06+ZfEDf9V2UQ3pGUdGPoTZYkQoS8smFEx47Z
-> 	U3KclAiQD6NRzOmPD/VXwUGXQEpLonSaLk7kbAdo3cWww6Wyou3w4XqxHQpym6FyLsKAWWSk7d4vx
-> 	ZbYQckPNKc65NmLst1TA==;
-> Received: from localhost ([::1] helo=bombadil.infradead.org)
-> 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-> 	id 1tffB9-00000003Lk1-2ly8;
-> 	Wed, 05 Feb 2025 13:10:55 +0000
-> Received: from freeshell.de ([2a01:4f8:231:482b::2])
-> 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-> 	id 1tfetw-00000003I2R-42Et
-> 	for linux-riscv@lists.infradead.org;
-> 	Wed, 05 Feb 2025 12:53:10 +0000
-> Received: from [192.168.2.35] (unknown [98.97.25.24])
-> 	(Authenticated sender: e)
-> 	by freeshell.de (Postfix) with ESMTPSA id 7ADA8B4C01E1;
-> 	Wed,  5 Feb 2025 13:53:01 +0100 (CET)
-> Message-ID: <981a3f30-c646-423a-a2dd-e19fef5c69e5@freeshell.de>
-> Date: Wed, 5 Feb 2025 04:52:59 -0800
-> MIME-Version: 1.0
-> User-Agent: Mozilla Thunderbird
-> Subject: Re: [PATCH v2 1/5] riscv: dts: starfive: jh7110-common: replace
->  syscrg clock assignments
-> To: Emil Renner Berthing <emil.renner.berthing@canonical.com>,
->  Conor Dooley <conor@kernel.org>, Emil Renner Berthing <kernel@esmil.dk>,
->  Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
->  Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
->  <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>
-> Cc: linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
->  linux-riscv@lists.infradead.org
-> References: <20250203013730.269558-1-e@freeshell.de>
->  <20250203013730.269558-2-e@freeshell.de>
->  <CAJM55Z-M9MsJAtPi-t=_tNV3oG_kdDiS6H=H3koJwTEwB8GJ-Q@mail.gmail.com>
-> Content-Language: en-US
-> From: E Shattow <e@freeshell.de>
-> In-Reply-To: <CAJM55Z-M9MsJAtPi-t=_tNV3oG_kdDiS6H=H3koJwTEwB8GJ-Q@mail.gmail.com>
-> X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-> X-CRM114-CacheID: sfid-20250205_045309_156119_468548BF 
-> X-CRM114-Status: GOOD (  16.14  )
-> X-BeenThere: linux-riscv@lists.infradead.org
-> X-Mailman-Version: 2.1.34
-> Precedence: list
-> List-Id: <linux-riscv.lists.infradead.org>
-> List-Unsubscribe: <http://lists.infradead.org/mailman/options/linux-riscv>,
->  <mailto:linux-riscv-request@lists.infradead.org?subject=unsubscribe>
-> List-Archive: <http://lists.infradead.org/pipermail/linux-riscv/>
-> List-Post: <mailto:linux-riscv@lists.infradead.org>
-> List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
-> List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
->  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-> Content-Type: text/plain; charset="us-ascii"
-> Content-Transfer-Encoding: 7bit
-> Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-> Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
-> 
-> 
-> 
-> On 2/5/25 02:16, Emil Renner Berthing wrote:
->> E Shattow wrote:
->>> Replace syscrg assignments of clocks, clock parents, and rates with
->>> default settings for compatibility with downstream boot loader SPL
->>> secondary program loader.
->>>
->>> Signed-off-by: E Shattow <e@freeshell.de>
->>> ---
->>>  arch/riscv/boot/dts/starfive/jh7110-common.dtsi | 11 ++++++++---
->>>  1 file changed, 8 insertions(+), 3 deletions(-)
->>>
->>> diff --git a/arch/riscv/boot/dts/starfive/jh7110-common.dtsi b/arch/riscv/boot/dts/starfive/jh7110-common.dtsi
->>> index 48fb5091b817..a5661b677687 100644
->>> --- a/arch/riscv/boot/dts/starfive/jh7110-common.dtsi
->>> +++ b/arch/riscv/boot/dts/starfive/jh7110-common.dtsi
->>> @@ -359,9 +359,14 @@ spi_dev0: spi@0 {
->>>  };
->>>
->>>  &syscrg {
->>> -	assigned-clocks = <&syscrg JH7110_SYSCLK_CPU_CORE>,
->>> -			  <&pllclk JH7110_PLLCLK_PLL0_OUT>;
->>> -	assigned-clock-rates = <500000000>, <1500000000>;
->>> +	assigned-clocks = <&syscrg JH7110_SYSCLK_CPU_ROOT>,
->>> +			  <&syscrg JH7110_SYSCLK_BUS_ROOT>,
->>> +			  <&syscrg JH7110_SYSCLK_PERH_ROOT>,
->>> +			  <&syscrg JH7110_SYSCLK_QSPI_REF>;
->>> +	assigned-clock-parents = <&pllclk JH7110_PLLCLK_PLL0_OUT>,
->>> +				 <&pllclk JH7110_PLLCLK_PLL2_OUT>,
->>> +				 <&pllclk JH7110_PLLCLK_PLL2_OUT>,
->>> +				 <&syscrg JH7110_SYSCLK_QSPI_REF_SRC>;
->> 
->> I think Conor asked about this too, but you still don't write why it's ok to
->> drop the 500MHz and 1,5GHz assignments to the cpu-core and pll0 clocks
->> respectively. You should add this to the commit message itself.
->> 
->> /Emil
-> 
-> Is this a remedy for a bug in the JH7110 CPU? I'm not clear why tweaking
-> the frequencies and increasing core voltage was ever needed.
-> 
-> This goes back to series "clk: starfive: jh7110-sys: Fix lower rate of
-> CPUfreq by setting PLL0 rate to 1.5GHz" [1].
-> 
-> Since [1] I have had problems with several passively cooled Milk-V Mars
-> CM Lite systems powering off due to thermal limits. My experience then
-> is that the specialized 1.5GHz operation is not appropriate for all
-> JH7110 CPU board layouts and applications.
-> 
-> Hal says I failed to get these assignments in Linux to work in U-Boot
-> because U-Boot doesn't have driver support to increase CPU voltage, and
-> Hal offering to add this to a driver in U-Boot... but that's the wrong
-> way around in my opinion, unless there's some defect in the JH7110 CPU
-> that it won't run reliably with hardware defaults.
-> 
-> 1:
-> https://lore.kernel.org/all/20240603020607.25122-1-xingyu.wu@starfivetech.com/
-> 
-> What is the correct thing to do here?
-
-Please see my reply in
-https://lore.kernel.org/all/ZQ2PR01MB130736F5C893337606FD6937E6F1A@ZQ2PR01MB1307.CHNPR01.prod.partner.outlook.cn/
-
-Thanks.
-
-Best regards,
-Hal
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gMjAyNS0wMi0wNiBhdCAwMDo0NjoyMSArMDEwMCwgQW5kcmV5IEtvbm92YWxvdiB3cm90ZToK
+Pk9uIFR1ZSwgRmViIDQsIDIwMjUgYXQgNjozN+KAr1BNIE1hY2llaiBXaWVjem9yLVJldG1hbgo+
+PG1hY2llai53aWVjem9yLXJldG1hbkBpbnRlbC5jb20+IHdyb3RlOgouLi4KPj4gK2Nob2ljZQo+
+PiArICAgICAgIHByb21wdCAiS0FTQU4gb3BlcmF0aW9uIG1vZGUiCj4+ICsgICAgICAgZGVmYXVs
+dCBLQVNBTl9PUEVSQVRJT05fREVCVUcKPj4gKyAgICAgICBoZWxwCj4+ICsgICAgICAgICBDaG9v
+c2UgYmV0d2VlbiB0aGUgbWl0aWdhdGlvbiBvciBkZWJ1ZyBvcGVyYXRpb24gbW9kZXMuCj4+ICsK
+Pj4gKyAgICAgICAgIFRoZSBmaXJzdCBvbmUgZGlzYWJsZXMgc3RhY2t0cmFjZSBzYXZpbmcgYW5k
+IGVuYWJsZXMgcGFuaWMgb24gZXJyb3IuCj4+ICsgICAgICAgICBGYXN0ZXIgbWVtb3J5IGFsbG9j
+YXRpb24gYnV0IGxlc3MgaW5mb3JtYXRpb24uIFRoZSBzZWNvbmQgb25lIGlzIHRoZQo+PiArICAg
+ICAgICAgZGVmYXVsdCB3aGVyZSBLQVNBTiBvcGVyYXRlcyB3aXRoIGZ1bGwgZnVuY3Rpb25hbGl0
+eS4KPgo+VGhpcyBpcyBzb21ldGhpbmcgdGhhdCBJIHRob3VnaHQgYWJvdXQgYmVmb3JlIGFuZCBJ
+IHRoaW5rIHdlIHNob3VsZAo+X25vdF8gYWRkIGNvbmZpZ3VyYXRpb24gb3B0aW9ucyBsaWtlIHRo
+ZXNlLiBUaGUgZGlzdGluY3Rpb24gYmV0d2Vlbgo+ZGVidWcgYW5kIG1pdGlnYXRpb24gbW9kZXMg
+aXMgc29tZXRoaW5nIHRoYXQncyBzcGVjaWZpYyB0byBhCj5wYXJ0aWN1bGFyIHVzZXIgb2YgdGhl
+IGZlYXR1cmUuIFNvbWUgbWlnaHQgcHJlZmVyIHRvIHRha2UgdGhlIGltcGFjdAo+b2YgaGF2aW5n
+IHN0YWNrIHRyYWNlcyBlbmFibGVkIGluIGEgcHJvZHVjdGlvbiBlbnZpcm9ubWVudCB0byBhbGxv
+dwo+ZGVidWdnaW5nIGluLXRoZS13aWxkIGV4cGxvaXRhdGlvbiBhdHRlbXB0cy4gQWxzbyBhdCBz
+b21lIHBvaW50IGluIHRoZQo+ZnV0dXJlLCB3ZSB3aWxsIGhvcGVmdWxseSBoYXZlIHByb2R1Y3Rp
+b24tZ3JhZGUgc3RhY2sgdHJhY2VzIFsxXSwgYW5kCj50aGlzIHdvdWxkIHRodXMgY2hhbmdlIHRo
+ZSBkZXNpcmVkIGJlaGF2aW9yIG9mCj5LQVNBTl9PUEVSQVRJT05fTUlUSUdBVElPTi4KPgo+V2Ug
+YWxyZWFkeSBoYXZlIHRoZSBrYXNhbi5zdGFja3RyYWNlIGNvbW1hbmQtbGluZSBwYXJhbWV0ZXIg
+Zm9yCj5kaXNhYmxpbmcgc3RhY2sgdHJhY2UgY29sbGVjdGlvbi4gT24gdG9wIG9mIHRoYXQsIGlm
+IHlvdSBwcmVmZXIsIHdlCj5jb3VsZCBhZGQgYSBjb25maWd1cmF0aW9uIG9wdGlvbiB0aGF0IGNo
+YW5nZXMgdGhlIGRlZmF1bHQgdmFsdWUgb2YKPmthc2FuX2ZsYWdfc3RhY2t0cmFjZSAoYnV0IGNh
+biBzdGlsbCBiZSBvdmVycmlkZGVuIHZpYSB0aGUKPmthc2FuLnN0YWNrdHJhY2UgY29tbWFuZC1s
+aW5lIHBhcmFtZXRlcikuIE5vdGUgdGhvdWdoIHRoYXQgYnkgZGVmYXVsdCwKPnN0YWNrIHRyYWNl
+cyBzaG91bGQgYmUgdHVybmVkIG9uLgo+Cj5bMV0gaHR0cHM6Ly9idWd6aWxsYS5rZXJuZWwub3Jn
+L3Nob3dfYnVnLmNnaT9pZD0yMTE3ODUKPgoKT2theSwgSSBzZWUgeW91ciBwb2ludC4gSSdsbCBk
+cm9wIHRoZSBwYXRjaCBmb3Igbm93IGFuZCByZXRoaW5rIGlmIG1lc3Npbmcgd2l0aApob3cgc3Rh
+Y2t0cmFjZXMgYXJlIGVuYWJsZWQvZGlzYWJsZWQgaXMgd29ydGggaXQuCgo+Cj5fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwo+bGludXgtcmlzY3YgbWFpbGlu
+ZyBsaXN0Cj5saW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCj5odHRwOi8vbGlzdHMuaW5m
+cmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2CgotLSAKS2luZCByZWdhcmRz
+Ck1hY2llaiBXaWVjesOzci1SZXRtYW4KCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0
+cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGlu
+Zm8vbGludXgtcmlzY3YK
