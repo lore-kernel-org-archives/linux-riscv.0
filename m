@@ -4,99 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30B60C02192
-	for <linux-riscv@archiver.kernel.org>; Fri,  7 Feb 2025 09:36:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 18DADC02196
+	for <linux-riscv@archiver.kernel.org>; Fri,  7 Feb 2025 09:40:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=KnowfcRqOmld8M6fq9X9DQtJOmgnnV3+BTcHblAt95k=; b=0iyivtsrtHnmau
-	x5Cx94LsP83dcL/h9HtIlJZUAEMghKfs53TxOVyAacuXvQyLmJohXbPOyPCGFJ/BDLxNxGkHtMqsZ
-	V5sUanC7PVt8FMoKZaBNw0zk5MvB7LrSDhc7hhS7yMBYJXarvCkxQ5z0gTyUfzfC85mSlWm/ru2Gs
-	aycXEskrH42Z8k/+zkep+UfOQ76IcjAEv5uN12ir/4Kci/iPL+HkAuHzVtLqGoktH8vtJfQIETLdE
-	a0mUK1J1431NBkmz2bMaNOLTuwF7FadYZ0MeWaHagwkf2mIeXIGyDUy0G3AzN7zArtCBcFFKnECzo
-	kJjyO8TqTH3xogr3p2Ag==;
+	List-Archive:List-Unsubscribe:List-Id:Subject:To:Message-Id:Date:From:
+	Mime-Version:Cc:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
+	References:List-Owner; bh=AJ6JtE2O7bshKVk12PUzfyOJc8vXuf5cLlAmBGx2QtE=; b=wb1
+	ftpapEDFFuzAE5okMMp90d80972F0aqGfgBEBUNsBiyPAk9Hy8f+VuLxlvJgTZHaAdPoFquztJWii
+	tM8+pJx4cbVdiCkycp9ev/gvqGMd0wl5l6OAM7QQfe6ypxt2j6aSosRG4edF5R0FPFQNHdl4G9dfb
+	OjyxyQd+Law7DeDnhY03h82NCQV/P/AyL136YC7kJWs/O82GyvBilcdWKyKPBRE93C5YlZ3Kyndc4
+	C0f+p6a8RxPdFYu8f9XQSp2XjaKOcv+8BZ00aXoNQXULxEUO5v3ChBCQG03gUcwvRuEZPKXpFLx4C
+	nqqBrH2YFHmqERek9VUnxCMJ30k3LZw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tgKmF-0000000932X-0IM2;
-	Fri, 07 Feb 2025 09:35:59 +0000
-Received: from mail-wr1-x432.google.com ([2a00:1450:4864:20::432])
+	id 1tgKqe-000000094Vb-0Asu;
+	Fri, 07 Feb 2025 09:40:32 +0000
+Received: from va-1-17.ptr.blmpb.com ([209.127.230.17])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tgKh9-0000000925f-1TvX
+	id 1tgKpW-00000009442-1yNu
 	for linux-riscv@lists.infradead.org;
-	Fri, 07 Feb 2025 09:30:44 +0000
-Received: by mail-wr1-x432.google.com with SMTP id ffacd0b85a97d-38dcc6df5d3so230593f8f.0
-        for <linux-riscv@lists.infradead.org>; Fri, 07 Feb 2025 01:30:43 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1738920642; x=1739525442; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=3a+d7uyoeApEWBBfKQwFeZRvjtQlKPA0vvhD7J7Rfb0=;
-        b=SfIxGUwQ41GBykwK4R7RsTgDs38rRV83URMFP6IZPewarDWLo0Do3Iww+p1vPDvvbI
-         Bl02IXqOv6z23Z4EMxlIG2+8RfZgC+dOw0QHHJi8+6rElz+8sfzQu6icKUMfn2Y0By85
-         gLdFEjRGcJYIJqeOdQsr/zg3U5B7DLx1qvXlsPUcmOyhcMGEsq/vG6348BmraHKYgHui
-         l65mXCMqqyJF4zgeYHcuA8Q10+pzvkTvkD7V6L75A0wXfKLwX4Qukw7KgV6lNSVXwOqq
-         73C7MZEyBMwUbwdxHIwqCX0pS31+bz0fZLN2OeVrnRkFokQgc4CuAxNJM6Z9U2gQ17dn
-         vzug==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1738920642; x=1739525442;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=3a+d7uyoeApEWBBfKQwFeZRvjtQlKPA0vvhD7J7Rfb0=;
-        b=pAUCqaR8V5fRU3wS7JJ3LfXC0qyguxsbFZuX/SOy1XE+Fc47dQc4jXM4X3fb2ggLaZ
-         SLMoFm/zwFgM1lCCZn5sGNKBaBipUFf6SdJUtjmR7CbgYCfcBpK8jguYDNaAV7wVMuqS
-         CZRON2s5iGoGmxazo9QdOYZyKEkMhs9H5qjMWayr8XQP8i0+OtvqmihTiITaEe8yVuAg
-         7sL9avGtqw2ykkczHnWggJbliP5zJWWuBQUFTBMtac+b11DNiUw0+142rLsG9oa+HRNA
-         eHodSxMvw8a1Nue7BEmwiSesbQCbNv8Ik+8+D0sYqGA/W78Sxx2ptY4AxbLX91rTYDJp
-         VtIQ==
-X-Gm-Message-State: AOJu0YyzCvagOjIKAr+dLowzqhKHZtYiJwgGUbdwNTXV1oSn6dUejrR9
-	V7rE6MbwzSLT7L0Yy+HWsmze9HpjwElNGeJ2bshb4+Y4xklXnSY+ilKNBDeToH4=
-X-Gm-Gg: ASbGncsa0ZuS1q4LOC2Pu1wuGJ5UmZJK3+dW+q8GJc4oCB1t3FGhjWFOl8UnWGZ0I0Q
-	uCAhutqhBF83lyiDPEtwkpM5j2h0ZwoDkMQFA8B0OS0IxAEr7Wnl5Dqrqzz+0hyztciiRe5ENTQ
-	hTcNzS3fC1T4ViftCRcjaYhaDphtGx64tTcdneYyMUSqMSLOAZNFZbUBRjzYhkd2GoGTPZsni88
-	kh2oufroKvYKpwEHMZ6YBSotPodsXafORXAVpQ9LI55zbPucPZJei+HKvcTs3fqj7eP2UHbrvCm
-	iMZ87xsX0oiICUEVDO4lCKXS7QN7HZhSMyyLL8ZIntEHJrCUW3BMy5jWSfy1
-X-Google-Smtp-Source: AGHT+IESXZlQ/7J7RVMhXOtjbNkCC7bnZBXGkym1nxwIOsNsCdWy/rEEkXcjomIH6pUgz9UpP8gZ8g==
-X-Received: by 2002:a05:6000:154e:b0:385:e1e8:40db with SMTP id ffacd0b85a97d-38dc8dd0a8amr1292514f8f.24.1738920641731;
-        Fri, 07 Feb 2025 01:30:41 -0800 (PST)
-Received: from ?IPV6:2a01:e0a:e17:9700:16d2:7456:6634:9626? ([2a01:e0a:e17:9700:16d2:7456:6634:9626])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-38dbdd3856fsm3892845f8f.28.2025.02.07.01.30.40
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 07 Feb 2025 01:30:41 -0800 (PST)
-Message-ID: <bcb10a3a-162b-4a8c-a479-38f4168cea9a@rivosinc.com>
-Date: Fri, 7 Feb 2025 10:30:39 +0100
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 08/21] RISC-V: Add Sscfg extension CSR definition
-To: Atish Patra <atishp@rivosinc.com>,
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Anup Patel <anup@brainfault.org>,
- Atish Patra <atishp@atishpatra.org>, Will Deacon <will@kernel.org>,
- Mark Rutland <mark.rutland@arm.com>, Peter Zijlstra <peterz@infradead.org>,
- Ingo Molnar <mingo@redhat.com>, Arnaldo Carvalho de Melo <acme@kernel.org>,
- Namhyung Kim <namhyung@kernel.org>,
- Alexander Shishkin <alexander.shishkin@linux.intel.com>,
- Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>,
- Adrian Hunter <adrian.hunter@intel.com>, weilin.wang@intel.com
-Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
- Conor Dooley <conor@kernel.org>, devicetree@vger.kernel.org,
- kvm@vger.kernel.org, kvm-riscv@lists.infradead.org,
- linux-arm-kernel@lists.infradead.org, linux-perf-users@vger.kernel.org,
- Kaiwen Xue <kaiwenx@rivosinc.com>
-References: <20250205-counter_delegation-v4-0-835cfa88e3b1@rivosinc.com>
- <20250205-counter_delegation-v4-8-835cfa88e3b1@rivosinc.com>
-Content-Language: en-US
-From: =?UTF-8?B?Q2zDqW1lbnQgTMOpZ2Vy?= <cleger@rivosinc.com>
-In-Reply-To: <20250205-counter_delegation-v4-8-835cfa88e3b1@rivosinc.com>
+	Fri, 07 Feb 2025 09:39:23 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+ s=s1; d=deepcomputing-io.20200927.dkim.feishu.cn; t=1738921152;
+  h=from:subject:mime-version:from:date:message-id:subject:to:cc:
+ reply-to:content-type:mime-version:in-reply-to:message-id;
+ bh=nmICg0JeV9q0TueMgSa31FvUhRcU9+mUNKRb/fAv+c4=;
+ b=Ext4D7g2kPHU3YeMoyg7w2U5doYWuKL65p5hQ+TumzUUIjwY/gsZn5W1oos5unnOzjQJ+2
+ jUlCuQPgHV5b/WholkhRwGAbHdJn6TVTXM/sA+aPMy+OV/CRpMgc1IOfbaG78XaLlq6PK7
+ BxIzAxf89c1UX2pGJ+v4YLyZTyibfV2WkUKsSLbDEJ79URlLIi6EKZtYWceaD0995Kwf2W
+ YczpLFsyG4MqWHDNQvtjjwkiWYCL3oXvjwdj081Wh0fBCp4b6D0y+i540kbte3zMd3rTV5
+ booSEJXZZbpDdMQnbcsl8Hljzahk6xeSQKc3k865TQ2xudjDCCsF95KsxEX4fA==
+Cc: "Paul Walmsley" <paul.walmsley@sifive.com>, 
+	"Palmer Dabbelt" <palmer@dabbelt.com>, 
+	"Albert Ou" <aou@eecs.berkeley.edu>, <linux-riscv@lists.infradead.org>, 
+	<linux-kernel@vger.kernel.org>, <devicetree@vger.kernel.org>, 
+	"Sandie Cao" <sandie.cao@deepcomputing.io>
+Mime-Version: 1.0
+X-Lms-Return-Path: <lba+267a5d4be+7dd010+lists.infradead.org+sandie.cao@deepcomputing.io>
+From: "Sandie Cao" <sandie.cao@deepcomputing.io>
+X-Mailer: git-send-email 2.34.1
+Date: Fri,  7 Feb 2025 17:36:18 +0800
+Message-Id: <20250207093618.126636-1-sandie.cao@deepcomputing.io>
+X-Original-From: Sandie Cao <sandie.cao@deepcomputing.io>
+To: "Conor Dooley" <conor@kernel.org>, 
+	"Emil Renner Berthing" <kernel@esmil.dk>, 
+	"Rob Herring" <robh@kernel.org>, 
+	"Krzysztof Kozlowski" <krzk+dt@kernel.org>
+Subject: [PATCH] riscv: dts: starfive: fml13v01: enable pcie1
+Received: from roma-MacBookPro.. ([113.110.140.128]) by smtp.feishu.cn with ESMTPS; Fri, 07 Feb 2025 17:39:09 +0800
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250207_013043_395436_77E859F1 
-X-CRM114-Status: GOOD (  14.75  )
+X-CRM114-CacheID: sfid-20250207_013922_588153_66B03BD5 
+X-CRM114-Status: UNSURE (   4.16  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,53 +70,71 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-CgpPbiAwNi8wMi8yMDI1IDA4OjIzLCBBdGlzaCBQYXRyYSB3cm90ZToKPiBGcm9tOiBLYWl3ZW4g
-WHVlIDxrYWl3ZW54QHJpdm9zaW5jLmNvbT4KPiAKPiBUaGlzIGFkZHMgdGhlIHNjb3VudGluaGli
-aXQgQ1NSIGRlZmluaXRpb24gYW5kIFMtbW9kZSBhY2Nlc3NpYmxlIGhwbWV2ZW50Cj4gYml0cyBk
-ZWZpbmVkIGJ5IHNtY2RlbGVnL3NzY2NmZy4gc2NvdW50aW5oaWJpdCBhbGxvd3MgUy1tb2RlIHRv
-IHN0YXJ0L3N0b3AKPiBjb3VudGVycyBkaXJlY3RseSBmcm9tIFMtbW9kZSB3aXRob3V0IGludm9r
-aW5nIFNCSSBjYWxscyB0byBNLW1vZGUuIEl0IGlzCj4gYWxzbyB1c2VkIHRvIGZpZ3VyZSBvdXQg
-dGhlIGNvdW50ZXJzIGRlbGVnYXRlZCB0byBTLW1vZGUgYnkgdGhlIE0tbW9kZSBhcwo+IHdlbGwu
-Cj4gCj4gU2lnbmVkLW9mZi1ieTogS2Fpd2VuIFh1ZSA8a2Fpd2VueEByaXZvc2luYy5jb20+Cj4g
-LS0tCj4gIGFyY2gvcmlzY3YvaW5jbHVkZS9hc20vY3NyLmggfCAyNiArKysrKysrKysrKysrKysr
-KysrKysrKysrKwo+ICAxIGZpbGUgY2hhbmdlZCwgMjYgaW5zZXJ0aW9ucygrKQo+IAo+IGRpZmYg
-LS1naXQgYS9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL2Nzci5oIGIvYXJjaC9yaXNjdi9pbmNsdWRl
-L2FzbS9jc3IuaAo+IGluZGV4IDJhZDJkNDkyZTZiNC4uNDJiN2Y0ZjdlYzBmIDEwMDY0NAo+IC0t
-LSBhL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20vY3NyLmgKPiArKysgYi9hcmNoL3Jpc2N2L2luY2x1
-ZGUvYXNtL2Nzci5oCj4gQEAgLTIyNCw2ICsyMjQsMzEgQEAKPiAgI2RlZmluZSBTTVNUQVRFRU4w
-X0hTRU5WQ0ZHCQkoX1VMTCgxKSA8PCBTTVNUQVRFRU4wX0hTRU5WQ0ZHX1NISUZUKQo+ICAjZGVm
-aW5lIFNNU1RBVEVFTjBfU1NUQVRFRU4wX1NISUZUCTYzCj4gICNkZWZpbmUgU01TVEFURUVOMF9T
-U1RBVEVFTjAJCShfVUxMKDEpIDw8IFNNU1RBVEVFTjBfU1NUQVRFRU4wX1NISUZUKQo+ICsvKiBI
-UE1FVkVOVCBiaXRzLiBUaGVzZSBhcmUgYWNjZXNzaWJsZSBpbiBTLW1vZGUgdmlhIFNtY2RlbGVn
-L1NzY2NmZyAqLwo+ICsjaWZkZWYgQ09ORklHXzY0QklUCj4gKyNkZWZpbmUgSFBNRVZFTlRfT0YJ
-CQkoX1VMKDEpIDw8IDYzKQo+ICsjZGVmaW5lIEhQTUVWRU5UX01JTkgJCQkoX1VMKDEpIDw8IDYy
-KQo+ICsjZGVmaW5lIEhQTUVWRU5UX1NJTkgJCQkoX1VMKDEpIDw8IDYxKQo+ICsjZGVmaW5lIEhQ
-TUVWRU5UX1VJTkgJCQkoX1VMKDEpIDw8IDYwKQo+ICsjZGVmaW5lIEhQTUVWRU5UX1ZTSU5ICQkJ
-KF9VTCgxKSA8PCA1OSkKPiArI2RlZmluZSBIUE1FVkVOVF9WVUlOSAkJCShfVUwoMSkgPDwgNTgp
-Cj4gKyNlbHNlCj4gKyNkZWZpbmUgSFBNRVZFTlRIX09GCQkJKF9VTEwoMSkgPDwgMzEpCj4gKyNk
-ZWZpbmUgSFBNRVZFTlRIX01JTkgJCQkoX1VMTCgxKSA8PCAzMCkKPiArI2RlZmluZSBIUE1FVkVO
-VEhfU0lOSAkJCShfVUxMKDEpIDw8IDI5KQo+ICsjZGVmaW5lIEhQTUVWRU5USF9VSU5ICQkJKF9V
-TEwoMSkgPDwgMjgpCj4gKyNkZWZpbmUgSFBNRVZFTlRIX1ZTSU5ICQkJKF9VTEwoMSkgPDwgMjcp
-Cj4gKyNkZWZpbmUgSFBNRVZFTlRIX1ZVSU5ICQkJKF9VTEwoMSkgPDwgMjYpCgpIaSBBdGlzaCwK
-CkNvdWxkIHlvdSB1c2UgQklUX1VML0JJVF9VTEwoKSA/IFdpdGggdGhhdCBmaXhlZCwKClJldmll
-d2VkLWJ5OiBDbMOpbWVudCBMw6lnZXIgPGNsZWdlckByaXZvc2luYy5jb20+CgpUaGFua3MsCgpD
-bMOpbWVudAoKPiArCj4gKyNkZWZpbmUgSFBNRVZFTlRfT0YJCQkoSFBNRVZFTlRIX09GIDw8IDMy
-KQo+ICsjZGVmaW5lIEhQTUVWRU5UX01JTkgJCQkoSFBNRVZFTlRIX01JTkggPDwgMzIpCj4gKyNk
-ZWZpbmUgSFBNRVZFTlRfU0lOSAkJCShIUE1FVkVOVEhfU0lOSCA8PCAzMikKPiArI2RlZmluZSBI
-UE1FVkVOVF9VSU5ICQkJKEhQTUVWRU5USF9VSU5IIDw8IDMyKQo+ICsjZGVmaW5lIEhQTUVWRU5U
-X1ZTSU5ICQkJKEhQTUVWRU5USF9WU0lOSCA8PCAzMikKPiArI2RlZmluZSBIUE1FVkVOVF9WVUlO
-SAkJCShIUE1FVkVOVEhfVlVJTkggPDwgMzIpCj4gKyNlbmRpZgo+ICsKPiArI2RlZmluZSBTSVNF
-TEVDVF9TU0NDRkdfQkFTRQkJMHg0MAo+ICAKPiAgLyogbXNlY2NmZyBiaXRzICovCj4gICNkZWZp
-bmUgTVNFQ0NGR19QTU0JCQlFTlZDRkdfUE1NCj4gQEAgLTMwNSw2ICszMzAsNyBAQAo+ICAjZGVm
-aW5lIENTUl9TQ09VTlRFUkVOCQkweDEwNgo+ICAjZGVmaW5lIENTUl9TRU5WQ0ZHCQkweDEwYQo+
-ICAjZGVmaW5lIENTUl9TU1RBVEVFTjAJCTB4MTBjCj4gKyNkZWZpbmUgQ1NSX1NDT1VOVElOSElC
-SVQJMHgxMjAKPiAgI2RlZmluZSBDU1JfU1NDUkFUQ0gJCTB4MTQwCj4gICNkZWZpbmUgQ1NSX1NF
-UEMJCTB4MTQxCj4gICNkZWZpbmUgQ1NSX1NDQVVTRQkJMHgxNDIKPiAKCgpfX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxp
-c3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFk
-Lm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+Starfive Soc common defines GPIO28 as pcie1 reset, GPIO21 as pcie1 wakeup;
+But the FML13V01 board uses GPIO21 as pcie1 reset, GPIO28 as pcie1 wakeup;
+redefine pcie1 gpio and enable pcie1 for pcie based Wi-Fi.
+
+Signed-off-by: Sandie Cao <sandie.cao@deepcomputing.io>
+---
+ .../jh7110-deepcomputing-fml13v01.dts         | 34 +++++++++++++++++++
+ 1 file changed, 34 insertions(+)
+
+diff --git a/arch/riscv/boot/dts/starfive/jh7110-deepcomputing-fml13v01.dts b/arch/riscv/boot/dts/starfive/jh7110-deepcomputing-fml13v01.dts
+index 30b0715196b6..8d9ce8b69a71 100644
+--- a/arch/riscv/boot/dts/starfive/jh7110-deepcomputing-fml13v01.dts
++++ b/arch/riscv/boot/dts/starfive/jh7110-deepcomputing-fml13v01.dts
+@@ -11,6 +11,40 @@ / {
+ 	compatible = "deepcomputing,fml13v01", "starfive,jh7110";
+ };
+ 
++&pcie1 {
++	perst-gpios = <&sysgpio 21 GPIO_ACTIVE_LOW>;
++	phys = <&pciephy1>;
++	pinctrl-names = "default";
++	pinctrl-0 = <&pcie1_pins>;
++	status = "okay";
++};
++
++&sysgpio {
++	pcie1_pins: pcie1-0 {
++		clkreq-pins {
++			pinmux = <GPIOMUX(29, GPOUT_LOW,
++					      GPOEN_DISABLE,
++					      GPI_NONE)>;
++			bias-pull-down;
++			drive-strength = <2>;
++			input-enable;
++			input-schmitt-disable;
++			slew-rate = <0>;
++		};
++
++		wake-pins {
++			pinmux = <GPIOMUX(28, GPOUT_HIGH,
++					      GPOEN_DISABLE,
++					      GPI_NONE)>;
++			bias-pull-up;
++			drive-strength = <2>;
++			input-enable;
++			input-schmitt-disable;
++			slew-rate = <0>;
++		};
++	};
++};
++
+ &usb0 {
+ 	dr_mode = "host";
+ 	status = "okay";
+
+base-commit: 2014c95afecee3e76ca4a56956a936e23283f05b
+-- 
+2.34.1
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
