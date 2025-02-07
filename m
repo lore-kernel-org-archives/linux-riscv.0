@@ -4,113 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE220C0219E
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9E80C021A0
 	for <linux-riscv@archiver.kernel.org>; Fri,  7 Feb 2025 22:56:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wAkIIUYdygpf73fbUWN56sodiWFYgGw6k5Genex7S1U=; b=bAMF5a8ZXQy3WuU5K/KpcIjrP+
-	DVd73MFcaFP9Qu8au+Tkxi6aPirYlGGVPifgK7WGU9vU+BiDmtGLL5rWynF8xaEp/R0N1SpuFFAxS
-	5KXWLfbTichzTSGhgb/HdslLWdiwLKFearJImzJxwgoXKZQjWgksNsCgJ4U97fKV8rphSiycln2Lp
-	lgsW4GISwniMgDVlgsyfYPVuzJyLRh398fm6YRh5ap0jazNOUUPyZTESGU4wxr6PijczX3nKYBxqq
-	iAWWtm2SUglKu+Q23MKVgzF0UQ0JvE2dzEUKldT1U9Siz5iCrL9BCMTnsOo0oRiWbG0G6/sQAitWX
-	4azSw7EA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=kja0egPVN4tyIkez/aKiBD0bDG4ZL9Y0FoDaAJJjH6o=; b=Q45ELPCPUUNucH
+	O9qf4V0TbgTmVGevMK8Kb3p+crF/Pgyui8Di/6Mr6j4PwNe1NfEjQbq9XhgF8g0jf/bLLT09qplHX
+	B9JpfwgTQWg+GZwu23Hi0Fq8sEmgALa4OYHMpwmNHaLyrMpZkaymGMFcO6gFMQBIdSf1xqVDOh7S7
+	JRlpNZ9BqGw1P85P71Mhh16lfibrZ29VFpmj9Dhxf4MiYrhw6fhmdOA1hPMx35/bIq/zh3B3FyDip
+	t+1w0P1EQHc/qDQBFqVAd4hKZUK2uxe/E88aozyZHFKk5q3CyAbxAXt5UOFd4Opq5GN6Y7VhKMd+V
+	RF8EWNuu608EFwhXrAjQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tgXGs-0000000BSJU-42OI;
+	id 1tgXGs-0000000BSJP-1gW5;
 	Fri, 07 Feb 2025 22:56:26 +0000
-Received: from mail-pj1-x102e.google.com ([2607:f8b0:4864:20::102e])
+Received: from woodpecker.gentoo.org ([140.211.166.183] helo=smtp.gentoo.org)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tgX56-0000000BQq5-04BD
+	id 1tgWyG-0000000BPLe-1llE
 	for linux-riscv@lists.infradead.org;
-	Fri, 07 Feb 2025 22:44:18 +0000
-Received: by mail-pj1-x102e.google.com with SMTP id 98e67ed59e1d1-2fa21145217so3082665a91.3
-        for <linux-riscv@lists.infradead.org>; Fri, 07 Feb 2025 14:44:15 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1738968255; x=1739573055; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=o2ipDsFh+4Wi6+DfKBkgvbX5MRHqphXmotwjlbhmRh4=;
-        b=WFcKozbZIX+BEd9CQ/KDheMq+wgYXkpTldSUMlLBvPkOYVaes3Z3RU6fbBVPdCvrao
-         Kp9AySjfO4VtSLZ3yEdNdFJn6S2bemYVlzp3pkC+3puczhFaoF5BAoCRztp6eGV+f/WN
-         0w8YjQyvHcmMdfpxWr3eRjoGngy/WfCXRsNbzRra0TdySzOLxohiWcbKJlW7nylS/0A5
-         VE69C42HECfyAJxFxkjRxyVvyNkluXFUZ+nzDr8h9q0Vc2by0r+dZX5WVqMebox3pXvB
-         Gw8Sf5YkkbsAnT7+CpHs8AVRu/GxWBJOGycGKqf/ds/fS3CxubydkVldBkyv8+bKlvZG
-         hprg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1738968255; x=1739573055;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=o2ipDsFh+4Wi6+DfKBkgvbX5MRHqphXmotwjlbhmRh4=;
-        b=rw5N7PO6sYWpChqiNbCFbCSf4iv0NL1XB66COL2N7lLtIDrjVPwb7N6tHm1N79Q1rN
-         UY7z+pKzeNTCk2hnSVA6/VXhYaxAzVWbhMJHufj+zN+CLUPUb8K9YkveDIWDUvfziKRl
-         EgSLAO52XdMPGpkzTswXCz7jK+6eAR8X/10Uui9B+/U4ocyzrKzPOLmiPwk1h/O3MHzB
-         Lc+silsXPPOpAC+I7Exo35U+JI5Pgd+SmSH1zwGFpSm0ZBRw9ShXCbsD/bT5TmBKe+6/
-         +NuhsbB0N0INk7jfat0rIELFci93Vo3OIBK1uAyU8yKBkCnn+Q4autWn7uC8k0heKWNr
-         g1pg==
-X-Forwarded-Encrypted: i=1; AJvYcCVyJIwUGsZISWajcPHdSy3TTezKzLW2jgtTOAa5suIFs+teAY0/E+b4g/nGCfzA+kNqqQxrkEaafDkH/A==@lists.infradead.org
-X-Gm-Message-State: AOJu0YxX42GHnqadkVHFPxvkngU4xog2AtQOCtFJIMBXsVdUK51cvT+M
-	v+uqgWnZVFg0QV1H1qBe9hVF3cQIHixbK82IbhZQZHNZSP5XVCbFmk5SzglK7mg=
-X-Gm-Gg: ASbGnctF81IHHeMIZn7jEnGlruEc2+NoJnk0+8ue/LGnU9KLHGB/Yh0EDium9vKgNWd
-	FGOEtKO36ne6XrAXiDQY6TIhuAoZqgVv08CA7osZwcQJcAvrtB+Ns09AobfVxVDDWNr26RBRdtG
-	txZGVCzaflOn/0p9DhxcdDNv2n9a94gHLbQiUU/fb6xugEItajMPhHIhszsbuW256dJVuXjjNrE
-	OltXHogF8SkRJmDX3+buc8BiRMYOw2dDFqSLLzKH4U4ChWtpU+LdmzU+fuInx6neGEV5TPDAhHZ
-	AdBrKMVPSdtbQC3abwgviJniSw==
-X-Google-Smtp-Source: AGHT+IH0ObGSX9Z5Li4uWD9lYbrpJL6WiQ/fR0RPEu4WFLYzu4KaceG7QOyaNMgDiAsQ/fdeHHOGVA==
-X-Received: by 2002:a17:90b:19d8:b0:2ee:6d04:9dac with SMTP id 98e67ed59e1d1-2fa243f02dcmr6699334a91.32.1738968254644;
-        Fri, 07 Feb 2025 14:44:14 -0800 (PST)
-Received: from debug.ba.rivosinc.com ([64.71.180.162])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-2f9bf6f268fsm5069384a91.0.2025.02.07.14.44.12
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 07 Feb 2025 14:44:14 -0800 (PST)
-Date: Fri, 7 Feb 2025 14:44:10 -0800
-From: Deepak Gupta <debug@rivosinc.com>
-To: Vlastimil Babka <vbabka@suse.cz>
-Cc: Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>,
-	Borislav Petkov <bp@alien8.de>,
-	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
-	"H. Peter Anvin" <hpa@zytor.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	"Liam R. Howlett" <Liam.Howlett@oracle.com>,
-	Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
+	Fri, 07 Feb 2025 22:37:13 +0000
+Received: from localhost (unknown [180.172.76.141])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: dlan)
+	by smtp.gentoo.org (Postfix) with ESMTPSA id 7A213342FDC;
+	Fri, 07 Feb 2025 22:37:10 +0000 (UTC)
+Date: Fri, 7 Feb 2025 22:37:05 +0000
+From: Yixun Lan <dlan@gentoo.org>
+To: Conor Dooley <conor@kernel.org>
+Cc: Linus Walleij <linus.walleij@linaro.org>,
 	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Conor Dooley <conor@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Arnd Bergmann <arnd@arndb.de>,
-	Christian Brauner <brauner@kernel.org>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Oleg Nesterov <oleg@redhat.com>,
-	Eric Biederman <ebiederm@xmission.com>, Kees Cook <kees@kernel.org>,
-	Jonathan Corbet <corbet@lwn.net>, Shuah Khan <shuah@kernel.org>,
-	Jann Horn <jannh@google.com>, Conor Dooley <conor+dt@kernel.org>,
-	linux-kernel@vger.kernel.org, linux-fsdevel@vger.kernel.org,
-	linux-mm@kvack.org, linux-riscv@lists.infradead.org,
-	devicetree@vger.kernel.org, linux-arch@vger.kernel.org,
-	linux-doc@vger.kernel.org, linux-kselftest@vger.kernel.org,
-	alistair.francis@wdc.com, richard.henderson@linaro.org,
-	jim.shu@sifive.com, andybnac@gmail.com, kito.cheng@sifive.com,
-	charlie@rivosinc.com, atishp@rivosinc.com, evan@rivosinc.com,
-	cleger@rivosinc.com, alexghiti@rivosinc.com,
-	samitolvanen@google.com, broonie@kernel.org,
-	rick.p.edgecombe@intel.com
-Subject: Re: [PATCH v9 01/26] mm: helper `is_shadow_stack_vma` to check
- shadow stack vma
-Message-ID: <Z6aMuuXMQAu7Tcvm@debug.ba.rivosinc.com>
-References: <20250204-v5_user_cfi_series-v9-0-b37a49c5205c@rivosinc.com>
- <20250204-v5_user_cfi_series-v9-1-b37a49c5205c@rivosinc.com>
- <6543c6b6-da86-4c10-9b8c-e5fe6f6f7da9@suse.cz>
+	Palmer Dabbelt <palmer@dabbelt.com>, Alex Elder <elder@kernel.org>,
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-gpio@vger.kernel.org, spacemit@lists.linux.dev
+Subject: Re: [PATCH] pinctrl: spacemit: enable config option
+Message-ID: <20250207223705-GYA7567@gentoo>
+References: <20250207-k1-pinctrl-option-v1-1-e8a7e4d8404f@gentoo.org>
+ <20250207-promenade-hazily-d7900cbc127e@spud>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <6543c6b6-da86-4c10-9b8c-e5fe6f6f7da9@suse.cz>
+In-Reply-To: <20250207-promenade-hazily-d7900cbc127e@spud>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250207_144416_327761_4C6F7481 
-X-CRM114-Status: GOOD (  21.42  )
+X-CRM114-CacheID: sfid-20250207_143712_483662_8AE8EF05 
+X-CRM114-Status: GOOD (  23.15  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,117 +63,91 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Feb 07, 2025 at 10:27:10AM +0100, Vlastimil Babka wrote:
->On 2/5/25 02:21, Deepak Gupta wrote:
->> VM_SHADOW_STACK (alias to VM_HIGH_ARCH_5) is used to encode shadow stack
->
->I see that arm GCS uses VM_HIGH_ARCH_6.
+Hi Linus Walleij:
+ I think you won't mind if I take this patch through SpacemiT's SoC tree,
+as it's fairly SpacemiT specific, right? anyway I'd appreciate if you
+could give an ACK for this, thanks
 
-Stale commit message. I thought I had fixed it.
-Sorry about that, will fix it.
+Hi Conor:
 
->
->> VMA on three architectures (x86 shadow stack, arm GCS and RISC-V shadow
->
->And RISC-V doesn't define it at all, not even in this patchset, or did I
->miss it somewhere?
->
->> stack). In case architecture doesn't implement shadow stack, it's VM_NONE
->> Introducing a helper `is_shadow_stack_vma` to determine shadow stack vma
->> or not.
->
->This looks like an unfinished sentence. As if it was to continue with "...
->will allow us to ..." what?
->
->I'm not against a helper but this changelog is rather confusing and also
->code in arch/x86 and arch/arm64 isn't converted to the helper but testing
->VM_SHADOW_STACK still.
+On 16:49 Fri 07 Feb     , Conor Dooley wrote:
+> On Fri, Feb 07, 2025 at 08:11:42PM +0800, Yixun Lan wrote:
+> > Pinctrl is an essential driver for SpacemiT's SoC,
+> > so let's enable it by default for this SoC.
+> > 
+> > The CONFIG_PINCTRL_SPACEMIT_K1 isn't enabled when using
+> > 'make defconfig' to select kernel configuration options.
+> > This result in a broken uart driver where fail at probe()
+> > stage due to no pins found.
+> > 
+> > Fixes: a83c29e1d145 ("pinctrl: spacemit: add support for SpacemiT K1 SoC")
+> > Reported-by: Alex Elder <elder@kernel.org>
+> > Signed-off-by: Yixun Lan <dlan@gentoo.org>
+> > ---
+> > This should fix problem that CONFIG_PINCTRL_SPACEMIT_K1 is not enabled
+> > when using make defconfig, thus fail to initilize uart driver which requst
+> > pins during probe stage.
+> > ---
+> >  arch/riscv/Kconfig.socs          | 1 +
+> >  drivers/pinctrl/spacemit/Kconfig | 1 +
+> >  2 files changed, 2 insertions(+)
+> > 
+> > diff --git a/arch/riscv/Kconfig.socs b/arch/riscv/Kconfig.socs
+> > index 1916cf7ba450ec9958265de2ca41dc504d4d2f7c..17606940bb5239d0fdfc6b5aefb50eeb982d14aa 100644
+> > --- a/arch/riscv/Kconfig.socs
+> > +++ b/arch/riscv/Kconfig.socs
+> > @@ -26,6 +26,7 @@ config ARCH_SOPHGO
+> >  
+> >  config ARCH_SPACEMIT
+> >  	bool "SpacemiT SoCs"
+> > +	select PINCTRL
+> >  	help
+> >  	  This enables support for SpacemiT SoC platform hardware.
+> >  
+> 
+> Acked-by: Conor Dooley <conor.dooley@microchip.com>
+> 
+thanks Conor
 
-Yes I didn't pay attention during rebase, will update the commit message.
->
->> Signed-off-by: Deepak Gupta <debug@rivosinc.com>
->> Reviewed-by: Mark Brown <broonie@kernel.org>
->> ---
->>  mm/gup.c  |  2 +-
->>  mm/mmap.c |  2 +-
->>  mm/vma.h  | 10 +++++++---
->>  3 files changed, 9 insertions(+), 5 deletions(-)
->>
->> diff --git a/mm/gup.c b/mm/gup.c
->> index 3883b307780e..8c64f3ff34ab 100644
->> --- a/mm/gup.c
->> +++ b/mm/gup.c
->> @@ -1291,7 +1291,7 @@ static int check_vma_flags(struct vm_area_struct *vma, unsigned long gup_flags)
->>  		    !writable_file_mapping_allowed(vma, gup_flags))
->>  			return -EFAULT;
->>
->> -		if (!(vm_flags & VM_WRITE) || (vm_flags & VM_SHADOW_STACK)) {
->> +		if (!(vm_flags & VM_WRITE) || is_shadow_stack_vma(vm_flags)) {
->>  			if (!(gup_flags & FOLL_FORCE))
->>  				return -EFAULT;
->>  			/*
->> diff --git a/mm/mmap.c b/mm/mmap.c
->> index cda01071c7b1..7b6be4eec35d 100644
->> --- a/mm/mmap.c
->> +++ b/mm/mmap.c
->> @@ -648,7 +648,7 @@ SYSCALL_DEFINE1(old_mmap, struct mmap_arg_struct __user *, arg)
->>   */
->>  static inline unsigned long stack_guard_placement(vm_flags_t vm_flags)
->>  {
->> -	if (vm_flags & VM_SHADOW_STACK)
->> +	if (is_shadow_stack_vma(vm_flags))
->>  		return PAGE_SIZE;
->>
->>  	return 0;
->> diff --git a/mm/vma.h b/mm/vma.h
->> index a2e8710b8c47..47482a25f5c3 100644
->> --- a/mm/vma.h
->> +++ b/mm/vma.h
->> @@ -278,7 +278,7 @@ static inline struct vm_area_struct *vma_prev_limit(struct vma_iterator *vmi,
->>  }
->>
->>  /*
->> - * These three helpers classifies VMAs for virtual memory accounting.
->> + * These four helpers classifies VMAs for virtual memory accounting.
->>   */
->>
->>  /*
->> @@ -289,6 +289,11 @@ static inline bool is_exec_mapping(vm_flags_t flags)
->>  	return (flags & (VM_EXEC | VM_WRITE | VM_STACK)) == VM_EXEC;
->>  }
->>
->> +static inline bool is_shadow_stack_vma(vm_flags_t vm_flags)
->> +{
->> +	return !!(vm_flags & VM_SHADOW_STACK);
->> +}
->> +
->>  /*
->>   * Stack area (including shadow stacks)
->>   *
->> @@ -297,7 +302,7 @@ static inline bool is_exec_mapping(vm_flags_t flags)
->>   */
->>  static inline bool is_stack_mapping(vm_flags_t flags)
->>  {
->> -	return ((flags & VM_STACK) == VM_STACK) || (flags & VM_SHADOW_STACK);
->> +	return ((flags & VM_STACK) == VM_STACK) || is_shadow_stack_vma(flags);
->>  }
->>
->>  /*
->> @@ -308,7 +313,6 @@ static inline bool is_data_mapping(vm_flags_t flags)
->>  	return (flags & (VM_WRITE | VM_SHARED | VM_STACK)) == VM_WRITE;
->>  }
->>
->> -
->>  static inline void vma_iter_config(struct vma_iterator *vmi,
->>  		unsigned long index, unsigned long last)
->>  {
->>
->
+> > diff --git a/drivers/pinctrl/spacemit/Kconfig b/drivers/pinctrl/spacemit/Kconfig
+> > index 168f8a5ffbb952cbeae3e3401c11149558e0a84b..aa3dea535def87ed75d86bc555b2b90643adbdea 100644
+> > --- a/drivers/pinctrl/spacemit/Kconfig
+> > +++ b/drivers/pinctrl/spacemit/Kconfig
+> > @@ -7,6 +7,7 @@ config PINCTRL_SPACEMIT_K1
+> >  	tristate "SpacemiT K1 SoC Pinctrl driver"
+> >  	depends on ARCH_SPACEMIT || COMPILE_TEST
+> >  	depends on OF
+> > +	default ARCH_SPACEMIT
+> 
+> This is effectively just "default y", since ARCH_SPACEMIT is a
+> dependency.
+> 
+right, this is the plan, it make sense to bundle this config to ARCH_SPACEMIT
+
+> >  	select GENERIC_PINCTRL_GROUPS
+> >  	select GENERIC_PINMUX_FUNCTIONS
+> >  	select GENERIC_PINCONF
+> > 
+> > ---
+> > base-commit: 2014c95afecee3e76ca4a56956a936e23283f05b
+> > change-id: 20250207-k1-pinctrl-option-de5bdfd6b42e
+> > 
+> > Best regards,
+> > -- 
+> > Yixun Lan
+> > 
+
+
+
+-- 
+Yixun Lan (dlan)
+Gentoo Linux Developer
+GPG Key ID AABEFD55
 
 _______________________________________________
 linux-riscv mailing list
