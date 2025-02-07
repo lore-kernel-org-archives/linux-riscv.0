@@ -4,83 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30328C02194
-	for <linux-riscv@archiver.kernel.org>; Fri,  7 Feb 2025 18:13:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5C9BFC02194
+	for <linux-riscv@archiver.kernel.org>; Fri,  7 Feb 2025 18:15:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=QK5dPJXnBkK/dmXko+yG5V+e5kgufgMURL4qhLfsRKA=; b=NxAyOZAQLWWM54
-	f1XnRLE4xtfPxShMbB80PSV5ABVgwd7ZBwqy1Am/KHCXPWXlRChPYr0VdDd3tu36/NsaM7G6jBJjp
-	Eno9UaxyNmLoa2bSHWCa/Ayq7D9wauzGxXc2lTboO5G0Hzxt0WjenTc8Y0iT3g2m+SlU7xVt5+5wB
-	Pb4K8hqg3l0gbeQ3bfNo5iNdh59SYcO2w0aXvf9WW5BbUeXVwrxqbXMy+gB2E4mhsnMSVAmiuLSzO
-	sXCwCmcjmR2Xde7o+/wE0fiC0B0oGOKKk+aEN3Vj/+d47YLNStYN7kTovvuAfKvfSDCApPHcSZiEq
-	lAk1p7LxBf8ZVWwST8EQ==;
+	List-Owner; bh=9Y2JAc87OJKqvEjLgkRcvdgGCtECujBEPkdwgQEA/fw=; b=hHfwimM0oQyTnQ
+	8r/2WhcbavCroJp69XU1H94m4ahM45TzvCbb25eatElrOomFayMHWvIP70p0vySGqTtMcv9wuPaod
+	I9vIzBxZgmFpTZnhcbCPKjTMvLcOu2YLkQWzxBFWsRfv/uCXdD5LQceat8qMOZWbjroIe5xPQ7hBz
+	HM1mbJR/18qtt1lKrAEe8j7D+9n+im1B0FLVVUoxd6hWPKHJTWxAKvrTcb8lezf4aCiKfViRp8XAk
+	Vi3hmX/g+CZfkuI7+0ygDamiDYSmFG46rTfe1xDLFBWOwpMEJy2ANn7hBhRr43C7nFdUEPnFf692H
+	MnH3B9XN50QnuApebGsQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tgSqf-0000000AdvV-2Lnp;
-	Fri, 07 Feb 2025 18:13:05 +0000
-Received: from mail-wr1-x42e.google.com ([2a00:1450:4864:20::42e])
+	id 1tgSsm-0000000AeQk-3tnU;
+	Fri, 07 Feb 2025 18:15:17 +0000
+Received: from mail-wm1-f47.google.com ([209.85.128.47])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tgSoW-0000000AdUW-46f8
+	id 1tgSsk-0000000AePe-0Nyj
 	for linux-riscv@lists.infradead.org;
-	Fri, 07 Feb 2025 18:10:54 +0000
-Received: by mail-wr1-x42e.google.com with SMTP id ffacd0b85a97d-38db570a639so1393504f8f.1
-        for <linux-riscv@lists.infradead.org>; Fri, 07 Feb 2025 10:10:52 -0800 (PST)
+	Fri, 07 Feb 2025 18:15:15 +0000
+Received: by mail-wm1-f47.google.com with SMTP id 5b1f17b1804b1-4361f664af5so25968785e9.1
+        for <linux-riscv@lists.infradead.org>; Fri, 07 Feb 2025 10:15:13 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1738951851; x=1739556651; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=ZaGa43r2JveY8ihF44rUo4WO7W9CMxjRpmYKl91QS2U=;
-        b=Df6rLNraSSUYumwnhi41JwCkRy1PSERgmTRJCSLyLI4MPqlQW1v/a4CnOqnTumSDCx
-         kD8hLzpHJSqiiaU+oDDR1oco+2yV2Vt9loIgvZVc1QvQ8ya+JZl6K+G63ZvahMFSwMXO
-         alj6eZFjJMQXmJXvmLgAjAjnGFuoCP0HLt5aBnCVx/GzLFAbUWrjI8SvulUXMQiy0XvK
-         ETbM3g1gez1F+S3Cv7GJXmuQLLgKPMG8/dBNSBxgYPziaaNQfVK5EEZ5KCywMdlZyT8D
-         cH4co+LEfws2D38P9Hp17ZC610ayNZpMgHcOfWWRnxYKtfuYGpw+iUx80lyhL1pNvf1e
-         S49A==
+        d=ventanamicro.com; s=google; t=1738952112; x=1739556912; darn=lists.infradead.org;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=hfNNfTRcuZ50Awu1MA8ah0JjMk2WSG6zS37X4vbd0AI=;
+        b=Zj6TuJbUHSneBH7sW/irxkQaCgTmnVxi7lvkLvJJONxuP8aUD/Wg1pIeXDoC+M+yw1
+         4zBrpmvZFx9MLT+KRrWg+qHFlRv045/VCfqxEldToxmixsBPare5ec+Oalgj4j3ee7N2
+         Jgv3duPTbf4wjsiTnYK45Z1cZ/FfIUOEUscuzwMae/L5QOy/QpYwnELZprOxLsiAzcMM
+         9kxeAptShHE417m3L3Ko4Myc5SNJSs/JzhoXB86OseC0Z5aQcWPdKXyXLjCrnY9Li47c
+         VZd2DqgNVduKlW/hW1Yb0TjQ9ZKUD2MTvbsVncF+e8WQ3RsXTpfDG5DJOWjTZBEJE6/o
+         mDZg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1738951851; x=1739556651;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=ZaGa43r2JveY8ihF44rUo4WO7W9CMxjRpmYKl91QS2U=;
-        b=SqmJgWxNxgBtIXdVaIRqOYTY6fhKtHZQRvuLrI/Njg30fhC239s+5j4fgs+HNFsW/o
-         sZ89po35moAAvOBN0LbsSDgb0e4s3sRV47uWkh0ZZe19oKbP6wAawaiGAtTeAQ2rhFJY
-         968YGpQFe6FhlWNkXCDpvy5bgF5oFmcwg1CMdHRFja30g0qZCDrHn51TTOWaFoWNTFj2
-         Mg1PfSzjTyHEs43mms1yNZV1ChpRTbZSrz5VqqJ1IDUHPgdalMBnsasW/oZt1eKbZIWq
-         8fPygaxipZyp9gbl5LhJ1UgcIs0xqnJEty2q3KvDqVs27RZ6eqLdNyk+xi+2mW1ZINGK
-         2UsQ==
-X-Gm-Message-State: AOJu0YwVrTHKMdB4N9sRLoqn96TeNEi45Xmu8ChVAL/ZnmibChnColG2
-	2n0ADJb+2ugcKxUjJ3Qi2FxFHFeQ65/NZTbYlJxZGCdmCnCBI0JU638aVSybixGURZCGKCz7Uf6
-	tE7Q=
-X-Gm-Gg: ASbGnctN+WOY3S08JOGqalv3ZN9n0IUftfpOcujzmoKvgAx9VbNqVQQDY1Pvrlon8QM
-	E+hzUaXX4+rcG/DrwGugl5f8QMW7U0W4NBiu5kAefan1ntLpM6MYoL6y33PTrL3LoUMFfj0blEY
-	vaPBoFErdM2Kfw4Awm//o9ybXEqDeRfnyl8o4R+yKO9vL/OXEpybD20DLiQS365TxzVtmGs8EEi
-	kKL1BLT7AB7DYHobxkWKy1b6ZopXX7FP4fnSZ4cza27Xt80S11mm8GpSU0aTHbGMcByLU1xuzkw
-	fpE23GRPfXk1ofLszcP9
-X-Google-Smtp-Source: AGHT+IHOihO78F1JYjZBcL716TkRfKyLKlP1MuS9GngQcG+qjWBNUOBMY89/HVssLqqzYEkL5feOmg==
-X-Received: by 2002:a05:6000:188b:b0:38d:b7dc:30b8 with SMTP id ffacd0b85a97d-38dbb2cf5b8mr7099206f8f.18.1738951851310;
-        Fri, 07 Feb 2025 10:10:51 -0800 (PST)
+        d=1e100.net; s=20230601; t=1738952112; x=1739556912;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=hfNNfTRcuZ50Awu1MA8ah0JjMk2WSG6zS37X4vbd0AI=;
+        b=ax7cjHZ8Ebz2vWPxupPtt6pE/sUJhAywU5lFAKnJm+enIfmioINHEm7NOkSeShs6Gm
+         +7F4CZovSWphcyB2bq5M5+GQ+ommf5/UHfIqETXWIzvpICjWPV+8qVOAtUNDLKFYkurs
+         D7igd7TBvkHpZhk+OZUqMTTx0E7az8t9WGaXxNtPJULKAZCr8lSqP0Uzv2GBYEEQ3GTD
+         uvJRFzK3fSmWB93Jpb4XbK4B0+ztAFpsfpGcxD06TK9d/AWIHPUg4FmbO/P+BSPIBUtd
+         kGTU93PnMW9214SqpEN8Y3wDEZynrBrStoN4SsQY+yn38S0bXm1tvlVUqNmL2U09T63m
+         1m0A==
+X-Gm-Message-State: AOJu0YyojqoB4KpMGJxysHJf713uzlTUY9SIQbZmZm5nkOO0g6rLFNRk
+	/EUfdhYmAw/ubeJH3tFiANXEGmNMDEVhRbB4Gp3rvC7rsN4PSXwO5fVj+if2ZyE=
+X-Gm-Gg: ASbGncv04+9SHG56Yga6G20aFPqSb7Kjfro6vXVgYjDlvWH+kZPzhDB5X0eHvS+JBOb
+	T0eDBr5iA/U6haGZ2yQuxfEIE9qQ55VvJcf1qKIeedYQwwJMKEQdz7H9Ysb0ktXFFilR8r53T7W
+	1yOLqtsDlO0XCidWLCHTBazImX86Em2gh/QGeZp4XOPaZuiZsMi9/3RzFA03Vs+Xzq8R/vBM32R
+	DwOKBvbtNFrla5HVPMkkiJGY0njUrad3driwXTx/HZEhNqegmyfm18p6tQIWsuWniE1Kp84V6mo
+	dPZSsuR9kBeEoFIOPhbG
+X-Google-Smtp-Source: AGHT+IG9/anMAZ6jBKO14yIerC1k3wRGRjYOqfPrrfTTy+DzxQn+cFCYD3jAseCl4Ag2HTXQ0Khgqg==
+X-Received: by 2002:a05:600c:1e01:b0:436:6ddf:7a27 with SMTP id 5b1f17b1804b1-439249a843amr36988155e9.23.1738952112152;
+        Fri, 07 Feb 2025 10:15:12 -0800 (PST)
 Received: from localhost ([2a00:11b1:103b:18b0:943f:8e0:c299:6db0])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4390d933794sm100227965e9.7.2025.02.07.10.10.50
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-38dbde33e86sm5200577f8f.97.2025.02.07.10.15.10
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 07 Feb 2025 10:10:50 -0800 (PST)
+        Fri, 07 Feb 2025 10:15:11 -0800 (PST)
+Date: Fri, 7 Feb 2025 19:15:08 +0100
 From: Andrew Jones <ajones@ventanamicro.com>
-To: linux-riscv@lists.infradead.org
-Cc: cleger@rivosinc.com
-Subject: [PATCH 8/9] riscv: Implement check_unaligned_access_table
-Date: Fri,  7 Feb 2025 19:10:49 +0100
-Message-ID: <20250207181048.6045-2-ajones@ventanamicro.com>
-X-Mailer: git-send-email 2.48.1
-In-Reply-To: <20250207161939.46139-11-ajones@ventanamicro.com>
+To: =?utf-8?B?Q2zDqW1lbnQgTMOpZ2Vy?= <cleger@rivosinc.com>
+Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	paul.walmsley@sifive.com, palmer@dabbelt.com, charlie@rivosinc.com, jesse@rivosinc.com, 
+	Anup Patel <apatel@ventanamicro.com>
+Subject: Re: [PATCH 6/9] riscv: Fix set up of vector cpu hotplug callback
+Message-ID: <20250207-7d43933438bb9a5a2d6002d0@orel>
 References: <20250207161939.46139-11-ajones@ventanamicro.com>
+ <20250207161939.46139-17-ajones@ventanamicro.com>
+ <00cbde9c-39b4-4445-98af-70dfd1fbd62a@rivosinc.com>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <00cbde9c-39b4-4445-98af-70dfd1fbd62a@rivosinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250207_101053_010132_77FE4E62 
-X-CRM114-Status: GOOD (  15.84  )
+X-CRM114-CacheID: sfid-20250207_101514_134368_76E7BF40 
+X-CRM114-Status: GOOD (  26.39  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,143 +95,140 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Define the table entry type and implement the table lookup to find
-unaligned access types by id registers which is used to skip probing.
+On Fri, Feb 07, 2025 at 06:36:28PM +0100, Cl=E9ment L=E9ger wrote:
+> =
 
-Signed-off-by: Andrew Jones <ajones@ventanamicro.com>
----
- arch/riscv/kernel/unaligned_access_speed.c | 91 +++++++++++++++++++++-
- 1 file changed, 89 insertions(+), 2 deletions(-)
+> =
 
-diff --git a/arch/riscv/kernel/unaligned_access_speed.c b/arch/riscv/kernel/unaligned_access_speed.c
-index f8497097e79d..bd6db4c42daf 100644
---- a/arch/riscv/kernel/unaligned_access_speed.c
-+++ b/arch/riscv/kernel/unaligned_access_speed.c
-@@ -12,6 +12,7 @@
- #include <linux/types.h>
- #include <asm/cpufeature.h>
- #include <asm/hwprobe.h>
-+#include <asm/sbi.h>
- #include <asm/vector.h>
- 
- #include "copy-unaligned.h"
-@@ -230,11 +231,89 @@ static int __init lock_and_set_unaligned_access_static_branch(void)
- 
- arch_initcall_sync(lock_and_set_unaligned_access_static_branch);
- 
--static bool check_unaligned_access_table(void)
-+/*
-+ * An unaligned_access_table_entry maps harts (or collections of harts) to
-+ * unaligned access types. @level is used to determine whether @marchid and/or
-+ * @mimpid should to be considered. All (level, mvendorid, marchid, mimpid)
-+ * tuples formed from each table entry must be unique.
-+ */
-+enum id_level {
-+	LEVEL_VENDOR,
-+	LEVEL_ARCH,
-+	LEVEL_IMP,
-+};
-+struct unaligned_access_table_entry {
-+	enum id_level level;
-+	u32 mvendorid;
-+	ulong marchid;
-+	ulong mimpid;
-+	long type;
-+};
-+
-+static struct unaligned_access_table_entry unaligned_access_table_entries[] = {
-+};
-+
-+/*
-+ * Search unaligned_access_table_entries[] for the most specific match,
-+ * i.e. if there are two entries, one with mvendorid = V and level = VENDOR
-+ * and another with mvendorid = V, level = ARCH, and marchid = A, then
-+ * a hart with {V,A,?} will match the latter while a hart with {V,!A,?}
-+ * will match the former.
-+ */
-+static bool __check_unaligned_access_table(int cpu, long *ptr, int nr_entries,
-+					   struct unaligned_access_table_entry table[])
- {
-+	struct unaligned_access_table_entry *entry, *match = NULL;
-+	u32 mvendorid = riscv_cached_mvendorid(cpu);
-+	ulong marchid = riscv_cached_marchid(cpu);
-+	ulong mimpid = riscv_cached_mimpid(cpu);
-+	int i;
-+
-+	for (i = 0; i < nr_entries; ++i) {
-+		entry = &table[i];
-+
-+		switch (entry->level) {
-+		case LEVEL_VENDOR:
-+			if (!match && entry->mvendorid == mvendorid) {
-+				/* The match, unless we find an ARCH or IMP level match. */
-+				match = entry;
-+			}
-+			break;
-+		case LEVEL_ARCH:
-+			if (entry->mvendorid == mvendorid && entry->marchid == marchid) {
-+				/* The match, unless we find an IMP level match. */
-+				match = entry;
-+			}
-+			break;
-+		case LEVEL_IMP:
-+			if (entry->mvendorid == mvendorid && entry->marchid == marchid &&
-+			    entry->mimpid == mimpid) {
-+				match = entry;
-+				goto matched;
-+			}
-+			break;
-+		}
-+	}
-+
-+	if (match) {
-+matched:
-+		*ptr = match->type;
-+		return true;
-+	}
-+
- 	return false;
- }
- 
-+static bool check_unaligned_access_table(void)
-+{
-+	int cpu = smp_processor_id();
-+	long *ptr = per_cpu_ptr(&misaligned_access_speed, cpu);
-+
-+	return __check_unaligned_access_table(cpu, ptr,
-+					      ARRAY_SIZE(unaligned_access_table_entries),
-+					      unaligned_access_table_entries);
-+}
-+
- static int riscv_online_cpu(unsigned int cpu)
- {
- 	if (check_unaligned_access_table())
-@@ -380,9 +459,17 @@ static int __init vec_check_unaligned_access_speed_all_cpus(void *unused __alway
- }
- #endif
- 
-+static struct unaligned_access_table_entry vec_unaligned_access_table_entries[] = {
-+};
-+
- static bool check_vector_unaligned_access_table(void)
- {
--	return false;
-+	int cpu = smp_processor_id();
-+	long *ptr = per_cpu_ptr(&vector_misaligned_access, cpu);
-+
-+	return __check_unaligned_access_table(cpu, ptr,
-+					      ARRAY_SIZE(vec_unaligned_access_table_entries),
-+					      vec_unaligned_access_table_entries);
- }
- 
- static int riscv_online_cpu_vec(unsigned int cpu)
--- 
-2.48.1
+> On 07/02/2025 17:19, Andrew Jones wrote:
+> > Whether or not we have RISCV_PROBE_VECTOR_UNALIGNED_ACCESS we need to
+> > set up a cpu hotplug callback to check if we have vector at all,
+> > since, when we don't have vector, we need to set
+> > vector_misaligned_access to unsupported rather than leave it the
+> > default of unknown.
+> > =
+
+> > Fixes: e7c9d66e313b ("RISC-V: Report vector unaligned access speed hwpr=
+obe")
+> > Signed-off-by: Andrew Jones <ajones@ventanamicro.com>
+> > ---
+> >  arch/riscv/kernel/unaligned_access_speed.c | 31 +++++++++++-----------
+> >  1 file changed, 16 insertions(+), 15 deletions(-)
+> > =
+
+> > diff --git a/arch/riscv/kernel/unaligned_access_speed.c b/arch/riscv/ke=
+rnel/unaligned_access_speed.c
+> > index c9d3237649bb..d9d4ca1fadc7 100644
+> > --- a/arch/riscv/kernel/unaligned_access_speed.c
+> > +++ b/arch/riscv/kernel/unaligned_access_speed.c
+> > @@ -356,6 +356,20 @@ static void check_vector_unaligned_access(struct w=
+ork_struct *work __always_unus
+> >  	per_cpu(vector_misaligned_access, cpu) =3D speed;
+> >  }
+> >  =
+
+> > +/* Measure unaligned access speed on all CPUs present at boot in paral=
+lel. */
+> > +static int __init vec_check_unaligned_access_speed_all_cpus(void *unus=
+ed __always_unused)
+> > +{
+> > +	schedule_on_each_cpu(check_vector_unaligned_access);
+> Hey Andrew,
+> =
+
+> While at it, could you add a comment stating that schedule_on_cpu()
+> (while documented as really slow) is used due to kernel_vector_begin()
+> needing interrupts to be enabled ? I stumbled upon that while reworking
+> misaligned.
+
+That should be a separate patch, since this patch is mostly just moving
+code (not even this function was "moved", but git-diff prefers to say it
+was moved rather than what was actually moved...)
+
+I guess the comment patch you suggest should go in your rework series.
+
+Thanks,
+drew
+
+> =
+
+> Thanks,
+> =
+
+> Cl=E9ment
+> =
+
+> > +
+> > +	return 0;
+> > +}
+> > +#else /* CONFIG_RISCV_PROBE_VECTOR_UNALIGNED_ACCESS */
+> > +static int __init vec_check_unaligned_access_speed_all_cpus(void *unus=
+ed __always_unused)
+> > +{
+> > +	return 0;
+> > +}
+> > +#endif
+> > +
+> >  static int riscv_online_cpu_vec(unsigned int cpu)
+> >  {
+> >  	if (!has_vector()) {
+> > @@ -363,27 +377,16 @@ static int riscv_online_cpu_vec(unsigned int cpu)
+> >  		return 0;
+> >  	}
+> >  =
+
+> > +#ifdef CONFIG_RISCV_PROBE_VECTOR_UNALIGNED_ACCESS
+> >  	if (per_cpu(vector_misaligned_access, cpu) !=3D RISCV_HWPROBE_MISALIG=
+NED_VECTOR_UNKNOWN)
+> >  		return 0;
+> >  =
+
+> >  	check_vector_unaligned_access_emulated(NULL);
+> >  	check_vector_unaligned_access(NULL);
+> > -	return 0;
+> > -}
+> > -
+> > -/* Measure unaligned access speed on all CPUs present at boot in paral=
+lel. */
+> > -static int __init vec_check_unaligned_access_speed_all_cpus(void *unus=
+ed __always_unused)
+> > -{
+> > -	schedule_on_each_cpu(check_vector_unaligned_access);
+> > +#endif
+> >  =
+
+> >  	return 0;
+> >  }
+> > -#else /* CONFIG_RISCV_PROBE_VECTOR_UNALIGNED_ACCESS */
+> > -static int __init vec_check_unaligned_access_speed_all_cpus(void *unus=
+ed __always_unused)
+> > -{
+> > -	return 0;
+> > -}
+> > -#endif
+> >  =
+
+> >  static int __init check_unaligned_access_all_cpus(void)
+> >  {
+> > @@ -409,10 +412,8 @@ static int __init check_unaligned_access_all_cpus(=
+void)
+> >  	cpuhp_setup_state_nocalls(CPUHP_AP_ONLINE_DYN, "riscv:online",
+> >  				  riscv_online_cpu, riscv_offline_cpu);
+> >  #endif
+> > -#ifdef CONFIG_RISCV_PROBE_VECTOR_UNALIGNED_ACCESS
+> >  	cpuhp_setup_state_nocalls(CPUHP_AP_ONLINE_DYN, "riscv:online",
+> >  				  riscv_online_cpu_vec, NULL);
+> > -#endif
+> >  =
+
+> >  	return 0;
+> >  }
+> =
 
 
 _______________________________________________
