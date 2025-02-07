@@ -4,81 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4479BC0219B
-	for <linux-riscv@archiver.kernel.org>; Fri,  7 Feb 2025 10:16:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D29EC02194
+	for <linux-riscv@archiver.kernel.org>; Fri,  7 Feb 2025 10:30:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	MIME-Version:References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Jx6Wq+yLFd/Pxw5n2lW4htvzIgO93/mxoQz2hsHk2D0=; b=hx8io5UUW8jOEIXywcHBceK6kd
-	ynNvszw9RvMLZtL4WijVZ1oUFhfq7B1hFgI65ndFjM3+VQ9+FiC40ZWENlXjj4L6kOIjXZ2Qpg2D2
-	ilMbX9B/+QJxL7O3IzKKbT/h9LAVAM6ziMO50HSC7JJpWgfObi+D1m0/IrdU38FCJuH+U592RCmcG
-	5OGERM5+W9dNtaNXvNj6BpIzLTgBlcYO6waE0kA8yMK6oQz96Bc7/EU80ecB6+BrG/9Ld5kFkLjN2
-	2rHaCvsYhtVIoHf30gWbqXymAB8qyrbv3qkB64+Z0TQc4KcvbYVI2dwQNu9p3JqkxPU1r5wcrugNg
-	bBOIwMvg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=ky89DBPVhftB1qyNlCpvTZsknVgQhfd+J0BJDANesIA=; b=KgLlueABOn6173
+	sXOuhrYoXxZgN+GFfd7DJ3STbZge2jmA+DAQiIIuaHzSz174NVBSsuxggdrydSCaVX9cUE1Wfq+Pw
+	ZECENHefV+uD3HNBu1w/d5JLjIMKqt8pK7zEBZYNPYyGAw9qEZqie30A2SUPet04UnVFl01w3oV1h
+	DvZ0IGZ0sdZTEk2F33jrMNQDrlilVM31RW34G4jAws9PdG+C9hWc+6Bf+tTM0AKbuKUCpb39jWCQM
+	lt1zQAf4SSzeoempvnItgRtdbAfchJdE6Fs+joMIErAzMmoZ6D5aWf3rsWf6eHIntV+sgeoKMf8Qr
+	7ZtUJdPqHmNBYyeGSijg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tgLPR-00000009APu-22ai;
-	Fri, 07 Feb 2025 10:16:29 +0000
-Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
+	id 1tgLdB-00000009Cq2-35p4;
+	Fri, 07 Feb 2025 10:30:41 +0000
+Received: from mail-wm1-x333.google.com ([2a00:1450:4864:20::333])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tgLOw-00000009ALz-2HEw;
-	Fri, 07 Feb 2025 10:15:58 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=casper.20170209; h=MIME-Version:Content-Type:References:
-	In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=zVqX9Hq16/SBdTp2H/rBCvE55Od/Y0deJt0gh/PTA4k=; b=JQrCMHr2BdrjS4NKrzUQ4brppT
-	UggDTJnj1TCbsw8d6uS/TP1LXzuCYCRpzvxXY3M1Udn1/rpXKT+D2yISKc9EHbbjlk1JMiwjezT0w
-	G/g1Rm0utnZUcDsOAhllHICdtEJxIYMJw/XeRN/mslhRg1XxSlNHhBbjnLxUXcGhEAIUycfIHwyAz
-	ItWZqc3X+RpAaZKfd7tucO6DvzefcQn0FPMOPsZAyCKizC/2AjVKxERO5/VgZ3Cnr4Chc1uCRoERY
-	AxTesLAbLLvoSEfjxsUL7zWXl8QA3C30qYHv/EpdvBIOHqKBDnTg+VDWbD2Y+xZaag8m8LicEjrBB
-	LIoBs9Rw==;
-Received: from 54-240-197-238.amazon.com ([54.240.197.238] helo=freeip.amazon.com)
-	by casper.infradead.org with esmtpsa (Exim 4.98 #2 (Red Hat Linux))
-	id 1tgLOp-00000007cdM-31OR;
-	Fri, 07 Feb 2025 10:15:52 +0000
-Message-ID: <0a6b88c0edd85a2ae0886e5454afea09cfcd3a24.camel@infradead.org>
-Subject: Re: [PATCH v3 00/18] vDSO: Introduce generic data storage
-From: David Woodhouse <dwmw2@infradead.org>
-To: Thomas =?ISO-8859-1?Q?Wei=DFschuh?= <thomas.weissschuh@linutronix.de>
-Cc: "James E.J. Bottomley" <James.Bottomley@hansenpartnership.com>, Helge
- Deller <deller@gmx.de>, Andy Lutomirski <luto@kernel.org>, Thomas Gleixner
- <tglx@linutronix.de>,  Vincenzo Frascino <vincenzo.frascino@arm.com>,
- Anna-Maria Behnsen <anna-maria@linutronix.de>, Frederic Weisbecker
- <frederic@kernel.org>, Andrew Morton <akpm@linux-foundation.org>, Catalin
- Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, Theodore
- Ts'o <tytso@mit.edu>,  "Jason A. Donenfeld" <Jason@zx2c4.com>, Paul
- Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>,
- Albert Ou <aou@eecs.berkeley.edu>, Huacai Chen <chenhuacai@kernel.org>,
- WANG Xuerui <kernel@xen0n.name>, Russell King <linux@armlinux.org.uk>,
- Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>,
- Alexander Gordeev <agordeev@linux.ibm.com>, Christian Borntraeger
- <borntraeger@linux.ibm.com>, Sven Schnelle <svens@linux.ibm.com>, Thomas
- Bogendoerfer <tsbogend@alpha.franken.de>, Michael Ellerman
- <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>, Christophe Leroy
- <christophe.leroy@csgroup.eu>, Naveen N Rao <naveen@kernel.org>, Madhavan
- Srinivasan <maddy@linux.ibm.com>, Ingo Molnar <mingo@redhat.com>, Borislav
- Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>,
- x86@kernel.org, "H. Peter Anvin" <hpa@zytor.com>,  Arnd Bergmann
- <arnd@arndb.de>, Guo Ren <guoren@kernel.org>, linux-parisc@vger.kernel.org,
-  linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-riscv@lists.infradead.org, loongarch@lists.linux.dev, 
- linux-s390@vger.kernel.org, linux-mips@vger.kernel.org, 
- linuxppc-dev@lists.ozlabs.org, linux-arch@vger.kernel.org, Nam Cao
- <namcao@linutronix.de>, linux-csky@vger.kernel.org, "Ridoux, Julien"
- <ridouxj@amazon.com>, "Luu, Ryan" <rluu@amazon.com>, kvm
- <kvm@vger.kernel.org>
-Date: Fri, 07 Feb 2025 10:15:49 +0000
-In-Reply-To: <20250206110648-ec4cf3d0-0aef-4feb-a859-c69e53ab110c@linutronix.de>
-References: <20250204-vdso-store-rng-v3-0-13a4669dfc8c@linutronix.de>
-	 <ff83dc5c91b4e46bcf2d99680ec6af250fb05b27.camel@infradead.org>
-	 <20250206110648-ec4cf3d0-0aef-4feb-a859-c69e53ab110c@linutronix.de>
-User-Agent: Evolution 3.52.3-0ubuntu1 
+	id 1tgLbm-00000009CVt-0wf5
+	for linux-riscv@lists.infradead.org;
+	Fri, 07 Feb 2025 10:29:16 +0000
+Received: by mail-wm1-x333.google.com with SMTP id 5b1f17b1804b1-436326dcb1cso12753235e9.0
+        for <linux-riscv@lists.infradead.org>; Fri, 07 Feb 2025 02:29:13 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1738924152; x=1739528952; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=kZecQt9IpEJ7wbD4TyHVoTgZZnQwqJP3yUkd6SaQ1fo=;
+        b=UtKzgx1N1crJZ11lK67wtikJsjccEwo9jscSOpXkurLDgYW6LD4t12tgdcbFioY/2Z
+         0Lo3qzcm2IkYPS+VWsVpWHL0qOgV999J+6Aa4764IB1k7NI+9P45BdqIPpL+dMGx/HkX
+         qJXUfC/up2b7MFuckza6l9LkNPtW+hCZokWVv63/VhwybsXJz9set97uIoGuFAeuGPBQ
+         beW6M14vn9UA3AvnUHeCRM/cQ+6iZf89uNrTWE4faL7NHmujNOIEdAxW0UbiK01zNa5d
+         0lVA4Mbhch2/LvOpiufW1S99bLTLq9DXrqYumYwUzgye4tcISicW3RdVmADtjhcKD5w6
+         bmbw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1738924152; x=1739528952;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=kZecQt9IpEJ7wbD4TyHVoTgZZnQwqJP3yUkd6SaQ1fo=;
+        b=pB9wyqYmqRyhmzugyPBB/lFbdj35euQf1RKtsVM+VMFY7ebGFNv2F5D3BbylvKiqiu
+         0Er7NdqkLjX3Vxs97rq1ifeV6K3c6P8dm0eH/YimQsKLqJlPoCImvZKJYUv/vQHX3xY7
+         +kOQkU4dWFtVf7n/5V1yqLonShtoBwcFVC36V6UAKiD/NNkRYRX6Ug7C7o2NmnJjum+D
+         LKbA9sGFoZmMUdsj+sqSnL8h3/IDMabjdglg6FmGLujn7HrTmm2y8hoOa/hsHgnur2kS
+         Wfw1ON4EKx4jcyrrVIeXjd7NY8eHDpH5F2OTq20lKnT4uao6nPS3dkwHHbr0ZnUNYzFF
+         QNmg==
+X-Gm-Message-State: AOJu0YxHChpTWnII/BdABl5Ykq8bk0ojtk4Aby1R4OO8hRK1HBDuNZEk
+	wycwub+ugKIJKNizdgpzzCJ33K4QXuZ/jbhlgCIuqCMWm/RUrw94c1I/le6F/WM=
+X-Gm-Gg: ASbGncuGDJXGW08hf2swj8TEt44yK0XuD0Rktxqzlv+glsq1D6qV/RxouoF1066/rKD
+	0Lh2sTow4Gi5wBuuGqrHQlvQrElSJaAR7X9UaDYAVQfcRA0y9vNFMYoP6A9UiTM0w5s6445kte7
+	LqfMrJRT40Nz6scYFPl1+M8DMKorSUflM+dL7EZCuleDeaspIf09saf+iYNLwc650en906Jm8O5
+	bzNLZTKthBC0RwgyX+6yk6OAlaWthCYFvZ7lgyOa4OupisjWdZFY6D9erhEbw2jbrspGHjDUHHp
+	/4KC2MbI3lIXl1MLmzne1n8Mvf+Szm6jnnx23OS0wAFo3LfPyLrcdgjsq4Bb
+X-Google-Smtp-Source: AGHT+IHCoYm88N9w7MLKhv47jx2sJHV5XaJtNjy2Kt9tKO8gApEJnGbxZzlJthncRDoGbW5dA9LdfQ==
+X-Received: by 2002:a05:600c:c19:b0:436:fb02:e68 with SMTP id 5b1f17b1804b1-4392497f9cbmr21820835e9.2.1738924150908;
+        Fri, 07 Feb 2025 02:29:10 -0800 (PST)
+Received: from ?IPV6:2a01:e0a:e17:9700:16d2:7456:6634:9626? ([2a01:e0a:e17:9700:16d2:7456:6634:9626])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4390d933794sm87719805e9.7.2025.02.07.02.29.09
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 07 Feb 2025 02:29:10 -0800 (PST)
+Message-ID: <586dc43d-74cd-413b-86e2-545384ad796f@rivosinc.com>
+Date: Fri, 7 Feb 2025 11:29:08 +0100
 MIME-Version: 1.0
-X-SRS-Rewrite: SMTP reverse-path rewritten from <dwmw2@infradead.org> by casper.infradead.org. See http://www.infradead.org/rpr.html
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 12/21] RISC-V: perf: Modify the counter discovery
+ mechanism
+To: Atish Patra <atishp@rivosinc.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Anup Patel <anup@brainfault.org>,
+ Atish Patra <atishp@atishpatra.org>, Will Deacon <will@kernel.org>,
+ Mark Rutland <mark.rutland@arm.com>, Peter Zijlstra <peterz@infradead.org>,
+ Ingo Molnar <mingo@redhat.com>, Arnaldo Carvalho de Melo <acme@kernel.org>,
+ Namhyung Kim <namhyung@kernel.org>,
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+ Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>,
+ Adrian Hunter <adrian.hunter@intel.com>, weilin.wang@intel.com
+Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+ Conor Dooley <conor@kernel.org>, devicetree@vger.kernel.org,
+ kvm@vger.kernel.org, kvm-riscv@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org, linux-perf-users@vger.kernel.org
+References: <20250205-counter_delegation-v4-0-835cfa88e3b1@rivosinc.com>
+ <20250205-counter_delegation-v4-12-835cfa88e3b1@rivosinc.com>
+Content-Language: en-US
+From: =?UTF-8?B?Q2zDqW1lbnQgTMOpZ2Vy?= <cleger@rivosinc.com>
+In-Reply-To: <20250205-counter_delegation-v4-12-835cfa88e3b1@rivosinc.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250207_022914_526726_7C73BBA1 
+X-CRM114-Status: GOOD (  39.74  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,214 +108,260 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============4161697783615200988=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
---===============4161697783615200988==
-Content-Type: multipart/signed; micalg="sha-256"; protocol="application/pkcs7-signature";
-	boundary="=-Hn9nn97uh7ZrvK5eTG4M"
 
+On 06/02/2025 08:23, Atish Patra wrote:
+> If both counter delegation and SBI PMU is present, the counter
+> delegation will be used for hardware pmu counters while the SBI PMU
+> will be used for firmware counters. Thus, the driver has to probe
+> the counters info via SBI PMU to distinguish the firmware counters.
+> 
+> The hybrid scheme also requires improvements of the informational
+> logging messages to indicate the user about underlying interface
+> used for each use case.
+> 
+> Signed-off-by: Atish Patra <atishp@rivosinc.com>
+> ---
+>  drivers/perf/riscv_pmu_dev.c | 118 ++++++++++++++++++++++++++++++++-----------
+>  1 file changed, 88 insertions(+), 30 deletions(-)
+> 
+> diff --git a/drivers/perf/riscv_pmu_dev.c b/drivers/perf/riscv_pmu_dev.c
+> index 6b43d844eaea..5ddf4924c5b3 100644
+> --- a/drivers/perf/riscv_pmu_dev.c
+> +++ b/drivers/perf/riscv_pmu_dev.c
+> @@ -66,6 +66,10 @@ static bool sbi_v2_available;
+>  static DEFINE_STATIC_KEY_FALSE(sbi_pmu_snapshot_available);
+>  #define sbi_pmu_snapshot_available() \
+>  	static_branch_unlikely(&sbi_pmu_snapshot_available)
+> +static DEFINE_STATIC_KEY_FALSE(riscv_pmu_sbi_available);
+> +static DEFINE_STATIC_KEY_FALSE(riscv_pmu_cdeleg_available);
+> +static bool cdeleg_available;
+> +static bool sbi_available;
+>  
+>  static struct attribute *riscv_arch_formats_attr[] = {
+>  	&format_attr_event.attr,
+> @@ -88,7 +92,8 @@ static int sysctl_perf_user_access __read_mostly = SYSCTL_USER_ACCESS;
+>  
+>  /*
+>   * This structure is SBI specific but counter delegation also require counter
+> - * width, csr mapping. Reuse it for now.
+> + * width, csr mapping. Reuse it for now we can have firmware counters for
+> + * platfroms with counter delegation support.
+>   * RISC-V doesn't have heterogeneous harts yet. This need to be part of
+>   * per_cpu in case of harts with different pmu counters
+>   */
+> @@ -100,6 +105,8 @@ static unsigned int riscv_pmu_irq;
+>  
+>  /* Cache the available counters in a bitmask */
+>  static unsigned long cmask;
+> +/* Cache the available firmware counters in another bitmask */
+> +static unsigned long firmware_cmask;
+>  
+>  struct sbi_pmu_event_data {
+>  	union {
+> @@ -778,35 +785,49 @@ static int rvpmu_sbi_find_num_ctrs(void)
+>  		return sbi_err_map_linux_errno(ret.error);
+>  }
+>  
+> -static int rvpmu_sbi_get_ctrinfo(int nctr, unsigned long *mask)
+> +static int rvpmu_deleg_find_ctrs(void)
+> +{
+> +	/* TODO */
+> +	return -1;
+> +}
+> +
+> +static int rvpmu_sbi_get_ctrinfo(int nsbi_ctr, int ndeleg_ctr)
 
---=-Hn9nn97uh7ZrvK5eTG4M
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Hi Atish,
 
-On Thu, 2025-02-06 at 11:59 +0100, Thomas Wei=C3=9Fschuh wrote:
-> On Thu, Feb 06, 2025 at 09:31:42AM +0000, David Woodhouse wrote:
-> > On Tue, 2025-02-04 at 13:05 +0100, Thomas Wei=C3=9Fschuh wrote:
-> > > Currently each architecture defines the setup of the vDSO data page o=
-n
-> > > its own, mostly through copy-and-paste from some other architecture.
-> > > Extend the existing generic vDSO implementation to also provide gener=
-ic
-> > > data storage.
-> > > This removes duplicated code and paves the way for further changes to
-> > > the generic vDSO implementation without having to go through a lot of
-> > > per-architecture changes.
-> > >=20
-> > > Based on v6.14-rc1 and intended to be merged through the tip tree.
->=20
-> Note: The real answer will need to come from the timekeeping
-> maintainers, my personal two cents below.
->=20
-> > Thanks for working on this. Is there a plan to expose the time data
-> > directly to userspace in a form which is usable *other* than by
-> > function calls which get the value of the clock at a given moment?
->=20
-> There are no current plans that I am aware of.
->=20
-> > For populating the vmclock device=C2=B9 we need to know the actual
-> > relationship between the hardware counter (TSC, arch timer, etc.) and
-> > real time in order to propagate that to the guest.
-> >=20
-> > I see two options for doing this:
-> >=20
-> > =C2=A01. Via userspace, exposing the vdso time data (and a notification=
- when
-> > =C2=A0=C2=A0=C2=A0 it changes?) and letting the userspace VMM populate =
-the vmclock.
-> > =C2=A0=C2=A0=C2=A0 This is complex for x86 because of TSC scaling; in f=
-act userspace
-> > =C2=A0=C2=A0=C2=A0 doesn't currently know the precise scaling from host=
- to guest TSC
-> > =C2=A0=C2=A0=C2=A0 so we'd have to be able to extract that from KVM.
->=20
-> Exposing the raw vdso time data is problematic as it precludes any
-> evolution to its datastructures, like the one we are currently doing.
->=20
-> An additional, trimmed down and stable data structure could be used.
-> But I don't think it makes sense. The vDSO is all about a stable
-> highlevel function interface on top of an unstable data interface.
-> However the vmclock needs the lowlevel data to populate its own
-> datastructure, wrapping raw data access in function calls is unnecessary.
-> If no functions are involved then the vDSO is not needed. The data can
-> be maintained separately in any other place in the kernel and accessed
-> or mapped by userspace from there.
-> Also the vDSO does not have an active notification mechanism, this would
-> probably be implemented through a filedescriptor, but then the data
-> can also be mapped through exactly that fd.
->=20
-> > =C2=A02. In kernel, asking KVM to populate the vmclock structure much l=
-ike
-> > =C2=A0=C2=A0=C2=A0 it does other pvclocks shared with the guest. KVM/x8=
-6 already uses
-> > =C2=A0=C2=A0=C2=A0 pvclock_gtod_register_notifier() to hook changes; sh=
-ould we expand
-> > =C2=A0=C2=A0=C2=A0 on that? The problem with that notifier is that it s=
-eems to be
-> > =C2=A0=C2=A0=C2=A0 called far more frequently than I'd expect.
->=20
-> This sounds better, especially as any custom ABI from the host kernel to
-> the VMM would look a lot like the vmclock structure anyways.
->=20
-> Timekeeper updates are indeed very frequent, but what are the concrete
-> issues? That frequency is fine for regular vDSO data page updates,
-> updating the vmclock data page should be very similar.
-> The timekeeper core can pass context to the notifier callbacks, maybe
-> this can be used to skip some expensive steps where possible.
+These parameters could be unsigned I think.
 
-In the context of a hypervisor with lots of guests running, that's a
-lot of pointless steal time. But it isn't just that; ISTR the result
-was also *inaccurate*.
+>  {
+>  	struct sbiret ret;
+> -	int i, num_hw_ctr = 0, num_fw_ctr = 0;
+> +	int i, num_hw_ctr = 0, num_fw_ctr = 0, num_ctr = 0;
+>  	union sbi_pmu_ctr_info cinfo;
+>  
+> -	pmu_ctr_list = kcalloc(nctr, sizeof(*pmu_ctr_list), GFP_KERNEL);
+> -	if (!pmu_ctr_list)
+> -		return -ENOMEM;
+> -
+> -	for (i = 0; i < nctr; i++) {
+> +	for (i = 0; i < nsbi_ctr; i++) {
+>  		ret = sbi_ecall(SBI_EXT_PMU, SBI_EXT_PMU_COUNTER_GET_INFO, i, 0, 0, 0, 0, 0);
+>  		if (ret.error)
+>  			/* The logical counter ids are not expected to be contiguous */
+>  			continue;
+>  
+> -		*mask |= BIT(i);
+> -
+>  		cinfo.value = ret.value;
+>  		if (cinfo.type == SBI_PMU_CTR_TYPE_FW)
+>  			num_fw_ctr++;
+> -		else
+> +
+> +		if (!cdeleg_available) {
 
-I need to go back and reproduce the testing, but I think it was
-constantly adjusting the apparent rate even with no changed inputs from
-NTP. Where the number of clock counts per jiffy wasn't an integer, the
-notification would be constantly changing, for example to report 333333
-counts per jiffy for most of the time, and occasionally 333334 counts
-for a single jiffy before flipping back again. Or something like that.
+What is the rationale for using additional boolean identical to the
+static keys ? Reducing the amount of code patch site in cold path ? If
+so, I guess you can use static_key_enabled(&riscv_pmu_cdeleg_available).
+But your solution is fine as well, it just duplicates two identical values.
 
---=-Hn9nn97uh7ZrvK5eTG4M
-Content-Type: application/pkcs7-signature; name="smime.p7s"
-Content-Disposition: attachment; filename="smime.p7s"
-Content-Transfer-Encoding: base64
+>  			num_hw_ctr++;
+> -		pmu_ctr_list[i].value = cinfo.value;
+> +			cmask |= BIT(i);
+> +			pmu_ctr_list[i].value = cinfo.value;
+> +		} else if (cinfo.type == SBI_PMU_CTR_TYPE_FW) {
+> +			/* Track firmware counters in a different mask */
+> +			firmware_cmask |= BIT(i);
+> +			pmu_ctr_list[i].value = cinfo.value;
+> +		}
+> +
+>  	}
+>  
+> -	pr_info("%d firmware and %d hardware counters\n", num_fw_ctr, num_hw_ctr);
+> +	if (cdeleg_available) {
+> +		pr_info("%d firmware and %d hardware counters\n", num_fw_ctr, ndeleg_ctr);
+> +		num_ctr = num_fw_ctr + ndeleg_ctr;
+> +	} else {
+> +		pr_info("%d firmware and %d hardware counters\n", num_fw_ctr, num_hw_ctr);
+> +		num_ctr = nsbi_ctr;
+> +	}
+>  
+> -	return 0;
+> +	return num_ctr;
+>  }
+>  
+>  static inline void rvpmu_sbi_stop_all(struct riscv_pmu *pmu)
+> @@ -1067,16 +1088,33 @@ static void rvpmu_ctr_stop(struct perf_event *event, unsigned long flag)
+>  	/* TODO: Counter delegation implementation */
+>  }
+>  
+> -static int rvpmu_find_num_ctrs(void)
+> +static int rvpmu_find_ctrs(void)
+>  {
+> -	return rvpmu_sbi_find_num_ctrs();
+> -	/* TODO: Counter delegation implementation */
+> -}
+> +	int num_sbi_counters = 0, num_deleg_counters = 0, num_counters = 0;
+>  
+> -static int rvpmu_get_ctrinfo(int nctr, unsigned long *mask)
+> -{
+> -	return rvpmu_sbi_get_ctrinfo(nctr, mask);
+> -	/* TODO: Counter delegation implementation */
+> +	/*
+> +	 * We don't know how many firmware counters available. Just allocate
+> +	 * for maximum counters driver can support. The default is 64 anyways.
+> +	 */
+> +	pmu_ctr_list = kcalloc(RISCV_MAX_COUNTERS, sizeof(*pmu_ctr_list),
+> +			       GFP_KERNEL);
+> +	if (!pmu_ctr_list)
+> +		return -ENOMEM;
+> +
+> +	if (cdeleg_available)
+> +		num_deleg_counters = rvpmu_deleg_find_ctrs();
+> +
+> +	/* This is required for firmware counters even if the above is true */
+> +	if (sbi_available)
+> +		num_sbi_counters = rvpmu_sbi_find_num_ctrs();
+> +
+> +	if (num_sbi_counters >= RISCV_MAX_COUNTERS || num_deleg_counters >= RISCV_MAX_COUNTERS)
+> +		return -ENOSPC;
 
-MIAGCSqGSIb3DQEHAqCAMIACAQExDzANBglghkgBZQMEAgEFADCABgkqhkiG9w0BBwEAAKCCD9Aw
-ggSOMIIDdqADAgECAhAOmiw0ECVD4cWj5DqVrT9PMA0GCSqGSIb3DQEBCwUAMGUxCzAJBgNVBAYT
-AlVTMRUwEwYDVQQKEwxEaWdpQ2VydCBJbmMxGTAXBgNVBAsTEHd3dy5kaWdpY2VydC5jb20xJDAi
-BgNVBAMTG0RpZ2lDZXJ0IEFzc3VyZWQgSUQgUm9vdCBDQTAeFw0yNDAxMzAwMDAwMDBaFw0zMTEx
-MDkyMzU5NTlaMEExCzAJBgNVBAYTAkFVMRAwDgYDVQQKEwdWZXJva2V5MSAwHgYDVQQDExdWZXJv
-a2V5IFNlY3VyZSBFbWFpbCBHMjCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAMjvgLKj
-jfhCFqxYyRiW8g3cNFAvltDbK5AzcOaR7yVzVGadr4YcCVxjKrEJOgi7WEOH8rUgCNB5cTD8N/Et
-GfZI+LGqSv0YtNa54T9D1AWJy08ZKkWvfGGIXN9UFAPMJ6OLLH/UUEgFa+7KlrEvMUupDFGnnR06
-aDJAwtycb8yXtILj+TvfhLFhafxroXrflspavejQkEiHjNjtHnwbZ+o43g0/yxjwnarGI3kgcak7
-nnI9/8Lqpq79tLHYwLajotwLiGTB71AGN5xK+tzB+D4eN9lXayrjcszgbOv2ZCgzExQUAIt98mre
-8EggKs9mwtEuKAhYBIP/0K6WsoMnQCcCAwEAAaOCAVwwggFYMBIGA1UdEwEB/wQIMAYBAf8CAQAw
-HQYDVR0OBBYEFIlICOogTndrhuWByNfhjWSEf/xwMB8GA1UdIwQYMBaAFEXroq/0ksuCMS1Ri6en
-IZ3zbcgPMA4GA1UdDwEB/wQEAwIBhjAdBgNVHSUEFjAUBggrBgEFBQcDBAYIKwYBBQUHAwIweQYI
-KwYBBQUHAQEEbTBrMCQGCCsGAQUFBzABhhhodHRwOi8vb2NzcC5kaWdpY2VydC5jb20wQwYIKwYB
-BQUHMAKGN2h0dHA6Ly9jYWNlcnRzLmRpZ2ljZXJ0LmNvbS9EaWdpQ2VydEFzc3VyZWRJRFJvb3RD
-QS5jcnQwRQYDVR0fBD4wPDA6oDigNoY0aHR0cDovL2NybDMuZGlnaWNlcnQuY29tL0RpZ2lDZXJ0
-QXNzdXJlZElEUm9vdENBLmNybDARBgNVHSAECjAIMAYGBFUdIAAwDQYJKoZIhvcNAQELBQADggEB
-ACiagCqvNVxOfSd0uYfJMiZsOEBXAKIR/kpqRp2YCfrP4Tz7fJogYN4fxNAw7iy/bPZcvpVCfe/H
-/CCcp3alXL0I8M/rnEnRlv8ItY4MEF+2T/MkdXI3u1vHy3ua8SxBM8eT9LBQokHZxGUX51cE0kwa
-uEOZ+PonVIOnMjuLp29kcNOVnzf8DGKiek+cT51FvGRjV6LbaxXOm2P47/aiaXrDD5O0RF5SiPo6
-xD1/ClkCETyyEAE5LRJlXtx288R598koyFcwCSXijeVcRvBB1cNOLEbg7RMSw1AGq14fNe2cH1HG
-W7xyduY/ydQt6gv5r21mDOQ5SaZSWC/ZRfLDuEYwggWbMIIEg6ADAgECAhAH5JEPagNRXYDiRPdl
-c1vgMA0GCSqGSIb3DQEBCwUAMEExCzAJBgNVBAYTAkFVMRAwDgYDVQQKEwdWZXJva2V5MSAwHgYD
-VQQDExdWZXJva2V5IFNlY3VyZSBFbWFpbCBHMjAeFw0yNDEyMzAwMDAwMDBaFw0yODAxMDQyMzU5
-NTlaMB4xHDAaBgNVBAMME2R3bXcyQGluZnJhZGVhZC5vcmcwggIiMA0GCSqGSIb3DQEBAQUAA4IC
-DwAwggIKAoICAQDali7HveR1thexYXx/W7oMk/3Wpyppl62zJ8+RmTQH4yZeYAS/SRV6zmfXlXaZ
-sNOE6emg8WXLRS6BA70liot+u0O0oPnIvnx+CsMH0PD4tCKSCsdp+XphIJ2zkC9S7/yHDYnqegqt
-w4smkqUqf0WX/ggH1Dckh0vHlpoS1OoxqUg+ocU6WCsnuz5q5rzFsHxhD1qGpgFdZEk2/c//ZvUN
-i12vPWipk8TcJwHw9zoZ/ZrVNybpMCC0THsJ/UEVyuyszPtNYeYZAhOJ41vav1RhZJzYan4a1gU0
-kKBPQklcpQEhq48woEu15isvwWh9/+5jjh0L+YNaN0I//nHSp6U9COUG9Z0cvnO8FM6PTqsnSbcc
-0j+GchwOHRC7aP2t5v2stVx3KbptaYEzi4MQHxm/0+HQpMEVLLUiizJqS4PWPU6zfQTOMZ9uLQRR
-ci+c5xhtMEBszlQDOvEQcyEG+hc++fH47K+MmZz21bFNfoBxLP6bjR6xtPXtREF5lLXxp+CJ6KKS
-blPKeVRg/UtyJHeFKAZXO8Zeco7TZUMVHmK0ZZ1EpnZbnAhKE19Z+FJrQPQrlR0gO3lBzuyPPArV
-hvWxjlO7S4DmaEhLzarWi/ze7EGwWSuI2eEa/8zU0INUsGI4ywe7vepQz7IqaAovAX0d+f1YjbmC
-VsAwjhLmveFjNwIDAQABo4IBsDCCAawwHwYDVR0jBBgwFoAUiUgI6iBOd2uG5YHI1+GNZIR//HAw
-HQYDVR0OBBYEFFxiGptwbOfWOtMk5loHw7uqWUOnMDAGA1UdEQQpMCeBE2R3bXcyQGluZnJhZGVh
-ZC5vcmeBEGRhdmlkQHdvb2Rob3Uuc2UwFAYDVR0gBA0wCzAJBgdngQwBBQEBMA4GA1UdDwEB/wQE
-AwIF4DAdBgNVHSUEFjAUBggrBgEFBQcDAgYIKwYBBQUHAwQwewYDVR0fBHQwcjA3oDWgM4YxaHR0
-cDovL2NybDMuZGlnaWNlcnQuY29tL1Zlcm9rZXlTZWN1cmVFbWFpbEcyLmNybDA3oDWgM4YxaHR0
-cDovL2NybDQuZGlnaWNlcnQuY29tL1Zlcm9rZXlTZWN1cmVFbWFpbEcyLmNybDB2BggrBgEFBQcB
-AQRqMGgwJAYIKwYBBQUHMAGGGGh0dHA6Ly9vY3NwLmRpZ2ljZXJ0LmNvbTBABggrBgEFBQcwAoY0
-aHR0cDovL2NhY2VydHMuZGlnaWNlcnQuY29tL1Zlcm9rZXlTZWN1cmVFbWFpbEcyLmNydDANBgkq
-hkiG9w0BAQsFAAOCAQEAQXc4FPiPLRnTDvmOABEzkIumojfZAe5SlnuQoeFUfi+LsWCKiB8Uextv
-iBAvboKhLuN6eG/NC6WOzOCppn4mkQxRkOdLNThwMHW0d19jrZFEKtEG/epZ/hw/DdScTuZ2m7im
-8ppItAT6GXD3aPhXkXnJpC/zTs85uNSQR64cEcBFjjoQDuSsTeJ5DAWf8EMyhMuD8pcbqx5kRvyt
-JPsWBQzv1Dsdv2LDPLNd/JUKhHSgr7nbUr4+aAP2PHTXGcEBh8lTeYea9p4d5k969pe0OHYMV5aL
-xERqTagmSetuIwolkAuBCzA9vulg8Y49Nz2zrpUGfKGOD0FMqenYxdJHgDCCBZswggSDoAMCAQIC
-EAfkkQ9qA1FdgOJE92VzW+AwDQYJKoZIhvcNAQELBQAwQTELMAkGA1UEBhMCQVUxEDAOBgNVBAoT
-B1Zlcm9rZXkxIDAeBgNVBAMTF1Zlcm9rZXkgU2VjdXJlIEVtYWlsIEcyMB4XDTI0MTIzMDAwMDAw
-MFoXDTI4MDEwNDIzNTk1OVowHjEcMBoGA1UEAwwTZHdtdzJAaW5mcmFkZWFkLm9yZzCCAiIwDQYJ
-KoZIhvcNAQEBBQADggIPADCCAgoCggIBANqWLse95HW2F7FhfH9bugyT/danKmmXrbMnz5GZNAfj
-Jl5gBL9JFXrOZ9eVdpmw04Tp6aDxZctFLoEDvSWKi367Q7Sg+ci+fH4KwwfQ8Pi0IpIKx2n5emEg
-nbOQL1Lv/IcNiep6Cq3DiyaSpSp/RZf+CAfUNySHS8eWmhLU6jGpSD6hxTpYKye7PmrmvMWwfGEP
-WoamAV1kSTb9z/9m9Q2LXa89aKmTxNwnAfD3Ohn9mtU3JukwILRMewn9QRXK7KzM+01h5hkCE4nj
-W9q/VGFknNhqfhrWBTSQoE9CSVylASGrjzCgS7XmKy/BaH3/7mOOHQv5g1o3Qj/+cdKnpT0I5Qb1
-nRy+c7wUzo9OqydJtxzSP4ZyHA4dELto/a3m/ay1XHcpum1pgTOLgxAfGb/T4dCkwRUstSKLMmpL
-g9Y9TrN9BM4xn24tBFFyL5znGG0wQGzOVAM68RBzIQb6Fz758fjsr4yZnPbVsU1+gHEs/puNHrG0
-9e1EQXmUtfGn4InoopJuU8p5VGD9S3Ikd4UoBlc7xl5yjtNlQxUeYrRlnUSmdlucCEoTX1n4UmtA
-9CuVHSA7eUHO7I88CtWG9bGOU7tLgOZoSEvNqtaL/N7sQbBZK4jZ4Rr/zNTQg1SwYjjLB7u96lDP
-sipoCi8BfR35/ViNuYJWwDCOEua94WM3AgMBAAGjggGwMIIBrDAfBgNVHSMEGDAWgBSJSAjqIE53
-a4blgcjX4Y1khH/8cDAdBgNVHQ4EFgQUXGIam3Bs59Y60yTmWgfDu6pZQ6cwMAYDVR0RBCkwJ4ET
-ZHdtdzJAaW5mcmFkZWFkLm9yZ4EQZGF2aWRAd29vZGhvdS5zZTAUBgNVHSAEDTALMAkGB2eBDAEF
-AQEwDgYDVR0PAQH/BAQDAgXgMB0GA1UdJQQWMBQGCCsGAQUFBwMCBggrBgEFBQcDBDB7BgNVHR8E
-dDByMDegNaAzhjFodHRwOi8vY3JsMy5kaWdpY2VydC5jb20vVmVyb2tleVNlY3VyZUVtYWlsRzIu
-Y3JsMDegNaAzhjFodHRwOi8vY3JsNC5kaWdpY2VydC5jb20vVmVyb2tleVNlY3VyZUVtYWlsRzIu
-Y3JsMHYGCCsGAQUFBwEBBGowaDAkBggrBgEFBQcwAYYYaHR0cDovL29jc3AuZGlnaWNlcnQuY29t
-MEAGCCsGAQUFBzAChjRodHRwOi8vY2FjZXJ0cy5kaWdpY2VydC5jb20vVmVyb2tleVNlY3VyZUVt
-YWlsRzIuY3J0MA0GCSqGSIb3DQEBCwUAA4IBAQBBdzgU+I8tGdMO+Y4AETOQi6aiN9kB7lKWe5Ch
-4VR+L4uxYIqIHxR7G2+IEC9ugqEu43p4b80LpY7M4KmmfiaRDFGQ50s1OHAwdbR3X2OtkUQq0Qb9
-6ln+HD8N1JxO5nabuKbymki0BPoZcPdo+FeRecmkL/NOzzm41JBHrhwRwEWOOhAO5KxN4nkMBZ/w
-QzKEy4PylxurHmRG/K0k+xYFDO/UOx2/YsM8s138lQqEdKCvudtSvj5oA/Y8dNcZwQGHyVN5h5r2
-nh3mT3r2l7Q4dgxXlovERGpNqCZJ624jCiWQC4ELMD2+6WDxjj03PbOulQZ8oY4PQUyp6djF0keA
-MYIDuzCCA7cCAQEwVTBBMQswCQYDVQQGEwJBVTEQMA4GA1UEChMHVmVyb2tleTEgMB4GA1UEAxMX
-VmVyb2tleSBTZWN1cmUgRW1haWwgRzICEAfkkQ9qA1FdgOJE92VzW+AwDQYJYIZIAWUDBAIBBQCg
-ggE3MBgGCSqGSIb3DQEJAzELBgkqhkiG9w0BBwEwHAYJKoZIhvcNAQkFMQ8XDTI1MDIwNzEwMTU0
-OVowLwYJKoZIhvcNAQkEMSIEIERXi00+3GDk2E/p6131tegJ6jUhnrs0V9vxaiV5oZ2XMGQGCSsG
-AQQBgjcQBDFXMFUwQTELMAkGA1UEBhMCQVUxEDAOBgNVBAoTB1Zlcm9rZXkxIDAeBgNVBAMTF1Zl
-cm9rZXkgU2VjdXJlIEVtYWlsIEcyAhAH5JEPagNRXYDiRPdlc1vgMGYGCyqGSIb3DQEJEAILMVeg
-VTBBMQswCQYDVQQGEwJBVTEQMA4GA1UEChMHVmVyb2tleTEgMB4GA1UEAxMXVmVyb2tleSBTZWN1
-cmUgRW1haWwgRzICEAfkkQ9qA1FdgOJE92VzW+AwDQYJKoZIhvcNAQEBBQAEggIASTyZ34SddFoE
-ocWSro73fUQgm5VHgrWVDJcQemFDotkX4gb22kx5AhMW01xylurQU2KXW1YBEOQIrP3o8Unp//jv
-n1kL/lZCEQLr0AVvHWzJz+r9T8YOOPqhuYjKTYH7bNJRf4JCovNzSXRbz6r0HtGf8/T5L+H4YdVg
-cEvCs/NnayU/HPIJEpncwWHDx+AuOts+aQ0/GnEI0Q+xZwDfCjrAZkrlMsSDd7WAdz0wwEt2uOEL
-eIBW+5nm/AhsNZfMrvIvoMNGudPj9RQuIQkl0bIB4TTBXEeHkyyqJKn7BDoChI/IyhAo43sGyeUx
-arvfQRzzlDeynusz+WVmgHFGQuiYr5BCqxvXomKqLaBMwv1kL//ffVhlw70jvv93NcISjRnvGgyJ
-QZZ0xxvfNid8xUMEnTAG0qXP77EBjLtcRC5ZCc1XO4Td6yRL1F3/zGUrERW7Zh+hOCtXW+GBOiOQ
-NidHrdr1VlFHbRv3/Q2TLePMD1j5WZp1sViLkBGiEsPa90DkKH0Si/t+h0ah+3+ONkNPMmhF5M+l
-7U+enM1hpdV4KIKxun/YRp3rWBOan4WThApe5yvo3ZJj6+4/qUOP9olIeBZwkGhv9gvyDBOtmkcm
-east0DnR7g7xSW1IhsmWjlSxM5cXw+ENzQ9+gYLa/jGq/5j6aCTvGXjG+71FaQEAAAAAAAA=
+Why is this using '>=' ? You allocated space for RISCV_MAX_COUNTERS, so
+RISCV_MAX_COUNTERS should fit right ?
 
+> +
+> +	/* cache all the information about counters now */
+> +	num_counters = rvpmu_sbi_get_ctrinfo(num_sbi_counters, num_deleg_counters);
+> +
+> +	return num_counters;
 
---=-Hn9nn97uh7ZrvK5eTG4M--
+return rvpmu_sbi_get_ctrinfo(num_sbi_counters, num_deleg_counters);
 
+>  }
+>  
+>  static int rvpmu_event_map(struct perf_event *event, u64 *econfig)
+> @@ -1377,12 +1415,21 @@ static int rvpmu_device_probe(struct platform_device *pdev)
+>  	int ret = -ENODEV;
+>  	int num_counters;
+>  
+> -	pr_info("SBI PMU extension is available\n");
+> +	if (cdeleg_available) {
+> +		pr_info("hpmcounters will use the counter delegation ISA extension\n");
+> +		if (sbi_available)
+> +			pr_info("Firmware counters will be use SBI PMU extension\n");
 
---===============4161697783615200988==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+s/will be use/will use
+
+> +		else
+> +			pr_info("Firmware counters will be not available as SBI PMU extension is not present\n");
+
+s/will be not/will not
+
+> +	} else if (sbi_available) {
+> +		pr_info("Both hpmcounters and firmware counters will use SBI PMU extension\n");
+> +	}
+> +
+>  	pmu = riscv_pmu_alloc();
+>  	if (!pmu)
+>  		return -ENOMEM;
+>  
+> -	num_counters = rvpmu_find_num_ctrs();
+> +	num_counters = rvpmu_find_ctrs();
+>  	if (num_counters < 0) {
+>  		pr_err("SBI PMU extension doesn't provide any counters\n");
+>  		goto out_free;
+> @@ -1394,9 +1441,6 @@ static int rvpmu_device_probe(struct platform_device *pdev)
+>  		pr_info("SBI returned more than maximum number of counters. Limiting the number of counters to %d\n", num_counters);
+>  	}
+>  
+> -	/* cache all the information about counters now */
+> -	if (rvpmu_get_ctrinfo(num_counters, &cmask))
+> -		goto out_free;
+>  
+>  	ret = rvpmu_setup_irqs(pmu, pdev);
+>  	if (ret < 0) {
+> @@ -1486,13 +1530,27 @@ static int __init rvpmu_devinit(void)
+>  	int ret;
+>  	struct platform_device *pdev;
+>  
+> -	if (sbi_spec_version < sbi_mk_version(0, 3) ||
+> -	    !sbi_probe_extension(SBI_EXT_PMU)) {
+> -		return 0;
+> +	if (sbi_spec_version >= sbi_mk_version(0, 3) &&
+> +	    sbi_probe_extension(SBI_EXT_PMU)) {
+> +		static_branch_enable(&riscv_pmu_sbi_available);
+> +		sbi_available = true;
+>  	}
+>  
+>  	if (sbi_spec_version >= sbi_mk_version(2, 0))
+>  		sbi_v2_available = true;
+> +	/*
+> +	 * We need all three extensions to be present to access the counters
+> +	 * in S-mode via Supervisor Counter delegation.
+> +	 */
+> +	if (riscv_isa_extension_available(NULL, SSCCFG) &&
+> +	    riscv_isa_extension_available(NULL, SMCDELEG) &&
+> +	    riscv_isa_extension_available(NULL, SSCSRIND)) {
+> +		static_branch_enable(&riscv_pmu_cdeleg_available);
+> +		cdeleg_available = true;
+> +	}
+> +
+> +	if (!(sbi_available || cdeleg_available))
+> +		return 0;
+>  
+>  	ret = cpuhp_setup_state_multi(CPUHP_AP_PERF_RISCV_STARTING,
+>  				      "perf/riscv/pmu:starting",
+> 
+
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============4161697783615200988==--
-
