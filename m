@@ -4,88 +4,198 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6BD44C02194
-	for <linux-riscv@archiver.kernel.org>; Fri,  7 Feb 2025 16:20:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5C503C0219B
+	for <linux-riscv@archiver.kernel.org>; Fri,  7 Feb 2025 16:55:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
+	Message-ID:Subject:CC:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=dDy9DyaQxmwCz+kwTgqGF27D5KVi5Jhy8+hQt5XCDKk=; b=hgOMaoy1dqrurh
-	EkoywAMGQvkKEqaMK34y89r2fxwofnCQaRqFsYpkq+HRPnsAH/FwmJX5mUUik5eH4Ao87CQgldAE3
-	DXD+RJJp3sxRfvlv6W6zZWxVNIocykCVEuednvCNQw20PBakACY0n/lrFTITHc5Qw0bTVJoV+FWM5
-	e6laDuU4zqsXs2+ZpoItonykW3Q+IVlP0Tnu7qDVyYNu4whuhVEVTLzPxv/QOMPyepWMBD+Ba7co1
-	sYFVLXYs5hBSLRfTY/wu8sbyt6zbS5jscKayNtFxSAuBEZmvT1A3abwwq3geYU4nhw0YWMJNq3QxY
-	R5nQpOmHYDJL8Pr4DA5g==;
+	List-Owner; bh=F474b3yOz4/m9Vq7fXyCf6Ud1lZD8ce9WAvWWY0kb+s=; b=CY+0S+ApOAyZrg
+	vCErFvA1ZDTJ8JbFWKq9OV4TSybGY9a0P6+xPmrm2jIP1QZdbmW/LN16bdjRH2eqdMMvTKApQhssE
+	/+l4GwOTJ7tQlAXah5D61roiFuumdL0TjBAjddUNGe8BZATshioY9e2NLeHqpzzZga4i+lfIfTKB7
+	fz4D/Xbs1H93LDjUSFV8/FtXXh1jSGcQDRHS5z0iQeGUsVL9LjYUviFBdcBWlgP2jm2OT0Y+19fkZ
+	Ljqdps5FN2MULT6AkF24Sikkf32W9cgFhRxtbePCoem6Z9fcr4sEQN3rIdKqbekcmZ9/WO1oCZgiZ
+	0hAfhsF4bsjCcQAy3gWw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tgR64-0000000AFpO-3yYZ;
-	Fri, 07 Feb 2025 16:20:52 +0000
-Received: from mail-wr1-x431.google.com ([2a00:1450:4864:20::431])
+	id 1tgRdT-0000000ANJi-373k;
+	Fri, 07 Feb 2025 16:55:23 +0000
+Received: from mgamail.intel.com ([198.175.65.21])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tgR63-0000000AFnl-0VwH
-	for linux-riscv@lists.infradead.org;
-	Fri, 07 Feb 2025 16:20:52 +0000
-Received: by mail-wr1-x431.google.com with SMTP id ffacd0b85a97d-38dd0dc21b2so146592f8f.2
-        for <linux-riscv@lists.infradead.org>; Fri, 07 Feb 2025 08:20:51 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1738945250; x=1739550050; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=EXWq8j6voTaeGRr8J3gg8YAr/RtfWvANeWegFFYO8S4=;
-        b=WmXr9QJIhUUuheXRAcu5rfXrJ7YXoYqlqce96QzJghalfvcqyugSE4U3lfA7zZbUdT
-         R+soiSc40AhmWuOzh1i1sECzupkqeWNp1PDlucmcxhC9AHs/7YXXXsvc5AY+MoGImzyb
-         yWhmKT0g3VkFUIYC2sZWl0LpQCAtbUPuC/M4liOTCdXGc2cXLgKKDQCpW32Tmjn3Bc7i
-         bm18sSq6GnrXzWP5rNYq+O4asmxQuVJIo56nGSBysCyo5iwuOITfOyrsa7IaWwsh4Z7V
-         R6Bdgu/8McqmDo/HsOKnSNFTV/ooeBbfikIsembg/EtGKDogX/SziMCH3jF0o0d3fHHR
-         bx9w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1738945250; x=1739550050;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=EXWq8j6voTaeGRr8J3gg8YAr/RtfWvANeWegFFYO8S4=;
-        b=ISZUxo13dIbbGQrP7ay9RRqSWbmHT4UcC/tqjnrpR8cK4KH3cyvTWP0GcC91gZ08Us
-         w72Im2EuqydwT07YaRk64wOyBRljZFU+nH4eT23dwi13N7pktwbGFCL/ZJ/B+Q4FVYvV
-         NSWigD1ggy8qjwItm02NUW3ZiIQsMmH4mGGQNDUPCVyIBBzFVFSz1Rv//P93nFA+QUa3
-         FeTauIfygkFm8ydJPSF88bv84IjpbcM4MHuSUZMkjCb3fKXllxM0TcVbojhK+rbt6kVN
-         Q4lOLRgz5Q04ybO8QR+w5po6YCB+snMHzgfh58FY3BUEIW9UrV6O4wVzU5faXSyPYzz6
-         AvOg==
-X-Gm-Message-State: AOJu0YzYMl7XtqsUnItgTngxQuSSIlikvCfy5swPCzyjOpbrkerntoyZ
-	Y9tim8kbJcn1DkSLDEZTgHw494g1HzVxGXVNDduE3NAPeR+2J+H4VCVb2gzBVPIbMu50nVBg5Ca
-	lLUU=
-X-Gm-Gg: ASbGncu38q6UKh+A0/2ajvQXuw79y16O2EbV5oIbkBo6z+8T8HYgea8vRPmx7P4KhPl
-	BU3hN0T4Vzp+8TGisILEdtUbDlzr+9DdxaNuxFS7yQGTHjonbTOpakpac1DxSSrVIsAXXzqm7T2
-	HSLUCK0kHOWVu0Phqog1zojnpawrjQmCdj3O0KbeLNXpvwSRzg5lwyGTNtkYI0ZhhhvUH6+IorC
-	9kBW5z8EYrKN6/wSjNEr5NBkrFbK43B5BP+IARp93E/5zEK4WqwS+r9eciG1zApsqTnCv4fM8M0
-	kCSHN7QGUdaG/MIr/bP1TmlgGEa6FyRYIzz+28Wjxu9VS99PTwN+pXcrlg==
-X-Google-Smtp-Source: AGHT+IHh6JwLYQePZBMujNRYI8A6XwD5WkfD3Ot/VtJsrqiS9T18sjhPkT+oNZek1pT+BypYrsY7PQ==
-X-Received: by 2002:a05:6000:18a3:b0:38a:a037:a517 with SMTP id ffacd0b85a97d-38dc8dd27f1mr2638562f8f.19.1738945249611;
-        Fri, 07 Feb 2025 08:20:49 -0800 (PST)
-Received: from localhost (089144193052.atnat0002.highway.a1.net. [89.144.193.52])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4391dfd8448sm60238835e9.38.2025.02.07.08.20.48
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 07 Feb 2025 08:20:49 -0800 (PST)
-From: Andrew Jones <ajones@ventanamicro.com>
-To: linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Cc: paul.walmsley@sifive.com,
-	palmer@dabbelt.com,
-	charlie@rivosinc.com,
-	jesse@rivosinc.com,
-	Anup Patel <apatel@ventanamicro.com>
-Subject: [PATCH 9/9] riscv: Add Ventana unaligned access table entries
-Date: Fri,  7 Feb 2025 17:19:49 +0100
-Message-ID: <20250207161939.46139-20-ajones@ventanamicro.com>
-X-Mailer: git-send-email 2.48.1
-In-Reply-To: <20250207161939.46139-11-ajones@ventanamicro.com>
-References: <20250207161939.46139-11-ajones@ventanamicro.com>
+	id 1tgRMr-0000000AJnm-1h7x;
+	Fri, 07 Feb 2025 16:38:15 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1738946293; x=1770482293;
+  h=date:from:to:cc:subject:message-id:references:
+   content-transfer-encoding:in-reply-to:mime-version;
+  bh=W0BkITRofUNp/ADF5oB0f0Tuo0P6ox1ATYHoP9mJJjg=;
+  b=WOj63eRHg37CoITxvPjKJo2fRXvNRRLq3z+36rwTN3OYBlRuQtGfECcd
+   ChaGdaHL/dpALMgehrrEp7AP++2eT0c35nix5Hot9AhWrAexhfHVdG20A
+   mbyj2GIjG9XKT0GM1878vy/YVJSr0snw2qzj0/yBSeSBYi5NlJUFRKxkt
+   CPvSiEQQE2Xct0r18Pxp+J81noR6j9aae7Dj9jDDGAGb/0ZwWC+8JA9Rd
+   A1yPZdyVWKMwFj+dhu96AohGWZcRE+iZjSipV1Gqn/zByvKmuE7BgieHh
+   /rWExPNQxztZrEoCW4LZNdWcHEkbys0QG1SsjSCZF/g1ZTJuIW68cHpCq
+   A==;
+X-CSE-ConnectionGUID: wg/+4FnQQqa4AseZN9QvbQ==
+X-CSE-MsgGUID: s8AcmQxKTsachoopxoAm3w==
+X-IronPort-AV: E=McAfee;i="6700,10204,11338"; a="39501557"
+X-IronPort-AV: E=Sophos;i="6.13,267,1732608000"; 
+   d="scan'208";a="39501557"
+Received: from orviesa010.jf.intel.com ([10.64.159.150])
+  by orvoesa113.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 07 Feb 2025 08:38:08 -0800
+X-CSE-ConnectionGUID: hdS7J96aTRanES7dCzb+Mg==
+X-CSE-MsgGUID: WpKli3YIQ5yu3OPxGp/QKg==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.12,224,1728975600"; 
+   d="scan'208";a="111415394"
+Received: from orsmsx603.amr.corp.intel.com ([10.22.229.16])
+  by orviesa010.jf.intel.com with ESMTP/TLS/AES256-GCM-SHA384; 07 Feb 2025 08:38:08 -0800
+Received: from orsmsx601.amr.corp.intel.com (10.22.229.14) by
+ ORSMSX603.amr.corp.intel.com (10.22.229.16) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.44; Fri, 7 Feb 2025 08:38:07 -0800
+Received: from ORSEDG601.ED.cps.intel.com (10.7.248.6) by
+ orsmsx601.amr.corp.intel.com (10.22.229.14) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.44 via Frontend Transport; Fri, 7 Feb 2025 08:38:07 -0800
+Received: from NAM12-MW2-obe.outbound.protection.outlook.com (104.47.66.41) by
+ edgegateway.intel.com (134.134.137.102) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.1.2507.44; Fri, 7 Feb 2025 08:38:06 -0800
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=DHU8uRUUoyCgsmkkSuFI5YePyp3bvoiRXh04KMf5eAAzU+CxCV+Zpi+vxSk14lyrAuPK6lztg7Ojue80t32KyfNWYt1sAvPuxQUV/D43kbfb9z5yb+nJj61IFo36XQeC3Dmaenf4mIQPul8oNwZLR315uTxZE7sXw9r3u1rTMn0kgeZ4oUXyk37K0VsE6t77gIpKXVV9xhKVLp/Jq3oJ4Yibva+/rEjcguLAJJmIMfbOYn4TUcbzDNE1/aIkZ/J0Xtnn0e5sUrYpR3dEU/ZQ2sNRBM136pUiIB5Z4sTFDThni7Yj37xlYtVPBp0yVlZj0XIBtk9JAZJi77MpGrx6xQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=XiHk+oIWzMPrZcjMbGrJHqbzNVGDj9+nQKJ0JRUKRnU=;
+ b=koChEIlwEyQqx7HJuklHzEgutcsxBvH8gbZ3EBMWXec/DGc2VuNk6AdeYUROAs/JCs2Kz5SpeRiDROqbh9FFR1cOiL+hfI4E/uFpmKc3NCuKMRHzA/FlQLbtMUphnG1ifPWe3gTSBAEBPAwArdYjNE2fvGjaRUb2+vi2xF4AA+8pt+y8q0QEtFWfydk3cD6S1v1+eI0Y4Hn7aSoFRQYT9GA9ir0NLdHIaKTWsgEZ8af/ypV/KVrUbYqVgSe/uRcwqLOlMYH/7sK4FAiAsavESSbfw6CyhjoMF+r8clRRNqWE1M+EjDolDqA4J5EeH7KMSNm/3afMnG+IgWrKHSATJw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
+ dkim=pass header.d=intel.com; arc=none
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=intel.com;
+Received: from MN0PR11MB6231.namprd11.prod.outlook.com (2603:10b6:208:3c4::15)
+ by PH7PR11MB6772.namprd11.prod.outlook.com (2603:10b6:510:1b6::21) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8398.26; Fri, 7 Feb
+ 2025 16:38:03 +0000
+Received: from MN0PR11MB6231.namprd11.prod.outlook.com
+ ([fe80::a137:ffd0:97a3:1db4]) by MN0PR11MB6231.namprd11.prod.outlook.com
+ ([fe80::a137:ffd0:97a3:1db4%4]) with mapi id 15.20.8422.012; Fri, 7 Feb 2025
+ 16:38:03 +0000
+Date: Fri, 7 Feb 2025 17:37:30 +0100
+From: Maciej Wieczor-Retman <maciej.wieczor-retman@intel.com>
+To: Dave Hansen <dave.hansen@intel.com>
+CC: <luto@kernel.org>, <xin@zytor.com>, <kirill.shutemov@linux.intel.com>,
+	<palmer@dabbelt.com>, <tj@kernel.org>, <andreyknvl@gmail.com>,
+	<brgerst@gmail.com>, <ardb@kernel.org>, <dave.hansen@linux.intel.com>,
+	<jgross@suse.com>, <will@kernel.org>, <akpm@linux-foundation.org>,
+	<arnd@arndb.de>, <corbet@lwn.net>, <dvyukov@google.com>,
+	<richard.weiyang@gmail.com>, <ytcoode@gmail.com>, <tglx@linutronix.de>,
+	<hpa@zytor.com>, <seanjc@google.com>, <paul.walmsley@sifive.com>,
+	<aou@eecs.berkeley.edu>, <justinstitt@google.com>, <jason.andryuk@amd.com>,
+	<glider@google.com>, <ubizjak@gmail.com>, <jannh@google.com>,
+	<bhe@redhat.com>, <vincenzo.frascino@arm.com>, <rafael.j.wysocki@intel.com>,
+	<ndesaulniers@google.com>, <mingo@redhat.com>, <catalin.marinas@arm.com>,
+	<junichi.nomura@nec.com>, <nathan@kernel.org>, <ryabinin.a.a@gmail.com>,
+	<dennis@kernel.org>, <bp@alien8.de>, <kevinloughlin@google.com>,
+	<morbo@google.com>, <dan.j.williams@intel.com>,
+	<julian.stecklina@cyberus-technology.de>, <peterz@infradead.org>,
+	<cl@linux.com>, <kees@kernel.org>, <kasan-dev@googlegroups.com>,
+	<x86@kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	<linux-mm@kvack.org>, <llvm@lists.linux.dev>, <linux-doc@vger.kernel.org>
+Subject: Re: [PATCH 08/15] x86: Physical address comparisons in fill_p*d/pte
+Message-ID: <lm5dg55q4vhhlsbsrvtskpz2hhdxa25pieq4gmf62ogtr4b4tw@xsq7ua7i5lto>
+References: <cover.1738686764.git.maciej.wieczor-retman@intel.com>
+ <2c2a71ec844db597f30754dd79faf87c9de0b21f.1738686764.git.maciej.wieczor-retman@intel.com>
+ <c344dfaa-7e79-498f-89d7-44631140d0f4@intel.com>
+Content-Disposition: inline
+In-Reply-To: <c344dfaa-7e79-498f-89d7-44631140d0f4@intel.com>
+X-ClientProxiedBy: DU7PR01CA0009.eurprd01.prod.exchangelabs.com
+ (2603:10a6:10:50f::27) To MN0PR11MB6231.namprd11.prod.outlook.com
+ (2603:10b6:208:3c4::15)
 MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: MN0PR11MB6231:EE_|PH7PR11MB6772:EE_
+X-MS-Office365-Filtering-Correlation-Id: 89ed4e94-d65f-4531-18e9-08dd4795cadc
+X-LD-Processed: 46c98d88-e344-4ed4-8496-4ed7712e255d,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|376014|7416014;
+X-Microsoft-Antispam-Message-Info: =?iso-8859-1?Q?dLbFd+I2TOg3XDkKgBwIfo1VPD5/ftj8QOf3CKB4m0Y0/z+M2M7/hTP9zV?=
+ =?iso-8859-1?Q?cS5k3pu/Kp2/xjRSN9Z9XD5I5okRR8WFJsIc6RAG75spCO47dUhPHpX7C6?=
+ =?iso-8859-1?Q?QXSJVf4KeWaBdJo633BTW4OvttFyWit4691ks8boXuMQS1L0dF125LD398?=
+ =?iso-8859-1?Q?/WxwcLnEoNqNZeB1GL6EChCU4mAYXFO9xDHpT5tcas9hzSd9+RJ4FJocSR?=
+ =?iso-8859-1?Q?q9Hb46i7sLb1U5UzXuALI4jiODv0a3JZ2MjfNfjPAuJHK32V+lXl73PUO6?=
+ =?iso-8859-1?Q?+tklfevO1uSYs7EUj5lFUJQPnneMSvHZNvqCkH5rADbPom2+MKY+oib61B?=
+ =?iso-8859-1?Q?iCd9zTPrNki1q+7ae4syPzu+ey3lT/2e6GRckZLTOFGGJ33/bcVKQWXjjU?=
+ =?iso-8859-1?Q?HlztuTKhFjwk5Ds2jhB48mGPAJQTrBn0hFwk+3YakJriam9f1Hvck7Pslx?=
+ =?iso-8859-1?Q?mc0mJjMdoqz6zcqfpwKgVZMn5LkvpsuhlHIe/CfAwNKU1OLATCt4jo47KZ?=
+ =?iso-8859-1?Q?X+eaJKcqiRa9lbTGui4+XuX5+gsJ22SbSJGHQdpq9hfrsVjrDL5IyiA7nJ?=
+ =?iso-8859-1?Q?m+EgPyJufzsGEX84yMNQ8hh49RA/waqpHnvIL9aOVL3wpHMhpK4kFzNwCX?=
+ =?iso-8859-1?Q?RwkPYOz82I41ZM3a6SCAUIfOLX2FLB5vou5IgRStcSiDEp8Zks6IcQVD9+?=
+ =?iso-8859-1?Q?5RLnQjQ7q/NEsE2P5NOH5JU00Jsi3wwjHCOrKmr1ZOKv2kcyVcKGfqxcO7?=
+ =?iso-8859-1?Q?b7adwabs0bT8VF3h5Z0Z4XdJFlH5StVNTcFWOPAAFD8vPLS4u45DRh2/XF?=
+ =?iso-8859-1?Q?YwmsQRko5KIFXLaK23tdIsqZIropM/aJKrBk989qJjVV5/6uw0yvmgHVjo?=
+ =?iso-8859-1?Q?4MX3+1umfhQ0qbj1I/mOv4rfYFw2TDT1bfqfIxvWXU3OgpBgo46RqbhOht?=
+ =?iso-8859-1?Q?vGyIJac9ic1Z6tgR20FjDloa/lTtK/Un/aaOjwu0mQ+Tl3cltaP+5bM5xR?=
+ =?iso-8859-1?Q?tZJ65FVxkXwz3Ecu/n29bN0HoI+rLzytMvA+fkkmbx1fq0Ui0Sir3YqN26?=
+ =?iso-8859-1?Q?MOLJ4DncvkLWz11vVgiL5iqud1Am9dSL1F7KegBdZ0ySi3XQGn7eokmizt?=
+ =?iso-8859-1?Q?NlT/N3XXAOxZoZzqBjetzOyewV6QeSs7SWXMYjwxLbhT1IPFZqoz7rdTmS?=
+ =?iso-8859-1?Q?/Qg7UmY4G8XJpSg9CH27ifxOIOQYsXPlgmHR09IAU/jqzq+VFbikH3NT7X?=
+ =?iso-8859-1?Q?yjGF1rEqS9VJiB70jakVBL13ety9nhW/9B891lgRXNXl50zvPSb0HmOcP8?=
+ =?iso-8859-1?Q?g8NiAn6Wgh6YPj5BFLHW0AIhi6zA9z3d7za2HDvCdgk1DQa6dHi03Uf2El?=
+ =?iso-8859-1?Q?sCs8ezIpmb8iYEPIJKTq9kG0w8FgHhpVWLaA3PajFeVIc8pc4SSH+X1kGB?=
+ =?iso-8859-1?Q?mmQRFrW7EVe9hk4x?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MN0PR11MB6231.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(376014)(7416014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?iso-8859-1?Q?+3VlTPcj57ADpWnLL9A1kkaF1xmndhzovBVI29VFgPt51ewscwStRQNdCZ?=
+ =?iso-8859-1?Q?wpJKpUsxfmcccPIYxnU3aCDiCvWkxgjJNZa5Y79i6LYkeilnDZlMi/BJLI?=
+ =?iso-8859-1?Q?hfGPPMdENMZUoEJEI8iK99+JX4g6eRqDc6kBChmCLQOhd/3i6Rqt8Elorw?=
+ =?iso-8859-1?Q?u3Lb9upoclk8pwBXkzEEP9uzXS2Hu4fNsxRZd9+0Y47g+42JQqX044VZBh?=
+ =?iso-8859-1?Q?1jasgAw1CBXn99j43C1Dux/iLBBx0SJqq8YM9KGZYG5vX6O/cQxL+69tob?=
+ =?iso-8859-1?Q?9RnTKNMhmZiO7vu0fig1fXEm/FBitzwU5UGbwD1pjfbJ4Wl7uZXk+YYrfp?=
+ =?iso-8859-1?Q?LKgTFZpjYw3dd0CtqmCfVK/oZ1n+bIsTRg5FydxMK97bYrUHZlDp8pk1wP?=
+ =?iso-8859-1?Q?VOMKSyuyT1U8JF772rOmTVY3YIUZ4y9a7EK+dLNvrVxjPlvgSwSVYO8l3F?=
+ =?iso-8859-1?Q?D9bxeMEqIwIuWJZIiIbkbBJt7tmDLf4Ya+r28HAuoblmckW5HutOQlRsBb?=
+ =?iso-8859-1?Q?/491lEynEz+aBxCIYtjpyxnXJXTb9oRT7EsSJBfVmoV0uq1irYIF0Ul2BG?=
+ =?iso-8859-1?Q?calOnJ4wvZytkXMaPHeQNONTrqUr7bvYI/tsUe8pmMRmZqPzOnrqoPgkR4?=
+ =?iso-8859-1?Q?a+SygsBHTpscoxEWtu0EAogtpc7uQVgzzb3sQ6xMX688H4aAwcScaNUws1?=
+ =?iso-8859-1?Q?BIb6at1+Nk3W3ieAaTLBL23hNkqxKDzuOy2T/AH9ySZtGlXxHC/UNvtie3?=
+ =?iso-8859-1?Q?L3nk022Y+kPno8IZVdhxV1IETIIxxTbF1EDpXyad34hvqd18r4NfKbmxOQ?=
+ =?iso-8859-1?Q?LxqXm3//Zuv5wK3Jg2CuzZLVxHrSS8exwOOMqcR4sEjWKIjXbcoVDCikR0?=
+ =?iso-8859-1?Q?t4Q2ggP+AVwwsDKK9nvMQvrcf0mYpCF1kABS1M7m3Pf4i6F2KOnMxF0s2E?=
+ =?iso-8859-1?Q?EDo+3IMOGIOzeyN0/UNEzpgbULFJR6w06ba6Ibs83GaIpjbAJ3CzXQvXAz?=
+ =?iso-8859-1?Q?zEI4ke3P6yb6GeVqstvWnjiT/aGuYfzPosBOgXl99QH8frJIOmgzC9GWnu?=
+ =?iso-8859-1?Q?8moZzycQbexwHBE2XYjRhAdiKs0YDsqlU2z0NoypxvrX76VcFx16DiOZqa?=
+ =?iso-8859-1?Q?cn8+1QCOrLTPQuw8+ZflqUOqg9cj24NMx+RPJMLPq+PmEiOzCCGb/vXqtv?=
+ =?iso-8859-1?Q?tkYW0T+aVUAPJhlGQIqVr+BO1OvcJU1zJx1U5R7G0TCj6fiGqda6nVwder?=
+ =?iso-8859-1?Q?koDufU+5q8+e+7Vren5aDHGX7d8kIBJTLQnEvhaMAsEi+TQI96KOBcaePi?=
+ =?iso-8859-1?Q?oOMnIcyBP4lQj4nJXSIteduv7N4ohxfF4J+iaVUQA/PgjRlfYGXEDcuRxR?=
+ =?iso-8859-1?Q?HmUJDN7Qh6VwERaH5QD+PKyegjAmsZSTcHZLuNbIWJ1fGjP5LRiLUpzgpb?=
+ =?iso-8859-1?Q?duDYujjxhHHdLkl3UUkOif+/MGSA+/SEffHm1hGLaWlamKUbM2rmKsfMHB?=
+ =?iso-8859-1?Q?hKElDYbD5UrhsdxWpFp1pwH7cw1cELfL0k/J33C4qESnr6aQdueRxSnUAL?=
+ =?iso-8859-1?Q?uNwi3WHXPqdihvjL2cHtCmFVecrIKjRZIkE0BajV0X3F/Ih2aB3aW2IW/s?=
+ =?iso-8859-1?Q?b94jWEZ7Xc/Ea90P4VJ5jHwnJXGiNEq/n+9NKnz4UxDrhL3oTKXZWsa8Dc?=
+ =?iso-8859-1?Q?LkUMtcvRvAOvK5ZmtPQ=3D?=
+X-MS-Exchange-CrossTenant-Network-Message-Id: 89ed4e94-d65f-4531-18e9-08dd4795cadc
+X-MS-Exchange-CrossTenant-AuthSource: MN0PR11MB6231.namprd11.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 07 Feb 2025 16:38:03.7942
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 46c98d88-e344-4ed4-8496-4ed7712e255d
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: rU5g5X4J+UGsdrvJFAWjzwUshHQLZZuM1AU1X/zLra87YHnW7kSxqjdACtFBRHtT+e8vrXmtXoCT7WLhh1U3bUXdk3hyJe0U/OqyXjBzXG8=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH7PR11MB6772
+X-OriginatorOrg: intel.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250207_082051_163076_34C52D86 
-X-CRM114-Status: GOOD (  10.75  )
+X-CRM114-CacheID: sfid-20250207_083813_546641_A9FEB320 
+X-CRM114-Status: GOOD (  17.81  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,62 +207,121 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Ventana harts always have fast unaligned access speeds, so skip the
-unnecessary probing.
+On 2025-02-05 at 16:57:15 -0800, Dave Hansen wrote:
+>On 2/4/25 09:33, Maciej Wieczor-Retman wrote:
+>> @@ -287,7 +287,7 @@ static pte_t *fill_pte(pmd_t *pmd, unsigned long vad=
+dr)
+>>  	if (pmd_none(*pmd)) {
+>>  		pte_t *pte =3D (pte_t *) spp_getpage();
+>>  		pmd_populate_kernel(&init_mm, pmd, pte);
+>> -		if (pte !=3D pte_offset_kernel(pmd, 0))
+>> +		if (__pa(pte) !=3D __pa(pte_offset_kernel(pmd, 0)))
+>>  			printk(KERN_ERR "PAGETABLE BUG #03!\n");
+>>  	}
+>>  	return pte_offset_kernel(pmd, vaddr);
+>
+>Maciej, could you do a quick check on this and make sure that it doesn't
+>hurt code generation on current kernels?
+>
+>pte_offset_kernel() has an internal __va() so this ends up logically
+>being something like:
+>
+>-	if (     pte  !=3D      __va(pmd))
+>+	if (__pa(pte) !=3D __pa(__va(pmd)))
+>
+>The __pa() and __va() obviously logically cancel each other out in the
+>new version. But if the compiler for whatever reason can't figure this
+>out we might end up with worse code.
 
-Signed-off-by: Andrew Jones <ajones@ventanamicro.com>
+I browsed through assembly and indeed the __pa(__va()) is longer compared to
+only __va() or kasan_reset_tag(__va()).
+
+How about we just open code the *_offset()? What do you think about the pat=
+ch
+below? We can lose the calls to *_index() because they are all zero so we're
+only left with insides of the internal __va(). It didn't report any issues =
+in
+QEMU at least. The p4d_offset() isn't very pretty here but I think I can ma=
+ke it
+better if you like the idea.
+
+----------------------------------------
+
+x86: Physical address comparisons in fill_p*d/pte
+
+Calculating page offset returns a pointer without a tag. When comparing
+the calculated offset to a tagged page pointer an error is raised
+because they are not equal.
+
+Change pointer comparisons to physical address comparisons as to avoid
+issues in KASAN that pointer arithmetic would create. Open code parts
+of p*d_offset() to avoid the internal __va() which complicates output
+assembly.
+
+Signed-off-by: Maciej Wieczor-Retman <maciej.wieczor-retman@intel.com>
 ---
- arch/riscv/include/asm/vendorid_list.h     | 1 +
- arch/riscv/kernel/unaligned_access_speed.c | 3 +++
- 2 files changed, 4 insertions(+)
+ arch/x86/mm/init_64.c | 11 +++++++----
+ 1 file changed, 7 insertions(+), 4 deletions(-)
 
-diff --git a/arch/riscv/include/asm/vendorid_list.h b/arch/riscv/include/asm/vendorid_list.h
-index a5150cdf34d8..8dd55a847893 100644
---- a/arch/riscv/include/asm/vendorid_list.h
-+++ b/arch/riscv/include/asm/vendorid_list.h
-@@ -9,5 +9,6 @@
- #define MICROCHIP_VENDOR_ID	0x029
- #define SIFIVE_VENDOR_ID	0x489
- #define THEAD_VENDOR_ID		0x5b7
-+#define VENTANA_VENDOR_ID	0x61f
- 
- #endif
-diff --git a/arch/riscv/kernel/unaligned_access_speed.c b/arch/riscv/kernel/unaligned_access_speed.c
-index bd6db4c42daf..ff9905274c60 100644
---- a/arch/riscv/kernel/unaligned_access_speed.c
-+++ b/arch/riscv/kernel/unaligned_access_speed.c
-@@ -14,6 +14,7 @@
- #include <asm/hwprobe.h>
- #include <asm/sbi.h>
- #include <asm/vector.h>
-+#include <asm/vendorid_list.h>
- 
- #include "copy-unaligned.h"
- 
-@@ -251,6 +252,7 @@ struct unaligned_access_table_entry {
- };
- 
- static struct unaligned_access_table_entry unaligned_access_table_entries[] = {
-+	{ LEVEL_VENDOR, VENTANA_VENDOR_ID, 0, 0, RISCV_HWPROBE_MISALIGNED_SCALAR_FAST },
- };
- 
- /*
-@@ -460,6 +462,7 @@ static int __init vec_check_unaligned_access_speed_all_cpus(void *unused __alway
- #endif
- 
- static struct unaligned_access_table_entry vec_unaligned_access_table_entries[] = {
-+	{ LEVEL_VENDOR, VENTANA_VENDOR_ID, 0, 0, RISCV_HWPROBE_MISALIGNED_VECTOR_FAST },
- };
- 
- static bool check_vector_unaligned_access_table(void)
--- 
-2.48.1
+diff --git a/arch/x86/mm/init_64.c b/arch/x86/mm/init_64.c
+index ff253648706f..89a86ac34d95 100644
+--- a/arch/x86/mm/init_64.c
++++ b/arch/x86/mm/init_64.c
+@@ -251,7 +251,10 @@ static p4d_t *fill_p4d(pgd_t *pgd, unsigned long vaddr)
+ 	if (pgd_none(*pgd)) {
+ 		p4d_t *p4d =3D (p4d_t *)spp_getpage();
+ 		pgd_populate(&init_mm, pgd, p4d);
+-		if (p4d !=3D p4d_offset(pgd, 0))
++
++		if (__pa(p4d) !=3D (pgtable_l5_enabled() ?
++				  __pa(pgd) :
++				  (unsigned long)pgd_val(*pgd) & PTE_PFN_MASK))
+ 			printk(KERN_ERR "PAGETABLE BUG #00! %p <-> %p\n",
+ 			       p4d, p4d_offset(pgd, 0));
+ 	}
+@@ -263,7 +266,7 @@ static pud_t *fill_pud(p4d_t *p4d, unsigned long vaddr)
+ 	if (p4d_none(*p4d)) {
+ 		pud_t *pud =3D (pud_t *)spp_getpage();
+ 		p4d_populate(&init_mm, p4d, pud);
+-		if (pud !=3D pud_offset(p4d, 0))
++		if (__pa(pud) !=3D (p4d_val(*p4d) & p4d_pfn_mask(*p4d)))
+ 			printk(KERN_ERR "PAGETABLE BUG #01! %p <-> %p\n",
+ 			       pud, pud_offset(p4d, 0));
+ 	}
+@@ -275,7 +278,7 @@ static pmd_t *fill_pmd(pud_t *pud, unsigned long vaddr)
+ 	if (pud_none(*pud)) {
+ 		pmd_t *pmd =3D (pmd_t *) spp_getpage();
+ 		pud_populate(&init_mm, pud, pmd);
+-		if (pmd !=3D pmd_offset(pud, 0))
++		if (__pa(pmd) !=3D (pud_val(*pud) & pud_pfn_mask(*pud)))
+ 			printk(KERN_ERR "PAGETABLE BUG #02! %p <-> %p\n",
+ 			       pmd, pmd_offset(pud, 0));
+ 	}
+@@ -287,7 +290,7 @@ static pte_t *fill_pte(pmd_t *pmd, unsigned long vaddr)
+ 	if (pmd_none(*pmd)) {
+ 		pte_t *pte =3D (pte_t *) spp_getpage();
+ 		pmd_populate_kernel(&init_mm, pmd, pte);
+-		if (pte !=3D pte_offset_kernel(pmd, 0))
++		if (__pa(pte) !=3D (pmd_val(*pmd) & pmd_pfn_mask(*pmd)))
+ 			printk(KERN_ERR "PAGETABLE BUG #03!\n");
+ 	}
+ 	return pte_offset_kernel(pmd, vaddr);
 
+
+>
+>If it generates crummy code we might want to do this differently like
+>avoiding pte_offset_kernel() and adding some other helper that's more
+>direct and to the point.
+
+-- =
+
+Kind regards
+Maciej Wiecz=F3r-Retman
 
 _______________________________________________
 linux-riscv mailing list
