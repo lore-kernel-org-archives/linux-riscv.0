@@ -4,86 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58470C02199
-	for <linux-riscv@archiver.kernel.org>; Sun,  9 Feb 2025 04:21:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5CCFC02199
+	for <linux-riscv@archiver.kernel.org>; Sun,  9 Feb 2025 04:23:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=WlZP8SZYetYktHDMy89E58QpaLzD7a5abBH6Ap8cJUQ=; b=JZJ2fXZqolslFs
-	vsOy5r51w5+JPX4UR8hSs3YUMZodT3nf5Ebj+yu2EEbEFiFgSXQ+NTZG8yUWPS4Ah7xr/ayD4emDv
-	aiLVUG8sYpI4cg/YNle4Rt3WxP5wR+A5HJa0/VOF4gyFozFy80IZoTEn9XTo5KO0YSV3hFk9r8/cZ
-	BLq+Ozwrk+wJfvOxX6VdmiibdixzMegx7iqaGdIGsmSnfbQf6MP1PM7vKV4sPQLhc95ChSQvch1cB
-	OTj1IC6MpUjC21LRxp5qa+wybwqpQIBl+5GgYV285XO28BatH+evr1rr1mXUTzgLx651Pc3EWG/jy
-	JuVLNqdgugcNiuUIEv0w==;
+	List-Owner; bh=9lKvx2sgyoGnedYS/J5DZyqzrYsuRYLz5F4lvWQ/R4E=; b=3DtsxPvyhiHDBA
+	xk+geaDJbN7njSnghHYeW2npdKqoeofFkf+Eq+4UH+d8+3VOXZisAFBR+WiHp31LsKguUOTJQcElj
+	a1Acu/SWzAfcv4iRYf7028XkyTYBB975z7s1pXDlMPGZUBJ5fKEUQnjjy7GAHaCUbM7UU7R3FwHEx
+	ZpxPtvvSEfgCB8/LpzBfV1r8+Oc0x0UxsZhOk0VxHunG1sONVUOAG+tKykocv0Gn8gBO/Abpw51qT
+	0liSx8OZzHNRyR8JNJRbg8+eFc7p1Oq5KHzccqC0lv1HYLy2qzAoOArPomWU4L3Lzw1T8ZCb1VM76
+	qL0WGri/gQhLdl9ibWQA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tgyp2-0000000E3Fh-2l5c;
-	Sun, 09 Feb 2025 04:21:32 +0000
-Received: from mail-pj1-x1036.google.com ([2607:f8b0:4864:20::1036])
+	id 1tgyqP-0000000E3W4-2mLg;
+	Sun, 09 Feb 2025 04:22:57 +0000
+Received: from mail-pj1-x1030.google.com ([2607:f8b0:4864:20::1030])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tgyl9-0000000E2K5-2rOk
+	id 1tgylQ-0000000E2Q5-2Hf7
 	for linux-riscv@lists.infradead.org;
-	Sun, 09 Feb 2025 04:17:32 +0000
-Received: by mail-pj1-x1036.google.com with SMTP id 98e67ed59e1d1-2fa44590eebso1822228a91.3
-        for <linux-riscv@lists.infradead.org>; Sat, 08 Feb 2025 20:17:31 -0800 (PST)
+	Sun, 09 Feb 2025 04:17:49 +0000
+Received: by mail-pj1-x1030.google.com with SMTP id 98e67ed59e1d1-2fa1fb3c445so3592133a91.2
+        for <linux-riscv@lists.infradead.org>; Sat, 08 Feb 2025 20:17:48 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1739074651; x=1739679451; darn=lists.infradead.org;
+        d=ventanamicro.com; s=google; t=1739074668; x=1739679468; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=dDa5uVtGTmKoF+EGxYZ14lQBrXBy+Zgm46G016g9yok=;
-        b=OC6WOEOI6P393eaTXBXRGTPIDJ49XDZsrAlE43coLCU+uCTk7LhUpBGpoe1QJ653nO
-         0JdgH/z0q8Ei64fhhj4RnC257Q7j7SuTbAW+otzjnZOTI01nuShezbOqszx44YdMF2WD
-         XyY8kjSBLj9e1O16fIFiJ2pVfxc5eUwyzvzgZBAtBlFCQq6Mbp3UCAn/giUKG4RnwbeF
-         778rChqeGXmtfTBmP5VS3f3kYDv+SruGjLlnRdSHcJdNRCQcEbOZ5fUcCLcjuPI9h3YK
-         mCMMGD2l69UNoW6b2F9aIrWk6FGw6/EXTlYj9JEvI+4Cai4AzcymOOLx/3j3B3y/B0I8
-         gP0g==
+        bh=muAXlG/uZk+Ut1w5NICM8ivKf832EJKGEf1Ht7zOCxs=;
+        b=PREU5bALDwFFP4FNFxSvx1z5LM3xcPGHfpX5tNUBQZZtT3ffytZSbkH9Hsu18AmQNt
+         X5nlOj0U2XEyXZAwPsIjOGBp4ght/IXdp4cYYsM2rv6+BMRTSUS2SKUf7ZhgtTdoyPII
+         vheefHGJPbuGICwkVR3wRIraHXOeuYD0FVD9jiQr2RdhtlWSUU0SPmRBYwN07Z//nMcr
+         +BEP6MFG+qj6fJ4UPNpbJ9kBTrDi5/PdpYo9PpHZKdhk1wOHoEjVMSuyl4X3WcNrmBBw
+         1ipEr1ZXusodyQdhPU4CrgN2IaxEhgB0szm+ljDBIUWNZ+xlDKe5u7GDCdwTtLU314Nu
+         cAKg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1739074651; x=1739679451;
+        d=1e100.net; s=20230601; t=1739074668; x=1739679468;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=dDa5uVtGTmKoF+EGxYZ14lQBrXBy+Zgm46G016g9yok=;
-        b=aDXiAmmKudz7QaLg0nVz0NVBZDssFx8u3KeuxuOOTsvi7xGiXMlo5O14nQonFx0wqm
-         zJt6xDrUsBZ1+tZsW/9zCvv0b5H7DbKUT9daKlDc/olqp/9N/Mgz+3tFDPRP9ZJLqz0E
-         8w4MG0hmOXORagos0ySq/ffYtFm95E0wICQF4ZjBu4IRLZHCcAezdknYALf7XOBing9d
-         G8F2+z2FEBKbvzUn/Yclm86vWyujRZPbaJrewB4OqFTojHPtd1SvpastNohKYV5KtZWy
-         7lWkjpC7F4YsNk5C+vhXxSZQH1raH7hN4+dxPiDOhmBhVbZNRWWCu5cpPq/5mkcfTYLX
-         +juQ==
-X-Forwarded-Encrypted: i=1; AJvYcCW8wNGoCF6UmfAYGUcUCT/ob3swiArw6S5mTN0qxPAxYN9lQPGUGU8G4sXsxrrr25pAEXEz0pUWCQHomQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx4GwZqKTwgr/+PR+oS7/pbA5NHqxP5afoQQk+UbT4t82h4gLbU
-	bv7fSHCyaxBYZfJtakUSRXma0Msun327HQxKkkj95rjnNikRItige5/Ik+ZOB8k=
-X-Gm-Gg: ASbGnctG4zWWgcJjGO4AymhiEnwppjiVQYiQbX6ANaS+grrq+Liah2ENIIwspZDAQCH
-	xqM6bg+/QGeVrZhC4zePTpUIKfdbHovn7zVjog6mKUe2b94ZRJozQ6PiiSq3W5mJy926QW6+Olk
-	OUI/stv0HCe+wxbG9jeVMoElPVXgzW+U7chD/8OqwPHBA6YYhu8B5tESpOR2QDhijMJpoHjKCWX
-	1Z9BiAyqdhn2oLGAqNbaTmyNlwuASR6dn8QWVFUkd8Iiu55qJdTZQ11Epnn6k4sBEFQGO9zPahr
-	w5i3CQHrkAfvZPShxVdCO7RHQJ8m8u2OjSlnZwvZlYT9CcttnnZsHs0=
-X-Google-Smtp-Source: AGHT+IG1pX64iVcHBvRjhghD+pT2OaoFkAmw6b8bnet5SDDEvBV2yIiEcMLZqESX2yxzwT//jElybA==
-X-Received: by 2002:a05:6a00:cd1:b0:725:e444:2505 with SMTP id d2e1a72fcca58-7305d431970mr12792467b3a.4.1739074650717;
-        Sat, 08 Feb 2025 20:17:30 -0800 (PST)
+        bh=muAXlG/uZk+Ut1w5NICM8ivKf832EJKGEf1Ht7zOCxs=;
+        b=jSYYmQAi0AWi3WS0EZEgk1EfnWyjYSrnoJz62rgV0cTFepj30rqjjRMuBxAiAu3cs/
+         Hj7DLfD4HVRyfCJXzdea37JqUwq2v/bjucnnM2YsaVxvCE9Osz32udfw5xIliolhL2BE
+         IN8yj3Pahe5Q4FbJN82nzX3pVN+XtwQLZ8gdlM7Zdr0aLEHsvGQx0VdqbYyG/v03IvFz
+         iuFiYxHiKjlK00O3aEofGMBeghZmG5su/gPbuGBRU5eCXVt7wOh1AWRj3FuggPY0tlRu
+         3Xpzn9+fXcOJgYE98csSdZrsbQZap5G9cbgUsXBITyl5lUOYOpldK0VJSLGk8AryER6b
+         6xOQ==
+X-Forwarded-Encrypted: i=1; AJvYcCX0EoP9axaInpvuwFHeMA1hH2R5NwlL8VvP1QYIkz2N5pWs9D8ohklX6N1y8mb722gKb0IAD/msFU1oCQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0YwXIRZUgvp7lvTY3QLDP/ag7BrfT2ist5q52DtiUNfSQQLrt/G/
+	fzPqz4XsY+bMVE/Xz+Ia2XJfWKIXU4IoRCVZXp1mQlhx4uAm066dWHNZ2tQnv80=
+X-Gm-Gg: ASbGncuCrj8XDWowgqqXXtaz7MXaih9DxKArlvcV2FzhZC6uSCIcbGga1F9kRafjqv7
+	NRuhE+8hn58J1wsL4Hv8Hloxl7relAvIbH5128vyQesk+Yso0PYDfv5/c1VlcS0IXzot3OioBan
+	PvsPVFm5s3OJJaiBlZ7Z/qaejVBvOQIBTki0cplfA7AJU7dKArOBG9GVil83FDHCu42PBWB2Kdv
+	PYO/ur4csz5fk6876pbH7mUGgXJqQ3Q/rcQEVRUvtD/vyGG+rKoL2FEgD+a29plPNRmyDT+vlNP
+	Vqk7stB43fxVd2U4R9ol94UArzUvjcGzWKZ95XAVZmb007GCj5PDf90=
+X-Google-Smtp-Source: AGHT+IEZWcVRxpCJ2TdbHZSmXzLBoI3AvA6fXMBlEU2Ke4FpcCw0vGqhdEDkzoqwQdAILQxJgujX8g==
+X-Received: by 2002:a05:6a00:c86:b0:725:456e:76e with SMTP id d2e1a72fcca58-7305d44a459mr14381121b3a.6.1739074667815;
+        Sat, 08 Feb 2025 20:17:47 -0800 (PST)
 Received: from anup-ubuntu-vm.localdomain ([103.97.166.196])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-73073eba116sm1898410b3a.124.2025.02.08.20.17.22
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-73073eba116sm1898410b3a.124.2025.02.08.20.17.39
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 08 Feb 2025 20:17:30 -0800 (PST)
+        Sat, 08 Feb 2025 20:17:47 -0800 (PST)
 From: Anup Patel <apatel@ventanamicro.com>
 To: Thomas Gleixner <tglx@linutronix.de>,
 	Ingo Molnar <mingo@redhat.com>,
 	Borislav Petkov <bp@alien8.de>,
 	Dave Hansen <dave.hansen@linux.intel.com>,
 	x86@kernel.org
-Subject: [PATCH v5 02/11] irqchip/irq-msi-lib: Optionally set default irq_eoi/irq_ack
-Date: Sun,  9 Feb 2025 09:46:46 +0530
-Message-ID: <20250209041655.331470-3-apatel@ventanamicro.com>
+Subject: [PATCH v5 04/11] genirq: Introduce common irq_force_complete_move() implementation
+Date: Sun,  9 Feb 2025 09:46:48 +0530
+Message-ID: <20250209041655.331470-5-apatel@ventanamicro.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20250209041655.331470-1-apatel@ventanamicro.com>
 References: <20250209041655.331470-1-apatel@ventanamicro.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250208_201731_712120_75DAE0AF 
-X-CRM114-Status: GOOD (  16.83  )
+X-CRM114-CacheID: sfid-20250208_201748_607406_5C1F9F04 
+X-CRM114-Status: GOOD (  36.55  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,153 +103,360 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Thomas Gleixner <tglx@linutronix.de>
 
-Introduce chip_flags in struct msi_parent_ops. This allows
-msi_lib_init_dev_msi_info() set default irq_eoi/irq_ack
-callbacks only when the corresponding flags are set in
-the chip_flags.
+The GENERIC_PENDING_IRQ requires an arch specific implementation of
+irq_force_complete_move(). At the moment, only x86 implements this
+but for RISC-V the irq_force_complete_move() is only needed when
+RISC-V IMSIC driver is in use and not needed otherwise.
+
+To address the above, introduce a common irq_force_complete_move()
+implementation in kernel irq migration which lets irqchip do the
+actual irq_force_complete_move() and also update x86 APIC to use
+this common implementation.
 
 Signed-off-by: Thomas Gleixner <tglx@linutronix.de>
 Signed-off-by: Anup Patel <apatel@ventanamicro.com>
 ---
- drivers/irqchip/irq-gic-v2m.c    |  1 +
- drivers/irqchip/irq-imx-mu-msi.c |  1 +
- drivers/irqchip/irq-msi-lib.c    | 11 ++++++-----
- drivers/irqchip/irq-mvebu-gicp.c |  1 +
- drivers/irqchip/irq-mvebu-odmi.c |  1 +
- drivers/irqchip/irq-mvebu-sei.c  |  1 +
- include/linux/msi.h              | 11 +++++++++++
- 7 files changed, 22 insertions(+), 5 deletions(-)
+ arch/x86/kernel/apic/vector.c | 231 ++++++++++++++++------------------
+ include/linux/irq.h           |   5 +-
+ kernel/irq/internals.h        |   2 +
+ kernel/irq/migration.c        |  10 ++
+ 4 files changed, 123 insertions(+), 125 deletions(-)
 
-diff --git a/drivers/irqchip/irq-gic-v2m.c b/drivers/irqchip/irq-gic-v2m.c
-index be35c5349986..1e3476c335ca 100644
---- a/drivers/irqchip/irq-gic-v2m.c
-+++ b/drivers/irqchip/irq-gic-v2m.c
-@@ -255,6 +255,7 @@ static void __init gicv2m_teardown(void)
- static struct msi_parent_ops gicv2m_msi_parent_ops = {
- 	.supported_flags	= GICV2M_MSI_FLAGS_SUPPORTED,
- 	.required_flags		= GICV2M_MSI_FLAGS_REQUIRED,
-+	.chip_flags		= MSI_CHIP_FLAG_SET_EOI | MSI_CHIP_FLAG_SET_ACK,
- 	.bus_select_token	= DOMAIN_BUS_NEXUS,
- 	.bus_select_mask	= MATCH_PCI_MSI | MATCH_PLATFORM_MSI,
- 	.prefix			= "GICv2m-",
-diff --git a/drivers/irqchip/irq-imx-mu-msi.c b/drivers/irqchip/irq-imx-mu-msi.c
-index 4342a21de1eb..69aacdfc8bef 100644
---- a/drivers/irqchip/irq-imx-mu-msi.c
-+++ b/drivers/irqchip/irq-imx-mu-msi.c
-@@ -214,6 +214,7 @@ static void imx_mu_msi_irq_handler(struct irq_desc *desc)
- static const struct msi_parent_ops imx_mu_msi_parent_ops = {
- 	.supported_flags	= IMX_MU_MSI_FLAGS_SUPPORTED,
- 	.required_flags		= IMX_MU_MSI_FLAGS_REQUIRED,
-+	.chip_flags		= MSI_CHIP_FLAG_SET_EOI | MSI_CHIP_FLAG_SET_ACK,
- 	.bus_select_token       = DOMAIN_BUS_NEXUS,
- 	.bus_select_mask	= MATCH_PLATFORM_MSI,
- 	.prefix			= "MU-MSI-",
-diff --git a/drivers/irqchip/irq-msi-lib.c b/drivers/irqchip/irq-msi-lib.c
-index d8e29fc0d406..51464c6257f3 100644
---- a/drivers/irqchip/irq-msi-lib.c
-+++ b/drivers/irqchip/irq-msi-lib.c
-@@ -28,6 +28,7 @@ bool msi_lib_init_dev_msi_info(struct device *dev, struct irq_domain *domain,
- 			       struct msi_domain_info *info)
- {
- 	const struct msi_parent_ops *pops = real_parent->msi_parent_ops;
-+	struct irq_chip *chip = info->chip;
- 	u32 required_flags;
- 
- 	/* Parent ops available? */
-@@ -92,10 +93,10 @@ bool msi_lib_init_dev_msi_info(struct device *dev, struct irq_domain *domain,
- 	info->flags			|= required_flags;
- 
- 	/* Chip updates for all child bus types */
--	if (!info->chip->irq_eoi)
--		info->chip->irq_eoi	= irq_chip_eoi_parent;
--	if (!info->chip->irq_ack)
--		info->chip->irq_ack	= irq_chip_ack_parent;
-+	if (!chip->irq_eoi && (pops->chip_flags & MSI_CHIP_FLAG_SET_EOI))
-+		chip->irq_eoi = irq_chip_eoi_parent;
-+	if (!chip->irq_ack && (pops->chip_flags & MSI_CHIP_FLAG_SET_ACK))
-+		chip->irq_ack = irq_chip_ack_parent;
- 
- 	/*
- 	 * The device MSI domain can never have a set affinity callback. It
-@@ -105,7 +106,7 @@ bool msi_lib_init_dev_msi_info(struct device *dev, struct irq_domain *domain,
- 	 * device MSI domain aside of mask/unmask which is provided e.g. by
- 	 * PCI/MSI device domains.
- 	 */
--	info->chip->irq_set_affinity	= msi_domain_set_affinity;
-+	chip->irq_set_affinity = msi_domain_set_affinity;
- 	return true;
+diff --git a/arch/x86/kernel/apic/vector.c b/arch/x86/kernel/apic/vector.c
+index 736f62812f5c..72fa4bb78f0a 100644
+--- a/arch/x86/kernel/apic/vector.c
++++ b/arch/x86/kernel/apic/vector.c
+@@ -888,8 +888,109 @@ static int apic_set_affinity(struct irq_data *irqd,
+ 	return err ? err : IRQ_SET_MASK_OK;
  }
- EXPORT_SYMBOL_GPL(msi_lib_init_dev_msi_info);
-diff --git a/drivers/irqchip/irq-mvebu-gicp.c b/drivers/irqchip/irq-mvebu-gicp.c
-index 2b6183919ea4..d67f93f6d750 100644
---- a/drivers/irqchip/irq-mvebu-gicp.c
-+++ b/drivers/irqchip/irq-mvebu-gicp.c
-@@ -161,6 +161,7 @@ static const struct irq_domain_ops gicp_domain_ops = {
- static const struct msi_parent_ops gicp_msi_parent_ops = {
- 	.supported_flags	= GICP_MSI_FLAGS_SUPPORTED,
- 	.required_flags		= GICP_MSI_FLAGS_REQUIRED,
-+	.chip_flags		= MSI_CHIP_FLAG_SET_EOI | MSI_CHIP_FLAG_SET_ACK,
- 	.bus_select_token       = DOMAIN_BUS_GENERIC_MSI,
- 	.bus_select_mask	= MATCH_PLATFORM_MSI,
- 	.prefix			= "GICP-",
-diff --git a/drivers/irqchip/irq-mvebu-odmi.c b/drivers/irqchip/irq-mvebu-odmi.c
-index ff19bfd258dc..28f7e81df94f 100644
---- a/drivers/irqchip/irq-mvebu-odmi.c
-+++ b/drivers/irqchip/irq-mvebu-odmi.c
-@@ -157,6 +157,7 @@ static const struct irq_domain_ops odmi_domain_ops = {
- static const struct msi_parent_ops odmi_msi_parent_ops = {
- 	.supported_flags	= ODMI_MSI_FLAGS_SUPPORTED,
- 	.required_flags		= ODMI_MSI_FLAGS_REQUIRED,
-+	.chip_flags		= MSI_CHIP_FLAG_SET_EOI | MSI_CHIP_FLAG_SET_ACK,
- 	.bus_select_token	= DOMAIN_BUS_GENERIC_MSI,
- 	.bus_select_mask	= MATCH_PLATFORM_MSI,
- 	.prefix			= "ODMI-",
-diff --git a/drivers/irqchip/irq-mvebu-sei.c b/drivers/irqchip/irq-mvebu-sei.c
-index 065166ab5dbc..ebd4a9014e8d 100644
---- a/drivers/irqchip/irq-mvebu-sei.c
-+++ b/drivers/irqchip/irq-mvebu-sei.c
-@@ -356,6 +356,7 @@ static void mvebu_sei_reset(struct mvebu_sei *sei)
- static const struct msi_parent_ops sei_msi_parent_ops = {
- 	.supported_flags	= SEI_MSI_FLAGS_SUPPORTED,
- 	.required_flags		= SEI_MSI_FLAGS_REQUIRED,
-+	.chip_flags		= MSI_CHIP_FLAG_SET_EOI | MSI_CHIP_FLAG_SET_ACK,
- 	.bus_select_mask	= MATCH_PLATFORM_MSI,
- 	.bus_select_token	= DOMAIN_BUS_GENERIC_MSI,
- 	.prefix			= "SEI-",
-diff --git a/include/linux/msi.h b/include/linux/msi.h
-index b10093c4d00e..9abef442c146 100644
---- a/include/linux/msi.h
-+++ b/include/linux/msi.h
-@@ -558,11 +558,21 @@ enum {
- 	MSI_FLAG_NO_AFFINITY		= (1 << 21),
+ 
++static void free_moved_vector(struct apic_chip_data *apicd)
++{
++	unsigned int vector = apicd->prev_vector;
++	unsigned int cpu = apicd->prev_cpu;
++	bool managed = apicd->is_managed;
++
++	/*
++	 * Managed interrupts are usually not migrated away
++	 * from an online CPU, but CPU isolation 'managed_irq'
++	 * can make that happen.
++	 * 1) Activation does not take the isolation into account
++	 *    to keep the code simple
++	 * 2) Migration away from an isolated CPU can happen when
++	 *    a non-isolated CPU which is in the calculated
++	 *    affinity mask comes online.
++	 */
++	trace_vector_free_moved(apicd->irq, cpu, vector, managed);
++	irq_matrix_free(vector_matrix, cpu, vector, managed);
++	per_cpu(vector_irq, cpu)[vector] = VECTOR_UNUSED;
++	hlist_del_init(&apicd->clist);
++	apicd->prev_vector = 0;
++	apicd->move_in_progress = 0;
++}
++
++/*
++ * Called from fixup_irqs() with @desc->lock held and interrupts disabled.
++ */
++static void apic_force_complete_move(struct irq_data *irqd)
++{
++	unsigned int cpu = smp_processor_id();
++	struct apic_chip_data *apicd;
++	unsigned int vector;
++
++	guard(raw_spinlock)(&vector_lock);
++	apicd = apic_chip_data(irqd);
++	if (!apicd)
++		return;
++
++	/*
++	 * If prev_vector is empty or the descriptor is neither currently
++	 * nor previously on the outgoing CPU no action required.
++	 */
++	vector = apicd->prev_vector;
++	if (!vector || (apicd->cpu != cpu && apicd->prev_cpu != cpu))
++		return;
++
++	/*
++	 * This is tricky. If the cleanup of the old vector has not been
++	 * done yet, then the following setaffinity call will fail with
++	 * -EBUSY. This can leave the interrupt in a stale state.
++	 *
++	 * All CPUs are stuck in stop machine with interrupts disabled so
++	 * calling __irq_complete_move() would be completely pointless.
++	 *
++	 * 1) The interrupt is in move_in_progress state. That means that we
++	 *    have not seen an interrupt since the io_apic was reprogrammed to
++	 *    the new vector.
++	 *
++	 * 2) The interrupt has fired on the new vector, but the cleanup IPIs
++	 *    have not been processed yet.
++	 */
++	if (apicd->move_in_progress) {
++		/*
++		 * In theory there is a race:
++		 *
++		 * set_ioapic(new_vector) <-- Interrupt is raised before update
++		 *			      is effective, i.e. it's raised on
++		 *			      the old vector.
++		 *
++		 * So if the target cpu cannot handle that interrupt before
++		 * the old vector is cleaned up, we get a spurious interrupt
++		 * and in the worst case the ioapic irq line becomes stale.
++		 *
++		 * But in case of cpu hotplug this should be a non issue
++		 * because if the affinity update happens right before all
++		 * cpus rendezvous in stop machine, there is no way that the
++		 * interrupt can be blocked on the target cpu because all cpus
++		 * loops first with interrupts enabled in stop machine, so the
++		 * old vector is not yet cleaned up when the interrupt fires.
++		 *
++		 * So the only way to run into this issue is if the delivery
++		 * of the interrupt on the apic/system bus would be delayed
++		 * beyond the point where the target cpu disables interrupts
++		 * in stop machine. I doubt that it can happen, but at least
++		 * there is a theoretical chance. Virtualization might be
++		 * able to expose this, but AFAICT the IOAPIC emulation is not
++		 * as stupid as the real hardware.
++		 *
++		 * Anyway, there is nothing we can do about that at this point
++		 * w/o refactoring the whole fixup_irq() business completely.
++		 * We print at least the irq number and the old vector number,
++		 * so we have the necessary information when a problem in that
++		 * area arises.
++		 */
++		pr_warn("IRQ fixup: irq %d move in progress, old vector %d\n",
++			irqd->irq, vector);
++	}
++	free_moved_vector(apicd);
++}
++
+ #else
+-# define apic_set_affinity	NULL
++# define apic_set_affinity		NULL
++# define apic_force_complete_move	NULL
+ #endif
+ 
+ static int apic_retrigger_irq(struct irq_data *irqd)
+@@ -923,39 +1024,16 @@ static void x86_vector_msi_compose_msg(struct irq_data *data,
+ }
+ 
+ static struct irq_chip lapic_controller = {
+-	.name			= "APIC",
+-	.irq_ack		= apic_ack_edge,
+-	.irq_set_affinity	= apic_set_affinity,
+-	.irq_compose_msi_msg	= x86_vector_msi_compose_msg,
+-	.irq_retrigger		= apic_retrigger_irq,
++	.name				= "APIC",
++	.irq_ack			= apic_ack_edge,
++	.irq_set_affinity		= apic_set_affinity,
++	.irq_compose_msi_msg		= x86_vector_msi_compose_msg,
++	.irq_force_complete_move	= apic_force_complete_move,
++	.irq_retrigger			= apic_retrigger_irq,
  };
  
-+/*
-+ * Flags for msi_parent_ops::chip_flags
-+ */
-+enum {
-+	MSI_CHIP_FLAG_SET_EOI		= (1 << 0),
-+	MSI_CHIP_FLAG_SET_ACK		= (1 << 1),
-+};
+ #ifdef CONFIG_SMP
+ 
+-static void free_moved_vector(struct apic_chip_data *apicd)
+-{
+-	unsigned int vector = apicd->prev_vector;
+-	unsigned int cpu = apicd->prev_cpu;
+-	bool managed = apicd->is_managed;
+-
+-	/*
+-	 * Managed interrupts are usually not migrated away
+-	 * from an online CPU, but CPU isolation 'managed_irq'
+-	 * can make that happen.
+-	 * 1) Activation does not take the isolation into account
+-	 *    to keep the code simple
+-	 * 2) Migration away from an isolated CPU can happen when
+-	 *    a non-isolated CPU which is in the calculated
+-	 *    affinity mask comes online.
+-	 */
+-	trace_vector_free_moved(apicd->irq, cpu, vector, managed);
+-	irq_matrix_free(vector_matrix, cpu, vector, managed);
+-	per_cpu(vector_irq, cpu)[vector] = VECTOR_UNUSED;
+-	hlist_del_init(&apicd->clist);
+-	apicd->prev_vector = 0;
+-	apicd->move_in_progress = 0;
+-}
+-
+ static void __vector_cleanup(struct vector_cleanup *cl, bool check_irr)
+ {
+ 	struct apic_chip_data *apicd;
+@@ -1068,99 +1146,6 @@ void irq_complete_move(struct irq_cfg *cfg)
+ 		__vector_schedule_cleanup(apicd);
+ }
+ 
+-/*
+- * Called from fixup_irqs() with @desc->lock held and interrupts disabled.
+- */
+-void irq_force_complete_move(struct irq_desc *desc)
+-{
+-	unsigned int cpu = smp_processor_id();
+-	struct apic_chip_data *apicd;
+-	struct irq_data *irqd;
+-	unsigned int vector;
+-
+-	/*
+-	 * The function is called for all descriptors regardless of which
+-	 * irqdomain they belong to. For example if an IRQ is provided by
+-	 * an irq_chip as part of a GPIO driver, the chip data for that
+-	 * descriptor is specific to the irq_chip in question.
+-	 *
+-	 * Check first that the chip_data is what we expect
+-	 * (apic_chip_data) before touching it any further.
+-	 */
+-	irqd = irq_domain_get_irq_data(x86_vector_domain,
+-				       irq_desc_get_irq(desc));
+-	if (!irqd)
+-		return;
+-
+-	raw_spin_lock(&vector_lock);
+-	apicd = apic_chip_data(irqd);
+-	if (!apicd)
+-		goto unlock;
+-
+-	/*
+-	 * If prev_vector is empty or the descriptor is neither currently
+-	 * nor previously on the outgoing CPU no action required.
+-	 */
+-	vector = apicd->prev_vector;
+-	if (!vector || (apicd->cpu != cpu && apicd->prev_cpu != cpu))
+-		goto unlock;
+-
+-	/*
+-	 * This is tricky. If the cleanup of the old vector has not been
+-	 * done yet, then the following setaffinity call will fail with
+-	 * -EBUSY. This can leave the interrupt in a stale state.
+-	 *
+-	 * All CPUs are stuck in stop machine with interrupts disabled so
+-	 * calling __irq_complete_move() would be completely pointless.
+-	 *
+-	 * 1) The interrupt is in move_in_progress state. That means that we
+-	 *    have not seen an interrupt since the io_apic was reprogrammed to
+-	 *    the new vector.
+-	 *
+-	 * 2) The interrupt has fired on the new vector, but the cleanup IPIs
+-	 *    have not been processed yet.
+-	 */
+-	if (apicd->move_in_progress) {
+-		/*
+-		 * In theory there is a race:
+-		 *
+-		 * set_ioapic(new_vector) <-- Interrupt is raised before update
+-		 *			      is effective, i.e. it's raised on
+-		 *			      the old vector.
+-		 *
+-		 * So if the target cpu cannot handle that interrupt before
+-		 * the old vector is cleaned up, we get a spurious interrupt
+-		 * and in the worst case the ioapic irq line becomes stale.
+-		 *
+-		 * But in case of cpu hotplug this should be a non issue
+-		 * because if the affinity update happens right before all
+-		 * cpus rendezvous in stop machine, there is no way that the
+-		 * interrupt can be blocked on the target cpu because all cpus
+-		 * loops first with interrupts enabled in stop machine, so the
+-		 * old vector is not yet cleaned up when the interrupt fires.
+-		 *
+-		 * So the only way to run into this issue is if the delivery
+-		 * of the interrupt on the apic/system bus would be delayed
+-		 * beyond the point where the target cpu disables interrupts
+-		 * in stop machine. I doubt that it can happen, but at least
+-		 * there is a theoretical chance. Virtualization might be
+-		 * able to expose this, but AFAICT the IOAPIC emulation is not
+-		 * as stupid as the real hardware.
+-		 *
+-		 * Anyway, there is nothing we can do about that at this point
+-		 * w/o refactoring the whole fixup_irq() business completely.
+-		 * We print at least the irq number and the old vector number,
+-		 * so we have the necessary information when a problem in that
+-		 * area arises.
+-		 */
+-		pr_warn("IRQ fixup: irq %d move in progress, old vector %d\n",
+-			irqd->irq, vector);
+-	}
+-	free_moved_vector(apicd);
+-unlock:
+-	raw_spin_unlock(&vector_lock);
+-}
+-
+ #ifdef CONFIG_HOTPLUG_CPU
+ /*
+  * Note, this is not accurate accounting, but at least good enough to
+diff --git a/include/linux/irq.h b/include/linux/irq.h
+index 8daa17f0107a..56f6583093d2 100644
+--- a/include/linux/irq.h
++++ b/include/linux/irq.h
+@@ -486,6 +486,7 @@ static inline irq_hw_number_t irqd_to_hwirq(struct irq_data *d)
+  * @ipi_send_mask:	send an IPI to destination cpus in cpumask
+  * @irq_nmi_setup:	function called from core code before enabling an NMI
+  * @irq_nmi_teardown:	function called from core code after disabling an NMI
++ * @irq_force_complete_move:	optional function to force complete pending irq move
+  * @flags:		chip specific flags
+  */
+ struct irq_chip {
+@@ -537,6 +538,8 @@ struct irq_chip {
+ 	int		(*irq_nmi_setup)(struct irq_data *data);
+ 	void		(*irq_nmi_teardown)(struct irq_data *data);
+ 
++	void		(*irq_force_complete_move)(struct irq_data *data);
 +
- /**
-  * struct msi_parent_ops - MSI parent domain callbacks and configuration info
-  *
-  * @supported_flags:	Required: The supported MSI flags of the parent domain
-  * @required_flags:	Optional: The required MSI flags of the parent MSI domain
-+ * @chip_flags:		Optional: Select MSI chip callbacks to update with defaults
-+ *			in msi_lib_init_dev_msi_info().
-  * @bus_select_token:	Optional: The bus token of the real parent domain for
-  *			irq_domain::select()
-  * @bus_select_mask:	Optional: A mask of supported BUS_DOMAINs for
-@@ -575,6 +585,7 @@ enum {
- struct msi_parent_ops {
- 	u32		supported_flags;
- 	u32		required_flags;
-+	u32		chip_flags;
- 	u32		bus_select_token;
- 	u32		bus_select_mask;
- 	const char	*prefix;
+ 	unsigned long	flags;
+ };
+ 
+@@ -619,11 +622,9 @@ static inline void irq_move_irq(struct irq_data *data)
+ 		__irq_move_irq(data);
+ }
+ void irq_move_masked_irq(struct irq_data *data);
+-void irq_force_complete_move(struct irq_desc *desc);
+ #else
+ static inline void irq_move_irq(struct irq_data *data) { }
+ static inline void irq_move_masked_irq(struct irq_data *data) { }
+-static inline void irq_force_complete_move(struct irq_desc *desc) { }
+ #endif
+ 
+ extern int no_irq_affinity;
+diff --git a/kernel/irq/internals.h b/kernel/irq/internals.h
+index a979523640d0..d4e190e690bd 100644
+--- a/kernel/irq/internals.h
++++ b/kernel/irq/internals.h
+@@ -442,6 +442,7 @@ static inline struct cpumask *irq_desc_get_pending_mask(struct irq_desc *desc)
+ 	return desc->pending_mask;
+ }
+ bool irq_fixup_move_pending(struct irq_desc *desc, bool force_clear);
++void irq_force_complete_move(struct irq_desc *desc);
+ #else /* CONFIG_GENERIC_PENDING_IRQ */
+ static inline bool irq_can_move_pcntxt(struct irq_data *data)
+ {
+@@ -467,6 +468,7 @@ static inline bool irq_fixup_move_pending(struct irq_desc *desc, bool fclear)
+ {
+ 	return false;
+ }
++static inline void irq_force_complete_move(struct irq_desc *desc) { }
+ #endif /* !CONFIG_GENERIC_PENDING_IRQ */
+ 
+ #if !defined(CONFIG_IRQ_DOMAIN) || !defined(CONFIG_IRQ_DOMAIN_HIERARCHY)
+diff --git a/kernel/irq/migration.c b/kernel/irq/migration.c
+index eb150afd671f..e110300ad650 100644
+--- a/kernel/irq/migration.c
++++ b/kernel/irq/migration.c
+@@ -35,6 +35,16 @@ bool irq_fixup_move_pending(struct irq_desc *desc, bool force_clear)
+ 	return true;
+ }
+ 
++void irq_force_complete_move(struct irq_desc *desc)
++{
++	for (struct irq_data *d = irq_desc_get_irq_data(desc); d; d = d->parent_data) {
++		if (d->chip && d->chip->irq_force_complete_move) {
++			d->chip->irq_force_complete_move(d);
++			return;
++		}
++	}
++}
++
+ void irq_move_masked_irq(struct irq_data *idata)
+ {
+ 	struct irq_desc *desc = irq_data_to_desc(idata);
 -- 
 2.43.0
 
