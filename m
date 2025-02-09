@@ -4,86 +4,146 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE080C02199
-	for <linux-riscv@archiver.kernel.org>; Sun,  9 Feb 2025 04:32:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3B5C0C021A0
+	for <linux-riscv@archiver.kernel.org>; Sun,  9 Feb 2025 12:38:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=l67vx6+O+Gzz9kxEY1fAybGouRr4OJWWYxHIz/fmS4Q=; b=diyPgotolpePER
-	g2/zSSTY7bzCilr0SdWIlK84PQMRLWSGyPCPjSlgtYOXGDh6nKLRA0841k2RHLeEzjqf5Gg1vXS/6
-	xtBFFpOPVkPrIZbPJEWjoYCTp/DlC53nEYaQ8/OUF7iSxcffaIAYGA7BXrmP1yuSX/WT5TrajYY6U
-	Fuob2zjkzn4WWjd0ZG0muStYIuM3pWgag1OgKErxeF8CcKma8Z4TDnjQYtQI1YO1XCyzf66RVSNS8
-	w43fXIXhY/Dszvogh2YrAGEZhVgH+NKsY6FS3yyp5P8DJEKCHmItnJzvYb8QV/BYKwHr/VPFyM0HF
-	7bcWZ7HHsNAB3xk6XO6w==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:Cc:To:Subject:
+	From:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=aoF29cVD61G9na9VdbejIOduqVZsaJMKfKRU07SCkMQ=; b=1hYQDBacxp2G+fTyvEpnSgMKMp
+	vHeVYl0JXBo8ihvChhCWeMudZ71el2Sq/FsQYl64/gpyzRz8GdxQ7sy6TrnorQByi5I3dcJt3Gf+c
+	PX5yMRhAMJK2bee2QOZG9JOxe6p2IGlKM1l/WK88vw2LyZbyKNg/3Z/aTGqjoMSNTqT3wlDTlrsaS
+	EsDN8YKFAFph2s9y3jVB6l38zKLOUR88iPuzQHwnS1BKQvCL0J+cIoyLCnfDIuy2ujzA4+dnUM9sr
+	jWczW93brk94sqfWhGGXuna8Us8aW2sEMviIWCWX+Ui0ID8zCokN2pYprtCMCz6JB9zj4Wyu+oinC
+	hOGUB2Rw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tgyzz-0000000E50N-07VM;
-	Sun, 09 Feb 2025 04:32:51 +0000
-Received: from mail-pj1-x1030.google.com ([2607:f8b0:4864:20::1030])
+	id 1th6a6-0000000EsU3-3Wva;
+	Sun, 09 Feb 2025 12:38:38 +0000
+Received: from mail-am0eur02olkn20808.outbound.protection.outlook.com ([2a01:111:f403:2e06::808] helo=EUR02-AM0-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tgymP-0000000E2lX-1qF4
+	id 1th69h-0000000EoDe-1FJF
 	for linux-riscv@lists.infradead.org;
-	Sun, 09 Feb 2025 04:18:51 +0000
-Received: by mail-pj1-x1030.google.com with SMTP id 98e67ed59e1d1-2f9bac7699aso4844038a91.1
-        for <linux-riscv@lists.infradead.org>; Sat, 08 Feb 2025 20:18:49 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1739074729; x=1739679529; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=KEjndyBD35lV6nr6NSLWRRyly4db2axy7koFOHZTKsQ=;
-        b=CrX4FJud+8PLqilHcLMUJvGFX7l5ypDZVsamK/wbsufkTHijrWP/+DSRasNrGY5zbm
-         geBTq639QkwYl6YLUvOJnqZi0RaZAI8jcGQfCoInMN+awl6ox/kfDiXJXh/jlcxMfW5S
-         799Jr+cBnYbVffEC1R3ANniIB4qUFpDH0FEV2WEJTqAkFFRFfFbREr/qSFaovQfMmHF1
-         cPriR6IVo+abpImm1YLLctjhSXqtxmG3TZvAnQeuWxTrw2UYWVMzlDau5+Xg1Hk3cYAx
-         IN0JybrYii/v4L8iu19vngNVrVzUxitkwqY7gBIvHs2iFc/Ur0fdBincBFXluy/Dtb5d
-         VYCw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1739074729; x=1739679529;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=KEjndyBD35lV6nr6NSLWRRyly4db2axy7koFOHZTKsQ=;
-        b=w9KOOaT4eOoHNv9+2Jcm/lGbwSmVD4eBMT7O6NcbKenl1kX6rA5FzE62gjPyn+h7Ri
-         XHUgld7lS7xqdh1djNl7gS9Ve0U2vOjiANJHJeET45isgBkWVCOzZQF7121PiC5jCzlR
-         +NjoDpukN8Goj7rvK3B5Fb+WUc39OeVHET5I4qkU0tjAlkowy0A9p1JvVUJFey/od2BU
-         n3GmYPylTWA9fZVeu5jYsRnXITuB3kX0lQTICws2uHuN91KW/A+C+njegHTzp5WhYJCl
-         gCyd+lMY/ArxUyAQIdqEMBBRw9ZXxJZ720itxUf+yEUajcVHdrGFvlWr4+8gOg5iQMau
-         jkWw==
-X-Forwarded-Encrypted: i=1; AJvYcCUmcOKraBbGj70gVJ06/KuvAaY21i0vC3govqRebRhJ54JkvHYoYDSkaYyDwk+EtqaoJqOgTESW7KQDkw==@lists.infradead.org
-X-Gm-Message-State: AOJu0YyR2rCVp3dNXalnf6+5OeBKot6C14xc89eJRZuuwpGlDcCB36ix
-	107cVQzj0j39TxswkFnvGYMqc9XnJLozhayiQYjrUJMoQxqG4zJpZ4v5iy4UxF4=
-X-Gm-Gg: ASbGnctB38ww+ddeHz4URoxBx1Fqo9L4w9T6PN/nYHvIk+VxCf90E1I6KmThUTil0+8
-	gI97OIASqEHrJy+zhLDmsF+Xo6hkd4uPTj+lcRr280FytmVrD9beT+pHQIXyaVmyNC/bihw0R6h
-	5PAIkA6LXlB3/lZuO3CalQDhYYzVFcs71ydr1FWa+aMO7LI90cquqfDygrjWs3ER+Zi5PUUcrQd
-	BFNRU5gu0pF9yrlRuULSNea+eAdZIv7aKyECr2c+T1PkZwj9Hc29CqAAb5jd4tYhtUylvQGgXM6
-	49G5z6Bd6W85VgjlpKQi7X5Vkk2GknT8nXwNdRkFScSbIj0WFfj+xvU=
-X-Google-Smtp-Source: AGHT+IFzlqSdIaYHLSZI599cWVBA7dW7jlgFu/OL/NbLRylvBc/ItMiequCd7pzuj7u4ZD8d08JvJw==
-X-Received: by 2002:a05:6a00:2342:b0:730:7d3f:8c70 with SMTP id d2e1a72fcca58-7307d3f9339mr5011190b3a.21.1739074728662;
-        Sat, 08 Feb 2025 20:18:48 -0800 (PST)
-Received: from anup-ubuntu-vm.localdomain ([103.97.166.196])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-73073eba116sm1898410b3a.124.2025.02.08.20.18.40
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 08 Feb 2025 20:18:48 -0800 (PST)
-From: Anup Patel <apatel@ventanamicro.com>
-To: Thomas Gleixner <tglx@linutronix.de>,
-	Ingo Molnar <mingo@redhat.com>,
-	Borislav Petkov <bp@alien8.de>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	x86@kernel.org
-Subject: [PATCH v5 11/11] irqchip/riscv-imsic: Special handling for non-atomic device MSI update
-Date: Sun,  9 Feb 2025 09:46:55 +0530
-Message-ID: <20250209041655.331470-12-apatel@ventanamicro.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20250209041655.331470-1-apatel@ventanamicro.com>
-References: <20250209041655.331470-1-apatel@ventanamicro.com>
+	Sun, 09 Feb 2025 12:11:22 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=O9Z9xeDmi5H2Ed18RmUKcHvATZslDAUn2CQIfvmXiZWXzQSuKZ/OghBBPsXAwYl4Vma05z7iXvAxvHa3QQ2gidug1BwbchVO6QOC49mm2c1q7camfOoTMV+oFC+hUk0Je/LFaK28W5mEHc4uV3Y0ewisGZqnddXQbtGOa49wl++a93c4P6rSUgq1+GpSrDSWqtgrq5rSmxyTOd3CrJEC5WNCv2Kk0XX46RCgxm6MVwbvLNwjldUHGvj3x3Z1G6Kahjtjwn1NBzfsTfliks3ynnyz1CHI1wAa80QzAoOiOhooWV0FHZyYQERL3PWpzaF0Xgvg24U5ogEwOo9BfTwbdw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=Caa3bEyIMPqm1cyP6wUgJ9AYkiz3USg5T6V01spzVFM=;
+ b=FxGgLF0AcBTYilkHFVqUT2R+OzRUSRcmTNKHNOMsENuOl4DwHV+RHrahNmebhfQG1BOJ80O9H4u3ci4Qvj+Uib8hhUn3H1cMBmAhEbDF47M5OG23xvAjo7Fi/nI+GDqVGYybVqi3iW/ATwvwzb1/vlcJpdve4ye+hi2UsvuRgsY1rsqbfihfpZcZtqjPbaLWsX7NoIE2/bc69QG2xCGK/JQaLxwdNnMSJkmcCusccnn32lxK3ZwoF0KdJb+eMQhJYilvSzBF8YapD0ORtZD7IyA1rQ2CM28J0n3qobDiYhuQPRGbzm9rjjgMoaCTYjgyp5Dur+VVYI96fkPhbuwqvQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
+ dkim=none; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=hotmail.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=Caa3bEyIMPqm1cyP6wUgJ9AYkiz3USg5T6V01spzVFM=;
+ b=r+Ge3xMN47p9LaWbATpp/vzXstDk4ZVnJqTd7P+7zL1mXty6i9pSv9BOqr4XapvCoSTdmNn563gvBIU2aTACBcDtsfgtAHvb+Z6JewNwRWVOV4gGR9OIEypWcN0wOSfWVVMeg51dNAUTfnd468Be3mvOUqcFRuSjk9c/smUQD0BwIamHCLuE7MFWZPiLgB+WfTb/S91RDeAO5OcuUQQRH5tsqJnPEXlLiaLFxCG/yjXj01q71TAko+RatWuWdMK93Ec9m8RSann727oxWLEU3+hQ4jd/Edkc9MPi+YhPot1MksPr9tvd3MziIGD3O70pPeUzGaxPKc+PH/sjXMMRkw==
+Received: from AM7P189MB1009.EURP189.PROD.OUTLOOK.COM (2603:10a6:20b:175::17)
+ by AM0P189MB0820.EURP189.PROD.OUTLOOK.COM (2603:10a6:208:19d::8) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8422.17; Sun, 9 Feb
+ 2025 12:11:13 +0000
+Received: from AM7P189MB1009.EURP189.PROD.OUTLOOK.COM
+ ([fe80::e9f1:a878:e797:ee1a]) by AM7P189MB1009.EURP189.PROD.OUTLOOK.COM
+ ([fe80::e9f1:a878:e797:ee1a%7]) with mapi id 15.20.8422.015; Sun, 9 Feb 2025
+ 12:11:13 +0000
+Message-ID: <AM7P189MB100992851E58C8CE0AD8EC38E3F32@AM7P189MB1009.EURP189.PROD.OUTLOOK.COM>
+Date: Sun, 9 Feb 2025 13:11:12 +0100
+User-Agent: Mozilla Thunderbird
+From: Maud Spierings <maud_spierings@hotmail.com>
+Subject: Re: [PATCH] riscv: dts: starfive: fml13v01: enable pcie1
+To: Sandie Cao <sandie.cao@deepcomputing.io>, Conor Dooley
+ <conor@kernel.org>, Emil Renner Berthing <kernel@esmil.dk>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+ devicetree@vger.kernel.org
+References: <20250207093618.126636-1-sandie.cao@deepcomputing.io>
+Content-Language: en-US
+In-Reply-To: <20250207093618.126636-1-sandie.cao@deepcomputing.io>
+X-ClientProxiedBy: AM0PR04CA0066.eurprd04.prod.outlook.com
+ (2603:10a6:208:1::43) To AM7P189MB1009.EURP189.PROD.OUTLOOK.COM
+ (2603:10a6:20b:175::17)
+X-Microsoft-Original-Message-ID: <c307034e-6d39-4792-9be3-70ca80e19f2f@hotmail.com>
 MIME-Version: 1.0
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AM7P189MB1009:EE_|AM0P189MB0820:EE_
+X-MS-Office365-Filtering-Correlation-Id: 23cc10af-7218-4fd4-ecfb-08dd4902d89d
+X-Microsoft-Antispam: BCL:0;ARA:14566002|461199028|15080799006|5072599009|19110799003|8060799006|6090799003|440099028|3412199025;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?cHBRU0dHUnpQOFdQZTBpb0hMa0lFWHljQ1NXQXVaS2YwSmhOTElLODJseC9x?=
+ =?utf-8?B?OVVjK0x0Z1k5ZTl3bXM2WkVNSUJmRjk0N2VXQzVhOHV2MFgyRFFVZUFhVzZW?=
+ =?utf-8?B?UEc4QWVVOWgyZVdWY04wR2V0azIxVUdWa29FMjRERTNySU8rNU5rZjc1UG9Y?=
+ =?utf-8?B?RzdwNTRaR3NpWW1oT29RcnlOV3BRcW5TUWxrTlZyaVpNNjREaUVvZnMzOU9I?=
+ =?utf-8?B?WjJiZGJPdTF1UlAyWXc0YU00TWxtUjQ1MGxma3NwZkZHSU9TZ1JDZXVMYi9T?=
+ =?utf-8?B?WGRCdGxXOUFlcTFJdUQ2OHIwZytMSS9TeXpCNVBsRXBwdzl6SXpsZVpybkNE?=
+ =?utf-8?B?MFo5ZjAxSG5OcWhyV2Q3Q2g2dDRKSXpRbXVLcElVTUNJWTJkUEt2TE41eFQ3?=
+ =?utf-8?B?dGU0VmtTVVFsU3NHdUZhcnBUMEhJVUwxUG5ua2VKdGVUcFFGUU1YcEljNXJ5?=
+ =?utf-8?B?azg3T1JrSkJxYUZWNUt6SmZEUWhCNUhyMk12NXNFQStCeU44eExySDRQNmF1?=
+ =?utf-8?B?NEpDaHRVeE9VQk0weTRIbVhacXlValNmYkV3MmhSZDlBRHprK0l5RWM0UXZU?=
+ =?utf-8?B?dm1aaHQ1alZTNGxRZ3NZMXBkUDZRU2NhOWtzRi9tRVZKREdwQUVzckxaQk1F?=
+ =?utf-8?B?cGx0QzNvcGFPQ2tvL29Ja2srVGNnTVdORjlwMmRvY0tKM2RnUlZLVnNFRVRB?=
+ =?utf-8?B?d0RyeG05RlI4NkE5b21Sc1QrRXNpdW1ROW9nVG5nTDh5c01zSklXenRrVXhG?=
+ =?utf-8?B?MVMwbmZlUHdKKzF1cm5TQmxWb3FuMFVOalhJcWZ4QzRWNmNqSUgxZEpsSHBK?=
+ =?utf-8?B?TUVQVW5FdHM1eTFobFk4TkxEQjVmN3FzL3ZHMjFvOXMyb1ZJaXNnbkdPQWs5?=
+ =?utf-8?B?K2haUTNyRVM2c1V6TCtmVzBoSHh0TFUzV1h0bmtGam1PWmt3UDI4RzJrOXJN?=
+ =?utf-8?B?MnJ2Vkk3bW1FeC9FNWtQZFVpU0ZiSmxMR1FDUkVMRnRJOVBlQVAvSG8yV0Z5?=
+ =?utf-8?B?cWxjNFBlNjJpbXd4Qy9BYWNUZFAzWm53VDZIbDh2ZGdub2xvbzNCSDVRcFlO?=
+ =?utf-8?B?UTdBNU5OcGMzZUFscnRNa1FHSVE3ZzB2ekdqMTFLSXhnK2c0S0NpSVl2b3Za?=
+ =?utf-8?B?bE41MUNYaGErYk9jRTF0UnNEa3VRM1F1ZUJHM3hwcmxza2tlVXFxeWJLNm15?=
+ =?utf-8?B?MVRHblZpbTUvVXFTMmQ0ZzBjb3FDek9ZUHdtajY2UDZ1RkdtdG51cVpnVXB4?=
+ =?utf-8?B?YnlMNTlxYm9GMkViN3dRQXBsdllSTGlFTXNudzUyMEtHYTdVd2JTZy9kbzZD?=
+ =?utf-8?B?Q3poK2ptMjYyQUF4NU1GZk0rUExRODdEeGc0VEc3dFhTUE5tbTlRZmRlVHMx?=
+ =?utf-8?B?QnJaTFd0bEpIN2lYV2xrRGRnRlFKZ2dyN25wQkNIdTRDZ29QRThvRW9WbUM1?=
+ =?utf-8?B?L3ErSGV5QlNTMGFZNjk5bUE3TFFQZ2loaFpVclVBPT0=?=
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?TWFzUEc5SHIwSnVIT1NVZ0thd1phNWVsa2J1WGc2UFhuL1A0cVFYWFpCdk44?=
+ =?utf-8?B?ZG5yb1VlYTBFeUpFRnRodkIyTC9hVStNakl1OUViWHArK28rZXpCM25UYzYv?=
+ =?utf-8?B?MkYxTXVpTWgrSDRQdW1PZHpGMFBDU3p5d1VDQWF2RUJINDlHVEYycXBMYmY3?=
+ =?utf-8?B?eVV5ckc1QTlVQXlPTmx6TTVYQmpaZU51YkhGZllIbHZBeXBRQzh0c0ZUYTNI?=
+ =?utf-8?B?SjJJTG1XZlFlR2xBdm5LcmtDa0hraFphSHBya24yelcrcUowRGpmQkdxRHFG?=
+ =?utf-8?B?dG9SaE5UUENnaTA5eTk3N3VBSjZBZ1JLNVRua3ZCQXpHaE9JUUtPbVdNRExw?=
+ =?utf-8?B?YThYbW56SEFZQi9SKzBTa1cxamlYVjVUb1JEZjVORGxWc1oyejRYSFMvR0hh?=
+ =?utf-8?B?ZDBNeG8yTU1FS2srN0VUVk9oR29VS0NzK21neTBjZmVua3JjUEhXUGh6ZXda?=
+ =?utf-8?B?TGg4Sk9zQ2IxSWExdEtHNU5XWVlzYVlqU2FoNlJFb2NaenYxUlhEOUpKQ2Ux?=
+ =?utf-8?B?TDNkbFRTSlJkWTZWV29oVmFaT2JzcUprWHNFQ2xLVDdqSkt4SUpJUGpuQVZx?=
+ =?utf-8?B?M3JkNGt6VGRxL3I5ZWJMUEZUNnViRFRuTHk3b0hnZTlCUXREQUZBK3lkMzV1?=
+ =?utf-8?B?c3dPQmVtN3VOYUpjc3BGV1ZNSWJLeTVmWjFKV2kyWkxxcmVlb1dvS2t2TnEr?=
+ =?utf-8?B?VEtTL2ZxcGErWDZ2SjhHdVNNL00raDZQcUxNRGlOZzZVRTYrVnM4OEFHRytF?=
+ =?utf-8?B?Uk8wN0pMcjBTaXZmRDlGWjlzTEp5eFJJS2xQdkV2aFdSQlpKWDNUWlNvSU41?=
+ =?utf-8?B?TXp0d0hQaUtGT2FYV1h1Q0dST3RpbGhUamtzT0tlM3hlRERFNWF5OG13NCs2?=
+ =?utf-8?B?eEUvdUxmOW43UHc3Q2VwSWVyOTM2Y1FhSlFCeGt6SUdLUXREUWFoRnEwQUdq?=
+ =?utf-8?B?YjY2WHF6MitreEpqVEJRSE1ZYmViNDVJZ3N3MmtyeUk2THhnV285VTdIWjNR?=
+ =?utf-8?B?aHBVMDdCR2RKZVBQa2ZEc09mSGdqSnc2cXlISGZ2aFN0OE55YkR5ejM5NE5l?=
+ =?utf-8?B?Sk45MWMxVTd0RUJoL24yWitwSnVHQlZzbmpTVG50VTZJbk03WEYwLzJveVZH?=
+ =?utf-8?B?L1o5UWs1U2E3akRXVVlXVFo2UmRWWkhQSkcxZ1EwaS96TFJYSDc1QXo4K3g4?=
+ =?utf-8?B?bStaQ1htQmFHK1VoTmdOVGNmWFpzY1BsMHNHdkkxZ1JrUWd4cS9ucndrQ0pP?=
+ =?utf-8?B?SU8zZzBaY0E0cW1QN1JvN3NmNnNQQUtpbEYyTW1wSDkxZWprZGk2VWV0c3NG?=
+ =?utf-8?B?UzkyMExXS3I5VC81SmRPcWVkSTdPSUZBaGx1RStjTjlDbStqVWVFMjErdHZp?=
+ =?utf-8?B?aWRvS3FMc2ovUjhPa1NYbEttNWZoODc4MVlTME9jMVA5UmN2OEJiWTFjdWg5?=
+ =?utf-8?B?S1ZFN1dadWFSMnBWZWkybFFXV28rQ0xXNnVaVS8xZmpCc2lveG9JQkQybk0x?=
+ =?utf-8?B?RTF2NnRtMUJ3WUhiUTFXT3Z6dGxWd3pUK2VvN1RFekF4Y2x1ZHBVbGVvTnFo?=
+ =?utf-8?B?MHRmMThqSmkrREx0cjBvZ3l0NEtHT0IycFpBa1lrRFB5dHI3STN5YjdmT2M4?=
+ =?utf-8?B?cjMvSnBnU2tLVkg3L0ZRODkwNTJQMm01aHJqV0Q3OTZDOFpEVFY1bEFwNUQ5?=
+ =?utf-8?B?V2lDNGR2ZU9HUjlJMUxaM3ZqSU1nWXlsVm5KT1Y2SmtVd0RPY2l1L1VPK2dH?=
+ =?utf-8?Q?lRE0MQwXEXJQPgZizLF8gfteFklj8qmA/Rlrkyt?=
+X-OriginatorOrg: sct-15-20-7719-19-msonline-outlook-3b3e0.templateTenant
+X-MS-Exchange-CrossTenant-Network-Message-Id: 23cc10af-7218-4fd4-ecfb-08dd4902d89d
+X-MS-Exchange-CrossTenant-AuthSource: AM7P189MB1009.EURP189.PROD.OUTLOOK.COM
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 09 Feb 2025 12:11:13.2934
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
+X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM0P189MB0820
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250208_201849_483379_45D3E908 
-X-CRM114-Status: GOOD (  21.70  )
+X-CRM114-CacheID: sfid-20250209_041121_353770_EBFC4876 
+X-CRM114-Status: GOOD (  12.15  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,216 +155,77 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Anup Patel <apatel@ventanamicro.com>, Andrew Lunn <andrew@lunn.ch>, Atish Patra <atishp@atishpatra.org>, imx@lists.linux.dev, Marc Zyngier <maz@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, Paul Walmsley <paul.walmsley@sifive.com>, linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, Palmer Dabbelt <palmer@dabbelt.com>, Pengutronix Kernel Team <kernel@pengutronix.de>, hpa@zytor.com, Anup Patel <anup@brainfault.org>, Andrew Jones <ajones@ventanamicro.com>, Shawn Guo <shawnguo@kernel.org>, Gregory Clement <gregory.clement@bootlin.com>, linux-arm-kernel@lists.infradead.org, Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Device having non-atomic MSI update might see an intermediate
-state when changing target IMSIC vector from one CPU to another.
+On 2/7/25 10:36 AM, Sandie Cao wrote:
+> Starfive Soc common defines GPIO28 as pcie1 reset, GPIO21 as pcie1 wakeup;
+> But the FML13V01 board uses GPIO21 as pcie1 reset, GPIO28 as pcie1 wakeup;
+> redefine pcie1 gpio and enable pcie1 for pcie based Wi-Fi.
+>
+> Signed-off-by: Sandie Cao<sandie.cao@deepcomputing.io>
+> ---
+>   .../jh7110-deepcomputing-fml13v01.dts         | 34 +++++++++++++++++++
+>   1 file changed, 34 insertions(+)
+>
+> diff --git a/arch/riscv/boot/dts/starfive/jh7110-deepcomputing-fml13v01.dts b/arch/riscv/boot/dts/starfive/jh7110-deepcomputing-fml13v01.dts
+> index 30b0715196b6..8d9ce8b69a71 100644
+> --- a/arch/riscv/boot/dts/starfive/jh7110-deepcomputing-fml13v01.dts
+> +++ b/arch/riscv/boot/dts/starfive/jh7110-deepcomputing-fml13v01.dts
+> @@ -11,6 +11,40 @@ / {
+>   	compatible = "deepcomputing,fml13v01", "starfive,jh7110";
+>   };
+>   
+> +&pcie1 {
+> +	perst-gpios = <&sysgpio 21 GPIO_ACTIVE_LOW>;
+> +	phys = <&pciephy1>;
+> +	pinctrl-names = "default";
+> +	pinctrl-0 = <&pcie1_pins>;
+> +	status = "okay";
+> +};
+> +
+> +&sysgpio {
+> +	pcie1_pins: pcie1-0 {
+> +		clkreq-pins {
+> +			pinmux = <GPIOMUX(29, GPOUT_LOW,
+> +					      GPOEN_DISABLE,
+> +					      GPI_NONE)>;
+> +			bias-pull-down;
+> +			drive-strength = <2>;
+> +			input-enable;
+> +			input-schmitt-disable;
+> +			slew-rate = <0>;
+> +		};
+> +
+> +		wake-pins {
+> +			pinmux = <GPIOMUX(28, GPOUT_HIGH,
+> +					      GPOEN_DISABLE,
+> +					      GPI_NONE)>;
+> +			bias-pull-up;
+> +			drive-strength = <2>;
+> +			input-enable;
+> +			input-schmitt-disable;
+> +			slew-rate = <0>;
+> +		};
+> +	};
+> +};
+> +
+>   &usb0 {
+>   	dr_mode = "host";
+>   	status = "okay";
+>
+> base-commit: 2014c95afecee3e76ca4a56956a936e23283f05b
 
-To avoid losing interrupt to such intermediate state, do the
-following (just like x86 APIC):
- 1) First write a temporary IMSIC vector to the device which
-    has MSI address same as the old IMSIC vector but with MSI
-    data matches the new IMSIC vector.
- 2) Next write the new IMSIC vector to the device.
 
-Based on the above, the __imsic_local_sync() must check pending
-status of both old MSI data and new MSI data on the old CPU. In
-addition, the movement of IMSIC vector for non-atomic device MSI
-update must be done in interrupt context using IRQCHIP_MOVE_DEFERRED.
+Tried this on my device and it works as expected
 
-Signed-off-by: Anup Patel <apatel@ventanamicro.com>
----
- drivers/irqchip/irq-riscv-imsic-platform.c | 73 +++++++++++++++++++++-
- drivers/irqchip/irq-riscv-imsic-state.c    | 31 +++++++--
- 2 files changed, 98 insertions(+), 6 deletions(-)
+Tested-by: Maud Spierings <maud_spierings@hotmail.com>
 
-diff --git a/drivers/irqchip/irq-riscv-imsic-platform.c b/drivers/irqchip/irq-riscv-imsic-platform.c
-index 6bf5d63f614e..828102c46f51 100644
---- a/drivers/irqchip/irq-riscv-imsic-platform.c
-+++ b/drivers/irqchip/irq-riscv-imsic-platform.c
-@@ -64,6 +64,11 @@ static int imsic_irq_retrigger(struct irq_data *d)
- 	return 0;
- }
- 
-+static void imsic_irq_ack(struct irq_data *d)
-+{
-+	irq_move_irq(d);
-+}
-+
- static void imsic_irq_compose_vector_msg(struct imsic_vector *vec, struct msi_msg *msg)
- {
- 	phys_addr_t msi_addr;
-@@ -97,6 +102,21 @@ static int imsic_irq_set_affinity(struct irq_data *d, const struct cpumask *mask
- 				  bool force)
- {
- 	struct imsic_vector *old_vec, *new_vec;
-+	struct imsic_vector tmp_vec;
-+
-+	/*
-+	 * Requirements for the downstream irqdomains (or devices):
-+	 *
-+	 * 1) Downstream irqdomains (or devices) with atomic MSI update can
-+	 *    happily do imsic_irq_set_affinity() in the process-context on
-+	 *    any CPU so the irqchip of such irqdomains must not set the
-+	 *    IRQCHIP_MOVE_DEFERRED flag.
-+	 *
-+	 * 2) Downstream irqdomains (or devices) with non-atomic MSI update
-+	 *    must do imsic_irq_set_affinity() in the interrupt-context upon
-+	 *    next interrupt so the irqchip of such irqdomains must set the
-+	 *    IRQCHIP_MOVE_DEFERRED flag.
-+	 */
- 
- 	old_vec = irq_data_get_irq_chip_data(d);
- 	if (WARN_ON(!old_vec))
-@@ -115,6 +135,33 @@ static int imsic_irq_set_affinity(struct irq_data *d, const struct cpumask *mask
- 	if (!new_vec)
- 		return -ENOSPC;
- 
-+	/*
-+	 * Device having non-atomic MSI update might see an intermediate
-+	 * state when changing target IMSIC vector from one CPU to another.
-+	 *
-+	 * To avoid losing interrupt to such intermediate state, do the
-+	 * following (just like x86 APIC):
-+	 *
-+	 * 1) First write a temporary IMSIC vector to the device which
-+	 * has MSI address same as the old IMSIC vector but MSI data
-+	 * matches the new IMSIC vector.
-+	 *
-+	 * 2) Next write the new IMSIC vector to the device.
-+	 *
-+	 * Based on the above, the __imsic_local_sync() must check pending
-+	 * status of both old MSI data and new MSI data on the old CPU.
-+	 */
-+
-+	if (!irq_can_move_in_process_context(d) &&
-+	    new_vec->local_id != old_vec->local_id) {
-+		/* Setup temporary vector */
-+		tmp_vec.cpu = old_vec->cpu;
-+		tmp_vec.local_id = new_vec->local_id;
-+
-+		/* Point device to the temporary vector */
-+		imsic_msi_update_msg(irq_get_irq_data(d->irq), &tmp_vec);
-+	}
-+
- 	/* Point device to the new vector */
- 	imsic_msi_update_msg(irq_get_irq_data(d->irq), new_vec);
- 
-@@ -171,6 +218,7 @@ static struct irq_chip imsic_irq_base_chip = {
- 	.irq_force_complete_move = imsic_irq_force_complete_move,
- #endif
- 	.irq_retrigger		= imsic_irq_retrigger,
-+	.irq_ack		= imsic_irq_ack,
- 	.irq_compose_msi_msg	= imsic_irq_compose_msg,
- 	.flags			= IRQCHIP_SKIP_SET_WAKE |
- 				  IRQCHIP_MASK_ON_SUSPEND,
-@@ -190,7 +238,7 @@ static int imsic_irq_domain_alloc(struct irq_domain *domain, unsigned int virq,
- 		return -ENOSPC;
- 
- 	irq_domain_set_info(domain, virq, virq, &imsic_irq_base_chip, vec,
--			    handle_simple_irq, NULL, NULL);
-+			    handle_edge_irq, NULL, NULL);
- 	irq_set_noprobe(virq);
- 	irq_set_affinity(virq, cpu_online_mask);
- 	irq_data_update_effective_affinity(irq_get_irq_data(virq), cpumask_of(vec->cpu));
-@@ -229,15 +277,36 @@ static const struct irq_domain_ops imsic_base_domain_ops = {
- #endif
- };
- 
-+static bool imsic_init_dev_msi_info(struct device *dev,
-+				    struct irq_domain *domain,
-+				    struct irq_domain *real_parent,
-+				    struct msi_domain_info *info)
-+{
-+	if (!msi_lib_init_dev_msi_info(dev, domain, real_parent, info))
-+		return false;
-+
-+	switch (info->bus_token) {
-+	case DOMAIN_BUS_PCI_DEVICE_MSI:
-+	case DOMAIN_BUS_PCI_DEVICE_MSIX:
-+		info->chip->flags |= IRQCHIP_MOVE_DEFERRED;
-+		break;
-+	default:
-+		break;
-+	}
-+
-+	return true;
-+}
-+
- static const struct msi_parent_ops imsic_msi_parent_ops = {
- 	.supported_flags	= MSI_GENERIC_FLAGS_MASK |
- 				  MSI_FLAG_PCI_MSIX,
- 	.required_flags		= MSI_FLAG_USE_DEF_DOM_OPS |
- 				  MSI_FLAG_USE_DEF_CHIP_OPS |
- 				  MSI_FLAG_PCI_MSI_MASK_PARENT,
-+	.chip_flags		= MSI_CHIP_FLAG_SET_ACK,
- 	.bus_select_token	= DOMAIN_BUS_NEXUS,
- 	.bus_select_mask	= MATCH_PCI_MSI | MATCH_PLATFORM_MSI,
--	.init_dev_msi_info	= msi_lib_init_dev_msi_info,
-+	.init_dev_msi_info	= imsic_init_dev_msi_info,
- };
- 
- int imsic_irqdomain_init(void)
-diff --git a/drivers/irqchip/irq-riscv-imsic-state.c b/drivers/irqchip/irq-riscv-imsic-state.c
-index d0148e48ab05..3a2a381e4fa1 100644
---- a/drivers/irqchip/irq-riscv-imsic-state.c
-+++ b/drivers/irqchip/irq-riscv-imsic-state.c
-@@ -126,8 +126,8 @@ void __imsic_eix_update(unsigned long base_id, unsigned long num_id, bool pend,
- 
- static bool __imsic_local_sync(struct imsic_local_priv *lpriv)
- {
--	struct imsic_local_config *mlocal;
--	struct imsic_vector *vec, *mvec;
-+	struct imsic_local_config *tlocal, *mlocal;
-+	struct imsic_vector *vec, *tvec, *mvec;
- 	bool ret = true;
- 	int i;
- 
-@@ -169,13 +169,36 @@ static bool __imsic_local_sync(struct imsic_local_priv *lpriv)
- 		 */
- 		mvec = READ_ONCE(vec->move_next);
- 		if (mvec) {
--			if (__imsic_id_read_clear_pending(i)) {
-+			/*
-+			 * Device having non-atomic MSI update might see an
-+			 * intermediate state so check both old ID and new ID
-+			 * for pending interrupts.
-+			 *
-+			 * For details, refer imsic_irq_set_affinity().
-+			 */
-+
-+			tvec = vec->local_id == mvec->local_id ?
-+			       NULL : &lpriv->vectors[mvec->local_id];
-+			if (tvec &&
-+			    !irq_can_move_in_process_context(irq_get_irq_data(vec->irq)) &&
-+			    __imsic_id_read_clear_pending(tvec->local_id)) {
-+				/* Retrigger temporary vector if it was already in-use */
-+				if (READ_ONCE(tvec->enable)) {
-+					tlocal = per_cpu_ptr(imsic->global.local, tvec->cpu);
-+					writel_relaxed(tvec->local_id, tlocal->msi_va);
-+				}
-+
-+				mlocal = per_cpu_ptr(imsic->global.local, mvec->cpu);
-+				writel_relaxed(mvec->local_id, mlocal->msi_va);
-+			}
-+
-+			if (__imsic_id_read_clear_pending(vec->local_id)) {
- 				mlocal = per_cpu_ptr(imsic->global.local, mvec->cpu);
- 				writel_relaxed(mvec->local_id, mlocal->msi_va);
- 			}
- 
- 			WRITE_ONCE(vec->move_next, NULL);
--			imsic_vector_free(&lpriv->vectors[i]);
-+			imsic_vector_free(vec);
- 		}
- 
- skip:
--- 
-2.43.0
+
+Kind regards,
+Maud
 
 
 _______________________________________________
