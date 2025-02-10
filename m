@@ -4,100 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D60CEC021A2
-	for <linux-riscv@archiver.kernel.org>; Mon, 10 Feb 2025 23:26:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 24371C021A4
+	for <linux-riscv@archiver.kernel.org>; Mon, 10 Feb 2025 23:26:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=mRrNDEu0+mq6/D4dvaTGxM7TjerOp+o8USapzuKnmQA=; b=MHKt6F4Idg4OKB
-	Bfp7++oQHOEh7+h0c1PQp+sliXqAy1e+SM1TRCFQt6EFa0wfCgdTj5ajy5jhf+jmeEPbp8RVtf/oJ
-	LrTQx5VCS7hbQ0FcB+2pj1jC4itvCAu5OEoDCap+Lk8pF7j6mR+VnXYGdjIwkJdtz6eAYI1gUvn78
-	2LCrBczIDzbaI4BF/IGBj2z7rU7knAJJEisWYpna78XXXQqMOP2dlfi/6+5idxDP+ZpywlbN5D8fy
-	rOwwwhXgshoBYCDIT9pXI/iNCR8pnlYqJJyyHAUfkUwQwHhTd3DTMtQd6zUUc9+Yuefj1sKAG8wbh
-	pfhP6V0ammcqOsMaIIrw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=W6nnyrSHXrjoir05c7uGeZQJHtDNKWIjKZNYx9iVQGw=; b=fIgIdjt9Ap/h0Z
+	vk9QxIVon2EuBYN+14swne1NI0SyuztM0zrgimW0R0KXC31h1lufNd5JHzFfpaNIvCSGrMLLlbZd9
+	yTpNshkcd/Qjjr4cylJh1g0CRA6FHVk04hJAk3VElpQsGusptT0M/DMlyoVmO3I2Y+X2teCevGseW
+	m2M3h3Cz4f1BZX2v9y0pTMGMXrNPTnfRXlUMp1bSiJsS2xcP32aUiriEXWU8jGJQ1FwG1kLAbeb2b
+	VVsABESAsn+tbWKfyIgDBC+aHuTGGsT/kFYANA9fwbPKyw+mR8j40U+S+pHy3wNLMLud3DBS421OO
+	HF1LosKEO63OZiIzbwtQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1thdA3-00000001q3n-407e;
-	Mon, 10 Feb 2025 23:25:55 +0000
-Received: from mail-wr1-x42d.google.com ([2a00:1450:4864:20::42d])
+	id 1thdA4-00000001q4Y-2xQR;
+	Mon, 10 Feb 2025 23:25:56 +0000
+Received: from mail-wm1-x32a.google.com ([2a00:1450:4864:20::32a])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1thbye-00000001bJq-0qli;
-	Mon, 10 Feb 2025 22:10:05 +0000
-Received: by mail-wr1-x42d.google.com with SMTP id ffacd0b85a97d-38dd93a6f0aso1464415f8f.0;
-        Mon, 10 Feb 2025 14:10:03 -0800 (PST)
+	id 1thbye-00000001bKC-3xpV;
+	Mon, 10 Feb 2025 22:10:06 +0000
+Received: by mail-wm1-x32a.google.com with SMTP id 5b1f17b1804b1-43946b5920cso8754435e9.1;
+        Mon, 10 Feb 2025 14:10:04 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1739225402; x=1739830202; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=aWyO6Omj46BLGouriEYcHBj4I5jL2cpuWdyYPhlUQ7g=;
-        b=iJL8ljC3O1TDLsRSe3cR9WkJtXukeGXrZRUD8nB8mX2VrDxI6NPnyADXCZN+bLJSA2
-         GawBxN+5Zr1Ye4j1EjCZx6bJd+82XNoq5bEiycrYf8xQpPyBeDRItd8KZin68Z+UZNAz
-         FGe9l+aWtiwA+fb+caM6fHdSe1+TXEFdWji8+Sq0CnEpDti7wkU2B9Kot/c59UnhpU5Q
-         8WdIgaoLNCS86bPRC/J6Hq2B/bjhZWQ+nv9DRBJhphJzLSXkjRf5VgOIrzAJPqseNTHo
-         QDsQl8iJOx7m4h5k3MYaWk1ZFqQvI+cT/00t6T+m/rF105DYdiJARkBaoae4N/VT8tUQ
-         8pcA==
+        d=gmail.com; s=20230601; t=1739225403; x=1739830203; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=ycacqOivXCpuiiDgsNxx0+xAkMZRAd46lqRqXyDUmhE=;
+        b=Rva1bTU1o+dNypvT0LcWtTxoUPFLR9IvS0DPdG/tIzoPM40fYTA5+TcW7e3diChgE7
+         GkaQKmhgA9pjk+UBDRLj9gqA7qjtaEQy0iX/aLZdvR7l/Sbf2zB9SgWdUzBUJXce0FZS
+         fdbFazcY38wuO5GPdRYKaEcOwXTag0d9C9I9Pem7ZLM1zvZqfqAbwPYKJDyBSyDQTC1b
+         Q6mi2z5ixkixAns4jYrhfyrfK6yMpDkbsKXq5S9q+/hBDXzGvtZ5/Nv0UrxsCW+fkLoA
+         te7AQgenejqHX3+TprWoM+mT+nuSJG6TJSAYn3fnvPK3x5y20btPYftTkU2BAjQ+qHSj
+         urJw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1739225402; x=1739830202;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=aWyO6Omj46BLGouriEYcHBj4I5jL2cpuWdyYPhlUQ7g=;
-        b=Vt79IeDDvNkgohE4EGwv2rkrMzEdYR4Hpx/+/8p6MHlZM5Js8JmudNeDBWPW3tQPyU
-         PPS1vmRQLkByVd6uqbqMXEBYa68Sj8BGXqGQfomzNsXnYAMTqccr6obowq6a0XFQI8RB
-         Coq0Fv7qXKkg7wOaS0kC2j0igya1P+DjmeyNiLW/LfhTASRUs7XD/Fv5bOs9G+R3QRlS
-         QRinhGwGM16NLXbfvjv8u3Cba8Zo9faNUpvaW79Yx4Uzb7XtVtDBmSG80XVxEXGQAvTG
-         sOuzLK22crKc6ANFDHWZOC2LpcGb0osB2lewEI1a+Xw+qU3X39xow0d3PxZ6LrRk2VhL
-         xvgQ==
-X-Forwarded-Encrypted: i=1; AJvYcCU5z3ZUgxfRpWhsLElpBXa0HiyTqMo6LbEhAkC2q7P1UoUhOrd9AK/VLzpS1GPcD1BWu25f9eTJKe4sAdA=@lists.infradead.org, AJvYcCV5YLtz0bzCZyihvMyy66+X9txJKcOW7QxwsSP1BrK5k78Cmkl0vEg8E5B4/wa3GKsmddW9ijvjV+8QaeKTmaFX@lists.infradead.org
-X-Gm-Message-State: AOJu0YzoNdEGZezTgm8zeoB9dzutZggPRJtjya9hXREB2SqLamFf2Z4v
-	+/76z7AQDrp1PpR9fccrYB+zSn36zUUuEOwP5bHUtC8W3L/GLI+m
-X-Gm-Gg: ASbGncsclmIpkffsI1nTo52IoonINDDKhMEf5miw+TJ1n3p6jr4l+yr+xxTTjCCOcsS
-	IV0lHsdFO1qpm7EnJJvklDKpvLta1AjiOcgzQ+K7rqYl7ks77NHkP+l2EzNJuJoVqR+I0nogNaS
-	WZ5fM1f7LDujol0pFgvOonc8zJkQBiFQkKGlVWts/7Lbs4z0SBRNwWbrTj3cheXUpVKtX06jWxP
-	cgLRvbdKySd0PZMXEaZ8F8eDPofoaO10+Cg/DxJ/6qEapyqq0i7Iks/30vC/Adzcac4Yo/fBv1j
-	Og0nLmR9Sj8n9KG+WSfMGSalAPyD
-X-Google-Smtp-Source: AGHT+IEMaGIcU19hT3jyRgsUsaV8XvP59su/yVG0KhKsBGbkZitk0/Jmb/o11eWD/isTEql3vIA+Cg==
-X-Received: by 2002:a5d:6da4:0:b0:38d:dd32:c939 with SMTP id ffacd0b85a97d-38ddd32cd83mr6651606f8f.36.1739225401776;
-        Mon, 10 Feb 2025 14:10:01 -0800 (PST)
+        d=1e100.net; s=20230601; t=1739225403; x=1739830203;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=ycacqOivXCpuiiDgsNxx0+xAkMZRAd46lqRqXyDUmhE=;
+        b=xPuZbdJ8xOlfm/4KgqZgkRSdw4aM0KwIEHnUb8y3csANRhgZQCkece/tGHn8EpKDAf
+         Z/q/M3vUOzjf9W6ELkh+vRSAvXWQRZMqmGl/MU5WwONzMG7CKkxudArDIAkI+R4u5bDT
+         jlpout7Wg1YfSBnWYDI81zdozj2xwIqopHn/uDKqm+lWtns94t3j/2lvRtrPxtTfylme
+         WnGbeAEdpHTSXbNO64yD9rerrRV6RRHe1QwJ4OT3e1FybGhJauWjkCLgBxbvQT6/0kLV
+         yj2ZL5TZ03htB7eOPoXUEMjd04CRPYCS9hLC05OYhSkr6ruDy+z87ZPbJxJz2kNbWzAA
+         vfMQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUC6HlZ7bdFLx3q7bjLxh7XA/TXOkInxXGCQ6XWB+8Y1bFmpGSQavpF3zNlKMNX0zZcUibLOPYHWx6lV2k=@lists.infradead.org, AJvYcCX0uGMIObGStnTni3H00iWxRY/q/CIBp/yCDA207Tz/OFv5HwSyIRgihD1Oc4BRG1xY9xa/xurkUOts1jiELzkE@lists.infradead.org
+X-Gm-Message-State: AOJu0YweHO4V2S5v8sHoW+QcJNH+YTIYcmUeui4Gque5YdBxYsVx5Aw6
+	B/0tgomF0O+7x5s+ppv9T2cJsr/DxUHKcd8fsiNnM7XQSR/oUkQl
+X-Gm-Gg: ASbGncv4HimOFoE0ThcyBiDnqJVrYmAfFo3RWDoABqMoc8GIEQIHg9UKvVRFZRLEh9N
+	O8Pq8NtX+7daROlDPrcQrTbUifCkCHeimNuURQfW+/JZEcm2prmdX7yS3Wzg/1+4HQAlu+YszdK
+	5vQHY4jXABtpLwVm2qu5aySJRHg0CaNqnDd1Y735ERnLmrXBIXloHNg1lESJERbr3+TgDCqpd3L
+	DqBeib9XcuoMYfHEG/z4gYQ6mrk0Zh4WntQfpnTOSQZfkWjVEH62eif3qNhmCZV7RBOsZ8aspc4
+	FEh8oce6kE1XGSnScO6SBODHF9Hw
+X-Google-Smtp-Source: AGHT+IF0vxhyYmoHMueP8NN7Qu1KBzOLRXRa5VzXyW6nA9poUPt4CKv2oJx28349+0Ii2IhZoSFc5Q==
+X-Received: by 2002:a05:600c:1911:b0:439:34d3:63c0 with SMTP id 5b1f17b1804b1-43934d365ebmr99807915e9.16.1739225402816;
+        Mon, 10 Feb 2025 14:10:02 -0800 (PST)
 Received: from giga-mm.. ([2a02:1210:861b:6f00:82ee:73ff:feb8:99e3])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-38dbde1dfaesm13443450f8f.90.2025.02.10.14.10.00
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-38dbde1dfaesm13443450f8f.90.2025.02.10.14.10.01
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 10 Feb 2025 14:10:01 -0800 (PST)
+        Mon, 10 Feb 2025 14:10:02 -0800 (PST)
 From: Alexander Sverdlin <alexander.sverdlin@gmail.com>
 To: soc@lists.linux.dev
 Cc: Alexander Sverdlin <alexander.sverdlin@gmail.com>,
 	Chen Wang <unicorn_wang@outlook.com>,
 	Inochi Amaoto <inochiama@outlook.com>,
-	Lee Jones <lee@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Arnd Bergmann <arnd@arndb.de>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Sebastian Reichel <sre@kernel.org>,
+	linux-riscv@lists.infradead.org,
 	devicetree@vger.kernel.org,
 	Haylen Chu <heylenay@outlook.com>,
 	linux-arm-kernel@lists.infradead.org,
-	linux-riscv@lists.infradead.org,
-	linux-pm@vger.kernel.org,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Arnd Bergmann <arnd@arndb.de>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
 	Jisheng Zhang <jszhang@kernel.org>,
 	Chao Wei <chao.wei@sophgo.com>
-Subject: [PATCH v2 0/7] arm64 support for Milk-V Duo Module 01 EVB
-Date: Mon, 10 Feb 2025 23:09:40 +0100
-Message-ID: <20250210220951.1248533-1-alexander.sverdlin@gmail.com>
+Subject: [PATCH v2 1/7] riscv: dts: sophgo: cv18xx: Move RiscV-specific part into SoCs' .dtsi files
+Date: Mon, 10 Feb 2025 23:09:41 +0100
+Message-ID: <20250210220951.1248533-2-alexander.sverdlin@gmail.com>
 X-Mailer: git-send-email 2.48.1
+In-Reply-To: <20250210220951.1248533-1-alexander.sverdlin@gmail.com>
+References: <20250210220951.1248533-1-alexander.sverdlin@gmail.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250210_141004_240508_D0CA3B71 
-X-CRM114-Status: GOOD (  15.75  )
+X-CRM114-CacheID: sfid-20250210_141004_987856_EC75AA56 
+X-CRM114-Status: GOOD (  16.78  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,84 +111,640 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This series adds very basic support for Milk-V Duo Module 01 EVB [1] in
-arm64 mode. The SoC (SG2000) is dual-arch, RiscV and ARM64, the latter has
-been chosen because the upstream toolchain can be utilized.
+Make the peripheral device tree re-usable on ARM64 platform by moving CPU
+core and interrupt controllers' parts into the respective per-SoC .dtsi
+files.
 
-Sophgo SG2000 seems to be a continuation of the Cvitek CV18xx series, same
-peripherals with an addition of ARM64 core. Therefore it would be
-beneficial not to copy-paste the peripherals' device-tree, but rather split
-the most suitable riscv DT into ARCH-specific and peripherals parts and
-just include the latter on the arm64 side.
+Add SOC_PERIPHERAL_IRQ() macro which explicitly maps peripheral nubering
+into "plic" interrupt-controller numbering.
 
-This series adds the device-tree for Milk-V Duo Module 01 EVB, which
-in turn contains Milk-V Duo Module 01 (separate .dtsi) on it, which has
-SG2000 SoC inside (separate .dtsi).
+Have a nice refactoring side-effect that "plic" and "clint" "compatible"
+property is not specified outside of the corresponding device itself.
 
-This series has been tested with Sophgo-provided U-Boot binary [2]: it
-boots from SD card; pinctrl, serial, GPIO drivers are functional (same
-as for RiscV-based CV18xx SoCs).
-
-Partial SoC documentation is available [3].
-
-This series lacks the support of:
-- USB
-- Audio
-- Ethernet
-- WiFi
-- Bluetooth
-- eMMC
-- Video
-- "reboot" functionality
-
-It would probably make sense that the series will go into ARM SOC tree.
-
+Signed-off-by: Alexander Sverdlin <alexander.sverdlin@gmail.com>
+---
 Changelog:
 v2:
-- dropped all patches related to the new reboot driver and corresponding DT
-and bindings;
-- grouped DT-related and config-related patches together;
-- added patch moving sophgo.yaml from riscv into soc (to share it with
-ARM); added SG2000 SoC and Milk-V Duo Module 01 EVB into it;
-- other changes are documented in the corresponding patches;
+- instead of carving out peripherals' part, carve out ARCH-specifics (CPU
+core, interrupt controllers) and spread them among 3 SoC .dtsi files which
+included cv18xx.dtsi;
+- define a label for the "soc" node and use it in the newly introduced DTs;
 
-[1] https://milkv.io/docs/duo/getting-started/duo-module-01
-[2] https://github.com/milkv-duo/duo-buildroot-sdk-v2/releases/
-[3] https://github.com/sophgo/sophgo-doc/releases/download/sg2000-trm-v1.01/sg2000_trm_en.pdf
-
-Alexander Sverdlin (7):
-  riscv: dts: sophgo: cv18xx: Move RiscV-specific part into SoCs' .dtsi
-    files
-  dt-bindings: soc: sophgo: Move SoCs/boards from riscv into soc, add
-    SG2000
-  arm64: dts: sophgo: Add initial SG2000 SoC device tree
-  arm64: dts: sophgo: Add Duo Module 01
-  arm64: dts: sophgo: Add Duo Module 01 Evaluation Board
-  arm64: Add SOPHGO SOC family Kconfig support
-  arm64: defconfig: Enable rudimentary Sophgo SG2000 support
-
- .../{riscv => soc/sophgo}/sophgo.yaml         |  7 +-
- arch/arm64/Kconfig.platforms                  |  6 ++
- arch/arm64/boot/dts/Makefile                  |  1 +
- arch/arm64/boot/dts/sophgo/Makefile           |  2 +
- .../sophgo/sg2000-milkv-duo-module-01-evb.dts | 31 +++++++
- .../sophgo/sg2000-milkv-duo-module-01.dtsi    | 85 +++++++++++++++++
- arch/arm64/boot/dts/sophgo/sg2000.dtsi        | 75 +++++++++++++++
- arch/arm64/configs/defconfig                  |  5 +
- arch/riscv/boot/dts/sophgo/cv1800b.dtsi       | 64 ++++++++++---
- arch/riscv/boot/dts/sophgo/cv1812h.dtsi       | 64 ++++++++++---
- arch/riscv/boot/dts/sophgo/cv181x.dtsi        |  2 +-
- arch/riscv/boot/dts/sophgo/cv18xx-cpu.dtsi    | 57 ++++++++++++
- arch/riscv/boot/dts/sophgo/cv18xx.dtsi        | 91 +++++--------------
- arch/riscv/boot/dts/sophgo/sg2002.dtsi        | 64 ++++++++++---
- 14 files changed, 451 insertions(+), 103 deletions(-)
- rename Documentation/devicetree/bindings/{riscv => soc/sophgo}/sophgo.yaml (80%)
- create mode 100644 arch/arm64/boot/dts/sophgo/Makefile
- create mode 100644 arch/arm64/boot/dts/sophgo/sg2000-milkv-duo-module-01-evb.dts
- create mode 100644 arch/arm64/boot/dts/sophgo/sg2000-milkv-duo-module-01.dtsi
- create mode 100644 arch/arm64/boot/dts/sophgo/sg2000.dtsi
+ arch/riscv/boot/dts/sophgo/cv1800b.dtsi    | 64 ++++++++++++---
+ arch/riscv/boot/dts/sophgo/cv1812h.dtsi    | 64 ++++++++++++---
+ arch/riscv/boot/dts/sophgo/cv181x.dtsi     |  2 +-
+ arch/riscv/boot/dts/sophgo/cv18xx-cpu.dtsi | 57 ++++++++++++++
+ arch/riscv/boot/dts/sophgo/cv18xx.dtsi     | 91 ++++++----------------
+ arch/riscv/boot/dts/sophgo/sg2002.dtsi     | 64 ++++++++++++---
+ 6 files changed, 240 insertions(+), 102 deletions(-)
  create mode 100644 arch/riscv/boot/dts/sophgo/cv18xx-cpu.dtsi
 
+diff --git a/arch/riscv/boot/dts/sophgo/cv1800b.dtsi b/arch/riscv/boot/dts/sophgo/cv1800b.dtsi
+index aa1f5df100f0..eef2884b36f9 100644
+--- a/arch/riscv/boot/dts/sophgo/cv1800b.dtsi
++++ b/arch/riscv/boot/dts/sophgo/cv1800b.dtsi
+@@ -3,6 +3,8 @@
+  * Copyright (C) 2023 Jisheng Zhang <jszhang@kernel.org>
+  */
+ 
++#define SOC_PERIPHERAL_IRQ(nr)	((nr) + 16)
++
+ #include <dt-bindings/pinctrl/pinctrl-cv1800b.h>
+ #include "cv18xx.dtsi"
+ 
+@@ -14,22 +16,62 @@ memory@80000000 {
+ 		reg = <0x80000000 0x4000000>;
+ 	};
+ 
+-	soc {
+-		pinctrl: pinctrl@3001000 {
+-			compatible = "sophgo,cv1800b-pinctrl";
+-			reg = <0x03001000 0x1000>,
+-			      <0x05027000 0x1000>;
+-			reg-names = "sys", "rtc";
++	cpus: cpus {
++		#address-cells = <1>;
++		#size-cells = <0>;
++		timebase-frequency = <25000000>;
++
++		cpu0: cpu@0 {
++			compatible = "thead,c906", "riscv";
++			device_type = "cpu";
++			reg = <0>;
++			d-cache-block-size = <64>;
++			d-cache-sets = <512>;
++			d-cache-size = <65536>;
++			i-cache-block-size = <64>;
++			i-cache-sets = <128>;
++			i-cache-size = <32768>;
++			mmu-type = "riscv,sv39";
++			riscv,isa = "rv64imafdc";
++			riscv,isa-base = "rv64i";
++			riscv,isa-extensions = "i", "m", "a", "f", "d", "c", "zicntr", "zicsr",
++					       "zifencei", "zihpm";
++
++			cpu0_intc: interrupt-controller {
++				compatible = "riscv,cpu-intc";
++				interrupt-controller;
++				#interrupt-cells = <1>;
++			};
+ 		};
+ 	};
+ };
+ 
+-&plic {
+-	compatible = "sophgo,cv1800b-plic", "thead,c900-plic";
+-};
++&soc {
++	interrupt-parent = <&plic>;
++	dma-noncoherent;
+ 
+-&clint {
+-	compatible = "sophgo,cv1800b-clint", "thead,c900-clint";
++	pinctrl: pinctrl@3001000 {
++		compatible = "sophgo,cv1800b-pinctrl";
++		reg = <0x03001000 0x1000>,
++		      <0x05027000 0x1000>;
++		reg-names = "sys", "rtc";
++	};
++
++	plic: interrupt-controller@70000000 {
++		compatible = "sophgo,cv1800b-plic", "thead,c900-plic";
++		reg = <0x70000000 0x4000000>;
++		interrupts-extended = <&cpu0_intc 11>, <&cpu0_intc 9>;
++		interrupt-controller;
++		#address-cells = <0>;
++		#interrupt-cells = <2>;
++		riscv,ndev = <101>;
++	};
++
++	clint: timer@74000000 {
++		compatible = "sophgo,cv1800b-clint", "thead,c900-clint";
++		reg = <0x74000000 0x10000>;
++		interrupts-extended = <&cpu0_intc 3>, <&cpu0_intc 7>;
++	};
+ };
+ 
+ &clk {
+diff --git a/arch/riscv/boot/dts/sophgo/cv1812h.dtsi b/arch/riscv/boot/dts/sophgo/cv1812h.dtsi
+index 8a1b95c5116b..54f7e229bcd8 100644
+--- a/arch/riscv/boot/dts/sophgo/cv1812h.dtsi
++++ b/arch/riscv/boot/dts/sophgo/cv1812h.dtsi
+@@ -3,6 +3,8 @@
+  * Copyright (C) 2023 Inochi Amaoto <inochiama@outlook.com>
+  */
+ 
++#define SOC_PERIPHERAL_IRQ(nr)	((nr) + 16)
++
+ #include <dt-bindings/interrupt-controller/irq.h>
+ #include <dt-bindings/pinctrl/pinctrl-cv1812h.h>
+ #include "cv18xx.dtsi"
+@@ -16,22 +18,62 @@ memory@80000000 {
+ 		reg = <0x80000000 0x10000000>;
+ 	};
+ 
+-	soc {
+-		pinctrl: pinctrl@3001000 {
+-			compatible = "sophgo,cv1812h-pinctrl";
+-			reg = <0x03001000 0x1000>,
+-			      <0x05027000 0x1000>;
+-			reg-names = "sys", "rtc";
++	cpus: cpus {
++		#address-cells = <1>;
++		#size-cells = <0>;
++		timebase-frequency = <25000000>;
++
++		cpu0: cpu@0 {
++			compatible = "thead,c906", "riscv";
++			device_type = "cpu";
++			reg = <0>;
++			d-cache-block-size = <64>;
++			d-cache-sets = <512>;
++			d-cache-size = <65536>;
++			i-cache-block-size = <64>;
++			i-cache-sets = <128>;
++			i-cache-size = <32768>;
++			mmu-type = "riscv,sv39";
++			riscv,isa = "rv64imafdc";
++			riscv,isa-base = "rv64i";
++			riscv,isa-extensions = "i", "m", "a", "f", "d", "c", "zicntr", "zicsr",
++					       "zifencei", "zihpm";
++
++			cpu0_intc: interrupt-controller {
++				compatible = "riscv,cpu-intc";
++				interrupt-controller;
++				#interrupt-cells = <1>;
++			};
+ 		};
+ 	};
+ };
+ 
+-&plic {
+-	compatible = "sophgo,cv1812h-plic", "thead,c900-plic";
+-};
++&soc {
++	interrupt-parent = <&plic>;
++	dma-noncoherent;
+ 
+-&clint {
+-	compatible = "sophgo,cv1812h-clint", "thead,c900-clint";
++	pinctrl: pinctrl@3001000 {
++		compatible = "sophgo,cv1812h-pinctrl";
++		reg = <0x03001000 0x1000>,
++		      <0x05027000 0x1000>;
++		reg-names = "sys", "rtc";
++	};
++
++	plic: interrupt-controller@70000000 {
++		compatible = "sophgo,cv1812h-plic", "thead,c900-plic";
++		reg = <0x70000000 0x4000000>;
++		interrupts-extended = <&cpu0_intc 11>, <&cpu0_intc 9>;
++		interrupt-controller;
++		#address-cells = <0>;
++		#interrupt-cells = <2>;
++		riscv,ndev = <101>;
++	};
++
++	clint: timer@74000000 {
++		compatible = "sophgo,cv1812h-clint", "thead,c900-clint";
++		reg = <0x74000000 0x10000>;
++		interrupts-extended = <&cpu0_intc 3>, <&cpu0_intc 7>;
++	};
+ };
+ 
+ &clk {
+diff --git a/arch/riscv/boot/dts/sophgo/cv181x.dtsi b/arch/riscv/boot/dts/sophgo/cv181x.dtsi
+index 5fd14dd1b14f..bbdb30653e9a 100644
+--- a/arch/riscv/boot/dts/sophgo/cv181x.dtsi
++++ b/arch/riscv/boot/dts/sophgo/cv181x.dtsi
+@@ -11,7 +11,7 @@ soc {
+ 		emmc: mmc@4300000 {
+ 			compatible = "sophgo,cv1800b-dwcmshc";
+ 			reg = <0x4300000 0x1000>;
+-			interrupts = <34 IRQ_TYPE_LEVEL_HIGH>;
++			interrupts = <SOC_PERIPHERAL_IRQ(18) IRQ_TYPE_LEVEL_HIGH>;
+ 			clocks = <&clk CLK_AXI4_EMMC>,
+ 				 <&clk CLK_EMMC>;
+ 			clock-names = "core", "bus";
+diff --git a/arch/riscv/boot/dts/sophgo/cv18xx-cpu.dtsi b/arch/riscv/boot/dts/sophgo/cv18xx-cpu.dtsi
+new file mode 100644
+index 000000000000..a68d61131efb
+--- /dev/null
++++ b/arch/riscv/boot/dts/sophgo/cv18xx-cpu.dtsi
+@@ -0,0 +1,57 @@
++// SPDX-License-Identifier: (GPL-2.0 OR MIT)
++/*
++ * Copyright (C) 2023 Jisheng Zhang <jszhang@kernel.org>
++ * Copyright (C) 2023 Inochi Amaoto <inochiama@outlook.com>
++ */
++
++#define SOC_PERIPHERAL_IRQ(nr)	((nr) + 16)
++
++/ {
++	cpus: cpus {
++		#address-cells = <1>;
++		#size-cells = <0>;
++		timebase-frequency = <25000000>;
++
++		cpu0: cpu@0 {
++			compatible = "thead,c906", "riscv";
++			device_type = "cpu";
++			reg = <0>;
++			d-cache-block-size = <64>;
++			d-cache-sets = <512>;
++			d-cache-size = <65536>;
++			i-cache-block-size = <64>;
++			i-cache-sets = <128>;
++			i-cache-size = <32768>;
++			mmu-type = "riscv,sv39";
++			riscv,isa = "rv64imafdc";
++			riscv,isa-base = "rv64i";
++			riscv,isa-extensions = "i", "m", "a", "f", "d", "c", "zicntr", "zicsr",
++					       "zifencei", "zihpm";
++
++			cpu0_intc: interrupt-controller {
++				compatible = "riscv,cpu-intc";
++				interrupt-controller;
++				#interrupt-cells = <1>;
++			};
++		};
++	};
++};
++
++&soc {
++	interrupt-parent = <&plic>;
++	dma-noncoherent;
++
++	plic: interrupt-controller@70000000 {
++		reg = <0x70000000 0x4000000>;
++		interrupts-extended = <&cpu0_intc 11>, <&cpu0_intc 9>;
++		interrupt-controller;
++		#address-cells = <0>;
++		#interrupt-cells = <2>;
++		riscv,ndev = <101>;
++	};
++
++	clint: timer@74000000 {
++		reg = <0x74000000 0x10000>;
++		interrupts-extended = <&cpu0_intc 3>, <&cpu0_intc 7>;
++	};
++};
+diff --git a/arch/riscv/boot/dts/sophgo/cv18xx.dtsi b/arch/riscv/boot/dts/sophgo/cv18xx.dtsi
+index c18822ec849f..62c1464a0490 100644
+--- a/arch/riscv/boot/dts/sophgo/cv18xx.dtsi
++++ b/arch/riscv/boot/dts/sophgo/cv18xx.dtsi
+@@ -12,47 +12,16 @@ / {
+ 	#address-cells = <1>;
+ 	#size-cells = <1>;
+ 
+-	cpus: cpus {
+-		#address-cells = <1>;
+-		#size-cells = <0>;
+-		timebase-frequency = <25000000>;
+-
+-		cpu0: cpu@0 {
+-			compatible = "thead,c906", "riscv";
+-			device_type = "cpu";
+-			reg = <0>;
+-			d-cache-block-size = <64>;
+-			d-cache-sets = <512>;
+-			d-cache-size = <65536>;
+-			i-cache-block-size = <64>;
+-			i-cache-sets = <128>;
+-			i-cache-size = <32768>;
+-			mmu-type = "riscv,sv39";
+-			riscv,isa = "rv64imafdc";
+-			riscv,isa-base = "rv64i";
+-			riscv,isa-extensions = "i", "m", "a", "f", "d", "c", "zicntr", "zicsr",
+-					       "zifencei", "zihpm";
+-
+-			cpu0_intc: interrupt-controller {
+-				compatible = "riscv,cpu-intc";
+-				interrupt-controller;
+-				#interrupt-cells = <1>;
+-			};
+-		};
+-	};
+-
+ 	osc: oscillator {
+ 		compatible = "fixed-clock";
+ 		clock-output-names = "osc_25m";
+ 		#clock-cells = <0>;
+ 	};
+ 
+-	soc {
++	soc: soc {
+ 		compatible = "simple-bus";
+-		interrupt-parent = <&plic>;
+ 		#address-cells = <1>;
+ 		#size-cells = <1>;
+-		dma-noncoherent;
+ 		ranges;
+ 
+ 		clk: clock-controller@3002000 {
+@@ -75,7 +44,7 @@ porta: gpio-controller@0 {
+ 				reg = <0>;
+ 				interrupt-controller;
+ 				#interrupt-cells = <2>;
+-				interrupts = <60 IRQ_TYPE_LEVEL_HIGH>;
++				interrupts = <SOC_PERIPHERAL_IRQ(44) IRQ_TYPE_LEVEL_HIGH>;
+ 			};
+ 		};
+ 
+@@ -93,7 +62,7 @@ portb: gpio-controller@0 {
+ 				reg = <0>;
+ 				interrupt-controller;
+ 				#interrupt-cells = <2>;
+-				interrupts = <61 IRQ_TYPE_LEVEL_HIGH>;
++				interrupts = <SOC_PERIPHERAL_IRQ(45) IRQ_TYPE_LEVEL_HIGH>;
+ 			};
+ 		};
+ 
+@@ -111,7 +80,7 @@ portc: gpio-controller@0 {
+ 				reg = <0>;
+ 				interrupt-controller;
+ 				#interrupt-cells = <2>;
+-				interrupts = <62 IRQ_TYPE_LEVEL_HIGH>;
++				interrupts = <SOC_PERIPHERAL_IRQ(46) IRQ_TYPE_LEVEL_HIGH>;
+ 			};
+ 		};
+ 
+@@ -129,7 +98,7 @@ portd: gpio-controller@0 {
+ 				reg = <0>;
+ 				interrupt-controller;
+ 				#interrupt-cells = <2>;
+-				interrupts = <63 IRQ_TYPE_LEVEL_HIGH>;
++				interrupts = <SOC_PERIPHERAL_IRQ(47) IRQ_TYPE_LEVEL_HIGH>;
+ 			};
+ 		};
+ 
+@@ -137,7 +106,7 @@ saradc: adc@30f0000 {
+ 			compatible = "sophgo,cv1800b-saradc";
+ 			reg = <0x030f0000 0x1000>;
+ 			clocks = <&clk CLK_SARADC>;
+-			interrupts = <100 IRQ_TYPE_LEVEL_HIGH>;
++			interrupts = <SOC_PERIPHERAL_IRQ(84) IRQ_TYPE_LEVEL_HIGH>;
+ 			#address-cells = <1>;
+ 			#size-cells = <0>;
+ 			status = "disabled";
+@@ -162,7 +131,7 @@ i2c0: i2c@4000000 {
+ 			#size-cells = <0>;
+ 			clocks = <&clk CLK_I2C>, <&clk CLK_APB_I2C0>;
+ 			clock-names = "ref", "pclk";
+-			interrupts = <49 IRQ_TYPE_LEVEL_HIGH>;
++			interrupts = <SOC_PERIPHERAL_IRQ(33) IRQ_TYPE_LEVEL_HIGH>;
+ 			status = "disabled";
+ 		};
+ 
+@@ -173,7 +142,7 @@ i2c1: i2c@4010000 {
+ 			#size-cells = <0>;
+ 			clocks = <&clk CLK_I2C>, <&clk CLK_APB_I2C1>;
+ 			clock-names = "ref", "pclk";
+-			interrupts = <50 IRQ_TYPE_LEVEL_HIGH>;
++			interrupts = <SOC_PERIPHERAL_IRQ(34) IRQ_TYPE_LEVEL_HIGH>;
+ 			status = "disabled";
+ 		};
+ 
+@@ -184,7 +153,7 @@ i2c2: i2c@4020000 {
+ 			#size-cells = <0>;
+ 			clocks = <&clk CLK_I2C>, <&clk CLK_APB_I2C2>;
+ 			clock-names = "ref", "pclk";
+-			interrupts = <51 IRQ_TYPE_LEVEL_HIGH>;
++			interrupts = <SOC_PERIPHERAL_IRQ(35) IRQ_TYPE_LEVEL_HIGH>;
+ 			status = "disabled";
+ 		};
+ 
+@@ -195,7 +164,7 @@ i2c3: i2c@4030000 {
+ 			#size-cells = <0>;
+ 			clocks = <&clk CLK_I2C>, <&clk CLK_APB_I2C3>;
+ 			clock-names = "ref", "pclk";
+-			interrupts = <52 IRQ_TYPE_LEVEL_HIGH>;
++			interrupts = <SOC_PERIPHERAL_IRQ(36) IRQ_TYPE_LEVEL_HIGH>;
+ 			status = "disabled";
+ 		};
+ 
+@@ -206,14 +175,14 @@ i2c4: i2c@4040000 {
+ 			#size-cells = <0>;
+ 			clocks = <&clk CLK_I2C>, <&clk CLK_APB_I2C4>;
+ 			clock-names = "ref", "pclk";
+-			interrupts = <53 IRQ_TYPE_LEVEL_HIGH>;
++			interrupts = <SOC_PERIPHERAL_IRQ(37) IRQ_TYPE_LEVEL_HIGH>;
+ 			status = "disabled";
+ 		};
+ 
+ 		uart0: serial@4140000 {
+ 			compatible = "snps,dw-apb-uart";
+ 			reg = <0x04140000 0x100>;
+-			interrupts = <44 IRQ_TYPE_LEVEL_HIGH>;
++			interrupts = <SOC_PERIPHERAL_IRQ(28) IRQ_TYPE_LEVEL_HIGH>;
+ 			clocks = <&clk CLK_UART0>, <&clk CLK_APB_UART0>;
+ 			clock-names = "baudclk", "apb_pclk";
+ 			reg-shift = <2>;
+@@ -224,7 +193,7 @@ uart0: serial@4140000 {
+ 		uart1: serial@4150000 {
+ 			compatible = "snps,dw-apb-uart";
+ 			reg = <0x04150000 0x100>;
+-			interrupts = <45 IRQ_TYPE_LEVEL_HIGH>;
++			interrupts = <SOC_PERIPHERAL_IRQ(29) IRQ_TYPE_LEVEL_HIGH>;
+ 			clocks = <&clk CLK_UART1>, <&clk CLK_APB_UART1>;
+ 			clock-names = "baudclk", "apb_pclk";
+ 			reg-shift = <2>;
+@@ -235,7 +204,7 @@ uart1: serial@4150000 {
+ 		uart2: serial@4160000 {
+ 			compatible = "snps,dw-apb-uart";
+ 			reg = <0x04160000 0x100>;
+-			interrupts = <46 IRQ_TYPE_LEVEL_HIGH>;
++			interrupts = <SOC_PERIPHERAL_IRQ(30) IRQ_TYPE_LEVEL_HIGH>;
+ 			clocks = <&clk CLK_UART2>, <&clk CLK_APB_UART2>;
+ 			clock-names = "baudclk", "apb_pclk";
+ 			reg-shift = <2>;
+@@ -246,7 +215,7 @@ uart2: serial@4160000 {
+ 		uart3: serial@4170000 {
+ 			compatible = "snps,dw-apb-uart";
+ 			reg = <0x04170000 0x100>;
+-			interrupts = <47 IRQ_TYPE_LEVEL_HIGH>;
++			interrupts = <SOC_PERIPHERAL_IRQ(31) IRQ_TYPE_LEVEL_HIGH>;
+ 			clocks = <&clk CLK_UART3>, <&clk CLK_APB_UART3>;
+ 			clock-names = "baudclk", "apb_pclk";
+ 			reg-shift = <2>;
+@@ -261,7 +230,7 @@ spi0: spi@4180000 {
+ 			#size-cells = <0>;
+ 			clocks = <&clk CLK_SPI>, <&clk CLK_APB_SPI0>;
+ 			clock-names = "ssi_clk", "pclk";
+-			interrupts = <54 IRQ_TYPE_LEVEL_HIGH>;
++			interrupts = <SOC_PERIPHERAL_IRQ(38) IRQ_TYPE_LEVEL_HIGH>;
+ 			status = "disabled";
+ 		};
+ 
+@@ -272,7 +241,7 @@ spi1: spi@4190000 {
+ 			#size-cells = <0>;
+ 			clocks = <&clk CLK_SPI>, <&clk CLK_APB_SPI1>;
+ 			clock-names = "ssi_clk", "pclk";
+-			interrupts = <55 IRQ_TYPE_LEVEL_HIGH>;
++			interrupts = <SOC_PERIPHERAL_IRQ(39) IRQ_TYPE_LEVEL_HIGH>;
+ 			status = "disabled";
+ 		};
+ 
+@@ -283,7 +252,7 @@ spi2: spi@41a0000 {
+ 			#size-cells = <0>;
+ 			clocks = <&clk CLK_SPI>, <&clk CLK_APB_SPI2>;
+ 			clock-names = "ssi_clk", "pclk";
+-			interrupts = <56 IRQ_TYPE_LEVEL_HIGH>;
++			interrupts = <SOC_PERIPHERAL_IRQ(40) IRQ_TYPE_LEVEL_HIGH>;
+ 			status = "disabled";
+ 		};
+ 
+@@ -294,14 +263,14 @@ spi3: spi@41b0000 {
+ 			#size-cells = <0>;
+ 			clocks = <&clk CLK_SPI>, <&clk CLK_APB_SPI3>;
+ 			clock-names = "ssi_clk", "pclk";
+-			interrupts = <57 IRQ_TYPE_LEVEL_HIGH>;
++			interrupts = <SOC_PERIPHERAL_IRQ(41) IRQ_TYPE_LEVEL_HIGH>;
+ 			status = "disabled";
+ 		};
+ 
+ 		uart4: serial@41c0000 {
+ 			compatible = "snps,dw-apb-uart";
+ 			reg = <0x041c0000 0x100>;
+-			interrupts = <48 IRQ_TYPE_LEVEL_HIGH>;
++			interrupts = <SOC_PERIPHERAL_IRQ(32) IRQ_TYPE_LEVEL_HIGH>;
+ 			clocks = <&clk CLK_UART4>, <&clk CLK_APB_UART4>;
+ 			clock-names = "baudclk", "apb_pclk";
+ 			reg-shift = <2>;
+@@ -312,7 +281,7 @@ uart4: serial@41c0000 {
+ 		sdhci0: mmc@4310000 {
+ 			compatible = "sophgo,cv1800b-dwcmshc";
+ 			reg = <0x4310000 0x1000>;
+-			interrupts = <36 IRQ_TYPE_LEVEL_HIGH>;
++			interrupts = <SOC_PERIPHERAL_IRQ(20) IRQ_TYPE_LEVEL_HIGH>;
+ 			clocks = <&clk CLK_AXI4_SD0>,
+ 				 <&clk CLK_SD0>;
+ 			clock-names = "core", "bus";
+@@ -322,7 +291,7 @@ sdhci0: mmc@4310000 {
+ 		sdhci1: mmc@4320000 {
+ 			compatible = "sophgo,cv1800b-dwcmshc";
+ 			reg = <0x4320000 0x1000>;
+-			interrupts = <38 IRQ_TYPE_LEVEL_HIGH>;
++			interrupts = <SOC_PERIPHERAL_IRQ(22) IRQ_TYPE_LEVEL_HIGH>;
+ 			clocks = <&clk CLK_AXI4_SD1>,
+ 				 <&clk CLK_SD1>;
+ 			clock-names = "core", "bus";
+@@ -332,7 +301,7 @@ sdhci1: mmc@4320000 {
+ 		dmac: dma-controller@4330000 {
+ 			compatible = "snps,axi-dma-1.01a";
+ 			reg = <0x04330000 0x1000>;
+-			interrupts = <29 IRQ_TYPE_LEVEL_HIGH>;
++			interrupts = <SOC_PERIPHERAL_IRQ(13) IRQ_TYPE_LEVEL_HIGH>;
+ 			clocks = <&clk CLK_SDMA_AXI>, <&clk CLK_SDMA_AXI>;
+ 			clock-names = "core-clk", "cfgr-clk";
+ 			#dma-cells = <1>;
+@@ -344,19 +313,5 @@ dmac: dma-controller@4330000 {
+ 			snps,data-width = <4>;
+ 			status = "disabled";
+ 		};
+-
+-		plic: interrupt-controller@70000000 {
+-			reg = <0x70000000 0x4000000>;
+-			interrupts-extended = <&cpu0_intc 11>, <&cpu0_intc 9>;
+-			interrupt-controller;
+-			#address-cells = <0>;
+-			#interrupt-cells = <2>;
+-			riscv,ndev = <101>;
+-		};
+-
+-		clint: timer@74000000 {
+-			reg = <0x74000000 0x10000>;
+-			interrupts-extended = <&cpu0_intc 3>, <&cpu0_intc 7>;
+-		};
+ 	};
+ };
+diff --git a/arch/riscv/boot/dts/sophgo/sg2002.dtsi b/arch/riscv/boot/dts/sophgo/sg2002.dtsi
+index 7f79de33163c..732d0e72cf13 100644
+--- a/arch/riscv/boot/dts/sophgo/sg2002.dtsi
++++ b/arch/riscv/boot/dts/sophgo/sg2002.dtsi
+@@ -3,6 +3,8 @@
+  * Copyright (C) 2024 Thomas Bonnefille <thomas.bonnefille@bootlin.com>
+  */
+ 
++#define SOC_PERIPHERAL_IRQ(nr)	((nr) + 16)
++
+ #include <dt-bindings/interrupt-controller/irq.h>
+ #include <dt-bindings/pinctrl/pinctrl-sg2002.h>
+ #include "cv18xx.dtsi"
+@@ -16,22 +18,62 @@ memory@80000000 {
+ 		reg = <0x80000000 0x10000000>;
+ 	};
+ 
+-	soc {
+-		pinctrl: pinctrl@3001000 {
+-			compatible = "sophgo,sg2002-pinctrl";
+-			reg = <0x03001000 0x1000>,
+-			      <0x05027000 0x1000>;
+-			reg-names = "sys", "rtc";
++	cpus: cpus {
++		#address-cells = <1>;
++		#size-cells = <0>;
++		timebase-frequency = <25000000>;
++
++		cpu0: cpu@0 {
++			compatible = "thead,c906", "riscv";
++			device_type = "cpu";
++			reg = <0>;
++			d-cache-block-size = <64>;
++			d-cache-sets = <512>;
++			d-cache-size = <65536>;
++			i-cache-block-size = <64>;
++			i-cache-sets = <128>;
++			i-cache-size = <32768>;
++			mmu-type = "riscv,sv39";
++			riscv,isa = "rv64imafdc";
++			riscv,isa-base = "rv64i";
++			riscv,isa-extensions = "i", "m", "a", "f", "d", "c", "zicntr", "zicsr",
++					       "zifencei", "zihpm";
++
++			cpu0_intc: interrupt-controller {
++				compatible = "riscv,cpu-intc";
++				interrupt-controller;
++				#interrupt-cells = <1>;
++			};
+ 		};
+ 	};
+ };
+ 
+-&plic {
+-	compatible = "sophgo,sg2002-plic", "thead,c900-plic";
+-};
++&soc {
++	interrupt-parent = <&plic>;
++	dma-noncoherent;
+ 
+-&clint {
+-	compatible = "sophgo,sg2002-clint", "thead,c900-clint";
++	pinctrl: pinctrl@3001000 {
++		compatible = "sophgo,sg2002-pinctrl";
++		reg = <0x03001000 0x1000>,
++		      <0x05027000 0x1000>;
++		reg-names = "sys", "rtc";
++	};
++
++	plic: interrupt-controller@70000000 {
++		compatible = "sophgo,sg2002-plic", "thead,c900-plic";
++		reg = <0x70000000 0x4000000>;
++		interrupts-extended = <&cpu0_intc 11>, <&cpu0_intc 9>;
++		interrupt-controller;
++		#address-cells = <0>;
++		#interrupt-cells = <2>;
++		riscv,ndev = <101>;
++	};
++
++	clint: timer@74000000 {
++		compatible = "sophgo,sg2002-clint", "thead,c900-clint";
++		reg = <0x74000000 0x10000>;
++		interrupts-extended = <&cpu0_intc 3>, <&cpu0_intc 7>;
++	};
+ };
+ 
+ &clk {
 -- 
 2.48.1
 
