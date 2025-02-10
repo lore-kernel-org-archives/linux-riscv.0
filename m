@@ -4,71 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C68AC0219E
-	for <linux-riscv@archiver.kernel.org>; Mon, 10 Feb 2025 17:10:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 47710C02198
+	for <linux-riscv@archiver.kernel.org>; Mon, 10 Feb 2025 17:11:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:To:From:Subject:References:Mime-Version
 	:Message-Id:In-Reply-To:Date:Reply-To:Cc:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=zerDs0oul3D7N8giKqnE5e89/rqrGvDNSMTQl10RdHU=; b=cjnrcJZKF3JA/I
-	0C6Gfa3TBwsWJS+82fTtjlXaYoZcGhLDvCXUrVXkloJbK2KLFdIXU4rz+4OthCacI4r4oyjvcUICK
-	BO4fV240ankHkjU2mFrRTdDThCwh4KVftJaqvHS+pBl55SazRtlpoxg6r80fhmE45Q3n2/nXOIDj2
-	b+7foXWpkR01s3Ukjj3nU13te/U5U9Pm9q5QVzxo2WdoivT77iH8l426wOQYh0PiwTUKo3NqpvgIx
-	YpBXIVgxceQBP6RlYGtFqBcRczgGRCxzp+dv6Gwxm0K2JuygwoXxlZUVHNtTFLQQ9ydaLTrRA1pwc
-	rKu8trZSSzS8ygjOs0Lg==;
+	List-Owner; bh=y3t2L3WWeEPUEibCbceEqTv+Dql/9t/CD4gn8sQwoPQ=; b=oC2dXsVMv5uW6q
+	nS8gopv9rBXGrmdSOlCTjfqEPG3+sU/DnELQqEHsyJ98hO8OtEajMuBY12nW01nc32gSLoxjleR3E
+	JZI7BVVQtN3ZctOb4LJuA8+SNaC/beZdVgSSljwJ9zqNi5wz0ZDs9ZaLssKjXFHdWBWW5whhT+yZK
+	eXLThnS+rZxPjeeLs0tr+iFeka1Lb+3QyfF84WkU4isX4GVIzcUikv9Wa0vdXo3karo/Jb1SPPCw8
+	nWBVOSzLs6xwed389Jvc2XFHxwDJmDsQK1IrbY9DMjvUAg04x3P9NUaob0KUTJ6V6qmSHeqGxlCjk
+	Z6tIOhtZ9SYaCqMJ8iUA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1thXIT-00000000f9m-07RQ;
-	Mon, 10 Feb 2025 17:10:13 +0000
-Received: from mail-yb1-xb4a.google.com ([2607:f8b0:4864:20::b4a])
+	id 1thXJq-00000000fcd-1CNo;
+	Mon, 10 Feb 2025 17:11:38 +0000
+Received: from mail-yb1-xb49.google.com ([2607:f8b0:4864:20::b49])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1thX0J-00000000b2D-3E6B
+	id 1thX0L-00000000b3m-3nMJ
 	for linux-riscv@lists.infradead.org;
-	Mon, 10 Feb 2025 16:51:29 +0000
-Received: by mail-yb1-xb4a.google.com with SMTP id 3f1490d57ef6-e5b3e826560so5659016276.0
-        for <linux-riscv@lists.infradead.org>; Mon, 10 Feb 2025 08:51:27 -0800 (PST)
+	Mon, 10 Feb 2025 16:51:31 +0000
+Received: by mail-yb1-xb49.google.com with SMTP id 3f1490d57ef6-e5b23bf2c03so6756920276.1
+        for <linux-riscv@lists.infradead.org>; Mon, 10 Feb 2025 08:51:29 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1739206286; x=1739811086; darn=lists.infradead.org;
-        h=content-transfer-encoding:to:from:subject:references:mime-version
-         :message-id:in-reply-to:date:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=cHZk9QJkCVx2MAUg+NiMOlXRVA2mMMZIpSayEvNziYs=;
-        b=WuEjxSceGP2/xBmWWFyfn+EACxPOWrc51VB1rMGPB6sKEhgDVhIXGQp4HdzBZ+6E9o
-         q4+k8JQSFGzCrmNaKHzK9JkL1OP1OIuGG+Mpb0ZKqzP5yzzAxdYoRfPu3/5fGjTXx+BY
-         1J44psLvCToDYOfXAs7z/w/bnKGrIm/eCMqsu1lZNM59pDUkLbmTSpcUlnkcg1MyLB7o
-         AUVJs+k8eiJ4BSd1ASve3RNpaQuWV/t1QGfQD1mzsPjTEU1Gqk6ToYhYksli+Phw5uC8
-         nabk3c70blg1huknWaZ6E7a4//v+wQLw6AZxkkosi6lwFKPfTRe65hKKylLPi86PEo8L
-         0Qqg==
+        d=google.com; s=20230601; t=1739206288; x=1739811088; darn=lists.infradead.org;
+        h=to:from:subject:references:mime-version:message-id:in-reply-to:date
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=/qbAeqzqFuK9ccZYjyEtk2/tBbmWNu+lXtnlO1Us84o=;
+        b=3Ky3nj+0B4y+CFVECCDXn8yg1Vt1sfOYBMxSdx5PJLbXFX865xodbnGAMyla3/Yzzl
+         nH8VU1yWxP8U+h21xGGcSmv7J3CoVjA+ltKcVxOYcwecSwmcYWJbDFEuNneyCvwBqT8I
+         C2FuhtVF8Ia62iz7f9zDtge5i73ys2NdpGsmUABFvsS4KjZGlQm55mfuAIFg2t0BXUoI
+         nUhEjDnduFAdtOK0pmsF2vFNvF4PKyizfoeljEIxZennOXsbDoUdXo7I1Ly8mpyMl3Vr
+         YjxG7UtW9E3JcCnmSxhmxeMW2TFYzf8Wxs1o8MpTQPPtbSKv+aLiNdFGTVM1IPVP7YOk
+         +Whw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1739206286; x=1739811086;
-        h=content-transfer-encoding:to:from:subject:references:mime-version
-         :message-id:in-reply-to:date:x-gm-message-state:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=cHZk9QJkCVx2MAUg+NiMOlXRVA2mMMZIpSayEvNziYs=;
-        b=gOhP1fPXRnRH/vKSwyFlxTvyp9VfGAdoYqB8yCo00+Q6JOjagz2v4GcekOjlrLTaR3
-         nBhNjKGwKl3TdQCYLAClh4yOTiDKq96OfcbOdpoK5fY6X0lG8h4dkQGB9EZj3CKedgXR
-         bBzYgONc+aHhuxtuo/M6KIfW4q3TR19WGB+K0Qd6gRsNkLPXhzM/EX+MvvSEzPrXNZIn
-         jRHsQ6rObdmuEZNJ3xtspgsooZMDDRHhCuReD1GrqnZR9G1es7X90fuQEhnctUUqYI+x
-         vu9Xio5LC2RJecIbJb3EgmnPZpYiMrxd9+qASTbkmao2miTLRLDtAWJDQoX/waGh4yol
-         HbJQ==
-X-Forwarded-Encrypted: i=1; AJvYcCW2vjFtMz1kwnjqGYbmWR+ZnPl528Xtmz+CTrPyHM0XMBqPawAkirLGPsxMtBJREtQBiGI8ZK9UXlG9qg==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzs8ETjQ16/iKWmc7sXVvqReEPCHL/E9+HmeLsf7BKPiURCjdwe
-	IhZvjHEo5f8kONI5COqrrh3utwSWrfeq1p6Lk88xD+9HHqEjiKQWAAKJYU0eondYqLxsHBjKRjB
-	9wfbV7w==
-X-Google-Smtp-Source: AGHT+IEfkmVO7KHqhXgeOUlT/jGvE3tyf+z8IVFUZ31wfmVLxFdT4+2f+pJuEDpGZS4x7jimPZhod+DT8Ca/
+        d=1e100.net; s=20230601; t=1739206288; x=1739811088;
+        h=to:from:subject:references:mime-version:message-id:in-reply-to:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=/qbAeqzqFuK9ccZYjyEtk2/tBbmWNu+lXtnlO1Us84o=;
+        b=S6nl2iMx0COnBR/bp4+tEgA1wu8UCgvlorOKNZoXd2s8Sv856uXaEzcOOnAJctPVAk
+         EzqGk5SZ0diOZIjWuLUWIDH9wccAlpGIZrQDvpBnRWnyFEcEnVadlBqgmg0uHGA1IVEW
+         TpRtrezN6vOlk37Qut0mZkcaA/In4Oc7WG2Q8iYNtnaJEFBOjYoLfAp6vyOrMuzzzwWG
+         zoUu039Y1kzyoNbpKyjInjE58F08Uc6pdw/XWCcfEGlPMrY1Ens8SkRLhyG6GnwFIP1j
+         xbdBm2Iz/c3JIlSWAhFhhDgc/3sh+Y7pwpxzui32lTbJPNu1nW/pONv7UsO9fauZbjmt
+         WcNw==
+X-Forwarded-Encrypted: i=1; AJvYcCUepNVApG/M63ms0FqUAMnqQv10VjV0rZVdRFkOtJGU/VHcSVaoHjozSMieO+yEKQ2l4RfO4Gc4HZZ4lg==@lists.infradead.org
+X-Gm-Message-State: AOJu0YxG1zzc4Y+zXw/GD+hnn9kvxC6R8IG3aG3OhsQRqikToceF+CxW
+	536LR4Jqt3bKuaU3mD33f07EfG3jV9pUnXm7pkdCqD9kUjIYSRY+vM08C5Rk4t6zv4nJZ+PqA8d
+	ywHCvXg==
+X-Google-Smtp-Source: AGHT+IH9FVvvr22m2kfb1GzzDu2WuLJtHfs+stVHlt1+J7P61lRRX4KaORgj3A6+Fcm6vF3ZhKIzvj5oaOz9
 X-Received: from irogers.svl.corp.google.com ([2620:15c:2c5:11:c64e:af58:30d4:168d])
- (user=irogers job=sendgmr) by 2002:a25:ba8e:0:b0:e57:fb93:606 with SMTP id
- 3f1490d57ef6-e5b46068c3bmr111973276.0.1739206286596; Mon, 10 Feb 2025
- 08:51:26 -0800 (PST)
-Date: Mon, 10 Feb 2025 08:51:07 -0800
+ (user=irogers job=sendgmr) by 2002:a25:2d04:0:b0:e5b:3ada:41dd with SMTP id
+ 3f1490d57ef6-e5d93c7ece2mr1824276.3.1739206288496; Mon, 10 Feb 2025 08:51:28
+ -0800 (PST)
+Date: Mon, 10 Feb 2025 08:51:08 -0800
 In-Reply-To: <20250210165108.95894-1-irogers@google.com>
-Message-Id: <20250210165108.95894-7-irogers@google.com>
+Message-Id: <20250210165108.95894-8-irogers@google.com>
 Mime-Version: 1.0
 References: <20250210165108.95894-1-irogers@google.com>
 X-Mailer: git-send-email 2.48.1.502.g6dc24dfdaf-goog
-Subject: [PATCH v2 6/7] perf syscalltbl: Use lookup table containing multiple architectures
+Subject: [PATCH v2 7/7] perf build: Remove Makefile.syscalls
 From: Ian Rogers <irogers@google.com>
 To: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
 	Arnaldo Carvalho de Melo <acme@kernel.org>, Namhyung Kim <namhyung@kernel.org>, 
@@ -86,8 +84,8 @@ To: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>,
 	linux-perf-users@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
 	linux-csky@vger.kernel.org, linux-riscv@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250210_085127_812429_F087B908 
-X-CRM114-Status: GOOD (  17.89  )
+X-CRM114-CacheID: sfid-20250210_085129_952245_CA9A24CD 
+X-CRM114-Status: GOOD (  13.21  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,190 +97,544 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-U3dpdGNoIHRvIHVzZSB0aGUgbG9va3VwIHRhYmxlIGNvbnRhaW5pbmcgYWxsIGFyY2hpdGVjdHVy
-ZXMgcmF0aGVyCnRoYW4gdGFibGVzIG1hdGNoaW5nIHRoZSBwZXJmIGJpbmFyeS4KClRoaXMgZml4
-ZXMgcGVyZiB0cmFjZSB3aGVuIGV4ZWN1dGVkIG9uIGEgMzItYml0IGkzODYgYmluYXJ5IG9uIGFu
-Cng4Ni02NCBtYWNoaW5lLiBOb3RlIGluIHRoZSBmb2xsb3dpbmcgdGhlIHN5c3RlbSBjYWxsIG5h
-bWVzIG9mIHRoZQozMi1iaXQgaTM4NiBiaW5hcnkgYXMgc2VlbiBieSBhbiB4ODYtNjQgcGVyZi4K
-CkJlZm9yZToKYGBgCiAgICAgICAgID8gKCAgICAgICAgICk6IGEub3V0LzQ0NzI5NiAgLi4uIFtj
-b250aW51ZWRdOiBtdW5tYXAoKSkgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
-ICAgICAgPSAwCiAgICAgMC4wMjQgKCAwLjAwMSBtcyk6IGEub3V0LzQ0NzI5NiByZWN2ZnJvbSh1
-YnVmOiAweDIsIHNpemU6IDQxNjA1ODU3MDgsIGZsYWdzOiBET05UUk9VVEV8Q1RSVU5DfFRSVU5D
-fERPTlRXQUlUfEVPUnxXQUlUQUxMfEZJTnxTWU58Q09ORklSTXxSU1R8RVJSUVVFVUV8Tk9TSUdO
-QUx8V0FJVEZPUk9ORXxCQVRDSHxTT0NLX0RFVk1FTXxaRVJPQ09QWXxGQVNUT1BFTnxDTVNHX0NM
-T0VYRUN8MHg5MWY4MDAwMCwgYWRkcjogMHhlMzAsIGFkZHJfbGVuOiAweGZmY2U0MzhjKSA9IDE0
-NzUxOTg5NzYKICAgICAwLjA0MiAoIDAuMDAzIG1zKTogYS5vdXQvNDQ3Mjk2IGxnZXR4YXR0cihu
-YW1lOiAiIiwgdmFsdWU6IDB4Mywgc2l6ZTogMzQpICAgICAgICAgICAgICAgICAgICAgICAgICAg
-ICA9IDQxNjAzNDQwNjQKICAgICAwLjA1NCAoIDAuMDAzIG1zKTogYS5vdXQvNDQ3Mjk2IGR1cDIo
-b2xkZmQ6IC0xMzQ0MjI3NDQsIG5ld2ZkOiA0KSAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
-ICAgICAgICA9IC0xIEVOT0VOVCAoTm8gc3VjaCBmaWxlIG9yIGRpcmVjdG9yeSkKICAgICAwLjA2
-MCAoIDAuMDA5IG1zKTogYS5vdXQvNDQ3Mjk2IHByZWFkdihmZDogNDI5NDk2NzE5NiwgdmVjOiAo
-c3RydWN0IGlvdmVjKXsuaW92X2Jhc2UgPSAodm9pZCAqKTB4MmU2NDZjMmY2Mzc0NjUyZiwuaW92
-X2xlbiA9IChfX2tlcm5lbF9zaXplX3QpNzMwNzE5OTY2NTMzNTU5NDg2Nyx9LCB2bGVuOiA1NTcw
-NTYsIHBvc19oOiA0MTYwNTg1NzA4KSA9IDMKICAgICAwLjA3NCAoIDAuMDA0IG1zKTogYS5vdXQv
-NDQ3Mjk2IGxnZXR4YXR0cihuYW1lOiAiIiwgdmFsdWU6IDB4MSwgc2l6ZTogMikgICAgICAgICAg
-ICAgICAgICAgICAgICAgICAgICA9IDQxNjAyMzc1NjgKICAgICAwLjA4MCAoIDAuMDAxIG1zKTog
-YS5vdXQvNDQ3Mjk2IGxzdGF0KGZpbGVuYW1lOiAiIiwgc3RhdGJ1ZjogMHgxOTNmNikgICAgICAg
-ICAgICAgICAgICAgICAgICAgICAgICAgICA9IDAKICAgICAwLjA4OSAoIDAuMDA3IG1zKTogYS5v
-dXQvNDQ3Mjk2IHByZWFkdihmZDogNDI5NDk2NzE5NiwgdmVjOiAoc3RydWN0IGlvdmVjKXsuaW92
-X2Jhc2UgPSAodm9pZCAqKTB4MzgzMzY5MmY2MjY5NmMyZiwuaW92X2xlbiA9IChfX2tlcm5lbF9z
-aXplX3QpMzI3NjQ5Nzg0NTk4NzU4NTMzNCx9LCB2bGVuOiA1NTcwNTYsIHBvc19oOiA0MTYwNTg1
-NzA4KSA9IDMKICAgICAwLjA5NyAoIDAuMDAyIG1zKTogYS5vdXQvNDQ3Mjk2IGNsb3NlKGZkOiAz
-PC9wcm9jLzQ0NzI5Ni9zdGF0dXM+KSAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
-ICA9IDUxMgogICAgIDAuMTAzICggMC4wMDIgbXMpOiBhLm91dC80NDcyOTYgbGdldHhhdHRyKG5h
-bWU6ICIiLCB2YWx1ZTogMHgxLCBzaXplOiAyMDUwKSAgICAgICAgICAgICAgICAgICAgICAgICAg
-ID0gNDE1NzkzNTYxNgogICAgIDAuMTA3ICggMC4wMDcgbXMpOiBhLm91dC80NDcyOTYgbGdldHhh
-dHRyKHBhdGhuYW1lOiAiIiwgbmFtZTogIiIsIHZhbHVlOiAweDUsIHNpemU6IDIwNjYpICAgICAg
-ICAgICAgID0gNDE1ODA3ODk3NgogICAgIDAuMTE2ICggMC4wMDMgbXMpOiBhLm91dC80NDcyOTYg
-bGdldHhhdHRyKHBhdGhuYW1lOiAiIiwgbmFtZTogIiIsIHZhbHVlOiAweDEsIHNpemU6IDIwNjYp
-ICAgICAgICAgICAgID0gNDE1OTYzOTU1MgogICAgIDAuMTIxICggMC4wMDMgbXMpOiBhLm91dC80
-NDcyOTYgbGdldHhhdHRyKHBhdGhuYW1lOiAiIiwgbmFtZTogIiIsIHZhbHVlOiAweDMsIHNpemU6
-IDIwNjYpICAgICAgICAgICAgID0gNDE2MDE4NDMyMAogICAgIDAuMTI5ICggMC4wMDIgbXMpOiBh
-Lm91dC80NDcyOTYgbGdldHhhdHRyKHBhdGhuYW1lOiAiIiwgbmFtZTogIiIsIHZhbHVlOiAweDMs
-IHNpemU6IDUwKSAgICAgICAgICAgICAgID0gNDE2MDE5NjYwOAogICAgIDAuMTM4ICggMC4wMDEg
-bXMpOiBhLm91dC80NDcyOTYgbHN0YXQoZmlsZW5hbWU6ICIiKSAgICAgICAgICAgICAgICAgICAg
-ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgID0gMAogICAgIDAuMTQ1ICggMC4wMDIgbXMp
-OiBhLm91dC80NDcyOTYgbXFfdGltZWRyZWNlaXZlKG1xZGVzOiA0MjkxNzA2ODAwLCB1X21zZ19w
-dHI6IDB4ZjdmOWVhNDgsIG1zZ19sZW46IDEzNDYxNjY0MCwgdV9tc2dfcHJpbzogMHhmN2ZkN2Zl
-YywgdV9hYnNfdGltZW91dDogKHN0cnVjdCBfX2tlcm5lbF90aW1lc3BlYyl7LnR2X3NlYyA9IChf
-X2tlcm5lbF90aW1lNjRfdCktNTc4MTc0MDI3Nzc3MzE3Njk2LC50dl9uc2VjID0gKGxvbmcgbG9u
-ZyBpbnQpNDE2MDM0OTM3Nix9KSA9IDAKICAgICAwLjE0OCAoIDAuMDAxIG1zKTogYS5vdXQvNDQ3
-Mjk2IG1rZGlyYXQoZGZkOiAtMTM0NjE3ODE2LCBwYXRobmFtZTogIiDvv73vv73vv70g77+977+9
-77+94paS77+977+977+94paS77+977+977+9IiwgbW9kZTogSUZSRUd8SVNVSUR8SVJVU1J8SVdH
-UlB8MHhmN2ZkMDAwMCkgPSA0NDcyOTYKICAgICAwLjE1MCAoIDAuMDAxIG1zKTogYS5vdXQvNDQ3
-Mjk2IHByb2Nlc3Nfdm1fd3JpdGV2KHBpZDogLTEzNDYxNzgxMiwgbHZlYzogKHN0cnVjdCBpb3Zl
-Yyl7Lmlvdl9iYXNlID0gKHZvaWQgKikweGY3ZjllOWM4ZjdmOWU0YzAsLmlvdl9sZW4gPSAoX19r
-ZXJuZWxfc2l6ZV90KTQxNjAzNDkzNzYsfSwgbGlvdmNudDogNDE2MDU4ODA0OCwgcnZlYzogKHN0
-cnVjdCBpb3ZlYyl7fSwgcmlvdmNudDogNDE2MDU4NTcwOCwgZmxhZ3M6IDQyOTE3MDczNTIpID0g
-MAogICAgIDAuMTk3ICggMC4wMDQgbXMpOiBhLm91dC80NDcyOTYgY2FwZ2V0KGhlYWRlcjogNDE2
-MDE4NDMyMCwgZGF0YXB0cjogODE5MikgICAgICAgICAgICAgICAgICAgICAgICAgICAgID0gMAog
-ICAgIDAuMjAyICggMC4wMDIgbXMpOiBhLm91dC80NDcyOTYgY2FwZ2V0KGhlYWRlcjogMTQ0ODY2
-OTE4NCwgZGF0YXB0cjogNDA5NikgICAgICAgICAgICAgICAgICAgICAgICAgICAgID0gMAogICAg
-IDAuMjA4ICggMC4wMDIgbXMpOiBhLm91dC80NDcyOTYgY2FwZ2V0KGhlYWRlcjogNDE2MDU3NzUz
-NiwgZGF0YXB0cjogODE5MikgICAgICAgICAgICAgICAgICAgICAgICAgICAgID0gMAogICAgIDAu
-MjIwICggMC4wMDEgbXMpOiBhLm91dC80NDcyOTYgZ2V0eGF0dHIocGF0aG5hbWU6ICIiLCBuYW1l
-OiAiY++/ve+/ve+/ve+/ve+/ve+/vSIsIHZhbHVlOiAweGY3Zjc3ZTM0LCBzaXplOiAxKSAgPSAw
-CiAgICAgMC4yMjggKCAwLjAwNSBtcyk6IGEub3V0LzQ0NzI5NiBmY2htb2QoZmQ6IC0xMzQ3Mjk3
-MjgsIG1vZGU6IElSVUdPfElXVUdPfElGUkVHfElGSUZPfElTVlRYfElYVVNSfDB4MTAwMDApID0g
-MAogICAgIDAuMjQwICggMC4wMDkgbXMpOiBhLm91dC80NDcyOTYgcHJlYWR2KGZkOiA0Mjk0OTY3
-MTk2LCB2ZWM6IDB4NTY1OGUwMDgsIHBvc19oOiA0MTYwMTkyMDUyKSAgICAgICAgICAgID0gMwog
-ICAgIDAuMjUwICggMC4wMDggbXMpOiBhLm91dC80NDcyOTYgY2xvc2UoZmQ6IDM8L3Byb2MvNDQ3
-Mjk2L3N0YXR1cz4pICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgID0gMTQzNgog
-ICAgIDAuMjYwICggMC4wMTggbXMpOiBhLm91dC80NDcyOTYgc3RhdChmaWxlbmFtZTogIiIsIHN0
-YXRidWY6IDB4ZmZjZTMyYWMpICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgID0gMTQzNgog
-ICAgIDAuMjg4ICgxMDAwLjIxMyBtcyk6IGEub3V0LzQ0NzI5NiByZWFkbGlua2F0KGJ1ZjogMHhm
-ZmNlMzFkNCwgYnVmc2l6OiA0MjkxNzAzMjQ0KSAgICAgICAgICAgICAgICAgICAgICAgPSAwCmBg
-YAoKQWZ0ZXI6CmBgYAogICAgICAgICA/ICggICAgICAgICApOiBhLm91dC80NDI5MzAgIC4uLiBb
-Y29udGludWVkXTogZXhlY3ZlKCkpICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
-ICAgICAgID0gMAogICAgIDAuMDIzICggMC4wMDIgbXMpOiBhLm91dC80NDI5MzAgYnJrKCkgICAg
-ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
-ICAgID0gMHg1Nzc2MDAwMAogICAgIDAuMDUyICggMC4wMDMgbXMpOiBhLm91dC80NDI5MzAgYWNj
-ZXNzKGZpbGVuYW1lOiAweGY3ZjVhZjI4LCBtb2RlOiBSKSAgICAgICAgICAgICAgICAgICAgICAg
-ICAgICAgICAgID0gLTEgRU5PRU5UIChObyBzdWNoIGZpbGUgb3IgZGlyZWN0b3J5KQogICAgIDAu
-MDU5ICggMC4wMDkgbXMpOiBhLm91dC80NDI5MzAgb3BlbmF0KGRmZDogQ1dELCBmaWxlbmFtZTog
-Ii9ldGMvbGQuc28uY2FjaGUiLCBmbGFnczogUkRPTkxZfENMT0VYRUN8TEFSR0VGSUxFKSA9IDMK
-ICAgICAwLjA3OCAoIDAuMDAxIG1zKTogYS5vdXQvNDQyOTMwIGNsb3NlKGZkOiAzPC9wcm9jLzQ0
-MjkzMC9zdGF0dXM+KSAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICA9IDAKICAg
-ICAwLjA4NyAoIDAuMDA3IG1zKTogYS5vdXQvNDQyOTMwIG9wZW5hdChkZmQ6IENXRCwgZmlsZW5h
-bWU6ICIvbGliL2kzODYtbGludXgtIiwgZmxhZ3M6IFJET05MWXxDTE9FWEVDfExBUkdFRklMRSkg
-PSAzCiAgICAgMC4wOTUgKCAwLjAwMiBtcyk6IGEub3V0LzQ0MjkzMCByZWFkKGZkOiAzPC9wcm9j
-LzQ0MjkzMC9zdGF0dXM+LCBidWY6IDB4ZmZiZGJiNzAsIGNvdW50OiA1MTIpICAgICAgICAgPSA1
-MTIKICAgICAwLjEzNSAoIDAuMDAxIG1zKTogYS5vdXQvNDQyOTMwIGNsb3NlKGZkOiAzPC9wcm9j
-LzQ0MjkzMC9zdGF0dXM+KSAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICA9IDAK
-ICAgICAwLjE0OCAoIDAuMDAxIG1zKTogYS5vdXQvNDQyOTMwIHNldF90aWRfYWRkcmVzcyh0aWRw
-dHI6IDB4ZjdmMmI1MjgpICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICA9IDQ0Mjkz
-MCAoYS5vdXQpCiAgICAgMC4xNTAgKCAwLjAwMSBtcyk6IGEub3V0LzQ0MjkzMCBzZXRfcm9idXN0
-X2xpc3QoaGVhZDogMHhmN2YyYjUyYywgbGVuOiAxMikgICAgICAgICAgICAgICAgICAgICAgICAg
-ICAgPQogICAgIDAuMTk2ICggMC4wMDQgbXMpOiBhLm91dC80NDI5MzAgbXByb3RlY3Qoc3RhcnQ6
-IDB4ZjdmMDMwMDAsIGxlbjogODE5MiwgcHJvdDogUkVBRCkgICAgICAgICAgICAgICAgICAgID0g
-MAogICAgIDAuMjAyICggMC4wMDIgbXMpOiBhLm91dC80NDI5MzAgbXByb3RlY3Qoc3RhcnQ6IDB4
-NTY1OGUwMDAsIGxlbjogNDA5NiwgcHJvdDogUkVBRCkgICAgICAgICAgICAgICAgICAgID0gMAog
-ICAgIDAuMjA3ICggMC4wMDIgbXMpOiBhLm91dC80NDI5MzAgbXByb3RlY3Qoc3RhcnQ6IDB4Zjdm
-NjMwMDAsIGxlbjogODE5MiwgcHJvdDogUkVBRCkgICAgICAgICAgICAgICAgICAgID0gMAogICAg
-IDAuMjMwICggMC4wMDUgbXMpOiBhLm91dC80NDI5MzAgbXVubWFwKGFkZHI6IDB4ZjdmMTAwMDAs
-IGxlbjogMTAzNDE0KSAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgID0gMAogICAgIDAu
-MjQ0ICggMC4wMTAgbXMpOiBhLm91dC80NDI5MzAgb3BlbmF0KGRmZDogQ1dELCBmaWxlbmFtZTog
-MHg1NjU4ZDAwOCkgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgID0gMwogICAgIDAuMjU1
-ICggMC4wMDcgbXMpOiBhLm91dC80NDI5MzAgcmVhZChmZDogMzwvcHJvYy80NDI5MzAvc3RhdHVz
-PiwgYnVmOiAweGZmYmRiNjdjLCBjb3VudDogNDA5NikgICAgICAgID0gMTQzNgogICAgIDAuMjY0
-ICggMC4wMTggbXMpOiBhLm91dC80NDI5MzAgd3JpdGUoZmQ6IDE8L2Rldi9wdHMvND4sIGJ1Zjog
-LCBjb3VudDogMTQzNikgICAgICAgICAgICAgICAgICAgICAgICAgID0gMTQzNgogICAgIDAuMjky
-ICgxMDAwLjE3MyBtcyk6IGEub3V0LzQ0MjkzMCBjbG9ja19uYW5vc2xlZXAocnF0cDogeyAudHZf
-c2VjOiAxNzg2NjU0Njk0MDM3Njc3NjcwNCwgLnR2X25zZWM6IDQxNTk4NzgzMzYgfSwgcm10cDog
-MHhmZmJkYjU5YykgPSAwCiAgMTAwMC40NzggKCAgICAgICAgICk6IGEub3V0LzQ0MjkzMCBleGl0
-X2dyb3VwKCkgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
-ICAgICAgICAgPSA/CmBgYAoKU2lnbmVkLW9mZi1ieTogSWFuIFJvZ2VycyA8aXJvZ2Vyc0Bnb29n
-bGUuY29tPgpSZXZpZXdlZC1ieTogSG93YXJkIENodSA8aG93YXJkY2h1OTVAZ21haWwuY29tPgot
-LS0KIHRvb2xzL3BlcmYvdXRpbC9zeXNjYWxsdGJsLmMgfCA4OSArKysrKysrKysrKysrKysrKysr
-KysrKysrKy0tLS0tLS0tLS0KIDEgZmlsZSBjaGFuZ2VkLCA2NCBpbnNlcnRpb25zKCspLCAyNSBk
-ZWxldGlvbnMoLSkKCmRpZmYgLS1naXQgYS90b29scy9wZXJmL3V0aWwvc3lzY2FsbHRibC5jIGIv
-dG9vbHMvcGVyZi91dGlsL3N5c2NhbGx0YmwuYwppbmRleCA3NjBhYzRkMDg2OWYuLmRiMGQyYjgx
-YWVkMSAxMDA2NDQKLS0tIGEvdG9vbHMvcGVyZi91dGlsL3N5c2NhbGx0YmwuYworKysgYi90b29s
-cy9wZXJmL3V0aWwvc3lzY2FsbHRibC5jCkBAIC0xNSwxNiArMTUsMzkgQEAKICNpbmNsdWRlIDxz
-dHJpbmcuaD4KICNpbmNsdWRlICJzdHJpbmcyLmgiCiAKLSNpZiBfX0JJVFNfUEVSX0xPTkcgPT0g
-NjQKLSAgI2luY2x1ZGUgPGFzbS9zeXNjYWxsc182NC5oPgotI2Vsc2UKLSAgI2luY2x1ZGUgPGFz
-bS9zeXNjYWxsc18zMi5oPgotI2VuZGlmCisjaW5jbHVkZSAidHJhY2UvYmVhdXR5L2dlbmVyYXRl
-ZC9zeXNjYWxsdGJsLmMiCiAKLWNvbnN0IGNoYXIgKnN5c2NhbGx0YmxfX25hbWUoaW50IGVfbWFj
-aGluZSBfX21heWJlX3VudXNlZCwgaW50IGlkKQorc3RhdGljIGNvbnN0IHN0cnVjdCBzeXNjYWxs
-dGJsICpmaW5kX3RhYmxlKGludCBlX21hY2hpbmUpCiB7Ci0JaWYgKGlkID49IDAgJiYgaWQgPD0g
-KGludClBUlJBWV9TSVpFKHN5c2NhbGxfbnVtX3RvX25hbWUpKQotCQlyZXR1cm4gc3lzY2FsbF9u
-dW1fdG9fbmFtZVtpZF07CisJc3RhdGljIGNvbnN0IHN0cnVjdCBzeXNjYWxsdGJsICpsYXN0X3Rh
-YmxlOworCXN0YXRpYyBpbnQgbGFzdF90YWJsZV9tYWNoaW5lID0gRU1fTk9ORTsKKworCS8qIFRh
-YmxlcyBvbmx5IGV4aXN0IGZvciBFTV9TUEFSQy4gKi8KKwlpZiAoZV9tYWNoaW5lID09IEVNX1NQ
-QVJDVjkpCisJCWVfbWFjaGluZSA9IEVNX1NQQVJDOworCisJaWYgKGxhc3RfdGFibGVfbWFjaGlu
-ZSA9PSBlX21hY2hpbmUgJiYgbGFzdF90YWJsZSAhPSBOVUxMKQorCQlyZXR1cm4gbGFzdF90YWJs
-ZTsKKworCWZvciAoc2l6ZV90IGkgPSAwOyBpIDwgQVJSQVlfU0laRShzeXNjYWxsdGJscyk7IGkr
-KykgeworCQljb25zdCBzdHJ1Y3Qgc3lzY2FsbHRibCAqZW50cnkgPSAmc3lzY2FsbHRibHNbaV07
-CisKKwkJaWYgKGVudHJ5LT5lX21hY2hpbmUgIT0gZV9tYWNoaW5lICYmIGVudHJ5LT5lX21hY2hp
-bmUgIT0gRU1fTk9ORSkKKwkJCWNvbnRpbnVlOworCisJCWxhc3RfdGFibGUgPSBlbnRyeTsKKwkJ
-bGFzdF90YWJsZV9tYWNoaW5lID0gZV9tYWNoaW5lOworCQlyZXR1cm4gZW50cnk7CisJfQorCXJl
-dHVybiBOVUxMOworfQorCitjb25zdCBjaGFyICpzeXNjYWxsdGJsX19uYW1lKGludCBlX21hY2hp
-bmUsIGludCBpZCkKK3sKKwljb25zdCBzdHJ1Y3Qgc3lzY2FsbHRibCAqdGFibGUgPSBmaW5kX3Rh
-YmxlKGVfbWFjaGluZSk7CisKKwlpZiAodGFibGUgJiYgaWQgPj0gMCAmJiBpZCA8IHRhYmxlLT5u
-dW1fdG9fbmFtZV9sZW4pCisJCXJldHVybiB0YWJsZS0+bnVtX3RvX25hbWVbaWRdOwogCXJldHVy
-biBOVUxMOwogfQogCkBAIC00MSwzOCArNjQsNTQgQEAgc3RhdGljIGludCBzeXNjYWxsY21wbmFt
-ZShjb25zdCB2b2lkICp2a2V5LCBjb25zdCB2b2lkICp2ZW50cnkpCiAJcmV0dXJuIHN0cmNtcChr
-ZXktPm5hbWUsIGtleS0+dGJsWyplbnRyeV0pOwogfQogCi1pbnQgc3lzY2FsbHRibF9faWQoaW50
-IGVfbWFjaGluZSBfX21heWJlX3VudXNlZCwgY29uc3QgY2hhciAqbmFtZSkKK2ludCBzeXNjYWxs
-dGJsX19pZChpbnQgZV9tYWNoaW5lLCBjb25zdCBjaGFyICpuYW1lKQogewotCXN0cnVjdCBzeXNj
-YWxsX2NtcF9rZXkga2V5ID0gewotCQkubmFtZSA9IG5hbWUsCi0JCS50YmwgPSBzeXNjYWxsX251
-bV90b19uYW1lLAotCX07Ci0JY29uc3QgaW50ICppZCA9IGJzZWFyY2goJmtleSwgc3lzY2FsbF9z
-b3J0ZWRfbmFtZXMsCi0JCQkJQVJSQVlfU0laRShzeXNjYWxsX3NvcnRlZF9uYW1lcyksCi0JCQkJ
-c2l6ZW9mKHN5c2NhbGxfc29ydGVkX25hbWVzWzBdKSwKLQkJCQlzeXNjYWxsY21wbmFtZSk7CisJ
-Y29uc3Qgc3RydWN0IHN5c2NhbGx0YmwgKnRhYmxlID0gZmluZF90YWJsZShlX21hY2hpbmUpOwor
-CXN0cnVjdCBzeXNjYWxsX2NtcF9rZXkga2V5OworCWNvbnN0IGludCAqaWQ7CisKKwlpZiAoIXRh
-YmxlKQorCQlyZXR1cm4gLTE7CisKKwlrZXkubmFtZSA9IG5hbWU7CisJa2V5LnRibCA9IHRhYmxl
-LT5udW1fdG9fbmFtZTsKKwlpZCA9IGJzZWFyY2goJmtleSwgdGFibGUtPnNvcnRlZF9uYW1lcywg
-dGFibGUtPnNvcnRlZF9uYW1lc19sZW4sCisJCSAgICAgc2l6ZW9mKHRhYmxlLT5zb3J0ZWRfbmFt
-ZXNbMF0pLCBzeXNjYWxsY21wbmFtZSk7CiAKIAlyZXR1cm4gaWQgPyAqaWQgOiAtMTsKIH0KIAot
-aW50IHN5c2NhbGx0YmxfX251bV9pZHgoaW50IGVfbWFjaGluZSBfX21heWJlX3VudXNlZCkKK2lu
-dCBzeXNjYWxsdGJsX19udW1faWR4KGludCBlX21hY2hpbmUpCiB7Ci0JcmV0dXJuIEFSUkFZX1NJ
-WkUoc3lzY2FsbF9zb3J0ZWRfbmFtZXMpOworCWNvbnN0IHN0cnVjdCBzeXNjYWxsdGJsICp0YWJs
-ZSA9IGZpbmRfdGFibGUoZV9tYWNoaW5lKTsKKworCWlmICghdGFibGUpCisJCXJldHVybiAwOwor
-CisJcmV0dXJuIHRhYmxlLT5zb3J0ZWRfbmFtZXNfbGVuOwogfQogCi1pbnQgc3lzY2FsbHRibF9f
-aWRfYXRfaWR4KGludCBlX21hY2hpbmUgX19tYXliZV91bnVzZWQsIGludCBpZHgpCitpbnQgc3lz
-Y2FsbHRibF9faWRfYXRfaWR4KGludCBlX21hY2hpbmUsIGludCBpZHgpCiB7Ci0JcmV0dXJuIHN5
-c2NhbGxfc29ydGVkX25hbWVzW2lkeF07CisJY29uc3Qgc3RydWN0IHN5c2NhbGx0YmwgKnRhYmxl
-ID0gZmluZF90YWJsZShlX21hY2hpbmUpOworCisJaWYgKCF0YWJsZSkKKwkJcmV0dXJuIC0xOwor
-CisJYXNzZXJ0KGlkeCA+PSAwICYmIGlkeCA8IHRhYmxlLT5zb3J0ZWRfbmFtZXNfbGVuKTsKKwly
-ZXR1cm4gdGFibGUtPnNvcnRlZF9uYW1lc1tpZHhdOwogfQogCi1pbnQgc3lzY2FsbHRibF9fc3Ry
-Z2xvYm1hdGNoX25leHQoaW50IGVfbWFjaGluZSBfX21heWJlX3VudXNlZCwgY29uc3QgY2hhciAq
-c3lzY2FsbF9nbG9iLCBpbnQgKmlkeCkKK2ludCBzeXNjYWxsdGJsX19zdHJnbG9ibWF0Y2hfbmV4
-dChpbnQgZV9tYWNoaW5lLCBjb25zdCBjaGFyICpzeXNjYWxsX2dsb2IsIGludCAqaWR4KQogewot
-CWZvciAoaW50IGkgPSAqaWR4ICsgMTsgaSA8IChpbnQpQVJSQVlfU0laRShzeXNjYWxsX3NvcnRl
-ZF9uYW1lcyk7ICsraSkgewotCQljb25zdCBjaGFyICpuYW1lID0gc3lzY2FsbF9udW1fdG9fbmFt
-ZVtzeXNjYWxsX3NvcnRlZF9uYW1lc1tpXV07CisJY29uc3Qgc3RydWN0IHN5c2NhbGx0YmwgKnRh
-YmxlID0gZmluZF90YWJsZShlX21hY2hpbmUpOworCisJZm9yIChpbnQgaSA9ICppZHggKyAxOyB0
-YWJsZSAmJiBpIDwgdGFibGUtPnNvcnRlZF9uYW1lc19sZW47ICsraSkgeworCQljb25zdCBjaGFy
-ICpuYW1lID0gdGFibGUtPm51bV90b19uYW1lW3RhYmxlLT5zb3J0ZWRfbmFtZXNbaV1dOwogCiAJ
-CWlmIChzdHJnbG9ibWF0Y2gobmFtZSwgc3lzY2FsbF9nbG9iKSkgewogCQkJKmlkeCA9IGk7Ci0J
-CQlyZXR1cm4gc3lzY2FsbF9zb3J0ZWRfbmFtZXNbaV07CisJCQlyZXR1cm4gdGFibGUtPnNvcnRl
-ZF9uYW1lc1tpXTsKIAkJfQogCX0KIAotLSAKMi40OC4xLjUwMi5nNmRjMjRkZmRhZi1nb29nCgoK
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlz
-Y3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xp
-c3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
+Now a single beauty file is generated and used by all architectures,
+remove the per-architecture Makefiles, Kbuild files and previous
+generator script.
+
+Note: there was conversation with Charlie Jenkins
+<charlie@rivosinc.com> and they'd written an alternate approach to
+support multiple architectures:
+https://lore.kernel.org/all/20250114-perf_syscall_arch_runtime-v1-1-5b304e408e11@rivosinc.com/
+It would have been better to have helped Charlie fix their series (my
+apologies) but they agreed that the approach taken here was likely
+best for longer term maintainability:
+https://lore.kernel.org/lkml/Z6Jk_UN9i69QGqUj@ghost/
+
+Signed-off-by: Ian Rogers <irogers@google.com> Reviewed-by: Howard Chu
+<howardchu95@gmail.com>
+---
+ tools/perf/Makefile.perf                      |  1 -
+ tools/perf/arch/alpha/entry/syscalls/Kbuild   |  2 -
+ .../alpha/entry/syscalls/Makefile.syscalls    |  5 --
+ tools/perf/arch/arc/entry/syscalls/Kbuild     |  2 -
+ .../arch/arc/entry/syscalls/Makefile.syscalls |  3 -
+ tools/perf/arch/arm/entry/syscalls/Kbuild     |  4 -
+ .../arch/arm/entry/syscalls/Makefile.syscalls |  2 -
+ tools/perf/arch/arm64/entry/syscalls/Kbuild   |  3 -
+ .../arm64/entry/syscalls/Makefile.syscalls    |  6 --
+ tools/perf/arch/csky/entry/syscalls/Kbuild    |  2 -
+ .../csky/entry/syscalls/Makefile.syscalls     |  3 -
+ .../perf/arch/loongarch/entry/syscalls/Kbuild |  2 -
+ .../entry/syscalls/Makefile.syscalls          |  3 -
+ tools/perf/arch/mips/entry/syscalls/Kbuild    |  2 -
+ .../mips/entry/syscalls/Makefile.syscalls     |  5 --
+ tools/perf/arch/parisc/entry/syscalls/Kbuild  |  3 -
+ .../parisc/entry/syscalls/Makefile.syscalls   |  6 --
+ tools/perf/arch/powerpc/entry/syscalls/Kbuild |  3 -
+ .../powerpc/entry/syscalls/Makefile.syscalls  |  6 --
+ tools/perf/arch/riscv/entry/syscalls/Kbuild   |  2 -
+ .../riscv/entry/syscalls/Makefile.syscalls    |  4 -
+ tools/perf/arch/s390/entry/syscalls/Kbuild    |  2 -
+ .../s390/entry/syscalls/Makefile.syscalls     |  5 --
+ tools/perf/arch/sh/entry/syscalls/Kbuild      |  2 -
+ .../arch/sh/entry/syscalls/Makefile.syscalls  |  4 -
+ tools/perf/arch/sparc/entry/syscalls/Kbuild   |  3 -
+ .../sparc/entry/syscalls/Makefile.syscalls    |  5 --
+ tools/perf/arch/x86/entry/syscalls/Kbuild     |  3 -
+ .../arch/x86/entry/syscalls/Makefile.syscalls |  6 --
+ tools/perf/arch/xtensa/entry/syscalls/Kbuild  |  2 -
+ .../xtensa/entry/syscalls/Makefile.syscalls   |  4 -
+ tools/perf/scripts/Makefile.syscalls          | 61 ---------------
+ tools/perf/scripts/syscalltbl.sh              | 76 -------------------
+ 33 files changed, 242 deletions(-)
+ delete mode 100644 tools/perf/arch/alpha/entry/syscalls/Kbuild
+ delete mode 100644 tools/perf/arch/alpha/entry/syscalls/Makefile.syscalls
+ delete mode 100644 tools/perf/arch/arc/entry/syscalls/Kbuild
+ delete mode 100644 tools/perf/arch/arc/entry/syscalls/Makefile.syscalls
+ delete mode 100644 tools/perf/arch/arm/entry/syscalls/Kbuild
+ delete mode 100644 tools/perf/arch/arm/entry/syscalls/Makefile.syscalls
+ delete mode 100644 tools/perf/arch/arm64/entry/syscalls/Kbuild
+ delete mode 100644 tools/perf/arch/arm64/entry/syscalls/Makefile.syscalls
+ delete mode 100644 tools/perf/arch/csky/entry/syscalls/Kbuild
+ delete mode 100644 tools/perf/arch/csky/entry/syscalls/Makefile.syscalls
+ delete mode 100644 tools/perf/arch/loongarch/entry/syscalls/Kbuild
+ delete mode 100644 tools/perf/arch/loongarch/entry/syscalls/Makefile.syscalls
+ delete mode 100644 tools/perf/arch/mips/entry/syscalls/Kbuild
+ delete mode 100644 tools/perf/arch/mips/entry/syscalls/Makefile.syscalls
+ delete mode 100644 tools/perf/arch/parisc/entry/syscalls/Kbuild
+ delete mode 100644 tools/perf/arch/parisc/entry/syscalls/Makefile.syscalls
+ delete mode 100644 tools/perf/arch/powerpc/entry/syscalls/Kbuild
+ delete mode 100644 tools/perf/arch/powerpc/entry/syscalls/Makefile.syscalls
+ delete mode 100644 tools/perf/arch/riscv/entry/syscalls/Kbuild
+ delete mode 100644 tools/perf/arch/riscv/entry/syscalls/Makefile.syscalls
+ delete mode 100644 tools/perf/arch/s390/entry/syscalls/Kbuild
+ delete mode 100644 tools/perf/arch/s390/entry/syscalls/Makefile.syscalls
+ delete mode 100644 tools/perf/arch/sh/entry/syscalls/Kbuild
+ delete mode 100644 tools/perf/arch/sh/entry/syscalls/Makefile.syscalls
+ delete mode 100644 tools/perf/arch/sparc/entry/syscalls/Kbuild
+ delete mode 100644 tools/perf/arch/sparc/entry/syscalls/Makefile.syscalls
+ delete mode 100644 tools/perf/arch/x86/entry/syscalls/Kbuild
+ delete mode 100644 tools/perf/arch/x86/entry/syscalls/Makefile.syscalls
+ delete mode 100644 tools/perf/arch/xtensa/entry/syscalls/Kbuild
+ delete mode 100644 tools/perf/arch/xtensa/entry/syscalls/Makefile.syscalls
+ delete mode 100644 tools/perf/scripts/Makefile.syscalls
+ delete mode 100755 tools/perf/scripts/syscalltbl.sh
+
+diff --git a/tools/perf/Makefile.perf b/tools/perf/Makefile.perf
+index 793e702f9aaf..62176d685445 100644
+--- a/tools/perf/Makefile.perf
++++ b/tools/perf/Makefile.perf
+@@ -339,7 +339,6 @@ ifeq ($(filter feature-dump,$(MAKECMDGOALS)),feature-dump)
+ FEATURE_TESTS := all
+ endif
+ endif
+-include $(srctree)/tools/perf/scripts/Makefile.syscalls
+ include Makefile.config
+ endif
+ 
+diff --git a/tools/perf/arch/alpha/entry/syscalls/Kbuild b/tools/perf/arch/alpha/entry/syscalls/Kbuild
+deleted file mode 100644
+index 9a41e3572c3a..000000000000
+--- a/tools/perf/arch/alpha/entry/syscalls/Kbuild
++++ /dev/null
+@@ -1,2 +0,0 @@
+-# SPDX-License-Identifier: GPL-2.0
+-syscall-y += syscalls_64.h
+diff --git a/tools/perf/arch/alpha/entry/syscalls/Makefile.syscalls b/tools/perf/arch/alpha/entry/syscalls/Makefile.syscalls
+deleted file mode 100644
+index 690168aac34d..000000000000
+--- a/tools/perf/arch/alpha/entry/syscalls/Makefile.syscalls
++++ /dev/null
+@@ -1,5 +0,0 @@
+-# SPDX-License-Identifier: GPL-2.0
+-
+-syscall_abis_64  +=
+-
+-syscalltbl = $(srctree)/tools/perf/arch/alpha/entry/syscalls/syscall.tbl
+diff --git a/tools/perf/arch/arc/entry/syscalls/Kbuild b/tools/perf/arch/arc/entry/syscalls/Kbuild
+deleted file mode 100644
+index 11707c481a24..000000000000
+--- a/tools/perf/arch/arc/entry/syscalls/Kbuild
++++ /dev/null
+@@ -1,2 +0,0 @@
+-# SPDX-License-Identifier: GPL-2.0
+-syscall-y += syscalls_32.h
+diff --git a/tools/perf/arch/arc/entry/syscalls/Makefile.syscalls b/tools/perf/arch/arc/entry/syscalls/Makefile.syscalls
+deleted file mode 100644
+index 391d30ab7a83..000000000000
+--- a/tools/perf/arch/arc/entry/syscalls/Makefile.syscalls
++++ /dev/null
+@@ -1,3 +0,0 @@
+-# SPDX-License-Identifier: GPL-2.0
+-
+-syscall_abis_32 += arc time32 renameat stat64 rlimit
+diff --git a/tools/perf/arch/arm/entry/syscalls/Kbuild b/tools/perf/arch/arm/entry/syscalls/Kbuild
+deleted file mode 100644
+index 9d777540f089..000000000000
+--- a/tools/perf/arch/arm/entry/syscalls/Kbuild
++++ /dev/null
+@@ -1,4 +0,0 @@
+-# SPDX-License-Identifier: GPL-2.0
+-
+-syscall_abis_32 += oabi
+-syscalltbl = $(srctree)/tools/perf/arch/arm/entry/syscalls/syscall.tbl
+diff --git a/tools/perf/arch/arm/entry/syscalls/Makefile.syscalls b/tools/perf/arch/arm/entry/syscalls/Makefile.syscalls
+deleted file mode 100644
+index 11707c481a24..000000000000
+--- a/tools/perf/arch/arm/entry/syscalls/Makefile.syscalls
++++ /dev/null
+@@ -1,2 +0,0 @@
+-# SPDX-License-Identifier: GPL-2.0
+-syscall-y += syscalls_32.h
+diff --git a/tools/perf/arch/arm64/entry/syscalls/Kbuild b/tools/perf/arch/arm64/entry/syscalls/Kbuild
+deleted file mode 100644
+index 84c6599b4ea6..000000000000
+--- a/tools/perf/arch/arm64/entry/syscalls/Kbuild
++++ /dev/null
+@@ -1,3 +0,0 @@
+-# SPDX-License-Identifier: GPL-2.0
+-syscall-y += syscalls_32.h
+-syscall-y += syscalls_64.h
+diff --git a/tools/perf/arch/arm64/entry/syscalls/Makefile.syscalls b/tools/perf/arch/arm64/entry/syscalls/Makefile.syscalls
+deleted file mode 100644
+index e7e78c2d1c02..000000000000
+--- a/tools/perf/arch/arm64/entry/syscalls/Makefile.syscalls
++++ /dev/null
+@@ -1,6 +0,0 @@
+-# SPDX-License-Identifier: GPL-2.0
+-
+-syscall_abis_32 +=
+-syscall_abis_64 += renameat rlimit memfd_secret
+-
+-syscalltbl = $(srctree)/tools/perf/arch/arm64/entry/syscalls/syscall_%.tbl
+diff --git a/tools/perf/arch/csky/entry/syscalls/Kbuild b/tools/perf/arch/csky/entry/syscalls/Kbuild
+deleted file mode 100644
+index 11707c481a24..000000000000
+--- a/tools/perf/arch/csky/entry/syscalls/Kbuild
++++ /dev/null
+@@ -1,2 +0,0 @@
+-# SPDX-License-Identifier: GPL-2.0
+-syscall-y += syscalls_32.h
+diff --git a/tools/perf/arch/csky/entry/syscalls/Makefile.syscalls b/tools/perf/arch/csky/entry/syscalls/Makefile.syscalls
+deleted file mode 100644
+index ea2dd10d0571..000000000000
+--- a/tools/perf/arch/csky/entry/syscalls/Makefile.syscalls
++++ /dev/null
+@@ -1,3 +0,0 @@
+-# SPDX-License-Identifier: GPL-2.0
+-
+-syscall_abis_32 += csky time32 stat64 rlimit
+diff --git a/tools/perf/arch/loongarch/entry/syscalls/Kbuild b/tools/perf/arch/loongarch/entry/syscalls/Kbuild
+deleted file mode 100644
+index 9a41e3572c3a..000000000000
+--- a/tools/perf/arch/loongarch/entry/syscalls/Kbuild
++++ /dev/null
+@@ -1,2 +0,0 @@
+-# SPDX-License-Identifier: GPL-2.0
+-syscall-y += syscalls_64.h
+diff --git a/tools/perf/arch/loongarch/entry/syscalls/Makefile.syscalls b/tools/perf/arch/loongarch/entry/syscalls/Makefile.syscalls
+deleted file mode 100644
+index 47d32da2aed8..000000000000
+--- a/tools/perf/arch/loongarch/entry/syscalls/Makefile.syscalls
++++ /dev/null
+@@ -1,3 +0,0 @@
+-# SPDX-License-Identifier: GPL-2.0
+-
+-syscall_abis_64 +=
+diff --git a/tools/perf/arch/mips/entry/syscalls/Kbuild b/tools/perf/arch/mips/entry/syscalls/Kbuild
+deleted file mode 100644
+index 9a41e3572c3a..000000000000
+--- a/tools/perf/arch/mips/entry/syscalls/Kbuild
++++ /dev/null
+@@ -1,2 +0,0 @@
+-# SPDX-License-Identifier: GPL-2.0
+-syscall-y += syscalls_64.h
+diff --git a/tools/perf/arch/mips/entry/syscalls/Makefile.syscalls b/tools/perf/arch/mips/entry/syscalls/Makefile.syscalls
+deleted file mode 100644
+index 9ee914bdfb05..000000000000
+--- a/tools/perf/arch/mips/entry/syscalls/Makefile.syscalls
++++ /dev/null
+@@ -1,5 +0,0 @@
+-# SPDX-License-Identifier: GPL-2.0
+-
+-syscall_abis_64 += n64
+-
+-syscalltbl = $(srctree)/tools/perf/arch/mips/entry/syscalls/syscall_n64.tbl
+diff --git a/tools/perf/arch/parisc/entry/syscalls/Kbuild b/tools/perf/arch/parisc/entry/syscalls/Kbuild
+deleted file mode 100644
+index 84c6599b4ea6..000000000000
+--- a/tools/perf/arch/parisc/entry/syscalls/Kbuild
++++ /dev/null
+@@ -1,3 +0,0 @@
+-# SPDX-License-Identifier: GPL-2.0
+-syscall-y += syscalls_32.h
+-syscall-y += syscalls_64.h
+diff --git a/tools/perf/arch/parisc/entry/syscalls/Makefile.syscalls b/tools/perf/arch/parisc/entry/syscalls/Makefile.syscalls
+deleted file mode 100644
+index ae326fecb83b..000000000000
+--- a/tools/perf/arch/parisc/entry/syscalls/Makefile.syscalls
++++ /dev/null
+@@ -1,6 +0,0 @@
+-# SPDX-License-Identifier: GPL-2.0
+-
+-syscall_abis_32  +=
+-syscall_abis_64  +=
+-
+-syscalltbl = $(srctree)/tools/perf/arch/parisc/entry/syscalls/syscall.tbl
+diff --git a/tools/perf/arch/powerpc/entry/syscalls/Kbuild b/tools/perf/arch/powerpc/entry/syscalls/Kbuild
+deleted file mode 100644
+index 84c6599b4ea6..000000000000
+--- a/tools/perf/arch/powerpc/entry/syscalls/Kbuild
++++ /dev/null
+@@ -1,3 +0,0 @@
+-# SPDX-License-Identifier: GPL-2.0
+-syscall-y += syscalls_32.h
+-syscall-y += syscalls_64.h
+diff --git a/tools/perf/arch/powerpc/entry/syscalls/Makefile.syscalls b/tools/perf/arch/powerpc/entry/syscalls/Makefile.syscalls
+deleted file mode 100644
+index e35afbc57c79..000000000000
+--- a/tools/perf/arch/powerpc/entry/syscalls/Makefile.syscalls
++++ /dev/null
+@@ -1,6 +0,0 @@
+-# SPDX-License-Identifier: GPL-2.0
+-
+-syscall_abis_32 += nospu
+-syscall_abis_64 += nospu
+-
+-syscalltbl = $(srctree)/tools/perf/arch/powerpc/entry/syscalls/syscall.tbl
+diff --git a/tools/perf/arch/riscv/entry/syscalls/Kbuild b/tools/perf/arch/riscv/entry/syscalls/Kbuild
+deleted file mode 100644
+index 9a41e3572c3a..000000000000
+--- a/tools/perf/arch/riscv/entry/syscalls/Kbuild
++++ /dev/null
+@@ -1,2 +0,0 @@
+-# SPDX-License-Identifier: GPL-2.0
+-syscall-y += syscalls_64.h
+diff --git a/tools/perf/arch/riscv/entry/syscalls/Makefile.syscalls b/tools/perf/arch/riscv/entry/syscalls/Makefile.syscalls
+deleted file mode 100644
+index 9668fd1faf60..000000000000
+--- a/tools/perf/arch/riscv/entry/syscalls/Makefile.syscalls
++++ /dev/null
+@@ -1,4 +0,0 @@
+-# SPDX-License-Identifier: GPL-2.0
+-
+-syscall_abis_32 += riscv memfd_secret
+-syscall_abis_64 += riscv rlimit memfd_secret
+diff --git a/tools/perf/arch/s390/entry/syscalls/Kbuild b/tools/perf/arch/s390/entry/syscalls/Kbuild
+deleted file mode 100644
+index 9a41e3572c3a..000000000000
+--- a/tools/perf/arch/s390/entry/syscalls/Kbuild
++++ /dev/null
+@@ -1,2 +0,0 @@
+-# SPDX-License-Identifier: GPL-2.0
+-syscall-y += syscalls_64.h
+diff --git a/tools/perf/arch/s390/entry/syscalls/Makefile.syscalls b/tools/perf/arch/s390/entry/syscalls/Makefile.syscalls
+deleted file mode 100644
+index 9762d7abf17c..000000000000
+--- a/tools/perf/arch/s390/entry/syscalls/Makefile.syscalls
++++ /dev/null
+@@ -1,5 +0,0 @@
+-# SPDX-License-Identifier: GPL-2.0
+-
+-syscall_abis_64 += renameat rlimit memfd_secret
+-
+-syscalltbl = $(srctree)/tools/perf/arch/s390/entry/syscalls/syscall.tbl
+diff --git a/tools/perf/arch/sh/entry/syscalls/Kbuild b/tools/perf/arch/sh/entry/syscalls/Kbuild
+deleted file mode 100644
+index 11707c481a24..000000000000
+--- a/tools/perf/arch/sh/entry/syscalls/Kbuild
++++ /dev/null
+@@ -1,2 +0,0 @@
+-# SPDX-License-Identifier: GPL-2.0
+-syscall-y += syscalls_32.h
+diff --git a/tools/perf/arch/sh/entry/syscalls/Makefile.syscalls b/tools/perf/arch/sh/entry/syscalls/Makefile.syscalls
+deleted file mode 100644
+index 25080390e4ed..000000000000
+--- a/tools/perf/arch/sh/entry/syscalls/Makefile.syscalls
++++ /dev/null
+@@ -1,4 +0,0 @@
+-# SPDX-License-Identifier: GPL-2.0
+-
+-syscall_abis_32 +=
+-syscalltbl = $(srctree)/tools/perf/arch/sh/entry/syscalls/syscall.tbl
+diff --git a/tools/perf/arch/sparc/entry/syscalls/Kbuild b/tools/perf/arch/sparc/entry/syscalls/Kbuild
+deleted file mode 100644
+index 84c6599b4ea6..000000000000
+--- a/tools/perf/arch/sparc/entry/syscalls/Kbuild
++++ /dev/null
+@@ -1,3 +0,0 @@
+-# SPDX-License-Identifier: GPL-2.0
+-syscall-y += syscalls_32.h
+-syscall-y += syscalls_64.h
+diff --git a/tools/perf/arch/sparc/entry/syscalls/Makefile.syscalls b/tools/perf/arch/sparc/entry/syscalls/Makefile.syscalls
+deleted file mode 100644
+index 212c1800b644..000000000000
+--- a/tools/perf/arch/sparc/entry/syscalls/Makefile.syscalls
++++ /dev/null
+@@ -1,5 +0,0 @@
+-# SPDX-License-Identifier: GPL-2.0
+-
+-syscall_abis_32  +=
+-syscall_abis_64  +=
+-syscalltbl = $(srctree)/tools/perf/arch/sparc/entry/syscalls/syscall.tbl
+diff --git a/tools/perf/arch/x86/entry/syscalls/Kbuild b/tools/perf/arch/x86/entry/syscalls/Kbuild
+deleted file mode 100644
+index 84c6599b4ea6..000000000000
+--- a/tools/perf/arch/x86/entry/syscalls/Kbuild
++++ /dev/null
+@@ -1,3 +0,0 @@
+-# SPDX-License-Identifier: GPL-2.0
+-syscall-y += syscalls_32.h
+-syscall-y += syscalls_64.h
+diff --git a/tools/perf/arch/x86/entry/syscalls/Makefile.syscalls b/tools/perf/arch/x86/entry/syscalls/Makefile.syscalls
+deleted file mode 100644
+index db3d5d6d4e56..000000000000
+--- a/tools/perf/arch/x86/entry/syscalls/Makefile.syscalls
++++ /dev/null
+@@ -1,6 +0,0 @@
+-# SPDX-License-Identifier: GPL-2.0
+-
+-syscall_abis_32 += i386
+-syscall_abis_64 +=
+-
+-syscalltbl = $(srctree)/tools/perf/arch/x86/entry/syscalls/syscall_%.tbl
+diff --git a/tools/perf/arch/xtensa/entry/syscalls/Kbuild b/tools/perf/arch/xtensa/entry/syscalls/Kbuild
+deleted file mode 100644
+index 11707c481a24..000000000000
+--- a/tools/perf/arch/xtensa/entry/syscalls/Kbuild
++++ /dev/null
+@@ -1,2 +0,0 @@
+-# SPDX-License-Identifier: GPL-2.0
+-syscall-y += syscalls_32.h
+diff --git a/tools/perf/arch/xtensa/entry/syscalls/Makefile.syscalls b/tools/perf/arch/xtensa/entry/syscalls/Makefile.syscalls
+deleted file mode 100644
+index d4aa2358460c..000000000000
+--- a/tools/perf/arch/xtensa/entry/syscalls/Makefile.syscalls
++++ /dev/null
+@@ -1,4 +0,0 @@
+-# SPDX-License-Identifier: GPL-2.0
+-
+-syscall_abis_32  +=
+-syscalltbl = $(srctree)/tools/perf/arch/xtensa/entry/syscalls/syscall.tbl
+diff --git a/tools/perf/scripts/Makefile.syscalls b/tools/perf/scripts/Makefile.syscalls
+deleted file mode 100644
+index 8bf55333262e..000000000000
+--- a/tools/perf/scripts/Makefile.syscalls
++++ /dev/null
+@@ -1,61 +0,0 @@
+-# SPDX-License-Identifier: GPL-2.0
+-# This Makefile generates headers in
+-# tools/perf/arch/$(SRCARCH)/include/generated/asm from the architecture's
+-# syscall table. This will either be from the generic syscall table, or from a
+-# table that is specific to that architecture.
+-
+-PHONY := all
+-all:
+-
+-obj := $(OUTPUT)arch/$(SRCARCH)/include/generated/asm
+-
+-syscall_abis_32  := common,32
+-syscall_abis_64  := common,64
+-syscalltbl := $(srctree)/tools/scripts/syscall.tbl
+-
+-# let architectures override $(syscall_abis_%) and $(syscalltbl)
+--include $(srctree)/tools/perf/arch/$(SRCARCH)/entry/syscalls/Makefile.syscalls
+-include $(srctree)/tools/build/Build.include
+--include $(srctree)/tools/perf/arch/$(SRCARCH)/entry/syscalls/Kbuild
+-
+-systbl := $(srctree)/tools/perf/scripts/syscalltbl.sh
+-
+-syscall-y   := $(addprefix $(obj)/, $(syscall-y))
+-
+-# Remove stale wrappers when the corresponding files are removed from generic-y
+-old-headers := $(wildcard $(obj)/*.h)
+-unwanted    := $(filter-out $(syscall-y),$(old-headers))
+-
+-quiet_cmd_remove = REMOVE  $(unwanted)
+-      cmd_remove = rm -f $(unwanted)
+-
+-quiet_cmd_systbl = SYSTBL  $@
+-      cmd_systbl = $(CONFIG_SHELL) $(systbl) \
+-		   $(if $(systbl-args-$*),$(systbl-args-$*),$(systbl-args)) \
+-		   --abis $(subst $(space),$(comma),$(strip $(syscall_abis_$*))) \
+-		   $< $@
+-
+-all: $(syscall-y)
+-	$(if $(unwanted),$(call cmd,remove))
+-	@:
+-
+-$(obj)/syscalls_%.h: $(syscalltbl) $(systbl) FORCE
+-	$(call if_changed,systbl)
+-
+-targets := $(syscall-y)
+-
+-# Create output directory. Skip it if at least one old header exists
+-# since we know the output directory already exists.
+-ifeq ($(old-headers),)
+-$(shell mkdir -p $(obj))
+-endif
+-
+-PHONY += FORCE
+-
+-FORCE:
+-
+-existing-targets := $(wildcard $(sort $(targets)))
+-
+--include $(foreach f,$(existing-targets),$(dir $(f)).$(notdir $(f)).cmd)
+-
+-.PHONY: $(PHONY)
+diff --git a/tools/perf/scripts/syscalltbl.sh b/tools/perf/scripts/syscalltbl.sh
+deleted file mode 100755
+index a39b3013b103..000000000000
+--- a/tools/perf/scripts/syscalltbl.sh
++++ /dev/null
+@@ -1,76 +0,0 @@
+-#!/bin/sh
+-# SPDX-License-Identifier: GPL-2.0
+-#
+-# Generate a syscall table header.
+-#
+-# Each line of the syscall table should have the following format:
+-#
+-# NR ABI NAME [NATIVE] [COMPAT]
+-#
+-# NR       syscall number
+-# ABI      ABI name
+-# NAME     syscall name
+-# NATIVE   native entry point (optional)
+-# COMPAT   compat entry point (optional)
+-
+-set -e
+-
+-usage() {
+-	echo >&2 "usage: $0 [--abis ABIS] INFILE OUTFILE" >&2
+-	echo >&2
+-	echo >&2 "  INFILE    input syscall table"
+-	echo >&2 "  OUTFILE   output header file"
+-	echo >&2
+-	echo >&2 "options:"
+-	echo >&2 "  --abis ABIS        ABI(s) to handle (By default, all lines are handled)"
+-	exit 1
+-}
+-
+-# default unless specified by options
+-abis=
+-
+-while [ $# -gt 0 ]
+-do
+-	case $1 in
+-	--abis)
+-		abis=$(echo "($2)" | tr ',' '|')
+-		shift 2;;
+-	-*)
+-		echo "$1: unknown option" >&2
+-		usage;;
+-	*)
+-		break;;
+-	esac
+-done
+-
+-if [ $# -ne 2 ]; then
+-	usage
+-fi
+-
+-infile="$1"
+-outfile="$2"
+-
+-sorted_table=$(mktemp /tmp/syscalltbl.XXXXXX)
+-grep -E "^[0-9]+[[:space:]]+$abis" "$infile" | sort -n > $sorted_table
+-
+-echo "static const char *const syscall_num_to_name[] = {" > $outfile
+-# the params are: nr abi name entry compat
+-# use _ for intentionally unused variables according to SC2034
+-while read nr _ name _ _; do
+-	echo "	[$nr] = \"$name\"," >> $outfile
+-done < $sorted_table
+-echo "};" >> $outfile
+-
+-echo "static const uint16_t syscall_sorted_names[] = {" >> $outfile
+-
+-# When sorting by name, add a suffix of 0s upto 20 characters so that system
+-# calls that differ with a numerical suffix don't sort before those
+-# without. This default behavior of sort differs from that of strcmp used at
+-# runtime. Use sed to strip the trailing 0s suffix afterwards.
+-grep -E "^[0-9]+[[:space:]]+$abis" "$infile" | awk '{printf $3; for (i = length($3); i < 20; i++) { printf "0"; }; print " " $1}'| sort | sed 's/\([a-zA-Z1-9]\+\)0\+ \([0-9]\+\)/\1 \2/' > $sorted_table
+-while read name nr; do
+-	echo "	$nr,	/* $name */" >> $outfile
+-done < $sorted_table
+-echo "};" >> $outfile
+-
+-rm -f $sorted_table
+-- 
+2.48.1.502.g6dc24dfdaf-goog
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
