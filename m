@@ -4,87 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 45AFDC02198
-	for <linux-riscv@archiver.kernel.org>; Mon, 10 Feb 2025 11:20:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D2559C0219D
+	for <linux-riscv@archiver.kernel.org>; Mon, 10 Feb 2025 11:23:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=lN1AuyPQITXQA9kqm/75Iiz/yH47W2rZKFG5IqKvrSM=; b=tHSrL4EM0ZLGOo
-	C84Q4jH96Px1i5SRmY+JAcPY7Nlnx9JuWz+DzFEPumeTTXGHEkY7VYjXRAaycu69kUpH63n5SrGG2
-	tMTp68yEziC/rUYTMO81hfGe6OG0Dw8snSif9JFlbaoIMRCEJZufNuazD1uzksWv4WP6K32+ffrGS
-	ht66OcScKxKq6dxhpaQmWF8Zo/Z+/ZDjLn2KJzpAxut9NNwrP5a588IL4NgBR3SHyEHXPTnBTMto3
-	uQ0ItKEBua/vLr8BXy6Dp3ePyzBGXwk5DG0x/TCTCEgCrizmLaIh/4yQ2ap9oaerO4znnxsfLuApC
-	9x/zfhrnJdwlfe6YUJJg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=QaQ4rKYawIq0dPQZlGNoYRqcZj9uZJCdpxZcKY68B20=; b=tot7fT0/2cT7KpUUKYAEdc9p8L
+	m92WLz/NRJmTFVXV1uv5w9fNEiGWrz6wYRSqzPU2xXAZ+3mPoWinxEbz/6Amud94MUaSOEuQWK4fg
+	+a+sQ5+zooJmP+smsMN/sJZRVvteeb4eqyvtVjqtiudR6a+6rRuQu/vFr3LHKVsY5ZEnqXo/6tPH7
+	Dyi43icwQAUZKLf5BB+YYYzK0WByHE1sNTKQ2ANtHY2HZYOnRjj+GiVdU/y/OkYq73+e9H9EPGuqj
+	kussXKE5p+ds2R0yL26In3YnkGIUIC70omsJ8Dd1c1jCduHW+E+ZOR+/TDt5/RPhGas+nP4LlCjUa
+	uoPDZwPQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1thRpo-0000000HBxp-0MNz;
-	Mon, 10 Feb 2025 11:20:16 +0000
-Received: from mail-wm1-x335.google.com ([2a00:1450:4864:20::335])
+	id 1thRsW-0000000HCMO-0asz;
+	Mon, 10 Feb 2025 11:23:04 +0000
+Received: from relay2-d.mail.gandi.net ([217.70.183.194])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1thRXb-0000000H7lE-0ty6
-	for linux-riscv@lists.infradead.org;
-	Mon, 10 Feb 2025 11:01:28 +0000
-Received: by mail-wm1-x335.google.com with SMTP id 5b1f17b1804b1-436281c8a38so27386655e9.3
-        for <linux-riscv@lists.infradead.org>; Mon, 10 Feb 2025 03:01:27 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1739185286; x=1739790086; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=OSaTCwW/i1a/+xT9ljUvRvwwj+Pxye0xzps/mnFBmXc=;
-        b=C3kjSC96JDsiZs6dlKbhoxDpfwIPsmMpKnZK6IRVKaO+OqgLZJrewDzVocvHexHWFK
-         +k7Ef89FptXS4c9noKugkK3y5W1zUTVqtb6cwX6oHaWLcwpsA0XUAPG6oXs58P4Qp7gE
-         FwrmukkiuCAovfsuSl/B9tfMH7a6KEEvosxcM0GHKsJrLt93w18agP6UVpXPjzbvQaR0
-         eOSFvfBA2GdB9IfYt0YKFhM1GvvvoHcpA1bBnCQirMWWFMJfohZYViErqskWp3IHQfsg
-         giRjd0R15JwVvLV0ZibwRYg3xYx8KTzE2LHwNLd+tm+h0Ollp1u9U4oLNJRsgZxeg8P3
-         wGog==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1739185286; x=1739790086;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=OSaTCwW/i1a/+xT9ljUvRvwwj+Pxye0xzps/mnFBmXc=;
-        b=i4YYq/PC786EuiADKZzF6BTPc0x4RJ1exnVk0Jw6E34cmXZBs+uUbkHjJ/b70aPAj2
-         mEwo8Q1lhHRyKhj+sTnQNxCTBCEeEK+39A07I90PKKVIsG4f3JUmrFDif31Rc/DFPKSD
-         zwGmm/NlxdQ1jL2fsXLHF/RQ4kSXhzGOW1cmOF2Y9VQjMx4oiA1anuu6O3QIhFygpjqr
-         Bhc92rW8ko/IS6kxELjbwApVI3Y81+5MZoUhuBAem1DyF47e4Cx141L3b6w1ZFtcxAre
-         P3I1mNesiDl+2K0xMDEMCxEn7fLoOr95iHs0Y7vIdwjAoWK11Njc5tMp+xaUwKuFV1vl
-         dq6g==
-X-Gm-Message-State: AOJu0YzW5ncDzQm4KJG+UIwJbrrl8OSB0VdEq2sQWsxtF563w4pMxHc7
-	Xl1sVxR43DxZ7XClurXz1vTUrpAmRbmyeil0I62zYOvgeft5Oht20FVUkx1A6Og=
-X-Gm-Gg: ASbGncsTTSo9MwbtZvnQUdZLG8MIhmTuR3SeCCHh3GOdC4DHiBo6oMMqKUi0u0OkY04
-	fmB80b/1LPxLpKkzTZsoEWR3hxncsn9Bs/RCyDxkyd0LYfcMR3prJ06PNcT4CaT2DzdLo2dkd5M
-	GrCN+W4lihPs96mrzuFn94T88L+NuC+6r0FvG0OX9jBaHC0SS2bJmw2weRMZ7UI+ccUerJTo4TW
-	NWpOYVLM4rinfSR+IA4pFfSAIyXEtrDUYbPQdgmsCTRqpd93nOcCtK9iC17WwB77iZyKgryGvPx
-	5DE=
-X-Google-Smtp-Source: AGHT+IFXnQ0KMzWEP0v9mEPLjum+FYzLvCxDqUvIcocuOOZXnHi/RAG0ADvMPBvpRtDBnATrbHxu0g==
-X-Received: by 2002:a05:6000:2aa:b0:38d:daf3:be6a with SMTP id ffacd0b85a97d-38ddaf3c061mr5632423f8f.40.1739185285592;
-        Mon, 10 Feb 2025 03:01:25 -0800 (PST)
-Received: from localhost ([2a02:8308:a00c:e200::766e])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4394779a96dsm16109565e9.4.2025.02.10.03.01.24
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 10 Feb 2025 03:01:24 -0800 (PST)
-Date: Mon, 10 Feb 2025 12:01:23 +0100
-From: Andrew Jones <ajones@ventanamicro.com>
-To: Anup Patel <apatel@ventanamicro.com>
-Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	paul.walmsley@sifive.com, palmer@dabbelt.com, charlie@rivosinc.com, jesse@rivosinc.com
-Subject: Re: [PATCH 0/9] riscv: Unaligned access speed probing fixes and
- skipping
-Message-ID: <20250210-c79541eaea0d2d922f019384@orel>
-References: <20250207161939.46139-11-ajones@ventanamicro.com>
- <CAK9=C2XmFtLHAxuWJVdvkUHFQTM+mE-D8E4sLvKxxUj_CqcbAQ@mail.gmail.com>
- <20250210-d575562e04d84ca570e26f5d@orel>
- <CAK9=C2X5Hu_LQHmXUea7Xhq5cHaJqtcncgwUeb2+2uMvbTiW3w@mail.gmail.com>
+	id 1thRYH-0000000H7xI-2VSo;
+	Mon, 10 Feb 2025 11:02:11 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id 0E7C643158;
+	Mon, 10 Feb 2025 11:02:01 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
+	t=1739185326;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=Gmrlu3nc02d+jWxj8+i6q0M+l8i8yQBkmFLjW9PKKPQ=;
+	b=N73WP17z6Ic2ftM721SqQ5LZBUU2XcrnIDnXt45t7Qsp64VKrWg5vBZdI/F7GnGLZaZgmy
+	zePYcj8MDBlTyj9rSSTq9T/dbWeNFZ8HtdZnAHFA7OKAh9lFWDtdO7EoYdRXk/r5sPHcEN
+	nIWeKshIl1699eaP//L+A8w9+XJBwQftxS9VpUCYtM6vRZTzxke6VsgyhU5iNaIFL16pkQ
+	tvhMOBf8jNpYxUlNnMXltyOOk5X3l2zpBT+Amhm9Gyk0QtXNi2Lad2wfqQu+RHsDoXTbv1
+	15Zf21A1IPMf5vptTCTxiN1Z+J7OOpQynMvh7/qvev4nJ570AswZ7z2LZ2PIew==
+From: Romain Gantois <romain.gantois@bootlin.com>
+To: Andrew Lunn <andrew+netdev@lunn.ch>,
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Chen Wang <unicorn_wang@outlook.com>,
+ Inochi Amaoto <inochiama@outlook.com>,
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>,
+ Richard Cochran <richardcochran@gmail.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Emil Renner Berthing <emil.renner.berthing@canonical.com>,
+ Jisheng Zhang <jszhang@kernel.org>,
+ "Jan Petrous (OSS)" <jan.petrous@oss.nxp.com>,
+ =?UTF-8?B?Q2zDqW1lbnQgTMOpZ2Vy?= <clement.leger@bootlin.com>,
+ Simon Horman <horms@kernel.org>, Furong Xu <0x1207@gmail.com>,
+ Serge Semin <fancer.lancer@gmail.com>, Lothar Rubusch <l.rubusch@gmail.com>,
+ Suraj Jaiswal <quic_jsuraj@quicinc.com>,
+ Joe Hattori <joe@pf.is.s.u-tokyo.ac.jp>,
+ Bartosz Golaszewski <bartosz.golaszewski@linaro.org>,
+ Giuseppe Cavallaro <peppe.cavallaro@st.com>,
+ Jose Abreu <joabreu@synopsys.com>, Inochi Amaoto <inochiama@gmail.com>
+Cc: Inochi Amaoto <inochiama@gmail.com>, netdev@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org, linux-riscv@lists.infradead.org,
+ Yixun Lan <dlan@gentoo.org>, Longbin Li <looong.bin@gmail.com>
+Subject: Re: [PATCH net-next v4 3/3] net: stmmac: Add glue layer for Sophgo SG2044 SoC
+Date: Mon, 10 Feb 2025 12:01:56 +0100
+Message-ID: <2379380.ElGaqSPkdT@fw-rgant>
+In-Reply-To: <20250209013054.816580-4-inochiama@gmail.com>
+References: <20250209013054.816580-1-inochiama@gmail.com>
+ <20250209013054.816580-4-inochiama@gmail.com>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <CAK9=C2X5Hu_LQHmXUea7Xhq5cHaJqtcncgwUeb2+2uMvbTiW3w@mail.gmail.com>
+X-GND-State: clean
+X-GND-Score: -100
+X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgdefjeeklecutefuodetggdotefrodftvfcurfhrohhfihhlvgemucfitefpfffkpdcuggftfghnshhusghstghrihgsvgenuceurghilhhouhhtmecufedtudenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujfgurhephffvvefufffkjghfgggtsehgtderredttdejnecuhfhrohhmpeftohhmrghinhcuifgrnhhtohhishcuoehrohhmrghinhdrghgrnhhtohhishessghoohhtlhhinhdrtghomheqnecuggftrfgrthhtvghrnhephfdvleekvefgieejtdduieehfeffjefhleegudeuhfelteduiedukedtieehlefgnecuffhomhgrihhnpegsohhothhlihhnrdgtohhmnecukfhppeeltddrkeelrdduieefrdduvdejnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehinhgvthepledtrdekledrudeifedruddvjedphhgvlhhopehffidqrhhgrghnthdrlhhotggrlhhnvghtpdhmrghilhhfrhhomheprhhomhgrihhnrdhgrghnthhoihhssegsohhothhlihhnrdgtohhmpdhnsggprhgtphhtthhopeefkedprhgtphhtthhopegrnhgurhgvfidonhgvthguvghvsehluhhnnhdrtghhpdhrtghpthhtohepuggrvhgvmhesuggrvhgvmhhlohhfthdrnhgvthdprhgtphhtthhopegvughumhgriigvthesghhoohhglhgvrdgtohhmpdhrtghpthhtohepkhhusggrsehkvghrnhgvlhdrohhrghdprhgtphhtthhopehprggsvghnihesr
+ hgvughhrghtrdgtohhmpdhrtghpthhtoheprhhosghhsehkvghrnhgvlhdrohhrghdprhgtphhtthhopehkrhiikhdoughtsehkvghrnhgvlhdrohhrghdprhgtphhtthhopegtohhnohhrodgutheskhgvrhhnvghlrdhorhhg
+X-GND-Sasl: romain.gantois@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250210_030127_254538_ED0D57F3 
-X-CRM114-Status: GOOD (  21.91  )
+X-CRM114-CacheID: sfid-20250210_030210_095777_83A099EA 
+X-CRM114-Status: GOOD (  22.29  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,44 +93,206 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: multipart/mixed; boundary="===============2816835842400831661=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gTW9uLCBGZWIgMTAsIDIwMjUgYXQgMDM6Mjg6MTNQTSArMDUzMCwgQW51cCBQYXRlbCB3cm90
-ZToKPiBPbiBNb24sIEZlYiAxMCwgMjAyNSBhdCAyOjU24oCvUE0gQW5kcmV3IEpvbmVzIDxham9u
-ZXNAdmVudGFuYW1pY3JvLmNvbT4gd3JvdGU6Cj4gPgo+ID4gT24gU2F0LCBGZWIgMDgsIDIwMjUg
-YXQgMDE6Mjk6NDJQTSArMDUzMCwgQW51cCBQYXRlbCB3cm90ZToKPiA+ID4gT24gRnJpLCBGZWIg
-NywgMjAyNSBhdCA5OjQ54oCvUE0gQW5kcmV3IEpvbmVzIDxham9uZXNAdmVudGFuYW1pY3JvLmNv
-bT4gd3JvdGU6Cj4gPiA+ID4KPiA+ID4gPiBUaGUgZmlyc3Qgc2l4IHBhdGNoZXMgb2YgdGhpcyBz
-ZXJpZXMgYXJlIGZpeGVzIGFuZCBjbGVhbnVwcyBvZiB0aGUKPiA+ID4gPiB1bmFsaWduZWQgYWNj
-ZXNzIHNwZWVkIHByb2JpbmcgY29kZS4gVGhlIG5leHQgdHdvIHBhdGNoZXMgaW50cm9kdWNlCj4g
-PiA+ID4gc3VwcG9ydCB0byBza2lwIHByb2JpbmcgYnkgbWF0Y2hpbmcgdmVuZG9yL2FyY2gvaW1w
-IGlkcyBhbmQgY2hlY2tpbmcgYQo+ID4gPiA+IHRhYmxlIGZvciB0aGUgYWNjZXNzIHNwZWVkIHR5
-cGUuIFRoZSBsYXN0IHBhdGNoIGFwcGxpZXMgdGhlIG5ldyBza2lwCj4gPiA+ID4gc3VwcG9ydCB0
-byBWZW50YW5hIGhhcnRzLgo+ID4gPgo+ID4gPiBBbHRlcm5hdGl2ZWx5LCB3ZSBjYW4gYWxzbyBz
-a2lwIHByb2JpbmcgbWlzYWxpZ25lZCBhY2Nlc3Mgd2hlbiBaaWNjbHNtCj4gPiA+IGV4dGVuc2lv
-biBpcyBwcmVzZW50IGluIHRoZSBJU0Egc3RyaW5nLiBUaGUgWmljY2xzbSBleHRlbnNpb24gaXMg
-ZGVmaW5lZAo+ID4gPiBhcyBwYXJ0IG9mIHRoZSByYXRpZmllZCBSVkEyMyBwcm9maWxlLgo+ID4K
-PiA+IFRoZSBkZWZpbml0aW9uIG9mIFppY2Nsc20gZG9lc24ndCBleHBsaWNpdGx5IHN0YXRlIHRo
-YXQgbWlzYWxpZ25lZCB3b3JkCj4gPiBhY2Nlc3NlcyB3aWxsIGJlIGZhc3RlciB0aGFuIGJ5dGUg
-YWNjZXNzZXMgdG8gdGhlIHNhbWUgYWRkcmVzc2VzLiBUaGVyZSdzCj4gPiBhbHNvIHRoaXMgc3Bl
-YyBpc3N1ZVsxXSB3aGljaCBhcHBlYXJzIHRvIHN0YXRlIHRoYXQgWmljY2xzbSBjYW5ub3QgYmUg
-dXNlZAo+ID4gdG8gaW5mZXIgZmFzdCBtaXNhbGlnbmVkIGFjY2Vzc2VzLgo+ID4KPiA+IEJ1dCwg
-bGlrZSBDaGFybGllIHN1Z2dlc3RzLCBtYXliZSB3ZSBzaG91bGQgYWR2b2NhdGUgdGhlIGNyZWF0
-aW9uIG9mIGFuCj4gPiBleHRlbnNpb24gKG9yICJuYW1lZCBmZWF0dXJlIikgd2hpY2ggYWxsb3dz
-IHNwZWNpZmljYWxseSBhZHZlcnRpc2luZyB0aGF0Cj4gPiBtaXNhbGlnbmVkIGFjY2Vzc2VzIGFy
-ZSBmYXN0Lgo+ID4KPiA+IFsxXSBodHRwczovL2dpdGh1Yi5jb20vcmlzY3YvcmlzY3YtaXNhLW1h
-bnVhbC9pc3N1ZXMvMTYxMQo+IAo+IEkgYW0gbm90IHN1cmUgd2hlbiBzdWNoIGFuIGV4dGVuc2lv
-biB3b3VsZCBzaG93IHVwIHNvIGZvciBub3cKPiBza2lwcGluZyB1bmFsaWduZWQgdGVzdHMgYmFz
-ZWQgb24gaW1wbGVtZW50YXRpb24gSUQgc2VlbXMKPiByZWFzb25hYmxlLgo+IAo+IEFsc28sIGl0
-IHNlZW1zIHRoaXMgc2VyaWVzIGlzIHRvdGFsbHkgc2tpcHBpbmcgdGhlIGV4aXN0aW5nIGJvb3Qt
-dGltZQo+IHByaW50IGZvciBmYXN0IHVuYWxpZ25lZCBhY2Nlc3MuIFBsZWFzZSB0cnkgdG8ga2Vl
-cCB0aGUgYm9vdC10aW1lCj4gcHJpbnQgaW4gc29tZSBmb3JtLgoKU3VyZS4gV2UgaGF2ZSBod3By
-b2JlLCBidXQgbm93IHRoYXQgcGVvcGxlIGFyZSBsaWtlbHkgdXNlZCB0byBzZWVpbmcgaXQKaW4g
-ZG1lc2csIHRoZW4gd2Ugc2hvdWxkIHByb2JhYmx5IGtlZXAgc29tZXRoaW5nIHRoZXJlLgoKVGhh
-bmtzLApkcmV3CgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-XwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9y
-ZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2
-Cg==
+--===============2816835842400831661==
+Content-Type: multipart/signed; boundary="nextPart4980893.GXAFRqVoOG";
+ micalg="pgp-sha256"; protocol="application/pgp-signature"
+
+--nextPart4980893.GXAFRqVoOG
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"; protected-headers="v1"
+From: Romain Gantois <romain.gantois@bootlin.com>
+Date: Mon, 10 Feb 2025 12:01:56 +0100
+Message-ID: <2379380.ElGaqSPkdT@fw-rgant>
+In-Reply-To: <20250209013054.816580-4-inochiama@gmail.com>
+MIME-Version: 1.0
+
+Hello Inochi,
+
+On dimanche 9 f=C3=A9vrier 2025 02:30:52 heure normale d=E2=80=99Europe cen=
+trale Inochi=20
+Amaoto wrote:
+> Adds Sophgo dwmac driver support on the Sophgo SG2044 SoC.
+=2E..
+> --- /dev/null
+> +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-sophgo.c
+> @@ -0,0 +1,105 @@
+> +// SPDX-License-Identifier: GPL-2.0+
+> +/*
+> + * Sophgo DWMAC platform driver
+> + *
+> + * Copyright (C) 2024 Inochi Amaoto <inochiama@gmail.com>
+> + */
+> +
+> +#include <linux/bits.h>
+
+It doesn't look like this include is used, could you please remove it?
+
+> +#include <linux/mod_devicetable.h>
+> +#include <linux/phy.h>
+> +#include <linux/platform_device.h>
+> +
+> +#include "stmmac_platform.h"
+> +
+> +struct sophgo_dwmac {
+> +	struct device *dev;
+> +	struct clk *clk_tx;
+> +};
+> +
+> +static void sophgo_dwmac_fix_mac_speed(void *priv, unsigned int speed,
+> unsigned int mode) +{
+> +	struct sophgo_dwmac *dwmac =3D priv;
+> +	long rate;
+> +	int ret;
+> +
+> +	rate =3D rgmii_clock(speed);
+> +	if (rate < 0) {
+> +		dev_err(dwmac->dev, "invalid speed %u\n", speed);
+> +		return;
+> +	}
+> +
+> +	ret =3D clk_set_rate(dwmac->clk_tx, rate);
+> +	if (ret)
+> +		dev_err(dwmac->dev, "failed to set tx rate %lu: %pe\n",
+
+nit: shouldn't this be "%ld"?
+
+> +			rate, ERR_PTR(ret));
+> +}
+> +
+> +static int sophgo_sg2044_dwmac_init(struct platform_device *pdev,
+> +				    struct plat_stmmacenet_data *plat_dat,
+> +				    struct stmmac_resources *stmmac_res)
+> +{
+> +	struct sophgo_dwmac *dwmac;
+> +
+> +	dwmac =3D devm_kzalloc(&pdev->dev, sizeof(*dwmac), GFP_KERNEL);
+> +	if (!dwmac)
+> +		return -ENOMEM;
+> +
+> +	dwmac->clk_tx =3D devm_clk_get_enabled(&pdev->dev, "tx");
+> +	if (IS_ERR(dwmac->clk_tx))
+> +		return dev_err_probe(&pdev->dev, PTR_ERR(dwmac->clk_tx),
+> +				     "failed to get tx clock\n");
+> +
+> +	dwmac->dev =3D &pdev->dev;
+> +	plat_dat->bsp_priv =3D dwmac;
+> +	plat_dat->flags |=3D STMMAC_FLAG_SPH_DISABLE;
+> +	plat_dat->fix_mac_speed =3D sophgo_dwmac_fix_mac_speed;
+> +	plat_dat->multicast_filter_bins =3D 0;
+> +	plat_dat->unicast_filter_entries =3D 1;
+> +
+> +	return 0;
+> +}
+> +
+> +static int sophgo_dwmac_probe(struct platform_device *pdev)
+> +{
+> +	struct plat_stmmacenet_data *plat_dat;
+> +	struct stmmac_resources stmmac_res;
+
+nit: I think adding "struct device *dev =3D &pdev->dev;" here would
+be better than repeating "&pdev->dev" later on.
+
+> +	int ret;
+> +
+> +	ret =3D stmmac_get_platform_resources(pdev, &stmmac_res);
+> +	if (ret)
+> +		return dev_err_probe(&pdev->dev, ret,
+> +				     "failed to get resources\n");
+
+This error message is a bit too vague, maybe replace it with "failed to get=
+=20
+platform resources"?
+
+> +
+> +	plat_dat =3D devm_stmmac_probe_config_dt(pdev, stmmac_res.mac);
+> +	if (IS_ERR(plat_dat))
+> +		return dev_err_probe(&pdev->dev, PTR_ERR(plat_dat),
+> +				     "dt configuration failed\n");
+
+This error message is a bit misleading IMO, I would replace it with
+something like "failed to parse device-tree parameters".
+
+> +
+> +	ret =3D sophgo_sg2044_dwmac_init(pdev, plat_dat, &stmmac_res);
+> +	if (ret)
+> +		return ret;
+> +
+> +	return stmmac_dvr_probe(&pdev->dev, plat_dat, &stmmac_res);
+> +}
+> +
+> +static const struct of_device_id sophgo_dwmac_match[] =3D {
+> +	{ .compatible =3D "sophgo,sg2044-dwmac" },
+> +	{ /* sentinel */ }
+> +};
+> +MODULE_DEVICE_TABLE(of, sophgo_dwmac_match);
+> +
+> +static struct platform_driver sophgo_dwmac_driver =3D {
+> +	.probe  =3D sophgo_dwmac_probe,
+> +	.remove =3D stmmac_pltfr_remove,
+> +	.driver =3D {
+> +		.name =3D "sophgo-dwmac",
+> +		.pm =3D &stmmac_pltfr_pm_ops,
+> +		.of_match_table =3D sophgo_dwmac_match,
+> +	},
+> +};
+> +module_platform_driver(sophgo_dwmac_driver);
+> +
+> +MODULE_AUTHOR("Inochi Amaoto <inochiama@gmail.com>");
+> +MODULE_DESCRIPTION("Sophgo DWMAC platform driver");
+> +MODULE_LICENSE("GPL");
+
+Thanks,
+
+=2D-=20
+Romain Gantois, Bootlin
+Embedded Linux and Kernel engineering
+https://bootlin.com
+
+--nextPart4980893.GXAFRqVoOG
+Content-Type: application/pgp-signature; name="signature.asc"
+Content-Description: This is a digitally signed message part.
+Content-Transfer-Encoding: 7Bit
+
+-----BEGIN PGP SIGNATURE-----
+
+iQIzBAABCAAdFiEEYFZBShRwOvLlRRy+3R9U/FLj284FAmep3KQACgkQ3R9U/FLj
+284HFg/+MKQUhhxOK5sTw8hghie4GbpkSvYhWBC7tuehA03Yc5WCIwmWrOG5wf1+
+xz9SLOp7IGs6gDtwXnC57LgTzaRuXEXtc1ZiWgjsnj/xnFGcNV5WGGtCGiRApP+L
+D3zxA/D+F7dTaFeGxmxk8T0aEd1sMHER4StQbPMxw3troHOBnVbNxbwXAgsxyTug
+8JcGrzp9i5q6Mdir9hfPywTwObPLzEormthGiAF/qo9GkB2X1nM7Fo6gk3laKCk6
+ukzNymMUp/XTAE3xRzpNG3qSH8G08YF7b5HqXXVXb7iV1EMnW63bP9t9XK32mS8z
+J04i/CHgFF1CTepv7/a0ZqQlvq5JhgPVUDnS/NFEnZ0Wb1k6g2+jlt02Hgl7lLUQ
+iCVbL3aFWaSuo9LL8EQfuQaqZS60v0a5ZIyZq1AtMh0KKT5xnIdmBA54bpIWq57y
+LvxHSHTNASAJgS8uBeJSH1s/2MrBU85LAFLjy07nvYEpk0dtN3Uoa9Vtxm2C3iet
+g4EFwNy7Uq9ok1c0GPX3cWhW6dQ+L77Hz/5m1jHhU4vnDCsrDjv/14b4mJ6CqvfF
+8NL56IidEjAVzBx18wh0rZMkZzZtoylqMa7rcPS7Nmt4l4WVK86wDA4DJAAG5CXU
+TXHuFqKW1rDwokkhRUYgHPBLuiYbjWTFQhGYA+weLW/8n4AecbE=
+=7ZQB
+-----END PGP SIGNATURE-----
+
+--nextPart4980893.GXAFRqVoOG--
+
+
+
+
+
+--===============2816835842400831661==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============2816835842400831661==--
+
+
+
+
