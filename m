@@ -4,91 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 47CA6C0219E
-	for <linux-riscv@archiver.kernel.org>; Mon, 10 Feb 2025 20:27:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C3A41C02198
+	for <linux-riscv@archiver.kernel.org>; Mon, 10 Feb 2025 20:27:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=74LSszYMAoAE1VDF1AyNhPd2u+JFsMbdW+6TQlA6WKw=; b=Rio/rwCXPsJJ6b
-	c/kNaAfKq2EWLRfFCyEWA7i6pt1zivTJ3WMR/8SaKbyZgTVc1KVaRIxRPBdKrl/w8zcQhcx0gq97q
-	ey60BGXLtgPgx9IeBNwFFimVVb8ftdf8lnqlK+YMR4GDNu56RQufsvw7EeOYLaYsDkL8wHhCN0plY
-	6BYaiT33itykqpzg9LpuYgeh1MmGPPhRAKxF+sScyWf9PLTijGXMfaA49OdDI6Ihvtk3Uq4Mybdhx
-	8Uw/4VLA3RW64bDy4HXlbkF9+Ce7t0Bw2Ng6NFQcskxrt/8mAnUcyDgE8dhwK8I0+HTUwCOvgjqqx
-	6ZfeXk/IqwbspqNRbqCg==;
+	List-Owner; bh=LAf6MslLH1W1Qudsmw0JxdiT7ib3uJj4Ssg/wObdBvc=; b=uVP6XpFuk7pOyA
+	wYGyu5mNE9NmIzt4IwpwyPKacYprcjDfwGaYNI/u4/RoO0xTzuyO9RGcNrBloz59IuCyTDLQHf+d8
+	94os9T2nffuBixpThBgPbiryekfcEGEmB/MnDdXsOclJ8JyuggzlVObxQFUFmFai2eDBm/9IAkGhx
+	iUxceq+UOYGVNoj2ropWRx4O1ltT5MZa+DQw6ux4eP9S8MDd2gVeqC9n0OxjcOwja5k6WHpNX7sb7
+	Nm4sjuJQEGot5NkcnQTe7/n0Yhr8Ym8NsT+k34RnIsXXRlJ5hFXdAibCW1G7N9M9qhROrRmVjmstp
+	Z08Cfy6pttXoWVsIVonw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1thaNO-00000001KTb-40AO;
-	Mon, 10 Feb 2025 20:27:30 +0000
+	id 1thaNR-00000001KXn-32Er;
+	Mon, 10 Feb 2025 20:27:33 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1thaNN-00000001KRg-41la
+	id 1thaNQ-00000001KV9-1shC
 	for linux-riscv@bombadil.infradead.org;
-	Mon, 10 Feb 2025 20:27:30 +0000
+	Mon, 10 Feb 2025 20:27:32 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
 	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=hU6IAlGSwKWKw5iWDrFBqBdwaJZ69/+Cs7+/DXu3do8=; b=DKBEPpLac77E4UwgKgC8MwyCsQ
-	r+9K4ELAHsHkqXc5IYn9ChrrrhKDOnneqYtugh2WJ+mhOZu6PXi67zf+L5pbWrq6IN7cUGmsgBm0T
-	UshIKWutkIQj01OHZpOjuzAqHfT0hDex0X+vAD5Piz4EANPLSiXXOQnXnBu0TIgtXPEC6Aqhz4oaQ
-	t26lIc5vE5uwCm2nuFjjplIV+gIqRAVyQ4BukdWumtqJwydGJ8fN7kxzBF2o7RQu5CiGwEX3h2fts
-	GhkHilg4QIaX2iCSlaf6NLQu7PXtDB1lCYAJEhlqV0hxUswqnHF9rBGo38WrIyDoNDNPZgACXH1cB
-	jWFcR+Ww==;
-Received: from mail-pl1-x634.google.com ([2607:f8b0:4864:20::634])
+	bh=qihiC//CQppmEvCBgeNt37whYo0mSsmsLXBW9eHBYhI=; b=e/4w/q/MsD7KK8jCGduU2srSfV
+	pIc7FYGfgig9gDyvw/l+RRkJR5/AJosaOht4qiTQvtejYjFD5HyXWsqYxJXsFXK5syipsXr+asWtC
+	rdAHoJ63HOsH/HJ5J3JbDvJPkKxmb8jd0CCVOn5t3i1KIYp8rmj4HmfzAv2uzn5ffk8M1zOS4/3XI
+	nRmO7T21vOLLh6DpaRz00xzPo1o0oUOQhheIfk04DW5NCDsRnJklWXShkfLTzz4LRFcHowcIVAxfw
+	1KScR/TNd64pHz1Aw3Cwg0jtIK+3iDqPoC5zH/GBLC9/ofG1u94nWJsXbsYIHQMlkiX6YvwGbPd3X
+	AcpSqcpA==;
+Received: from mail-pl1-x636.google.com ([2607:f8b0:4864:20::636])
 	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1thaNK-00000000Djn-4Acp
+	id 1thaNN-00000000Dl7-2MN1
 	for linux-riscv@lists.infradead.org;
-	Mon, 10 Feb 2025 20:27:28 +0000
-Received: by mail-pl1-x634.google.com with SMTP id d9443c01a7336-21f4af4f9ddso54447995ad.1
-        for <linux-riscv@lists.infradead.org>; Mon, 10 Feb 2025 12:27:25 -0800 (PST)
+	Mon, 10 Feb 2025 20:27:31 +0000
+Received: by mail-pl1-x636.google.com with SMTP id d9443c01a7336-21f49bd087cso63025545ad.0
+        for <linux-riscv@lists.infradead.org>; Mon, 10 Feb 2025 12:27:28 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1739219244; x=1739824044; darn=lists.infradead.org;
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1739219247; x=1739824047; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=hU6IAlGSwKWKw5iWDrFBqBdwaJZ69/+Cs7+/DXu3do8=;
-        b=Xy2jRUHrglHotL7PU4h5M5BiACY52IisHZTXH1C47X2oTJHTH5svvABT8FaS//hptv
-         z/QFCsUMY6BXCzCbnfH0fbnaQSaBaVebm3Gbj5vXg+l2Jv6RIyJ+PPFRIdcKjIvNDmtW
-         1ibSToXh8Huw0e1JS/pGpZZhjLfUEMuVWUDnH5uu/aQ/YJ7NfKZHF3P/FoonXQlFffZ+
-         6A7+8TLOKwtmznCQGgHf2kWuftAf/lQhOWl+QqLRzfzJNLz7aUHnt9YrqB7OQpf5ZUj2
-         hshKbyXNd9P+lxdpoTnBqNe3AGhhOOXIsFO9LTuLeTdQXRZBOWrarmU8QhK7da6cBULN
-         E7GA==
+        bh=qihiC//CQppmEvCBgeNt37whYo0mSsmsLXBW9eHBYhI=;
+        b=pJQtySPkzPbLwjxql4CpWV1LtdJyt/YGIWJnUYyhpiags/atgxPzunFr+dW1JBsqWo
+         NmGWoQyGmNrWyctFRl7EjMK2tycID5n4hL/y7LihQD1xcYNV6vi7/4pNmhVf/M7yNEhH
+         8pCISeWWcUUG6r7ax58VsHIPxRCN2sJzZOSf7GzjT5dCBJEF0KzovoIlgs0gYVXcgW2g
+         FtoeJXe5OJMvHuhRvMvoD3HZgg4KjqdVDb+yfNC90v4h6H1tGJk5GjAqX+4HIRoPsOW0
+         8h+LlRepTQGKFo80RwMs1hptVjZkmd4OFCdmmtSg//WS/SHDsNmZuhzCHSlh9LK/m3xd
+         esIA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1739219244; x=1739824044;
+        d=1e100.net; s=20230601; t=1739219247; x=1739824047;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=hU6IAlGSwKWKw5iWDrFBqBdwaJZ69/+Cs7+/DXu3do8=;
-        b=c2ayXlww9tvEOLvXSKQQMX/dt32YytQ3/r9Avgrl6yLegqe1e9sZ1IkcGYuxotN9UQ
-         MFD3A8nAstP0mKQFC65pq6PljutdZCxeuVrHxOprk1/AYECuk1NMokp+dj9+0LOXmjck
-         P26KQ5mPm0p5X2s9dNl9XNTi9kYlrTC8Ev7+niHxi/Ybux/y5cdYe73Eq+v9rNpnRf27
-         014iJuFnJ8nDkHWoXuyfEoXiTU1GWvf7rtv1TC78x6lCwsWnqRq0dL1x/vx+TiDIa8Vw
-         DzfHeSy8HRBelVdPkJkkYXcF1RGCSvX18m1t5nujrgvMsKgKhdqMeNP5oN6oo+Q+IdRK
-         FWdQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUAlE5gI6xA1g7SCUtgQ6fnco/6xF8lYJ4Q5NV0Py2N1+NfrmkWtMO1OovZB8Y0S7dC8ZIzdcYPkRT2Yg==@lists.infradead.org
-X-Gm-Message-State: AOJu0YyH2dJTw0kBy5cGQa1AwcKND5qkJCyvN7JYMTp5aDuhWF7XTCji
-	zqLmxBwez9M0jPE8gKMYZi79K2W4XwcNZDQ8Q41umrEIIExBMcAzvCYTMxeiZQY=
-X-Gm-Gg: ASbGncsuhevooFoKu8hZD23YcOUOAvr9vNm21kghh95la45c+nWqBLd4INWUstRMHik
-	BCYAcNp97z/SBzQP+YP/OHxRAgpjvAmma9oIioP/17p4o7CJ8GHpE+6nUjeXpoU+1jMy7TAmu3t
-	oxh1D0bo0oT+9UZaT+Getj3ZFUcx0RMUJL3zwPbWtkHskv6X2f70Ixm17uyZBahW88a1Qx5wHi5
-	w4Glq6iJfKvigrhC0Kx54Zj4WWgyRICiEY5Trjt9WS6KcLJf6+CsZJYVBCDdYJ7B4PkfjW1aBP4
-	j25/wGAcVYDUMHHc12W1ksAwSg==
-X-Google-Smtp-Source: AGHT+IEWx6Qroyd+owNLnhKMgXzpvCrfsJ5gLeMKvyo/Cha3hnXDj8amjvFC6tZrBWudZswu2pIc0A==
-X-Received: by 2002:a17:90b:2317:b0:2ee:94d1:7a9d with SMTP id 98e67ed59e1d1-2fa243eb4e7mr19748747a91.32.1739219244559;
-        Mon, 10 Feb 2025 12:27:24 -0800 (PST)
+        bh=qihiC//CQppmEvCBgeNt37whYo0mSsmsLXBW9eHBYhI=;
+        b=B1fFgZBeohVJmA7IHrNGS9alR0embBDNqzy7YnSOWIGkdYCJJGehiKZdDSr0NmRQw7
+         0/VSaK5xAIWu5IJMk9o73OhxgaRn8MZtcuyk9IMT6uicePo8xZgWAgQUmSNQbkjUMTvL
+         rUqBCw9/t/aYADPZeZ0QiZMJFYaiaNX6DDdYfWvYRyQYLfkCyhz8oy10EMnYWsaIn8lz
+         25ZjeFgTzjVidtFFBwmyvX0bK7CDZlgArtFceU3c6C3mClBZzRe+HPLGctXPlSSmr/E5
+         YLkJiZQSq8RiG4obkjLEBQLDgZtPW/ugS+gigkosQgD7iciOq8fGewU+wlADQa2f0qT5
+         oqKg==
+X-Forwarded-Encrypted: i=1; AJvYcCX2V4yD0lQLAjJizxIXLl9wUxk/qroXmMyH3qD0o8+ARLml+/pG+VTEsLxcjG4gH4nUDCfBNvh/S3eFUQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw/Mg4+h4qgGkUBDtInrJmqpeUcvxvkUlmMEAMFp1ES/ORj3yQr
+	fhPweePkpahueksrlV0YCmR4X2FCNN1cVNLHlbv1Ew5r0Ltc/xMjtbujfGTIR0c=
+X-Gm-Gg: ASbGncu0IYCGM5qYmSyARem3he2aMq2zVW6rd8Q+EuigELLwi4BbPAnVsL0okTeq1c8
+	h89kilD0i52AGi2Habs6+B0oYC2k+87YdUfCDixN/3rBfFRYRO1bcXvCss7I2/C8or2FluIoQbV
+	YAz+88aD02QzEK0BzDGyNE+EhF7XVC1ddiOBT7Q2tVW5ZD4fbt6oC7UtXBorvx8baTIQqM0K8FV
+	576ezNfQ6VKk0yVOHowk8xScKg4IJmIQdZqgb8h9f3oA/svUVd46jdRu153w+wNo8y4AwHtULRq
+	U0jWV5HWR+pYxRO7P9jjF/OulQ==
+X-Google-Smtp-Source: AGHT+IF7EXANdfW+rLsLNvBS7WrISTRoOO6x3oQIFnuoI1GdkKkKLf31wWdGn3loj99yEU6jyJj2UA==
+X-Received: by 2002:a17:902:e802:b0:21f:4c8b:c514 with SMTP id d9443c01a7336-21f4e76391amr226903755ad.45.1739219247115;
+        Mon, 10 Feb 2025 12:27:27 -0800 (PST)
 Received: from debug.ba.rivosinc.com ([64.71.180.162])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-21f3687c187sm83711555ad.168.2025.02.10.12.27.22
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-21f3687c187sm83711555ad.168.2025.02.10.12.27.24
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 10 Feb 2025 12:27:24 -0800 (PST)
+        Mon, 10 Feb 2025 12:27:26 -0800 (PST)
 From: Deepak Gupta <debug@rivosinc.com>
-Date: Mon, 10 Feb 2025 12:26:50 -0800
-Subject: [PATCH v10 17/27] riscv/kernel: update __show_regs to print shadow
- stack register
+Date: Mon, 10 Feb 2025 12:26:51 -0800
+Subject: [PATCH v10 18/27] riscv/ptrace: riscv cfi status and state via
+ ptrace and in core files
 MIME-Version: 1.0
-Message-Id: <20250210-v5_user_cfi_series-v10-17-163dcfa31c60@rivosinc.com>
+Message-Id: <20250210-v5_user_cfi_series-v10-18-163dcfa31c60@rivosinc.com>
 References: <20250210-v5_user_cfi_series-v10-0-163dcfa31c60@rivosinc.com>
 In-Reply-To: <20250210-v5_user_cfi_series-v10-0-163dcfa31c60@rivosinc.com>
 To: Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>, 
@@ -118,8 +118,8 @@ Cc: linux-kernel@vger.kernel.org, linux-fsdevel@vger.kernel.org,
  rick.p.edgecombe@intel.com, Deepak Gupta <debug@rivosinc.com>
 X-Mailer: b4 0.14.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250210_202727_164920_1DE50D0D 
-X-CRM114-Status: GOOD (  11.06  )
+X-CRM114-CacheID: sfid-20250210_202729_751031_41332E85 
+X-CRM114-Status: GOOD (  21.39  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -136,30 +136,178 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Updating __show_regs to print captured shadow stack pointer as well.
-On tasks where shadow stack is disabled, it'll simply print 0.
+Expose a new register type NT_RISCV_USER_CFI for risc-v cfi status and
+state. Intentionally both landing pad and shadow stack status and state
+are rolled into cfi state. Creating two different NT_RISCV_USER_XXX would
+not be useful and wastage of a note type. Enabling or disabling of feature
+is not allowed via ptrace set interface. However setting `elp` state or
+setting shadow stack pointer are allowed via ptrace set interface. It is
+expected `gdb` might have use to fixup `elp` state or `shadow stack`
+pointer.
 
 Signed-off-by: Deepak Gupta <debug@rivosinc.com>
-Reviewed-by: Alexandre Ghiti <alexghiti@rivosinc.com>
 ---
- arch/riscv/kernel/process.c | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+ arch/riscv/include/uapi/asm/ptrace.h | 18 ++++++++
+ arch/riscv/kernel/ptrace.c           | 83 ++++++++++++++++++++++++++++++++++++
+ include/uapi/linux/elf.h             |  1 +
+ 3 files changed, 102 insertions(+)
 
-diff --git a/arch/riscv/kernel/process.c b/arch/riscv/kernel/process.c
-index 4587201dd81d..6bb53ce72ed5 100644
---- a/arch/riscv/kernel/process.c
-+++ b/arch/riscv/kernel/process.c
-@@ -90,8 +90,8 @@ void __show_regs(struct pt_regs *regs)
- 		regs->s8, regs->s9, regs->s10);
- 	pr_cont(" s11: " REG_FMT " t3 : " REG_FMT " t4 : " REG_FMT "\n",
- 		regs->s11, regs->t3, regs->t4);
--	pr_cont(" t5 : " REG_FMT " t6 : " REG_FMT "\n",
--		regs->t5, regs->t6);
-+	pr_cont(" t5 : " REG_FMT " t6 : " REG_FMT " ssp : " REG_FMT "\n",
-+		regs->t5, regs->t6, get_active_shstk(current));
+diff --git a/arch/riscv/include/uapi/asm/ptrace.h b/arch/riscv/include/uapi/asm/ptrace.h
+index 659ea3af5680..e6571fba8a8a 100644
+--- a/arch/riscv/include/uapi/asm/ptrace.h
++++ b/arch/riscv/include/uapi/asm/ptrace.h
+@@ -131,6 +131,24 @@ struct __sc_riscv_cfi_state {
+ 	unsigned long ss_ptr;   /* shadow stack pointer */
+ };
  
- 	pr_cont("status: " REG_FMT " badaddr: " REG_FMT " cause: " REG_FMT "\n",
- 		regs->status, regs->badaddr, regs->cause);
++struct __cfi_status {
++	/* indirect branch tracking state */
++	__u64 lp_en : 1;
++	__u64 lp_lock : 1;
++	__u64 elp_state : 1;
++
++	/* shadow stack status */
++	__u64 shstk_en : 1;
++	__u64 shstk_lock : 1;
++
++	__u64 rsvd : sizeof(__u64) - 5;
++};
++
++struct user_cfi_state {
++	struct __cfi_status	cfi_status;
++	__u64 shstk_ptr;
++};
++
+ #endif /* __ASSEMBLY__ */
+ 
+ #endif /* _UAPI_ASM_RISCV_PTRACE_H */
+diff --git a/arch/riscv/kernel/ptrace.c b/arch/riscv/kernel/ptrace.c
+index ea67e9fb7a58..df8b7c6ab671 100644
+--- a/arch/riscv/kernel/ptrace.c
++++ b/arch/riscv/kernel/ptrace.c
+@@ -19,6 +19,7 @@
+ #include <linux/regset.h>
+ #include <linux/sched.h>
+ #include <linux/sched/task_stack.h>
++#include <asm/usercfi.h>
+ 
+ enum riscv_regset {
+ 	REGSET_X,
+@@ -31,6 +32,9 @@ enum riscv_regset {
+ #ifdef CONFIG_RISCV_ISA_SUPM
+ 	REGSET_TAGGED_ADDR_CTRL,
+ #endif
++#ifdef CONFIG_RISCV_USER_CFI
++	REGSET_CFI,
++#endif
+ };
+ 
+ static int riscv_gpr_get(struct task_struct *target,
+@@ -184,6 +188,75 @@ static int tagged_addr_ctrl_set(struct task_struct *target,
+ }
+ #endif
+ 
++#ifdef CONFIG_RISCV_USER_CFI
++static int riscv_cfi_get(struct task_struct *target,
++			 const struct user_regset *regset,
++			 struct membuf to)
++{
++	struct user_cfi_state user_cfi;
++	struct pt_regs *regs;
++
++	regs = task_pt_regs(target);
++
++	user_cfi.cfi_status.lp_en = is_indir_lp_enabled(target);
++	user_cfi.cfi_status.lp_lock = is_indir_lp_locked(target);
++	user_cfi.cfi_status.elp_state = (regs->status & SR_ELP);
++
++	user_cfi.cfi_status.shstk_en = is_shstk_enabled(target);
++	user_cfi.cfi_status.shstk_lock = is_shstk_locked(target);
++	user_cfi.shstk_ptr = get_active_shstk(target);
++
++	return membuf_write(&to, &user_cfi, sizeof(user_cfi));
++}
++
++/*
++ * Does it make sense to allowing enable / disable of cfi via ptrace?
++ * Not allowing enable / disable / locking control via ptrace for now.
++ * Setting shadow stack pointer is allowed. GDB might use it to unwind or
++ * some other fixup. Similarly gdb might want to suppress elp and may want
++ * to reset elp state.
++ */
++static int riscv_cfi_set(struct task_struct *target,
++			 const struct user_regset *regset,
++			 unsigned int pos, unsigned int count,
++			 const void *kbuf, const void __user *ubuf)
++{
++	int ret;
++	struct user_cfi_state user_cfi;
++	struct pt_regs *regs;
++
++	regs = task_pt_regs(target);
++
++	ret = user_regset_copyin(&pos, &count, &kbuf, &ubuf, &user_cfi, 0, -1);
++	if (ret)
++		return ret;
++
++	/*
++	 * Not allowing enabling or locking shadow stack or landing pad
++	 * There is no disabling of shadow stack or landing pad via ptrace
++	 * rsvd field should be set to zero so that if those fields are needed in future
++	 */
++	if (user_cfi.cfi_status.lp_en || user_cfi.cfi_status.lp_lock ||
++	    user_cfi.cfi_status.shstk_en || user_cfi.cfi_status.shstk_lock ||
++	    !user_cfi.cfi_status.rsvd)
++		return -EINVAL;
++
++	/* If lpad is enabled on target and ptrace requests to set / clear elp, do that */
++	if (is_indir_lp_enabled(target)) {
++		if (user_cfi.cfi_status.elp_state) /* set elp state */
++			regs->status |= SR_ELP;
++		else
++			regs->status &= ~SR_ELP; /* clear elp state */
++	}
++
++	/* If shadow stack enabled on target, set new shadow stack pointer */
++	if (is_shstk_enabled(target))
++		set_active_shstk(target, user_cfi.shstk_ptr);
++
++	return 0;
++}
++#endif
++
+ static const struct user_regset riscv_user_regset[] = {
+ 	[REGSET_X] = {
+ 		.core_note_type = NT_PRSTATUS,
+@@ -224,6 +297,16 @@ static const struct user_regset riscv_user_regset[] = {
+ 		.set = tagged_addr_ctrl_set,
+ 	},
+ #endif
++#ifdef CONFIG_RISCV_USER_CFI
++	[REGSET_CFI] = {
++		.core_note_type = NT_RISCV_USER_CFI,
++		.align = sizeof(__u64),
++		.n = sizeof(struct user_cfi_state) / sizeof(__u64),
++		.size = sizeof(__u64),
++		.regset_get = riscv_cfi_get,
++		.set = riscv_cfi_set,
++	},
++#endif
+ };
+ 
+ static const struct user_regset_view riscv_user_native_view = {
+diff --git a/include/uapi/linux/elf.h b/include/uapi/linux/elf.h
+index b44069d29cec..b9daed4ab780 100644
+--- a/include/uapi/linux/elf.h
++++ b/include/uapi/linux/elf.h
+@@ -452,6 +452,7 @@ typedef struct elf64_shdr {
+ #define NT_RISCV_CSR	0x900		/* RISC-V Control and Status Registers */
+ #define NT_RISCV_VECTOR	0x901		/* RISC-V vector registers */
+ #define NT_RISCV_TAGGED_ADDR_CTRL 0x902	/* RISC-V tagged address control (prctl()) */
++#define NT_RISCV_USER_CFI	0x903		/* RISC-V shadow stack state */
+ #define NT_LOONGARCH_CPUCFG	0xa00	/* LoongArch CPU config registers */
+ #define NT_LOONGARCH_CSR	0xa01	/* LoongArch control and status registers */
+ #define NT_LOONGARCH_LSX	0xa02	/* LoongArch Loongson SIMD Extension registers */
 
 -- 
 2.34.1
