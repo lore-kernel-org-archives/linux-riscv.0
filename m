@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0FD1CC021A2
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82F96C021A3
 	for <linux-riscv@archiver.kernel.org>; Mon, 10 Feb 2025 21:40:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -12,83 +12,83 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=yMOrut6R4TAN79yO8IxtUtFdOzZL3mTEbv1n5iblEg8=; b=YbBAZJd6pstmb5
-	2gGSP6VJCJVY3zhmt6Upvo1SmejSR2BzhXFZ5IxJYKwBp0H1gPf0s9ynsyvqpxS8Wf8uWCJ0jlwBp
-	QDJvpKddlkTEvbjoHA2oHpnVQ8NHOvC+4VWy5tCiDBNmPU6CVJdknW18IXPWqdJzbqcE69Nhh1T/v
-	77j59lP0nJWVb419H4MJ1lfn4oVlEK9WOPNQuC7RW6v9XvlzpUrdy8XigVZ494TBo0AfOpzv3Zyyl
-	hsCsbI7jU/hZO6pUjEOUZWLQ2l1e6FPEihDOXtZkcXXX/+1rUW0/fFq7AARITM4eXE6oOxsCgoSpB
-	P0w0NREpT3ytYT6tlaZg==;
+	List-Owner; bh=QtbSUQe4nKmAXnCTInEk1WY5vPoUNqfHcvrQI2XShC8=; b=sKTwkSWSt3zOYq
+	Tf4sCtf+LuRT4Y2icHoG/OBAF2yYUbEq/8+Avk2G0xcXmPvWgRRPgCsBgE34O5utjyOwmMLVj+xgX
+	6uOrEmxlpknDgu2Xru7chO+I4Wn/ec4ZjeNBETCrivK8KUOwyCg2xOKaj6T2eB5CURDKJm5x7tSD7
+	aZNPGixQT1L+KLDyNtGB/SiP4/7wOhfN8zeVwqOkztC6Yem7cvkcPPvztOxsCRdk/Y7GA4cbcBrMz
+	mJ0V7l1mpgKiETC/5Gp+Cuxtgn9qzt6hacv79alHqNZl8KYr5AbQETTSfG/1/U/QIDkvNbGYReFAW
+	frS08VaDoTjIiCsVCGwA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1thbWN-00000001WmB-0lKG;
-	Mon, 10 Feb 2025 21:40:51 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1thbWP-00000001WoD-3Eyb;
+	Mon, 10 Feb 2025 21:40:53 +0000
+Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1thaNU-00000001KaE-0few
+	id 1thaNg-00000001KoQ-13sv
 	for linux-riscv@bombadil.infradead.org;
-	Mon, 10 Feb 2025 20:27:36 +0000
+	Mon, 10 Feb 2025 20:27:48 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
-	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=a5uI84SXblQRDID2BHNWhhHsRc7xVUDdoiei4kS9c/0=; b=CvXL9fdfuJjjiIYjYoWFS2ZL84
-	HHfl43TiJ48MYcj2iqNPPFSwyebQrmg/obgkDXreHUBcmV9o3AJrk1+hxEvv6j+bAeiECeNzDZqGp
-	f+17ZNxFqKdhJ4nJMDD+mk1Rh9DnrapDo1Ff5D5t9sGkRZwrjZRW4BA32OJ9N+4LViXypRBrPTaaX
-	Sqquh83bkAaAzk4M2sz6Ru6MSnZqC7gTrLnu0dbvxyEkDqsXf2skTod4J5RhpUl21qxek6fNkBYq0
-	37Zuxrh4TfR52/Sz/dJJEqgoNWC31p0TbGXF5Ctpppyef93eU17Vp1rn0Kc3ETA/T+d4l1bEXc/XC
-	KfpYNs1g==;
-Received: from mail-pl1-x634.google.com ([2607:f8b0:4864:20::634])
-	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1thaNR-00000000Dnf-1Z26
+	d=infradead.org; s=casper.20170209; h=Cc:To:In-Reply-To:References:Message-Id
+	:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:Sender
+	:Reply-To:Content-ID:Content-Description;
+	bh=9LN1OOVFFK55bIQe9Bj7KSCICvDpdODqLxcVYOIQy28=; b=OXlMqZAraBEpJ3RU/E26miRuPt
+	lxDInAlhmKorM3WzYqDLhBLPGHg4fNGz8kVK6QqMHOlc4I/ETEHTJ6+7C7bWXP8pzDNh4Xx28SDJ+
+	brVXzSWHGgj3iAnRhECHiv8o61eoc76LVdcQKJo2pR28ufxupgyO0TUqKSUpVWhlZFH9d3spPFIuk
+	o4L7DHIHVE3w0rDrhqlzV906vYNPMPujRrcAdEK31UFFyL+oxqUwSBZSuzJ46cF0hoCO3YMiPECN8
+	7K8N62/Z/YpDFP0LW18kepF/qq7q5J/HT8T5NUyLoJMp/RNIfWXxx+hLDRJ9kS4e4GdAug/Oij+/c
+	YmFMCVFA==;
+Received: from mail-pl1-x633.google.com ([2607:f8b0:4864:20::633])
+	by casper.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1thaNc-0000000GioS-3MY7
 	for linux-riscv@lists.infradead.org;
-	Mon, 10 Feb 2025 20:27:35 +0000
-Received: by mail-pl1-x634.google.com with SMTP id d9443c01a7336-21f48ebaadfso79070705ad.2
-        for <linux-riscv@lists.infradead.org>; Mon, 10 Feb 2025 12:27:33 -0800 (PST)
+	Mon, 10 Feb 2025 20:27:47 +0000
+Received: by mail-pl1-x633.google.com with SMTP id d9443c01a7336-21f40deb941so100127555ad.2
+        for <linux-riscv@lists.infradead.org>; Mon, 10 Feb 2025 12:27:43 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1739219252; x=1739824052; darn=lists.infradead.org;
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1739219262; x=1739824062; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=a5uI84SXblQRDID2BHNWhhHsRc7xVUDdoiei4kS9c/0=;
-        b=ufnd/ccd7FJUXgTuwS94eD9ALcRWU2GVnfswn3jVydKsLeqUpco+fIXojIH8gSnj9S
-         I60n2jaimEZZ7ReFtC1o1U568BBeWrziRYYJBd2mwOQ6thHExqO7K+xZMqoyH80OOCMQ
-         HaiIj43AyvMB7GL0fQwE3s5xID+OW6Z4P4t7/kNXbdHOjBqfoMtg2etJgTu46OvM0h8C
-         QTB9On9o8vv0+ot8kNgt2EQcznmVYFzSwmvNRJUg1smfZhQd7vcTMBevFuoO9DmBBo+Y
-         9z5nusvs/Hd4n4Ay2pnA2IO6NSzW0il7XN8CgPbPgA/ytdqmfpXaeDKJN7GXZFWdDvA7
-         x7zQ==
+        bh=9LN1OOVFFK55bIQe9Bj7KSCICvDpdODqLxcVYOIQy28=;
+        b=I5RBVkqOqx5aU8qdT4FRiWvkoF8BxC2kgzXLcHL1pvneLK0Qq6Lw66gltlMZgPLkke
+         5pXrHUCAw5tfapUHfiY0BTu1ZKDpEIUyXmtOqwE6e9MM/zrYMZARiw+ucbLK0FN/PVVv
+         z0Xz8tTuKZox1VwisLzizxarCT0putMtV6JIW/UQSgHvutjy693SW8S5uVO3wMWhUvOL
+         rJyKSEgkJByRypi8rwHu2RKuJJHurDLOSucjTDbe/5Tl/dFoKmZ5fUSS/Or24AIvxTfN
+         DfUFNkKIZxIE8GF+MDFWqh5zkktpl45AflT4Dh1fwI8pNpnz+jyLIYgtDb4fPYuApjm8
+         6OKA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1739219252; x=1739824052;
+        d=1e100.net; s=20230601; t=1739219262; x=1739824062;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=a5uI84SXblQRDID2BHNWhhHsRc7xVUDdoiei4kS9c/0=;
-        b=Fdr+hyByG4N1q/ZJ6zpVtFIG8xVGj4DAZKCufkNSvuJx2BAKq9f1w4RIEPG77Q42A+
-         AI1kLipYxIGPZ7MKXAueT2cBPJqYFhawpFr1DglrH4R+VM0YDXXSOvoWg+j1pFvKIHTW
-         h6sN0qigjW0NFnOSeR28aVrU5YPM7NDb/YO/WiticfFGIV17zENRA+uraH0cPYQKvyTM
-         CyGTw2U/OIEotTw/F+YMA5M1HJNQUQNKCU/b9D+/BDrsKEOJo2utQV3bZ3tK/IB5Kbz2
-         vhdxiOzkBWtzJLBaR/7ULW8qMlWBRBQM5qJHuMFnw+U3Ym+YxibKarn2raVZGnsGlZfM
-         zmOg==
-X-Forwarded-Encrypted: i=1; AJvYcCUqC4sFrwy3Vg26obekC+/qgcvkW2WAKwGtd8ObuGDW6rWczrvznBboCw32ZQDhR8vlKJEAoMVvVEyeSA==@lists.infradead.org
-X-Gm-Message-State: AOJu0YwzLx5WVqQNPk6YhE8LT3Sutm4+0oghiemr+eDojEDy8FqpipQv
-	BV3SvZixU+FAaOGfhc8ULl9meXhsT+6xlPIzzRgdYtD+iQCUyPBqRgOuo4pENCw=
-X-Gm-Gg: ASbGnctaORxIc6cEllWD0XQOnuaKe0EbRhWXagi+QdciZNfSPXOQPWR7zJGq7RfApz7
-	ZuFwKj3sOvF7BrOUy0eWBu1R5J9LTOVpU/46zfCPMWWx4qIGeBRd74IwSGZO6CqRjd3CLSzuam0
-	o+qJqnD2D9pqTMUjs3tR/LlseYxZFs1TiywMO1FlpACVX6dpgA6gbYYlmbcWFdq18uwThjSYJgN
-	3NDBaTJB9D1+DZHjKnoBbGrhu7ozFu0rQgyNz/16qsR7BHhUanI+apCYurc/BzSa/66DTCRtnAA
-	aSutj6DGhbDEDpVUbogRAHrQoQ==
-X-Google-Smtp-Source: AGHT+IGRSFFgWaceOiIiNm5tv+e7IogqAyyOZF4Jzr3uh0XSSHp0Pwy9ipwzTE00hP4VjDiSKq3vug==
-X-Received: by 2002:a17:903:32c7:b0:216:39fa:5cb4 with SMTP id d9443c01a7336-21f4e6ce13bmr265561195ad.25.1739219251992;
-        Mon, 10 Feb 2025 12:27:31 -0800 (PST)
+        bh=9LN1OOVFFK55bIQe9Bj7KSCICvDpdODqLxcVYOIQy28=;
+        b=CrEQTKEMYs0Zls4y1D1EkHE51v8aVJUDTpqQSHYODwqJ58q2Ku03reIbBZMUnfd5UL
+         53nBQpCuR336BD91RbVkMhdQk/1uCbbay9ZSBeC4g3+h+YyzgC/qcJUZXjy0DmhMYm14
+         OkWLQzQHwgcTpItjJCrczwhKzc5AVZWqk6aAMI2ccRVIx940TRS3bwtJIuJOHpEb5yOj
+         PcuyYklPqLTNQ3k/l4I4jMC0M2cojLictGVIB7tbyCKn4COgbG6LpCmpdvB9dyZaquib
+         tW+f3ftYbrwvedpkUOqVuj/hBm0yAd+eMH1vh0IMIaDCcaDUdy8sfsLKUfSSViR9/wjo
+         5RFQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWDbC+M0q+nrW1ZtXInSOZlDNhfSO5M9lZnOOeZ/QA7tm5rk55/N+z3L03JW2l3kKZlgePI3lg+1FP0zg==@lists.infradead.org
+X-Gm-Message-State: AOJu0YyZwev/WhY/Hig4LQ+cWk7DDjRzG9165wrmZlCL2ebOblCZ+9C4
+	jXO5mnfCru0QHRCfTC3VT9lcfWr040KMzOn/swFISJ3jvXtHKlEF/CXrSHTltgY=
+X-Gm-Gg: ASbGncsqnBmucb1aaq1oau+Du7tDDwHOzUpHaBC5pctZRGfeeb0fS3DNrIMoT6yjmIA
+	gO6r+5FSPeKg+epkNgRiRpGb57KZ52O3Eq/kRffn5soPWTPG2AguPnYBs1wfunPNRzS64ygzwP6
+	HqRvJ/Uecj5iLwOSKQoaFeli1eh1tL3RCIADrmLptWmWP61f8THV0XjwGqJmGm+3SkyAOeX8NRc
+	AkYsrdNdNXMDTuoloH1/V7HKCxcqG0oafwwOSXbOZIzjTciS1PFvnzhVxY84tRwCeptW7xiWsVh
+	PcuRvIbZdrS7d4mrfT8c7xqswQ==
+X-Google-Smtp-Source: AGHT+IGvJHthtMMIotmYr/CK0oOoURKWcK3k+qdOAPpSTfBW1H5FZ/zO8d2C9jHOqU/wdcn1U6s6JQ==
+X-Received: by 2002:a17:903:2311:b0:21f:3e2d:7d36 with SMTP id d9443c01a7336-21f4e6ceb59mr270827895ad.1.1739219261893;
+        Mon, 10 Feb 2025 12:27:41 -0800 (PST)
 Received: from debug.ba.rivosinc.com ([64.71.180.162])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-21f3687c187sm83711555ad.168.2025.02.10.12.27.29
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-21f3687c187sm83711555ad.168.2025.02.10.12.27.39
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 10 Feb 2025 12:27:31 -0800 (PST)
+        Mon, 10 Feb 2025 12:27:41 -0800 (PST)
 From: Deepak Gupta <debug@rivosinc.com>
-Date: Mon, 10 Feb 2025 12:26:53 -0800
-Subject: [PATCH v10 20/27] riscv: Add Firmware Feature SBI extensions
- definitions
+Date: Mon, 10 Feb 2025 12:26:57 -0800
+Subject: [PATCH v10 24/27] riscv: create a config for shadow stack and
+ landing pad instr support
 MIME-Version: 1.0
-Message-Id: <20250210-v5_user_cfi_series-v10-20-163dcfa31c60@rivosinc.com>
+Message-Id: <20250210-v5_user_cfi_series-v10-24-163dcfa31c60@rivosinc.com>
 References: <20250210-v5_user_cfi_series-v10-0-163dcfa31c60@rivosinc.com>
 In-Reply-To: <20250210-v5_user_cfi_series-v10-0-163dcfa31c60@rivosinc.com>
 To: Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>, 
@@ -115,12 +115,11 @@ Cc: linux-kernel@vger.kernel.org, linux-fsdevel@vger.kernel.org,
  andybnac@gmail.com, kito.cheng@sifive.com, charlie@rivosinc.com, 
  atishp@rivosinc.com, evan@rivosinc.com, cleger@rivosinc.com, 
  alexghiti@rivosinc.com, samitolvanen@google.com, broonie@kernel.org, 
- rick.p.edgecombe@intel.com
+ rick.p.edgecombe@intel.com, Deepak Gupta <debug@rivosinc.com>
 X-Mailer: b4 0.14.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250210_202733_535293_38173B2C 
-X-CRM114-Status: UNSURE (   9.85  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250210_202744_849533_7EA5D6F6 
+X-CRM114-Status: GOOD (  11.91  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -132,42 +131,62 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-RnJvbTogQ2zDqW1lbnQgTMOpZ2VyIDxjbGVnZXJAcml2b3NpbmMuY29tPgoKQWRkIG5lY2Vzc2Fy
-eSBTQkkgZGVmaW5pdGlvbnMgdG8gdXNlIHRoZSBGV0ZUIGV4dGVuc2lvbi4KClNpZ25lZC1vZmYt
-Ynk6IENsw6ltZW50IEzDqWdlciA8Y2xlZ2VyQHJpdm9zaW5jLmNvbT4KLS0tCiBhcmNoL3Jpc2N2
-L2luY2x1ZGUvYXNtL3NiaS5oIHwgMjYgKysrKysrKysrKysrKysrKysrKysrKysrKysKIDEgZmls
-ZSBjaGFuZ2VkLCAyNiBpbnNlcnRpb25zKCspCgpkaWZmIC0tZ2l0IGEvYXJjaC9yaXNjdi9pbmNs
-dWRlL2FzbS9zYmkuaCBiL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20vc2JpLmgKaW5kZXggM2QyNTA4
-MjQxNzhiLi4yM2JmYjI1NGUzZjQgMTAwNjQ0Ci0tLSBhL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20v
-c2JpLmgKKysrIGIvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9zYmkuaApAQCAtMzUsNiArMzUsNyBA
-QCBlbnVtIHNiaV9leHRfaWQgewogCVNCSV9FWFRfREJDTiA9IDB4NDQ0MjQzNEUsCiAJU0JJX0VY
-VF9TVEEgPSAweDUzNTQ0MSwKIAlTQklfRVhUX05BQ0wgPSAweDRFNDE0MzRDLAorCVNCSV9FWFRf
-RldGVCA9IDB4NDY1NzQ2NTQsCiAKIAkvKiBFeHBlcmltZW50YWxzIGV4dGVuc2lvbnMgbXVzdCBs
-aWUgd2l0aGluIHRoaXMgcmFuZ2UgKi8KIAlTQklfRVhUX0VYUEVSSU1FTlRBTF9TVEFSVCA9IDB4
-MDgwMDAwMDAsCkBAIC00MDEsNiArNDAyLDMxIEBAIGVudW0gc2JpX2V4dF9uYWNsX2ZlYXR1cmUg
-ewogCiAjZGVmaW5lIFNCSV9OQUNMX1NITUVNX1NSRVRfWChfX2kpCQkoKF9fcmlzY3ZfeGxlbiAv
-IDgpICogKF9faSkpCiAjZGVmaW5lIFNCSV9OQUNMX1NITUVNX1NSRVRfWF9MQVNUCQkzMQorLyog
-U0JJIGZ1bmN0aW9uIElEcyBmb3IgRlcgZmVhdHVyZSBleHRlbnNpb24gKi8KKyNkZWZpbmUgU0JJ
-X0VYVF9GV0ZUX1NFVAkJMHgwCisjZGVmaW5lIFNCSV9FWFRfRldGVF9HRVQJCTB4MQorCitlbnVt
-IHNiaV9md2Z0X2ZlYXR1cmVfdCB7CisJU0JJX0ZXRlRfTUlTQUxJR05FRF9FWENfREVMRUcJCT0g
-MHgwLAorCVNCSV9GV0ZUX0xBTkRJTkdfUEFECQkJPSAweDEsCisJU0JJX0ZXRlRfU0hBRE9XX1NU
-QUNLCQkJPSAweDIsCisJU0JJX0ZXRlRfRE9VQkxFX1RSQVAJCQk9IDB4MywKKwlTQklfRldGVF9Q
-VEVfQURfSFdfVVBEQVRJTkcJCT0gMHg0LAorCVNCSV9GV0ZUX0xPQ0FMX1JFU0VSVkVEX1NUQVJU
-CQk9IDB4NSwKKwlTQklfRldGVF9MT0NBTF9SRVNFUlZFRF9FTkQJCT0gMHgzZmZmZmZmZiwKKwlT
-QklfRldGVF9MT0NBTF9QTEFURk9STV9TVEFSVAkJPSAweDQwMDAwMDAwLAorCVNCSV9GV0ZUX0xP
-Q0FMX1BMQVRGT1JNX0VORAkJPSAweDdmZmZmZmZmLAorCisJU0JJX0ZXRlRfR0xPQkFMX1JFU0VS
-VkVEX1NUQVJUCQk9IDB4ODAwMDAwMDAsCisJU0JJX0ZXRlRfR0xPQkFMX1JFU0VSVkVEX0VORAkJ
-PSAweGJmZmZmZmZmLAorCVNCSV9GV0ZUX0dMT0JBTF9QTEFURk9STV9TVEFSVAkJPSAweGMwMDAw
-MDAwLAorCVNCSV9GV0ZUX0dMT0JBTF9QTEFURk9STV9FTkQJCT0gMHhmZmZmZmZmZiwKK307CisK
-KyNkZWZpbmUgU0JJX0ZXRlRfR0xPQkFMX0ZFQVRVUkVfQklUCQkoMSA8PCAzMSkKKyNkZWZpbmUg
-U0JJX0ZXRlRfUExBVEZPUk1fRkVBVFVSRV9CSVQJCSgxIDw8IDMwKQorCisjZGVmaW5lIFNCSV9G
-V0ZUX1NFVF9GTEFHX0xPQ0sJCQkoMSA8PCAwKQogCiAvKiBTQkkgc3BlYyB2ZXJzaW9uIGZpZWxk
-cyAqLwogI2RlZmluZSBTQklfU1BFQ19WRVJTSU9OX0RFRkFVTFQJMHgxCgotLSAKMi4zNC4xCgoK
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlz
-Y3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xp
-c3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
+This patch creates a config for shadow stack support and landing pad instr
+support. Shadow stack support and landing instr support can be enabled by
+selecting `CONFIG_RISCV_USER_CFI`. Selecting `CONFIG_RISCV_USER_CFI` wires
+up path to enumerate CPU support and if cpu support exists, kernel will
+support cpu assisted user mode cfi.
+
+If CONFIG_RISCV_USER_CFI is selected, select `ARCH_USES_HIGH_VMA_FLAGS`,
+`ARCH_HAS_USER_SHADOW_STACK` and DYNAMIC_SIGFRAME for riscv.
+
+Signed-off-by: Deepak Gupta <debug@rivosinc.com>
+---
+ arch/riscv/Kconfig | 20 ++++++++++++++++++++
+ 1 file changed, 20 insertions(+)
+
+diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+index 7612c52e9b1e..0a2e50f056e8 100644
+--- a/arch/riscv/Kconfig
++++ b/arch/riscv/Kconfig
+@@ -250,6 +250,26 @@ config ARCH_HAS_BROKEN_DWARF5
+ 	# https://github.com/llvm/llvm-project/commit/7ffabb61a5569444b5ac9322e22e5471cc5e4a77
+ 	depends on LD_IS_LLD && LLD_VERSION < 180000
+ 
++config RISCV_USER_CFI
++	def_bool y
++	bool "riscv userspace control flow integrity"
++	depends on 64BIT && $(cc-option,-mabi=lp64 -march=rv64ima_zicfiss)
++	depends on RISCV_ALTERNATIVE
++	select ARCH_HAS_USER_SHADOW_STACK
++	select ARCH_USES_HIGH_VMA_FLAGS
++	select DYNAMIC_SIGFRAME
++	help
++	  Provides CPU assisted control flow integrity to userspace tasks.
++	  Control flow integrity is provided by implementing shadow stack for
++	  backward edge and indirect branch tracking for forward edge in program.
++	  Shadow stack protection is a hardware feature that detects function
++	  return address corruption. This helps mitigate ROP attacks.
++	  Indirect branch tracking enforces that all indirect branches must land
++	  on a landing pad instruction else CPU will fault. This mitigates against
++	  JOP / COP attacks. Applications must be enabled to use it, and old user-
++	  space does not get protection "for free".
++	  default y
++
+ config ARCH_MMAP_RND_BITS_MIN
+ 	default 18 if 64BIT
+ 	default 8
+
+-- 
+2.34.1
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
