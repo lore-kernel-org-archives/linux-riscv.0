@@ -4,92 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B0832C0219D
-	for <linux-riscv@archiver.kernel.org>; Mon, 10 Feb 2025 20:31:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58230C02198
+	for <linux-riscv@archiver.kernel.org>; Mon, 10 Feb 2025 20:35:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Date:Cc:To:From:Subject:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=/rd+KsoXAigqsGUycbq5d8C5WzSZt5PKxxa1C4x1pos=; b=FLlwJwAnCPfLhR
-	oo4OEHCNC3sKiPqyyUqNMj7eEk14+50XiaUwT3L8R6Lu/vP9Afki02Q1UeXTYtqoNxVK573xwMp7R
-	PqU5HEvSOwq82UD5r60IltR0lIbtF/OGNVBPKmXf3oA01ZkFNYgPW93RMmYw+RJFLgjcdj67QwQ+I
-	ElTFd5pgZZhfn1AIUHVeo8wcIlpPQNc3oNNG/d4vFqDJH2SDWcAdBDIIfcy2PMUet7cFG+qtaBUbR
-	dVAOMCuQ8Ljf/+09a/cKBtSbgzyIgDKQ0Bd+83ZaD7BT7hESmwqI0Vhwe+qFl361qBSXffmjgYwcF
-	mRfuJGloVo689jdtn2Aw==;
+	List-Owner; bh=RSdo/3yfIkEYWAJinXkZfH+5yvFSsXCp9yI9It9spgM=; b=zUSUzup+RX3a/Y
+	R0XcMSzCJARfrYskBoe711gwKkFdA+diL77v5dmGu/zbpy1ZA0TCW22wZvy5oCj9y4pzbvs9A5fRI
+	YrTcX0S45plRc+w3BYYnGbj9AEcgwPxxyEiAh62nfUE4FUUMiS+B0LmpTtuM01cNPXQZlubRKbj9L
+	cnbfPBHgucI37zlAOGAM/HNDySC6oMFHNhythTKnfQ2pUnRXQq1FsE6QEYYYvC2ZlqDb5AbCuWS+R
+	6hRyhTr/Lq3Qtl7t+gX5GL8LSO1dj8mR2chkz/yietkxPoW3AOGnIbDOs+aCgpfA7ez/MMb7dSZm9
+	1BLVPQJXNtdb3rz8f5Uw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1thaQm-00000001M2O-2BRc;
-	Mon, 10 Feb 2025 20:31:00 +0000
-Received: from mail-wr1-f43.google.com ([209.85.221.43])
+	id 1thaUr-00000001N9o-264H;
+	Mon, 10 Feb 2025 20:35:13 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1thaQj-00000001M1a-3U7R;
-	Mon, 10 Feb 2025 20:30:59 +0000
-Received: by mail-wr1-f43.google.com with SMTP id ffacd0b85a97d-38dc5764fc0so3522935f8f.3;
-        Mon, 10 Feb 2025 12:30:57 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1739219456; x=1739824256; darn=lists.infradead.org;
-        h=mime-version:user-agent:content-transfer-encoding:references
-         :in-reply-to:date:cc:to:from:subject:message-id:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=m557/Jpvp5pp4+T1xIHiZmJOAkIv767CgIPPPqCBZEw=;
-        b=JJIlPxsm4VaD5AucE52idAQzYAz7j9iJDD99SU9YmJ77X6Jlxi9CzbpreV2K9OTvWi
-         90KL9mVXt0XCyjDTnDL3Es8CyjcNDzFpfJbOpcLiq1QlOf4hZlEDGCV0+YJ5m9exzYrc
-         vGJi+Rt5R8MRA1scUulRM7+yuxax99RVEmuMtreq/0aeHG1uCacqSf5y3+3KgiOf4MHf
-         B/lsPzcPYnluGYJptRWu1vp853h9+G79YEqVKioKYuhxuKAX1+CFjt0FRQIerv91mfxn
-         VpevnkjtVwvwbMiu3tAeCXCg6orbOPbpnGt7oooDcKaoKth6swyobuv6+BlkJij99zQr
-         xpbQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1739219456; x=1739824256;
-        h=mime-version:user-agent:content-transfer-encoding:references
-         :in-reply-to:date:cc:to:from:subject:message-id:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=m557/Jpvp5pp4+T1xIHiZmJOAkIv767CgIPPPqCBZEw=;
-        b=IBQ8VEoBIat33rTwiWeCgN+cztCnWigUuvzADvR5j2sCP4jirNuPuXSZtDQ8IDaT6P
-         N1+K/MY4Mpx1PziDS1e5NTpqHqR+/L/YISz5nmm49ve9XHRsCY3/SL0BuVsigmGeyWUl
-         E6lIWyt71uFWHWmVJkfmky2EBSVkZAql5KA+ZfBVK+dwFsRruipBhVjE238wSgH+lRfD
-         B89xQUXI6JC+HgasA5UYlqGcIu+M6FMqxxOCTWsATPC/7HzboK4UqsTYSyKogXa3sFc2
-         yw30tka+ytdxvmO/uhlBNhIYgDxnR83v9r+aDDEvjvMc0i0SbRdLQEjOEg6SDkkGoPLo
-         nAkw==
-X-Forwarded-Encrypted: i=1; AJvYcCUj320HIYAD5Z2j/I9LXYotjdlU16Ty0xA0Ftwz0idyTc/QgIoszuypZy6XmKScmJA7THvj9kRlAPrgJrQ=@lists.infradead.org, AJvYcCWdB/9XaY5oRx4K5sAmHb0stEx3EYkkSCNNZREj9U6Tcs6MVO1qhj75FwhQJT5IyaFam3ElPEPVZ8TlzO1AbIol@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxm8Onr1ggJehVmki8qSUTZasi+tv1hDvx7FEZ+x7B3hMG0Uu6V
-	xiAx8u8alkVk3o/z6zqNLoEr82Ir/E2OU4cpXim54ry+8j6s644a
-X-Gm-Gg: ASbGncu0DXbbUNJtyiHMK+EfPmFJZ152ZZ/Yk2tGm5zzorkNBYg04YY2XoATmWgA935
-	h5xj8DG4UmXFJpWmJ4gUDq8LysR6b1ofujU/UhQaKcOHZzyQ9gzC1u2VZn/0ZlyOJIYOFmFMCcZ
-	VL6oGPboayraHLLpvJXC4iKeoSKJgZHZ/hJ8eSLMiZqK8gWqrawkOIX7/2lNB5m7yFmu1vBO8oQ
-	PTlpigjQjSlwV3mxWr38SCpATezv7TrLOOqMhGo1Y2u25a3bUgIg0Nys7EpINOacrfTNgqayHZ/
-	pXiK6LEIuLgk22vIZzmA37+vGXx0PUo2
-X-Google-Smtp-Source: AGHT+IFvurPoS9MTaLS3PpCWAsYOJF7NzTYw7+2Z56lUplq4lRolzdbvYN3eBpQHiYgZPARX6B6e0g==
-X-Received: by 2002:a5d:64eb:0:b0:386:32ca:aa12 with SMTP id ffacd0b85a97d-38dc93745famr11388110f8f.49.1739219455327;
-        Mon, 10 Feb 2025 12:30:55 -0800 (PST)
-Received: from giga-mm.home ([2a02:1210:861b:6f00:82ee:73ff:feb8:99e3])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-38dd9c48173sm5389541f8f.37.2025.02.10.12.30.53
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 10 Feb 2025 12:30:54 -0800 (PST)
-Message-ID: <e76da2aff03e9c788bc322d84d83b0e6c28f44b0.camel@gmail.com>
-Subject: Re: [PATCH 06/10] dt-bindings: mfd: syscon: Add Cvitek CV18xx
- rtcsys core and ctrl compatible
-From: Alexander Sverdlin <alexander.sverdlin@gmail.com>
-To: Krzysztof Kozlowski <krzk@kernel.org>, soc@lists.linux.dev
-Cc: Chen Wang <unicorn_wang@outlook.com>, Inochi Amaoto
- <inochiama@outlook.com>, 	linux-pm@vger.kernel.org,
- linux-riscv@lists.infradead.org, 	devicetree@vger.kernel.org, Haylen Chu
- <heylenay@outlook.com>, 	linux-arm-kernel@lists.infradead.org, Sebastian
- Reichel <sre@kernel.org>,  Arnd Bergmann	 <arnd@arndb.de>, Philipp Zabel
- <p.zabel@pengutronix.de>, Rob Herring	 <robh@kernel.org>, Krzysztof
- Kozlowski <krzk+dt@kernel.org>, Conor Dooley	 <conor+dt@kernel.org>, Lee
- Jones <lee@kernel.org>
-Date: Mon, 10 Feb 2025 21:30:51 +0100
-In-Reply-To: <fe1fb66d-285d-41b6-af71-89f6f93d1cf0@kernel.org>
-References: <20250209220646.1090868-1-alexander.sverdlin@gmail.com>
-	 <20250209220646.1090868-7-alexander.sverdlin@gmail.com>
-	 <fe1fb66d-285d-41b6-af71-89f6f93d1cf0@kernel.org>
-User-Agent: Evolution 3.54.2 
+	id 1thaUp-00000001N8q-2NZP
+	for linux-riscv@bombadil.infradead.org;
+	Mon, 10 Feb 2025 20:35:11 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=ATbIomvA0CFvw89gXQZaIyQGKreDtxRz2w/GlH0/m/Y=; b=g6iFpU5bKNcAL75EHNcb5v/SWE
+	QIELIsaN5zWNFYVEX+0qRaDEtC2iOhVu0BBqIwlTcguxpijw9GFzey+ahmOZZk3JJpVSnVetZ6DXR
+	+BVIB+L2CdbVxxpNuobFn9tXKcTfkKcoJjvcnb2eLxIZiKFFRJlQwvPm4OmjABaBE0kAuno9Eipah
+	HzUN55Da5obMsENHj9rbEiPf5qV8kO/KFOli/YNqeNbNBAJj8DdiJO+TaQJ69VvPYJOz902lZ2I5b
+	d58hHt0E087g+Bhhe2oePt0hQ/Zox+4L0WYW276uSC8juXb4odLVMG2ypnLJ6YSXaE+W1/ZJtDCAY
+	reAAYJYg==;
+Received: from nyc.source.kernel.org ([147.75.193.91])
+	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1thaUm-00000000EtX-21uL
+	for linux-riscv@lists.infradead.org;
+	Mon, 10 Feb 2025 20:35:10 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id BD312A4118C;
+	Mon, 10 Feb 2025 20:33:21 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CF3C6C4CED1;
+	Mon, 10 Feb 2025 20:35:06 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1739219707;
+	bh=OECw0u7i4muZXytvNKEOLncdneDKdhOefhqMgPbmzfw=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=P4mnDFPSEL1n4qJPB9cSa+/IjIgz2RtVcax8/3dL4uXpCEWZb0qlN881QV910ZBtJ
+	 f1cI854VMlvSv2hg2dIh7uOCtJGGEdHsE8p+t/qsOF8RkrBVQRxi4DGyAHCyj484gW
+	 fhXtEq5hKzPzc9IKtjBv16B8LbFMROnXsn+VJ8ZIs2JEEEWPah6Ny4yBA/4fI9DnPH
+	 JW0JVz+Kwdp2gGGQEzN72I17FWjXyk/NiC7wXEea+R3FC19nw1bjFj5L5NO/vPwlAf
+	 XZaK4Ycx5W9I9WjjtJ1uxL6M+1DjLOBYMiK7lOBci2ABQ0zrY7mY59QLEf9+hmWRGr
+	 oSUtyQkj9gH7A==
+Date: Mon, 10 Feb 2025 12:35:05 -0800
+From: Eric Biggers <ebiggers@kernel.org>
+To: Zhihang Shao <zhihang.shao.iscas@gmail.com>
+Cc: linux-crypto@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org, ardb@kernel.org
+Subject: Re: [PATCH v3] riscv: Optimize crct10dif with zbc extension
+Message-ID: <20250210203505.GA348261@sol.localdomain>
+References: <20250205065815.91132-1-zhihang.shao.iscas@gmail.com>
+ <20250205163012.GB1474@sol.localdomain>
+ <20250206201950.GB1237@sol.localdomain>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20250206201950.GB1237@sol.localdomain>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250210_123057_866088_679EB25F 
-X-CRM114-Status: GOOD (  10.47  )
+X-CRM114-CacheID: sfid-20250210_203508_723320_A242B0A5 
+X-CRM114-Status: GOOD (  23.07  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,40 +89,52 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Krzysztof!
-
-On Mon, 2025-02-10 at 09:48 +0100, Krzysztof Kozlowski wrote:
-> On 09/02/2025 23:06, Alexander Sverdlin wrote:
-> > These syscon blocks will be used for CV18xx reset driver.
+On Thu, Feb 06, 2025 at 12:19:50PM -0800, Eric Biggers wrote:
+> On Wed, Feb 05, 2025 at 08:30:12AM -0800, Eric Biggers wrote:
+> > On Wed, Feb 05, 2025 at 02:58:15PM +0800, Zhihang Shao wrote:
+> > > The current CRC-T10DIF algorithm on RISC-V platform is based on
+> > > table-lookup optimization.
+> > > Given the previous work on optimizing crc32 calculations with zbc
+> > > extension, it is believed that this will be equally effective for
+> > > accelerating crc-t10dif.
+> > > 
+> > > Therefore this patch offers an implementation of crc-t10dif using zbc
+> > > extension. This can detect whether the current runtime environment
+> > > supports zbc feature and, if so, uses it to accelerate crc-t10dif
+> > > calculations.
+> > > 
+> > > This patch is updated due to the patchset of updating kernel's
+> > > CRC-T10DIF library in 6.14, which is finished by Eric Biggers.
+> > > Also, I used crc_kunit.c to test the performance of crc-t10dif optimized
+> > > by crc extension.
+> > > 
+> > > Signed-off-by: Zhihang Shao <zhihang.shao.iscas@gmail.com>
+> > > ---
+> > >  arch/riscv/Kconfig                |   1 +
+> > >  arch/riscv/lib/Makefile           |   1 +
+> > >  arch/riscv/lib/crc-t10dif-riscv.c | 132 ++++++++++++++++++++++++++++++
+> > >  3 files changed, 134 insertions(+)
+> > >  create mode 100644 arch/riscv/lib/crc-t10dif-riscv.c
+> > 
+> > Acked-by: Eric Biggers <ebiggers@kernel.org>
+> > Tested-by: Eric Biggers <ebiggers@kernel.org>
+> > 
+> > This can go through the riscv tree.
+> > 
 > 
+> Actually, if people don't mind I'd like to take this through the crc tree.  Due
+> to https://lore.kernel.org/r/20250206173857.39794-1-ebiggers@kernel.org the
+> function crc_t10dif_is_optimized() becomes unused and we should remove it, which
+> would conflict with this patch which adds another implementation of it.
 > 
-> No, implement proper reset block instead of abusing syscon.
 
-I don't think it's an abuse... You need to look into the corresponding TRM [1].
+FYI, I've removed crc_t10dif_is_optimized() in the crc-next tree via
+https://lore.kernel.org/r/20250208175647.12333-1-ebiggers@kernel.org
 
-4 bits I need to tweak (and one magic number into unlock register) are randomly
-placed at random memory adresses and otherwise adjacent bits have random
-unrelated functions from random unrelated subsystems.
-If it's not syscon, I don't know what it is.
+If you can rebase your patch again and address my comments, I'd be glad to apply
+it to the crc tree for 6.15.  Thanks!
 
-It has a reset HW block, as you and Inochi have correctly pointed out, for other
-purposes, for resetting the SoC IP blocks. The overall SoC reset is complete
-mamba jamba.
-
-I was thinking now about a syscon driver, which will register_restart_handler()...
-
-Inochi, do you have more insights into it? You've mentioned RTC and 8051...
-Looking into TRM I don't get it, why a thing blessed to do all the housekeeping
-(and called "System Controller" in imx8, for instance) happen to have RTC_ prefix...
-Would RTC subsystem maintainer be happy with a monster driver which has ties
-to all other subsystems?
-
-[1] https://github.com/sophgo/sophgo-doc/releases/download/sg2000-trm-v1.01/sg2000_trm_en.pdf
-("rtc_ctrl_unlockkey", "rtc_ctrl0", "RTC_EN_WARM_RST_REQ", "RTC_EN_PWR_CYC_REQ").
-
--- 
-Alexander Sverdlin.
-
+- Eric
 
 _______________________________________________
 linux-riscv mailing list
