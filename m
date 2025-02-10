@@ -4,49 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0651BC02198
-	for <linux-riscv@archiver.kernel.org>; Mon, 10 Feb 2025 08:53:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 60F31C02198
+	for <linux-riscv@archiver.kernel.org>; Mon, 10 Feb 2025 08:58:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
 	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ZuupmDOPkCwrdwbs1CpYGXgMiMVyYQ5n3HDe9WNkxK4=; b=JpCnH/vNlespkc
-	jqjBPjy0WwbM4CCiY0KZhAqwq1hb3vA0G3uQnpo2OesYd53BSfBm0Ne2UQz8VQzQwza6j19lR47hT
-	UkeKMdeQUP+BU5LAy2/3t1y6BWjPYdijsaKqpUVJ8F/IbkhAoXZV8nnnrtkCUKwon2/WgfQcnVSzj
-	cPtZtjmDml0vtD+l8G5AG4EgBB/959GpVi/hWSfZvG85fXAWOyMvaUJ41bHRco9/+/D04W66bBfgy
-	AG694kIx9XQyCUZ9nf6rI0nQIXh62QS7s4KMQsZlefhb7h8dhOYbKo1VO7qJI5eBCft7b8sJRojhI
-	pBo7yhZLix6kgVR3dfgQ==;
+	List-Owner; bh=zqFgfCxD1+vwvg8dHFQEcKTUQXxfVFM/Tm09bB1WD3U=; b=M43BoscUttTxGP
+	6eW5vO7KuCyXfzaX1Sr3mS6xLhH8ne+ka/D3btQZJ8D3s9Xa+iClM5KTP9QTosxxvjXkaSuh9vAjF
+	mAxLjdXFiRvhvdomK6EEBQK6BpZxatOG3jK8eJuXBGPZ1+XBkVVKQ9aX4zwA81nR4yLQvUacanogX
+	MiEunnwivfaR41CksT//G8dQB59it9KSNLpBsROAAUPGKahYcGAOQnTAWizVcAp1eUpFMPHNma5J1
+	vnMUG8I/enjxPsndRm6MJbdGNn8+Rj42vq1Y55Yt6hrMJg9mxr9Ib9dIcAMHqJ/3hczFDzAwmxVrn
+	w5aMI5j1HlNe/LjkmIfA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1thPXS-0000000GjFz-1Afw;
-	Mon, 10 Feb 2025 08:53:10 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1thPcu-0000000Gk73-1x4C;
+	Mon, 10 Feb 2025 08:58:48 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1thPTF-0000000GhwT-1MNh;
-	Mon, 10 Feb 2025 08:48:50 +0000
+	id 1thPUU-0000000GiBc-1Myc;
+	Mon, 10 Feb 2025 08:50:07 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 33D045C26F4;
-	Mon, 10 Feb 2025 08:48:09 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 16897C4CED1;
-	Mon, 10 Feb 2025 08:48:43 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 325E75C433A;
+	Mon, 10 Feb 2025 08:49:26 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5C667C4CEE6;
+	Mon, 10 Feb 2025 08:50:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1739177328;
-	bh=Csdi8n6yF0exFBFNZzRyKvad72rgIjHHmUgvSYicT+g=;
+	s=k20201202; t=1739177405;
+	bh=8hjj0EAONyY4sxgZ8zHmz/2RP75tn/S8NEUojDDmNVY=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=K2SDVJWL3iDIFLTdOXx05V3eh9pHZgqVaq2RSS2NfbnR+Ed0sjDCCOYIOQxsBIb/k
-	 Lc00YDkG2O1MMl3XtumOK/xcrASMskuEv/szomCEQ5q/xzG9TWnL4/NU/E5x+qiEDu
-	 ncFrMn2x/ZwNvLb7gL95N05dQYpST3q6yydtpUdXRCU8dcx6NGF/mdFzRP0hYCUmUy
-	 LITWkjoWODIzI9ZZ/soIgeW/DtibbGDOhclBXyKqQpJV/73I+Oce/IpZKF0XWle9YJ
-	 z+xhuCDCCdYkLXsgpTpeBR8RcNH31GiSCtgLeBmEGWjo+zK9l78GX4mqkImHc4reJz
-	 riU3eb9sOU3UA==
-Message-ID: <fe1fb66d-285d-41b6-af71-89f6f93d1cf0@kernel.org>
-Date: Mon, 10 Feb 2025 09:48:41 +0100
+	b=RpYRz5JbC0s6hXobe2Igrwipeh3oa4c8G4Z78uEz+xg6DobpDi0WowBgpcicLplQe
+	 97BmLEoOztUzHRnejaBSxEDBZH9DKsTfl4M8X/DaFYeOvrv/Hcj3bc2aeceQO7PpXt
+	 4IWNVdOaEfssHtrvgPNSfxq7OT4UWgDtpum8IMKFTKqxrN7uIglul72dRo4eIO08PJ
+	 fgLDqsEeeyvhQ6/Y71KUs7D6CNGic/+IY4fND0vJPg/F+Qz4y1DRSKLZ7PynUm1eS1
+	 lsVfVpNR/lXz9TQoHkiqVGG14wXBZDwLbkLq3/VIpDxZKoC1uMuGylr4SiVajoWUWu
+	 DjcKQ290qWFRg==
+Message-ID: <703db762-93f4-45f6-a97b-5aea59620a03@kernel.org>
+Date: Mon, 10 Feb 2025 09:49:58 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 06/10] dt-bindings: mfd: syscon: Add Cvitek CV18xx rtcsys
- core and ctrl compatible
+Subject: Re: [PATCH 07/10] dt-bindings: reset: sophgo: Add CV18xx reset
+ controller
 To: Alexander Sverdlin <alexander.sverdlin@gmail.com>, soc@lists.linux.dev
 Cc: Chen Wang <unicorn_wang@outlook.com>,
  Inochi Amaoto <inochiama@outlook.com>, linux-pm@vger.kernel.org,
@@ -57,7 +57,7 @@ Cc: Chen Wang <unicorn_wang@outlook.com>,
  Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
  <conor+dt@kernel.org>, Lee Jones <lee@kernel.org>
 References: <20250209220646.1090868-1-alexander.sverdlin@gmail.com>
- <20250209220646.1090868-7-alexander.sverdlin@gmail.com>
+ <20250209220646.1090868-8-alexander.sverdlin@gmail.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -103,11 +103,10 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  uZwJCLykjad45hsWcOGk3OcaAGQS6NDlfhM6O9aYNwGL6tGt/6BkRikNOs7VDEa4/HlbaSJo
  7FgndGw1kWmkeL6oQh7wBvYll2buKod4qYntmNKEicoHGU+x91Gcan8mCoqhJkbqrL7+nXG2
  5Q/GS5M9RFWS+nYyJh+c3OcfKqVcZQNANItt7+ULzdNJuhvTRRdC3g9hmCEuNSr+CLMdnRBY fv0=
-In-Reply-To: <20250209220646.1090868-7-alexander.sverdlin@gmail.com>
+In-Reply-To: <20250209220646.1090868-8-alexander.sverdlin@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250210_004849_458576_E52FF7DD 
-X-CRM114-Status: UNSURE (   4.37  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250210_005006_460513_33D0277D 
+X-CRM114-Status: GOOD (  15.87  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,10 +124,77 @@ Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 On 09/02/2025 23:06, Alexander Sverdlin wrote:
-> These syscon blocks will be used for CV18xx reset driver.
+> Add DT bindings for CV18xx reset controller. The power/reboot driver is
+> going to use only 4 bits from two different MMIO regions which can be
+> potentially used by other subsystems/drivers, therefore the resources
+> are not being claimed directly by the device/driver, but via syscons
+> instead.
+> 
+> Link: https://github.com/sophgo/sophgo-doc/releases/download/sg2000-trm-v1.01/sg2000_trm_en.pdf
+> Signed-off-by: Alexander Sverdlin <alexander.sverdlin@gmail.com>
+> ---
+>  .../bindings/reset/sophgo,cv1800-reset.yaml   | 38 +++++++++++++++++++
+>  1 file changed, 38 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/reset/sophgo,cv1800-reset.yaml
+> 
+> diff --git a/Documentation/devicetree/bindings/reset/sophgo,cv1800-reset.yaml b/Documentation/devicetree/bindings/reset/sophgo,cv1800-reset.yaml
+> new file mode 100644
+> index 000000000000..4f058f99df5f
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/reset/sophgo,cv1800-reset.yaml
+> @@ -0,0 +1,38 @@
+> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/reset/sophgo,cv1800-reset.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: Cvitek CV18xx/Sophgo SG2000 Reset Controller
+> +
+> +maintainers:
+> +  - Alexander Sverdlin <alexander.sverdlin@gmail.com>
+> +
+> +properties:
+> +  compatible:
+> +    const: sophgo,cv1800-reset
+> +
+
+Missing reset cells.
+
+> +  sophgo,rtcsys-ctrl:
+> +    description: phandle of the "RTCSYS_CTRL" syscon block
+> +    $ref: /schemas/types.yaml#/definitions/phandle
+> +
+> +  sophgo,rtcsys-core:
+> +    description: phandle of the "RTCSYS_CORE" syscon block
+> +    $ref: /schemas/types.yaml#/definitions/phandle
+
+This does not look right - entirely fake device. And your DTS next patch
+proves it.
+
+> +
+> +required:
+> +  - compatible
+> +  - sophgo,rtcsys-ctrl
+> +  - sophgo,rtcsys-core
+> +
+> +additionalProperties: false
+> +
+> +examples:
+> +  - |
+> +    soc-reset {
+
+Node names should be generic. See also an explanation and list of
+examples (not exhaustive) in DT specification:
+https://devicetree-specification.readthedocs.io/en/latest/chapter2-devicetree-basics.html#generic-names-recommendation
 
 
-No, implement proper reset block instead of abusing syscon.
+> +        compatible = "sophgo,cv1800-reset";
+> +        sophgo,rtcsys-ctrl = <&rtcsys_ctrl>;
+> +        sophgo,rtcsys-core = <&rtcsys_core>;
+> +    };
+> +...
+
 
 Best regards,
 Krzysztof
