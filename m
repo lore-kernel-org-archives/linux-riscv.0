@@ -4,122 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0132EC02198
-	for <linux-riscv@archiver.kernel.org>; Mon, 10 Feb 2025 21:41:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A5BCDC021A3
+	for <linux-riscv@archiver.kernel.org>; Mon, 10 Feb 2025 21:45:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
-	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=4tWZuXcpoiQvWKJxlIra5S65tkHcJk+ZXShwOiX/68E=; b=QNuX0f4ollNA6A
-	OYuktS//wMZcHsG7EX9zRkbm7CJt5tOsVhadHy0K/FuVMT0ygD0AVToLLhTcWL3tTCuB5HxDDa/8z
-	ENvHnnyOOKiS2OauQ93e3Cv387nuTk1yilUcvLjdc2XzTZpU0tJ372KRKtLxc8W+NU+yQY/bOtvqw
-	V3bYXSVx3z8+dI3JxMxzVLcsgyTdBjrEcy4mdIndWyPnaprz8XmggminBTs/hWG+BFVxZjmLeFEGE
-	XgG9RMBKspyHhe2rkC/9byfZ1vFw8HpSpTiPF56Y0UhKyc/m6FBs12iH9n2dz7S5rX34ux412qNsz
-	I3gvQquuB1zDZU8z8DyA==;
+	List-Owner; bh=abDfJO/p+yOnFtiSPiTzFdNqNsj8QP5wzTVEsb5Cdek=; b=wVs37O+vXIrT+y
+	mc93lqFmUKVoF2Kk9VaSKHIXXLsN7RiaMYQF+JT5pQDUUDsS1hJn2PWHHQ09wXBoFPLja5WfSIEnt
+	tTQdQFgOHjB0j+gGHErS72+kaQazpeyIWvrHWTY8mVrFcY6jw6lw+IEl4QjvrtM1PvFkjnnd8OxMy
+	IUIXbfNaQu7j4dN2OnLND4cDCvnmO73ZpLQwtFkgcZf54PbFg/raDTn4QDUOD9NT9UsZEnxlce0cY
+	b0mqNPfbBUJRSldCzYSABM2yrx/OJ5VijVlxlpdg+9eCxTxMDUyOl4Xd1wabsXwu7ZUKofTphtMkR
+	eugjMVPZLIgSKeTfLLeQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1thbWK-00000001WkC-05Ej;
-	Mon, 10 Feb 2025 21:40:48 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1thbax-00000001YJK-1DgG;
+	Mon, 10 Feb 2025 21:45:35 +0000
+Received: from mail-wm1-x330.google.com ([2a00:1450:4864:20::330])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1thaND-00000001KG5-47Q6
-	for linux-riscv@bombadil.infradead.org;
-	Mon, 10 Feb 2025 20:27:20 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
-	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=Zfw9OtoVzzM7Z5oL2c+Ej/yDm51xyr1WNtqXJN3fx8s=; b=LLWSmqTA87XDE9SiogSFCzdH7D
-	oGZFpmAjDoW6J+28EneNOUXDXFgu6WZ0Ib6mIYrUYoM/d1Gv8WQMCgW1nlk0C3VrEA6erOEAiKoBs
-	1SpA6qNZ34y1/XvpZN1bE04odjAp8b04HPa/BV4ipSGguAIEpzlTBZ3OIiNjiCIDTDv9fIvPpe7IF
-	7RUWeuV4kRI0z8gTOx9n/F1itr9uxV0WIPyKpsgAo1ok1VmBZSxTEs5A0alj7kddjAwPCrpPLFyv9
-	KAkjLhY4+87USigD1/oPUNEQRBL6dPEUF4dhdZ0z2HK845WKJI41SonfoRt2SB0mO6e/L4cAggGDC
-	vGiIEpgg==;
-Received: from mail-pj1-f43.google.com ([209.85.216.43])
-	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1thaN9-00000000Dcf-0BZJ
+	id 1thbRn-00000001VLE-2qnJ
 	for linux-riscv@lists.infradead.org;
-	Mon, 10 Feb 2025 20:27:17 +0000
-Received: by mail-pj1-f43.google.com with SMTP id 98e67ed59e1d1-2f441791e40so6639074a91.3
-        for <linux-riscv@lists.infradead.org>; Mon, 10 Feb 2025 12:27:13 -0800 (PST)
+	Mon, 10 Feb 2025 21:36:08 +0000
+Received: by mail-wm1-x330.google.com with SMTP id 5b1f17b1804b1-43946b5920cso8575745e9.1
+        for <linux-riscv@lists.infradead.org>; Mon, 10 Feb 2025 13:36:07 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1739219232; x=1739824032; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=Zfw9OtoVzzM7Z5oL2c+Ej/yDm51xyr1WNtqXJN3fx8s=;
-        b=JArWSZ6MR+tr4L3EgI1R1hx7Db1lsZy9hkbI4CFqemczQUNAFVxCsPm4rieqICYXff
-         hQs5mQ/UAuEUl+eYljtBSJN+gb4sfgZH+Dedwb3/Gq2Bw8IcmevI2XpjKo7KvrqY1IFt
-         Z4iOkiCp5OKmg/AeoA3W557vuWL06g1buQ92M4LgGnSTfy3ekWtVoOdkKyHT8WSLGYY9
-         g41b+f9Q7I0HMvitPyzqj1WIppzl9teNwYUeQBeTrGYErhrKU39SaIOilku6gfv9Z/f3
-         2Jzdc08WT0vvKRoBHeYX+JhLJYNSOY2ctgNJICYqLn4bEeALy/kJ5VYLefRdTOdHDIhT
-         /v7g==
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1739223366; x=1739828166; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=t9JWUPguvJXyATshOaEX8SYplIWPzd3JQCRzjjvJvmU=;
+        b=wgGoD7klAEYdjrepDN/YTGlSkbvyh5Xn62zsH0Rr41ADIrYho0ZGntqEoSK2d6G59m
+         m/pthErX3nrDgYMFsc1MWt6SYCcZjxuFxBqHsZ2RbBUYTYRAgr7A/lzqjknk2d4QPuAX
+         zQ4nGZ4MrI6T3ccOSdfNd7L6mGL9SEU71LIj6qaCSmG3UejjAZAKr5o6BUNkxSlwrFYS
+         J2CpKe1z02/awcRHZp5mUAgRfWCrxWqkETxsLo/CgiFUa+wH5E6uhc/kIdPy3rRfEZoE
+         RugU1RKK1YaTOstiqS+vJhLM9RArV/AY6Sl6X9LwEwcOvqgXCcxFdCzakz7h7z28738r
+         z/Ng==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1739219232; x=1739824032;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
+        d=1e100.net; s=20230601; t=1739223366; x=1739828166;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=Zfw9OtoVzzM7Z5oL2c+Ej/yDm51xyr1WNtqXJN3fx8s=;
-        b=Ihzk6UfV+L9iL+viwvLTkwMiLFzm+2NDnlocu/GbR5sFg4iCvRwSolp33l6ZgQEtBZ
-         oBi3Az06PeNH0luVF7d7TpSwDJ6xMoEL+dVY6kZTNnzfxEECE/RsIkQUeX9PTG8Lwjru
-         v2xL30GdL9DK8glNKSfL59yQ2IK+pN2K+vW+TpI0Z602TdddFxCbLtBFtb+364DwL9mx
-         /vhHdFYjYAZtAN8KdNe/cd0apxKhRr5yCJYQmN1qmq11YeUlISrZJBnEdbnbxp+e3E+6
-         MT7+dk3IDmyEKAZt71lkCfoD32XygHzfIt3ukW0HkoHQ4nmQduNCoT+JjimezuAByYuY
-         qX2w==
-X-Forwarded-Encrypted: i=1; AJvYcCVPPAP9y5BJe4F5ioMfwE2MwxHNZws1Fe1IVAHAh4XzLDIUZWDv84V1CiVVioswPifuHCCPyjqobMSVKw==@lists.infradead.org
-X-Gm-Message-State: AOJu0YwigJMI8/qk1oOrCaykAVHG1fGJhSBpVmJRPgEdWaYENyc5fETG
-	+KYazFiQrp+s0QeCQZ2kxtSv7pFpxx2BAgHiSPAt71lV/S6xScOJl0eowN4ydSI=
-X-Gm-Gg: ASbGncuP+KTjbti+XUb0oiiaAT8XTHPpPQ44AzR3flsHQpmTnJrx7KZ8Ax+YmgYgoBt
-	GTqwaj3fdYQrTBBxoVWML0UTlT41gu4Rt7t0QZEHVLeg6U0uBUBc7X5iFHs9y22ZD4wEjSZngir
-	bQ++xKwFaiKS6Ztyn7h91xS4/dpwq1LjVLZ9TgWZ8wXmXjkEyDU7X5vu05g6lkVQbsLUBIkaJhj
-	NJzcBgsXi2Mw2CWRCg9JVOy9RcyfPRGmrwd2PQMCu/Y0zTUJtMMIt2zt0qbNlkh5FJ5YYy8b3og
-	kmWa3fzW4UDTI62h4ig7bD+VHQ==
-X-Google-Smtp-Source: AGHT+IE5Dg5nkfBxu0gDkqjTzqTfKYquc9Psb1XN5Wmp92oZsUVGzrjZXZcy3FDrBIXQzaUWIDbAIg==
-X-Received: by 2002:a17:90b:3f4d:b0:2ee:c9d8:d01a with SMTP id 98e67ed59e1d1-2fa24064713mr22932653a91.11.1739219231942;
-        Mon, 10 Feb 2025 12:27:11 -0800 (PST)
-Received: from debug.ba.rivosinc.com ([64.71.180.162])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-21f3687c187sm83711555ad.168.2025.02.10.12.27.09
+        bh=t9JWUPguvJXyATshOaEX8SYplIWPzd3JQCRzjjvJvmU=;
+        b=gA43AxNE0KyUYJAyG3dle/vN4JsN8uO4LespsG0wpgrWA/1N0Mls4FyJ7lzRMJXjcD
+         mIxyIH/qhPaA7VtdXni3Gt2W0pFSa9m1JtyzGYd5CM2N1ZSaUmYexP4jKfF0J15ndUW0
+         qgGgmDXHDMht4HrFy/DuaPX5t+3jX54e5mEifdLwMJzEm2EAumSe5Ol/grpDjc3OpjKw
+         h9adqX9fvxwcL3o+6kYNrdleJ83w5H0EhQl0hYHEruCb0qRaDw2b5ivtlVtQZ3un01v5
+         lnDDTWdZ8n05RBOyhokOJ4Lw/aJ4AXGx13un90Bdnt6t7VJ1VAT3vVjccGOnF7hSrQ4l
+         6A3w==
+X-Forwarded-Encrypted: i=1; AJvYcCV6YKVx79CHx6UMAsY1iM1w/969Yijhbg0EVmtlVp9uM1htuMotIBn1Pa5dZLSKDrZofIQaRb7k4EFSRw==@lists.infradead.org
+X-Gm-Message-State: AOJu0YwPyjtviJQrHrs07Nmhx8y8FhKYXiMBe/GKJjRYsAP76GGiKXuO
+	htqGDQFwwu95g61FAZ7ZCmUDtz0aoz4I2VRAZUkxEWr7DTkeuLNLiE4cjH0VZq8=
+X-Gm-Gg: ASbGncuKf3Y4+rV75a/Xyn9dWSnWPYE4xEO2L1xVpheZaG6mccAY1vwQ7+LzDW5tT3b
+	2MO1nRfdGzEj3iY6po38II+3SSD2FuRuSwOmn/RCM1nJGyQ9pwWWPp1nXAAiY6FPbnW7QzY6ujG
+	ifK40T3e3HjY0LcqXkNqlKdQuzs/Fb4HquXtMOGn3Ts3EosMmJNA5Un16IIzTAHmYfB/q99UEKc
+	arRqfWUfVu/JF80SbHnhiiIA4UGFc2MEz9fSbYPZEFLaF6w32VnSbnaYzkgeR/vBoLKS7e+y7+r
+	Reqq6vAs0AWRdM3V
+X-Google-Smtp-Source: AGHT+IFCUBo5ZJUEfRAM++W2IWKipAW2usGjFmvIL0zfj471rainYZRPFDdB0RmyHu2I/2e1UVroug==
+X-Received: by 2002:a05:600c:1d86:b0:439:4499:54de with SMTP id 5b1f17b1804b1-439449955c6mr51321255e9.31.1739223365934;
+        Mon, 10 Feb 2025 13:36:05 -0800 (PST)
+Received: from carbon-x1.. ([2a01:e0a:e17:9700:16d2:7456:6634:9626])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4394376118esm47541515e9.40.2025.02.10.13.36.04
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 10 Feb 2025 12:27:11 -0800 (PST)
-From: Deepak Gupta <debug@rivosinc.com>
-Date: Mon, 10 Feb 2025 12:26:45 -0800
-Subject: [PATCH v10 12/27] riscv: Implements arch agnostic shadow stack
- prctls
+        Mon, 10 Feb 2025 13:36:05 -0800 (PST)
+From: =?UTF-8?q?Cl=C3=A9ment=20L=C3=A9ger?= <cleger@rivosinc.com>
+To: Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Anup Patel <anup@brainfault.org>,
+	Atish Patra <atishp@atishpatra.org>,
+	Shuah Khan <shuah@kernel.org>,
+	Jonathan Corbet <corbet@lwn.net>,
+	linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-doc@vger.kernel.org,
+	kvm@vger.kernel.org,
+	kvm-riscv@lists.infradead.org,
+	linux-kselftest@vger.kernel.org
+Cc: =?UTF-8?q?Cl=C3=A9ment=20L=C3=A9ger?= <cleger@rivosinc.com>,
+	Samuel Holland <samuel.holland@sifive.com>
+Subject: [PATCH v2 02/15] riscv: misaligned: request misaligned exception from SBI
+Date: Mon, 10 Feb 2025 22:35:35 +0100
+Message-ID: <20250210213549.1867704-3-cleger@rivosinc.com>
+X-Mailer: git-send-email 2.47.2
+In-Reply-To: <20250210213549.1867704-1-cleger@rivosinc.com>
+References: <20250210213549.1867704-1-cleger@rivosinc.com>
 MIME-Version: 1.0
-Message-Id: <20250210-v5_user_cfi_series-v10-12-163dcfa31c60@rivosinc.com>
-References: <20250210-v5_user_cfi_series-v10-0-163dcfa31c60@rivosinc.com>
-In-Reply-To: <20250210-v5_user_cfi_series-v10-0-163dcfa31c60@rivosinc.com>
-To: Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>, 
- Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>, 
- x86@kernel.org, "H. Peter Anvin" <hpa@zytor.com>, 
- Andrew Morton <akpm@linux-foundation.org>, 
- "Liam R. Howlett" <Liam.Howlett@oracle.com>, 
- Vlastimil Babka <vbabka@suse.cz>, 
- Lorenzo Stoakes <lorenzo.stoakes@oracle.com>, 
- Paul Walmsley <paul.walmsley@sifive.com>, 
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
- Conor Dooley <conor@kernel.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Arnd Bergmann <arnd@arndb.de>, 
- Christian Brauner <brauner@kernel.org>, 
- Peter Zijlstra <peterz@infradead.org>, Oleg Nesterov <oleg@redhat.com>, 
- Eric Biederman <ebiederm@xmission.com>, Kees Cook <kees@kernel.org>, 
- Jonathan Corbet <corbet@lwn.net>, Shuah Khan <shuah@kernel.org>, 
- Jann Horn <jannh@google.com>, Conor Dooley <conor+dt@kernel.org>
-Cc: linux-kernel@vger.kernel.org, linux-fsdevel@vger.kernel.org, 
- linux-mm@kvack.org, linux-riscv@lists.infradead.org, 
- devicetree@vger.kernel.org, linux-arch@vger.kernel.org, 
- linux-doc@vger.kernel.org, linux-kselftest@vger.kernel.org, 
- alistair.francis@wdc.com, richard.henderson@linaro.org, jim.shu@sifive.com, 
- andybnac@gmail.com, kito.cheng@sifive.com, charlie@rivosinc.com, 
- atishp@rivosinc.com, evan@rivosinc.com, cleger@rivosinc.com, 
- alexghiti@rivosinc.com, samitolvanen@google.com, broonie@kernel.org, 
- rick.p.edgecombe@intel.com, Deepak Gupta <debug@rivosinc.com>
-X-Mailer: b4 0.14.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250210_202715_607292_6A70501B 
-X-CRM114-Status: GOOD (  24.24  )
+X-CRM114-CacheID: sfid-20250210_133607_722361_B05D11D3 
+X-CRM114-Status: GOOD (  17.55  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -131,235 +104,120 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Implement architecture agnostic prctls() interface for setting and getting
-shadow stack status.
-
-prctls implemented are PR_GET_SHADOW_STACK_STATUS,
-PR_SET_SHADOW_STACK_STATUS and PR_LOCK_SHADOW_STACK_STATUS.
-
-As part of PR_SET_SHADOW_STACK_STATUS/PR_GET_SHADOW_STACK_STATUS, only
-PR_SHADOW_STACK_ENABLE is implemented because RISCV allows each mode to
-write to their own shadow stack using `sspush` or `ssamoswap`.
-
-PR_LOCK_SHADOW_STACK_STATUS locks current configuration of shadow stack
-enabling.
-
-Signed-off-by: Deepak Gupta <debug@rivosinc.com>
----
- arch/riscv/include/asm/usercfi.h |  18 ++++++-
- arch/riscv/kernel/process.c      |   8 +++
- arch/riscv/kernel/usercfi.c      | 107 +++++++++++++++++++++++++++++++++++++++
- 3 files changed, 132 insertions(+), 1 deletion(-)
-
-diff --git a/arch/riscv/include/asm/usercfi.h b/arch/riscv/include/asm/usercfi.h
-index 82d28ac98d76..c4dcd256f19a 100644
---- a/arch/riscv/include/asm/usercfi.h
-+++ b/arch/riscv/include/asm/usercfi.h
-@@ -7,6 +7,7 @@
- 
- #ifndef __ASSEMBLY__
- #include <linux/types.h>
-+#include <linux/prctl.h>
- 
- struct task_struct;
- struct kernel_clone_args;
-@@ -14,7 +15,8 @@ struct kernel_clone_args;
- #ifdef CONFIG_RISCV_USER_CFI
- struct cfi_status {
- 	unsigned long ubcfi_en : 1; /* Enable for backward cfi. */
--	unsigned long rsvd : ((sizeof(unsigned long) * 8) - 1);
-+	unsigned long ubcfi_locked : 1;
-+	unsigned long rsvd : ((sizeof(unsigned long) * 8) - 2);
- 	unsigned long user_shdw_stk; /* Current user shadow stack pointer */
- 	unsigned long shdw_stk_base; /* Base address of shadow stack */
- 	unsigned long shdw_stk_size; /* size of shadow stack */
-@@ -27,6 +29,12 @@ void set_shstk_base(struct task_struct *task, unsigned long shstk_addr, unsigned
- unsigned long get_shstk_base(struct task_struct *task, unsigned long *size);
- void set_active_shstk(struct task_struct *task, unsigned long shstk_addr);
- bool is_shstk_enabled(struct task_struct *task);
-+bool is_shstk_locked(struct task_struct *task);
-+bool is_shstk_allocated(struct task_struct *task);
-+void set_shstk_lock(struct task_struct *task);
-+void set_shstk_status(struct task_struct *task, bool enable);
-+
-+#define PR_SHADOW_STACK_SUPPORTED_STATUS_MASK (PR_SHADOW_STACK_ENABLE)
- 
- #else
- 
-@@ -42,6 +50,14 @@ bool is_shstk_enabled(struct task_struct *task);
- 
- #define is_shstk_enabled(task) false
- 
-+#define is_shstk_locked(task) false
-+
-+#define is_shstk_allocated(task) false
-+
-+#define set_shstk_lock(task)
-+
-+#define set_shstk_status(task, enable)
-+
- #endif /* CONFIG_RISCV_USER_CFI */
- 
- #endif /* __ASSEMBLY__ */
-diff --git a/arch/riscv/kernel/process.c b/arch/riscv/kernel/process.c
-index 99acb6342a37..cd11667593fe 100644
---- a/arch/riscv/kernel/process.c
-+++ b/arch/riscv/kernel/process.c
-@@ -153,6 +153,14 @@ void start_thread(struct pt_regs *regs, unsigned long pc,
- 	regs->epc = pc;
- 	regs->sp = sp;
- 
-+	/*
-+	 * clear shadow stack state on exec.
-+	 * libc will set it later via prctl.
-+	 */
-+	set_shstk_status(current, false);
-+	set_shstk_base(current, 0, 0);
-+	set_active_shstk(current, 0);
-+
- #ifdef CONFIG_64BIT
- 	regs->status &= ~SR_UXL;
- 
-diff --git a/arch/riscv/kernel/usercfi.c b/arch/riscv/kernel/usercfi.c
-index 73cf87dab186..37d6fb8144e7 100644
---- a/arch/riscv/kernel/usercfi.c
-+++ b/arch/riscv/kernel/usercfi.c
-@@ -24,6 +24,16 @@ bool is_shstk_enabled(struct task_struct *task)
- 	return task->thread_info.user_cfi_state.ubcfi_en ? true : false;
- }
- 
-+bool is_shstk_allocated(struct task_struct *task)
-+{
-+	return task->thread_info.user_cfi_state.shdw_stk_base ? true : false;
-+}
-+
-+bool is_shstk_locked(struct task_struct *task)
-+{
-+	return task->thread_info.user_cfi_state.ubcfi_locked ? true : false;
-+}
-+
- void set_shstk_base(struct task_struct *task, unsigned long shstk_addr, unsigned long size)
- {
- 	task->thread_info.user_cfi_state.shdw_stk_base = shstk_addr;
-@@ -42,6 +52,23 @@ void set_active_shstk(struct task_struct *task, unsigned long shstk_addr)
- 	task->thread_info.user_cfi_state.user_shdw_stk = shstk_addr;
- }
- 
-+void set_shstk_status(struct task_struct *task, bool enable)
-+{
-+	task->thread_info.user_cfi_state.ubcfi_en = enable ? 1 : 0;
-+
-+	if (enable)
-+		task->thread.envcfg |= ENVCFG_SSE;
-+	else
-+		task->thread.envcfg &= ~ENVCFG_SSE;
-+
-+	csr_write(CSR_ENVCFG, task->thread.envcfg);
-+}
-+
-+void set_shstk_lock(struct task_struct *task)
-+{
-+	task->thread_info.user_cfi_state.ubcfi_locked = 1;
-+}
-+
- /*
-  * If size is 0, then to be compatible with regular stack we want it to be as big as
-  * regular stack. Else PAGE_ALIGN it and return back
-@@ -262,3 +289,83 @@ void shstk_release(struct task_struct *tsk)
- 	vm_munmap(base, size);
- 	set_shstk_base(tsk, 0, 0);
- }
-+
-+int arch_get_shadow_stack_status(struct task_struct *t, unsigned long __user *status)
-+{
-+	unsigned long bcfi_status = 0;
-+
-+	if (!cpu_supports_shadow_stack())
-+		return -EINVAL;
-+
-+	/* this means shadow stack is enabled on the task */
-+	bcfi_status |= (is_shstk_enabled(t) ? PR_SHADOW_STACK_ENABLE : 0);
-+
-+	return copy_to_user(status, &bcfi_status, sizeof(bcfi_status)) ? -EFAULT : 0;
-+}
-+
-+int arch_set_shadow_stack_status(struct task_struct *t, unsigned long status)
-+{
-+	unsigned long size = 0, addr = 0;
-+	bool enable_shstk = false;
-+
-+	if (!cpu_supports_shadow_stack())
-+		return -EINVAL;
-+
-+	/* Reject unknown flags */
-+	if (status & ~PR_SHADOW_STACK_SUPPORTED_STATUS_MASK)
-+		return -EINVAL;
-+
-+	/* bcfi status is locked and further can't be modified by user */
-+	if (is_shstk_locked(t))
-+		return -EINVAL;
-+
-+	enable_shstk = status & PR_SHADOW_STACK_ENABLE;
-+	/* Request is to enable shadow stack and shadow stack is not enabled already */
-+	if (enable_shstk && !is_shstk_enabled(t)) {
-+		/* shadow stack was allocated and enable request again
-+		 * no need to support such usecase and return EINVAL.
-+		 */
-+		if (is_shstk_allocated(t))
-+			return -EINVAL;
-+
-+		size = calc_shstk_size(0);
-+		addr = allocate_shadow_stack(0, size, 0, false);
-+		if (IS_ERR_VALUE(addr))
-+			return -ENOMEM;
-+		set_shstk_base(t, addr, size);
-+		set_active_shstk(t, addr + size);
-+	}
-+
-+	/*
-+	 * If a request to disable shadow stack happens, let's go ahead and release it
-+	 * Although, if CLONE_VFORKed child did this, then in that case we will end up
-+	 * not releasing the shadow stack (because it might be needed in parent). Although
-+	 * we will disable it for VFORKed child. And if VFORKed child tries to enable again
-+	 * then in that case, it'll get entirely new shadow stack because following condition
-+	 * are true
-+	 *  - shadow stack was not enabled for vforked child
-+	 *  - shadow stack base was anyways pointing to 0
-+	 * This shouldn't be a big issue because we want parent to have availability of shadow
-+	 * stack whenever VFORKed child releases resources via exit or exec but at the same
-+	 * time we want VFORKed child to break away and establish new shadow stack if it desires
-+	 *
-+	 */
-+	if (!enable_shstk)
-+		shstk_release(t);
-+
-+	set_shstk_status(t, enable_shstk);
-+	return 0;
-+}
-+
-+int arch_lock_shadow_stack_status(struct task_struct *task,
-+				  unsigned long arg)
-+{
-+	/* If shtstk not supported or not enabled on task, nothing to lock here */
-+	if (!cpu_supports_shadow_stack() ||
-+	    !is_shstk_enabled(task) || arg != 0)
-+		return -EINVAL;
-+
-+	set_shstk_lock(task);
-+
-+	return 0;
-+}
-
--- 
-2.34.1
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+Tm93IHRoYXQgdGhlIGtlcm5lbCBjYW4gaGFuZGxlIG1pc2FsaWduZWQgYWNjZXNzZXMgaW4gUy1t
+b2RlLCByZXF1ZXN0Cm1pc2FsaWduZWQgYWNjZXNzIGV4Y2VwdGlvbiBkZWxlZ2F0aW9uIGZyb20g
+U0JJLiBUaGlzIHVzZXMgdGhlIEZXRlQgU0JJCmV4dGVuc2lvbiBkZWZpbmVkIGluIFNCSSB2ZXJz
+aW9uIDMuMC4KClNpZ25lZC1vZmYtYnk6IENsw6ltZW50IEzDqWdlciA8Y2xlZ2VyQHJpdm9zaW5j
+LmNvbT4KLS0tCiBhcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL2NwdWZlYXR1cmUuaCAgICAgICAgfCAg
+MyArLQogYXJjaC9yaXNjdi9rZXJuZWwvdHJhcHNfbWlzYWxpZ25lZC5jICAgICAgIHwgOTYgKysr
+KysrKysrKysrKysrKysrKysrLQogYXJjaC9yaXNjdi9rZXJuZWwvdW5hbGlnbmVkX2FjY2Vzc19z
+cGVlZC5jIHwgMTEgKystCiAzIGZpbGVzIGNoYW5nZWQsIDEwNSBpbnNlcnRpb25zKCspLCA1IGRl
+bGV0aW9ucygtKQoKZGlmZiAtLWdpdCBhL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20vY3B1ZmVhdHVy
+ZS5oIGIvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9jcHVmZWF0dXJlLmgKaW5kZXggNTY5MTQwZDZl
+NjM5Li5hZDdkMjY3ODhlNmEgMTAwNjQ0Ci0tLSBhL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20vY3B1
+ZmVhdHVyZS5oCisrKyBiL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20vY3B1ZmVhdHVyZS5oCkBAIC02
+NCw4ICs2NCw5IEBAIHZvaWQgX19pbml0IHJpc2N2X3VzZXJfaXNhX2VuYWJsZSh2b2lkKTsKIAlf
+UklTQ1ZfSVNBX0VYVF9EQVRBKF9uYW1lLCBfaWQsIF9zdWJfZXh0cywgQVJSQVlfU0laRShfc3Vi
+X2V4dHMpLCBfdmFsaWRhdGUpCiAKIGJvb2wgY2hlY2tfdW5hbGlnbmVkX2FjY2Vzc19lbXVsYXRl
+ZF9hbGxfY3B1cyh2b2lkKTsKK3ZvaWQgdW5hbGlnbmVkX2FjY2Vzc19pbml0KHZvaWQpOworaW50
+IGNwdV9vbmxpbmVfdW5hbGlnbmVkX2FjY2Vzc19pbml0KHVuc2lnbmVkIGludCBjcHUpOwogI2lm
+IGRlZmluZWQoQ09ORklHX1JJU0NWX1NDQUxBUl9NSVNBTElHTkVEKQotdm9pZCBjaGVja191bmFs
+aWduZWRfYWNjZXNzX2VtdWxhdGVkKHN0cnVjdCB3b3JrX3N0cnVjdCAqd29yayBfX2Fsd2F5c191
+bnVzZWQpOwogdm9pZCB1bmFsaWduZWRfZW11bGF0aW9uX2ZpbmlzaCh2b2lkKTsKIGJvb2wgdW5h
+bGlnbmVkX2N0bF9hdmFpbGFibGUodm9pZCk7CiBERUNMQVJFX1BFUl9DUFUobG9uZywgbWlzYWxp
+Z25lZF9hY2Nlc3Nfc3BlZWQpOwpkaWZmIC0tZ2l0IGEvYXJjaC9yaXNjdi9rZXJuZWwvdHJhcHNf
+bWlzYWxpZ25lZC5jIGIvYXJjaC9yaXNjdi9rZXJuZWwvdHJhcHNfbWlzYWxpZ25lZC5jCmluZGV4
+IDdjYzEwOGFlZDc0ZS4uNjZlZWYzOThiYWQ0IDEwMDY0NAotLS0gYS9hcmNoL3Jpc2N2L2tlcm5l
+bC90cmFwc19taXNhbGlnbmVkLmMKKysrIGIvYXJjaC9yaXNjdi9rZXJuZWwvdHJhcHNfbWlzYWxp
+Z25lZC5jCkBAIC0xNiw2ICsxNiw3IEBACiAjaW5jbHVkZSA8YXNtL2VudHJ5LWNvbW1vbi5oPgog
+I2luY2x1ZGUgPGFzbS9od3Byb2JlLmg+CiAjaW5jbHVkZSA8YXNtL2NwdWZlYXR1cmUuaD4KKyNp
+bmNsdWRlIDxhc20vc2JpLmg+CiAjaW5jbHVkZSA8YXNtL3ZlY3Rvci5oPgogCiAjZGVmaW5lIElO
+U05fTUFUQ0hfTEIJCQkweDMKQEAgLTYzNSw3ICs2MzYsNyBAQCBib29sIGNoZWNrX3ZlY3Rvcl91
+bmFsaWduZWRfYWNjZXNzX2VtdWxhdGVkX2FsbF9jcHVzKHZvaWQpCiAKIHN0YXRpYyBib29sIHVu
+YWxpZ25lZF9jdGwgX19yZWFkX21vc3RseTsKIAotdm9pZCBjaGVja191bmFsaWduZWRfYWNjZXNz
+X2VtdWxhdGVkKHN0cnVjdCB3b3JrX3N0cnVjdCAqd29yayBfX2Fsd2F5c191bnVzZWQpCitzdGF0
+aWMgdm9pZCBjaGVja191bmFsaWduZWRfYWNjZXNzX2VtdWxhdGVkKHN0cnVjdCB3b3JrX3N0cnVj
+dCAqd29yayBfX2Fsd2F5c191bnVzZWQpCiB7CiAJaW50IGNwdSA9IHNtcF9wcm9jZXNzb3JfaWQo
+KTsKIAlsb25nICptYXNfcHRyID0gcGVyX2NwdV9wdHIoJm1pc2FsaWduZWRfYWNjZXNzX3NwZWVk
+LCBjcHUpOwpAQCAtNjQ2LDYgKzY0NywxMyBAQCB2b2lkIGNoZWNrX3VuYWxpZ25lZF9hY2Nlc3Nf
+ZW11bGF0ZWQoc3RydWN0IHdvcmtfc3RydWN0ICp3b3JrIF9fYWx3YXlzX3VudXNlZCkKIAlfX2Fz
+bV9fIF9fdm9sYXRpbGVfXyAoCiAJCSIgICAgICAgIlJFR19MIiAlW3RtcF0sIDEoJVtwdHJdKVxu
+IgogCQk6IFt0bXBdICI9ciIgKHRtcF92YWwpIDogW3B0cl0gInIiICgmdG1wX3ZhcikgOiAibWVt
+b3J5Iik7Cit9CisKK3N0YXRpYyBpbnQgY3B1X29ubGluZV9jaGVja191bmFsaWduZWRfYWNjZXNz
+X2VtdWxhdGVkKHVuc2lnbmVkIGludCBjcHUpCit7CisJbG9uZyAqbWFzX3B0ciA9IHBlcl9jcHVf
+cHRyKCZtaXNhbGlnbmVkX2FjY2Vzc19zcGVlZCwgY3B1KTsKKworCWNoZWNrX3VuYWxpZ25lZF9h
+Y2Nlc3NfZW11bGF0ZWQoTlVMTCk7CiAKIAkvKgogCSAqIElmIHVuYWxpZ25lZF9jdGwgaXMgYWxy
+ZWFkeSBzZXQsIHRoaXMgbWVhbnMgdGhhdCB3ZSBkZXRlY3RlZCB0aGF0IGFsbApAQCAtNjU0LDkg
+KzY2MiwxMCBAQCB2b2lkIGNoZWNrX3VuYWxpZ25lZF9hY2Nlc3NfZW11bGF0ZWQoc3RydWN0IHdv
+cmtfc3RydWN0ICp3b3JrIF9fYWx3YXlzX3VudXNlZCkKIAkgKi8KIAlpZiAodW5saWtlbHkodW5h
+bGlnbmVkX2N0bCAmJiAoKm1hc19wdHIgIT0gUklTQ1ZfSFdQUk9CRV9NSVNBTElHTkVEX1NDQUxB
+Ul9FTVVMQVRFRCkpKSB7CiAJCXByX2NyaXQoIkNQVSBtaXNhbGlnbmVkIGFjY2Vzc2VzIG5vbiBo
+b21vZ2VuZW91cyAoZXhwZWN0ZWQgYWxsIGVtdWxhdGVkKVxuIik7Ci0JCXdoaWxlICh0cnVlKQot
+CQkJY3B1X3JlbGF4KCk7CisJCXJldHVybiAtRUlOVkFMOwogCX0KKworCXJldHVybiAwOwogfQog
+CiBib29sIGNoZWNrX3VuYWxpZ25lZF9hY2Nlc3NfZW11bGF0ZWRfYWxsX2NwdXModm9pZCkKQEAg
+LTY4OCw0ICs2OTcsODUgQEAgYm9vbCBjaGVja191bmFsaWduZWRfYWNjZXNzX2VtdWxhdGVkX2Fs
+bF9jcHVzKHZvaWQpCiB7CiAJcmV0dXJuIGZhbHNlOwogfQorc3RhdGljIGludCBjcHVfb25saW5l
+X2NoZWNrX3VuYWxpZ25lZF9hY2Nlc3NfZW11bGF0ZWQodW5zaWduZWQgaW50IGNwdSkKK3sKKwly
+ZXR1cm4gMDsKK30KICNlbmRpZgorCisjaWZkZWYgQ09ORklHX1JJU0NWX1NCSQorCitzdHJ1Y3Qg
+bWlzYWxpZ25lZF9kZWxlZ19yZXEgeworCWF0b21pY190IGVycm9yOworfTsKKworc3RhdGljIGlu
+dCBzYmlfcmVxdWVzdF91bmFsaWduZWRfZGVsZWdhdGlvbih2b2lkKQoreworCXN0cnVjdCBzYmly
+ZXQgcmV0OworCisJcmV0ID0gc2JpX2VjYWxsKFNCSV9FWFRfRldGVCwgU0JJX0VYVF9GV0ZUX1NF
+VCwKKwkJCVNCSV9GV0ZUX01JU0FMSUdORURfRVhDX0RFTEVHLCAxLCAwLCAwLCAwLCAwKTsKKwor
+CXJldHVybiBzYmlfZXJyX21hcF9saW51eF9lcnJubyhyZXQuZXJyb3IpOworfQorCitzdGF0aWMg
+Ym9vbCBtaXNhbGlnbmVkX3RyYXBzX2RlbGVnYXRlZDsKKworc3RhdGljIGludCBjcHVfb25saW5l
+X3NiaV91bmFsaWduZWRfc2V0dXAodW5zaWduZWQgaW50IGNwdSkKK3sKKwlpZiAoc2JpX3JlcXVl
+c3RfdW5hbGlnbmVkX2RlbGVnYXRpb24oKSAmJiBtaXNhbGlnbmVkX3RyYXBzX2RlbGVnYXRlZCkg
+eworCQlwcl9jcml0KCJNaXNhbGlnbmVkIHRyYXAgZGVsZWdhdGlvbiBub24gaG9tb2dlbmVvdXMg
+KGV4cGVjdGVkIGRlbGVnYXRlZCkiKTsKKwkJcmV0dXJuIC1FSU5WQUw7CisJfQorCisJcmV0dXJu
+IDA7Cit9CisKK3N0YXRpYyB2b2lkCitjcHVfdW5hbGlnbmVkX3NiaV9yZXF1ZXN0X2RlbGVnYXRp
+b24odm9pZCAqYXJnKQoreworCXN0cnVjdCBtaXNhbGlnbmVkX2RlbGVnX3JlcSAqcmVxID0gYXJn
+OworCisJaWYgKHNiaV9yZXF1ZXN0X3VuYWxpZ25lZF9kZWxlZ2F0aW9uKCkpCisJCWF0b21pY19z
+ZXQoJnJlcS0+ZXJyb3IsIDEpOworfQorCitzdGF0aWMgdm9pZCB1bmFsaWduZWRfc2JpX3JlcXVl
+c3RfZGVsZWdhdGlvbih2b2lkKQoreworCXN0cnVjdCBtaXNhbGlnbmVkX2RlbGVnX3JlcSByZXEg
+PSB7LmVycm9yID0gQVRPTUlDX0lOSVQoMCl9OworCisJb25fZWFjaF9jcHUoY3B1X3VuYWxpZ25l
+ZF9zYmlfcmVxdWVzdF9kZWxlZ2F0aW9uLCAmcmVxLCAxKTsKKwlpZiAoYXRvbWljX3JlYWQoJnJl
+cS5lcnJvcikgPT0gMCkgeworCQlwcl9pbmZvKCJTQkkgbWlzYWxpZ25lZCBhY2Nlc3MgZXhjZXB0
+aW9uIGRlbGVnYXRpb24gb2tcbiIpOworCQltaXNhbGlnbmVkX3RyYXBzX2RlbGVnYXRlZCA9IHRy
+dWU7CisJCS8qCisJCSAqIE5vdGUgdGhhdCB3ZSBkb24ndCBoYXZlIHRvIHRha2UgYW55IHNwZWNp
+ZmljIGFjdGlvbiBoZXJlLCBpZgorCQkgKiB0aGUgZGVsZWdhdGlvbiBpcyBzdWNjZXNzZnVsLCB0
+aGVuCisJCSAqIGNoZWNrX3VuYWxpZ25lZF9hY2Nlc3NfZW11bGF0ZWQoKSB3aWxsIHZlcmlmeSB0
+aGF0IGluZGVlZCB0aGUKKwkJICogcGxhdGZvcm0gdHJhcHMgb24gbWlzYWxpZ25lZCBhY2Nlc3Nl
+cy4KKwkJICovCisJfQorfQorCit2b2lkIHVuYWxpZ25lZF9hY2Nlc3NfaW5pdCh2b2lkKQorewor
+CWlmIChzYmlfcHJvYmVfZXh0ZW5zaW9uKFNCSV9FWFRfRldGVCkgPiAwKQorCQl1bmFsaWduZWRf
+c2JpX3JlcXVlc3RfZGVsZWdhdGlvbigpOworfQorI2Vsc2UKK3ZvaWQgdW5hbGlnbmVkX2FjY2Vz
+c19pbml0KHZvaWQpIHt9CisKK3N0YXRpYyBpbnQgY3B1X29ubGluZV9zYmlfdW5hbGlnbmVkX3Nl
+dHVwKHVuc2lnbmVkIGludCBjcHUgX19hbHdheXNfdW51c2VkKQoreworCXJldHVybiAwOworfQor
+I2VuZGlmCisKK2ludCBjcHVfb25saW5lX3VuYWxpZ25lZF9hY2Nlc3NfaW5pdCh1bnNpZ25lZCBp
+bnQgY3B1KQoreworCWludCByZXQgPSBjcHVfb25saW5lX3NiaV91bmFsaWduZWRfc2V0dXAoY3B1
+KTsKKwlpZiAocmV0KQorCQlyZXR1cm4gcmV0OworCisJcmV0dXJuIGNwdV9vbmxpbmVfY2hlY2tf
+dW5hbGlnbmVkX2FjY2Vzc19lbXVsYXRlZChjcHUpOworfQpkaWZmIC0tZ2l0IGEvYXJjaC9yaXNj
+di9rZXJuZWwvdW5hbGlnbmVkX2FjY2Vzc19zcGVlZC5jIGIvYXJjaC9yaXNjdi9rZXJuZWwvdW5h
+bGlnbmVkX2FjY2Vzc19zcGVlZC5jCmluZGV4IDkxZjE4OWNmMTYxMS4uMmYzYWJhMDczMjk3IDEw
+MDY0NAotLS0gYS9hcmNoL3Jpc2N2L2tlcm5lbC91bmFsaWduZWRfYWNjZXNzX3NwZWVkLmMKKysr
+IGIvYXJjaC9yaXNjdi9rZXJuZWwvdW5hbGlnbmVkX2FjY2Vzc19zcGVlZC5jCkBAIC0xODgsMTMg
+KzE4OCwyMCBAQCBhcmNoX2luaXRjYWxsX3N5bmMobG9ja19hbmRfc2V0X3VuYWxpZ25lZF9hY2Nl
+c3Nfc3RhdGljX2JyYW5jaCk7CiAKIHN0YXRpYyBpbnQgcmlzY3Zfb25saW5lX2NwdSh1bnNpZ25l
+ZCBpbnQgY3B1KQogeworCWludCByZXQ7CiAJc3RhdGljIHN0cnVjdCBwYWdlICpidWY7CiAKIAkv
+KiBXZSBhcmUgYWxyZWFkeSBzZXQgc2luY2UgdGhlIGxhc3QgY2hlY2sgKi8KIAlpZiAocGVyX2Nw
+dShtaXNhbGlnbmVkX2FjY2Vzc19zcGVlZCwgY3B1KSAhPSBSSVNDVl9IV1BST0JFX01JU0FMSUdO
+RURfU0NBTEFSX1VOS05PV04pCiAJCWdvdG8gZXhpdDsKIAotCWNoZWNrX3VuYWxpZ25lZF9hY2Nl
+c3NfZW11bGF0ZWQoTlVMTCk7CisJcmV0ID0gY3B1X29ubGluZV91bmFsaWduZWRfYWNjZXNzX2lu
+aXQoY3B1KTsKKwlpZiAocmV0KQorCQlyZXR1cm4gcmV0OworCisJaWYgKHBlcl9jcHUobWlzYWxp
+Z25lZF9hY2Nlc3Nfc3BlZWQsIGNwdSkgPT0gUklTQ1ZfSFdQUk9CRV9NSVNBTElHTkVEX1NDQUxB
+Ul9FTVVMQVRFRCkKKwkJZ290byBleGl0OworCiAJYnVmID0gYWxsb2NfcGFnZXMoR0ZQX0tFUk5F
+TCwgTUlTQUxJR05FRF9CVUZGRVJfT1JERVIpOwogCWlmICghYnVmKSB7CiAJCXByX3dhcm4oIkFs
+bG9jYXRpb24gZmFpbHVyZSwgbm90IG1lYXN1cmluZyBtaXNhbGlnbmVkIHBlcmZvcm1hbmNlXG4i
+KTsKQEAgLTQwMyw2ICs0MTAsOCBAQCBzdGF0aWMgaW50IGNoZWNrX3VuYWxpZ25lZF9hY2Nlc3Nf
+YWxsX2NwdXModm9pZCkKIHsKIAlib29sIGFsbF9jcHVzX2VtdWxhdGVkLCBhbGxfY3B1c192ZWNf
+dW5zdXBwb3J0ZWQ7CiAKKwl1bmFsaWduZWRfYWNjZXNzX2luaXQoKTsKKwogCWFsbF9jcHVzX2Vt
+dWxhdGVkID0gY2hlY2tfdW5hbGlnbmVkX2FjY2Vzc19lbXVsYXRlZF9hbGxfY3B1cygpOwogCWFs
+bF9jcHVzX3ZlY191bnN1cHBvcnRlZCA9IGNoZWNrX3ZlY3Rvcl91bmFsaWduZWRfYWNjZXNzX2Vt
+dWxhdGVkX2FsbF9jcHVzKCk7CiAKLS0gCjIuNDcuMgoKCl9fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1y
+aXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxt
+YW4vbGlzdGluZm8vbGludXgtcmlzY3YK
