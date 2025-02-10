@@ -4,60 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0FF37C02198
-	for <linux-riscv@archiver.kernel.org>; Mon, 10 Feb 2025 09:05:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B217DC02198
+	for <linux-riscv@archiver.kernel.org>; Mon, 10 Feb 2025 09:07:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
 	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=naPv0IJBssZytuhackl4wL7dlflKRBqtQ5BGTwwQix4=; b=jZ4jQcSP0sCBZZ
-	NUg7ykPU/pRW8eM3Q8e0sD/o04o0ouDCYK1ieoAmAiX+CyiZRw5SDxr5eJpU+FIlrIfdOx54KnsTv
-	DzMzyxAgwljafuwB6hDB1u/4xNmPX66LJcyJCYhTHKr7XsZA0VSn6amFQVmgNaDvShZvKHf/9fnjI
-	EGAGnnk4ZeEqbwLI1kkbKrqZfBcElfMEAY6byzl5MpDG1NIaJpsIs7/h3j/CAd2QsMrDZyzmW0C94
-	G/BYfy6tgH7l89qgEmmGVCskTBkhiFy1d2qiQPecax4ovhVQJbQ8O9SMyZhKg3MD2rmJGIStuOQUZ
-	Rr1PyjREb92Zdq4aV1IA==;
+	List-Owner; bh=5BvVKwz8nVwPGLIEt0f+IC3K8xL9Ak/D7gxIa1w8Y+4=; b=KSeLuBwzafEMPi
+	C/7fx+O+a57ot65XJFhEMIERDZKv3xJCvCtsjAUOJi5rpTAvvCmwArPgZganfOy2mcFPqSm3RbgIx
+	lsRRWnykBggBnvIm1JPbPcIa5eoMVWnJe2VjHi+21aZcCB58416Y2u1yKbJpW3Msi2cwvCrA4493x
+	zpn8rdSE8nf/MQebehodjllcE8l0uSzLKzDsl3YUbunOUcKp7CJh/tW1g0DRgZBe8QzZ6CZXeSqIH
+	bVGYhTH9og6yKUbvup5adjytQkcuW8HGGxdjG64w8enRIYE3OmsULPeLrNHfv/CmQgANrOBwgdcpE
+	c3I9StfOBWVJw3UQOCxw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1thPjj-0000000Gl7H-1dTV;
-	Mon, 10 Feb 2025 09:05:51 +0000
+	id 1thPl6-0000000GlNC-2rq3;
+	Mon, 10 Feb 2025 09:07:16 +0000
 Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1thPVZ-0000000Gid4-1RPk;
-	Mon, 10 Feb 2025 08:51:14 +0000
+	id 1thPWo-0000000Gj53-134T;
+	Mon, 10 Feb 2025 08:52:31 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 2F4455C275A;
-	Mon, 10 Feb 2025 08:50:33 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2025CC4CED1;
-	Mon, 10 Feb 2025 08:51:06 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 25BA45C1084;
+	Mon, 10 Feb 2025 08:51:50 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 771C7C4CEE4;
+	Mon, 10 Feb 2025 08:52:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1739177472;
-	bh=O60bjoiJsJiOy1AEAQI646rU7aZ0CgR6c2Eym7Kfz54=;
+	s=k20201202; t=1739177549;
+	bh=Ad+EIxlM+shMGClzmU5rodJzGmXvYM+2G7RRmW8zDpw=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=kF+MQ0QuHvwJHIjCSTIps8qvlNV/2fcVH2xlnwFyYPkvNgrTxWxckDTpn5Mj5/cOW
-	 ErRfT2O6501fIO1Mnew5juFnTgRYcoRqrkJtH5meWYfAVoVozP0vhg9uUMCvfUaWYr
-	 jqCK9NxSjWKNnFKY8dhb/3J8xt5QQHAdXrJub76JiVdB2tC3s9MMf0MVkYXvVah+DY
-	 sOFP8K1t7TdBvSKwpnM6Hj2BhzM6/QB7BImpRyjuJKOoS9TCOYzAfNVnFPUqFD3J/M
-	 aYgUIRzGlZvvqkIXUV/g9bVtZ8rcFNQZXkWnaPb4iTFYK95i4Jx1K8q6IVqdeCN59l
-	 xIZz7pBpGSK4g==
-Message-ID: <f1d00c9b-5501-4b96-a6e2-bc1181589f7a@kernel.org>
-Date: Mon, 10 Feb 2025 09:51:04 +0100
+	b=U5On25TMs1vbgyw09AYUX8cjzl1mb3d410J6wvfr8qoqpGQIJimcLVVVhqo9sxxU2
+	 D+FEHNwRgDcgdNVaLI23zqfhIHJ3UwYvi/WIEAcuY2ADCJec/XTyCuRIvWFOiXhL4I
+	 TQRta7R1QLkUJ4JuHlXOHo61rs55nDrjEhtEt2jjH7ne+SwIcBGE0qV2JwsIff23j4
+	 E+1JZkwYYW3ksdnwT9kPL1Hu8iBIZi7beZOuvOYHS6XFd6WHXocublKyU4XEfwGKiF
+	 2OE04q1HvNLm2v/CF24ObB2bufOysgo7cUgCFXCVFr/7StZRO2zWCu1npBD22Rrt8W
+	 9g2CjkxpTzZVg==
+Message-ID: <6e479752-ef15-40c4-a01f-f971cb075525@kernel.org>
+Date: Mon, 10 Feb 2025 09:52:23 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 08/10] riscv/arm64: dts: cv18xx: Add sysctl and reset
- nodes
+Subject: Re: [PATCH 09/10] power: reset: cv18xx: New driver
 To: Alexander Sverdlin <alexander.sverdlin@gmail.com>, soc@lists.linux.dev
 Cc: Chen Wang <unicorn_wang@outlook.com>,
  Inochi Amaoto <inochiama@outlook.com>, linux-pm@vger.kernel.org,
- linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
- Haylen Chu <heylenay@outlook.com>, linux-arm-kernel@lists.infradead.org,
- Sebastian Reichel <sre@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
- Philipp Zabel <p.zabel@pengutronix.de>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Lee Jones <lee@kernel.org>
+ linux-riscv@lists.infradead.org, Haylen Chu <heylenay@outlook.com>,
+ linux-arm-kernel@lists.infradead.org, Sebastian Reichel <sre@kernel.org>,
+ Arnd Bergmann <arnd@arndb.de>, Philipp Zabel <p.zabel@pengutronix.de>,
+ Lee Jones <lee@kernel.org>
 References: <20250209220646.1090868-1-alexander.sverdlin@gmail.com>
- <20250209220646.1090868-9-alexander.sverdlin@gmail.com>
+ <20250209220646.1090868-10-alexander.sverdlin@gmail.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -103,10 +100,10 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  uZwJCLykjad45hsWcOGk3OcaAGQS6NDlfhM6O9aYNwGL6tGt/6BkRikNOs7VDEa4/HlbaSJo
  7FgndGw1kWmkeL6oQh7wBvYll2buKod4qYntmNKEicoHGU+x91Gcan8mCoqhJkbqrL7+nXG2
  5Q/GS5M9RFWS+nYyJh+c3OcfKqVcZQNANItt7+ULzdNJuhvTRRdC3g9hmCEuNSr+CLMdnRBY fv0=
-In-Reply-To: <20250209220646.1090868-9-alexander.sverdlin@gmail.com>
+In-Reply-To: <20250209220646.1090868-10-alexander.sverdlin@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250210_005113_509048_370955E9 
-X-CRM114-Status: GOOD (  11.25  )
+X-CRM114-CacheID: sfid-20250210_005230_378790_85D0AA23 
+X-CRM114-Status: GOOD (  12.58  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,40 +121,61 @@ Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 On 09/02/2025 23:06, Alexander Sverdlin wrote:
-> Add reset controller node and required sysctl nodes.
-> 
-> Signed-off-by: Alexander Sverdlin <alexander.sverdlin@gmail.com>
-> ---
->  arch/riscv/boot/dts/sophgo/cv18xx-periph.dtsi | 16 ++++++++++++++++
->  1 file changed, 16 insertions(+)
-> 
-> diff --git a/arch/riscv/boot/dts/sophgo/cv18xx-periph.dtsi b/arch/riscv/boot/dts/sophgo/cv18xx-periph.dtsi
-> index 53834b0658b2..d793b6db4ed1 100644
-> --- a/arch/riscv/boot/dts/sophgo/cv18xx-periph.dtsi
-> +++ b/arch/riscv/boot/dts/sophgo/cv18xx-periph.dtsi
-> @@ -309,5 +309,21 @@ dmac: dma-controller@4330000 {
->  			snps,data-width = <4>;
->  			status = "disabled";
->  		};
 > +
-> +		rtcsys_ctrl: syscon@5025000 {
-> +			compatible = "sophgo,cv1800-rtcsys-ctrl", "syscon";
-> +			reg = <0x05025000 0x1000>;
-> +		};
+> +static int cv18xx_reset_probe(struct platform_device *pdev)
+> +{
+> +	struct device *dev = &pdev->dev;
+> +	struct device_node *np = dev->of_node;
+> +	int ret;
 > +
-> +		rtcsys_core: syscon@5026000 {
-> +			compatible = "sophgo,cv1800-rtcsys-core", "syscon";
-> +			reg = <0x05026000 0x1000>;
-> +		};
+> +	if (!np)
+> +		return -ENODEV;
 > +
-> +		soc-reset {
-> +			compatible = "sophgo,cv1800-reset";
+> +	rtcsys_ctrl_regs = syscon_regmap_lookup_by_phandle(np, "sophgo,rtcsys-ctrl");
+> +	if (IS_ERR(rtcsys_ctrl_regs))
+> +		return dev_err_probe(dev, PTR_ERR(rtcsys_ctrl_regs),
+> +				     "sophgo,rtcsys-ctrl lookup failed\n");
+> +
+> +	rtcsys_core_regs = syscon_regmap_lookup_by_phandle(np, "sophgo,rtcsys-core");
+> +	if (IS_ERR(rtcsys_core_regs))
+> +		return dev_err_probe(dev, PTR_ERR(rtcsys_core_regs),
+> +				     "sophgo,rtcsys-core lookup failed\n");
+> +
+> +	ret = devm_register_restart_handler(&pdev->dev, cv18xx_restart_handler, NULL);
+> +	if (ret)
+> +		dev_err(&pdev->dev, "Cannot register restart handler (%pe)\n", ERR_PTR(ret));
 
-Nope. You cannot have non-MMIO nodes in SoC which proves this is not a
-real SoC device. Neither compatible, nor its placement is correct.
+You called it reset driver and placed it in reset, but this is reboot
+handler?
 
-Depending on the hardware design, this most likely is just part of your
-5025000 block.
+> +	return ret;
+> +}
+> +
+> +static const struct of_device_id cv18xx_reset_of_match[] = {
+> +	{ .compatible = "sophgo,cv1800-reset" },
+> +	{}
+> +};
+> +MODULE_DEVICE_TABLE(platform, cv18xx_reset_of_match);
+> +
+> +static struct platform_driver cv18xx_reset_driver = {
+> +	.probe = cv18xx_reset_probe,
+> +	.driver = {
+> +		.name = "cv18xx-reset",
+> +		.of_match_table = cv18xx_reset_of_match,
+> +	},
+> +};
+> +module_platform_driver(cv18xx_reset_driver);
+> +
+> +MODULE_AUTHOR("Alexander Sverdlin <alexander.sverdlin@gmail.com>");
+> +MODULE_DESCRIPTION("Cvitek CV18xx/Sophgo SG2000 Reset Driver");
+> +MODULE_ALIAS("platform:cv18xx-reset");
+
+You should not need MODULE_ALIAS() in normal cases. If you need it,
+usually it means your device ID table is wrong (e.g. misses either
+entries or MODULE_DEVICE_TABLE()). MODULE_ALIAS() is not a substitute
+for incomplete ID table.
+
+
 
 
 Best regards,
