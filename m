@@ -4,86 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 73998C02198
-	for <linux-riscv@archiver.kernel.org>; Mon, 10 Feb 2025 15:59:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E63FDC0219B
+	for <linux-riscv@archiver.kernel.org>; Mon, 10 Feb 2025 16:28:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=jC65Nco8X/NInGwpFfE/B8daaGM9Yuf3s8j1tcJ7RvI=; b=peIXCYrNQEfhMK
-	Q0PKv45c5rVKrcM28LvRd75G4K8XwfZmFPrsw3RUvTJN0s2wm2wGUPE6TE0Vl36b7sdezEJkyyGfe
-	/k5fB5k8Om+GlJyoWsNsXfvmzOnCXipyVjJ4PXs5+EwJa1AWI02110qTP7OZTgbHwogcmfyvYmcuJ
-	jFTUO8nUEuolwWHCkp9JNy1fPdwUvbbxowfmf/mLVfp+4/l53zIJPR7HVbr7VrbRqa3UGZmQ3yAKG
-	ih9yMwQXALIUZCAwoGiqZc886cvd3a5xhPs1E50W+eIGCJPGURDKKzTQ2MIgCZ4PDRo6Lo1y8f3FY
-	TgJcGuQFoe90GGXLMURQ==;
+	List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:References:
+	In-Reply-To:To:Cc:From:MIME-Version:Date:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Owner;
+	bh=WV1x9eizc5X6QEVTJT5axdFw26TBWH62GdpNmeAXbUA=; b=ITsavJ/j9GQLXaICa5u0S0ALgo
+	4YO9BzQVKs5E8cYjmlGE7/c82YJUrhd//QZx5VdYqhMTl/fKe76m+XsA5GUF0U7UjibhIFZZnHjgj
+	nlChJ4R1vC02ObJSk/zrtW21DqjssZKKUR3gkiOM/vdNiIlWYsV0pByD/eZGJOzbJ9IhLLDyTirpu
+	BdZ4vlRINyECfanSMiM9pffqEsb/R3WDqnQU7rNJadgabVFTGPvrSt+6cfnGoK8TZgaszU7nUcX1l
+	pWg39R9ZAA7LbdK4yskFrqJg8jLAWDemhumOeycoOEgwsPM4al/ke+roCwf8jWEJXVC0iiu6qqoGV
+	DxhQgTIw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1thWBe-00000000PDw-3oXE;
-	Mon, 10 Feb 2025 15:59:06 +0000
-Received: from mail-wr1-x435.google.com ([2a00:1450:4864:20::435])
+	id 1thWdz-00000000W53-390x;
+	Mon, 10 Feb 2025 16:28:23 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1thW8y-00000000OYW-1ppN
-	for linux-riscv@lists.infradead.org;
-	Mon, 10 Feb 2025 15:56:21 +0000
-Received: by mail-wr1-x435.google.com with SMTP id ffacd0b85a97d-38dc6d9b292so1808224f8f.2
-        for <linux-riscv@lists.infradead.org>; Mon, 10 Feb 2025 07:56:19 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1739202979; x=1739807779; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=dwvpqgCc60HMle4gfhwGXC+m016RdUxEz0jvpf/EWvY=;
-        b=ESFbNcBgia6Tv418OgI0vm65maG188p3ciwDbr6cVPgX4H2UlFyIKI0aKmqoMjnkYi
-         9EVsYrYBAj/9+l4ARJi1SLBrhM5FP99eWw4+VvFglqyVfKT3l9fxxHclsH41Ihj0zK69
-         kAzvEUbaDWhgbfHEmtQlHIdGNB4KfqBvPuT/XsNbQjsGcQV0KDWDW2omSlGTeS7IZ3Qb
-         1oOvn9jdazImsXKopXSeaup+KG5ve4vnVt89KCwg+l6r/vzJTstM2LmSjX+kO/n0hJqj
-         LYX6sbxxoKNhZatdC1YPRKX1s0bwXhA0wjyN7VP8Sjhv+DBWXVWP14X9V2f8VEBr7WcY
-         eaNA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1739202979; x=1739807779;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=dwvpqgCc60HMle4gfhwGXC+m016RdUxEz0jvpf/EWvY=;
-        b=pRliGXVDHzYbjggAiJDgFGCTLX1I+V6jZSoDOvlTFt5o0vR2tBiqw105bjpgiN7ix4
-         C+3DXAvS8WDR4L8b4NCDvMFPIXcaT8jJJT4aRCl5MCDSApCVgGYPDjlM/bB2qvoMJC02
-         uAnnhV3EwF/cTilyf8tfKjUtX3bf4yrUzK3Au47Y00zYV4AMMe47AcJmUkqSdvzXx6o4
-         aJSG9fcceWC2eUOEpe/vtU1bIh0WxeBK3G0GWti4L9tYO7LYZvubavjYl37KKP3KVG1e
-         9aKwhIddZnYkzEJQDO0oRMR+LDZNdjchi/JDHUs866M8JJcVidF8tzcWRNB7NA7yxNtd
-         uzNQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXkIiJWBSjYEA7pHuR0ypkHqkdgzdfIXcr+3rGIPKohSPaew2lWAk0hrf6DePwFdB9OaOdxDa18aUi44A==@lists.infradead.org
-X-Gm-Message-State: AOJu0YzZwRCY91EdzvkzoNjasN0Y4PxEIGF7KEIkyVrES0I5YNaE6EaE
-	1UqdBrW69bdyUaREXTZBUl2EoQy0Awg41xokiX+yHqRf1g5PoAgXwa//OSORD5CBWltaRdOBdVm
-	2CT0=
-X-Gm-Gg: ASbGncv2uFNBWhNVTcVa0tEGvAQL/5MfiWTlw417pk3aJiE9IMyVoPKod/zUMj96thr
-	HTHkRMZbEd4B3npFzwXqn1KrqCk8rDCRfmXJhyQlig2ARTFKyYX1fBE/U4GRwikj2KtDh2ILf8Z
-	hjjdh1usdQhh6Rk+Y5kdh9DN80GhuJeKnsCfT9ZYYrDj05Z0mG0fgaoBS5CcmMbNuy5hdSamJJX
-	OgwntamskZjR4Kk61U77b5cpOkwXOcLGfhAe7tctMK0pbBj6bdzmyxVXqqbkcUEbB3zeuX0VYtu
-	U9sYfrwxZMUaV1yX
-X-Google-Smtp-Source: AGHT+IF60Nrg56AuVmMzOdpuxKpb48uNb4fjvgwNZgYIhjdvOfRQGICperZSi1yz93HUq9t/Mg45tQ==
-X-Received: by 2002:a05:6000:154d:b0:385:e17a:ce61 with SMTP id ffacd0b85a97d-38de41c5b79mr78637f8f.53.1739202978665;
-        Mon, 10 Feb 2025 07:56:18 -0800 (PST)
-Received: from carbon-x1.. ([2a01:e0a:e17:9700:16d2:7456:6634:9626])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-38ddbfbb4ffsm4521649f8f.94.2025.02.10.07.56.17
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 10 Feb 2025 07:56:18 -0800 (PST)
-From: =?UTF-8?q?Cl=C3=A9ment=20L=C3=A9ger?= <cleger@rivosinc.com>
-To: Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	linux-riscv@lists.infradead.org (open list:RISC-V ARCHITECTURE),
-	linux-kernel@vger.kernel.org (open list)
-Cc: =?UTF-8?q?Cl=C3=A9ment=20L=C3=A9ger?= <cleger@rivosinc.com>,
-	Conor Dooley <conor@kernel.org>,
-	Alexandre Ghiti <alexghiti@rivosinc.com>
-Subject: [PATCH] riscv: cpufeature: use bitmap_equal() instead of memcmp()
-Date: Mon, 10 Feb 2025 16:56:14 +0100
-Message-ID: <20250210155615.1545738-1-cleger@rivosinc.com>
-X-Mailer: git-send-email 2.47.2
+	id 1thWYY-00000000Uqd-2eXQ;
+	Mon, 10 Feb 2025 16:22:48 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 567F8A41970;
+	Mon, 10 Feb 2025 16:21:00 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 84FC0C4CEE6;
+	Mon, 10 Feb 2025 16:22:45 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1739204565;
+	bh=5pue0C/bvY7Bi4z8DCyV8fK5Y7JUy3U4ZkaQjuaNTCw=;
+	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
+	b=Q7kOpbmSvyikwdl0vxdtsvwh3aPlVJKtOKvBumplA6jZU96aNqOf/2VNQRZsxcpFi
+	 ivVRzLV+1fHR4GZ6yjJTQ9kSmhPHXHVPO7pEtbVEHdRPfwKNARwrG6CSzsdYEIipY5
+	 Z/Usfk1EIFx408e+8pO5fTi91IkqEvYYgHCDLz77yy4G6Ut0EW5i3F0gM6CRbHbxby
+	 Wtk8O7BufKk1n7g2d4WH37bPsPndpQtwmJU+Zpq9WIIFVIILD45ePkIrLB90FQrFQH
+	 qas1Frr4pWnbkvcyyzMEQ53fNsEJjoCo0tQaluzkHzxGOw2xym+NxbGUl0YIXkaWFO
+	 t1AdRCYX4NpsQ==
+Date: Mon, 10 Feb 2025 10:22:44 -0600
 MIME-Version: 1.0
+From: "Rob Herring (Arm)" <robh@kernel.org>
+Cc: Chen Wang <unicorn_wang@outlook.com>, 
+ linux-arm-kernel@lists.infradead.org, Sebastian Reichel <sre@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, devicetree@vger.kernel.org, 
+ Haylen Chu <heylenay@outlook.com>, linux-pm@vger.kernel.org, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, soc@lists.linux.dev, 
+ Arnd Bergmann <arnd@arndb.de>, Will Deacon <will@kernel.org>, 
+ Albert Ou <aou@eecs.berkeley.edu>, Inochi Amaoto <inochiama@outlook.com>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, linux-riscv@lists.infradead.org, 
+ Paul Walmsley <paul.walmsley@sifive.com>, 
+ Philipp Zabel <p.zabel@pengutronix.de>, 
+ Catalin Marinas <catalin.marinas@arm.com>, Lee Jones <lee@kernel.org>
+To: Alexander Sverdlin <alexander.sverdlin@gmail.com>
+In-Reply-To: <20250209220646.1090868-1-alexander.sverdlin@gmail.com>
+References: <20250209220646.1090868-1-alexander.sverdlin@gmail.com>
+Message-Id: <173920412075.477254.10964125366963859194.robh@kernel.org>
+Subject: Re: [PATCH 00/10] arm64 support for Milk-V Duo Module 01 EVB
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250210_075620_479783_31B26F63 
-X-CRM114-Status: GOOD (  10.57  )
+X-CRM114-CacheID: sfid-20250210_082246_797905_21D258E7 
+X-CRM114-Status: GOOD (  25.41  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,27 +75,130 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Q29tcGFyaXNvbiBvZiBiaXRtYXBzIHNob3VsZCBiZSBkb25lIHVzaW5nIGJpdG1hcF9lcXVhbCgp
-LCBub3QgbWVtY21wKCksCnVzZSB0aGUgZm9ybWVyIG9uZSB0byBjb21wYXJlIGlzYSBiaXRtYXBz
-LgoKU2lnbmVkLW9mZi1ieTogQ2zDqW1lbnQgTMOpZ2VyIDxjbGVnZXJAcml2b3NpbmMuY29tPgot
-LS0KIGFyY2gvcmlzY3Yva2VybmVsL2NwdWZlYXR1cmUuYyB8IDIgKy0KIDEgZmlsZSBjaGFuZ2Vk
-LCAxIGluc2VydGlvbigrKSwgMSBkZWxldGlvbigtKQoKZGlmZiAtLWdpdCBhL2FyY2gvcmlzY3Yv
-a2VybmVsL2NwdWZlYXR1cmUuYyBiL2FyY2gvcmlzY3Yva2VybmVsL2NwdWZlYXR1cmUuYwppbmRl
-eCBjNmJhNzUwNTM2YzMuLjQwYWM3MmU0MDdiNiAxMDA2NDQKLS0tIGEvYXJjaC9yaXNjdi9rZXJu
-ZWwvY3B1ZmVhdHVyZS5jCisrKyBiL2FyY2gvcmlzY3Yva2VybmVsL2NwdWZlYXR1cmUuYwpAQCAt
-NDc5LDcgKzQ3OSw3IEBAIHN0YXRpYyB2b2lkIF9faW5pdCByaXNjdl9yZXNvbHZlX2lzYSh1bnNp
-Z25lZCBsb25nICpzb3VyY2VfaXNhLAogCQkJaWYgKGJpdCA8IFJJU0NWX0lTQV9FWFRfQkFTRSkK
-IAkJCQkqdGhpc19od2NhcCB8PSBpc2EyaHdjYXBbYml0XTsKIAkJfQotCX0gd2hpbGUgKGxvb3Ag
-JiYgbWVtY21wKHByZXZfcmVzb2x2ZWRfaXNhLCByZXNvbHZlZF9pc2EsIHNpemVvZihwcmV2X3Jl
-c29sdmVkX2lzYSkpKTsKKwl9IHdoaWxlIChsb29wICYmICFiaXRtYXBfZXF1YWwocHJldl9yZXNv
-bHZlZF9pc2EsIHJlc29sdmVkX2lzYSwgUklTQ1ZfSVNBX0VYVF9NQVgpKTsKIH0KIAogc3RhdGlj
-IHZvaWQgX19pbml0IG1hdGNoX2lzYV9leHQoY29uc3QgY2hhciAqbmFtZSwgY29uc3QgY2hhciAq
-bmFtZV9lbmQsIHVuc2lnbmVkIGxvbmcgKmJpdG1hcCkKLS0gCjIuNDcuMgoKCl9fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcg
-bGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRl
-YWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+
+On Sun, 09 Feb 2025 23:06:25 +0100, Alexander Sverdlin wrote:
+> This series adds very basic support for Milk-V Duo Module 01 EVB [1] in
+> arm64 mode. The SoC (SG2000) is dual-arch, RiscV and ARM64, the latter has
+> been chosen because the upstream toolchain can be utilized.
+> 
+> Sophgo SG2000 seems to be a continuation of the Cvitek CV18xx series, same
+> peripherals with an addition of ARM64 core. Therefore it would be
+> beneficial not to copy-paste the peripherals' device-tree, but rather split
+> the most suitable riscv DT into ARCH-specific and peripherals parts and
+> just include the latter on the arm64 side.
+> 
+> This series adds the device-tree for Milk-V Duo Module 01 EVB, which
+> in turn contains Milk-V Duo Module 01 (separate .dtsi) on it, which has
+> SG2000 SoC inside (separate .dtsi).
+> 
+> This series has been tested with Sophgo-provided U-Boot binary [2]: it
+> boots from SD card, pinctrl, serial, GPIO drivers are functional (same
+> as for RiscV-based CV18xx SoCs).
+> New reset driver is provided as an alternative to the ATF PSCI handler,
+> which Sophgo only provides in binary form.
+> 
+> Partial SoC documentation is available [3].
+> 
+> This series lacks the support of:
+> - USB
+> - Audio
+> - Ethernet
+> - WiFi
+> - Bluetooth
+> - eMMC
+> - Video
+> 
+> It would probably make sense that the whole series would go into SOC tree,
+> even though technically nothing prevents the reboot/reset driver to come
+> in PM/reset tree. If everything would come together, `reboot` command would
+> work out of the box.
+> 
+> [1] https://milkv.io/docs/duo/getting-started/duo-module-01
+> [2] https://github.com/milkv-duo/duo-buildroot-sdk-v2/releases/
+> [3] https://github.com/sophgo/sophgo-doc/releases/download/sg2000-trm-v1.01/sg2000_trm_en.pdf
+> 
+> Alexander Sverdlin (10):
+>   arm64: Add SOPHGO SOC family Kconfig support
+>   riscv: dts: sophgo: cv18xx: Split into CPU core and peripheral parts
+>   arm64: dts: sophgo: Add initial SG2000 SoC device tree
+>   arm64: dts: sophgo: Add Duo Module 01
+>   arm64: dts: sophgo: Add Duo Module 01 Evaluation Board
+>   dt-bindings: mfd: syscon: Add Cvitek CV18xx rtcsys core and ctrl
+>     compatible
+>   dt-bindings: reset: sophgo: Add CV18xx reset controller
+>   riscv/arm64: dts: cv18xx: Add sysctl and reset nodes
+>   power: reset: cv18xx: New driver
+>   arm64: defconfig: Enable rudimentary Sophgo SG2000 support
+> 
+>  .../devicetree/bindings/mfd/syscon.yaml       |   4 +
+>  .../bindings/reset/sophgo,cv1800-reset.yaml   |  38 ++
+>  MAINTAINERS                                   |   1 +
+>  arch/arm64/Kconfig.platforms                  |  12 +
+>  arch/arm64/boot/dts/Makefile                  |   1 +
+>  arch/arm64/boot/dts/sophgo/Makefile           |   2 +
+>  arch/arm64/boot/dts/sophgo/sg2000.dtsi        |  79 +++++
+>  .../sophgo/sg2000_milkv_duo_module_01.dtsi    |  84 +++++
+>  .../sophgo/sg2000_milkv_duo_module_01_evb.dts |  30 ++
+>  arch/arm64/configs/defconfig                  |   3 +
+>  arch/riscv/boot/dts/sophgo/cv181x.dtsi        |   2 +-
+>  arch/riscv/boot/dts/sophgo/cv18xx-periph.dtsi | 329 ++++++++++++++++++
+>  arch/riscv/boot/dts/sophgo/cv18xx.dtsi        | 305 +---------------
+>  drivers/power/reset/Kconfig                   |  12 +
+>  drivers/power/reset/Makefile                  |   1 +
+>  drivers/power/reset/cv18xx-reset.c            |  89 +++++
+>  16 files changed, 689 insertions(+), 303 deletions(-)
+>  create mode 100644 Documentation/devicetree/bindings/reset/sophgo,cv1800-reset.yaml
+>  create mode 100644 arch/arm64/boot/dts/sophgo/Makefile
+>  create mode 100644 arch/arm64/boot/dts/sophgo/sg2000.dtsi
+>  create mode 100644 arch/arm64/boot/dts/sophgo/sg2000_milkv_duo_module_01.dtsi
+>  create mode 100644 arch/arm64/boot/dts/sophgo/sg2000_milkv_duo_module_01_evb.dts
+>  create mode 100644 arch/riscv/boot/dts/sophgo/cv18xx-periph.dtsi
+>  create mode 100644 drivers/power/reset/cv18xx-reset.c
+> 
+> --
+> 2.48.1
+> 
+> 
+> 
+
+
+My bot found new DTB warnings on the .dts files added or changed in this
+series.
+
+Some warnings may be from an existing SoC .dtsi. Or perhaps the warnings
+are fixed by another series. Ultimately, it is up to the platform
+maintainer whether these warnings are acceptable or not. No need to reply
+unless the platform maintainer has comments.
+
+If you already ran DT checks and didn't see these error(s), then
+make sure dt-schema is up to date:
+
+  pip3 install dtschema --upgrade
+
+
+New warnings running 'make CHECK_DTBS=y for arch/arm64/boot/dts/sophgo/' for 20250209220646.1090868-1-alexander.sverdlin@gmail.com:
+
+arch/arm64/boot/dts/sophgo/sg2000_milkv_duo_module_01_evb.dtb: /: failed to match any schema with compatible: ['sophgo,sg2000']
+arch/arm64/boot/dts/sophgo/sg2000_milkv_duo_module_01_evb.dtb: soc: soc-reset: 'ranges' is a required property
+	from schema $id: http://devicetree.org/schemas/simple-bus.yaml#
+arch/arm64/boot/dts/sophgo/sg2000_milkv_duo_module_01_evb.dtb: l2-cache: 'cache-unified' is a dependency of 'cache-size'
+	from schema $id: http://devicetree.org/schemas/cache.yaml#
+arch/arm64/boot/dts/sophgo/sg2000_milkv_duo_module_01_evb.dtb: l2-cache: 'cache-unified' is a required property
+	from schema $id: http://devicetree.org/schemas/cache.yaml#
+arch/arm64/boot/dts/sophgo/sg2000_milkv_duo_module_01_evb.dtb: l2-cache: Unevaluated properties are not allowed ('cache-level', 'cache-size' were unexpected)
+	from schema $id: http://devicetree.org/schemas/cache.yaml#
+
+
+
+
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
