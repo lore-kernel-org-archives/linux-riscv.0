@@ -4,66 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E63FDC0219B
-	for <linux-riscv@archiver.kernel.org>; Mon, 10 Feb 2025 16:28:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6AF6EC02198
+	for <linux-riscv@archiver.kernel.org>; Mon, 10 Feb 2025 17:04:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:References:
-	In-Reply-To:To:Cc:From:MIME-Version:Date:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=WV1x9eizc5X6QEVTJT5axdFw26TBWH62GdpNmeAXbUA=; b=ITsavJ/j9GQLXaICa5u0S0ALgo
-	4YO9BzQVKs5E8cYjmlGE7/c82YJUrhd//QZx5VdYqhMTl/fKe76m+XsA5GUF0U7UjibhIFZZnHjgj
-	nlChJ4R1vC02ObJSk/zrtW21DqjssZKKUR3gkiOM/vdNiIlWYsV0pByD/eZGJOzbJ9IhLLDyTirpu
-	BdZ4vlRINyECfanSMiM9pffqEsb/R3WDqnQU7rNJadgabVFTGPvrSt+6cfnGoK8TZgaszU7nUcX1l
-	pWg39R9ZAA7LbdK4yskFrqJg8jLAWDemhumOeycoOEgwsPM4al/ke+roCwf8jWEJXVC0iiu6qqoGV
-	DxhQgTIw==;
+	List-Archive:List-Unsubscribe:List-Id:To:From:Subject:Mime-Version:Message-Id
+	:Date:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=XUqm2u+wwX4aJ1H1EgGdAfmP2lm+WIacpWGKzYSF1H4=; b=UkxGk5T6oUpgzC
+	l5zuALFqtVSxsazq1iznjW52/CiHnwq7Rgr7JAIEeG7xmuHQphqB4q0oLQvM7C3Tk937yK5vnU9Gn
+	f7cog7pjMR+cxS1XWlttN22NbRbzuAnFppi4yphZWhknvNJHtx6bmJgtOGeBACoLdNPcdtuXYFTAK
+	yyZDAQx72azpshIEKSpiQJAeOE7CP76z9i8npigr4bqNBp6LXdXcq9Ii+cYzdaMUW5f/wZcbCA0YW
+	P+btUhR5e5n/bmeW3qd++1/V4l/AoZlQ5HMbLzEhtElvax6ajJvVfXElSrFHKhhDpB6gw/dxWpoWA
+	QsnSOieZj9uM1vRO5cxA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1thWdz-00000000W53-390x;
-	Mon, 10 Feb 2025 16:28:23 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1thXCU-00000000dci-2D85;
+	Mon, 10 Feb 2025 17:04:02 +0000
+Received: from mail-yb1-xb49.google.com ([2607:f8b0:4864:20::b49])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1thWYY-00000000Uqd-2eXQ;
-	Mon, 10 Feb 2025 16:22:48 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 567F8A41970;
-	Mon, 10 Feb 2025 16:21:00 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 84FC0C4CEE6;
-	Mon, 10 Feb 2025 16:22:45 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1739204565;
-	bh=5pue0C/bvY7Bi4z8DCyV8fK5Y7JUy3U4ZkaQjuaNTCw=;
-	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
-	b=Q7kOpbmSvyikwdl0vxdtsvwh3aPlVJKtOKvBumplA6jZU96aNqOf/2VNQRZsxcpFi
-	 ivVRzLV+1fHR4GZ6yjJTQ9kSmhPHXHVPO7pEtbVEHdRPfwKNARwrG6CSzsdYEIipY5
-	 Z/Usfk1EIFx408e+8pO5fTi91IkqEvYYgHCDLz77yy4G6Ut0EW5i3F0gM6CRbHbxby
-	 Wtk8O7BufKk1n7g2d4WH37bPsPndpQtwmJU+Zpq9WIIFVIILD45ePkIrLB90FQrFQH
-	 qas1Frr4pWnbkvcyyzMEQ53fNsEJjoCo0tQaluzkHzxGOw2xym+NxbGUl0YIXkaWFO
-	 t1AdRCYX4NpsQ==
-Date: Mon, 10 Feb 2025 10:22:44 -0600
-MIME-Version: 1.0
-From: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: Chen Wang <unicorn_wang@outlook.com>, 
- linux-arm-kernel@lists.infradead.org, Sebastian Reichel <sre@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, devicetree@vger.kernel.org, 
- Haylen Chu <heylenay@outlook.com>, linux-pm@vger.kernel.org, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, soc@lists.linux.dev, 
- Arnd Bergmann <arnd@arndb.de>, Will Deacon <will@kernel.org>, 
- Albert Ou <aou@eecs.berkeley.edu>, Inochi Amaoto <inochiama@outlook.com>, 
- Palmer Dabbelt <palmer@dabbelt.com>, linux-riscv@lists.infradead.org, 
- Paul Walmsley <paul.walmsley@sifive.com>, 
- Philipp Zabel <p.zabel@pengutronix.de>, 
- Catalin Marinas <catalin.marinas@arm.com>, Lee Jones <lee@kernel.org>
-To: Alexander Sverdlin <alexander.sverdlin@gmail.com>
-In-Reply-To: <20250209220646.1090868-1-alexander.sverdlin@gmail.com>
-References: <20250209220646.1090868-1-alexander.sverdlin@gmail.com>
-Message-Id: <173920412075.477254.10964125366963859194.robh@kernel.org>
-Subject: Re: [PATCH 00/10] arm64 support for Milk-V Duo Module 01 EVB
+	id 1thX06-00000000at4-2vI4
+	for linux-riscv@lists.infradead.org;
+	Mon, 10 Feb 2025 16:51:16 +0000
+Received: by mail-yb1-xb49.google.com with SMTP id 3f1490d57ef6-e3a0f608b88so5801111276.0
+        for <linux-riscv@lists.infradead.org>; Mon, 10 Feb 2025 08:51:13 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1739206273; x=1739811073; darn=lists.infradead.org;
+        h=to:from:subject:mime-version:message-id:date:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=kmoQ0hJ6fUHzIAxNKRxmy53Q9EYukD3q6SfZlICWqA0=;
+        b=JAWNWSMPtdnjt7zBou7+D66IFENtN4WiMAyuceVD6pibXjqyFTDRyEh2EFuCcLfnVc
+         gl9swKWMgCri5nWXVvTvwpW/dIJ67q8GwwULUv9t6rf4VVaiPkxdz0GeP3IUjPp42Q3s
+         V2FfLYfJWJ7Qb6ooT7qca3kU5ItZ7nykN/F/cEOT1JHW2xtzeL9aVkXwvZnvFvnY7HyE
+         hfxeh8pKa4Ab2UKdO0WJjFoHHdUqg8wwhxI4xOjMrcrh+o6qjO+eCgbAijBhCfevpBfM
+         IU8Yyl2Zula2pMF/EAR89gDIGbt34pA642yElAqWdx7QlWzOJvajgRqAV3pVu9IMyCUX
+         3yXQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1739206273; x=1739811073;
+        h=to:from:subject:mime-version:message-id:date:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=kmoQ0hJ6fUHzIAxNKRxmy53Q9EYukD3q6SfZlICWqA0=;
+        b=fbbFQYnY998HoONObV65jw1NJshKmHpFzXnYyybliY16VFcaqxTQdy3SBUaIdbBm9b
+         3dmzODXJhaWcqtKh7XOaXjyuALBABZVBRk+k5kxy4tusD9GvibVKpM+tb1MjoIur4U3d
+         5D8t2iAZSuvobap+rElv8kjxvI0wRdKOy5kCx8T1R0OuaKScH++mFErQXs3mwMJOBdfH
+         rSDhjYVdUV3FM+XN/f8H2fY5Al8Mi1otv/GmF6UZatRrsbIy9ArAfHOaFSceJPPNiskI
+         5xYXYCcXvRsomsuMLpKRKgE8youDraDeg7sN/8GPCDQJxPOhrRw+10Gf63w7Wv8OiOjS
+         KoSw==
+X-Forwarded-Encrypted: i=1; AJvYcCXjZ+i84GL01fPVoV8G1NgrF6SclkZDCZt1PqtnCBN1ThcPijY7KgxCCfXALrwFOTaQAR02SILwieU6Cg==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxzef3LsB06mG9wYXQoTuZXe3rGz8ur1imsqJXtWajcBc8tAzN1
+	PU5blVK1vWswNg+gAr+G9dpledyuD/h7c3L2PhnQb9MxsRyLfsvUeuf4V0UiVhwFO5hyJwnG2Uc
+	9dAFz9A==
+X-Google-Smtp-Source: AGHT+IEMtGF5r1fPJEqxllkQEpJmEpGfF/fYkueb8YcpPNyVeR8kWRxqXWQw5vuIofyE3IHky/IxQ7Jh9GGu
+X-Received: from irogers.svl.corp.google.com ([2620:15c:2c5:11:c64e:af58:30d4:168d])
+ (user=irogers job=sendgmr) by 2002:a25:dd44:0:b0:e5a:f4dc:c2cb with SMTP id
+ 3f1490d57ef6-e5b46a36651mr105648276.4.1739206272904; Mon, 10 Feb 2025
+ 08:51:12 -0800 (PST)
+Date: Mon, 10 Feb 2025 08:51:01 -0800
+Message-Id: <20250210165108.95894-1-irogers@google.com>
+Mime-Version: 1.0
+X-Mailer: git-send-email 2.48.1.502.g6dc24dfdaf-goog
+Subject: [PATCH v2 0/7] perf: Support multiple system call tables in the build
+From: Ian Rogers <irogers@google.com>
+To: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
+	Arnaldo Carvalho de Melo <acme@kernel.org>, Namhyung Kim <namhyung@kernel.org>, 
+	Mark Rutland <mark.rutland@arm.com>, 
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>, Jiri Olsa <jolsa@kernel.org>, 
+	Ian Rogers <irogers@google.com>, Adrian Hunter <adrian.hunter@intel.com>, 
+	Kan Liang <kan.liang@linux.intel.com>, John Garry <john.g.garry@oracle.com>, 
+	Will Deacon <will@kernel.org>, James Clark <james.clark@linaro.org>, 
+	Mike Leach <mike.leach@linaro.org>, Leo Yan <leo.yan@linux.dev>, Guo Ren <guoren@kernel.org>, 
+	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, Charlie Jenkins <charlie@rivosinc.com>, 
+	Bibo Mao <maobibo@loongson.cn>, Arnd Bergmann <arnd@arndb.de>, Huacai Chen <chenhuacai@kernel.org>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Jiri Slaby <jirislaby@kernel.org>, 
+	"=?UTF-8?q?Bj=C3=B6rn=20T=C3=B6pel?=" <bjorn@rivosinc.com>, Howard Chu <howardchu95@gmail.com>, linux-kernel@vger.kernel.org, 
+	linux-perf-users@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-csky@vger.kernel.org, linux-riscv@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250210_082246_797905_21D258E7 
-X-CRM114-Status: GOOD (  25.41  )
+X-CRM114-CacheID: sfid-20250210_085114_730266_C862B129 
+X-CRM114-Status: GOOD (  17.12  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,122 +100,147 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+This work builds on the clean up of system call tables and removal of
+libaudit by Charlie Jenkins <charlie@rivosinc.com>.
 
-On Sun, 09 Feb 2025 23:06:25 +0100, Alexander Sverdlin wrote:
-> This series adds very basic support for Milk-V Duo Module 01 EVB [1] in
-> arm64 mode. The SoC (SG2000) is dual-arch, RiscV and ARM64, the latter has
-> been chosen because the upstream toolchain can be utilized.
-> 
-> Sophgo SG2000 seems to be a continuation of the Cvitek CV18xx series, same
-> peripherals with an addition of ARM64 core. Therefore it would be
-> beneficial not to copy-paste the peripherals' device-tree, but rather split
-> the most suitable riscv DT into ARCH-specific and peripherals parts and
-> just include the latter on the arm64 side.
-> 
-> This series adds the device-tree for Milk-V Duo Module 01 EVB, which
-> in turn contains Milk-V Duo Module 01 (separate .dtsi) on it, which has
-> SG2000 SoC inside (separate .dtsi).
-> 
-> This series has been tested with Sophgo-provided U-Boot binary [2]: it
-> boots from SD card, pinctrl, serial, GPIO drivers are functional (same
-> as for RiscV-based CV18xx SoCs).
-> New reset driver is provided as an alternative to the ATF PSCI handler,
-> which Sophgo only provides in binary form.
-> 
-> Partial SoC documentation is available [3].
-> 
-> This series lacks the support of:
-> - USB
-> - Audio
-> - Ethernet
-> - WiFi
-> - Bluetooth
-> - eMMC
-> - Video
-> 
-> It would probably make sense that the whole series would go into SOC tree,
-> even though technically nothing prevents the reboot/reset driver to come
-> in PM/reset tree. If everything would come together, `reboot` command would
-> work out of the box.
-> 
-> [1] https://milkv.io/docs/duo/getting-started/duo-module-01
-> [2] https://github.com/milkv-duo/duo-buildroot-sdk-v2/releases/
-> [3] https://github.com/sophgo/sophgo-doc/releases/download/sg2000-trm-v1.01/sg2000_trm_en.pdf
-> 
-> Alexander Sverdlin (10):
->   arm64: Add SOPHGO SOC family Kconfig support
->   riscv: dts: sophgo: cv18xx: Split into CPU core and peripheral parts
->   arm64: dts: sophgo: Add initial SG2000 SoC device tree
->   arm64: dts: sophgo: Add Duo Module 01
->   arm64: dts: sophgo: Add Duo Module 01 Evaluation Board
->   dt-bindings: mfd: syscon: Add Cvitek CV18xx rtcsys core and ctrl
->     compatible
->   dt-bindings: reset: sophgo: Add CV18xx reset controller
->   riscv/arm64: dts: cv18xx: Add sysctl and reset nodes
->   power: reset: cv18xx: New driver
->   arm64: defconfig: Enable rudimentary Sophgo SG2000 support
-> 
->  .../devicetree/bindings/mfd/syscon.yaml       |   4 +
->  .../bindings/reset/sophgo,cv1800-reset.yaml   |  38 ++
->  MAINTAINERS                                   |   1 +
->  arch/arm64/Kconfig.platforms                  |  12 +
->  arch/arm64/boot/dts/Makefile                  |   1 +
->  arch/arm64/boot/dts/sophgo/Makefile           |   2 +
->  arch/arm64/boot/dts/sophgo/sg2000.dtsi        |  79 +++++
->  .../sophgo/sg2000_milkv_duo_module_01.dtsi    |  84 +++++
->  .../sophgo/sg2000_milkv_duo_module_01_evb.dts |  30 ++
->  arch/arm64/configs/defconfig                  |   3 +
->  arch/riscv/boot/dts/sophgo/cv181x.dtsi        |   2 +-
->  arch/riscv/boot/dts/sophgo/cv18xx-periph.dtsi | 329 ++++++++++++++++++
->  arch/riscv/boot/dts/sophgo/cv18xx.dtsi        | 305 +---------------
->  drivers/power/reset/Kconfig                   |  12 +
->  drivers/power/reset/Makefile                  |   1 +
->  drivers/power/reset/cv18xx-reset.c            |  89 +++++
->  16 files changed, 689 insertions(+), 303 deletions(-)
->  create mode 100644 Documentation/devicetree/bindings/reset/sophgo,cv1800-reset.yaml
->  create mode 100644 arch/arm64/boot/dts/sophgo/Makefile
->  create mode 100644 arch/arm64/boot/dts/sophgo/sg2000.dtsi
->  create mode 100644 arch/arm64/boot/dts/sophgo/sg2000_milkv_duo_module_01.dtsi
->  create mode 100644 arch/arm64/boot/dts/sophgo/sg2000_milkv_duo_module_01_evb.dts
->  create mode 100644 arch/riscv/boot/dts/sophgo/cv18xx-periph.dtsi
->  create mode 100644 drivers/power/reset/cv18xx-reset.c
-> 
-> --
-> 2.48.1
-> 
-> 
-> 
+The system call table in perf trace is used to map system call numbers
+to names and vice versa. Prior to these changes, a single table
+matching the perf binary's build was present. The table would be
+incorrect if tracing say a 32-bit binary from a 64-bit version of
+perf, the names and numbers wouldn't match.
 
+Change the build so that a single system call file is built and the
+potentially multiple tables are identifiable from the ELF machine type
+of the process being examined. To determine the ELF machine type, the
+executable's header is read from /proc/pid/exe with fallbacks to using
+the perf's binary type when unknown.
 
-My bot found new DTB warnings on the .dts files added or changed in this
-series.
+Remove some runtime types used by the system call tables and make
+equivalents generated at build time.
 
-Some warnings may be from an existing SoC .dtsi. Or perhaps the warnings
-are fixed by another series. Ultimately, it is up to the platform
-maintainer whether these warnings are acceptable or not. No need to reply
-unless the platform maintainer has comments.
+v2: Change the 1 element cache for the last table as suggested by
+    Howard Chu, add Howard's reviewed-by tags.
+    Add a comment and apology to Charlie for not doing better in
+    guiding:
+    https://lore.kernel.org/all/20250114-perf_syscall_arch_runtime-v1-1-5b304e408e11@rivosinc.com/
+    After discussion on v1 and he agreed this patch series would be
+    the better direction.
 
-If you already ran DT checks and didn't see these error(s), then
-make sure dt-schema is up to date:
+Ian Rogers (7):
+  perf syscalltble: Remove syscall_table.h
+  perf trace: Reorganize syscalls
+  perf syscalltbl: Remove struct syscalltbl
+  perf thread: Add support for reading the e_machine type for a thread
+  perf trace beauty: Add syscalltbl.sh generating all system call tables
+  perf syscalltbl: Use lookup table containing multiple architectures
+  perf build: Remove Makefile.syscalls
 
-  pip3 install dtschema --upgrade
+ tools/perf/Makefile.perf                      |  10 +-
+ tools/perf/arch/alpha/entry/syscalls/Kbuild   |   2 -
+ .../alpha/entry/syscalls/Makefile.syscalls    |   5 -
+ tools/perf/arch/alpha/include/syscall_table.h |   2 -
+ tools/perf/arch/arc/entry/syscalls/Kbuild     |   2 -
+ .../arch/arc/entry/syscalls/Makefile.syscalls |   3 -
+ tools/perf/arch/arc/include/syscall_table.h   |   2 -
+ tools/perf/arch/arm/entry/syscalls/Kbuild     |   4 -
+ .../arch/arm/entry/syscalls/Makefile.syscalls |   2 -
+ tools/perf/arch/arm/include/syscall_table.h   |   2 -
+ tools/perf/arch/arm64/entry/syscalls/Kbuild   |   3 -
+ .../arm64/entry/syscalls/Makefile.syscalls    |   6 -
+ tools/perf/arch/arm64/include/syscall_table.h |   8 -
+ tools/perf/arch/csky/entry/syscalls/Kbuild    |   2 -
+ .../csky/entry/syscalls/Makefile.syscalls     |   3 -
+ tools/perf/arch/csky/include/syscall_table.h  |   2 -
+ .../perf/arch/loongarch/entry/syscalls/Kbuild |   2 -
+ .../entry/syscalls/Makefile.syscalls          |   3 -
+ .../arch/loongarch/include/syscall_table.h    |   2 -
+ tools/perf/arch/mips/entry/syscalls/Kbuild    |   2 -
+ .../mips/entry/syscalls/Makefile.syscalls     |   5 -
+ tools/perf/arch/mips/include/syscall_table.h  |   2 -
+ tools/perf/arch/parisc/entry/syscalls/Kbuild  |   3 -
+ .../parisc/entry/syscalls/Makefile.syscalls   |   6 -
+ .../perf/arch/parisc/include/syscall_table.h  |   8 -
+ tools/perf/arch/powerpc/entry/syscalls/Kbuild |   3 -
+ .../powerpc/entry/syscalls/Makefile.syscalls  |   6 -
+ .../perf/arch/powerpc/include/syscall_table.h |   8 -
+ tools/perf/arch/riscv/entry/syscalls/Kbuild   |   2 -
+ .../riscv/entry/syscalls/Makefile.syscalls    |   4 -
+ tools/perf/arch/riscv/include/syscall_table.h |   8 -
+ tools/perf/arch/s390/entry/syscalls/Kbuild    |   2 -
+ .../s390/entry/syscalls/Makefile.syscalls     |   5 -
+ tools/perf/arch/s390/include/syscall_table.h  |   2 -
+ tools/perf/arch/sh/entry/syscalls/Kbuild      |   2 -
+ .../arch/sh/entry/syscalls/Makefile.syscalls  |   4 -
+ tools/perf/arch/sh/include/syscall_table.h    |   2 -
+ tools/perf/arch/sparc/entry/syscalls/Kbuild   |   3 -
+ .../sparc/entry/syscalls/Makefile.syscalls    |   5 -
+ tools/perf/arch/sparc/include/syscall_table.h |   8 -
+ tools/perf/arch/x86/entry/syscalls/Kbuild     |   3 -
+ .../arch/x86/entry/syscalls/Makefile.syscalls |   6 -
+ tools/perf/arch/x86/include/syscall_table.h   |   8 -
+ tools/perf/arch/xtensa/entry/syscalls/Kbuild  |   2 -
+ .../xtensa/entry/syscalls/Makefile.syscalls   |   4 -
+ .../perf/arch/xtensa/include/syscall_table.h  |   2 -
+ tools/perf/builtin-trace.c                    | 275 +++++++++++-------
+ tools/perf/scripts/Makefile.syscalls          |  61 ----
+ tools/perf/scripts/syscalltbl.sh              |  86 ------
+ tools/perf/trace/beauty/syscalltbl.sh         | 274 +++++++++++++++++
+ tools/perf/util/syscalltbl.c                  | 142 ++++-----
+ tools/perf/util/syscalltbl.h                  |  22 +-
+ tools/perf/util/thread.c                      |  50 ++++
+ tools/perf/util/thread.h                      |  14 +-
+ 54 files changed, 598 insertions(+), 506 deletions(-)
+ delete mode 100644 tools/perf/arch/alpha/entry/syscalls/Kbuild
+ delete mode 100644 tools/perf/arch/alpha/entry/syscalls/Makefile.syscalls
+ delete mode 100644 tools/perf/arch/alpha/include/syscall_table.h
+ delete mode 100644 tools/perf/arch/arc/entry/syscalls/Kbuild
+ delete mode 100644 tools/perf/arch/arc/entry/syscalls/Makefile.syscalls
+ delete mode 100644 tools/perf/arch/arc/include/syscall_table.h
+ delete mode 100644 tools/perf/arch/arm/entry/syscalls/Kbuild
+ delete mode 100644 tools/perf/arch/arm/entry/syscalls/Makefile.syscalls
+ delete mode 100644 tools/perf/arch/arm/include/syscall_table.h
+ delete mode 100644 tools/perf/arch/arm64/entry/syscalls/Kbuild
+ delete mode 100644 tools/perf/arch/arm64/entry/syscalls/Makefile.syscalls
+ delete mode 100644 tools/perf/arch/arm64/include/syscall_table.h
+ delete mode 100644 tools/perf/arch/csky/entry/syscalls/Kbuild
+ delete mode 100644 tools/perf/arch/csky/entry/syscalls/Makefile.syscalls
+ delete mode 100644 tools/perf/arch/csky/include/syscall_table.h
+ delete mode 100644 tools/perf/arch/loongarch/entry/syscalls/Kbuild
+ delete mode 100644 tools/perf/arch/loongarch/entry/syscalls/Makefile.syscalls
+ delete mode 100644 tools/perf/arch/loongarch/include/syscall_table.h
+ delete mode 100644 tools/perf/arch/mips/entry/syscalls/Kbuild
+ delete mode 100644 tools/perf/arch/mips/entry/syscalls/Makefile.syscalls
+ delete mode 100644 tools/perf/arch/mips/include/syscall_table.h
+ delete mode 100644 tools/perf/arch/parisc/entry/syscalls/Kbuild
+ delete mode 100644 tools/perf/arch/parisc/entry/syscalls/Makefile.syscalls
+ delete mode 100644 tools/perf/arch/parisc/include/syscall_table.h
+ delete mode 100644 tools/perf/arch/powerpc/entry/syscalls/Kbuild
+ delete mode 100644 tools/perf/arch/powerpc/entry/syscalls/Makefile.syscalls
+ delete mode 100644 tools/perf/arch/powerpc/include/syscall_table.h
+ delete mode 100644 tools/perf/arch/riscv/entry/syscalls/Kbuild
+ delete mode 100644 tools/perf/arch/riscv/entry/syscalls/Makefile.syscalls
+ delete mode 100644 tools/perf/arch/riscv/include/syscall_table.h
+ delete mode 100644 tools/perf/arch/s390/entry/syscalls/Kbuild
+ delete mode 100644 tools/perf/arch/s390/entry/syscalls/Makefile.syscalls
+ delete mode 100644 tools/perf/arch/s390/include/syscall_table.h
+ delete mode 100644 tools/perf/arch/sh/entry/syscalls/Kbuild
+ delete mode 100644 tools/perf/arch/sh/entry/syscalls/Makefile.syscalls
+ delete mode 100644 tools/perf/arch/sh/include/syscall_table.h
+ delete mode 100644 tools/perf/arch/sparc/entry/syscalls/Kbuild
+ delete mode 100644 tools/perf/arch/sparc/entry/syscalls/Makefile.syscalls
+ delete mode 100644 tools/perf/arch/sparc/include/syscall_table.h
+ delete mode 100644 tools/perf/arch/x86/entry/syscalls/Kbuild
+ delete mode 100644 tools/perf/arch/x86/entry/syscalls/Makefile.syscalls
+ delete mode 100644 tools/perf/arch/x86/include/syscall_table.h
+ delete mode 100644 tools/perf/arch/xtensa/entry/syscalls/Kbuild
+ delete mode 100644 tools/perf/arch/xtensa/entry/syscalls/Makefile.syscalls
+ delete mode 100644 tools/perf/arch/xtensa/include/syscall_table.h
+ delete mode 100644 tools/perf/scripts/Makefile.syscalls
+ delete mode 100755 tools/perf/scripts/syscalltbl.sh
+ create mode 100755 tools/perf/trace/beauty/syscalltbl.sh
 
-
-New warnings running 'make CHECK_DTBS=y for arch/arm64/boot/dts/sophgo/' for 20250209220646.1090868-1-alexander.sverdlin@gmail.com:
-
-arch/arm64/boot/dts/sophgo/sg2000_milkv_duo_module_01_evb.dtb: /: failed to match any schema with compatible: ['sophgo,sg2000']
-arch/arm64/boot/dts/sophgo/sg2000_milkv_duo_module_01_evb.dtb: soc: soc-reset: 'ranges' is a required property
-	from schema $id: http://devicetree.org/schemas/simple-bus.yaml#
-arch/arm64/boot/dts/sophgo/sg2000_milkv_duo_module_01_evb.dtb: l2-cache: 'cache-unified' is a dependency of 'cache-size'
-	from schema $id: http://devicetree.org/schemas/cache.yaml#
-arch/arm64/boot/dts/sophgo/sg2000_milkv_duo_module_01_evb.dtb: l2-cache: 'cache-unified' is a required property
-	from schema $id: http://devicetree.org/schemas/cache.yaml#
-arch/arm64/boot/dts/sophgo/sg2000_milkv_duo_module_01_evb.dtb: l2-cache: Unevaluated properties are not allowed ('cache-level', 'cache-size' were unexpected)
-	from schema $id: http://devicetree.org/schemas/cache.yaml#
-
-
-
-
+-- 
+2.48.1.502.g6dc24dfdaf-goog
 
 
 _______________________________________________
