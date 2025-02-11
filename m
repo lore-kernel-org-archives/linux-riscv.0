@@ -4,78 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BE723C0219B
-	for <linux-riscv@archiver.kernel.org>; Tue, 11 Feb 2025 13:46:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A40D9C0219B
+	for <linux-riscv@archiver.kernel.org>; Tue, 11 Feb 2025 13:52:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
 	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
 	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6Edj8EEFyAih3ehJzawUzNq+GouQ9IHVQ+G8ZGDzJC0=; b=U1Qh3v2r/PWaQN3nFLg0Us1q4T
-	p0umUjrBwY3jKV8ymU1mCH1AYuCBJuT568zcg8WetYGUKF89sUQxKE7cI/DCj1U9Nw9bHA/bH6p2B
-	z7yvMElk7OhCh70QSJME9OBHlhza7SVJ9X/0mo0QWtKM0jm0FzNRhstUab6VegoQyPugnt8UkiaeI
-	ryV0M98yKROVdILMpFg9mF28YoV8HhNJC6yF5GwqH3TN4MQ4cTvWwxZ+jMiMh9Hy4KYZZ9OIvuDnx
-	RZObs4RxfAOR4WrOk8Aih6bfKCve+/W3SFfqnf3Tw28iS25p//S+2jXyGNtHo5wCgaYkUA5KlwDEf
-	UbTY5Lkg==;
+	bh=U/EEVx2zN9v1aL4OGmjGLGFF7Mv9dvBNtMYNnrLxhoE=; b=C3jVKJ2U09ZqJOMmP3KSjywaoB
+	EmLMH8XyqU/+ZNrx0yNn2314mRUeeaeKtHFJzi73ppsxVcdXL7tqw3GveYBbwFCcZu1AxOgsGlg7O
+	/ZW81pehD897bovTxDeVyOFUBOmERWhYEgYENZbEEtmFZ/aBhnGjKo9mhB3hrn6636OUBLLduQNdf
+	fjfSp+OPsxyqaMHxbBOsBv84PUIFhQ3WezvYKkVAHsphGpvXRh6gTOOdIyVsyHkrYXkvjyZjodF/b
+	5dJ36xq4n4EEh5guFd2/owhCrzIa/XuaFXJIlfEM/tRnJOuTu680LaodwYQXk+7L12HXx35Y/+jCI
+	KhuB+nJw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1thqaY-000000040HB-1VN2;
-	Tue, 11 Feb 2025 13:46:10 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1thqg7-0000000412M-3rxH;
+	Tue, 11 Feb 2025 13:51:55 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1thqZe-0000000406q-0Fb5
-	for linux-riscv@lists.infradead.org;
-	Tue, 11 Feb 2025 13:45:16 +0000
+	id 1thqcr-000000040cA-3Xyb;
+	Tue, 11 Feb 2025 13:48:34 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id B6F1CA40460;
-	Tue, 11 Feb 2025 13:43:27 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9529EC4CEDD;
-	Tue, 11 Feb 2025 13:45:08 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 7ACF65C177A;
+	Tue, 11 Feb 2025 13:47:53 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A55D5C4CEDD;
+	Tue, 11 Feb 2025 13:48:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1739281512;
-	bh=gfp/lscMg8Zqo5eVValThcg9uc0spTm0nNpPie2Egn4=;
+	s=k20201202; t=1739281712;
+	bh=m4AD7l25AQkFx45miPWzhVwRxJcr7K3gU5TBHvJZg1g=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=ho6Q784Hr4pay/kPWa7uGDgtMy2D2FV4ugDHgSlsJ90OhNcI6+j44Dhy/rxmPRxRU
-	 6KpHg2E1U+Rkd8IZntVBCl7qRFB27olxZOmxcfinJqgwVkkZRZ+D0TRb4QfGnGw5Tc
-	 iBxKbaCZGLt8tfVEO76QPX/ft9d5qWgIcdKztRm+BtJpUTE6hWj+5lvgVbCsBmiEtH
-	 VBBclUr0pnOlRWzH5M7jXbluxLrSHPe2HC+i8/eJyVL0MqYBXSe1xYN3N6JBmw/j0V
-	 NP2ezJMEYH/NieO2HnxhwWEmAB8WGD8cY03OHDS90szEfPDkhWBDQX7/3+okNjH8qc
-	 vMAqBfV/xvhxg==
-Date: Tue, 11 Feb 2025 13:45:06 +0000
+	b=mcVQPflKFMGoFzsFfHOsGL1PwQhEKzlleh8Z7aEpchFrTuDQWFtAEziZt/fYy546n
+	 nkK+3UAReOzjD1YMoeLjznwqK+e7DDZ+6lW9lq5yAhkG7vMloOP2UnFThpMo6kh0lB
+	 spnwOSgNPjHjnPxvTW7gzxLcU026tU/JychinezqD9mhQrevMGDezrweJsX99g0nHp
+	 PomcPn7yA4YRn3VBUoNgyAV7IZbR8GbLwIUlLK+6npQJvBObyzBReoxMNAI3Amh+vZ
+	 wc0nqLLs07OcGqhabSAMNURKk27r6PgeT4nXy51ARGH0Ndu3CifTgtPY/TL5BaLCSR
+	 jB0i3eDhRpoFw==
+Date: Tue, 11 Feb 2025 13:48:26 +0000
 From: Conor Dooley <conor@kernel.org>
-To: Inochi Amaoto <inochiama@gmail.com>
-Cc: =?iso-8859-1?Q?Cl=E9ment_L=E9ger?= <cleger@rivosinc.com>,
-	linux-doc@vger.kernel.org, linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
-	Yixun Lan <dlan@gentoo.org>, Longbin Li <looong.bin@gmail.com>,
-	Jesse Taube <jesse@rivosinc.com>,
-	Yong-Xuan Wang <yongxuan.wang@sifive.com>,
-	Samuel Holland <samuel.holland@sifive.com>,
+To: Alexander Sverdlin <alexander.sverdlin@gmail.com>
+Cc: soc@lists.linux.dev, Chen Wang <unicorn_wang@outlook.com>,
+	Inochi Amaoto <inochiama@outlook.com>, Lee Jones <lee@kernel.org>,
+	Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Evan Green <evan@rivosinc.com>,
-	Andrew Jones <ajones@ventanamicro.com>,
-	Alexandre Ghiti <alexghiti@rivosinc.com>,
-	Andy Chiu <andybnac@gmail.com>,
-	Charlie Jenkins <charlie@rivosinc.com>,
-	Conor Dooley <conor+dt@kernel.org>, Rob Herring <robh@kernel.org>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
 	Paul Walmsley <paul.walmsley@sifive.com>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Chen Wang <unicorn_wang@outlook.com>
-Subject: Re: [PATCH v3 2/3] riscv: add ISA extension parsing for bfloat16 ISA
- extension
-Message-ID: <20250211-dizziness-eclair-2ef49cc5ad0e@spud>
-References: <20241206055829.1059293-1-inochiama@gmail.com>
- <20241206055829.1059293-3-inochiama@gmail.com>
- <374d3b07-e16c-4468-828a-a2a542cd88ac@rivosinc.com>
- <7qkfqzhytjq2qwo2wg3xtkoqu6id6wduckeeudbn2yt5p5p7xv@2gl5bcny26rk>
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Sebastian Reichel <sre@kernel.org>, devicetree@vger.kernel.org,
+	Haylen Chu <heylenay@outlook.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-riscv@lists.infradead.org, linux-pm@vger.kernel.org,
+	Jisheng Zhang <jszhang@kernel.org>, Chao Wei <chao.wei@sophgo.com>
+Subject: Re: [PATCH v2 0/7] arm64 support for Milk-V Duo Module 01 EVB
+Message-ID: <20250211-stubble-senate-0bbb0b04a989@spud>
+References: <20250210220951.1248533-1-alexander.sverdlin@gmail.com>
+ <20250211-backwash-jester-2fdd6740000e@spud>
+ <b1f05bff1d6c3f0cb1b381c15dcf222ec4c7f1b1.camel@gmail.com>
 MIME-Version: 1.0
-In-Reply-To: <7qkfqzhytjq2qwo2wg3xtkoqu6id6wduckeeudbn2yt5p5p7xv@2gl5bcny26rk>
+In-Reply-To: <b1f05bff1d6c3f0cb1b381c15dcf222ec4c7f1b1.camel@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250211_054514_241702_28E9DEA3 
-X-CRM114-Status: GOOD (  30.03  )
+X-CRM114-CacheID: sfid-20250211_054833_973625_517C8EC0 
+X-CRM114-Status: GOOD (  18.21  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,168 +81,102 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============4501405945751903050=="
+Content-Type: multipart/mixed; boundary="===============1179303051795830454=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
---===============4501405945751903050==
+--===============1179303051795830454==
 Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="Se8lg8BspTeEI14q"
+	protocol="application/pgp-signature"; boundary="MwDx1V044X6pY5Zr"
 Content-Disposition: inline
 
 
---Se8lg8BspTeEI14q
+--MwDx1V044X6pY5Zr
 Content-Type: text/plain; charset=iso-8859-1
 Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
 
-On Tue, Feb 11, 2025 at 08:42:39AM +0800, Inochi Amaoto wrote:
-> On Mon, Feb 10, 2025 at 03:38:58PM +0100, Cl=E9ment L=E9ger wrote:
-> >=20
-> >=20
-> > On 06/12/2024 06:58, Inochi Amaoto wrote:
-> > > Add parsing for Zfbmin, Zvfbfmin, Zvfbfwma ISA extension which
-> > > were ratified in 4dc23d62 ("Added Chapter title to BF16") of
-> > > the riscv-isa-manual.
-> > >=20
-> > > Signed-off-by: Inochi Amaoto <inochiama@gmail.com>
-> > > ---
-> > >  arch/riscv/include/asm/hwcap.h | 3 +++
-> > >  arch/riscv/kernel/cpufeature.c | 3 +++
-> > >  2 files changed, 6 insertions(+)
-> > >=20
-> > > diff --git a/arch/riscv/include/asm/hwcap.h b/arch/riscv/include/asm/=
-hwcap.h
-> > > index 869da082252a..14cc29f2a723 100644
-> > > --- a/arch/riscv/include/asm/hwcap.h
-> > > +++ b/arch/riscv/include/asm/hwcap.h
-> > > @@ -100,6 +100,9 @@
-> > >  #define RISCV_ISA_EXT_ZICCRSE		91
-> > >  #define RISCV_ISA_EXT_SVADE		92
-> > >  #define RISCV_ISA_EXT_SVADU		93
-> > > +#define RISCV_ISA_EXT_ZFBFMIN		94
-> > > +#define RISCV_ISA_EXT_ZVFBFMIN		95
-> > > +#define RISCV_ISA_EXT_ZVFBFWMA		96
-> > > =20
-> > >  #define RISCV_ISA_EXT_XLINUXENVCFG	127
-> > > =20
-> > > diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufe=
-ature.c
-> > > index c0916ed318c2..5cfcab139568 100644
-> > > --- a/arch/riscv/kernel/cpufeature.c
-> > > +++ b/arch/riscv/kernel/cpufeature.c
-> > > @@ -341,6 +341,7 @@ const struct riscv_isa_ext_data riscv_isa_ext[] =
-=3D {
-> > >  	__RISCV_ISA_EXT_DATA(zacas, RISCV_ISA_EXT_ZACAS),
-> > >  	__RISCV_ISA_EXT_DATA(zawrs, RISCV_ISA_EXT_ZAWRS),
-> > >  	__RISCV_ISA_EXT_DATA(zfa, RISCV_ISA_EXT_ZFA),
-> > > +	__RISCV_ISA_EXT_DATA(zfbfmin, RISCV_ISA_EXT_ZFBFMIN),
-> >=20
-> > Hi Inochi,
-> >=20
-> > You could add a validation callback to that extension:
-> >=20
-> > static int riscv_ext_f_depends(const struct riscv_isa_ext_data *data,
-> > 			       const unsigned long *isa_bitmap)
-> > {
-> > 	if (__riscv_isa_extension_available(isa_bitmap, RISCV_ISA_EXT_f))
-> > 		return 0;
-> >=20
-> > 	return -EPROBE_DEFER;
-> > }
-> >=20
-> >   ...
-> >   __RISCV_ISA_EXT_DATA_VALIDATE(zfbfmin, RISCV_ISA_EXT_ZFBFMIN,
-> > riscv_ext_f_depends),
-> >=20
-> >=20
-> > But I'm ok with the current state of that patch since I have the same
-> > thing coming for other extensions as well.=20
+On Tue, Feb 11, 2025 at 01:43:31PM +0100, Alexander Sverdlin wrote:
+> Hi Conor!
 >=20
+> On Tue, 2025-02-11 at 10:50 +0000, Conor Dooley wrote:
+> > On Mon, Feb 10, 2025 at 11:09:40PM +0100, Alexander Sverdlin wrote:
+> > > This series adds very basic support for Milk-V Duo Module 01 EVB [1] =
+in
+> > > arm64 mode. The SoC (SG2000) is dual-arch, RiscV and ARM64, the latte=
+r has
+> > > been chosen because the upstream toolchain can be utilized.
+> >=20
+> > > =A0 .../{riscv =3D> soc/sophgo}/sophgo.yaml=A0=A0=A0=A0=A0=A0=A0=A0 |=
+=A0 7 +-
+> > > =A0 arch/arm64/Kconfig.platforms=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=
+=A0=A0=A0=A0=A0 |=A0 6 ++
+> > > =A0 arch/arm64/boot/dts/Makefile=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=
+=A0=A0=A0=A0=A0 |=A0 1 +
+> > > =A0 arch/arm64/boot/dts/sophgo/Makefile=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=
+ |=A0 2 +
+> >=20
+> > I'd expect this to be maintained alongside the riscv support, how come
+> > there's no maintainers entry change here?
 >=20
-> I think it is good for me to add the check, and I wonder it is possible
-> to add the extra check for zvfbfmin and zvfbfwma like this:
->=20
-> static int riscv_ext_zvfbfmin_validate(const struct riscv_isa_ext_data *d=
-ata,
-> 				       const unsigned long *isa_bitmap)
-> {
-> 	if (__riscv_isa_extension_available(isa_bitmap, RISCV_ISA_EXT_v))
-> 		return 0;
+> MAINTAINERS file has "K: sophgo" entry already, I suppose new files will
+> fall into this category? That's why I've ignored this specific checkpatch=
+ warning
+> in all patches. Am I wrong?
 
-This is not needed I think, V "turns on" Zve32f. If anything, you should
-be checking for CONFIG_RISCV_ISA_V here ^^
-
-You /could/ call the resulting riscv_vector_f_validate(), since this is
-nothing specific to Zvfvfmin, and could be used for another extension
-that requires a Zve32f or Zve64 minimum base.
+Ah, I didn't realise.
 
 >=20
-> 	if (__riscv_isa_extension_available(isa_bitmap, RISCV_ISA_EXT_ZVE32F))
-> 		return 0;
+> > > =A0 .../sophgo/sg2000-milkv-duo-module-01-evb.dts | 31 +++++++
+> > > =A0 .../sophgo/sg2000-milkv-duo-module-01.dtsi=A0=A0=A0 | 85 ++++++++=
++++++++++
+> > > =A0 arch/arm64/boot/dts/sophgo/sg2000.dtsi=A0=A0=A0=A0=A0=A0=A0 | 75 =
++++++++++++++++
+> > > =A0 arch/arm64/configs/defconfig=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=
+=A0=A0=A0=A0=A0 |=A0 5 +
+> > > =A0 arch/riscv/boot/dts/sophgo/cv1800b.dtsi=A0=A0=A0=A0=A0=A0 | 64 ++=
+++++++++---
+> > > =A0 arch/riscv/boot/dts/sophgo/cv1812h.dtsi=A0=A0=A0=A0=A0=A0 | 64 ++=
+++++++++---
+> > > =A0 arch/riscv/boot/dts/sophgo/cv181x.dtsi=A0=A0=A0=A0=A0=A0=A0 |=A0 =
+2 +-
+> > > =A0 arch/riscv/boot/dts/sophgo/cv18xx-cpu.dtsi=A0=A0=A0 | 57 ++++++++=
+++++
+> > > =A0 arch/riscv/boot/dts/sophgo/cv18xx.dtsi=A0=A0=A0=A0=A0=A0=A0 | 91 =
++++++--------------
+> > > =A0 arch/riscv/boot/dts/sophgo/sg2002.dtsi=A0=A0=A0=A0=A0=A0=A0 | 64 =
+++++++++++---
+> > > =A0 14 files changed, 451 insertions(+), 103 deletions(-)
+> > > =A0 rename Documentation/devicetree/bindings/{riscv =3D> soc/sophgo}/=
+sophgo.yaml (80%)
+> > > =A0 create mode 100644 arch/arm64/boot/dts/sophgo/Makefile
+> > > =A0 create mode 100644 arch/arm64/boot/dts/sophgo/sg2000-milkv-duo-mo=
+dule-01-evb.dts
+> > > =A0 create mode 100644 arch/arm64/boot/dts/sophgo/sg2000-milkv-duo-mo=
+dule-01.dtsi
+> > > =A0 create mode 100644 arch/arm64/boot/dts/sophgo/sg2000.dtsi
+> > > =A0 create mode 100644 arch/riscv/boot/dts/sophgo/cv18xx-cpu.dtsi
 >=20
-> 	return -EPROBE_DEFER;
-> }
+> --=20
+> Alexander Sverdlin.
 >=20
-> static int riscv_ext_zvfbfwma_validate(const struct riscv_isa_ext_data *d=
-ata,
-> 				       const unsigned long *isa_bitmap)
-> {
-> 	if (__riscv_isa_extension_available(isa_bitmap, RISCV_ISA_EXT_ZFBFMIN) &&
-> 	    __riscv_isa_extension_available(isa_bitmap, RISCV_ISA_EXT_ZVFBFMIN))
-> 		return 0;
->=20
-> 	return -EPROBE_DEFER;
-> }
->=20
-> > So with or without my previous comment fixed:
-> >=20
-> > Reviewed-by: Cl=E9ment L=E9ger <cleger@rivosinc.com>
-> >=20
-> > Thanks,
-> >=20
-> > Cl=E9ment
-> >=20
->=20
-> Thanks,
->=20
-> Regards,
-> Inochi
->=20
-> > >  	__RISCV_ISA_EXT_DATA(zfh, RISCV_ISA_EXT_ZFH),
-> > >  	__RISCV_ISA_EXT_DATA(zfhmin, RISCV_ISA_EXT_ZFHMIN),
-> > >  	__RISCV_ISA_EXT_DATA(zca, RISCV_ISA_EXT_ZCA),
-> > > @@ -373,6 +374,8 @@ const struct riscv_isa_ext_data riscv_isa_ext[] =
-=3D {
-> > >  	__RISCV_ISA_EXT_SUPERSET(zve64d, RISCV_ISA_EXT_ZVE64D, riscv_zve64d=
-_exts),
-> > >  	__RISCV_ISA_EXT_SUPERSET(zve64f, RISCV_ISA_EXT_ZVE64F, riscv_zve64f=
-_exts),
-> > >  	__RISCV_ISA_EXT_SUPERSET(zve64x, RISCV_ISA_EXT_ZVE64X, riscv_zve64x=
-_exts),
-> > > +	__RISCV_ISA_EXT_DATA(zvfbfmin, RISCV_ISA_EXT_ZVFBFMIN),
-> > > +	__RISCV_ISA_EXT_DATA(zvfbfwma, RISCV_ISA_EXT_ZVFBFWMA),
-> > >  	__RISCV_ISA_EXT_DATA(zvfh, RISCV_ISA_EXT_ZVFH),
-> > >  	__RISCV_ISA_EXT_DATA(zvfhmin, RISCV_ISA_EXT_ZVFHMIN),
-> > >  	__RISCV_ISA_EXT_DATA(zvkb, RISCV_ISA_EXT_ZVKB),
-> >=20
 
---Se8lg8BspTeEI14q
+--MwDx1V044X6pY5Zr
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZ6tUYgAKCRB4tDGHoIJi
-0jpAAQCJT260gZ44MqS5WAFaSS3YHM7pcKksbbBcRbLLRJRt1QEA1VuoISvTOdKy
-o4hirdu8NCqh0sYTznq3JAJE5ckAFw4=
-=fqGt
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZ6tVKgAKCRB4tDGHoIJi
+0ryCAQCUpDB6cCAXqj3ZVyMpBboraj1VJvvnCB34OKgyUALr6AEAqOw2FC6cSonT
+W2P4mgYpwfIsREbExnYGXzdSKPmwnAU=
+=5MES
 -----END PGP SIGNATURE-----
 
---Se8lg8BspTeEI14q--
+--MwDx1V044X6pY5Zr--
 
 
---===============4501405945751903050==
+--===============1179303051795830454==
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
@@ -259,5 +187,5 @@ linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
 
---===============4501405945751903050==--
+--===============1179303051795830454==--
 
