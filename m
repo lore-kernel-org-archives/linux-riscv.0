@@ -4,100 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3253DC021A6
-	for <linux-riscv@archiver.kernel.org>; Tue, 11 Feb 2025 05:18:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E958C021A0
+	for <linux-riscv@archiver.kernel.org>; Tue, 11 Feb 2025 05:57:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Eh8qAamOK2KXXGq1X5oXxYw3qPynpgjWN2saVNxkv9A=; b=xE/Z669W2rB3WS
-	8Ha+O2cntPIyrdJX5lUU8ZQGvXmPfa2OH3DQ3Qszj8/2PhVoxzsdlk8+SSCyivMz/bsMkO8Cz5XAW
-	eKqSA1dgVTRVubQAxTi0MCldWjPS/q1G0OqT2jEfYOjbtU5WBD1EesvdgNCNxT/37uSaE+hIkhyvM
-	zg8RjUSQGMkMXdjEXDwbzdiUksuMlXPxkGM2P4D7SeBeEsauGWZSieyvkHfYB+NiBpL4CZRizzURu
-	z3C+EeQgube5uM6WRa3ETRlbH3NrZCPH/DUqY38wE+uwTURMfXtjGHMEIL/Ki3S1izXBzIYPT4Nqo
-	5BXWgKFSADNWtPYE1hZQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=47saPzOZO82WeFeD1aJuzNCXRyU/9sVfOls8zjYwL+o=; b=tX6PEQQ+N+ytY79Ey2BWgaHk1D
+	qFwIZ6RYu78j8cNWQjbimwAXnkpBbVWCo4j+L2Aay33XMPf9h6F6XhfvPVdLoDklsLP4doqhMvr04
+	4Iv7QNqWoLtUrt4sDkHWlvDrncG+LBvRh8WOWo2HSip81TXG6II2qp0B4ym2o+BlVEMZkaHzDqPBC
+	cfp+cNPSsWu/H1B2pzsURsgml8GI8tdJQvo4WhFahyVTd975OBQoTOU7ni3G9Y6hZ6yNZkE/bFi1t
+	qTD3PN5KT08Jhq97JGq7mVQW9h2bgzsK1RUkq60Tull5lmT+GjbWEmnxDuZagnEOfHbqkMY7jd7AA
+	iQz4fIig==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1thifU-00000002ZjE-3KtX;
-	Tue, 11 Feb 2025 05:18:44 +0000
-Received: from mail-qk1-x731.google.com ([2607:f8b0:4864:20::731])
+	id 1thjGe-00000002dbO-488F;
+	Tue, 11 Feb 2025 05:57:08 +0000
+Received: from mail-pj1-x102f.google.com ([2607:f8b0:4864:20::102f])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1thifR-00000002Zgl-2erk
+	id 1thjGc-00000002dae-19pO
 	for linux-riscv@lists.infradead.org;
-	Tue, 11 Feb 2025 05:18:42 +0000
-Received: by mail-qk1-x731.google.com with SMTP id af79cd13be357-7c04df48a5bso235785985a.2
-        for <linux-riscv@lists.infradead.org>; Mon, 10 Feb 2025 21:18:41 -0800 (PST)
+	Tue, 11 Feb 2025 05:57:07 +0000
+Received: by mail-pj1-x102f.google.com with SMTP id 98e67ed59e1d1-2f9f6a2fa8dso7111191a91.1
+        for <linux-riscv@lists.infradead.org>; Mon, 10 Feb 2025 21:57:05 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1739251121; x=1739855921; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=8zWhT17o7B5884IC9QYE32wNbf0TdA/z0Uh8LQblfHg=;
-        b=aeXAMMeEQQW9JEs8YS8vE+zlwMfo9WtjDLN4jVr3KfmWU9oY2yCIHDisLNn+BueEJA
-         aM+7JI5ekhTIDKpaZNAZOnZypR2Gj9iMko8vBPIvsdIzC3+/HeLF7CDvBauKRPepTJWW
-         xTFPfMH2GF+c44LSG3+E0U7gU6JnpyA7v4AbFSNTOaH8MjitVJPevlKn3181GnFi0IyP
-         iq9xKBnJWj/8lpN7W3y5z9uPI78+BGqIKVZniMoYZbpTk81I/65G9J5WRAyndpEo3eRX
-         ct1t0IWm5hEAIAmE4lxzypVA51qNcRxalBj8JGY6svBZU8l+dDGe0Dc+o9J0azg7rEbB
-         mKAg==
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1739253425; x=1739858225; darn=lists.infradead.org;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=HJZy2jyvTOLzFCUYeWaduV9MqEWJwar6HvmOT6bl6Aw=;
+        b=Ixqvnug7KSUB93uoA000f4LDlfBu9P5U9JvlWqyozl3tJT8l23AN1J1FiJfh5+fTr0
+         TtSPDGGwUP0+g5+aQ5CtChO6jWx88J5XuiZIbtCOKajAiDUS62SESdHu8Pc07IXOO6G+
+         RgJ+VL8yO7iBQQ+RXXJ4TrEdRLPC7Bc+ImssOOxMEo6pPoV/mTb/Zs5aSFF1G93MUHa2
+         8Tszpu/TzGEo1RfXtShXbTp7pXqA6nBx1ooR22B5O0CvUy39N2awTKy3K261n/ZsK1uW
+         fRT3r/gPthKndX9L4c+e2UyBZIRE21tKeK2Od/2b0xMqjACfOi9PmT5qLljeAKOz1Eeh
+         4/Vg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1739251121; x=1739855921;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=8zWhT17o7B5884IC9QYE32wNbf0TdA/z0Uh8LQblfHg=;
-        b=Q1Rmk+EiB9KwD5P7T12AYZzFnZilg+BTDXyPSKqGT15ASF3RxZNUXlBAM0lnkZbETN
-         nCj0qujXwht7GlOb1Q0Zc3yinXV5KjsVHhGmaiU/DJi98wsbNpg1mIkXORjoOg1qmhpy
-         KnTTc9c9BFwPPnevzHid0z+Gt1QqxrhQd2x8aOvGw8w590aofebR4+uKa2cZZbADqFVU
-         KekEOPlbKwTFJznrZbqbjlxgcsynCJkgAL3FYXBJL2E8FC3xhi4rGggezNbRmsrN0CNh
-         YRfu0GXEppG1CWSOdvTZqcDfcseM63hPxCWTfIg3hseDykECpF40knewOMgM7+VuaFbu
-         ntuA==
-X-Forwarded-Encrypted: i=1; AJvYcCVWnh77E2czOm1J1PoK1TlgcHPWL1wo7zTfivv3ALgd0Dek3gf1ORReVPSFui8WGBTXBe/RiI6nbuLGYg==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzjo2Vu9K57/l3uYZ7CR6oplsvdhGdI8umgZvdhQmRrHg7qxyL5
-	GQkCtDzG9oW72JZNnO/UxXixWrG25wni6ysKWww2/IXAxyFWjfbB
-X-Gm-Gg: ASbGnct9BIzDB+Ute+eUkDwdLdlWy2WEjQI37KuLH+WqMCJG2F/KjXfg2E+wEFV+RJU
-	ryxTQFtxEknOLYGkZIpBqfXbUDZ/FyFMMYrOibLno375LyvwK3uzgm02OJV4sCmKeirfnvwhgCg
-	5+PJUQGFwOFn5uZCBS6jmsF6juohSsC1Lf/3pVvXc1fjYGAD8WR3OChYMvAQTVWDgPBszGxdAxM
-	zmIrKLolC4wsUg+uKLvMLoT7udwfWfzWlr1rRn14mo5XHyzms7E2IJUeHoHoCxbTlQ=
-X-Google-Smtp-Source: AGHT+IFtw66nWp7htWuj6hUmM+Dbf0+ulWHYAVB5P+RX8ymNU8TUsFzfUBzeVng+OK5UkoGL4mBdUw==
-X-Received: by 2002:a05:620a:298e:b0:7b1:1180:a455 with SMTP id af79cd13be357-7c047bbab72mr2262641885a.22.1739251120726;
-        Mon, 10 Feb 2025 21:18:40 -0800 (PST)
-Received: from localhost ([2001:da8:7001:11::cb])
-        by smtp.gmail.com with UTF8SMTPSA id af79cd13be357-7c041dec2f4sm622019485a.22.2025.02.10.21.18.38
+        d=1e100.net; s=20230601; t=1739253425; x=1739858225;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=HJZy2jyvTOLzFCUYeWaduV9MqEWJwar6HvmOT6bl6Aw=;
+        b=dl7dAQbd6hxwNPF+kjkMUIaugW081dls7oCoHwS2yPtm1gDhV49o48vF/SDN6jsr9t
+         lN9eqweFMyuchjX93hBhBpCzv72B7YRDs8m7gzoD2Qhgaf+fzxozmEk7sB3POrMOZPDF
+         21Om/at8JkzXNjLmflQPm7V8NB7aYvXdV35Zl2PxWpSLZh3ZCuyChbQQHBh7Wqa4WvXw
+         tscToWiX1+Pfl0UJSe+589laWLXB1EwdTlU501LdO33ofh5whaqxBoavjZAVSyfw0gzd
+         Jq1AI60o3eFyHLhwHCZ8AnFXWuT0UITNtxziO4Cfswag5sv4ED/39xffLarQUUaaImJz
+         5F+w==
+X-Forwarded-Encrypted: i=1; AJvYcCUgrR567BiOo23F8IVTX09zvnPZrWLQBvZRESnMvS4HjFLBisZR7FEoSqy0nw4h31W82reXaufYTMtmoA==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy8ciBVlZyzpCavseg9i7FZ8qDg4HCfOP/Gy6nGy6y2Cm2B4CIB
+	X5n7grPPOgcQjxbmbYPgRBplajeRneXQJ5Zg7kcdy/voggWNC9/NVgpxrSJjcFM=
+X-Gm-Gg: ASbGnctLLRFXhZn44KeoflgWxPI636bePWX7MfSdc8hjeBtFprLRZxZD9uoMA7SmTqN
+	VjZFloueTKSvkziqXUe0C9JlgVxvzWPkHoTCaH/UK3iTwT/SH8mBxxs2sj73K6SXPlilRWdh4/r
+	RC576d0JImn4G4gnMhZSsC5i5D1LiQThjPWFR98LEqXR1I0axd/ghN3dgYZz8gRQ9uWLJKiWZCR
+	9pIkSh76dVrcQ4Fr2jR5MQO8cP5/q30YJIfXNmqPlCTF3t2a7bsL5s0DKf7qDeosbI6P00aU92t
+	Zue0bF7fe1axUV0ofO8KcqJ9wg==
+X-Google-Smtp-Source: AGHT+IGPV3VBh9FyPjCZf26VkPF75SNsz19I9tg0lKaJmNEHjjQrpfrlMc7NQxLWrWHUBES1C/WSbg==
+X-Received: by 2002:a05:6a00:3492:b0:730:87b2:e839 with SMTP id d2e1a72fcca58-73087b2f0a3mr15775608b3a.21.1739253425110;
+        Mon, 10 Feb 2025 21:57:05 -0800 (PST)
+Received: from debug.ba.rivosinc.com ([64.71.180.162])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-730840e842bsm3878466b3a.88.2025.02.10.21.57.04
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 10 Feb 2025 21:18:39 -0800 (PST)
-From: Inochi Amaoto <inochiama@gmail.com>
-To: Linus Walleij <linus.walleij@linaro.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Chen Wang <unicorn_wang@outlook.com>,
-	Inochi Amaoto <inochiama@outlook.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
+        Mon, 10 Feb 2025 21:57:04 -0800 (PST)
+Date: Mon, 10 Feb 2025 21:57:02 -0800
+From: Deepak Gupta <debug@rivosinc.com>
+To: =?iso-8859-1?Q?Cl=E9ment_L=E9ger?= <cleger@rivosinc.com>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Guo Ren <guoren@kernel.org>,
-	=?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>,
-	Thomas Bonnefille <thomas.bonnefille@bootlin.com>,
-	Harshit Mogalapalli <harshit.m.mogalapalli@oracle.com>
-Cc: Inochi Amaoto <inochiama@gmail.com>,
-	linux-gpio@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	Yixun Lan <dlan@gentoo.org>,
-	Longbin Li <looong.bin@gmail.com>
-Subject: [PATCH v2 7/8] pinctrl: sophgo: add support for SG2044 SoC
-Date: Tue, 11 Feb 2025 13:17:55 +0800
-Message-ID: <20250211051801.470800-8-inochiama@gmail.com>
-X-Mailer: git-send-email 2.48.1
-In-Reply-To: <20250211051801.470800-1-inochiama@gmail.com>
-References: <20250211051801.470800-1-inochiama@gmail.com>
+	Anup Patel <anup@brainfault.org>,
+	Atish Patra <atishp@atishpatra.org>, Shuah Khan <shuah@kernel.org>,
+	Jonathan Corbet <corbet@lwn.net>, linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org,
+	kvm@vger.kernel.org, kvm-riscv@lists.infradead.org,
+	linux-kselftest@vger.kernel.org,
+	Samuel Holland <samuel.holland@sifive.com>
+Subject: Re: [PATCH v2 14/15] RISC-V: KVM: add support for FWFT SBI extension
+Message-ID: <Z6rmrqbNtHxmjI0X@debug.ba.rivosinc.com>
+References: <20250210213549.1867704-1-cleger@rivosinc.com>
+ <20250210213549.1867704-15-cleger@rivosinc.com>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20250210213549.1867704-15-cleger@rivosinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250210_211841_763857_3F8BA379 
-X-CRM114-Status: GOOD (  15.46  )
+X-CRM114-CacheID: sfid-20250210_215706_331005_FE7BB89D 
+X-CRM114-Status: GOOD (  16.35  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,780 +101,367 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="iso-8859-1"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-SG2044 share the share common control logic with SG2042. So
-only pin definition is needed.
+On Mon, Feb 10, 2025 at 10:35:47PM +0100, Cl=E9ment L=E9ger wrote:
+>Add basic infrastructure to support the FWFT extension in KVM.
+>
+>Signed-off-by: Cl=E9ment L=E9ger <cleger@rivosinc.com>
+>---
+> arch/riscv/include/asm/kvm_host.h          |   4 +
+> arch/riscv/include/asm/kvm_vcpu_sbi.h      |   1 +
+> arch/riscv/include/asm/kvm_vcpu_sbi_fwft.h |  37 ++++
+> arch/riscv/include/uapi/asm/kvm.h          |   1 +
+> arch/riscv/kvm/Makefile                    |   1 +
+> arch/riscv/kvm/vcpu_sbi.c                  |   4 +
+> arch/riscv/kvm/vcpu_sbi_fwft.c             | 187 +++++++++++++++++++++
+> 7 files changed, 235 insertions(+)
+> create mode 100644 arch/riscv/include/asm/kvm_vcpu_sbi_fwft.h
+> create mode 100644 arch/riscv/kvm/vcpu_sbi_fwft.c
+>
+>diff --git a/arch/riscv/include/asm/kvm_host.h b/arch/riscv/include/asm/kv=
+m_host.h
+>index bb93d2995ea2..c0db61ba691a 100644
+>--- a/arch/riscv/include/asm/kvm_host.h
+>+++ b/arch/riscv/include/asm/kvm_host.h
+>@@ -19,6 +19,7 @@
+> #include <asm/kvm_vcpu_fp.h>
+> #include <asm/kvm_vcpu_insn.h>
+> #include <asm/kvm_vcpu_sbi.h>
+>+#include <asm/kvm_vcpu_sbi_fwft.h>
+> #include <asm/kvm_vcpu_timer.h>
+> #include <asm/kvm_vcpu_pmu.h>
+>
+>@@ -281,6 +282,9 @@ struct kvm_vcpu_arch {
+> 	/* Performance monitoring context */
+> 	struct kvm_pmu pmu_context;
+>
+>+	/* Firmware feature SBI extension context */
+>+	struct kvm_sbi_fwft fwft_context;
+>+
+> 	/* 'static' configurations which are set only once */
+> 	struct kvm_vcpu_config cfg;
+>
+>diff --git a/arch/riscv/include/asm/kvm_vcpu_sbi.h b/arch/riscv/include/as=
+m/kvm_vcpu_sbi.h
+>index cb68b3a57c8f..ffd03fed0c06 100644
+>--- a/arch/riscv/include/asm/kvm_vcpu_sbi.h
+>+++ b/arch/riscv/include/asm/kvm_vcpu_sbi.h
+>@@ -98,6 +98,7 @@ extern const struct kvm_vcpu_sbi_extension vcpu_sbi_ext_=
+hsm;
+> extern const struct kvm_vcpu_sbi_extension vcpu_sbi_ext_dbcn;
+> extern const struct kvm_vcpu_sbi_extension vcpu_sbi_ext_susp;
+> extern const struct kvm_vcpu_sbi_extension vcpu_sbi_ext_sta;
+>+extern const struct kvm_vcpu_sbi_extension vcpu_sbi_ext_fwft;
+> extern const struct kvm_vcpu_sbi_extension vcpu_sbi_ext_experimental;
+> extern const struct kvm_vcpu_sbi_extension vcpu_sbi_ext_vendor;
+>
+>diff --git a/arch/riscv/include/asm/kvm_vcpu_sbi_fwft.h b/arch/riscv/inclu=
+de/asm/kvm_vcpu_sbi_fwft.h
+>new file mode 100644
+>index 000000000000..5782517f6e08
+>--- /dev/null
+>+++ b/arch/riscv/include/asm/kvm_vcpu_sbi_fwft.h
+>@@ -0,0 +1,37 @@
+>+/* SPDX-License-Identifier: GPL-2.0-only */
+>+/*
+>+ * Copyright (c) 2025 Rivos Inc.
+>+ *
+>+ * Authors:
+>+ *     Cl=E9ment L=E9ger <cleger@rivosinc.com>
+>+ */
+>+
+>+#ifndef __KVM_VCPU_RISCV_FWFT_H
+>+#define __KVM_VCPU_RISCV_FWFT_H
+>+
+>+#include <asm/sbi.h>
+>+
+>+struct kvm_sbi_fwft_config;
+>+struct kvm_vcpu;
+>+
 
-Add pin definition driver for SG2044 SoC.
 
-Signed-off-by: Inochi Amaoto <inochiama@gmail.com>
----
- drivers/pinctrl/sophgo/Kconfig          |  12 +
- drivers/pinctrl/sophgo/Makefile         |   1 +
- drivers/pinctrl/sophgo/pinctrl-sg2044.c | 718 ++++++++++++++++++++++++
- 3 files changed, 731 insertions(+)
- create mode 100644 drivers/pinctrl/sophgo/pinctrl-sg2044.c
+Can we add some comments here for future fwft providers along below lines?
 
-diff --git a/drivers/pinctrl/sophgo/Kconfig b/drivers/pinctrl/sophgo/Kconfig
-index 94f3646c5d5b..9b0a3a4753b1 100644
---- a/drivers/pinctrl/sophgo/Kconfig
-+++ b/drivers/pinctrl/sophgo/Kconfig
-@@ -74,3 +74,15 @@ config PINCTRL_SOPHGO_SG2042
- 	  This pin controller allows selecting the mux function for
- 	  each pin. This driver can also be built as a module called
- 	  pinctrl-sg2042.
-+
-+config PINCTRL_SOPHGO_SG2044
-+	tristate "Sophgo SG2044 SoC Pinctrl driver"
-+	depends on ARCH_SOPHGO || COMPILE_TEST
-+	depends on OF
-+	select PINCTRL_SOPHGO_COMMON
-+	select PINCTRL_SOPHGO_SG2042_OPS
-+	help
-+	  Say Y to select the pinctrl driver for SG2044 SoC.
-+	  This pin controller allows selecting the mux function for
-+	  each pin. This driver can also be built as a module called
-+	  pinctrl-sg2044.
-diff --git a/drivers/pinctrl/sophgo/Makefile b/drivers/pinctrl/sophgo/Makefile
-index 7be7a1006e09..479c65e6dbc0 100644
---- a/drivers/pinctrl/sophgo/Makefile
-+++ b/drivers/pinctrl/sophgo/Makefile
-@@ -10,3 +10,4 @@ obj-$(CONFIG_PINCTRL_SOPHGO_CV1812H)	+= pinctrl-cv1812h.o
- obj-$(CONFIG_PINCTRL_SOPHGO_SG2000)	+= pinctrl-sg2000.o
- obj-$(CONFIG_PINCTRL_SOPHGO_SG2002)	+= pinctrl-sg2002.o
- obj-$(CONFIG_PINCTRL_SOPHGO_SG2042)	+= pinctrl-sg2042.o
-+obj-$(CONFIG_PINCTRL_SOPHGO_SG2044)	+= pinctrl-sg2044.o
-diff --git a/drivers/pinctrl/sophgo/pinctrl-sg2044.c b/drivers/pinctrl/sophgo/pinctrl-sg2044.c
-new file mode 100644
-index 000000000000..b0c46d8954ca
---- /dev/null
-+++ b/drivers/pinctrl/sophgo/pinctrl-sg2044.c
-@@ -0,0 +1,718 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/*
-+ * Sophgo SG2042 SoC pinctrl driver.
-+ *
-+ * Copyright (C) 2024 Inochi Amaoto <inochiama@outlook.com>
-+ */
-+
-+#include <linux/module.h>
-+#include <linux/platform_device.h>
-+#include <linux/of.h>
-+
-+#include <linux/pinctrl/pinctrl.h>
-+#include <linux/pinctrl/pinmux.h>
-+
-+#include <dt-bindings/pinctrl/pinctrl-sg2044.h>
-+
-+#include "pinctrl-sg2042.h"
-+
-+static int sg2044_get_pull_up(const struct sophgo_pin *sp, const u32 *psmap)
-+{
-+	return 19500;
-+}
-+
-+static int sg2044_get_pull_down(const struct sophgo_pin *sp, const u32 *psmap)
-+{
-+	return 23200;
-+}
-+
-+static const u32 sg2044_oc_map[] = {
-+	3200,  6400,  9600,  12700,
-+	15900, 19100, 22200, 25300,
-+	29500, 32700, 35900, 39000,
-+	42000, 45200, 48300, 51400
-+};
-+
-+static int sg2044_get_oc_map(const struct sophgo_pin *sp, const u32 *psmap,
-+			     const u32 **map)
-+{
-+	*map = sg2044_oc_map;
-+	return ARRAY_SIZE(sg2044_oc_map);
-+}
-+
-+static const struct sophgo_vddio_cfg_ops sg2044_vddio_cfg_ops = {
-+	.get_pull_up		= sg2044_get_pull_up,
-+	.get_pull_down		= sg2044_get_pull_down,
-+	.get_oc_map		= sg2044_get_oc_map,
-+};
-+
-+static const struct pinctrl_pin_desc sg2044_pins[] = {
-+	PINCTRL_PIN(PIN_IIC0_SMBSUS_IN,		"iic0_smbsus_in"),
-+	PINCTRL_PIN(PIN_IIC0_SMBSUS_OUT,	"iic0_smbsus_out"),
-+	PINCTRL_PIN(PIN_IIC0_SMBALERT,		"iic0_smbalert"),
-+	PINCTRL_PIN(PIN_IIC1_SMBSUS_IN,		"iic1_smbsus_in"),
-+	PINCTRL_PIN(PIN_IIC1_SMBSUS_OUT,	"iic1_smbsus_out"),
-+	PINCTRL_PIN(PIN_IIC1_SMBALERT,		"iic1_smbalert"),
-+	PINCTRL_PIN(PIN_IIC2_SMBSUS_IN,		"iic2_smbsus_in"),
-+	PINCTRL_PIN(PIN_IIC2_SMBSUS_OUT,	"iic2_smbsus_out"),
-+	PINCTRL_PIN(PIN_IIC2_SMBALERT,		"iic2_smbalert"),
-+	PINCTRL_PIN(PIN_IIC3_SMBSUS_IN,		"iic3_smbsus_in"),
-+	PINCTRL_PIN(PIN_IIC3_SMBSUS_OUT,	"iic3_smbsus_out"),
-+	PINCTRL_PIN(PIN_IIC3_SMBALERT,		"iic3_smbalert"),
-+	PINCTRL_PIN(PIN_PCIE0_L0_RESET,		"pcie0_l0_reset"),
-+	PINCTRL_PIN(PIN_PCIE0_L1_RESET,		"pcie0_l1_reset"),
-+	PINCTRL_PIN(PIN_PCIE0_L0_WAKEUP,	"pcie0_l0_wakeup"),
-+	PINCTRL_PIN(PIN_PCIE0_L1_WAKEUP,	"pcie0_l1_wakeup"),
-+	PINCTRL_PIN(PIN_PCIE0_L0_CLKREQ_IN,	"pcie0_l0_clkreq_in"),
-+	PINCTRL_PIN(PIN_PCIE0_L1_CLKREQ_IN,	"pcie0_l1_clkreq_in"),
-+	PINCTRL_PIN(PIN_PCIE1_L0_RESET,		"pcie1_l0_reset"),
-+	PINCTRL_PIN(PIN_PCIE1_L1_RESET,		"pcie1_l1_reset"),
-+	PINCTRL_PIN(PIN_PCIE1_L0_WAKEUP,	"pcie1_l0_wakeup"),
-+	PINCTRL_PIN(PIN_PCIE1_L1_WAKEUP,	"pcie1_l1_wakeup"),
-+	PINCTRL_PIN(PIN_PCIE1_L0_CLKREQ_IN,	"pcie1_l0_clkreq_in"),
-+	PINCTRL_PIN(PIN_PCIE1_L1_CLKREQ_IN,	"pcie1_l1_clkreq_in"),
-+	PINCTRL_PIN(PIN_PCIE2_L0_RESET,		"pcie2_l0_reset"),
-+	PINCTRL_PIN(PIN_PCIE2_L1_RESET,		"pcie2_l1_reset"),
-+	PINCTRL_PIN(PIN_PCIE2_L0_WAKEUP,	"pcie2_l0_wakeup"),
-+	PINCTRL_PIN(PIN_PCIE2_L1_WAKEUP,	"pcie2_l1_wakeup"),
-+	PINCTRL_PIN(PIN_PCIE2_L0_CLKREQ_IN,	"pcie2_l0_clkreq_in"),
-+	PINCTRL_PIN(PIN_PCIE2_L1_CLKREQ_IN,	"pcie2_l1_clkreq_in"),
-+	PINCTRL_PIN(PIN_PCIE3_L0_RESET,		"pcie3_l0_reset"),
-+	PINCTRL_PIN(PIN_PCIE3_L1_RESET,		"pcie3_l1_reset"),
-+	PINCTRL_PIN(PIN_PCIE3_L0_WAKEUP,	"pcie3_l0_wakeup"),
-+	PINCTRL_PIN(PIN_PCIE3_L1_WAKEUP,	"pcie3_l1_wakeup"),
-+	PINCTRL_PIN(PIN_PCIE3_L0_CLKREQ_IN,	"pcie3_l0_clkreq_in"),
-+	PINCTRL_PIN(PIN_PCIE3_L1_CLKREQ_IN,	"pcie3_l1_clkreq_in"),
-+	PINCTRL_PIN(PIN_PCIE4_L0_RESET,		"pcie4_l0_reset"),
-+	PINCTRL_PIN(PIN_PCIE4_L1_RESET,		"pcie4_l1_reset"),
-+	PINCTRL_PIN(PIN_PCIE4_L0_WAKEUP,	"pcie4_l0_wakeup"),
-+	PINCTRL_PIN(PIN_PCIE4_L1_WAKEUP,	"pcie4_l1_wakeup"),
-+	PINCTRL_PIN(PIN_PCIE4_L0_CLKREQ_IN,	"pcie4_l0_clkreq_in"),
-+	PINCTRL_PIN(PIN_PCIE4_L1_CLKREQ_IN,	"pcie4_l1_clkreq_in"),
-+	PINCTRL_PIN(PIN_SPIF0_CLK_SEL1,		"spif0_clk_sel1"),
-+	PINCTRL_PIN(PIN_SPIF0_CLK_SEL0,		"spif0_clk_sel0"),
-+	PINCTRL_PIN(PIN_SPIF0_WP,		"spif0_wp"),
-+	PINCTRL_PIN(PIN_SPIF0_HOLD,		"spif0_hold"),
-+	PINCTRL_PIN(PIN_SPIF0_SDI,		"spif0_sdi"),
-+	PINCTRL_PIN(PIN_SPIF0_CS,		"spif0_cs"),
-+	PINCTRL_PIN(PIN_SPIF0_SCK,		"spif0_sck"),
-+	PINCTRL_PIN(PIN_SPIF0_SDO,		"spif0_sdo"),
-+	PINCTRL_PIN(PIN_SPIF1_CLK_SEL1,		"spif1_clk_sel1"),
-+	PINCTRL_PIN(PIN_SPIF1_CLK_SEL0,		"spif1_clk_sel0"),
-+	PINCTRL_PIN(PIN_SPIF1_WP,		"spif1_wp"),
-+	PINCTRL_PIN(PIN_SPIF1_HOLD,		"spif1_hold"),
-+	PINCTRL_PIN(PIN_SPIF1_SDI,		"spif1_sdi"),
-+	PINCTRL_PIN(PIN_SPIF1_CS,		"spif1_cs"),
-+	PINCTRL_PIN(PIN_SPIF1_SCK,		"spif1_sck"),
-+	PINCTRL_PIN(PIN_SPIF1_SDO,		"spif1_sdo"),
-+	PINCTRL_PIN(PIN_EMMC_WP,		"emmc_wp"),
-+	PINCTRL_PIN(PIN_EMMC_CD,		"emmc_cd"),
-+	PINCTRL_PIN(PIN_EMMC_RST,		"emmc_rst"),
-+	PINCTRL_PIN(PIN_EMMC_PWR_EN,		"emmc_pwr_en"),
-+	PINCTRL_PIN(PIN_SDIO_CD,		"sdio_cd"),
-+	PINCTRL_PIN(PIN_SDIO_WP,		"sdio_wp"),
-+	PINCTRL_PIN(PIN_SDIO_RST,		"sdio_rst"),
-+	PINCTRL_PIN(PIN_SDIO_PWR_EN,		"sdio_pwr_en"),
-+	PINCTRL_PIN(PIN_RGMII0_TXD0,		"rgmii0_txd0"),
-+	PINCTRL_PIN(PIN_RGMII0_TXD1,		"rgmii0_txd1"),
-+	PINCTRL_PIN(PIN_RGMII0_TXD2,		"rgmii0_txd2"),
-+	PINCTRL_PIN(PIN_RGMII0_TXD3,		"rgmii0_txd3"),
-+	PINCTRL_PIN(PIN_RGMII0_TXCTRL,		"rgmii0_txctrl"),
-+	PINCTRL_PIN(PIN_RGMII0_RXD0,		"rgmii0_rxd0"),
-+	PINCTRL_PIN(PIN_RGMII0_RXD1,		"rgmii0_rxd1"),
-+	PINCTRL_PIN(PIN_RGMII0_RXD2,		"rgmii0_rxd2"),
-+	PINCTRL_PIN(PIN_RGMII0_RXD3,		"rgmii0_rxd3"),
-+	PINCTRL_PIN(PIN_RGMII0_RXCTRL,		"rgmii0_rxctrl"),
-+	PINCTRL_PIN(PIN_RGMII0_TXC,		"rgmii0_txc"),
-+	PINCTRL_PIN(PIN_RGMII0_RXC,		"rgmii0_rxc"),
-+	PINCTRL_PIN(PIN_RGMII0_REFCLKO,		"rgmii0_refclko"),
-+	PINCTRL_PIN(PIN_RGMII0_IRQ,		"rgmii0_irq"),
-+	PINCTRL_PIN(PIN_RGMII0_MDC,		"rgmii0_mdc"),
-+	PINCTRL_PIN(PIN_RGMII0_MDIO,		"rgmii0_mdio"),
-+	PINCTRL_PIN(PIN_PWM0,			"pwm0"),
-+	PINCTRL_PIN(PIN_PWM1,			"pwm1"),
-+	PINCTRL_PIN(PIN_PWM2,			"pwm2"),
-+	PINCTRL_PIN(PIN_PWM3,			"pwm3"),
-+	PINCTRL_PIN(PIN_FAN0,			"fan0"),
-+	PINCTRL_PIN(PIN_FAN1,			"fan1"),
-+	PINCTRL_PIN(PIN_FAN2,			"fan2"),
-+	PINCTRL_PIN(PIN_FAN3,			"fan3"),
-+	PINCTRL_PIN(PIN_IIC0_SDA,		"iic0_sda"),
-+	PINCTRL_PIN(PIN_IIC0_SCL,		"iic0_scl"),
-+	PINCTRL_PIN(PIN_IIC1_SDA,		"iic1_sda"),
-+	PINCTRL_PIN(PIN_IIC1_SCL,		"iic1_scl"),
-+	PINCTRL_PIN(PIN_IIC2_SDA,		"iic2_sda"),
-+	PINCTRL_PIN(PIN_IIC2_SCL,		"iic2_scl"),
-+	PINCTRL_PIN(PIN_IIC3_SDA,		"iic3_sda"),
-+	PINCTRL_PIN(PIN_IIC3_SCL,		"iic3_scl"),
-+	PINCTRL_PIN(PIN_UART0_TX,		"uart0_tx"),
-+	PINCTRL_PIN(PIN_UART0_RX,		"uart0_rx"),
-+	PINCTRL_PIN(PIN_UART0_RTS,		"uart0_rts"),
-+	PINCTRL_PIN(PIN_UART0_CTS,		"uart0_cts"),
-+	PINCTRL_PIN(PIN_UART1_TX,		"uart1_tx"),
-+	PINCTRL_PIN(PIN_UART1_RX,		"uart1_rx"),
-+	PINCTRL_PIN(PIN_UART1_RTS,		"uart1_rts"),
-+	PINCTRL_PIN(PIN_UART1_CTS,		"uart1_cts"),
-+	PINCTRL_PIN(PIN_UART2_TX,		"uart2_tx"),
-+	PINCTRL_PIN(PIN_UART2_RX,		"uart2_rx"),
-+	PINCTRL_PIN(PIN_UART2_RTS,		"uart2_rts"),
-+	PINCTRL_PIN(PIN_UART2_CTS,		"uart2_cts"),
-+	PINCTRL_PIN(PIN_UART3_TX,		"uart3_tx"),
-+	PINCTRL_PIN(PIN_UART3_RX,		"uart3_rx"),
-+	PINCTRL_PIN(PIN_UART3_RTS,		"uart3_rts"),
-+	PINCTRL_PIN(PIN_UART3_CTS,		"uart3_cts"),
-+	PINCTRL_PIN(PIN_SPI0_CS0,		"spi0_cs0"),
-+	PINCTRL_PIN(PIN_SPI0_CS1,		"spi0_cs1"),
-+	PINCTRL_PIN(PIN_SPI0_SDI,		"spi0_sdi"),
-+	PINCTRL_PIN(PIN_SPI0_SDO,		"spi0_sdo"),
-+	PINCTRL_PIN(PIN_SPI0_SCK,		"spi0_sck"),
-+	PINCTRL_PIN(PIN_SPI1_CS0,		"spi1_cs0"),
-+	PINCTRL_PIN(PIN_SPI1_CS1,		"spi1_cs1"),
-+	PINCTRL_PIN(PIN_SPI1_SDI,		"spi1_sdi"),
-+	PINCTRL_PIN(PIN_SPI1_SDO,		"spi1_sdo"),
-+	PINCTRL_PIN(PIN_SPI1_SCK,		"spi1_sck"),
-+	PINCTRL_PIN(PIN_JTAG0_TDO,		"jtag0_tdo"),
-+	PINCTRL_PIN(PIN_JTAG0_TCK,		"jtag0_tck"),
-+	PINCTRL_PIN(PIN_JTAG0_TDI,		"jtag0_tdi"),
-+	PINCTRL_PIN(PIN_JTAG0_TMS,		"jtag0_tms"),
-+	PINCTRL_PIN(PIN_JTAG0_TRST,		"jtag0_trst"),
-+	PINCTRL_PIN(PIN_JTAG0_SRST,		"jtag0_srst"),
-+	PINCTRL_PIN(PIN_JTAG1_TDO,		"jtag1_tdo"),
-+	PINCTRL_PIN(PIN_JTAG1_TCK,		"jtag1_tck"),
-+	PINCTRL_PIN(PIN_JTAG1_TDI,		"jtag1_tdi"),
-+	PINCTRL_PIN(PIN_JTAG1_TMS,		"jtag1_tms"),
-+	PINCTRL_PIN(PIN_JTAG1_TRST,		"jtag1_trst"),
-+	PINCTRL_PIN(PIN_JTAG1_SRST,		"jtag1_srst"),
-+	PINCTRL_PIN(PIN_JTAG2_TDO,		"jtag2_tdo"),
-+	PINCTRL_PIN(PIN_JTAG2_TCK,		"jtag2_tck"),
-+	PINCTRL_PIN(PIN_JTAG2_TDI,		"jtag2_tdi"),
-+	PINCTRL_PIN(PIN_JTAG2_TMS,		"jtag2_tms"),
-+	PINCTRL_PIN(PIN_JTAG2_TRST,		"jtag2_trst"),
-+	PINCTRL_PIN(PIN_JTAG2_SRST,		"jtag2_srst"),
-+	PINCTRL_PIN(PIN_JTAG3_TDO,		"jtag3_tdo"),
-+	PINCTRL_PIN(PIN_JTAG3_TCK,		"jtag3_tck"),
-+	PINCTRL_PIN(PIN_JTAG3_TDI,		"jtag3_tdi"),
-+	PINCTRL_PIN(PIN_JTAG3_TMS,		"jtag3_tms"),
-+	PINCTRL_PIN(PIN_JTAG3_TRST,		"jtag3_trst"),
-+	PINCTRL_PIN(PIN_JTAG3_SRST,		"jtag3_srst"),
-+	PINCTRL_PIN(PIN_GPIO0,			"gpio0"),
-+	PINCTRL_PIN(PIN_GPIO1,			"gpio1"),
-+	PINCTRL_PIN(PIN_GPIO2,			"gpio2"),
-+	PINCTRL_PIN(PIN_GPIO3,			"gpio3"),
-+	PINCTRL_PIN(PIN_GPIO4,			"gpio4"),
-+	PINCTRL_PIN(PIN_GPIO5,			"gpio5"),
-+	PINCTRL_PIN(PIN_GPIO6,			"gpio6"),
-+	PINCTRL_PIN(PIN_GPIO7,			"gpio7"),
-+	PINCTRL_PIN(PIN_GPIO8,			"gpio8"),
-+	PINCTRL_PIN(PIN_GPIO9,			"gpio9"),
-+	PINCTRL_PIN(PIN_GPIO10,			"gpio10"),
-+	PINCTRL_PIN(PIN_GPIO11,			"gpio11"),
-+	PINCTRL_PIN(PIN_GPIO12,			"gpio12"),
-+	PINCTRL_PIN(PIN_GPIO13,			"gpio13"),
-+	PINCTRL_PIN(PIN_GPIO14,			"gpio14"),
-+	PINCTRL_PIN(PIN_GPIO15,			"gpio15"),
-+	PINCTRL_PIN(PIN_GPIO16,			"gpio16"),
-+	PINCTRL_PIN(PIN_GPIO17,			"gpio17"),
-+	PINCTRL_PIN(PIN_GPIO18,			"gpio18"),
-+	PINCTRL_PIN(PIN_GPIO19,			"gpio19"),
-+	PINCTRL_PIN(PIN_GPIO20,			"gpio20"),
-+	PINCTRL_PIN(PIN_GPIO21,			"gpio21"),
-+	PINCTRL_PIN(PIN_GPIO22,			"gpio22"),
-+	PINCTRL_PIN(PIN_GPIO23,			"gpio23"),
-+	PINCTRL_PIN(PIN_GPIO24,			"gpio24"),
-+	PINCTRL_PIN(PIN_GPIO25,			"gpio25"),
-+	PINCTRL_PIN(PIN_GPIO26,			"gpio26"),
-+	PINCTRL_PIN(PIN_GPIO27,			"gpio27"),
-+	PINCTRL_PIN(PIN_GPIO28,			"gpio28"),
-+	PINCTRL_PIN(PIN_GPIO29,			"gpio29"),
-+	PINCTRL_PIN(PIN_GPIO30,			"gpio30"),
-+	PINCTRL_PIN(PIN_GPIO31,			"gpio31"),
-+	PINCTRL_PIN(PIN_MODE_SEL0,		"mode_sel0"),
-+	PINCTRL_PIN(PIN_MODE_SEL1,		"mode_sel1"),
-+	PINCTRL_PIN(PIN_MODE_SEL2,		"mode_sel2"),
-+	PINCTRL_PIN(PIN_BOOT_SEL0,		"boot_sel0"),
-+	PINCTRL_PIN(PIN_BOOT_SEL1,		"boot_sel1"),
-+	PINCTRL_PIN(PIN_BOOT_SEL2,		"boot_sel2"),
-+	PINCTRL_PIN(PIN_BOOT_SEL3,		"boot_sel3"),
-+	PINCTRL_PIN(PIN_BOOT_SEL4,		"boot_sel4"),
-+	PINCTRL_PIN(PIN_BOOT_SEL5,		"boot_sel5"),
-+	PINCTRL_PIN(PIN_BOOT_SEL6,		"boot_sel6"),
-+	PINCTRL_PIN(PIN_BOOT_SEL7,		"boot_sel7"),
-+	PINCTRL_PIN(PIN_MULTI_SCKT,		"multi_sckt"),
-+	PINCTRL_PIN(PIN_SCKT_ID0,		"sckt_id0"),
-+	PINCTRL_PIN(PIN_SCKT_ID1,		"sckt_id1"),
-+	PINCTRL_PIN(PIN_PLL_CLK_IN_MAIN,	"pll_clk_in_main"),
-+	PINCTRL_PIN(PIN_PLL_CLK_IN_DDR_0,	"pll_clk_in_ddr_0"),
-+	PINCTRL_PIN(PIN_PLL_CLK_IN_DDR_1,	"pll_clk_in_ddr_1"),
-+	PINCTRL_PIN(PIN_PLL_CLK_IN_DDR_2,	"pll_clk_in_ddr_2"),
-+	PINCTRL_PIN(PIN_PLL_CLK_IN_DDR_3,	"pll_clk_in_ddr_3"),
-+	PINCTRL_PIN(PIN_XTAL_32K,		"xtal_32k"),
-+	PINCTRL_PIN(PIN_SYS_RST,		"sys_rst"),
-+	PINCTRL_PIN(PIN_PWR_BUTTON,		"pwr_button"),
-+	PINCTRL_PIN(PIN_TEST_EN,		"test_en"),
-+	PINCTRL_PIN(PIN_TEST_MODE_MBIST,	"test_mode_mbist"),
-+	PINCTRL_PIN(PIN_TEST_MODE_SCAN,		"test_mode_scan"),
-+	PINCTRL_PIN(PIN_TEST_MODE_BSD,		"test_mode_bsd"),
-+	PINCTRL_PIN(PIN_BISR_BYP,		"bisr_byp"),
-+};
-+
-+static const struct sg2042_pin sg2044_pin_data[ARRAY_SIZE(sg2044_pins)] = {
-+	SG2042_GENERAL_PIN(PIN_IIC0_SMBSUS_IN, 0x000,
-+			   PIN_FLAG_DEFAULT),
-+	SG2042_GENERAL_PIN(PIN_IIC0_SMBSUS_OUT, 0x000,
-+			   PIN_FLAG_WRITE_HIGH),
-+	SG2042_GENERAL_PIN(PIN_IIC0_SMBALERT, 0x004,
-+			   PIN_FLAG_DEFAULT),
-+	SG2042_GENERAL_PIN(PIN_IIC1_SMBSUS_IN, 0x004,
-+			   PIN_FLAG_WRITE_HIGH),
-+	SG2042_GENERAL_PIN(PIN_IIC1_SMBSUS_OUT, 0x008,
-+			   PIN_FLAG_DEFAULT),
-+	SG2042_GENERAL_PIN(PIN_IIC1_SMBALERT, 0x008,
-+			   PIN_FLAG_WRITE_HIGH),
-+	SG2042_GENERAL_PIN(PIN_IIC2_SMBSUS_IN, 0x00c,
-+			   PIN_FLAG_DEFAULT),
-+	SG2042_GENERAL_PIN(PIN_IIC2_SMBSUS_OUT, 0x00c,
-+			   PIN_FLAG_WRITE_HIGH),
-+	SG2042_GENERAL_PIN(PIN_IIC2_SMBALERT, 0x010,
-+			   PIN_FLAG_DEFAULT),
-+	SG2042_GENERAL_PIN(PIN_IIC3_SMBSUS_IN, 0x010,
-+			   PIN_FLAG_WRITE_HIGH),
-+	SG2042_GENERAL_PIN(PIN_IIC3_SMBSUS_OUT, 0x014,
-+			   PIN_FLAG_DEFAULT),
-+	SG2042_GENERAL_PIN(PIN_IIC3_SMBALERT, 0x014,
-+			   PIN_FLAG_WRITE_HIGH),
-+	SG2042_GENERAL_PIN(PIN_PCIE0_L0_RESET, 0x018,
-+			   PIN_FLAG_DEFAULT),
-+	SG2042_GENERAL_PIN(PIN_PCIE0_L1_RESET, 0x018,
-+			   PIN_FLAG_WRITE_HIGH),
-+	SG2042_GENERAL_PIN(PIN_PCIE0_L0_WAKEUP, 0x01c,
-+			   PIN_FLAG_DEFAULT),
-+	SG2042_GENERAL_PIN(PIN_PCIE0_L1_WAKEUP, 0x01c,
-+			   PIN_FLAG_WRITE_HIGH),
-+	SG2042_GENERAL_PIN(PIN_PCIE0_L0_CLKREQ_IN, 0x020,
-+			   PIN_FLAG_DEFAULT),
-+	SG2042_GENERAL_PIN(PIN_PCIE0_L1_CLKREQ_IN, 0x020,
-+			   PIN_FLAG_WRITE_HIGH),
-+	SG2042_GENERAL_PIN(PIN_PCIE1_L0_RESET, 0x024,
-+			   PIN_FLAG_DEFAULT),
-+	SG2042_GENERAL_PIN(PIN_PCIE1_L1_RESET, 0x024,
-+			   PIN_FLAG_WRITE_HIGH),
-+	SG2042_GENERAL_PIN(PIN_PCIE1_L0_WAKEUP, 0x028,
-+			   PIN_FLAG_DEFAULT),
-+	SG2042_GENERAL_PIN(PIN_PCIE1_L1_WAKEUP, 0x028,
-+			   PIN_FLAG_WRITE_HIGH),
-+	SG2042_GENERAL_PIN(PIN_PCIE1_L0_CLKREQ_IN, 0x02c,
-+			   PIN_FLAG_DEFAULT),
-+	SG2042_GENERAL_PIN(PIN_PCIE1_L1_CLKREQ_IN, 0x02c,
-+			   PIN_FLAG_WRITE_HIGH),
-+	SG2042_GENERAL_PIN(PIN_PCIE2_L0_RESET, 0x030,
-+			   PIN_FLAG_DEFAULT),
-+	SG2042_GENERAL_PIN(PIN_PCIE2_L1_RESET, 0x030,
-+			   PIN_FLAG_WRITE_HIGH),
-+	SG2042_GENERAL_PIN(PIN_PCIE2_L0_WAKEUP, 0x034,
-+			   PIN_FLAG_DEFAULT),
-+	SG2042_GENERAL_PIN(PIN_PCIE2_L1_WAKEUP, 0x034,
-+			   PIN_FLAG_WRITE_HIGH),
-+	SG2042_GENERAL_PIN(PIN_PCIE2_L0_CLKREQ_IN, 0x038,
-+			   PIN_FLAG_DEFAULT),
-+	SG2042_GENERAL_PIN(PIN_PCIE2_L1_CLKREQ_IN, 0x038,
-+			   PIN_FLAG_WRITE_HIGH),
-+	SG2042_GENERAL_PIN(PIN_PCIE3_L0_RESET, 0x03c,
-+			   PIN_FLAG_DEFAULT),
-+	SG2042_GENERAL_PIN(PIN_PCIE3_L1_RESET, 0x03c,
-+			   PIN_FLAG_WRITE_HIGH),
-+	SG2042_GENERAL_PIN(PIN_PCIE3_L0_WAKEUP, 0x040,
-+			   PIN_FLAG_DEFAULT),
-+	SG2042_GENERAL_PIN(PIN_PCIE3_L1_WAKEUP, 0x040,
-+			   PIN_FLAG_WRITE_HIGH),
-+	SG2042_GENERAL_PIN(PIN_PCIE3_L0_CLKREQ_IN, 0x044,
-+			   PIN_FLAG_DEFAULT),
-+	SG2042_GENERAL_PIN(PIN_PCIE3_L1_CLKREQ_IN, 0x044,
-+			   PIN_FLAG_WRITE_HIGH),
-+	SG2042_GENERAL_PIN(PIN_PCIE4_L0_RESET, 0x048,
-+			   PIN_FLAG_DEFAULT),
-+	SG2042_GENERAL_PIN(PIN_PCIE4_L1_RESET, 0x048,
-+			   PIN_FLAG_WRITE_HIGH),
-+	SG2042_GENERAL_PIN(PIN_PCIE4_L0_WAKEUP, 0x04c,
-+			   PIN_FLAG_DEFAULT),
-+	SG2042_GENERAL_PIN(PIN_PCIE4_L1_WAKEUP, 0x04c,
-+			   PIN_FLAG_WRITE_HIGH),
-+	SG2042_GENERAL_PIN(PIN_PCIE4_L0_CLKREQ_IN, 0x050,
-+			   PIN_FLAG_DEFAULT),
-+	SG2042_GENERAL_PIN(PIN_PCIE4_L1_CLKREQ_IN, 0x050,
-+			   PIN_FLAG_WRITE_HIGH),
-+	SG2042_GENERAL_PIN(PIN_SPIF0_CLK_SEL1, 0x054,
-+			   PIN_FLAG_DEFAULT),
-+	SG2042_GENERAL_PIN(PIN_SPIF0_CLK_SEL0, 0x054,
-+			   PIN_FLAG_WRITE_HIGH),
-+	SG2042_GENERAL_PIN(PIN_SPIF0_WP, 0x058,
-+			   PIN_FLAG_DEFAULT),
-+	SG2042_GENERAL_PIN(PIN_SPIF0_HOLD, 0x058,
-+			   PIN_FLAG_WRITE_HIGH),
-+	SG2042_GENERAL_PIN(PIN_SPIF0_SDI, 0x05c,
-+			   PIN_FLAG_DEFAULT),
-+	SG2042_GENERAL_PIN(PIN_SPIF0_CS, 0x05c,
-+			   PIN_FLAG_WRITE_HIGH),
-+	SG2042_GENERAL_PIN(PIN_SPIF0_SCK, 0x060,
-+			   PIN_FLAG_DEFAULT),
-+	SG2042_GENERAL_PIN(PIN_SPIF0_SDO, 0x060,
-+			   PIN_FLAG_WRITE_HIGH),
-+	SG2042_GENERAL_PIN(PIN_SPIF1_CLK_SEL1, 0x064,
-+			   PIN_FLAG_DEFAULT),
-+	SG2042_GENERAL_PIN(PIN_SPIF1_CLK_SEL0, 0x064,
-+			   PIN_FLAG_WRITE_HIGH),
-+	SG2042_GENERAL_PIN(PIN_SPIF1_WP, 0x068,
-+			   PIN_FLAG_DEFAULT),
-+	SG2042_GENERAL_PIN(PIN_SPIF1_HOLD, 0x068,
-+			   PIN_FLAG_WRITE_HIGH),
-+	SG2042_GENERAL_PIN(PIN_SPIF1_SDI, 0x06c,
-+			   PIN_FLAG_DEFAULT),
-+	SG2042_GENERAL_PIN(PIN_SPIF1_CS, 0x06c,
-+			   PIN_FLAG_WRITE_HIGH),
-+	SG2042_GENERAL_PIN(PIN_SPIF1_SCK, 0x070,
-+			   PIN_FLAG_DEFAULT),
-+	SG2042_GENERAL_PIN(PIN_SPIF1_SDO, 0x070,
-+			   PIN_FLAG_WRITE_HIGH),
-+	SG2042_GENERAL_PIN(PIN_EMMC_WP, 0x074,
-+			   PIN_FLAG_DEFAULT),
-+	SG2042_GENERAL_PIN(PIN_EMMC_CD, 0x074,
-+			   PIN_FLAG_WRITE_HIGH),
-+	SG2042_GENERAL_PIN(PIN_EMMC_RST, 0x078,
-+			   PIN_FLAG_DEFAULT),
-+	SG2042_GENERAL_PIN(PIN_EMMC_PWR_EN, 0x078,
-+			   PIN_FLAG_WRITE_HIGH),
-+	SG2042_GENERAL_PIN(PIN_SDIO_CD, 0x07c,
-+			   PIN_FLAG_DEFAULT),
-+	SG2042_GENERAL_PIN(PIN_SDIO_WP, 0x07c,
-+			   PIN_FLAG_WRITE_HIGH),
-+	SG2042_GENERAL_PIN(PIN_SDIO_RST, 0x080,
-+			   PIN_FLAG_DEFAULT),
-+	SG2042_GENERAL_PIN(PIN_SDIO_PWR_EN, 0x080,
-+			   PIN_FLAG_WRITE_HIGH),
-+	SG2042_GENERAL_PIN(PIN_RGMII0_TXD0, 0x084,
-+			   PIN_FLAG_DEFAULT),
-+	SG2042_GENERAL_PIN(PIN_RGMII0_TXD1, 0x084,
-+			   PIN_FLAG_WRITE_HIGH),
-+	SG2042_GENERAL_PIN(PIN_RGMII0_TXD2, 0x088,
-+			   PIN_FLAG_DEFAULT),
-+	SG2042_GENERAL_PIN(PIN_RGMII0_TXD3, 0x088,
-+			   PIN_FLAG_WRITE_HIGH),
-+	SG2042_GENERAL_PIN(PIN_RGMII0_TXCTRL, 0x08c,
-+			   PIN_FLAG_DEFAULT),
-+	SG2042_GENERAL_PIN(PIN_RGMII0_RXD0, 0x08c,
-+			   PIN_FLAG_WRITE_HIGH),
-+	SG2042_GENERAL_PIN(PIN_RGMII0_RXD1, 0x090,
-+			   PIN_FLAG_DEFAULT),
-+	SG2042_GENERAL_PIN(PIN_RGMII0_RXD2, 0x090,
-+			   PIN_FLAG_WRITE_HIGH),
-+	SG2042_GENERAL_PIN(PIN_RGMII0_RXD3, 0x094,
-+			   PIN_FLAG_DEFAULT),
-+	SG2042_GENERAL_PIN(PIN_RGMII0_RXCTRL, 0x094,
-+			   PIN_FLAG_WRITE_HIGH),
-+	SG2042_GENERAL_PIN(PIN_RGMII0_TXC, 0x098,
-+			   PIN_FLAG_DEFAULT),
-+	SG2042_GENERAL_PIN(PIN_RGMII0_RXC, 0x098,
-+			   PIN_FLAG_WRITE_HIGH),
-+	SG2042_GENERAL_PIN(PIN_RGMII0_REFCLKO, 0x09c,
-+			   PIN_FLAG_DEFAULT),
-+	SG2042_GENERAL_PIN(PIN_RGMII0_IRQ, 0x09c,
-+			   PIN_FLAG_WRITE_HIGH),
-+	SG2042_GENERAL_PIN(PIN_RGMII0_MDC, 0x0a0,
-+			   PIN_FLAG_DEFAULT),
-+	SG2042_GENERAL_PIN(PIN_RGMII0_MDIO, 0x0a0,
-+			   PIN_FLAG_WRITE_HIGH),
-+	SG2042_GENERAL_PIN(PIN_PWM0, 0x0a4,
-+			   PIN_FLAG_DEFAULT),
-+	SG2042_GENERAL_PIN(PIN_PWM1, 0x0a4,
-+			   PIN_FLAG_WRITE_HIGH),
-+	SG2042_GENERAL_PIN(PIN_PWM2, 0x0a8,
-+			   PIN_FLAG_DEFAULT),
-+	SG2042_GENERAL_PIN(PIN_PWM3, 0x0a8,
-+			   PIN_FLAG_WRITE_HIGH),
-+	SG2042_GENERAL_PIN(PIN_FAN0, 0x0ac,
-+			   PIN_FLAG_DEFAULT),
-+	SG2042_GENERAL_PIN(PIN_FAN1, 0x0ac,
-+			   PIN_FLAG_WRITE_HIGH),
-+	SG2042_GENERAL_PIN(PIN_FAN2, 0x0b0,
-+			   PIN_FLAG_DEFAULT),
-+	SG2042_GENERAL_PIN(PIN_FAN3, 0x0b0,
-+			   PIN_FLAG_WRITE_HIGH),
-+	SG2042_GENERAL_PIN(PIN_IIC0_SDA, 0x0b4,
-+			   PIN_FLAG_DEFAULT),
-+	SG2042_GENERAL_PIN(PIN_IIC0_SCL, 0x0b4,
-+			   PIN_FLAG_WRITE_HIGH),
-+	SG2042_GENERAL_PIN(PIN_IIC1_SDA, 0x0b8,
-+			   PIN_FLAG_DEFAULT),
-+	SG2042_GENERAL_PIN(PIN_IIC1_SCL, 0x0b8,
-+			   PIN_FLAG_WRITE_HIGH),
-+	SG2042_GENERAL_PIN(PIN_IIC2_SDA, 0x0bc,
-+			   PIN_FLAG_DEFAULT),
-+	SG2042_GENERAL_PIN(PIN_IIC2_SCL, 0x0bc,
-+			   PIN_FLAG_WRITE_HIGH),
-+	SG2042_GENERAL_PIN(PIN_IIC3_SDA, 0x0c0,
-+			   PIN_FLAG_DEFAULT),
-+	SG2042_GENERAL_PIN(PIN_IIC3_SCL, 0x0c0,
-+			   PIN_FLAG_WRITE_HIGH),
-+	SG2042_GENERAL_PIN(PIN_UART0_TX, 0x0c4,
-+			   PIN_FLAG_DEFAULT),
-+	SG2042_GENERAL_PIN(PIN_UART0_RX, 0x0c4,
-+			   PIN_FLAG_WRITE_HIGH),
-+	SG2042_GENERAL_PIN(PIN_UART0_RTS, 0x0c8,
-+			   PIN_FLAG_DEFAULT),
-+	SG2042_GENERAL_PIN(PIN_UART0_CTS, 0x0c8,
-+			   PIN_FLAG_WRITE_HIGH),
-+	SG2042_GENERAL_PIN(PIN_UART1_TX, 0x0cc,
-+			   PIN_FLAG_DEFAULT),
-+	SG2042_GENERAL_PIN(PIN_UART1_RX, 0x0cc,
-+			   PIN_FLAG_WRITE_HIGH),
-+	SG2042_GENERAL_PIN(PIN_UART1_RTS, 0x0d0,
-+			   PIN_FLAG_DEFAULT),
-+	SG2042_GENERAL_PIN(PIN_UART1_CTS, 0x0d0,
-+			   PIN_FLAG_WRITE_HIGH),
-+	SG2042_GENERAL_PIN(PIN_UART2_TX, 0x0d4,
-+			   PIN_FLAG_DEFAULT),
-+	SG2042_GENERAL_PIN(PIN_UART2_RX, 0x0d4,
-+			   PIN_FLAG_WRITE_HIGH),
-+	SG2042_GENERAL_PIN(PIN_UART2_RTS, 0x0d8,
-+			   PIN_FLAG_DEFAULT),
-+	SG2042_GENERAL_PIN(PIN_UART2_CTS, 0x0d8,
-+			   PIN_FLAG_WRITE_HIGH),
-+	SG2042_GENERAL_PIN(PIN_UART3_TX, 0x0dc,
-+			   PIN_FLAG_DEFAULT),
-+	SG2042_GENERAL_PIN(PIN_UART3_RX, 0x0dc,
-+			   PIN_FLAG_WRITE_HIGH),
-+	SG2042_GENERAL_PIN(PIN_UART3_RTS, 0x0e0,
-+			   PIN_FLAG_DEFAULT),
-+	SG2042_GENERAL_PIN(PIN_UART3_CTS, 0x0e0,
-+			   PIN_FLAG_WRITE_HIGH),
-+	SG2042_GENERAL_PIN(PIN_SPI0_CS0, 0x0e4,
-+			   PIN_FLAG_DEFAULT),
-+	SG2042_GENERAL_PIN(PIN_SPI0_CS1, 0x0e4,
-+			   PIN_FLAG_WRITE_HIGH),
-+	SG2042_GENERAL_PIN(PIN_SPI0_SDI, 0x0e8,
-+			   PIN_FLAG_DEFAULT),
-+	SG2042_GENERAL_PIN(PIN_SPI0_SDO, 0x0e8,
-+			   PIN_FLAG_WRITE_HIGH),
-+	SG2042_GENERAL_PIN(PIN_SPI0_SCK, 0x0ec,
-+			   PIN_FLAG_DEFAULT),
-+	SG2042_GENERAL_PIN(PIN_SPI1_CS0, 0x0ec,
-+			   PIN_FLAG_WRITE_HIGH),
-+	SG2042_GENERAL_PIN(PIN_SPI1_CS1, 0x0f0,
-+			   PIN_FLAG_DEFAULT),
-+	SG2042_GENERAL_PIN(PIN_SPI1_SDI, 0x0f0,
-+			   PIN_FLAG_WRITE_HIGH),
-+	SG2042_GENERAL_PIN(PIN_SPI1_SDO, 0x0f4,
-+			   PIN_FLAG_DEFAULT),
-+	SG2042_GENERAL_PIN(PIN_SPI1_SCK, 0x0f4,
-+			   PIN_FLAG_WRITE_HIGH),
-+	SG2042_GENERAL_PIN(PIN_JTAG0_TDO, 0x0f8,
-+			   PIN_FLAG_DEFAULT),
-+	SG2042_GENERAL_PIN(PIN_JTAG0_TCK, 0x0f8,
-+			   PIN_FLAG_WRITE_HIGH),
-+	SG2042_GENERAL_PIN(PIN_JTAG0_TDI, 0x0fc,
-+			   PIN_FLAG_DEFAULT),
-+	SG2042_GENERAL_PIN(PIN_JTAG0_TMS, 0x0fc,
-+			   PIN_FLAG_WRITE_HIGH),
-+	SG2042_GENERAL_PIN(PIN_JTAG0_TRST, 0x100,
-+			   PIN_FLAG_DEFAULT),
-+	SG2042_GENERAL_PIN(PIN_JTAG0_SRST, 0x100,
-+			   PIN_FLAG_WRITE_HIGH),
-+	SG2042_GENERAL_PIN(PIN_JTAG1_TDO, 0x104,
-+			   PIN_FLAG_DEFAULT),
-+	SG2042_GENERAL_PIN(PIN_JTAG1_TCK, 0x104,
-+			   PIN_FLAG_WRITE_HIGH),
-+	SG2042_GENERAL_PIN(PIN_JTAG1_TDI, 0x108,
-+			   PIN_FLAG_DEFAULT),
-+	SG2042_GENERAL_PIN(PIN_JTAG1_TMS, 0x108,
-+			   PIN_FLAG_WRITE_HIGH),
-+	SG2042_GENERAL_PIN(PIN_JTAG1_TRST, 0x10c,
-+			   PIN_FLAG_DEFAULT),
-+	SG2042_GENERAL_PIN(PIN_JTAG1_SRST, 0x10c,
-+			   PIN_FLAG_WRITE_HIGH),
-+	SG2042_GENERAL_PIN(PIN_JTAG2_TDO, 0x110,
-+			   PIN_FLAG_DEFAULT),
-+	SG2042_GENERAL_PIN(PIN_JTAG2_TCK, 0x110,
-+			   PIN_FLAG_WRITE_HIGH),
-+	SG2042_GENERAL_PIN(PIN_JTAG2_TDI, 0x114,
-+			   PIN_FLAG_DEFAULT),
-+	SG2042_GENERAL_PIN(PIN_JTAG2_TMS, 0x114,
-+			   PIN_FLAG_WRITE_HIGH),
-+	SG2042_GENERAL_PIN(PIN_JTAG2_TRST, 0x118,
-+			   PIN_FLAG_DEFAULT),
-+	SG2042_GENERAL_PIN(PIN_JTAG2_SRST, 0x118,
-+			   PIN_FLAG_WRITE_HIGH),
-+	SG2042_GENERAL_PIN(PIN_JTAG3_TDO, 0x11c,
-+			   PIN_FLAG_DEFAULT),
-+	SG2042_GENERAL_PIN(PIN_JTAG3_TCK, 0x11c,
-+			   PIN_FLAG_WRITE_HIGH),
-+	SG2042_GENERAL_PIN(PIN_JTAG3_TDI, 0x120,
-+			   PIN_FLAG_DEFAULT),
-+	SG2042_GENERAL_PIN(PIN_JTAG3_TMS, 0x120,
-+			   PIN_FLAG_WRITE_HIGH),
-+	SG2042_GENERAL_PIN(PIN_JTAG3_TRST, 0x124,
-+			   PIN_FLAG_DEFAULT),
-+	SG2042_GENERAL_PIN(PIN_JTAG3_SRST, 0x124,
-+			   PIN_FLAG_WRITE_HIGH),
-+	SG2042_GENERAL_PIN(PIN_GPIO0, 0x128,
-+			   PIN_FLAG_DEFAULT),
-+	SG2042_GENERAL_PIN(PIN_GPIO1, 0x128,
-+			   PIN_FLAG_WRITE_HIGH),
-+	SG2042_GENERAL_PIN(PIN_GPIO2, 0x12c,
-+			   PIN_FLAG_DEFAULT),
-+	SG2042_GENERAL_PIN(PIN_GPIO3, 0x12c,
-+			   PIN_FLAG_WRITE_HIGH),
-+	SG2042_GENERAL_PIN(PIN_GPIO4, 0x130,
-+			   PIN_FLAG_DEFAULT),
-+	SG2042_GENERAL_PIN(PIN_GPIO5, 0x130,
-+			   PIN_FLAG_WRITE_HIGH),
-+	SG2042_GENERAL_PIN(PIN_GPIO6, 0x134,
-+			   PIN_FLAG_DEFAULT),
-+	SG2042_GENERAL_PIN(PIN_GPIO7, 0x134,
-+			   PIN_FLAG_WRITE_HIGH),
-+	SG2042_GENERAL_PIN(PIN_GPIO8, 0x138,
-+			   PIN_FLAG_DEFAULT),
-+	SG2042_GENERAL_PIN(PIN_GPIO9, 0x138,
-+			   PIN_FLAG_WRITE_HIGH),
-+	SG2042_GENERAL_PIN(PIN_GPIO10, 0x13c,
-+			   PIN_FLAG_DEFAULT),
-+	SG2042_GENERAL_PIN(PIN_GPIO11, 0x13c,
-+			   PIN_FLAG_WRITE_HIGH),
-+	SG2042_GENERAL_PIN(PIN_GPIO12, 0x140,
-+			   PIN_FLAG_DEFAULT),
-+	SG2042_GENERAL_PIN(PIN_GPIO13, 0x140,
-+			   PIN_FLAG_WRITE_HIGH),
-+	SG2042_GENERAL_PIN(PIN_GPIO14, 0x144,
-+			   PIN_FLAG_DEFAULT),
-+	SG2042_GENERAL_PIN(PIN_GPIO15, 0x144,
-+			   PIN_FLAG_WRITE_HIGH),
-+	SG2042_GENERAL_PIN(PIN_GPIO16, 0x148,
-+			   PIN_FLAG_DEFAULT),
-+	SG2042_GENERAL_PIN(PIN_GPIO17, 0x148,
-+			   PIN_FLAG_WRITE_HIGH),
-+	SG2042_GENERAL_PIN(PIN_GPIO18, 0x14c,
-+			   PIN_FLAG_DEFAULT),
-+	SG2042_GENERAL_PIN(PIN_GPIO19, 0x14c,
-+			   PIN_FLAG_WRITE_HIGH),
-+	SG2042_GENERAL_PIN(PIN_GPIO20, 0x150,
-+			   PIN_FLAG_DEFAULT),
-+	SG2042_GENERAL_PIN(PIN_GPIO21, 0x150,
-+			   PIN_FLAG_WRITE_HIGH),
-+	SG2042_GENERAL_PIN(PIN_GPIO22, 0x154,
-+			   PIN_FLAG_DEFAULT),
-+	SG2042_GENERAL_PIN(PIN_GPIO23, 0x154,
-+			   PIN_FLAG_WRITE_HIGH),
-+	SG2042_GENERAL_PIN(PIN_GPIO24, 0x158,
-+			   PIN_FLAG_DEFAULT),
-+	SG2042_GENERAL_PIN(PIN_GPIO25, 0x158,
-+			   PIN_FLAG_WRITE_HIGH),
-+	SG2042_GENERAL_PIN(PIN_GPIO26, 0x15c,
-+			   PIN_FLAG_DEFAULT),
-+	SG2042_GENERAL_PIN(PIN_GPIO27, 0x15c,
-+			   PIN_FLAG_WRITE_HIGH),
-+	SG2042_GENERAL_PIN(PIN_GPIO28, 0x160,
-+			   PIN_FLAG_DEFAULT),
-+	SG2042_GENERAL_PIN(PIN_GPIO29, 0x160,
-+			   PIN_FLAG_WRITE_HIGH),
-+	SG2042_GENERAL_PIN(PIN_GPIO30, 0x164,
-+			   PIN_FLAG_DEFAULT),
-+	SG2042_GENERAL_PIN(PIN_GPIO31, 0x164,
-+			   PIN_FLAG_WRITE_HIGH),
-+	SG2042_GENERAL_PIN(PIN_MODE_SEL0, 0x168,
-+			   PIN_FLAG_NO_PINMUX | PIN_FLAG_NO_OEX_EN),
-+	SG2042_GENERAL_PIN(PIN_MODE_SEL1, 0x168,
-+			   PIN_FLAG_WRITE_HIGH | PIN_FLAG_NO_PINMUX |
-+			   PIN_FLAG_NO_OEX_EN),
-+	SG2042_GENERAL_PIN(PIN_MODE_SEL2, 0x16c,
-+			   PIN_FLAG_NO_PINMUX | PIN_FLAG_NO_OEX_EN),
-+	SG2042_GENERAL_PIN(PIN_BOOT_SEL0, 0x16c,
-+			   PIN_FLAG_WRITE_HIGH | PIN_FLAG_NO_PINMUX |
-+			   PIN_FLAG_NO_OEX_EN),
-+	SG2042_GENERAL_PIN(PIN_BOOT_SEL1, 0x170,
-+			   PIN_FLAG_NO_PINMUX | PIN_FLAG_NO_OEX_EN),
-+	SG2042_GENERAL_PIN(PIN_BOOT_SEL2, 0x170,
-+			   PIN_FLAG_WRITE_HIGH | PIN_FLAG_NO_PINMUX |
-+			   PIN_FLAG_NO_OEX_EN),
-+	SG2042_GENERAL_PIN(PIN_BOOT_SEL3, 0x174,
-+			   PIN_FLAG_NO_PINMUX | PIN_FLAG_NO_OEX_EN),
-+	SG2042_GENERAL_PIN(PIN_BOOT_SEL4, 0x174,
-+			   PIN_FLAG_WRITE_HIGH | PIN_FLAG_NO_PINMUX |
-+			   PIN_FLAG_NO_OEX_EN),
-+	SG2042_GENERAL_PIN(PIN_BOOT_SEL5, 0x178,
-+			   PIN_FLAG_NO_PINMUX | PIN_FLAG_NO_OEX_EN),
-+	SG2042_GENERAL_PIN(PIN_BOOT_SEL6, 0x178,
-+			   PIN_FLAG_WRITE_HIGH | PIN_FLAG_NO_PINMUX |
-+			   PIN_FLAG_NO_OEX_EN),
-+	SG2042_GENERAL_PIN(PIN_BOOT_SEL7, 0x17c,
-+			   PIN_FLAG_NO_PINMUX | PIN_FLAG_NO_OEX_EN),
-+	SG2042_GENERAL_PIN(PIN_MULTI_SCKT, 0x17c,
-+			   PIN_FLAG_WRITE_HIGH | PIN_FLAG_NO_PINMUX |
-+			   PIN_FLAG_NO_OEX_EN),
-+	SG2042_GENERAL_PIN(PIN_SCKT_ID0, 0x180,
-+			   PIN_FLAG_NO_PINMUX | PIN_FLAG_NO_OEX_EN),
-+	SG2042_GENERAL_PIN(PIN_SCKT_ID1, 0x180,
-+			   PIN_FLAG_WRITE_HIGH | PIN_FLAG_NO_PINMUX |
-+			   PIN_FLAG_NO_OEX_EN),
-+	SG2042_GENERAL_PIN(PIN_PLL_CLK_IN_MAIN, 0x184,
-+			   PIN_FLAG_NO_PINMUX | PIN_FLAG_NO_OEX_EN),
-+	SG2042_GENERAL_PIN(PIN_PLL_CLK_IN_DDR_0, 0x184,
-+			   PIN_FLAG_WRITE_HIGH | PIN_FLAG_NO_PINMUX |
-+			   PIN_FLAG_NO_OEX_EN),
-+	SG2042_GENERAL_PIN(PIN_PLL_CLK_IN_DDR_1, 0x188,
-+			   PIN_FLAG_NO_PINMUX | PIN_FLAG_NO_OEX_EN),
-+	SG2042_GENERAL_PIN(PIN_PLL_CLK_IN_DDR_2, 0x188,
-+			   PIN_FLAG_WRITE_HIGH | PIN_FLAG_NO_PINMUX |
-+			   PIN_FLAG_NO_OEX_EN),
-+	SG2042_GENERAL_PIN(PIN_PLL_CLK_IN_DDR_3, 0x18c,
-+			   PIN_FLAG_NO_PINMUX | PIN_FLAG_NO_OEX_EN),
-+	SG2042_GENERAL_PIN(PIN_XTAL_32K, 0x18c,
-+			   PIN_FLAG_WRITE_HIGH | PIN_FLAG_NO_PINMUX |
-+			   PIN_FLAG_NO_OEX_EN),
-+	SG2042_GENERAL_PIN(PIN_SYS_RST, 0x190,
-+			   PIN_FLAG_NO_PINMUX | PIN_FLAG_NO_OEX_EN),
-+	SG2042_GENERAL_PIN(PIN_PWR_BUTTON, 0x190,
-+			   PIN_FLAG_WRITE_HIGH | PIN_FLAG_NO_PINMUX |
-+			   PIN_FLAG_NO_OEX_EN),
-+	SG2042_GENERAL_PIN(PIN_TEST_EN, 0x194,
-+			   PIN_FLAG_NO_PINMUX | PIN_FLAG_NO_OEX_EN),
-+	SG2042_GENERAL_PIN(PIN_TEST_MODE_MBIST, 0x194,
-+			   PIN_FLAG_WRITE_HIGH | PIN_FLAG_NO_PINMUX |
-+			   PIN_FLAG_NO_OEX_EN),
-+	SG2042_GENERAL_PIN(PIN_TEST_MODE_SCAN, 0x198,
-+			   PIN_FLAG_NO_PINMUX | PIN_FLAG_NO_OEX_EN),
-+	SG2042_GENERAL_PIN(PIN_TEST_MODE_BSD, 0x198,
-+			   PIN_FLAG_WRITE_HIGH | PIN_FLAG_NO_PINMUX |
-+			   PIN_FLAG_NO_OEX_EN),
-+	SG2042_GENERAL_PIN(PIN_BISR_BYP, 0x19c,
-+			   PIN_FLAG_NO_PINMUX | PIN_FLAG_NO_OEX_EN),
-+};
-+
-+static const struct sophgo_pinctrl_data sg2044_pindata = {
-+	.pins		= sg2044_pins,
-+	.pindata	= sg2044_pin_data,
-+	.vddio_ops	= &sg2044_vddio_cfg_ops,
-+	.cfg_ops	= &sg2042_cfg_ops,
-+	.pctl_ops	= &sg2042_pctrl_ops,
-+	.pmx_ops	= &sg2042_pmx_ops,
-+	.pconf_ops	= &sg2042_pconf_ops,
-+	.npins		= ARRAY_SIZE(sg2044_pins),
-+	.pinsize	= sizeof(struct sg2042_pin),
-+};
-+
-+static const struct of_device_id sg2044_pinctrl_ids[] = {
-+	{ .compatible = "sophgo,sg2044-pinctrl", .data = &sg2044_pindata },
-+	{ }
-+};
-+MODULE_DEVICE_TABLE(of, sg2044_pinctrl_ids);
-+
-+static struct platform_driver sg2044_pinctrl_driver = {
-+	.probe	= sophgo_pinctrl_probe,
-+	.driver	= {
-+		.name			= "sg2044-pinctrl",
-+		.suppress_bind_attrs	= true,
-+		.of_match_table		= sg2044_pinctrl_ids,
-+	},
-+};
-+module_platform_driver(sg2044_pinctrl_driver);
-+
-+MODULE_DESCRIPTION("Pinctrl driver for the SG2002 series SoC");
-+MODULE_LICENSE("GPL");
--- 
-2.48.1
+Reason being, patch defaults to `conf->supported =3D true` if `supported` fn
+pointer in `kvm_sbi_fwft_feature` was NULL. Although `kvm_sbi_fwft_set/get`
+does get/set fn pointers (it would happen even if `supported` fn pointer
+was NULL).
 
+>+struct kvm_sbi_fwft_feature {
+>+	enum sbi_fwft_feature_t id;
+	/* If function not provided, KVM will default assume to be true */
+>+	bool (*supported)(struct kvm_vcpu *vcpu);
+	/* Must always provide function pointers for get/set */
+>+	int (*set)(struct kvm_vcpu *vcpu, struct kvm_sbi_fwft_config *conf, unsi=
+gned long value);
+>+	int (*get)(struct kvm_vcpu *vcpu, struct kvm_sbi_fwft_config *conf, unsi=
+gned long *value);
+
+
+>+};
+>+
+>+struct kvm_sbi_fwft_config {
+>+	const struct kvm_sbi_fwft_feature *feature;
+>+	bool supported;
+>+	unsigned long flags;
+>+};
+>+
+>+/* FWFT data structure per vcpu */
+>+struct kvm_sbi_fwft {
+>+	struct kvm_sbi_fwft_config *configs;
+>+};
+>+
+>+#define vcpu_to_fwft(vcpu) (&(vcpu)->arch.fwft_context)
+>+
+>+#endif /* !__KVM_VCPU_RISCV_FWFT_H */
+>diff --git a/arch/riscv/include/uapi/asm/kvm.h b/arch/riscv/include/uapi/a=
+sm/kvm.h
+>index f06bc5efcd79..fa6eee1caf41 100644
+>--- a/arch/riscv/include/uapi/asm/kvm.h
+>+++ b/arch/riscv/include/uapi/asm/kvm.h
+>@@ -202,6 +202,7 @@ enum KVM_RISCV_SBI_EXT_ID {
+> 	KVM_RISCV_SBI_EXT_DBCN,
+> 	KVM_RISCV_SBI_EXT_STA,
+> 	KVM_RISCV_SBI_EXT_SUSP,
+>+	KVM_RISCV_SBI_EXT_FWFT,
+> 	KVM_RISCV_SBI_EXT_MAX,
+> };
+>
+>diff --git a/arch/riscv/kvm/Makefile b/arch/riscv/kvm/Makefile
+>index 4e0bba91d284..06e2d52a9b88 100644
+>--- a/arch/riscv/kvm/Makefile
+>+++ b/arch/riscv/kvm/Makefile
+>@@ -26,6 +26,7 @@ kvm-y +=3D vcpu_onereg.o
+> kvm-$(CONFIG_RISCV_PMU_SBI) +=3D vcpu_pmu.o
+> kvm-y +=3D vcpu_sbi.o
+> kvm-y +=3D vcpu_sbi_base.o
+>+kvm-y +=3D vcpu_sbi_fwft.o
+> kvm-y +=3D vcpu_sbi_hsm.o
+> kvm-$(CONFIG_RISCV_PMU_SBI) +=3D vcpu_sbi_pmu.o
+> kvm-y +=3D vcpu_sbi_replace.o
+>diff --git a/arch/riscv/kvm/vcpu_sbi.c b/arch/riscv/kvm/vcpu_sbi.c
+>index f81f06f82650..3b37deaed4e7 100644
+>--- a/arch/riscv/kvm/vcpu_sbi.c
+>+++ b/arch/riscv/kvm/vcpu_sbi.c
+>@@ -78,6 +78,10 @@ static const struct kvm_riscv_sbi_extension_entry sbi_e=
+xt[] =3D {
+> 		.ext_idx =3D KVM_RISCV_SBI_EXT_STA,
+> 		.ext_ptr =3D &vcpu_sbi_ext_sta,
+> 	},
+>+	{
+>+		.ext_idx =3D KVM_RISCV_SBI_EXT_FWFT,
+>+		.ext_ptr =3D &vcpu_sbi_ext_fwft,
+>+	},
+> 	{
+> 		.ext_idx =3D KVM_RISCV_SBI_EXT_EXPERIMENTAL,
+> 		.ext_ptr =3D &vcpu_sbi_ext_experimental,
+>diff --git a/arch/riscv/kvm/vcpu_sbi_fwft.c b/arch/riscv/kvm/vcpu_sbi_fwft=
+.c
+>new file mode 100644
+>index 000000000000..fe608bf16558
+>--- /dev/null
+>+++ b/arch/riscv/kvm/vcpu_sbi_fwft.c
+>@@ -0,0 +1,187 @@
+>+// SPDX-License-Identifier: GPL-2.0
+>+/*
+>+ * Copyright (c) 2025 Rivos Inc.
+>+ *
+>+ * Authors:
+>+ *     Cl=E9ment L=E9ger <cleger@rivosinc.com>
+>+ */
+>+
+>+#include <linux/errno.h>
+>+#include <linux/err.h>
+>+#include <linux/kvm_host.h>
+>+#include <asm/cpufeature.h>
+>+#include <asm/sbi.h>
+>+#include <asm/kvm_vcpu_sbi.h>
+>+#include <asm/kvm_vcpu_sbi_fwft.h>
+>+
+>+static const enum sbi_fwft_feature_t kvm_fwft_defined_features[] =3D {
+>+	SBI_FWFT_MISALIGNED_EXC_DELEG,
+>+	SBI_FWFT_LANDING_PAD,
+>+	SBI_FWFT_SHADOW_STACK,
+>+	SBI_FWFT_DOUBLE_TRAP,
+>+	SBI_FWFT_PTE_AD_HW_UPDATING,
+>+	SBI_FWFT_POINTER_MASKING_PMLEN,
+>+};
+>+
+>+static bool kvm_fwft_is_defined_feature(enum sbi_fwft_feature_t feature)
+>+{
+>+	int i;
+>+
+>+	for (i =3D 0; i < ARRAY_SIZE(kvm_fwft_defined_features); i++) {
+>+		if (kvm_fwft_defined_features[i] =3D=3D feature)
+>+			return true;
+>+	}
+>+
+>+	return false;
+>+}
+>+
+>+static const struct kvm_sbi_fwft_feature features[] =3D {
+>+};
+>+
+>+static struct kvm_sbi_fwft_config *
+>+kvm_sbi_fwft_get_config(struct kvm_vcpu *vcpu, enum sbi_fwft_feature_t fe=
+ature)
+>+{
+>+	int i =3D 0;
+>+	struct kvm_sbi_fwft *fwft =3D vcpu_to_fwft(vcpu);
+>+
+>+	for (i =3D 0; i < ARRAY_SIZE(features); i++) {
+>+		if (fwft->configs[i].feature->id =3D=3D feature)
+>+			return &fwft->configs[i];
+>+	}
+>+
+>+	return NULL;
+>+}
+>+
+>+static int kvm_fwft_get_feature(struct kvm_vcpu *vcpu, unsigned long feat=
+ure,
+>+				struct kvm_sbi_fwft_config **conf)
+>+{
+>+	struct kvm_sbi_fwft_config *tconf;
+>+
+>+	/* Feature are defined as 32 bits identifiers */
+>+	if (feature & ~(BIT_ULL(32) - 1))
+>+		return SBI_ERR_INVALID_PARAM;
+>+
+>+	tconf =3D kvm_sbi_fwft_get_config(vcpu, feature);
+>+	if (!tconf) {
+>+		if (kvm_fwft_is_defined_feature(feature))
+>+			return SBI_ERR_NOT_SUPPORTED;
+>+
+>+		return SBI_ERR_DENIED;
+>+	}
+>+
+>+	if (!tconf->supported)
+>+		return SBI_ERR_NOT_SUPPORTED;
+>+
+>+	*conf =3D tconf;
+>+
+>+	return SBI_SUCCESS;
+>+}
+>+
+>+static int kvm_sbi_fwft_set(struct kvm_vcpu *vcpu, unsigned long feature,
+>+			    unsigned long value, unsigned long flags)
+>+{
+>+	int ret;
+>+	struct kvm_sbi_fwft_config *conf;
+>+
+>+	ret =3D kvm_fwft_get_feature(vcpu, feature, &conf);
+>+	if (ret)
+>+		return ret;
+>+
+>+	if ((flags & ~SBI_FWFT_SET_FLAG_LOCK) !=3D 0)
+>+		return SBI_ERR_INVALID_PARAM;
+>+
+>+	if (conf->flags & SBI_FWFT_SET_FLAG_LOCK)
+>+		return SBI_ERR_DENIED_LOCKED;
+>+
+>+	conf->flags =3D flags;
+>+
+>+	return conf->feature->set(vcpu, conf, value);
+>+}
+>+
+>+static int kvm_sbi_fwft_get(struct kvm_vcpu *vcpu, unsigned long feature,
+>+			    unsigned long *value)
+>+{
+>+	int ret;
+>+	struct kvm_sbi_fwft_config *conf;
+>+
+>+	ret =3D kvm_fwft_get_feature(vcpu, feature, &conf);
+>+	if (ret)
+>+		return ret;
+>+
+>+	return conf->feature->get(vcpu, conf, value);
+>+}
+>+
+>+static int kvm_sbi_ext_fwft_handler(struct kvm_vcpu *vcpu, struct kvm_run=
+ *run,
+>+				    struct kvm_vcpu_sbi_return *retdata)
+>+{
+>+	int ret =3D 0;
+>+	struct kvm_cpu_context *cp =3D &vcpu->arch.guest_context;
+>+	unsigned long funcid =3D cp->a6;
+>+
+>+	switch (funcid) {
+>+	case SBI_EXT_FWFT_SET:
+>+		ret =3D kvm_sbi_fwft_set(vcpu, cp->a0, cp->a1, cp->a2);
+>+		break;
+>+	case SBI_EXT_FWFT_GET:
+>+		ret =3D kvm_sbi_fwft_get(vcpu, cp->a0, &retdata->out_val);
+>+		break;
+>+	default:
+>+		ret =3D SBI_ERR_NOT_SUPPORTED;
+>+		break;
+>+	}
+>+
+>+	retdata->err_val =3D ret;
+>+
+>+	return 0;
+>+}
+>+
+>+static int kvm_sbi_ext_fwft_init(struct kvm_vcpu *vcpu)
+>+{
+>+	struct kvm_sbi_fwft *fwft =3D vcpu_to_fwft(vcpu);
+>+	const struct kvm_sbi_fwft_feature *feature;
+>+	struct kvm_sbi_fwft_config *conf;
+>+	int i;
+>+
+>+	fwft->configs =3D kcalloc(ARRAY_SIZE(features), sizeof(struct kvm_sbi_fw=
+ft_config),
+>+				GFP_KERNEL);
+>+	if (!fwft->configs)
+>+		return -ENOMEM;
+>+
+>+	for (i =3D 0; i < ARRAY_SIZE(features); i++) {
+>+		feature =3D &features[i];
+>+		conf =3D &fwft->configs[i];
+>+		if (feature->supported)
+>+			conf->supported =3D feature->supported(vcpu);
+>+		else
+>+			conf->supported =3D true;
+>+
+>+		conf->feature =3D feature;
+>+	}
+>+
+>+	return 0;
+>+}
+>+
+>+static void kvm_sbi_ext_fwft_deinit(struct kvm_vcpu *vcpu)
+>+{
+>+	struct kvm_sbi_fwft *fwft =3D vcpu_to_fwft(vcpu);
+>+
+>+	kfree(fwft->configs);
+>+}
+>+
+>+static void kvm_sbi_ext_fwft_reset(struct kvm_vcpu *vcpu)
+>+{
+>+	int i =3D 0;
+>+	struct kvm_sbi_fwft *fwft =3D vcpu_to_fwft(vcpu);
+>+
+>+	for (i =3D 0; i < ARRAY_SIZE(features); i++)
+>+		fwft->configs[i].flags =3D 0;
+>+}
+>+
+>+const struct kvm_vcpu_sbi_extension vcpu_sbi_ext_fwft =3D {
+>+	.extid_start =3D SBI_EXT_FWFT,
+>+	.extid_end =3D SBI_EXT_FWFT,
+>+	.handler =3D kvm_sbi_ext_fwft_handler,
+>+	.init =3D kvm_sbi_ext_fwft_init,
+>+	.deinit =3D kvm_sbi_ext_fwft_deinit,
+>+	.reset =3D kvm_sbi_ext_fwft_reset,
+>+};
+>-- =
+
+>2.47.2
+>
+>
 
 _______________________________________________
 linux-riscv mailing list
