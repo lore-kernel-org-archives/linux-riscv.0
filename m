@@ -4,123 +4,106 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82D96C02198
-	for <linux-riscv@archiver.kernel.org>; Tue, 11 Feb 2025 00:16:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 596CEC02198
+	for <linux-riscv@archiver.kernel.org>; Tue, 11 Feb 2025 00:22:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=+Fse3RWRk7JQx4LbYbJJvMocERMjHyCeXMkf1lyRTp4=; b=p1foNCn/Lom2P7
-	6auDhBfKj7x5vlkoiSu0SHWjrkRDZi6XOpOCA+48n80sPtoOAuRsgu43xEp0WgTOWgR6MpN2cOTRP
-	W96nyCWoC0WkNKiwkiYVEtzLtIN2BfTZ/NJBQFiKqWcyuO4Kxt6fTY8aMdof31k0jr2qdaXibjZ5G
-	IRGJG/QJySJLNFK63RGPDmnzBaNbPvR0Z3+QRibgQ/BJ7bE+1grrWaHS8bJ3xYiq19HGuDSmDucYO
-	nZdcIZXkpg33rvw381/QE96VyBpSIOwkhrETA8MtPXYmcBXyrasBkH766kxr6sBsfXRMReQSTTXoQ
-	uUM20UMuv/qzReOO9KCg==;
+	List-Owner; bh=c8D0GdCvYk8rKYYaHdpx0MO+bXklQtUhSDOPkaWR/dk=; b=UZW+Fxv+wlpTAH
+	y8kerra0ciAKRZ5o/qDLQylgaVWLK0QQ3nJgeYxuk5tGL7SQZI2YUepHzHYlQdDprPAlJx+P0wVzg
+	sYeSH5ka5DFxbZ6eN0zZTWgQfQmMj9OEUMVWRkbboQIydrHE079XhcBRossXkm79mpbQSPbsUsvAS
+	9IxDEfSKS12udTX+H1AU/2RbUndxeP3Ok32Z69504iS6WW+J2kRTESwEBNGI5iyDnGmCN7N9YdxC0
+	76NrzYy3deI6D83GlZaaNfPLAeevu/BWEa9derV58zs5K98JVtOoz4wfIEr96lBWZkwVorh2GqAnz
+	kZ8Sld6Rc98lrQ9XU6kg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1thdwf-00000001xD0-1jTx;
-	Tue, 11 Feb 2025 00:16:09 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1the2j-00000001xrt-29eN;
+	Tue, 11 Feb 2025 00:22:25 +0000
+Received: from mail-yw1-x112b.google.com ([2607:f8b0:4864:20::112b])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1thdru-00000001wSD-1BTF
-	for linux-riscv@bombadil.infradead.org;
-	Tue, 11 Feb 2025 00:11:14 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=7d2yvMM2I9d/oyc1V0faCkOl8VeyuNqArkVlFzxUCDE=; b=htWxsMSxOZkUYkKiim7uZJ+aji
-	ySL47pS8m3x/C+Sb7Q2pgoXjNKbKT+vCpUjMLLtTBY+fK7lzsd6X597z2MWyYXYi3OpMXkAK9zgPg
-	nXDLHh42vnRxWNUbK7MR93WnaMm6BSvlcafQveB7G+EQwrU2ofFMzc10OYGwucVLbGc+8s017k/2N
-	JSa8nFqwvyB99Cnh2n3cJJKukh/t1JBBUsCjSsUtXv5BgjGRlRBxmuFdmoJ4LVVj+B0457dzhN0Ek
-	pp9wdxIZzH8W7f4p0mbrfd31L7On6V/J8M909QySVW3uOs6XYezrqEJ3rqSL6Rg8cYq4/VJQEoo0S
-	zlpZq5rA==;
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
-	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1thdrr-00000000O4W-1jHm
+	id 1the18-00000001xjY-3Efk
 	for linux-riscv@lists.infradead.org;
-	Tue, 11 Feb 2025 00:11:13 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1739232670;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=7d2yvMM2I9d/oyc1V0faCkOl8VeyuNqArkVlFzxUCDE=;
-	b=XqbxntjkKhXWRBESpgJA7JiE6kN29ZNa3uGZhlqqq6lFNI1gOD+tsMeujt5uKbXpkF2SVZ
-	5kt3HvcVjZdigcejNDwjwgZ6jrB6uLJlH0jvh/22qpUngqcftnqJE5SUN5y9AE+SjGe6gR
-	Hv3h5OjuWu2qb2dukhJEMsBOLH5mVqw=
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1739232670;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=7d2yvMM2I9d/oyc1V0faCkOl8VeyuNqArkVlFzxUCDE=;
-	b=XqbxntjkKhXWRBESpgJA7JiE6kN29ZNa3uGZhlqqq6lFNI1gOD+tsMeujt5uKbXpkF2SVZ
-	5kt3HvcVjZdigcejNDwjwgZ6jrB6uLJlH0jvh/22qpUngqcftnqJE5SUN5y9AE+SjGe6gR
-	Hv3h5OjuWu2qb2dukhJEMsBOLH5mVqw=
-Received: from mx-prod-mc-08.mail-002.prod.us-west-2.aws.redhat.com
- (ec2-35-165-154-97.us-west-2.compute.amazonaws.com [35.165.154.97]) by
- relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-137-9uH7qvCwOL6Q2OM-ph_X4g-1; Mon,
- 10 Feb 2025 19:09:42 -0500
-X-MC-Unique: 9uH7qvCwOL6Q2OM-ph_X4g-1
-X-Mimecast-MFC-AGG-ID: 9uH7qvCwOL6Q2OM-ph_X4g
-Received: from mx-prod-int-04.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-04.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.40])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mx-prod-mc-08.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id B3B081800874;
-	Tue, 11 Feb 2025 00:09:38 +0000 (UTC)
-Received: from starship.lan (unknown [10.22.65.174])
-	by mx-prod-int-04.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id C1BF519560B0;
-	Tue, 11 Feb 2025 00:09:32 +0000 (UTC)
-From: Maxim Levitsky <mlevitsk@redhat.com>
-To: kvm@vger.kernel.org
-Cc: Paolo Bonzini <pbonzini@redhat.com>,
-	Jing Zhang <jingzhangos@google.com>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	linux-arm-kernel@lists.infradead.org,
-	Marc Zyngier <maz@kernel.org>,
-	linux-kernel@vger.kernel.org,
-	Randy Dunlap <rdunlap@infradead.org>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	kvm-riscv@lists.infradead.org,
-	Ingo Molnar <mingo@redhat.com>,
-	linux-riscv@lists.infradead.org,
-	Joey Gouly <joey.gouly@arm.com>,
+	Tue, 11 Feb 2025 00:20:47 +0000
+Received: by mail-yw1-x112b.google.com with SMTP id 00721157ae682-6f9e95c66fdso14911727b3.3
+        for <linux-riscv@lists.infradead.org>; Mon, 10 Feb 2025 16:20:46 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1739233246; x=1739838046; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=f6fO6ENk+/6RJwbHFhohh2LYSGPeGtLq21Tc4JEEd0s=;
+        b=fIoe9fHCTLWfrM0xUcqvmKUP8vg1t2djK9midnw40fyVyEgm04PBGz8nHZnBdTgHL/
+         awHepvzoPug7xZuidM8VdHC6bJQX1btIw4A80LAWg8B7YDzTEg39MbbDlhUAnGJJL5N0
+         +GR7tVI59urLLpwPSOT7DRoRiKoQiYBYqYPKiE3X/t+OXsAPe796UhkW6AlBqA0cSvmh
+         Fc5gX0BHwJqjDTysVvGP84rmcGxvAAQ2MZZrMMrTSZIGyAgFfw6yC/8vv7jLWOkUqdju
+         Gx0H3AF4SNIswjodbGntJ7xU5ML0HqKs1rpA0tVbkb4JyTKamV7PPFgQUzG001f8sbgb
+         QZnA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1739233246; x=1739838046;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=f6fO6ENk+/6RJwbHFhohh2LYSGPeGtLq21Tc4JEEd0s=;
+        b=OZLo5qeJg6dVyxLqYojOCB2wozDniAvrj/2xlXIkYHmKeYCkJIZ+E7z+Agg8dkBp+2
+         f8cc2nCt2DHbc6NHVuwDeflptfYBz3Ng479naQAmmIZn/r/u/aI6sUvYz9zOj6iHvv0i
+         rXjuZR4/hUIxSRogj+mtTNZ3Yz6gyzm4cKe+tVU9Krgt2VTqRtwKm8gkprukWj5ntbc2
+         LjqUUFThKrhSKniQGOwbi5NsyPF6KhBTdOPbKBQ3bSZdZxEU1XRcB779s1GR+FTEsQRk
+         u8GKU67mqsdp4/LpFryh9eK1fO9VXOcpU0YnuhdeifRJeIpGYco5j6nlbp0L7mFKLIjq
+         dc+A==
+X-Forwarded-Encrypted: i=1; AJvYcCWdiZ/GmBkRUbVxjZxWtjClGAyfS7jxJHVaFsPP5yOovppWNwUkt9Cd/nzU2VyF7O6K1OXPK5ApdVBuiA==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxg/93zy2X+6nZpWqajgAIYDkVYyN08dGweeLERXiU/mqU2j0nL
+	mcbvnEJDSDMXWDVGlAt5Jn97AnSVbrwzAJDdPR9LV7QCUuTso/Ah9jfXaVspxG8=
+X-Gm-Gg: ASbGncvlqvCifslQw/M6gnBYPK1I7TmmNrSxugIZIP2lBZMWMLS+Re18hNXJrysBJS2
+	AIkT8VFdP0bte+EB9zlLzrT941gMICYA+QWYsvNgdes7X0UzDQVFsQ46iYtMuM2UX1Eqn0eKOKD
+	h/sVIgqM7Dk/l3/TgT7FcreGH4Maf4Hw4ua9QH4OKjjTFX5PfNmoFB82/1IudaDbS+phBqAqV9X
+	pEUDLh5iCC9MTduOOXLd1WpNcEurGbEo0gZR64fiAXj8i+g+PFmBKuht9ubZ3CF+bsY8SbuyhQa
+	jS8=
+X-Google-Smtp-Source: AGHT+IEgCF8HyG8asrx19RO4/BfI2121j03BDe3RR1UsBBXC3q3qfBJKowis2DMzSxDhdyfGfdvrSA==
+X-Received: by 2002:a05:690c:4b8f:b0:6f9:4f93:c805 with SMTP id 00721157ae682-6f9b287bafamr146119417b3.21.1739233245476;
+        Mon, 10 Feb 2025 16:20:45 -0800 (PST)
+Received: from ghost ([50.146.0.9])
+        by smtp.gmail.com with ESMTPSA id 00721157ae682-6f99ff6a903sm18915387b3.84.2025.02.10.16.20.44
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 10 Feb 2025 16:20:44 -0800 (PST)
+Date: Mon, 10 Feb 2025 16:20:42 -0800
+From: Charlie Jenkins <charlie@rivosinc.com>
+To: Ian Rogers <irogers@google.com>
+Cc: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>,
+	Arnaldo Carvalho de Melo <acme@kernel.org>,
+	Namhyung Kim <namhyung@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	Jiri Olsa <jolsa@kernel.org>,
+	Adrian Hunter <adrian.hunter@intel.com>,
+	Kan Liang <kan.liang@linux.intel.com>,
+	John Garry <john.g.garry@oracle.com>, Will Deacon <will@kernel.org>,
+	James Clark <james.clark@linaro.org>,
+	Mike Leach <mike.leach@linaro.org>, Leo Yan <leo.yan@linux.dev>,
+	Guo Ren <guoren@kernel.org>,
 	Paul Walmsley <paul.walmsley@sifive.com>,
-	Maxim Levitsky <mlevitsk@redhat.com>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Bjorn Helgaas <bhelgaas@google.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	kvmarm@lists.linux.dev,
-	Alexander Potapenko <glider@google.com>,
-	x86@kernel.org,
-	Sean Christopherson <seanjc@google.com>,
-	Anup Patel <anup@brainfault.org>,
-	Kunkun Jiang <jiangkunkun@huawei.com>,
-	Atish Patra <atishp@atishpatra.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Bibo Mao <maobibo@loongson.cn>,
+	Arnd Bergmann <arnd@arndb.de>, Huacai Chen <chenhuacai@kernel.org>,
 	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Borislav Petkov <bp@alien8.de>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	"H. Peter Anvin" <hpa@zytor.com>
-Subject: [PATCH 2/3] KVM: arm64: switch to using kvm_lock/unlock_all_vcpus
-Date: Mon, 10 Feb 2025 19:09:16 -0500
-Message-Id: <20250211000917.166856-3-mlevitsk@redhat.com>
-In-Reply-To: <20250211000917.166856-1-mlevitsk@redhat.com>
-References: <20250211000917.166856-1-mlevitsk@redhat.com>
+	Jiri Slaby <jirislaby@kernel.org>,
+	=?iso-8859-1?Q?Bj=F6rn_T=F6pel?= <bjorn@rivosinc.com>,
+	Howard Chu <howardchu95@gmail.com>, linux-kernel@vger.kernel.org,
+	linux-perf-users@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-csky@vger.kernel.org,
+	linux-riscv@lists.infradead.org
+Subject: Re: [PATCH v2 4/7] perf thread: Add support for reading the
+ e_machine type for a thread
+Message-ID: <Z6qX2gUQpdSkG253@ghost>
+References: <20250210165108.95894-1-irogers@google.com>
+ <20250210165108.95894-5-irogers@google.com>
 MIME-Version: 1.0
-X-Scanned-By: MIMEDefang 3.0 on 10.30.177.40
+Content-Disposition: inline
+In-Reply-To: <20250210165108.95894-5-irogers@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250211_001111_694972_3C7A5887 
-X-CRM114-Status: GOOD (  18.02  )
+X-CRM114-CacheID: sfid-20250210_162046_878305_11CC1213 
+X-CRM114-Status: GOOD (  30.28  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -137,294 +120,242 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Switch to kvm_lock/unlock_all_vcpus instead of arm's own
-version.
+On Mon, Feb 10, 2025 at 08:51:05AM -0800, Ian Rogers wrote:
+> Use the executable from /proc/pid/exe and read the e_machine from the
+> ELF header. On failure use EM_HOST. Change builtin-trace syscall
+> functions to pass e_machine from the thread rather than EM_HOST, so
+> that in later patches when syscalltbl can use the e_machine the system
+> calls are specific to the architecture.
 
-This fixes lockdep warning about reaching maximum lock depth:
+Reviewed-by: Charlie Jenkins <charlie@rivosinc.com>
+Tested-by: Charlie Jenkins <charlie@rivosinc.com>
 
-[  328.171264] BUG: MAX_LOCK_DEPTH too low!
-[  328.175227] turning off the locking correctness validator.
-[  328.180726] Please attach the output of /proc/lock_stat to the bug report
-[  328.187531] depth: 48  max: 48!
-[  328.190678] 48 locks held by qemu-kvm/11664:
-[  328.194957]  #0: ffff800086de5ba0 (&kvm->lock){+.+.}-{3:3}, at: kvm_ioctl_create_device+0x174/0x5b0
-[  328.204048]  #1: ffff0800e78800b8 (&vcpu->mutex){+.+.}-{3:3}, at: lock_all_vcpus+0x16c/0x2a0
-[  328.212521]  #2: ffff07ffeee51e98 (&vcpu->mutex){+.+.}-{3:3}, at: lock_all_vcpus+0x16c/0x2a0
-[  328.220991]  #3: ffff0800dc7d80b8 (&vcpu->mutex){+.+.}-{3:3}, at: lock_all_vcpus+0x16c/0x2a0
-[  328.229463]  #4: ffff07ffe0c980b8 (&vcpu->mutex){+.+.}-{3:3}, at: lock_all_vcpus+0x16c/0x2a0
-[  328.237934]  #5: ffff0800a3883c78 (&vcpu->mutex){+.+.}-{3:3}, at: lock_all_vcpus+0x16c/0x2a0
-[  328.246405]  #6: ffff07fffbe480b8 (&vcpu->mutex){+.+.}-{3:3}, at: lock_all_vcpus+0x16c/0x2a0
-
-No functional change intended.
-
-Suggested-by: Paolo Bonzini <pbonzini@redhat.com>
-Signed-off-by: Maxim Levitsky <mlevitsk@redhat.com>
----
- arch/arm64/include/asm/kvm_host.h     |  3 ---
- arch/arm64/kvm/arch_timer.c           |  8 +++----
- arch/arm64/kvm/arm.c                  | 32 ---------------------------
- arch/arm64/kvm/vgic/vgic-init.c       | 11 +++++----
- arch/arm64/kvm/vgic/vgic-its.c        | 18 ++++++++-------
- arch/arm64/kvm/vgic/vgic-kvm-device.c | 21 ++++++++++--------
- 6 files changed, 33 insertions(+), 60 deletions(-)
-
-diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
-index 7cfa024de4e3..bba97ea700ca 100644
---- a/arch/arm64/include/asm/kvm_host.h
-+++ b/arch/arm64/include/asm/kvm_host.h
-@@ -1234,9 +1234,6 @@ int __init populate_sysreg_config(const struct sys_reg_desc *sr,
- 				  unsigned int idx);
- int __init populate_nv_trap_config(void);
- 
--bool lock_all_vcpus(struct kvm *kvm);
--void unlock_all_vcpus(struct kvm *kvm);
--
- void kvm_calculate_traps(struct kvm_vcpu *vcpu);
- 
- /* MMIO helpers */
-diff --git a/arch/arm64/kvm/arch_timer.c b/arch/arm64/kvm/arch_timer.c
-index 231c0cd9c7b4..3af1da807f9c 100644
---- a/arch/arm64/kvm/arch_timer.c
-+++ b/arch/arm64/kvm/arch_timer.c
-@@ -1769,7 +1769,9 @@ int kvm_vm_ioctl_set_counter_offset(struct kvm *kvm,
- 
- 	mutex_lock(&kvm->lock);
- 
--	if (lock_all_vcpus(kvm)) {
-+	ret = kvm_lock_all_vcpus(kvm);
-+
-+	if (!ret) {
- 		set_bit(KVM_ARCH_FLAG_VM_COUNTER_OFFSET, &kvm->arch.flags);
- 
- 		/*
-@@ -1781,9 +1783,7 @@ int kvm_vm_ioctl_set_counter_offset(struct kvm *kvm,
- 		kvm->arch.timer_data.voffset = offset->counter_offset;
- 		kvm->arch.timer_data.poffset = offset->counter_offset;
- 
--		unlock_all_vcpus(kvm);
--	} else {
--		ret = -EBUSY;
-+		kvm_unlock_all_vcpus(kvm);
- 	}
- 
- 	mutex_unlock(&kvm->lock);
-diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
-index 071a7d75be68..f58849c5b4f0 100644
---- a/arch/arm64/kvm/arm.c
-+++ b/arch/arm64/kvm/arm.c
-@@ -1895,38 +1895,6 @@ static void unlock_vcpus(struct kvm *kvm, int vcpu_lock_idx)
- 	}
- }
- 
--void unlock_all_vcpus(struct kvm *kvm)
--{
--	lockdep_assert_held(&kvm->lock);
--
--	unlock_vcpus(kvm, atomic_read(&kvm->online_vcpus) - 1);
--}
--
--/* Returns true if all vcpus were locked, false otherwise */
--bool lock_all_vcpus(struct kvm *kvm)
--{
--	struct kvm_vcpu *tmp_vcpu;
--	unsigned long c;
--
--	lockdep_assert_held(&kvm->lock);
--
--	/*
--	 * Any time a vcpu is in an ioctl (including running), the
--	 * core KVM code tries to grab the vcpu->mutex.
--	 *
--	 * By grabbing the vcpu->mutex of all VCPUs we ensure that no
--	 * other VCPUs can fiddle with the state while we access it.
--	 */
--	kvm_for_each_vcpu(c, tmp_vcpu, kvm) {
--		if (!mutex_trylock(&tmp_vcpu->mutex)) {
--			unlock_vcpus(kvm, c - 1);
--			return false;
--		}
--	}
--
--	return true;
--}
--
- static unsigned long nvhe_percpu_size(void)
- {
- 	return (unsigned long)CHOOSE_NVHE_SYM(__per_cpu_end) -
-diff --git a/arch/arm64/kvm/vgic/vgic-init.c b/arch/arm64/kvm/vgic/vgic-init.c
-index bc7e22ab5d81..8fbce4db5c2e 100644
---- a/arch/arm64/kvm/vgic/vgic-init.c
-+++ b/arch/arm64/kvm/vgic/vgic-init.c
-@@ -85,8 +85,8 @@ int kvm_vgic_create(struct kvm *kvm, u32 type)
- 	/* Must be held to avoid race with vCPU creation */
- 	lockdep_assert_held(&kvm->lock);
- 
--	ret = -EBUSY;
--	if (!lock_all_vcpus(kvm))
-+	ret = kvm_lock_all_vcpus(kvm);
-+	if (ret)
- 		return ret;
- 
- 	mutex_lock(&kvm->arch.config_lock);
-@@ -97,9 +97,12 @@ int kvm_vgic_create(struct kvm *kvm, u32 type)
- 	}
- 
- 	kvm_for_each_vcpu(i, vcpu, kvm) {
--		if (vcpu_has_run_once(vcpu))
-+		if (vcpu_has_run_once(vcpu)) {
-+			ret = -EBUSY;
- 			goto out_unlock;
-+		}
- 	}
-+
- 	ret = 0;
- 
- 	if (type == KVM_DEV_TYPE_ARM_VGIC_V2)
-@@ -124,7 +127,7 @@ int kvm_vgic_create(struct kvm *kvm, u32 type)
- 
- out_unlock:
- 	mutex_unlock(&kvm->arch.config_lock);
--	unlock_all_vcpus(kvm);
-+	kvm_unlock_all_vcpus(kvm);
- 	return ret;
- }
- 
-diff --git a/arch/arm64/kvm/vgic/vgic-its.c b/arch/arm64/kvm/vgic/vgic-its.c
-index fb96802799c6..02b02b4fff5d 100644
---- a/arch/arm64/kvm/vgic/vgic-its.c
-+++ b/arch/arm64/kvm/vgic/vgic-its.c
-@@ -1977,7 +1977,7 @@ static int vgic_its_attr_regs_access(struct kvm_device *dev,
- 	struct vgic_its *its;
- 	gpa_t addr, offset;
- 	unsigned int len;
--	int align, ret = 0;
-+	int align, ret;
- 
- 	its = dev->private;
- 	offset = attr->attr;
-@@ -1999,9 +1999,10 @@ static int vgic_its_attr_regs_access(struct kvm_device *dev,
- 
- 	mutex_lock(&dev->kvm->lock);
- 
--	if (!lock_all_vcpus(dev->kvm)) {
-+	ret = kvm_lock_all_vcpus(sdev->kvm);
-+	if (ret) {
- 		mutex_unlock(&dev->kvm->lock);
--		return -EBUSY;
-+		return ret;
- 	}
- 
- 	mutex_lock(&dev->kvm->arch.config_lock);
-@@ -2034,7 +2035,7 @@ static int vgic_its_attr_regs_access(struct kvm_device *dev,
- 	}
- out:
- 	mutex_unlock(&dev->kvm->arch.config_lock);
--	unlock_all_vcpus(dev->kvm);
-+	kvm_unlock_all_vcpus(dev->kvm);
- 	mutex_unlock(&dev->kvm->lock);
- 	return ret;
- }
-@@ -2697,16 +2698,17 @@ static int vgic_its_has_attr(struct kvm_device *dev,
- static int vgic_its_ctrl(struct kvm *kvm, struct vgic_its *its, u64 attr)
- {
- 	const struct vgic_its_abi *abi = vgic_its_get_abi(its);
--	int ret = 0;
-+	int ret;
- 
- 	if (attr == KVM_DEV_ARM_VGIC_CTRL_INIT) /* Nothing to do */
- 		return 0;
- 
- 	mutex_lock(&kvm->lock);
- 
--	if (!lock_all_vcpus(kvm)) {
-+	ret = kvm_lock_all_vcpus(kvm);
-+	if (ret) {
- 		mutex_unlock(&kvm->lock);
--		return -EBUSY;
-+		return ret;
- 	}
- 
- 	mutex_lock(&kvm->arch.config_lock);
-@@ -2726,7 +2728,7 @@ static int vgic_its_ctrl(struct kvm *kvm, struct vgic_its *its, u64 attr)
- 
- 	mutex_unlock(&its->its_lock);
- 	mutex_unlock(&kvm->arch.config_lock);
--	unlock_all_vcpus(kvm);
-+	kvm_unlock_all_vcpus(kvm);
- 	mutex_unlock(&kvm->lock);
- 	return ret;
- }
-diff --git a/arch/arm64/kvm/vgic/vgic-kvm-device.c b/arch/arm64/kvm/vgic/vgic-kvm-device.c
-index 5f4f57aaa23e..ee70a9d642ed 100644
---- a/arch/arm64/kvm/vgic/vgic-kvm-device.c
-+++ b/arch/arm64/kvm/vgic/vgic-kvm-device.c
-@@ -268,15 +268,16 @@ static int vgic_set_common_attr(struct kvm_device *dev,
- 				return -ENXIO;
- 			mutex_lock(&dev->kvm->lock);
- 
--			if (!lock_all_vcpus(dev->kvm)) {
-+			r = kvm_lock_all_vcpus(dev->kvm);
-+			if (r) {
- 				mutex_unlock(&dev->kvm->lock);
--				return -EBUSY;
-+				return r;
- 			}
- 
- 			mutex_lock(&dev->kvm->arch.config_lock);
- 			r = vgic_v3_save_pending_tables(dev->kvm);
- 			mutex_unlock(&dev->kvm->arch.config_lock);
--			unlock_all_vcpus(dev->kvm);
-+			kvm_unlock_all_vcpus(dev->kvm);
- 			mutex_unlock(&dev->kvm->lock);
- 			return r;
- 		}
-@@ -384,9 +385,10 @@ static int vgic_v2_attr_regs_access(struct kvm_device *dev,
- 
- 	mutex_lock(&dev->kvm->lock);
- 
--	if (!lock_all_vcpus(dev->kvm)) {
-+	ret = kvm_lock_all_vcpus(dev->kvm);
-+	if (ret) {
- 		mutex_unlock(&dev->kvm->lock);
--		return -EBUSY;
-+		return ret;
- 	}
- 
- 	mutex_lock(&dev->kvm->arch.config_lock);
-@@ -409,7 +411,7 @@ static int vgic_v2_attr_regs_access(struct kvm_device *dev,
- 
- out:
- 	mutex_unlock(&dev->kvm->arch.config_lock);
--	unlock_all_vcpus(dev->kvm);
-+	kvm_unlock_all_vcpus(dev->kvm);
- 	mutex_unlock(&dev->kvm->lock);
- 
- 	if (!ret && !is_write)
-@@ -545,9 +547,10 @@ static int vgic_v3_attr_regs_access(struct kvm_device *dev,
- 
- 	mutex_lock(&dev->kvm->lock);
- 
--	if (!lock_all_vcpus(dev->kvm)) {
-+	ret = kvm_lock_all_vcpus(dev->kvm);
-+	if (ret) {
- 		mutex_unlock(&dev->kvm->lock);
--		return -EBUSY;
-+		return ret;
- 	}
- 
- 	mutex_lock(&dev->kvm->arch.config_lock);
-@@ -589,7 +592,7 @@ static int vgic_v3_attr_regs_access(struct kvm_device *dev,
- 
- out:
- 	mutex_unlock(&dev->kvm->arch.config_lock);
--	unlock_all_vcpus(dev->kvm);
-+	kvm_unlock_all_vcpus(dev->kvm);
- 	mutex_unlock(&dev->kvm->lock);
- 
- 	if (!ret && uaccess && !is_write) {
--- 
-2.26.3
-
+> 
+> Signed-off-by: Ian Rogers <irogers@google.com>
+> Reviewed-by: Howard Chu <howardchu95@gmail.com>
+> ---
+>  tools/perf/builtin-trace.c | 41 ++++++++++++++++---------------
+>  tools/perf/util/thread.c   | 50 ++++++++++++++++++++++++++++++++++++++
+>  tools/perf/util/thread.h   | 14 ++++++++++-
+>  3 files changed, 85 insertions(+), 20 deletions(-)
+> 
+> diff --git a/tools/perf/builtin-trace.c b/tools/perf/builtin-trace.c
+> index 4b77c2ab3dba..1ae609555018 100644
+> --- a/tools/perf/builtin-trace.c
+> +++ b/tools/perf/builtin-trace.c
+> @@ -2678,16 +2678,17 @@ static int trace__sys_enter(struct trace *trace, struct evsel *evsel,
+>  	int printed = 0;
+>  	struct thread *thread;
+>  	int id = perf_evsel__sc_tp_uint(evsel, id, sample), err = -1;
+> -	int augmented_args_size = 0;
+> +	int augmented_args_size = 0, e_machine;
+>  	void *augmented_args = NULL;
+>  	/* TODO: get e_machine from thread. */
+> -	struct syscall *sc = trace__syscall_info(trace, evsel, EM_HOST, id);
+> +	struct syscall *sc;
+>  	struct thread_trace *ttrace;
+>  
+> -	if (sc == NULL)
+> -		return -1;
+> -
+>  	thread = machine__findnew_thread(trace->host, sample->pid, sample->tid);
+> +	e_machine = thread__e_machine(thread, trace->host);
+> +	sc = trace__syscall_info(trace, evsel, e_machine, id);
+> +	if (sc == NULL)
+> +		goto out_put;
+>  	ttrace = thread__trace(thread, trace->output);
+>  	if (ttrace == NULL)
+>  		goto out_put;
+> @@ -2756,16 +2757,18 @@ static int trace__fprintf_sys_enter(struct trace *trace, struct evsel *evsel,
+>  	struct thread *thread;
+>  	int id = perf_evsel__sc_tp_uint(evsel, id, sample), err = -1;
+>  	/* TODO: get e_machine from thread. */
+> -	struct syscall *sc = trace__syscall_info(trace, evsel, EM_HOST, id);
+> +	struct syscall *sc;
+>  	char msg[1024];
+>  	void *args, *augmented_args = NULL;
+> -	int augmented_args_size;
+> +	int augmented_args_size, e_machine;
+>  	size_t printed = 0;
+>  
+> -	if (sc == NULL)
+> -		return -1;
+>  
+>  	thread = machine__findnew_thread(trace->host, sample->pid, sample->tid);
+> +	e_machine = thread__e_machine(thread, trace->host);
+> +	sc = trace__syscall_info(trace, evsel, e_machine, id);
+> +	if (sc == NULL)
+> +		return -1;
+>  	ttrace = thread__trace(thread, trace->output);
+>  	/*
+>  	 * We need to get ttrace just to make sure it is there when syscall__scnprintf_args()
+> @@ -2830,15 +2833,15 @@ static int trace__sys_exit(struct trace *trace, struct evsel *evsel,
+>  	bool duration_calculated = false;
+>  	struct thread *thread;
+>  	int id = perf_evsel__sc_tp_uint(evsel, id, sample), err = -1, callchain_ret = 0, printed = 0;
+> -	int alignment = trace->args_alignment;
+> -	/* TODO: get e_machine from thread. */
+> -	struct syscall *sc = trace__syscall_info(trace, evsel, EM_HOST, id);
+> +	int alignment = trace->args_alignment, e_machine;
+> +	struct syscall *sc;
+>  	struct thread_trace *ttrace;
+>  
+> -	if (sc == NULL)
+> -		return -1;
+> -
+>  	thread = machine__findnew_thread(trace->host, sample->pid, sample->tid);
+> +	e_machine = thread__e_machine(thread, trace->host);
+> +	sc = trace__syscall_info(trace, evsel, e_machine, id);
+> +	if (sc == NULL)
+> +		goto out_put;
+>  	ttrace = thread__trace(thread, trace->output);
+>  	if (ttrace == NULL)
+>  		goto out_put;
+> @@ -3185,8 +3188,8 @@ static int trace__event_handler(struct trace *trace, struct evsel *evsel,
+>  
+>  	if (evsel == trace->syscalls.events.bpf_output) {
+>  		int id = perf_evsel__sc_tp_uint(evsel, id, sample);
+> -		/* TODO: get e_machine from thread. */
+> -		struct syscall *sc = trace__syscall_info(trace, evsel, EM_HOST, id);
+> +		int e_machine = thread ? thread__e_machine(thread, trace->host) : EM_HOST;
+> +		struct syscall *sc = trace__syscall_info(trace, evsel, e_machine, id);
+>  
+>  		if (sc) {
+>  			fprintf(trace->output, "%s(", sc->name);
+> @@ -4764,6 +4767,7 @@ static size_t trace__fprintf_thread(FILE *fp, struct thread *thread, struct trac
+>  {
+>  	size_t printed = 0;
+>  	struct thread_trace *ttrace = thread__priv(thread);
+> +	int e_machine = thread__e_machine(thread, trace->host);
+>  	double ratio;
+>  
+>  	if (ttrace == NULL)
+> @@ -4783,8 +4787,7 @@ static size_t trace__fprintf_thread(FILE *fp, struct thread *thread, struct trac
+>  	else if (fputc('\n', fp) != EOF)
+>  		++printed;
+>  
+> -	/* TODO: get e_machine from thread. */
+> -	printed += thread__dump_stats(ttrace, trace, EM_HOST, fp);
+> +	printed += thread__dump_stats(ttrace, trace, e_machine, fp);
+>  
+>  	return printed;
+>  }
+> diff --git a/tools/perf/util/thread.c b/tools/perf/util/thread.c
+> index 0ffdd52d86d7..a07446a280ed 100644
+> --- a/tools/perf/util/thread.c
+> +++ b/tools/perf/util/thread.c
+> @@ -1,5 +1,7 @@
+>  // SPDX-License-Identifier: GPL-2.0
+> +#include <elf.h>
+>  #include <errno.h>
+> +#include <fcntl.h>
+>  #include <stdlib.h>
+>  #include <stdio.h>
+>  #include <string.h>
+> @@ -16,6 +18,7 @@
+>  #include "symbol.h"
+>  #include "unwind.h"
+>  #include "callchain.h"
+> +#include "dwarf-regs.h"
+>  
+>  #include <api/fs/fs.h>
+>  
+> @@ -51,6 +54,7 @@ struct thread *thread__new(pid_t pid, pid_t tid)
+>  		thread__set_ppid(thread, -1);
+>  		thread__set_cpu(thread, -1);
+>  		thread__set_guest_cpu(thread, -1);
+> +		thread__set_e_machine(thread, EM_NONE);
+>  		thread__set_lbr_stitch_enable(thread, false);
+>  		INIT_LIST_HEAD(thread__namespaces_list(thread));
+>  		INIT_LIST_HEAD(thread__comm_list(thread));
+> @@ -423,6 +427,52 @@ void thread__find_cpumode_addr_location(struct thread *thread, u64 addr,
+>  	}
+>  }
+>  
+> +static uint16_t read_proc_e_machine_for_pid(pid_t pid)
+> +{
+> +	char path[6 /* "/proc/" */ + 11 /* max length of pid */ + 5 /* "/exe\0" */];
+> +	int fd;
+> +	uint16_t e_machine = EM_NONE;
+> +
+> +	snprintf(path, sizeof(path), "/proc/%d/exe", pid);
+> +	fd = open(path, O_RDONLY);
+> +	if (fd >= 0) {
+> +		_Static_assert(offsetof(Elf32_Ehdr, e_machine) == 18, "Unexpected offset");
+> +		_Static_assert(offsetof(Elf64_Ehdr, e_machine) == 18, "Unexpected offset");
+> +		if (pread(fd, &e_machine, sizeof(e_machine), 18) != sizeof(e_machine))
+> +			e_machine = EM_NONE;
+> +		close(fd);
+> +	}
+> +	return e_machine;
+> +}
+> +
+> +uint16_t thread__e_machine(struct thread *thread, struct machine *machine)
+> +{
+> +	pid_t tid, pid;
+> +	uint16_t e_machine = RC_CHK_ACCESS(thread)->e_machine;
+> +
+> +	if (e_machine != EM_NONE)
+> +		return e_machine;
+> +
+> +	tid = thread__tid(thread);
+> +	pid = thread__pid(thread);
+> +	if (pid != tid) {
+> +		struct thread *parent = machine__findnew_thread(machine, pid, pid);
+> +
+> +		if (parent) {
+> +			e_machine = thread__e_machine(parent, machine);
+> +			thread__set_e_machine(thread, e_machine);
+> +			return e_machine;
+> +		}
+> +		/* Something went wrong, fallback. */
+> +	}
+> +	e_machine = read_proc_e_machine_for_pid(pid);
+> +	if (e_machine != EM_NONE)
+> +		thread__set_e_machine(thread, e_machine);
+> +	else
+> +		e_machine = EM_HOST;
+> +	return e_machine;
+> +}
+> +
+>  struct thread *thread__main_thread(struct machine *machine, struct thread *thread)
+>  {
+>  	if (thread__pid(thread) == thread__tid(thread))
+> diff --git a/tools/perf/util/thread.h b/tools/perf/util/thread.h
+> index 6cbf6eb2812e..cd574a896418 100644
+> --- a/tools/perf/util/thread.h
+> +++ b/tools/perf/util/thread.h
+> @@ -60,7 +60,11 @@ DECLARE_RC_STRUCT(thread) {
+>  	struct srccode_state	srccode_state;
+>  	bool			filter;
+>  	int			filter_entry_depth;
+> -
+> +	/**
+> +	 * @e_machine: The ELF EM_* associated with the thread. EM_NONE if not
+> +	 * computed.
+> +	 */
+> +	uint16_t		e_machine;
+>  	/* LBR call stack stitch */
+>  	bool			lbr_stitch_enable;
+>  	struct lbr_stitch	*lbr_stitch;
+> @@ -302,6 +306,14 @@ static inline void thread__set_filter_entry_depth(struct thread *thread, int dep
+>  	RC_CHK_ACCESS(thread)->filter_entry_depth = depth;
+>  }
+>  
+> +uint16_t thread__e_machine(struct thread *thread, struct machine *machine);
+> +
+> +static inline void thread__set_e_machine(struct thread *thread, uint16_t e_machine)
+> +{
+> +	RC_CHK_ACCESS(thread)->e_machine = e_machine;
+> +}
+> +
+> +
+>  static inline bool thread__lbr_stitch_enable(const struct thread *thread)
+>  {
+>  	return RC_CHK_ACCESS(thread)->lbr_stitch_enable;
+> -- 
+> 2.48.1.502.g6dc24dfdaf-goog
+> 
 
 _______________________________________________
 linux-riscv mailing list
