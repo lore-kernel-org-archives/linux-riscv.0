@@ -4,85 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 401EEC021A6
-	for <linux-riscv@archiver.kernel.org>; Tue, 11 Feb 2025 17:43:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29438C021A2
+	for <linux-riscv@archiver.kernel.org>; Tue, 11 Feb 2025 17:43:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=l9/IxuHA9zk9ciG979uHgrlceIPXAIu+R0xMkZS5xyU=; b=HWDxGJuQo7Qdxe
-	ZHPXAXU1/OfQXjLNcwyF+Vo2dRaVdCNxHVwmWZOLShSGYJWpLRhBmJ4pf/zhtcYiwbEtTY0DoaF2B
-	1ovIcWiT5ASx05rVJHroFCqBUis1wAtBcLrApL8Yz2MhnMlSlbyNk5Elr8wthqr9T/4DWmBbnGDuq
-	fK98vXSsQrcWsosFMCLus6ajHt7tVWqG0c8uONFv9GMH8zo5z9gc5naIwVp6K1nnBmuUkSMCBPCEB
-	dFfFTUeTek2sTLU9OGy0VmDghBeH961/Uszno3/i65rysXo68nZmfxNimo2P96iSUiAKQq3+vcW/q
-	PlEw8bRJdJbXg1jSP2Tw==;
+	List-Owner; bh=kQ0ZHXAEwiLZP9Za0/vM0+s4mRa9I1TZ3OdMNGmjNyk=; b=ZeC+QfQdi1gAXZ
+	ZeLbviQCKMj6FCLgoD056DmOMnYTqzY9jASSQy5vR5Dd8gTyz04lKZTimQT9FxjkQpSCQrt50Labz
+	IhroNTboaeykFNlse5z1OhQBHMM0CmTSY2Dz2dux2JyxsSoYl/qNTPwAvnL8hhXj0gnOxteJpZEOg
+	zvldM5tN0Av5ViGHaei+W7roOImKK5b4PxswD282/mDuED1c+QUBpnNIXSdRKvdaltJ6Y/vURsH8Q
+	CLnqXcq3vXUmtw91JHjIxUlQ+CultN/g/hzpHGI/+xYqNmUrQPhhO6erUCaPGY0lOutpbQABc+jy2
+	iQqgk3Ceitz8p1svZOFg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1thuHf-00000004iLm-2rIa;
-	Tue, 11 Feb 2025 17:42:55 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1thuHh-00000004iNm-0kPH;
+	Tue, 11 Feb 2025 17:42:57 +0000
+Received: from mail-wm1-x329.google.com ([2a00:1450:4864:20::329])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1thu3r-00000004g50-2EVV
-	for linux-riscv@bombadil.infradead.org;
-	Tue, 11 Feb 2025 17:28:39 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=gDYe4zVCJHl1J7zmO8YwQPUsImFhukXxkzdj3E5Ja/8=; b=NuSbI+KePqRYR4fg7ZycdsRzyQ
-	vKg+zH5NRCT7WvECMf5Xz21FqtLXoR85OwrrY0nN3itd+fxjbMQiVZeNXU0DLC1mVjpCfhzSGaFOu
-	XBlHCx8WvqmS/aZ0BtrgCBJOf3hnXgSIW38mKH30QhADEKgJouwLlogc3JvtDI4GzQ8Xzs6B4sdxS
-	CABOqb/mchV6lTCv+V77+oQZobbdUjwqoNheke5rZRo2uNfDGk9FHqxFqlo5jKOMQJVuTQYjGxXvI
-	zdHhprAkSYcrG6aFlmy8xJe5PrGOyrnOU1zY1y0HXHAEdqN/qGEwukT8ir+hTy64Bj4PO5+G2Jjw3
-	bt8wdt5Q==;
-Received: from mail-wm1-x32c.google.com ([2a00:1450:4864:20::32c])
-	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1thu3o-00000000eMP-3F9p
+	id 1thu3q-00000004g3V-2ChV
 	for linux-riscv@lists.infradead.org;
-	Tue, 11 Feb 2025 17:28:38 +0000
-Received: by mail-wm1-x32c.google.com with SMTP id 5b1f17b1804b1-4364a37a1d7so58130945e9.3
-        for <linux-riscv@lists.infradead.org>; Tue, 11 Feb 2025 09:28:35 -0800 (PST)
+	Tue, 11 Feb 2025 17:28:39 +0000
+Received: by mail-wm1-x329.google.com with SMTP id 5b1f17b1804b1-43956e3863eso4843625e9.2
+        for <linux-riscv@lists.infradead.org>; Tue, 11 Feb 2025 09:28:38 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1739294914; x=1739899714; darn=lists.infradead.org;
+        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1739294917; x=1739899717; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=gDYe4zVCJHl1J7zmO8YwQPUsImFhukXxkzdj3E5Ja/8=;
-        b=pH4t7sq4Y0TeOoc8wSeymrHIvLWRkUXSjdvDRlUWydnvJ1IFJaVVP3/mNsdg66BCrp
-         3SicsHB8O4NqsOhZjf9E4xIEhbsM+Cx7w0Cy1RQGIw0LxZXOuZS/3hg/crWoT1/rEaci
-         5+TR7dTQgCaM/DmMneGkVRutUKldGubeAKrLSiSHNI8tDGXqSSVYRhF4KzFP798lQV3L
-         4IHQJfKIJVGhqZ5eo3uW9lCuNaJks3/qZpN7Wd3q/7zGDxk4a+rxE4H+FdbDEctHM/xg
-         JuDXd9J42dxyeszymfVQc5kqdjdiLoclQmq7F8Jb3LZZfYzFro2NQ/3LgmSL2GcyC1li
-         tbgQ==
+        bh=q9bx0I47Tn6bEo7jRo7TyxG1K/HAB+sHkf2wm2VOOzI=;
+        b=M9eslVNiuSWjDC6qyh+ekVKLJnkNY5lvm4kSXg0GJxjjfJAaR7jbHKogInq5flS+cJ
+         rbFqIeLot5PI5JMrXjGT1hpmOpzejJ0trjkacm+MJn//vKoRYb1AcuW6Ql0BXgMSXfRG
+         IfiETNmSdMMlcZov96DbLQXT/boYE52yYwXW40cXq+mBTQEENlavqgikIBYdcDwA1uqs
+         3GRUnU2rFthkMrsRNWaPxjOw6YngEHkrkn2lZrHWOMbjgm/kB1UqadkYcONK3GhxBP8Z
+         9I828T8jWT2jBZcGfUfz0e7o2XFeXqlfjzB7/I9q6uAbs70IxNUX9/AE6KbsgtTboMaP
+         JShg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1739294914; x=1739899714;
+        d=1e100.net; s=20230601; t=1739294917; x=1739899717;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=gDYe4zVCJHl1J7zmO8YwQPUsImFhukXxkzdj3E5Ja/8=;
-        b=Q7FcrexqCCCRLL8K+QvX2fOJ45+1NA9sAbHzkEGsE61cHLQK64Iqgimm0tljqwm4ff
-         iqJzEzdouBZFIRs3pnFSYh1xcaNyV69czD7syfy1aeIQyp9PgZvUd/G+WyJ2QoI9bndq
-         VmN+FNu3r9EqDm4x0+MHpwVizaXemps6PZj8y4B3CJzyjFFakx3SIyfG9tuwWNyKsL9m
-         GKCmt4sebQXQ2Bcb+VwUCRGaQPNLJRVJOppAAJOIRei/DnA1DquYhNCukqudAv8cRNET
-         CVZOYIqZH4A3myC1b3/BL09j7+GB3T6NoWfFe1A7hd6a/6Chgls9Y9VRL4ydowi74Zh1
-         GC4A==
-X-Forwarded-Encrypted: i=1; AJvYcCXEY6W0JYDH+P/378ZkC8WCq9axjMfBSnmGupWHCG7xbIZ4AUsg4s+HEjDB0YdLXSRM+49Gkj7CK8KrNA==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz0mXYBmgMcMiCGwB6EwJmsX6ZggyAQ1wFa2NWYt1CCbFiXVGMf
-	hdtqG+T4hwWAfQc2+YY4z0YT6b01dgItzHtgyMhrw3+dnBeFUM5KtLvZeWJPgp8=
-X-Gm-Gg: ASbGncvvok6q9AtpexzQFG48RVctyE7XW1PzEqTZWpxAEKbCNGI+d2ZS20VIQ08RDBA
-	YDEShaDqlMl3XaXP47QJ70bA6jl2RWSLztK/EDL1Nv/901HHr+ALN/i/fhVhbvg4aHAp+BA7Q0N
-	w3/Yq8prE/4beAHNqVmBksDprwVk+WMZvVpMtNr3DmENjRtAzzj9gMEPAZFKjMhDKQCQFThUss4
-	fYf3GzJye6tubzrxA63O+en7kntgsexADcsDRK+t3NRuX4SO2AdClFIgOh/InPGkVhc23sxhXWg
-	9dVQoqZiAKVZA6REsA==
-X-Google-Smtp-Source: AGHT+IHFkzaOXapiWN4/SxKHetf09scMUxofFapehDhsYxM6Mf+yjBALSpgOHKp7OlGFg6yNQWYZRQ==
-X-Received: by 2002:a5d:5f8b:0:b0:38d:cf33:31a1 with SMTP id ffacd0b85a97d-38de92887dbmr644098f8f.23.1739294914574;
-        Tue, 11 Feb 2025 09:28:34 -0800 (PST)
+        bh=q9bx0I47Tn6bEo7jRo7TyxG1K/HAB+sHkf2wm2VOOzI=;
+        b=GwyAsSE8LUEp52vINZWWBOSikP2AEW0GtlV+0WkRbtxEX8aU0DhYBWIQdDtxJe3pIR
+         +H4/MysNZu3A0orFMsYf8+LUL8bJgFH9LK8NDMLLnfanHGMI1Y6phEl5E7M70Nj3g0L6
+         iP3TUtfEXMfF4ThuF3SY3x6xOiRWlBDd7IiItdzFaUOM/IGhQHNhXF+YJkg0HssyZYtG
+         5Ly4/Xfx8XGAI/CKCJTFEcLJFisqCdXhcEjAsZQF4OXnA9vEfBooyUa/L3QJigIZp2Dd
+         Sq90L+IqPf1Z2qAjV6CEw0rYZ3OZgtiphfJtKZu/gGay7ufg2W+Nimqor4y2j7Y+gvlp
+         GaPA==
+X-Forwarded-Encrypted: i=1; AJvYcCWBQVRbYbtkiJYBlQZDq9NOI4FWyzWDa8sNOV6CwbVSc6vkOSdJ+JcOhs/mWOqeK9N9O8db2/Wa/QhISw==@lists.infradead.org
+X-Gm-Message-State: AOJu0YxF/amw4YiswdZt/mDBf83C8G/4AhIIVB/bRJT3wVI+3VFcGcJq
+	z2+scL+LOzR+K7HnVojcYyKtIwJAefuRNol4zCx6R5S3Oy9U4Xg2QcGALXkH+30=
+X-Gm-Gg: ASbGncuHUqoax+05PgBI9cVk5xz1WKM1burve40NMOKAoROWHFb591nUJqLJ/pxWIaY
+	8hc3YStU8LDqz1ymaMIkePoV+eGKsvj4P6JQe1NGEI83irV8CA3ChLxMaYh59ahxWqjHGgkPSab
+	neok//YbVttX8goR0GVVCyP510D6R2shYXAsK/ovbbaaOzJndjw+HLp3btxkuEkUciNNtvw36v9
+	FDUF+cvaGD5o/a+oA4Pjx5HeXoX/yzdZUGIyL/lNXVjGmFlkEZ13rlEx3D0H9Cnc8H87nQvxioK
+	S7fOspWLdT8GSu6O+Q==
+X-Google-Smtp-Source: AGHT+IFtn7cTk53CsXLOs0ym8l94Gy0ie7XH6W8nO4K/ObG+5/+lrQBGQ0HbQ/z1Qw6bfBt122n8Rw==
+X-Received: by 2002:a5d:5887:0:b0:38d:e3a9:d655 with SMTP id ffacd0b85a97d-38de3a9d75bmr4402306f8f.15.1739294916823;
+        Tue, 11 Feb 2025 09:28:36 -0800 (PST)
 Received: from toaster.lan ([2a01:e0a:3c5:5fb1:fc0c:6c04:7ae0:c5c2])
-        by smtp.googlemail.com with ESMTPSA id ffacd0b85a97d-38dc6c80df2sm13691082f8f.18.2025.02.11.09.28.32
+        by smtp.googlemail.com with ESMTPSA id ffacd0b85a97d-38dc6c80df2sm13691082f8f.18.2025.02.11.09.28.34
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 11 Feb 2025 09:28:34 -0800 (PST)
+        Tue, 11 Feb 2025 09:28:36 -0800 (PST)
 From: Jerome Brunet <jbrunet@baylibre.com>
 To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
 	Dave Ertman <david.m.ertman@intel.com>,
@@ -131,31 +116,31 @@ Cc: Jerome Brunet <jbrunet@baylibre.com>,
 	imx@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
 	linux-amlogic@lists.infradead.org
-Subject: [PATCH v3 4/7] platform: arm64: lenovo-yoga-c630: use the auxiliary device creation helper
-Date: Tue, 11 Feb 2025 18:28:01 +0100
-Message-ID: <20250211-aux-device-create-helper-v3-4-7edb50524909@baylibre.com>
+Subject: [PATCH v3 5/7] clk: eyeq: use the auxiliary device creation helper
+Date: Tue, 11 Feb 2025 18:28:02 +0100
+Message-ID: <20250211-aux-device-create-helper-v3-5-7edb50524909@baylibre.com>
 X-Mailer: git-send-email 2.45.2
 In-Reply-To: <20250211-aux-device-create-helper-v3-0-7edb50524909@baylibre.com>
 References: <20250211-aux-device-create-helper-v3-0-7edb50524909@baylibre.com>
 MIME-Version: 1.0
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2003; i=jbrunet@baylibre.com;
- h=from:subject:message-id; bh=qoSrX8iU6ZsOmDdt2vcxpMmdn8e+H5V+wLsqMb+WXTw=;
- b=owEBbQKS/ZANAwAKAeb8Dxw38tqFAcsmYgBnq4g4/dIaY7N0MjawcCtYO6owHszhAtyjcgr7D
- 3Gd3AdMv6qJAjMEAAEKAB0WIQT04VmuGPP1bV8btxvm/A8cN/LahQUCZ6uIOAAKCRDm/A8cN/La
- hR9uEACtV/xHFmThUeYWuRuZeLIZDjRSGPPZEm0NF1IUEyqMa+/w0GkdSU2I/GhBRDekpL969e+
- flE7DvZyypim/I0FZ9+E91BhWYhmSRaSfH/9/AKcVVKiogJILw22nAQLwHQAU4pI9XrwljjuAbt
- MSgI6Qhm5jlq1GlYCQ/hou9AbHVR9B2Oe4/YFrBkUNxEblpZLIcnrsPVO2FY5baXHpZvJ2k5CAZ
- MSpgdClj9yIkdl580XYiAPYYvwvjElVhwesa1zzt/XSJ1Idm/YRnZRAjDFe/uief6LxhKmzn8Cq
- PTKk6exeDtcsIhy2ONXg2237HCo0rho1EMRdeb/E1B5sDTqLMLKfHFYyvFYva/imfWDg260QPE8
- SB0ucc4PEGbCTcI28Hh+JdOrNP9ChRaJgfsOqR+3qLLQgWYBJ5ScIXYmp0UW91AvMrtqrwf9ySl
- UBWBVpazEhLxSaE9ItQoc2xzaUOqL71se/uZnoCaqvztP8gDdl+8GXSP2/fps5dhBhhCYQi0gi2
- n4q1VatCARnM9Gq2nM8qG9+sE/r+6AOa9faLGrXdf3ZP5y7Z1f9I1TqXigFb/dco4k7vTWAFo3Z
- /tSZVYtq1SnEy4BRJqk9nLxSPeko3sbBy6g+ly8JaELAzWpBynghDBX7iUt8qUwY3k22TI1x6Zi chvp+TE0JiJbh2Q==
+X-Developer-Signature: v=1; a=openpgp-sha256; l=3038; i=jbrunet@baylibre.com;
+ h=from:subject:message-id; bh=aFYZ6uitcWrrRO3QpVWn0nNaiQ1LXsJLRLMMtNT53bw=;
+ b=owEBbQKS/ZANAwAKAeb8Dxw38tqFAcsmYgBnq4g5lkk3cqWgHMP3CCG4BuwFe5C2F3wDshnNy
+ Adoe13MMYqJAjMEAAEKAB0WIQT04VmuGPP1bV8btxvm/A8cN/LahQUCZ6uIOQAKCRDm/A8cN/La
+ hfxOD/9Ov3vQy2nAixWu6Lno5OjamDl9bupksGzUtMDHc3Xnbgp0ZK8iN2OFHVZlt0w267iS/4d
+ 7BXXIUjw9uPxlI6NadJ92+0lsfL6O0LWMo9OmvzB1/x5pZBA+YEREunOSpce9nC20sikciEBxTi
+ rAxg8rwr8ZbHZQdXySHjwnBJQwZC/iPPASuRiiFLp/ifq/OFA4BnF7OEQskN0iU7hG3dGoppKWP
+ bWpN0Ij+Lrk15oMjG8ab6kxJlyfgfETay2YsUbcEO0nXWQ+5USk4ckRfYMdt3al182sK+D3FrRE
+ PFFDpVNKveSTOJEVtRnW1eESzOqeg2fE3VkPAei/faQ0lwxcbDbLcY0UxsCoCxGmYLHN6hhgC5U
+ XuMNecOSpFOMeKJO6vJFQQ0A3eACqbzTC6C3syS5lCJmD50uYrnc9EgYrbePOD3pbuhz9xpuNys
+ ZvepVJNwvwaxXq/ouY7OWTUNzROguqe6owYkGT5o8Bzx14gpbHkorKDg8Yv007gSfVQPEra2XqZ
+ SQ/E9ifTm3uHKHiGZjfpCIQNSXD38akhhCAtt8XKGlSYC11IsLi73ZRanAiq5Exj4o8s3iA/rg0
+ u6tC0ZB/l5f4rEl3yzKymgSCtpn/VsM2fgBmzvPeQsj9wqGXJ4L4L6xeTkVUpxcrmqImB9uxOse KsRdlOtx7sxXS6g==
 X-Developer-Key: i=jbrunet@baylibre.com; a=openpgp; fpr=F29F26CF27BAE1A9719AE6BDC3C92AAF3E60AED9
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250211_172836_894657_F2A5573D 
-X-CRM114-Status: GOOD (  12.31  )
+X-CRM114-CacheID: sfid-20250211_092838_583114_15156918 
+X-CRM114-Status: GOOD (  15.52  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -179,34 +164,28 @@ Use it and remove some boilerplate code.
 
 Signed-off-by: Jerome Brunet <jbrunet@baylibre.com>
 ---
- drivers/platform/arm64/lenovo-yoga-c630.c | 42 +++----------------------------
- 1 file changed, 4 insertions(+), 38 deletions(-)
+ drivers/clk/clk-eyeq.c | 57 +++++++++++---------------------------------------
+ 1 file changed, 12 insertions(+), 45 deletions(-)
 
-diff --git a/drivers/platform/arm64/lenovo-yoga-c630.c b/drivers/platform/arm64/lenovo-yoga-c630.c
-index 1f05c9a6a89d5ee146144062f5d2e36795c56639..921a93d4ea39ac54344cc964e2805e974cc7e808 100644
---- a/drivers/platform/arm64/lenovo-yoga-c630.c
-+++ b/drivers/platform/arm64/lenovo-yoga-c630.c
-@@ -191,50 +191,16 @@ void yoga_c630_ec_unregister_notify(struct yoga_c630_ec *ec, struct notifier_blo
+diff --git a/drivers/clk/clk-eyeq.c b/drivers/clk/clk-eyeq.c
+index 640c25788487f8cf6fb4431ed6fb612cf099f114..37e76ad3fbe95ee2dea7df8f6b02d28f19f1d5ef 100644
+--- a/drivers/clk/clk-eyeq.c
++++ b/drivers/clk/clk-eyeq.c
+@@ -322,38 +322,18 @@ static void eqc_probe_init_fixed_factors(struct device *dev,
+ 	}
  }
- EXPORT_SYMBOL_GPL(yoga_c630_ec_unregister_notify);
  
--static void yoga_c630_aux_release(struct device *dev)
+-static void eqc_auxdev_release(struct device *dev)
 -{
 -	struct auxiliary_device *adev = to_auxiliary_dev(dev);
 -
 -	kfree(adev);
 -}
 -
--static void yoga_c630_aux_remove(void *data)
--{
--	struct auxiliary_device *adev = data;
--
--	auxiliary_device_delete(adev);
--	auxiliary_device_uninit(adev);
--}
--
- static int yoga_c630_aux_init(struct device *parent, const char *name,
- 			      struct yoga_c630_ec *ec)
+-static int eqc_auxdev_create(struct device *dev, void __iomem *base,
+-			     const char *name, u32 id)
++static void eqc_auxdev_create_optional(struct device *dev, void __iomem *base,
++				       const char *name)
  {
  	struct auxiliary_device *adev;
 -	int ret;
@@ -216,31 +195,63 @@ index 1f05c9a6a89d5ee146144062f5d2e36795c56639..921a93d4ea39ac54344cc964e2805e97
 -		return -ENOMEM;
 -
 -	adev->name = name;
--	adev->id = 0;
--	adev->dev.parent = parent;
--	adev->dev.release = yoga_c630_aux_release;
--	adev->dev.platform_data = ec;
+-	adev->dev.parent = dev;
+-	adev->dev.platform_data = (void __force *)base;
+-	adev->dev.release = eqc_auxdev_release;
+-	adev->id = id;
  
 -	ret = auxiliary_device_init(adev);
--	if (ret) {
--		kfree(adev);
+-	if (ret)
 -		return ret;
--	}
 -
 -	ret = auxiliary_device_add(adev);
--	if (ret) {
+-	if (ret)
 -		auxiliary_device_uninit(adev);
--		return ret;
--	}
-+	adev = devm_auxiliary_device_create(parent, name, ec, 0);
-+	if (IS_ERR(adev))
-+		return PTR_ERR(adev);
- 
--	return devm_add_action_or_reset(parent, yoga_c630_aux_remove, adev);
-+	return 0;
+-
+-	return ret;
++	if (name) {
++		adev = devm_auxiliary_device_create(dev, name,
++						    (void __force *)base, 0);
++		if (IS_ERR(adev))
++			dev_warn(dev, "failed creating auxiliary device %s.%s: %ld\n",
++				 KBUILD_MODNAME, name, PTR_ERR(adev));
++	}
  }
  
- static int yoga_c630_ec_probe(struct i2c_client *client)
+ static int eqc_probe(struct platform_device *pdev)
+@@ -365,7 +345,6 @@ static int eqc_probe(struct platform_device *pdev)
+ 	unsigned int i, clk_count;
+ 	struct resource *res;
+ 	void __iomem *base;
+-	int ret;
+ 
+ 	data = device_get_match_data(dev);
+ 	if (!data)
+@@ -379,21 +358,9 @@ static int eqc_probe(struct platform_device *pdev)
+ 	if (!base)
+ 		return -ENOMEM;
+ 
+-	/* Init optional reset auxiliary device. */
+-	if (data->reset_auxdev_name) {
+-		ret = eqc_auxdev_create(dev, base, data->reset_auxdev_name, 0);
+-		if (ret)
+-			dev_warn(dev, "failed creating auxiliary device %s.%s: %d\n",
+-				 KBUILD_MODNAME, data->reset_auxdev_name, ret);
+-	}
+-
+-	/* Init optional pinctrl auxiliary device. */
+-	if (data->pinctrl_auxdev_name) {
+-		ret = eqc_auxdev_create(dev, base, data->pinctrl_auxdev_name, 0);
+-		if (ret)
+-			dev_warn(dev, "failed creating auxiliary device %s.%s: %d\n",
+-				 KBUILD_MODNAME, data->pinctrl_auxdev_name, ret);
+-	}
++	/* Init optional auxiliary devices. */
++	eqc_auxdev_create_optional(dev, base, data->reset_auxdev_name);
++	eqc_auxdev_create_optional(dev, base, data->pinctrl_auxdev_name);
+ 
+ 	if (data->pll_count + data->div_count + data->fixed_factor_count == 0)
+ 		return 0; /* Zero clocks, we are done. */
 
 -- 
 2.45.2
