@@ -4,95 +4,158 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B1FBFC0219E
-	for <linux-riscv@archiver.kernel.org>; Tue, 11 Feb 2025 17:42:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 401EEC021A6
+	for <linux-riscv@archiver.kernel.org>; Tue, 11 Feb 2025 17:43:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=jpJeQ3iQCLec2js/C6wwh4oTkH93MXnx0IyarT1UaI4=; b=id6HGGd7w3sbz6
-	0bTy+ODh6GrNaX59NVdsXEaU/Mh91D6wqy1LxADm6F9ndznQdBNFMdEMtzjw2nCNqRntQzfEH3gIM
-	3zKIRF9OIuK03sBsUABhUz1uv1AG4q6aFUXvwRXinrNCRgX3d0IuEuIL397IC0AdFVqSybUNVPpvP
-	pwRI7s3yZX2zTflgvgmrX2zJ6yyLyIEz/ck4FCwJfUob9PDDaKf7yEcExG2Ih5SE2EYSFWQKPu0+Z
-	qw1cbJi1UrKe7CxxVmsNb89OPIhlSzSq6HC5W+vTN6dyRdWakCA+V8YjNHt0r96gm6dZX0pSIG69P
-	q5ZKL2VAGRaudWch85uA==;
+	List-Owner; bh=l9/IxuHA9zk9ciG979uHgrlceIPXAIu+R0xMkZS5xyU=; b=HWDxGJuQo7Qdxe
+	ZHPXAXU1/OfQXjLNcwyF+Vo2dRaVdCNxHVwmWZOLShSGYJWpLRhBmJ4pf/zhtcYiwbEtTY0DoaF2B
+	1ovIcWiT5ASx05rVJHroFCqBUis1wAtBcLrApL8Yz2MhnMlSlbyNk5Elr8wthqr9T/4DWmBbnGDuq
+	fK98vXSsQrcWsosFMCLus6ajHt7tVWqG0c8uONFv9GMH8zo5z9gc5naIwVp6K1nnBmuUkSMCBPCEB
+	dFfFTUeTek2sTLU9OGy0VmDghBeH961/Uszno3/i65rysXo68nZmfxNimo2P96iSUiAKQq3+vcW/q
+	PlEw8bRJdJbXg1jSP2Tw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1thuHZ-00000004iGp-3PpN;
-	Tue, 11 Feb 2025 17:42:49 +0000
-Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5])
+	id 1thuHf-00000004iLm-2rIa;
+	Tue, 11 Feb 2025 17:42:55 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1thsug-00000004SUk-35ad;
-	Tue, 11 Feb 2025 16:15:07 +0000
-Received: from pps.filterd (m0360072.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 51B7XsWl016779;
-	Tue, 11 Feb 2025 16:15:00 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
-	:content-transfer-encoding:date:from:in-reply-to:message-id
-	:mime-version:references:subject:to; s=pp1; bh=1/MffBCUm9m82jvA1
-	NRJumlTJ0JqOPkuZuVYPCmtM1o=; b=BGuQx3dEXiml+/fqh7ikWhU7v+YLresXm
-	UPWS8CFxBcuPO91eywCSG1ejECjYYJsMh45itoin99j+GWMW4AcTEYvSJWIL+gJt
-	S/69iM7i1XJzu9s7nug6+XtKfCb0MCDKTvRdPxrrSLgEG2qXZCGP3Aaj50hehBHj
-	tJHdTchwiheWkVRKOCLGHIENY/fjUa9USdEA4HSYR91HZ90rCNiZHRCbrdli8NEU
-	PdmXcQC0HihTunCgGZehVKtsMVHfzeHwdLYuTgpLRzuXKXTAn25cBI4KlUQwdyZv
-	cZaeo0DkNbFxsj9GuifJnBADlZzrx4W2wjDmsznOAG4SBfhPk9MsA==
-Received: from ppma23.wdc07v.mail.ibm.com (5d.69.3da9.ip4.static.sl-reverse.com [169.61.105.93])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 44r28ptdub-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Tue, 11 Feb 2025 16:15:00 +0000 (GMT)
-Received: from pps.filterd (ppma23.wdc07v.mail.ibm.com [127.0.0.1])
-	by ppma23.wdc07v.mail.ibm.com (8.18.1.2/8.18.1.2) with ESMTP id 51BDg5xx016692;
-	Tue, 11 Feb 2025 16:14:59 GMT
-Received: from smtprelay02.fra02v.mail.ibm.com ([9.218.2.226])
-	by ppma23.wdc07v.mail.ibm.com (PPS) with ESMTPS id 44pk3k41b1-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Tue, 11 Feb 2025 16:14:59 +0000
-Received: from smtpav03.fra02v.mail.ibm.com (smtpav03.fra02v.mail.ibm.com [10.20.54.102])
-	by smtprelay02.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 51BGEvJv38535552
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Tue, 11 Feb 2025 16:14:57 GMT
-Received: from smtpav03.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 7F0A320040;
-	Tue, 11 Feb 2025 16:14:57 +0000 (GMT)
-Received: from smtpav03.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 0C72120043;
-	Tue, 11 Feb 2025 16:14:57 +0000 (GMT)
-Received: from ozlabs.au.ibm.com (unknown [9.63.197.14])
-	by smtpav03.fra02v.mail.ibm.com (Postfix) with ESMTP;
-	Tue, 11 Feb 2025 16:14:57 +0000 (GMT)
-Received: from jarvis.ozlabs.ibm.com.com (unknown [9.150.7.124])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by ozlabs.au.ibm.com (Postfix) with ESMTPSA id 6CB2B6014F;
-	Wed, 12 Feb 2025 03:14:52 +1100 (AEDT)
-From: Andrew Donnellan <ajd@linux.ibm.com>
-To: linuxppc-dev@lists.ozlabs.org
-Cc: x86@kernel.org, linux-mm@kvack.org, linux-riscv@lists.infradead.org,
-        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-        pasha.tatashin@soleen.com, sweettea-kernel@dorminy.me
-Subject: [PATCH v13 08/11] powerpc: mm: Add pud_pfn() stub
-Date: Wed, 12 Feb 2025 03:14:01 +1100
-Message-ID: <20250211161404.850215-9-ajd@linux.ibm.com>
-X-Mailer: git-send-email 2.48.1
-In-Reply-To: <20250211161404.850215-1-ajd@linux.ibm.com>
-References: <20250211161404.850215-1-ajd@linux.ibm.com>
+	id 1thu3r-00000004g50-2EVV
+	for linux-riscv@bombadil.infradead.org;
+	Tue, 11 Feb 2025 17:28:39 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=gDYe4zVCJHl1J7zmO8YwQPUsImFhukXxkzdj3E5Ja/8=; b=NuSbI+KePqRYR4fg7ZycdsRzyQ
+	vKg+zH5NRCT7WvECMf5Xz21FqtLXoR85OwrrY0nN3itd+fxjbMQiVZeNXU0DLC1mVjpCfhzSGaFOu
+	XBlHCx8WvqmS/aZ0BtrgCBJOf3hnXgSIW38mKH30QhADEKgJouwLlogc3JvtDI4GzQ8Xzs6B4sdxS
+	CABOqb/mchV6lTCv+V77+oQZobbdUjwqoNheke5rZRo2uNfDGk9FHqxFqlo5jKOMQJVuTQYjGxXvI
+	zdHhprAkSYcrG6aFlmy8xJe5PrGOyrnOU1zY1y0HXHAEdqN/qGEwukT8ir+hTy64Bj4PO5+G2Jjw3
+	bt8wdt5Q==;
+Received: from mail-wm1-x32c.google.com ([2a00:1450:4864:20::32c])
+	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1thu3o-00000000eMP-3F9p
+	for linux-riscv@lists.infradead.org;
+	Tue, 11 Feb 2025 17:28:38 +0000
+Received: by mail-wm1-x32c.google.com with SMTP id 5b1f17b1804b1-4364a37a1d7so58130945e9.3
+        for <linux-riscv@lists.infradead.org>; Tue, 11 Feb 2025 09:28:35 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1739294914; x=1739899714; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=gDYe4zVCJHl1J7zmO8YwQPUsImFhukXxkzdj3E5Ja/8=;
+        b=pH4t7sq4Y0TeOoc8wSeymrHIvLWRkUXSjdvDRlUWydnvJ1IFJaVVP3/mNsdg66BCrp
+         3SicsHB8O4NqsOhZjf9E4xIEhbsM+Cx7w0Cy1RQGIw0LxZXOuZS/3hg/crWoT1/rEaci
+         5+TR7dTQgCaM/DmMneGkVRutUKldGubeAKrLSiSHNI8tDGXqSSVYRhF4KzFP798lQV3L
+         4IHQJfKIJVGhqZ5eo3uW9lCuNaJks3/qZpN7Wd3q/7zGDxk4a+rxE4H+FdbDEctHM/xg
+         JuDXd9J42dxyeszymfVQc5kqdjdiLoclQmq7F8Jb3LZZfYzFro2NQ/3LgmSL2GcyC1li
+         tbgQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1739294914; x=1739899714;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=gDYe4zVCJHl1J7zmO8YwQPUsImFhukXxkzdj3E5Ja/8=;
+        b=Q7FcrexqCCCRLL8K+QvX2fOJ45+1NA9sAbHzkEGsE61cHLQK64Iqgimm0tljqwm4ff
+         iqJzEzdouBZFIRs3pnFSYh1xcaNyV69czD7syfy1aeIQyp9PgZvUd/G+WyJ2QoI9bndq
+         VmN+FNu3r9EqDm4x0+MHpwVizaXemps6PZj8y4B3CJzyjFFakx3SIyfG9tuwWNyKsL9m
+         GKCmt4sebQXQ2Bcb+VwUCRGaQPNLJRVJOppAAJOIRei/DnA1DquYhNCukqudAv8cRNET
+         CVZOYIqZH4A3myC1b3/BL09j7+GB3T6NoWfFe1A7hd6a/6Chgls9Y9VRL4ydowi74Zh1
+         GC4A==
+X-Forwarded-Encrypted: i=1; AJvYcCXEY6W0JYDH+P/378ZkC8WCq9axjMfBSnmGupWHCG7xbIZ4AUsg4s+HEjDB0YdLXSRM+49Gkj7CK8KrNA==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz0mXYBmgMcMiCGwB6EwJmsX6ZggyAQ1wFa2NWYt1CCbFiXVGMf
+	hdtqG+T4hwWAfQc2+YY4z0YT6b01dgItzHtgyMhrw3+dnBeFUM5KtLvZeWJPgp8=
+X-Gm-Gg: ASbGncvvok6q9AtpexzQFG48RVctyE7XW1PzEqTZWpxAEKbCNGI+d2ZS20VIQ08RDBA
+	YDEShaDqlMl3XaXP47QJ70bA6jl2RWSLztK/EDL1Nv/901HHr+ALN/i/fhVhbvg4aHAp+BA7Q0N
+	w3/Yq8prE/4beAHNqVmBksDprwVk+WMZvVpMtNr3DmENjRtAzzj9gMEPAZFKjMhDKQCQFThUss4
+	fYf3GzJye6tubzrxA63O+en7kntgsexADcsDRK+t3NRuX4SO2AdClFIgOh/InPGkVhc23sxhXWg
+	9dVQoqZiAKVZA6REsA==
+X-Google-Smtp-Source: AGHT+IHFkzaOXapiWN4/SxKHetf09scMUxofFapehDhsYxM6Mf+yjBALSpgOHKp7OlGFg6yNQWYZRQ==
+X-Received: by 2002:a5d:5f8b:0:b0:38d:cf33:31a1 with SMTP id ffacd0b85a97d-38de92887dbmr644098f8f.23.1739294914574;
+        Tue, 11 Feb 2025 09:28:34 -0800 (PST)
+Received: from toaster.lan ([2a01:e0a:3c5:5fb1:fc0c:6c04:7ae0:c5c2])
+        by smtp.googlemail.com with ESMTPSA id ffacd0b85a97d-38dc6c80df2sm13691082f8f.18.2025.02.11.09.28.32
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 11 Feb 2025 09:28:34 -0800 (PST)
+From: Jerome Brunet <jbrunet@baylibre.com>
+To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Dave Ertman <david.m.ertman@intel.com>,
+	Ira Weiny <ira.weiny@intel.com>,
+	"Rafael J. Wysocki" <rafael@kernel.org>,
+	Stephen Boyd <sboyd@kernel.org>,
+	Arnd Bergmann <arnd@arndb.de>,
+	Danilo Krummrich <dakr@kernel.org>,
+	Conor Dooley <conor.dooley@microchip.com>,
+	Daire McNamara <daire.mcnamara@microchip.com>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Douglas Anderson <dianders@chromium.org>,
+	Andrzej Hajda <andrzej.hajda@intel.com>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Robert Foss <rfoss@kernel.org>,
+	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
+	Jonas Karlman <jonas@kwiboo.se>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	David Airlie <airlied@gmail.com>,
+	Simona Vetter <simona@ffwll.ch>,
+	Hans de Goede <hdegoede@redhat.com>,
+	=?utf-8?q?Ilpo_J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>,
+	Bryan O'Donoghue <bryan.odonoghue@linaro.org>,
+	Vladimir Kondratiev <vladimir.kondratiev@mobileye.com>,
+	Gregory CLEMENT <gregory.clement@bootlin.com>,
+	=?utf-8?q?Th=C3=A9o_Lebrun?= <theo.lebrun@bootlin.com>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Abel Vesa <abelvesa@kernel.org>,
+	Peng Fan <peng.fan@nxp.com>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Kevin Hilman <khilman@baylibre.com>,
+	Martin Blumenstingl <martin.blumenstingl@googlemail.com>
+Cc: Jerome Brunet <jbrunet@baylibre.com>,
+	linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	dri-devel@lists.freedesktop.org,
+	platform-driver-x86@vger.kernel.org,
+	linux-mips@vger.kernel.org,
+	linux-clk@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-amlogic@lists.infradead.org
+Subject: [PATCH v3 4/7] platform: arm64: lenovo-yoga-c630: use the auxiliary device creation helper
+Date: Tue, 11 Feb 2025 18:28:01 +0100
+Message-ID: <20250211-aux-device-create-helper-v3-4-7edb50524909@baylibre.com>
+X-Mailer: git-send-email 2.45.2
+In-Reply-To: <20250211-aux-device-create-helper-v3-0-7edb50524909@baylibre.com>
+References: <20250211-aux-device-create-helper-v3-0-7edb50524909@baylibre.com>
 MIME-Version: 1.0
-X-TM-AS-GCONF: 00
-X-Proofpoint-ORIG-GUID: D1Ls5QKgaJ4jVjTDfpaP9Z9WwkAgttuP
-X-Proofpoint-GUID: D1Ls5QKgaJ4jVjTDfpaP9Z9WwkAgttuP
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1057,Hydra:6.0.680,FMLib:17.12.68.34
- definitions=2025-02-11_07,2025-02-11_01,2024-11-22_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 bulkscore=0 adultscore=0
- suspectscore=0 impostorscore=0 mlxlogscore=742 lowpriorityscore=0
- clxscore=1015 phishscore=0 priorityscore=1501 malwarescore=0 spamscore=0
- mlxscore=0 classifier=spam adjust=0 reason=mlx scancount=1
- engine=8.19.0-2501170000 definitions=main-2502110106
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2003; i=jbrunet@baylibre.com;
+ h=from:subject:message-id; bh=qoSrX8iU6ZsOmDdt2vcxpMmdn8e+H5V+wLsqMb+WXTw=;
+ b=owEBbQKS/ZANAwAKAeb8Dxw38tqFAcsmYgBnq4g4/dIaY7N0MjawcCtYO6owHszhAtyjcgr7D
+ 3Gd3AdMv6qJAjMEAAEKAB0WIQT04VmuGPP1bV8btxvm/A8cN/LahQUCZ6uIOAAKCRDm/A8cN/La
+ hR9uEACtV/xHFmThUeYWuRuZeLIZDjRSGPPZEm0NF1IUEyqMa+/w0GkdSU2I/GhBRDekpL969e+
+ flE7DvZyypim/I0FZ9+E91BhWYhmSRaSfH/9/AKcVVKiogJILw22nAQLwHQAU4pI9XrwljjuAbt
+ MSgI6Qhm5jlq1GlYCQ/hou9AbHVR9B2Oe4/YFrBkUNxEblpZLIcnrsPVO2FY5baXHpZvJ2k5CAZ
+ MSpgdClj9yIkdl580XYiAPYYvwvjElVhwesa1zzt/XSJ1Idm/YRnZRAjDFe/uief6LxhKmzn8Cq
+ PTKk6exeDtcsIhy2ONXg2237HCo0rho1EMRdeb/E1B5sDTqLMLKfHFYyvFYva/imfWDg260QPE8
+ SB0ucc4PEGbCTcI28Hh+JdOrNP9ChRaJgfsOqR+3qLLQgWYBJ5ScIXYmp0UW91AvMrtqrwf9ySl
+ UBWBVpazEhLxSaE9ItQoc2xzaUOqL71se/uZnoCaqvztP8gDdl+8GXSP2/fps5dhBhhCYQi0gi2
+ n4q1VatCARnM9Gq2nM8qG9+sE/r+6AOa9faLGrXdf3ZP5y7Z1f9I1TqXigFb/dco4k7vTWAFo3Z
+ /tSZVYtq1SnEy4BRJqk9nLxSPeko3sbBy6g+ly8JaELAzWpBynghDBX7iUt8qUwY3k22TI1x6Zi chvp+TE0JiJbh2Q==
+X-Developer-Key: i=jbrunet@baylibre.com; a=openpgp; fpr=F29F26CF27BAE1A9719AE6BDC3C92AAF3E60AED9
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250211_081506_882501_F0D2E8FA 
-X-CRM114-Status: GOOD (  14.34  )
+X-CRM114-CacheID: sfid-20250211_172836_894657_F2A5573D 
+X-CRM114-Status: GOOD (  12.31  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,43 +172,78 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Rohan McLure <rmclure@linux.ibm.com>
+The auxiliary device creation of this driver is simple enough to
+use the available auxiliary device creation helper.
 
-The page table check feature requires that pud_pfn() be defined
-on each consuming architecture. Since only 64-bit, Book3S platforms
-allow for hugepages at this upper level, and since the calling code is
-gated by a call to pud_user_accessible_page(), which will return zero,
-include this stub as a BUILD_BUG().
+Use it and remove some boilerplate code.
 
-Signed-off-by: Rohan McLure <rmclure@linux.ibm.com>
-Reviewed-by: Pasha Tatashin <pasha.tatashin@soleen.com>
-Signed-off-by: Andrew Donnellan <ajd@linux.ibm.com>
+Signed-off-by: Jerome Brunet <jbrunet@baylibre.com>
 ---
- arch/powerpc/include/asm/pgtable.h | 9 +++++++++
- 1 file changed, 9 insertions(+)
+ drivers/platform/arm64/lenovo-yoga-c630.c | 42 +++----------------------------
+ 1 file changed, 4 insertions(+), 38 deletions(-)
 
-diff --git a/arch/powerpc/include/asm/pgtable.h b/arch/powerpc/include/asm/pgtable.h
-index 2f72ad885332..bb43e4f46367 100644
---- a/arch/powerpc/include/asm/pgtable.h
-+++ b/arch/powerpc/include/asm/pgtable.h
-@@ -215,6 +215,15 @@ static inline bool arch_supports_memmap_on_memory(unsigned long vmemmap_size)
+diff --git a/drivers/platform/arm64/lenovo-yoga-c630.c b/drivers/platform/arm64/lenovo-yoga-c630.c
+index 1f05c9a6a89d5ee146144062f5d2e36795c56639..921a93d4ea39ac54344cc964e2805e974cc7e808 100644
+--- a/drivers/platform/arm64/lenovo-yoga-c630.c
++++ b/drivers/platform/arm64/lenovo-yoga-c630.c
+@@ -191,50 +191,16 @@ void yoga_c630_ec_unregister_notify(struct yoga_c630_ec *ec, struct notifier_blo
+ }
+ EXPORT_SYMBOL_GPL(yoga_c630_ec_unregister_notify);
  
- #endif /* CONFIG_PPC64 */
+-static void yoga_c630_aux_release(struct device *dev)
+-{
+-	struct auxiliary_device *adev = to_auxiliary_dev(dev);
+-
+-	kfree(adev);
+-}
+-
+-static void yoga_c630_aux_remove(void *data)
+-{
+-	struct auxiliary_device *adev = data;
+-
+-	auxiliary_device_delete(adev);
+-	auxiliary_device_uninit(adev);
+-}
+-
+ static int yoga_c630_aux_init(struct device *parent, const char *name,
+ 			      struct yoga_c630_ec *ec)
+ {
+ 	struct auxiliary_device *adev;
+-	int ret;
+-
+-	adev = kzalloc(sizeof(*adev), GFP_KERNEL);
+-	if (!adev)
+-		return -ENOMEM;
+-
+-	adev->name = name;
+-	adev->id = 0;
+-	adev->dev.parent = parent;
+-	adev->dev.release = yoga_c630_aux_release;
+-	adev->dev.platform_data = ec;
  
-+#ifndef pud_pfn
-+#define pud_pfn pud_pfn
-+static inline int pud_pfn(pud_t pud)
-+{
-+	BUILD_BUG();
+-	ret = auxiliary_device_init(adev);
+-	if (ret) {
+-		kfree(adev);
+-		return ret;
+-	}
+-
+-	ret = auxiliary_device_add(adev);
+-	if (ret) {
+-		auxiliary_device_uninit(adev);
+-		return ret;
+-	}
++	adev = devm_auxiliary_device_create(parent, name, ec, 0);
++	if (IS_ERR(adev))
++		return PTR_ERR(adev);
+ 
+-	return devm_add_action_or_reset(parent, yoga_c630_aux_remove, adev);
 +	return 0;
-+}
-+#endif
-+
- #endif /* __ASSEMBLY__ */
+ }
  
- #endif /* _ASM_POWERPC_PGTABLE_H */
+ static int yoga_c630_ec_probe(struct i2c_client *client)
+
 -- 
-2.48.1
+2.45.2
 
 
 _______________________________________________
