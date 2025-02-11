@@ -4,54 +4,122 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C0D04C0219E
-	for <linux-riscv@archiver.kernel.org>; Tue, 11 Feb 2025 07:43:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9FA21C0219E
+	for <linux-riscv@archiver.kernel.org>; Tue, 11 Feb 2025 07:52:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=oZ8Sjc0c+UBo7UVo9CQc+sHWmepC25RT4bkS7tGxr3Q=; b=R9h9Xgb5NKz3R7
-	UveB2dSRlwmLul3BQylmNqitYz2wgPUqmqyKql6XO1Aod5bv+T/omlWTD6hiBLbcqzdRhhzSKRibD
-	X0LIbvDbrpGGgJvWkuH96/5DGMm5el62cNRgQE2ywirgpJQ/Jn0AjX0caH54QiaHUb62I0cUJcstu
-	SXlvDpwgbn5Mf1IDW2vZJIGTostKIO4kG8VNOzUFBYINmY5N2qoRVhxFRAIm9niB8ulUia8SgZ3FD
-	PP8R8KNxwNzKNLrE6WC20EbTo72mbzSMHYdcduSrvR33vCy/Z38601zZeQKHXk7S76MT5oi4x+Z5a
-	5RT2KojmoZSuLKocAepw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Subject:References:In-Reply-To:
+	Message-Id:To:From:Date:MIME-Version:Reply-To:Cc:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Owner;
+	bh=KT8WkxmB6Lyj7aF8YGwSwCeaa0BDmC8w6wgQ4tdmuCE=; b=B31CaYoXnuc1CVFyS0ve7LWZP+
+	zwe0yr/X5D3OvJOJ2H6keolA+bDvMQcabScfrYr9D1dmwsTNmIEIUG44UjHpH+SDzULzTczbGpHhr
+	PW6sjGP+SozQxW3ZfhVuOQZGwBGntuUtb1fGMoQVI3fYZQJI47rEEEW4PsPWcV4iK8kvfVczdqKX4
+	Uo69yLAxLbAopgWOG+rbNJGosnaCPJ+dhhT2m1GDrWpE0KkuuFo5zDrQxcS2iKsnH3dvFvi2uzz3i
+	xOEDcWK92+EJKWp1visgQVJeoI/bsjNXDrnOASBkEDYWuMcyOSwDfwtSA5W1/IswRuK9enqHsJJy2
+	usIA3/VQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1thkvJ-00000002riK-0hwg;
-	Tue, 11 Feb 2025 07:43:13 +0000
-Received: from relay5-d.mail.gandi.net ([217.70.183.197])
+	id 1thl3l-00000002tLN-2z3Y;
+	Tue, 11 Feb 2025 07:51:57 +0000
+Received: from fout-a8-smtp.messagingengine.com ([103.168.172.151])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1thkts-00000002rT9-3t2U
-	for linux-riscv@lists.infradead.org;
-	Tue, 11 Feb 2025 07:41:46 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id 53F0044388;
-	Tue, 11 Feb 2025 07:41:39 +0000 (UTC)
-Message-ID: <968ff88f-ae77-43b4-a5b4-1a4b0bf61098@ghiti.fr>
-Date: Tue, 11 Feb 2025 08:41:38 +0100
+	id 1thl0m-00000002seq-0IWU;
+	Tue, 11 Feb 2025 07:48:53 +0000
+Received: from phl-compute-10.internal (phl-compute-10.phl.internal [10.202.2.50])
+	by mailfout.phl.internal (Postfix) with ESMTP id B00B513802BF;
+	Tue, 11 Feb 2025 02:48:48 -0500 (EST)
+Received: from phl-imap-11 ([10.202.2.101])
+  by phl-compute-10.internal (MEProxy); Tue, 11 Feb 2025 02:48:48 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
+	:content-transfer-encoding:content-type:content-type:date:date
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to; s=fm2; t=1739260128;
+	 x=1739346528; bh=ZxB3/5WwQz68fg3MoEi71/v426Fi20HIksm5loNdxsU=; b=
+	2/HEGcR9OGOaAwRQO6L6sMF2KbOtsNplv7MNsDt/YCxHuhPRcqAYtEiGoZgIwOfc
+	uL3sX3JSq1cawjwJkoxV3QTUgisQ3ya7PSS1ytut1LTD8PGj+BKk96+KJE65RNBW
+	Tsphgr7hCXE4tVIJ34oYnPVbiB4vjSTfc9/NOGeoGbswiwgC1a+6NHKuopy+NWom
+	W8Aye1T6NHlCILvx9Uo/L5Kan0YegyE5vRZFt0JnSxM/E7xAAFXkVMgaJLxHkNSW
+	7vSPcFaDVUCUX03VcnEb5QcRWhgQe/5RuBfnXo/EPUTyYvPI+L0q+ljabvM280SI
+	8+YYDn0Hmr5uRCF9PS3rqw==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:content-transfer-encoding:content-type
+	:content-type:date:date:feedback-id:feedback-id:from:from
+	:in-reply-to:in-reply-to:message-id:mime-version:references
+	:reply-to:subject:subject:to:to:x-me-proxy:x-me-sender
+	:x-me-sender:x-sasl-enc; s=fm3; t=1739260128; x=1739346528; bh=Z
+	xB3/5WwQz68fg3MoEi71/v426Fi20HIksm5loNdxsU=; b=I4IxVtCnnAUwaMwdS
+	HBPGl0s8Bs7N5OvfxUUj7rmVpwUDenuSUtoWA8qW7iOVzTrXUCYnMvk85s2z0xoR
+	WwjfijsoIZ2gTZvqKVWotAOhcud1aPNGWjwV5EUeMHeY8JPZJfZ+Xl8EawFUVWba
+	L3G6vsOf9tVmmeY9c0Wm3+WHg4QEmtkIr425BlwrsmYGhpE/Bmny9s4MR27hsZYL
+	y6+mygr/MkXkIGwZMSloEQsmGVX47ObWdyppCTZAe/elBW2w3wJ2xxOqyqnb6WE1
+	pUlHrn/PNj4fbO2AgIJp64uaid65I+6U3nPUa7F1LIYYVGTHDQvsRUDBL0TAlSC2
+	PtUrg==
+X-ME-Sender: <xms:3wCrZ2JHs4IEKLoCYrrqhDKpD0sECcz6XTbclk5k5JQOCStIbUrLoA>
+    <xme:3wCrZ-KMxcrDJeRW5DKhBWQAbB8In_PeccU4ovCK8v_85BQrb0r0MSUwuSRA9sLTX
+    4SX2c5Sd_RQzhV7q7Y>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgdegtdegfecutefuodetggdotefrod
+    ftvfcurfhrohhfihhlvgemucfhrghsthforghilhdpggftfghnshhusghstghrihgsvgdp
+    uffrtefokffrpgfnqfghnecuuegrihhlohhuthemuceftddtnecusecvtfgvtghiphhivg
+    hnthhsucdlqddutddtmdenucfjughrpefoggffhffvkfgjfhfutgfgsehtjeertdertddt
+    necuhfhrohhmpedftehrnhguuceuvghrghhmrghnnhdfuceorghrnhgusegrrhhnuggsrd
+    guvgeqnecuggftrfgrthhtvghrnhephfekledtffefhffghfetteehuefhgfetgefhtdeu
+    feduueeltefghedtjeeifffhnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpe
+    hmrghilhhfrhhomheprghrnhgusegrrhhnuggsrdguvgdpnhgspghrtghpthhtohepfedu
+    pdhmohguvgepshhmthhpohhuthdprhgtphhtthhopegtrghtrghlihhnrdhmrghrihhnrg
+    hssegrrhhmrdgtohhmpdhrtghpthhtohepmhgrrhhkrdhruhhtlhgrnhgusegrrhhmrdgt
+    ohhmpdhrtghpthhtohepphgrlhhmvghrsegurggssggvlhhtrdgtohhmpdhrtghpthhtoh
+    eprghouhesvggvtghsrdgsvghrkhgvlhgvhidrvgguuhdprhgtphhtthhopehhohifrghr
+    uggthhhuleehsehgmhgrihhlrdgtohhmpdhrtghpthhtohepihhrohhgvghrshesghhooh
+    hglhgvrdgtohhmpdhrtghpthhtohepphgvthgvrhiisehinhhfrhgruggvrggurdhorhhg
+    pdhrtghpthhtoheprggurhhirghnrdhhuhhnthgvrhesihhnthgvlhdrtghomhdprhgtph
+    htthhopegrtghmvgeskhgvrhhnvghlrdhorhhg
+X-ME-Proxy: <xmx:3wCrZ2tgaKZd-r19tJFBLx1c9olIzWTs4ZaRSponWadm2LzZ8pniRQ>
+    <xmx:3wCrZ7abmJIQQGxBya7YEj5PHj7E42WKmlGvJuuqMoyGm5CmplJPQg>
+    <xmx:3wCrZ9aU6yItPSC8xJtXsBq-fJNVShJH7DJB1OOPcE4_GM_L7YKmfw>
+    <xmx:3wCrZ3A_NdBF4H9b_qRB98P-LNzrFo0iZkHCoC5kpllQIinlE4Y6uA>
+    <xmx:4ACrZwlxbCT18wcLzBJjhR0WUz3hezoGAamIPURRlc7nthRHwLvQT-fx>
+Feedback-ID: i56a14606:Fastmail
+Received: by mailuser.phl.internal (Postfix, from userid 501)
+	id 374062220072; Tue, 11 Feb 2025 02:48:47 -0500 (EST)
+X-Mailer: MessagingEngine.com Webmail Interface
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] riscv: cpufeature: use bitmap_equal() instead of memcmp()
-Content-Language: en-US
-To: =?UTF-8?B?Q2zDqW1lbnQgTMOpZ2Vy?= <cleger@rivosinc.com>,
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>,
- "open list:RISC-V ARCHITECTURE" <linux-riscv@lists.infradead.org>,
- open list <linux-kernel@vger.kernel.org>
-Cc: Conor Dooley <conor@kernel.org>, Alexandre Ghiti <alexghiti@rivosinc.com>
-References: <20250210155615.1545738-1-cleger@rivosinc.com>
-From: Alexandre Ghiti <alex@ghiti.fr>
-In-Reply-To: <20250210155615.1545738-1-cleger@rivosinc.com>
-X-GND-State: clean
-X-GND-Score: -100
-X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgdegtdegudcutefuodetggdotefrodftvfcurfhrohhfihhlvgemucfitefpfffkpdcuggftfghnshhusghstghrihgsvgenuceurghilhhouhhtmecufedtudenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujfgurhepkfffgggfuffvvehfhfgjtgfgsehtkeertddtvdejnecuhfhrohhmpeetlhgvgigrnhgurhgvucfihhhithhiuceorghlvgigsehghhhithhirdhfrheqnecuggftrfgrthhtvghrnhepueeigeevgeduffeivdevjefhjeeihfeghfekjedtueefudefhefhueefudelheeinecuffhomhgrihhnpegsohhothhlihhnrdgtohhmnecukfhppedvtddtudemkeeiudemfeefkedvmegvfheltdemudegvdgumeelkeekudemgeefjeeimeelkeenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepihhnvghtpedvtddtudemkeeiudemfeefkedvmegvfheltdemudegvdgumeelkeekudemgeefjeeimeelkedphhgvlhhopeglkffrggeimedvtddtudemkeeiudemfeefkedvmegvfheltdemudegvdgumeelkeekudemgeefjeeimeelkegnpdhmrghilhhfrhhomheprghlvgigsehghhhithhirdhfrhdpnhgspghrtghpthhtohepjedprhgtphhtthhopegtlhgvghgvrhesrhhivhhoshhinhgtrdgtohhmpdhrtghpthhtohepphgruhhlrdifrghlmhhslhgvhiesshhifhhivhgvrdgtohhmpdhrtghpthhtohepphgrlhhmvghrs
- egurggssggvlhhtrdgtohhmpdhrtghpthhtoheplhhinhhugidqrhhishgtvheslhhishhtshdrihhnfhhrrgguvggrugdrohhrghdprhgtphhtthhopehlihhnuhigqdhkvghrnhgvlhesvhhgvghrrdhkvghrnhgvlhdrohhrghdprhgtphhtthhopegtohhnohhrsehkvghrnhgvlhdrohhrghdprhgtphhtthhopegrlhgvgihghhhithhisehrihhvohhsihhntgdrtghomh
-X-GND-Sasl: alex@ghiti.fr
+Date: Tue, 11 Feb 2025 08:48:26 +0100
+From: "Arnd Bergmann" <arnd@arndb.de>
+To: "Ian Rogers" <irogers@google.com>,
+ "Peter Zijlstra" <peterz@infradead.org>,
+ "Ingo Molnar" <mingo@redhat.com>,
+ "Arnaldo Carvalho de Melo" <acme@kernel.org>,
+ "Namhyung Kim" <namhyung@kernel.org>,
+ "Mark Rutland" <mark.rutland@arm.com>,
+ "Alexander Shishkin" <alexander.shishkin@linux.intel.com>,
+ "Jiri Olsa" <jolsa@kernel.org>,
+ "Adrian Hunter" <adrian.hunter@intel.com>,
+ "Kan Liang" <kan.liang@linux.intel.com>,
+ "John Garry" <john.g.garry@oracle.com>, "Will Deacon" <will@kernel.org>,
+ "James Clark" <james.clark@linaro.org>,
+ "Mike Leach" <mike.leach@linaro.org>, "Leo Yan" <leo.yan@linux.dev>,
+ guoren <guoren@kernel.org>, "Paul Walmsley" <paul.walmsley@sifive.com>,
+ "Palmer Dabbelt" <palmer@dabbelt.com>,
+ "Albert Ou" <aou@eecs.berkeley.edu>,
+ "Charlie Jenkins" <charlie@rivosinc.com>,
+ "Bibo Mao" <maobibo@loongson.cn>, "Huacai Chen" <chenhuacai@kernel.org>,
+ "Catalin Marinas" <catalin.marinas@arm.com>,
+ "Jiri Slaby" <jirislaby@kernel.org>,
+ =?UTF-8?Q?Bj=C3=B6rn_T=C3=B6pel?= <bjorn@rivosinc.com>,
+ "Howard Chu" <howardchu95@gmail.com>, linux-kernel@vger.kernel.org,
+ linux-perf-users@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ "linux-csky@vger.kernel.org" <linux-csky@vger.kernel.org>,
+ linux-riscv@lists.infradead.org
+Message-Id: <07c5c3ad-5a6d-4eda-95f2-ed16e7504d4c@app.fastmail.com>
+In-Reply-To: <20250210165108.95894-4-irogers@google.com>
+References: <20250210165108.95894-1-irogers@google.com>
+ <20250210165108.95894-4-irogers@google.com>
+Subject: Re: [PATCH v2 3/7] perf syscalltbl: Remove struct syscalltbl
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250210_234145_093881_9589FB0E 
-X-CRM114-Status: GOOD (  13.38  )
+X-CRM114-CacheID: sfid-20250210_234852_187398_0E766FD9 
+X-CRM114-Status: GOOD (  20.40  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -63,35 +131,57 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-SGkgQ2zDqW1lbnQsCgpPbiAxMC8wMi8yMDI1IDE2OjU2LCBDbMOpbWVudCBMw6lnZXIgd3JvdGU6
-Cj4gQ29tcGFyaXNvbiBvZiBiaXRtYXBzIHNob3VsZCBiZSBkb25lIHVzaW5nIGJpdG1hcF9lcXVh
-bCgpLCBub3QgbWVtY21wKCksCj4gdXNlIHRoZSBmb3JtZXIgb25lIHRvIGNvbXBhcmUgaXNhIGJp
-dG1hcHMuCj4KPiBTaWduZWQtb2ZmLWJ5OiBDbMOpbWVudCBMw6lnZXIgPGNsZWdlckByaXZvc2lu
-Yy5jb20+Cj4gLS0tCj4gICBhcmNoL3Jpc2N2L2tlcm5lbC9jcHVmZWF0dXJlLmMgfCAyICstCj4g
-ICAxIGZpbGUgY2hhbmdlZCwgMSBpbnNlcnRpb24oKyksIDEgZGVsZXRpb24oLSkKPgo+IGRpZmYg
-LS1naXQgYS9hcmNoL3Jpc2N2L2tlcm5lbC9jcHVmZWF0dXJlLmMgYi9hcmNoL3Jpc2N2L2tlcm5l
-bC9jcHVmZWF0dXJlLmMKPiBpbmRleCBjNmJhNzUwNTM2YzMuLjQwYWM3MmU0MDdiNiAxMDA2NDQK
-PiAtLS0gYS9hcmNoL3Jpc2N2L2tlcm5lbC9jcHVmZWF0dXJlLmMKPiArKysgYi9hcmNoL3Jpc2N2
-L2tlcm5lbC9jcHVmZWF0dXJlLmMKPiBAQCAtNDc5LDcgKzQ3OSw3IEBAIHN0YXRpYyB2b2lkIF9f
-aW5pdCByaXNjdl9yZXNvbHZlX2lzYSh1bnNpZ25lZCBsb25nICpzb3VyY2VfaXNhLAo+ICAgCQkJ
-aWYgKGJpdCA8IFJJU0NWX0lTQV9FWFRfQkFTRSkKPiAgIAkJCQkqdGhpc19od2NhcCB8PSBpc2Ey
-aHdjYXBbYml0XTsKPiAgIAkJfQo+IC0JfSB3aGlsZSAobG9vcCAmJiBtZW1jbXAocHJldl9yZXNv
-bHZlZF9pc2EsIHJlc29sdmVkX2lzYSwgc2l6ZW9mKHByZXZfcmVzb2x2ZWRfaXNhKSkpOwo+ICsJ
-fSB3aGlsZSAobG9vcCAmJiAhYml0bWFwX2VxdWFsKHByZXZfcmVzb2x2ZWRfaXNhLCByZXNvbHZl
-ZF9pc2EsIFJJU0NWX0lTQV9FWFRfTUFYKSk7Cj4gICB9Cj4gICAKPiAgIHN0YXRpYyB2b2lkIF9f
-aW5pdCBtYXRjaF9pc2FfZXh0KGNvbnN0IGNoYXIgKm5hbWUsIGNvbnN0IGNoYXIgKm5hbWVfZW5k
-LCB1bnNpZ25lZCBsb25nICpiaXRtYXApCgoKU2luY2UgYml0bWFwIGRvZXMgbm90IGd1YXJhbnRl
-ZSB0aGUgdmFsdWUgb2YgdGhlICdleHRyYScgYml0cyAKKGh0dHBzOi8vZWxpeGlyLmJvb3RsaW4u
-Y29tL2xpbnV4L3Y2LjEzLjEvc291cmNlL2xpYi9iaXRtYXAuYyNMMjQpLCB0aGlzIAppcyBhIGZp
-eCBzbyBJIHdvdWxkIGFkZCBhIEZpeGVzIHRhZzoKCkZpeGVzOiA2MjUwMzRhYmQ1MmE4YyAoInJp
-c2N2OiBhZGQgSVNBIGV4dGVuc2lvbnMgdmFsaWRhdGlvbiBjYWxsYmFjayIpCgpZb3UgY2FuIGFs
-c28gYWRkOgoKUmV2aWV3ZWQtYnk6IEFsZXhhbmRyZSBHaGl0aSA8YWxleGdoaXRpQHJpdm9zaW5j
-LmNvbT4KClRoYW5rcywKCkFsZXgKCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMu
-aW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZv
-L2xpbnV4LXJpc2N2Cg==
+On Mon, Feb 10, 2025, at 17:51, Ian Rogers wrote:
+> The syscalltbl held entries of system call name and number pairs,
+> generated from a native syscalltbl at start up. As there are gaps in
+> the system call number there is a notion of index into the
+> table. Going forward we want the system call table to be identifiable
+> by a machine type, for example, i386 vs x86-64. Change the interface
+> to the syscalltbl so (1) a (currently unused machine type of EM_HOST)
+> is passed (2) the index to syscall number and system call name mapping
+> is computed at build time.
+>
+> Two tables are used for this, an array of system call number to name,
+> an array of system call numbers sorted by the system call name. The
+> sorted array doesn't store strings in part to save memory and
+> relocations. The index notion is carried forward and is an index into
+> the sorted array of system call numbers, the data structures are
+> opaque (held only in syscalltbl.c), and so the number of indices for a
+> machine type is exposed as a new API.
+>
+> The arrays are computed in the syscalltbl.sh script and so no start-up
+> time computation and storage is necessary.
+>
+> Signed-off-by: Ian Rogers <irogers@google.com>
+> Reviewed-by: Howard Chu <howardchu95@gmail.com>
+
+Your changes look fine to me, but I noticed one part that may
+be wrong before and after your patch:
+
+> 
+> -const int syscalltbl_native_max_id = SYSCALLTBL_MAX_ID;
+> -static const char *const *syscalltbl_native = syscalltbl;
+> +const char *syscalltbl__name(int e_machine __maybe_unused, int id)
+> +{
+> +	if (id >= 0 && id <= (int)ARRAY_SIZE(syscall_num_to_name))
+> +		return syscall_num_to_name[id];
+> +	return NULL;
+> +}
+
+The syscall numbers on mips (and previously on ia64) are offset by
+a large number depending on the ABI (o32/n32/n64). I assume what
+we want here is to have the small numbers without the offset in
+syscall_num_to_name[], but that requires adding the offset during
+the lookup. Can you check if this is handled correctly?
+
+      Arnd
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
