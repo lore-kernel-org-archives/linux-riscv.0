@@ -4,111 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D748C021A1
-	for <linux-riscv@archiver.kernel.org>; Tue, 11 Feb 2025 09:26:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 15985C0219B
+	for <linux-riscv@archiver.kernel.org>; Tue, 11 Feb 2025 10:00:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=PI4pp/M7i8+OdqfteDs+7b3WFCr8typBVLZ403Z58+M=; b=LYDbMz4eGYTruG
-	fJjUzKrXxLRQenmEfOEYnSNvpu4V/ILR2y8M/sHcPXEvEJsdMW2Nlh2ObURPE9HOn4IEgkSF+6/vQ
-	F8sqJHK6fp6tEvPBELqhjoAsxCarKHgqafnVF+qO/hCrJehi0vZezTpc1DmCnrEw9yWjE9kxcX67Z
-	AawLhrl8FerNu2QNh9mwf4IUauRsfeopraWbgT7M3KkJ/7sSLpMUFWeGJF/lVivAaY6J4lE2hpzma
-	f8n4CiIN/02KQ0BYhm1tDZyGgInpUwyMT5OV/37QGQyNBpBvyjiyDtlLRkuP6KO/Zrzoh8rc/2wQ+
-	ix/pEAa59Frs5JZNSxnA==;
+	List-Owner; bh=0xXJtovgt7qIdvC+N3d4ROEMCU6yW3gNtXQp2obYAG0=; b=YJDJ7XcElfSWWC
+	dPW/zX3EhyULJA14Hpj0i/uCpliI4bwm+cYY6plq6NyMC3yBjILqWloqYiKv77JSdU3dgbiIelZBc
+	nCMUUOc76MO2GCpCWXlTPCPO3UXiXz6fNh/hhHrZlVktzWs2eqnWT0isw9OJNZaHXgBz3+b5/hIIM
+	12QOV7VeR2HXWoTSaAHhR1DC8doC83zmPNW3ROiFhfhoNgOYVLeUIue1ZIHQDBSmvGZulYJgsCo3X
+	Mq9E/SgSSEbkhx9DXkT30IQzpevXuTFqo8rAyR+lGkYREkkSxYS6XZUMSmpCdImXo8k1t1nYI7/Oh
+	zYWesSUaJKOxDFV1IqhQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1thmWh-000000039rz-2wmm;
-	Tue, 11 Feb 2025 09:25:55 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1thn3o-00000003Gwz-2G4m;
+	Tue, 11 Feb 2025 10:00:08 +0000
+Received: from mail-oa1-x2f.google.com ([2001:4860:4864:20::2f])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1thlK3-00000002wSp-1g1e;
-	Tue, 11 Feb 2025 08:08:48 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 401515C041E;
-	Tue, 11 Feb 2025 08:08:07 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A78CEC4CEE4;
-	Tue, 11 Feb 2025 08:08:41 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1739261326;
-	bh=g6TTE3m9NjTz7Ln6gbbV9EUq6t8mfTc4AEapJWltUgs=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=FYQq3tj5+nT8FU9Y72jpY9LX81MJEntaazoLlM4HNq+QKkCSBKTn8EYvsBxqyjxfP
-	 wjOCrvy7ZDnI1NyQpjycTZimjI9JCHecXwNSFlxbYhFn1F5IEjNwW52SRy9CzNDxbe
-	 +mi1SEvvGASztHuhaupmvVUt02HEvsJeWxQoVgx/ui0lcHm3G40fxhJ+NbOSc9nghS
-	 XfjRxuSKdH8wSbDMolJKV2KyM7RoBGpNeg7ROguW9Cz0K45fvm53FSEqTML6WKOpeH
-	 AXMcvSCCA0pyMo5YVkfPhokbztq+RyldCoBtM2dAd+ITrWCoBZIlB2mNbARV+0mycj
-	 PPh62rQisdc0w==
-Message-ID: <3f548621-6f66-41ee-a23f-ae4a8345061a@kernel.org>
-Date: Tue, 11 Feb 2025 09:08:39 +0100
+	id 1thn3m-00000003GwI-0AAS
+	for linux-riscv@lists.infradead.org;
+	Tue, 11 Feb 2025 10:00:07 +0000
+Received: by mail-oa1-x2f.google.com with SMTP id 586e51a60fabf-2a8690dcb35so1625126fac.3
+        for <linux-riscv@lists.infradead.org>; Tue, 11 Feb 2025 02:00:05 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1739268005; x=1739872805; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=kMjcIGjdI0ffRg0rAm5FAcc+FuG3Hvf62mMCY1pQncg=;
+        b=mQQZ5RR96eMNPgmtey79o9AeRt8RF9hUKE8owRn3/kAkWQy0wQjNOeLuht6W6tpujW
+         9bGo5J2RjFQ2K2DsZvgw6rhOU4LiTTar8kzqTWgyZyUo7PS/OGL4Yc1CmWeg3PHgujny
+         0PA44V7ru8B1/DhTWyQw5oyMY/yCp8VnYsP00xz91P4SyuPTiodJbFRl8Q80DvFL6sP0
+         TJZpb/ViArvGtArgR9gISa8yZJ1o2yAGwqvvTGIUff0vNrETmLujNIaJVr+Zl4XQ0Xap
+         1Cxn+A7Z6ZZ66yPHs8yxHpiOY6tqFxjHrMvD9FFHK5beu5LvcbM1LqHEYiAkQcVE06vg
+         VP6g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1739268005; x=1739872805;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=kMjcIGjdI0ffRg0rAm5FAcc+FuG3Hvf62mMCY1pQncg=;
+        b=ZIdD+RcYYlD0C7TQb+GEmLyE3l8ngpoLdM4JM8+Tl2GhSmOJfOuSmbgMpP/IHRtDkf
+         mgUCG0TgJs7KfOq31laTUJph18UcbtBBiBTtxtD8yrg7VnQDrsvN2SWnzVGbM8hcGlvK
+         at0g487OG4dfovMrmkucJxWGgx5XxTQmO4am7nBXLTMd6O3qIMMsp40Wkmk/P5n1TDtB
+         G98eAUclJ/LqCDOx1xqK19HHjt7GTe8PujThZL9Bc9TQ32TN6PgV3c9HGEJiW4LMP+wv
+         Ju3MqrfpxaUuh/UtoApEzK82hw3r4h9TFP0Tu49V4z0+56cwW0vdpKm5mgc5CQD3LOOy
+         z4HA==
+X-Forwarded-Encrypted: i=1; AJvYcCXi+4FDM30oygsvrfXr8vBRcyMkZkg41zTRa7aTyywteqn5BSeuJSgLDQ8n5tkvC+n+3Jn2x0hwy/IU1w==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxr8pRwwKGvhYhLXABZeAJWFtE2ubMxnFFzCpheKwSgfoLGYAuU
+	aX50dhESnGl0h2S7nC9hBCzrl65SNOEl8JZ7AEqcj1LhDzQGC07EG1u9RSDMpqNowX7AyYLO6LP
+	dY+tgl6CuetlCcsVZGG+g7pW+8Po=
+X-Gm-Gg: ASbGnctp+tWmPlZ4zqq5UlM+TOafIqG7n1vLo02ZwYHaeSDPtKwIXIgAvplkJI3kJU5
+	p/fnuw8xnztVQf5GsJlBNfcoJ+78KUtctYdoVLm+S4KRiOR+Gs3YLsOfphWeCfBzgTDQjcGbP2t
+	xn7nIqSHEmhZZB/MLE7OxpG6vTw1WS
+X-Google-Smtp-Source: AGHT+IGKksbEJ3etHXNKjondEMVicvSi7j8TGiJnnmy64FsLmXK2Iy60qC1Tibj+mbuOXvUSqichua+e9GwzGGxuQRA=
+X-Received: by 2002:a05:687c:2187:b0:29e:75ff:4d0c with SMTP id
+ 586e51a60fabf-2b83eb5153amr11531322fac.4.1739268004642; Tue, 11 Feb 2025
+ 02:00:04 -0800 (PST)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 02/10] riscv: dts: sophgo: cv18xx: Split into CPU core and
- peripheral parts
-To: Alexander Sverdlin <alexander.sverdlin@gmail.com>, soc@lists.linux.dev
-Cc: Chen Wang <unicorn_wang@outlook.com>,
- Inochi Amaoto <inochiama@outlook.com>, linux-riscv@lists.infradead.org,
- devicetree@vger.kernel.org, Haylen Chu <heylenay@outlook.com>,
- linux-arm-kernel@lists.infradead.org,
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Arnd Bergmann <arnd@arndb.de>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>
-References: <20250209220646.1090868-1-alexander.sverdlin@gmail.com>
- <20250209220646.1090868-3-alexander.sverdlin@gmail.com>
- <dda5297c-fdf3-494f-854f-71a5000729e5@kernel.org>
- <7fa3501bd59697e65ab1387e25cb815180c3378c.camel@gmail.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 fv0=
-In-Reply-To: <7fa3501bd59697e65ab1387e25cb815180c3378c.camel@gmail.com>
+References: <20250127061529.2437012-1-zhangchunyan@iscas.ac.cn>
+ <c0a2fbeb-9a0d-4b69-bc6b-e1652e13debf@molgen.mpg.de> <Z5gJ35pXI2W41QDk@ghost>
+In-Reply-To: <Z5gJ35pXI2W41QDk@ghost>
+From: Chunyan Zhang <zhang.lyra@gmail.com>
+Date: Tue, 11 Feb 2025 17:59:26 +0800
+X-Gm-Features: AWEUYZkt8OdocdXVb0pQ5ZqBPoTuLbqJn64H0myEHoRqE0UKOX8xoM8V-7Mr18s
+Message-ID: <CAAfSe-utAb53278x9X4tKn6jWzdehsPKDRa_CoQy61ND=cXbxQ@mail.gmail.com>
+Subject: Re: [PATCH V2] raid6: Add RISC-V SIMD syndrome and recovery calculations
+To: Charlie Jenkins <charlie@rivosinc.com>
+Cc: Paul Menzel <pmenzel@molgen.mpg.de>, Chunyan Zhang <zhangchunyan@iscas.ac.cn>, 
+	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, Song Liu <song@kernel.org>, Yu Kuai <yukuai3@huawei.com>, 
+	linux-riscv@lists.infradead.org, linux-raid@vger.kernel.org, 
+	linux-kernel@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250211_000847_527346_71365A19 
-X-CRM114-Status: GOOD (  14.26  )
+X-CRM114-CacheID: sfid-20250211_020006_076960_26240B4B 
+X-CRM114-Status: GOOD (  22.73  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,45 +92,90 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gMTAvMDIvMjAyNSAxNDo0NSwgQWxleGFuZGVyIFN2ZXJkbGluIHdyb3RlOgo+IFRoYW5rcyBm
-b3IgcXVpY2sgcmV2aWV3IEtyenlzenRvZiEKPiAKPiBPbiBNb24sIDIwMjUtMDItMTAgYXQgMDk6
-NDMgKzAxMDAsIEtyenlzenRvZiBLb3psb3dza2kgd3JvdGU6Cj4+IE9uIDA5LzAyLzIwMjUgMjM6
-MDYsIEFsZXhhbmRlciBTdmVyZGxpbiB3cm90ZToKPj4+IE1ha2UgdGhlIHBlcmlwaGVyYWwgZGV2
-aWNlIHRyZWUgcmUtdXNhYmxlIG9uIEFSTTY0IHBsYXRmb3JtIGJ5IHNwbGl0dGluZyBpdAo+Pj4g
-aW50byBDUFUtY29yZSBzcGVjaWZpYyBhbmQgcGVyaXBoZXJhbCBwYXJ0cy4KPj4+Cj4+PiBBZGQg
-U09DX1BFUklQSEVSQUxfSVJRKCkgbWFjcm8gd2hpY2ggZXhwbGljaXRseSBtYXBzIHBlcmlwaGVy
-YWwgbnViZXJpbmcKPj4+IGludG8gInBsaWMiIGludGVycnVwdC1jb250cm9sbGVyIG51bWJlcmlu
-Zy4KPj4+Cj4+PiBTaWduZWQtb2ZmLWJ5OiBBbGV4YW5kZXIgU3ZlcmRsaW4gPGFsZXhhbmRlci5z
-dmVyZGxpbkBnbWFpbC5jb20+Cj4+PiAtLS0KPj4+IMKgIGFyY2gvcmlzY3YvYm9vdC9kdHMvc29w
-aGdvL2N2MTgxeC5kdHNpwqDCoMKgwqDCoMKgwqAgfMKgwqAgMiArLQo+Pj4gwqAgYXJjaC9yaXNj
-di9ib290L2R0cy9zb3BoZ28vY3YxOHh4LXBlcmlwaC5kdHNpIHwgMzEzICsrKysrKysrKysrKysr
-KysrKwo+Pj4gwqAgYXJjaC9yaXNjdi9ib290L2R0cy9zb3BoZ28vY3YxOHh4LmR0c2nCoMKgwqDC
-oMKgwqDCoCB8IDMwNSArLS0tLS0tLS0tLS0tLS0tLQo+ICAgICAgICAgICAgICAgICAgICAgICAg
-ICAgICAgICAgIF5eXl5eXl5eXl5eCj4gWzFdCj4gCj4+PiAtLS0gL2Rldi9udWxsCj4+PiArKysg
-Yi9hcmNoL3Jpc2N2L2Jvb3QvZHRzL3NvcGhnby9jdjE4eHgtcGVyaXBoLmR0c2kKPj4+IEBAIC0w
-LDAgKzEsMzEzIEBACj4+PiArLy8gU1BEWC1MaWNlbnNlLUlkZW50aWZpZXI6IChHUEwtMi4wIE9S
-IE1JVCkKPj4+ICsvKgo+Pj4gKyAqIENvcHlyaWdodCAoQykgMjAyMyBKaXNoZW5nIFpoYW5nIDxq
-c3poYW5nQGtlcm5lbC5vcmc+Cj4+PiArICogQ29weXJpZ2h0IChDKSAyMDIzIElub2NoaSBBbWFv
-dG8gPGlub2NoaWFtYUBvdXRsb29rLmNvbT4KPj4+ICsgKi8KPj4+ICsKPj4+ICsjaW5jbHVkZSA8
-ZHQtYmluZGluZ3MvY2xvY2svc29waGdvLGN2MTgwMC5oPgo+Pj4gKyNpbmNsdWRlIDxkdC1iaW5k
-aW5ncy9ncGlvL2dwaW8uaD4KPj4+ICsjaW5jbHVkZSA8ZHQtYmluZGluZ3MvaW50ZXJydXB0LWNv
-bnRyb2xsZXIvaXJxLmg+Cj4+PiArCj4+PiArLyB7Cj4+PiArCW9zYzogb3NjaWxsYXRvciB7Cj4+
-PiArCQljb21wYXRpYmxlID0gImZpeGVkLWNsb2NrIjsKPj4KPj4gSSByZWFsbHkgZG91YnQgdGhh
-dCBleHRlcm5hbCBvc2NpbGxhdG9yIGlzIGEgcGVyaXBoZXJhbC4gVGhpcyBpcyBlaXRoZXIKPj4g
-cGFydCBvZiBib2FyZCBvciB0aGUgU29DLgo+IAo+IFRoaXMgaXMgYWN0dWFsbHkgYSBwcm9ibGVt
-IG9mIHRoZSBvcmlnaW5hbCBjdjE4eHguZHRzaSBbMV0uIERvIHlvdSB0aGluawo+IEkgbmVlZCB0
-byBmaXggaXQgYXMgcGFydCBvZiBteSBzZXJpZXM/IFRoaXMgd291bGQgdG91Y2ggYWxsIHRoZSBw
-dXJlCj4gUmlzY1YgYm9hcmRzICh1c2luZyBDVjE4eHggU29Dcywgbm90IFNHMjAweCBTb0NzKSwg
-d2hpY2ggSSBjb3VsZCBhdm9pZAo+IG90aGVyd2lzZS4KCllvdSBhcmUgbW92aW5nIHRoZSBub2Rl
-IG91dCBvZiBjdjE4eHguZHRzaSwgc28geW91IGNhbiBtb3ZlIGl0IHRvIGZpbmFsCnBsYWNlIGZv
-ciBleGFtcGxlLiBCdXQgSSBkbyBub3QgaW5zaXN0LCBiZWNhdXNlIEkgYWxzbyBkbyBub3Qga25v
-dyB0aGUKZmluYWwgKHRydWx5IGNvcnJlY3QpIHBsYWNlIC0gZG9uJ3Qga25vdyB0aGUgaGFyZHdh
-cmUgaGVyZS4KCkJlc3QgcmVnYXJkcywKS3J6eXN6dG9mCgpfX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgt
-cmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWls
-bWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+On Tue, 28 Jan 2025 at 06:34, Charlie Jenkins <charlie@rivosinc.com> wrote:
+>
+> On Mon, Jan 27, 2025 at 09:39:11AM +0100, Paul Menzel wrote:
+> > Dear Chunyan,
+> >
+> >
+> > Thank you for the patch.
+> >
+> >
+> > Am 27.01.25 um 07:15 schrieb Chunyan Zhang:
+> > > The assembly is originally based on the ARM NEON and int.uc, but uses
+> > > RISC-V vector instructions to implement the RAID6 syndrome and
+> > > recovery calculations.
+> > >
+> > > Results on QEMU running with the option "-icount shift=0":
+> > >
+> > >    raid6: rvvx1    gen()  1008 MB/s
+> > >    raid6: rvvx2    gen()  1395 MB/s
+> > >    raid6: rvvx4    gen()  1584 MB/s
+> > >    raid6: rvvx8    gen()  1694 MB/s
+> > >    raid6: int64x8  gen()   113 MB/s
+> > >    raid6: int64x4  gen()   116 MB/s
+> > >    raid6: int64x2  gen()   272 MB/s
+> > >    raid6: int64x1  gen()   229 MB/s
+> > >    raid6: using algorithm rvvx8 gen() 1694 MB/s
+> > >    raid6: .... xor() 1000 MB/s, rmw enabled
+> > >    raid6: using rvv recovery algorithm
+> >
+> > How did you start QEMU and on what host did you run it? Does it change
+> > between runs? (For me these benchmark values were very unreliable in the
+> > past on x86 hardware.)
+>
+> I reported dramatic gains on vector as well in this response [1]. Note
+> that these gains are only present when using the QEMU option "-icount
+> shift=0" vector becomes dramatically more performant. Without this
+> option we do not see a performance gain on QEMU. However riscv vector is
+> known to not be less optimized on QEMU so having vector be less
+> performant on some QEMU configurations is not necessarily representative
+> of hardware implementations.
+>
+>
+> My full qemu command is (running on x86 host):
+>
+> qemu-system-riscv64 -nographic -m 1G -machine virt -smp 1\
+>     -kernel arch/riscv/boot/Image \
+>     -append "root=/dev/vda rw earlycon console=ttyS0" \
+>     -drive file=rootfs.ext2,format=raw,id=hd0,if=none \
+>     -bios default -cpu rv64,v=true,vlen=256,vext_spec=v1.0 \
+>     -device virtio-blk-device,drive=hd0
+>
+> This is with version 9.2.0.
+>
+>
+> I am also facing this issue when executing this:
+>
+> raid6: rvvx1    gen()   717 MB/s
+> raid6: rvvx2    gen()   734 MB/s
+> Unable to handle kernel NULL pointer dereference at virtual address 0000000000000020
+>
+> Only rvvx4 is failing. I applied this patch to 6.13.
+
+I used your command to run but no issue on my side (x86 host, qemu
+version is 9.2.0, kernel 6.13 too):
+
+qemu-system-riscv64 -nographic -m 1G -machine virt -smp 1 -icount shift=0 \
+        -kernel arch/riscv/boot/Image   \
+        -append "rootwait root=/dev/vda ro"     \
+        -drive file=rootfs.ext4,format=raw,id=hd0 \
+        -bios default -cpu rv64,v=true,vlen=256,vext_spec=v1.0 \
+        -device virtio-blk-device,drive=hd0
+
+Thanks,
+Chunyan
+
+>
+> - Charlie
+>
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
