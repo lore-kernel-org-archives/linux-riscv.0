@@ -4,68 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F051C0219E
-	for <linux-riscv@archiver.kernel.org>; Tue, 11 Feb 2025 05:18:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B6D46C0219E
+	for <linux-riscv@archiver.kernel.org>; Tue, 11 Feb 2025 05:18:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=TpYxsHmSph77FluwDoheKfbLEyB72a/nOPoDKtF2KH8=; b=WKXNrofNATDue2
-	PIT4ncwyM8qt/d3EfknqtpQ+X/CI4B1OoyaXZFM9cxjHIV9SUoWoYiR7Q7W4up14OC177YZy7dF5Z
-	gd4DKczzJ5X8db5VvEEA6Imd/EyvSESVOAvywm16rHlbnV+YQLEYuI61i+IM8RHvAGQqK2P0gyOp1
-	oVvqN3n9PtAWdKkHsD7KrRvRVqNufB0zNGE19ZxMW1Gk6RnUsq8O2o0cNaoCg9Bl5lzg8sx7NxgXy
-	0BCfSD6eDspkyyEgPYoGbLIAJ2kBtJUjxrwbE1xcKqWL+/kN+k35JywUROi3+ukl3fGYyrctFMHZJ
-	/bVxJRO3+pgZny3CzFKA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=06gKRRCib8PxARbw33ybhVDjLWJ1BlkY4AAQt5gnj/w=; b=MwKLViHMkntIxG
+	3MSzvRoYPR1v5hpNJqcQJz7D6dL8ApedlndQHk2gDrKZrTRYMfJlr8NexjB/7+bYlTCW/yN+rotXc
+	jQmKmhcO7BjLr+BHd+pEnE+mLIWz5fpj0B8hpNgF70vY11kXmKA1mKBtlj446PLsYgv9CDZPKfbSK
+	IpQJmR2zv9L8leGFiSgPs0mZ4OZJaUGnmJ2EYzlNNpt5P2jmImkxrolp8DzPqs4+ihrz2EvrV0JLE
+	NrBpR7ST4H2aSx0fyUdeMaS0G8qZGMUa84KUwZ9VudFkkQ6hQG60EzlBJarewzHkBePbBoa8t+Vi7
+	2Mwmodfpt+RTB407UoHA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1thiez-00000002ZOh-3kAu;
-	Tue, 11 Feb 2025 05:18:13 +0000
-Received: from mail-qk1-x72f.google.com ([2607:f8b0:4864:20::72f])
+	id 1thif9-00000002ZRr-27KZ;
+	Tue, 11 Feb 2025 05:18:23 +0000
+Received: from mail-qt1-x82f.google.com ([2607:f8b0:4864:20::82f])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1thiex-00000002ZOE-3GZQ
+	id 1thif6-00000002ZQV-21cd
 	for linux-riscv@lists.infradead.org;
-	Tue, 11 Feb 2025 05:18:13 +0000
-Received: by mail-qk1-x72f.google.com with SMTP id af79cd13be357-7be3f230436so499255585a.3
-        for <linux-riscv@lists.infradead.org>; Mon, 10 Feb 2025 21:18:11 -0800 (PST)
+	Tue, 11 Feb 2025 05:18:21 +0000
+Received: by mail-qt1-x82f.google.com with SMTP id d75a77b69052e-471953acfe8so17710681cf.2
+        for <linux-riscv@lists.infradead.org>; Mon, 10 Feb 2025 21:18:20 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1739251090; x=1739855890; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=WzpjNfBqOlKT2BSz+1kp1kL8skU7thu6xUdM/EtgpZs=;
-        b=UTg7gSZliBMDJ8ACVLSqS6MQraWVH5+O0yyk9TqQAiZxOUxXSxPSQo9qw3WGY+/nkh
-         tik7gKsT77/t1XNewSBGn833zKb9JCs59aNnEHkinPUR47+vrDxjjIa/sqOE0SnZIRzN
-         EWVRfnGzPWHJRZIfiokjM7rmjQnnovVMu5SwNOEZA1/5SSQ60xshe3QNTY4e08LYndO8
-         rqVmzk86M+LBlxxu4GVWSDyG1ZukU9yYWQq77LMs5vd5frCR+FOFszQijRIBjdlHYpA2
-         QPmRjrdMN1o+WQmP+xq2HqWoMfn/2sen/hgVx/TwWY81wdhghS/pCDE/NjA+/ue+hzAY
-         mNyw==
+        d=gmail.com; s=20230601; t=1739251099; x=1739855899; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=0s2V4LLRLenQ9wtaSUQMyh5fbdoyu5F7c1yyUPQHBKU=;
+        b=dJVj2jUWtPr4TdMobQvHfvjhAMZu8nrGYmTic4EPKXOlPiwBHH1KhZ2OJytOSIPJ2D
+         8v7luULAq77V2oTuTbY3I883jRldJUpQDrEH5ATLqhoB9Blr3z7NLDZRM5zduUMvrSRL
+         IeLROE8JHjbKF2VFguJqW882yIrjcvAN0y3PbkxCs7n0zDu3bi2X+a1dRYl+K5V44n/Y
+         FyB1vhxAH3FFK4CmczWJoe3kITUkg15JvunNTHzL9hJMKxJbN+NXPBH68XW2/OwuQ0xV
+         7wRrkUS+2SVoePhv6tw2fEsYVzHt7MwPo1+QZ0n1moZYsnR643I6QmmejDbwnJhri+pQ
+         BXSg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1739251090; x=1739855890;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=WzpjNfBqOlKT2BSz+1kp1kL8skU7thu6xUdM/EtgpZs=;
-        b=HHkmBFgP9jpstNNE6sCfDlXkh5UYjxgp9VglKHxMTa0R7v9WFIdMn+cDpDz/LAtNMd
-         vJTblWdKWr/BwgQgW0yJ7H06UCE7VmIOsLZ8qzoqAMZy0yZNIaXROIzZgJ8bEaNtnbl4
-         jppcqJ7z+sCd773fMxAcCHVhW2xfgmGZlEn83WcaqkvmN1LlEp2s4QuJXduO4FgkTReS
-         JW89VEoG5AXn1uq7BCiqorIVcA1DmS8eRPtqZQWX2vbAn8gFV99ybDfI30ky+6cUV2Yc
-         z8teKjoCrvVCRaHaKetrHlIQhs81UNbGjPMP2cJTSgf8+RBuCuJqqLdA+wvisaurdp9W
-         xmDg==
-X-Forwarded-Encrypted: i=1; AJvYcCVPpOjMeTLFhZJXYBfhspXz/NjEB/zPn9agAZkuPXbEud9AO2phtmZyKWR8/KGdWLEVkLkz0R0rtXLWfw==@lists.infradead.org
-X-Gm-Message-State: AOJu0YxYzNpC1b23vFeb68O7GEDDO/bmdcOE0KgNNKvTn6MGknQHK3GS
-	/mmnmSIHaTTHtomaw9SJSfv6njE8hcSbWMtFsQ961snsMewTLbjT
-X-Gm-Gg: ASbGncu1Dao9K+Gyk5W5DW+FjL0Fsa4HKA7bXO5HRnaZefOkNvr7vQDnxaGAt4VaBH1
-	SGrPTSNd1sS4f0lUH361SgBR51r2Z/REVbxU6cxpOXh6oguROMB+a8qMdJ4ZLWNGDivOJk6EO7B
-	dHazZ2du8mzU/DZs2lnR9QbXdk/t/1tnOH3SiiDwfGHYP5mTqr9mZTgkI7ogkmsypaK1RkCyHPl
-	HY04J6k3wWaITr8M5ZVUMy7SXoUzAI5rvTfM8QeQ06lwCKfIxLOG72SyktwG8eGr5E=
-X-Google-Smtp-Source: AGHT+IEI9E5fTbRoq6W5/oLfP1d80KE78Bpt9hACo2akmSZ485e5xOa0rGu7oPZ/n2fRyaJ/vpAwSg==
-X-Received: by 2002:a05:620a:1903:b0:7be:6f05:1b2a with SMTP id af79cd13be357-7c047cae609mr2807842585a.56.1739251090233;
-        Mon, 10 Feb 2025 21:18:10 -0800 (PST)
+        d=1e100.net; s=20230601; t=1739251099; x=1739855899;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=0s2V4LLRLenQ9wtaSUQMyh5fbdoyu5F7c1yyUPQHBKU=;
+        b=AGwqJ3IUh/HqDNC0K9wAjroNx0f+3psZJFlbW7aYnyS1cp+avf/8OAzbBhtFzofkI9
+         6nQhl4k14m2ze5Ka8pNhzWrlz5oT+qV2N6b321TActjoBXzbXlQFFqSX04mQcENA6lbG
+         qHweP3FmHWyFQnviTiUCWo2WrgB+FKB6zN5OyhENnOCsibqelBS1uOOp043IIoR51yOC
+         xfBntkgL+CamWpCIjhnxjXEyh5CzABF1W961pf+pajMQVtYMPS8uRWzLkaHrEWheUtQx
+         EuC6pGPmpCSm+kaLVX/FLNelsytEmocDIJ64BzDGc5IFUILP25qx/XNBbpXpVz0L85jB
+         Q3rQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVYPa3S+btqRP92/yO6VDEw7XvawuXwCgll8HNMzEzHNyKjg7ltbqsIdtkz8mtxjqDjDaImoOcIY4N78w==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz8Y+va82DiAb20M2zFy6P0Z7/3S84/dXSUIzd+XWrDckIHEyMG
+	QZ1gHjPhM7tdkIa/ZGl2pn7NHMRPSZppSyDkdlxphrZjp82C6YXd
+X-Gm-Gg: ASbGnctzvhGwfzA65Dv8y2bupFz26OcUg8PMH5DFGR71wGJnEETK8L8J3N13arbn6+0
+	ubGK5AEGyodjY1MOLGl3rCJ6yaewP0yzB+nnGd6Rd8MxqeBlxuymUlqYNDUK91YZRwzXM0luqRR
+	1u6kVyXT8MmyhaTeClTAOfBu0Y/mt6G7D2loflckXjfVO5sYMj+hz7cqf88bLWD/NSUtKOinD65
+	4I8MXhLM76oiNy54yQxXPUl4JrO4Jlh6AokTaEpp7y9Qn03XZSYuzz77MZa8rR1Hn8=
+X-Google-Smtp-Source: AGHT+IE0sgzXr7Llx/28PfETd7C4C8utcmdG2dOhv87WgE3+DjTtw8JROrCY0pmVhK/cU78FbEvf+g==
+X-Received: by 2002:a05:622a:8f13:b0:471:843a:6727 with SMTP id d75a77b69052e-471843a9d9cmr110285951cf.32.1739251098177;
+        Mon, 10 Feb 2025 21:18:18 -0800 (PST)
 Received: from localhost ([2001:da8:7001:11::cb])
-        by smtp.gmail.com with UTF8SMTPSA id af79cd13be357-7c041e9f506sm624267285a.71.2025.02.10.21.18.08
+        by smtp.gmail.com with UTF8SMTPSA id d75a77b69052e-471a72c7290sm1536191cf.58.2025.02.10.21.18.16
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 10 Feb 2025 21:18:09 -0800 (PST)
+        Mon, 10 Feb 2025 21:18:17 -0800 (PST)
 From: Inochi Amaoto <inochiama@gmail.com>
 To: Linus Walleij <linus.walleij@linaro.org>,
 	Rob Herring <robh@kernel.org>,
@@ -87,14 +88,16 @@ Cc: Inochi Amaoto <inochiama@gmail.com>,
 	linux-riscv@lists.infradead.org,
 	Yixun Lan <dlan@gentoo.org>,
 	Longbin Li <looong.bin@gmail.com>
-Subject: [PATCH v2 0/8] riscv: sophgo: Add pinctrl support for SG2042
-Date: Tue, 11 Feb 2025 13:17:48 +0800
-Message-ID: <20250211051801.470800-1-inochiama@gmail.com>
+Subject: [PATCH v2 1/8] pinctrl: sophgo: avoid to modify untouched bit when setting cv1800 pinconf
+Date: Tue, 11 Feb 2025 13:17:49 +0800
+Message-ID: <20250211051801.470800-2-inochiama@gmail.com>
 X-Mailer: git-send-email 2.48.1
+In-Reply-To: <20250211051801.470800-1-inochiama@gmail.com>
+References: <20250211051801.470800-1-inochiama@gmail.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250210_211811_831552_5B25F8EA 
-X-CRM114-Status: GOOD (  10.79  )
+X-CRM114-CacheID: sfid-20250210_211820_520912_3D769296 
+X-CRM114-Status: GOOD (  14.14  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,61 +114,153 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-SG2042 has a simple pinctrl device for all configurable pins.
-It supports setting pull up/down, drive strength and input schmitt
-trigger.
+When setting pinconf configuration for cv1800 SoC, the driver just writes
+the value. It may zero some bits of the pinconf register and cause some
+unexpected error. Add a mask to avoid this.
 
-Add support for SG2042 and SG2044 pinctrl device.
+Signed-off-by: Inochi Amaoto <inochiama@gmail.com>
+---
+ drivers/pinctrl/sophgo/pinctrl-cv18xx.c | 33 +++++++++++++++++--------
+ 1 file changed, 23 insertions(+), 10 deletions(-)
 
-Changed from v1:
-- https://lore.kernel.org/all/20241024064356.865055-1-inochiama@gmail.com/
-1. Fix the binding documentation error.
-2. Refactor the cv18xx code so SG2042 can uses the same code.
-3. Add SG2044 pinctrl support as it has the same layout.
-
-Inochi Amaoto (8):
-  pinctrl: sophgo: avoid to modify untouched bit when setting cv1800
-    pinconf
-  pinctrl: sophgo: introduce generic data structure for cv18xx pinctrl
-    driver
-  pinctrl: sophgo: generalize shareable code of cv18xx pinctrl driver
-  pinctrl: sophgo: introduce generic probe function
-  dt-bindings: pinctrl: Add pinctrl for Sophgo SG2042 series SoC
-  pinctrl: sophgo: add support for SG2042 SoC
-  pinctrl: sophgo: add support for SG2044 SoC
-  riscv: dts: sophgo: sg2042: add pinctrl support
-
- .../pinctrl/sophgo,sg2042-pinctrl.yaml        | 129 ++++
- .../boot/dts/sophgo/sg2042-milkv-pioneer.dts  |  72 ++
- arch/riscv/boot/dts/sophgo/sg2042.dtsi        |   6 +
- drivers/pinctrl/sophgo/Kconfig                |  46 +-
- drivers/pinctrl/sophgo/Makefile               |   8 +-
- drivers/pinctrl/sophgo/pinctrl-cv1800b.c      |  27 +-
- drivers/pinctrl/sophgo/pinctrl-cv1812h.c      |  27 +-
- drivers/pinctrl/sophgo/pinctrl-cv18xx.c       | 602 ++++-----------
- drivers/pinctrl/sophgo/pinctrl-cv18xx.h       |  66 +-
- drivers/pinctrl/sophgo/pinctrl-sg2000.c       |  27 +-
- drivers/pinctrl/sophgo/pinctrl-sg2002.c       |  27 +-
- drivers/pinctrl/sophgo/pinctrl-sg2042-ops.c   | 296 ++++++++
- drivers/pinctrl/sophgo/pinctrl-sg2042.c       | 655 ++++++++++++++++
- drivers/pinctrl/sophgo/pinctrl-sg2042.h       |  49 ++
- drivers/pinctrl/sophgo/pinctrl-sg2044.c       | 718 ++++++++++++++++++
- .../pinctrl/sophgo/pinctrl-sophgo-common.c    | 451 +++++++++++
- drivers/pinctrl/sophgo/pinctrl-sophgo.h       | 136 ++++
- include/dt-bindings/pinctrl/pinctrl-sg2042.h  | 196 +++++
- include/dt-bindings/pinctrl/pinctrl-sg2044.h  | 221 ++++++
- 19 files changed, 3217 insertions(+), 542 deletions(-)
- create mode 100644 Documentation/devicetree/bindings/pinctrl/sophgo,sg2042-pinctrl.yaml
- create mode 100644 drivers/pinctrl/sophgo/pinctrl-sg2042-ops.c
- create mode 100644 drivers/pinctrl/sophgo/pinctrl-sg2042.c
- create mode 100644 drivers/pinctrl/sophgo/pinctrl-sg2042.h
- create mode 100644 drivers/pinctrl/sophgo/pinctrl-sg2044.c
- create mode 100644 drivers/pinctrl/sophgo/pinctrl-sophgo-common.c
- create mode 100644 drivers/pinctrl/sophgo/pinctrl-sophgo.h
- create mode 100644 include/dt-bindings/pinctrl/pinctrl-sg2042.h
- create mode 100644 include/dt-bindings/pinctrl/pinctrl-sg2044.h
-
---
+diff --git a/drivers/pinctrl/sophgo/pinctrl-cv18xx.c b/drivers/pinctrl/sophgo/pinctrl-cv18xx.c
+index 57f2674e75d6..84b4850771ce 100644
+--- a/drivers/pinctrl/sophgo/pinctrl-cv18xx.c
++++ b/drivers/pinctrl/sophgo/pinctrl-cv18xx.c
+@@ -574,10 +574,10 @@ static int cv1800_pinconf_compute_config(struct cv1800_pinctrl *pctrl,
+ 					 struct cv1800_pin *pin,
+ 					 unsigned long *configs,
+ 					 unsigned int num_configs,
+-					 u32 *value)
++					 u32 *value, u32 *mask)
+ {
+ 	int i;
+-	u32 v = 0;
++	u32 v = 0, m = 0;
+ 	enum cv1800_pin_io_type type;
+ 	int ret;
+ 
+@@ -596,10 +596,12 @@ static int cv1800_pinconf_compute_config(struct cv1800_pinctrl *pctrl,
+ 		case PIN_CONFIG_BIAS_PULL_DOWN:
+ 			v &= ~PIN_IO_PULLDOWN;
+ 			v |= FIELD_PREP(PIN_IO_PULLDOWN, arg);
++			m |= PIN_IO_PULLDOWN;
+ 			break;
+ 		case PIN_CONFIG_BIAS_PULL_UP:
+ 			v &= ~PIN_IO_PULLUP;
+ 			v |= FIELD_PREP(PIN_IO_PULLUP, arg);
++			m |= PIN_IO_PULLUP;
+ 			break;
+ 		case PIN_CONFIG_DRIVE_STRENGTH_UA:
+ 			ret = cv1800_pinctrl_oc2reg(pctrl, pin, arg);
+@@ -607,6 +609,7 @@ static int cv1800_pinconf_compute_config(struct cv1800_pinctrl *pctrl,
+ 				return ret;
+ 			v &= ~PIN_IO_DRIVE;
+ 			v |= FIELD_PREP(PIN_IO_DRIVE, ret);
++			m |= PIN_IO_DRIVE;
+ 			break;
+ 		case PIN_CONFIG_INPUT_SCHMITT_UV:
+ 			ret = cv1800_pinctrl_schmitt2reg(pctrl, pin, arg);
+@@ -614,6 +617,7 @@ static int cv1800_pinconf_compute_config(struct cv1800_pinctrl *pctrl,
+ 				return ret;
+ 			v &= ~PIN_IO_SCHMITT;
+ 			v |= FIELD_PREP(PIN_IO_SCHMITT, ret);
++			m |= PIN_IO_SCHMITT;
+ 			break;
+ 		case PIN_CONFIG_POWER_SOURCE:
+ 			/* Ignore power source as it is always fixed */
+@@ -621,10 +625,12 @@ static int cv1800_pinconf_compute_config(struct cv1800_pinctrl *pctrl,
+ 		case PIN_CONFIG_SLEW_RATE:
+ 			v &= ~PIN_IO_OUT_FAST_SLEW;
+ 			v |= FIELD_PREP(PIN_IO_OUT_FAST_SLEW, arg);
++			m |= PIN_IO_OUT_FAST_SLEW;
+ 			break;
+ 		case PIN_CONFIG_BIAS_BUS_HOLD:
+ 			v &= ~PIN_IO_BUS_HOLD;
+ 			v |= FIELD_PREP(PIN_IO_BUS_HOLD, arg);
++			m |= PIN_IO_BUS_HOLD;
+ 			break;
+ 		default:
+ 			return -ENOTSUPP;
+@@ -632,17 +638,19 @@ static int cv1800_pinconf_compute_config(struct cv1800_pinctrl *pctrl,
+ 	}
+ 
+ 	*value = v;
++	*mask = m;
+ 
+ 	return 0;
+ }
+ 
+ static int cv1800_pin_set_config(struct cv1800_pinctrl *pctrl,
+ 				 unsigned int pin_id,
+-				 u32 value)
++				 u32 value, u32 mask)
+ {
+ 	struct cv1800_pin *pin = cv1800_get_pin(pctrl, pin_id);
+ 	unsigned long flags;
+ 	void __iomem *addr;
++	u32 reg;
+ 
+ 	if (!pin)
+ 		return -EINVAL;
+@@ -650,7 +658,10 @@ static int cv1800_pin_set_config(struct cv1800_pinctrl *pctrl,
+ 	addr = cv1800_pinctrl_get_component_addr(pctrl, &pin->conf);
+ 
+ 	raw_spin_lock_irqsave(&pctrl->lock, flags);
+-	writel(value, addr);
++	reg = readl(addr);
++	reg &= ~mask;
++	reg |= value;
++	writel(reg, addr);
+ 	raw_spin_unlock_irqrestore(&pctrl->lock, flags);
+ 
+ 	return 0;
+@@ -662,16 +673,17 @@ static int cv1800_pconf_set(struct pinctrl_dev *pctldev,
+ {
+ 	struct cv1800_pinctrl *pctrl = pinctrl_dev_get_drvdata(pctldev);
+ 	struct cv1800_pin *pin = cv1800_get_pin(pctrl, pin_id);
+-	u32 value;
++	u32 value, mask;
+ 
+ 	if (!pin)
+ 		return -ENODEV;
+ 
+ 	if (cv1800_pinconf_compute_config(pctrl, pin,
+-					  configs, num_configs, &value))
++					  configs, num_configs,
++					  &value, &mask))
+ 		return -ENOTSUPP;
+ 
+-	return cv1800_pin_set_config(pctrl, pin_id, value);
++	return cv1800_pin_set_config(pctrl, pin_id, value, mask);
+ }
+ 
+ static int cv1800_pconf_group_set(struct pinctrl_dev *pctldev,
+@@ -682,7 +694,7 @@ static int cv1800_pconf_group_set(struct pinctrl_dev *pctldev,
+ 	struct cv1800_pinctrl *pctrl = pinctrl_dev_get_drvdata(pctldev);
+ 	const struct group_desc *group;
+ 	const struct cv1800_pin_mux_config *pinmuxs;
+-	u32 value;
++	u32 value, mask;
+ 	int i;
+ 
+ 	group = pinctrl_generic_get_group(pctldev, gsel);
+@@ -692,11 +704,12 @@ static int cv1800_pconf_group_set(struct pinctrl_dev *pctldev,
+ 	pinmuxs = group->data;
+ 
+ 	if (cv1800_pinconf_compute_config(pctrl, pinmuxs[0].pin,
+-					  configs, num_configs, &value))
++					  configs, num_configs,
++					  &value, &mask))
+ 		return -ENOTSUPP;
+ 
+ 	for (i = 0; i < group->grp.npins; i++)
+-		cv1800_pin_set_config(pctrl, group->grp.pins[i], value);
++		cv1800_pin_set_config(pctrl, group->grp.pins[i], value, mask);
+ 
+ 	return 0;
+ }
+-- 
 2.48.1
 
 
