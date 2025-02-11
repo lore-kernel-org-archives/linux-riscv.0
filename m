@@ -4,95 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7FA26C02198
-	for <linux-riscv@archiver.kernel.org>; Tue, 11 Feb 2025 00:42:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E9D4C02198
+	for <linux-riscv@archiver.kernel.org>; Tue, 11 Feb 2025 01:22:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=78fFXy1DJ6GeXUjO4sgTu9g3DL1XznlGd4NF+7XZBKM=; b=z/hl4g5hUf9K5H
-	Y/ROblyaKSeTtLKSO/XkmqQ1TIaLLdpK1acQV4wRIhODLUnXpK1cD7KGwIqFLJZgeWYTH/92xyDv0
-	+2IlV1HsuOMASKxOOP7qVmFMm6zBijsjJjVWAPckp0a1vaC5taVQiy67IpFaUaaXyzbsQV8/8DMRD
-	8pOqg7BstFzTwgOxlEDp0GHPjVuTszqgH2SQ7imDnhxrvDGL011LejNkaxAE+9alLdqqrVIB9lRWv
-	5SEpfD+DgJ8fCr9BPW2iPHYi7AXrdZtf9JfkjlBwjk12NcfSRmAKNgB0TV2k78YRzUHQA+vo2OCha
-	YLftnJMGaLy7MosAfU9g==;
+	List-Owner; bh=WrF9+4/fcyxzdN2/R72byrK4lovuXgQC5LaCMTLcoX4=; b=NrglVmc2Mcigji
+	+7i11OXmj2GGyzrgLTpLrhcDMoi2SJHkss1HWKquF8SmbxJcZXgdnVWreL6kTGa4T3zHAc1c/rNLI
+	fZ/iV8lauhuez4BghWPwOPjRDuMXx+O5druqtKWpb/5f/KIdznCJF2Zr+pakF8hqqa99J9qTc9dUZ
+	Xb+UJcoqm4NPpO5pSaP2RmvMAQuwM3FtdCVd1ce3DBCJ6wYlTtGVNsWVfmRUq1lKFw29QvQNRNh3/
+	aW15VS64LnvMZBo5IE71+H56E6Eyb1dF9nkVOylAT5eSb8tYoURmN/FTpL7SclreZIeIsga8PS1vN
+	NkNFALts75mLJF/3+Q3Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1theMT-000000021MH-0WqB;
-	Tue, 11 Feb 2025 00:42:49 +0000
-Received: from mail-qk1-x72c.google.com ([2607:f8b0:4864:20::72c])
+	id 1theyn-000000025tF-11fL;
+	Tue, 11 Feb 2025 01:22:25 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1theMR-000000021Lc-2mVe
+	id 1thexe-000000025fi-3Ll7
+	for linux-riscv@bombadil.infradead.org;
+	Tue, 11 Feb 2025 01:21:14 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:MIME-Version:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=MaQFdnDPn6oDlBBV4WvI2w9SEnAIQ/HcPGa1Cc/3bcU=; b=VDYdHh5rxJLaGlt+FtscQPhRgE
+	lvxyxYGZsUB/8po/S35Nsf4KLypG3nu57U/rm1WhS0XrmD+rfjo6HeZs+ms/DxEFbcyMK51GFf/Gr
+	HERpqTfa5L1zwIA9twjW2HBPYCTju0/FoEOQ+8LfgkbBsw2TpdQDywMqLTT1xzdcrR6cr9sidxK3r
+	msusqsz88u1WeGrPbBiYX+drS/A0p0i6vdUiRSRpJDVtGsO0VqBOcm8PMGXjkLfuQ1FUgXDOraLRr
+	8ccf7EC/uyYUobK6Eo5z8tdZoRmNMQVP+kGNgBrP6uiukTvGQP1AWFYrOCHN64ZfuVaOzPZHEdj/q
+	bhbB3UEw==;
+Received: from mail-oa1-x36.google.com ([2001:4860:4864:20::36])
+	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1thexV-00000000QgV-0ipo
 	for linux-riscv@lists.infradead.org;
-	Tue, 11 Feb 2025 00:42:48 +0000
-Received: by mail-qk1-x72c.google.com with SMTP id af79cd13be357-7be8efa231aso511349685a.2
-        for <linux-riscv@lists.infradead.org>; Mon, 10 Feb 2025 16:42:47 -0800 (PST)
+	Tue, 11 Feb 2025 01:21:07 +0000
+Received: by mail-oa1-x36.google.com with SMTP id 586e51a60fabf-2b832eabf39so2341984fac.3
+        for <linux-riscv@lists.infradead.org>; Mon, 10 Feb 2025 17:21:03 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1739234566; x=1739839366; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=ves2PKf6HPc01SFv90D7qof8tDzgHtK1O0RPrNmLMrU=;
-        b=BQRegQUutOci4dnRRRySZv8I8eh8oyaqXQEdNwCfEh5rM54g05fwE/2svQLzL+zud6
-         /Ahp0/9CZxUPBpzGd4qX5HUmXbeE3tVT/RdeSf/6c0dHnqL2qGOiEJh/QimGlcHA8s4N
-         axNdFCGKQ3XkCFV+hMzlZvJEoNGttE/I3HRQJpmstd9e8nDSLDiiw5mhoDs7U2eYpT0F
-         UiFyV+ionPHfPB5nulhUfZjDXlBTCGguAxfqkTaFKYJ2EJEnCtEYZ4n0kQEEDTK2A7Gc
-         nNhlp45oD9dXmXdHMp3TtZSdNB+ksE3c1ckGWE3vp5cznmFCD0dezVw6FCh8vbwug/4C
-         Dsbg==
+        d=gmail.com; s=20230601; t=1739236861; x=1739841661; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=MaQFdnDPn6oDlBBV4WvI2w9SEnAIQ/HcPGa1Cc/3bcU=;
+        b=mUP6kpculDHI0YD8d0FQFdLKbWEl99L8f0OILpUL2iwxw9QHKiMI17BlO0rdsP+28T
+         P3ZAEd92cr3re1gsx+o4v7C2Vjccdjf0se9llITJAj5LUi6lFbihCHDd05bR+y3sBKXY
+         HRES2Rl0bxy5kZRlwceM1l0chOIwAADszgHct8kD35V3RMVRC2r1k9zLgHp0Afbd0Oa5
+         0bUV/NoZjD3+7jSASXyz2x3WsTiMv2XucOgGidFLdcgmqiHz0+pq0YdSLw5sR6EGGJs6
+         xe9TFwXWag1ApTu7RZYfSv/2L43gMrOK0jJ9CQ8gayRQke10zXV4nU3upn8iCcuZQGct
+         9gcA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1739234566; x=1739839366;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=ves2PKf6HPc01SFv90D7qof8tDzgHtK1O0RPrNmLMrU=;
-        b=jR2W0QtAKjRD9oKITNLmuhbjwERn2dyl7PXG6lOjsFoMlq80I+J5JrYaHXe2WmxW2v
-         PowT4tFD5aDJKb2cLlqimxBzRViQQ2uGLyNnHrpFm4LViisFUkFCBz3hEIodLCxsYcVw
-         9aX1TjmGb26zbGmQQDNyqpqCZdgdjguU1xFW1wRcEpP20nhDRn6z5UScB0n+GL8PT/t1
-         L5yg8YwteEW7z5kwnWTFZWg+qp1wNBwEwQaE1PgpY6wt+6Yq2MseAbcGvaqm/ThZiPqR
-         JNi4d05lhm4lYcKVX/0rM1WbmXuFtAQZRq/xxQGVqw4Y8cVgVYkw5TE3ea0cwwlPnxNi
-         XzVg==
-X-Forwarded-Encrypted: i=1; AJvYcCUoqa58w3TbBrcAbOI36CqMXCc0dP5RY2OybH7sBnYmFSClJC+xA9nk6Hxv5RdbszyyyK3cylfKWwoPkw==@lists.infradead.org
-X-Gm-Message-State: AOJu0YwNJhoszcTAbmkh7c581H8HibnX76v2FlcFEiGRMfBu/r6JEqkI
-	hbtyUzXzohMFa3GMRAdDtxT58ljfA0H+Ij/U6DgX50dge0ZvDszS
-X-Gm-Gg: ASbGnctQymhdG+jkTSs/xhRwBg6Y0o1EXw/j3CUSiRQwd3tLVSpWpQcjJr1kp2m9WCl
-	Jp4VlLJKMp2s/UsndNYeiVoXRW9gaeyiVUXplQZU3EgcGEydH552yTa+AeTm7pNU2wJ4fNH5JJk
-	XskmluY5CDlJ6m6TShWS2HPJJr8SyXdNZwdglwzgOEFj0rpEGs97RWSdUNJTdMxzTgrXUfDCfCf
-	SVY/tcyxs7HAO9AKGqZZh81uGC7wLsG+wxPLddN4UwtVNRB6OGSXdgR8bZo/Xk6Jzc=
-X-Google-Smtp-Source: AGHT+IEF3uTLUH2iOgpwnxLI7jl+sTJ/Lafd2yRzSkI96FyLXuh78dVjps2rwiQRrWVM1p/rSY8GKA==
-X-Received: by 2002:a05:620a:6a83:b0:7c0:51b1:49b4 with SMTP id af79cd13be357-7c051b14a5fmr986106485a.38.1739234566457;
-        Mon, 10 Feb 2025 16:42:46 -0800 (PST)
-Received: from localhost ([2001:da8:7001:11::cb])
-        by smtp.gmail.com with UTF8SMTPSA id af79cd13be357-7c041d6628bsm598304585a.0.2025.02.10.16.42.44
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 10 Feb 2025 16:42:45 -0800 (PST)
-Date: Tue, 11 Feb 2025 08:42:39 +0800
-From: Inochi Amaoto <inochiama@gmail.com>
-To: =?utf-8?B?Q2zDqW1lbnQgTMOpZ2Vy?= <cleger@rivosinc.com>
-Cc: linux-doc@vger.kernel.org, linux-riscv@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, Yixun Lan <dlan@gentoo.org>, 
-	Longbin Li <looong.bin@gmail.com>, Jesse Taube <jesse@rivosinc.com>, 
-	Yong-Xuan Wang <yongxuan.wang@sifive.com>, Samuel Holland <samuel.holland@sifive.com>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Evan Green <evan@rivosinc.com>, 
-	Andrew Jones <ajones@ventanamicro.com>, Alexandre Ghiti <alexghiti@rivosinc.com>, 
-	Andy Chiu <andybnac@gmail.com>, Charlie Jenkins <charlie@rivosinc.com>, 
-	Conor Dooley <conor+dt@kernel.org>, Rob Herring <robh@kernel.org>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
-	Jonathan Corbet <corbet@lwn.net>, Chen Wang <unicorn_wang@outlook.com>, 
-	Inochi Amaoto <inochiama@gmail.com>
-Subject: Re: [PATCH v3 2/3] riscv: add ISA extension parsing for bfloat16 ISA
- extension
-Message-ID: <7qkfqzhytjq2qwo2wg3xtkoqu6id6wduckeeudbn2yt5p5p7xv@2gl5bcny26rk>
-References: <20241206055829.1059293-1-inochiama@gmail.com>
- <20241206055829.1059293-3-inochiama@gmail.com>
- <374d3b07-e16c-4468-828a-a2a542cd88ac@rivosinc.com>
+        d=1e100.net; s=20230601; t=1739236861; x=1739841661;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=MaQFdnDPn6oDlBBV4WvI2w9SEnAIQ/HcPGa1Cc/3bcU=;
+        b=IzA2D5BQou0Iq/DiyoBtVNVjp71R9SsLcQa8jyhSw4QD6JSP420nMrYNDSH8V/Y0MS
+         PjpalnqWbd95/0/EVDTA/lgL2uaTGLQGwLoayeriW/VeASEYJQmEWaBksOhjyxKmrzvP
+         dmn+1VdL3WSxRyyGFF0yVayztXrS3paoVHsSDsWzwDSWJqHicK/6PDqybwcRKjDx3oLu
+         5GTz8A4DSR40mK49gaFOwHLG4FbS5lhUvmD3y85YfFCFwJtv6y4PQvRyi+tllKXj+lcN
+         U3srD/edYnZkGMT97yE6DC5MVi0iXsKc35pE5t4cau8mzkjd9Dp1JtcjoROMRbHqNOMi
+         7Z4A==
+X-Forwarded-Encrypted: i=1; AJvYcCU6HfaBV3pdQphMMXWZr7OihAKaO0guuRL+2MjKbMfzLJyj7mGdzrvJDvBpvulE5ypWdCHIhNDZc5U9fw==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy4bECesi4RkS6Mno7h18btEAeIFCbDMTLlediEbLXEUKPxj9fF
+	D5nFEJshBsBVVTmzVXy+oamlAK9wxTDuyLmdnsLL9vAWhaK7mXJdgH1kqvdsK1aCBlycGVRgs12
+	TaAkDxhNJmORTSePR6dzoR0BBlHWOVpOM
+X-Gm-Gg: ASbGncsf993zUDgLZSRRXsKuDZ/Q7SUHDoWCFUkzDXVre3p/WLF5F2CSMZrOTLq7X1e
+	q+uIRXcNKtaUzgLArAWscqSlkT1PII//VHMWg+NgkhD+i0Mgseq3AOxs8cnFCp4KDBVyQNdA=
+X-Google-Smtp-Source: AGHT+IGm048wWiFiLM3RnwF5VP9mdTr1NFDjC4UyHl5DciC8UMYJ0TxacQ6z8oYB1tJinGY/z+rTq+yN8/oOxkM5FtY=
+X-Received: by 2002:a05:6870:8a08:b0:29e:63c3:3392 with SMTP id
+ 586e51a60fabf-2b83ed3354fmr9621320fac.15.1739236861596; Mon, 10 Feb 2025
+ 17:21:01 -0800 (PST)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <374d3b07-e16c-4468-828a-a2a542cd88ac@rivosinc.com>
+References: <20241113095833.1805746-1-zhangchunyan@iscas.ac.cn>
+ <20241113095833.1805746-2-zhangchunyan@iscas.ac.cn> <87frl0snf6.fsf@all.your.base.are.belong.to.us>
+In-Reply-To: <87frl0snf6.fsf@all.your.base.are.belong.to.us>
+From: Chunyan Zhang <zhang.lyra@gmail.com>
+Date: Tue, 11 Feb 2025 09:20:22 +0800
+X-Gm-Features: AWEUYZlvl4mGCqJJI-gBI3cTxlXAt19H2Jtwaartczfba4mVGW4RfhZKYAMKh-E
+Message-ID: <CAAfSe-tRFEXiXJ=tHVnXy4Kb6O7-E2Sr_xybLYxma=ypMhqz9w@mail.gmail.com>
+Subject: Re: [PATCH V5 1/3] riscv: mm: Prepare for reusing PTE RSW bit(9)
+To: =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>
+Cc: Chunyan Zhang <zhangchunyan@iscas.ac.cn>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, Paul Walmsley <paul.walmsley@sifive.com>, 
+	Alexandre Ghiti <alex@ghiti.fr>, Andrew Morton <akpm@linux-foundation.org>, 
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	Alistair Popple <apopple@nvidia.com>, linux-mm@kvack.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250210_164247_703188_794ED67D 
-X-CRM114-Status: GOOD (  24.10  )
+X-CRM114-CacheID: sfid-20250211_012105_385241_C28338FC 
+X-CRM114-Status: GOOD (  11.25  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,153 +107,27 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="iso-8859-1"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Feb 10, 2025 at 03:38:58PM +0100, Cl=E9ment L=E9ger wrote:
-> =
-
-> =
-
-> On 06/12/2024 06:58, Inochi Amaoto wrote:
-> > Add parsing for Zfbmin, Zvfbfmin, Zvfbfwma ISA extension which
-> > were ratified in 4dc23d62 ("Added Chapter title to BF16") of
-> > the riscv-isa-manual.
-> > =
-
-> > Signed-off-by: Inochi Amaoto <inochiama@gmail.com>
-> > ---
-> >  arch/riscv/include/asm/hwcap.h | 3 +++
-> >  arch/riscv/kernel/cpufeature.c | 3 +++
-> >  2 files changed, 6 insertions(+)
-> > =
-
-> > diff --git a/arch/riscv/include/asm/hwcap.h b/arch/riscv/include/asm/hw=
-cap.h
-> > index 869da082252a..14cc29f2a723 100644
-> > --- a/arch/riscv/include/asm/hwcap.h
-> > +++ b/arch/riscv/include/asm/hwcap.h
-> > @@ -100,6 +100,9 @@
-> >  #define RISCV_ISA_EXT_ZICCRSE		91
-> >  #define RISCV_ISA_EXT_SVADE		92
-> >  #define RISCV_ISA_EXT_SVADU		93
-> > +#define RISCV_ISA_EXT_ZFBFMIN		94
-> > +#define RISCV_ISA_EXT_ZVFBFMIN		95
-> > +#define RISCV_ISA_EXT_ZVFBFWMA		96
-> >  =
-
-> >  #define RISCV_ISA_EXT_XLINUXENVCFG	127
-> >  =
-
-> > diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeat=
-ure.c
-> > index c0916ed318c2..5cfcab139568 100644
-> > --- a/arch/riscv/kernel/cpufeature.c
-> > +++ b/arch/riscv/kernel/cpufeature.c
-> > @@ -341,6 +341,7 @@ const struct riscv_isa_ext_data riscv_isa_ext[] =3D=
- {
-> >  	__RISCV_ISA_EXT_DATA(zacas, RISCV_ISA_EXT_ZACAS),
-> >  	__RISCV_ISA_EXT_DATA(zawrs, RISCV_ISA_EXT_ZAWRS),
-> >  	__RISCV_ISA_EXT_DATA(zfa, RISCV_ISA_EXT_ZFA),
-> > +	__RISCV_ISA_EXT_DATA(zfbfmin, RISCV_ISA_EXT_ZFBFMIN),
-> =
-
-> Hi Inochi,
-> =
-
-> You could add a validation callback to that extension:
-> =
-
-> static int riscv_ext_f_depends(const struct riscv_isa_ext_data *data,
-> 			       const unsigned long *isa_bitmap)
-> {
-> 	if (__riscv_isa_extension_available(isa_bitmap, RISCV_ISA_EXT_f))
-> 		return 0;
-> =
-
-> 	return -EPROBE_DEFER;
-> }
-> =
-
->   ...
->   __RISCV_ISA_EXT_DATA_VALIDATE(zfbfmin, RISCV_ISA_EXT_ZFBFMIN,
-> riscv_ext_f_depends),
-> =
-
-> =
-
-> But I'm ok with the current state of that patch since I have the same
-> thing coming for other extensions as well. =
-
-
-
-I think it is good for me to add the check, and I wonder it is possible
-to add the extra check for zvfbfmin and zvfbfwma like this:
-
-static int riscv_ext_zvfbfmin_validate(const struct riscv_isa_ext_data *dat=
-a,
-				       const unsigned long *isa_bitmap)
-{
-	if (__riscv_isa_extension_available(isa_bitmap, RISCV_ISA_EXT_v))
-		return 0;
-
-	if (__riscv_isa_extension_available(isa_bitmap, RISCV_ISA_EXT_ZVE32F))
-		return 0;
-
-	return -EPROBE_DEFER;
-}
-
-static int riscv_ext_zvfbfwma_validate(const struct riscv_isa_ext_data *dat=
-a,
-				       const unsigned long *isa_bitmap)
-{
-	if (__riscv_isa_extension_available(isa_bitmap, RISCV_ISA_EXT_ZFBFMIN) &&
-	    __riscv_isa_extension_available(isa_bitmap, RISCV_ISA_EXT_ZVFBFMIN))
-		return 0;
-
-	return -EPROBE_DEFER;
-}
-
-> So with or without my previous comment fixed:
-> =
-
-> Reviewed-by: Cl=E9ment L=E9ger <cleger@rivosinc.com>
-> =
-
-> Thanks,
-> =
-
-> Cl=E9ment
-> =
-
-
-Thanks,
-
-Regards,
-Inochi
-
-> >  	__RISCV_ISA_EXT_DATA(zfh, RISCV_ISA_EXT_ZFH),
-> >  	__RISCV_ISA_EXT_DATA(zfhmin, RISCV_ISA_EXT_ZFHMIN),
-> >  	__RISCV_ISA_EXT_DATA(zca, RISCV_ISA_EXT_ZCA),
-> > @@ -373,6 +374,8 @@ const struct riscv_isa_ext_data riscv_isa_ext[] =3D=
- {
-> >  	__RISCV_ISA_EXT_SUPERSET(zve64d, RISCV_ISA_EXT_ZVE64D, riscv_zve64d_e=
-xts),
-> >  	__RISCV_ISA_EXT_SUPERSET(zve64f, RISCV_ISA_EXT_ZVE64F, riscv_zve64f_e=
-xts),
-> >  	__RISCV_ISA_EXT_SUPERSET(zve64x, RISCV_ISA_EXT_ZVE64X, riscv_zve64x_e=
-xts),
-> > +	__RISCV_ISA_EXT_DATA(zvfbfmin, RISCV_ISA_EXT_ZVFBFMIN),
-> > +	__RISCV_ISA_EXT_DATA(zvfbfwma, RISCV_ISA_EXT_ZVFBFWMA),
-> >  	__RISCV_ISA_EXT_DATA(zvfh, RISCV_ISA_EXT_ZVFH),
-> >  	__RISCV_ISA_EXT_DATA(zvfhmin, RISCV_ISA_EXT_ZVFHMIN),
-> >  	__RISCV_ISA_EXT_DATA(zvkb, RISCV_ISA_EXT_ZVKB),
-> =
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gVGh1LCAzMCBKYW4gMjAyNSBhdCAxNjo0MiwgQmrDtnJuIFTDtnBlbCA8Ympvcm5Aa2VybmVs
+Lm9yZz4gd3JvdGU6Cj4KPiBDaHVueWFuIFpoYW5nIDx6aGFuZ2NodW55YW5AaXNjYXMuYWMuY24+
+IHdyaXRlczoKPgo+ID4gVGhlIFBURSBiaXQoOSkgb24gUklTQy1WIGlzIHJlc2VydmVkIGZvciBz
+b2Z0d2FyZSwgaXQgaXMgdXNlZCBieSBkZXZtYXAKPiA+IG5vdyB3aGljaCBoYXMgdG8gYmUgZGlz
+YWJsZWQgaWYgd2Ugd2FudCB0byB1c2UgYml0KDkpIGZvciBvdGhlciBmZWF0dXJlcywKPiA+IHNp
+bmNlIHRoZXJlJ3Mgbm8gbW9yZSBmcmVlIFBURSBiaXQgb24gUklTQy1WIG5vdy4KPiA+Cj4gPiBT
+byB0byBtYWtlIEFSQ0hfSEFTX1BURV9ERVZNQVAgc2VsZWN0YWJsZSwgdGhpcyBwYXRjaCB1c2Vz
+IGl0IGFzCj4gPiB0aGUgYnVpbGQgY29uZGl0aW9uIG9mIGRldm1hcCBkZWZpbml0aW9ucy4KPgo+
+IEhlYWRzLXVwOiBJdCBzZWVtcyBsaWtlIEFsaXN0YWlyJ3Mgc2VyaWVzIFsxXSB0aGF0IHJlbW92
+ZXMgdGhlIGRldm1hcAo+IFBURSBiaXQgd2lsbCBtb3N0IGxpa2VseSBsYW5kIGluIDYuMTUuCgpZ
+ZXMsIEkndmUgYmVlbiBrZWVwaW5nIGFuIGV5ZSBvbiBBbGlzdGFpcidzIHNlcmllcywgaW50ZW5k
+ZWQgdG8gdXBkYXRlCnRoaXMgcGF0Y2hzZXQgYWZ0ZXIgQWxpc3RhaXIncyBwYXRjaCB0aGF0IHJl
+bW92ZXMgdGhlIGRldm1hcCBQVEUgYml0CmdvdCBtZXJnZWQuCgpUaGFua3MsCkNodW55YW4KPgo+
+Cj4gQmrDtnJuCj4KPiBbMV0gaHR0cHM6Ly9sb3JlLmtlcm5lbC5vcmcvbGludXgtbW0vY292ZXIu
+MTExODk4NjQ2ODRlMzEyNjBkMTQwODc3OWZhYzlkYjgwMTIyMDQ3Yi4xNzM2NDg4Nzk5LmdpdC1z
+ZXJpZXMuYXBvcHBsZUBudmlkaWEuY29tLwoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxp
+c3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0
+aW5mby9saW51eC1yaXNjdgo=
