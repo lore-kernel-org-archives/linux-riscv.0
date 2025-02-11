@@ -4,92 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 09375C021A1
-	for <linux-riscv@archiver.kernel.org>; Tue, 11 Feb 2025 06:56:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 52831C0219E
+	for <linux-riscv@archiver.kernel.org>; Tue, 11 Feb 2025 07:11:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=esaf2eQDv7q8ye+wkOeeo/cnSDmevBxJYdg3iDNkAqA=; b=g0//rfhzefh1OzkvNI3bI2A2zs
-	VpsVPFyQKdYKUIKFJthKN/iQa/uVD0lfbPp4PxkibH4/JXsMlhgONZ1LMBufH4YVY+iMFaFDIwpgJ
-	8HF99hVGmspz76lVg/z50dceGGl09Jqellfz/p5RTnJxcFFrFnlB38+9Ct4BFz060CjO9ITgjR67x
-	h3U0Aj5EnN3yLUEAe2HhEG6ce21qokNsT6sNU12BoK+3zxC6bujBJcNfOSTwcM9yjldPizNlp0n7X
-	ytlVJwy+8JWiCvKcPJ9UtdJFnf/gEFXZl8Pi6wVB6I0Pi5ho4fbiJb8QFpKh72ZtHSmVwy0/v32L4
-	+4AsWe9Q==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=YyfUri5z2u1H4xxWnqPTliXD8tP3W2eUNVv/vQm1YNs=; b=1lPYDIIA16tVNI
+	tLBtggTIbLSmSxvzIISW1u2L+lz8msnspzVVyFwh+cyKnjPsqU+aOe7A1YWFE8DPE0j6fvXQoI7ts
+	znHroYVeDNuQ0EuhgNmZQHIcRWfzcUFAfYpH+8fxscpiEANp2jxXKD/B2dU6dAsrHB4/DhYoXObHF
+	t2o3VWfI0LZAREp7mCQ/UaIpGYShvn7ZfJELdbT+Z27psVylPuuNJSYTx2fWmt6SDQGI1UEJA/Qv1
+	HYPuizoJ/59y2x20qGrpVr8G8kl3ZldoORhwNoLAtjdNQcIHnrZvDwHbRJfgAKU7HknW2v2ea7D+2
+	MgWux8VzDVLXo86y9shQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1thkBV-00000002l2r-23aZ;
-	Tue, 11 Feb 2025 06:55:53 +0000
-Received: from mail-pl1-x630.google.com ([2607:f8b0:4864:20::630])
+	id 1thkQM-00000002nHU-1k76;
+	Tue, 11 Feb 2025 07:11:14 +0000
+Received: from mail-pl1-x62f.google.com ([2607:f8b0:4864:20::62f])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1thj3m-00000002cSB-0ZhD
+	id 1thkQJ-00000002nGB-2WlB
 	for linux-riscv@lists.infradead.org;
-	Tue, 11 Feb 2025 05:43:51 +0000
-Received: by mail-pl1-x630.google.com with SMTP id d9443c01a7336-21f55fbb72bso62211825ad.2
-        for <linux-riscv@lists.infradead.org>; Mon, 10 Feb 2025 21:43:49 -0800 (PST)
+	Tue, 11 Feb 2025 07:11:12 +0000
+Received: by mail-pl1-x62f.google.com with SMTP id d9443c01a7336-21f62cc4088so55921285ad.3
+        for <linux-riscv@lists.infradead.org>; Mon, 10 Feb 2025 23:11:11 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1739252629; x=1739857429; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=bQsQ+/o421QYPh8BJOWROcjn2xBlqUe9Xq6Aw4uiVNM=;
-        b=Zzagm+khDdpzHSiU+JdIihe81OD7fdv85NLjxvmApN/fsFVPqOSTy+YmlWCYN9mTHt
-         jrEhbUFsQ4DTHg75ODBURgBY28HayYCrnqxz/kParp8k/gR8fYLdU7s/LamDgJGkjxy0
-         KQqxYQ71NkJuxMQt5sSVDVgXwraUp1WWno4HmrBXj4UzPmdTu+9MMO0Vrfokah639Qe4
-         hCqbIIzpWhH+KvKaRdzNmKTgBjvlQO/F3UG9v5bZgtaYkMqYb1jxAGV8cfp1cMm5lWMK
-         mdwCsNYAjWjGcac8MmWFRd8OmiNBU4m3B8d0+2Y+H/gx+vqfW/r+iQQac52vTgKMFKhi
-         eeIQ==
+        d=gmail.com; s=20230601; t=1739257870; x=1739862670; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=Dy+jKC2tlxNEcxoYxjCRSJtpvH8bNZPV6Hp8xEJuD6U=;
+        b=I1u9F9XR1dWeV2uxERBpRLKJZBjqJunGzgnUyXhXIuYchH1iYz+//4bLffuCebAqF1
+         FlD7aEd1eGh1qsBuKO8uxakYyfvkTPdApu0Umq87tmyzSRlJzOCt4fhRp4IupNFxocEd
+         FL/Rn59An8sBclTj42HH4s5LvdUnsjfMPhdglBAEbzKNEtayFYEGKAysZkEkX3iBG+s4
+         utj34SMupATPGtXqBwRolRrFpR0fMYD5NjG3OMxMp9yp1ytutuC0TTzBCHIGolk5n2Vi
+         KyZHvJAOFx2kdN7JboAFTvqT3sYwJXXbeqom5Ixeb/lnEmnk/bcsHqciLGBGoaHK0gGp
+         luNQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1739252629; x=1739857429;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=bQsQ+/o421QYPh8BJOWROcjn2xBlqUe9Xq6Aw4uiVNM=;
-        b=oKRtjeFFJXonj27GwGdZxGeJmCis8nrvvue0EUiPl3wDBdgQ6VSNiYNA2IE6p46bfy
-         Hqcxj52lqsiYa9RqtErLZXdZU/7Ca2ZtaxVY0k6y4EoKSXqqfNkAca74K1mZpBWyqrRi
-         l3XXbC10DeN6zypetfUCLn9oyQbBSkdpSPc8is6emhodBsf5ZSeQC63RUNOE1okXUkMc
-         vsVL8r815tongLpL1FNDx8mu9jD0oTFP9AMJeK3Po02uFN4lBkLlg0ZpKbDRr+1XYvQV
-         j/8aySlBmVdowr73aC/4NfsfWnuE3m0LHeCnYjcnFO+9jSo8B0RBz/geZqw6MagMQx5c
-         fEuw==
-X-Forwarded-Encrypted: i=1; AJvYcCW0WdG9sxwASqw1p9IcMMD19Zhdeze5AOBP/e/jXiBJNZ+w1G7CPkp0rfFAiAYQMd6vjuVYuv/vzRd5rw==@lists.infradead.org
-X-Gm-Message-State: AOJu0YyEtRz8kT9Ot9CnrF+iH3IkI90C+z5Va3Xz5gLh2WAd27PkV+Xk
-	36qBgKJ84IXL5NBRu9r2CMH9c88usv2dR5rfkBJ1rSxpZ/fofhjbX4clf09cJ60=
-X-Gm-Gg: ASbGncs1BPXW6W9moWdmjeJdduXEByW7V6/gaLGA2bWnCKUxaUt6XPcXAk2+wdYr6oq
-	72m0FIvgSB3QVd6qNvrZtakqrVzjSKM5CjHA9YUcMI4D1sOJ4dxdEDtpdVxHQX2kPYyIgbVmotl
-	FdFewf4b4XU+pTgIRKkTdsz8N73jaWhDeyv2vZHPgyx65rzxVmxDKINw7Cr+SbUbodUtmArMHZ6
-	y4dGwXuKouq6jhMWABEeka6QgpcMEFAf6+VEYgpjWhdIPESZqGIvXmQ6JSlQBySky3KdcfnYCnQ
-	hmWuf1UpeqKWOGa9S5LG9zMzSw==
-X-Google-Smtp-Source: AGHT+IEPKtHYtx0smpDpQgrDnTYBegghA1v5GIvgD0h4cr824ONo5mx4lRTjSLhr137zD0mY6UDmiw==
-X-Received: by 2002:a05:6a20:9f4a:b0:1e8:bd15:6819 with SMTP id adf61e73a8af0-1ee03a5f141mr31000422637.22.1739252629301;
-        Mon, 10 Feb 2025 21:43:49 -0800 (PST)
-Received: from debug.ba.rivosinc.com ([64.71.180.162])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-7308b102789sm3396914b3a.149.2025.02.10.21.43.48
+        d=1e100.net; s=20230601; t=1739257870; x=1739862670;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=Dy+jKC2tlxNEcxoYxjCRSJtpvH8bNZPV6Hp8xEJuD6U=;
+        b=QAG1WS9sN8GbCvR08aSVXpGYbl6XbT8v2TdmwR2wuwe2TCyTIARw9KpmJLz7igFdSG
+         CUsZgMcnFnYjXbOFEkwXucuM1lnC8AzXITWJIQzpPK8kFF4qQ03WiRAAALDlEXDHVZd5
+         TlhLWNpJ8WJ4GB/XjhQQpUotglSlApWhZ8qzByEXBmGwjUTi9IoVMj/C56+6E83i+zn8
+         8yMoMPJQDJA67Ypn7win7ArVl9SsdVoJs+GvcqtBra567sEqbgUug6wB5b6jeTgOgEBb
+         YjRsQLUhjxkxKZdqOktrI1j1PzoTFW50RNmb+57v4SdB759DsmFXSGklgIY88azxJhAi
+         XhEQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXaEGbSLhLy8dkqbxyiBUsY6qyrBTinsKb0TTrw2WZI9RWST0YHAd7BvG15ht2Eo7uKHZl/aMXcnxYeRg==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx9rB8KKLg14Oi3ftlBFGcFQFZetn5glm46Y9tm8zPtKUkm9/ko
+	zqwDxxjrv/19AuCr94+XMWNerS2tXqjKt+ZhCIfGSKmG1lxEje/p
+X-Gm-Gg: ASbGncv4zz1WFLY2U1hjtZcC+vfoFaJseY9SZCF7inVcsDd32MTINVDME6mTnooogxs
+	PNRM2qQRlNIKmgt5eQLcUC7QE9W7rikU7aIsYrBOeQXdEirQ+o4EMJdS4+ZoQsIShorwUW+nGPz
+	MHv13ge3vrHP3iOkAD7GHTQ5/G+BVAVpbjXfjO4WdqewgrzUCiZS17ybuGY0yKe0EmKDMDKiiSA
+	a1pl7va8m8s0dP1BbGEv2H2OCauoNX2+gWojWKvLavGCbZEhpJpjSdMHUTU7UCmNV9cBospoUwB
+	7z+dK9fqUJjaImCu6s/mqtl4XRc231I3Nn/A7LgEdSgDbbkYPBA9/YaY6XEWXA==
+X-Google-Smtp-Source: AGHT+IEgrVFOdypoOBVAMxwlOnLPkbYHeoHYasqV83pZ+UnCn0yDJEUQeCHcUM3a8aVsJoIDGwdHoA==
+X-Received: by 2002:a17:903:22c9:b0:215:9bc2:42ec with SMTP id d9443c01a7336-21f4e763b64mr259520485ad.47.1739257870313;
+        Mon, 10 Feb 2025 23:11:10 -0800 (PST)
+Received: from stone-arch-VM.localdomain ([103.233.162.226])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-21f368cee57sm88429055ad.245.2025.02.10.23.11.07
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 10 Feb 2025 21:43:48 -0800 (PST)
-Date: Mon, 10 Feb 2025 21:43:46 -0800
-From: Deepak Gupta <debug@rivosinc.com>
-To: =?iso-8859-1?Q?Cl=E9ment_L=E9ger?= <cleger@rivosinc.com>
-Cc: Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Anup Patel <anup@brainfault.org>,
-	Atish Patra <atishp@atishpatra.org>, Shuah Khan <shuah@kernel.org>,
-	Jonathan Corbet <corbet@lwn.net>, linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org,
-	kvm@vger.kernel.org, kvm-riscv@lists.infradead.org,
-	linux-kselftest@vger.kernel.org,
-	Samuel Holland <samuel.holland@sifive.com>
-Subject: Re: [PATCH v2 14/15] RISC-V: KVM: add support for FWFT SBI extension
-Message-ID: <Z6rjkk5JlMlqbl2j@debug.ba.rivosinc.com>
-References: <20250210213549.1867704-1-cleger@rivosinc.com>
- <20250210213549.1867704-15-cleger@rivosinc.com>
+        Mon, 10 Feb 2025 23:11:09 -0800 (PST)
+From: Zhihang Shao <zhihang.shao.iscas@gmail.com>
+To: ebiggers@kernel.org
+Cc: linux-crypto@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	ardb@kernel.org,
+	Zhihang Shao <zhihang.shao.iscas@gmail.com>
+Subject: [PATCH v4] riscv: Optimize crct10dif with zbc extension
+Date: Tue, 11 Feb 2025 15:11:01 +0800
+Message-ID: <20250211071101.181652-1-zhihang.shao.iscas@gmail.com>
+X-Mailer: git-send-email 2.47.0
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20250210213549.1867704-15-cleger@rivosinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250210_214350_434935_E7AE4E70 
-X-CRM114-Status: GOOD (  18.63  )
+X-CRM114-CacheID: sfid-20250210_231111_655205_D189BF8B 
+X-CRM114-Status: GOOD (  16.55  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,371 +93,200 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="iso-8859-1"; Format="flowed"
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Feb 10, 2025 at 10:35:47PM +0100, Cl=E9ment L=E9ger wrote:
->Add basic infrastructure to support the FWFT extension in KVM.
->
->Signed-off-by: Cl=E9ment L=E9ger <cleger@rivosinc.com>
->---
-> arch/riscv/include/asm/kvm_host.h          |   4 +
-> arch/riscv/include/asm/kvm_vcpu_sbi.h      |   1 +
-> arch/riscv/include/asm/kvm_vcpu_sbi_fwft.h |  37 ++++
-> arch/riscv/include/uapi/asm/kvm.h          |   1 +
-> arch/riscv/kvm/Makefile                    |   1 +
-> arch/riscv/kvm/vcpu_sbi.c                  |   4 +
-> arch/riscv/kvm/vcpu_sbi_fwft.c             | 187 +++++++++++++++++++++
-> 7 files changed, 235 insertions(+)
-> create mode 100644 arch/riscv/include/asm/kvm_vcpu_sbi_fwft.h
-> create mode 100644 arch/riscv/kvm/vcpu_sbi_fwft.c
->
->diff --git a/arch/riscv/include/asm/kvm_host.h b/arch/riscv/include/asm/kv=
-m_host.h
->index bb93d2995ea2..c0db61ba691a 100644
->--- a/arch/riscv/include/asm/kvm_host.h
->+++ b/arch/riscv/include/asm/kvm_host.h
->@@ -19,6 +19,7 @@
-> #include <asm/kvm_vcpu_fp.h>
-> #include <asm/kvm_vcpu_insn.h>
-> #include <asm/kvm_vcpu_sbi.h>
->+#include <asm/kvm_vcpu_sbi_fwft.h>
-> #include <asm/kvm_vcpu_timer.h>
-> #include <asm/kvm_vcpu_pmu.h>
->
->@@ -281,6 +282,9 @@ struct kvm_vcpu_arch {
-> 	/* Performance monitoring context */
-> 	struct kvm_pmu pmu_context;
->
->+	/* Firmware feature SBI extension context */
->+	struct kvm_sbi_fwft fwft_context;
->+
-> 	/* 'static' configurations which are set only once */
-> 	struct kvm_vcpu_config cfg;
->
->diff --git a/arch/riscv/include/asm/kvm_vcpu_sbi.h b/arch/riscv/include/as=
-m/kvm_vcpu_sbi.h
->index cb68b3a57c8f..ffd03fed0c06 100644
->--- a/arch/riscv/include/asm/kvm_vcpu_sbi.h
->+++ b/arch/riscv/include/asm/kvm_vcpu_sbi.h
->@@ -98,6 +98,7 @@ extern const struct kvm_vcpu_sbi_extension vcpu_sbi_ext_=
-hsm;
-> extern const struct kvm_vcpu_sbi_extension vcpu_sbi_ext_dbcn;
-> extern const struct kvm_vcpu_sbi_extension vcpu_sbi_ext_susp;
-> extern const struct kvm_vcpu_sbi_extension vcpu_sbi_ext_sta;
->+extern const struct kvm_vcpu_sbi_extension vcpu_sbi_ext_fwft;
-> extern const struct kvm_vcpu_sbi_extension vcpu_sbi_ext_experimental;
-> extern const struct kvm_vcpu_sbi_extension vcpu_sbi_ext_vendor;
->
->diff --git a/arch/riscv/include/asm/kvm_vcpu_sbi_fwft.h b/arch/riscv/inclu=
-de/asm/kvm_vcpu_sbi_fwft.h
->new file mode 100644
->index 000000000000..5782517f6e08
->--- /dev/null
->+++ b/arch/riscv/include/asm/kvm_vcpu_sbi_fwft.h
->@@ -0,0 +1,37 @@
->+/* SPDX-License-Identifier: GPL-2.0-only */
->+/*
->+ * Copyright (c) 2025 Rivos Inc.
->+ *
->+ * Authors:
->+ *     Cl=E9ment L=E9ger <cleger@rivosinc.com>
->+ */
->+
->+#ifndef __KVM_VCPU_RISCV_FWFT_H
->+#define __KVM_VCPU_RISCV_FWFT_H
->+
->+#include <asm/sbi.h>
->+
->+struct kvm_sbi_fwft_config;
->+struct kvm_vcpu;
->+
->+struct kvm_sbi_fwft_feature {
->+	enum sbi_fwft_feature_t id;
->+	bool (*supported)(struct kvm_vcpu *vcpu);
->+	int (*set)(struct kvm_vcpu *vcpu, struct kvm_sbi_fwft_config *conf, unsi=
-gned long value);
->+	int (*get)(struct kvm_vcpu *vcpu, struct kvm_sbi_fwft_config *conf, unsi=
-gned long *value);
->+};
->+
->+struct kvm_sbi_fwft_config {
->+	const struct kvm_sbi_fwft_feature *feature;
->+	bool supported;
->+	unsigned long flags;
->+};
->+
->+/* FWFT data structure per vcpu */
->+struct kvm_sbi_fwft {
->+	struct kvm_sbi_fwft_config *configs;
->+};
->+
->+#define vcpu_to_fwft(vcpu) (&(vcpu)->arch.fwft_context)
->+
->+#endif /* !__KVM_VCPU_RISCV_FWFT_H */
->diff --git a/arch/riscv/include/uapi/asm/kvm.h b/arch/riscv/include/uapi/a=
-sm/kvm.h
->index f06bc5efcd79..fa6eee1caf41 100644
->--- a/arch/riscv/include/uapi/asm/kvm.h
->+++ b/arch/riscv/include/uapi/asm/kvm.h
->@@ -202,6 +202,7 @@ enum KVM_RISCV_SBI_EXT_ID {
-> 	KVM_RISCV_SBI_EXT_DBCN,
-> 	KVM_RISCV_SBI_EXT_STA,
-> 	KVM_RISCV_SBI_EXT_SUSP,
->+	KVM_RISCV_SBI_EXT_FWFT,
-> 	KVM_RISCV_SBI_EXT_MAX,
-> };
->
->diff --git a/arch/riscv/kvm/Makefile b/arch/riscv/kvm/Makefile
->index 4e0bba91d284..06e2d52a9b88 100644
->--- a/arch/riscv/kvm/Makefile
->+++ b/arch/riscv/kvm/Makefile
->@@ -26,6 +26,7 @@ kvm-y +=3D vcpu_onereg.o
-> kvm-$(CONFIG_RISCV_PMU_SBI) +=3D vcpu_pmu.o
-> kvm-y +=3D vcpu_sbi.o
-> kvm-y +=3D vcpu_sbi_base.o
->+kvm-y +=3D vcpu_sbi_fwft.o
-> kvm-y +=3D vcpu_sbi_hsm.o
-> kvm-$(CONFIG_RISCV_PMU_SBI) +=3D vcpu_sbi_pmu.o
-> kvm-y +=3D vcpu_sbi_replace.o
->diff --git a/arch/riscv/kvm/vcpu_sbi.c b/arch/riscv/kvm/vcpu_sbi.c
->index f81f06f82650..3b37deaed4e7 100644
->--- a/arch/riscv/kvm/vcpu_sbi.c
->+++ b/arch/riscv/kvm/vcpu_sbi.c
->@@ -78,6 +78,10 @@ static const struct kvm_riscv_sbi_extension_entry sbi_e=
-xt[] =3D {
-> 		.ext_idx =3D KVM_RISCV_SBI_EXT_STA,
-> 		.ext_ptr =3D &vcpu_sbi_ext_sta,
-> 	},
->+	{
->+		.ext_idx =3D KVM_RISCV_SBI_EXT_FWFT,
->+		.ext_ptr =3D &vcpu_sbi_ext_fwft,
->+	},
-> 	{
-> 		.ext_idx =3D KVM_RISCV_SBI_EXT_EXPERIMENTAL,
-> 		.ext_ptr =3D &vcpu_sbi_ext_experimental,
->diff --git a/arch/riscv/kvm/vcpu_sbi_fwft.c b/arch/riscv/kvm/vcpu_sbi_fwft=
-.c
->new file mode 100644
->index 000000000000..fe608bf16558
->--- /dev/null
->+++ b/arch/riscv/kvm/vcpu_sbi_fwft.c
->@@ -0,0 +1,187 @@
->+// SPDX-License-Identifier: GPL-2.0
->+/*
->+ * Copyright (c) 2025 Rivos Inc.
->+ *
->+ * Authors:
->+ *     Cl=E9ment L=E9ger <cleger@rivosinc.com>
->+ */
->+
->+#include <linux/errno.h>
->+#include <linux/err.h>
->+#include <linux/kvm_host.h>
->+#include <asm/cpufeature.h>
->+#include <asm/sbi.h>
->+#include <asm/kvm_vcpu_sbi.h>
->+#include <asm/kvm_vcpu_sbi_fwft.h>
->+
->+static const enum sbi_fwft_feature_t kvm_fwft_defined_features[] =3D {
->+	SBI_FWFT_MISALIGNED_EXC_DELEG,
->+	SBI_FWFT_LANDING_PAD,
->+	SBI_FWFT_SHADOW_STACK,
->+	SBI_FWFT_DOUBLE_TRAP,
->+	SBI_FWFT_PTE_AD_HW_UPDATING,
->+	SBI_FWFT_POINTER_MASKING_PMLEN,
->+};
->+
->+static bool kvm_fwft_is_defined_feature(enum sbi_fwft_feature_t feature)
->+{
->+	int i;
->+
->+	for (i =3D 0; i < ARRAY_SIZE(kvm_fwft_defined_features); i++) {
->+		if (kvm_fwft_defined_features[i] =3D=3D feature)
->+			return true;
->+	}
->+
->+	return false;
->+}
->+
->+static const struct kvm_sbi_fwft_feature features[] =3D {
->+};
->+
->+static struct kvm_sbi_fwft_config *
->+kvm_sbi_fwft_get_config(struct kvm_vcpu *vcpu, enum sbi_fwft_feature_t fe=
-ature)
->+{
->+	int i =3D 0;
->+	struct kvm_sbi_fwft *fwft =3D vcpu_to_fwft(vcpu);
->+
->+	for (i =3D 0; i < ARRAY_SIZE(features); i++) {
->+		if (fwft->configs[i].feature->id =3D=3D feature)
->+			return &fwft->configs[i];
->+	}
->+
->+	return NULL;
->+}
->+
->+static int kvm_fwft_get_feature(struct kvm_vcpu *vcpu, unsigned long feat=
-ure,
->+				struct kvm_sbi_fwft_config **conf)
->+{
->+	struct kvm_sbi_fwft_config *tconf;
->+
->+	/* Feature are defined as 32 bits identifiers */
->+	if (feature & ~(BIT_ULL(32) - 1))
->+		return SBI_ERR_INVALID_PARAM;
->+
->+	tconf =3D kvm_sbi_fwft_get_config(vcpu, feature);
->+	if (!tconf) {
->+		if (kvm_fwft_is_defined_feature(feature))
->+			return SBI_ERR_NOT_SUPPORTED;
->+
->+		return SBI_ERR_DENIED;
->+	}
->+
->+	if (!tconf->supported)
->+		return SBI_ERR_NOT_SUPPORTED;
->+
->+	*conf =3D tconf;
->+
->+	return SBI_SUCCESS;
->+}
->+
->+static int kvm_sbi_fwft_set(struct kvm_vcpu *vcpu, unsigned long feature,
->+			    unsigned long value, unsigned long flags)
->+{
->+	int ret;
->+	struct kvm_sbi_fwft_config *conf;
->+
->+	ret =3D kvm_fwft_get_feature(vcpu, feature, &conf);
->+	if (ret)
->+		return ret;
->+
->+	if ((flags & ~SBI_FWFT_SET_FLAG_LOCK) !=3D 0)
->+		return SBI_ERR_INVALID_PARAM;
->+
->+	if (conf->flags & SBI_FWFT_SET_FLAG_LOCK)
->+		return SBI_ERR_DENIED_LOCKED;
->+
->+	conf->flags =3D flags;
->+
->+	return conf->feature->set(vcpu, conf, value);
->+}
->+
->+static int kvm_sbi_fwft_get(struct kvm_vcpu *vcpu, unsigned long feature,
->+			    unsigned long *value)
->+{
->+	int ret;
->+	struct kvm_sbi_fwft_config *conf;
->+
->+	ret =3D kvm_fwft_get_feature(vcpu, feature, &conf);
->+	if (ret)
->+		return ret;
->+
->+	return conf->feature->get(vcpu, conf, value);
->+}
->+
->+static int kvm_sbi_ext_fwft_handler(struct kvm_vcpu *vcpu, struct kvm_run=
- *run,
->+				    struct kvm_vcpu_sbi_return *retdata)
->+{
->+	int ret =3D 0;
->+	struct kvm_cpu_context *cp =3D &vcpu->arch.guest_context;
->+	unsigned long funcid =3D cp->a6;
->+
->+	switch (funcid) {
->+	case SBI_EXT_FWFT_SET:
->+		ret =3D kvm_sbi_fwft_set(vcpu, cp->a0, cp->a1, cp->a2);
->+		break;
->+	case SBI_EXT_FWFT_GET:
->+		ret =3D kvm_sbi_fwft_get(vcpu, cp->a0, &retdata->out_val);
->+		break;
->+	default:
->+		ret =3D SBI_ERR_NOT_SUPPORTED;
->+		break;
->+	}
->+
->+	retdata->err_val =3D ret;
->+
->+	return 0;
->+}
->+
->+static int kvm_sbi_ext_fwft_init(struct kvm_vcpu *vcpu)
->+{
->+	struct kvm_sbi_fwft *fwft =3D vcpu_to_fwft(vcpu);
->+	const struct kvm_sbi_fwft_feature *feature;
->+	struct kvm_sbi_fwft_config *conf;
->+	int i;
->+
->+	fwft->configs =3D kcalloc(ARRAY_SIZE(features), sizeof(struct kvm_sbi_fw=
-ft_config),
->+				GFP_KERNEL);
-nit:
+The current CRC-T10DIF algorithm on RISC-V platform is based on
+table-lookup optimization.
+Given the previous work on optimizing crc32 calculations with zbc
+extension, it is believed that this will be equally effective for
+accelerating crc-t10dif.
 
-I understand that in next patch you grow the static array`features`. But in=
- this patch
-`ARRAY_SIZE(features)` evaluates to 0, thus kcalloc will be returning a poi=
-nter
-to some slab block (IIRC, kcalloc will not return NULL if size eventually e=
-vals to 0)
+Therefore this patch offers an implementation of crc-t10dif using zbc
+extension. This can detect whether the current runtime environment
+supports zbc feature and, if so, uses it to accelerate crc-t10dif
+calculations.
 
-This probably won't result in some bad stuff. But still there is a pointer =
-in
-fwft->configs which is pointing to some random stuff if `features` turns ou=
-t to be
-empty.
+This patch is updated due to the patchset of updating kernel's
+CRC-T10DIF library in 6.14, which is finished by Eric Biggers.
+Also, I used crc_kunit.c to test the performance of crc-t10dif 
+optimized by crc extension.
 
-Let me know if I got that right or missing something.
+Signed-off-by: Zhihang Shao <zhihang.shao.iscas@gmail.com>
 
->+	if (!fwft->configs)
->+		return -ENOMEM;
->+
->+	for (i =3D 0; i < ARRAY_SIZE(features); i++) {
->+		feature =3D &features[i];
->+		conf =3D &fwft->configs[i];
->+		if (feature->supported)
->+			conf->supported =3D feature->supported(vcpu);
->+		else
->+			conf->supported =3D true;
->+
->+		conf->feature =3D feature;
->+	}
->+
->+	return 0;
->+}
->+
->+static void kvm_sbi_ext_fwft_deinit(struct kvm_vcpu *vcpu)
->+{
->+	struct kvm_sbi_fwft *fwft =3D vcpu_to_fwft(vcpu);
->+
->+	kfree(fwft->configs);
->+}
->+
->+static void kvm_sbi_ext_fwft_reset(struct kvm_vcpu *vcpu)
->+{
->+	int i =3D 0;
->+	struct kvm_sbi_fwft *fwft =3D vcpu_to_fwft(vcpu);
->+
->+	for (i =3D 0; i < ARRAY_SIZE(features); i++)
->+		fwft->configs[i].flags =3D 0;
->+}
->+
->+const struct kvm_vcpu_sbi_extension vcpu_sbi_ext_fwft =3D {
->+	.extid_start =3D SBI_EXT_FWFT,
->+	.extid_end =3D SBI_EXT_FWFT,
->+	.handler =3D kvm_sbi_ext_fwft_handler,
->+	.init =3D kvm_sbi_ext_fwft_init,
->+	.deinit =3D kvm_sbi_ext_fwft_deinit,
->+	.reset =3D kvm_sbi_ext_fwft_reset,
->+};
->-- =
+---
+v4:
+- Use proper data types and remove #defines according
+to Eric's comments. (Eric)
+---
+v3:
+- Rebase for Eric's crc tree. (Eric)
+---
+v2:
+- Use crypto self-tests instead. (Eric)
+- Fix some format errors in arch/riscv/crypto/Kconfig. (Chunyan)
+---
+ arch/riscv/Kconfig                |   1 +
+ arch/riscv/lib/Makefile           |   1 +
+ arch/riscv/lib/crc-t10dif-riscv.c | 120 ++++++++++++++++++++++++++++++
+ 3 files changed, 122 insertions(+)
+ create mode 100644 arch/riscv/lib/crc-t10dif-riscv.c
 
->2.47.2
->
->
+diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+index 7612c52e9b1e..db1cf9666dfd 100644
+--- a/arch/riscv/Kconfig
++++ b/arch/riscv/Kconfig
+@@ -25,6 +25,7 @@ config RISCV
+ 	select ARCH_ENABLE_THP_MIGRATION if TRANSPARENT_HUGEPAGE
+ 	select ARCH_HAS_BINFMT_FLAT
+ 	select ARCH_HAS_CRC32 if RISCV_ISA_ZBC
++	select ARCH_HAS_CRC_T10DIF if RISCV_ISA_ZBC
+ 	select ARCH_HAS_CURRENT_STACK_POINTER
+ 	select ARCH_HAS_DEBUG_VIRTUAL if MMU
+ 	select ARCH_HAS_DEBUG_VM_PGTABLE
+diff --git a/arch/riscv/lib/Makefile b/arch/riscv/lib/Makefile
+index 79368a895fee..689895b271bd 100644
+--- a/arch/riscv/lib/Makefile
++++ b/arch/riscv/lib/Makefile
+@@ -16,6 +16,7 @@ lib-$(CONFIG_MMU)	+= uaccess.o
+ lib-$(CONFIG_64BIT)	+= tishift.o
+ lib-$(CONFIG_RISCV_ISA_ZICBOZ)	+= clear_page.o
+ obj-$(CONFIG_CRC32_ARCH)	+= crc32-riscv.o
++obj-$(CONFIG_CRC_T10DIF_ARCH) += crc-t10dif-riscv.o
+ obj-$(CONFIG_FUNCTION_ERROR_INJECTION) += error-inject.o
+ lib-$(CONFIG_RISCV_ISA_V)	+= xor.o
+ lib-$(CONFIG_RISCV_ISA_V)	+= riscv_v_helpers.o
+diff --git a/arch/riscv/lib/crc-t10dif-riscv.c b/arch/riscv/lib/crc-t10dif-riscv.c
+new file mode 100644
+index 000000000000..da90e2900ca7
+--- /dev/null
++++ b/arch/riscv/lib/crc-t10dif-riscv.c
+@@ -0,0 +1,120 @@
++// SPDX-License-Identifier: GPL-2.0-only
++/*
++ * Accelerated CRC-T10DIF implementation with RISC-V Zbc extension.
++ *
++ * Copyright (C) 2024 Institute of Software, CAS.
++ */
++
++#include <asm/alternative-macros.h>
++#include <asm/byteorder.h>
++#include <asm/hwcap.h>
++
++#include <linux/byteorder/generic.h>
++#include <linux/crc-t10dif.h>
++#include <linux/minmax.h>
++#include <linux/module.h>
++#include <linux/types.h>
++
++#define CRCT10DIF_POLY 0x8bb7
++
++#if __riscv_xlen == 64
++#define CRCT10DIF_POLY_QT_BE 0xf65a57f81d33a48a
++
++static inline u64 crct10dif_prep(u16 crc, const __be64 *ptr)
++{
++	return ((u64)crc << 48) ^ __be64_to_cpu(*ptr);
++}
++
++#elif __riscv_xlen == 32
++#define CRCT10DIF_POLY_QT_BE 0xf65a57f8
++
++static inline u32 crct10dif_prep(u16 crc, const __be32 *ptr)
++{
++	return ((u32)crc << 16) ^ __be32_to_cpu(*ptr);
++}
++
++#else
++#error "Unexpected __riscv_xlen"
++#endif
++
++static inline u16 crct10dif_zbc(unsigned long s)
++{
++	u16 crc;
++
++	asm volatile   (".option push\n"
++			".option arch,+zbc\n"
++			"clmulh %0, %1, %2\n"
++			"xor    %0, %0, %1\n"
++			"clmul  %0, %0, %3\n"
++			".option pop\n"
++			: "=&r" (crc)
++			: "r"(s),
++			  "r"(CRCT10DIF_POLY_QT_BE),
++			  "r"(CRCT10DIF_POLY)
++			:);
++
++	return crc;
++}
++
++static inline u16 crct10dif_unaligned(u16 crc, const u8 *p, size_t len)
++{
++	size_t bits = len * 8;
++	unsigned long s = 0;
++	u16 crc_low = 0;
++
++	for (int i = 0; i < len; i++)
++		s = *p++ | (s << 8);
++
++	if (len < sizeof(u16)) {
++		s ^= crc >> (16 - bits);
++		crc_low = crc << bits;
++	} else {
++		s ^= (unsigned long)crc << (bits - 16);
++	}
++
++	crc = crct10dif_zbc(s);
++	crc ^= crc_low;
++
++	return crc;
++}
++
++u16 crc_t10dif_arch(u16 crc, const u8 *p, size_t len)
++{
++	size_t offset, head_len, tail_len;
++	const __be64 *p_ul;
++	unsigned long s;
++
++	asm goto(ALTERNATIVE("j %l[legacy]", "nop", 0,
++			     RISCV_ISA_EXT_ZBC, 1)
++		 : : : : legacy);
++
++	offset = (unsigned long)p & (sizeof(unsigned long) - 1);
++	if (offset && len) {
++		head_len = min(sizeof(unsigned long) - offset, len);
++		crc = crct10dif_unaligned(crc, p, head_len);
++		p += head_len;
++		len -= head_len;
++	}
++
++	tail_len = len & (sizeof(unsigned long) - 1);
++	len = len >> ilog2(sizeof(unsigned long));
++	p_ul = (const __be64 *)p;
++
++	for (int i = 0; i < len; i++) {
++		s = crct10dif_prep(crc, p_ul);
++		crc = crct10dif_zbc(s);
++		p_ul++;
++	}
++
++	p = (const u8 *)p_ul;
++	if (tail_len)
++		crc = crct10dif_unaligned(crc, p, tail_len);
++
++	return crc;
++legacy:
++	return crc_t10dif_generic(crc, p, len);
++}
++EXPORT_SYMBOL(crc_t10dif_arch);
++
++MODULE_DESCRIPTION("CRC-T10DIF using RISC-V ZBC Extension");
++MODULE_LICENSE("GPL");
+-- 
+2.47.0
+
 
 _______________________________________________
 linux-riscv mailing list
