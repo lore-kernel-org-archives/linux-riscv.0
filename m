@@ -4,149 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 617A9C0219D
-	for <linux-riscv@archiver.kernel.org>; Tue, 11 Feb 2025 01:30:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6BD89C021A5
+	for <linux-riscv@archiver.kernel.org>; Tue, 11 Feb 2025 02:41:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lHAE3SDo1hBN3NxZpXb9YNg+SXf7lRZ07koMEoo9m+o=; b=5C1pNoUo7LW5E2bstoaIBs51Wc
-	OxuMmShGJTya/sHtEK8y58/hugmY5la3SjBw0ysmpm+b0nnH90CCxDrimVzas0NW0oIv1aePLFHqf
-	JS7KPrMuA03cTFd2qWNQgTKce+xtwIwFmfzvRJDeKT0xMDV1zgd3yM6QYHZjFZHd/cxlTsGfbbD/g
-	OoSTPIgwQ7VnbYAtnZdhXWGhDy4P9LVn9gA8RT9LIfwKLXxGYtao/pT2Ca2AlWv/5ABYtFoaeqJoI
-	ebzbP/iOOFen+1LsHuMb6/au7IrldBBzDOFbmVrHYKrkfRoybR028yYf6HnI6x3M7nSweQsZYRdXR
-	IYpgjerw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=Pb2F1q7Ej/HYhvWWvl4zLv60lvgzzL+xFHN1k+Ixx4Y=; b=lPk6O1DwPfNuVX
+	TSpYDy1r7VvuSc/QoEUcOoogEpFA218KSHKbW47UDsB/L+gxW0XRhl2JBDtBMzJgASto8L96U0ed1
+	GrdnL30LIPurf4S8+KcrIBtv3xvKmIGuP0sFLCSLrxCBx+mq77ze5LytXzqGYJbH9sll2cO+NOgHX
+	/9EcxUjpqJ14EEe20crqV5o4X/VWCXlbQcYSePX1s98ZbDtyFrMfIDIOUkLn4dopDDBtrVWf/iSAZ
+	eUX8QCY9pG3pupLEjC4SfKlxibPCAYQVSSYnfd2sjDG7SQNQodet8T+WgvIKAMY/8/51ucpVyTJIT
+	LRjL/3meZVy6TD0NSOdw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1thf6Q-0000000273v-3MLw;
-	Tue, 11 Feb 2025 01:30:18 +0000
-Received: from mail-centralindiaazolkn190110001.outbound.protection.outlook.com ([2a01:111:f403:d409::1] helo=PNZPR01CU001.outbound.protection.outlook.com)
+	id 1thgCl-00000002ITp-41vN;
+	Tue, 11 Feb 2025 02:40:55 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1thf6P-00000002723-0Vhx;
-	Tue, 11 Feb 2025 01:30:18 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=SeAQMVkYZQHLtkqxUQ49nI9NEsZWdlBYvJ9o3wMMPyg2FzvBp21DC6ViRWhKczfbpejgOaDStr6xIdOs55revMJasPqIPjmkx1ffwj775p95rH0bGW81PgMjyGDtDTRhbr2go4GKQ/dIhhq6Jv2od3k2iVem1JLBy3TGmknW3fpiNCxp9oqFAQPwxxgPOBiq1bId/PlxAD6vDpD5HetnFmh/7ve4o57R3s2JYZQvwFDo1UYXs3kZLbFU+i0Ok5zrwyK78Mvx2FipioHMSZDzs67OOufD+TlGHxge5n7y1Vr/a8QK8Ub4cNWcH3yJt6rRd9Aha8ovlUp0KGMUDHXGwg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=jGqzrpCYgtaYa8fFCIvKIB03rv8ZY/X5LW8UI/g+3v8=;
- b=g9hhF8wJ1n0ymitI5LYRCslt02jE2O1ExWvM1txudT3Um1P04Hbc6XuwlgPCqe7KUc5yzUWjA7LiVT2Miknh0WrHJiaKuMrw36kVoy7Q+pSf0tdYhARRcQJSn/h2IIU0t7+IXwaa0VlwBVKjMHpzzrt9PEq3dhAxq4dTi709bky1Asu/2uKAmfjpCHAwCUcYvwZXgxZaJEXEovlHvmsJy8XQ6Ungt4GQS/zLrMTjzZfMy+5w2Kwc1AyQspibRbpqVyKs+ROQtMeEi3jNIWIwU3dknJCQLfK8X8ECnMCpMUU3MzLX7MwvJ7SSk2BaVoAccZbNPqoy449lQENhPTvGbQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
- dkim=none; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=jGqzrpCYgtaYa8fFCIvKIB03rv8ZY/X5LW8UI/g+3v8=;
- b=NmT4QGhAiyj4lmIzPfcADj0WE/7v2njPxThY48Ncu2QDi+C7tCGDO+pVMTc0F1VnAue2i5RDM3Lpgnv2QNi82EB8gRR+BHoclKYwHviahqjgX5DSQDOy1WI/ujpduHdOgLEjodtAar3353y36NLJ5o6sDm8cXOhGhfv/WVeHlEx58H3/EMfxt13TQ3G2XYmGAXwswe6wYp4y+7VQnPGOGAdQpxe8Zs/fkgLS9M2HZw164ghhdjRvdKwj/UNaX5EOPVgq+HUKd0FJA4RZD8cmCU/OgT+w8f2jPxtIdxv/UUqnvt1jDxZjz/UhVT6Gq870NZ03EsblHndvfbmpcSjokA==
-Received: from BMXPR01MB2440.INDPRD01.PROD.OUTLOOK.COM (2603:1096:b00:3a::19)
- by PN0PR01MB5524.INDPRD01.PROD.OUTLOOK.COM (2603:1096:c01:69::5) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8422.19; Tue, 11 Feb
- 2025 01:30:02 +0000
-Received: from BMXPR01MB2440.INDPRD01.PROD.OUTLOOK.COM
- ([fe80::2148:4778:79a3:ba71]) by BMXPR01MB2440.INDPRD01.PROD.OUTLOOK.COM
- ([fe80::2148:4778:79a3:ba71%7]) with mapi id 15.20.8422.012; Tue, 11 Feb 2025
- 01:30:02 +0000
-Message-ID: <BMXPR01MB24401E6557682364D653A160FEFD2@BMXPR01MB2440.INDPRD01.PROD.OUTLOOK.COM>
-Date: Tue, 11 Feb 2025 09:29:56 +0800
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 2/7] dt-bindings: soc: sophgo: Move SoCs/boards from
- riscv into soc, add SG2000
-To: Alexander Sverdlin <alexander.sverdlin@gmail.com>, soc@lists.linux.dev
-Cc: Jisheng Zhang <jszhang@kernel.org>, Chao Wei <chao.wei@sophgo.com>,
- Inochi Amaoto <inochiama@outlook.com>, linux-pm@vger.kernel.org,
- linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
- Haylen Chu <heylenay@outlook.com>, linux-arm-kernel@lists.infradead.org,
- Sebastian Reichel <sre@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
- Philipp Zabel <p.zabel@pengutronix.de>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>
-References: <20250210220951.1248533-1-alexander.sverdlin@gmail.com>
- <20250210220951.1248533-3-alexander.sverdlin@gmail.com>
-From: Chen Wang <unicorn_wang@outlook.com>
-In-Reply-To: <20250210220951.1248533-3-alexander.sverdlin@gmail.com>
-X-ClientProxiedBy: SI2PR02CA0026.apcprd02.prod.outlook.com
- (2603:1096:4:195::19) To BMXPR01MB2440.INDPRD01.PROD.OUTLOOK.COM
- (2603:1096:b00:3a::19)
-X-Microsoft-Original-Message-ID: <c9c70f67-6358-4640-995b-70ed5b54cd98@outlook.com>
+	id 1thdrz-00000001wWA-1zE0
+	for linux-riscv@lists.infradead.org;
+	Tue, 11 Feb 2025 00:11:20 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1739232678;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=yzGbC0ypbw1NU4jMljSKqdqWfQ9LORCBGxC9rZKevfg=;
+	b=YToedk+Lg/Tg9bH/6JEBqbLTbj9DrBY6Kth9aQqAWs9Dc0yH6xMIWf2bHbBtmlBF1gUX+X
+	daV6U8JV13eEwCMPopizcLWPbt8aXbmyVYTgUPqQFEzhlTjRBLhGUXEJ3MzkKJWC3UasOG
+	TTcHwnbFNh68gQFGgpcfb0AQRnvrfPY=
+Received: from mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com
+ (ec2-35-165-154-97.us-west-2.compute.amazonaws.com [35.165.154.97]) by
+ relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-556-rxU9z2ZwPoCLLQlMQjJc6g-1; Mon,
+ 10 Feb 2025 19:09:48 -0500
+X-MC-Unique: rxU9z2ZwPoCLLQlMQjJc6g-1
+X-Mimecast-MFC-AGG-ID: rxU9z2ZwPoCLLQlMQjJc6g
+Received: from mx-prod-int-04.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-04.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.40])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id BECC31800983;
+	Tue, 11 Feb 2025 00:09:44 +0000 (UTC)
+Received: from starship.lan (unknown [10.22.65.174])
+	by mx-prod-int-04.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id 006BA19560A3;
+	Tue, 11 Feb 2025 00:09:38 +0000 (UTC)
+From: Maxim Levitsky <mlevitsk@redhat.com>
+To: kvm@vger.kernel.org
+Cc: Paolo Bonzini <pbonzini@redhat.com>,
+	Jing Zhang <jingzhangos@google.com>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	linux-arm-kernel@lists.infradead.org,
+	Marc Zyngier <maz@kernel.org>,
+	linux-kernel@vger.kernel.org,
+	Randy Dunlap <rdunlap@infradead.org>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	kvm-riscv@lists.infradead.org,
+	Ingo Molnar <mingo@redhat.com>,
+	linux-riscv@lists.infradead.org,
+	Joey Gouly <joey.gouly@arm.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Maxim Levitsky <mlevitsk@redhat.com>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	kvmarm@lists.linux.dev,
+	Alexander Potapenko <glider@google.com>,
+	x86@kernel.org,
+	Sean Christopherson <seanjc@google.com>,
+	Anup Patel <anup@brainfault.org>,
+	Kunkun Jiang <jiangkunkun@huawei.com>,
+	Atish Patra <atishp@atishpatra.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Borislav Petkov <bp@alien8.de>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	"H. Peter Anvin" <hpa@zytor.com>
+Subject: [PATCH 3/3] RISC-V: KVM: switch to kvm_lock/unlock_all_vcpus
+Date: Mon, 10 Feb 2025 19:09:17 -0500
+Message-Id: <20250211000917.166856-4-mlevitsk@redhat.com>
+In-Reply-To: <20250211000917.166856-1-mlevitsk@redhat.com>
+References: <20250211000917.166856-1-mlevitsk@redhat.com>
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: BMXPR01MB2440:EE_|PN0PR01MB5524:EE_
-X-MS-Office365-Filtering-Correlation-Id: 80f49b43-2820-46d9-025b-08dd4a3b9ac1
-X-Microsoft-Antispam: BCL:0;ARA:14566002|8060799006|6090799003|15080799006|19110799003|5072599009|461199028|7092599003|3412199025|440099028|10035399004;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?UnZTZ0NBZWt0NGVYNHRVc09RZUI0ZXdGblNRcHRpTy92ekFoZTZVenlMajZ1?=
- =?utf-8?B?STJrTXljSU5nM1N3eEQ5MmtuSFlseGcydmJWL1JyOHVKWFUweTFER0tWTzdh?=
- =?utf-8?B?YjhFOWhZRjUvamNRVkhZd1V4dEVVSGFCY3g1WW50U1hxcnlMMXBwS0ZXSFgv?=
- =?utf-8?B?VzZOTWVXQnRmaVRya3hBSFdnWUowTWV6MDZrb21sS1g5OU53YVI4WEVFQXVi?=
- =?utf-8?B?OGtvVExzNXBYckdDMmJ1dmhWQ0FRL01ZdCtrbmRac0tscXdpeGxucTJlcStT?=
- =?utf-8?B?dDFUV3Z0VThhc2N0QVlQUURiZHg1MzBnMHE0MnB0T1RKdHFZS0l4amJjK1pL?=
- =?utf-8?B?bnVWZzZHQmxPNWovTW92dnBTTDJ3ZFBsNDBOSmYxWTQvVDU3OFlsSGoyT3hU?=
- =?utf-8?B?ZkY2alVJSHBWMUlUaTdoNzAwcG42Mmh5QmRuTWpJbkRmWjh6VzdFeXZGLzht?=
- =?utf-8?B?YTdxeFBwT29PdEZUQmsxb3haOTROV0VObEFjYVh0dXNuYlA4MmcxL05jVHJy?=
- =?utf-8?B?OEI1a2MrTkNRelEvUUt4bm9GajlpWU9EaVVSRVB3K0pFM3lJYWUrRlh1Q05v?=
- =?utf-8?B?MnN5UkUxVkZvaHZqSHlZTlpjeThvYmZRTmlZanc0Z0MwcmlrWTFMa21aL2N6?=
- =?utf-8?B?RnJLYWhSaTNJNlFPajZVMlFNUzYzMTFCRzlBVmVseHEvcWpUcGRGK2UzTnAw?=
- =?utf-8?B?MzFRQUtBNFN2ZnpML0FsNjZseVhmWWpGTjlqVmtQajZPOTY2RGdEL2hiWlhC?=
- =?utf-8?B?THQ2UmlqazlCWWpJVW52MGNpbHJYL0FkaUh2VUFLbkpFVnk5QnhFUlk1bWwv?=
- =?utf-8?B?clUwNE05aFRWclVWeHg4b2RnTEphbFNqdGxFTEFBTkZZU2x1LytpWGdwVFV0?=
- =?utf-8?B?ODdJdTFIWklyejZVMmkwcktSbE1uOWhpNEw5SUJia0hHSnZhZXZNd0R2OHBW?=
- =?utf-8?B?WDNydStaSnNFZ2FacVoySVJDY3dCYlQ5SUlkZ1NQMWlsVkNTaTNhMlcvbk11?=
- =?utf-8?B?SWN3bXRIU2VnUHgzMTNrTUFiWWs2Y0hYNFhTeDg3dVZDV0tOMTY1NzBwWFA5?=
- =?utf-8?B?OEVjTC9yZ0tFVC9XK1FGQ2NPZlFLdHlSV0M0UTBQbXpTaXYvb3RhbEEvMmIy?=
- =?utf-8?B?WHJWbytxa2N3YlpZSkpGRDgydzlrZWpRNlNBSTkwRzBKL2JnY0FPdUhYV1Qr?=
- =?utf-8?B?Wmg4Q3d0SGxXZFpZMitSZlZqRGZaeWNrTms4U0hUT2tTS0JXcHFZTjgxSnFx?=
- =?utf-8?B?RWZHWFQwTmVUNU9KVmZQcm9RbWtrT2xzUXdxSWVOY0pBOXV3U1Rsc3RDSUhO?=
- =?utf-8?B?b29hV2tDSDdyM2NORWdxQ1N1TW9SV3VHSi9NOU52VjZXWEVRWkt1Szd5dHNC?=
- =?utf-8?B?bE9DN09oMFpRRlVnc0RuT3VUQUR6anVBSWZ3VVZ4aHhLQzJxdFF2VUNpak1t?=
- =?utf-8?B?SVY1S0JwbTdxaGF2WU9KU1IwbzE1QXNEMmFTT2dpZ3BJaDhmOUJacDNJTUVO?=
- =?utf-8?B?NTZqRTljV0hkSmZuRG1hc0J3YzM1VmdvakNyNG1SNmNmcktxaGxpeHBka2k5?=
- =?utf-8?B?VXhBUT09?=
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?V05ycm15MWR5Q0psdmJ6cmFNY2JkVEgyU0wrL2piMHdhMHZ0MmpZcHJJWmtI?=
- =?utf-8?B?WkVIaXl0djlqRm43RzVmcGNXM0lIZ3NXQWxZZjRwekgwc0FPOEtNQi9BOGRJ?=
- =?utf-8?B?ZWd2WmJ5akQyTXBjMWRWSkRDeWEwdnR4RzBIREFyaERhUmErTW5hR2dJelpm?=
- =?utf-8?B?bWZEeGlqWmVBODM5aUxJZEVlNXg3dkdPaWtyR05zWDVjRkZYQlo2a3FMU2RU?=
- =?utf-8?B?SXN1ZE94eC81S1FkTXVSQ0ZsU2NDWXpJQzA3RVVvVk5raEJpQ2VhajlFQzU2?=
- =?utf-8?B?bzBoVTFvOTUwQkJsU2s5UFVsMytNVlpEUXFCQm9OYXdYSXVGV3JhVXV4czMw?=
- =?utf-8?B?U1FNRWJ5M0w4ZnVWVG5FTWIzVU0vRjZJMm5QUWFNcnpUaTMrY0UvQ3FNVjVv?=
- =?utf-8?B?TE52WE5lWDFLNDdlanVSSVd3alNFQ0taUHl3akVyenlxdkN5QXpnbllTc2l4?=
- =?utf-8?B?T3A0WW85aWN6a0ZWdnUxck5Nby81MVZlUHZUaGQ2VHl5T3BHSmxiVHYvblky?=
- =?utf-8?B?cHdhYVM4bjhUZU9sQUljQm1kSGl1ZHJiNWlqWnVPYWtyaUczWURxWllvVzVI?=
- =?utf-8?B?a3NaMkpFMTAvd3k4WnlBNFVTbG1NVTY0R2NtQ1Y3N3AyWlZnSFFXUk1zMXZX?=
- =?utf-8?B?aURlejlEamRSMXpDbGJTck1HS2p2SHhqSVJJY2xZTjZRZ2dHSkpKaUFxVTJE?=
- =?utf-8?B?VWljVE5tTkVhRmVnbmdHdjBORFpuSzlZdGdydlY5d3A0dytoOFBJS3BYNDZi?=
- =?utf-8?B?azd6S0JzRlNtYitaak9oNUxmVyttUktRVkJ3eHlkOU45YzNIa2p1SXUrWmxu?=
- =?utf-8?B?NTZrOWRhb0xucmhkaTBjRUE0ZExIZ24wc29hV2w3ekNSQS94UlRTSmRuanpE?=
- =?utf-8?B?dTV1cmdpV1F2K1BKY0RrYkxseUlVRmZvQnlVZnpQanBrc09uVnFaNXJ3Yytu?=
- =?utf-8?B?WnE4WjVPdjZhdjV3ajViZHI2WmZNL1BDa3BSU0ZCRDM3WWVvU2doK0IzR0py?=
- =?utf-8?B?YXJNcHVrcFpYYWhmQzZaQzBJem9oVGpDUXlTZUpHaGU1Mk1PRytvVi9HRkI3?=
- =?utf-8?B?aERGcUxxdHA3emZ0a0xsZmovTGdENWg0MlQ3YTJYL2d4MGlQVFdXZm84L3hl?=
- =?utf-8?B?R1lqSEVmakl6SC9rdVpkWjcxam5RVlhqdGtHRmtNdTNBQ3BWN3NiU2w2OVVh?=
- =?utf-8?B?clVBRk5TYkJoSXVJSTJSdGIyUitMc0Q5ME9qV1FyeVBMb0FCUW03V2cvQ3hR?=
- =?utf-8?B?bEUxTE1pU3V1a2tRUVpBQ2dyNjdWb1FjWFpKa3VibTREZy9uU0g2R2RmU3Zx?=
- =?utf-8?B?OWFwRDBBdHJIV1RNb05kRnNCaUJ5Mnk5M2JWSkUxY3Z1L0hEZi85VDF2K05k?=
- =?utf-8?B?K2FiRW5SM0w3dGM0UXBtbCsyRklTMTVuU3EyemxyN2JoRUdMTE5BcjNjc1I5?=
- =?utf-8?B?TnJNRXBxczRsS3lQZ1pVSGZwMUlCMXJSQmdxbEp5RUkwWGJXSDFpQVVlNStx?=
- =?utf-8?B?S2ZWMFVZTmFSMjBCcWhvVThuSEVSeVEwWFErNUJ3ZlBXSGJhQ0RwSVVPK0xn?=
- =?utf-8?B?dHJ0ZG10OVhLcm0zcmpRQVR0NFpjSFE5cUFaVFNieGFRNStxblM1eFJMYWRy?=
- =?utf-8?B?K282V3pENnpwRTVCOGdKdTBWcUdnVlNlbVBZY0Q3THl0bXNlNzJOS3FoMktq?=
- =?utf-8?B?MWVncHp5OUpNYjhOVGNyTUp4ZFhGTTlkSmhUY0wvdlI3ai8wcXdaN3Rta2da?=
- =?utf-8?Q?d1T7UrBuql3gaa0h5bTpvAkKZPwo2UxvpLs8szh?=
-X-OriginatorOrg: outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 80f49b43-2820-46d9-025b-08dd4a3b9ac1
-X-MS-Exchange-CrossTenant-AuthSource: BMXPR01MB2440.INDPRD01.PROD.OUTLOOK.COM
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 11 Feb 2025 01:30:01.9108
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
-X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PN0PR01MB5524
+X-Scanned-By: MIMEDefang 3.0 on 10.30.177.40
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250210_173017_166056_56EE22C1 
-X-CRM114-Status: GOOD (  11.56  )
+X-CRM114-CacheID: sfid-20250210_161119_656313_8674E704 
+X-CRM114-Status: GOOD (  11.87  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -158,53 +107,87 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+use kvm_lock/unlock_all_vcpus instead of riscv's own
+implementation.
 
-On 2025/2/11 6:09, Alexander Sverdlin wrote:
-> Move sophgo.yaml from riscv into soc/sophgo so that it can be shared for
-> all SoCs containing ARM cores as well. This already applies to SG2002.
->
-> Add SG2000 SoC, Milk-V Duo Module 01 and Milk-V Module 01 EVB.
->
-> Signed-off-by: Alexander Sverdlin <alexander.sverdlin@gmail.com>
-Reviewed-by: Chen Wang <unicorn_wang@outlook.com>
-> ---
->   .../devicetree/bindings/{riscv => soc/sophgo}/sophgo.yaml  | 7 ++++++-
->   1 file changed, 6 insertions(+), 1 deletion(-)
->   rename Documentation/devicetree/bindings/{riscv => soc/sophgo}/sophgo.yaml (80%)
->
-> diff --git a/Documentation/devicetree/bindings/riscv/sophgo.yaml b/Documentation/devicetree/bindings/soc/sophgo/sophgo.yaml
-> similarity index 80%
-> rename from Documentation/devicetree/bindings/riscv/sophgo.yaml
-> rename to Documentation/devicetree/bindings/soc/sophgo/sophgo.yaml
-> index a14cb10ff3f0..5d73d0ccc547 100644
-> --- a/Documentation/devicetree/bindings/riscv/sophgo.yaml
-> +++ b/Documentation/devicetree/bindings/soc/sophgo/sophgo.yaml
-> @@ -1,7 +1,7 @@
->   # SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
->   %YAML 1.2
->   ---
-> -$id: http://devicetree.org/schemas/riscv/sophgo.yaml#
-> +$id: http://devicetree.org/schemas/soc/sophgo/sophgo.yaml#
->   $schema: http://devicetree.org/meta-schemas/core.yaml#
->   
->   title: Sophgo SoC-based boards
-> @@ -26,6 +26,11 @@ properties:
->             - enum:
->                 - sophgo,huashan-pi
->             - const: sophgo,cv1812h
-> +      - items:
-> +          - enum:
-> +              - milkv,duo-module-01-evb
-> +          - const: milkv,duo-module-01
-> +          - const: sophgo,sg2000
->         - items:
->             - enum:
->                 - sipeed,licheerv-nano-b
+Note that this does introduce a slight functional change - now vCPUs are
+unlocked in the same order they were locked and not in the opposite order.
+
+Suggested-by: Paolo Bonzini <pbonzini@redhat.com>
+Signed-off-by: Maxim Levitsky <mlevitsk@redhat.com>
+---
+ arch/riscv/kvm/aia_device.c | 36 +++---------------------------------
+ 1 file changed, 3 insertions(+), 33 deletions(-)
+
+diff --git a/arch/riscv/kvm/aia_device.c b/arch/riscv/kvm/aia_device.c
+index 39cd26af5a69..32354e47c7d8 100644
+--- a/arch/riscv/kvm/aia_device.c
++++ b/arch/riscv/kvm/aia_device.c
+@@ -12,36 +12,6 @@
+ #include <linux/kvm_host.h>
+ #include <linux/uaccess.h>
+ 
+-static void unlock_vcpus(struct kvm *kvm, int vcpu_lock_idx)
+-{
+-	struct kvm_vcpu *tmp_vcpu;
+-
+-	for (; vcpu_lock_idx >= 0; vcpu_lock_idx--) {
+-		tmp_vcpu = kvm_get_vcpu(kvm, vcpu_lock_idx);
+-		mutex_unlock(&tmp_vcpu->mutex);
+-	}
+-}
+-
+-static void unlock_all_vcpus(struct kvm *kvm)
+-{
+-	unlock_vcpus(kvm, atomic_read(&kvm->online_vcpus) - 1);
+-}
+-
+-static bool lock_all_vcpus(struct kvm *kvm)
+-{
+-	struct kvm_vcpu *tmp_vcpu;
+-	unsigned long c;
+-
+-	kvm_for_each_vcpu(c, tmp_vcpu, kvm) {
+-		if (!mutex_trylock(&tmp_vcpu->mutex)) {
+-			unlock_vcpus(kvm, c - 1);
+-			return false;
+-		}
+-	}
+-
+-	return true;
+-}
+-
+ static int aia_create(struct kvm_device *dev, u32 type)
+ {
+ 	int ret;
+@@ -52,8 +22,8 @@ static int aia_create(struct kvm_device *dev, u32 type)
+ 	if (irqchip_in_kernel(kvm))
+ 		return -EEXIST;
+ 
+-	ret = -EBUSY;
+-	if (!lock_all_vcpus(kvm))
++	ret = kvm_lock_all_vcpus(kvm);
++	if (ret)
+ 		return ret;
+ 
+ 	kvm_for_each_vcpu(i, vcpu, kvm) {
+@@ -65,7 +35,7 @@ static int aia_create(struct kvm_device *dev, u32 type)
+ 	kvm->arch.aia.in_kernel = true;
+ 
+ out_unlock:
+-	unlock_all_vcpus(kvm);
++	kvm_unlock_all_vcpus(kvm);
+ 	return ret;
+ }
+ 
+-- 
+2.26.3
+
 
 _______________________________________________
 linux-riscv mailing list
