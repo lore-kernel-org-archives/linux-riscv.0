@@ -4,69 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 87A16C021A0
-	for <linux-riscv@archiver.kernel.org>; Tue, 11 Feb 2025 05:18:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DA865C021A5
+	for <linux-riscv@archiver.kernel.org>; Tue, 11 Feb 2025 05:18:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=GG0bEBOpHs/CdFBtxl8pLd0artKgN+MHNHFSCHZswM8=; b=CxFcA6k3whUfGs
-	WcyI/Cmuh3nXqvRVOFqC2i35o4lK8vFoB0FtbeQZoE6yG8Ahqi4q62r88ROLPrBuwsg0Cl4dEqAkn
-	XA6qGmbSqQ4QW5BGqRea8p3AsW7o1M533zqZdgVsX0Ir6G19nAdBrK7T5wB0QtuwuHCXuO3qyYVO8
-	zFAcm1Ugc/9YyRvTc0ZGk2TiFtFTaFVJZSQX830sdv2WUAXmzNsKyh8kcIAlODtGL90NgDOtk42mI
-	CVkewaTdPXT4f3gv/F7NqJvqN1rzfMAah8IoaJvNIexmYoH+EsM2NUGnw43bvSdAkZYPBLO48oZj7
-	NBCBgPFi0yHHaTSD+EzA==;
+	List-Owner; bh=IFiv9hteN9w65jXZKZqfbulaUGVvmxflkqpfVPXLlR8=; b=oPsogSqxPHo+Rr
+	+xzo7oGp18eF5O9vjzC3wndnxQPxKgB0RMjvGSgbEPBdkCgWeEJgrhPOEiPC0a3St6uXiex5iPXpD
+	upl3nIILruJYU94zdL2I8lD+Nj/mWrFY8R1Vf0lRnJLvmANYJygfgLaxMXIS2/peEirS+SUl+x817
+	wh1y8OvAsNbgAyM6EuQRn9G/9PqexCz6l4eSNIEj/QXL+ER4gR5JuUePqgbl41PtK25MEOGqJlzX4
+	PcyfHHS6u5J2NNtPRzN4/EkOCX83kkIvzbOcn4OAnKZN/f69EHBtn3I+HuMT5sgTRsRQ6NuOsAwhO
+	bqxy0Pq9f3o9nvzPgl9Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1thifF-00000002ZWg-3bTh;
-	Tue, 11 Feb 2025 05:18:29 +0000
-Received: from mail-qt1-x834.google.com ([2607:f8b0:4864:20::834])
+	id 1thifX-00000002Zll-2QSv;
+	Tue, 11 Feb 2025 05:18:47 +0000
+Received: from mail-qk1-x72d.google.com ([2607:f8b0:4864:20::72d])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1thifD-00000002ZUz-0fsT
+	id 1thifV-00000002Zj4-0NrG
 	for linux-riscv@lists.infradead.org;
-	Tue, 11 Feb 2025 05:18:29 +0000
-Received: by mail-qt1-x834.google.com with SMTP id d75a77b69052e-4718b128eafso7749501cf.3
-        for <linux-riscv@lists.infradead.org>; Mon, 10 Feb 2025 21:18:27 -0800 (PST)
+	Tue, 11 Feb 2025 05:18:46 +0000
+Received: by mail-qk1-x72d.google.com with SMTP id af79cd13be357-7be3d681e74so473749885a.0
+        for <linux-riscv@lists.infradead.org>; Mon, 10 Feb 2025 21:18:44 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1739251106; x=1739855906; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1739251124; x=1739855924; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=HA9qdvai7+Vg6/Vo/ajS5TH3+CfsgBPf6Pn6TWcWHmg=;
-        b=YAu6c2rc11eKWot6/NiVg0MqeqRHqjSuI2tjj5OMbO0JTnp42KAk9EOnpTXS0ZGo4H
-         GjaT7ipaQZ42V9sEdjUKSb3PHsXVMvgV+i/eyFITBxolxguAbSZxvO9iXaciBVAUvWK9
-         wY1DtcnM4X/qRqZ3preDDAG9hdt0rmQ/cQKpTdu1fcxE42EmcXSZ1GvqOSQVznNDC0b7
-         GxRNlWJuR6idG3euhqu+rvXLOgJ43s5/YqrrvqGwW8uIautidEtyV6oNBqmpCBNQDGBW
-         t/2AjOyb0z0EC+kWeOSUK4Xdz1VmfDHjKJ7Y0l3jQvIgGwx66yiEoqkORHMfGhx9y2Yq
-         QwSw==
+        bh=U9a/XI8nUmJ0m3ojAWn0RJ8VqdbALaTRgX2keukdkZc=;
+        b=TPrE7OLL7VMq45BLeaIfSO31cB/nAuTnwVoPB1RPGHq5XhH1QbIWpN//AnY/QhGwqV
+         7Q6Lhl5HCBihY0JNtvaRjtgnklhuwIEKyyIbtSKDSachDATo7AGIJIJtsqsz7TraSNRe
+         VS0dU1XrHpTTVKBz4+U3KKLAPiO9giDjUddjD9YYX/0w3uLLK0BfekB5Ezi4i6I+Vr4O
+         5NxOM0REpYolOMbhcKs2OdaY4gr0etXIqyw2OkLtAYiE8rJ2SkazHGp3WJW5/uyhEZC4
+         OcehWsMYKIKf870XzYHUhYwBtDgRo806GQvB0isPXrHbjTJArLuWd5+FTY03Cw98ZlNx
+         0MOg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1739251106; x=1739855906;
+        d=1e100.net; s=20230601; t=1739251124; x=1739855924;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=HA9qdvai7+Vg6/Vo/ajS5TH3+CfsgBPf6Pn6TWcWHmg=;
-        b=YORkTlXoTNIec8XGx1nuoi+MPl8ypAndGNg9P0eGEy6KFnGZhpytC278S2fdwsJwnE
-         MyY8EjDR9x6b21EPnqV2wqR6qgnQYwkDntbpkuACWJ/HAVVO1GVzzt6gd2e1guK/r6an
-         x8uYxk8msUq9OkdF3I9f9aV49eRBp/QcWvGC5wQgSlFdbZiyKJ369F0r65z/bmWzJRhs
-         0abzW14XxAcfMWvRrwFDo96t/x4swtzPwiXLd+g6AqZ0+2KCdmV+k1HRJXGmI2tIaFP8
-         fujDMkTt3VSpYEVKKYBZG8OaZttP5bXolipYD7qAy+mcqlQNEpcrMpW/U2Z2wlgJdOFB
-         aMsg==
-X-Forwarded-Encrypted: i=1; AJvYcCX/RQAuXtNa+uEsP4X9zVrU5MDqRZZbLp93pVInR9BkwbBlbHI+6Rx5JhnVoDIiMPMKOdFl/0syEC72ew==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxvi7GV/FcJkjimdTPCCZOLjVH/qkoru9bvdtQD+i+SO4nfKnrm
-	xjMlCfpfWj4uT6LayG2fLOtclLeF1Me+/nIm6eCeFGViCUB/F8G/
-X-Gm-Gg: ASbGncs0xOdxji7p5RsxAiIpIZ30VsZat5BEnDJA96Z/FyvK3YGeWjxRH44Y6oVx2Sr
-	/n3Cc+CptVIkgkes7vSvmjILTl+jRB1Vmd471/Wkf3BYyTM0ltzNRqEd7jJ3wT2oXX9jPKaIXQk
-	tCQ2JwG9glJe0hZoxO8w9EYVPzBmfIDF0vYStSJETe4rc7AqTZuwVzLVJJkb5qod9YFffDgpqa9
-	HidG9dV/uMg21CM+kjJgZRgChzeXpcCzvavMwyk6zZzdQpiR/QjIu2WhwiYtLAquyc=
-X-Google-Smtp-Source: AGHT+IHwWxmEFc2fzH7Hccs5vYXHBp5wI8IXjZRw+GMt2dTbsgiglBWIgoJHFcYmL97RQfN84Q/TUA==
-X-Received: by 2002:a05:622a:6207:b0:467:6901:7589 with SMTP id d75a77b69052e-47167a4973cmr233616721cf.29.1739251106127;
-        Mon, 10 Feb 2025 21:18:26 -0800 (PST)
+        bh=U9a/XI8nUmJ0m3ojAWn0RJ8VqdbALaTRgX2keukdkZc=;
+        b=K9VALgx0h8qzsoVXoLelmZ5b+1BJjCWtkQ4UbvZw3U+6UMEE1j2JHfhYj9sQTrENSg
+         I7viYNJRMzpvqfjNF0mg2hPdqrTZnfrRku5v4tizE3B66wIA/ARWxY2uPeFarHQhglGz
+         S9ipbOBxDUOxYQ+V65glib8M8LT3QxZdtbKYYl/PFVNrFeY5ii1PcOp1PwP69Tej5O4g
+         Qy9hpi88TI6Wx3RXKrwfSjlvl0CDtbQtTnZh/Uo8qT1csOLt6EdtCJhrOfTmKEG4XIwH
+         3l2BRyfIQZC+EYl5wB0ySln9BO88FTweYIK8BkeCmcAH3TVvLIbCp5b1SewduLmkq0az
+         C/cg==
+X-Forwarded-Encrypted: i=1; AJvYcCWp2CGvmaRvOYKDJ0XefR591diBlv4KlkX/q4oNxlh6YBJvD7nF9y/nPlm2WCPXRpNTKDsWuelMggBYig==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx//3rG3bymhnQXfDnJsQeBC4+/bO05NlxUmzajbu+DR1v0R6Mv
+	o3TiBi8n8+ZJor/358tunQapSOLc9h3mboJrsIO2J0mjNQHjCrWz
+X-Gm-Gg: ASbGncuO8+51d28yT5c6rTWxxlajbrtKwXDx8AfNqLkDgcpXtbwSILGkgFvOX8jEgR9
+	x1Hzve9giVqyjFLyXyohF01xScv1TADKZFUfqqYD1cRBvUWnQiRcYmAcivhs2hl5+vjnGm9jvGv
+	O1w/w62y8RWkTAwcZsXlNXxuijKvZfO6pf6Kri/ZMGm1Mm4DpRfCeBlJ/R0mU1/OOcTSZZmbzKh
+	InPZGDffp6/kJr4WB97hI97xPwvTtCZ60AafsALZQVvmESM43VA2lLRTg+LLfbPOSM=
+X-Google-Smtp-Source: AGHT+IF8RD8sYCPfHojBOSb3Bevtt7AgKe5hJyuI6s7bYeF2WfCLnOJzuuudlCz/10cter+ga10QrA==
+X-Received: by 2002:a05:620a:4454:b0:7a3:5f3f:c084 with SMTP id af79cd13be357-7c0686fa3ffmr379450785a.30.1739251123960;
+        Mon, 10 Feb 2025 21:18:43 -0800 (PST)
 Received: from localhost ([2001:da8:7001:11::cb])
-        by smtp.gmail.com with UTF8SMTPSA id d75a77b69052e-471902ada7fsm23571201cf.77.2025.02.10.21.18.24
+        by smtp.gmail.com with UTF8SMTPSA id af79cd13be357-7c041debe6bsm623193585a.15.2025.02.10.21.18.42
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 10 Feb 2025 21:18:25 -0800 (PST)
+        Mon, 10 Feb 2025 21:18:43 -0800 (PST)
 From: Inochi Amaoto <inochiama@gmail.com>
 To: Linus Walleij <linus.walleij@linaro.org>,
 	Rob Herring <robh@kernel.org>,
@@ -83,21 +83,22 @@ To: Linus Walleij <linus.walleij@linaro.org>,
 	Harshit Mogalapalli <harshit.m.mogalapalli@oracle.com>
 Cc: Inochi Amaoto <inochiama@gmail.com>,
 	linux-gpio@vger.kernel.org,
-	devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org,
 	linux-riscv@lists.infradead.org,
 	Yixun Lan <dlan@gentoo.org>,
 	Longbin Li <looong.bin@gmail.com>
-Subject: [PATCH v2 3/8] pinctrl: sophgo: generalize shareable code of cv18xx pinctrl driver
-Date: Tue, 11 Feb 2025 13:17:51 +0800
-Message-ID: <20250211051801.470800-4-inochiama@gmail.com>
+Subject: [PATCH v2 8/8] riscv: dts: sophgo: sg2042: add pinctrl support
+Date: Tue, 11 Feb 2025 13:17:56 +0800
+Message-ID: <20250211051801.470800-9-inochiama@gmail.com>
 X-Mailer: git-send-email 2.48.1
 In-Reply-To: <20250211051801.470800-1-inochiama@gmail.com>
 References: <20250211051801.470800-1-inochiama@gmail.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250210_211827_323131_8B247561 
-X-CRM114-Status: GOOD (  23.33  )
+X-CRM114-CacheID: sfid-20250210_211845_143876_C1EE49F7 
+X-CRM114-Status: UNSURE (   9.57  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,1235 +115,143 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-With generic data structure, it is possible to generalize vddio
-operators and DT parsing code of cv18xx pinctrl driver. Introduce
-sophgo_cfg_ops callback to allow the driver to adjust the soc
-logic and share common code.
+Add pinctrl node and related pin configuration for SG2042 SoC.
 
 Signed-off-by: Inochi Amaoto <inochiama@gmail.com>
 ---
- drivers/pinctrl/sophgo/Kconfig                |  19 +-
- drivers/pinctrl/sophgo/Makefile               |   5 +-
- drivers/pinctrl/sophgo/pinctrl-cv1800b.c      |   1 +
- drivers/pinctrl/sophgo/pinctrl-cv1812h.c      |   1 +
- drivers/pinctrl/sophgo/pinctrl-cv18xx.c       | 423 +++---------------
- drivers/pinctrl/sophgo/pinctrl-cv18xx.h       |   2 +
- drivers/pinctrl/sophgo/pinctrl-sg2000.c       |   1 +
- drivers/pinctrl/sophgo/pinctrl-sg2002.c       |   1 +
- .../pinctrl/sophgo/pinctrl-sophgo-common.c    | 404 +++++++++++++++++
- drivers/pinctrl/sophgo/pinctrl-sophgo.h       |  63 +++
- 10 files changed, 545 insertions(+), 375 deletions(-)
- create mode 100644 drivers/pinctrl/sophgo/pinctrl-sophgo-common.c
+ .../boot/dts/sophgo/sg2042-milkv-pioneer.dts  | 72 +++++++++++++++++++
+ arch/riscv/boot/dts/sophgo/sg2042.dtsi        |  6 ++
+ 2 files changed, 78 insertions(+)
 
-diff --git a/drivers/pinctrl/sophgo/Kconfig b/drivers/pinctrl/sophgo/Kconfig
-index c05f909a8838..f473ece940ab 100644
---- a/drivers/pinctrl/sophgo/Kconfig
-+++ b/drivers/pinctrl/sophgo/Kconfig
-@@ -3,17 +3,21 @@
- # Sophgo SoC PINCTRL drivers
- #
- 
--config PINCTRL_SOPHGO_CV18XX
--	bool
-+config PINCTRL_SOPHGO_COMMON
-+	tristate
- 	select GENERIC_PINCTRL_GROUPS
- 	select GENERIC_PINMUX_FUNCTIONS
- 	select GENERIC_PINCONF
- 
-+config PINCTRL_SOPHGO_CV18XX_OPS
-+	bool
-+
- config PINCTRL_SOPHGO_CV1800B
- 	tristate "Sophgo CV1800B SoC Pinctrl driver"
- 	depends on ARCH_SOPHGO || COMPILE_TEST
- 	depends on OF
--	select PINCTRL_SOPHGO_CV18XX
-+	select PINCTRL_SOPHGO_COMMON
-+	select PINCTRL_SOPHGO_CV18XX_OPS
- 	help
- 	  Say Y to select the pinctrl driver for CV1800B SoC.
- 	  This pin controller allows selecting the mux function for
-@@ -24,7 +28,8 @@ config PINCTRL_SOPHGO_CV1812H
- 	tristate "Sophgo CV1812H SoC Pinctrl driver"
- 	depends on ARCH_SOPHGO || COMPILE_TEST
- 	depends on OF
--	select PINCTRL_SOPHGO_CV18XX
-+	select PINCTRL_SOPHGO_COMMON
-+	select PINCTRL_SOPHGO_CV18XX_OPS
- 	help
- 	  Say Y to select the pinctrl driver for CV1812H SoC.
- 	  This pin controller allows selecting the mux function for
-@@ -35,7 +40,8 @@ config PINCTRL_SOPHGO_SG2000
- 	tristate "Sophgo SG2000 SoC Pinctrl driver"
- 	depends on ARCH_SOPHGO || COMPILE_TEST
- 	depends on OF
--	select PINCTRL_SOPHGO_CV18XX
-+	select PINCTRL_SOPHGO_COMMON
-+	select PINCTRL_SOPHGO_CV18XX_OPS
- 	help
- 	  Say Y to select the pinctrl driver for SG2000 SoC.
- 	  This pin controller allows selecting the mux function for
-@@ -46,7 +52,8 @@ config PINCTRL_SOPHGO_SG2002
- 	tristate "Sophgo SG2002 SoC Pinctrl driver"
- 	depends on ARCH_SOPHGO || COMPILE_TEST
- 	depends on OF
--	select PINCTRL_SOPHGO_CV18XX
-+	select PINCTRL_SOPHGO_COMMON
-+	select PINCTRL_SOPHGO_CV18XX_OPS
- 	help
- 	  Say Y to select the pinctrl driver for SG2002 SoC.
- 	  This pin controller allows selecting the mux function for
-diff --git a/drivers/pinctrl/sophgo/Makefile b/drivers/pinctrl/sophgo/Makefile
-index 4113a5c9191b..5f24550750d6 100644
---- a/drivers/pinctrl/sophgo/Makefile
-+++ b/drivers/pinctrl/sophgo/Makefile
-@@ -1,6 +1,9 @@
- # SPDX-License-Identifier: GPL-2.0
- 
--obj-$(CONFIG_PINCTRL_SOPHGO_CV18XX)	+= pinctrl-cv18xx.o
-+obj-$(CONFIG_PINCTRL_SOPHGO_COMMON)	+= pinctrl-sophgo.o
-+pinctrl-sophgo-objs			+= pinctrl-sophgo-common.o
-+pinctrl-sophgo-$(CONFIG_PINCTRL_SOPHGO_CV18XX_OPS) += pinctrl-cv18xx.o
-+
- obj-$(CONFIG_PINCTRL_SOPHGO_CV1800B)	+= pinctrl-cv1800b.o
- obj-$(CONFIG_PINCTRL_SOPHGO_CV1812H)	+= pinctrl-cv1812h.o
- obj-$(CONFIG_PINCTRL_SOPHGO_SG2000)	+= pinctrl-sg2000.o
-diff --git a/drivers/pinctrl/sophgo/pinctrl-cv1800b.c b/drivers/pinctrl/sophgo/pinctrl-cv1800b.c
-index 45529e2ed23a..ca6fb374ee15 100644
---- a/drivers/pinctrl/sophgo/pinctrl-cv1800b.c
-+++ b/drivers/pinctrl/sophgo/pinctrl-cv1800b.c
-@@ -442,6 +442,7 @@ static const struct sophgo_pinctrl_data cv1800b_pindata = {
- 	.pindata	= cv1800b_pin_data,
- 	.pdnames	= cv1800b_power_domain_desc,
- 	.vddio_ops	= &cv1800b_vddio_cfg_ops,
-+	.cfg_ops	= &cv1800_cfg_ops,
- 	.npins		= ARRAY_SIZE(cv1800b_pins),
- 	.npds		= ARRAY_SIZE(cv1800b_power_domain_desc),
- 	.pinsize	= sizeof(struct cv1800_pin),
-diff --git a/drivers/pinctrl/sophgo/pinctrl-cv1812h.c b/drivers/pinctrl/sophgo/pinctrl-cv1812h.c
-index 4e30a1cc9d7d..df2c2697a1fd 100644
---- a/drivers/pinctrl/sophgo/pinctrl-cv1812h.c
-+++ b/drivers/pinctrl/sophgo/pinctrl-cv1812h.c
-@@ -751,6 +751,7 @@ static const struct sophgo_pinctrl_data cv1812h_pindata = {
- 	.pindata	= cv1812h_pin_data,
- 	.pdnames	= cv1812h_power_domain_desc,
- 	.vddio_ops	= &cv1812h_vddio_cfg_ops,
-+	.cfg_ops	= &cv1800_cfg_ops,
- 	.npins		= ARRAY_SIZE(cv1812h_pins),
- 	.npds		= ARRAY_SIZE(cv1812h_power_domain_desc),
- 	.pinsize	= sizeof(struct cv1800_pin),
-diff --git a/drivers/pinctrl/sophgo/pinctrl-cv18xx.c b/drivers/pinctrl/sophgo/pinctrl-cv18xx.c
-index 573e00d2c752..66111110c4b3 100644
---- a/drivers/pinctrl/sophgo/pinctrl-cv18xx.c
-+++ b/drivers/pinctrl/sophgo/pinctrl-cv18xx.c
-@@ -34,11 +34,6 @@ struct cv1800_priv {
- 	void __iomem				*regs[2];
+diff --git a/arch/riscv/boot/dts/sophgo/sg2042-milkv-pioneer.dts b/arch/riscv/boot/dts/sophgo/sg2042-milkv-pioneer.dts
+index be596d01ff8d..a36e8843ab0e 100644
+--- a/arch/riscv/boot/dts/sophgo/sg2042-milkv-pioneer.dts
++++ b/arch/riscv/boot/dts/sophgo/sg2042-milkv-pioneer.dts
+@@ -42,6 +42,8 @@ &cgi_dpll1 {
  };
  
--static unsigned int cv1800_dt_get_pin(u32 value)
--{
--	return value & GENMASK(15, 0);
--}
--
- static unsigned int cv1800_dt_get_pin_mux(u32 value)
- {
- 	return (value >> 16) & GENMASK(7, 0);
-@@ -52,15 +47,6 @@ static unsigned int cv1800_dt_get_pin_mux2(u32 value)
- #define cv1800_pinctrl_get_component_addr(pctrl, _comp)		\
- 	((pctrl)->regs[(_comp)->area] + (_comp)->offset)
- 
--static int cv1800_cmp_pin(const void *key, const void *pivot)
--{
--	const struct sophgo_pin *pin = pivot;
--	int pin_id = (long)key;
--	int pivid = pin->id;
--
--	return pin_id - pivid;
--}
--
- static int cv1800_set_power_cfg(struct sophgo_pinctrl *pctrl,
- 				u8 domain, u32 cfg)
- {
-@@ -85,13 +71,6 @@ static int cv1800_get_power_cfg(struct sophgo_pinctrl *pctrl,
- 	return priv->power_cfg[domain];
- }
- 
--static const struct sophgo_pin *cv1800_get_pin(struct sophgo_pinctrl *pctrl,
--					       unsigned long pin)
--{
--	return bsearch((void *)pin, pctrl->data->pindata, pctrl->data->npins,
--		       pctrl->data->pinsize, cv1800_cmp_pin);
--}
--
- #define PIN_BGA_ID_OFFSET		8
- #define PIN_BGA_ID_MASK			0xff
- 
-@@ -113,7 +92,7 @@ static void cv1800_pctrl_dbg_show(struct pinctrl_dev *pctldev,
- {
- 	struct sophgo_pinctrl *pctrl = pinctrl_dev_get_drvdata(pctldev);
- 	struct cv1800_priv *priv = pctrl->priv_ctrl;
--	const struct sophgo_pin *sp = cv1800_get_pin(pctrl, pin_id);
-+	const struct sophgo_pin *sp = sophgo_get_pin(pctrl, pin_id);
- 	const struct cv1800_pin *pin = sophgo_to_cv1800_pin(sp);
- 	enum cv1800_pin_io_type type = cv1800_pin_io_type(pin);
- 	u32 pin_hwid = pin->pin.id;
-@@ -172,7 +151,7 @@ static int cv1800_verify_pinmux_config(const struct sophgo_pin_mux_config *confi
- }
- 
- static int cv1800_verify_pin_group(const struct sophgo_pin_mux_config *mux,
--				   unsigned long npins)
-+				   unsigned int npins)
- {
- 	struct cv1800_pin *pin;
- 	enum cv1800_pin_io_type type;
-@@ -197,165 +176,23 @@ static int cv1800_verify_pin_group(const struct sophgo_pin_mux_config *mux,
- 	return 0;
- }
- 
--static int cv1800_pctrl_dt_node_to_map(struct pinctrl_dev *pctldev,
--				       struct device_node *np,
--				       struct pinctrl_map **maps,
--				       unsigned int *num_maps)
-+static int cv1800_dt_node_to_map_post(struct device_node *cur,
-+				      struct sophgo_pinctrl *pctrl,
-+				      struct sophgo_pin_mux_config *pinmuxs,
-+				      unsigned int npins)
- {
--	struct sophgo_pinctrl *pctrl = pinctrl_dev_get_drvdata(pctldev);
--	struct device *dev = pctrl->dev;
--	struct device_node *child;
--	struct pinctrl_map *map;
--	const char **grpnames;
--	const char *grpname;
--	int ngroups = 0;
--	int nmaps = 0;
-+	const struct cv1800_pin *pin = sophgo_to_cv1800_pin(pinmuxs[0].pin);
-+	u32 power;
- 	int ret;
- 
--	for_each_available_child_of_node(np, child)
--		ngroups += 1;
-+	ret = of_property_read_u32(cur, "power-source", &power);
-+	if (ret)
-+		return ret;
- 
--	grpnames = devm_kcalloc(dev, ngroups, sizeof(*grpnames), GFP_KERNEL);
--	if (!grpnames)
--		return -ENOMEM;
-+	if (!(power == PIN_POWER_STATE_3V3 || power == PIN_POWER_STATE_1V8))
-+		return -ENOTSUPP;
- 
--	map = kcalloc(ngroups * 2, sizeof(*map), GFP_KERNEL);
--	if (!map)
--		return -ENOMEM;
--
--	ngroups = 0;
--	mutex_lock(&pctrl->mutex);
--	for_each_available_child_of_node(np, child) {
--		int npins = of_property_count_u32_elems(child, "pinmux");
--		unsigned int *pins;
--		struct sophgo_pin_mux_config *pinmuxs;
--		struct cv1800_pin *pin;
--		u32 config, power;
--		int i;
--
--		if (npins < 1) {
--			dev_err(dev, "invalid pinctrl group %pOFn.%pOFn\n",
--				np, child);
--			ret = -EINVAL;
--			goto dt_failed;
--		}
--
--		grpname = devm_kasprintf(dev, GFP_KERNEL, "%pOFn.%pOFn",
--					 np, child);
--		if (!grpname) {
--			ret = -ENOMEM;
--			goto dt_failed;
--		}
--
--		grpnames[ngroups++] = grpname;
--
--		pins = devm_kcalloc(dev, npins, sizeof(*pins), GFP_KERNEL);
--		if (!pins) {
--			ret = -ENOMEM;
--			goto dt_failed;
--		}
--
--		pinmuxs = devm_kcalloc(dev, npins, sizeof(*pinmuxs), GFP_KERNEL);
--		if (!pinmuxs) {
--			ret = -ENOMEM;
--			goto dt_failed;
--		}
--
--		for (i = 0; i < npins; i++) {
--			ret = of_property_read_u32_index(child, "pinmux",
--							 i, &config);
--			if (ret)
--				goto dt_failed;
--
--			pins[i] = cv1800_dt_get_pin(config);
--			pinmuxs[i].config = config;
--			pinmuxs[i].pin = cv1800_get_pin(pctrl, pins[i]);
--
--			if (!pinmuxs[i].pin) {
--				dev_err(dev, "failed to get pin %d\n", pins[i]);
--				ret = -ENODEV;
--				goto dt_failed;
--			}
--
--			ret = cv1800_verify_pinmux_config(&pinmuxs[i]);
--			if (ret) {
--				dev_err(dev, "group %s pin %d is invalid\n",
--					grpname, i);
--				goto dt_failed;
--			}
--		}
--
--		ret = cv1800_verify_pin_group(pinmuxs, npins);
--		if (ret) {
--			dev_err(dev, "group %s is invalid\n", grpname);
--			goto dt_failed;
--		}
--
--		ret = of_property_read_u32(child, "power-source", &power);
--		if (ret)
--			goto dt_failed;
--
--		if (!(power == PIN_POWER_STATE_3V3 || power == PIN_POWER_STATE_1V8)) {
--			dev_err(dev, "group %s have unsupported power: %u\n",
--				grpname, power);
--			ret = -ENOTSUPP;
--			goto dt_failed;
--		}
--
--		pin = sophgo_to_cv1800_pin(pinmuxs[0].pin);
--		ret = cv1800_set_power_cfg(pctrl, pin->power_domain, power);
--		if (ret)
--			goto dt_failed;
--
--		map[nmaps].type = PIN_MAP_TYPE_MUX_GROUP;
--		map[nmaps].data.mux.function = np->name;
--		map[nmaps].data.mux.group = grpname;
--		nmaps += 1;
--
--		ret = pinconf_generic_parse_dt_config(child, pctldev,
--						      &map[nmaps].data.configs.configs,
--						      &map[nmaps].data.configs.num_configs);
--		if (ret) {
--			dev_err(dev, "failed to parse pin config of group %s: %d\n",
--				grpname, ret);
--			goto dt_failed;
--		}
--
--		ret = pinctrl_generic_add_group(pctldev, grpname,
--						pins, npins, pinmuxs);
--		if (ret < 0) {
--			dev_err(dev, "failed to add group %s: %d\n", grpname, ret);
--			goto dt_failed;
--		}
--
--		/* don't create a map if there are no pinconf settings */
--		if (map[nmaps].data.configs.num_configs == 0)
--			continue;
--
--		map[nmaps].type = PIN_MAP_TYPE_CONFIGS_GROUP;
--		map[nmaps].data.configs.group_or_pin = grpname;
--		nmaps += 1;
--	}
--
--	ret = pinmux_generic_add_function(pctldev, np->name,
--					  grpnames, ngroups, NULL);
--	if (ret < 0) {
--		dev_err(dev, "error adding function %s: %d\n", np->name, ret);
--		goto function_failed;
--	}
--
--	*maps = map;
--	*num_maps = nmaps;
--	mutex_unlock(&pctrl->mutex);
--
--	return 0;
--
--dt_failed:
--	of_node_put(child);
--function_failed:
--	pinctrl_utils_free_map(pctldev, map, nmaps);
--	mutex_unlock(&pctrl->mutex);
--	return ret;
-+	return cv1800_set_power_cfg(pctrl, pin->power_domain, power);
- }
- 
- static const struct pinctrl_ops cv1800_pctrl_ops = {
-@@ -363,54 +200,35 @@ static const struct pinctrl_ops cv1800_pctrl_ops = {
- 	.get_group_name		= pinctrl_generic_get_group_name,
- 	.get_group_pins		= pinctrl_generic_get_group_pins,
- 	.pin_dbg_show		= cv1800_pctrl_dbg_show,
--	.dt_node_to_map		= cv1800_pctrl_dt_node_to_map,
-+	.dt_node_to_map		= sophgo_pctrl_dt_node_to_map,
- 	.dt_free_map		= pinctrl_utils_free_map,
+ &emmc {
++	pinctrl-0 = <&emmc_cfg>;
++	pinctrl-names = "default";
+ 	bus-width = <4>;
+ 	no-sdio;
+ 	no-sd;
+@@ -51,6 +53,8 @@ &emmc {
  };
  
--static int cv1800_pmx_set_mux(struct pinctrl_dev *pctldev,
--			      unsigned int fsel, unsigned int gsel)
-+static void cv1800_set_pinmux_config(struct sophgo_pinctrl *pctrl,
-+				     const struct sophgo_pin *sp, u32 config)
- {
--	struct sophgo_pinctrl *pctrl = pinctrl_dev_get_drvdata(pctldev);
-+	const struct cv1800_pin *pin = sophgo_to_cv1800_pin(sp);
- 	struct cv1800_priv *priv = pctrl->priv_ctrl;
--	const struct group_desc *group;
--	const struct sophgo_pin_mux_config *configs;
--	unsigned int i;
--
--	group = pinctrl_generic_get_group(pctldev, gsel);
--	if (!group)
--		return -EINVAL;
--
--	configs = group->data;
--
--	for (i = 0; i < group->grp.npins; i++) {
--		const struct cv1800_pin *pin = sophgo_to_cv1800_pin(configs[i].pin);
--		u32 value = configs[i].config;
--		void __iomem *reg_mux;
--		void __iomem *reg_mux2;
--		unsigned long flags;
--		u32 mux;
--		u32 mux2;
--
--		reg_mux = cv1800_pinctrl_get_component_addr(priv, &pin->mux);
--		reg_mux2 = cv1800_pinctrl_get_component_addr(priv, &pin->mux2);
--		mux = cv1800_dt_get_pin_mux(value);
--		mux2 = cv1800_dt_get_pin_mux2(value);
--
--		raw_spin_lock_irqsave(&pctrl->lock, flags);
--		writel_relaxed(mux, reg_mux);
--		if (mux2 != PIN_MUX_INVALD)
--			writel_relaxed(mux2, reg_mux2);
--		raw_spin_unlock_irqrestore(&pctrl->lock, flags);
--	}
--
--	return 0;
-+	void __iomem *reg_mux;
-+	void __iomem *reg_mux2;
-+	u32 mux;
-+	u32 mux2;
-+
-+	reg_mux = cv1800_pinctrl_get_component_addr(priv, &pin->mux);
-+	reg_mux2 = cv1800_pinctrl_get_component_addr(priv, &pin->mux2);
-+	mux = cv1800_dt_get_pin_mux(config);
-+	mux2 = cv1800_dt_get_pin_mux2(config);
-+
-+	writel_relaxed(mux, reg_mux);
-+	if (mux2 != PIN_MUX_INVALD)
-+		writel_relaxed(mux2, reg_mux2);
- }
+ &i2c1 {
++	pinctrl-0 = <&i2c1_cfg>;
++	pinctrl-names = "default";
+ 	status = "okay";
  
- static const struct pinmux_ops cv1800_pmx_ops = {
- 	.get_functions_count	= pinmux_generic_get_function_count,
- 	.get_function_name	= pinmux_generic_get_function_name,
- 	.get_function_groups	= pinmux_generic_get_function_groups,
--	.set_mux		= cv1800_pmx_set_mux,
-+	.set_mux		= sophgo_pmx_set_mux,
- 	.strict			= true,
+ 	mcu: syscon@17 {
+@@ -60,7 +64,73 @@ mcu: syscon@17 {
+ 	};
  };
  
-@@ -421,99 +239,13 @@ static const struct pinmux_ops cv1800_pmx_ops = {
- #define PIN_IO_BUS_HOLD		BIT(10)
- #define PIN_IO_OUT_FAST_SLEW	BIT(11)
- 
--static u32 cv1800_pull_down_typical_resistor(struct sophgo_pinctrl *pctrl,
--					     const struct sophgo_pin *pin,
--					     const u32 *power_cfg)
--{
--	return pctrl->data->vddio_ops->get_pull_down(pin, power_cfg);
--}
--
--static u32 cv1800_pull_up_typical_resistor(struct sophgo_pinctrl *pctrl,
--					   const struct sophgo_pin *pin,
--					   const u32 *power_cfg)
--{
--	return pctrl->data->vddio_ops->get_pull_up(pin, power_cfg);
--}
--
--static int cv1800_pinctrl_oc2reg(struct sophgo_pinctrl *pctrl,
--				 const struct sophgo_pin *pin,
--				 const u32 *power_cfg, u32 target)
--{
--	const u32 *map;
--	int i, len;
--
--	len = pctrl->data->vddio_ops->get_oc_map(pin, power_cfg, &map);
--	if (len < 0)
--		return len;
--
--	for (i = 0; i < len; i++) {
--		if (map[i] >= target)
--			return i;
--	}
--
--	return -EINVAL;
--}
--
--static int cv1800_pinctrl_reg2oc(struct sophgo_pinctrl *pctrl,
--				 const struct sophgo_pin *pin,
--				 const u32 *power_cfg, u32 reg)
--{
--	const u32 *map;
--	int len;
--
--	len = pctrl->data->vddio_ops->get_oc_map(pin, power_cfg, &map);
--	if (len < 0)
--		return len;
--
--	if (reg >= len)
--		return -EINVAL;
--
--	return map[reg];
--}
--
--static int cv1800_pinctrl_schmitt2reg(struct sophgo_pinctrl *pctrl,
--				      const struct sophgo_pin *pin,
--				      const u32 *power_cfg, u32 target)
--{
--	const u32 *map;
--	int i, len;
--
--	len = pctrl->data->vddio_ops->get_schmitt_map(pin, power_cfg, &map);
--	if (len < 0)
--		return len;
--
--	for (i = 0; i < len; i++) {
--		if (map[i] == target)
--			return i;
--	}
--
--	return -EINVAL;
--}
--
--static int cv1800_pinctrl_reg2schmitt(struct sophgo_pinctrl *pctrl,
--				      const struct sophgo_pin *pin,
--				      const u32 *power_cfg, u32 reg)
--{
--	const u32 *map;
--	int len;
--
--	len = pctrl->data->vddio_ops->get_schmitt_map(pin, power_cfg, &map);
--	if (len < 0)
--		return len;
--
--	if (reg >= len)
--		return -EINVAL;
--
--	return map[reg];
--}
--
- static int cv1800_pconf_get(struct pinctrl_dev *pctldev,
- 			    unsigned int pin_id, unsigned long *config)
- {
- 	struct sophgo_pinctrl *pctrl = pinctrl_dev_get_drvdata(pctldev);
- 	struct cv1800_priv *priv = pctrl->priv_ctrl;
- 	int param = pinconf_to_config_param(*config);
--	const struct sophgo_pin *sp = cv1800_get_pin(pctrl, pin_id);
-+	const struct sophgo_pin *sp = sophgo_get_pin(pctrl, pin_id);
- 	const struct cv1800_pin *pin = sophgo_to_cv1800_pin(sp);
- 	enum cv1800_pin_io_type type;
- 	u32 value;
-@@ -533,23 +265,23 @@ static int cv1800_pconf_get(struct pinctrl_dev *pctldev,
- 	switch (param) {
- 	case PIN_CONFIG_BIAS_PULL_DOWN:
- 		enabled = FIELD_GET(PIN_IO_PULLDOWN, value);
--		arg = cv1800_pull_down_typical_resistor(pctrl, sp, priv->power_cfg);
-+		arg = sophgo_pinctrl_typical_pull_down(pctrl, sp, priv->power_cfg);
- 		break;
- 	case PIN_CONFIG_BIAS_PULL_UP:
- 		enabled = FIELD_GET(PIN_IO_PULLUP, value);
--		arg = cv1800_pull_up_typical_resistor(pctrl, sp, priv->power_cfg);
-+		arg = sophgo_pinctrl_typical_pull_up(pctrl, sp, priv->power_cfg);
- 		break;
- 	case PIN_CONFIG_DRIVE_STRENGTH_UA:
- 		enabled = true;
- 		arg = FIELD_GET(PIN_IO_DRIVE, value);
--		ret = cv1800_pinctrl_reg2oc(pctrl, sp, priv->power_cfg, arg);
-+		ret = sophgo_pinctrl_reg2oc(pctrl, sp, priv->power_cfg, arg);
- 		if (ret < 0)
- 			return ret;
- 		arg = ret;
- 		break;
- 	case PIN_CONFIG_INPUT_SCHMITT_UV:
- 		arg = FIELD_GET(PIN_IO_SCHMITT, value);
--		ret = cv1800_pinctrl_reg2schmitt(pctrl, sp, priv->power_cfg, arg);
-+		ret = sophgo_pinctrl_reg2schmitt(pctrl, sp, priv->power_cfg, arg);
- 		if (ret < 0)
- 			return ret;
- 		arg = ret;
-@@ -612,7 +344,7 @@ static int cv1800_pinconf_compute_config(struct sophgo_pinctrl *pctrl,
- 			m |= PIN_IO_PULLUP;
- 			break;
- 		case PIN_CONFIG_DRIVE_STRENGTH_UA:
--			ret = cv1800_pinctrl_oc2reg(pctrl, sp,
-+			ret = sophgo_pinctrl_oc2reg(pctrl, sp,
- 						    priv->power_cfg, arg);
- 			if (ret < 0)
- 				return ret;
-@@ -621,7 +353,7 @@ static int cv1800_pinconf_compute_config(struct sophgo_pinctrl *pctrl,
- 			m |= PIN_IO_DRIVE;
- 			break;
- 		case PIN_CONFIG_INPUT_SCHMITT_UV:
--			ret = cv1800_pinctrl_schmitt2reg(pctrl, sp,
-+			ret = sophgo_pinctrl_schmitt2reg(pctrl, sp,
- 							 priv->power_cfg, arg);
- 			if (ret < 0)
- 				return ret;
-@@ -653,84 +385,29 @@ static int cv1800_pinconf_compute_config(struct sophgo_pinctrl *pctrl,
- 	return 0;
- }
- 
--static int cv1800_pin_set_config(struct sophgo_pinctrl *pctrl,
--				 unsigned int pin_id,
--				 u32 value, u32 mask)
-+static int cv1800_set_pinconf_config(struct sophgo_pinctrl *pctrl,
-+				     const struct sophgo_pin *sp,
-+				     u32 value, u32 mask)
- {
- 	struct cv1800_priv *priv = pctrl->priv_ctrl;
--	const struct sophgo_pin *sp = cv1800_get_pin(pctrl, pin_id);
--	struct cv1800_pin *pin;
--	unsigned long flags;
-+	struct cv1800_pin *pin = sophgo_to_cv1800_pin(sp);
- 	void __iomem *addr;
- 	u32 reg;
- 
--	if (!sp)
--		return -EINVAL;
--	pin = sophgo_to_cv1800_pin(sp);
--
- 	addr = cv1800_pinctrl_get_component_addr(priv, &pin->conf);
- 
--	raw_spin_lock_irqsave(&pctrl->lock, flags);
- 	reg = readl(addr);
- 	reg &= ~mask;
- 	reg |= value;
- 	writel(reg, addr);
--	raw_spin_unlock_irqrestore(&pctrl->lock, flags);
--
--	return 0;
--}
--
--static int cv1800_pconf_set(struct pinctrl_dev *pctldev,
--			    unsigned int pin_id, unsigned long *configs,
--			    unsigned int num_configs)
--{
--	struct sophgo_pinctrl *pctrl = pinctrl_dev_get_drvdata(pctldev);
--	const struct sophgo_pin *sp = cv1800_get_pin(pctrl, pin_id);
--	u32 value, mask;
--
--	if (!sp)
--		return -EINVAL;
--
--	if (cv1800_pinconf_compute_config(pctrl, sp,
--					  configs, num_configs,
--					  &value, &mask))
--		return -ENOTSUPP;
--
--	return cv1800_pin_set_config(pctrl, pin_id, value, mask);
--}
--
--static int cv1800_pconf_group_set(struct pinctrl_dev *pctldev,
--				  unsigned int gsel,
--				  unsigned long *configs,
--				  unsigned int num_configs)
--{
--	struct sophgo_pinctrl *pctrl = pinctrl_dev_get_drvdata(pctldev);
--	const struct group_desc *group;
--	const struct sophgo_pin_mux_config *pinmuxs;
--	u32 value, mask;
--	int i;
--
--	group = pinctrl_generic_get_group(pctldev, gsel);
--	if (!group)
--		return -EINVAL;
--
--	pinmuxs = group->data;
--
--	if (cv1800_pinconf_compute_config(pctrl, pinmuxs[0].pin,
--					  configs, num_configs,
--					  &value, &mask))
--		return -ENOTSUPP;
--
--	for (i = 0; i < group->grp.npins; i++)
--		cv1800_pin_set_config(pctrl, group->grp.pins[i], value, mask);
- 
- 	return 0;
- }
- 
- static const struct pinconf_ops cv1800_pconf_ops = {
- 	.pin_config_get			= cv1800_pconf_get,
--	.pin_config_set			= cv1800_pconf_set,
--	.pin_config_group_set		= cv1800_pconf_group_set,
-+	.pin_config_set			= sophgo_pconf_set,
-+	.pin_config_group_set		= sophgo_pconf_group_set,
- 	.is_generic			= true,
- };
- 
-@@ -795,3 +472,13 @@ int cv1800_pinctrl_probe(struct platform_device *pdev)
- 	return pinctrl_enable(pctrl->pctrl_dev);
- }
- EXPORT_SYMBOL_GPL(cv1800_pinctrl_probe);
-+
-+const struct sophgo_cfg_ops cv1800_cfg_ops = {
-+	.verify_pinmux_config = cv1800_verify_pinmux_config,
-+	.verify_pin_group = cv1800_verify_pin_group,
-+	.dt_node_to_map_post = cv1800_dt_node_to_map_post,
-+	.compute_pinconf_config = cv1800_pinconf_compute_config,
-+	.set_pinconf_config = cv1800_set_pinconf_config,
-+	.set_pinmux_config = cv1800_set_pinmux_config,
-+};
-+EXPORT_SYMBOL_GPL(cv1800_cfg_ops);
-diff --git a/drivers/pinctrl/sophgo/pinctrl-cv18xx.h b/drivers/pinctrl/sophgo/pinctrl-cv18xx.h
-index f095a6e85e52..821e554e550b 100644
---- a/drivers/pinctrl/sophgo/pinctrl-cv18xx.h
-+++ b/drivers/pinctrl/sophgo/pinctrl-cv18xx.h
-@@ -68,6 +68,8 @@ static inline enum cv1800_pin_io_type cv1800_pin_io_type(const struct cv1800_pin
- 	return FIELD_GET(CV1800_PIN_IO_TYPE, pin->pin.flags);
- };
- 
-+extern const struct sophgo_cfg_ops cv1800_cfg_ops;
-+
- int cv1800_pinctrl_probe(struct platform_device *pdev);
- 
- #define CV1800_FUNC_PIN(_id, _power_domain, _type,			\
-diff --git a/drivers/pinctrl/sophgo/pinctrl-sg2000.c b/drivers/pinctrl/sophgo/pinctrl-sg2000.c
-index a83dae233cdf..9580bd285699 100644
---- a/drivers/pinctrl/sophgo/pinctrl-sg2000.c
-+++ b/drivers/pinctrl/sophgo/pinctrl-sg2000.c
-@@ -751,6 +751,7 @@ static const struct sophgo_pinctrl_data sg2000_pindata = {
- 	.pindata	= sg2000_pin_data,
- 	.pdnames	= sg2000_power_domain_desc,
- 	.vddio_ops	= &sg2000_vddio_cfg_ops,
-+	.cfg_ops	= &cv1800_cfg_ops,
- 	.npins		= ARRAY_SIZE(sg2000_pins),
- 	.npds		= ARRAY_SIZE(sg2000_power_domain_desc),
- 	.pinsize	= sizeof(struct cv1800_pin),
-diff --git a/drivers/pinctrl/sophgo/pinctrl-sg2002.c b/drivers/pinctrl/sophgo/pinctrl-sg2002.c
-index 4366486d8b7f..e3041a8b8ba6 100644
---- a/drivers/pinctrl/sophgo/pinctrl-sg2002.c
-+++ b/drivers/pinctrl/sophgo/pinctrl-sg2002.c
-@@ -522,6 +522,7 @@ static const struct sophgo_pinctrl_data sg2002_pindata = {
- 	.pindata	= sg2002_pin_data,
- 	.pdnames	= sg2002_power_domain_desc,
- 	.vddio_ops	= &sg2002_vddio_cfg_ops,
-+	.cfg_ops	= &cv1800_cfg_ops,
- 	.npins		= ARRAY_SIZE(sg2002_pins),
- 	.npds		= ARRAY_SIZE(sg2002_power_domain_desc),
- 	.pinsize	= sizeof(struct cv1800_pin),
-diff --git a/drivers/pinctrl/sophgo/pinctrl-sophgo-common.c b/drivers/pinctrl/sophgo/pinctrl-sophgo-common.c
-new file mode 100644
-index 000000000000..957d84e75643
---- /dev/null
-+++ b/drivers/pinctrl/sophgo/pinctrl-sophgo-common.c
-@@ -0,0 +1,404 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/*
-+ * Sophgo SoCs pinctrl common ops.
-+ *
-+ * Copyright (C) 2024 Inochi Amaoto <inochiama@outlook.com>
-+ *
-+ */
-+
-+#include <linux/bsearch.h>
-+#include <linux/cleanup.h>
-+#include <linux/export.h>
-+#include <linux/io.h>
-+#include <linux/of.h>
-+#include <linux/module.h>
-+#include <linux/platform_device.h>
-+#include <linux/seq_file.h>
-+#include <linux/spinlock.h>
-+
-+#include <linux/pinctrl/pinconf-generic.h>
-+#include <linux/pinctrl/pinctrl.h>
-+
-+#include "../pinctrl-utils.h"
-+#include "../pinconf.h"
-+#include "../pinmux.h"
-+
-+#include "pinctrl-sophgo.h"
-+
-+static u16 sophgo_dt_get_pin(u32 value)
-+{
-+	return value;
-+}
-+
-+static int sophgo_cmp_pin(const void *key, const void *pivot)
-+{
-+	const struct sophgo_pin *pin = pivot;
-+	int pin_id = (long)key;
-+	int pivid = pin->id;
-+
-+	return pin_id - pivid;
-+}
-+
-+const struct sophgo_pin *sophgo_get_pin(struct sophgo_pinctrl *pctrl,
-+					unsigned long pin_id)
-+{
-+	return bsearch((void *)pin_id, pctrl->data->pindata, pctrl->data->npins,
-+		       pctrl->data->pinsize, sophgo_cmp_pin);
-+}
-+
-+static int sophgo_verify_pinmux_config(struct sophgo_pinctrl *pctrl,
-+				       const struct sophgo_pin_mux_config *config)
-+{
-+	if (pctrl->data->cfg_ops->verify_pinmux_config)
-+		return pctrl->data->cfg_ops->verify_pinmux_config(config);
-+	return 0;
-+}
-+
-+static int sophgo_verify_pin_group(struct sophgo_pinctrl *pctrl,
-+				   const struct sophgo_pin_mux_config *config,
-+				   unsigned int npins)
-+{
-+	if (pctrl->data->cfg_ops->verify_pin_group)
-+		return pctrl->data->cfg_ops->verify_pin_group(config, npins);
-+	return 0;
-+}
-+
-+static int sophgo_dt_node_to_map_post(struct device_node *cur,
-+				      struct sophgo_pinctrl *pctrl,
-+				      struct sophgo_pin_mux_config *config,
-+				      unsigned int npins)
-+{
-+	if (pctrl->data->cfg_ops->dt_node_to_map_post)
-+		return pctrl->data->cfg_ops->dt_node_to_map_post(cur, pctrl,
-+								 config, npins);
-+	return 0;
-+}
-+
-+int sophgo_pctrl_dt_node_to_map(struct pinctrl_dev *pctldev, struct device_node *np,
-+				struct pinctrl_map **maps, unsigned int *num_maps)
-+{
-+	struct sophgo_pinctrl *pctrl = pinctrl_dev_get_drvdata(pctldev);
-+	struct device *dev = pctrl->dev;
-+	struct device_node *child;
-+	struct pinctrl_map *map;
-+	const char **grpnames;
-+	const char *grpname;
-+	int ngroups = 0;
-+	int nmaps = 0;
-+	int ret;
-+
-+	for_each_available_child_of_node(np, child)
-+		ngroups += 1;
-+
-+	grpnames = devm_kcalloc(dev, ngroups, sizeof(*grpnames), GFP_KERNEL);
-+	if (!grpnames)
-+		return -ENOMEM;
-+
-+	map = kcalloc(ngroups * 2, sizeof(*map), GFP_KERNEL);
-+	if (!map)
-+		return -ENOMEM;
-+
-+	ngroups = 0;
-+	guard(mutex)(&pctrl->mutex);
-+	for_each_available_child_of_node(np, child) {
-+		int npins = of_property_count_u32_elems(child, "pinmux");
-+		unsigned int *pins;
-+		struct sophgo_pin_mux_config *pinmuxs;
-+		u32 config;
-+		int i;
-+
-+		if (npins < 1) {
-+			dev_err(dev, "invalid pinctrl group %pOFn.%pOFn\n",
-+				np, child);
-+			ret = -EINVAL;
-+			goto dt_failed;
-+		}
-+
-+		grpname = devm_kasprintf(dev, GFP_KERNEL, "%pOFn.%pOFn",
-+					 np, child);
-+		if (!grpname) {
-+			ret = -ENOMEM;
-+			goto dt_failed;
-+		}
-+
-+		grpnames[ngroups++] = grpname;
-+
-+		pins = devm_kcalloc(dev, npins, sizeof(*pins), GFP_KERNEL);
-+		if (!pins) {
-+			ret = -ENOMEM;
-+			goto dt_failed;
-+		}
-+
-+		pinmuxs = devm_kcalloc(dev, npins, sizeof(*pinmuxs), GFP_KERNEL);
-+		if (!pinmuxs) {
-+			ret = -ENOMEM;
-+			goto dt_failed;
-+		}
-+
-+		for (i = 0; i < npins; i++) {
-+			ret = of_property_read_u32_index(child, "pinmux",
-+							 i, &config);
-+			if (ret)
-+				goto dt_failed;
-+
-+			pins[i] = sophgo_dt_get_pin(config);
-+			pinmuxs[i].config = config;
-+			pinmuxs[i].pin = sophgo_get_pin(pctrl, pins[i]);
-+
-+			if (!pinmuxs[i].pin) {
-+				dev_err(dev, "failed to get pin %d\n", pins[i]);
-+				ret = -ENODEV;
-+				goto dt_failed;
-+			}
-+
-+			ret = sophgo_verify_pinmux_config(pctrl, &pinmuxs[i]);
-+			if (ret) {
-+				dev_err(dev, "group %s pin %d is invalid\n",
-+					grpname, i);
-+				goto dt_failed;
-+			}
-+		}
-+
-+		ret = sophgo_verify_pin_group(pctrl, pinmuxs, npins);
-+		if (ret) {
-+			dev_err(dev, "group %s is invalid\n", grpname);
-+			goto dt_failed;
-+		}
-+
-+		ret = sophgo_dt_node_to_map_post(child, pctrl, pinmuxs, npins);
-+		if (ret)
-+			goto dt_failed;
-+
-+		map[nmaps].type = PIN_MAP_TYPE_MUX_GROUP;
-+		map[nmaps].data.mux.function = np->name;
-+		map[nmaps].data.mux.group = grpname;
-+		nmaps += 1;
-+
-+		ret = pinconf_generic_parse_dt_config(child, pctldev,
-+						      &map[nmaps].data.configs.configs,
-+						      &map[nmaps].data.configs.num_configs);
-+		if (ret) {
-+			dev_err(dev, "failed to parse pin config of group %s: %d\n",
-+				grpname, ret);
-+			goto dt_failed;
-+		}
-+
-+		ret = pinctrl_generic_add_group(pctldev, grpname,
-+						pins, npins, pinmuxs);
-+		if (ret < 0) {
-+			dev_err(dev, "failed to add group %s: %d\n", grpname, ret);
-+			goto dt_failed;
-+		}
-+
-+		/* don't create a map if there are no pinconf settings */
-+		if (map[nmaps].data.configs.num_configs == 0)
-+			continue;
-+
-+		map[nmaps].type = PIN_MAP_TYPE_CONFIGS_GROUP;
-+		map[nmaps].data.configs.group_or_pin = grpname;
-+		nmaps += 1;
-+	}
-+
-+	ret = pinmux_generic_add_function(pctldev, np->name,
-+					  grpnames, ngroups, NULL);
-+	if (ret < 0) {
-+		dev_err(dev, "error adding function %s: %d\n", np->name, ret);
-+		goto function_failed;
-+	}
-+
-+	*maps = map;
-+	*num_maps = nmaps;
-+
-+	return 0;
-+
-+dt_failed:
-+	of_node_put(child);
-+function_failed:
-+	pinctrl_utils_free_map(pctldev, map, nmaps);
-+	return ret;
-+}
-+
-+int sophgo_pmx_set_mux(struct pinctrl_dev *pctldev,
-+		       unsigned int fsel, unsigned int gsel)
-+{
-+	struct sophgo_pinctrl *pctrl = pinctrl_dev_get_drvdata(pctldev);
-+	const struct group_desc *group;
-+	const struct sophgo_pin_mux_config *configs;
-+	unsigned int i;
-+
-+	group = pinctrl_generic_get_group(pctldev, gsel);
-+	if (!group)
-+		return -EINVAL;
-+
-+	configs = group->data;
-+
-+	for (i = 0; i < group->grp.npins; i++) {
-+		const struct sophgo_pin *pin = configs[i].pin;
-+		u32 value = configs[i].config;
-+
-+		guard(raw_spinlock_irqsave)(&pctrl->lock);
-+
-+		pctrl->data->cfg_ops->set_pinmux_config(pctrl, pin, value);
-+	}
-+
-+	return 0;
-+}
-+
-+static int sophgo_pin_set_config(struct sophgo_pinctrl *pctrl,
-+				 unsigned int pin_id,
-+				 u32 value, u32 mask)
-+{
-+	const struct sophgo_pin *pin = sophgo_get_pin(pctrl, pin_id);
-+
-+	if (!pin)
-+		return -EINVAL;
-+
-+	guard(raw_spinlock_irqsave)(&pctrl->lock);
-+
-+	return pctrl->data->cfg_ops->set_pinconf_config(pctrl, pin, value, mask);
-+}
-+
-+int sophgo_pconf_set(struct pinctrl_dev *pctldev, unsigned int pin_id,
-+		     unsigned long *configs, unsigned int num_configs)
-+{
-+	struct sophgo_pinctrl *pctrl = pinctrl_dev_get_drvdata(pctldev);
-+	const struct sophgo_pin *pin = sophgo_get_pin(pctrl, pin_id);
-+	u32 value, mask;
-+
-+	if (!pin)
-+		return -ENODEV;
-+
-+	if (pctrl->data->cfg_ops->compute_pinconf_config(pctrl, pin,
-+							 configs, num_configs,
-+							 &value, &mask))
-+		return -ENOTSUPP;
-+
-+	return sophgo_pin_set_config(pctrl, pin_id, value, mask);
-+}
-+
-+int sophgo_pconf_group_set(struct pinctrl_dev *pctldev, unsigned int gsel,
-+			   unsigned long *configs, unsigned int num_configs)
-+{
-+	struct sophgo_pinctrl *pctrl = pinctrl_dev_get_drvdata(pctldev);
-+	const struct group_desc *group;
-+	const struct sophgo_pin_mux_config *pinmuxs;
-+	u32 value, mask;
-+	int i;
-+
-+	group = pinctrl_generic_get_group(pctldev, gsel);
-+	if (!group)
-+		return -EINVAL;
-+
-+	pinmuxs = group->data;
-+
-+	if (pctrl->data->cfg_ops->compute_pinconf_config(pctrl, pinmuxs[0].pin,
-+							 configs, num_configs,
-+							 &value, &mask))
-+		return -ENOTSUPP;
-+
-+	for (i = 0; i < group->grp.npins; i++)
-+		sophgo_pin_set_config(pctrl,  group->grp.pins[i], value, mask);
-+
-+	return 0;
-+}
-+
-+u32 sophgo_pinctrl_typical_pull_down(struct sophgo_pinctrl *pctrl,
-+				     const struct sophgo_pin *pin,
-+				     const u32 *power_cfg)
-+{
-+	return pctrl->data->vddio_ops->get_pull_down(pin, power_cfg);
-+}
-+
-+u32 sophgo_pinctrl_typical_pull_up(struct sophgo_pinctrl *pctrl,
-+				   const struct sophgo_pin *pin,
-+				   const u32 *power_cfg)
-+{
-+	return pctrl->data->vddio_ops->get_pull_up(pin, power_cfg);
-+}
-+
-+int sophgo_pinctrl_oc2reg(struct sophgo_pinctrl *pctrl,
-+			  const struct sophgo_pin *pin,
-+			  const u32 *power_cfg, u32 target)
-+{
-+	const u32 *map;
-+	int i, len;
-+
-+	if (!pctrl->data->vddio_ops->get_oc_map)
-+		return -ENOTSUPP;
-+
-+	len = pctrl->data->vddio_ops->get_oc_map(pin, power_cfg, &map);
-+	if (len < 0)
-+		return len;
-+
-+	for (i = 0; i < len; i++) {
-+		if (map[i] >= target)
-+			return i;
-+	}
-+
-+	return -EINVAL;
-+}
-+
-+int sophgo_pinctrl_reg2oc(struct sophgo_pinctrl *pctrl,
-+			  const struct sophgo_pin *pin,
-+			  const u32 *power_cfg, u32 reg)
-+{
-+	const u32 *map;
-+	int len;
-+
-+	if (!pctrl->data->vddio_ops->get_oc_map)
-+		return -ENOTSUPP;
-+
-+	len = pctrl->data->vddio_ops->get_oc_map(pin, power_cfg, &map);
-+	if (len < 0)
-+		return len;
-+
-+	if (reg >= len)
-+		return -EINVAL;
-+
-+	return map[reg];
-+}
-+
-+int sophgo_pinctrl_schmitt2reg(struct sophgo_pinctrl *pctrl,
-+			       const struct sophgo_pin *pin,
-+			       const u32 *power_cfg, u32 target)
-+{
-+	const u32 *map;
-+	int i, len;
-+
-+	if (!pctrl->data->vddio_ops->get_schmitt_map)
-+		return -ENOTSUPP;
-+
-+	len = pctrl->data->vddio_ops->get_schmitt_map(pin, power_cfg, &map);
-+	if (len < 0)
-+		return len;
-+
-+	for (i = 0; i < len; i++) {
-+		if (map[i] == target)
-+			return i;
-+	}
-+
-+	return -EINVAL;
-+}
-+
-+int sophgo_pinctrl_reg2schmitt(struct sophgo_pinctrl *pctrl,
-+			       const struct sophgo_pin *pin,
-+			       const u32 *power_cfg, u32 reg)
-+{
-+	const u32 *map;
-+	int len;
-+
-+	if (!pctrl->data->vddio_ops->get_schmitt_map)
-+		return -ENOTSUPP;
-+
-+	len = pctrl->data->vddio_ops->get_schmitt_map(pin, power_cfg, &map);
-+	if (len < 0)
-+		return len;
-+
-+	if (reg >= len)
-+		return -EINVAL;
-+
-+	return map[reg];
-+}
-+
-+MODULE_DESCRIPTION("Common pinctrl helper function for the Sophgo SoC");
-+MODULE_LICENSE("GPL");
-diff --git a/drivers/pinctrl/sophgo/pinctrl-sophgo.h b/drivers/pinctrl/sophgo/pinctrl-sophgo.h
-index e43b4f30f18a..f8b094a09f7c 100644
---- a/drivers/pinctrl/sophgo/pinctrl-sophgo.h
-+++ b/drivers/pinctrl/sophgo/pinctrl-sophgo.h
-@@ -9,10 +9,13 @@
- #include <linux/device.h>
- #include <linux/mutex.h>
- #include <linux/pinctrl/pinctrl.h>
-+#include <linux/platform_device.h>
- #include <linux/spinlock.h>
- 
- #include "../core.h"
- 
-+struct sophgo_pinctrl;
-+
- struct sophgo_pin {
- 	u16				id;
- 	u16				flags;
-@@ -23,6 +26,36 @@ struct sophgo_pin_mux_config {
- 	u32			config;
- };
- 
-+/**
-+ * struct sophgo_cfg_ops - pin configuration operations
-+ *
-+ * @verify_pinmux_config: verify the pinmux config for a pin
-+ * @verify_pin_group: verify the whole pinmux group
-+ * @dt_node_to_map_post: post init for the pinmux config map
-+ * @compute_pinconf_config: compute pinconf config
-+ * @set_pinconf_config: set pinconf config (the caller holds lock)
-+ * @set_pinmux_config: set mux config (the caller holds lock)
-+ */
-+struct sophgo_cfg_ops {
-+	int (*verify_pinmux_config)(const struct sophgo_pin_mux_config *config);
-+	int (*verify_pin_group)(const struct sophgo_pin_mux_config *pinmuxs,
-+				unsigned int npins);
-+	int (*dt_node_to_map_post)(struct device_node *cur,
-+				   struct sophgo_pinctrl *pctrl,
-+				   struct sophgo_pin_mux_config *pinmuxs,
-+				   unsigned int npins);
-+	int (*compute_pinconf_config)(struct sophgo_pinctrl *pctrl,
-+				      const struct sophgo_pin *sp,
-+				      unsigned long *configs,
-+				      unsigned int num_configs,
-+				      u32 *value, u32 *mask);
-+	int (*set_pinconf_config)(struct sophgo_pinctrl *pctrl,
-+				  const struct sophgo_pin *sp,
-+				  u32 value, u32 mask);
-+	void (*set_pinmux_config)(struct sophgo_pinctrl *pctrl,
-+				  const struct sophgo_pin *sp, u32 config);
++&pinctrl {
++	emmc_cfg: sdhci-emmc-cfg {
++		sdhci-emmc-wp-pins {
++			pinmux = <PINMUX(PIN_EMMC_WP, 0)>;
++			bias-disable;
++			drive-strength-microamp = <26800>;
++			input-schmitt-disable;
++		};
++
++		sdhci-emmc-cd-pins {
++			pinmux = <PINMUX(PIN_EMMC_CD, 0)>;
++			bias-pull-up;
++			drive-strength-microamp = <26800>;
++			input-schmitt-enable;
++		};
++
++		sdhci-emmc-rst-pwr-pins {
++			pinmux = <PINMUX(PIN_EMMC_RST, 0)>,
++				 <PINMUX(PIN_EMMC_PWR_EN, 0)>;
++			bias-disable;
++			drive-strength-microamp = <26800>;
++			input-schmitt-disable;
++		};
++	};
++
++	i2c1_cfg: i2c1-cfg {
++		i2c1-pins {
++			pinmux = <PINMUX(PIN_IIC1_SDA, 0)>,
++				 <PINMUX(PIN_IIC1_SCL, 0)>;
++			bias-pull-up;
++			drive-strength-microamp = <26800>;
++			input-schmitt-enable;
++		};
++	};
++
++	sd_cfg: sdhci-sd-cfg {
++		sdhci-sd-cd-wp-pins {
++			pinmux = <PINMUX(PIN_SDIO_CD, 0)>,
++				 <PINMUX(PIN_SDIO_WP, 0)>;
++			bias-pull-up;
++			drive-strength-microamp = <26800>;
++			input-schmitt-enable;
++		};
++
++		sdhci-sd-rst-pwr-pins {
++			pinmux = <PINMUX(PIN_SDIO_RST, 0)>,
++				 <PINMUX(PIN_SDIO_PWR_EN, 0)>;
++			bias-disable;
++			drive-strength-microamp = <26800>;
++			input-schmitt-disable;
++		};
++	};
++
++	uart0_cfg: uart0-cfg {
++		uart0-rx-pins {
++			pinmux = <PINMUX(PIN_UART0_TX, 0)>,
++				 <PINMUX(PIN_UART0_RX, 0)>;
++			bias-pull-up;
++			drive-strength-microamp = <26800>;
++			input-schmitt-enable;
++		};
++	};
 +};
 +
- /**
-  * struct sophgo_vddio_cfg_ops - pin vddio operations
-  *
-@@ -47,6 +80,7 @@ struct sophgo_pinctrl_data {
- 	const void				*pindata;
- 	const char				* const *pdnames;
- 	const struct sophgo_vddio_cfg_ops	*vddio_ops;
-+	const struct sophgo_cfg_ops		*cfg_ops;
- 	u16					npins;
- 	u16					npds;
- 	u16					pinsize;
-@@ -63,4 +97,33 @@ struct sophgo_pinctrl {
- 	void					*priv_ctrl;
+ &sd {
++	pinctrl-0 = <&sd_cfg>;
++	pinctrl-names = "default";
+ 	bus-width = <4>;
+ 	no-sdio;
+ 	no-mmc;
+@@ -69,6 +139,8 @@ &sd {
  };
  
-+const struct sophgo_pin *sophgo_get_pin(struct sophgo_pinctrl *pctrl,
-+					unsigned long pin_id);
-+int sophgo_pctrl_dt_node_to_map(struct pinctrl_dev *pctldev, struct device_node *np,
-+				struct pinctrl_map **maps, unsigned int *num_maps);
-+int sophgo_pmx_set_mux(struct pinctrl_dev *pctldev,
-+		       unsigned int fsel, unsigned int gsel);
-+int sophgo_pconf_set(struct pinctrl_dev *pctldev, unsigned int pin_id,
-+		     unsigned long *configs, unsigned int num_configs);
-+int sophgo_pconf_group_set(struct pinctrl_dev *pctldev, unsigned int gsel,
-+			   unsigned long *configs, unsigned int num_configs);
-+u32 sophgo_pinctrl_typical_pull_down(struct sophgo_pinctrl *pctrl,
-+				     const struct sophgo_pin *pin,
-+				     const u32 *power_cfg);
-+u32 sophgo_pinctrl_typical_pull_up(struct sophgo_pinctrl *pctrl,
-+				   const struct sophgo_pin *pin,
-+				   const u32 *power_cfg);
-+int sophgo_pinctrl_oc2reg(struct sophgo_pinctrl *pctrl,
-+			  const struct sophgo_pin *pin,
-+			  const u32 *power_cfg, u32 target);
-+int sophgo_pinctrl_reg2oc(struct sophgo_pinctrl *pctrl,
-+			  const struct sophgo_pin *pin,
-+			  const u32 *power_cfg, u32 reg);
-+int sophgo_pinctrl_schmitt2reg(struct sophgo_pinctrl *pctrl,
-+			       const struct sophgo_pin *pin,
-+			       const u32 *power_cfg, u32 target);
-+int sophgo_pinctrl_reg2schmitt(struct sophgo_pinctrl *pctrl,
-+			       const struct sophgo_pin *pin,
-+			       const u32 *power_cfg, u32 reg);
+ &uart0 {
++	pinctrl-0 = <&uart0_cfg>;
++	pinctrl-names = "default";
+ 	status = "okay";
+ };
+ 
+diff --git a/arch/riscv/boot/dts/sophgo/sg2042.dtsi b/arch/riscv/boot/dts/sophgo/sg2042.dtsi
+index e62ac51ac55a..aca2e88fcb63 100644
+--- a/arch/riscv/boot/dts/sophgo/sg2042.dtsi
++++ b/arch/riscv/boot/dts/sophgo/sg2042.dtsi
+@@ -8,6 +8,7 @@
+ #include <dt-bindings/clock/sophgo,sg2042-pll.h>
+ #include <dt-bindings/clock/sophgo,sg2042-rpgate.h>
+ #include <dt-bindings/interrupt-controller/irq.h>
++#include <dt-bindings/pinctrl/pinctrl-sg2042.h>
+ #include <dt-bindings/reset/sophgo,sg2042-reset.h>
+ 
+ #include "sg2042-cpus.dtsi"
+@@ -181,6 +182,11 @@ rpgate: clock-controller@7030010368 {
+ 			#clock-cells = <1>;
+ 		};
+ 
++		pinctrl: pinctrl@7030011000 {
++			compatible = "sophgo,sg2042-pinctrl";
++			reg = <0x70 0x30011000 0x0 0x1000>;
++		};
 +
- #endif /* _PINCTRL_SOPHGO_H */
+ 		clkgen: clock-controller@7030012000 {
+ 			compatible = "sophgo,sg2042-clkgen";
+ 			reg = <0x70 0x30012000 0x0 0x1000>;
 -- 
 2.48.1
 
