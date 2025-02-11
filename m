@@ -4,74 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F05C6C0219E
-	for <linux-riscv@archiver.kernel.org>; Tue, 11 Feb 2025 05:18:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 87A16C021A0
+	for <linux-riscv@archiver.kernel.org>; Tue, 11 Feb 2025 05:18:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Y41v2yanjb82gyOP2hKdsazAq5NS5dTrDi3sBxHN7i8=; b=KXkZDrYFPt+SO7
-	y99UywOSWC2jw46ZAapjVyqPwb0ZMb6UrafM02ExcRdaf6fj6rHaIJYyG+WWewuY3hZ4taCNqrFe4
-	0cObG0imEo8+XVAQ/7Azio//q8DeTY/+QINwSKa1zZ8QonkmUskMWIs6WXBuRJmIzFqRcq/Ox3nGy
-	Wn0W+qaFCWbAlIGBbVlLeCY/IkDaw1tTSfftZrzKhob5T6HWrzMuKSAJRfSxlHNUjCAyRPH6YJU8R
-	7NKr9Q80HIotM539MuKEUF3fzKZV5Sm42iHcpBWJHi//XI7JncvDkp85kmKnQNY5RPUrqY7e+W9JZ
-	/kMqXaOOdBK4++/OECzw==;
+	List-Owner; bh=GG0bEBOpHs/CdFBtxl8pLd0artKgN+MHNHFSCHZswM8=; b=CxFcA6k3whUfGs
+	WcyI/Cmuh3nXqvRVOFqC2i35o4lK8vFoB0FtbeQZoE6yG8Ahqi4q62r88ROLPrBuwsg0Cl4dEqAkn
+	XA6qGmbSqQ4QW5BGqRea8p3AsW7o1M533zqZdgVsX0Ir6G19nAdBrK7T5wB0QtuwuHCXuO3qyYVO8
+	zFAcm1Ugc/9YyRvTc0ZGk2TiFtFTaFVJZSQX830sdv2WUAXmzNsKyh8kcIAlODtGL90NgDOtk42mI
+	CVkewaTdPXT4f3gv/F7NqJvqN1rzfMAah8IoaJvNIexmYoH+EsM2NUGnw43bvSdAkZYPBLO48oZj7
+	NBCBgPFi0yHHaTSD+EzA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1thifR-00000002Zgc-0YDk;
-	Tue, 11 Feb 2025 05:18:41 +0000
-Received: from mail-qv1-xf36.google.com ([2607:f8b0:4864:20::f36])
+	id 1thifF-00000002ZWg-3bTh;
+	Tue, 11 Feb 2025 05:18:29 +0000
+Received: from mail-qt1-x834.google.com ([2607:f8b0:4864:20::834])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1thifO-00000002ZdD-0LOg
+	id 1thifD-00000002ZUz-0fsT
 	for linux-riscv@lists.infradead.org;
-	Tue, 11 Feb 2025 05:18:39 +0000
-Received: by mail-qv1-xf36.google.com with SMTP id 6a1803df08f44-6e4505134c4so43414466d6.2
-        for <linux-riscv@lists.infradead.org>; Mon, 10 Feb 2025 21:18:37 -0800 (PST)
+	Tue, 11 Feb 2025 05:18:29 +0000
+Received: by mail-qt1-x834.google.com with SMTP id d75a77b69052e-4718b128eafso7749501cf.3
+        for <linux-riscv@lists.infradead.org>; Mon, 10 Feb 2025 21:18:27 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1739251117; x=1739855917; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1739251106; x=1739855906; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=n5rqxYFOTr3BA3IVyuZAlUzi2HLwtbx/YDqL6tZfDv4=;
-        b=FMJPtCVROL5eSyNu6XxLT+iueyL+RdE+tWftSEIq5qjXuHzu5wwF+JW+m1OnI/W+iY
-         VAoQ0OzMyhUZCKWH8mCDRp4VH65pvkrooyLElCsqeU9KjL7iYsOHaP4lNdg1XSvgMK1w
-         kUOXMnI26vmiZ5JOYPIeCbJXtOy5V18v8jXQgULVTwW4Yb7IVxI5knWEDuHClF4P8owK
-         1wKa6PLDB+o0fkzAqcc6N6qVhbx3U30eArk7Zx8jXXpBYW03JkyzO4LPPeoTXHoNjH+3
-         U7D5xg7LX0NaIfRLFp9l1zT3cfxSjxWU4Q61MlnozZHSwYQ1seXO+amirF/CqLP6WZ5Z
-         ikGg==
+        bh=HA9qdvai7+Vg6/Vo/ajS5TH3+CfsgBPf6Pn6TWcWHmg=;
+        b=YAu6c2rc11eKWot6/NiVg0MqeqRHqjSuI2tjj5OMbO0JTnp42KAk9EOnpTXS0ZGo4H
+         GjaT7ipaQZ42V9sEdjUKSb3PHsXVMvgV+i/eyFITBxolxguAbSZxvO9iXaciBVAUvWK9
+         wY1DtcnM4X/qRqZ3preDDAG9hdt0rmQ/cQKpTdu1fcxE42EmcXSZ1GvqOSQVznNDC0b7
+         GxRNlWJuR6idG3euhqu+rvXLOgJ43s5/YqrrvqGwW8uIautidEtyV6oNBqmpCBNQDGBW
+         t/2AjOyb0z0EC+kWeOSUK4Xdz1VmfDHjKJ7Y0l3jQvIgGwx66yiEoqkORHMfGhx9y2Yq
+         QwSw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1739251117; x=1739855917;
+        d=1e100.net; s=20230601; t=1739251106; x=1739855906;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=n5rqxYFOTr3BA3IVyuZAlUzi2HLwtbx/YDqL6tZfDv4=;
-        b=VcGLP47ryRBn/anNsqigFy3kfsaHNSXjHH3wr5KoJeoxwrmZwtba7oPdfaOKyXJFfY
-         wMJvu6VUz2vn9COmoZzfhag9tI5cDsUUkQj8WF47vem7wI+HA7EyUfXculY7QAXHkEy0
-         VNi+uh4bv9nrEWJ+8562y2fMehtrVD9xhrpqfaxd4HVwI/Ff+iQ3mqMd5syN2M9RiKdb
-         ujBRqkzvXfu1mwkO9TNrFnuD6hUMI+mWyA2HqKsTTWwTKWtBhSD6nJdF0wrOJ1JtNGm0
-         RSspdinOdxTa2C73BUbCftCNQPmbXlqCahDKNwHku9dvGuac3DJjiyAKpWBAw7Jm5VLp
-         O+Ew==
-X-Forwarded-Encrypted: i=1; AJvYcCUSK7RL0usrSjnXh6X2g2XvwuHWZQavzgpVxJq6eElZGybcCL7+jaJXqWKiPia35eJndevTLieyjSsDnw==@lists.infradead.org
-X-Gm-Message-State: AOJu0YzbM2+fLFajGsElivOI/XSzygsEGp9eAM9hH6w1nvDuRINNZK+I
-	XAVvkNOoA0VnTeyuVlhr2mCpG4QqEzIV66qRoUrx4NwiDxRfCDNX
-X-Gm-Gg: ASbGncv2HHAyN7OQT5vq+S3WN9OWRuMC2Hnck83PUxY+a5YvB4p70DE8EgSbY/gjAeH
-	6tcMgX7100fcy6rdvBS0/OlYxlEz8deGdioz6zuJAawDfg3Ee2mME7biW722kz/nL8NG0r1MpvI
-	UnpZAxEuDb9JRnprRn5dR0E1uFKc1wj6PWZM8VnpnmX2S/GxSzhAUPjWkSfdSke9gVRfgfi93Mc
-	KOllsAQnonwSzs6X29jIspdVgjW9GDP16GW4fL0+eAFr55osVj/LF/HzzYWd1JnxDM=
-X-Google-Smtp-Source: AGHT+IESpPyObpgpQu9ps7plWU5+sO9j6DKAV06O4Q0sETg4BUjZam+McYMx/Lq3XEWpDGS3O+oF8A==
-X-Received: by 2002:ad4:5ce8:0:b0:6d8:9994:ac30 with SMTP id 6a1803df08f44-6e4456714c2mr218546806d6.26.1739251116650;
-        Mon, 10 Feb 2025 21:18:36 -0800 (PST)
+        bh=HA9qdvai7+Vg6/Vo/ajS5TH3+CfsgBPf6Pn6TWcWHmg=;
+        b=YORkTlXoTNIec8XGx1nuoi+MPl8ypAndGNg9P0eGEy6KFnGZhpytC278S2fdwsJwnE
+         MyY8EjDR9x6b21EPnqV2wqR6qgnQYwkDntbpkuACWJ/HAVVO1GVzzt6gd2e1guK/r6an
+         x8uYxk8msUq9OkdF3I9f9aV49eRBp/QcWvGC5wQgSlFdbZiyKJ369F0r65z/bmWzJRhs
+         0abzW14XxAcfMWvRrwFDo96t/x4swtzPwiXLd+g6AqZ0+2KCdmV+k1HRJXGmI2tIaFP8
+         fujDMkTt3VSpYEVKKYBZG8OaZttP5bXolipYD7qAy+mcqlQNEpcrMpW/U2Z2wlgJdOFB
+         aMsg==
+X-Forwarded-Encrypted: i=1; AJvYcCX/RQAuXtNa+uEsP4X9zVrU5MDqRZZbLp93pVInR9BkwbBlbHI+6Rx5JhnVoDIiMPMKOdFl/0syEC72ew==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxvi7GV/FcJkjimdTPCCZOLjVH/qkoru9bvdtQD+i+SO4nfKnrm
+	xjMlCfpfWj4uT6LayG2fLOtclLeF1Me+/nIm6eCeFGViCUB/F8G/
+X-Gm-Gg: ASbGncs0xOdxji7p5RsxAiIpIZ30VsZat5BEnDJA96Z/FyvK3YGeWjxRH44Y6oVx2Sr
+	/n3Cc+CptVIkgkes7vSvmjILTl+jRB1Vmd471/Wkf3BYyTM0ltzNRqEd7jJ3wT2oXX9jPKaIXQk
+	tCQ2JwG9glJe0hZoxO8w9EYVPzBmfIDF0vYStSJETe4rc7AqTZuwVzLVJJkb5qod9YFffDgpqa9
+	HidG9dV/uMg21CM+kjJgZRgChzeXpcCzvavMwyk6zZzdQpiR/QjIu2WhwiYtLAquyc=
+X-Google-Smtp-Source: AGHT+IHwWxmEFc2fzH7Hccs5vYXHBp5wI8IXjZRw+GMt2dTbsgiglBWIgoJHFcYmL97RQfN84Q/TUA==
+X-Received: by 2002:a05:622a:6207:b0:467:6901:7589 with SMTP id d75a77b69052e-47167a4973cmr233616721cf.29.1739251106127;
+        Mon, 10 Feb 2025 21:18:26 -0800 (PST)
 Received: from localhost ([2001:da8:7001:11::cb])
-        by smtp.gmail.com with UTF8SMTPSA id 6a1803df08f44-6e4424ad7c6sm51141566d6.53.2025.02.10.21.18.34
+        by smtp.gmail.com with UTF8SMTPSA id d75a77b69052e-471902ada7fsm23571201cf.77.2025.02.10.21.18.24
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 10 Feb 2025 21:18:36 -0800 (PST)
+        Mon, 10 Feb 2025 21:18:25 -0800 (PST)
 From: Inochi Amaoto <inochiama@gmail.com>
 To: Linus Walleij <linus.walleij@linaro.org>,
 	Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	Conor Dooley <conor+dt@kernel.org>,
+	Chen Wang <unicorn_wang@outlook.com>,
 	Inochi Amaoto <inochiama@outlook.com>,
 	Paul Walmsley <paul.walmsley@sifive.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
@@ -87,16 +88,16 @@ Cc: Inochi Amaoto <inochiama@gmail.com>,
 	linux-riscv@lists.infradead.org,
 	Yixun Lan <dlan@gentoo.org>,
 	Longbin Li <looong.bin@gmail.com>
-Subject: [PATCH v2 6/8] pinctrl: sophgo: add support for SG2042 SoC
-Date: Tue, 11 Feb 2025 13:17:54 +0800
-Message-ID: <20250211051801.470800-7-inochiama@gmail.com>
+Subject: [PATCH v2 3/8] pinctrl: sophgo: generalize shareable code of cv18xx pinctrl driver
+Date: Tue, 11 Feb 2025 13:17:51 +0800
+Message-ID: <20250211051801.470800-4-inochiama@gmail.com>
 X-Mailer: git-send-email 2.48.1
 In-Reply-To: <20250211051801.470800-1-inochiama@gmail.com>
 References: <20250211051801.470800-1-inochiama@gmail.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250210_211838_128943_FBE540DC 
-X-CRM114-Status: GOOD (  22.98  )
+X-CRM114-CacheID: sfid-20250210_211827_323131_8B247561 
+X-CRM114-Status: GOOD (  23.33  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,1076 +114,1235 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add base driver for SG2042 SoC and pin definition.
+With generic data structure, it is possible to generalize vddio
+operators and DT parsing code of cv18xx pinctrl driver. Introduce
+sophgo_cfg_ops callback to allow the driver to adjust the soc
+logic and share common code.
 
 Signed-off-by: Inochi Amaoto <inochiama@gmail.com>
 ---
- drivers/pinctrl/sophgo/Kconfig              |  15 +
- drivers/pinctrl/sophgo/Makefile             |   2 +
- drivers/pinctrl/sophgo/pinctrl-sg2042-ops.c | 296 +++++++++
- drivers/pinctrl/sophgo/pinctrl-sg2042.c     | 655 ++++++++++++++++++++
- drivers/pinctrl/sophgo/pinctrl-sg2042.h     |  49 ++
- 5 files changed, 1017 insertions(+)
- create mode 100644 drivers/pinctrl/sophgo/pinctrl-sg2042-ops.c
- create mode 100644 drivers/pinctrl/sophgo/pinctrl-sg2042.c
- create mode 100644 drivers/pinctrl/sophgo/pinctrl-sg2042.h
+ drivers/pinctrl/sophgo/Kconfig                |  19 +-
+ drivers/pinctrl/sophgo/Makefile               |   5 +-
+ drivers/pinctrl/sophgo/pinctrl-cv1800b.c      |   1 +
+ drivers/pinctrl/sophgo/pinctrl-cv1812h.c      |   1 +
+ drivers/pinctrl/sophgo/pinctrl-cv18xx.c       | 423 +++---------------
+ drivers/pinctrl/sophgo/pinctrl-cv18xx.h       |   2 +
+ drivers/pinctrl/sophgo/pinctrl-sg2000.c       |   1 +
+ drivers/pinctrl/sophgo/pinctrl-sg2002.c       |   1 +
+ .../pinctrl/sophgo/pinctrl-sophgo-common.c    | 404 +++++++++++++++++
+ drivers/pinctrl/sophgo/pinctrl-sophgo.h       |  63 +++
+ 10 files changed, 545 insertions(+), 375 deletions(-)
+ create mode 100644 drivers/pinctrl/sophgo/pinctrl-sophgo-common.c
 
 diff --git a/drivers/pinctrl/sophgo/Kconfig b/drivers/pinctrl/sophgo/Kconfig
-index f473ece940ab..94f3646c5d5b 100644
+index c05f909a8838..f473ece940ab 100644
 --- a/drivers/pinctrl/sophgo/Kconfig
 +++ b/drivers/pinctrl/sophgo/Kconfig
-@@ -59,3 +59,18 @@ config PINCTRL_SOPHGO_SG2002
- 	  This pin controller allows selecting the mux function for
- 	  each pin. This driver can also be built as a module called
- 	  pinctrl-sg2002.
-+
-+config PINCTRL_SOPHGO_SG2042_OPS
+@@ -3,17 +3,21 @@
+ # Sophgo SoC PINCTRL drivers
+ #
+ 
+-config PINCTRL_SOPHGO_CV18XX
+-	bool
++config PINCTRL_SOPHGO_COMMON
++	tristate
+ 	select GENERIC_PINCTRL_GROUPS
+ 	select GENERIC_PINMUX_FUNCTIONS
+ 	select GENERIC_PINCONF
+ 
++config PINCTRL_SOPHGO_CV18XX_OPS
 +	bool
 +
-+config PINCTRL_SOPHGO_SG2042
-+	tristate "Sophgo SG2042 SoC Pinctrl driver"
-+	depends on ARCH_SOPHGO || COMPILE_TEST
-+	depends on OF
+ config PINCTRL_SOPHGO_CV1800B
+ 	tristate "Sophgo CV1800B SoC Pinctrl driver"
+ 	depends on ARCH_SOPHGO || COMPILE_TEST
+ 	depends on OF
+-	select PINCTRL_SOPHGO_CV18XX
 +	select PINCTRL_SOPHGO_COMMON
-+	select PINCTRL_SOPHGO_SG2042_OPS
-+	help
-+	  Say Y to select the pinctrl driver for SG2042 SoC.
-+	  This pin controller allows selecting the mux function for
-+	  each pin. This driver can also be built as a module called
-+	  pinctrl-sg2042.
++	select PINCTRL_SOPHGO_CV18XX_OPS
+ 	help
+ 	  Say Y to select the pinctrl driver for CV1800B SoC.
+ 	  This pin controller allows selecting the mux function for
+@@ -24,7 +28,8 @@ config PINCTRL_SOPHGO_CV1812H
+ 	tristate "Sophgo CV1812H SoC Pinctrl driver"
+ 	depends on ARCH_SOPHGO || COMPILE_TEST
+ 	depends on OF
+-	select PINCTRL_SOPHGO_CV18XX
++	select PINCTRL_SOPHGO_COMMON
++	select PINCTRL_SOPHGO_CV18XX_OPS
+ 	help
+ 	  Say Y to select the pinctrl driver for CV1812H SoC.
+ 	  This pin controller allows selecting the mux function for
+@@ -35,7 +40,8 @@ config PINCTRL_SOPHGO_SG2000
+ 	tristate "Sophgo SG2000 SoC Pinctrl driver"
+ 	depends on ARCH_SOPHGO || COMPILE_TEST
+ 	depends on OF
+-	select PINCTRL_SOPHGO_CV18XX
++	select PINCTRL_SOPHGO_COMMON
++	select PINCTRL_SOPHGO_CV18XX_OPS
+ 	help
+ 	  Say Y to select the pinctrl driver for SG2000 SoC.
+ 	  This pin controller allows selecting the mux function for
+@@ -46,7 +52,8 @@ config PINCTRL_SOPHGO_SG2002
+ 	tristate "Sophgo SG2002 SoC Pinctrl driver"
+ 	depends on ARCH_SOPHGO || COMPILE_TEST
+ 	depends on OF
+-	select PINCTRL_SOPHGO_CV18XX
++	select PINCTRL_SOPHGO_COMMON
++	select PINCTRL_SOPHGO_CV18XX_OPS
+ 	help
+ 	  Say Y to select the pinctrl driver for SG2002 SoC.
+ 	  This pin controller allows selecting the mux function for
 diff --git a/drivers/pinctrl/sophgo/Makefile b/drivers/pinctrl/sophgo/Makefile
-index 5f24550750d6..7be7a1006e09 100644
+index 4113a5c9191b..5f24550750d6 100644
 --- a/drivers/pinctrl/sophgo/Makefile
 +++ b/drivers/pinctrl/sophgo/Makefile
-@@ -3,8 +3,10 @@
- obj-$(CONFIG_PINCTRL_SOPHGO_COMMON)	+= pinctrl-sophgo.o
- pinctrl-sophgo-objs			+= pinctrl-sophgo-common.o
- pinctrl-sophgo-$(CONFIG_PINCTRL_SOPHGO_CV18XX_OPS) += pinctrl-cv18xx.o
-+pinctrl-sophgo-$(CONFIG_PINCTRL_SOPHGO_SG2042_OPS) += pinctrl-sg2042-ops.o
+@@ -1,6 +1,9 @@
+ # SPDX-License-Identifier: GPL-2.0
  
+-obj-$(CONFIG_PINCTRL_SOPHGO_CV18XX)	+= pinctrl-cv18xx.o
++obj-$(CONFIG_PINCTRL_SOPHGO_COMMON)	+= pinctrl-sophgo.o
++pinctrl-sophgo-objs			+= pinctrl-sophgo-common.o
++pinctrl-sophgo-$(CONFIG_PINCTRL_SOPHGO_CV18XX_OPS) += pinctrl-cv18xx.o
++
  obj-$(CONFIG_PINCTRL_SOPHGO_CV1800B)	+= pinctrl-cv1800b.o
  obj-$(CONFIG_PINCTRL_SOPHGO_CV1812H)	+= pinctrl-cv1812h.o
  obj-$(CONFIG_PINCTRL_SOPHGO_SG2000)	+= pinctrl-sg2000.o
- obj-$(CONFIG_PINCTRL_SOPHGO_SG2002)	+= pinctrl-sg2002.o
-+obj-$(CONFIG_PINCTRL_SOPHGO_SG2042)	+= pinctrl-sg2042.o
-diff --git a/drivers/pinctrl/sophgo/pinctrl-sg2042-ops.c b/drivers/pinctrl/sophgo/pinctrl-sg2042-ops.c
+diff --git a/drivers/pinctrl/sophgo/pinctrl-cv1800b.c b/drivers/pinctrl/sophgo/pinctrl-cv1800b.c
+index 45529e2ed23a..ca6fb374ee15 100644
+--- a/drivers/pinctrl/sophgo/pinctrl-cv1800b.c
++++ b/drivers/pinctrl/sophgo/pinctrl-cv1800b.c
+@@ -442,6 +442,7 @@ static const struct sophgo_pinctrl_data cv1800b_pindata = {
+ 	.pindata	= cv1800b_pin_data,
+ 	.pdnames	= cv1800b_power_domain_desc,
+ 	.vddio_ops	= &cv1800b_vddio_cfg_ops,
++	.cfg_ops	= &cv1800_cfg_ops,
+ 	.npins		= ARRAY_SIZE(cv1800b_pins),
+ 	.npds		= ARRAY_SIZE(cv1800b_power_domain_desc),
+ 	.pinsize	= sizeof(struct cv1800_pin),
+diff --git a/drivers/pinctrl/sophgo/pinctrl-cv1812h.c b/drivers/pinctrl/sophgo/pinctrl-cv1812h.c
+index 4e30a1cc9d7d..df2c2697a1fd 100644
+--- a/drivers/pinctrl/sophgo/pinctrl-cv1812h.c
++++ b/drivers/pinctrl/sophgo/pinctrl-cv1812h.c
+@@ -751,6 +751,7 @@ static const struct sophgo_pinctrl_data cv1812h_pindata = {
+ 	.pindata	= cv1812h_pin_data,
+ 	.pdnames	= cv1812h_power_domain_desc,
+ 	.vddio_ops	= &cv1812h_vddio_cfg_ops,
++	.cfg_ops	= &cv1800_cfg_ops,
+ 	.npins		= ARRAY_SIZE(cv1812h_pins),
+ 	.npds		= ARRAY_SIZE(cv1812h_power_domain_desc),
+ 	.pinsize	= sizeof(struct cv1800_pin),
+diff --git a/drivers/pinctrl/sophgo/pinctrl-cv18xx.c b/drivers/pinctrl/sophgo/pinctrl-cv18xx.c
+index 573e00d2c752..66111110c4b3 100644
+--- a/drivers/pinctrl/sophgo/pinctrl-cv18xx.c
++++ b/drivers/pinctrl/sophgo/pinctrl-cv18xx.c
+@@ -34,11 +34,6 @@ struct cv1800_priv {
+ 	void __iomem				*regs[2];
+ };
+ 
+-static unsigned int cv1800_dt_get_pin(u32 value)
+-{
+-	return value & GENMASK(15, 0);
+-}
+-
+ static unsigned int cv1800_dt_get_pin_mux(u32 value)
+ {
+ 	return (value >> 16) & GENMASK(7, 0);
+@@ -52,15 +47,6 @@ static unsigned int cv1800_dt_get_pin_mux2(u32 value)
+ #define cv1800_pinctrl_get_component_addr(pctrl, _comp)		\
+ 	((pctrl)->regs[(_comp)->area] + (_comp)->offset)
+ 
+-static int cv1800_cmp_pin(const void *key, const void *pivot)
+-{
+-	const struct sophgo_pin *pin = pivot;
+-	int pin_id = (long)key;
+-	int pivid = pin->id;
+-
+-	return pin_id - pivid;
+-}
+-
+ static int cv1800_set_power_cfg(struct sophgo_pinctrl *pctrl,
+ 				u8 domain, u32 cfg)
+ {
+@@ -85,13 +71,6 @@ static int cv1800_get_power_cfg(struct sophgo_pinctrl *pctrl,
+ 	return priv->power_cfg[domain];
+ }
+ 
+-static const struct sophgo_pin *cv1800_get_pin(struct sophgo_pinctrl *pctrl,
+-					       unsigned long pin)
+-{
+-	return bsearch((void *)pin, pctrl->data->pindata, pctrl->data->npins,
+-		       pctrl->data->pinsize, cv1800_cmp_pin);
+-}
+-
+ #define PIN_BGA_ID_OFFSET		8
+ #define PIN_BGA_ID_MASK			0xff
+ 
+@@ -113,7 +92,7 @@ static void cv1800_pctrl_dbg_show(struct pinctrl_dev *pctldev,
+ {
+ 	struct sophgo_pinctrl *pctrl = pinctrl_dev_get_drvdata(pctldev);
+ 	struct cv1800_priv *priv = pctrl->priv_ctrl;
+-	const struct sophgo_pin *sp = cv1800_get_pin(pctrl, pin_id);
++	const struct sophgo_pin *sp = sophgo_get_pin(pctrl, pin_id);
+ 	const struct cv1800_pin *pin = sophgo_to_cv1800_pin(sp);
+ 	enum cv1800_pin_io_type type = cv1800_pin_io_type(pin);
+ 	u32 pin_hwid = pin->pin.id;
+@@ -172,7 +151,7 @@ static int cv1800_verify_pinmux_config(const struct sophgo_pin_mux_config *confi
+ }
+ 
+ static int cv1800_verify_pin_group(const struct sophgo_pin_mux_config *mux,
+-				   unsigned long npins)
++				   unsigned int npins)
+ {
+ 	struct cv1800_pin *pin;
+ 	enum cv1800_pin_io_type type;
+@@ -197,165 +176,23 @@ static int cv1800_verify_pin_group(const struct sophgo_pin_mux_config *mux,
+ 	return 0;
+ }
+ 
+-static int cv1800_pctrl_dt_node_to_map(struct pinctrl_dev *pctldev,
+-				       struct device_node *np,
+-				       struct pinctrl_map **maps,
+-				       unsigned int *num_maps)
++static int cv1800_dt_node_to_map_post(struct device_node *cur,
++				      struct sophgo_pinctrl *pctrl,
++				      struct sophgo_pin_mux_config *pinmuxs,
++				      unsigned int npins)
+ {
+-	struct sophgo_pinctrl *pctrl = pinctrl_dev_get_drvdata(pctldev);
+-	struct device *dev = pctrl->dev;
+-	struct device_node *child;
+-	struct pinctrl_map *map;
+-	const char **grpnames;
+-	const char *grpname;
+-	int ngroups = 0;
+-	int nmaps = 0;
++	const struct cv1800_pin *pin = sophgo_to_cv1800_pin(pinmuxs[0].pin);
++	u32 power;
+ 	int ret;
+ 
+-	for_each_available_child_of_node(np, child)
+-		ngroups += 1;
++	ret = of_property_read_u32(cur, "power-source", &power);
++	if (ret)
++		return ret;
+ 
+-	grpnames = devm_kcalloc(dev, ngroups, sizeof(*grpnames), GFP_KERNEL);
+-	if (!grpnames)
+-		return -ENOMEM;
++	if (!(power == PIN_POWER_STATE_3V3 || power == PIN_POWER_STATE_1V8))
++		return -ENOTSUPP;
+ 
+-	map = kcalloc(ngroups * 2, sizeof(*map), GFP_KERNEL);
+-	if (!map)
+-		return -ENOMEM;
+-
+-	ngroups = 0;
+-	mutex_lock(&pctrl->mutex);
+-	for_each_available_child_of_node(np, child) {
+-		int npins = of_property_count_u32_elems(child, "pinmux");
+-		unsigned int *pins;
+-		struct sophgo_pin_mux_config *pinmuxs;
+-		struct cv1800_pin *pin;
+-		u32 config, power;
+-		int i;
+-
+-		if (npins < 1) {
+-			dev_err(dev, "invalid pinctrl group %pOFn.%pOFn\n",
+-				np, child);
+-			ret = -EINVAL;
+-			goto dt_failed;
+-		}
+-
+-		grpname = devm_kasprintf(dev, GFP_KERNEL, "%pOFn.%pOFn",
+-					 np, child);
+-		if (!grpname) {
+-			ret = -ENOMEM;
+-			goto dt_failed;
+-		}
+-
+-		grpnames[ngroups++] = grpname;
+-
+-		pins = devm_kcalloc(dev, npins, sizeof(*pins), GFP_KERNEL);
+-		if (!pins) {
+-			ret = -ENOMEM;
+-			goto dt_failed;
+-		}
+-
+-		pinmuxs = devm_kcalloc(dev, npins, sizeof(*pinmuxs), GFP_KERNEL);
+-		if (!pinmuxs) {
+-			ret = -ENOMEM;
+-			goto dt_failed;
+-		}
+-
+-		for (i = 0; i < npins; i++) {
+-			ret = of_property_read_u32_index(child, "pinmux",
+-							 i, &config);
+-			if (ret)
+-				goto dt_failed;
+-
+-			pins[i] = cv1800_dt_get_pin(config);
+-			pinmuxs[i].config = config;
+-			pinmuxs[i].pin = cv1800_get_pin(pctrl, pins[i]);
+-
+-			if (!pinmuxs[i].pin) {
+-				dev_err(dev, "failed to get pin %d\n", pins[i]);
+-				ret = -ENODEV;
+-				goto dt_failed;
+-			}
+-
+-			ret = cv1800_verify_pinmux_config(&pinmuxs[i]);
+-			if (ret) {
+-				dev_err(dev, "group %s pin %d is invalid\n",
+-					grpname, i);
+-				goto dt_failed;
+-			}
+-		}
+-
+-		ret = cv1800_verify_pin_group(pinmuxs, npins);
+-		if (ret) {
+-			dev_err(dev, "group %s is invalid\n", grpname);
+-			goto dt_failed;
+-		}
+-
+-		ret = of_property_read_u32(child, "power-source", &power);
+-		if (ret)
+-			goto dt_failed;
+-
+-		if (!(power == PIN_POWER_STATE_3V3 || power == PIN_POWER_STATE_1V8)) {
+-			dev_err(dev, "group %s have unsupported power: %u\n",
+-				grpname, power);
+-			ret = -ENOTSUPP;
+-			goto dt_failed;
+-		}
+-
+-		pin = sophgo_to_cv1800_pin(pinmuxs[0].pin);
+-		ret = cv1800_set_power_cfg(pctrl, pin->power_domain, power);
+-		if (ret)
+-			goto dt_failed;
+-
+-		map[nmaps].type = PIN_MAP_TYPE_MUX_GROUP;
+-		map[nmaps].data.mux.function = np->name;
+-		map[nmaps].data.mux.group = grpname;
+-		nmaps += 1;
+-
+-		ret = pinconf_generic_parse_dt_config(child, pctldev,
+-						      &map[nmaps].data.configs.configs,
+-						      &map[nmaps].data.configs.num_configs);
+-		if (ret) {
+-			dev_err(dev, "failed to parse pin config of group %s: %d\n",
+-				grpname, ret);
+-			goto dt_failed;
+-		}
+-
+-		ret = pinctrl_generic_add_group(pctldev, grpname,
+-						pins, npins, pinmuxs);
+-		if (ret < 0) {
+-			dev_err(dev, "failed to add group %s: %d\n", grpname, ret);
+-			goto dt_failed;
+-		}
+-
+-		/* don't create a map if there are no pinconf settings */
+-		if (map[nmaps].data.configs.num_configs == 0)
+-			continue;
+-
+-		map[nmaps].type = PIN_MAP_TYPE_CONFIGS_GROUP;
+-		map[nmaps].data.configs.group_or_pin = grpname;
+-		nmaps += 1;
+-	}
+-
+-	ret = pinmux_generic_add_function(pctldev, np->name,
+-					  grpnames, ngroups, NULL);
+-	if (ret < 0) {
+-		dev_err(dev, "error adding function %s: %d\n", np->name, ret);
+-		goto function_failed;
+-	}
+-
+-	*maps = map;
+-	*num_maps = nmaps;
+-	mutex_unlock(&pctrl->mutex);
+-
+-	return 0;
+-
+-dt_failed:
+-	of_node_put(child);
+-function_failed:
+-	pinctrl_utils_free_map(pctldev, map, nmaps);
+-	mutex_unlock(&pctrl->mutex);
+-	return ret;
++	return cv1800_set_power_cfg(pctrl, pin->power_domain, power);
+ }
+ 
+ static const struct pinctrl_ops cv1800_pctrl_ops = {
+@@ -363,54 +200,35 @@ static const struct pinctrl_ops cv1800_pctrl_ops = {
+ 	.get_group_name		= pinctrl_generic_get_group_name,
+ 	.get_group_pins		= pinctrl_generic_get_group_pins,
+ 	.pin_dbg_show		= cv1800_pctrl_dbg_show,
+-	.dt_node_to_map		= cv1800_pctrl_dt_node_to_map,
++	.dt_node_to_map		= sophgo_pctrl_dt_node_to_map,
+ 	.dt_free_map		= pinctrl_utils_free_map,
+ };
+ 
+-static int cv1800_pmx_set_mux(struct pinctrl_dev *pctldev,
+-			      unsigned int fsel, unsigned int gsel)
++static void cv1800_set_pinmux_config(struct sophgo_pinctrl *pctrl,
++				     const struct sophgo_pin *sp, u32 config)
+ {
+-	struct sophgo_pinctrl *pctrl = pinctrl_dev_get_drvdata(pctldev);
++	const struct cv1800_pin *pin = sophgo_to_cv1800_pin(sp);
+ 	struct cv1800_priv *priv = pctrl->priv_ctrl;
+-	const struct group_desc *group;
+-	const struct sophgo_pin_mux_config *configs;
+-	unsigned int i;
+-
+-	group = pinctrl_generic_get_group(pctldev, gsel);
+-	if (!group)
+-		return -EINVAL;
+-
+-	configs = group->data;
+-
+-	for (i = 0; i < group->grp.npins; i++) {
+-		const struct cv1800_pin *pin = sophgo_to_cv1800_pin(configs[i].pin);
+-		u32 value = configs[i].config;
+-		void __iomem *reg_mux;
+-		void __iomem *reg_mux2;
+-		unsigned long flags;
+-		u32 mux;
+-		u32 mux2;
+-
+-		reg_mux = cv1800_pinctrl_get_component_addr(priv, &pin->mux);
+-		reg_mux2 = cv1800_pinctrl_get_component_addr(priv, &pin->mux2);
+-		mux = cv1800_dt_get_pin_mux(value);
+-		mux2 = cv1800_dt_get_pin_mux2(value);
+-
+-		raw_spin_lock_irqsave(&pctrl->lock, flags);
+-		writel_relaxed(mux, reg_mux);
+-		if (mux2 != PIN_MUX_INVALD)
+-			writel_relaxed(mux2, reg_mux2);
+-		raw_spin_unlock_irqrestore(&pctrl->lock, flags);
+-	}
+-
+-	return 0;
++	void __iomem *reg_mux;
++	void __iomem *reg_mux2;
++	u32 mux;
++	u32 mux2;
++
++	reg_mux = cv1800_pinctrl_get_component_addr(priv, &pin->mux);
++	reg_mux2 = cv1800_pinctrl_get_component_addr(priv, &pin->mux2);
++	mux = cv1800_dt_get_pin_mux(config);
++	mux2 = cv1800_dt_get_pin_mux2(config);
++
++	writel_relaxed(mux, reg_mux);
++	if (mux2 != PIN_MUX_INVALD)
++		writel_relaxed(mux2, reg_mux2);
+ }
+ 
+ static const struct pinmux_ops cv1800_pmx_ops = {
+ 	.get_functions_count	= pinmux_generic_get_function_count,
+ 	.get_function_name	= pinmux_generic_get_function_name,
+ 	.get_function_groups	= pinmux_generic_get_function_groups,
+-	.set_mux		= cv1800_pmx_set_mux,
++	.set_mux		= sophgo_pmx_set_mux,
+ 	.strict			= true,
+ };
+ 
+@@ -421,99 +239,13 @@ static const struct pinmux_ops cv1800_pmx_ops = {
+ #define PIN_IO_BUS_HOLD		BIT(10)
+ #define PIN_IO_OUT_FAST_SLEW	BIT(11)
+ 
+-static u32 cv1800_pull_down_typical_resistor(struct sophgo_pinctrl *pctrl,
+-					     const struct sophgo_pin *pin,
+-					     const u32 *power_cfg)
+-{
+-	return pctrl->data->vddio_ops->get_pull_down(pin, power_cfg);
+-}
+-
+-static u32 cv1800_pull_up_typical_resistor(struct sophgo_pinctrl *pctrl,
+-					   const struct sophgo_pin *pin,
+-					   const u32 *power_cfg)
+-{
+-	return pctrl->data->vddio_ops->get_pull_up(pin, power_cfg);
+-}
+-
+-static int cv1800_pinctrl_oc2reg(struct sophgo_pinctrl *pctrl,
+-				 const struct sophgo_pin *pin,
+-				 const u32 *power_cfg, u32 target)
+-{
+-	const u32 *map;
+-	int i, len;
+-
+-	len = pctrl->data->vddio_ops->get_oc_map(pin, power_cfg, &map);
+-	if (len < 0)
+-		return len;
+-
+-	for (i = 0; i < len; i++) {
+-		if (map[i] >= target)
+-			return i;
+-	}
+-
+-	return -EINVAL;
+-}
+-
+-static int cv1800_pinctrl_reg2oc(struct sophgo_pinctrl *pctrl,
+-				 const struct sophgo_pin *pin,
+-				 const u32 *power_cfg, u32 reg)
+-{
+-	const u32 *map;
+-	int len;
+-
+-	len = pctrl->data->vddio_ops->get_oc_map(pin, power_cfg, &map);
+-	if (len < 0)
+-		return len;
+-
+-	if (reg >= len)
+-		return -EINVAL;
+-
+-	return map[reg];
+-}
+-
+-static int cv1800_pinctrl_schmitt2reg(struct sophgo_pinctrl *pctrl,
+-				      const struct sophgo_pin *pin,
+-				      const u32 *power_cfg, u32 target)
+-{
+-	const u32 *map;
+-	int i, len;
+-
+-	len = pctrl->data->vddio_ops->get_schmitt_map(pin, power_cfg, &map);
+-	if (len < 0)
+-		return len;
+-
+-	for (i = 0; i < len; i++) {
+-		if (map[i] == target)
+-			return i;
+-	}
+-
+-	return -EINVAL;
+-}
+-
+-static int cv1800_pinctrl_reg2schmitt(struct sophgo_pinctrl *pctrl,
+-				      const struct sophgo_pin *pin,
+-				      const u32 *power_cfg, u32 reg)
+-{
+-	const u32 *map;
+-	int len;
+-
+-	len = pctrl->data->vddio_ops->get_schmitt_map(pin, power_cfg, &map);
+-	if (len < 0)
+-		return len;
+-
+-	if (reg >= len)
+-		return -EINVAL;
+-
+-	return map[reg];
+-}
+-
+ static int cv1800_pconf_get(struct pinctrl_dev *pctldev,
+ 			    unsigned int pin_id, unsigned long *config)
+ {
+ 	struct sophgo_pinctrl *pctrl = pinctrl_dev_get_drvdata(pctldev);
+ 	struct cv1800_priv *priv = pctrl->priv_ctrl;
+ 	int param = pinconf_to_config_param(*config);
+-	const struct sophgo_pin *sp = cv1800_get_pin(pctrl, pin_id);
++	const struct sophgo_pin *sp = sophgo_get_pin(pctrl, pin_id);
+ 	const struct cv1800_pin *pin = sophgo_to_cv1800_pin(sp);
+ 	enum cv1800_pin_io_type type;
+ 	u32 value;
+@@ -533,23 +265,23 @@ static int cv1800_pconf_get(struct pinctrl_dev *pctldev,
+ 	switch (param) {
+ 	case PIN_CONFIG_BIAS_PULL_DOWN:
+ 		enabled = FIELD_GET(PIN_IO_PULLDOWN, value);
+-		arg = cv1800_pull_down_typical_resistor(pctrl, sp, priv->power_cfg);
++		arg = sophgo_pinctrl_typical_pull_down(pctrl, sp, priv->power_cfg);
+ 		break;
+ 	case PIN_CONFIG_BIAS_PULL_UP:
+ 		enabled = FIELD_GET(PIN_IO_PULLUP, value);
+-		arg = cv1800_pull_up_typical_resistor(pctrl, sp, priv->power_cfg);
++		arg = sophgo_pinctrl_typical_pull_up(pctrl, sp, priv->power_cfg);
+ 		break;
+ 	case PIN_CONFIG_DRIVE_STRENGTH_UA:
+ 		enabled = true;
+ 		arg = FIELD_GET(PIN_IO_DRIVE, value);
+-		ret = cv1800_pinctrl_reg2oc(pctrl, sp, priv->power_cfg, arg);
++		ret = sophgo_pinctrl_reg2oc(pctrl, sp, priv->power_cfg, arg);
+ 		if (ret < 0)
+ 			return ret;
+ 		arg = ret;
+ 		break;
+ 	case PIN_CONFIG_INPUT_SCHMITT_UV:
+ 		arg = FIELD_GET(PIN_IO_SCHMITT, value);
+-		ret = cv1800_pinctrl_reg2schmitt(pctrl, sp, priv->power_cfg, arg);
++		ret = sophgo_pinctrl_reg2schmitt(pctrl, sp, priv->power_cfg, arg);
+ 		if (ret < 0)
+ 			return ret;
+ 		arg = ret;
+@@ -612,7 +344,7 @@ static int cv1800_pinconf_compute_config(struct sophgo_pinctrl *pctrl,
+ 			m |= PIN_IO_PULLUP;
+ 			break;
+ 		case PIN_CONFIG_DRIVE_STRENGTH_UA:
+-			ret = cv1800_pinctrl_oc2reg(pctrl, sp,
++			ret = sophgo_pinctrl_oc2reg(pctrl, sp,
+ 						    priv->power_cfg, arg);
+ 			if (ret < 0)
+ 				return ret;
+@@ -621,7 +353,7 @@ static int cv1800_pinconf_compute_config(struct sophgo_pinctrl *pctrl,
+ 			m |= PIN_IO_DRIVE;
+ 			break;
+ 		case PIN_CONFIG_INPUT_SCHMITT_UV:
+-			ret = cv1800_pinctrl_schmitt2reg(pctrl, sp,
++			ret = sophgo_pinctrl_schmitt2reg(pctrl, sp,
+ 							 priv->power_cfg, arg);
+ 			if (ret < 0)
+ 				return ret;
+@@ -653,84 +385,29 @@ static int cv1800_pinconf_compute_config(struct sophgo_pinctrl *pctrl,
+ 	return 0;
+ }
+ 
+-static int cv1800_pin_set_config(struct sophgo_pinctrl *pctrl,
+-				 unsigned int pin_id,
+-				 u32 value, u32 mask)
++static int cv1800_set_pinconf_config(struct sophgo_pinctrl *pctrl,
++				     const struct sophgo_pin *sp,
++				     u32 value, u32 mask)
+ {
+ 	struct cv1800_priv *priv = pctrl->priv_ctrl;
+-	const struct sophgo_pin *sp = cv1800_get_pin(pctrl, pin_id);
+-	struct cv1800_pin *pin;
+-	unsigned long flags;
++	struct cv1800_pin *pin = sophgo_to_cv1800_pin(sp);
+ 	void __iomem *addr;
+ 	u32 reg;
+ 
+-	if (!sp)
+-		return -EINVAL;
+-	pin = sophgo_to_cv1800_pin(sp);
+-
+ 	addr = cv1800_pinctrl_get_component_addr(priv, &pin->conf);
+ 
+-	raw_spin_lock_irqsave(&pctrl->lock, flags);
+ 	reg = readl(addr);
+ 	reg &= ~mask;
+ 	reg |= value;
+ 	writel(reg, addr);
+-	raw_spin_unlock_irqrestore(&pctrl->lock, flags);
+-
+-	return 0;
+-}
+-
+-static int cv1800_pconf_set(struct pinctrl_dev *pctldev,
+-			    unsigned int pin_id, unsigned long *configs,
+-			    unsigned int num_configs)
+-{
+-	struct sophgo_pinctrl *pctrl = pinctrl_dev_get_drvdata(pctldev);
+-	const struct sophgo_pin *sp = cv1800_get_pin(pctrl, pin_id);
+-	u32 value, mask;
+-
+-	if (!sp)
+-		return -EINVAL;
+-
+-	if (cv1800_pinconf_compute_config(pctrl, sp,
+-					  configs, num_configs,
+-					  &value, &mask))
+-		return -ENOTSUPP;
+-
+-	return cv1800_pin_set_config(pctrl, pin_id, value, mask);
+-}
+-
+-static int cv1800_pconf_group_set(struct pinctrl_dev *pctldev,
+-				  unsigned int gsel,
+-				  unsigned long *configs,
+-				  unsigned int num_configs)
+-{
+-	struct sophgo_pinctrl *pctrl = pinctrl_dev_get_drvdata(pctldev);
+-	const struct group_desc *group;
+-	const struct sophgo_pin_mux_config *pinmuxs;
+-	u32 value, mask;
+-	int i;
+-
+-	group = pinctrl_generic_get_group(pctldev, gsel);
+-	if (!group)
+-		return -EINVAL;
+-
+-	pinmuxs = group->data;
+-
+-	if (cv1800_pinconf_compute_config(pctrl, pinmuxs[0].pin,
+-					  configs, num_configs,
+-					  &value, &mask))
+-		return -ENOTSUPP;
+-
+-	for (i = 0; i < group->grp.npins; i++)
+-		cv1800_pin_set_config(pctrl, group->grp.pins[i], value, mask);
+ 
+ 	return 0;
+ }
+ 
+ static const struct pinconf_ops cv1800_pconf_ops = {
+ 	.pin_config_get			= cv1800_pconf_get,
+-	.pin_config_set			= cv1800_pconf_set,
+-	.pin_config_group_set		= cv1800_pconf_group_set,
++	.pin_config_set			= sophgo_pconf_set,
++	.pin_config_group_set		= sophgo_pconf_group_set,
+ 	.is_generic			= true,
+ };
+ 
+@@ -795,3 +472,13 @@ int cv1800_pinctrl_probe(struct platform_device *pdev)
+ 	return pinctrl_enable(pctrl->pctrl_dev);
+ }
+ EXPORT_SYMBOL_GPL(cv1800_pinctrl_probe);
++
++const struct sophgo_cfg_ops cv1800_cfg_ops = {
++	.verify_pinmux_config = cv1800_verify_pinmux_config,
++	.verify_pin_group = cv1800_verify_pin_group,
++	.dt_node_to_map_post = cv1800_dt_node_to_map_post,
++	.compute_pinconf_config = cv1800_pinconf_compute_config,
++	.set_pinconf_config = cv1800_set_pinconf_config,
++	.set_pinmux_config = cv1800_set_pinmux_config,
++};
++EXPORT_SYMBOL_GPL(cv1800_cfg_ops);
+diff --git a/drivers/pinctrl/sophgo/pinctrl-cv18xx.h b/drivers/pinctrl/sophgo/pinctrl-cv18xx.h
+index f095a6e85e52..821e554e550b 100644
+--- a/drivers/pinctrl/sophgo/pinctrl-cv18xx.h
++++ b/drivers/pinctrl/sophgo/pinctrl-cv18xx.h
+@@ -68,6 +68,8 @@ static inline enum cv1800_pin_io_type cv1800_pin_io_type(const struct cv1800_pin
+ 	return FIELD_GET(CV1800_PIN_IO_TYPE, pin->pin.flags);
+ };
+ 
++extern const struct sophgo_cfg_ops cv1800_cfg_ops;
++
+ int cv1800_pinctrl_probe(struct platform_device *pdev);
+ 
+ #define CV1800_FUNC_PIN(_id, _power_domain, _type,			\
+diff --git a/drivers/pinctrl/sophgo/pinctrl-sg2000.c b/drivers/pinctrl/sophgo/pinctrl-sg2000.c
+index a83dae233cdf..9580bd285699 100644
+--- a/drivers/pinctrl/sophgo/pinctrl-sg2000.c
++++ b/drivers/pinctrl/sophgo/pinctrl-sg2000.c
+@@ -751,6 +751,7 @@ static const struct sophgo_pinctrl_data sg2000_pindata = {
+ 	.pindata	= sg2000_pin_data,
+ 	.pdnames	= sg2000_power_domain_desc,
+ 	.vddio_ops	= &sg2000_vddio_cfg_ops,
++	.cfg_ops	= &cv1800_cfg_ops,
+ 	.npins		= ARRAY_SIZE(sg2000_pins),
+ 	.npds		= ARRAY_SIZE(sg2000_power_domain_desc),
+ 	.pinsize	= sizeof(struct cv1800_pin),
+diff --git a/drivers/pinctrl/sophgo/pinctrl-sg2002.c b/drivers/pinctrl/sophgo/pinctrl-sg2002.c
+index 4366486d8b7f..e3041a8b8ba6 100644
+--- a/drivers/pinctrl/sophgo/pinctrl-sg2002.c
++++ b/drivers/pinctrl/sophgo/pinctrl-sg2002.c
+@@ -522,6 +522,7 @@ static const struct sophgo_pinctrl_data sg2002_pindata = {
+ 	.pindata	= sg2002_pin_data,
+ 	.pdnames	= sg2002_power_domain_desc,
+ 	.vddio_ops	= &sg2002_vddio_cfg_ops,
++	.cfg_ops	= &cv1800_cfg_ops,
+ 	.npins		= ARRAY_SIZE(sg2002_pins),
+ 	.npds		= ARRAY_SIZE(sg2002_power_domain_desc),
+ 	.pinsize	= sizeof(struct cv1800_pin),
+diff --git a/drivers/pinctrl/sophgo/pinctrl-sophgo-common.c b/drivers/pinctrl/sophgo/pinctrl-sophgo-common.c
 new file mode 100644
-index 000000000000..0526aa3f8438
+index 000000000000..957d84e75643
 --- /dev/null
-+++ b/drivers/pinctrl/sophgo/pinctrl-sg2042-ops.c
-@@ -0,0 +1,296 @@
++++ b/drivers/pinctrl/sophgo/pinctrl-sophgo-common.c
+@@ -0,0 +1,404 @@
 +// SPDX-License-Identifier: GPL-2.0
 +/*
-+ * Sophgo sg2042 SoCs pinctrl driver.
++ * Sophgo SoCs pinctrl common ops.
 + *
 + * Copyright (C) 2024 Inochi Amaoto <inochiama@outlook.com>
 + *
 + */
 +
-+#include <linux/bitfield.h>
-+#include <linux/bits.h>
++#include <linux/bsearch.h>
 +#include <linux/cleanup.h>
 +#include <linux/export.h>
 +#include <linux/io.h>
 +#include <linux/of.h>
++#include <linux/module.h>
 +#include <linux/platform_device.h>
 +#include <linux/seq_file.h>
 +#include <linux/spinlock.h>
 +
 +#include <linux/pinctrl/pinconf-generic.h>
-+#include <linux/pinctrl/pinconf.h>
 +#include <linux/pinctrl/pinctrl.h>
-+#include <linux/pinctrl/pinmux.h>
 +
 +#include "../pinctrl-utils.h"
++#include "../pinconf.h"
 +#include "../pinmux.h"
-+
-+#include "pinctrl-sg2042.h"
-+
-+#define PIN_IO_PULL_ONE_ENABLE		BIT(0)
-+#define PIN_IO_PULL_DIR_UP		(BIT(1) | PIN_IO_PULL_ONE_ENABLE)
-+#define PIN_IO_PULL_DIR_DOWN		(0 | PIN_IO_PULL_ONE_ENABLE)
-+#define PIN_IO_PULL_ONE_MASK		GENMASK(1, 0)
-+
-+#define PIN_IO_PULL_UP			BIT(2)
-+#define PIN_IO_PULL_UP_DONW		BIT(3)
-+#define PIN_IO_PULL_UP_MASK		GENMASK(3, 2)
-+
-+#define PIN_IO_MUX			GENMASK(5, 4)
-+#define PIN_IO_DRIVE			GENMASK(9, 6)
-+#define PIN_IO_SCHMITT_ENABLE		BIT(10)
-+#define PIN_IO_OUTPUT_ENABLE		BIT(11)
-+
-+struct sg2042_priv {
-+	void __iomem				*regs;
-+};
-+
-+static u8 sg2042_dt_get_pin_mux(u32 value)
-+{
-+	return value >> 16;
-+}
-+
-+static inline u32 sg2042_get_pin_reg(struct sophgo_pinctrl *pctrl,
-+				     const struct sophgo_pin *sp)
-+{
-+	struct sg2042_priv *priv = pctrl->priv_ctrl;
-+	const struct sg2042_pin *pin = sophgo_to_sg2042_pin(sp);
-+	void __iomem *reg = priv->regs + pin->offset;
-+
-+	if (sp->flags & PIN_FLAG_WRITE_HIGH)
-+		return readl(reg) >> 16;
-+	else
-+		return readl(reg) & 0xffff;
-+}
-+
-+static int sg2042_set_pin_reg(struct sophgo_pinctrl *pctrl,
-+			      const struct sophgo_pin *sp,
-+			      u32 value, u32 mask)
-+{
-+	struct sg2042_priv *priv = pctrl->priv_ctrl;
-+	const struct sg2042_pin *pin = sophgo_to_sg2042_pin(sp);
-+	void __iomem *reg = priv->regs + pin->offset;
-+	u32 v = readl(reg);
-+
-+	if (sp->flags & PIN_FLAG_WRITE_HIGH) {
-+		v &= ~(mask << 16);
-+		v |= value << 16;
-+	} else {
-+		v &= ~mask;
-+		v |= value;
-+	}
-+
-+	writel(v, reg);
-+
-+	return 0;
-+}
-+
-+static void sg2042_pctrl_dbg_show(struct pinctrl_dev *pctldev,
-+				  struct seq_file *seq, unsigned int pin_id)
-+{
-+	struct sophgo_pinctrl *pctrl = pinctrl_dev_get_drvdata(pctldev);
-+	const struct sophgo_pin *sp = sophgo_get_pin(pctrl, pin_id);
-+	u32 value, mux;
-+
-+	value = sg2042_get_pin_reg(pctrl, sp);
-+	mux = FIELD_GET(PIN_IO_MUX, value);
-+	seq_printf(seq, "mux:%u reg:0x%04x ", mux, value);
-+}
-+
-+const struct pinctrl_ops sg2042_pctrl_ops = {
-+	.get_groups_count	= pinctrl_generic_get_group_count,
-+	.get_group_name		= pinctrl_generic_get_group_name,
-+	.get_group_pins		= pinctrl_generic_get_group_pins,
-+	.pin_dbg_show		= sg2042_pctrl_dbg_show,
-+	.dt_node_to_map		= sophgo_pctrl_dt_node_to_map,
-+	.dt_free_map		= pinctrl_utils_free_map,
-+};
-+EXPORT_SYMBOL_GPL(sg2042_pctrl_ops);
-+
-+static void sg2042_set_pinmux_config(struct sophgo_pinctrl *pctrl,
-+				     const struct sophgo_pin *sp, u32 config)
-+{
-+	u32 mux = sg2042_dt_get_pin_mux(config);
-+
-+	if (!(sp->flags & PIN_FLAG_NO_PINMUX))
-+		sg2042_set_pin_reg(pctrl, sp, mux, PIN_IO_MUX);
-+}
-+
-+const struct pinmux_ops sg2042_pmx_ops = {
-+	.get_functions_count	= pinmux_generic_get_function_count,
-+	.get_function_name	= pinmux_generic_get_function_name,
-+	.get_function_groups	= pinmux_generic_get_function_groups,
-+	.set_mux		= sophgo_pmx_set_mux,
-+	.strict			= true,
-+};
-+EXPORT_SYMBOL_GPL(sg2042_pmx_ops);
-+
-+static int sg2042_pconf_get(struct pinctrl_dev *pctldev,
-+			    unsigned int pin_id, unsigned long *config)
-+{
-+	struct sophgo_pinctrl *pctrl = pinctrl_dev_get_drvdata(pctldev);
-+	int param = pinconf_to_config_param(*config);
-+	const struct sophgo_pin *sp = sophgo_get_pin(pctrl, pin_id);
-+	u32 value;
-+	u32 arg;
-+	bool enabled;
-+	int ret;
-+
-+	if (!sp)
-+		return -EINVAL;
-+
-+	value = sg2042_get_pin_reg(pctrl, sp);
-+
-+	switch (param) {
-+	case PIN_CONFIG_BIAS_DISABLE:
-+		if (sp->flags & PIN_FLAG_ONLY_ONE_PULL)
-+			arg = FIELD_GET(PIN_IO_PULL_ONE_ENABLE, value);
-+		else
-+			arg = FIELD_GET(PIN_IO_PULL_UP_MASK, value);
-+		enabled = arg == 0;
-+		break;
-+	case PIN_CONFIG_BIAS_PULL_DOWN:
-+		if (sp->flags & PIN_FLAG_ONLY_ONE_PULL) {
-+			arg = FIELD_GET(PIN_IO_PULL_ONE_MASK, value);
-+			enabled = arg == PIN_IO_PULL_DIR_DOWN;
-+		} else {
-+			enabled = FIELD_GET(PIN_IO_PULL_UP_DONW, value) != 0;
-+		}
-+		arg = sophgo_pinctrl_typical_pull_down(pctrl, sp, NULL);
-+		break;
-+	case PIN_CONFIG_BIAS_PULL_UP:
-+		if (sp->flags & PIN_FLAG_ONLY_ONE_PULL) {
-+			arg = FIELD_GET(PIN_IO_PULL_ONE_MASK, value);
-+			enabled = arg == PIN_IO_PULL_DIR_UP;
-+		} else {
-+			enabled = FIELD_GET(PIN_IO_PULL_UP, value) != 0;
-+		}
-+		arg = sophgo_pinctrl_typical_pull_up(pctrl, sp, NULL);
-+		break;
-+	case PIN_CONFIG_DRIVE_STRENGTH_UA:
-+		enabled = FIELD_GET(PIN_IO_OUTPUT_ENABLE, value) != 0;
-+		arg = FIELD_GET(PIN_IO_DRIVE, value);
-+		ret = sophgo_pinctrl_reg2oc(pctrl, sp, NULL, arg);
-+		if (ret < 0)
-+			return ret;
-+		arg = ret;
-+		break;
-+	case PIN_CONFIG_INPUT_SCHMITT_ENABLE:
-+		arg = FIELD_GET(PIN_IO_SCHMITT_ENABLE, value);
-+		enabled = arg != 0;
-+		break;
-+	default:
-+		return -ENOTSUPP;
-+	}
-+
-+	*config = pinconf_to_config_packed(param, arg);
-+
-+	return enabled ? 0 : -EINVAL;
-+}
-+
-+static int sg2042_pinconf_compute_config(struct sophgo_pinctrl *pctrl,
-+					 const struct sophgo_pin *sp,
-+					 unsigned long *configs,
-+					 unsigned int num_configs,
-+					 u32 *value, u32 *mask)
-+{
-+	int i;
-+	u16 v = 0, m = 0;
-+	int ret;
-+
-+	if (!sp)
-+		return -EINVAL;
-+
-+	for (i = 0; i < num_configs; i++) {
-+		int param = pinconf_to_config_param(configs[i]);
-+		u32 arg = pinconf_to_config_argument(configs[i]);
-+
-+		switch (param) {
-+		case PIN_CONFIG_BIAS_DISABLE:
-+			if (sp->flags & PIN_FLAG_ONLY_ONE_PULL) {
-+				v &= ~PIN_IO_PULL_ONE_ENABLE;
-+				m |= PIN_IO_PULL_ONE_ENABLE;
-+			} else {
-+				v &= ~PIN_IO_PULL_UP_MASK;
-+				m |= PIN_IO_PULL_UP_MASK;
-+			}
-+			break;
-+		case PIN_CONFIG_BIAS_PULL_DOWN:
-+			if (sp->flags & PIN_FLAG_ONLY_ONE_PULL) {
-+				v &= ~PIN_IO_PULL_ONE_MASK;
-+				v |= PIN_IO_PULL_DIR_DOWN;
-+				m |= PIN_IO_PULL_ONE_MASK;
-+			} else {
-+				v |= PIN_IO_PULL_UP_DONW;
-+				m |= PIN_IO_PULL_UP_DONW;
-+			}
-+			break;
-+		case PIN_CONFIG_BIAS_PULL_UP:
-+			if (sp->flags & PIN_FLAG_ONLY_ONE_PULL) {
-+				v &= ~PIN_IO_PULL_ONE_MASK;
-+				v |= PIN_IO_PULL_DIR_UP;
-+				m |= PIN_IO_PULL_ONE_MASK;
-+			} else {
-+				v |= PIN_IO_PULL_UP;
-+				m |= PIN_IO_PULL_UP;
-+			}
-+			break;
-+		case PIN_CONFIG_DRIVE_STRENGTH_UA:
-+			v &= ~(PIN_IO_DRIVE | PIN_IO_OUTPUT_ENABLE);
-+			if (arg != 0) {
-+				ret = sophgo_pinctrl_oc2reg(pctrl, sp, NULL, arg);
-+				if (ret < 0)
-+					return ret;
-+				if (!(sp->flags & PIN_FLAG_NO_OEX_EN))
-+					v |= PIN_IO_OUTPUT_ENABLE;
-+				v |= FIELD_PREP(PIN_IO_DRIVE, ret);
-+			}
-+			m |= PIN_IO_DRIVE | PIN_IO_OUTPUT_ENABLE;
-+			break;
-+		case PIN_CONFIG_INPUT_SCHMITT_ENABLE:
-+			v |= PIN_IO_SCHMITT_ENABLE;
-+			m |= PIN_IO_SCHMITT_ENABLE;
-+			break;
-+		default:
-+			return -ENOTSUPP;
-+		}
-+	}
-+
-+	*value = v;
-+	*mask = m;
-+
-+	return 0;
-+}
-+
-+const struct pinconf_ops sg2042_pconf_ops = {
-+	.pin_config_get			= sg2042_pconf_get,
-+	.pin_config_set			= sophgo_pconf_set,
-+	.pin_config_group_set		= sophgo_pconf_group_set,
-+	.is_generic			= true,
-+};
-+EXPORT_SYMBOL_GPL(sg2042_pconf_ops);
-+
-+static int sophgo_pinctrl_init(struct platform_device *pdev,
-+			       struct sophgo_pinctrl *pctrl)
-+{
-+	struct sg2042_priv *priv;
-+
-+	priv = devm_kzalloc(&pdev->dev, sizeof(*priv), GFP_KERNEL);
-+	if (!priv)
-+		return -ENOMEM;
-+
-+	priv->regs = devm_platform_ioremap_resource(pdev, 0);
-+	if (IS_ERR(priv->regs))
-+		return PTR_ERR(priv->regs);
-+
-+	pctrl->priv_ctrl = priv;
-+
-+	return 0;
-+}
-+
-+const struct sophgo_cfg_ops sg2042_cfg_ops = {
-+	.pctrl_init = sophgo_pinctrl_init,
-+	.compute_pinconf_config = sg2042_pinconf_compute_config,
-+	.set_pinconf_config = sg2042_set_pin_reg,
-+	.set_pinmux_config = sg2042_set_pinmux_config,
-+};
-+EXPORT_SYMBOL_GPL(sg2042_cfg_ops);
-diff --git a/drivers/pinctrl/sophgo/pinctrl-sg2042.c b/drivers/pinctrl/sophgo/pinctrl-sg2042.c
-new file mode 100644
-index 000000000000..185305ac897d
---- /dev/null
-+++ b/drivers/pinctrl/sophgo/pinctrl-sg2042.c
-@@ -0,0 +1,655 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/*
-+ * Sophgo SG2042 SoC pinctrl driver.
-+ *
-+ * Copyright (C) 2024 Inochi Amaoto <inochiama@outlook.com>
-+ */
-+
-+#include <linux/module.h>
-+#include <linux/platform_device.h>
-+#include <linux/of.h>
-+
-+#include <linux/pinctrl/pinctrl.h>
-+#include <linux/pinctrl/pinmux.h>
-+
-+#include <dt-bindings/pinctrl/pinctrl-sg2042.h>
-+
-+#include "pinctrl-sg2042.h"
-+
-+static int sg2042_get_pull_up(const struct sophgo_pin *sp, const u32 *psmap)
-+{
-+	return 35000;
-+}
-+
-+static int sg2042_get_pull_down(const struct sophgo_pin *sp, const u32 *psmap)
-+{
-+	return 28000;
-+}
-+
-+static const u32 sg2042_oc_map[] = {
-+	5400,  8100,  10700, 13400,
-+	16100, 18800, 21400, 24100,
-+	26800, 29400, 32100, 34800,
-+	37400, 40100, 42800, 45400
-+};
-+
-+static int sg2042_get_oc_map(const struct sophgo_pin *sp, const u32 *psmap,
-+			     const u32 **map)
-+{
-+	*map = sg2042_oc_map;
-+	return ARRAY_SIZE(sg2042_oc_map);
-+}
-+
-+static const struct sophgo_vddio_cfg_ops sg2042_vddio_cfg_ops = {
-+	.get_pull_up		= sg2042_get_pull_up,
-+	.get_pull_down		= sg2042_get_pull_down,
-+	.get_oc_map		= sg2042_get_oc_map,
-+};
-+
-+static const struct pinctrl_pin_desc sg2042_pins[] = {
-+	PINCTRL_PIN(PIN_LPC_LCLK,		"lpc_lclk"),
-+	PINCTRL_PIN(PIN_LPC_LFRAME,		"lpc_lframe"),
-+	PINCTRL_PIN(PIN_LPC_LAD0,		"lpc_lad0"),
-+	PINCTRL_PIN(PIN_LPC_LAD1,		"lpc_lad1"),
-+	PINCTRL_PIN(PIN_LPC_LAD2,		"lpc_lad2"),
-+	PINCTRL_PIN(PIN_LPC_LAD3,		"lpc_lad3"),
-+	PINCTRL_PIN(PIN_LPC_LDRQ0,		"lpc_ldrq0"),
-+	PINCTRL_PIN(PIN_LPC_LDRQ1,		"lpc_ldrq1"),
-+	PINCTRL_PIN(PIN_LPC_SERIRQ,		"lpc_serirq"),
-+	PINCTRL_PIN(PIN_LPC_CLKRUN,		"lpc_clkrun"),
-+	PINCTRL_PIN(PIN_LPC_LPME,		"lpc_lpme"),
-+	PINCTRL_PIN(PIN_LPC_LPCPD,		"lpc_lpcpd"),
-+	PINCTRL_PIN(PIN_LPC_LSMI,		"lpc_lsmi"),
-+	PINCTRL_PIN(PIN_PCIE0_L0_RESET,		"pcie0_l0_reset"),
-+	PINCTRL_PIN(PIN_PCIE0_L1_RESET,		"pcie0_l1_reset"),
-+	PINCTRL_PIN(PIN_PCIE0_L0_WAKEUP,	"pcie0_l0_wakeup"),
-+	PINCTRL_PIN(PIN_PCIE0_L1_WAKEUP,	"pcie0_l1_wakeup"),
-+	PINCTRL_PIN(PIN_PCIE0_L0_CLKREQ_IN,	"pcie0_l0_clkreq_in"),
-+	PINCTRL_PIN(PIN_PCIE0_L1_CLKREQ_IN,	"pcie0_l1_clkreq_in"),
-+	PINCTRL_PIN(PIN_PCIE1_L0_RESET,		"pcie1_l0_reset"),
-+	PINCTRL_PIN(PIN_PCIE1_L1_RESET,		"pcie1_l1_reset"),
-+	PINCTRL_PIN(PIN_PCIE1_L0_WAKEUP,	"pcie1_l0_wakeup"),
-+	PINCTRL_PIN(PIN_PCIE1_L1_WAKEUP,	"pcie1_l1_wakeup"),
-+	PINCTRL_PIN(PIN_PCIE1_L0_CLKREQ_IN,	"pcie1_l0_clkreq_in"),
-+	PINCTRL_PIN(PIN_PCIE1_L1_CLKREQ_IN,	"pcie1_l1_clkreq_in"),
-+	PINCTRL_PIN(PIN_SPIF0_CLK_SEL1,		"spif0_clk_sel1"),
-+	PINCTRL_PIN(PIN_SPIF0_CLK_SEL0,		"spif0_clk_sel0"),
-+	PINCTRL_PIN(PIN_SPIF0_WP,		"spif0_wp"),
-+	PINCTRL_PIN(PIN_SPIF0_HOLD,		"spif0_hold"),
-+	PINCTRL_PIN(PIN_SPIF0_SDI,		"spif0_sdi"),
-+	PINCTRL_PIN(PIN_SPIF0_CS,		"spif0_cs"),
-+	PINCTRL_PIN(PIN_SPIF0_SCK,		"spif0_sck"),
-+	PINCTRL_PIN(PIN_SPIF0_SDO,		"spif0_sdo"),
-+	PINCTRL_PIN(PIN_SPIF1_CLK_SEL1,		"spif1_clk_sel1"),
-+	PINCTRL_PIN(PIN_SPIF1_CLK_SEL0,		"spif1_clk_sel0"),
-+	PINCTRL_PIN(PIN_SPIF1_WP,		"spif1_wp"),
-+	PINCTRL_PIN(PIN_SPIF1_HOLD,		"spif1_hold"),
-+	PINCTRL_PIN(PIN_SPIF1_SDI,		"spif1_sdi"),
-+	PINCTRL_PIN(PIN_SPIF1_CS,		"spif1_cs"),
-+	PINCTRL_PIN(PIN_SPIF1_SCK,		"spif1_sck"),
-+	PINCTRL_PIN(PIN_SPIF1_SDO,		"spif1_sdo"),
-+	PINCTRL_PIN(PIN_EMMC_WP,		"emmc_wp"),
-+	PINCTRL_PIN(PIN_EMMC_CD,		"emmc_cd"),
-+	PINCTRL_PIN(PIN_EMMC_RST,		"emmc_rst"),
-+	PINCTRL_PIN(PIN_EMMC_PWR_EN,		"emmc_pwr_en"),
-+	PINCTRL_PIN(PIN_SDIO_CD,		"sdio_cd"),
-+	PINCTRL_PIN(PIN_SDIO_WP,		"sdio_wp"),
-+	PINCTRL_PIN(PIN_SDIO_RST,		"sdio_rst"),
-+	PINCTRL_PIN(PIN_SDIO_PWR_EN,		"sdio_pwr_en"),
-+	PINCTRL_PIN(PIN_RGMII0_TXD0,		"rgmii0_txd0"),
-+	PINCTRL_PIN(PIN_RGMII0_TXD1,		"rgmii0_txd1"),
-+	PINCTRL_PIN(PIN_RGMII0_TXD2,		"rgmii0_txd2"),
-+	PINCTRL_PIN(PIN_RGMII0_TXD3,		"rgmii0_txd3"),
-+	PINCTRL_PIN(PIN_RGMII0_TXCTRL,		"rgmii0_txctrl"),
-+	PINCTRL_PIN(PIN_RGMII0_RXD0,		"rgmii0_rxd0"),
-+	PINCTRL_PIN(PIN_RGMII0_RXD1,		"rgmii0_rxd1"),
-+	PINCTRL_PIN(PIN_RGMII0_RXD2,		"rgmii0_rxd2"),
-+	PINCTRL_PIN(PIN_RGMII0_RXD3,		"rgmii0_rxd3"),
-+	PINCTRL_PIN(PIN_RGMII0_RXCTRL,		"rgmii0_rxctrl"),
-+	PINCTRL_PIN(PIN_RGMII0_TXC,		"rgmii0_txc"),
-+	PINCTRL_PIN(PIN_RGMII0_RXC,		"rgmii0_rxc"),
-+	PINCTRL_PIN(PIN_RGMII0_REFCLKO,		"rgmii0_refclko"),
-+	PINCTRL_PIN(PIN_RGMII0_IRQ,		"rgmii0_irq"),
-+	PINCTRL_PIN(PIN_RGMII0_MDC,		"rgmii0_mdc"),
-+	PINCTRL_PIN(PIN_RGMII0_MDIO,		"rgmii0_mdio"),
-+	PINCTRL_PIN(PIN_PWM0,			"pwm0"),
-+	PINCTRL_PIN(PIN_PWM1,			"pwm1"),
-+	PINCTRL_PIN(PIN_PWM2,			"pwm2"),
-+	PINCTRL_PIN(PIN_PWM3,			"pwm3"),
-+	PINCTRL_PIN(PIN_FAN0,			"fan0"),
-+	PINCTRL_PIN(PIN_FAN1,			"fan1"),
-+	PINCTRL_PIN(PIN_FAN2,			"fan2"),
-+	PINCTRL_PIN(PIN_FAN3,			"fan3"),
-+	PINCTRL_PIN(PIN_IIC0_SDA,		"iic0_sda"),
-+	PINCTRL_PIN(PIN_IIC0_SCL,		"iic0_scl"),
-+	PINCTRL_PIN(PIN_IIC1_SDA,		"iic1_sda"),
-+	PINCTRL_PIN(PIN_IIC1_SCL,		"iic1_scl"),
-+	PINCTRL_PIN(PIN_IIC2_SDA,		"iic2_sda"),
-+	PINCTRL_PIN(PIN_IIC2_SCL,		"iic2_scl"),
-+	PINCTRL_PIN(PIN_IIC3_SDA,		"iic3_sda"),
-+	PINCTRL_PIN(PIN_IIC3_SCL,		"iic3_scl"),
-+	PINCTRL_PIN(PIN_UART0_TX,		"uart0_tx"),
-+	PINCTRL_PIN(PIN_UART0_RX,		"uart0_rx"),
-+	PINCTRL_PIN(PIN_UART0_RTS,		"uart0_rts"),
-+	PINCTRL_PIN(PIN_UART0_CTS,		"uart0_cts"),
-+	PINCTRL_PIN(PIN_UART1_TX,		"uart1_tx"),
-+	PINCTRL_PIN(PIN_UART1_RX,		"uart1_rx"),
-+	PINCTRL_PIN(PIN_UART1_RTS,		"uart1_rts"),
-+	PINCTRL_PIN(PIN_UART1_CTS,		"uart1_cts"),
-+	PINCTRL_PIN(PIN_UART2_TX,		"uart2_tx"),
-+	PINCTRL_PIN(PIN_UART2_RX,		"uart2_rx"),
-+	PINCTRL_PIN(PIN_UART2_RTS,		"uart2_rts"),
-+	PINCTRL_PIN(PIN_UART2_CTS,		"uart2_cts"),
-+	PINCTRL_PIN(PIN_UART3_TX,		"uart3_tx"),
-+	PINCTRL_PIN(PIN_UART3_RX,		"uart3_rx"),
-+	PINCTRL_PIN(PIN_UART3_RTS,		"uart3_rts"),
-+	PINCTRL_PIN(PIN_UART3_CTS,		"uart3_cts"),
-+	PINCTRL_PIN(PIN_SPI0_CS0,		"spi0_cs0"),
-+	PINCTRL_PIN(PIN_SPI0_CS1,		"spi0_cs1"),
-+	PINCTRL_PIN(PIN_SPI0_SDI,		"spi0_sdi"),
-+	PINCTRL_PIN(PIN_SPI0_SDO,		"spi0_sdo"),
-+	PINCTRL_PIN(PIN_SPI0_SCK,		"spi0_sck"),
-+	PINCTRL_PIN(PIN_SPI1_CS0,		"spi1_cs0"),
-+	PINCTRL_PIN(PIN_SPI1_CS1,		"spi1_cs1"),
-+	PINCTRL_PIN(PIN_SPI1_SDI,		"spi1_sdi"),
-+	PINCTRL_PIN(PIN_SPI1_SDO,		"spi1_sdo"),
-+	PINCTRL_PIN(PIN_SPI1_SCK,		"spi1_sck"),
-+	PINCTRL_PIN(PIN_JTAG0_TDO,		"jtag0_tdo"),
-+	PINCTRL_PIN(PIN_JTAG0_TCK,		"jtag0_tck"),
-+	PINCTRL_PIN(PIN_JTAG0_TDI,		"jtag0_tdi"),
-+	PINCTRL_PIN(PIN_JTAG0_TMS,		"jtag0_tms"),
-+	PINCTRL_PIN(PIN_JTAG0_TRST,		"jtag0_trst"),
-+	PINCTRL_PIN(PIN_JTAG0_SRST,		"jtag0_srst"),
-+	PINCTRL_PIN(PIN_JTAG1_TDO,		"jtag1_tdo"),
-+	PINCTRL_PIN(PIN_JTAG1_TCK,		"jtag1_tck"),
-+	PINCTRL_PIN(PIN_JTAG1_TDI,		"jtag1_tdi"),
-+	PINCTRL_PIN(PIN_JTAG1_TMS,		"jtag1_tms"),
-+	PINCTRL_PIN(PIN_JTAG1_TRST,		"jtag1_trst"),
-+	PINCTRL_PIN(PIN_JTAG1_SRST,		"jtag1_srst"),
-+	PINCTRL_PIN(PIN_JTAG2_TDO,		"jtag2_tdo"),
-+	PINCTRL_PIN(PIN_JTAG2_TCK,		"jtag2_tck"),
-+	PINCTRL_PIN(PIN_JTAG2_TDI,		"jtag2_tdi"),
-+	PINCTRL_PIN(PIN_JTAG2_TMS,		"jtag2_tms"),
-+	PINCTRL_PIN(PIN_JTAG2_TRST,		"jtag2_trst"),
-+	PINCTRL_PIN(PIN_JTAG2_SRST,		"jtag2_srst"),
-+	PINCTRL_PIN(PIN_GPIO0,			"gpio0"),
-+	PINCTRL_PIN(PIN_GPIO1,			"gpio1"),
-+	PINCTRL_PIN(PIN_GPIO2,			"gpio2"),
-+	PINCTRL_PIN(PIN_GPIO3,			"gpio3"),
-+	PINCTRL_PIN(PIN_GPIO4,			"gpio4"),
-+	PINCTRL_PIN(PIN_GPIO5,			"gpio5"),
-+	PINCTRL_PIN(PIN_GPIO6,			"gpio6"),
-+	PINCTRL_PIN(PIN_GPIO7,			"gpio7"),
-+	PINCTRL_PIN(PIN_GPIO8,			"gpio8"),
-+	PINCTRL_PIN(PIN_GPIO9,			"gpio9"),
-+	PINCTRL_PIN(PIN_GPIO10,			"gpio10"),
-+	PINCTRL_PIN(PIN_GPIO11,			"gpio11"),
-+	PINCTRL_PIN(PIN_GPIO12,			"gpio12"),
-+	PINCTRL_PIN(PIN_GPIO13,			"gpio13"),
-+	PINCTRL_PIN(PIN_GPIO14,			"gpio14"),
-+	PINCTRL_PIN(PIN_GPIO15,			"gpio15"),
-+	PINCTRL_PIN(PIN_GPIO16,			"gpio16"),
-+	PINCTRL_PIN(PIN_GPIO17,			"gpio17"),
-+	PINCTRL_PIN(PIN_GPIO18,			"gpio18"),
-+	PINCTRL_PIN(PIN_GPIO19,			"gpio19"),
-+	PINCTRL_PIN(PIN_GPIO20,			"gpio20"),
-+	PINCTRL_PIN(PIN_GPIO21,			"gpio21"),
-+	PINCTRL_PIN(PIN_GPIO22,			"gpio22"),
-+	PINCTRL_PIN(PIN_GPIO23,			"gpio23"),
-+	PINCTRL_PIN(PIN_GPIO24,			"gpio24"),
-+	PINCTRL_PIN(PIN_GPIO25,			"gpio25"),
-+	PINCTRL_PIN(PIN_GPIO26,			"gpio26"),
-+	PINCTRL_PIN(PIN_GPIO27,			"gpio27"),
-+	PINCTRL_PIN(PIN_GPIO28,			"gpio28"),
-+	PINCTRL_PIN(PIN_GPIO29,			"gpio29"),
-+	PINCTRL_PIN(PIN_GPIO30,			"gpio30"),
-+	PINCTRL_PIN(PIN_GPIO31,			"gpio31"),
-+	PINCTRL_PIN(PIN_MODE_SEL0,		"mode_sel0"),
-+	PINCTRL_PIN(PIN_MODE_SEL1,		"mode_sel1"),
-+	PINCTRL_PIN(PIN_MODE_SEL2,		"mode_sel2"),
-+	PINCTRL_PIN(PIN_BOOT_SEL0,		"boot_sel0"),
-+	PINCTRL_PIN(PIN_BOOT_SEL1,		"boot_sel1"),
-+	PINCTRL_PIN(PIN_BOOT_SEL2,		"boot_sel2"),
-+	PINCTRL_PIN(PIN_BOOT_SEL3,		"boot_sel3"),
-+	PINCTRL_PIN(PIN_BOOT_SEL4,		"boot_sel4"),
-+	PINCTRL_PIN(PIN_BOOT_SEL5,		"boot_sel5"),
-+	PINCTRL_PIN(PIN_BOOT_SEL6,		"boot_sel6"),
-+	PINCTRL_PIN(PIN_BOOT_SEL7,		"boot_sel7"),
-+	PINCTRL_PIN(PIN_MULTI_SCKT,		"multi_sckt"),
-+	PINCTRL_PIN(PIN_SCKT_ID0,		"sckt_id0"),
-+	PINCTRL_PIN(PIN_SCKT_ID1,		"sckt_id1"),
-+	PINCTRL_PIN(PIN_PLL_CLK_IN_MAIN,	"pll_clk_in_main"),
-+	PINCTRL_PIN(PIN_PLL_CLK_IN_DDR_L,	"pll_clk_in_ddr_l"),
-+	PINCTRL_PIN(PIN_PLL_CLK_IN_DDR_R,	"pll_clk_in_ddr_r"),
-+	PINCTRL_PIN(PIN_XTAL_32K,		"xtal_32k"),
-+	PINCTRL_PIN(PIN_SYS_RST,		"sys_rst"),
-+	PINCTRL_PIN(PIN_PWR_BUTTON,		"pwr_button"),
-+	PINCTRL_PIN(PIN_TEST_EN,		"test_en"),
-+	PINCTRL_PIN(PIN_TEST_MODE_MBIST,	"test_mode_mbist"),
-+	PINCTRL_PIN(PIN_TEST_MODE_SCAN,		"test_mode_scan"),
-+	PINCTRL_PIN(PIN_TEST_MODE_BSD,		"test_mode_bsd"),
-+	PINCTRL_PIN(PIN_BISR_BYP,		"bisr_byp"),
-+};
-+
-+static const struct sg2042_pin sg2042_pin_data[ARRAY_SIZE(sg2042_pins)] = {
-+	SG2042_GENERAL_PIN(PIN_LPC_LCLK, 0x000,
-+			   PIN_FLAG_ONLY_ONE_PULL),
-+	SG2042_GENERAL_PIN(PIN_LPC_LFRAME, 0x000,
-+			   PIN_FLAG_WRITE_HIGH | PIN_FLAG_ONLY_ONE_PULL),
-+	SG2042_GENERAL_PIN(PIN_LPC_LAD0, 0x004,
-+			   PIN_FLAG_ONLY_ONE_PULL),
-+	SG2042_GENERAL_PIN(PIN_LPC_LAD1, 0x004,
-+			   PIN_FLAG_WRITE_HIGH | PIN_FLAG_ONLY_ONE_PULL),
-+	SG2042_GENERAL_PIN(PIN_LPC_LAD2, 0x008,
-+			   PIN_FLAG_ONLY_ONE_PULL),
-+	SG2042_GENERAL_PIN(PIN_LPC_LAD3, 0x008,
-+			   PIN_FLAG_WRITE_HIGH | PIN_FLAG_ONLY_ONE_PULL),
-+	SG2042_GENERAL_PIN(PIN_LPC_LDRQ0, 0x00c,
-+			   PIN_FLAG_ONLY_ONE_PULL),
-+	SG2042_GENERAL_PIN(PIN_LPC_LDRQ1, 0x00c,
-+			   PIN_FLAG_WRITE_HIGH | PIN_FLAG_ONLY_ONE_PULL),
-+	SG2042_GENERAL_PIN(PIN_LPC_SERIRQ, 0x010,
-+			   PIN_FLAG_ONLY_ONE_PULL),
-+	SG2042_GENERAL_PIN(PIN_LPC_CLKRUN, 0x010,
-+			   PIN_FLAG_WRITE_HIGH | PIN_FLAG_ONLY_ONE_PULL),
-+	SG2042_GENERAL_PIN(PIN_LPC_LPME, 0x014,
-+			   PIN_FLAG_ONLY_ONE_PULL),
-+	SG2042_GENERAL_PIN(PIN_LPC_LPCPD, 0x014,
-+			   PIN_FLAG_WRITE_HIGH | PIN_FLAG_ONLY_ONE_PULL),
-+	SG2042_GENERAL_PIN(PIN_LPC_LSMI, 0x018,
-+			   PIN_FLAG_ONLY_ONE_PULL),
-+	SG2042_GENERAL_PIN(PIN_PCIE0_L0_RESET, 0x018,
-+			   PIN_FLAG_WRITE_HIGH | PIN_FLAG_ONLY_ONE_PULL),
-+	SG2042_GENERAL_PIN(PIN_PCIE0_L1_RESET, 0x01c,
-+			   PIN_FLAG_ONLY_ONE_PULL),
-+	SG2042_GENERAL_PIN(PIN_PCIE0_L0_WAKEUP, 0x01c,
-+			   PIN_FLAG_WRITE_HIGH | PIN_FLAG_ONLY_ONE_PULL),
-+	SG2042_GENERAL_PIN(PIN_PCIE0_L1_WAKEUP, 0x020,
-+			   PIN_FLAG_ONLY_ONE_PULL),
-+	SG2042_GENERAL_PIN(PIN_PCIE0_L0_CLKREQ_IN, 0x020,
-+			   PIN_FLAG_WRITE_HIGH | PIN_FLAG_ONLY_ONE_PULL),
-+	SG2042_GENERAL_PIN(PIN_PCIE0_L1_CLKREQ_IN, 0x024,
-+			   PIN_FLAG_ONLY_ONE_PULL),
-+	SG2042_GENERAL_PIN(PIN_PCIE1_L0_RESET, 0x024,
-+			   PIN_FLAG_WRITE_HIGH | PIN_FLAG_ONLY_ONE_PULL),
-+	SG2042_GENERAL_PIN(PIN_PCIE1_L1_RESET, 0x028,
-+			   PIN_FLAG_ONLY_ONE_PULL),
-+	SG2042_GENERAL_PIN(PIN_PCIE1_L0_WAKEUP, 0x028,
-+			   PIN_FLAG_WRITE_HIGH | PIN_FLAG_ONLY_ONE_PULL),
-+	SG2042_GENERAL_PIN(PIN_PCIE1_L1_WAKEUP, 0x02c,
-+			   PIN_FLAG_ONLY_ONE_PULL),
-+	SG2042_GENERAL_PIN(PIN_PCIE1_L0_CLKREQ_IN, 0x02c,
-+			   PIN_FLAG_WRITE_HIGH | PIN_FLAG_ONLY_ONE_PULL),
-+	SG2042_GENERAL_PIN(PIN_PCIE1_L1_CLKREQ_IN, 0x030,
-+			   PIN_FLAG_ONLY_ONE_PULL),
-+	SG2042_GENERAL_PIN(PIN_SPIF0_CLK_SEL1, 0x030,
-+			   PIN_FLAG_WRITE_HIGH | PIN_FLAG_ONLY_ONE_PULL),
-+	SG2042_GENERAL_PIN(PIN_SPIF0_CLK_SEL0, 0x034,
-+			   PIN_FLAG_ONLY_ONE_PULL),
-+	SG2042_GENERAL_PIN(PIN_SPIF0_WP, 0x034,
-+			   PIN_FLAG_WRITE_HIGH | PIN_FLAG_ONLY_ONE_PULL),
-+	SG2042_GENERAL_PIN(PIN_SPIF0_HOLD, 0x038,
-+			   PIN_FLAG_ONLY_ONE_PULL),
-+	SG2042_GENERAL_PIN(PIN_SPIF0_SDI, 0x038,
-+			   PIN_FLAG_WRITE_HIGH | PIN_FLAG_ONLY_ONE_PULL),
-+	SG2042_GENERAL_PIN(PIN_SPIF0_CS, 0x03c,
-+			   PIN_FLAG_ONLY_ONE_PULL),
-+	SG2042_GENERAL_PIN(PIN_SPIF0_SCK, 0x03c,
-+			   PIN_FLAG_WRITE_HIGH | PIN_FLAG_ONLY_ONE_PULL),
-+	SG2042_GENERAL_PIN(PIN_SPIF0_SDO, 0x040,
-+			   PIN_FLAG_ONLY_ONE_PULL),
-+	SG2042_GENERAL_PIN(PIN_SPIF1_CLK_SEL1, 0x040,
-+			   PIN_FLAG_WRITE_HIGH | PIN_FLAG_ONLY_ONE_PULL),
-+	SG2042_GENERAL_PIN(PIN_SPIF1_CLK_SEL0, 0x044,
-+			   PIN_FLAG_ONLY_ONE_PULL),
-+	SG2042_GENERAL_PIN(PIN_SPIF1_WP, 0x044,
-+			   PIN_FLAG_WRITE_HIGH | PIN_FLAG_ONLY_ONE_PULL),
-+	SG2042_GENERAL_PIN(PIN_SPIF1_HOLD, 0x048,
-+			   PIN_FLAG_ONLY_ONE_PULL),
-+	SG2042_GENERAL_PIN(PIN_SPIF1_SDI, 0x048,
-+			   PIN_FLAG_WRITE_HIGH | PIN_FLAG_ONLY_ONE_PULL),
-+	SG2042_GENERAL_PIN(PIN_SPIF1_CS, 0x04c,
-+			   PIN_FLAG_ONLY_ONE_PULL),
-+	SG2042_GENERAL_PIN(PIN_SPIF1_SCK, 0x04c,
-+			   PIN_FLAG_WRITE_HIGH | PIN_FLAG_ONLY_ONE_PULL),
-+	SG2042_GENERAL_PIN(PIN_SPIF1_SDO, 0x050,
-+			   PIN_FLAG_ONLY_ONE_PULL),
-+	SG2042_GENERAL_PIN(PIN_EMMC_WP, 0x050,
-+			   PIN_FLAG_WRITE_HIGH | PIN_FLAG_ONLY_ONE_PULL),
-+	SG2042_GENERAL_PIN(PIN_EMMC_CD, 0x054,
-+			   PIN_FLAG_ONLY_ONE_PULL),
-+	SG2042_GENERAL_PIN(PIN_EMMC_RST, 0x054,
-+			   PIN_FLAG_WRITE_HIGH | PIN_FLAG_ONLY_ONE_PULL),
-+	SG2042_GENERAL_PIN(PIN_EMMC_PWR_EN, 0x058,
-+			   PIN_FLAG_ONLY_ONE_PULL),
-+	SG2042_GENERAL_PIN(PIN_SDIO_CD, 0x058,
-+			   PIN_FLAG_WRITE_HIGH | PIN_FLAG_ONLY_ONE_PULL),
-+	SG2042_GENERAL_PIN(PIN_SDIO_WP, 0x05c,
-+			   PIN_FLAG_ONLY_ONE_PULL),
-+	SG2042_GENERAL_PIN(PIN_SDIO_RST, 0x05c,
-+			   PIN_FLAG_WRITE_HIGH | PIN_FLAG_ONLY_ONE_PULL),
-+	SG2042_GENERAL_PIN(PIN_SDIO_PWR_EN, 0x060,
-+			   PIN_FLAG_ONLY_ONE_PULL),
-+	SG2042_GENERAL_PIN(PIN_RGMII0_TXD0, 0x060,
-+			   PIN_FLAG_WRITE_HIGH),
-+	SG2042_GENERAL_PIN(PIN_RGMII0_TXD1, 0x064,
-+			   PIN_FLAG_DEFAULT),
-+	SG2042_GENERAL_PIN(PIN_RGMII0_TXD2, 0x064,
-+			   PIN_FLAG_WRITE_HIGH),
-+	SG2042_GENERAL_PIN(PIN_RGMII0_TXD3, 0x068,
-+			   PIN_FLAG_DEFAULT),
-+	SG2042_GENERAL_PIN(PIN_RGMII0_TXCTRL, 0x068,
-+			   PIN_FLAG_WRITE_HIGH),
-+	SG2042_GENERAL_PIN(PIN_RGMII0_RXD0, 0x06c,
-+			   PIN_FLAG_DEFAULT),
-+	SG2042_GENERAL_PIN(PIN_RGMII0_RXD1, 0x06c,
-+			   PIN_FLAG_WRITE_HIGH),
-+	SG2042_GENERAL_PIN(PIN_RGMII0_RXD2, 0x070,
-+			   PIN_FLAG_DEFAULT),
-+	SG2042_GENERAL_PIN(PIN_RGMII0_RXD3, 0x070,
-+			   PIN_FLAG_WRITE_HIGH),
-+	SG2042_GENERAL_PIN(PIN_RGMII0_RXCTRL, 0x074,
-+			   PIN_FLAG_DEFAULT),
-+	SG2042_GENERAL_PIN(PIN_RGMII0_TXC, 0x074,
-+			   PIN_FLAG_WRITE_HIGH),
-+	SG2042_GENERAL_PIN(PIN_RGMII0_RXC, 0x078,
-+			   PIN_FLAG_DEFAULT),
-+	SG2042_GENERAL_PIN(PIN_RGMII0_REFCLKO, 0x078,
-+			   PIN_FLAG_WRITE_HIGH),
-+	SG2042_GENERAL_PIN(PIN_RGMII0_IRQ, 0x07c,
-+			   PIN_FLAG_DEFAULT),
-+	SG2042_GENERAL_PIN(PIN_RGMII0_MDC, 0x07c,
-+			   PIN_FLAG_WRITE_HIGH),
-+	SG2042_GENERAL_PIN(PIN_RGMII0_MDIO, 0x080,
-+			   PIN_FLAG_DEFAULT),
-+	SG2042_GENERAL_PIN(PIN_PWM0, 0x080,
-+			   PIN_FLAG_WRITE_HIGH | PIN_FLAG_ONLY_ONE_PULL),
-+	SG2042_GENERAL_PIN(PIN_PWM1, 0x084,
-+			   PIN_FLAG_ONLY_ONE_PULL),
-+	SG2042_GENERAL_PIN(PIN_PWM2, 0x084,
-+			   PIN_FLAG_WRITE_HIGH | PIN_FLAG_ONLY_ONE_PULL),
-+	SG2042_GENERAL_PIN(PIN_PWM3, 0x088,
-+			   PIN_FLAG_ONLY_ONE_PULL),
-+	SG2042_GENERAL_PIN(PIN_FAN0, 0x088,
-+			   PIN_FLAG_WRITE_HIGH | PIN_FLAG_ONLY_ONE_PULL),
-+	SG2042_GENERAL_PIN(PIN_FAN1, 0x08c,
-+			   PIN_FLAG_ONLY_ONE_PULL),
-+	SG2042_GENERAL_PIN(PIN_FAN2, 0x08c,
-+			   PIN_FLAG_WRITE_HIGH | PIN_FLAG_ONLY_ONE_PULL),
-+	SG2042_GENERAL_PIN(PIN_FAN3, 0x090,
-+			   PIN_FLAG_ONLY_ONE_PULL),
-+	SG2042_GENERAL_PIN(PIN_IIC0_SDA, 0x090,
-+			   PIN_FLAG_WRITE_HIGH),
-+	SG2042_GENERAL_PIN(PIN_IIC0_SCL, 0x094,
-+			   PIN_FLAG_DEFAULT),
-+	SG2042_GENERAL_PIN(PIN_IIC1_SDA, 0x094,
-+			   PIN_FLAG_WRITE_HIGH),
-+	SG2042_GENERAL_PIN(PIN_IIC1_SCL, 0x098,
-+			   PIN_FLAG_DEFAULT),
-+	SG2042_GENERAL_PIN(PIN_IIC2_SDA, 0x098,
-+			   PIN_FLAG_WRITE_HIGH),
-+	SG2042_GENERAL_PIN(PIN_IIC2_SCL, 0x09c,
-+			   PIN_FLAG_DEFAULT),
-+	SG2042_GENERAL_PIN(PIN_IIC3_SDA, 0x09c,
-+			   PIN_FLAG_WRITE_HIGH),
-+	SG2042_GENERAL_PIN(PIN_IIC3_SCL, 0x0a0,
-+			   PIN_FLAG_DEFAULT),
-+	SG2042_GENERAL_PIN(PIN_UART0_TX, 0x0a0,
-+			   PIN_FLAG_WRITE_HIGH | PIN_FLAG_ONLY_ONE_PULL),
-+	SG2042_GENERAL_PIN(PIN_UART0_RX, 0x0a4,
-+			   PIN_FLAG_ONLY_ONE_PULL),
-+	SG2042_GENERAL_PIN(PIN_UART0_RTS, 0x0a4,
-+			   PIN_FLAG_WRITE_HIGH | PIN_FLAG_ONLY_ONE_PULL),
-+	SG2042_GENERAL_PIN(PIN_UART0_CTS, 0x0a8,
-+			   PIN_FLAG_ONLY_ONE_PULL),
-+	SG2042_GENERAL_PIN(PIN_UART1_TX, 0x0a8,
-+			   PIN_FLAG_WRITE_HIGH | PIN_FLAG_ONLY_ONE_PULL),
-+	SG2042_GENERAL_PIN(PIN_UART1_RX, 0x0ac,
-+			   PIN_FLAG_ONLY_ONE_PULL),
-+	SG2042_GENERAL_PIN(PIN_UART1_RTS, 0x0ac,
-+			   PIN_FLAG_WRITE_HIGH | PIN_FLAG_ONLY_ONE_PULL),
-+	SG2042_GENERAL_PIN(PIN_UART1_CTS, 0x0b0,
-+			   PIN_FLAG_ONLY_ONE_PULL),
-+	SG2042_GENERAL_PIN(PIN_UART2_TX, 0x0b0,
-+			   PIN_FLAG_WRITE_HIGH | PIN_FLAG_ONLY_ONE_PULL),
-+	SG2042_GENERAL_PIN(PIN_UART2_RX, 0x0b4,
-+			   PIN_FLAG_ONLY_ONE_PULL),
-+	SG2042_GENERAL_PIN(PIN_UART2_RTS, 0x0b4,
-+			   PIN_FLAG_WRITE_HIGH | PIN_FLAG_ONLY_ONE_PULL),
-+	SG2042_GENERAL_PIN(PIN_UART2_CTS, 0x0b8,
-+			   PIN_FLAG_ONLY_ONE_PULL),
-+	SG2042_GENERAL_PIN(PIN_UART3_TX, 0x0b8,
-+			   PIN_FLAG_WRITE_HIGH | PIN_FLAG_ONLY_ONE_PULL),
-+	SG2042_GENERAL_PIN(PIN_UART3_RX, 0x0bc,
-+			   PIN_FLAG_ONLY_ONE_PULL),
-+	SG2042_GENERAL_PIN(PIN_UART3_RTS, 0x0bc,
-+			   PIN_FLAG_WRITE_HIGH | PIN_FLAG_ONLY_ONE_PULL),
-+	SG2042_GENERAL_PIN(PIN_UART3_CTS, 0x0c0,
-+			   PIN_FLAG_ONLY_ONE_PULL),
-+	SG2042_GENERAL_PIN(PIN_SPI0_CS0, 0x0c0,
-+			   PIN_FLAG_WRITE_HIGH | PIN_FLAG_ONLY_ONE_PULL),
-+	SG2042_GENERAL_PIN(PIN_SPI0_CS1, 0x0c4,
-+			   PIN_FLAG_ONLY_ONE_PULL),
-+	SG2042_GENERAL_PIN(PIN_SPI0_SDI, 0x0c4,
-+			   PIN_FLAG_WRITE_HIGH | PIN_FLAG_ONLY_ONE_PULL),
-+	SG2042_GENERAL_PIN(PIN_SPI0_SDO, 0x0c8,
-+			   PIN_FLAG_ONLY_ONE_PULL),
-+	SG2042_GENERAL_PIN(PIN_SPI0_SCK, 0x0c8,
-+			   PIN_FLAG_WRITE_HIGH | PIN_FLAG_ONLY_ONE_PULL),
-+	SG2042_GENERAL_PIN(PIN_SPI1_CS0, 0x0cc,
-+			   PIN_FLAG_ONLY_ONE_PULL),
-+	SG2042_GENERAL_PIN(PIN_SPI1_CS1, 0x0cc,
-+			   PIN_FLAG_WRITE_HIGH | PIN_FLAG_ONLY_ONE_PULL),
-+	SG2042_GENERAL_PIN(PIN_SPI1_SDI, 0x0d0,
-+			   PIN_FLAG_ONLY_ONE_PULL),
-+	SG2042_GENERAL_PIN(PIN_SPI1_SDO, 0x0d0,
-+			   PIN_FLAG_WRITE_HIGH | PIN_FLAG_ONLY_ONE_PULL),
-+	SG2042_GENERAL_PIN(PIN_SPI1_SCK, 0x0d4,
-+			   PIN_FLAG_ONLY_ONE_PULL),
-+	SG2042_GENERAL_PIN(PIN_JTAG0_TDO, 0x0d4,
-+			   PIN_FLAG_WRITE_HIGH | PIN_FLAG_ONLY_ONE_PULL),
-+	SG2042_GENERAL_PIN(PIN_JTAG0_TCK, 0x0d8,
-+			   PIN_FLAG_ONLY_ONE_PULL),
-+	SG2042_GENERAL_PIN(PIN_JTAG0_TDI, 0x0d8,
-+			   PIN_FLAG_WRITE_HIGH | PIN_FLAG_ONLY_ONE_PULL),
-+	SG2042_GENERAL_PIN(PIN_JTAG0_TMS, 0x0dc,
-+			   PIN_FLAG_ONLY_ONE_PULL),
-+	SG2042_GENERAL_PIN(PIN_JTAG0_TRST, 0x0dc,
-+			   PIN_FLAG_WRITE_HIGH | PIN_FLAG_ONLY_ONE_PULL),
-+	SG2042_GENERAL_PIN(PIN_JTAG0_SRST, 0x0e0,
-+			   PIN_FLAG_ONLY_ONE_PULL),
-+	SG2042_GENERAL_PIN(PIN_JTAG1_TDO, 0x0e0,
-+			   PIN_FLAG_WRITE_HIGH | PIN_FLAG_ONLY_ONE_PULL),
-+	SG2042_GENERAL_PIN(PIN_JTAG1_TCK, 0x0e4,
-+			   PIN_FLAG_ONLY_ONE_PULL),
-+	SG2042_GENERAL_PIN(PIN_JTAG1_TDI, 0x0e4,
-+			   PIN_FLAG_WRITE_HIGH | PIN_FLAG_ONLY_ONE_PULL),
-+	SG2042_GENERAL_PIN(PIN_JTAG1_TMS, 0x0e8,
-+			   PIN_FLAG_ONLY_ONE_PULL),
-+	SG2042_GENERAL_PIN(PIN_JTAG1_TRST, 0x0e8,
-+			   PIN_FLAG_WRITE_HIGH | PIN_FLAG_ONLY_ONE_PULL),
-+	SG2042_GENERAL_PIN(PIN_JTAG1_SRST, 0x0ec,
-+			   PIN_FLAG_ONLY_ONE_PULL),
-+	SG2042_GENERAL_PIN(PIN_JTAG2_TDO, 0x0ec,
-+			   PIN_FLAG_WRITE_HIGH | PIN_FLAG_ONLY_ONE_PULL),
-+	SG2042_GENERAL_PIN(PIN_JTAG2_TCK, 0x0f0,
-+			   PIN_FLAG_ONLY_ONE_PULL),
-+	SG2042_GENERAL_PIN(PIN_JTAG2_TDI, 0x0f0,
-+			   PIN_FLAG_WRITE_HIGH | PIN_FLAG_ONLY_ONE_PULL),
-+	SG2042_GENERAL_PIN(PIN_JTAG2_TMS, 0x0f4,
-+			   PIN_FLAG_ONLY_ONE_PULL),
-+	SG2042_GENERAL_PIN(PIN_JTAG2_TRST, 0x0f4,
-+			   PIN_FLAG_WRITE_HIGH | PIN_FLAG_ONLY_ONE_PULL),
-+	SG2042_GENERAL_PIN(PIN_JTAG2_SRST, 0x0f8,
-+			   PIN_FLAG_ONLY_ONE_PULL),
-+	SG2042_GENERAL_PIN(PIN_GPIO0, 0x0f8,
-+			   PIN_FLAG_WRITE_HIGH | PIN_FLAG_ONLY_ONE_PULL),
-+	SG2042_GENERAL_PIN(PIN_GPIO1, 0x0fc,
-+			   PIN_FLAG_ONLY_ONE_PULL),
-+	SG2042_GENERAL_PIN(PIN_GPIO2, 0x0fc,
-+			   PIN_FLAG_WRITE_HIGH | PIN_FLAG_ONLY_ONE_PULL),
-+	SG2042_GENERAL_PIN(PIN_GPIO3, 0x100,
-+			   PIN_FLAG_ONLY_ONE_PULL),
-+	SG2042_GENERAL_PIN(PIN_GPIO4, 0x100,
-+			   PIN_FLAG_WRITE_HIGH | PIN_FLAG_ONLY_ONE_PULL),
-+	SG2042_GENERAL_PIN(PIN_GPIO5, 0x104,
-+			   PIN_FLAG_ONLY_ONE_PULL),
-+	SG2042_GENERAL_PIN(PIN_GPIO6, 0x104,
-+			   PIN_FLAG_WRITE_HIGH | PIN_FLAG_ONLY_ONE_PULL),
-+	SG2042_GENERAL_PIN(PIN_GPIO7, 0x108,
-+			   PIN_FLAG_ONLY_ONE_PULL),
-+	SG2042_GENERAL_PIN(PIN_GPIO8, 0x108,
-+			   PIN_FLAG_WRITE_HIGH | PIN_FLAG_ONLY_ONE_PULL),
-+	SG2042_GENERAL_PIN(PIN_GPIO9, 0x10c,
-+			   PIN_FLAG_ONLY_ONE_PULL),
-+	SG2042_GENERAL_PIN(PIN_GPIO10, 0x10c,
-+			   PIN_FLAG_WRITE_HIGH | PIN_FLAG_ONLY_ONE_PULL),
-+	SG2042_GENERAL_PIN(PIN_GPIO11, 0x110,
-+			   PIN_FLAG_ONLY_ONE_PULL),
-+	SG2042_GENERAL_PIN(PIN_GPIO12, 0x110,
-+			   PIN_FLAG_WRITE_HIGH | PIN_FLAG_ONLY_ONE_PULL),
-+	SG2042_GENERAL_PIN(PIN_GPIO13, 0x114,
-+			   PIN_FLAG_ONLY_ONE_PULL),
-+	SG2042_GENERAL_PIN(PIN_GPIO14, 0x114,
-+			   PIN_FLAG_WRITE_HIGH | PIN_FLAG_ONLY_ONE_PULL),
-+	SG2042_GENERAL_PIN(PIN_GPIO15, 0x118,
-+			   PIN_FLAG_ONLY_ONE_PULL),
-+	SG2042_GENERAL_PIN(PIN_GPIO16, 0x118,
-+			   PIN_FLAG_WRITE_HIGH | PIN_FLAG_ONLY_ONE_PULL),
-+	SG2042_GENERAL_PIN(PIN_GPIO17, 0x11c,
-+			   PIN_FLAG_ONLY_ONE_PULL),
-+	SG2042_GENERAL_PIN(PIN_GPIO18, 0x11c,
-+			   PIN_FLAG_WRITE_HIGH | PIN_FLAG_ONLY_ONE_PULL),
-+	SG2042_GENERAL_PIN(PIN_GPIO19, 0x120,
-+			   PIN_FLAG_ONLY_ONE_PULL),
-+	SG2042_GENERAL_PIN(PIN_GPIO20, 0x120,
-+			   PIN_FLAG_WRITE_HIGH | PIN_FLAG_ONLY_ONE_PULL),
-+	SG2042_GENERAL_PIN(PIN_GPIO21, 0x124,
-+			   PIN_FLAG_ONLY_ONE_PULL),
-+	SG2042_GENERAL_PIN(PIN_GPIO22, 0x124,
-+			   PIN_FLAG_WRITE_HIGH | PIN_FLAG_ONLY_ONE_PULL),
-+	SG2042_GENERAL_PIN(PIN_GPIO23, 0x128,
-+			   PIN_FLAG_ONLY_ONE_PULL),
-+	SG2042_GENERAL_PIN(PIN_GPIO24, 0x128,
-+			   PIN_FLAG_WRITE_HIGH | PIN_FLAG_ONLY_ONE_PULL),
-+	SG2042_GENERAL_PIN(PIN_GPIO25, 0x12c,
-+			   PIN_FLAG_ONLY_ONE_PULL),
-+	SG2042_GENERAL_PIN(PIN_GPIO26, 0x12c,
-+			   PIN_FLAG_WRITE_HIGH | PIN_FLAG_ONLY_ONE_PULL),
-+	SG2042_GENERAL_PIN(PIN_GPIO27, 0x130,
-+			   PIN_FLAG_ONLY_ONE_PULL),
-+	SG2042_GENERAL_PIN(PIN_GPIO28, 0x130,
-+			   PIN_FLAG_WRITE_HIGH | PIN_FLAG_ONLY_ONE_PULL),
-+	SG2042_GENERAL_PIN(PIN_GPIO29, 0x134,
-+			   PIN_FLAG_ONLY_ONE_PULL),
-+	SG2042_GENERAL_PIN(PIN_GPIO30, 0x134,
-+			   PIN_FLAG_WRITE_HIGH | PIN_FLAG_ONLY_ONE_PULL),
-+	SG2042_GENERAL_PIN(PIN_GPIO31, 0x138,
-+			   PIN_FLAG_ONLY_ONE_PULL),
-+	SG2042_GENERAL_PIN(PIN_MODE_SEL0, 0x138,
-+			   PIN_FLAG_WRITE_HIGH | PIN_FLAG_ONLY_ONE_PULL |
-+			   PIN_FLAG_NO_PINMUX | PIN_FLAG_NO_OEX_EN),
-+	SG2042_GENERAL_PIN(PIN_MODE_SEL1, 0x13c,
-+			   PIN_FLAG_ONLY_ONE_PULL | PIN_FLAG_NO_PINMUX |
-+			   PIN_FLAG_NO_OEX_EN),
-+	SG2042_GENERAL_PIN(PIN_MODE_SEL2, 0x13c,
-+			   PIN_FLAG_WRITE_HIGH | PIN_FLAG_ONLY_ONE_PULL |
-+			   PIN_FLAG_NO_PINMUX | PIN_FLAG_NO_OEX_EN),
-+	SG2042_GENERAL_PIN(PIN_BOOT_SEL0, 0x140,
-+			   PIN_FLAG_ONLY_ONE_PULL | PIN_FLAG_NO_PINMUX |
-+			   PIN_FLAG_NO_OEX_EN),
-+	SG2042_GENERAL_PIN(PIN_BOOT_SEL1, 0x140,
-+			   PIN_FLAG_WRITE_HIGH | PIN_FLAG_ONLY_ONE_PULL |
-+			   PIN_FLAG_NO_PINMUX | PIN_FLAG_NO_OEX_EN),
-+	SG2042_GENERAL_PIN(PIN_BOOT_SEL2, 0x144,
-+			   PIN_FLAG_ONLY_ONE_PULL | PIN_FLAG_NO_PINMUX |
-+			   PIN_FLAG_NO_OEX_EN),
-+	SG2042_GENERAL_PIN(PIN_BOOT_SEL3, 0x144,
-+			   PIN_FLAG_WRITE_HIGH | PIN_FLAG_ONLY_ONE_PULL |
-+			   PIN_FLAG_NO_PINMUX | PIN_FLAG_NO_OEX_EN),
-+	SG2042_GENERAL_PIN(PIN_BOOT_SEL4, 0x148,
-+			   PIN_FLAG_ONLY_ONE_PULL | PIN_FLAG_NO_PINMUX |
-+			   PIN_FLAG_NO_OEX_EN),
-+	SG2042_GENERAL_PIN(PIN_BOOT_SEL5, 0x148,
-+			   PIN_FLAG_WRITE_HIGH | PIN_FLAG_ONLY_ONE_PULL |
-+			   PIN_FLAG_NO_PINMUX | PIN_FLAG_NO_OEX_EN),
-+	SG2042_GENERAL_PIN(PIN_BOOT_SEL6, 0x14c,
-+			   PIN_FLAG_ONLY_ONE_PULL | PIN_FLAG_NO_PINMUX |
-+			   PIN_FLAG_NO_OEX_EN),
-+	SG2042_GENERAL_PIN(PIN_BOOT_SEL7, 0x14c,
-+			   PIN_FLAG_WRITE_HIGH | PIN_FLAG_ONLY_ONE_PULL |
-+			   PIN_FLAG_NO_PINMUX | PIN_FLAG_NO_OEX_EN),
-+	SG2042_GENERAL_PIN(PIN_MULTI_SCKT, 0x150,
-+			   PIN_FLAG_ONLY_ONE_PULL | PIN_FLAG_NO_PINMUX |
-+			   PIN_FLAG_NO_OEX_EN),
-+	SG2042_GENERAL_PIN(PIN_SCKT_ID0, 0x150,
-+			   PIN_FLAG_WRITE_HIGH | PIN_FLAG_ONLY_ONE_PULL |
-+			   PIN_FLAG_NO_PINMUX | PIN_FLAG_NO_OEX_EN),
-+	SG2042_GENERAL_PIN(PIN_SCKT_ID1, 0x154,
-+			   PIN_FLAG_ONLY_ONE_PULL | PIN_FLAG_NO_PINMUX |
-+			   PIN_FLAG_NO_OEX_EN),
-+	SG2042_GENERAL_PIN(PIN_PLL_CLK_IN_MAIN, 0x154,
-+			   PIN_FLAG_WRITE_HIGH | PIN_FLAG_ONLY_ONE_PULL |
-+			   PIN_FLAG_NO_PINMUX | PIN_FLAG_NO_OEX_EN),
-+	SG2042_GENERAL_PIN(PIN_PLL_CLK_IN_DDR_L, 0x158,
-+			   PIN_FLAG_ONLY_ONE_PULL | PIN_FLAG_NO_PINMUX |
-+			   PIN_FLAG_NO_OEX_EN),
-+	SG2042_GENERAL_PIN(PIN_PLL_CLK_IN_DDR_R, 0x158,
-+			   PIN_FLAG_WRITE_HIGH | PIN_FLAG_ONLY_ONE_PULL |
-+			   PIN_FLAG_NO_PINMUX | PIN_FLAG_NO_OEX_EN),
-+	SG2042_GENERAL_PIN(PIN_XTAL_32K, 0x15c,
-+			   PIN_FLAG_ONLY_ONE_PULL | PIN_FLAG_NO_PINMUX |
-+			   PIN_FLAG_NO_OEX_EN),
-+	SG2042_GENERAL_PIN(PIN_SYS_RST, 0x15c,
-+			   PIN_FLAG_WRITE_HIGH | PIN_FLAG_ONLY_ONE_PULL |
-+			   PIN_FLAG_NO_PINMUX | PIN_FLAG_NO_OEX_EN),
-+	SG2042_GENERAL_PIN(PIN_PWR_BUTTON, 0x160,
-+			   PIN_FLAG_ONLY_ONE_PULL | PIN_FLAG_NO_PINMUX |
-+			   PIN_FLAG_NO_OEX_EN),
-+	SG2042_GENERAL_PIN(PIN_TEST_EN, 0x160,
-+			   PIN_FLAG_WRITE_HIGH | PIN_FLAG_ONLY_ONE_PULL |
-+			   PIN_FLAG_NO_PINMUX | PIN_FLAG_NO_OEX_EN),
-+	SG2042_GENERAL_PIN(PIN_TEST_MODE_MBIST, 0x164,
-+			   PIN_FLAG_ONLY_ONE_PULL | PIN_FLAG_NO_PINMUX |
-+			   PIN_FLAG_NO_OEX_EN),
-+	SG2042_GENERAL_PIN(PIN_TEST_MODE_SCAN, 0x164,
-+			   PIN_FLAG_WRITE_HIGH | PIN_FLAG_ONLY_ONE_PULL |
-+			   PIN_FLAG_NO_PINMUX | PIN_FLAG_NO_OEX_EN),
-+	SG2042_GENERAL_PIN(PIN_TEST_MODE_BSD, 0x168,
-+			   PIN_FLAG_ONLY_ONE_PULL | PIN_FLAG_NO_PINMUX |
-+			   PIN_FLAG_NO_OEX_EN),
-+	SG2042_GENERAL_PIN(PIN_BISR_BYP, 0x168,
-+			   PIN_FLAG_WRITE_HIGH | PIN_FLAG_ONLY_ONE_PULL |
-+			   PIN_FLAG_NO_PINMUX | PIN_FLAG_NO_OEX_EN),
-+};
-+
-+static const struct sophgo_pinctrl_data sg2042_pindata = {
-+	.pins		= sg2042_pins,
-+	.pindata	= sg2042_pin_data,
-+	.vddio_ops	= &sg2042_vddio_cfg_ops,
-+	.cfg_ops	= &sg2042_cfg_ops,
-+	.pctl_ops	= &sg2042_pctrl_ops,
-+	.pmx_ops	= &sg2042_pmx_ops,
-+	.pconf_ops	= &sg2042_pconf_ops,
-+	.npins		= ARRAY_SIZE(sg2042_pins),
-+	.pinsize	= sizeof(struct sg2042_pin),
-+};
-+
-+static const struct of_device_id sg2042_pinctrl_ids[] = {
-+	{ .compatible = "sophgo,sg2042-pinctrl", .data = &sg2042_pindata },
-+	{ }
-+};
-+MODULE_DEVICE_TABLE(of, sg2042_pinctrl_ids);
-+
-+static struct platform_driver sg2042_pinctrl_driver = {
-+	.probe	= sophgo_pinctrl_probe,
-+	.driver	= {
-+		.name			= "sg2042-pinctrl",
-+		.suppress_bind_attrs	= true,
-+		.of_match_table		= sg2042_pinctrl_ids,
-+	},
-+};
-+module_platform_driver(sg2042_pinctrl_driver);
-+
-+MODULE_DESCRIPTION("Pinctrl driver for the SG2002 series SoC");
-+MODULE_LICENSE("GPL");
-diff --git a/drivers/pinctrl/sophgo/pinctrl-sg2042.h b/drivers/pinctrl/sophgo/pinctrl-sg2042.h
-new file mode 100644
-index 000000000000..d481973fcf97
---- /dev/null
-+++ b/drivers/pinctrl/sophgo/pinctrl-sg2042.h
-@@ -0,0 +1,49 @@
-+/* SPDX-License-Identifier: GPL-2.0 */
-+/*
-+ * Copyright (C) 2024 Inochi Amaoto <inochiama@outlook.com>
-+ */
-+
-+#ifndef _PINCTRL_SOPHGO_SG2042_H
-+#define _PINCTRL_SOPHGO_SG2042_H
-+
-+#include <linux/bits.h>
-+#include <linux/bitfield.h>
-+#include <linux/device.h>
-+#include <linux/mutex.h>
-+#include <linux/spinlock.h>
-+#include <linux/platform_device.h>
-+#include <linux/pinctrl/pinctrl.h>
-+#include <linux/pinctrl/pinconf.h>
 +
 +#include "pinctrl-sophgo.h"
 +
-+#define PIN_FLAG_DEFAULT			0
-+#define PIN_FLAG_WRITE_HIGH			BIT(0)
-+#define PIN_FLAG_ONLY_ONE_PULL			BIT(1)
-+#define PIN_FLAG_NO_PINMUX			BIT(2)
-+#define PIN_FLAG_NO_OEX_EN			BIT(3)
-+#define PIN_FLAG_IS_ETH				BIT(4)
++static u16 sophgo_dt_get_pin(u32 value)
++{
++	return value;
++}
 +
-+struct sg2042_pin {
-+	struct sophgo_pin		pin;
-+	u16				offset;
-+};
++static int sophgo_cmp_pin(const void *key, const void *pivot)
++{
++	const struct sophgo_pin *pin = pivot;
++	int pin_id = (long)key;
++	int pivid = pin->id;
 +
-+#define sophgo_to_sg2042_pin(_pin)		\
-+	container_of((_pin), struct sg2042_pin, pin)
++	return pin_id - pivid;
++}
 +
-+extern const struct pinctrl_ops sg2042_pctrl_ops;
-+extern const struct pinmux_ops sg2042_pmx_ops;
-+extern const struct pinconf_ops sg2042_pconf_ops;
-+extern const struct sophgo_cfg_ops sg2042_cfg_ops;
++const struct sophgo_pin *sophgo_get_pin(struct sophgo_pinctrl *pctrl,
++					unsigned long pin_id)
++{
++	return bsearch((void *)pin_id, pctrl->data->pindata, pctrl->data->npins,
++		       pctrl->data->pinsize, sophgo_cmp_pin);
++}
 +
-+#define SG2042_GENERAL_PIN(_id,	_offset, _flag)				\
-+	{								\
-+		.pin = {						\
-+			.id = (_id),					\
-+			.flags = (_flag),				\
-+		},							\
-+		.offset = (_offset),					\
++static int sophgo_verify_pinmux_config(struct sophgo_pinctrl *pctrl,
++				       const struct sophgo_pin_mux_config *config)
++{
++	if (pctrl->data->cfg_ops->verify_pinmux_config)
++		return pctrl->data->cfg_ops->verify_pinmux_config(config);
++	return 0;
++}
++
++static int sophgo_verify_pin_group(struct sophgo_pinctrl *pctrl,
++				   const struct sophgo_pin_mux_config *config,
++				   unsigned int npins)
++{
++	if (pctrl->data->cfg_ops->verify_pin_group)
++		return pctrl->data->cfg_ops->verify_pin_group(config, npins);
++	return 0;
++}
++
++static int sophgo_dt_node_to_map_post(struct device_node *cur,
++				      struct sophgo_pinctrl *pctrl,
++				      struct sophgo_pin_mux_config *config,
++				      unsigned int npins)
++{
++	if (pctrl->data->cfg_ops->dt_node_to_map_post)
++		return pctrl->data->cfg_ops->dt_node_to_map_post(cur, pctrl,
++								 config, npins);
++	return 0;
++}
++
++int sophgo_pctrl_dt_node_to_map(struct pinctrl_dev *pctldev, struct device_node *np,
++				struct pinctrl_map **maps, unsigned int *num_maps)
++{
++	struct sophgo_pinctrl *pctrl = pinctrl_dev_get_drvdata(pctldev);
++	struct device *dev = pctrl->dev;
++	struct device_node *child;
++	struct pinctrl_map *map;
++	const char **grpnames;
++	const char *grpname;
++	int ngroups = 0;
++	int nmaps = 0;
++	int ret;
++
++	for_each_available_child_of_node(np, child)
++		ngroups += 1;
++
++	grpnames = devm_kcalloc(dev, ngroups, sizeof(*grpnames), GFP_KERNEL);
++	if (!grpnames)
++		return -ENOMEM;
++
++	map = kcalloc(ngroups * 2, sizeof(*map), GFP_KERNEL);
++	if (!map)
++		return -ENOMEM;
++
++	ngroups = 0;
++	guard(mutex)(&pctrl->mutex);
++	for_each_available_child_of_node(np, child) {
++		int npins = of_property_count_u32_elems(child, "pinmux");
++		unsigned int *pins;
++		struct sophgo_pin_mux_config *pinmuxs;
++		u32 config;
++		int i;
++
++		if (npins < 1) {
++			dev_err(dev, "invalid pinctrl group %pOFn.%pOFn\n",
++				np, child);
++			ret = -EINVAL;
++			goto dt_failed;
++		}
++
++		grpname = devm_kasprintf(dev, GFP_KERNEL, "%pOFn.%pOFn",
++					 np, child);
++		if (!grpname) {
++			ret = -ENOMEM;
++			goto dt_failed;
++		}
++
++		grpnames[ngroups++] = grpname;
++
++		pins = devm_kcalloc(dev, npins, sizeof(*pins), GFP_KERNEL);
++		if (!pins) {
++			ret = -ENOMEM;
++			goto dt_failed;
++		}
++
++		pinmuxs = devm_kcalloc(dev, npins, sizeof(*pinmuxs), GFP_KERNEL);
++		if (!pinmuxs) {
++			ret = -ENOMEM;
++			goto dt_failed;
++		}
++
++		for (i = 0; i < npins; i++) {
++			ret = of_property_read_u32_index(child, "pinmux",
++							 i, &config);
++			if (ret)
++				goto dt_failed;
++
++			pins[i] = sophgo_dt_get_pin(config);
++			pinmuxs[i].config = config;
++			pinmuxs[i].pin = sophgo_get_pin(pctrl, pins[i]);
++
++			if (!pinmuxs[i].pin) {
++				dev_err(dev, "failed to get pin %d\n", pins[i]);
++				ret = -ENODEV;
++				goto dt_failed;
++			}
++
++			ret = sophgo_verify_pinmux_config(pctrl, &pinmuxs[i]);
++			if (ret) {
++				dev_err(dev, "group %s pin %d is invalid\n",
++					grpname, i);
++				goto dt_failed;
++			}
++		}
++
++		ret = sophgo_verify_pin_group(pctrl, pinmuxs, npins);
++		if (ret) {
++			dev_err(dev, "group %s is invalid\n", grpname);
++			goto dt_failed;
++		}
++
++		ret = sophgo_dt_node_to_map_post(child, pctrl, pinmuxs, npins);
++		if (ret)
++			goto dt_failed;
++
++		map[nmaps].type = PIN_MAP_TYPE_MUX_GROUP;
++		map[nmaps].data.mux.function = np->name;
++		map[nmaps].data.mux.group = grpname;
++		nmaps += 1;
++
++		ret = pinconf_generic_parse_dt_config(child, pctldev,
++						      &map[nmaps].data.configs.configs,
++						      &map[nmaps].data.configs.num_configs);
++		if (ret) {
++			dev_err(dev, "failed to parse pin config of group %s: %d\n",
++				grpname, ret);
++			goto dt_failed;
++		}
++
++		ret = pinctrl_generic_add_group(pctldev, grpname,
++						pins, npins, pinmuxs);
++		if (ret < 0) {
++			dev_err(dev, "failed to add group %s: %d\n", grpname, ret);
++			goto dt_failed;
++		}
++
++		/* don't create a map if there are no pinconf settings */
++		if (map[nmaps].data.configs.num_configs == 0)
++			continue;
++
++		map[nmaps].type = PIN_MAP_TYPE_CONFIGS_GROUP;
++		map[nmaps].data.configs.group_or_pin = grpname;
++		nmaps += 1;
 +	}
 +
-+#endif
++	ret = pinmux_generic_add_function(pctldev, np->name,
++					  grpnames, ngroups, NULL);
++	if (ret < 0) {
++		dev_err(dev, "error adding function %s: %d\n", np->name, ret);
++		goto function_failed;
++	}
++
++	*maps = map;
++	*num_maps = nmaps;
++
++	return 0;
++
++dt_failed:
++	of_node_put(child);
++function_failed:
++	pinctrl_utils_free_map(pctldev, map, nmaps);
++	return ret;
++}
++
++int sophgo_pmx_set_mux(struct pinctrl_dev *pctldev,
++		       unsigned int fsel, unsigned int gsel)
++{
++	struct sophgo_pinctrl *pctrl = pinctrl_dev_get_drvdata(pctldev);
++	const struct group_desc *group;
++	const struct sophgo_pin_mux_config *configs;
++	unsigned int i;
++
++	group = pinctrl_generic_get_group(pctldev, gsel);
++	if (!group)
++		return -EINVAL;
++
++	configs = group->data;
++
++	for (i = 0; i < group->grp.npins; i++) {
++		const struct sophgo_pin *pin = configs[i].pin;
++		u32 value = configs[i].config;
++
++		guard(raw_spinlock_irqsave)(&pctrl->lock);
++
++		pctrl->data->cfg_ops->set_pinmux_config(pctrl, pin, value);
++	}
++
++	return 0;
++}
++
++static int sophgo_pin_set_config(struct sophgo_pinctrl *pctrl,
++				 unsigned int pin_id,
++				 u32 value, u32 mask)
++{
++	const struct sophgo_pin *pin = sophgo_get_pin(pctrl, pin_id);
++
++	if (!pin)
++		return -EINVAL;
++
++	guard(raw_spinlock_irqsave)(&pctrl->lock);
++
++	return pctrl->data->cfg_ops->set_pinconf_config(pctrl, pin, value, mask);
++}
++
++int sophgo_pconf_set(struct pinctrl_dev *pctldev, unsigned int pin_id,
++		     unsigned long *configs, unsigned int num_configs)
++{
++	struct sophgo_pinctrl *pctrl = pinctrl_dev_get_drvdata(pctldev);
++	const struct sophgo_pin *pin = sophgo_get_pin(pctrl, pin_id);
++	u32 value, mask;
++
++	if (!pin)
++		return -ENODEV;
++
++	if (pctrl->data->cfg_ops->compute_pinconf_config(pctrl, pin,
++							 configs, num_configs,
++							 &value, &mask))
++		return -ENOTSUPP;
++
++	return sophgo_pin_set_config(pctrl, pin_id, value, mask);
++}
++
++int sophgo_pconf_group_set(struct pinctrl_dev *pctldev, unsigned int gsel,
++			   unsigned long *configs, unsigned int num_configs)
++{
++	struct sophgo_pinctrl *pctrl = pinctrl_dev_get_drvdata(pctldev);
++	const struct group_desc *group;
++	const struct sophgo_pin_mux_config *pinmuxs;
++	u32 value, mask;
++	int i;
++
++	group = pinctrl_generic_get_group(pctldev, gsel);
++	if (!group)
++		return -EINVAL;
++
++	pinmuxs = group->data;
++
++	if (pctrl->data->cfg_ops->compute_pinconf_config(pctrl, pinmuxs[0].pin,
++							 configs, num_configs,
++							 &value, &mask))
++		return -ENOTSUPP;
++
++	for (i = 0; i < group->grp.npins; i++)
++		sophgo_pin_set_config(pctrl,  group->grp.pins[i], value, mask);
++
++	return 0;
++}
++
++u32 sophgo_pinctrl_typical_pull_down(struct sophgo_pinctrl *pctrl,
++				     const struct sophgo_pin *pin,
++				     const u32 *power_cfg)
++{
++	return pctrl->data->vddio_ops->get_pull_down(pin, power_cfg);
++}
++
++u32 sophgo_pinctrl_typical_pull_up(struct sophgo_pinctrl *pctrl,
++				   const struct sophgo_pin *pin,
++				   const u32 *power_cfg)
++{
++	return pctrl->data->vddio_ops->get_pull_up(pin, power_cfg);
++}
++
++int sophgo_pinctrl_oc2reg(struct sophgo_pinctrl *pctrl,
++			  const struct sophgo_pin *pin,
++			  const u32 *power_cfg, u32 target)
++{
++	const u32 *map;
++	int i, len;
++
++	if (!pctrl->data->vddio_ops->get_oc_map)
++		return -ENOTSUPP;
++
++	len = pctrl->data->vddio_ops->get_oc_map(pin, power_cfg, &map);
++	if (len < 0)
++		return len;
++
++	for (i = 0; i < len; i++) {
++		if (map[i] >= target)
++			return i;
++	}
++
++	return -EINVAL;
++}
++
++int sophgo_pinctrl_reg2oc(struct sophgo_pinctrl *pctrl,
++			  const struct sophgo_pin *pin,
++			  const u32 *power_cfg, u32 reg)
++{
++	const u32 *map;
++	int len;
++
++	if (!pctrl->data->vddio_ops->get_oc_map)
++		return -ENOTSUPP;
++
++	len = pctrl->data->vddio_ops->get_oc_map(pin, power_cfg, &map);
++	if (len < 0)
++		return len;
++
++	if (reg >= len)
++		return -EINVAL;
++
++	return map[reg];
++}
++
++int sophgo_pinctrl_schmitt2reg(struct sophgo_pinctrl *pctrl,
++			       const struct sophgo_pin *pin,
++			       const u32 *power_cfg, u32 target)
++{
++	const u32 *map;
++	int i, len;
++
++	if (!pctrl->data->vddio_ops->get_schmitt_map)
++		return -ENOTSUPP;
++
++	len = pctrl->data->vddio_ops->get_schmitt_map(pin, power_cfg, &map);
++	if (len < 0)
++		return len;
++
++	for (i = 0; i < len; i++) {
++		if (map[i] == target)
++			return i;
++	}
++
++	return -EINVAL;
++}
++
++int sophgo_pinctrl_reg2schmitt(struct sophgo_pinctrl *pctrl,
++			       const struct sophgo_pin *pin,
++			       const u32 *power_cfg, u32 reg)
++{
++	const u32 *map;
++	int len;
++
++	if (!pctrl->data->vddio_ops->get_schmitt_map)
++		return -ENOTSUPP;
++
++	len = pctrl->data->vddio_ops->get_schmitt_map(pin, power_cfg, &map);
++	if (len < 0)
++		return len;
++
++	if (reg >= len)
++		return -EINVAL;
++
++	return map[reg];
++}
++
++MODULE_DESCRIPTION("Common pinctrl helper function for the Sophgo SoC");
++MODULE_LICENSE("GPL");
+diff --git a/drivers/pinctrl/sophgo/pinctrl-sophgo.h b/drivers/pinctrl/sophgo/pinctrl-sophgo.h
+index e43b4f30f18a..f8b094a09f7c 100644
+--- a/drivers/pinctrl/sophgo/pinctrl-sophgo.h
++++ b/drivers/pinctrl/sophgo/pinctrl-sophgo.h
+@@ -9,10 +9,13 @@
+ #include <linux/device.h>
+ #include <linux/mutex.h>
+ #include <linux/pinctrl/pinctrl.h>
++#include <linux/platform_device.h>
+ #include <linux/spinlock.h>
+ 
+ #include "../core.h"
+ 
++struct sophgo_pinctrl;
++
+ struct sophgo_pin {
+ 	u16				id;
+ 	u16				flags;
+@@ -23,6 +26,36 @@ struct sophgo_pin_mux_config {
+ 	u32			config;
+ };
+ 
++/**
++ * struct sophgo_cfg_ops - pin configuration operations
++ *
++ * @verify_pinmux_config: verify the pinmux config for a pin
++ * @verify_pin_group: verify the whole pinmux group
++ * @dt_node_to_map_post: post init for the pinmux config map
++ * @compute_pinconf_config: compute pinconf config
++ * @set_pinconf_config: set pinconf config (the caller holds lock)
++ * @set_pinmux_config: set mux config (the caller holds lock)
++ */
++struct sophgo_cfg_ops {
++	int (*verify_pinmux_config)(const struct sophgo_pin_mux_config *config);
++	int (*verify_pin_group)(const struct sophgo_pin_mux_config *pinmuxs,
++				unsigned int npins);
++	int (*dt_node_to_map_post)(struct device_node *cur,
++				   struct sophgo_pinctrl *pctrl,
++				   struct sophgo_pin_mux_config *pinmuxs,
++				   unsigned int npins);
++	int (*compute_pinconf_config)(struct sophgo_pinctrl *pctrl,
++				      const struct sophgo_pin *sp,
++				      unsigned long *configs,
++				      unsigned int num_configs,
++				      u32 *value, u32 *mask);
++	int (*set_pinconf_config)(struct sophgo_pinctrl *pctrl,
++				  const struct sophgo_pin *sp,
++				  u32 value, u32 mask);
++	void (*set_pinmux_config)(struct sophgo_pinctrl *pctrl,
++				  const struct sophgo_pin *sp, u32 config);
++};
++
+ /**
+  * struct sophgo_vddio_cfg_ops - pin vddio operations
+  *
+@@ -47,6 +80,7 @@ struct sophgo_pinctrl_data {
+ 	const void				*pindata;
+ 	const char				* const *pdnames;
+ 	const struct sophgo_vddio_cfg_ops	*vddio_ops;
++	const struct sophgo_cfg_ops		*cfg_ops;
+ 	u16					npins;
+ 	u16					npds;
+ 	u16					pinsize;
+@@ -63,4 +97,33 @@ struct sophgo_pinctrl {
+ 	void					*priv_ctrl;
+ };
+ 
++const struct sophgo_pin *sophgo_get_pin(struct sophgo_pinctrl *pctrl,
++					unsigned long pin_id);
++int sophgo_pctrl_dt_node_to_map(struct pinctrl_dev *pctldev, struct device_node *np,
++				struct pinctrl_map **maps, unsigned int *num_maps);
++int sophgo_pmx_set_mux(struct pinctrl_dev *pctldev,
++		       unsigned int fsel, unsigned int gsel);
++int sophgo_pconf_set(struct pinctrl_dev *pctldev, unsigned int pin_id,
++		     unsigned long *configs, unsigned int num_configs);
++int sophgo_pconf_group_set(struct pinctrl_dev *pctldev, unsigned int gsel,
++			   unsigned long *configs, unsigned int num_configs);
++u32 sophgo_pinctrl_typical_pull_down(struct sophgo_pinctrl *pctrl,
++				     const struct sophgo_pin *pin,
++				     const u32 *power_cfg);
++u32 sophgo_pinctrl_typical_pull_up(struct sophgo_pinctrl *pctrl,
++				   const struct sophgo_pin *pin,
++				   const u32 *power_cfg);
++int sophgo_pinctrl_oc2reg(struct sophgo_pinctrl *pctrl,
++			  const struct sophgo_pin *pin,
++			  const u32 *power_cfg, u32 target);
++int sophgo_pinctrl_reg2oc(struct sophgo_pinctrl *pctrl,
++			  const struct sophgo_pin *pin,
++			  const u32 *power_cfg, u32 reg);
++int sophgo_pinctrl_schmitt2reg(struct sophgo_pinctrl *pctrl,
++			       const struct sophgo_pin *pin,
++			       const u32 *power_cfg, u32 target);
++int sophgo_pinctrl_reg2schmitt(struct sophgo_pinctrl *pctrl,
++			       const struct sophgo_pin *pin,
++			       const u32 *power_cfg, u32 reg);
++
+ #endif /* _PINCTRL_SOPHGO_H */
 -- 
 2.48.1
 
