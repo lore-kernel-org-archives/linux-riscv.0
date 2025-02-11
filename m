@@ -4,110 +4,123 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85A8FC021A5
-	for <linux-riscv@archiver.kernel.org>; Tue, 11 Feb 2025 00:10:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82D96C02198
+	for <linux-riscv@archiver.kernel.org>; Tue, 11 Feb 2025 00:16:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=6OzlSLmEDxmTZGGOWjgBQ1lVLRqdyG9JO3abRrCdyvI=; b=FcyO1Js5+Zbttz
-	qCT7KDa6g0v4Sfnmnz/OrQVK3+9TvMn0hQDqF6jCxQxMB3Xf7TdGxYTzMCuCdv9OZZb3DRJwLQvPw
-	bDYly2PuwWyTJrNPcbL2KB2+dhtT0NNRBWhDAYVN2TQYhpc5KeOIcTUOoDftVYUivCynEDlzqbUNH
-	d9k/2bL9wQQLnX2OV4IsQgf8kngAbSzZgLQnPtoS06TKLShfAqIrcZzcqbzBAI4Uojlx2iECkndyz
-	L0GaBBkmlZimvc0qaQAy6RUp3dPSpYr8xDyvpyUJD4Hv/rangt6GBlLIY49/ZRx/iaQNM7K5UTRn8
-	SdqFgg0+tZJSK5qOQ/dQ==;
+	List-Owner; bh=+Fse3RWRk7JQx4LbYbJJvMocERMjHyCeXMkf1lyRTp4=; b=p1foNCn/Lom2P7
+	6auDhBfKj7x5vlkoiSu0SHWjrkRDZi6XOpOCA+48n80sPtoOAuRsgu43xEp0WgTOWgR6MpN2cOTRP
+	W96nyCWoC0WkNKiwkiYVEtzLtIN2BfTZ/NJBQFiKqWcyuO4Kxt6fTY8aMdof31k0jr2qdaXibjZ5G
+	IRGJG/QJySJLNFK63RGPDmnzBaNbPvR0Z3+QRibgQ/BJ7bE+1grrWaHS8bJ3xYiq19HGuDSmDucYO
+	nZdcIZXkpg33rvw381/QE96VyBpSIOwkhrETA8MtPXYmcBXyrasBkH766kxr6sBsfXRMReQSTTXoQ
+	uUM20UMuv/qzReOO9KCg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1thdrZ-00000001w2t-1LvA;
-	Tue, 11 Feb 2025 00:10:53 +0000
+	id 1thdwf-00000001xD0-1jTx;
+	Tue, 11 Feb 2025 00:16:09 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1thbS9-00000001VWm-2kr1
+	id 1thdru-00000001wSD-1BTF
 	for linux-riscv@bombadil.infradead.org;
-	Mon, 10 Feb 2025 21:36:29 +0000
+	Tue, 11 Feb 2025 00:11:14 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=NTEMNxwWUDdJDHTSWR5BaYosnBDapUg7Ev6g031TeV8=; b=Tw26OiWB/v6EZDCoBFcd7+afXN
-	MBJNb5jmNlACGdHtAzXRQxXtSLcG7y2EolLJTBP5u/s4IdbH+R/8DwtIeRIUYrNjFe6kFI3Fupz9U
-	q00YQzF6+ZLPldauviizvE2Ac5vDbyyH1rsDhTvzXFHYUBOpBVy6QoHkLEDGJpge0ho2HM/FDrSsy
-	lgJp+28Twm0h2cJE48LfM3Eh0XTD0YgUsrBLs4nkkTvbAcRYByDm579GWfwnzaTzNUDaRRFTHm49B
-	Ywut5sGAHSDQQbfSZu1ruL/kIrlV06NC1CxKdUFFRHsdaRKX6AgqMi0mryRJUpDaqw7To0xLbGCpk
-	GveB75LA==;
-Received: from mail-wr1-x433.google.com ([2a00:1450:4864:20::433])
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=7d2yvMM2I9d/oyc1V0faCkOl8VeyuNqArkVlFzxUCDE=; b=htWxsMSxOZkUYkKiim7uZJ+aji
+	ySL47pS8m3x/C+Sb7Q2pgoXjNKbKT+vCpUjMLLtTBY+fK7lzsd6X597z2MWyYXYi3OpMXkAK9zgPg
+	nXDLHh42vnRxWNUbK7MR93WnaMm6BSvlcafQveB7G+EQwrU2ofFMzc10OYGwucVLbGc+8s017k/2N
+	JSa8nFqwvyB99Cnh2n3cJJKukh/t1JBBUsCjSsUtXv5BgjGRlRBxmuFdmoJ4LVVj+B0457dzhN0Ek
+	pp9wdxIZzH8W7f4p0mbrfd31L7On6V/J8M909QySVW3uOs6XYezrqEJ3rqSL6Rg8cYq4/VJQEoo0S
+	zlpZq5rA==;
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1thbS0-00000000I9i-1cV9
+	id 1thdrr-00000000O4W-1jHm
 	for linux-riscv@lists.infradead.org;
-	Mon, 10 Feb 2025 21:36:27 +0000
-Received: by mail-wr1-x433.google.com with SMTP id ffacd0b85a97d-38dcf8009f0so1647768f8f.2
-        for <linux-riscv@lists.infradead.org>; Mon, 10 Feb 2025 13:36:15 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1739223374; x=1739828174; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=NTEMNxwWUDdJDHTSWR5BaYosnBDapUg7Ev6g031TeV8=;
-        b=dbu+XeA9MAYnScbolaP3CtUclJ44e2xkxUSdbinjC8eghPDi+x33nOQXL2LNQc7twz
-         +vGh8fE3H+jxLRV0G4K+HhrXeGs2p4WOO+IiochBPUldmKcrJrrtlP9PqFZlDCjcdaZG
-         ryaFDprPzu7K1gfamAElAuCMZuP2t4IWqgVepxExxvlgd9aHsQm6fHzI5tDZML82iCty
-         IbGzQXbeGwrhArmeMjVyin03Db3y3EeeZM0z+zEV4bH3PTTTQK1hk/y+a9y6y4mBIFWb
-         2pMKOQZp5CdA+r92dZX1SwYO4Ad7e7N1WCiP3EBHbGI2IMifDW15LnhDPrt/Z0cI4OiS
-         0lxw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1739223374; x=1739828174;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=NTEMNxwWUDdJDHTSWR5BaYosnBDapUg7Ev6g031TeV8=;
-        b=ULUPEl6TOonEbP/gvGAJD72xWTSOlQoVP43vAkg7Y0UMdmoEVad6eRGpBctmek3Bmz
-         om370yDlPlkXbxdtT7YFSaayGLKtsb+vQUhNKx/e+s8y6rfNUtc1Elr0ATqg8iZ7yY9Y
-         EZ2fhqeYdsEeuZ7fZTGR0ZhYpjyiPk4ZzQHqE7NjUDprKMzHIrG+ZwnzHij2Vmo0b4N2
-         BZpeJKxYMj62Syb8z9dyUttOI7ZDMVTN7L6E50LEW4rinRVS9uNIo+LIxzkAYWxSZW5U
-         Il0mNJn06PwAzAj8YVCv/DqIJ7IcXDk4eoL7eKOFRSk/kCkRaL/fIvaxNBDb36McK6Gq
-         psiA==
-X-Forwarded-Encrypted: i=1; AJvYcCWE6ZKNnPNi8ChWBlzhZd/sMRar2jKTeSb7du1QVssDhHNilzYhAy/Ba6mmfiV/OXNusiVKtonvtMUdZw==@lists.infradead.org
-X-Gm-Message-State: AOJu0YwITnF8mygWyTcnNErw218rvOg0n04V/Au2N0eISxDBuf9zgI4/
-	lDIT0xFoEznVuZw4GSfot4zOietZ7GSR3biWJxCe7hwrjC1G6jQPFNSRqk+71Lg=
-X-Gm-Gg: ASbGncu7/p/GvWgmNPz70YGeGrcNDKxkPTJIcgNW6L66Tk4EnrWRAXhvPUibdD1+bVT
-	tOxr4wfO2vd6rRZ9BjnCrTJfjwMMGV2syiXe1h4epRtUuDQV2WEqgIwtiWPLJe+WDnpRs/iZjUZ
-	gO8aPXlcaiRJeOQQEg9VFWttvnN1/asKJWc/oSbLWSKEeNV+5xUBS6VPlKmlSyhCvnBaadD3m4r
-	5RDBgZKoy98lomoJ3KSwuKgeyW3VFIKqOVuJCjyNHXJt0fM+7DAoCZ8Et3pdst4udIYeNpmtLbi
-	4DNddPRCTWt2qefm
-X-Google-Smtp-Source: AGHT+IFeyF81bBn0bup3UjkgQ031iOdpi9/jVXiALJpdAtVQDgUVud0mvsDq+oa8j9/bPhnXjupeow==
-X-Received: by 2002:a5d:5552:0:b0:38d:c2d7:b5a1 with SMTP id ffacd0b85a97d-38dc8dddd9amr9308427f8f.19.1739223374260;
-        Mon, 10 Feb 2025 13:36:14 -0800 (PST)
-Received: from carbon-x1.. ([2a01:e0a:e17:9700:16d2:7456:6634:9626])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4394376118esm47541515e9.40.2025.02.10.13.36.13
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 10 Feb 2025 13:36:13 -0800 (PST)
-From: =?UTF-8?q?Cl=C3=A9ment=20L=C3=A9ger?= <cleger@rivosinc.com>
-To: Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Anup Patel <anup@brainfault.org>,
-	Atish Patra <atishp@atishpatra.org>,
-	Shuah Khan <shuah@kernel.org>,
-	Jonathan Corbet <corbet@lwn.net>,
-	linux-riscv@lists.infradead.org,
+	Tue, 11 Feb 2025 00:11:13 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1739232670;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=7d2yvMM2I9d/oyc1V0faCkOl8VeyuNqArkVlFzxUCDE=;
+	b=XqbxntjkKhXWRBESpgJA7JiE6kN29ZNa3uGZhlqqq6lFNI1gOD+tsMeujt5uKbXpkF2SVZ
+	5kt3HvcVjZdigcejNDwjwgZ6jrB6uLJlH0jvh/22qpUngqcftnqJE5SUN5y9AE+SjGe6gR
+	Hv3h5OjuWu2qb2dukhJEMsBOLH5mVqw=
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1739232670;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=7d2yvMM2I9d/oyc1V0faCkOl8VeyuNqArkVlFzxUCDE=;
+	b=XqbxntjkKhXWRBESpgJA7JiE6kN29ZNa3uGZhlqqq6lFNI1gOD+tsMeujt5uKbXpkF2SVZ
+	5kt3HvcVjZdigcejNDwjwgZ6jrB6uLJlH0jvh/22qpUngqcftnqJE5SUN5y9AE+SjGe6gR
+	Hv3h5OjuWu2qb2dukhJEMsBOLH5mVqw=
+Received: from mx-prod-mc-08.mail-002.prod.us-west-2.aws.redhat.com
+ (ec2-35-165-154-97.us-west-2.compute.amazonaws.com [35.165.154.97]) by
+ relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-137-9uH7qvCwOL6Q2OM-ph_X4g-1; Mon,
+ 10 Feb 2025 19:09:42 -0500
+X-MC-Unique: 9uH7qvCwOL6Q2OM-ph_X4g-1
+X-Mimecast-MFC-AGG-ID: 9uH7qvCwOL6Q2OM-ph_X4g
+Received: from mx-prod-int-04.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-04.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.40])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mx-prod-mc-08.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id B3B081800874;
+	Tue, 11 Feb 2025 00:09:38 +0000 (UTC)
+Received: from starship.lan (unknown [10.22.65.174])
+	by mx-prod-int-04.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id C1BF519560B0;
+	Tue, 11 Feb 2025 00:09:32 +0000 (UTC)
+From: Maxim Levitsky <mlevitsk@redhat.com>
+To: kvm@vger.kernel.org
+Cc: Paolo Bonzini <pbonzini@redhat.com>,
+	Jing Zhang <jingzhangos@google.com>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	linux-arm-kernel@lists.infradead.org,
+	Marc Zyngier <maz@kernel.org>,
 	linux-kernel@vger.kernel.org,
-	linux-doc@vger.kernel.org,
-	kvm@vger.kernel.org,
+	Randy Dunlap <rdunlap@infradead.org>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
 	kvm-riscv@lists.infradead.org,
-	linux-kselftest@vger.kernel.org
-Cc: =?UTF-8?q?Cl=C3=A9ment=20L=C3=A9ger?= <cleger@rivosinc.com>,
-	Samuel Holland <samuel.holland@sifive.com>
-Subject: [PATCH v2 08/15] riscv: misaligned: enable IRQs while handling misaligned accesses
-Date: Mon, 10 Feb 2025 22:35:41 +0100
-Message-ID: <20250210213549.1867704-9-cleger@rivosinc.com>
-X-Mailer: git-send-email 2.47.2
-In-Reply-To: <20250210213549.1867704-1-cleger@rivosinc.com>
-References: <20250210213549.1867704-1-cleger@rivosinc.com>
+	Ingo Molnar <mingo@redhat.com>,
+	linux-riscv@lists.infradead.org,
+	Joey Gouly <joey.gouly@arm.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Maxim Levitsky <mlevitsk@redhat.com>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	kvmarm@lists.linux.dev,
+	Alexander Potapenko <glider@google.com>,
+	x86@kernel.org,
+	Sean Christopherson <seanjc@google.com>,
+	Anup Patel <anup@brainfault.org>,
+	Kunkun Jiang <jiangkunkun@huawei.com>,
+	Atish Patra <atishp@atishpatra.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Borislav Petkov <bp@alien8.de>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	"H. Peter Anvin" <hpa@zytor.com>
+Subject: [PATCH 2/3] KVM: arm64: switch to using kvm_lock/unlock_all_vcpus
+Date: Mon, 10 Feb 2025 19:09:16 -0500
+Message-Id: <20250211000917.166856-3-mlevitsk@redhat.com>
+In-Reply-To: <20250211000917.166856-1-mlevitsk@redhat.com>
+References: <20250211000917.166856-1-mlevitsk@redhat.com>
 MIME-Version: 1.0
+X-Scanned-By: MIMEDefang 3.0 on 10.30.177.40
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250210_213622_550326_C57288D3 
-X-CRM114-Status: GOOD (  10.54  )
+X-CRM114-CacheID: sfid-20250211_001111_694972_3C7A5887 
+X-CRM114-Status: GOOD (  18.02  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,31 +132,301 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-V2UgY2FuIHNhZmVseSByZWVuYWJsZSBJUlFzIGlmIHRoZXkgd2VyZSBlbmFibGVkIGluIHRoZSBw
-cmV2aW91cwpjb250ZXh0LiBUaGlzIGFsbG93cyB0byBhY2Nlc3MgdXNlciBtZW1vcnkgdGhhdCBj
-b3VsZCBwb3RlbnRpYWxseQp0cmlnZ2VyIGEgcGFnZSBmYXVsdC4KClNpZ25lZC1vZmYtYnk6IENs
-w6ltZW50IEzDqWdlciA8Y2xlZ2VyQHJpdm9zaW5jLmNvbT4KLS0tCiBhcmNoL3Jpc2N2L2tlcm5l
-bC90cmFwcy5jIHwgOCArKysrKysrKwogMSBmaWxlIGNoYW5nZWQsIDggaW5zZXJ0aW9ucygrKQoK
-ZGlmZiAtLWdpdCBhL2FyY2gvcmlzY3Yva2VybmVsL3RyYXBzLmMgYi9hcmNoL3Jpc2N2L2tlcm5l
-bC90cmFwcy5jCmluZGV4IDU1ZDlmMzQ1MDM5OC4uM2VlY2MyYWRkYzQxIDEwMDY0NAotLS0gYS9h
-cmNoL3Jpc2N2L2tlcm5lbC90cmFwcy5jCisrKyBiL2FyY2gvcmlzY3Yva2VybmVsL3RyYXBzLmMK
-QEAgLTIwNiw2ICsyMDYsMTEgQEAgZW51bSBtaXNhbGlnbmVkX2FjY2Vzc190eXBlIHsKIHN0YXRp
-YyB2b2lkIGRvX3RyYXBfbWlzYWxpZ25lZChzdHJ1Y3QgcHRfcmVncyAqcmVncywgZW51bSBtaXNh
-bGlnbmVkX2FjY2Vzc190eXBlIHR5cGUpCiB7CiAJaXJxZW50cnlfc3RhdGVfdCBzdGF0ZSA9IGly
-cWVudHJ5X2VudGVyKHJlZ3MpOworCWJvb2wgZW5hYmxlX2lycXMgPSAhcmVnc19pcnFzX2Rpc2Fi
-bGVkKHJlZ3MpOworCisJLyogRW5hYmxlIGludGVycnVwdHMgaWYgdGhleSB3ZXJlIGVuYWJsZWQg
-aW4gdGhlIGludGVycnVwdGVkIGNvbnRleHQuICovCisJaWYgKGVuYWJsZV9pcnFzKQorCQlsb2Nh
-bF9pcnFfZW5hYmxlKCk7CiAKIAlpZiAodHlwZSA9PSAgTUlTQUxJR05FRF9MT0FEKSB7CiAJCWlm
-IChoYW5kbGVfbWlzYWxpZ25lZF9sb2FkKHJlZ3MpKQpAQCAtMjE3LDYgKzIyMiw5IEBAIHN0YXRp
-YyB2b2lkIGRvX3RyYXBfbWlzYWxpZ25lZChzdHJ1Y3QgcHRfcmVncyAqcmVncywgZW51bSBtaXNh
-bGlnbmVkX2FjY2Vzc190eXBlCiAJCQkJICAgICAgIk9vcHMgLSBzdG9yZSAob3IgQU1PKSBhZGRy
-ZXNzIG1pc2FsaWduZWQiKTsKIAl9CiAKKwlpZiAoZW5hYmxlX2lycXMpCisJCWxvY2FsX2lycV9k
-aXNhYmxlKCk7CisKIAlpcnFlbnRyeV9leGl0KHJlZ3MsIHN0YXRlKTsKIH0KIAotLSAKMi40Ny4y
-CgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgt
-cmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDov
-L2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
+Switch to kvm_lock/unlock_all_vcpus instead of arm's own
+version.
+
+This fixes lockdep warning about reaching maximum lock depth:
+
+[  328.171264] BUG: MAX_LOCK_DEPTH too low!
+[  328.175227] turning off the locking correctness validator.
+[  328.180726] Please attach the output of /proc/lock_stat to the bug report
+[  328.187531] depth: 48  max: 48!
+[  328.190678] 48 locks held by qemu-kvm/11664:
+[  328.194957]  #0: ffff800086de5ba0 (&kvm->lock){+.+.}-{3:3}, at: kvm_ioctl_create_device+0x174/0x5b0
+[  328.204048]  #1: ffff0800e78800b8 (&vcpu->mutex){+.+.}-{3:3}, at: lock_all_vcpus+0x16c/0x2a0
+[  328.212521]  #2: ffff07ffeee51e98 (&vcpu->mutex){+.+.}-{3:3}, at: lock_all_vcpus+0x16c/0x2a0
+[  328.220991]  #3: ffff0800dc7d80b8 (&vcpu->mutex){+.+.}-{3:3}, at: lock_all_vcpus+0x16c/0x2a0
+[  328.229463]  #4: ffff07ffe0c980b8 (&vcpu->mutex){+.+.}-{3:3}, at: lock_all_vcpus+0x16c/0x2a0
+[  328.237934]  #5: ffff0800a3883c78 (&vcpu->mutex){+.+.}-{3:3}, at: lock_all_vcpus+0x16c/0x2a0
+[  328.246405]  #6: ffff07fffbe480b8 (&vcpu->mutex){+.+.}-{3:3}, at: lock_all_vcpus+0x16c/0x2a0
+
+No functional change intended.
+
+Suggested-by: Paolo Bonzini <pbonzini@redhat.com>
+Signed-off-by: Maxim Levitsky <mlevitsk@redhat.com>
+---
+ arch/arm64/include/asm/kvm_host.h     |  3 ---
+ arch/arm64/kvm/arch_timer.c           |  8 +++----
+ arch/arm64/kvm/arm.c                  | 32 ---------------------------
+ arch/arm64/kvm/vgic/vgic-init.c       | 11 +++++----
+ arch/arm64/kvm/vgic/vgic-its.c        | 18 ++++++++-------
+ arch/arm64/kvm/vgic/vgic-kvm-device.c | 21 ++++++++++--------
+ 6 files changed, 33 insertions(+), 60 deletions(-)
+
+diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
+index 7cfa024de4e3..bba97ea700ca 100644
+--- a/arch/arm64/include/asm/kvm_host.h
++++ b/arch/arm64/include/asm/kvm_host.h
+@@ -1234,9 +1234,6 @@ int __init populate_sysreg_config(const struct sys_reg_desc *sr,
+ 				  unsigned int idx);
+ int __init populate_nv_trap_config(void);
+ 
+-bool lock_all_vcpus(struct kvm *kvm);
+-void unlock_all_vcpus(struct kvm *kvm);
+-
+ void kvm_calculate_traps(struct kvm_vcpu *vcpu);
+ 
+ /* MMIO helpers */
+diff --git a/arch/arm64/kvm/arch_timer.c b/arch/arm64/kvm/arch_timer.c
+index 231c0cd9c7b4..3af1da807f9c 100644
+--- a/arch/arm64/kvm/arch_timer.c
++++ b/arch/arm64/kvm/arch_timer.c
+@@ -1769,7 +1769,9 @@ int kvm_vm_ioctl_set_counter_offset(struct kvm *kvm,
+ 
+ 	mutex_lock(&kvm->lock);
+ 
+-	if (lock_all_vcpus(kvm)) {
++	ret = kvm_lock_all_vcpus(kvm);
++
++	if (!ret) {
+ 		set_bit(KVM_ARCH_FLAG_VM_COUNTER_OFFSET, &kvm->arch.flags);
+ 
+ 		/*
+@@ -1781,9 +1783,7 @@ int kvm_vm_ioctl_set_counter_offset(struct kvm *kvm,
+ 		kvm->arch.timer_data.voffset = offset->counter_offset;
+ 		kvm->arch.timer_data.poffset = offset->counter_offset;
+ 
+-		unlock_all_vcpus(kvm);
+-	} else {
+-		ret = -EBUSY;
++		kvm_unlock_all_vcpus(kvm);
+ 	}
+ 
+ 	mutex_unlock(&kvm->lock);
+diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
+index 071a7d75be68..f58849c5b4f0 100644
+--- a/arch/arm64/kvm/arm.c
++++ b/arch/arm64/kvm/arm.c
+@@ -1895,38 +1895,6 @@ static void unlock_vcpus(struct kvm *kvm, int vcpu_lock_idx)
+ 	}
+ }
+ 
+-void unlock_all_vcpus(struct kvm *kvm)
+-{
+-	lockdep_assert_held(&kvm->lock);
+-
+-	unlock_vcpus(kvm, atomic_read(&kvm->online_vcpus) - 1);
+-}
+-
+-/* Returns true if all vcpus were locked, false otherwise */
+-bool lock_all_vcpus(struct kvm *kvm)
+-{
+-	struct kvm_vcpu *tmp_vcpu;
+-	unsigned long c;
+-
+-	lockdep_assert_held(&kvm->lock);
+-
+-	/*
+-	 * Any time a vcpu is in an ioctl (including running), the
+-	 * core KVM code tries to grab the vcpu->mutex.
+-	 *
+-	 * By grabbing the vcpu->mutex of all VCPUs we ensure that no
+-	 * other VCPUs can fiddle with the state while we access it.
+-	 */
+-	kvm_for_each_vcpu(c, tmp_vcpu, kvm) {
+-		if (!mutex_trylock(&tmp_vcpu->mutex)) {
+-			unlock_vcpus(kvm, c - 1);
+-			return false;
+-		}
+-	}
+-
+-	return true;
+-}
+-
+ static unsigned long nvhe_percpu_size(void)
+ {
+ 	return (unsigned long)CHOOSE_NVHE_SYM(__per_cpu_end) -
+diff --git a/arch/arm64/kvm/vgic/vgic-init.c b/arch/arm64/kvm/vgic/vgic-init.c
+index bc7e22ab5d81..8fbce4db5c2e 100644
+--- a/arch/arm64/kvm/vgic/vgic-init.c
++++ b/arch/arm64/kvm/vgic/vgic-init.c
+@@ -85,8 +85,8 @@ int kvm_vgic_create(struct kvm *kvm, u32 type)
+ 	/* Must be held to avoid race with vCPU creation */
+ 	lockdep_assert_held(&kvm->lock);
+ 
+-	ret = -EBUSY;
+-	if (!lock_all_vcpus(kvm))
++	ret = kvm_lock_all_vcpus(kvm);
++	if (ret)
+ 		return ret;
+ 
+ 	mutex_lock(&kvm->arch.config_lock);
+@@ -97,9 +97,12 @@ int kvm_vgic_create(struct kvm *kvm, u32 type)
+ 	}
+ 
+ 	kvm_for_each_vcpu(i, vcpu, kvm) {
+-		if (vcpu_has_run_once(vcpu))
++		if (vcpu_has_run_once(vcpu)) {
++			ret = -EBUSY;
+ 			goto out_unlock;
++		}
+ 	}
++
+ 	ret = 0;
+ 
+ 	if (type == KVM_DEV_TYPE_ARM_VGIC_V2)
+@@ -124,7 +127,7 @@ int kvm_vgic_create(struct kvm *kvm, u32 type)
+ 
+ out_unlock:
+ 	mutex_unlock(&kvm->arch.config_lock);
+-	unlock_all_vcpus(kvm);
++	kvm_unlock_all_vcpus(kvm);
+ 	return ret;
+ }
+ 
+diff --git a/arch/arm64/kvm/vgic/vgic-its.c b/arch/arm64/kvm/vgic/vgic-its.c
+index fb96802799c6..02b02b4fff5d 100644
+--- a/arch/arm64/kvm/vgic/vgic-its.c
++++ b/arch/arm64/kvm/vgic/vgic-its.c
+@@ -1977,7 +1977,7 @@ static int vgic_its_attr_regs_access(struct kvm_device *dev,
+ 	struct vgic_its *its;
+ 	gpa_t addr, offset;
+ 	unsigned int len;
+-	int align, ret = 0;
++	int align, ret;
+ 
+ 	its = dev->private;
+ 	offset = attr->attr;
+@@ -1999,9 +1999,10 @@ static int vgic_its_attr_regs_access(struct kvm_device *dev,
+ 
+ 	mutex_lock(&dev->kvm->lock);
+ 
+-	if (!lock_all_vcpus(dev->kvm)) {
++	ret = kvm_lock_all_vcpus(sdev->kvm);
++	if (ret) {
+ 		mutex_unlock(&dev->kvm->lock);
+-		return -EBUSY;
++		return ret;
+ 	}
+ 
+ 	mutex_lock(&dev->kvm->arch.config_lock);
+@@ -2034,7 +2035,7 @@ static int vgic_its_attr_regs_access(struct kvm_device *dev,
+ 	}
+ out:
+ 	mutex_unlock(&dev->kvm->arch.config_lock);
+-	unlock_all_vcpus(dev->kvm);
++	kvm_unlock_all_vcpus(dev->kvm);
+ 	mutex_unlock(&dev->kvm->lock);
+ 	return ret;
+ }
+@@ -2697,16 +2698,17 @@ static int vgic_its_has_attr(struct kvm_device *dev,
+ static int vgic_its_ctrl(struct kvm *kvm, struct vgic_its *its, u64 attr)
+ {
+ 	const struct vgic_its_abi *abi = vgic_its_get_abi(its);
+-	int ret = 0;
++	int ret;
+ 
+ 	if (attr == KVM_DEV_ARM_VGIC_CTRL_INIT) /* Nothing to do */
+ 		return 0;
+ 
+ 	mutex_lock(&kvm->lock);
+ 
+-	if (!lock_all_vcpus(kvm)) {
++	ret = kvm_lock_all_vcpus(kvm);
++	if (ret) {
+ 		mutex_unlock(&kvm->lock);
+-		return -EBUSY;
++		return ret;
+ 	}
+ 
+ 	mutex_lock(&kvm->arch.config_lock);
+@@ -2726,7 +2728,7 @@ static int vgic_its_ctrl(struct kvm *kvm, struct vgic_its *its, u64 attr)
+ 
+ 	mutex_unlock(&its->its_lock);
+ 	mutex_unlock(&kvm->arch.config_lock);
+-	unlock_all_vcpus(kvm);
++	kvm_unlock_all_vcpus(kvm);
+ 	mutex_unlock(&kvm->lock);
+ 	return ret;
+ }
+diff --git a/arch/arm64/kvm/vgic/vgic-kvm-device.c b/arch/arm64/kvm/vgic/vgic-kvm-device.c
+index 5f4f57aaa23e..ee70a9d642ed 100644
+--- a/arch/arm64/kvm/vgic/vgic-kvm-device.c
++++ b/arch/arm64/kvm/vgic/vgic-kvm-device.c
+@@ -268,15 +268,16 @@ static int vgic_set_common_attr(struct kvm_device *dev,
+ 				return -ENXIO;
+ 			mutex_lock(&dev->kvm->lock);
+ 
+-			if (!lock_all_vcpus(dev->kvm)) {
++			r = kvm_lock_all_vcpus(dev->kvm);
++			if (r) {
+ 				mutex_unlock(&dev->kvm->lock);
+-				return -EBUSY;
++				return r;
+ 			}
+ 
+ 			mutex_lock(&dev->kvm->arch.config_lock);
+ 			r = vgic_v3_save_pending_tables(dev->kvm);
+ 			mutex_unlock(&dev->kvm->arch.config_lock);
+-			unlock_all_vcpus(dev->kvm);
++			kvm_unlock_all_vcpus(dev->kvm);
+ 			mutex_unlock(&dev->kvm->lock);
+ 			return r;
+ 		}
+@@ -384,9 +385,10 @@ static int vgic_v2_attr_regs_access(struct kvm_device *dev,
+ 
+ 	mutex_lock(&dev->kvm->lock);
+ 
+-	if (!lock_all_vcpus(dev->kvm)) {
++	ret = kvm_lock_all_vcpus(dev->kvm);
++	if (ret) {
+ 		mutex_unlock(&dev->kvm->lock);
+-		return -EBUSY;
++		return ret;
+ 	}
+ 
+ 	mutex_lock(&dev->kvm->arch.config_lock);
+@@ -409,7 +411,7 @@ static int vgic_v2_attr_regs_access(struct kvm_device *dev,
+ 
+ out:
+ 	mutex_unlock(&dev->kvm->arch.config_lock);
+-	unlock_all_vcpus(dev->kvm);
++	kvm_unlock_all_vcpus(dev->kvm);
+ 	mutex_unlock(&dev->kvm->lock);
+ 
+ 	if (!ret && !is_write)
+@@ -545,9 +547,10 @@ static int vgic_v3_attr_regs_access(struct kvm_device *dev,
+ 
+ 	mutex_lock(&dev->kvm->lock);
+ 
+-	if (!lock_all_vcpus(dev->kvm)) {
++	ret = kvm_lock_all_vcpus(dev->kvm);
++	if (ret) {
+ 		mutex_unlock(&dev->kvm->lock);
+-		return -EBUSY;
++		return ret;
+ 	}
+ 
+ 	mutex_lock(&dev->kvm->arch.config_lock);
+@@ -589,7 +592,7 @@ static int vgic_v3_attr_regs_access(struct kvm_device *dev,
+ 
+ out:
+ 	mutex_unlock(&dev->kvm->arch.config_lock);
+-	unlock_all_vcpus(dev->kvm);
++	kvm_unlock_all_vcpus(dev->kvm);
+ 	mutex_unlock(&dev->kvm->lock);
+ 
+ 	if (!ret && uaccess && !is_write) {
+-- 
+2.26.3
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
