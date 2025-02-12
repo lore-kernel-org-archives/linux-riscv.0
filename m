@@ -4,70 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F0136C021A1
-	for <linux-riscv@archiver.kernel.org>; Wed, 12 Feb 2025 10:03:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 206C6C021A4
+	for <linux-riscv@archiver.kernel.org>; Wed, 12 Feb 2025 10:03:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:To:From:Reply-To:Cc:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=deL9yQQokrHlyW5E+0m3wTqlG6p2KoYraAV5gopeP+U=; b=DP2wJZRvuuQA+D
-	MazIZoBjIV3Sryat4amsQcVCG+7mmBTkn4/LxIq8V8exZs/64hmv7eU1apTYMd9hTvhajibBbsuv/
-	EfjAuq9I7ZMj6K+ETSLgusUounEGmSRTNhatrC0RHDi3QOqxUJLsrVOqwWbRHHxWwO40UcK55+3IQ
-	sDMPWNaJOAeWHtqWaAf5DCMKzra3yNzBBt40iNDqDlwZM+AWGqWWWnZe2FeH9TDWxBjQUEHtgUvOw
-	5pWFyJF62x4fwvaSXWcOhO4EyGqqfd/F9BYCx67PwB3zvk1uUrQEJR+l2kJQACnKX2B3DiVAWIXLB
-	6WWsDGJh9ej+C5oSoi6g==;
+	List-Owner; bh=nm/Hj7xRm4u3Y9JvAKS9CsKfYFjqFHGE9yuewmTTe34=; b=f2EMD1Wi5aUvj/
+	SD3ath/IMVH56J+45H5GNu4yC96g7Pm+5iCykRPGCaxkUiYAZNSwBXFrPVKU/LUwbI8vGx4tm1gvS
+	89PZqpcFrPpj7FW6db6TmhF4z9bdIZjL71b80LGe5VqfqFvIx6IhtYZKUz39F+zNvHtO4BAnAhffy
+	7hzB36VhiWQuMPuP8Pko+47Uc0oUgdMhXB5ObHv6e5UoDNiK1xJjUZn61MLOssKI80o6ScMh0kn6p
+	PXwlB1p/YSyZ6J86g3Q5RStpI11G/QJ+a8eX5V5TDMx03LTkm965n8uyVMr5KBcROmOQSRQCauofb
+	ZCOEa2Pmr6Ir8Ct5F+dg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1ti9at-00000006uXn-25Mu;
-	Wed, 12 Feb 2025 10:03:47 +0000
-Received: from mail-oi1-x22a.google.com ([2607:f8b0:4864:20::22a])
+	id 1ti9au-00000006uYM-10F9;
+	Wed, 12 Feb 2025 10:03:48 +0000
+Received: from mail-oi1-x229.google.com ([2607:f8b0:4864:20::229])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1ti9G1-00000006pmX-2N7j
+	id 1ti9GM-00000006psr-3MtJ
 	for linux-riscv@lists.infradead.org;
-	Wed, 12 Feb 2025 09:42:14 +0000
-Received: by mail-oi1-x22a.google.com with SMTP id 5614622812f47-3eb6b16f1a0so1791572b6e.3
-        for <linux-riscv@lists.infradead.org>; Wed, 12 Feb 2025 01:42:13 -0800 (PST)
+	Wed, 12 Feb 2025 09:42:35 +0000
+Received: by mail-oi1-x229.google.com with SMTP id 5614622812f47-3f3d3bdaf01so46821b6e.2
+        for <linux-riscv@lists.infradead.org>; Wed, 12 Feb 2025 01:42:34 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1739353332; x=1739958132; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1739353354; x=1739958154; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:to:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=S0SNOa69PLoDhh24/938sy/j/EaHqARH0GqI8xpTJeU=;
-        b=PhKCru1caiSyAgIpZ6GJGjh39aSyGicqm9KRUFTNQZxM9ebfM3SeUIEWXGK86DiqyT
-         P98o8L0HBsXhdLWipcwG4rGKI6cM7V2tUf/femfqmUL1lIl4JGacNykJfDnSfkECicHs
-         QYvzgRGl3TvqqVi64DFVcDb4k163H4aC9E8eZm6pYe7qI00/6YzlDLphvcg99Q5X22uM
-         Ulf4CG7W/sr7iPvDfpVJpAR7WKe51zdSRizc+vcoTIdaLgdDfWFZoMYkyoxB8jRNpq4P
-         +IVtqB7+igldee1x4wvx8RnoEtZe2XoVpBR8QUU/UoSLie1Uzztq9WKch2x6m+m3lsjW
-         LMoQ==
+        bh=9BDt179jsPGPQXJw6cCKRg6ipVwilMKrhen68cQV3C0=;
+        b=cUZ8pIs1J/s+l6btgYBNTNDvE25aahpqkkULCS+9W4/hD3FdbcnR/50fs7U4djQW6V
+         9wHLjbgQmMZwa/pUub2fs3HmN8VDisBLyp1misZ7ZAmRuVX5hGP1XWWXZc1P2+1uOiaW
+         ODo+HnERTYjuHYGwc1ctDSga7svoG20EdFfNhQtlNzKNhOQi/F0gkPk5KAv52GxjejF+
+         QNDylu2FHdDBVCz06QAedujqczCIgKbOFsao950eDMgMRGZtfea3kn5GNdSn3dnn3jd1
+         bGP4PQim5kRvoKTYxSg7OYpdbNSrM7k6/doaLINElRC0pGra+VqQcfDdHnk3szMva7p2
+         a6bA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1739353332; x=1739958132;
+        d=1e100.net; s=20230601; t=1739353354; x=1739958154;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=S0SNOa69PLoDhh24/938sy/j/EaHqARH0GqI8xpTJeU=;
-        b=F3MfcAaxIYVkE6aqDnCL2xpEORsLulRocN4v2mJaBMEea19jpIsowfVKXP7wYF2Tzv
-         SCn8eEz/sogsAIhfC6/gqOQiLl0CdjRj5VFcbgS1Ozvo8itS2dmZMcnarI9IY9ZaXQnT
-         aYKfFhS86BvSkJdnB/5qYLbFN2m+xgMmjIWGOX/OgsvZjt39btimC5w1gKaD75/lSp4u
-         UN5md4ri3jSyXQ27FzQmxYM8XNbkyMRGye0IXKSvoLZuIlcWxWlU7AWKaE/02z74Ott6
-         zAgObxd2caNaspl1BWvDQCk1dMqeyWK9dEUflygf5/Zhsy8tq1T277kOL5n0lwlaFizq
-         Rs7A==
-X-Forwarded-Encrypted: i=1; AJvYcCWlJwQduWrhnMPsP391sHo1ckxO3Cl1wOXC9lxACOk3EYUT1EYRdAoO5mphjiTnZ8c+e1yzD3tuJX0N5g==@lists.infradead.org
-X-Gm-Message-State: AOJu0YzQih/CCi3d3Gvuy0FL0WmP8XCvRTWn6iYQ4EIw4tItbn6YDiq/
-	pDvIcUBt2vTXrSn6XbS9DGabXbuPDS68Lj0HJlEFKhpiV14nahde
-X-Gm-Gg: ASbGnctXcQBS3pdMKTkeiYmm4zPv5dv/GY4n5jMjoR4peFTeNZvBXePHTaUJtwzLx2p
-	nDJjiSWOryKPR/hRUdJLEcjlk33SroXVEjTOUuuFgIv8Cq1oqVoDvUxxnZfODehnTTDqJ6u+YFM
-	9ZVvDLt5b/Hk6DGRAElraOkoxCXxohqUnmsdgQpG0J3ka1cBg5WyjfRj/toUe5V5/m4VTChu4lK
-	6kVqn9sxyHpO4VLsdOfA5TuYDCHzc4iJk1Y10yH8XhrDRB4PynpWJDgVAMhpkHzHhMKaodlaD2b
-	MZc++jS69/3cDYSRLi49NCmiUQ==
-X-Google-Smtp-Source: AGHT+IFY7RRL56SET6zwjdVg9vVDKQYGpxNInNa+Dsu4BPAw+Y3SHcAQvuUvGrIT5JAFo4U62eduNA==
-X-Received: by 2002:a05:6808:2187:b0:3f3:ccb0:ad4a with SMTP id 5614622812f47-3f3cd70d9d0mr1961675b6e.31.1739353332373;
-        Wed, 12 Feb 2025 01:42:12 -0800 (PST)
+        bh=9BDt179jsPGPQXJw6cCKRg6ipVwilMKrhen68cQV3C0=;
+        b=tyAZJd7iD7ybLFolAk1AO6+j3jLNOHAQZSFI1A6uDqlCrjUD7zJX2/DErc2OKSRsFT
+         MpTzhztkUF334CSMNXmTYWp6pRtrCIVRBN+aYP57867XH8li/kEov8rM7yIQK6SzDeos
+         /NvwGnNOfNpkwq4OFsN8U5TAVQh9666ko3jL2rMmSKI7u9e1cSq0mJTWOXmW0JvcCMyB
+         9jQK8GSGnJtJMWe3cLMxNM+MUd/1Cn1n6zD9keE5GM3482EwupQoZLTxkfHbUocm2UWU
+         oR85VA9lm9aa95ko2QFD3O/YBFPbP2a476/X+zqy5y910hLEsqUxLGhNxrB6ZhSRlCbr
+         HJqg==
+X-Forwarded-Encrypted: i=1; AJvYcCWzXK5meE5MQXQD1haCcERAAhVY5znkuOw2hMRMXjbiIo9EaTe2EfytDiaztHUAGoeIJudL7YszCk1iHA==@lists.infradead.org
+X-Gm-Message-State: AOJu0YzBEaHO0Zh++DdPEf/M+tAjWpfMkaLIf5aUpCqgz63mBki8bvHX
+	01F9J0dQwsf1mqPOX0KJDIsX2nUaIsCHJTFvaMbQTsoq/c6w0O1E
+X-Gm-Gg: ASbGncsobe3DhXmF6x9uoUHJiJmxumPI6+5jRl+9u3ak3mU+TgERA6AtnYbVFMiBEKw
+	qWo6eJ1oAwYGSeBR7pKPhUgwX1ZDoMLtJKLoUWGV2Bz1n94wZ+c4elkfa4E7CkmlFCvog8NPFCg
+	5bSBPOPE6xa4Qz1mnLUaYes+iBqbY+wT39UvtggRbdoNare1CMwzevfkAQshu24qc/IgesZ1K76
+	/MCd3tk/U4XIWh5F+/2Ec06map2KtR8QG3VyfwcalhD/0aEw/QvcIEc6fwR9WFb68nYX0sKVbvo
+	57JeSDLcPWm9+wmdGAewU6NCxQ==
+X-Google-Smtp-Source: AGHT+IEy/UxKhE92PT2Nyvo9fgnKrPBECelMkTakVs7vyrkYcrqQXDdT71oXo3Zyrau9+iD0WHIA7g==
+X-Received: by 2002:a05:6808:2e85:b0:3f3:c9fe:7fa4 with SMTP id 5614622812f47-3f3cd60df50mr2191427b6e.19.1739353353785;
+        Wed, 12 Feb 2025 01:42:33 -0800 (PST)
 Received: from localhost.localdomain ([122.8.183.87])
-        by smtp.gmail.com with ESMTPSA id 5614622812f47-3f3c4735c24sm1583180b6e.41.2025.02.12.01.42.08
+        by smtp.gmail.com with ESMTPSA id 46e09a7af769-726f2065dcfsm819321a34.34.2025.02.12.01.42.30
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 12 Feb 2025 01:42:11 -0800 (PST)
+        Wed, 12 Feb 2025 01:42:32 -0800 (PST)
 From: Chen Wang <unicornxw@gmail.com>
 To: aou@eecs.berkeley.edu,
 	unicorn_wang@outlook.com,
@@ -86,16 +86,16 @@ To: aou@eecs.berkeley.edu,
 	chunzhi.lin@sophgo.com,
 	inochiama@gmail.com,
 	sophgo@lists.linux.dev
-Subject: [PATCH 1/2] riscv: sophgo: dts: add pwm-fan for Milk-V Pioneer
-Date: Wed, 12 Feb 2025 17:42:02 +0800
-Message-Id: <dd23362328f77dd91aa9354848bbb0abad0f554b.1739351437.git.unicorn_wang@outlook.com>
+Subject: [PATCH 2/2] riscv: sophgo: dts: add cooling maps for Milk-V Pioneer
+Date: Wed, 12 Feb 2025 17:42:23 +0800
+Message-Id: <5a36a2784d97ed7b1e06777cb0c3c14fe9185e99.1739351437.git.unicorn_wang@outlook.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <cover.1739351437.git.unicorn_wang@outlook.com>
 References: <cover.1739351437.git.unicorn_wang@outlook.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250212_014213_641935_066D4382 
-X-CRM114-Status: UNSURE (   8.64  )
+X-CRM114-CacheID: sfid-20250212_014234_839351_1DEB0D07 
+X-CRM114-Status: UNSURE (   8.93  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -115,32 +115,64 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Chen Wang <unicorn_wang@outlook.com>
 
-Milk-V Pioneer uses fan as cooling-device, and speed of the fan is
-controlled by the first channel of pwm controller of SG2042.
+The normal operating temperature range of SG2042 is -20 degrees
+Celsius ~ 85 degrees Celsius.
+
+Simultaneously monitor soc temperature and board temperature to
+improve redundancy and safety.
 
 Signed-off-by: Chen Wang <unicorn_wang@outlook.com>
 ---
- arch/riscv/boot/dts/sophgo/sg2042-milkv-pioneer.dts | 7 +++++++
- 1 file changed, 7 insertions(+)
+ .../boot/dts/sophgo/sg2042-milkv-pioneer.dts  | 29 +++++++++++++++++++
+ 1 file changed, 29 insertions(+)
 
 diff --git a/arch/riscv/boot/dts/sophgo/sg2042-milkv-pioneer.dts b/arch/riscv/boot/dts/sophgo/sg2042-milkv-pioneer.dts
-index be596d01ff8d..74c997ed8283 100644
+index 74c997ed8283..34645a5f6038 100644
 --- a/arch/riscv/boot/dts/sophgo/sg2042-milkv-pioneer.dts
 +++ b/arch/riscv/boot/dts/sophgo/sg2042-milkv-pioneer.dts
-@@ -73,6 +73,13 @@ &uart0 {
- };
- 
- / {
-+	pwmfan: pwm-fan {
-+		compatible = "pwm-fan";
-+		cooling-levels = <103 128 179 230 255>;
-+		pwms = <&pwm 0 40000 0>;
-+		#cooling-cells = <2>;
-+	};
+@@ -111,6 +111,28 @@ soc_hot: soc-hot {
+ 					type = "hot";
+ 				};
+ 			};
 +
- 	thermal-zones {
- 		soc-thermal {
- 			polling-delay-passive = <1000>;
++			cooling-maps {
++				map0 {
++					trip = <&soc_active1>;
++					cooling-device = <&pwmfan 0 1>;
++				};
++
++				map1 {
++					trip = <&soc_active2>;
++					cooling-device = <&pwmfan 1 2>;
++				};
++
++				map2 {
++					trip = <&soc_active3>;
++					cooling-device = <&pwmfan 2 3>;
++				};
++
++				map3 {
++					trip = <&soc_hot>;
++					cooling-device = <&pwmfan 3 4>;
++				};
++			};
+ 		};
+ 
+ 		board-thermal {
+@@ -125,6 +147,13 @@ board_active: board-active {
+ 					type = "active";
+ 				};
+ 			};
++
++			cooling-maps {
++				map4 {
++					trip = <&board_active>;
++					cooling-device = <&pwmfan 3 4>;
++				};
++			};
+ 		};
+ 	};
+ };
 -- 
 2.34.1
 
