@@ -4,90 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D713C02198
-	for <linux-riscv@archiver.kernel.org>; Wed, 12 Feb 2025 14:55:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A39FCC02198
+	for <linux-riscv@archiver.kernel.org>; Wed, 12 Feb 2025 15:28:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:Subject:From:To:
-	Cc:Message-Id:Date:Mime-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Subject:Cc:To:From:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=uH+JutVCPQ8pkkPUDxQJ1ergihllViUp7GPBFQHu860=; b=jL7ecG7qXyjVu7
-	8fPsqH8RsrnFoyDkmRsD93tWlNTZH9IPBEsFoAaq6RtsXO/igoAZ4nUnxhEjEd0wo0yL51Sjov9qz
-	VFM0u1fQ9IECnjc/McPIuR8R8jKcOI2+YaXTu/iDAafZ9EMTZ+u439mRaCWdXORIS0OHdKFCYP5rI
-	+h70Xmm0N4TL3gGChW8IRHPsmRTc4F7cd/8FnjWrdnynkOoAmB3JDgkstu9zk8ONqdByu2nFkXx+L
-	ehJRLnSBzXsG6/shNgi+sn02FuNEd0znHO7ECtAx4BOKWE7OxkzmGy5FLwEeaLDh/mJ3wZ+y/j38V
-	SPdNtSf2LElHLJSzbN9Q==;
+	List-Owner; bh=0dJxb0Va4lL7n1v1yyclUMPlvI0SRm65S7VgOciftJw=; b=v0uRELCaPkN2Vg
+	3H4h5ZcwGwieyrGZeM1X5LX1hO8Y7Ji97LxcE2xjxX/4MgLXJ9km4f7BUOdB6trCXEVyVWgRxNB0o
+	T5tO5xBny5Nluoe07v4B6C68oWQ1vINv0UBQ/cxR/V0O3yN+uQTcjW7QC2eORs6U0So8YT0vodLV7
+	08THAKNul1x73CM+K2WncbNlbbJk+xhlGIoM2IWRXNdm9Z4sPJ43vEK2hFrrLj59uiJ9zwXSeMFiH
+	ZvxRwH3DqftGYI5r/VJaj5Vu39VUfgtHgNcXUkL4VmeYHF9Htwy7F2XBwQcNfOUBnOcQ/27SohTOT
+	NMvzv+rhD6R1pzvfGcSQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiE8w-00000007lHR-1REc;
-	Wed, 12 Feb 2025 14:55:14 +0000
-Received: from relay8-d.mail.gandi.net ([2001:4b98:dc4:8::228])
+	id 1tiEfG-00000007qwl-2wjw;
+	Wed, 12 Feb 2025 15:28:38 +0000
+Received: from mail-oi1-x22b.google.com ([2607:f8b0:4864:20::22b])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiE7U-00000007kx5-2SZ8;
-	Wed, 12 Feb 2025 14:53:46 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id 89EDE43429;
-	Wed, 12 Feb 2025 14:53:38 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1739372021;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=DeFVmcmMV8TIhbFG3yvXPkzeifltUvoyTDMlg9kM1Zc=;
-	b=jWsL2ikI/GLRyfSa/ux98cBU7OIGPX3oNGOx0FwD2lLYgajCmqKI01mZqMZrzc7nw1XDWF
-	PSVBdOS8QY6Kb95ZIB3WBOkI0sF2ps3kP000hdQvSxLiSX7N0REEicPPfW3zykW8pv81Ns
-	G36yxlD5MzDg07qWDhDY8AMjHXVQl9pVFLd7bMWNRmO50Isrep5fzNnGqvjpUcYp7+PdC1
-	p1kclvHo8d5YWkRJwtFdvJ+2E+5KP3ZRFa/12xplNFKYPJ3fyqMACPO0M7HjmH1tqSKrnx
-	+S5lCWGSnB+rh5msbIHx1AZR8Bv5Wkg5HEIlxJ1IQ5nL91phRSmcjD9HiKHaqA==
-Mime-Version: 1.0
-Date: Wed, 12 Feb 2025 15:53:38 +0100
-Message-Id: <D7QJX632CRCV.P0ZI0WWT083Z@bootlin.com>
-Cc: <linux-kernel@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
- <dri-devel@lists.freedesktop.org>, <platform-driver-x86@vger.kernel.org>,
- <linux-mips@vger.kernel.org>, <linux-clk@vger.kernel.org>,
- <imx@lists.linux.dev>, <linux-arm-kernel@lists.infradead.org>,
- <linux-amlogic@lists.infradead.org>
-To: "Jerome Brunet" <jbrunet@baylibre.com>, "Greg Kroah-Hartman"
- <gregkh@linuxfoundation.org>, "Dave Ertman" <david.m.ertman@intel.com>,
- "Ira Weiny" <ira.weiny@intel.com>, "Rafael J. Wysocki" <rafael@kernel.org>,
- "Stephen Boyd" <sboyd@kernel.org>, "Arnd Bergmann" <arnd@arndb.de>, "Danilo
- Krummrich" <dakr@kernel.org>, "Conor Dooley" <conor.dooley@microchip.com>,
- "Daire McNamara" <daire.mcnamara@microchip.com>, "Philipp Zabel"
- <p.zabel@pengutronix.de>, "Douglas Anderson" <dianders@chromium.org>,
- "Andrzej Hajda" <andrzej.hajda@intel.com>, "Neil Armstrong"
- <neil.armstrong@linaro.org>, "Robert Foss" <rfoss@kernel.org>, "Laurent
- Pinchart" <Laurent.pinchart@ideasonboard.com>, "Jonas Karlman"
- <jonas@kwiboo.se>, "Jernej Skrabec" <jernej.skrabec@gmail.com>, "Maarten
- Lankhorst" <maarten.lankhorst@linux.intel.com>, "Maxime Ripard"
- <mripard@kernel.org>, "Thomas Zimmermann" <tzimmermann@suse.de>, "David
- Airlie" <airlied@gmail.com>, "Simona Vetter" <simona@ffwll.ch>, "Hans de
- Goede" <hdegoede@redhat.com>, =?utf-8?q?Ilpo_J=C3=A4rvinen?=
- <ilpo.jarvinen@linux.intel.com>, "Bryan O'Donoghue"
- <bryan.odonoghue@linaro.org>, "Vladimir Kondratiev"
- <vladimir.kondratiev@mobileye.com>, "Gregory CLEMENT"
- <gregory.clement@bootlin.com>, "Michael Turquette"
- <mturquette@baylibre.com>, "Abel Vesa" <abelvesa@kernel.org>, "Peng Fan"
- <peng.fan@nxp.com>, "Shawn Guo" <shawnguo@kernel.org>, "Sascha Hauer"
- <s.hauer@pengutronix.de>, "Pengutronix Kernel Team"
- <kernel@pengutronix.de>, "Fabio Estevam" <festevam@gmail.com>, "Kevin
- Hilman" <khilman@baylibre.com>, "Martin Blumenstingl"
- <martin.blumenstingl@googlemail.com>
-From: =?utf-8?q?Th=C3=A9o_Lebrun?= <theo.lebrun@bootlin.com>
-Subject: Re: [PATCH v3 7/7] clk: amlogic: axg-audio: use the auxiliary reset
- driver - take 2
-X-Mailer: aerc 0.20.1-0-g2ecb8770224a
-References: <20250211-aux-device-create-helper-v3-0-7edb50524909@baylibre.com> <20250211-aux-device-create-helper-v3-7-7edb50524909@baylibre.com>
-In-Reply-To: <20250211-aux-device-create-helper-v3-7-7edb50524909@baylibre.com>
-X-GND-State: clean
-X-GND-Score: -100
-X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgdeggedujecutefuodetggdotefrodftvfcurfhrohhfihhlvgemucfitefpfffkpdcuggftfghnshhusghstghrihgsvgenuceurghilhhouhhtmecufedtudenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujfgurhepggfgtgffkfevvffhuffofhgjsehtqhertdertdejnecuhfhrohhmpefvhhorohcunfgvsghruhhnuceothhhvghordhlvggsrhhunhessghoohhtlhhinhdrtghomheqnecuggftrfgrthhtvghrnhepiefgleffueffteetteduudffgfehhfduueetieegkeetveegieeljefgvdffleehnecuffhomhgrihhnpegsohhothhlihhnrdgtohhmnecukfhppedvrgdtudemtggsudegmeehheeimeejrgdttdemieeigegsmehftdhffhemfhgvuddtmeelvghfugenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepihhnvghtpedvrgdtudemtggsudegmeehheeimeejrgdttdemieeigegsmehftdhffhemfhgvuddtmeelvghfugdphhgvlhhopehlohgtrghlhhhoshhtpdhmrghilhhfrhhomhepthhhvghordhlvggsrhhunhessghoohhtlhhinhdrtghomhdpnhgspghrtghpthhtohepgeeipdhrtghpthhtohepjhgsrhhunhgvthessggrhihlihgsrhgvrdgtohhmpdhrtghpthhtohepghhrvghgkhhhsehlihhnuhigfhhouhhnuggrthhiohhnrdhorhhgpdhrtghpthhtohepuggrvhhiugdrmhdrvghrthhmrghnsehin
- hhtvghlrdgtohhmpdhrtghpthhtohepihhrrgdrfigvihhnhiesihhnthgvlhdrtghomhdprhgtphhtthhopehrrghfrggvlheskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepshgsohihugeskhgvrhhnvghlrdhorhhgpdhrtghpthhtoheprghrnhgusegrrhhnuggsrdguvgdprhgtphhtthhopegurghkrheskhgvrhhnvghlrdhorhhg
-X-GND-Sasl: theo.lebrun@bootlin.com
+	id 1tiEdn-00000007qaS-3rzL;
+	Wed, 12 Feb 2025 15:27:09 +0000
+Received: by mail-oi1-x22b.google.com with SMTP id 5614622812f47-3f3d2afce71so249708b6e.0;
+        Wed, 12 Feb 2025 07:27:07 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1739374026; x=1739978826; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:subject:cc
+         :to:from:date:message-id:from:to:cc:subject:date:message-id:reply-to;
+        bh=6lBUw25J3aG4YuuDsQwkeYgRv1vrc7t3xa9HzM9MOvw=;
+        b=N8N/EeoKu7iQt2SSqLa61sChsqVzz4XhTB5hYQVUwPxBHtwsNjHQWs3xLMOr3jSm1z
+         cgHn+lvifyoYjklZcRG2Rj8uiOQ4LrrVKVF7nPVyC07+AVlt7pSHN9x3G1P+1ZIWjOq8
+         /KFRI+ZPqQCpL+XoKp+Lf42ZcXzxOj+6WE3zbYDqZKCHlqkz98kudpeVRquVVYA0HwKX
+         m1HVxFYeUML+UcdgwBwzNp+e72uENbPnRQGhVLMmNgGWZYCjXxhkf59bpZ8ttdYyoyx2
+         UnENfk/h8AAuWdYXYVqSsmTjk9xGxIUL0kFvs54MFrdsyzHdCShthE6gHqY1NCKLP7cr
+         QNgA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1739374026; x=1739978826;
+        h=in-reply-to:content-disposition:mime-version:references:subject:cc
+         :to:from:date:message-id:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=6lBUw25J3aG4YuuDsQwkeYgRv1vrc7t3xa9HzM9MOvw=;
+        b=SFN+vXiw0t87OPz3vQfwI5L03nFLwyG9OVDNDsdMXE+jToaD/RnFNjExRM8QykdG+T
+         2Y3Af47Vibxx91WCvQpNpEsYAyT8XWmUJzhZyAWetpb7aTriLGuFG8gL660Ng/1vfUhw
+         gQ3Kj3JNrQ7d421hPc3J2UDVcGpO25Z2BPLOR2FTIHr0MgkajCiCCdFeZK+9w75jzD8Y
+         lf2f/f4CG0sIfREnVUct91z63h/srGCkC7+uBfkdaomhtMUUxFT7mFRViAGziBGfNIZI
+         23n4P9eyErx6Gp7rzOwtx5NMqj5s/29xCT/tmT3SSVdFPxbxoAL++IMnkbaE02yCySkY
+         zjOw==
+X-Forwarded-Encrypted: i=1; AJvYcCUEOgJORZBw6DNglrBqqj/ztfVeZZVTYWIhkxCDKmSqj8S62Y5mSXD1ilip71gUQpYFM6RE4ZEfxHxh+2RFcaGL@lists.infradead.org, AJvYcCVbw2PYYdHM0+0LQpirUD/lgxhKvcT0th8J0/YvjkW018QUy+rhLYrKK7gX35QXfZSWCNLBkHlaP+rM6JI=@lists.infradead.org
+X-Gm-Message-State: AOJu0YxM2nbg8QzZUfELtj/qCdKCm1JJzMr3+uNRbGsELIvHxZElN55R
+	lNn/4/l8NxwRJJyPZAcWSVtaKhLKXBH6Kr/pUdYLTcWSdV3Ev/M8
+X-Gm-Gg: ASbGnctGP7ibUHTO6mYX9KnescZAmct89FiCdpCuIfPBln9oPaQHZYFrtZI5i6xYwKu
+	V3X07Dd3tEZF65mpvJR/WjI2SfTxnMiv7zXebwJE7PAArDrnWbhqY2nLAo+i1bGSEf16b+JWgty
+	5QGxoy7hhhReCQRRBOdZxF4knoPvQ8yY+a0zsC26qVA5Hl0hHlUsEVyrP2mX7DRhuLFV0hBTYSP
+	Gi9AcNeK7J/I1q3qsmcEUvN0OsP3Qi2xOAUqpQN7S4sB13BbkUScSMC6dwsgNHg1ruo7WcIUzLD
+	xjecgoe6ameJFAtZui+KZg==
+X-Google-Smtp-Source: AGHT+IHo4moDm0XlC/zbhfkvivNmDn6gThhjx1PDMEofy79uK89Vl0WpOwwZ4GUyPbza40pljwyLmQ==
+X-Received: by 2002:a05:6808:2518:b0:3f3:bb75:1706 with SMTP id 5614622812f47-3f3cd5cbae2mr3016870b6e.9.1739374026359;
+        Wed, 12 Feb 2025 07:27:06 -0800 (PST)
+Received: from neuromancer. ([2600:1700:fb0:1bcf:511b:97aa:dc6:7ad4])
+        by smtp.gmail.com with ESMTPSA id 5614622812f47-3f392481cbfsm4066579b6e.39.2025.02.12.07.27.05
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 12 Feb 2025 07:27:05 -0800 (PST)
+Message-ID: <67acbdc9.050a0220.11fcb1.a43a@mx.google.com>
+X-Google-Original-Message-ID: <Z6y9yNpdsVUZ1Q4k@neuromancer.>
+Date: Wed, 12 Feb 2025 09:27:04 -0600
+From: Chris Morgan <macroalpha82@gmail.com>
+To: Aleksandr Shubin <privatesub2@gmail.com>
+Cc: linux-kernel@vger.kernel.org,
+	Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <ukleinek@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@csie.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Samuel Holland <samuel@sholland.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Cheo Fusi <fusibrandon13@gmail.com>, linux-pwm@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-sunxi@lists.linux.dev, linux-riscv@lists.infradead.org
+Subject: Re: [PATCH v10 0/3] Add support for Allwinner PWM on D1/T113s/R329
+ SoCs
+References: <20241011102751.153248-1-privatesub2@gmail.com>
+MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20241011102751.153248-1-privatesub2@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250212_065344_776865_826A5D24 
-X-CRM114-Status: UNSURE (   2.94  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250212_072707_958680_B0060A23 
+X-CRM114-Status: GOOD (  20.09  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,14 +105,76 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-SGVsbG8gSmVyb21lLAoKV2h5IHRoZSAiIC0gdGFrZSAyIiBpbiB0aGUgY29tbWl0IGZpcnN0IGxp
-bmU/CgpUaGFua3MsCgotLQpUaMOpbyBMZWJydW4sIEJvb3RsaW4KRW1iZWRkZWQgTGludXggYW5k
-IEtlcm5lbCBlbmdpbmVlcmluZwpodHRwczovL2Jvb3RsaW4uY29tCgoKX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0
-CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5v
-cmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
+On Fri, Oct 11, 2024 at 01:27:31PM +0300, Aleksandr Shubin wrote:
+> v2:
+>  - fix dt-bindings
+>  - fix a remark in the driver
+> 
+> v3:
+>  - fix dt-bindings
+>  - fix sunxi-d1s-t113.dtsi
+> 
+> v4:
+>  - fix a remark in the driver
+> 
+> v5:
+>  - dropped unused varibale in the driver
+>  - fix dt-bindings
+> 
+> v6:
+>  - add apb0 clock
+> 
+> v7:
+>  - fix a remark in the driver
+>  - add maintainer
+> 
+> v8:
+>  - fix compile driver for 6.8-rc
+> 
+> v9:
+>  - fix a remark in the driver
+>  - fix dt-bindings
+>  - rename apb0 -> apb
+> 
+> v10:
+>  - fix a remark in the driver
+>  - fix compile driver for 6.12-rc2
+> 
+> Aleksandr Shubin (3):
+>   dt-bindings: pwm: Add binding for Allwinner D1/T113-S3/R329 PWM
+>     controller
+>   pwm: Add Allwinner's D1/T113-S3/R329 SoCs PWM support
+>   riscv: dts: allwinner: d1: Add pwm node
+> 
+>  .../bindings/pwm/allwinner,sun20i-pwm.yaml    |  84 ++++
+>  .../boot/dts/allwinner/sunxi-d1s-t113.dtsi    |  12 +
+>  drivers/pwm/Kconfig                           |  10 +
+>  drivers/pwm/Makefile                          |   1 +
+>  drivers/pwm/pwm-sun20i.c                      | 379 ++++++++++++++++++
+>  5 files changed, 486 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/pwm/allwinner,sun20i-pwm.yaml
+>  create mode 100644 drivers/pwm/pwm-sun20i.c
+> 
+> -- 
+> 2.25.1
+> 
+
+This patch has been idle for a few months, would you mind if I took
+over shepherding it to mainline? While I don't have *this* hardware
+to test it with I have an H616 which has a similar pwm controller (and
+for which I was going to add support for once this made it to
+mainline). Otherwise, I can just wait patiently and then tack on my
+additions once this has been accepted.
+
+Thank you,
+Chris
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
