@@ -4,58 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 653BCC02198
-	for <linux-riscv@archiver.kernel.org>; Wed, 12 Feb 2025 20:08:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8E73BC02198
+	for <linux-riscv@archiver.kernel.org>; Wed, 12 Feb 2025 22:31:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=ITdA1H67EVyQrY+J1FpScnbloiFhJzs5QUbfP896BQE=; b=tTRiW0Yvfeqf1w
-	qElWEq237Ru6t1DornTTB178GL6nNJCFselejnnskROzbr7ltf4wAyAo1uSIprmBLw9a/dReTeIj3
-	ksvt0LIWw1me1la4bPsLJ/KPVIW58F4kOo19fauFxHzc1CmftGGtkonQiiASqEmC376h5jzbXyYlb
-	pi797QHgdlev0/g6b5JzgWnryfoHotbpVOdTrvbMPeCf8lUrBRsSmKyCABpXkGOszxMcv2DSgZ+r5
-	PrzBm3hcAV9u3U2p3TXonSUMa0OdXGDLQ2PvoQR1JtwJ7hFOnk7CFKtL0cAGEX0ez2PkJkdBB+O00
-	uKREuKwCgk94bVtHHvHQ==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=W+BRPVG5c6R08l826l9ZEePoigHV4JyM/LcfSMgymuI=; b=K5z40949s/Asf0
+	jTc87xCOpw2uWqDr8XJcuZ/iXuF2A1tG+3ncDy9DBd4T41DCvLYkw/KY7z8rv6Zn4W6h/Flnd8276
+	ySwCUitjUE3tRSNH/qV02AQDVjGn3vNev8iS0M0dWLmsG9YNcJMfPNO1G+PO12JOfswmnbgYOhWdV
+	pf5WP3EQ0LYSDkKGcn+Q7JsKZ4Ja28oaPXs1JX980gzfbgz6z4VjoNTham99KpTtMfhOQhiS6/Epa
+	0gpriMYp3mZ+JycIGdqm5wInrz6ZLl/o79I78wkf9iLOUD6esQrMDBILmMIM5MSNgKSgOXT/MYs5l
+	GdGr8Kf2+W+3k1qmE92Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiJ1e-00000008kFT-1fXu;
-	Wed, 12 Feb 2025 20:08:02 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1tiLGN-0000000932A-3mvw;
+	Wed, 12 Feb 2025 22:31:23 +0000
+Received: from mail-qk1-x72c.google.com ([2607:f8b0:4864:20::72c])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiJ1b-00000008kF2-3g95
-	for linux-riscv@lists.infradead.org;
-	Wed, 12 Feb 2025 20:08:01 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id B0D03A41AAB;
-	Wed, 12 Feb 2025 20:06:13 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8EDABC4CEDF;
-	Wed, 12 Feb 2025 20:07:58 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1739390878;
-	bh=7WTBunG74iXFuhyRtRY1W4TFzmye6XaIp6Qz/sWn+CU=;
-	h=From:To:Cc:Subject:Date:From;
-	b=RS6Ka6roX53jJJY8YlRZNoSO8UMfs9WbxUSjnqE3pZ/kRLlnqEfbkg+8jo9wvavmS
-	 Im1JudxYFQkGrzL8RQYIr7kymvEK+wGoPOSw2q1+BwijzcJVM/7tR3yWgxXFLF442n
-	 oGfdjb6waJJ7qKhAksot8f3NmDsPucI5XTzzRLsCJxphORvtff5mxPNMWye7zCv0d5
-	 Lf7g10WNH0WPGtlGVY2b7Mhg/dhG0/aC+VTZ94sD/xAB6ycKlHDvuPyN4YruKCFGwL
-	 5imKsz1uxNIE2X5e96j8JjfZp0GxJCitmAaRXb2IMy85D7dvQ8UTIAie//UirrIRft
-	 FQHMgpc8RDpmA==
-From: Eric Biggers <ebiggers@kernel.org>
-To: linux-kernel@vger.kernel.org
-Cc: linux-crypto@vger.kernel.org,
-	Ard Biesheuvel <ardb@kernel.org>,
-	Zhihang Shao <zhihang.shao.iscas@gmail.com>,
-	linux-riscv@lists.infradead.org
-Subject: [PATCH v4] riscv/crc-t10dif: Optimize crct10dif with zbc extension
-Date: Wed, 12 Feb 2025 12:07:23 -0800
-Message-ID: <20250212200723.135894-1-ebiggers@kernel.org>
-X-Mailer: git-send-email 2.48.1
+	id 1tiLGL-0000000931U-0QVa;
+	Wed, 12 Feb 2025 22:31:22 +0000
+Received: by mail-qk1-x72c.google.com with SMTP id af79cd13be357-7be8f281714so21219185a.1;
+        Wed, 12 Feb 2025 14:31:20 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1739399479; x=1740004279; darn=lists.infradead.org;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=adA61KlZ7NgJ00d9AP44x5Drt9hRKTZfXpJfv6UN5KI=;
+        b=WzxP01jMwmKe//khU7STiaL9FE19CLIHxEL/uKyqyeFJutoWkZm3J06IFPr+PGX2G0
+         RY5DclEjTpXu/fhwO5hOVcpk3ELTS/bFJPIVJugl0H2LZgdL26p60Ec1EQW9rD1PQ9LX
+         aFtep5aiI+Q1AeETUjlAeLT01hPNAvZy5MzA5/h1xXURYrnRSnVBaz7dJfWNzcd3ZvtY
+         tbJ58WAu9FBggG42c0gzlZe4HPMpZ++k5jVOy9kLQ9gCq2GWpaAkXjjyKf3RGTDSjqhC
+         LxR81vybJlm6NkyfCUJnahvtnU5qREyc2hwIWwK+rubyjenZ8PvGyulA2q1G1yxzEUfG
+         TYzw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1739399479; x=1740004279;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=adA61KlZ7NgJ00d9AP44x5Drt9hRKTZfXpJfv6UN5KI=;
+        b=FwWvb5UjchDBIZfXYNK3thSC3NZSUFhWF/JtQqd2b9al3tp+I9ellaJRyIBzjdPOwl
+         GWVBlNyyISF/cAO5JFOHdXGntZVI86tLE8HQlU03LAJ8XkrR7sreoJAzGcXAXy0rtYjx
+         veFD+Xn+qAIZD201yso60WOsr5X/XyYvafWYhhDPPyOPA6sKajhzcUhEIGT8ttttTaRf
+         8LCjFtO+BnOOAwpghxX8elohXy+gupgZPiCvGoHPuzmQV2cXk+dSwVwsuoP5CiEqb6Oh
+         O2R/a+sUEYj7LUCQ1leSHz2vPwLq7kF03MQ/j+8yOGpQvuzpRIgle4gSJdwZE6G6u1gJ
+         oPMw==
+X-Forwarded-Encrypted: i=1; AJvYcCWgSjcYHjcS3gQ3hIxMxLN0l8WfE0TXrMkFOLB1UtDiFGfETSrSsc4Kra12mzJRMKrk6i8HiyMs3lcz8xZv+U8u@lists.infradead.org, AJvYcCXo15BKmlTB2BBnD/xb+HTLkuMrsFoNryOU4ll+6Et/bN9vy0ixdoLpTUS+rsRq/3bxp65zy5xQ0z+S4wY=@lists.infradead.org
+X-Gm-Message-State: AOJu0YwRPdMED3i15nu4JOjsknzOBSXd2IQ+CmLf3LJPQHBCqcpTxWkM
+	vV2tORO38KBNm/7psKJrXq/q/UcoNvQsax4kTITn965wjTcqms1u
+X-Gm-Gg: ASbGncumNy5LpNZkMfALzoP/XU8E+ukVRp+pJJ7nn8y0DV43wShEXdyHtd/UH6Kj3J6
+	XtcxAM95X6Rv06ZwaXZLBj9AEDqCMsa0f48Mh/2CPju5reZsowZSCJVzXMflEOYtf/10ksPEs9N
+	JXxzORt34J65O3sE3w9bdoJlRKOSCZyf13O/CBQrh9BQn7NC/qPejm/G4gbbEB74VrVL5psrS+6
+	FplnJGNMzqxs5yM7yPFCPc/G4AkgSzf5756B0lQHwtTLQP2a8QTNk/rGnbF1lQI7Ks=
+X-Google-Smtp-Source: AGHT+IG/jqO7Gs3aNEJD2jlxWGUNxNPhJfXHJaQNAvosjjzRMKiNe50EuVFrHjd49yXn9DToPQh2SQ==
+X-Received: by 2002:a05:620a:269c:b0:7c0:6c5b:d6e5 with SMTP id af79cd13be357-7c07a1ead00mr229402985a.54.1739399479479;
+        Wed, 12 Feb 2025 14:31:19 -0800 (PST)
+Received: from localhost ([2001:da8:7001:11::cb])
+        by smtp.gmail.com with UTF8SMTPSA id af79cd13be357-7c07518e80fsm127058185a.26.2025.02.12.14.31.18
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 12 Feb 2025 14:31:19 -0800 (PST)
+Date: Thu, 13 Feb 2025 06:31:11 +0800
+From: Inochi Amaoto <inochiama@gmail.com>
+To: Alexander Sverdlin <alexander.sverdlin@gmail.com>, 
+	Krzysztof Kozlowski <krzk@kernel.org>, Inochi Amaoto <inochiama@gmail.com>, soc@lists.linux.dev
+Cc: Chen Wang <unicorn_wang@outlook.com>, 
+	Inochi Amaoto <inochiama@outlook.com>, linux-riscv@lists.infradead.org, devicetree@vger.kernel.org, 
+	Haylen Chu <heylenay@outlook.com>, linux-arm-kernel@lists.infradead.org, 
+	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, Arnd Bergmann <arnd@arndb.de>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Jisheng Zhang <jszhang@kernel.org>, Chao Wei <chao.wei@sophgo.com>
+Subject: Re: [PATCH v2 1/7] riscv: dts: sophgo: cv18xx: Move RiscV-specific
+ part into SoCs' .dtsi files
+Message-ID: <p5aolstlrxnhb7wk45eukthlwiui337fssbum4lrpflvui773i@beif6axz66jx>
+References: <20250210220951.1248533-1-alexander.sverdlin@gmail.com>
+ <20250210220951.1248533-2-alexander.sverdlin@gmail.com>
+ <uvy62iqzul6kajzsmiaovdzogftcsc5b53cswkv4cbxh4w6som@32libbd7kffq>
+ <708cdc497b8474609989395dbf8a0898037a22de.camel@gmail.com>
+ <33654180-5488-4601-9103-8e4218c4a198@kernel.org>
+ <26ddcdaadd777f170dbab51ab840c899f0edde24.camel@gmail.com>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <26ddcdaadd777f170dbab51ab840c899f0edde24.camel@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250212_120800_047544_AB3BB4AC 
-X-CRM114-Status: GOOD (  18.84  )
+X-CRM114-CacheID: sfid-20250212_143121_142788_881F1F08 
+X-CRM114-Status: GOOD (  31.85  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,213 +103,234 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Zhihang Shao <zhihang.shao.iscas@gmail.com>
+On Wed, Feb 12, 2025 at 06:44:15PM +0100, Alexander Sverdlin wrote:
+> Hi =
 
-The current CRC-T10DIF algorithm on RISC-V platform is based on
-table-lookup optimization.  Given the previous work on optimizing crc32
-calculations with zbc extension, it is believed that this will be
-equally effective for accelerating crc-t10dif.
+> =
 
-Therefore this patch adds an implementation of crc-t10dif using zbc
-extension. It detects whether the current runtime environment supports
-zbc feature and, if so, uses it to accelerate crc-t10dif calculations.
+> On Wed, 2025-02-12 at 17:46 +0100, Krzysztof Kozlowski wrote:
+> > > > > Make the peripheral device tree re-usable on ARM64 platform by mo=
+ving CPU
+> > > > > core and interrupt controllers' parts into the respective per-SoC=
+ .dtsi
+> > > > > files.
+> > > > > =
 
-This patch is updated due to the patchset of updating kernel's
-CRC-T10DIF library in 6.14, which is finished by Eric Biggers.  Also, I
-used crc_kunit.c to test the performance of crc-t10dif optimized by crc
-extension.
+> > > > > Add SOC_PERIPHERAL_IRQ() macro which explicitly maps peripheral n=
+ubering
+> > > > > into "plic" interrupt-controller numbering.
+> > > > > =
 
-Signed-off-by: Zhihang Shao <zhihang.shao.iscas@gmail.com>
-[EB: fixed 32-bit build, added comments that explain the algorithm used,
-     and various other cleanups]
-Signed-off-by: Eric Biggers <ebiggers@google.com>
----
+> > > > > Have a nice refactoring side-effect that "plic" and "clint" "comp=
+atible"
+> > > > > property is not specified outside of the corresponding device its=
+elf.
+> > > > > =
 
-This patch applies to 
-https://git.kernel.org/pub/scm/linux/kernel/git/ebiggers/linux.git/log/?h=crc-next
+> > > > > Signed-off-by: Alexander Sverdlin <alexander.sverdlin@gmail.com>
+> > > > > ---
+> > > > > Changelog:
+> > > > > v2:
+> > > > > - instead of carving out peripherals' part, carve out ARCH-specif=
+ics (CPU
+> > > > > core, interrupt controllers) and spread them among 3 SoC .dtsi fi=
+les which
+> > > > > included cv18xx.dtsi;
+> > > > > - define a label for the "soc" node and use it in the newly intro=
+duced DTs;
+> > > > > =
 
- arch/riscv/Kconfig                |   1 +
- arch/riscv/lib/Makefile           |   1 +
- arch/riscv/lib/crc-t10dif-riscv.c | 131 ++++++++++++++++++++++++++++++
- 3 files changed, 133 insertions(+)
- create mode 100644 arch/riscv/lib/crc-t10dif-riscv.c
+> > > > > =A0arch/riscv/boot/dts/sophgo/cv1800b.dtsi=A0=A0=A0 | 64 ++++++++=
+++++---
+> > > > > =A0arch/riscv/boot/dts/sophgo/cv1812h.dtsi=A0=A0=A0 | 64 ++++++++=
+++++---
+> > > > > =A0arch/riscv/boot/dts/sophgo/cv181x.dtsi=A0=A0=A0=A0 |=A0 2 +-
+> > > > > =A0arch/riscv/boot/dts/sophgo/cv18xx-cpu.dtsi | 57 ++++++++++++++
+> > > > > =A0arch/riscv/boot/dts/sophgo/cv18xx.dtsi=A0=A0=A0=A0 | 91 ++++++=
+----------------
+> > > > > =A0arch/riscv/boot/dts/sophgo/sg2002.dtsi=A0=A0=A0=A0 | 64 ++++++=
+++++++---
+> > > > > =A06 files changed, 240 insertions(+), 102 deletions(-)
+> > > > > =A0create mode 100644 arch/riscv/boot/dts/sophgo/cv18xx-cpu.dtsi
+> > > > > =
 
-diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-index 7612c52e9b1e3..db1cf9666dfdd 100644
---- a/arch/riscv/Kconfig
-+++ b/arch/riscv/Kconfig
-@@ -23,10 +23,11 @@ config RISCV
- 	select ARCH_ENABLE_MEMORY_HOTREMOVE if MEMORY_HOTPLUG
- 	select ARCH_ENABLE_SPLIT_PMD_PTLOCK if PGTABLE_LEVELS > 2
- 	select ARCH_ENABLE_THP_MIGRATION if TRANSPARENT_HUGEPAGE
- 	select ARCH_HAS_BINFMT_FLAT
- 	select ARCH_HAS_CRC32 if RISCV_ISA_ZBC
-+	select ARCH_HAS_CRC_T10DIF if RISCV_ISA_ZBC
- 	select ARCH_HAS_CURRENT_STACK_POINTER
- 	select ARCH_HAS_DEBUG_VIRTUAL if MMU
- 	select ARCH_HAS_DEBUG_VM_PGTABLE
- 	select ARCH_HAS_DEBUG_WX
- 	select ARCH_HAS_FAST_MULTIPLIER
-diff --git a/arch/riscv/lib/Makefile b/arch/riscv/lib/Makefile
-index 79368a895feed..d1d1f3d880e32 100644
---- a/arch/riscv/lib/Makefile
-+++ b/arch/riscv/lib/Makefile
-@@ -14,8 +14,9 @@ lib-$(CONFIG_RISCV_ISA_V)	+= uaccess_vector.o
- endif
- lib-$(CONFIG_MMU)	+= uaccess.o
- lib-$(CONFIG_64BIT)	+= tishift.o
- lib-$(CONFIG_RISCV_ISA_ZICBOZ)	+= clear_page.o
- obj-$(CONFIG_CRC32_ARCH)	+= crc32-riscv.o
-+obj-$(CONFIG_CRC_T10DIF_ARCH)	+= crc-t10dif-riscv.o
- obj-$(CONFIG_FUNCTION_ERROR_INJECTION) += error-inject.o
- lib-$(CONFIG_RISCV_ISA_V)	+= xor.o
- lib-$(CONFIG_RISCV_ISA_V)	+= riscv_v_helpers.o
-diff --git a/arch/riscv/lib/crc-t10dif-riscv.c b/arch/riscv/lib/crc-t10dif-riscv.c
-new file mode 100644
-index 0000000000000..2e9c3dcba8a0e
---- /dev/null
-+++ b/arch/riscv/lib/crc-t10dif-riscv.c
-@@ -0,0 +1,131 @@
-+// SPDX-License-Identifier: GPL-2.0-only
-+/*
-+ * Accelerated CRC-T10DIF implementation with RISC-V Zbc extension.
-+ *
-+ * Copyright (C) 2024 Institute of Software, CAS.
-+ */
-+
-+#include <asm/alternative-macros.h>
-+#include <asm/byteorder.h>
-+#include <asm/hwcap.h>
-+
-+#include <linux/crc-t10dif.h>
-+#include <linux/module.h>
-+
-+/*
-+ * CRC-T10DIF is a 16-bit CRC that uses most-significant-bit-first bit order,
-+ * i.e. bit i contains the coefficient of x^i (not reflected).
-+ */
-+
-+#define CRCT10DIF_POLY		0x18bb7 /* The generator polynomial G */
-+
-+#if __riscv_xlen == 64
-+#define CRCT10DIF_QUOTIENT_POLY	0xf65a57f81d33a48a /* floor(x^80 / G) - x^64 */
-+#define load_be_long(x)		be64_to_cpup(x)
-+#elif __riscv_xlen == 32
-+#define CRCT10DIF_QUOTIENT_POLY	0xf65a57f8	   /* floor(x^48 / G) - x^32 */
-+#define load_be_long(x)		be32_to_cpup(x)
-+#else
-+#error "Unsupported __riscv_xlen"
-+#endif
-+
-+/*
-+ * Multiply the XLEN-bit message polynomial @m by x^16 and reduce it modulo the
-+ * generator polynomial G.  This gives the CRC of the message polynomial @m.
-+ */
-+static inline u16 crct10dif_zbc(unsigned long m)
-+{
-+	u16 crc;
-+
-+	asm volatile(".option push\n"
-+		     ".option arch,+zbc\n"
-+		     /*
-+		      * First step of Barrett reduction with integrated
-+		      * multiplication by x^16:
-+		      *
-+		      *    %0 := floor((m * floor(x^(XLEN+16) / G)) / x^XLEN)
-+		      *
-+		      * The resulting value is equal to floor((m * x^16) / G).
-+		      *
-+		      * The constant floor(x^(XLEN+16) / G) has degree x^XLEN,
-+		      * i.e. it has XLEN+1 bits.  The clmulh instruction
-+		      * multiplies m by the x^0 through x^(XLEN-1) terms of this
-+		      * constant and does the floored division by x^XLEN.  The
-+		      * xor instruction handles the x^XLEN term of the constant
-+		      * by adding an additional (m * x^XLEN) / x^XLEN = m.
-+		      */
-+		     "clmulh %0, %1, %2\n"
-+		     "xor    %0, %0, %1\n"
-+		     /*
-+		      * Second step of Barrett reduction:
-+		      *
-+		      *    crc := (m * x^16) + (G * floor((m * x^16) / G))
-+		      *
-+		      * This reduces (m * x^16) modulo G by adding the
-+		      * appropriate multiple of G to it.  The result uses only
-+		      * the x^0 through x^15 terms.  HOWEVER, since the
-+		      * unreduced value (m * x^16) is zero in those terms in the
-+		      * first place, it is more efficient to do the equivalent:
-+		      *
-+		      *    crc := (G * floor((m * x^16) / G)) mod x^16
-+		      */
-+		     "clmul  %0, %0, %3\n"
-+		     ".option pop\n"
-+		     : "=&r" (crc)
-+		     : "r" (m),
-+		     "r" (CRCT10DIF_QUOTIENT_POLY),
-+		     "r" (CRCT10DIF_POLY));
-+	return crc;
-+}
-+
-+static inline u16 crct10dif_unaligned(u16 crc, const u8 *p, size_t len)
-+{
-+	unsigned long m;
-+	size_t i;
-+
-+	if (len == 1)
-+		return crct10dif_zbc(p[0] ^ (crc >> 8)) ^ (crc << 8);
-+
-+	/* assuming len >= 2 here */
-+	m = crc ^ (p[0] << 8) ^ p[1];
-+	for (i = 2; i < len; i++)
-+		m = (m << 8) ^ p[i];
-+	return crct10dif_zbc(m);
-+}
-+
-+u16 crc_t10dif_arch(u16 crc, const u8 *p, size_t len)
-+{
-+	size_t align;
-+	unsigned long m;
-+
-+	asm goto(ALTERNATIVE("j %l[fallback]", "nop", 0,
-+			     RISCV_ISA_EXT_ZBC, 1) : : : : fallback);
-+
-+	align = -(unsigned long)p % sizeof(unsigned long);
-+	if (align && len) {
-+		align = min(align, len);
-+		crc = crct10dif_unaligned(crc, p, align);
-+		p += align;
-+		len -= align;
-+	}
-+
-+	while (len >= sizeof(unsigned long)) {
-+		m = ((unsigned long)crc << (8 * sizeof(unsigned long) - 16)) ^
-+		    load_be_long((const void *)p);
-+		crc = crct10dif_zbc(m);
-+		p += sizeof(unsigned long);
-+		len -= sizeof(unsigned long);
-+	}
-+
-+	if (len)
-+		crc = crct10dif_unaligned(crc, p, len);
-+
-+	return crc;
-+
-+fallback:
-+	return crc_t10dif_generic(crc, p, len);
-+}
-+EXPORT_SYMBOL(crc_t10dif_arch);
-+
-+MODULE_DESCRIPTION("CRC-T10DIF using RISC-V ZBC Extension");
-+MODULE_LICENSE("GPL");
+> > > > > diff --git a/arch/riscv/boot/dts/sophgo/cv1800b.dtsi b/arch/riscv=
+/boot/dts/sophgo/cv1800b.dtsi
+> > > > > index aa1f5df100f0..eef2884b36f9 100644
+> > > > > --- a/arch/riscv/boot/dts/sophgo/cv1800b.dtsi
+> > > > > +++ b/arch/riscv/boot/dts/sophgo/cv1800b.dtsi
+> > > > > @@ -3,6 +3,8 @@
+> > > > > =A0 * Copyright (C) 2023 Jisheng Zhang <jszhang@kernel.org>
+> > > > > =A0 */
+> > > > > =A0
+> > > > > +#define SOC_PERIPHERAL_IRQ(nr)	((nr) + 16)
+> > > > > +
+> > > > > =A0#include <dt-bindings/pinctrl/pinctrl-cv1800b.h>
+> > > > > =A0#include "cv18xx.dtsi"
+> > > > > =A0
+> > > > > @@ -14,22 +16,62 @@ memory@80000000 {
+> > > > > =A0		reg =3D <0x80000000 0x4000000>;
+> > > > > =A0	};
+> > > > > =A0
+> > > > =
 
-base-commit: 4ffd50862d41e5aaf2e749efa354afaa1317c309
--- 
-2.48.1
+> > > > > -	soc {
+> > > > > -		pinctrl: pinctrl@3001000 {
+> > > > > -			compatible =3D "sophgo,cv1800b-pinctrl";
+> > > > > -			reg =3D <0x03001000 0x1000>,
+> > > > > -			=A0=A0=A0=A0=A0 <0x05027000 0x1000>;
+> > > > > -			reg-names =3D "sys", "rtc";
+> > > > =
+
+> > > > =
+
+> > > > > +	cpus: cpus {
+> > > > > +		#address-cells =3D <1>;
+> > > > > +		#size-cells =3D <0>;
+> > > > > +		timebase-frequency =3D <25000000>;
+> > > > > +
+> > > > > +		cpu0: cpu@0 {
+> > > > > +			compatible =3D "thead,c906", "riscv";
+> > > > > +			device_type =3D "cpu";
+> > > > > +			reg =3D <0>;
+> > > > > +			d-cache-block-size =3D <64>;
+> > > > > +			d-cache-sets =3D <512>;
+> > > > > +			d-cache-size =3D <65536>;
+> > > > > +			i-cache-block-size =3D <64>;
+> > > > > +			i-cache-sets =3D <128>;
+> > > > > +			i-cache-size =3D <32768>;
+> > > > > +			mmu-type =3D "riscv,sv39";
+> > > > > +			riscv,isa =3D "rv64imafdc";
+> > > > > +			riscv,isa-base =3D "rv64i";
+> > > > > +			riscv,isa-extensions =3D "i", "m", "a", "f", "d", "c", "zicnt=
+r", "zicsr",
+> > > > > +					=A0=A0=A0=A0=A0=A0 "zifencei", "zihpm";
+> > > > > +
+> > > > > +			cpu0_intc: interrupt-controller {
+> > > > > +				compatible =3D "riscv,cpu-intc";
+> > > > > +				interrupt-controller;
+> > > > > +				#interrupt-cells =3D <1>;
+> > > > > +			};
+> > > > > =A0		};
+> > > > > =A0	};
+> > > > > =A0};
+> > > > =
+
+> > > > Make all soc definition include the common cpu file. =
+
+> > > > Not just copy it.
+> > > =
+
+> > > I was acting according to Krzysztof's suggestion:
+> > > https://lore.kernel.org/soc/d3ba0ea5-0491-42d5-a18e-64cf21df696c@kern=
+el.org/
+> > > =
+
+> > > Krzysztof, I can name the file cv18xx-cpu-intc.dtsi and pack CPU core=
+ + interrupt
+> > > controllers into it. Would it make sense?
+> > =
+
+> > =
+
+> > I don't understand the original suggestion.
+> =
+
+> This is the snippet in question:
+> =
+
+> ---[ cut ]---
+> #define SOC_PERIPHERAL_IRQ(nr)	((nr) + 16)
+> =
+
+> / {
+> 	cpus: cpus {
+> 		#address-cells =3D <1>;
+> 		#size-cells =3D <0>;
+> 		timebase-frequency =3D <25000000>;
+> =
+
+> 		cpu0: cpu@0 {
+> 			compatible =3D "thead,c906", "riscv";
+> 			device_type =3D "cpu";
+> 			reg =3D <0>;
+> 			d-cache-block-size =3D <64>;
+> 			d-cache-sets =3D <512>;
+> 			d-cache-size =3D <65536>;
+> 			i-cache-block-size =3D <64>;
+> 			i-cache-sets =3D <128>;
+> 			i-cache-size =3D <32768>;
+> 			mmu-type =3D "riscv,sv39";
+> 			riscv,isa =3D "rv64imafdc";
+> 			riscv,isa-base =3D "rv64i";
+> 			riscv,isa-extensions =3D "i", "m", "a", "f", "d", "c", "zicntr", "zics=
+r",
+> 					       "zifencei", "zihpm";
+> =
+
+> 			cpu0_intc: interrupt-controller {
+> 				compatible =3D "riscv,cpu-intc";
+> 				interrupt-controller;
+> 				#interrupt-cells =3D <1>;
+> 			};
+> 		};
+> 	};
+> };
+> =
+
+> &soc {
+> 	interrupt-parent =3D <&plic>;
+> 	dma-noncoherent;
+> =
+
+> 	plic: interrupt-controller@70000000 {
+> 		reg =3D <0x70000000 0x4000000>;
+> 		interrupts-extended =3D <&cpu0_intc 11>, <&cpu0_intc 9>;
+> 		interrupt-controller;
+> 		#address-cells =3D <0>;
+> 		#interrupt-cells =3D <2>;
+> 		riscv,ndev =3D <101>;
+> 	};
+> =
+
+> 	clint: timer@74000000 {
+> 		reg =3D <0x74000000 0x10000>;
+> 		interrupts-extended =3D <&cpu0_intc 3>, <&cpu0_intc 7>;
+> 	};
+> };
+> ---[ cut ]---
+> =
+
+> Inochi's proposal is to put it into separate cv18xx-cpu-intc.dtsi and
+> include the latter in 3 other SoC-specific .dtsis. =
+
+
+Yes, this is what I want to say. Since I can confirm all cv18xx
+series have the same riscv core (IIRC they share the same hw
+design). There is no reason to duplicate them.
+
+> In v2 I've just
+> duplicated the above snippet 3 times (refer to diffstat above).
+> =
+
+> What are your thoughts? In Renesas everything is duplicated, I believe.
+> Sophgo outsources much smaller snippets into .dtsi (refer to cv181x.dtsi)=
+. =
+
+> =
+
+> > Inochi, please trim unnecessary context from replies.
+> =
+
+> -- =
+
+> Alexander Sverdlin.
+> =
 
 
 _______________________________________________
