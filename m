@@ -4,86 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58E73C0219E
-	for <linux-riscv@archiver.kernel.org>; Wed, 12 Feb 2025 08:09:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C292C02198
+	for <linux-riscv@archiver.kernel.org>; Wed, 12 Feb 2025 08:32:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=TsZoKnh7uwiBgc3037Aq2yrjeA4N3/4QM4U1GyvUHLc=; b=fJLSdcq0A9JLk/
-	SLANYlKttKzOSnFuoOdfMj2M9KIU1yUWicUmjHcG/sGUkR92yNzqtYnZSbJLQdwehJrxZ6O4siXuC
-	5s4Ah1SLmuEDO1GgCGMFlwr4ub2csxzYrgs2ud9v1EfE5fovp2xuD7jTre+7GYZLJEe0EzaJwQZrv
-	rUzWBet2b6SU7J+lcyH8P73Z6EizCBLcOzO6BNqfNSdqxxkC/ecS4+whPsX+TIG1twmMYoOu8cdiz
-	3D3KtIpl2x0p8Y3ngCZABpqYMFCw7ve7zXGjroCLXCMbxPrddT2XrD3nDhS4Crc0t4cRro1UVj7od
-	ruYmezkBlNovZBiV86+w==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:MIME-Version:Subject:
+	Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=AOVz7Jbgstb22IwikYR7YJfYQoVwglb0W2fzeDq38Ow=; b=M+VUSos4eKstAi
+	DSfq2AZrKIlRrxd0C8j+evvo2b0LbY/tcAVXf8RUQZqaOUsqd8mNRKD9Iymia1040XOB0kR0FbQ+o
+	1MStG5ty3c2qaDNbv9rEGqyYPSa0bRBpEcDAhAAf1OnBMCDsqgunHXar9aHwjKbyH0+v/zRmLeBpL
+	IU3n+p0oIyJPUnptmdS+mAgb9EY2lvQhI2QksDUvBFZKuIRlpJfet0gT1ZW4fklYvWQjJ6ZgdWyVH
+	Wm9D3qMDumWFp32wTxoOiPc0ZIij8JP3rUMwOqAsJ1K0VD+8SNDEfBjRVTC/4sSNSBpm6rgcHTC1N
+	M8i9sLXNqXztX6DK8fYg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1ti7ny-00000006ZAN-18iS;
-	Wed, 12 Feb 2025 08:09:10 +0000
-Received: from mail-pj1-x1031.google.com ([2607:f8b0:4864:20::1031])
+	id 1ti8A4-00000006dWJ-43oL;
+	Wed, 12 Feb 2025 08:32:00 +0000
+Received: from dev.gentoo.org ([2001:470:ea4a:1:5054:ff:fec7:86e4] helo=smtp.gentoo.org)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1ti7nw-00000006ZA1-0QeU
+	id 1ti86S-00000006cfo-2P6k
 	for linux-riscv@lists.infradead.org;
-	Wed, 12 Feb 2025 08:09:09 +0000
-Received: by mail-pj1-x1031.google.com with SMTP id 98e67ed59e1d1-2f42992f608so9887144a91.0
-        for <linux-riscv@lists.infradead.org>; Wed, 12 Feb 2025 00:09:07 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1739347746; x=1739952546; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to:subject
-         :user-agent:mime-version:date:message-id:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=Uzz/ztA8J5OEcraVsYIfYsDCP8O1/+bhCpXSvSiKTAk=;
-        b=mC67IS4yg+SD10vSMCnTi2NXSgJrhSw7CbbmTgMp0CkmBXtQy2nBc1Pq1VlXTAtij4
-         1+hP2tsbihIlWBVadWYk1Xz3L4HJfrrrsUGi1FmBBDcrIkNFUNeatXAl3eH+Q4P5Iy6G
-         TXxsHnzhJmvlHTcpZ8EFtXf7HM90jY0Fw6iMLKEJsQyZr3XB9tn5g+0f5RsbcYqh/Bgt
-         rM9IvIxf2yPXEJtxoVHpNLLf8TMs+1vNdDVLKmSPfv98/FwXAosm05pqK7vCtcak4pXR
-         pHsnwk7sYD7jTWAooRX4hjWUDZ2mtCFXeM/dpBpKor1MW4VQPAecXuC95J2t5GnuH6MH
-         HLsg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1739347746; x=1739952546;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to:subject
-         :user-agent:mime-version:date:message-id:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=Uzz/ztA8J5OEcraVsYIfYsDCP8O1/+bhCpXSvSiKTAk=;
-        b=VS7Sm4CTXuFE4QgtsjAUKhGxEC6XbWeBWPOS0wanSHTWUI9vFF6hrkTyy6gA0lwgLg
-         nFtV5PWv5CsfH9/S9kQR9ZSz0r9MRzUJJKOBYwgbchcfl62BqGgYqmdsbsAFqZLCwl8E
-         RULw/ULfEFCctth6ne2E+bJIsgfMkV2l/jiXnpVi42LAQbbSal4u7JT/JKRkE1iTYFs6
-         X9o7sbBmEuzICRHD+QFKYI/lQfAZSeZf8acaAg1JHrqsv3Cx+kSID0PIaYOYjjCW5jzs
-         7YzGiXeBl69XO9IKNPXbJFpRl7lCzRhJtq69ZXwmLMmQNyOlMpT9mrkMVPakVuCngSkK
-         fOqQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXXL1b7AapSo6cUDqLyhJHC4OT3dnjVkgariiUlAgSeN5wyHbWp1tcKD7X2jKZHD5bZj4BZmALs1rMaxg==@lists.infradead.org
-X-Gm-Message-State: AOJu0YzTWbkxW4eYqc6bxikXK233j1luEZb3r118Xhii73mNrB43uF1p
-	q8YfyfAuphpXAbk+aR6wDSgStA6jtFEUOyPHfOlMJhPgT+7X2/w0
-X-Gm-Gg: ASbGncsoa1gm+DT269H9v6N/JsNy3A/ikDTuq7/ZCYnv8b/mmMRsK4OE/LcoDf2pZX1
-	WEQbptnx2hJ8HNeZmRMSTapp+WDA5HLposx9/JsGdIamgcsAS0RWtLvvIENBvBH/2TX1D/Ytr25
-	d4klg8E/RlGbJHMKrtnDNBak/qy0M/E/Fx802eoUE140sBQTpqem1OyT0QrBPrMGJmyZHexdJBz
-	fpvI9pFxpwRgsU1MSGS4ovBb6A+nINKxjYkTptECsJoI/vr1rSZ3f+oz6GQ4LLLhl+xIdA4ltDK
-	CfmHbmX4+oa7xDf/3RQTT8AoM5HuyfgWFl+pdbtFIqDOSj0qyQ==
-X-Google-Smtp-Source: AGHT+IG2Bzz9E5EiedwHTMJWTWNMK7lgiuQCvQWlS4nGxBclsahMfq5ltIXb5KcmWhLepPoYJs0soA==
-X-Received: by 2002:a17:90a:d64e:b0:2ee:db8a:29f0 with SMTP id 98e67ed59e1d1-2fbf5c603b9mr3426862a91.27.1739347746403;
-        Wed, 12 Feb 2025 00:09:06 -0800 (PST)
-Received: from [172.16.203.237] ([103.233.162.226])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-2fbf98cfd03sm871927a91.15.2025.02.12.00.09.04
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 12 Feb 2025 00:09:05 -0800 (PST)
-Message-ID: <f827cbb0-f6ad-4397-9f30-ca43223c4853@gmail.com>
-Date: Wed, 12 Feb 2025 16:08:51 +0800
+	Wed, 12 Feb 2025 08:28:17 +0000
+Received: from [127.0.0.1] (unknown [180.172.76.141])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: dlan)
+	by smtp.gentoo.org (Postfix) with ESMTPSA id B8DB13430A9;
+	Wed, 12 Feb 2025 08:28:11 +0000 (UTC)
+From: Yixun Lan <dlan@gentoo.org>
+Date: Wed, 12 Feb 2025 16:27:28 +0800
+Subject: [PATCH v2] pinctrl: spacemit: enable config option
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3] riscv: Optimize crct10dif with zbc extension
-To: Eric Biggers <ebiggers@kernel.org>
-Cc: linux-crypto@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-riscv@lists.infradead.org, ardb@kernel.org
-References: <20250205065815.91132-1-zhihang.shao.iscas@gmail.com>
- <20250205163012.GB1474@sol.localdomain>
-From: Zhihang Shao <zhihang.shao.iscas@gmail.com>
-In-Reply-To: <20250205163012.GB1474@sol.localdomain>
+Message-Id: <20250212-k1-pinctrl-option-v2-1-bde7da0bc0d9@gentoo.org>
+X-B4-Tracking: v=1; b=H4sIAG9brGcC/32NQQ6DIBBFr2Jm3WmAYDVd9R7GhcqAkzZggJA2x
+ ruXeoAu38//7++QKDIluDc7RCqcOPgK6tLAsk7eEbKpDEqoVijR4VPixn7J8YVhy7WNhtrZWHO
+ btSKouy2S5ffpHMbKK6cc4ue8KPKX/rMViRKpnzrSptdC24cjn0O4huhgPI7jC8myJNOzAAAA
+X-Change-ID: 20250207-k1-pinctrl-option-de5bdfd6b42e
+To: Linus Walleij <linus.walleij@linaro.org>, 
+ Paul Walmsley <paul.walmsley@sifive.com>, 
+ Palmer Dabbelt <palmer@dabbelt.com>
+Cc: Alex Elder <elder@kernel.org>, linux-riscv@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, linux-gpio@vger.kernel.org, 
+ spacemit@lists.linux.dev, Conor Dooley <conor.dooley@microchip.com>, 
+ Alex Elder <elder@riscstar.com>, Yixun Lan <dlan@gentoo.org>
+X-Mailer: b4 0.15-dev
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2071; i=dlan@gentoo.org;
+ h=from:subject:message-id; bh=IrKptbNyGnEsWszE5Znu38EPyhXvclhSWF3aK3/HD0Q=;
+ b=owEBzQIy/ZANAwAKATGq6kdZTbvtAcsmYgBnrFuXkQwvpdyu8m47lqJTTAGrb7SfOF2GrOSvL
+ UHu0Hsl9c6JApMEAAEKAH0WIQS1urjJwxtxFWcCI9wxqupHWU277QUCZ6xbl18UgAAAAAAuAChp
+ c3N1ZXItZnByQG5vdGF0aW9ucy5vcGVucGdwLmZpZnRoaG9yc2VtYW4ubmV0QjVCQUI4QzlDMzF
+ CNzExNTY3MDIyM0RDMzFBQUVBNDc1OTREQkJFRAAKCRAxqupHWU277dIvEACMYP9kQbngE6dUW3
+ h6H4LM3rRAFvEA0o5jKhCwlXKiw/S4Ck+DqnVKWYBYbtsc3v072HERc3R2mVk8MgGUaA+wyDo9+
+ ddkYXfXpkoCwxNwzgdweUJ87v0WCIFmKn+YbFmse7SRqNGtnmDnbE4hXI+mVLIFE4PcGWc1aCgs
+ fXyUPpYWCGU/ph2WxAsFD+LSQvoXM+ROD1hd72A1e0NbIFi4yoKKcc2UafSUwIb0rhBwHYv3lCu
+ zla1UUPCoVU7Hm0RNetJvncn91o2/DqnDxuhOS5+MTWEqG/TiVY5I5Bj178kt7snAPNw723PUeA
+ Zdze8qsl/11y392nC1bjnTgDFJx1za7Kx+bXY3PJIfvsYBifLI4J/UMQ+2OgMJ1Tz3XuwhCSjr3
+ lJVKBwN1f1P4uz8p4B8PQtRwJSP2jGTg12nmoctTsXn1P0HnQoCDxhmSriDxTM7/aSylC2wNn2k
+ g81X2tjJje+cI8qgoptLoS5JzUkuO3Aoj3Fb/KFGMVlotIaRUnsnCh5PHLIOgEwSimStmcQYooL
+ 7Zvsx5zCPiraRRvx+80oi3qfSQC8E93Ng+lQTdnbGnu1jIGd3W6dP1V3EytBEi12kGK33u3vg3T
+ 3MwEIcur1df6KTJk5W/VTy8cv+9y1D7O5TymH3Dmcu8k1DhV8e5DXQBQSjZIibcKNlWQ==
+X-Developer-Key: i=dlan@gentoo.org; a=openpgp;
+ fpr=50B03A1A5CBCD33576EF8CD7920C0DBCAABEFD55
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250212_000908_143187_ADC352DB 
-X-CRM114-Status: UNSURE (   8.31  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250212_002816_647758_1C7E76BF 
+X-CRM114-Status: GOOD (  10.53  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,28 +82,69 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 2025/2/6 0:30, Eric Biggers wrote:
+Pinctrl is an essential driver for SpacemiT's SoC,
+so let's enable it by default for this SoC.
 
-> Maybe use 'const __be64 *' and 'const __be32 *' for the pointer, and use
-> be64_to_cpu() and be32_to_cpu().  Then the __force cast won't be needed.
-Maybe this problem seems dumb, but I have no idea to adapt both riscv32 
-and riscv64. I have tried to use 'const __be64 *' and 'const __be32 *' 
-pointer in patch v4, but I forgot to test them in riscv32, and it turns 
-out the code failed to compile due to my mistake of defining 'const 
-__be64 * p_ul' and of course it wouldn't be work for riscv32. Maybe I 
-need some inspiration for this problem, or I still think it better to 
-use 'unsigned long const *' since it works fine in both riscv64 and riscv32.
+The CONFIG_PINCTRL_SPACEMIT_K1 isn't enabled when using
+'make defconfig' to select kernel configuration options.
+This result in a broken uart driver where fail at probe()
+stage due to no pins found.
 
-Looking forward to your reply and guidance.
+Fixes: a83c29e1d145 ("pinctrl: spacemit: add support for SpacemiT K1 SoC")
+Reported-by: Alex Elder <elder@kernel.org>
+Acked-by: Conor Dooley <conor.dooley@microchip.com>
+Tested-by: Alex Elder <elder@riscstar.com>
+Signed-off-by: Yixun Lan <dlan@gentoo.org>
+---
+This should fix problem that CONFIG_PINCTRL_SPACEMIT_K1 is not enabled
+when using make defconfig, thus fail to initilize uart driver which requst
+pins during probe stage.
+---
+Changes in v2:
+- set default as y
+- Link to v1: https://lore.kernel.org/r/20250207-k1-pinctrl-option-v1-1-e8a7e4d8404f@gentoo.org
+---
+ arch/riscv/Kconfig.socs          | 1 +
+ drivers/pinctrl/spacemit/Kconfig | 1 +
+ 2 files changed, 2 insertions(+)
 
-Yours,
+diff --git a/arch/riscv/Kconfig.socs b/arch/riscv/Kconfig.socs
+index 1916cf7ba450ec9958265de2ca41dc504d4d2f7c..17606940bb5239d0fdfc6b5aefb50eeb982d14aa 100644
+--- a/arch/riscv/Kconfig.socs
++++ b/arch/riscv/Kconfig.socs
+@@ -26,6 +26,7 @@ config ARCH_SOPHGO
+ 
+ config ARCH_SPACEMIT
+ 	bool "SpacemiT SoCs"
++	select PINCTRL
+ 	help
+ 	  This enables support for SpacemiT SoC platform hardware.
+ 
+diff --git a/drivers/pinctrl/spacemit/Kconfig b/drivers/pinctrl/spacemit/Kconfig
+index 168f8a5ffbb952cbeae3e3401c11149558e0a84b..c18d879274e72df251e0bc82a308603ce23738bd 100644
+--- a/drivers/pinctrl/spacemit/Kconfig
++++ b/drivers/pinctrl/spacemit/Kconfig
+@@ -7,6 +7,7 @@ config PINCTRL_SPACEMIT_K1
+ 	tristate "SpacemiT K1 SoC Pinctrl driver"
+ 	depends on ARCH_SPACEMIT || COMPILE_TEST
+ 	depends on OF
++	default y
+ 	select GENERIC_PINCTRL_GROUPS
+ 	select GENERIC_PINMUX_FUNCTIONS
+ 	select GENERIC_PINCONF
 
-Zhihang
+---
+base-commit: 2014c95afecee3e76ca4a56956a936e23283f05b
+change-id: 20250207-k1-pinctrl-option-de5bdfd6b42e
+
+Best regards,
+-- 
+Yixun Lan
 
 
 _______________________________________________
