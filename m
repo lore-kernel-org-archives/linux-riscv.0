@@ -4,60 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5D14EC021A0
-	for <linux-riscv@archiver.kernel.org>; Wed, 12 Feb 2025 19:52:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 653BCC02198
+	for <linux-riscv@archiver.kernel.org>; Wed, 12 Feb 2025 20:08:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=GQA2wVGp1yXkkoy0X24DNMARBCUzMtBbK4xx/a37fXI=; b=BPaj4Sht+NodVI
-	kCli/hJGPMhLlCMiGSBkbhlgE3oAtdsKs0F2qI6jDEO98CKyRX6TV7hRGrw/zzYAsC0YCOcrxjNOe
-	T973JrKTrNmyKTTrda9zm2M+DPOSOsd8FAIG8U3uvtTyzNV3n+F5x563EBbtpMBYzp0NAMXm44XAg
-	Z4wzPKZ6RiDR1RAScNYg+vMYRnR6ydzP/BK3EFq5ZHCInxgxJBOU+6ReOZWDp4kSqChRqXcN8srcN
-	n6z2uKr2uLtowQSDpfessJfYRUK8UWQffrXSav0KDxnyBfRCTw8J2dnrzpz9wVEGkjE8VcuVnn5rD
-	Rfkc2Fk8B42x7NPsfOjg==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=ITdA1H67EVyQrY+J1FpScnbloiFhJzs5QUbfP896BQE=; b=tTRiW0Yvfeqf1w
+	qElWEq237Ru6t1DornTTB178GL6nNJCFselejnnskROzbr7ltf4wAyAo1uSIprmBLw9a/dReTeIj3
+	ksvt0LIWw1me1la4bPsLJ/KPVIW58F4kOo19fauFxHzc1CmftGGtkonQiiASqEmC376h5jzbXyYlb
+	pi797QHgdlev0/g6b5JzgWnryfoHotbpVOdTrvbMPeCf8lUrBRsSmKyCABpXkGOszxMcv2DSgZ+r5
+	PrzBm3hcAV9u3U2p3TXonSUMa0OdXGDLQ2PvoQR1JtwJ7hFOnk7CFKtL0cAGEX0ez2PkJkdBB+O00
+	uKREuKwCgk94bVtHHvHQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiImK-00000008hTI-47lp;
-	Wed, 12 Feb 2025 19:52:12 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1tiJ1e-00000008kFT-1fXu;
+	Wed, 12 Feb 2025 20:08:02 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiImJ-00000008hSU-2hw4
+	id 1tiJ1b-00000008kF2-3g95
 	for linux-riscv@lists.infradead.org;
-	Wed, 12 Feb 2025 19:52:12 +0000
+	Wed, 12 Feb 2025 20:08:01 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 8D807A419AC;
-	Wed, 12 Feb 2025 19:50:25 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6F7D8C4CEDF;
-	Wed, 12 Feb 2025 19:52:10 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id B0D03A41AAB;
+	Wed, 12 Feb 2025 20:06:13 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8EDABC4CEDF;
+	Wed, 12 Feb 2025 20:07:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1739389930;
-	bh=MirLEMBUS3CsZ4GfrxE0VRsF/YJXIM51BRXXjBFtms0=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=JY+xLVufez0k6fR6Q7DZTWkhD/tkqmn1ZSdVQuGm0SJiBCXXT7u9mRKJi5LdZh9g+
-	 1j/WnvF3nlLY2GZmdv4Gp6x9LzP19Izd5YOEGBYRjYfxPSio5rlxLj27g/HxG/ZtNy
-	 2rW1C1WXYxOjqtnfbDDDDV9Xxv+IqQn/cQ6eFgu/TgQvzZGQLPC4jUAHK+1O82+k+q
-	 4/ja/hr9jM12BqcyOGrIr4sv6XO5n96bDiup6lVZKMGxV7V7ofdhkuqfc83avPfKDx
-	 85LttHzAgol5RRUiCDxcSYV91onhVTTEbGWfo3zxFieG/3zkpJZ9wkoepfzvvFdbc5
-	 bMI1vq04B7GlA==
-Date: Wed, 12 Feb 2025 11:52:08 -0800
+	s=k20201202; t=1739390878;
+	bh=7WTBunG74iXFuhyRtRY1W4TFzmye6XaIp6Qz/sWn+CU=;
+	h=From:To:Cc:Subject:Date:From;
+	b=RS6Ka6roX53jJJY8YlRZNoSO8UMfs9WbxUSjnqE3pZ/kRLlnqEfbkg+8jo9wvavmS
+	 Im1JudxYFQkGrzL8RQYIr7kymvEK+wGoPOSw2q1+BwijzcJVM/7tR3yWgxXFLF442n
+	 oGfdjb6waJJ7qKhAksot8f3NmDsPucI5XTzzRLsCJxphORvtff5mxPNMWye7zCv0d5
+	 Lf7g10WNH0WPGtlGVY2b7Mhg/dhG0/aC+VTZ94sD/xAB6ycKlHDvuPyN4YruKCFGwL
+	 5imKsz1uxNIE2X5e96j8JjfZp0GxJCitmAaRXb2IMy85D7dvQ8UTIAie//UirrIRft
+	 FQHMgpc8RDpmA==
 From: Eric Biggers <ebiggers@kernel.org>
-To: Zhihang Shao <zhihang.shao.iscas@gmail.com>
-Cc: linux-crypto@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org, ardb@kernel.org
-Subject: Re: [PATCH v3] riscv: Optimize crct10dif with zbc extension
-Message-ID: <20250212195208.GA128826@sol.localdomain>
-References: <20250205065815.91132-1-zhihang.shao.iscas@gmail.com>
- <20250205163012.GB1474@sol.localdomain>
- <f827cbb0-f6ad-4397-9f30-ca43223c4853@gmail.com>
+To: linux-kernel@vger.kernel.org
+Cc: linux-crypto@vger.kernel.org,
+	Ard Biesheuvel <ardb@kernel.org>,
+	Zhihang Shao <zhihang.shao.iscas@gmail.com>,
+	linux-riscv@lists.infradead.org
+Subject: [PATCH v4] riscv/crc-t10dif: Optimize crct10dif with zbc extension
+Date: Wed, 12 Feb 2025 12:07:23 -0800
+Message-ID: <20250212200723.135894-1-ebiggers@kernel.org>
+X-Mailer: git-send-email 2.48.1
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <f827cbb0-f6ad-4397-9f30-ca43223c4853@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250212_115211_743389_1A8CC2B5 
-X-CRM114-Status: GOOD (  13.94  )
+X-CRM114-CacheID: sfid-20250212_120800_047544_AB3BB4AC 
+X-CRM114-Status: GOOD (  18.84  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,29 +72,209 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Feb 12, 2025 at 04:08:51PM +0800, Zhihang Shao wrote:
-> On 2025/2/6 0:30, Eric Biggers wrote:
-> 
-> > Maybe use 'const __be64 *' and 'const __be32 *' for the pointer, and use
-> > be64_to_cpu() and be32_to_cpu().  Then the __force cast won't be needed.
-> Maybe this problem seems dumb, but I have no idea to adapt both riscv32 and
-> riscv64. I have tried to use 'const __be64 *' and 'const __be32 *' pointer
-> in patch v4, but I forgot to test them in riscv32, and it turns out the code
-> failed to compile due to my mistake of defining 'const __be64 * p_ul' and of
-> course it wouldn't be work for riscv32. Maybe I need some inspiration for
-> this problem, or I still think it better to use 'unsigned long const *'
-> since it works fine in both riscv64 and riscv32.
-> 
-> Looking forward to your reply and guidance.
-> 
-> Yours,
-> 
-> Zhihang
-> 
+From: Zhihang Shao <zhihang.shao.iscas@gmail.com>
 
-I'm working on this patch and am going to send out a cleaned-up version.
+The current CRC-T10DIF algorithm on RISC-V platform is based on
+table-lookup optimization.  Given the previous work on optimizing crc32
+calculations with zbc extension, it is believed that this will be
+equally effective for accelerating crc-t10dif.
 
-- Eric
+Therefore this patch adds an implementation of crc-t10dif using zbc
+extension. It detects whether the current runtime environment supports
+zbc feature and, if so, uses it to accelerate crc-t10dif calculations.
+
+This patch is updated due to the patchset of updating kernel's
+CRC-T10DIF library in 6.14, which is finished by Eric Biggers.  Also, I
+used crc_kunit.c to test the performance of crc-t10dif optimized by crc
+extension.
+
+Signed-off-by: Zhihang Shao <zhihang.shao.iscas@gmail.com>
+[EB: fixed 32-bit build, added comments that explain the algorithm used,
+     and various other cleanups]
+Signed-off-by: Eric Biggers <ebiggers@google.com>
+---
+
+This patch applies to 
+https://git.kernel.org/pub/scm/linux/kernel/git/ebiggers/linux.git/log/?h=crc-next
+
+ arch/riscv/Kconfig                |   1 +
+ arch/riscv/lib/Makefile           |   1 +
+ arch/riscv/lib/crc-t10dif-riscv.c | 131 ++++++++++++++++++++++++++++++
+ 3 files changed, 133 insertions(+)
+ create mode 100644 arch/riscv/lib/crc-t10dif-riscv.c
+
+diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+index 7612c52e9b1e3..db1cf9666dfdd 100644
+--- a/arch/riscv/Kconfig
++++ b/arch/riscv/Kconfig
+@@ -23,10 +23,11 @@ config RISCV
+ 	select ARCH_ENABLE_MEMORY_HOTREMOVE if MEMORY_HOTPLUG
+ 	select ARCH_ENABLE_SPLIT_PMD_PTLOCK if PGTABLE_LEVELS > 2
+ 	select ARCH_ENABLE_THP_MIGRATION if TRANSPARENT_HUGEPAGE
+ 	select ARCH_HAS_BINFMT_FLAT
+ 	select ARCH_HAS_CRC32 if RISCV_ISA_ZBC
++	select ARCH_HAS_CRC_T10DIF if RISCV_ISA_ZBC
+ 	select ARCH_HAS_CURRENT_STACK_POINTER
+ 	select ARCH_HAS_DEBUG_VIRTUAL if MMU
+ 	select ARCH_HAS_DEBUG_VM_PGTABLE
+ 	select ARCH_HAS_DEBUG_WX
+ 	select ARCH_HAS_FAST_MULTIPLIER
+diff --git a/arch/riscv/lib/Makefile b/arch/riscv/lib/Makefile
+index 79368a895feed..d1d1f3d880e32 100644
+--- a/arch/riscv/lib/Makefile
++++ b/arch/riscv/lib/Makefile
+@@ -14,8 +14,9 @@ lib-$(CONFIG_RISCV_ISA_V)	+= uaccess_vector.o
+ endif
+ lib-$(CONFIG_MMU)	+= uaccess.o
+ lib-$(CONFIG_64BIT)	+= tishift.o
+ lib-$(CONFIG_RISCV_ISA_ZICBOZ)	+= clear_page.o
+ obj-$(CONFIG_CRC32_ARCH)	+= crc32-riscv.o
++obj-$(CONFIG_CRC_T10DIF_ARCH)	+= crc-t10dif-riscv.o
+ obj-$(CONFIG_FUNCTION_ERROR_INJECTION) += error-inject.o
+ lib-$(CONFIG_RISCV_ISA_V)	+= xor.o
+ lib-$(CONFIG_RISCV_ISA_V)	+= riscv_v_helpers.o
+diff --git a/arch/riscv/lib/crc-t10dif-riscv.c b/arch/riscv/lib/crc-t10dif-riscv.c
+new file mode 100644
+index 0000000000000..2e9c3dcba8a0e
+--- /dev/null
++++ b/arch/riscv/lib/crc-t10dif-riscv.c
+@@ -0,0 +1,131 @@
++// SPDX-License-Identifier: GPL-2.0-only
++/*
++ * Accelerated CRC-T10DIF implementation with RISC-V Zbc extension.
++ *
++ * Copyright (C) 2024 Institute of Software, CAS.
++ */
++
++#include <asm/alternative-macros.h>
++#include <asm/byteorder.h>
++#include <asm/hwcap.h>
++
++#include <linux/crc-t10dif.h>
++#include <linux/module.h>
++
++/*
++ * CRC-T10DIF is a 16-bit CRC that uses most-significant-bit-first bit order,
++ * i.e. bit i contains the coefficient of x^i (not reflected).
++ */
++
++#define CRCT10DIF_POLY		0x18bb7 /* The generator polynomial G */
++
++#if __riscv_xlen == 64
++#define CRCT10DIF_QUOTIENT_POLY	0xf65a57f81d33a48a /* floor(x^80 / G) - x^64 */
++#define load_be_long(x)		be64_to_cpup(x)
++#elif __riscv_xlen == 32
++#define CRCT10DIF_QUOTIENT_POLY	0xf65a57f8	   /* floor(x^48 / G) - x^32 */
++#define load_be_long(x)		be32_to_cpup(x)
++#else
++#error "Unsupported __riscv_xlen"
++#endif
++
++/*
++ * Multiply the XLEN-bit message polynomial @m by x^16 and reduce it modulo the
++ * generator polynomial G.  This gives the CRC of the message polynomial @m.
++ */
++static inline u16 crct10dif_zbc(unsigned long m)
++{
++	u16 crc;
++
++	asm volatile(".option push\n"
++		     ".option arch,+zbc\n"
++		     /*
++		      * First step of Barrett reduction with integrated
++		      * multiplication by x^16:
++		      *
++		      *    %0 := floor((m * floor(x^(XLEN+16) / G)) / x^XLEN)
++		      *
++		      * The resulting value is equal to floor((m * x^16) / G).
++		      *
++		      * The constant floor(x^(XLEN+16) / G) has degree x^XLEN,
++		      * i.e. it has XLEN+1 bits.  The clmulh instruction
++		      * multiplies m by the x^0 through x^(XLEN-1) terms of this
++		      * constant and does the floored division by x^XLEN.  The
++		      * xor instruction handles the x^XLEN term of the constant
++		      * by adding an additional (m * x^XLEN) / x^XLEN = m.
++		      */
++		     "clmulh %0, %1, %2\n"
++		     "xor    %0, %0, %1\n"
++		     /*
++		      * Second step of Barrett reduction:
++		      *
++		      *    crc := (m * x^16) + (G * floor((m * x^16) / G))
++		      *
++		      * This reduces (m * x^16) modulo G by adding the
++		      * appropriate multiple of G to it.  The result uses only
++		      * the x^0 through x^15 terms.  HOWEVER, since the
++		      * unreduced value (m * x^16) is zero in those terms in the
++		      * first place, it is more efficient to do the equivalent:
++		      *
++		      *    crc := (G * floor((m * x^16) / G)) mod x^16
++		      */
++		     "clmul  %0, %0, %3\n"
++		     ".option pop\n"
++		     : "=&r" (crc)
++		     : "r" (m),
++		     "r" (CRCT10DIF_QUOTIENT_POLY),
++		     "r" (CRCT10DIF_POLY));
++	return crc;
++}
++
++static inline u16 crct10dif_unaligned(u16 crc, const u8 *p, size_t len)
++{
++	unsigned long m;
++	size_t i;
++
++	if (len == 1)
++		return crct10dif_zbc(p[0] ^ (crc >> 8)) ^ (crc << 8);
++
++	/* assuming len >= 2 here */
++	m = crc ^ (p[0] << 8) ^ p[1];
++	for (i = 2; i < len; i++)
++		m = (m << 8) ^ p[i];
++	return crct10dif_zbc(m);
++}
++
++u16 crc_t10dif_arch(u16 crc, const u8 *p, size_t len)
++{
++	size_t align;
++	unsigned long m;
++
++	asm goto(ALTERNATIVE("j %l[fallback]", "nop", 0,
++			     RISCV_ISA_EXT_ZBC, 1) : : : : fallback);
++
++	align = -(unsigned long)p % sizeof(unsigned long);
++	if (align && len) {
++		align = min(align, len);
++		crc = crct10dif_unaligned(crc, p, align);
++		p += align;
++		len -= align;
++	}
++
++	while (len >= sizeof(unsigned long)) {
++		m = ((unsigned long)crc << (8 * sizeof(unsigned long) - 16)) ^
++		    load_be_long((const void *)p);
++		crc = crct10dif_zbc(m);
++		p += sizeof(unsigned long);
++		len -= sizeof(unsigned long);
++	}
++
++	if (len)
++		crc = crct10dif_unaligned(crc, p, len);
++
++	return crc;
++
++fallback:
++	return crc_t10dif_generic(crc, p, len);
++}
++EXPORT_SYMBOL(crc_t10dif_arch);
++
++MODULE_DESCRIPTION("CRC-T10DIF using RISC-V ZBC Extension");
++MODULE_LICENSE("GPL");
+
+base-commit: 4ffd50862d41e5aaf2e749efa354afaa1317c309
+-- 
+2.48.1
+
 
 _______________________________________________
 linux-riscv mailing list
