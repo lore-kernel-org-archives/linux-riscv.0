@@ -4,69 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F532C02198
-	for <linux-riscv@archiver.kernel.org>; Thu, 13 Feb 2025 02:09:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2B05CC02198
+	for <linux-riscv@archiver.kernel.org>; Thu, 13 Feb 2025 02:09:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=d6NvF6fZNLKG5CDALl4o+lFUtfjNmMP+7Bwurzh9+Wk=; b=WlNRN2NWXK6Agp
-	xnXi/Oe18ppSu3tY5FPI835mQblNusjiznrxfWg2U1MvXS9bnGpg3UfDREEOQl96YgqKa7yWdmUU8
-	n9bNfjmS0fDG0md0sfN0hqH1ecBL7x2DQ8yAkmAkAGThm1J/jkx7XLBw6btBQEetOFPIDusV7OzxQ
-	lbatQoLf+Nld35OlIaFCxuHiXLtLlMLLWSJLiTfsDgSSAA4VT5K2Xw0yQFugkuoz6kOPw+eKygOGG
-	61rKBMF+jRbTF+xpC4jujTyp+yfR/3zMvmadmwDcAfRK5rRAIhnnttojdtWkZbg3KvH0fKCKTQQHt
-	A3M8zXsT2DYy3pM+awjQ==;
+	List-Owner; bh=ZhmmFFzf+DWuUWNdxML22q7+LN6LgnwkWkj7da3w5p4=; b=LhGoC0VOezD/1P
+	1+47kH2lVhSG1+RD4fHR7gsJ/fkQgzAQZ1h5nUp7SvkBKg+ncECVGOzVdbQB0n5bIFsCEEFnQt2p/
+	GcFZ+SCz7pIT2GQOHCMEaXh6uon5Q38jizAl0FU52l61ItzcmQnyVYUn0tautbhr+vE764+UZs1qe
+	8+//IRPhApYYYIWMR2EStb7DVttYU+BEldKaY3djjmc2IlQBbSjuhTjIv5mMwjHiKy2GMwLoPQLUR
+	+rdpnI7+xgBtpzDKqNfMd2kFliUJ001UJtWeAFO75xwOjvrN935nOlF3bsl6V0FDoCYJdgslkdlnn
+	tWU+lPIYhXunx7GYJa1A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiOfO-00000009T02-1BHp;
-	Thu, 13 Feb 2025 02:09:26 +0000
-Received: from mail-qk1-x729.google.com ([2607:f8b0:4864:20::729])
+	id 1tiOfR-00000009T2v-3w25;
+	Thu, 13 Feb 2025 02:09:29 +0000
+Received: from mail-qk1-x72f.google.com ([2607:f8b0:4864:20::72f])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiOfL-00000009Sy2-0D96
+	id 1tiOfO-00000009SzZ-2yXQ
 	for linux-riscv@lists.infradead.org;
-	Thu, 13 Feb 2025 02:09:24 +0000
-Received: by mail-qk1-x729.google.com with SMTP id af79cd13be357-7c05b91245fso18843885a.2
-        for <linux-riscv@lists.infradead.org>; Wed, 12 Feb 2025 18:09:22 -0800 (PST)
+	Thu, 13 Feb 2025 02:09:28 +0000
+Received: by mail-qk1-x72f.google.com with SMTP id af79cd13be357-7c079f1d96fso39175785a.1
+        for <linux-riscv@lists.infradead.org>; Wed, 12 Feb 2025 18:09:26 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1739412562; x=1740017362; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1739412565; x=1740017365; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=CXFO5ZwHUw8wT3cUYBSdFuMkicgvLRpCU0vV1fZ6GT4=;
-        b=aGnr82UUjxRWFWBn4L5p6K/Bwy4dQSE5r2puhWo24dAd6fh93TmgdBQSqEgIYTlxj6
-         UMFvubnb6WVsnHPZy3aAUGkrNfdlNxUttWucw1jm5HA6o84qxgYZc3MQ07l3EnsUqikV
-         HG7+wZBQiGrKrAP0iyxToPVQJFt4FyKJOalXlRWGaczz9xv7b3jCaaBsfZjcI8aee4Jx
-         eqgsGOpwdK+3Sp9YLO+UQVMqBeyKFhGuq4mpggHUIsucyf9GYR8xETHCl00wlfdsT2OY
-         tS+HIi6vhofJCo3ay5Z7yuU7axgeOjlKNdagC3obtfW7hCg942Vurnarx0QUhH6NbAXK
-         uhqw==
+        bh=vtFDrrT3rCYjoOZO0OfQ9Vc45JJv/q5OCfIu3p4OZZg=;
+        b=htf0WwiXlZVHmJQykj0a39eMJu78h9YYMuTMjhiVvpIthWPLkJWAu25Td7LHRTxt8Z
+         iNEM+I01uTYNdRZrGB9J1pnNebAKU+l0zi41bJaBkA6+xxfSbLN2PMT+F/k2qXgnxUAr
+         wrtm0dvIGJJ4QbyowAprSRG569NUcAHxMVkikTGxJglXiAHwjrku1iXyhP2o+UeFvIQ2
+         dD8kDqu9X56cb/OpBgtKRyXjg+Xvrl6i0E+hy/WdC1szVLXR3HAbQynZc70dUDW84KTH
+         fCpmOQlSadlTmjcXDpgUDDhvFnJw2l8jaywsJX2m+T/yzPy5/uLzyboFInKKcDsXEdpJ
+         dGBw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1739412562; x=1740017362;
+        d=1e100.net; s=20230601; t=1739412565; x=1740017365;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=CXFO5ZwHUw8wT3cUYBSdFuMkicgvLRpCU0vV1fZ6GT4=;
-        b=uP8vsTh98Pb5mOhxBEAwhqs0eY4KYKbkDitFt85F/XMFb4eLYRmLNvw13ARhHTqaWp
-         nZJ1L+xFScL2mlWdl/aVxv1E2p6+pz6u2obc7dPDvfAUpP8fYFIoREOTmEdxwC3OcnHv
-         OKLbx09I3cePlOVQol2lKGA2v1z9NzVTHCfonIbvLYB5LkGqWRITkObG1a1NhxRjz1Rv
-         9zTShgKZZlMngfrizk5ekOZPIiNO7WLyj01E2wiDHCQBfbYKE5OvYUbX/g/ZKdTDZaIm
-         w6rplicWcNlHGJPBHTo+9qq/TTSu4TRD9HoP/adYaJERdkWaRYfHpLP4DEQxOuQT5ToF
-         MKHg==
-X-Forwarded-Encrypted: i=1; AJvYcCVOVKGrZ3BKQCH6UtLXdVYX3HG7eDwmrZY+UwwYSMVoPdDair8PQD26k/EQiuXnpxCnBav9BQaKU4SiOA==@lists.infradead.org
-X-Gm-Message-State: AOJu0YzLW589PG8yiAy+sP+e4aayFNfcfAfcEc/YABkgJWzoCStoJp/3
-	9nsoSwEidS+xFbT1JWDP6DZqVdBzVBydES4dZz8DP/VfVQ6/7kL5
-X-Gm-Gg: ASbGncsuZ++HFp+RbC1Det2NBZGGbTXhTyWpvcRtVCh+XkRHyPgT6RVRDyYjC/OaPj3
-	QAAOeaBmrw48E2BQhncwyNcs6DWShM3BDBDwkJu64zwkfi3efvxpri0l2Sr1oZLv3+Nqg62LDao
-	4kgYqUQ70pr2p2exA83cJpFMhtMMg4v4DLoZIMFYYmWZzreVift4DnBdusIbv9eLFirp8/XWXpg
-	M2Ucj++QYbyg6hzUULlJKrs9Tl5oJCkfS4noX26a6Mf1RhsStlnmNFWcdNJkX7A7Hg=
-X-Google-Smtp-Source: AGHT+IGffmi8fZ+IosqTR1SjXnCtscNOZQQHfesnJihozSoHKlGaGPOVdWX9TagyMdQaTU4+9bkRdQ==
-X-Received: by 2002:a05:6214:4013:b0:6d8:850a:4d77 with SMTP id 6a1803df08f44-6e46ed77f20mr108840476d6.7.1739412561911;
-        Wed, 12 Feb 2025 18:09:21 -0800 (PST)
+        bh=vtFDrrT3rCYjoOZO0OfQ9Vc45JJv/q5OCfIu3p4OZZg=;
+        b=FiFD1Kgu+rzQyC0QKtDNhq9GzzOlWD9nVbjehR2bqtOruUR2Ki+mD2KFtntTJEn4o7
+         +oG1H0mkKb2NTjJYkqt7x1Zgko+r35h3gOMbSyq0N1qccxvmFmyJiF69GmGdB/ShEl1H
+         EkNT765mlveom60CCafE64pttmru5SpTEXB7yc3Zi7jCrLHHHsvA2UMx7kUnaruN/O/h
+         8TxfAnXzlXIzxO3fhCerYgxAZwQ885aMg1IgAlUl/QE6Y0egzjCmsnqASzy4QNRzqE+U
+         OORq38K1awnt/F0c3nXVzGYj0H/1MV5XvSUWQguaP2dgOhN6I6geCNImdYXm8oz7Xhwz
+         KKvw==
+X-Forwarded-Encrypted: i=1; AJvYcCWB/1qRQngpqNoyDgSGb5bXNTRPtMqM1LABek4H55ELdnHp8rWlNnCyq0HZqeELmknIuHgyCWpopZ3JIw==@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywp7ogLM7o0DjwlR1m8Y/siNILqEIN417M3iN7X87CySL0+oJM/
+	Qpgb3hGrW7+X8jHV71RkiG8yDAZVOEu98as6b8/2a25bkgvd8BN9
+X-Gm-Gg: ASbGncuzSOAV+Awjd7c5aGa4AiTSEFYqdrfvh/N1mDs9bXMF3Zy/E3OWlWCUhwmaIjr
+	H83HJ/IWIa2FbwUv/OrZoUxTQeYbtz6Hblqjc48WdFMsLrnUTQWqRPBcL0Z04rawXsGzM29fOJt
+	6AZPyPkh569aesisgMjl/2veAUOuZ2ll0AlBpCahjZErPAUDm8rRIRAcyuOrCtIAJRmvbuYcDuP
+	h3WNwUmn/YmI2awWwrZsvOSs7iS5xAIfQW+Ac6pPMLsxkOJ1/kLYYvIEYwMVC5lHU8=
+X-Google-Smtp-Source: AGHT+IE0LFF3/PieQBcv+/M0s57QuYZfV0AqSx58CzpD01bEJ/HlCWgUX1jFHn2Bh1WE/RrZetIfow==
+X-Received: by 2002:a05:620a:4894:b0:7be:6fd2:938 with SMTP id af79cd13be357-7c06fce2424mr1035985585a.53.1739412565595;
+        Wed, 12 Feb 2025 18:09:25 -0800 (PST)
 Received: from localhost ([2001:da8:7001:11::cb])
-        by smtp.gmail.com with UTF8SMTPSA id 6a1803df08f44-6e65dcece5esm2389976d6.115.2025.02.12.18.09.20
+        by smtp.gmail.com with UTF8SMTPSA id af79cd13be357-7c07c861552sm20492485a.79.2025.02.12.18.09.24
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 12 Feb 2025 18:09:21 -0800 (PST)
+        Wed, 12 Feb 2025 18:09:25 -0800 (PST)
 From: Inochi Amaoto <inochiama@gmail.com>
 To: Philipp Zabel <p.zabel@pengutronix.de>,
 	Rob Herring <robh@kernel.org>,
@@ -85,16 +85,16 @@ Cc: devicetree@vger.kernel.org,
 	linux-riscv@lists.infradead.org,
 	Yixun Lan <dlan@gentoo.org>,
 	Longbin Li <looong.bin@gmail.com>
-Subject: [PATCH 3/4] dt-bindings: reset: simple: migrate sophgo sg2042 reset controller
-Date: Thu, 13 Feb 2025 10:08:56 +0800
-Message-ID: <20250213020900.745551-4-inochiama@gmail.com>
+Subject: [PATCH 4/4] riscv: dts: sg2042: Adapt reset generator for new binding
+Date: Thu, 13 Feb 2025 10:08:57 +0800
+Message-ID: <20250213020900.745551-5-inochiama@gmail.com>
 X-Mailer: git-send-email 2.48.1
 In-Reply-To: <20250213020900.745551-1-inochiama@gmail.com>
 References: <20250213020900.745551-1-inochiama@gmail.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250212_180923_091219_EA66A89D 
-X-CRM114-Status: GOOD (  10.26  )
+X-CRM114-CacheID: sfid-20250212_180926_781665_D49F5A40 
+X-CRM114-Status: GOOD (  10.74  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,77 +111,27 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Migrate SG2042 reset controller to reuse the simple device binding.
+As the SG2042 reset controller reuse new binding, change the device
+compatible with new string.
 
 Signed-off-by: Inochi Amaoto <inochiama@gmail.com>
 ---
- .../bindings/reset/reset-simple.yaml          | 10 ++++--
- .../bindings/reset/sophgo,sg2042-reset.yaml   | 35 -------------------
- 2 files changed, 7 insertions(+), 38 deletions(-)
- delete mode 100644 Documentation/devicetree/bindings/reset/sophgo,sg2042-reset.yaml
+ arch/riscv/boot/dts/sophgo/sg2042.dtsi | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/Documentation/devicetree/bindings/reset/reset-simple.yaml b/Documentation/devicetree/bindings/reset/reset-simple.yaml
-index 77584e23e8e8..1c86b67ae190 100644
---- a/Documentation/devicetree/bindings/reset/reset-simple.yaml
-+++ b/Documentation/devicetree/bindings/reset/reset-simple.yaml
-@@ -16,9 +16,13 @@ description:
+diff --git a/arch/riscv/boot/dts/sophgo/sg2042.dtsi b/arch/riscv/boot/dts/sophgo/sg2042.dtsi
+index e62ac51ac55a..1e29f5975af9 100644
+--- a/arch/riscv/boot/dts/sophgo/sg2042.dtsi
++++ b/arch/riscv/boot/dts/sophgo/sg2042.dtsi
+@@ -499,7 +499,7 @@ intc: interrupt-controller@7090000000 {
+ 		};
  
- properties:
-   compatible:
--    enum:
--      - reset-simple-high
--      - reset-simple-low
-+    oneOf:
-+      - items:
-+          - enum:
-+              - sophgo,sg2042-reset
-+          - const: reset-simple-low
-+      - const: reset-simple-high
-+      - const: reset-simple-low
- 
-   reg:
-     maxItems: 1
-diff --git a/Documentation/devicetree/bindings/reset/sophgo,sg2042-reset.yaml b/Documentation/devicetree/bindings/reset/sophgo,sg2042-reset.yaml
-deleted file mode 100644
-index 76e1931f0908..000000000000
---- a/Documentation/devicetree/bindings/reset/sophgo,sg2042-reset.yaml
-+++ /dev/null
-@@ -1,35 +0,0 @@
--# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
--%YAML 1.2
-----
--$id: http://devicetree.org/schemas/reset/sophgo,sg2042-reset.yaml#
--$schema: http://devicetree.org/meta-schemas/core.yaml#
--
--title: Sophgo SG2042 SoC Reset Controller
--
--maintainers:
--  - Chen Wang <unicorn_wang@outlook.com>
--
--properties:
--  compatible:
--    const: sophgo,sg2042-reset
--
--  reg:
--    maxItems: 1
--
--  "#reset-cells":
--    const: 1
--
--required:
--  - compatible
--  - reg
--  - "#reset-cells"
--
--additionalProperties: false
--
--examples:
--  - |
--    rstgen: reset-controller@c00 {
--        compatible = "sophgo,sg2042-reset";
--        reg = <0xc00 0xc>;
--        #reset-cells = <1>;
--    };
+ 		rstgen: reset-controller@7030013000 {
+-			compatible = "sophgo,sg2042-reset";
++			compatible = "sophgo,sg2042-reset", "reset-simple-low";
+ 			reg = <0x00000070 0x30013000 0x00000000 0x0000000c>;
+ 			#reset-cells = <1>;
+ 		};
 -- 
 2.48.1
 
