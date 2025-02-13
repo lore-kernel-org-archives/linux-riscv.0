@@ -4,99 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ACF18C0219D
-	for <linux-riscv@archiver.kernel.org>; Thu, 13 Feb 2025 09:46:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 22DE9C0219D
+	for <linux-riscv@archiver.kernel.org>; Thu, 13 Feb 2025 10:09:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Date:Cc:To:From:Subject:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=BqUeKy/ZjGVvcFY+TlvwbZVDqXrzFWYlTLHmlmSiOAc=; b=UbuyLgstrawKtg
-	bkRk9JTo7MrKzXJJlhwgvkRYp/l9lMTuwIMxP9RzX/LWP7KsuSjLzqMgCP4othzGE9c9+99cNF21K
-	u0DzbOtPaG/nv0XqPMzx3n3hCgCcORO7kym8Y5Lu/nHFszsEicri/Ev3gt/54GIfmSSuz3DWpOIT5
-	+ZE5cZ9tUEnD+PCJzA1yjI+0VjGxHlVoc0Ul0QgJc23+138fbFeG40Pv93SFWpGRJ/QYomVYHZ1CR
-	xNQ4O8nl1eMz5yO0RmGU0JebQTJZMaE7UO5W9o3IXp8vNat5ss9hhqDV3SuWG8LVtavL1ysneUjXX
-	0WWzyZHA1rDq7RTastZg==;
+	List-Owner; bh=Jgy38NGYdYlMTCDhBDdxzVmU9Unu6GRf8g17xjNTDZc=; b=jJIvxjZw3eHsKO
+	rjOXJf3HS23G7sKofNcp6wSlgVafac4vRfK2mMz9tOZRhVmr3toacV9zhZguE0bzLsCv83nUH6+vv
+	MN2jAewm73SmiFn95JYhXckxLFl835NEY5ESGW3C3vXdRMYeJP8eHCO72XOZp3DKTJ/tkD3e+k2Uc
+	dhCIMepUQ3WfFS1hNmHDCF6JXT/wN1VytyOxvq/U+OsCnpfLVcRQ+EpBBaVsAc02gi4kYDdA3i1Q3
+	qH5Snc3LtHQQ+WJrwoQOUoxE858GsexhKRrEtaw8R96Kz7B34MScAlybI95y+Gf6+llwaY3NgpQDg
+	BCj3M94INEBgi/9yoRfg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiVnu-0000000AWqJ-1Lst;
-	Thu, 13 Feb 2025 09:46:42 +0000
-Received: from mail-lj1-x235.google.com ([2a00:1450:4864:20::235])
+	id 1tiW9i-0000000Ab48-3Hr4;
+	Thu, 13 Feb 2025 10:09:14 +0000
+Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiVib-0000000AVXH-0xvc;
-	Thu, 13 Feb 2025 09:41:14 +0000
-Received: by mail-lj1-x235.google.com with SMTP id 38308e7fff4ca-308e92c3779so18493961fa.0;
-        Thu, 13 Feb 2025 01:41:12 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1739439671; x=1740044471; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=RYYMYkxftkNwTdyqS8CRT4NccxOq5tlDjvnPZc99yTM=;
-        b=UQrlCwUThgoVm1h/Vj/wlTjRE78d7A2xk6WtakhYpXxoD7PX0L7IZ7x+OsBI2XJOCJ
-         j8vgoBZERiA+tdsObnKwclWz7V93kcfFzAYiM4V5eWSWkAr3PmrhQztevvawFXaYXRGK
-         3WUsbs+2d4gk7QQejxUQq3u3Ct//ewt66sXh5A1f7SB3dcaFJajkrmoxTUT/o8BB6JZJ
-         /3n6Lb0urS4Zo19ImmuIy5bXEYOEZcaZUx3H0fiU5pQEFmWnjY1XeZiKKZinmefsCoV0
-         oJgXZIFPJOVLhRk8oXNuUsKQd4mvZCHPoNhvBh3GeWZl/KDYmUcdx0efONQ7XKuFVK70
-         +rgA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1739439671; x=1740044471;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=RYYMYkxftkNwTdyqS8CRT4NccxOq5tlDjvnPZc99yTM=;
-        b=ojmaLB7F4AGWmSZTYAb0oDXkfj9KTmO+wc6POnq67hO9uiFy0fW6DbSX1iafZY4v7i
-         kWYvKA0jZUOH/6TKWQe7u69d2XCx8B+RN04T/6jeJJGNaIoocxcvDIVmeZrbVbDEg7BT
-         2JOPalXIIm8eaDbARo/AeAJlsz7CpbFDKzpXeUQiZ5Bq/V+HDqFsijeARdSDoj054GkR
-         eoY/wvizfc0YiFmnyJEPBDf5X8Bdx/V0uXKTnrrak2hVnxz8BNwcJVxB2DtJAnAQV5Iq
-         CETbhQWzi8JQ6YsbcYZ80UNAhmukD/zEQteE06OOs/k478c95/2vcnDUVcknUSLEJhVS
-         XCKA==
-X-Forwarded-Encrypted: i=1; AJvYcCUxkoaqN7wD8qT2pfxP0N2dQOkGHc8RwMRfksDwf8eJUg6aPKS1Yz107t2L3SHOiQdi+JDQWqoKl+gQF8k=@lists.infradead.org, AJvYcCWWv0D+JMhNhTH9BH+tVVfPV1uy/V9cBIxXz3uuY+m+kem3/tvlLNq2QRK321YGlg+t+tKsiT1cBiHaAv30+YAK@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzg4bhLlgwhYb/EQajyR8L1prXDRfZp03dagcSOWBWggAvBopnz
-	90QH4fm0n0QGKWgdB9/JQbXdib/WeIRoDytnbQt6RDo5z1j3guw=
-X-Gm-Gg: ASbGnctoDmirblIm2BWcZI439PUVD3tTjKJuCE9rv4sf/sTchf+RAfqUeRu2+64aLT4
-	6kQVUK1+UWGqSwS/l9VxpJEbpCRc4VkC7O1HR2ir4RX6XBFcZbD5Igl4aVZ04P/vU5Vqhr+actK
-	0QXCbUBW3LIEC79zfBtFkX1hg7IrBZ5KHAqxnwoYzWlz6Z11/nh8IJ4BdAPWC1hT1n5sAiJgjT2
-	1nCDN9RhGchNOkmlBWmqD2BWVY/8foFZBe8tKIkTRkPLFi4L+lZSm2qbnh5xlaWZaomdZ3GvaOD
-	Qi6BIZvtXTDikipNKXdPqMqUHqUcci0=
-X-Google-Smtp-Source: AGHT+IEU1Xe2lAmPO6iNBTAj5sggwrT8IjsKe7vRboIZMPv0WTY0Zwji2mjdrlZbGMkJm2gu+P6b7Q==
-X-Received: by 2002:a05:6512:3d1b:b0:545:8f7:8596 with SMTP id 2adb3069b0e04-5451e5080e4mr706332e87.17.1739439671065;
-        Thu, 13 Feb 2025 01:41:11 -0800 (PST)
-Received: from localhost.localdomain ([178.176.176.188])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5451f10cae7sm119518e87.183.2025.02.13.01.41.08
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 13 Feb 2025 01:41:10 -0800 (PST)
-From: Aleksandr Shubin <privatesub2@gmail.com>
-To: linux-kernel@vger.kernel.org
-Cc: Aleksandr Shubin <privatesub2@gmail.com>,
-	=?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <ukleinek@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Chen-Yu Tsai <wens@csie.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Cheo Fusi <fusibrandon13@gmail.com>,
-	linux-pwm@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-sunxi@lists.linux.dev,
-	linux-riscv@lists.infradead.org
-Subject: [PATCH v11 3/3] riscv: dts: allwinner: d1: Add pwm node
-Date: Thu, 13 Feb 2025 12:40:14 +0300
-Message-Id: <20250213094018.134081-4-privatesub2@gmail.com>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20250213094018.134081-1-privatesub2@gmail.com>
-References: <20250213094018.134081-1-privatesub2@gmail.com>
+	id 1tiW97-0000000AavK-1172
+	for linux-riscv@lists.infradead.org;
+	Thu, 13 Feb 2025 10:08:38 +0000
+Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
+	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
+	(Exim 4.92)
+	(envelope-from <p.zabel@pengutronix.de>)
+	id 1tiW8c-00071Z-Dt; Thu, 13 Feb 2025 11:08:06 +0100
+Received: from lupine.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::4e] helo=lupine)
+	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <p.zabel@pengutronix.de>)
+	id 1tiW8Z-000jXZ-2a;
+	Thu, 13 Feb 2025 11:08:03 +0100
+Received: from pza by lupine with local (Exim 4.96)
+	(envelope-from <p.zabel@pengutronix.de>)
+	id 1tiW8Z-0002vt-2N;
+	Thu, 13 Feb 2025 11:08:03 +0100
+Message-ID: <42e8f0e0f065b10fa8731d26acc856e5776fe2de.camel@pengutronix.de>
+Subject: Re: [PATCH 0/4] reset: introduct generic bit reset controller
+From: Philipp Zabel <p.zabel@pengutronix.de>
+To: Inochi Amaoto <inochiama@gmail.com>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Chen Wang <unicorn_wang@outlook.com>, Paul Walmsley
+ <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
+ <aou@eecs.berkeley.edu>, Guo Ren <guoren@kernel.org>,  Uwe
+ =?ISO-8859-1?Q?Kleine-K=F6nig?= <u.kleine-koenig@baylibre.com>
+Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	sophgo@lists.linux.dev, linux-riscv@lists.infradead.org, Yixun Lan
+	 <dlan@gentoo.org>, Longbin Li <looong.bin@gmail.com>
+Date: Thu, 13 Feb 2025 11:08:03 +0100
+In-Reply-To: <20250213020900.745551-1-inochiama@gmail.com>
+References: <20250213020900.745551-1-inochiama@gmail.com>
+User-Agent: Evolution 3.46.4-2 
 MIME-Version: 1.0
+X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
+X-SA-Exim-Mail-From: p.zabel@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-riscv@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250213_014113_333246_1759BE41 
-X-CRM114-Status: GOOD (  10.30  )
+X-CRM114-CacheID: sfid-20250213_020837_383799_16976A44 
+X-CRM114-Status: UNSURE (   7.41  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,42 +83,17 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-D1 and T113s contain a pwm controller with 8 channels.
-This controller is supported by the sun20i-pwm driver.
+On Do, 2025-02-13 at 10:08 +0800, Inochi Amaoto wrote:
+> Many SoC have a simple reset controller with toggling bit to perform
+> assert/deassert. It is annoyed to add compatiable for each device when
+> coming a new SoC. It is necessary to introduct a generic device to
+> simplify these things.
 
-Add a device tree node for it.
+You'll still have to add a compatible to reset-simple.yaml for each new
+SoC, see patch 3.
 
-Signed-off-by: Aleksandr Shubin <privatesub2@gmail.com>
----
- arch/riscv/boot/dts/allwinner/sunxi-d1s-t113.dtsi | 12 ++++++++++++
- 1 file changed, 12 insertions(+)
-
-diff --git a/arch/riscv/boot/dts/allwinner/sunxi-d1s-t113.dtsi b/arch/riscv/boot/dts/allwinner/sunxi-d1s-t113.dtsi
-index e4175adb028d..2c26cb8b2b07 100644
---- a/arch/riscv/boot/dts/allwinner/sunxi-d1s-t113.dtsi
-+++ b/arch/riscv/boot/dts/allwinner/sunxi-d1s-t113.dtsi
-@@ -145,6 +145,18 @@ uart3_pb_pins: uart3-pb-pins {
- 			};
- 		};
- 
-+		pwm: pwm@2000c00 {
-+			compatible = "allwinner,sun20i-d1-pwm";
-+			reg = <0x02000c00 0x400>;
-+			clocks = <&ccu CLK_BUS_PWM>,
-+				 <&dcxo>,
-+				 <&ccu CLK_APB0>;
-+			clock-names = "bus", "hosc", "apb";
-+			resets = <&ccu RST_BUS_PWM>;
-+			status = "disabled";
-+			#pwm-cells = <0x3>;
-+		};
-+
- 		ccu: clock-controller@2001000 {
- 			compatible = "allwinner,sun20i-d1-ccu";
- 			reg = <0x2001000 0x1000>;
--- 
-2.25.1
-
+regards
+Philipp
 
 _______________________________________________
 linux-riscv mailing list
