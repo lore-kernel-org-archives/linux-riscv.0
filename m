@@ -4,68 +4,122 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 71E66C021A0
-	for <linux-riscv@archiver.kernel.org>; Thu, 13 Feb 2025 13:35:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 54730C0219D
+	for <linux-riscv@archiver.kernel.org>; Thu, 13 Feb 2025 14:05:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=LWxzNtcLTb2tjRZ6Q9gW/jryO0wSZELWSA/3eaHtV5E=; b=uiBH9G+G6bd4Qj
-	P7JZF9PJmTY0FJ3Ohbj8e2GbuaiaFh0xNbXaLoDD2xjyzTT4pqmC8WcvTAlDM1S7r4mWZpLOhsJdH
-	l1FwqGKcIqUDsPWaLp6qv8ufCiy9qx4/xZcsY/L/LY2fuFKfrJAL9DvFXsc9YqTXSgboViFD/GFMo
-	GHXRB9+a1Zrkxf/s/swuvva6Yj3lKP8G9OuetmlD/uLZYmaxnzA7dHqr75LF3QYA6RFJZUCfSJ7zM
-	L6ssXf78FRtdbfIzML5TVcedbGVL+vkkG9jumVFCyFo6NBQme4trw46T6eRShiMVXQ9ICwV9xAfS1
-	omPhfHgMHS+8ErX43fSw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=aFJ8ecFzsnCcyUHwN/dc3tWKjNIv4YBH57cWkoJAjvc=; b=dHYTB181XRNCA+
+	eGUTpxEitPLzqDjWlDhmXUqM01tpksOHEQNIdvNNo+fu5qRVijIyI+kTy4k5sKQAuud/70f0ObKwv
+	giXrUkMhDF4PFnPqfo2GyfTRAuBW/moL9oouZmBybVpWQRTDLn0gZ8IO0l6K//kXvnCwYyTx7Jtm1
+	iB60uiXs9vGP4LiUbF9bflSAGfQfyqr6P7L9u1e0AnBQNdf9pR5ySMRKXEiKT2wTbBZ4wdTRCYXzt
+	x8UP4fmdC9w0E3tkR8DP/QJLRCpmm/UHGnA99KGTteRrZBaU14j7hWNDV8PtJnC7rhYFLeCFSqMBs
+	vZzwcT+2RX/cTw7NhxsQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiZMs-0000000BAYr-0e5g;
-	Thu, 13 Feb 2025 13:35:02 +0000
+	id 1tiZqA-0000000BFmI-0RFK;
+	Thu, 13 Feb 2025 14:05:18 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiZLk-0000000BAQL-2eDF
-	for linux-riscv@bombadil.infradead.org;
-	Thu, 13 Feb 2025 13:33:52 +0000
+	id 1tiZln-0000000BEps-2WQs;
+	Thu, 13 Feb 2025 14:00:47 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=kvqbxg703v5S6ut1sMVGh2DDxH7A10IeYF1BKb6Rj1k=; b=YuWEZTBco6hdarv0HxWjjKJ/mi
-	9WddHqac7epX+cLzZFlo+Y3YGCGf2+mn904O86IIclhT5atxhAl/m3aLhh7GlnsXNlxH1ranLubuY
-	Q9FvbWLvfu6T14cIkh+XE4gn5QU4VQFCrSWKe1vqW+CUnMJxt96USFA7FwFKZPP47ZPXqfTlkzqPG
-	tV/5oES1faJiaBMDZn4lLjtepCUm+Wbg7F8WflvhTQza5Ns5lYNK7o3DFejRKS2hrZ2ATC+wlnDR4
-	1uF/4IzQ2GD/Euwv4t2/0fsAA/gOHQx5Al9cqhhN+YdPwIax1SJ3z4gwRsbEYsgwhxUFxltJNhlXp
-	kL+rv8Eg==;
-Received: from relay3-d.mail.gandi.net ([2001:4b98:dc4:8::223])
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
+	Content-Description:In-Reply-To:References;
+	bh=3CnYIC1jW8Yb7MVQSsYlSkO9EcP0G/PW7oItTF3TCFk=; b=mULDg43HVeoC1L5Opi0u7d1M4i
+	HaK5W/0ZZEp2RbzYhdys3PlBY3803b1fgI/x/XzeJwFqz85rCpcaPm3rSEOZSgl2MsHI1z5L9E5EX
+	mczoOEURwUToRFArVZRpUY/geZKeHmE71A42vhbBkXyPGNlG63iksU9mY0LeCoXyYajxbXpiBxwmO
+	46mQmc8MeuIYXEyeVm3tqvTZ/s+Tpq93gxSRl5LpPtyF4mfkCoO2p6SzZwQLCWcMm2E47jy3pdZbL
+	kQWCi1RvSHmgktNA6Qncfq+FW23QKdIxYNLuQcZnvAVHDtktS6BxOOuV5V0UkavQ6jr9YkeknQY+j
+	h+mGV6hA==;
+Received: from mail-pl1-x62a.google.com ([2607:f8b0:4864:20::62a])
 	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiZLh-000000010JW-1rZV
-	for linux-riscv@lists.infradead.org;
-	Thu, 13 Feb 2025 13:33:51 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id 1957D204AC;
-	Thu, 13 Feb 2025 13:33:44 +0000 (UTC)
-Message-ID: <c6fdb439-fc85-400a-a278-3858bd3fd90d@ghiti.fr>
-Date: Thu, 13 Feb 2025 14:33:44 +0100
+	id 1tiZlk-000000010uC-1Vc4;
+	Thu, 13 Feb 2025 14:00:46 +0000
+Received: by mail-pl1-x62a.google.com with SMTP id d9443c01a7336-21f7f03d856so15744615ad.1;
+        Thu, 13 Feb 2025 06:00:42 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1739455241; x=1740060041; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=3CnYIC1jW8Yb7MVQSsYlSkO9EcP0G/PW7oItTF3TCFk=;
+        b=VgDxrv7aRm36B3WIe5zVmA/WBz4m+i1fKVZbzuCUlgLvu3TD1GuBHpUcqfIk+a9I8Q
+         QymRILGfvwqNSIZHxoex+kGKmMIG/bW6DsyiPcps2R2WeiLn+gEQyXiqKQ/ge1qRmWhD
+         jF2ppVA7Ookq+nzDefOCU2aVet7aE2W/VY+nu+tFeY/3x+rkM+qK5DQeQzl6NsdlJyc/
+         pu9iaA5DLGN1elzx+YvJbxKmFK7VqneIIHz1L2DVRhTqpEPCJscVFg71D0hs8iv57ZXN
+         faNFs+0RaESNWwP1GksnjmiC89yW9xTXqN0W/PWxmdVXUk/bIBWvUZ8JzzBS/O5N1JVx
+         lZgA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1739455241; x=1740060041;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=3CnYIC1jW8Yb7MVQSsYlSkO9EcP0G/PW7oItTF3TCFk=;
+        b=KiN2LTe728z2lzOmmm5D2hsK7S1hLyIsmFMQmOJf9DA4952qYcpoTbd4guzDrGRIyb
+         EeiY05Ho2iqaKY3M4i5rZubtfezdM/bDA125iYymCDKsRQCNoOkUUTOKzdubaH/bkaa+
+         /y7/f2gKpci+OtOhexwnLSyjstf/EEgHFEk8vhRbwwzrdMnJc6CdTlT0+Pr/2R72KWSK
+         JITRPizw58iykC+2GWSCCSDbSioQ5W4ySEGyVFLGcItpcM+8jsxP8749h8X5gYImG0kG
+         1Ps4a3HIqZZmntjsLN3tyB+xVeB/MYbLjzleFslfEQQ+e+beKCDpDjTg5T78V8DNZuQs
+         kU9Q==
+X-Forwarded-Encrypted: i=1; AJvYcCUkjV7d3lvT4A9cFkXxG9tZx5J4yR/wy5XodOKL6x7+j/zlJazDQPTYec0gPbyEd/VDFJQHCMoc8Zs/fQo=@lists.infradead.org, AJvYcCW6CP7qYUyZkmFHJuoKIMheSaV4DKmxirR+2GJ+FNZxB63he2hcCFJQdhC4EAMic7Aop/3dIhXDAykhwUsS94Qp@lists.infradead.org
+X-Gm-Message-State: AOJu0YwJtm2eOciFjcDWhPr8ohKijoWIXDZyqzh23GIu/tz8MEiSHtQY
+	Inh+jf8JngkG5C+ByIePsGagreSC9GPAyJvJz8alAsyytL/2SLZC
+X-Gm-Gg: ASbGncsDDlw1qlwnKIHbo79cmfuGfu68g2DCA4MDTO+z7dJ89e6Y4u74r4Cw+FVt58q
+	K427hcgHCGa8Ci75d+1R3NuWGPG5XLVfBDwPDmTSWACy4Pq/mIIOwM7uk74x5ZwImCmZnLsm3WV
+	/HIX83m393VC1mR32bjSdpB6ya04jbBJwNeDvZfAkr6c/0h3hjAw78w91kdpAyTN8qfO0oUR5QS
+	RE67tGJtdgaZ0BjpxKVUaJXv7k4IbrJok6UcsuKQ+XaJy1T8b+Vn08eKr4pmwBH3IjpkWWJ7O6c
+	LOOSuXLQoTo0P73ePQLI+yWv0SIYJtD6FLgf8qgoHsZTaLtoz5KnMghwHGSUhomChgI=
+X-Google-Smtp-Source: AGHT+IFiybmklIR6sXPe5dOMXPko9nq/OxURSSt8JQfw095Ue+kPgwqj+3k15eW2uamc5z4ID2izMg==
+X-Received: by 2002:a17:902:e850:b0:21f:78f:c178 with SMTP id d9443c01a7336-220d1ec1f7bmr52326585ad.3.1739455240643;
+        Thu, 13 Feb 2025 06:00:40 -0800 (PST)
+Received: from mew.. (p3882177-ipxg22501hodogaya.kanagawa.ocn.ne.jp. [180.15.148.177])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-220d55858d6sm12565225ad.223.2025.02.13.06.00.33
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 13 Feb 2025 06:00:40 -0800 (PST)
+From: FUJITA Tomonori <fujita.tomonori@gmail.com>
+To: linux-kernel@vger.kernel.org,
+	rust-for-linux@vger.kernel.org
+Cc: x86@kernel.org,
+	linux-riscv@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org,
+	loongarch@lists.linux.dev,
+	tglx@linutronix.de,
+	mingo@redhat.com,
+	bp@alien8.de,
+	dave.hansen@linux.intel.com,
+	peterz@infradead.org,
+	hpa@zytor.com,
+	paul.walmsley@sifive.com,
+	palmer@dabbelt.com,
+	aou@eecs.berkeley.edu,
+	catalin.marinas@arm.com,
+	will@kernel.org,
+	chenhuacai@kernel.org,
+	kernel@xen0n.name,
+	tangyouling@loongson.cn,
+	hejinyang@loongson.cn,
+	yangtiezhu@loongson.cn,
+	ojeda@kernel.org,
+	alex.gaynor@gmail.com,
+	boqun.feng@gmail.com,
+	gary@garyguo.net,
+	bjorn3_gh@protonmail.com,
+	benno.lossin@proton.me,
+	a.hindborg@kernel.org,
+	aliceryhl@google.com,
+	tmgross@umich.edu
+Subject: [PATCH v3 0/5] rust: Add bug/warn abstractions
+Date: Thu, 13 Feb 2025 22:57:54 +0900
+Message-ID: <20250213135759.190006-1-fujita.tomonori@gmail.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 5/9] riscv: Fix set up of cpu hotplug callbacks
-Content-Language: en-US
-To: Andrew Jones <ajones@ventanamicro.com>, linux-riscv@lists.infradead.org,
- linux-kernel@vger.kernel.org
-Cc: paul.walmsley@sifive.com, palmer@dabbelt.com, charlie@rivosinc.com,
- jesse@rivosinc.com, Anup Patel <apatel@ventanamicro.com>
-References: <20250207161939.46139-11-ajones@ventanamicro.com>
- <20250207161939.46139-16-ajones@ventanamicro.com>
-From: Alexandre Ghiti <alex@ghiti.fr>
-In-Reply-To: <20250207161939.46139-16-ajones@ventanamicro.com>
-X-GND-State: clean
-X-GND-Score: -100
-X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgdegieeludcutefuodetggdotefrodftvfcurfhrohhfihhlvgemucfitefpfffkpdcuggftfghnshhusghstghrihgsvgenuceurghilhhouhhtmecufedtudenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujfgurhepkfffgggfuffvvehfhfgjtgfgsehtjeertddtvdejnecuhfhrohhmpeetlhgvgigrnhgurhgvucfihhhithhiuceorghlvgigsehghhhithhirdhfrheqnecuggftrfgrthhtvghrnheptdfhleefjeegheevgeeljeellefgvefhkeeiffekueejteefvdevhfelvdeggeeinecukfhppedvtddtudemkeeiudemfeefkedvmegvfheltdemudgutggvmegvhedugeemheegjegvmegstdhfkeenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepihhnvghtpedvtddtudemkeeiudemfeefkedvmegvfheltdemudgutggvmegvhedugeemheegjegvmegstdhfkedphhgvlhhopeglkffrggeimedvtddtudemkeeiudemfeefkedvmegvfheltdemudgutggvmegvhedugeemheegjegvmegstdhfkegnpdhmrghilhhfrhhomheprghlvgigsehghhhithhirdhfrhdpnhgspghrtghpthhtohepkedprhgtphhtthhopegrjhhonhgvshesvhgvnhhtrghnrghmihgtrhhordgtohhmpdhrtghpthhtoheplhhinhhugidqrhhishgtvheslhhishhtshdrihhnfhhrrgguvggrugdrohhrghdprhgtphhtthhopehlihhnuhigqdhkvghrn
- hgvlhesvhhgvghrrdhkvghrnhgvlhdrohhrghdprhgtphhtthhopehprghulhdrfigrlhhmshhlvgihsehsihhfihhvvgdrtghomhdprhgtphhtthhopehprghlmhgvrhesuggrsggsvghlthdrtghomhdprhgtphhtthhopegthhgrrhhlihgvsehrihhvohhsihhntgdrtghomhdprhgtphhtthhopehjvghsshgvsehrihhvohhsihhntgdrtghomhdprhgtphhtthhopegrphgrthgvlhesvhgvnhhtrghnrghmihgtrhhordgtohhm
-X-GND-Sasl: alex@ghiti.fr
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250213_133349_666802_1B48B03E 
-X-CRM114-Status: GOOD (  16.97  )
+X-CRM114-CacheID: sfid-20250213_140044_521899_9AE38CF7 
+X-CRM114-Status: GOOD (  15.63  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,85 +131,77 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 07/02/2025 17:19, Andrew Jones wrote:
-> CPU hotplug callbacks should be set up even if we detected all
-> current cpus emulate misaligned accesses, since we want to
-> ensure our expectations of all cpus emulating is maintained.
->
-> Fixes: 6e5ce7f2eae3 ("riscv: Decouple emulated unaligned accesses from access speed")
-> Fixes: e7c9d66e313b ("RISC-V: Report vector unaligned access speed hwprobe")
-> Signed-off-by: Andrew Jones <ajones@ventanamicro.com>
-> ---
->   arch/riscv/kernel/unaligned_access_speed.c | 27 +++++++++++-----------
->   1 file changed, 13 insertions(+), 14 deletions(-)
->
-> diff --git a/arch/riscv/kernel/unaligned_access_speed.c b/arch/riscv/kernel/unaligned_access_speed.c
-> index 780f1c5f512a..c9d3237649bb 100644
-> --- a/arch/riscv/kernel/unaligned_access_speed.c
-> +++ b/arch/riscv/kernel/unaligned_access_speed.c
-> @@ -247,13 +247,6 @@ static void __init check_unaligned_access_speed_all_cpus(void)
->   	/* Check core 0. */
->   	smp_call_on_cpu(0, check_unaligned_access, bufs[0], true);
->   
-> -	/*
-> -	 * Setup hotplug callbacks for any new CPUs that come online or go
-> -	 * offline.
-> -	 */
-> -	cpuhp_setup_state_nocalls(CPUHP_AP_ONLINE_DYN, "riscv:online",
-> -				  riscv_online_cpu, riscv_offline_cpu);
-> -
->   out:
->   	for_each_cpu(cpu, cpu_online_mask) {
->   		if (bufs[cpu])
-> @@ -383,13 +376,6 @@ static int __init vec_check_unaligned_access_speed_all_cpus(void *unused __alway
->   {
->   	schedule_on_each_cpu(check_vector_unaligned_access);
->   
-> -	/*
-> -	 * Setup hotplug callbacks for any new CPUs that come online or go
-> -	 * offline.
-> -	 */
-> -	cpuhp_setup_state_nocalls(CPUHP_AP_ONLINE_DYN, "riscv:online",
-> -				  riscv_online_cpu_vec, NULL);
-> -
->   	return 0;
->   }
->   #else /* CONFIG_RISCV_PROBE_VECTOR_UNALIGNED_ACCESS */
-> @@ -415,6 +401,19 @@ static int __init check_unaligned_access_all_cpus(void)
->   			    NULL, "vec_check_unaligned_access_speed_all_cpus");
->   	}
->   
-> +	/*
-> +	 * Setup hotplug callbacks for any new CPUs that come online or go
-> +	 * offline.
-> +	 */
-> +#ifdef CONFIG_RISCV_PROBE_UNALIGNED_ACCESS
-> +	cpuhp_setup_state_nocalls(CPUHP_AP_ONLINE_DYN, "riscv:online",
-> +				  riscv_online_cpu, riscv_offline_cpu);
-> +#endif
-> +#ifdef CONFIG_RISCV_PROBE_VECTOR_UNALIGNED_ACCESS
-> +	cpuhp_setup_state_nocalls(CPUHP_AP_ONLINE_DYN, "riscv:online",
-> +				  riscv_online_cpu_vec, NULL);
-> +#endif
-> +
->   	return 0;
->   }
->   
+This patchset adds warn_on and warn_on_once macros with the bug/warn
+abstraction.
 
-This patch 5 does not apply without patch 4 that is not a fix which, in 
-theory, should not be sent into the next -rcX...I'd say it is not a 
-problem as patch 4 is small enough.
+Wrapping C's BUG/WARN macros does not work well for x86, RISC-V,
+ARM64, and LoongArch. Rust code needs to directly execute the same
+assembly code used on the C side. To avoid duplicating the assembly
+code, this approach mirrors what the static branch code does: it
+generates the assembly code for Rust using the C preprocessor at
+compile time.
 
-Just to say that maybe you'll be requested to rearrange the patchset!
+The 1st to 4th patches export the BUG/WARN assembly code for Rust on
+each architecture, with no functional changes on the C side. The
+changes for x86 and RISC-V are straightforward. However, the ARM64 and
+LoongArch assembly code are designed differently; they are used by
+both C inline assembly and assembly code. As a result, sharing this
+code with Rust is complicated.
 
-Thanks,
+The last patch adds the bug abstraction with warn_on and warn_on_once
+implementations.
 
-Alex
+This has been tested on x86, ARM64, and RISC-V (QEMU), with only a
+compile test performed for LoongArch.
+
+The assembly code can be used for both BUG and WARN, but currently
+only supports warn_on and warn_on_once. I will work on the remaining
+functionality after this abstraction is merged.
+
+v3:
+- rebased on rust-next
+- use ANNOTATE_REACHABLE macro (replaced ASM_REACHABLE)
+- added Acked-by tag to the x86 change
+v2: https://lore.kernel.org/linux-arm-kernel/20241218062009.2402650-1-fujita.tomonori@gmail.com/
+- remove target_arch cfg by using asm comment
+- clean up the changes to loongarch asm
+v1: https://lore.kernel.org/linux-arm-kernel/20241210001802.228725-1-fujita.tomonori@gmail.com/
+
+FUJITA Tomonori (5):
+  x86/bug: Add ARCH_WARN_ASM macro for BUG/WARN asm code sharing with
+    Rust
+  riscv/bug: Add ARCH_WARN_ASM macro for BUG/WARN asm code sharing with
+    Rust
+  arm64/bug: Add ARCH_WARN_ASM macro for BUG/WARN asm code sharing with
+    Rust
+  loongarch/bug: Add ARCH_WARN_ASM macro for BUG/WARN asm code sharing
+    with Rust
+  rust: Add warn_on and warn_on_once
+
+ arch/arm64/include/asm/asm-bug.h              |  33 +++++-
+ arch/loongarch/include/asm/bug.h              |  35 +++++-
+ arch/riscv/include/asm/bug.h                  |  37 ++++---
+ arch/x86/include/asm/bug.h                    |  56 +++++-----
+ rust/Makefile                                 |   8 ++
+ rust/kernel/.gitignore                        |   2 +
+ rust/kernel/bug.rs                            | 100 ++++++++++++++++++
+ rust/kernel/generated_arch_reachable_asm.rs.S |   7 ++
+ rust/kernel/generated_arch_warn_asm.rs.S      |   7 ++
+ rust/kernel/lib.rs                            |   1 +
+ 10 files changed, 235 insertions(+), 51 deletions(-)
+ create mode 100644 rust/kernel/bug.rs
+ create mode 100644 rust/kernel/generated_arch_reachable_asm.rs.S
+ create mode 100644 rust/kernel/generated_arch_warn_asm.rs.S
+
+
+base-commit: beeb78d46249cab8b2b8359a2ce8fa5376b5ad2d
+-- 
+2.43.0
 
 
 _______________________________________________
