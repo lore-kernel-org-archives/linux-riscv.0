@@ -4,69 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 54BEEC021A0
-	for <linux-riscv@archiver.kernel.org>; Thu, 13 Feb 2025 23:00:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 59982C021A0
+	for <linux-riscv@archiver.kernel.org>; Thu, 13 Feb 2025 23:41:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=HP5pGj/MNog87aSoTy8D6+hWXwaZibtc4F7ve4GDr7o=; b=U/qFDKiTxRX7mU
-	2d5CYJFCqzXHTNKlgmrRUlqHhiKN7w5l4n8FyqU8QzwC8N+iU/Ua+tkB4dn1BBjyqPgyLbvv60l0/
-	7dg860qx99+buvvyVpu2c89lysOge4NwR/xVSmwXgrhAjLgEyzPk3ywha6SQXaCd3K3QBxu3zxhYa
-	/Ib2faNtNyd69w0ojrLpxBTaPC2pnf4PB4Q7rbik0ETFIKGkTcDpHB7MskyBYx0BhynO/nxOpILr0
-	BZAyNeM4AKzvVmY0KjFXBuVqsQgV/TKitBS+fRzmVFB4vJ//MsvHURcHVgpik3BAbC3VDWXykyJUr
-	vdQwfNEpf8ND95O8EySw==;
+	List-Owner; bh=bRmH3Sq5t33ySRZTWYKMuo+uZS6dg2N5IGPsTnl3YRE=; b=QpFc+8RmCZ14Cw
+	dbzRrC3rhmJV32f4ZBXkQYUkJN0ZM6J82RILS63NoVpi4i3TW9AKYATHFm4eBpLKkLUzBZCL30Bor
+	u9h8jR/wnG23MFiknpBmRfOHbmILHdWdjeyj+R4JSfl3L7qACCTPkBaezOPpYkgB/dRO6tS7NLzbD
+	Q2T516nOnDNSXdyYQxb/OPGvcEtraAuU0oWS7NhYzri8ndxbQYn2RFQbcSECo946A0Lnu1mViEJ/k
+	ZBYWhiXv2eq6oakcLuw/QaAN0LBwwB5lsxDeVpzn8/qieWWSPbbCmSlW1vJPpkhflMQ7gsbatBlT3
+	g2qHflU4jbsepEeZ2GTg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiiC2-0000000Ctel-0DCo;
-	Thu, 13 Feb 2025 23:00:26 +0000
-Received: from relay3-d.mail.gandi.net ([2001:4b98:dc4:8::223])
+	id 1tiipc-0000000CyYG-0Kjs;
+	Thu, 13 Feb 2025 23:41:20 +0000
+Received: from mail-qk1-x731.google.com ([2607:f8b0:4864:20::731])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiiBy-0000000Ctc0-3kni
+	id 1tihif-0000000CpK6-2L5b
 	for linux-riscv@lists.infradead.org;
-	Thu, 13 Feb 2025 23:00:25 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id AC5C31F764;
-	Thu, 13 Feb 2025 23:00:17 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1739487619;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=SMbFIP0hXOQDBlKRcsdm79YcouV95TghdG4+3UcuP1c=;
-	b=Az83w22hwSpu+jWDQlxwg7RHVZLeWBu7AS+PA2fadSCbJgw5KY1KWHpslgnWrP3HiRoHPk
-	CXU4GNZsewKrTXhfECA8omUnixYr60bQeUenYOPaSFb6J1Bl6xWZ1/OimRRASoDH7L7tYM
-	JdHiywvV3RA6u9VU+JBT2wmVkxKFv6BFf/a/QRsVyHhnWZ37plwSkmivSr9ls6oKrh+752
-	E/qXCvZ7cVTWgLlg0zJkjFbQyvyX6/hqf88zl3xAzmSxyjrlzklGfooGx1aQbFn3U8ek1c
-	JPkRNRPlQNTCUYBBCdJs0ZV3g5bcUHsENTFbq53dh7cSjQ5qePTt+cjczuhQow==
-Date: Fri, 14 Feb 2025 00:00:17 +0100
-From: Alexandre Belloni <alexandre.belloni@bootlin.com>
-To: Alexander Sverdlin <alexander.sverdlin@gmail.com>
-Cc: devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
-	linux-rtc@vger.kernel.org, Inochi Amaoto <inochiama@gmail.com>,
-	robh@kernel.org, krzysztof.kozlowski+dt@linaro.org,
-	conor+dt@kernel.org, unicorn_wang@outlook.com,
-	inochiama@outlook.com, paul.walmsley@sifive.com, palmer@dabbelt.com,
-	aou@eecs.berkeley.edu, dlan@gentoo.org,
-	linux-kernel@vger.kernel.org,
-	Jingbao Qiu <qiujingbao.dlmu@gmail.com>,
+	Thu, 13 Feb 2025 22:30:06 +0000
+Received: by mail-qk1-x731.google.com with SMTP id af79cd13be357-7c05bb6dab7so151248385a.0
+        for <linux-riscv@lists.infradead.org>; Thu, 13 Feb 2025 14:30:05 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1739485804; x=1740090604; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=ShXovPaITATOcaXepBbTHEqdpsA8xygI7qSwseEtmVA=;
+        b=Ua4hf+0LWzAKlNl5U1NSbPDGSS+/+VxBGuK8zGR/ItPVNES2G2BodUtTcb/kvxV540
+         xxA9IjIdGGtDdVYGFG1sdERFuXliifc0wiPg+sA5X+HgxT33g4sRLgovX3glivJjvViY
+         uvabD0ysSidutw9dOu9fWl9hBP0wMEe2MNGdL/OvQaqQFjf50cJj+NH9nUyzYi/neHBN
+         /DGNMzmZLqa+YoLWyWgL/1Ax3TB2OR+Ee89zaE5sY2+kTeV7XKvWxG6pMb93T4RpiGkY
+         Wkx9pGNGZ5ciyGldOiJzevuGWrKXOP8LNGQUjZG3bgmwsAWrJhaVdGp4PV7Eq55WyBhr
+         yywA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1739485804; x=1740090604;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=ShXovPaITATOcaXepBbTHEqdpsA8xygI7qSwseEtmVA=;
+        b=ls4uDfwvAI1otvw0DEF7MOdOyHw25nIO7KdV/47lk3kqvt/VzGdSERsHlFG2LXrNf/
+         Dv0KMaAuegigDO+/WWkfkaFlOYZfF1T7GKrgQyRlaLxi+Ly8dzlSYx3y5SP4LtTdBc4f
+         opJB00CwAp7KLXOhKBzdIaGFOlu4M66+XEulaAB1n+0kxPx3lIA1W+PeY34BmTmm2kHd
+         Z5Pf5VJ/wVfL0O6VvbD7q8O51ZikeuDzo+WuQ/2JZ3LM5jY+Fu11HuTABwaetpseW66e
+         OwIxMqelKwGi9vokiFmGS3HffK/L8hyocl+JlxEbTLy3w1NIz+xv3QpbUAiVIyYsFz8W
+         yKEA==
+X-Forwarded-Encrypted: i=1; AJvYcCWukmw5ji4uNj1jcA4xJ6NYp86epe/5nJlQW65glzUWRLRpUH7KNd7tzjucsO7ZSjXhTPf6pGHx3U/YmQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0YyfMkuNOn1AI77OEq1mp8OzRUOtEc2BnBir2nNckKNDY1mszUOU
+	ouNEdvEZYYO67deH3n1BDlMvmenDAEGMUzsTBSIShKgMrgc3Z7Kb
+X-Gm-Gg: ASbGncundFJRQ029Dn6AMfd12H87ceJzk2dsW0UeW1TiemI1Y3PNtbriLRsV2vMNmSp
+	08BoDotkGn7KmQGGeijpLNJwDWxUrzuVkYnO78EnyF1CU4w+1EznAJYyxh4EyY47GLg56myyuOg
+	JNkRiWZj8eoWj65tmBnbfmAzQ0zbyJ1/R1SG2+GYM5nT1Ka9b9n8skMHYtn1Blkf2QYDDnEacsQ
+	3eFSKdgMb7Na9d5sm8ITDiVeXriUJpe0fuhrpElAmO4h39OBflgrHD4rDr2o19kT5s=
+X-Google-Smtp-Source: AGHT+IG45Dds1F1x6ndc483I9NQk+Amp3qv08smVydJSJhtH7qqr6jURVIBwtKjriGlCosvlZ5CFfA==
+X-Received: by 2002:a05:620a:6841:b0:7c0:78ec:1ece with SMTP id af79cd13be357-7c07a9acc99mr761190585a.7.1739485804152;
+        Thu, 13 Feb 2025 14:30:04 -0800 (PST)
+Received: from localhost ([2001:da8:7001:11::cb])
+        by smtp.gmail.com with UTF8SMTPSA id af79cd13be357-7c07c6088ccsm139655885a.33.2025.02.13.14.30.03
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 13 Feb 2025 14:30:03 -0800 (PST)
+Date: Fri, 14 Feb 2025 06:29:56 +0800
+From: Inochi Amaoto <inochiama@gmail.com>
+To: Alexander Sverdlin <alexander.sverdlin@gmail.com>, 
+	devicetree@vger.kernel.org, linux-riscv@lists.infradead.org, linux-rtc@vger.kernel.org
+Cc: Jingbao Qiu <qiujingbao.dlmu@gmail.com>, 
+	Inochi Amaoto <inochiama@gmail.com>, alexandre.belloni@bootlin.com, robh@kernel.org, 
+	krzysztof.kozlowski+dt@linaro.org, conor+dt@kernel.org, unicorn_wang@outlook.com, 
+	inochiama@outlook.com, paul.walmsley@sifive.com, palmer@dabbelt.com, 
+	aou@eecs.berkeley.edu, dlan@gentoo.org, linux-kernel@vger.kernel.org, 
 	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Subject: Re: [PATCH v11 3/3] rtc: sophgo: cv18xx: Add restart handler
-Message-ID: <20250213230017eaa89034@mail.local>
+Subject: Re: [PATCH v11 1/3] dt-bindings: rtc: sophgo: add RTC support for
+ Sophgo CV1800 series SoC
+Message-ID: <afskjc2sltch5vqlegrliq32bpoejmzgko6vovfgj33sx6aqla@omeqr7mr77za>
 References: <20250213215655.2311793-1-alexander.sverdlin@gmail.com>
- <20250213215655.2311793-4-alexander.sverdlin@gmail.com>
+ <20250213215655.2311793-2-alexander.sverdlin@gmail.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20250213215655.2311793-4-alexander.sverdlin@gmail.com>
-X-GND-State: clean
-X-GND-Score: -100
-X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgdegkedtgecutefuodetggdotefrodftvfcurfhrohhfihhlvgemucfitefpfffkpdcuggftfghnshhusghstghrihgsvgenuceurghilhhouhhtmecufedtudenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujfgurhepfffhvfevuffkfhggtggujgesthdtredttddtvdenucfhrhhomheptehlvgigrghnughrvgcuuegvlhhlohhnihcuoegrlhgvgigrnhgurhgvrdgsvghllhhonhhisegsohhothhlihhnrdgtohhmqeenucggtffrrghtthgvrhhnpeegieduueethefhkeegjeevfefhiedujeeuhffgleejgfejgeekueejuefgheeggfenucffohhmrghinhepsghoohhtlhhinhdrtghomhenucfkphepvdgrtddumegvtdgrmedvugemieefjedtmeejkegvtdemtgdtvgekmedvkedtieemkegrtgeinecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehinhgvthepvdgrtddumegvtdgrmedvugemieefjedtmeejkegvtdemtgdtvgekmedvkedtieemkegrtgeipdhhvghloheplhhotggrlhhhohhsthdpmhgrihhlfhhrohhmpegrlhgvgigrnhgurhgvrdgsvghllhhonhhisegsohhothhlihhnrdgtohhmpdhnsggprhgtphhtthhopedujedprhgtphhtthhopegrlhgvgigrnhguvghrrdhsvhgvrhgulhhinhesghhmrghilhdrtghomhdprhgtphhtthhopeguvghvihgtvghtrhgvvgesvhhgvghrrdhkvghrnhgvlhdrohhrghdprhgtp
- hhtthhopehlihhnuhigqdhrihhstghvsehlihhsthhsrdhinhhfrhgruggvrggurdhorhhgpdhrtghpthhtoheplhhinhhugidqrhhttgesvhhgvghrrdhkvghrnhgvlhdrohhrghdprhgtphhtthhopehinhhotghhihgrmhgrsehgmhgrihhlrdgtohhmpdhrtghpthhtoheprhhosghhsehkvghrnhgvlhdrohhrghdprhgtphhtthhopehkrhiihihsiihtohhfrdhkohiilhhofihskhhiodgutheslhhinhgrrhhordhorhhgpdhrtghpthhtoheptghonhhorhdoughtsehkvghrnhgvlhdrohhrgh
-X-GND-Sasl: alexandre.belloni@bootlin.com
+In-Reply-To: <20250213215655.2311793-2-alexander.sverdlin@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250213_150023_695270_FBB7982C 
-X-CRM114-Status: GOOD (  25.56  )
+X-CRM114-CacheID: sfid-20250213_143005_617228_2C9BA98B 
+X-CRM114-Status: GOOD (  17.55  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,137 +103,61 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 13/02/2025 22:56:47+0100, Alexander Sverdlin wrote:
-> Currently provided ATF firmware for ARM64 Sophgo SoCs is binary-only.
-> To make Linux independent from this binary firmware, provide restart
-> handler triggering COLD or WARM reboot directly via RTC HW block as
-> alternative to PSCI interface.
+On Thu, Feb 13, 2025 at 10:56:45PM +0100, Alexander Sverdlin wrote:
+> From: Jingbao Qiu <qiujingbao.dlmu@gmail.com>
 > 
-> Handler priority SYS_OFF_PRIO_DEFAULT of 0 is desired, because if PSCI
-> is indeed present, its priority of 129 will override the new one. On RiskV
-> side the behaviour is unchanged as well because SBI SRST handler has higher
-> priority as well (192).
+> Add RTC devicetree binding for Sophgo CV1800 SoC.
 > 
-> Tested on SG2000 in ARM64 mode.
-> 
+> Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+> Signed-off-by: Jingbao Qiu <qiujingbao.dlmu@gmail.com>
 > Signed-off-by: Alexander Sverdlin <alexander.sverdlin@gmail.com>
 > ---
-> v11:
-> - patch introduced;
+>  .../bindings/rtc/sophgo,cv1800-rtc.yaml       | 53 +++++++++++++++++++
+>  1 file changed, 53 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/rtc/sophgo,cv1800-rtc.yaml
 > 
->  drivers/rtc/rtc-cv1800.c | 51 +++++++++++++++++++++++++++++++++++++++-
->  1 file changed, 50 insertions(+), 1 deletion(-)
-> 
-> diff --git a/drivers/rtc/rtc-cv1800.c b/drivers/rtc/rtc-cv1800.c
-> index 5c30f7388983..586d7195f1f4 100644
-> --- a/drivers/rtc/rtc-cv1800.c
-> +++ b/drivers/rtc/rtc-cv1800.c
-> @@ -9,17 +9,23 @@
->  #include <linux/irq.h>
->  #include <linux/kernel.h>
->  #include <linux/module.h>
-> +#include <linux/notifier.h>
->  #include <linux/of.h>
->  #include <linux/platform_device.h>
-> +#include <linux/reboot.h>
->  #include <linux/regmap.h>
->  #include <linux/rtc.h>
->  
-> +#define CTRL_UNLOCKKEY         0x0004
-> +#define CTRL0                  0x0008
->  #define SEC_PULSE_GEN          0x1004
->  #define ALARM_TIME             0x1008
->  #define ALARM_ENABLE           0x100C
->  #define SET_SEC_CNTR_VAL       0x1010
->  #define SET_SEC_CNTR_TRIG      0x1014
->  #define SEC_CNTR_VAL           0x1018
-> +#define EN_PWR_CYC_REQ         0x10C8
-> +#define EN_WARM_RST_REQ        0x10CC
->  
->  /*
->   * When in VDDBKUP domain, this MACRO register
-> @@ -28,6 +34,10 @@
->  #define MACRO_RO_T             0x14A8
->  #define MACRO_RG_SET_T         0x1498
->  
-> +/* CTRL0 bits */
-> +#define REQ_PWR_CYC            BIT(3)
-> +#define REQ_WARM_RST           BIT(4)
+> diff --git a/Documentation/devicetree/bindings/rtc/sophgo,cv1800-rtc.yaml b/Documentation/devicetree/bindings/rtc/sophgo,cv1800-rtc.yaml
+> new file mode 100644
+> index 000000000000..b36b51a69166
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/rtc/sophgo,cv1800-rtc.yaml
+> @@ -0,0 +1,53 @@
+> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/rtc/sophgo,cv1800-rtc.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
 > +
->  #define ALARM_ENABLE_MASK      BIT(0)
->  #define SEL_SEC_PULSE          BIT(31)
->  
-> @@ -160,6 +170,29 @@ static const struct rtc_class_ops cv1800_rtc_ops = {
->  	.alarm_irq_enable = cv1800_rtc_alarm_irq_enable,
->  };
->  
-> +static int cv1800_restart_handler(struct sys_off_data *data)
-> +{
-> +	struct cv1800_rtc_priv *info = data->cb_data;
-> +	u32 reg_en = EN_WARM_RST_REQ;
-> +	u32 request = 0xFFFF0800;
+> +title: Real Time Clock of the Sophgo CV1800 SoC
 > +
-> +	if (data->mode == REBOOT_COLD) {
-> +		reg_en = EN_PWR_CYC_REQ;
-> +		request |= REQ_PWR_CYC;
-> +	} else {
-> +		request |= REQ_WARM_RST;
-> +	}
+> +description:
+> +  Real Time Clock (RTC) is an independently powered module
+> +  within the chip, which includes a 32KHz oscillator and a
+> +  Power On Reset/POR submodule. It can be used for time display
+> +  and timed alarm generation. In addition, the hardware state
+> +  machine provides triggering and timing control for chip
+> +  power on, off, and reset.
 > +
-> +	/* Enable reset request */
-> +	regmap_write(info->rtc_map, reg_en, 1);
-> +	/* Enable CTRL0 register access */
-> +	regmap_write(info->rtc_map, CTRL_UNLOCKKEY, 0xAB18);
-> +	/* Request reset */
-> +	regmap_write(info->rtc_map, CTRL0, request);
+> +maintainers:
+> +  - Jingbao Qiu <qiujingbao.dlmu@gmail.com>
 > +
-> +	return NOTIFY_DONE;
-> +}
+> +allOf:
+> +  - $ref: rtc.yaml#
 > +
->  static int cv1800_rtc_probe(struct platform_device *pdev)
->  {
->  	struct cv1800_rtc_priv *rtc;
-> @@ -205,7 +238,23 @@ static int cv1800_rtc_probe(struct platform_device *pdev)
->  		return dev_err_probe(&pdev->dev, ret,
->  				     "cannot register interrupt handler\n");
->  
-> -	return devm_rtc_register_device(rtc->rtc_dev);
-> +	ret = devm_rtc_register_device(rtc->rtc_dev);
-> +	if (ret)
-> +		return dev_err_probe(&pdev->dev, ret, "cannot register RTC\n");
 
-This message is useless, there is no failure path without a message in
-devm_rtc_register_device.
+> +properties:
+> +  compatible:
+> +    const: sophgo,cv1800-rtc
 
-> +
-> +	/*
-> +	 * SYS_OFF_PRIO_DEFAULT of 0 is desired here because both RiscV SBI SRST
-> +	 * (prio 192) and ARM PSCI (prio 129) will override this one; this
-> +	 * handler shall serve as a fallback in cases where firmware is not
-> +	 * present.
-> +	 */
-> +	ret = devm_register_restart_handler(&pdev->dev, cv1800_restart_handler,
-> +					    rtc);
-> +	if (ret)
-> +		return dev_err_probe(&pdev->dev, ret,
-> +				     "cannot register restart handler\n");
+Now I prefer cv1800b to cv1800, using wildcard to provide base
+compatible is not a good idea. This old design should be changed.
 
+Otherwise, it looks good to me. With the compatible change:
 
-Probe must never fail after devm_rtc_register_device.
+Reviewed-by: Inochi Amaoto <inochiama@gmail.com>
 
-> +
-> +	return 0;
->  }
->  
->  static const struct of_device_id cv1800_dt_ids[] = {
-> -- 
-> 2.48.1
-> 
-
--- 
-Alexandre Belloni, co-owner and COO, Bootlin
-Embedded Linux and Kernel engineering
-https://bootlin.com
+Regards,
+Inochi
 
 _______________________________________________
 linux-riscv mailing list
