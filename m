@@ -4,97 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D3ABEC021A4
-	for <linux-riscv@archiver.kernel.org>; Thu, 13 Feb 2025 20:41:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1E967C021A0
+	for <linux-riscv@archiver.kernel.org>; Thu, 13 Feb 2025 20:58:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=HR1jx/6nTg0CpODM6V/NpTaafYN2B0wsyz3Fi/UcfDc=; b=l6v68hEypQMqWr
-	CKZ4R78gTsZbjYmO4VQWRny6vR2WlFXFvkxdgkEC18QtZW9YChpzr0ZERiVnZSoa/Wv+lNZDCuIPF
-	mYp8csjqH4C2OBaPGcNKyxUazy0MtWWURAm698nUj/2JYOQeWQD53pra7DRhRoivRMDl4PLlvuen0
-	6tbqzNXz97xiyyefh+XE+x6Wsf9t/pdqJuHwLTwJ1g2qLa20XNvx4QOv1oLhaO36rz2aww1bAwuKL
-	IR1Bu/HERjVLVDH4tN8pHq95wUnIlJntsERocesMS+YVCfLNnCTTAjqQB0FLYkfV2wyCnBHFCL1pX
-	Mx5hG9dYJmf2TIYUKuxA==;
+	List-Owner; bh=Fabn8ju008YH93F+Lkr/R/RLHlWtJ0tmSs4eERiVvG4=; b=1fhkNA2Q1nLyQu
+	NsmYoYi5oL4acfMGUS59iQ48MDXdWcGaO30Lje5g8H1yVgJoq/a1UDgsqN+zMtLxmKo30cO5qxGk6
+	NnMQA1JlJqq00jbfZSqWr4PJq/9zkM5cI52lCPHFddJSVlYg/eAPktB8OEqdujRY1ox2sx5ZkP7Nf
+	DwFagXcdMDUnMh1J/rfQOV67LR0RmSqqxcC1R2xNfICBJ5qEfpE39HQUMpcHLjs3vsgBuTrFttIIg
+	YBLC4qu4SXcIsRmJC1BKBeJNwH7q4napFXP/GgINVtVDhkjAFHFHeOtJYXROPdJ5A/M946UnA7o8B
+	3rVS1ZyYNxTRlgA6Nuqw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tig1P-0000000CZRC-39Aa;
-	Thu, 13 Feb 2025 20:41:19 +0000
-Received: from mail-ed1-x52d.google.com ([2a00:1450:4864:20::52d])
+	id 1tigI0-0000000Ccze-31dz;
+	Thu, 13 Feb 2025 20:58:28 +0000
+Received: from relay9-d.mail.gandi.net ([217.70.183.199])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tidqx-0000000CDEe-1Seg;
-	Thu, 13 Feb 2025 18:22:24 +0000
-Received: by mail-ed1-x52d.google.com with SMTP id 4fb4d7f45d1cf-5dec817f453so1823341a12.2;
-        Thu, 13 Feb 2025 10:22:23 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1739470942; x=1740075742; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=FQItitSdgkiMJfSaAOy9tZBmfeo5kJAi4kSnHOl34Qg=;
-        b=OYD2l6VWx1sWkUQDEgq9OnyM+ZNst/iesKaDFHdHdGvd4D5uEEBCzc66roZuUIEqd0
-         9cwurMIvyD388v665QZk9GEMTG1zr+TyYesB7h47gJeCZ/l0X4uPu0JtKaoEoVsdPJgJ
-         brBq1Lg3xbjRTHRkGErX75f1M0KZt0eRTRD0ohxQ26hwyVv/mNuez3W+HMoyFKmgC8ti
-         dfu5/994vGzyFNGwrUxzs/p4iSTdy1WyC0quC15J6O7bOXvkLh1MmEYjXbD/XM9aV55u
-         2A9snXpqtDJ4Y1p/N/BPnMf6jRL2/R7ZoBA6I+rtnJvzezma6c5jcQqmfcDi0q/7AHDD
-         N/kQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1739470942; x=1740075742;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=FQItitSdgkiMJfSaAOy9tZBmfeo5kJAi4kSnHOl34Qg=;
-        b=dxEU4VUiWqrCqDW2b/9yp+wC8XAz1aRihBZZ+Gv8ACTlWlZac/9riYLpFnXD5P6NWR
-         /wQJrLgeOqBpeh6lF8wnAt7mUw99+xAnB8Wccj/ineVSSLs2e0jeNNKYgelKcUoC+DyL
-         9/l6arRP4Qej1krH8RIzLTTFi+LaTO0Kh/zRqDT/EgAp3qEaOEtFUb2kiLFZKDd/YTu0
-         SfUlc5fRuBDdpg25JLNOXsOvUVN1MzpUC9UN6Np7nG8FLyS99pKXvUQmDFS/4BFWfA38
-         ewpuEOlON3DINnHtWqaGKLjeUfB7cfbRy2qDCgpECJQ6KyofsIugH0qGOCulUVAhJgAs
-         Ze/A==
-X-Forwarded-Encrypted: i=1; AJvYcCVnE+YJo4Qf5wl+fBTbPb3/MVL2jiY/7OmvYsQ69501AJFKEqAU4FRdkJWdIQA/ki5ovAigbWplozNLz+XeB9Km@lists.infradead.org, AJvYcCXG6Nz7Xp3wtBm2K9uit1ChKBHtD9ZV3+WVPbklIpZvBKZPc9lPsAt88uV9EHdAH9LY/oNzlAvjA2Wy59E=@lists.infradead.org
-X-Gm-Message-State: AOJu0YxJT5xUNvPmw47ubK+Nd4zW8P3nPSiD/8K6fYMuMH+OwLFfKP4q
-	9lX348bV0IWCOffVhLIcXvXfYfjJe72ORu0svaeACPUymXeYreVG
-X-Gm-Gg: ASbGncuIZSa9p0EkNp9eFGKYDKl+qoYOtmH61Y2L5OcQFqHr3jtHZzlCxwz7zjGCTh0
-	l4ceTjq0nKN8tCgt1cSFO6hY3H1bqPKJVTNNxkdSK3FzUhvbwXBUTM6FHTI3THmrnL97pkzrcQQ
-	q5SAYVNEBuvM6bZzvh9f/Eo1CERy+hivE0K7ro2I+CLS+p2lOFtWtN3u3qQeO/T4voPl6wlMPhK
-	5uL1rmL5PeLgJLl6iP1EzJrWWI9w/NOFaEmZzK1IbeNpjeybywwvYmeVnWCgzHZ/MCJ8qcnu9xd
-	afK1fzn06SMFVUOYcV2UYWCOfBfD
-X-Google-Smtp-Source: AGHT+IEbd3n8MU55t3euCitcQQKFs6SunYb2MyFZGehEuglKNg6K9SJXp6KGY3aEsdTFbYirMQvuuA==
-X-Received: by 2002:a05:6402:5111:b0:5de:dc08:9cc5 with SMTP id 4fb4d7f45d1cf-5dedc08a138mr487236a12.7.1739470940344;
-        Thu, 13 Feb 2025 10:22:20 -0800 (PST)
-Received: from giga-mm.. ([2a02:1210:861b:6f00:82ee:73ff:feb8:99e3])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-5dece270a66sm1559230a12.52.2025.02.13.10.22.19
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 13 Feb 2025 10:22:20 -0800 (PST)
-From: Alexander Sverdlin <alexander.sverdlin@gmail.com>
-To: soc@lists.linux.dev
-Cc: Alexander Sverdlin <alexander.sverdlin@gmail.com>,
-	Jisheng Zhang <jszhang@kernel.org>,
-	Chao Wei <chao.wei@sophgo.com>,
-	Chen Wang <unicorn_wang@outlook.com>,
-	Inochi Amaoto <inochiama@outlook.com>,
-	linux-riscv@lists.infradead.org,
-	Haylen Chu <heylenay@outlook.com>,
-	linux-arm-kernel@lists.infradead.org,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Arnd Bergmann <arnd@arndb.de>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Lee Jones <lee@kernel.org>
-Subject: [PATCH v4 6/7] arm64: Add SOPHGO SOC family Kconfig support
-Date: Thu, 13 Feb 2025 19:22:07 +0100
-Message-ID: <20250213182210.2098718-7-alexander.sverdlin@gmail.com>
-X-Mailer: git-send-email 2.48.1
-In-Reply-To: <20250213182210.2098718-1-alexander.sverdlin@gmail.com>
-References: <20250213182210.2098718-1-alexander.sverdlin@gmail.com>
+	id 1tigHy-0000000Ccxe-019W
+	for linux-riscv@lists.infradead.org;
+	Thu, 13 Feb 2025 20:58:27 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id 26DE544300;
+	Thu, 13 Feb 2025 20:58:19 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
+	t=1739480301;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=LWJiM1NFkSJ0D7UA78bKmM5hHyORgZQGH37a4foanvg=;
+	b=b67JlGuCv3yJdSsndGs/nZkpiGYuhphZ7pGjGTTiU7QbULpqySbNoRzg6g/b9mZ1plFOF9
+	iiSZCrQdbFnpB39cmPO+F25DJft8U343DgI8Rp5buSMRtiJDyv+2Cxd/XgYqn2cWjJPgFJ
+	cbbmdxOCqfxm5uFQGc0r3of/Jxg+b7/k7I4Ow5NUa+dwlGGHRRsAyC22uq4bYsXrPeoPk7
+	GLv4a9o2UjkuisxIFWbePEjQt90HCmYnc3Ov9dMhxNc7QrgjvzUcIJx5DdO4N4xq6ixznu
+	mMacCfwcvgU1jVo/6m5aRFthKxWbyrTIFO4XJxPXHv6rOrPYV65LnXxpLlMbzQ==
+Date: Thu, 13 Feb 2025 21:58:18 +0100
+From: Alexandre Belloni <alexandre.belloni@bootlin.com>
+To: Alexander Sverdlin <alexander.sverdlin@gmail.com>
+Cc: linux-riscv@lists.infradead.org, linux-rtc@vger.kernel.org,
+	Jingbao Qiu <qiujingbao.dlmu@gmail.com>,
+	Inochi Amaoto <inochiama@gmail.com>, robh@kernel.org,
+	krzysztof.kozlowski+dt@linaro.org, conor+dt@kernel.org,
+	unicorn_wang@outlook.com, inochiama@outlook.com,
+	paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
+	dlan@gentoo.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v10 2/2] rtc: sophgo: add rtc support for Sophgo CV1800
+ SoC
+Message-ID: <20250213205818f14edd30@mail.local>
+References: <20250213184622.2099324-1-alexander.sverdlin@gmail.com>
+ <20250213184622.2099324-3-alexander.sverdlin@gmail.com>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20250213184622.2099324-3-alexander.sverdlin@gmail.com>
+X-GND-State: clean
+X-GND-Score: -100
+X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgdegjeejlecutefuodetggdotefrodftvfcurfhrohhfihhlvgemucfitefpfffkpdcuggftfghnshhusghstghrihgsvgenuceurghilhhouhhtmecufedtudenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujfgurhepfffhvfevuffkfhggtggujgesthdtredttddtvdenucfhrhhomheptehlvgigrghnughrvgcuuegvlhhlohhnihcuoegrlhgvgigrnhgurhgvrdgsvghllhhonhhisegsohhothhlihhnrdgtohhmqeenucggtffrrghtthgvrhhnpeegieduueethefhkeegjeevfefhiedujeeuhffgleejgfejgeekueejuefgheeggfenucffohhmrghinhepsghoohhtlhhinhdrtghomhenucfkphepvdgrtddumegvtdgrmedvugemieefjedtmeejkegvtdemtgdtvgekmedvkedtieemkegrtgeinecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehinhgvthepvdgrtddumegvtdgrmedvugemieefjedtmeejkegvtdemtgdtvgekmedvkedtieemkegrtgeipdhhvghloheplhhotggrlhhhohhsthdpmhgrihhlfhhrohhmpegrlhgvgigrnhgurhgvrdgsvghllhhonhhisegsohhothhlihhnrdgtohhmpdhnsggprhgtphhtthhopeduiedprhgtphhtthhopegrlhgvgigrnhguvghrrdhsvhgvrhgulhhinhesghhmrghilhdrtghomhdprhgtphhtthhopehlihhnuhigqdhrihhstghvsehlihhsthhsrdhinhhfrhgruggvrggurdhor
+ hhgpdhrtghpthhtoheplhhinhhugidqrhhttgesvhhgvghrrdhkvghrnhgvlhdrohhrghdprhgtphhtthhopehqihhujhhinhhgsggrohdrughlmhhusehgmhgrihhlrdgtohhmpdhrtghpthhtohepihhnohgthhhirghmrgesghhmrghilhdrtghomhdprhgtphhtthhopehrohgshheskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepkhhriiihshiithhofhdrkhhoiihlohifshhkihdoughtsehlihhnrghrohdrohhrghdprhgtphhtthhopegtohhnohhrodgutheskhgvrhhnvghlrdhorhhg
+X-GND-Sasl: alexandre.belloni@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250213_102223_387336_15B6EF7D 
-X-CRM114-Status: UNSURE (   8.57  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250213_125826_175690_8D795899 
+X-CRM114-Status: GOOD (  15.21  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,42 +83,93 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-First user will be Aarch64 core within SG2000 SoC.
+On 13/02/2025 19:46:15+0100, Alexander Sverdlin wrote:
+> +static int cv1800_rtc_probe(struct platform_device *pdev)
+> +{
+> +	struct cv1800_rtc_priv *rtc;
+> +	u32 ctrl_val;
+> +	void __iomem *base;
+> +	int ret;
+> +
+> +	rtc = devm_kzalloc(&pdev->dev, sizeof(*rtc), GFP_KERNEL);
+> +	if (!rtc)
+> +		return -ENOMEM;
+> +
+> +	base = devm_platform_ioremap_resource(pdev, 0);
+> +	if (IS_ERR(base))
+> +		return PTR_ERR(base);
+> +
+> +	rtc->rtc_map = devm_regmap_init_mmio(&pdev->dev, base,
+> +					     &cv1800_rtc_regmap_config);
+> +	if (IS_ERR(rtc->rtc_map))
+> +		return PTR_ERR(rtc->rtc_map);
+> +
+> +	rtc->irq = platform_get_irq(pdev, 0);
+> +	if (rtc->irq < 0)
+> +		return rtc->irq;
+> +
+> +	rtc->clk = devm_clk_get_enabled(&pdev->dev, NULL);
+> +	if (IS_ERR(rtc->clk))
+> +		return dev_err_probe(&pdev->dev, PTR_ERR(rtc->clk),
+> +				     "clk not found\n");
+> +
+> +	platform_set_drvdata(pdev, rtc);
+> +
+> +	device_init_wakeup(&pdev->dev, 1);
+> +
+> +	rtc->rtc_dev = devm_rtc_allocate_device(&pdev->dev);
+> +	if (IS_ERR(rtc->rtc_dev))
+> +		return PTR_ERR(rtc->rtc_dev);
+> +
+> +	rtc->rtc_dev->ops = &cv1800_rtc_ops;
+> +	rtc->rtc_dev->range_max = U32_MAX;
+> +
+> +	ret = devm_request_irq(&pdev->dev, rtc->irq, cv1800_rtc_irq_handler,
+> +			       IRQF_TRIGGER_HIGH, "rtc alarm", rtc);
+> +	if (ret)
+> +		return dev_err_probe(&pdev->dev, ret,
+> +				     "cannot register interrupt handler\n");
+> +
+> +	rtc_enable_sec_counter(rtc);
 
-Reviewed-by: Chen Wang <unicorn_wang@outlook.com>
-Signed-off-by: Alexander Sverdlin <alexander.sverdlin@gmail.com>
----
-Changelog:
-v4:
-v3:
-v2:
-- shortened the help message (mirrored from RiscV ARCH now);
-- select ARCH_HAS_RESET_CONTROLLER instead of RESET_CONTROLLER;
-- moved CLK_SOPHGO_CV1800 selection into defconfig;
+Really, this must be avoided, this loses precious information and
+changing it later will break users. What must be done is to check
+whether the RTC is started in .read_time if this is not the case, return
+-EINVAL instead of an invalid date/time.
+The RTC must be started once the time is set for the first time. This
+ensures we can detect when the time is invalid.
 
- arch/arm64/Kconfig.platforms | 6 ++++++
- 1 file changed, 6 insertions(+)
 
-diff --git a/arch/arm64/Kconfig.platforms b/arch/arm64/Kconfig.platforms
-index 02f9248f7c84..21b6a2bfb45a 100644
---- a/arch/arm64/Kconfig.platforms
-+++ b/arch/arm64/Kconfig.platforms
-@@ -307,6 +307,12 @@ config ARCH_INTEL_SOCFPGA
- 	  Stratix 10 (ex. Altera), Stratix10 Software Virtual Platform,
- 	  Agilex and eASIC N5X.
- 
-+config ARCH_SOPHGO
-+	bool "Sophgo SoCs"
-+	select ARCH_HAS_RESET_CONTROLLER
-+	help
-+	  This enables support for Sophgo SoC platform hardware.
-+
- config ARCH_STM32
- 	bool "STMicroelectronics STM32 SoC Family"
- 	select GPIOLIB
+> +
+> +	return devm_rtc_register_device(rtc->rtc_dev);
+> +}
+> +
+> +static const struct of_device_id cv1800_dt_ids[] = {
+> +	{ .compatible = "sophgo,cv1800-rtc" },
+> +	{ /* sentinel */ },
+> +};
+> +MODULE_DEVICE_TABLE(of, cv1800_dt_ids);
+> +
+> +static struct platform_driver cv1800_rtc_driver = {
+> +	.driver = {
+> +		.name = "sophgo-cv1800-rtc",
+> +		.of_match_table = cv1800_dt_ids,
+> +	},
+> +	.probe = cv1800_rtc_probe,
+> +};
+> +
+> +module_platform_driver(cv1800_rtc_driver);
+> +MODULE_AUTHOR("Jingbao Qiu");
+> +MODULE_DESCRIPTION("Sophgo cv1800 RTC Driver");
+> +MODULE_LICENSE("GPL");
+> -- 
+> 2.48.1
+> 
+
 -- 
-2.48.1
-
+Alexandre Belloni, co-owner and COO, Bootlin
+Embedded Linux and Kernel engineering
+https://bootlin.com
 
 _______________________________________________
 linux-riscv mailing list
