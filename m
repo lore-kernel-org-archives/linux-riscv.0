@@ -4,92 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A336C021A0
-	for <linux-riscv@archiver.kernel.org>; Thu, 13 Feb 2025 21:36:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7DE9C021A0
+	for <linux-riscv@archiver.kernel.org>; Thu, 13 Feb 2025 21:57:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Gfj4nDeOzK+6GeAfDA0WcJkTJUBBWRApJx7qjZtshRA=; b=ewmnIrMD4fhAw0
-	ioRlcpjIrLTDvbrG/lMJTpUORyZp406mhOBUwHcKYpDbd5MoTDR95FkMeVud1EVrXAqtAH7k79ie4
-	9elzYJUFuisaChUgZrqe7xg8Br3jrBMAxShi6Q0aKpz9vDoLtgKP03HdoFn3nQ6W9TFRtzqdUdhaL
-	OWAGMFJYchd0hWEBevzenBNQNyp16yw8iynkD/GqdxQ6Fsm5vKWKx9KAlze9T4q9K9d2SyFymN6hZ
-	8CKOcvOPrk8oUbzA66OIfroYRhvncFGAUaB+C9mtrBK2pfEyKgEPTluef+iO2uBvEXf0+xvBTe8Nw
-	JgAskp36jMNx31m+FjkQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=jg2ssF/DPFM74QQhGA89clvZW70lUVRtPxbnpNHY0rY=; b=JEgnbKjNM3Qz53
+	ufISy9UXP91RawzybMC2Y5a/kJwljfnTy5Mct+Bgu3+AnwZW1lbU8CDcrnuZonYdpLQwFU4pUthff
+	v5hVW6dkOOzSU/XoYcJGPtjbNGntMHqz97xzOB6oTcdifLbUoDi9/JjSatS3UmLoGquT9dcT81RXl
+	HjgYQJKbsSfHVtypZ951s3VWGT1rZgn5TMCGmVvyEq7gVCFxjvRt7y4uGz9Oq9s7Jm4nZQbvNJIcv
+	LpP8/1zLhSBa5U1jRJX4AXYvLFvKfTQhSFIJTlZit5pJIhP318TbU6WYJNOVXSzdvrNYrmQLEdmQ6
+	YjljU6VGymIkuQDpNKKg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tigt2-0000000Ciak-3sjO;
-	Thu, 13 Feb 2025 21:36:44 +0000
-Received: from mail-yw1-x112e.google.com ([2607:f8b0:4864:20::112e])
+	id 1tihCl-0000000CkQ7-0nRD;
+	Thu, 13 Feb 2025 21:57:07 +0000
+Received: from mail-ed1-x52d.google.com ([2a00:1450:4864:20::52d])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tigt0-0000000CiZp-2vFW
+	id 1tihCi-0000000CkNq-1Ekl
 	for linux-riscv@lists.infradead.org;
-	Thu, 13 Feb 2025 21:36:44 +0000
-Received: by mail-yw1-x112e.google.com with SMTP id 00721157ae682-6f679788fd1so10704457b3.2
-        for <linux-riscv@lists.infradead.org>; Thu, 13 Feb 2025 13:36:42 -0800 (PST)
+	Thu, 13 Feb 2025 21:57:05 +0000
+Received: by mail-ed1-x52d.google.com with SMTP id 4fb4d7f45d1cf-5de47cf9329so2231820a12.3
+        for <linux-riscv@lists.infradead.org>; Thu, 13 Feb 2025 13:57:03 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1739482601; x=1740087401; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=tN5YgbLMf1aDRtVPiBKlBRhDfg2WRlderUDGvHcqbTY=;
-        b=kPvlkiWt5DIYKT2Jsi2I0H4ga9icZMSjNR6z3twUbFJn4GZ89KWJGTf1RZ2eiSKYby
-         OHkGwfxlSJrz/L/awaT9qoe+1xsVspBEMjhkCpuM0K/TIeHT+w3sVSryFyRBxF06uqar
-         Krg2X8pDEhFMS+3cLNsBYSjPhzyNykq0oca/pM25YnnFToHk2eBxwLNTcc781lVDfvCh
-         fB4Rw84IteECT8NGBoms//5YT2+kUWJPz4B6Zden9JSEz0A3cuXK1UxabnTD6F6igsuA
-         1bDw55I762Rf/kf01ZVioWMhZLFOu+jKXPpJPR4XvBriZ8YBA8tYtuXyVqdz4Zzvbixt
-         8cEQ==
+        d=gmail.com; s=20230601; t=1739483822; x=1740088622; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=E+t6B+jgVmtMaFtzPH7+S0a4yoIONQBzjfTCZovjoAU=;
+        b=cBI3W0Zf0U2/WvrkKoOyAvXv6QqvHLn4JKF5WMSV0L2FcvVDMI1rdyCXyT9kuAmkcE
+         SQt84kE5Xq2gM+GZQBROHW9ZWwh3wsi48zx8rp7brErj1NZEpcHN2j1pe5sn5+vd3oDi
+         FG9ewrSC3HZr3hq7CHv4dov62zFVY+EajjXhbSCpyzioBUdNW69Z3DDCjbw1F9CKLTXJ
+         3Y4l+zWBS+8muWLWS7QaZLz+dBysBumS3ZLLw8JFaG+7nYA/q+JM0858qY192ZKphnKx
+         CtwH0M1SC35bDdn1XGnoifK5o0UrvUrkD8m0+LCDdOjv+mMVvoX6MXaQ+COq3rZlPyGE
+         cRtg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1739482601; x=1740087401;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=tN5YgbLMf1aDRtVPiBKlBRhDfg2WRlderUDGvHcqbTY=;
-        b=WIgqyHn2mEZ/Rbm89dfQ8VPp3DlpGQNlolqrEAkAr3FB5Kj/hV9jdPtP2sniijISec
-         /swILy9aMHhTSW8I6OHIyqdebw/lJLnoy6reGdQyswzzwjBd9Hs/jD7ZxvdwXmJkjGyO
-         XER1V6iB8+1l4+qEN80yjpR/zH1fH/UqhoA1rCZixBEGGIwEVMiDh5m6VhYigfk/Z3X/
-         vPTawAYqWgIycRWWMIi/x11HDwLzSIziUS1RHXr2rU2zjmVKQ5nqqUOcGvPi1JNTFS29
-         sglplaF6k7/UOk0zNElSrcryAdwu9nR+3AtA9UiDelQNd5Ks2t/a6MG75C3Isuq4jjI/
-         qe2w==
-X-Forwarded-Encrypted: i=1; AJvYcCX8xAhtHHBcHNO6P5c/AUw7+5iu9GrTKFhEzw8VnkeX8APDWBIhckdTM4Sx3szI2XN/aBL3m7b+kSnu9Q==@lists.infradead.org
-X-Gm-Message-State: AOJu0YyuP85GnUJ9wpigRsO+Tmk6XQaJXpSmD6SOOJ9WDhbj0kg/129I
-	qTBGXVGkzT3lekpXINoHOUwFitxBInmgQzKjhDOPWl+A/t7dTDyWufWZnF92D3I=
-X-Gm-Gg: ASbGncswh70NfN2AaULP40OljDYMzmHU4xDy1CvJy3JOetyE/J0ggDkPO/hVby4czHZ
-	d50/7+qmlDpMrFEBFJPpQaPZUiscEh3Q5xWoISE4sXPu7xuxQF7lCFyuYONiaJGpkwywpxb0LmJ
-	nsMmiG8X0qoP0lyLtg+xKYYgxOI5DfjwkM0NJNY1nUPkenD7AaY+2L4RZvuJQLLmBWbx6s/5BMy
-	bWtvGYd+ZDQkln5NAUCpATF+5fZYZ+iNbyClGUSxdSqDjUk0Bq6KpEKBw66ZES6hHBKpsKCKBC1
-	gvY=
-X-Google-Smtp-Source: AGHT+IFrZXty2zvWMcfr9wxzGzvWLUXiH8mGsSyxSxV6zHOMIiY7RNEUKUZiPnL5TCqkmw//gUw1NA==
-X-Received: by 2002:a05:6902:1186:b0:e5b:1dda:8f6a with SMTP id 3f1490d57ef6-e5da0209accmr8160531276.12.1739482601327;
-        Thu, 13 Feb 2025 13:36:41 -0800 (PST)
-Received: from ghost ([50.146.0.9])
-        by smtp.gmail.com with ESMTPSA id 3f1490d57ef6-e5dae0da26csm595254276.44.2025.02.13.13.36.40
+        d=1e100.net; s=20230601; t=1739483822; x=1740088622;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=E+t6B+jgVmtMaFtzPH7+S0a4yoIONQBzjfTCZovjoAU=;
+        b=Iw6zaF1lVCgr3glgCvIwG2S1x4f3duNemaYL9+qNhmTCgeXxjTj0seFWBdYFori2xa
+         4y8nRcGlMPe6sSyVZzDMY1Pfjvd73dT316YNdLuCbwQJ/jvkjUdTf/M35kxDIbDR/8OA
+         /1aSjKRpkBBFyje4ZumPzmbSSVz5GU+GH/lOggxa1o0bXZOF3F4mMnHJdKaNFkSRx6zr
+         kXvfGvUqihf9ZOE8WaU+NhxqjIvNOJoUz7yNbwP4Jy60PwIBhip/ZhSajw1+H9Cv6AIS
+         N9fVl6ypY4kojV7xxFlJBSXPLUnX8AwFemcI7Slhl8Du99dXaUGqjCGYynsEt628dOkk
+         LePA==
+X-Forwarded-Encrypted: i=1; AJvYcCVv7I45876MRmnvzMbRPJkes0JZGoLKOGwRt+E1F0p+y2FroK6AzWwc0Pr/Gi1WwPk4C4FQzD1oObY3NA==@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywrp9+mTERB4EfwAe+NqTkwlIlfOUYHJh/GfHMuODZ+PF1Un4iA
+	YHyZmkr6UmG2jsesJ3kpJitMUMZ9iAqmGyghszeiR/5VBPteF/yh
+X-Gm-Gg: ASbGncvmMINcrGb4AvFVtXnmKdXQxJ0uPPQaQ0fPwKocPzQS+Bl7wZfFaHNyoP98lyI
+	8aEHTNP2zzNHDpijR/UsEZQvTxRdEjbGPDwgYo7bSmMV5dHKww4w0UMJMqExquJeQJGBhuqo+qT
+	KkJcsQLfaBjk3iXDJyk2hBy7Vgb/ZAp5SxUwMX83ggbWyaciJbgLw3fQrfGAMib+1v1RWgA+yzU
+	1n2x803UzWy6XLqSebriL1RFg88B963T8T2plP5xr9IJNp35jXS3ED4rM+gDkYRcKX5ecn1eYAP
+	zxdAyNRbrO/UZ8J9YKaKr19dWIeI
+X-Google-Smtp-Source: AGHT+IFbUWokaBSyVOOLzgLUlMVYFf5zz41axl3e6IJ6OWk1r3JOQRJ5oLgxY2Nm8yuJxa4uuyLdiQ==
+X-Received: by 2002:a17:906:dc91:b0:ab7:c4db:a044 with SMTP id a640c23a62f3a-ab7f3714983mr925567766b.8.1739483822129;
+        Thu, 13 Feb 2025 13:57:02 -0800 (PST)
+Received: from giga-mm.. ([2a02:1210:861b:6f00:82ee:73ff:feb8:99e3])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-aba532595dfsm209794266b.70.2025.02.13.13.57.01
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 13 Feb 2025 13:36:40 -0800 (PST)
-Date: Thu, 13 Feb 2025 13:36:39 -0800
-From: Charlie Jenkins <charlie@rivosinc.com>
-To: Chunyan Zhang <zhang.lyra@gmail.com>
-Cc: Paul Menzel <pmenzel@molgen.mpg.de>,
-	Chunyan Zhang <zhangchunyan@iscas.ac.cn>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Song Liu <song@kernel.org>,
-	Yu Kuai <yukuai3@huawei.com>, linux-riscv@lists.infradead.org,
-	linux-raid@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH V2] raid6: Add RISC-V SIMD syndrome and recovery
- calculations
-Message-ID: <Z65l51hrDmKQP6dM@ghost>
-References: <20250127061529.2437012-1-zhangchunyan@iscas.ac.cn>
- <c0a2fbeb-9a0d-4b69-bc6b-e1652e13debf@molgen.mpg.de>
- <Z5gJ35pXI2W41QDk@ghost>
- <CAAfSe-utAb53278x9X4tKn6jWzdehsPKDRa_CoQy61ND=cXbxQ@mail.gmail.com>
+        Thu, 13 Feb 2025 13:57:01 -0800 (PST)
+From: Alexander Sverdlin <alexander.sverdlin@gmail.com>
+To: devicetree@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	linux-rtc@vger.kernel.org
+Cc: Alexander Sverdlin <alexander.sverdlin@gmail.com>,
+	Inochi Amaoto <inochiama@gmail.com>,
+	alexandre.belloni@bootlin.com,
+	robh@kernel.org,
+	krzysztof.kozlowski+dt@linaro.org,
+	conor+dt@kernel.org,
+	unicorn_wang@outlook.com,
+	inochiama@outlook.com,
+	paul.walmsley@sifive.com,
+	palmer@dabbelt.com,
+	aou@eecs.berkeley.edu,
+	dlan@gentoo.org,
+	linux-kernel@vger.kernel.org,
+	Jingbao Qiu <qiujingbao.dlmu@gmail.com>,
+	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Subject: [PATCH v11 0/3] riscv: rtc: sophgo: add rtc support for CV1800
+Date: Thu, 13 Feb 2025 22:56:44 +0100
+Message-ID: <20250213215655.2311793-1-alexander.sverdlin@gmail.com>
+X-Mailer: git-send-email 2.48.1
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <CAAfSe-utAb53278x9X4tKn6jWzdehsPKDRa_CoQy61ND=cXbxQ@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250213_133642_869309_FFF94654 
-X-CRM114-Status: GOOD (  28.78  )
+X-CRM114-CacheID: sfid-20250213_135704_331332_48E2A05D 
+X-CRM114-Status: GOOD (  14.93  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,167 +110,134 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Feb 11, 2025 at 05:59:26PM +0800, Chunyan Zhang wrote:
-> On Tue, 28 Jan 2025 at 06:34, Charlie Jenkins <charlie@rivosinc.com> wrote:
-> >
-> > On Mon, Jan 27, 2025 at 09:39:11AM +0100, Paul Menzel wrote:
-> > > Dear Chunyan,
-> > >
-> > >
-> > > Thank you for the patch.
-> > >
-> > >
-> > > Am 27.01.25 um 07:15 schrieb Chunyan Zhang:
-> > > > The assembly is originally based on the ARM NEON and int.uc, but uses
-> > > > RISC-V vector instructions to implement the RAID6 syndrome and
-> > > > recovery calculations.
-> > > >
-> > > > Results on QEMU running with the option "-icount shift=0":
-> > > >
-> > > >    raid6: rvvx1    gen()  1008 MB/s
-> > > >    raid6: rvvx2    gen()  1395 MB/s
-> > > >    raid6: rvvx4    gen()  1584 MB/s
-> > > >    raid6: rvvx8    gen()  1694 MB/s
-> > > >    raid6: int64x8  gen()   113 MB/s
-> > > >    raid6: int64x4  gen()   116 MB/s
-> > > >    raid6: int64x2  gen()   272 MB/s
-> > > >    raid6: int64x1  gen()   229 MB/s
-> > > >    raid6: using algorithm rvvx8 gen() 1694 MB/s
-> > > >    raid6: .... xor() 1000 MB/s, rmw enabled
-> > > >    raid6: using rvv recovery algorithm
-> > >
-> > > How did you start QEMU and on what host did you run it? Does it change
-> > > between runs? (For me these benchmark values were very unreliable in the
-> > > past on x86 hardware.)
-> >
-> > I reported dramatic gains on vector as well in this response [1]. Note
-> > that these gains are only present when using the QEMU option "-icount
-> > shift=0" vector becomes dramatically more performant. Without this
-> > option we do not see a performance gain on QEMU. However riscv vector is
-> > known to not be less optimized on QEMU so having vector be less
-> > performant on some QEMU configurations is not necessarily representative
-> > of hardware implementations.
-> >
-> >
-> > My full qemu command is (running on x86 host):
-> >
-> > qemu-system-riscv64 -nographic -m 1G -machine virt -smp 1\
-> >     -kernel arch/riscv/boot/Image \
-> >     -append "root=/dev/vda rw earlycon console=ttyS0" \
-> >     -drive file=rootfs.ext2,format=raw,id=hd0,if=none \
-> >     -bios default -cpu rv64,v=true,vlen=256,vext_spec=v1.0 \
-> >     -device virtio-blk-device,drive=hd0
-> >
-> > This is with version 9.2.0.
-> >
-> >
-> > I am also facing this issue when executing this:
-> >
-> > raid6: rvvx1    gen()   717 MB/s
-> > raid6: rvvx2    gen()   734 MB/s
-> > Unable to handle kernel NULL pointer dereference at virtual address 0000000000000020
-> >
-> > Only rvvx4 is failing. I applied this patch to 6.13.
-> 
-> I used your command to run but no issue on my side (x86 host, qemu
-> version is 9.2.0, kernel 6.13 too):
-> 
-> qemu-system-riscv64 -nographic -m 1G -machine virt -smp 1 -icount shift=0 \
->         -kernel arch/riscv/boot/Image   \
->         -append "rootwait root=/dev/vda ro"     \
->         -drive file=rootfs.ext4,format=raw,id=hd0 \
->         -bios default -cpu rv64,v=true,vlen=256,vext_spec=v1.0 \
->         -device virtio-blk-device,drive=hd0
+Real Time Clock (RTC) is an independently powered module
+within the chip, which includes a 32KHz oscillator and
+a Power On Reset/POR submodule. It can be used for time
+display and timed alarm generation.
 
-I am able to reproduce it with this defconfig:
+Changes since v10:
+- only start RTC on set_time;
+- add machine restart handler (as separate patch 3/3);
 
-CONFIG_SYSVIPC=y
-CONFIG_NO_HZ_IDLE=y
-CONFIG_HIGH_RES_TIMERS=y
-CONFIG_BPF_SYSCALL=y
-CONFIG_IKCONFIG=y
-CONFIG_IKCONFIG_PROC=y
-CONFIG_NAMESPACES=y
-CONFIG_USER_NS=y
-CONFIG_CHECKPOINT_RESTORE=y
-CONFIG_BLK_DEV_INITRD=y
-CONFIG_EXPERT=y
-# CONFIG_SYSFS_SYSCALL is not set
-CONFIG_PROFILING=y
-CONFIG_SMP=y
-CONFIG_CPU_FREQ=y
-CONFIG_CPU_FREQ_STAT=y
-CONFIG_CPU_FREQ_GOV_USERSPACE=y
-CONFIG_CPU_FREQ_GOV_ONDEMAND=y
-CONFIG_CPUFREQ_DT=y
-CONFIG_JUMP_LABEL=y
-CONFIG_DEVTMPFS=y
-CONFIG_DEVTMPFS_MOUNT=y
-CONFIG_MTD=y
-CONFIG_MTD_BLOCK=y
-CONFIG_MTD_CFI=y
-CONFIG_MTD_CFI_ADV_OPTIONS=y
-CONFIG_BLK_DEV_LOOP=y
-CONFIG_VIRTIO_BLK=y
-CONFIG_MD=y
-CONFIG_BLK_DEV_MD=y
-CONFIG_MD_RAID456=y
-CONFIG_INPUT_MOUSEDEV=y
-CONFIG_SERIAL_8250=y
-CONFIG_SERIAL_8250_CONSOLE=y
-CONFIG_SERIAL_8250_DW=y
-CONFIG_SERIAL_OF_PLATFORM=y
-CONFIG_SERIAL_SIFIVE=y
-CONFIG_SERIAL_SIFIVE_CONSOLE=y
-CONFIG_VIRTIO_CONSOLE=y
-CONFIG_HW_RANDOM_VIRTIO=y
-CONFIG_PINCTRL=y
-CONFIG_GPIOLIB=y
-CONFIG_GPIO_DWAPB=y
-CONFIG_GPIO_SIFIVE=y
-CONFIG_SOUND=y
-CONFIG_RTC_CLASS=y
-CONFIG_RTC_DRV_GOLDFISH=y
-CONFIG_DMADEVICES=y
-CONFIG_DW_AXI_DMAC=y
-CONFIG_VIRTIO_BALLOON=y
-CONFIG_VIRTIO_INPUT=y
-CONFIG_VIRTIO_MMIO=y
-CONFIG_GOLDFISH=y
-CONFIG_MAILBOX=y
-CONFIG_RPMSG_CTRL=y
-CONFIG_RPMSG_VIRTIO=y
-CONFIG_PM_DEVFREQ=y
-CONFIG_IIO=y
-CONFIG_LIBNVDIMM=y
-CONFIG_EXT4_FS=y
-CONFIG_EXT4_FS_POSIX_ACL=y
-CONFIG_EXT4_FS_SECURITY=y
-CONFIG_AUTOFS_FS=y
-CONFIG_ISO9660_FS=y
-CONFIG_JOLIET=y
-CONFIG_ZISOFS=y
-CONFIG_MSDOS_FS=y
-CONFIG_VFAT_FS=y
-CONFIG_PRINTK_TIME=y
-CONFIG_SCHED_STACK_END_CHECK=y
-# CONFIG_RCU_TRACE is not set
-# CONFIG_FTRACE is not set
-# CONFIG_RUNTIME_TESTING_MENU is not set
+Changes since v9:
+- picked up orphaned series;
+- further simplified bitmask macros;
+- unconditional RTC start (rtc_enable_sec_counter());
+- dropped ANA_CALIB modification;
+- successfully tested on SG2000;
 
-I took the riscv/defconfig and added MD_RAID456 and it's dependencies.
-So that the message wasn't too long I started removing some unnecessary
-configs. Try this out and let me know if you encounter the issue.
+v9: https://lore.kernel.org/linux-riscv/20240428060848.706573-1-qiujingbao.dlmu@gmail.com/
 
-- Charlie
+Changes since v8:
+- delete unused macros
+- using 0/1 instead of the DISABLE/ENABLE macro
+- pass in the correct pointer when applying for IRQ
+- convert the incoming pointer into an appropriate
+  structure pointer in the irq handler
 
-> 
-> Thanks,
-> Chunyan
-> 
-> >
-> > - Charlie
-> >
+v8: https://lore.kernel.org/all/20240204044143.415915-1-qiujingbao.dlmu@gmail.com/
+
+Changes since v7:
+- pass checkpatch.pl --strict
+- using u32 replace uint32
+- using devm_kzalloc(*) replace
+  devm_kzalloc(sizeof())
+- sort header files alphabetically
+- delete unnecessary header files
+- fix wrap error
+- drop dependent description
+- using hardware automatic calibration replace
+  software calibration. see documentation 197 page
+
+v7: https://lore.kernel.org/all/20240122080500.2621-1-qiujingbao.dlmu@gmail.com/
+documentation: https://github.com/milkv-duo/duo-files/blob/main/duo/datasheet/CV1800B-CV1801B-Preliminary-Datasheet-full-en.pdf
+
+Changes since v6:
+- completely delete POR dt node
+- remove syscon tag
+- use devm_regmap_init_mmio() replace
+  syscon_node_to_regmap
+
+v6: https://lore.kernel.org/all/20240115160600.5444-1-qiujingbao.dlmu@gmail.com/
+
+Changes since v5:
+- remove unnecessary lock
+- fix cv1800_rtc_alarm_irq_enable()
+- remove duplicate checks
+- using alrm->enabled instead of unconditionally
+  enabling
+- remove disable alarms on probe
+- using rtc_update_irq() replace mess of alarm
+- remove leak clk
+- useing devm_rtc_allocate_device() and
+  devm_rtc_register_device() instead old way
+- add judgment for rtc_enable_sec_counter()
+- add POR nodes in DTS. This POR device shares
+  the register region with the RTC device
+
+v5: https://lore.kernel.org/all/20240108072253.30183-1-qiujingbao.dlmu@gmail.com/
+
+Changes since v4:
+- remove POR dt-bindings because it empty
+- remove MFD dt-bindings because SoC does
+  not have MFDs
+- add syscon attribute to share registers
+  with POR
+
+v4: https://lore.kernel.org/all/20231229090643.116575-1-qiujingbao.dlmu@gmail.com/
+
+Changes since v3:
+- temporarily not submitting RTC driver code
+  waiting for communication with IC designer
+- add MFD dt-bindings
+- add POR dt-bindings
+
+v3: https://lore.kernel.org/all/20231226100431.331616-1-qiujingbao.dlmu@gmail.com/
+
+Changes since v2:
+- add mfd support for CV1800
+- add rtc to mfd
+- using regmap replace iomap
+- merge register address in dts
+
+v2: https://lore.kernel.org/lkml/20231217110952.78784-1-qiujingbao.dlmu@gmail.com/
+
+Changes since v1
+- fix duplicate names in subject
+- using RTC replace RTC controller
+- improve the properties of dt-bindings
+- using `unevaluatedProperties` replace `additionalProperties`
+- dt-bindings passed the test
+- using `devm_platform_ioremap_resource()` replace
+  `platform_get_resource()` and `devm_ioremap_resource()`
+- fix random order of the code
+- fix wrong wrapping of the `devm_request_irq()` and map the flag with dts
+- using devm_clk_get_enabled replace `devm_clk_get()` and
+  `clk_prepare_enable()`
+- fix return style
+- add rtc clock calibration function
+- use spinlock when write register on read/set time
+
+v1: https://lore.kernel.org/lkml/20231121094642.2973795-1-qiujingbao.dlmu@gmail.com/
+
+Alexander Sverdlin (1):
+  rtc: sophgo: cv18xx: Add restart handler
+
+Jingbao Qiu (2):
+  dt-bindings: rtc: sophgo: add RTC support for Sophgo CV1800 series SoC
+  rtc: sophgo: add rtc support for Sophgo CV1800 SoC
+
+ .../bindings/rtc/sophgo,cv1800-rtc.yaml       |  53 ++++
+ drivers/rtc/Kconfig                           |  10 +
+ drivers/rtc/Makefile                          |   1 +
+ drivers/rtc/rtc-cv1800.c                      | 277 ++++++++++++++++++
+ 4 files changed, 341 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/rtc/sophgo,cv1800-rtc.yaml
+ create mode 100644 drivers/rtc/rtc-cv1800.c
+
+-- 
+2.48.1
+
 
 _______________________________________________
 linux-riscv mailing list
