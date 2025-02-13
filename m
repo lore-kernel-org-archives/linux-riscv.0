@@ -4,70 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 465DEC021A0
-	for <linux-riscv@archiver.kernel.org>; Thu, 13 Feb 2025 10:59:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 10B94C021A0
+	for <linux-riscv@archiver.kernel.org>; Thu, 13 Feb 2025 11:15:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
-	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=2Rzd0uESn0FRV3r0UbSjJz148+u9Rgzzg1utab9ImbM=; b=sHOb9S3rUcg5Pc
-	fVOaszbXOX3CuDulqS3zSGW6IcUoza4/JoWtFAHODin13HvbjLTyXC55tbNewuhbdrgPYrO5vRQt5
-	1OE6G2Fa3uRmn8x9Nja6GA0KlakmP2MGaUyzqFrIvIND682fwWo9cHwX5Jw4V/YV45MpizMl5iDb3
-	OZoh4cdSnycDetERJ9fCIJz02+wgkt+BJVza6yAnZynYVbDjalryRKIOi5ZGAWLE7lnB7gqe9PBNF
-	e6E1kA3z07+MLNYARRD6mAqV0XkZk71iJZkRBBtIsQjcGgu/WdcXP2ogw47vHrxgm6rgmr4fvf16D
-	UFCfE+4cWU1E6jc4ptDw==;
+	List-Owner; bh=QyS/iFP64QQ3q/mizatCmZH4fOMDXmH93tRLgpdeyKI=; b=CZkEPJiWo77gOd
+	QRuJv/EBy6aF86dADjgw0JufM22owo/PBRqpSF4BV4MHnKNjFT9ofKY/b6TLcvQzHNPvnBaAvg4hZ
+	2ymhPTHmDg+Hj5bDfDBelf52hJ2DUms8fg/CuIeIHNwwXNF1gEUTufLIx6f7TKUO2iFTzBXabqEgV
+	zNIggQ2WukNqYlprHti/xL//LS0Qdn0gg4/47VPGcWNf5lZQAvSw8yRU7wDWphuYtf2+vROcwJhqP
+	XJ6lTkN/EFqUbo6zEQqTM58SjlnTwIdDH6X7YqG/GuTke+C0E7/hM7NX1dmrL7RMsLfLN+JbF1i6N
+	hJ5HHJp/nSmjk5nWr7PQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiWwH-0000000AkGW-43MZ;
-	Thu, 13 Feb 2025 10:59:25 +0000
-Received: from woodpecker.gentoo.org ([140.211.166.183] helo=smtp.gentoo.org)
+	id 1tiXBO-0000000AnMU-1UYj;
+	Thu, 13 Feb 2025 11:15:02 +0000
+Received: from bayard.4d2.org ([5.78.89.93])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiWwG-0000000AkFs-1pko
+	id 1tiXAo-0000000AnGQ-0vEO
 	for linux-riscv@lists.infradead.org;
-	Thu, 13 Feb 2025 10:59:25 +0000
-Received: from [127.0.0.1] (unknown [180.172.76.141])
+	Thu, 13 Feb 2025 11:14:28 +0000
+Received: from bayard.4d2.org (bayard.4d2.org [127.0.0.1])
+	by bayard.4d2.org (Postfix) with ESMTP id B300A122FE62;
+	Thu, 13 Feb 2025 03:14:21 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=4d2.org; s=mail;
+	t=1739445261; bh=ezyedybHgoW6oyvPGrkHRiI3fE698KvW6mm+hZJtHs8=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=u1BzMojZL3ro81eOzFy386qDclbivD9UfUH3JBSOK2LPuAO5S1N5cgzUs7CS8o4/V
+	 mOCZwFx8y6DJXR4PLilK3ZA/kweR4PW2TT11/aflC/nZ/9LK/UJq+4yx6XzoDRvtY/
+	 WmK/WVNdQufjgL/UicmtFIq6iiktdwX52VwKgMoyjW8bG85Hp80eP2T8giwBelNIQg
+	 h9tX7lCKKW0QjANPZFOxjRZJBltMWrnQKX80N1DfmOWqCUnpjeWaGrmDV3o6YSwp0V
+	 01t5J/ruSf4S5PbZInrehDr6AurD7XWBKbittq6hziy6doUF/hRAWclmYly4Bs+2iw
+	 r2EKjMeKs2Nrg==
+X-Virus-Scanned: amavisd-new at 4d2.org
+Received: from bayard.4d2.org ([127.0.0.1])
+ by bayard.4d2.org (bayard.4d2.org [127.0.0.1]) (amavisd-new, port 10024)
+ with ESMTP id 8X_IBNMwRZY3; Thu, 13 Feb 2025 03:14:17 -0800 (PST)
+Received: from ketchup (unknown [183.217.81.160])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	(Authenticated sender: dlan)
-	by smtp.gentoo.org (Postfix) with ESMTPSA id 7CA64343175;
-	Thu, 13 Feb 2025 10:59:19 +0000 (UTC)
-From: Yixun Lan <dlan@gentoo.org>
-Date: Thu, 13 Feb 2025 18:58:25 +0800
-Subject: [PATCH RFC 2/2] mmc: sdhci-of-k1: add support for SpacemiT K1 SoC
+	(Authenticated sender: heylenay@4d2.org)
+	by bayard.4d2.org (Postfix) with ESMTPSA id 6C167122FE26;
+	Thu, 13 Feb 2025 03:14:13 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=4d2.org; s=mail;
+	t=1739445257; bh=ezyedybHgoW6oyvPGrkHRiI3fE698KvW6mm+hZJtHs8=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=ykJRpAK+KgoLP8ji1hI8VKi1mmSh/k3SGDM/qo2eIVrZtmY60RkpRyKEpqSumOImI
+	 AI2hfL8YAxa5kOJAow37Fgq4QYdqHSI0JAMeSoEfWlbOIBWr8EOYstW9B1WHXGrVKW
+	 ogTtGTv/u8AKWLGjQqNeefFSCC1EcOJqjI629hIx9oEGJoMXe/sgTMX3Y4LpNt2NVF
+	 TpvSjLyPgoD+2VyXShy1+voNISY7J28WbTkbSdwcUHTqyispsQyxvoyahfm8qwZQVh
+	 07TVm9AFsOy8VfnZFeBnTEyWermOtFZaOEauqAi7vDRruq6aXUPcrvEJuhZ22V2JYe
+	 mAJWzmy2HEcDg==
+Date: Thu, 13 Feb 2025 11:14:04 +0000
+From: Haylen Chu <heylenay@4d2.org>
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Haylen Chu <heylenay@outlook.com>, Yixun Lan <dlan@gentoo.org>,
+	linux-riscv@lists.infradead.org, linux-clk@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	Inochi Amaoto <inochiama@outlook.com>,
+	Chen Wang <unicornxdotw@foxmail.com>,
+	Jisheng Zhang <jszhang@kernel.org>,
+	Meng Zhang <zhangmeng.kevin@linux.spacemit.com>
+Subject: Re: [PATCH v4 2/4] dt-bindings: soc: spacemit: Add spacemit,k1-syscon
+Message-ID: <Z63T_EDvXiuRQbvb@ketchup>
+References: <20250103215636.19967-2-heylenay@4d2.org>
+ <20250103215636.19967-4-heylenay@4d2.org>
+ <aw2vqnz5vcccqqvrrhz5tgawj7fnzzg3tds7nnepuorit37a7r@jcj3wrs7d73h>
+ <Z6rdBhQ7s2ReOgBL@ketchup>
+ <19e5129b-8423-4660-8e4f-8b898214d275@kernel.org>
 MIME-Version: 1.0
-Message-Id: <20250213-20-k1-sdhci-v1-2-1f4362a980cd@gentoo.org>
-References: <20250213-20-k1-sdhci-v1-0-1f4362a980cd@gentoo.org>
-In-Reply-To: <20250213-20-k1-sdhci-v1-0-1f4362a980cd@gentoo.org>
-To: Ulf Hansson <ulf.hansson@linaro.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Adrian Hunter <adrian.hunter@intel.com>
-Cc: linux-mmc@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-riscv@lists.infradead.org, spacemit@lists.linux.dev, 
- linux-kernel@vger.kernel.org, Yixun Lan <dlan@gentoo.org>
-X-Mailer: b4 0.15-dev
-X-Developer-Signature: v=1; a=openpgp-sha256; l=11663; i=dlan@gentoo.org;
- h=from:subject:message-id; bh=8j6cqSa5QFnHdqAJ15ix52ipBFPvdYNxl3XJo1WBswA=;
- b=owEBzQIy/ZANAwAKATGq6kdZTbvtAcsmYgBnrdB7l4cX7d2507Bb/aK3WMGZrqwxOT/ica9Cz
- AioKl3EKL+JApMEAAEKAH0WIQS1urjJwxtxFWcCI9wxqupHWU277QUCZ63Qe18UgAAAAAAuAChp
- c3N1ZXItZnByQG5vdGF0aW9ucy5vcGVucGdwLmZpZnRoaG9yc2VtYW4ubmV0QjVCQUI4QzlDMzF
- CNzExNTY3MDIyM0RDMzFBQUVBNDc1OTREQkJFRAAKCRAxqupHWU277a1JEACJSJD3XQexzEebm2
- HbiP760I6ZqJjH6fivRq6crNLlDmTeMgTlZrOpa1j88u51GlbqAY6tj297/OtuDn+QYhB3udmja
- kvkp3iCOjvkWBKZDD6mMDuMw3gxRfGYg7tg+1nrm0mj5dQdec/v7ajgllIheivatZgsyoJgFIkP
- uwRizAk94nWAnXtYZ+GAigwI/T7w4dp+ypleiyddIsmPn6lhOsFX6ce1jKtHAVCwvlkD1ilERi2
- NFOxta677d+Vb4yc90ccL40kk9NSlYq5oMMyF8qXX3GSCq9ryt+OMznpSMO/JbKvtb8c4KWqXeO
- zZxFeaRGWLwEA3ItwElCDDxrmJHM+2nyXAukqNhKGO3T0yKaLc4Ps4XProoOp//OOjNcORVmZWi
- 6XJGfaLX/dQzhBU8cTNaRiPijbt11ppENgkUZPGsIXixBnU8u9mxL75vtQ1O2hEUYitxDWD3Pp0
- XE5GPGKYgJvw41TG4B4bhpQvIxXkkJMJWvIM3pn0T621dpdwkSEOJy2R8jvvumUNlp5acICMQjq
- ijuvAX0CigG/ns5wZrYr49O5uM0hLN3GPn3cWcMoFtQMumhX7Tc+eIXmd4iGXIeFwB2mkldXK7A
- 4N/IaZWC97LpE7Nj4cnSkD5ZKL124ip1W6isFpnElFC4QK9+HtHtfiqjqkrh4HQgysfw==
-X-Developer-Key: i=dlan@gentoo.org; a=openpgp;
- fpr=50B03A1A5CBCD33576EF8CD7920C0DBCAABEFD55
+Content-Disposition: inline
+In-Reply-To: <19e5129b-8423-4660-8e4f-8b898214d275@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250213_025924_518652_0F1991AB 
-X-CRM114-Status: GOOD (  19.63  )
+X-CRM114-CacheID: sfid-20250213_031426_537642_BDB955D4 
+X-CRM114-Status: GOOD (  31.73  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,387 +102,139 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The SDHCI controller found in SpacemiT K1 SoC features SD,
-SDIO, eMMC support, such as:
+On Tue, Feb 11, 2025 at 09:03:20AM +0100, Krzysztof Kozlowski wrote:
+> On 11/02/2025 06:15, Haylen Chu wrote:
+> > On Sat, Jan 04, 2025 at 11:07:58AM +0100, Krzysztof Kozlowski wrote:
+> >> On Fri, Jan 03, 2025 at 09:56:35PM +0000, Haylen Chu wrote:
+> >>> Add documentation to describe Spacemit K1 system controller registers.
+> >>>
+> >>> Signed-off-by: Haylen Chu <heylenay@4d2.org>
+> >>> ---
+> >>>  .../soc/spacemit/spacemit,k1-syscon.yaml      | 52 +++++++++++++++++++
+> >>>  1 file changed, 52 insertions(+)
+> >>>  create mode 100644 Documentation/devicetree/bindings/soc/spacemit/spacemit,k1-syscon.yaml
+> >>>
+> >>> diff --git a/Documentation/devicetree/bindings/soc/spacemit/spacemit,k1-syscon.yaml b/Documentation/devicetree/bindings/soc/spacemit/spacemit,k1-syscon.yaml
+> >>> new file mode 100644
+> >>> index 000000000000..79c4a74ff30e
+> >>> --- /dev/null
+> >>> +++ b/Documentation/devicetree/bindings/soc/spacemit/spacemit,k1-syscon.yaml
+> >>> @@ -0,0 +1,52 @@
+> >>> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> >>> +%YAML 1.2
+> >>> +---
+> >>> +$id: http://devicetree.org/schemas/soc/spacemit/spacemit,k1-syscon.yaml#
+> >>> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> >>> +
+> >>> +title: Spacemit K1 SoC System Controller
+> >>> +
+> >>> +maintainers:
+> >>> +  - Haylen Chu <heylenay@4d2.org>
+> >>> +
+> >>> +description:
+> >>> +  The Spacemit K1 SoC system controller provides access to shared register files
+> >>> +  for related SoC modules, such as clock controller and reset controller.
+> >>> +
+> >>> +properties:
+> >>> +  compatible:
+> >>> +    items:
+> >>> +      - enum:
+> >>> +          - spacemit,k1-apbc-syscon
+> >>> +          - spacemit,k1-apbs-syscon
+> >>> +          - spacemit,k1-apmu-syscon
+> >>> +          - spacemit,k1-mpmu-syscon
+> >>> +      - const: syscon
+> >>> +      - const: simple-mfd
+> >>> +
+> >>> +  reg:
+> >>> +    maxItems: 1
+> >>> +
+> >>> +  clock-controller:
+> >>> +    $ref: /schemas/clock/spacemit,k1-ccu.yaml#
+> >>> +    type: object
+> >>
+> >> So now we see the full picture and it leads to questions.
+> >>
+> >> 1. Why spacemit,k1-apbc-syscon with spacemit,k1-ccu-apmu child is a
+> >> correct combination?
+> >>
+> >> 2. Why having this split in the first place? Please confirm that clock
+> >> controller is really, really a separate device and its child in
+> >> datasheet. IOW, fake child for your Linux is a no-go. Fake child while
+> >> devices are independent is another no-go.
+> > 
+> > These syscons are introduced because the clock controllers share
+> > registers with reset controllers. Folding them into the parents results
+> 
+> So a fake split...
+> 
+> > in devicetree nodes act as both reset and clock controllers, like what
+> 
+> Which is correct hardware representation, isn't it?
+> 
+> > has been done for Rockchip SoCs. Such folding isn't practical for the
+> > MPMU region either, since watchdog and other misc bits (e.g. PLL lock
+> > status) locates in it.
 
-- Compatible for 4-bit SDIO 3.0 UHS-I protocol, up to SDR104
-- Compatible for 4-bit SD 3.0 UHS-I protocol, up to SDR104
-- Compatible for 8bit eMMC5.1, up to HS400
+I have to correct that the watchdog doesn't stay in the MPMU region, I
+misremembered it.
 
-Signed-off-by: Yixun Lan <dlan@gentoo.org>
----
- drivers/mmc/host/Kconfig       |  14 ++
- drivers/mmc/host/Makefile      |   1 +
- drivers/mmc/host/sdhci-of-k1.c | 320 +++++++++++++++++++++++++++++++++++++++++
- 3 files changed, 335 insertions(+)
+> Hm? Why? You have a device which is reset and clock controller, so why
+> one device node is not practical? Other vendors do not have problem with
+> this.
 
-diff --git a/drivers/mmc/host/Kconfig b/drivers/mmc/host/Kconfig
-index 6824131b69b188cae58c8f48076715ca647ca28c..0ce78f22c33cfff916a2d4d680c79e9d19637e0e 100644
---- a/drivers/mmc/host/Kconfig
-+++ b/drivers/mmc/host/Kconfig
-@@ -250,6 +250,20 @@ config MMC_SDHCI_OF_DWCMSHC
- 	  If you have a controller with this interface, say Y or M here.
- 	  If unsure, say N.
- 
-+config MMC_SDHCI_OF_K1
-+	tristate "SDHCI OF support for the SpacemiT K1 SoC"
-+	depends on ARCH_SPACEMIT || COMPILE_TEST
-+	depends on MMC_SDHCI_PLTFM
-+	depends on OF
-+	depends on COMMON_CLK
-+	help
-+	  This selects the Secure Digital Host Controller Interface (SDHCI)
-+	  found in the SpacemiT K1 SoC.
-+
-+	  If you have a controller with this interface, say Y or M here.
-+
-+	  If unsure, say N.
-+
- config MMC_SDHCI_OF_SPARX5
- 	tristate "SDHCI OF support for the MCHP Sparx5 SoC"
- 	depends on MMC_SDHCI_PLTFM
-diff --git a/drivers/mmc/host/Makefile b/drivers/mmc/host/Makefile
-index 5147467ec825ffaef3a7bd812fad80545e52b180..75bafc7b162b9e1d4c6c050f5d28b9d7cb582447 100644
---- a/drivers/mmc/host/Makefile
-+++ b/drivers/mmc/host/Makefile
-@@ -88,6 +88,7 @@ obj-$(CONFIG_MMC_SDHCI_OF_AT91)		+= sdhci-of-at91.o
- obj-$(CONFIG_MMC_SDHCI_OF_ESDHC)	+= sdhci-of-esdhc.o
- obj-$(CONFIG_MMC_SDHCI_OF_HLWD)		+= sdhci-of-hlwd.o
- obj-$(CONFIG_MMC_SDHCI_OF_DWCMSHC)	+= sdhci-of-dwcmshc.o
-+obj-$(CONFIG_MMC_SDHCI_OF_K1)		+= sdhci-of-k1.o
- obj-$(CONFIG_MMC_SDHCI_OF_SPARX5)	+= sdhci-of-sparx5.o
- obj-$(CONFIG_MMC_SDHCI_OF_MA35D1)	+= sdhci-of-ma35d1.o
- obj-$(CONFIG_MMC_SDHCI_BCM_KONA)	+= sdhci-bcm-kona.o
-diff --git a/drivers/mmc/host/sdhci-of-k1.c b/drivers/mmc/host/sdhci-of-k1.c
-new file mode 100644
-index 0000000000000000000000000000000000000000..8202a893a46ef9f10675b031b31b72e81eaacd14
---- /dev/null
-+++ b/drivers/mmc/host/sdhci-of-k1.c
-@@ -0,0 +1,320 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/*
-+ * Copyright (C) 2023-2025 SpacemiT (Hangzhou) Technology Co. Ltd
-+ * Copyright (c) 2025 Yixun Lan <dlan@gentoo.org>
-+ */
-+
-+#include <linux/clk.h>
-+#include <linux/delay.h>
-+#include <linux/iopoll.h>
-+#include <linux/init.h>
-+#include <linux/mmc/card.h>
-+#include <linux/mmc/host.h>
-+#include <linux/mmc/mmc.h>
-+#include <linux/module.h>
-+#include <linux/of.h>
-+#include <linux/of_device.h>
-+#include <linux/platform_device.h>
-+
-+#include "sdhci.h"
-+#include "sdhci-pltfm.h"
-+
-+#define SDHC_MMC_CTRL_REG		0x114
-+#define  MISC_INT_EN			BIT(1)
-+#define  MISC_INT			BIT(2)
-+#define  ENHANCE_STROBE_EN		BIT(8)
-+#define  MMC_HS400			BIT(9)
-+#define  MMC_HS200			BIT(10)
-+#define  MMC_CARD_MODE			BIT(12)
-+
-+#define SDHC_TX_CFG_REG			0x11C
-+#define  TX_INT_CLK_SEL			BIT(30)
-+#define  TX_MUX_SEL			BIT(31)
-+
-+#define SDHC_PHY_CTRL_REG		0x160
-+#define  PHY_FUNC_EN			BIT(0)
-+#define  PHY_PLL_LOCK			BIT(1)
-+#define  HOST_LEGACY_MODE		BIT(31)
-+
-+#define SDHC_PHY_FUNC_REG		0x164
-+#define  PHY_TEST_EN			BIT(7)
-+#define  HS200_USE_RFIFO		BIT(15)
-+
-+#define SDHC_PHY_DLLCFG			0x168
-+#define  DLL_PREDLY_NUM			0x04
-+#define  DLL_FULLDLY_RANGE		0x10
-+#define  DLL_VREG_CTRL			0x40
-+#define  DLL_ENABLE			0x80000000
-+#define  DLL_REFRESH_SWEN_SHIFT		0x1C
-+#define  DLL_REFRESH_SW_SHIFT		0x1D
-+
-+#define SDHC_PHY_DLLCFG1		0x16C
-+#define  DLL_REG2_CTRL			0x0C
-+#define  DLL_REG3_CTRL_MASK		0xFF
-+#define  DLL_REG3_CTRL_SHIFT		0x10
-+#define  DLL_REG2_CTRL_MASK		0xFF
-+#define  DLL_REG2_CTRL_SHIFT		0x08
-+#define  DLL_REG1_CTRL			0x92
-+#define  DLL_REG1_CTRL_MASK		0xFF
-+#define  DLL_REG1_CTRL_SHIFT		0x00
-+
-+#define SDHC_PHY_DLLSTS			0x170
-+#define  DLL_LOCK_STATE			0x01
-+
-+#define SDHC_PHY_DLLSTS1		0x174
-+#define  DLL_MASTER_DELAY_MASK		0xFF
-+#define  DLL_MASTER_DELAY_SHIFT		0x10
-+
-+#define SDHC_PHY_PADCFG_REG		0x178
-+#define  RX_BIAS_CTRL			BIT(5)
-+#define  PHY_DRIVE_SEL_MASK		0x7
-+#define  PHY_DRIVE_SEL_DEFAULT		0x4
-+
-+struct spacemit_sdhci_host {
-+	struct clk *clk_core;
-+	struct clk *clk_io;
-+};
-+
-+static inline void spacemit_sdhci_setbits(struct sdhci_host *host, u32 val, int reg)
-+{
-+	sdhci_writel(host, sdhci_readl(host, reg) | val, reg);
-+}
-+
-+static inline void spacemit_sdhci_clrbits(struct sdhci_host *host, u32 val, int reg)
-+{
-+	sdhci_writel(host, sdhci_readl(host, reg) & ~val, reg);
-+}
-+
-+static inline void spacemit_sdhci_clrsetbits(struct sdhci_host *host, u32 clr, u32 set, int reg)
-+{
-+	u32 val = sdhci_readl(host, reg);
-+
-+	val = (val & ~clr) | set;
-+	sdhci_writel(host, val, reg);
-+}
-+
-+static void spacemit_sdhci_reset(struct sdhci_host *host, u8 mask)
-+{
-+	struct platform_device *pdev;
-+
-+	pdev = to_platform_device(mmc_dev(host->mmc));
-+	sdhci_reset(host, mask);
-+
-+	if (mask != SDHCI_RESET_ALL)
-+		return;
-+
-+	spacemit_sdhci_setbits(host, PHY_FUNC_EN | PHY_PLL_LOCK, SDHC_PHY_CTRL_REG);
-+
-+	spacemit_sdhci_clrsetbits(host, PHY_DRIVE_SEL_MASK,
-+				  RX_BIAS_CTRL | PHY_DRIVE_SEL_DEFAULT,
-+				  SDHC_PHY_PADCFG_REG);
-+
-+	if (!(host->mmc->caps2 & MMC_CAP2_NO_MMC))
-+		spacemit_sdhci_setbits(host, MMC_CARD_MODE, SDHC_MMC_CTRL_REG);
-+}
-+
-+static void spacemit_sdhci_set_uhs_signaling(struct sdhci_host *host, unsigned int timing)
-+{
-+	if (timing == MMC_TIMING_MMC_HS200)
-+		spacemit_sdhci_setbits(host, MMC_HS200, SDHC_MMC_CTRL_REG);
-+
-+	if (timing == MMC_TIMING_MMC_HS400)
-+		spacemit_sdhci_setbits(host, MMC_HS400, SDHC_MMC_CTRL_REG);
-+
-+	sdhci_set_uhs_signaling(host, timing);
-+
-+	if (!(host->mmc->caps2 & MMC_CAP2_NO_SDIO))
-+		spacemit_sdhci_setbits(host, SDHCI_CTRL_VDD_180, SDHCI_HOST_CONTROL2);
-+}
-+
-+static void spacemit_sdhci_set_clock(struct sdhci_host *host, unsigned int clock)
-+{
-+	struct mmc_host *mmc = host->mmc;
-+
-+	if (mmc->ios.timing <= MMC_TIMING_UHS_SDR50)
-+		spacemit_sdhci_setbits(host, TX_INT_CLK_SEL, SDHC_TX_CFG_REG);
-+	else
-+		spacemit_sdhci_clrbits(host, TX_INT_CLK_SEL, SDHC_TX_CFG_REG);
-+
-+	sdhci_set_clock(host, clock);
-+};
-+
-+static void spacemit_sdhci_phy_dll_init(struct sdhci_host *host)
-+{
-+	u32 state;
-+	int ret;
-+
-+	spacemit_sdhci_setbits(host, DLL_PREDLY_NUM | DLL_FULLDLY_RANGE | DLL_VREG_CTRL,
-+			       SDHC_PHY_DLLCFG);
-+	spacemit_sdhci_clrsetbits(host, DLL_REG1_CTRL_MASK, DLL_REG1_CTRL,
-+				  SDHC_PHY_DLLCFG1);
-+	spacemit_sdhci_setbits(host, DLL_ENABLE, SDHC_PHY_DLLCFG);
-+
-+	ret = readl_poll_timeout(host->ioaddr + SDHC_PHY_DLLSTS, state,
-+				 state & DLL_LOCK_STATE, 2, 100);
-+	if (ret == -ETIMEDOUT)
-+		dev_warn(mmc_dev(host->mmc), "fail to lock phy dll in 100us!\n");
-+}
-+
-+static void spacemit_sdhci_hs400_enhanced_strobe(struct mmc_host *mmc, struct mmc_ios *ios)
-+{
-+	struct sdhci_host *host = mmc_priv(mmc);
-+
-+	if (!ios->enhanced_strobe) {
-+		spacemit_sdhci_clrbits(host, ENHANCE_STROBE_EN, SDHC_MMC_CTRL_REG);
-+		return;
-+	}
-+
-+	spacemit_sdhci_setbits(host, ENHANCE_STROBE_EN, SDHC_MMC_CTRL_REG);
-+	spacemit_sdhci_phy_dll_init(host);
-+}
-+
-+static unsigned int spacemit_sdhci_clk_get_max_clock(struct sdhci_host *host)
-+{
-+	struct sdhci_pltfm_host *pltfm_host = sdhci_priv(host);
-+
-+	return clk_get_rate(pltfm_host->clk);
-+}
-+
-+static int spacemit_sdhci_pre_select_hs400(struct mmc_host *mmc)
-+{
-+	struct sdhci_host *host = mmc_priv(mmc);
-+
-+	spacemit_sdhci_setbits(host, MMC_HS400, SDHC_MMC_CTRL_REG);
-+	host->mmc->caps |= MMC_CAP_WAIT_WHILE_BUSY;
-+
-+	return 0;
-+}
-+
-+static void spacemit_sdhci_post_select_hs400(struct mmc_host *mmc)
-+{
-+	struct sdhci_host *host = mmc_priv(mmc);
-+
-+	spacemit_sdhci_phy_dll_init(host);
-+	host->mmc->caps &= ~MMC_CAP_WAIT_WHILE_BUSY;
-+}
-+
-+static void spacemit_sdhci_pre_hs400_to_hs200(struct mmc_host *mmc)
-+{
-+	struct sdhci_host *host = mmc_priv(mmc);
-+
-+	spacemit_sdhci_clrbits(host, PHY_FUNC_EN | PHY_PLL_LOCK,
-+			       SDHC_PHY_CTRL_REG);
-+	spacemit_sdhci_clrbits(host, MMC_HS400 | MMC_HS200 | ENHANCE_STROBE_EN,
-+			       SDHC_MMC_CTRL_REG);
-+	spacemit_sdhci_clrbits(host, HS200_USE_RFIFO, SDHC_PHY_FUNC_REG);
-+
-+	udelay(5);
-+
-+	spacemit_sdhci_setbits(host, PHY_FUNC_EN | PHY_PLL_LOCK, SDHC_PHY_CTRL_REG);
-+}
-+
-+static inline int spacemit_sdhci_get_clocks(struct device *dev,
-+					    struct sdhci_pltfm_host *pltfm_host)
-+{
-+	struct spacemit_sdhci_host *sdhst = sdhci_pltfm_priv(pltfm_host);
-+
-+	sdhst->clk_core = devm_clk_get_enabled(dev, "core");
-+	if (IS_ERR(sdhst->clk_core))
-+		return -EINVAL;
-+
-+	sdhst->clk_io = devm_clk_get_enabled(dev, "io");
-+	if (IS_ERR(sdhst->clk_io))
-+		return -EINVAL;
-+
-+	pltfm_host->clk = sdhst->clk_io;
-+
-+	return 0;
-+}
-+
-+static const struct sdhci_ops spacemit_sdhci_ops = {
-+	.get_max_clock		= spacemit_sdhci_clk_get_max_clock,
-+	.reset			= spacemit_sdhci_reset,
-+	.set_bus_width		= sdhci_set_bus_width,
-+	.set_clock		= spacemit_sdhci_set_clock,
-+	.set_uhs_signaling	= spacemit_sdhci_set_uhs_signaling,
-+};
-+
-+static const struct sdhci_pltfm_data spacemit_sdhci_k1_pdata = {
-+	.ops = &spacemit_sdhci_ops,
-+	.quirks = SDHCI_QUIRK_DATA_TIMEOUT_USES_SDCLK |
-+		  SDHCI_QUIRK_NO_ENDATTR_IN_NOPDESC |
-+		  SDHCI_QUIRK_32BIT_ADMA_SIZE |
-+		  SDHCI_QUIRK_CAP_CLOCK_BASE_BROKEN |
-+		  SDHCI_QUIRK_BROKEN_CARD_DETECTION |
-+		  SDHCI_QUIRK_BROKEN_TIMEOUT_VAL,
-+	.quirks2 = SDHCI_QUIRK2_BROKEN_64_BIT_DMA |
-+		   SDHCI_QUIRK2_PRESET_VALUE_BROKEN,
-+};
-+
-+static const struct of_device_id spacemit_sdhci_of_match[] = {
-+	{ .compatible = "spacemit,k1-sdhci" },
-+	{ /* sentinel */ }
-+};
-+MODULE_DEVICE_TABLE(of, spacemit_sdhci_of_match);
-+
-+static int spacemit_sdhci_probe(struct platform_device *pdev)
-+{
-+	struct device *dev = &pdev->dev;
-+	struct spacemit_sdhci_host *sdhst;
-+	struct sdhci_pltfm_host *pltfm_host;
-+	struct sdhci_host *host;
-+	struct mmc_host_ops *mops;
-+	int ret;
-+
-+	host = sdhci_pltfm_init(pdev, &spacemit_sdhci_k1_pdata, sizeof(*sdhst));
-+	if (IS_ERR(host))
-+		return PTR_ERR(host);
-+
-+	pltfm_host = sdhci_priv(host);
-+
-+	ret = mmc_of_parse(host->mmc);
-+	if (ret)
-+		goto err_pltfm;
-+
-+	sdhci_get_of_property(pdev);
-+
-+	if (!(host->mmc->caps2 & MMC_CAP2_NO_MMC)) {
-+		mops = &host->mmc_host_ops;
-+		mops->hs400_prepare_ddr	= spacemit_sdhci_pre_select_hs400;
-+		mops->hs400_complete	= spacemit_sdhci_post_select_hs400;
-+		mops->hs400_downgrade	= spacemit_sdhci_pre_hs400_to_hs200;
-+		mops->hs400_enhanced_strobe = spacemit_sdhci_hs400_enhanced_strobe;
-+	}
-+
-+	host->mmc->caps |= MMC_CAP_NEED_RSP_BUSY;
-+
-+	if (spacemit_sdhci_get_clocks(dev, pltfm_host))
-+		goto err_pltfm;
-+
-+	ret = sdhci_add_host(host);
-+	if (ret)
-+		goto err_pltfm;
-+
-+	return 0;
-+
-+err_pltfm:
-+	sdhci_pltfm_free(pdev);
-+	return ret;
-+}
-+
-+static void spacemit_sdhci_remove(struct platform_device *pdev)
-+{
-+	struct sdhci_host *host = platform_get_drvdata(pdev);
-+
-+	sdhci_remove_host(host, 1);
-+	sdhci_pltfm_free(pdev);
-+}
-+
-+static struct platform_driver spacemit_sdhci_driver = {
-+	.driver		= {
-+		.name	= "sdhci-spacemit",
-+		.of_match_table = of_match_ptr(spacemit_sdhci_of_match),
-+	},
-+	.probe		= spacemit_sdhci_probe,
-+	.remove		= spacemit_sdhci_remove,
-+};
-+module_platform_driver(spacemit_sdhci_driver);
-+
-+MODULE_DESCRIPTION("SpacemiT SDHCI platform driver");
-+MODULE_LICENSE("GPL");
+Merging reset and clock controllers together is fine to me. What I want
+to mention is that APMU and MPMU, abbreviated from Application/Main Power
+Management Unit, contain not only clock/reset-related registers but also
+power management ones[1]. Additionally, the PLL lock status bits locate
+at MPMU, split from the PLL configuration registers as you've already
+seen in the binding of spacemit,k1-ccu-apbs where I refer to it with a
+phandle.
 
--- 
-2.48.1
+Since reset/clock and power management registers interleave in the MMIO
+region, do you think syscons are acceptable in this situation or it
+should be handled in another way? The reset and clock controllers could
+still be folded together as they share the same registers. The device
+tree will look like,
 
+	syscon_mpmu: system-controller@d4050000 {
+		compatible = "spacemit,mpmu-syscon", "syscon", "simple-mfd";
+		reg = <0xd4050000 0x10000>;
+
+		cru_mpmu: clock-controller {
+			compatible = "spacemit,k1-cru-mpmu";
+			#clock-cells = <1>;
+			#reset-cells = <1>;
+		};
+
+		power_mpmu: power-controller {
+			compatible = "spacemit,k1-powerdomain-mpmu";
+			/* ... */
+			#power-domain-cells = <0>;
+		};
+	};
+
+For the other two clock controllers (APBS and APBC), syscons are really
+unnecessary and it's simple to fold them.
+
+> > 
+> > If you're more comfortable with reset and clock controllers folded
+> > together and eliminating most of these syscons, I'm willing to make the
+> > change.
+> 
+> This is expected.
+
+Thanks for the explanation.
+
+> 
+> 
+> Best regards,
+> Krzysztof
+
+Best regards,
+Haylen Chu
+
+[1]: https://developer.spacemit.com/documentation?token=T7TnwVZz1iPBk1kKwAPc6lyKnNb#part958
 
 _______________________________________________
 linux-riscv mailing list
