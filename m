@@ -4,137 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 25CEEC0219D
-	for <linux-riscv@archiver.kernel.org>; Thu, 13 Feb 2025 12:28:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A2635C021A0
+	for <linux-riscv@archiver.kernel.org>; Thu, 13 Feb 2025 12:41:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Subject:References:In-Reply-To:
-	Message-Id:Cc:To:From:Date:MIME-Version:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=9DsrrA1vzupBllq9t/pzBa/PDwSW09vsDPTQXBsTuN8=; b=QVN3b55+FERx5FhkSwSy6c3X6q
-	mDBQ2Ye929sxrRt97EhN81a2Sw2v+YcHDFrwjl3W/fXpt1au1uCCjH+DSCD2Ox1Pn8WLCHhs3JMZ5
-	ql9zIboxuvuFcQ2XSWklknAT0qccTYYrIGMV9a6/5YicKamUF51U1wbWHn6XQsmbgqkFQWjVBMika
-	8aTZY8NfjWgS20js9ZNNlU1ueN6dPT5ehH91lBmzQG5f9CZIdldlH0wjwlV8Y46rxoErLQkVW4Lca
-	X5KsqXav9AJvvu0Sx/ultRL6KpGLoo6jrqan+4Ykc6peaeyKVqvqGaj8BpOcDNP2djoUsJ7lROSSC
-	OruNgtBw==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=1tiId/j86W+5kneEmjw7bPRDuXHGR7PHvrHmh/vqpy4=; b=JQxre9I+Kv2Zap
+	6hPqBWxWY3ct4FQb+OpHTn423thOH0vWDRWrR06DL7KeKB/MytbtLu/7khMxmK/DFnItezd6F3Szo
+	mvXQh6Nve6h0ePVYCTnBPHnNrDjoOQs4EQ+oo62eu9aJpGY2y7bwSmD51T1Me2kk141Sy1UGE303A
+	YvqGdmIEzc5VmpHl/xDs4vvNqqCwlgPGlJ07q5Xh8Et68XGCZ+2BSXhIB9676WbsiSo3fV7B1Ctia
+	BkEmud5PihaKloKG+8iQ+cYL7npVGrwtnHpx0lfhPyCymVNVBjQrJA+r8bZqWvEjwDCVANQRd5uDo
+	3rmETUW0/QZ5pjzp9MwA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiYK9-0000000B0Na-0Hqs;
-	Thu, 13 Feb 2025 12:28:09 +0000
-Received: from flow-a4-smtp.messagingengine.com ([103.168.172.139])
+	id 1tiYWr-0000000B26A-2sUy;
+	Thu, 13 Feb 2025 12:41:17 +0000
+Received: from mail-qk1-x736.google.com ([2607:f8b0:4864:20::736])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiYIg-0000000B04P-2pib;
-	Thu, 13 Feb 2025 12:26:40 +0000
-Received: from phl-compute-11.internal (phl-compute-11.phl.internal [10.202.2.51])
-	by mailflow.phl.internal (Postfix) with ESMTP id 4AE72200B56;
-	Thu, 13 Feb 2025 07:26:35 -0500 (EST)
-Received: from phl-imap-11 ([10.202.2.101])
-  by phl-compute-11.internal (MEProxy); Thu, 13 Feb 2025 07:26:35 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm3; t=1739449595;
-	 x=1739456795; bh=FR8peTn+6BBmPLk5iID+tCE6/pHRxsIv4lGcTzblwoI=; b=
-	XJ9gxEyl/COcD8OPpQMR9rJB7dPDYoEPGlnqma1JfToEYYblKGjYlcjWfV5IH5zP
-	zIm6c9uK9RdpTR7BXw61YA5CiPhSRKJprszaWchZqDVqUecm3QzNc+IqCsP6SCjX
-	V17Ljs/L+CMIgmETqwDCM4UlHgMsn9r2r6NMLlWuW5xnK+LoOEmNprP53GmBUsi1
-	NC0cGfFVEuBP7ng5WlzAU0ZpKEdc9nQwsgpDc379Unu41kJ5+1cYYAqnOYZRhgM/
-	SYxHs7DGUSCMP/W+dsCeWqS6cSN/KIERYSnztWZ6uz5Vf09uBu+kSW2Urk0eW/Ec
-	Yw+e7ZtwSBvPVWpho1fEbQ==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1739449595; x=
-	1739456795; bh=FR8peTn+6BBmPLk5iID+tCE6/pHRxsIv4lGcTzblwoI=; b=U
-	6wqzpa4uiTMx3q64AWGaIGQS+6SOhDEGiwv4mp84wMhNm+gigOYDGiSJenR6YIP3
-	BM3B4gf7ER0A21xQIXdTbSxXiFUnbrZQPKfY7UyXEzbhAHWbwnkypmbWRPkKDRaR
-	36HuPHxg91nZ6dHfjA5uF6W800rVRZ7rkcvd6TU1NNDFB3ppZiIM+KLDzgvMu4g3
-	FvPxdqGdPDPgYOoV2lH4NG3H9wOjPhspXjxHIfZ2h1ENTNUzN8tZiyJDjhH9QGe7
-	0EjrMHu85tXf3pyho3ylq4wPwc4WaJgxmz1gYs5+PLf50Ea1fV3I10zSdewMErw4
-	YpEqh0ynM2Ko812HwCkNA==
-X-ME-Sender: <xms:-eStZ08ek9ZgBsHSt2yK2pwLtAhTnTAkTCZc9mWvlQfn38LApMtCPw>
-    <xme:-eStZ8v9qERfnFnuuTNNVUySi9zRLQXTiH7I2nnC_q2dXF_qIwxbLfqskJhJjjIls
-    lYfS6oFnwn9dBL9t08>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgdegieejiecutefuodetggdotefrod
-    ftvfcurfhrohhfihhlvgemucfhrghsthforghilhdpggftfghnshhusghstghrihgsvgdp
-    uffrtefokffrpgfnqfghnecuuegrihhlohhuthemuceftddtnecusecvtfgvtghiphhivg
-    hnthhsucdlqddutddtmdenucfjughrpefoggffhffvvefkjghfufgtgfesthejredtredt
-    tdenucfhrhhomhepfdetrhhnugcuuegvrhhgmhgrnhhnfdcuoegrrhhnugesrghrnhgusg
-    druggvqeenucggtffrrghtthgvrhhnpefhtdfhvddtfeehudekteeggffghfejgeegteef
-    gffgvedugeduveelvdekhfdvieenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmh
-    epmhgrihhlfhhrohhmpegrrhhnugesrghrnhgusgdruggvpdhnsggprhgtphhtthhopeeg
-    iedpmhhouggvpehsmhhtphhouhhtpdhrtghpthhtohepjhgsrhhunhgvthessggrhihlih
-    gsrhgvrdgtohhmpdhrtghpthhtohepkhhhihhlmhgrnhessggrhihlihgsrhgvrdgtohhm
-    pdhrtghpthhtohepmhhtuhhrqhhuvghtthgvsegsrgihlhhisghrvgdrtghomhdprhgtph
-    htthhopehgrhgvghhorhihrdgtlhgvmhgvnhhtsegsohhothhlihhnrdgtohhmpdhrtghp
-    thhtohepthhhvghordhlvggsrhhunhessghoohhtlhhinhdrtghomhdprhgtphhtthhope
-    guihgrnhguvghrshestghhrhhomhhiuhhmrdhorhhgpdhrtghpthhtohepshhimhhonhgr
-    sehffhiflhhlrdgthhdprhgtphhtthhopegrihhrlhhivggusehgmhgrihhlrdgtohhmpd
-    hrtghpthhtohepfhgvshhtvghvrghmsehgmhgrihhlrdgtohhm
-X-ME-Proxy: <xmx:-eStZ6DJfAjQ14kfAgTdQqyH99WfhZR92CsV1VKNO6MOCXPu35J6BQ>
-    <xmx:-eStZ0cFq550de-DZ_fy71mFwdmBY8g-Xn22ymThnA5StsTXfxd-BA>
-    <xmx:-eStZ5PNRuFuEcjglGcWddwoiAcavhMQqT8AyjktcsY4fTR5FEQZ3A>
-    <xmx:-eStZ-k1QgZGIj34ELqoUXB0YfqzMlj9CYfHAJfHaJFP44wx8Nqs-w>
-    <xmx:--StZyM9KidzQnErUrQeh3H59EWqCYDr1O0-6JJzdwBpqmtnp_ARQlyN>
-Feedback-ID: i56a14606:Fastmail
-Received: by mailuser.phl.internal (Postfix, from userid 501)
-	id AD13F2220072; Thu, 13 Feb 2025 07:26:33 -0500 (EST)
-X-Mailer: MessagingEngine.com Webmail Interface
+	id 1tiXTF-0000000AsJp-3vHZ
+	for linux-riscv@lists.infradead.org;
+	Thu, 13 Feb 2025 11:33:31 +0000
+Received: by mail-qk1-x736.google.com with SMTP id af79cd13be357-7c07c83b388so48607285a.1
+        for <linux-riscv@lists.infradead.org>; Thu, 13 Feb 2025 03:33:29 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1739446408; x=1740051208; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=jCjzjrsnGB8UX9TppDQ1Fq6klVuQu117zKu3PlITgVk=;
+        b=jcyD9cBQkcHEAZHN25saxEZVQ6MnVImwgRV4usiqmb1aAkH6SLk7gbNKh7mKognkYp
+         6W9SvrwgVYnXb8qQWh1tcdux2ijTJFe/jw0fwmcwYhSL6zUPH8p25F4Y0LQJCHTHz0ld
+         Ko2kxAUc3PycNNUeN5c16njfie7dlaNYSBE+qNK1Upaeo0VxchX35ocseZxSCiD31Hlg
+         3arjwv7VsDVgX83r4l0xYsl2WQW+g339ZN/N4DdW/W8CpISw8X0Vp9DdjAQsIyBz6kZ6
+         PrM/q86zCzdHtr5tp8FNyq+uUY4Dt7o6zoIri19sxmeDMIRQjopBSD9R+Z/dDWMvJ01j
+         3HVg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1739446408; x=1740051208;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=jCjzjrsnGB8UX9TppDQ1Fq6klVuQu117zKu3PlITgVk=;
+        b=NDuOlBukNunR0fORsUWaje6Gh2B0SBPpGcYhh0qwmgrS9PMu2Y9bI5wZl1URlRdVT5
+         xYbdmBnIVT/87CxTAPOBPE3T3nW5Bm6NosBp2pI4jH9Hjf865J1kt45Px1AlzZzohFcw
+         N2U9zU+3qTzUXnfJ30cESXZkGSqOyMyoB4clXxeIiQxOrBtWGPg1jN7mgf3gh6Kqr8vQ
+         uVIR3m+bS9KirHlUqfPZZOEBrrWjMe6O3M1rNDX0X1Qg1hjVyNObM6enNQB780yxEie1
+         U8X/cbxWwfEURaoYBWWTFF1VTgLRr+pSIOL5sX6XxpnsOrOrtRnPIcCdZVrS/ijwGkLw
+         xoTw==
+X-Forwarded-Encrypted: i=1; AJvYcCVDxyTaM6bE0+mqooz51TQV5rBx3zqbewqp6tFMvGNhAGCA7QDte2N7WTWYpDf1ztPqVG/pq4KY0Viaww==@lists.infradead.org
+X-Gm-Message-State: AOJu0YwUMCKTO9m+VaemwookuraZhkfWeeMVxXs/YSILmvqHyyjX+Obo
+	9bp/3f21NznIMMbq2nal7PpXL6qmd0V7E+k59wPKOXzlqO0xXBQR
+X-Gm-Gg: ASbGncuPMiJ6SL+BtpL9zlqOfqC1s+MVjw/wwA6iLhXDPVyeWVn82M2pD8KZpSUYd44
+	AH+9hRBkGbaKnLWpKDxy/wOkXVPrQxdY3XfkJJl9kOn6kTMYCT0g5eF+lZJDXuA0jc3sDmEhl5b
+	hzhwiT0xJRmOCD/9O+srLpAY2rIi355Ac5goW3dHhmScfi7pE/O7IBCNE80CfTRlUEcFH0XvwCH
+	TUPBJddQj2yZmSmTVyQ96obRa98MUW9VXx7Q4+tyO24GZR/ywfdo4+/Htvg6H5hXr8=
+X-Google-Smtp-Source: AGHT+IFXo9NdWsRyyruApIs1cjKDwDnPHq25hEtzH65MpQ5viX9oTBCdwL1YIhjUn707bQRGVi/hdQ==
+X-Received: by 2002:a05:620a:3c92:b0:7c0:7a75:4fc8 with SMTP id af79cd13be357-7c07a75526cmr310011285a.24.1739446408565;
+        Thu, 13 Feb 2025 03:33:28 -0800 (PST)
+Received: from localhost ([2001:da8:7001:11::cb])
+        by smtp.gmail.com with UTF8SMTPSA id af79cd13be357-7c07c8611e1sm74722385a.81.2025.02.13.03.33.27
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 13 Feb 2025 03:33:28 -0800 (PST)
+Date: Thu, 13 Feb 2025 19:33:19 +0800
+From: Inochi Amaoto <inochiama@gmail.com>
+To: Philipp Zabel <p.zabel@pengutronix.de>, 
+	Inochi Amaoto <inochiama@gmail.com>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Chen Wang <unicorn_wang@outlook.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Guo Ren <guoren@kernel.org>, 
+	Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>
+Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	sophgo@lists.linux.dev, linux-riscv@lists.infradead.org, Yixun Lan <dlan@gentoo.org>, 
+	Longbin Li <looong.bin@gmail.com>
+Subject: Re: [PATCH 0/4] reset: introduct generic bit reset controller
+Message-ID: <yfhta3vfct73udltmz6ri2dsas6wx4g6hww3drdcumreqbi4gu@c6zxqz7fbh7j>
+References: <20250213020900.745551-1-inochiama@gmail.com>
+ <42e8f0e0f065b10fa8731d26acc856e5776fe2de.camel@pengutronix.de>
 MIME-Version: 1.0
-Date: Thu, 13 Feb 2025 13:26:12 +0100
-From: "Arnd Bergmann" <arnd@arndb.de>
-To: "Jerome Brunet" <jbrunet@baylibre.com>,
- "Greg Kroah-Hartman" <gregkh@linuxfoundation.org>,
- "Dave Ertman" <david.m.ertman@intel.com>,
- "Ira Weiny" <ira.weiny@intel.com>,
- "Rafael J . Wysocki" <rafael@kernel.org>,
- "Stephen Boyd" <sboyd@kernel.org>, "Danilo Krummrich" <dakr@kernel.org>,
- "Conor.Dooley" <conor.dooley@microchip.com>,
- "Daire McNamara" <daire.mcnamara@microchip.com>,
- "Philipp Zabel" <p.zabel@pengutronix.de>,
- "Doug Anderson" <dianders@chromium.org>,
- "Andrzej Hajda" <andrzej.hajda@intel.com>,
- "Neil Armstrong" <neil.armstrong@linaro.org>,
- "Robert Foss" <rfoss@kernel.org>,
- "laurent.pinchart" <Laurent.pinchart@ideasonboard.com>,
- "Jonas Karlman" <jonas@kwiboo.se>,
- "Jernej Skrabec" <jernej.skrabec@gmail.com>,
- "Maarten Lankhorst" <maarten.lankhorst@linux.intel.com>,
- "Maxime Ripard" <mripard@kernel.org>,
- "Thomas Zimmermann" <tzimmermann@suse.de>,
- "Dave Airlie" <airlied@gmail.com>, "Simona Vetter" <simona@ffwll.ch>,
- "Hans de Goede" <hdegoede@redhat.com>,
- =?UTF-8?Q?Ilpo_J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>,
- "Bryan O'Donoghue" <bryan.odonoghue@linaro.org>,
- "Vladimir Kondratiev" <vladimir.kondratiev@mobileye.com>,
- "Gregory Clement" <gregory.clement@bootlin.com>,
- =?UTF-8?Q?Th=C3=A9o_Lebrun?= <theo.lebrun@bootlin.com>,
- "Michael Turquette" <mturquette@baylibre.com>,
- "Abel Vesa" <abelvesa@kernel.org>, "Peng Fan" <peng.fan@nxp.com>,
- "Shawn Guo" <shawnguo@kernel.org>,
- "Sascha Hauer" <s.hauer@pengutronix.de>,
- "Pengutronix Kernel Team" <kernel@pengutronix.de>,
- "Fabio Estevam" <festevam@gmail.com>,
- "Kevin Hilman" <khilman@baylibre.com>,
- "Martin Blumenstingl" <martin.blumenstingl@googlemail.com>
-Cc: linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
- dri-devel@lists.freedesktop.org, platform-driver-x86@vger.kernel.org,
- linux-mips@vger.kernel.org, linux-clk@vger.kernel.org, imx@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org
-Message-Id: <73c1ab6b-fd5e-47e3-8815-8f74758535f1@app.fastmail.com>
-In-Reply-To: <20250211-aux-device-create-helper-v3-7-7edb50524909@baylibre.com>
-References: <20250211-aux-device-create-helper-v3-0-7edb50524909@baylibre.com>
- <20250211-aux-device-create-helper-v3-7-7edb50524909@baylibre.com>
-Subject: Re: [PATCH v3 7/7] clk: amlogic: axg-audio: use the auxiliary reset driver -
- take 2
+Content-Disposition: inline
+In-Reply-To: <42e8f0e0f065b10fa8731d26acc856e5776fe2de.camel@pengutronix.de>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250213_042638_790366_929B671B 
-X-CRM114-Status: UNSURE (   9.25  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250213_033329_972591_03CB89E3 
+X-CRM114-Status: GOOD (  12.92  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -151,19 +103,24 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Feb 11, 2025, at 18:28, Jerome Brunet wrote:
->
->  I also think this is more readeable and maintainable than a bunch of
->  'default CONFIG_FOO if CONFIG_FOO' for CONFIG_RESET_MESON_AUX. This approach
->  also would have several pitfall, such as picking the value of the first config
->  set or the config of RESET_MESON_AUX staying to 'n' if CONFIG_FOO is turned on
->  with menuconfig.
+On Thu, Feb 13, 2025 at 11:08:03AM +0100, Philipp Zabel wrote:
+> On Do, 2025-02-13 at 10:08 +0800, Inochi Amaoto wrote:
+> > Many SoC have a simple reset controller with toggling bit to perform
+> > assert/deassert. It is annoyed to add compatiable for each device when
+> > coming a new SoC. It is necessary to introduct a generic device to
+> > simplify these things.
+> 
+> You'll still have to add a compatible to reset-simple.yaml for each new
+> SoC, see patch 3.
+> 
+> regards
+> Philipp
 
-I still think you should just drop the 'imply' line, all it does it
-force reviewers to double-check that you didn't make a mistake
-here, so it's a waste of time.
+Yeah, the binding is can not avoided, but it can avoided adding new
+compatible in the driver. I will update the description.
 
-    Arnd
+Regards,
+Inochi
 
 _______________________________________________
 linux-riscv mailing list
