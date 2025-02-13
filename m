@@ -4,75 +4,136 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7E68C0219D
-	for <linux-riscv@archiver.kernel.org>; Thu, 13 Feb 2025 12:21:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 25CEEC0219D
+	for <linux-riscv@archiver.kernel.org>; Thu, 13 Feb 2025 12:28:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=eD7Gu3zb9MMq45Kqt51/ujadZAzeIuSz/+VVCzMYZ1g=; b=vt/Y9nugWRV1kQ
-	oiAAWS8HcTqrokrqupwRv+Nx2FoOyCa4fANeFcKrGHSk0CvIm2I0167G+hnyj3JhKtESFPUBnUWfq
-	1NCv8DXjLhUmCbkhQN3W5PHeEucMqZ43+d7h0paCJ7fTj6uttJvhKieGUkviXHXOzm48NnwWsUNBm
-	GDW9SGLgKS+pkRGJPT0JQvxQ51qTvN0wsTtT7C2Qh815viswcLN2Hyjv6XI+lEZIbx70j2A/mMBpb
-	p0MQrrf87bOWf5QkM43bIj1izE+4znTVuVY9fjTeqmKlXoRtLc1qRl1noQD4mcV5G9dTjyqozqOjw
-	3CGNaBnMRL9mWevNXMqw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Subject:References:In-Reply-To:
+	Message-Id:Cc:To:From:Date:MIME-Version:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Owner;
+	bh=9DsrrA1vzupBllq9t/pzBa/PDwSW09vsDPTQXBsTuN8=; b=QVN3b55+FERx5FhkSwSy6c3X6q
+	mDBQ2Ye929sxrRt97EhN81a2Sw2v+YcHDFrwjl3W/fXpt1au1uCCjH+DSCD2Ox1Pn8WLCHhs3JMZ5
+	ql9zIboxuvuFcQ2XSWklknAT0qccTYYrIGMV9a6/5YicKamUF51U1wbWHn6XQsmbgqkFQWjVBMika
+	8aTZY8NfjWgS20js9ZNNlU1ueN6dPT5ehH91lBmzQG5f9CZIdldlH0wjwlV8Y46rxoErLQkVW4Lca
+	X5KsqXav9AJvvu0Sx/ultRL6KpGLoo6jrqan+4Ykc6peaeyKVqvqGaj8BpOcDNP2djoUsJ7lROSSC
+	OruNgtBw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiYDo-0000000AzFS-1YhP;
-	Thu, 13 Feb 2025 12:21:36 +0000
-Received: from pegase2.c-s.fr ([93.17.235.10])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiYCM-0000000Az5I-0X7a;
-	Thu, 13 Feb 2025 12:20:07 +0000
-Received: from localhost (mailhub3.si.c-s.fr [172.26.127.67])
-	by localhost (Postfix) with ESMTP id 4Yttkn0dgsz9sSd;
-	Thu, 13 Feb 2025 12:49:21 +0100 (CET)
-X-Virus-Scanned: amavisd-new at c-s.fr
-Received: from pegase2.c-s.fr ([172.26.127.65])
-	by localhost (pegase2.c-s.fr [127.0.0.1]) (amavisd-new, port 10024)
-	with ESMTP id ULQcwcXgFYio; Thu, 13 Feb 2025 12:49:20 +0100 (CET)
-Received: from messagerie.si.c-s.fr (messagerie.si.c-s.fr [192.168.25.192])
-	by pegase2.c-s.fr (Postfix) with ESMTP id 4Yttkm6p6Zz9sSL;
-	Thu, 13 Feb 2025 12:49:20 +0100 (CET)
-Received: from localhost (localhost [127.0.0.1])
-	by messagerie.si.c-s.fr (Postfix) with ESMTP id D2E088B770;
-	Thu, 13 Feb 2025 12:49:20 +0100 (CET)
-X-Virus-Scanned: amavisd-new at c-s.fr
-Received: from messagerie.si.c-s.fr ([127.0.0.1])
-	by localhost (messagerie.si.c-s.fr [127.0.0.1]) (amavisd-new, port 10023)
-	with ESMTP id TnojPLtBnGgu; Thu, 13 Feb 2025 12:49:20 +0100 (CET)
-Received: from [192.168.235.99] (unknown [192.168.235.99])
-	by messagerie.si.c-s.fr (Postfix) with ESMTP id 8115F8B763;
-	Thu, 13 Feb 2025 12:49:19 +0100 (CET)
-Message-ID: <6e1201a1-60c1-40a3-951f-d603b6341a11@csgroup.eu>
-Date: Thu, 13 Feb 2025 12:49:19 +0100
+	id 1tiYK9-0000000B0Na-0Hqs;
+	Thu, 13 Feb 2025 12:28:09 +0000
+Received: from flow-a4-smtp.messagingengine.com ([103.168.172.139])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tiYIg-0000000B04P-2pib;
+	Thu, 13 Feb 2025 12:26:40 +0000
+Received: from phl-compute-11.internal (phl-compute-11.phl.internal [10.202.2.51])
+	by mailflow.phl.internal (Postfix) with ESMTP id 4AE72200B56;
+	Thu, 13 Feb 2025 07:26:35 -0500 (EST)
+Received: from phl-imap-11 ([10.202.2.101])
+  by phl-compute-11.internal (MEProxy); Thu, 13 Feb 2025 07:26:35 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
+	:cc:content-transfer-encoding:content-type:content-type:date
+	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to; s=fm3; t=1739449595;
+	 x=1739456795; bh=FR8peTn+6BBmPLk5iID+tCE6/pHRxsIv4lGcTzblwoI=; b=
+	XJ9gxEyl/COcD8OPpQMR9rJB7dPDYoEPGlnqma1JfToEYYblKGjYlcjWfV5IH5zP
+	zIm6c9uK9RdpTR7BXw61YA5CiPhSRKJprszaWchZqDVqUecm3QzNc+IqCsP6SCjX
+	V17Ljs/L+CMIgmETqwDCM4UlHgMsn9r2r6NMLlWuW5xnK+LoOEmNprP53GmBUsi1
+	NC0cGfFVEuBP7ng5WlzAU0ZpKEdc9nQwsgpDc379Unu41kJ5+1cYYAqnOYZRhgM/
+	SYxHs7DGUSCMP/W+dsCeWqS6cSN/KIERYSnztWZ6uz5Vf09uBu+kSW2Urk0eW/Ec
+	Yw+e7ZtwSBvPVWpho1fEbQ==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1739449595; x=
+	1739456795; bh=FR8peTn+6BBmPLk5iID+tCE6/pHRxsIv4lGcTzblwoI=; b=U
+	6wqzpa4uiTMx3q64AWGaIGQS+6SOhDEGiwv4mp84wMhNm+gigOYDGiSJenR6YIP3
+	BM3B4gf7ER0A21xQIXdTbSxXiFUnbrZQPKfY7UyXEzbhAHWbwnkypmbWRPkKDRaR
+	36HuPHxg91nZ6dHfjA5uF6W800rVRZ7rkcvd6TU1NNDFB3ppZiIM+KLDzgvMu4g3
+	FvPxdqGdPDPgYOoV2lH4NG3H9wOjPhspXjxHIfZ2h1ENTNUzN8tZiyJDjhH9QGe7
+	0EjrMHu85tXf3pyho3ylq4wPwc4WaJgxmz1gYs5+PLf50Ea1fV3I10zSdewMErw4
+	YpEqh0ynM2Ko812HwCkNA==
+X-ME-Sender: <xms:-eStZ08ek9ZgBsHSt2yK2pwLtAhTnTAkTCZc9mWvlQfn38LApMtCPw>
+    <xme:-eStZ8v9qERfnFnuuTNNVUySi9zRLQXTiH7I2nnC_q2dXF_qIwxbLfqskJhJjjIls
+    lYfS6oFnwn9dBL9t08>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgdegieejiecutefuodetggdotefrod
+    ftvfcurfhrohhfihhlvgemucfhrghsthforghilhdpggftfghnshhusghstghrihgsvgdp
+    uffrtefokffrpgfnqfghnecuuegrihhlohhuthemuceftddtnecusecvtfgvtghiphhivg
+    hnthhsucdlqddutddtmdenucfjughrpefoggffhffvvefkjghfufgtgfesthejredtredt
+    tdenucfhrhhomhepfdetrhhnugcuuegvrhhgmhgrnhhnfdcuoegrrhhnugesrghrnhgusg
+    druggvqeenucggtffrrghtthgvrhhnpefhtdfhvddtfeehudekteeggffghfejgeegteef
+    gffgvedugeduveelvdekhfdvieenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmh
+    epmhgrihhlfhhrohhmpegrrhhnugesrghrnhgusgdruggvpdhnsggprhgtphhtthhopeeg
+    iedpmhhouggvpehsmhhtphhouhhtpdhrtghpthhtohepjhgsrhhunhgvthessggrhihlih
+    gsrhgvrdgtohhmpdhrtghpthhtohepkhhhihhlmhgrnhessggrhihlihgsrhgvrdgtohhm
+    pdhrtghpthhtohepmhhtuhhrqhhuvghtthgvsegsrgihlhhisghrvgdrtghomhdprhgtph
+    htthhopehgrhgvghhorhihrdgtlhgvmhgvnhhtsegsohhothhlihhnrdgtohhmpdhrtghp
+    thhtohepthhhvghordhlvggsrhhunhessghoohhtlhhinhdrtghomhdprhgtphhtthhope
+    guihgrnhguvghrshestghhrhhomhhiuhhmrdhorhhgpdhrtghpthhtohepshhimhhonhgr
+    sehffhiflhhlrdgthhdprhgtphhtthhopegrihhrlhhivggusehgmhgrihhlrdgtohhmpd
+    hrtghpthhtohepfhgvshhtvghvrghmsehgmhgrihhlrdgtohhm
+X-ME-Proxy: <xmx:-eStZ6DJfAjQ14kfAgTdQqyH99WfhZR92CsV1VKNO6MOCXPu35J6BQ>
+    <xmx:-eStZ0cFq550de-DZ_fy71mFwdmBY8g-Xn22ymThnA5StsTXfxd-BA>
+    <xmx:-eStZ5PNRuFuEcjglGcWddwoiAcavhMQqT8AyjktcsY4fTR5FEQZ3A>
+    <xmx:-eStZ-k1QgZGIj34ELqoUXB0YfqzMlj9CYfHAJfHaJFP44wx8Nqs-w>
+    <xmx:--StZyM9KidzQnErUrQeh3H59EWqCYDr1O0-6JJzdwBpqmtnp_ARQlyN>
+Feedback-ID: i56a14606:Fastmail
+Received: by mailuser.phl.internal (Postfix, from userid 501)
+	id AD13F2220072; Thu, 13 Feb 2025 07:26:33 -0500 (EST)
+X-Mailer: MessagingEngine.com Webmail Interface
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 4/4] mm: Rename GENERIC_PTDUMP and PTDUMP_CORE
-To: Steven Price <steven.price@arm.com>,
- Anshuman Khandual <anshuman.khandual@arm.com>, linux-mm@kvack.org
-Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Jonathan Corbet <corbet@lwn.net>, Marc Zyngier <maz@kernel.org>,
- Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>,
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Heiko Carstens <hca@linux.ibm.com>,
- Vasily Gorbik <gor@linux.ibm.com>, Thomas Gleixner <tglx@linutronix.de>,
- Ingo Molnar <mingo@redhat.com>, Andrew Morton <akpm@linux-foundation.org>,
- linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org,
- linux-kernel@vger.kernel.org, kvmarm@lists.linux.dev,
- linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
- linux-s390@vger.kernel.org
-References: <20250213040934.3245750-1-anshuman.khandual@arm.com>
- <20250213040934.3245750-5-anshuman.khandual@arm.com>
- <8e75c5ff-a97b-4a6f-9c8b-ac2598eafe60@arm.com>
-Content-Language: fr-FR
-From: Christophe Leroy <christophe.leroy@csgroup.eu>
-In-Reply-To: <8e75c5ff-a97b-4a6f-9c8b-ac2598eafe60@arm.com>
+Date: Thu, 13 Feb 2025 13:26:12 +0100
+From: "Arnd Bergmann" <arnd@arndb.de>
+To: "Jerome Brunet" <jbrunet@baylibre.com>,
+ "Greg Kroah-Hartman" <gregkh@linuxfoundation.org>,
+ "Dave Ertman" <david.m.ertman@intel.com>,
+ "Ira Weiny" <ira.weiny@intel.com>,
+ "Rafael J . Wysocki" <rafael@kernel.org>,
+ "Stephen Boyd" <sboyd@kernel.org>, "Danilo Krummrich" <dakr@kernel.org>,
+ "Conor.Dooley" <conor.dooley@microchip.com>,
+ "Daire McNamara" <daire.mcnamara@microchip.com>,
+ "Philipp Zabel" <p.zabel@pengutronix.de>,
+ "Doug Anderson" <dianders@chromium.org>,
+ "Andrzej Hajda" <andrzej.hajda@intel.com>,
+ "Neil Armstrong" <neil.armstrong@linaro.org>,
+ "Robert Foss" <rfoss@kernel.org>,
+ "laurent.pinchart" <Laurent.pinchart@ideasonboard.com>,
+ "Jonas Karlman" <jonas@kwiboo.se>,
+ "Jernej Skrabec" <jernej.skrabec@gmail.com>,
+ "Maarten Lankhorst" <maarten.lankhorst@linux.intel.com>,
+ "Maxime Ripard" <mripard@kernel.org>,
+ "Thomas Zimmermann" <tzimmermann@suse.de>,
+ "Dave Airlie" <airlied@gmail.com>, "Simona Vetter" <simona@ffwll.ch>,
+ "Hans de Goede" <hdegoede@redhat.com>,
+ =?UTF-8?Q?Ilpo_J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>,
+ "Bryan O'Donoghue" <bryan.odonoghue@linaro.org>,
+ "Vladimir Kondratiev" <vladimir.kondratiev@mobileye.com>,
+ "Gregory Clement" <gregory.clement@bootlin.com>,
+ =?UTF-8?Q?Th=C3=A9o_Lebrun?= <theo.lebrun@bootlin.com>,
+ "Michael Turquette" <mturquette@baylibre.com>,
+ "Abel Vesa" <abelvesa@kernel.org>, "Peng Fan" <peng.fan@nxp.com>,
+ "Shawn Guo" <shawnguo@kernel.org>,
+ "Sascha Hauer" <s.hauer@pengutronix.de>,
+ "Pengutronix Kernel Team" <kernel@pengutronix.de>,
+ "Fabio Estevam" <festevam@gmail.com>,
+ "Kevin Hilman" <khilman@baylibre.com>,
+ "Martin Blumenstingl" <martin.blumenstingl@googlemail.com>
+Cc: linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+ dri-devel@lists.freedesktop.org, platform-driver-x86@vger.kernel.org,
+ linux-mips@vger.kernel.org, linux-clk@vger.kernel.org, imx@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org
+Message-Id: <73c1ab6b-fd5e-47e3-8815-8f74758535f1@app.fastmail.com>
+In-Reply-To: <20250211-aux-device-create-helper-v3-7-7edb50524909@baylibre.com>
+References: <20250211-aux-device-create-helper-v3-0-7edb50524909@baylibre.com>
+ <20250211-aux-device-create-helper-v3-7-7edb50524909@baylibre.com>
+Subject: Re: [PATCH v3 7/7] clk: amlogic: axg-audio: use the auxiliary reset driver -
+ take 2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250213_042006_338445_0C67A57D 
-X-CRM114-Status: UNSURE (   7.03  )
+X-CRM114-CacheID: sfid-20250213_042638_790366_929B671B 
+X-CRM114-Status: UNSURE (   9.25  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -85,35 +146,26 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-CgpMZSAxMy8wMi8yMDI1IMOgIDEyOjIzLCBTdGV2ZW4gUHJpY2UgYSDDqWNyaXTCoDoKPiBPbiAx
-My8wMi8yMDI1IDA0OjA5LCBBbnNodW1hbiBLaGFuZHVhbCB3cm90ZToKPj4gUGxhdGZvcm1zIHN1
-YnNjcmliZSBpbnRvIGdlbmVyaWMgcHRkdW1wIGltcGxlbWVudGF0aW9uIHZpYSBHRU5FUklDX1BU
-RFVNUC4KPj4gQnV0IGdlbmVyaWMgcHRkdW1wIGdldHMgZW5hYmxlZCB2aWEgUFREVU1QX0NPUkUu
-IFRoZXNlIGNvbmZpZ3MgY29tYmluYXRpb24KPj4gaXMgY29uZnVzaW5nIGFzIHRoZXkgc291bmQg
-dmVyeSBzaW1pbGFyIGFuZCBkb2VzIG5vdCBkaWZmZXJlbnRpYXRlIGJldHdlZW4KPj4gcGxhdGZv
-cm0ncyBmZWF0dXJlIHN1YnNjcmlwdGlvbiBhbmQgZmVhdHVyZSBlbmFibGVtZW50IGZvciBwdGR1
-bXAuIFJlbmFtZQo+PiB0aGUgY29uZmlncyBhcyBBUkNIX0hBU19QVERVTVAgYW5kIFBURFVNUCBt
-YWtpbmcgaXQgbW9yZSBjbGVhciBhbmQgaW1wcm92ZQo+PiByZWFkYWJpbGl0eS4KPiAKPiBbLi4u
-XQo+PiBkaWZmIC0tZ2l0IGEvYXJjaC9wb3dlcnBjL2NvbmZpZ3MvbXBjODg1X2Fkc19kZWZjb25m
-aWcgYi9hcmNoL3Bvd2VycGMvY29uZmlncy9tcGM4ODVfYWRzX2RlZmNvbmZpZwo+PiBpbmRleCA3
-NzMwNmJlNjJlOWUuLmRiMDA1NjE4NjkwYiAxMDA2NDQKPj4gLS0tIGEvYXJjaC9wb3dlcnBjL2Nv
-bmZpZ3MvbXBjODg1X2Fkc19kZWZjb25maWcKPj4gKysrIGIvYXJjaC9wb3dlcnBjL2NvbmZpZ3Mv
-bXBjODg1X2Fkc19kZWZjb25maWcKPj4gQEAgLTc4LDQgKzc4LDQgQEAgQ09ORklHX0RFQlVHX1ZN
-X1BHVEFCTEU9eQo+PiAgIENPTkZJR19ERVRFQ1RfSFVOR19UQVNLPXkKPj4gICBDT05GSUdfQkRJ
-X1NXSVRDSD15Cj4+ICAgQ09ORklHX1BQQ19FQVJMWV9ERUJVRz15Cj4+IC1DT05GSUdfR0VORVJJ
-Q19QVERVTVA9eQo+PiArQ09ORklHX1BURFVNUD15Cj4gCj4gSSdkIHN1Z2dlc3QgZHJvcHAgdGhp
-cyBmcm9tIHRoZSBkZWZjb25maWcgdG9vLCBqdXN0IGxpa2UgcGF0Y2ggMSBkcm9wcGVkCj4gaXQg
-ZnJvbSBkZWJ1Zy5jb25maWcuCj4gCgpUaGFua3MgZm9yIHNwb3R0aW5nIHRoYXQuCgpUaGF0IG9u
-ZSBpcyB3cm9uZy4gV2FzIGludHJvZHVjZWQgYnkgY29tbWl0IGQyMTBlZTNmZGZlOCAKKCJwb3dl
-cnBjL2NvbmZpZ3M6IFVwZGF0ZSBjb25maWcgZmlsZXMgZm9yIHJlbW92ZWQvcmVuYW1lZCBzeW1i
-b2xzIikgCndoaWNoIGFpbWVkIGF0IGZpeGluZyBjb21taXQgZTA4NDcyODM5M2E1ICgicG93ZXJw
-Yy9wdGR1bXA6IENvbnZlcnQgCnBvd2VycGMgdG8gR0VORVJJQ19QVERVTVAiKSBidXQgaXQgZGlk
-IGl0IHdyb25nLgoKSXQgaXMgQ09ORklHX1BURFVNUF9ERUJVR0ZTIHRoYXQgaXMgd2FudGVkLgoK
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlz
-Y3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xp
-c3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
+On Tue, Feb 11, 2025, at 18:28, Jerome Brunet wrote:
+>
+>  I also think this is more readeable and maintainable than a bunch of
+>  'default CONFIG_FOO if CONFIG_FOO' for CONFIG_RESET_MESON_AUX. This approach
+>  also would have several pitfall, such as picking the value of the first config
+>  set or the config of RESET_MESON_AUX staying to 'n' if CONFIG_FOO is turned on
+>  with menuconfig.
+
+I still think you should just drop the 'imply' line, all it does it
+force reviewers to double-check that you didn't make a mistake
+here, so it's a waste of time.
+
+    Arnd
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
