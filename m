@@ -4,84 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 47E03C0219D
-	for <linux-riscv@archiver.kernel.org>; Thu, 13 Feb 2025 14:35:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 71C0AC021A0
+	for <linux-riscv@archiver.kernel.org>; Thu, 13 Feb 2025 14:35:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
-	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	bh=S9ROwPsRr5MB92DlYIbiYqS3gbd0ZYB+1CNzAQ3u21Y=; b=e7FZIyZHtGRCUXcbU58On8T2C+
-	ZuXMk3c7BOwX0aniztLkK/9Py48RWNp1MRFnAfqKplnWSyY0N18fa49PqX09mhwkvHZhIqD5k8KhJ
-	8xUU6xJCkA92+AypGNLPKdlLz1TzhCgr8t3zd1OA9I1/mB3lCE6xAAHsy4DxlsHRRQrHd5EixjJOT
-	Yy03/6EAfoBy6vdFjVH9DJfBrubz9cEVv9T07ZucFX26MR1J7HZKJKJ+mjwqw3dhnulmxABx+N0HT
-	kAEitn42oTOk/huUnJ8ecosNykEXF2du3RBDqrCDxUu2GnaejhnX7uq+aQGP7oGvERBJ0Km1wI9aW
-	mW/XVwHw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
+	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=NbJeYV1tHRvNKHI0INO8TCKMj+SJ2vFtFiLu6Dxk3RY=; b=VNFDeiD7yU3TAc
+	JoTh1pyQFF2UF88NMQ++zPl99e5ILj6XfxrQgwBSNWGyl6bBqY7UaefmcTU3uCBtW/EoyVksNzv3y
+	YfhsCbWBC3JKhYFczdDL2sCbG/XCYZKFvm8qZulv20XP/nD7aH6Nghyma7df6XSZURvMV7xGy9Nop
+	GWORGI8gXNu3tJV6VuDJeExGIZ+jugVqYITZ68kUAQd+2MLFSoZ2EvS6hOKJlnBfEFUHnEonBIsYB
+	8zjSpLnr7Lo+f320fRqSo/Fmv6EClO6Nd6qZJY9RsCKQLwAvK0iecnSplR2mnOzoLQvOhUO17X8kg
+	2+dOI0q3jWZar+DRoQxg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiaIp-0000000BLxK-1uMf;
-	Thu, 13 Feb 2025 14:34:55 +0000
-Received: from mail-pl1-x632.google.com ([2607:f8b0:4864:20::632])
+	id 1tiaIr-0000000BM0f-2g1c;
+	Thu, 13 Feb 2025 14:34:57 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tia1i-0000000BHv8-0EcD
+	id 1tia4T-0000000BISC-0VAw
 	for linux-riscv@lists.infradead.org;
-	Thu, 13 Feb 2025 14:17:15 +0000
-Received: by mail-pl1-x632.google.com with SMTP id d9443c01a7336-21f818a980cso13351855ad.3
-        for <linux-riscv@lists.infradead.org>; Thu, 13 Feb 2025 06:17:13 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=dabbelt-com.20230601.gappssmtp.com; s=20230601; t=1739456233; x=1740061033; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:to:from:cc
-         :in-reply-to:subject:date:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=Th6lX7yB9qjmpn3x3XWkX4vhyaraeYuwBL7xGtC75O0=;
-        b=XCJcsr4mbUBZbqzzy6t0SSREtKgsaNcszc0rbwS/AkVtMqCDOWeiJLAlJhw2AfKIhb
-         uoI7kNFx1nJBKOLAv+0R9j+3EDE4rUvBtp62Y4hc7v6d7hGkP0hTrqV1t6T+dJfJRK/8
-         ABeSwBvyDLcvV1oachVVltV3lBEAE71cCHa1oJY5qBoagsXcqfTmCDOrRWF61L9SuV5y
-         GK6LMrELwEPbC/nkvrOtrb353gYlAmXPIDEBJ+QOR96m++QrjcGta+AF93otWpM5T2HB
-         RF4FQyq/kyFuMijn52DS0Nnh4ad1YegRjY96fR/Ra1lF6X0XgOgGgu8EDfuQF2IttnYz
-         +7JQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1739456233; x=1740061033;
-        h=content-transfer-encoding:mime-version:message-id:to:from:cc
-         :in-reply-to:subject:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=Th6lX7yB9qjmpn3x3XWkX4vhyaraeYuwBL7xGtC75O0=;
-        b=AV2QTW41klHVMCCnTWRIxqMGP0j8tQO9p85/sK+UgUgveQVhHVem2rf9C+jTKGVDzv
-         mxfoCdMRwhka6ZYAmkE0PqXNFYNWVi6YU2ynoWoRDG2chEIfPmTgwN/eJ4Ge5SpzeBns
-         o5CJwTPCJ2+7xiUWRrhbc5X3AHTJNVOUVldw+Yclr4o8JOcabNSTJdOjgd5QAFDaSixQ
-         Z0dNbge81KxC5qQZTImoYWBy51xfg+pd4wh85NhcZJQB/dFlvEzJi5YmTjVwXAJMIKmw
-         y6hzG7ypyeEOfYQqyGDoxynAhlj27hbLppgI30PpLToRDEz69FnvKHjiWypZj6OjxU0w
-         YD9Q==
-X-Forwarded-Encrypted: i=1; AJvYcCUJrqAs5s9xbcImdmILCm46NjY73MCFKtfAuG+J+g36CFWYnKRVe2dcd7RjK5IA2K95qGHurEQKSYnHqg==@lists.infradead.org
-X-Gm-Message-State: AOJu0YzHd0YPaOHcwjliduC0CTZpnV70utmJeoXkj9cffURqk20yMiGY
-	xDKDiB2hIMcbPNF6HOzkodkE0z45wj84feuTkP9xGRrW4l73A35u2Kknl4SHH84=
-X-Gm-Gg: ASbGnctc0ZunPpPbm4TNK4zxGJXIJqvKI0OEMAQbY5a/8sCmnD5vMAAEZuw4hwBkMgU
-	zqfdwIsUBT0owche8dD22lP2cd4k+pmJzcqaQ79gDSID4hdah6Lcb0mhe3oddX1/MlmWa5n7PVY
-	HT9EJmwnjQ/XGzGi4MI0XolOvf5gVc/17Txil+Ac34k2U0vbzeq1QwiIBBEYJBzfg/yHTGguhx5
-	7HaVRRX6daiaIv+ArdmByEK+E40N7A1ekZEtRa58Bc+3sVLLPFyMLsrisHne15P2Omg1RGb8k7w
-	3LOIbM5+8YlZ
-X-Google-Smtp-Source: AGHT+IEGdbnZBMKZzS1Nj16TfST25tvEcj38W13TegR/1BDT0XWfns6gOT9rmswIL2lBD8LhXfdYvA==
-X-Received: by 2002:a17:902:e54a:b0:216:7c33:8994 with SMTP id d9443c01a7336-220bbcc6cf5mr126074435ad.53.1739456232785;
-        Thu, 13 Feb 2025 06:17:12 -0800 (PST)
-Received: from localhost ([192.184.165.199])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-220d556f97dsm12958985ad.172.2025.02.13.06.17.12
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 13 Feb 2025 06:17:12 -0800 (PST)
-Date: Thu, 13 Feb 2025 06:17:12 -0800 (PST)
-X-Google-Original-Date: Thu, 13 Feb 2025 06:17:09 PST (-0800)
-Subject: Re: [PATCH 0/6] riscv: Relocatable NOMMU kernels
-In-Reply-To: <20241026171441.3047904-1-samuel.holland@sifive.com>
-CC: linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
-  akpm@linux-foundation.org, Arnd Bergmann <arnd@arndb.de>, alexghiti@rivosinc.com,
-  samuel.holland@sifive.com
-From: Palmer Dabbelt <palmer@dabbelt.com>
-To: samuel.holland@sifive.com
-Message-ID: <mhng-25ab7f97-42b6-40a8-b96d-d387cbf54ad1@palmer-ri-x1c9>
-Mime-Version: 1.0 (MHng)
+	Thu, 13 Feb 2025 14:20:06 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 96FB05C544F;
+	Thu, 13 Feb 2025 14:19:24 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C572DC4CED1;
+	Thu, 13 Feb 2025 14:20:03 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1739456403;
+	bh=V8+Clgqse8ENFo8knptwLB4lPlpVnfFwyIe+UDRqwXw=;
+	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
+	b=mRjV4tzVPubzdRqCe54H2nXVBR22GW9VACNGUinJFtS7vBw14jHeBcBvEMqpcgtZ9
+	 oVxe5eJszmDOazva6G8ixns2nApVyzHxyF0GLDX0IKnmvVegBTWy6qe/WHI4M0w28e
+	 lfDVyxv5bDRqFeHhrGull3cqXE4HiOPDk1M8k+c3FnRPYqU3Too3K1VCrAkULkjaYF
+	 4yTk7dejENnrUEG1Kk4UpT4o80C0Mz5BP1KHfhomiCGR2x4y8LeRcnHp3wKjUsmHkS
+	 rJH6h0fyRHyINX5hvY91eujX10hN800YsvMtTC9LkhwFd2fDYjOcqF8aRWiXXxWZZ9
+	 FNeZISWJVOnTA==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 35E77380CEEF;
+	Thu, 13 Feb 2025 14:20:34 +0000 (UTC)
+MIME-Version: 1.0
+Subject: Re: [RESEND PATCH v2] riscv: cacheinfo: Use of_property_present() for
+ non-boolean properties
+From: patchwork-bot+linux-riscv@kernel.org
+Message-Id: <173945643302.1243861.3231883828583591260.git-patchwork-notify@kernel.org>
+Date: Thu, 13 Feb 2025 14:20:33 +0000
+References: <20241231161400.214307-1-robh@kernel.org>
+In-Reply-To: <20241231161400.214307-1-robh@kernel.org>
+To: Rob Herring (Arm) <robh@kernel.org>
+Cc: linux-riscv@lists.infradead.org, paul.walmsley@sifive.com,
+ palmer@dabbelt.com, aou@eecs.berkeley.edu, cleger@rivosinc.com,
+ linux-kernel@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250213_061714_297784_755E4CEB 
-X-CRM114-Status: GOOD (  16.08  )
+X-CRM114-CacheID: sfid-20250213_062005_200370_AF98B3FE 
+X-CRM114-Status: UNSURE (   6.62  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,44 +72,24 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sat, 26 Oct 2024 10:13:52 PDT (-0700), samuel.holland@sifive.com wrote:
-> Currently, RISC-V NOMMU kernels are linked at CONFIG_PAGE_OFFSET, and
-> since they are not relocatable, must be loaded at this address as well.
-> CONFIG_PAGE_OFFSET is not a user-visible Kconfig option, so its value is
-> not obvious, and users must patch the kernel source if they want to load
-> it at a different address.
->
-> Make NOMMU kernels more portable by making them relocatable by default.
-> This allows a single kernel binary to work when loaded at any address.
->
->
-> Samuel Holland (6):
->   riscv: Remove duplicate CONFIG_PAGE_OFFSET definition
->   riscv: Allow NOMMU kernels to access all of RAM
->   riscv: Support CONFIG_RELOCATABLE on NOMMU
->   asm-generic: Always define Elf_Rel and Elf_Rela
->   riscv: Support CONFIG_RELOCATABLE on riscv32
->   riscv: Remove CONFIG_PAGE_OFFSET
->
->  arch/riscv/Kconfig               | 10 +---
->  arch/riscv/Makefile              |  1 -
->  arch/riscv/include/asm/page.h    | 27 ++++-----
->  arch/riscv/include/asm/pgtable.h |  6 +-
->  arch/riscv/mm/init.c             | 97 ++++++++++++++++----------------
->  include/asm-generic/module.h     |  8 ---
->  6 files changed, 68 insertions(+), 81 deletions(-)
-
-I'm getting some build failures
-
-riscv64-unknown-linux-gnu-ld: arch/riscv/errata/sifive/errata.o: relocation R_RISCV_HI20 against `tlb_flush_all_threshold' can not be used when making a shared object; recompile with -fPIC
-riscv64-unknown-linux-gnu-ld: arch/riscv/errata/thead/errata.o: relocation R_RISCV_HI20 against `riscv_cbom_block_size' can not be used when making a shared object; recompile with -fPIC
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+SGVsbG86CgpUaGlzIHBhdGNoIHdhcyBhcHBsaWVkIHRvIHJpc2N2L2xpbnV4LmdpdCAoZml4ZXMp
+CmJ5IFBhbG1lciBEYWJiZWx0IDxwYWxtZXJAcml2b3NpbmMuY29tPjoKCk9uIFR1ZSwgMzEgRGVj
+IDIwMjQgMTA6MTM6NTkgLTA2MDAgeW91IHdyb3RlOgo+IFRoZSB1c2Ugb2Ygb2ZfcHJvcGVydHlf
+cmVhZF9ib29sKCkgZm9yIG5vbi1ib29sZWFuIHByb3BlcnRpZXMgaXMKPiBkZXByZWNhdGVkIGlu
+IGZhdm9yIG9mIG9mX3Byb3BlcnR5X3ByZXNlbnQoKSB3aGVuIHRlc3RpbmcgZm9yIHByb3BlcnR5
+Cj4gcHJlc2VuY2UuCj4gCj4gUmV2aWV3ZWQtYnk6IENsw6ltZW50IEzDqWdlciA8Y2xlZ2VyQHJp
+dm9zaW5jLmNvbT4KPiBTaWduZWQtb2ZmLWJ5OiBSb2IgSGVycmluZyAoQXJtKSA8cm9iaEBrZXJu
+ZWwub3JnPgo+IAo+IFsuLi5dCgpIZXJlIGlzIHRoZSBzdW1tYXJ5IHdpdGggbGlua3M6CiAgLSBb
+UkVTRU5ELHYyXSByaXNjdjogY2FjaGVpbmZvOiBVc2Ugb2ZfcHJvcGVydHlfcHJlc2VudCgpIGZv
+ciBub24tYm9vbGVhbiBwcm9wZXJ0aWVzCiAgICBodHRwczovL2dpdC5rZXJuZWwub3JnL3Jpc2N2
+L2MvYjk1MjRhNzM3MjVkCgpZb3UgYXJlIGF3ZXNvbWUsIHRoYW5rIHlvdSEKLS0gCkRlZXQtZG9v
+dC1kb3QsIEkgYW0gYSBib3QuCmh0dHBzOi8va29yZy5kb2NzLmtlcm5lbC5vcmcvcGF0Y2h3b3Jr
+L3B3Ym90Lmh0bWwKCgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVh
+ZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1y
+aXNjdgo=
