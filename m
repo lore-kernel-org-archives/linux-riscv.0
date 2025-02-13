@@ -4,45 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91F65C021A4
-	for <linux-riscv@archiver.kernel.org>; Thu, 13 Feb 2025 10:59:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 465DEC021A0
+	for <linux-riscv@archiver.kernel.org>; Thu, 13 Feb 2025 10:59:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:MIME-Version:Message-Id:Date:
-	Subject:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=5dEwv6JJ+9lgBbsD6zlej0BgnD9SiS/5SvHYIUV4Ums=; b=UK4g5FsN/Lx0w3
-	aRaKJ+/GP/ke+go0k2Wg1gXTD1Uop1a7adcfzITX5GFuWXxcYQcxCggYn/FpLr+LNPhuGolt+o1Ai
-	G0BQ10wqVZdm68riBLvhVCMyHdDyjN6ZyALJpyLZ1Rh155R1RXAM9wjI0xueNttxCbVa9x9i37owR
-	CTXo6MlYrElXgySYvR7eII384BBwqmfmISfQ/IRpUG7b4lrCbcsPO6O2i1jun8tlatNC1bV3pWB+r
-	vTuGsluRMymaCy9iju6pU6goH+Q27hWNY2I+UAnhW0D0v3XpxXDR1EW+4gjbpVDBUSsS+pjScjImx
-	yVolTcZpWobRIBO17euw==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
+	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=2Rzd0uESn0FRV3r0UbSjJz148+u9Rgzzg1utab9ImbM=; b=sHOb9S3rUcg5Pc
+	fVOaszbXOX3CuDulqS3zSGW6IcUoza4/JoWtFAHODin13HvbjLTyXC55tbNewuhbdrgPYrO5vRQt5
+	1OE6G2Fa3uRmn8x9Nja6GA0KlakmP2MGaUyzqFrIvIND682fwWo9cHwX5Jw4V/YV45MpizMl5iDb3
+	OZoh4cdSnycDetERJ9fCIJz02+wgkt+BJVza6yAnZynYVbDjalryRKIOi5ZGAWLE7lnB7gqe9PBNF
+	e6E1kA3z07+MLNYARRD6mAqV0XkZk71iJZkRBBtIsQjcGgu/WdcXP2ogw47vHrxgm6rgmr4fvf16D
+	UFCfE+4cWU1E6jc4ptDw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiWwA-0000000AkEI-3KYI;
-	Thu, 13 Feb 2025 10:59:18 +0000
+	id 1tiWwH-0000000AkGW-43MZ;
+	Thu, 13 Feb 2025 10:59:25 +0000
 Received: from woodpecker.gentoo.org ([140.211.166.183] helo=smtp.gentoo.org)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiWw8-0000000AkDc-08fa
+	id 1tiWwG-0000000AkFs-1pko
 	for linux-riscv@lists.infradead.org;
-	Thu, 13 Feb 2025 10:59:17 +0000
+	Thu, 13 Feb 2025 10:59:25 +0000
 Received: from [127.0.0.1] (unknown [180.172.76.141])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: dlan)
-	by smtp.gentoo.org (Postfix) with ESMTPSA id 49D01343097;
-	Thu, 13 Feb 2025 10:59:11 +0000 (UTC)
+	by smtp.gentoo.org (Postfix) with ESMTPSA id 7CA64343175;
+	Thu, 13 Feb 2025 10:59:19 +0000 (UTC)
 From: Yixun Lan <dlan@gentoo.org>
-Subject: [PATCH RFC 0/2] soc: spacemit: add sdhci support to K1 SoC
-Date: Thu, 13 Feb 2025 18:58:23 +0800
-Message-Id: <20250213-20-k1-sdhci-v1-0-1f4362a980cd@gentoo.org>
+Date: Thu, 13 Feb 2025 18:58:25 +0800
+Subject: [PATCH RFC 2/2] mmc: sdhci-of-k1: add support for SpacemiT K1 SoC
 MIME-Version: 1.0
-X-B4-Tracking: v=1; b=H4sIAE/QrWcC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
- vPSU3UzU4B8JSMDI1MDI0MjXSMD3WxD3eKUjORMXXOzRBNLA0MDY4OUJCWgjoKi1LTMCrBp0Up
- Bbs5KsbW1ALI1TyViAAAA
-X-Change-ID: 20250212-20-k1-sdhci-76a4901030db
+Message-Id: <20250213-20-k1-sdhci-v1-2-1f4362a980cd@gentoo.org>
+References: <20250213-20-k1-sdhci-v1-0-1f4362a980cd@gentoo.org>
+In-Reply-To: <20250213-20-k1-sdhci-v1-0-1f4362a980cd@gentoo.org>
 To: Ulf Hansson <ulf.hansson@linaro.org>, Rob Herring <robh@kernel.org>, 
  Krzysztof Kozlowski <krzk+dt@kernel.org>, 
  Conor Dooley <conor+dt@kernel.org>, Adrian Hunter <adrian.hunter@intel.com>
@@ -50,27 +48,26 @@ Cc: linux-mmc@vger.kernel.org, devicetree@vger.kernel.org,
  linux-riscv@lists.infradead.org, spacemit@lists.linux.dev, 
  linux-kernel@vger.kernel.org, Yixun Lan <dlan@gentoo.org>
 X-Mailer: b4 0.15-dev
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1743; i=dlan@gentoo.org;
- h=from:subject:message-id; bh=KUjOvF9P/vuDVqGQh2F5bKA4gVmwZUblVLO61U/+eqQ=;
- b=owEBzQIy/ZANAwAKATGq6kdZTbvtAcsmYgBnrdB1HCsrUFt90NBRwSRSbpxoBCyz7HLpYIHgp
- ywEzaSCdv+JApMEAAEKAH0WIQS1urjJwxtxFWcCI9wxqupHWU277QUCZ63QdV8UgAAAAAAuAChp
+X-Developer-Signature: v=1; a=openpgp-sha256; l=11663; i=dlan@gentoo.org;
+ h=from:subject:message-id; bh=8j6cqSa5QFnHdqAJ15ix52ipBFPvdYNxl3XJo1WBswA=;
+ b=owEBzQIy/ZANAwAKATGq6kdZTbvtAcsmYgBnrdB7l4cX7d2507Bb/aK3WMGZrqwxOT/ica9Cz
+ AioKl3EKL+JApMEAAEKAH0WIQS1urjJwxtxFWcCI9wxqupHWU277QUCZ63Qe18UgAAAAAAuAChp
  c3N1ZXItZnByQG5vdGF0aW9ucy5vcGVucGdwLmZpZnRoaG9yc2VtYW4ubmV0QjVCQUI4QzlDMzF
- CNzExNTY3MDIyM0RDMzFBQUVBNDc1OTREQkJFRAAKCRAxqupHWU277aGGD/98joLcC6mB9wphN+
- FXiPW/KOgj6Tf00aKYHoPjaaDB2/lOISt9IA++IxeyP5ICmLODeULPpdN6a/T0mT23+w5M0opUa
- /WM2YjeovA+SdeUBRyTytBrmZETt7HM6N2vH64FWHEj8hlraPpa1QMSBoJRMBYNtcHJe0WO8cgU
- 2kY3dwBhceVUqYS9Ppo+Jg8oV3v0LL/4kw+s/1l6VYibVjM2Lbk6sQzlKGbltnBYVdfvZ1kkMm9
- 0KTtpoLTyjBsrrxS5z43VViJ+8Kzqnq4re0N7NM3T6Auf9KqlmEJbTVfIQrRQy8fhzgd62lq0oB
- 3FKdCQfV6NIKbwkC1vX6VeykjrkmsOpoMaIQ2XOO0fp2OUdyuQO+/l6wf9sksDRjUmYc7S1Cehn
- 5IcTl5lfz+i7NUbQVC5+LeF/JG3MjkAl6g8MJlzDFQ+dIxiRP2rhBRdNNOOpNGt3MCNPKWiJXiW
- P37fHYyzlT1R4o+xOnXr7ZnCuiKH88eHbY/XNzQBccKa6c3cCf8+la0Jv7TM8OoSsGM2iwf0c9f
- AIr/sMpJS9qk7VUlWveL7K1lHF87Lnkg3doko3WUibdHgbSmgvFynz6ebVGbvQlDIZpyBXdMlwK
- bkiPT4r4tUtdBEmBnA/T6GdHH4AEJgQgiQ64vBX9UehvW+W0JzkN9Wvh35mNjo3Hpcgw==
+ CNzExNTY3MDIyM0RDMzFBQUVBNDc1OTREQkJFRAAKCRAxqupHWU277a1JEACJSJD3XQexzEebm2
+ HbiP760I6ZqJjH6fivRq6crNLlDmTeMgTlZrOpa1j88u51GlbqAY6tj297/OtuDn+QYhB3udmja
+ kvkp3iCOjvkWBKZDD6mMDuMw3gxRfGYg7tg+1nrm0mj5dQdec/v7ajgllIheivatZgsyoJgFIkP
+ uwRizAk94nWAnXtYZ+GAigwI/T7w4dp+ypleiyddIsmPn6lhOsFX6ce1jKtHAVCwvlkD1ilERi2
+ NFOxta677d+Vb4yc90ccL40kk9NSlYq5oMMyF8qXX3GSCq9ryt+OMznpSMO/JbKvtb8c4KWqXeO
+ zZxFeaRGWLwEA3ItwElCDDxrmJHM+2nyXAukqNhKGO3T0yKaLc4Ps4XProoOp//OOjNcORVmZWi
+ 6XJGfaLX/dQzhBU8cTNaRiPijbt11ppENgkUZPGsIXixBnU8u9mxL75vtQ1O2hEUYitxDWD3Pp0
+ XE5GPGKYgJvw41TG4B4bhpQvIxXkkJMJWvIM3pn0T621dpdwkSEOJy2R8jvvumUNlp5acICMQjq
+ ijuvAX0CigG/ns5wZrYr49O5uM0hLN3GPn3cWcMoFtQMumhX7Tc+eIXmd4iGXIeFwB2mkldXK7A
+ 4N/IaZWC97LpE7Nj4cnSkD5ZKL124ip1W6isFpnElFC4QK9+HtHtfiqjqkrh4HQgysfw==
 X-Developer-Key: i=dlan@gentoo.org; a=openpgp;
  fpr=50B03A1A5CBCD33576EF8CD7920C0DBCAABEFD55
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250213_025916_100084_DD11D159 
-X-CRM114-Status: UNSURE (   7.99  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250213_025924_518652_0F1991AB 
+X-CRM114-Status: GOOD (  19.63  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,47 +84,386 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add support for the SD/eMMC Host Controller found in SpacemiT K1 SoC,
-The controller supports data transmission of MMC, SDIO, and SD protocol.
+The SDHCI controller found in SpacemiT K1 SoC features SD,
+SDIO, eMMC support, such as:
 
-The SD/eMMC Host Controller has the following features:
-- MMC/eMMC 5.1 specification compliant
-- Supports PIO mode and SDMA mode data transfer
-- Supports ADMA1 and ADMA 2 (64-bit addressing) data transfer
-- Supports 1-bit/4-bit SD memory and SDIO
-- Supports 1-bit/8-bit MMC and CE-ATA cards
-- SPI mode supported for eMMC card
-Full docs can be found at SpacemiT's developer web, chapter 10.4 SD/eMMC [1]
-
-In this patch series, only MMC part has been implemented and tested.
-This driver also requires clock support which currently isn't in mainline [2].
-
-There is a WIP branch at SpacemiT's repo for people who interested [3].
-
-I've marked this patch series as RFC, due to incomplete clock and SD/SDIO support.
-
-Link: https://developer.spacemit.com/documentation?token=WZNvwFDkYinYx0k9jzPcMK5WnIe [1]
-Link: https://lore.kernel.org/all/20250103215636.19967-2-heylenay@4d2.org/ [2]
-Link: https://github.com/spacemit-com/linux/tree/k1/wip-sdhci [3]
+- Compatible for 4-bit SDIO 3.0 UHS-I protocol, up to SDR104
+- Compatible for 4-bit SD 3.0 UHS-I protocol, up to SDR104
+- Compatible for 8bit eMMC5.1, up to HS400
 
 Signed-off-by: Yixun Lan <dlan@gentoo.org>
 ---
-Yixun Lan (2):
-      dt-bindings: mmc: spacemit,sdhci: add support for K1 SoC
-      mmc: sdhci-of-k1: add support for SpacemiT K1 SoC
+ drivers/mmc/host/Kconfig       |  14 ++
+ drivers/mmc/host/Makefile      |   1 +
+ drivers/mmc/host/sdhci-of-k1.c | 320 +++++++++++++++++++++++++++++++++++++++++
+ 3 files changed, 335 insertions(+)
 
- .../devicetree/bindings/mmc/spacemit,sdhci.yaml    |  53 ++++
- drivers/mmc/host/Kconfig                           |  14 +
- drivers/mmc/host/Makefile                          |   1 +
- drivers/mmc/host/sdhci-of-k1.c                     | 320 +++++++++++++++++++++
- 4 files changed, 388 insertions(+)
----
-base-commit: 2014c95afecee3e76ca4a56956a936e23283f05b
-change-id: 20250212-20-k1-sdhci-76a4901030db
+diff --git a/drivers/mmc/host/Kconfig b/drivers/mmc/host/Kconfig
+index 6824131b69b188cae58c8f48076715ca647ca28c..0ce78f22c33cfff916a2d4d680c79e9d19637e0e 100644
+--- a/drivers/mmc/host/Kconfig
++++ b/drivers/mmc/host/Kconfig
+@@ -250,6 +250,20 @@ config MMC_SDHCI_OF_DWCMSHC
+ 	  If you have a controller with this interface, say Y or M here.
+ 	  If unsure, say N.
+ 
++config MMC_SDHCI_OF_K1
++	tristate "SDHCI OF support for the SpacemiT K1 SoC"
++	depends on ARCH_SPACEMIT || COMPILE_TEST
++	depends on MMC_SDHCI_PLTFM
++	depends on OF
++	depends on COMMON_CLK
++	help
++	  This selects the Secure Digital Host Controller Interface (SDHCI)
++	  found in the SpacemiT K1 SoC.
++
++	  If you have a controller with this interface, say Y or M here.
++
++	  If unsure, say N.
++
+ config MMC_SDHCI_OF_SPARX5
+ 	tristate "SDHCI OF support for the MCHP Sparx5 SoC"
+ 	depends on MMC_SDHCI_PLTFM
+diff --git a/drivers/mmc/host/Makefile b/drivers/mmc/host/Makefile
+index 5147467ec825ffaef3a7bd812fad80545e52b180..75bafc7b162b9e1d4c6c050f5d28b9d7cb582447 100644
+--- a/drivers/mmc/host/Makefile
++++ b/drivers/mmc/host/Makefile
+@@ -88,6 +88,7 @@ obj-$(CONFIG_MMC_SDHCI_OF_AT91)		+= sdhci-of-at91.o
+ obj-$(CONFIG_MMC_SDHCI_OF_ESDHC)	+= sdhci-of-esdhc.o
+ obj-$(CONFIG_MMC_SDHCI_OF_HLWD)		+= sdhci-of-hlwd.o
+ obj-$(CONFIG_MMC_SDHCI_OF_DWCMSHC)	+= sdhci-of-dwcmshc.o
++obj-$(CONFIG_MMC_SDHCI_OF_K1)		+= sdhci-of-k1.o
+ obj-$(CONFIG_MMC_SDHCI_OF_SPARX5)	+= sdhci-of-sparx5.o
+ obj-$(CONFIG_MMC_SDHCI_OF_MA35D1)	+= sdhci-of-ma35d1.o
+ obj-$(CONFIG_MMC_SDHCI_BCM_KONA)	+= sdhci-bcm-kona.o
+diff --git a/drivers/mmc/host/sdhci-of-k1.c b/drivers/mmc/host/sdhci-of-k1.c
+new file mode 100644
+index 0000000000000000000000000000000000000000..8202a893a46ef9f10675b031b31b72e81eaacd14
+--- /dev/null
++++ b/drivers/mmc/host/sdhci-of-k1.c
+@@ -0,0 +1,320 @@
++// SPDX-License-Identifier: GPL-2.0
++/*
++ * Copyright (C) 2023-2025 SpacemiT (Hangzhou) Technology Co. Ltd
++ * Copyright (c) 2025 Yixun Lan <dlan@gentoo.org>
++ */
++
++#include <linux/clk.h>
++#include <linux/delay.h>
++#include <linux/iopoll.h>
++#include <linux/init.h>
++#include <linux/mmc/card.h>
++#include <linux/mmc/host.h>
++#include <linux/mmc/mmc.h>
++#include <linux/module.h>
++#include <linux/of.h>
++#include <linux/of_device.h>
++#include <linux/platform_device.h>
++
++#include "sdhci.h"
++#include "sdhci-pltfm.h"
++
++#define SDHC_MMC_CTRL_REG		0x114
++#define  MISC_INT_EN			BIT(1)
++#define  MISC_INT			BIT(2)
++#define  ENHANCE_STROBE_EN		BIT(8)
++#define  MMC_HS400			BIT(9)
++#define  MMC_HS200			BIT(10)
++#define  MMC_CARD_MODE			BIT(12)
++
++#define SDHC_TX_CFG_REG			0x11C
++#define  TX_INT_CLK_SEL			BIT(30)
++#define  TX_MUX_SEL			BIT(31)
++
++#define SDHC_PHY_CTRL_REG		0x160
++#define  PHY_FUNC_EN			BIT(0)
++#define  PHY_PLL_LOCK			BIT(1)
++#define  HOST_LEGACY_MODE		BIT(31)
++
++#define SDHC_PHY_FUNC_REG		0x164
++#define  PHY_TEST_EN			BIT(7)
++#define  HS200_USE_RFIFO		BIT(15)
++
++#define SDHC_PHY_DLLCFG			0x168
++#define  DLL_PREDLY_NUM			0x04
++#define  DLL_FULLDLY_RANGE		0x10
++#define  DLL_VREG_CTRL			0x40
++#define  DLL_ENABLE			0x80000000
++#define  DLL_REFRESH_SWEN_SHIFT		0x1C
++#define  DLL_REFRESH_SW_SHIFT		0x1D
++
++#define SDHC_PHY_DLLCFG1		0x16C
++#define  DLL_REG2_CTRL			0x0C
++#define  DLL_REG3_CTRL_MASK		0xFF
++#define  DLL_REG3_CTRL_SHIFT		0x10
++#define  DLL_REG2_CTRL_MASK		0xFF
++#define  DLL_REG2_CTRL_SHIFT		0x08
++#define  DLL_REG1_CTRL			0x92
++#define  DLL_REG1_CTRL_MASK		0xFF
++#define  DLL_REG1_CTRL_SHIFT		0x00
++
++#define SDHC_PHY_DLLSTS			0x170
++#define  DLL_LOCK_STATE			0x01
++
++#define SDHC_PHY_DLLSTS1		0x174
++#define  DLL_MASTER_DELAY_MASK		0xFF
++#define  DLL_MASTER_DELAY_SHIFT		0x10
++
++#define SDHC_PHY_PADCFG_REG		0x178
++#define  RX_BIAS_CTRL			BIT(5)
++#define  PHY_DRIVE_SEL_MASK		0x7
++#define  PHY_DRIVE_SEL_DEFAULT		0x4
++
++struct spacemit_sdhci_host {
++	struct clk *clk_core;
++	struct clk *clk_io;
++};
++
++static inline void spacemit_sdhci_setbits(struct sdhci_host *host, u32 val, int reg)
++{
++	sdhci_writel(host, sdhci_readl(host, reg) | val, reg);
++}
++
++static inline void spacemit_sdhci_clrbits(struct sdhci_host *host, u32 val, int reg)
++{
++	sdhci_writel(host, sdhci_readl(host, reg) & ~val, reg);
++}
++
++static inline void spacemit_sdhci_clrsetbits(struct sdhci_host *host, u32 clr, u32 set, int reg)
++{
++	u32 val = sdhci_readl(host, reg);
++
++	val = (val & ~clr) | set;
++	sdhci_writel(host, val, reg);
++}
++
++static void spacemit_sdhci_reset(struct sdhci_host *host, u8 mask)
++{
++	struct platform_device *pdev;
++
++	pdev = to_platform_device(mmc_dev(host->mmc));
++	sdhci_reset(host, mask);
++
++	if (mask != SDHCI_RESET_ALL)
++		return;
++
++	spacemit_sdhci_setbits(host, PHY_FUNC_EN | PHY_PLL_LOCK, SDHC_PHY_CTRL_REG);
++
++	spacemit_sdhci_clrsetbits(host, PHY_DRIVE_SEL_MASK,
++				  RX_BIAS_CTRL | PHY_DRIVE_SEL_DEFAULT,
++				  SDHC_PHY_PADCFG_REG);
++
++	if (!(host->mmc->caps2 & MMC_CAP2_NO_MMC))
++		spacemit_sdhci_setbits(host, MMC_CARD_MODE, SDHC_MMC_CTRL_REG);
++}
++
++static void spacemit_sdhci_set_uhs_signaling(struct sdhci_host *host, unsigned int timing)
++{
++	if (timing == MMC_TIMING_MMC_HS200)
++		spacemit_sdhci_setbits(host, MMC_HS200, SDHC_MMC_CTRL_REG);
++
++	if (timing == MMC_TIMING_MMC_HS400)
++		spacemit_sdhci_setbits(host, MMC_HS400, SDHC_MMC_CTRL_REG);
++
++	sdhci_set_uhs_signaling(host, timing);
++
++	if (!(host->mmc->caps2 & MMC_CAP2_NO_SDIO))
++		spacemit_sdhci_setbits(host, SDHCI_CTRL_VDD_180, SDHCI_HOST_CONTROL2);
++}
++
++static void spacemit_sdhci_set_clock(struct sdhci_host *host, unsigned int clock)
++{
++	struct mmc_host *mmc = host->mmc;
++
++	if (mmc->ios.timing <= MMC_TIMING_UHS_SDR50)
++		spacemit_sdhci_setbits(host, TX_INT_CLK_SEL, SDHC_TX_CFG_REG);
++	else
++		spacemit_sdhci_clrbits(host, TX_INT_CLK_SEL, SDHC_TX_CFG_REG);
++
++	sdhci_set_clock(host, clock);
++};
++
++static void spacemit_sdhci_phy_dll_init(struct sdhci_host *host)
++{
++	u32 state;
++	int ret;
++
++	spacemit_sdhci_setbits(host, DLL_PREDLY_NUM | DLL_FULLDLY_RANGE | DLL_VREG_CTRL,
++			       SDHC_PHY_DLLCFG);
++	spacemit_sdhci_clrsetbits(host, DLL_REG1_CTRL_MASK, DLL_REG1_CTRL,
++				  SDHC_PHY_DLLCFG1);
++	spacemit_sdhci_setbits(host, DLL_ENABLE, SDHC_PHY_DLLCFG);
++
++	ret = readl_poll_timeout(host->ioaddr + SDHC_PHY_DLLSTS, state,
++				 state & DLL_LOCK_STATE, 2, 100);
++	if (ret == -ETIMEDOUT)
++		dev_warn(mmc_dev(host->mmc), "fail to lock phy dll in 100us!\n");
++}
++
++static void spacemit_sdhci_hs400_enhanced_strobe(struct mmc_host *mmc, struct mmc_ios *ios)
++{
++	struct sdhci_host *host = mmc_priv(mmc);
++
++	if (!ios->enhanced_strobe) {
++		spacemit_sdhci_clrbits(host, ENHANCE_STROBE_EN, SDHC_MMC_CTRL_REG);
++		return;
++	}
++
++	spacemit_sdhci_setbits(host, ENHANCE_STROBE_EN, SDHC_MMC_CTRL_REG);
++	spacemit_sdhci_phy_dll_init(host);
++}
++
++static unsigned int spacemit_sdhci_clk_get_max_clock(struct sdhci_host *host)
++{
++	struct sdhci_pltfm_host *pltfm_host = sdhci_priv(host);
++
++	return clk_get_rate(pltfm_host->clk);
++}
++
++static int spacemit_sdhci_pre_select_hs400(struct mmc_host *mmc)
++{
++	struct sdhci_host *host = mmc_priv(mmc);
++
++	spacemit_sdhci_setbits(host, MMC_HS400, SDHC_MMC_CTRL_REG);
++	host->mmc->caps |= MMC_CAP_WAIT_WHILE_BUSY;
++
++	return 0;
++}
++
++static void spacemit_sdhci_post_select_hs400(struct mmc_host *mmc)
++{
++	struct sdhci_host *host = mmc_priv(mmc);
++
++	spacemit_sdhci_phy_dll_init(host);
++	host->mmc->caps &= ~MMC_CAP_WAIT_WHILE_BUSY;
++}
++
++static void spacemit_sdhci_pre_hs400_to_hs200(struct mmc_host *mmc)
++{
++	struct sdhci_host *host = mmc_priv(mmc);
++
++	spacemit_sdhci_clrbits(host, PHY_FUNC_EN | PHY_PLL_LOCK,
++			       SDHC_PHY_CTRL_REG);
++	spacemit_sdhci_clrbits(host, MMC_HS400 | MMC_HS200 | ENHANCE_STROBE_EN,
++			       SDHC_MMC_CTRL_REG);
++	spacemit_sdhci_clrbits(host, HS200_USE_RFIFO, SDHC_PHY_FUNC_REG);
++
++	udelay(5);
++
++	spacemit_sdhci_setbits(host, PHY_FUNC_EN | PHY_PLL_LOCK, SDHC_PHY_CTRL_REG);
++}
++
++static inline int spacemit_sdhci_get_clocks(struct device *dev,
++					    struct sdhci_pltfm_host *pltfm_host)
++{
++	struct spacemit_sdhci_host *sdhst = sdhci_pltfm_priv(pltfm_host);
++
++	sdhst->clk_core = devm_clk_get_enabled(dev, "core");
++	if (IS_ERR(sdhst->clk_core))
++		return -EINVAL;
++
++	sdhst->clk_io = devm_clk_get_enabled(dev, "io");
++	if (IS_ERR(sdhst->clk_io))
++		return -EINVAL;
++
++	pltfm_host->clk = sdhst->clk_io;
++
++	return 0;
++}
++
++static const struct sdhci_ops spacemit_sdhci_ops = {
++	.get_max_clock		= spacemit_sdhci_clk_get_max_clock,
++	.reset			= spacemit_sdhci_reset,
++	.set_bus_width		= sdhci_set_bus_width,
++	.set_clock		= spacemit_sdhci_set_clock,
++	.set_uhs_signaling	= spacemit_sdhci_set_uhs_signaling,
++};
++
++static const struct sdhci_pltfm_data spacemit_sdhci_k1_pdata = {
++	.ops = &spacemit_sdhci_ops,
++	.quirks = SDHCI_QUIRK_DATA_TIMEOUT_USES_SDCLK |
++		  SDHCI_QUIRK_NO_ENDATTR_IN_NOPDESC |
++		  SDHCI_QUIRK_32BIT_ADMA_SIZE |
++		  SDHCI_QUIRK_CAP_CLOCK_BASE_BROKEN |
++		  SDHCI_QUIRK_BROKEN_CARD_DETECTION |
++		  SDHCI_QUIRK_BROKEN_TIMEOUT_VAL,
++	.quirks2 = SDHCI_QUIRK2_BROKEN_64_BIT_DMA |
++		   SDHCI_QUIRK2_PRESET_VALUE_BROKEN,
++};
++
++static const struct of_device_id spacemit_sdhci_of_match[] = {
++	{ .compatible = "spacemit,k1-sdhci" },
++	{ /* sentinel */ }
++};
++MODULE_DEVICE_TABLE(of, spacemit_sdhci_of_match);
++
++static int spacemit_sdhci_probe(struct platform_device *pdev)
++{
++	struct device *dev = &pdev->dev;
++	struct spacemit_sdhci_host *sdhst;
++	struct sdhci_pltfm_host *pltfm_host;
++	struct sdhci_host *host;
++	struct mmc_host_ops *mops;
++	int ret;
++
++	host = sdhci_pltfm_init(pdev, &spacemit_sdhci_k1_pdata, sizeof(*sdhst));
++	if (IS_ERR(host))
++		return PTR_ERR(host);
++
++	pltfm_host = sdhci_priv(host);
++
++	ret = mmc_of_parse(host->mmc);
++	if (ret)
++		goto err_pltfm;
++
++	sdhci_get_of_property(pdev);
++
++	if (!(host->mmc->caps2 & MMC_CAP2_NO_MMC)) {
++		mops = &host->mmc_host_ops;
++		mops->hs400_prepare_ddr	= spacemit_sdhci_pre_select_hs400;
++		mops->hs400_complete	= spacemit_sdhci_post_select_hs400;
++		mops->hs400_downgrade	= spacemit_sdhci_pre_hs400_to_hs200;
++		mops->hs400_enhanced_strobe = spacemit_sdhci_hs400_enhanced_strobe;
++	}
++
++	host->mmc->caps |= MMC_CAP_NEED_RSP_BUSY;
++
++	if (spacemit_sdhci_get_clocks(dev, pltfm_host))
++		goto err_pltfm;
++
++	ret = sdhci_add_host(host);
++	if (ret)
++		goto err_pltfm;
++
++	return 0;
++
++err_pltfm:
++	sdhci_pltfm_free(pdev);
++	return ret;
++}
++
++static void spacemit_sdhci_remove(struct platform_device *pdev)
++{
++	struct sdhci_host *host = platform_get_drvdata(pdev);
++
++	sdhci_remove_host(host, 1);
++	sdhci_pltfm_free(pdev);
++}
++
++static struct platform_driver spacemit_sdhci_driver = {
++	.driver		= {
++		.name	= "sdhci-spacemit",
++		.of_match_table = of_match_ptr(spacemit_sdhci_of_match),
++	},
++	.probe		= spacemit_sdhci_probe,
++	.remove		= spacemit_sdhci_remove,
++};
++module_platform_driver(spacemit_sdhci_driver);
++
++MODULE_DESCRIPTION("SpacemiT SDHCI platform driver");
++MODULE_LICENSE("GPL");
 
-Best regards,
 -- 
-Yixun Lan
+2.48.1
 
 
 _______________________________________________
