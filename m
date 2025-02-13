@@ -4,53 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A618BC0219D
-	for <linux-riscv@archiver.kernel.org>; Thu, 13 Feb 2025 15:41:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2ADBDC0219D
+	for <linux-riscv@archiver.kernel.org>; Thu, 13 Feb 2025 15:41:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
+	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=rBjPzfF9w860t4NhJprMWipZ74eVqkGFbFBGCqRGzFI=; b=xohNy3d+ieQo0U
-	9jwTA6khUC6LPR6tOn8G0DLFKLCOaE9LCttLHCtAJ1l8TgWJhMNtUivnJfV8gqutDnVOeTrPwbHKa
-	/i9QiFci0mSthZQ2bQIMA8sXwtl3Q4xG8N8S/EXiCtadoFL4iMg09UoqVy5U2PTlDgdhufEOvc+2v
-	J8lsVaNEZjhoyloUrCsB5JNbCoQfQP+o0YPWLTcgP3ljRoheV5Gqx7GJL3ScxWZX/15YlAxNhHhOp
-	KBY6sqdLMTUUKhyjqXRIp7cEVAK68SN+AyyMK9JllWSjE7S9gi2RaAT/h8C4vvCjou0SUKInIER2J
-	rAd26GJfJpPAzFlBApRQ==;
+	List-Owner; bh=XUX7QgjhJq1ygVdc/VmblgBQe7G01T5rc0JJukBCR0E=; b=1PKmmEJvZdOfiH
+	oewbLI6mK2AkbSnk8iEGNb8qmzCmX6BgSR2m7QsoMZPuDwg+uW+arObKORPtGKMofnWTFwY+8tDXz
+	cpgqVaroh9ukObSeiwoAeRVOKe4itgBazfdOiR+FU1BqGDztiPhE40/2nxAo4S972cUrfCBoAoxUY
+	sNOp6nY0QeG2rzBUZOb4K55NgBNyxQbQJp8UrEgd0gTuXp7uogHyDuC28j1a3rNBJ5b0Yr16fc1gs
+	9QJ7PcTwpCFY751bVnJIQ0KTBozclLK0Lxyx8MM49ZEE4EvoN2e1Elojm+PJEEXz5KLunXovGRbzA
+	dx8VgNLevOyfJBUV3+xA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tibL2-0000000BZxM-3FTg;
-	Thu, 13 Feb 2025 15:41:16 +0000
-Received: from relay8-d.mail.gandi.net ([217.70.183.201])
+	id 1tibL5-0000000BZzX-1gO1;
+	Thu, 13 Feb 2025 15:41:19 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiZDE-0000000B95B-12MO
+	id 1tia4Z-0000000BITg-3un6
+	for linux-riscv@bombadil.infradead.org;
+	Thu, 13 Feb 2025 14:20:11 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:Date:
+	Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:Content-Type:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=ovp8wt5bSZ1Mhov2CrlXeYfphxJnbdd90Pc6g2OqyUU=; b=kaCMwEGNRP45SAGufyMuThRk3a
+	lFHHk2xas5SKe64yaWNSJMeX3iSKYbQB4WX6YKij0OkcqTk1ZL4jJ4RROk9WY0MDSz3gDm/b876T1
+	EV7oZQc2Aj8ppoTtXh4y/OhgKfnQ61T9qp3mNMHJj9MF2ZS0df9urB5uZ3G2IfHNahYTTDbXRncmR
+	BbuflZUL6tx29jrBcwmleniLsFhaWmkGTPcUhmfGiMzlpXZOYBebmfvFbU1CQ1eyOECi3FEUj3VYa
+	y0pY/EWNebc3c+wi7jZmchBSnnDhG5YkWhHnG7flfNewcI25Q+jhnFRm7o9VSdbO/tLdAr9fgv3Sl
+	WmW3nbGw==;
+Received: from dfw.source.kernel.org ([139.178.84.217])
+	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tia4W-0000000119Y-3TdK
 	for linux-riscv@lists.infradead.org;
-	Thu, 13 Feb 2025 13:25:06 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id F2B364439E;
-	Thu, 13 Feb 2025 13:25:01 +0000 (UTC)
-Message-ID: <21618bbd-b6cb-4c6e-9cdd-ca78236bc907@ghiti.fr>
-Date: Thu, 13 Feb 2025 14:25:01 +0100
+	Thu, 13 Feb 2025 14:20:10 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id C52A95C56F5;
+	Thu, 13 Feb 2025 14:19:25 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 019F2C4CEE9;
+	Thu, 13 Feb 2025 14:20:05 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1739456405;
+	bh=07usGt1nxc0FC8bBEeP0t7h42KmIbvUtMbZ9M3Tt4ic=;
+	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
+	b=DtAoRzvCfrFcwM/EoY1fLtsKsSkjXzZrglAQpuSmWdSHn+mUzD49mDL0Z9U1E4m/R
+	 8aGwhZvxQV9oGrSm8AcnfVv/c5lWL/bRaVowNpmvrdwB4xGre6bU/7CDVzFGkDMbqt
+	 TC1iTa7HA9jx0f3z4Wb8PvLtQ82cT7APZkcFJ/oU7IN1SqY233Cggs91okgaRHpHQj
+	 FZUDlCJxR29TXBg4gWMz+xGKzD1eDvHR787KJWnV+XaFft9jONuP9oyEOc/c4W7xMN
+	 2TvtZ+MTaCDeKG5NOoaxtXdO4E+g/7OM+gVxHnTJr73P9YTWnHbNz4rix2Ze53nUfB
+	 N5zUUIquPik0w==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 70E4A380CEEF;
+	Thu, 13 Feb 2025 14:20:35 +0000 (UTC)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 5/9] riscv: Fix set up of cpu hotplug callbacks
-Content-Language: en-US
-To: Andrew Jones <ajones@ventanamicro.com>, linux-riscv@lists.infradead.org,
- linux-kernel@vger.kernel.org
-Cc: paul.walmsley@sifive.com, palmer@dabbelt.com, charlie@rivosinc.com,
- jesse@rivosinc.com, Anup Patel <apatel@ventanamicro.com>
-References: <20250207161939.46139-11-ajones@ventanamicro.com>
- <20250207161939.46139-16-ajones@ventanamicro.com>
-From: Alexandre Ghiti <alex@ghiti.fr>
-In-Reply-To: <20250207161939.46139-16-ajones@ventanamicro.com>
-X-GND-State: clean
-X-GND-Score: -100
-X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgdegieekkecutefuodetggdotefrodftvfcurfhrohhfihhlvgemucfitefpfffkpdcuggftfghnshhusghstghrihgsvgenuceurghilhhouhhtmecufedtudenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujfgurhepkfffgggfuffvvehfhfgjtgfgsehtjeertddtvdejnecuhfhrohhmpeetlhgvgigrnhgurhgvucfihhhithhiuceorghlvgigsehghhhithhirdhfrheqnecuggftrfgrthhtvghrnheptdfhleefjeegheevgeeljeellefgvefhkeeiffekueejteefvdevhfelvdeggeeinecukfhppedvtddtudemkeeiudemfeefkedvmegvfheltdemudgutggvmegvhedugeemheegjegvmegstdhfkeenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepihhnvghtpedvtddtudemkeeiudemfeefkedvmegvfheltdemudgutggvmegvhedugeemheegjegvmegstdhfkedphhgvlhhopeglkffrggeimedvtddtudemkeeiudemfeefkedvmegvfheltdemudgutggvmegvhedugeemheegjegvmegstdhfkegnpdhmrghilhhfrhhomheprghlvgigsehghhhithhirdhfrhdpnhgspghrtghpthhtohepkedprhgtphhtthhopegrjhhonhgvshesvhgvnhhtrghnrghmihgtrhhordgtohhmpdhrtghpthhtoheplhhinhhugidqrhhishgtvheslhhishhtshdrihhnfhhrrgguvggrugdrohhrghdprhgtphhtthhopehlihhnuhigqdhkvghrn
- hgvlhesvhhgvghrrdhkvghrnhgvlhdrohhrghdprhgtphhtthhopehprghulhdrfigrlhhmshhlvgihsehsihhfihhvvgdrtghomhdprhgtphhtthhopehprghlmhgvrhesuggrsggsvghlthdrtghomhdprhgtphhtthhopegthhgrrhhlihgvsehrihhvohhsihhntgdrtghomhdprhgtphhtthhopehjvghsshgvsehrihhvohhsihhntgdrtghomhdprhgtphhtthhopegrphgrthgvlhesvhgvnhhtrghnrghmihgtrhhordgtohhm
-X-GND-Sasl: alex@ghiti.fr
+Subject: Re: [PATCH v1] riscv: Use of_property_present() to test for non-boolean
+ properties
+From: patchwork-bot+linux-riscv@kernel.org
+Message-Id: <173945643426.1243861.13922610517205148727.git-patchwork-notify@kernel.org>
+Date: Thu, 13 Feb 2025 14:20:34 +0000
+References: <20250205143903.413959-1-emil.renner.berthing@canonical.com>
+In-Reply-To: <20250205143903.413959-1-emil.renner.berthing@canonical.com>
+To: Emil Renner Berthing <emil.renner.berthing@canonical.com>
+Cc: linux-riscv@lists.infradead.org, spersvold@gmail.com,
+ paul.walmsley@sifive.com, linux-kernel@vger.kernel.org,
+ jeremy.linton@arm.com, conor.dooley@microchip.com, palmer@dabbelt.com,
+ cuiyunhui@bytedance.com, sudeep.holla@arm.com, mikisabate@gmail.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250213_052504_426199_82E5D71D 
-X-CRM114-Status: GOOD (  14.03  )
+X-CRM114-CacheID: sfid-20250213_142009_084903_B55A5750 
+X-CRM114-Status: UNSURE (   8.98  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -62,82 +88,36 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+Hello:
 
-On 07/02/2025 17:19, Andrew Jones wrote:
-> CPU hotplug callbacks should be set up even if we detected all
-> current cpus emulate misaligned accesses, since we want to
-> ensure our expectations of all cpus emulating is maintained.
->
-> Fixes: 6e5ce7f2eae3 ("riscv: Decouple emulated unaligned accesses from access speed")
-> Fixes: e7c9d66e313b ("RISC-V: Report vector unaligned access speed hwprobe")
-> Signed-off-by: Andrew Jones <ajones@ventanamicro.com>
-> ---
->   arch/riscv/kernel/unaligned_access_speed.c | 27 +++++++++++-----------
->   1 file changed, 13 insertions(+), 14 deletions(-)
->
-> diff --git a/arch/riscv/kernel/unaligned_access_speed.c b/arch/riscv/kernel/unaligned_access_speed.c
-> index 780f1c5f512a..c9d3237649bb 100644
-> --- a/arch/riscv/kernel/unaligned_access_speed.c
-> +++ b/arch/riscv/kernel/unaligned_access_speed.c
-> @@ -247,13 +247,6 @@ static void __init check_unaligned_access_speed_all_cpus(void)
->   	/* Check core 0. */
->   	smp_call_on_cpu(0, check_unaligned_access, bufs[0], true);
->   
-> -	/*
-> -	 * Setup hotplug callbacks for any new CPUs that come online or go
-> -	 * offline.
-> -	 */
-> -	cpuhp_setup_state_nocalls(CPUHP_AP_ONLINE_DYN, "riscv:online",
-> -				  riscv_online_cpu, riscv_offline_cpu);
-> -
->   out:
->   	for_each_cpu(cpu, cpu_online_mask) {
->   		if (bufs[cpu])
-> @@ -383,13 +376,6 @@ static int __init vec_check_unaligned_access_speed_all_cpus(void *unused __alway
->   {
->   	schedule_on_each_cpu(check_vector_unaligned_access);
->   
-> -	/*
-> -	 * Setup hotplug callbacks for any new CPUs that come online or go
-> -	 * offline.
-> -	 */
-> -	cpuhp_setup_state_nocalls(CPUHP_AP_ONLINE_DYN, "riscv:online",
-> -				  riscv_online_cpu_vec, NULL);
-> -
->   	return 0;
->   }
->   #else /* CONFIG_RISCV_PROBE_VECTOR_UNALIGNED_ACCESS */
-> @@ -415,6 +401,19 @@ static int __init check_unaligned_access_all_cpus(void)
->   			    NULL, "vec_check_unaligned_access_speed_all_cpus");
->   	}
->   
-> +	/*
-> +	 * Setup hotplug callbacks for any new CPUs that come online or go
-> +	 * offline.
-> +	 */
-> +#ifdef CONFIG_RISCV_PROBE_UNALIGNED_ACCESS
-> +	cpuhp_setup_state_nocalls(CPUHP_AP_ONLINE_DYN, "riscv:online",
-> +				  riscv_online_cpu, riscv_offline_cpu);
-> +#endif
-> +#ifdef CONFIG_RISCV_PROBE_VECTOR_UNALIGNED_ACCESS
-> +	cpuhp_setup_state_nocalls(CPUHP_AP_ONLINE_DYN, "riscv:online",
-> +				  riscv_online_cpu_vec, NULL);
-> +#endif
-> +
->   	return 0;
->   }
->   
+This patch was applied to riscv/linux.git (fixes)
+by Palmer Dabbelt <palmer@rivosinc.com>:
 
-Reviewed-by: Alexandre Ghiti <alexghiti@rivosinc.com>
+On Wed,  5 Feb 2025 15:39:01 +0100 you wrote:
+> The use of of_property_read_bool() for non-boolean properties is
+> deprecated and since
+> 
+> commit c141ecc3cecd ("of: Warn when of_property_read_bool() is used on non-boolean properties")
+> 
+> a warning is displayed when used incorrectly. Fix it by switching to
+> of_property_present() as recommended in the same commit.
+> 
+> [...]
 
-Thanks,
+Here is the summary with links:
+  - [v1] riscv: Use of_property_present() to test for non-boolean properties
+    https://git.kernel.org/riscv/c/b9524a73725d
 
-Alex
+You are awesome, thank you!
+-- 
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/patchwork/pwbot.html
+
 
 
 _______________________________________________
