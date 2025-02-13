@@ -4,97 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC67AC0219D
-	for <linux-riscv@archiver.kernel.org>; Thu, 13 Feb 2025 12:59:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0922DC0219D
+	for <linux-riscv@archiver.kernel.org>; Thu, 13 Feb 2025 12:59:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:Message-ID:
-	In-Reply-To:Subject:cc:To:Date:From:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=kPcchhSFiwTHlvws9SZfQ47WDJMqkatFsKNK7oUbC5E=; b=Qs0d0iH/XXVxsg
-	7WIMVgBYWEvIEqjAJ1wlfNeasQSlfKxNY7e8e1He4wxOBbptLhY9GUh2kSiphxjCccJkPb7G8wYFU
-	FMUon+eO133+uz+LwVuh4b1IisrZnG0CZNAzGkPAgLUyXRrlTZTAqCr4jgMMyW2TUtmuIRiqH5lgc
-	iHLTfgF/xqUv6vVSkL2gUHNvf6YzrhQfhjySI16WeJgibCNB15QaqAadxMx4zT/f4DZm9ycqVmaq0
-	ylR0YFe3oWfXfZNAPDlUVQbAqGk0UdbpnvcXiLTBrDhPuzvsArYm0yx1G5cDfG4e6Cs76PBpHBw8n
-	pUs2+vHRkGcuDxdXSYZw==;
+	List-Owner; bh=28jtwnh6+/85VDdJ1LsFGW0p19RVwkCqrmImJnaEWYg=; b=CGG4Wrx9O2kYhs
+	pMSrSFx+D/HRE9+sbg8HE1//3jPewa+1i02PY5LoQ8jkjRK6LrGW+DLc9ulu50UGH6ZTOebHNwgCM
+	PZFTNOM19eTdmkAhu4BLycBXo3xU1LS9z9UpBxQbyR7Si/bgGnxF/y2IAjd0od0yiEQQZk2vSM++j
+	MX+6GCQiNnnwC4c+xEBIhV1NM7lNgx+KkrLezk+3XZahHH0qzXJh1+mWICP1HleL11nOs2nXg8uc5
+	hI60FPX/2ophbqfF1r2nf0K7obF5LrH8xLxIbC7EgLMP9sEODqlGj2v7FuT6SJdGRvyf7xywJc89r
+	aYj2BkRLNtOiD7JlPJ4A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiYoA-0000000B4Nr-0VDE;
-	Thu, 13 Feb 2025 12:59:10 +0000
-Received: from mgamail.intel.com ([198.175.65.9])
+	id 1tiYoN-0000000B4Qs-052m;
+	Thu, 13 Feb 2025 12:59:23 +0000
+Received: from relay6-d.mail.gandi.net ([2001:4b98:dc4:8::226])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiYm6-0000000B44u-0G4k;
-	Thu, 13 Feb 2025 12:57:03 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1739451422; x=1770987422;
-  h=from:date:to:cc:subject:in-reply-to:message-id:
-   references:mime-version;
-  bh=4XOKJP5C9KasCvv9RRiGNI4Xj2vhZlzPXtPpNzDC/WM=;
-  b=QU/FYJCzhIjzo341v5A/bg6Od6h6HOghiZjSzvMJwjLy7tkDdbaLDc3L
-   3FFQFlSzxPr4TiUjEqPJo7kUwGb+CJlX6fml6y+ARJxgKKWrInznl0O20
-   xoHWDA4AWpaj3ZbWNfyiZ77ENjnQXBj6naZu3bojquWjkZrNUtBGTRwYi
-   V4fHdJArHD7/nmaZ+9EtaZpcF/KyYixSoCfM8yjCCEU1l1ybslvNDMdN/
-   /A/DDm2dR4mLiZihRKt83z0lMXcLYFYgurfLko6Qo8tumBavM6NaZfmXH
-   PHqo44MoHM/oxaqq+dYLJBl6AzO4gUh3ZMHrx8FhCkqKMk867R0z/nORR
-   g==;
-X-CSE-ConnectionGUID: 4Z+NumayQP6zjVfJmyn2Fg==
-X-CSE-MsgGUID: x4rbgTXETKqtIF1lIGv8fw==
-X-IronPort-AV: E=McAfee;i="6700,10204,11344"; a="62619429"
-X-IronPort-AV: E=Sophos;i="6.13,282,1732608000"; 
-   d="scan'208";a="62619429"
-Received: from orviesa010.jf.intel.com ([10.64.159.150])
-  by orvoesa101.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 13 Feb 2025 04:57:01 -0800
-X-CSE-ConnectionGUID: ThDS0Z6ISMGS8HTigpxZiA==
-X-CSE-MsgGUID: x6AFKZzsRDeJj1srwh0IiQ==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.12,224,1728975600"; 
-   d="scan'208";a="112973137"
-Received: from ijarvine-mobl1.ger.corp.intel.com (HELO localhost) ([10.245.245.48])
-  by orviesa010-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 13 Feb 2025 04:56:46 -0800
-From: =?UTF-8?q?Ilpo=20J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>
-Date: Thu, 13 Feb 2025 14:56:44 +0200 (EET)
-To: Jerome Brunet <jbrunet@baylibre.com>
-cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
-    Dave Ertman <david.m.ertman@intel.com>, Ira Weiny <ira.weiny@intel.com>, 
-    "Rafael J. Wysocki" <rafael@kernel.org>, Stephen Boyd <sboyd@kernel.org>, 
-    Arnd Bergmann <arnd@arndb.de>, Danilo Krummrich <dakr@kernel.org>, 
-    Conor Dooley <conor.dooley@microchip.com>, 
-    Daire McNamara <daire.mcnamara@microchip.com>, 
-    Philipp Zabel <p.zabel@pengutronix.de>, 
-    Douglas Anderson <dianders@chromium.org>, 
-    Andrzej Hajda <andrzej.hajda@intel.com>, 
-    Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
-    Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
-    Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
-    Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
-    Maxime Ripard <mripard@kernel.org>, 
-    Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, 
-    Simona Vetter <simona@ffwll.ch>, Hans de Goede <hdegoede@redhat.com>, 
-    Bryan O'Donoghue <bryan.odonoghue@linaro.org>, 
-    Vladimir Kondratiev <vladimir.kondratiev@mobileye.com>, 
-    Gregory CLEMENT <gregory.clement@bootlin.com>, 
-    =?ISO-8859-15?Q?Th=E9o_Lebrun?= <theo.lebrun@bootlin.com>, 
-    Michael Turquette <mturquette@baylibre.com>, 
-    Abel Vesa <abelvesa@kernel.org>, Peng Fan <peng.fan@nxp.com>, 
-    Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
-    Pengutronix Kernel Team <kernel@pengutronix.de>, 
-    Fabio Estevam <festevam@gmail.com>, Kevin Hilman <khilman@baylibre.com>, 
-    Martin Blumenstingl <martin.blumenstingl@googlemail.com>, 
-    LKML <linux-kernel@vger.kernel.org>, linux-riscv@lists.infradead.org, 
-    dri-devel@lists.freedesktop.org, platform-driver-x86@vger.kernel.org, 
-    linux-mips@vger.kernel.org, linux-clk@vger.kernel.org, imx@lists.linux.dev, 
-    linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org
-Subject: Re: [PATCH v3 4/7] platform: arm64: lenovo-yoga-c630: use the
- auxiliary device creation helper
-In-Reply-To: <20250211-aux-device-create-helper-v3-4-7edb50524909@baylibre.com>
-Message-ID: <0e83224d-9517-48f4-f030-b622c5d39d48@linux.intel.com>
-References: <20250211-aux-device-create-helper-v3-0-7edb50524909@baylibre.com> <20250211-aux-device-create-helper-v3-4-7edb50524909@baylibre.com>
+	id 1tiYoK-0000000B4PP-1oiA
+	for linux-riscv@lists.infradead.org;
+	Thu, 13 Feb 2025 12:59:21 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id 668FC44267;
+	Thu, 13 Feb 2025 12:59:13 +0000 (UTC)
+Message-ID: <fa88bc3a-7945-456c-8f12-3bb1a269fb36@ghiti.fr>
+Date: Thu, 13 Feb 2025 13:59:13 +0100
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/9] riscv: Annotate unaligned access init functions
+Content-Language: en-US
+To: Andrew Jones <ajones@ventanamicro.com>, linux-riscv@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+Cc: paul.walmsley@sifive.com, palmer@dabbelt.com, charlie@rivosinc.com,
+ jesse@rivosinc.com, Anup Patel <apatel@ventanamicro.com>
+References: <20250207161939.46139-11-ajones@ventanamicro.com>
+ <20250207161939.46139-12-ajones@ventanamicro.com>
+From: Alexandre Ghiti <alex@ghiti.fr>
+In-Reply-To: <20250207161939.46139-12-ajones@ventanamicro.com>
+X-GND-State: clean
+X-GND-Score: -100
+X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgdegieekgecutefuodetggdotefrodftvfcurfhrohhfihhlvgemucfitefpfffkpdcuggftfghnshhusghstghrihgsvgenuceurghilhhouhhtmecufedtudenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujfgurhepkfffgggfuffvvehfhfgjtgfgsehtjeertddtvdejnecuhfhrohhmpeetlhgvgigrnhgurhgvucfihhhithhiuceorghlvgigsehghhhithhirdhfrheqnecuggftrfgrthhtvghrnheptdfhleefjeegheevgeeljeellefgvefhkeeiffekueejteefvdevhfelvdeggeeinecukfhppedvtddtudemkeeiudemfeefkedvmegvfheltdemudgutggvmegvhedugeemheegjegvmegstdhfkeenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepihhnvghtpedvtddtudemkeeiudemfeefkedvmegvfheltdemudgutggvmegvhedugeemheegjegvmegstdhfkedphhgvlhhopeglkffrggeimedvtddtudemkeeiudemfeefkedvmegvfheltdemudgutggvmegvhedugeemheegjegvmegstdhfkegnpdhmrghilhhfrhhomheprghlvgigsehghhhithhirdhfrhdpnhgspghrtghpthhtohepkedprhgtphhtthhopegrjhhonhgvshesvhgvnhhtrghnrghmihgtrhhordgtohhmpdhrtghpthhtoheplhhinhhugidqrhhishgtvheslhhishhtshdrihhnfhhrrgguvggrugdrohhrghdprhgtphhtthhopehlihhnuhigqdhkvghrn
+ hgvlhesvhhgvghrrdhkvghrnhgvlhdrohhrghdprhgtphhtthhopehprghulhdrfigrlhhmshhlvgihsehsihhfihhvvgdrtghomhdprhgtphhtthhopehprghlmhgvrhesuggrsggsvghlthdrtghomhdprhgtphhtthhopegthhgrrhhlihgvsehrihhvohhsihhntgdrtghomhdprhgtphhtthhopehjvghsshgvsehrihhvohhsihhntgdrtghomhdprhgtphhtthhopegrphgrthgvlhesvhgvnhhtrghnrghmihgtrhhordgtohhm
+X-GND-Sasl: alex@ghiti.fr
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250213_045702_140926_3C7C2EFB 
-X-CRM114-Status: GOOD (  17.22  )
+X-CRM114-CacheID: sfid-20250213_045920_639167_726CB919 
+X-CRM114-Status: GOOD (  12.60  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,90 +62,159 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, 11 Feb 2025, Jerome Brunet wrote:
+Hi Drew,
 
-> The auxiliary device creation of this driver is simple enough to
-> use the available auxiliary device creation helper.
-> 
-> Use it and remove some boilerplate code.
-> 
-> Signed-off-by: Jerome Brunet <jbrunet@baylibre.com>
+On 07/02/2025 17:19, Andrew Jones wrote:
+> Several functions used in unaligned access probing are only run at
+> init time. Annotate them appropriately.
+>
+> Fixes: f413aae96cda ("riscv: Set unaligned access speed at compile time")
+> Signed-off-by: Andrew Jones <ajones@ventanamicro.com>
 > ---
->  drivers/platform/arm64/lenovo-yoga-c630.c | 42 +++----------------------------
->  1 file changed, 4 insertions(+), 38 deletions(-)
-> 
-> diff --git a/drivers/platform/arm64/lenovo-yoga-c630.c b/drivers/platform/arm64/lenovo-yoga-c630.c
-> index 1f05c9a6a89d5ee146144062f5d2e36795c56639..921a93d4ea39ac54344cc964e2805e974cc7e808 100644
-> --- a/drivers/platform/arm64/lenovo-yoga-c630.c
-> +++ b/drivers/platform/arm64/lenovo-yoga-c630.c
-> @@ -191,50 +191,16 @@ void yoga_c630_ec_unregister_notify(struct yoga_c630_ec *ec, struct notifier_blo
->  }
->  EXPORT_SYMBOL_GPL(yoga_c630_ec_unregister_notify);
->  
-> -static void yoga_c630_aux_release(struct device *dev)
-> -{
-> -	struct auxiliary_device *adev = to_auxiliary_dev(dev);
-> -
-> -	kfree(adev);
-> -}
-> -
-> -static void yoga_c630_aux_remove(void *data)
-> -{
-> -	struct auxiliary_device *adev = data;
-> -
-> -	auxiliary_device_delete(adev);
-> -	auxiliary_device_uninit(adev);
-> -}
-> -
->  static int yoga_c630_aux_init(struct device *parent, const char *name,
->  			      struct yoga_c630_ec *ec)
->  {
->  	struct auxiliary_device *adev;
-> -	int ret;
-> -
-> -	adev = kzalloc(sizeof(*adev), GFP_KERNEL);
-> -	if (!adev)
-> -		return -ENOMEM;
-> -
-> -	adev->name = name;
-> -	adev->id = 0;
-> -	adev->dev.parent = parent;
-> -	adev->dev.release = yoga_c630_aux_release;
-> -	adev->dev.platform_data = ec;
->  
-> -	ret = auxiliary_device_init(adev);
-> -	if (ret) {
-> -		kfree(adev);
-> -		return ret;
-> -	}
-> -
-> -	ret = auxiliary_device_add(adev);
-> -	if (ret) {
-> -		auxiliary_device_uninit(adev);
-> -		return ret;
-> -	}
-> +	adev = devm_auxiliary_device_create(parent, name, ec, 0);
-> +	if (IS_ERR(adev))
-> +		return PTR_ERR(adev);
->  
-> -	return devm_add_action_or_reset(parent, yoga_c630_aux_remove, adev);
-> +	return 0;
+>   arch/riscv/include/asm/cpufeature.h        |  4 ++--
+>   arch/riscv/kernel/traps_misaligned.c       |  8 ++++----
+>   arch/riscv/kernel/unaligned_access_speed.c | 14 +++++++-------
+>   3 files changed, 13 insertions(+), 13 deletions(-)
+>
+> diff --git a/arch/riscv/include/asm/cpufeature.h b/arch/riscv/include/asm/cpufeature.h
+> index 569140d6e639..19defdc2002d 100644
+> --- a/arch/riscv/include/asm/cpufeature.h
+> +++ b/arch/riscv/include/asm/cpufeature.h
+> @@ -63,7 +63,7 @@ void __init riscv_user_isa_enable(void);
+>   #define __RISCV_ISA_EXT_SUPERSET_VALIDATE(_name, _id, _sub_exts, _validate) \
+>   	_RISCV_ISA_EXT_DATA(_name, _id, _sub_exts, ARRAY_SIZE(_sub_exts), _validate)
+>   
+> -bool check_unaligned_access_emulated_all_cpus(void);
+> +bool __init check_unaligned_access_emulated_all_cpus(void);
+>   #if defined(CONFIG_RISCV_SCALAR_MISALIGNED)
+>   void check_unaligned_access_emulated(struct work_struct *work __always_unused);
+>   void unaligned_emulation_finish(void);
+> @@ -76,7 +76,7 @@ static inline bool unaligned_ctl_available(void)
+>   }
+>   #endif
+>   
+> -bool check_vector_unaligned_access_emulated_all_cpus(void);
+> +bool __init check_vector_unaligned_access_emulated_all_cpus(void);
+>   #if defined(CONFIG_RISCV_VECTOR_MISALIGNED)
+>   void check_vector_unaligned_access_emulated(struct work_struct *work __always_unused);
+>   DECLARE_PER_CPU(long, vector_misaligned_access);
+> diff --git a/arch/riscv/kernel/traps_misaligned.c b/arch/riscv/kernel/traps_misaligned.c
+> index 7cc108aed74e..aacbd9d7196e 100644
+> --- a/arch/riscv/kernel/traps_misaligned.c
+> +++ b/arch/riscv/kernel/traps_misaligned.c
+> @@ -605,7 +605,7 @@ void check_vector_unaligned_access_emulated(struct work_struct *work __always_un
+>   	kernel_vector_end();
+>   }
+>   
+> -bool check_vector_unaligned_access_emulated_all_cpus(void)
+> +bool __init check_vector_unaligned_access_emulated_all_cpus(void)
+>   {
+>   	int cpu;
+>   
+> @@ -625,7 +625,7 @@ bool check_vector_unaligned_access_emulated_all_cpus(void)
+>   	return true;
+>   }
+>   #else
+> -bool check_vector_unaligned_access_emulated_all_cpus(void)
+> +bool __init check_vector_unaligned_access_emulated_all_cpus(void)
+>   {
+>   	return false;
+>   }
+> @@ -659,7 +659,7 @@ void check_unaligned_access_emulated(struct work_struct *work __always_unused)
+>   	}
+>   }
+>   
+> -bool check_unaligned_access_emulated_all_cpus(void)
+> +bool __init check_unaligned_access_emulated_all_cpus(void)
+>   {
+>   	int cpu;
+>   
+> @@ -684,7 +684,7 @@ bool unaligned_ctl_available(void)
+>   	return unaligned_ctl;
+>   }
+>   #else
+> -bool check_unaligned_access_emulated_all_cpus(void)
+> +bool __init check_unaligned_access_emulated_all_cpus(void)
+>   {
+>   	return false;
+>   }
+> diff --git a/arch/riscv/kernel/unaligned_access_speed.c b/arch/riscv/kernel/unaligned_access_speed.c
+> index 91f189cf1611..b7a8ff7ba6df 100644
+> --- a/arch/riscv/kernel/unaligned_access_speed.c
+> +++ b/arch/riscv/kernel/unaligned_access_speed.c
+> @@ -121,7 +121,7 @@ static int check_unaligned_access(void *param)
+>   	return 0;
+>   }
+>   
+> -static void check_unaligned_access_nonboot_cpu(void *param)
+> +static void __init check_unaligned_access_nonboot_cpu(void *param)
+>   {
+>   	unsigned int cpu = smp_processor_id();
+>   	struct page **pages = param;
+> @@ -175,7 +175,7 @@ static void set_unaligned_access_static_branches(void)
+>   	modify_unaligned_access_branches(&fast_and_online, num_online_cpus());
+>   }
+>   
+> -static int lock_and_set_unaligned_access_static_branch(void)
+> +static int __init lock_and_set_unaligned_access_static_branch(void)
+>   {
+>   	cpus_read_lock();
+>   	set_unaligned_access_static_branches();
+> @@ -218,7 +218,7 @@ static int riscv_offline_cpu(unsigned int cpu)
+>   }
+>   
+>   /* Measure unaligned access speed on all CPUs present at boot in parallel. */
+> -static int check_unaligned_access_speed_all_cpus(void)
+> +static int __init check_unaligned_access_speed_all_cpus(void)
+>   {
+>   	unsigned int cpu;
+>   	unsigned int cpu_count = num_possible_cpus();
+> @@ -264,7 +264,7 @@ static int check_unaligned_access_speed_all_cpus(void)
+>   	return 0;
+>   }
+>   #else /* CONFIG_RISCV_PROBE_UNALIGNED_ACCESS */
+> -static int check_unaligned_access_speed_all_cpus(void)
+> +static int __init check_unaligned_access_speed_all_cpus(void)
+>   {
+>   	return 0;
+>   }
+> @@ -379,7 +379,7 @@ static int riscv_online_cpu_vec(unsigned int cpu)
+>   }
+>   
+>   /* Measure unaligned access speed on all CPUs present at boot in parallel. */
+> -static int vec_check_unaligned_access_speed_all_cpus(void *unused __always_unused)
+> +static int __init vec_check_unaligned_access_speed_all_cpus(void *unused __always_unused)
+>   {
+>   	schedule_on_each_cpu(check_vector_unaligned_access);
+>   
+> @@ -393,13 +393,13 @@ static int vec_check_unaligned_access_speed_all_cpus(void *unused __always_unuse
+>   	return 0;
+>   }
+>   #else /* CONFIG_RISCV_PROBE_VECTOR_UNALIGNED_ACCESS */
+> -static int vec_check_unaligned_access_speed_all_cpus(void *unused __always_unused)
+> +static int __init vec_check_unaligned_access_speed_all_cpus(void *unused __always_unused)
+>   {
+>   	return 0;
+>   }
+>   #endif
+>   
+> -static int check_unaligned_access_all_cpus(void)
+> +static int __init check_unaligned_access_all_cpus(void)
+>   {
+>   	bool all_cpus_emulated, all_cpus_vec_unsupported;
+>   
 
-return PTR_ERR_OR_ZERO()
 
->  }
->  
->  static int yoga_c630_ec_probe(struct i2c_client *client)
-> 
-> 
+Reviewed-by: Alexandre Ghiti <alexghiti@rivosinc.com>
 
--- 
- i.
+Thanks,
+
+Alex
 
 
 _______________________________________________
