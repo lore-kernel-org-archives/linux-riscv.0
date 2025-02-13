@@ -4,63 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 71C0AC021A0
-	for <linux-riscv@archiver.kernel.org>; Thu, 13 Feb 2025 14:35:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A618BC0219D
+	for <linux-riscv@archiver.kernel.org>; Thu, 13 Feb 2025 15:41:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
-	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=NbJeYV1tHRvNKHI0INO8TCKMj+SJ2vFtFiLu6Dxk3RY=; b=VNFDeiD7yU3TAc
-	JoTh1pyQFF2UF88NMQ++zPl99e5ILj6XfxrQgwBSNWGyl6bBqY7UaefmcTU3uCBtW/EoyVksNzv3y
-	YfhsCbWBC3JKhYFczdDL2sCbG/XCYZKFvm8qZulv20XP/nD7aH6Nghyma7df6XSZURvMV7xGy9Nop
-	GWORGI8gXNu3tJV6VuDJeExGIZ+jugVqYITZ68kUAQd+2MLFSoZ2EvS6hOKJlnBfEFUHnEonBIsYB
-	8zjSpLnr7Lo+f320fRqSo/Fmv6EClO6Nd6qZJY9RsCKQLwAvK0iecnSplR2mnOzoLQvOhUO17X8kg
-	2+dOI0q3jWZar+DRoQxg==;
+	List-Owner; bh=rBjPzfF9w860t4NhJprMWipZ74eVqkGFbFBGCqRGzFI=; b=xohNy3d+ieQo0U
+	9jwTA6khUC6LPR6tOn8G0DLFKLCOaE9LCttLHCtAJ1l8TgWJhMNtUivnJfV8gqutDnVOeTrPwbHKa
+	/i9QiFci0mSthZQ2bQIMA8sXwtl3Q4xG8N8S/EXiCtadoFL4iMg09UoqVy5U2PTlDgdhufEOvc+2v
+	J8lsVaNEZjhoyloUrCsB5JNbCoQfQP+o0YPWLTcgP3ljRoheV5Gqx7GJL3ScxWZX/15YlAxNhHhOp
+	KBY6sqdLMTUUKhyjqXRIp7cEVAK68SN+AyyMK9JllWSjE7S9gi2RaAT/h8C4vvCjou0SUKInIER2J
+	rAd26GJfJpPAzFlBApRQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiaIr-0000000BM0f-2g1c;
-	Thu, 13 Feb 2025 14:34:57 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tibL2-0000000BZxM-3FTg;
+	Thu, 13 Feb 2025 15:41:16 +0000
+Received: from relay8-d.mail.gandi.net ([217.70.183.201])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tia4T-0000000BISC-0VAw
+	id 1tiZDE-0000000B95B-12MO
 	for linux-riscv@lists.infradead.org;
-	Thu, 13 Feb 2025 14:20:06 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 96FB05C544F;
-	Thu, 13 Feb 2025 14:19:24 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C572DC4CED1;
-	Thu, 13 Feb 2025 14:20:03 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1739456403;
-	bh=V8+Clgqse8ENFo8knptwLB4lPlpVnfFwyIe+UDRqwXw=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=mRjV4tzVPubzdRqCe54H2nXVBR22GW9VACNGUinJFtS7vBw14jHeBcBvEMqpcgtZ9
-	 oVxe5eJszmDOazva6G8ixns2nApVyzHxyF0GLDX0IKnmvVegBTWy6qe/WHI4M0w28e
-	 lfDVyxv5bDRqFeHhrGull3cqXE4HiOPDk1M8k+c3FnRPYqU3Too3K1VCrAkULkjaYF
-	 4yTk7dejENnrUEG1Kk4UpT4o80C0Mz5BP1KHfhomiCGR2x4y8LeRcnHp3wKjUsmHkS
-	 rJH6h0fyRHyINX5hvY91eujX10hN800YsvMtTC9LkhwFd2fDYjOcqF8aRWiXXxWZZ9
-	 FNeZISWJVOnTA==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 35E77380CEEF;
-	Thu, 13 Feb 2025 14:20:34 +0000 (UTC)
+	Thu, 13 Feb 2025 13:25:06 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id F2B364439E;
+	Thu, 13 Feb 2025 13:25:01 +0000 (UTC)
+Message-ID: <21618bbd-b6cb-4c6e-9cdd-ca78236bc907@ghiti.fr>
+Date: Thu, 13 Feb 2025 14:25:01 +0100
 MIME-Version: 1.0
-Subject: Re: [RESEND PATCH v2] riscv: cacheinfo: Use of_property_present() for
- non-boolean properties
-From: patchwork-bot+linux-riscv@kernel.org
-Message-Id: <173945643302.1243861.3231883828583591260.git-patchwork-notify@kernel.org>
-Date: Thu, 13 Feb 2025 14:20:33 +0000
-References: <20241231161400.214307-1-robh@kernel.org>
-In-Reply-To: <20241231161400.214307-1-robh@kernel.org>
-To: Rob Herring (Arm) <robh@kernel.org>
-Cc: linux-riscv@lists.infradead.org, paul.walmsley@sifive.com,
- palmer@dabbelt.com, aou@eecs.berkeley.edu, cleger@rivosinc.com,
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 5/9] riscv: Fix set up of cpu hotplug callbacks
+Content-Language: en-US
+To: Andrew Jones <ajones@ventanamicro.com>, linux-riscv@lists.infradead.org,
  linux-kernel@vger.kernel.org
+Cc: paul.walmsley@sifive.com, palmer@dabbelt.com, charlie@rivosinc.com,
+ jesse@rivosinc.com, Anup Patel <apatel@ventanamicro.com>
+References: <20250207161939.46139-11-ajones@ventanamicro.com>
+ <20250207161939.46139-16-ajones@ventanamicro.com>
+From: Alexandre Ghiti <alex@ghiti.fr>
+In-Reply-To: <20250207161939.46139-16-ajones@ventanamicro.com>
+X-GND-State: clean
+X-GND-Score: -100
+X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgdegieekkecutefuodetggdotefrodftvfcurfhrohhfihhlvgemucfitefpfffkpdcuggftfghnshhusghstghrihgsvgenuceurghilhhouhhtmecufedtudenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujfgurhepkfffgggfuffvvehfhfgjtgfgsehtjeertddtvdejnecuhfhrohhmpeetlhgvgigrnhgurhgvucfihhhithhiuceorghlvgigsehghhhithhirdhfrheqnecuggftrfgrthhtvghrnheptdfhleefjeegheevgeeljeellefgvefhkeeiffekueejteefvdevhfelvdeggeeinecukfhppedvtddtudemkeeiudemfeefkedvmegvfheltdemudgutggvmegvhedugeemheegjegvmegstdhfkeenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepihhnvghtpedvtddtudemkeeiudemfeefkedvmegvfheltdemudgutggvmegvhedugeemheegjegvmegstdhfkedphhgvlhhopeglkffrggeimedvtddtudemkeeiudemfeefkedvmegvfheltdemudgutggvmegvhedugeemheegjegvmegstdhfkegnpdhmrghilhhfrhhomheprghlvgigsehghhhithhirdhfrhdpnhgspghrtghpthhtohepkedprhgtphhtthhopegrjhhonhgvshesvhgvnhhtrghnrghmihgtrhhordgtohhmpdhrtghpthhtoheplhhinhhugidqrhhishgtvheslhhishhtshdrihhnfhhrrgguvggrugdrohhrghdprhgtphhtthhopehlihhnuhigqdhkvghrn
+ hgvlhesvhhgvghrrdhkvghrnhgvlhdrohhrghdprhgtphhtthhopehprghulhdrfigrlhhmshhlvgihsehsihhfihhvvgdrtghomhdprhgtphhtthhopehprghlmhgvrhesuggrsggsvghlthdrtghomhdprhgtphhtthhopegthhgrrhhlihgvsehrihhvohhsihhntgdrtghomhdprhgtphhtthhopehjvghsshgvsehrihhvohhsihhntgdrtghomhdprhgtphhtthhopegrphgrthgvlhesvhgvnhhtrghnrghmihgtrhhordgtohhm
+X-GND-Sasl: alex@ghiti.fr
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250213_062005_200370_AF98B3FE 
-X-CRM114-Status: UNSURE (   6.62  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250213_052504_426199_82E5D71D 
+X-CRM114-Status: GOOD (  14.03  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,24 +62,85 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-SGVsbG86CgpUaGlzIHBhdGNoIHdhcyBhcHBsaWVkIHRvIHJpc2N2L2xpbnV4LmdpdCAoZml4ZXMp
-CmJ5IFBhbG1lciBEYWJiZWx0IDxwYWxtZXJAcml2b3NpbmMuY29tPjoKCk9uIFR1ZSwgMzEgRGVj
-IDIwMjQgMTA6MTM6NTkgLTA2MDAgeW91IHdyb3RlOgo+IFRoZSB1c2Ugb2Ygb2ZfcHJvcGVydHlf
-cmVhZF9ib29sKCkgZm9yIG5vbi1ib29sZWFuIHByb3BlcnRpZXMgaXMKPiBkZXByZWNhdGVkIGlu
-IGZhdm9yIG9mIG9mX3Byb3BlcnR5X3ByZXNlbnQoKSB3aGVuIHRlc3RpbmcgZm9yIHByb3BlcnR5
-Cj4gcHJlc2VuY2UuCj4gCj4gUmV2aWV3ZWQtYnk6IENsw6ltZW50IEzDqWdlciA8Y2xlZ2VyQHJp
-dm9zaW5jLmNvbT4KPiBTaWduZWQtb2ZmLWJ5OiBSb2IgSGVycmluZyAoQXJtKSA8cm9iaEBrZXJu
-ZWwub3JnPgo+IAo+IFsuLi5dCgpIZXJlIGlzIHRoZSBzdW1tYXJ5IHdpdGggbGlua3M6CiAgLSBb
-UkVTRU5ELHYyXSByaXNjdjogY2FjaGVpbmZvOiBVc2Ugb2ZfcHJvcGVydHlfcHJlc2VudCgpIGZv
-ciBub24tYm9vbGVhbiBwcm9wZXJ0aWVzCiAgICBodHRwczovL2dpdC5rZXJuZWwub3JnL3Jpc2N2
-L2MvYjk1MjRhNzM3MjVkCgpZb3UgYXJlIGF3ZXNvbWUsIHRoYW5rIHlvdSEKLS0gCkRlZXQtZG9v
-dC1kb3QsIEkgYW0gYSBib3QuCmh0dHBzOi8va29yZy5kb2NzLmtlcm5lbC5vcmcvcGF0Y2h3b3Jr
-L3B3Ym90Lmh0bWwKCgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVh
-ZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1y
-aXNjdgo=
+
+On 07/02/2025 17:19, Andrew Jones wrote:
+> CPU hotplug callbacks should be set up even if we detected all
+> current cpus emulate misaligned accesses, since we want to
+> ensure our expectations of all cpus emulating is maintained.
+>
+> Fixes: 6e5ce7f2eae3 ("riscv: Decouple emulated unaligned accesses from access speed")
+> Fixes: e7c9d66e313b ("RISC-V: Report vector unaligned access speed hwprobe")
+> Signed-off-by: Andrew Jones <ajones@ventanamicro.com>
+> ---
+>   arch/riscv/kernel/unaligned_access_speed.c | 27 +++++++++++-----------
+>   1 file changed, 13 insertions(+), 14 deletions(-)
+>
+> diff --git a/arch/riscv/kernel/unaligned_access_speed.c b/arch/riscv/kernel/unaligned_access_speed.c
+> index 780f1c5f512a..c9d3237649bb 100644
+> --- a/arch/riscv/kernel/unaligned_access_speed.c
+> +++ b/arch/riscv/kernel/unaligned_access_speed.c
+> @@ -247,13 +247,6 @@ static void __init check_unaligned_access_speed_all_cpus(void)
+>   	/* Check core 0. */
+>   	smp_call_on_cpu(0, check_unaligned_access, bufs[0], true);
+>   
+> -	/*
+> -	 * Setup hotplug callbacks for any new CPUs that come online or go
+> -	 * offline.
+> -	 */
+> -	cpuhp_setup_state_nocalls(CPUHP_AP_ONLINE_DYN, "riscv:online",
+> -				  riscv_online_cpu, riscv_offline_cpu);
+> -
+>   out:
+>   	for_each_cpu(cpu, cpu_online_mask) {
+>   		if (bufs[cpu])
+> @@ -383,13 +376,6 @@ static int __init vec_check_unaligned_access_speed_all_cpus(void *unused __alway
+>   {
+>   	schedule_on_each_cpu(check_vector_unaligned_access);
+>   
+> -	/*
+> -	 * Setup hotplug callbacks for any new CPUs that come online or go
+> -	 * offline.
+> -	 */
+> -	cpuhp_setup_state_nocalls(CPUHP_AP_ONLINE_DYN, "riscv:online",
+> -				  riscv_online_cpu_vec, NULL);
+> -
+>   	return 0;
+>   }
+>   #else /* CONFIG_RISCV_PROBE_VECTOR_UNALIGNED_ACCESS */
+> @@ -415,6 +401,19 @@ static int __init check_unaligned_access_all_cpus(void)
+>   			    NULL, "vec_check_unaligned_access_speed_all_cpus");
+>   	}
+>   
+> +	/*
+> +	 * Setup hotplug callbacks for any new CPUs that come online or go
+> +	 * offline.
+> +	 */
+> +#ifdef CONFIG_RISCV_PROBE_UNALIGNED_ACCESS
+> +	cpuhp_setup_state_nocalls(CPUHP_AP_ONLINE_DYN, "riscv:online",
+> +				  riscv_online_cpu, riscv_offline_cpu);
+> +#endif
+> +#ifdef CONFIG_RISCV_PROBE_VECTOR_UNALIGNED_ACCESS
+> +	cpuhp_setup_state_nocalls(CPUHP_AP_ONLINE_DYN, "riscv:online",
+> +				  riscv_online_cpu_vec, NULL);
+> +#endif
+> +
+>   	return 0;
+>   }
+>   
+
+Reviewed-by: Alexandre Ghiti <alexghiti@rivosinc.com>
+
+Thanks,
+
+Alex
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
