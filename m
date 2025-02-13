@@ -4,69 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 43300C021A0
-	for <linux-riscv@archiver.kernel.org>; Thu, 13 Feb 2025 14:34:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 012FCC0219D
+	for <linux-riscv@archiver.kernel.org>; Thu, 13 Feb 2025 14:34:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=8bpJXCsRuLjICN7MqcEL3ZHeR60YjjoKRB/DfZ46Lug=; b=Bgbftf2LRag9k4
-	Y6c8H9yphDjer2w3qxIMyDqzUROeUR8HITtfwwFKU41DwWd5uGheLJvNJe2WEJUo+YcO8i600MvfT
-	XmBXqF2nWrGMLqwpCo8uyCFKkuYePSijcWjt0lBhrE1rhFlCgtmnScvAOOsVaSOmOtHGuK8DBKSNn
-	9waFIqbEF840bgjmO3Tp4sRk285hoQKQEpVqQL9AQoIQXM3hdqd1jDS6jWzlU4Q1CS543HO/EfRCI
-	4MWSYvKX0KuxB/N7/xDbTGkiYlfYTozoPsskifoYhkNZ9HR5NK7fLgEBsZInhMgzhYDhe4baOxSLm
-	HFN8S4O87wUPnNPXxVJA==;
+	List-Owner; bh=lLOfS8z0SZ0fKe0nXKIemm+ETLc4JazEGapqGG1nIOY=; b=WGI1HXlIdVAoEN
+	n54KZQB3DK89YdOofojN5LpHm5oZ0UQik1vEirlmx9kUkb8RvgXjg/PENAdHJLD1qlNeMgdc9B2A8
+	WPIWw7mhPt6+Q4Xo9IRxy1oNPNqI29l5tt09r0ACCepRLZmS+cgMMwjAN7S+v1k7xjrPWZVKVgECq
+	OGAjsy9cqtibWxWSELpCAh6+vBw4ibJCbMI0okqcCplmo4ikntdMQ6Wv7vidUwmVtyv7fOZEcePPY
+	bX2HvVJs5PmD0JassUneF1jFwJNmi3F4a9QR76zHrrGaMtASPs4BHJgRi2sALsWK4rTe+UsQ0InJF
+	jmKqhRN76zmUcvk335bQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiaIE-0000000BKx7-2WxE;
-	Thu, 13 Feb 2025 14:34:18 +0000
-Received: from mail-pl1-x629.google.com ([2607:f8b0:4864:20::629])
+	id 1tiaII-0000000BL0f-1QLU;
+	Thu, 13 Feb 2025 14:34:22 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiZlx-0000000BErr-140b;
-	Thu, 13 Feb 2025 14:00:58 +0000
-Received: by mail-pl1-x629.google.com with SMTP id d9443c01a7336-21f2339dcfdso13651585ad.1;
-        Thu, 13 Feb 2025 06:00:56 -0800 (PST)
+	id 1tiZmP-0000000BF3n-2Uew;
+	Thu, 13 Feb 2025 14:01:25 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=wwu/OQkpfuP5TP6urM50yolt8MlR74sxECkYt+Uf2k8=; b=OZvlToGa3Gjb5PHLfnoc6Wx6Qd
+	UY4QmgLraCkMwnkQK9IBuFaylPHWmvVFYok4Sg10dTBL0OYaWkSofUg1kJ1jhiKOwU8K1c7YbiUY+
+	BDhy+QhPVFTKy7PoT3PTgQfmedS4JGhybrACVNvop6uRUooMmYT07ArsILJzFOLFI2HjrV0zWbWNh
+	lp5+L2E5TyaOFaA1d9cHvc682oX/eeBWerGwovJhqvbp6lTGLA9ID6eDlNH+Lq6Dl4W6IA48zysW/
+	bcxQWaDZV3l/p6+7VJS+vqvcms98D9lqaX4+J7g/J+yJOpLnTFu2QVbV78mK8FHyT0ESO764+P2FY
+	U4nSMt3w==;
+Received: from mail-pl1-x62e.google.com ([2607:f8b0:4864:20::62e])
+	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tiZmM-000000010vr-2s17;
+	Thu, 13 Feb 2025 14:01:24 +0000
+Received: by mail-pl1-x62e.google.com with SMTP id d9443c01a7336-21f48ebaadfso17280925ad.2;
+        Thu, 13 Feb 2025 06:01:21 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1739455256; x=1740060056; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1739455280; x=1740060080; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=2+y6Ck4nUrrnZ5J/UDrnc3xAlfWqC0MtemaHjWH6P0w=;
-        b=F6hKg1hepcsolwrF//h52n0v6WhLO+4yckdloQ2c3qMJgel0a6eoZj36ZVtrDfeenc
-         NsAEGj8hDfgBcT9Ze8WaDspzHQrlBhzY+QWzwhM0GzQLyX0YHZAuys//9auvR0JABSa9
-         xpKf/hYwvnepfBtKJIvI3PDRuP82TCTjQbusaLnhfpMG5fjOigXmKkulY/tC8GcxF3fG
-         okKPu+2OXLQXRLxxtDnKL0zQvtEJ2ILGdjdAmysxw3M2UAQcs0wkzZzWsGs668Gk0YwT
-         S/kOlmrTAS/jx+PWPv/hRHAMPGFZ3a2MN766cvfyAvD6fBMCsCXhzVMsT8KIo2dfToaC
-         Ngyg==
+        bh=wwu/OQkpfuP5TP6urM50yolt8MlR74sxECkYt+Uf2k8=;
+        b=AeGVt+hVtU7YiyDk4U8NvqzNj4wKDHVBGBzQWaqwM4aAyd/laEVK56WqxXkVE0f7Yb
+         UL2JLn1Ef5EMQWtCULsuxtu0w8Sftfp27uwriWVQa6A7cqb2C8PmZeZSx+SQPAixCePy
+         4+U6tKO98jMjGoBLm8oI6JIFTE7LxaF+H8lWTBkTjzo91sDn+5FFXchvlGU/n57BrXlI
+         sbaiRW5o2FkVfl8StLeLDOI5qhwk1lkMi+rm5D1CsBafSWQL7sBmlaVDECU/IaW/G974
+         Ddj/8KMCDSUN9KInkS0nI6qPv2o7BJLIKyvuRmRgAZxtprd0i1+qI/zqrTtPlDG6p7qD
+         mr5Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1739455256; x=1740060056;
+        d=1e100.net; s=20230601; t=1739455280; x=1740060080;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=2+y6Ck4nUrrnZ5J/UDrnc3xAlfWqC0MtemaHjWH6P0w=;
-        b=drSQ+hbiAnhOyXTKVWVsclAK+cqiXbU+HL62MeE0RW0zw50MFMIhUDu3iEB5+M2l10
-         wqynW/voHpZ7IoNLtJ+N22RHEuO1yYlpbU3+9EpbMVtIQuX/kWx5KoS9mPWEpEjDgorL
-         PB7nr6OhIN+jkL9B0A3lWQE5ud27if93/uD1ZKoa5EYLqjDhNbkRZiSfU2O3wy3IhTlq
-         tpOy4i3VCY4ayux3WR6GynMQxtGtI6uWlBQiL58b29oEONxwU5GiZSQDFvylcbYStRUV
-         cnXsU5+ct/xZU24IlTYOLrkEJ/7xNIumqLAWmRBf0DNRNgSjXyibfPkkloqnayolWvjD
-         Odlg==
-X-Forwarded-Encrypted: i=1; AJvYcCWbY+lr7dvqXx/pjvTE5t5XTSaf94virQWDUwgIo+ege2EXr+/Qj7xURT3yq69hF/iM8PXKpdvufX2O8so=@lists.infradead.org, AJvYcCWq9blNFASzFrD+6udLtCQUXiN/yw3HPHg+AB2YDbuqyIwnKcPgxqn7iQLJYiIpp0haWKaVmuu9Mv9bQaQJWo06@lists.infradead.org
-X-Gm-Message-State: AOJu0YxPEHazqyKgEuX9ra5bm1dgMn0+Ohp9uHuM7UOW+xIqqeLS0XLl
-	wcE9e+YqbBidtdZfiQZA6oFpzXUefZvHCIKQQFZToxsDyTfDHVBE
-X-Gm-Gg: ASbGncsAZ/o5JNKFmGwZiLLkkQS6Vt18Effcf5V6gkwfybmgpYovVFAnQQEdm9FCY+V
-	3HfKGm8yfjN10ChuXSGSfbAzSnFEjzX3OKR+8DGs41QU93XG+ZiKXlp8WfAX7nM4BmzkvT8qB+2
-	RDPtaGe4RjlrYmCFywEoIHptCP2YaHqWE9KOoBO45SFp2hIb2qJuuCN03clxKWIvLjH1RKftMN1
-	MQznvPCN/L+PDAnKn6OsDXr3MxovWHl8lTfWnUjjTxOuXvxJhJA4+fGKQpKpdNOI/J52okb03PF
-	GqTMCe9Vc/+sDf8/vj5E6XRh7F68r6J6hNO+CUUG8b1/oj15t4JTeYBVfOmV55slFQc=
-X-Google-Smtp-Source: AGHT+IH1Zqo9tPEvVGN2+sG3MuJAeMqjgEOo7xAq67fk4VjOAgBOooytYfL4WucnOp0CvNreEK3WqQ==
-X-Received: by 2002:a17:903:94b:b0:220:cfb7:56eb with SMTP id d9443c01a7336-220d376f061mr46259805ad.26.1739455256258;
-        Thu, 13 Feb 2025 06:00:56 -0800 (PST)
+        bh=wwu/OQkpfuP5TP6urM50yolt8MlR74sxECkYt+Uf2k8=;
+        b=WskT/E0HPpG/S+SaG+nX2cMf9x0svMxlO0yY/XNe6V6qJZd2mWrUBaqGpCWZ+Wv3nX
+         QpfiYBraeS4hAVcR5CE3zxQBsJ22YRjTS4sdCm/zt68E0gNr0aJHuY+geqxECPX+nZTy
+         f/D6IBtRSNnIPmBEUWogt1ChjqmxgmH9xJ2UpEFzjN+lddASWIxLFg+kWr2OPi/3QRVK
+         OoAqSoETZnQkQj9PfmNgpJeB5uLOYVufHEqrPD8j4vWy04hw5+6G+NgSxI1+SWj5tCf7
+         FBmnUKbwk122tDlLk7jdMXQgn/SabIKy0ot4prgRZ2BEvKYerJTW71KsIwhIYggCptU+
+         j5zQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUIEKfQvn/xP4KTVFr2h3OLWy2ql3VHXgFCnwLRkwFy3yMvjZQ87/omDX22pubLLYcIlVwpXqJBF6Z5R+zs3997@lists.infradead.org, AJvYcCUx+NNMCp/CRzWL5M1tpIYdOuABuJaFBpYNyD4w7NkInf373GuX0zbY60LGUNr6t7nMcEyf6yf8cKZYPxM=@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz4rWco9mSVLaEr5QaHIqqZiVRJoafou7zSpGDWtI9QFxUN/Jrz
+	AQoDSr+PzgDHs+AbaEc6+4hMZs7ezJsQTC911pjyr8G22AsmNc9E
+X-Gm-Gg: ASbGncuYxUmQVQlMpfrDXQVHYEa29xyI8YfzYQiiVmM80Y3D8JbPKHL1Cnindfb1yR1
+	osmp7k3/LBjy+nx4m2qzuNx9KjWBVaezH+oC2zPbQNr43ZZJlQulUF6N9IUtnudgibhm94GL1P1
+	29BFLAIXWU/4/J4wMj3yqw+N301Iwyx3v3/CIS206QdCqjpVZKhmWH+6Hb6dYaMG1WUnPah5bAc
+	cESYknRU0ilWbB0Oj0+6Dp7GagE37/4ohKbGje3bU3o0bHJ5PlumPF/rv4B+1LscZmDzuFRqUKf
+	mdJKPxRsMSzrBKYXeyti5IJRg3u/0F9ZSWP938WyAqf92z+94OHNpkC93xwMIrghI1w=
+X-Google-Smtp-Source: AGHT+IFMceABDyWeSunss8UJzVYDb4BU4OkU0X8Hc7JUBpiklvsTg2hC46hEV4uH5kHdO2o6dh/F8A==
+X-Received: by 2002:a17:902:eb8d:b0:220:c813:dfd1 with SMTP id d9443c01a7336-220c813e56amr81532275ad.36.1739455279808;
+        Thu, 13 Feb 2025 06:01:19 -0800 (PST)
 Received: from mew.. (p3882177-ipxg22501hodogaya.kanagawa.ocn.ne.jp. [180.15.148.177])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-220d55858d6sm12565225ad.223.2025.02.13.06.00.48
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-220d55858d6sm12565225ad.223.2025.02.13.06.01.12
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 13 Feb 2025 06:00:55 -0800 (PST)
+        Thu, 13 Feb 2025 06:01:19 -0800 (PST)
 From: FUJITA Tomonori <fujita.tomonori@gmail.com>
 To: linux-kernel@vger.kernel.org,
 	rust-for-linux@vger.kernel.org
@@ -99,17 +113,16 @@ Cc: x86@kernel.org,
 	a.hindborg@kernel.org,
 	aliceryhl@google.com,
 	tmgross@umich.edu
-Subject: [PATCH v3 2/5] riscv/bug: Add ARCH_WARN_ASM macro for BUG/WARN asm code sharing with Rust
-Date: Thu, 13 Feb 2025 22:57:56 +0900
-Message-ID: <20250213135759.190006-3-fujita.tomonori@gmail.com>
+Subject: [PATCH v3 5/5] rust: Add warn_on and warn_on_once
+Date: Thu, 13 Feb 2025 22:57:59 +0900
+Message-ID: <20250213135759.190006-6-fujita.tomonori@gmail.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20250213135759.190006-1-fujita.tomonori@gmail.com>
 References: <20250213135759.190006-1-fujita.tomonori@gmail.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250213_060057_301104_7A50A024 
-X-CRM114-Status: UNSURE (   8.97  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250213_140122_856192_EA589563 
+X-CRM114-Status: GOOD (  17.60  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,90 +139,214 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add new ARCH_WARN_ASM macro for BUG/WARN assembly code sharing with
-Rust to avoid the duplication.
+Add warn_on and warn_on_once macros. Wrapping the C's WARN_* and BUG_*
+macros doesn't work so this uses the assembly code exported by the C
+side via ARCH_WARN_ASM macro. Like the static branch code, this
+generates the assembly code for rust at compile time by using the C
+preprocessor.
 
-No functional changes.
+file()! macro doesn't work for the Rust inline assembly in the same
+way as __FILE__ for the C inline assembly. So the code to handle a
+file name is different from the C assembly code (similar to the
+arm64/loongarch assembly).
+
+Similarly, ARCH_WARN_REACHABLE is also used at compile time to
+generate the assembly code; objtool's reachable anotation code. Only
+architectures that use objtool (x86 and loongarch) need it.
 
 Signed-off-by: FUJITA Tomonori <fujita.tomonori@gmail.com>
 ---
- arch/riscv/include/asm/bug.h | 37 +++++++++++++++++++++---------------
- 1 file changed, 22 insertions(+), 15 deletions(-)
+ rust/Makefile                                 |   8 ++
+ rust/kernel/.gitignore                        |   2 +
+ rust/kernel/bug.rs                            | 100 ++++++++++++++++++
+ rust/kernel/generated_arch_reachable_asm.rs.S |   7 ++
+ rust/kernel/generated_arch_warn_asm.rs.S      |   7 ++
+ rust/kernel/lib.rs                            |   1 +
+ 6 files changed, 125 insertions(+)
+ create mode 100644 rust/kernel/bug.rs
+ create mode 100644 rust/kernel/generated_arch_reachable_asm.rs.S
+ create mode 100644 rust/kernel/generated_arch_warn_asm.rs.S
 
-diff --git a/arch/riscv/include/asm/bug.h b/arch/riscv/include/asm/bug.h
-index 1aaea81fb141..6ab13b56feb0 100644
---- a/arch/riscv/include/asm/bug.h
-+++ b/arch/riscv/include/asm/bug.h
-@@ -31,40 +31,45 @@ typedef u32 bug_insn_t;
+diff --git a/rust/Makefile b/rust/Makefile
+index 8fcfd60447bc..a295b65c43f3 100644
+--- a/rust/Makefile
++++ b/rust/Makefile
+@@ -34,6 +34,9 @@ obj-$(CONFIG_RUST_KERNEL_DOCTESTS) += doctests_kernel_generated.o
+ obj-$(CONFIG_RUST_KERNEL_DOCTESTS) += doctests_kernel_generated_kunit.o
  
- #ifdef CONFIG_GENERIC_BUG_RELATIVE_POINTERS
- #define __BUG_ENTRY_ADDR	RISCV_INT " 1b - ."
--#define __BUG_ENTRY_FILE	RISCV_INT " %0 - ."
-+#define __BUG_ENTRY_FILE(file)	RISCV_INT " " file " - ."
- #else
- #define __BUG_ENTRY_ADDR	RISCV_PTR " 1b"
--#define __BUG_ENTRY_FILE	RISCV_PTR " %0"
-+#define __BUG_ENTRY_FILE(file)	RISCV_PTR " " file
- #endif
+ always-$(subst y,$(CONFIG_RUST),$(CONFIG_JUMP_LABEL)) += kernel/generated_arch_static_branch_asm.rs
++ifndef CONFIG_UML
++always-$(subst y,$(CONFIG_RUST),$(CONFIG_BUG)) += kernel/generated_arch_warn_asm.rs kernel/generated_arch_reachable_asm.rs
++endif
  
- #ifdef CONFIG_DEBUG_BUGVERBOSE
--#define __BUG_ENTRY			\
-+#define __BUG_ENTRY(file, line, flags)	\
- 	__BUG_ENTRY_ADDR "\n\t"		\
--	__BUG_ENTRY_FILE "\n\t"		\
--	RISCV_SHORT " %1\n\t"		\
--	RISCV_SHORT " %2"
-+	__BUG_ENTRY_FILE(file) "\n\t"	\
-+	RISCV_SHORT " " line "\n\t"	\
-+	RISCV_SHORT " " flags
- #else
--#define __BUG_ENTRY			\
--	__BUG_ENTRY_ADDR "\n\t"		\
--	RISCV_SHORT " %2"
-+#define __BUG_ENTRY(file, line, flags)		\
-+	__BUG_ENTRY_ADDR "\n\t"			\
-+	RISCV_SHORT " " flags
- #endif
+ # Avoids running `$(RUSTC)` when it may not be available.
+ ifdef CONFIG_RUST
+@@ -481,5 +484,10 @@ $(obj)/kernel.o: $(src)/kernel/lib.rs $(obj)/build_error.o \
+ ifdef CONFIG_JUMP_LABEL
+ $(obj)/kernel.o: $(obj)/kernel/generated_arch_static_branch_asm.rs
+ endif
++ifndef CONFIG_UML
++ifdef CONFIG_BUG
++$(obj)/kernel.o: $(obj)/kernel/generated_arch_warn_asm.rs $(obj)/kernel/generated_arch_reachable_asm.rs
++endif
++endif
  
- #ifdef CONFIG_GENERIC_BUG
--#define __BUG_FLAGS(flags)					\
--do {								\
--	__asm__ __volatile__ (					\
+ endif # CONFIG_RUST
+diff --git a/rust/kernel/.gitignore b/rust/kernel/.gitignore
+index 6ba39a178f30..f1d7f4225332 100644
+--- a/rust/kernel/.gitignore
++++ b/rust/kernel/.gitignore
+@@ -1,3 +1,5 @@
+ # SPDX-License-Identifier: GPL-2.0
+ 
+ /generated_arch_static_branch_asm.rs
++/generated_arch_warn_asm.rs
++/generated_arch_reachable_asm.rs
+\ No newline at end of file
+diff --git a/rust/kernel/bug.rs b/rust/kernel/bug.rs
+new file mode 100644
+index 000000000000..7ffd9cb1ad75
+--- /dev/null
++++ b/rust/kernel/bug.rs
+@@ -0,0 +1,100 @@
++// SPDX-License-Identifier: GPL-2.0
 +
-+#define ARCH_WARN_ASM(file, line, flags, size)			\
- 		"1:\n\t"					\
- 			"ebreak\n"				\
- 			".pushsection __bug_table,\"aw\"\n\t"	\
- 		"2:\n\t"					\
--			__BUG_ENTRY "\n\t"			\
--			".org 2b + %3\n\t"                      \
--			".popsection"				\
-+		__BUG_ENTRY(file, line, flags) "\n\t"		\
-+			".org 2b + " size "\n\t"                \
-+			".popsection\n"				\
++// Copyright (C) 2024 FUJITA Tomonori
 +
-+#define __BUG_FLAGS(flags)					\
-+do {								\
-+	__asm__ __volatile__ (					\
-+		ARCH_WARN_ASM("%0", "%1", "%2", "%3")		\
- 		:						\
- 		: "i" (__FILE__), "i" (__LINE__),		\
- 		  "i" (flags),					\
- 		  "i" (sizeof(struct bug_entry)));              \
- } while (0)
++//! Support for BUG_* and WARN_* functionality.
++//!
++//! C header: [`include/asm-generic/bug.h`](srctree/include/asm-generic/bug.h)
 +
- #else /* CONFIG_GENERIC_BUG */
- #define __BUG_FLAGS(flags) do {					\
- 	__asm__ __volatile__ ("ebreak\n");			\
-@@ -78,6 +83,8 @@ do {								\
- 
- #define __WARN_FLAGS(flags) __BUG_FLAGS(BUGFLAG_WARNING|(flags))
- 
-+#define ARCH_WARN_REACHABLE
++#[macro_export]
++#[doc(hidden)]
++#[cfg(all(CONFIG_BUG, not(CONFIG_UML)))]
++macro_rules! warn_flags {
++    ($flags:expr) => {
++        const FLAGS: u32 = $crate::bindings::BUGFLAG_WARNING | $flags;
++        // SAFETY: Just an FFI call.
++        #[cfg(CONFIG_DEBUG_BUGVERBOSE)]
++        unsafe {
++            $crate::asm!(concat!(
++                "/* {size} */",
++                ".pushsection .rodata.str1.1, \"aMS\",@progbits, 1\n",
++                "111:\t .string ", "\"", file!(), "\"\n",
++                ".popsection\n",
++                include!(concat!(env!("OBJTREE"), "/rust/kernel/generated_arch_warn_asm.rs")),
++                include!(concat!(env!("OBJTREE"), "/rust/kernel/generated_arch_reachable_asm.rs")));
++            line = const line!(),
++            flags = const FLAGS,
++            size = const ::core::mem::size_of::<$crate::bindings::bug_entry>(),
++            );
++        }
++        // SAFETY: Just an FFI call.
++        #[cfg(not(CONFIG_DEBUG_BUGVERBOSE))]
++        unsafe {
++            $crate::asm!(
++            concat!(
++                "/* {size} */",
++                include!(concat!(env!("OBJTREE"), "/rust/kernel/generated_arch_warn_asm.rs")),
++                include!(concat!(env!("OBJTREE"), "/rust/kernel/generated_arch_reachable_asm.rs")));
++            flags = const FLAGS,
++            size = const ::core::mem::size_of::<$crate::bindings::bug_entry>(),
++            );
++        }
++    }
++}
 +
- #define HAVE_ARCH_BUG
- 
- #include <asm-generic/bug.h>
++#[macro_export]
++#[doc(hidden)]
++#[cfg(all(CONFIG_BUG, CONFIG_UML))]
++macro_rules! warn_flags {
++    ($flags:expr) => {
++        // SAFETY: Just an FFI call.
++        unsafe {
++            $crate::bindings::warn_slowpath_fmt(
++                $crate::c_str!(::core::file!()).as_ptr() as *const ::core::ffi::c_char,
++                line!() as i32,
++                $flags as u32,
++                ::core::ptr::null() as *const ::core::ffi::c_char,
++            );
++        }
++    };
++}
++
++#[macro_export]
++#[doc(hidden)]
++#[cfg(not(CONFIG_BUG))]
++macro_rules! warn_flags {
++    ($flags:expr) => {};
++}
++
++#[doc(hidden)]
++#[macro_export]
++macro_rules! bugflag_taint {
++    ($taint:expr) => {
++        $taint << 8
++    };
++}
++
++/// Report a warning only once.
++#[macro_export]
++macro_rules! warn_on_once {
++    ($cond:expr) => {
++        if $cond {
++            $crate::warn_flags!(
++                $crate::bindings::BUGFLAG_ONCE
++                    | $crate::bugflag_taint!($crate::bindings::TAINT_WARN)
++            );
++        }
++        $cond
++    };
++}
++
++/// Report a warning.
++#[macro_export]
++macro_rules! warn_on {
++    ($cond:expr) => {
++        if $cond {
++            $crate::warn_flags!($crate::bugflag_taint!($crate::bindings::TAINT_WARN));
++        }
++        $cond
++    };
++}
+diff --git a/rust/kernel/generated_arch_reachable_asm.rs.S b/rust/kernel/generated_arch_reachable_asm.rs.S
+new file mode 100644
+index 000000000000..3886a9ad3a99
+--- /dev/null
++++ b/rust/kernel/generated_arch_reachable_asm.rs.S
+@@ -0,0 +1,7 @@
++/* SPDX-License-Identifier: GPL-2.0 */
++
++#include <linux/bug.h>
++
++// Cut here.
++
++::kernel::concat_literals!(ARCH_WARN_REACHABLE)
+diff --git a/rust/kernel/generated_arch_warn_asm.rs.S b/rust/kernel/generated_arch_warn_asm.rs.S
+new file mode 100644
+index 000000000000..8f239b431aa4
+--- /dev/null
++++ b/rust/kernel/generated_arch_warn_asm.rs.S
+@@ -0,0 +1,7 @@
++/* SPDX-License-Identifier: GPL-2.0 */
++
++#include <linux/bug.h>
++
++// Cut here.
++
++::kernel::concat_literals!(ARCH_WARN_ASM("111b", "{line}",  "{flags}", "{size}"))
+diff --git a/rust/kernel/lib.rs b/rust/kernel/lib.rs
+index 496ed32b0911..c0720846b249 100644
+--- a/rust/kernel/lib.rs
++++ b/rust/kernel/lib.rs
+@@ -38,6 +38,7 @@
+ pub mod alloc;
+ #[cfg(CONFIG_BLOCK)]
+ pub mod block;
++pub mod bug;
+ #[doc(hidden)]
+ pub mod build_assert;
+ pub mod cred;
 -- 
 2.43.0
 
