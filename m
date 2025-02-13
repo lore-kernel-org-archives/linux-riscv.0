@@ -4,69 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1FAA6C0219D
-	for <linux-riscv@archiver.kernel.org>; Thu, 13 Feb 2025 04:12:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E9215C0219D
+	for <linux-riscv@archiver.kernel.org>; Thu, 13 Feb 2025 07:52:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=YiS8SDnS+ItCSR1V2Ct3FodEgZlW9R6EoeDdGaIcw2A=; b=U3OOXT5vLX1F/V
-	mpKcjtU9W/kSe9OnQSYpEE5Y9I9wRXZxH/+hyvpvo7zFV5gm9S0RgP46PWNeGJhyS2ZnlHuvoIXvm
-	L37Y1oGqyKsXsZkhrYHuRuBvfr6zU37V/u0jfzQT55Y/KkcGsXp+NKdw/6HcMe405Y9Cn0X2dPuTm
-	vQfzAxixrd66Tm6eCLykcPmGJpAv0hhzt28RoZL3jdelUCC5QwBTJesrFa3B3+VCgBK47iCgnKvTC
-	eJWwZYJ97b0NXber/Tn9g67IcKTDjainT+yP+T3bW5AhYLGiPttmetD7E1BUUpv1xsdmPePMCT4+P
-	ZKb0rC17mdVR1MVzmNzg==;
+	List-Owner; bh=j6zknkC9uA9wf7LnfaxnJECuP3HagwJ5jyPOQgixtSY=; b=s7oqho4Ijn2UAq
+	TmMaYX44BZatgFMjTOdvqO0cDwXwjqauvkFuNK8MdaYUaYEmlYSFLzt0Fw0jtAcmpc90EGt3ZhSRk
+	G31AXBrLkhoGh6X13t7ct97G1t7ZGun1yb/yg7NV8eEMEtijA2U7xdEfmjKahXf6mBn5KWZKMb1Kn
+	EQ7iiIuMv8MjjgQuzIbReTCbOZGuuYPUvBbT4G/UcNXF1X6lJGzznR9MBaUSUtZZffFG9IXDd30M8
+	QSi1E8LmCXBBDhJ4FkM5Vb6QEQ1YiCt7T7DFAfSi0f+nSWNAMAn/X/1CKxD5IsQJNcXW90SccWeyb
+	ZjdjYyiM++WZ7fCKBD/g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiQag-00000009glT-14Sy;
-	Thu, 13 Feb 2025 04:12:42 +0000
-Received: from foss.arm.com ([217.140.110.172])
+	id 1tiU1I-0000000AA2p-40CS;
+	Thu, 13 Feb 2025 07:52:24 +0000
+Received: from pegase2.c-s.fr ([93.17.235.10])
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiQY3-00000009g5L-2Eoh;
-	Thu, 13 Feb 2025 04:10:00 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 0DBB61762;
-	Wed, 12 Feb 2025 20:10:19 -0800 (PST)
-Received: from a077893.blr.arm.com (a077893.blr.arm.com [10.162.16.135])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id AA4653F58B;
-	Wed, 12 Feb 2025 20:09:51 -0800 (PST)
-From: Anshuman Khandual <anshuman.khandual@arm.com>
-To: linux-mm@kvack.org
-Cc: steven.price@arm.com,
-	christophe.leroy@csgroup.eu,
-	Anshuman Khandual <anshuman.khandual@arm.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Marc Zyngier <maz@kernel.org>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Nicholas Piggin <npiggin@gmail.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Heiko Carstens <hca@linux.ibm.com>,
-	Vasily Gorbik <gor@linux.ibm.com>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Ingo Molnar <mingo@redhat.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-doc@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	kvmarm@lists.linux.dev,
-	linuxppc-dev@lists.ozlabs.org,
-	linux-riscv@lists.infradead.org,
-	linux-s390@vger.kernel.org
-Subject: [PATCH 4/4] mm: Rename GENERIC_PTDUMP and PTDUMP_CORE
-Date: Thu, 13 Feb 2025 09:39:34 +0530
-Message-Id: <20250213040934.3245750-5-anshuman.khandual@arm.com>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20250213040934.3245750-1-anshuman.khandual@arm.com>
-References: <20250213040934.3245750-1-anshuman.khandual@arm.com>
+	id 1tiTz9-0000000A9ir-18UD
+	for linux-riscv@lists.infradead.org;
+	Thu, 13 Feb 2025 07:50:12 +0000
+Received: from localhost (mailhub3.si.c-s.fr [172.26.127.67])
+	by localhost (Postfix) with ESMTP id 4Ytn0M0XJrz9sRr;
+	Thu, 13 Feb 2025 08:30:43 +0100 (CET)
+X-Virus-Scanned: amavisd-new at c-s.fr
+Received: from pegase2.c-s.fr ([172.26.127.65])
+	by localhost (pegase2.c-s.fr [127.0.0.1]) (amavisd-new, port 10024)
+	with ESMTP id Uu8P4f59axSR; Thu, 13 Feb 2025 08:30:42 +0100 (CET)
+Received: from messagerie.si.c-s.fr (messagerie.si.c-s.fr [192.168.25.192])
+	by pegase2.c-s.fr (Postfix) with ESMTP id 4Ytn0K07lPz9sRk;
+	Thu, 13 Feb 2025 08:30:41 +0100 (CET)
+Received: from localhost (localhost [127.0.0.1])
+	by messagerie.si.c-s.fr (Postfix) with ESMTP id F36278B763;
+	Thu, 13 Feb 2025 08:30:40 +0100 (CET)
+X-Virus-Scanned: amavisd-new at c-s.fr
+Received: from messagerie.si.c-s.fr ([127.0.0.1])
+	by localhost (messagerie.si.c-s.fr [127.0.0.1]) (amavisd-new, port 10023)
+	with ESMTP id Abk2ZXThmqKy; Thu, 13 Feb 2025 08:30:40 +0100 (CET)
+Received: from [192.168.235.99] (unknown [192.168.235.99])
+	by messagerie.si.c-s.fr (Postfix) with ESMTP id 8B3D28B770;
+	Thu, 13 Feb 2025 08:30:40 +0100 (CET)
+Message-ID: <fc4954d8-3ea6-4542-a5e8-17da2bb9650d@csgroup.eu>
+Date: Thu, 13 Feb 2025 08:30:38 +0100
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 3/4] mm: Make GENERIC_PTDUMP dependent on MMU
+To: Anshuman Khandual <anshuman.khandual@arm.com>, linux-mm@kvack.org
+Cc: steven.price@arm.com, Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>,
+ Andrew Morton <akpm@linux-foundation.org>, linux-riscv@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+References: <20250213040934.3245750-1-anshuman.khandual@arm.com>
+ <20250213040934.3245750-4-anshuman.khandual@arm.com>
+Content-Language: fr-FR
+From: Christophe Leroy <christophe.leroy@csgroup.eu>
+In-Reply-To: <20250213040934.3245750-4-anshuman.khandual@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250212_200959_672481_F3A39B47 
-X-CRM114-Status: GOOD (  17.18  )
+X-CRM114-CacheID: sfid-20250212_235011_470587_76298520 
+X-CRM114-Status: GOOD (  13.73  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,354 +76,43 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="utf-8"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Platforms subscribe into generic ptdump implementation via GENERIC_PTDUMP.
-But generic ptdump gets enabled via PTDUMP_CORE. These configs combination
-is confusing as they sound very similar and does not differentiate between
-platform's feature subscription and feature enablement for ptdump. Rename
-the configs as ARCH_HAS_PTDUMP and PTDUMP making it more clear and improve
-readability.
-
-Cc: Catalin Marinas <catalin.marinas@arm.com>
-Cc: Will Deacon <will@kernel.org>
-Cc: Jonathan Corbet <corbet@lwn.net>
-Cc: Marc Zyngier <maz@kernel.org>
-Cc: Michael Ellerman <mpe@ellerman.id.au>
-Cc: Nicholas Piggin <npiggin@gmail.com>
-Cc: Paul Walmsley <paul.walmsley@sifive.com>
-Cc: Palmer Dabbelt <palmer@dabbelt.com>
-Cc: Heiko Carstens <hca@linux.ibm.com>
-Cc: Vasily Gorbik <gor@linux.ibm.com>
-Cc: Thomas Gleixner <tglx@linutronix.de>
-Cc: Ingo Molnar <mingo@redhat.com>
-Cc: Andrew Morton <akpm@linux-foundation.org>
-Cc: linux-arm-kernel@lists.infradead.org
-Cc: linux-doc@vger.kernel.org
-Cc: linux-kernel@vger.kernel.org
-Cc: kvmarm@lists.linux.dev
-Cc: linuxppc-dev@lists.ozlabs.org
-Cc: linux-riscv@lists.infradead.org
-Cc: linux-s390@vger.kernel.org
-Cc: linux-mm@kvack.org
-Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
----
- Documentation/arch/arm64/ptdump.rst       |  4 ++--
- arch/arm64/Kconfig                        |  2 +-
- arch/arm64/include/asm/ptdump.h           |  4 ++--
- arch/arm64/kvm/Kconfig                    |  4 ++--
- arch/arm64/mm/Makefile                    |  2 +-
- arch/powerpc/Kconfig                      |  2 +-
- arch/powerpc/configs/mpc885_ads_defconfig |  2 +-
- arch/powerpc/mm/Makefile                  |  2 +-
- arch/riscv/Kconfig                        |  2 +-
- arch/riscv/mm/Makefile                    |  2 +-
- arch/s390/Kconfig                         |  2 +-
- arch/s390/mm/Makefile                     |  2 +-
- arch/x86/Kconfig                          |  2 +-
- arch/x86/Kconfig.debug                    |  2 +-
- arch/x86/mm/Makefile                      |  2 +-
- mm/Kconfig.debug                          | 12 ++++++------
- mm/Makefile                               |  2 +-
- 17 files changed, 25 insertions(+), 25 deletions(-)
-
-diff --git a/Documentation/arch/arm64/ptdump.rst b/Documentation/arch/arm64/ptdump.rst
-index 5dcfc5d7cddf..a2e527377da3 100644
---- a/Documentation/arch/arm64/ptdump.rst
-+++ b/Documentation/arch/arm64/ptdump.rst
-@@ -22,8 +22,8 @@ offlining of memory being accessed by the ptdump code.
- In order to dump the kernel page tables, enable the following
- configurations and mount debugfs::
- 
-- CONFIG_GENERIC_PTDUMP=y
-- CONFIG_PTDUMP_CORE=y
-+ CONFIG_ARCH_HAS_PTDUMP=y
-+ CONFIG_PTDUMP=y
-  CONFIG_PTDUMP_DEBUGFS=y
- 
-  mount -t debugfs nodev /sys/kernel/debug
-diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
-index fcdd0ed3eca8..045d24d074a0 100644
---- a/arch/arm64/Kconfig
-+++ b/arch/arm64/Kconfig
-@@ -41,6 +41,7 @@ config ARM64
- 	select ARCH_HAS_NMI_SAFE_THIS_CPU_OPS
- 	select ARCH_HAS_NON_OVERLAPPING_ADDRESS_SPACE
- 	select ARCH_HAS_NONLEAF_PMD_YOUNG if ARM64_HAFT
-+	select ARCH_HAS_PTDUMP
- 	select ARCH_HAS_PTE_DEVMAP
- 	select ARCH_HAS_PTE_SPECIAL
- 	select ARCH_HAS_HW_PTE_YOUNG
-@@ -157,7 +158,6 @@ config ARM64
- 	select GENERIC_IRQ_SHOW_LEVEL
- 	select GENERIC_LIB_DEVMEM_IS_ALLOWED
- 	select GENERIC_PCI_IOMAP
--	select GENERIC_PTDUMP
- 	select GENERIC_SCHED_CLOCK
- 	select GENERIC_SMP_IDLE_THREAD
- 	select GENERIC_TIME_VSYSCALL
-diff --git a/arch/arm64/include/asm/ptdump.h b/arch/arm64/include/asm/ptdump.h
-index 6cf4aae05219..b2931d1ae0fb 100644
---- a/arch/arm64/include/asm/ptdump.h
-+++ b/arch/arm64/include/asm/ptdump.h
-@@ -7,7 +7,7 @@
- 
- #include <linux/ptdump.h>
- 
--#ifdef CONFIG_PTDUMP_CORE
-+#ifdef CONFIG_PTDUMP
- 
- #include <linux/mm_types.h>
- #include <linux/seq_file.h>
-@@ -70,6 +70,6 @@ static inline void ptdump_debugfs_register(struct ptdump_info *info,
- #else
- static inline void note_page(struct ptdump_state *pt_st, unsigned long addr,
- 			     int level, u64 val) { }
--#endif /* CONFIG_PTDUMP_CORE */
-+#endif /* CONFIG_PTDUMP */
- 
- #endif /* __ASM_PTDUMP_H */
-diff --git a/arch/arm64/kvm/Kconfig b/arch/arm64/kvm/Kconfig
-index ead632ad01b4..096e45acadb2 100644
---- a/arch/arm64/kvm/Kconfig
-+++ b/arch/arm64/kvm/Kconfig
-@@ -71,8 +71,8 @@ config PTDUMP_STAGE2_DEBUGFS
- 	depends on KVM
- 	depends on DEBUG_KERNEL
- 	depends on DEBUG_FS
--	depends on GENERIC_PTDUMP
--	select PTDUMP_CORE
-+	depends on ARCH_HAS_PTDUMP
-+	select PTDUMP
- 	default n
- 	help
- 	  Say Y here if you want to show the stage-2 kernel pagetables
-diff --git a/arch/arm64/mm/Makefile b/arch/arm64/mm/Makefile
-index fc92170a8f37..c26489cf96cd 100644
---- a/arch/arm64/mm/Makefile
-+++ b/arch/arm64/mm/Makefile
-@@ -5,7 +5,7 @@ obj-y				:= dma-mapping.o extable.o fault.o init.o \
- 				   context.o proc.o pageattr.o fixmap.o
- obj-$(CONFIG_ARM64_CONTPTE)	+= contpte.o
- obj-$(CONFIG_HUGETLB_PAGE)	+= hugetlbpage.o
--obj-$(CONFIG_PTDUMP_CORE)	+= ptdump.o
-+obj-$(CONFIG_PTDUMP)		+= ptdump.o
- obj-$(CONFIG_PTDUMP_DEBUGFS)	+= ptdump_debugfs.o
- obj-$(CONFIG_TRANS_TABLE)	+= trans_pgd.o
- obj-$(CONFIG_TRANS_TABLE)	+= trans_pgd-asm.o
-diff --git a/arch/powerpc/Kconfig b/arch/powerpc/Kconfig
-index 424f188e62d9..6f1ae41dcf85 100644
---- a/arch/powerpc/Kconfig
-+++ b/arch/powerpc/Kconfig
-@@ -148,6 +148,7 @@ config PPC
- 	select ARCH_HAS_PHYS_TO_DMA
- 	select ARCH_HAS_PMEM_API
- 	select ARCH_HAS_PREEMPT_LAZY
-+	select ARCH_HAS_PTDUMP
- 	select ARCH_HAS_PTE_DEVMAP		if PPC_BOOK3S_64
- 	select ARCH_HAS_PTE_SPECIAL
- 	select ARCH_HAS_SCALED_CPUTIME		if VIRT_CPU_ACCOUNTING_NATIVE && PPC_BOOK3S_64
-@@ -206,7 +207,6 @@ config PPC
- 	select GENERIC_IRQ_SHOW
- 	select GENERIC_IRQ_SHOW_LEVEL
- 	select GENERIC_PCI_IOMAP		if PCI
--	select GENERIC_PTDUMP
- 	select GENERIC_SMP_IDLE_THREAD
- 	select GENERIC_TIME_VSYSCALL
- 	select GENERIC_VDSO_TIME_NS
-diff --git a/arch/powerpc/configs/mpc885_ads_defconfig b/arch/powerpc/configs/mpc885_ads_defconfig
-index 77306be62e9e..db005618690b 100644
---- a/arch/powerpc/configs/mpc885_ads_defconfig
-+++ b/arch/powerpc/configs/mpc885_ads_defconfig
-@@ -78,4 +78,4 @@ CONFIG_DEBUG_VM_PGTABLE=y
- CONFIG_DETECT_HUNG_TASK=y
- CONFIG_BDI_SWITCH=y
- CONFIG_PPC_EARLY_DEBUG=y
--CONFIG_GENERIC_PTDUMP=y
-+CONFIG_PTDUMP=y
-diff --git a/arch/powerpc/mm/Makefile b/arch/powerpc/mm/Makefile
-index 0fe2f085c05a..8c1582b2987d 100644
---- a/arch/powerpc/mm/Makefile
-+++ b/arch/powerpc/mm/Makefile
-@@ -15,5 +15,5 @@ obj-$(CONFIG_NUMA) += numa.o
- obj-$(CONFIG_HUGETLB_PAGE)	+= hugetlbpage.o
- obj-$(CONFIG_NOT_COHERENT_CACHE) += dma-noncoherent.o
- obj-$(CONFIG_PPC_COPRO_BASE)	+= copro_fault.o
--obj-$(CONFIG_PTDUMP_CORE)	+= ptdump/
-+obj-$(CONFIG_PTDUMP)		+= ptdump/
- obj-$(CONFIG_KASAN)		+= kasan/
-diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-index c4cdba6460b8..5aef2aa4103c 100644
---- a/arch/riscv/Kconfig
-+++ b/arch/riscv/Kconfig
-@@ -43,6 +43,7 @@ config RISCV
- 	select ARCH_HAS_PMEM_API
- 	select ARCH_HAS_PREEMPT_LAZY
- 	select ARCH_HAS_PREPARE_SYNC_CORE_CMD
-+	select ARCH_HAS_PTDUMP
- 	select ARCH_HAS_PTE_DEVMAP if 64BIT && MMU
- 	select ARCH_HAS_PTE_SPECIAL
- 	select ARCH_HAS_SET_DIRECT_MAP if MMU
-@@ -112,7 +113,6 @@ config RISCV
- 	select GENERIC_IRQ_SHOW_LEVEL
- 	select GENERIC_LIB_DEVMEM_IS_ALLOWED
- 	select GENERIC_PCI_IOMAP
--	select GENERIC_PTDUMP
- 	select GENERIC_SCHED_CLOCK
- 	select GENERIC_SMP_IDLE_THREAD
- 	select GENERIC_TIME_VSYSCALL if MMU && 64BIT
-diff --git a/arch/riscv/mm/Makefile b/arch/riscv/mm/Makefile
-index cbe4d775ef56..b916a68d324a 100644
---- a/arch/riscv/mm/Makefile
-+++ b/arch/riscv/mm/Makefile
-@@ -19,7 +19,7 @@ obj-y += context.o
- obj-y += pmem.o
- 
- obj-$(CONFIG_HUGETLB_PAGE) += hugetlbpage.o
--obj-$(CONFIG_PTDUMP_CORE) += ptdump.o
-+obj-$(CONFIG_PTDUMP) += ptdump.o
- obj-$(CONFIG_KASAN)   += kasan_init.o
- 
- ifdef CONFIG_KASAN
-diff --git a/arch/s390/Kconfig b/arch/s390/Kconfig
-index 9c9ec08d78c7..dd9dd2f8e673 100644
---- a/arch/s390/Kconfig
-+++ b/arch/s390/Kconfig
-@@ -96,6 +96,7 @@ config S390
- 	select ARCH_HAS_MEM_ENCRYPT
- 	select ARCH_HAS_NMI_SAFE_THIS_CPU_OPS
- 	select ARCH_HAS_PREEMPT_LAZY
-+	select ARCH_HAS_PTDUMP
- 	select ARCH_HAS_PTE_SPECIAL
- 	select ARCH_HAS_SCALED_CPUTIME
- 	select ARCH_HAS_SET_DIRECT_MAP
-@@ -163,7 +164,6 @@ config S390
- 	select GENERIC_CPU_VULNERABILITIES
- 	select GENERIC_ENTRY
- 	select GENERIC_GETTIMEOFDAY
--	select GENERIC_PTDUMP
- 	select GENERIC_SMP_IDLE_THREAD
- 	select GENERIC_TIME_VSYSCALL
- 	select GENERIC_VDSO_TIME_NS
-diff --git a/arch/s390/mm/Makefile b/arch/s390/mm/Makefile
-index f6c2db7a8669..9726b91fe7e4 100644
---- a/arch/s390/mm/Makefile
-+++ b/arch/s390/mm/Makefile
-@@ -9,6 +9,6 @@ obj-y		+= page-states.o pageattr.o pgtable.o pgalloc.o extable.o
- obj-$(CONFIG_CMM)		+= cmm.o
- obj-$(CONFIG_DEBUG_VIRTUAL)	+= physaddr.o
- obj-$(CONFIG_HUGETLB_PAGE)	+= hugetlbpage.o
--obj-$(CONFIG_PTDUMP_CORE)	+= dump_pagetables.o
-+obj-$(CONFIG_PTDUMP)		+= dump_pagetables.o
- obj-$(CONFIG_PGSTE)		+= gmap.o
- obj-$(CONFIG_PFAULT)		+= pfault.o
-diff --git a/arch/x86/Kconfig b/arch/x86/Kconfig
-index 87198d957e2f..aa04757f7591 100644
---- a/arch/x86/Kconfig
-+++ b/arch/x86/Kconfig
-@@ -26,6 +26,7 @@ config X86_64
- 	depends on 64BIT
- 	# Options that are inherently 64-bit kernel only:
- 	select ARCH_HAS_GIGANTIC_PAGE
-+	select ARCH_HAS_PTDUMP
- 	select ARCH_SUPPORTS_INT128 if CC_HAS_INT128
- 	select ARCH_SUPPORTS_PER_VMA_LOCK
- 	select ARCH_SUPPORTS_HUGE_PFNMAP if TRANSPARENT_HUGEPAGE
-@@ -174,7 +175,6 @@ config X86
- 	select GENERIC_IRQ_RESERVATION_MODE
- 	select GENERIC_IRQ_SHOW
- 	select GENERIC_PENDING_IRQ		if SMP
--	select GENERIC_PTDUMP
- 	select GENERIC_SMP_IDLE_THREAD
- 	select GENERIC_TIME_VSYSCALL
- 	select GENERIC_GETTIMEOFDAY
-diff --git a/arch/x86/Kconfig.debug b/arch/x86/Kconfig.debug
-index 1eb4d23cdaae..c95c3aaadf97 100644
---- a/arch/x86/Kconfig.debug
-+++ b/arch/x86/Kconfig.debug
-@@ -59,7 +59,7 @@ config EARLY_PRINTK_USB_XDBC
- config EFI_PGT_DUMP
- 	bool "Dump the EFI pagetable"
- 	depends on EFI
--	select PTDUMP_CORE
-+	select PTDUMP
- 	help
- 	  Enable this if you want to dump the EFI page table before
- 	  enabling virtual mode. This can be used to debug miscellaneous
-diff --git a/arch/x86/mm/Makefile b/arch/x86/mm/Makefile
-index 690fbf48e853..e0c99a8760ca 100644
---- a/arch/x86/mm/Makefile
-+++ b/arch/x86/mm/Makefile
-@@ -39,7 +39,7 @@ CFLAGS_fault.o := -I $(src)/../include/asm/trace
- obj-$(CONFIG_X86_32)		+= pgtable_32.o iomap_32.o
- 
- obj-$(CONFIG_HUGETLB_PAGE)	+= hugetlbpage.o
--obj-$(CONFIG_PTDUMP_CORE)	+= dump_pagetables.o
-+obj-$(CONFIG_PTDUMP)		+= dump_pagetables.o
- obj-$(CONFIG_PTDUMP_DEBUGFS)	+= debug_pagetables.o
- 
- obj-$(CONFIG_HIGHMEM)		+= highmem_32.o
-diff --git a/mm/Kconfig.debug b/mm/Kconfig.debug
-index c08406760d29..df657c021a18 100644
---- a/mm/Kconfig.debug
-+++ b/mm/Kconfig.debug
-@@ -186,9 +186,9 @@ config ARCH_HAS_DEBUG_WX
- config DEBUG_WX
- 	bool "Warn on W+X mappings at boot"
- 	depends on ARCH_HAS_DEBUG_WX
--	depends on GENERIC_PTDUMP
-+	depends on ARCH_HAS_PTDUMP
- 	depends on MMU
--	select PTDUMP_CORE
-+	select PTDUMP
- 	help
- 	  Generate a warning if any W+X mappings are found at boot.
- 
-@@ -213,19 +213,19 @@ config DEBUG_WX
- 
- 	  If in doubt, say "Y".
- 
--config GENERIC_PTDUMP
-+config ARCH_HAS_PTDUMP
- 	depends on MMU
- 	bool
- 
--config PTDUMP_CORE
-+config PTDUMP
- 	bool
- 
- config PTDUMP_DEBUGFS
- 	bool "Export kernel pagetable layout to userspace via debugfs"
- 	depends on DEBUG_KERNEL
- 	depends on DEBUG_FS
--	depends on GENERIC_PTDUMP
--	select PTDUMP_CORE
-+	depends on ARCH_HAS_PTDUMP
-+	select PTDUMP
- 	help
- 	  Say Y here if you want to show the kernel pagetable layout in a
- 	  debugfs file. This information is only useful for kernel developers
-diff --git a/mm/Makefile b/mm/Makefile
-index 850386a67b3e..26dfecd4d396 100644
---- a/mm/Makefile
-+++ b/mm/Makefile
-@@ -138,7 +138,7 @@ obj-$(CONFIG_ZONE_DEVICE) += memremap.o
- obj-$(CONFIG_HMM_MIRROR) += hmm.o
- obj-$(CONFIG_MEMFD_CREATE) += memfd.o
- obj-$(CONFIG_MAPPING_DIRTY_HELPERS) += mapping_dirty_helpers.o
--obj-$(CONFIG_PTDUMP_CORE) += ptdump.o
-+obj-$(CONFIG_PTDUMP) += ptdump.o
- obj-$(CONFIG_PAGE_REPORTING) += page_reporting.o
- obj-$(CONFIG_IO_MAPPING) += io-mapping.o
- obj-$(CONFIG_HAVE_BOOTMEM_INFO_NODE) += bootmem_info.o
--- 
-2.25.1
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+CgpMZSAxMy8wMi8yMDI1IMOgIDA1OjA5LCBBbnNodW1hbiBLaGFuZHVhbCBhIMOpY3JpdMKgOgo+
+IFRoZXJlIGlzIG5vIHBhZ2UgdGFibGUgZHVtcCB3aXRob3V0IGEgTU1VLiBNYWtlIHRoaXMgZGVw
+ZW5kZW5jeSBhdCBnZW5lcmljCj4gbGV2ZWwgYW5kIGRyb3AgdGhlIHNhbWUgZnJvbSByaXNjdiBw
+bGF0Zm9ybSBpbnN0ZWFkLgo+IAo+IENjOiBQYXVsIFdhbG1zbGV5IDxwYXVsLndhbG1zbGV5QHNp
+Zml2ZS5jb20+Cj4gQ2M6IFBhbG1lciBEYWJiZWx0IDxwYWxtZXJAZGFiYmVsdC5jb20+Cj4gQ2M6
+IEFuZHJldyBNb3J0b24gPGFrcG1AbGludXgtZm91bmRhdGlvbi5vcmc+Cj4gQ2M6IGxpbnV4LXJp
+c2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKPiBDYzogbGludXgta2VybmVsQHZnZXIua2VybmVsLm9y
+Zwo+IENjOiBsaW51eC1tbUBrdmFjay5vcmcKPiBTaWduZWQtb2ZmLWJ5OiBBbnNodW1hbiBLaGFu
+ZHVhbCA8YW5zaHVtYW4ua2hhbmR1YWxAYXJtLmNvbT4KPiAtLS0KPiAgIGFyY2gvcmlzY3YvS2Nv
+bmZpZyB8IDIgKy0KPiAgIG1tL0tjb25maWcuZGVidWcgICB8IDEgKwo+ICAgMiBmaWxlcyBjaGFu
+Z2VkLCAyIGluc2VydGlvbnMoKyksIDEgZGVsZXRpb24oLSkKPiAKPiBkaWZmIC0tZ2l0IGEvYXJj
+aC9yaXNjdi9LY29uZmlnIGIvYXJjaC9yaXNjdi9LY29uZmlnCj4gaW5kZXggNzYxMmM1MmU5YjFl
+Li5jNGNkYmE2NDYwYjggMTAwNjQ0Cj4gLS0tIGEvYXJjaC9yaXNjdi9LY29uZmlnCj4gKysrIGIv
+YXJjaC9yaXNjdi9LY29uZmlnCj4gQEAgLTExMiw3ICsxMTIsNyBAQCBjb25maWcgUklTQ1YKPiAg
+IAlzZWxlY3QgR0VORVJJQ19JUlFfU0hPV19MRVZFTAo+ICAgCXNlbGVjdCBHRU5FUklDX0xJQl9E
+RVZNRU1fSVNfQUxMT1dFRAo+ICAgCXNlbGVjdCBHRU5FUklDX1BDSV9JT01BUAo+IC0Jc2VsZWN0
+IEdFTkVSSUNfUFREVU1QIGlmIE1NVQo+ICsJc2VsZWN0IEdFTkVSSUNfUFREVU1QCgpBcmUgeW91
+IHN1cmUgdGhpcyB3b3JrcyBhcyBleHBlY3RlZCA/CgpTZWUgaHR0cHM6Ly9kb2NzLmtlcm5lbC5v
+cmcva2J1aWxkL2tjb25maWctbGFuZ3VhZ2UuaHRtbCA6CgpOb3RlOgogICAgIHNlbGVjdCBzaG91
+bGQgYmUgdXNlZCB3aXRoIGNhcmUuIHNlbGVjdCB3aWxsIGZvcmNlIGEgc3ltYm9sIHRvIGEgCnZh
+bHVlIHdpdGhvdXQgdmlzaXRpbmcgdGhlIGRlcGVuZGVuY2llcy4gQnkgYWJ1c2luZyBzZWxlY3Qg
+eW91IGFyZSBhYmxlIAp0byBzZWxlY3QgYSBzeW1ib2wgRk9PIGV2ZW4gaWYgRk9PIGRlcGVuZHMg
+b24gQkFSIHRoYXQgaXMgbm90IHNldC4gSW4gCmdlbmVyYWwgdXNlIHNlbGVjdCBvbmx5IGZvciBu
+b24tdmlzaWJsZSBzeW1ib2xzIChubyBwcm9tcHRzIGFueXdoZXJlKSAKYW5kIGZvciBzeW1ib2xz
+IHdpdGggbm8gZGVwZW5kZW5jaWVzLgoKPiAgIAlzZWxlY3QgR0VORVJJQ19TQ0hFRF9DTE9DSwo+
+ICAgCXNlbGVjdCBHRU5FUklDX1NNUF9JRExFX1RIUkVBRAo+ICAgCXNlbGVjdCBHRU5FUklDX1RJ
+TUVfVlNZU0NBTEwgaWYgTU1VICYmIDY0QklUCj4gZGlmZiAtLWdpdCBhL21tL0tjb25maWcuZGVi
+dWcgYi9tbS9LY29uZmlnLmRlYnVnCj4gaW5kZXggYTUxYTExNDk5MDlhLi5jMDg0MDY3NjBkMjkg
+MTAwNjQ0Cj4gLS0tIGEvbW0vS2NvbmZpZy5kZWJ1Zwo+ICsrKyBiL21tL0tjb25maWcuZGVidWcK
+PiBAQCAtMjE0LDYgKzIxNCw3IEBAIGNvbmZpZyBERUJVR19XWAo+ICAgCSAgSWYgaW4gZG91YnQs
+IHNheSAiWSIuCj4gICAKPiAgIGNvbmZpZyBHRU5FUklDX1BURFVNUAo+ICsJZGVwZW5kcyBvbiBN
+TVUKPiAgIAlib29sCj4gICAKPiAgIGNvbmZpZyBQVERVTVBfQ09SRQoKCl9fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlz
+dApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQu
+b3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
