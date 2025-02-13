@@ -4,65 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DC8B6C021A0
-	for <linux-riscv@archiver.kernel.org>; Thu, 13 Feb 2025 18:03:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0C415C021A0
+	for <linux-riscv@archiver.kernel.org>; Thu, 13 Feb 2025 18:37:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=UVsSL1hVIoxfDMb2PfNfNVd/0FVXM1v1SNvlXKg3s7k=; b=aQJMihwTyfePLq
-	Jl4/QQVkszvAm0YtkODWovI82JRvKg68GYXoT1Q1qbctOE3zbWo7y/+wcIbuykrrcppY95JWA7Ork
-	Q2de+UHa3iax4f6PVkqRbufKPw0vhN+Ldo58WQcIKDb/+nTWq002r5/eboBW6Wj2GR5m/DitB9e1h
-	yPMHhK4pyl2wcQoO1ymTdi+MouRAZggJMbCbPnHUlUzmVIjB+DJ658YK2XZ5O3HdUMP/Dw50pw5xQ
-	jz8X6xvn3XHsuIMbrZ0UDfx25EsFiLaBMUWp+b4CQ6p8V4zPPYnnkSFAJAwHc+sVAb9OpTrptp6vL
-	DjoPfyjtHskJdM2Ypg+w==;
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=lbS2gyiJf65EW2LaegBa2glit6JoY+i3DD94ZeAh/xg=; b=jK0Ml4CQ9nh471phCJxK4rSgS0
+	TV/b9BhOsgDzAPso6BgDN4x3Mh7ef0PiFp9FAnOkXorK2DvtyQTWlo42UNy0kIsV3xkFqHRQruqBX
+	4aCciir4s/xZ5Q5tmdHXbsmjQqiGK5J9rNDSh4ThTdoGQ5dkWCxRMSb7+4KNuPbjQoiLgDl3sm3Oq
+	CrujFSUyqGJU/9J9whT08+FGGu96h21xBs85pFH1F34ksamW3DYlavADZ/iUs6QMt6UQwMu/SSn9n
+	GTO7NXZ5qmCPcKy6ZkWf7sSZLsHDaX7vxYoGSVo0d/he/SbdZhol8/8+JY/WBkPzl/9xQx+7wSXKw
+	stNYo/gQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tidYk-0000000C7xh-2P3f;
-	Thu, 13 Feb 2025 18:03:34 +0000
-Received: from imap5.colo.codethink.co.uk ([78.40.148.171])
+	id 1tie5x-0000000CGjg-1O8E;
+	Thu, 13 Feb 2025 18:37:53 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1ticoy-0000000ByQd-1VAb
-	for linux-riscv@lists.infradead.org;
-	Thu, 13 Feb 2025 17:16:17 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=codethink.co.uk; s=imap5-20230908; h=Sender:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
-	List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=cKiGkcsixPn4QQtTKc7Lsw9RVigZQY9fPXwk3glZ0vE=; b=Eyh1K3WK+bt6eeYNEDl6HFh6MG
-	Pu53wMhcj8neZh7w/pUF5gbJCETid3gJAMO5ZWdY2aWMZe4tqMloacovCGkLmhbzaYKm3m+lB+RHd
-	Vx47vQWHi5WJ4W3znn72Ta73MlQCRb2Rm+oDHOahy1KH6rvvU5khKRlUSMBMGJQggF56VmmZXai3q
-	xz3az8d2FmgVyCykADzIPUgKnuo7Ewmd1gA4qKj88Fe201qa3w+8xNWlGxLoD/pqLStfaZXEt9lB9
-	8bbt7RwbdRdOlV0+RiEEi1pHq1D83YRmAMGO/kR1Bqe2hQ/SsuX9IWBK59m5w10TFAUoF9a3tZ2XF
-	oLlaihcQ==;
-Received: from [167.98.27.226] (helo=[10.35.6.157])
-	by imap5.colo.codethink.co.uk with esmtpsa  (Exim 4.94.2 #2 (Debian))
-	id 1ticoo-0081al-LJ; Thu, 13 Feb 2025 17:16:06 +0000
-Message-ID: <a994e94c-3211-4bb4-ab41-71a2c1abebd4@codethink.co.uk>
-Date: Thu, 13 Feb 2025 17:16:05 +0000
+	id 1tidUd-0000000C6x7-29sx;
+	Thu, 13 Feb 2025 17:59:20 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 3CED05C58EA;
+	Thu, 13 Feb 2025 17:58:39 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 537F5C4CEE5;
+	Thu, 13 Feb 2025 17:59:10 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1739469558;
+	bh=Pgn2vbpHZGhCOn5YhZz8fN0a5lPUgj2hH+tawYr3GvI=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=R52iamQnStdvdjPzrUWP5m3f6dlxeAVUJqqh2Zat/hZmMmlZ3FHIP25gpThz11R/D
+	 vg96qHC/2qAMYIMR6wmNuF/4329RLihz4GzMSQUEt68g3bpYzwf1dJzrZl3Rg7/t1p
+	 jvOBSQiBorqQZPb3p1svf5VOM8/TFStUBnvqPVCIw4pO27r3Z6Qnyi3pk4mD0z74yO
+	 B66OYoxbo/tqlkGISaWYvy3fvp2dC5W/XgM4ye3k/MUixPd3wsUdolVYLoaiZk9TAl
+	 7no88D98e6379shrdeW11gVSPGGHH/QAm4ezRmpsgWS00PbSjF8oG67spsPDlwYQfa
+	 cFQyhc2+LYypQ==
+Date: Thu, 13 Feb 2025 17:59:07 +0000
+From: Conor Dooley <conor@kernel.org>
+To: Jerome Brunet <jbrunet@baylibre.com>
+Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Dave Ertman <david.m.ertman@intel.com>,
+	Ira Weiny <ira.weiny@intel.com>,
+	"Rafael J. Wysocki" <rafael@kernel.org>,
+	Stephen Boyd <sboyd@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
+	Danilo Krummrich <dakr@kernel.org>,
+	Conor Dooley <conor.dooley@microchip.com>,
+	Daire McNamara <daire.mcnamara@microchip.com>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Douglas Anderson <dianders@chromium.org>,
+	Andrzej Hajda <andrzej.hajda@intel.com>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Robert Foss <rfoss@kernel.org>,
+	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
+	Jonas Karlman <jonas@kwiboo.se>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+	Hans de Goede <hdegoede@redhat.com>,
+	Ilpo =?iso-8859-1?Q?J=E4rvinen?= <ilpo.jarvinen@linux.intel.com>,
+	Bryan O'Donoghue <bryan.odonoghue@linaro.org>,
+	Vladimir Kondratiev <vladimir.kondratiev@mobileye.com>,
+	Gregory CLEMENT <gregory.clement@bootlin.com>,
+	=?iso-8859-1?Q?Th=E9o?= Lebrun <theo.lebrun@bootlin.com>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Abel Vesa <abelvesa@kernel.org>, Peng Fan <peng.fan@nxp.com>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Kevin Hilman <khilman@baylibre.com>,
+	Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+	dri-devel@lists.freedesktop.org,
+	platform-driver-x86@vger.kernel.org, linux-mips@vger.kernel.org,
+	linux-clk@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-amlogic@lists.infradead.org
+Subject: Re: [PATCH v3 2/7] reset: mpfs: use the auxiliary device creation
+ helper
+Message-ID: <20250213-crown-clustered-81c6434c892b@spud>
+References: <20250211-aux-device-create-helper-v3-0-7edb50524909@baylibre.com>
+ <20250211-aux-device-create-helper-v3-2-7edb50524909@baylibre.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 1/4] riscv: implement user_access_begin and families
-To: Cyril Bur <cyrilbur@tenstorrent.com>,
- Charlie Jenkins <charlie@rivosinc.com>
-Cc: palmer@dabbelt.com, aou@eecs.berkeley.edu, paul.walmsley@sifive.com,
- linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
- Jisheng Zhang <jszhang@kernel.org>
-References: <20241118230112.2872978-1-cyrilbur@tenstorrent.com>
- <20241118230112.2872978-2-cyrilbur@tenstorrent.com> <Z4rl8BgoV8tygCn9@ghost>
- <b45aab1e-6d37-4027-9a15-4fa917d806b9@codethink.co.uk>
- <e4a4c688-b78c-468b-8196-68d2df980167@tenstorrent.com>
-Content-Language: en-GB
-From: Ben Dooks <ben.dooks@codethink.co.uk>
-Organization: Codethink Limited.
-In-Reply-To: <e4a4c688-b78c-468b-8196-68d2df980167@tenstorrent.com>
+In-Reply-To: <20250211-aux-device-create-helper-v3-2-7edb50524909@baylibre.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250213_091616_501360_BC044236 
-X-CRM114-Status: GOOD (  13.61  )
+X-CRM114-CacheID: sfid-20250213_095919_640183_964D3576 
+X-CRM114-Status: GOOD (  19.42  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,63 +105,147 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
+Content-Type: multipart/mixed; boundary="===============5797886353207894371=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 13/02/2025 17:07, Cyril Bur wrote:
-> 
-> 
-> On 6/2/2025 1:08 am, Ben Dooks wrote:
->> On 17/01/2025 23:21, Charlie Jenkins wrote:
->>> On Mon, Nov 18, 2024 at 11:01:09PM +0000, Cyril Bur wrote:
->>>> From: Jisheng Zhang <jszhang@kernel.org>
->>>>
->>>> Currently, when a function like strncpy_from_user() is called,
->>>> the userspace access protection is disabled and enabled
->>>> for every word read.
->>>>
->>>> By implementing user_access_begin and families, the protection
->>>> is disabled at the beginning of the copy and enabled at the end.
->>>>
->>>> The __inttype macro is borrowed from x86 implementation.
->>>>
->>>> Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
->>>> Signed-off-by: Cyril Bur <cyrilbur@tenstorrent.com>
->>
->> If we're doing this, then saving the STATUS.SUM flag is going to
->> be more important than before. We had this discussion when the
->> initial user-access with syzbot stress testing turned up.
->>
->> We partially fixed this by rewriting the ordering in the __put_user
->> function to stop the 'x' argument being evaluated inside the area
->> where SUM is enabled, but this is going to make the window of
->> opportunity of a thread switch much bigger and the bug will just
->> come back and bite harder.
->>
->> If you want I can look at re-doing my original patch and resubmitting.
-> 
-> Oh! Could you please link the patch? I haven't seen it and can't seem to 
-> find it now.
 
-https://lore.kernel.org/linux-riscv/20210318151010.100966-1-ben.dooks@codethink.co.uk/
-
-> Thanks.
-> 
->>
->>
-> 
-> 
+--===============5797886353207894371==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="hayvwxyUW11W/dJv"
+Content-Disposition: inline
 
 
--- 
-Ben Dooks				http://www.codethink.co.uk/
-Senior Engineer				Codethink - Providing Genius
+--hayvwxyUW11W/dJv
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-https://www.codethink.co.uk/privacy.html
+On Tue, Feb 11, 2025 at 06:27:59PM +0100, Jerome Brunet wrote:
+> The auxiliary device creation of this driver is simple enough to
+> use the available auxiliary device creation helper.
+>=20
+> Use it and remove some boilerplate code.
+>=20
+> Signed-off-by: Jerome Brunet <jbrunet@baylibre.com>
+> ---
+>  drivers/reset/reset-mpfs.c | 52 +++-------------------------------------=
+------
+>  1 file changed, 3 insertions(+), 49 deletions(-)
+>=20
+> diff --git a/drivers/reset/reset-mpfs.c b/drivers/reset/reset-mpfs.c
+> index 574e59db83a4fcf30b60cb5f638607a2ec7b0580..bbea64862181877eb7ae51fda=
+a9e50ffac17c908 100644
+> --- a/drivers/reset/reset-mpfs.c
+> +++ b/drivers/reset/reset-mpfs.c
+> @@ -155,62 +155,16 @@ static int mpfs_reset_probe(struct auxiliary_device=
+ *adev,
+>  	return devm_reset_controller_register(dev, rcdev);
+>  }
+> =20
+> -static void mpfs_reset_unregister_adev(void *_adev)
+> -{
+> -	struct auxiliary_device *adev =3D _adev;
+> -
+> -	auxiliary_device_delete(adev);
+> -	auxiliary_device_uninit(adev);
+> -}
+> -
+> -static void mpfs_reset_adev_release(struct device *dev)
+> -{
+> -	struct auxiliary_device *adev =3D to_auxiliary_dev(dev);
+> -
+> -	kfree(adev);
+> -}
+> -
+> -static struct auxiliary_device *mpfs_reset_adev_alloc(struct device *clk=
+_dev)
+> -{
+> -	struct auxiliary_device *adev;
+> -	int ret;
+> -
+> -	adev =3D kzalloc(sizeof(*adev), GFP_KERNEL);
+> -	if (!adev)
+> -		return ERR_PTR(-ENOMEM);
+> -
+> -	adev->name =3D "reset-mpfs";
+> -	adev->dev.parent =3D clk_dev;
+> -	adev->dev.release =3D mpfs_reset_adev_release;
+> -	adev->id =3D 666u;
+> -
+> -	ret =3D auxiliary_device_init(adev);
+> -	if (ret) {
+> -		kfree(adev);
+> -		return ERR_PTR(ret);
+> -	}
+> -
+> -	return adev;
+> -}
+> -
+>  int mpfs_reset_controller_register(struct device *clk_dev, void __iomem =
+*base)
+>  {
+>  	struct auxiliary_device *adev;
+> -	int ret;
+> =20
+> -	adev =3D mpfs_reset_adev_alloc(clk_dev);
+> +	adev =3D devm_auxiliary_device_create(clk_dev, "reset-mpfs",
+> +					    (__force void *)base, 666u);
+
+Moving the boilerplate into a helper makes sense:
+Acked-by: Conor Dooley <conor.dooley@microchip.com>
+
+One think that's always felt a bit meh to me is this id number stuff,
+I just threw in 666 for meme value. The whole thing seems super
+arbitrary, do any of the users of this helper actually put meaningful
+values into the id parameter?
+
+>  	if (IS_ERR(adev))
+>  		return PTR_ERR(adev);
+> =20
+> -	ret =3D auxiliary_device_add(adev);
+> -	if (ret) {
+> -		auxiliary_device_uninit(adev);
+> -		return ret;
+> -	}
+> -
+> -	adev->dev.platform_data =3D (__force void *)base;
+> -
+> -	return devm_add_action_or_reset(clk_dev, mpfs_reset_unregister_adev, ad=
+ev);
+> +	return 0;
+>  }
+>  EXPORT_SYMBOL_NS_GPL(mpfs_reset_controller_register, "MCHP_CLK_MPFS");
+> =20
+>=20
+> --=20
+> 2.45.2
+>=20
+
+--hayvwxyUW11W/dJv
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZ64y1gAKCRB4tDGHoIJi
+0tpDAQDNGTJm0hUvHu9/lgcEwur44fxS2Qlcl7n70eboDVTC6gD/VBr9uDAEKvks
+C7yxajoK6tXd6NFsVd0104wfqGk41QU=
+=kI4Q
+-----END PGP SIGNATURE-----
+
+--hayvwxyUW11W/dJv--
+
+
+--===============5797886353207894371==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============5797886353207894371==--
+
