@@ -4,93 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 485B1C021A4
-	for <linux-riscv@archiver.kernel.org>; Fri, 14 Feb 2025 11:10:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E373BC02198
+	for <linux-riscv@archiver.kernel.org>; Fri, 14 Feb 2025 11:16:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Date:Cc:To:From:Subject:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=uzNRczNl0IegwmdVUNPY1Z8cjLBtOvmLbUGMIO5qSMs=; b=RotQqgW7ZAVtM+
-	O3iag7V/kKqrmllEZuG8HEluti6QOaVthMI1BJ9BITA4Qt4f0SWvRBXm3HW6wpht7h3NVSZsZXLCS
-	x18b4xOsF4n/on6Oh/bqYOs3irXLVZ54ANsoJZxmZPqyS8nWBBuhgf9xZyiAk3aAblxVayZtcR3qt
-	LOvjbJ28XE/GsbOhunK/Ph+zXMdEmNn6AAU5SYP8XzCFviemM3r3roItxs8kYSnP6spG220ogQeKl
-	Gt1k/OwMC/9G1xljJDiZpu1yZALToDuW9SeAyZwr/dnkTThsJUFd2edXdbr59L0PIFhaZJteWh8Tf
-	FuUHZMaGsW0hqGFaYkxw==;
+	List-Owner; bh=G6qo/AyfYRG3KbCO/HeClhJ5RCjLll6GfiHn+4qe/bc=; b=P8fv84QPkW9EHV
+	SNkJvtk+slc7vqDHbKH3s5QP0tws4yzvGTc4DnBeRABqC1Ww/8eGbm5QjNTryh95Tmflc23GV0USj
+	EFgjz5CQQIUCJ2kbr8oxW7st1JVqSuHzl0MlDFyW/1MDGduX9BAQrDsKW+pMQgfZKl9I0aSDWqJ6p
+	Y0qzomAwTaU58gjonhv7VWmREdJuYp/EKROkKWwwMJ65ypXJMQTWWTeE1jYUde3txRh+7kknFlmQa
+	xL/WBDpdMZ9AMQ81rCP7rx20lA8sMJjkxLRXl8FO167Obr9b+IxRcZCLSY29qYub82DA2rGOKgEV9
+	s/5XXnqdmVKxwwheOOoA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1titar-0000000EcXH-3ouY;
-	Fri, 14 Feb 2025 11:10:49 +0000
-Received: from mail-ej1-x629.google.com ([2a00:1450:4864:20::629])
+	id 1titgj-0000000Edg4-43Ml;
+	Fri, 14 Feb 2025 11:16:53 +0000
+Received: from mail-yb1-xb2e.google.com ([2607:f8b0:4864:20::b2e])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1titZm-0000000EcN2-0qCy
+	id 1titgR-0000000EdbT-0FDE
 	for linux-riscv@lists.infradead.org;
-	Fri, 14 Feb 2025 11:09:43 +0000
-Received: by mail-ej1-x629.google.com with SMTP id a640c23a62f3a-ab7fa1bc957so355351666b.2
-        for <linux-riscv@lists.infradead.org>; Fri, 14 Feb 2025 03:09:41 -0800 (PST)
+	Fri, 14 Feb 2025 11:16:36 +0000
+Received: by mail-yb1-xb2e.google.com with SMTP id 3f1490d57ef6-e4930eca0d4so1451876276.3
+        for <linux-riscv@lists.infradead.org>; Fri, 14 Feb 2025 03:16:34 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1739531380; x=1740136180; darn=lists.infradead.org;
-        h=mime-version:user-agent:content-transfer-encoding:references
-         :in-reply-to:date:cc:to:from:subject:message-id:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=aigpur5if5MSlLy9b9P0vOHm3NgsJ9o8CLycgKukS10=;
-        b=VEvl0QLQ1GqqGAOXXTikikv1jeTxv4OqNDtsznxbbFwHRGBKfH4PKYHQ5bkqmt4hzw
-         ZTFIc/IsuStpq1rZqXyJFymXoa/bGWWfDg/wPisEB57yv8FgwbBu5UOJ6tlvX3qi2Itk
-         7ZEXGqS4utphh5CB+cTQBJS2axjqMHNBbj2EA4f+muoS7TYa7QZrc5W0ICouOMcrbSy/
-         esBF2FWF2LVZwIN7b/U1cyXdBoZDeUPXnCWUx43vAOXBzVeS9hgfxlIdszc7P9ilYbqt
-         2s/xwAixaVy54AFGY7644KBmBGGCtTkd7acaimhLik7lb3Kf9IvWfZx1F0KbdrucI97j
-         Qw4w==
+        d=linaro.org; s=google; t=1739531794; x=1740136594; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=9jM48aKf/sbl9H/oOIzSS3d/8y4m7nkDsYlbYDKZEDc=;
+        b=BgaQQMTO8OXsuLggJebswkN0qWeiffTqILYERCYLG2abhe/CF4RAEv1JoekkvbmcsV
+         2owKG+LdC5jL2aniPD0WkKZdF1+Oseu6mKsJivKLRwUpjkzWlE7Swh+X51RMJ9+YD0I8
+         F9InyH7CHzljze0khPHBp2wOc8wzVum3WIxUH4Pr+QyOCbAs7cGAAh+3YYNAZgZwlD32
+         pVSwD7gi6ul8CjVxb3AuYD6rYDiu8u81mJa1mfAKD0I5ts9C85BBvRK1BErl3+zebRyT
+         UJ7YXBAJS183GYza6/PzQOglmm1cmerVt1tje/TZoUQ/y9ur0pYw6s0sDwisjvUgA0Zn
+         2c/w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1739531380; x=1740136180;
-        h=mime-version:user-agent:content-transfer-encoding:references
-         :in-reply-to:date:cc:to:from:subject:message-id:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=aigpur5if5MSlLy9b9P0vOHm3NgsJ9o8CLycgKukS10=;
-        b=nVzAqVCRojSp9QYuRFxBl7RJeJD0SwRvmzqZ7/XZO8mvMKr34cMjKrnv2GjD/vG6Os
-         7T7p+OPxsLsTUBOv1xwNJoLaGMC6S454iezNDINQNwvxFyJSYjwzHXfTiAzdM5BPLNrd
-         UY9mGKJudSuDobDYnpBy2LJ7DhMzYtd7d7r7Ct9MCUU1EIOlIFp895y8LO1oIaNc3bl5
-         fccLQhZW4vi4AxP/DXjHgjRPpUdcSW7/XiIjcQJ9ZdGcWCBGUpFqdOEzz6wT0nmqHdqQ
-         VNeHVonveS5lOB6i/1WSma7EHy4/sDgBK5oWqAY0sNGyF0wgBPIFVG4DJx9BBPYx6zuO
-         0D6w==
-X-Forwarded-Encrypted: i=1; AJvYcCU0GtnlEApsREANeFtqeoTTdMdzm1cV4l2JlsuzXgAj3YQi8zNVX7mVjocbSLsPfxnSlaFhyKmgA5nMaw==@lists.infradead.org
-X-Gm-Message-State: AOJu0YzwhXAMRDq+DDu1sBOaKwdXErKmOFlSBUQUUURRWQmFXxh1nceq
-	vnDF0/wCS8nwLa29TPXYmxNhpctBm1HOM9ebUmJb2vX4O6tpvf/K
-X-Gm-Gg: ASbGncv62sH2D/7MTEz3TK0ZkIQzQM9IBz560nDSeqeFs6jyeoR1CBnZuf9bcZVS/q2
-	swak+fjJ1LB9W+H2wOCIaIm1WUQPjCQaflD3uscZgfyK1EXqLJ10zvi8KtVEvPlRQ82qR74HQO6
-	Tn999ffXQv8gSZbhnMnEmdbq4q+LfZOSiY8tb85Dldb4JZ2ayorBpQsNvC/T0IA0OTf1Woesn6m
-	O0BgVckR4KYZgij/ZBFlA436nuFXDPlUmmCxBJGpQieKQ5E//O92aw6lHdTRlcw7l3fcQicTMCp
-	svXHQkga8ccxuUjXt37ESPlH+qhgBRP5
-X-Google-Smtp-Source: AGHT+IEX8u4B+i9w7ZDW/hBhkVNRcW+7tzz1yY2Ss5mruSCSTtkcNIfQ5b1LN+2uvhhVxWkQSF0igw==
-X-Received: by 2002:a17:907:3e9c:b0:ab6:da18:9a3 with SMTP id a640c23a62f3a-aba5017e3bcmr646004066b.46.1739531380181;
-        Fri, 14 Feb 2025 03:09:40 -0800 (PST)
-Received: from giga-mm.home ([2a02:1210:861b:6f00:82ee:73ff:feb8:99e3])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-5dece270a7fsm2746739a12.58.2025.02.14.03.09.39
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 14 Feb 2025 03:09:39 -0800 (PST)
-Message-ID: <964a016b944b459a9a914abac539350769323259.camel@gmail.com>
-Subject: Re: [PATCH v11 1/3] dt-bindings: rtc: sophgo: add RTC support for
- Sophgo CV1800 series SoC
-From: Alexander Sverdlin <alexander.sverdlin@gmail.com>
-To: Inochi Amaoto <inochiama@gmail.com>, devicetree@vger.kernel.org, 
-	linux-riscv@lists.infradead.org, linux-rtc@vger.kernel.org
-Cc: Jingbao Qiu <qiujingbao.dlmu@gmail.com>, alexandre.belloni@bootlin.com, 
-	robh@kernel.org, krzysztof.kozlowski+dt@linaro.org, conor+dt@kernel.org, 
-	unicorn_wang@outlook.com, inochiama@outlook.com, paul.walmsley@sifive.com, 
-	palmer@dabbelt.com, aou@eecs.berkeley.edu, dlan@gentoo.org, 
-	linux-kernel@vger.kernel.org, Krzysztof Kozlowski
-	 <krzysztof.kozlowski@linaro.org>
-Date: Fri, 14 Feb 2025 12:09:37 +0100
-In-Reply-To: <t6z6rikut2him5m57b6xubbguw3llczp4i6d5frcpuhlqihf2d@booethzadxsq>
-References: <20250213215655.2311793-1-alexander.sverdlin@gmail.com>
-	 <20250213215655.2311793-2-alexander.sverdlin@gmail.com>
-	 <t6z6rikut2him5m57b6xubbguw3llczp4i6d5frcpuhlqihf2d@booethzadxsq>
-User-Agent: Evolution 3.54.2 
+        d=1e100.net; s=20230601; t=1739531794; x=1740136594;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=9jM48aKf/sbl9H/oOIzSS3d/8y4m7nkDsYlbYDKZEDc=;
+        b=Dxe5VNYOrFXV0FV5OylPh98lQGpx2WE+FvyLE48LiIODS/7lVuZBlhVQGtWnlCt0mi
+         zJzWxhsvlNZqWbi9ef1XPYhaNW77KOIXBuCpTH5Xhyo0JH1EAp2kZP6Q0XEvW1EyXTT+
+         l5Qpu07YD+x8HIl+lgq75pdnHMTMZJStNYYmd0mPPod4z1jR9jJoYjSlbqqRZr8a40DB
+         blUmohfx25beE1Q2fsoM1jbrf7/99vCyWXEEtXqXApTfLcMxSsf6WAEHU7N+5bUhmp9B
+         Th75kvc5zGgKB8x15QlsCkIoRc67WRz84F4A0Hu3EsLRxXCXKyufnzmp8Cm/934k9pJo
+         np9Q==
+X-Forwarded-Encrypted: i=1; AJvYcCUp9olzwTTDhZ7gA1W7SAKUEhvIv+Pe8AEfF/aC40PfANdXkDA05woypMhmlX5KpSTlBbtbTzcd6FjSxw==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw4I1K+MvA2NSMrrjt3yBxs2zF6YtaADvyfVGRn1V9vaDbrMnUx
+	rdd4t225Z7GuvLuhh4qtU7Yb2dh/XxDq/ceHIxmhVzT+QHg0xHokFg5dFxIc19lYGOU5nTNzIl3
+	/RalNgRtw5JVlVvKOSh4R4cWGC/X13qUx7My/ww==
+X-Gm-Gg: ASbGncvbfp/2mZYSXmrjyeCaYJKs7iiAtd20hCzI8eHmPQhX0uWdHqvQWjBEoW0UsTR
+	gUV9Dn7nVQRjSlLHSk5DGKRYd3v6dSlLm73uDgnSYgpSGyb4OJfV44nEkCHjjrZuhGSbonzWFtQ
+	==
+X-Google-Smtp-Source: AGHT+IE6woj8oPDle191tVLCdn9IrSTd52LbGDiCC/HBR/zbujT5GVfsySFK4K0WQQyEViMhqMK63WlGFClc8+pjkbk=
+X-Received: by 2002:a05:6902:841:b0:e5b:323b:a1a4 with SMTP id
+ 3f1490d57ef6-e5d9f180dc6mr10461212276.41.1739531793901; Fri, 14 Feb 2025
+ 03:16:33 -0800 (PST)
 MIME-Version: 1.0
+References: <CGME20250128194832eucas1p15db9ed3575703812ecc0374ffc5b2861@eucas1p1.samsung.com>
+ <20250128194816.2185326-1-m.wilczynski@samsung.com> <20250128194816.2185326-7-m.wilczynski@samsung.com>
+In-Reply-To: <20250128194816.2185326-7-m.wilczynski@samsung.com>
+From: Ulf Hansson <ulf.hansson@linaro.org>
+Date: Fri, 14 Feb 2025 12:15:58 +0100
+X-Gm-Features: AWEUYZmWRXn0bzCrMyNA_HXGOtxuTTirzpyDWms-8p0mq8f1JPxvJIR_18CPMCg
+Message-ID: <CAPDyKFrcs5Hc-X6qExEA992MoQcakCuKRjw7cek3KpYZihsLFw@mail.gmail.com>
+Subject: Re: [PATCH v4 06/18] pmdomain: thead: Add power-domain driver for TH1520
+To: Michal Wilczynski <m.wilczynski@samsung.com>
+Cc: mturquette@baylibre.com, sboyd@kernel.org, robh@kernel.org, 
+	krzk+dt@kernel.org, conor+dt@kernel.org, drew@pdp7.com, guoren@kernel.org, 
+	wefu@redhat.com, jassisinghbrar@gmail.com, paul.walmsley@sifive.com, 
+	palmer@dabbelt.com, aou@eecs.berkeley.edu, frank.binns@imgtec.com, 
+	matt.coster@imgtec.com, maarten.lankhorst@linux.intel.com, mripard@kernel.org, 
+	tzimmermann@suse.de, airlied@gmail.com, simona@ffwll.ch, jszhang@kernel.org, 
+	p.zabel@pengutronix.de, m.szyprowski@samsung.com, linux-clk@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-riscv@lists.infradead.org, dri-devel@lists.freedesktop.org, 
+	linux-pm@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250214_030942_237685_0DFF29BE 
-X-CRM114-Status: UNSURE (   9.88  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250214_031635_108760_F771AE0B 
+X-CRM114-Status: GOOD (  24.58  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,28 +97,120 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-SGkgSW5vY2hpLAoKT24gRnJpLCAyMDI1LTAyLTE0IGF0IDE3OjQwICswODAwLCBJbm9jaGkgQW1h
-b3RvIHdyb3RlOgo+ID4gK2V4YW1wbGVzOgo+ID4gK8KgIC0gfAo+ID4gK8KgwqDCoCAjaW5jbHVk
-ZSA8ZHQtYmluZGluZ3MvaW50ZXJydXB0LWNvbnRyb2xsZXIvaXJxLmg+Cj4gPiArCj4gPiArwqDC
-oMKgIHJ0Y0A1MDI1MDAwIHsKPiA+ICvCoMKgwqDCoMKgwqDCoCBjb21wYXRpYmxlID0gInNvcGhn
-byxjdjE4MDAtcnRjIjsKPiA+ICvCoMKgwqDCoMKgwqDCoCByZWcgPSA8MHg1MDI1MDAwIDB4MjAw
-MD47Cj4gPiArwqDCoMKgwqDCoMKgwqAgaW50ZXJydXB0cyA9IDwxNyBJUlFfVFlQRV9MRVZFTF9I
-SUdIPjsKPiA+ICvCoMKgwqDCoMKgwqDCoCBjbG9ja3MgPSA8Jm9zYz47Cj4gPiArwqDCoMKgIH07
-Cj4gPiAtLSAKPiAKPiBKdXN0IGZvciBjdXJpb3NpdHksIERvIHlvdSBsZWF2ZSBhIHdheSB0byBp
-bXBsZW1lbnQgdGhlCj4gODA1MSBzdWJzeXMsIHNpbmNlIGl0cyByZWdpc3RlcnMgYXJlIGluIHJ0
-Yy4gKFlvdSBjYW4KPiBjaGVjayB0aGUgY2hhcHRlciAiODA1MSBzdWJzeXN0ZW0iIG9mIHRoZSBT
-RzIwMDIsIHdoaWNoCj4gY2FuIGJlIGZvdW5kIGF0IGh0dHBzOi8vZ2l0aHViLmNvbS9zb3BoZ28v
-c29waGdvLWRvYykuCgp3ZWxsLCBJIHN1cHBvc2UsIHlvdSBrbm93IHRoZSBhbnN3ZXIsIGFjY29y
-ZGluZyB0byBob3cgdGhpcyBoYXMgYmVlbiBtb2RlbGxlZAp3aXRoaW4gdGhpcyBzZXJpZXMsIGFs
-bCB0aGUgZnVuY3Rpb25hbGl0eSBjb3VsZCBvbmx5IGJlIGFkZGVkIG9uIHRvcCBvZiBSVEMKZHJp
-dmVyLiBEbyB5b3UgdGhpbmsgaXQncyB0aW1lIHRvIHJlLWRlc2lnbiBpdCBhcyBjb21wYXRpYmxl
-ID0gInN5c2NvbiIsICJzaW1wbGUtbWZkIgp3aXRoIGNoaWxkcmVuIG5vZGVzIGZvciBSVEMgYW5k
-IHJlYm9vdD8KCi0tIApBbGV4YW5kZXIgU3ZlcmRsaW4uCgoKX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4
-LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFp
-bG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
+On Tue, 28 Jan 2025 at 20:48, Michal Wilczynski
+<m.wilczynski@samsung.com> wrote:
+>
+> The T-Head TH1520 SoC contains multiple power islands that can be
+> programmatically turned on and off using the AON (Always-On) protocol
+> and a hardware mailbox [1]. The relevant mailbox driver has already been
+> merged into the mainline kernel in commit 5d4d263e1c6b ("mailbox:
+> Introduce support for T-head TH1520 Mailbox driver");
+>
+> Introduce a power-domain driver for the TH1520 SoC, which is using AON
+> firmware protocol to communicate with E902 core through the hardware
+> mailbox. This way it can send power on/off commands to the E902 core.
+>
+> The interaction with AUDIO power island e.g trying to turn it OFF proved
+> to crash the firmware running on the E902 core. Introduce the workaround
+> to disable interacting with the power island.
+>
+> Link: https://openbeagle.org/beaglev-ahead/beaglev-ahead/-/blob/main/docs/TH1520%20System%20User%20Manual.pdf [1]
+>
+> Signed-off-by: Michal Wilczynski <m.wilczynski@samsung.com>
+> ---
+
+[...]
+
+> +
+> +static int th1520_pd_probe(struct platform_device *pdev)
+> +{
+> +       struct generic_pm_domain **domains;
+> +       struct genpd_onecell_data *pd_data;
+> +       struct th1520_aon_chan *aon_chan;
+> +       struct device *dev = &pdev->dev;
+> +       int i;
+> +
+> +       aon_chan = dev_get_drvdata(dev->parent);
+> +       if (!aon_chan) {
+> +               dev_err(dev, "Failed to get AON channel from parent\n");
+> +               return -EINVAL;
+> +       }
+
+As pointed out on patch4. Rather than receiving the aon_chang from the
+parent device like this, it seems better to receive it from a call to
+a library function provided by the FW library.
+
+> +
+> +       domains = devm_kcalloc(dev, ARRAY_SIZE(th1520_pd_ranges),
+> +                              sizeof(*domains), GFP_KERNEL);
+> +       if (!domains)
+> +               return -ENOMEM;
+> +
+> +       pd_data = devm_kzalloc(dev, sizeof(*pd_data), GFP_KERNEL);
+> +       if (!pd_data)
+> +               return -ENOMEM;
+> +
+> +       for (i = 0; i < ARRAY_SIZE(th1520_pd_ranges); i++) {
+> +               struct th1520_power_domain *pd;
+> +
+> +               if (th1520_pd_ranges[i].disabled)
+> +                       continue;
+> +
+> +               pd = th1520_add_pm_domain(dev, &th1520_pd_ranges[i]);
+> +               if (IS_ERR(pd))
+> +                       return PTR_ERR(pd);
+> +
+> +               pd->aon_chan = aon_chan;
+> +               domains[i] = &pd->genpd;
+> +               dev_dbg(dev, "added power domain %s\n", pd->genpd.name);
+> +       }
+> +
+> +       pd_data->domains = domains;
+> +       pd_data->num_domains = ARRAY_SIZE(th1520_pd_ranges);
+> +       pd_data->xlate = th1520_pd_xlate;
+> +
+> +       /*
+> +        * Initialize all power domains to off to ensure they start in a
+> +        * low-power state. This allows device drivers to manage power
+> +        * domains by turning them on or off as needed.
+> +        */
+> +       th1520_pd_init_all_off(domains, dev);
+> +
+> +       return of_genpd_add_provider_onecell(dev->parent->of_node, pd_data);
+> +}
+> +
+> +static struct platform_driver th1520_pd_driver = {
+> +       .driver = {
+> +               .name = "th1520-pd",
+> +       },
+> +       .probe = th1520_pd_probe,
+> +};
+> +module_platform_driver(th1520_pd_driver);
+
+There is no ->remove() callback.
+
+Either add one or make this a builtin_platform_driver() with
+"suppress_bind_attrs = true".
+
+> +
+> +MODULE_AUTHOR("Michal Wilczynski <m.wilczynski@samsung.com>");
+> +MODULE_DESCRIPTION("T-HEAD TH1520 SoC power domain controller");
+> +MODULE_LICENSE("GPL");
+> --
+> 2.34.1
+>
+
+Besides the minor thing above, this looks good to me!
+
+Kind regards
+Uffe
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
