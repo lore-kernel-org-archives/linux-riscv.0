@@ -4,88 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E373BC02198
-	for <linux-riscv@archiver.kernel.org>; Fri, 14 Feb 2025 11:16:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 10A6AC021A4
+	for <linux-riscv@archiver.kernel.org>; Fri, 14 Feb 2025 11:44:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=G6qo/AyfYRG3KbCO/HeClhJ5RCjLll6GfiHn+4qe/bc=; b=P8fv84QPkW9EHV
-	SNkJvtk+slc7vqDHbKH3s5QP0tws4yzvGTc4DnBeRABqC1Ww/8eGbm5QjNTryh95Tmflc23GV0USj
-	EFgjz5CQQIUCJ2kbr8oxW7st1JVqSuHzl0MlDFyW/1MDGduX9BAQrDsKW+pMQgfZKl9I0aSDWqJ6p
-	Y0qzomAwTaU58gjonhv7VWmREdJuYp/EKROkKWwwMJ65ypXJMQTWWTeE1jYUde3txRh+7kknFlmQa
-	xL/WBDpdMZ9AMQ81rCP7rx20lA8sMJjkxLRXl8FO167Obr9b+IxRcZCLSY29qYub82DA2rGOKgEV9
-	s/5XXnqdmVKxwwheOOoA==;
+	List-Owner; bh=+ztOTc8sozqE6oRhVFVyNoH3Jofy8/C3dxVcyM2lq8I=; b=l6Z0KZhMTC2rS/
+	OpeSjRwQp1fIDQmWsiVVXhqwTOY5aG4ylOBXI+qFm3exnmDoh3bSCJn55ybmFX8DT/f2R4hVcHZOz
+	5C5Sivku7v+M9kthbslddZc6+Hnm+SoCCPzgNv6Vy9LTw+lhhv6fivZQ7OqalfJDZ6MXVl+awiOAV
+	xdup5yOaKawu0dgOCIVoryyS/5aVQcXNFGd2LM9O6HMTLat+Y0J/7p5oRF+Mb/PAq+FPikb1NVdIj
+	SK69WxRTxUZnGLgwI0fdVgqzlfyxUhHrdkrqMfUFUbYVo5MVGut3x+Ihniljfi0/+Vxixj645kEn4
+	b/vX/zzACukkOoDJJyXA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1titgj-0000000Edg4-43Ml;
-	Fri, 14 Feb 2025 11:16:53 +0000
-Received: from mail-yb1-xb2e.google.com ([2607:f8b0:4864:20::b2e])
+	id 1tiu7b-0000000EitJ-13Du;
+	Fri, 14 Feb 2025 11:44:39 +0000
+Received: from mail-yw1-x1132.google.com ([2607:f8b0:4864:20::1132])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1titgR-0000000EdbT-0FDE
+	id 1titq5-0000000EfZF-0l0b
 	for linux-riscv@lists.infradead.org;
-	Fri, 14 Feb 2025 11:16:36 +0000
-Received: by mail-yb1-xb2e.google.com with SMTP id 3f1490d57ef6-e4930eca0d4so1451876276.3
-        for <linux-riscv@lists.infradead.org>; Fri, 14 Feb 2025 03:16:34 -0800 (PST)
+	Fri, 14 Feb 2025 11:26:34 +0000
+Received: by mail-yw1-x1132.google.com with SMTP id 00721157ae682-6ef9b8b4f13so17595717b3.2
+        for <linux-riscv@lists.infradead.org>; Fri, 14 Feb 2025 03:26:32 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1739531794; x=1740136594; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1739532392; x=1740137192; darn=lists.infradead.org;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=9jM48aKf/sbl9H/oOIzSS3d/8y4m7nkDsYlbYDKZEDc=;
-        b=BgaQQMTO8OXsuLggJebswkN0qWeiffTqILYERCYLG2abhe/CF4RAEv1JoekkvbmcsV
-         2owKG+LdC5jL2aniPD0WkKZdF1+Oseu6mKsJivKLRwUpjkzWlE7Swh+X51RMJ9+YD0I8
-         F9InyH7CHzljze0khPHBp2wOc8wzVum3WIxUH4Pr+QyOCbAs7cGAAh+3YYNAZgZwlD32
-         pVSwD7gi6ul8CjVxb3AuYD6rYDiu8u81mJa1mfAKD0I5ts9C85BBvRK1BErl3+zebRyT
-         UJ7YXBAJS183GYza6/PzQOglmm1cmerVt1tje/TZoUQ/y9ur0pYw6s0sDwisjvUgA0Zn
-         2c/w==
+        bh=V0lFTwfZZcUWkq9fJmOvcld23qYjy5biwQLrQr9JB8A=;
+        b=eI55O4Z9/+C8EXUyL0zhDNa0gjOKvtdVxVw80aMHRG/elcw3fyHUkrLQgwp8L9kaz/
+         HTmA9xyoo62PHsSvrNCjTVWd0BMxyp+hcLqRxenGKaLp90T02xVFpdrXJr5z2/Dp2hc1
+         poYA1dPF2UPyxWIbtVMv+Q8a/BuhcCLLi6W3Q9bvdFmPD1VMJcSak/Fmx908WWjLO9Nt
+         iAbwNtrFul/AU1LIifxUeiuAn63xF+IZMu8UARTmIhxtOVksVJFD2zgeEGxUFN7W3U36
+         +M455oYXd+fFhYQ3YrK0pI0YhUyjRO+0XFnj/7oLCxAQhyhwhb0y1YK6/w7R/JOIEdXQ
+         KGGA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1739531794; x=1740136594;
+        d=1e100.net; s=20230601; t=1739532392; x=1740137192;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=9jM48aKf/sbl9H/oOIzSS3d/8y4m7nkDsYlbYDKZEDc=;
-        b=Dxe5VNYOrFXV0FV5OylPh98lQGpx2WE+FvyLE48LiIODS/7lVuZBlhVQGtWnlCt0mi
-         zJzWxhsvlNZqWbi9ef1XPYhaNW77KOIXBuCpTH5Xhyo0JH1EAp2kZP6Q0XEvW1EyXTT+
-         l5Qpu07YD+x8HIl+lgq75pdnHMTMZJStNYYmd0mPPod4z1jR9jJoYjSlbqqRZr8a40DB
-         blUmohfx25beE1Q2fsoM1jbrf7/99vCyWXEEtXqXApTfLcMxSsf6WAEHU7N+5bUhmp9B
-         Th75kvc5zGgKB8x15QlsCkIoRc67WRz84F4A0Hu3EsLRxXCXKyufnzmp8Cm/934k9pJo
-         np9Q==
-X-Forwarded-Encrypted: i=1; AJvYcCUp9olzwTTDhZ7gA1W7SAKUEhvIv+Pe8AEfF/aC40PfANdXkDA05woypMhmlX5KpSTlBbtbTzcd6FjSxw==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw4I1K+MvA2NSMrrjt3yBxs2zF6YtaADvyfVGRn1V9vaDbrMnUx
-	rdd4t225Z7GuvLuhh4qtU7Yb2dh/XxDq/ceHIxmhVzT+QHg0xHokFg5dFxIc19lYGOU5nTNzIl3
-	/RalNgRtw5JVlVvKOSh4R4cWGC/X13qUx7My/ww==
-X-Gm-Gg: ASbGncvbfp/2mZYSXmrjyeCaYJKs7iiAtd20hCzI8eHmPQhX0uWdHqvQWjBEoW0UsTR
-	gUV9Dn7nVQRjSlLHSk5DGKRYd3v6dSlLm73uDgnSYgpSGyb4OJfV44nEkCHjjrZuhGSbonzWFtQ
+        bh=V0lFTwfZZcUWkq9fJmOvcld23qYjy5biwQLrQr9JB8A=;
+        b=oJ2YY8vbLPlYCM95/sv//SPC+0leV/d3ue2xrfhs+ZZNNoutwR50rq5u8M+NeAQeUN
+         EhRPB+hACUEpPva0cGmUlpl3t7VkLwk9WNvRIBhcpycBU1rcmBsROAbcHvtsJeDWIwVJ
+         be40+ceKNDZzVtIlKdDceXl2APR4dUg3iPbE6DtSkMM9VeeXPq92pMwCu3ru+0GIWVS9
+         gKEPLY8vVlnJoFwsFJv8+ANUvquPjb4/0QzdPQPyuKJJZ95zUUKUBQpifEEaC9CLuiek
+         m2EVZswRtLIVqY1UROLAwNd5jXt/J9WU3fzLNh+hua/GAeqrj4OWUBPA4uWaNud7wbCA
+         dGUg==
+X-Forwarded-Encrypted: i=1; AJvYcCV0BgY15HvcWMhPJZ2NP732o7waek0UTK+WurPCIhOGnjPXV48MI3pVjatxElOEXX0QJuGMTtA1zp3Q/A==@lists.infradead.org
+X-Gm-Message-State: AOJu0YwHDvbFvI9ffowzBT+MGaLjaBrRR0RMqAlSC7n4fVsZyhOS0Cts
+	Ku7GhCjKPdTzdVi9vly+NWVR5n/gjTK+6b8UxubUH6bSlagKpOKgfxQCD0/6JmB6aHkY/TULeGo
+	cR+M83qj8WVXBvhNBl71Pa3MWk+HTbzUxNdeIww==
+X-Gm-Gg: ASbGncu99YPtP3m2M20Iue47AbFIwaiQA7cytPFp9jJcau2TZ4NlzBjt+zRoh+nH2Pz
+	OZiJflZtmtEkR0NVjkioizaWGL4Uxp2bUqqAHVVWAw8ao2xdqBXLnFm/49DSIi4Nb4jKPlAfPjw
 	==
-X-Google-Smtp-Source: AGHT+IE6woj8oPDle191tVLCdn9IrSTd52LbGDiCC/HBR/zbujT5GVfsySFK4K0WQQyEViMhqMK63WlGFClc8+pjkbk=
-X-Received: by 2002:a05:6902:841:b0:e5b:323b:a1a4 with SMTP id
- 3f1490d57ef6-e5d9f180dc6mr10461212276.41.1739531793901; Fri, 14 Feb 2025
- 03:16:33 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IHgAlZM0IOqZW2VzEw1FYIV10AUY+XwYeC5PGfb6gr8KMhdCaMYxrQJlkGON4FNOU8B5yXkDtD2hxcjbR8IEvM=
+X-Received: by 2002:a05:6902:2b11:b0:e5b:18ff:8cf4 with SMTP id
+ 3f1490d57ef6-e5d9f0c85afmr10803625276.5.1739532391918; Fri, 14 Feb 2025
+ 03:26:31 -0800 (PST)
 MIME-Version: 1.0
-References: <CGME20250128194832eucas1p15db9ed3575703812ecc0374ffc5b2861@eucas1p1.samsung.com>
- <20250128194816.2185326-1-m.wilczynski@samsung.com> <20250128194816.2185326-7-m.wilczynski@samsung.com>
-In-Reply-To: <20250128194816.2185326-7-m.wilczynski@samsung.com>
+References: <20250205125225.1152849-1-szemzo.andras@gmail.com>
+In-Reply-To: <20250205125225.1152849-1-szemzo.andras@gmail.com>
 From: Ulf Hansson <ulf.hansson@linaro.org>
-Date: Fri, 14 Feb 2025 12:15:58 +0100
-X-Gm-Features: AWEUYZmWRXn0bzCrMyNA_HXGOtxuTTirzpyDWms-8p0mq8f1JPxvJIR_18CPMCg
-Message-ID: <CAPDyKFrcs5Hc-X6qExEA992MoQcakCuKRjw7cek3KpYZihsLFw@mail.gmail.com>
-Subject: Re: [PATCH v4 06/18] pmdomain: thead: Add power-domain driver for TH1520
-To: Michal Wilczynski <m.wilczynski@samsung.com>
-Cc: mturquette@baylibre.com, sboyd@kernel.org, robh@kernel.org, 
-	krzk+dt@kernel.org, conor+dt@kernel.org, drew@pdp7.com, guoren@kernel.org, 
-	wefu@redhat.com, jassisinghbrar@gmail.com, paul.walmsley@sifive.com, 
-	palmer@dabbelt.com, aou@eecs.berkeley.edu, frank.binns@imgtec.com, 
-	matt.coster@imgtec.com, maarten.lankhorst@linux.intel.com, mripard@kernel.org, 
-	tzimmermann@suse.de, airlied@gmail.com, simona@ffwll.ch, jszhang@kernel.org, 
-	p.zabel@pengutronix.de, m.szyprowski@samsung.com, linux-clk@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-riscv@lists.infradead.org, dri-devel@lists.freedesktop.org, 
-	linux-pm@vger.kernel.org
+Date: Fri, 14 Feb 2025 12:25:55 +0100
+X-Gm-Features: AWEUYZkzFAbsbuTJhoDDXcEDwXJNLijMk4rdL9iJXNhVee2PTovAo1vxRBOIWOQ
+Message-ID: <CAPDyKFq72fqa9xOOw3m2z2ceTj18JFn42PaqxA4Ks+o9dd3FXg@mail.gmail.com>
+Subject: Re: [PATCH v2 00/10] Support for Allwinner V853 SoC
+To: Andras Szemzo <szemzo.andras@gmail.com>
+Cc: Michael Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Chen-Yu Tsai <wens@csie.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
+	Samuel Holland <samuel@sholland.org>, Linus Walleij <linus.walleij@linaro.org>, 
+	Philipp Zabel <p.zabel@pengutronix.de>, Maxime Ripard <mripard@kernel.org>, 
+	Vinod Koul <vkoul@kernel.org>, Kishon Vijay Abraham I <kishon@kernel.org>, 
+	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, =?UTF-8?Q?Uwe_Kleine=2DK=C3=B6nig?= <u.kleine-koenig@baylibre.com>, 
+	Florian Fainelli <florian.fainelli@broadcom.com>, linux-clk@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org, 
+	linux-phy@lists.infradead.org, linux-gpio@vger.kernel.org, 
+	linux-pm@vger.kernel.org, linux-riscv@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250214_031635_108760_F771AE0B 
-X-CRM114-Status: GOOD (  24.58  )
+X-CRM114-CacheID: sfid-20250214_032633_225430_BB73E9E7 
+X-CRM114-Status: GOOD (  21.96  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,113 +104,108 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, 28 Jan 2025 at 20:48, Michal Wilczynski
-<m.wilczynski@samsung.com> wrote:
+On Wed, 5 Feb 2025 at 13:52, Andras Szemzo <szemzo.andras@gmail.com> wrote:
 >
-> The T-Head TH1520 SoC contains multiple power islands that can be
-> programmatically turned on and off using the AON (Always-On) protocol
-> and a hardware mailbox [1]. The relevant mailbox driver has already been
-> merged into the mainline kernel in commit 5d4d263e1c6b ("mailbox:
-> Introduce support for T-head TH1520 Mailbox driver");
+> V85x is a SoC from Allwinner with video encoding targeted for the field of
+> IP Camera. It integrates the single CA7 core, and a T-Head E907 RISC-V mcu.
+> The SoC has the usual Allwinner peripherals and a Vivante NPU.
+> V853 is a BGA package without DRAM, V851s/V851s3 has the same die with
+> co-packaged 64MB/128MB DRAM (in a QFN88 package).
 >
-> Introduce a power-domain driver for the TH1520 SoC, which is using AON
-> firmware protocol to communicate with E902 core through the hardware
-> mailbox. This way it can send power on/off commands to the E902 core.
->
-> The interaction with AUDIO power island e.g trying to turn it OFF proved
-> to crash the firmware running on the E902 core. Introduce the workaround
-> to disable interacting with the power island.
->
-> Link: https://openbeagle.org/beaglev-ahead/beaglev-ahead/-/blob/main/docs/TH1520%20System%20User%20Manual.pdf [1]
->
-> Signed-off-by: Michal Wilczynski <m.wilczynski@samsung.com>
-> ---
+> This patchset tries to add basical support for the V853 device family.
 
-[...]
+Patch5 and patch6 applied for next via my pmdomain tree, thanks!
 
-> +
-> +static int th1520_pd_probe(struct platform_device *pdev)
-> +{
-> +       struct generic_pm_domain **domains;
-> +       struct genpd_onecell_data *pd_data;
-> +       struct th1520_aon_chan *aon_chan;
-> +       struct device *dev = &pdev->dev;
-> +       int i;
-> +
-> +       aon_chan = dev_get_drvdata(dev->parent);
-> +       if (!aon_chan) {
-> +               dev_err(dev, "Failed to get AON channel from parent\n");
-> +               return -EINVAL;
-> +       }
-
-As pointed out on patch4. Rather than receiving the aon_chang from the
-parent device like this, it seems better to receive it from a call to
-a library function provided by the FW library.
-
-> +
-> +       domains = devm_kcalloc(dev, ARRAY_SIZE(th1520_pd_ranges),
-> +                              sizeof(*domains), GFP_KERNEL);
-> +       if (!domains)
-> +               return -ENOMEM;
-> +
-> +       pd_data = devm_kzalloc(dev, sizeof(*pd_data), GFP_KERNEL);
-> +       if (!pd_data)
-> +               return -ENOMEM;
-> +
-> +       for (i = 0; i < ARRAY_SIZE(th1520_pd_ranges); i++) {
-> +               struct th1520_power_domain *pd;
-> +
-> +               if (th1520_pd_ranges[i].disabled)
-> +                       continue;
-> +
-> +               pd = th1520_add_pm_domain(dev, &th1520_pd_ranges[i]);
-> +               if (IS_ERR(pd))
-> +                       return PTR_ERR(pd);
-> +
-> +               pd->aon_chan = aon_chan;
-> +               domains[i] = &pd->genpd;
-> +               dev_dbg(dev, "added power domain %s\n", pd->genpd.name);
-> +       }
-> +
-> +       pd_data->domains = domains;
-> +       pd_data->num_domains = ARRAY_SIZE(th1520_pd_ranges);
-> +       pd_data->xlate = th1520_pd_xlate;
-> +
-> +       /*
-> +        * Initialize all power domains to off to ensure they start in a
-> +        * low-power state. This allows device drivers to manage power
-> +        * domains by turning them on or off as needed.
-> +        */
-> +       th1520_pd_init_all_off(domains, dev);
-> +
-> +       return of_genpd_add_provider_onecell(dev->parent->of_node, pd_data);
-> +}
-> +
-> +static struct platform_driver th1520_pd_driver = {
-> +       .driver = {
-> +               .name = "th1520-pd",
-> +       },
-> +       .probe = th1520_pd_probe,
-> +};
-> +module_platform_driver(th1520_pd_driver);
-
-There is no ->remove() callback.
-
-Either add one or make this a builtin_platform_driver() with
-"suppress_bind_attrs = true".
-
-> +
-> +MODULE_AUTHOR("Michal Wilczynski <m.wilczynski@samsung.com>");
-> +MODULE_DESCRIPTION("T-HEAD TH1520 SoC power domain controller");
-> +MODULE_LICENSE("GPL");
-> --
-> 2.34.1
->
-
-Besides the minor thing above, this looks good to me!
+Note, patch5 (the DT patch) is also available on the immutable dt
+branch, if soc maintainers need to pull it.
 
 Kind regards
 Uffe
+
+
+
+>
+> Changelog - v2:
+>  - rebased on 6.14-rc1
+>  - add a needed gate with key support to sunxi clk
+>  - rewrite the ccu-r driver
+>  - fix license issues
+>  - remove the pinctrl binding, as it has beed applied
+>  - rework the pinctrl driver, use the new sunxi dt based mux support. This new pinctrl
+>    driver depends on the new sunxi device-tree based mux support patch series [1].
+>  - remove the new usb phy binding, as the v853's usb phy is very close to d1/a64
+>  - add a board dts
+>  - ccu: add module description
+>  - ccu: fix PLL enable bits, and min multipliers
+>  - ccu: change PLL flags to CLK_SET_RATE_GATE
+>  - ccu: use SUNXI_CCU_M_HWS at peripheral PLLs
+>  - ccu: convert the VIDEO and CSI PLLs from nm type to nkmp according to BSP
+>  - ccu: cpu axi clk use pointer
+>  - ccu: fix comments
+>  - ccu: swap i2s1 and i2s0 bus clocks
+>  - ccu: fix indentation
+>  - ccu: fix RST_BUS_SPIF order
+>  - ccu: convert RST_RISCV_CLK_GATING from reset to gate
+>
+> [1]: https://lore.kernel.org/linux-sunxi/20241111005750.13071-1-andre.przywara@arm.com/T/
+>
+> Andras Szemzo (10):
+>   clk: sunxi-ng: allow key feature in ccu reset and gate
+>   pinctrl: sunxi: add driver for Allwinner V853
+>   dt-bindings: clock: sunxi-ng: add compatibles for V853
+>   clk: sunxi-ng: add CCU drivers for V853
+>   dt-bindings: power: add V853 ppu bindings
+>   pmdomain: sunxi: add V853 ppu support
+>   dt-bindings: phy: allwinner: add v853 usb phy
+>   phy: allwinner: add v853 usb phy compatible
+>   ARM: dts: sun8i: add DTSI file for V853
+>   ARM: dts: sun8i: add DTS file for yuzuki-lizard V851s
+>
+>  .../clock/allwinner,sun4i-a10-ccu.yaml        |    3 +
+>  .../phy/allwinner,sun50i-a64-usb-phy.yaml     |    2 +
+>  .../power/allwinner,sun20i-d1-ppu.yaml        |    1 +
+>  arch/arm/boot/dts/allwinner/Makefile          |    1 +
+>  .../boot/dts/allwinner/sun8i-v851s-lizard.dts |  196 +++
+>  arch/arm/boot/dts/allwinner/sun8i-v853.dtsi   |  656 ++++++++++
+>  drivers/clk/sunxi-ng/Kconfig                  |   10 +
+>  drivers/clk/sunxi-ng/Makefile                 |    4 +
+>  drivers/clk/sunxi-ng/ccu-sun8i-v853-r.c       |  120 ++
+>  drivers/clk/sunxi-ng/ccu-sun8i-v853-r.h       |   14 +
+>  drivers/clk/sunxi-ng/ccu-sun8i-v853.c         | 1145 +++++++++++++++++
+>  drivers/clk/sunxi-ng/ccu-sun8i-v853.h         |   14 +
+>  drivers/clk/sunxi-ng/ccu_common.h             |    2 +
+>  drivers/clk/sunxi-ng/ccu_gate.c               |    6 +
+>  drivers/clk/sunxi-ng/ccu_gate.h               |   14 +
+>  drivers/clk/sunxi-ng/ccu_mux.c                |    4 +-
+>  drivers/clk/sunxi-ng/ccu_reset.c              |    7 +
+>  drivers/clk/sunxi-ng/ccu_reset.h              |    2 +-
+>  drivers/phy/allwinner/phy-sun4i-usb.c         |   10 +
+>  drivers/pinctrl/sunxi/Kconfig                 |    5 +
+>  drivers/pinctrl/sunxi/Makefile                |    1 +
+>  drivers/pinctrl/sunxi/pinctrl-sun8i-v853.c    |   53 +
+>  drivers/pmdomain/sunxi/sun20i-ppu.c           |   15 +
+>  .../clock/allwinner,sun8i-v853-ccu.h          |  132 ++
+>  .../clock/allwinner,sun8i-v853-r-ccu.h        |   16 +
+>  .../power/allwinner,sun8i-v853-ppu.h          |   10 +
+>  .../reset/allwinner,sun8i-v853-ccu.h          |   60 +
+>  .../reset/allwinner,sun8i-v853-r-ccu.h        |   14 +
+>  28 files changed, 2513 insertions(+), 4 deletions(-)
+>  create mode 100644 arch/arm/boot/dts/allwinner/sun8i-v851s-lizard.dts
+>  create mode 100644 arch/arm/boot/dts/allwinner/sun8i-v853.dtsi
+>  create mode 100644 drivers/clk/sunxi-ng/ccu-sun8i-v853-r.c
+>  create mode 100644 drivers/clk/sunxi-ng/ccu-sun8i-v853-r.h
+>  create mode 100644 drivers/clk/sunxi-ng/ccu-sun8i-v853.c
+>  create mode 100644 drivers/clk/sunxi-ng/ccu-sun8i-v853.h
+>  create mode 100644 drivers/pinctrl/sunxi/pinctrl-sun8i-v853.c
+>  create mode 100644 include/dt-bindings/clock/allwinner,sun8i-v853-ccu.h
+>  create mode 100644 include/dt-bindings/clock/allwinner,sun8i-v853-r-ccu.h
+>  create mode 100644 include/dt-bindings/power/allwinner,sun8i-v853-ppu.h
+>  create mode 100644 include/dt-bindings/reset/allwinner,sun8i-v853-ccu.h
+>  create mode 100644 include/dt-bindings/reset/allwinner,sun8i-v853-r-ccu.h
+>
+> --
+> 2.39.5
+>
 
 _______________________________________________
 linux-riscv mailing list
