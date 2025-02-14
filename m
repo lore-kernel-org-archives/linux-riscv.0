@@ -4,90 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 10A6AC021A4
-	for <linux-riscv@archiver.kernel.org>; Fri, 14 Feb 2025 11:44:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 96480C02198
+	for <linux-riscv@archiver.kernel.org>; Fri, 14 Feb 2025 11:49:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
+	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=+ztOTc8sozqE6oRhVFVyNoH3Jofy8/C3dxVcyM2lq8I=; b=l6Z0KZhMTC2rS/
-	OpeSjRwQp1fIDQmWsiVVXhqwTOY5aG4ylOBXI+qFm3exnmDoh3bSCJn55ybmFX8DT/f2R4hVcHZOz
-	5C5Sivku7v+M9kthbslddZc6+Hnm+SoCCPzgNv6Vy9LTw+lhhv6fivZQ7OqalfJDZ6MXVl+awiOAV
-	xdup5yOaKawu0dgOCIVoryyS/5aVQcXNFGd2LM9O6HMTLat+Y0J/7p5oRF+Mb/PAq+FPikb1NVdIj
-	SK69WxRTxUZnGLgwI0fdVgqzlfyxUhHrdkrqMfUFUbYVo5MVGut3x+Ihniljfi0/+Vxixj645kEn4
-	b/vX/zzACukkOoDJJyXA==;
+	List-Owner; bh=bunN1h8gbZzECje6bSMrYn/dWL//12Cd3rWhICdB3Zg=; b=fo3fjVYG5fCXEZ
+	GD9KdlfBQa2Y037SWjtK3EQY/UOU1pswHojmShJeyLFZ5w/oJHH+9qs3sRyYdBmljk4wPrOoWKlgJ
+	pgnUQYdEkmG8IQLf4uJT7jbZiI3424x16n88tHvOxkBarKuoGYrjJTteF6EJ24aETgX4emJ3TYPyg
+	QhPMmkVsGJgI1Wkl1DWABIk29oQXE3oMl7oo9tYTIh7lEk1jOqRfKMH7Sk92JtUOXRUMJG9ZQhMR1
+	o+yR83XSbQYeSSYlWzIKwKBKeD6MRRCJR1vGS+rm2rwHOhm4c30O0Tgv06AmaDGqK+s1dmMuKLoTh
+	AMQEf62LxVBALaohOEKQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiu7b-0000000EitJ-13Du;
-	Fri, 14 Feb 2025 11:44:39 +0000
-Received: from mail-yw1-x1132.google.com ([2607:f8b0:4864:20::1132])
+	id 1tiuBr-0000000EjoU-3wbl;
+	Fri, 14 Feb 2025 11:49:03 +0000
+Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1titq5-0000000EfZF-0l0b
-	for linux-riscv@lists.infradead.org;
-	Fri, 14 Feb 2025 11:26:34 +0000
-Received: by mail-yw1-x1132.google.com with SMTP id 00721157ae682-6ef9b8b4f13so17595717b3.2
-        for <linux-riscv@lists.infradead.org>; Fri, 14 Feb 2025 03:26:32 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1739532392; x=1740137192; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=V0lFTwfZZcUWkq9fJmOvcld23qYjy5biwQLrQr9JB8A=;
-        b=eI55O4Z9/+C8EXUyL0zhDNa0gjOKvtdVxVw80aMHRG/elcw3fyHUkrLQgwp8L9kaz/
-         HTmA9xyoo62PHsSvrNCjTVWd0BMxyp+hcLqRxenGKaLp90T02xVFpdrXJr5z2/Dp2hc1
-         poYA1dPF2UPyxWIbtVMv+Q8a/BuhcCLLi6W3Q9bvdFmPD1VMJcSak/Fmx908WWjLO9Nt
-         iAbwNtrFul/AU1LIifxUeiuAn63xF+IZMu8UARTmIhxtOVksVJFD2zgeEGxUFN7W3U36
-         +M455oYXd+fFhYQ3YrK0pI0YhUyjRO+0XFnj/7oLCxAQhyhwhb0y1YK6/w7R/JOIEdXQ
-         KGGA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1739532392; x=1740137192;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=V0lFTwfZZcUWkq9fJmOvcld23qYjy5biwQLrQr9JB8A=;
-        b=oJ2YY8vbLPlYCM95/sv//SPC+0leV/d3ue2xrfhs+ZZNNoutwR50rq5u8M+NeAQeUN
-         EhRPB+hACUEpPva0cGmUlpl3t7VkLwk9WNvRIBhcpycBU1rcmBsROAbcHvtsJeDWIwVJ
-         be40+ceKNDZzVtIlKdDceXl2APR4dUg3iPbE6DtSkMM9VeeXPq92pMwCu3ru+0GIWVS9
-         gKEPLY8vVlnJoFwsFJv8+ANUvquPjb4/0QzdPQPyuKJJZ95zUUKUBQpifEEaC9CLuiek
-         m2EVZswRtLIVqY1UROLAwNd5jXt/J9WU3fzLNh+hua/GAeqrj4OWUBPA4uWaNud7wbCA
-         dGUg==
-X-Forwarded-Encrypted: i=1; AJvYcCV0BgY15HvcWMhPJZ2NP732o7waek0UTK+WurPCIhOGnjPXV48MI3pVjatxElOEXX0QJuGMTtA1zp3Q/A==@lists.infradead.org
-X-Gm-Message-State: AOJu0YwHDvbFvI9ffowzBT+MGaLjaBrRR0RMqAlSC7n4fVsZyhOS0Cts
-	Ku7GhCjKPdTzdVi9vly+NWVR5n/gjTK+6b8UxubUH6bSlagKpOKgfxQCD0/6JmB6aHkY/TULeGo
-	cR+M83qj8WVXBvhNBl71Pa3MWk+HTbzUxNdeIww==
-X-Gm-Gg: ASbGncu99YPtP3m2M20Iue47AbFIwaiQA7cytPFp9jJcau2TZ4NlzBjt+zRoh+nH2Pz
-	OZiJflZtmtEkR0NVjkioizaWGL4Uxp2bUqqAHVVWAw8ao2xdqBXLnFm/49DSIi4Nb4jKPlAfPjw
-	==
-X-Google-Smtp-Source: AGHT+IHgAlZM0IOqZW2VzEw1FYIV10AUY+XwYeC5PGfb6gr8KMhdCaMYxrQJlkGON4FNOU8B5yXkDtD2hxcjbR8IEvM=
-X-Received: by 2002:a05:6902:2b11:b0:e5b:18ff:8cf4 with SMTP id
- 3f1490d57ef6-e5d9f0c85afmr10803625276.5.1739532391918; Fri, 14 Feb 2025
- 03:26:31 -0800 (PST)
+	id 1tity6-0000000Eh5z-3zXl;
+	Fri, 14 Feb 2025 11:34:52 +0000
+From: Thomas Gleixner <tglx@linutronix.de>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1739532886;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=WWdSDqLPiHMtkC3qRBjEr7KgW5xesCDv6jmHPBIB4Zc=;
+	b=0VNtTEYhNZqymGENVsUmuk+rnlFfX7RSGT3Ho51Jzxq38FSlmeIElqqU148QkLgRvvbxMF
+	oARriYR4RFpth96NjMkBo5hNBkelucCuzn5JwatniL1M08uy4SKjyhCAdV/qdQ/eba99LI
+	XiEfVSgYOnLLjTtprHlvawcrkXxeqR+m8TpQcRwp+J+sEstFenL0586F5ak1q3mLy7LV6n
+	qnrektVapcPsyxUDFZn8atapF68IW+EhNarZoqS+FgcZ3nF1GslRp9zthgkNswbWYfqivE
+	2J78e9sNA7ZDPletmeb/HsB02wyQreu92A/Zp2E3TtpGj+8SwnWuzKOp2Uz71Q==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1739532886;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=WWdSDqLPiHMtkC3qRBjEr7KgW5xesCDv6jmHPBIB4Zc=;
+	b=WFnwPIfjvhMmBrrfQwvQ/cPdgZnaXQkJD4fxKY5hU7USn1NEKaf7iB28bu/zo8sPSUnwBx
+	KGOlqDpRoCYGNWAw==
+To: David Woodhouse <dwmw2@infradead.org>, Thomas =?utf-8?Q?Wei=C3=9Fschuh?=
+ <thomas.weissschuh@linutronix.de>, "James E.J. Bottomley"
+ <James.Bottomley@HansenPartnership.com>, Helge
+ Deller <deller@gmx.de>, Andy Lutomirski <luto@kernel.org>, Vincenzo
+ Frascino <vincenzo.frascino@arm.com>, Anna-Maria Behnsen
+ <anna-maria@linutronix.de>, Frederic Weisbecker <frederic@kernel.org>,
+ Andrew Morton <akpm@linux-foundation.org>, Catalin
+ Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, Theodore
+ Ts'o <tytso@mit.edu>, "Jason A. Donenfeld" <Jason@zx2c4.com>, Paul Walmsley
+ <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
+ <aou@eecs.berkeley.edu>, Huacai Chen <chenhuacai@kernel.org>, WANG Xuerui
+ <kernel@xen0n.name>, Russell King <linux@armlinux.org.uk>, Heiko Carstens
+ <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>, Alexander Gordeev
+ <agordeev@linux.ibm.com>, Christian Borntraeger
+ <borntraeger@linux.ibm.com>, Sven Schnelle <svens@linux.ibm.com>, Thomas
+ Bogendoerfer <tsbogend@alpha.franken.de>, Michael Ellerman
+ <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>, Christophe
+ Leroy <christophe.leroy@csgroup.eu>, Naveen N Rao <naveen@kernel.org>,
+ Madhavan
+ Srinivasan <maddy@linux.ibm.com>, Ingo Molnar <mingo@redhat.com>, Borislav
+ Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>,
+ x86@kernel.org, "H. Peter Anvin" <hpa@zytor.com>, Arnd Bergmann
+ <arnd@arndb.de>, Guo Ren <guoren@kernel.org>
+Cc: linux-parisc@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-riscv@lists.infradead.org,
+ loongarch@lists.linux.dev, linux-s390@vger.kernel.org,
+ linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+ linux-arch@vger.kernel.org, Nam Cao <namcao@linutronix.de>,
+ linux-csky@vger.kernel.org, "Ridoux, Julien" <ridouxj@amazon.com>, "Luu,
+ Ryan" <rluu@amazon.com>, kvm <kvm@vger.kernel.org>
+Subject: Re: [PATCH v3 00/18] vDSO: Introduce generic data storage
+In-Reply-To: <ff83dc5c91b4e46bcf2d99680ec6af250fb05b27.camel@infradead.org>
+References: <20250204-vdso-store-rng-v3-0-13a4669dfc8c@linutronix.de>
+ <ff83dc5c91b4e46bcf2d99680ec6af250fb05b27.camel@infradead.org>
+Date: Fri, 14 Feb 2025 12:34:44 +0100
+Message-ID: <87ed00kbe3.ffs@tglx>
 MIME-Version: 1.0
-References: <20250205125225.1152849-1-szemzo.andras@gmail.com>
-In-Reply-To: <20250205125225.1152849-1-szemzo.andras@gmail.com>
-From: Ulf Hansson <ulf.hansson@linaro.org>
-Date: Fri, 14 Feb 2025 12:25:55 +0100
-X-Gm-Features: AWEUYZkzFAbsbuTJhoDDXcEDwXJNLijMk4rdL9iJXNhVee2PTovAo1vxRBOIWOQ
-Message-ID: <CAPDyKFq72fqa9xOOw3m2z2ceTj18JFn42PaqxA4Ks+o9dd3FXg@mail.gmail.com>
-Subject: Re: [PATCH v2 00/10] Support for Allwinner V853 SoC
-To: Andras Szemzo <szemzo.andras@gmail.com>
-Cc: Michael Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Chen-Yu Tsai <wens@csie.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
-	Samuel Holland <samuel@sholland.org>, Linus Walleij <linus.walleij@linaro.org>, 
-	Philipp Zabel <p.zabel@pengutronix.de>, Maxime Ripard <mripard@kernel.org>, 
-	Vinod Koul <vkoul@kernel.org>, Kishon Vijay Abraham I <kishon@kernel.org>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, =?UTF-8?Q?Uwe_Kleine=2DK=C3=B6nig?= <u.kleine-koenig@baylibre.com>, 
-	Florian Fainelli <florian.fainelli@broadcom.com>, linux-clk@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org, 
-	linux-phy@lists.infradead.org, linux-gpio@vger.kernel.org, 
-	linux-pm@vger.kernel.org, linux-riscv@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250214_032633_225430_BB73E9E7 
-X-CRM114-Status: GOOD (  21.96  )
+X-CRM114-CacheID: sfid-20250214_033451_138757_97DC5281 
+X-CRM114-Status: GOOD (  22.36  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,115 +99,41 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, 5 Feb 2025 at 13:52, Andras Szemzo <szemzo.andras@gmail.com> wrote:
->
-> V85x is a SoC from Allwinner with video encoding targeted for the field of
-> IP Camera. It integrates the single CA7 core, and a T-Head E907 RISC-V mcu.
-> The SoC has the usual Allwinner peripherals and a Vivante NPU.
-> V853 is a BGA package without DRAM, V851s/V851s3 has the same die with
-> co-packaged 64MB/128MB DRAM (in a QFN88 package).
->
-> This patchset tries to add basical support for the V853 device family.
-
-Patch5 and patch6 applied for next via my pmdomain tree, thanks!
-
-Note, patch5 (the DT patch) is also available on the immutable dt
-branch, if soc maintainers need to pull it.
-
-Kind regards
-Uffe
-
-
-
->
-> Changelog - v2:
->  - rebased on 6.14-rc1
->  - add a needed gate with key support to sunxi clk
->  - rewrite the ccu-r driver
->  - fix license issues
->  - remove the pinctrl binding, as it has beed applied
->  - rework the pinctrl driver, use the new sunxi dt based mux support. This new pinctrl
->    driver depends on the new sunxi device-tree based mux support patch series [1].
->  - remove the new usb phy binding, as the v853's usb phy is very close to d1/a64
->  - add a board dts
->  - ccu: add module description
->  - ccu: fix PLL enable bits, and min multipliers
->  - ccu: change PLL flags to CLK_SET_RATE_GATE
->  - ccu: use SUNXI_CCU_M_HWS at peripheral PLLs
->  - ccu: convert the VIDEO and CSI PLLs from nm type to nkmp according to BSP
->  - ccu: cpu axi clk use pointer
->  - ccu: fix comments
->  - ccu: swap i2s1 and i2s0 bus clocks
->  - ccu: fix indentation
->  - ccu: fix RST_BUS_SPIF order
->  - ccu: convert RST_RISCV_CLK_GATING from reset to gate
->
-> [1]: https://lore.kernel.org/linux-sunxi/20241111005750.13071-1-andre.przywara@arm.com/T/
->
-> Andras Szemzo (10):
->   clk: sunxi-ng: allow key feature in ccu reset and gate
->   pinctrl: sunxi: add driver for Allwinner V853
->   dt-bindings: clock: sunxi-ng: add compatibles for V853
->   clk: sunxi-ng: add CCU drivers for V853
->   dt-bindings: power: add V853 ppu bindings
->   pmdomain: sunxi: add V853 ppu support
->   dt-bindings: phy: allwinner: add v853 usb phy
->   phy: allwinner: add v853 usb phy compatible
->   ARM: dts: sun8i: add DTSI file for V853
->   ARM: dts: sun8i: add DTS file for yuzuki-lizard V851s
->
->  .../clock/allwinner,sun4i-a10-ccu.yaml        |    3 +
->  .../phy/allwinner,sun50i-a64-usb-phy.yaml     |    2 +
->  .../power/allwinner,sun20i-d1-ppu.yaml        |    1 +
->  arch/arm/boot/dts/allwinner/Makefile          |    1 +
->  .../boot/dts/allwinner/sun8i-v851s-lizard.dts |  196 +++
->  arch/arm/boot/dts/allwinner/sun8i-v853.dtsi   |  656 ++++++++++
->  drivers/clk/sunxi-ng/Kconfig                  |   10 +
->  drivers/clk/sunxi-ng/Makefile                 |    4 +
->  drivers/clk/sunxi-ng/ccu-sun8i-v853-r.c       |  120 ++
->  drivers/clk/sunxi-ng/ccu-sun8i-v853-r.h       |   14 +
->  drivers/clk/sunxi-ng/ccu-sun8i-v853.c         | 1145 +++++++++++++++++
->  drivers/clk/sunxi-ng/ccu-sun8i-v853.h         |   14 +
->  drivers/clk/sunxi-ng/ccu_common.h             |    2 +
->  drivers/clk/sunxi-ng/ccu_gate.c               |    6 +
->  drivers/clk/sunxi-ng/ccu_gate.h               |   14 +
->  drivers/clk/sunxi-ng/ccu_mux.c                |    4 +-
->  drivers/clk/sunxi-ng/ccu_reset.c              |    7 +
->  drivers/clk/sunxi-ng/ccu_reset.h              |    2 +-
->  drivers/phy/allwinner/phy-sun4i-usb.c         |   10 +
->  drivers/pinctrl/sunxi/Kconfig                 |    5 +
->  drivers/pinctrl/sunxi/Makefile                |    1 +
->  drivers/pinctrl/sunxi/pinctrl-sun8i-v853.c    |   53 +
->  drivers/pmdomain/sunxi/sun20i-ppu.c           |   15 +
->  .../clock/allwinner,sun8i-v853-ccu.h          |  132 ++
->  .../clock/allwinner,sun8i-v853-r-ccu.h        |   16 +
->  .../power/allwinner,sun8i-v853-ppu.h          |   10 +
->  .../reset/allwinner,sun8i-v853-ccu.h          |   60 +
->  .../reset/allwinner,sun8i-v853-r-ccu.h        |   14 +
->  28 files changed, 2513 insertions(+), 4 deletions(-)
->  create mode 100644 arch/arm/boot/dts/allwinner/sun8i-v851s-lizard.dts
->  create mode 100644 arch/arm/boot/dts/allwinner/sun8i-v853.dtsi
->  create mode 100644 drivers/clk/sunxi-ng/ccu-sun8i-v853-r.c
->  create mode 100644 drivers/clk/sunxi-ng/ccu-sun8i-v853-r.h
->  create mode 100644 drivers/clk/sunxi-ng/ccu-sun8i-v853.c
->  create mode 100644 drivers/clk/sunxi-ng/ccu-sun8i-v853.h
->  create mode 100644 drivers/pinctrl/sunxi/pinctrl-sun8i-v853.c
->  create mode 100644 include/dt-bindings/clock/allwinner,sun8i-v853-ccu.h
->  create mode 100644 include/dt-bindings/clock/allwinner,sun8i-v853-r-ccu.h
->  create mode 100644 include/dt-bindings/power/allwinner,sun8i-v853-ppu.h
->  create mode 100644 include/dt-bindings/reset/allwinner,sun8i-v853-ccu.h
->  create mode 100644 include/dt-bindings/reset/allwinner,sun8i-v853-r-ccu.h
->
-> --
-> 2.39.5
->
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+RGF2aWQhCgpPbiBUaHUsIEZlYiAwNiAyMDI1IGF0IDA5OjMxLCBEYXZpZCBXb29kaG91c2Ugd3Jv
+dGU6Cj4gVGhhbmtzIGZvciB3b3JraW5nIG9uIHRoaXMuIElzIHRoZXJlIGEgcGxhbiB0byBleHBv
+c2UgdGhlIHRpbWUgZGF0YQo+IGRpcmVjdGx5IHRvIHVzZXJzcGFjZSBpbiBhIGZvcm0gd2hpY2gg
+aXMgdXNhYmxlICpvdGhlciogdGhhbiBieQo+IGZ1bmN0aW9uIGNhbGxzIHdoaWNoIGdldCB0aGUg
+dmFsdWUgb2YgdGhlIGNsb2NrIGF0IGEgZ2l2ZW4gbW9tZW50Pwo+Cj4gRm9yIHBvcHVsYXRpbmcg
+dGhlIHZtY2xvY2sgZGV2aWNlwrkgd2UgbmVlZCB0byBrbm93IHRoZSBhY3R1YWwKPiByZWxhdGlv
+bnNoaXAgYmV0d2VlbiB0aGUgaGFyZHdhcmUgY291bnRlciAoVFNDLCBhcmNoIHRpbWVyLCBldGMu
+KSBhbmQKPiByZWFsIHRpbWUgaW4gb3JkZXIgdG8gcHJvcGFnYXRlIHRoYXQgdG8gdGhlIGd1ZXN0
+Lgo+Cj4gSSBzZWUgdHdvIG9wdGlvbnMgZm9yIGRvaW5nIHRoaXM6Cj4KPiAgMS4gVmlhIHVzZXJz
+cGFjZSwgZXhwb3NpbmcgdGhlIHZkc28gdGltZSBkYXRhIChhbmQgYSBub3RpZmljYXRpb24gd2hl
+bgo+ICAgICBpdCBjaGFuZ2VzPykgYW5kIGxldHRpbmcgdGhlIHVzZXJzcGFjZSBWTU0gcG9wdWxh
+dGUgdGhlIHZtY2xvY2suCj4gICAgIFRoaXMgaXMgY29tcGxleCBmb3IgeDg2IGJlY2F1c2Ugb2Yg
+VFNDIHNjYWxpbmc7IGluIGZhY3QgdXNlcnNwYWNlCj4gICAgIGRvZXNuJ3QgY3VycmVudGx5IGtu
+b3cgdGhlIHByZWNpc2Ugc2NhbGluZyBmcm9tIGhvc3QgdG8gZ3Vlc3QgVFNDCj4gICAgIHNvIHdl
+J2QgaGF2ZSB0byBiZSBhYmxlIHRvIGV4dHJhY3QgdGhhdCBmcm9tIEtWTS4KCkV4cG9zaW5nIHRo
+ZSByYXcgZGF0YSBpcyBub3QgZ29pbmcgdG8gaGFwcGVuIGFzIHdlIHdvdWxkIGNyZWF0ZSBhbiBB
+QkkKcHJldmVudGluZyBhbnkgbW9kaWZpY2F0aW9ucyB0byB0aGUgaW50ZXJuYWxzLiBWRFNPIGRh
+dGEgaXMgY29uc2lkZXJlZCBhCmZ1bGx5IGludGVybmFsICh0aGluayBrZXJuZWwpIHJlcHJlc2Vu
+dGF0aW9uIGFuZCB0aGUgYWNjZXNzb3IgZnVuY3Rpb25zCmNyZWF0ZSBhbiBBQkkgYXJvdW5kIGl0
+LiBTbyBpZiBhdCBhbGwgeW91IGNhbiBhZGQgYSBhY2Nlc3NvciBmdW5jdGlvbgp3aGljaCBleHBv
+c2VzIGRhdGEgdG8gdXNlciBzcGFjZSBzbyB0aGF0IHRoZSBpbnRlcm5hbCBkYXRhCnJlcHJlc2Vu
+dGF0aW9uIGNhbiBzdGlsbCBiZSBtb2RpZmllZCBhcyBuZWNlc3NhcnkuCgo+ICAyLiBJbiBrZXJu
+ZWwsIGFza2luZyBLVk0gdG8gcG9wdWxhdGUgdGhlIHZtY2xvY2sgc3RydWN0dXJlIG11Y2ggbGlr
+ZQo+ICAgICBpdCBkb2VzIG90aGVyIHB2Y2xvY2tzIHNoYXJlZCB3aXRoIHRoZSBndWVzdC4gS1ZN
+L3g4NiBhbHJlYWR5IHVzZXMKPiAgICAgcHZjbG9ja19ndG9kX3JlZ2lzdGVyX25vdGlmaWVyKCkg
+dG8gaG9vayBjaGFuZ2VzOyBzaG91bGQgd2UgZXhwYW5kCj4gICAgIG9uIHRoYXQ/IFRoZSBwcm9i
+bGVtIHdpdGggdGhhdCBub3RpZmllciBpcyB0aGF0IGl0IHNlZW1zIHRvIGJlCj4gICAgIGNhbGxl
+ZCBmYXIgbW9yZSBmcmVxdWVudGx5IHRoYW4gSSdkIGV4cGVjdC4KCkl0J3MgY2FsbGVkIG9uY2Ug
+cGVyIHRpY2sgdG8gZXhwb3NlIHRoZSBjb250aW5vdXMgdXBkYXRlcyB0byB0aGUKY29udmVyc2lv
+biBmYWN0b3JzIGFuZCByZWxhdGVkIGludGVybmFsIGRhdGEuCgpUaGFua3MsCgogICAgICAgIHRn
+bHgKCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51
+eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRw
+Oi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
