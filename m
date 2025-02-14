@@ -4,92 +4,175 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 80EF3C02198
-	for <linux-riscv@archiver.kernel.org>; Fri, 14 Feb 2025 16:35:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D75DDC02198
+	for <linux-riscv@archiver.kernel.org>; Fri, 14 Feb 2025 17:09:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=+vGYRkaZBtvzkmHDoT7PAdftPeBGkovyNO87COyl9o4=; b=2UVYDFpc4g8TYc
-	pFckUTwmyx8X8OJ1h2jTnVyhjtw08YfcPb6O07c86u6ZNZTNrYZ+nGrjNLr84+Ot9Q6hwASwd5Dsa
-	vtvqsV2RbtenJrukrbtbDYfPbZez1AXED71VJ1BzIf2xvrCAmzJa5rhFSarUV7qnHfOJUAxN5kCQG
-	5kYazQWVDkdK+kQLNKbyAwbbUVnNhtpM5KKp8pB7fKjq47Qz658UFtWkWfWslWGbJGchR8EZY29c0
-	YFgUQKafd4Rwbk+i7TNI5k6nIAtpBSTEwWHBLNrq9A4BVCRBleOSM+EoJ2BQXYVItP8lDopTeIfJ+
-	FGbx2PtAFaQdL8iMBQqw==;
+	List-Owner; bh=heJIqUb2yVVIiXz6cUiY0HTR4xQpibnMfcotiZyz+Lg=; b=f+Ec4GGTv/WsUl
+	KLkFU1B33A9h7dfK7kTcpdJQPUHWQugfS3Nbk2g+DWVWGFIotOoo7Mqfv1Vc+YlBXCx1tDGqXzsQl
+	64ms60naK5lyi7mnA/Dz301MFg3UK1gWyuuRCebXhIBkJTfSnyeBtZ6XRFI85bCg0g7AWc6Aup7s5
+	Ix6N+I+s1enP4KN/Q9uwPmAMal4v/LvcVFlsDJdvSs0lc89x4NaqQluBOmtoc1LWxIOw0qsGjftEF
+	2jYoYWXILSscEhwJQ6UZGF39P31IrHIwIuCkRGkec3yTHRP8RhlxgzvxzMMXLjmgbfJ9uowr87EMZ
+	c4shkHb+aHQpq1V5dA6g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiyel-0000000FX5z-1UPO;
-	Fri, 14 Feb 2025 16:35:11 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tizC6-0000000FdOY-2ehw;
+	Fri, 14 Feb 2025 17:09:38 +0000
+Received: from mail-mw2nam04on20602.outbound.protection.outlook.com ([2a01:111:f403:240a::602] helo=NAM04-MW2-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiydH-0000000FWkK-408F;
-	Fri, 14 Feb 2025 16:33:41 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id A81205C551D;
-	Fri, 14 Feb 2025 16:32:59 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 437E2C4CED1;
-	Fri, 14 Feb 2025 16:33:38 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linuxfoundation.org;
-	s=korg; t=1739550818;
-	bh=CqVOqHb3hkAOpfkdQ0WY8NjkmJA6LRQqJbjC+25kotw=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=tT6SgSHnecSbLt2hHIvRD2w8P7Qen0E4uemod9P4Uzf/Rf5MujWLyRERt+PlyeEkj
-	 NFpQcVDgRI6COuLtv5omgBbkMykWng24oFznZCXdmpZhbuPh+fcv6yxx0/C/tXRtSA
-	 LgXjhckBG761hA8IWNDwD4WIQgMYa1b67sdvhg5E=
-Date: Fri, 14 Feb 2025 17:33:35 +0100
-From: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-To: Jerome Brunet <jbrunet@baylibre.com>
-Cc: Dave Ertman <david.m.ertman@intel.com>, Ira Weiny <ira.weiny@intel.com>,
-	"Rafael J. Wysocki" <rafael@kernel.org>,
-	Stephen Boyd <sboyd@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
-	Danilo Krummrich <dakr@kernel.org>,
-	Conor Dooley <conor.dooley@microchip.com>,
-	Daire McNamara <daire.mcnamara@microchip.com>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Douglas Anderson <dianders@chromium.org>,
-	Andrzej Hajda <andrzej.hajda@intel.com>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Robert Foss <rfoss@kernel.org>,
-	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
-	Jonas Karlman <jonas@kwiboo.se>,
+	id 1tizAc-0000000FcpZ-10QU;
+	Fri, 14 Feb 2025 17:08:07 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=KS8AFPdY9sIRzysey+W9JEvwpKUORZf+Xp/oKyT18ggygwas20TBqHrfy+8M++lvru8IOpR2G+mLEE/74OIOgFukrGmlSIrlAIDbE0hO0IgtneenVFkQ966XQjF5Q6Wi0WrhZSUzzc1PNRz6vg0GxhEsbAzdd/LUPCGizroJc/UY0tjKplyZ8dQgZrZe3R0yY6EvT793f/wXhTiDD0ulSv95F2kv6SOOvMCMddTbjx2SnRVf75EspDqmn22kjhAeaAv1jggPHyHbffSLtolAITLT4hukcAWcVmVYsnU3yr/ltdOiJbPm9s/93BQUzZeiz0a0eEJox2P/s6w/GajUfA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=crLoqiiF/9UUXAPwMK3+epJ8tOtusmUpUxeQoMMsbz0=;
+ b=S16BA44gqc54ALYi7NNAW8ml3zjk7VuZMF+uFbWGBcpxM2bclv3Pb+C2cPRel5aBYHRFFq6I/FpN45VIhXFpLnqs9WDbnf4dbto1Fbjxg3gl7iaxNuejEIa69wbJsJq9OPHB8N9jTHNHQzWrnvfE5IamUKiWUQXGBNYAP00dfVDutWJFmqi46QC6JgwHqFPisaN41pyxkc+8/5nntozS75laSan3vST2Sg+2RhQ8G4EavqBz0fXzBbsFI5G1R6w8y1gdmiwwsgKmkzTEQxWgD+Tv/fJjUxDRXzAmrASAY3+qSYEzmpE97sl02+vz8AEr6iKHw8e/2qZaxlConHsstw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=crLoqiiF/9UUXAPwMK3+epJ8tOtusmUpUxeQoMMsbz0=;
+ b=kQIlAAovwRSXyriddp0FwAoMrnW/VZ+ScWUwojuMqSg4v0chSS5euEA+w0R27HmqaOcGVXk4YwJ8y8GdggI4ZAmwTKclOgLGO3mbsW/gzgLMIaDponwEc5Mz182JlkSiHaxuTR9yhzyqPpPVahue3zWuJyTc83MRV1U/1XodpBozLNDUerWwnE/AjWYYv9ytFtZzzqbrztFhITfz7ieu3gz4njElXxQF/oNDR3aQg7gRp0Ap562yWk3ORrCACN/TpX3ranKVQJwqD6k+IBXmG1WzccBrjyTdLSrVcNAb+hJiZn5vIv2CkuA72THvtHxJJ6PMY49g41rn/IEjwxg0+A==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from CH3PR12MB8659.namprd12.prod.outlook.com (2603:10b6:610:17c::13)
+ by DS7PR12MB5768.namprd12.prod.outlook.com (2603:10b6:8:77::18) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8445.12; Fri, 14 Feb
+ 2025 17:07:58 +0000
+Received: from CH3PR12MB8659.namprd12.prod.outlook.com
+ ([fe80::6eb6:7d37:7b4b:1732]) by CH3PR12MB8659.namprd12.prod.outlook.com
+ ([fe80::6eb6:7d37:7b4b:1732%6]) with mapi id 15.20.8445.013; Fri, 14 Feb 2025
+ 17:07:58 +0000
+From: Jason Gunthorpe <jgg@nvidia.com>
+To: Alim Akhtar <alim.akhtar@samsung.com>,
+	Alyssa Rosenzweig <alyssa@rosenzweig.io>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	asahi@lists.linux.dev,
+	Lu Baolu <baolu.lu@linux.intel.com>,
+	David Woodhouse <dwmw2@infradead.org>,
+	Heiko Stuebner <heiko@sntech.de>,
+	iommu@lists.linux.dev,
 	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-	Hans de Goede <hdegoede@redhat.com>,
-	Ilpo =?iso-8859-1?Q?J=E4rvinen?= <ilpo.jarvinen@linux.intel.com>,
-	Bryan O'Donoghue <bryan.odonoghue@linaro.org>,
-	Vladimir Kondratiev <vladimir.kondratiev@mobileye.com>,
-	Gregory CLEMENT <gregory.clement@bootlin.com>,
-	=?iso-8859-1?Q?Th=E9o?= Lebrun <theo.lebrun@bootlin.com>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Abel Vesa <abelvesa@kernel.org>, Peng Fan <peng.fan@nxp.com>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Kevin Hilman <khilman@baylibre.com>,
-	Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
-	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
-	dri-devel@lists.freedesktop.org,
-	platform-driver-x86@vger.kernel.org, linux-mips@vger.kernel.org,
-	linux-clk@vger.kernel.org, imx@lists.linux.dev,
+	Jonathan Hunter <jonathanh@nvidia.com>,
+	Joerg Roedel <joro@8bytes.org>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
 	linux-arm-kernel@lists.infradead.org,
-	linux-amlogic@lists.infradead.org
-Subject: Re: [PATCH v3 1/7] driver core: auxiliary bus: add device creation
- helpers
-Message-ID: <2025021437-washout-stonewall-d13e@gregkh>
-References: <20250211-aux-device-create-helper-v3-0-7edb50524909@baylibre.com>
- <20250211-aux-device-create-helper-v3-1-7edb50524909@baylibre.com>
+	linux-riscv@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
+	linux-samsung-soc@vger.kernel.org,
+	linux-sunxi@lists.linux.dev,
+	linux-tegra@vger.kernel.org,
+	Marek Szyprowski <m.szyprowski@samsung.com>,
+	Hector Martin <marcan@marcan.st>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Robin Murphy <robin.murphy@arm.com>,
+	Samuel Holland <samuel@sholland.org>,
+	Suravee Suthikulpanit <suravee.suthikulpanit@amd.com>,
+	Sven Peter <sven@svenpeter.dev>,
+	Thierry Reding <thierry.reding@gmail.com>,
+	Tomasz Jeznach <tjeznach@rivosinc.com>,
+	Krishna Reddy <vdumpa@nvidia.com>,
+	Chen-Yu Tsai <wens@csie.org>,
+	Will Deacon <will@kernel.org>
+Cc: Bagas Sanjaya <bagasdotme@gmail.com>,
+	Joerg Roedel <jroedel@suse.de>,
+	Pasha Tatashin <pasha.tatashin@soleen.com>,
+	patches@lists.linux.dev,
+	David Rientjes <rientjes@google.com>,
+	Matthew Wilcox <willy@infradead.org>
+Subject: [PATCH v2 03/23] iommu/pages: Remove __iommu_alloc_pages()/__iommu_free_pages()
+Date: Fri, 14 Feb 2025 13:07:36 -0400
+Message-ID: <3-v2-545d29711869+a76b5-iommu_pages_jgg@nvidia.com>
+In-Reply-To: <0-v2-545d29711869+a76b5-iommu_pages_jgg@nvidia.com>
+References: 
+X-ClientProxiedBy: MN2PR15CA0012.namprd15.prod.outlook.com
+ (2603:10b6:208:1b4::25) To CH3PR12MB8659.namprd12.prod.outlook.com
+ (2603:10b6:610:17c::13)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20250211-aux-device-create-helper-v3-1-7edb50524909@baylibre.com>
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CH3PR12MB8659:EE_|DS7PR12MB5768:EE_
+X-MS-Office365-Filtering-Correlation-Id: 640bd7c3-0f82-4dfa-23f2-08dd4d1a212f
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|376014|7416014|921020;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?/cZFPzpMiUn665erE/ezDsHLV3088rp99R4Js7tNsroQp3AE9d7kDVgkffX4?=
+ =?us-ascii?Q?vg1vSvG9ZBxl/25pbvsHG1c4x8pOymDGuSqfzejJhjtI4DIjmQ/LIYFDwBnQ?=
+ =?us-ascii?Q?tXwJhAdDwUhLpkmmXWCdHubTwYHCnvqtr80xDPOBzzeMItUugTFbU5anLmAS?=
+ =?us-ascii?Q?IVQ+D/a5IIVJZm395Wm7W6e6CNWsycSeOsPCUjFYp4UCnq6x9Kua4VvOkp+6?=
+ =?us-ascii?Q?VeiaBadIs0RsgbvCJgTgZasUaHZVs/PcOneGErT5MwBiHGCPAHnqtNQhnJN6?=
+ =?us-ascii?Q?aTIx2i89FYUcQslrwqkkdUezKg4BQ2uryU2dWF00GRoxyFoti6Q/7V6tnvDD?=
+ =?us-ascii?Q?Es9NbBZAhonzSHovyGhBxdR5FnIt4q4wuWApdCtxKwz1UXCYw5CD+/Coy0Z0?=
+ =?us-ascii?Q?v1cE0cn5S+PfJu0LbvQupiuzKRJWYxs3eceJ7RhVviWbj64edo8H2L10GLJJ?=
+ =?us-ascii?Q?6NdesWeJh8sldSa4R84kEVVOk7hA+iHXV2T2H5rcuVHu8aisydJzJLUJlxBI?=
+ =?us-ascii?Q?huqb1vgr0Yu32gOQN8h9Db/6j1YdGyEiMoFoX6CB9+zJeIoCxpn0FLKTknPU?=
+ =?us-ascii?Q?dRIGWCua63KmhbyNqQjTJHUf1BWWwKOaEyrVrcy7HZ0PPbcSEPeABFoA8+QA?=
+ =?us-ascii?Q?Db6jTyRpDlihvfsrGG9t62I0GcBtNAFVeO+93oRqBgpCksO5zx0sZe4NS3Zw?=
+ =?us-ascii?Q?6uAKvrF1gGliZ2+q0CQd5lhjbpBxl01ZX1sBFS2RiAw/mecV9iqrgxB5b0ER?=
+ =?us-ascii?Q?ZNAKodTlK0OIWNDWQVTt53C19yKYZK+J5eqYS3FMtIyk38GiJZ8Q+yGpMWUy?=
+ =?us-ascii?Q?eHRYvQVkxgYvetIJ4qMjdccn6bzMOYQ7dRUXXru5qItTVeTcfeqQUsYXGKI+?=
+ =?us-ascii?Q?90mzTEEoobk0eyKXfUc5d2DoXH9f10V2j90HdqrzeIXVpmqN5zPNMP5fa7uk?=
+ =?us-ascii?Q?76pFhxTIuX9t/4+T6cs8giCfsLTNwZWWVOyfgJDuM8PyyhfMlG2NZViGf+bT?=
+ =?us-ascii?Q?CX282JUFCm0Fj2EhNfs+AnYsWlQhuXY0YmOCUkifaG/Rw/PXe7DK9HL4km7Q?=
+ =?us-ascii?Q?HdODp97vNTRCPjDd0XDITFEtc/V0TKnAtS5+VRpjKRjD3bXDuseZCed4RsKr?=
+ =?us-ascii?Q?IwXUpz0Wlln1mb+LkcPv/QpIq3pzV9eyfTEiKvWooVvWQeZo4InzospRWRTx?=
+ =?us-ascii?Q?yFKEEAWnZZF12y9GlKy3B8oFOTGPKgldTuT2t/h1+N/bCUegov1FNpoVyb2d?=
+ =?us-ascii?Q?OsdJRTpFX6gHGHLZrbcvKSDsomVDrOgzoGCZtkNLV3UfcV8cZqihorA/qIGR?=
+ =?us-ascii?Q?3lj75QzVcHlyPSVx1gj5/NA2Hux8mKb5YYbHCIgyUdt94HFiRLPI5jJBUsAE?=
+ =?us-ascii?Q?ugyrZaG3yZjnzUNplAqW9T4Q9l2oeQrRbwR8PV4T/mt9ZNl+YtyceHKwKPsc?=
+ =?us-ascii?Q?rt7KrujLzPI=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH3PR12MB8659.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(376014)(7416014)(921020);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?XDRFb6+BdSXytbS5fFwRPEzZXKITa85tIdTIRVrEqMihV6sixBz1vAIq/Oke?=
+ =?us-ascii?Q?tna9ort2HTEb09y7wyNhh7rKXS50+Nd15hParWIdYOtE757tb3RxhCj6YAAD?=
+ =?us-ascii?Q?U4MG6liZq/CONd5Ln9hrkAMtz5tDLRGmzIjiqeMPZI9d8e3PB19+tyNcAuo0?=
+ =?us-ascii?Q?ByAE5lXOKnfgeSOvmlAR9sx+zS62i31JoIWrChAOrHrd3TBWMjRuCRs1DRka?=
+ =?us-ascii?Q?7g9B9c5r33xEWRHqUDSCx3sl2iusMJ0WrIgTL24BvJgPHAHxB5yLacSLPIGg?=
+ =?us-ascii?Q?mXyWtkfXiZQca+rh9w0JiyHCkuPiue8uBa+8m8ec1o551VdznlD4xrS9jhTf?=
+ =?us-ascii?Q?kWRSTgTH2fyvKhG5AcrI2TWXENqBmlnUi6mK4Hl3t5lDWOyHTxtEs6DT9WZM?=
+ =?us-ascii?Q?TSSDbtOKz5stTX1zF1Diav+NzNfRbqsuhU/KfIfnZtbR1yGwbkfJlswevzEm?=
+ =?us-ascii?Q?k7c7A2iqXRVAZ/i/MJ9bdEGMnO0hpZM9qS1rUIAEStddxh6z64hAcOkui1B9?=
+ =?us-ascii?Q?lU5BTmQ16S4YL1dYDN4VH4iWCAZGdzgSX2BC+N4AXVp8QCTUiwKPpuaDZF4y?=
+ =?us-ascii?Q?5CDkBz8BKbJuC4T6ca4bQjF95B/4Bl4E38Hwt/B6hUQOf3MQgNe5xCAbhZ+x?=
+ =?us-ascii?Q?XOqxdl/ZzRFsNTDSEudmGOqDTMj7WKZn0x0Fj8357iPuVnTWa2iQ+DmOmmwK?=
+ =?us-ascii?Q?Der64UrVap/v216BZtIeIOBy2pFdPw+anz/Zr5U4E7gmnWZwTlB7aD9Nj5jh?=
+ =?us-ascii?Q?M8jLqMMAju+eZ6WxJyTZEONARqStOZUtSMRKsizox8G0jozXND8Fi34vMfRS?=
+ =?us-ascii?Q?VS6XWaavD8k25zjzhV6/Ut7JTLU/z0AJsheaS3gqu2ygmr9Vf8bBrMjXDGru?=
+ =?us-ascii?Q?xcWvd95TptltEOZQMhcZECY8PL1QUYZtbbZAKiGLUQEsnf5AzjARded1zlQZ?=
+ =?us-ascii?Q?erXkNC8ERK1svrN/O3laeRxgDwyTscNwhnUnXdgID7Ey/QQjpbrRmB1JFwh5?=
+ =?us-ascii?Q?8LksSUrWsvMSO+5xFaIjuxAPf4UoIT9i1PsiD5rTdUoJUDjsw/XXaVkWXe/s?=
+ =?us-ascii?Q?ivXnD5hkX83hSe0VylLWX5HHgjmcdsMjq8O8vPxcKAf/wBRfFrupTVjOHxKY?=
+ =?us-ascii?Q?oSuJCiPL7saXsRMy4qSHktSNCkN7MhgLV3UUX6SyMkXo8oOjMMKuoC/DYYaN?=
+ =?us-ascii?Q?ymnaZUZPeKM0sKMLhujcxNtTLYMpn39Ed51VDYERBJkct3ZG14q3DAJByhLX?=
+ =?us-ascii?Q?Lw6BlcUTw57khfebA+D3qKwqbzxqx8ceU+yyWAiXDesL8jqb7j+uC5gLSY2e?=
+ =?us-ascii?Q?1PLR1aZQZT65av+WyabJoH5YDAG2QO3R/uKGx5rURUbtWSSIUDj6jTwpYOpu?=
+ =?us-ascii?Q?cSNug6H4z98XyGWlrkJZQtn7RE33zMCyTbr4rfchlVjJrfwcOUlxkD2+uwK8?=
+ =?us-ascii?Q?bdnwVxpOnjdiAu2TNAdBQX2xq9m+ITu+uRKpqYIPnigfBzGa6/KIw3lAgWkW?=
+ =?us-ascii?Q?eMWYLqUftMYHlSQquav3PHwGgXBvE9Wg6kCi2k80Fa+mLt9H3bd4ML8wE1G7?=
+ =?us-ascii?Q?EgRwjRzkUjioWVKsJuc=3D?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 640bd7c3-0f82-4dfa-23f2-08dd4d1a212f
+X-MS-Exchange-CrossTenant-AuthSource: CH3PR12MB8659.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 14 Feb 2025 17:07:58.0114
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: kOKdJuFSbqDuzjLH/sdawxVGcxf57kcyfAGJ0wkYhz6hxLgLBbX35GajK5KgowLr
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS7PR12MB5768
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250214_083340_090963_B9E322C3 
-X-CRM114-Status: GOOD (  25.93  )
+X-CRM114-CacheID: sfid-20250214_090806_281038_B6470C1E 
+X-CRM114-Status: GOOD (  12.68  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,142 +189,105 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Feb 11, 2025 at 06:27:58PM +0100, Jerome Brunet wrote:
-> Add helper functions to create a device on the auxiliary bus.
-> 
-> This is meant for fairly simple usage of the auxiliary bus, to avoid having
-> the same code repeated in the different drivers.
-> 
-> Suggested-by: Stephen Boyd <sboyd@kernel.org>
-> Cc: Arnd Bergmann <arnd@arndb.de>
-> Signed-off-by: Jerome Brunet <jbrunet@baylibre.com>
-> ---
->  drivers/base/auxiliary.c      | 88 +++++++++++++++++++++++++++++++++++++++++++
->  include/linux/auxiliary_bus.h | 10 +++++
->  2 files changed, 98 insertions(+)
+These were only used by tegra-smmu and leaked the struct page out of the
+API. Delete them since tega-smmu has been converted to the other APIs.
 
-I like the idea, see much the same of what I recently did for the "faux"
-bus here:
-	https://lore.kernel.org/all/2025021023-sandstorm-precise-9f5d@gregkh/
+In the process flatten the call tree so we have fewer one line functions
+calling other one line functions.. iommu_alloc_pages_node() is the real
+allocator and everything else can just call it directly.
 
-Some review comments:
+Signed-off-by: Jason Gunthorpe <jgg@nvidia.com>
+---
+ drivers/iommu/iommu-pages.h | 49 ++++++-------------------------------
+ 1 file changed, 7 insertions(+), 42 deletions(-)
 
-> diff --git a/drivers/base/auxiliary.c b/drivers/base/auxiliary.c
-> index afa4df4c5a3f371b91d8dd8c4325495d32ad1291..0f697c9c243dc9a50498a52362806db594345faf 100644
-> --- a/drivers/base/auxiliary.c
-> +++ b/drivers/base/auxiliary.c
-> @@ -385,6 +385,94 @@ void auxiliary_driver_unregister(struct auxiliary_driver *auxdrv)
->  }
->  EXPORT_SYMBOL_GPL(auxiliary_driver_unregister);
->  
-> +static void auxiliary_device_release(struct device *dev)
-> +{
-> +	struct auxiliary_device *auxdev = to_auxiliary_dev(dev);
-> +
-> +	kfree(auxdev);
-> +}
-> +
-> +static struct auxiliary_device *auxiliary_device_create(struct device *dev,
-> +							const char *modname,
-> +							const char *devname,
-> +							void *platform_data,
+diff --git a/drivers/iommu/iommu-pages.h b/drivers/iommu/iommu-pages.h
+index 82ebf00330811c..0ca2437989a0e1 100644
+--- a/drivers/iommu/iommu-pages.h
++++ b/drivers/iommu/iommu-pages.h
+@@ -46,40 +46,6 @@ static inline void __iommu_free_account(struct page *page, int order)
+ 	mod_lruvec_page_state(page, NR_SECONDARY_PAGETABLE, -pgcnt);
+ }
+ 
+-/**
+- * __iommu_alloc_pages - allocate a zeroed page of a given order.
+- * @gfp: buddy allocator flags
+- * @order: page order
+- *
+- * returns the head struct page of the allocated page.
+- */
+-static inline struct page *__iommu_alloc_pages(gfp_t gfp, int order)
+-{
+-	struct page *page;
+-
+-	page = alloc_pages(gfp | __GFP_ZERO, order);
+-	if (unlikely(!page))
+-		return NULL;
+-
+-	__iommu_alloc_account(page, order);
+-
+-	return page;
+-}
+-
+-/**
+- * __iommu_free_pages - free page of a given order
+- * @page: head struct page of the page
+- * @order: page order
+- */
+-static inline void __iommu_free_pages(struct page *page, int order)
+-{
+-	if (!page)
+-		return;
+-
+-	__iommu_free_account(page, order);
+-	__free_pages(page, order);
+-}
+-
+ /**
+  * iommu_alloc_pages_node - allocate a zeroed page of a given order from
+  * specific NUMA node.
+@@ -110,12 +76,7 @@ static inline void *iommu_alloc_pages_node(int nid, gfp_t gfp, int order)
+  */
+ static inline void *iommu_alloc_pages(gfp_t gfp, int order)
+ {
+-	struct page *page = __iommu_alloc_pages(gfp, order);
+-
+-	if (unlikely(!page))
+-		return NULL;
+-
+-	return page_address(page);
++	return iommu_alloc_pages_node(numa_node_id(), gfp, order);
+ }
+ 
+ /**
+@@ -138,7 +99,7 @@ static inline void *iommu_alloc_page_node(int nid, gfp_t gfp)
+  */
+ static inline void *iommu_alloc_page(gfp_t gfp)
+ {
+-	return iommu_alloc_pages(gfp, 0);
++	return iommu_alloc_pages_node(numa_node_id(), gfp, 0);
+ }
+ 
+ /**
+@@ -148,10 +109,14 @@ static inline void *iommu_alloc_page(gfp_t gfp)
+  */
+ static inline void iommu_free_pages(void *virt, int order)
+ {
++	struct page *page;
++
+ 	if (!virt)
+ 		return;
+ 
+-	__iommu_free_pages(virt_to_page(virt), order);
++	page = virt_to_page(virt);
++	__iommu_free_account(page, order);
++	__free_pages(page, order);
+ }
+ 
+ /**
+-- 
+2.43.0
 
-Can you have the caller set the platform_data if they need/want it after
-the device is created?  Or do you need that in the probe callback?
-
-And can't this be a global function too for those that don't want to
-deal with devm stuff?
-
-> +							int id)
-> +{
-> +	struct auxiliary_device *auxdev;
-> +	int ret;
-> +
-> +	auxdev = kzalloc(sizeof(*auxdev), GFP_KERNEL);
-> +	if (!auxdev)
-> +		return ERR_PTR(-ENOMEM);
-
-Ick, who cares what the error value really is?  Why not just do NULL or
-a valid pointer?  That makes the caller much simpler to handle, right?
-
-> +
-> +	auxdev->id = id;
-> +	auxdev->name = devname;
-> +	auxdev->dev.parent = dev;
-> +	auxdev->dev.platform_data = platform_data;
-> +	auxdev->dev.release = auxiliary_device_release;
-> +	device_set_of_node_from_dev(&auxdev->dev, dev);
-> +
-> +	ret = auxiliary_device_init(auxdev);
-
-Only way this will fail is if you forgot to set parent or a valid name.
-So why not check for devname being non-NULL above this?
-
-> +	if (ret) {
-> +		kfree(auxdev);
-> +		return ERR_PTR(ret);
-> +	}
-> +
-> +	ret = __auxiliary_device_add(auxdev, modname);
-> +	if (ret) {
-> +		/*
-> +		 * NOTE: It may look odd but auxdev should not be freed
-> +		 * here. auxiliary_device_uninit() calls device_put()
-> +		 * which call the device release function, freeing auxdev.
-> +		 */
-> +		auxiliary_device_uninit(auxdev);
-
-Yes it is odd, are you SURE you should be calling device_del() on the
-device if this fails?  auxiliary_device_uninit(), makes sense so why not
-just call that here?
-
-> +		return ERR_PTR(ret);
-> +	}
-> +
-> +	return auxdev;
-> +}
-> +
-> +static void auxiliary_device_destroy(void *_auxdev)
-> +{
-> +	struct auxiliary_device *auxdev = _auxdev;
-> +
-> +	auxiliary_device_delete(auxdev);
-> +	auxiliary_device_uninit(auxdev);
-> +}
-> +
-> +/**
-> + * __devm_auxiliary_device_create - create a device on the auxiliary bus
-> + * @dev: parent device
-> + * @modname: module name used to create the auxiliary driver name.
-> + * @devname: auxiliary bus device name
-> + * @platform_data: auxiliary bus device platform data
-> + * @id: auxiliary bus device id
-> + *
-> + * Device managed helper to create an auxiliary bus device.
-> + * The device create matches driver 'modname.devname' on the auxiliary bus.
-> + */
-> +struct auxiliary_device *__devm_auxiliary_device_create(struct device *dev,
-> +							const char *modname,
-> +							const char *devname,
-> +							void *platform_data,
-> +							int id)
-> +{
-> +	struct auxiliary_device *auxdev;
-> +	int ret;
-> +
-> +	auxdev = auxiliary_device_create(dev, modname, devname, platform_data, id);
-> +	if (IS_ERR(auxdev))
-> +		return auxdev;
-> +
-> +	ret = devm_add_action_or_reset(dev, auxiliary_device_destroy,
-> +				       auxdev);
-
-Oh this is going to be messy, but I trust that callers know what they
-are doing here.  Good luck!  :)
-
-thanks,
-
-greg k-h
 
 _______________________________________________
 linux-riscv mailing list
