@@ -4,113 +4,205 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8EADDC02198
-	for <linux-riscv@archiver.kernel.org>; Fri, 14 Feb 2025 15:42:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C8670C02198
+	for <linux-riscv@archiver.kernel.org>; Fri, 14 Feb 2025 16:16:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
+	Message-ID:Subject:CC:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=1/RoESgKnvuysL873/BBNJWsnJQOuh53qgN8q5QpaJw=; b=ssiH+W8guY4zlJ
-	OKiEZovz7I4g6nSWkXFRUgiGPQ63zjQonl51g2UdP/V0vl0HmEGlSCL0MOCasDDo+RGkWgco1qwZ5
-	Pc+vF8hBkho0EukTQhUpyT8XglxiwzEUL8Nk4DuQ2AI4FaHWtynsfVDkDqbh0KdtnsY10X1t58pfB
-	qPSZAl1ReW+nl9sUioYBCYhzcnMej64uwZbln2EgDAKQyAVJlFJwsjFsUQnpDZsVbB7yKXs5zawFX
-	DD8cHaalBV5/TYdW5Y211SkmhAORMMhiYSi2a/XYEolCmIPZrsmlWRf7YslU1lrHsl4otfIzpiDeF
-	CE1GB3iPnH1yJy6fvszg==;
+	List-Owner; bh=8jympZdcm+4eGfexDj2IbOPgcskz5zuUQRIZqdShoJA=; b=AjQdH5GcCbhpBt
+	lbBFs5oavscTbuBMgN+S5XedfILI4AIV9h+bkKyZ3qBR7mwcfWo9VKSmFKWCMV+R51MJki6Ak+Eqs
+	+znvgGkJnyHU2mOsFd+CaMUd25LXwXPU1FkAqP6axPMa6WOjlhwOTvmu5iN6SjJ24Zi2Q+fRBOhMd
+	M7WhHhNT7sKdIjF4Ck8lQrqoXReCc64jV8aTCm/y21ka+KubSjCDrCIzJy3VTVpRU42DlzYEF0Ea8
+	XLN+Ytv3GO3BRu+Ivi2omBTSi2Mc3fsClnprRQ6n47oV2pMwwhxK4QpqCrYqK98hkGrIuk0nY0VJm
+	bNAC9QDCc3IoimUxtobA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tixpK-0000000FMrw-1Y3X;
-	Fri, 14 Feb 2025 15:42:02 +0000
-Received: from mail-lf1-x133.google.com ([2a00:1450:4864:20::133])
+	id 1tiyMd-0000000FTQx-3nhy;
+	Fri, 14 Feb 2025 16:16:27 +0000
+Received: from [198.175.65.19] (helo=mgamail.intel.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tixg5-0000000FKsL-0K65
-	for linux-riscv@lists.infradead.org;
-	Fri, 14 Feb 2025 15:32:30 +0000
-Received: by mail-lf1-x133.google.com with SMTP id 2adb3069b0e04-54505191cdcso2116699e87.2
-        for <linux-riscv@lists.infradead.org>; Fri, 14 Feb 2025 07:32:28 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1739547146; x=1740151946; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=fHqSVsarbr9/GNSKcHw7mFlABcvHBZA79lxaZw7Ee7Y=;
-        b=GkQuNaSw+CWBgK6dH090ohQShbU1pYMLIGcsiXgRhdplb4aGy1X7VfQ2n4TgddnSgC
-         c0YKFAFi6ohlIYLkhyvYHt8jU1pQX0aQlX8tsnUlcuVnEbqtHNyNaUl9WrqZpfwVaJfw
-         +HXAsypolQ76Ulm5lziHEvR43TTrL6cLjYjOg=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1739547146; x=1740151946;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=fHqSVsarbr9/GNSKcHw7mFlABcvHBZA79lxaZw7Ee7Y=;
-        b=d3eM1D1F2YdAdoaEQ6oNHe2QQA9autAsnl4GC+sPvLcsryL/CNxC4GR6LEllb9vlQq
-         tXmsSA7Xjkmx7MsmTqW2q/f3alve/A49lnQuo0NcpS/psWhmJRG+AkVYtxhVwUd/7WUl
-         aRtu78LrHto9SPDzsnY2XHje8cJaiM8fizzjoEoQn+dSfmARgQWJzPuK6vfeMQhU+x9m
-         LG5g3LbEsPLzixVALE4iYk0MFg2lU2+ijel0jJOjwX8kXlbVRTzL1PMyvFJte5YB2IOe
-         Bbm/ANz9yS/k9bRfOjY1gM8pJaK6Ri+aVapnKjHg/DcGIJWUJTYBfZs9jNQ81fgQeH3Y
-         N3+g==
-X-Forwarded-Encrypted: i=1; AJvYcCWW1QU5MNb6KEIf2ps4+kH7GMfPXkwK1Tx97M4tLy/zYjQh4KzEmTONyxMYftw90bEhuOGBqRRKobVVew==@lists.infradead.org
-X-Gm-Message-State: AOJu0YyASjGIUTaN/riata2pzZ1TjtHwy4Z2su3SwcX+RYTwGu/e6snx
-	8/t98hV4MdFblscr+g0V5tY+GDTl/GHWCGAe4xxKSh1wUVwBxPzjZ6yebAH8XbnEZ+P6VZETMUC
-	P2g==
-X-Gm-Gg: ASbGncukQpc2VAYzvk3Iv2SFFJ8jxhyLmGEMOLwtSYOxL4W52GcAMF70QAnck1ucIPz
-	686VJUR/KWRTy7evkQhW/SbKlA+slQCBDpxq7oZJpFN+OrybxBPOgNAd2oYmQ+Ne0Ss06lCo/ES
-	3lJaKfKZg1niQJQBgxeuYymCmqEd6r0/r5IU/oV9DE95IQ54PAkWuw5irPIERyVSQs5QcFLMvzM
-	rvIvAS7JlNw5jiSPpXcHO9sRNtGdma3tO8jgGGSpXeSc5jLDh9xGuhXA/az989Dxb7WJA54NBLq
-	WMOsGEIrJuHHE+TWCG0nZw7pNctIRcYTR4cDDHR58GphXDXHDhN126S1Sgk=
-X-Google-Smtp-Source: AGHT+IGIhu9OyGVeeBmgX9z2TAbzWWNE/apvzysGpj//G6T6hR5yIdtTmYAtO5TOY1IxwWLVfzjqsQ==
-X-Received: by 2002:a05:6512:2309:b0:542:98bb:5674 with SMTP id 2adb3069b0e04-5451ddcae24mr2652072e87.33.1739547146300;
-        Fri, 14 Feb 2025 07:32:26 -0800 (PST)
-Received: from mail-lj1-f172.google.com (mail-lj1-f172.google.com. [209.85.208.172])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5452e734ad1sm106252e87.45.2025.02.14.07.32.26
-        for <linux-riscv@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 14 Feb 2025 07:32:26 -0800 (PST)
-Received: by mail-lj1-f172.google.com with SMTP id 38308e7fff4ca-30795988ebeso23381731fa.3
-        for <linux-riscv@lists.infradead.org>; Fri, 14 Feb 2025 07:32:26 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCV6zQL9Rx8IAmoLhW5zwY5U4/ZUeibFD2F0MpGMgiut6aVfp0FAOfuoZzMGtGqs7EFBJ/sDbhaK2N4K8A==@lists.infradead.org
-X-Received: by 2002:a2e:8a97:0:b0:308:eb58:6581 with SMTP id
- 38308e7fff4ca-30914801891mr14311001fa.0.1739546770563; Fri, 14 Feb 2025
- 07:26:10 -0800 (PST)
-MIME-Version: 1.0
+	id 1tiyMb-0000000FTQH-3Ar9;
+	Fri, 14 Feb 2025 16:16:27 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1739549786; x=1771085786;
+  h=date:from:to:cc:subject:message-id:references:
+   in-reply-to:mime-version;
+  bh=3+W77FPa4qYi/p6jHkS5N5D1r20bLrH3MqSoHPLJ/Sg=;
+  b=ZsjKg8Fn+NjzOtzezLtAHputkXUCogOHU7jTCpqGFsBJbBTSU8hxk+0d
+   qWXfHBBbtJWSQVKGp/Skl/ujDmgEnh+2ckWat5l5k57T2rfwoUOcEifHt
+   S1aFPKCCEUP7Gf3DdIuAshy8eWEczQK15AmgwlIDEuUTe6zyyWf7Ii47O
+   t7QXCxzRRbr6hkhRhu7gFMOVfqQYTnmBozYZVT5Xjq0NCiByOf3Ifxoei
+   hWwboHd+B6abIIct/puzAWF4YzAXhh2MXmdcSx//iP66MKFQKzi+iXqrb
+   HBEpF93A+EwSuoVpFoNz86Nt3mH563N/bCbHHrgfxQHeYwc/insSnhiyM
+   Q==;
+X-CSE-ConnectionGUID: MouCOmoISgaR+Fk30yroUw==
+X-CSE-MsgGUID: KLWakf/oTJSMigRSmFwiig==
+X-IronPort-AV: E=McAfee;i="6700,10204,11345"; a="40165453"
+X-IronPort-AV: E=Sophos;i="6.13,286,1732608000"; 
+   d="scan'208";a="40165453"
+Received: from fmviesa007.fm.intel.com ([10.60.135.147])
+  by orvoesa111.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 14 Feb 2025 08:16:25 -0800
+X-CSE-ConnectionGUID: 7qmMv8xtTFWkAPFj2yX80Q==
+X-CSE-MsgGUID: PNuie8B+Q46bwQCuQ+GVVQ==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.13,286,1732608000"; 
+   d="scan'208";a="113471618"
+Received: from orsmsx601.amr.corp.intel.com ([10.22.229.14])
+  by fmviesa007.fm.intel.com with ESMTP/TLS/AES256-GCM-SHA384; 14 Feb 2025 08:16:22 -0800
+Received: from ORSMSX901.amr.corp.intel.com (10.22.229.23) by
+ ORSMSX601.amr.corp.intel.com (10.22.229.14) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.44; Fri, 14 Feb 2025 08:16:21 -0800
+Received: from orsedg603.ED.cps.intel.com (10.7.248.4) by
+ ORSMSX901.amr.corp.intel.com (10.22.229.23) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.14 via Frontend Transport; Fri, 14 Feb 2025 08:16:21 -0800
+Received: from NAM02-BN1-obe.outbound.protection.outlook.com (104.47.51.44) by
+ edgegateway.intel.com (134.134.137.100) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.1.2507.44; Fri, 14 Feb 2025 08:16:20 -0800
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=E6QomcEqmbb/BfP0RwJ1Ifh3BHhWZWFbcJN90pdm2+ocB/4czXowD5kd11pIU6comzMovnaI2yU6qifpevw4m8rWY2WAip2qaaDHVh3QX1tMAX+WYUDnsKuR71dV6owqjh0Ixg6sxaU22ljgEGSmQoRSfDRuOAX/+V8sDNei6/YW3YyepgyQvOw1Kf2LXWn8IV4YfT199NxS6ssXcdmeGsqGwCA11HlxcH+HYkCaGkJx/rYA+4af7OGuSPmKSK5GgWWpZR9d1FviJWVfUI1ICLC5GPPqvdB7nsFyCDPQdLnNdbO4yZDZ9Ix8/ZIovXEalQ4CpgnOk6dVtM54drShNA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=hT+R+9FVXkyT/l4dyUBzdD2xUY0sPG1U/xKrzpzmj8I=;
+ b=n1Tngb7dQbzn6QuT8BzAesTgXwy7oOl/Jl9E4UzLLmRbAlNwyqRafPJROzrZ4iFf8RDWElg47cZTGYpZizMmg2YGbIlKyANpurfSXmb0GxEf7PtXco7n1NVTWuHxBiuVNIhFn109odQ04NVbA3iJPZo7FujojSAcMBhyEq3KxwiOQxcPz2pzUY1fRkoamXi9T/a2N126iyZe8f4+sAVTXWhezcON22tWepHYD+piDcquHwgU/ZbXvFaeBEaajuNc/NNiKTbMlT8kujfnuK2QS7yjsjlxS/UkPvSJDvjpQfJRnTpfh6H0SMcEFmDyvzp4qmAlJoQe6+pStq7go5gmXQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
+ dkim=pass header.d=intel.com; arc=none
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=intel.com;
+Received: from SA1PR11MB6733.namprd11.prod.outlook.com (2603:10b6:806:25c::17)
+ by CY5PR11MB6138.namprd11.prod.outlook.com (2603:10b6:930:2a::11) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8445.14; Fri, 14 Feb
+ 2025 16:15:50 +0000
+Received: from SA1PR11MB6733.namprd11.prod.outlook.com
+ ([fe80::cf7d:9363:38f4:8c57]) by SA1PR11MB6733.namprd11.prod.outlook.com
+ ([fe80::cf7d:9363:38f4:8c57%5]) with mapi id 15.20.8445.013; Fri, 14 Feb 2025
+ 16:15:50 +0000
+Date: Fri, 14 Feb 2025 10:15:36 -0600
+From: Ira Weiny <ira.weiny@intel.com>
+To: Jerome Brunet <jbrunet@baylibre.com>, Greg Kroah-Hartman
+	<gregkh@linuxfoundation.org>, Dave Ertman <david.m.ertman@intel.com>, "Ira
+ Weiny" <ira.weiny@intel.com>, "Rafael J. Wysocki" <rafael@kernel.org>,
+	"Stephen Boyd" <sboyd@kernel.org>, Arnd Bergmann <arnd@arndb.de>, Danilo
+ Krummrich <dakr@kernel.org>, Conor Dooley <conor.dooley@microchip.com>, Daire
+ McNamara <daire.mcnamara@microchip.com>, Philipp Zabel
+	<p.zabel@pengutronix.de>, Douglas Anderson <dianders@chromium.org>, Andrzej
+ Hajda <andrzej.hajda@intel.com>, Neil Armstrong <neil.armstrong@linaro.org>,
+	"Robert Foss" <rfoss@kernel.org>, Laurent Pinchart
+	<Laurent.pinchart@ideasonboard.com>, Jonas Karlman <jonas@kwiboo.se>, "Jernej
+ Skrabec" <jernej.skrabec@gmail.com>, Maarten Lankhorst
+	<maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>,
+	Simona Vetter <simona@ffwll.ch>, Hans de Goede <hdegoede@redhat.com>, Ilpo
+ =?iso-8859-1?Q?J=E4rvinen?= <ilpo.jarvinen@linux.intel.com>, Bryan O'Donoghue
+	<bryan.odonoghue@linaro.org>, Vladimir Kondratiev
+	<vladimir.kondratiev@mobileye.com>, Gregory CLEMENT
+	<gregory.clement@bootlin.com>, =?iso-8859-1?Q?Th=E9o?= Lebrun
+	<theo.lebrun@bootlin.com>, Michael Turquette <mturquette@baylibre.com>, "Abel
+ Vesa" <abelvesa@kernel.org>, Peng Fan <peng.fan@nxp.com>, Shawn Guo
+	<shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, "Pengutronix
+ Kernel Team" <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>,
+	Kevin Hilman <khilman@baylibre.com>, Martin Blumenstingl
+	<martin.blumenstingl@googlemail.com>
+CC: Jerome Brunet <jbrunet@baylibre.com>, <linux-kernel@vger.kernel.org>,
+	<linux-riscv@lists.infradead.org>, <dri-devel@lists.freedesktop.org>,
+	<platform-driver-x86@vger.kernel.org>, <linux-mips@vger.kernel.org>,
+	<linux-clk@vger.kernel.org>, <imx@lists.linux.dev>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-amlogic@lists.infradead.org>
+Subject: Re: [PATCH v3 6/7] clk: clk-imx8mp-audiomix: use the auxiliary
+ device creation helper
+Message-ID: <67af6c284c349_1614f3294dd@iweiny-mobl.notmuch>
 References: <20250211-aux-device-create-helper-v3-0-7edb50524909@baylibre.com>
- <20250211-aux-device-create-helper-v3-2-7edb50524909@baylibre.com>
- <20250213-crown-clustered-81c6434c892b@spud> <1jv7tczytk.fsf@starbuckisacylon.baylibre.com>
-In-Reply-To: <1jv7tczytk.fsf@starbuckisacylon.baylibre.com>
-From: Doug Anderson <dianders@chromium.org>
-Date: Fri, 14 Feb 2025 07:25:59 -0800
-X-Gmail-Original-Message-ID: <CAD=FV=VeSrZktEbxNXXTgD80QGTpW5b-WiXUFko+a8FUzmN+fQ@mail.gmail.com>
-X-Gm-Features: AWEUYZn5Dl35ky148QOOCnARP_86rg2vhIKgVTUOs7s9KbdYhXOWWeRWr_r9yF0
-Message-ID: <CAD=FV=VeSrZktEbxNXXTgD80QGTpW5b-WiXUFko+a8FUzmN+fQ@mail.gmail.com>
-Subject: Re: [PATCH v3 2/7] reset: mpfs: use the auxiliary device creation helper
-To: Jerome Brunet <jbrunet@baylibre.com>
-Cc: Conor Dooley <conor@kernel.org>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
-	Dave Ertman <david.m.ertman@intel.com>, Ira Weiny <ira.weiny@intel.com>, 
-	"Rafael J. Wysocki" <rafael@kernel.org>, Stephen Boyd <sboyd@kernel.org>, Arnd Bergmann <arnd@arndb.de>, 
-	Danilo Krummrich <dakr@kernel.org>, Conor Dooley <conor.dooley@microchip.com>, 
-	Daire McNamara <daire.mcnamara@microchip.com>, Philipp Zabel <p.zabel@pengutronix.de>, 
-	Andrzej Hajda <andrzej.hajda@intel.com>, Neil Armstrong <neil.armstrong@linaro.org>, 
-	Robert Foss <rfoss@kernel.org>, Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
-	Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, 
-	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
-	Hans de Goede <hdegoede@redhat.com>, =?UTF-8?Q?Ilpo_J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>, 
-	"Bryan O'Donoghue" <bryan.odonoghue@linaro.org>, 
-	Vladimir Kondratiev <vladimir.kondratiev@mobileye.com>, 
-	Gregory CLEMENT <gregory.clement@bootlin.com>, =?UTF-8?B?VGjDqW8gTGVicnVu?= <theo.lebrun@bootlin.com>, 
-	Michael Turquette <mturquette@baylibre.com>, Abel Vesa <abelvesa@kernel.org>, 
-	Peng Fan <peng.fan@nxp.com>, Shawn Guo <shawnguo@kernel.org>, 
-	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
-	Fabio Estevam <festevam@gmail.com>, Kevin Hilman <khilman@baylibre.com>, 
-	Martin Blumenstingl <martin.blumenstingl@googlemail.com>, linux-kernel@vger.kernel.org, 
-	linux-riscv@lists.infradead.org, dri-devel@lists.freedesktop.org, 
-	platform-driver-x86@vger.kernel.org, linux-mips@vger.kernel.org, 
-	linux-clk@vger.kernel.org, imx@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org
+ <20250211-aux-device-create-helper-v3-6-7edb50524909@baylibre.com>
+Content-Disposition: inline
+In-Reply-To: <20250211-aux-device-create-helper-v3-6-7edb50524909@baylibre.com>
+X-ClientProxiedBy: MW4PR03CA0343.namprd03.prod.outlook.com
+ (2603:10b6:303:dc::18) To SA1PR11MB6733.namprd11.prod.outlook.com
+ (2603:10b6:806:25c::17)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SA1PR11MB6733:EE_|CY5PR11MB6138:EE_
+X-MS-Office365-Filtering-Correlation-Id: 085784fe-299f-4d7f-4a20-08dd4d12d940
+X-LD-Processed: 46c98d88-e344-4ed4-8496-4ed7712e255d,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|1800799024|366016|7053199007|921020;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?WDq0UZPwEJiXbsJOv7ccnrPWbO0EvkG8FJtIemmabvlVsnJ+jZSrAQw8XWZf?=
+ =?us-ascii?Q?aX14bSRSU/SUhIu1grRFiV0S3JRyZnzhz1PgXLNhaIv07srvcXpJyzYwgtFy?=
+ =?us-ascii?Q?jNQP6i+/5FnXl+W1hRqjui7ySJ8atD9on0vlfWmjiUFjGIiWtDwMZdZCzHzs?=
+ =?us-ascii?Q?njgd4ECbVlPkkdfuaSZAcb6AUbKEMDnwA6MOlTyYcgbPQu5SV1LOOu2vWI+A?=
+ =?us-ascii?Q?aUgoAfW2APZeviRAehV/WB7FnMRbyvlGCSSc5W7hY/o19KqHrNXP/8g6LvoW?=
+ =?us-ascii?Q?d6tgx8ki/6OB/yELHPfGwvjWxb6j1oWxfIex0JLXEeZKiBweZdaDW2vzXYml?=
+ =?us-ascii?Q?yV5UJIpuMH77MbDkBNzvaFMShxqPhgryOVD6PIC1nTj4M1csHamJFa9lhLzb?=
+ =?us-ascii?Q?asXSf76MPILlxTszXsiJ0CNCJOxEWA4KTASyU1FA6zqKjsoJduWfwD6I3XnC?=
+ =?us-ascii?Q?veSU8HfZSW3EXY1rEvy69ziXJfyDoP0jHDuJEADTP4iKMWPQFHK7bvUyf+3R?=
+ =?us-ascii?Q?gZll7cm9oNkmCKWS0Y20fbaL0P9JxlFJXpbhZ1jgfDqEWckbnPkHBjqG0PGP?=
+ =?us-ascii?Q?fFfl4IXWdyfph046JYiWed2yAGfnIw6uHwEY4wJ0oaY+kx6IxKNoKVszNXth?=
+ =?us-ascii?Q?Ef/tzuH3+iYF9HfOIun7Ry0FzRNxx8Y4mjH8BQ+ZhAQKmrYIUfPImBDuPQY3?=
+ =?us-ascii?Q?uOJVZxR5AhoFfHs6eCwkdS9gjDH5aF/s4MaeVDYQQpjdLrxcsyU6yZKdd9aF?=
+ =?us-ascii?Q?JwSYetlfg8CQK4qOAkuAljkpNyKiLE4vV8kjdBMe5aKis8pVI4qHzOsUHvxw?=
+ =?us-ascii?Q?6JCTcelbh5zo0qh2WbgwYGCpORRUYcBeqwgwn40jBsFrCRwJ7/EYDFIQ45JG?=
+ =?us-ascii?Q?GVYdFCY27nSG3BXMlHrQY2j/QUyiyyocN4wNi5HV9kqGoayYGLm1QFmqngir?=
+ =?us-ascii?Q?/re3coRWFWABrFW6eoYoFhSkUcwfZXAjr9UWQxCzyfqXEWzqprlHbWjPsW1p?=
+ =?us-ascii?Q?fldWcCVRrwF2NMGvvVwBgxxnfwAf98H2wD/cH62h5zXR+k5XnweigkYRlVSx?=
+ =?us-ascii?Q?Ifh2jCUhcz+8cMJiLyE4hIjX/ODvvCFRJmrSZU5CA5TdYPi13ovYj8wI7Hqi?=
+ =?us-ascii?Q?LN6no32iIpFtfgLYB3J0Iq8XDmgzRSuKUa33YkcLPxn51x0Uj0Kvh3lTCLC3?=
+ =?us-ascii?Q?mILg8opLr0o+ovZqBelQ8eODNS4UFu5HAP7m9YfpsGWb9jIQwby24dKKih/a?=
+ =?us-ascii?Q?YhtlKV1wcywZalwJWWLYL5Hqc8k/fXiHNq3u9dih/DoXAW/98LZLQJmXzPkN?=
+ =?us-ascii?Q?mIvz7uf3o7cblYIIk21/NipZnd/VU5q+vuZc5QFlwSt8qGHM3tvaLPQOcRWa?=
+ =?us-ascii?Q?XqBPWu4tbKb6WuWA9aQt5D0tkFG+vEitqfltu6uTsINbyB9oaggHakp8Dyq5?=
+ =?us-ascii?Q?kjdr/qPHnQY=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SA1PR11MB6733.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(1800799024)(366016)(7053199007)(921020);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?1k3Affq2l9akXSjbiEChWZzpkpmkykXrhmm3D7a3VmzIdwqmFvctan4I9N+0?=
+ =?us-ascii?Q?Dnrhq03pyX4pz0rWdTxkJerE6N8SLpDdxOWDqFFXuS2WYwiB0BAn1cooQwFu?=
+ =?us-ascii?Q?I7Du791V02dzbnoYQ4lYZzqY1u7P68HwDQ1pp+0AI/oLAoBnmzvLIfyQtXV8?=
+ =?us-ascii?Q?qhAzTGVYQdYVg/efqUv43cXJKBuJr0KqIC4B827MIh+2/3yXt51hZlyLZKam?=
+ =?us-ascii?Q?cLeb1rpMpwvPHs5UKO9lr/vP1w3SZCtsbExUnrfazvznIOrvb0eFUBQ33dD/?=
+ =?us-ascii?Q?2Rp+aZ8JIXa75kcwWrSCfFWZm3HQ1N74EoDQH9Qm8UjldX+bkiEmVSLbNkIz?=
+ =?us-ascii?Q?qs71GKdZTxbPPcqbLKkAefP8w56uIyUXwOK+2IO+c22xhZUwOfnHkA/Uv+pZ?=
+ =?us-ascii?Q?bUodu6nZH3GbryO0N7zsDF6WLLy8EvRkBUJH/oXLKLAVETqELBu1e3m23cCo?=
+ =?us-ascii?Q?sbPeA3Q4e+2QnrSF4s3KbfiL4CCBd9yu6a83lp7Ps4c6IuQUT48FxvSNHMaE?=
+ =?us-ascii?Q?9rvxz7C9cpJz8NroHHvWDIsKi021cyvLw3KGPDflxHeNNPRD+RIh6KUhX6El?=
+ =?us-ascii?Q?uoLMphxp31Ig6YeVW7mI19r9p5MrznDbWjrisfQriZ8Nvog9dvd+Wx1CyA6c?=
+ =?us-ascii?Q?yeaMuy36hw8TVcJJNiJvm/xy2B1CLYurNedAQx8zswpHfZNupzQgWyB4m+JC?=
+ =?us-ascii?Q?pHSOOLROfRj+qde26q6O09eDU4D16Xq9j/X2a+j+N2g1ZrKia57nNzuqreu9?=
+ =?us-ascii?Q?VrlZS++2hAj1796xezFw0pZ8nBFnNqjKrFyjrUW3u18AlcyXaZlePr8ZRFJP?=
+ =?us-ascii?Q?Pf5N+8p1fMsUoY2J4bLr6yus/f0vRtA5xcd2ly+9W0Mvi5qRoz/q+D1NejO8?=
+ =?us-ascii?Q?3yd4Cva0zQjdDDL0Z7yXmk5KVdUMiJ6dalyWIWxpo4fk2ZVzGcDcc8Zrr9TR?=
+ =?us-ascii?Q?ez83nB7buYTGl838hVeCwSZMEZ3h1hZV2fEfJ3FZHe//fvficARxXC/Gs5lZ?=
+ =?us-ascii?Q?IKkFjIQ5tofLbApGPTbFMupmYMcRGCgbnbhHN1onELEOy846wgoLSOMr4N0P?=
+ =?us-ascii?Q?QDJ9QUZCuMWOzLASGOK/I3tWnZrRdBrk92yvHdV+CObZwrJWZNDYZ7+bFVBc?=
+ =?us-ascii?Q?iPzLvk3MvN21RdQtKvKco5ldY/1WU9+cSiUEAyR05PXgMm652jvUwyv6ATha?=
+ =?us-ascii?Q?tbYiaFJ1MfTuOXfT+mLnEGHiPWTcQeF1qal5XE1jMIHcre1Q28YhvvB0OVJi?=
+ =?us-ascii?Q?BpP+Y5D5+OH06VRMXFbkmVHmlhEb288byZJriLFpV1GDkM6CWpbRQ1BZzAvw?=
+ =?us-ascii?Q?TTtx0Jrn2FZ0foijeLC9e6GD+Tb0OdNkkR+F3Ufsld+AzzmQJFGpfDEhMDEK?=
+ =?us-ascii?Q?51yjlUVXcd+8OlpIQlvumR6PytQU6FwNVr6EkAVPJ8t6kw1Xg6DcSLpUc1E8?=
+ =?us-ascii?Q?76pQHIDWz0P7GgAy/XeqNLdQBluRXbsRQh7pTooJCCuykJTvFvRH95s0zl+z?=
+ =?us-ascii?Q?Kgc/o7OxIY5StQHrS68FXm5AUy5gTMN7AdQ+mDfuYf4Am0ufd5EdVHouFKIB?=
+ =?us-ascii?Q?/G6bYLPKdo1hvSU/zxVpRjwRU5c7H5nm6Vdkgl83?=
+X-MS-Exchange-CrossTenant-Network-Message-Id: 085784fe-299f-4d7f-4a20-08dd4d12d940
+X-MS-Exchange-CrossTenant-AuthSource: SA1PR11MB6733.namprd11.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 14 Feb 2025 16:15:50.7545
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 46c98d88-e344-4ed4-8496-4ed7712e255d
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: /dc2AQ22RE1hFaoyRwWWpHXWNqChlSkEk+yf4qeuDx3KluUNZJ5PuGXHBvad4xcmM+WJWc2KoeNrTMW9emCxfA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CY5PR11MB6138
+X-OriginatorOrg: intel.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250214_073229_130560_6CA5C026 
-X-CRM114-Status: GOOD (  16.82  )
+X-CRM114-CacheID: sfid-20250214_081625_853409_78F54C19 
+X-CRM114-Status: GOOD (  21.24  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,33 +214,123 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-SGksCgpPbiBGcmksIEZlYiAxNCwgMjAyNSBhdCAxMjo1OeKAr0FNIEplcm9tZSBCcnVuZXQgPGpi
-cnVuZXRAYmF5bGlicmUuY29tPiB3cm90ZToKPgo+ID4gT25lIHRoaW5rIHRoYXQncyBhbHdheXMg
-ZmVsdCBhIGJpdCBtZWggdG8gbWUgaXMgdGhpcyBpZCBudW1iZXIgc3R1ZmYsCj4gPiBJIGp1c3Qg
-dGhyZXcgaW4gNjY2IGZvciBtZW1lIHZhbHVlLgo+Cj4gOikKPgo+ID4gVGhlIHdob2xlIHRoaW5n
-IHNlZW1zIHN1cGVyCj4gPiBhcmJpdHJhcnksIGRvIGFueSBvZiB0aGUgdXNlcnMgb2YgdGhpcyBo
-ZWxwZXIgYWN0dWFsbHkgcHV0IG1lYW5pbmdmdWwKPiA+IHZhbHVlcyBpbnRvIHRoZSBpZCBwYXJh
-bWV0ZXI/Cj4KPiBJbiBleGFtcGxlIGNoYW5nZXMgSSd2ZSBzZW50LCBuby4KPgo+IEluIG90aGVy
-IHNpbXBsZSB1c2FnZXMgKHRob3NlIHVzaW5nIGNvbnRhaW5lcl9vZigpKSBvZiB0aGUgYXV4aWxp
-YXJ5Cj4gYnVzLCBJIHRoaW5rIHRoZXJlIGFyZSBhIGZldyB0aGF0IHVzZXMgMCBhbmQgMSBmb3Ig
-MiBpbnN0YW5jZXMuCj4KPiBJIGd1ZXNzIHlvdXIgcXVlc3Rpb24gaXMgImRvIHdlIHJlYWxseSBu
-ZWVkIHRoaXMgcGFyYW1ldGVyIGhlcmUgPyIKPgo+IFdlIGNvdWxkIHJlbW92ZSBpdCBhbmQgc3Rp
-bGwgYWRkcmVzcyA5MCUgb2YgdGhlIG9yaWdpbmFsIHRhcmdldC4KPgo+IEtlZXBpbmcgaXQgbGVh
-dmVzIHRoZSBkb29yIG9wZW4gaW4gY2FzZSB0aGUgZmlndXJlIGFib3ZlIGRvZXMgbm90IGhvbGQK
-PiBhbmQgaXQgaXMgcHJldHR5IGNoZWFwIHRvIGRvLiBJdCBjb3VsZCBhbHNvIGVuYWJsZSBkcml2
-ZXJzIHJlcXVpcmluZyBhbgo+IElEQSB0byB1c2UgdGhlIGhlbHBlciwgcG9zc2libHkuCgpGV0lX
-LCBvbmNlIHlvdSByZXNvbHZlIHRoZSBjb25mbGljdHMgaW4gZHJtLW1pc2Mgd2l0aCB0aS1zbjY1
-ZHNpODYKeW91J2xsIG5lZWQgdGhlIElEIHZhbHVlLiA7LSkKClRoZXJlIHdhcyBhIGJpZy1vbCcg
-ZGlzY3Vzc2lvbiBoZXJlOgoKaHR0cHM6Ly9sb3JlLmtlcm5lbC5vcmcvci84YzJkZjZhOTAzZjg3
-ZDQ5MzI1ODZiMjVmMWQzYmQ1NDhmZThlNmQxLjE3MjkxODA0NzAuZ2l0LmdlZXJ0K3JlbmVzYXNA
-Z2xpZGVyLmJlCgpJIGV2ZW50dWFsbHkgcHVzaGVkIHYyIG9mIHRoZSBwYXRjaDoKCmh0dHBzOi8v
-bG9yZS5rZXJuZWwub3JnL3IvN2E2OGEwZTNmOTI3ZTI2ZWRjYTYwNDAwNjdmYjY1M2ViMDZlZmI3
-OS4xNzMzODQwMDg5LmdpdC5nZWVydCtyZW5lc2FzQGdsaWRlci5iZQoKCi1Eb3VnCgpfX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWls
-aW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5m
-cmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+Jerome Brunet wrote:
+> The auxiliary device creation of this driver is simple enough to
+> use the available auxiliary device creation helper.
+> 
+> Use it and remove some boilerplate code.
+> 
+> Signed-off-by: Jerome Brunet <jbrunet@baylibre.com>
+> ---
+>  drivers/clk/imx/clk-imx8mp-audiomix.c | 56 ++++-------------------------------
+>  1 file changed, 6 insertions(+), 50 deletions(-)
+> 
+> diff --git a/drivers/clk/imx/clk-imx8mp-audiomix.c b/drivers/clk/imx/clk-imx8mp-audiomix.c
+> index c409fc7e061869988f83c7df3ef7860500426323..988a5fffeb4e0e481ec57038d9d1f1b43432fc98 100644
+> --- a/drivers/clk/imx/clk-imx8mp-audiomix.c
+> +++ b/drivers/clk/imx/clk-imx8mp-audiomix.c
+> @@ -228,64 +228,20 @@ struct clk_imx8mp_audiomix_priv {
+>  	struct clk_hw_onecell_data clk_data;
+>  };
+>  
+> -#if IS_ENABLED(CONFIG_RESET_CONTROLLER)
+
+I see the Kconfig ...
+
+        select AUXILIARY_BUS if RESET_CONTROLLER
+
+But I don't see how this code is omitted without AUXILIARY_BUS.  Is this
+kconfig check safe to remove?
+
+Ira
+
+> -
+> -static void clk_imx8mp_audiomix_reset_unregister_adev(void *_adev)
+> -{
+> -	struct auxiliary_device *adev = _adev;
+> -
+> -	auxiliary_device_delete(adev);
+> -	auxiliary_device_uninit(adev);
+> -}
+> -
+> -static void clk_imx8mp_audiomix_reset_adev_release(struct device *dev)
+> +static int clk_imx8mp_audiomix_reset_controller_register(struct device *dev)
+>  {
+> -	struct auxiliary_device *adev = to_auxiliary_dev(dev);
+> -
+> -	kfree(adev);
+> -}
+> -
+> -static int clk_imx8mp_audiomix_reset_controller_register(struct device *dev,
+> -							 struct clk_imx8mp_audiomix_priv *priv)
+> -{
+> -	struct auxiliary_device *adev __free(kfree) = NULL;
+> -	int ret;
+> +	struct auxiliary_device *adev;
+>  
+>  	if (!of_property_present(dev->of_node, "#reset-cells"))
+>  		return 0;
+>  
+> -	adev = kzalloc(sizeof(*adev), GFP_KERNEL);
+> -	if (!adev)
+> -		return -ENOMEM;
+> -
+> -	adev->name = "reset";
+> -	adev->dev.parent = dev;
+> -	adev->dev.release = clk_imx8mp_audiomix_reset_adev_release;
+> -
+> -	ret = auxiliary_device_init(adev);
+> -	if (ret)
+> -		return ret;
+> -
+> -	ret = auxiliary_device_add(adev);
+> -	if (ret) {
+> -		auxiliary_device_uninit(adev);
+> -		return ret;
+> -	}
+> -
+> -	return devm_add_action_or_reset(dev, clk_imx8mp_audiomix_reset_unregister_adev,
+> -					no_free_ptr(adev));
+> -}
+> -
+> -#else /* !CONFIG_RESET_CONTROLLER */
+> +	adev = devm_auxiliary_device_create(dev, "reset", NULL, 0);
+> +	if (IS_ERR_OR_NULL(adev))
+> +		return PTR_ERR(adev);
+>  
+> -static int clk_imx8mp_audiomix_reset_controller_register(struct device *dev,
+> -							 struct clk_imx8mp_audiomix_priv *priv)
+> -{
+>  	return 0;
+>  }
+>  
+> -#endif /* !CONFIG_RESET_CONTROLLER */
+> -
+>  static void clk_imx8mp_audiomix_save_restore(struct device *dev, bool save)
+>  {
+>  	struct clk_imx8mp_audiomix_priv *priv = dev_get_drvdata(dev);
+> @@ -408,7 +364,7 @@ static int clk_imx8mp_audiomix_probe(struct platform_device *pdev)
+>  	if (ret)
+>  		goto err_clk_register;
+>  
+> -	ret = clk_imx8mp_audiomix_reset_controller_register(dev, priv);
+> +	ret = clk_imx8mp_audiomix_reset_controller_register(dev);
+>  	if (ret)
+>  		goto err_clk_register;
+>  
+> 
+> -- 
+> 2.45.2
+> 
+
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
