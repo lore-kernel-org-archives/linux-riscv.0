@@ -4,205 +4,138 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C8670C02198
-	for <linux-riscv@archiver.kernel.org>; Fri, 14 Feb 2025 16:16:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DE70FC02198
+	for <linux-riscv@archiver.kernel.org>; Fri, 14 Feb 2025 16:27:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
-	Message-ID:Subject:CC:To:From:Date:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=8jympZdcm+4eGfexDj2IbOPgcskz5zuUQRIZqdShoJA=; b=AjQdH5GcCbhpBt
-	lbBFs5oavscTbuBMgN+S5XedfILI4AIV9h+bkKyZ3qBR7mwcfWo9VKSmFKWCMV+R51MJki6Ak+Eqs
-	+znvgGkJnyHU2mOsFd+CaMUd25LXwXPU1FkAqP6axPMa6WOjlhwOTvmu5iN6SjJ24Zi2Q+fRBOhMd
-	M7WhHhNT7sKdIjF4Ck8lQrqoXReCc64jV8aTCm/y21ka+KubSjCDrCIzJy3VTVpRU42DlzYEF0Ea8
-	XLN+Ytv3GO3BRu+Ivi2omBTSi2Mc3fsClnprRQ6n47oV2pMwwhxK4QpqCrYqK98hkGrIuk0nY0VJm
-	bNAC9QDCc3IoimUxtobA==;
+	List-Owner; bh=iOPEwhLNtVDeISwJJnihabnRe5pwac6u59oFRviwPac=; b=4zKWuV1sffE1HF
+	E5gKPM/7Bgz9LSpLjotLgZ64rnQJ0OEzb/z3YjYz/So6dqd0nSChaJoWH15kp9Bpr20opRgrcaQeQ
+	2aFy1mjmwpnC1DgTE1FJworiRus5mNO2t0rxkzKQN4faJfNmqIL5PyyfoRp2oniZbUUvG42KIIAAc
+	VShrUOmkNG1FtRCmNEX5w6Pxx+UqUO+Rdfr+VwtX+O8ZKyGEiPAIOSk+y8h+VMnV2LWGQNzCtx/lS
+	33PG61KIzmc5O+6pA0aZrbySDa41v4vLxx9G71adV6gPhBHWNBmoeUJwBCMEWlFaf5Q635KuNup6d
+	KsoaB1cw7fjjDnND80cA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiyMd-0000000FTQx-3nhy;
-	Fri, 14 Feb 2025 16:16:27 +0000
-Received: from [198.175.65.19] (helo=mgamail.intel.com)
+	id 1tiyWk-0000000FVDk-2MNk;
+	Fri, 14 Feb 2025 16:26:54 +0000
+Received: from mail-wm1-x344.google.com ([2a00:1450:4864:20::344])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiyMb-0000000FTQH-3Ar9;
-	Fri, 14 Feb 2025 16:16:27 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1739549786; x=1771085786;
-  h=date:from:to:cc:subject:message-id:references:
-   in-reply-to:mime-version;
-  bh=3+W77FPa4qYi/p6jHkS5N5D1r20bLrH3MqSoHPLJ/Sg=;
-  b=ZsjKg8Fn+NjzOtzezLtAHputkXUCogOHU7jTCpqGFsBJbBTSU8hxk+0d
-   qWXfHBBbtJWSQVKGp/Skl/ujDmgEnh+2ckWat5l5k57T2rfwoUOcEifHt
-   S1aFPKCCEUP7Gf3DdIuAshy8eWEczQK15AmgwlIDEuUTe6zyyWf7Ii47O
-   t7QXCxzRRbr6hkhRhu7gFMOVfqQYTnmBozYZVT5Xjq0NCiByOf3Ifxoei
-   hWwboHd+B6abIIct/puzAWF4YzAXhh2MXmdcSx//iP66MKFQKzi+iXqrb
-   HBEpF93A+EwSuoVpFoNz86Nt3mH563N/bCbHHrgfxQHeYwc/insSnhiyM
-   Q==;
-X-CSE-ConnectionGUID: MouCOmoISgaR+Fk30yroUw==
-X-CSE-MsgGUID: KLWakf/oTJSMigRSmFwiig==
-X-IronPort-AV: E=McAfee;i="6700,10204,11345"; a="40165453"
-X-IronPort-AV: E=Sophos;i="6.13,286,1732608000"; 
-   d="scan'208";a="40165453"
-Received: from fmviesa007.fm.intel.com ([10.60.135.147])
-  by orvoesa111.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 14 Feb 2025 08:16:25 -0800
-X-CSE-ConnectionGUID: 7qmMv8xtTFWkAPFj2yX80Q==
-X-CSE-MsgGUID: PNuie8B+Q46bwQCuQ+GVVQ==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.13,286,1732608000"; 
-   d="scan'208";a="113471618"
-Received: from orsmsx601.amr.corp.intel.com ([10.22.229.14])
-  by fmviesa007.fm.intel.com with ESMTP/TLS/AES256-GCM-SHA384; 14 Feb 2025 08:16:22 -0800
-Received: from ORSMSX901.amr.corp.intel.com (10.22.229.23) by
- ORSMSX601.amr.corp.intel.com (10.22.229.14) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.44; Fri, 14 Feb 2025 08:16:21 -0800
-Received: from orsedg603.ED.cps.intel.com (10.7.248.4) by
- ORSMSX901.amr.corp.intel.com (10.22.229.23) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.14 via Frontend Transport; Fri, 14 Feb 2025 08:16:21 -0800
-Received: from NAM02-BN1-obe.outbound.protection.outlook.com (104.47.51.44) by
- edgegateway.intel.com (134.134.137.100) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.1.2507.44; Fri, 14 Feb 2025 08:16:20 -0800
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=E6QomcEqmbb/BfP0RwJ1Ifh3BHhWZWFbcJN90pdm2+ocB/4czXowD5kd11pIU6comzMovnaI2yU6qifpevw4m8rWY2WAip2qaaDHVh3QX1tMAX+WYUDnsKuR71dV6owqjh0Ixg6sxaU22ljgEGSmQoRSfDRuOAX/+V8sDNei6/YW3YyepgyQvOw1Kf2LXWn8IV4YfT199NxS6ssXcdmeGsqGwCA11HlxcH+HYkCaGkJx/rYA+4af7OGuSPmKSK5GgWWpZR9d1FviJWVfUI1ICLC5GPPqvdB7nsFyCDPQdLnNdbO4yZDZ9Ix8/ZIovXEalQ4CpgnOk6dVtM54drShNA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=hT+R+9FVXkyT/l4dyUBzdD2xUY0sPG1U/xKrzpzmj8I=;
- b=n1Tngb7dQbzn6QuT8BzAesTgXwy7oOl/Jl9E4UzLLmRbAlNwyqRafPJROzrZ4iFf8RDWElg47cZTGYpZizMmg2YGbIlKyANpurfSXmb0GxEf7PtXco7n1NVTWuHxBiuVNIhFn109odQ04NVbA3iJPZo7FujojSAcMBhyEq3KxwiOQxcPz2pzUY1fRkoamXi9T/a2N126iyZe8f4+sAVTXWhezcON22tWepHYD+piDcquHwgU/ZbXvFaeBEaajuNc/NNiKTbMlT8kujfnuK2QS7yjsjlxS/UkPvSJDvjpQfJRnTpfh6H0SMcEFmDyvzp4qmAlJoQe6+pStq7go5gmXQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
- dkim=pass header.d=intel.com; arc=none
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=intel.com;
-Received: from SA1PR11MB6733.namprd11.prod.outlook.com (2603:10b6:806:25c::17)
- by CY5PR11MB6138.namprd11.prod.outlook.com (2603:10b6:930:2a::11) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8445.14; Fri, 14 Feb
- 2025 16:15:50 +0000
-Received: from SA1PR11MB6733.namprd11.prod.outlook.com
- ([fe80::cf7d:9363:38f4:8c57]) by SA1PR11MB6733.namprd11.prod.outlook.com
- ([fe80::cf7d:9363:38f4:8c57%5]) with mapi id 15.20.8445.013; Fri, 14 Feb 2025
- 16:15:50 +0000
-Date: Fri, 14 Feb 2025 10:15:36 -0600
-From: Ira Weiny <ira.weiny@intel.com>
-To: Jerome Brunet <jbrunet@baylibre.com>, Greg Kroah-Hartman
-	<gregkh@linuxfoundation.org>, Dave Ertman <david.m.ertman@intel.com>, "Ira
- Weiny" <ira.weiny@intel.com>, "Rafael J. Wysocki" <rafael@kernel.org>,
-	"Stephen Boyd" <sboyd@kernel.org>, Arnd Bergmann <arnd@arndb.de>, Danilo
- Krummrich <dakr@kernel.org>, Conor Dooley <conor.dooley@microchip.com>, Daire
- McNamara <daire.mcnamara@microchip.com>, Philipp Zabel
-	<p.zabel@pengutronix.de>, Douglas Anderson <dianders@chromium.org>, Andrzej
- Hajda <andrzej.hajda@intel.com>, Neil Armstrong <neil.armstrong@linaro.org>,
-	"Robert Foss" <rfoss@kernel.org>, Laurent Pinchart
-	<Laurent.pinchart@ideasonboard.com>, Jonas Karlman <jonas@kwiboo.se>, "Jernej
- Skrabec" <jernej.skrabec@gmail.com>, Maarten Lankhorst
-	<maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>,
-	Simona Vetter <simona@ffwll.ch>, Hans de Goede <hdegoede@redhat.com>, Ilpo
- =?iso-8859-1?Q?J=E4rvinen?= <ilpo.jarvinen@linux.intel.com>, Bryan O'Donoghue
-	<bryan.odonoghue@linaro.org>, Vladimir Kondratiev
-	<vladimir.kondratiev@mobileye.com>, Gregory CLEMENT
-	<gregory.clement@bootlin.com>, =?iso-8859-1?Q?Th=E9o?= Lebrun
-	<theo.lebrun@bootlin.com>, Michael Turquette <mturquette@baylibre.com>, "Abel
- Vesa" <abelvesa@kernel.org>, Peng Fan <peng.fan@nxp.com>, Shawn Guo
-	<shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, "Pengutronix
- Kernel Team" <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>,
-	Kevin Hilman <khilman@baylibre.com>, Martin Blumenstingl
-	<martin.blumenstingl@googlemail.com>
-CC: Jerome Brunet <jbrunet@baylibre.com>, <linux-kernel@vger.kernel.org>,
-	<linux-riscv@lists.infradead.org>, <dri-devel@lists.freedesktop.org>,
-	<platform-driver-x86@vger.kernel.org>, <linux-mips@vger.kernel.org>,
-	<linux-clk@vger.kernel.org>, <imx@lists.linux.dev>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-amlogic@lists.infradead.org>
-Subject: Re: [PATCH v3 6/7] clk: clk-imx8mp-audiomix: use the auxiliary
- device creation helper
-Message-ID: <67af6c284c349_1614f3294dd@iweiny-mobl.notmuch>
-References: <20250211-aux-device-create-helper-v3-0-7edb50524909@baylibre.com>
- <20250211-aux-device-create-helper-v3-6-7edb50524909@baylibre.com>
-Content-Disposition: inline
-In-Reply-To: <20250211-aux-device-create-helper-v3-6-7edb50524909@baylibre.com>
-X-ClientProxiedBy: MW4PR03CA0343.namprd03.prod.outlook.com
- (2603:10b6:303:dc::18) To SA1PR11MB6733.namprd11.prod.outlook.com
- (2603:10b6:806:25c::17)
+	id 1tiyWh-0000000FVBt-2wJx
+	for linux-riscv@lists.infradead.org;
+	Fri, 14 Feb 2025 16:26:53 +0000
+Received: by mail-wm1-x344.google.com with SMTP id 5b1f17b1804b1-436ce2ab251so16551605e9.1
+        for <linux-riscv@lists.infradead.org>; Fri, 14 Feb 2025 08:26:50 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=suse.com; s=google; t=1739550409; x=1740155209; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:autocrypt:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to;
+        bh=yYahPJ7CPZFZpNoRGXLgzm0+xcyc7qKygSX7eH5P6s0=;
+        b=DnURxxv4CqiKGrgAI7i2FZureno+ONkzAZS46UKwthxOH8/i2R8Iq7EC+DdCc7XSOJ
+         gDJfcTQZWBkqliet/3Y9ibcygBfnRWLTAGPbhalJbgy8H7+KYTIKj3ctbqqBzYbKCf0m
+         Y0A0sQfpQiwEJnuhvl+fC3P0rqleQ27hV/DeaLb6sF95kEypcZs/wMBXjYVwsK7pZWPg
+         evxjXo+VNou4yqRnkIURoIBx5olVFhNZ0SBlxtcxWvHFmtSWYrSwQGAhf/+KNpPci02U
+         68KTow7Gse5HO8i1YCZ/fFoh87IeXm4EL0uHkr61LSzDUjHB022cW9nq4RuI72gRaxw4
+         FDnQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1739550409; x=1740155209;
+        h=content-transfer-encoding:in-reply-to:autocrypt:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=yYahPJ7CPZFZpNoRGXLgzm0+xcyc7qKygSX7eH5P6s0=;
+        b=ebyZkjKb+Ch9j8FKj8t1JT3zyjKlnaa0v7t1SZk0lV2ZuFALKwafAM7c/ndImiKeSd
+         +lIFbFaQlMm0k2OEzSP4e72q1yyguR18Xsq4EOr2YHkF3T1csYg89uTO1Tbrt9eIqqgW
+         qCuW3XPQutP6BzGS9DbIn6oPDx1gFST6knwKmICNwgRCmot+Hy/qHGGVtSWMuit9e/WP
+         C4iwACOs/azqF78eUoekqbgEr36Fd8eS5ymoCZu6ESjot9bLazL+ApoquqHPl358LiIe
+         KlIIcixhdHFQu0wFbXiUIO7ml54xvOMJOaSSZkm+n7LF+lXd8stUVjuW1zxTVshqZoIN
+         Kpuw==
+X-Forwarded-Encrypted: i=1; AJvYcCUmmdpc1opEWXgZXuGfdK0ii3TVQLLhD9+xofgUhQlh5+MtQIKlcQR9Lw8HUa7MFNr1f6n0NDd1LSL0ZQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0YyfA5hnf+SRpR9ZQfUVHOe6eiiB46WCciAVShKrcFnXi077fIRi
+	NdB36M6EV8qG4ItX+ABeRTJHy4+a9blp+E3G2BkJJOeuDtCK2Qwce+2A8kS29po=
+X-Gm-Gg: ASbGncsoJKGIYbE5HDx5v2JDU7+CRUWvZFFvU1061DWDojX8KnoKR/YoGPhvnFNosvL
+	IxD53vxT3SKUDCwN3KRVHp1xmt3TXiKjQTW4kuYSWgsltg6mDTvcsP+zoMcV7TEs4dhYXez67F0
+	LjMNuxW7Y0p/471jG2bZbrPlA5s51Fb7eBV9ukXfoQ9qfpRZJLQR3bNNPfqiCyWBVX93NPcW7Ca
+	VJJ98Wzf7dYpXYOjSyWi+uv5ctCxgfYH1ZPgSErr8+ZccN6P6YuOQyDQS+Lbdr2B6522jjvn8s9
+	phh29Z7LsRlF
+X-Google-Smtp-Source: AGHT+IGD0ZwSKP2SVlV7tCbb67DNu8v1KQBEuuR8bN5t8fbcPighOdQVzKxfEH8x4T2JZ2zth1XX9A==
+X-Received: by 2002:a05:6000:1546:b0:38d:c2d7:b5a1 with SMTP id ffacd0b85a97d-38dea26ecdfmr12656044f8f.19.1739550409013;
+        Fri, 14 Feb 2025 08:26:49 -0800 (PST)
+Received: from [192.168.2.177] ([81.0.8.231])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-38f258dab74sm5084116f8f.32.2025.02.14.08.26.47
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 14 Feb 2025 08:26:48 -0800 (PST)
+Message-ID: <05ec141f-8d2d-456c-830f-f5ea2adce671@suse.com>
+Date: Fri, 14 Feb 2025 17:26:46 +0100
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SA1PR11MB6733:EE_|CY5PR11MB6138:EE_
-X-MS-Office365-Filtering-Correlation-Id: 085784fe-299f-4d7f-4a20-08dd4d12d940
-X-LD-Processed: 46c98d88-e344-4ed4-8496-4ed7712e255d,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|1800799024|366016|7053199007|921020;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?WDq0UZPwEJiXbsJOv7ccnrPWbO0EvkG8FJtIemmabvlVsnJ+jZSrAQw8XWZf?=
- =?us-ascii?Q?aX14bSRSU/SUhIu1grRFiV0S3JRyZnzhz1PgXLNhaIv07srvcXpJyzYwgtFy?=
- =?us-ascii?Q?jNQP6i+/5FnXl+W1hRqjui7ySJ8atD9on0vlfWmjiUFjGIiWtDwMZdZCzHzs?=
- =?us-ascii?Q?njgd4ECbVlPkkdfuaSZAcb6AUbKEMDnwA6MOlTyYcgbPQu5SV1LOOu2vWI+A?=
- =?us-ascii?Q?aUgoAfW2APZeviRAehV/WB7FnMRbyvlGCSSc5W7hY/o19KqHrNXP/8g6LvoW?=
- =?us-ascii?Q?d6tgx8ki/6OB/yELHPfGwvjWxb6j1oWxfIex0JLXEeZKiBweZdaDW2vzXYml?=
- =?us-ascii?Q?yV5UJIpuMH77MbDkBNzvaFMShxqPhgryOVD6PIC1nTj4M1csHamJFa9lhLzb?=
- =?us-ascii?Q?asXSf76MPILlxTszXsiJ0CNCJOxEWA4KTASyU1FA6zqKjsoJduWfwD6I3XnC?=
- =?us-ascii?Q?veSU8HfZSW3EXY1rEvy69ziXJfyDoP0jHDuJEADTP4iKMWPQFHK7bvUyf+3R?=
- =?us-ascii?Q?gZll7cm9oNkmCKWS0Y20fbaL0P9JxlFJXpbhZ1jgfDqEWckbnPkHBjqG0PGP?=
- =?us-ascii?Q?fFfl4IXWdyfph046JYiWed2yAGfnIw6uHwEY4wJ0oaY+kx6IxKNoKVszNXth?=
- =?us-ascii?Q?Ef/tzuH3+iYF9HfOIun7Ry0FzRNxx8Y4mjH8BQ+ZhAQKmrYIUfPImBDuPQY3?=
- =?us-ascii?Q?uOJVZxR5AhoFfHs6eCwkdS9gjDH5aF/s4MaeVDYQQpjdLrxcsyU6yZKdd9aF?=
- =?us-ascii?Q?JwSYetlfg8CQK4qOAkuAljkpNyKiLE4vV8kjdBMe5aKis8pVI4qHzOsUHvxw?=
- =?us-ascii?Q?6JCTcelbh5zo0qh2WbgwYGCpORRUYcBeqwgwn40jBsFrCRwJ7/EYDFIQ45JG?=
- =?us-ascii?Q?GVYdFCY27nSG3BXMlHrQY2j/QUyiyyocN4wNi5HV9kqGoayYGLm1QFmqngir?=
- =?us-ascii?Q?/re3coRWFWABrFW6eoYoFhSkUcwfZXAjr9UWQxCzyfqXEWzqprlHbWjPsW1p?=
- =?us-ascii?Q?fldWcCVRrwF2NMGvvVwBgxxnfwAf98H2wD/cH62h5zXR+k5XnweigkYRlVSx?=
- =?us-ascii?Q?Ifh2jCUhcz+8cMJiLyE4hIjX/ODvvCFRJmrSZU5CA5TdYPi13ovYj8wI7Hqi?=
- =?us-ascii?Q?LN6no32iIpFtfgLYB3J0Iq8XDmgzRSuKUa33YkcLPxn51x0Uj0Kvh3lTCLC3?=
- =?us-ascii?Q?mILg8opLr0o+ovZqBelQ8eODNS4UFu5HAP7m9YfpsGWb9jIQwby24dKKih/a?=
- =?us-ascii?Q?YhtlKV1wcywZalwJWWLYL5Hqc8k/fXiHNq3u9dih/DoXAW/98LZLQJmXzPkN?=
- =?us-ascii?Q?mIvz7uf3o7cblYIIk21/NipZnd/VU5q+vuZc5QFlwSt8qGHM3tvaLPQOcRWa?=
- =?us-ascii?Q?XqBPWu4tbKb6WuWA9aQt5D0tkFG+vEitqfltu6uTsINbyB9oaggHakp8Dyq5?=
- =?us-ascii?Q?kjdr/qPHnQY=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SA1PR11MB6733.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(1800799024)(366016)(7053199007)(921020);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?1k3Affq2l9akXSjbiEChWZzpkpmkykXrhmm3D7a3VmzIdwqmFvctan4I9N+0?=
- =?us-ascii?Q?Dnrhq03pyX4pz0rWdTxkJerE6N8SLpDdxOWDqFFXuS2WYwiB0BAn1cooQwFu?=
- =?us-ascii?Q?I7Du791V02dzbnoYQ4lYZzqY1u7P68HwDQ1pp+0AI/oLAoBnmzvLIfyQtXV8?=
- =?us-ascii?Q?qhAzTGVYQdYVg/efqUv43cXJKBuJr0KqIC4B827MIh+2/3yXt51hZlyLZKam?=
- =?us-ascii?Q?cLeb1rpMpwvPHs5UKO9lr/vP1w3SZCtsbExUnrfazvznIOrvb0eFUBQ33dD/?=
- =?us-ascii?Q?2Rp+aZ8JIXa75kcwWrSCfFWZm3HQ1N74EoDQH9Qm8UjldX+bkiEmVSLbNkIz?=
- =?us-ascii?Q?qs71GKdZTxbPPcqbLKkAefP8w56uIyUXwOK+2IO+c22xhZUwOfnHkA/Uv+pZ?=
- =?us-ascii?Q?bUodu6nZH3GbryO0N7zsDF6WLLy8EvRkBUJH/oXLKLAVETqELBu1e3m23cCo?=
- =?us-ascii?Q?sbPeA3Q4e+2QnrSF4s3KbfiL4CCBd9yu6a83lp7Ps4c6IuQUT48FxvSNHMaE?=
- =?us-ascii?Q?9rvxz7C9cpJz8NroHHvWDIsKi021cyvLw3KGPDflxHeNNPRD+RIh6KUhX6El?=
- =?us-ascii?Q?uoLMphxp31Ig6YeVW7mI19r9p5MrznDbWjrisfQriZ8Nvog9dvd+Wx1CyA6c?=
- =?us-ascii?Q?yeaMuy36hw8TVcJJNiJvm/xy2B1CLYurNedAQx8zswpHfZNupzQgWyB4m+JC?=
- =?us-ascii?Q?pHSOOLROfRj+qde26q6O09eDU4D16Xq9j/X2a+j+N2g1ZrKia57nNzuqreu9?=
- =?us-ascii?Q?VrlZS++2hAj1796xezFw0pZ8nBFnNqjKrFyjrUW3u18AlcyXaZlePr8ZRFJP?=
- =?us-ascii?Q?Pf5N+8p1fMsUoY2J4bLr6yus/f0vRtA5xcd2ly+9W0Mvi5qRoz/q+D1NejO8?=
- =?us-ascii?Q?3yd4Cva0zQjdDDL0Z7yXmk5KVdUMiJ6dalyWIWxpo4fk2ZVzGcDcc8Zrr9TR?=
- =?us-ascii?Q?ez83nB7buYTGl838hVeCwSZMEZ3h1hZV2fEfJ3FZHe//fvficARxXC/Gs5lZ?=
- =?us-ascii?Q?IKkFjIQ5tofLbApGPTbFMupmYMcRGCgbnbhHN1onELEOy846wgoLSOMr4N0P?=
- =?us-ascii?Q?QDJ9QUZCuMWOzLASGOK/I3tWnZrRdBrk92yvHdV+CObZwrJWZNDYZ7+bFVBc?=
- =?us-ascii?Q?iPzLvk3MvN21RdQtKvKco5ldY/1WU9+cSiUEAyR05PXgMm652jvUwyv6ATha?=
- =?us-ascii?Q?tbYiaFJ1MfTuOXfT+mLnEGHiPWTcQeF1qal5XE1jMIHcre1Q28YhvvB0OVJi?=
- =?us-ascii?Q?BpP+Y5D5+OH06VRMXFbkmVHmlhEb288byZJriLFpV1GDkM6CWpbRQ1BZzAvw?=
- =?us-ascii?Q?TTtx0Jrn2FZ0foijeLC9e6GD+Tb0OdNkkR+F3Ufsld+AzzmQJFGpfDEhMDEK?=
- =?us-ascii?Q?51yjlUVXcd+8OlpIQlvumR6PytQU6FwNVr6EkAVPJ8t6kw1Xg6DcSLpUc1E8?=
- =?us-ascii?Q?76pQHIDWz0P7GgAy/XeqNLdQBluRXbsRQh7pTooJCCuykJTvFvRH95s0zl+z?=
- =?us-ascii?Q?Kgc/o7OxIY5StQHrS68FXm5AUy5gTMN7AdQ+mDfuYf4Am0ufd5EdVHouFKIB?=
- =?us-ascii?Q?/G6bYLPKdo1hvSU/zxVpRjwRU5c7H5nm6Vdkgl83?=
-X-MS-Exchange-CrossTenant-Network-Message-Id: 085784fe-299f-4d7f-4a20-08dd4d12d940
-X-MS-Exchange-CrossTenant-AuthSource: SA1PR11MB6733.namprd11.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 14 Feb 2025 16:15:50.7545
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 46c98d88-e344-4ed4-8496-4ed7712e255d
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: /dc2AQ22RE1hFaoyRwWWpHXWNqChlSkEk+yf4qeuDx3KluUNZJ5PuGXHBvad4xcmM+WJWc2KoeNrTMW9emCxfA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CY5PR11MB6138
-X-OriginatorOrg: intel.com
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/2] dt-bindings: riscv: spacemit: Add Milk-V Jupiter
+ board compatible
+To: Javier Martinez Canillas <javierm@redhat.com>,
+ linux-kernel@vger.kernel.org
+Cc: javier@dowhile0.org, rjones@redhat.com, abologna@redhat.com,
+ spacemit@lists.linux.dev, Albert Ou <aou@eecs.berkeley.edu>,
+ Conor Dooley <conor+dt@kernel.org>, Krzysztof Kozlowski
+ <krzk+dt@kernel.org>, Matthias Brugger <matthias.bgg@kernel.org>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley
+ <paul.walmsley@sifive.com>, Rob Herring <robh@kernel.org>,
+ Yangyu Chen <cyy@cyyself.name>, Yixun Lan <dlan@gentoo.org>,
+ devicetree@vger.kernel.org, linux-riscv@lists.infradead.org
+References: <20250214151700.666544-1-javierm@redhat.com>
+ <20250214151700.666544-2-javierm@redhat.com>
+Content-Language: en-US, ca-ES, es-ES
+From: Matthias Brugger <mbrugger@suse.com>
+Autocrypt: addr=mbrugger@suse.com; keydata=
+ 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
+ PVrr2NoUqi/bxI8fFQJD1jVj8K0=
+In-Reply-To: <20250214151700.666544-2-javierm@redhat.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250214_081625_853409_78F54C19 
-X-CRM114-Status: GOOD (  21.24  )
+X-CRM114-CacheID: sfid-20250214_082651_745700_C0457BFB 
+X-CRM114-Status: GOOD (  10.09  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -214,120 +147,40 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Jerome Brunet wrote:
-> The auxiliary device creation of this driver is simple enough to
-> use the available auxiliary device creation helper.
+
+
+On 14/02/2025 16:16, Javier Martinez Canillas wrote:
+> Document the compatible string for Milk-V Jupiter board [1], which
+> is a Mini ITX computer based on the SpacemiT K1/M1 RISC-V SoC [2].
 > 
-> Use it and remove some boilerplate code.
-> 
-> Signed-off-by: Jerome Brunet <jbrunet@baylibre.com>
+> Link: https://milkv.io/jupiter [1]
+> Link: https://www.spacemit.com/en/key-stone-k1 [2]
+> Signed-off-by: Javier Martinez Canillas <javierm@redhat.com>
+
+Reviewed-by: Matthias Brugger <mbrugger@suse.com>
+
 > ---
->  drivers/clk/imx/clk-imx8mp-audiomix.c | 56 ++++-------------------------------
->  1 file changed, 6 insertions(+), 50 deletions(-)
 > 
-> diff --git a/drivers/clk/imx/clk-imx8mp-audiomix.c b/drivers/clk/imx/clk-imx8mp-audiomix.c
-> index c409fc7e061869988f83c7df3ef7860500426323..988a5fffeb4e0e481ec57038d9d1f1b43432fc98 100644
-> --- a/drivers/clk/imx/clk-imx8mp-audiomix.c
-> +++ b/drivers/clk/imx/clk-imx8mp-audiomix.c
-> @@ -228,64 +228,20 @@ struct clk_imx8mp_audiomix_priv {
->  	struct clk_hw_onecell_data clk_data;
->  };
->  
-> -#if IS_ENABLED(CONFIG_RESET_CONTROLLER)
-
-I see the Kconfig ...
-
-        select AUXILIARY_BUS if RESET_CONTROLLER
-
-But I don't see how this code is omitted without AUXILIARY_BUS.  Is this
-kconfig check safe to remove?
-
-Ira
-
-> -
-> -static void clk_imx8mp_audiomix_reset_unregister_adev(void *_adev)
-> -{
-> -	struct auxiliary_device *adev = _adev;
-> -
-> -	auxiliary_device_delete(adev);
-> -	auxiliary_device_uninit(adev);
-> -}
-> -
-> -static void clk_imx8mp_audiomix_reset_adev_release(struct device *dev)
-> +static int clk_imx8mp_audiomix_reset_controller_register(struct device *dev)
->  {
-> -	struct auxiliary_device *adev = to_auxiliary_dev(dev);
-> -
-> -	kfree(adev);
-> -}
-> -
-> -static int clk_imx8mp_audiomix_reset_controller_register(struct device *dev,
-> -							 struct clk_imx8mp_audiomix_priv *priv)
-> -{
-> -	struct auxiliary_device *adev __free(kfree) = NULL;
-> -	int ret;
-> +	struct auxiliary_device *adev;
->  
->  	if (!of_property_present(dev->of_node, "#reset-cells"))
->  		return 0;
->  
-> -	adev = kzalloc(sizeof(*adev), GFP_KERNEL);
-> -	if (!adev)
-> -		return -ENOMEM;
-> -
-> -	adev->name = "reset";
-> -	adev->dev.parent = dev;
-> -	adev->dev.release = clk_imx8mp_audiomix_reset_adev_release;
-> -
-> -	ret = auxiliary_device_init(adev);
-> -	if (ret)
-> -		return ret;
-> -
-> -	ret = auxiliary_device_add(adev);
-> -	if (ret) {
-> -		auxiliary_device_uninit(adev);
-> -		return ret;
-> -	}
-> -
-> -	return devm_add_action_or_reset(dev, clk_imx8mp_audiomix_reset_unregister_adev,
-> -					no_free_ptr(adev));
-> -}
-> -
-> -#else /* !CONFIG_RESET_CONTROLLER */
-> +	adev = devm_auxiliary_device_create(dev, "reset", NULL, 0);
-> +	if (IS_ERR_OR_NULL(adev))
-> +		return PTR_ERR(adev);
->  
-> -static int clk_imx8mp_audiomix_reset_controller_register(struct device *dev,
-> -							 struct clk_imx8mp_audiomix_priv *priv)
-> -{
->  	return 0;
->  }
->  
-> -#endif /* !CONFIG_RESET_CONTROLLER */
-> -
->  static void clk_imx8mp_audiomix_save_restore(struct device *dev, bool save)
->  {
->  	struct clk_imx8mp_audiomix_priv *priv = dev_get_drvdata(dev);
-> @@ -408,7 +364,7 @@ static int clk_imx8mp_audiomix_probe(struct platform_device *pdev)
->  	if (ret)
->  		goto err_clk_register;
->  
-> -	ret = clk_imx8mp_audiomix_reset_controller_register(dev, priv);
-> +	ret = clk_imx8mp_audiomix_reset_controller_register(dev);
->  	if (ret)
->  		goto err_clk_register;
->  
+>   Documentation/devicetree/bindings/riscv/spacemit.yaml | 1 +
+>   1 file changed, 1 insertion(+)
 > 
-> -- 
-> 2.45.2
-> 
-
+> diff --git a/Documentation/devicetree/bindings/riscv/spacemit.yaml b/Documentation/devicetree/bindings/riscv/spacemit.yaml
+> index 52e55077af1a..077b94f10dca 100644
+> --- a/Documentation/devicetree/bindings/riscv/spacemit.yaml
+> +++ b/Documentation/devicetree/bindings/riscv/spacemit.yaml
+> @@ -21,6 +21,7 @@ properties:
+>         - items:
+>             - enum:
+>                 - bananapi,bpi-f3
+> +              - milkv,jupiter
+>             - const: spacemit,k1
+>   
+>   additionalProperties: true
 
 
 _______________________________________________
