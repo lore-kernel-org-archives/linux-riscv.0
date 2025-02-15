@@ -4,90 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E6BD4C021A0
-	for <linux-riscv@archiver.kernel.org>; Sat, 15 Feb 2025 08:42:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC1B3C021A4
+	for <linux-riscv@archiver.kernel.org>; Sat, 15 Feb 2025 08:52:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=a5plC6IYTtISgZaP1yXvE3cYv2XvTUtHTHD/nuL6Q1A=; b=4Np4eMuI761x+O
-	QIktnyYb1Hv0QzH52OaDigPUrlHRTc5uLKQzPpNni5PyLRtw0uCm/CwXH311UxyOSPyjQtNUCjNeV
-	X8HfP16jFo2qnDHqe2b54L4d725YgMCWvT+7aKwgM7ynaYONhNcGqnUZUxSMlvVHm2Cire7DYPwTT
-	MGrSy2+3S+YbBJku09XQjRIWzch2zBT11JiObRyCLKmhgaSakpKonNakg19HcY8/eMp75qJSMNC27
-	ZgRqF1JZ10UoWF4XQQ6GPrQeDvXgbxe4OY0eQgyqQ4jhXszKlSdsKYX8is3Pb4wOJ/SFPhUua86aA
-	e4ZZVu9Ssj6gY5nUDDZA==;
+	List-Owner; bh=3nTwHxos1SYEu2W2Na6SWbx94DWP692EvcQdGPZnTaw=; b=z3YVm1XIuewTZW
+	RKhM2Wz+Am56fBE7Z6iuOtAQo3dIXXcaUMHNV1vjwlzwNStpxP4sW+9KFque7XQVByf8J+ekJcrRQ
+	1yg2dEqct5xwHBcAQ9gzV1vs9XMu4YeO9xt8NT+IrBBppdwS6x0VcinEz6EGAIkrweahrNA8msT/A
+	nfVcYQ5Q2FkGd5ahIlMjMo7RvPmOYqbPw6SI9l5n+sxIYkXjOIrRjDw7PcMor+ZngISE62/SLODzd
+	JvSPLDh5iXrQHM1kGjXx9neQJLF9EN7bh+54nh2SRBxsU4kBe3T9zO5iqE7+++k+m/+x4L6E5lP5a
+	/O97a6ixSarsGpN+Icxw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tjDkn-0000000HGbN-0NqF;
-	Sat, 15 Feb 2025 08:42:25 +0000
-Received: from bayard.4d2.org ([5.78.89.93])
+	id 1tjDul-0000000HHBi-3ulI;
+	Sat, 15 Feb 2025 08:52:43 +0000
+Received: from mgamail.intel.com ([198.175.65.10])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tjDkk-0000000HGai-2JG3
-	for linux-riscv@lists.infradead.org;
-	Sat, 15 Feb 2025 08:42:24 +0000
-Received: from bayard.4d2.org (bayard.4d2.org [127.0.0.1])
-	by bayard.4d2.org (Postfix) with ESMTP id 14C35122FE22;
-	Sat, 15 Feb 2025 00:42:18 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=4d2.org; s=mail;
-	t=1739608938; bh=/+GA9MhStHPkQplMZrvm16d9WGpWymsKHs9P+2n2Vr0=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Dd6U6CU23N5EIEcguaJpZREr8naTARBYBRN9xd+9GwkNnS6a/FR/CnzBg9sm3BpyD
-	 eI93NpIgFjb7cgByn3BwStMA2+xsMkQtkpLtGae0Jx6Om4MBJMdLa8M1VgaURtD2Mb
-	 JS2JIYU7QQAhTN7fUAaEO2/8DzoP3PrS31YcHrlmF06w/srpAyj9HCcqm+QxQnYLJm
-	 UA6d26frScSQGUCxz4VBRJm4YjG4+y8k12FveIpTRcEdelq2VEnFTAIrqMQ9JsxUSt
-	 o5kzcCsdl9/wAnekeLrvZ5qsEBowAHrxzuuLVTmCwIBXLa0UrYB9qi3xPu/PGpOQSA
-	 FwCzyst/xxDww==
-X-Virus-Scanned: amavisd-new at 4d2.org
-Received: from bayard.4d2.org ([127.0.0.1])
- by bayard.4d2.org (bayard.4d2.org [127.0.0.1]) (amavisd-new, port 10024)
- with ESMTP id p1fnst-8DDHs; Sat, 15 Feb 2025 00:42:12 -0800 (PST)
-Received: from ketchup (unknown [183.217.81.160])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: heylenay@4d2.org)
-	by bayard.4d2.org (Postfix) with ESMTPSA id 4EB9B122FE21;
-	Sat, 15 Feb 2025 00:42:08 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=4d2.org; s=mail;
-	t=1739608931; bh=/+GA9MhStHPkQplMZrvm16d9WGpWymsKHs9P+2n2Vr0=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=aiueXKvQ5p7deu1Qfjf17v3ZWvqFX06iCAk+Ja84KpUtk5uKHInBC/aUKlTW7i0l9
-	 OZ3jdlPGnAzZTr2Vr9Jm9N5HvE4m1LLjH0YRCuMgmeTL164P/fROSlZgWwBFPAKaoO
-	 VqJJ3h8Mc/3Nhln3fWYMaSRSR3KwWzViNtG/sK1MleX2VmLkAQvphvag8cErXi7zRq
-	 ETEoTuNmaiVmv3NGWUWpU8RrLlcz3i9vC5HAh7zBL51BSTDpy0Hyt4fcXK0ZAVT/Uz
-	 A/Ihz+77XcP4pRHTvpN0G9mwNTgdJ5YXyE6RjL4tfkrTiEm7hKOofaFWKF0ZgJr6xR
-	 ithZ71LTjakZg==
-Date: Sat, 15 Feb 2025 08:41:58 +0000
-From: Haylen Chu <heylenay@4d2.org>
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Haylen Chu <heylenay@outlook.com>, Yixun Lan <dlan@gentoo.org>,
-	linux-riscv@lists.infradead.org, linux-clk@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	Inochi Amaoto <inochiama@outlook.com>,
-	Chen Wang <unicornxdotw@foxmail.com>,
-	Jisheng Zhang <jszhang@kernel.org>,
-	Meng Zhang <zhangmeng.kevin@linux.spacemit.com>
-Subject: Re: [PATCH v4 2/4] dt-bindings: soc: spacemit: Add spacemit,k1-syscon
-Message-ID: <Z7BTVu10EKHMqOnJ@ketchup>
-References: <20250103215636.19967-2-heylenay@4d2.org>
- <20250103215636.19967-4-heylenay@4d2.org>
- <aw2vqnz5vcccqqvrrhz5tgawj7fnzzg3tds7nnepuorit37a7r@jcj3wrs7d73h>
- <Z6rdBhQ7s2ReOgBL@ketchup>
- <19e5129b-8423-4660-8e4f-8b898214d275@kernel.org>
- <Z63T_EDvXiuRQbvb@ketchup>
- <2ab715bd-e26c-41bb-ac64-baa864d90414@kernel.org>
+	id 1tjDtJ-0000000HH5x-2tAI;
+	Sat, 15 Feb 2025 08:51:14 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1739609473; x=1771145473;
+  h=message-id:date:mime-version:subject:to:cc:references:
+   from:in-reply-to:content-transfer-encoding;
+  bh=bOL7hyxwdyA5NZF7YWFX1w7MgDLf45Pn8T+oWqiAy80=;
+  b=j/luwkOSeWKokaacvlHoaKSz3XIbxKaT6KNpBc5knprsH0FtP37rKKL1
+   XFWJvygAVK6VUJ2te4RxpxNsNc6G1WWDld4wInPhbiKa1COPqs18F8FvX
+   LRV9suf+ry+Zr8HrGUJgckqbO9m9T7i1zVEUVnNTLC3yRedkW2SR52zs9
+   X2MQQg6hfIQKllFzNbWOAuz8wd8Cog7vzgqOLYCjn5DkNYUBZ5D0jh6UI
+   N0U/T9gOBRgqcoQQqv/5M/Sd2kh5fL8ZcW7H0cilsUsBoJBkBay9VuyJ7
+   JPu0zJjZ28oWX0pW5mLmV1eR2cGwmUy/gEY8wDlibnSEsQS8+yiV8dK9Q
+   g==;
+X-CSE-ConnectionGUID: 4Z9cYiemRleSBs/1C1Y5Iw==
+X-CSE-MsgGUID: JIWgr1uWT/yg7ZvMHKBiXQ==
+X-IronPort-AV: E=McAfee;i="6700,10204,11345"; a="57764814"
+X-IronPort-AV: E=Sophos;i="6.13,288,1732608000"; 
+   d="scan'208";a="57764814"
+Received: from fmviesa009.fm.intel.com ([10.60.135.149])
+  by orvoesa102.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 15 Feb 2025 00:51:12 -0800
+X-CSE-ConnectionGUID: /r+F0jx4RVKMBSVF09lU6w==
+X-CSE-MsgGUID: r0L1deRvR9Cz9JN551mbGw==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.13,288,1732608000"; 
+   d="scan'208";a="114287640"
+Received: from allen-sbox.sh.intel.com (HELO [10.239.159.30]) ([10.239.159.30])
+  by fmviesa009-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 15 Feb 2025 00:51:04 -0800
+Message-ID: <84fd4500-a12c-40d6-a532-e2956ed1c35e@linux.intel.com>
+Date: Sat, 15 Feb 2025 16:48:04 +0800
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <2ab715bd-e26c-41bb-ac64-baa864d90414@kernel.org>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 07/23] iommu/pages: De-inline the substantial functions
+To: Jason Gunthorpe <jgg@nvidia.com>, Alim Akhtar <alim.akhtar@samsung.com>,
+ Alyssa Rosenzweig <alyssa@rosenzweig.io>, Albert Ou <aou@eecs.berkeley.edu>,
+ asahi@lists.linux.dev, David Woodhouse <dwmw2@infradead.org>,
+ Heiko Stuebner <heiko@sntech.de>, iommu@lists.linux.dev,
+ Jernej Skrabec <jernej.skrabec@gmail.com>,
+ Jonathan Hunter <jonathanh@nvidia.com>, Joerg Roedel <joro@8bytes.org>,
+ Krzysztof Kozlowski <krzk@kernel.org>, linux-arm-kernel@lists.infradead.org,
+ linux-riscv@lists.infradead.org, linux-rockchip@lists.infradead.org,
+ linux-samsung-soc@vger.kernel.org, linux-sunxi@lists.linux.dev,
+ linux-tegra@vger.kernel.org, Marek Szyprowski <m.szyprowski@samsung.com>,
+ Hector Martin <marcan@marcan.st>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Robin Murphy
+ <robin.murphy@arm.com>, Samuel Holland <samuel@sholland.org>,
+ Suravee Suthikulpanit <suravee.suthikulpanit@amd.com>,
+ Sven Peter <sven@svenpeter.dev>, Thierry Reding <thierry.reding@gmail.com>,
+ Tomasz Jeznach <tjeznach@rivosinc.com>, Krishna Reddy <vdumpa@nvidia.com>,
+ Chen-Yu Tsai <wens@csie.org>, Will Deacon <will@kernel.org>
+Cc: Bagas Sanjaya <bagasdotme@gmail.com>, Joerg Roedel <jroedel@suse.de>,
+ Pasha Tatashin <pasha.tatashin@soleen.com>, patches@lists.linux.dev,
+ David Rientjes <rientjes@google.com>, Matthew Wilcox <willy@infradead.org>
+References: <7-v2-545d29711869+a76b5-iommu_pages_jgg@nvidia.com>
+Content-Language: en-US
+From: Baolu Lu <baolu.lu@linux.intel.com>
+In-Reply-To: <7-v2-545d29711869+a76b5-iommu_pages_jgg@nvidia.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250215_004222_918038_E2EC918E 
-X-CRM114-Status: GOOD (  44.14  )
+X-CRM114-CacheID: sfid-20250215_005113_811553_D8D38E4F 
+X-CRM114-Status: GOOD (  23.10  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,175 +96,112 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Feb 13, 2025 at 07:07:55PM +0100, Krzysztof Kozlowski wrote:
-> On 13/02/2025 12:14, Haylen Chu wrote:
-> > On Tue, Feb 11, 2025 at 09:03:20AM +0100, Krzysztof Kozlowski wrote:
-> >> On 11/02/2025 06:15, Haylen Chu wrote:
-> >>> On Sat, Jan 04, 2025 at 11:07:58AM +0100, Krzysztof Kozlowski wrote:
-> >>>> On Fri, Jan 03, 2025 at 09:56:35PM +0000, Haylen Chu wrote:
-> >>>>> Add documentation to describe Spacemit K1 system controller registers.
-> >>>>>
-> >>>>> Signed-off-by: Haylen Chu <heylenay@4d2.org>
-> >>>>> ---
-> >>>>>  .../soc/spacemit/spacemit,k1-syscon.yaml      | 52 +++++++++++++++++++
-> >>>>>  1 file changed, 52 insertions(+)
-> >>>>>  create mode 100644 Documentation/devicetree/bindings/soc/spacemit/spacemit,k1-syscon.yaml
-> >>>>>
-> >>>>> diff --git a/Documentation/devicetree/bindings/soc/spacemit/spacemit,k1-syscon.yaml b/Documentation/devicetree/bindings/soc/spacemit/spacemit,k1-syscon.yaml
-> >>>>> new file mode 100644
-> >>>>> index 000000000000..79c4a74ff30e
-> >>>>> --- /dev/null
-> >>>>> +++ b/Documentation/devicetree/bindings/soc/spacemit/spacemit,k1-syscon.yaml
-> >>>>> @@ -0,0 +1,52 @@
-> >>>>> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> >>>>> +%YAML 1.2
-> >>>>> +---
-> >>>>> +$id: http://devicetree.org/schemas/soc/spacemit/spacemit,k1-syscon.yaml#
-> >>>>> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> >>>>> +
-> >>>>> +title: Spacemit K1 SoC System Controller
-> >>>>> +
-> >>>>> +maintainers:
-> >>>>> +  - Haylen Chu <heylenay@4d2.org>
-> >>>>> +
-> >>>>> +description:
-> >>>>> +  The Spacemit K1 SoC system controller provides access to shared register files
-> >>>>> +  for related SoC modules, such as clock controller and reset controller.
-> >>>>> +
-> >>>>> +properties:
-> >>>>> +  compatible:
-> >>>>> +    items:
-> >>>>> +      - enum:
-> >>>>> +          - spacemit,k1-apbc-syscon
-> >>>>> +          - spacemit,k1-apbs-syscon
-> >>>>> +          - spacemit,k1-apmu-syscon
-> >>>>> +          - spacemit,k1-mpmu-syscon
-> >>>>> +      - const: syscon
-> >>>>> +      - const: simple-mfd
-> >>>>> +
-> >>>>> +  reg:
-> >>>>> +    maxItems: 1
-> >>>>> +
-> >>>>> +  clock-controller:
-> >>>>> +    $ref: /schemas/clock/spacemit,k1-ccu.yaml#
-> >>>>> +    type: object
-> >>>>
-> >>>> So now we see the full picture and it leads to questions.
-> >>>>
-> >>>> 1. Why spacemit,k1-apbc-syscon with spacemit,k1-ccu-apmu child is a
-> >>>> correct combination?
-> >>>>
-> >>>> 2. Why having this split in the first place? Please confirm that clock
-> >>>> controller is really, really a separate device and its child in
-> >>>> datasheet. IOW, fake child for your Linux is a no-go. Fake child while
-> >>>> devices are independent is another no-go.
-> >>>
-> >>> These syscons are introduced because the clock controllers share
-> >>> registers with reset controllers. Folding them into the parents results
-> >>
-> >> So a fake split...
-> >>
-> >>> in devicetree nodes act as both reset and clock controllers, like what
-> >>
-> >> Which is correct hardware representation, isn't it?
-> >>
-> >>> has been done for Rockchip SoCs. Such folding isn't practical for the
-> >>> MPMU region either, since watchdog and other misc bits (e.g. PLL lock
-> >>> status) locates in it.
-> > 
-> > I have to correct that the watchdog doesn't stay in the MPMU region, I
-> > misremembered it.
-> > 
-> >> Hm? Why? You have a device which is reset and clock controller, so why
-> >> one device node is not practical? Other vendors do not have problem with
-> >> this.
-> > 
-> > Merging reset and clock controllers together is fine to me. What I want
-> > to mention is that APMU and MPMU, abbreviated from Application/Main Power
-> > Management Unit, contain not only clock/reset-related registers but also
-> > power management ones[1]. Additionally, the PLL lock status bits locate
-> > at MPMU, split from the PLL configuration registers as you've already
-> > seen in the binding of spacemit,k1-ccu-apbs where I refer to it with a
-> > phandle.
+On 2/15/25 01:07, Jason Gunthorpe wrote:
+> These are called in a lot of places and are not trivial. Move them to the
+> core module.
 > 
-> You need to define what is the device here. Don't create fake nodes just
-> for your drivers. If registers are interleaved and manual says "this is
-> block APMU/MPMU" then you have one device, so one node with 'reg'.
+> Tidy some of the comments and function arguments, fold
+> __iommu_alloc_account() into its only caller, change
+> __iommu_free_account() into __iommu_free_page() to remove some
+> duplication.
 > 
-> If subblocks are re-usable hardware (unlikely) or at least
-> separate/distinguishable, you could have children. If subblocks are
-> re-usable but addresses are interleaved, then children should not have
-> 'reg'. If children do not have any resources as an effect, this is
-> strong indication these are not re-usable, separate subblocks.
+> Signed-off-by: Jason Gunthorpe<jgg@nvidia.com>
+> ---
+>   drivers/iommu/Makefile      |   1 +
+>   drivers/iommu/iommu-pages.c |  84 +++++++++++++++++++++++++++++
+>   drivers/iommu/iommu-pages.h | 103 ++----------------------------------
+>   3 files changed, 90 insertions(+), 98 deletions(-)
+>   create mode 100644 drivers/iommu/iommu-pages.c
 > 
-> > 
-> > Since reset/clock and power management registers interleave in the MMIO
-> > region, do you think syscons are acceptable in this situation or it
-> > should be handled in another way? The reset and clock controllers could
-> > still be folded together as they share the same registers. The device
-> > tree will look like,
-> > 
-> > 	syscon_mpmu: system-controller@d4050000 {
-> > 		compatible = "spacemit,mpmu-syscon", "syscon", "simple-mfd";
-> > 		reg = <0xd4050000 0x10000>;
-> > 
-> > 		cru_mpmu: clock-controller {
-> > 			compatible = "spacemit,k1-cru-mpmu";
-> > 			#clock-cells = <1>;
-> > 			#reset-cells = <1>;
-> > 		};
-> > 
-> > 		power_mpmu: power-controller {
-> > 			compatible = "spacemit,k1-powerdomain-mpmu";
-> > 			/* ... */
-> > 			#power-domain-cells = <0>;
-> > 		};
-> 
-> Based on above, I do not see any need for children device nodes. It's
-> fake split to match driver design.
+> diff --git a/drivers/iommu/Makefile b/drivers/iommu/Makefile
+> index 5e5a83c6c2aae2..fe91d770abe16c 100644
+> --- a/drivers/iommu/Makefile
+> +++ b/drivers/iommu/Makefile
+> @@ -1,6 +1,7 @@
+>   # SPDX-License-Identifier: GPL-2.0
+>   obj-y += amd/ intel/ arm/ iommufd/ riscv/
+>   obj-$(CONFIG_IOMMU_API) += iommu.o
+> +obj-$(CONFIG_IOMMU_SUPPORT) += iommu-pages.o
+>   obj-$(CONFIG_IOMMU_API) += iommu-traces.o
+>   obj-$(CONFIG_IOMMU_API) += iommu-sysfs.o
+>   obj-$(CONFIG_IOMMU_DEBUGFS) += iommu-debugfs.o
+> diff --git a/drivers/iommu/iommu-pages.c b/drivers/iommu/iommu-pages.c
+> new file mode 100644
+> index 00000000000000..dbf7205bb23dcc
+> --- /dev/null
+> +++ b/drivers/iommu/iommu-pages.c
+> @@ -0,0 +1,84 @@
+> +// SPDX-License-Identifier: GPL-2.0-only
+> +/*
+> + * Copyright (c) 2024, Google LLC.
+> + * Pasha Tatashin<pasha.tatashin@soleen.com>
+> + */
+> +#include "iommu-pages.h"
+> +#include <linux/gfp.h>
+> +#include <linux/mm.h>
+> +
+> +/**
+> + * iommu_alloc_pages_node - Allocate a zeroed page of a given order from
+> + *                          specific NUMA node
+> + * @nid: memory NUMA node id
+> + * @gfp: buddy allocator flags
+> + * @order: page order
+> + *
+> + * Returns the virtual address of the allocated page. The page must be
+> + * freed either by calling iommu_free_page() or via iommu_put_pages_list().
 
-Okay, I'll make APMU/MPMU act as a whole device without split children
-and drop bindings for the childern (spacemit,k1-ccu-mpmu) in the next
-revision. Do I get the point?
+nit: ... by calling iommu_free_pages() ...
 
-> > 	};
-> > 
-> > For the other two clock controllers (APBS and APBC), syscons are really
-> > unnecessary and it's simple to fold them.
-> 
-> 
-> I don't follow. Do we talk about children or syscon compatible?
+and
 
-APBS region contains only clock (PLL) bits and APBC region contains only
-reset and clock bits, so I was thinking about dropping the syscon nodes
-and changing their compatible to spacemit,k1-plls and
-spacemit,k1-cru-apbc.
+  s/page/pages/g in above comments?
 
-In summary, my plan is,
+> + */
+> +void *iommu_alloc_pages_node(int nid, gfp_t gfp, unsigned int order)
+> +{
+> +	const unsigned long pgcnt = 1UL << order;
+> +	struct page *page;
+> +
+> +	page = alloc_pages_node(nid, gfp | __GFP_ZERO | __GFP_COMP, order);
+> +	if (unlikely(!page))
+> +		return NULL;
+> +
+> +	/*
+> +	 * All page allocations that should be reported to as "iommu-pagetables"
+> +	 * to userspace must use one of the functions below. This includes
+> +	 * allocations of page-tables and other per-iommu_domain configuration
+> +	 * structures.
+> +	 *
+> +	 * This is necessary for the proper accounting as IOMMU state can be
+> +	 * rather large, i.e. multiple gigabytes in size.
+> +	 */
+> +	mod_node_page_state(page_pgdat(page), NR_IOMMU_PAGES, pgcnt);
+> +	mod_lruvec_page_state(page, NR_SECONDARY_PAGETABLE, pgcnt);
+> +
+> +	return page_address(page);
+> +}
+> +EXPORT_SYMBOL_GPL(iommu_alloc_pages_node);
+> +
+> +static void __iommu_free_page(struct page *page)
 
-- For MPMU, APMU and APBC region, keep the binding in soc/spacemit.
-  They'll be reset, clock and power controllers, with compatible
-  "spacemit,k1-syscon-*".
-- For APBS region, write a new binding clock/spacemit,k1-plls, as it
-  contains only PLL-related bits. It acts as clock controller.
-- All split children will be eliminated, there'll be only four device
-  nodes, one for each region, matching the datasheet.
-- Put all clock-related binding definition of SpacemiT K1 in
-  dt-bindings/clock/spacemit,k1-ccu.h
+It's more readable if renaming it to __iommu_free_pages()?
 
-Is it fine for you?
-
-> 
-> Best regards,
-> Krzysztof
+> +{
+> +	unsigned int order = folio_order(page_folio(page));
+> +	const unsigned long pgcnt = 1UL << order;
+> +
+> +	mod_node_page_state(page_pgdat(page), NR_IOMMU_PAGES, -pgcnt);
+> +	mod_lruvec_page_state(page, NR_SECONDARY_PAGETABLE, -pgcnt);
+> +	put_page(page);
+> +}
 
 Thanks,
-Haylen Chu
+baolu
 
 _______________________________________________
 linux-riscv mailing list
