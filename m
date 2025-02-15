@@ -4,92 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41669C02198
-	for <linux-riscv@archiver.kernel.org>; Fri, 14 Feb 2025 22:48:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 10D7DC02198
+	for <linux-riscv@archiver.kernel.org>; Sat, 15 Feb 2025 01:04:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ZtMxDcc4Ve/7+QmNwLk97JHH4IyYyWwY3NvUXswnKiM=; b=cPXSpwcEa99u3y
-	jpERAVQyvjCMLRsM04iIizptkGZDDhGjAaozg/vqAgENStYJRhsC96eVWiQi4IbBlWqDmSQ4IqzCl
-	BrDIKAtpbt6fw5DDNKGGUvw7IOiRNSK+bYOex9v0ccx/IG5Vz0QBsfvc+LB/5xx+XPkvNLyNSbms8
-	wQrU7jpazo2zHhHvd30x/xR3x8TQFgWAqtbKe1lRa4ak2zIEZQvz3Q0X+9I4JtkKDbgCLeJkc9cRL
-	vnEZ3DQ3mivBIrzxcK2cwlkR2BXCT6LjaPp34h7ufilmTBGoIyfXtFwlgBP3ExoGZo5T7CVt+7zB1
-	m8s1P3vhpfUfBOG6VhBw==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID:
+	References:Mime-Version:In-Reply-To:Date:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Owner;
+	bh=70pZ4JDZqWqE7tHJW3axp1Cu2aiTyCwTJRh3u04qIbU=; b=FEpfHDSHdVvwCo3XNVAwQM1qbc
+	1PrBB+COqRMHbImv52xwgqE+W04A3OJjVdqIKtGS8hcD6C9hMRaGkyO/aqRNSLz17pYJHObiVviKt
+	eLoiys8VKlKjc8sOny4C/BXgXi8TAGjVfVxwWlNT2xXyqGqq2DT52RPwaEL+7q1w9cMd5ipPGmFIq
+	2Bgg5/tn4+klw8l5rDoFof9WQ+qRlwAKYXNkB++wn7TYEnxtYqhlmcCTGC/TnzUk6q3flxawly5Ka
+	dDfkGgx51Ri8RtV+pGoAnDRiWXxY6jg1DfeHkBYiVkhvHoO4dx2OYDCf3v/v53hLu5bgoeai+3OHq
+	gCFeQdhg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tj4Ty-0000000GR7Z-44Nm;
-	Fri, 14 Feb 2025 22:48:26 +0000
-Received: from mail-qv1-xf33.google.com ([2607:f8b0:4864:20::f33])
+	id 1tj6bw-0000000GhPb-3aja;
+	Sat, 15 Feb 2025 01:04:48 +0000
+Received: from mail-pj1-x1049.google.com ([2607:f8b0:4864:20::1049])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tj4SO-0000000GQsG-3Zje
+	id 1tj6U4-0000000GfGl-0LTv
 	for linux-riscv@lists.infradead.org;
-	Fri, 14 Feb 2025 22:46:50 +0000
-Received: by mail-qv1-xf33.google.com with SMTP id 6a1803df08f44-6dcdf23b4edso22759156d6.0
-        for <linux-riscv@lists.infradead.org>; Fri, 14 Feb 2025 14:46:48 -0800 (PST)
+	Sat, 15 Feb 2025 00:56:41 +0000
+Received: by mail-pj1-x1049.google.com with SMTP id 98e67ed59e1d1-2f81a0d0a18so5183564a91.3
+        for <linux-riscv@lists.infradead.org>; Fri, 14 Feb 2025 16:56:39 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1739573208; x=1740178008; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=QzS8d5DDLmgZezqT2Ij0pTgVW3KTLdNDnJ7HtnIABGs=;
-        b=OWnCEsQVYZ66wbmOuGQsYAtq9eFagih1S06sVDRU4JFr1hEDSpFBWKKkUUHlwYVO0E
-         sDwlVwQ8dHg4wxHzAPfekKUlKxC556tty5td2UMi5sDcQVHrRQhSORPitA8M3vC0Y4bM
-         1DUU91Nbe/Zz3CNQx4Q3VLuS+2ws6Kbx9mXjsDA7DvMyUFAX2sV+Y5vP8OssGVgh4aU2
-         qsQDoCNcdRWKaDa/pr/uK4pIZvx6GKAm3fr72zca+vryuKyR7v+hRbwaAOf2cVAKB1s3
-         nHuDjfmwndrLjNcSMz9YnXw16Hz1vTs8O1fqzZFfDyLzDCLRTzzRmzEYRz+4c5faKUIf
-         Q3Dg==
+        d=google.com; s=20230601; t=1739580999; x=1740185799; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:from:to:cc:subject:date:message-id:reply-to;
+        bh=clvSOaTIwEa9bgc9cdZpN3zTDEuSaQ80Bs4rjxPQt4M=;
+        b=AFJxDJ6Khwmy7wDj9+R2Rg1oi84W4mZl/pnzBt48uX6MRRO5LkfmnObRsxNBB4l0ad
+         ZDo0Pj2yO37adfyWnakp3wSHh3UV75dsTW1Y/SwHlT/TrgIWR7qxV5oWTPojJAqmQjup
+         2mLZ/c7CPlqahC+B/VmbBWIGNGeEi3Gep1Nt1cKIWyORUBaBCqISHGsyqbY/MZmVkHr6
+         j91i5FXWVBB/NK0LMuWQvefJUvFL592xaOo58eFpYe3LR9V0+9Gs8TlSbveVWmO5qgcY
+         pC7/+w/LwoSYeDou6qrV1kKyCIWm7OxV9poX+t4R+b357o1YSLVp0oBQt95tVbeHvHHv
+         +qOw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1739573208; x=1740178008;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=QzS8d5DDLmgZezqT2Ij0pTgVW3KTLdNDnJ7HtnIABGs=;
-        b=TDBlgb3XQRifSeMToha8I0QIhpLn1wIsAHAsTw0/oEnrNCIXhddRAK9WOzo9Zl5usj
-         zQ4UbSuyA0jsjXKYbBq360DJxlOmXZ2gTf+Fp+tUfvoTtZybbvZmiDIzMl5vpaMCDAok
-         n6L3Ck7/XyfqfbIzFfgVjfJGvEXIK0aAreIH3aBKIqtTgewfEOPSgSx6eQ0QXo7XcRgx
-         fp56juI0mCRFHIBdUPWaIWMY0cBSazbpMAYu0s6ehxivBXureRtW20iFliHizbAeHjqg
-         NXc3jOLNszr4XF6uHpe5Pk1OY6IUyWuS7Chr5Xzy2oLYK3Ax/K0ukIhFQgFLKrM/6a9z
-         0tMw==
-X-Forwarded-Encrypted: i=1; AJvYcCXPh2O/RG354nQznTvqNY38zaK4Y1jffnZCNxUMel7I6T6h3qwWWU6txTjdU4+o9uK7Is9hQSr8jwIRcg==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy/MHltxb27JxWLJncrYdUbKiSTTOhwx5k5fUE0ESXrLR/vJ0HF
-	zeDu7EmVTkXAUsiYIwsxOpL1wadKK4eCyqV+auREhaAUPmMNU9y9vzobdg==
-X-Gm-Gg: ASbGncuIM8YUstdfPGxrScSJTt7SsHX27qie3mlp9w7YfUT91qSCMPjo+XouMMnUSRy
-	dYxfBN/J55VAWd9VXTct28ZX5OkJYUDRo+JiG3HRdkcNT95E43SAR5L7eghbMVdPrEEKWUwHlDy
-	RNpzKctdMv//ro8+Op2nLRqjA1tRZWy7uy/GP0HBzx2fIdLiodu+TWg6wkvo/ef2FC03Yx/DEkx
-	M105svtuOCA5Qxg9qQbIk+4R+wRpT/l2auWjlQRIr4wiqXfJAh7TB08mhc5tKUAy3Q=
-X-Google-Smtp-Source: AGHT+IHrfxO8rmBQBLUcjsYSsdpJHDyVL3wH/IflhNcUGb5EOUcTe+mYC/NamiViqeorO+aQjcRI5A==
-X-Received: by 2002:a05:6214:300e:b0:6e6:6bd8:3a82 with SMTP id 6a1803df08f44-6e66cd10d91mr13805796d6.42.1739573207607;
-        Fri, 14 Feb 2025 14:46:47 -0800 (PST)
-Received: from localhost ([2001:da8:7001:11::cb])
-        by smtp.gmail.com with UTF8SMTPSA id 6a1803df08f44-6e65d785c1fsm25862706d6.35.2025.02.14.14.46.46
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 14 Feb 2025 14:46:46 -0800 (PST)
-Date: Sat, 15 Feb 2025 06:46:38 +0800
-From: Inochi Amaoto <inochiama@gmail.com>
-To: Alexander Sverdlin <alexander.sverdlin@gmail.com>, 
-	Inochi Amaoto <inochiama@gmail.com>, devicetree@vger.kernel.org, linux-riscv@lists.infradead.org, 
-	linux-rtc@vger.kernel.org
-Cc: Jingbao Qiu <qiujingbao.dlmu@gmail.com>, alexandre.belloni@bootlin.com, 
-	robh@kernel.org, krzysztof.kozlowski+dt@linaro.org, conor+dt@kernel.org, 
-	unicorn_wang@outlook.com, inochiama@outlook.com, paul.walmsley@sifive.com, 
-	palmer@dabbelt.com, aou@eecs.berkeley.edu, dlan@gentoo.org, 
-	linux-kernel@vger.kernel.org, Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Subject: Re: [PATCH v11 1/3] dt-bindings: rtc: sophgo: add RTC support for
- Sophgo CV1800 series SoC
-Message-ID: <s3fsc6cp2a7qx5qgo6akneh7l3a5aknzmtzpsq7lvdaleqaupa@6sqgfn4q7olq>
-References: <20250213215655.2311793-1-alexander.sverdlin@gmail.com>
- <20250213215655.2311793-2-alexander.sverdlin@gmail.com>
- <t6z6rikut2him5m57b6xubbguw3llczp4i6d5frcpuhlqihf2d@booethzadxsq>
- <964a016b944b459a9a914abac539350769323259.camel@gmail.com>
-MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <964a016b944b459a9a914abac539350769323259.camel@gmail.com>
+        d=1e100.net; s=20230601; t=1739580999; x=1740185799;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=clvSOaTIwEa9bgc9cdZpN3zTDEuSaQ80Bs4rjxPQt4M=;
+        b=h6bZhVaCzvFti6lAK/sLqV/UtQVQnLlKhlGuFg8w68Bsu/Q7jq4dYj9gdjlAuDp7zU
+         cRHrM+pTVIMtIGdNrq9e5A69sVvXZ4NCIQy/bcRxw1tpdB3mQPLaZXWvaSlKrGV7qs3N
+         3nJCXfvzQHNPVPy3K1Sda/HUc636C4iRS0tf7BqJTVlu3ElDy21I8FtwXKomv8p2FiYe
+         aLJmXGBTi3m/i4FMMffr+QCHjIABb1LY/QlBNLqe7UGNNnw8JVAwUhe5AtYZYUSlGUKt
+         BrChwZ4pixPvzX2kkhPWxmVOTyoj7d27V8EwMkONSUip6x5tK9y/rp+us8W/enmvCHAO
+         Le2g==
+X-Forwarded-Encrypted: i=1; AJvYcCWQBL3Q8arszq2ntswTNDYzvyawvW3S1tBSCLCtsQRHBhW6iTFeTRsG711JYoDnDnZYyohgmdVX6lQbqQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yztyp7bweHl5xQnRkuOUZuPfssnJddr+TokwkbTZSfkZDMeFOaB
+	bwa0DJLUvvx1R9kw3GsHYhK9RQ5Ic2nKPkTjA4M7YwXnsLh+NBupSgTlcKRVCwq672hkvYcvZEt
+	pOg==
+X-Google-Smtp-Source: AGHT+IEDBkpXU3G4/lKZrs/PoISbfgAX1w1fyvpk5cFq3/CN1zXVNsLI9tdZL04a2XEND4anIVs8+UjqyEg=
+X-Received: from pjbsp4.prod.google.com ([2002:a17:90b:52c4:b0:2ef:8055:93d9])
+ (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:90b:4a49:b0:2ea:aa56:499
+ with SMTP id 98e67ed59e1d1-2fc40d13e61mr1911642a91.1.1739580998875; Fri, 14
+ Feb 2025 16:56:38 -0800 (PST)
+Date: Fri, 14 Feb 2025 16:50:35 -0800
+In-Reply-To: <20250111005049.1247555-1-seanjc@google.com>
+Mime-Version: 1.0
+References: <20250111005049.1247555-1-seanjc@google.com>
+X-Mailer: git-send-email 2.48.1.601.g30ceb7b040-goog
+Message-ID: <173958028389.1189761.4728178272323667525.b4-ty@google.com>
+Subject: Re: [PATCH v2 0/9] KVM: selftests: Binary stats fixes and infra updates
+From: Sean Christopherson <seanjc@google.com>
+To: Sean Christopherson <seanjc@google.com>, Marc Zyngier <maz@kernel.org>, 
+	Oliver Upton <oliver.upton@linux.dev>, Anup Patel <anup@brainfault.org>, 
+	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, Christian Borntraeger <borntraeger@linux.ibm.com>, 
+	Janosch Frank <frankja@linux.ibm.com>, Claudio Imbrenda <imbrenda@linux.ibm.com>, 
+	Paolo Bonzini <pbonzini@redhat.com>
+Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
+	kvm@vger.kernel.org, kvm-riscv@lists.infradead.org, 
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250214_144648_892562_6B40FF43 
-X-CRM114-Status: GOOD (  19.93  )
+X-CRM114-CacheID: sfid-20250214_165640_122673_329D5A1E 
+X-CRM114-Status: GOOD (  10.23  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,59 +92,48 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="iso-8859-1"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Feb 14, 2025 at 12:09:37PM +0100, Alexander Sverdlin wrote:
-> Hi Inochi,
-> =
+On Fri, 10 Jan 2025 16:50:40 -0800, Sean Christopherson wrote:
+> Fix a handful of bugs in the binary stats infrastructure, expand support
+> to vCPU-scoped stats, enumerate all KVM stats in selftests, and use the
+> enumerated stats to assert at compile-time that {vm,vcpu}_get_stat() is
+> getting a stat that actually exists.
+> 
+> Most of the bugs are benign, and AFAICT, none actually cause problems in
+> the current code base.  The worst of the bugs is lack of validation that
+> the requested stat actually exists, which is quite annoying if someone
+> fat fingers a stat name, tries to get a vCPU stat on a VM FD, etc.
+> 
+> [...]
 
-> On Fri, 2025-02-14 at 17:40 +0800, Inochi Amaoto wrote:
-> > > +examples:
-> > > +=A0 - |
-> > > +=A0=A0=A0 #include <dt-bindings/interrupt-controller/irq.h>
-> > > +
-> > > +=A0=A0=A0 rtc@5025000 {
-> > > +=A0=A0=A0=A0=A0=A0=A0 compatible =3D "sophgo,cv1800-rtc";
-> > > +=A0=A0=A0=A0=A0=A0=A0 reg =3D <0x5025000 0x2000>;
-> > > +=A0=A0=A0=A0=A0=A0=A0 interrupts =3D <17 IRQ_TYPE_LEVEL_HIGH>;
-> > > +=A0=A0=A0=A0=A0=A0=A0 clocks =3D <&osc>;
-> > > +=A0=A0=A0 };
-> > > -- =
+Applied to kvm-x86 selftests (attempt #2).  Like the previous attempt, I skipped
+the compile-time assertions.
 
-> > =
+[1/9] KVM: selftests: Fix mostly theoretical leak of VM's binary stats FD
+      https://github.com/kvm-x86/linux/commit/fd546aba1967
+[2/9] KVM: selftests: Close VM's binary stats FD when releasing VM
+      https://github.com/kvm-x86/linux/commit/f7f232a01f3d
+[3/9] KVM: selftests: Assert that __vm_get_stat() actually finds a stat
+      https://github.com/kvm-x86/linux/commit/eead13d493af
+[4/9] KVM: selftests: Macrofy vm_get_stat() to auto-generate stat name string
+      https://github.com/kvm-x86/linux/commit/b0c3f5df9291
+[5/9] KVM: selftests: Add struct and helpers to wrap binary stats cache
+      https://github.com/kvm-x86/linux/commit/e65faf71bd54
+[6/9] KVM: selftests: Get VM's binary stats FD when opening VM
+      https://github.com/kvm-x86/linux/commit/ea7179f99514
+[7/9] KVM: selftests: Adjust number of files rlimit for all "standard" VMs
+      https://github.com/kvm-x86/linux/commit/9b56532b8a59
+[8/9] KVM: selftests: Add infrastructure for getting vCPU binary stats
+      https://github.com/kvm-x86/linux/commit/16fc7cb406a5
+[9/9] KVM: selftests: Add compile-time assertions to guard against stats typos
+      (no commit info)
 
-> > Just for curiosity, Do you leave a way to implement the
-> > 8051 subsys, since its registers are in rtc. (You can
-> > check the chapter "8051 subsystem" of the SG2002, which
-> > can be found at https://github.com/sophgo/sophgo-doc).
-> =
-
-> well, I suppose, you know the answer, according to how this has been mode=
-lled
-> within this series, all the functionality could only be added on top of R=
-TC
-> driver. =
-
-
-I don't think it is a good idea to add everything in the RTC driver.
-I prefer to separate them to sub devices if possible, so we can
-make full use of all the framework provided.
-
-> Do you think it's time to re-design it as compatible =3D "syscon", "simpl=
-e-mfd"
-> with children nodes for RTC and reboot?
-> =
-
-
-Yes, but you should submit the 8051 and reboot device early, and
-change your binding with the right compatible. It is not allowd to
-change compatible after the binding is determined.
-
-Regards,
-Inochi
+--
+https://github.com/kvm-x86/linux/tree/next
 
 _______________________________________________
 linux-riscv mailing list
