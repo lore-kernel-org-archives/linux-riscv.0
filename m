@@ -4,83 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 10D7DC02198
-	for <linux-riscv@archiver.kernel.org>; Sat, 15 Feb 2025 01:04:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 77540C02198
+	for <linux-riscv@archiver.kernel.org>; Sat, 15 Feb 2025 01:09:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID:
-	References:Mime-Version:In-Reply-To:Date:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=70pZ4JDZqWqE7tHJW3axp1Cu2aiTyCwTJRh3u04qIbU=; b=FEpfHDSHdVvwCo3XNVAwQM1qbc
-	1PrBB+COqRMHbImv52xwgqE+W04A3OJjVdqIKtGS8hcD6C9hMRaGkyO/aqRNSLz17pYJHObiVviKt
-	eLoiys8VKlKjc8sOny4C/BXgXi8TAGjVfVxwWlNT2xXyqGqq2DT52RPwaEL+7q1w9cMd5ipPGmFIq
-	2Bgg5/tn4+klw8l5rDoFof9WQ+qRlwAKYXNkB++wn7TYEnxtYqhlmcCTGC/TnzUk6q3flxawly5Ka
-	dDfkGgx51Ri8RtV+pGoAnDRiWXxY6jg1DfeHkBYiVkhvHoO4dx2OYDCf3v/v53hLu5bgoeai+3OHq
-	gCFeQdhg==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=ixBRXK+ofs58Jx2QVUCbou/hGDXqcNPENFXg8Ov/Q00=; b=5CPzNDVx31PKn4
+	+Uz5EnYukn9Gn77oyHtkeoA7DWSQY6afuq3SNMIdzUwo3HPo0tE4l8FgIhzQFOGDcwGKXwcB4QTm6
+	5n4DjjMfKzDVtrt7ifMfWRec/XT2PKL3v3/cjUsNWWkQlR4W2JCoKcZvNOW9rjiEzkrPKyV1CfIlT
+	IKWU/uFe7b5vdFaZgTqvpXOtSJbyNfk//Vbx1FY/dgK9jwidoX9bWLJarDBgOHyTmu0DJsHsaleKG
+	CW2/jwEpM+3b/wbIBrgPY5TVT44NKwsyFDHkU5b0gV3kJtkRV34/r9Ua8akBGtzNUeWAoQ69rV2Rx
+	LV41K22F3LHLsF1jLQEw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tj6bw-0000000GhPb-3aja;
-	Sat, 15 Feb 2025 01:04:48 +0000
-Received: from mail-pj1-x1049.google.com ([2607:f8b0:4864:20::1049])
+	id 1tj6gX-0000000GibQ-2m0E;
+	Sat, 15 Feb 2025 01:09:33 +0000
+Received: from mail-qk1-x72d.google.com ([2607:f8b0:4864:20::72d])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tj6U4-0000000GfGl-0LTv
+	id 1tj6gV-0000000GiaH-1Zkt
 	for linux-riscv@lists.infradead.org;
-	Sat, 15 Feb 2025 00:56:41 +0000
-Received: by mail-pj1-x1049.google.com with SMTP id 98e67ed59e1d1-2f81a0d0a18so5183564a91.3
-        for <linux-riscv@lists.infradead.org>; Fri, 14 Feb 2025 16:56:39 -0800 (PST)
+	Sat, 15 Feb 2025 01:09:32 +0000
+Received: by mail-qk1-x72d.google.com with SMTP id af79cd13be357-7c07441f14cso237378885a.0
+        for <linux-riscv@lists.infradead.org>; Fri, 14 Feb 2025 17:09:31 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1739580999; x=1740185799; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=clvSOaTIwEa9bgc9cdZpN3zTDEuSaQ80Bs4rjxPQt4M=;
-        b=AFJxDJ6Khwmy7wDj9+R2Rg1oi84W4mZl/pnzBt48uX6MRRO5LkfmnObRsxNBB4l0ad
-         ZDo0Pj2yO37adfyWnakp3wSHh3UV75dsTW1Y/SwHlT/TrgIWR7qxV5oWTPojJAqmQjup
-         2mLZ/c7CPlqahC+B/VmbBWIGNGeEi3Gep1Nt1cKIWyORUBaBCqISHGsyqbY/MZmVkHr6
-         j91i5FXWVBB/NK0LMuWQvefJUvFL592xaOo58eFpYe3LR9V0+9Gs8TlSbveVWmO5qgcY
-         pC7/+w/LwoSYeDou6qrV1kKyCIWm7OxV9poX+t4R+b357o1YSLVp0oBQt95tVbeHvHHv
-         +qOw==
+        d=gmail.com; s=20230601; t=1739581770; x=1740186570; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=N4AAbLMNPxa3cHhDl9zszoQoesM/C3MVg7R6Jya4/5o=;
+        b=HWfftSVVyd8yDTunpSlsOIyPHjcRIB28SvNv5AW20/z1v5xbapVTHn5bGXQkEal9D4
+         p7Y0iQMAZ5i2JZr0+kD8DDeLUfo38fY8blFQXgiLwGE0aEIW88mVN1sqin5/s2uvkB5Y
+         xIwmTvjepAYaKh/xK5ZZFIOECgG66qktF2FgnLaXPxBHIdnitR5M9GhIMH2I5Yuxy8M8
+         CJs/NKwTWu5ckc5ThfiAIOiFQQsajJo0RU9wRnrrtHs3Q4qwgOPw9anTlIJdCNKPmfEy
+         pcHEU2ukxKDI0wV8exrgtb1eLKiymya0+70PD/eQ8Un/umd9GoE1NtV8EvepKKdJHsLE
+         SDLQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1739580999; x=1740185799;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=clvSOaTIwEa9bgc9cdZpN3zTDEuSaQ80Bs4rjxPQt4M=;
-        b=h6bZhVaCzvFti6lAK/sLqV/UtQVQnLlKhlGuFg8w68Bsu/Q7jq4dYj9gdjlAuDp7zU
-         cRHrM+pTVIMtIGdNrq9e5A69sVvXZ4NCIQy/bcRxw1tpdB3mQPLaZXWvaSlKrGV7qs3N
-         3nJCXfvzQHNPVPy3K1Sda/HUc636C4iRS0tf7BqJTVlu3ElDy21I8FtwXKomv8p2FiYe
-         aLJmXGBTi3m/i4FMMffr+QCHjIABb1LY/QlBNLqe7UGNNnw8JVAwUhe5AtYZYUSlGUKt
-         BrChwZ4pixPvzX2kkhPWxmVOTyoj7d27V8EwMkONSUip6x5tK9y/rp+us8W/enmvCHAO
-         Le2g==
-X-Forwarded-Encrypted: i=1; AJvYcCWQBL3Q8arszq2ntswTNDYzvyawvW3S1tBSCLCtsQRHBhW6iTFeTRsG711JYoDnDnZYyohgmdVX6lQbqQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yztyp7bweHl5xQnRkuOUZuPfssnJddr+TokwkbTZSfkZDMeFOaB
-	bwa0DJLUvvx1R9kw3GsHYhK9RQ5Ic2nKPkTjA4M7YwXnsLh+NBupSgTlcKRVCwq672hkvYcvZEt
-	pOg==
-X-Google-Smtp-Source: AGHT+IEDBkpXU3G4/lKZrs/PoISbfgAX1w1fyvpk5cFq3/CN1zXVNsLI9tdZL04a2XEND4anIVs8+UjqyEg=
-X-Received: from pjbsp4.prod.google.com ([2002:a17:90b:52c4:b0:2ef:8055:93d9])
- (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:90b:4a49:b0:2ea:aa56:499
- with SMTP id 98e67ed59e1d1-2fc40d13e61mr1911642a91.1.1739580998875; Fri, 14
- Feb 2025 16:56:38 -0800 (PST)
-Date: Fri, 14 Feb 2025 16:50:35 -0800
-In-Reply-To: <20250111005049.1247555-1-seanjc@google.com>
-Mime-Version: 1.0
-References: <20250111005049.1247555-1-seanjc@google.com>
-X-Mailer: git-send-email 2.48.1.601.g30ceb7b040-goog
-Message-ID: <173958028389.1189761.4728178272323667525.b4-ty@google.com>
-Subject: Re: [PATCH v2 0/9] KVM: selftests: Binary stats fixes and infra updates
-From: Sean Christopherson <seanjc@google.com>
-To: Sean Christopherson <seanjc@google.com>, Marc Zyngier <maz@kernel.org>, 
-	Oliver Upton <oliver.upton@linux.dev>, Anup Patel <anup@brainfault.org>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Christian Borntraeger <borntraeger@linux.ibm.com>, 
-	Janosch Frank <frankja@linux.ibm.com>, Claudio Imbrenda <imbrenda@linux.ibm.com>, 
-	Paolo Bonzini <pbonzini@redhat.com>
-Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
-	kvm@vger.kernel.org, kvm-riscv@lists.infradead.org, 
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+        d=1e100.net; s=20230601; t=1739581770; x=1740186570;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=N4AAbLMNPxa3cHhDl9zszoQoesM/C3MVg7R6Jya4/5o=;
+        b=iYdmBO+sop65tMKZx1G9umoYjhIm2QPu1uvGsbQ1gNMk8lsG7b4Q5h/aVFYT2S6Ren
+         hM1o8hbTN9F30MR1PEdKi2eBzJdv4tfqAFl5+CenxSNodcnjs+WtQIJdu+twkoBVN09O
+         ERuF3/7RgwC/i45JghCmOfQQGJxVTUGkgWcfb3pK/kYOLCYrCx85/Fk81kreUdIIMyzU
+         XTZpGH4+o3Pj+BCT7pxEvXpaO5v8LMXdtrObLdPHYPVl4rRO7+yh0g8n4G3M+5z2oTUm
+         mIt73sNg0D/ER9oF09QKbHxBoQ39/z9vf4ko8qgDNMyplYv84+nsO19cLOIMfJyxIuht
+         r/Jw==
+X-Forwarded-Encrypted: i=1; AJvYcCVRS3YC/Zf2BHz9fpR53d//f7dlml+MUq9/BUjP2w+UuJboYt94Lb+g0PlL2EfoubT28bfOlQGSnSkriQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0YzCr9h+GQDBYBABSrA736EEeS9L1ntGYsbMJZhQcWTyow4Ts5o+
+	KbX2pYX1cMISyInk1fW103lCgmIJcLSag+OpSIzGGAq/F1w1iyJ/
+X-Gm-Gg: ASbGncs2DeaWlgL9UjMBr6Js9r0Rj+C7vxuHB+kcNcOMlczYFZDuWsSRL+fMZhjwZe2
+	Oj5mgS5+RUmBwl1BvmAsOjI2rTIfYxjW/kCm3WzzLIrt3gc6/zbnbL/zwoDdpg1aFS02U3CUi1z
+	xI5/AX9U944OlP+s3STX5B91j8bm8nbPfg7mDx/rp0C0OwbnQyIpn2SJPuKqGZqjWVQ+vNGADUk
+	wsXA+NEJeOScx0Xqmzq5/QW+mv7ZRPzpdLlLHfVotp0fbatf9izkrK1qlkZWF3YvOE=
+X-Google-Smtp-Source: AGHT+IGaXs8pTV+iwxcD1hy1B+P5sDVssAwqfrBP/dmzdQ0BuLhEnRabWDA5dNI+YkHgvwaN9qGqog==
+X-Received: by 2002:a05:620a:24cf:b0:7c0:7922:3675 with SMTP id af79cd13be357-7c08a9c8cd3mr182201685a.26.1739581770122;
+        Fri, 14 Feb 2025 17:09:30 -0800 (PST)
+Received: from localhost ([2001:da8:7001:11::cb])
+        by smtp.gmail.com with UTF8SMTPSA id af79cd13be357-7c07c617478sm265655985a.50.2025.02.14.17.09.28
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 14 Feb 2025 17:09:29 -0800 (PST)
+Date: Sat, 15 Feb 2025 09:09:19 +0800
+From: Inochi Amaoto <inochiama@gmail.com>
+To: Chen Wang <unicornxw@gmail.com>, u.kleine-koenig@baylibre.com, 
+	aou@eecs.berkeley.edu, arnd@arndb.de, unicorn_wang@outlook.com, conor+dt@kernel.org, 
+	guoren@kernel.org, inochiama@outlook.com, krzk+dt@kernel.org, palmer@dabbelt.com, 
+	paul.walmsley@sifive.com, robh@kernel.org, tglx@linutronix.de, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, chao.wei@sophgo.com, 
+	xiaoguang.xing@sophgo.com, fengchun.li@sophgo.com, samuel.holland@sifive.com, 
+	christophe.jaillet@wanadoo.fr
+Cc: Inochi Amaoto <inochiama@gmail.com>
+Subject: Re: [PATCH v3 2/3] irqchip: Add the Sophgo SG2042 MSI interrupt
+ controller
+Message-ID: <dh645pyvtylcxjcjjcdl7xttpp4qmtjouapifaql4lniab3qjo@lqmwytf5q35c>
+References: <cover.1736921549.git.unicorn_wang@outlook.com>
+ <b5c2f13aa94f68c3415a1292678e16db33f291cd.1736921549.git.unicorn_wang@outlook.com>
+MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <b5c2f13aa94f68c3415a1292678e16db33f291cd.1736921549.git.unicorn_wang@outlook.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250214_165640_122673_329D5A1E 
-X-CRM114-Status: GOOD (  10.23  )
+X-CRM114-CacheID: sfid-20250214_170931_419615_C2FB609C 
+X-CRM114-Status: GOOD (  35.48  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,43 +103,355 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, 10 Jan 2025 16:50:40 -0800, Sean Christopherson wrote:
-> Fix a handful of bugs in the binary stats infrastructure, expand support
-> to vCPU-scoped stats, enumerate all KVM stats in selftests, and use the
-> enumerated stats to assert at compile-time that {vm,vcpu}_get_stat() is
-> getting a stat that actually exists.
+On Wed, Jan 15, 2025 at 02:33:45PM +0800, Chen Wang wrote:
+> From: Chen Wang <unicorn_wang@outlook.com>
 > 
-> Most of the bugs are benign, and AFAICT, none actually cause problems in
-> the current code base.  The worst of the bugs is lack of validation that
-> the requested stat actually exists, which is quite annoying if someone
-> fat fingers a stat name, tries to get a vCPU stat on a VM FD, etc.
+> Add driver for Sophgo SG2042 MSI interrupt controller.
 > 
-> [...]
+> Signed-off-by: Chen Wang <unicorn_wang@outlook.com>
+> ---
+>  drivers/irqchip/Kconfig          |  12 ++
+>  drivers/irqchip/Makefile         |   1 +
+>  drivers/irqchip/irq-sg2042-msi.c | 268 +++++++++++++++++++++++++++++++
+>  3 files changed, 281 insertions(+)
+>  create mode 100644 drivers/irqchip/irq-sg2042-msi.c
+> 
+> diff --git a/drivers/irqchip/Kconfig b/drivers/irqchip/Kconfig
+> index 9bee02db1643..161fb5df857f 100644
+> --- a/drivers/irqchip/Kconfig
+> +++ b/drivers/irqchip/Kconfig
+> @@ -749,6 +749,18 @@ config MCHP_EIC
+>  	help
+>  	  Support for Microchip External Interrupt Controller.
+>  
+> +config SOPHGO_SG2042_MSI
+> +	bool "Sophgo SG2042 MSI Controller"
+> +	depends on ARCH_SOPHGO || COMPILE_TEST
+> +	depends on PCI
+> +	select IRQ_DOMAIN_HIERARCHY
+> +	select IRQ_MSI_LIB
+> +	select PCI_MSI
+> +	help
+> +	  Support for the Sophgo SG2042 MSI Controller.
+> +	  This on-chip interrupt controller enables MSI sources to be
+> +	  routed to the primary PLIC controller on SoC.
+> +
+>  config SUNPLUS_SP7021_INTC
+>  	bool "Sunplus SP7021 interrupt controller" if COMPILE_TEST
+>  	default SOC_SP7021
+> diff --git a/drivers/irqchip/Makefile b/drivers/irqchip/Makefile
+> index 25e9ad29b8c4..dd60e597491d 100644
+> --- a/drivers/irqchip/Makefile
+> +++ b/drivers/irqchip/Makefile
+> @@ -128,4 +128,5 @@ obj-$(CONFIG_WPCM450_AIC)		+= irq-wpcm450-aic.o
+>  obj-$(CONFIG_IRQ_IDT3243X)		+= irq-idt3243x.o
+>  obj-$(CONFIG_APPLE_AIC)			+= irq-apple-aic.o
+>  obj-$(CONFIG_MCHP_EIC)			+= irq-mchp-eic.o
+> +obj-$(CONFIG_SOPHGO_SG2042_MSI)		+= irq-sg2042-msi.o
+>  obj-$(CONFIG_SUNPLUS_SP7021_INTC)	+= irq-sp7021-intc.o
+> diff --git a/drivers/irqchip/irq-sg2042-msi.c b/drivers/irqchip/irq-sg2042-msi.c
+> new file mode 100644
+> index 000000000000..1f88e1671e5c
+> --- /dev/null
+> +++ b/drivers/irqchip/irq-sg2042-msi.c
+> @@ -0,0 +1,268 @@
+> +// SPDX-License-Identifier: GPL-2.0
+> +/*
+> + * SG2042 MSI Controller
+> + *
+> + * Copyright (C) 2024 Sophgo Technology Inc.
+> + * Copyright (C) 2024 Chen Wang <unicorn_wang@outlook.com>
+> + */
+> +
+> +#include <linux/cleanup.h>
+> +#include <linux/io.h>
+> +#include <linux/irq.h>
+> +#include <linux/irqdomain.h>
+> +#include <linux/kernel.h>
+> +#include <linux/module.h>
+> +#include <linux/msi.h>
+> +#include <linux/of.h>
+> +#include <linux/of_irq.h>
+> +#include <linux/of_pci.h>
+> +#include <linux/of_platform.h>
+> +#include <linux/platform_device.h>
+> +#include <linux/slab.h>
+> +
+> +#include "irq-msi-lib.h"
+> +
+> +#define SG2042_MAX_MSI_VECTOR	32
+> +
+> +struct sg2042_msi_chipdata {
+> +	void __iomem	*reg_clr;	// clear reg, see TRM, 10.1.33, GP_INTR0_CLR
+> +
+> +	phys_addr_t	doorbell_addr;	// see TRM, 10.1.32, GP_INTR0_SET
+> +
+> +	u32		irq_first;	// The vector number that MSIs starts
+> +	u32		num_irqs;	// The number of vectors for MSIs
+> +
+> +	DECLARE_BITMAP(msi_map, SG2042_MAX_MSI_VECTOR);
+> +	struct mutex	msi_map_lock;	// lock for msi_map
+> +};
+> +
+> +static int sg2042_msi_allocate_hwirq(struct sg2042_msi_chipdata *data, int num_req)
+> +{
+> +	int first;
+> +
+> +	guard(mutex)(&data->msi_map_lock);
+> +	first = bitmap_find_free_region(data->msi_map, data->num_irqs,
+> +					get_count_order(num_req));
+> +	return first >= 0 ? first : -ENOSPC;
+> +}
+> +
+> +static void sg2042_msi_free_hwirq(struct sg2042_msi_chipdata *data,
+> +				  int hwirq, int num_req)
+> +{
+> +	guard(mutex)(&data->msi_map_lock);
+> +	bitmap_release_region(data->msi_map, hwirq, get_count_order(num_req));
+> +}
+> +
+> +static void sg2042_msi_irq_ack(struct irq_data *d)
+> +{
+> +	struct sg2042_msi_chipdata *data  = irq_data_get_irq_chip_data(d);
+> +	int bit_off = d->hwirq;
+> +
+> +	writel(1 << bit_off, data->reg_clr);
+> +
+> +	irq_chip_ack_parent(d);
+> +}
+> +
+> +static void sg2042_msi_irq_compose_msi_msg(struct irq_data *d,
+> +					   struct msi_msg *msg)
+> +{
+> +	struct sg2042_msi_chipdata *data = irq_data_get_irq_chip_data(d);
+> +
+> +	msg->address_hi = upper_32_bits(data->doorbell_addr);
+> +	msg->address_lo = lower_32_bits(data->doorbell_addr);
+> +	msg->data = 1 << d->hwirq;
+> +}
+> +
+> +static const struct irq_chip sg2042_msi_middle_irq_chip = {
+> +	.name			= "SG2042 MSI",
+> +	.irq_ack		= sg2042_msi_irq_ack,
+> +	.irq_mask		= irq_chip_mask_parent,
+> +	.irq_unmask		= irq_chip_unmask_parent,
+> +#ifdef CONFIG_SMP
+> +	.irq_set_affinity	= irq_chip_set_affinity_parent,
+> +#endif
+> +	.irq_compose_msi_msg	= sg2042_msi_irq_compose_msi_msg,
+> +};
+> +
+> +static int sg2042_msi_parent_domain_alloc(struct irq_domain *domain,
+> +					  unsigned int virq, int hwirq)
+> +{
+> +	struct sg2042_msi_chipdata *data = domain->host_data;
+> +	struct irq_fwspec fwspec;
+> +	struct irq_data *d;
+> +	int ret;
+> +
+> +	fwspec.fwnode = domain->parent->fwnode;
+> +	fwspec.param_count = 2;
+> +	fwspec.param[0] = data->irq_first + hwirq;
+> +	fwspec.param[1] = IRQ_TYPE_EDGE_RISING;
+> +
+> +	ret = irq_domain_alloc_irqs_parent(domain, virq, 1, &fwspec);
+> +	if (ret)
+> +		return ret;
+> +
+> +	d = irq_domain_get_irq_data(domain->parent, virq);
+> +	return d->chip->irq_set_type(d, IRQ_TYPE_EDGE_RISING);
+> +}
+> +
+> +static int sg2042_msi_middle_domain_alloc(struct irq_domain *domain,
+> +					  unsigned int virq,
+> +					  unsigned int nr_irqs, void *args)
+> +{
+> +	struct sg2042_msi_chipdata *data = domain->host_data;
+> +	int hwirq, err, i;
+> +
+> +	hwirq = sg2042_msi_allocate_hwirq(data, nr_irqs);
+> +	if (hwirq < 0)
+> +		return hwirq;
+> +
+> +	for (i = 0; i < nr_irqs; i++) {
+> +		err = sg2042_msi_parent_domain_alloc(domain, virq + i, hwirq + i);
+> +		if (err)
+> +			goto err_hwirq;
+> +
+> +		irq_domain_set_hwirq_and_chip(domain, virq + i, hwirq + i,
+> +					      &sg2042_msi_middle_irq_chip, data);
+> +	}
+> +
+> +	return 0;
+> +
+> +err_hwirq:
+> +	sg2042_msi_free_hwirq(data, hwirq, nr_irqs);
+> +	irq_domain_free_irqs_parent(domain, virq, i);
+> +
+> +	return err;
+> +}
+> +
+> +static void sg2042_msi_middle_domain_free(struct irq_domain *domain,
+> +					  unsigned int virq,
+> +					  unsigned int nr_irqs)
+> +{
+> +	struct irq_data *d = irq_domain_get_irq_data(domain, virq);
+> +	struct sg2042_msi_chipdata *data = irq_data_get_irq_chip_data(d);
+> +
+> +	irq_domain_free_irqs_parent(domain, virq, nr_irqs);
+> +	sg2042_msi_free_hwirq(data, d->hwirq, nr_irqs);
+> +}
+> +
+> +static const struct irq_domain_ops sg2042_msi_middle_domain_ops = {
+> +	.alloc	= sg2042_msi_middle_domain_alloc,
+> +	.free	= sg2042_msi_middle_domain_free,
+> +	.select	= msi_lib_irq_domain_select,
+> +};
+> +
+> +#define SG2042_MSI_FLAGS_REQUIRED (MSI_FLAG_USE_DEF_DOM_OPS |	\
+> +				   MSI_FLAG_USE_DEF_CHIP_OPS)
+> +
+> +#define SG2042_MSI_FLAGS_SUPPORTED MSI_GENERIC_FLAGS_MASK
+> +
+> +static struct msi_parent_ops sg2042_msi_parent_ops = {
+> +	.required_flags		= SG2042_MSI_FLAGS_REQUIRED,
+> +	.supported_flags	= SG2042_MSI_FLAGS_SUPPORTED,
+> +	.bus_select_mask	= MATCH_PCI_MSI,
+> +	.bus_select_token	= DOMAIN_BUS_NEXUS,
+> +	.prefix			= "SG2042-",
+> +	.init_dev_msi_info	= msi_lib_init_dev_msi_info,
+> +};
+> +
+> +static int sg2042_msi_init_domains(struct sg2042_msi_chipdata *data,
+> +				   struct device_node *node)
 
-Applied to kvm-x86 selftests (attempt #2).  Like the previous attempt, I skipped
-the compile-time assertions.
+For ACPI support, I prefer to use device instead of device_node
+The following suggestion is also for ACPI support
 
-[1/9] KVM: selftests: Fix mostly theoretical leak of VM's binary stats FD
-      https://github.com/kvm-x86/linux/commit/fd546aba1967
-[2/9] KVM: selftests: Close VM's binary stats FD when releasing VM
-      https://github.com/kvm-x86/linux/commit/f7f232a01f3d
-[3/9] KVM: selftests: Assert that __vm_get_stat() actually finds a stat
-      https://github.com/kvm-x86/linux/commit/eead13d493af
-[4/9] KVM: selftests: Macrofy vm_get_stat() to auto-generate stat name string
-      https://github.com/kvm-x86/linux/commit/b0c3f5df9291
-[5/9] KVM: selftests: Add struct and helpers to wrap binary stats cache
-      https://github.com/kvm-x86/linux/commit/e65faf71bd54
-[6/9] KVM: selftests: Get VM's binary stats FD when opening VM
-      https://github.com/kvm-x86/linux/commit/ea7179f99514
-[7/9] KVM: selftests: Adjust number of files rlimit for all "standard" VMs
-      https://github.com/kvm-x86/linux/commit/9b56532b8a59
-[8/9] KVM: selftests: Add infrastructure for getting vCPU binary stats
-      https://github.com/kvm-x86/linux/commit/16fc7cb406a5
-[9/9] KVM: selftests: Add compile-time assertions to guard against stats typos
-      (no commit info)
+> +{
+> +	struct fwnode_handle *fwnode = of_node_to_fwnode(node);
+> +	struct irq_domain *plic_domain, *middle_domain;
+> +	struct device_node *plic_node;
+> +
 
---
-https://github.com/kvm-x86/linux/tree/next
+> +	if (!of_find_property(node, "interrupt-parent", NULL)) {
+> +		pr_err("Can't find interrupt-parent!\n");
+> +		return -EINVAL;
+> +	}
+> +
+> +	plic_node = of_irq_find_parent(node);
+> +	if (!plic_node) {
+> +		pr_err("Failed to find the PLIC node!\n");
+> +		return -ENXIO;
+> +	}
+> +
+
+This can be replace with fwnode_find_reference to support ACPI
+
+> +	plic_domain = irq_find_host(plic_node);
+> +	of_node_put(plic_node);
+> +	if (!plic_domain) {
+> +		pr_err("Failed to find the PLIC domain\n");
+> +		return -ENXIO;
+> +	}
+> +
+
+Replace irq_find_host with irq_find_matching_fwnode
+
+> +	middle_domain = irq_domain_create_hierarchy(plic_domain, 0, data->num_irqs,
+> +						    fwnode,
+> +						    &sg2042_msi_middle_domain_ops,
+> +						    data);
+
+Use irq_domain_create_hierarchy
+
+> +	if (!middle_domain) {
+> +		pr_err("Failed to create the MSI middle domain\n");
+> +		return -ENOMEM;
+> +	}
+> +
+> +	irq_domain_update_bus_token(middle_domain, DOMAIN_BUS_NEXUS);
+> +
+> +	middle_domain->flags |= IRQ_DOMAIN_FLAG_MSI_PARENT;
+> +	middle_domain->msi_parent_ops = &sg2042_msi_parent_ops;
+> +
+> +	return 0;
+> +}
+> +
+> +static int sg2042_msi_probe(struct platform_device *pdev)
+> +{
+
+add a "struct device *dev = &pdev->dev;" here and replace 
+&pdev->dev with dev.
+
+> +	struct sg2042_msi_chipdata *data;
+> +	struct of_phandle_args args = {};
+> +	struct resource *res;
+> +	int ret;
+> +
+> +	data = devm_kzalloc(&pdev->dev, sizeof(struct sg2042_msi_chipdata), GFP_KERNEL);
+> +	if (!data)
+> +		return -ENOMEM;
+> +
+> +	data->reg_clr = devm_platform_ioremap_resource_byname(pdev, "clr");
+> +	if (IS_ERR(data->reg_clr)) {
+> +		dev_err(&pdev->dev, "Failed to map clear register\n");
+> +		return PTR_ERR(data->reg_clr);
+> +	}
+> +
+> +	res = platform_get_resource_byname(pdev, IORESOURCE_MEM, "doorbell");
+> +	if (!res) {
+> +		dev_err(&pdev->dev, "Failed get resource from set\n");
+> +		return -EINVAL;
+> +	}
+> +	data->doorbell_addr = res->start;
+> +
+
+> +	ret = of_parse_phandle_with_args(pdev->dev.of_node, "msi-ranges",
+> +					 "#interrupt-cells", 0, &args);
+> +	if (ret) {
+> +		dev_err(&pdev->dev, "Unable to parse MSI vec base\n");
+> +		return ret;
+> +	}
+> +	data->irq_first = (u32)args.args[0];
+> +
+> +	ret = of_property_read_u32_index(pdev->dev.of_node, "msi-ranges",
+> +					 args.args_count + 1, &data->num_irqs);
+> +	if (ret) {
+> +		dev_err(&pdev->dev, "Unable to parse MSI vec number\n");
+> +		of_node_put(args.np);
+> +		return ret;
+> +	}
+> +	of_node_put(args.np);
+
+this can be replace by calling fwnode_property_get_reference_args
+twice. I have found a working example:
+
+ret = fwnode_property_get_reference_args(dev_fwnode(dev), "msi-ranges",
+					 "#interrupt-cells",
+					 0, 0, &args);
+if (ret) {
+	dev_err(dev, "Unable to parse MSI vec base\n");
+	return ret;
+}
+fwnode_handle_put(args.fwnode);
+
+
+ret = fwnode_property_get_reference_args(dev_fwnode(dev), "msi-ranges",
+					 NULL, args.nargs + 1,
+					 0, &args);
+if (ret) {
+	dev_err(dev, "Unable to parse MSI vec number\n");
+	return ret;
+}
+
+data->irq_first = (u32)args.args[0];
+data->num_irqs = (u32)args.args[args.nargs - 1];
+
+fwnode_handle_put(args.fwnode);
+
+Regards,
+Inochi
 
 _______________________________________________
 linux-riscv mailing list
