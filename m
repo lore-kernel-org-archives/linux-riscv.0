@@ -4,89 +4,152 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 77540C02198
-	for <linux-riscv@archiver.kernel.org>; Sat, 15 Feb 2025 01:09:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8ECFFC02198
+	for <linux-riscv@archiver.kernel.org>; Sat, 15 Feb 2025 03:36:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ixBRXK+ofs58Jx2QVUCbou/hGDXqcNPENFXg8Ov/Q00=; b=5CPzNDVx31PKn4
-	+Uz5EnYukn9Gn77oyHtkeoA7DWSQY6afuq3SNMIdzUwo3HPo0tE4l8FgIhzQFOGDcwGKXwcB4QTm6
-	5n4DjjMfKzDVtrt7ifMfWRec/XT2PKL3v3/cjUsNWWkQlR4W2JCoKcZvNOW9rjiEzkrPKyV1CfIlT
-	IKWU/uFe7b5vdFaZgTqvpXOtSJbyNfk//Vbx1FY/dgK9jwidoX9bWLJarDBgOHyTmu0DJsHsaleKG
-	CW2/jwEpM+3b/wbIBrgPY5TVT44NKwsyFDHkU5b0gV3kJtkRV34/r9Ua8akBGtzNUeWAoQ69rV2Rx
-	LV41K22F3LHLsF1jLQEw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:From:Cc:References:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=JoXST8xOyoShQaJUmPf50dnBc21W6Yz6B/H30oKOadw=; b=Ed7gB1DLdObC+ajYxBqCrx7zu/
+	34wMwWTpV+8whzhq3fgA21wks/+hHN9GsGH6FncsixoIcRTkFacftPDSfxTA7kijydU63SNlRBFnf
+	QaZ/T7BzGnBr0rZSdOQHeY4LuvJ1id2/58GSAOAkNRIcx+vR3Js51lD+xQp7A9BV7u4AMoL52tDTh
+	MZ8HHItUtBULJNgtKhovL6MOUud6ivNyMayoBgKOvdZS5s5mQsjTTVvK4jU45jWh2iZBIImQIoClx
+	Eh9EP5GRMiPj6bCRRfF6Ifo7/iHhQydtF31SskZ8rkEFWfpRmHi7OWVE/HT3X+/Gye3/aDpxuGDY9
+	Q4/04Iyw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tj6gX-0000000GibQ-2m0E;
-	Sat, 15 Feb 2025 01:09:33 +0000
-Received: from mail-qk1-x72d.google.com ([2607:f8b0:4864:20::72d])
+	id 1tj8z0-0000000Gur4-36j9;
+	Sat, 15 Feb 2025 03:36:46 +0000
+Received: from mail-centralindiaazolkn190100000.outbound.protection.outlook.com ([2a01:111:f403:d409::] helo=PNYPR01CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tj6gV-0000000GiaH-1Zkt
+	id 1tj8yy-0000000GuqE-36WK
 	for linux-riscv@lists.infradead.org;
-	Sat, 15 Feb 2025 01:09:32 +0000
-Received: by mail-qk1-x72d.google.com with SMTP id af79cd13be357-7c07441f14cso237378885a.0
-        for <linux-riscv@lists.infradead.org>; Fri, 14 Feb 2025 17:09:31 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1739581770; x=1740186570; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=N4AAbLMNPxa3cHhDl9zszoQoesM/C3MVg7R6Jya4/5o=;
-        b=HWfftSVVyd8yDTunpSlsOIyPHjcRIB28SvNv5AW20/z1v5xbapVTHn5bGXQkEal9D4
-         p7Y0iQMAZ5i2JZr0+kD8DDeLUfo38fY8blFQXgiLwGE0aEIW88mVN1sqin5/s2uvkB5Y
-         xIwmTvjepAYaKh/xK5ZZFIOECgG66qktF2FgnLaXPxBHIdnitR5M9GhIMH2I5Yuxy8M8
-         CJs/NKwTWu5ckc5ThfiAIOiFQQsajJo0RU9wRnrrtHs3Q4qwgOPw9anTlIJdCNKPmfEy
-         pcHEU2ukxKDI0wV8exrgtb1eLKiymya0+70PD/eQ8Un/umd9GoE1NtV8EvepKKdJHsLE
-         SDLQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1739581770; x=1740186570;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=N4AAbLMNPxa3cHhDl9zszoQoesM/C3MVg7R6Jya4/5o=;
-        b=iYdmBO+sop65tMKZx1G9umoYjhIm2QPu1uvGsbQ1gNMk8lsG7b4Q5h/aVFYT2S6Ren
-         hM1o8hbTN9F30MR1PEdKi2eBzJdv4tfqAFl5+CenxSNodcnjs+WtQIJdu+twkoBVN09O
-         ERuF3/7RgwC/i45JghCmOfQQGJxVTUGkgWcfb3pK/kYOLCYrCx85/Fk81kreUdIIMyzU
-         XTZpGH4+o3Pj+BCT7pxEvXpaO5v8LMXdtrObLdPHYPVl4rRO7+yh0g8n4G3M+5z2oTUm
-         mIt73sNg0D/ER9oF09QKbHxBoQ39/z9vf4ko8qgDNMyplYv84+nsO19cLOIMfJyxIuht
-         r/Jw==
-X-Forwarded-Encrypted: i=1; AJvYcCVRS3YC/Zf2BHz9fpR53d//f7dlml+MUq9/BUjP2w+UuJboYt94Lb+g0PlL2EfoubT28bfOlQGSnSkriQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0YzCr9h+GQDBYBABSrA736EEeS9L1ntGYsbMJZhQcWTyow4Ts5o+
-	KbX2pYX1cMISyInk1fW103lCgmIJcLSag+OpSIzGGAq/F1w1iyJ/
-X-Gm-Gg: ASbGncs2DeaWlgL9UjMBr6Js9r0Rj+C7vxuHB+kcNcOMlczYFZDuWsSRL+fMZhjwZe2
-	Oj5mgS5+RUmBwl1BvmAsOjI2rTIfYxjW/kCm3WzzLIrt3gc6/zbnbL/zwoDdpg1aFS02U3CUi1z
-	xI5/AX9U944OlP+s3STX5B91j8bm8nbPfg7mDx/rp0C0OwbnQyIpn2SJPuKqGZqjWVQ+vNGADUk
-	wsXA+NEJeOScx0Xqmzq5/QW+mv7ZRPzpdLlLHfVotp0fbatf9izkrK1qlkZWF3YvOE=
-X-Google-Smtp-Source: AGHT+IGaXs8pTV+iwxcD1hy1B+P5sDVssAwqfrBP/dmzdQ0BuLhEnRabWDA5dNI+YkHgvwaN9qGqog==
-X-Received: by 2002:a05:620a:24cf:b0:7c0:7922:3675 with SMTP id af79cd13be357-7c08a9c8cd3mr182201685a.26.1739581770122;
-        Fri, 14 Feb 2025 17:09:30 -0800 (PST)
-Received: from localhost ([2001:da8:7001:11::cb])
-        by smtp.gmail.com with UTF8SMTPSA id af79cd13be357-7c07c617478sm265655985a.50.2025.02.14.17.09.28
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 14 Feb 2025 17:09:29 -0800 (PST)
-Date: Sat, 15 Feb 2025 09:09:19 +0800
-From: Inochi Amaoto <inochiama@gmail.com>
-To: Chen Wang <unicornxw@gmail.com>, u.kleine-koenig@baylibre.com, 
-	aou@eecs.berkeley.edu, arnd@arndb.de, unicorn_wang@outlook.com, conor+dt@kernel.org, 
-	guoren@kernel.org, inochiama@outlook.com, krzk+dt@kernel.org, palmer@dabbelt.com, 
-	paul.walmsley@sifive.com, robh@kernel.org, tglx@linutronix.de, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, chao.wei@sophgo.com, 
-	xiaoguang.xing@sophgo.com, fengchun.li@sophgo.com, samuel.holland@sifive.com, 
-	christophe.jaillet@wanadoo.fr
-Cc: Inochi Amaoto <inochiama@gmail.com>
+	Sat, 15 Feb 2025 03:36:45 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=j+e+iM30vWNuX4q0Syoy91ZBoSF+s+d9SP9ImT8mvjwLLxehVrnDWsgWZuGkgLj0QRgUgLFKrpCqU6XLevmlMf1eRP1firbA6Srg5kTFzKbHqfZrLYqiwKO8fVOmFst3KbHxgqjzOguwjD8SEdmpeocFGIuaXCoxt4VhO0AMxbDJx8znRsRloXZGD+Dxzu6YseSX2zOXW4lyWhvZx5owcK5epg33OafJf06a+ShsN+yxOdB6aoSasvJUpPGeZOVNu7SUuNR57OKN37T0IeoRlqSlTf/Oujk8aFY1YrdoGw1D8Xbdbu9pINgd76sB0+yRmz1JkcBSd6S7bPiJLko8YA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=Y7oObg47Zwe4DptfKpfAC33aXHqv7Gf6c0ZqQSHML0Y=;
+ b=g6n/A+/QeE+FY2cOFE0Fa/tM9aIBF1uDwejjdb6uKsyUejUsUe8mqYuTd2H7O1jWYq4BWXuaUIjaiSN+Sb54aAFDoMeJzNJ4Qh+tVVkhP/CjzFfNQk3v8YClzr7w91u/HlMGaRt7wBG6q0XUlDpm0PyC1bDZ7Fk7F457sY+tN2zvKS5273HcOfEcOlRDshj7hHjoK/n3JiBoY/1WM0MK50B/UyFjuwvhTbG5esdmlwhAPXldwvBdpQAeGxi4Hkr2ttogMOnIb49TfZivh5/78dMFSXz0uLQG38ibcamC5mV4ZKuO6THBW7VK9Cgy9mNSDDhA6rGdJRaZePqkEYXZiA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
+ dkim=none; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=Y7oObg47Zwe4DptfKpfAC33aXHqv7Gf6c0ZqQSHML0Y=;
+ b=ld8EM/0nmbG6ig1gtA18C4Y3j3gvyQvMf7+uWdzwQk1m+I6Scv51K2a5Wyi2JoC0tZSJXx5P5/FCjiVW15910RPdsm785btXHJQivHe6Z4U9dsuPCzPebmlLr7OhWGOrTJL84+aweo5rT2EqeZcZ9H8PzZkkSnElKb7xwbmA+BJkxILOpMMi0CXiBPAZoP+WLF8DR2SeakynlGa1Emv2ZPXEYkHgwyUrI1mYaUYGC9fXm9anPK0gy8CvTarQGTgqw1wTqvwOG9qYpRmlv0nxNzAIjWN6dLN10AH4i4CBPUeW+4eIP4V66YGewJlEh3YX6e5u113FJp6gd3t7O1K7Ew==
+Received: from MA0PR01MB5671.INDPRD01.PROD.OUTLOOK.COM (2603:1096:a01:6e::9)
+ by PN0PR01MB5971.INDPRD01.PROD.OUTLOOK.COM (2603:1096:c01:67::11) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8445.17; Sat, 15 Feb
+ 2025 03:36:25 +0000
+Received: from MA0PR01MB5671.INDPRD01.PROD.OUTLOOK.COM
+ ([fe80::6e06:bc2e:85c0:c2ee]) by MA0PR01MB5671.INDPRD01.PROD.OUTLOOK.COM
+ ([fe80::6e06:bc2e:85c0:c2ee%2]) with mapi id 15.20.8445.017; Sat, 15 Feb 2025
+ 03:36:25 +0000
+Message-ID: <MA0PR01MB5671D5D25616BABA0E7F60F4FEF92@MA0PR01MB5671.INDPRD01.PROD.OUTLOOK.COM>
+Date: Sat, 15 Feb 2025 11:36:18 +0800
+User-Agent: Mozilla Thunderbird
 Subject: Re: [PATCH v3 2/3] irqchip: Add the Sophgo SG2042 MSI interrupt
  controller
-Message-ID: <dh645pyvtylcxjcjjcdl7xttpp4qmtjouapifaql4lniab3qjo@lqmwytf5q35c>
+To: Inochi Amaoto <inochiama@gmail.com>
 References: <cover.1736921549.git.unicorn_wang@outlook.com>
  <b5c2f13aa94f68c3415a1292678e16db33f291cd.1736921549.git.unicorn_wang@outlook.com>
+ <dh645pyvtylcxjcjjcdl7xttpp4qmtjouapifaql4lniab3qjo@lqmwytf5q35c>
+Cc: Chen Wang <unicornxw@gmail.com>, u.kleine-koenig@baylibre.com,
+ aou@eecs.berkeley.edu, arnd@arndb.de, conor+dt@kernel.org,
+ guoren@kernel.org, inochiama@outlook.com, krzk+dt@kernel.org,
+ palmer@dabbelt.com, paul.walmsley@sifive.com, robh@kernel.org,
+ tglx@linutronix.de, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+ chao.wei@sophgo.com, xiaoguang.xing@sophgo.com, fengchun.li@sophgo.com,
+ samuel.holland@sifive.com, christophe.jaillet@wanadoo.fr
+From: Chen Wang <unicorn_wang@outlook.com>
+In-Reply-To: <dh645pyvtylcxjcjjcdl7xttpp4qmtjouapifaql4lniab3qjo@lqmwytf5q35c>
+X-ClientProxiedBy: SI2PR02CA0045.apcprd02.prod.outlook.com
+ (2603:1096:4:196::21) To MA0PR01MB5671.INDPRD01.PROD.OUTLOOK.COM
+ (2603:1096:a01:6e::9)
+X-Microsoft-Original-Message-ID: <489db8ba-491c-4c13-a6dd-02c607a980d4@outlook.com>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <b5c2f13aa94f68c3415a1292678e16db33f291cd.1736921549.git.unicorn_wang@outlook.com>
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: MA0PR01MB5671:EE_|PN0PR01MB5971:EE_
+X-MS-Office365-Filtering-Correlation-Id: 8703d8e1-42a7-443f-89b6-08dd4d71ec30
+X-Microsoft-Antispam: BCL:0;ARA:14566002|6090799003|19110799003|8060799006|5072599009|7092599003|461199028|15080799006|3412199025|440099028;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?TEhVaUdLR0sxUk5uNzQxSE40ME1yR21RUnd5ZWtCTC9yYjZuVHgvSXFZcVRK?=
+ =?utf-8?B?Tm82cWRvZ2VQaEJEeFo1RHdwb0l6dmtDOVZyOUZmK2tTbnRJSGlKODdVeFg4?=
+ =?utf-8?B?RlpCMGVSNXY2US9hRW5DdW9mZVZhZDI3R1pXUTlteVVtVDVwWExUNXhmeVFW?=
+ =?utf-8?B?ZXpLaS9wWkF5TjFQUUhYTjdadHJxcCszZzA1ODRRU2xnalV3emRHdUU2V0xn?=
+ =?utf-8?B?VFFTRHdVRUpvNDlEdHc2c0JOV2xza1orL3NsNjNtMS9DSUtueHdZdXlvOG9P?=
+ =?utf-8?B?Wjd3MERZT2ExaXQ2QXd4RDlFL3Jxa2NHbkpwRlhnemFicmc3VFY0dVk5NjJG?=
+ =?utf-8?B?TlZmcDcydVdIODZNMlJNNDZ0ZG4rd3IydkxTYVZ5bEZpdWdGZjduSUVjMGk5?=
+ =?utf-8?B?bXpHaE9jMkxlTTVqK01SdkJGNE9aLytub25WN1dhNlg2TTBnajQrdzAveWhl?=
+ =?utf-8?B?c1VGd2xHbFJ1ZzM5Q2Z3aUkrVEpwaFhoNW9CV0lWUnlNZ1g0cUVxVW1iYlNr?=
+ =?utf-8?B?Q3VZUkt0MVZpQXhnWkNjbXVLWGc4YVArQUVoamVCa3VSd0FWTElXS21NRzVp?=
+ =?utf-8?B?Q1lyTGt0aE1ERTgyVVM0d25xT2k1aTVJRnN1K1pCRnlMakt1YW9oM3RVSkxE?=
+ =?utf-8?B?dTlNVEg4MjNkZm9JaXBlVWhEd2pTeFYxbXMxR1FlRmFGNytKVENWOGhyeUll?=
+ =?utf-8?B?U2lsTFhyR1V0SGZPY29HWGxCM05mbmxweGZpQUQ5MS9GRnNSOE9xVUtLNE1M?=
+ =?utf-8?B?OTJyemNtQjRWU3ROdnQwcWJZMDdBUkhHYlloL3c2RGs3Q0p6TDMzc2xJUWZx?=
+ =?utf-8?B?Qnd3L3l3dGwrSlNPVGt3RVVYcjg5bWNuTHh0V3R2TEprWVNSQzh5YmN1K091?=
+ =?utf-8?B?a3UvaXBFNnE1RFdXcGh6Tis2VlA2aUc2TmlsbEorYm5oNE9pQTc3d292ZXhX?=
+ =?utf-8?B?QXBGclFuaWxsUTg1emhwNyt3TkVyRTdPUWpCVUthMHdyTXRQREY2blVKY09T?=
+ =?utf-8?B?VmJEbzZOL25USzF1WUU3Y2ZCbWc2c0JZQnIxbXBadDJ2ZEYzT1ZXTGVkNUhi?=
+ =?utf-8?B?ams1ZlZjT203b3FtU2d6K1puNHVlUmV2S3U2SU9naGlXb0JMMjJienVUbVk4?=
+ =?utf-8?B?SVRKNXVnMW5sbXkxeFd3eTNwUnQ1eFQ3NFZCVlR1NUlTaWdxcEo1VFNOVE0w?=
+ =?utf-8?B?eE9vRkhkalJaU1ZvdTRiamR3VzJ6Q1NZTHpGTnBzVjJQZzJ1ZFJTNXRka0ZE?=
+ =?utf-8?B?N3M3eUpHNDdPN0dxQkcwVVcxL0I3SldGc0FTa2tMRmVmZXl5eTd1RHEzK1E2?=
+ =?utf-8?B?bEVrbU1ZTVIyZlZGSFRSbkN4enZxZDFEQyt1UFlXemt2YUhGUzZsWG16VURI?=
+ =?utf-8?B?SExjS01ibk9BVVpwRUoxUnA0bytsSkdpWnZLVDhYYkVpazlHS3EveG5oYVF6?=
+ =?utf-8?B?SmV5RlpBVzNsVG42VzBJS2RVazNJc2drNHk5bVpPMkV5dCt2YmxCK1gxQnQx?=
+ =?utf-8?Q?WFXXkI=3D?=
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?NDFISVlwZ2ZDTGtTeEpTOWc0M2xwcG9NVHBPZWFoMWZ4cm9rbGpaeDFZRzBv?=
+ =?utf-8?B?eTd6MGFuempETEp1c0czZmlmTWJCYlJEbmJiSHJ2cXJTKytmR0R1OFMwUmdm?=
+ =?utf-8?B?SWtNZlZmNHplQkd2UkZJeHNEcnFZMERpdkVjNXFRT28yQisxSkpJTS8vTGQx?=
+ =?utf-8?B?cEZLWlI4RmVkbTJQUDdMWUxOYkVaRGxFTk0rcVRoakIrNzRHUWdXT3hKQmdP?=
+ =?utf-8?B?c0NBQlhxbnhBdUZobG1Jd1ZFREVXUVpVcWcxOEJEMDBQWFVpTHRqQlV6R2Ux?=
+ =?utf-8?B?RW9hV3BNSXNWVGlZdFF2bjQwbklPVDZPK1g2NHJMVk91OGVMQ28yRWhISnJO?=
+ =?utf-8?B?Q0RCOEt6UFlURXJ1aXB6UGZsQ040VEU4aDlDTy9jQjlvWHd1SytRWDA2RE52?=
+ =?utf-8?B?TkZHMnBmcTNIOENuK042bU5jVksyOCtlZ3Y5TU1JMFZFTkttRjc5M1RPR3lh?=
+ =?utf-8?B?MU9BSXZiYWtCMDNLUytWOEhmSWR3eTNhcVFyV3UwbFVXR2VyQnFyRDZ0Qld1?=
+ =?utf-8?B?S0pIQVNhdHVXZG5OQVIxbUFxL2lHNUl5WlZTVnFXZ1FyVjFtTUczUHZGMGM5?=
+ =?utf-8?B?eUFiVy9IT3hFcWRXdm1ST2t0Tkw5WWxrVDVSeXJ0TzY3eTlJYngxRWFRbGpI?=
+ =?utf-8?B?QmIwN2JodEt2Tml6UjFheVpYNG9SVGdlZnNCTFNON2hOaUtPZWVCbVNyWnpw?=
+ =?utf-8?B?RkJrYTUvbjgxbUs0V2RpcXRSR1VNNW9hZzBRNSs2TlVNTUNvL3JOZWdYakNU?=
+ =?utf-8?B?SzdpdDN6WTFmWXRYUzNPUnZDWFhKNlJKVTRFQXN0bHN1UFdVVms2UXZGRi9v?=
+ =?utf-8?B?TGRQQmRGNjVLemt6WGtBbEVRRFluVG91SjVzUWNQcFRLSWNNdEtjY1NpdDBp?=
+ =?utf-8?B?ZVJuQjd2OHFoR2ZTU0pYQjgxQ3NtR1hmSnZGZFZTK2w4L2FxZlVuYVhhSFF5?=
+ =?utf-8?B?UnoxelNLVVRmZWdaTWdvTmZ2S0puYVZwNWQ5TTJ2TlYyQ3A5VzVEWVdad1gy?=
+ =?utf-8?B?dy83T0t6dC80N1hkS2tocUxid0FaUGpIU295M1lNNXJKYWRSanhtUXRhZDk5?=
+ =?utf-8?B?UEtOVE14eCtOaTFyM2cwYUZPQ2NhQ09tVk92ejZmY25yWnQ2YTgzQTMwSUtk?=
+ =?utf-8?B?YkYrY3YyOWFvSG52bzVaMEJxTExSRVg0SUZDNjVKZWwyOWRVTHh4NkVBclNV?=
+ =?utf-8?B?dGxEZUVXalY0cXdxeGFBRG9CQVkydTgrYjRZMTRvTTB5eTNyQ1dmd0hrd2RQ?=
+ =?utf-8?B?eXR3YnNDVkFmZGwvSUVwbUVDblVnbktKL2ZRRUIrMEZyUmxtN2Z2ajNWbWt1?=
+ =?utf-8?B?NXRWVzFnb3JZQnpRNzEwSWZqcXY0azJLZlk1blRiVzc3djZyT2kxcG1iWlor?=
+ =?utf-8?B?dUwvd3JrbjRBblJ1U2JRSEgzNUpDRkp2UlF0alc4MEhjRlVXRXpoTFljdXk0?=
+ =?utf-8?B?OHdBei82TGdZc3NSRnF0VFpSbUlvT25vNWhSWFZHNzhGSnphei9tMnJYdktI?=
+ =?utf-8?B?RVBFeXM2SCtaZkFDNE92aUZiQm5XeE9ScDVEZlZJc1FEdURVUW1oSWxOL2x2?=
+ =?utf-8?B?TWEvVURhUU1RZ3VvMWVJSzUzaUE0U0M3WDZ6TUZRZy9PeEVYZllIRXRsNWdJ?=
+ =?utf-8?B?RlM4eFp4czR1Sm00NnpyZGNJSVpFYjVLUHJXeVYxTkw5WjAvV1dmNy8zWTRr?=
+ =?utf-8?B?cEtIamxCeStSR0lHSFExOG1rTHRnd0FzWW1BVUhDdjUxUEc0aitTaTNZSTJZ?=
+ =?utf-8?Q?qgMYWZrRUUAdBcO5CJ/AIFmNlTaqk/4Texn0MI3?=
+X-OriginatorOrg: outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 8703d8e1-42a7-443f-89b6-08dd4d71ec30
+X-MS-Exchange-CrossTenant-AuthSource: MA0PR01MB5671.INDPRD01.PROD.OUTLOOK.COM
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 15 Feb 2025 03:36:24.9194
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
+X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PN0PR01MB5971
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250214_170931_419615_C2FB609C 
-X-CRM114-Status: GOOD (  35.48  )
+X-CRM114-CacheID: sfid-20250214_193644_771920_F9545637 
+X-CRM114-Status: UNSURE (   4.66  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,360 +161,26 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jan 15, 2025 at 02:33:45PM +0800, Chen Wang wrote:
-> From: Chen Wang <unicorn_wang@outlook.com>
-> 
-> Add driver for Sophgo SG2042 MSI interrupt controller.
-> 
-> Signed-off-by: Chen Wang <unicorn_wang@outlook.com>
-> ---
->  drivers/irqchip/Kconfig          |  12 ++
->  drivers/irqchip/Makefile         |   1 +
->  drivers/irqchip/irq-sg2042-msi.c | 268 +++++++++++++++++++++++++++++++
->  3 files changed, 281 insertions(+)
->  create mode 100644 drivers/irqchip/irq-sg2042-msi.c
-> 
-> diff --git a/drivers/irqchip/Kconfig b/drivers/irqchip/Kconfig
-> index 9bee02db1643..161fb5df857f 100644
-> --- a/drivers/irqchip/Kconfig
-> +++ b/drivers/irqchip/Kconfig
-> @@ -749,6 +749,18 @@ config MCHP_EIC
->  	help
->  	  Support for Microchip External Interrupt Controller.
->  
-> +config SOPHGO_SG2042_MSI
-> +	bool "Sophgo SG2042 MSI Controller"
-> +	depends on ARCH_SOPHGO || COMPILE_TEST
-> +	depends on PCI
-> +	select IRQ_DOMAIN_HIERARCHY
-> +	select IRQ_MSI_LIB
-> +	select PCI_MSI
-> +	help
-> +	  Support for the Sophgo SG2042 MSI Controller.
-> +	  This on-chip interrupt controller enables MSI sources to be
-> +	  routed to the primary PLIC controller on SoC.
-> +
->  config SUNPLUS_SP7021_INTC
->  	bool "Sunplus SP7021 interrupt controller" if COMPILE_TEST
->  	default SOC_SP7021
-> diff --git a/drivers/irqchip/Makefile b/drivers/irqchip/Makefile
-> index 25e9ad29b8c4..dd60e597491d 100644
-> --- a/drivers/irqchip/Makefile
-> +++ b/drivers/irqchip/Makefile
-> @@ -128,4 +128,5 @@ obj-$(CONFIG_WPCM450_AIC)		+= irq-wpcm450-aic.o
->  obj-$(CONFIG_IRQ_IDT3243X)		+= irq-idt3243x.o
->  obj-$(CONFIG_APPLE_AIC)			+= irq-apple-aic.o
->  obj-$(CONFIG_MCHP_EIC)			+= irq-mchp-eic.o
-> +obj-$(CONFIG_SOPHGO_SG2042_MSI)		+= irq-sg2042-msi.o
->  obj-$(CONFIG_SUNPLUS_SP7021_INTC)	+= irq-sp7021-intc.o
-> diff --git a/drivers/irqchip/irq-sg2042-msi.c b/drivers/irqchip/irq-sg2042-msi.c
-> new file mode 100644
-> index 000000000000..1f88e1671e5c
-> --- /dev/null
-> +++ b/drivers/irqchip/irq-sg2042-msi.c
-> @@ -0,0 +1,268 @@
-> +// SPDX-License-Identifier: GPL-2.0
-> +/*
-> + * SG2042 MSI Controller
-> + *
-> + * Copyright (C) 2024 Sophgo Technology Inc.
-> + * Copyright (C) 2024 Chen Wang <unicorn_wang@outlook.com>
-> + */
-> +
-> +#include <linux/cleanup.h>
-> +#include <linux/io.h>
-> +#include <linux/irq.h>
-> +#include <linux/irqdomain.h>
-> +#include <linux/kernel.h>
-> +#include <linux/module.h>
-> +#include <linux/msi.h>
-> +#include <linux/of.h>
-> +#include <linux/of_irq.h>
-> +#include <linux/of_pci.h>
-> +#include <linux/of_platform.h>
-> +#include <linux/platform_device.h>
-> +#include <linux/slab.h>
-> +
-> +#include "irq-msi-lib.h"
-> +
-> +#define SG2042_MAX_MSI_VECTOR	32
-> +
-> +struct sg2042_msi_chipdata {
-> +	void __iomem	*reg_clr;	// clear reg, see TRM, 10.1.33, GP_INTR0_CLR
-> +
-> +	phys_addr_t	doorbell_addr;	// see TRM, 10.1.32, GP_INTR0_SET
-> +
-> +	u32		irq_first;	// The vector number that MSIs starts
-> +	u32		num_irqs;	// The number of vectors for MSIs
-> +
-> +	DECLARE_BITMAP(msi_map, SG2042_MAX_MSI_VECTOR);
-> +	struct mutex	msi_map_lock;	// lock for msi_map
-> +};
-> +
-> +static int sg2042_msi_allocate_hwirq(struct sg2042_msi_chipdata *data, int num_req)
-> +{
-> +	int first;
-> +
-> +	guard(mutex)(&data->msi_map_lock);
-> +	first = bitmap_find_free_region(data->msi_map, data->num_irqs,
-> +					get_count_order(num_req));
-> +	return first >= 0 ? first : -ENOSPC;
-> +}
-> +
-> +static void sg2042_msi_free_hwirq(struct sg2042_msi_chipdata *data,
-> +				  int hwirq, int num_req)
-> +{
-> +	guard(mutex)(&data->msi_map_lock);
-> +	bitmap_release_region(data->msi_map, hwirq, get_count_order(num_req));
-> +}
-> +
-> +static void sg2042_msi_irq_ack(struct irq_data *d)
-> +{
-> +	struct sg2042_msi_chipdata *data  = irq_data_get_irq_chip_data(d);
-> +	int bit_off = d->hwirq;
-> +
-> +	writel(1 << bit_off, data->reg_clr);
-> +
-> +	irq_chip_ack_parent(d);
-> +}
-> +
-> +static void sg2042_msi_irq_compose_msi_msg(struct irq_data *d,
-> +					   struct msi_msg *msg)
-> +{
-> +	struct sg2042_msi_chipdata *data = irq_data_get_irq_chip_data(d);
-> +
-> +	msg->address_hi = upper_32_bits(data->doorbell_addr);
-> +	msg->address_lo = lower_32_bits(data->doorbell_addr);
-> +	msg->data = 1 << d->hwirq;
-> +}
-> +
-> +static const struct irq_chip sg2042_msi_middle_irq_chip = {
-> +	.name			= "SG2042 MSI",
-> +	.irq_ack		= sg2042_msi_irq_ack,
-> +	.irq_mask		= irq_chip_mask_parent,
-> +	.irq_unmask		= irq_chip_unmask_parent,
-> +#ifdef CONFIG_SMP
-> +	.irq_set_affinity	= irq_chip_set_affinity_parent,
-> +#endif
-> +	.irq_compose_msi_msg	= sg2042_msi_irq_compose_msi_msg,
-> +};
-> +
-> +static int sg2042_msi_parent_domain_alloc(struct irq_domain *domain,
-> +					  unsigned int virq, int hwirq)
-> +{
-> +	struct sg2042_msi_chipdata *data = domain->host_data;
-> +	struct irq_fwspec fwspec;
-> +	struct irq_data *d;
-> +	int ret;
-> +
-> +	fwspec.fwnode = domain->parent->fwnode;
-> +	fwspec.param_count = 2;
-> +	fwspec.param[0] = data->irq_first + hwirq;
-> +	fwspec.param[1] = IRQ_TYPE_EDGE_RISING;
-> +
-> +	ret = irq_domain_alloc_irqs_parent(domain, virq, 1, &fwspec);
-> +	if (ret)
-> +		return ret;
-> +
-> +	d = irq_domain_get_irq_data(domain->parent, virq);
-> +	return d->chip->irq_set_type(d, IRQ_TYPE_EDGE_RISING);
-> +}
-> +
-> +static int sg2042_msi_middle_domain_alloc(struct irq_domain *domain,
-> +					  unsigned int virq,
-> +					  unsigned int nr_irqs, void *args)
-> +{
-> +	struct sg2042_msi_chipdata *data = domain->host_data;
-> +	int hwirq, err, i;
-> +
-> +	hwirq = sg2042_msi_allocate_hwirq(data, nr_irqs);
-> +	if (hwirq < 0)
-> +		return hwirq;
-> +
-> +	for (i = 0; i < nr_irqs; i++) {
-> +		err = sg2042_msi_parent_domain_alloc(domain, virq + i, hwirq + i);
-> +		if (err)
-> +			goto err_hwirq;
-> +
-> +		irq_domain_set_hwirq_and_chip(domain, virq + i, hwirq + i,
-> +					      &sg2042_msi_middle_irq_chip, data);
-> +	}
-> +
-> +	return 0;
-> +
-> +err_hwirq:
-> +	sg2042_msi_free_hwirq(data, hwirq, nr_irqs);
-> +	irq_domain_free_irqs_parent(domain, virq, i);
-> +
-> +	return err;
-> +}
-> +
-> +static void sg2042_msi_middle_domain_free(struct irq_domain *domain,
-> +					  unsigned int virq,
-> +					  unsigned int nr_irqs)
-> +{
-> +	struct irq_data *d = irq_domain_get_irq_data(domain, virq);
-> +	struct sg2042_msi_chipdata *data = irq_data_get_irq_chip_data(d);
-> +
-> +	irq_domain_free_irqs_parent(domain, virq, nr_irqs);
-> +	sg2042_msi_free_hwirq(data, d->hwirq, nr_irqs);
-> +}
-> +
-> +static const struct irq_domain_ops sg2042_msi_middle_domain_ops = {
-> +	.alloc	= sg2042_msi_middle_domain_alloc,
-> +	.free	= sg2042_msi_middle_domain_free,
-> +	.select	= msi_lib_irq_domain_select,
-> +};
-> +
-> +#define SG2042_MSI_FLAGS_REQUIRED (MSI_FLAG_USE_DEF_DOM_OPS |	\
-> +				   MSI_FLAG_USE_DEF_CHIP_OPS)
-> +
-> +#define SG2042_MSI_FLAGS_SUPPORTED MSI_GENERIC_FLAGS_MASK
-> +
-> +static struct msi_parent_ops sg2042_msi_parent_ops = {
-> +	.required_flags		= SG2042_MSI_FLAGS_REQUIRED,
-> +	.supported_flags	= SG2042_MSI_FLAGS_SUPPORTED,
-> +	.bus_select_mask	= MATCH_PCI_MSI,
-> +	.bus_select_token	= DOMAIN_BUS_NEXUS,
-> +	.prefix			= "SG2042-",
-> +	.init_dev_msi_info	= msi_lib_init_dev_msi_info,
-> +};
-> +
-> +static int sg2042_msi_init_domains(struct sg2042_msi_chipdata *data,
-> +				   struct device_node *node)
 
-For ACPI support, I prefer to use device instead of device_node
-The following suggestion is also for ACPI support
+On 2025/2/15 9:09, Inochi Amaoto wrote:
+> On Wed, Jan 15, 2025 at 02:33:45PM +0800, Chen Wang wrote:
+[......]
+>> +	middle_domain = irq_domain_create_hierarchy(plic_domain, 0, data->num_irqs,
+>> +						    fwnode,
+>> +						    &sg2042_msi_middle_domain_ops,
+>> +						    data);
+> Use irq_domain_create_hierarchy
 
-> +{
-> +	struct fwnode_handle *fwnode = of_node_to_fwnode(node);
-> +	struct irq_domain *plic_domain, *middle_domain;
-> +	struct device_node *plic_node;
-> +
+What's the difference?
 
-> +	if (!of_find_property(node, "interrupt-parent", NULL)) {
-> +		pr_err("Can't find interrupt-parent!\n");
-> +		return -EINVAL;
-> +	}
-> +
-> +	plic_node = of_irq_find_parent(node);
-> +	if (!plic_node) {
-> +		pr_err("Failed to find the PLIC node!\n");
-> +		return -ENXIO;
-> +	}
-> +
-
-This can be replace with fwnode_find_reference to support ACPI
-
-> +	plic_domain = irq_find_host(plic_node);
-> +	of_node_put(plic_node);
-> +	if (!plic_domain) {
-> +		pr_err("Failed to find the PLIC domain\n");
-> +		return -ENXIO;
-> +	}
-> +
-
-Replace irq_find_host with irq_find_matching_fwnode
-
-> +	middle_domain = irq_domain_create_hierarchy(plic_domain, 0, data->num_irqs,
-> +						    fwnode,
-> +						    &sg2042_msi_middle_domain_ops,
-> +						    data);
-
-Use irq_domain_create_hierarchy
-
-> +	if (!middle_domain) {
-> +		pr_err("Failed to create the MSI middle domain\n");
-> +		return -ENOMEM;
-> +	}
-> +
-> +	irq_domain_update_bus_token(middle_domain, DOMAIN_BUS_NEXUS);
-> +
-> +	middle_domain->flags |= IRQ_DOMAIN_FLAG_MSI_PARENT;
-> +	middle_domain->msi_parent_ops = &sg2042_msi_parent_ops;
-> +
-> +	return 0;
-> +}
-> +
-> +static int sg2042_msi_probe(struct platform_device *pdev)
-> +{
-
-add a "struct device *dev = &pdev->dev;" here and replace 
-&pdev->dev with dev.
-
-> +	struct sg2042_msi_chipdata *data;
-> +	struct of_phandle_args args = {};
-> +	struct resource *res;
-> +	int ret;
-> +
-> +	data = devm_kzalloc(&pdev->dev, sizeof(struct sg2042_msi_chipdata), GFP_KERNEL);
-> +	if (!data)
-> +		return -ENOMEM;
-> +
-> +	data->reg_clr = devm_platform_ioremap_resource_byname(pdev, "clr");
-> +	if (IS_ERR(data->reg_clr)) {
-> +		dev_err(&pdev->dev, "Failed to map clear register\n");
-> +		return PTR_ERR(data->reg_clr);
-> +	}
-> +
-> +	res = platform_get_resource_byname(pdev, IORESOURCE_MEM, "doorbell");
-> +	if (!res) {
-> +		dev_err(&pdev->dev, "Failed get resource from set\n");
-> +		return -EINVAL;
-> +	}
-> +	data->doorbell_addr = res->start;
-> +
-
-> +	ret = of_parse_phandle_with_args(pdev->dev.of_node, "msi-ranges",
-> +					 "#interrupt-cells", 0, &args);
-> +	if (ret) {
-> +		dev_err(&pdev->dev, "Unable to parse MSI vec base\n");
-> +		return ret;
-> +	}
-> +	data->irq_first = (u32)args.args[0];
-> +
-> +	ret = of_property_read_u32_index(pdev->dev.of_node, "msi-ranges",
-> +					 args.args_count + 1, &data->num_irqs);
-> +	if (ret) {
-> +		dev_err(&pdev->dev, "Unable to parse MSI vec number\n");
-> +		of_node_put(args.np);
-> +		return ret;
-> +	}
-> +	of_node_put(args.np);
-
-this can be replace by calling fwnode_property_get_reference_args
-twice. I have found a working example:
-
-ret = fwnode_property_get_reference_args(dev_fwnode(dev), "msi-ranges",
-					 "#interrupt-cells",
-					 0, 0, &args);
-if (ret) {
-	dev_err(dev, "Unable to parse MSI vec base\n");
-	return ret;
-}
-fwnode_handle_put(args.fwnode);
+[......]
 
 
-ret = fwnode_property_get_reference_args(dev_fwnode(dev), "msi-ranges",
-					 NULL, args.nargs + 1,
-					 0, &args);
-if (ret) {
-	dev_err(dev, "Unable to parse MSI vec number\n");
-	return ret;
-}
-
-data->irq_first = (u32)args.args[0];
-data->num_irqs = (u32)args.args[args.nargs - 1];
-
-fwnode_handle_put(args.fwnode);
-
-Regards,
-Inochi
 
 _______________________________________________
 linux-riscv mailing list
