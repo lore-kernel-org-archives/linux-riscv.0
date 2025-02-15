@@ -4,94 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5FEB1C021A0
-	for <linux-riscv@archiver.kernel.org>; Sat, 15 Feb 2025 06:55:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F860C021A0
+	for <linux-riscv@archiver.kernel.org>; Sat, 15 Feb 2025 08:36:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=hsjFT7GZYtG9Wy5UPhtj37Jx3Y3RxKNfJDWIiD8QBM8=; b=ZxnjWkYS2R6GUk
-	xmVhZAlyHCgNeteUad+A5d5MG2Tn5cF/W0/fAv+/YMb+bSaXdXJyP2y4NL9pk3AbJ6RzO9QcpmheB
-	+lUgbwsgv9qpFnhvE/xsisR8926ZJsGXDznFwj7ghgbzdLB2PHKnzajtOHWzlZOQexJZ6zNaMWci+
-	GrSeOQH0Lb/GGVA7J+8Nhn+QWkNSSmaKf4GJ+dQeMLBVdUwCnBry+dn8LDub6bWNoS3TOR+C255dW
-	bKawMkjUHbMCK2MnRzuOw/9zjKaWdEK9QJ1T+F5sd/qzFm8E9XKOHSkjbyPWsWTBtm34GItkq/vwZ
-	RTtH7IMhCDgYHWt3akPQ==;
+	List-Owner; bh=JJZgzaIu0fu+zIf9fEAIuiVXtojdOP6fbpPjaFXNHDQ=; b=Lo3CEmVQJDO7Ca
+	MmPqS2XuaWdTvxLUGl1Ly7h9YP+XUKlDfV4jiMmpAOvbQbh9CkzqIm5ZP8RTpIrgbCc6hPhe0RVYN
+	GyypoZiR9VVZI6M53k60E2zkO9vqbdV47e2qHr7MtFB3C0Nd06nOpOynr81cVm9HzD8lMbq2SeVaH
+	AEu/OqqwzKaYdhpTXHbRg7SkxFpp0XLRw5EtKfWZiTSRXzFVXntrPRGPX0Zndeb3OV1VLLAjIMDe4
+	DUd/p6t2RqTxcCFMxItcP32VkBUIshC5aogcsVAB2LGruv0MTQiRW/aIxQzi2bWKMBkSUdnk/LyNE
+	VjVqUSOusJjRwbMnj8Ng==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tjC5e-0000000H8bh-3Nff;
-	Sat, 15 Feb 2025 06:55:50 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1tjDeu-0000000HFly-0D5L;
+	Sat, 15 Feb 2025 08:36:20 +0000
+Received: from woodpecker.gentoo.org ([140.211.166.183] helo=smtp.gentoo.org)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tjC4C-0000000H8SR-41Tc;
-	Sat, 15 Feb 2025 06:54:22 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id A5B105C410D;
-	Sat, 15 Feb 2025 06:53:38 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 326CCC4CEDF;
-	Sat, 15 Feb 2025 06:54:17 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linuxfoundation.org;
-	s=korg; t=1739602457;
-	bh=mfCqWG6NaYR6Sxd++9L3Sle7RqL0qWrh+kjSNFtksAE=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=uS4GDR/SYf5jq318wLFt00h54nZgI/f4yIrfYTZvBV7jtSKQ1RY9pTAqlNYYxSCC6
-	 zygTR0MT/JQ5CQ/0x1v48rY/2sgioAgVjQlS+fAcz/p+8ZpKoylYdoM2+Ime/YZKv1
-	 76WODxrBGyq6uEyBhlP3dGL1sSbDsZD2GKoZSyLE=
-Date: Sat, 15 Feb 2025 07:53:12 +0100
-From: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-To: Jerome Brunet <jbrunet@baylibre.com>
-Cc: Dave Ertman <david.m.ertman@intel.com>, Ira Weiny <ira.weiny@intel.com>,
-	"Rafael J. Wysocki" <rafael@kernel.org>,
-	Stephen Boyd <sboyd@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
-	Danilo Krummrich <dakr@kernel.org>,
-	Conor Dooley <conor.dooley@microchip.com>,
-	Daire McNamara <daire.mcnamara@microchip.com>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Douglas Anderson <dianders@chromium.org>,
-	Andrzej Hajda <andrzej.hajda@intel.com>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Robert Foss <rfoss@kernel.org>,
-	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
-	Jonas Karlman <jonas@kwiboo.se>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-	Hans de Goede <hdegoede@redhat.com>,
-	Ilpo =?iso-8859-1?Q?J=E4rvinen?= <ilpo.jarvinen@linux.intel.com>,
-	Bryan O'Donoghue <bryan.odonoghue@linaro.org>,
-	Vladimir Kondratiev <vladimir.kondratiev@mobileye.com>,
-	Gregory CLEMENT <gregory.clement@bootlin.com>,
-	=?iso-8859-1?Q?Th=E9o?= Lebrun <theo.lebrun@bootlin.com>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Abel Vesa <abelvesa@kernel.org>, Peng Fan <peng.fan@nxp.com>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Kevin Hilman <khilman@baylibre.com>,
-	Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
-	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
-	dri-devel@lists.freedesktop.org,
-	platform-driver-x86@vger.kernel.org, linux-mips@vger.kernel.org,
-	linux-clk@vger.kernel.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-amlogic@lists.infradead.org
-Subject: Re: [PATCH v3 1/7] driver core: auxiliary bus: add device creation
- helpers
-Message-ID: <2025021501-tamer-sank-142a@gregkh>
-References: <20250211-aux-device-create-helper-v3-0-7edb50524909@baylibre.com>
- <20250211-aux-device-create-helper-v3-1-7edb50524909@baylibre.com>
- <2025021437-washout-stonewall-d13e@gregkh>
- <1jwmdsxugx.fsf@starbuckisacylon.baylibre.com>
+	id 1tjDes-0000000HFlU-0HLn
+	for linux-riscv@lists.infradead.org;
+	Sat, 15 Feb 2025 08:36:19 +0000
+Received: from localhost (unknown [180.172.76.141])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: dlan)
+	by smtp.gentoo.org (Postfix) with ESMTPSA id 8E3BC341707;
+	Sat, 15 Feb 2025 08:36:14 +0000 (UTC)
+Date: Sat, 15 Feb 2025 08:36:07 +0000
+From: Yixun Lan <dlan@gentoo.org>
+To: Javier Martinez Canillas <javierm@redhat.com>
+Cc: linux-kernel@vger.kernel.org, javier@dowhile0.org, rjones@redhat.com,
+	abologna@redhat.com, spacemit@lists.linux.dev,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Matthias Brugger <matthias.bgg@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Rob Herring <robh@kernel.org>, Yangyu Chen <cyy@cyyself.name>,
+	devicetree@vger.kernel.org, linux-riscv@lists.infradead.org
+Subject: Re: [PATCH 0/2] riscv: dts: spacemit: Add initial support for Milk-V
+ Jupiter
+Message-ID: <20250215083607-GYA22673@gentoo>
+References: <20250214151700.666544-1-javierm@redhat.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <1jwmdsxugx.fsf@starbuckisacylon.baylibre.com>
+In-Reply-To: <20250214151700.666544-1-javierm@redhat.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250214_225421_115670_7C35DDAD 
-X-CRM114-Status: GOOD (  52.91  )
+X-CRM114-CacheID: sfid-20250215_003618_128252_2C4F1B0D 
+X-CRM114-Status: GOOD (  15.51  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,165 +73,46 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Feb 14, 2025 at 07:16:30PM +0100, Jerome Brunet wrote:
-> On Fri 14 Feb 2025 at 17:33, Greg Kroah-Hartman <gregkh@linuxfoundation.org> wrote:
+Hi Javier:
+
+On 16:16 Fri 14 Feb     , Javier Martinez Canillas wrote:
+> Hello,
 > 
-> > On Tue, Feb 11, 2025 at 06:27:58PM +0100, Jerome Brunet wrote:
-> >> Add helper functions to create a device on the auxiliary bus.
-> >> 
-> >> This is meant for fairly simple usage of the auxiliary bus, to avoid having
-> >> the same code repeated in the different drivers.
-> >> 
-> >> Suggested-by: Stephen Boyd <sboyd@kernel.org>
-> >> Cc: Arnd Bergmann <arnd@arndb.de>
-> >> Signed-off-by: Jerome Brunet <jbrunet@baylibre.com>
-> >> ---
-> >>  drivers/base/auxiliary.c      | 88 +++++++++++++++++++++++++++++++++++++++++++
-> >>  include/linux/auxiliary_bus.h | 10 +++++
-> >>  2 files changed, 98 insertions(+)
-> >
-> > I like the idea, see much the same of what I recently did for the "faux"
-> > bus here:
-> > 	https://lore.kernel.org/all/2025021023-sandstorm-precise-9f5d@gregkh/
+> This patch-set adds a minimal support for the Milk-V Jupiter board.
+> which is a Mini ITX computer based on the SpacemiT K1/M1 RISC-V SoC.
 > 
-> Reading this, I'm getting the feeling that some (most?) simple auxiliary
-> driver might be better off migrating to "faux", instead of what I'm
-> proposing here ? Is this what you are suggesting ?
-
-For any that do not actually talk to any real hardware (i.e. they are
-NOT sharing resources with a parent device), then yes, they should.  I
-was also trying to point out that "simple" apis like what you created
-here are a good thing in my opinion, I like it!
-
-> Few Q:
-> Is there some sort of 'platform_data' (sorry for the lack of a better
-> term, no provocation intended ;) ) ... it there a
-> simple way to pass an arbitrary struct to the created device with 'faux' ?
-
-There are at least 2 ways to do this:
-  - embed a faux_device inside a larger structure and then do a
-    container_of() in any sysfs callback to get to your real structure
-  - in a provided probe() callback, set the driverdata field with a call
-    to faux_device_set_drvdata()
-
-> The difference between aux and faux I'm seeing it that aux seems to
-> decouple things a bit more. The only thing aux needs is a module name to
-> pop something up, while faux needs a reference to the ops instead.
-
-aux is needed for when you want multiple drivers to be bound to the same
-hardware resource and need some way to share all of that.  faux is used
-for "fake" devices where you just need a struct device in the /sys/ tree
-to be used for "something" or as a parent device for something else.
-See the examples in the above patch series where I convert many
-different types of drivers over to use faux.
-
-> I can see the appeal to use aux for maintainers trying to decouple
-> different subsystems.
-
-Again aux is needed for "sharing" a real device.  faux is there for fake
-ones that people previously were using platform devices for.
-
-> > Some review comments:
-> >
-> >> diff --git a/drivers/base/auxiliary.c b/drivers/base/auxiliary.c
-> >> index afa4df4c5a3f371b91d8dd8c4325495d32ad1291..0f697c9c243dc9a50498a52362806db594345faf 100644
-> >> --- a/drivers/base/auxiliary.c
-> >> +++ b/drivers/base/auxiliary.c
-> >> @@ -385,6 +385,94 @@ void auxiliary_driver_unregister(struct auxiliary_driver *auxdrv)
-> >>  }
-> >>  EXPORT_SYMBOL_GPL(auxiliary_driver_unregister);
-> >>  
-> >> +static void auxiliary_device_release(struct device *dev)
-> >> +{
-> >> +	struct auxiliary_device *auxdev = to_auxiliary_dev(dev);
-> >> +
-> >> +	kfree(auxdev);
-> >> +}
-> >> +
-> >> +static struct auxiliary_device *auxiliary_device_create(struct device *dev,
-> >> +							const char *modname,
-> >> +							const char *devname,
-> >> +							void *platform_data,
-> >
-> > Can you have the caller set the platform_data if they need/want it after
-> > the device is created?  Or do you need that in the probe callback?
+> The DTS is very basic but at least allows to boot into a serial console
+> and get UART output, similar to what exists for other K1 based boards
+> such as the BananaPi BPI-F3.
 > 
-> My assumption was that it is needed in probe, but I guess that entirely
-> depends on the driver. If that was ever needed, it could be added later
-> I think.
+> Patch #1 just adds the compatible string for the Milk-V Jupiter to the
+> SpacemiT bindings and patch #2 adds the minimal DTS for this computer.
 > 
-> >
-> > And can't this be a global function too for those that don't want to
-> > deal with devm stuff?
+> Best regards,
+> Javier
 > 
-> There was a note about that in the cover-letter of the v1 but I did not
-> repeat it after.
 > 
-> It can be exported but I had no use for it so I thought It was better not
-> export it until it was actually needed. I really do not have a strong
-> preference over this.
+> Javier Martinez Canillas (2):
+>   dt-bindings: riscv: spacemit: Add Milk-V Jupiter board compatible
+>   riscv: dts: spacemit: Add Milk-V Jupiter board device tree
 > 
-> >
-> >> +							int id)
-> >> +{
-> >> +	struct auxiliary_device *auxdev;
-> >> +	int ret;
-> >> +
-> >> +	auxdev = kzalloc(sizeof(*auxdev), GFP_KERNEL);
-> >> +	if (!auxdev)
-> >> +		return ERR_PTR(-ENOMEM);
-> >
-> > Ick, who cares what the error value really is?  Why not just do NULL or
-> > a valid pointer?  That makes the caller much simpler to handle, right?
-> >
-> 
-> Sure why not
-> 
-> >> +
-> >> +	auxdev->id = id;
-> >> +	auxdev->name = devname;
-> >> +	auxdev->dev.parent = dev;
-> >> +	auxdev->dev.platform_data = platform_data;
-> >> +	auxdev->dev.release = auxiliary_device_release;
-> >> +	device_set_of_node_from_dev(&auxdev->dev, dev);
-> >> +
-> >> +	ret = auxiliary_device_init(auxdev);
-> >
-> > Only way this will fail is if you forgot to set parent or a valid name.
-> > So why not check for devname being non-NULL above this?
-> 
-> If auxiliary_device_init() ever changes it would be easy to forget to
-> update that and lead to something nasty to debug, don't you think ?
 
-Yes, this is being more defensive, I take back my objection, thanks.
+Reviewed-by: Yixun Lan <dlan@gentoo.org>
 
-> >> +	if (ret) {
-> >> +		kfree(auxdev);
-> >> +		return ERR_PTR(ret);
-> >> +	}
-> >> +
-> >> +	ret = __auxiliary_device_add(auxdev, modname);
-> >> +	if (ret) {
-> >> +		/*
-> >> +		 * NOTE: It may look odd but auxdev should not be freed
-> >> +		 * here. auxiliary_device_uninit() calls device_put()
-> >> +		 * which call the device release function, freeing auxdev.
-> >> +		 */
-> >> +		auxiliary_device_uninit(auxdev);
-> >
-> > Yes it is odd, are you SURE you should be calling device_del() on the
-> > device if this fails?  auxiliary_device_uninit(), makes sense so why not
-> > just call that here?
+>  .../devicetree/bindings/riscv/spacemit.yaml   |  1 +
+>  arch/riscv/boot/dts/spacemit/Makefile         |  1 +
+>  .../boot/dts/spacemit/k1-milkv-jupiter.dts    | 27 +++++++++++++++++++
+>  3 files changed, 29 insertions(+)
+>  create mode 100644 arch/riscv/boot/dts/spacemit/k1-milkv-jupiter.dts
 > 
-> I'm confused ... I am call auxiliary_device_uninit() here. What do you
-> mean ? 
+> -- 
+> 2.48.1
+> 
 
-Oh wow, I got this wrong, sorry, I was thinking you were calling
-auxiliary_device_destroy().  Nevermind, ugh, it was a long day...
-
-thanks,
-
-greg k-h
+-- 
+Yixun Lan (dlan)
+Gentoo Linux Developer
+GPG Key ID AABEFD55
 
 _______________________________________________
 linux-riscv mailing list
