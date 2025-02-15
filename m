@@ -4,93 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6D46AC021A0
-	for <linux-riscv@archiver.kernel.org>; Sat, 15 Feb 2025 04:03:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5FEB1C021A0
+	for <linux-riscv@archiver.kernel.org>; Sat, 15 Feb 2025 06:55:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=9Ssl5SjF0QSvbVfNUrGmspXKlfkb06Za9SP0XhuaN3g=; b=prOlEGbteBv4/5
-	ih6kK1upzDI/8GLhzeWrc/Q4yThbMKNxZ+MNQ3bIP0j1JpizJ3Yoy7AzTEmy+0RaGje2Mby2fu0LF
-	6QjADkIrukldwALCk0ZRZx3KwHs7LS21OtRfNMAyDjSVmnagofnux8zfWKQzw9QFkGwTIb3zjKGpz
-	P4Mj8aaheLMXsYHBZMKgNsh58RJcagkgExoXgZRNwesC6CMkpndcmfsfvHdzj3OxnfUzDNUnfR+sC
-	JdOIJZblrbdvAZwCAlwu/67MMjEIKBxZ1UmqZRiSm9GFqISRajJ0+gRfYqMcQkjxYP2KEVfCiBHEx
-	/hTZRtQYvoqsOfE8o2KA==;
+	List-Owner; bh=hsjFT7GZYtG9Wy5UPhtj37Jx3Y3RxKNfJDWIiD8QBM8=; b=ZxnjWkYS2R6GUk
+	xmVhZAlyHCgNeteUad+A5d5MG2Tn5cF/W0/fAv+/YMb+bSaXdXJyP2y4NL9pk3AbJ6RzO9QcpmheB
+	+lUgbwsgv9qpFnhvE/xsisR8926ZJsGXDznFwj7ghgbzdLB2PHKnzajtOHWzlZOQexJZ6zNaMWci+
+	GrSeOQH0Lb/GGVA7J+8Nhn+QWkNSSmaKf4GJ+dQeMLBVdUwCnBry+dn8LDub6bWNoS3TOR+C255dW
+	bKawMkjUHbMCK2MnRzuOw/9zjKaWdEK9QJ1T+F5sd/qzFm8E9XKOHSkjbyPWsWTBtm34GItkq/vwZ
+	RTtH7IMhCDgYHWt3akPQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tj9Ow-0000000GxX0-3MPY;
-	Sat, 15 Feb 2025 04:03:34 +0000
-Received: from mail-qt1-x836.google.com ([2607:f8b0:4864:20::836])
+	id 1tjC5e-0000000H8bh-3Nff;
+	Sat, 15 Feb 2025 06:55:50 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tj9Ou-0000000GxWV-2bmh
-	for linux-riscv@lists.infradead.org;
-	Sat, 15 Feb 2025 04:03:33 +0000
-Received: by mail-qt1-x836.google.com with SMTP id d75a77b69052e-471d0d123d8so13176651cf.0
-        for <linux-riscv@lists.infradead.org>; Fri, 14 Feb 2025 20:03:32 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1739592208; x=1740197008; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=kJ9/Akd4fSMQIMXpZijLUqRTB8clBSRR8MFzutJDF2A=;
-        b=ZS063ABUr6Mwt74ymlOHqbY2qUGt0cs14KYuSHsY03NYfAribLqwirSCjucz/zxYjf
-         HRu+HhRqwTk8BJhEZveghZo7cbL3CNg1e/iNkY5A2opAVKtdY4kfJEKfyc6+yA1hG/YT
-         LrAJYGu/DdC/Kz9e+josxCrnwTKbz202VRpvfR7sUOb8Yp30GcVwN6GFegh+/1aSetar
-         nssYjhjGbVZuqHRrSVNkwaanHI0uNZg8AJuHb4y2ZLVKVJQQ8xYnXelBd7bQ8mV+9iew
-         +VwBSSdvA1sXkggAfqm/zi4dBOvpBKLeHdi0NLqtbKLN9xvobbFLUDjGo2mtxDCt+FF5
-         zoow==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1739592208; x=1740197008;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=kJ9/Akd4fSMQIMXpZijLUqRTB8clBSRR8MFzutJDF2A=;
-        b=P45HLlhVYKQiAI08ZDAzuqrd/5gQ8qiXFVl/6VLTqVytLCGGTBLR1ox9UIHFoMaM8I
-         ad+qoQxht/kvNnGXUIgUJnzAUVIYbRqWixCKrONQ0rl6J/imqsGyuu1tbh7bi7HTgRk9
-         XwDUwVzgn7M8qUxdlOhScxe09s3PJrlYJb7O3enBYjMUmcN114Ct2zKC9v1zGEgRlcBq
-         h4o//5v7wKDcpKyd9cACxvp4p1f3DPBp26LmxPfWZueg+LE0+T6mICpHTTALEfL+DfaY
-         97umF2opKgUJ5GYPxyAuWLkGQSOQrrMcQcSPu6WRsgUY3+mO3lILdf1cy7uCyirBj17p
-         Y6RA==
-X-Forwarded-Encrypted: i=1; AJvYcCWorrhvOvsxKcwMR8EY1PTGiL0UhM+93mI1d/R+gc737tykZKhj9BIBBLb0qqXDMSqRVrsYTHoqUQYi+g==@lists.infradead.org
-X-Gm-Message-State: AOJu0YxBmxOqlSdIbjPp8Wdfp5vYPjNA7RWJ2+wittuhMFyY/0rajS0A
-	TnCym/6HGgbtMFV584Nw1PDauCQc2fHcVp8iwz4Br7giy4bCD0r7
-X-Gm-Gg: ASbGnctCZszDR7VyToz+EZXkysnvLpUkvTU0dvp1tA0gCHXOD30SDMonkElnOBO7X0f
-	ClEneF9jN0+LOxxr0LSCNeMMgZ7IMCJokf+mY/vntWHmP9dQmW2A2XxeSlA69RMlXCB9/6mNd2y
-	UPgqaHzSvTD7VLl1xb7KMuu1LzJSfmKFAunZo873d9wXJ0iVE6SBYrGTzR5dRhQ0jc1xrvGGuyo
-	3hlJr7XvxVjFiQnhXabPT0CyGyOMSLd7zsbX1yGWjYomadqoYgtP/+rdhYp3K36th0=
-X-Google-Smtp-Source: AGHT+IGpZkShfqGOR4DZumQ8cgtF5xa0Zz0ltfO+3rGOTSuLke11tRfF5yjZeQQJKrSty8477vuMUA==
-X-Received: by 2002:a05:622a:1829:b0:471:cd38:d08f with SMTP id d75a77b69052e-471dbe70a3cmr29566671cf.33.1739592208124;
-        Fri, 14 Feb 2025 20:03:28 -0800 (PST)
-Received: from localhost ([2001:da8:7001:11::cb])
-        by smtp.gmail.com with UTF8SMTPSA id d75a77b69052e-471c2af3700sm24303601cf.64.2025.02.14.20.03.26
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 14 Feb 2025 20:03:27 -0800 (PST)
-Date: Sat, 15 Feb 2025 12:03:17 +0800
-From: Inochi Amaoto <inochiama@gmail.com>
-To: Chen Wang <unicorn_wang@outlook.com>, 
-	Inochi Amaoto <inochiama@gmail.com>
-Cc: Chen Wang <unicornxw@gmail.com>, u.kleine-koenig@baylibre.com, 
-	aou@eecs.berkeley.edu, arnd@arndb.de, conor+dt@kernel.org, guoren@kernel.org, 
-	inochiama@outlook.com, krzk+dt@kernel.org, palmer@dabbelt.com, paul.walmsley@sifive.com, 
-	robh@kernel.org, tglx@linutronix.de, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, chao.wei@sophgo.com, 
-	xiaoguang.xing@sophgo.com, fengchun.li@sophgo.com, samuel.holland@sifive.com, 
-	christophe.jaillet@wanadoo.fr
-Subject: Re: [PATCH v3 2/3] irqchip: Add the Sophgo SG2042 MSI interrupt
- controller
-Message-ID: <egxjuvebaznrtlzreie77p3gyykslagxqvwy6k3tje7a73ciqh@rikhellxp5ny>
-References: <cover.1736921549.git.unicorn_wang@outlook.com>
- <b5c2f13aa94f68c3415a1292678e16db33f291cd.1736921549.git.unicorn_wang@outlook.com>
- <dh645pyvtylcxjcjjcdl7xttpp4qmtjouapifaql4lniab3qjo@lqmwytf5q35c>
- <MA0PR01MB5671D5D25616BABA0E7F60F4FEF92@MA0PR01MB5671.INDPRD01.PROD.OUTLOOK.COM>
+	id 1tjC4C-0000000H8SR-41Tc;
+	Sat, 15 Feb 2025 06:54:22 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id A5B105C410D;
+	Sat, 15 Feb 2025 06:53:38 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 326CCC4CEDF;
+	Sat, 15 Feb 2025 06:54:17 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linuxfoundation.org;
+	s=korg; t=1739602457;
+	bh=mfCqWG6NaYR6Sxd++9L3Sle7RqL0qWrh+kjSNFtksAE=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=uS4GDR/SYf5jq318wLFt00h54nZgI/f4yIrfYTZvBV7jtSKQ1RY9pTAqlNYYxSCC6
+	 zygTR0MT/JQ5CQ/0x1v48rY/2sgioAgVjQlS+fAcz/p+8ZpKoylYdoM2+Ime/YZKv1
+	 76WODxrBGyq6uEyBhlP3dGL1sSbDsZD2GKoZSyLE=
+Date: Sat, 15 Feb 2025 07:53:12 +0100
+From: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+To: Jerome Brunet <jbrunet@baylibre.com>
+Cc: Dave Ertman <david.m.ertman@intel.com>, Ira Weiny <ira.weiny@intel.com>,
+	"Rafael J. Wysocki" <rafael@kernel.org>,
+	Stephen Boyd <sboyd@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
+	Danilo Krummrich <dakr@kernel.org>,
+	Conor Dooley <conor.dooley@microchip.com>,
+	Daire McNamara <daire.mcnamara@microchip.com>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Douglas Anderson <dianders@chromium.org>,
+	Andrzej Hajda <andrzej.hajda@intel.com>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Robert Foss <rfoss@kernel.org>,
+	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
+	Jonas Karlman <jonas@kwiboo.se>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+	Hans de Goede <hdegoede@redhat.com>,
+	Ilpo =?iso-8859-1?Q?J=E4rvinen?= <ilpo.jarvinen@linux.intel.com>,
+	Bryan O'Donoghue <bryan.odonoghue@linaro.org>,
+	Vladimir Kondratiev <vladimir.kondratiev@mobileye.com>,
+	Gregory CLEMENT <gregory.clement@bootlin.com>,
+	=?iso-8859-1?Q?Th=E9o?= Lebrun <theo.lebrun@bootlin.com>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Abel Vesa <abelvesa@kernel.org>, Peng Fan <peng.fan@nxp.com>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Kevin Hilman <khilman@baylibre.com>,
+	Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+	dri-devel@lists.freedesktop.org,
+	platform-driver-x86@vger.kernel.org, linux-mips@vger.kernel.org,
+	linux-clk@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-amlogic@lists.infradead.org
+Subject: Re: [PATCH v3 1/7] driver core: auxiliary bus: add device creation
+ helpers
+Message-ID: <2025021501-tamer-sank-142a@gregkh>
+References: <20250211-aux-device-create-helper-v3-0-7edb50524909@baylibre.com>
+ <20250211-aux-device-create-helper-v3-1-7edb50524909@baylibre.com>
+ <2025021437-washout-stonewall-d13e@gregkh>
+ <1jwmdsxugx.fsf@starbuckisacylon.baylibre.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <MA0PR01MB5671D5D25616BABA0E7F60F4FEF92@MA0PR01MB5671.INDPRD01.PROD.OUTLOOK.COM>
+In-Reply-To: <1jwmdsxugx.fsf@starbuckisacylon.baylibre.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250214_200332_662167_CDA8F6D9 
-X-CRM114-Status: UNSURE (   8.82  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250214_225421_115670_7C35DDAD 
+X-CRM114-Status: GOOD (  52.91  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,24 +108,165 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sat, Feb 15, 2025 at 11:36:18AM +0800, Chen Wang wrote:
+On Fri, Feb 14, 2025 at 07:16:30PM +0100, Jerome Brunet wrote:
+> On Fri 14 Feb 2025 at 17:33, Greg Kroah-Hartman <gregkh@linuxfoundation.org> wrote:
 > 
-> On 2025/2/15 9:09, Inochi Amaoto wrote:
-> > On Wed, Jan 15, 2025 at 02:33:45PM +0800, Chen Wang wrote:
-> [......]
-> > > +	middle_domain = irq_domain_create_hierarchy(plic_domain, 0, data->num_irqs,
-> > > +						    fwnode,
-> > > +						    &sg2042_msi_middle_domain_ops,
-> > > +						    data);
-> > Use irq_domain_create_hierarchy
+> > On Tue, Feb 11, 2025 at 06:27:58PM +0100, Jerome Brunet wrote:
+> >> Add helper functions to create a device on the auxiliary bus.
+> >> 
+> >> This is meant for fairly simple usage of the auxiliary bus, to avoid having
+> >> the same code repeated in the different drivers.
+> >> 
+> >> Suggested-by: Stephen Boyd <sboyd@kernel.org>
+> >> Cc: Arnd Bergmann <arnd@arndb.de>
+> >> Signed-off-by: Jerome Brunet <jbrunet@baylibre.com>
+> >> ---
+> >>  drivers/base/auxiliary.c      | 88 +++++++++++++++++++++++++++++++++++++++++++
+> >>  include/linux/auxiliary_bus.h | 10 +++++
+> >>  2 files changed, 98 insertions(+)
+> >
+> > I like the idea, see much the same of what I recently did for the "faux"
+> > bus here:
+> > 	https://lore.kernel.org/all/2025021023-sandstorm-precise-9f5d@gregkh/
 > 
-> What's the difference?
-> 
+> Reading this, I'm getting the feeling that some (most?) simple auxiliary
+> driver might be better off migrating to "faux", instead of what I'm
+> proposing here ? Is this what you are suggesting ?
 
-I made a mistake, just ignore it. The original is OK.
+For any that do not actually talk to any real hardware (i.e. they are
+NOT sharing resources with a parent device), then yes, they should.  I
+was also trying to point out that "simple" apis like what you created
+here are a good thing in my opinion, I like it!
 
-Regard,
-Inochi
+> Few Q:
+> Is there some sort of 'platform_data' (sorry for the lack of a better
+> term, no provocation intended ;) ) ... it there a
+> simple way to pass an arbitrary struct to the created device with 'faux' ?
+
+There are at least 2 ways to do this:
+  - embed a faux_device inside a larger structure and then do a
+    container_of() in any sysfs callback to get to your real structure
+  - in a provided probe() callback, set the driverdata field with a call
+    to faux_device_set_drvdata()
+
+> The difference between aux and faux I'm seeing it that aux seems to
+> decouple things a bit more. The only thing aux needs is a module name to
+> pop something up, while faux needs a reference to the ops instead.
+
+aux is needed for when you want multiple drivers to be bound to the same
+hardware resource and need some way to share all of that.  faux is used
+for "fake" devices where you just need a struct device in the /sys/ tree
+to be used for "something" or as a parent device for something else.
+See the examples in the above patch series where I convert many
+different types of drivers over to use faux.
+
+> I can see the appeal to use aux for maintainers trying to decouple
+> different subsystems.
+
+Again aux is needed for "sharing" a real device.  faux is there for fake
+ones that people previously were using platform devices for.
+
+> > Some review comments:
+> >
+> >> diff --git a/drivers/base/auxiliary.c b/drivers/base/auxiliary.c
+> >> index afa4df4c5a3f371b91d8dd8c4325495d32ad1291..0f697c9c243dc9a50498a52362806db594345faf 100644
+> >> --- a/drivers/base/auxiliary.c
+> >> +++ b/drivers/base/auxiliary.c
+> >> @@ -385,6 +385,94 @@ void auxiliary_driver_unregister(struct auxiliary_driver *auxdrv)
+> >>  }
+> >>  EXPORT_SYMBOL_GPL(auxiliary_driver_unregister);
+> >>  
+> >> +static void auxiliary_device_release(struct device *dev)
+> >> +{
+> >> +	struct auxiliary_device *auxdev = to_auxiliary_dev(dev);
+> >> +
+> >> +	kfree(auxdev);
+> >> +}
+> >> +
+> >> +static struct auxiliary_device *auxiliary_device_create(struct device *dev,
+> >> +							const char *modname,
+> >> +							const char *devname,
+> >> +							void *platform_data,
+> >
+> > Can you have the caller set the platform_data if they need/want it after
+> > the device is created?  Or do you need that in the probe callback?
+> 
+> My assumption was that it is needed in probe, but I guess that entirely
+> depends on the driver. If that was ever needed, it could be added later
+> I think.
+> 
+> >
+> > And can't this be a global function too for those that don't want to
+> > deal with devm stuff?
+> 
+> There was a note about that in the cover-letter of the v1 but I did not
+> repeat it after.
+> 
+> It can be exported but I had no use for it so I thought It was better not
+> export it until it was actually needed. I really do not have a strong
+> preference over this.
+> 
+> >
+> >> +							int id)
+> >> +{
+> >> +	struct auxiliary_device *auxdev;
+> >> +	int ret;
+> >> +
+> >> +	auxdev = kzalloc(sizeof(*auxdev), GFP_KERNEL);
+> >> +	if (!auxdev)
+> >> +		return ERR_PTR(-ENOMEM);
+> >
+> > Ick, who cares what the error value really is?  Why not just do NULL or
+> > a valid pointer?  That makes the caller much simpler to handle, right?
+> >
+> 
+> Sure why not
+> 
+> >> +
+> >> +	auxdev->id = id;
+> >> +	auxdev->name = devname;
+> >> +	auxdev->dev.parent = dev;
+> >> +	auxdev->dev.platform_data = platform_data;
+> >> +	auxdev->dev.release = auxiliary_device_release;
+> >> +	device_set_of_node_from_dev(&auxdev->dev, dev);
+> >> +
+> >> +	ret = auxiliary_device_init(auxdev);
+> >
+> > Only way this will fail is if you forgot to set parent or a valid name.
+> > So why not check for devname being non-NULL above this?
+> 
+> If auxiliary_device_init() ever changes it would be easy to forget to
+> update that and lead to something nasty to debug, don't you think ?
+
+Yes, this is being more defensive, I take back my objection, thanks.
+
+> >> +	if (ret) {
+> >> +		kfree(auxdev);
+> >> +		return ERR_PTR(ret);
+> >> +	}
+> >> +
+> >> +	ret = __auxiliary_device_add(auxdev, modname);
+> >> +	if (ret) {
+> >> +		/*
+> >> +		 * NOTE: It may look odd but auxdev should not be freed
+> >> +		 * here. auxiliary_device_uninit() calls device_put()
+> >> +		 * which call the device release function, freeing auxdev.
+> >> +		 */
+> >> +		auxiliary_device_uninit(auxdev);
+> >
+> > Yes it is odd, are you SURE you should be calling device_del() on the
+> > device if this fails?  auxiliary_device_uninit(), makes sense so why not
+> > just call that here?
+> 
+> I'm confused ... I am call auxiliary_device_uninit() here. What do you
+> mean ? 
+
+Oh wow, I got this wrong, sorry, I was thinking you were calling
+auxiliary_device_destroy().  Nevermind, ugh, it was a long day...
+
+thanks,
+
+greg k-h
 
 _______________________________________________
 linux-riscv mailing list
