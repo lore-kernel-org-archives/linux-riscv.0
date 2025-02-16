@@ -4,52 +4,41 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 18DF7C02198
-	for <linux-riscv@archiver.kernel.org>; Sun, 16 Feb 2025 15:49:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DFE82C02198
+	for <linux-riscv@archiver.kernel.org>; Sun, 16 Feb 2025 17:01:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=d8stQR6Dlsg6pnj7mSbfTH9MYpGGoPrEIhEjdO7N7lI=; b=QcLdhoA7S9TVz+
-	64KfEaDiiD+NlDDb48i3/ziRBDo1jgEJdbGvmmVk24OoXx1fbvPOJAZnRCTMyf+0Vi18reUbpJyCb
-	QfNqEoi+TYrlaChzVG98LRlGFcV3arVoEePCLWqxtoI+4wNTaBNNlveBmgt8ingiQV8GTjf+nb6hD
-	yuSpqZ3cw76BIealINxmxNlZACG5IMtMOw5MWCF+CZhm8sIBhxEXRBvqrIFgLvTO9qFWOkdEAU0I6
-	TWVVyiOg6dDJrXCcFmNPrW+jZA7azkwiN5w0G1bmaNZ5fBDweyMZ/VGGZYRcO18P/1B80OIdioqJO
-	6y0v5gbDpy7X4ZAoQOWg==;
+	List-Owner; bh=WnYpuIO9EbdvBpk3jmV+ZQGPUDTdrUGpLSWXXlJ0hMs=; b=B3KfEAxvxVpi08
+	OFn5wLzLKFMYdWp155hhn2TQQaB49KtAm9zJ8i0L37DptAbY4J47fflo1ea6RoGpwBobloq7r4sUw
+	2ZhFfXWBRYTiBrdieM3FsB1wcztGsuGCc9WytgktyTmkSpGzq5TYONzVCTsDOs97cxnUlOxiwNt2n
+	ejnQ5g8zlNQ8/e/XEHHu/1QOiPrw8hrsf/Uii/xdsjNVcI2WVC8CmnoMlwfQAsih1m+rNTZBVMkqG
+	maM+h8Tu07TZi7dW4tGAnXWpyEWCGRWgoUCK68RCFMviLnEz8rAFPpRkv6eY9YGGJ3a5/7hQ/4R0P
+	WNUG5R4rdRXK429+T2nA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tjgtk-000000023Hg-2BI9;
-	Sun, 16 Feb 2025 15:49:36 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	id 1tji1K-00000002CGx-43j1;
+	Sun, 16 Feb 2025 17:01:30 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tjgsI-0000000238D-0OoH;
-	Sun, 16 Feb 2025 15:48:07 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
-	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=/FrEnAM0Ty8b3TT2wk1qUCREpGSXW5825yX1yLHlP7U=; b=TH/sXzoGZDKFZxyyyYNMJfCCcJ
-	haaiHeMXtkJd0EXixYhy5qRVdKxKvo6QU4s+3xu/7RPBJy8inXCaysxqUhpogLaQcnHn5agZHY7vC
-	ISA3JdH8ZIaySnObQY2s/fgesQH838h2X0hJ3Ddzde/x05GIMag/3XwrgarNWLs68l5ow65dSA6Ez
-	GZTTUyKV3vIU8VQAcZF8t39IRm/HYkxgn7wil+eIRf85b52fO03F2CLRoj36JaFDK0f/aQ/io0ge3
-	q8X+LcpW8NGBveQyqdM7nD9heEDOB1Jz6Zd2z8FuDZLqL3ahCTvqdWKkxt/Upnvkzk8EOTmfUfgiT
-	8owusuhQ==;
-Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:39494)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <linux@armlinux.org.uk>)
-	id 1tjgrh-0003Z0-1w;
-	Sun, 16 Feb 2025 15:47:29 +0000
-Received: from linux by shell.armlinux.org.uk with local (Exim 4.96)
-	(envelope-from <linux@shell.armlinux.org.uk>)
-	id 1tjgrW-0005Ji-15;
-	Sun, 16 Feb 2025 15:47:18 +0000
-Date: Sun, 16 Feb 2025 15:47:18 +0000
-From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+	id 1tjhzq-00000002Bun-1kmJ;
+	Sun, 16 Feb 2025 16:59:59 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=SGjXFxJmVk/FKeJ46IrEjqRmgY6gQvmYuvqL1kDeGQ4=; b=xkCExdn11EsAZtDgmuPdYucM2j
+	bK3pZs2vK93GF1VCsaJw9PI1Rx6zDnUDYt3fCnsSGGmkrntc4cSBM6QhC8CwBAKoDhfZkXjhqumGV
+	mE26uEYC00UAVkIj4JZSjPkjpP2ho+epU+iwoSH56gh2332eCOTh7rsxa6Xvd0ngofbo=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1tjhzP-00Ehw8-Nx; Sun, 16 Feb 2025 17:59:31 +0100
+Date: Sun, 16 Feb 2025 17:59:31 +0100
+From: Andrew Lunn <andrew@lunn.ch>
 To: Inochi Amaoto <inochiama@gmail.com>
 Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
 	"David S. Miller" <davem@davemloft.net>,
@@ -82,18 +71,20 @@ Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
 	sophgo@lists.linux.dev, linux-stm32@st-md-mailman.stormreply.com,
 	linux-arm-kernel@lists.infradead.org,
 	linux-riscv@lists.infradead.org, Yixun Lan <dlan@gentoo.org>,
-	Longbin Li <looong.bin@gmail.com>
-Subject: Re: [PATCH net-next v5 3/3] net: stmmac: Add glue layer for Sophgo
- SG2044 SoC
-Message-ID: <Z7IIht2Q-iXEFw7x@shell.armlinux.org.uk>
+	Longbin Li <looong.bin@gmail.com>,
+	Romain Gantois <romain.gantois@bootlin.com>
+Subject: Re: [PATCH net-next v5 2/3] net: stmmac: platform: Add
+ snps,dwmac-5.30a IP compatible string
+Message-ID: <9dcab9aa-6d1e-4804-82ff-fb8dfa434df7@lunn.ch>
 References: <20250216123953.1252523-1-inochiama@gmail.com>
- <20250216123953.1252523-4-inochiama@gmail.com>
+ <20250216123953.1252523-3-inochiama@gmail.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20250216123953.1252523-4-inochiama@gmail.com>
+In-Reply-To: <20250216123953.1252523-3-inochiama@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250216_074806_133175_1F7049EB 
-X-CRM114-Status: GOOD (  13.69  )
+X-CRM114-CacheID: sfid-20250216_085958_466149_7037C03E 
+X-CRM114-Status: UNSURE (   7.54  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,46 +101,25 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sun, Feb 16, 2025 at 08:39:51PM +0800, Inochi Amaoto wrote:
-> +static void sophgo_dwmac_fix_mac_speed(void *priv, unsigned int speed, unsigned int mode)
-> +{
-> +	struct sophgo_dwmac *dwmac = priv;
-> +	long rate;
-> +	int ret;
-> +
-> +	rate = rgmii_clock(speed);
-> +	if (rate < 0) {
-> +		dev_err(dwmac->dev, "invalid speed %u\n", speed);
-> +		return;
-> +	}
-> +
-> +	ret = clk_set_rate(dwmac->clk_tx, rate);
-> +	if (ret)
-> +		dev_err(dwmac->dev, "failed to set tx rate %ld: %pe\n",
-> +			rate, ERR_PTR(ret));
-> +}
+On Sun, Feb 16, 2025 at 08:39:50PM +0800, Inochi Amaoto wrote:
+> Add "snps,dwmac-5.30a" compatible string for 5.30a version that can avoid
+> to define some platform data in the glue layer.
+> 
+> Signed-off-by: Inochi Amaoto <inochiama@gmail.com>
+> Reviewed-by: Romain Gantois <romain.gantois@bootlin.com>
 
-There are a bunch of other platform support in stmmac that are doing
-the same:
+Ideally, this would be two patches, one adding the
+stmmac_gmac4_compats[] with the existing compatibles, and then a patch
+adding snps,dwmac-5.30a. Logically, these are different, so two
+patches.
 
-dwmac-s32.c is virtually identical
-dwmac-imx.c does the same, although has some pre-conditions
-dwmac-dwc-qos-eth.c is virually identical but the two steps are split
-  across a bunch of register writes
-dwmac-starfive.c looks the same
-dwmac-rk.c also
-dwmac-intel-plat.c also
+Reviewed-by: Andrew Lunn <andrew@lunn.ch>
 
-So, I wonder whether either this should be a helper, or whether core
-code should be doing this. Maybe something to look at as a part of
-this patch submission?
+    Andrew
 
-We really need to stop writing the same code in different ways and
-think more about how to reuse the code that's already present!
+Reviewed-by: Andrew Lunn <andrew@lunn.ch>
 
--- 
-RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
+    Andrew
 
 _______________________________________________
 linux-riscv mailing list
