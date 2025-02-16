@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 291F1C02198
-	for <linux-riscv@archiver.kernel.org>; Sun, 16 Feb 2025 23:00:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F3367C021A4
+	for <linux-riscv@archiver.kernel.org>; Sun, 16 Feb 2025 23:00:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=eZtAMegAKc4drCt0nn1S06U0npBQ7mbnl02pbX60pxQ=; b=qusJ8AaoRNlCGe
-	qJonNMs0INh03S3FpcD89fCZh+KJsMIUO+f7Knw6bDOO3NbkxxseCKPC5V5TIFFtHBwZOW0qwNEqN
-	LUX0ccPWI+rM1cMjj75k4tbadH0uiAEf/XRsgcahaAANlbK9Q9qEgZXcbP4dKphhH8h3QxGgnL1tE
-	cxmGcgNLmW4LTvT3IfcGTpsTlBJ1kHTqL1JZkfQwZ/0qdzceuGN7SpUPep6q6Mya67DEX56XOStAl
-	vq7VTAumktBuO8e9M+Llq6oT412QKrc4dsEUUiRNsZq15/4L39J/F94G28dNHbgz2hkuNNDRozZeL
-	8DlROOs4y/j+z3J/CSkA==;
+	List-Owner; bh=3KQYJXcShrt2k1mnScm4AVchZF1lngkfWSr9eYqCF2g=; b=jugwO/uU3p8/xL
+	laMVuixNU3WZlXXz23/Rj1elGQG6CE2l2x5sxFGodRXy/4k53I1Y2D1elyiUvUdej+m+bknhO3xZ4
+	BQhTHNviKUb3nrW0p492pvrljJqfq89F8AVJZu7Y5bE9SjP1R2QdCZQ+gKUyX1PSbPP61Vt0kuAK6
+	Z+3A+ADjfbGgOQCqwu8r7GhvoyQaDzYkorNjWXBTfGcQi9gNVjBo4yVDBbPlqDEkmQP890qvblJ4L
+	BkLrfVjVX9aZV7/sx7KeBEpIV5h3YI3IxnvnCsD/h7bpH7LxpK7Y8+8xWRQtxSYAhP1C51mxRRMGq
+	PLMZuwpAn23b5wt0GbzQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tjncs-00000002kLY-1rix;
-	Sun, 16 Feb 2025 23:00:38 +0000
+	id 1tjnct-00000002kMY-2tCM;
+	Sun, 16 Feb 2025 23:00:39 +0000
 Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tjnco-00000002kJ4-0elb
+	id 1tjncn-00000002kJ0-2eth
 	for linux-riscv@lists.infradead.org;
-	Sun, 16 Feb 2025 23:00:35 +0000
+	Sun, 16 Feb 2025 23:00:36 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 7045AA41056;
-	Sun, 16 Feb 2025 22:58:48 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E1F5EC4CEF1;
+	by nyc.source.kernel.org (Postfix) with ESMTP id B0A14A40FA6;
+	Sun, 16 Feb 2025 22:58:47 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2D746C4CEE9;
 	Sun, 16 Feb 2025 23:00:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1739746833;
-	bh=lEjXKuNQrqFQrs67kbVmsLM6h39EaeFvwXc4cVIAC3M=;
+	s=k20201202; t=1739746832;
+	bh=n3QS9UDn4sQ33onbfipQ0mGDpU0ZBGjKLwA9GWJRNjQ=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=tmKYvSzpXWbDg2X4OFjHLNu15ZWyE6kFgy4zF95Rw6C6TWaZxtwhqFIk1xNFvPJCv
-	 cnBJxxCe6qjr2rLUqqOFmt3CEvsqiTKmrGC+oTjHXKecCYo/K5XNo/uR2XlJ9CVfyW
-	 NQj0MSu1yiNDq43Vqm9vCG8VBwUsMXX6YtltduTUF3QOSwvm9N9vhwitoXe7JIn18h
-	 BjZaxDeiDniSbKy8MtN9zTdNO5hcjdWIxE9ipMMxfHThoMHcIxuDPXmLr6H9NjZ3V/
-	 rJp9yot0IgjLENEQ/EIoiu/FDFPEFWkVsJJVxA2himVPLUd2z60rbKnNJ7rXmXcHNK
-	 ih0OuGXW2Cwsg==
+	b=ZZbcywjJEu0BvDA/Su6dNowHx7Um/HOK/QFFJqhYB5bCOiijH+Lr9fF5CC6/L3X2I
+	 Ogdt+ZCLJUT2pb0KT8Raq0J36QWKw6pppOpVf7r+MLgfxZjWh301issd1AZDPGugsR
+	 LkV0I4ZN9r3qMyHIsth/6tFAY6YXgufEo74UhOMzGmJToJAR5uBpdoSsRk3FTpa51w
+	 BH+WB8Nom1S0mps8iMT1ZnoWcGZJdxy7F1oA8tTZapBHNPfKdpIdEu2Kmtvo64nvDv
+	 yzAk0npbw2up0r4UpTvw1fT6857r/5WdwDa6oxeitFH7L6lpBUOcuSGarzXc1WjpGF
+	 Pktx1g9TGS/zA==
 From: Eric Biggers <ebiggers@kernel.org>
 To: linux-kernel@vger.kernel.org
 Cc: linux-crypto@vger.kernel.org,
@@ -50,16 +50,16 @@ Cc: linux-crypto@vger.kernel.org,
 	Ard Biesheuvel <ardb@kernel.org>,
 	Xiao Wang <xiao.w.wang@intel.com>,
 	Charlie Jenkins <charlie@rivosinc.com>
-Subject: [PATCH 4/4] riscv/crc64: add Zbc optimized CRC64 functions
-Date: Sun, 16 Feb 2025 14:55:30 -0800
-Message-ID: <20250216225530.306980-5-ebiggers@kernel.org>
+Subject: [PATCH 2/4] riscv/crc32: reimplement the CRC32 functions using new template
+Date: Sun, 16 Feb 2025 14:55:28 -0800
+Message-ID: <20250216225530.306980-3-ebiggers@kernel.org>
 X-Mailer: git-send-email 2.48.1
 In-Reply-To: <20250216225530.306980-1-ebiggers@kernel.org>
 References: <20250216225530.306980-1-ebiggers@kernel.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250216_150034_322421_39C3546E 
-X-CRM114-Status: GOOD (  16.79  )
+X-CRM114-CacheID: sfid-20250216_150033_813195_EE8A0E14 
+X-CRM114-Status: GOOD (  18.80  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,218 +78,559 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Eric Biggers <ebiggers@google.com>
 
-Wire up crc64_be_arch() and crc64_nvme_arch() for 64-bit RISC-V using
-crc-clmul-template.h.  This greatly improves the performance of these
-CRCs on Zbc-capable CPUs in 64-bit kernels.
-
-These optimized CRC64 functions are not yet supported in 32-bit kernels,
-since crc-clmul-template.h assumes that the CRC fits in an unsigned
-long.  That implementation limitation could be addressed, but it would
-add a fair bit of complexity, so it has been omitted for now.
+Delete the previous Zbc optimized CRC32 code, and re-implement it using
+the new template.  The new implementation is more optimized and shares
+more code among CRC variants.
 
 Signed-off-by: Eric Biggers <ebiggers@google.com>
 ---
- arch/riscv/Kconfig                |  1 +
- arch/riscv/lib/Makefile           |  2 ++
- arch/riscv/lib/crc-clmul-consts.h | 34 ++++++++++++++++++++++++++++++-
- arch/riscv/lib/crc-clmul.h        |  6 ++++++
- arch/riscv/lib/crc64.c            | 34 +++++++++++++++++++++++++++++++
- arch/riscv/lib/crc64_lsb.c        | 18 ++++++++++++++++
- arch/riscv/lib/crc64_msb.c        | 18 ++++++++++++++++
- 7 files changed, 112 insertions(+), 1 deletion(-)
- create mode 100644 arch/riscv/lib/crc64.c
- create mode 100644 arch/riscv/lib/crc64_lsb.c
- create mode 100644 arch/riscv/lib/crc64_msb.c
+ arch/riscv/lib/Makefile           |   1 +
+ arch/riscv/lib/crc-clmul-consts.h |  72 +++++++
+ arch/riscv/lib/crc-clmul.h        |  15 ++
+ arch/riscv/lib/crc32-riscv.c      | 310 ------------------------------
+ arch/riscv/lib/crc32.c            |  53 +++++
+ arch/riscv/lib/crc32_lsb.c        |  18 ++
+ arch/riscv/lib/crc32_msb.c        |  18 ++
+ 7 files changed, 177 insertions(+), 310 deletions(-)
+ create mode 100644 arch/riscv/lib/crc-clmul-consts.h
+ create mode 100644 arch/riscv/lib/crc-clmul.h
+ delete mode 100644 arch/riscv/lib/crc32-riscv.c
+ create mode 100644 arch/riscv/lib/crc32.c
+ create mode 100644 arch/riscv/lib/crc32_lsb.c
+ create mode 100644 arch/riscv/lib/crc32_msb.c
 
-diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-index db1cf9666dfd..e10dda2d0bfe 100644
---- a/arch/riscv/Kconfig
-+++ b/arch/riscv/Kconfig
-@@ -23,10 +23,11 @@ config RISCV
- 	select ARCH_ENABLE_MEMORY_HOTREMOVE if MEMORY_HOTPLUG
- 	select ARCH_ENABLE_SPLIT_PMD_PTLOCK if PGTABLE_LEVELS > 2
- 	select ARCH_ENABLE_THP_MIGRATION if TRANSPARENT_HUGEPAGE
- 	select ARCH_HAS_BINFMT_FLAT
- 	select ARCH_HAS_CRC32 if RISCV_ISA_ZBC
-+	select ARCH_HAS_CRC64 if 64BIT && RISCV_ISA_ZBC
- 	select ARCH_HAS_CRC_T10DIF if RISCV_ISA_ZBC
- 	select ARCH_HAS_CURRENT_STACK_POINTER
- 	select ARCH_HAS_DEBUG_VIRTUAL if MMU
- 	select ARCH_HAS_DEBUG_VM_PGTABLE
- 	select ARCH_HAS_DEBUG_WX
 diff --git a/arch/riscv/lib/Makefile b/arch/riscv/lib/Makefile
-index 06d9552b9c8b..b1c46153606a 100644
+index 79368a895fee..7b32d3e88337 100644
 --- a/arch/riscv/lib/Makefile
 +++ b/arch/riscv/lib/Makefile
-@@ -15,10 +15,12 @@ endif
+@@ -14,8 +14,9 @@ lib-$(CONFIG_RISCV_ISA_V)	+= uaccess_vector.o
+ endif
  lib-$(CONFIG_MMU)	+= uaccess.o
  lib-$(CONFIG_64BIT)	+= tishift.o
  lib-$(CONFIG_RISCV_ISA_ZICBOZ)	+= clear_page.o
  obj-$(CONFIG_CRC32_ARCH)	+= crc32-riscv.o
- crc32-riscv-y := crc32.o crc32_msb.o crc32_lsb.o
-+obj-$(CONFIG_CRC64_ARCH) += crc64-riscv.o
-+crc64-riscv-y := crc64.o crc64_msb.o crc64_lsb.o
- obj-$(CONFIG_CRC_T10DIF_ARCH)	+= crc-t10dif-riscv.o
- crc-t10dif-riscv-y := crc-t10dif.o crc16_msb.o
++crc32-riscv-y := crc32.o crc32_msb.o crc32_lsb.o
  obj-$(CONFIG_FUNCTION_ERROR_INJECTION) += error-inject.o
  lib-$(CONFIG_RISCV_ISA_V)	+= xor.o
  lib-$(CONFIG_RISCV_ISA_V)	+= riscv_v_helpers.o
 diff --git a/arch/riscv/lib/crc-clmul-consts.h b/arch/riscv/lib/crc-clmul-consts.h
-index b3a02b9096cd..8d73449235ef 100644
---- a/arch/riscv/lib/crc-clmul-consts.h
-+++ b/arch/riscv/lib/crc-clmul-consts.h
-@@ -1,10 +1,10 @@
- /* SPDX-License-Identifier: GPL-2.0-or-later */
- /*
-  * CRC constants generated by:
-  *
-- *	./scripts/gen-crc-consts.py riscv_clmul crc16_msb_0x8bb7,crc32_msb_0x04c11db7,crc32_lsb_0xedb88320,crc32_lsb_0x82f63b78
-+ *	./scripts/gen-crc-consts.py riscv_clmul crc16_msb_0x8bb7,crc32_msb_0x04c11db7,crc32_lsb_0xedb88320,crc32_lsb_0x82f63b78,crc64_msb_0x42f0e1eba9ea3693,crc64_lsb_0x9a6c9329ac4bc9b5
-  *
-  * Do not edit manually.
-  */
- 
- struct crc_clmul_consts {
-@@ -86,5 +86,37 @@ static const struct crc_clmul_consts crc32_lsb_0x82f63b78_consts __maybe_unused
- 	.fold_across_2_longs_const_lo = 0xdd45aab8, /* x^63 mod G */
- 	.barrett_reduction_const_1 = 0xdea713f1, /* floor(x^63 / G) */
- 	.barrett_reduction_const_2 = 0x82f63b78, /* (G - x^32) * x^0 */
- #endif
- };
-+
-+/*
-+ * Constants generated for most-significant-bit-first CRC-64 using
-+ * G(x) = x^64 + x^62 + x^57 + x^55 + x^54 + x^53 + x^52 + x^47 + x^46 + x^45 +
-+ *        x^40 + x^39 + x^38 + x^37 + x^35 + x^33 + x^32 + x^31 + x^29 + x^27 +
-+ *        x^24 + x^23 + x^22 + x^21 + x^19 + x^17 + x^13 + x^12 + x^10 + x^9 +
-+ *        x^7 + x^4 + x^1 + x^0
-+ */
-+#ifdef CONFIG_64BIT
-+static const struct crc_clmul_consts crc64_msb_0x42f0e1eba9ea3693_consts __maybe_unused = {
-+	.fold_across_2_longs_const_hi = 0x4eb938a7d257740e, /* x^192 mod G */
-+	.fold_across_2_longs_const_lo = 0x05f5c3c7eb52fab6, /* x^128 mod G */
-+	.barrett_reduction_const_1 = 0xabc694e836627c39, /* floor(x^127 / G) */
-+	.barrett_reduction_const_2 = 0x42f0e1eba9ea3693, /* G - x^64 */
-+};
-+#endif
-+
-+/*
-+ * Constants generated for least-significant-bit-first CRC-64 using
-+ * G(x) = x^64 + x^63 + x^61 + x^59 + x^58 + x^56 + x^55 + x^52 + x^49 + x^48 +
-+ *        x^47 + x^46 + x^44 + x^41 + x^37 + x^36 + x^34 + x^32 + x^31 + x^28 +
-+ *        x^26 + x^23 + x^22 + x^19 + x^16 + x^13 + x^12 + x^10 + x^9 + x^6 +
-+ *        x^4 + x^3 + x^0
-+ */
-+#ifdef CONFIG_64BIT
-+static const struct crc_clmul_consts crc64_lsb_0x9a6c9329ac4bc9b5_consts __maybe_unused = {
-+	.fold_across_2_longs_const_hi = 0xeadc41fd2ba3d420, /* x^191 mod G */
-+	.fold_across_2_longs_const_lo = 0x21e9761e252621ac, /* x^127 mod G */
-+	.barrett_reduction_const_1 = 0x27ecfa329aef9f77, /* floor(x^127 / G) */
-+	.barrett_reduction_const_2 = 0x9a6c9329ac4bc9b5, /* (G - x^64) * x^0 */
-+};
-+#endif
-diff --git a/arch/riscv/lib/crc-clmul.h b/arch/riscv/lib/crc-clmul.h
-index 162c1b12b219..dd1736245815 100644
---- a/arch/riscv/lib/crc-clmul.h
-+++ b/arch/riscv/lib/crc-clmul.h
-@@ -11,7 +11,13 @@ u16 crc16_msb_clmul(u16 crc, const void *p, size_t len,
- 		    const struct crc_clmul_consts *consts);
- u32 crc32_msb_clmul(u32 crc, const void *p, size_t len,
- 		    const struct crc_clmul_consts *consts);
- u32 crc32_lsb_clmul(u32 crc, const void *p, size_t len,
- 		    const struct crc_clmul_consts *consts);
-+#ifdef CONFIG_64BIT
-+u64 crc64_msb_clmul(u64 crc, const void *p, size_t len,
-+		    const struct crc_clmul_consts *consts);
-+u64 crc64_lsb_clmul(u64 crc, const void *p, size_t len,
-+		    const struct crc_clmul_consts *consts);
-+#endif
- 
- #endif /* _RISCV_CRC_CLMUL_H */
-diff --git a/arch/riscv/lib/crc64.c b/arch/riscv/lib/crc64.c
 new file mode 100644
-index 000000000000..f0015a27836a
+index 000000000000..6fdf10648a20
 --- /dev/null
-+++ b/arch/riscv/lib/crc64.c
-@@ -0,0 +1,34 @@
++++ b/arch/riscv/lib/crc-clmul-consts.h
+@@ -0,0 +1,72 @@
++/* SPDX-License-Identifier: GPL-2.0-or-later */
++/*
++ * CRC constants generated by:
++ *
++ *	./scripts/gen-crc-consts.py riscv_clmul crc32_msb_0x04c11db7,crc32_lsb_0xedb88320,crc32_lsb_0x82f63b78
++ *
++ * Do not edit manually.
++ */
++
++struct crc_clmul_consts {
++	unsigned long fold_across_2_longs_const_hi;
++	unsigned long fold_across_2_longs_const_lo;
++	unsigned long barrett_reduction_const_1;
++	unsigned long barrett_reduction_const_2;
++};
++
++/*
++ * Constants generated for most-significant-bit-first CRC-32 using
++ * G(x) = x^32 + x^26 + x^23 + x^22 + x^16 + x^12 + x^11 + x^10 + x^8 + x^7 +
++ *        x^5 + x^4 + x^2 + x^1 + x^0
++ */
++static const struct crc_clmul_consts crc32_msb_0x04c11db7_consts __maybe_unused = {
++#ifdef CONFIG_64BIT
++	.fold_across_2_longs_const_hi = 0x00000000c5b9cd4c, /* x^192 mod G */
++	.fold_across_2_longs_const_lo = 0x00000000e8a45605, /* x^128 mod G */
++	.barrett_reduction_const_1 = 0x826880efa40da72d, /* floor(x^95 / G) */
++	.barrett_reduction_const_2 = 0x0000000004c11db7, /* G - x^32 */
++#else
++	.fold_across_2_longs_const_hi = 0xf200aa66, /* x^96 mod G */
++	.fold_across_2_longs_const_lo = 0x490d678d, /* x^64 mod G */
++	.barrett_reduction_const_1 = 0x826880ef, /* floor(x^63 / G) */
++	.barrett_reduction_const_2 = 0x04c11db7, /* G - x^32 */
++#endif
++};
++
++/*
++ * Constants generated for least-significant-bit-first CRC-32 using
++ * G(x) = x^32 + x^26 + x^23 + x^22 + x^16 + x^12 + x^11 + x^10 + x^8 + x^7 +
++ *        x^5 + x^4 + x^2 + x^1 + x^0
++ */
++static const struct crc_clmul_consts crc32_lsb_0xedb88320_consts __maybe_unused = {
++#ifdef CONFIG_64BIT
++	.fold_across_2_longs_const_hi = 0x65673b4600000000, /* x^191 mod G */
++	.fold_across_2_longs_const_lo = 0x9ba54c6f00000000, /* x^127 mod G */
++	.barrett_reduction_const_1 = 0xb4e5b025f7011641, /* floor(x^95 / G) */
++	.barrett_reduction_const_2 = 0x00000000edb88320, /* (G - x^32) * x^32 */
++#else
++	.fold_across_2_longs_const_hi = 0xccaa009e, /* x^95 mod G */
++	.fold_across_2_longs_const_lo = 0xb8bc6765, /* x^63 mod G */
++	.barrett_reduction_const_1 = 0xf7011641, /* floor(x^63 / G) */
++	.barrett_reduction_const_2 = 0xedb88320, /* (G - x^32) * x^0 */
++#endif
++};
++
++/*
++ * Constants generated for least-significant-bit-first CRC-32 using
++ * G(x) = x^32 + x^28 + x^27 + x^26 + x^25 + x^23 + x^22 + x^20 + x^19 + x^18 +
++ *        x^14 + x^13 + x^11 + x^10 + x^9 + x^8 + x^6 + x^0
++ */
++static const struct crc_clmul_consts crc32_lsb_0x82f63b78_consts __maybe_unused = {
++#ifdef CONFIG_64BIT
++	.fold_across_2_longs_const_hi = 0x3743f7bd00000000, /* x^191 mod G */
++	.fold_across_2_longs_const_lo = 0x3171d43000000000, /* x^127 mod G */
++	.barrett_reduction_const_1 = 0x4869ec38dea713f1, /* floor(x^95 / G) */
++	.barrett_reduction_const_2 = 0x0000000082f63b78, /* (G - x^32) * x^32 */
++#else
++	.fold_across_2_longs_const_hi = 0x493c7d27, /* x^95 mod G */
++	.fold_across_2_longs_const_lo = 0xdd45aab8, /* x^63 mod G */
++	.barrett_reduction_const_1 = 0xdea713f1, /* floor(x^63 / G) */
++	.barrett_reduction_const_2 = 0x82f63b78, /* (G - x^32) * x^0 */
++#endif
++};
+diff --git a/arch/riscv/lib/crc-clmul.h b/arch/riscv/lib/crc-clmul.h
+new file mode 100644
+index 000000000000..62bd41080785
+--- /dev/null
++++ b/arch/riscv/lib/crc-clmul.h
+@@ -0,0 +1,15 @@
++/* SPDX-License-Identifier: GPL-2.0-or-later */
++/* Copyright 2025 Google LLC */
++
++#ifndef _RISCV_CRC_CLMUL_H
++#define _RISCV_CRC_CLMUL_H
++
++#include <linux/types.h>
++#include "crc-clmul-consts.h"
++
++u32 crc32_msb_clmul(u32 crc, const void *p, size_t len,
++		    const struct crc_clmul_consts *consts);
++u32 crc32_lsb_clmul(u32 crc, const void *p, size_t len,
++		    const struct crc_clmul_consts *consts);
++
++#endif /* _RISCV_CRC_CLMUL_H */
+diff --git a/arch/riscv/lib/crc32-riscv.c b/arch/riscv/lib/crc32-riscv.c
+deleted file mode 100644
+index b5cb752847c4..000000000000
+--- a/arch/riscv/lib/crc32-riscv.c
++++ /dev/null
+@@ -1,310 +0,0 @@
+-// SPDX-License-Identifier: GPL-2.0-only
+-/*
+- * Accelerated CRC32 implementation with Zbc extension.
+- *
+- * Copyright (C) 2024 Intel Corporation
+- */
+-
+-#include <asm/hwcap.h>
+-#include <asm/alternative-macros.h>
+-#include <asm/byteorder.h>
+-
+-#include <linux/types.h>
+-#include <linux/minmax.h>
+-#include <linux/crc32poly.h>
+-#include <linux/crc32.h>
+-#include <linux/byteorder/generic.h>
+-#include <linux/module.h>
+-
+-/*
+- * Refer to https://www.corsix.org/content/barrett-reduction-polynomials for
+- * better understanding of how this math works.
+- *
+- * let "+" denotes polynomial add (XOR)
+- * let "-" denotes polynomial sub (XOR)
+- * let "*" denotes polynomial multiplication
+- * let "/" denotes polynomial floor division
+- * let "S" denotes source data, XLEN bit wide
+- * let "P" denotes CRC32 polynomial
+- * let "T" denotes 2^(XLEN+32)
+- * let "QT" denotes quotient of T/P, with the bit for 2^XLEN being implicit
+- *
+- * crc32(S, P)
+- * => S * (2^32) - S * (2^32) / P * P
+- * => lowest 32 bits of: S * (2^32) / P * P
+- * => lowest 32 bits of: S * (2^32) * (T / P) / T * P
+- * => lowest 32 bits of: S * (2^32) * quotient / T * P
+- * => lowest 32 bits of: S * quotient / 2^XLEN * P
+- * => lowest 32 bits of: (clmul_high_part(S, QT) + S) * P
+- * => clmul_low_part(clmul_high_part(S, QT) + S, P)
+- *
+- * In terms of below implementations, the BE case is more intuitive, since the
+- * higher order bit sits at more significant position.
+- */
+-
+-#if __riscv_xlen == 64
+-/* Slide by XLEN bits per iteration */
+-# define STEP_ORDER 3
+-
+-/* Each below polynomial quotient has an implicit bit for 2^XLEN */
+-
+-/* Polynomial quotient of (2^(XLEN+32))/CRC32_POLY, in LE format */
+-# define CRC32_POLY_QT_LE	0x5a72d812fb808b20
+-
+-/* Polynomial quotient of (2^(XLEN+32))/CRC32C_POLY, in LE format */
+-# define CRC32C_POLY_QT_LE	0xa434f61c6f5389f8
+-
+-/* Polynomial quotient of (2^(XLEN+32))/CRC32_POLY, in BE format, it should be
+- * the same as the bit-reversed version of CRC32_POLY_QT_LE
+- */
+-# define CRC32_POLY_QT_BE	0x04d101df481b4e5a
+-
+-static inline u64 crc32_le_prep(u32 crc, unsigned long const *ptr)
+-{
+-	return (u64)crc ^ (__force u64)__cpu_to_le64(*ptr);
+-}
+-
+-static inline u32 crc32_le_zbc(unsigned long s, u32 poly, unsigned long poly_qt)
+-{
+-	u32 crc;
+-
+-	/* We don't have a "clmulrh" insn, so use clmul + slli instead. */
+-	asm volatile (".option push\n"
+-		      ".option arch,+zbc\n"
+-		      "clmul	%0, %1, %2\n"
+-		      "slli	%0, %0, 1\n"
+-		      "xor	%0, %0, %1\n"
+-		      "clmulr	%0, %0, %3\n"
+-		      "srli	%0, %0, 32\n"
+-		      ".option pop\n"
+-		      : "=&r" (crc)
+-		      : "r" (s),
+-			"r" (poly_qt),
+-			"r" ((u64)poly << 32)
+-		      :);
+-	return crc;
+-}
+-
+-static inline u64 crc32_be_prep(u32 crc, unsigned long const *ptr)
+-{
+-	return ((u64)crc << 32) ^ (__force u64)__cpu_to_be64(*ptr);
+-}
+-
+-#elif __riscv_xlen == 32
+-# define STEP_ORDER 2
+-/* Each quotient should match the upper half of its analog in RV64 */
+-# define CRC32_POLY_QT_LE	0xfb808b20
+-# define CRC32C_POLY_QT_LE	0x6f5389f8
+-# define CRC32_POLY_QT_BE	0x04d101df
+-
+-static inline u32 crc32_le_prep(u32 crc, unsigned long const *ptr)
+-{
+-	return crc ^ (__force u32)__cpu_to_le32(*ptr);
+-}
+-
+-static inline u32 crc32_le_zbc(unsigned long s, u32 poly, unsigned long poly_qt)
+-{
+-	u32 crc;
+-
+-	/* We don't have a "clmulrh" insn, so use clmul + slli instead. */
+-	asm volatile (".option push\n"
+-		      ".option arch,+zbc\n"
+-		      "clmul	%0, %1, %2\n"
+-		      "slli	%0, %0, 1\n"
+-		      "xor	%0, %0, %1\n"
+-		      "clmulr	%0, %0, %3\n"
+-		      ".option pop\n"
+-		      : "=&r" (crc)
+-		      : "r" (s),
+-			"r" (poly_qt),
+-			"r" (poly)
+-		      :);
+-	return crc;
+-}
+-
+-static inline u32 crc32_be_prep(u32 crc, unsigned long const *ptr)
+-{
+-	return crc ^ (__force u32)__cpu_to_be32(*ptr);
+-}
+-
+-#else
+-# error "Unexpected __riscv_xlen"
+-#endif
+-
+-static inline u32 crc32_be_zbc(unsigned long s)
+-{
+-	u32 crc;
+-
+-	asm volatile (".option push\n"
+-		      ".option arch,+zbc\n"
+-		      "clmulh	%0, %1, %2\n"
+-		      "xor	%0, %0, %1\n"
+-		      "clmul	%0, %0, %3\n"
+-		      ".option pop\n"
+-		      : "=&r" (crc)
+-		      : "r" (s),
+-			"r" (CRC32_POLY_QT_BE),
+-			"r" (CRC32_POLY_BE)
+-		      :);
+-	return crc;
+-}
+-
+-#define STEP		(1 << STEP_ORDER)
+-#define OFFSET_MASK	(STEP - 1)
+-
+-typedef u32 (*fallback)(u32 crc, unsigned char const *p, size_t len);
+-
+-static inline u32 crc32_le_unaligned(u32 crc, unsigned char const *p,
+-				     size_t len, u32 poly,
+-				     unsigned long poly_qt)
+-{
+-	size_t bits = len * 8;
+-	unsigned long s = 0;
+-	u32 crc_low = 0;
+-
+-	for (int i = 0; i < len; i++)
+-		s = ((unsigned long)*p++ << (__riscv_xlen - 8)) | (s >> 8);
+-
+-	s ^= (unsigned long)crc << (__riscv_xlen - bits);
+-	if (__riscv_xlen == 32 || len < sizeof(u32))
+-		crc_low = crc >> bits;
+-
+-	crc = crc32_le_zbc(s, poly, poly_qt);
+-	crc ^= crc_low;
+-
+-	return crc;
+-}
+-
+-static inline u32 crc32_le_generic(u32 crc, unsigned char const *p, size_t len,
+-				   u32 poly, unsigned long poly_qt,
+-				   fallback crc_fb)
+-{
+-	size_t offset, head_len, tail_len;
+-	unsigned long const *p_ul;
+-	unsigned long s;
+-
+-	asm goto(ALTERNATIVE("j %l[legacy]", "nop", 0,
+-			     RISCV_ISA_EXT_ZBC, 1)
+-		 : : : : legacy);
+-
+-	/* Handle the unaligned head. */
+-	offset = (unsigned long)p & OFFSET_MASK;
+-	if (offset && len) {
+-		head_len = min(STEP - offset, len);
+-		crc = crc32_le_unaligned(crc, p, head_len, poly, poly_qt);
+-		p += head_len;
+-		len -= head_len;
+-	}
+-
+-	tail_len = len & OFFSET_MASK;
+-	len = len >> STEP_ORDER;
+-	p_ul = (unsigned long const *)p;
+-
+-	for (int i = 0; i < len; i++) {
+-		s = crc32_le_prep(crc, p_ul);
+-		crc = crc32_le_zbc(s, poly, poly_qt);
+-		p_ul++;
+-	}
+-
+-	/* Handle the tail bytes. */
+-	p = (unsigned char const *)p_ul;
+-	if (tail_len)
+-		crc = crc32_le_unaligned(crc, p, tail_len, poly, poly_qt);
+-
+-	return crc;
+-
+-legacy:
+-	return crc_fb(crc, p, len);
+-}
+-
+-u32 crc32_le_arch(u32 crc, const u8 *p, size_t len)
+-{
+-	return crc32_le_generic(crc, p, len, CRC32_POLY_LE, CRC32_POLY_QT_LE,
+-				crc32_le_base);
+-}
+-EXPORT_SYMBOL(crc32_le_arch);
+-
+-u32 crc32c_arch(u32 crc, const u8 *p, size_t len)
+-{
+-	return crc32_le_generic(crc, p, len, CRC32C_POLY_LE,
+-				CRC32C_POLY_QT_LE, crc32c_base);
+-}
+-EXPORT_SYMBOL(crc32c_arch);
+-
+-static inline u32 crc32_be_unaligned(u32 crc, unsigned char const *p,
+-				     size_t len)
+-{
+-	size_t bits = len * 8;
+-	unsigned long s = 0;
+-	u32 crc_low = 0;
+-
+-	s = 0;
+-	for (int i = 0; i < len; i++)
+-		s = *p++ | (s << 8);
+-
+-	if (__riscv_xlen == 32 || len < sizeof(u32)) {
+-		s ^= crc >> (32 - bits);
+-		crc_low = crc << bits;
+-	} else {
+-		s ^= (unsigned long)crc << (bits - 32);
+-	}
+-
+-	crc = crc32_be_zbc(s);
+-	crc ^= crc_low;
+-
+-	return crc;
+-}
+-
+-u32 crc32_be_arch(u32 crc, const u8 *p, size_t len)
+-{
+-	size_t offset, head_len, tail_len;
+-	unsigned long const *p_ul;
+-	unsigned long s;
+-
+-	asm goto(ALTERNATIVE("j %l[legacy]", "nop", 0,
+-			     RISCV_ISA_EXT_ZBC, 1)
+-		 : : : : legacy);
+-
+-	/* Handle the unaligned head. */
+-	offset = (unsigned long)p & OFFSET_MASK;
+-	if (offset && len) {
+-		head_len = min(STEP - offset, len);
+-		crc = crc32_be_unaligned(crc, p, head_len);
+-		p += head_len;
+-		len -= head_len;
+-	}
+-
+-	tail_len = len & OFFSET_MASK;
+-	len = len >> STEP_ORDER;
+-	p_ul = (unsigned long const *)p;
+-
+-	for (int i = 0; i < len; i++) {
+-		s = crc32_be_prep(crc, p_ul);
+-		crc = crc32_be_zbc(s);
+-		p_ul++;
+-	}
+-
+-	/* Handle the tail bytes. */
+-	p = (unsigned char const *)p_ul;
+-	if (tail_len)
+-		crc = crc32_be_unaligned(crc, p, tail_len);
+-
+-	return crc;
+-
+-legacy:
+-	return crc32_be_base(crc, p, len);
+-}
+-EXPORT_SYMBOL(crc32_be_arch);
+-
+-u32 crc32_optimizations(void)
+-{
+-	if (riscv_has_extension_likely(RISCV_ISA_EXT_ZBC))
+-		return CRC32_LE_OPTIMIZATION |
+-		       CRC32_BE_OPTIMIZATION |
+-		       CRC32C_OPTIMIZATION;
+-	return 0;
+-}
+-EXPORT_SYMBOL(crc32_optimizations);
+-
+-MODULE_LICENSE("GPL");
+-MODULE_DESCRIPTION("Accelerated CRC32 implementation with Zbc extension");
+diff --git a/arch/riscv/lib/crc32.c b/arch/riscv/lib/crc32.c
+new file mode 100644
+index 000000000000..a3188b7d9c40
+--- /dev/null
++++ b/arch/riscv/lib/crc32.c
+@@ -0,0 +1,53 @@
 +// SPDX-License-Identifier: GPL-2.0-or-later
 +/*
-+ * RISC-V optimized CRC64 functions
++ * RISC-V optimized CRC32 functions
 + *
 + * Copyright 2025 Google LLC
 + */
 +
 +#include <asm/hwcap.h>
 +#include <asm/alternative-macros.h>
-+#include <linux/crc64.h>
++#include <linux/crc32.h>
 +#include <linux/module.h>
 +
 +#include "crc-clmul.h"
 +
-+u64 crc64_be_arch(u64 crc, const u8 *p, size_t len)
++u32 crc32_le_arch(u32 crc, const u8 *p, size_t len)
 +{
 +	if (riscv_has_extension_likely(RISCV_ISA_EXT_ZBC))
-+		return crc64_msb_clmul(crc, p, len,
-+				       &crc64_msb_0x42f0e1eba9ea3693_consts);
-+	return crc64_be_generic(crc, p, len);
++		return crc32_lsb_clmul(crc, p, len,
++				       &crc32_lsb_0xedb88320_consts);
++	return crc32_le_base(crc, p, len);
 +}
-+EXPORT_SYMBOL(crc64_be_arch);
++EXPORT_SYMBOL(crc32_le_arch);
 +
-+u64 crc64_nvme_arch(u64 crc, const u8 *p, size_t len)
++u32 crc32_be_arch(u32 crc, const u8 *p, size_t len)
 +{
 +	if (riscv_has_extension_likely(RISCV_ISA_EXT_ZBC))
-+		return crc64_lsb_clmul(crc, p, len,
-+				       &crc64_lsb_0x9a6c9329ac4bc9b5_consts);
-+	return crc64_nvme_generic(crc, p, len);
++		return crc32_msb_clmul(crc, p, len,
++				       &crc32_msb_0x04c11db7_consts);
++	return crc32_be_base(crc, p, len);
 +}
-+EXPORT_SYMBOL(crc64_nvme_arch);
++EXPORT_SYMBOL(crc32_be_arch);
 +
-+MODULE_DESCRIPTION("RISC-V optimized CRC64 functions");
++u32 crc32c_arch(u32 crc, const u8 *p, size_t len)
++{
++	if (riscv_has_extension_likely(RISCV_ISA_EXT_ZBC))
++		return crc32_lsb_clmul(crc, p, len,
++				       &crc32_lsb_0x82f63b78_consts);
++	return crc32c_base(crc, p, len);
++}
++EXPORT_SYMBOL(crc32c_arch);
++
++u32 crc32_optimizations(void)
++{
++	if (riscv_has_extension_likely(RISCV_ISA_EXT_ZBC))
++		return CRC32_LE_OPTIMIZATION |
++		       CRC32_BE_OPTIMIZATION |
++		       CRC32C_OPTIMIZATION;
++	return 0;
++}
++EXPORT_SYMBOL(crc32_optimizations);
++
++MODULE_DESCRIPTION("RISC-V optimized CRC32 functions");
 +MODULE_LICENSE("GPL");
-diff --git a/arch/riscv/lib/crc64_lsb.c b/arch/riscv/lib/crc64_lsb.c
+diff --git a/arch/riscv/lib/crc32_lsb.c b/arch/riscv/lib/crc32_lsb.c
 new file mode 100644
-index 000000000000..c5371bb85d90
+index 000000000000..72fd67e7470c
 --- /dev/null
-+++ b/arch/riscv/lib/crc64_lsb.c
++++ b/arch/riscv/lib/crc32_lsb.c
 @@ -0,0 +1,18 @@
 +// SPDX-License-Identifier: GPL-2.0-or-later
 +/*
-+ * RISC-V optimized least-significant-bit-first CRC64
++ * RISC-V optimized least-significant-bit-first CRC32
 + *
 + * Copyright 2025 Google LLC
 + */
 +
 +#include "crc-clmul.h"
 +
-+typedef u64 crc_t;
++typedef u32 crc_t;
 +#define LSB_CRC 1
 +#include "crc-clmul-template.h"
 +
-+u64 crc64_lsb_clmul(u64 crc, const void *p, size_t len,
++u32 crc32_lsb_clmul(u32 crc, const void *p, size_t len,
 +		    const struct crc_clmul_consts *consts)
 +{
 +	return crc_clmul(crc, p, len, consts);
 +}
-diff --git a/arch/riscv/lib/crc64_msb.c b/arch/riscv/lib/crc64_msb.c
+diff --git a/arch/riscv/lib/crc32_msb.c b/arch/riscv/lib/crc32_msb.c
 new file mode 100644
-index 000000000000..1925d1dbe225
+index 000000000000..fdbeaccc369f
 --- /dev/null
-+++ b/arch/riscv/lib/crc64_msb.c
++++ b/arch/riscv/lib/crc32_msb.c
 @@ -0,0 +1,18 @@
 +// SPDX-License-Identifier: GPL-2.0-or-later
 +/*
-+ * RISC-V optimized most-significant-bit-first CRC64
++ * RISC-V optimized most-significant-bit-first CRC32
 + *
 + * Copyright 2025 Google LLC
 + */
 +
 +#include "crc-clmul.h"
 +
-+typedef u64 crc_t;
++typedef u32 crc_t;
 +#define LSB_CRC 0
 +#include "crc-clmul-template.h"
 +
-+u64 crc64_msb_clmul(u64 crc, const void *p, size_t len,
++u32 crc32_msb_clmul(u32 crc, const void *p, size_t len,
 +		    const struct crc_clmul_consts *consts)
 +{
 +	return crc_clmul(crc, p, len, consts);
