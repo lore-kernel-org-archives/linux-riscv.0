@@ -4,43 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5BECC021A9
-	for <linux-riscv@archiver.kernel.org>; Mon, 17 Feb 2025 13:34:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C4565C021AB
+	for <linux-riscv@archiver.kernel.org>; Mon, 17 Feb 2025 14:35:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=wOJZV4vM55qQH6IQhG1WzknjHPC9ir6/QKRoqPzQcFM=; b=fnPffk782Iu34N
-	0xgfk1kBXhWfMAn09lFK7pgGzbAOoqeEfccqqSW88XpfB6BkHgHRqYSOIM039N9kf01Bc0HwStAoT
-	alr2h/mWeVDyl8CjYdjPMvyr6jEgj6fZxQYOxVr18n1QY+V91elwVUbvRXylAB84yFJwMjcN1uXAr
-	iwCEhgiUFuOHwtH/keD81xEv+lfb5B87RPvPzdL30nTQHOzBOvhU0AUsT6gK1hZmoW+dofbmXJKxz
-	rC4IxUNaLc11sb4K6SUFw3kqEhdrdcijanH+yc9OKDA9pj2q3hYxIyauOYIxHZvy4qiMCg+ak6AdG
-	Yl800/4vLFzwK7gH42CA==;
+	List-Owner; bh=R4MaSLc5XWdtAXMgTgLrwMJ5SJNDrYFrupTRnGvX2+8=; b=2WB1E9HkUljY2I
+	Qrk5tAb2aBjdAKiYYnZJBzotVd9Lh9c2Ry6+SAHYfnek8gfknGlcTN0JJIlhU2kXLMDXUWmMj8FwE
+	+JrnnCu85XbVLPuPZfcQ9j3ef3Af/G+dYNfPlzJ8FKC+EeiekUh6WkHlfNoH1bNVmxtQNtwEY8SnX
+	HYZBOz4zn+odRj8ux1KAtoBn2NVgmiEW+nCu+vi5eLHoNrYb5cRQWOix97XCyy/0aNsMOfHJ1XeMX
+	Ixf60bJtvhRt6u2cnjDcbBwa5b7OvWNZEjXtgzNAd8wUc9LNWeEUOxl7G8dMLZg6UTv4dT/EaAiyD
+	D469EKnS2vxYCGU/IMsg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tk1Gb-00000004gdx-2LjA;
-	Mon, 17 Feb 2025 13:34:33 +0000
-Received: from vps0.lunn.ch ([156.67.10.101])
+	id 1tk2Dt-00000004sg3-2fKH;
+	Mon, 17 Feb 2025 14:35:49 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tk18P-00000004eax-3wGB;
-	Mon, 17 Feb 2025 13:26:09 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=n1lANnOPXNFw9+jCC+O+JmddS9eVCLKsMBkqQM9HxPs=; b=xWEIyvI3phTtqKVI7bTSQRyPcu
-	/NMHD76dJCeNa5jgn+xig73XONXqClF5J/EwDZ9+FeTkRFnqyVLjq5hXwd667RWD1lGbicbnXF5p0
-	ezpB0RAZGdCmgDma+ZKtx/xe8O7FOiHoSp77+dmaBtjv2fLJPg7fyXSWb8gxIAw+PEfk=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1tk17t-00Eycl-Uk; Mon, 17 Feb 2025 14:25:33 +0100
-Date: Mon, 17 Feb 2025 14:25:33 +0100
-From: Andrew Lunn <andrew@lunn.ch>
-To: Inochi Amaoto <inochiama@gmail.com>
-Cc: "Russell King (Oracle)" <linux@armlinux.org.uk>,
+	id 1tk1qM-00000004nBI-2uaL;
+	Mon, 17 Feb 2025 14:11:32 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=+Tyg8b+xD0Br85DGNOgrIPE01EZSzRbYGNzNPsDnqag=; b=tpBEUbseu3svPJZjMXU0nSpYr8
+	GmffVj6GQ869k1Jh3niah2GmA3mLVEENfzotxr/MZcFH2FhCCIZZp9Kxnz9msHHPG5C3vOB6+kUR6
+	6+RgjsyJNUEgL+6lYKHDXyLR6/ewFtS87FmKFoT6ICF87RC/fVEfuEgPooJINzuvQmyjV2AyVv+vJ
+	YbKo0YZXyP0coO8OvabMIii2bRao+9FXH6GvaO7AaWwc839h0w6a9KrOGu1gVklIfC15Ikw1Jj9vX
+	kQjlQzNDVeKcCrSDBXVW9IiUYc+OsOsTXab9schzXS/+HNDTbVhhy9fSvNf09tdiCq2hPlM2Xz3M4
+	CM1EF8aw==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:39042)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1tk1ps-0006pq-1t;
+	Mon, 17 Feb 2025 14:11:00 +0000
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.96)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1tk1pi-0006HQ-2v;
+	Mon, 17 Feb 2025 14:10:50 +0000
+Date: Mon, 17 Feb 2025 14:10:50 +0000
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: Andrew Lunn <andrew@lunn.ch>
+Cc: Inochi Amaoto <inochiama@gmail.com>,
 	Andrew Lunn <andrew+netdev@lunn.ch>,
 	"David S. Miller" <davem@davemloft.net>,
 	Eric Dumazet <edumazet@google.com>,
@@ -75,19 +86,19 @@ Cc: "Russell King (Oracle)" <linux@armlinux.org.uk>,
 	Longbin Li <looong.bin@gmail.com>
 Subject: Re: [PATCH net-next v5 3/3] net: stmmac: Add glue layer for Sophgo
  SG2044 SoC
-Message-ID: <24eecc48-9061-4575-9e3b-6ef35226407a@lunn.ch>
+Message-ID: <Z7NDakd7zpQ_345D@shell.armlinux.org.uk>
 References: <20250216123953.1252523-1-inochiama@gmail.com>
  <20250216123953.1252523-4-inochiama@gmail.com>
  <Z7IIht2Q-iXEFw7x@shell.armlinux.org.uk>
  <5e481b95-3cf8-4f71-a76b-939d96e1c4f3@lunn.ch>
  <js3z3ra7fyg4qwxbly24xqpnvsv76jyikbhk7aturqigewllbx@gvus6ub46vow>
+ <24eecc48-9061-4575-9e3b-6ef35226407a@lunn.ch>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <js3z3ra7fyg4qwxbly24xqpnvsv76jyikbhk7aturqigewllbx@gvus6ub46vow>
+In-Reply-To: <24eecc48-9061-4575-9e3b-6ef35226407a@lunn.ch>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250217_052605_973014_95446AB9 
-X-CRM114-Status: UNSURE (   8.49  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250217_061130_733343_05F1791F 
+X-CRM114-Status: GOOD (  14.37  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,18 +115,34 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-> I am not sure all whether devices has this clock, but it appears in
-> the databook. So I think it is possible to move this in the core so
-> any platform with these clock can reuse it.
+On Mon, Feb 17, 2025 at 02:25:33PM +0100, Andrew Lunn wrote:
+> > I am not sure all whether devices has this clock, but it appears in
+> > the databook. So I think it is possible to move this in the core so
+> > any platform with these clock can reuse it.
+> 
+> Great
+> 
+> The next problem will be, has everybody called it the same thing in
+> DT. Since there has been a lot of cut/paste, maybe they have, by
+> accident.
 
-Great
+Tegra186: "tx"
+imx: "tx"
+intel: "tx_clk"
+rk: "clk_mac_speed"
+s32: "tx"
+starfive: "tx"
+sti: "sti-ethclk"
 
-The next problem will be, has everybody called it the same thing in
-DT. Since there has been a lot of cut/paste, maybe they have, by
-accident.
+so 50% have settled on "tx" and the rest are doing their own thing, and
+that horse has already bolted.
 
-Thanks
-	Andrew
+I have some ideas on sorting this out, and I'm working on some patches
+today.
+
+-- 
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
 _______________________________________________
 linux-riscv mailing list
