@@ -4,95 +4,105 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A74A3C021A9
-	for <linux-riscv@archiver.kernel.org>; Mon, 17 Feb 2025 19:00:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA95BC021A9
+	for <linux-riscv@archiver.kernel.org>; Mon, 17 Feb 2025 22:52:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=6DiizyRA8eTca+mkvE9mwZpC/xffCycBqcPzbZRHCDc=; b=OWT3bVdZUaSgLF
-	5Gg26fO4FU2fiODdqVxmN2PBh/lvUfina6oWgFcgS4W1WiPBMeLjUckWnc+PsSwAU2dfPokdFFZCq
-	8a4LIkfEf5rxAMlL3lHJC1VQ5WtSUxIjafTVrBbhr1Cobpq/JaPDZ94O/UYGnQatD1G8MwA1SNn+F
-	uPMUr4bCo7c6iEgVNm9VMKGTrnEG6NkqUPRLQB/iVATUhp/qr8vmyZxvNmdP/l8rURgvUUOYO4h76
-	ljqaaQA81llykjxd3fYTGGYMMsn6YeE23BGkiG4b2orF1ocTa+plMig8OiW0SANm4ib5lJFVObUAl
-	/m9q2S/Oo9B1qbkvMI0w==;
+	List-Owner; bh=/WKVuSd0u1QRHs0Eu9fjulKYHrKf/gS6MjCa1IKz6FU=; b=C92hVXw+clUSLi
+	+MFKIpg572+KVOeBikPGvJGCFgf+5Ys+/QJY+SNRtLuzpWiUT5vjbuBV13U6+ucx8U3IDtF+frteG
+	AEQ5p6w8siB8k2I3zamcZo8Bn9scCMw9ATXocUPpDokfV+b1o5gEoowQxrvYDG5BTCZyufWnDGE02
+	xxvHLX+jvhZEP+isj3HPvDBBJSq4dBss1r9e6YrdgsJnxXhe/aur9F9nVv6h1Q5uGVT6W0DeWITdE
+	mtl3vDuBRlWSTj4R8PlEkkb5/t/6aW8zu8MiAmGgUnDbjz1d/ysNzCVcRCqf6lLgh+m9CH1EAr+zu
+	3hTWxtuVsqDV8/BTbGRA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tk6Lz-00000005goE-19nR;
-	Mon, 17 Feb 2025 19:00:27 +0000
-Received: from mail-wm1-x32a.google.com ([2a00:1450:4864:20::32a])
+	id 1tk9yH-00000006BwL-0wKK;
+	Mon, 17 Feb 2025 22:52:13 +0000
+Received: from mail-qk1-x731.google.com ([2607:f8b0:4864:20::731])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tk6Lw-00000005gnj-0mNU;
-	Mon, 17 Feb 2025 19:00:25 +0000
-Received: by mail-wm1-x32a.google.com with SMTP id 5b1f17b1804b1-4398e839cd4so3521095e9.0;
-        Mon, 17 Feb 2025 11:00:23 -0800 (PST)
+	id 1tk9wk-00000006BfP-3s46;
+	Mon, 17 Feb 2025 22:50:40 +0000
+Received: by mail-qk1-x731.google.com with SMTP id af79cd13be357-7c07cd527e4so310165385a.3;
+        Mon, 17 Feb 2025 14:50:38 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1739818822; x=1740423622; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=FbEfh1V/TCyzyVBnzOPjw0bmm27Qjtw3b9033vGjqT8=;
-        b=DSELSRsGXZvfXblulTuQ9TX2zYCRXjc6T6P36XbbkSoflm7PuKKdVmaqOTC9cohv1g
-         92Al3zJnNupTHd0Khr1afkdJQ+fpNmnNGvL1bbVStYTSaY/JVaHA+zRmlvTWxaekmY/z
-         8QpcWTfWWHL+95wlEHWsE9f0ARBm34BWo/gqcc6HHRYFnpi+AxwREAXLyYR5zXFvpfDq
-         Hnx9naabq+zyMDe1G2fCA3yt3tPZBWJA36UDuLlvPWRLc5i6NlZAq10OrnPzRKPgdITl
-         Q1qb1tnMRVVelChICvVhRA6/L9SjDuBCfCwxDXtLJOVT8qEqSmHlvdjdB/5cHfF4yKcZ
-         Mi9Q==
+        d=gmail.com; s=20230601; t=1739832636; x=1740437436; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=GuRB9Jwf6lkVtrT6vIlRJUWZnFJbbxQGyG8tssiDsGY=;
+        b=McM/N2Q03eMeptK+MtE4lpH26IjIOLLgkx6XFsLMXs89i4cTHVV1CYqyyT0zoFsaQH
+         0uDGu0sntWZP3fMPG9R8JOD5NKhdYNu5NTWY6VM/aDAn17FKaTXVKkEB2EExOcq1fAtM
+         7tt62xmpSjPxQLf75141ooBCjegzvHp78TC+65fq4sxnrymZbKUvAelhY6m7PCOffwI5
+         m62poTMnSwT7L2mDc4gk8p8OuHnEc4dNMWRwME2WxSM2ShyWQBVGPR+sKG/Cj4/tjMZo
+         Kklgu9+SYlROVlTGjjt3ekby9pA98N6y70UARsuGJrmJXBrmIkkBTRw63RPEYm8nLaat
+         8EtQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1739818822; x=1740423622;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=FbEfh1V/TCyzyVBnzOPjw0bmm27Qjtw3b9033vGjqT8=;
-        b=Sf/VVaPXX5pWl+TUNqrS+fz616IH2mVW3gUFhEJlHyg0cAAuP/7M+yxNy5Latgqy3a
-         7mv7DQQZVSpxyV0BzJrritsVXdWtOsCkvh1f1Gtt7/74QSBvvH/luwHVHhIuIS/6SC1v
-         dt3DokQJrEWXipxlk6tM6sYe7ynZqUwCYfs0NW9Zqp46RTdnoyIlC8Z4FV0NUncnEEF2
-         o5zN9a+7jQJLiJlLhS4Q/qgK1HR9IcYDRRHMaD8O0JPaKAlVYhHgze7tKwchmpgAgTxw
-         c6VxZytXUpJH4X3pYI5vu2CXDgGxlyjMSAXNzbBMbgxE4JeLLd7424m5LwliVQbJVqBG
-         +dvw==
-X-Forwarded-Encrypted: i=1; AJvYcCU7jOR1Bqf0eBSZv7eiDi75e/hhBZeh901fsmEdb8Vou4sAKeT6i4pHB0QoKCwePHAgnbD513NdA7kFM94=@lists.infradead.org, AJvYcCXejj8CFj4bHIvK7mQaHEcyTWV/ThrM0Gt+1mT+30PsHeSnnrF5NJdOsRuQw/kzjviCvWDORDKAEHVJYVSuE5Fz@lists.infradead.org
-X-Gm-Message-State: AOJu0YwACgD4E0vWDXB3g7UJtPZhWfwaralxzKfZBpYtEAkVzcDJgtCo
-	etcjfzClvoWS8DL2z7xL6qqgYO9NMUc1O80fxd7Xyduu9ZbRluV34fqX5tmyfRSCQ0THuu7LkG1
-	n464zZCU162T6Swq2CSE8iSGs88I=
-X-Gm-Gg: ASbGncs1GBKTk/ec2J5vWb5qY8Nvvx8rxX4g13aoWvyV7h7770rG/85Kg8cuw/w3Qsx
-	BjJ2qcwn+1qeAN/7Hu60Q1SW+6uBJuOMjdQcB6kxwvPL2QgFFVPK5xFSEd4KxQ85n1LyN7CaEU6
-	U=
-X-Google-Smtp-Source: AGHT+IHcNajZe0ENO6NqqO6ktnv6S1yT2v8yKjsxjfUHFFdU9DGQ1lgEBrKS4eB3xN2pkGDfNvSOKZpFCcjlLy+KwRc=
-X-Received: by 2002:a5d:6d81:0:b0:38f:2c10:da1e with SMTP id
- ffacd0b85a97d-38f33c288cfmr8157628f8f.27.1739818822023; Mon, 17 Feb 2025
- 11:00:22 -0800 (PST)
+        d=1e100.net; s=20230601; t=1739832636; x=1740437436;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=GuRB9Jwf6lkVtrT6vIlRJUWZnFJbbxQGyG8tssiDsGY=;
+        b=qrSdxzh6eXAqBIk7Am52fyZ+uoX9OwU8nE5MmcKmo0piK3ZEEaoB7YudD4erpBFFC6
+         XsJS8mv6u+TyFN2Ee8UJlEF+oo8rUO55Op7KmNAO3/TSuUGgY35H6oaKBWbMN0tsuIeT
+         W5xGUj56SdSQaGTMBTGwPhIgsBBf4VueMWjZqXU9QPUsd6X99v3BX1dXO0S0YmeduaFB
+         ktbBMdfoiJHwjvcr2oz7yCW0ZJojz8ONHVHS6K4Gb63PWYihj84e4Aqrb+MXwG9PeQWK
+         kU+abFk6Mw6YNvRD77lbfH/fKJCsvBgkFFAr3kP8gvNC+9/DEf4RiRQf8fUWhHHWL+hb
+         oY/w==
+X-Forwarded-Encrypted: i=1; AJvYcCU+scXTIWlq8eb85oSbxFypTEBlmBcurHrt5C7n/cvi5+zU+X5lqGWMf7t9ZZ3sTP2IW4Y8FhzRXbhIit0=@lists.infradead.org, AJvYcCWmBLZbkgQCVmkwQ1LjBPs7IVE6WPdj+LqnWN4hGBC0Ud/SpF8/5RHN61mqv5MsR34go8Y/HAP+IMvfMY9ApBQR@lists.infradead.org
+X-Gm-Message-State: AOJu0YxDcWlCrWDXrmhuyULAVaBW8SOXMh+Zy9kcJVPGIQZ9EZg664PP
+	fyxAgbxFpRL8VS5fYZlTy22ayji0L0RobBgZ1DPx+EExjLSToJjG
+X-Gm-Gg: ASbGncsVcb3DQvQ5XyeoKiPz1kVobkaF8M/G1/RVE286Hddyxo+fGLRdO4QbcS88Mf2
+	RhT+OTgRJUpnLGEG3hPCQYmEW1pZtWJBOEVjxqfqlozMTk+8loUGVWk0BYLzdrX4uVYoWT2w8Zk
+	bHIUnt8BaxD6S/C9/wrjg2DNowJHkNkLvzyN9cwxDdQHArRjB8yKuY34EVK7T/88JteC1KrWYp4
+	cLlOUZUemGQTwgueihx7WAcekYi6TMOIO63WkPdSsJxJHTB8675uXzD06XEXBF6vVk=
+X-Google-Smtp-Source: AGHT+IE77k8p+mAi1BZHXw2Af6ibqX9QoECI2nv0Dz4rUPqmmgRmUNBBDIKtrBxkEobOVjl1YJiisg==
+X-Received: by 2002:a05:620a:44c7:b0:7b6:d97a:2608 with SMTP id af79cd13be357-7c08a9a6481mr1561011085a.17.1739832636093;
+        Mon, 17 Feb 2025 14:50:36 -0800 (PST)
+Received: from localhost ([2001:da8:7001:11::cb])
+        by smtp.gmail.com with UTF8SMTPSA id af79cd13be357-7c0971334f0sm208792885a.56.2025.02.17.14.50.35
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 17 Feb 2025 14:50:35 -0800 (PST)
+Date: Tue, 18 Feb 2025 06:50:24 +0800
+From: Inochi Amaoto <inochiama@gmail.com>
+To: "Russell King (Oracle)" <linux@armlinux.org.uk>, 
+	Andrew Lunn <andrew@lunn.ch>
+Cc: Inochi Amaoto <inochiama@gmail.com>, 
+	Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, 
+	Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, 
+	Paolo Abeni <pabeni@redhat.com>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Chen Wang <unicorn_wang@outlook.com>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
+	Alexandre Torgue <alexandre.torgue@foss.st.com>, Richard Cochran <richardcochran@gmail.com>, 
+	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, "Jan Petrous (OSS)" <jan.petrous@oss.nxp.com>, 
+	Hariprasad Kelam <hkelam@marvell.com>, =?utf-8?B?Q2zDqW1lbnQgTMOpZ2Vy?= <clement.leger@bootlin.com>, 
+	Jisheng Zhang <jszhang@kernel.org>, Emil Renner Berthing <emil.renner.berthing@canonical.com>, 
+	Drew Fustini <dfustini@tenstorrent.com>, Furong Xu <0x1207@gmail.com>, 
+	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>, Joe Hattori <joe@pf.is.s.u-tokyo.ac.jp>, 
+	Serge Semin <fancer.lancer@gmail.com>, Lothar Rubusch <l.rubusch@gmail.com>, 
+	Giuseppe Cavallaro <peppe.cavallaro@st.com>, Jose Abreu <joabreu@synopsys.com>, netdev@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, sophgo@lists.linux.dev, 
+	linux-stm32@st-md-mailman.stormreply.com, linux-arm-kernel@lists.infradead.org, 
+	linux-riscv@lists.infradead.org, Yixun Lan <dlan@gentoo.org>, Longbin Li <looong.bin@gmail.com>
+Subject: Re: [PATCH net-next v5 3/3] net: stmmac: Add glue layer for Sophgo
+ SG2044 SoC
+Message-ID: <rsysy3p5ium5umzz34rtinppcu2b36klgjdtq5j4lm3mylbqbz@z44yeje5wgat>
+References: <20250216123953.1252523-1-inochiama@gmail.com>
+ <20250216123953.1252523-4-inochiama@gmail.com>
+ <Z7IIht2Q-iXEFw7x@shell.armlinux.org.uk>
+ <5e481b95-3cf8-4f71-a76b-939d96e1c4f3@lunn.ch>
+ <js3z3ra7fyg4qwxbly24xqpnvsv76jyikbhk7aturqigewllbx@gvus6ub46vow>
+ <24eecc48-9061-4575-9e3b-6ef35226407a@lunn.ch>
+ <Z7NDakd7zpQ_345D@shell.armlinux.org.uk>
 MIME-Version: 1.0
-References: <CA+fCnZeBEe3VWm=VfYvG-f4eh2jAFP-p4Xn4SLEeFCGTudVuEw@mail.gmail.com>
- <e7t5yzfw3dq5stp5xjy5yclcx6ikne4vwz7d6w2ukfw2b7gr6t@oomoynf3b2jl>
- <zjuvfdbl7q76ahdxk3lrgaznk7vjj43f5ftzfgrnca6dqtcd5x@5qj24womzgyq>
- <CA+fCnZfySpeRy0FCFidLdUUeqp97eBdjAqQyYPpz1WxYwcsW9A@mail.gmail.com>
- <aqhm7lc57srsfuff3bceb3dcmsdyxksb7t6bgwbqi54ppevpoh@apolj3nteaz6>
- <CA+fCnZdjTkreTcoo+J8wMhwDuAFM4g33U5BFy0OPtE0UCvyJbQ@mail.gmail.com>
- <CA+fCnZcoVdfXVN8VBFLx835cV0eGAT6Ewror2whLW761JnHjNQ@mail.gmail.com>
- <sjownmnyf4ygi5rtbedan6oauzvyk2d7xcummo5rykiryrpcrt@kasomz5imkkm>
- <tuwambkzk6ca5mpni7ev5hvr47dkbk6ru3vikplx67hyvqj2sw@rugqv7vhikxb>
- <CA+fCnZcHnWr0++8omB5ju8E3uSK+s+JOFZ3=UqgtVEcBzrm2Lg@mail.gmail.com> <kmibbbrtlwds6td64hloau7pf3smqth4wff33soebvujohsvli@kni5dtvpwsxf>
-In-Reply-To: <kmibbbrtlwds6td64hloau7pf3smqth4wff33soebvujohsvli@kni5dtvpwsxf>
-From: Andrey Konovalov <andreyknvl@gmail.com>
-Date: Mon, 17 Feb 2025 20:00:10 +0100
-X-Gm-Features: AWEUYZlRIhjmXsKyPCZOszIx8_jhLBbTZLCGYgAeVzNSeJCRFZ5-FeRBt2Jwp0w
-Message-ID: <CA+fCnZfBsQd=nJVu7QOX09w6uR5LK1Gc5UqiHS8aCxzhDJsssA@mail.gmail.com>
-Subject: Re: [PATCH v2 1/9] kasan: sw_tags: Use arithmetic shift for shadow computation
-To: Maciej Wieczor-Retman <maciej.wieczor-retman@intel.com>
-Cc: Samuel Holland <samuel.holland@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	linux-riscv@lists.infradead.org, Andrey Ryabinin <ryabinin.a.a@gmail.com>, 
-	Alexander Potapenko <glider@google.com>, Dmitry Vyukov <dvyukov@google.com>, 
-	Vincenzo Frascino <vincenzo.frascino@arm.com>, kasan-dev@googlegroups.com, 
-	llvm@lists.linux.dev, Catalin Marinas <catalin.marinas@arm.com>, 
-	linux-kernel@vger.kernel.org, linux-mm@kvack.org, 
-	Alexandre Ghiti <alexghiti@rivosinc.com>, Will Deacon <will@kernel.org>, 
-	Evgenii Stepanov <eugenis@google.com>, Andrew Morton <akpm@linux-foundation.org>, 
-	linux-arm-kernel@lists.infradead.org
+Content-Disposition: inline
+In-Reply-To: <Z7NDakd7zpQ_345D@shell.armlinux.org.uk>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250217_110024_223412_8565045B 
-X-CRM114-Status: GOOD (  15.45  )
+X-CRM114-CacheID: sfid-20250217_145038_963594_6DA300FB 
+X-CRM114-Status: GOOD (  19.78  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,28 +114,52 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gTW9uLCBGZWIgMTcsIDIwMjUgYXQgNzozOOKAr1BNIE1hY2llaiBXaWVjem9yLVJldG1hbgo8
-bWFjaWVqLndpZWN6b3ItcmV0bWFuQGludGVsLmNvbT4gd3JvdGU6Cj4KPiA+SSdtIGEgYml0IGxv
-c3Qgd2l0aCB0aGVzZSBjYWxjdWxhdGlvbnMgYXQgdGhpcyBwb2ludC4gUGxlYXNlIHNlbmQgdGhl
-Cj4gPmZ1bGwgcGF0Y2gsIGluY2x1ZGluZyB0aGUgbmV3IHZhbHVlcyBmb3IgS0FTQU5fU0hBRE9X
-X09GRlNFVCAoZG8gSQo+ID51bmRlcnN0YW5kIGNvcnJlY3RseSB0aGF0IHlvdSB3YW50IHRvIGNo
-YW5nZSB0aGVtPykuIEl0J2xsIGJlIGVhc2llcgo+ID50byBsb29rIGF0IHRoZSBjb2RlLgo+Cj4g
-U29ycnksIHRoaXMgdGhyZWFkIGJlY2FtZSBhIGxpdHRsZSBiaXQgY29uZnVzaW5nLiBObywgSSB0
-aGluayB0aGUKPiBLQVNBTl9TSEFET1dfT0ZGU0VUIHZhbHVlcyBhcmUgZmluZS4gSSBqdXN0IHdh
-bnRlZCB0byBlbWJyYWNlIHRoZSBpZGVhIG9mCj4gb3ZlcmZsb3cgZm9yIHRoZSBwdXJwb3NlIG9m
-IHRoZSBjaGVjayBpbiBrYXNhbl9ub25fY2Fub25pY2FsX2hvb2soKS4KPgo+IEJ1dCBJJ2xsIHB1
-dCBkb3duIG15IHRyYWluIG9mIHRob3VnaHQgYWJvdXQgdGhlIG92ZXJmbG93ICsgY2FsY3VsYXRp
-b25zIGluIHRoZQo+IHBhdGNoIG1lc3NhZ2UuCj4KPiA+Cj4gPkZlZWwgZnJlZSB0byBzZW5kIHRo
-aXMgcGF0Y2ggc2VwYXJhdGVseSBmcm9tIHRoZSByZXN0IG9mIHRoZSBzZXJpZXMsCj4gPnNvIHRo
-YXQgd2UgY2FuIGZpbmFsaXplIGl0IGZpcnN0Lgo+Cj4gSSBoYXZlIHRoZSB4ODYgdGFnLWJhc2Vk
-IHNlcmllcyBiYXNpY2FsbHkgcmVhZHkgKGp1c3QgbmVlZCB0byByZS1yZWFkIGl0KSBzbyBJCj4g
-dGhpbmsgSSBjYW4gc2VuZCBpdCBhcyB3aG9sZSB3aXRoIHRoaXMgcGF0Y2ggYW5kIDMgb3RoZXJz
-IGZyb20gdGhpcyBzZXJpZXMuCgpTb3VuZHMgZ29vZCEKCl9fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1y
-aXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxt
-YW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+On Mon, Feb 17, 2025 at 02:10:50PM +0000, Russell King (Oracle) wrote:
+> On Mon, Feb 17, 2025 at 02:25:33PM +0100, Andrew Lunn wrote:
+> > > I am not sure all whether devices has this clock, but it appears in
+> > > the databook. So I think it is possible to move this in the core so
+> > > any platform with these clock can reuse it.
+> > 
+> > Great
+> > 
+> > The next problem will be, has everybody called it the same thing in
+> > DT. Since there has been a lot of cut/paste, maybe they have, by
+> > accident.
+> 
+> Tegra186: "tx"
+> imx: "tx"
+> intel: "tx_clk"
+> rk: "clk_mac_speed"
+> s32: "tx"
+> starfive: "tx"
+> sti: "sti-ethclk"
+> 
+
+The dwc-qos-eth also use clock name "tx", but set the clock with
+extra calibration logic.
+
+> so 50% have settled on "tx" and the rest are doing their own thing, and
+> that horse has already bolted.
+> 
+
+The "rx" clock in s32 also uses the same logic. I think the core also
+needs to take it, as this rx clock is also mentioned in the databook.
+
+> I have some ideas on sorting this out, and I'm working on some patches
+> today.
+
+Great, Could you cc me when you submit them? So I can take it and
+change my series.
+
+Regards,
+Inochi
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
