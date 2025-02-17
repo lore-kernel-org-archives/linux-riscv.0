@@ -4,54 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 16B26C021A9
-	for <linux-riscv@archiver.kernel.org>; Mon, 17 Feb 2025 12:30:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F99BC021AB
+	for <linux-riscv@archiver.kernel.org>; Mon, 17 Feb 2025 12:30:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
 	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
 	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=LTbifw9hMJ8n2HvR0uCSWodDCJOerEeZyE58huB2Row=; b=rCDun9K4BdZjQ4
-	olJwq4E3DwOKtq4yb8FBWWaWq3zJ/JwpJAxqm5++XOfS+cuSMi8LE7lvK7a2oF6hTBdDVa0M0PyR+
-	ud6I4mbq1WGSWL6BLflsK5/vmbcV8ge5pSY7g2l+XxGHUh0EhcKxrnbCPXpqgN3ncHgVC8QxRwkTR
-	0vqixEjEvPshPy6UeH1T0GHzjgsdFVBxx4siZilPFPC7sGUJxA1spAmXbv2dPQWeDGCUEVDA7I5aN
-	RGW6jpPNSA89obS6k7BPCHuzT42epZZ4hqR2iy7tzOrV/OeLRkzFAVci1dkpVMJG0ZeZvRXDwieCY
-	fLk7TBxysvtUSM5iP5kg==;
+	List-Owner; bh=Zans3bnkURxy9/J3WUrK93ilRqt9Ru2N16mm95onjFg=; b=xLKutOcFkGkTFo
+	HnJEYtGh0oxWDCUiL3Wd+NlYrtqW1Lxu2IlzVF2ge6/oGB1Vh6Ec25dBWTI9sojEVLk8lOzYCUFMG
+	D3kC/CbnL5LjzxCvR3Mx8LSZVdqeZSDsf1ld9c7KshKu9PQmxmQzpHakCBt0OlqlbY5QpdWSPxSHR
+	gw6oWgwLQmu2SJGSHo75yfFeIF+/tPI5pAUpeKFw55eZnwBAlL7mT/WBaN+rtCzsxBeplJeA7jfRO
+	OA0Rp9+F2YW5qdyGj0elAcEqzU/2JvmUZJqB287upZHQbl0Zx+o2QkEHMKWEe2w/I3mL3y2kKXRNC
+	4xHAlmSvPtZbbL4zsPEA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tk0GW-00000004THo-0uY0;
-	Mon, 17 Feb 2025 12:30:24 +0000
-Received: from relay2-d.mail.gandi.net ([2001:4b98:dc4:8::222])
+	id 1tk0GY-00000004TNr-3NqP;
+	Mon, 17 Feb 2025 12:30:26 +0000
+Received: from relay7-d.mail.gandi.net ([2001:4b98:dc4:8::227])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tjztp-00000004PWY-2UeJ
+	id 1tk09w-00000004RIc-2MGW
 	for linux-riscv@lists.infradead.org;
-	Mon, 17 Feb 2025 12:06:59 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id C1F3A43181;
-	Mon, 17 Feb 2025 12:06:49 +0000 (UTC)
-Message-ID: <a14347d2-6189-49bc-a1cc-e5959e76e6c2@ghiti.fr>
-Date: Mon, 17 Feb 2025 13:06:49 +0100
+	Mon, 17 Feb 2025 12:23:38 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id 5AA054419E;
+	Mon, 17 Feb 2025 12:23:29 +0000 (UTC)
+Message-ID: <199526de-4351-4fd7-8f6a-9e8dbf05c184@ghiti.fr>
+Date: Mon, 17 Feb 2025 13:23:28 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: fs/xfs/xfs_buf.c:1534 xfs_buf_submit_bio() warn: unsigned '_x' is
- never less than zero.
+Subject: Re: [PATCH] riscv: select DMA_DIRECT_REMAP by RISCV_ISA_SVPBMT and
+ ERRATA_THEAD_MAE
 Content-Language: en-US
-To: Christoph Hellwig <hch@lst.de>, kernel test robot <lkp@intel.com>
-Cc: oe-kbuild-all@lists.linux.dev, linux-kernel@vger.kernel.org,
- Carlos Maiolino <cem@kernel.org>, "Darrick J. Wong" <djwong@kernel.org>,
- linux-riscv@lists.infradead.org
-References: <202502171326.j4Xd3I0j-lkp@intel.com>
- <20250217092445.GA29568@lst.de>
+To: Sergey Matyukevich <geomatsi@gmail.com>, linux-riscv@lists.infradead.org,
+ linux-kernel@vger.kernel.org, Palmer Dabbelt <palmer@dabbelt.com>,
+ Heiko Stuebner <heiko@sntech.de>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>,
+ Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alexghiti@rivosinc.com>,
+ Conor Dooley <conor.dooley@microchip.com>,
+ Robin Murphy <robin.murphy@arm.com>,
+ Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
+ Geert Uytterhoeven <geert+renesas@glider.be>, Christoph Hellwig <hch@lst.de>
+References: <20250116172950.1989748-1-geomatsi@gmail.com>
 From: Alexandre Ghiti <alex@ghiti.fr>
-In-Reply-To: <20250217092445.GA29568@lst.de>
+In-Reply-To: <20250116172950.1989748-1-geomatsi@gmail.com>
 X-GND-State: clean
 X-GND-Score: -100
-X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgdehkeefiecutefuodetggdotefrodftvfcurfhrohhfihhlvgemucfitefpfffkpdcuggftfghnshhusghstghrihgsvgenuceurghilhhouhhtmecufedtudenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujfgurhepkfffgggfuffvvehfhfgjtgfgsehtkeertddtvdejnecuhfhrohhmpeetlhgvgigrnhgurhgvucfihhhithhiuceorghlvgigsehghhhithhirdhfrheqnecuggftrfgrthhtvghrnhephfduteegueelkeelgeejfeeigffhkeefhedvffdugeeuvddtudfhuefgkeffgfeunecuffhomhgrihhnpehgihhthhhusgdrtghomhdpihhnfhhrrgguvggrugdrohhrghenucfkphepvddttddumeekiedumeeffeekvdemvghfledtmeellegvheemfhgrtdgsmeejiedvugemudgssghfnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehinhgvthepvddttddumeekiedumeeffeekvdemvghfledtmeellegvheemfhgrtdgsmeejiedvugemudgssghfpdhhvghloheplgfkrfggieemvddttddumeekiedumeeffeekvdemvghfledtmeellegvheemfhgrtdgsmeejiedvugemudgssghfngdpmhgrihhlfhhrohhmpegrlhgvgiesghhhihhtihdrfhhrpdhnsggprhgtphhtthhopeejpdhrtghpthhtohephhgthheslhhsthdruggvpdhrtghpthhtoheplhhkphesihhnthgvlhdrtghomhdprhgtphhtthhopehovgdqkhgsuhhil
- hguqdgrlhhlsehlihhsthhsrdhlihhnuhigrdguvghvpdhrtghpthhtoheplhhinhhugidqkhgvrhhnvghlsehvghgvrhdrkhgvrhhnvghlrdhorhhgpdhrtghpthhtoheptggvmheskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepughjfihonhhgsehkvghrnhgvlhdrohhrghdprhgtphhtthhopehlihhnuhigqdhrihhstghvsehlihhsthhsrdhinhhfrhgruggvrggurdhorhhg
+X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgdehkeeflecutefuodetggdotefrodftvfcurfhrohhfihhlvgemucfitefpfffkpdcuggftfghnshhusghstghrihgsvgenuceurghilhhouhhtmecufedtudenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujfgurhepkfffgggfuffvvehfhfgjtgfgsehtjeertddtvdejnecuhfhrohhmpeetlhgvgigrnhgurhgvucfihhhithhiuceorghlvgigsehghhhithhirdhfrheqnecuggftrfgrthhtvghrnhepvdeludfgleffteekgfelheetvdeugffgiedtueetgedtfeefleeileehieekvddunecuffhomhgrihhnpegsohhothhlihhnrdgtohhmnecukfhppedvtddtudemkeeiudemfeefkedvmegvfheltdemleelvgehmehfrgdtsgemjeeivdgumedusggsfhenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepihhnvghtpedvtddtudemkeeiudemfeefkedvmegvfheltdemleelvgehmehfrgdtsgemjeeivdgumedusggsfhdphhgvlhhopeglkffrggeimedvtddtudemkeeiudemfeefkedvmegvfheltdemleelvgehmehfrgdtsgemjeeivdgumedusggsfhgnpdhmrghilhhfrhhomheprghlvgigsehghhhithhirdhfrhdpnhgspghrtghpthhtohepudefpdhrtghpthhtohepghgvohhmrghtshhisehgmhgrihhlrdgtohhmpdhrtghpthhtoheplhhinhhugidqrhhishgtvheslhhishhtshdrihhnfhhrrgguvggrugdrohhrghdpr
+ hgtphhtthhopehlihhnuhigqdhkvghrnhgvlhesvhhgvghrrdhkvghrnhgvlhdrohhrghdprhgtphhtthhopehprghlmhgvrhesuggrsggsvghlthdrtghomhdprhgtphhtthhopehhvghikhhosehsnhhtvggthhdruggvpdhrtghpthhtohepphgruhhlrdifrghlmhhslhgvhiesshhifhhivhgvrdgtohhmpdhrtghpthhtoheprghouhesvggvtghsrdgsvghrkhgvlhgvhidrvgguuhdprhgtphhtthhopegrlhgvgihghhhithhisehrihhvohhsihhntgdrtghomh
 X-GND-Sasl: alex@ghiti.fr
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250217_040657_785507_CF70E32B 
-X-CRM114-Status: GOOD (  16.37  )
+X-CRM114-CacheID: sfid-20250217_042336_756721_C136B206 
+X-CRM114-Status: GOOD (  16.55  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -63,68 +67,93 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-SGkgQ2hyaXN0b3BoLAoKT24gMTcvMDIvMjAyNSAxMDoyNCwgQ2hyaXN0b3BoIEhlbGx3aWcgd3Jv
-dGU6Cj4gT24gTW9uLCBGZWIgMTcsIDIwMjUgYXQgMDE6NTM6MDhQTSArMDgwMCwga2VybmVsIHRl
-c3Qgcm9ib3Qgd3JvdGU6Cj4+IE5ldyBzbWF0Y2ggd2FybmluZ3M6Cj4+IGZzL3hmcy94ZnNfYnVm
-LmM6MTUzNCB4ZnNfYnVmX3N1Ym1pdF9iaW8oKSB3YXJuOiB1bnNpZ25lZCAnX3gnIGlzIG5ldmVy
-IGxlc3MgdGhhbiB6ZXJvLgo+IExvb2tzIGxpa2UgdGhpcyBpcyBhbiBpc3N1ZSBpbiB0aGUgcmlz
-Y3YgdmlydF90b19wYWdlIGltcGxlbWVudGF0aW9uCj4gd2hpY2ggYWxzbyBzaG93cyB1cCBpbiB2
-YXJpb3VzIG90aGVyIHBsYWNlcy4gIEFueSBjaGFuY2UgdGhpcyBjb3VsZCBnZXQKPiBmaXhlZCBp
-biB0aGUgcmlzY3YgY29kZT8KCgpUbyBtZSwgdGhlIG9ubHkgdGVzdCB0aGF0IGNvdWxkIGdpdmUg
-cmlzZSB0byB0aGlzIHdhcm5pbmcgaXMgdGhlIGxhc3QgCnBhcnQgb2Y6CgojZGVmaW5lIGlzX2xp
-bmVhcl9tYXBwaW5nKHgpIFwKIMKgwqDCoMKgwqDCoMKgICgoeCkgPj0gUEFHRV9PRkZTRVQgJiYg
-KCFJU19FTkFCTEVEKENPTkZJR182NEJJVCkgfHwgKHgpIDwgClBBR0VfT0ZGU0VUICsgS0VSTl9W
-SVJUX1NJWkUpKQoKQnV0IGdpdmVuIHRoYXQgdGhlIGNvbmZpZyBpcyBhIDMyLWJpdCBjb25maWcs
-IGl0IHNob3VsZCBub3QgYmUgZXZhbHVhdGVkIAphdCBhbGwuCgpDb3VsZCB0aGF0IGJlIGEgZmFs
-c2UtcG9zaXRpdmUgYW5kIHRoZW4gYW4gaXNzdWUgaW4gc21hdGNoPwoKVGhhbmtzLAoKQWxleAoK
-Cj4KPj4gT2xkIHNtYXRjaCB3YXJuaW5nczoKPj4gZnMveGZzL3hmc19saW51eC5oOjI4MyBrbWVt
-X3RvX3BhZ2UoKSB3YXJuOiB1bnNpZ25lZCAnX3gnIGlzIG5ldmVyIGxlc3MgdGhhbiB6ZXJvLgo+
-PiBmcy94ZnMveGZzX2J1Zi5jOjc2MSB4ZnNfYnVmX2dldF9tYXAoKSBlcnJvcjogd2UgcHJldmlv
-dXNseSBhc3N1bWVkICdicCcgY291bGQgYmUgbnVsbCAoc2VlIGxpbmUgNzQzKQo+PiBhcmNoL3Jp
-c2N2L2luY2x1ZGUvYXNtL2F0b21pYy5oOjIxOCBhcmNoX2F0b21pY19mZXRjaF9hZGRfdW5sZXNz
-KCkgd2FybjogaW5jb25zaXN0ZW50IGluZGVudGluZwo+Pgo+PiB2aW0gKy9feCArMTUzNCBmcy94
-ZnMveGZzX2J1Zi5jCj4+Cj4+ICAgIDE1MTgJCj4+ICAgIDE1MTkJc3RhdGljIHZvaWQKPj4gICAg
-MTUyMAl4ZnNfYnVmX3N1Ym1pdF9iaW8oCj4+ICAgIDE1MjEJCXN0cnVjdCB4ZnNfYnVmCQkqYnAp
-Cj4+ICAgIDE1MjIJewo+PiAgICAxNTIzCQl1bnNpZ25lZCBpbnQJCXNpemUgPSBCQlRPQihicC0+
-Yl9sZW5ndGgpOwo+PiAgICAxNTI0CQl1bnNpZ25lZCBpbnQJCW1hcCA9IDAsIHA7Cj4+ICAgIDE1
-MjUJCXN0cnVjdCBibGtfcGx1ZwkJcGx1ZzsKPj4gICAgMTUyNgkJc3RydWN0IGJpbwkJKmJpbzsK
-Pj4gICAgMTUyNwkKPj4gICAgMTUyOAkJYmlvID0gYmlvX2FsbG9jKGJwLT5iX3RhcmdldC0+YnRf
-YmRldiwgYnAtPmJfcGFnZV9jb3VudCwKPj4gICAgMTUyOQkJCQl4ZnNfYnVmX2Jpb19vcChicCks
-IEdGUF9OT0lPKTsKPj4gICAgMTUzMAkJYmlvLT5iaV9wcml2YXRlID0gYnA7Cj4+ICAgIDE1MzEJ
-CWJpby0+YmlfZW5kX2lvID0geGZzX2J1Zl9iaW9fZW5kX2lvOwo+PiAgICAxNTMyCQo+PiAgICAx
-NTMzCQlpZiAoYnAtPmJfZmxhZ3MgJiBfWEJGX0tNRU0pIHsKPj4+IDE1MzQJCQlfX2Jpb19hZGRf
-cGFnZShiaW8sIHZpcnRfdG9fcGFnZShicC0+Yl9hZGRyKSwgc2l6ZSwKPj4gICAgMTUzNQkJCQkJ
-YnAtPmJfb2Zmc2V0KTsKPj4gICAgMTUzNgkJfSBlbHNlIHsKPj4gICAgMTUzNwkJCWZvciAocCA9
-IDA7IHAgPCBicC0+Yl9wYWdlX2NvdW50OyBwKyspCj4+ICAgIDE1MzgJCQkJX19iaW9fYWRkX3Bh
-Z2UoYmlvLCBicC0+Yl9wYWdlc1twXSwgUEFHRV9TSVpFLCAwKTsKPj4gICAgMTUzOQkJCWJpby0+
-YmlfaXRlci5iaV9zaXplID0gc2l6ZTsgLyogbGltaXQgdG8gdGhlIGFjdHVhbCBzaXplIHVzZWQg
-Ki8KPj4gICAgMTU0MAkKPj4gICAgMTU0MQkJCWlmICh4ZnNfYnVmX2lzX3ZtYXBwZWQoYnApKQo+
-PiAgICAxNTQyCQkJCWZsdXNoX2tlcm5lbF92bWFwX3JhbmdlKGJwLT5iX2FkZHIsCj4+ICAgIDE1
-NDMJCQkJCQl4ZnNfYnVmX3ZtYXBfbGVuKGJwKSk7Cj4+ICAgIDE1NDQJCX0KPj4gICAgMTU0NQkK
-Pj4gICAgMTU0NgkJLyoKPj4gICAgMTU0NwkJICogSWYgdGhlcmUgaXMgbW9yZSB0aGFuIG9uZSBt
-YXAgc2VnbWVudCwgc3BsaXQgb3V0IGEgbmV3IGJpbyBmb3IgZWFjaAo+PiAgICAxNTQ4CQkgKiBt
-YXAgZXhjZXB0IG9mIHRoZSBsYXN0IG9uZS4gIFRoZSBsYXN0IG1hcCBpcyBoYW5kbGVkIGJ5IHRo
-ZQo+PiAgICAxNTQ5CQkgKiByZW1haW5kZXIgb2YgdGhlIG9yaWdpbmFsIGJpbyBvdXRzaWRlIHRo
-ZSBsb29wLgo+PiAgICAxNTUwCQkgKi8KPj4gICAgMTU1MQkJYmxrX3N0YXJ0X3BsdWcoJnBsdWcp
-Owo+PiAgICAxNTUyCQlmb3IgKG1hcCA9IDA7IG1hcCA8IGJwLT5iX21hcF9jb3VudCAtIDE7IG1h
-cCsrKSB7Cj4+ICAgIDE1NTMJCQlzdHJ1Y3QgYmlvCSpzcGxpdDsKPj4gICAgMTU1NAkKPj4gICAg
-MTU1NQkJCXNwbGl0ID0gYmlvX3NwbGl0KGJpbywgYnAtPmJfbWFwc1ttYXBdLmJtX2xlbiwgR0ZQ
-X05PRlMsCj4+ICAgIDE1NTYJCQkJCSZmc19iaW9fc2V0KTsKPj4gICAgMTU1NwkJCXNwbGl0LT5i
-aV9pdGVyLmJpX3NlY3RvciA9IGJwLT5iX21hcHNbbWFwXS5ibV9ibjsKPj4gICAgMTU1OAkJCWJp
-b19jaGFpbihzcGxpdCwgYmlvKTsKPj4gICAgMTU1OQkJCXN1Ym1pdF9iaW8oc3BsaXQpOwo+PiAg
-ICAxNTYwCQl9Cj4+ICAgIDE1NjEJCWJpby0+YmlfaXRlci5iaV9zZWN0b3IgPSBicC0+Yl9tYXBz
-W21hcF0uYm1fYm47Cj4+ICAgIDE1NjIJCXN1Ym1pdF9iaW8oYmlvKTsKPj4gICAgMTU2MwkJYmxr
-X2ZpbmlzaF9wbHVnKCZwbHVnKTsKPj4gICAgMTU2NAl9Cj4+ICAgIDE1NjUJCj4+Cj4+IC0tIAo+
-PiAwLURBWSBDSSBLZXJuZWwgVGVzdCBTZXJ2aWNlCj4+IGh0dHBzOi8vZ2l0aHViLmNvbS9pbnRl
-bC9sa3AtdGVzdHMvd2lraQo+IC0tLWVuZCBxdW90ZWQgdGV4dC0tLQo+Cj4gX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KPiBsaW51eC1yaXNjdiBtYWlsaW5n
-IGxpc3QKPiBsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCj4gaHR0cDovL2xpc3RzLmlu
-ZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgoKX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0
-CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5v
-cmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
+Hi Sergey,
+
+On 16/01/2025 18:29, Sergey Matyukevich wrote:
+> Select DMA_DIRECT_REMAP for the RISC-V extensions that allow to set
+> page-based memory types in PTEs according to the requested DMA
+> attributes. This is the purpose of Svpbmt or XTheadMae extensions.
+> Zicbom or XTheadCmo serve a different purpose, providing instructions
+> to flush/invalidate cache blocks.
+>
+> Fixes: 381cae169853 ("riscv: only select DMA_DIRECT_REMAP from RISCV_ISA_ZICBOM and ERRATA_THEAD_PBMT")
+>
+> Signed-off-by: Sergey Matyukevich <geomatsi@gmail.com>
+> ---
+>   arch/riscv/Kconfig        | 2 +-
+>   arch/riscv/Kconfig.errata | 2 +-
+>   2 files changed, 2 insertions(+), 2 deletions(-)
+>
+> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+> index d4a7ca0388c0..a5dabb744009 100644
+> --- a/arch/riscv/Kconfig
+> +++ b/arch/riscv/Kconfig
+> @@ -603,6 +603,7 @@ config RISCV_ISA_SVPBMT
+>   	depends on 64BIT && MMU
+>   	depends on RISCV_ALTERNATIVE
+>   	default y
+> +	select DMA_DIRECT_REMAP
+
+
+ From what I read, DMA_DIRECT_MAP relies on the ability to map pages 
+uncached (pgprot_dmacoherent() here 
+https://elixir.bootlin.com/linux/v6.13.2/source/kernel/dma/pool.c#L104). 
+But CONFIG_RISCV_ISA_SVPBMT does not guarantee that the underlying 
+platform supports svpbmt so to me it is wrong to select DMA_DIRECT_MAP, 
+we would need some runtime check instead.
+
+
+>   	help
+>   	   Adds support to dynamically detect the presence of the Svpbmt
+>   	   ISA-extension (Supervisor-mode: page-based memory types) and
+> @@ -787,7 +788,6 @@ config RISCV_ISA_ZICBOM
+>   	depends on RISCV_ALTERNATIVE
+>   	default y
+>   	select RISCV_DMA_NONCOHERENT
+
+
+And in the same way, we should not enable RISCV_DMA_NONCOHERENT since 
+CONFIG_RISCV_ISA_ZICBOM does guarantee the presence of zicbom. Because 
+then in mm/dma-noncoherent.c, the cache flush operations are nops.
+
+Or am I missing something?
+
+Thanks,
+
+Alex
+
+
+> -	select DMA_DIRECT_REMAP
+>   	help
+>   	   Adds support to dynamically detect the presence of the ZICBOM
+>   	   extension (Cache Block Management Operations) and enable its
+> diff --git a/arch/riscv/Kconfig.errata b/arch/riscv/Kconfig.errata
+> index 2acc7d876e1f..3bcae5bd3231 100644
+> --- a/arch/riscv/Kconfig.errata
+> +++ b/arch/riscv/Kconfig.errata
+> @@ -86,6 +86,7 @@ config ERRATA_THEAD_MAE
+>   	bool "Apply T-Head's memory attribute extension (XTheadMae) errata"
+>   	depends on ERRATA_THEAD && 64BIT && MMU
+>   	select RISCV_ALTERNATIVE_EARLY
+> +	select DMA_DIRECT_REMAP
+>   	default y
+>   	help
+>   	  This will apply the memory attribute extension errata to handle the
+> @@ -96,7 +97,6 @@ config ERRATA_THEAD_MAE
+>   config ERRATA_THEAD_CMO
+>   	bool "Apply T-Head cache management errata"
+>   	depends on ERRATA_THEAD && MMU
+> -	select DMA_DIRECT_REMAP
+>   	select RISCV_DMA_NONCOHERENT
+>   	select RISCV_NONSTANDARD_CACHE_OPS
+>   	default y
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
