@@ -4,70 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C3963C021A9
-	for <linux-riscv@archiver.kernel.org>; Mon, 17 Feb 2025 17:51:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E58CC021AA
+	for <linux-riscv@archiver.kernel.org>; Mon, 17 Feb 2025 17:51:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=N5KqU+JoBVuE5W0FvRJkqMhlojqzvfLnK37i+COnUdI=; b=A/hhWnyVUK+pxc
-	mCkAYbqKdWgzQCsbBgtsRQ8xXjPBbhbV55eqi1ddWXtlxM8KEShUcQVgbMGVVv5qqv0+eWr0MHlhJ
-	G0p8+90l+ErQSRccMUAtYxIooWqDInrGqYHMu7Rr2mCW5XBCkCryI9esLsksOtpwXfe4hAD3+GJhM
-	5BqPDbXWbS7YRV0iMPFH2kQMZWtcIA/IEGSk0PRnlvdQbwrqrHfvR+MsDjxHDWcfx0p+p2p81ebgh
-	TaMHLlakcd+yLTQZB56m7+Eei+mkB59Mpiz7rUJ7SvXAEgRJtacAHGpW69Wz+0hataHXl185A1FDM
-	fJWdenjGRHwHdyeijJLw==;
+	List-Owner; bh=61Laf2NqnE1oyEAD8o+hubK0ogch0s9YB3VnyRU25IE=; b=CyHysQmkFLd4b7
+	VqhCl8GPeE7j331e5BLis7IXRNFzmaw2zeBqA4Zq/Rsr6P+YvVOdq5p+nTbmA3nM3oaa9Dgl8m7LQ
+	PWSZYnY9Ap3M/A5OOZqqe/LojDYcif20TkfNVeIrxw6gSRjaM/fYicTz8ySqTuwK2jvgRZ8me7Cme
+	9NSR6ajGPb8qqxgAyYc/Q9N3+Ru5IeBa/l+cNB59D1/bRYAEs10lX7oDxrjcseSpfxFE7n+LisJqR
+	oz1HDWwM1i1BAgyghc4S4TANQKcejlkJT8+BaA799dN1GlckIgIChIPEzUDIQ2tRBvQ3sdXBd70bZ
+	AyzxSdCbIp4ny+McMpTg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tk5HR-00000005WD1-3lmb;
-	Mon, 17 Feb 2025 17:51:41 +0000
-Received: from mail-wm1-x32f.google.com ([2a00:1450:4864:20::32f])
+	id 1tk5Hb-00000005WGQ-2AoM;
+	Mon, 17 Feb 2025 17:51:51 +0000
+Received: from mail-wm1-x334.google.com ([2a00:1450:4864:20::334])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tk47a-00000005I7g-39GJ;
-	Mon, 17 Feb 2025 16:37:27 +0000
-Received: by mail-wm1-x32f.google.com with SMTP id 5b1f17b1804b1-43948f77f1aso29757645e9.0;
-        Mon, 17 Feb 2025 08:37:26 -0800 (PST)
+	id 1tk47c-00000005I8j-3VXk;
+	Mon, 17 Feb 2025 16:37:29 +0000
+Received: by mail-wm1-x334.google.com with SMTP id 5b1f17b1804b1-43948f77f1aso29757825e9.0;
+        Mon, 17 Feb 2025 08:37:28 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1739810245; x=1740415045; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1739810247; x=1740415047; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=X/0biRJus/9M4PhuIap27DDVgRLzlMn9BGl57AT63dU=;
-        b=KEOJEkv4VE4uzdT9nw6rIiRbgwjTmIuxU9+6M2IrLLIjjxtgSsGMrdlm1I1LOL6YuG
-         +XTG+vVA3S4C0gh4xIGyPEAnlkCcCRSJEAJv+LXKe0ltIN1pNqBJy19tA196q3+fNq54
-         yVPiYfNrTYc0I4ZmdXGdAA2Lk61hsRTL/1pTFmykiQR8tGErr/ZES5NQu43JaQRVmqzY
-         iaUS/W3RzQzzBg9Crb/s0nQQc66R1+uo1zIfjrqVI+gESmZ82AuaGwS3GiH2EzAHGqrr
-         0jgYhdtVcGPtYpGz9lLsp+MaI980+2Ov5JzCihE31qGM3K3FWxuQly4iayS2M3p2AdOF
-         EuxQ==
+        bh=hZ36QZVLWFwcj8T2KkUEKH5QEwqEfUJk7NDzYKKZiQU=;
+        b=PRXqPH1usQFzipxbV/oVq5us5vGgYPeovxJvgJyuD2zcGm/KGREUjJo/v6UXJKCXEH
+         dWFlWhmL0+ALuLKq5FExvKHHlRmTUpnrrciZK/KUdLbD+q1o79A7xYtnJC/M+jDcFzXi
+         FxAlti2aU6Tq6oA0BgyLwWnlv+d+ScBCQ3bob/VUMWLcgkXHglP2RTz1dpIvN0JrvTHj
+         JqDkfU/N6W3g7w5UzhrUMT2RD1o73AfBgE/kufEaCRGlICEBhIDQ5umc4XXhF93b9s6Q
+         7+mj/1A6P3nUQAvBPHSoySmuk2RMsKRjmSYSDAmLaYBw7CU1EyEpyAbizBXnJAhOZWeo
+         lPgg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1739810245; x=1740415045;
+        d=1e100.net; s=20230601; t=1739810247; x=1740415047;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=X/0biRJus/9M4PhuIap27DDVgRLzlMn9BGl57AT63dU=;
-        b=uGTE5Xzabmm5jwaMVsZM7QvAC+4FSDeLk42b9PfRmRJ8H6I7CmeaW9YqX85wH374Ri
-         eAmn95AupL3t6A4ENJ3k2Zn6TuEyQM3W7SlPo20S1+0Ld2u9+dxxUQyj40P5Mt0pGJGI
-         gZDHnGK6iZxZ0J4gphpNvcPePv+IlUf55jbbCHgGZsTTagDOmYdGEUn3IGpNUQ+Mtwxe
-         EhuRV/uNd5o4YtUYl8WJC3i94eZ1lK6/DmBMSxUSPkELoqoI3AUllt8yUzxL4Mhoqa5S
-         EmaB1rF4xdYru7aBJE6fmadTj+OtXEjN1e3DbESp6FhRmsJo/4Was0Y7UYrXpwjqFtcg
-         gwTw==
-X-Forwarded-Encrypted: i=1; AJvYcCV4Gt8G/xorcpx9kjTsFEjPGN50sVFjiHYSPfmJZTC2x0BZXn8aUA9X7+XL7vKWnhEHZ3RPzwK56iryldhqXob/@lists.infradead.org, AJvYcCWJmq0v7JpDHpl9e04HbXV78iNKtzv42MS+m6mH3lPac2j+S7pRnb6nyHAwgyP6zr74ZBNiXSKuU6P0Jsg=@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz3zk6IIHBk0JFzBVAJmVCaRSrR/TVCvYmdZp9eqEJg+jz3vjUf
-	b5biTm1VBNlcmVjOTHehNAzYsS6uhDu72hOufqVh9/k95XFDbxDi
-X-Gm-Gg: ASbGncuk6ek8ZOYR8E6Br3+qN6B2a33WFOgoE7axoFSjmEasVB90eQII6p7pK43j4Rt
-	HLBLm2KMzq6F/KXjBEU+n0Jeb2UAVH3ppuWHqQ33aXpxPh2f93q2L8onVpBSzE7Fv7n6eHSQDjn
-	2Y+mDsCieDelhM32tiqa8ocN7TMiMA6AVJYeFaNiRqS9tqScFD/2qFmjiLGoExCXuuc2Z3oOU9N
-	InBK210HeMwcHFJXEGg8oO9DIASuAEHY/MtbwI2bUxLN5ktq8KP8kMVIdRZA/HBpWbn8qjg1piB
-	0Dt2q8oXV/qgJpiTbZvjxiPnhFIBteVnYRT8OC8FnH9qGpKLeEbcWR81e0Mo+bmP1wdbtZnFC0x
-	t7Vmskgk=
-X-Google-Smtp-Source: AGHT+IGnpGd1arKCvdVh8OB0EDoGo4KblVvIlIVVW7BFnKV8rTfrkS3K0VNVohWAHieTwgBwEJe4Nw==
-X-Received: by 2002:a05:600c:4688:b0:439:89e9:4eff with SMTP id 5b1f17b1804b1-43989e951bbmr25428885e9.10.1739810245015;
-        Mon, 17 Feb 2025 08:37:25 -0800 (PST)
+        bh=hZ36QZVLWFwcj8T2KkUEKH5QEwqEfUJk7NDzYKKZiQU=;
+        b=Lr8hq9aVpEgxJvWF3tJyLYRYz3kvmqiH+JHsirbv598YfQwVBN15YGo/Pb4Hu1wa1f
+         6aXQAoMrYWsFS3sQRmGEAySjSx5rSHa/AAamp9Pmgv+QAIlogH3VFHp4DIOORTlvc6ze
+         pBxLqjK477Ab3+KQRAV+/LsfY4F6ulvh8NgjcUWMujLUTTsL4G0k+cT6M4V90sIk07iC
+         d1tgj2UObXsaWsvW0RfODAq2UFZPe9+Fa0kXddQM8MruYlZq65caE5J14KnCmgXUx0T6
+         3ytFnGhb4KCt2tUjgYkerETHZmCGRux4/4K68fGODlRn0ktePmpA3g4reaPzanjEMeId
+         sFeg==
+X-Forwarded-Encrypted: i=1; AJvYcCUtmqudo7qgYjTcxdS4NaRsTEi10N5t1Ym/Lu1nvBsxQmUxvzZZ7AzAQ2dXDgG5UDHN1WGKi9G2l/EpJ8UphDpd@lists.infradead.org, AJvYcCVqEeagO0jJ6xKLpjGqYCmjUHhWwfkZYdP1cXV5tWd23rweQhmMcYhADCbeeHRn6rw3U6eFOL2XfwDAtf8=@lists.infradead.org
+X-Gm-Message-State: AOJu0YyfuGDuKoDSEx8S6ceDkuVNDpocm24pZLqEaBIf7GUJ3G/huIuU
+	PcI9pCS84mj4z1/63QO0Wo8Tk0swwn0Qyo+HT+gQyoqW59WFig0pdGFRdA==
+X-Gm-Gg: ASbGncsXwaJQKkGUwpNJcCmDbMmLU61WXlgex6/Sqe8abi/IcpKYfHLTyCpNvM0jaLs
+	bibEZPKC4ZE91LWEoFv0hNr+sptGN4gPrCeq2zkQD/CKJFOmj6v5veIiFQ8J5hnAViUvBqaKp6M
+	a7oRaJkKtvf6IGiNG0kHoTnZR0I4hefDo62IQPOS71Kd9s2nEMm777HBZicYOAD0Qw1QuB3oN8B
+	MhjtbAMqHTkjT9gGum/guPRcyr21oKl0C49ZsPjiYl3mHdUSaspKSEdrkh4QMz7McvF9Ojrc1ZG
+	ZvXSqfG4diwSKWHyCoWMOU4EuMZMAUqGXowpTaGioRFMEcQPW2PS9QYrIYddoJpxsKeBmr2Vp/1
+	hQ8P59a8=
+X-Google-Smtp-Source: AGHT+IEy54knXhOWSdtV9GyJZiVARzLmEOfX1F7j3ZG37VozHahpHs0vmYGUgUyc0AkFNGY48X3mRg==
+X-Received: by 2002:a05:600c:3585:b0:439:5b36:b4e3 with SMTP id 5b1f17b1804b1-4396e6e19abmr89349955e9.12.1739810247218;
+        Mon, 17 Feb 2025 08:37:27 -0800 (PST)
 Received: from localhost (p200300e41f22a600f22f74fffe1f3a53.dip0.t-ipconnect.de. [2003:e4:1f22:a600:f22f:74ff:fe1f:3a53])
-        by smtp.gmail.com with UTF8SMTPSA id 5b1f17b1804b1-4398872fa85sm24012905e9.28.2025.02.17.08.37.23
+        by smtp.gmail.com with UTF8SMTPSA id 5b1f17b1804b1-439618a9ab0sm125047905e9.35.2025.02.17.08.37.25
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 17 Feb 2025 08:37:23 -0800 (PST)
+        Mon, 17 Feb 2025 08:37:25 -0800 (PST)
 From: Thierry Reding <thierry.reding@gmail.com>
 To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
 Cc: x86@kernel.org,
@@ -80,16 +80,16 @@ Cc: x86@kernel.org,
 	linux-pci@vger.kernel.org,
 	linux-acpi@vger.kernel.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH 2/7] MIPS: Embed syscore_ops in PCI context
-Date: Mon, 17 Feb 2025 17:37:08 +0100
-Message-ID: <20250217163713.211949-3-thierry.reding@gmail.com>
+Subject: [PATCH 3/7] bus: mvebu-mbus: Embed syscore_ops in mbus context
+Date: Mon, 17 Feb 2025 17:37:09 +0100
+Message-ID: <20250217163713.211949-4-thierry.reding@gmail.com>
 X-Mailer: git-send-email 2.48.1
 In-Reply-To: <20250217163713.211949-1-thierry.reding@gmail.com>
 References: <20250217163713.211949-1-thierry.reding@gmail.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250217_083726_807499_140A7DF2 
-X-CRM114-Status: GOOD (  14.30  )
+X-CRM114-CacheID: sfid-20250217_083728_876094_6F25B7E1 
+X-CRM114-Status: GOOD (  12.37  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,84 +108,80 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Thierry Reding <treding@nvidia.com>
 
-This enables the syscore callbacks to obtain the PCI context without
+This enables the syscore callbacks to obtain the mbus context without
 relying on a separate global variable.
 
 Signed-off-by: Thierry Reding <treding@nvidia.com>
 ---
- arch/mips/pci/pci-alchemy.c | 24 ++++++++++++------------
- 1 file changed, 12 insertions(+), 12 deletions(-)
+ drivers/bus/mvebu-mbus.c | 20 ++++++++++++--------
+ 1 file changed, 12 insertions(+), 8 deletions(-)
 
-diff --git a/arch/mips/pci/pci-alchemy.c b/arch/mips/pci/pci-alchemy.c
-index a20de7160b6b..02f0616518e1 100644
---- a/arch/mips/pci/pci-alchemy.c
-+++ b/arch/mips/pci/pci-alchemy.c
-@@ -33,6 +33,7 @@
- 
- struct alchemy_pci_context {
- 	struct pci_controller alchemy_pci_ctrl; /* leave as first member! */
-+	struct syscore_ops pmops;
- 	void __iomem *regs;			/* ctrl base */
- 	/* tools for wired entry for config space access */
- 	unsigned long last_elo0;
-@@ -46,6 +47,12 @@ struct alchemy_pci_context {
- 	int (*board_pci_idsel)(unsigned int devsel, int assert);
+diff --git a/drivers/bus/mvebu-mbus.c b/drivers/bus/mvebu-mbus.c
+index 92daa45cc844..1f22bff0773c 100644
+--- a/drivers/bus/mvebu-mbus.c
++++ b/drivers/bus/mvebu-mbus.c
+@@ -130,6 +130,7 @@ struct mvebu_mbus_win_data {
  };
  
-+static inline struct alchemy_pci_context *
-+syscore_to_pci_context(struct syscore_ops *ops)
+ struct mvebu_mbus_state {
++	struct syscore_ops syscore;
+ 	void __iomem *mbuswins_base;
+ 	void __iomem *sdramwins_base;
+ 	void __iomem *mbusbridge_base;
+@@ -148,6 +149,12 @@ struct mvebu_mbus_state {
+ 	struct mvebu_mbus_win_data wins[MBUS_WINS_MAX];
+ };
+ 
++static inline struct mvebu_mbus_state *
++syscore_to_mbus(struct syscore_ops *ops)
 +{
-+	return container_of(ops, struct alchemy_pci_context, pmops);
++	return container_of(ops, struct mvebu_mbus_state, syscore);
 +}
 +
- /* for syscore_ops. There's only one PCI controller on Alchemy chips, so this
-  * should suffice for now.
-  */
-@@ -306,9 +313,7 @@ static int alchemy_pci_def_idsel(unsigned int devsel, int assert)
- /* save PCI controller register contents. */
- static int alchemy_pci_suspend(struct syscore_ops *ops)
+ static struct mvebu_mbus_state mbus_state;
+ 
+ /*
+@@ -1008,7 +1015,7 @@ fs_initcall(mvebu_mbus_debugfs_init);
+ 
+ static int mvebu_mbus_suspend(struct syscore_ops *ops)
  {
--	struct alchemy_pci_context *ctx = __alchemy_pci_ctx;
--	if (!ctx)
--		return 0;
-+	struct alchemy_pci_context *ctx = syscore_to_pci_context(ops);
+-	struct mvebu_mbus_state *s = &mbus_state;
++	struct mvebu_mbus_state *s = syscore_to_mbus(ops);
+ 	int win;
  
- 	ctx->pm[0]  = __raw_readl(ctx->regs + PCI_REG_CMEM);
- 	ctx->pm[1]  = __raw_readl(ctx->regs + PCI_REG_CONFIG) & 0x0009ffff;
-@@ -328,9 +333,7 @@ static int alchemy_pci_suspend(struct syscore_ops *ops)
+ 	if (!s->mbusbridge_base)
+@@ -1042,7 +1049,7 @@ static int mvebu_mbus_suspend(struct syscore_ops *ops)
  
- static void alchemy_pci_resume(struct syscore_ops *ops)
+ static void mvebu_mbus_resume(struct syscore_ops *ops)
  {
--	struct alchemy_pci_context *ctx = __alchemy_pci_ctx;
--	if (!ctx)
--		return;
-+	struct alchemy_pci_context *ctx = syscore_to_pci_context(ops);
+-	struct mvebu_mbus_state *s = &mbus_state;
++	struct mvebu_mbus_state *s = syscore_to_mbus(ops);
+ 	int win;
  
- 	__raw_writel(ctx->pm[0],  ctx->regs + PCI_REG_CMEM);
- 	__raw_writel(ctx->pm[2],  ctx->regs + PCI_REG_B2BMASK_CCH);
-@@ -354,11 +357,6 @@ static void alchemy_pci_resume(struct syscore_ops *ops)
- 	alchemy_pci_wired_entry(ctx);	/* install it */
+ 	writel(s->mbus_bridge_ctrl,
+@@ -1069,11 +1076,6 @@ static void mvebu_mbus_resume(struct syscore_ops *ops)
+ 	}
  }
  
--static struct syscore_ops alchemy_pci_pmops = {
--	.suspend	= alchemy_pci_suspend,
--	.resume		= alchemy_pci_resume,
+-static struct syscore_ops mvebu_mbus_syscore_ops = {
+-	.suspend	= mvebu_mbus_suspend,
+-	.resume		= mvebu_mbus_resume,
 -};
 -
- static int alchemy_pci_probe(struct platform_device *pdev)
- {
- 	struct alchemy_pci_platdata *pd = pdev->dev.platform_data;
-@@ -478,7 +476,9 @@ static int alchemy_pci_probe(struct platform_device *pdev)
+ static int __init mvebu_mbus_common_init(struct mvebu_mbus_state *mbus,
+ 					 phys_addr_t mbuswins_phys_base,
+ 					 size_t mbuswins_size,
+@@ -1118,7 +1120,9 @@ static int __init mvebu_mbus_common_init(struct mvebu_mbus_state *mbus,
+ 		writel(UNIT_SYNC_BARRIER_ALL,
+ 		       mbus->mbuswins_base + UNIT_SYNC_BARRIER_OFF);
  
- 	__alchemy_pci_ctx = ctx;
- 	platform_set_drvdata(pdev, ctx);
--	register_syscore_ops(&alchemy_pci_pmops);
-+	ctx->pmops.suspend = alchemy_pci_suspend;
-+	ctx->pmops.resume = alchemy_pci_resume;
-+	register_syscore_ops(&ctx->pmops);
- 	register_pci_controller(&ctx->alchemy_pci_ctrl);
+-	register_syscore_ops(&mvebu_mbus_syscore_ops);
++	mbus->syscore.suspend = mvebu_mbus_suspend;
++	mbus->syscore.resume = mvebu_mbus_resume;
++	register_syscore_ops(&mbus->syscore);
  
- 	dev_info(&pdev->dev, "PCI controller at %ld MHz\n",
+ 	return 0;
+ }
 -- 
 2.48.1
 
