@@ -4,94 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20ED6C021AA
-	for <linux-riscv@archiver.kernel.org>; Mon, 17 Feb 2025 17:22:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 21B98C021A9
+	for <linux-riscv@archiver.kernel.org>; Mon, 17 Feb 2025 17:48:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=JQQKKmvFJp1M3akcW/2z0tZzWVprN/v9hp6pV8AQJPY=; b=JHZb+kJq2Oln11
-	UfaQMNNX6N2nvh+nUuLGs3XfIpez5Ht39TylR0QgaKq6Xc5/ShmGGOJhamiVX8gMDlKGWslU2zoYO
-	MH7T7erJ/5WC0giPXSJJeHmc5X75dSdaNfW/40Mgz8Uy8ohKcQ7HKJLAZ729YwQD0FEzr00GuyA85
-	3+Y5IVz9/oXcsW/536PglLgxqDipqz3ncMcTyhK6dTnickNRcNpi172jWtrDQrqS32JBo1xDVtr5A
-	Lgfojy4OqUxXP/uQaBD7zDItZspPpBOEBet82MUoZ3swCjwlH32WTeNNm42bESNzG+s0GTkCobl0D
-	o/fY9oacdZnkOkv3Shyw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=8OS73Y338SCO/m+pv+PmNShlRCXTAUuTIvKpfJgtdqo=; b=lN1grorfNWlyqH
+	1wUtl1H7LycBh7xYp0zY1H9UMxQbPfCgnvfG7BWWzSU6NdTJSVzMAjOjrOH08hdH+RjPZaKCzSvH1
+	x2rYdAJ/h4ymt5Zdas2sJzqvkQ0YPkatQZ5exutmKidcBxSL+18XKypAg6w4xMirpIQXSSg5EmaMn
+	ym/8JSHoAZVRXxDVW5ZzTww28MKgNLF2uUDNT42HPhEF1BlMk00KQUYC3xtUOd2yGijD79ZeMzF0c
+	VBB8knuwAPjuZkSQOLkOQjCYsIXa/SYiFJVnC9Z6BP+0fP6jWidX5AThpnI7orZ4Xy0OrmeCJJnJg
+	hSO7Wk0VY6c1ZWvbVGNA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tk4og-00000005Qxl-0JEf;
-	Mon, 17 Feb 2025 17:21:58 +0000
-Received: from mail-wr1-x431.google.com ([2a00:1450:4864:20::431])
+	id 1tk5EZ-00000005VhD-1dvf;
+	Mon, 17 Feb 2025 17:48:43 +0000
+Received: from mail-wm1-x32e.google.com ([2a00:1450:4864:20::32e])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tk3kW-00000005Dpz-22ie;
-	Mon, 17 Feb 2025 16:13:37 +0000
-Received: by mail-wr1-x431.google.com with SMTP id ffacd0b85a97d-38f2f783e4dso2273362f8f.3;
-        Mon, 17 Feb 2025 08:13:35 -0800 (PST)
+	id 1tk47W-00000005I56-2aye;
+	Mon, 17 Feb 2025 16:37:23 +0000
+Received: by mail-wm1-x32e.google.com with SMTP id 5b1f17b1804b1-4393dc02b78so30359175e9.3;
+        Mon, 17 Feb 2025 08:37:21 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1739808814; x=1740413614; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=1KxbE/LUi+pBeXrp6r1WoRsJN4gZHatc3HSxCggqAc8=;
-        b=CITy9zIxJ5BxPDqycyf5FzR88I4cerZR+tBg2R93m4Dlad8VEcSeFEgMrnt++5mc1L
-         GYfNU1tlcPg6XJy/ybJ6KMB8Y74+u+SmhXxiQ+qlM48OSi/0Wfv9Mso1uafPuPbdz78r
-         xP8pm1PWye193zCYfGT7b4cBSLrbxaUkh7BW2/RiRUF9zt82I6X23vAVH4wLnOo+/yX7
-         6v9zm1k0/2hj1Dt2hJa9D+jF03p0vwFDtFnSn6vDDeHOwKs1G9oSEgQ1AJPUS+6ZcxcG
-         FcOhfk+waPWrj9fyk4MFcxAPFSjUEi/eLSdORdoA6BYBejgogO7+85sx4X3+N9YQniLV
-         dkjw==
+        d=gmail.com; s=20230601; t=1739810240; x=1740415040; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=yiZt2i6xSOw8eOJOYff501csDZIGzCac6UOW2wl3hpw=;
+        b=LTMO3hmUC5BFC5Qhkne5Zceyx6qvRxd1PAv0fE3L9NaoaxFWd6oOFZZwmQARL+Trbz
+         XRe/azREOpIaW9YGvS6ygheY7T03E2jQpblwSQLOyn45KykUbYvCV6GRwJ6SO9cRbN1s
+         n683Z8eHLfZdjcujjNcq+kZBnkeJ2/zQyDNpxvPp5bAXrtCgOQzz37GtknSnIuV7gIze
+         F/wCfhkknd01KHJo0aHLxgrYlg/GbZARMbYCmzWsioWts30TSNSIWd7keKutDjnCJrQY
+         Dmwu7DVIyoGklPQ9yao1mUvCzjNxe2iF2dee6k5255q678aeMLADlnpugs7T5OOArhOJ
+         gOnQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1739808814; x=1740413614;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=1KxbE/LUi+pBeXrp6r1WoRsJN4gZHatc3HSxCggqAc8=;
-        b=fNxDDw+lQ8cn1ZfUlwlMDmDurA/LTY7r88BPOjAe/bQnt1kSAgO9Vd5yXUvoeK7jr4
-         wAN4869Vyd46cgwZZx707iAlcZjL3FU4crl0oxgIerflxDaA74ECUeDLvvYfy/kjtoRD
-         vQarAX2QzTKevh5VLWcuS0dzXyudWvq+KuM9Wdk92ig8nf4mDlQSd+R/6ShysevPsXFQ
-         6xEwPvM9tRyERPHrB314QgsomVMEMPScZGlenBQRh8RobO8y01IAPVYHPDB2fVyTsDnc
-         btxSqeSoVmK3160uY124+hQcjBB2jY5HvnMQ0Vk5bIMR9teF02488qpeFRwGscRsVMom
-         Ay5w==
-X-Forwarded-Encrypted: i=1; AJvYcCULdPUksZ8vi8QMQjvC0otA+WeXPpkG6/MapFeEnAfLDBlykxMib0ZfzoVx9xvDQc8PwtOFz+/tYekBp8o=@lists.infradead.org, AJvYcCX8/PrsfY3bzbTHtxsmB9X6d7tIsHz+H5s+fd5qwW5nkS3buxQnoDJ59WwGwcCubfYGBLhNqM2qUn3zjFIG5azZ@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzny7x5xVBMQki9/piKDWZm7nqXF+IHz4JHdiqXvaqvypcDrZAL
-	f3Ij+gFRhd0cZBuWxcJeUfR1HMKj1iAGBzRMBsH6Ux27Ly90zQMoN7TC46rpfk25/EpLJDe//AF
-	ko6QHZf9zY03kjQlngPueWVwtedM=
-X-Gm-Gg: ASbGncuMbnEfCO60USJVh2RCXm7vaE8CJcnVV2Py3pWR60aI0+wZzXNs7x40GXgjtW0
-	GDU7NCtHsLT7c3utoTlwHzr48K7+TQ/lt5VIKRp0vggFrDpzypj3fSoGD32WzBkyHtlE4dUuvEP
-	M=
-X-Google-Smtp-Source: AGHT+IHm8HBgn3sImk7NTjtXb+A27btOABGGevI0EONCrC/Ff9AcLGqA4yAvmgT0QuA1lhKIHNQku0J8pxt9SI1xfb8=
-X-Received: by 2002:a5d:64cc:0:b0:38f:4fa6:bb24 with SMTP id
- ffacd0b85a97d-38f4fa6bca3mr698753f8f.39.1739808814051; Mon, 17 Feb 2025
- 08:13:34 -0800 (PST)
+        d=1e100.net; s=20230601; t=1739810240; x=1740415040;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=yiZt2i6xSOw8eOJOYff501csDZIGzCac6UOW2wl3hpw=;
+        b=hgNMitiB9aeFF4La9enyY5uJYtMVmqdEMf9JutmBzdAepq4hNvcRPtF3xqhDhzDhXR
+         /InuvrvffsHpGEcCJ0Drs+3EVmh7c7LkR9QUBe8Um7GrSsmrRribPW7V0kCs8cHer/k6
+         p4jzhIYZB7ky8AGP2pA7d7oRRg6nUOrWUVWZIhzrmfpZJa2/FObu4ON0CuSEcY0xxgbW
+         pjWvVeXuJCmRuQxfLaiBPWqf1Yzvzdewwk2VEwlqTuRL/e15jsFoY3CBCAgZlpzItjDE
+         djd21ftCXcBXQFxNRAQDyxpGgLIH5yKrPO2qSWNgQGr5yHX12Qg5nZRYeIOnOE2qEDe6
+         my9g==
+X-Forwarded-Encrypted: i=1; AJvYcCUP13zl2B8yeaWPXMLySeaIIJB09yKSBwNSsIbeR4hvJQGNuK5Oip73LEGpjyZp5y393l/z86/Gf4ZOgss=@lists.infradead.org, AJvYcCWDvAjb8n2sQyZjizC+3pY4Gjjb8gQQWPVm0+1Ipg9RbBWGhbFkNGnPFvQaLQfZhTwf2UPVdh6faCJgDQsz2bnI@lists.infradead.org
+X-Gm-Message-State: AOJu0YwI9O2FVMR02GVxJn+GfzSoIkX/dQ1nzr5NgbUnQhu29LYNaxmR
+	/Dbc86YW3ohN8Qa7gXYaQH9T3s1lwKiqIxcrT0Mri27DsNWChU6yNGmUCw==
+X-Gm-Gg: ASbGncu5L0aGCzkHqe/zM6YOenW/3qAkRCjNVhmh76MoTT+l25oLejbJeKQsWpWPn/n
+	JG26AHKzVNeQmKmyK4hD9m7y9+Cy9KDMo16sxLnTPFpFmqmGxgAQDsSJgh1Q3TtsHdbZbybkPba
+	DlENAG4iGqCRol2DhZTCGt3huCeWnnS6tk9NkY58URbIc8/FCBtMsNBP9fsy1uhNmTwWsQCYRGW
+	HwziwTxi3sv+H7k3HEe8wGqmsGWHmy0TgY47Wi8563X/CD6fVy1pHfkTHktwNC4eBBpzqo0FtLJ
+	ELa0cjOqXrTBmRVSlvLpWhj8Fa6qY01pBoKgl6GlxXAR6N5tyteVpQjTci0c3+nr1shGiZG71KK
+	XUNMs3zg=
+X-Google-Smtp-Source: AGHT+IFZaRz1DpftXgns+QX0TjkeJRpqUCBrHv7Z6/192+MAz8sD7WUt6O+3frJRvsZQb4k9gj7a7g==
+X-Received: by 2002:a05:600c:4f56:b0:439:3c71:16be with SMTP id 5b1f17b1804b1-4396e6f66a1mr101592005e9.13.1739810240075;
+        Mon, 17 Feb 2025 08:37:20 -0800 (PST)
+Received: from localhost (p200300e41f22a600f22f74fffe1f3a53.dip0.t-ipconnect.de. [2003:e4:1f22:a600:f22f:74ff:fe1f:3a53])
+        by smtp.gmail.com with UTF8SMTPSA id 5b1f17b1804b1-439880fbd6fsm24614705e9.18.2025.02.17.08.37.18
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 17 Feb 2025 08:37:18 -0800 (PST)
+From: Thierry Reding <thierry.reding@gmail.com>
+To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+Cc: x86@kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-riscv@lists.infradead.org,
+	linux-mips@vger.kernel.org,
+	loongarch@lists.linux.dev,
+	linuxppc-dev@lists.ozlabs.org,
+	linux-sh@vger.kernel.org,
+	linux-pci@vger.kernel.org,
+	linux-acpi@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH 0/7] syscore: Pass context data to callbacks
+Date: Mon, 17 Feb 2025 17:37:06 +0100
+Message-ID: <20250217163713.211949-1-thierry.reding@gmail.com>
+X-Mailer: git-send-email 2.48.1
 MIME-Version: 1.0
-References: <20241022015913.3524425-1-samuel.holland@sifive.com>
- <20241022015913.3524425-2-samuel.holland@sifive.com> <CA+fCnZeBEe3VWm=VfYvG-f4eh2jAFP-p4Xn4SLEeFCGTudVuEw@mail.gmail.com>
- <e7t5yzfw3dq5stp5xjy5yclcx6ikne4vwz7d6w2ukfw2b7gr6t@oomoynf3b2jl>
- <zjuvfdbl7q76ahdxk3lrgaznk7vjj43f5ftzfgrnca6dqtcd5x@5qj24womzgyq>
- <CA+fCnZfySpeRy0FCFidLdUUeqp97eBdjAqQyYPpz1WxYwcsW9A@mail.gmail.com>
- <aqhm7lc57srsfuff3bceb3dcmsdyxksb7t6bgwbqi54ppevpoh@apolj3nteaz6>
- <CA+fCnZdjTkreTcoo+J8wMhwDuAFM4g33U5BFy0OPtE0UCvyJbQ@mail.gmail.com>
- <CA+fCnZcoVdfXVN8VBFLx835cV0eGAT6Ewror2whLW761JnHjNQ@mail.gmail.com>
- <sjownmnyf4ygi5rtbedan6oauzvyk2d7xcummo5rykiryrpcrt@kasomz5imkkm> <tuwambkzk6ca5mpni7ev5hvr47dkbk6ru3vikplx67hyvqj2sw@rugqv7vhikxb>
-In-Reply-To: <tuwambkzk6ca5mpni7ev5hvr47dkbk6ru3vikplx67hyvqj2sw@rugqv7vhikxb>
-From: Andrey Konovalov <andreyknvl@gmail.com>
-Date: Mon, 17 Feb 2025 17:13:23 +0100
-X-Gm-Features: AWEUYZmQ1uvVHZE607fk9A3oqamhim11vzns-dfPoe7sFHHzYYWlnLIpBeOBi1A
-Message-ID: <CA+fCnZcHnWr0++8omB5ju8E3uSK+s+JOFZ3=UqgtVEcBzrm2Lg@mail.gmail.com>
-Subject: Re: [PATCH v2 1/9] kasan: sw_tags: Use arithmetic shift for shadow computation
-To: Maciej Wieczor-Retman <maciej.wieczor-retman@intel.com>
-Cc: Samuel Holland <samuel.holland@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	linux-riscv@lists.infradead.org, Andrey Ryabinin <ryabinin.a.a@gmail.com>, 
-	Alexander Potapenko <glider@google.com>, Dmitry Vyukov <dvyukov@google.com>, 
-	Vincenzo Frascino <vincenzo.frascino@arm.com>, kasan-dev@googlegroups.com, 
-	llvm@lists.linux.dev, Catalin Marinas <catalin.marinas@arm.com>, 
-	linux-kernel@vger.kernel.org, linux-mm@kvack.org, 
-	Alexandre Ghiti <alexghiti@rivosinc.com>, Will Deacon <will@kernel.org>, 
-	Evgenii Stepanov <eugenis@google.com>, Andrew Morton <akpm@linux-foundation.org>, 
-	linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250217_081336_526175_37A7DC19 
-X-CRM114-Status: GOOD (  33.30  )
+X-CRM114-CacheID: sfid-20250217_083722_658520_5644BA10 
+X-CRM114-Status: GOOD (  14.38  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,83 +98,158 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gRnJpLCBGZWIgMTQsIDIwMjUgYXQgOToyMeKAr0FNIE1hY2llaiBXaWVjem9yLVJldG1hbgo8
-bWFjaWVqLndpZWN6b3ItcmV0bWFuQGludGVsLmNvbT4gd3JvdGU6Cj4KPiBPbiAyMDI1LTAyLTEz
-IGF0IDE3OjIwOjIyICswMTAwLCBNYWNpZWogV2llY3pvci1SZXRtYW4gd3JvdGU6Cj4gPk9uIDIw
-MjUtMDItMTMgYXQgMDI6Mjg6MDggKzAxMDAsIEFuZHJleSBLb25vdmFsb3Ygd3JvdGU6Cj4gPj5P
-biBUaHUsIEZlYiAxMywgMjAyNSBhdCAyOjIx4oCvQU0gQW5kcmV5IEtvbm92YWxvdiA8YW5kcmV5
-a252bEBnbWFpbC5jb20+IHdyb3RlOgo+ID4+Pgo+ID4+PiBPbiBUdWUsIEZlYiAxMSwgMjAyNSBh
-dCA3OjA34oCvUE0gTWFjaWVqIFdpZWN6b3ItUmV0bWFuCj4gPj4+IDxtYWNpZWoud2llY3pvci1y
-ZXRtYW5AaW50ZWwuY29tPiB3cm90ZToKPiA+Pj4gPgo+ID4+PiA+IEkgZGlkIHNvbWUgZXhwZXJp
-bWVudHMgd2l0aCBtdWx0aXBsZSBhZGRyZXNzZXMgcGFzc2VkIHRocm91Z2gKPiA+Pj4gPiBrYXNh
-bl9tZW1fdG9fc2hhZG93KCkuIEFuZCBpdCBzZWVtcyBsaWtlIHdlIGNhbiBnZXQgYWxtb3N0IGFu
-eSBhZGRyZXNzIG91dCB3aGVuCj4gPj4+ID4gd2UgY29uc2lkZXIgYW55IHJhbmRvbSBib2d1cyBw
-b2ludGVycy4KPiA+Pj4gPgo+ID4+PiA+IEkgdXNlZCB0aGUgS0FTQU5fU0hBRE9XX09GRlNFVCBm
-cm9tIHlvdXIgZXhhbXBsZSBhYm92ZS4gVXNlcnNwYWNlIGFkZHJlc3NlcyBzZWVtCj4gPj4+ID4g
-dG8gbWFwIHRvIHRoZSByYW5nZSBbS0FTQU5fU0hBRE9XX09GRlNFVCAtIDB4ZmZmZjhmZmZmZmZm
-ZmZmZl0uIFRoZW4gZ29pbmcKPiA+Pj4gPiB0aHJvdWdoIG5vbi1jYW5vbmljYWwgYWRkcmVzc2Vz
-IHVudGlsIDB4MDAwN2ZmZmZmZmZmZmZmZiB3ZSByZWFjaCB0aGUgZW5kIG9mCj4gPj4+ID4ga2Vy
-bmVsIExBIGFuZCB3ZSBsb29wIGFyb3VuZC4gVGhlbiB0aGUgYWRkcmVzc2VzIHNlZW0gdG8gZ28g
-ZnJvbSAwIHVudGlsIHdlCj4gPj4+ID4gYWdhaW4gc3RhcnQgcmVhY2hpbmcgdGhlIGtlcm5lbCBz
-cGFjZSBhbmQgdGhlbiBpdCBtYXBzIGludG8gdGhlIHByb3BlciBzaGFkb3cKPiA+Pj4gPiBtZW1v
-cnkuCj4gPj4+ID4KPiA+Pj4gPiBJdCBnYXZlIG1lIHRoZSBzYW1lIHJlc3VsdHMgd2hlbiB1c2lu
-ZyB0aGUgcHJldmlvdXMgdmVyc2lvbiBvZgo+ID4+PiA+IGthc2FuX21lbV90b19zaGFkb3coKSBz
-byBJJ20gd29uZGVyaW5nIHdoZXRoZXIgSSdtIGRvaW5nIHRoaXMgZXhwZXJpbWVudAo+ID4+PiA+
-IGluY29ycmVjdGx5IG9yIGlmIHRoZXJlIGFyZW4ndCBhbnkgYWRkcmVzc2VzIHdlIGNhbiBydWxl
-IG91dCBoZXJlPwo+ID4+Pgo+ID4+PiBCeSB0aGUgZGVmaW5pdGlvbiBvZiB0aGUgc2hhZG93IG1h
-cHBpbmcsIGlmIHdlIGFwcGx5IHRoYXQgbWFwcGluZyB0bwo+ID4+PiB0aGUgd2hvbGUgNjQtYml0
-IGFkZHJlc3Mgc3BhY2UsIHRoZSByZXN1bHQgd2lsbCBvbmx5IGNvbnRhaW4gMS84dGgKPiA+Pj4g
-KDEvMTZ0aCBmb3IgU1cvSFdfVEFHUykgb2YgdGhhdCBzcGFjZS4KPiA+Pj4KPiA+Pj4gRm9yIGV4
-YW1wbGUsIHdpdGggdGhlIGN1cnJlbnQgdXBzdHJlYW0gdmFsdWUgb2YgS0FTQU5fU0hBRE9XX09G
-RlNFVCBvbgo+ID4+PiB4ODYgYW5kIGFybTY0LCB0aGUgdmFsdWUgb2YgdGhlIHRvcCAzIGJpdHMg
-KDQgZm9yIFNXL0hXX1RBR1MpIG9mIGFueQo+ID4+PiBzaGFkb3cgYWRkcmVzcyBhcmUgYWx3YXlz
-IHRoZSBzYW1lOiBLQVNBTl9TSEFET1dfT0ZGU0VUJ3MgdmFsdWUgaXMKPiA+Pj4gc3VjaCB0aGF0
-IHRoZSBzaGFkb3cgYWRkcmVzcyBjYWxjdWxhdGlvbiBuZXZlciBvdmVyZmxvd3MuIEFkZHJlc3Nl
-cwo+ID4+PiB0aGF0IGhhdmUgYSBkaWZmZXJlbnQgdmFsdWUgZm9yIHRob3NlIHRvcCAzIGJpdHMg
-YXJlIHRoZSBvbmNlIHdlIGNhbgo+ID4+PiBydWxlIG91dC4KPiA+Pgo+ID4+RWgsIHNjcmF0Y2gg
-dGhhdCwgdGhlIDNyZCBiaXQgZnJvbSB0aGUgdG9wIGNoYW5nZXMsIGFzCj4gPj5LQVNBTl9TSEFE
-T1dfT0ZGU0VUIGlzIG5vdCBhIHRoYXQtd2VsbC1hbGlnbmVkIHZhbHVlLCB0aGUgb3ZlcmFsbCBz
-aXplCj4gPj5vZiB0aGUgbWFwcGluZyBob2xkcy4KPiA+Pgo+ID4+PiBUaGUgS0FTQU5fU0hBRE9X
-X09GRlNFVCB2YWx1ZSBmcm9tIG15IGV4YW1wbGUgZG9lcyByZWx5IG9uIHRoZQo+ID4+PiBvdmVy
-ZmxvdyAoYXJndWFibHksIHRoaXMgbWFrZXMgdGhpbmdzIG1vcmUgY29uZnVzaW5nIFsxXSkuIEJ1
-dCBzdGlsbCwKPiA+Pj4gdGhlIHBvc3NpYmxlIHZhbHVlcyBvZiBzaGFkb3cgYWRkcmVzc2VzIHNo
-b3VsZCBvbmx5IGNvdmVyIDEvMTZ0aCBvZgo+ID4+PiB0aGUgYWRkcmVzcyBzcGFjZS4KPiA+Pj4K
-PiA+Pj4gU28gd2hldGhlciB0aGUgYWRkcmVzcyBiZWxvbmdzIHRvIHRoYXQgMS84dGggKDEvMTZ0
-aCkgb2YgdGhlIGFkZHJlc3MKPiA+Pj4gc3BhY2UgaXMgd2hhdCB3ZSB3YW50IHRvIGNoZWNrIGlu
-IGthc2FuX25vbl9jYW5vbmljYWxfaG9vaygpLgo+ID4+Pgo+ID4KPiA+UmlnaHQsIEkgc29tZWhv
-dyBmb3Jnb3QgdGhhdCBvYnZpb3VzbHkgdGhlIHdob2xlIExBIGhhcyB0byBtYXAgdG8gMS8xNnRo
-IG9mIHRoZQo+ID5hZGRyZXNzIHNwYWNlIGFuZCBpdCBzaG9sZCBzdGF5IGNvbnRpZ3VvdXMuCj4g
-Pgo+ID5BZnRlciByZXRoaW5raW5nIGhvdyB0aGUgbWFwcGluZyB3b3JrZWQgYmVmb3JlIGFuZCB3
-aWxsIHdvcmsgYWZ0ZXIgbWFraW5nIHN0dWZmCj4gPnNpZ25lZCBJIHRob3VnaHQgdGhpcyBwYXRj
-aCBjb3VsZCBtYWtlIHVzZSBvZiB0aGUgb3ZlcmZsb3c/Cj4gPgo+ID5Gcm9tIHdoYXQgSSBub3Rp
-Y2VkLCBhbGwgdGhlIEtjb25maWcgdmFsdWVzIGZvciBLQVNBTl9TSEFET1dfT0ZGU0VUIHNob3Vs
-ZCBtYWtlCj4gPml0IHNvIHRoZXJlIHdpbGwgYmUgb3ZlcmZsb3cgd2hlbiBpbnB1dGluZyBtb3Jl
-IGFuZCBtb3JlIHBvc2l0aXZlIGFkZHJlc3Nlcy4KPiA+Cj4gPlNvIG1heWJlIHdlIHNob3VsZCBm
-aXJzdCBmaW5kIHdoYXQgdGhlIG1vc3QgbmVnYXRpdmUgYW5kIG1vc3QgcG9zaXRpdmUgKHNpZ25l
-ZCkKPiA+YWRkcmVzc2VzIG1hcCB0byBpbiBzaGFkb3cgbWVtb3J5IGFkZHJlc3Mgc3BhY2UuIEFu
-ZCB0aGVuIHdoZW4gbG9va2luZyBmb3IKPiA+aW52YWxpZCB2YWx1ZXMgdGhhdCBhcmVuJ3QgdGhl
-IHByb2R1Y3Qgb2Yga2FzYW5fbWVtX3RvX3NoYWRvdygpIHdlIHNob3VsZCBjaGVjawo+ID4KPiA+
-ICAgICAgIGlmIChhZGRyID4ga2FzYW5fbWVtX3RvX3NoYWRvdyhiaWdnZXN0X3Bvc2l0aXZlX2Fk
-ZHJlc3MpICYmCj4gPiAgICAgICAgICAgYWRkciA8IGthc2FuX21lbV90b19zaGFkb3coc21hbGxl
-c3RfbmVnYXRpdmVfYWRkcmVzcykpCj4gPiAgICAgICAgICAgICAgIHJldHVybjsKPiA+Cj4gPklz
-IHRoaXMgY29ycmVjdD8KPgo+IEkgc3VwcG9zZSB0aGUgb3JpZ2luYWwgY29kZSBpbiB0aGUgcGF0
-Y2ggZG9lcyB0aGUgc2FtZSB0aGluZyB3aGVuIHlvdSBjaGFuZ2UgdGhlCj4gfHwgaW50byAmJjoK
-Pgo+ICAgICAgICAgaWYgKGFkZHIgPCBLQVNBTl9TSEFET1dfT0ZGU0VUIC0gbWF4X3NoYWRvd19z
-aXplIC8gMiAmJgo+ICAgICAgICAgICAgIGFkZHIgPj0gS0FTQU5fU0hBRE9XX09GRlNFVCArIG1h
-eF9zaGFkb3dfc2l6ZSAvIDIpCj4gICAgICAgICAgICAgICAgIHJldHVybjsKPgo+IGthc2FuX21l
-bV90b19zaGFkb3coMHg3RkZGRkZGRkZGRkZGRkZGKSAtPiAweDA3ZmY3ZmZmZmZmZmZmZmYKPiBr
-YXNhbl9tZW1fdG9fc2hhZG93KDB4ODAwMDAwMDAwMDAwMDAwMCkgLT4gMHhmN2ZmODAwMDAwMDAw
-MDAwCgpJJ20gYSBiaXQgbG9zdCB3aXRoIHRoZXNlIGNhbGN1bGF0aW9ucyBhdCB0aGlzIHBvaW50
-LiBQbGVhc2Ugc2VuZCB0aGUKZnVsbCBwYXRjaCwgaW5jbHVkaW5nIHRoZSBuZXcgdmFsdWVzIGZv
-ciBLQVNBTl9TSEFET1dfT0ZGU0VUIChkbyBJCnVuZGVyc3RhbmQgY29ycmVjdGx5IHRoYXQgeW91
-IHdhbnQgdG8gY2hhbmdlIHRoZW0/KS4gSXQnbGwgYmUgZWFzaWVyCnRvIGxvb2sgYXQgdGhlIGNv
-ZGUuCgpGZWVsIGZyZWUgdG8gc2VuZCB0aGlzIHBhdGNoIHNlcGFyYXRlbHkgZnJvbSB0aGUgcmVz
-dCBvZiB0aGUgc2VyaWVzLApzbyB0aGF0IHdlIGNhbiBmaW5hbGl6ZSBpdCBmaXJzdC4KCl9fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1h
-aWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5p
-bmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+From: Thierry Reding <treding@nvidia.com>
+
+Hi,
+
+Something that's been bugging me over the years is how some drivers have
+had to adopt file-scoped variables to pass data into something like the
+syscore operations. This is often harmless, but usually leads to drivers
+not being able to deal with multiple instances, or additional frameworks
+or data structures needing to be created to handle multiple instances.
+
+This series proposes to "objectify" struct syscore_ops by passing a
+pointer to struct syscore_ops to the syscore callbacks. Implementations
+of these callbacks can then make use of container_of() to get access to
+contextual data that struct syscore_ops was embedded in. This elegantly
+avoids the need for file-scoped, singleton variables, by tying syscore
+to individual instances.
+
+Patch 1 contains the bulk of these changes. It's fairly intrusive
+because it does the conversion of the function signature all in one
+patch. An alternative would've been to introduce new callbacks such that
+these changes could be staged in. However, the amount of changes here
+are not quite numerous enough to justify that, in my opinion, and
+syscore isn't very frequently used, so the risk of another user getting
+added while this is merged is rather small. All in all I think merging
+this in one go is the simplest way.
+
+Patches 2-7 are conversions of some existing drivers to take advantage
+of this new parameter and tie the code to per-instance data.
+
+Given that the recipient list for this is huge, I'm limiting this to
+Greg (because it's at the core a... core change) and a set of larger
+lists for architectures and subsystems that are impacted.
+
+Thanks,
+Thierry
+
+Thierry Reding (7):
+  syscore: Pass context data to callbacks
+  MIPS: Embed syscore_ops in PCI context
+  bus: mvebu-mbus: Embed syscore_ops in mbus context
+  clk: ingenic: tcu: Embed syscore_ops in TCU context
+  clk: mvebu: Embed syscore_ops in clock context
+  irqchip/irq-imx-gpcv2: Embed syscore_ops in chip context
+  soc/tegra: pmc: Derive PMC context from syscore ops
+
+ arch/arm/mach-exynos/mcpm-exynos.c        |  4 +-
+ arch/arm/mach-exynos/suspend.c            | 14 +++---
+ arch/arm/mach-pxa/irq.c                   |  4 +-
+ arch/arm/mach-pxa/mfp-pxa2xx.c            |  4 +-
+ arch/arm/mach-pxa/mfp-pxa3xx.c            |  4 +-
+ arch/arm/mach-pxa/smemc.c                 |  4 +-
+ arch/arm/mach-s3c/irq-pm-s3c64xx.c        |  4 +-
+ arch/arm/mach-s5pv210/pm.c                |  2 +-
+ arch/arm/mach-versatile/integrator_ap.c   |  4 +-
+ arch/arm/mm/cache-b15-rac.c               |  4 +-
+ arch/loongarch/kernel/smp.c               |  4 +-
+ arch/mips/alchemy/common/dbdma.c          |  4 +-
+ arch/mips/alchemy/common/irq.c            |  8 ++--
+ arch/mips/alchemy/common/usb.c            |  4 +-
+ arch/mips/pci/pci-alchemy.c               | 28 ++++++------
+ arch/powerpc/platforms/cell/spu_base.c    |  2 +-
+ arch/powerpc/platforms/powermac/pic.c     |  4 +-
+ arch/powerpc/sysdev/fsl_lbc.c             |  4 +-
+ arch/powerpc/sysdev/fsl_pci.c             |  4 +-
+ arch/powerpc/sysdev/ipic.c                |  4 +-
+ arch/powerpc/sysdev/mpic.c                |  4 +-
+ arch/powerpc/sysdev/mpic_timer.c          |  2 +-
+ arch/sh/mm/pmb.c                          |  2 +-
+ arch/x86/events/amd/ibs.c                 |  4 +-
+ arch/x86/hyperv/hv_init.c                 |  4 +-
+ arch/x86/kernel/amd_gart_64.c             |  2 +-
+ arch/x86/kernel/apic/apic.c               |  4 +-
+ arch/x86/kernel/apic/io_apic.c            |  9 +++-
+ arch/x86/kernel/cpu/aperfmperf.c          |  6 +--
+ arch/x86/kernel/cpu/intel_epb.c           |  8 ++--
+ arch/x86/kernel/cpu/mce/core.c            |  6 +--
+ arch/x86/kernel/cpu/microcode/core.c      |  7 ++-
+ arch/x86/kernel/cpu/mtrr/legacy.c         |  4 +-
+ arch/x86/kernel/cpu/umwait.c              |  2 +-
+ arch/x86/kernel/i8237.c                   |  2 +-
+ arch/x86/kernel/i8259.c                   |  6 +--
+ arch/x86/kernel/kvm.c                     |  4 +-
+ drivers/acpi/pci_link.c                   |  2 +-
+ drivers/acpi/sleep.c                      |  4 +-
+ drivers/base/firmware_loader/main.c       |  2 +-
+ drivers/base/syscore.c                    |  8 ++--
+ drivers/bus/mvebu-mbus.c                  | 24 +++++-----
+ drivers/clk/at91/pmc.c                    |  4 +-
+ drivers/clk/imx/clk-vf610.c               |  4 +-
+ drivers/clk/ingenic/pm.c                  |  4 +-
+ drivers/clk/ingenic/tcu.c                 | 54 +++++++++++------------
+ drivers/clk/mvebu/common.c                | 25 +++++++----
+ drivers/clk/rockchip/clk-rk3288.c         |  4 +-
+ drivers/clk/samsung/clk-s5pv210-audss.c   |  4 +-
+ drivers/clk/samsung/clk.c                 |  4 +-
+ drivers/clk/tegra/clk-tegra210.c          |  4 +-
+ drivers/clocksource/timer-armada-370-xp.c |  4 +-
+ drivers/cpuidle/cpuidle-psci.c            |  4 +-
+ drivers/gpio/gpio-mxc.c                   |  4 +-
+ drivers/gpio/gpio-pxa.c                   |  4 +-
+ drivers/hv/vmbus_drv.c                    |  4 +-
+ drivers/iommu/amd/init.c                  |  4 +-
+ drivers/iommu/intel/iommu.c               |  4 +-
+ drivers/irqchip/exynos-combiner.c         |  6 ++-
+ drivers/irqchip/irq-armada-370-xp.c       |  4 +-
+ drivers/irqchip/irq-bcm7038-l1.c          |  4 +-
+ drivers/irqchip/irq-gic-v3-its.c          |  4 +-
+ drivers/irqchip/irq-i8259.c               |  4 +-
+ drivers/irqchip/irq-imx-gpcv2.c           | 33 ++++++--------
+ drivers/irqchip/irq-loongson-eiointc.c    |  4 +-
+ drivers/irqchip/irq-loongson-htpic.c      |  2 +-
+ drivers/irqchip/irq-loongson-htvec.c      |  4 +-
+ drivers/irqchip/irq-loongson-pch-lpc.c    |  4 +-
+ drivers/irqchip/irq-loongson-pch-pic.c    |  4 +-
+ drivers/irqchip/irq-mchp-eic.c            |  4 +-
+ drivers/irqchip/irq-mst-intc.c            |  4 +-
+ drivers/irqchip/irq-mtk-cirq.c            |  4 +-
+ drivers/irqchip/irq-renesas-rzg2l.c       |  4 +-
+ drivers/irqchip/irq-sa11x0.c              |  4 +-
+ drivers/irqchip/irq-sifive-plic.c         |  4 +-
+ drivers/irqchip/irq-sun6i-r.c             | 10 ++---
+ drivers/irqchip/irq-tegra.c               |  4 +-
+ drivers/irqchip/irq-vic.c                 |  4 +-
+ drivers/leds/trigger/ledtrig-cpu.c        |  6 +--
+ drivers/macintosh/via-pmu.c               |  4 +-
+ drivers/power/reset/sc27xx-poweroff.c     |  2 +-
+ drivers/sh/clk/core.c                     |  2 +-
+ drivers/sh/intc/core.c                    |  4 +-
+ drivers/soc/bcm/brcmstb/biuctrl.c         |  4 +-
+ drivers/soc/tegra/pmc.c                   |  7 ++-
+ drivers/thermal/intel/intel_hfi.c         |  4 +-
+ drivers/xen/xen-acpi-processor.c          |  2 +-
+ include/linux/syscore_ops.h               |  6 +--
+ kernel/cpu_pm.c                           |  4 +-
+ kernel/irq/generic-chip.c                 |  6 +--
+ kernel/irq/pm.c                           |  2 +-
+ kernel/printk/printk.c                    |  2 +-
+ kernel/time/sched_clock.c                 | 14 +++++-
+ kernel/time/timekeeping.c                 | 14 +++++-
+ virt/kvm/kvm_main.c                       |  6 +--
+ 95 files changed, 302 insertions(+), 267 deletions(-)
+
+-- 
+2.48.1
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
