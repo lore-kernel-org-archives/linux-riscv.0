@@ -4,72 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C448CC021AA
-	for <linux-riscv@archiver.kernel.org>; Mon, 17 Feb 2025 12:59:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58786C021A9
+	for <linux-riscv@archiver.kernel.org>; Mon, 17 Feb 2025 13:25:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:In-Reply-To:References:Message-Id:
-	MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=wKRhjWZfFOvrhyRW8mV2nuNOPQlotX4RIgiAsBjHGEg=; b=kBnfDQwYnD/Bbk
-	lODOxzylSFiP1D3YRfrvN3s7QFIq5Bd9zc25GEhQoCBN8bTkBdr/Jk/j6NZ2ccj89itSLP5VPo744
-	/kFJ9l58X+d/lN8Uaal+/HqrkY5gkDevtLf7v5XuhUGwf6yQA4cadlA4kllRrd37EvGYFeQbjV5Tv
-	vnYMowCHDgLFKltuhU/H5btkmz47xdtQuKfnAKcW3DBcyGAVjPjdVwBctfY06heJ53EkO34b0B99R
-	99adnEvUI4azWJuwMR7ZnszhHh+sqlmyYWyyUoc0cz7vK78qoTF6u6P5fuuchBsmyl+nTV+b+Gq4j
-	TN6Y7XRo+QDXKo8/ying==;
+	List-Owner; bh=+3p00pHYyTlj6S1+l96HAdtpdEDEqxk2W2uXZDZ63CY=; b=i9bV4tfEdo731a
+	BTQeIiqXNEb03gP+ifJS+E6x+J0JYFJB1cSizFbN9kp5SVWDENKKnxAdK3KWSQGNJzJV4b67wbLvT
+	sZDW1ZhqZvGtDwvWEv8XCz4oSTmJMhOtSvGXVkD6KLyxw66EOPGS9ObH4pCDJryIbxhJljo6tzIN6
+	vhlxa6WNUjZ8FmI/8J/REd4ByKnaFbe180t9YMMH+DBxT3HyfdbIu3NVeSa3eNeCQdOl4W0xSnA88
+	D6ferLPnOMKFuZYiGG/alpe6fzv3p1BFrDbb4rsgqOlKBYdIvtDqkAsmVnN5lyOzspNibQdLRnBki
+	0YX5bZ/QjBZTaclw6pmw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tk0iC-00000004YAM-3BXV;
-	Mon, 17 Feb 2025 12:59:00 +0000
-Received: from woodpecker.gentoo.org ([140.211.166.183] helo=smtp.gentoo.org)
+	id 1tk17x-00000004eQR-4A4i;
+	Mon, 17 Feb 2025 13:25:37 +0000
+Received: from mail-wr1-x429.google.com ([2a00:1450:4864:20::429])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tk0iA-00000004Y8y-1BL1
+	id 1tk0us-00000004b6i-3ape
 	for linux-riscv@lists.infradead.org;
-	Mon, 17 Feb 2025 12:58:59 +0000
-Received: from [127.0.0.1] (unknown [180.172.76.141])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: dlan)
-	by smtp.gentoo.org (Postfix) with ESMTPSA id 82E273430DE;
-	Mon, 17 Feb 2025 12:58:51 +0000 (UTC)
-From: Yixun Lan <dlan@gentoo.org>
-Date: Mon, 17 Feb 2025 20:57:48 +0800
-Subject: [PATCH v5 5/5] riscv: dts: spacemit: add gpio LED for system
- heartbeat
+	Mon, 17 Feb 2025 13:12:08 +0000
+Received: by mail-wr1-x429.google.com with SMTP id ffacd0b85a97d-38a25d4b9d4so2796866f8f.0
+        for <linux-riscv@lists.infradead.org>; Mon, 17 Feb 2025 05:12:06 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1739797925; x=1740402725; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:subject:cc:to:from:date:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=Dbv6tZxsXHhtGn9KFBS5fucmEZ2CZu7fW3YyX0NKPZI=;
+        b=i1Y7CXfowdE6Io6rsNZtnFar8SpGtgdECqiI3yTZXsbkwCV23TeTfJ98mlgy6Yr7wl
+         6BsEs+chwBquaMGd8VXpr2KVUAL8u/HxUdylDqpGmfKaNP25CDaHT6l/VaU0pm5oETiY
+         jfMlghbyTS+TGijOXpjG5u4BVRNMgjj2uE94JK8u+LHTsLA4h0hCxXXx7fUE3geLVsDV
+         AQLEsqQJMINkWkt9qdVKfhfZ7NSJDhQO6XAxtxwH6LyNtG2/08p8FZYoUBc1RD+Bp80t
+         wdmaCH67BrlDLFcF6fMZxfHH13WeAwddqo3Wyf78HIP0m3iyth0VXji6dWQ7wB1sU243
+         koYA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1739797925; x=1740402725;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:subject:cc:to:from:date:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=Dbv6tZxsXHhtGn9KFBS5fucmEZ2CZu7fW3YyX0NKPZI=;
+        b=CYA/HzzJFuJnhyIz4mYLYdyk9eN5jDxjInBTBUdPooxLyUfHtlenvyQvzDs3EivXxj
+         AcQ/1KyjxjlDBNVQ1ICfqyyT4QyEyZdFl7aC8zYHmgJmDKt2bww7uQIUkROOogCL9Twz
+         oZ1IEtsWxqxENi0YMZkHnVDRroDnAD49fC22BK6mTFQOyb83g0rQYXQmM6lrFch5SiVW
+         fWw7NSCzgfhzI67N32cOK33QUVSft9vHfInei7W6TGio4gD3ZHrUJkUPw4PqFetWud4z
+         4X3TCqoCGB2u6ZR6N/USjJICpmiMslTrAgcSHuto5k777qujWCuXGTm6t9ixm50FnrzF
+         KkCQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUb7E8IP9iIiwoxKuvDdqdLDkD1M7XSF/7h/jXr75uOCsoubEbhmoxYnrC2SHiYOX1KKAXjqYn0514/4Q==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzg41nvyUHkuQezghEGAWtunDL39NaZFDhRL5P35n79v7/PUlIY
+	H33r3gJXnZxoNtpWJC6v8U707ry9BlU06YtLYepXYc4Knf3FSrL6
+X-Gm-Gg: ASbGncuesKuN+8J3UnImWnmlnxm+vgXANBvVFATRZfpy42LSN8rlF8WemwSETETnVc/
+	ySVxm6D+A4LIz0ckhMSwtXA65WPdsyu7KBhMydQLx3TGQBoMl1V2eslBKF/iMfjd1nWXOp/YxCg
+	Crz9z/2ZhH9ejcx+DvKWoGTYCkFvKltub9DuDXg7jAaAhiAvNGgsaoebSBmlmeWbfKM7chLshg9
+	ffhx1VJi9IS/Pm0G+x2b2AnHA+pKQeYzzbISMQgDxXpI5UE5WjsQ23nBVFM+GyKf8lwmjEPtLCJ
+	riy6YBZ5TXGjGeI2yUd9C1aYaND5jgOJ0RX06MBXI39MlmGybi3YVQ==
+X-Google-Smtp-Source: AGHT+IGI8Y+1gHpNEIL5sYVZymnBYx2kGRoduPMaxMSQCJyc4mjJ84MG14TVAegnNK2lJjDu/Lbf2Q==
+X-Received: by 2002:a5d:59a7:0:b0:38f:3224:6615 with SMTP id ffacd0b85a97d-38f33f374bcmr8372027f8f.7.1739797924909;
+        Mon, 17 Feb 2025 05:12:04 -0800 (PST)
+Received: from pumpkin (82-69-66-36.dsl.in-addr.zen.co.uk. [82.69.66.36])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-38f259f85c2sm12639181f8f.91.2025.02.17.05.12.04
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 17 Feb 2025 05:12:04 -0800 (PST)
+Date: Mon, 17 Feb 2025 13:12:03 +0000
+From: David Laight <david.laight.linux@gmail.com>
+To: Alexandre Ghiti <alex@ghiti.fr>
+Cc: Christoph Hellwig <hch@lst.de>, kernel test robot <lkp@intel.com>,
+ oe-kbuild-all@lists.linux.dev, linux-kernel@vger.kernel.org, Carlos
+ Maiolino <cem@kernel.org>, "Darrick J. Wong" <djwong@kernel.org>,
+ linux-riscv@lists.infradead.org
+Subject: Re: fs/xfs/xfs_buf.c:1534 xfs_buf_submit_bio() warn: unsigned '_x'
+ is never less than zero.
+Message-ID: <20250217131203.2657cc4b@pumpkin>
+In-Reply-To: <a14347d2-6189-49bc-a1cc-e5959e76e6c2@ghiti.fr>
+References: <202502171326.j4Xd3I0j-lkp@intel.com>
+	<20250217092445.GA29568@lst.de>
+	<a14347d2-6189-49bc-a1cc-e5959e76e6c2@ghiti.fr>
+X-Mailer: Claws Mail 4.1.1 (GTK 3.24.38; arm-unknown-linux-gnueabihf)
 MIME-Version: 1.0
-Message-Id: <20250217-03-k1-gpio-v5-5-2863ec3e7b67@gentoo.org>
-References: <20250217-03-k1-gpio-v5-0-2863ec3e7b67@gentoo.org>
-In-Reply-To: <20250217-03-k1-gpio-v5-0-2863ec3e7b67@gentoo.org>
-To: Linus Walleij <linus.walleij@linaro.org>, 
- Bartosz Golaszewski <brgl@bgdev.pl>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Conor Dooley <conor@kernel.org>, 
- Paul Walmsley <paul.walmsley@sifive.com>, 
- Palmer Dabbelt <palmer@dabbelt.com>
-X-Mailer: b4 0.15-dev
-X-Developer-Signature: v=1; a=openpgp-sha256; l=866; i=dlan@gentoo.org;
- h=from:subject:message-id; bh=Npl1hf2K8C0HFRJz0IJdWyuqL8ZWAqWbXOrkZ95CiDc=;
- b=owEBzQIy/ZANAwAKATGq6kdZTbvtAcsmYgBnszJm0HWAJxy2mTQGedoLSD4oLkE+RdZtfPiyd
- EkQX8ki7hqJApMEAAEKAH0WIQS1urjJwxtxFWcCI9wxqupHWU277QUCZ7MyZl8UgAAAAAAuAChp
- c3N1ZXItZnByQG5vdGF0aW9ucy5vcGVucGdwLmZpZnRoaG9yc2VtYW4ubmV0QjVCQUI4QzlDMzF
- CNzExNTY3MDIyM0RDMzFBQUVBNDc1OTREQkJFRAAKCRAxqupHWU277WkMEACWEq0KC8AkQFoqAZ
- M9mCR9BxNBPgd3SeG4MlzCrtXvmAcLK8UhKpf3y1u0QwhovsuBVTZNQQQ2DePrGxbbN85SvtK03
- J6A02R7uuQRVzx2G9rQC+gEJoqtn0PY/e+Xiv0FWyN+QJBmJtvCZFhKY7J/yMPWsaOS0BiE079z
- xd3NwDbQpboI+G43i3RG1wnpHnal33l2MNVHpKYTn8ED88TM5Z40gL8qR7IS5+UD/m8QlP9fduI
- ihji0GxfTVjBDYBk77Nd1W3bH4aS8o6gx+gGwBaeLS3M/7NXjBjfiGwDT85+vi49Z6wgDV/0giF
- /NzujTOAD10PlIMZSvech+gyhViUz6i4lTq4QdVKyTMVvIPgWV4PrJhT1Vm7fN2HftUSkoQo8nr
- 10I1Rd3m8J+5L6U6z6dYdYP1ec9tp8kcvvVCmkslF+gr2+pBj3nWnbhJlS1gBObpfeGgtm4ov4G
- yoWLyif56PX1MLBE0O9EqRP6Tr9kTPatpy8crxtLqG5a+BaDWAKgYMNotn6pdujE98Nwzp1Q5vI
- D8fziLE7cLatqN8M1FQNE1/lzIwwmpfLLSNPYuCxJn0s0MNWRsi8hAGCciMJNza+ypzS4RdJuQU
- zEBEv4KpZu396XUQD9Rb+8ac7YvYaRfQMSpdJ/rAKXGL1Xjvi9oXeCC7rFf9jH0mqtYQ==
-X-Developer-Key: i=dlan@gentoo.org; a=openpgp;
- fpr=50B03A1A5CBCD33576EF8CD7920C0DBCAABEFD55
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250217_045858_354132_57E01C63 
-X-CRM114-Status: UNSURE (   7.45  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250217_051206_894734_A4796FCF 
+X-CRM114-Status: GOOD (  15.77  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,47 +98,29 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: devicetree@vger.kernel.org, Meng Zhang <zhangmeng.kevin@linux.spacemit.com>, Yixun Lan <dlan@gentoo.org>, linux-gpio@vger.kernel.org, linux-kernel@vger.kernel.org, Jesse Taube <mr.bossman075@gmail.com>, Yangyu Chen <cyy@cyyself.name>, Inochi Amaoto <inochiama@outlook.com>, Jisheng Zhang <jszhang@kernel.org>, linux-riscv@lists.infradead.org, spacemit@lists.linux.dev
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Leverage GPIO to support system LED to indicate activity of CPUs.
-
-Signed-off-by: Yixun Lan <dlan@gentoo.org>
----
- arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts | 11 +++++++++++
- 1 file changed, 11 insertions(+)
-
-diff --git a/arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts b/arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts
-index 1d617b40a2d51ee464b57234d248798aeb218643..816ef1bc358ec490aff184d5915d680dbd9f00cb 100644
---- a/arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts
-+++ b/arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts
-@@ -17,6 +17,17 @@ aliases {
- 	chosen {
- 		stdout-path = "serial0";
- 	};
-+
-+	leds {
-+		compatible = "gpio-leds";
-+
-+		led1 {
-+			label = "sys-led";
-+			gpios = <&gpio K1_GPIO(96) GPIO_ACTIVE_HIGH>;
-+			linux,default-trigger = "heartbeat";
-+			default-state = "on";
-+		};
-+	};
- };
- 
- &uart0 {
-
--- 
-2.48.1
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gTW9uLCAxNyBGZWIgMjAyNSAxMzowNjo0OSArMDEwMApBbGV4YW5kcmUgR2hpdGkgPGFsZXhA
+Z2hpdGkuZnI+IHdyb3RlOgoKPiBIaSBDaHJpc3RvcGgsCj4gCj4gT24gMTcvMDIvMjAyNSAxMDoy
+NCwgQ2hyaXN0b3BoIEhlbGx3aWcgd3JvdGU6Cj4gPiBPbiBNb24sIEZlYiAxNywgMjAyNSBhdCAw
+MTo1MzowOFBNICswODAwLCBrZXJuZWwgdGVzdCByb2JvdCB3cm90ZTogIAo+ID4+IE5ldyBzbWF0
+Y2ggd2FybmluZ3M6Cj4gPj4gZnMveGZzL3hmc19idWYuYzoxNTM0IHhmc19idWZfc3VibWl0X2Jp
+bygpIHdhcm46IHVuc2lnbmVkICdfeCcgaXMgbmV2ZXIgbGVzcyB0aGFuIHplcm8uICAKPiA+IExv
+b2tzIGxpa2UgdGhpcyBpcyBhbiBpc3N1ZSBpbiB0aGUgcmlzY3YgdmlydF90b19wYWdlIGltcGxl
+bWVudGF0aW9uCj4gPiB3aGljaCBhbHNvIHNob3dzIHVwIGluIHZhcmlvdXMgb3RoZXIgcGxhY2Vz
+LiAgQW55IGNoYW5jZSB0aGlzIGNvdWxkIGdldAo+ID4gZml4ZWQgaW4gdGhlIHJpc2N2IGNvZGU/
+ICAKPiAKPiAKPiBUbyBtZSwgdGhlIG9ubHkgdGVzdCB0aGF0IGNvdWxkIGdpdmUgcmlzZSB0byB0
+aGlzIHdhcm5pbmcgaXMgdGhlIGxhc3QgCj4gcGFydCBvZjoKPiAKPiAjZGVmaW5lIGlzX2xpbmVh
+cl9tYXBwaW5nKHgpIFwKPiAgwqDCoMKgwqDCoMKgwqAgKCh4KSA+PSBQQUdFX09GRlNFVCAmJiAo
+IUlTX0VOQUJMRUQoQ09ORklHXzY0QklUKSB8fCAoeCkgPCAKPiBQQUdFX09GRlNFVCArIEtFUk5f
+VklSVF9TSVpFKSkKPiAKPiBCdXQgZ2l2ZW4gdGhhdCB0aGUgY29uZmlnIGlzIGEgMzItYml0IGNv
+bmZpZywgaXQgc2hvdWxkIG5vdCBiZSBldmFsdWF0ZWQgCj4gYXQgYWxsLgo+IAo+IENvdWxkIHRo
+YXQgYmUgYSBmYWxzZS1wb3NpdGl2ZSBhbmQgdGhlbiBhbiBpc3N1ZSBpbiBzbWF0Y2g/CgpXaHkg
+aXMgc21hdGNoIGV2ZW4gbG9va2luZy4KVGhlIGVxdWl2YWxlbnQgY2hlY2sgaW4gZ2NjIGhhcyBi
+ZWVuIG1vdmVkIHRvIC1XMiBiZWNhdXNlIG9mIGFsbCBmYWxzZSBwb3NpdGl2ZXMuCgoJRGF2aWQK
+Cl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJp
+c2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9s
+aXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
