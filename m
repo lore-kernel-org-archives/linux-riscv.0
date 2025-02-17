@@ -4,87 +4,102 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C3EE4C02198
-	for <linux-riscv@archiver.kernel.org>; Mon, 17 Feb 2025 01:37:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3A9E1C021A0
+	for <linux-riscv@archiver.kernel.org>; Mon, 17 Feb 2025 04:18:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=maMFYiy7WruyEw4bbEqlfBvovCFehCwyFMFYUjSTqCk=; b=A5ujlMlv3VwOc0
-	qhf3KBFPJ6ZZIDtGixuuiKV+Oly6ACclacZvsLGWYUmJbnyKrcNT6aoztrZ7K5I4v4g7wcyTACPvi
-	redQsg4dy94voBjPStrDyXnlZLDRmN46ERG7HMNAZIvp7oaeOV8DCz6KEGAJvssH2UPVnFfvgrD3F
-	zIzLY+w9Az7SEo7ZJqMm9J86OnpAUP5eoUp1cghaFm0cWZbErOPblxzJpZgNJHX68MZa0M+YkSjCu
-	oKUHmBtwa6Z4fQ0NzaHkWPabZhcIrKu1OQHlrD2egAUL7JecU16ddB+WW6YmglvAYRw4d0vuxah+x
-	7lnTARfmjPbYkVZWGfvQ==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=TSKwSt9S1ia25hW/aXmmc7/omKUMIuwEe70on9PDSQI=; b=JBNolTKYukcQ2Z
+	0JPIKTslkB7768c34//+xrZ+sHFG6jNWrm7/zOehCvV8wglp0jLV8eVWc9+D5eSjDHH7naZxjOS7K
+	kTky2TN6ytQyvZ4VI642Ks42ePt3G2XlvqiYws75Icwu2qHcSejr2IDiW9tfbE9L9PPsNQA/Gjvot
+	rRMyWdf9G8iV1swKFTHLMQlSKFUwtegoAcjHpmcttqPEuttUtTKIYjoFy/ztYTBxPegg/8qpJuGDP
+	weAsq5urLn+G1ch2dOFi52YF1mKqwz1iJ2e0FETZ08bYlfscdUGSXMvTlBhdSTf8H13aZuNDY3evf
+	rjzD9BVLla5/BIdFoOPQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tjq4d-00000002yrc-2mxv;
-	Mon, 17 Feb 2025 01:37:27 +0000
-Received: from mail-pl1-x636.google.com ([2607:f8b0:4864:20::636])
+	id 1tjsaH-00000003Cjf-1FG3;
+	Mon, 17 Feb 2025 04:18:17 +0000
+Received: from mail-qk1-x72b.google.com ([2607:f8b0:4864:20::72b])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tjq4c-00000002yrI-0QmU
-	for linux-riscv@lists.infradead.org;
-	Mon, 17 Feb 2025 01:37:27 +0000
-Received: by mail-pl1-x636.google.com with SMTP id d9443c01a7336-220d39a5627so55363095ad.1
-        for <linux-riscv@lists.infradead.org>; Sun, 16 Feb 2025 17:37:25 -0800 (PST)
+	id 1tjsYo-00000003CXo-0jJz;
+	Mon, 17 Feb 2025 04:16:47 +0000
+Received: by mail-qk1-x72b.google.com with SMTP id af79cd13be357-7c095b5365eso39236485a.1;
+        Sun, 16 Feb 2025 20:16:45 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1739756245; x=1740361045; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=uV4L5jUISNpRr6ROGYxEb4g1bNSE7HH22+hTjn/R0r8=;
-        b=dW2UAspTeCze3QY8zPUgcjqqRoZx7IjDDJltHOkeuXYylcI9zQqHLUGsPgVcQ0GB8V
-         1xf913LK0YeAOVgEVRTBnnQe09bc+O6tRP9MdCEXdObBUgWAmxm89NmE6qagPOtnqQ79
-         4icymCetbpMMuQgbcYZijABv5R0I2K2cHr30XRV1ZomV5LXNsx38xPxuu7X7/qd+pyCT
-         YA0fmtpnFm1GTdGE+BtyrRB+HBR3uLQOmS008YFVcT4ThhiOr5ZyzXctD2GYvrPz/rht
-         y7nqvDhDkkD42SymFCoqMvjLfBYK4Fe80+tBR8kWky/WRNjLd6QP7mLko0UZVGQhpPXs
-         9NlA==
+        d=gmail.com; s=20230601; t=1739765805; x=1740370605; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=xeqYFA0tm4qjUwoN64e2QAw9r7GkkFQxBxzl+wfEXG4=;
+        b=d9pe6TN9Oqj5xfFZODmva9aqWGOfJ6nAoQn2W/7CAiSS2UwrvZldHX2jVOyJrGC4yT
+         64I67XuEnWbPudWnpeyfh/tZB1saY9ottho4kQoaQgbtBeKfnWZsKns6MRQ+gSglkbwl
+         R48/tjPWVuaZKxK8KrmL1j+d34mqU/+Z0aRRxm4tmVYok4W3dCapyp2aWlqRcMFI1AV8
+         +JFhgSouWkb2wHHPiB4Xas9nRCaDTyM2nIEH56kgVzPC6IopkgYWAb4kvNHKzk3/Vwsm
+         4XZ9ojxtpzJoZPyvmOjMwIFgbGEs0An42bDNkEnNWNZSFwpxryAg9OQJ+IbOG+6YRKWT
+         OWCg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1739756245; x=1740361045;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=uV4L5jUISNpRr6ROGYxEb4g1bNSE7HH22+hTjn/R0r8=;
-        b=gWKcjOaW9NvYnWei5gq2Ehgujrh17im84cD49wenLyj/zIuRYV4XRID7j5/2sEqcpj
-         Ls7ohnqZ0+Tj7u7qSDYMUYnNNVJ/koYKjyTcoomH+p/1V30T30e6hMb5HRZ54xxbAjHv
-         PI8edvNpYaF7Y1YrjRGze9HL0OOjM/Dep0yK42XLMcG9zzU30YF8tS6mf/3rREmj2iqw
-         yhg7W8GCwczJfDKgDJmSYlpjxLhey6DTsHvcr1kQCw46uETE0yqsYtQ3bpZDUV+PlTnk
-         ryfAXpx0kOyvPoGut0VYVmRQ1JN8IEIAyKRRWMlDYptVjGXrpF0joXzIgA2RXLaZdZ1i
-         d0Dw==
-X-Forwarded-Encrypted: i=1; AJvYcCU67loXnrCkz/cKhoIN72LG7W7hQBZr5ccnyP4NgZ/ed1xQG511rN+aPbPsvCar8w1GMN+nSJXQHbN6Tg==@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywr10+RVloyvEP1j6L9eFFPlTkL5LBxaL2blF1J4046BrZsyQL6
-	cpUX4KEnfU/zVySvoFpGU/IcLaEYT+ts3b7Lrdfh6nG5Yk/+tpn4
-X-Gm-Gg: ASbGncvYKjSvJ5h4iaTqx6aOuLHCsqwEq03Xltqt0x3a0k0FC990m/Fi9+GRbgwjtYC
-	Vb9uctY/r/Z3hO0IGqAF61b1FRfB62d2NeiTy1pRkAmVkP/tJmidJBsvCP+ahV8LRBVsqixlCy7
-	vT96sK5PP8F9LpsSt7N1KvfB40NTQ8X0SHqlsH7Cp37eTmG9sMgLlWqSYB8tGJ1yZ87uy7IMpSC
-	NRfF5BLQRGieeCG8iOr/Jvk2U8PdmMHsbZf5RXApiFztHSbVUrdLj96MotAhJ1k61xJBWDEiakQ
-	suMFcHJozl4JuEj+9tLpwhO3ffDaJ44gM2ErdawW6HZSeg==
-X-Google-Smtp-Source: AGHT+IEc3R7zwoSDQnuMy8iXmbawDrNUKkHjCWCg51IKpm6c13c/5MWkj3/6lYaWg28BLnY8gooisQ==
-X-Received: by 2002:a17:903:2286:b0:220:fce7:d3a6 with SMTP id d9443c01a7336-2211c551bdcmr71159795ad.23.1739756244671;
-        Sun, 16 Feb 2025 17:37:24 -0800 (PST)
-Received: from visitorckw-System-Product-Name.. ([140.113.216.168])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-220f8682181sm38167335ad.209.2025.02.16.17.37.22
+        d=1e100.net; s=20230601; t=1739765805; x=1740370605;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=xeqYFA0tm4qjUwoN64e2QAw9r7GkkFQxBxzl+wfEXG4=;
+        b=mFZdoj5du2YRjxGWUTqhHxkueOuKeqLnwffXc63K78JDGb060v1d9GRws8VfbOmOTM
+         9qS0wQCUjRdVDst4AcjS+dl+yycRyrfs8Urwscd2kArMKI1ttjlH5XOMY2zR06h8Yh6E
+         yiXyaSCN4lw+jEK6nwHf2mx28uF8ie/jzjrlpiy49ZMKliuTBiSJUOkNNbYKSDsoA3aY
+         piT9M6Kn8eLxTLzokWRY8pwg9pcEJDIkq0pqkaUzvQ9PuWf9nFWR9neX3tZwi8e3wRak
+         TbTA93Ys066I6GYkff5v/dd88qV/wcZDFpmv56aXueisyQ6Y1IE1CgRwvblzCozx+rMl
+         WAoA==
+X-Forwarded-Encrypted: i=1; AJvYcCV6S+IGdPKYb10eT4tCQam+Olmd7OxgFVOS0Nalbm8yw+Zon0SYyB5hLpyXdTK3DYOcDagvjYRnLDemHL0=@lists.infradead.org, AJvYcCXSR85MmPs3/VA9xqrnuZMOm4t3pt6Zf+I3DE0KuwXADKYYIaWaP+R45tlQA0kYJwYi5ChH/WhUriIL3UA5mJ/M@lists.infradead.org
+X-Gm-Message-State: AOJu0YzEECdPTZ70HH9PZiq+9V2qpkt5oOJ3eL5XZQnz8xqDK/tP5azH
+	Lv1VAT2ZcgK7FzZTLOVH1tdXCj19DEnO8bRYD806Lf7TY/0X34nf
+X-Gm-Gg: ASbGncuLJhqbswgIGdmPthK61nzFLex7ugKp2nwLs759NK/29/5VajfJZFy0RlokuV1
+	GQ6uwYSnpn67hlg+wp+NDujt6tO0MhatWy8u8Utyue6jYLOnEMhcTOAMF70nu7A4eqmWWTYQuKI
+	8t7HfwqJsXnGGOGplT1CPus6X1hbF6yB3kMjTRQ9OdDjMUDcEPUsAOYQR0SR+/BAEKBgxCIOX3A
+	HlVuaB+/oxLwpnxoVTOfsEEWCVD67NYmvEXI+OYAgORZx/4KtpaPzMXYT9ZWawXUGA=
+X-Google-Smtp-Source: AGHT+IHUeYGGtto6/bwu6hE+gNTJFxMdU3WJnKYol+GAez3N8iWRXGYbLq/F4f11XJjWE3T4aBpX5Q==
+X-Received: by 2002:a05:620a:172c:b0:7b6:d8da:9095 with SMTP id af79cd13be357-7c08a9a2157mr1155035485a.13.1739765803223;
+        Sun, 16 Feb 2025 20:16:43 -0800 (PST)
+Received: from localhost ([2001:da8:7001:11::cb])
+        by smtp.gmail.com with UTF8SMTPSA id af79cd13be357-7c09a14d45dsm102936485a.10.2025.02.16.20.16.42
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 16 Feb 2025 17:37:24 -0800 (PST)
-From: Kuan-Wei Chiu <visitorckw@gmail.com>
-To: paul.walmsley@sifive.com,
-	palmer@dabbelt.com,
-	aou@eecs.berkeley.edu
-Cc: jserv@ccns.ncku.edu.tw,
-	eleanor15x@gmail.com,
-	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Kuan-Wei Chiu <visitorckw@gmail.com>
-Subject: [RFC PATCH] riscv: Optimize gcd() performance by selecting CPU_NO_EFFICIENT_FFS
-Date: Mon, 17 Feb 2025 09:37:08 +0800
-Message-Id: <20250217013708.1932496-1-visitorckw@gmail.com>
-X-Mailer: git-send-email 2.34.1
+        Sun, 16 Feb 2025 20:16:42 -0800 (PST)
+Date: Mon, 17 Feb 2025 12:16:30 +0800
+From: Inochi Amaoto <inochiama@gmail.com>
+To: Andrew Lunn <andrew@lunn.ch>, 
+	"Russell King (Oracle)" <linux@armlinux.org.uk>
+Cc: Inochi Amaoto <inochiama@gmail.com>, 
+	Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, 
+	Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, 
+	Paolo Abeni <pabeni@redhat.com>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Chen Wang <unicorn_wang@outlook.com>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
+	Alexandre Torgue <alexandre.torgue@foss.st.com>, Richard Cochran <richardcochran@gmail.com>, 
+	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, "Jan Petrous (OSS)" <jan.petrous@oss.nxp.com>, 
+	Hariprasad Kelam <hkelam@marvell.com>, =?utf-8?B?Q2zDqW1lbnQgTMOpZ2Vy?= <clement.leger@bootlin.com>, 
+	Jisheng Zhang <jszhang@kernel.org>, Emil Renner Berthing <emil.renner.berthing@canonical.com>, 
+	Drew Fustini <dfustini@tenstorrent.com>, Furong Xu <0x1207@gmail.com>, 
+	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>, Joe Hattori <joe@pf.is.s.u-tokyo.ac.jp>, 
+	Serge Semin <fancer.lancer@gmail.com>, Lothar Rubusch <l.rubusch@gmail.com>, 
+	Giuseppe Cavallaro <peppe.cavallaro@st.com>, Jose Abreu <joabreu@synopsys.com>, netdev@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, sophgo@lists.linux.dev, 
+	linux-stm32@st-md-mailman.stormreply.com, linux-arm-kernel@lists.infradead.org, 
+	linux-riscv@lists.infradead.org, Yixun Lan <dlan@gentoo.org>, Longbin Li <looong.bin@gmail.com>
+Subject: Re: [PATCH net-next v5 3/3] net: stmmac: Add glue layer for Sophgo
+ SG2044 SoC
+Message-ID: <js3z3ra7fyg4qwxbly24xqpnvsv76jyikbhk7aturqigewllbx@gvus6ub46vow>
+References: <20250216123953.1252523-1-inochiama@gmail.com>
+ <20250216123953.1252523-4-inochiama@gmail.com>
+ <Z7IIht2Q-iXEFw7x@shell.armlinux.org.uk>
+ <5e481b95-3cf8-4f71-a76b-939d96e1c4f3@lunn.ch>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <5e481b95-3cf8-4f71-a76b-939d96e1c4f3@lunn.ch>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250216_173726_159975_FEF91100 
-X-CRM114-Status: UNSURE (   9.36  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250216_201646_216086_08DAFF22 
+X-CRM114-Status: GOOD (  26.13  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,43 +116,59 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-When the Zbb extension is not supported, ffs() falls back to a software
-implementation instead of leveraging the hardware ctz instruction for
-fast computation. In such cases, selecting CPU_NO_EFFICIENT_FFS
-optimizes the efficiency of gcd().
+On Sun, Feb 16, 2025 at 06:07:05PM +0100, Andrew Lunn wrote:
+> On Sun, Feb 16, 2025 at 03:47:18PM +0000, Russell King (Oracle) wrote:
+> > On Sun, Feb 16, 2025 at 08:39:51PM +0800, Inochi Amaoto wrote:
+> > > +static void sophgo_dwmac_fix_mac_speed(void *priv, unsigned int speed, unsigned int mode)
+> > > +{
+> > > +	struct sophgo_dwmac *dwmac = priv;
+> > > +	long rate;
+> > > +	int ret;
+> > > +
+> > > +	rate = rgmii_clock(speed);
+> > > +	if (rate < 0) {
+> > > +		dev_err(dwmac->dev, "invalid speed %u\n", speed);
+> > > +		return;
+> > > +	}
+> > > +
+> > > +	ret = clk_set_rate(dwmac->clk_tx, rate);
+> > > +	if (ret)
+> > > +		dev_err(dwmac->dev, "failed to set tx rate %ld: %pe\n",
+> > > +			rate, ERR_PTR(ret));
+> > > +}
+> > 
+> > There are a bunch of other platform support in stmmac that are doing
+> > the same:
+> > 
+> > dwmac-s32.c is virtually identical
+> > dwmac-imx.c does the same, although has some pre-conditions
+> > dwmac-dwc-qos-eth.c is virually identical but the two steps are split
+> >   across a bunch of register writes
+> > dwmac-starfive.c looks the same
+> > dwmac-rk.c also
+> > dwmac-intel-plat.c also
+> > 
+> > So, I wonder whether either this should be a helper, or whether core
+> > code should be doing this. Maybe something to look at as a part of
+> > this patch submission?
+> 
+> Inochi, please could you look at the datasheet for this IP. Is the
+> transmit clock a part of the IP? 
 
-The implementation of gcd() depends on the CPU_NO_EFFICIENT_FFS option.
-With hardware support for ffs, the binary GCD algorithm is used.
-Without it, the odd-even GCD algorithm is employed for better
-performance.
+I checked the ip databook and found it is part of the RGMII clock.
+Also, I found RGMII also contains a rx clock following this quirk.
 
-Co-developed-by: Yu-Chun Lin <eleanor15x@gmail.com>
-Signed-off-by: Yu-Chun Lin <eleanor15x@gmail.com>
-Signed-off-by: Kuan-Wei Chiu <visitorckw@gmail.com>
----
-Although selecting NO_EFFICIENT_FFS seems reasonable without ctz
-instructions, this patch hasn't been tested on real hardware. We'd
-greatly appreciate it if someone could help test and provide
-performance numbers!
+> Can we expect all devices integrating this IP to have such a clock?
+> That would be a good indicator the clock handling should be moved
+> into the core.
+> 
 
- arch/riscv/Kconfig | 1 +
- 1 file changed, 1 insertion(+)
+I am not sure all whether devices has this clock, but it appears in
+the databook. So I think it is possible to move this in the core so
+any platform with these clock can reuse it.
 
-diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-index 7612c52e9b1e..2dd3699ad09b 100644
---- a/arch/riscv/Kconfig
-+++ b/arch/riscv/Kconfig
-@@ -91,6 +91,7 @@ config RISCV
- 	select CLINT_TIMER if RISCV_M_MODE
- 	select CLONE_BACKWARDS
- 	select COMMON_CLK
-+	select CPU_NO_EFFICIENT_FFS if !RISCV_ISA_ZBB
- 	select CPU_PM if CPU_IDLE || HIBERNATION || SUSPEND
- 	select EDAC_SUPPORT
- 	select FRAME_POINTER if PERF_EVENTS || (FUNCTION_TRACER && !DYNAMIC_FTRACE)
--- 
-2.34.1
-
+Regards,
+Inochi
 
 _______________________________________________
 linux-riscv mailing list
