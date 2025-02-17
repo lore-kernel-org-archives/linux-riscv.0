@@ -4,92 +4,117 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C93DCC021A9
-	for <linux-riscv@archiver.kernel.org>; Mon, 17 Feb 2025 17:52:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E0448C021A9
+	for <linux-riscv@archiver.kernel.org>; Mon, 17 Feb 2025 18:22:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
+	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=+OwsQH9eQanZU0UnVuhbQp08QKT/NN7Icn4zEYcb78A=; b=ren1wka9pO9URl
-	TAlTy2nNw0KkFRyTVPSf9NN/YL0xeHCRv0qEvrfbN1oQKaMoxHPlZLz2lQzsnK/BtTJ0/JZZRQffT
-	JTttb1WFujVScqNirWB1oO1/0+wif3zZcy/lPYPUdLA/r2g7rYznVgA7wq56V9eiIv4eKTVc8J6rV
-	S+GRwL65gtHrtKfLxgc79ODzXweo8N/SYksHuQvMH30xtjNQaIYU3L5hJDkOEfMYVsqC1q6UpNFen
-	vuXLgCqG0ZryPH+5/oTTUifm60lVJys1hLi0d1hQQ/PB/f/3eSdJz0HPdFqurG4KcvtoFWnQECKaD
-	RPUBcfJCwj1HtdZ/L8ZA==;
+	List-Owner; bh=G8VlEwxq++/dJpH9iKoPzG7wa0hycCUxxsYzReJLe0w=; b=qCeFPYESKIhIDe
+	pRjH96rH3D3ZBjRSHne1AUi1vl3kf1rP8H9aHo4a9B/XqXvU9a1+DVDDJUncsBS1kuJTaek+EEFsb
+	gMCgt2pxdNalArxgdM2HHMGYkopdpqo/Kyc1uOTmCnt7Dqc0VutubhIJNQp0gIKVgip5uLKsH1Ub+
+	al2rwk3LjP9I91llyzldyn3mENKYgz69xS3Kix7QNaHImXymj3edBk82kUHMBAvQvYMrT6ke7IRLD
+	EVmqbc8qsjRfxZ0Et5WwcHgIcu7I+9WwQ+hxKShteF+jN+ggxbvexZn3XqbW9Bz0w35ZdA5xWwIgd
+	YVwBOqCYWf4qcThWjqVA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tk5I9-00000005WTm-29hm;
-	Mon, 17 Feb 2025 17:52:25 +0000
-Received: from mail-wr1-x42b.google.com ([2a00:1450:4864:20::42b])
+	id 1tk5lQ-00000005aiW-2lU4;
+	Mon, 17 Feb 2025 18:22:40 +0000
+Received: from mail-wr1-x436.google.com ([2a00:1450:4864:20::436])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tk47j-00000005ICe-05GT;
-	Mon, 17 Feb 2025 16:37:36 +0000
-Received: by mail-wr1-x42b.google.com with SMTP id ffacd0b85a97d-38de1a5f039so4444069f8f.2;
-        Mon, 17 Feb 2025 08:37:34 -0800 (PST)
+	id 1tk5a8-00000005ZHS-1Raf
+	for linux-riscv@lists.infradead.org;
+	Mon, 17 Feb 2025 18:11:03 +0000
+Received: by mail-wr1-x436.google.com with SMTP id ffacd0b85a97d-38f488f3161so517851f8f.3
+        for <linux-riscv@lists.infradead.org>; Mon, 17 Feb 2025 10:10:59 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1739810253; x=1740415053; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=TKpi0u6vaUnsrplCnc00ydxIjOGnOYCvPvGm+BeJUhk=;
-        b=e+hNyY4gKBOqWrP9LbHeKj13gy/kkoFmY9SAfuCch9eHapc5xsiybo6hw51wDkiKUO
-         3PCLmQ07TBxh1abNS1EWJlsM4M0vX1C/QOzxX7AtL3VXe5NT1Urna7pYkM9ZyR7D5Y0m
-         p1Qz0uMdMngMbGRCpUwxCDLP70KnCRY4IExpu5OzDZ0U8qs/Oa0AhfYyLf5azxgh/eRz
-         SlNDqIfiwlW0KWkHya6Ytsx1Y7YdBI+DiShD7CVevjRxhtZjE8MDn/SO+33BVFufdMkq
-         K6JKmF/vFymPbDy0yOfjBAdDfkR85HDUCyN5c0E+OetdF9f47jj/H/Dwaxn+zpjxT3Tv
-         szjw==
+        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1739815858; x=1740420658; darn=lists.infradead.org;
+        h=mime-version:message-id:date:user-agent:references:in-reply-to
+         :subject:cc:to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=WYdQMpmWfwfRPZrNOq/JI6U8Fyr73ByGTD+9Af1nU7I=;
+        b=gcc8N/XPvKrfVMvrJ5ObQpRi+keSIMVacJZVCJxaPwKNWM1rvtYnijFU69DchoH0TY
+         8WP5edx6dUA7lSznjr7GBAiVzD6qltDu+IC9plIFHFZq+qBwjoCbdb9K/x9pXRJCVcmF
+         f3Wi/QRzR0NYhOxmNibPZMX6HYJMsFBEorygjcCVBvqgPACfJDrTON9xArwQoRABqlkQ
+         y6HUN32LLcE1n1BxGnFxyZk5V4Mo7iPSwq/HdHLqMd20fbZy1sW57OydlGNCfv/nPwCD
+         Vs3FGio0oEno+11dga/jc/0oiHCA8SllDSnc3HS8fcl11o+5QthSG6SaPstFoOP0lK6M
+         Q2PQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1739810253; x=1740415053;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=TKpi0u6vaUnsrplCnc00ydxIjOGnOYCvPvGm+BeJUhk=;
-        b=IOFEosnVjqx9wKvE4xUtkaZNtsPkPOqhaP5MpsjNaFKDkC4/XQNjzM76MmztCh5+El
-         rNRA8X+54yMvdaupqBwPViplD8lkagAhWBCkMlrze13x1zb3Eie8k1+a+61l6KuFiv3z
-         YTcUx6YRPT5In+wVhy8a/zme+ySdMIn+hHIUetyQAmsLqrokkJx/DRx9iBvu3Eg94Dr3
-         mmMrDHQvnLgVDrnPea4l+6ujj27LDa+qq3lJOmSV+W11oLr2h/eKtPcXEUpo0/i1SnVu
-         Ou7vGp3Sp+DfyNDww8GV6UBQ5S67smYODcPsXCVEAq3m+RGuATEP55fYeQ0gy8BeFh67
-         4/Pg==
-X-Forwarded-Encrypted: i=1; AJvYcCV2kOQ4cAYfWwkBTPJaLBHtfipwYl1A5hZT/y7w9OCgN19uVUtn+rpwheez7Q/26XttjiWnsrxM5KdD5NbXx+PJ@lists.infradead.org, AJvYcCWCmO+Eobs7RbGcL4SrgHK6gy5JbWlWb6j2k+AFo7E26mqX+a4hWhVrO68JxdBWKffai0aEvp1ahSomxys=@lists.infradead.org
-X-Gm-Message-State: AOJu0YxEExlOl87sAgyiDHiSpAdh9ksnfc7140wuchIfzf5p57sSTy7K
-	4iSVQZ1kE0rsOBg/dcct24ZjE97eRsTvYqKdWtJq2XWPGG6WlAsX
-X-Gm-Gg: ASbGncvTi2nkk3cszFUjBaMjTB0R16gcC6fjvlizzWqs79o/E0k0W6gZpMnC5OB6qJP
-	hQVURLgFSI7GMaXivg4qns8nzKgDLGFNIU8/8nBsAmZOGleqK8pURpeqKQTJdEwgA0m1y/ef+4X
-	pQpe58F3q3PZnhlw5zblnyFTbX92R7KOtrWNXEnCIpmIGtdvbSEQ2hwBctfo70obM3ogOAEd4kN
-	soSKYlr5sWqSZtTl8zYPjqbFwbelFZq2Ytq08WvNXg+DnqjRymI3H446KcxU5uJMd6S6OVEz1ja
-	G0Fl8inFN1xDaiXq4Y56FEKCWKtsh23cv2Tbecx4Sq6EmmEufiKjpGyey8G4uwnKjbXwLMbD5fT
-	z1/4jrnk=
-X-Google-Smtp-Source: AGHT+IGTsVCL+NTHpDgAjbfPGCf82Ky2fpMBBCHIOPIzC5FN2MM8zcjn3L7PrIBL8Fr/RKV6YFjIXQ==
-X-Received: by 2002:a5d:64c6:0:b0:38d:cab2:921a with SMTP id ffacd0b85a97d-38f33f1249bmr8380187f8f.1.1739810253132;
-        Mon, 17 Feb 2025 08:37:33 -0800 (PST)
-Received: from localhost (p200300e41f22a600f22f74fffe1f3a53.dip0.t-ipconnect.de. [2003:e4:1f22:a600:f22f:74ff:fe1f:3a53])
-        by smtp.gmail.com with UTF8SMTPSA id ffacd0b85a97d-38f259f7979sm12509797f8f.83.2025.02.17.08.37.31
+        d=1e100.net; s=20230601; t=1739815858; x=1740420658;
+        h=mime-version:message-id:date:user-agent:references:in-reply-to
+         :subject:cc:to:from:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=WYdQMpmWfwfRPZrNOq/JI6U8Fyr73ByGTD+9Af1nU7I=;
+        b=ZmcVF2US7tpwGQfMEiUtNWBBC+Ki20e2p1SKq9rCHR+ktc4YrggL4UXmi10jMyDCOT
+         mqCsjDxO5k5ATdje8V55sewI7Y1gvqVXfGlKYEy3Si6201MiDlvPcZcUy9y0rZ+G22wU
+         5rS86E9UxszHuZrpZJLTx/c+f75T0a9CQfYE84Hm8kxhfD9Ha7dl3z2S12qhR3iNgr9G
+         8/aN3IJeUwhFuT9irhz0hXfu5zztu8d3Qxg50C5TyZIs3QObInURD21Is/DCBgd4MnVp
+         FbVzuG9yb2bYUpMddXoHeH23WmSBrGXsK0ldC2FheTxAs/48HDTcTXCxXJP9ZJZLru/Q
+         cD7Q==
+X-Forwarded-Encrypted: i=1; AJvYcCXj30lvqgSV2n4Gn5Ct14IyLYC0nI4INCI4rr0WG+FBzhjRaQL8xXwXDMB7dwdTg4n5Y+tKdtbcpfrU7A==@lists.infradead.org
+X-Gm-Message-State: AOJu0YyFXEAieB+LTabagiN/CZbLSDvZTBFmeE0jyQNahm+dYRg5WnZB
+	Y6S1jD9m9TjQ+sZLAGNJbt+B88Lh5tb1wzx3NRIwEz7EbxBJgOfTkvLRLz1wWa8=
+X-Gm-Gg: ASbGncv+k4NpJmZlYSZw0BV+vBXzlHfJLgIFLYlmrKzUXQf2FGtT8fjeEHdRQcyOanC
+	ZeNeptgoa3y1JlcUmp70PRAY6Z8Km/OITXH470xOMWLXeSfdwbF/YiBD/3aYcbHJRbmHBpM3Eh8
+	s1DAc93juunN2h0hE5BaeypbJzLIHSFAS4659qOckQKBQbBz3RjxBiGScP5I73JJ5ITxRihqvmF
+	cpMDR32UVckk0MJxpWnn/LOkC+iSwhMTPFelRC7/iEYxdql8c1lgN8UGv9qVc8DD+6n0ykBe5HT
+	TjgQzNOybwHDYQ==
+X-Google-Smtp-Source: AGHT+IFTAKZ9BquOVY29sEYMChLDnuqHcqVlSqR4NiZlMjD4bUMe9qRI5EU9r/6iyIf02WCX+Y2KzA==
+X-Received: by 2002:a5d:4cca:0:b0:38a:2b34:e13e with SMTP id ffacd0b85a97d-38f33f28c01mr7768806f8f.18.1739815856721;
+        Mon, 17 Feb 2025 10:10:56 -0800 (PST)
+Received: from localhost ([2a01:e0a:3c5:5fb1:a529:8667:e9bd:7f7])
+        by smtp.gmail.com with UTF8SMTPSA id 5b1f17b1804b1-4395afaf052sm155075695e9.13.2025.02.17.10.10.54
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 17 Feb 2025 08:37:32 -0800 (PST)
-From: Thierry Reding <thierry.reding@gmail.com>
+        Mon, 17 Feb 2025 10:10:55 -0800 (PST)
+From: Jerome Brunet <jbrunet@baylibre.com>
 To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-Cc: x86@kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-riscv@lists.infradead.org,
-	linux-mips@vger.kernel.org,
-	loongarch@lists.linux.dev,
-	linuxppc-dev@lists.ozlabs.org,
-	linux-sh@vger.kernel.org,
-	linux-pci@vger.kernel.org,
-	linux-acpi@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH 6/7] irqchip/irq-imx-gpcv2: Embed syscore_ops in chip context
-Date: Mon, 17 Feb 2025 17:37:12 +0100
-Message-ID: <20250217163713.211949-7-thierry.reding@gmail.com>
-X-Mailer: git-send-email 2.48.1
-In-Reply-To: <20250217163713.211949-1-thierry.reding@gmail.com>
-References: <20250217163713.211949-1-thierry.reding@gmail.com>
+Cc: Dave Ertman <david.m.ertman@intel.com>,  Ira Weiny
+ <ira.weiny@intel.com>,  "Rafael J. Wysocki" <rafael@kernel.org>,  Stephen
+ Boyd <sboyd@kernel.org>,  Arnd Bergmann <arnd@arndb.de>,  Danilo Krummrich
+ <dakr@kernel.org>,  Conor Dooley <conor.dooley@microchip.com>,  Daire
+ McNamara <daire.mcnamara@microchip.com>,  Philipp Zabel
+ <p.zabel@pengutronix.de>,  Douglas Anderson <dianders@chromium.org>,
+  Andrzej Hajda <andrzej.hajda@intel.com>,  Neil Armstrong
+ <neil.armstrong@linaro.org>,  Robert Foss <rfoss@kernel.org>,  Laurent
+ Pinchart <Laurent.pinchart@ideasonboard.com>,  Jonas Karlman
+ <jonas@kwiboo.se>,  Jernej Skrabec <jernej.skrabec@gmail.com>,  Maarten
+ Lankhorst <maarten.lankhorst@linux.intel.com>,  Maxime Ripard
+ <mripard@kernel.org>,  Thomas Zimmermann <tzimmermann@suse.de>,  David
+ Airlie <airlied@gmail.com>,  Simona Vetter <simona@ffwll.ch>,  Hans de
+ Goede <hdegoede@redhat.com>,  Ilpo =?utf-8?Q?J=C3=A4rvinen?=
+ <ilpo.jarvinen@linux.intel.com>,  Bryan O'Donoghue
+ <bryan.odonoghue@linaro.org>,  Vladimir Kondratiev
+ <vladimir.kondratiev@mobileye.com>,  Gregory CLEMENT
+ <gregory.clement@bootlin.com>,  =?utf-8?Q?Th=C3=A9o?= Lebrun
+ <theo.lebrun@bootlin.com>,
+  Michael Turquette <mturquette@baylibre.com>,  Abel Vesa
+ <abelvesa@kernel.org>,  Peng Fan <peng.fan@nxp.com>,  Shawn Guo
+ <shawnguo@kernel.org>,  Sascha Hauer <s.hauer@pengutronix.de>,
+  Pengutronix Kernel Team <kernel@pengutronix.de>,  Fabio Estevam
+ <festevam@gmail.com>,  Kevin Hilman <khilman@baylibre.com>,  Martin
+ Blumenstingl <martin.blumenstingl@googlemail.com>,
+  linux-kernel@vger.kernel.org,  linux-riscv@lists.infradead.org,
+  dri-devel@lists.freedesktop.org,  platform-driver-x86@vger.kernel.org,
+  linux-mips@vger.kernel.org,  linux-clk@vger.kernel.org,
+  imx@lists.linux.dev,  linux-arm-kernel@lists.infradead.org,
+  linux-amlogic@lists.infradead.org
+Subject: Re: [PATCH v3 1/7] driver core: auxiliary bus: add device creation
+ helpers
+In-Reply-To: <2025021501-tamer-sank-142a@gregkh> (Greg Kroah-Hartman's message
+	of "Sat, 15 Feb 2025 07:53:12 +0100")
+References: <20250211-aux-device-create-helper-v3-0-7edb50524909@baylibre.com>
+	<20250211-aux-device-create-helper-v3-1-7edb50524909@baylibre.com>
+	<2025021437-washout-stonewall-d13e@gregkh>
+	<1jwmdsxugx.fsf@starbuckisacylon.baylibre.com>
+	<2025021501-tamer-sank-142a@gregkh>
+User-Agent: mu4e 1.12.8; emacs 29.4
+Date: Mon, 17 Feb 2025 19:10:54 +0100
+Message-ID: <1jikp8xx01.fsf@starbuckisacylon.baylibre.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250217_083735_059948_13B40C68 
-X-CRM114-Status: GOOD (  14.66  )
+X-CRM114-CacheID: sfid-20250217_101100_375682_E74B96D1 
+X-CRM114-Status: GOOD (  19.42  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,96 +131,86 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Thierry Reding <treding@nvidia.com>
+On Sat 15 Feb 2025 at 07:53, Greg Kroah-Hartman <gregkh@linuxfoundation.org> wrote:
 
-This enables the syscore callbacks to obtain the IRQ chip context
-without relying on a separate global variable.
+[...]
 
-Signed-off-by: Thierry Reding <treding@nvidia.com>
----
- drivers/irqchip/irq-imx-gpcv2.c | 29 +++++++++++------------------
- 1 file changed, 11 insertions(+), 18 deletions(-)
+>> 
+>> >
+>> >> +							int id)
+>> >> +{
+>> >> +	struct auxiliary_device *auxdev;
+>> >> +	int ret;
+>> >> +
+>> >> +	auxdev = kzalloc(sizeof(*auxdev), GFP_KERNEL);
+>> >> +	if (!auxdev)
+>> >> +		return ERR_PTR(-ENOMEM);
+>> >
+>> > Ick, who cares what the error value really is?  Why not just do NULL or
+>> > a valid pointer?  That makes the caller much simpler to handle, right?
+>> >
+>> 
+>> Sure why not
 
-diff --git a/drivers/irqchip/irq-imx-gpcv2.c b/drivers/irqchip/irq-imx-gpcv2.c
-index 83b009881e2a..61ba06a28fc4 100644
---- a/drivers/irqchip/irq-imx-gpcv2.c
-+++ b/drivers/irqchip/irq-imx-gpcv2.c
-@@ -19,6 +19,7 @@
- 
- 
- struct gpcv2_irqchip_data {
-+	struct syscore_ops	syscore;
- 	struct raw_spinlock	rlock;
- 	void __iomem		*gpc_base;
- 	u32			wakeup_sources[IMR_NUM];
-@@ -26,7 +27,11 @@ struct gpcv2_irqchip_data {
- 	u32			cpu2wakeup;
- };
- 
--static struct gpcv2_irqchip_data *imx_gpcv2_instance __ro_after_init;
-+static inline struct gpcv2_irqchip_data *
-+from_syscore(struct syscore_ops *ops)
-+{
-+	return container_of(ops, struct gpcv2_irqchip_data, syscore);
-+}
- 
- static void __iomem *gpcv2_idx_to_reg(struct gpcv2_irqchip_data *cd, int i)
- {
-@@ -35,14 +40,10 @@ static void __iomem *gpcv2_idx_to_reg(struct gpcv2_irqchip_data *cd, int i)
- 
- static int gpcv2_wakeup_source_save(struct syscore_ops *ops)
- {
--	struct gpcv2_irqchip_data *cd;
-+	struct gpcv2_irqchip_data *cd = from_syscore(ops);
- 	void __iomem *reg;
- 	int i;
- 
--	cd = imx_gpcv2_instance;
--	if (!cd)
--		return 0;
--
- 	for (i = 0; i < IMR_NUM; i++) {
- 		reg = gpcv2_idx_to_reg(cd, i);
- 		cd->saved_irq_mask[i] = readl_relaxed(reg);
-@@ -54,22 +55,13 @@ static int gpcv2_wakeup_source_save(struct syscore_ops *ops)
- 
- static void gpcv2_wakeup_source_restore(struct syscore_ops *ops)
- {
--	struct gpcv2_irqchip_data *cd;
-+	struct gpcv2_irqchip_data *cd = from_syscore(ops);
- 	int i;
- 
--	cd = imx_gpcv2_instance;
--	if (!cd)
--		return;
--
- 	for (i = 0; i < IMR_NUM; i++)
- 		writel_relaxed(cd->saved_irq_mask[i], gpcv2_idx_to_reg(cd, i));
- }
- 
--static struct syscore_ops imx_gpcv2_syscore_ops = {
--	.suspend	= gpcv2_wakeup_source_save,
--	.resume		= gpcv2_wakeup_source_restore,
--};
--
- static int imx_gpcv2_irq_set_wake(struct irq_data *d, unsigned int on)
- {
- 	struct gpcv2_irqchip_data *cd = d->chip_data;
-@@ -275,8 +267,9 @@ static int __init imx_gpcv2_irqchip_init(struct device_node *node,
- 	 */
- 	writel_relaxed(~0x1, cd->gpc_base + cd->cpu2wakeup);
- 
--	imx_gpcv2_instance = cd;
--	register_syscore_ops(&imx_gpcv2_syscore_ops);
-+	cd->syscore.suspend = gpcv2_wakeup_source_save;
-+	cd->syscore.resume = gpcv2_wakeup_source_restore;
-+	register_syscore_ops(&cd->syscore);
- 
- 	/*
- 	 * Clear the OF_POPULATED flag set in of_irq_init so that
+I have tried the 'NULL or valid' approach. In the consumers,
+which mostly return an integer from their various init function, I got
+this weird to come up with one from NULL. EINVAL, ENOMEM, etc ... can't
+really pick one.
+
+It is actually easier to pass something along.
+
+>> 
+>> >> +
+>> >> +	auxdev->id = id;
+>> >> +	auxdev->name = devname;
+>> >> +	auxdev->dev.parent = dev;
+>> >> +	auxdev->dev.platform_data = platform_data;
+>> >> +	auxdev->dev.release = auxiliary_device_release;
+>> >> +	device_set_of_node_from_dev(&auxdev->dev, dev);
+>> >> +
+>> >> +	ret = auxiliary_device_init(auxdev);
+>> >
+>> > Only way this will fail is if you forgot to set parent or a valid name.
+>> > So why not check for devname being non-NULL above this?
+>> 
+>> If auxiliary_device_init() ever changes it would be easy to forget to
+>> update that and lead to something nasty to debug, don't you think ?
+>
+> Yes, this is being more defensive, I take back my objection, thanks.
+>
+>> >> +	if (ret) {
+>> >> +		kfree(auxdev);
+>> >> +		return ERR_PTR(ret);
+>> >> +	}
+>> >> +
+>> >> +	ret = __auxiliary_device_add(auxdev, modname);
+>> >> +	if (ret) {
+>> >> +		/*
+>> >> +		 * NOTE: It may look odd but auxdev should not be freed
+>> >> +		 * here. auxiliary_device_uninit() calls device_put()
+>> >> +		 * which call the device release function, freeing auxdev.
+>> >> +		 */
+>> >> +		auxiliary_device_uninit(auxdev);
+>> >
+>> > Yes it is odd, are you SURE you should be calling device_del() on the
+>> > device if this fails?  auxiliary_device_uninit(), makes sense so why not
+>> > just call that here?
+>> 
+>> I'm confused ... I am call auxiliary_device_uninit() here. What do you
+>> mean ? 
+>
+> Oh wow, I got this wrong, sorry, I was thinking you were calling
+> auxiliary_device_destroy().  Nevermind, ugh, it was a long day...
+>
+
+No worries
+
+> thanks,
+>
+> greg k-h
+
 -- 
-2.48.1
-
+Jerome
 
 _______________________________________________
 linux-riscv mailing list
