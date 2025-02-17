@@ -4,108 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4B5E8C021A4
-	for <linux-riscv@archiver.kernel.org>; Mon, 17 Feb 2025 09:54:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1811C021A0
+	for <linux-riscv@archiver.kernel.org>; Mon, 17 Feb 2025 10:53:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Date:Cc:To:From:Subject:Message-ID:Reply-To:Content-ID:Content-Description:
+	Message-ID:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=YqpD8thO0be0GwGbPSKbvelel++zDJ+Vdl35wI+41PM=; b=PYpu7Ec+vt6qas
-	lLL/OE5SMPQll9iuHIWHN9N4AKCsPLoD5gHgA4waXOf2RPZs1BSmFzd15nFTt5ref6kDrKFwktDpq
-	bbeFx6rkyn75FHyBl6YU5XayaBhAuKeLdwYuIDRFclajdL5G02FaqiJdVRFNAbuaOmRvf6qDc6kiX
-	u6fVbLl0kk4UMdkf5+9RuWNK38K1ymkFKGQUt507wZMeUtLIHMD8OMalexV5tp2iwEfkJtAR3HoMJ
-	AYfCdVaORPShKl37Y2gs7FcoOJuxev7bee0II14D0uvvVGwCiWgAsSBS7NJDcG3hSyGSjrhrL7giQ
-	Fs/hTxq26ca7XLVdOkdg==;
+	List-Owner; bh=WlZP8SZYetYktHDMy89E58QpaLzD7a5abBH6Ap8cJUQ=; b=ZqesZ78IFgjOuo
+	w0LE8D0E2FTbARILBV5n5mWwOLnSxfFTr2G01KdlUqG+ySkVUYSs44FxJ8Muc9oG38npewFhwdmG4
+	t2vp3Tb6sFX5HnX1/H0/JV2+V/xRKqK2Z7PTKvlsPpr1scyMVkvsg+XBXeKdLGtXQmitRqrRK0k3p
+	7nv3+zEnI6T+wZIvM6igeJ403jkdj6A/eiuyoDjccairMa0bbw2RRmOxx/2j6d4dN23xqc601ycL3
+	iQKpNAU5iLsjevZrqzrj9+CT/thmwXmnJMG2sl0zo8zSoLjfQWHRvK6V5rGna7KJT/RcchuMPPyNG
+	vldGY2pDLQ/zR5mmbF8w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tjxpR-000000040RF-3i89;
-	Mon, 17 Feb 2025 09:54:17 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1tjykO-00000004AO3-0rLU;
+	Mon, 17 Feb 2025 10:53:08 +0000
+Received: from mail-pj1-x102c.google.com ([2607:f8b0:4864:20::102c])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tjxTm-00000003wCX-0CRk
-	for linux-riscv@bombadil.infradead.org;
-	Mon, 17 Feb 2025 09:31:54 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=MIME-Version:Content-Transfer-Encoding
-	:Content-Type:References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=qwwfQspqK1CIaepn5O3N48Xj/62KJzh4txop3uOMjDc=; b=bpnwT3TBPfxHuldgmgRHUSJ9Y6
-	YTh3jnRQhRrfUTBoCCdec2apuNH4gfN2JIXpMQN7jxtbkmskGHzXy4O0ScvQHRfyJIcpFqcZFSWj1
-	WPDLh9LSOCGbzHWBVqgLqi6Xn0jsRSNItF7DELFMyRiggjrMF0IBfqHiAJGf7LSBjsnXqYT7s0FuU
-	2i7w+cDfeXPNsEZzpOvM1GqkGPWnz5MIUap6pr5whiVQejjVgyiNEaU5eSn8Js6lDuiAytu3yfyx5
-	lq4s/tdLU0jeZOXRSL0rCHVdbm0h0nKZfDr+f06FahDKk26nGJL3iZOrv/oQ257GTUlRld2y4el8f
-	4blxDAbQ==;
-Received: from mail-ej1-x62a.google.com ([2a00:1450:4864:20::62a])
-	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tjxTi-00000001l29-3Yx3
+	id 1tjwx3-00000003pcs-33y3
 	for linux-riscv@lists.infradead.org;
-	Mon, 17 Feb 2025 09:31:52 +0000
-Received: by mail-ej1-x62a.google.com with SMTP id a640c23a62f3a-abb8e405640so153548566b.0
-        for <linux-riscv@lists.infradead.org>; Mon, 17 Feb 2025 01:31:48 -0800 (PST)
+	Mon, 17 Feb 2025 08:58:06 +0000
+Received: by mail-pj1-x102c.google.com with SMTP id 98e67ed59e1d1-2fbf77b2b64so7658995a91.2
+        for <linux-riscv@lists.infradead.org>; Mon, 17 Feb 2025 00:58:05 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1739784708; x=1740389508; darn=lists.infradead.org;
-        h=mime-version:user-agent:content-transfer-encoding:references
-         :in-reply-to:date:cc:to:from:subject:message-id:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=qwwfQspqK1CIaepn5O3N48Xj/62KJzh4txop3uOMjDc=;
-        b=ku9xMDoXZejZ95TEFU/hbByLiQd6gewzh629cECirpRtSy4ufszKoz7ILt5BAaRoAJ
-         AIHaZlapKtSL8t5fxfhqPYp8ue/5SOAK5Khl6BQ6lGUaOp2/HHaAT2ImcyVuKXFFOfqg
-         ARCrlPboW6Hs2CuA2KFAcgOfnxuwF/m7FCsuA4Ord36DLjebHGsUwgVhGZoh1cnAOsda
-         xI+KejyfXiK7oT8HR3L8yYlK4CPIj+ZqLGXM5T8WHnx2vh7izIPK9BGD91EeJ4jrWctE
-         kHD5KKESQ3k7MKxCDQhvIeyrY9I0LZ6l9BtGk83c0CsGy4B3eM/ViOHAqnDTAXBLplnT
-         emOQ==
+        d=ventanamicro.com; s=google; t=1739782685; x=1740387485; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=dDa5uVtGTmKoF+EGxYZ14lQBrXBy+Zgm46G016g9yok=;
+        b=UHt23aZkjkoEgHkye4Qhk4E4vWe5lpkP+DRgP6j+NKeKLtHYKzFOzidtyp4DVARm47
+         Il+r0nWUr4GvXAgk2p23ZKS0G1EwmKFMpLFvUgnM3O1Kd5Y9vSIVwjcfLzsFZ/xk15ee
+         tNckXFOk2Tr46pKQ1wOhLe/jHFHdP1GzW5mpjToC7g3tD+qgKHoioa/Nk9wwJK+vi0mg
+         P3vplKE9riMCpXrD1NA+PpVidP9AbzYjzBNk5eWK97HgDxREL7PHA557ilC5XUxdoz+m
+         t54CP2JIKiFh8Cc2cIodg0LygbZhNygT6+PA4J1uCnQZoHspaLFrALdvG9EHZ7XJri9Q
+         F8xw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1739784708; x=1740389508;
-        h=mime-version:user-agent:content-transfer-encoding:references
-         :in-reply-to:date:cc:to:from:subject:message-id:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=qwwfQspqK1CIaepn5O3N48Xj/62KJzh4txop3uOMjDc=;
-        b=voeq4glhbltIJQkhsXyO1IkaR/XyFZXkVgFhxIrmD5UybwrX/sKPcj+dcVHDWSPqO9
-         i+xB+i2x+gg/jRUIfBGhVPSdVJDzH0YTiMQWtGrQT3h6IQrC1HSy2rpwtYTp9Uk8GN1B
-         0458hBGeM5/cZFf5qa20ZJRFqLdA6GLOvU/rZEaxzF/DUjjWmhsuQfdkqZpqn7HZYcJr
-         njonal+zHrFXoZbFTqtTLSlZW25BWgUEYmiBRXv9LHlvHONMLlLwITy8Ioej2rBc8FCN
-         ukOyQEp3c8FyS103qjKdsEILZt/t/inaGK7y0ZyGujp+D2bQcF+LqTryEKcYmzD7aQNu
-         Zmvw==
-X-Forwarded-Encrypted: i=1; AJvYcCWihWgu41i0o8O9hAm8k4puPZ9TY7iAlZSscix0C7vcI6wsFyP47qnmq55BGPhfYgDcgDGkneuBkeBgNQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxr9OrIw7tO1SBVWLC/ReAiOAy6jBBcgGkhVHOcNNCPM/hCvyNf
-	++D7/Lb1HfzZiOGv+dUS1o/PVOMlJZx9Lg49HjxQndY36wqR0pZS
-X-Gm-Gg: ASbGncscrTmFnG1BMNqbh68N8Qx3ZemSz6lLZ1m0CgU+IOW6bBbB+Pu3IPawQ2z8sLY
-	kRlIdZcpxEPLoDrT7guZfUqIMwoncWgNZfTW6GMyiwJX9vpCdmAg0U3enIBcbE7cuDVq7GpwpNp
-	p7DgGJQV/w74JR6uBUizITE0Izh/dJUfXsqq1odBbI+zMFNtb9F0JTotOg+trqg/zQUUd9t0zgX
-	NMksvELjChvS+q1sfiX6U7aZqvX9Z9S/uBM3aulIeF2TwtOVCPxJvNtuLqkvtodoKSftLS21pIt
-	Owafb8t6B9LK3qEPgrixja3F6A99slh0
-X-Google-Smtp-Source: AGHT+IF19rIOBPRe3FreKmfKhGzofepgR2PC8/BYqtWn5SXsysFWGgg87ztwsvGb53f3Baqru+RpWg==
-X-Received: by 2002:a17:907:3d8e:b0:ab7:4641:a72d with SMTP id a640c23a62f3a-abb70de28admr913177666b.51.1739784707261;
-        Mon, 17 Feb 2025 01:31:47 -0800 (PST)
-Received: from giga-mm.home ([2a02:1210:861b:6f00:82ee:73ff:feb8:99e3])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-abba64fbabfsm75995966b.172.2025.02.17.01.31.46
+        d=1e100.net; s=20230601; t=1739782685; x=1740387485;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=dDa5uVtGTmKoF+EGxYZ14lQBrXBy+Zgm46G016g9yok=;
+        b=OMv6kbajNDgvu6bGwYnUWfaabUQmtr8+ju0wSxty6NAVlHpvTsgzjwR2f2mYdyTHJv
+         gpq4Ru/tZFDb++rlyDrZa5JBexBarsYyA3XvP9XvSU3b1eLThj/UuOJukE/kcfVXM76O
+         RIShZizsV8K74PzMRrlTk94fN8sjPBzQ61E+bKwFS9CsBAQ48mKvzteDaQsOLV32Uhay
+         /TOS09DtHZSg7G2/YyoRghBybtGNr9BdUvmTMrY0VQQtXDqKOpMHcRrJ6SX6ZlhWuOc9
+         pu5UfjN6T0ORdamv8dF+hI0alDAR/I50qix+N3CAwYxPf9MYUriGrAdF5tWK1Jg3PBYd
+         IlCw==
+X-Forwarded-Encrypted: i=1; AJvYcCV6CLm2KC1HLPLWsgk6I7G5l7tFuLfjX0ZLOh5wJ4sZR3jv9I8MNAS+klQ+Ce6OSoDwfKVhEMwI7qDa6A==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz+HmVOuTxWwLtrcErdcvPs2eWtuaXRXCpzJGsVw/D4BbxcVovG
+	Gs6EaoYKteq9eesaVVbXk0D9BF8y+379G4pREBz+me6KF636UuJqlxw4hkS850Y=
+X-Gm-Gg: ASbGncsI7GI2XZNEtpPABAC+DJ9tgEc5XbTLETmfYRC/q1Jn8jPi30xlzlBQ+awVkgk
+	UlphT/AGVPe1Ce6C0DwyQxFUpovScxINO4qFBJk6ZVVMCg1MPjRTeNdDYZLB6IAIyWIWjQLwd2L
+	hFii08OWHc7/eVN8p6wHHlMCk2IRa0xSleYou/5K/Q0Ix9Oo4BlQsf99AtK28ZJr7u+Cew8A3g2
+	wOJIKP2L84cScUVpvbFjxAFmK7HE6n1YmrRzU+JjNzs1cidkL78fAURC2b3GOYaF66KHNg37rus
+	zn3+AUFU3mAy0WkYP6bmDk2W8jVlMPHo7FHFS96ZF2XYl9CWUhS5ssg=
+X-Google-Smtp-Source: AGHT+IEBiHMsSRSIfUNYli1xMt3Ndd9iF3r/FiZIa8NwO+yyTNgjVUysuPXb/9spmDvKm+4fSFcrjw==
+X-Received: by 2002:a05:6a00:1816:b0:730:7771:39c6 with SMTP id d2e1a72fcca58-7326179e950mr13452223b3a.8.1739782685095;
+        Mon, 17 Feb 2025 00:58:05 -0800 (PST)
+Received: from anup-ubuntu-vm.localdomain ([122.171.22.227])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-73242546867sm7632018b3a.24.2025.02.17.00.57.57
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 17 Feb 2025 01:31:46 -0800 (PST)
-Message-ID: <3ba76f2162841ab91ef823315e7ce4b5b7526984.camel@gmail.com>
-Subject: Re: [PATCH v11 1/3] dt-bindings: rtc: sophgo: add RTC support for
- Sophgo CV1800 series SoC
-From: Alexander Sverdlin <alexander.sverdlin@gmail.com>
-To: Chen Wang <unicorn_wang@outlook.com>, Jingbao Qiu
-	 <qiujingbao.dlmu@gmail.com>
-Cc: Inochi Amaoto <inochiama@gmail.com>, alexandre.belloni@bootlin.com, 
-	robh@kernel.org, krzysztof.kozlowski+dt@linaro.org, conor+dt@kernel.org, 
-	inochiama@outlook.com, paul.walmsley@sifive.com, palmer@dabbelt.com, 
-	aou@eecs.berkeley.edu, dlan@gentoo.org, linux-kernel@vger.kernel.org,
- Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
- devicetree@vger.kernel.org, 	linux-riscv@lists.infradead.org,
- linux-rtc@vger.kernel.org
-Date: Mon, 17 Feb 2025 10:31:43 +0100
-In-Reply-To: <MA0PR01MB567164E6BE03750F2200CBDBFEFB2@MA0PR01MB5671.INDPRD01.PROD.OUTLOOK.COM>
-References: <20250213215655.2311793-1-alexander.sverdlin@gmail.com>
-	 <20250213215655.2311793-2-alexander.sverdlin@gmail.com>
-	 <MA0PR01MB567164E6BE03750F2200CBDBFEFB2@MA0PR01MB5671.INDPRD01.PROD.OUTLOOK.COM>
-User-Agent: Evolution 3.54.2 
+        Mon, 17 Feb 2025 00:58:04 -0800 (PST)
+From: Anup Patel <apatel@ventanamicro.com>
+To: Thomas Gleixner <tglx@linutronix.de>,
+	Ingo Molnar <mingo@redhat.com>,
+	Borislav Petkov <bp@alien8.de>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	x86@kernel.org
+Subject: [PATCH v6 02/10] irqchip/irq-msi-lib: Optionally set default irq_eoi/irq_ack
+Date: Mon, 17 Feb 2025 14:26:48 +0530
+Message-ID: <20250217085657.789309-3-apatel@ventanamicro.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20250217085657.789309-1-apatel@ventanamicro.com>
+References: <20250217085657.789309-1-apatel@ventanamicro.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250217_093151_019458_2CA61A0E 
-X-CRM114-Status: GOOD (  16.68  )
+X-CRM114-CacheID: sfid-20250217_005805_770591_7E35808C 
+X-CRM114-Status: GOOD (  16.85  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,47 +95,166 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Cc: Anup Patel <apatel@ventanamicro.com>, Andrew Lunn <andrew@lunn.ch>, Atish Patra <atishp@atishpatra.org>, imx@lists.linux.dev, Marc Zyngier <maz@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, Paul Walmsley <paul.walmsley@sifive.com>, linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, Palmer Dabbelt <palmer@dabbelt.com>, Pengutronix Kernel Team <kernel@pengutronix.de>, hpa@zytor.com, Anup Patel <anup@brainfault.org>, Andrew Jones <ajones@ventanamicro.com>, Shawn Guo <shawnguo@kernel.org>, Gregory Clement <gregory.clement@bootlin.com>, linux-arm-kernel@lists.infradead.org, Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-SGkgQ2hlbiEKCk9uIE1vbiwgMjAyNS0wMi0xNyBhdCAxNzoyNiArMDgwMCwgQ2hlbiBXYW5nIHdy
-b3RlOgo+ID4gQWRkIFJUQyBkZXZpY2V0cmVlIGJpbmRpbmcgZm9yIFNvcGhnbyBDVjE4MDAgU29D
-Lgo+ID4gCj4gPiBSZXZpZXdlZC1ieTogS3J6eXN6dG9mIEtvemxvd3NraSA8a3J6eXN6dG9mLmtv
-emxvd3NraUBsaW5hcm8ub3JnPgo+ID4gU2lnbmVkLW9mZi1ieTogSmluZ2JhbyBRaXUgPHFpdWpp
-bmdiYW8uZGxtdUBnbWFpbC5jb20+Cj4gPiBTaWduZWQtb2ZmLWJ5OiBBbGV4YW5kZXIgU3ZlcmRs
-aW4gPGFsZXhhbmRlci5zdmVyZGxpbkBnbWFpbC5jb20+Cj4gPiAtLS0KPiA+IMKgwqAgLi4uL2Jp
-bmRpbmdzL3J0Yy9zb3BoZ28sY3YxODAwLXJ0Yy55YW1swqDCoMKgwqDCoMKgIHwgNTMgKysrKysr
-KysrKysrKysrKysrKwo+ID4gwqDCoCAxIGZpbGUgY2hhbmdlZCwgNTMgaW5zZXJ0aW9ucygrKQo+
-ID4gwqDCoCBjcmVhdGUgbW9kZSAxMDA2NDQgRG9jdW1lbnRhdGlvbi9kZXZpY2V0cmVlL2JpbmRp
-bmdzL3J0Yy9zb3BoZ28sY3YxODAwLXJ0Yy55YW1sCj4gPiAKPiA+IGRpZmYgLS1naXQgYS9Eb2N1
-bWVudGF0aW9uL2RldmljZXRyZWUvYmluZGluZ3MvcnRjL3NvcGhnbyxjdjE4MDAtcnRjLnlhbWwg
-Yi9Eb2N1bWVudGF0aW9uL2RldmljZXRyZWUvYmluZGluZ3MvcnRjL3NvcGhnbyxjdjE4MDAtcnRj
-LnlhbWwKPiA+IG5ldyBmaWxlIG1vZGUgMTAwNjQ0Cj4gPiBpbmRleCAwMDAwMDAwMDAwMDAuLmIz
-NmI1MWE2OTE2Ngo+ID4gLS0tIC9kZXYvbnVsbAo+ID4gKysrIGIvRG9jdW1lbnRhdGlvbi9kZXZp
-Y2V0cmVlL2JpbmRpbmdzL3J0Yy9zb3BoZ28sY3YxODAwLXJ0Yy55YW1sCj4gPiBAQCAtMCwwICsx
-LDUzIEBACj4gPiArIyBTUERYLUxpY2Vuc2UtSWRlbnRpZmllcjogKEdQTC0yLjAtb25seSBPUiBC
-U0QtMi1DbGF1c2UpCj4gPiArJVlBTUwgMS4yCj4gPiArLS0tCj4gPiArJGlkOiBodHRwOi8vZGV2
-aWNldHJlZS5vcmcvc2NoZW1hcy9ydGMvc29waGdvLGN2MTgwMC1ydGMueWFtbCMKPiA+ICskc2No
-ZW1hOiBodHRwOi8vZGV2aWNldHJlZS5vcmcvbWV0YS1zY2hlbWFzL2NvcmUueWFtbCMKPiA+ICsK
-PiA+ICt0aXRsZTogUmVhbCBUaW1lIENsb2NrIG9mIHRoZSBTb3BoZ28gQ1YxODAwIFNvQwo+ID4g
-Kwo+ID4gK2Rlc2NyaXB0aW9uOgo+ID4gK8KgIFJlYWwgVGltZSBDbG9jayAoUlRDKSBpcyBhbiBp
-bmRlcGVuZGVudGx5IHBvd2VyZWQgbW9kdWxlCj4gPiArwqAgd2l0aGluIHRoZSBjaGlwLCB3aGlj
-aCBpbmNsdWRlcyBhIDMyS0h6IG9zY2lsbGF0b3IgYW5kIGEKPiA+ICvCoCBQb3dlciBPbiBSZXNl
-dC9QT1Igc3VibW9kdWxlLiBJdCBjYW4gYmUgdXNlZCBmb3IgdGltZSBkaXNwbGF5Cj4gPiArwqAg
-YW5kIHRpbWVkIGFsYXJtIGdlbmVyYXRpb24uIEluIGFkZGl0aW9uLCB0aGUgaGFyZHdhcmUgc3Rh
-dGUKPiA+ICvCoCBtYWNoaW5lIHByb3ZpZGVzIHRyaWdnZXJpbmcgYW5kIHRpbWluZyBjb250cm9s
-IGZvciBjaGlwCj4gPiArwqAgcG93ZXIgb24sIG9mZiwgYW5kIHJlc2V0Lgo+ID4gKwo+ID4gK21h
-aW50YWluZXJzOgo+ID4gK8KgIC0gSmluZ2JhbyBRaXUgPHFpdWppbmdiYW8uZGxtdUBnbWFpbC5j
-b20+Cj4gCj4gSSBndWVzcyBKaW5nYmFvIHdpbGwgbm90IHRha2UgdGhpcyByb2xlLiBJZiBoZSBk
-b2Vzbid0IHJhaXNlIGFueSAKPiBvYmplY3Rpb25zLCBwbGVhc2UganVzdCBjaGFuZ2UgdGhpcy4K
-PiAKPiBKaW5nYmFvLCBkbyB5b3UgaGF2ZSBhbnkgY29tbWVudCBvbiB0aGlzPwoKTmV3IHZlcnNp
-b24gd2lsbCBsb29rIHJhdGhlciBsaWtlIHRoaXM6Cmh0dHBzOi8vbG9yZS5rZXJuZWwub3JnL2xp
-bnV4LWRldmljZXRyZWUvMjAyNTAyMTYxODA5MjQuMjUwNjQxNi0xLWFsZXhhbmRlci5zdmVyZGxp
-bkBnbWFpbC5jb20vCgpCdXQgSSdsbCBiZSBoYXBweSB0byB0YWtlIHlvdSBzdWdnZXN0aW9uIGFu
-ZCByZXBsYWNlIG15IG5hbWUgaW4gdGhlCm5ldyB2ZXJzaW9uIHdpdGggc29tZW9uZSBtb3JlIGFm
-aWxpYXRlZCB3aXRoIFNvcGhnbyA7LSkKCi0tIApBbGV4YW5kZXIgU3ZlcmRsaW4uCgoKX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFp
-bGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmlu
-ZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
+From: Thomas Gleixner <tglx@linutronix.de>
+
+Introduce chip_flags in struct msi_parent_ops. This allows
+msi_lib_init_dev_msi_info() set default irq_eoi/irq_ack
+callbacks only when the corresponding flags are set in
+the chip_flags.
+
+Signed-off-by: Thomas Gleixner <tglx@linutronix.de>
+Signed-off-by: Anup Patel <apatel@ventanamicro.com>
+---
+ drivers/irqchip/irq-gic-v2m.c    |  1 +
+ drivers/irqchip/irq-imx-mu-msi.c |  1 +
+ drivers/irqchip/irq-msi-lib.c    | 11 ++++++-----
+ drivers/irqchip/irq-mvebu-gicp.c |  1 +
+ drivers/irqchip/irq-mvebu-odmi.c |  1 +
+ drivers/irqchip/irq-mvebu-sei.c  |  1 +
+ include/linux/msi.h              | 11 +++++++++++
+ 7 files changed, 22 insertions(+), 5 deletions(-)
+
+diff --git a/drivers/irqchip/irq-gic-v2m.c b/drivers/irqchip/irq-gic-v2m.c
+index be35c5349986..1e3476c335ca 100644
+--- a/drivers/irqchip/irq-gic-v2m.c
++++ b/drivers/irqchip/irq-gic-v2m.c
+@@ -255,6 +255,7 @@ static void __init gicv2m_teardown(void)
+ static struct msi_parent_ops gicv2m_msi_parent_ops = {
+ 	.supported_flags	= GICV2M_MSI_FLAGS_SUPPORTED,
+ 	.required_flags		= GICV2M_MSI_FLAGS_REQUIRED,
++	.chip_flags		= MSI_CHIP_FLAG_SET_EOI | MSI_CHIP_FLAG_SET_ACK,
+ 	.bus_select_token	= DOMAIN_BUS_NEXUS,
+ 	.bus_select_mask	= MATCH_PCI_MSI | MATCH_PLATFORM_MSI,
+ 	.prefix			= "GICv2m-",
+diff --git a/drivers/irqchip/irq-imx-mu-msi.c b/drivers/irqchip/irq-imx-mu-msi.c
+index 4342a21de1eb..69aacdfc8bef 100644
+--- a/drivers/irqchip/irq-imx-mu-msi.c
++++ b/drivers/irqchip/irq-imx-mu-msi.c
+@@ -214,6 +214,7 @@ static void imx_mu_msi_irq_handler(struct irq_desc *desc)
+ static const struct msi_parent_ops imx_mu_msi_parent_ops = {
+ 	.supported_flags	= IMX_MU_MSI_FLAGS_SUPPORTED,
+ 	.required_flags		= IMX_MU_MSI_FLAGS_REQUIRED,
++	.chip_flags		= MSI_CHIP_FLAG_SET_EOI | MSI_CHIP_FLAG_SET_ACK,
+ 	.bus_select_token       = DOMAIN_BUS_NEXUS,
+ 	.bus_select_mask	= MATCH_PLATFORM_MSI,
+ 	.prefix			= "MU-MSI-",
+diff --git a/drivers/irqchip/irq-msi-lib.c b/drivers/irqchip/irq-msi-lib.c
+index d8e29fc0d406..51464c6257f3 100644
+--- a/drivers/irqchip/irq-msi-lib.c
++++ b/drivers/irqchip/irq-msi-lib.c
+@@ -28,6 +28,7 @@ bool msi_lib_init_dev_msi_info(struct device *dev, struct irq_domain *domain,
+ 			       struct msi_domain_info *info)
+ {
+ 	const struct msi_parent_ops *pops = real_parent->msi_parent_ops;
++	struct irq_chip *chip = info->chip;
+ 	u32 required_flags;
+ 
+ 	/* Parent ops available? */
+@@ -92,10 +93,10 @@ bool msi_lib_init_dev_msi_info(struct device *dev, struct irq_domain *domain,
+ 	info->flags			|= required_flags;
+ 
+ 	/* Chip updates for all child bus types */
+-	if (!info->chip->irq_eoi)
+-		info->chip->irq_eoi	= irq_chip_eoi_parent;
+-	if (!info->chip->irq_ack)
+-		info->chip->irq_ack	= irq_chip_ack_parent;
++	if (!chip->irq_eoi && (pops->chip_flags & MSI_CHIP_FLAG_SET_EOI))
++		chip->irq_eoi = irq_chip_eoi_parent;
++	if (!chip->irq_ack && (pops->chip_flags & MSI_CHIP_FLAG_SET_ACK))
++		chip->irq_ack = irq_chip_ack_parent;
+ 
+ 	/*
+ 	 * The device MSI domain can never have a set affinity callback. It
+@@ -105,7 +106,7 @@ bool msi_lib_init_dev_msi_info(struct device *dev, struct irq_domain *domain,
+ 	 * device MSI domain aside of mask/unmask which is provided e.g. by
+ 	 * PCI/MSI device domains.
+ 	 */
+-	info->chip->irq_set_affinity	= msi_domain_set_affinity;
++	chip->irq_set_affinity = msi_domain_set_affinity;
+ 	return true;
+ }
+ EXPORT_SYMBOL_GPL(msi_lib_init_dev_msi_info);
+diff --git a/drivers/irqchip/irq-mvebu-gicp.c b/drivers/irqchip/irq-mvebu-gicp.c
+index 2b6183919ea4..d67f93f6d750 100644
+--- a/drivers/irqchip/irq-mvebu-gicp.c
++++ b/drivers/irqchip/irq-mvebu-gicp.c
+@@ -161,6 +161,7 @@ static const struct irq_domain_ops gicp_domain_ops = {
+ static const struct msi_parent_ops gicp_msi_parent_ops = {
+ 	.supported_flags	= GICP_MSI_FLAGS_SUPPORTED,
+ 	.required_flags		= GICP_MSI_FLAGS_REQUIRED,
++	.chip_flags		= MSI_CHIP_FLAG_SET_EOI | MSI_CHIP_FLAG_SET_ACK,
+ 	.bus_select_token       = DOMAIN_BUS_GENERIC_MSI,
+ 	.bus_select_mask	= MATCH_PLATFORM_MSI,
+ 	.prefix			= "GICP-",
+diff --git a/drivers/irqchip/irq-mvebu-odmi.c b/drivers/irqchip/irq-mvebu-odmi.c
+index ff19bfd258dc..28f7e81df94f 100644
+--- a/drivers/irqchip/irq-mvebu-odmi.c
++++ b/drivers/irqchip/irq-mvebu-odmi.c
+@@ -157,6 +157,7 @@ static const struct irq_domain_ops odmi_domain_ops = {
+ static const struct msi_parent_ops odmi_msi_parent_ops = {
+ 	.supported_flags	= ODMI_MSI_FLAGS_SUPPORTED,
+ 	.required_flags		= ODMI_MSI_FLAGS_REQUIRED,
++	.chip_flags		= MSI_CHIP_FLAG_SET_EOI | MSI_CHIP_FLAG_SET_ACK,
+ 	.bus_select_token	= DOMAIN_BUS_GENERIC_MSI,
+ 	.bus_select_mask	= MATCH_PLATFORM_MSI,
+ 	.prefix			= "ODMI-",
+diff --git a/drivers/irqchip/irq-mvebu-sei.c b/drivers/irqchip/irq-mvebu-sei.c
+index 065166ab5dbc..ebd4a9014e8d 100644
+--- a/drivers/irqchip/irq-mvebu-sei.c
++++ b/drivers/irqchip/irq-mvebu-sei.c
+@@ -356,6 +356,7 @@ static void mvebu_sei_reset(struct mvebu_sei *sei)
+ static const struct msi_parent_ops sei_msi_parent_ops = {
+ 	.supported_flags	= SEI_MSI_FLAGS_SUPPORTED,
+ 	.required_flags		= SEI_MSI_FLAGS_REQUIRED,
++	.chip_flags		= MSI_CHIP_FLAG_SET_EOI | MSI_CHIP_FLAG_SET_ACK,
+ 	.bus_select_mask	= MATCH_PLATFORM_MSI,
+ 	.bus_select_token	= DOMAIN_BUS_GENERIC_MSI,
+ 	.prefix			= "SEI-",
+diff --git a/include/linux/msi.h b/include/linux/msi.h
+index b10093c4d00e..9abef442c146 100644
+--- a/include/linux/msi.h
++++ b/include/linux/msi.h
+@@ -558,11 +558,21 @@ enum {
+ 	MSI_FLAG_NO_AFFINITY		= (1 << 21),
+ };
+ 
++/*
++ * Flags for msi_parent_ops::chip_flags
++ */
++enum {
++	MSI_CHIP_FLAG_SET_EOI		= (1 << 0),
++	MSI_CHIP_FLAG_SET_ACK		= (1 << 1),
++};
++
+ /**
+  * struct msi_parent_ops - MSI parent domain callbacks and configuration info
+  *
+  * @supported_flags:	Required: The supported MSI flags of the parent domain
+  * @required_flags:	Optional: The required MSI flags of the parent MSI domain
++ * @chip_flags:		Optional: Select MSI chip callbacks to update with defaults
++ *			in msi_lib_init_dev_msi_info().
+  * @bus_select_token:	Optional: The bus token of the real parent domain for
+  *			irq_domain::select()
+  * @bus_select_mask:	Optional: A mask of supported BUS_DOMAINs for
+@@ -575,6 +585,7 @@ enum {
+ struct msi_parent_ops {
+ 	u32		supported_flags;
+ 	u32		required_flags;
++	u32		chip_flags;
+ 	u32		bus_select_token;
+ 	u32		bus_select_mask;
+ 	const char	*prefix;
+-- 
+2.43.0
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
