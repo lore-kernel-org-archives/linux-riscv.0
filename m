@@ -4,107 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F872C02198
-	for <linux-riscv@archiver.kernel.org>; Tue, 18 Feb 2025 13:17:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8F988C021AA
+	for <linux-riscv@archiver.kernel.org>; Tue, 18 Feb 2025 13:18:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=wfK2SDQqnJo9ovOL3B2iQMLl/eL657d3xbfX9YVCHUY=; b=owja4LNFw/dM3r
-	ivDiNYcpsnpgMUFWoUDww7tEkD411CDOi9mJk6e0CbImzGrnD9B31Lhq1MF/8vOxjuZGsWyrtm/+c
-	h/tcGMs5qWfjTBJRURth8stLQo278qNCUEtM2T7LdmquzAbjgov6+m9wfQzH5B3u6kjuWc0QgJxCN
-	/fqQACSppLNrswvKBQeDZRGYNPbaPNcuwcRnMXIVnYNpU8eau8UfhfhZPAEr1l59d5dKxHHslsOnd
-	7jsHNOm9pl6PRHGl5tSrjqXezzWegakzSf2iTCkPE+0voQQN1suIsSSvLP1LHbKGg7z2hR3JE5OB2
-	b2hHy/Y5WX0xCEKDg4eg==;
+	List-Owner; bh=jtNS4m9SE13ZPtKarYH6aizq45VXriaOmZdHxUOE06Y=; b=4c86yCB2yQNQDY
+	NkxvIEbRp057q1h7iRxu0qUCxG9jQkFHxUIdDCGc23OOqmOi6rHDT3/TrfQetC+gWaCT4wcSmUaj+
+	2hMk6B2BCjLmG4IRrzliONOjPGPEMKDU9zSy05mhS/4Wud17m3k9tKclGHSUO0PcX5lfiKoWAob/Z
+	DDfNaTPVKae8bhQe44HRZ82tH1eOhmreRCXoNRAMcM9vegiC5DYzAp+bhe6auXHxYv9MGJ28jAEcY
+	IalZnYjoB8r3wBLj3EpByT6HeFnUHLU6ame6z4HU+sqNQUfmAwo6/b4kH6QnTYfAm3hone47pwW4V
+	BA0mA1EKefc9Y24M7Eww==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkNTU-00000008HcN-38LU;
-	Tue, 18 Feb 2025 13:17:20 +0000
-Received: from mail-qk1-x72c.google.com ([2607:f8b0:4864:20::72c])
+	id 1tkNUv-00000008Hx5-0Iba;
+	Tue, 18 Feb 2025 13:18:49 +0000
+Received: from mail-lf1-x12d.google.com ([2a00:1450:4864:20::12d])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkNG3-00000008Eem-1xdb;
-	Tue, 18 Feb 2025 13:03:28 +0000
-Received: by mail-qk1-x72c.google.com with SMTP id af79cd13be357-7be3f230436so518101685a.3;
-        Tue, 18 Feb 2025 05:03:27 -0800 (PST)
+	id 1tkNMV-00000008GAe-1gKR
+	for linux-riscv@lists.infradead.org;
+	Tue, 18 Feb 2025 13:10:08 +0000
+Received: by mail-lf1-x12d.google.com with SMTP id 2adb3069b0e04-543cc81ddebso5780802e87.1
+        for <linux-riscv@lists.infradead.org>; Tue, 18 Feb 2025 05:10:06 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1739883806; x=1740488606; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=shcHVe5ScV+KF73Cqgadpco0XHdM/Pvt/zjUdwF7k8A=;
-        b=BMi9Or4ySJfpmHYB9oYm0GJKtZM1eyE7crmWjrunnJWrOYk71IkAgo6QELkxrw2eNy
-         FpzKVxGfYJ92F3i6MEqhdpQP84V/ejlNsoN72m4yHUr7LE0eOlCw3m3p3sPzw5xuq3QC
-         i/OynN5r98Mf9UzweedQyU+uj//+c1ZfmfyUB9g3wd9dhJMF412Z818Mz8+q0/FuRG2u
-         uhR5PFJKnRrbmuH0LTT7tkXTQHOKtazt9MMYMaVZ4cwWJ2hLbiEG1P0OkvWADurIEFdb
-         mGPdwv/ewrsRJ1isCORf+/Om0RmLxIRzPneKLwbDy8oA99hH7lyW4r7HawDM7Adag+DH
-         p8pA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1739883806; x=1740488606;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+        d=linaro.org; s=google; t=1739884205; x=1740489005; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=shcHVe5ScV+KF73Cqgadpco0XHdM/Pvt/zjUdwF7k8A=;
-        b=AuQs4RbUWMrWvpeXqi49NRP9gTVMU00bynHlv3D31EwcguwiR8jdXUnP0g2/CfBLVm
-         Ranc/NuG9iUY7vt9MsUeKD3F5a+Ap02NOehZeCSkKA0qm2S15puAaekyReBNGQ7L7XhD
-         dPdmMycC3o8wo3JJz9s0QgDHLVLEPloXZ+zMM3wlRYCgAlauS0ssVrJb9Hld+GV8Odi7
-         Ulc2D4otKvwcpgtSZUdHgIX/GUZvNtKQISowGkZl1IQSabQwNCdvkbSAN4bOp/TRjvPp
-         IDWLn1O6LQ1so7IcnjDWTtqr7VuAXB9/zDENVS925pzW/c+RbztH5TBdQbq+9ZuB721+
-         HIjA==
-X-Forwarded-Encrypted: i=1; AJvYcCUCemtpWvmMoMAakV+zyJwsw4Pjp9iQ/y9rKqBPTkhIfmD68beTbbfWe/guCO5dItG6TPbaIm4ysJplWYnWcaoF@lists.infradead.org, AJvYcCVbeEI8WhE2h8Zs26lQst1nfNSy8pSrgamPuLDUWhEPy0Aa9zthslQsdcDmZwkUCVbZItIMWe2xYbgheAo=@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx+/tb22mSc0IRbbV+f71vtCAeh1HFKdYC82BHZL0G6mmnfC0ce
-	zWSFUJhZW/osuuboCQuaYOCpFSh8TRI6wSU4K41xFmy1a29qZpAg
-X-Gm-Gg: ASbGncsBrWF3bgllisdBtzAB9DRaONu/zL7ZUOYzUgWbsRmlwmvVMtBKx4f8Cu+eH94
-	NxQvHml0JgARYTjhgXhyKX7WfafeTO088cN91gpeBYYE5YHJyqMyZFn4LNwxjteEa8nwxv/iJ+y
-	kQ5GAV9IDH5HBxmHypr+8GDw6jAbajRXDO3iACJHXM8CRUkACDspGjeFE2MesQot7kA2SO0hwaS
-	anDPp1muImeBV1g7Z73dTN/ORyOUd5+fgZoTzSOUxSctju2zIfOqCrhW8WxbD/siyI=
-X-Google-Smtp-Source: AGHT+IHMvBa2pdrsPXBeOhKSDCxofcBeoktPP7uW0o0YVj6yGzgsaMY5yizsS+ID7z1U76ykO/2aOg==
-X-Received: by 2002:a05:620a:31a2:b0:7c0:7ca3:b123 with SMTP id af79cd13be357-7c08aa98cdfmr1890605085a.46.1739883806193;
-        Tue, 18 Feb 2025 05:03:26 -0800 (PST)
-Received: from localhost ([2001:da8:7001:11::cb])
-        by smtp.gmail.com with UTF8SMTPSA id af79cd13be357-7c0a28e8700sm189185085a.113.2025.02.18.05.03.25
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 18 Feb 2025 05:03:25 -0800 (PST)
-Date: Tue, 18 Feb 2025 21:03:13 +0800
-From: Inochi Amaoto <inochiama@gmail.com>
-To: "Russell King (Oracle)" <linux@armlinux.org.uk>, 
-	Inochi Amaoto <inochiama@gmail.com>
-Cc: Andrew Lunn <andrew@lunn.ch>, Andrew Lunn <andrew+netdev@lunn.ch>, 
-	"David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Chen Wang <unicorn_wang@outlook.com>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
-	Alexandre Torgue <alexandre.torgue@foss.st.com>, Richard Cochran <richardcochran@gmail.com>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, "Jan Petrous (OSS)" <jan.petrous@oss.nxp.com>, 
-	Hariprasad Kelam <hkelam@marvell.com>, =?utf-8?B?Q2zDqW1lbnQgTMOpZ2Vy?= <clement.leger@bootlin.com>, 
-	Jisheng Zhang <jszhang@kernel.org>, Emil Renner Berthing <emil.renner.berthing@canonical.com>, 
-	Drew Fustini <dfustini@tenstorrent.com>, Furong Xu <0x1207@gmail.com>, 
-	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>, Joe Hattori <joe@pf.is.s.u-tokyo.ac.jp>, 
-	Serge Semin <fancer.lancer@gmail.com>, Lothar Rubusch <l.rubusch@gmail.com>, 
-	Giuseppe Cavallaro <peppe.cavallaro@st.com>, Jose Abreu <joabreu@synopsys.com>, netdev@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, sophgo@lists.linux.dev, 
-	linux-stm32@st-md-mailman.stormreply.com, linux-arm-kernel@lists.infradead.org, 
-	linux-riscv@lists.infradead.org, Yixun Lan <dlan@gentoo.org>, Longbin Li <looong.bin@gmail.com>
-Subject: Re: [PATCH net-next v5 3/3] net: stmmac: Add glue layer for Sophgo
- SG2044 SoC
-Message-ID: <rkcf6tmgv44uxof3oxsmzqduvc4bumtnsjlkvenxezu2tjrp6l@vy5rbr4p7f3d>
-References: <Z7IIht2Q-iXEFw7x@shell.armlinux.org.uk>
- <5e481b95-3cf8-4f71-a76b-939d96e1c4f3@lunn.ch>
- <js3z3ra7fyg4qwxbly24xqpnvsv76jyikbhk7aturqigewllbx@gvus6ub46vow>
- <24eecc48-9061-4575-9e3b-6ef35226407a@lunn.ch>
- <Z7NDakd7zpQ_345D@shell.armlinux.org.uk>
- <rsysy3p5ium5umzz34rtinppcu2b36klgjdtq5j4lm3mylbqbz@z44yeje5wgat>
- <Z7PEeGmNvlYD33rZ@shell.armlinux.org.uk>
- <6obom7jyciq2kqw5iuqlugbzbsebgd7ymnq2crlm565ybbz7de@n7o3tcqn5idi>
- <Z7Rjjo5nZ0gnCbzq@shell.armlinux.org.uk>
- <thc5oknaqaw54wghyxpx6nr4kbykxvpgkgvpqsnsp2osjlxgwv@dekgtkxoywrm>
+        bh=x2H4CFTIInDOtT3tOm3edOpwQRv60P1DUgV4VG+RFkE=;
+        b=aEmM5i0vbAdzWZa3YesR+hlwX39cl3aPdT0FlPcNGFD+HGVqi9vdlrHGN6da9hYwnQ
+         Yhfo6RwHVI8PxhbU3YVVIMzY7YA9eslhBw/a8xtqoa/wpE5MuHVuG+Iz/KlvfihD2p5Y
+         y+usLHKoIkCpXpFdLozuyyGAVHMS1iua0B6gcM8CHTaofqxGKJljvfa7qBvaYqx1Bplt
+         vrJy0O8WkR0X2ubIFeYqJ4hNb9VP9lq/7espM6w7hVe7xNJh8oxWsR1hoRDgSLDALu85
+         urRKStI13C2udX4ORzn5Y3pcEOowGivXmI/KuZO+Z7YbXttQQuARvx1M1yxm6pQiEVec
+         +k6w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1739884205; x=1740489005;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=x2H4CFTIInDOtT3tOm3edOpwQRv60P1DUgV4VG+RFkE=;
+        b=DAWLLRX/8+kHR4PMy6tfB9M1kgq3325YPapkcsaFj7cmLcFOm5utJonpZCv2+P4mYV
+         Uo2ng1rLzZKj6pZtAQMWoKsAyRBAlDdBN/Ryclvbu85QbYfKEMokrkLHB4Ggll69QmzD
+         9POULyn15aJMn9YVF3og4ZIQ1yq1/2vj/yUrn5OI6D1kvcWx4T/HZRqPyT6k5D2lvP/a
+         Ae74Ub0Br19j08bsuMLwswI3dnGb/Zo1E1xEvWIuoUkEcWRSF3NOx+2thFn7Wf9J6slA
+         DuhRsra063c5ruWWLfSJZ+4sAv9DxTKyEdtOriMRblMG1ETrO+vqu38UyUuSDDXVyEoI
+         QoSw==
+X-Forwarded-Encrypted: i=1; AJvYcCVsdBHRGZeK3duH4I6Yv5g7o4v0MDDRAKR+YrdtjpxWEB/U1kRzx25VF/Cd2Ei3A+5fGmtzxlh9xqIocw==@lists.infradead.org
+X-Gm-Message-State: AOJu0YyTsj3Wpi2OootQJtu94EpHypJa2gueaXjnTEnEYO+E3ehqlr1K
+	zvZMtjPceiimMupb1z1YJ1bojK8FX9f4Seq/DcxkNZOdfZhPmMOJhHHMSdQke2V7uk0KB1bkY4+
+	Md5G5U4fDBqMwII6TgJNef/8bDrq5RT1M6p2EZw==
+X-Gm-Gg: ASbGncueE6sA59nQbskKe/3yUdGnNF0mQlOs2JzLXY6gfpvtOH107AnUPfaUDyefMws
+	BhlEs2ergIZpoWNbGIa0K2cZ/AGNYf4n8OMmKK1r3AsJW6TNsN++8mW7emdYBvFGFZA2mPMco
+X-Google-Smtp-Source: AGHT+IHdB6MXsIp6ZqlQsI40sZGvOLeSKe+AB5abn2fY1o/Am7w1jOVveK3QMy7dhDaAVzYZIDd9lE1wi3yAkqHGnxI=
+X-Received: by 2002:a05:6512:3992:b0:545:2d27:5ae1 with SMTP id
+ 2adb3069b0e04-5452feae86fmr3466160e87.53.1739884205513; Tue, 18 Feb 2025
+ 05:10:05 -0800 (PST)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <thc5oknaqaw54wghyxpx6nr4kbykxvpgkgvpqsnsp2osjlxgwv@dekgtkxoywrm>
+References: <20250217-03-k1-gpio-v5-0-2863ec3e7b67@gentoo.org> <20250217-03-k1-gpio-v5-2-2863ec3e7b67@gentoo.org>
+In-Reply-To: <20250217-03-k1-gpio-v5-2-2863ec3e7b67@gentoo.org>
+From: Linus Walleij <linus.walleij@linaro.org>
+Date: Tue, 18 Feb 2025 14:09:54 +0100
+X-Gm-Features: AWEUYZlVwAj_YWqJ9Lyi5dg687EoTYyaneVjRfcETc4JasvXfyarUzHN15z58MI
+Message-ID: <CACRpkdbxatfvPnOY_gNVAWdtoJ+xj3DbKNUqFU=9AC_UKM88sw@mail.gmail.com>
+Subject: Re: [PATCH v5 2/5] dt-bindings: gpio: spacemit: add support for K1 SoC
+To: Yixun Lan <dlan@gentoo.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250218_050327_509384_BD3F7399 
-X-CRM114-Status: GOOD (  40.17  )
+X-CRM114-CacheID: sfid-20250218_051007_450058_50878A60 
+X-CRM114-Status: UNSURE (   8.57  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,106 +87,25 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Cc: Rob Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Meng Zhang <zhangmeng.kevin@linux.spacemit.com>, linux-gpio@vger.kernel.org, Bartosz Golaszewski <brgl@bgdev.pl>, linux-kernel@vger.kernel.org, Conor Dooley <conor@kernel.org>, Yangyu Chen <cyy@cyyself.name>, devicetree@vger.kernel.org, Palmer Dabbelt <palmer@dabbelt.com>, Jesse Taube <mr.bossman075@gmail.com>, Jisheng Zhang <jszhang@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>, Inochi Amaoto <inochiama@outlook.com>, Krzysztof Kozlowski <krzk+dt@kernel.org>, spacemit@lists.linux.dev, linux-riscv@lists.infradead.org
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Feb 18, 2025 at 07:34:47PM +0800, Inochi Amaoto wrote:
-> On Tue, Feb 18, 2025 at 10:40:14AM +0000, Russell King (Oracle) wrote:
-> > On Tue, Feb 18, 2025 at 09:01:59AM +0800, Inochi Amaoto wrote:
-> > > On Mon, Feb 17, 2025 at 11:21:28PM +0000, Russell King (Oracle) wrote:
-> > > > On Tue, Feb 18, 2025 at 06:50:24AM +0800, Inochi Amaoto wrote:
-> > > > > On Mon, Feb 17, 2025 at 02:10:50PM +0000, Russell King (Oracle) wrote:
-> > > > > > On Mon, Feb 17, 2025 at 02:25:33PM +0100, Andrew Lunn wrote:
-> > > > > > > > I am not sure all whether devices has this clock, but it appears in
-> > > > > > > > the databook. So I think it is possible to move this in the core so
-> > > > > > > > any platform with these clock can reuse it.
-> > > > > > > 
-> > > > > > > Great
-> > > > > > > 
-> > > > > > > The next problem will be, has everybody called it the same thing in
-> > > > > > > DT. Since there has been a lot of cut/paste, maybe they have, by
-> > > > > > > accident.
-> > > > > > 
-> > > > > > Tegra186: "tx"
-> > > > > > imx: "tx"
-> > > > > > intel: "tx_clk"
-> > > > > > rk: "clk_mac_speed"
-> > > > > > s32: "tx"
-> > > > > > starfive: "tx"
-> > > > > > sti: "sti-ethclk"
-> > > > > > 
-> > > > > 
-> > > > > The dwc-qos-eth also use clock name "tx", but set the clock with
-> > > > > extra calibration logic.
-> > > > 
-> > > > Yep, that's what I meant by "Tegra186" above.
-> > > > 
-> > > > > > so 50% have settled on "tx" and the rest are doing their own thing, and
-> > > > > > that horse has already bolted.
-> > > > > > 
-> > > > > 
-> > > > > The "rx" clock in s32 also uses the same logic. I think the core also
-> > > > > needs to take it, as this rx clock is also mentioned in the databook.
-> > > > 
-> > > > The "rx" clock on s32 seems to only be set to 125MHz, and the driver
-> > > > seems to be limited to RGMII.
-> > > > 
-> > > > This seems weird as the receive clock is supposed to be supplied by the
-> > > > PHY, and is recovered from the media (and thus will be 2.5, 25 or
-> > > > 125MHz as determined by the PHY.) So, I'm not sure that the s32 "rx"
-> > > > clock is really the clk_rx_i clock supplied to the DWMAC core.
-> > > > 
-> > > > Certainly on stm32mp151, it states that ETH_RX_CLK in RGMII mode will
-> > > > be 2.5, 25 or 125MHz provided by the PHY, and the clock tree indicates
-> > > > that ETH_RX_CLK in RGMII mode will be routed directly to the clk_rx_i
-> > > > input on the DWMAC(4) core.
-> > > > 
-> > > 
-> > > RGMII is not the problem. The databook says the RGMII clock (rx/tx)
-> > > follows this set rate logic. 
-> > 
-> > Sorry, I find this ambiguous. "This" doesn't tell me whether you are
-> > referring to either what s32 does (setting the "rx" clock to 125MHz
-> > only) or what RGMII spec says about RX_CLK (which is that it comes from
-> > the PHY and is 2.5/25/125MHz) which stm32mp151 agrees with and feeds
-> > the PHY's RX_CLK to the clk_rx_i inputs on the DWMAC in RGMII, GMII
-> > and MII modes.
-> > 
-> 
-> What I said follows the second, the clock is set at 2.5/25/125MHz
-> with speed at 10/100/1000Mbps. The only thing I can refer to is the
-> ip databook.
-> 
-> > clk_rx_i comes through a bunch of muxes on stm32mp151. When the clock
-> > tree is configured for RMII mode, the rate on clk_rx_i depends on the
-> > MAC speed (10/100Mbps).
-> > 
-> 
-> OK, I have no problem and find some descriptions related to this in
-> the databook.
-> 
-> > This suggests as far as the core is concerned, the clock supplied as
-> > clk_rx_i isn't a fixed rate clock but depends on the speed just like
-> > the transmit clock.
-> > 
-> 
-> This is what I want to say. clk_rx_i is not fixed but the
-> s32 uses it as a fixed one (This is the thing I felt weird).
-> 
-
-> In fact, Non-fixed clk_rx_i is why I suggested adding the rx
-> clock to the core at first. Since the drive may not use rx
-> clock as the databook says, it is good to leave it alone.
-
-Please ignore my wrong point, I mistake the direction of the
-rx clock. It is not provided by the mac, but the phy.
-
-Regards,
-Inochi
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+SGkgWWl4dW4sCgpPbiBNb24sIEZlYiAxNywgMjAyNSBhdCAxOjU44oCvUE0gWWl4dW4gTGFuIDxk
+bGFuQGdlbnRvby5vcmc+IHdyb3RlOgoKPiBUaGUgR1BJTyBjb250cm9sbGVyIG9mIEsxIHN1cHBv
+cnQgYmFzaWMgZnVuY3Rpb25zIGFzIGlucHV0L291dHB1dCwKPiBhbGwgcGlucyBjYW4gYmUgdXNl
+ZCBhcyBpbnRlcnJ1cHQgd2hpY2ggcm91dGUgdG8gb25lIElSUSBsaW5lLAo+IHRyaWdnZXIgdHlw
+ZSBjYW4gYmUgc2VsZWN0IGJldHdlZW4gcmlzaW5nIGVkZ2UsIGZhaWxpbmcgZWRnZSwgb3IgYm90
+aC4KPiBUaGVyZSBhcmUgZm91ciBHUElPIGJhbmtzLCBlYWNoIGNvbnNpc3Rpbmcgb2YgMzIgcGlu
+cy4KPgo+IFNpZ25lZC1vZmYtYnk6IFlpeHVuIExhbiA8ZGxhbkBnZW50b28ub3JnPgooLi4uKQoK
+PiArICAgICAgZ3Bpby1yYW5nZXMgPSA8JnBpbmN0cmwgMCAwIDMyPiwKPiArICAgICAgICAgICAg
+ICAgICAgICA8JnBpbmN0cmwgMCAzMiAzMj4sCj4gKyAgICAgICAgICAgICAgICAgICAgPCZwaW5j
+dHJsIDAgNjQgMzI+LAo+ICsgICAgICAgICAgICAgICAgICAgIDwmcGluY3RybCAwIDk2IDMyPjsK
+CkluIG15IGNvcmUgcGF0Y2ggSSBhc3N1bWUgdGhhdCB3ZSBlbmNvZGUgdGhlIGdwaW9jaGlwIGlu
+c3RhbmNlIG51bWJlcgphbHNvIGludG8gdGhlIHJhbmdlczoKPCZwaW5jdHJsIDAgMCAwIDMyPiwg
+PCZwaW5jdHJsIDEgMCA2NCAzMj4gZXRjLgoKWW91cnMsCkxpbnVzIFdhbGxlaWoKCl9fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxp
+bmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZy
+YWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
