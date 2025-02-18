@@ -4,81 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0ABB4C021AD
-	for <linux-riscv@archiver.kernel.org>; Tue, 18 Feb 2025 16:10:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2539FC021AA
+	for <linux-riscv@archiver.kernel.org>; Tue, 18 Feb 2025 16:44:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=uy1ReAqpuePi4sBhXdHGi8tCj3oSOBOdI5ktmbJIRfE=; b=mgmOExmpERMcdr
-	QDmZspOQoBgY7Iwp8aIWziMAUJd96co9S9jGSHosWMCMjS5izQgRMLqrkjw7la0mI/wu9+FzKtbxy
-	5jn9XJbWiv/bj2P26u5iZeYKirWWBiEaQdThCULzGggD8NTHZfB5PPtbBZ1cbOhGNYKiahMFrkMh1
-	JN3JUst5YVIDlFzPSBQ//uvwyV9lV1qk4JpgBsWVdL4mBBGuCBob/dvN8cXhXuSljx2XpPRDK6K+U
-	YOuw6Jjg2DW8IwRdBAbwn2oT3wlB25dllIPoXwCvgntk0sqmRoarR5NbeYGwG3OTk2M8fFMYoe/6s
-	LVIEq7QVENHRWSYj5Jxg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=m34KKAFskcgNRYhZ1fTIYlTWGjXDzw0Z2DQgyKyWrV4=; b=ypNOLxp4xhT/D6+/+KFgy0tIua
+	p/g9KrG33bim/oG+vFqZDJ3DfBz2xqh3lH4FE+gjQIeUB7BTnY+tOruBfF3AOOiFhc2fDI1uyfZiD
+	gZNJLtk4y9/+sz6gDQ8bXPPznuzeK7HHMUbE9Fd3CzN/1lkqsNpVjSKKphev615uZKyTyZw4Qnmzg
+	hL+gluA9LcLm2Dcwkyocr/7nd1ctPTUlkxdfb25e2LhcZ+9AVI15Z+DCauEmMmXmS8yj6KFb048V1
+	fjUGTKHSelhANWU7CXzBKL6N28ftZVV1mW1VfmEqP68zDpe9IeLk+7CVmLOGxUGpCWpwMGWOn570/
+	TWxGwymA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkQB1-00000008tre-2ntT;
-	Tue, 18 Feb 2025 16:10:27 +0000
-Received: from vps0.lunn.ch ([156.67.10.101])
+	id 1tkQhU-000000091EF-3nx3;
+	Tue, 18 Feb 2025 16:44:00 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkQ5J-00000008sJ7-1cHF;
-	Tue, 18 Feb 2025 16:04:34 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=Pr2brmPPVXCHRMBOKzWFmQPgELywfRyUq7vgp5EFpeA=; b=zjSyUlT7zJdF6Jy54BEOz07E0M
-	LRMkxqD9+sAq3E9Wyt4qkpd8RE+/3/UKlWua7LqOk81LLknYDUF363uzK09UNzUBeS+h8O90LBktY
-	1bngQqieC/vtshUMNR/TtvtgbpqhPGcMYkD7+tAluJOiMkwF1sd+ysdL5xKXyR4exqjs=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1tkQ5A-00FLOs-Az; Tue, 18 Feb 2025 17:04:24 +0100
-Date: Tue, 18 Feb 2025 17:04:24 +0100
-From: Andrew Lunn <andrew@lunn.ch>
-To: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
-Cc: netdev@vger.kernel.org, Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>, Chen-Yu Tsai <wens@csie.org>,
-	"David S. Miller" <davem@davemloft.net>,
-	Drew Fustini <drew@pdp7.com>,
-	Emil Renner Berthing <kernel@esmil.dk>,
-	Eric Dumazet <edumazet@google.com>,
-	Fabio Estevam <festevam@gmail.com>, Fu Wei <wefu@redhat.com>,
-	Guo Ren <guoren@kernel.org>, imx@lists.linux.dev,
-	Jakub Kicinski <kuba@kernel.org>,
-	Jan Petrous <jan.petrous@oss.nxp.com>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Jerome Brunet <jbrunet@baylibre.com>,
-	Kevin Hilman <khilman@baylibre.com>,
-	linux-amlogic@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-sunxi@lists.linux.dev,
-	Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Minda Chen <minda.chen@starfivetech.com>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Nobuhiro Iwamatsu <nobuhiro1.iwamatsu@toshiba.co.jp>,
-	NXP S32 Linux Team <s32@nxp.com>, Paolo Abeni <pabeni@redhat.com>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Samuel Holland <samuel@sholland.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Shawn Guo <shawnguo@kernel.org>, Vinod Koul <vkoul@kernel.org>
-Subject: Re: [PATCH net-next 3/3] net: stmmac: "speed" passed to
- fix_mac_speed is an int
-Message-ID: <1651981c-f0ed-49b0-9424-41580eb8b150@lunn.ch>
-References: <Z7Rf2daOaf778TOg@shell.armlinux.org.uk>
- <E1tkKmN-004ObM-Ge@rmk-PC.armlinux.org.uk>
+	id 1tkQfv-000000090yg-2Na9
+	for linux-riscv@lists.infradead.org;
+	Tue, 18 Feb 2025 16:42:24 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 70F6B5C6092;
+	Tue, 18 Feb 2025 16:41:43 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1C283C4CEE7;
+	Tue, 18 Feb 2025 16:42:20 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1739896942;
+	bh=0UR7ZnzNvjz0SEvJtLSwadQ9oZvEotljrbUsdRRYjzw=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=ECSIvAUwLDlMHiFskaPKGIwKt/429M4ZYwyuDx2aiwDstX5IZjB4vpk3zjscOEv2v
+	 zqQYU/atnf7Fd9N5SfudJl1bsrT5MQ9XM/iCEmBegFOpQUOOAL47ZFDU6smP/i+KGg
+	 tlKvYJ91MpGDw6oFvaagm56nBqSzHwgVzrPdIeBCoCbmonyIEg+Xv8UsnXWt3rBcKi
+	 xnfPYQo2jtltHS795hs0XBB/hbNrKg5Zf33dw/aA/U0wd+eHV95SRWIkih0zBBwAsG
+	 QVQEBklMdE43+0gZoAKuDRRdkZhfwAXWFqDlVps7bWU80yhszD/nkFtqGQ/RruXOtb
+	 YjXoRDBz8Nrfg==
+Date: Tue, 18 Feb 2025 16:42:18 +0000
+From: Conor Dooley <conor@kernel.org>
+To: Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <u.kleine-koenig@baylibre.com>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>,
+	Samuel Holland <samuel.holland@sifive.com>,
+	Emil Renner Berthing <emil.renner.berthing@canonical.com>,
+	linux-pwm@vger.kernel.org, linux-riscv@lists.infradead.org
+Subject: Re: [PATCH] pwm: Strengthen dependency for PWM_SIFIVE
+Message-ID: <20250218-only-banshee-035249898ef8@spud>
+References: <20250127105001.587610-2-u.kleine-koenig@baylibre.com>
+ <ts5ze4fosj2vg6pokjfqx3tjernjug646kihiqikxfrhk7tzbl@whgq4nuhni4r>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <E1tkKmN-004ObM-Ge@rmk-PC.armlinux.org.uk>
+In-Reply-To: <ts5ze4fosj2vg6pokjfqx3tjernjug646kihiqikxfrhk7tzbl@whgq4nuhni4r>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250218_080433_425100_B1A0CD80 
-X-CRM114-Status: GOOD (  11.70  )
+X-CRM114-CacheID: sfid-20250218_084223_646364_F754425C 
+X-CRM114-Status: GOOD (  16.30  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,32 +69,70 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============3554277628896214701=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Feb 18, 2025 at 10:24:39AM +0000, Russell King (Oracle) wrote:
-> priv->plat->fix_mac_speed() is called from stmmac_mac_link_up(), which
-> is passed the speed as an "int". However, fix_mac_speed() implicitly
-> casts this to an unsigned int. Some platform glue code print this value
-> using %u, others with %d. Some implicitly cast it back to an int, and
-> others to u32.
-> 
-> Good practice is to use one type and only one type to represent a value
-> being passed around a driver.
-> 
-> Switch all of these over to consistently use "int" when dealing with a
-> speed passed from stmmac_mac_link_up(), even though the speed will
-> always be positive.
-> 
-> Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
 
-Reviewed-by: Andrew Lunn <andrew@lunn.ch>
+--===============3554277628896214701==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="aHbrkrX7hwaxkCfs"
+Content-Disposition: inline
 
-    Andrew
+
+--aHbrkrX7hwaxkCfs
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+On Sat, Feb 15, 2025 at 03:48:43PM +0100, Uwe Kleine-K=F6nig wrote:
+> Hello,
+>=20
+> On Mon, Jan 27, 2025 at 11:50:01AM +0100, Uwe Kleine-K=F6nig wrote:
+> > Back when the sifive pwm driver was added there was no symbol for sifive
+> > SoCs yet. Today there is ARCH_SIFIVE however. Let PWM_SIFIVE depend on
+> > that to ensure the driver is only build for platforms where there is a
+> > chance that the hardware is available.
+> >=20
+> > Signed-off-by: Uwe Kleine-K=F6nig <u.kleine-koenig@baylibre.com>
+> > ---
+> > a quick grep suggests that the driver is only used on machines that inc=
+lude
+> > arch/riscv/boot/dts/sifive/fu540-c000.dtsi or
+> > arch/riscv/boot/dts/sifive/fu740-c000.dtsi and for these ARCH_SIFIVE is
+> > enabled. So I'd guess this patch is fine. Still an ack from someone who
+> > knows this arch better would be very welcome.
+>=20
+> Applied now without further feedback to
+> 	https://git.kernel.org/pub/scm/linux/kernel/git/ukleinek/linux.git pwm/f=
+or-next
+
+Bit late, but ye I think that's fair.
+
+--aHbrkrX7hwaxkCfs
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZ7S4agAKCRB4tDGHoIJi
+0qPYAP4madBzzucHdVUiWEvKgNT8uI7WckM0qzO7+ApHjfyW3gD/b55C8F0Ask/h
+7xT/eb9iS5DtWcglDhOYNi1ldp5YPw4=
+=jb5M
+-----END PGP SIGNATURE-----
+
+--aHbrkrX7hwaxkCfs--
+
+
+--===============3554277628896214701==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============3554277628896214701==--
+
