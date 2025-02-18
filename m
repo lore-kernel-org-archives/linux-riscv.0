@@ -4,59 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64AB0C021AA
-	for <linux-riscv@archiver.kernel.org>; Tue, 18 Feb 2025 14:56:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D47D5C021AD
+	for <linux-riscv@archiver.kernel.org>; Tue, 18 Feb 2025 16:07:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=uOJ1xZ86O5LUWCuZxhwllbc1RL27G+L7RTy6tq53h2U=; b=ZDIf0PEtjZjX30
-	DjyCynKkt9s6uZ2uAnvZzxsuMlwkMRgaW6sX4Q66Yd9NhYWj89uoqtUFcQ5Pv9lLhRMsd2ln6yqD7
-	sQGn1CsWXYt3BS8fVLxuI4oPZY/T+oTMvjrMjJ6s43d23pisXBNljTrKEMDfb19+FV0tuNoE2ejYZ
-	Gil8GrJNDF5HlvvvB3AJmCXT1YPhEtkwas8bD14LDiHBXN29JvZlqJyowmjn6n7UZyKt6QtmnqYTR
-	mFeABOnIOk7jxE/bPiTktgQusAwPAhTmSDxwFVkId5tO1rBD2kx61obEFfJ+27I5PC1VxxAoD5Y97
-	stCHhc83ZuHHQEbeT91g==;
+	List-Owner; bh=8XpPQ9YEqwRu0JbnHrpQJ6CkK7gVkMHls1qZtegjAX4=; b=lqjyqACDFA8jbG
+	tPNn91Hj2rObup3gpduBpVhbnhnIu/g/6rE50l97BVpLVzyAXJulxvfYPyZ5DWTjM4WD95K7nI08i
+	RfL7XI4i9K5Jgxuk8B0B1XiLhqCMOeTfc7IlGnkbYFIskxiIavFcy/MAW+YjdHbg0gq73ukOSMSd8
+	cybDdItdjmIBaB3+Po24LXCuqve1DR9G/CqKYxa2t8TcXDGAjp11l1NaXELUpY2I36i/JvoSZpRWl
+	v8c/me2987Qbuj34S8Fm8Urnem/xH4na8CPr0pcKWhoxpVs8h96A9VQM5rw25cvH9qENxb+ML65mW
+	TxuikHkcL//A5/f2Otlw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkP1Y-00000008eIE-0P3O;
-	Tue, 18 Feb 2025 14:56:36 +0000
-Received: from relay2-d.mail.gandi.net ([2001:4b98:dc4:8::222])
+	id 1tkQ87-00000008sxF-2tji;
+	Tue, 18 Feb 2025 16:07:27 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkOrm-00000008cP1-1sXp
-	for linux-riscv@lists.infradead.org;
-	Tue, 18 Feb 2025 14:46:32 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id EB4C844196;
-	Tue, 18 Feb 2025 14:46:23 +0000 (UTC)
-Message-ID: <52e0c3d1-239b-475e-8ddd-932a460c6da1@ghiti.fr>
-Date: Tue, 18 Feb 2025 15:46:23 +0100
+	id 1tkQ3d-00000008rxk-44c5;
+	Tue, 18 Feb 2025 16:02:51 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=iZeu6krTMthi8CUDyl1NRXj5ixOnKRmLYoBYxiHjuLU=; b=b8Pxa+hlyS+/K78vlE0kqLbK8q
+	cvWQ/hHvvOGNj3k8R2I3d7D9ijLWH+CfsbUUL4BAXb/CrtTOqp8QCdghSDwbzCpadN8mOvL1ml7d5
+	8UyDbPy5u379laIruCH49wbxFBMCYuXPLAG/e/VBwOEoOno2uFaPP21gTtRut4MMJlwY=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1tkQ3D-00FLM1-RT; Tue, 18 Feb 2025 17:02:23 +0100
+Date: Tue, 18 Feb 2025 17:02:23 +0100
+From: Andrew Lunn <andrew@lunn.ch>
+To: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
+Cc: netdev@vger.kernel.org, Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>, Chen-Yu Tsai <wens@csie.org>,
+	"David S. Miller" <davem@davemloft.net>,
+	Drew Fustini <drew@pdp7.com>,
+	Emil Renner Berthing <kernel@esmil.dk>,
+	Eric Dumazet <edumazet@google.com>,
+	Fabio Estevam <festevam@gmail.com>, Fu Wei <wefu@redhat.com>,
+	Guo Ren <guoren@kernel.org>, imx@lists.linux.dev,
+	Jakub Kicinski <kuba@kernel.org>,
+	Jan Petrous <jan.petrous@oss.nxp.com>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Jerome Brunet <jbrunet@baylibre.com>,
+	Kevin Hilman <khilman@baylibre.com>,
+	linux-amlogic@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-sunxi@lists.linux.dev,
+	Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Minda Chen <minda.chen@starfivetech.com>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Nobuhiro Iwamatsu <nobuhiro1.iwamatsu@toshiba.co.jp>,
+	NXP S32 Linux Team <s32@nxp.com>, Paolo Abeni <pabeni@redhat.com>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Samuel Holland <samuel@sholland.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Shawn Guo <shawnguo@kernel.org>, Vinod Koul <vkoul@kernel.org>
+Subject: Re: [PATCH net-next 2/3] net: stmmac: remove useless priv->flow_ctrl
+Message-ID: <77f72c87-924d-4478-a9b2-0f14673e5481@lunn.ch>
+References: <Z7Rf2daOaf778TOg@shell.armlinux.org.uk>
+ <E1tkKmI-004ObG-DL@rmk-PC.armlinux.org.uk>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: fs/xfs/xfs_buf.c:1534 xfs_buf_submit_bio() warn: unsigned '_x' is
- never less than zero.
-Content-Language: en-US
-To: Dan Carpenter <dan.carpenter@linaro.org>, Philip Li <philip.li@intel.com>
-Cc: David Laight <david.laight.linux@gmail.com>,
- Christoph Hellwig <hch@lst.de>, kernel test robot <lkp@intel.com>,
- oe-kbuild-all@lists.linux.dev, linux-kernel@vger.kernel.org,
- Carlos Maiolino <cem@kernel.org>, "Darrick J. Wong" <djwong@kernel.org>,
- linux-riscv@lists.infradead.org
-References: <202502171326.j4Xd3I0j-lkp@intel.com>
- <20250217092445.GA29568@lst.de>
- <a14347d2-6189-49bc-a1cc-e5959e76e6c2@ghiti.fr>
- <20250217131203.2657cc4b@pumpkin> <Z7PWuSA4jtZnxp5J@rli9-mobl>
- <78ff844a-0fb4-42f6-b54f-4d19e14cfd05@stanley.mountain>
-From: Alexandre Ghiti <alex@ghiti.fr>
-In-Reply-To: <78ff844a-0fb4-42f6-b54f-4d19e14cfd05@stanley.mountain>
-X-GND-State: clean
-X-GND-Score: -100
-X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgdeiudehlecutefuodetggdotefrodftvfcurfhrohhfihhlvgemucfitefpfffkpdcuggftfghnshhusghstghrihgsvgenuceurghilhhouhhtmecufedtudenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujfgurhepkfffgggfuffvvehfhfgjtgfgsehtkeertddtvdejnecuhfhrohhmpeetlhgvgigrnhgurhgvucfihhhithhiuceorghlvgigsehghhhithhirdhfrheqnecuggftrfgrthhtvghrnhepuefffedvleetleetjefhjeehudejteetvedtvddvtdfhieetffelvdffgefgieeinecuffhomhgrihhnpehinhhfrhgruggvrggurdhorhhgnecukfhppeduleefrdeffedrheejrdduleelnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehinhgvthepudelfedrfeefrdehjedrudelledphhgvlhhopegludelvddrudeikedrvddurddvhegnpdhmrghilhhfrhhomheprghlvgigsehghhhithhirdhfrhdpnhgspghrtghpthhtohepuddtpdhrtghpthhtohepuggrnhdrtggrrhhpvghnthgvrheslhhinhgrrhhordhorhhgpdhrtghpthhtohepphhhihhlihhprdhlihesihhnthgvlhdrtghomhdprhgtphhtthhopegurghvihgurdhlrghighhhthdrlhhinhhugiesghhmrghilhdrtghomhdprhgtphhtthhopehhtghhsehlshhtrdguvgdprhgtphhtthhopehlkhhpsehinhhtvghlrdgtohhmpdhrtghpthhtohepohgvq
- dhksghuihhlugdqrghllheslhhishhtshdrlhhinhhugidruggvvhdprhgtphhtthhopehlihhnuhigqdhkvghrnhgvlhesvhhgvghrrdhkvghrnhgvlhdrohhrghdprhgtphhtthhopegtvghmsehkvghrnhgvlhdrohhrgh
-X-GND-Sasl: alex@ghiti.fr
+Content-Disposition: inline
+In-Reply-To: <E1tkKmI-004ObG-DL@rmk-PC.armlinux.org.uk>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250218_064630_639654_82D37649 
-X-CRM114-Status: GOOD (  19.44  )
+X-CRM114-CacheID: sfid-20250218_080250_006955_1FAC864A 
+X-CRM114-Status: GOOD (  12.99  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,48 +89,35 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-SGkgRGFuLAoKT24gMTgvMDIvMjAyNSAxNToyMSwgRGFuIENhcnBlbnRlciB3cm90ZToKPiBPbiBU
-dWUsIEZlYiAxOCwgMjAyNSBhdCAwODozOToyMUFNICswODAwLCBQaGlsaXAgTGkgd3JvdGU6Cj4+
-ICsgRGFuCj4+Cj4+IEhpIERhbiwKPj4KPj4gT24gTW9uLCBGZWIgMTcsIDIwMjUgYXQgMDE6MTI6
-MDNQTSArMDAwMCwgRGF2aWQgTGFpZ2h0IHdyb3RlOgo+Pj4gT24gTW9uLCAxNyBGZWIgMjAyNSAx
-MzowNjo0OSArMDEwMAo+Pj4gQWxleGFuZHJlIEdoaXRpIDxhbGV4QGdoaXRpLmZyPiB3cm90ZToK
-Pj4+Cj4+Pj4gSGkgQ2hyaXN0b3BoLAo+Pj4+Cj4+Pj4gT24gMTcvMDIvMjAyNSAxMDoyNCwgQ2hy
-aXN0b3BoIEhlbGx3aWcgd3JvdGU6Cj4+Pj4+IE9uIE1vbiwgRmViIDE3LCAyMDI1IGF0IDAxOjUz
-OjA4UE0gKzA4MDAsIGtlcm5lbCB0ZXN0IHJvYm90IHdyb3RlOgo+Pj4+Pj4gTmV3IHNtYXRjaCB3
-YXJuaW5nczoKPj4+Pj4+IGZzL3hmcy94ZnNfYnVmLmM6MTUzNCB4ZnNfYnVmX3N1Ym1pdF9iaW8o
-KSB3YXJuOiB1bnNpZ25lZCAnX3gnIGlzIG5ldmVyIGxlc3MgdGhhbiB6ZXJvLgo+Pj4+PiBMb29r
-cyBsaWtlIHRoaXMgaXMgYW4gaXNzdWUgaW4gdGhlIHJpc2N2IHZpcnRfdG9fcGFnZSBpbXBsZW1l
-bnRhdGlvbgo+Pj4+PiB3aGljaCBhbHNvIHNob3dzIHVwIGluIHZhcmlvdXMgb3RoZXIgcGxhY2Vz
-LiAgQW55IGNoYW5jZSB0aGlzIGNvdWxkIGdldAo+Pj4+PiBmaXhlZCBpbiB0aGUgcmlzY3YgY29k
-ZT8KPj4+Pgo+Pj4+IFRvIG1lLCB0aGUgb25seSB0ZXN0IHRoYXQgY291bGQgZ2l2ZSByaXNlIHRv
-IHRoaXMgd2FybmluZyBpcyB0aGUgbGFzdAo+Pj4+IHBhcnQgb2Y6Cj4+Pj4KPj4+PiAjZGVmaW5l
-IGlzX2xpbmVhcl9tYXBwaW5nKHgpIFwKPj4+PiAgIMKgwqDCoMKgwqDCoMKgICgoeCkgPj0gUEFH
-RV9PRkZTRVQgJiYgKCFJU19FTkFCTEVEKENPTkZJR182NEJJVCkgfHwgKHgpIDwKPj4+PiBQQUdF
-X09GRlNFVCArIEtFUk5fVklSVF9TSVpFKSkKPj4+Pgo+Pj4+IEJ1dCBnaXZlbiB0aGF0IHRoZSBj
-b25maWcgaXMgYSAzMi1iaXQgY29uZmlnLCBpdCBzaG91bGQgbm90IGJlIGV2YWx1YXRlZAo+Pj4+
-IGF0IGFsbC4KPj4+Pgo+Pj4+IENvdWxkIHRoYXQgYmUgYSBmYWxzZS1wb3NpdGl2ZSBhbmQgdGhl
-biBhbiBpc3N1ZSBpbiBzbWF0Y2g/Cj4+PiBXaHkgaXMgc21hdGNoIGV2ZW4gbG9va2luZy4KPj4+
-IFRoZSBlcXVpdmFsZW50IGNoZWNrIGluIGdjYyBoYXMgYmVlbiBtb3ZlZCB0byAtVzIgYmVjYXVz
-ZSBvZiBhbGwgZmFsc2UgcG9zaXRpdmVzLgo+IFRoZSBTbWF0Y2ggY2hlY2sgaXMgYSBiaXQgbW9y
-ZSBzb3BoaXN0aWNhdGVkIHRoYW4gdGhlIEdDQyBjaGVjay4uLgo+IEkgdGhpbmsgaWYgeW91IHJl
-bW92ZWQgdGhlICghSVNfRU5BQkxFRChDT05GSUdfNjRCSVQpIGNvbmRpdGlvbiB0aGVuCj4gU21h
-dGNoIHdvdWxkbid0IHRyaWdnZXIgYSB3YXJuaW5nIGhlcmUuICBIb3cgd291bGQgSSBkdXBsaWNh
-dGUgdGhpcwo+IHdhcm5pbmc/ICBUaGUgIkFSQ0g9cmlzY3YgbWFrZS5jcm9zcyIgY29tbWFuZCBk
-b2VzIGEgNjRiaXQgYnVpbGQuCgoKcmlzY3YgdXNlcyB0aGUgc2FtZSB0b29sY2hhaW4gZm9yIGJv
-dGggMzIgYW5kIDY0LWJpdCwgaWYgeW91IGxvb2sgYXQgdGhlIApmYXVsdHkgY29uZmlnLCB5b3Ug
-Y2FuIHNlZSB0aGF0IENPTkZJR18zMkJJVCBpcyBlbmFibGVkIHNvIGl0IGFjdHVhbGx5IAppcyBh
-IDMyLWJpdCBidWlsZC4KClRoYW5rcyBmb3IganVtcGluZyBpbiwKCkFsZXgKCgo+Cj4gU2NyZXcg
-aXQsIEkgY2FuIGp1c3Qgc2lsZW5jZSB0aGlzIHdhcm5pbmcgYmFzZWQgb24gdGhhdCBpdCdzIGEg
-a2VybmVsCj4gYnVpbGQgYW5kIHRoZSB2YXJpYWJsZSBpcyBjYWxsZWQgIl94Ii4KPgo+IHJlZ2Fy
-ZHMsCj4gZGFuIGNhcnBlbnRlcgo+Cj4KPiBfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fXwo+IGxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdAo+IGxpbnV4LXJpc2N2
-QGxpc3RzLmluZnJhZGVhZC5vcmcKPiBodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFu
-L2xpc3RpbmZvL2xpbnV4LXJpc2N2CgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMu
-aW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZv
-L2xpbnV4LXJpc2N2Cg==
+On Tue, Feb 18, 2025 at 10:24:34AM +0000, Russell King (Oracle) wrote:
+> priv->flow_ctrl is only accessed by stmmac_main.c, and the only place
+> that it is read is in stmmac_mac_flow_ctrl(). This function is only
+> called from stmmac_mac_link_up() which always sets priv->flow_ctrl
+> immediately before calling this function.
+> 
+> Therefore, initialising this at probe time is ineffectual because it
+> will always be overwritten before it's read. As such, the "flow_ctrl"
+> module parameter has been useless for some time. Rather than remove
+> the module parameter, which would risk module load failure, change the
+> description to indicate that it is obsolete, and warn if it is set by
+> userspace.
+> 
+> Moreover, storing the value in the stmmac_priv has no benefit as it's
+> set and then immediately read stmmac_mac_flow_ctrl(). Instead, pass it
+> as a parameter to this function..
+> 
+> Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
+
+Reviewed-by: Andrew Lunn <andrew@lunn.ch>
+
+    Andrew
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
