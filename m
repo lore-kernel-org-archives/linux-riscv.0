@@ -4,64 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AAC20C021A9
-	for <linux-riscv@archiver.kernel.org>; Tue, 18 Feb 2025 02:10:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4B3E3C021A9
+	for <linux-riscv@archiver.kernel.org>; Tue, 18 Feb 2025 04:28:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=5nbQCGn5FDcTkS9KAf5UTEyOuKeqvwUYaxsZzeaPG80=; b=RAhuDO37XfgUDM
-	txF2zF4vEua8hDo6j6A3ijqXQ1hR3sz+CvTJbjovcz/QCB77aVXFKPwfahVzQoKtsg91HSsbkndm/
-	zVuyKNn8yFQ/rYktReuV5iNxwNy4caDhB5/nRrutUnwztSvp6WijV0IIAyDSgss3ORZAN5yWkEtw2
-	lF17ig78w6SEommSKybderuzyx89ZKuFt3/agMoeuUnRWgFyH6Z5+ikflw/BI+7SqEi0Vl523iHWC
-	zAdph8ubCRAO1YdQJ05YZbXwW/JWpOD8ssvi/qQkLmN7/0Ve/51q3+crhxEndpCAnd6WWktZC8S5P
-	TAhHuG8Frj227bHLayAQ==;
+	List-Archive:List-Unsubscribe:List-Id:Mime-Version:References:In-Reply-To:
+	Message-Id:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=W5GjNCfh00XWUeLiTpjK8o2mDrzksIiSnilTMeQ1T7Y=; b=JOtKcdYm8EAZU7
+	RtB9h2wkzvfYNAeyyGaiQpQvOVGnPnR0VFgiC8zpfEASMRzZCHjhNHivhGiq+OsHXYekQZUY+imxn
+	5UBAksSkxDyxFLLH1Klvd7d/MVWqemigkQfC5jTFfeQ8X0v5Ht2c7aiGxuFePWZcwau4HHyDH3RNX
+	HzQ2gnoI774rXRWEhOHPM6b2WeTxKYZ/DQ3B8BYe2eteJPxurssnhInEvJDsEUFdpsIzwUA72hWyK
+	jAlqo4qyUOswoSgHaPTOecQxOVTpk3++2PPDSTJHHMnqGsEK9PcRy1vOckMRODCbZ+qA0xPT+0/6x
+	CB3ZNNDlW+zrCoGRfZFg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkD4D-00000006UgU-0XAX;
-	Tue, 18 Feb 2025 02:10:33 +0000
-Received: from mail-b.studer.dev ([3.21.136.164])
+	id 1tkFDz-00000006krd-03gT;
+	Tue, 18 Feb 2025 04:28:47 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkD2j-00000006URm-1i0m;
-	Tue, 18 Feb 2025 02:09:02 +0000
-Received: from mail.studer.dev (mail.studer.dev [168.62.161.121])
-	by mail-b.studer.dev (Postfix) with ESMTPSA id 0913840028;
-	Tue, 18 Feb 2025 02:08:58 +0000 (UTC)
-dkim-signature: v=1; a=rsa-sha256; d=studer.dev; s=hmail;
-	c=relaxed/relaxed; q=dns/txt; h=From:Subject:Date:Message-ID:To:CC:MIME-Version:Content-Transfer-Encoding;
-	bh=5AA+a4IxbsmGiRmLLlpgl3OVaLWtMwq00DaT2+GNKdU=;
-	b=pJHRuUoirhakSXgBVi1wAqvRu8P4O5UhqKep0hqV2Xm+WPpeDjpMf3G2SiBDyTQhaAaDOfdFtTYMEPzp399MtvTka7gVjb6ZBsbCbBJaMrgKXEXbAGHz0hAhcftTB8Xud/hBqZeqB073X/MIdu4SF8SNzXmNiQ0do5RANUV+/rJkWqsCAuskK5ao+8lcCEQFsUQS3wWnBNUzP5CGZttjyshujt4jXO4/rfTzMVM/tuGw+Sw7BGTlPw0AH2
-	lHGT6PIWkXU98F36Tl8JlhswCK38SkV9nb58J1kGjYtkq8+iQ6II+Dc441In2meOCQfjINh3wYQSJ1yFwKP4iRZMbXmA==
-Received: from alex-framework.mynetworksettings.com (pool-68-239-44-167.bstnma.fios.verizon.net [68.239.44.167])
-	by mail.studer.dev with ESMTPSA
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256)
-	; Tue, 18 Feb 2025 02:08:55 +0000
-From: Alex Studer <alex@studer.dev>
-To: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Chen-Yu Tsai <wens@csie.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>
-Cc: devicetree@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-sunxi@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	Alex Studer <alex@studer.dev>
-Subject: [PATCH] riscv: dts: allwinner: d1: Add CPU thermal sensor and zone
-Date: Mon, 17 Feb 2025 21:06:29 -0500
-Message-ID: <20250218020629.1476126-1-alex@studer.dev>
-X-Mailer: git-send-email 2.48.1
-MIME-Version: 1.0
+	id 1tkF6v-00000006jvZ-2xfR
+	for linux-riscv@lists.infradead.org;
+	Tue, 18 Feb 2025 04:21:31 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id E347FA41D24;
+	Tue, 18 Feb 2025 04:19:43 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4619DC4CEE2;
+	Tue, 18 Feb 2025 04:21:28 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linux-foundation.org;
+	s=korg; t=1739852488;
+	bh=Y1WjWrYTI9mRHUBKbBcEKfoQLokHCNSELxid2QG5Cfc=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=T1GPH2K9XHsElMReQc3f1esMMdNpUNC1G/+/KFFdRGdxzbdGY2Xrg72Sr2h0Z+UwC
+	 6dLWVcuON2eB98DbKqWD5RiAdmf2HfZfcEaSgGuF3VP51kOPG4UhmBFlmlLmlmi+hl
+	 v8Ix512h63FgzcNXc36TiQJP66GdEJFdjTUkMaGA=
+Date: Mon, 17 Feb 2025 20:21:27 -0800
+From: Andrew Morton <akpm@linux-foundation.org>
+To: kernel test robot <lkp@intel.com>
+Cc: Shakeel Butt <shakeel.butt@linux.dev>, oe-kbuild-all@lists.linux.dev,
+ linux-kernel@vger.kernel.org, Linux Memory Management List
+ <linux-mm@kvack.org>, Roman Gushchin <roman.gushchin@linux.dev>,
+ "T.J. Mercier" <tjmercier@google.com>, linux-riscv@lists.infradead.org
+Subject: Re: mm/workingset.c:621 workingset_update_node() warn: unsigned
+ '_x' is never less than zero.
+Message-Id: <20250217202127.cf92afe2c0a89d5865e1811b@linux-foundation.org>
+In-Reply-To: <202502160323.ZLUfooA0-lkp@intel.com>
+References: <202502160323.ZLUfooA0-lkp@intel.com>
+X-Mailer: Sylpheed 3.8.0beta1 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
+Mime-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250217_180901_519095_505B5375 
-X-CRM114-Status: GOOD (  10.96  )
+X-CRM114-CacheID: sfid-20250217_202129_822275_CEA8B3BF 
+X-CRM114-Status: GOOD (  10.23  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,99 +72,37 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The sun20i THS (built in CPU thermal sensor) is supported in code, but
-was never added to the device tree. So, add it to the device tree,
-along with a thermal zone for the CPU.
+On Sun, 16 Feb 2025 03:56:06 +0800 kernel test robot <lkp@intel.com> wrote:
 
-Signed-off-by: Alex Studer <alex@studer.dev>
----
- arch/riscv/boot/dts/allwinner/sun20i-d1s.dtsi | 31 +++++++++++++++++++
- .../boot/dts/allwinner/sunxi-d1s-t113.dtsi    | 16 ++++++++++
- 2 files changed, 47 insertions(+)
+> tree:   https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git master
+> head:   7ff71e6d923969d933e1ba7e0db857782d36cd19
+> commit: 4715c6a753dccd15fd3a8928168f57e349205bd4 mm: cleanup WORKINGSET_NODES in workingset
+> date:   9 months ago
+> config: riscv-randconfig-r073-20250213 (https://download.01.org/0day-ci/archive/20250216/202502160323.ZLUfooA0-lkp@intel.com/config)
+> compiler: riscv32-linux-gcc (GCC) 14.2.0
+> 
+> If you fix the issue in a separate patch/commit (i.e. not just a new version of
+> the same patch/commit), kindly add following tags
+> | Reported-by: kernel test robot <lkp@intel.com>
+> | Closes: https://lore.kernel.org/oe-kbuild-all/202502160323.ZLUfooA0-lkp@intel.com/
+> 
+> New smatch warnings:
+> mm/workingset.c:621 workingset_update_node() warn: unsigned '_x' is never less than zero.
+> mm/workingset.c:746 shadow_lru_isolate() warn: unsigned '_x' is never less than zero.
+> 
+> Old smatch warnings:
+> include/linux/mm.h:1306 virt_to_head_page() warn: unsigned '_x' is never less than zero.
+> 
+> vim +/_x +621 mm/workingset.c
+> 
+>    617	
+>    618	void workingset_update_node(struct xa_node *node)
+>    619	{
+>    620		struct address_space *mapping;
+>  > 621		struct page *page = virt_to_page(node);
 
-diff --git a/arch/riscv/boot/dts/allwinner/sun20i-d1s.dtsi b/arch/riscv/boot/dts/allwinner/sun20i-d1s.dtsi
-index 6367112e6..bdde82aa8 100644
---- a/arch/riscv/boot/dts/allwinner/sun20i-d1s.dtsi
-+++ b/arch/riscv/boot/dts/allwinner/sun20i-d1s.dtsi
-@@ -3,6 +3,8 @@
- 
- #define SOC_PERIPHERAL_IRQ(nr)	(nr + 16)
- 
-+#include <dt-bindings/thermal/thermal.h>
-+
- #include "sunxi-d1s-t113.dtsi"
- 
- / {
-@@ -115,4 +117,33 @@ pmu {
- 			<0x00000000 0x0000000e 0xffffffff 0xffffffff 0x00010000>,
- 			<0x00000000 0x0000000f 0xffffffff 0xffffffff 0x00020000>;
- 	};
-+
-+	thermal-zones {
-+		cpu-thermal {
-+			polling-delay-passive = <0>;
-+			polling-delay = <0>;
-+			thermal-sensors = <&ths>;
-+
-+			cooling-maps {
-+				map0 {
-+					trip = <&cpu_alert>;
-+					cooling-device = <&cpu0 THERMAL_NO_LIMIT THERMAL_NO_LIMIT>;
-+				};
-+			};
-+
-+			trips {
-+				cpu_alert: cpu-alert {
-+					temperature = <85000>;
-+					hysteresis = <2000>;
-+					type = "passive";
-+				};
-+
-+				cpu-crit {
-+					temperature = <100000>;
-+					hysteresis = <0>;
-+					type = "critical";
-+				};
-+			};
-+		};
-+	};
- };
-diff --git a/arch/riscv/boot/dts/allwinner/sunxi-d1s-t113.dtsi b/arch/riscv/boot/dts/allwinner/sunxi-d1s-t113.dtsi
-index e4175adb0..fcfcaf06c 100644
---- a/arch/riscv/boot/dts/allwinner/sunxi-d1s-t113.dtsi
-+++ b/arch/riscv/boot/dts/allwinner/sunxi-d1s-t113.dtsi
-@@ -426,6 +426,10 @@ sid: efuse@3006000 {
- 			reg = <0x3006000 0x1000>;
- 			#address-cells = <1>;
- 			#size-cells = <1>;
-+
-+			ths_calibration: thermal-sensor-calibration@14 {
-+				reg = <0x14 0x8>;
-+			};
- 		};
- 
- 		crypto: crypto@3040000 {
-@@ -934,5 +938,17 @@ rtc: rtc@7090000 {
- 			clock-names = "bus", "hosc", "ahb";
- 			#clock-cells = <1>;
- 		};
-+
-+		ths: thermal-sensor@2009400 {
-+			compatible = "allwinner,sun20i-d1-ths";
-+			reg = <0x2009400 0x100>;
-+			interrupts = <SOC_PERIPHERAL_IRQ(58) IRQ_TYPE_LEVEL_HIGH>;
-+			clocks = <&ccu CLK_BUS_THS>;
-+			clock-names = "bus";
-+			resets = <&ccu RST_BUS_THS>;
-+			nvmem-cells = <&ths_calibration>;
-+			nvmem-cell-names = "calibration";
-+			#thermal-sensor-cells = <0>;
-+		};
- 	};
- };
--- 
-2.48.1
-
+We're seeing several reports like this.  It looks like the RISC-V
+virt_to_page() (actualy __pa) implementation needs some attention.
 
 
 _______________________________________________
