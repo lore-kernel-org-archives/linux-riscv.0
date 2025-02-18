@@ -4,40 +4,40 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D47D5C021AD
-	for <linux-riscv@archiver.kernel.org>; Tue, 18 Feb 2025 16:07:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0ABB4C021AD
+	for <linux-riscv@archiver.kernel.org>; Tue, 18 Feb 2025 16:10:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=8XpPQ9YEqwRu0JbnHrpQJ6CkK7gVkMHls1qZtegjAX4=; b=lqjyqACDFA8jbG
-	tPNn91Hj2rObup3gpduBpVhbnhnIu/g/6rE50l97BVpLVzyAXJulxvfYPyZ5DWTjM4WD95K7nI08i
-	RfL7XI4i9K5Jgxuk8B0B1XiLhqCMOeTfc7IlGnkbYFIskxiIavFcy/MAW+YjdHbg0gq73ukOSMSd8
-	cybDdItdjmIBaB3+Po24LXCuqve1DR9G/CqKYxa2t8TcXDGAjp11l1NaXELUpY2I36i/JvoSZpRWl
-	v8c/me2987Qbuj34S8Fm8Urnem/xH4na8CPr0pcKWhoxpVs8h96A9VQM5rw25cvH9qENxb+ML65mW
-	TxuikHkcL//A5/f2Otlw==;
+	List-Owner; bh=uy1ReAqpuePi4sBhXdHGi8tCj3oSOBOdI5ktmbJIRfE=; b=mgmOExmpERMcdr
+	QDmZspOQoBgY7Iwp8aIWziMAUJd96co9S9jGSHosWMCMjS5izQgRMLqrkjw7la0mI/wu9+FzKtbxy
+	5jn9XJbWiv/bj2P26u5iZeYKirWWBiEaQdThCULzGggD8NTHZfB5PPtbBZ1cbOhGNYKiahMFrkMh1
+	JN3JUst5YVIDlFzPSBQ//uvwyV9lV1qk4JpgBsWVdL4mBBGuCBob/dvN8cXhXuSljx2XpPRDK6K+U
+	YOuw6Jjg2DW8IwRdBAbwn2oT3wlB25dllIPoXwCvgntk0sqmRoarR5NbeYGwG3OTk2M8fFMYoe/6s
+	LVIEq7QVENHRWSYj5Jxg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkQ87-00000008sxF-2tji;
-	Tue, 18 Feb 2025 16:07:27 +0000
+	id 1tkQB1-00000008tre-2ntT;
+	Tue, 18 Feb 2025 16:10:27 +0000
 Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkQ3d-00000008rxk-44c5;
-	Tue, 18 Feb 2025 16:02:51 +0000
+	id 1tkQ5J-00000008sJ7-1cHF;
+	Tue, 18 Feb 2025 16:04:34 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
 	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
 	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
 	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
 	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=iZeu6krTMthi8CUDyl1NRXj5ixOnKRmLYoBYxiHjuLU=; b=b8Pxa+hlyS+/K78vlE0kqLbK8q
-	cvWQ/hHvvOGNj3k8R2I3d7D9ijLWH+CfsbUUL4BAXb/CrtTOqp8QCdghSDwbzCpadN8mOvL1ml7d5
-	8UyDbPy5u379laIruCH49wbxFBMCYuXPLAG/e/VBwOEoOno2uFaPP21gTtRut4MMJlwY=;
+	bh=Pr2brmPPVXCHRMBOKzWFmQPgELywfRyUq7vgp5EFpeA=; b=zjSyUlT7zJdF6Jy54BEOz07E0M
+	LRMkxqD9+sAq3E9Wyt4qkpd8RE+/3/UKlWua7LqOk81LLknYDUF363uzK09UNzUBeS+h8O90LBktY
+	1bngQqieC/vtshUMNR/TtvtgbpqhPGcMYkD7+tAluJOiMkwF1sd+ysdL5xKXyR4exqjs=;
 Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
 	(envelope-from <andrew@lunn.ch>)
-	id 1tkQ3D-00FLM1-RT; Tue, 18 Feb 2025 17:02:23 +0100
-Date: Tue, 18 Feb 2025 17:02:23 +0100
+	id 1tkQ5A-00FLOs-Az; Tue, 18 Feb 2025 17:04:24 +0100
+Date: Tue, 18 Feb 2025 17:04:24 +0100
 From: Andrew Lunn <andrew@lunn.ch>
 To: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
 Cc: netdev@vger.kernel.org, Alexandre Torgue <alexandre.torgue@foss.st.com>,
@@ -68,16 +68,17 @@ Cc: netdev@vger.kernel.org, Alexandre Torgue <alexandre.torgue@foss.st.com>,
 	Samuel Holland <samuel@sholland.org>,
 	Sascha Hauer <s.hauer@pengutronix.de>,
 	Shawn Guo <shawnguo@kernel.org>, Vinod Koul <vkoul@kernel.org>
-Subject: Re: [PATCH net-next 2/3] net: stmmac: remove useless priv->flow_ctrl
-Message-ID: <77f72c87-924d-4478-a9b2-0f14673e5481@lunn.ch>
+Subject: Re: [PATCH net-next 3/3] net: stmmac: "speed" passed to
+ fix_mac_speed is an int
+Message-ID: <1651981c-f0ed-49b0-9424-41580eb8b150@lunn.ch>
 References: <Z7Rf2daOaf778TOg@shell.armlinux.org.uk>
- <E1tkKmI-004ObG-DL@rmk-PC.armlinux.org.uk>
+ <E1tkKmN-004ObM-Ge@rmk-PC.armlinux.org.uk>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <E1tkKmI-004ObG-DL@rmk-PC.armlinux.org.uk>
+In-Reply-To: <E1tkKmN-004ObM-Ge@rmk-PC.armlinux.org.uk>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250218_080250_006955_1FAC864A 
-X-CRM114-Status: GOOD (  12.99  )
+X-CRM114-CacheID: sfid-20250218_080433_425100_B1A0CD80 
+X-CRM114-Status: GOOD (  11.70  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,22 +95,19 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Feb 18, 2025 at 10:24:34AM +0000, Russell King (Oracle) wrote:
-> priv->flow_ctrl is only accessed by stmmac_main.c, and the only place
-> that it is read is in stmmac_mac_flow_ctrl(). This function is only
-> called from stmmac_mac_link_up() which always sets priv->flow_ctrl
-> immediately before calling this function.
+On Tue, Feb 18, 2025 at 10:24:39AM +0000, Russell King (Oracle) wrote:
+> priv->plat->fix_mac_speed() is called from stmmac_mac_link_up(), which
+> is passed the speed as an "int". However, fix_mac_speed() implicitly
+> casts this to an unsigned int. Some platform glue code print this value
+> using %u, others with %d. Some implicitly cast it back to an int, and
+> others to u32.
 > 
-> Therefore, initialising this at probe time is ineffectual because it
-> will always be overwritten before it's read. As such, the "flow_ctrl"
-> module parameter has been useless for some time. Rather than remove
-> the module parameter, which would risk module load failure, change the
-> description to indicate that it is obsolete, and warn if it is set by
-> userspace.
+> Good practice is to use one type and only one type to represent a value
+> being passed around a driver.
 > 
-> Moreover, storing the value in the stmmac_priv has no benefit as it's
-> set and then immediately read stmmac_mac_flow_ctrl(). Instead, pass it
-> as a parameter to this function..
+> Switch all of these over to consistently use "int" when dealing with a
+> speed passed from stmmac_mac_link_up(), even though the speed will
+> always be positive.
 > 
 > Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
 
