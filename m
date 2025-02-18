@@ -4,102 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD55BC021A9
-	for <linux-riscv@archiver.kernel.org>; Mon, 17 Feb 2025 23:23:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 65CD0C021A9
+	for <linux-riscv@archiver.kernel.org>; Tue, 18 Feb 2025 00:32:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=3/SaRX0Nh9UMyRsYKVpGGzCNNeq7JrEixA2bc3zt0tM=; b=n918RRup5P7lkO
-	CXg3OLj3pXvCRgMSUg6MfUwVIRWxlsXdXQ2q/vVBSxYwlt0BZQHsAPc2p542wY3yJ40ZQlRW5EXrQ
-	+ZXr7lx2mI6U4NOOngmJytWXiWnRRVTv1Gbp6gvV1HF9Gsf2BHCIGYLeUBWTVHyqUoZKadM3TsRqD
-	aJyoy6yUOtAyY6ciVcFud6U7zj6/UDegxg5s/KlbcKSNR6V6EbqPTS+RFGdz4F81igQREe+JELWs4
-	hwn4lp9S6/flmJJvPirBWnUMuPaaBtGz3iHqTpy2Y9f+zUjnDOXe1KmMreaXFW6VyNp/9V1qz5NFs
-	peH+UBCOa0pymk7OYifg==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:MIME-Version:Subject:
+	Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=d1r3ybfwVra6gQigX2hkcZABz07qhmufxKyj93Ogpt4=; b=udcmwPJMdOim92
+	Ly41qmGvx6R9/JliKDAtOoK/yByvNtqHDt3zBrnyP50aIlS3G+gyBEzvCpoBDfs6ZYE6MZkQb+yp5
+	yKu5CwLQF+jR3VYlXG/j5j5rHIb8NNOujeAKq8WVKXOFTcvftZsABQdjkvFC00NkSKVR8KVfahTEH
+	Daa6DtN+KnNkn1jAmid/SedMxfhnzM0vSXss99PvoB/bfQxWaere9cZNBemNWsbp/KlO/4y9sZXKa
+	4xdefnrga/kN3Kgf2g8GYIahBefu3U8p4tPFSiCtPCnv/c7K0CL5lo0fyhmadLmbqca7XlFgeAfEK
+	7i4FGdUslHBX81YNIH1Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkASl-00000006EhA-0Lom;
-	Mon, 17 Feb 2025 23:23:43 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	id 1tkBX1-00000006L2P-2nFn;
+	Tue, 18 Feb 2025 00:32:11 +0000
+Received: from woodpecker.gentoo.org ([140.211.166.183] helo=smtp.gentoo.org)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkARG-00000006EVq-2YWb;
-	Mon, 17 Feb 2025 23:22:12 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
-	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=z4zZA+SHhnpmJYDOp0NswBWcZOVtoN7RDeuxjfGWwYM=; b=NESdsBBLeV/I0kXm45xJYp1bTL
-	oWkZIdEUuBRoCa45X0wQa6fuOpZrM5lGjcanXPnllxXNH6pTn1/m/7yaJSbv+O7Ymg8dAVt6f6Wfy
-	bTaDLLNYsjGRf6lT0m/MGUsLjIfJH8mjAgK522uHle1UDz8LcWyCv9GGcplS0nfP5EJExAltRINzo
-	559KURpSKhEvCcEG6EkJCXOKVEhh1HF/8QUJ+jAMhz8We6zWJ8UKFVmvqyELxtyrh+n7v4aMZoSpb
-	zbBToIGKwNOQVgqeJzR0WJabFApK02ghl42zyjJ6ciFTq1R2nXF2o6jG0J5tRuff5bcvWFqPSewg1
-	TGBaTskA==;
-Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:58678)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <linux@armlinux.org.uk>)
-	id 1tkAQk-0008Gn-2z;
-	Mon, 17 Feb 2025 23:21:39 +0000
-Received: from linux by shell.armlinux.org.uk with local (Exim 4.96)
-	(envelope-from <linux@shell.armlinux.org.uk>)
-	id 1tkAQb-0006c4-02;
-	Mon, 17 Feb 2025 23:21:29 +0000
-Date: Mon, 17 Feb 2025 23:21:28 +0000
-From: "Russell King (Oracle)" <linux@armlinux.org.uk>
-To: Inochi Amaoto <inochiama@gmail.com>
-Cc: Andrew Lunn <andrew@lunn.ch>, Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Chen Wang <unicorn_wang@outlook.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Richard Cochran <richardcochran@gmail.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	"Jan Petrous (OSS)" <jan.petrous@oss.nxp.com>,
-	Hariprasad Kelam <hkelam@marvell.com>,
-	=?iso-8859-1?Q?Cl=E9ment_L=E9ger?= <clement.leger@bootlin.com>,
-	Jisheng Zhang <jszhang@kernel.org>,
-	Emil Renner Berthing <emil.renner.berthing@canonical.com>,
-	Drew Fustini <dfustini@tenstorrent.com>,
-	Furong Xu <0x1207@gmail.com>,
-	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>,
-	Joe Hattori <joe@pf.is.s.u-tokyo.ac.jp>,
-	Serge Semin <fancer.lancer@gmail.com>,
-	Lothar Rubusch <l.rubusch@gmail.com>,
-	Giuseppe Cavallaro <peppe.cavallaro@st.com>,
-	Jose Abreu <joabreu@synopsys.com>, netdev@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	sophgo@lists.linux.dev, linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-riscv@lists.infradead.org, Yixun Lan <dlan@gentoo.org>,
-	Longbin Li <looong.bin@gmail.com>
-Subject: Re: [PATCH net-next v5 3/3] net: stmmac: Add glue layer for Sophgo
- SG2044 SoC
-Message-ID: <Z7PEeGmNvlYD33rZ@shell.armlinux.org.uk>
-References: <20250216123953.1252523-1-inochiama@gmail.com>
- <20250216123953.1252523-4-inochiama@gmail.com>
- <Z7IIht2Q-iXEFw7x@shell.armlinux.org.uk>
- <5e481b95-3cf8-4f71-a76b-939d96e1c4f3@lunn.ch>
- <js3z3ra7fyg4qwxbly24xqpnvsv76jyikbhk7aturqigewllbx@gvus6ub46vow>
- <24eecc48-9061-4575-9e3b-6ef35226407a@lunn.ch>
- <Z7NDakd7zpQ_345D@shell.armlinux.org.uk>
- <rsysy3p5ium5umzz34rtinppcu2b36klgjdtq5j4lm3mylbqbz@z44yeje5wgat>
+	id 1tkBWz-00000006L1v-0uWN
+	for linux-riscv@lists.infradead.org;
+	Tue, 18 Feb 2025 00:32:11 +0000
+Received: from [127.0.0.1] (unknown [180.172.76.141])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: dlan)
+	by smtp.gentoo.org (Postfix) with ESMTPSA id CCCAE34311C;
+	Tue, 18 Feb 2025 00:32:04 +0000 (UTC)
+From: Yixun Lan <dlan@gentoo.org>
+Date: Tue, 18 Feb 2025 08:31:44 +0800
+Subject: [PATCH v3] pinctrl: spacemit: enable config option
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <rsysy3p5ium5umzz34rtinppcu2b36klgjdtq5j4lm3mylbqbz@z44yeje5wgat>
+Message-Id: <20250218-k1-pinctrl-option-v3-1-36e031e0da1b@gentoo.org>
+X-B4-Tracking: v=1; b=H4sIAO/Us2cC/33NwQ7CIAyA4VdZehYDyNz05HsYD2PtNqIBAoRol
+ r27bCdNjMe/ab/OECkYinCuZgiUTTTOljjsKuinzo7EDJYGyWXNJW/YXTBvbJ/CgzmfyjZDqjU
+ OeNRKEpQ7H2gwz8283kpPJiYXXtuLLNbpPy0LJhi1XUMKW8XVcBnJJuf2Loywcll+EEL+ImQhN
+ FKDHdc9x9MXsSzLG7kdA572AAAA
+X-Change-ID: 20250207-k1-pinctrl-option-de5bdfd6b42e
+To: Linus Walleij <linus.walleij@linaro.org>, 
+ Paul Walmsley <paul.walmsley@sifive.com>, 
+ Palmer Dabbelt <palmer@dabbelt.com>
+Cc: Alex Elder <elder@kernel.org>, linux-riscv@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, linux-gpio@vger.kernel.org, 
+ spacemit@lists.linux.dev, Conor Dooley <conor.dooley@microchip.com>, 
+ Alex Elder <elder@riscstar.com>, Yixun Lan <dlan@gentoo.org>
+X-Mailer: b4 0.15-dev
+X-Developer-Signature: v=1; a=openpgp-sha256; l=3028; i=dlan@gentoo.org;
+ h=from:subject:message-id; bh=qyQ+sKQ9+9qwFMd1kJ+yVxNWqzCvsbg6kJ8Eskv5KLc=;
+ b=owEBzQIy/ZANAwAKATGq6kdZTbvtAcsmYgBns9UBSIp+GNcJNVHURIgB8oPCS3L3QZGyR4P2i
+ FL+slJ0ueyJApMEAAEKAH0WIQS1urjJwxtxFWcCI9wxqupHWU277QUCZ7PVAV8UgAAAAAAuAChp
+ c3N1ZXItZnByQG5vdGF0aW9ucy5vcGVucGdwLmZpZnRoaG9yc2VtYW4ubmV0QjVCQUI4QzlDMzF
+ CNzExNTY3MDIyM0RDMzFBQUVBNDc1OTREQkJFRAAKCRAxqupHWU277XAFD/4wY7mqXi03X/kJnX
+ OIHfqEC5cMQcF39mdaTPKlK2HDQQHBC0OfzfIA7i8SuJX1e633Gi6uI6s5rCY34hAQAM7b3RFN7
+ el1uJyPSKRj9X2s3wi4QukxcwlaOD0qZohO+lqiGJZ4+rGwOgmH4Vy0++fHLhYpxdxKnhf0acvq
+ nsfd+7cRSpREVwn68nOU1yKdbHrdaQYTUt6UT91SXtXUb61tuEONg9SRyq1wOi4VocxjwpDT+SR
+ X+gNJCO+uuTWJ2ipOddY/3FQW5xlFEqKILs0bYuNz11EZ/mfeeBhS2FlgyeKCt1bdgqHE/HIQtn
+ xN7qz9BS/wd16SlASObe2/2E3y9e3N0+hFOrnDPtusL11uzZsP3oY7Io9MH4ps2nU2zADnuyBfq
+ H7dTEKpXz8lc3GiQ0MOo5wsYyRBB6YHc5V1A6b2H54j+4flN6PxxGh6uCEZDo7XZOuboi2Svt3D
+ 1SKB7gsfD4zYTnTjEOTQ9kEVAuXrfXJgFo2FBe4VQdUCRMOBTLlnNtlxsJSuXoCALgEqZ3hlvXa
+ Grg9Rs4Q5+UJ/rpjYl4qeX9cy5LzlBMCYMh0/qXkTFVeHoZhNMjLRCR+jYbGsdvWLXo22Q2kr+I
+ y4FcPIW56C+1ZmQZR/zg24Og3rxcyVia0kqIJi3pq2bmfmqYTepGwSxI5pkQdnyXcwOg==
+X-Developer-Key: i=dlan@gentoo.org; a=openpgp;
+ fpr=50B03A1A5CBCD33576EF8CD7920C0DBCAABEFD55
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250217_152210_653281_F78B2D73 
-X-CRM114-Status: GOOD (  27.00  )
+X-CRM114-CacheID: sfid-20250217_163209_288774_0C0F388B 
+X-CRM114-Status: GOOD (  14.14  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,74 +88,88 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Feb 18, 2025 at 06:50:24AM +0800, Inochi Amaoto wrote:
-> On Mon, Feb 17, 2025 at 02:10:50PM +0000, Russell King (Oracle) wrote:
-> > On Mon, Feb 17, 2025 at 02:25:33PM +0100, Andrew Lunn wrote:
-> > > > I am not sure all whether devices has this clock, but it appears in
-> > > > the databook. So I think it is possible to move this in the core so
-> > > > any platform with these clock can reuse it.
-> > > 
-> > > Great
-> > > 
-> > > The next problem will be, has everybody called it the same thing in
-> > > DT. Since there has been a lot of cut/paste, maybe they have, by
-> > > accident.
-> > 
-> > Tegra186: "tx"
-> > imx: "tx"
-> > intel: "tx_clk"
-> > rk: "clk_mac_speed"
-> > s32: "tx"
-> > starfive: "tx"
-> > sti: "sti-ethclk"
-> > 
-> 
-> The dwc-qos-eth also use clock name "tx", but set the clock with
-> extra calibration logic.
+Pinctrl is an essential driver for SpacemiT's SoC,
+The uart driver requires it, same as sd card driver,
+so let's enable it by default for this SoC.
 
-Yep, that's what I meant by "Tegra186" above.
+The CONFIG_PINCTRL_SPACEMIT_K1 isn't enabled when using
+'make defconfig' to select kernel configuration options.
+This result in a broken uart driver where fail at probe()
+stage due to no pins found.
 
-> > so 50% have settled on "tx" and the rest are doing their own thing, and
-> > that horse has already bolted.
-> > 
-> 
-> The "rx" clock in s32 also uses the same logic. I think the core also
-> needs to take it, as this rx clock is also mentioned in the databook.
+Fixes: a83c29e1d145 ("pinctrl: spacemit: add support for SpacemiT K1 SoC")
+Reported-by: Alex Elder <elder@kernel.org>
+Acked-by: Conor Dooley <conor.dooley@microchip.com>
+Tested-by: Alex Elder <elder@riscstar.com>
+Signed-off-by: Yixun Lan <dlan@gentoo.org>
+---
+This should fix problem that CONFIG_PINCTRL_SPACEMIT_K1 is not enabled
+when using make defconfig, thus fail to initilize uart driver which requst
+pins during probe stage.
+---
+Changes in v3:
+- switch PINCTRL_SPACEMIT_K1 from tristate to bool
+- Link to v2: https://lore.kernel.org/r/20250212-k1-pinctrl-option-v2-1-bde7da0bc0d9@gentoo.org
 
-The "rx" clock on s32 seems to only be set to 125MHz, and the driver
-seems to be limited to RGMII.
+Changes in v2:
+- set default as y
+- Link to v1: https://lore.kernel.org/r/20250207-k1-pinctrl-option-v1-1-e8a7e4d8404f@gentoo.org
+---
+ arch/riscv/Kconfig.socs               | 1 +
+ drivers/pinctrl/spacemit/Kconfig      | 3 ++-
+ drivers/pinctrl/spacemit/pinctrl-k1.c | 2 +-
+ 3 files changed, 4 insertions(+), 2 deletions(-)
 
-This seems weird as the receive clock is supposed to be supplied by the
-PHY, and is recovered from the media (and thus will be 2.5, 25 or
-125MHz as determined by the PHY.) So, I'm not sure that the s32 "rx"
-clock is really the clk_rx_i clock supplied to the DWMAC core.
+diff --git a/arch/riscv/Kconfig.socs b/arch/riscv/Kconfig.socs
+index 1916cf7ba450ec9958265de2ca41dc504d4d2f7c..17606940bb5239d0fdfc6b5aefb50eeb982d14aa 100644
+--- a/arch/riscv/Kconfig.socs
++++ b/arch/riscv/Kconfig.socs
+@@ -26,6 +26,7 @@ config ARCH_SOPHGO
+ 
+ config ARCH_SPACEMIT
+ 	bool "SpacemiT SoCs"
++	select PINCTRL
+ 	help
+ 	  This enables support for SpacemiT SoC platform hardware.
+ 
+diff --git a/drivers/pinctrl/spacemit/Kconfig b/drivers/pinctrl/spacemit/Kconfig
+index 168f8a5ffbb952cbeae3e3401c11149558e0a84b..a2f98b3f8a75580d2d157008997cc48f42a89368 100644
+--- a/drivers/pinctrl/spacemit/Kconfig
++++ b/drivers/pinctrl/spacemit/Kconfig
+@@ -4,9 +4,10 @@
+ #
+ 
+ config PINCTRL_SPACEMIT_K1
+-	tristate "SpacemiT K1 SoC Pinctrl driver"
++	bool "SpacemiT K1 SoC Pinctrl driver"
+ 	depends on ARCH_SPACEMIT || COMPILE_TEST
+ 	depends on OF
++	default y
+ 	select GENERIC_PINCTRL_GROUPS
+ 	select GENERIC_PINMUX_FUNCTIONS
+ 	select GENERIC_PINCONF
+diff --git a/drivers/pinctrl/spacemit/pinctrl-k1.c b/drivers/pinctrl/spacemit/pinctrl-k1.c
+index a32579d736130c80bd12f0f9d8b3b2f69c428b3d..59fd555ff38d4453f446263a8fdb4a61faf63cfc 100644
+--- a/drivers/pinctrl/spacemit/pinctrl-k1.c
++++ b/drivers/pinctrl/spacemit/pinctrl-k1.c
+@@ -1044,7 +1044,7 @@ static struct platform_driver k1_pinctrl_driver = {
+ 		.of_match_table		= k1_pinctrl_ids,
+ 	},
+ };
+-module_platform_driver(k1_pinctrl_driver);
++builtin_platform_driver(k1_pinctrl_driver);
+ 
+ MODULE_AUTHOR("Yixun Lan <dlan@gentoo.org>");
+ MODULE_DESCRIPTION("Pinctrl driver for the SpacemiT K1 SoC");
 
-Certainly on stm32mp151, it states that ETH_RX_CLK in RGMII mode will
-be 2.5, 25 or 125MHz provided by the PHY, and the clock tree indicates
-that ETH_RX_CLK in RGMII mode will be routed directly to the clk_rx_i
-input on the DWMAC(4) core.
+---
+base-commit: 2014c95afecee3e76ca4a56956a936e23283f05b
+change-id: 20250207-k1-pinctrl-option-de5bdfd6b42e
 
-> > I have some ideas on sorting this out, and I'm working on some patches
-> > today.
-> 
-> Great, Could you cc me when you submit them? So I can take it and
-> change my series.
-
-Will do - I'm almost at that point, I have three other cleanup patches
-I will be sending before hand, so I'll send those out and then this
-series as RFC.
-
-The only platform drivers I've left with a call to rgmii_clock() are
-sti, imx (for imx93 only as that does extra fiddling after setting the
-clock and I'm not sure if there's an ordering dependency there) and
-the rk platforms.
-
-Five platforms converted, three not, and hopefully your platform can
-also use the helper as well!
-
+Best regards,
 -- 
-RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
+Yixun Lan
+
 
 _______________________________________________
 linux-riscv mailing list
