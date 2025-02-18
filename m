@@ -4,96 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D219C02198
-	for <linux-riscv@archiver.kernel.org>; Tue, 18 Feb 2025 08:18:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1B6E6C021A9
+	for <linux-riscv@archiver.kernel.org>; Tue, 18 Feb 2025 08:51:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
+	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=t/lrDedJJ1idVYsVPEk1goi96+jJdB8xr7WcM2rR7ZY=; b=EjLNO44XSfVbnF
-	oBoC3kb76XXiOlfgs5vxbJV0iVG8mLj0JzTVhzZcTR/7CtyQ8X+ppOG9GAN7hPiuIb4VRpkEvpwZx
-	sjjl77q/dz/Zo4lm6tDCN/oKryONUqAFcyQgrRInsqP8yr2yPqGMOhl/NVKeSj05jXoVuE+M3/bJ3
-	byjSwTxfJSMlxaXtO3KOCUXGEZJ0/aQWaddi2MpmhxFpShdOHfbrHiVK0v/sVtkhacySLmnzKumTP
-	z23asnMNLwla0fx4GuW7okVyQUzidcQw1P7/O9Sclmrtd9cqQo0CwagXQQ740gqnzmWWFDXjFhKHi
-	nhOSTwRFg1AO6g6r16cA==;
+	List-Owner; bh=XUGOONBZYylNQq9qvHFZdoHHqRYZQTMDMqdgjwNsKGw=; b=vqxTAs6rF712ro
+	LH2WIOWqfnjHIMTGjhiHyDu6fxvOEKHo2TQP7Vvt8dHWYxP9b2J+E41HcNtiAt49E7ejqdFPp1KRN
+	9q+njvwnNliKXMVjr8LOj+GYW7I02H80W0H5aLUS+WrSiiH8E+keF0ko2l7A0ZqF+wvxE0J/w09KA
+	Q08yByOsDcdwhfArXtq4GkeoY0yn6cw2i2blPj5xTbrh6CNaqwONLznd368MnKiBmD2frDwSBZ9PB
+	APxKtzhd8uLedRG9KrEjNwQftPnGAP2PNXOgYcWmFSNLvxj9laBH5UpObg8hOCZafVeFZH199mqEz
+	ea+fzFbJRz68B5QztzuQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkInr-00000007E9d-43UW;
-	Tue, 18 Feb 2025 08:18:03 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tkJK5-00000007Mhz-34jD;
+	Tue, 18 Feb 2025 08:51:21 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkIkx-00000007DDD-3T4l;
-	Tue, 18 Feb 2025 08:15:05 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id D61D65C5BA3;
-	Tue, 18 Feb 2025 08:14:23 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 303D0C4CEE2;
-	Tue, 18 Feb 2025 08:15:02 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linuxfoundation.org;
-	s=korg; t=1739866502;
-	bh=UFdR7IbguGl7iKpceVwoQo+fFJc+Ocd7Dgzg0nOOeAE=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=f4mC4+xjy8+3Ap3+zmCq4f4juZVPx3MmLXCA2pN+OuMHab5gaVtMq0RgIb/vmcIt4
-	 5pomyFm6UrsvIjuGwEbtdC0Cnn6HgTkNdbLBGtu/S6H3634IT4Qh8f1TMWeYpsxTMx
-	 HEiie4JkezV19OJAsaovd47Bq7gU0JDqjGhlceHw=
-Date: Tue, 18 Feb 2025 09:14:59 +0100
-From: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-To: Jerome Brunet <jbrunet@baylibre.com>
-Cc: Dave Ertman <david.m.ertman@intel.com>, Ira Weiny <ira.weiny@intel.com>,
-	"Rafael J. Wysocki" <rafael@kernel.org>,
-	Stephen Boyd <sboyd@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
-	Danilo Krummrich <dakr@kernel.org>,
-	Conor Dooley <conor.dooley@microchip.com>,
-	Daire McNamara <daire.mcnamara@microchip.com>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Douglas Anderson <dianders@chromium.org>,
-	Andrzej Hajda <andrzej.hajda@intel.com>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Robert Foss <rfoss@kernel.org>,
-	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
-	Jonas Karlman <jonas@kwiboo.se>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-	Hans de Goede <hdegoede@redhat.com>,
-	Ilpo =?iso-8859-1?Q?J=E4rvinen?= <ilpo.jarvinen@linux.intel.com>,
-	Bryan O'Donoghue <bryan.odonoghue@linaro.org>,
-	Vladimir Kondratiev <vladimir.kondratiev@mobileye.com>,
-	Gregory CLEMENT <gregory.clement@bootlin.com>,
-	=?iso-8859-1?Q?Th=E9o?= Lebrun <theo.lebrun@bootlin.com>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Abel Vesa <abelvesa@kernel.org>, Peng Fan <peng.fan@nxp.com>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Kevin Hilman <khilman@baylibre.com>,
-	Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
-	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
-	dri-devel@lists.freedesktop.org,
-	platform-driver-x86@vger.kernel.org, linux-mips@vger.kernel.org,
-	linux-clk@vger.kernel.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-amlogic@lists.infradead.org
-Subject: Re: [PATCH v3 1/7] driver core: auxiliary bus: add device creation
- helpers
-Message-ID: <2025021826-smile-batting-e52f@gregkh>
-References: <20250211-aux-device-create-helper-v3-0-7edb50524909@baylibre.com>
- <20250211-aux-device-create-helper-v3-1-7edb50524909@baylibre.com>
- <2025021437-washout-stonewall-d13e@gregkh>
- <1jwmdsxugx.fsf@starbuckisacylon.baylibre.com>
- <2025021501-tamer-sank-142a@gregkh>
- <1jikp8xx01.fsf@starbuckisacylon.baylibre.com>
+	id 1tkJHq-00000007MG4-3NVX
+	for linux-riscv@lists.infradead.org;
+	Tue, 18 Feb 2025 08:49:03 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1739868541;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=f0PPk91R2OjqODZtBQUNypPkAhjqPhzDO0Zl4X5trlM=;
+	b=bcIJIZGN7wtXsC5Lpyoid4ja17u/jqeQCs+MPowIyZHK8r6XF7riNwIU45fBe5FmqMVngB
+	cuXSS2mfCjlO9Bme+Ad+Mh7NOy9GIV1v5b9K//6a33XYwrY+viOXAJePql6F8en2hbH1BX
+	F8+Xjb8Y3dLWxTTs8IL0iWhHuFeTs/0=
+Received: from mail-wr1-f69.google.com (mail-wr1-f69.google.com
+ [209.85.221.69]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-474-WitA_pnCOPiLGUByQ3h6pw-1; Tue, 18 Feb 2025 03:47:18 -0500
+X-MC-Unique: WitA_pnCOPiLGUByQ3h6pw-1
+X-Mimecast-MFC-AGG-ID: WitA_pnCOPiLGUByQ3h6pw_1739868437
+Received: by mail-wr1-f69.google.com with SMTP id ffacd0b85a97d-38f2ef5f0dbso1832839f8f.2
+        for <linux-riscv@lists.infradead.org>; Tue, 18 Feb 2025 00:47:18 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1739868437; x=1740473237;
+        h=mime-version:message-id:date:references:in-reply-to:subject:cc:to
+         :from:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=f0PPk91R2OjqODZtBQUNypPkAhjqPhzDO0Zl4X5trlM=;
+        b=HNYLuWRESP29kRjSs4CDw2A2t+A53c79PiGS/HMYa0RMp7ECyyfmKjvO3XhMQSD6vX
+         Vn9veREXgAnWF7ozYIvGrXsJFZtC8DsGbw3bvvvLDQdp9aT9wCAxiV8IN/nv5UO8Zbhj
+         tIPCqgBalzjX0TmcGmyF5N8rk2vlgswcGey8vlLIvruSMneqvJ5hNiDGHcS85qThWsui
+         2AxzqD3iG2YA7eHPWe3nbcGUJIO4+fmC2hNeXCZFQA8CsQEKqHRUN1Q5xssepgxsgS09
+         U/PQSraBWX6RMiT5Dh5inye+lXqToHKNu0j5qu6qhc0yFxbSqLdOl4G5n4FrGPFs+FuP
+         YYcg==
+X-Forwarded-Encrypted: i=1; AJvYcCXXf8fVUwNo0ffNL4LPJ9f97So3TRojwvcWlB8V9xtqfb+MSah2C3GqSPN02G14An0NkGU6ABthopbcMg==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz3f9qzWdqisDiExw/bd7bUsmvSdCwJBoDgHXo2DBCYPr+uo0LH
+	ApkN5kqgtda05guWP60rvauXo4LDmVb4PtJ6O1uv1KP+6fCNwLPsz0xoDTvn50jC6Zpj5i+LuIA
+	tfmYgagKr2z24ci00B9bCWAV6vFum1u/YJqgiyW6G0LsFvenGSLQZv3diTxit23InrQ==
+X-Gm-Gg: ASbGncs96+Qg44J86KN4fDZy71YYmDsRHKCl3qkLNfAfo5p+lRK0MJ/ZaTsS9lVNysx
+	8v0be45YBrb36OEZpO+xqNyfGYEi9s36sDM6HaLCK+VMw4gIoJ/smjPZOWLiV23Nlk2qQq45ORJ
+	M/woOsKHhWbs+ZFUz5XICmXigFCq5+sNYJvHCQZkqnxR163T4fpwayslNF1wIoy3heFGX5DDhgi
+	WaMCAmJHRcoN2qVhsxZoiSZUC+UQLx+pe86plfT5zrEuPqp5vVJ1NP5hE16y1pt1bgCbbN9mInn
+	4tUpDbXWT+ZxC9XHDg2Nn//eJeWFBTMg3ch8UFgmq9/jcs2nnZb8P1xaQz8OsqA=
+X-Received: by 2002:a5d:6ac1:0:b0:38f:229a:b48 with SMTP id ffacd0b85a97d-38f33f34e0fmr10212223f8f.32.1739868437043;
+        Tue, 18 Feb 2025 00:47:17 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IFSbylPudXx7pB2i6xYLZO/0No55k7fxSLecS40C+YqWkkI3E7XGgL5gcPSu1DOJPV7vKQsoQ==
+X-Received: by 2002:a5d:6ac1:0:b0:38f:229a:b48 with SMTP id ffacd0b85a97d-38f33f34e0fmr10212191f8f.32.1739868436746;
+        Tue, 18 Feb 2025 00:47:16 -0800 (PST)
+Received: from localhost (62-151-111-63.jazzfree.ya.com. [62.151.111.63])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4398a8007easm36991295e9.21.2025.02.18.00.47.15
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 18 Feb 2025 00:47:15 -0800 (PST)
+From: Javier Martinez Canillas <javierm@redhat.com>
+To: Yixun Lan <dlan@gentoo.org>, Linus Walleij <linus.walleij@linaro.org>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>
+Cc: Alex Elder <elder@kernel.org>, linux-riscv@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linux-gpio@vger.kernel.org,
+ spacemit@lists.linux.dev, Conor Dooley <conor.dooley@microchip.com>, Alex
+ Elder <elder@riscstar.com>, Yixun Lan <dlan@gentoo.org>
+Subject: Re: [PATCH v3] pinctrl: spacemit: enable config option
+In-Reply-To: <20250218-k1-pinctrl-option-v3-1-36e031e0da1b@gentoo.org>
+References: <20250218-k1-pinctrl-option-v3-1-36e031e0da1b@gentoo.org>
+Date: Tue, 18 Feb 2025 09:47:14 +0100
+Message-ID: <874j0rr65p.fsf@minerva.mail-host-address-is-not-set>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <1jikp8xx01.fsf@starbuckisacylon.baylibre.com>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: uU--4CUHh_sfmLqAGl1AeUDt6fS2t2pCSyA8qD_MfjM_1739868437
+X-Mimecast-Originator: redhat.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250218_001503_952710_67033CA6 
-X-CRM114-Status: GOOD (  14.38  )
+X-CRM114-CacheID: sfid-20250218_004902_905925_2BCF19A3 
+X-CRM114-Status: GOOD (  12.46  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,41 +109,38 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Feb 17, 2025 at 07:10:54PM +0100, Jerome Brunet wrote:
-> On Sat 15 Feb 2025 at 07:53, Greg Kroah-Hartman <gregkh@linuxfoundation.org> wrote:
-> 
-> [...]
-> 
-> >> 
-> >> >
-> >> >> +							int id)
-> >> >> +{
-> >> >> +	struct auxiliary_device *auxdev;
-> >> >> +	int ret;
-> >> >> +
-> >> >> +	auxdev = kzalloc(sizeof(*auxdev), GFP_KERNEL);
-> >> >> +	if (!auxdev)
-> >> >> +		return ERR_PTR(-ENOMEM);
-> >> >
-> >> > Ick, who cares what the error value really is?  Why not just do NULL or
-> >> > a valid pointer?  That makes the caller much simpler to handle, right?
-> >> >
-> >> 
-> >> Sure why not
-> 
-> I have tried the 'NULL or valid' approach. In the consumers,
-> which mostly return an integer from their various init function, I got
-> this weird to come up with one from NULL. EINVAL, ENOMEM, etc ... can't
-> really pick one.
-> 
-> It is actually easier to pass something along.
+Yixun Lan <dlan@gentoo.org> writes:
 
-Ok, fair enough, thanks for trying.  But I would have returned just
--ENODEV in all cases, as that's what the end result was :)
+> Pinctrl is an essential driver for SpacemiT's SoC,
+> The uart driver requires it, same as sd card driver,
+> so let's enable it by default for this SoC.
+>
+> The CONFIG_PINCTRL_SPACEMIT_K1 isn't enabled when using
+> 'make defconfig' to select kernel configuration options.
+> This result in a broken uart driver where fail at probe()
+> stage due to no pins found.
+>
+> Fixes: a83c29e1d145 ("pinctrl: spacemit: add support for SpacemiT K1 SoC")
+> Reported-by: Alex Elder <elder@kernel.org>
+> Acked-by: Conor Dooley <conor.dooley@microchip.com>
+> Tested-by: Alex Elder <elder@riscstar.com>
+> Signed-off-by: Yixun Lan <dlan@gentoo.org>
+> ---
+> This should fix problem that CONFIG_PINCTRL_SPACEMIT_K1 is not enabled
+> when using make defconfig, thus fail to initilize uart driver which requst
+> pins during probe stage.
+> ---
 
-thanks,
+Reviewed-by: Javier Martinez Canillas <javierm@redhat.com>
+Tested-by: Javier Martinez Canillas <javierm@redhat.com>
 
-greg k-h
+-- 
+Best regards,
+
+Javier Martinez Canillas
+Core Platforms
+Red Hat
+
 
 _______________________________________________
 linux-riscv mailing list
