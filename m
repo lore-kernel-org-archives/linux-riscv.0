@@ -4,214 +4,107 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F693C021AA
-	for <linux-riscv@archiver.kernel.org>; Tue, 18 Feb 2025 11:28:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A30E7C02198
+	for <linux-riscv@archiver.kernel.org>; Tue, 18 Feb 2025 11:58:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:From:References:CC:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2B2jxiRpCa59EupucI+WA2V+wYGGHO2EFndzpNGzsHc=; b=lH0TIMLpIJXQmEcfOVqG4/ZNWD
-	v/Ogpf/5aoPt1UdS0eNyHqGemYi53wXbwUaZRabuAOaaaQ9u5su7GRO0/IuziBJjsKIT4wgXGtahd
-	ygRAY+T9G2Ms4V6HINwBnDym0ClXosKZGDON/8bhjEGYsOzFUC9lL9JFTUyw6/LcZyH6g0UxSM8Lt
-	Zf6Ggsn8sexMQlW6Lzqz5qXAyqTmjkkiW1rzsTdQ8HMurcEdLM4vtbC0HW12h3fG+7QU79F5yCQo2
-	2KhOWAUWsZgwZnHXB+uWIc4+LdwOZycdy3eUB0K4Dl0CVO+VwAE1G7q+dC02+fUcQZVIZ/xGbX1BW
-	UZ2hIWig==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=nOCk8CNnCqjwY8C7qe6MI5QMrYdGVaZUeLDuk56x56k=; b=r/sYxpRbhJgf9w
+	smeKWt2QarnF6uMxWO66PhBnJM7PDaVDuBVr7s5h5FQU5+c6tBVBHDogG5IJ87tHN320pvThg7Ghc
+	LLmoJ+fazLARs2UZIgQTHeduW2E9401iC5rALMEhIoNOijx0Q4yPcbsSZjFv/duRWTl6uo48emaI0
+	W32hYjCGUmAwTQ4Jx2tv/5YjMFqceclq0wgIJdJC5w2CKX+D2S2Bii6cw/WoclcPezcH22Jo53KJg
+	1WacaKBQVFEuI5m8CiGSDkIbl3u+5f/VXR+8i11tI0cRf4KeS685HflADykJxurR9Leww3C3jgasX
+	Fmgenbk/fRmuLdCpiuUA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkLm2-00000007xDX-1ReT;
-	Tue, 18 Feb 2025 11:28:22 +0000
-Received: from mgamail.intel.com ([192.198.163.14])
+	id 1tkMEp-000000083HY-2ojh;
+	Tue, 18 Feb 2025 11:58:07 +0000
+Received: from mail-qt1-x830.google.com ([2607:f8b0:4864:20::830])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkLcW-00000007vB0-1Jvr;
-	Tue, 18 Feb 2025 11:18:33 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1739877512; x=1771413512;
-  h=message-id:date:subject:to:cc:references:from:
-   in-reply-to:content-transfer-encoding:mime-version;
-  bh=Nv9j/jhlIBYKZvAExZqDu9hD20cq5wfUhm7Z97lJI8Y=;
-  b=GiuQZ7/S9qJndm+Zy0SZ9uaF5ic9PZx17zjfmD3VWkuNT7JP5L1itkSN
-   e7pjdQZwcTp/7b8jVRFmCtc2hoFF+zNSZDjPRIz9UJhLBPh1ui01uoFMQ
-   rhtYYp5yX6hL38uJMZJ1NHmZj6xxsI/N9VQTAspnrQr06I1LFaTbNxDQ1
-   5ruLCXH2ZIR3mQp8K11bNXZn7iab+Cae0fo1moNoFptfNi0O389YDg9e6
-   t/VVLtK2gwGPWFf+d5p/qGsjK+C/iGMwBtDcOFA9OD/NNhsR7ksIn5nTI
-   o2t7pYNHdEwZooTcpvySLUtV6YJf/q66rV+HBG+6aplFYCBTygpVmQ1uE
-   w==;
-X-CSE-ConnectionGUID: qjvLfZF+TqmIaqbQADsERw==
-X-CSE-MsgGUID: Vxa73CxTQE6m1tndQhNuww==
-X-IronPort-AV: E=McAfee;i="6700,10204,11348"; a="40821916"
-X-IronPort-AV: E=Sophos;i="6.13,295,1732608000"; 
-   d="scan'208";a="40821916"
-Received: from orviesa004.jf.intel.com ([10.64.159.144])
-  by fmvoesa108.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 18 Feb 2025 03:18:31 -0800
-X-CSE-ConnectionGUID: MwZmx/osScKWIFwxo46zbw==
-X-CSE-MsgGUID: 5zc0tmB8RDeSuWoSPdd4cA==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.13,295,1732608000"; 
-   d="scan'208";a="119353870"
-Received: from orsmsx901.amr.corp.intel.com ([10.22.229.23])
-  by orviesa004.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 18 Feb 2025 03:18:31 -0800
-Received: from ORSMSX901.amr.corp.intel.com (10.22.229.23) by
- ORSMSX901.amr.corp.intel.com (10.22.229.23) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.14; Tue, 18 Feb 2025 03:18:29 -0800
-Received: from orsedg603.ED.cps.intel.com (10.7.248.4) by
- ORSMSX901.amr.corp.intel.com (10.22.229.23) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.14 via Frontend Transport; Tue, 18 Feb 2025 03:18:29 -0800
-Received: from NAM12-DM6-obe.outbound.protection.outlook.com (104.47.59.168)
- by edgegateway.intel.com (134.134.137.100) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.1.2507.44; Tue, 18 Feb 2025 03:18:29 -0800
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Gg596YtmIVjqNHJFzBuAIA+zIzUZY3I1cpyRCbBoP2MUgPJll3itf/20A5If1PWjQd0UwoMjWP74nQ9SYPa6LuT7MbXg+tFhi13eczH4Rdl3/NkqDcWqxaDnc78LqRNO3XGMRM7P51DdCCiMwn0NYBxXLbRnpVDJiFgqZZwpLM5rhDg0AVC9s3kyqCeibpJVOIaQnGhXa+e2KAPt3TJaEPwPZM9ldlYpvHPmDlbkZOl/zKPPHprvMdbfYpmF/c3i3XXYbGmOyuzSVLW000OfSIyPeFQ0K2zBwv/GITlWdtqXBLFhwK3V8Cldk71cBdiP1DY/TyU2jOr4yfAAKBJZOw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=6+2DdJxMvfzICHli/7eT4dw4uuMoakB6TaUQ43EYK7A=;
- b=oYiSh7a58zWVkb/THnUB7Ay1PzU7DlSs83RHouHRwl0YXWh/WhkbnG9d8IEz/Yya9wgy9QUiyKjeAxr5B3CcfPIr/p+lxJtPzcoDopjfeytgLuSKkaT7yaEQjakM5TeU8hnb46J6Pbg/voVJoU0HMneuxjGoZKaxBVCABNvsIBgCJf8cHD/XBBNVTSeHcNr1NwPljSp+cNsmcPUCjhtwHGb4BC+vFfAjEoXIIBR1oRGH3iKc1LTkJVusoZ+yRnDIJPVz/a090eoAhzLlwQmXh0SHssNjI41WDy8Ql7PJ8UNMjwqnnOCn8I8SjNaR0294/LlRBZFAXVJKPlmUdHgvJw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
- dkim=pass header.d=intel.com; arc=none
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=intel.com;
-Received: from PH8PR11MB6682.namprd11.prod.outlook.com (2603:10b6:510:1c5::7)
- by SA3PR11MB8075.namprd11.prod.outlook.com (2603:10b6:806:303::19) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8445.18; Tue, 18 Feb
- 2025 11:17:47 +0000
-Received: from PH8PR11MB6682.namprd11.prod.outlook.com
- ([fe80::cfa7:43ed:66:fd51]) by PH8PR11MB6682.namprd11.prod.outlook.com
- ([fe80::cfa7:43ed:66:fd51%4]) with mapi id 15.20.8422.015; Tue, 18 Feb 2025
- 11:17:46 +0000
-Message-ID: <ce9f7693-355a-4049-98a8-b8bd25b4d3e1@intel.com>
-Date: Tue, 18 Feb 2025 12:17:35 +0100
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next 1/3] net: stmmac: clarify priv->pause and pause
- module parameter
-To: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>,
-	<netdev@vger.kernel.org>
-CC: Alexandre Torgue <alexandre.torgue@foss.st.com>, Andrew Lunn
-	<andrew+netdev@lunn.ch>, Chen-Yu Tsai <wens@csie.org>, "David S. Miller"
-	<davem@davemloft.net>, Drew Fustini <drew@pdp7.com>, Emil Renner Berthing
-	<kernel@esmil.dk>, Eric Dumazet <edumazet@google.com>, Fabio Estevam
-	<festevam@gmail.com>, Fu Wei <wefu@redhat.com>, Guo Ren <guoren@kernel.org>,
-	<imx@lists.linux.dev>, Jakub Kicinski <kuba@kernel.org>, Jan Petrous
-	<jan.petrous@oss.nxp.com>, Jernej Skrabec <jernej.skrabec@gmail.com>, "Jerome
- Brunet" <jbrunet@baylibre.com>, Kevin Hilman <khilman@baylibre.com>,
-	<linux-amlogic@lists.infradead.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-arm-msm@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
-	<linux-stm32@st-md-mailman.stormreply.com>, <linux-sunxi@lists.linux.dev>,
-	Martin Blumenstingl <martin.blumenstingl@googlemail.com>, Maxime Coquelin
-	<mcoquelin.stm32@gmail.com>, Minda Chen <minda.chen@starfivetech.com>, "Neil
- Armstrong" <neil.armstrong@linaro.org>, Nobuhiro Iwamatsu
-	<nobuhiro1.iwamatsu@toshiba.co.jp>, NXP S32 Linux Team <s32@nxp.com>, "Paolo
- Abeni" <pabeni@redhat.com>, Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Samuel Holland <samuel@sholland.org>, Sascha Hauer <s.hauer@pengutronix.de>,
-	Shawn Guo <shawnguo@kernel.org>, Vinod Koul <vkoul@kernel.org>
-References: <Z7Rf2daOaf778TOg@shell.armlinux.org.uk>
- <E1tkKmD-004ObA-9K@rmk-PC.armlinux.org.uk>
-Content-Language: pl
-From: Mateusz Polchlopek <mateusz.polchlopek@intel.com>
-Organization: Intel
-In-Reply-To: <E1tkKmD-004ObA-9K@rmk-PC.armlinux.org.uk>
-X-ClientProxiedBy: VI1PR0902CA0028.eurprd09.prod.outlook.com
- (2603:10a6:802:1::17) To PH8PR11MB6682.namprd11.prod.outlook.com
- (2603:10b6:510:1c5::7)
+	id 1tkLsV-00000007yym-3Tno;
+	Tue, 18 Feb 2025 11:35:04 +0000
+Received: by mail-qt1-x830.google.com with SMTP id d75a77b69052e-471fe5e0a80so7361101cf.1;
+        Tue, 18 Feb 2025 03:35:03 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1739878502; x=1740483302; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=afaSq1n/9Zx2C/a6yp1UZpzU8FTiNXOckROl9W+xe1U=;
+        b=AC5Xl92Om0lN7q9LYSCul+vHUi4kflQdYszcvZvPHcEkJE++TCy5FywB9Agz5PYzsE
+         VCnRqUk19bQrCezxOyxtQpgst+8yTE+Vu+p89QXI2vfNt5cZwdEfzR1scd7N+4g8Io01
+         Y3WTykzCQd0/FkYog/eGzuwjxw7ZotzEwpHBCxM+EaUAnnpS6QXcELK/ATRRYzehTLm7
+         uNk00TaIvBZxI0GA717gJfpG727W0MHBQj4ubhMP49EflL2wONnF0Uw6GQzO8I8UoLrF
+         ZfY864Fn4pCxxPmI/WnpxQZOcRMyxTGtrARNf+Th/IIPr5Hc7iNK3uQSM9sLcvNszjrn
+         cFZg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1739878502; x=1740483302;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=afaSq1n/9Zx2C/a6yp1UZpzU8FTiNXOckROl9W+xe1U=;
+        b=tKk9E/E3yv2qFmpZdiG8jeUzXyUaknV9GJuBOf1G1V6HRVZmoZMuys6OF0/rwpOiJF
+         Y9mncw4vb8iVMNDi/TdpRejZLIeLDBT76uVJ2RkZm0NOMRrjrqsu3ux/DkbVxXNtFYKh
+         cxov2G6sVR9FaRNChVka48HzMSdF92SxJmbvl2jctnj9nFu7PNmF7ar4XZQo32IgiBwi
+         IZrWKBNOe+VC/Xao/fXzCnYCY3nI/JqgILGgteb12LTNyy0RyTKhbuw7++UjjzPRLTwy
+         Jv7GiyyrLiHgwHj4XBRu55LaIju+AJRP49A+0i7oNRKlUEXTjL5oRKKlf2ssnsffoX/2
+         Cv0Q==
+X-Forwarded-Encrypted: i=1; AJvYcCVK1tjS4I5OnctKyjJNhHF4XYtUfRjf9J3YR1M+kj0JwrDGCPmyJwu74bPF5qFGa73ZSREg6AhUtwpQyUY=@lists.infradead.org, AJvYcCW4+opeLOr9s5RLAORl8wAcbTl/GvXFB4hkiK8pl8gBhZc51Wax8n8mOtJKzL5C3Kzio/2h/OhuXUGVKgLJuZyb@lists.infradead.org
+X-Gm-Message-State: AOJu0YxbVGMbK+bWXnSVsXIwQVm0f0kMPAoOI2yoTAQzf7N7sZXTSxHb
+	eBzfUt6xPBWILZOUde34oJd5QNDm+vrRFJdIgaxJYI7gu+mPw7a+
+X-Gm-Gg: ASbGnctvwSBdzwSnbDQ4X8b0e9zYvkTaSowlHO8oecV/5dvAlyj7yHUBiAe54Ja7hNW
+	wgBj7z+E0tsgj3AUwzmHLzbVHlyIwZOTrDB71f3rCqU/2zEqzrLa7dIiOBRkwXUBiSyRNkAkuKr
+	8bUUHdSlTjCO+U1LyvdDe+HapR2LjmqTYNnpq5VaWTgXzKtTXVv8jxBaZ10hZ2ovD8p7Tn9i8wp
+	zwDO0vQOxjV7FhuyBZ4+64C0DQnNf/0vxhfiLS2PCIEam8DaBFR0W0zuw8pcHESbzE=
+X-Google-Smtp-Source: AGHT+IFe6C/gSNnzxL8kV6UCXZr3P6tf9lX30/uxdZgxSpgJktrmUiTn4Zw2m+FrVeltIJ8PDsdvvQ==
+X-Received: by 2002:a05:622a:1803:b0:471:9cba:ad2c with SMTP id d75a77b69052e-471dbcc2e05mr196823821cf.11.1739878502351;
+        Tue, 18 Feb 2025 03:35:02 -0800 (PST)
+Received: from localhost ([2001:da8:7001:11::cb])
+        by smtp.gmail.com with UTF8SMTPSA id d75a77b69052e-471f2b0476dsm19857671cf.28.2025.02.18.03.35.00
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 18 Feb 2025 03:35:01 -0800 (PST)
+Date: Tue, 18 Feb 2025 19:34:47 +0800
+From: Inochi Amaoto <inochiama@gmail.com>
+To: "Russell King (Oracle)" <linux@armlinux.org.uk>, 
+	Inochi Amaoto <inochiama@gmail.com>
+Cc: Andrew Lunn <andrew@lunn.ch>, Andrew Lunn <andrew+netdev@lunn.ch>, 
+	"David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Chen Wang <unicorn_wang@outlook.com>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
+	Alexandre Torgue <alexandre.torgue@foss.st.com>, Richard Cochran <richardcochran@gmail.com>, 
+	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, "Jan Petrous (OSS)" <jan.petrous@oss.nxp.com>, 
+	Hariprasad Kelam <hkelam@marvell.com>, =?utf-8?B?Q2zDqW1lbnQgTMOpZ2Vy?= <clement.leger@bootlin.com>, 
+	Jisheng Zhang <jszhang@kernel.org>, Emil Renner Berthing <emil.renner.berthing@canonical.com>, 
+	Drew Fustini <dfustini@tenstorrent.com>, Furong Xu <0x1207@gmail.com>, 
+	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>, Joe Hattori <joe@pf.is.s.u-tokyo.ac.jp>, 
+	Serge Semin <fancer.lancer@gmail.com>, Lothar Rubusch <l.rubusch@gmail.com>, 
+	Giuseppe Cavallaro <peppe.cavallaro@st.com>, Jose Abreu <joabreu@synopsys.com>, netdev@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, sophgo@lists.linux.dev, 
+	linux-stm32@st-md-mailman.stormreply.com, linux-arm-kernel@lists.infradead.org, 
+	linux-riscv@lists.infradead.org, Yixun Lan <dlan@gentoo.org>, Longbin Li <looong.bin@gmail.com>
+Subject: Re: [PATCH net-next v5 3/3] net: stmmac: Add glue layer for Sophgo
+ SG2044 SoC
+Message-ID: <thc5oknaqaw54wghyxpx6nr4kbykxvpgkgvpqsnsp2osjlxgwv@dekgtkxoywrm>
+References: <20250216123953.1252523-4-inochiama@gmail.com>
+ <Z7IIht2Q-iXEFw7x@shell.armlinux.org.uk>
+ <5e481b95-3cf8-4f71-a76b-939d96e1c4f3@lunn.ch>
+ <js3z3ra7fyg4qwxbly24xqpnvsv76jyikbhk7aturqigewllbx@gvus6ub46vow>
+ <24eecc48-9061-4575-9e3b-6ef35226407a@lunn.ch>
+ <Z7NDakd7zpQ_345D@shell.armlinux.org.uk>
+ <rsysy3p5ium5umzz34rtinppcu2b36klgjdtq5j4lm3mylbqbz@z44yeje5wgat>
+ <Z7PEeGmNvlYD33rZ@shell.armlinux.org.uk>
+ <6obom7jyciq2kqw5iuqlugbzbsebgd7ymnq2crlm565ybbz7de@n7o3tcqn5idi>
+ <Z7Rjjo5nZ0gnCbzq@shell.armlinux.org.uk>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PH8PR11MB6682:EE_|SA3PR11MB8075:EE_
-X-MS-Office365-Filtering-Correlation-Id: fa304af4-58cb-46c9-6357-08dd500ddf16
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|7416014|376014|1800799024|7053199007;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?V09GRWlkNkZzMHo5ck5MNWE3Y0VNTzgvcjg3WDlXUUZBMXJuM1EycUxIeHJx?=
- =?utf-8?B?TU5aQlJPYms1S1BlRWhtUHRZUURkekRXcFVJWFVucVVUZGFXQlp3ZGw3bTlp?=
- =?utf-8?B?YmU1R2xDc2RmQ3hLT3RhamdBczFDZWVyZVp6aWtta0YwNmZ6ZjRCcGlLQ3VU?=
- =?utf-8?B?bHdHTXZOSmhuZXY3QWRXQk1Vc2Y2a1h6WnFIWWtCL2dkZHR5QnVIRzRSZTJo?=
- =?utf-8?B?MEZCU2tpR0tzeXlVRmQzSTViVUxXRS95YmNXMTV5YWdoZytOYW5tNVpjWng4?=
- =?utf-8?B?eWFBdG13eVA2VDhidmMvREEwcDR5QjU2V2M3bDNmcHV2YlU4WWRLRVZQM0Y0?=
- =?utf-8?B?eGg1SDBrVGNlUGJ6WU5XNk0raVNNVS9qRHQ0T0I3ZXZwNVdIWkc4KzFyZzd1?=
- =?utf-8?B?WU5JQlZsZEFGSFlQUHFlNjhBbWFXZlcrL3hVdzY3VW1lSUFXck82WkdDQnJl?=
- =?utf-8?B?RzlkZTdjMGg4TndrMExpQzZKUGhkSEVKRE5RTjROZ3VkREg1UXh1UmNiUGRt?=
- =?utf-8?B?R0Y2eUZMKzhNSVN1dHdBczBpbngvTDZTWURrdXhNdWx2NWZUbGsxSVlZcWpa?=
- =?utf-8?B?d0MxMDZHbnlhV0xLTExvY1pUbGZzUkpFdUJmeHpVM3VXN1F5b1RZaytlZ1lz?=
- =?utf-8?B?ZWJ5a3RiNk1RbmlmaWhQaWxXWm9wNnpaSTdDa1pzOTlkRnF6VWxoOFl1RHZB?=
- =?utf-8?B?Ly9ub1pFbWpqMzhhYkdQcTJSZDhpYmJhWTRrWm51Z0U0UnFpVXdxZmRZNHkx?=
- =?utf-8?B?VFpoSk5nT1ZaaXNaTXo0RjlZT3VOM3d0VExUUE9JTkxwNlZHMXE4V3d0SGpo?=
- =?utf-8?B?UWUwTUxJNWpLWDVZZkljRXRQZlpRSElvNVRycmdLVmxvTy9iTUxlbWUyYTVm?=
- =?utf-8?B?ZUdHU28yR3o3dXMweXVWeG1IUC9yaFVYRWc4T2dqclplTm1nVWEzWjhoUzFU?=
- =?utf-8?B?VVg5TDhxQjRLajBTSWoraXFaYjdLRUkrUXIyOHNMUHArYW95d1lNVWM2M29z?=
- =?utf-8?B?UE1pYmNiVHdTTGNsZTFJUUFxWktkY0pCeGNYbU40L0RLSVN1bERucHlOYmoy?=
- =?utf-8?B?UVhpUkR3cmcyR3NRbFZLYVRKV2kzRVF1aTRTeUljN0tMeGtJUFRvZXVDbmVu?=
- =?utf-8?B?a1k5em5Vdk1LS0Z1Z1NLWUIrV05lKzBZMVZYWGlXMGNZU3BaaEpRVEZFWjNu?=
- =?utf-8?B?WjV5YW90aHlhSzBZL25DRVRUUGhaSFllb2VKOTgyQldmZmo0VnNjTmRrdW1B?=
- =?utf-8?B?eWlBRGxTa29YRitvZUtUeTEzV2paSGd4cFQ0RXdlampyMVFJR3dQd1FzRlRB?=
- =?utf-8?B?N0ZibU1FUk9VRndTeVhBWmJTNHhNVC9wZzFaSE1KQ2lOQklGMXNYUHhmWW9h?=
- =?utf-8?B?aWw1alMrWm5qV2RhRFBiSXlqNkgrUzFVUGRDWUFKcGtvUk5KaDl3TElZNUlX?=
- =?utf-8?B?M2lzamRRaUhrNEF0c1F2RHo4cXQ0YXVBVERZVkx3T2dIREFLQytZUC9vMjlq?=
- =?utf-8?B?QzR4TklETDN0OHdKQ2Mwd21GdkxhcWlJbG5XUFBUTEtxc2JIeUg2Wlp1Q1l0?=
- =?utf-8?B?bXoyay9QNUFiMlpqeFJKazU1TU5zcUY4ZkVDbTZUTnFiV1VBTng0WFFNWTFa?=
- =?utf-8?B?TDhGd1JjS0c4SmpHcWUwZnY3aWdjWTI5UkVHSWVtSWYwVnpuSDNxSmNzaDd6?=
- =?utf-8?B?QnFCdDZnSzZkUm1IcW9zWXYrVjFhYmtIYzZDL2l6VGswZTJyZ0pTL00vVTRL?=
- =?utf-8?B?Q0d3cVFHMVd0U1AyZGNYbHFpd0Z3RllIZVNvK0p4d3FONGVkSzRES25rSW9R?=
- =?utf-8?B?cTlaNE9TQkFnVlB1NERlUjQzaWloWGVIcitUeGYvZkxHQlZrUzA3MzgxTkJZ?=
- =?utf-8?Q?AQOJkkoDHI1dO?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PH8PR11MB6682.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(7416014)(376014)(1800799024)(7053199007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?VG92NHc3YmpXOERoQU9kblIrWmxvWTVMNlFBRFJXVWFSMmFheFROTVA1TVV1?=
- =?utf-8?B?TmtabjNQZXFPZ0VtNHJzNVJLU2lGV0g4Z3Nab0dQS1VCSWx2K2xoREFpb2s5?=
- =?utf-8?B?TEx6dWsvYWx6WjVyWE9neEhQbCt0UkdncHhUbHJoR25hQkxVb21vMHd1TWhO?=
- =?utf-8?B?OWhJRnlqQXZNN09OdzJJV1JmZkJwa3k0MDh2QzdjbzJLY1NqQzhEOTRpYSsw?=
- =?utf-8?B?aU5GUVRBVUZ6c1lFUEdlLzFUb0xMVnpxMTFwOGR3NHg4RmFyOFhRU1BDMXB4?=
- =?utf-8?B?MGI4cnVobThKNDNWUDJVd05nSm1Ic3o0UzRtZllZdm9Va2RCa0JmaTNZMkxV?=
- =?utf-8?B?MTJCeEMyYUZ5RG5SNE1lMngwV05Yci9NOUFpR3NCZ2lnUlVyTDhUUWc3L1Fx?=
- =?utf-8?B?ZnBzNCtJNmd5WVp2d3dPNll6Rm9SSTROSjBqSms0VEY3ZmFUUFpvZEROS0k3?=
- =?utf-8?B?NlVCNzF1dTVha3BSZHd2bEdqdGsvaFpqSStienhQWDJsTEJiZXMzT2tmUXd4?=
- =?utf-8?B?NUkrVnp1R3VNU1Axa1VlTk9zUnZhbWFCOTIyaUhKL0I1aENnQnRvajhRZmx6?=
- =?utf-8?B?WlNoQXFXc2E0bDBKLzY3dTlFOStSSXFNRDZ3eW9WTVdIR21oWjFReWQxVjNs?=
- =?utf-8?B?YS80U3pMcTNvcU9hekw1MnRPaHdsb2hHWWRsVTMySU5YaHdYb0ZGL1Y2c3FE?=
- =?utf-8?B?MDhra2w5Z0VKZXhWTjhTcVc4bk1RS1ZCSFUxQzBMcTRFWndFaXE0UCsyQ2Zl?=
- =?utf-8?B?dGk3ck5XUU1Xc2JpSVdwV1c5YklINmw0Wm5xWkw0cnhZOGJuaml1clVTc3ZG?=
- =?utf-8?B?U1pZcnZGcUg3Z2NaTWxBS1NBTGJVU3Rzc0xDNGJQS2pqRW44cGRFelpZbWVm?=
- =?utf-8?B?YnBlYmxOUTBmK2ZHTGMzYktUSGlKT2w5M1pBQnF5UGFreVZ6aHJMR3NEc0Yx?=
- =?utf-8?B?dC9LRTFaVDRQVUhWWVdWdnlrYWFRRGxXKzUwb3lXblNvM2RtKzZ1ejBhWExI?=
- =?utf-8?B?TzZpY2VtNW00cm5ybExqTDFRN2s4RTFTM3pwSTQ3cjFDL1J6SHo3VU9pZHIx?=
- =?utf-8?B?SmNmcE10aGROeW1PZ1ZHZ3IyZm1SVnFrdUt2RDhESkpHRnRtK2UzZDJvU3hh?=
- =?utf-8?B?U3phb0xZWFJyZDM0MVBsc2QwWVMxRm9scHVSeEppRjdrTGtzRXRNTUlyWEhN?=
- =?utf-8?B?ZUdYYURnYWJWVXhZN21NUFJuWndwRVREeFlNc0o0QXFFQTVFc2tjaVlLUFBr?=
- =?utf-8?B?TlRsK3JqTlRDdEVyekpvOU9RL0l1dk1ZeHV2NlROL2N1cndLYmU3M2JPR3B2?=
- =?utf-8?B?bWlFc2NDRzhac3U3d0VHT1ltVkV2Mlg5cDhsbEpKM2MvZ1h5NE9qbGNXVkRv?=
- =?utf-8?B?c2lpbVlWZEdreEIvZjRxRDZ5RVZkei95aC91Q2k4Y2daTjBTZGQ0MlBuUlJ3?=
- =?utf-8?B?NHVjTGtoOStVMEMydEVtN2tZZUw4NGp4U2RVSGFscmNBWVY3QS9hZTdWOU0r?=
- =?utf-8?B?MzJpYXdmSmJ0NDcrUTY2SHJVUDZkN3hJSS9iRGNmaXczeHNwRnE3UXNPc2Ji?=
- =?utf-8?B?VUtUT0ppaU0wTzRob0FkSUdSbEJXeE1mSUJZYjZWWG5hODlnNkgvQ3Nybkhq?=
- =?utf-8?B?RVRIVjl1WnJyTTUra0pjMlFUeWEvQzcyRjRsa1NzWXdOMVpiN0xIbjZTM0pk?=
- =?utf-8?B?S3JnSHB5b3lxb0lYOUx3YlE0TVdYZ1VyM1crbTlZTzFhZGMvYitYRHJ3NDFW?=
- =?utf-8?B?MWFrWDFKWlhNNG1ENXBxSHY2bjZJRk9GRzFYTWV4cHlsWHdiZDJ3eGEzTnZp?=
- =?utf-8?B?YmZUeFpwa1BtVE1yNkZncWRtWlZ5dE4zTE92U3dNWVZ2OVlkVnlJcmZ6ZUE5?=
- =?utf-8?B?TnZCVmRhK1kxVEN6UGFpNWFKNEVjZURZVS9pejE4ZG9qNWw5UG41TFl4NDVh?=
- =?utf-8?B?Njlxb3dMeDBnNVl0SW1pK0FvYzN1VGhrSmEycm04VXFKeHFZOG90K2M1NFEw?=
- =?utf-8?B?V2hpeFJUTm9XMklzdTd0bGZXYkVWQ0ZTV0pjMUVUd0M3RmtDSjI3TUpJbGFk?=
- =?utf-8?B?YWV2ZDM3MkFTTVFuVE82MlpvYWI0V0JNMmRFcGp5M3kzd0NQVlQwbStJN0Nx?=
- =?utf-8?B?SGE1TDhtZE8vRkZHZ3FZcUl6TEcvNFpJZnpSb3U2YXdDVWNndzR3eUladytJ?=
- =?utf-8?B?ZFE9PQ==?=
-X-MS-Exchange-CrossTenant-Network-Message-Id: fa304af4-58cb-46c9-6357-08dd500ddf16
-X-MS-Exchange-CrossTenant-AuthSource: PH8PR11MB6682.namprd11.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Feb 2025 11:17:46.6788
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 46c98d88-e344-4ed4-8496-4ed7712e255d
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: gq6xwKwpvDrWuZlfYLRldVaZhn70LXzfcq71jpeJ6xLorAQ9gRuQshcRwwr8CXF8RFhk12r1R0kkH3k6ypca/tbwZ6cHHMdQMUog8CBNg3o=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA3PR11MB8075
-X-OriginatorOrg: intel.com
+Content-Disposition: inline
+In-Reply-To: <Z7Rjjo5nZ0gnCbzq@shell.armlinux.org.uk>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250218_031832_378555_EECF1F20 
-X-CRM114-Status: GOOD (  17.23  )
+X-CRM114-CacheID: sfid-20250218_033503_871724_1B27819F 
+X-CRM114-Status: GOOD (  46.05  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -223,75 +116,117 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
-
-On 2/18/2025 11:24 AM, Russell King (Oracle) wrote:
-> priv->pause corresponds with "pause_time" in the 802.3 specification,
-> and is also called "pause_time" in the various MAC backends. For
-> consistency, use the same name in the core stmmac code.
+On Tue, Feb 18, 2025 at 10:40:14AM +0000, Russell King (Oracle) wrote:
+> On Tue, Feb 18, 2025 at 09:01:59AM +0800, Inochi Amaoto wrote:
+> > On Mon, Feb 17, 2025 at 11:21:28PM +0000, Russell King (Oracle) wrote:
+> > > On Tue, Feb 18, 2025 at 06:50:24AM +0800, Inochi Amaoto wrote:
+> > > > On Mon, Feb 17, 2025 at 02:10:50PM +0000, Russell King (Oracle) wrote:
+> > > > > On Mon, Feb 17, 2025 at 02:25:33PM +0100, Andrew Lunn wrote:
+> > > > > > > I am not sure all whether devices has this clock, but it appears in
+> > > > > > > the databook. So I think it is possible to move this in the core so
+> > > > > > > any platform with these clock can reuse it.
+> > > > > > 
+> > > > > > Great
+> > > > > > 
+> > > > > > The next problem will be, has everybody called it the same thing in
+> > > > > > DT. Since there has been a lot of cut/paste, maybe they have, by
+> > > > > > accident.
+> > > > > 
+> > > > > Tegra186: "tx"
+> > > > > imx: "tx"
+> > > > > intel: "tx_clk"
+> > > > > rk: "clk_mac_speed"
+> > > > > s32: "tx"
+> > > > > starfive: "tx"
+> > > > > sti: "sti-ethclk"
+> > > > > 
+> > > > 
+> > > > The dwc-qos-eth also use clock name "tx", but set the clock with
+> > > > extra calibration logic.
+> > > 
+> > > Yep, that's what I meant by "Tegra186" above.
+> > > 
+> > > > > so 50% have settled on "tx" and the rest are doing their own thing, and
+> > > > > that horse has already bolted.
+> > > > > 
+> > > > 
+> > > > The "rx" clock in s32 also uses the same logic. I think the core also
+> > > > needs to take it, as this rx clock is also mentioned in the databook.
+> > > 
+> > > The "rx" clock on s32 seems to only be set to 125MHz, and the driver
+> > > seems to be limited to RGMII.
+> > > 
+> > > This seems weird as the receive clock is supposed to be supplied by the
+> > > PHY, and is recovered from the media (and thus will be 2.5, 25 or
+> > > 125MHz as determined by the PHY.) So, I'm not sure that the s32 "rx"
+> > > clock is really the clk_rx_i clock supplied to the DWMAC core.
+> > > 
+> > > Certainly on stm32mp151, it states that ETH_RX_CLK in RGMII mode will
+> > > be 2.5, 25 or 125MHz provided by the PHY, and the clock tree indicates
+> > > that ETH_RX_CLK in RGMII mode will be routed directly to the clk_rx_i
+> > > input on the DWMAC(4) core.
+> > > 
+> > 
+> > RGMII is not the problem. The databook says the RGMII clock (rx/tx)
+> > follows this set rate logic. 
 > 
-> Clarify the units of the "pause" module parameter which sets up this
-> struct member to indicate that it's in units of the pause_quanta
-> defined by 802.3, which is 512 bit times.
+> Sorry, I find this ambiguous. "This" doesn't tell me whether you are
+> referring to either what s32 does (setting the "rx" clock to 125MHz
+> only) or what RGMII spec says about RX_CLK (which is that it comes from
+> the PHY and is 2.5/25/125MHz) which stm32mp151 agrees with and feeds
+> the PHY's RX_CLK to the clk_rx_i inputs on the DWMAC in RGMII, GMII
+> and MII modes.
 > 
-> Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
-> ---
->   drivers/net/ethernet/stmicro/stmmac/stmmac.h      | 2 +-
->   drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 6 +++---
->   2 files changed, 4 insertions(+), 4 deletions(-)
+
+What I said follows the second, the clock is set at 2.5/25/125MHz
+with speed at 10/100/1000Mbps. The only thing I can refer to is the
+ip databook.
+
+> clk_rx_i comes through a bunch of muxes on stm32mp151. When the clock
+> tree is configured for RMII mode, the rate on clk_rx_i depends on the
+> MAC speed (10/100Mbps).
 > 
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac.h b/drivers/net/ethernet/stmicro/stmmac/stmmac.h
-> index f05cae103d83..c602ace572b2 100644
-> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac.h
-> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac.h
-> @@ -283,7 +283,7 @@ struct stmmac_priv {
->   
->   	int speed;
->   	unsigned int flow_ctrl;
-> -	unsigned int pause;
-> +	unsigned int pause_time;
->   	struct mii_bus *mii;
->   
->   	struct phylink_config phylink_config;
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> index fd8ca1524e43..c3a13bd8c9b3 100644
-> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> @@ -94,7 +94,7 @@ MODULE_PARM_DESC(flow_ctrl, "Flow control ability [on/off]");
->   
->   static int pause = PAUSE_TIME;
->   module_param(pause, int, 0644);
-> -MODULE_PARM_DESC(pause, "Flow Control Pause Time");
-> +MODULE_PARM_DESC(pause, "Flow Control Pause Time (units of 512 bit times)");
->   
->   #define TC_DEFAULT 64
->   static int tc = TC_DEFAULT;
-> @@ -865,7 +865,7 @@ static void stmmac_mac_flow_ctrl(struct stmmac_priv *priv, u32 duplex)
->   	u32 tx_cnt = priv->plat->tx_queues_to_use;
->   
->   	stmmac_flow_ctrl(priv, priv->hw, duplex, priv->flow_ctrl,
-> -			priv->pause, tx_cnt);
-> +			 priv->pause_time, tx_cnt);
->   }
->   
->   static unsigned long stmmac_mac_get_caps(struct phylink_config *config,
-> @@ -7404,7 +7404,7 @@ int stmmac_dvr_probe(struct device *device,
->   		return -ENOMEM;
->   
->   	stmmac_set_ethtool_ops(ndev);
-> -	priv->pause = pause;
-> +	priv->pause_time = pause;
->   	priv->plat = plat_dat;
->   	priv->ioaddr = res->addr;
->   	priv->dev->base_addr = (unsigned long)res->addr;
 
-Reviewed-by: Mateusz Polchlopek <mateusz.polchlopek@intel.com>
+OK, I have no problem and find some descriptions related to this in
+the databook.
 
+> This suggests as far as the core is concerned, the clock supplied as
+> clk_rx_i isn't a fixed rate clock but depends on the speed just like
+> the transmit clock.
+> 
+
+This is what I want to say. clk_rx_i is not fixed but the
+s32 uses it as a fixed one (This is the thing I felt weird).
+
+In fact, Non-fixed clk_rx_i is why I suggested adding the rx
+clock to the core at first. Since the drive may not use rx
+clock as the databook says, it is good to leave it alone.
+
+At last, it seems like that I need to improve my statement.
+I am sorry for it.
+
+> > For other things, I agree with you. A fixed "rx" clock does reach the
+> > limit of what I know. And the databook told nothing about it. As we
+> > can not determine the rx clock of s32 and it may be set for the phy,
+> > it will be better to not move it into the core.
+> 
+> I'm intending to leave s32's rx clock alone for this reason as it does
+> not match what I expect. Maybe on s32 there is a bunch of dividers
+> which are selected by the mac_speed_o signals from the core to divide
+> the 125MHz clock down to 25 or 2.5MHz for 100 and 10Mbps respectively.
+> As I don't know, it's safer that I leave it alone as that means the
+> "rx" clock used there is not clk_rx_i.
+> 
+
+Thanks for your explanation. This is OK for me.
+
+Regards,
+Inochi
 
 _______________________________________________
 linux-riscv mailing list
