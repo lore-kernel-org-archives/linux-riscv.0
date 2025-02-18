@@ -4,170 +4,130 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6DF90C021AA
-	for <linux-riscv@archiver.kernel.org>; Tue, 18 Feb 2025 20:56:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5A130C021AA
+	for <linux-riscv@archiver.kernel.org>; Tue, 18 Feb 2025 21:26:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
+	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=53n57KwJyhuPo2+ZXygkojhGnOsHgNMGFFHgIZoRjoU=; b=2OUT1YkObOl2t3
-	pDlx8SIiACrnsKEb10VWjhSBTn2MlR2zvsozyOkvjTRvOlW7ZRKoMdKJKmo3cmVO1kGNvnIJsSmS5
-	XIOZo9wguwWeuuNtX9Q1D41Yen444Ign8A95h5pbvlpwOL1JgwySr95ekKm5qU+XewMwN4qX5Af9d
-	STuKkPDhjp0Ss667Ba3K6wPPDjWIJFqRe99MdN822Fz8u/VfnN4Qr2f/kLlKWh94KGd2DiVkdJtPs
-	W6frePxSM4haWEKiOsO5QooUS4XyFCPfSdZM9Jg2qXbS+i1N5FI6G8U/BdJhhDGGiziag4xb2YM6+
-	/UQkrDOrpzio2gpGXQaw==;
+	List-Owner; bh=b4pi/oap4l4lWrPDGF4dVZ4wc9akD4Xjor85/uHbCDc=; b=4QQz3sSVx7bdDB
+	s8wd1oUoKbqFJ8llHhfgBhEOfshi0BGArZsbL+0vW3cmaqrXfKRUv1GEta1kzYlyRzSH+mlbPD50q
+	C1PX8xPkcGF0p0q2LPcpeZtZClIv6jX8ebKO6abk7UiJt+nmjvKwjSZNLOu9kyMbrcZNk+b7ZXlm/
+	loA3tSbK5vyV5abtCa69kpCYWw1L5kPw+CxobYZ10i/mm6DjkBI8dlMKc2/lC1xSzRTpR5GMqMLgq
+	AlqMK5F2mpcICIXTfaver9j+i+35UE9ecSeNHVLa59OHelKKj2up7HK7hdFy9ucQngFz9OwVRvfqp
+	60EmsJuZqQNK2jxuZv+g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkUdw-00000009t4P-0etM;
-	Tue, 18 Feb 2025 20:56:36 +0000
-Received: from mail-bn7nam10on20617.outbound.protection.outlook.com ([2a01:111:f403:2009::617] helo=NAM10-BN7-obe.outbound.protection.outlook.com)
+	id 1tkV6V-00000009ywk-0A8K;
+	Tue, 18 Feb 2025 21:26:07 +0000
+Received: from mail-ed1-x52e.google.com ([2a00:1450:4864:20::52e])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkU6M-00000009jth-300e;
-	Tue, 18 Feb 2025 20:21:55 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=mFsDqQ1rPbf7ipypzriMSOlYGFJDjH/bIkSn3VvTGxb4nByGb8XozcA5Lpwd3KQ8LhkUc725+LGpsJA3LJlUVc6PDioDr/pKFhHeeuGpEWMLtUrx2uTeWm4XqpXYcEYE8s4AHJkFmlqB1FWv+9P4s9nruXw7a9k2/ZM7/6tJbEMWGuKXA0n9u/63YnExtjGwmfBVmZP9lUKfpD6Ul+lRonW7tCO+kRLrJuWBMOWQbaEkqI22Qzkcl55haLP+q6PVM14P/6Ossn31Um1bR6qDVFKAhdGz7wfRllvTed4/I40i07A7m9wTWwgzTh2tcx8RIUG+TjdRnX5j95oky84wMg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=gwI2fTzhiuEPlxGmgCGkTCmcIw0EekFMHq25GTchQtw=;
- b=OlU3lLy4t/IvJl1Jd/smYtBTj+bPf2uMP+ZC+1k1GailNduZfdSZ6eLkYFI4lHCW89Sjv0YBt1AeiGS5OtpIUEllsVjN9G3u3qM/DgmljxlyLvkjXzZT7E3gOZ/T/I+3xDSoVG7JG+Pqyx9Rq5M3XHX6NAp2/fDFzErbHb5gVlpCEgHZMMJJueeMQWy7g7Stc9kGb0IWQUl/JpDqK1tG73JTVltZhw6D+fy6Ugdb6MOoLIjLCl1YwA8uQ/rXW53W03MWpm8tz8al/PfdZ9I+GXq+Ur87f6CohZdcNgZbcaHhAMFJzdw8nRbkK6U8JectFwDNifiTwIrKL5t2Y5sKuQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=gwI2fTzhiuEPlxGmgCGkTCmcIw0EekFMHq25GTchQtw=;
- b=a6VU9ey4EfbKvRgAlCqTDewHeIZrpHcWw/K6Yebg9qDzocv0P7Sw41AeYXbKy2GnY8Zife/yWU8bKxivhyaWC29NHiw1gQN2FEjsqYo5qJbvMgHPuYD7kinORdXKUPHEIthAYnjh1JMiYhTzDW6AGpjEIPzer1DtgXgLvWjmCvS+zuI8jq42MDvqd7C2faDFh0VRr1MHmsrBe+IioAAL2P66Ozbxdkt+G+zSij5w8PnPSJF9ulrOJihgEGUAvjpTJ1R4KyxcnXMXhiKDRKFJTffntCwHi6D5r1xqIIeQT8foEN5wcWrAjOa4Y9f4nZl5yvfjNe5u3LlDMH5bH9oZWQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from CH3PR12MB8659.namprd12.prod.outlook.com (2603:10b6:610:17c::13)
- by CH3PR12MB8330.namprd12.prod.outlook.com (2603:10b6:610:12c::22) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8445.19; Tue, 18 Feb
- 2025 20:21:39 +0000
-Received: from CH3PR12MB8659.namprd12.prod.outlook.com
- ([fe80::6eb6:7d37:7b4b:1732]) by CH3PR12MB8659.namprd12.prod.outlook.com
- ([fe80::6eb6:7d37:7b4b:1732%4]) with mapi id 15.20.8445.019; Tue, 18 Feb 2025
- 20:21:39 +0000
-Date: Tue, 18 Feb 2025 16:21:37 -0400
-From: Jason Gunthorpe <jgg@nvidia.com>
-To: Baolu Lu <baolu.lu@linux.intel.com>
-Cc: Alim Akhtar <alim.akhtar@samsung.com>,
-	Alyssa Rosenzweig <alyssa@rosenzweig.io>,
-	Albert Ou <aou@eecs.berkeley.edu>, asahi@lists.linux.dev,
-	David Woodhouse <dwmw2@infradead.org>,
-	Heiko Stuebner <heiko@sntech.de>, iommu@lists.linux.dev,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Jonathan Hunter <jonathanh@nvidia.com>,
-	Joerg Roedel <joro@8bytes.org>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-riscv@lists.infradead.org, linux-rockchip@lists.infradead.org,
-	linux-samsung-soc@vger.kernel.org, linux-sunxi@lists.linux.dev,
-	linux-tegra@vger.kernel.org,
-	Marek Szyprowski <m.szyprowski@samsung.com>,
-	Hector Martin <marcan@marcan.st>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Robin Murphy <robin.murphy@arm.com>,
-	Samuel Holland <samuel@sholland.org>,
-	Suravee Suthikulpanit <suravee.suthikulpanit@amd.com>,
-	Sven Peter <sven@svenpeter.dev>,
-	Thierry Reding <thierry.reding@gmail.com>,
-	Tomasz Jeznach <tjeznach@rivosinc.com>,
-	Krishna Reddy <vdumpa@nvidia.com>, Chen-Yu Tsai <wens@csie.org>,
-	Will Deacon <will@kernel.org>, Bagas Sanjaya <bagasdotme@gmail.com>,
-	Joerg Roedel <jroedel@suse.de>,
-	Pasha Tatashin <pasha.tatashin@soleen.com>, patches@lists.linux.dev,
-	David Rientjes <rientjes@google.com>,
-	Matthew Wilcox <willy@infradead.org>
-Subject: Re: [PATCH v2 23/23] iommu/pages: Remove iommu_alloc_pages_node()
-Message-ID: <20250218202137.GK4183890@nvidia.com>
-References: <23-v2-545d29711869+a76b5-iommu_pages_jgg@nvidia.com>
- <d66e555b-8054-4f73-8077-201b51139773@linux.intel.com>
-Content-Disposition: inline
-In-Reply-To: <d66e555b-8054-4f73-8077-201b51139773@linux.intel.com>
-X-ClientProxiedBy: MN2PR02CA0013.namprd02.prod.outlook.com
- (2603:10b6:208:fc::26) To CH3PR12MB8659.namprd12.prod.outlook.com
- (2603:10b6:610:17c::13)
+	id 1tkTJ3-00000009aGc-2Qj1
+	for linux-riscv@lists.infradead.org;
+	Tue, 18 Feb 2025 19:30:59 +0000
+Received: by mail-ed1-x52e.google.com with SMTP id 4fb4d7f45d1cf-5e0505275b7so4780281a12.3
+        for <linux-riscv@lists.infradead.org>; Tue, 18 Feb 2025 11:30:57 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1739907056; x=1740511856; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=E174y95QWB8sLP4kKdqQSVofl2EIrt9GShIhCjB+Tv8=;
+        b=pLtjJ7loSzv0eAgM+ZsYCE2uQ6Atyda57pikXujev2PVauPBfhWCQkCn0PQEx9zYYE
+         5Pw1Il1FmkKrW+cGrOMIQlrrZu4M5pMmozTRHA7usTS/LBRMqT/X4gWPedjUYK4f6AU5
+         4PlYmEZaBlwy+Wr2KYPK4bhMftfq3jvidBWF/jM0xiP5WPrnPExiEPLl01nwzNzn/NSi
+         we9wyuvIIz8K5rgM4WjRxUm+151MF9km+QciHgVgjLva/FY/QCo0t7G1v/QAicU33K8N
+         bTAC3Wz3CNIHAtnzdRPGvc+7CtVpt2IxdW4j5+69gqyZa7WZPuQKqc7abvMbF8lDREve
+         ILKw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1739907056; x=1740511856;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=E174y95QWB8sLP4kKdqQSVofl2EIrt9GShIhCjB+Tv8=;
+        b=L4MxmxD83Sx81slo++e1CPhBgQqR05UAUB77vwdLNuGdUOIADG9fnLVhtMp7YMlv/E
+         //RPkTnMlwsT8end0F3isWiRRPCeQ6rdzvEBVie2mFNNyxXt5LfgXruejKoJ8B4C0Vz8
+         N81Geos4QbGuLsluaiQJ0goYAZrpx5+OJezZ3uiqcHMoTgybUPDr1aBldVpHzI/cGz3m
+         STktBo0TM5I8/UWRdBIx6yQ7uQZ+aifWjfOUj20yW/S6iwroa0CtuyL2JSlqPT25eY2E
+         045sXlueaVy3jLnADBUVzEzcE/MYoiDtMJ8vS0hw9OtGlPs45oqU1NF5IhPDJbIeHEQ0
+         uwVg==
+X-Forwarded-Encrypted: i=1; AJvYcCX2PVMpsZXWib/MhXDbYmTIYs0KQaz+XUBiF4XdKeedPZRyGDGmcFI3iaKlC+asZjW4dg97+PCeVKtKlw==@lists.infradead.org
+X-Gm-Message-State: AOJu0YxSD4Dkpd20Vr1zORzCy1SlX72AwVq2lXXNHIk+YdmOT065+sYD
+	2fgS/eVsDpyfYVB9q/VTdOfKN5C2bHNIHwSGgwkF8mkeLK8fzplYO35vBUDzY5g=
+X-Gm-Gg: ASbGncvDs10jPs8mQYIzyEY3QYJ9kw+VRHtzUdehK+b8foPs69tD+uH9Bb8YvE/js+S
+	mtLPG6xR/7ooyjy+lzwxwsUeRECg89r9irnKqR+PIL/Au3bzCuiYL6gLTI32xCHzh9Gi5llANAC
+	72ukw2ZKsA/weEyBElFO6mB9eZK4F1p470V4xHnvvwVyXkG+w51VuAWXj82LV/i7/fRzoNaCoeK
+	wxEkxdQq/FzMHEfJO0jVizP3UmM36NQj/TsEVFWFsUXMaHLfAzdR6wXk0t5V+M5xthqVX3GyPLN
+	dJTvKXTskMMp/ZEZH0KlBZHOsk0P
+X-Google-Smtp-Source: AGHT+IH6dYXNSP6vLBRqe/ecMthhMu5dDSxKiguicPwszoCj13HXx3I+/2icxv2B1ExrsNYAjEdIdw==
+X-Received: by 2002:a05:6402:2354:b0:5e0:4c04:4186 with SMTP id 4fb4d7f45d1cf-5e089d2fb1dmr614186a12.24.1739907056050;
+        Tue, 18 Feb 2025 11:30:56 -0800 (PST)
+Received: from toaster.baylibre.com ([2a01:e0a:3c5:5fb1:cbaf:af0:839d:fb4a])
+        by smtp.googlemail.com with ESMTPSA id 4fb4d7f45d1cf-5dece1c3ce5sm9338985a12.17.2025.02.18.11.30.52
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 18 Feb 2025 11:30:54 -0800 (PST)
+From: Jerome Brunet <jbrunet@baylibre.com>
+Date: Tue, 18 Feb 2025 20:29:53 +0100
+Subject: [PATCH v4 8/8] clk: amlogic: axg-audio: use the auxiliary reset
+ driver - take 2
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CH3PR12MB8659:EE_|CH3PR12MB8330:EE_
-X-MS-Office365-Filtering-Correlation-Id: a45c8cdb-d7ba-47fa-e94e-08dd5059d96d
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|366016|7416014|1800799024;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?dpt+4OLMxGGYLmwVB3KFc6PGP1WFUXAuKi3Zt0/N+QK5Pp6ouJwJSuYrohYW?=
- =?us-ascii?Q?0bv0bYE7w5PjrhDgYvJ+UAmwF5zI+idT3v92gPlqU/XFq0Ndk55XOA4tMlF2?=
- =?us-ascii?Q?bbDHVjQzHm+N1ITvtlfrdjiqkE3Qn+Nr0lC7zhfseyqrpsjIE0KozoIc6Dyx?=
- =?us-ascii?Q?54FFKPnH7YbNZKaEFkf/GtVfuyD76asXuG2mD6U4YgeOb4g8gL7byrtteBE7?=
- =?us-ascii?Q?VvGmZgikDmO3k0n2jGveOSYHbJ198jcQc9pcdhtBGpisJc4k4n3LL3k1V6rE?=
- =?us-ascii?Q?4sbXKwzPbD9REyEz1jPEqBtCnRVWumaYptm7gHu4q8x6Yjzx4K88pUJkYZXy?=
- =?us-ascii?Q?QJm5wHpFtw/Xx0/LLmZM3yGs81PdZfACKusLbi51JNBrHmYpBbpyo/6KLtq4?=
- =?us-ascii?Q?2cCjtUj6HH+cRDls9RZVD5HjoR6dMKLzdXDHXu+wMyNSGtIGjhd+iNJAp3dt?=
- =?us-ascii?Q?dy2DGe54AkfwdIxPVf9m3Bce7gQESr/A5rFIBULjGCylomA4EMHlj6OwrQuk?=
- =?us-ascii?Q?IonbRM7if876zizLZ0os+E2rjHy/25bDoK2ylg0no9eKyz2vsp1FoLyCvnf7?=
- =?us-ascii?Q?91neonrkgYXWDlUXbYyaZZHGZ+HipsITuB5lfW/A7fRpu6gKEhzRFeMVYIP6?=
- =?us-ascii?Q?WS/OOWX0pFzKXVVJsgKJzY+tVbWckuWCQTNa9XCnmpb88qk5LMVH4+GJzovi?=
- =?us-ascii?Q?rwSIlxDJ4dYkBXuG+6L3KqJ9ilGA2gWvvP1FyMvkQo3F5mPKE6+LDoMcDR7m?=
- =?us-ascii?Q?M0Elw+W+qyPk/bpfCXsly4Toux9nm12LI7kUGlAnVJKu3hdO5xBfGnDFxh4S?=
- =?us-ascii?Q?Y7BY6PYvWlpfGHVpZ4a04QL2l3zNulhmWDwQ+EX9PqQZH9sHwenbZMgbDIWR?=
- =?us-ascii?Q?JZayRgQCuLzBbfXXk29R0xpB+T7RnqKPyBnwWNDvZa9n1N+BuMDT54CU9BMh?=
- =?us-ascii?Q?+z2Ca6JdQBhvzhPkOPRMs4O/hoOTpLVeXl6gf/Fm1ckKEgOumpn/YucM2rWE?=
- =?us-ascii?Q?HmrD8J6W0zJ6+v7z92bFJmKB5A2DnaCHLLOJYOaP876TfvcVtcdmUxHol7YY?=
- =?us-ascii?Q?FvHfRqoUvOKCCD2nxrHg0f0hBzt87QmDhN06qmw9bvD4Jv2YdnhEZ3J06Nc0?=
- =?us-ascii?Q?u5tyfJchcFX8DU47HyodGyTCx5f1lTdtBTZvOI9X9z8diyxBzN2jC0IQzSEh?=
- =?us-ascii?Q?ohlxwr1nl/E0vcIFMxGJ90TEtlhtkj0tHNmuCsDMr+ahaGP+KU9+Jo6jF1C4?=
- =?us-ascii?Q?ynozS39lysL9pBbpAdgmO8MVlicXpAvlw32TOWwPWJc/kRSLokQ23Q4lMa+d?=
- =?us-ascii?Q?Bl/B6CB7SNrjQ86F7IPXBL/T3nSk8WcQ2QzufiRsud1G3F8FCGCD7STIonCA?=
- =?us-ascii?Q?z5sQFqcNIhFBe3+iiA2mWW0Pdwuw?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH3PR12MB8659.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(366016)(7416014)(1800799024);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?nMfm9CcDTQ3v1Vok+88N3xmm6HwzmVMI7VUlBA4dOHYmJkCt8ZH9zcEpZNf3?=
- =?us-ascii?Q?IJvBzSAXEfaFyDAIgv/HrQG7ryWIx4IB3M0KKp3UltxfaPycaO373Q96cVd/?=
- =?us-ascii?Q?bDKGcAH941IBjfJS/LTrrmUmLxNxzMHNbxuij2rsur3NHCIuoeygmfzn90ul?=
- =?us-ascii?Q?lAT2Cp4EA0IZ7/XjGyEYRKrb5+uiE+RMZVzewKLfKncuufUcZAFqg/3zOYLB?=
- =?us-ascii?Q?JrRtJvcqLEvG+/VrQucY/oA2W9LC9/qvBerB1CwFyOmtSmaQ5AEDqWuVqcK8?=
- =?us-ascii?Q?Wx0cxcCzR5ZkUqp2oL7DH5geAg194HfPhYTTPke8LSzcyZS2ub2w2q+T1U6v?=
- =?us-ascii?Q?sebf+C68quenlsuI+G+sGdO57yfVhU++g3wZSyIDF3Yh1Cvn5TAT+TLkFQwv?=
- =?us-ascii?Q?NCDdErinqQzMtsA0vJV5PuA+hpyxNJ+M2h7MeZVp489UPKC1W5bzAmwRDpZp?=
- =?us-ascii?Q?aZsn6UmFTVHvIqgQTlUTmkIErLkXOHyPoIM2puhnH4KB3LAVRtS0KcOg2VXW?=
- =?us-ascii?Q?q7qAPKqjOiExJUFSv3EwOV/ZS1ANIkpPj3Lp8nulVhuIv7mcVbVIzmvXzuFL?=
- =?us-ascii?Q?vL/dhF33nGxzW3r5En4M8+O8ANEEyBCstzXfDylAjLy456SR3nC/BU3T0UGJ?=
- =?us-ascii?Q?wzIphJzbkOYj+dNKhQ7qbwyM1LyHncAHz7weGNLsCI2bcpN0oEPfLQsQ2E/c?=
- =?us-ascii?Q?hifDYdZ6YjMZHE4VK1JQxyGmerEtFR2UFWppkbUtrnvln9LRTnN0m0Sa1Xmq?=
- =?us-ascii?Q?vC8LOgxLTFaFrZte0UXX8/dslCYVIOo41Jmft69bHqcwFFK14FisYq1rA630?=
- =?us-ascii?Q?lHnZunkartzM5jQoRz22dJ+x0Pg6YU6x9KzKbp7GMLEi2iHSjoETB0TZTxRJ?=
- =?us-ascii?Q?UzhrCpS4CO8A5Jo45R0kt6QbncH48H3/9fPmcGo2fGJEmmPVv9KdvriUewWo?=
- =?us-ascii?Q?18IANkN/9ZusIzWPJwwb4o+rnvXjHKxK5XxxCgB6DLxQdZEkILfJJFS7lndp?=
- =?us-ascii?Q?ByLJhWlTJ9M+VIyKJ7kmgsL0k9/VEJpU6UC2QLHxcIUpdFaDsxWCHxtKEYik?=
- =?us-ascii?Q?9+myc9StATljYT6wrGM1gst8dvstoF6bOCIRAflJTvzhfg6xlysy/Q8ecMBe?=
- =?us-ascii?Q?fmOZMJkpCJR1y5WTnX18BvhgpTyIjVCNVr/aiFFElmzSl8ym6MAbKng/Q3v4?=
- =?us-ascii?Q?C+ertAXa9Yo0ZuZOAJJB4lhTYh+aNUGNp6hYIbhUx9vxfq2Ma5lxJxgP/rM9?=
- =?us-ascii?Q?V9mZqSwh/M4hUeE2TFxGUApgkyAspNoB5OyOMUhJDIeHGKYdj/mnueQe4V0F?=
- =?us-ascii?Q?vS5d2ftdV7CKoVu327LzyEH3IYDPqU3MpCEwsizbsoh9rYJP/PofvPWZfE0M?=
- =?us-ascii?Q?Z8iQ+EYSDuqxem3K+B28v8FlcKjoJ2EVhRNExK93nOTH9IE7Dx6lf61q7Hwa?=
- =?us-ascii?Q?P49P7OTuzBtpooXZA0WN44s3MfOP/m4fy/nxy3hqC7d1BpE8Go1dLLyPQIAM?=
- =?us-ascii?Q?V7FggbVgmwUf1amdyS0UMn3b8s6pkLJp7gy7SJy4tkOjh/DN0HkpPdW+KfZW?=
- =?us-ascii?Q?oZIDT57y42gmn8S0QQpvixtHOPTI7JZKVjHUnw5m?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: a45c8cdb-d7ba-47fa-e94e-08dd5059d96d
-X-MS-Exchange-CrossTenant-AuthSource: CH3PR12MB8659.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Feb 2025 20:21:38.9165
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: egLtCSmFfs5GlFFfWIuz9++48EAP70XEeBS8xS5FLG+4qZ68f/y6OaR21r79L8mx
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH3PR12MB8330
+Message-Id: <20250218-aux-device-create-helper-v4-8-c3d7dfdea2e6@baylibre.com>
+References: <20250218-aux-device-create-helper-v4-0-c3d7dfdea2e6@baylibre.com>
+In-Reply-To: <20250218-aux-device-create-helper-v4-0-c3d7dfdea2e6@baylibre.com>
+To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+ Dave Ertman <david.m.ertman@intel.com>, Ira Weiny <ira.weiny@intel.com>, 
+ "Rafael J. Wysocki" <rafael@kernel.org>, Stephen Boyd <sboyd@kernel.org>, 
+ Arnd Bergmann <arnd@arndb.de>, Danilo Krummrich <dakr@kernel.org>, 
+ Conor Dooley <conor.dooley@microchip.com>, 
+ Daire McNamara <daire.mcnamara@microchip.com>, 
+ Philipp Zabel <p.zabel@pengutronix.de>, 
+ Douglas Anderson <dianders@chromium.org>, 
+ Andrzej Hajda <andrzej.hajda@intel.com>, 
+ Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
+ Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
+ Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+ Hans de Goede <hdegoede@redhat.com>, 
+ =?utf-8?q?Ilpo_J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>, 
+ Bryan O'Donoghue <bryan.odonoghue@linaro.org>, 
+ Vladimir Kondratiev <vladimir.kondratiev@mobileye.com>, 
+ Gregory CLEMENT <gregory.clement@bootlin.com>, 
+ =?utf-8?q?Th=C3=A9o_Lebrun?= <theo.lebrun@bootlin.com>, 
+ Michael Turquette <mturquette@baylibre.com>, 
+ Abel Vesa <abelvesa@kernel.org>, Peng Fan <peng.fan@nxp.com>, 
+ Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>, Kevin Hilman <khilman@baylibre.com>, 
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>
+Cc: linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
+ dri-devel@lists.freedesktop.org, platform-driver-x86@vger.kernel.org, 
+ linux-mips@vger.kernel.org, linux-clk@vger.kernel.org, imx@lists.linux.dev, 
+ linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org, 
+ Jerome Brunet <jbrunet@baylibre.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=5906; i=jbrunet@baylibre.com;
+ h=from:subject:message-id; bh=QQ/ztLzccoD2euaC9XiJx7WBiQoWT8xupZIvkEt0604=;
+ b=owEBbQKS/ZANAwAKAeb8Dxw38tqFAcsmYgBntN/VtNnyVBp1TZn2uakB3wDmrM70EYdAQGZ+h
+ wV2jlYYVniJAjMEAAEKAB0WIQT04VmuGPP1bV8btxvm/A8cN/LahQUCZ7Tf1QAKCRDm/A8cN/La
+ hQBjD/0RTaMxkXwenpFzTWRtbkfYP170epu7rqTng51UkW5dx0c746c0Qrzw65ygwvKsO9bol97
+ b/pX1khkHz4ELctHC0/gUmfugRQcCjQABsrNxkCDZbVBWRI7TKwaVoFcjcogbLRmvhkjiXSfa1S
+ 76FtH1DuaN7gQrQdnBBv1x7FKtahKBLyNkCamDmUN9/H+D4B5VUNpcymmgVRLIBszSinmGqPTL3
+ MFDp0iDIpcxyoimExExtn7UXtiiqjTpiVC3WAuZQXY27zbMEjJJxtF7SWARmqxnkHPm4H6w4tje
+ yctm1scmNxdLcnIBZBttjcu1TSntqESMEE4DFI03peNUvXuIL/XIFKO9EyRcTaq7T5JooFZ+uYF
+ LjdTh5p1c+BdBEMRNBzCgChSerJ/F58X3dhAkb7BXDZfPr8Y2bCPMd1mwrJAwZRHh5EgJA5zdFo
+ rSJu5S0ppYvzv4qYrPuiIwYXLpBN9djNeVshuwVJwGsoAJqs06vCyDgSjU/Wht/lVTA6m64V/xZ
+ oA6dK3fHpBl5KIXSw65n854LYYRdWFln2yKyuGoYuso0i2Ib91Z91bnr/bzsBtM6h7s6w+3u2D3
+ qcBQmOQ4aRSkyjclGXHc52MWgItdbJJ6s4Skitguub8FI3JxLo5cemUnME0vG2oMshqf0hDvQex
+ S37+rb/FVdA14/A==
+X-Developer-Key: i=jbrunet@baylibre.com; a=openpgp;
+ fpr=F29F26CF27BAE1A9719AE6BDC3C92AAF3E60AED9
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250218_122154_747723_9990FC6A 
-X-CRM114-Status: UNSURE (   9.51  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250218_113057_662862_31588FD4 
+X-CRM114-Status: GOOD (  21.29  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -184,21 +144,208 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sat, Feb 15, 2025 at 05:47:51PM +0800, Baolu Lu wrote:
-> > --- a/drivers/iommu/intel/irq_remapping.c
-> > +++ b/drivers/iommu/intel/irq_remapping.c
-> > @@ -538,11 +538,10 @@ static int intel_setup_irq_remapping(struct intel_iommu *iommu)
-> >   	if (!ir_table)
-> >   		return -ENOMEM;
-> > -	ir_table_base = iommu_alloc_pages_node(iommu->node, GFP_KERNEL,
-> > -					       INTR_REMAP_PAGE_ORDER);
-> > +	ir_table_base =
-> 
-> ... here?
+Remove the implementation of the reset driver in axg audio
+clock driver and migrate to the one provided by reset framework
+on the auxiliary bus.
 
-Done
+Signed-off-by: Jerome Brunet <jbrunet@baylibre.com>
+---
+ drivers/clk/meson/Kconfig     |   2 +-
+ drivers/clk/meson/axg-audio.c | 114 +++++-------------------------------------
+ 2 files changed, 14 insertions(+), 102 deletions(-)
 
-Jason
+diff --git a/drivers/clk/meson/Kconfig b/drivers/clk/meson/Kconfig
+index be2e3a5f83363b07cdcec2601acf15780ff24892..7cb21fc223b063cb93812643f02f192343981ed8 100644
+--- a/drivers/clk/meson/Kconfig
++++ b/drivers/clk/meson/Kconfig
+@@ -106,7 +106,7 @@ config COMMON_CLK_AXG_AUDIO
+ 	select COMMON_CLK_MESON_SCLK_DIV
+ 	select COMMON_CLK_MESON_CLKC_UTILS
+ 	select REGMAP_MMIO
+-	select RESET_CONTROLLER
++	imply RESET_MESON_AUX
+ 	help
+ 	  Support for the audio clock controller on AmLogic A113D devices,
+ 	  aka axg, Say Y if you want audio subsystem to work.
+diff --git a/drivers/clk/meson/axg-audio.c b/drivers/clk/meson/axg-audio.c
+index 9df627b142f89788966ede0262aaaf39e13f0b49..3948f5d0faca372dd5cc4ed6dc95f9c89fe5bae8 100644
+--- a/drivers/clk/meson/axg-audio.c
++++ b/drivers/clk/meson/axg-audio.c
+@@ -4,6 +4,7 @@
+  * Author: Jerome Brunet <jbrunet@baylibre.com>
+  */
+ 
++#include <linux/auxiliary_bus.h>
+ #include <linux/clk.h>
+ #include <linux/clk-provider.h>
+ #include <linux/init.h>
+@@ -12,7 +13,6 @@
+ #include <linux/platform_device.h>
+ #include <linux/regmap.h>
+ #include <linux/reset.h>
+-#include <linux/reset-controller.h>
+ #include <linux/slab.h>
+ 
+ #include "meson-clkc-utils.h"
+@@ -1678,84 +1678,6 @@ static struct clk_regmap *const sm1_clk_regmaps[] = {
+ 	&sm1_earcrx_dmac_clk,
+ };
+ 
+-struct axg_audio_reset_data {
+-	struct reset_controller_dev rstc;
+-	struct regmap *map;
+-	unsigned int offset;
+-};
+-
+-static void axg_audio_reset_reg_and_bit(struct axg_audio_reset_data *rst,
+-					unsigned long id,
+-					unsigned int *reg,
+-					unsigned int *bit)
+-{
+-	unsigned int stride = regmap_get_reg_stride(rst->map);
+-
+-	*reg = (id / (stride * BITS_PER_BYTE)) * stride;
+-	*reg += rst->offset;
+-	*bit = id % (stride * BITS_PER_BYTE);
+-}
+-
+-static int axg_audio_reset_update(struct reset_controller_dev *rcdev,
+-				unsigned long id, bool assert)
+-{
+-	struct axg_audio_reset_data *rst =
+-		container_of(rcdev, struct axg_audio_reset_data, rstc);
+-	unsigned int offset, bit;
+-
+-	axg_audio_reset_reg_and_bit(rst, id, &offset, &bit);
+-
+-	regmap_update_bits(rst->map, offset, BIT(bit),
+-			assert ? BIT(bit) : 0);
+-
+-	return 0;
+-}
+-
+-static int axg_audio_reset_status(struct reset_controller_dev *rcdev,
+-				unsigned long id)
+-{
+-	struct axg_audio_reset_data *rst =
+-		container_of(rcdev, struct axg_audio_reset_data, rstc);
+-	unsigned int val, offset, bit;
+-
+-	axg_audio_reset_reg_and_bit(rst, id, &offset, &bit);
+-
+-	regmap_read(rst->map, offset, &val);
+-
+-	return !!(val & BIT(bit));
+-}
+-
+-static int axg_audio_reset_assert(struct reset_controller_dev *rcdev,
+-				unsigned long id)
+-{
+-	return axg_audio_reset_update(rcdev, id, true);
+-}
+-
+-static int axg_audio_reset_deassert(struct reset_controller_dev *rcdev,
+-				unsigned long id)
+-{
+-	return axg_audio_reset_update(rcdev, id, false);
+-}
+-
+-static int axg_audio_reset_toggle(struct reset_controller_dev *rcdev,
+-				unsigned long id)
+-{
+-	int ret;
+-
+-	ret = axg_audio_reset_assert(rcdev, id);
+-	if (ret)
+-		return ret;
+-
+-	return axg_audio_reset_deassert(rcdev, id);
+-}
+-
+-static const struct reset_control_ops axg_audio_rstc_ops = {
+-	.assert = axg_audio_reset_assert,
+-	.deassert = axg_audio_reset_deassert,
+-	.reset = axg_audio_reset_toggle,
+-	.status = axg_audio_reset_status,
+-};
+-
+ static struct regmap_config axg_audio_regmap_cfg = {
+ 	.reg_bits	= 32,
+ 	.val_bits	= 32,
+@@ -1766,8 +1688,7 @@ struct audioclk_data {
+ 	struct clk_regmap *const *regmap_clks;
+ 	unsigned int regmap_clk_num;
+ 	struct meson_clk_hw_data hw_clks;
+-	unsigned int reset_offset;
+-	unsigned int reset_num;
++	const char *rst_drvname;
+ 	unsigned int max_register;
+ };
+ 
+@@ -1775,7 +1696,7 @@ static int axg_audio_clkc_probe(struct platform_device *pdev)
+ {
+ 	struct device *dev = &pdev->dev;
+ 	const struct audioclk_data *data;
+-	struct axg_audio_reset_data *rst;
++	struct auxiliary_device *auxdev;
+ 	struct regmap *map;
+ 	void __iomem *regs;
+ 	struct clk_hw *hw;
+@@ -1834,22 +1755,15 @@ static int axg_audio_clkc_probe(struct platform_device *pdev)
+ 	if (ret)
+ 		return ret;
+ 
+-	/* Stop here if there is no reset */
+-	if (!data->reset_num)
+-		return 0;
+-
+-	rst = devm_kzalloc(dev, sizeof(*rst), GFP_KERNEL);
+-	if (!rst)
+-		return -ENOMEM;
+-
+-	rst->map = map;
+-	rst->offset = data->reset_offset;
+-	rst->rstc.nr_resets = data->reset_num;
+-	rst->rstc.ops = &axg_audio_rstc_ops;
+-	rst->rstc.of_node = dev->of_node;
+-	rst->rstc.owner = THIS_MODULE;
++	/* Register auxiliary reset driver when applicable */
++	if (data->rst_drvname) {
++		auxdev = __devm_auxiliary_device_create(dev, dev->driver->name,
++							data->rst_drvname, NULL, 0);
++		if (!auxdev)
++			return -ENODEV;
++	}
+ 
+-	return devm_reset_controller_register(dev, &rst->rstc);
++	return 0;
+ }
+ 
+ static const struct audioclk_data axg_audioclk_data = {
+@@ -1869,8 +1783,7 @@ static const struct audioclk_data g12a_audioclk_data = {
+ 		.hws = g12a_audio_hw_clks,
+ 		.num = ARRAY_SIZE(g12a_audio_hw_clks),
+ 	},
+-	.reset_offset = AUDIO_SW_RESET,
+-	.reset_num = 26,
++	.rst_drvname = "rst-g12a",
+ 	.max_register = AUDIO_CLK_SPDIFOUT_B_CTRL,
+ };
+ 
+@@ -1881,8 +1794,7 @@ static const struct audioclk_data sm1_audioclk_data = {
+ 		.hws = sm1_audio_hw_clks,
+ 		.num = ARRAY_SIZE(sm1_audio_hw_clks),
+ 	},
+-	.reset_offset = AUDIO_SM1_SW_RESET0,
+-	.reset_num = 39,
++	.rst_drvname = "rst-sm1",
+ 	.max_register = AUDIO_EARCRX_DMAC_CLK_CTRL,
+ };
+ 
+
+-- 
+2.47.2
+
 
 _______________________________________________
 linux-riscv mailing list
