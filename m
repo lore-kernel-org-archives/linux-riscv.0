@@ -4,51 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 03E4DC021B1
-	for <linux-riscv@archiver.kernel.org>; Wed, 19 Feb 2025 09:25:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3ADCFC021B0
+	for <linux-riscv@archiver.kernel.org>; Wed, 19 Feb 2025 09:28:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Subject:To:From:Date:
-	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
-	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=XCC2BbaxC5oQ1en3nhAh5+f7bjKxtKvWUtluIGtu61M=; b=Q/GJHoZuW6utcp
-	JZ9jX31VN219lIE3jLsHAahqPRtTaHCOJll3RiJTDBrs0fRXymt0uUdatCphOTdBGvZfCtm/rNsL/
-	2N5elAy6aPRFBER7phNxw2f0CQ5+KNu2H++nbLM+AoXMSp/IYQrVS5W/R9SSZuAWcXyiYzAeu2YCW
-	SqL0Btz1xee2RhVzGE+L00lVZVdM0kcMaClDCLbe5i0FUENbCeDM7fvKRqko2PbTIgNqohBSFAYmz
-	bJt9z28W50lxT3JxT2HM1De2nOR8SbCk96ZZBqudK7GAFdkYTeIbhZ8tnXRKqTPHQExTcj6utNFVl
-	i0LswnFEtKuDyGNdH2JQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Date:Cc:To:From:Subject:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=YP8xQnyC0HsfFWYtOw+427jFHFJQ2Ul4ksk4q8NwkdY=; b=qO3zal/AZLQVEX
+	pnL5Z1lfo7QK3wVkyrhC11QBZ12c6LCPObaWKw1TpgAcHq0AEk0nFoDC3ie0TT8TB506hbwXkTofm
+	+24X6yjtnUVT4nmJ6BndvfS379pouhHnFfUdeFls4UblKGn+t1NQA6OtTtcUrxhXhygENtz0v8Ap8
+	SKc/+kIfY3TBcFJPxcVSLKck8sTdqRjjeddoXO7Hnf7yHY+iEy7qJp1B4tnIp+4mTlfhFLmHgrdjY
+	v0BBc3bJbNjN/83CO21yF3F0jiDxjUZTdcTZogy3NiGZblp3xN8C6rpB55C0/LwyJPbGYAt9MZJqg
+	a9+3K17DMZ2xSNNIAU6Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkgKX-0000000Bpwl-3BIy;
-	Wed, 19 Feb 2025 09:25:21 +0000
-Received: from mail.corporix.pl ([151.80.59.204])
+	id 1tkgNS-0000000BrAL-3ncM;
+	Wed, 19 Feb 2025 09:28:22 +0000
+Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkg7i-0000000BlA0-1ntQ
+	id 1tkgCg-0000000BmwX-11dB
 	for linux-riscv@lists.infradead.org;
-	Wed, 19 Feb 2025 09:12:08 +0000
-Received: by mail.corporix.pl (Postfix, from userid 1002)
-	id A255025AFA; Wed, 19 Feb 2025 09:06:14 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=corporix.pl; s=mail;
-	t=1739955992; bh=+oYP7ZwnEeonL1pLtE73TJ85xaesKIG0Ys99vCW5hiU=;
-	h=Date:From:To:Subject:From;
-	b=Vd3JGUtTG5JM+dz97v/5hp3n6wRLMfN/bx3rWJPpEkkubcYVaJ1CT/ktNLMyaOOAe
-	 909cuC3GzZ0rgjRS2AOXCNp9+4Lzxqzuv5vJQ3qz1jEu3eooW5iHxerAq6y1zf2iE0
-	 3eiM4QsPEBRj9KalTbrCUIYAxev/OBordZLA4q346hcqzTTSat/hMfC27kp1/N+m0v
-	 7EisrVMgg4nqnmPEiFtqXRhvzLl3eMuZDyhgahBsodqcxpkPeNB/x01eEzw42dSBn+
-	 C6gv+AByAfreEG39xu1aRu3xLWj7V1Z+rydTxKu3SKvKkN+vL/4q913QUHReax4Gvd
-	 NsuumZodggKOA==
-Received: by mail.corporix.pl for <linux-riscv@lists.infradead.org>; Wed, 19 Feb 2025 09:06:02 GMT
-Message-ID: <20250219074500-0.1.h.4dzw.0.2soxd9olen@corporix.pl>
-Date: Wed, 19 Feb 2025 09:06:02 GMT
-From: "Patryk Wysocki" <patryk.wysocki@corporix.pl>
-To: <linux-riscv@lists.infradead.org>
-Subject: Zapytanie ofertowe 
-X-Mailer: mail.corporix.pl
+	Wed, 19 Feb 2025 09:17:15 +0000
+Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
+	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
+	(Exim 4.92)
+	(envelope-from <p.zabel@pengutronix.de>)
+	id 1tkgBq-00054L-0R; Wed, 19 Feb 2025 10:16:22 +0100
+Received: from lupine.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::4e] helo=lupine)
+	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <p.zabel@pengutronix.de>)
+	id 1tkgBo-001jq4-02;
+	Wed, 19 Feb 2025 10:16:20 +0100
+Received: from pza by lupine with local (Exim 4.96)
+	(envelope-from <p.zabel@pengutronix.de>)
+	id 1tkgBn-0002pp-2m;
+	Wed, 19 Feb 2025 10:16:19 +0100
+Message-ID: <983b40e8b1996ccd0c98a76e65f77ed0bc5b50fb.camel@pengutronix.de>
+Subject: Re: [PATCH v4 2/8] reset: mpfs: use the auxiliary device creation
+From: Philipp Zabel <p.zabel@pengutronix.de>
+To: Jerome Brunet <jbrunet@baylibre.com>, Greg Kroah-Hartman
+ <gregkh@linuxfoundation.org>, Dave Ertman <david.m.ertman@intel.com>, Ira
+ Weiny <ira.weiny@intel.com>, "Rafael J. Wysocki" <rafael@kernel.org>,
+ Stephen Boyd <sboyd@kernel.org>, Arnd Bergmann <arnd@arndb.de>, Danilo
+ Krummrich <dakr@kernel.org>, Conor Dooley <conor.dooley@microchip.com>,
+ Daire McNamara <daire.mcnamara@microchip.com>, Douglas Anderson
+ <dianders@chromium.org>,  Andrzej Hajda <andrzej.hajda@intel.com>, Neil
+ Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>,
+ Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,  Jonas Karlman
+ <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, Maarten
+ Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard
+ <mripard@kernel.org>,  Thomas Zimmermann <tzimmermann@suse.de>, David
+ Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, Hans de Goede
+ <hdegoede@redhat.com>, Ilpo =?ISO-8859-1?Q?J=E4rvinen?=
+ <ilpo.jarvinen@linux.intel.com>,  Bryan O'Donoghue
+ <bryan.odonoghue@linaro.org>, Vladimir Kondratiev
+ <vladimir.kondratiev@mobileye.com>, Gregory CLEMENT
+ <gregory.clement@bootlin.com>, =?ISO-8859-1?Q?Th=E9o?= Lebrun
+ <theo.lebrun@bootlin.com>,  Michael Turquette <mturquette@baylibre.com>,
+ Abel Vesa <abelvesa@kernel.org>, Peng Fan <peng.fan@nxp.com>, Shawn Guo
+ <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix
+ Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>,
+ Kevin Hilman <khilman@baylibre.com>,  Martin Blumenstingl
+ <martin.blumenstingl@googlemail.com>
+Cc: linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
+ dri-devel@lists.freedesktop.org, platform-driver-x86@vger.kernel.org, 
+ linux-mips@vger.kernel.org, linux-clk@vger.kernel.org, imx@lists.linux.dev,
+  linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org
+Date: Wed, 19 Feb 2025 10:16:19 +0100
+In-Reply-To: <20250218-aux-device-create-helper-v4-2-c3d7dfdea2e6@baylibre.com>
+References: <20250218-aux-device-create-helper-v4-0-c3d7dfdea2e6@baylibre.com>
+	 <20250218-aux-device-create-helper-v4-2-c3d7dfdea2e6@baylibre.com>
+User-Agent: Evolution 3.46.4-2 
 MIME-Version: 1.0
+X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
+X-SA-Exim-Mail-From: p.zabel@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-riscv@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250219_011207_162282_F879FF39 
-X-CRM114-Status: UNSURE (   1.50  )
+X-CRM114-CacheID: sfid-20250219_011714_281444_6D67F55E 
+X-CRM114-Status: UNSURE (   7.72  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -61,17 +98,26 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-RHppZcWEIGRvYnJ5LAoKUG96d29sacWCZW0gc29iaWUgbmEga29udGFrdCwgcG9uaWV3YcW8IGpl
-c3RlbSB6YWludGVyZXNvd2FueSB3ZXJ5ZmlrYWNqxIUgbW/FvGxpd2/Fm2NpIG5hd2nEhXphbmlh
-IHdzcMOzxYJwcmFjeS4KCldzcGllcmFteSBmaXJteSB3IHBvenlza2l3YW5pdSBub3d5Y2gga2xp
-ZW50w7N3IGJpem5lc293eWNoLgoKQ3p5IG1vxbxlbXkgcG9yb3ptYXdpYcSHIHcgY2VsdSBwcnpl
-ZHN0YXdpZW5pYSBzemN6ZWfDs8WCb3d5Y2ggaW5mb3JtYWNqaT8gCgoKUG96ZHJhd2lhbQpQYXRy
-eWsgV3lzb2NraQoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5v
-cmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNj
-dgo=
+On Di, 2025-02-18 at 20:29 +0100, Jerome Brunet wrote:
+> The auxiliary device creation of this driver is simple enough to
+> use the available auxiliary device creation helper.
+> 
+> Use it and remove some boilerplate code.
+> 
+> Acked-by: Conor Dooley <conor.dooley@microchip.com>
+> Signed-off-by: Jerome Brunet <jbrunet@baylibre.com>
+
+Reviewed-by: Philipp Zabel <p.zabel@pengutronix.de>
+
+regards
+Philipp
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
