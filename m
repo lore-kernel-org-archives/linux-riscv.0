@@ -4,97 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E95FC021AA
-	for <linux-riscv@archiver.kernel.org>; Wed, 19 Feb 2025 13:21:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82180C021AA
+	for <linux-riscv@archiver.kernel.org>; Wed, 19 Feb 2025 13:37:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=aYb9deAXmvpBYUOhh65DVhDuGt6XUpDoJJjKBtgEKQ8=; b=3nCs0poeGxmZ+R
-	Uk2scnFU+Ec3XR2Tf77WZidjbPizuePmXqtGiV/xOykzYRbR3ogUcpksbdtJY+wYy5X27YR1VAEuA
-	tsG8iuz5eFeFeTbqaq8T9XDza++TodxCTf10GgQpvWUxx+ol6eBVoBgx+R6G7E67Pl1nm7TrwDAiF
-	mCgawfmRqYtgFp+bbXMTPEqGosRzaNJrXcLmJ/hRRAZS88uROPkF8DSdFQo2AzupzM5blpzttCRPA
-	rG2+y403fyfiQr+ViZB6aWHfcLLuA4LXz+vyX4PY7mJWnT5FBO1EETvBZ2uoxb6e55mbE+ej4RipT
-	h54CBlLGluyhKJdWt7WA==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:
+	Mime-Version:References:In-Reply-To:From:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Owner;
+	bh=KNCTaJ5dpES/SxjwIRYWlzgHU8o5a/GI33fAFW3BTxM=; b=E9tLu3HzB51U92FpZZJickWUSo
+	ce/Icl7f2lWynJbLLNw20EaaEZqU2PUCXexguyOnt1XT9l88E2Fd2UgAN6GM2QSWk4JoKFFjCZfPb
+	8ikuC3TZ5WnvhFPSeVoYvJqX1/s2BQDwRiTsHRmxh5mxjTbzH8KXOTJaKddkhPkmBvaJzdNM27tDQ
+	K1WnBAjbVw+eM2uYiyAiGyRWprVziQcNjrGd32zE+0uMbUwN/ziw4zdYwFXiNp8OTUBaGCTAJtID9
+	Exs5j+wDA/H84XAhRP3r1oEBvj742aPYlDanqEMko/WcyUF6ZCZ+ltf7S0mYkLYi1kb7bTOHnJRRA
+	ml1+P6zA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkk0b-0000000Cuw7-0kJI;
-	Wed, 19 Feb 2025 13:21:01 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1tkkGv-0000000D02e-3XR5;
+	Wed, 19 Feb 2025 13:37:53 +0000
+Received: from smtp-relay-internal-0.canonical.com ([185.125.188.122])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkjz6-0000000CuXt-2hCm;
-	Wed, 19 Feb 2025 13:19:29 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 39EF6A426F9;
-	Wed, 19 Feb 2025 13:17:42 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 26083C4CED1;
-	Wed, 19 Feb 2025 13:19:26 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linuxfoundation.org;
-	s=korg; t=1739971166;
-	bh=RcuQPWBAOebggXpc49oXCroXSGfFXw0R3wUoVFgSYw0=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=TZH/bQk4qL6+2tnUJqqWBkPPTthw5gu9C17UymFAIupjP536vP5/A2uuLTBTsi5EM
-	 G6Cwv45NY3dyN2GbwkOU/ec7M/aKurvYZOZohZZHB3xEdjNwkIGxGcUW3qgOJrXUR0
-	 jXyHDhQTIbUsWIurk+PCF0wp5cC3JQAlgnZOUB20=
-Date: Wed, 19 Feb 2025 14:19:23 +0100
-From: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-To: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
-Cc: Jerome Brunet <jbrunet@baylibre.com>,
-	Dave Ertman <david.m.ertman@intel.com>,
-	Ira Weiny <ira.weiny@intel.com>,
-	"Rafael J. Wysocki" <rafael@kernel.org>,
-	Stephen Boyd <sboyd@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
-	Danilo Krummrich <dakr@kernel.org>,
-	Conor Dooley <conor.dooley@microchip.com>,
-	Daire McNamara <daire.mcnamara@microchip.com>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Douglas Anderson <dianders@chromium.org>,
-	Andrzej Hajda <andrzej.hajda@intel.com>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Robert Foss <rfoss@kernel.org>,
-	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
-	Jonas Karlman <jonas@kwiboo.se>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-	Hans de Goede <hdegoede@redhat.com>,
-	Ilpo =?iso-8859-1?Q?J=E4rvinen?= <ilpo.jarvinen@linux.intel.com>,
-	Bryan O'Donoghue <bryan.odonoghue@linaro.org>,
-	Vladimir Kondratiev <vladimir.kondratiev@mobileye.com>,
-	Gregory CLEMENT <gregory.clement@bootlin.com>,
-	=?iso-8859-1?Q?Th=E9o?= Lebrun <theo.lebrun@bootlin.com>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Abel Vesa <abelvesa@kernel.org>, Peng Fan <peng.fan@nxp.com>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Kevin Hilman <khilman@baylibre.com>,
-	Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
-	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
-	dri-devel@lists.freedesktop.org,
-	platform-driver-x86@vger.kernel.org, linux-mips@vger.kernel.org,
-	linux-clk@vger.kernel.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-amlogic@lists.infradead.org
-Subject: Re: [PATCH v4 1/8] driver core: auxiliary bus: add device creation
- helpers
-Message-ID: <2025021937-trodden-snowdrop-99be@gregkh>
-References: <20250218-aux-device-create-helper-v4-0-c3d7dfdea2e6@baylibre.com>
- <20250218-aux-device-create-helper-v4-1-c3d7dfdea2e6@baylibre.com>
- <crtrciitrlqkxh5mxvnbdjy6zoxny5onse7xgbw7biozg6myux@grp3ketgl2uh>
- <2025021922-spongy-swirl-0746@gregkh>
- <eskvhtljnrkhm6vmqy52gkweexj3tcethejeywcoib4la72jcl@ojuqcazpvht4>
-MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <eskvhtljnrkhm6vmqy52gkweexj3tcethejeywcoib4la72jcl@ojuqcazpvht4>
+	id 1tkkFy-0000000CzjW-1Zhz
+	for linux-riscv@lists.infradead.org;
+	Wed, 19 Feb 2025 13:36:56 +0000
+Received: from mail-oi1-f198.google.com (mail-oi1-f198.google.com [209.85.167.198])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by smtp-relay-internal-0.canonical.com (Postfix) with ESMTPS id E17853F2C2
+	for <linux-riscv@lists.infradead.org>; Wed, 19 Feb 2025 13:36:50 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
+	s=20210705; t=1739972210;
+	bh=oxEPsf6BXD6TadgvNAnbgKVAmCgtOTjj+4mMTP9U1dQ=;
+	h=From:In-Reply-To:References:Mime-Version:Date:Message-ID:Subject:
+	 To:Cc:Content-Type;
+	b=I4znsC4k9jemo5zvo5E8Xgu9kjstO3YqvdC9bXhboLtiubU1tC+th/bncec2Onqg+
+	 Bxht7qbFe0F32lSl3/TwLNcVOuloIyvfhpInZFusfJpHkr/SsxL2ACng+4hBnMCMGb
+	 r+jQDi+F1K02rBdKK0nWCVRryj0Nwj2PyRDRhP4FJfZHJIaPDxM+AUGC3Z1BUyKe6a
+	 eRk6TVNiGbiC3oQ5kCfmR74P1WI5QzoTENbrEQr6zDd+cjthpewySyMCiL/zCRPC1b
+	 APKEJgRxRhxamNM505JCnTSyXmRZ4znqXe7c8cZ8qQ+UbQ5tw1G9gp02EUQVUguGhP
+	 KbFSZ9NitsC7w==
+Received: by mail-oi1-f198.google.com with SMTP id 5614622812f47-3f3f74a35dbso1158115b6e.3
+        for <linux-riscv@lists.infradead.org>; Wed, 19 Feb 2025 05:36:50 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1739972209; x=1740577009;
+        h=cc:to:subject:message-id:date:mime-version:references:in-reply-to
+         :from:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=oxEPsf6BXD6TadgvNAnbgKVAmCgtOTjj+4mMTP9U1dQ=;
+        b=Q07gnzhDAmh7ds82Il6qIPUVJItVXRdYHx5p5lNBLt8gOtiSCIlQ080MyigKm6/h0w
+         X4Pd0x7Rpe8k2cXoFvEuRcDhHUff9H8I4/yTgBBTq1VDr7+FnaN8uxCHFni13du5WpYr
+         sw0qLZod9jpIrEEIYYFTT2BJmMAK7vY/QspoJyaEOQE0mEIb3M7MJVK7KFmPLQbENAsc
+         3dK5BFa+bewLKrHq6Te7dwi94DbqXPCFtXDscpxZAsytUCJdw/yBhSg7kI7cXTePJOMb
+         r5tErUsZsslyreNYPyROFH+2K/JumKzv8UVnc0RzXxjUSiEMwxP6ff6zk/bEV4g9IC1Y
+         09Dg==
+X-Forwarded-Encrypted: i=1; AJvYcCVHLXCuJn19GyqoLEFpMcw5fc53b/1mSVZmr15HPU8umU6+MWEYSf7etcP0KIFLo86hsCha11dF035dCA==@lists.infradead.org
+X-Gm-Message-State: AOJu0YzN5AqOtMy4MX6fR/YeBjk4sMOV3R4DfsnsapyGtgjbq6EVLGBg
+	E/nO3hMlLwqU2B+pX/Bp5vtFL61LmSe8X2ceDq9z1qygzsJq0vJF8/T/Xi9L8RvYxisAmFCVxsW
+	afVjjYFOdAM+934CSsdc4EJdqxmz9vfMfg+TVoeoKszlM1gxux/e48p/KYvQPsurgS/8j+6/vcm
+	EHYvKVb/ZVVWq+uUci2e065gExAWoVRscmBjXBN5LcKrPzGEy6u9DsGIvH
+X-Gm-Gg: ASbGncuL9lhrjQbtJCnLd1M4qMXIAdfi1Zlr53rvuM5DA1Iwp3HjMlC+F/PcXfT88hs
+	HoYpm7aTGMAQOrOIowukU4uzpLMOdhNIGjxk2RyEZqbGyp9+yaGm0CYYdtbj99on8bkRvo8m0th
+	TRmRrD1KTdt9KmIYI=
+X-Received: by 2002:a05:6808:13d3:b0:3f4:b14:8d8e with SMTP id 5614622812f47-3f40b148f5emr4687274b6e.39.1739972209580;
+        Wed, 19 Feb 2025 05:36:49 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IG9hEEslwxSC5v+wHCnRCJJyBAh2kUK73RjgIFEWwcww6qhYK/ZqyM+mXPwcQZQKmE7ZuGDceV0yV4YigAzOhA=
+X-Received: by 2002:a05:6808:13d3:b0:3f4:b14:8d8e with SMTP id
+ 5614622812f47-3f40b148f5emr4687243b6e.39.1739972209253; Wed, 19 Feb 2025
+ 05:36:49 -0800 (PST)
+Received: from 348282803490 named unknown by gmailapi.google.com with
+ HTTPREST; Wed, 19 Feb 2025 05:36:47 -0800
+Received: from 348282803490 named unknown by gmailapi.google.com with
+ HTTPREST; Wed, 19 Feb 2025 05:36:47 -0800
+From: Emil Renner Berthing <emil.renner.berthing@canonical.com>
+In-Reply-To: <20250213-tidy-dollop-cbfc8fc7dc91@spud>
+References: <20250213-tidy-dollop-cbfc8fc7dc91@spud>
+Mime-Version: 1.0
+Date: Wed, 19 Feb 2025 05:36:47 -0800
+X-Gm-Features: AWEUYZnRpiBceaWxcRC-Lan6TxlbntvEwYvjC2A02PkLG-UmOt5pf0O2VECu_Eg
+Message-ID: <CAJM55Z9VDCymHezg8WGuJUnySzNFKBJO8g5ARJegb2zAmxeuOA@mail.gmail.com>
+Subject: Re: [PATCH v1] riscv: dts: starfive: remove non-existent dac from jh7110
+To: Conor Dooley <conor@kernel.org>, linux-riscv@lists.infradead.org
+Cc: Conor Dooley <conor.dooley@microchip.com>, Emil Renner Berthing <kernel@esmil.dk>, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250219_051928_831487_97F18C9B 
-X-CRM114-Status: GOOD (  31.21  )
+X-CRM114-CacheID: sfid-20250219_053654_799972_D6549560 
+X-CRM114-Status: GOOD (  15.54  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,111 +107,57 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Feb 19, 2025 at 02:08:22PM +0200, Dmitry Baryshkov wrote:
-> On Wed, Feb 19, 2025 at 11:13:14AM +0100, Greg Kroah-Hartman wrote:
-> > On Wed, Feb 19, 2025 at 11:06:02AM +0200, Dmitry Baryshkov wrote:
-> > > On Tue, Feb 18, 2025 at 08:29:46PM +0100, Jerome Brunet wrote:
-> > > > Add helper functions to create a device on the auxiliary bus.
-> > > > 
-> > > > This is meant for fairly simple usage of the auxiliary bus, to avoid having
-> > > > the same code repeated in the different drivers.
-> > > > 
-> > > > Suggested-by: Stephen Boyd <sboyd@kernel.org>
-> > > > Cc: Arnd Bergmann <arnd@arndb.de>
-> > > > Signed-off-by: Jerome Brunet <jbrunet@baylibre.com>
-> > > > ---
-> > > >  drivers/base/auxiliary.c      | 108 ++++++++++++++++++++++++++++++++++++++++++
-> > > >  include/linux/auxiliary_bus.h |  17 +++++++
-> > > >  2 files changed, 125 insertions(+)
-> > > > 
-> > > > diff --git a/drivers/base/auxiliary.c b/drivers/base/auxiliary.c
-> > > > index afa4df4c5a3f371b91d8dd8c4325495d32ad1291..a6d46c2759be81a0739f07528d5959c2a76eb8a8 100644
-> > > > --- a/drivers/base/auxiliary.c
-> > > > +++ b/drivers/base/auxiliary.c
-> > > > @@ -385,6 +385,114 @@ void auxiliary_driver_unregister(struct auxiliary_driver *auxdrv)
-> > > >  }
-> > > >  EXPORT_SYMBOL_GPL(auxiliary_driver_unregister);
-> > > >  
-> > > > +static void auxiliary_device_release(struct device *dev)
-> > > > +{
-> > > > +	struct auxiliary_device *auxdev = to_auxiliary_dev(dev);
-> > > > +
-> > > > +	kfree(auxdev);
-> > > > +}
-> > > > +
-> > > > +/**
-> > > > + * auxiliary_device_create - create a device on the auxiliary bus
-> > > > + * @dev: parent device
-> > > > + * @modname: module name used to create the auxiliary driver name.
-> > > > + * @devname: auxiliary bus device name
-> > > > + * @platform_data: auxiliary bus device platform data
-> > > > + * @id: auxiliary bus device id
-> > > > + *
-> > > > + * Helper to create an auxiliary bus device.
-> > > > + * The device created matches driver 'modname.devname' on the auxiliary bus.
-> > > > + */
-> > > > +struct auxiliary_device *auxiliary_device_create(struct device *dev,
-> > > > +						 const char *modname,
-> > > > +						 const char *devname,
-> > > > +						 void *platform_data,
-> > > > +						 int id)
-> > > > +{
-> > > > +	struct auxiliary_device *auxdev;
-> > > > +	int ret;
-> > > > +
-> > > > +	auxdev = kzalloc(sizeof(*auxdev), GFP_KERNEL);
-> > > > +	if (!auxdev)
-> > > > +		return NULL;
-> > > > +
-> > > > +	auxdev->id = id;
-> > > > +	auxdev->name = devname;
-> > > > +	auxdev->dev.parent = dev;
-> > > > +	auxdev->dev.platform_data = platform_data;
-> > > > +	auxdev->dev.release = auxiliary_device_release;
-> > > > +	device_set_of_node_from_dev(&auxdev->dev, dev);
-> > > > +
-> > > > +	ret = auxiliary_device_init(auxdev);
-> > > > +	if (ret) {
-> > > > +		kfree(auxdev);
-> > > > +		return NULL;
-> > > > +	}
-> > > > +
-> > > > +	ret = __auxiliary_device_add(auxdev, modname);
-> > > > +	if (ret) {
-> > > 
-> > > This loses possible error return values from __auxiliary_device_add().
-> > 
-> > Why does that really matter?
-> 
-> At the very least the caller (or caller of a caller) can call
-> dev_err_probe() or dev_err("%pe"). With the current implementation as
-> everybody maps NULL to -ENOMEM the error message will be cryptic.
-> 
-> Or just having a cryptic value in the logs.
+Conor Dooley wrote:
+> From: Conor Dooley <conor.dooley@microchip.com>
+>
+> The jh7110 boards do not have a Rohm DAC on them as far as I
+> can tell, and they certainly do not have a dh2228fv, as this device does
+> not actually exist! Remove the dac nodes from the devicetrees as it is
+> not acceptable to pretend to have a device on a board in order to bind
+> the spidev driver in Linux.
+>
+> Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
 
-So all you can get here could be:
-	-ENOMEM - memory couldn't be allocated somewhere
-	-EINVAL - wrong parameters sent to auxiliary_device_init() or __auxiliary_device_add()
-	-EEXIST - duplicate name
+Hmm.. I thought we already did this, but it must have been another board.
+In any case
 
-And if -EEXIST happens, you will get a kernel log splat from sysfs
-showing you that something went wrong.
+Reviewed-by: Emil Renner Berthing <emil.renner.berthing@canonical.com>
 
-So while I understand the need to be specific here in reporting the
-exact error, I fail to understand how it really matters at all.  A
-driver writer really only wants to know "did it work?" and have a simple
-way to test it.
+Thanks!
+/Emil
 
-IS_ERR_OR_NULL() and then getting the error using PTR_ERR() is rough and
-feels like boilerplate code that everyone gets wrong (how many times do
-people accidentally only check for NULL?).
-
-Anyway, I'm for simple apis, and NULL or valid pointer seems simple to
-me.
-
-thanks,
-
-greg k-h
+> ---
+> CC: Emil Renner Berthing <kernel@esmil.dk>
+> CC: Conor Dooley <conor@kernel.org>
+> CC: Rob Herring <robh@kernel.org>
+> CC: Krzysztof Kozlowski <krzk+dt@kernel.org>
+> CC: linux-riscv@lists.infradead.org
+> CC: devicetree@vger.kernel.org
+> CC: linux-kernel@vger.kernel.org
+> ---
+>  arch/riscv/boot/dts/starfive/jh7110-common.dtsi | 6 ------
+>  1 file changed, 6 deletions(-)
+>
+> diff --git a/arch/riscv/boot/dts/starfive/jh7110-common.dtsi b/arch/riscv/boot/dts/starfive/jh7110-common.dtsi
+> index dd2eefc295e5..c2f70f5e2918 100644
+> --- a/arch/riscv/boot/dts/starfive/jh7110-common.dtsi
+> +++ b/arch/riscv/boot/dts/starfive/jh7110-common.dtsi
+> @@ -350,12 +350,6 @@ &pwm {
+>  &spi0 {
+>  	pinctrl-names = "default";
+>  	pinctrl-0 = <&spi0_pins>;
+> -
+> -	spi_dev0: spi@0 {
+> -		compatible = "rohm,dh2228fv";
+> -		reg = <0>;
+> -		spi-max-frequency = <10000000>;
+> -	};
+>  };
+>
+>  &syscrg {
+> --
+> 2.45.2
+>
 
 _______________________________________________
 linux-riscv mailing list
