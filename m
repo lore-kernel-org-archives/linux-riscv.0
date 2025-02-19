@@ -4,69 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C46E8C021AA
-	for <linux-riscv@archiver.kernel.org>; Wed, 19 Feb 2025 20:32:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C6339C021B0
+	for <linux-riscv@archiver.kernel.org>; Wed, 19 Feb 2025 20:40:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
 	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=469SR0UY15/PVYOg3czU7hN6Xh+7VNV7F2Qex1MI9Bg=; b=0xAwy8A0mrCyl1
-	+WxEMexGBB3m6pLUyTwjkbvo5iLeX10Os1U/0MyHeb2qzH1fS2YyMyCam+92BPgn0qrTHmq7ZwD9j
-	R+luaTfTC1+QmZH9Yy1Y+M/BtY2v7TY3/ReikTjgS0VnVPauz6c4ewC/IbrtMy71xCZC3bTnsw8n4
-	unHzvjri1Wyf17a2QWQqh039eqkMc3soZ6dYhfwc+1ehijA+FTb0q3X6MVSpqfmUVsE6ANy/cSuXQ
-	ms31UXVxoP2z1jW5/XQKcCSkt11IjUTbAHot4IXIisGYYjIPN9FJnm9/46KUGPm8PjkGJddmLACPQ
-	d1cZ9/tlq36mZMwlbOIw==;
+	List-Owner; bh=CdOmE0Lrd3GhLW3qdlgq86WtExbgeL8pJTE/mRyZbfc=; b=Kce9RpQmbnu/5r
+	FETucdLy7Fl5ARkKDDFVaUErsDCaUTJFF9LH7r3Sj+AJwNXDu0gMnxjICaokOyh/2/ZTBFkYzDSoK
+	eUTO8f8V/YGP4GeVX1En1AnIWaSxOgX1SgqgL8sGjbCIRM83emAtHKXlHYE/ZnU08FWXNcORaEuPS
+	IrL975yYfD0rVm46QOaH/L0mUx933d71A8k1d7tZP3vBXJZqD9bQi9n8GZBUnwBciwp5cdsEj0x4C
+	qqqIJQNN0eTHO0sTjL3cU/JC2K5zgvWyKRBXMHW4uOi5UVeoRXjRcff+uZW5gfgdQeNe4XdUeM1I4
+	EjlN6543vq4t6Yh0oLYQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkqkO-0000000EukO-0wPq;
-	Wed, 19 Feb 2025 20:32:44 +0000
+	id 1tkqrW-0000000ExAF-1EMP;
+	Wed, 19 Feb 2025 20:40:06 +0000
 Received: from mgamail.intel.com ([198.175.65.21])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkqkE-0000000Eufg-0i9W;
-	Wed, 19 Feb 2025 20:32:35 +0000
+	id 1tkqrT-0000000Ex80-0K2C;
+	Wed, 19 Feb 2025 20:40:04 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1739997154; x=1771533154;
+  t=1739997603; x=1771533603;
   h=message-id:date:mime-version:subject:to:cc:references:
    from:in-reply-to:content-transfer-encoding;
-  bh=Zm4WQFfWOxnGe6yT6xbnXs6NIEcXQhce3hpE1nVfn3Y=;
-  b=jDBuEwwAjpDimsWWl52+yKt4mBv6uclMgf1fz0gkDZFelpYN3Sd2WELj
-   Qlg89Jz8P6k6aezl6ScJsUebeCHk6PRe3j/1c5PRzl7cmsg8dczBDR64G
-   JqRt7AXUG8BqJ6sNr7zkIESshg+6lqtOZhqhxnh4+cGuSEpeusDoqfAIO
-   GAw9CN5SPM5mJ9KiZ1GsTccYnACBg70YjzPI+FXT6zxo0loQf/SR9WPa3
-   KEP5PMLUU8le5arAqYqvtRGQkvalYVwR/qzzsZWULgDHuDV3XtFVbtExb
-   BXo9OOshtJR3OuwgGDh/di6Z2iqnd/Uw0poIBVgfzDQ4dyM6uoaGPQwW0
-   A==;
-X-CSE-ConnectionGUID: spLydqiJQVKrfsJ/wp7+aA==
-X-CSE-MsgGUID: oYlXvMFhQhi7ZnHxZm+0lw==
-X-IronPort-AV: E=McAfee;i="6700,10204,11350"; a="40673965"
+  bh=rGBY5/kHIeuhdpEEYieZrWPAQNW4N0YtoxIZnp1FjK4=;
+  b=VNc4ZqDs+j8gJZcfbuVPkpHjgCAqHNXgbQI5pYgNePXXd6LWL5jUZfwi
+   hRcQdn2/bZ32mnOnm2fESruGNIrKRqvZftV7EH61QE5XqafJkxYX4eD2a
+   5jU7ux6jctL9hReQFJKOuHcTGbcH77Qya/EznrfX8etkBwHBrFWv5DTM5
+   azOlGo+YXgA3tGHm6f3N1LMqgoTRv9047Uk41KLVsuCG2BHrdKFhMjNf0
+   LSkUFgNgLkbl3UBwGKxhhGIS7ccTRq+lmzV2iAfKvrS4dMnWknGUCEetc
+   FTno4yU/q2fdzaG2hoNt+VhU3WrfuxI/a3L3HHHQC1GnwKwT4pDS5PWC+
+   w==;
+X-CSE-ConnectionGUID: c7qO+7Z7TpqfqO7D4Ik3ng==
+X-CSE-MsgGUID: kwEZtUguQtqs/EGkUwKLqg==
+X-IronPort-AV: E=McAfee;i="6700,10204,11350"; a="40674635"
 X-IronPort-AV: E=Sophos;i="6.13,299,1732608000"; 
-   d="scan'208";a="40673965"
-Received: from orviesa006.jf.intel.com ([10.64.159.146])
-  by orvoesa113.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Feb 2025 12:32:33 -0800
-X-CSE-ConnectionGUID: AzBw8FYiRHWSsjqY9yxeAA==
-X-CSE-MsgGUID: 5DkJqu/uRduefdPohtMHYg==
+   d="scan'208";a="40674635"
+Received: from orviesa007.jf.intel.com ([10.64.159.147])
+  by orvoesa113.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Feb 2025 12:39:51 -0800
+X-CSE-ConnectionGUID: 1VVKYEVlQzG4elUNxLPUXQ==
+X-CSE-MsgGUID: FjaqY8lwThKK4eTJECY/QA==
 X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.13,299,1732608000"; 
-   d="scan'208";a="114770563"
+X-IronPort-AV: E=Sophos;i="6.12,224,1728975600"; 
+   d="scan'208";a="115305818"
 Received: from kinlongk-mobl1.amr.corp.intel.com (HELO [10.125.109.250]) ([10.125.109.250])
-  by orviesa006-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Feb 2025 12:32:30 -0800
-Message-ID: <e03a8e82-af4c-40fb-bd91-f268206f1d93@intel.com>
-Date: Wed, 19 Feb 2025 12:32:30 -0800
+  by orviesa007-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Feb 2025 12:25:48 -0800
+Message-ID: <eef09bdc-7546-462b-9ac0-661a44d2ceae@intel.com>
+Date: Wed, 19 Feb 2025 12:25:44 -0800
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
 Subject: Re: [PATCH v4 29/30] x86/mm, mm/vmalloc: Defer
  flush_tlb_kernel_range() targeting NOHZ_FULL CPUs
-To: Joel Fernandes <joelagnelf@nvidia.com>,
- Valentin Schneider <vschneid@redhat.com>
-Cc: Jann Horn <jannh@google.com>, linux-kernel@vger.kernel.org,
- x86@kernel.org, virtualization@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org, loongarch@lists.linux.dev,
- linux-riscv@lists.infradead.org, linux-perf-users@vger.kernel.org,
- xen-devel@lists.xenproject.org, kvm@vger.kernel.org,
- linux-arch@vger.kernel.org, rcu@vger.kernel.org,
+To: Valentin Schneider <vschneid@redhat.com>, Jann Horn <jannh@google.com>
+Cc: linux-kernel@vger.kernel.org, x86@kernel.org,
+ virtualization@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+ loongarch@lists.linux.dev, linux-riscv@lists.infradead.org,
+ linux-perf-users@vger.kernel.org, xen-devel@lists.xenproject.org,
+ kvm@vger.kernel.org, linux-arch@vger.kernel.org, rcu@vger.kernel.org,
  linux-hardening@vger.kernel.org, linux-mm@kvack.org,
  linux-kselftest@vger.kernel.org, bpf@vger.kernel.org,
  bcm-kernel-feedback-list@broadcom.com, Juergen Gross <jgross@suse.com>,
@@ -123,10 +121,13 @@ References: <20250114175143.81438-1-vschneid@redhat.com>
  <CAG48ez1Mh+DOy0ysOo7Qioxh1W7xWQyK9CLGNU9TGOsLXbg=gQ@mail.gmail.com>
  <xhsmh34hhh37q.mognet@vschneid-thinkpadt14sgen2i.remote.csb>
  <CAG48ez3H8OVP1GxBLdmFgusvT1gQhwu2SiXbgi8T9uuCYVK52w@mail.gmail.com>
- <xhsmhzfjpfkky.mognet@vschneid-thinkpadt14sgen2i.remote.csb>
- <20250219145302.GA480110@joelnvbox>
- <xhsmhecztj4c9.mognet@vschneid-thinkpadt14sgen2i.remote.csb>
- <adcf012e-57ef-4b54-8b19-2273aca41ec6@nvidia.com>
+ <xhsmh5xlhk5p2.mognet@vschneid-thinkpadt14sgen2i.remote.csb>
+ <CAG48ez1EAATYcX520Nnw=P8XtUDSr5pe+qGH1YVNk3xN2LE05g@mail.gmail.com>
+ <xhsmh34gkk3ls.mognet@vschneid-thinkpadt14sgen2i.remote.csb>
+ <352317e3-c7dc-43b4-b4cb-9644489318d0@intel.com>
+ <xhsmhjz9mj2qo.mognet@vschneid-thinkpadt14sgen2i.remote.csb>
+ <d0450bc8-6585-49ca-9cad-49e65934bd5c@intel.com>
+ <xhsmhh64qhssj.mognet@vschneid-thinkpadt14sgen2i.remote.csb>
 From: Dave Hansen <dave.hansen@intel.com>
 Content-Language: en-US
 Autocrypt: addr=dave.hansen@intel.com; keydata=
@@ -172,10 +173,10 @@ Autocrypt: addr=dave.hansen@intel.com; keydata=
  MTsCeQDdjpgHsj+P2ZDeEKCbma4m6Ez/YWs4+zDm1X8uZDkZcfQlD9NldbKDJEXLIjYWo1PH
  hYepSffIWPyvBMBTW2W5FRjJ4vLRrJSUoEfJuPQ3vW9Y73foyo/qFoURHO48AinGPZ7PC7TF
  vUaNOTjKedrqHkaOcqB185ahG2had0xnFsDPlx5y
-In-Reply-To: <adcf012e-57ef-4b54-8b19-2273aca41ec6@nvidia.com>
+In-Reply-To: <xhsmhh64qhssj.mognet@vschneid-thinkpadt14sgen2i.remote.csb>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250219_123234_252560_37787454 
-X-CRM114-Status: GOOD (  14.33  )
+X-CRM114-CacheID: sfid-20250219_124003_181892_33126F3B 
+X-CRM114-Status: GOOD (  16.46  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -187,28 +188,40 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gMi8xOS8yNSAwOTowOCwgSm9lbCBGZXJuYW5kZXMgd3JvdGU6Cj4+IFByZXR0eSBtdWNoIHNv
-IHllYWguIFRoYXQgaXMsICppZiogdGhlcmUgc3VjaCBhIHZtYWxsb2MnZCBhZGRyZXNzIGFjY2Vz
-cyBpbgo+PiBlYXJseSBlbnRyeSBjb2RlIC0gdGVzdGluZyBzYXlzIGl0J3Mgbm90IHRoZSBjYXNl
-LCBidXQgSSBoYXZlbid0IGZvdW5kIGEKPj4gd2F5IHRvIGluc3RydW1lbnRhbGx5IHZlcmlmeSB0
-aGlzLgo+IE9rLCB0aGFua3MgZm9yIGNvbmZpcm1pbmcuIE1heWJlIHRoZXJlIGlzIGFuIGFkZHJl
-c3Mgc2FuaXRpemVyIHdheSBvZiB2ZXJpZnlpbmcsCj4gYnV0IHllYWggaXQgaXMgc3VidGxlIGFu
-ZCB0aGVyZSBjb3VsZCBiZSBtb3JlIHRoYW4gb25lIHdheSBvZiBzb2x2aW5nIGl0LiBUb28KPiBt
-dWNoICdmdW4nIPCfmIkKRm9yIGRlYnVnZ2luZywgeW91IGNvdWxkIGp1c3QgbWFrZSBhIGNvcHkg
-b2YgcGFydCBvciBhbGwgb2YgdGhlIHBhZ2UKdGFibGVzIGFuZCBydW4gdGhlIE5PSFpfRlVMTCB0
-YXNrcyBmcm9tIHRob3NlIHdoaWxlIHRoZXkncmUgaW4KdXNlcnNwYWNlLiBUaGVuLCBpbnN0ZWFk
-IG9mIGZsdXNoaW5nIHRoZSBUTEIgaW4gdGhlIGRlZmVycmVkIHdvcmssIHlvdQpzd2l0Y2ggb3Zl
-ciB0byB0aGUgInJlYWwiIHBhZ2UgdGFibGVzLgoKVGhhdCB3b3VsZCBfYmVoYXZlXyBsaWtlIGEg
-Q1BVIHdpdGggYSBiaWcgVExCIGFuZCByZWFsbHkgb2xkLCBjcnVzdHkgVExCCmVudHJpZXMgZnJv
-bSB0aGUgbGFzdCB0aW1lIHRoZSBrZXJuZWwgcmFuLgoKQlRXLCB0aGUgb3RoZXIgb3B0aW9uIGZv
-ciBhbGwgb2YgdGhpcyBpcyBqdXN0IHRvIHNheSB0aGF0IGlmIHlvdSB3YW50CklQSS1mcmVlIFRM
-QiBmbHVzaGluZyB0aGF0IHlvdSBuZWVkIHRvIGdvIGJ1eSBzb21lIGhhcmR3YXJlIHdpdGggaXQg
-YXMKb3Bwb3NlZCB0byBhbGwgb2YgdGhpcyBjb21wbGV4aXR5LgoKX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0Cmxp
-bnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcv
-bWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
+On 2/19/25 07:13, Valentin Schneider wrote:
+>> Maybe I missed part of the discussion though. Is VMEMMAP your only
+>> concern? I would have guessed that the more generic vmalloc()
+>> functionality would be harder to pin down.
+> Urgh, that'll teach me to send emails that late - I did indeed mean the
+> vmalloc() range, not at all VMEMMAP. IIUC *neither* are present in the user
+> kPTI page table and AFAICT the page table swap is done before the actual vmap'd
+> stack (CONFIG_VMAP_STACK=y) gets used.
+
+OK, so rewriting your question... ;)
+
+> So what if the vmalloc() range *isn't* in the CR3 tree when a CPU is
+> executing in userspace?
+
+The LDT and maybe the PEBS buffers are the only implicit supervisor
+accesses to vmalloc()'d memory that I can think of. But those are both
+handled specially and shouldn't ever get zapped while in use. The LDT
+replacement has its own IPIs separate from TLB flushing.
+
+But I'm actually not all that worried about accesses while actually
+running userspace. It's that "danger zone" in the kernel between entry
+and when the TLB might have dangerous garbage in it.
+
+BTW, I hope this whole thing is turned off on 32-bit. There, we can
+actually take and handle faults on the vmalloc() area. If you get one of
+those faults in your "danger zone", it'll start running page fault code
+which will branch out to god-knows-where and certainly isn't noinstr.
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
