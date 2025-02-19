@@ -4,89 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 51693C021B1
-	for <linux-riscv@archiver.kernel.org>; Wed, 19 Feb 2025 12:51:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E95FC021AA
+	for <linux-riscv@archiver.kernel.org>; Wed, 19 Feb 2025 13:21:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=eT59cmPjOHoojSrpk3Or1Bu+mwzJHMJW0tkk4dP0VbM=; b=SChAJC7dDpaaP1
-	gAnq4pUHcceliydRlpvpwwdFkd//TzdZKpACvkn0U+E6EzbABRe+hQNUXjhrZhwZhJIORQzQ1tsPt
-	DkIvPoFQBHsMJ17BRzyYp/fKj9dKqMphogNnYmt0r297XkqjKeNeInFooKs3nTBWC1laRNPKnul35
-	iIsgUZb7+nBay5skfDGSi59M7E5X5NxgkR8knua6EgABJkwqW6xHcp4gqpME/n+KT3uz2LDsY3Spl
-	b4cWNhgRNHqv4HvaZ6y4TofFFhWIYdSpTT76s0cqTzp3/Wh85icktvy6dSGBQwW7vOe12nB6JQOA6
-	kpFaOOyOeeBb0nazJ0EA==;
+	List-Owner; bh=aYb9deAXmvpBYUOhh65DVhDuGt6XUpDoJJjKBtgEKQ8=; b=3nCs0poeGxmZ+R
+	Uk2scnFU+Ec3XR2Tf77WZidjbPizuePmXqtGiV/xOykzYRbR3ogUcpksbdtJY+wYy5X27YR1VAEuA
+	tsG8iuz5eFeFeTbqaq8T9XDza++TodxCTf10GgQpvWUxx+ol6eBVoBgx+R6G7E67Pl1nm7TrwDAiF
+	mCgawfmRqYtgFp+bbXMTPEqGosRzaNJrXcLmJ/hRRAZS88uROPkF8DSdFQo2AzupzM5blpzttCRPA
+	rG2+y403fyfiQr+ViZB6aWHfcLLuA4LXz+vyX4PY7mJWnT5FBO1EETvBZ2uoxb6e55mbE+ej4RipT
+	h54CBlLGluyhKJdWt7WA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkjXi-0000000Cm0t-1tRQ;
-	Wed, 19 Feb 2025 12:51:10 +0000
-Received: from mail-wm1-x32d.google.com ([2a00:1450:4864:20::32d])
+	id 1tkk0b-0000000Cuw7-0kJI;
+	Wed, 19 Feb 2025 13:21:01 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkjUo-0000000CknA-47Dq
-	for linux-riscv@lists.infradead.org;
-	Wed, 19 Feb 2025 12:48:12 +0000
-Received: by mail-wm1-x32d.google.com with SMTP id 5b1f17b1804b1-43984e9cc90so4769515e9.1
-        for <linux-riscv@lists.infradead.org>; Wed, 19 Feb 2025 04:48:10 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1739969289; x=1740574089; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=TuTGzKLu5tsMdHN2Wdxs+98eJFE7Ctu0kJ3iax7fM+Y=;
-        b=g+IYhKBPEBiQ25M8DAwUf2duNsVrv0Lq0rR0GuiHVtPbWrMkhmGeWgfDClH1gbPJKa
-         eswnwR5zMm9IudXK8uWB1C8ldg8cnr139nVylAFsRdyuE6390Y+RjMo6FRckLNIC1B8B
-         wS9dOwwNJhn1jbpsG7vcnMKHz98u0FRR75gcIBQns6/RnYL+ale1HJgW28HjiUr0lOek
-         pHOYkXRsv8amibGA4aByh8jGberGz+ML4OUIPTGGcXWvlSXCSmwcrizARbGF1M1iXb4W
-         xLWhIwtYEtj2FGVlkyXIBkSxsRJXJ09OSfxJA8utjw0IXwtRtM5+D5w80ZTGNLeDtBe7
-         M+JQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1739969289; x=1740574089;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=TuTGzKLu5tsMdHN2Wdxs+98eJFE7Ctu0kJ3iax7fM+Y=;
-        b=KLomFFVE+TcvnigyvDFN798QQabWW3VZaQGfIAN29JPEZ05OVoCvvKjOzrVZ2KqwdP
-         JzJz2jEMIVybHBCH8ArQIFOlheIUrv7t2BflnW3L6pv02k18P6vfd7M1g631Ov/MN7om
-         ZeZjyp8tZmTuExTA32PZhkG21RMIaRnKjK3OC8j4/skCQVSNYjx+Z8mWkLtxgIzgP/TS
-         37xSHPBNCkLx94dejfh0eqNCLvrsesoO23UTgDTfSMK36xU+rB0y6zuzk89djqD5avl5
-         hxStNOd/GOZRvFKj6MUkUvHZLBsBFE7mDPQ1JC2yNa8kQRbLCQPAKsHqG+qr30RYqTta
-         ataw==
-X-Forwarded-Encrypted: i=1; AJvYcCWln9k1pfyRExkt7VoJYuBTI8wbXcQNqGozz6HxgZC7zvXvultudHoX1npBV9kJqAdp+vG0AF7KkDiDAA==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz9kiobhd4xzEK1jgaw45VUsSDNVsxBa9uxwAUWCqdQW5P8m9PW
-	63hLzv+i1Nd+OMH8Hrk/McsC/Eyt1dCBy+4ZPUhZU1DoFhkeo+JmUSrksiy9bDQ=
-X-Gm-Gg: ASbGncuWcTi5kQrN/5czrlxX6oTsoKAMkopKatifcbXpY+6sRWHWbQMc3WFYspNJ29U
-	fuibjDm/3jBJVaP4TST4cF352Fk/4eAXEz3K0vyZH6/j+cCI/kPryBOETF81iiMq+lXyX7SbmGr
-	JdTNfkWJIdH/F4rdLc/adTpf0ZkhWj5zhf9k2E8YG+wJPCfoNCSWYMJvnhTWa1sH3BQmGcPzdyq
-	tXu8kqP8UOVNTh3tgQdOtGLw2seW0U9mLgWQLyN02Xro5yfXdB4GJfB18+fqF0qFaU3Ypt4nUlN
-	jtYIlJad01iK8n5q7jW5uC/aTJr0OXN/YohtdmXO5AoBiVVvVdD99OM=
-X-Google-Smtp-Source: AGHT+IHKkZm1mWTjnxrw0HpjWwHwD+t1a1Q2QYShVARWCw/jMaNlFT4FqF6ALJVnKaxZoyWJrSlOlw==
-X-Received: by 2002:a05:600c:19ce:b0:439:5fbd:19d2 with SMTP id 5b1f17b1804b1-43999b44505mr32310105e9.10.1739969289321;
-        Wed, 19 Feb 2025 04:48:09 -0800 (PST)
-Received: from [192.168.10.46] (146725694.box.freepro.com. [130.180.211.218])
-        by smtp.googlemail.com with ESMTPSA id ffacd0b85a97d-38f2591513bsm17965134f8f.55.2025.02.19.04.48.08
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 19 Feb 2025 04:48:08 -0800 (PST)
-Message-ID: <993f6d6e-a352-4397-82df-8db05cdfc18e@linaro.org>
-Date: Wed, 19 Feb 2025 13:48:08 +0100
+	id 1tkjz6-0000000CuXt-2hCm;
+	Wed, 19 Feb 2025 13:19:29 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 39EF6A426F9;
+	Wed, 19 Feb 2025 13:17:42 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 26083C4CED1;
+	Wed, 19 Feb 2025 13:19:26 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linuxfoundation.org;
+	s=korg; t=1739971166;
+	bh=RcuQPWBAOebggXpc49oXCroXSGfFXw0R3wUoVFgSYw0=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=TZH/bQk4qL6+2tnUJqqWBkPPTthw5gu9C17UymFAIupjP536vP5/A2uuLTBTsi5EM
+	 G6Cwv45NY3dyN2GbwkOU/ec7M/aKurvYZOZohZZHB3xEdjNwkIGxGcUW3qgOJrXUR0
+	 jXyHDhQTIbUsWIurk+PCF0wp5cC3JQAlgnZOUB20=
+Date: Wed, 19 Feb 2025 14:19:23 +0100
+From: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+To: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
+Cc: Jerome Brunet <jbrunet@baylibre.com>,
+	Dave Ertman <david.m.ertman@intel.com>,
+	Ira Weiny <ira.weiny@intel.com>,
+	"Rafael J. Wysocki" <rafael@kernel.org>,
+	Stephen Boyd <sboyd@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
+	Danilo Krummrich <dakr@kernel.org>,
+	Conor Dooley <conor.dooley@microchip.com>,
+	Daire McNamara <daire.mcnamara@microchip.com>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Douglas Anderson <dianders@chromium.org>,
+	Andrzej Hajda <andrzej.hajda@intel.com>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Robert Foss <rfoss@kernel.org>,
+	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
+	Jonas Karlman <jonas@kwiboo.se>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+	Hans de Goede <hdegoede@redhat.com>,
+	Ilpo =?iso-8859-1?Q?J=E4rvinen?= <ilpo.jarvinen@linux.intel.com>,
+	Bryan O'Donoghue <bryan.odonoghue@linaro.org>,
+	Vladimir Kondratiev <vladimir.kondratiev@mobileye.com>,
+	Gregory CLEMENT <gregory.clement@bootlin.com>,
+	=?iso-8859-1?Q?Th=E9o?= Lebrun <theo.lebrun@bootlin.com>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Abel Vesa <abelvesa@kernel.org>, Peng Fan <peng.fan@nxp.com>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Kevin Hilman <khilman@baylibre.com>,
+	Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+	dri-devel@lists.freedesktop.org,
+	platform-driver-x86@vger.kernel.org, linux-mips@vger.kernel.org,
+	linux-clk@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-amlogic@lists.infradead.org
+Subject: Re: [PATCH v4 1/8] driver core: auxiliary bus: add device creation
+ helpers
+Message-ID: <2025021937-trodden-snowdrop-99be@gregkh>
+References: <20250218-aux-device-create-helper-v4-0-c3d7dfdea2e6@baylibre.com>
+ <20250218-aux-device-create-helper-v4-1-c3d7dfdea2e6@baylibre.com>
+ <crtrciitrlqkxh5mxvnbdjy6zoxny5onse7xgbw7biozg6myux@grp3ketgl2uh>
+ <2025021922-spongy-swirl-0746@gregkh>
+ <eskvhtljnrkhm6vmqy52gkweexj3tcethejeywcoib4la72jcl@ojuqcazpvht4>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 2/2] clocksource/drivers/timer-riscv: Stop stimecmp
- when cpu hotplug
-To: Nick Hu <nick.hu@sifive.com>, Thomas Gleixner <tglx@linutronix.de>,
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>
-Cc: linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
-References: <20250219114135.27764-1-nick.hu@sifive.com>
- <20250219114135.27764-3-nick.hu@sifive.com>
-Content-Language: en-US
-From: Daniel Lezcano <daniel.lezcano@linaro.org>
-In-Reply-To: <20250219114135.27764-3-nick.hu@sifive.com>
+Content-Disposition: inline
+In-Reply-To: <eskvhtljnrkhm6vmqy52gkweexj3tcethejeywcoib4la72jcl@ojuqcazpvht4>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250219_044811_020914_5E61E158 
-X-CRM114-Status: UNSURE (   7.33  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250219_051928_831487_97F18C9B 
+X-CRM114-Status: GOOD (  31.21  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,23 +106,118 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gMTkvMDIvMjAyNSAxMjo0MSwgTmljayBIdSB3cm90ZToKPiBTdG9wIHRoZSB0aW1lciB3aGVu
-IHRoZSBjcHUgaXMgZ29pbmcgdG8gYmUgb2ZmbGluZSBvdGhlcndpc2UgdGhlCj4gdGltZXIgaW50
-ZXJydXB0IG1heSBiZSBwZW5kaW5nIHdoaWxlIHBlcmZvcm1pbmcgcG93ZXItZG93bi4KPiAKPiBT
-dWdnZXN0ZWQtYnk6IEFudXAgUGF0ZWwgPGFudXBAYnJhaW5mYXVsdC5vcmc+Cj4gTGluazogaHR0
-cHM6Ly9sb3JlLmtlcm5lbC5vcmcvbGttbC8yMDI0MDgyOTAzMzkwNC40NzcyMDAtMy1uaWNrLmh1
-QHNpZml2ZS5jb20vVC8jdQo+IFNpZ25lZC1vZmYtYnk6IE5pY2sgSHUgPG5pY2suaHVAc2lmaXZl
-LmNvbT4KPiBSZXZpZXdlZC1ieTogQW51cCBQYXRlbCA8YW51cEBicmFpbmZhdWx0Lm9yZz4KPiAt
-LS0KCkFja2VkLWJ5OiBEYW5pZWwgTGV6Y2FubyA8ZGFuaWVsLmxlemNhbm9AbGluYXJvLm9yZz4K
-Ci0tIAo8aHR0cDovL3d3dy5saW5hcm8ub3JnLz4gTGluYXJvLm9yZyDilIIgT3BlbiBzb3VyY2Ug
-c29mdHdhcmUgZm9yIEFSTSBTb0NzCgpGb2xsb3cgTGluYXJvOiAgPGh0dHA6Ly93d3cuZmFjZWJv
-b2suY29tL3BhZ2VzL0xpbmFybz4gRmFjZWJvb2sgfAo8aHR0cDovL3R3aXR0ZXIuY29tLyMhL2xp
-bmFyb29yZz4gVHdpdHRlciB8CjxodHRwOi8vd3d3LmxpbmFyby5vcmcvbGluYXJvLWJsb2cvPiBC
-bG9nCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51
-eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRw
-Oi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+On Wed, Feb 19, 2025 at 02:08:22PM +0200, Dmitry Baryshkov wrote:
+> On Wed, Feb 19, 2025 at 11:13:14AM +0100, Greg Kroah-Hartman wrote:
+> > On Wed, Feb 19, 2025 at 11:06:02AM +0200, Dmitry Baryshkov wrote:
+> > > On Tue, Feb 18, 2025 at 08:29:46PM +0100, Jerome Brunet wrote:
+> > > > Add helper functions to create a device on the auxiliary bus.
+> > > > 
+> > > > This is meant for fairly simple usage of the auxiliary bus, to avoid having
+> > > > the same code repeated in the different drivers.
+> > > > 
+> > > > Suggested-by: Stephen Boyd <sboyd@kernel.org>
+> > > > Cc: Arnd Bergmann <arnd@arndb.de>
+> > > > Signed-off-by: Jerome Brunet <jbrunet@baylibre.com>
+> > > > ---
+> > > >  drivers/base/auxiliary.c      | 108 ++++++++++++++++++++++++++++++++++++++++++
+> > > >  include/linux/auxiliary_bus.h |  17 +++++++
+> > > >  2 files changed, 125 insertions(+)
+> > > > 
+> > > > diff --git a/drivers/base/auxiliary.c b/drivers/base/auxiliary.c
+> > > > index afa4df4c5a3f371b91d8dd8c4325495d32ad1291..a6d46c2759be81a0739f07528d5959c2a76eb8a8 100644
+> > > > --- a/drivers/base/auxiliary.c
+> > > > +++ b/drivers/base/auxiliary.c
+> > > > @@ -385,6 +385,114 @@ void auxiliary_driver_unregister(struct auxiliary_driver *auxdrv)
+> > > >  }
+> > > >  EXPORT_SYMBOL_GPL(auxiliary_driver_unregister);
+> > > >  
+> > > > +static void auxiliary_device_release(struct device *dev)
+> > > > +{
+> > > > +	struct auxiliary_device *auxdev = to_auxiliary_dev(dev);
+> > > > +
+> > > > +	kfree(auxdev);
+> > > > +}
+> > > > +
+> > > > +/**
+> > > > + * auxiliary_device_create - create a device on the auxiliary bus
+> > > > + * @dev: parent device
+> > > > + * @modname: module name used to create the auxiliary driver name.
+> > > > + * @devname: auxiliary bus device name
+> > > > + * @platform_data: auxiliary bus device platform data
+> > > > + * @id: auxiliary bus device id
+> > > > + *
+> > > > + * Helper to create an auxiliary bus device.
+> > > > + * The device created matches driver 'modname.devname' on the auxiliary bus.
+> > > > + */
+> > > > +struct auxiliary_device *auxiliary_device_create(struct device *dev,
+> > > > +						 const char *modname,
+> > > > +						 const char *devname,
+> > > > +						 void *platform_data,
+> > > > +						 int id)
+> > > > +{
+> > > > +	struct auxiliary_device *auxdev;
+> > > > +	int ret;
+> > > > +
+> > > > +	auxdev = kzalloc(sizeof(*auxdev), GFP_KERNEL);
+> > > > +	if (!auxdev)
+> > > > +		return NULL;
+> > > > +
+> > > > +	auxdev->id = id;
+> > > > +	auxdev->name = devname;
+> > > > +	auxdev->dev.parent = dev;
+> > > > +	auxdev->dev.platform_data = platform_data;
+> > > > +	auxdev->dev.release = auxiliary_device_release;
+> > > > +	device_set_of_node_from_dev(&auxdev->dev, dev);
+> > > > +
+> > > > +	ret = auxiliary_device_init(auxdev);
+> > > > +	if (ret) {
+> > > > +		kfree(auxdev);
+> > > > +		return NULL;
+> > > > +	}
+> > > > +
+> > > > +	ret = __auxiliary_device_add(auxdev, modname);
+> > > > +	if (ret) {
+> > > 
+> > > This loses possible error return values from __auxiliary_device_add().
+> > 
+> > Why does that really matter?
+> 
+> At the very least the caller (or caller of a caller) can call
+> dev_err_probe() or dev_err("%pe"). With the current implementation as
+> everybody maps NULL to -ENOMEM the error message will be cryptic.
+> 
+> Or just having a cryptic value in the logs.
+
+So all you can get here could be:
+	-ENOMEM - memory couldn't be allocated somewhere
+	-EINVAL - wrong parameters sent to auxiliary_device_init() or __auxiliary_device_add()
+	-EEXIST - duplicate name
+
+And if -EEXIST happens, you will get a kernel log splat from sysfs
+showing you that something went wrong.
+
+So while I understand the need to be specific here in reporting the
+exact error, I fail to understand how it really matters at all.  A
+driver writer really only wants to know "did it work?" and have a simple
+way to test it.
+
+IS_ERR_OR_NULL() and then getting the error using PTR_ERR() is rough and
+feels like boilerplate code that everyone gets wrong (how many times do
+people accidentally only check for NULL?).
+
+Anyway, I'm for simple apis, and NULL or valid pointer seems simple to
+me.
+
+thanks,
+
+greg k-h
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
