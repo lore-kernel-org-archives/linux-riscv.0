@@ -4,70 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 388D2C021AA
-	for <linux-riscv@archiver.kernel.org>; Wed, 19 Feb 2025 17:07:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 298D9C021B0
+	for <linux-riscv@archiver.kernel.org>; Wed, 19 Feb 2025 17:16:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nUTIWzYe5uYRGZ8ZHUgM3PuOct7Y90uf0Et5HK22JSE=; b=2WxmxV143c+9zcRhpQ8G6S6nxU
-	l4xv9chdaS7dMwXHZH6jUiYPH4puEvA+ci2W3tKJrfZR1IaHatlODaKhiGJwVYzTBTBRJDOovMoge
-	eRRp/IrFoyxUxHaed+oxbQ7b/h+jhPUnpkwpI/Oea+0Iyi4v5n2tKeZNx45Phj8w5eWjKyqQnaALe
-	wTXbHKgMrHF3Jlaj629uEmXWOT85eGSZV61JD5T8U51v6ZXUrRZ2erFD5L3Wel71MhWMn+n26eO7B
-	TOhchQrzSTW0QoJ5y0kJwA1/V9IXx9clh58WloRyocR6RqbhxGJx5Wc03FwYCQLsqLT8DanYbtean
-	12iWMKKA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:Message-ID:
+	In-Reply-To:Subject:cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=UzBjTd0fm8Lx9SCN7FxfUu7Wpt6tRKhupNGWeox2urE=; b=j/jkoJk2dCDVSl
+	QtkYud2jsi9eEz2XXVCnxEwRhKp4nW3gFhw4tBuoITRHsO71+g65uVUcf7UWgADZIV7APcN6MRSlp
+	HpivxN5EOcHYVUoxrp0KGFPM+4ZYK1f6TriHGvFbn+5r2ILWTWpgmZJsWnn+W3gM/dyHFW81B1egM
+	Z+ENL9emUHpVycZVfo7ehLoEvrm2QKMpnrxAOSHwEKajhLLnyAT1+J/9IPfPmeXb3N1jcRKout3hP
+	1MDXLiXegEMa+SUulTL9x6iWoB6sry8H/A3uRKUM8gr6IMQW9+p7Svzp2Mv6TIsOFHa9aAV/Kjwik
+	KB5jco/JvYn96vlepgvg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tknXq-0000000E0Y1-3bHc;
-	Wed, 19 Feb 2025 17:07:34 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tknXk-0000000E0Vz-1yAM
-	for linux-riscv@lists.infradead.org;
-	Wed, 19 Feb 2025 17:07:33 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 62DCEA41E9B;
-	Wed, 19 Feb 2025 17:05:42 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D16B5C4CEDD;
-	Wed, 19 Feb 2025 17:07:23 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1739984846;
-	bh=hAryitJnIAa30axFWXeMrq2DsntcJ0u5SXN3znJATEE=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=UqAzD7MUx6yyPo+t4ef6DxLjEy3DwHPL5S7aE9JoiSSDv6BF/bawG5Xu+Hkyc/T+w
-	 XsBGqGRG3fRWPF+hUxgphbEqPNtjPcY5GvEDbKocI7U1RoSWa2VdG4/g3ZMj3Taz8m
-	 +3mHcE21BxcBuVjYwTOIrle1MTK1Razb0/kp2q+xYVqFpkKF4iWIxgtuVJ6OdNv4Rv
-	 /bfI0oyFZAjCyJ21xxoJeVg83TX9n4RZt/Hdq2g4PZGUcgyBB4uvtpUz5a6RxNC1Qs
-	 V+tzt64/xyMbNzS5bAj3haUmAykY9ZLkHLIcp8eGMH3NQ3KHgDWzPpXXpFdP1bSyF2
-	 rdDTRFIQU3jFw==
-Date: Wed, 19 Feb 2025 17:07:21 +0000
-From: Conor Dooley <conor@kernel.org>
-To: Stephen Boyd <sboyd@kernel.org>
-Cc: Xukai Wang <kingxukai@zohomail.com>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, linux-clk@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	Samuel Holland <samuel.holland@sifive.com>,
-	Troy Mitchell <TroyMitchell988@gmail.com>,
-	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Subject: Re: [PATCH v4 0/3] riscv: canaan: Add support for K230-Canmv clock
-Message-ID: <20250219-provided-disregard-948f2988871f@spud>
-References: <20250217-b4-k230-clk-v4-0-5a95a3458691@zohomail.com>
- <20250218-poplar-iron-c894fe8deca6@spud>
- <b2b9216c7c28e5eed267b9a39c8dcfb1.sboyd@kernel.org>
+	id 1tknfw-0000000E2kM-3tBu;
+	Wed, 19 Feb 2025 17:15:56 +0000
+Received: from angie.orcam.me.uk ([2001:4190:8020::34])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tknft-0000000E2jJ-4AMR;
+	Wed, 19 Feb 2025 17:15:55 +0000
+Received: by angie.orcam.me.uk (Postfix, from userid 500)
+	id 7D21992009C; Wed, 19 Feb 2025 18:15:48 +0100 (CET)
+Received: from localhost (localhost [127.0.0.1])
+	by angie.orcam.me.uk (Postfix) with ESMTP id 7875792009B;
+	Wed, 19 Feb 2025 17:15:48 +0000 (GMT)
+Date: Wed, 19 Feb 2025 17:15:48 +0000 (GMT)
+From: "Maciej W. Rozycki" <macro@orcam.me.uk>
+To: "Dmitry V. Levin" <ldv@strace.io>
+cc: Andrew Morton <akpm@linux-foundation.org>, Oleg Nesterov <oleg@redhat.com>, 
+    Alexey Gladkov <legion@kernel.org>, 
+    Eugene Syromyatnikov <evgsyr@gmail.com>, 
+    Charlie Jenkins <charlie@rivosinc.com>, Helge Deller <deller@gmx.de>, 
+    Mike Frysinger <vapier@gentoo.org>, Renzo Davoli <renzo@cs.unibo.it>, 
+    Davide Berardi <berardi.dav@gmail.com>, Vineet Gupta <vgupta@kernel.org>, 
+    Russell King <linux@armlinux.org.uk>, Will Deacon <will@kernel.org>, 
+    Guo Ren <guoren@kernel.org>, Brian Cain <bcain@quicinc.com>, 
+    Huacai Chen <chenhuacai@kernel.org>, WANG Xuerui <kernel@xen0n.name>, 
+    Thomas Bogendoerfer <tsbogend@alpha.franken.de>, 
+    Dinh Nguyen <dinguyen@kernel.org>, Jonas Bonn <jonas@southpole.se>, 
+    Stefan Kristiansson <stefan.kristiansson@saunalahti.fi>, 
+    Stafford Horne <shorne@gmail.com>, 
+    "James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>, 
+    Madhavan Srinivasan <maddy@linux.ibm.com>, 
+    Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>, 
+    Christophe Leroy <christophe.leroy@csgroup.eu>, 
+    Naveen N Rao <naveen@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>, 
+    Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+    Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>, 
+    Alexander Gordeev <agordeev@linux.ibm.com>, 
+    Christian Borntraeger <borntraeger@linux.ibm.com>, 
+    Sven Schnelle <svens@linux.ibm.com>, 
+    Yoshinori Sato <ysato@users.sourceforge.jp>, Rich Felker <dalias@libc.org>, 
+    John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>, 
+    "David S. Miller" <davem@davemloft.net>, 
+    Andreas Larsson <andreas@gaisler.com>, Richard Weinberger <richard@nod.at>, 
+    Anton Ivanov <anton.ivanov@cambridgegreys.com>, 
+    Johannes Berg <johannes@sipsolutions.net>, 
+    Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>, 
+    Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>, 
+    x86@kernel.org, "H. Peter Anvin" <hpa@zytor.com>, 
+    Chris Zankel <chris@zankel.net>, Max Filippov <jcmvbkbc@gmail.com>, 
+    Arnd Bergmann <arnd@arndb.de>, strace-devel@lists.strace.io, 
+    linux-snps-arc@lists.infradead.org, linux-kernel@vger.kernel.org, 
+    linux-arm-kernel@lists.infradead.org, linux-csky@vger.kernel.org, 
+    linux-hexagon@vger.kernel.org, loongarch@lists.linux.dev, 
+    linux-mips@vger.kernel.org, linux-openrisc@vger.kernel.org, 
+    linux-parisc@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, 
+    linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org, 
+    linux-sh@vger.kernel.org, sparclinux@vger.kernel.org, 
+    linux-um@lists.infradead.org, linux-arch@vger.kernel.org
+Subject: Re: [PATCH v6 2/6] syscall.h: add syscall_set_arguments()
+In-Reply-To: <20250217091020.GC18175@strace.io>
+Message-ID: <alpine.DEB.2.21.2502191642590.65342@angie.orcam.me.uk>
+References: <20250217091020.GC18175@strace.io>
+User-Agent: Alpine 2.21 (DEB 202 2017-01-01)
 MIME-Version: 1.0
-In-Reply-To: <b2b9216c7c28e5eed267b9a39c8dcfb1.sboyd@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250219_090728_570599_4A50DB83 
-X-CRM114-Status: GOOD (  13.69  )
+X-CRM114-CacheID: sfid-20250219_091554_203467_9A282C20 
+X-CRM114-Status: GOOD (  24.13  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,60 +96,178 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============2881110414933716932=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On Mon, 17 Feb 2025, Dmitry V. Levin wrote:
 
---===============2881110414933716932==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="DRM8MpnQrs8Rzg6i"
-Content-Disposition: inline
+> This function is going to be needed on all HAVE_ARCH_TRACEHOOK
+> architectures to implement PTRACE_SET_SYSCALL_INFO API.
+> 
+> This partially reverts commit 7962c2eddbfe ("arch: remove unused
+> function syscall_set_arguments()") by reusing some of old
+> syscall_set_arguments() implementations.
+> 
+> Signed-off-by: Dmitry V. Levin <ldv@strace.io>
+> Tested-by: Charlie Jenkins <charlie@rivosinc.com>
+> Reviewed-by: Charlie Jenkins <charlie@rivosinc.com>
+> Acked-by: Helge Deller <deller@gmx.de> # parisc
+> ---
+>  arch/arc/include/asm/syscall.h        | 14 +++++++++++
+>  arch/arm/include/asm/syscall.h        | 13 ++++++++++
+>  arch/arm64/include/asm/syscall.h      | 13 ++++++++++
+>  arch/csky/include/asm/syscall.h       | 13 ++++++++++
+>  arch/hexagon/include/asm/syscall.h    |  7 ++++++
+>  arch/loongarch/include/asm/syscall.h  |  8 ++++++
+>  arch/mips/include/asm/syscall.h       | 32 ++++++++++++++++++++++++
+>  arch/nios2/include/asm/syscall.h      | 11 ++++++++
+>  arch/openrisc/include/asm/syscall.h   |  7 ++++++
+>  arch/parisc/include/asm/syscall.h     | 12 +++++++++
+>  arch/powerpc/include/asm/syscall.h    | 10 ++++++++
+>  arch/riscv/include/asm/syscall.h      |  9 +++++++
+>  arch/s390/include/asm/syscall.h       |  9 +++++++
+>  arch/sh/include/asm/syscall_32.h      | 12 +++++++++
+>  arch/sparc/include/asm/syscall.h      | 10 ++++++++
+>  arch/um/include/asm/syscall-generic.h | 14 +++++++++++
+>  arch/x86/include/asm/syscall.h        | 36 +++++++++++++++++++++++++++
+>  arch/xtensa/include/asm/syscall.h     | 11 ++++++++
+>  include/asm-generic/syscall.h         | 16 ++++++++++++
+>  19 files changed, 257 insertions(+)
+> 
+> diff --git a/arch/arc/include/asm/syscall.h b/arch/arc/include/asm/syscall.h
+> index 9709256e31c8..89c1e1736356 100644
+> --- a/arch/arc/include/asm/syscall.h
+> +++ b/arch/arc/include/asm/syscall.h
+> @@ -67,6 +67,20 @@ syscall_get_arguments(struct task_struct *task, struct pt_regs *regs,
+>  	}
+>  }
+>  
+> +static inline void
+> +syscall_set_arguments(struct task_struct *task, struct pt_regs *regs,
+> +		      unsigned long *args)
+> +{
+> +	unsigned long *inside_ptregs = &regs->r0;
+> +	unsigned int n = 6;
+> +	unsigned int i = 0;
+> +
+> +	while (n--) {
+> +		*inside_ptregs = args[i++];
+> +		inside_ptregs--;
+> +	}
+> +}
+> +
+>  static inline int
+>  syscall_get_arch(struct task_struct *task)
+>  {
+> diff --git a/arch/arm/include/asm/syscall.h b/arch/arm/include/asm/syscall.h
+> index fe4326d938c1..21927fa0ae2b 100644
+> --- a/arch/arm/include/asm/syscall.h
+> +++ b/arch/arm/include/asm/syscall.h
+> @@ -80,6 +80,19 @@ static inline void syscall_get_arguments(struct task_struct *task,
+>  	memcpy(args, &regs->ARM_r0 + 1, 5 * sizeof(args[0]));
+>  }
+>  
+> +static inline void syscall_set_arguments(struct task_struct *task,
+> +					 struct pt_regs *regs,
+> +					 const unsigned long *args)
+> +{
+> +	memcpy(&regs->ARM_r0, args, 6 * sizeof(args[0]));
+> +	/*
+> +	 * Also copy the first argument into ARM_ORIG_r0
+> +	 * so that syscall_get_arguments() would return it
+> +	 * instead of the previous value.
+> +	 */
+> +	regs->ARM_ORIG_r0 = regs->ARM_r0;
+> +}
+> +
+>  static inline int syscall_get_arch(struct task_struct *task)
+>  {
+>  	/* ARM tasks don't change audit architectures on the fly. */
+> diff --git a/arch/arm64/include/asm/syscall.h b/arch/arm64/include/asm/syscall.h
+> index ab8e14b96f68..76020b66286b 100644
+> --- a/arch/arm64/include/asm/syscall.h
+> +++ b/arch/arm64/include/asm/syscall.h
+> @@ -73,6 +73,19 @@ static inline void syscall_get_arguments(struct task_struct *task,
+>  	memcpy(args, &regs->regs[1], 5 * sizeof(args[0]));
+>  }
+>  
+> +static inline void syscall_set_arguments(struct task_struct *task,
+> +					 struct pt_regs *regs,
+> +					 const unsigned long *args)
+> +{
+> +	memcpy(&regs->regs[0], args, 6 * sizeof(args[0]));
+> +	/*
+> +	 * Also copy the first argument into orig_x0
+> +	 * so that syscall_get_arguments() would return it
+> +	 * instead of the previous value.
+> +	 */
+> +	regs->orig_x0 = regs->regs[0];
+> +}
+> +
+>  /*
+>   * We don't care about endianness (__AUDIT_ARCH_LE bit) here because
+>   * AArch64 has the same system calls both on little- and big- endian.
+> diff --git a/arch/csky/include/asm/syscall.h b/arch/csky/include/asm/syscall.h
+> index 0de5734950bf..30403f7a0487 100644
+> --- a/arch/csky/include/asm/syscall.h
+> +++ b/arch/csky/include/asm/syscall.h
+> @@ -59,6 +59,19 @@ syscall_get_arguments(struct task_struct *task, struct pt_regs *regs,
+>  	memcpy(args, &regs->a1, 5 * sizeof(args[0]));
+>  }
+>  
+> +static inline void
+> +syscall_set_arguments(struct task_struct *task, struct pt_regs *regs,
+> +		      const unsigned long *args)
+> +{
+> +	memcpy(&regs->a0, args, 6 * sizeof(regs->a0));
+> +	/*
+> +	 * Also copy the first argument into orig_x0
+                                                  ^
+ Typo here, s/orig_x0/orig_a0/; see below.
 
+> +	 * so that syscall_get_arguments() would return it
+> +	 * instead of the previous value.
+> +	 */
+> +	regs->orig_a0 = regs->a0;
 
---DRM8MpnQrs8Rzg6i
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+ Also:
 
-On Tue, Feb 18, 2025 at 01:51:38PM -0800, Stephen Boyd wrote:
-> Quoting Conor Dooley (2025-02-18 09:02:32)
-> > Stephen,
-> >=20
-> > Is the driver in this series satisfactory to you? If it is, can I send
-> > you a PR containing it and the binding so that I can apply the final
-> > patch in the series (and merge the basic support for the k230 soc)?
-> >=20
->=20
-> Sorry, the driver is not ready.
+> diff --git a/arch/mips/include/asm/syscall.h b/arch/mips/include/asm/syscall.h
+> index 056aa1b713e2..ea050b23d428 100644
+> --- a/arch/mips/include/asm/syscall.h
+> +++ b/arch/mips/include/asm/syscall.h
+> @@ -120,6 +137,21 @@ static inline void syscall_get_arguments(struct task_struct *task,
+>  		mips_get_syscall_arg(args++, task, regs, i++);
+>  }
+>  
+> +static inline void syscall_set_arguments(struct task_struct *task,
+> +					 struct pt_regs *regs,
+> +					 unsigned long *args)
+> +{
+> +	unsigned int i = 0;
+> +	unsigned int n = 6;
+> +
+> +	/* O32 ABI syscall() */
+> +	if (mips_syscall_is_indirect(task, regs))
+> +		i++;
 
-That's cool, was just basing off the v4 changelog being minimal, no
-worries.
+-- given MIPS syscall_set_nr() implementation in 3/6 this conditional is 
+supposed to never be true.  Should it be BUG_ON() or discarded entirely?
 
---DRM8MpnQrs8Rzg6i
-Content-Type: application/pgp-signature; name="signature.asc"
+> +
+> +	while (n--)
+> +		mips_set_syscall_arg(args++, task, regs, i++);
+> +}
+> +
+>  extern const unsigned long sys_call_table[];
+>  extern const unsigned long sys32_call_table[];
+>  extern const unsigned long sysn32_call_table[];
 
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZ7YPsgAKCRB4tDGHoIJi
-0m+pAP9zRwxRDmSEDI0bpcXZF3kIzUKuyLOHvSrhwH7btn+hvwD/WSTeoZC7nplx
-fom2EPgk7xMN4Tlkm8WQwu9xQCe8Fww=
-=DYtV
------END PGP SIGNATURE-----
-
---DRM8MpnQrs8Rzg6i--
-
-
---===============2881110414933716932==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+  Maciej
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============2881110414933716932==--
-
