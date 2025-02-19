@@ -4,173 +4,164 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0EBD1C021AA
-	for <linux-riscv@archiver.kernel.org>; Wed, 19 Feb 2025 15:14:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 498DEC021B0
+	for <linux-riscv@archiver.kernel.org>; Wed, 19 Feb 2025 15:22:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
-	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=G/GefqMSJOFcWReFJmtaG21u1Bdl8SGqUwGDpX3aJsw=; b=WonUvaMR1nrD0O
-	jSo1L/Cr4PIjhYpAakvE/Bvkz+MFIUzg4UyUaKvHxWycfBocugJ4iilAke0ynWRZb2ZsKn8q42w+Q
-	uf56pEFMipfH6jd1baj0DgK+pCRveklU3CBxG9z7RBwpWR+k0wwN/Qo+wSPBCrsJtx8NZKeWi4lHw
-	JfN9cRdO++zcnJbXbZh5xm7fARzvUYDSds2OQ132ZiYPXxW2iduyN1AUCwW1kRiJIDQyqOyIKCfk9
-	QRyeYzpkL+fOjCJSIHiwolGMbHbK/1l5Q9WbjKaL7tYDBQ0T3Tkl5EBfdaXv37XwLI5aTcwaWh2ta
-	PttR+oOh9Z9LOt/fBKBw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=gGCfUNsRLMc6sTiu0sIkaPusFwShTP+68+yh8P8JKRM=; b=rK2qCaxky1tHnvFrSatnyIZw4S
+	1VzrhQaqT6YVIt22obdjSsSLxddi0UYVkUMzFyJC6KkXKYpyXeWKQ0uPoy0ZighXamPKHNaOUXFXT
+	z3TS7wwSsnB6LRly67oQ9JEhqUn0tDfuHAZYlPmP/bdrXSktHSdbDypP334+y6f2Rlq3P0fchhItR
+	+S+ZFLsUOL18FgDs3e+WrhIhLAiXhGhZQkkx9SCTXfPV7vLjiXRy3JdMQ5QWAlp3pVKTfs3X/3w8l
+	aJOo5iIvMZs0uBzs3t4HQsjK16ud3IufaqJWOInihuKllSSM0PbTxMm42MstZSzsrHlHkzbNI/qmg
+	ZAtpQ+qQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tklmb-0000000DU4l-2eSq;
-	Wed, 19 Feb 2025 15:14:41 +0000
+	id 1tkltd-0000000DWDe-05C8;
+	Wed, 19 Feb 2025 15:21:57 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkllB-0000000DTh8-49yU
+	id 1tkltb-0000000DWD0-3mEK
 	for linux-riscv@bombadil.infradead.org;
-	Wed, 19 Feb 2025 15:13:14 +0000
+	Wed, 19 Feb 2025 15:21:56 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Type:MIME-Version:Message-ID:
-	Date:References:In-Reply-To:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=YEDFkhBYjRhP5Z93Fy/FXNH8qcO0tYdixMhBiEsACWQ=; b=GGdGgJndLzAQ/s9j8Qe4dkuTLU
-	g1ojNtRYQU3To2kp6N8Z9p8uMwtLp2tRwUXVzi6L0Pq/zoWRagraNPSM3/VjlU+ed/HPG9j5YipWO
-	bZVLmapBM8K6/dkx9Asw0KciuqRNhAdby3iMjdluo54DxNmoP0OxtXvjk/JE2f3OO7kofWgUcktkS
-	W2PDg8rBAn3xSjKQXPlhs0RmYhiZQQwi+PptgmGYvvbcV2ePP4mFhwsi1M9M285q45LbJQ0wQRDjW
-	P/9FZc0vhhXBuJ71pANRYXvM9Q+Y2UMU6kSXCkaDhr2+m3Stw3uCLVPAxpKoaQvgk5pY4d1hRhJ3F
-	cKrAuLiA==;
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	d=infradead.org; s=desiato.20200630; h=MIME-Version:Content-Transfer-Encoding
+	:Content-Type:In-Reply-To:From:References:Cc:To:Subject:Date:Message-ID:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=XxenyQmpsC6nEdCAFBQzPGy6VJEFVMeu0MEn2p9V+Qg=; b=KJ5Xs/AKHY0lq9zVFHkCmAK6l5
+	v1+kZdbSfaegfriS9Mr6HPyxgDGnykz8zTy5UKn0uZYvocTdLvWt2oJgTw4joEqEbKTJv4vNUxC3U
+	ZqGNYOwbijNbAbr/a9G5KbS16J8/qBjpl5JRH+0E7zzz5vwzCzDVQDLj3+pp92YE7YQSkDCAzF0Iv
+	BwARJRI9L3HWREWloZiUqtvmrqjL0suHlu9qV9fQalwjSh4OQ01AYGineosdosPykh2XPScLomvzd
+	GCQM/R/AwQi5vKHuM8tLripQTPuyp6NsVb4tC79UrxPceJsd4e85VG2DPwMfbJsMXTv9DcTRYwONb
+	g9PYutzQ==;
+Received: from mail-vi1eur03olkn2082f.outbound.protection.outlook.com ([2a01:111:f403:2e0c::82f] helo=EUR03-VI1-obe.outbound.protection.outlook.com)
 	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkll7-00000002Edl-2DsQ
+	id 1tkltZ-00000002FEj-06Kw
 	for linux-riscv@lists.infradead.org;
-	Wed, 19 Feb 2025 15:13:12 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1739977986;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=YEDFkhBYjRhP5Z93Fy/FXNH8qcO0tYdixMhBiEsACWQ=;
-	b=GW9GPyekQTHonsiuL57zD47+u+pvv3Zl7lMu41Z4O6mg0ReVmlHevyBl3eQBcru2N3jwZu
-	k9R27JRRiNS53QWSMhSBaGNB9Ms8uh7mZTmLrVdVRZfz0VvxIJoPta3YcWzLr6/O0bp4GK
-	9E3HzKLwpohKweKhoeD8s1HfvoR3VBA=
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1739977987;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=YEDFkhBYjRhP5Z93Fy/FXNH8qcO0tYdixMhBiEsACWQ=;
-	b=TFCEB5GjqZMNSk8DaTaYFNLzsry9euhobU1lp0x5CC3ltMyhFwB0DxcNBg8t1NvAnsoxwX
-	DPlMaYdOn5HSLly1jzgqucReYGibF9LRNA7FqatnPH9tFxwFZNsCFmk7j2hs/TB2HXhKos
-	JFcU4fr7Biz3WbyUQwER1h3TP2obdxQ=
-Received: from mail-wm1-f69.google.com (mail-wm1-f69.google.com
- [209.85.128.69]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-356-JC4ljwEzPF6r-uqei1A6lQ-1; Wed, 19 Feb 2025 10:13:05 -0500
-X-MC-Unique: JC4ljwEzPF6r-uqei1A6lQ-1
-X-Mimecast-MFC-AGG-ID: JC4ljwEzPF6r-uqei1A6lQ_1739977984
-Received: by mail-wm1-f69.google.com with SMTP id 5b1f17b1804b1-43947979ce8so35000595e9.0
-        for <linux-riscv@lists.infradead.org>; Wed, 19 Feb 2025 07:13:05 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1739977984; x=1740582784;
-        h=mime-version:message-id:date:references:in-reply-to:subject:cc:to
-         :from:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=YEDFkhBYjRhP5Z93Fy/FXNH8qcO0tYdixMhBiEsACWQ=;
-        b=LzwIAGvhEC9PZ2vxg2I4iqt5h0afsXmXaIxa2QeDWF8B3OKoKhWqYW5sQNSZZL12HM
-         4mOEobNp3kRPdd6Pa74g/doWgas5s85ARD9g9YDVb6/wQ/EErbQE0gHKUrTagzSrRhGL
-         DEzlOsc/jIfekcdno4dp6D470k0bpI6OX/kjPp54sO1ud+w85ruEJ/IbTtg2jsh9GUq9
-         rltmjJxurGGAPWaJyZgly8QiVQz81Pf/CgPmP9cTCpTp73E4XdGC9GRHfpqzDYbDRRkv
-         cYcqYXeOouO0DRooMRU7zuLtHQU321HVlPbo/GDWjd6uCQDu8mRTLirdVLnT/QSLAl/0
-         rLlw==
-X-Forwarded-Encrypted: i=1; AJvYcCVNHZY0YQH/W4ybdu21gCrDcLgS2WTPLj3oGVQCudRD3hH3zOhfIAcdNGcxNrrV9aj0YXubIF+9rxYtzA==@lists.infradead.org
-X-Gm-Message-State: AOJu0YwoCNE61xZafOzC+KZfnb8QP+tH/3CS/syXD5jYvdWZnLqh2ovT
-	iUq1VDjX4OGsRWWdnhVdRb6PqPitkcxJtT0D7u0Ztgcz8kyO/9yOTJPzPo9JbNSZcGOL8MGaZA/
-	Z14dfbH8jJALRbwm4jGJrGPLo+JCQ1jfZKgsFTMHsixibHHY5ULbqX/VCT6n1mZQJMg==
-X-Gm-Gg: ASbGncs1HEFrFSEQIdT3BTxbl61PTbpvA9wnkuM95aVnLFnaFCpVgN4xJ1flKS2dFUG
-	0fMhy2Phg/055LWQ+pegDoLra6h+g7y8XeOr31uNt/yOVNZXJ8wZeHH3ijGNsVbNPwJT9DiaJFJ
-	WACFMcwCgXcxgtDILJKGQx7JCn4HEAaQWplmDEpMzOVGbO+vm5VVnniRnOYh63EI5UrQtk+AKKo
-	eKH1Vgaz5SWlJUSksVEuj6p4b0R6p9ppuGfyIupBkGLrwO100y8xNoIy9NpIywwqF2peCi79cJr
-	135cDASZuepAfKI+4Mt8iJcDvT6alvSSL0B1UdH0DsNFyJp+FWSUZUC6bdTayq9Pmg==
-X-Received: by 2002:a05:600c:3d0b:b0:439:88bb:d02d with SMTP id 5b1f17b1804b1-43988bbd322mr97619395e9.2.1739977984088;
-        Wed, 19 Feb 2025 07:13:04 -0800 (PST)
-X-Google-Smtp-Source: AGHT+IHqXB0SvUjV4zwF8A6smqwc0vRSLTkn6r2mJurV/wBBuDlOIkQeOJi/olfCVvoVfIVGXKI8cw==
-X-Received: by 2002:a05:600c:3d0b:b0:439:88bb:d02d with SMTP id 5b1f17b1804b1-43988bbd322mr97618455e9.2.1739977983617;
-        Wed, 19 Feb 2025 07:13:03 -0800 (PST)
-Received: from vschneid-thinkpadt14sgen2i.remote.csb (213-44-141-166.abo.bbox.fr. [213.44.141.166])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-439858ec5fasm88121225e9.29.2025.02.19.07.13.00
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 19 Feb 2025 07:13:02 -0800 (PST)
-From: Valentin Schneider <vschneid@redhat.com>
-To: Dave Hansen <dave.hansen@intel.com>, Jann Horn <jannh@google.com>
-Cc: linux-kernel@vger.kernel.org, x86@kernel.org,
- virtualization@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
- loongarch@lists.linux.dev, linux-riscv@lists.infradead.org,
- linux-perf-users@vger.kernel.org, xen-devel@lists.xenproject.org,
- kvm@vger.kernel.org, linux-arch@vger.kernel.org, rcu@vger.kernel.org,
- linux-hardening@vger.kernel.org, linux-mm@kvack.org,
- linux-kselftest@vger.kernel.org, bpf@vger.kernel.org,
- bcm-kernel-feedback-list@broadcom.com, Juergen Gross <jgross@suse.com>,
- Ajay Kaher <ajay.kaher@broadcom.com>, Alexey Makhalov
- <alexey.amakhalov@broadcom.com>, Russell King <linux@armlinux.org.uk>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Huacai Chen <chenhuacai@kernel.org>, WANG Xuerui <kernel@xen0n.name>, Paul
- Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>,
- Albert Ou <aou@eecs.berkeley.edu>, Thomas Gleixner <tglx@linutronix.de>,
- Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, Dave
- Hansen <dave.hansen@linux.intel.com>, "H. Peter Anvin" <hpa@zytor.com>,
- Peter Zijlstra <peterz@infradead.org>, Arnaldo Carvalho de Melo
- <acme@kernel.org>, Namhyung Kim <namhyung@kernel.org>, Mark Rutland
- <mark.rutland@arm.com>, Alexander Shishkin
- <alexander.shishkin@linux.intel.com>, Jiri Olsa <jolsa@kernel.org>, Ian
- Rogers <irogers@google.com>, Adrian Hunter <adrian.hunter@intel.com>,
- "Liang, Kan" <kan.liang@linux.intel.com>, Boris Ostrovsky
- <boris.ostrovsky@oracle.com>, Josh Poimboeuf <jpoimboe@kernel.org>, Pawan
- Gupta <pawan.kumar.gupta@linux.intel.com>, Sean Christopherson
- <seanjc@google.com>, Paolo Bonzini <pbonzini@redhat.com>, Andy Lutomirski
- <luto@kernel.org>, Arnd Bergmann <arnd@arndb.de>, Frederic Weisbecker
- <frederic@kernel.org>, "Paul E. McKenney" <paulmck@kernel.org>, Jason
- Baron <jbaron@akamai.com>, Steven Rostedt <rostedt@goodmis.org>, Ard
- Biesheuvel <ardb@kernel.org>, Neeraj Upadhyay
- <neeraj.upadhyay@kernel.org>, Joel Fernandes <joel@joelfernandes.org>,
- Josh Triplett <josh@joshtriplett.org>, Boqun Feng <boqun.feng@gmail.com>,
- Uladzislau Rezki <urezki@gmail.com>, Mathieu Desnoyers
- <mathieu.desnoyers@efficios.com>, Lai Jiangshan <jiangshanlai@gmail.com>,
- Zqiang <qiang.zhang1211@gmail.com>, Juri Lelli <juri.lelli@redhat.com>,
- Clark Williams <williams@redhat.com>, Yair Podemsky <ypodemsk@redhat.com>,
- Tomas Glozar <tglozar@redhat.com>, Vincent Guittot
- <vincent.guittot@linaro.org>, Dietmar Eggemann <dietmar.eggemann@arm.com>,
- Ben Segall <bsegall@google.com>, Mel Gorman <mgorman@suse.de>, Kees Cook
- <kees@kernel.org>, Andrew Morton <akpm@linux-foundation.org>, Christoph
- Hellwig <hch@infradead.org>, Shuah Khan <shuah@kernel.org>, Sami Tolvanen
- <samitolvanen@google.com>, Miguel Ojeda <ojeda@kernel.org>, Alice Ryhl
- <aliceryhl@google.com>, "Mike Rapoport (Microsoft)" <rppt@kernel.org>,
- Samuel Holland <samuel.holland@sifive.com>, Rong Xu <xur@google.com>,
- Nicolas Saenz Julienne <nsaenzju@redhat.com>, Geert Uytterhoeven
- <geert@linux-m68k.org>, Yosry Ahmed <yosryahmed@google.com>, "Kirill A.
- Shutemov" <kirill.shutemov@linux.intel.com>, "Masami Hiramatsu (Google)"
- <mhiramat@kernel.org>, Jinghao Jia <jinghao7@illinois.edu>, Luis
- Chamberlain <mcgrof@kernel.org>, Randy Dunlap <rdunlap@infradead.org>,
- Tiezhu Yang <yangtiezhu@loongson.cn>
-Subject: Re: [PATCH v4 29/30] x86/mm, mm/vmalloc: Defer
- flush_tlb_kernel_range() targeting NOHZ_FULL CPUs
-In-Reply-To: <d0450bc8-6585-49ca-9cad-49e65934bd5c@intel.com>
-References: <20250114175143.81438-1-vschneid@redhat.com>
- <20250114175143.81438-30-vschneid@redhat.com>
- <CAG48ez1Mh+DOy0ysOo7Qioxh1W7xWQyK9CLGNU9TGOsLXbg=gQ@mail.gmail.com>
- <xhsmh34hhh37q.mognet@vschneid-thinkpadt14sgen2i.remote.csb>
- <CAG48ez3H8OVP1GxBLdmFgusvT1gQhwu2SiXbgi8T9uuCYVK52w@mail.gmail.com>
- <xhsmh5xlhk5p2.mognet@vschneid-thinkpadt14sgen2i.remote.csb>
- <CAG48ez1EAATYcX520Nnw=P8XtUDSr5pe+qGH1YVNk3xN2LE05g@mail.gmail.com>
- <xhsmh34gkk3ls.mognet@vschneid-thinkpadt14sgen2i.remote.csb>
- <352317e3-c7dc-43b4-b4cb-9644489318d0@intel.com>
- <xhsmhjz9mj2qo.mognet@vschneid-thinkpadt14sgen2i.remote.csb>
- <d0450bc8-6585-49ca-9cad-49e65934bd5c@intel.com>
-Date: Wed, 19 Feb 2025 16:13:00 +0100
-Message-ID: <xhsmhh64qhssj.mognet@vschneid-thinkpadt14sgen2i.remote.csb>
+	Wed, 19 Feb 2025 15:21:54 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=lxmt5XKdsF9rcxPfcGdggxg24pDZWuwCUJcIKB80jHO0VGcXifgrXoYvF6+VqJG8+LxZduS0ovWtJAYLNa4NkdBAKshp7bZDHzYS8qiqZ8s2iJ5tRVu+h7cNepaU55c3Po55YgUKsD2uWDihMAoFAJR1K2+mMr64F+ya9hxvUpehO+alsCRFKmgjgVcjHdtcjfOlb/9QxTNCo0Bdf3uFbGeuKv0b7vfDm+YJ3J/AY6WwyKNfIhCDLdKMGGL0nRvWgkJV+tWxay0MkSdliiXLP6wi3H2pFOPTXa51x4sYSyyBnYpFKxPB106FV5Y76oP2RmDVTPHoe8iglkEok1OHaw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=XxenyQmpsC6nEdCAFBQzPGy6VJEFVMeu0MEn2p9V+Qg=;
+ b=mCUZLlDzHYmHY6GudVD7gUwC2KwZZU1eqrvuScWxZjL8v9H0cKuWxRTKfcKIm149oStrn75p4OAN8479OWcUyXMW2brFVNR4oqO4sVeRjTGKEMonNscGtBccVteanNeUHVapirQ6ap6dNKlxFmaAVyddgxx4q3F5LIW4TnTWL+00mFmxpqT36PbcUuQk5XqL0pcBCU1o6HfuJwJJpgdsqZOjLTVOXlwv+4y5csnS6KLYhdWSy+lSWnbElLmCkR+xhGnZG13+p3L5oJp+k+nT6SYXPDJ2MWcCgsbc96CX2RSV6BTyQSIPzlxW3cAB8zDGldlhfjytssrmQVPVKfsjNw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
+ dkim=none; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=hotmail.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=XxenyQmpsC6nEdCAFBQzPGy6VJEFVMeu0MEn2p9V+Qg=;
+ b=C6oc98/clVRTG1iMazzWYMuOlCJ78Y8iio9TRw559r8n3XJNejsReu/XSHkahscbwM/wmKnymtwGr24JPpRPwHZIcTBQSIn1p/p5Nz0tYfxUjGxk4y28FipjyyJlGbrLxSnd0fMDK0RfzCxOZoJ8RvgMLrgE6IH8HrDIhbyaip4tCqnBIbQ6tubIFw3I4NOV82eBEp6CGkaHI3etvv8K/MXaau5KdHXBne8rBY5XhdQGwFimJBfgYpH8gnSpjC6tv+kyOqqTnrW8FKNW/hGq7/DnKzgIYDz3RVZgaycwz9TwmpjIE1MSXBXpATnJo04hEPgHXWEzJiNxnYFv4SicJg==
+Received: from AM7P189MB1009.EURP189.PROD.OUTLOOK.COM (2603:10a6:20b:175::17)
+ by AM0P189MB0675.EURP189.PROD.OUTLOOK.COM (2603:10a6:208:1a2::18) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8466.15; Wed, 19 Feb
+ 2025 15:05:56 +0000
+Received: from AM7P189MB1009.EURP189.PROD.OUTLOOK.COM
+ ([fe80::e9f1:a878:e797:ee1a]) by AM7P189MB1009.EURP189.PROD.OUTLOOK.COM
+ ([fe80::e9f1:a878:e797:ee1a%2]) with mapi id 15.20.8466.015; Wed, 19 Feb 2025
+ 15:05:56 +0000
+Message-ID: <AM7P189MB100973D1DC0164099067E2AEE3C52@AM7P189MB1009.EURP189.PROD.OUTLOOK.COM>
+Date: Wed, 19 Feb 2025 16:05:55 +0100
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] riscv: dts: starfive: fml13v01: increase eMMC bus speed
+To: Emil Renner Berthing <emil.renner.berthing@canonical.com>,
+ Maud Spierings via B4 Relay <devnull+maud_spierings.hotmail.com@kernel.org>,
+ Conor Dooley <conor@kernel.org>, Emil Renner Berthing <kernel@esmil.dk>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Alexandre Ghiti <alex@ghiti.fr>
+Cc: linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org
+References: <20250215-fml13v01_emmc_speed-v1-1-e3bd224ae0e8@hotmail.com>
+ <CAJM55Z9GJr3BtbQeFpNU2P=nomsOvQ6dsVYFX_s=tHznu75ptQ@mail.gmail.com>
+Content-Language: en-US
+From: Maud Spierings <maud_spierings@hotmail.com>
+In-Reply-To: <CAJM55Z9GJr3BtbQeFpNU2P=nomsOvQ6dsVYFX_s=tHznu75ptQ@mail.gmail.com>
+X-ClientProxiedBy: AM0PR01CA0171.eurprd01.prod.exchangelabs.com
+ (2603:10a6:208:aa::40) To AM7P189MB1009.EURP189.PROD.OUTLOOK.COM
+ (2603:10a6:20b:175::17)
+X-Microsoft-Original-Message-ID: <4f84e2ce-9f0a-4cba-9610-9a087e297169@hotmail.com>
 MIME-Version: 1.0
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: SLEc5dnPSblbj5IpDTeaG1BzJ0c9zKNRBEOAoOVEjwc_1739977984
-X-Mimecast-Originator: redhat.com
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AM7P189MB1009:EE_|AM0P189MB0675:EE_
+X-MS-Office365-Filtering-Correlation-Id: 4bbafeb3-ff85-4578-76b6-08dd50f6e92a
+X-Microsoft-Antispam: BCL:0;ARA:14566002|15080799006|5072599009|461199028|19110799003|8060799006|6090799003|3412199025|440099028;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?ZUhqWkM1WXM0bVdmS3BmMEN6WHhCc1ZEZjQ5K3I4UGVuMDdoZjBxOVJ4VWpH?=
+ =?utf-8?B?VmtlcTd3YVJ4ME4yb3pWVmt0OXo2eDNXdVFobkhpZE1Fbm51VUN2Y2lWaXJZ?=
+ =?utf-8?B?QWxJdlNmVzhLMnZMWENCbUtVakQyNmVGRkxOUzJVMDFoWXZlUmN0MHVmb1V6?=
+ =?utf-8?B?aFlhMTROSldxZEV2QnJvSmwvY0RQV1JrS3JEUGloOU9RNXdsTDd3UjdMb0pz?=
+ =?utf-8?B?dGlMWDd1dHhHem8vL0hFM3dCYmxTTUxVbjUzOGI1dVF2ZHJEblkyL0cvTVNV?=
+ =?utf-8?B?eTFSamRhdzhnczBqL1h3MWZ6QTh1ODFsKzZXZUVvSTZVeW1RR05ZTStPU0FP?=
+ =?utf-8?B?cG40N1N6OHFzM3lBNFU5bnkrYm1SK2RscVozTDV6R3M2QkhEczJCVjlGRUpX?=
+ =?utf-8?B?K2J1ZThIQTZ2QjZ4Q3lrb0R2ZzNJd3pCWUdLTVNXMVJyMDRUbld2YUx5MmMz?=
+ =?utf-8?B?aERkRjE5VTNoK3c1QnpwV2tFVnZ5WkNVQldPRmFEbXNsZzE5SXdLRW9oUmpn?=
+ =?utf-8?B?SGt3djNwYWFJVWxFWkk3UmJKd0Q0akhBd1FlUmppeVNmS0NuSHVsYk5ZSVVW?=
+ =?utf-8?B?Z3pxOWYzQkhLNVYvblR6MkNaWHFwVDcwdmRyczFKcmMvZGdDY0YzOTNpZHZY?=
+ =?utf-8?B?Y1FvN3E0VVU0Umx6aVQ2cE90bU9EWFhEbGZibWlNWnZjZ1R2M2tWS2dpWDhx?=
+ =?utf-8?B?N1MwaXJjeGZwVzNqcEtDSThTMVhiNTVmMHh1bk44SDdub3JRRFhoQUFwVUxj?=
+ =?utf-8?B?TXhyYitoQ1FKTHA2YjNVUGhhZTZMSjRVL0MvQTlQOXNsKzNhaFM3d3VDOGgv?=
+ =?utf-8?B?TGtHQkw1ZXd4aW1Uc29TTURxbDBTRmFhVEw3NHcrUGQzeERoakR4Q3hhT0ow?=
+ =?utf-8?B?OVBTTXVwQjRjNG8vUmdCYUhSeDVPM25lbmRkZzdCbGdoWlRrUmZpWlBpUDk1?=
+ =?utf-8?B?dmRnb2dwWmlYTW40Z2dYcVJHOHpxVGdySDdrbW9MVVQwRm1ZcCtwVkswNWpP?=
+ =?utf-8?B?T3p3bzlNNXUxaUFVc0dvM2lYM3ZxcFB2dHQ5SCtyR21Zc25Pb250VEMvaWE5?=
+ =?utf-8?B?c0UrcG50T3ZJd0VtNXRHSDZqR1VSdDNUVFRFK28rOGtKY2hUMGYzMkdWT0Zi?=
+ =?utf-8?B?cWFCQmhYSUliN1JFTjI2L0R1TnpWekdzWHpzY1ppTWhPeTVRTWpERmQ4cWow?=
+ =?utf-8?B?bmVWRVJoR0V5RGJ5dXFPRk4vb3NsSXc5anpuOW5RNXZpWXYrUGd3bDFEZzN2?=
+ =?utf-8?B?b2FwTGZUbTVvTWV3bHhPN3F4U0Z3cEoyejZmYU8wRUFkNVBsZzZPSFZ5U3BI?=
+ =?utf-8?B?enllU2ZjL3kwWVJDMlJsRWY1YmxEdGV6alNSb0RVck1sNCsvRnhMenJZckhq?=
+ =?utf-8?B?U1ZmQWFocUZ3UEhsMHdRWjROdDRGYzZlT0VNQVUvNFVKbkdVM3l1VDkvQk5n?=
+ =?utf-8?B?WmVHSVJzMWlsUEtWdDJYbkZyV1ltMlJFaENvZUh3PT0=?=
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?L1ZaNXBGcUszcEtKVlBLRjA3bGVxNzAvQXloRzkwemNxVi9XcXkveGhyZjZx?=
+ =?utf-8?B?b1hDN2RwTEpPL2VrWTcrNVlRL1JOdWVIK1Y3SWErNVBiTG9TbllRZFNOOWov?=
+ =?utf-8?B?OSt2WTNCa3Z4QmhxeDdBeVU5VHdNdEIxMzJTd042WU9xUk9WOFdyMWRGcUZi?=
+ =?utf-8?B?Mld1cXcvV0hyV1VKNm1MZWdsTEV0ZkEzdTNUM2E0TGx4QitkT3JMdnVtZFZ0?=
+ =?utf-8?B?MDl2Z01hWitrYnorRWZsUVdnS1QvMzhNRk5sZ0tjRjlrYUpIREkrTHh2Z3NN?=
+ =?utf-8?B?bUtnTDBGYUIydjZvTHBnVnJ2WVYvQjFzcExxL2dWRmxOaU02Y25kT0VlSE1Y?=
+ =?utf-8?B?S2YzQ3dqT3ZrWEI5NENvR2tDSkVHOFlFcHZ6OUllSTdtaG9Ka0ZqRHFQZEQz?=
+ =?utf-8?B?cFlneW5kd1Vlckx4a0QzVmZ4MG9LUHdJVUh6SDJFWS9aTDlpcTJ1WmFEdWRZ?=
+ =?utf-8?B?bHhKS29UYmlDbFJJWnhPcXpSMEllWjdBQWR4UkZKSHhnbytWVVowMzhwdHEx?=
+ =?utf-8?B?dHdzcTdpVDhjMm9JK3djRFZodzQreFhUdEFPU1ZpdzBhNkpGZTgva3FVeU9h?=
+ =?utf-8?B?U1lLZjJhL0o5VzIrSGozNmpGSkFKYkVQNDlIZVZpV1BMempRUFkzU3Y0UDRK?=
+ =?utf-8?B?aDFSR1pnb0c2aDBlK2JqZndMdDgrUDlFeW5CalEwY3dFYUNXeTVPR3p4cE82?=
+ =?utf-8?B?UmdqL3F6SkNNSlhjVjdQNElSSVBjNnE3T1BwL1Y4UDdrVXRScW1EVS9lQk9u?=
+ =?utf-8?B?SzE1eHdLQkppaFR0d0gzbVU2d3VLUFV5aXFhbkhiQTZrL3RuODdaTDhNU200?=
+ =?utf-8?B?V2FteDF5Z21ndVFzditPV1VkaEJ1VHgwWXhuNnlPQnp5MFpUUXFWTmN0MkVF?=
+ =?utf-8?B?eTJsT3hFaHVrYzVDMlJDbzZ0eGVQSkhHc3VXZzVlQUp2aHdoWHBDNEwvcGZp?=
+ =?utf-8?B?dkxBekVLcGZPcUZtVG14VklNZ0ZXdEdhMnZOQzA4dUs5a3VoQUNtZ2RKUXFJ?=
+ =?utf-8?B?d1p4WEdnbkZ5Q2Uxbzd4aHlTVjZTUHRzNTEvSUhQdCt1b3AxRU1Ra1llbkdF?=
+ =?utf-8?B?bHU4U00rb0I2QVFuTmVDK3ZSK3NKM1g2VGU2eUV2VHdXN29TTGdMbHZad3kv?=
+ =?utf-8?B?WmJNeTdDeThDL1NyZ3FKS1ZmYjY4c0NROWx0Ly8xVDVjYjQ1NzlabmlQVUV1?=
+ =?utf-8?B?dFU0Y25lbkNjN2VNR3NMTkVHdDZ0RnRwTXZEREdkVXowNWxuTERrdHFTMFhY?=
+ =?utf-8?B?cFFTRlVLS0lKYXJYRTFXRmNNTDM4R0J4RUJGTG05TFB4c0N0U0cwYWRZMXRn?=
+ =?utf-8?B?YU9yYXc2MThGWDJYbURWQWs3RzVGUTd3RVdCVU1oeS82b2RPRmV6azNqQmdn?=
+ =?utf-8?B?VHNWT0FGK1BEcU1vOHE1bWxja0xGc0txR3E0ZGxHMXRIcHd5dHNTeEo3SytD?=
+ =?utf-8?B?bGFlZ3NKOEVKOWFNdzFhTVhKV1dGNnNhcCtmSHg1Z1ppOUJzdm1Ebmk3eFBi?=
+ =?utf-8?B?UUQyV3RMMEw5eUxHbzJ5N1ljUzB1SkxhN0VyUzlub2pJQU9kd0lUelVYZmFB?=
+ =?utf-8?B?cmYzbWNYUm9mWGpDWE8zbkY5dzBqQitWRm8wN3U1VG9HQzlEVlU2MlNQL0ll?=
+ =?utf-8?B?OWVKWUxlcXFrZlF2N3hiTUQ2aXhXWE0vMERBcEpORjlNMFRId3ZBcHh0ckxO?=
+ =?utf-8?B?VDJQblhEZ0NJN3FOVmVJMDB5eDE2MnMvMlluTjc3TllQY1cxZTJOdC9MZkhN?=
+ =?utf-8?Q?7QzLdcO50S0N/k9gZUuok+VXpzV4vQp/C2XE3c5?=
+X-OriginatorOrg: sct-15-20-7719-19-msonline-outlook-3b3e0.templateTenant
+X-MS-Exchange-CrossTenant-Network-Message-Id: 4bbafeb3-ff85-4578-76b6-08dd50f6e92a
+X-MS-Exchange-CrossTenant-AuthSource: AM7P189MB1009.EURP189.PROD.OUTLOOK.COM
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Feb 2025 15:05:56.4814
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
+X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM0P189MB0675
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250219_151310_078587_81F704AC 
-X-CRM114-Status: GOOD (  19.32  )
+X-CRM114-CacheID: sfid-20250219_152153_172497_54F69EBB 
+X-CRM114-Status: GOOD (  18.00  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -182,39 +173,55 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 18/02/25 16:39, Dave Hansen wrote:
-> On 2/18/25 14:40, Valentin Schneider wrote:
->>> In practice, it's mostly limited like that.
->>>
->>> Architecturally, there are no promises from the CPU. It is within its
->>> rights to cache anything from the page tables at any time. If it's in
->>> the CR3 tree, it's fair game.
->>>
->> So what if the VMEMMAP range *isn't* in the CR3 tree when a CPU is
->> executing in userspace?
+On 2/19/25 3:21 PM, Emil Renner Berthing wrote:
+> Maud Spierings via B4 Relay wrote:
+>> From: Maud Spierings <maud_spierings@hotmail.com>
 >>
->> AIUI that's the case with kPTI - the remaining kernel pages should mostly
->> be .entry.text and cpu_entry_area, at least for x86.
+>> The assigned clock speed of 50 MHz is and max-frequency of 100MHz are
+>> limitting this interface which is SDIO 5.0 capable. Sadly at 200MHz it
+>> fails to mount an eMMC drive, 150MHz (really 132 MHz) is the highest it
+>> was able to get.
+>>
+>> This improves the seq read/write performance by 2x~
+>>
+>> Signed-off-by: Maud Spierings <maud_spierings@hotmail.com>
+>> ---
+>> I put this in this specific dts instead of the common one as I cannot
+>> test if other boards are also able to handle these speeds.
+> Hi Maud,
 >
-> Having part of VMEMMAP not in the CR3 tree should be harmless while
-> running userspace. VMEMMAP is a purely software structure; the hardware
-> doesn't do implicit supervisor accesses to it. It's also not needed in
-> super early entry.
+> Thanks for the patch!
 >
-> Maybe I missed part of the discussion though. Is VMEMMAP your only
-> concern? I would have guessed that the more generic vmalloc()
-> functionality would be harder to pin down.
+> These settings work on my Milk-V Mars board booting off eMMC, but I'm not sure
+> if that means we can just raise the frequency across all the JH7110 boards.
+> The eMMC on my Milk-V mars is a detachable module that identifies as
+>
+>    mmcblk0: mmc0:0001 DG4016 14.7 GiB
+>
+> I guess what works might depend on the module too. Is the eMMC on the framework
+> board soldered on?
 
-Urgh, that'll teach me to send emails that late - I did indeed mean the
-vmalloc() range, not at all VMEMMAP. IIUC *neither* are present in the user
-kPTI page table and AFAICT the page table swap is done before the actual vmap'd
-stack (CONFIG_VMAP_STACK=y) gets used.
 
+No it is also a detachable module, it supports the same interface as 
+most eMMC modules seem to.
+
+> Raising the max-frequency to 200MHz seems right for all boards since we're
+> already saying mmc0 supports HS200 mode.
+>
+> Maybe we could begin by raising the max frequency to 200MHz for all boards,
+> but only assign the 150MHz rate on the framework board?
+
+That seems alright with me, I'll send a v2 with max-frequency adjusted 
+in jh7110-common instead.
+
+> /Emil
+kind regards,
+Maud
 
 _______________________________________________
 linux-riscv mailing list
