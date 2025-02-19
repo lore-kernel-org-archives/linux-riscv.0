@@ -4,107 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5BF4BC021B0
-	for <linux-riscv@archiver.kernel.org>; Wed, 19 Feb 2025 12:10:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5959AC021B1
+	for <linux-riscv@archiver.kernel.org>; Wed, 19 Feb 2025 12:30:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:Cc:To:Subject:
+	From:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=yVC7J2sZqny83H4smWbkn/Lx7oZPF+mRmErZ/Eog8WI=; b=DGeTEFWUBGATOM
-	v7A9Qm/yVGhQwDFdk04tWkVDv0UjBr5Lbu47VUrIkItDD0ziSUOyD4bTu0Xfr1q5Fgpv2AtyLLX9B
-	LB+zZ2Fw2dYHYlIfpOtnSiFaeNZrzTL8ZutwR217mdbsvY6rp4EvtJufydrk6isVIsJPys/R/P5+G
-	6g4PgzDLCrIlIsFz8vPjTTtgRo9CTBeS3URRZZTDEFS73HDup58/jVCESheFYM9WxUsFkK7TcuytO
-	2KkUls7+tpHOXJgXOWiSxWGNM2n4anioeYopw7QJxXl44GkkkVS4CJJJ3lXKCjLyAGmkoToC8Q88n
-	1pmT5Rdt8AEurjp79wJQ==;
+	List-Owner; bh=Rsmao2LJ5Abd9Zoo9Y+S0QV7bboTg9wq5jJScd9x9iA=; b=hXSC3xSMewoq4g
+	drYW7ygsihICp6zIBgh6gbPrHO9LLuZHKINnp+pZzGRGkgEHj8edQiDa8O9J0MlqSLs1fW4CPXHZ5
+	PWPEmaogVmGM6yrm6yjD/YwI96xlY98gsM5pe9UkheTluq3nWKWTowz7L+FNamRIXFERALg2UBhVa
+	2ujqKO+k2t65v6jTV6V3DpchxKEu9ni5uGBLL53ZbNA+ZKT0agFvXIxn4UFpdt7xRYvCVc0DJxPzQ
+	uYNfIfH/ZkQDd+vOZs/ZJDACW9xcCQZU2S64ld6sFtN190Gm4AS06S2m0VK1jOmTXhZOOijFqSRN7
+	a320022E93Di67liQRxQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkits-0000000Cawn-2e0t;
-	Wed, 19 Feb 2025 12:10:00 +0000
-Received: from mail-lf1-x132.google.com ([2a00:1450:4864:20::132])
+	id 1tkjDN-0000000CfKV-1lHs;
+	Wed, 19 Feb 2025 12:30:09 +0000
+Received: from sender4-pp-o92.zoho.com ([136.143.188.92])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkisN-0000000CaZI-1GX7
+	id 1tkjBd-0000000CepC-3Y1B
 	for linux-riscv@lists.infradead.org;
-	Wed, 19 Feb 2025 12:08:29 +0000
-Received: by mail-lf1-x132.google.com with SMTP id 2adb3069b0e04-543d8badc30so7700217e87.0
-        for <linux-riscv@lists.infradead.org>; Wed, 19 Feb 2025 04:08:26 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1739966905; x=1740571705; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=kfNES95aCHrH5DW7HOssGE1cf0vTi0kl2N0MBpHNSOY=;
-        b=vpAnOqCQksCdkt9I6nhbAoljCaM4vnlIT/K/FBDE3zIhMVOyXwbN+XZPa/K6fpk3kt
-         G7HXPxZTJcCyOvt5rzaiE7Z5trpf3JL7R8REIZWfyUz56X54DlZpIx3cuou1qtCl2AaN
-         JjjT70O6/97MGwQIsrBheFC3VfRGckovCkSIItfo3junvnW8SXiKt+64Jx77vHbTCi91
-         1epCD6PaPZMlj2XaMqgI+VM0CtkdZKKH+dWfxyvCRaOw9Hy7XLRsLNR49I/Lq6O7NBCR
-         rsgmQx1GhD1WvEtLCHeBtb9QW+zxuq6mOa8rk+Qny9p8Eddicz7Sl65TP8MvhUFU/Ne9
-         QUGA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1739966905; x=1740571705;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=kfNES95aCHrH5DW7HOssGE1cf0vTi0kl2N0MBpHNSOY=;
-        b=tTP134G8tkFlqRPAaDVBSW7Jk0kBeR1wHoFx7x/RGYEKhBBrCgdyTU+JUy0gUjSBP1
-         Uq4ZxKs9pZ1LTy7S92oxZIav8qwdn2I3MIk7FJ2npqRdqSd48QMKcXzaE45YlH1WqmZV
-         qe3Jf466qG71fvdvuCCpg5yXS0UcsOGwDeypqnPYMQXldClAgwIqU4nxi/JyqlkIPq5H
-         e1PFfy03vesf7J11/mCogr5dh9tSGjQRBLkUdtt5uUWb7ukmFi+wiWkh917KUHDXtdIg
-         A1Q6qbgufS8mH9md28e9r93vrYM3+k3YHB6abjs9dvogCBIuhFWtyzBuLbZNOx2rb3fx
-         MqYQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUUaux7FhVYTrnZ6eIVG0fn+WaBj5GA2GZwEZMQX1LBHQSKXCxVYTGdV4EdQJhm8CM13Raud8K7VT83Wg==@lists.infradead.org
-X-Gm-Message-State: AOJu0YwXI9IwvQGJQrji0Fr65j4v4DOv6pFCPq1OPApcH0ovOMGcrecM
-	rVNgvtz6jlNQJsvAN6YKyB4lkWJt3iS9YpfAmSmWEZxGb6IKPRz31lfop1sGVrk=
-X-Gm-Gg: ASbGncv+hzb12u6Zvgt59pTSICefv7ZrJC07KygS/6ajPAIxAkf3FYJDtk/SsVBhoTc
-	GhHP1fbyCq3pocunVt9OHdpBoI6VphNgLdD/z/BHyupx0VBNP+VnkVf+vKkNbMpU0U8r9GDb9MU
-	8uGG6CQVZpOnYdPFq4TaUkA0wHOzB9NTao8vxbcIv8avNAFX7plnezjRfTdwKOvxzYrDCltnKxT
-	tO7lqiI50imczcksoVtoMOmyQ17l3QbYKPHpdXCz71qi4APiLhKsMC4twj6/mBFx4qtaB8sTxyl
-	/jDggMtuMZjJ+ZQk20AY6E4zbBiu0rmlyJf+YSqfddmM7yK/IfAYorYydAA80eBQ35c524Y=
-X-Google-Smtp-Source: AGHT+IFMLOpDHMHA4h3/Gxx2zV0fjSL0lgJbRphbGzyITSKOMSUgTcKxT5mQ7K/tT3lwL8tk5JoMMA==
-X-Received: by 2002:ac2:4e05:0:b0:545:62c:4b29 with SMTP id 2adb3069b0e04-5452fe5bedcmr6706804e87.22.1739966905285;
-        Wed, 19 Feb 2025 04:08:25 -0800 (PST)
-Received: from eriador.lumag.spb.ru (2001-14ba-a0c3-3a00--7a1.rev.dnainternet.fi. [2001:14ba:a0c3:3a00::7a1])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5461cfdd5a2sm1148260e87.39.2025.02.19.04.08.23
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 19 Feb 2025 04:08:24 -0800 (PST)
-Date: Wed, 19 Feb 2025 14:08:22 +0200
-From: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
-To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-Cc: Jerome Brunet <jbrunet@baylibre.com>, 
-	Dave Ertman <david.m.ertman@intel.com>, Ira Weiny <ira.weiny@intel.com>, 
-	"Rafael J. Wysocki" <rafael@kernel.org>, Stephen Boyd <sboyd@kernel.org>, Arnd Bergmann <arnd@arndb.de>, 
-	Danilo Krummrich <dakr@kernel.org>, Conor Dooley <conor.dooley@microchip.com>, 
-	Daire McNamara <daire.mcnamara@microchip.com>, Philipp Zabel <p.zabel@pengutronix.de>, 
-	Douglas Anderson <dianders@chromium.org>, Andrzej Hajda <andrzej.hajda@intel.com>, 
-	Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
-	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, Jonas Karlman <jonas@kwiboo.se>, 
-	Jernej Skrabec <jernej.skrabec@gmail.com>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
-	Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
-	Hans de Goede <hdegoede@redhat.com>, Ilpo =?utf-8?B?SsOkcnZpbmVu?= <ilpo.jarvinen@linux.intel.com>, 
-	Bryan O'Donoghue <bryan.odonoghue@linaro.org>, Vladimir Kondratiev <vladimir.kondratiev@mobileye.com>, 
-	Gregory CLEMENT <gregory.clement@bootlin.com>, =?utf-8?B?VGjDqW8=?= Lebrun <theo.lebrun@bootlin.com>, 
-	Michael Turquette <mturquette@baylibre.com>, Abel Vesa <abelvesa@kernel.org>, Peng Fan <peng.fan@nxp.com>, 
-	Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
-	Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, 
-	Kevin Hilman <khilman@baylibre.com>, Martin Blumenstingl <martin.blumenstingl@googlemail.com>, 
-	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, dri-devel@lists.freedesktop.org, 
-	platform-driver-x86@vger.kernel.org, linux-mips@vger.kernel.org, linux-clk@vger.kernel.org, 
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
-	linux-amlogic@lists.infradead.org
-Subject: Re: [PATCH v4 1/8] driver core: auxiliary bus: add device creation
- helpers
-Message-ID: <eskvhtljnrkhm6vmqy52gkweexj3tcethejeywcoib4la72jcl@ojuqcazpvht4>
-References: <20250218-aux-device-create-helper-v4-0-c3d7dfdea2e6@baylibre.com>
- <20250218-aux-device-create-helper-v4-1-c3d7dfdea2e6@baylibre.com>
- <crtrciitrlqkxh5mxvnbdjy6zoxny5onse7xgbw7biozg6myux@grp3ketgl2uh>
- <2025021922-spongy-swirl-0746@gregkh>
+	Wed, 19 Feb 2025 12:28:23 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1739968099; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=DwOm7E10jY6hnTNzCCj1JkCNeNmp5cnR4tsrNDv568EeiQsvOI/fwVWP12qAlSLNDuRdiPxHEtDk3H6B6MW/ilzNiWRmQIGhFujoZTZT55mLXNp02XahOi4c8BK6iWdE2E4xuWtSjAvW8o8mE+M1YkU/q2d6HsYQ4Ax2ECJLDmw=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1739968099; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=ErJtYKOge+GvQHMf4JHdyvPeqtIfe3Bc9K5kgIMMY60=; 
+	b=dQEYNF8Q1JVEneqIpP27h2QC5ssWSgcbr4h5714G6T8NGejgkDF57eGhlBLXW1k788ivzYkWx0UbNwoTRhHNsmIVKhUiBlCcwy0YyUJF3hwwLsHpvBXqhCw/ywI8ZSWPtQzJeoMKOQviz+B9jsflr3dXyudkmBRre/BLHM8ShXo=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=zohomail.com;
+	spf=pass  smtp.mailfrom=kingxukai@zohomail.com;
+	dmarc=pass header.from=<kingxukai@zohomail.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1739968099;
+	s=zm2022; d=zohomail.com; i=kingxukai@zohomail.com;
+	h=Message-ID:Date:Date:MIME-Version:From:From:Subject:Subject:To:To:Cc:Cc:References:In-Reply-To:Content-Type:Content-Transfer-Encoding:Feedback-ID:Message-Id:Reply-To;
+	bh=ErJtYKOge+GvQHMf4JHdyvPeqtIfe3Bc9K5kgIMMY60=;
+	b=YmQwLOKGu4rY5j4baZqxOl0lYivbcDkBNS9011a2kCnyIiCAWgJfLqind0Cv8/Z2
+	Yq9xFCDXXfMWWnNWsliFn/iXEpDCfzKpUo8EIo0SopzP+h2NiZGgpFhD+RiuDECJTK1
+	3uWd2oJSLy9Ye3Bi0N++NeFDTA+Im0QdyhzhTedQ=
+Received: by mx.zohomail.com with SMTPS id 1739968094991431.0733059111493;
+	Wed, 19 Feb 2025 04:28:14 -0800 (PST)
+Message-ID: <41b3863a-0b2a-4cb1-8d83-8397822ed788@zohomail.com>
+Date: Wed, 19 Feb 2025 20:28:02 +0800
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <2025021922-spongy-swirl-0746@gregkh>
+User-Agent: Mozilla Thunderbird
+From: Xukai Wang <kingxukai@zohomail.com>
+Subject: Re: [PATCH v4 1/3] dt-bindings: clock: Add bindings for Canaan K230
+ clock controller
+To: Stephen Boyd <sboyd@kernel.org>, Albert Ou <aou@eecs.berkeley.edu>,
+ Conor Dooley <conor+dt@kernel.org>, Conor Dooley <conor@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Michael Turquette <mturquette@baylibre.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley
+ <paul.walmsley@sifive.com>, Rob Herring <robh@kernel.org>
+Cc: linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+ Samuel Holland <samuel.holland@sifive.com>,
+ Troy Mitchell <TroyMitchell988@gmail.com>,
+ Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+References: <20250217-b4-k230-clk-v4-0-5a95a3458691@zohomail.com>
+ <20250217-b4-k230-clk-v4-1-5a95a3458691@zohomail.com>
+ <c68c14422c7d27278f6fc75f285db7c7.sboyd@kernel.org>
+Content-Language: en-US
+In-Reply-To: <c68c14422c7d27278f6fc75f285db7c7.sboyd@kernel.org>
+Feedback-ID: rr08011227ebd6254e49c7c0cdfe03935a0000a6ec7566cfabf3e694acedeb925f7105b625ce95562fa49b8b:zu08011227354929267fad4875a2f0fd7400000a59bb746f134a904ecc190f99b7fc8c6d6568ac7781fb3d72:rf0801122bf18172995ae17d7bb5eb31740000b17bd183a15457a0257c4e8f72133640fc83bda074112f4bc6c1cc9f77:ZohoMail
+X-ZohoMailClient: External
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250219_040827_346774_17093C1A 
-X-CRM114-Status: GOOD (  29.36  )
+X-CRM114-CacheID: sfid-20250219_042821_951046_21B1070D 
+X-CRM114-Status: UNSURE (   9.08  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,107 +87,37 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Feb 19, 2025 at 11:13:14AM +0100, Greg Kroah-Hartman wrote:
-> On Wed, Feb 19, 2025 at 11:06:02AM +0200, Dmitry Baryshkov wrote:
-> > On Tue, Feb 18, 2025 at 08:29:46PM +0100, Jerome Brunet wrote:
-> > > Add helper functions to create a device on the auxiliary bus.
-> > > 
-> > > This is meant for fairly simple usage of the auxiliary bus, to avoid having
-> > > the same code repeated in the different drivers.
-> > > 
-> > > Suggested-by: Stephen Boyd <sboyd@kernel.org>
-> > > Cc: Arnd Bergmann <arnd@arndb.de>
-> > > Signed-off-by: Jerome Brunet <jbrunet@baylibre.com>
-> > > ---
-> > >  drivers/base/auxiliary.c      | 108 ++++++++++++++++++++++++++++++++++++++++++
-> > >  include/linux/auxiliary_bus.h |  17 +++++++
-> > >  2 files changed, 125 insertions(+)
-> > > 
-> > > diff --git a/drivers/base/auxiliary.c b/drivers/base/auxiliary.c
-> > > index afa4df4c5a3f371b91d8dd8c4325495d32ad1291..a6d46c2759be81a0739f07528d5959c2a76eb8a8 100644
-> > > --- a/drivers/base/auxiliary.c
-> > > +++ b/drivers/base/auxiliary.c
-> > > @@ -385,6 +385,114 @@ void auxiliary_driver_unregister(struct auxiliary_driver *auxdrv)
-> > >  }
-> > >  EXPORT_SYMBOL_GPL(auxiliary_driver_unregister);
-> > >  
-> > > +static void auxiliary_device_release(struct device *dev)
-> > > +{
-> > > +	struct auxiliary_device *auxdev = to_auxiliary_dev(dev);
-> > > +
-> > > +	kfree(auxdev);
-> > > +}
-> > > +
-> > > +/**
-> > > + * auxiliary_device_create - create a device on the auxiliary bus
-> > > + * @dev: parent device
-> > > + * @modname: module name used to create the auxiliary driver name.
-> > > + * @devname: auxiliary bus device name
-> > > + * @platform_data: auxiliary bus device platform data
-> > > + * @id: auxiliary bus device id
-> > > + *
-> > > + * Helper to create an auxiliary bus device.
-> > > + * The device created matches driver 'modname.devname' on the auxiliary bus.
-> > > + */
-> > > +struct auxiliary_device *auxiliary_device_create(struct device *dev,
-> > > +						 const char *modname,
-> > > +						 const char *devname,
-> > > +						 void *platform_data,
-> > > +						 int id)
-> > > +{
-> > > +	struct auxiliary_device *auxdev;
-> > > +	int ret;
-> > > +
-> > > +	auxdev = kzalloc(sizeof(*auxdev), GFP_KERNEL);
-> > > +	if (!auxdev)
-> > > +		return NULL;
-> > > +
-> > > +	auxdev->id = id;
-> > > +	auxdev->name = devname;
-> > > +	auxdev->dev.parent = dev;
-> > > +	auxdev->dev.platform_data = platform_data;
-> > > +	auxdev->dev.release = auxiliary_device_release;
-> > > +	device_set_of_node_from_dev(&auxdev->dev, dev);
-> > > +
-> > > +	ret = auxiliary_device_init(auxdev);
-> > > +	if (ret) {
-> > > +		kfree(auxdev);
-> > > +		return NULL;
-> > > +	}
-> > > +
-> > > +	ret = __auxiliary_device_add(auxdev, modname);
-> > > +	if (ret) {
-> > 
-> > This loses possible error return values from __auxiliary_device_add().
-> 
-> Why does that really matter?
-
-At the very least the caller (or caller of a caller) can call
-dev_err_probe() or dev_err("%pe"). With the current implementation as
-everybody maps NULL to -ENOMEM the error message will be cryptic.
-
-Or just having a cryptic value in the logs.
-
-> > I'd suggest to return ERR_PTR(ret) here and in the
-> > auxiliary_device_init() chunks and ERR_PTR(-ENOMEM) in case of kzalloc()
-> > failure.
-> 
-> Will the caller do something different based on the error value here?
-> All we care is that this worked or not, the specific error isn't going
-> to matter for device creation like this.
-
-The caller might not, the developer might.
-
--- 
-With best wishes
-Dmitry
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gMjAyNS8yLzE5IDA1OjUxLCBTdGVwaGVuIEJveWQgd3JvdGU6Cj4gUXVvdGluZyBYdWthaSBX
+YW5nICgyMDI1LTAyLTE3IDA2OjQ1OjE2KQo+PiArJGlkOiBodHRwOi8vZGV2aWNldHJlZS5vcmcv
+c2NoZW1hcy9jbG9jay9jYW5hYW4sazIzMC1jbGsueWFtbCMKPj4gKyRzY2hlbWE6IGh0dHA6Ly9k
+ZXZpY2V0cmVlLm9yZy9tZXRhLXNjaGVtYXMvY29yZS55YW1sIwo+PiArCj4+ICt0aXRsZTogQ2Fu
+YWFuIEtlbmRyeXRlIEsyMzAgQ2xvY2sKPj4gKwo+PiArbWFpbnRhaW5lcnM6Cj4+ICsgIC0gWHVr
+YWkgV2FuZyA8a2luZ3h1a2FpQHpvaG9tYWlsLmNvbT4KPiBJcyB0aGlzIG1pc3NpbmcgYSBkZXNj
+cmlwdGlvbiBvZiB0aGUgZGV2aWNlPwoKQWxyaWdodC4gSGVyZSdzIHRoZSBhZGRlZCBkZXNjcmlw
+dGlvbjoKClRoZSBLMjMwIGNsb2NrIGNvbnRyb2xsZXIgbWFuYWdlcyB0aGUgUExMcyBhbmQgc3lz
+dGVtIGNsb2NrcyAoc3lzY2xrKSwKZ2VuZXJhdGluZyBjbG9ja3MgZm9yIGRpZmZlcmVudCBkb21h
+aW5zLiBUaGUgaW50ZXJuYWwgUExMcyBhcmUgZGVyaXZlZApmcm9tIHRoZSBleHRlcm5hbCBvc2My
+NE0sIGFuZCBhbGwgc3lzY2xrIHNpZ25hbHMgdXNlIGVpdGhlciB0aGUgUExMcycKZGl2aWRlcnMg
+b3IgZGlyZWN0bHkgdGhlIG9zYzI0TSBzb3VyY2UuCgpOb3QgYWxsIG1hY3JvcyBkZWZpbmVkIGlu
+IGluY2x1ZGUvZHQtYmluZGluZ3MvY2xvY2svY2FuYWFuLGsyMzAtY2xrLmgKYXJlIGF2YWlsYWJs
+ZSBmb3IgdXNlIGluIGNsb2NrIGNvbnN1bWVyIG5vZGVzIHlldC4KCkRvZXMgdGhpcyBsb29rcyBh
+cHByb3ByaWF0ZT8KCj4+ICsgICAgICAgIHJlZyA9IDwweDkxMTAyMDAwIDB4MTAwMD4sCj4gSXMg
+dGhlcmUgYSByZWFzb24gd2h5IHRoZSBQTEwgcmFuZ2UgY29tZXMgZmlyc3Q/CkFzIEkgdGhvdWdo
+dCB0aGF0IHRoZSBQTEwgaXMgdGhlIGJhc2UgZm9yIG90aGVyIHN5c3RlbSBjbG9ja3MgKHN5c2Ns
+ayksCnNvIEkgcGxhY2VkIGl0IGZpcnN0Lgo+IFdoYXQncyBhdCAweDkxMTAxMDAwPyBNb3JlIGNs
+ayBoYXJkd2FyZT8KClJlZ2FyZGluZyAweDkxMTAxMDAwLCB0aGVyZSBpcyBubyBjbGsgaGFyZHdh
+cmUgYXQgdGhhdCBhZGRyZXNzOyBpdCBpcwpyZWxhdGVkIHRvIHRoZSBSZXNldCBNYW5hZ2VtZW50
+IFVuaXQgKFJNVSkuCgpZb3UgY2FuIHJlZmVyIHRvIHRoZSBLMjMwIFRlY2huaWNhbCBSZWZlcmVu
+Y2UgTWFudWFsIFsxXSBvbiBwYWdlIDExIGZvcgppdHPCoEFkZHJlc3MgU3BhY2UgbWFwcGluZy4K
+ClRoYW5rcyBmb3IgeW91ciB0aW1lLgoKTGluazoKaHR0cHM6Ly9rZW5kcnl0ZS1kb3dubG9hZC5j
+YW5hYW4tY3JlYXRpdmUuY29tL2RldmVsb3Blci9rMjMwL0hESy9LMjMwJUU3JUExJUFDJUU0JUJC
+JUI2JUU2JTk2JTg3JUU2JUExJUEzL0syMzBfVGVjaG5pY2FsX1JlZmVyZW5jZV9NYW51YWxfVjAu
+My4xXzIwMjQxMTE4LnBkZgpbMV0KCj4+ICsgICAgICAgICAgICAgIDwweDkxMTAwMDAwIDB4MTAw
+MD47CgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51
+eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRw
+Oi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
