@@ -4,86 +4,105 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 70C58C021AB
-	for <linux-riscv@archiver.kernel.org>; Wed, 19 Feb 2025 09:16:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5B41EC021AB
+	for <linux-riscv@archiver.kernel.org>; Wed, 19 Feb 2025 09:23:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:Cc:Subject:From:
-	To:Message-Id:Date:Mime-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=AiBwms2w9pp68esqX3Cds8tfOEWLVypB1UQqp3EklKs=; b=z/OsqnAEHjVkdP
-	eW+vFPlSGXda/qCBuLzeB5EnaewVGOWf9hla2Glk6sLfobQOyrzrSci8arN7ctjZzh+vtuKrj1gUu
-	RCtzxgWdGA+XIm3oFHGSaVcbP8LVLd45pjr/hyeCvxSRlPf/2O1nH1aTSk/X2RhCFFQZsrTsy+bgn
-	n5hpcmEM0CFtnw3uSbpLeu94IzmHWTtFf0YcNq1jnsTVzOO5eMiv+/IfmEHOOJTomDAEDKfPJfHRt
-	QF3BC3N4W0F8MQp4Rsum+h/+1yPpjf3VB/sSYYJqPqFiQ5JmLttmtlsCV8Kx6dWbINMN0xMO3phau
-	z7nUeGk+v/b7s55qzRvw==;
+	List-Owner; bh=4Z2jsuU8qMsaP79gBmwqHiFlclz/rPgp0R6gGyscN/I=; b=2iuC7mFCqiz+h0
+	oUy9gE2aV76DmdNccQoShNNmhW+DKaQfIKr/cC1E2SDv1Qj1h0WXBnkNMvtC6q6tk8gVXRVf0prEt
+	M5Kzkkxm+0ez8eCpthUhpXsEjLsi2DwBcC22Wt4+lVldHeLTssEtPD2LGGV4stceH+JT9jwIako4Q
+	F40II639YZTR8L55Bk4Vn5K4A/sKh+/dTJyhyyS9vEsiE+lhfkO4UvAVxBPqrvZunxvlg6SD9qyI3
+	9hlWKlHX6dknxlPwHsjhikl3lqMeA0Drtbj6ZfpATwBHvxng8NdmQiUCfKVIX8a0KL6XV8v+H14G3
+	M+/QkeqQ5gEjcIk8esiA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkgBw-0000000BmXc-0IRa;
-	Wed, 19 Feb 2025 09:16:28 +0000
-Received: from mail-wm1-x32b.google.com ([2a00:1450:4864:20::32b])
+	id 1tkgJ6-0000000BpMq-0V7W;
+	Wed, 19 Feb 2025 09:23:52 +0000
+Received: from mail-lf1-x135.google.com ([2a00:1450:4864:20::135])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkfnR-0000000BeEB-0hZ9
+	id 1tkg1u-0000000BjNo-3csE
 	for linux-riscv@lists.infradead.org;
-	Wed, 19 Feb 2025 08:51:11 +0000
-Received: by mail-wm1-x32b.google.com with SMTP id 5b1f17b1804b1-43987d046caso3836715e9.0
-        for <linux-riscv@lists.infradead.org>; Wed, 19 Feb 2025 00:51:08 -0800 (PST)
+	Wed, 19 Feb 2025 09:06:08 +0000
+Received: by mail-lf1-x135.google.com with SMTP id 2adb3069b0e04-54527a7270eso5038459e87.0
+        for <linux-riscv@lists.infradead.org>; Wed, 19 Feb 2025 01:06:06 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1739955067; x=1740559867; darn=lists.infradead.org;
-        h=in-reply-to:references:cc:subject:from:to:message-id:date
-         :content-transfer-encoding:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=cyOr3ZD32WYQ578+kdBxZIoR9hORXh2QvsH9UB3Wz3E=;
-        b=UUl87dOwT7CPU20Kl5nZKqBoQrPnxPQfQBQcPOszUse+xrgQ+fdx6tBIOkDMjvx36l
-         OKlVVm/V4c2vkMkbsVJNFHMuQfXx1J3f+k/6VSCGcVOQE3wOpzkDkHtbduXQNybx6Kxb
-         W4wViD2NMUi6eM27GWcVBrHi9QwefY17VWdKPZ5i3ZItpJb/LWSldCWvlQ1elGG1ndm1
-         LzIvD5VfWJeefZhsfxykwBRN6jzcan2GLSP01H+IdZjyaffvcBc6RPUjfp62SsTcObNa
-         2k7IE/XSTf/6By4wR/384BVMr4SWahW+roKLIX1cPVm7Jtsz0s9W7CB2a9iq0xe/SAKc
-         dstQ==
+        d=linaro.org; s=google; t=1739955965; x=1740560765; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=JParjzdc5yBYoG0m5UmXTy5mjDiWwZLgHUFOravZSiI=;
+        b=cExsSjyCLOJ2ndO1WnWmRyfWX4Mkd+w4vshHQFbnnpvxP2h1qz8dCnllRRaSHnMuOI
+         SqGcdBVeVHE7Wr0Jn+x7FsDhjEOI2WSxmm6QeICS7IGdGzYlDjdd7hl8DrwzyoQ6rOQx
+         Y31pmLCQpW3BDao89Rx8QGtGnBDqPes97Qi9+PwZa24hJ6hHfYkflTUnlOvnobZThb3x
+         c/O1LyafzS83sVocniKdSYj/zOTSDQuamAGgvK8tk3Km/JIE4hnSbE6LMb/OuV+1P15J
+         0oOGvKzI/ycT2scR4quXvFtx+3+kSUKyEK/BjT4isSjHG9SCElOsGB8MVkqFl/5SFzDO
+         MG8A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1739955067; x=1740559867;
-        h=in-reply-to:references:cc:subject:from:to:message-id:date
-         :content-transfer-encoding:mime-version:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=cyOr3ZD32WYQ578+kdBxZIoR9hORXh2QvsH9UB3Wz3E=;
-        b=jhdhBb2aCJBoTeEfoT7mvJobRu+CTETzREzskkCombTgdd4qHaifwlqkGH/UeAiPBl
-         kNbFVm8xZrYUCYBrY6S4CDF9LP/tBYJsBbHLgkz6riLkGwQqtpW0m891GKNAMgqoWHzU
-         cW1VogL9sVzEvx3X8tNFej7eonfpiscZglP3yvMg3hy+7kbIuLmzGqvRre1VRdZp9r9O
-         MjYEt8hOXDa/NJ69XWtZlt+A0bei6ktT6PKsOfTGYeybgZo0Wg0XJCJj6konq9XUCXmK
-         lSSCbBRA1eRDKQOKOQN//xAT/QO+VlatsYTMDooLtxJ88xr+JxM4pHrnF7tfRr/ZVVkB
-         tZ2g==
-X-Forwarded-Encrypted: i=1; AJvYcCVBaoxuTaI2PXd2SQSW9Vumg2DVBuIA3t3q8Rcg3VIO06UO8WyTZnUr0IU3EWOlZDYxSfeOji8lvVHxaQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yykq+jAZ9AAqIUVuMI1x6S5kyELX8A2wYHaUUX8ZmaxYxCI2ipH
-	dz8l7gCCGhRqQUrt2D3Nf7GOU/bg7VKo9Ttom9uwusUVaq5sQFYL7qH/Wc7xp5w=
-X-Gm-Gg: ASbGncsIZoV8PsN6egVYcXY4roKTPDX8s6BRfD46ub8l9lHDfZVXTxLu1hvu2M0gTUk
-	f+fveFiDFkGhXSfpH2HWza8JiscuQOR4v0cnkAKG+rzrFfOLX++PUGi8xFAskOQQQP/8TdAjpal
-	z4qi85adv6wL0awFL9iofJBjU+82LwB7CRTTM2+7vXv0hM9KAkxiSBa1LcpMb43P2cHK6t0RRss
-	GY788fjm0/ANyY7ypMwF3scCIJG2THKXJq81P4MwmtnA3bRMZqXqJzXvtqY6vC1paiChoINBNTj
-	ed/yWCICCgdJmihLApDmbkC0L5P6Dp09thlkf+vqv5qXWQdHULI=
-X-Google-Smtp-Source: AGHT+IH6D4plZNYfuEYjbGdATaVAlFztkIrp/rClPpYzS5dL67Gt7zhXEE8RN1q+8mV+NLcuY45v6A==
-X-Received: by 2002:a05:600c:524a:b0:439:4d1c:bf72 with SMTP id 5b1f17b1804b1-4396e77b89dmr62388815e9.6.1739955066877;
-        Wed, 19 Feb 2025 00:51:06 -0800 (PST)
-Received: from localhost (ip-89-103-73-235.bb.vodafone.cz. [89.103.73.235])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-38f259f8730sm17632219f8f.93.2025.02.19.00.51.06
+        d=1e100.net; s=20230601; t=1739955965; x=1740560765;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=JParjzdc5yBYoG0m5UmXTy5mjDiWwZLgHUFOravZSiI=;
+        b=v9jxOI5+GNlmzdWuwaCbWnZKfl91DLuk707DaR4DE98ilmv9kTO11VyGEYiOMHm6WG
+         NmgDodQ/BeMcxmSTvA0wdppBDkSHF1yRc+w9/1aNRe9FCxbWiLBDg7H3SMc9kDT9HNCr
+         8eIvnYAQWpYEe61RZqB4N0BB1XLmjDUxgit4s002oa3chPaOqi2b+o6NSyGBs9n400dW
+         psZqdhpiro4RgzpQl8eHxsk5ZzdRcSMj7bWTxCLEEJwHA9/ratadXhFimpsf9judyMYg
+         6tQRKOu3DybCwqmK24zIHFeuTYLqW3vRVDqHx4oaJh5A77Okl3RpDs4y/4D+QjOkrEaH
+         8zjA==
+X-Forwarded-Encrypted: i=1; AJvYcCW5BMvnOrQWsn7kCyAuAYlc9UwsRXuxWjDJ1N2YGINX61mkGYEaBFd0Asl5IPrywZgAVdEr3TJqP3PRhA==@lists.infradead.org
+X-Gm-Message-State: AOJu0YyjIKWJgy1/E2Dc5y9k7vdnnY3Hl/qX7CgdHta5EeZQK35OP/hp
+	oyxlP6URnF8yth2LjC063sR6bFYR29mq1AfRIzyTatrG//B4g/omJRUYzMGyc74=
+X-Gm-Gg: ASbGncsXVS6hznd9w8F8L9YUUI4FZ1CT8Ftwvvl7gQp5h4KS1PDVZNzFw38Eac6BRno
+	miCRNADMnA3OHyKzHE3GPb88es4/z7n0ZXln3jGDCumGoL0yBuQLwj2sJIq111nDmx5FSG62Uwl
+	e2jvLG2PN4MFU+Qh3xCP7xRofvaNkNtiCv5dbopAL6pTpfFphvad+dPu5gLnD8u1QVMKBm/7hrH
+	BKeixejLyXKl2T7iQnU/9iG0Ezetn9QRJ0araffouPUnMI+Okk9T87sIvpJNa2CGxfnllt5n76I
+	TarsarBwbN+l/4+aQ9hNymiACnSZswEzmGJPqTAMepJfjjhhs87JiYFnO3hwznLIVWpNTX8=
+X-Google-Smtp-Source: AGHT+IHm7rrZGF7gWE8rLuZPX4nvDlV3DcFc5Uk1QwC4R6ncjGo7U2SoOER3uymDvhu6BZaa/4okgQ==
+X-Received: by 2002:a05:6512:3a94:b0:545:10bc:20ca with SMTP id 2adb3069b0e04-5452fe583c4mr6368433e87.24.1739955964491;
+        Wed, 19 Feb 2025 01:06:04 -0800 (PST)
+Received: from eriador.lumag.spb.ru (2001-14ba-a0c3-3a00--7a1.rev.dnainternet.fi. [2001:14ba:a0c3:3a00::7a1])
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-54530df9016sm1454714e87.36.2025.02.19.01.06.03
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 19 Feb 2025 00:51:06 -0800 (PST)
-Mime-Version: 1.0
-Date: Wed, 19 Feb 2025 09:51:05 +0100
-Message-Id: <D7WALEFMK28X.13HQ0UL1S3NM5@ventanamicro.com>
-To: "BillXiang" <xiangwencheng@lanxincomputing.com>, <anup@brainfault.org>
-From: =?utf-8?q?Radim_Kr=C4=8Dm=C3=A1=C5=99?= <rkrcmar@ventanamicro.com>
-Subject: Re: [PATCH] riscv: KVM: Remove unnecessary vcpu kick
-Cc: <ajones@ventanamicro.com>, <kvm-riscv@lists.infradead.org>,
- <kvm@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
- <linux-kernel@vger.kernel.org>, <atishp@atishpatra.org>,
- <paul.walmsley@sifive.com>, <palmer@dabbelt.com>, <aou@eecs.berkeley.edu>,
- "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
-References: <20250219015426.1939-1-xiangwencheng@lanxincomputing.com>
-In-Reply-To: <20250219015426.1939-1-xiangwencheng@lanxincomputing.com>
+        Wed, 19 Feb 2025 01:06:04 -0800 (PST)
+Date: Wed, 19 Feb 2025 11:06:02 +0200
+From: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
+To: Jerome Brunet <jbrunet@baylibre.com>
+Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+	Dave Ertman <david.m.ertman@intel.com>, Ira Weiny <ira.weiny@intel.com>, 
+	"Rafael J. Wysocki" <rafael@kernel.org>, Stephen Boyd <sboyd@kernel.org>, Arnd Bergmann <arnd@arndb.de>, 
+	Danilo Krummrich <dakr@kernel.org>, Conor Dooley <conor.dooley@microchip.com>, 
+	Daire McNamara <daire.mcnamara@microchip.com>, Philipp Zabel <p.zabel@pengutronix.de>, 
+	Douglas Anderson <dianders@chromium.org>, Andrzej Hajda <andrzej.hajda@intel.com>, 
+	Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
+	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, Jonas Karlman <jonas@kwiboo.se>, 
+	Jernej Skrabec <jernej.skrabec@gmail.com>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+	Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+	Hans de Goede <hdegoede@redhat.com>, Ilpo =?utf-8?B?SsOkcnZpbmVu?= <ilpo.jarvinen@linux.intel.com>, 
+	Bryan O'Donoghue <bryan.odonoghue@linaro.org>, Vladimir Kondratiev <vladimir.kondratiev@mobileye.com>, 
+	Gregory CLEMENT <gregory.clement@bootlin.com>, =?utf-8?B?VGjDqW8=?= Lebrun <theo.lebrun@bootlin.com>, 
+	Michael Turquette <mturquette@baylibre.com>, Abel Vesa <abelvesa@kernel.org>, Peng Fan <peng.fan@nxp.com>, 
+	Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
+	Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, 
+	Kevin Hilman <khilman@baylibre.com>, Martin Blumenstingl <martin.blumenstingl@googlemail.com>, 
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, dri-devel@lists.freedesktop.org, 
+	platform-driver-x86@vger.kernel.org, linux-mips@vger.kernel.org, linux-clk@vger.kernel.org, 
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+	linux-amlogic@lists.infradead.org
+Subject: Re: [PATCH v4 1/8] driver core: auxiliary bus: add device creation
+ helpers
+Message-ID: <crtrciitrlqkxh5mxvnbdjy6zoxny5onse7xgbw7biozg6myux@grp3ketgl2uh>
+References: <20250218-aux-device-create-helper-v4-0-c3d7dfdea2e6@baylibre.com>
+ <20250218-aux-device-create-helper-v4-1-c3d7dfdea2e6@baylibre.com>
+MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20250218-aux-device-create-helper-v4-1-c3d7dfdea2e6@baylibre.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250219_005109_211279_F23C2CF1 
-X-CRM114-Status: GOOD (  19.86  )
+X-CRM114-CacheID: sfid-20250219_010606_898323_ADF68547 
+X-CRM114-Status: GOOD (  23.59  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,58 +119,97 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-2025-02-19T09:54:26+08:00, BillXiang <xiangwencheng@lanxincomputing.com>:
-> Thank you Andrew Jones, forgive my errors in the last email.
-> I'm wondering whether it's necessary to kick the virtual hart
-> after writing to the vsfile of IMSIC.
-> From my understanding, writing to the vsfile should directly
-> forward the interrupt as MSI to the virtual hart. This means that
-> an additional kick should not be necessary, as it would cause the
-> vCPU to exit unnecessarily and potentially degrade performance.
+On Tue, Feb 18, 2025 at 08:29:46PM +0100, Jerome Brunet wrote:
+> Add helper functions to create a device on the auxiliary bus.
+> 
+> This is meant for fairly simple usage of the auxiliary bus, to avoid having
+> the same code repeated in the different drivers.
+> 
+> Suggested-by: Stephen Boyd <sboyd@kernel.org>
+> Cc: Arnd Bergmann <arnd@arndb.de>
+> Signed-off-by: Jerome Brunet <jbrunet@baylibre.com>
+> ---
+>  drivers/base/auxiliary.c      | 108 ++++++++++++++++++++++++++++++++++++++++++
+>  include/linux/auxiliary_bus.h |  17 +++++++
+>  2 files changed, 125 insertions(+)
+> 
+> diff --git a/drivers/base/auxiliary.c b/drivers/base/auxiliary.c
+> index afa4df4c5a3f371b91d8dd8c4325495d32ad1291..a6d46c2759be81a0739f07528d5959c2a76eb8a8 100644
+> --- a/drivers/base/auxiliary.c
+> +++ b/drivers/base/auxiliary.c
+> @@ -385,6 +385,114 @@ void auxiliary_driver_unregister(struct auxiliary_driver *auxdrv)
+>  }
+>  EXPORT_SYMBOL_GPL(auxiliary_driver_unregister);
+>  
+> +static void auxiliary_device_release(struct device *dev)
+> +{
+> +	struct auxiliary_device *auxdev = to_auxiliary_dev(dev);
+> +
+> +	kfree(auxdev);
+> +}
+> +
+> +/**
+> + * auxiliary_device_create - create a device on the auxiliary bus
+> + * @dev: parent device
+> + * @modname: module name used to create the auxiliary driver name.
+> + * @devname: auxiliary bus device name
+> + * @platform_data: auxiliary bus device platform data
+> + * @id: auxiliary bus device id
+> + *
+> + * Helper to create an auxiliary bus device.
+> + * The device created matches driver 'modname.devname' on the auxiliary bus.
+> + */
+> +struct auxiliary_device *auxiliary_device_create(struct device *dev,
+> +						 const char *modname,
+> +						 const char *devname,
+> +						 void *platform_data,
+> +						 int id)
+> +{
+> +	struct auxiliary_device *auxdev;
+> +	int ret;
+> +
+> +	auxdev = kzalloc(sizeof(*auxdev), GFP_KERNEL);
+> +	if (!auxdev)
+> +		return NULL;
+> +
+> +	auxdev->id = id;
+> +	auxdev->name = devname;
+> +	auxdev->dev.parent = dev;
+> +	auxdev->dev.platform_data = platform_data;
+> +	auxdev->dev.release = auxiliary_device_release;
+> +	device_set_of_node_from_dev(&auxdev->dev, dev);
+> +
+> +	ret = auxiliary_device_init(auxdev);
+> +	if (ret) {
+> +		kfree(auxdev);
+> +		return NULL;
+> +	}
+> +
+> +	ret = __auxiliary_device_add(auxdev, modname);
+> +	if (ret) {
 
-Andrew proposed to avoid the exit overhead, but do a wakeup if the VCPU
-is "sleeping".  I talked with Andrew and thought so as well, but now I
-agree with you that we shouldn't have anything extra here.
+This loses possible error return values from __auxiliary_device_add().
+I'd suggest to return ERR_PTR(ret) here and in the
+auxiliary_device_init() chunks and ERR_PTR(-ENOMEM) in case of kzalloc()
+failure.
 
-Direct MSIs from IOMMU or other harts won't perform anything afterwards,
-so what you want to do correct and KVM has to properly handle the memory
-write alone.
+> +		/*
+> +		 * It may look odd but auxdev should not be freed here.
+> +		 * auxiliary_device_uninit() calls device_put() which call
+> +		 * the device release function, freeing auxdev.
+> +		 */
+> +		auxiliary_device_uninit(auxdev);
+> +		return NULL;
+> +	}
+> +
+> +	return auxdev;
+> +}
+> +EXPORT_SYMBOL_GPL(auxiliary_device_create);
+> +
 
-> I've tested this behavior in QEMU, and it seems to work perfectly
-> fine without the extra kick.
-
-If the rest of KVM behaves correctly is a different question.
-A mistake might result in a very rare race condition, so it's better to
-do verification rather than generic testing.
-
-For example, is `vsfile_cpu >= 0` the right condition for using direct
-interrupts?
-
-I don't see KVM setting vsfile_cpu to -1 before descheduling after
-emulating WFI, which could cause a bug as a MSI would never cause a wake
-up.  It might still look like it works, because something else could be
-waking the VCPU up and then the VCPU would notice this MSI as well.
-
-Please note that I didn't actualy verify the KVM code, so it can be
-correct, I just used this to give you an example of what can go wrong
-without being able to see it in testing.
-
-I would like to know if KVM needs fixing before this change is accepted.
-(It could make bad things worse.)
-
-> Would appreciate any insights or confirmation on this!
-
-Your patch is not acceptable because of its commit message, though.
-Please look again at the document that Andrew posted and always reply
-the previous thread if you do not send a new patch version.
-
-The commit message should be on point.
-Please avoid extraneous information that won't help anyone reading the
-commit.  Greeting and commentary can go below the "---" line.
-(And possibly above a "---8<---" line, although that is not official and
- may cause issues with some maintainers.)
-
-Thanks.
+-- 
+With best wishes
+Dmitry
 
 _______________________________________________
 linux-riscv mailing list
