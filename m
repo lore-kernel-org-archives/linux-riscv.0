@@ -4,98 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B3DC5C021AA
-	for <linux-riscv@archiver.kernel.org>; Wed, 19 Feb 2025 02:04:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7863CC021AA
+	for <linux-riscv@archiver.kernel.org>; Wed, 19 Feb 2025 03:01:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=3tQCsuy6/r0HREb/5az+5uc3jWKOOXke7O2VIHSSXm0=; b=WoTB3OtfoJiM8z
-	cG3GpUjuz10VutdQ0vG3p6GaCdk1yA0/kl9X+27KDUhsQuxeKPyr1fJ8JT3JnGrtUW+9cz/j2r7Ie
-	jRgdYgzCuju9jfmgmrjZRxnJdWOW56/8jNXuKrUlatgpim44Sm5OtarO72IMi3tHigLJbYt6tDPhS
-	nHrFFVkIZik9vBlJjiUDnGc9/nQH38C7dBaGlu7SsZCV0eb0LJp5bM9xwPfQPhBinmqosW3zsM6AF
-	s/37p8dWaXkqK1orbngRD2tfvBTHsAMBRKlT1lCNhy2PBb1xl4U8LP139F3VdiYJK7drAY7GSWFO4
-	S8nLMKWiWlAlqpDltPOw==;
+	List-Owner; bh=nAXMTUj+4jSqYwOK4Ui6NDQOMbdSiocqktczRxHUb20=; b=cIoTf7HisceAcP
+	VUOBZOQrmDEhgLfpdljsj9RAJ7FMx5voME5/8Pb8+MhGAX/bSRuyg9WbXQR5hJ4IlfY2xujbHlDfF
+	BHtz2rWFhNNMbdiJFJNa9P1JEInafFjsOM4FkRdjCrp2UhbHKP4fl4Lss+wRt3gzVsj4qolsCj1Jb
+	jA/isr4IU8Q25GaRIEUveUCu+q6pd5L0cp4UHrkd2t994Df76QPbQOU8FsjTXZV7/Fbwi6Z3SZNOZ
+	Z0JwqSThF+S9wIdQbVGqcOySPWidSxc7zBRhZ/XbmZVJwbWH4ce5ApDl42SYmDn7yXdaymqZQ4SJq
+	wi0tRnwqRz8Hic4XSGZg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkZRs-0000000Abgn-057g;
-	Wed, 19 Feb 2025 02:04:28 +0000
-Received: from mail-qk1-x72e.google.com ([2607:f8b0:4864:20::72e])
+	id 1tkaKc-0000000Ai8V-3Ogp;
+	Wed, 19 Feb 2025 03:01:02 +0000
+Received: from mgamail.intel.com ([198.175.65.19])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkZQ5-0000000AbSo-1HFv
-	for linux-riscv@lists.infradead.org;
-	Wed, 19 Feb 2025 02:02:38 +0000
-Received: by mail-qk1-x72e.google.com with SMTP id af79cd13be357-7c07b65efeeso527540185a.2
-        for <linux-riscv@lists.infradead.org>; Tue, 18 Feb 2025 18:02:36 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1739930555; x=1740535355; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=980SAjG821KkBNdaRx+A15s8OgNFk4ezjXKzzUAttK8=;
-        b=AuBvNFbgcKw7Tk9+2PbChrdySTRl58Pq6LDflsWaBtOWpOggF7kaJsVENBo8j5fgZQ
-         tFo/cmj//8S0yoFUu05uOJMsXB0L2epMerJbXWUFI+6C3tEIyQtS6cqQdubqsnQRcwQZ
-         SCPeQOXj0Oc3gX/QDzbNAuIHFSDYnF1uXzb8WRAHudTTh+6FOtKsq1t+g9jnB5mwYIfm
-         /FmDOCVngIHo+FrA0pE6GpqUZ/pxoXdBpisBxS+1GymYtJaze3sVmxSJGRP6gfN3I3bM
-         i96m9mLqDZZhycfTmn6TrsWHAiATtH2kR6elcRxFithySooxmLolPtYju1rHHgsK6YpX
-         Im+g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1739930555; x=1740535355;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=980SAjG821KkBNdaRx+A15s8OgNFk4ezjXKzzUAttK8=;
-        b=iRNM0uih7LBALEqGyedHOyZ0gn95HlNya+H/LTFzQ3thiuEDjAd0fKyMHeUifOauds
-         NmhtNEfhVLKdXhQhLXAfEN7ekR9TOT2dPi1TlNDYj+gRwe6MMtv7poEtHhKwlMfA1H8s
-         gMjl8bxbG71Uwr9AzDN9p5a8mcU4ltkTawqb4daQNuS9KXFQWj0wagVTWMka1uXMqzkN
-         gntcBhTKhtBykEeicwlJ6no32oxsNli1KLS143PywQIVblwHuSQftgjRQNGXWshmBFhe
-         B08a4akFyDeP25UTDK95ssrzY1MpApRDNvCYve9m/QIop3mO2ljEzkNm8LZ8OgX4b7l6
-         4Afw==
-X-Forwarded-Encrypted: i=1; AJvYcCXNOj/brHGp1sA7CHj3+gxEOJpMndXbrFCqJtAAQZWOcM8DMwY4KXP8U3AYvDQy6lrCwuZSS46DRb0iRA==@lists.infradead.org
-X-Gm-Message-State: AOJu0YwGETM2gTlGYEss3BlIuit+368J1Xzzd7RUQrX5G7QO6pbfIUV+
-	b2MQ75pZG4PxVwdcMc5r6A+Im+ZogEEpS+unJc+ixcCfqq6uScyI
-X-Gm-Gg: ASbGncvsxUnhhNPU+4syuEvxq5DATgoMMMc1Rx2Y6fQvU7nNGdQTM3YmtGfYsFOnoo5
-	5a31Syj5EumPx7MWWVqEjjkPQ6SXiLIobsi9tIxyv7i0tVAmL2uVuLQyYR7yb5ENqhGy/lsMBaV
-	PMu1PVWUk+z/6QLHLHfm983Dykh0UT1SypADd+ed2WpxtDeKeTdVJvSg7WChGm3mz3XLX9yaafc
-	bwAT8rBqg3kIaPfidnr8X3G1c8xyWWaI8skl534pF2OwWr5kDw8xB5deNB6WVpiP5U=
-X-Google-Smtp-Source: AGHT+IFao5uYt/opWCP18gBhrPbDbhzTsVioAhM4PEXmi9PCMUnZww8XRVKOU3gkOFPTX9L4VDhHrw==
-X-Received: by 2002:ad4:5f0a:0:b0:6d3:fa03:23f1 with SMTP id 6a1803df08f44-6e66ccc1141mr227209846d6.13.1739930555333;
-        Tue, 18 Feb 2025 18:02:35 -0800 (PST)
-Received: from localhost ([2001:da8:7001:11::cb])
-        by smtp.gmail.com with UTF8SMTPSA id 6a1803df08f44-6e67ac30bafsm32452896d6.111.2025.02.18.18.02.34
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 18 Feb 2025 18:02:34 -0800 (PST)
-From: Inochi Amaoto <inochiama@gmail.com>
-To: aou@eecs.berkeley.edu,
-	unicorn_wang@outlook.com,
-	conor+dt@kernel.org,
-	guoren@kernel.org,
-	inochiama@outlook.com,
-	krzk+dt@kernel.org,
-	palmer@dabbelt.com,
-	paul.walmsley@sifive.com,
-	robh@kernel.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	chao.wei@sophgo.com,
-	xiaoguang.xing@sophgo.com,
-	chunzhi.lin@sophgo.com,
-	sophgo@lists.linux.dev,
-	Chen Wang <unicornxw@gmail.com>
-Cc: Inochi Amaoto <inochiama@gmail.com>
-Subject: Re: [PATCH 0/2] Add pwm-fan for Milk-V Pioneer
-Date: Wed, 19 Feb 2025 10:02:19 +0800
-Message-ID: <173993053303.993263.3269292978255036963.b4-ty@gmail.com>
-X-Mailer: git-send-email 2.48.1
-In-Reply-To: <cover.1739351437.git.unicorn_wang@outlook.com>
-References: <cover.1739351437.git.unicorn_wang@outlook.com>
+	id 1tkaJ9-0000000Ai0L-0Oqn;
+	Wed, 19 Feb 2025 02:59:32 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1739933971; x=1771469971;
+  h=message-id:date:mime-version:subject:to:cc:references:
+   from:in-reply-to:content-transfer-encoding;
+  bh=rOMFbl3z2EdNZq26KKAZFNR9PZtZbOBVCWnC4y2z5Us=;
+  b=JVJL4d8+Wpq+RGvwBkbN5os6UU4C1hyPhC1ixWhMypvic3qwUjMGZOfl
+   eQcjh0lBTV3kvoe/rxWTSj4lPPn9GPLZhkjn0uB4HRkFgNaOkMIXMS6/R
+   9Pt3hhvMAd/OGfleZteI2aQ0jHsqKjrspqIoFB00Ec9gy7jkvpVD43CVQ
+   syDUTm1fg7Zk4bWEcRHDeXOdln5KyylV/47md8/hqax1jtTvwmq+pohaJ
+   3BHt/ZB2u7qJdaFk7+KhyOreRbnrglFHkSGJFewcyEc/2vBJJFw4JbX5I
+   fqiECPiMFwPaI3gDfec+zXXLllca5emvzjwOJiTkwf39i8DWz/efzy1OF
+   g==;
+X-CSE-ConnectionGUID: QscKp2A/RLeG1LDZXYgI7Q==
+X-CSE-MsgGUID: pCYuGqZVRAyuDYS+x4N6yA==
+X-IronPort-AV: E=McAfee;i="6700,10204,11348"; a="40515889"
+X-IronPort-AV: E=Sophos;i="6.13,296,1732608000"; 
+   d="scan'208";a="40515889"
+Received: from fmviesa006.fm.intel.com ([10.60.135.146])
+  by orvoesa111.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 18 Feb 2025 18:59:29 -0800
+X-CSE-ConnectionGUID: TBYZGMlXQXKSyTkYi9M/6A==
+X-CSE-MsgGUID: 7HleMqibRqa4OaCc6SPD+g==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.13,296,1732608000"; 
+   d="scan'208";a="114437430"
+Received: from allen-sbox.sh.intel.com (HELO [10.239.159.30]) ([10.239.159.30])
+  by fmviesa006-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 18 Feb 2025 18:59:21 -0800
+Message-ID: <25d9f6de-5cc0-41ec-bdbc-0cf5f66743cf@linux.intel.com>
+Date: Wed, 19 Feb 2025 10:56:18 +0800
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 07/23] iommu/pages: De-inline the substantial functions
+To: Jason Gunthorpe <jgg@nvidia.com>
+Cc: Alim Akhtar <alim.akhtar@samsung.com>,
+ Alyssa Rosenzweig <alyssa@rosenzweig.io>, Albert Ou <aou@eecs.berkeley.edu>,
+ asahi@lists.linux.dev, David Woodhouse <dwmw2@infradead.org>,
+ Heiko Stuebner <heiko@sntech.de>, iommu@lists.linux.dev,
+ Jernej Skrabec <jernej.skrabec@gmail.com>,
+ Jonathan Hunter <jonathanh@nvidia.com>, Joerg Roedel <joro@8bytes.org>,
+ Krzysztof Kozlowski <krzk@kernel.org>, linux-arm-kernel@lists.infradead.org,
+ linux-riscv@lists.infradead.org, linux-rockchip@lists.infradead.org,
+ linux-samsung-soc@vger.kernel.org, linux-sunxi@lists.linux.dev,
+ linux-tegra@vger.kernel.org, Marek Szyprowski <m.szyprowski@samsung.com>,
+ Hector Martin <marcan@marcan.st>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Robin Murphy
+ <robin.murphy@arm.com>, Samuel Holland <samuel@sholland.org>,
+ Suravee Suthikulpanit <suravee.suthikulpanit@amd.com>,
+ Sven Peter <sven@svenpeter.dev>, Thierry Reding <thierry.reding@gmail.com>,
+ Tomasz Jeznach <tjeznach@rivosinc.com>, Krishna Reddy <vdumpa@nvidia.com>,
+ Chen-Yu Tsai <wens@csie.org>, Will Deacon <will@kernel.org>,
+ Bagas Sanjaya <bagasdotme@gmail.com>, Joerg Roedel <jroedel@suse.de>,
+ Pasha Tatashin <pasha.tatashin@soleen.com>, patches@lists.linux.dev,
+ David Rientjes <rientjes@google.com>, Matthew Wilcox <willy@infradead.org>
+References: <7-v2-545d29711869+a76b5-iommu_pages_jgg@nvidia.com>
+ <84fd4500-a12c-40d6-a532-e2956ed1c35e@linux.intel.com>
+ <20250218201924.GJ4183890@nvidia.com>
+Content-Language: en-US
+From: Baolu Lu <baolu.lu@linux.intel.com>
+In-Reply-To: <20250218201924.GJ4183890@nvidia.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250218_180237_341933_5BE87DAA 
-X-CRM114-Status: GOOD (  10.75  )
+X-CRM114-CacheID: sfid-20250218_185931_186648_DA005E13 
+X-CRM114-Status: GOOD (  21.38  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,34 +99,63 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, 12 Feb 2025 17:41:44 +0800, Chen Wang wrote:
-> From: Chen Wang <unicorn_wang@outlook.com>
+On 2/19/25 04:19, Jason Gunthorpe wrote:
+> On Sat, Feb 15, 2025 at 04:48:04PM +0800, Baolu Lu wrote:
 > 
-> Milk-V Pioneer uses fan as cooling-device, and speed of the fan is
-> controlled by the first channel of pwm controller of SG2042.
+>>> +#include <linux/gfp.h>
+>>> +#include <linux/mm.h>
+>>> +
+>>> +/**
+>>> + * iommu_alloc_pages_node - Allocate a zeroed page of a given order from
+>>> + *                          specific NUMA node
+>>> + * @nid: memory NUMA node id
+>>> + * @gfp: buddy allocator flags
+>>> + * @order: page order
+>>> + *
+>>> + * Returns the virtual address of the allocated page. The page must be
+>>> + * freed either by calling iommu_free_page() or via iommu_put_pages_list().
+>> nit: ... by calling iommu_free_pages() ...
+> Got it
 > 
-> This patchset depends on another patchset for the SG2042 pwm controller,
-> the driver part is now on pwm/for-next [pwm-for-next] and the dts part is
-> now on sophgo/for-next [sophgo-for-next]. If you want to have a test,
-> you need to apply the corresponding patchset.
+>> and
+>>
+>>   s/page/pages/g in above comments?
+> There is alot of historical confusion here because it was all designed
+> around alloc_pages() which allocated a list of contiguous pages that
+> could be subdivided. When this moved to GFP_COMP and later to
+> folio_alloc() the subdivision is no longer possible. So it is not
+> "pages" at all anymore, but a single "[compound] page".
 > 
-> [...]
+> So the module name is called "iommu-pages" but aside from the free
+> list functions everything else acts on a single [compound] page only.
+> 
+> If you think about it too much it makes no sense but I didn't want to
+> rename every function. I tried to keep it so that "iommu pages" was
+> part of othe module name, and function designators, but the comments
+> talk about a singular [compound] page
+> 
+>>> +static void __iommu_free_page(struct page *page)
+>> It's more readable if renaming it to __iommu_free_pages()?
+> Ah.. Well, it captures the module name but nothing it does acts on
+> multiple things, since it is internal I used the other name
+> 
+> How about I rename it later on to:
+> 
+> static void __iommu_free_desc(struct ioptdesc *iopt)
+> 
+> ?
 
-Applied to for-next, thanks!
-
-[1/2] riscv: sophgo: dts: add pwm-fan for Milk-V Pioneer
-      https://github.com/sophgo/linux/commit/62cdf0a06dd5a650e4ca95b6f3a13daa48cf517a
-[2/2] riscv: sophgo: dts: add cooling maps for Milk-V Pioneer
-      https://github.com/sophgo/linux/commit/f047a9285f9f3fd5c0d5ae53af350b8b619e470a
+No problem. It actually depends on you. Since this is only used locally,
+the iommu drivers won't use it. So, anything that helps understand what
+it does is okay. :-)
 
 Thanks,
-Inochi
-
+baolu
 
 _______________________________________________
 linux-riscv mailing list
