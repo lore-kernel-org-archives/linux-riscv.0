@@ -4,90 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7863CC021AA
-	for <linux-riscv@archiver.kernel.org>; Wed, 19 Feb 2025 03:01:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E53ECC021AA
+	for <linux-riscv@archiver.kernel.org>; Wed, 19 Feb 2025 03:04:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=nAXMTUj+4jSqYwOK4Ui6NDQOMbdSiocqktczRxHUb20=; b=cIoTf7HisceAcP
-	VUOBZOQrmDEhgLfpdljsj9RAJ7FMx5voME5/8Pb8+MhGAX/bSRuyg9WbXQR5hJ4IlfY2xujbHlDfF
-	BHtz2rWFhNNMbdiJFJNa9P1JEInafFjsOM4FkRdjCrp2UhbHKP4fl4Lss+wRt3gzVsj4qolsCj1Jb
-	jA/isr4IU8Q25GaRIEUveUCu+q6pd5L0cp4UHrkd2t994Df76QPbQOU8FsjTXZV7/Fbwi6Z3SZNOZ
-	Z0JwqSThF+S9wIdQbVGqcOySPWidSxc7zBRhZ/XbmZVJwbWH4ce5ApDl42SYmDn7yXdaymqZQ4SJq
-	wi0tRnwqRz8Hic4XSGZg==;
+	List-Owner; bh=Uqlby8B5lT0xYdzAwO8bPKxBrSbmVRQE3hJnFbyyGkc=; b=rk0S1dxofMyYce
+	DkFf8FUiTcfPeWG0ikr9Ovy7iOQH704xS2kSoXFUSCb3wp71kaFxX9Jy5plYWSrY+exSI5aYIdCs8
+	j99h5ICAYEnwr01Tx5yJx1RidtvHUHGdOnJB2mXWnJ9a7EuixSEA0haFkrN3sPAId/K+S+pXk0HeS
+	xfaYsl46OpApqZ59SxdL+Uq23+AM8kHCPDj5Nf+ctT8zylSMhQ7YWMYe2iipSkefdviGnq3wz9DCM
+	q7h7qEFhlE0L7EgLmXdeWYwZKCmBrliezDVkaTXMUz3DIPeb4K6WkeHT8AwKrp2G816MwfYsaMCoO
+	mocJpvO3341f+/xsUCsg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkaKc-0000000Ai8V-3Ogp;
-	Wed, 19 Feb 2025 03:01:02 +0000
-Received: from mgamail.intel.com ([198.175.65.19])
+	id 1tkaNf-0000000AiYV-394y;
+	Wed, 19 Feb 2025 03:04:11 +0000
+Received: from mail-b.studer.dev ([3.21.136.164])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkaJ9-0000000Ai0L-0Oqn;
-	Wed, 19 Feb 2025 02:59:32 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1739933971; x=1771469971;
-  h=message-id:date:mime-version:subject:to:cc:references:
-   from:in-reply-to:content-transfer-encoding;
-  bh=rOMFbl3z2EdNZq26KKAZFNR9PZtZbOBVCWnC4y2z5Us=;
-  b=JVJL4d8+Wpq+RGvwBkbN5os6UU4C1hyPhC1ixWhMypvic3qwUjMGZOfl
-   eQcjh0lBTV3kvoe/rxWTSj4lPPn9GPLZhkjn0uB4HRkFgNaOkMIXMS6/R
-   9Pt3hhvMAd/OGfleZteI2aQ0jHsqKjrspqIoFB00Ec9gy7jkvpVD43CVQ
-   syDUTm1fg7Zk4bWEcRHDeXOdln5KyylV/47md8/hqax1jtTvwmq+pohaJ
-   3BHt/ZB2u7qJdaFk7+KhyOreRbnrglFHkSGJFewcyEc/2vBJJFw4JbX5I
-   fqiECPiMFwPaI3gDfec+zXXLllca5emvzjwOJiTkwf39i8DWz/efzy1OF
-   g==;
-X-CSE-ConnectionGUID: QscKp2A/RLeG1LDZXYgI7Q==
-X-CSE-MsgGUID: pCYuGqZVRAyuDYS+x4N6yA==
-X-IronPort-AV: E=McAfee;i="6700,10204,11348"; a="40515889"
-X-IronPort-AV: E=Sophos;i="6.13,296,1732608000"; 
-   d="scan'208";a="40515889"
-Received: from fmviesa006.fm.intel.com ([10.60.135.146])
-  by orvoesa111.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 18 Feb 2025 18:59:29 -0800
-X-CSE-ConnectionGUID: TBYZGMlXQXKSyTkYi9M/6A==
-X-CSE-MsgGUID: 7HleMqibRqa4OaCc6SPD+g==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.13,296,1732608000"; 
-   d="scan'208";a="114437430"
-Received: from allen-sbox.sh.intel.com (HELO [10.239.159.30]) ([10.239.159.30])
-  by fmviesa006-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 18 Feb 2025 18:59:21 -0800
-Message-ID: <25d9f6de-5cc0-41ec-bdbc-0cf5f66743cf@linux.intel.com>
-Date: Wed, 19 Feb 2025 10:56:18 +0800
+	id 1tkaMB-0000000AiMQ-0eJ8;
+	Wed, 19 Feb 2025 03:02:40 +0000
+Received: from mail.studer.dev (mail.studer.dev [168.62.161.121])
+	by mail-b.studer.dev (Postfix) with ESMTPSA id A4B6240047;
+	Wed, 19 Feb 2025 03:02:35 +0000 (UTC)
+dkim-signature: v=1; a=rsa-sha256; d=studer.dev; s=hmail;
+	c=relaxed/relaxed; q=dns/txt; h=From:Subject:Date:Message-ID:To:CC:MIME-Version:Content-Type:Content-Transfer-Encoding:In-Reply-To:References;
+	bh=qd6qp1+ybi0MHi3xmDnOya6FXacrtJVptDj7+jwoBCs=;
+	b=TBUdQCJWM1Gle0QybTdOW2kMgDrTXfMtboFQ20aQBjD5bfSQ92pWUNYKTZk543HV67pnT5HyOk7RHFoJ7TY/TuN283Ir1ce2yv9ggDuX82NPctt/pcJPqDEPxwqddiOcb3jOZ3RUPFOUc1a3DVtiMlPWTNAGYEauGTyAEW1Wc4g+NrrFoIZpgBsF60kybfL8NuxTaQmGRK7herpMtN/sHiFQQ/sNcpwdyNhynrpWFyaKLamRbdFJVKpUTS
+	vuZ7QUXTeIrE2qfQ03Lqpd5iwNtB5QXas5632DTZ+nByQd07N1mcMjTnNEZy7zZrUSYXVoRiaWH8gHkRqZi7MKgspVMw==
+Received: from [192.168.1.166] (pool-68-239-44-167.bstnma.fios.verizon.net [68.239.44.167])
+	by mail.studer.dev with ESMTPSA
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128)
+	; Wed, 19 Feb 2025 03:02:33 +0000
+Message-ID: <56fe8762-5b05-4b41-b7fd-f08f35012ba9@studer.dev>
+Date: Tue, 18 Feb 2025 22:02:32 -0500
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 07/23] iommu/pages: De-inline the substantial functions
-To: Jason Gunthorpe <jgg@nvidia.com>
-Cc: Alim Akhtar <alim.akhtar@samsung.com>,
- Alyssa Rosenzweig <alyssa@rosenzweig.io>, Albert Ou <aou@eecs.berkeley.edu>,
- asahi@lists.linux.dev, David Woodhouse <dwmw2@infradead.org>,
- Heiko Stuebner <heiko@sntech.de>, iommu@lists.linux.dev,
- Jernej Skrabec <jernej.skrabec@gmail.com>,
- Jonathan Hunter <jonathanh@nvidia.com>, Joerg Roedel <joro@8bytes.org>,
- Krzysztof Kozlowski <krzk@kernel.org>, linux-arm-kernel@lists.infradead.org,
- linux-riscv@lists.infradead.org, linux-rockchip@lists.infradead.org,
- linux-samsung-soc@vger.kernel.org, linux-sunxi@lists.linux.dev,
- linux-tegra@vger.kernel.org, Marek Szyprowski <m.szyprowski@samsung.com>,
- Hector Martin <marcan@marcan.st>, Palmer Dabbelt <palmer@dabbelt.com>,
- Paul Walmsley <paul.walmsley@sifive.com>, Robin Murphy
- <robin.murphy@arm.com>, Samuel Holland <samuel@sholland.org>,
- Suravee Suthikulpanit <suravee.suthikulpanit@amd.com>,
- Sven Peter <sven@svenpeter.dev>, Thierry Reding <thierry.reding@gmail.com>,
- Tomasz Jeznach <tjeznach@rivosinc.com>, Krishna Reddy <vdumpa@nvidia.com>,
- Chen-Yu Tsai <wens@csie.org>, Will Deacon <will@kernel.org>,
- Bagas Sanjaya <bagasdotme@gmail.com>, Joerg Roedel <jroedel@suse.de>,
- Pasha Tatashin <pasha.tatashin@soleen.com>, patches@lists.linux.dev,
- David Rientjes <rientjes@google.com>, Matthew Wilcox <willy@infradead.org>
-References: <7-v2-545d29711869+a76b5-iommu_pages_jgg@nvidia.com>
- <84fd4500-a12c-40d6-a532-e2956ed1c35e@linux.intel.com>
- <20250218201924.GJ4183890@nvidia.com>
+Subject: Re: [PATCH] riscv: dts: allwinner: d1: Add CPU thermal sensor and
+ zone
+To: =?UTF-8?Q?Jernej_=C5=A0krabec?= <jernej.skrabec@gmail.com>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Paul Walmsley
+ <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Albert Ou <aou@eecs.berkeley.edu>, Chen-Yu Tsai <wens@csie.org>,
+ Samuel Holland <samuel@sholland.org>
+Cc: devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
+ linux-kernel@vger.kernel.org
+References: <20250218020629.1476126-1-alex@studer.dev>
+ <4628970.LvFx2qVVIh@jernej-laptop>
+From: Alex Studer <alex@studer.dev>
 Content-Language: en-US
-From: Baolu Lu <baolu.lu@linux.intel.com>
-In-Reply-To: <20250218201924.GJ4183890@nvidia.com>
+In-Reply-To: <4628970.LvFx2qVVIh@jernej-laptop>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250218_185931_186648_DA005E13 
-X-CRM114-Status: GOOD (  21.38  )
+X-CRM114-CacheID: sfid-20250218_190239_271663_39936829 
+X-CRM114-Status: GOOD (  19.13  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,65 +72,73 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 2/19/25 04:19, Jason Gunthorpe wrote:
-> On Sat, Feb 15, 2025 at 04:48:04PM +0800, Baolu Lu wrote:
-> 
->>> +#include <linux/gfp.h>
->>> +#include <linux/mm.h>
->>> +
->>> +/**
->>> + * iommu_alloc_pages_node - Allocate a zeroed page of a given order from
->>> + *                          specific NUMA node
->>> + * @nid: memory NUMA node id
->>> + * @gfp: buddy allocator flags
->>> + * @order: page order
->>> + *
->>> + * Returns the virtual address of the allocated page. The page must be
->>> + * freed either by calling iommu_free_page() or via iommu_put_pages_list().
->> nit: ... by calling iommu_free_pages() ...
-> Got it
-> 
->> and
->>
->>   s/page/pages/g in above comments?
-> There is alot of historical confusion here because it was all designed
-> around alloc_pages() which allocated a list of contiguous pages that
-> could be subdivided. When this moved to GFP_COMP and later to
-> folio_alloc() the subdivision is no longer possible. So it is not
-> "pages" at all anymore, but a single "[compound] page".
-> 
-> So the module name is called "iommu-pages" but aside from the free
-> list functions everything else acts on a single [compound] page only.
-> 
-> If you think about it too much it makes no sense but I didn't want to
-> rename every function. I tried to keep it so that "iommu pages" was
-> part of othe module name, and function designators, but the comments
-> talk about a singular [compound] page
-> 
->>> +static void __iommu_free_page(struct page *page)
->> It's more readable if renaming it to __iommu_free_pages()?
-> Ah.. Well, it captures the module name but nothing it does acts on
-> multiple things, since it is internal I used the other name
-> 
-> How about I rename it later on to:
-> 
-> static void __iommu_free_desc(struct ioptdesc *iopt)
-> 
-> ?
-
-No problem. It actually depends on you. Since this is only used locally,
-the iommu drivers won't use it. So, anything that helps understand what
-it does is okay. :-)
-
-Thanks,
-baolu
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gMi8xOC8yNSAxMjoyMyBQTSwgSmVybmVqIMWga3JhYmVjIHdyb3RlOgo+IERuZSB0b3Jlaywg
+MTguIGZlYnJ1YXIgMjAyNSBvYiAwMzowNjoyOSBTcmVkbmplZXZyb3Bza2kgc3RhbmRhcmRuaSDE
+jWFzIGplIEFsZXggU3R1ZGVyIG5hcGlzYWwoYSk6Cj4+IFRoZSBzdW4yMGkgVEhTIChidWlsdCBp
+biBDUFUgdGhlcm1hbCBzZW5zb3IpIGlzIHN1cHBvcnRlZCBpbiBjb2RlLCBidXQKPj4gd2FzIG5l
+dmVyIGFkZGVkIHRvIHRoZSBkZXZpY2UgdHJlZS4gU28sIGFkZCBpdCB0byB0aGUgZGV2aWNlIHRy
+ZWUsCj4+IGFsb25nIHdpdGggYSB0aGVybWFsIHpvbmUgZm9yIHRoZSBDUFUuCj4+Cj4+IFNpZ25l
+ZC1vZmYtYnk6IEFsZXggU3R1ZGVyIDxhbGV4QHN0dWRlci5kZXY+Cj4+IC0tLQo+PiAgYXJjaC9y
+aXNjdi9ib290L2R0cy9hbGx3aW5uZXIvc3VuMjBpLWQxcy5kdHNpIHwgMzEgKysrKysrKysrKysr
+KysrKysrKwo+PiAgLi4uL2Jvb3QvZHRzL2FsbHdpbm5lci9zdW54aS1kMXMtdDExMy5kdHNpICAg
+IHwgMTYgKysrKysrKysrKwo+PiAgMiBmaWxlcyBjaGFuZ2VkLCA0NyBpbnNlcnRpb25zKCspCj4+
+Cj4+IGRpZmYgLS1naXQgYS9hcmNoL3Jpc2N2L2Jvb3QvZHRzL2FsbHdpbm5lci9zdW4yMGktZDFz
+LmR0c2kgYi9hcmNoL3Jpc2N2L2Jvb3QvZHRzL2FsbHdpbm5lci9zdW4yMGktZDFzLmR0c2kKPj4g
+aW5kZXggNjM2NzExMmU2Li5iZGRlODJhYTggMTAwNjQ0Cj4+IC0tLSBhL2FyY2gvcmlzY3YvYm9v
+dC9kdHMvYWxsd2lubmVyL3N1bjIwaS1kMXMuZHRzaQo+PiArKysgYi9hcmNoL3Jpc2N2L2Jvb3Qv
+ZHRzL2FsbHdpbm5lci9zdW4yMGktZDFzLmR0c2kKPj4gQEAgLTMsNiArMyw4IEBACj4+ICAKPj4g
+ICNkZWZpbmUgU09DX1BFUklQSEVSQUxfSVJRKG5yKQkobnIgKyAxNikKPj4gIAo+PiArI2luY2x1
+ZGUgPGR0LWJpbmRpbmdzL3RoZXJtYWwvdGhlcm1hbC5oPgo+IFB1dCBhYm92ZSBsaW5lIG9uIHRv
+cCAoYmVmb3JlIFNPQ19QRVJJUEhFUkFMX0lSUSgpKS4KV2lsbCBmaXggaW4gdjIuCj4+ICsKPj4g
+ICNpbmNsdWRlICJzdW54aS1kMXMtdDExMy5kdHNpIgo+PiAgCj4+ICAvIHsKPj4gQEAgLTExNSw0
+ICsxMTcsMzMgQEAgcG11IHsKPj4gIAkJCTwweDAwMDAwMDAwIDB4MDAwMDAwMGUgMHhmZmZmZmZm
+ZiAweGZmZmZmZmZmIDB4MDAwMTAwMDA+LAo+PiAgCQkJPDB4MDAwMDAwMDAgMHgwMDAwMDAwZiAw
+eGZmZmZmZmZmIDB4ZmZmZmZmZmYgMHgwMDAyMDAwMD47Cj4+ICAJfTsKPj4gKwo+PiArCXRoZXJt
+YWwtem9uZXMgewo+PiArCQljcHUtdGhlcm1hbCB7Cj4+ICsJCQlwb2xsaW5nLWRlbGF5LXBhc3Np
+dmUgPSA8MD47Cj4+ICsJCQlwb2xsaW5nLWRlbGF5ID0gPDA+Owo+PiArCQkJdGhlcm1hbC1zZW5z
+b3JzID0gPCZ0aHM+Owo+PiArCj4+ICsJCQljb29saW5nLW1hcHMgewo+PiArCQkJCW1hcDAgewo+
+PiArCQkJCQl0cmlwID0gPCZjcHVfYWxlcnQ+Owo+PiArCQkJCQljb29saW5nLWRldmljZSA9IDwm
+Y3B1MCBUSEVSTUFMX05PX0xJTUlUIFRIRVJNQUxfTk9fTElNSVQ+Owo+PiArCQkJCX07Cj4+ICsJ
+CQl9Owo+PiArCj4+ICsJCQl0cmlwcyB7Cj4+ICsJCQkJY3B1X2FsZXJ0OiBjcHUtYWxlcnQgewo+
+PiArCQkJCQl0ZW1wZXJhdHVyZSA9IDw4NTAwMD47Cj4+ICsJCQkJCWh5c3RlcmVzaXMgPSA8MjAw
+MD47Cj4+ICsJCQkJCXR5cGUgPSAicGFzc2l2ZSI7Cj4+ICsJCQkJfTsKPj4gKwo+PiArCQkJCWNw
+dS1jcml0IHsKPj4gKwkJCQkJdGVtcGVyYXR1cmUgPSA8MTAwMDAwPjsKPj4gKwkJCQkJaHlzdGVy
+ZXNpcyA9IDwwPjsKPj4gKwkJCQkJdHlwZSA9ICJjcml0aWNhbCI7Cj4+ICsJCQkJfTsKPiBXaGVy
+ZSBkbyB0aG9zZSBsaW1pdHMgY29tZSBmcm9tPwpJIHRvb2sgdGhlbSBmcm9tIHRoZSBkZWZpbml0
+aW9ucyBpbgphcmNoL2FybTY0L2Jvb3QvZHRzL2FsbHdpbm5lci9zdW41MGktaDYuZHRzaSwgd2hp
+Y2ggaXMgd2hhdCBJIGdlbmVyYWxseQpiYXNlZCB0aGlzIHBhdGNoIG9uLiBJIGNoZWNrZWQgdGhl
+IEQxcyBkYXRhc2hlZXQgYW5kIGl0IGRvZXMgc3BlY2lmeSBhCm1heCAiQW1iaWVudCBPcGVyYXRp
+bmcgVGVtcGVyYXR1cmUiIG9mIDcwIEMgYW5kIGEgbWF4ICJXb3JraW5nIEp1bmN0aW9uClRlbXBl
+cmF0dXJlIFJhbmdlIiBvZiAxMTAgQy4gU28gSSBjb3VsZCB1c2UgdGhvc2UsIGJ1dCB0aGUgZHRz
+aSBmaWxlcwpmb3IgdGhlIG90aGVyIHN1bnhpIGNoaXBzIGRvbid0IHNlZW0gdG8gZm9sbG93IHRo
+ZWlyIHJlc3BlY3RpdmUKZGF0YXNoZWV0cywgc28gSSB3YXNuJ3Qgc3VyZSB3aGF0IHRvIGRvIGhl
+cmUuCj4+ICsJCQl9Owo+PiArCQl9Owo+PiArCX07Cj4+ICB9Owo+PiBkaWZmIC0tZ2l0IGEvYXJj
+aC9yaXNjdi9ib290L2R0cy9hbGx3aW5uZXIvc3VueGktZDFzLXQxMTMuZHRzaSBiL2FyY2gvcmlz
+Y3YvYm9vdC9kdHMvYWxsd2lubmVyL3N1bnhpLWQxcy10MTEzLmR0c2kKPj4gaW5kZXggZTQxNzVh
+ZGIwLi5mY2ZjYWYwNmMgMTAwNjQ0Cj4+IC0tLSBhL2FyY2gvcmlzY3YvYm9vdC9kdHMvYWxsd2lu
+bmVyL3N1bnhpLWQxcy10MTEzLmR0c2kKPj4gKysrIGIvYXJjaC9yaXNjdi9ib290L2R0cy9hbGx3
+aW5uZXIvc3VueGktZDFzLXQxMTMuZHRzaQo+PiBAQCAtNDI2LDYgKzQyNiwxMCBAQCBzaWQ6IGVm
+dXNlQDMwMDYwMDAgewo+PiAgCQkJcmVnID0gPDB4MzAwNjAwMCAweDEwMDA+Owo+PiAgCQkJI2Fk
+ZHJlc3MtY2VsbHMgPSA8MT47Cj4+ICAJCQkjc2l6ZS1jZWxscyA9IDwxPjsKPj4gKwo+PiArCQkJ
+dGhzX2NhbGlicmF0aW9uOiB0aGVybWFsLXNlbnNvci1jYWxpYnJhdGlvbkAxNCB7Cj4+ICsJCQkJ
+cmVnID0gPDB4MTQgMHg4PjsKPj4gKwkJCX07Cj4+ICAJCX07Cj4+ICAKPj4gIAkJY3J5cHRvOiBj
+cnlwdG9AMzA0MDAwMCB7Cj4+IEBAIC05MzQsNSArOTM4LDE3IEBAIHJ0YzogcnRjQDcwOTAwMDAg
+ewo+PiAgCQkJY2xvY2stbmFtZXMgPSAiYnVzIiwgImhvc2MiLCAiYWhiIjsKPj4gIAkJCSNjbG9j
+ay1jZWxscyA9IDwxPjsKPj4gIAkJfTsKPj4gKwo+PiArCQl0aHM6IHRoZXJtYWwtc2Vuc29yQDIw
+MDk0MDAgewo+PiArCQkJY29tcGF0aWJsZSA9ICJhbGx3aW5uZXIsc3VuMjBpLWQxLXRocyI7Cj4+
+ICsJCQlyZWcgPSA8MHgyMDA5NDAwIDB4MTAwPjsKPiBTaXplIHNob3VsZCBiZSAweDQwMC4KV2ls
+bCBmaXggaW4gdjIuCj4KPiBCZXN0IHJlZ2FyZHMsCj4gSmVybmVqCgpUaGFua3MsCkFsZXgKCj4K
+Pj4gKwkJCWludGVycnVwdHMgPSA8U09DX1BFUklQSEVSQUxfSVJRKDU4KSBJUlFfVFlQRV9MRVZF
+TF9ISUdIPjsKPj4gKwkJCWNsb2NrcyA9IDwmY2N1IENMS19CVVNfVEhTPjsKPj4gKwkJCWNsb2Nr
+LW5hbWVzID0gImJ1cyI7Cj4+ICsJCQlyZXNldHMgPSA8JmNjdSBSU1RfQlVTX1RIUz47Cj4+ICsJ
+CQludm1lbS1jZWxscyA9IDwmdGhzX2NhbGlicmF0aW9uPjsKPj4gKwkJCW52bWVtLWNlbGwtbmFt
+ZXMgPSAiY2FsaWJyYXRpb24iOwo+PiArCQkJI3RoZXJtYWwtc2Vuc29yLWNlbGxzID0gPDA+Owo+
+PiArCQl9Owo+PiAgCX07Cj4+ICB9Owo+Pgo+Cj4KPgoKCl9fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1y
+aXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxt
+YW4vbGlzdGluZm8vbGludXgtcmlzY3YK
