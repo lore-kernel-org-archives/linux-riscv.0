@@ -4,95 +4,130 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C2551C021B0
-	for <linux-riscv@archiver.kernel.org>; Wed, 19 Feb 2025 13:50:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 00799C021AA
+	for <linux-riscv@archiver.kernel.org>; Wed, 19 Feb 2025 14:05:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:
-	Mime-Version:References:In-Reply-To:From:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=HxSEu8IuDaJ3yuuMNIjIs43r6ZmG5K7W2UMy6M3lHBg=; b=OER4srOQHsh61OnXX7UO8PpreM
-	0Lh08HBTsjS74dpoltubyH6MGFn5wcYTFx8jJTRS+TUIM2GkhCAq/gh84d1NQE3twP6/28a1EM7EW
-	vYPMYWQsdcd2BulY/PiRtvuWJN+R3w5QlKgg6G4IY076vaE8DAiWQ7ExQ3Ij/yegUqn3Q6FEr6MWk
-	rBkpp0uVl6XU3adg0zn0cLyK6ykv/j5naCHfLXHgT5uK8oXLPBn2Io1IU01HVkxneuWQQdcC5Txr8
-	2Rm1VdSOBSfBDXDWgixDfBBLKSnnKQJ2arYFH22Vm+IwMoY+46RUsSuDwUGiK1euSatwHgI3h/lKr
-	SRLTApow==;
+	List-Archive:List-Unsubscribe:List-Id:References:MIME-Version:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=5+mLGZkPXPV42dVsLSJjRGjncKtxuUaMgtf2X+Rry5A=; b=HhvUd3FzDBUK62
+	Q6F8NUeYZ7KRdaHIiVQjppz6ii/u9fqV2oAdGktL4OMohAAh+KTZgw0mbpA3sK9BX/lH2amKrm3XG
+	FcbcGrDWFA/Ij5GivhJiSJ3xKjUFHs37G0mRCjqbFPe+omqgNdeLyIukQ2qT0/VuJdvf2f/GYiJlZ
+	wbMEQ7RtI3ilZV/qGf7y+dW5vWmzcYtN4u0bsoyqbqR0BAYryv63DjSbd7JRziI3jo7eFUYMi7Zrg
+	TBpR8LV/72s2eimPhe+p0oN6oqgOd2yOEzdZ4I1tQDBSmBZ9qk6sGkW4PujM1Nd8e7E6Wmdw4/2uc
+	z6auZ0Q4c+2COQrtyEvA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkkTK-0000000D4i5-262q;
-	Wed, 19 Feb 2025 13:50:42 +0000
-Received: from smtp-relay-internal-0.canonical.com ([185.125.188.122])
+	id 1tkkhV-0000000D9pW-3VeZ;
+	Wed, 19 Feb 2025 14:05:21 +0000
+Received: from mailout1.w1.samsung.com ([210.118.77.11])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkkT5-0000000D4aY-3UtS
+	id 1tkkfB-0000000D8hC-05mZ
 	for linux-riscv@lists.infradead.org;
-	Wed, 19 Feb 2025 13:50:29 +0000
-Received: from mail-oi1-f200.google.com (mail-oi1-f200.google.com [209.85.167.200])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by smtp-relay-internal-0.canonical.com (Postfix) with ESMTPS id 59FB13F2C5
-	for <linux-riscv@lists.infradead.org>; Wed, 19 Feb 2025 13:50:26 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
-	s=20210705; t=1739973026;
-	bh=HkThrHww5O7217vswgEm19Ksu4iUBCwcKWWe4XYtKbw=;
-	h=From:In-Reply-To:References:Mime-Version:Date:Message-ID:Subject:
-	 To:Cc:Content-Type;
-	b=iOjKkdySiO15H/owhS+6RlWbTaM7qWbj/4SbkVh+GTb6k7Ome6jhwOVeyqSiYJ0CN
-	 8wsi7Xh49BRWqybkMhmMJ7OXQIIRBxU7WaFU8um6IXpgHggOu8TH9S4/ch+6DpwWtV
-	 BmDJU1m3OuH/tT5NAya4xB7Z5QDS5WJ5BW1JArIh/vp4Z11Y3Ag36c980Axgskm4kk
-	 YA8MhzSAoYzW44t0RbwFe+9HRBzgFqyjw/2G/ytcLrUDg5ynE6nOUrrHVNgRXGqrS7
-	 taELqWiW9iFAw9i2MG37l2FOW2mcSdw4wNlKeWaJTdq5Qpl3+G7gcw9AYVahisF33R
-	 xqfnhjmByjTQQ==
-Received: by mail-oi1-f200.google.com with SMTP id 5614622812f47-3f3fbe10227so2603829b6e.1
-        for <linux-riscv@lists.infradead.org>; Wed, 19 Feb 2025 05:50:26 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1739973025; x=1740577825;
-        h=cc:to:subject:message-id:date:mime-version:references:in-reply-to
-         :from:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=HkThrHww5O7217vswgEm19Ksu4iUBCwcKWWe4XYtKbw=;
-        b=q2jukXDUtfDWG/CdtTW4K3ElOoYPnb1X56I7+z8HQ17gLXHaJAoRphamWeBujl9adl
-         LY4WYdbNhJfcTBu4TKxKCeFXZ4Iv84uAIGZkN2KsypKfumTzHbDImDjIorkABTnIgO20
-         +n5sUDZ9/ffrNmFPerSJyUMm2f0d9w111lgxCnMmN7FfRz+s0WNXzV20QrQtN+JA5kfB
-         pWVQuXGSXA5eqNCtlCijuZ4v1HGcjcofOKkZUpNrVy9OOgXVR8k+LUWDdWGB+xUX/zXn
-         HwaqDdmWOe/T6Siur6X2ufZ6Vp4ioZMBOKAbiuXB69gvR2041dM/RfoNQcOxNYVKdGen
-         mbjw==
-X-Gm-Message-State: AOJu0YxoAvl2COD1ZRkWNa4/aaLNiOhzvCQXmzcM3qiPer/vFhM68Ax3
-	KeGQExMhTmk1olDraWFiqKxuRWr493q/KbAyDqvqn9dR5SWVzfzwUfDRQMa9y8PPt4Sj6NyfdYW
-	1xLuBDeeqF9ldjl7YUS//B507BsEbcQO5pEVkE990CnyMlf7JRQa56gfymZZLlvYosX30UOekfi
-	fzeE2JOqqGd7eX/JeVLvv7vtdMVbhCOGG+YoxLf47kaWf+lFSyJ0azhoDN
-X-Gm-Gg: ASbGncuFOAeOFwkpLGpKVXH8M4pvw6+EIRXWVFguquc8ImcxlhrCGaBDML7j18v5jcL
-	pIMVs4U1pCAEQ4lM9klVZ+w7Ec2bb86gu6nQzKaMZnq/2uD9WfXCcrtHzYpfhjOZFgk07hNuUT8
-	Tp0z1XEvwtco+7Lxw=
-X-Received: by 2002:a05:6808:1404:b0:3f3:fca6:e780 with SMTP id 5614622812f47-3f40f1d80damr2677734b6e.4.1739973025300;
-        Wed, 19 Feb 2025 05:50:25 -0800 (PST)
-X-Google-Smtp-Source: AGHT+IELzb0relCMdxW2h9gdJIHGCHMAFy7OUi/2S7r6jAP4Sq1/PdQCSb8BJv9iB/UP1miQ71opDlKqPQcOB0oF060=
-X-Received: by 2002:a05:6808:1404:b0:3f3:fca6:e780 with SMTP id
- 5614622812f47-3f40f1d80damr2677715b6e.4.1739973025019; Wed, 19 Feb 2025
- 05:50:25 -0800 (PST)
-Received: from 348282803490 named unknown by gmailapi.google.com with
- HTTPREST; Wed, 19 Feb 2025 05:50:24 -0800
-Received: from 348282803490 named unknown by gmailapi.google.com with
- HTTPREST; Wed, 19 Feb 2025 05:50:24 -0800
-From: Emil Renner Berthing <emil.renner.berthing@canonical.com>
-In-Reply-To: <20250102183746.411526-3-e@freeshell.de>
-References: <20250102183746.411526-1-e@freeshell.de> <20250102183746.411526-3-e@freeshell.de>
-Mime-Version: 1.0
-Date: Wed, 19 Feb 2025 05:50:24 -0800
-X-Gm-Features: AWEUYZnjj3UcLpDwY9vHo1V6-acr0oNVHmkQ82SwWdTmAkFxnAuNPZAUCub5EJA
-Message-ID: <CAJM55Z_b2qf7NsvKm5mVjS4O-hqqsDNhpohcvJ_myasOL97oSg@mail.gmail.com>
-Subject: Re: [PATCH v1 2/2] riscv: dts: starfive: jh7110-pine64-star64: enable
- USB 3.0 port
-To: E Shattow <e@freeshell.de>, Conor Dooley <conor@kernel.org>, 
-	Emil Renner Berthing <kernel@esmil.dk>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>
-Cc: linux-riscv@lists.infradead.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org
+	Wed, 19 Feb 2025 14:03:00 +0000
+Received: from eucas1p1.samsung.com (unknown [182.198.249.206])
+	by mailout1.w1.samsung.com (KnoxPortal) with ESMTP id 20250219140255euoutp01bc2bfa96564f5f208c2be68f2613b110~loO4higOS1215312153euoutp01e
+	for <linux-riscv@lists.infradead.org>; Wed, 19 Feb 2025 14:02:55 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout1.w1.samsung.com 20250219140255euoutp01bc2bfa96564f5f208c2be68f2613b110~loO4higOS1215312153euoutp01e
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1739973775;
+	bh=11aEPufDocOkfGTpOFIkPVtRjTQ3dDKPCluqZgwtkZo=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=MLZlymcslKBnKLMA6tWp2QAzHf8aHrIwoMZxKq5Q/5bDpcYH1tghQ2l427h+F/riD
+	 Y63NeMr8Po9NbKkZu6/sTzeyOzwnc7eHY8ICW6QvNWQCSPIXT1KIwvGtTQxZ35qFaF
+	 YAXuP7YDgvQ0P+pFMuCHIthCYCk0DLlXA0UHfpNU=
+Received: from eusmges2new.samsung.com (unknown [203.254.199.244]) by
+	eucas1p1.samsung.com (KnoxPortal) with ESMTP id
+	20250219140255eucas1p1187bba2c55be4e0f8641807dfbeef784~loO4QmrhA2157921579eucas1p16;
+	Wed, 19 Feb 2025 14:02:55 +0000 (GMT)
+Received: from eucas1p2.samsung.com ( [182.198.249.207]) by
+	eusmges2new.samsung.com (EUCPMTA) with SMTP id D1.01.20409.F84E5B76; Wed, 19
+	Feb 2025 14:02:55 +0000 (GMT)
+Received: from eusmtrp1.samsung.com (unknown [182.198.249.138]) by
+	eucas1p2.samsung.com (KnoxPortal) with ESMTPA id
+	20250219140254eucas1p23528e98a5279252a1acdd97d0162c26a~loO3sr-Fl1970819708eucas1p2x;
+	Wed, 19 Feb 2025 14:02:54 +0000 (GMT)
+Received: from eusmgms2.samsung.com (unknown [182.198.249.180]) by
+	eusmtrp1.samsung.com (KnoxPortal) with ESMTP id
+	20250219140254eusmtrp127b93bbd98c7565893e2729f536dd2e4~loO3rKVFI2416524165eusmtrp1R;
+	Wed, 19 Feb 2025 14:02:54 +0000 (GMT)
+X-AuditID: cbfec7f4-c0df970000004fb9-f1-67b5e48fc97a
+Received: from eusmtip2.samsung.com ( [203.254.199.222]) by
+	eusmgms2.samsung.com (EUCPMTA) with SMTP id 8B.42.19654.E84E5B76; Wed, 19
+	Feb 2025 14:02:54 +0000 (GMT)
+Received: from AMDC4942.home (unknown [106.210.136.40]) by
+	eusmtip2.samsung.com (KnoxPortal) with ESMTPA id
+	20250219140253eusmtip29c6819c3a28ab3d7913aa9d69a324f8e~loO2XPaRZ0642206422eusmtip2F;
+	Wed, 19 Feb 2025 14:02:53 +0000 (GMT)
+From: Michal Wilczynski <m.wilczynski@samsung.com>
+To: mturquette@baylibre.com, sboyd@kernel.org, robh@kernel.org,
+	krzk+dt@kernel.org, conor+dt@kernel.org, drew@pdp7.com, guoren@kernel.org,
+	wefu@redhat.com, jassisinghbrar@gmail.com, paul.walmsley@sifive.com,
+	palmer@dabbelt.com, aou@eecs.berkeley.edu, frank.binns@imgtec.com,
+	matt.coster@imgtec.com, maarten.lankhorst@linux.intel.com,
+	mripard@kernel.org, tzimmermann@suse.de, airlied@gmail.com, simona@ffwll.ch,
+	ulf.hansson@linaro.org, jszhang@kernel.org, p.zabel@pengutronix.de,
+	m.szyprowski@samsung.com
+Cc: linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+	dri-devel@lists.freedesktop.org, linux-pm@vger.kernel.org, Michal Wilczynski
+	<m.wilczynski@samsung.com>
+Subject: [PATCH v5 04/21] firmware: thead: Add AON firmware protocol driver
+Date: Wed, 19 Feb 2025 15:02:22 +0100
+Message-Id: <20250219140239.1378758-5-m.wilczynski@samsung.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20250219140239.1378758-1-m.wilczynski@samsung.com>
+MIME-Version: 1.0
+X-Brightmail-Tracker: H4sIAAAAAAAAA01SfUxTVxz1vvf63qNJ8VlIuAN0UuIWSQCnmNxEprANfQlLHEvmEh1j3Xgp
+	H+VjLR9zmgkWOsFacLCRFSes8i1IZLRriVihQGtRKnYCWQRcBpMiG2FUI6hsvjzc/O+c8zu/
+	e34nuTQu/ZkMptOz8zhVtlwpI8WEeWjFHVkxY1LsmNEwyDluxJDpiYFC7b0jGKobGBGhqdvd
+	GPrl4SKJLs3eotBcbzGBxlp+oJBmqJNEXsMUiZZ0UyLk6TlHouUzAwCZl0tI1DEwSaHOh3UY
+	+nHJRKAGSw9A2rImERp1JaDJKSeBvB4djrSGjeifKxYKrY1dJlDtXzYKdS+cFSFHx4eoxFZN
+	xG1hFydKKXbB6yVY+ykfxfY+qidYq2GSYnXWG4Dtaisj2btjV0j2/PUkdvq0A2N/ajjBlnQM
+	YWzFsx3s4tU7JKvvbgPsbc049Z70sDg2lVOmF3Cq6L2fiNNWBp6Kct014Av9Hw6iCAwXlAM/
+	GjIxcNSsI8uBmJYyLQBaZ62YQHwArjaUUQJZBtDrcVMvVgZthvWVZgD7Bk3rrgUAaxyrOO8i
+	mZ3wXnOdiB8EMqUELB0sBjzBmfsAmmfOkbwrgEmEXdUWEY8JZhv0XLMT5YCmJcw+uHRTIcS9
+	Cm19N3Fe9mPi4NXRYF6WMJvg9e9nCB7jzy0aUy3OPw+ZDjG8qC3ChN13YPt9PRBwAJx3dK9X
+	CIXDVTpCwDnwnulvXMDHoVXnWMd74N2RVZLPxZntsLMnWpDjofFCE+BlyPjDiT83CSf4w2/M
+	NbggS+AprVRwvwa/1Z35L3Skxbx+GAtPPi7DKkGY4aUyhpfKGP7PrQd4Gwji8tVZCk69M5sr
+	jFLLs9T52Yqoz3KyusDzvz285vBZQPP8UlQ/wGjQDyCNywIl2hPdCqkkVX70S06Vk6LKV3Lq
+	fhBCE7IgidFWqpAyCnkel8lxuZzqxRSj/YKLsD0bXFS2+9eD1rWVwI+rxVGS1jc58RZjiLJf
+	8/WxsWs5+rNbD9CJjUf2526cG7bEd5axPmNJcqEjIiztxr6njeGVGd/FOl9pWljZdqdgvG04
+	I+HZR84PJGHttJ3zRCpDI44z1gtEJudyx/xWlVTXyzgOHyE3H9rtsz06GRUyOzRfYE/KfDv2
+	87lc9bt5ffu7kt2XGiJtcbcS7bJi7bFypyv0yfmUVO9RWbqn8cHvWOFXXlPr3vDTAe267ZeD
+	g97/NDfhAFl/qDi+NmPs8ev+8xfZ1a0pD8LTY+Zlu5on3nL1xC4XRu+O3ayftDv9KgOmSyRV
+	LanJG3ZVjB4Mnq5ob40ZkRHqNPkbEbhKLf8X5LidoUoEAAA=
+X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFlrCKsWRmVeSWpSXmKPExsVy+t/xe7p9T7amG5z4oGJx4voiJoutv2ex
+	W6zZe47JYv6Rc6wW9y5tYbK48vU9m8W6pxfYLV7sbWSxuLZiLrtF87H1bBYvZ91js/jYc4/V
+	4vKuOWwWn3uPMFps+9zCZrH2yF12i/Vf5zNZLPy4lcViyY5djBZtnctYLS6ecrW4e+8Ei8XL
+	yz3MFm2z+C3+79nBbvHv2kYWi9nv9rNbbHkzkdXi+Npwi5b9U1gc5Dze32hl93jz8iWLx+GO
+	L+wee78tYPHYOesuu0fPzjOMHptWdbJ53Lm2h81j3slAj/vdx5k8Ni+p92hZe4zJo/+vgcf7
+	fVfZPPq2rGL0uNR8nT1AKErPpii/tCRVISO/uMRWKdrQwkjP0NJCz8jEUs/Q2DzWyshUSd/O
+	JiU1J7MstUjfLkEv4+eRP6wF56czVvQ9O87SwHi6rIuRk0NCwETi6P5ZbCC2kMBSRoljPbUQ
+	cRmJa90vWSBsYYk/17qAariAal4xSnzcsZcVJMEmYCTxYPl8MFtEYDGLxN59lSBFzAJvGSWu
+	z9wI1i0s4C2xacoOsCIWAVWJywcOA8U5OHgF7CU+nk2HWCAvsf/gWWaQMKeAg8S+i1IQ99hL
+	nOu7D9bJKyAocXLmE7CJzEDlzVtnM09gFJiFJDULSWoBI9MqRpHU0uLc9NxiI73ixNzi0rx0
+	veT83E2MwOSy7djPLTsYV776qHeIkYmD8RCjBAezkghvW/2WdCHelMTKqtSi/Pii0pzU4kOM
+	pkBXT2SWEk3OB6a3vJJ4QzMDU0MTM0sDU0szYyVxXrYr59OEBNITS1KzU1MLUotg+pg4OKUa
+	mEIMJla4Tjv8NOXhziuznRfwiW9mb6mOsopqX/O2Z9UR1/D1P29McM6s9/UVyJPImc1wInF9
+	x6WdNx9X/n6y6FSEfUJtkyxDTw1nbElEqvaux2XHq58yv15lHLnr0NMf+2ZdK79U33Tz7aWN
+	FSUNyiahEx+d0pC19ch4pj89skLk5qr5YQ4K3hq1P+ZPqP6c0Zr1Kl/MIZPvl5/jwmLXmbtD
+	D7SZqkQ2XRR/f3ffipYLHwtuZvzYbv6v8o2oqcSPW/VL+Y31cwTvJc0yzf4WylV0yKFtXgeP
+	bWTZMjmFMwGfP93a6hDy/IZlMMsnsa6Zeu0PRb8tNQh7sm8zQ5LHcubEl6/4chg3hMrONjv7
+	W4mlOCPRUIu5qDgRAMsNxO23AwAA
+X-CMS-MailID: 20250219140254eucas1p23528e98a5279252a1acdd97d0162c26a
+X-Msg-Generator: CA
+X-RootMTR: 20250219140254eucas1p23528e98a5279252a1acdd97d0162c26a
+X-EPHeader: CA
+CMS-TYPE: 201P
+X-CMS-RootMailID: 20250219140254eucas1p23528e98a5279252a1acdd97d0162c26a
+References: <20250219140239.1378758-1-m.wilczynski@samsung.com>
+	<CGME20250219140254eucas1p23528e98a5279252a1acdd97d0162c26a@eucas1p2.samsung.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250219_055027_998262_3ADFBF0B 
-X-CRM114-Status: GOOD (  11.85  )
+X-CRM114-CacheID: sfid-20250219_060257_840747_4CF938A1 
+X-CRM114-Status: GOOD (  30.86  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,39 +144,538 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-E Shattow wrote:
-> One of four USB-A ports on the Pine64 Star64 is USB 3.0 which requires to
-> disable PCIE0 and change the mode of PCIE0 PHY to USB3.0 operation. The
-> remaining three USB-A ports are USB 2.0 with the USB0 PHY and do not
-> conflict with any of PCIE0 or PCIE1. PCIE1 (1-lane) routes to a PCIe X4
-> connector.
->
-> Signed-off-by: E Shattow <e@freeshell.de>
+The T-Head TH1520 SoC uses an E902 co-processor running Always-On (AON)
+firmware to manage power, clock, and other system resources [1]. This
+patch introduces a driver implementing the AON firmware protocol,
+allowing the Linux kernel to communicate with the firmware via mailbox
+channels.  Through an RPC-based interface, the kernel can initiate power
+state transitions, update resource configurations, and perform other
+AON-related tasks.
 
-Reviewed-by: Emil Renner Berthing <emil.renner.berthing@canonical.com>
+Link: https://openbeagle.org/beaglev-ahead/beaglev-ahead/-/blob/main/docs/TH1520%20System%20User%20Manual.pdf [1]
 
-Thanks!
+Signed-off-by: Michal Wilczynski <m.wilczynski@samsung.com>
+---
+ MAINTAINERS                                   |   2 +
+ drivers/firmware/Kconfig                      |   9 +
+ drivers/firmware/Makefile                     |   1 +
+ drivers/firmware/thead,th1520-aon.c           | 247 ++++++++++++++++++
+ .../linux/firmware/thead/thead,th1520-aon.h   | 200 ++++++++++++++
+ 5 files changed, 459 insertions(+)
+ create mode 100644 drivers/firmware/thead,th1520-aon.c
+ create mode 100644 include/linux/firmware/thead/thead,th1520-aon.h
 
-> ---
->  arch/riscv/boot/dts/starfive/jh7110-pine64-star64.dts | 5 +++++
->  1 file changed, 5 insertions(+)
->
-> diff --git a/arch/riscv/boot/dts/starfive/jh7110-pine64-star64.dts b/arch/riscv/boot/dts/starfive/jh7110-pine64-star64.dts
-> index b764d4d92fd9..31e825be2065 100644
-> --- a/arch/riscv/boot/dts/starfive/jh7110-pine64-star64.dts
-> +++ b/arch/riscv/boot/dts/starfive/jh7110-pine64-star64.dts
-> @@ -100,3 +100,8 @@ &usb0 {
->  	pinctrl-0 = <&usb0_pins>;
->  	status = "okay";
->  };
-> +
-> +&usb_cdns3 {
-> +	phys = <&usbphy0>, <&pciephy0>;
-> +	phy-names = "cdns3,usb2-phy", "cdns3,usb3-phy";
-> +};
-> --
-> 2.45.2
->
+diff --git a/MAINTAINERS b/MAINTAINERS
+index 0934f9791fe9..3ee5a2f6cdee 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -20419,10 +20419,12 @@ F:	Documentation/devicetree/bindings/net/thead,th1520-gmac.yaml
+ F:	Documentation/devicetree/bindings/pinctrl/thead,th1520-pinctrl.yaml
+ F:	arch/riscv/boot/dts/thead/
+ F:	drivers/clk/thead/clk-th1520-ap.c
++F:	drivers/firmware/thead,th1520-aon.c
+ F:	drivers/mailbox/mailbox-th1520.c
+ F:	drivers/net/ethernet/stmicro/stmmac/dwmac-thead.c
+ F:	drivers/pinctrl/pinctrl-th1520.c
+ F:	include/dt-bindings/clock/thead,th1520-clk-ap.h
++F:	include/linux/firmware/thead/thead,th1520-aon.h
+ 
+ RNBD BLOCK DRIVERS
+ M:	Md. Haris Iqbal <haris.iqbal@ionos.com>
+diff --git a/drivers/firmware/Kconfig b/drivers/firmware/Kconfig
+index 9f35f69e0f9e..52c145097770 100644
+--- a/drivers/firmware/Kconfig
++++ b/drivers/firmware/Kconfig
+@@ -212,6 +212,15 @@ config SYSFB_SIMPLEFB
+ 
+ 	  If unsure, say Y.
+ 
++config TH1520_AON_PROTOCOL
++	tristate "Always-On firmware protocol"
++	depends on ARCH_THEAD || COMPILE_TEST
++	help
++	  Power, clock, and resource management capabilities on the TH1520 SoC are
++	  managed by the E902 core. Firmware running on this core communicates with
++	  the kernel through the Always-On protocol, using hardware mailbox as a medium.
++	  Say yes if you need such capabilities.
++
+ config TI_SCI_PROTOCOL
+ 	tristate "TI System Control Interface (TISCI) Message Protocol"
+ 	depends on TI_MESSAGE_MANAGER
+diff --git a/drivers/firmware/Makefile b/drivers/firmware/Makefile
+index 7a8d486e718f..5db9c042430c 100644
+--- a/drivers/firmware/Makefile
++++ b/drivers/firmware/Makefile
+@@ -18,6 +18,7 @@ obj-$(CONFIG_RASPBERRYPI_FIRMWARE) += raspberrypi.o
+ obj-$(CONFIG_FW_CFG_SYSFS)	+= qemu_fw_cfg.o
+ obj-$(CONFIG_SYSFB)		+= sysfb.o
+ obj-$(CONFIG_SYSFB_SIMPLEFB)	+= sysfb_simplefb.o
++obj-$(CONFIG_TH1520_AON_PROTOCOL) += thead,th1520-aon.o
+ obj-$(CONFIG_TI_SCI_PROTOCOL)	+= ti_sci.o
+ obj-$(CONFIG_TRUSTED_FOUNDATIONS) += trusted_foundations.o
+ obj-$(CONFIG_TURRIS_MOX_RWTM)	+= turris-mox-rwtm.o
+diff --git a/drivers/firmware/thead,th1520-aon.c b/drivers/firmware/thead,th1520-aon.c
+new file mode 100644
+index 000000000000..48e1bd986768
+--- /dev/null
++++ b/drivers/firmware/thead,th1520-aon.c
+@@ -0,0 +1,247 @@
++// SPDX-License-Identifier: GPL-2.0
++/*
++ * Copyright (C) 2021 Alibaba Group Holding Limited.
++ * Copyright (c) 2024 Samsung Electronics Co., Ltd.
++ * Author: Michal Wilczynski <m.wilczynski@samsung.com>
++ */
++
++#include <linux/device.h>
++#include <linux/firmware/thead/thead,th1520-aon.h>
++#include <linux/mailbox_client.h>
++#include <linux/mailbox_controller.h>
++
++#define MAX_RX_TIMEOUT (msecs_to_jiffies(3000))
++#define MAX_TX_TIMEOUT 500
++
++struct th1520_aon_chan {
++	struct mbox_chan *ch;
++	struct th1520_aon_rpc_ack_common ack_msg;
++	struct mbox_client cl;
++	struct completion done;
++
++	/* make sure only one RPC is performed at a time */
++	struct mutex transaction_lock;
++};
++
++struct th1520_aon_msg_req_set_resource_power_mode {
++	struct th1520_aon_rpc_msg_hdr hdr;
++	u16 resource;
++	u16 mode;
++	u16 reserved[10];
++} __packed __aligned(1);
++
++/*
++ * This type is used to indicate error response for most functions.
++ */
++enum th1520_aon_error_codes {
++	LIGHT_AON_ERR_NONE = 0, /* Success */
++	LIGHT_AON_ERR_VERSION = 1, /* Incompatible API version */
++	LIGHT_AON_ERR_CONFIG = 2, /* Configuration error */
++	LIGHT_AON_ERR_PARM = 3, /* Bad parameter */
++	LIGHT_AON_ERR_NOACCESS = 4, /* Permission error (no access) */
++	LIGHT_AON_ERR_LOCKED = 5, /* Permission error (locked) */
++	LIGHT_AON_ERR_UNAVAILABLE = 6, /* Unavailable (out of resources) */
++	LIGHT_AON_ERR_NOTFOUND = 7, /* Not found */
++	LIGHT_AON_ERR_NOPOWER = 8, /* No power */
++	LIGHT_AON_ERR_IPC = 9, /* Generic IPC error */
++	LIGHT_AON_ERR_BUSY = 10, /* Resource is currently busy/active */
++	LIGHT_AON_ERR_FAIL = 11, /* General I/O failure */
++	LIGHT_AON_ERR_LAST
++};
++
++static int th1520_aon_linux_errmap[LIGHT_AON_ERR_LAST] = {
++	0, /* LIGHT_AON_ERR_NONE */
++	-EINVAL, /* LIGHT_AON_ERR_VERSION */
++	-EINVAL, /* LIGHT_AON_ERR_CONFIG */
++	-EINVAL, /* LIGHT_AON_ERR_PARM */
++	-EACCES, /* LIGHT_AON_ERR_NOACCESS */
++	-EACCES, /* LIGHT_AON_ERR_LOCKED */
++	-ERANGE, /* LIGHT_AON_ERR_UNAVAILABLE */
++	-EEXIST, /* LIGHT_AON_ERR_NOTFOUND */
++	-EPERM, /* LIGHT_AON_ERR_NOPOWER */
++	-EPIPE, /* LIGHT_AON_ERR_IPC */
++	-EBUSY, /* LIGHT_AON_ERR_BUSY */
++	-EIO, /* LIGHT_AON_ERR_FAIL */
++};
++
++static inline int th1520_aon_to_linux_errno(int errno)
++{
++	if (errno >= LIGHT_AON_ERR_NONE && errno < LIGHT_AON_ERR_LAST)
++		return th1520_aon_linux_errmap[errno];
++
++	return -EIO;
++}
++
++static void th1520_aon_rx_callback(struct mbox_client *c, void *rx_msg)
++{
++	struct th1520_aon_chan *aon_chan =
++		container_of(c, struct th1520_aon_chan, cl);
++	struct th1520_aon_rpc_msg_hdr *hdr =
++		(struct th1520_aon_rpc_msg_hdr *)rx_msg;
++	u8 recv_size = sizeof(struct th1520_aon_rpc_msg_hdr) + hdr->size;
++
++	if (recv_size != sizeof(struct th1520_aon_rpc_ack_common)) {
++		dev_err(c->dev, "Invalid ack size, not completing\n");
++		return;
++	}
++
++	memcpy(&aon_chan->ack_msg, rx_msg, recv_size);
++	complete(&aon_chan->done);
++}
++
++/**
++ * th1520_aon_call_rpc() - Send an RPC request to the TH1520 AON subsystem
++ * @aon_chan: Pointer to the AON channel structure
++ * @msg: Pointer to the message (RPC payload) that will be sent
++ *
++ * This function sends an RPC message to the TH1520 AON subsystem via mailbox.
++ * It takes the provided @msg buffer, formats it with version and service flags,
++ * then blocks until the RPC completes or times out. The completion is signaled
++ * by the `aon_chan->done` completion, which is waited upon for a duration
++ * defined by `MAX_RX_TIMEOUT`.
++ *
++ * Return:
++ * * 0 on success
++ * * -ETIMEDOUT if the RPC call times out
++ * * A negative error code if the mailbox send fails or if AON responds with
++ *   a non-zero error code (converted via th1520_aon_to_linux_errno()).
++ */
++int th1520_aon_call_rpc(struct th1520_aon_chan *aon_chan, void *msg)
++{
++	struct th1520_aon_rpc_msg_hdr *hdr = msg;
++	int ret;
++
++	mutex_lock(&aon_chan->transaction_lock);
++	reinit_completion(&aon_chan->done);
++
++	RPC_SET_VER(hdr, TH1520_AON_RPC_VERSION);
++	RPC_SET_SVC_ID(hdr, hdr->svc);
++	RPC_SET_SVC_FLAG_MSG_TYPE(hdr, RPC_SVC_MSG_TYPE_DATA);
++	RPC_SET_SVC_FLAG_ACK_TYPE(hdr, RPC_SVC_MSG_NEED_ACK);
++
++	ret = mbox_send_message(aon_chan->ch, msg);
++	if (ret < 0) {
++		dev_err(aon_chan->cl.dev, "RPC send msg failed: %d\n", ret);
++		goto out;
++	}
++
++	if (!wait_for_completion_timeout(&aon_chan->done, MAX_RX_TIMEOUT)) {
++		dev_err(aon_chan->cl.dev, "RPC send msg timeout\n");
++		mutex_unlock(&aon_chan->transaction_lock);
++		return -ETIMEDOUT;
++	}
++
++	ret = aon_chan->ack_msg.err_code;
++
++out:
++	mutex_unlock(&aon_chan->transaction_lock);
++
++	return th1520_aon_to_linux_errno(ret);
++}
++EXPORT_SYMBOL_GPL(th1520_aon_call_rpc);
++
++/**
++ * th1520_aon_power_update() - Change power state of a resource via TH1520 AON
++ * @aon_chan: Pointer to the AON channel structure
++ * @rsrc: Resource ID whose power state needs to be updated
++ * @power_on: Boolean indicating whether the resource should be powered on (true)
++ *            or powered off (false)
++ *
++ * This function requests the TH1520 AON subsystem to set the power mode of the
++ * given resource (@rsrc) to either on or off. It constructs the message in
++ * `struct th1520_aon_msg_req_set_resource_power_mode` and then invokes
++ * th1520_aon_call_rpc() to make the request. If the AON call fails, an error
++ * message is logged along with the specific return code.
++ *
++ * Return:
++ * * 0 on success
++ * * A negative error code in case of failures (propagated from
++ *   th1520_aon_call_rpc()).
++ */
++int th1520_aon_power_update(struct th1520_aon_chan *aon_chan, u16 rsrc,
++			    bool power_on)
++{
++	struct th1520_aon_msg_req_set_resource_power_mode msg = {};
++	struct th1520_aon_rpc_msg_hdr *hdr = &msg.hdr;
++	int ret;
++
++	hdr->svc = TH1520_AON_RPC_SVC_PM;
++	hdr->func = TH1520_AON_PM_FUNC_SET_RESOURCE_POWER_MODE;
++	hdr->size = TH1520_AON_RPC_MSG_NUM;
++
++	RPC_SET_BE16(&msg.resource, 0, rsrc);
++	RPC_SET_BE16(&msg.resource, 2,
++		     (power_on ? TH1520_AON_PM_PW_MODE_ON :
++				 TH1520_AON_PM_PW_MODE_OFF));
++
++	ret = th1520_aon_call_rpc(aon_chan, &msg);
++	if (ret)
++		dev_err(aon_chan->cl.dev, "failed to power %s resource %d ret %d\n",
++			power_on ? "up" : "off", rsrc, ret);
++
++	return ret;
++}
++EXPORT_SYMBOL_GPL(th1520_aon_power_update);
++
++/**
++ * th1520_aon_init() - Initialize TH1520 AON firmware protocol interface
++ * @dev: Device pointer for the AON subsystem
++ *
++ * This function initializes the TH1520 AON firmware protocol interface by:
++ * - Allocating and initializing the AON channel structure
++ * - Setting up the mailbox client
++ * - Requesting the AON mailbox channel
++ * - Initializing synchronization primitives
++ *
++ * Return:
++ * * Valid pointer to th1520_aon_chan structure on success
++ * * ERR_PTR(-ENOMEM) if memory allocation fails
++ * * ERR_PTR() with other negative error codes from mailbox operations
++ */
++struct th1520_aon_chan *th1520_aon_init(struct device *dev)
++{
++	struct th1520_aon_chan *aon_chan;
++	struct mbox_client *cl;
++
++	aon_chan = kzalloc(sizeof(*aon_chan), GFP_KERNEL);
++	if (!aon_chan)
++		return ERR_PTR(-ENOMEM);
++
++	cl = &aon_chan->cl;
++	cl->dev = dev;
++	cl->tx_block = true;
++	cl->tx_tout = MAX_TX_TIMEOUT;
++	cl->rx_callback = th1520_aon_rx_callback;
++
++	aon_chan->ch = mbox_request_channel_byname(cl, "aon");
++	if (IS_ERR(aon_chan->ch)) {
++		dev_err(dev, "Failed to request aon mbox chan\n");
++		kfree(aon_chan);
++		return ERR_CAST(aon_chan->ch);
++	}
++
++	mutex_init(&aon_chan->transaction_lock);
++	init_completion(&aon_chan->done);
++
++	return aon_chan;
++}
++EXPORT_SYMBOL_GPL(th1520_aon_init);
++
++/**
++ * th1520_aon_deinit() - Clean up TH1520 AON firmware protocol interface
++ * @aon_chan: Pointer to the AON channel structure to clean up
++ *
++ * This function cleans up resources allocated by th1520_aon_init():
++ * - Frees the mailbox channel
++ * - Frees the AON channel
++ */
++void th1520_aon_deinit(struct th1520_aon_chan *aon_chan)
++{
++	mbox_free_channel(aon_chan->ch);
++	kfree(aon_chan);
++}
++EXPORT_SYMBOL_GPL(th1520_aon_deinit);
++
++MODULE_AUTHOR("Michal Wilczynski <m.wilczynski@samsung.com>");
++MODULE_DESCRIPTION("T-HEAD TH1520 Always-On firmware protocol library");
++MODULE_LICENSE("GPL");
+diff --git a/include/linux/firmware/thead/thead,th1520-aon.h b/include/linux/firmware/thead/thead,th1520-aon.h
+new file mode 100644
+index 000000000000..dae132b66873
+--- /dev/null
++++ b/include/linux/firmware/thead/thead,th1520-aon.h
+@@ -0,0 +1,200 @@
++/* SPDX-License-Identifier: GPL-2.0 */
++/*
++ * Copyright (C) 2021 Alibaba Group Holding Limited.
++ */
++
++#ifndef _THEAD_AON_H
++#define _THEAD_AON_H
++
++#include <linux/device.h>
++#include <linux/types.h>
++
++#define AON_RPC_MSG_MAGIC (0xef)
++#define TH1520_AON_RPC_VERSION 2
++#define TH1520_AON_RPC_MSG_NUM 7
++
++struct th1520_aon_chan;
++
++enum th1520_aon_rpc_svc {
++	TH1520_AON_RPC_SVC_UNKNOWN = 0,
++	TH1520_AON_RPC_SVC_PM = 1,
++	TH1520_AON_RPC_SVC_MISC = 2,
++	TH1520_AON_RPC_SVC_AVFS = 3,
++	TH1520_AON_RPC_SVC_SYS = 4,
++	TH1520_AON_RPC_SVC_WDG = 5,
++	TH1520_AON_RPC_SVC_LPM = 6,
++	TH1520_AON_RPC_SVC_MAX = 0x3F,
++};
++
++enum th1520_aon_misc_func {
++	TH1520_AON_MISC_FUNC_UNKNOWN = 0,
++	TH1520_AON_MISC_FUNC_SET_CONTROL = 1,
++	TH1520_AON_MISC_FUNC_GET_CONTROL = 2,
++	TH1520_AON_MISC_FUNC_REGDUMP_CFG = 3,
++};
++
++enum th1520_aon_wdg_func {
++	TH1520_AON_WDG_FUNC_UNKNOWN = 0,
++	TH1520_AON_WDG_FUNC_START = 1,
++	TH1520_AON_WDG_FUNC_STOP = 2,
++	TH1520_AON_WDG_FUNC_PING = 3,
++	TH1520_AON_WDG_FUNC_TIMEOUTSET = 4,
++	TH1520_AON_WDG_FUNC_RESTART = 5,
++	TH1520_AON_WDG_FUNC_GET_STATE = 6,
++	TH1520_AON_WDG_FUNC_POWER_OFF = 7,
++	TH1520_AON_WDG_FUNC_AON_WDT_ON = 8,
++	TH1520_AON_WDG_FUNC_AON_WDT_OFF = 9,
++};
++
++enum th1520_aon_sys_func {
++	TH1520_AON_SYS_FUNC_UNKNOWN = 0,
++	TH1520_AON_SYS_FUNC_AON_RESERVE_MEM = 1,
++};
++
++enum th1520_aon_lpm_func {
++	TH1520_AON_LPM_FUNC_UNKNOWN = 0,
++	TH1520_AON_LPM_FUNC_REQUIRE_STR = 1,
++	TH1520_AON_LPM_FUNC_RESUME_STR = 2,
++	TH1520_AON_LPM_FUNC_REQUIRE_STD = 3,
++	TH1520_AON_LPM_FUNC_CPUHP = 4,
++	TH1520_AON_LPM_FUNC_REGDUMP_CFG = 5,
++};
++
++enum th1520_aon_pm_func {
++	TH1520_AON_PM_FUNC_UNKNOWN = 0,
++	TH1520_AON_PM_FUNC_SET_RESOURCE_REGULATOR = 1,
++	TH1520_AON_PM_FUNC_GET_RESOURCE_REGULATOR = 2,
++	TH1520_AON_PM_FUNC_SET_RESOURCE_POWER_MODE = 3,
++	TH1520_AON_PM_FUNC_PWR_SET = 4,
++	TH1520_AON_PM_FUNC_PWR_GET = 5,
++	TH1520_AON_PM_FUNC_CHECK_FAULT = 6,
++	TH1520_AON_PM_FUNC_GET_TEMPERATURE = 7,
++};
++
++struct th1520_aon_rpc_msg_hdr {
++	u8 ver; /* version of msg hdr */
++	u8 size; /*  msg size ,uinit in bytes,the size includes rpc msg header self */
++	u8 svc; /* rpc main service id */
++	u8 func; /* rpc sub func id of specific service, sent by caller */
++} __packed __aligned(1);
++
++struct th1520_aon_rpc_ack_common {
++	struct th1520_aon_rpc_msg_hdr hdr;
++	u8 err_code;
++} __packed __aligned(1);
++
++#define RPC_SVC_MSG_TYPE_DATA 0
++#define RPC_SVC_MSG_TYPE_ACK 1
++#define RPC_SVC_MSG_NEED_ACK 0
++#define RPC_SVC_MSG_NO_NEED_ACK 1
++
++#define RPC_GET_VER(MESG) ((MESG)->ver)
++#define RPC_SET_VER(MESG, VER) ((MESG)->ver = (VER))
++#define RPC_GET_SVC_ID(MESG) ((MESG)->svc & 0x3F)
++#define RPC_SET_SVC_ID(MESG, ID) ((MESG)->svc |= 0x3F & (ID))
++#define RPC_GET_SVC_FLAG_MSG_TYPE(MESG) (((MESG)->svc & 0x80) >> 7)
++#define RPC_SET_SVC_FLAG_MSG_TYPE(MESG, TYPE) ((MESG)->svc |= (TYPE) << 7)
++#define RPC_GET_SVC_FLAG_ACK_TYPE(MESG) (((MESG)->svc & 0x40) >> 6)
++#define RPC_SET_SVC_FLAG_ACK_TYPE(MESG, ACK) ((MESG)->svc |= (ACK) << 6)
++
++#define RPC_SET_BE64(MESG, OFFSET, SET_DATA)                                \
++	do {                                                                \
++		u8 *data = (u8 *)(MESG);                                    \
++		u64 _offset = (OFFSET);                                     \
++		u64 _set_data = (SET_DATA);                                 \
++		data[_offset + 7] = _set_data & 0xFF;                       \
++		data[_offset + 6] = (_set_data & 0xFF00) >> 8;              \
++		data[_offset + 5] = (_set_data & 0xFF0000) >> 16;           \
++		data[_offset + 4] = (_set_data & 0xFF000000) >> 24;         \
++		data[_offset + 3] = (_set_data & 0xFF00000000) >> 32;       \
++		data[_offset + 2] = (_set_data & 0xFF0000000000) >> 40;     \
++		data[_offset + 1] = (_set_data & 0xFF000000000000) >> 48;   \
++		data[_offset + 0] = (_set_data & 0xFF00000000000000) >> 56; \
++	} while (0)
++
++#define RPC_SET_BE32(MESG, OFFSET, SET_DATA)			    \
++	do {							    \
++		u8 *data = (u8 *)(MESG);			    \
++		u64 _offset = (OFFSET);				    \
++		u64 _set_data = (SET_DATA);			    \
++		data[_offset + 3] = (_set_data) & 0xFF;		    \
++		data[_offset + 2] = (_set_data & 0xFF00) >> 8;	    \
++		data[_offset + 1] = (_set_data & 0xFF0000) >> 16;   \
++		data[_offset + 0] = (_set_data & 0xFF000000) >> 24; \
++	} while (0)
++
++#define RPC_SET_BE16(MESG, OFFSET, SET_DATA)		       \
++	do {						       \
++		u8 *data = (u8 *)(MESG);		       \
++		u64 _offset = (OFFSET);			       \
++		u64 _set_data = (SET_DATA);		       \
++		data[_offset + 1] = (_set_data) & 0xFF;	       \
++		data[_offset + 0] = (_set_data & 0xFF00) >> 8; \
++	} while (0)
++
++#define RPC_SET_U8(MESG, OFFSET, SET_DATA)	  \
++	do {					  \
++		u8 *data = (u8 *)(MESG);	  \
++		data[OFFSET] = (SET_DATA) & 0xFF; \
++	} while (0)
++
++#define RPC_GET_BE64(MESG, OFFSET, PTR)                                      \
++	do {                                                                 \
++		u8 *data = (u8 *)(MESG);                                     \
++		u64 _offset = (OFFSET);                                      \
++		*(u32 *)(PTR) =                                              \
++			(data[_offset + 7] | data[_offset + 6] << 8 |        \
++			 data[_offset + 5] << 16 | data[_offset + 4] << 24 | \
++			 data[_offset + 3] << 32 | data[_offset + 2] << 40 | \
++			 data[_offset + 1] << 48 | data[_offset + 0] << 56); \
++	} while (0)
++
++#define RPC_GET_BE32(MESG, OFFSET, PTR)                                      \
++	do {                                                                 \
++		u8 *data = (u8 *)(MESG);                                     \
++		u64 _offset = (OFFSET);                                      \
++		*(u32 *)(PTR) =                                              \
++			(data[_offset + 3] | data[_offset + 2] << 8 |        \
++			 data[_offset + 1] << 16 | data[_offset + 0] << 24); \
++	} while (0)
++
++#define RPC_GET_BE16(MESG, OFFSET, PTR)                                       \
++	do {                                                                  \
++		u8 *data = (u8 *)(MESG);                                      \
++		u64 _offset = (OFFSET);                                       \
++		*(u16 *)(PTR) = (data[_offset + 1] | data[_offset + 0] << 8); \
++	} while (0)
++
++#define RPC_GET_U8(MESG, OFFSET, PTR)          \
++	do {                                   \
++		u8 *data = (u8 *)(MESG);       \
++		*(u8 *)(PTR) = (data[OFFSET]); \
++	} while (0)
++
++/*
++ * Defines for SC PM Power Mode
++ */
++#define TH1520_AON_PM_PW_MODE_OFF 0 /* Power off */
++#define TH1520_AON_PM_PW_MODE_STBY 1 /* Power in standby */
++#define TH1520_AON_PM_PW_MODE_LP 2 /* Power in low-power */
++#define TH1520_AON_PM_PW_MODE_ON 3 /* Power on */
++
++/*
++ * Defines for AON power islands
++ */
++#define TH1520_AON_AUDIO_PD 0
++#define TH1520_AON_VDEC_PD 1
++#define TH1520_AON_NPU_PD 2
++#define TH1520_AON_VENC_PD 3
++#define TH1520_AON_GPU_PD 4
++#define TH1520_AON_DSP0_PD 5
++#define TH1520_AON_DSP1_PD 6
++
++struct th1520_aon_chan *th1520_aon_init(struct device *dev);
++void th1520_aon_deinit(struct th1520_aon_chan *aon_chan);
++
++int th1520_aon_call_rpc(struct th1520_aon_chan *aon_chan, void *msg);
++int th1520_aon_power_update(struct th1520_aon_chan *aon_chan, u16 rsrc,
++			    bool power_on);
++
++#endif /* _THEAD_AON_H */
+-- 
+2.34.1
+
 
 _______________________________________________
 linux-riscv mailing list
