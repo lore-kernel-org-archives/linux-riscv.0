@@ -4,96 +4,169 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F46BC021B1
-	for <linux-riscv@archiver.kernel.org>; Thu, 20 Feb 2025 18:25:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0BA6DC021B1
+	for <linux-riscv@archiver.kernel.org>; Thu, 20 Feb 2025 18:31:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qK9EfPCwU1pdnlB3mwREtFCcXJUreGMp2J2OJwN1K2E=; b=5GrmxnrO/99PDH4wngw+2WBgQ2
-	yiugPxt+qsZUpzNT0nYhkzj8ejjXx9uwlYH5ZNZg4S4TC64t3VcX72sb4MNs4WXyqydenDM0S3kVT
-	roAPytFJ2ad5K2mSGU/UN8z5cCiTV1LVPhuI/kkxX7yU2q3Nn4IXrPR1xmY/xiD3LZN41UFpB3xRc
-	KagFyWv5VWtLp1WTvZUwM1isTf3NGxNs3xrPrBAPDxOxi9BWRWzlNghV0W7DlRcCbN4CuehoHJTdM
-	pvqHXEidc4Bm6ucrDAPddY8GZyHlLbXpwSQzU4Ha1ypuVX+IM0XKmKZwzPNjjgenPetPDVdXUdGb4
-	hBm7qn7A==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:From:
+	References:To:Subject:Cc:Date:Message-ID:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Owner;
+	bh=dM9sOFNoOatJJX4zaHeCyy2uY5L16iIWBcvTdgXd+M8=; b=ImZLCsYScBgVRvaooJ9+6A73x+
+	FakhFled8JGKbhQ86mI6cKrTgYOFeTBB3ZFi3EybYaGeXyYAsWdDAufgdhPzqMqv5jFYhXb+bLGud
+	7TFDeoNWV8qhWIHdv/CSEW2k2RsJS6aD17Q3b7vLu+W/HdhIUpT2t3QcU8h1OrbuwEW4pDT4IZ/hj
+	EEapgY2Bbg/30v0HfYSL7wvVLi2ThxYRq1I6CXq1H3s6rM72oaWbkbKBBkw3YZS4I9/OnrtUiZyhA
+	5QpxqD3yiQoY1eDtWPa/wr4WfjKYlvEQC1Q3qJJ/H8fr3tGMA8hxHu0tF//ZHhFuxZOR3850qlfg2
+	A5HTuSyw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tlBEi-00000002Lw5-07Xo;
-	Thu, 20 Feb 2025 18:25:24 +0000
-Received: from mail-pl1-x635.google.com ([2607:f8b0:4864:20::635])
+	id 1tlBKZ-00000002NhE-0Bih;
+	Thu, 20 Feb 2025 18:31:27 +0000
+Received: from mail-tyzapc01on20711.outbound.protection.outlook.com ([2a01:111:f403:2011::711] helo=APC01-TYZ-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tlBCS-00000002LRt-0X1t
-	for linux-riscv@lists.infradead.org;
-	Thu, 20 Feb 2025 18:23:06 +0000
-Received: by mail-pl1-x635.google.com with SMTP id d9443c01a7336-220d601886fso19834925ad.1
-        for <linux-riscv@lists.infradead.org>; Thu, 20 Feb 2025 10:23:03 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1740075783; x=1740680583; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=+brjcpA6Li4VmWmcewwernBTel3ZbNNKAOCMO9aNPss=;
-        b=TeSSV7/rrDn/nJ1fsDIbHQi5Lo3voNQw2ECg/6fXJTPJHF6tt8x/hqv3woS56l90nI
-         F5hssS+7oLSkNReIfBNCQ/Uh6L1/g5Ubgc3U/RSepCxtbPu68HQ2nh65+dScVtyKNeok
-         HY8XVmvAHGu9xF9cMBSnl1v+msisNqrwlAt9bHeHMRqQ7fZDHTfwLfjjdKtGT7n4Toz7
-         rvTOfR3F1ptjzBm/VF+00SD1ONWehXySXrIie3xbtEqz3TUIM6UNAaKuhpG5EWdNCP0R
-         rtM4aYDziRnMUezs70uJsYb6lsdaEDgLS5n7HCB1IVEHbDtjRx7GVJRGkcPvqNZ7VvTK
-         CEFg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1740075783; x=1740680583;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=+brjcpA6Li4VmWmcewwernBTel3ZbNNKAOCMO9aNPss=;
-        b=g3OqFaoNQyQgKCzfjuJ9nrIauUjYDoZU7t2/Fvn7a/heH/H3hEpr0hx33XzmZt9+EF
-         /3EALnvYO8jVxmQjlj43P3dPUpoOY6ik7ZBXAHhS1Gf0kd7AgctgcSGPsXXCZ5rS6FrW
-         +4NeuE+9qAxBUnYaBgShNHSgFtLQTMYYeBezQLt/o3Jp1sQgyQEYB5bC9WTSt6o00nsw
-         hU0gYLADeEwGgb8CdaWKbKoDVhdRVuXUcwUEcJQSROkNqbek4HVpo4LtGDB0UmJvtI8t
-         TlkF+/oLNZBr24nXww7tU3fPOE4Gh561eI7w0ZZrqdIP2pF7JzsfU6e5GkX/6zP9Kw5z
-         28rA==
-X-Forwarded-Encrypted: i=1; AJvYcCXTi3bhC889hyUMVYU20yjbeOwppve28rebdAyg6qsrsO9l7pOytnr8aEvvfeBQiDRHMftccFj6I87ngw==@lists.infradead.org
-X-Gm-Message-State: AOJu0YzE3SILjgQOq+Jz8a71FeRLkZWmnQJg11EPnloip1k9gAosBrxR
-	+GnYuy3keGHJmoXlW8wP82lixX2+0P/xmTSRkQr0QksCW+I8VHKdusSrk6O4Jmo=
-X-Gm-Gg: ASbGncuhf7uRl7d0lLWqW6w8dJC4RkIeVTxhXHhCUUaKpruh67m5yQcqZ3yqmCi7fVH
-	9VZ0YP7SjORvZ5nY0VxFhr1nwIMoHON2iRXoSf5TPrylZ+Vg6FJXDlOkjToZt+f+28YOYx8sQii
-	jskKTSVl4bHrXWPdlEwxuxn6M2p644NOBIJXG4RKk6CnSEjGIYX1MQJJjsbj8UiHGfC7aFcZeBS
-	DFmUqvoQZF80FvnlFAL+wePUFS4BL8bWiVu2I6fgdo2vZ8mA6PZ0EjCm4wc68fZoTPsk1F0oDvG
-	aRC15NNvWePN9yxBKfHDC5cXAg==
-X-Google-Smtp-Source: AGHT+IE9M+E7TrIj5xPmzAisbrDh7wCmSL9KAsAbD2jI7mD1njYkys7UD3bLih4YqYoexzYiUnH7Ow==
-X-Received: by 2002:a05:6a00:4185:b0:734:9cc:a6e4 with SMTP id d2e1a72fcca58-73409cca8dfmr10560814b3a.21.1740075782993;
-        Thu, 20 Feb 2025 10:23:02 -0800 (PST)
-Received: from debug.ba.rivosinc.com ([64.71.180.162])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-7328acf354esm6281724b3a.3.2025.02.20.10.23.01
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 20 Feb 2025 10:23:02 -0800 (PST)
-Date: Thu, 20 Feb 2025 10:23:00 -0800
-From: Deepak Gupta <debug@rivosinc.com>
-To: Chunyan Zhang <zhang.lyra@gmail.com>
-Cc: =?iso-8859-1?Q?Bj=F6rn_T=F6pel?= <bjorn@kernel.org>,
-	Chunyan Zhang <zhangchunyan@iscas.ac.cn>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Alistair Popple <apopple@nvidia.com>, linux-mm@kvack.org
-Subject: Re: [PATCH V5 1/3] riscv: mm: Prepare for reusing PTE RSW bit(9)
-Message-ID: <Z7dzBH7SNN7SP3+5@debug.ba.rivosinc.com>
-References: <20241113095833.1805746-1-zhangchunyan@iscas.ac.cn>
- <20241113095833.1805746-2-zhangchunyan@iscas.ac.cn>
- <87frl0snf6.fsf@all.your.base.are.belong.to.us>
- <CAAfSe-tRFEXiXJ=tHVnXy4Kb6O7-E2Sr_xybLYxma=ypMhqz9w@mail.gmail.com>
- <Z6rLlkphtv99+bH3@debug.ba.rivosinc.com>
- <CAAfSe-sf+4QY9eif_XaRGXEUn1JyPn_Jj+k2MOq9mfDR2Bd6yg@mail.gmail.com>
+	id 1tlBEt-00000002LyA-47GA;
+	Thu, 20 Feb 2025 18:25:37 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=dPixFXR+Aks0GR/qY5f1sc/hDKeRMVNVapkuHNTP9tp3FBWNWsa7jykOxqEHaI4CxFhSigRpisEm94aQ/xfafDAwRFn/kS/oSEnvMFw+r9GsGTZdhDoDAgoEoexTKxYV3YxlQZvifsJooBjJtaHIF4ohdYfgF+zBDUBHxmhoSiiUyPvu8zQJIKTu4iZCR8+JkB41Ge1niaHjkDhRRd5UcHrfkMUYj1FmZAp2lO6GbWBhj6b1sg+e/qF3EqYc82lQxpPvvJ3Bu8qqUch/qDOlfQwUXIRLatfUqRNNMRIRmZYfYQNVoDDTlEqDjd5oIuZZuIftD2fsmNAZP4QSGYbEGA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=EJZD7/TAKruQu19KQAVwNVg6yYRPuMPWA5kXBs8za7Q=;
+ b=IzAH/rlTVKoL7OI5JAbhvFa8AvI6ducO+/Dm1f4y83c0IW4+UbGlzY181pfaO0Ps9DGkbXqd6G8dtNxTB5KZwd5iFW0Wdkv9Eiu3hOE0ae0OfuTiUXjidirDOxSDRCbGZjnOo8s5TWSbqPRtncbwjGcehF5H+1/OkmD65aq0H4/ThrUAXinnBZtDv6Y+nPYmLAK037iKkZs8xKB6oXKL0s3XHmHi19qHX0axMSEeMTWDrouSs3KCB2yn5OAgP4OL9rPBr0Xh3wZzhV7phJz+n2IseEfxTZgIUPiCGS9DbeeT2iwm6ubl2cxu8GmpILV0PGvx+NYxbghQ6R6IQ9UWGQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=linumiz.com; dmarc=pass action=none header.from=linumiz.com;
+ dkim=pass header.d=linumiz.com; arc=none
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=linumiz.com;
+Received: from TYZPR06MB6935.apcprd06.prod.outlook.com (2603:1096:405:3c::9)
+ by KL1PR06MB7012.apcprd06.prod.outlook.com (2603:1096:820:126::14) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8466.11; Thu, 20 Feb
+ 2025 18:25:14 +0000
+Received: from TYZPR06MB6935.apcprd06.prod.outlook.com
+ ([fe80::9e42:3253:9a2e:b565]) by TYZPR06MB6935.apcprd06.prod.outlook.com
+ ([fe80::9e42:3253:9a2e:b565%4]) with mapi id 15.20.8466.009; Thu, 20 Feb 2025
+ 18:25:14 +0000
+Message-ID: <c3990108-2963-4de4-98a3-d3aa368ed13a@linumiz.com>
+Date: Thu, 20 Feb 2025 23:55:08 +0530
+User-Agent: Mozilla Thunderbird
+Cc: parthiban@linumiz.com, Brandon Cheo Fusi <fusibrandon13@gmail.com>,
+ =?UTF-8?Q?Uwe_Kleine-K=C3=B6nig?= <ukleinek@kernel.org>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@csie.org>,
+ Jernej Skrabec <jernej.skrabec@gmail.com>,
+ Samuel Holland <samuel@sholland.org>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Philipp Zabel <p.zabel@pengutronix.de>, linux-pwm@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-sunxi@lists.linux.dev, linux-riscv@lists.infradead.org
+Subject: Re: [PATCH v11 2/3] pwm: Add Allwinner's D1/T113-S3/R329 SoCs PWM
+ support
+To: Aleksandr Shubin <privatesub2@gmail.com>, linux-kernel@vger.kernel.org
+References: <20250213094018.134081-1-privatesub2@gmail.com>
+ <20250213094018.134081-3-privatesub2@gmail.com>
+Content-Language: en-US
+From: Parthiban <parthiban@linumiz.com>
+Organization: Linumiz
+In-Reply-To: <20250213094018.134081-3-privatesub2@gmail.com>
+X-ClientProxiedBy: BM1PR01CA0153.INDPRD01.PROD.OUTLOOK.COM
+ (2603:1096:b00:68::23) To TYZPR06MB6935.apcprd06.prod.outlook.com
+ (2603:1096:405:3c::9)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <CAAfSe-sf+4QY9eif_XaRGXEUn1JyPn_Jj+k2MOq9mfDR2Bd6yg@mail.gmail.com>
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: TYZPR06MB6935:EE_|KL1PR06MB7012:EE_
+X-MS-Office365-Filtering-Correlation-Id: acff987d-d5a4-4f45-2fe9-08dd51dbeaf0
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|7416014|376014;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?dCt3akJVcnJSNGMrdEN5SHR2TzR3QmltNFZZNDVNaFZEZlVaMUluQzkxcFhV?=
+ =?utf-8?B?bGx0bWVsM3EyYkZPeTlIcnZxUHFjZnU5UXRjQ1EyYkR0NWVjM3JnaFhYSG9L?=
+ =?utf-8?B?ZzRqVldla01TKy9NNzVESmUxV0VRdUgwb203OXR2bTB2WU5LOVNqSHpRWGM0?=
+ =?utf-8?B?ekR5bXdSQi9SdTZmZVA2SXlXUWN4US9TYXlKTW9Ya3V6ODRtTGJNdWprR21h?=
+ =?utf-8?B?bjF4V1RRYTl3YXBPeWZJRjhJOGpzSkNucE5CU1pMbGlyODBJSWZ2UWNSa3V0?=
+ =?utf-8?B?cW9SUFpueFdaNmpTdGViOUdYZHgxUTBFOUNWd0RKSXlTd3ZmdnhjNi9mSzg4?=
+ =?utf-8?B?b083ZE1VOGlEUi9HZlU3OEhmL0F5QmNtOXdDbkhHZFkwR3RsYnhHa2xjaE92?=
+ =?utf-8?B?NDVPSkNyUWtRZWpOeUNiMFcrb1FSRUZ6dXpSN2xtbXluSWVsSFI4ckJnRys1?=
+ =?utf-8?B?blE5dkxyVktDQ0hKZGJrd0hORWtOVWJBUUZPemMxRzNqMFhaT2VoQ3FuUzBS?=
+ =?utf-8?B?ajBIdlA5REZaQ0NreVgwZnZXYVZxNkhyM05Tb1M5empQeWs2NzBHNi8vdGEr?=
+ =?utf-8?B?SFJnOHc5a2xONW1mRW5jTWs2ZmJIR3M2UkJhenZBeHdzWGczamIrVnl1QkVR?=
+ =?utf-8?B?RkNyREFuTm1oS0hFT1FBbDdpSDVTWEVWaHZ6djd3V0p0OG85QVBLaVhacnVI?=
+ =?utf-8?B?SVc0TnVYYVhjN0ZHbUlLa1Z5N09zQ1dxby9CRGplTkFnUVJwWXhpTCtwTXdB?=
+ =?utf-8?B?bExnWEJaRXBGY1o3THAyd2EwMWZjN3ViM01wNXJFUE1TcHFFSXdlRGxVZHRG?=
+ =?utf-8?B?SFJVNFc5QUtKUGJvMDFmQUlnU0NNS2FVQUxPQlRyVEN4a3JMbEhYLzFHazI1?=
+ =?utf-8?B?MlNaNHVQUDMvbzY1aXVHVldYaU1MNDdnQ1NGMm5SZ0UwQ2xiQWwyeWk3aHZD?=
+ =?utf-8?B?dmpaVGI0MjlKbzMxdFVjNGpwbXFsZlFwUUlmdU96dWVYb25GL0kwcXpJaHNm?=
+ =?utf-8?B?UEUvU3o4eEVsZVR3cnV3M1ZZRXQ2MEhPcFNZRVFZMmNhbnBDbTVuMnRYNWZV?=
+ =?utf-8?B?a29meVpkb3JSV2FwMmtva082UE94dTdmeUdPOEw2MTBNMkhxZHJUOGVGKzZ1?=
+ =?utf-8?B?ZGE5RTRlZWtDUkRyTVEzeHF0blZKM0lCdVZVV0o2Qys3eFpaM2h0eUhoRngx?=
+ =?utf-8?B?SFJLdWdNYmRKNHRtTDVPQnJWNjdkaUdOU1RNWGxGNnhPb044M0N6WDFMWUJz?=
+ =?utf-8?B?TG1pZXp4SG9VQnZvbHNDUTRMaU9CL1BjbEc3MVZwaXpaZWwzS05VcndVMW0v?=
+ =?utf-8?B?OUJVMWFyNlU3MUV5bTBVWjI3Vk40a1UrWFhsN25JNm5aeTl0T2lBMkVqMC9i?=
+ =?utf-8?B?RGdPK1BlR2VlQ29vTmlPcXFSRG91SGtPQmR4ZXdQTS95cHNNVngyUWtFYjc5?=
+ =?utf-8?B?NldmbXc3YmFYM0JsKzViaHVESEl2NnNHOGNKOGxVS0tvczJvRkkxaEtoKzY0?=
+ =?utf-8?B?VkV3QmpNNGxNWVZyemVud3NlZDBzaGdOMlhOWm9Ob2xJSDVIMlZtOHBnWmNE?=
+ =?utf-8?B?c0cyTzBta1FEZWRnSUpsSnNmTHVURDVzeGN1ZElxb01PS0FPdE16aFNaaktL?=
+ =?utf-8?B?cThZb2t5ODBqRVczaG5hbHZOS3czZU1Vd05peGNQaXViMWtROTlrTWhkcWdF?=
+ =?utf-8?B?bTJwVXVhb0RzN24vNHNTZU9FTXZnSWpKVnNGQkZEZkd2djZjM05RZjJSeW81?=
+ =?utf-8?B?TzVLZTFON1YyTVRJLzNSSkZCRG12Z2VjQ1BLY09YRUV3cVhKZkR6eGRyZTlW?=
+ =?utf-8?B?ZWRBM0phazcyR2o0SGNsUVlhMXhESlhKaWFFQ25ZRkwxWW8xVERKMm9tRmRi?=
+ =?utf-8?Q?+2wMjeM7Gsvm9?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:TYZPR06MB6935.apcprd06.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(7416014)(376014);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?aWpqYjQrMkVBTWc1UWlpZ29qdDdidFVoVm4yamRSRXFRWUkzMit3MTFTL1A4?=
+ =?utf-8?B?d1BLemFhZHpWM2V3elg2SHpaM2tHV0duTVA0cytzQlF1WjBpY1pBS2RHSVFl?=
+ =?utf-8?B?WWM1bkgrT0RvUDhUVDhVTnFxK3YrT0RsYWUwcGNGV1pETXNmMDQ3dnpYdVAx?=
+ =?utf-8?B?Z3AxVy83TFlxN1FoekZZSk5MejY4VkhxZ3VITlFRTTFUWlFJN2sydWE2SnI3?=
+ =?utf-8?B?M3JHUy9yZ1kvNkN5d25HK0EyYmpxL3M1a1ZRcGt3bkZ1YW90d0F4MCtDaUE4?=
+ =?utf-8?B?RURXSURkV2VNZGdPWjZTMGVoUEcxblhZNUtoOXQ2MmdOeGkxeVozSCtrdHpk?=
+ =?utf-8?B?dmd5RmJ1dVVqOWRiOXpQeXk1NVFzMm9vdDBBdy9LNG9uakRlb3VROHJpK0t0?=
+ =?utf-8?B?YU5vRk15Rm1rOEg0VDVYWmNPOVV6bElOcVppMkZhUHFHb3VJUVp0QWp3Uk00?=
+ =?utf-8?B?L1N0ZG5VMmJPUDZuRWNhZWs4MnVnRFBwMy9hVmFFK2NOT3ZvUzZhNjdqREx3?=
+ =?utf-8?B?Ym9XLytXdlVVcXdUeDZFbjkxUGN2Y2k4UmZQZlhVa1ZITURtQ0tlb2tQa0Mz?=
+ =?utf-8?B?b25peGRhYWFuUDdPV24wLzNudWJ1S1dQbWJYaEs0alRnYnJpNVhnTUhpdjgv?=
+ =?utf-8?B?dGtzekVHSmoyTFRyWkJVejRiSER0c0t4L0U2M2szSXlKRzZDcWNodHl4Ulc4?=
+ =?utf-8?B?WDlseVQ4S3BrZDJqUGFPNC9HWU9CcVBWamlLeTFOWW03QjhKUTB6RUx1Mnhz?=
+ =?utf-8?B?YllsMk1vK3pmU3pDYW5NbnZXWml5bzdyb1pkNHc5VUFWR25yTG9tZFduK211?=
+ =?utf-8?B?MEVSektqTEptUUNTc3BaQXhNNHIyVFdxNlhNclVwQ1YxUXVocFA2elZ3RDBh?=
+ =?utf-8?B?Z0ZJbEdFMVFTMFM3bzFhVHIyOWNtYklvM1RITWhYZS9ITkR6VWNabklIK0Y4?=
+ =?utf-8?B?UnJqOHpIU053ZEIxTXVySGJRekZoQUFzeEZldzdEcE82WHhVUjdwYWxhVzJu?=
+ =?utf-8?B?MElMdDI0N3hlR3FMa241Ry9pOGFHcTBLVE9IUUN5bXVIU0V6QmFsTkZrRWcw?=
+ =?utf-8?B?TXd3VzJxREUrbXgxa2hSM0ZLVVlMc2F5SU8yK1hOSm04VENLcnZQWDJZL2Fy?=
+ =?utf-8?B?L0JrbktwYndVdU5iUk9aUzVlVzByUDVvUWtSRVNmK3IwbjltVTd6SkcrcCtF?=
+ =?utf-8?B?YzdJL1RmL010ditLOFh0dG15MmxoNjNrN0FGWlAwQXhCNTZjNXZJNDVHM3hl?=
+ =?utf-8?B?SmRYa1VLdmszeE1jck9Oc2N4WHllajgrS05ORWJvMjRpd0pmbDNmUm1hSnpx?=
+ =?utf-8?B?UkRnZDhGUExJSWY4UENCMUNjRm5ZcjBHUlBoOHNMd0ZHQStsQmRLS2ZCU2sv?=
+ =?utf-8?B?bjgrTE9FazRSalA3UUFUSWd2V21qeDVmNEVGeldFa29xTUFveXo3MksyZVBx?=
+ =?utf-8?B?YUdLTWdGTTRvQ3hsdlNzdncrcy94NDhnMXMyeXl4QlB6VHZ0SjRKK3dwMEhJ?=
+ =?utf-8?B?elpWRS95WWVsblB6SHdxWkdYZ3ZiRG1OT1VLOGN4YXV4NEhVclloUXlDUldq?=
+ =?utf-8?B?MjFoem02WjhHNVcrd21penVlZkVzNTNWYmtuY2tEMTVjLzNXaEI2ckxhM2pX?=
+ =?utf-8?B?UERabHJXVVpDRlZlNlJGclVIWVprMjV6M0Jmc1U5N3k3NlM0eFlFSWIxVzdl?=
+ =?utf-8?B?MklybWcyZGJVZ1B0U2tqVmpkMWFOc0NFOHNnRWd3SDFPcnhQeVVhS0tBYmxv?=
+ =?utf-8?B?Q0t0M251S2lqdDF0RzhHNWtNMXB2emF0ZU1HVFJpRlNMQW1mT3lmZGROdTgy?=
+ =?utf-8?B?UnlwZG8wRWxqak5MVXYrNk5uNUU1akF3UVJsZzQ0eHZJSS9TM3RWemE2ZDhq?=
+ =?utf-8?B?alExbWZQRHpmb1cwdHdlcjc5OWd2dWZMRmFUUEJ1VnlPQnI1WHdLcEtUMkV2?=
+ =?utf-8?B?U1VvRVJ5TjM3Yi9ibzh6ZkxjaGxRNG5HY3JMWnFmVzIzZmlwWjlPYTFRUUxZ?=
+ =?utf-8?B?OGRmMG0rdi9IWE5CWm52VE43QURMUVk0TldqUXR4S053Tk1pbml1Mno1T28r?=
+ =?utf-8?B?V2hMRzM5cjVRdDRCaENMY29heFZrOEo3Q3lQTVlOVVVUK1Q1OVAraVpZUHUx?=
+ =?utf-8?B?WE9JWGd4UmZLMnU2eVpQUFo4N052S2ZWKzhiRjNjYVVXU3oxKzZCbk81YTNB?=
+ =?utf-8?B?Y3c9PQ==?=
+X-OriginatorOrg: linumiz.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: acff987d-d5a4-4f45-2fe9-08dd51dbeaf0
+X-MS-Exchange-CrossTenant-AuthSource: TYZPR06MB6935.apcprd06.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 Feb 2025 18:25:14.0245
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 808466aa-232a-41f4-ac23-289e3a6840d4
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: DjV8Ewp9BISijm3WBAK/udDqhgRO/HHsKu1Un9iMnxYsmyP0hnZru/tHd30tNleplOyswOUQhtVBn2GXtfrudA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: KL1PR06MB7012
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250220_102304_447567_CB7DB23D 
-X-CRM114-Status: GOOD (  19.65  )
+X-CRM114-CacheID: sfid-20250220_102536_019767_579A844B 
+X-CRM114-Status: UNSURE (   8.92  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,72 +178,27 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="iso-8859-1"; Format="flowed"
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Sorry for the late response.
+On 2/13/25 3:10 PM, Aleksandr Shubin wrote:
+> Allwinner's D1, T113-S3 and R329 SoCs have a quite different PWM
+> controllers with ones supported by pwm-sun4i driver.
+> 
+> This patch adds a PWM controller driver for Allwinner's D1,
+> T113-S3 and R329 SoCs. The main difference between these SoCs
+> is the number of channels defined by the DT property.
 
-On Tue, Feb 11, 2025 at 04:05:02PM +0800, Chunyan Zhang wrote:
->On Tue, 11 Feb 2025 at 12:01, Deepak Gupta <debug@rivosinc.com> wrote:
->>
->> On Tue, Feb 11, 2025 at 09:20:22AM +0800, Chunyan Zhang wrote:
->> >On Thu, 30 Jan 2025 at 16:42, Bj=F6rn T=F6pel <bjorn@kernel.org> wrote:
->> >>
->> >> Chunyan Zhang <zhangchunyan@iscas.ac.cn> writes:
->> >>
->> >> > The PTE bit(9) on RISC-V is reserved for software, it is used by de=
-vmap
->> >> > now which has to be disabled if we want to use bit(9) for other fea=
-tures,
->> >> > since there's no more free PTE bit on RISC-V now.
->> >> >
->> >> > So to make ARCH_HAS_PTE_DEVMAP selectable, this patch uses it as
->> >> > the build condition of devmap definitions.
->> >>
->> >> Heads-up: It seems like Alistair's series [1] that removes the devmap
->> >> PTE bit will most likely land in 6.15.
->> >
->> >Yes, I've been keeping an eye on Alistair's series, intended to update
->> >this patchset after Alistair's patch that removes the devmap PTE bit
->> >got merged.
->>
->> Please keep in mind that even after claiming back devmap PTE SW bit, a c=
-ompile
->> time decision to select between uffd-wp and soft-dirty is not desirable.
->
->Yes, I agree. I've read your aother email. I also hope we can have
->more RSW bits to use. So should we add uffd-wp and soft-dirty support
->on RISC-V until we have two RSW bits for these two functions? Is an
->undesirable solution better than no solution for now?
+Thanks for the v11. Not sure you had a chance to look at my
+comments [1] for v10? In short, this patch series fails to
+work for A133 which shares the same IP.
 
-Problem is that this undesirable solution doesn't solve anything for *most*=
- users.
-Kernel can't deviate from providing functionality (which is actually arch-a=
-gnostic) to
-user mode depending on the architecture.
+[1]: https://lore.kernel.org/all/2f7ee626-8416-4a05-9add-26e100b16268@linumiz.com/
 
->I can optimize the code when we have more free RSW bits, that's not hard.
-
-
-We got 3 use cases,
-
-- pfnmap/pte_special
-- uffd-wp
-- softdirty
-
-4th one for devmap, I hope we don't need to do it. Should get it back.
-https://lore.kernel.org/lkml/cover.95ff0627bc727f2bae44bea4c00ad7a83fbbcfac=
-.1739941374.git-series.apopple@nvidia.com/#r
-It looks like any work there would be wasted time.
-
-There is a (fast track) proposal out there to get 2 more RSW bits.
-https://lists.riscv.org/g/tech-privileged/message/2268
-
-I hope it gets ratified soon. We will have proper solution to this problem =
-then.
-
+Thanks,
+Parthiban
 
 _______________________________________________
 linux-riscv mailing list
