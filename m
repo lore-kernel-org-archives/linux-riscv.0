@@ -4,88 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5FBC7C021AA
-	for <linux-riscv@archiver.kernel.org>; Fri, 21 Feb 2025 08:37:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F3FEC021AA
+	for <linux-riscv@archiver.kernel.org>; Fri, 21 Feb 2025 09:09:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Date:Cc:To:From:Subject:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=khpW6idXJmGaRN+OawhrB4yD4cs0rdSg4w5sw+IvXNw=; b=HZqLCAy09UPP3a
-	BzErCbtrlQKaVppyFaLvxV1Ser7IQM2hz7BW/S+oCO/Nx6bgb/zfXahdGFK6TSM6IKaSW6hAWNxTE
-	Yjlp0Xi0yfp1bbtoIPeks7Rl4H0UTik1kYcOwm8PG04PzCDilo1DzkXb+jz5SAWs+/aiCB96j3qvQ
-	sGe9W6eskTwIHafIRYzXCl7yakHYID5iIHAK4fiJP2ypHlyZjvXtskPkwbrN6cqi7FdbN+Fiu7rLP
-	8Oz2tFRG/W6RT/iHQbcdydM1D57Nirf7CLkG2PRj/lImy0pz0FygkakFged2cTboKnCjehDe9Rrf5
-	UoB/WSkgh6d6qQwbQfPQ==;
+	List-Owner; bh=q+p0EGsdqPGbvlV2aa7dr+i/6QdkHljKQETToqOtsYI=; b=bVZ4otQPstNZF8
+	ta8Ko+V1nxR2SCXf+mDY1CELOFU96Vsb5An8oT3Q7b9xpEYvEDRYuK/GzM7AYdkfNCyIzmvVUYhVD
+	Ev8swycXa3zO5h5vxDJQb/G6IyeXG71BXuH+XMHhxv/YTGn0Hl0VT8t/lCBkLssUi81xssXoZuexX
+	Ukn2NRuBnF6j3lGs80ARVCbuFVxfEXfHbQFre3XK8LAqquMiUT1Ea7lmduhTOWQ04FnhAfQoYOwin
+	XKALLIfaNhNRHOWFTkf3qu9SMwm0KWjYd2wjGhP3wEM6wBaB0rGjIitBPou0pOQzjx94Wy0a/Uzq2
+	GKFE8tJWOh7Dlf+EqFNw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tlOXc-00000004jnC-46gX;
-	Fri, 21 Feb 2025 08:37:48 +0000
-Received: from mail-lf1-x129.google.com ([2a00:1450:4864:20::129])
+	id 1tlP1q-00000004qiZ-1OGJ;
+	Fri, 21 Feb 2025 09:09:02 +0000
+Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tlOXJ-00000004jiq-1X8E
+	id 1tlP1B-00000004qZt-3ASw
 	for linux-riscv@lists.infradead.org;
-	Fri, 21 Feb 2025 08:37:31 +0000
-Received: by mail-lf1-x129.google.com with SMTP id 2adb3069b0e04-546267ed92fso2145594e87.2
-        for <linux-riscv@lists.infradead.org>; Fri, 21 Feb 2025 00:37:28 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bgdev-pl.20230601.gappssmtp.com; s=20230601; t=1740127047; x=1740731847; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=fW/FAUY+BtuxgqThnl6ySpYQqHb8f9LhIhu4HPMnZ10=;
-        b=Uu+8IA1YvINu4jc9K0GvuQMHfUeQeCBtAK3GQ0xYdHlnUKYb4Qu+8anO6tSEbSvNNI
-         nWNOOn/0/ZTg8ifKRNVjRx5SaicjPTMiyOlfdSRCGfdO2ynlpZDjwo6FfaY5mhu9gZaR
-         gj4cAPz/fdCO2AdfYg9gTFtS933O8qGTEAGrZ+3q+9/knOcb6zDgW6xJlqV/+SbMsaQQ
-         8Af6FAvcsohf0jJN63DmEFEUQZ14TM3/jP+ApWBYBlQJeuOxbDCgoZygfnfVEVXU0vnu
-         sdHysyPffiEdJAA+GgRdfB05XVFCE76lUSzrSf5emmHnGTYv1z4BbfwYxAfoUmlhAtQY
-         wjsQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1740127047; x=1740731847;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=fW/FAUY+BtuxgqThnl6ySpYQqHb8f9LhIhu4HPMnZ10=;
-        b=OSK+73/GqH+jvmSBe0vDk1O8/pgQRqh5w5Z31tNHIKofiKknj0yU2gDvDowGoFmo0P
-         ujSzxKeY7rQT760A/zxYVrbRIAPa37cB2LWk1TezUsN+PXQvl+0aTJr9ExnY6oceKZjI
-         Yvv0JVfrk4YbOtT/975mmZnF8hGlmlXZJXwrbPbUkwrvfGUHKHjX6rIH8hVygxaA7YRQ
-         MNq/voqUOsqyNAtvnLY2VvUkuQb8buqgp2DQT0TeBCub5i6mN+97juxqeMi/3QgUozcD
-         nirWSXAeRrNuGUdeSQxd2WxlEJ6GxDeoQsyzN4gurPaaAs1YePFS8fc5bmu+sTLXxO6Z
-         aTpg==
-X-Forwarded-Encrypted: i=1; AJvYcCXRWT/W6OvfAhSPWUSzuYxGJB6gWcZEL0O/l2DBtbwifLA1yi3TlA/aOuQk2qvyt2Q6SWnEeGTYUjAebQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx/bMe6F4HYh7xbwnCdAxy6uZzwfOUqk8IX7vQRck8yyc/fJgnf
-	m+eWTf4xBsewhGe2zJRiTF2Hd1zqR0FhzMJTdjy7Bix1WERsDW3q6rIy4EW4j0szZbZ4BzN2WW9
-	dwCZkad0+imOfPax0AUhXE0ggZNAylXRwECQZHw==
-X-Gm-Gg: ASbGnct/tcDzl641x32PHe9z+RAmqoZrtY9A3NxVzmHGbiHUy7dx6dhoAdoTnxB3Jhr
-	gp8PJZQovos/eplqjXx7RQ2umf9rigAQpah8RGjrZXkKy74qRsyW098dCaNSFCqKKQa4CFk3UeZ
-	/o7Mo+Kej3N48HYpBr5atYkIKzZHt6ATo4Djori0U=
-X-Google-Smtp-Source: AGHT+IEVJYqpV94JpnSSmFsbKfheCNp8/0iZB0ZSGoVT/MInSsid5S3N4SwldmQ4L5O1E7gpGonbz4t6nSMa3dwR6i0=
-X-Received: by 2002:a05:6512:230a:b0:545:17b:3cf9 with SMTP id
- 2adb3069b0e04-54838f5c910mr744359e87.48.1740127047367; Fri, 21 Feb 2025
- 00:37:27 -0800 (PST)
+	Fri, 21 Feb 2025 09:08:23 +0000
+Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
+	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
+	(Exim 4.92)
+	(envelope-from <p.zabel@pengutronix.de>)
+	id 1tlP0n-0006M5-JE; Fri, 21 Feb 2025 10:07:57 +0100
+Received: from lupine.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::4e] helo=lupine)
+	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <p.zabel@pengutronix.de>)
+	id 1tlP0k-0024nY-2Z;
+	Fri, 21 Feb 2025 10:07:54 +0100
+Received: from pza by lupine with local (Exim 4.96)
+	(envelope-from <p.zabel@pengutronix.de>)
+	id 1tlP0k-0002L0-29;
+	Fri, 21 Feb 2025 10:07:54 +0100
+Message-ID: <d31a48ebfc0f91de615af75e313caa6afbdd597d.camel@pengutronix.de>
+Subject: Re: [PATCH 2/2] PCI: sophgo-dwc: Add Sophgo SG2044 PCIe driver
+From: Philipp Zabel <p.zabel@pengutronix.de>
+To: Inochi Amaoto <inochiama@gmail.com>, Lorenzo Pieralisi
+ <lpieralisi@kernel.org>, Krzysztof =?UTF-8?Q?Wilczy=C5=84ski?=
+ <kw@linux.com>,  Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
+ Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Chen Wang <unicorn_wang@outlook.com>, Paul Walmsley
+ <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
+ <aou@eecs.berkeley.edu>, Niklas Cassel <cassel@kernel.org>,  Shashank Babu
+ Chinta Venkata <quic_schintav@quicinc.com>
+Cc: linux-pci@vger.kernel.org, devicetree@vger.kernel.org, 
+	sophgo@lists.linux.dev, linux-kernel@vger.kernel.org, 
+	linux-riscv@lists.infradead.org, Yixun Lan <dlan@gentoo.org>, Longbin Li
+	 <looong.bin@gmail.com>
+Date: Fri, 21 Feb 2025 10:07:54 +0100
+In-Reply-To: <20250221013758.370936-3-inochiama@gmail.com>
+References: <20250221013758.370936-1-inochiama@gmail.com>
+	 <20250221013758.370936-3-inochiama@gmail.com>
+User-Agent: Evolution 3.46.4-2 
 MIME-Version: 1.0
-References: <20250217-03-k1-gpio-v5-0-2863ec3e7b67@gentoo.org>
- <20250217-03-k1-gpio-v5-3-2863ec3e7b67@gentoo.org> <CAMRc=MdJszmZ8d1MGo=bfJ8TwqOYBPLe2Jfc9MfbErDUCMQktg@mail.gmail.com>
- <MA0PR01MB567180C0FE89E3BEBAF2B12EFEC42@MA0PR01MB5671.INDPRD01.PROD.OUTLOOK.COM>
-In-Reply-To: <MA0PR01MB567180C0FE89E3BEBAF2B12EFEC42@MA0PR01MB5671.INDPRD01.PROD.OUTLOOK.COM>
-From: Bartosz Golaszewski <brgl@bgdev.pl>
-Date: Fri, 21 Feb 2025 09:37:16 +0100
-X-Gm-Features: AWEUYZkPeZ_f9Qkm0Zlcw9GzT4Sb60CF7RDIsxK-TmMLrjs_ajHOShwiT4OIdzI
-Message-ID: <CAMRc=MdX6KiGk1zBRK3bZpN3iM16-8mDq40sTez6YO2kJEq0zQ@mail.gmail.com>
-Subject: Re: [PATCH v5 3/5] gpio: spacemit: add support for K1 SoC
-To: Chen Wang <unicorn_wang@outlook.com>
-Cc: Yixun Lan <dlan@gentoo.org>, Rob Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Meng Zhang <zhangmeng.kevin@linux.spacemit.com>, linux-gpio@vger.kernel.org, 
-	Linus Walleij <linus.walleij@linaro.org>, linux-kernel@vger.kernel.org, 
-	Conor Dooley <conor@kernel.org>, Yangyu Chen <cyy@cyyself.name>, devicetree@vger.kernel.org, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Jesse Taube <mr.bossman075@gmail.com>, 
-	Jisheng Zhang <jszhang@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>, 
-	Inochi Amaoto <inochiama@outlook.com>, Krzysztof Kozlowski <krzk+dt@kernel.org>, spacemit@lists.linux.dev, 
-	linux-riscv@lists.infradead.org
+X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
+X-SA-Exim-Mail-From: p.zabel@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-riscv@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250221_003729_658346_52B85A75 
-X-CRM114-Status: GOOD (  11.08  )
+X-CRM114-CacheID: sfid-20250221_010821_792830_D604081F 
+X-CRM114-Status: GOOD (  13.90  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,33 +82,81 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gRnJpLCBGZWIgMjEsIDIwMjUgYXQgMTI6MzbigK9BTSBDaGVuIFdhbmcgPHVuaWNvcm5fd2Fu
-Z0BvdXRsb29rLmNvbT4gd3JvdGU6Cj4KPgo+IE9uIDIwMjUvMi8yMCAyMTozNCwgQmFydG9zeiBH
-b2xhc3pld3NraSB3cm90ZToKPiA+IE9uIE1vbiwgRmViIDE3LCAyMDI1IGF0IDE6NTjigK9QTSBZ
-aXh1biBMYW4gPGRsYW5AZ2VudG9vLm9yZz4gd3JvdGU6Cj4gWy4uLi4uLl0KPiA+PiArI2RlZmlu
-ZSB0b19zcGFjZW1pdF9ncGlvX2JhbmsoeCkgY29udGFpbmVyX29mKCh4KSwgc3RydWN0IHNwYWNl
-bWl0X2dwaW9fYmFuaywgZ2MpCj4gPj4gKwo+ID4+ICtzdHJ1Y3Qgc3BhY2VtaXRfZ3BpbzsKPiA+
-PiArCj4gPj4gK3N0cnVjdCBzcGFjZW1pdF9ncGlvX2Jhbmsgewo+ID4+ICsgICAgICAgc3RydWN0
-IGdwaW9fY2hpcCAgICAgICAgICAgICAgICBnYzsKPiA+PiArICAgICAgIHN0cnVjdCBzcGFjZW1p
-dF9ncGlvICAgICAgICAgICAgKnNnOwo+ID4+ICsgICAgICAgdm9pZCBfX2lvbWVtICAgICAgICAg
-ICAgICAgICAgICAqYmFzZTsKPiA+PiArICAgICAgIHUzMiAgICAgICAgICAgICAgICAgICAgICAg
-ICAgICAgaW5kZXg7Cj4gPj4gKyAgICAgICB1MzIgICAgICAgICAgICAgICAgICAgICAgICAgICAg
-IGlycV9tYXNrOwo+ID4+ICsgICAgICAgdTMyICAgICAgICAgICAgICAgICAgICAgICAgICAgICBp
-cnFfcmlzaW5nX2VkZ2U7Cj4gPj4gKyAgICAgICB1MzIgICAgICAgICAgICAgICAgICAgICAgICAg
-ICAgIGlycV9mYWxsaW5nX2VkZ2U7Cj4gPj4gK307Cj4gPj4gKwo+ID4+ICtzdHJ1Y3Qgc3BhY2Vt
-aXRfZ3BpbyB7Cj4gPj4gKyAgICAgICBzdHJ1Y3QgIGRldmljZSAgICAgICAgICAgICAgICAgICpk
-ZXY7Cj4gPj4gKyAgICAgICBzdHJ1Y3QgIHNwYWNlbWl0X2dwaW9fYmFuayAgICAgIHNnYltOUl9C
-QU5LU107Cj4gPj4gK307Cj4gPiBQbGVhc2UgZG9uJ3QgdXNlIHRhYnMgaW4gc3RydWN0IGRlZmlu
-aXRpb25zLgo+Cj4gV2h5IG5vdO+8n0kgc2VlCj4gaHR0cHM6Ly93d3cua2VybmVsLm9yZy9kb2Mv
-aHRtbC9sYXRlc3QvcHJvY2Vzcy9tYWludGFpbmVyLXRpcC5odG1sI3N0cnVjdC1kZWNsYXJhdGlv
-bnMtYW5kLWluaXRpYWxpemVycwo+CgpUaGlzIGlzIGZvciB0aGUgdGlwIHRyZWUsIG5vdCB0cmVl
-d2lkZS4KCkl0J3MgbXkgcGVyc29uYWwgbWFpbnRhaW5lciBwcmVmZXJlbmNlLiBXZSBkbyB1c2Ug
-Ym90aCB1bmRlcgpkcml2ZXJzL2dwaW8vIGJ1dCBJIHByZWZlciBuby10YWJzIGluIG5ldyBjb2Rl
-LgoKQmFydAoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18K
-bGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcK
-aHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
+On Fr, 2025-02-21 at 09:37 +0800, Inochi Amaoto wrote:
+> Add support for DesignWare-based PCIe controller in SG2044 SoC.
+> 
+> Signed-off-by: Inochi Amaoto <inochiama@gmail.com>
+> ---
+>  drivers/pci/controller/dwc/Kconfig          |  10 +
+>  drivers/pci/controller/dwc/Makefile         |   1 +
+>  drivers/pci/controller/dwc/pcie-dw-sophgo.c | 282 ++++++++++++++++++++
+>  3 files changed, 293 insertions(+)
+>  create mode 100644 drivers/pci/controller/dwc/pcie-dw-sophgo.c
+> 
+[...]
+> diff --git a/drivers/pci/controller/dwc/pcie-dw-sophgo.c b/drivers/pci/controller/dwc/pcie-dw-sophgo.c
+> new file mode 100644
+> index 000000000000..a4ca4f1e26e0
+> --- /dev/null
+> +++ b/drivers/pci/controller/dwc/pcie-dw-sophgo.c
+> @@ -0,0 +1,282 @@
+> +// SPDX-License-Identifier: GPL-2.0
+> +/*
+> + * PCIe host controller driver for Sophgo SoCs.
+> + *
+> + */
+> +
+> +#include <linux/clk.h>
+> +#include <linux/gpio/consumer.h>
+> +#include <linux/irqchip/chained_irq.h>
+> +#include <linux/irqdomain.h>
+> +#include <linux/mfd/syscon.h>
+> +#include <linux/module.h>
+> +#include <linux/phy/phy.h>
+> +#include <linux/property.h>
+> +#include <linux/platform_device.h>
+> +#include <linux/regmap.h>
+> +#include <linux/reset.h>
+
+Drop this ...
+
+> +
+> +#include "pcie-designware.h"
+> +
+> +#define to_sophgo_pcie(x)		dev_get_drvdata((x)->dev)
+> +
+> +#define PCIE_INT_SIGNAL			0xc48
+> +#define PCIE_INT_EN			0xca0
+> +
+> +#define PCIE_SIGNAL_INTX_SHIFT		5
+> +
+> +#define PCIE_INT_EN_INTX_SHIFT		1
+> +#define PCIE_INT_EN_INT_SII		BIT(0)
+> +#define PCIE_INT_EN_INT_INTA		BIT(1)
+> +#define PCIE_INT_EN_INT_INTB		BIT(2)
+> +#define PCIE_INT_EN_INT_INTC		BIT(3)
+> +#define PCIE_INT_EN_INT_INTD		BIT(4)
+> +#define PCIE_INT_EN_INT_MSI		BIT(5)
+> +
+> +struct sophgo_pcie {
+> +	struct dw_pcie pci;
+> +	void __iomem *app_base;
+> +	struct clk_bulk_data *clks;
+> +	unsigned int clk_cnt;
+> +	struct reset_control *rst;
+
+... and this. It is unused.
+
+
+regards
+Philipp
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
