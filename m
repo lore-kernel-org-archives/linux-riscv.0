@@ -4,90 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30C58C021B5
-	for <linux-riscv@archiver.kernel.org>; Fri, 21 Feb 2025 16:27:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20F22C021B3
+	for <linux-riscv@archiver.kernel.org>; Fri, 21 Feb 2025 17:09:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=sIfrUlvlrL9QdlEKNZhVGHk/mHl6Db7wcTDoWUJlc7o=; b=nbc9hmALuIoMmZ
-	XqzN6+3bnTpvSHeU96RVgoLKvYlvGj8jZDIhXXUSiWURj4rcTX54P9ZSFfJmb+NzteGNe1z8eg55h
-	5ClPCWut6KIXB8jJHVHKRGig4N9LreZBcgFkXtAO7QkyDHrNYHF8Dt2OM4b/tOxYRyimHTm+iyl7Q
-	JFXclD7lZ+GYqakOa7uoFVYLP+GzcQcpnNJ0KbhZ+wDKUXQGmnV1OVHdIacu0BTqIsVYXYiaIAfzT
-	dZEEoek1HSgu4KdcoujnE2hfF3zijetSbHjv9yZJZUAQhGsoKVEaYcCJdYyUsKpN0xndwXzHrBp/h
-	PxlQYg2tGdZJ8hGuL9EA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=TmYPD1cy5kET990pMVg4rI2LQVJo+5qYqBcoOJ59L7U=; b=yirH4qoWb32FoX5Z7llP28IIEh
+	hCvhv+QKC9ItAu71lUo+0z7O+rRnlo4V+v4lbfmnNrUZ3Yr8auJDv6waBlhlyNQqC6Ju+CWSBGrT6
+	LdbxOaaOnA4qc2iu/wgYgJfC93ttGRtAnUM90tZ40qlXh8JsvmvudZFG1f3O9NlsPmtXeq6Tr+E/X
+	giORz/lcbQ8JQFEiRJpXf2jMaGZ3tkNVkrvKWCa8PmCY4Vg6YyKbK/J3AQB5xzAtWQ+NRg7zzSCEP
+	JTvFb4n1qkqX+qHAuf8Cy2OiLjHgvfgxK2MVtScqTdEw0tbmi7JVdLbvraFYd95k5+7l4HNIQHiTA
+	qvcr5mYg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tlVs5-00000006B7m-2ENI;
-	Fri, 21 Feb 2025 16:27:25 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1tlWWZ-00000006JoX-0prX;
+	Fri, 21 Feb 2025 17:09:15 +0000
+Received: from tor.source.kernel.org ([2600:3c04::f03c:95ff:fe5e:7468])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tlVj7-000000068N6-1OLA;
-	Fri, 21 Feb 2025 16:18:09 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=5/V9/R7a9isS+zNiVj1HLAhpc5SCNNFYHIXlJodspTU=; b=Hp5wkhUIfKEoHz2gSp5E20vC7x
-	4ciX1Chz0KG/fLpPJYwXknq4ivmCWnj5cD5xPqyiTYkbbukSfjwB0HW5l0dlj0DCYoF19ucHtarD/
-	6w/FoFfCJ914hFPMAGotz1FwDE4dcq4qtqjAaHmxRIIgwpm3OIJAcVBJ5FaIvY0xydL5aeB76fqZy
-	eXaG1qUhHPQESYbIqL0HeILcQ3fWCucD0aZE4z1pQDsf5Kf9FbYZjPF0VZgPfFrtuF6whbHqVoM5o
-	gNDIsi1dSu29Yp8Q1OFEuUd2j5QMXJjw2hdoje+sj18ZXuD/eYH1RY1b/6ogO4RuzRuytVo/K/+wt
-	H0aw75vA==;
-Received: from s2.avantea.pl ([46.242.128.95])
-	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tlVj4-00000002fzO-1Wwz;
-	Fri, 21 Feb 2025 16:18:08 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=szczodrzynski.pl; s=x; h=Content-Transfer-Encoding:Content-Type:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender
-	:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
-	List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=5/V9/R7a9isS+zNiVj1HLAhpc5SCNNFYHIXlJodspTU=; b=HcK5seWlZAZbl0hkdyDFlNS5rh
-	zZbbTejohyTCnv9XobrgEqiUzeWFg02A27ueeoZcrmNhZZKVl2qGxpFFjE9ffbW+00X6Jx7F0YRwi
-	O00wkrUdGkcVfqQUjiEw6HFhlMvIcRVel6Wf2ZeN2uRYVPokh/iRjKMB0YB3Y2tGXG50AoSqWy1Sg
-	RHOYGl52iJ0kDEAvqFsQLkSYEVp2UVgrBYiB1+Hi2PVUj/AAHxxuH8q+zOBC7CqTUkgiZybWb3R7D
-	ARmTlh34ETeynSRA7MHUeRj+l8WI3F4wh9fyhev6lEATYAVlqor0dcaUQWYkHb1vqlNwStGf10Czu
-	E9ZVLf7w==;
-Received: from [62.171.184.96] (helo=buildhost.contaboserver.net)
-	by s2.avantea.pl with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
-	(Exim 4.96-58-g4e9ed49f8)
-	(envelope-from <kuba@szczodrzynski.pl>)
-	id 1tlViu-00AOLX-1R;
-	Fri, 21 Feb 2025 17:17:56 +0100
-From: =?UTF-8?q?Kuba=20Szczodrzy=C5=84ski?= <kuba@szczodrzynski.pl>
-To: Maxime Ripard <mripard@kernel.org>,
-	Samuel Holland <samuel@sholland.org>,
-	Chen-Yu Tsai <wens@csie.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	Rob Herring <robh@kernel.org>,
+	id 1tlWPM-00000006I6X-2vcf
+	for linux-riscv@lists.infradead.org;
+	Fri, 21 Feb 2025 17:01:48 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id A4A3361535;
+	Fri, 21 Feb 2025 17:01:45 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CC0ECC4CED6;
+	Fri, 21 Feb 2025 17:01:43 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1740157307;
+	bh=Nm2OwrU5Opm62TA7+IMK61wEIcI9SxvvGpqljE9y1TY=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=K7y4Lsqx4BYbpTnKHQfGDsoec/J3KB9jvHrvPrk2znKHh4QoRv/ohDcuGZKcgHyYq
+	 kk/nzq1fSotL4bLoISg5r5+1AVKCAaMhVgzj7iQg1OmH0dDK5QQdv2vpE+S1kkujuL
+	 oQWthL3n2/N8rUDLQBmh+6ytxEPUtvdanuzY+NJeZIVsbyhfnYOaowGQNM8sC4FFnR
+	 apgRSuoq81/o2/uO2m1txPtgolTFtgoTPTBKNMFV13LhfbstNFqtU5rROENANe0kwj
+	 khg5ncLk29/73De+NbI49b4PQUMnHqWHgZTKoda+BjzsXM2h+MLKjyKn/FzdInCbPW
+	 +yMZJ6Ql+GhYQ==
+Date: Fri, 21 Feb 2025 17:01:41 +0000
+From: Conor Dooley <conor@kernel.org>
+To: Inochi Amaoto <inochiama@gmail.com>
+Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>,
+	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
+	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>
-Cc: David Airlie <airlied@gmail.com>,
-	Simona Vetter <simona@ffwll.ch>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-sunxi@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	linux-phy@lists.infradead.org,
-	devicetree@vger.kernel.org,
-	dri-devel@lists.freedesktop.org
-Subject: [PATCH 1/5] phy: allwinner: phy-sun6i-mipi-dphy: Support LVDS in combo D-PHY
-Date: Fri, 21 Feb 2025 17:17:47 +0100
-Message-Id: <20250221161751.1278049-2-kuba@szczodrzynski.pl>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20250221161751.1278049-1-kuba@szczodrzynski.pl>
-References: <20250221161751.1278049-1-kuba@szczodrzynski.pl>
+	Conor Dooley <conor+dt@kernel.org>,
+	Chen Wang <unicorn_wang@outlook.com>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Niklas Cassel <cassel@kernel.org>,
+	Shashank Babu Chinta Venkata <quic_schintav@quicinc.com>,
+	linux-pci@vger.kernel.org, devicetree@vger.kernel.org,
+	sophgo@lists.linux.dev, linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org, Yixun Lan <dlan@gentoo.org>,
+	Longbin Li <looong.bin@gmail.com>
+Subject: Re: [PATCH 1/2] dt-bindings: pci: Add Sophgo SG2044 PCIe host
+Message-ID: <20250221-cavalier-cramp-6235d4348013@spud>
+References: <20250221013758.370936-1-inochiama@gmail.com>
+ <20250221013758.370936-2-inochiama@gmail.com>
 MIME-Version: 1.0
-X-Authenticated-Id: kuba@szczodrzynski.pl
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250221_161806_637950_E374BCA7 
-X-CRM114-Status: GOOD (  16.68  )
+In-Reply-To: <20250221013758.370936-2-inochiama@gmail.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,96 +79,209 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: multipart/mixed; boundary="===============7756086483816889188=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-U29tZSBBbGx3aW5uZXIgY2hpcHMgKG5vdGFibHkgdGhlIEQxcy9UMTEzIGFuZCB0aGUgQTEwMCkg
-aGF2ZSBhICJjb21ibwpNSVBJIERTSSBELVBIWSIgd2hpY2ggaXMgcmVxdWlyZWQgd2hlbiB1c2lu
-ZyBzaW5nbGUtbGluayBMVkRTMC4KCkluIHRoaXMgbW9kZSwgdGhlIERTSSBwZXJpcGhlcmFsIGlz
-IG5vdCB1c2VkIGFuZCB0aGUgUEhZIGlzIG5vdApjb25maWd1cmVkIGZvciBEU0kuIEluc3RlYWQs
-IHRoZSBDT01CT19QSFlfUkVHeCByZWdpc3RlcnMgYXJlIHNldCB0bwplbmFibGUgTFZEUyBvcGVy
-YXRpb24uCgpFbmFibGUgdGhlIFBIWSBkcml2ZXIgdG8gd29yayBpbiBMVkRTIG1vZGUgb24gY2hp
-cHMgd2l0aCBhIGNvbWJvIEQtUEhZLgoKU2lnbmVkLW9mZi1ieTogS3ViYSBTemN6b2RyennFhHNr
-aSA8a3ViYUBzemN6b2Ryenluc2tpLnBsPgotLS0KIGRyaXZlcnMvcGh5L2FsbHdpbm5lci9waHkt
-c3VuNmktbWlwaS1kcGh5LmMgfCA2NSArKysrKysrKysrKysrKysrKysrKy0KIDEgZmlsZSBjaGFu
-Z2VkLCA2MyBpbnNlcnRpb25zKCspLCAyIGRlbGV0aW9ucygtKQoKZGlmZiAtLWdpdCBhL2RyaXZl
-cnMvcGh5L2FsbHdpbm5lci9waHktc3VuNmktbWlwaS1kcGh5LmMgYi9kcml2ZXJzL3BoeS9hbGx3
-aW5uZXIvcGh5LXN1bjZpLW1pcGktZHBoeS5jCmluZGV4IDM2ZWFiOTUyNy4uZjk1OGUzNGRhIDEw
-MDY0NAotLS0gYS9kcml2ZXJzL3BoeS9hbGx3aW5uZXIvcGh5LXN1bjZpLW1pcGktZHBoeS5jCisr
-KyBiL2RyaXZlcnMvcGh5L2FsbHdpbm5lci9waHktc3VuNmktbWlwaS1kcGh5LmMKQEAgLTE2Niw4
-ICsxNjYsOCBAQAogI2RlZmluZSBTVU41MElfQ09NQk9fUEhZX1JFRzBfRU5fQ1AJCUJJVCgwKQog
-CiAjZGVmaW5lIFNVTjUwSV9DT01CT19QSFlfUkVHMQkJMHgxMTQKLSNkZWZpbmUgU1VONTBJX0NP
-TUJPX1BIWV9SRUcyX1JFR19WUkVGMVA2KG4pCSgoKG4pICYgMHg3KSA8PCA0KQotI2RlZmluZSBT
-VU41MElfQ09NQk9fUEhZX1JFRzJfUkVHX1ZSRUYwUDgobikJKChuKSAmIDB4NykKKyNkZWZpbmUg
-U1VONTBJX0NPTUJPX1BIWV9SRUcxX1JFR19WUkVGMVA2KG4pCSgoKG4pICYgMHg3KSA8PCA0KQor
-I2RlZmluZSBTVU41MElfQ09NQk9fUEhZX1JFRzFfUkVHX1ZSRUYwUDgobikJKChuKSAmIDB4NykK
-IAogI2RlZmluZSBTVU41MElfQ09NQk9fUEhZX1JFRzIJCTB4MTE4CiAjZGVmaW5lIFNVTjUwSV9D
-T01CT19QSFlfUkVHMl9IU19TVE9QX0RMWShuKQkoKG4pICYgMHhmZikKQEAgLTE4MSw3ICsxODEs
-OSBAQCBzdHJ1Y3Qgc3VuNmlfZHBoeTsKIAogc3RydWN0IHN1bjZpX2RwaHlfdmFyaWFudCB7CiAJ
-dm9pZAkoKnR4X3Bvd2VyX29uKShzdHJ1Y3Qgc3VuNmlfZHBoeSAqZHBoeSk7CisJdm9pZAkoKmx2
-ZHNfcG93ZXJfb24pKHN0cnVjdCBzdW42aV9kcGh5ICpkcGh5KTsKIAlib29sCXJ4X3N1cHBvcnRl
-ZDsKKwlib29sCWlzX2NvbWJvX2RwaHk7CiB9OwogCiBzdHJ1Y3Qgc3VuNmlfZHBoeSB7CkBAIC0y
-MjIsNiArMjI0LDE4IEBAIHN0YXRpYyBpbnQgc3VuNmlfZHBoeV9jb25maWd1cmUoc3RydWN0IHBo
-eSAqcGh5LCB1bmlvbiBwaHlfY29uZmlndXJlX29wdHMgKm9wdHMpCiAJcmV0dXJuIDA7CiB9CiAK
-K3N0YXRpYyBpbnQgc3VuNmlfZHBoeV9zZXRfbW9kZShzdHJ1Y3QgcGh5ICpwaHksIGVudW0gcGh5
-X21vZGUgbW9kZSwgaW50IHN1Ym1vZGUpCit7CisJc3RydWN0IHN1bjZpX2RwaHkgKmRwaHkgPSBw
-aHlfZ2V0X2RydmRhdGEocGh5KTsKKworCWlmIChtb2RlID09IFBIWV9NT0RFX0xWRFMgJiYgIWRw
-aHktPnZhcmlhbnQtPmlzX2NvbWJvX2RwaHkpIHsKKwkJLyogTm90IGEgY29tYm8gRC1QSFk6IExW
-RFMgaXMgbm90IHN1cHBvcnRlZCAqLworCQlyZXR1cm4gLUVJTlZBTDsKKwl9CisKKwlyZXR1cm4g
-MDsKK30KKwogc3RhdGljIHZvaWQgc3VuNmlfYTMxX21pcGlfZHBoeV90eF9wb3dlcl9vbihzdHJ1
-Y3Qgc3VuNmlfZHBoeSAqZHBoeSkKIHsKIAl1OCBsYW5lc19tYXNrID0gR0VOTUFTSyhkcGh5LT5j
-b25maWcubGFuZXMgLSAxLCAwKTsKQEAgLTMyOSw2ICszNDMsMzcgQEAgc3RhdGljIHZvaWQgc3Vu
-NTBpX2ExMDBfbWlwaV9kcGh5X3R4X3Bvd2VyX29uKHN0cnVjdCBzdW42aV9kcGh5ICpkcGh5KQog
-CXVkZWxheSgxKTsKIH0KIAorc3RhdGljIHZvaWQgc3VuNTBpX2ExMDBfbWlwaV9kcGh5X2x2ZHNf
-cG93ZXJfb24oc3RydWN0IHN1bjZpX2RwaHkgKmRwaHkpCit7CisJcmVnbWFwX3dyaXRlKGRwaHkt
-PnJlZ3MsIFNVTjUwSV9DT01CT19QSFlfUkVHMSwKKwkJICAgICBTVU41MElfQ09NQk9fUEhZX1JF
-RzFfUkVHX1ZSRUYxUDYoNCkgfAorCQkgICAgIFNVTjUwSV9DT01CT19QSFlfUkVHMV9SRUdfVlJF
-RjBQOCgzKSk7CisKKwlyZWdtYXBfd3JpdGUoZHBoeS0+cmVncywgU1VONTBJX0NPTUJPX1BIWV9S
-RUcwLAorCQkgICAgIFNVTjUwSV9DT01CT19QSFlfUkVHMF9FTl9DUCk7CisJdWRlbGF5KDUpOwor
-CXJlZ21hcF91cGRhdGVfYml0cyhkcGh5LT5yZWdzLCBTVU41MElfQ09NQk9fUEhZX1JFRzAsCisJ
-CQkgICBTVU41MElfQ09NQk9fUEhZX1JFRzBfRU5fTFZEUywKKwkJCSAgIFNVTjUwSV9DT01CT19Q
-SFlfUkVHMF9FTl9MVkRTKTsKKwl1ZGVsYXkoNSk7CisJcmVnbWFwX3VwZGF0ZV9iaXRzKGRwaHkt
-PnJlZ3MsIFNVTjUwSV9DT01CT19QSFlfUkVHMCwKKwkJCSAgIFNVTjUwSV9DT01CT19QSFlfUkVH
-MF9FTl9DT01CT0xETywKKwkJCSAgIFNVTjUwSV9DT01CT19QSFlfUkVHMF9FTl9DT01CT0xETyk7
-CisJdWRlbGF5KDUpOworCXJlZ21hcF91cGRhdGVfYml0cyhkcGh5LT5yZWdzLCBTVU41MElfQ09N
-Qk9fUEhZX1JFRzAsCisJCQkgICBTVU41MElfQ09NQk9fUEhZX1JFRzBfRU5fTUlQSSwKKwkJCSAg
-IFNVTjUwSV9DT01CT19QSFlfUkVHMF9FTl9NSVBJKTsKKworCXJlZ21hcF93cml0ZShkcGh5LT5y
-ZWdzLCBTVU42SV9EUEhZX0FOQTRfUkVHLAorCQkgICAgIFNVTjZJX0RQSFlfQU5BNF9SRUdfRU5f
-TUlQSSB8CisJCSAgICAgU1VONklfRFBIWV9BTkE0X1JFR19JQigyKSk7CisJcmVnbWFwX3dyaXRl
-KGRwaHktPnJlZ3MsIFNVTjZJX0RQSFlfQU5BM19SRUcsCisJCSAgICAgU1VONklfRFBIWV9BTkEz
-X0VOX0xET1IgfAorCQkgICAgIFNVTjZJX0RQSFlfQU5BM19FTl9MRE9EKTsKKwlyZWdtYXBfd3Jp
-dGUoZHBoeS0+cmVncywgU1VONklfRFBIWV9BTkEyX1JFRywgMCk7CisJcmVnbWFwX3dyaXRlKGRw
-aHktPnJlZ3MsIFNVTjZJX0RQSFlfQU5BMV9SRUcsIDApOworfQorCiBzdGF0aWMgaW50IHN1bjZp
-X2RwaHlfdHhfcG93ZXJfb24oc3RydWN0IHN1bjZpX2RwaHkgKmRwaHkpCiB7CiAJdTggbGFuZXNf
-bWFzayA9IEdFTk1BU0soZHBoeS0+Y29uZmlnLmxhbmVzIC0gMSwgMCk7CkBAIC00OTIsNiArNTM3
-LDE0IEBAIHN0YXRpYyBpbnQgc3VuNmlfZHBoeV9wb3dlcl9vbihzdHJ1Y3QgcGh5ICpwaHkpCiB7
-CiAJc3RydWN0IHN1bjZpX2RwaHkgKmRwaHkgPSBwaHlfZ2V0X2RydmRhdGEocGh5KTsKIAorCWlm
-IChwaHktPmF0dHJzLm1vZGUgPT0gUEhZX01PREVfTFZEUyAmJiBkcGh5LT52YXJpYW50LT5pc19j
-b21ib19kcGh5KSB7CisJCWlmIChkcGh5LT52YXJpYW50LT5sdmRzX3Bvd2VyX29uKSB7CisJCQlk
-cGh5LT52YXJpYW50LT5sdmRzX3Bvd2VyX29uKGRwaHkpOworCQkJcmV0dXJuIDA7CisJCX0KKwkJ
-cmV0dXJuIC1FSU5WQUw7CisJfQorCiAJc3dpdGNoIChkcGh5LT5kaXJlY3Rpb24pIHsKIAljYXNl
-IFNVTjZJX0RQSFlfRElSRUNUSU9OX1RYOgogCQlyZXR1cm4gc3VuNmlfZHBoeV90eF9wb3dlcl9v
-bihkcGh5KTsKQEAgLTUxNCw2ICs1NjcsMTEgQEAgc3RhdGljIGludCBzdW42aV9kcGh5X3Bvd2Vy
-X29mZihzdHJ1Y3QgcGh5ICpwaHkpCiAJcmVnbWFwX3dyaXRlKGRwaHktPnJlZ3MsIFNVTjZJX0RQ
-SFlfQU5BM19SRUcsIDApOwogCXJlZ21hcF93cml0ZShkcGh5LT5yZWdzLCBTVU42SV9EUEhZX0FO
-QTRfUkVHLCAwKTsKIAorCWlmIChwaHktPmF0dHJzLm1vZGUgPT0gUEhZX01PREVfTFZEUyAmJiBk
-cGh5LT52YXJpYW50LT5pc19jb21ib19kcGh5KSB7CisJCXJlZ21hcF93cml0ZShkcGh5LT5yZWdz
-LCBTVU41MElfQ09NQk9fUEhZX1JFRzEsIDApOworCQlyZWdtYXBfd3JpdGUoZHBoeS0+cmVncywg
-U1VONTBJX0NPTUJPX1BIWV9SRUcwLCAwKTsKKwl9CisKIAlyZXR1cm4gMDsKIH0KIApAQCAtNTMz
-LDYgKzU5MSw3IEBAIHN0YXRpYyBjb25zdCBzdHJ1Y3QgcGh5X29wcyBzdW42aV9kcGh5X29wcyA9
-IHsKIAkuY29uZmlndXJlCT0gc3VuNmlfZHBoeV9jb25maWd1cmUsCiAJLnBvd2VyX29uCT0gc3Vu
-NmlfZHBoeV9wb3dlcl9vbiwKIAkucG93ZXJfb2ZmCT0gc3VuNmlfZHBoeV9wb3dlcl9vZmYsCisJ
-LnNldF9tb2RlCT0gc3VuNmlfZHBoeV9zZXRfbW9kZSwKIAkuaW5pdAkJPSBzdW42aV9kcGh5X2lu
-aXQsCiAJLmV4aXQJCT0gc3VuNmlfZHBoeV9leGl0LAogfTsKQEAgLTYxOSw2ICs2NzgsOCBAQCBz
-dGF0aWMgY29uc3Qgc3RydWN0IHN1bjZpX2RwaHlfdmFyaWFudCBzdW42aV9hMzFfbWlwaV9kcGh5
-X3ZhcmlhbnQgPSB7CiAKIHN0YXRpYyBjb25zdCBzdHJ1Y3Qgc3VuNmlfZHBoeV92YXJpYW50IHN1
-bjUwaV9hMTAwX21pcGlfZHBoeV92YXJpYW50ID0gewogCS50eF9wb3dlcl9vbgk9IHN1bjUwaV9h
-MTAwX21pcGlfZHBoeV90eF9wb3dlcl9vbiwKKwkubHZkc19wb3dlcl9vbgk9IHN1bjUwaV9hMTAw
-X21pcGlfZHBoeV9sdmRzX3Bvd2VyX29uLAorCS5pc19jb21ib19kcGh5CT0gdHJ1ZSwKIH07CiAK
-IHN0YXRpYyBjb25zdCBzdHJ1Y3Qgb2ZfZGV2aWNlX2lkIHN1bjZpX2RwaHlfb2ZfdGFibGVbXSA9
-IHsKLS0gCjIuMjUuMQoKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRl
-YWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgt
-cmlzY3YK
+
+--===============7756086483816889188==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="MwJINKVsaBRPsMGS"
+Content-Disposition: inline
+
+
+--MwJINKVsaBRPsMGS
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+On Fri, Feb 21, 2025 at 09:37:55AM +0800, Inochi Amaoto wrote:
+> The pcie controller on the SG2044 is designware based with
+> custom app registers.
+>=20
+> Add binding document for SG2044 PCIe host controller.
+>=20
+> Signed-off-by: Inochi Amaoto <inochiama@gmail.com>
+> ---
+>  .../bindings/pci/sophgo,sg2044-pcie.yaml      | 125 ++++++++++++++++++
+>  1 file changed, 125 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/pci/sophgo,sg2044-p=
+cie.yaml
+>=20
+> diff --git a/Documentation/devicetree/bindings/pci/sophgo,sg2044-pcie.yam=
+l b/Documentation/devicetree/bindings/pci/sophgo,sg2044-pcie.yaml
+> new file mode 100644
+> index 000000000000..040dabe905e0
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/pci/sophgo,sg2044-pcie.yaml
+> @@ -0,0 +1,125 @@
+> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/pci/sophgo,sg2044-pcie.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: DesignWare based PCIe Root Complex controller on Sophgo SoCs
+> +
+> +maintainers:
+> +  - Inochi Amaoto <inochiama@gmail.com>
+> +
+> +description: |+
+> +  SG2044 SoC PCIe Root Complex controller is based on the Synopsys Desig=
+nWare
+> +  PCIe IP and thus inherits all the common properties defined in
+> +  snps,dw-pcie.yaml.
+> +
+> +allOf:
+> +  - $ref: /schemas/pci/pci-host-bridge.yaml#
+> +  - $ref: /schemas/pci/snps,dw-pcie.yaml#
+> +
+> +properties:
+> +  compatible:
+> +    const: sophgo,sg2044-pcie
+> +
+> +  reg:
+> +    items:
+> +      - description: Data Bus Interface (DBI) registers
+> +      - description: iATU registers
+> +      - description: Config registers
+> +      - description: Sophgo designed configuration registers
+> +
+> +  reg-names:
+> +    items:
+> +      - const: dbi
+> +      - const: atu
+> +      - const: config
+> +      - const: app
+> +
+> +  clocks:
+> +    items:
+> +      - description: core clk
+> +
+> +  clock-names:
+> +    items:
+> +      - const: core
+> +
+> +  dma-coherent: true
+
+Why's this here? RISC-V is dma-coherent by default, with dma-noncoherent
+used to indicate systems/devices that are not.
+
+Cheers,
+Conor.
+
+> +
+> +  interrupt-controller:
+> +    description: Interrupt controller node for handling legacy PCI inter=
+rupts.
+> +    type: object
+> +
+> +    properties:
+> +      "#address-cells":
+> +        const: 0
+> +
+> +      "#interrupt-cells":
+> +        const: 1
+> +
+> +      interrupt-controller: true
+> +
+> +      interrupts:
+> +        items:
+> +          - description: combined legacy interrupt
+> +
+> +    required:
+> +      - "#address-cells"
+> +      - "#interrupt-cells"
+> +      - interrupt-controller
+> +      - interrupts
+> +
+> +    additionalProperties: false
+> +
+> +  msi-parent: true
+> +
+> +  ranges:
+> +    maxItems: 5
+> +
+> +required:
+> +  - compatible
+> +  - reg
+> +  - clocks
+> +
+> +unevaluatedProperties: false
+> +
+> +examples:
+> +  - |
+> +    #include <dt-bindings/interrupt-controller/irq.h>
+> +
+> +    soc {
+> +      #address-cells =3D <2>;
+> +      #size-cells =3D <2>;
+> +
+> +      pcie@6c00400000 {
+> +        compatible =3D "sophgo,sg2044-pcie";
+> +        reg =3D <0x6c 0x00400000 0x0 0x00001000>,
+> +              <0x6c 0x00700000 0x0 0x00004000>,
+> +              <0x40 0x00000000 0x0 0x00001000>,
+> +              <0x6c 0x00780c00 0x0 0x00000400>;
+> +        reg-names =3D "dbi", "atu", "config", "app";
+> +        #address-cells =3D <3>;
+> +        #size-cells =3D <2>;
+> +        bus-range =3D <0x00 0xff>;
+> +        clocks =3D <&clk 0>;
+> +        clock-names =3D "core";
+> +        device_type =3D "pci";
+> +        dma-coherent;
+> +        linux,pci-domain =3D <0>;
+> +        msi-parent =3D <&msi>;
+> +        ranges =3D <0x01000000 0x0  0x00000000  0x40 0x10000000  0x0 0x0=
+0200000>,
+> +                 <0x42000000 0x0  0x00000000  0x0  0x00000000  0x0 0x040=
+00000>,
+> +                 <0x02000000 0x0  0x04000000  0x0  0x04000000  0x0 0x040=
+00000>,
+> +                 <0x43000000 0x42 0x00000000  0x42 0x00000000  0x2 0x000=
+00000>,
+> +                 <0x03000000 0x41 0x00000000  0x41 0x00000000  0x1 0x000=
+00000>;
+> +
+> +        interrupt-controller {
+> +          #address-cells =3D <0>;
+> +          #interrupt-cells =3D <1>;
+> +          interrupt-controller;
+> +          interrupt-parent =3D <&intc>;
+> +          interrupts =3D <64 IRQ_TYPE_LEVEL_HIGH>;
+> +        };
+> +      };
+> +    };
+> +...
+> --=20
+> 2.48.1
+>=20
+
+--MwJINKVsaBRPsMGS
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZ7ixdQAKCRB4tDGHoIJi
+0r5bAQD2/xgf2z2mj+PfULdLhil9ssspRZH13YmMyPGC5sanWQD9F/3QXeB0ciDz
+5QbRlfDz98HUAUow/IaPa38AV/IlggU=
+=WAPh
+-----END PGP SIGNATURE-----
+
+--MwJINKVsaBRPsMGS--
+
+
+--===============7756086483816889188==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============7756086483816889188==--
+
