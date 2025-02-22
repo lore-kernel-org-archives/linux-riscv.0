@@ -4,92 +4,117 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1EFFAC021B2
-	for <linux-riscv@archiver.kernel.org>; Sat, 22 Feb 2025 11:36:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3C781C021B2
+	for <linux-riscv@archiver.kernel.org>; Sat, 22 Feb 2025 11:50:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=6rENqncLpWbtNiUra2Yi3vq7SIKO/jN/CWZxDpdhni4=; b=LTsj1Xn5D/Gm7d
-	Axjp1GxoulsYJpHSctXH5X5V8GxDNayJFjOHC7ySviAcclyDmsSbu9OXVUo6SFILdgn6qi68nHCN4
-	M3R4J59xm8Nz5HGd2YBrScbxZJDBGp0debXGIHY1NNQargiMOIAKZkQuS0aYF6GIhkFRKUzKLl4lE
-	+Q3LEErFPPybVxsa02DDtBummq14F7Vp4N2vVsAPeGblQoRisb8Fgm7fJOIouN67WOvshiqZTqAeg
-	+NtYji1jfgPmAKV5uN5VDgFIzCZKj/1e43HztKD5YJPzgJDelB35j8Mew3iF7MJqmaecKmUmvxoPz
-	djycksEC9HuNJSlwOl+A==;
+	List-Owner; bh=YGQaZwkc3Ok05W9HiqzI8EctSVwzQCyByVbQucq+cyY=; b=OrXgOkmpWtfYHm
+	NwfPGiqWRGVdfChENIy6lgqXHyuo/gu/8Zt5dOURY1dY1RPkkmIo27DHtS8uGFqwGMMw9b6DGOImp
+	V//wANNzH4mv4er7AzCIqSxX3OJBB48diMa80KtubbTP2fGHNiXV9WkbYBNnIbkWeDBqS1Ldphbu1
+	ToLK4X46+uR3EAyCbg+E5bCbDVIguOkBI65fx9lLWDaBFZm3JPJaTV3EttrYEgUc1IlZJ9C0KXsvv
+	KNjMB0nRXQFfsZJ5ZRyvsPhLBuRabSBYmCZhL3YHatGSIIooGxlEjHQcNU4SL5ZB6HRHtO025neAh
+	hHdE261BjelkxuUf07kQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tlnny-00000007v3B-1IUa;
-	Sat, 22 Feb 2025 11:36:22 +0000
-Received: from bayard.4d2.org ([5.78.89.93])
+	id 1tlo1X-00000007wz2-2KO2;
+	Sat, 22 Feb 2025 11:50:23 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tlnnv-00000007v2g-3MYR
+	id 1tlo1U-00000007wyG-4BW2
 	for linux-riscv@lists.infradead.org;
-	Sat, 22 Feb 2025 11:36:21 +0000
-Received: from bayard.4d2.org (bayard.4d2.org [127.0.0.1])
-	by bayard.4d2.org (Postfix) with ESMTP id 5ED23122FE26;
-	Sat, 22 Feb 2025 03:36:17 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=4d2.org; s=mail;
-	t=1740224177; bh=SOwH0X3o/HhmS2t6HTuMd4f+rDYK0rxVnzjVPLbUQq4=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=ABVOlES/GvScXjONNVDQvu/S0Hs0wPhbGU2RDAYy2cEeih5WIoQHqUmafU13fxDFu
-	 YsWFXJluYDlaEhjHUYJtm2u/bMA+KvTfONDIopxwdKbEsNXl97hmYRAj+c2EU+Hw3p
-	 aedeLCEuNoaB0KPVlAkQ7MYLSueCdk9AD24hVdyeB8ILjIz+UYi6NcQ+cBwz+nZ3B5
-	 rufn8cDIc5M/ZRIN1c1aQh0Bo731er7upOX6k9iMX7l3fRbu1OlRImXED2Fh7wYcTZ
-	 m6Bv/z5YeJlkg0VNvaVFDSz/rgmlcKN7K5jzF/dAIfusm/7qdgudQVhZFY23ha9iDJ
-	 eIMiVIe5K6luw==
-X-Virus-Scanned: amavisd-new at 4d2.org
-Received: from bayard.4d2.org ([127.0.0.1])
- by bayard.4d2.org (bayard.4d2.org [127.0.0.1]) (amavisd-new, port 10024)
- with ESMTP id g1TN3FBn8qRe; Sat, 22 Feb 2025 03:36:13 -0800 (PST)
-Received: from ketchup (unknown [183.217.80.34])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: heylenay@4d2.org)
-	by bayard.4d2.org (Postfix) with ESMTPSA id A95BC122FE25;
-	Sat, 22 Feb 2025 03:36:09 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=4d2.org; s=mail;
-	t=1740224173; bh=SOwH0X3o/HhmS2t6HTuMd4f+rDYK0rxVnzjVPLbUQq4=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=ujfBiNk57CUKu+M7ljRJ0+19wzyuQi2TwhupqBRWE2X11DD7xojiJc8aH0nGqrQoO
-	 TRAGFEfGaWX/oiqAjv1Es0p6ALLAmtUospfJZV4CkJPT5E82aSN/F9LTdzFPP8ZDhf
-	 3qJlfAh1xm2cinokwTI4NuRutnBj7HD1c0v+GB69Enj4+A6qJ/3bbmh5Z0MUnbRyfA
-	 oLSLnZU+Gfebcy1tEnnKWUyi2SoCuZzL3zf0snIAMOy+Af/Vh+P462eOicyqiuPPZ/
-	 gsNYyP+yc0R/g2KdgmZ6Utb9q+qkFadB29zPBxIPZdkKhBlsWhX1k82nPc8YyvHejt
-	 Wo/go59RUiKOA==
-Date: Sat, 22 Feb 2025 11:36:00 +0000
-From: Haylen Chu <heylenay@4d2.org>
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Haylen Chu <heylenay@outlook.com>, Yixun Lan <dlan@gentoo.org>,
-	linux-riscv@lists.infradead.org, linux-clk@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	Inochi Amaoto <inochiama@outlook.com>,
-	Chen Wang <unicornxdotw@foxmail.com>,
-	Jisheng Zhang <jszhang@kernel.org>,
-	Meng Zhang <zhangmeng.kevin@linux.spacemit.com>
+	Sat, 22 Feb 2025 11:50:22 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 16FBD5C2777;
+	Sat, 22 Feb 2025 11:49:41 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 23507C4CED1;
+	Sat, 22 Feb 2025 11:50:14 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1740225019;
+	bh=WHtr1zZ9a93GA1KijUCd5YYQ9Yepb+ZGhVADmwPbocI=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=SXBs45JIAQyCjrBLXFrXylEYrGln2xUNPbeu/mD4vEJFXqrMqWTebBpkRako/hov1
+	 KItQno/KnBo6RrMbMozSpT7L8sN+RpMWywtbc+REHb6CMl+1ysNTRHOiY5LEHX1RDS
+	 00ntIoyFm3VgYjFqm8Vp04Y2jzPkthHwPrUWX0deZ0uIjFX8Dtjt4kqoMBYuIgKvtU
+	 xlEwAzxTCHrii9X/eBnZT/4Co2YKCF/9SUQY8pFG3Kqw9vyTtLp+KcMVNf82X5tFQj
+	 4IUkYYaF415Uk7xN5xKitt1Wl2YhDcnm6nq3Wi7nldFfSYXkdhTlRgvesm8RlTFjWT
+	 zRRa2L4s4ssxQ==
+Message-ID: <6ea8ac17-42c8-46fa-b970-77ba89de66c4@kernel.org>
+Date: Sat, 22 Feb 2025 12:50:13 +0100
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
 Subject: Re: [PATCH v4 2/4] dt-bindings: soc: spacemit: Add spacemit,k1-syscon
-Message-ID: <Z7m2oNXbwJ06KtLQ@ketchup>
+To: Haylen Chu <heylenay@4d2.org>, Alex Elder <elder@riscstar.com>
+Cc: Michael Turquette <mturquette@baylibre.com>,
+ Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Haylen Chu <heylenay@outlook.com>,
+ Yixun Lan <dlan@gentoo.org>, linux-riscv@lists.infradead.org,
+ linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, Inochi Amaoto <inochiama@outlook.com>,
+ Chen Wang <unicornxdotw@foxmail.com>, Jisheng Zhang <jszhang@kernel.org>,
+ Meng Zhang <zhangmeng.kevin@linux.spacemit.com>,
+ Guodong Xu <guodong@riscstar.com>
 References: <20250103215636.19967-2-heylenay@4d2.org>
  <20250103215636.19967-4-heylenay@4d2.org>
  <aw2vqnz5vcccqqvrrhz5tgawj7fnzzg3tds7nnepuorit37a7r@jcj3wrs7d73h>
- <Z6rdBhQ7s2ReOgBL@ketchup>
- <19e5129b-8423-4660-8e4f-8b898214d275@kernel.org>
- <Z63T_EDvXiuRQbvb@ketchup>
- <2ab715bd-e26c-41bb-ac64-baa864d90414@kernel.org>
+ <Z6rdBhQ7s2ReOgBL@ketchup> <19e5129b-8423-4660-8e4f-8b898214d275@kernel.org>
+ <Z63T_EDvXiuRQbvb@ketchup> <2ab715bd-e26c-41bb-ac64-baa864d90414@kernel.org>
  <Z7BTVu10EKHMqOnJ@ketchup>
- <3e196e9c-c942-4026-8d6c-69c9930bebd5@kernel.org>
-MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <3e196e9c-c942-4026-8d6c-69c9930bebd5@kernel.org>
+ <7c697e9a-d6d9-4672-9738-93ce3a71beb6@riscstar.com>
+ <4f7bf109-bf18-42be-971c-5d5edd9595b5@kernel.org> <Z7mrdrACFp3m-7sy@ketchup>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 fv0=
+In-Reply-To: <Z7mrdrACFp3m-7sy@ketchup>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250222_033620_005795_2C79185C 
-X-CRM114-Status: GOOD (  22.85  )
+X-CRM114-CacheID: sfid-20250222_035021_171173_9902AD83 
+X-CRM114-Status: GOOD (  26.88  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,91 +131,116 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sat, Feb 22, 2025 at 10:52:02AM +0100, Krzysztof Kozlowski wrote:
-> On 15/02/2025 09:41, Haylen Chu wrote:
-> > 
-> >>> 	};
-> >>>
-> >>> For the other two clock controllers (APBS and APBC), syscons are really
-> >>> unnecessary and it's simple to fold them.
-> >>
-> >>
-> >> I don't follow. Do we talk about children or syscon compatible?
-> > 
-> > APBS region contains only clock (PLL) bits and APBC region contains only
-> > reset and clock bits, so I was thinking about dropping the syscon nodes
-> > and changing their compatible to spacemit,k1-plls and
-> > spacemit,k1-cru-apbc.
-> > 
-> > In summary, my plan is,
-> > 
-> > - For MPMU, APMU and APBC region, keep the binding in soc/spacemit.
-> >   They'll be reset, clock and power controllers, with compatible
-> >   "spacemit,k1-syscon-*".
-> > - For APBS region, write a new binding clock/spacemit,k1-plls, as it
-> >   contains only PLL-related bits. It acts as clock controller.
-> > - All split children will be eliminated, there'll be only four device
-> >   nodes, one for each region, matching the datasheet.
-> > - Put all clock-related binding definition of SpacemiT K1 in
-> >   dt-bindings/clock/spacemit,k1-ccu.h
-> > 
-> > Is it fine for you?
-> > 
+On 22/02/2025 11:48, Haylen Chu wrote:
+> On Sat, Feb 22, 2025 at 10:59:09AM +0100, Krzysztof Kozlowski wrote:
+>> On 22/02/2025 00:40, Alex Elder wrote:
+>>> I have a general proposal on how to represent this, but I'd
+>>> like to know whether it makes sense.  It might be what Krzysztof
+>>> is suggesting, but in any case, I hope this representation would
+>>> work, because it could simplify the code, and compartmentalizes
+>>> things.
+>>>
+>>> Part of what motivates this is that I've been looking at the
+>>> downstream reset code this week.  It contains a large number of
+>>> register offset definitions identical to what's used for the
+>>> clock driver.  The reset driver uses exactly the same registers
+>>> as the clock driver does.  Downstream they are separate drivers,
+>>> but the clock driver exports a shared spinlock for both drivers
+>>> to use.
+>>>
+>>> These really need to be incorporated into the same driver for
+>>> upstream.
+>>
+>> Why? First, it is not related to the topic here at all. You can design
+>> drivers as you wish and still nothing to do with discussion about binding.
+>> Second, different subsystems justify different drivers and Linux handles
+>> this well already. No need for custom spinlock - regmap already does it.
+>>
+>>
+>>>
+>>> The clock code defines four distinct "units" (a term I'll use
+>>> from here on; there might be a better name):
+>>>    MPMU  Main Power Management Unit
+>>>    APMU  Application Power Management Unit
+>>>    APBC  APB Clock
+>>>    APBS  APB Spare
+>>>
+>>> The reset code defines some of those, but doesn't use APBS.
+>>> It also defines three more:
+>>>    APBC2 Another APB Clock
+>>>    RCPU  Real-time CPU?
+>>>    RCPU2 Another Real-time CPU
+>>>
+>>> Each of these "units" has a distinct I/O memory region that
+>>> contains registers that manage the clocks and reset signals.
+>>
+>> So there are children - mpmu, apmu, apbclock, apbspare, apbclock2, rcpu
+>> 1+2? But previous statements were saying these are intermixed?
+>>
+>> " I'll make APMU/MPMU act as a whole device"
 > 
-> That did not explain hardware to me.
-
-Sorry if my replies haven't made things clear. I'm goint to make a
-(hopefully) more clear conclusion,
-
-> You assume that some way, maybe
-> through magical crystal ball, I know your hardware and will tell you
-> what to do.
->
-> No.
+> My reply seems somehow misleading. The statement means I will merge the
+> children with the syscon into one devicetree node, which applies for
+> both APMU and MPMU. I wasn't going to say that APMU and MPMU are
+> intermixed.
 > 
-> I have dozens of other patches in my inbox. It's you who should explain
-> the hardware in simple, concise way so we can judge whether DT
-> description is correct.
+> As Alex said, all these units have their own distinct and separate MMIO
+> regions.
 > 
-> Again: define what is the actual device, what is its address space, what
-> are its possible *separate* and *distinctive* children.
+>>>
+>>> I suggest a single "k1-clocks" device be created, which has
+>>
+>> For four devices? Or for one device?
+> 
+> By Alex's example, I think he means a device node taking all these
+> distinct MMIO regions as resource.
 
-The series covers four seperate blocks,
 
-- Application Power Manage Unit, APMU
-- Main Power Manage Unit, MPMU
-- APB Bus Clock Unit, APBC
-- APB Spare, APBS
-
-they're clearly separate blocks and have their own distinct, separate
-address spaces, confirmed by the Address Mapping section in the TRM[1].
-
-These four blocks provide hardware bits for three purposes: power
-management, reset signals and clocks. Not every block is capable of all
-the three functionalities,
-
-- APMU, MPMU: power, reset, clock
-- APBC: clock, reset
-- APBS: clock
-
-Reset and clock bits, if present, always stay in the same register.
-Power management bits stay in others. These two types of registers
-interleave if present in the same block (APMU and MPMU case).
-
-These blocks have no child: power, clock and reset definitions differ
-from block to block, no reusable nodes could be split from them.
-
-Hope this conclusion will help the reviewing. Please tell if something
-is unclear.
+You still do not answer about the hardware: how many devices is there?
 
 > 
-> Best regards,
-> Krzysztof
+> 	clock {
+> 		compatible = "spacemit,k1-clocks";
+> 
+> 		reg = <0x0 0xc0880000 0x0 0x2050>,
+> 		      <0x0 0xc0888000 0x0 0x30>,
+> 		      <0x0 0xd4015000 0x0 0x1000>,
+> 		      <0x0 0xd4050000 0x0 0x209c>,
+> 		      <0x0 0xd4090000 0x0 0x1000>,
+> 		      <0x0 0xd4282800 0x0 0x400>,
+> 		      <0x0 0xf0610000 0x0 0x20>;
+> 		reg-names = "rcpu",
+> 			    "rcpu2",
+> 			    "apbc",
+> 			    "mpmu",
+> 			    "apbs",
+> 			    "apmu",
+> 			    "apbc2";
+> 
+> 		/* ... */
+> 	};
+> 
+>> No, it's again going to wrong direction. I already said:
+>>
+>> "You need to define what is the device here. Don't create fake nodes ust
+>> for your drivers. If registers are interleaved and manual says "this is
+>> block APMU/MPMU" then you have one device, so one node with 'reg'."
+>>
+>> So what is the device here? Can you people actually answer?
+>>
+> 
+> I'm not sure about the apbc2, rcpu and rcpu2 regions; they aren't
+> related to the thread, either. For APBC, MPMU, APBS and APMU, I'm pretty
+> sure they're standalone blocks with distinct and separate MMIO regions,
+> this could be confirmed by the address mapping[1].
 
-Thanks,
-Haylen Chu
+They were brought here to discuss for some reason. Long discussions,
+long emails, unrelated topics like hardware or different devices - all
+this is not making it easier for me to understand.
 
-[1]: https://developer.spacemit.com/documentation?token=LzJyw97BCipK1dkUygrcbT0NnMg
+
+Best regards,
+Krzysztof
 
 _______________________________________________
 linux-riscv mailing list
