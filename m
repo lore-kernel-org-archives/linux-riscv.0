@@ -4,50 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 88EF0C021B2
-	for <linux-riscv@archiver.kernel.org>; Sun, 23 Feb 2025 03:09:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7CC88C021B2
+	for <linux-riscv@archiver.kernel.org>; Sun, 23 Feb 2025 07:13:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=4FqTpcPor+M+3596of45IkoxN+rkLYgTs69QC0SW328=; b=UnEfrBudrCrNXW
-	q0cq8YjX5Cfn5Q0C6xn/T/cQhZJp5EAukrGw8JpgoR8vGGjKrjdPebESEaaUSyaFVrQwS2avpk5aJ
-	grmAAZsPkp/4z0jdy2u+4DK7diRzexOUH0GRd1pXWI7VTtNdX5gvsM2Wyq7tXhSYYsqcX2qemPERb
-	li0zrjMb5q2RHRFwhSbKiLsAU5s4uKqzLxbUulcG47oueN62bGCT7e+pNo9O3daUHyJW2d52vM7vJ
-	M+UiFM+MAKnQP+kW8UgXTl2N0IjGdCGy/+6oliTZY3SDGAeCcdP4ut7pcrfXFofQJHOSRgWfz59nB
-	E5R3yzxwpcXCypcAw7FQ==;
+	List-Owner; bh=JHOBI7ZymcycmG8XpmX0hYiv2o3GufC65gaqcrEnEDI=; b=CEF4KZZdcR6IfL
+	1sR5BwainutWVpN39pTqdmw4/jOEydJJccW9QULA+Ib1a7JFTlAR0lWNxYDa2HbjDWHeKYtruPh3P
+	dYZPOtxdy5f7p4ReF1MlCEmg/xKp4b9Q+NuIYddYCHFVJDnGw4KJNTIsUE/AJFXKwvj4Kw7Qlb8jk
+	Ltv0R8Lc5J70brCAvWFNSvs4ylunItxWH18x6qYPx17xHRPwkT9rHanOZmWKkZ9tuGkgk8gW59kAP
+	TBeFph/xTgniYs3oFEfSqAFwEiQlmtKzTiQTXoA6rOdpYBLY+nxG2AurXvfA+fIpFhtrGDhBjlgpH
+	JkvM1Jwmu7ZZyitVkgKA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tm2N6-00000009z7U-0Ei9;
-	Sun, 23 Feb 2025 03:09:36 +0000
-Received: from woodpecker.gentoo.org ([2001:470:ea4a:1:5054:ff:fec7:86e4] helo=smtp.gentoo.org)
+	id 1tm6AW-0000000AZO4-2qpa;
+	Sun, 23 Feb 2025 07:12:52 +0000
+Received: from mail-yb1-xb29.google.com ([2607:f8b0:4864:20::b29])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tm2N2-00000009z69-2vMl
+	id 1tm6AT-0000000AZNZ-2FjQ
 	for linux-riscv@lists.infradead.org;
-	Sun, 23 Feb 2025 03:09:34 +0000
-Received: from localhost (unknown [180.172.118.52])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: dlan)
-	by smtp.gentoo.org (Postfix) with ESMTPSA id 828D2343208;
-	Sun, 23 Feb 2025 03:09:28 +0000 (UTC)
-Date: Sun, 23 Feb 2025 03:09:17 +0000
-From: Yixun Lan <dlan@gentoo.org>
-To: Alex Elder <elder@ieee.org>
-Subject: Re: [PATCH v5 3/5] gpio: spacemit: add support for K1 SoC
-Message-ID: <20250223030917-GYA33864@gentoo>
-References: <20250217-03-k1-gpio-v5-0-2863ec3e7b67@gentoo.org>
- <20250217-03-k1-gpio-v5-3-2863ec3e7b67@gentoo.org>
- <8dd08731-8f50-4599-8d18-873b7f594dee@ieee.org>
+	Sun, 23 Feb 2025 07:12:50 +0000
+Received: by mail-yb1-xb29.google.com with SMTP id 3f1490d57ef6-e545c1e8a15so4061279276.1
+        for <linux-riscv@lists.infradead.org>; Sat, 22 Feb 2025 23:12:48 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=tenstorrent.com; s=google; t=1740294768; x=1740899568; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=ldzcQVZLNCUbBkmkSbK9JX+buCbspNWQzfPcTiRZxPU=;
+        b=Mtziv8/FJb6p/bWghIPVVf/BVMDtJuF8Jt5FydCYsv+vRCvxhk8/KqJuBLCvNL253B
+         JMJObsLU9YsLXXN01ug2iKJT5rR81yL88JRG/+4rnA6AQy6My/NHFUoFvXOZVkDBPF6B
+         YOG3eFlf06dgPOI+QDiWpBQwxrEbkL8DWPfML0ok/GdO2boF7dGHSwpQnWv1tdG8UwZO
+         wqceXJaL+Me7UwJdjPmBoLUPIWC6p/gvofBSfAqvQyy2ubtktas/aWXNvdu+ypiwGYLb
+         wxMGIIinhu5Mil7/qDat2xP3oddWw0YG3AEN1NLM354mSrsO/rm0N4Tv4xgx4AqfK99I
+         LJ/w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1740294768; x=1740899568;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=ldzcQVZLNCUbBkmkSbK9JX+buCbspNWQzfPcTiRZxPU=;
+        b=TiTG6uMm/JO/M96oFAGOgCtmjZ8lG412T/uZjrCPA6lGibzfYMT2ilDl4muF5f5PJq
+         ZN9XXmBWRNnhpJn/khNw+apIJw5C+jh7OTDii3MHFYsi7odNZDpeScTOFG5Ju0b10L+E
+         1IzBcwI8X34cnGmqMiAhy9Jku6E4ShGK9V7mx/BlNeuE/mOY2M9EttaZpTlKojf3SIsf
+         ssvMTVoPd90Dx4lvSQS3H6lFuQ3hHMcWckNUWATXUviWcxCJ9f0m+v6jqAMHA73EGqFq
+         DlTXRPaZ6CTDsFlaRuXm29jfERryKYoDCM6U0lQJknNzYiixnwFqKiuWDUVBoUHPorFk
+         plyA==
+X-Forwarded-Encrypted: i=1; AJvYcCVnUIeuZ2MStbY5+J2Fu5TxLBAXrTf6i0nneM2lERWt9s3/xHLVzLI1pKpPBJ2jTugUWfhgNmtFbP4KDA==@lists.infradead.org
+X-Gm-Message-State: AOJu0YzK1H8iRq3JrvzU/TnCT4/+8wsgVh8fn8Ty/2V1u/EsMtV39Mg4
+	1mpJaZMeygTw6NwfjePyaksQ89th3whdQr4VjT8j1VoUCCoPGlLJ/PYTlCpJImvy/y393EGGgCH
+	NEH4P2y9ELN74PY8nkRM9LvJPR05i2JJvFHPPyg==
+X-Gm-Gg: ASbGncs9iWwWLTme/i1VWh9Z00lyK6525KFI9eUiSKix1kOeYFm3upkLfd5wrMqwXVP
+	iPwG14xMHXNj/U4YZ3DW9xBRcE18ZK7nY/C94IAOSt9hIemdD80IBI7N4J+zr6nEpf1v0rAARq+
+	KiXQoQ3llw1eIMQV/Zf1NbyuPBbqpXyEeAVg==
+X-Google-Smtp-Source: AGHT+IErv7QjZvqwZj7xwVFEty3DyOMgQT39nCw3foX+DTo4lf4iob2nS49dT5fKuofFWcZyAoIBII3K1uxoegJ4n5M=
+X-Received: by 2002:a05:690c:7401:b0:6ee:8363:96d3 with SMTP id
+ 00721157ae682-6fbcc372266mr78832957b3.27.1740294767658; Sat, 22 Feb 2025
+ 23:12:47 -0800 (PST)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <8dd08731-8f50-4599-8d18-873b7f594dee@ieee.org>
+References: <20250221000924.734006-1-cyrilbur@tenstorrent.com>
+In-Reply-To: <20250221000924.734006-1-cyrilbur@tenstorrent.com>
+From: Anton Blanchard <antonb@tenstorrent.com>
+Date: Sun, 23 Feb 2025 18:12:36 +1100
+X-Gm-Features: AWEUYZl2UnE5I4LEXGNcBcYyg7ug4nKfYel88Patux_dppHJ-4gcND83DtzAV8E
+Message-ID: <CAN7m+mC18ch=+iqJxarc-Xi_W9hZZkHD-p7ZthXqH9CwDtsqKA@mail.gmail.com>
+Subject: Re: [PATCH v3 0/4] riscv: uaccess: optimizations
+To: Cyril Bur <cyrilbur@tenstorrent.com>
+Cc: Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Paul Walmsley <paul.walmsley@sifive.com>, charlie@rivosinc.com, jrtc27@jrtc27.com, 
+	ben.dooks@codethink.co.uk, linux-riscv@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, jszhang@kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250222_190933_181663_C890A432 
-X-CRM114-Status: GOOD (  61.98  )
+X-CRM114-CacheID: sfid-20250222_231249_645558_81FDB00A 
+X-CRM114-Status: GOOD (  17.37  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -59,622 +91,45 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Rob Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Meng Zhang <zhangmeng.kevin@linux.spacemit.com>, linux-gpio@vger.kernel.org, Linus Walleij <linus.walleij@linaro.org>, linux-kernel@vger.kernel.org, Conor Dooley <conor@kernel.org>, Yangyu Chen <cyy@cyyself.name>, devicetree@vger.kernel.org, linux-riscv@lists.infradead.org, Palmer Dabbelt <palmer@dabbelt.com>, Jesse Taube <mr.bossman075@gmail.com>, Jisheng Zhang <jszhang@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>, Inochi Amaoto <inochiama@outlook.com>, Krzysztof Kozlowski <krzk+dt@kernel.org>, spacemit@lists.linux.dev, Bartosz Golaszewski <brgl@bgdev.pl>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Alex:
-
-thanks for the review
-
-On 11:27 Fri 21 Feb     , Alex Elder wrote:
-> On 2/17/25 6:57 AM, Yixun Lan wrote:
-> > Implement GPIO functionality which capable of setting pin as
-> > input, output. Also, each pin can be used as interrupt which
-> > support rising, failing, or both edge type trigger.
-> > 
-> > Signed-off-by: Yixun Lan <dlan@gentoo.org>
-> 
-> This looks nicer!
-> 
-> I have some more comments, but they're pretty minor.
-> 
-> > ---
-> >   drivers/gpio/Kconfig            |   8 +
-> >   drivers/gpio/Makefile           |   1 +
-> >   drivers/gpio/gpio-spacemit-k1.c | 376 ++++++++++++++++++++++++++++++++++++++++
-> >   3 files changed, 385 insertions(+)
-> > 
-> > diff --git a/drivers/gpio/Kconfig b/drivers/gpio/Kconfig
-> > index add5ad29a673c09082a913cb2404073b2034af48..eaae729eec00a3d6d2b83769aed3e2b0ca9927e5 100644
-> > --- a/drivers/gpio/Kconfig
-> > +++ b/drivers/gpio/Kconfig
-> > @@ -655,6 +655,14 @@ config GPIO_SNPS_CREG
-> >   	  where only several fields in register belong to GPIO lines and
-> >   	  each GPIO line owns a field with different length and on/off value.
-> >   
-> > +config GPIO_SPACEMIT_K1
-> > +	bool "SPACEMIT K1 GPIO support"
-> > +	depends on ARCH_SPACEMIT || COMPILE_TEST
-> > +	depends on OF_GPIO
-> > +	select GPIOLIB_IRQCHIP
-> > +	help
-> > +	  Say yes here to support the SpacemiT's K1 GPIO device.
-> > +
-> >   config GPIO_SPEAR_SPICS
-> >   	bool "ST SPEAr13xx SPI Chip Select as GPIO support"
-> >   	depends on PLAT_SPEAR
-> > diff --git a/drivers/gpio/Makefile b/drivers/gpio/Makefile
-> > index af3ba4d81b583842893ea69e677fbe2abf31bc7b..6709ce511a0cf10310a94521c85a2d382dcfa696 100644
-> > --- a/drivers/gpio/Makefile
-> > +++ b/drivers/gpio/Makefile
-> > @@ -156,6 +156,7 @@ obj-$(CONFIG_GPIO_SIOX)			+= gpio-siox.o
-> >   obj-$(CONFIG_GPIO_SL28CPLD)		+= gpio-sl28cpld.o
-> >   obj-$(CONFIG_GPIO_SLOPPY_LOGIC_ANALYZER) += gpio-sloppy-logic-analyzer.o
-> >   obj-$(CONFIG_GPIO_SODAVILLE)		+= gpio-sodaville.o
-> > +obj-$(CONFIG_GPIO_SPACEMIT_K1)		+= gpio-spacemit-k1.o
-> >   obj-$(CONFIG_GPIO_SPEAR_SPICS)		+= gpio-spear-spics.o
-> >   obj-$(CONFIG_GPIO_SPRD)			+= gpio-sprd.o
-> >   obj-$(CONFIG_GPIO_STMPE)		+= gpio-stmpe.o
-> > diff --git a/drivers/gpio/gpio-spacemit-k1.c b/drivers/gpio/gpio-spacemit-k1.c
-> > new file mode 100644
-> > index 0000000000000000000000000000000000000000..f72511b5ab8f8f0b1d1c9e89d2f9ca07b623a866
-> > --- /dev/null
-> > +++ b/drivers/gpio/gpio-spacemit-k1.c
-> > @@ -0,0 +1,376 @@
-> > +// SPDX-License-Identifier: GPL-2.0 OR MIT
-> > +/*
-> > + * Copyright (C) 2023-2025 SpacemiT (Hangzhou) Technology Co. Ltd
-> > + * Copyright (C) 2025 Yixun Lan <dlan@gentoo.org>
-> > + */
-> > +
-> > +#include <linux/io.h>
-> > +#include <linux/init.h>
-> > +#include <linux/irq.h>
-> > +#include <linux/interrupt.h>
-> > +#include <linux/gpio/driver.h>
-> > +#include <linux/platform_device.h>
-> > +#include <linux/pinctrl/pinctrl.h>
-> > +#include <linux/property.h>
-> > +#include <linux/seq_file.h>
-> > +#include <linux/module.h>
-> > +
-> > +#include "gpiolib.h"
-> > +
-> > +/* register offset */
-> 
-> The comments are great, but I think I'd like to see them be abbreviated
-> further and added to the right of the definitions, if you can do that.
-> 
-> I think you can drop "GPIO" and "register" in each one of them, and
-> that might get you close to an 80 column limit.  See what you can do.
-> 
-sure, I can do this
-> > +/* GPIO port level register */
-> 
-> I think the port level register is read-only, and you didn't include
-> that annotation.
-> 
-right, I will add that annotation
-> > +#define GPLR		0x00
-> > +/* GPIO port direction register - R/W */
-> > +#define GPDR		0x0c
-> > +/* GPIO port set register - W */
-> > +#define GPSR		0x18
-> > +/* GPIO port clear register - W */
-> > +#define GPCR		0x24
-> > +/* GPIO port rising edge register R/W */
-> > +#define GRER		0x30
-> > +/* GPIO port falling edge register R/W */
-> > +#define GFER		0x3c
-> > +/* GPIO edge detect status register - R/W1C */
-> > +#define GEDR		0x48
-> > +/*  GPIO (set) direction register - W */
-> 
-> Delete the extra space above.
-> 
-will do
-> > +#define GSDR		0x54
-> > +/* GPIO (clear) direction register - W */
-> > +#define GCDR		0x60
-> > +/* GPIO (set) rising edge detect enable register - W */
-> > +#define GSRER		0x6c
-> > +/* GPIO (clear) rising edge detect enable register - W */
-> > +#define GCRER		0x78
-> > +/* GPIO (set) falling edge detect enable register - W */
-> > +#define GSFER		0x84
-> > +/* GPIO (clear) falling edge detect enable register - W */
-> > +#define GCFER		0x90
-> > +/* GPIO interrupt mask register, 0 disable, 1 enable - R/W */
-> > +#define GAPMASK		0x9c
-> > +
-> > +#define NR_BANKS		4
-> > +#define NR_GPIOS_PER_BANK	32
-> > +
-> > +#define to_spacemit_gpio_bank(x) container_of((x), struct spacemit_gpio_bank, gc)
-> > +
-> > +struct spacemit_gpio;
-> > +
-> > +struct spacemit_gpio_bank {
-> > +	struct gpio_chip		gc;
-> > +	struct spacemit_gpio		*sg;
-> > +	void __iomem			*base;
-> > +	u32				index;
-> 
-> You almost never use the index field.  It could easily be
-> computed rather than stored:
-> 
-> static u32 spacemit_gpio_bank_index(struct spacemit_gpio_bank *gb)
-> {
-> 	return (u32)(gb - gb->sg->sgb);
-> }
-> 
-ok
-> > +	u32				irq_mask;
-> > +	u32				irq_rising_edge;
-> > +	u32				irq_falling_edge;
-> > +};
-> > +
-> > +struct spacemit_gpio {
-> > +	struct	device			*dev;
-> > +	struct	spacemit_gpio_bank	sgb[NR_BANKS];
-> > +};
-> > +
-> > +static irqreturn_t spacemit_gpio_irq_handler(int irq, void *dev_id)
-> > +{
-> > +	struct spacemit_gpio_bank *gb = dev_id;
-> > +	unsigned long pending;
-> > +	u32 n, gedr;
-> > +
-> > +	gedr = readl(gb->base + GEDR);
-> > +	if (!gedr)
-> > +		return IRQ_NONE;
-> > +	writel(gedr, gb->base + GEDR);
-> > +
-> > +	gedr = gedr & gb->irq_mask;
-> > +	if (!gedr)
-> > +		return IRQ_NONE;
-> > +
-> > +	pending = gedr;
-> 
-> Instead, do:
-> 
-> 	pending = gedr & gb->irq_mask;
-> 	if (!pending)
-> 		return IRQ_NONE;
-> 
-good suggestion
-> > +	for_each_set_bit(n, &pending, BITS_PER_LONG)
-> > +		handle_nested_irq(irq_find_mapping(gb->gc.irq.domain, n));
-> > +
-> > +	return IRQ_HANDLED;
-> > +}
-> > +
-> > +static void spacemit_gpio_irq_ack(struct irq_data *d)
-> > +{
-> > +	struct spacemit_gpio_bank *gb = irq_data_get_irq_chip_data(d);
-> > +
-> > +	writel(BIT(irqd_to_hwirq(d)), gb->base + GEDR);
-> > +}
-> > +
-> > +static void spacemit_gpio_irq_mask(struct irq_data *d)
-> > +{
-> > +	struct spacemit_gpio_bank *gb = irq_data_get_irq_chip_data(d);
-> > +	u32 bit = BIT(irqd_to_hwirq(d));
-> > +
-> > +	gb->irq_mask &= ~bit;
-> 
-> This is a minor suggestion, and I'm not sure how much difference
-> it makes.  But here (and one or two more times below) you could
-> avoid the writel() calls if you know the particular IRQ was
-> already disabled.  (Maybe that won't ever happen?)
-> 
-pratically, this should be called once irq unmasked (in pair),
-besides, it won't worth to do the optimization as not called frequently
-
-> 	if (!(gb->irq_mask & bit))
-> 		return;
-> 
-> 	gb->irq_mask &= !bit;
-> 	...
-> 
-> This should work because in spacemit_gpio_add_bank() you reset
-> all the IRQ state and disable all IRQs, so the cached copy of
-> the irq_mask and the rising and falling edge masks should match
-> reality.
-> 
-> > +
-> > +	if (bit & gb->irq_rising_edge)
-> > +		writel(bit, gb->base + GCRER);
-> > +
-> > +	if (bit & gb->irq_falling_edge)
-> > +		writel(bit, gb->base + GCFER);
-> > +}
-> > +
-> > +static void spacemit_gpio_irq_unmask(struct irq_data *d)
-> > +{
-> > +	struct spacemit_gpio_bank *gb = irq_data_get_irq_chip_data(d);
-> > +	u32 bit = BIT(irqd_to_hwirq(d));
-> > +
-> 
-> 
-> Same thought here.
-> 
-> 	if (gb->irq_mask & bit)
-> 		return;
-> 
-> > +	gb->irq_mask |= bit;
-> > +
-> > +	if (bit & gb->irq_rising_edge)
-> > +		writel(bit,  gb->base + GSRER);
-> > +
-> > +	if (bit & gb->irq_falling_edge)
-> > +		writel(bit, gb->base + GSFER);
-> > +}
-> > +
-> > +static int spacemit_gpio_irq_set_type(struct irq_data *d, unsigned int type)
-> > +{
-> > +	struct spacemit_gpio_bank *gb = irq_data_get_irq_chip_data(d);
-> > +	u32 bit = BIT(irqd_to_hwirq(d));
-> > +
-> 
-> Same thought in this function, although it gets a little
-> messier looking.
-> 
-> > +	if (type & IRQ_TYPE_EDGE_RISING) {
-> > +		gb->irq_rising_edge |= bit;
-> > +		writel(bit, gb->base + GSRER);
-> > +	} else {
-> > +		gb->irq_rising_edge &= ~bit;
-> > +		writel(bit, gb->base + GCRER);
-> > +	}
-> 
-> Otherwise:
-> 
->      if (type & IRQ_TYPE_EDGE_RISING)
-> 	gb->irq_rising_edge |= bit;
->      else
-> 	gb->irq_rising_edge &= ~bit;
->      writel(bit, gb->base + GSRER);
-> 
-no, it's two different registers: GSRER vs GCRER
-> and again below.
-> 
-> > +
-> > +	if (type & IRQ_TYPE_EDGE_FALLING) {
-> > +		gb->irq_falling_edge |= bit;
-> > +		writel(bit, gb->base + GSFER);
-> > +	} else {
-> > +		gb->irq_falling_edge &= ~bit;
-> > +		writel(bit, gb->base + GCFER);
-> > +	}
-> > +
-> > +	return 0;
-> > +}
-> > +
-> 
-> You added this function in version 5 of the series.  Please call
-> attention to additions (or removals) like this in your cover page,
-> and/or in notes at the top of this patch.
-> 
-ok
-> > +static void spacemit_gpio_irq_print_chip(struct irq_data *data, struct seq_file *p)
-> > +{
-> > +	struct spacemit_gpio_bank *gb = irq_data_get_irq_chip_data(data);
-> > +
-> > +	seq_printf(p, "%s-%d", dev_name(gb->gc.parent), gb->index);
-> 
-> Does this look like "gpiochip2-15" or something?  I wasn't able
-> to find it in the debugfs file system.
-> 
-it shows in /proc/interrupts once irq registered..
-something will look like this - d4019000.gpio-$index
-
-> > +}
-> > +
-> > +static struct irq_chip spacemit_gpio_chip = {
-> > +	.name		= "k1-gpio-irqchip",
-> > +	.irq_ack	= spacemit_gpio_irq_ack,
-> > +	.irq_mask	= spacemit_gpio_irq_mask,
-> > +	.irq_unmask	= spacemit_gpio_irq_unmask,
-> > +	.irq_set_type	= spacemit_gpio_irq_set_type,
-> > +	.irq_print_chip	= spacemit_gpio_irq_print_chip,
-> > +	.flags		= IRQCHIP_IMMUTABLE,
-> 
-> Last time your flags value was IRQCHIP_SET_WAKE.  Why the change?
-> 
-I was about to check this..
-
-the gpio controller doesn't support irq wake up,
-I will add this flag in next version
-
-> > +	GPIOCHIP_IRQ_RESOURCE_HELPERS,
-> > +};
-> > +
-> 
-> Maybe you could add a comment indicating that gpiospec->args[]
-> will contain:
-> 0:  bank index
-> 1:  GPIO offset within the bank
-> 2:  flags
-> 
-> (And the GPIO chip instance number as Linus suggested.)
-> 
-please ignore, I will drop this function as LinusW promote this
-to gpio core
-> > +static int spacemit_gpio_xlate(struct gpio_chip *gc,
-> > +			       const struct of_phandle_args *gpiospec, u32 *flags)
-> > +{
-> > +	struct spacemit_gpio_bank *gb = gpiochip_get_data(gc);
-> > +	struct spacemit_gpio *sg = gb->sg;
-> > +
-> 
-> Get rid of the above blank line.
-> 
-> > +	int i;
-> > +
-> 
-> I'm not sure the context in which this runs.  Can it be given
-> arbitrary content from a DTB?  Mainly I'm interested to know
-> whether any of these checks can be eliminated.  If it's called
-> while parsing a DTB I can see why you'd need to verify all
-> input values for validity.
-> 
-> > +	if (gc->of_gpio_n_cells != 3)
-> > +		return -EINVAL;
-> > +
-> > +	if (gpiospec->args_count < gc->of_gpio_n_cells)
-> > +		return -EINVAL;
-> > +
-> > +	i = gpiospec->args[0];
-> > +	if (i >= NR_BANKS)
-> > +		return -EINVAL;
-> > +
-> > +	if (gc != &sg->sgb[i].gc)
-> > +		return -EINVAL;
-> > +
-> > +	if (gpiospec->args[1] >= gc->ngpio)
-> > +		return -EINVAL;
-> > +
-> > +	if (flags)
-> > +		*flags = gpiospec->args[2];
-> > +
-> > +	return gpiospec->args[1];
-> > +}
-> > +
-> > +static int spacemit_add_pin_range(struct gpio_chip *gc)
-> > +{
-> > +	struct spacemit_gpio_bank *gb;
-> > +	struct of_phandle_args pinspec;
-> > +	struct pinctrl_dev *pctldev;
-> > +	struct device_node *np;
-> > +	int ret, trim;
-> > +
-> > +	np = dev_of_node(&gc->gpiodev->dev);
-> > +	if (!np)
-> > +		return 0;
-> > +
-> > +	gb = to_spacemit_gpio_bank(gc);
-> > +
-> > +	ret = of_parse_phandle_with_fixed_args(np, "gpio-ranges", 3,
-> > +					       gb->index, &pinspec);
-> > +	if (ret)
-> > +		return ret;
-> > +
-> > +	pctldev = of_pinctrl_get(pinspec.np);
-> > +	of_node_put(pinspec.np);
-> > +	if (!pctldev)
-> > +		return -EPROBE_DEFER;
-> > +
-> > +	/* Ignore ranges outside of this GPIO chip */
-> > +	if (pinspec.args[0] >= (gc->offset + gc->ngpio))
-> > +		return -EINVAL;
-> > +
-> > +	if (pinspec.args[0] + pinspec.args[2] <= gc->offset)
-> > +		return -EINVAL;
-> > +
-> 
-> I would do the following test earlier.
-> 
-ditto, ignore this, as move to gpio core
-> > +	if (!pinspec.args[2])
-> > +		return -EINVAL;
-> > +
-> > +	/* Trim the range to fit this GPIO chip */
-> > +	if (gc->offset > pinspec.args[0]) {
-> > +		trim = gc->offset - pinspec.args[0];
-> > +		pinspec.args[2] -= trim;
-> > +		pinspec.args[1] += trim;
-> > +		pinspec.args[0] = 0;
-> > +	} else {
-> > +		pinspec.args[0] -= gc->offset;
-> > +	}
-> > +	if ((pinspec.args[0] + pinspec.args[2]) > gc->ngpio)
-> > +		pinspec.args[2] = gc->ngpio - pinspec.args[0];
-> > +
-> > +	ret = gpiochip_add_pin_range(gc,
-> > +				     pinctrl_dev_get_devname(pctldev),
-> > +				     pinspec.args[0],
-> > +				     pinspec.args[1],
-> > +				     pinspec.args[2]);
-> > +	if (ret)
-> > +		return ret;
-> > +
-> > +	return 0;
-> 
-> Just do this:
-> 
->      return  gpiochip_add_pin_range(gc, pinctrl_dev_get_devname(pctldev),
-> 				   pinspec.args[0], pinspec.args[2]);
-> 
-> > +}
-> > +
-> > +static int spacemit_gpio_add_bank(struct spacemit_gpio *sg,
-> > +				  void __iomem *regs,
-> > +				  int index, int irq)
-> > +{
-> > +	struct spacemit_gpio_bank *gb = &sg->sgb[index];
-> > +	struct gpio_chip *gc = &gb->gc;
-> > +	struct device *dev = sg->dev;
-> > +	struct gpio_irq_chip *girq;
-> > +	void __iomem *dat, *set, *clr, *dirin, *dirout;
-> > +	int ret, bank_base[] = { 0x0, 0x4, 0x8, 0x100 };
-> > +
-> > +	gb->index = index;
-> > +	gb->base = regs + bank_base[index];
-> > +
-> > +	dat	= gb->base + GPLR;
-> > +	set	= gb->base + GPSR;
-> > +	clr	= gb->base + GPCR;
-> > +	dirin	= gb->base + GCDR;
-> > +	dirout	= gb->base + GSDR;
-> > +
-> > +	/* This registers 32 GPIO lines per bank */
-> > +	ret = bgpio_init(gc, dev, 4, dat, set, clr, dirout, dirin,
-> > +			 BGPIOF_UNREADABLE_REG_SET | BGPIOF_UNREADABLE_REG_DIR);
-> > +	if (ret)
-> > +		return dev_err_probe(dev, ret, "failed to init gpio chip\n");
-> > +
-> > +	gb->sg = sg;
-> > +
-> > +	gc->label		= dev_name(dev);
-> > +	gc->request		= gpiochip_generic_request;
-> > +	gc->free		= gpiochip_generic_free;
-> > +	gc->ngpio		= NR_GPIOS_PER_BANK;
-> > +	gc->base		= -1;
-> > +
-> > +#ifdef CONFIG_OF_GPIO
-> 
-> Why are these lines conditionally defined?  Is it intended
-> to allow CONFIG_COMPILE_TEST to work?  Your Kconfig states
-> that this *depends on* OF_GPIO, so this is probably not
-> needed.
-> 
-> You don't define spacemit_gpio_xlate() earlier conditionally.
-> Nor spacemit_add_pin_range().
-> 
-make sense, I will drop this #ifdef
-> > +	gc->of_xlate		= spacemit_gpio_xlate;
-> > +	gc->of_add_pin_range	= spacemit_add_pin_range;
-> > +	gc->of_gpio_n_cells	= 3;
-> > +#endif
-> > +
-> > +	girq			= &gc->irq;
-> > +	girq->threaded		= true;
-> > +	girq->handler		= handle_simple_irq;
-> > +
-> > +	gpio_irq_chip_set_chip(girq, &spacemit_gpio_chip);
-> > +
-> > +	/* Clear Edge Detection Settings */
-> > +	writel(0x0, gb->base + GRER);
-> > +	writel(0x0, gb->base + GFER);
-> > +	/* Clear and Disable Interrupt */
-> > +	writel(0xffffffff, gb->base + GCFER);
-> > +	writel(0xffffffff, gb->base + GCRER);
-> 
-> It seems that GAPMASK is an overall interrupt mask register.
-> I assume that means that by writing 0 here, no interrupts
-> of any kind will be generated for any of the 32 GPIO ports.
-> 
-yes
-
-> If that's true, I would write this first, *then* disable
-> the rising and falling edge detection interrupts, *then*
-> clear any pending interrupts.
-> 
-ok, I will take your suggestion, this is more strict
-
-> Are there any interrupt types other than rising and falling
-> edge?  Does this just provide an atomic way to disable both
-only two types, rising, falling, and both can be enabled simultaneously
-(there is no level trigger interrupt)
-
-> types at once?  If there are no other interrupt types maybe
-> this could be used rather than disabling both types
-> separately using GCFER etc. in spacemit_gpio_irq_*mask().
-> 
-you are right, I think we can do this
-
-> 					-Alex
-> 
-> > +	writel(0, gb->base + GAPMASK);
-> > +
-> > +	ret = devm_request_threaded_irq(dev, irq, NULL,
-> > +					spacemit_gpio_irq_handler,
-> > +					IRQF_ONESHOT | IRQF_SHARED,
-> > +					gb->gc.label, gb);
-> > +	if (ret < 0)
-> > +		return dev_err_probe(dev, ret, "failed to register IRQ\n");
-> > +
-> > +	ret = devm_gpiochip_add_data(dev, gc, gb);
-> > +	if (ret < 0)
-> > +		return dev_err_probe(dev, ret, "failed to add gpio chip\n");
-> > +
-> > +	/* Eable Interrupt */
-> > +	writel(0xffffffff, gb->base + GAPMASK);
-> > +
-> > +	return 0;
-> > +}
-> > +
-> > +static int spacemit_gpio_probe(struct platform_device *pdev)
-> > +{
-> > +	struct device *dev = &pdev->dev;
-> > +	struct spacemit_gpio *sg;
-> > +	struct resource *res;
-> > +	void __iomem *regs;
-> > +	int i, irq, ret;
-> > +
-> > +	sg = devm_kzalloc(dev, sizeof(*sg), GFP_KERNEL);
-> > +	if (!sg)
-> > +		return -ENOMEM;
-> > +
-> > +	regs = devm_platform_get_and_ioremap_resource(pdev, 0, &res);
-> > +	if (IS_ERR(regs))
-> > +		return PTR_ERR(regs);
-> > +
-> > +	irq = platform_get_irq(pdev, 0);
-> > +	if (irq < 0)
-> > +		return irq;
-> > +
-> > +	sg->dev	= dev;
-> > +
-> > +	for (i = 0; i < NR_BANKS; i++) {
-> > +		ret = spacemit_gpio_add_bank(sg, regs, i, irq);
-> > +		if (ret)
-> > +			return ret;
-> > +	}
-> > +
-> > +	return 0;
-> > +}
-> > +
-> > +static const struct of_device_id spacemit_gpio_dt_ids[] = {
-> > +	{ .compatible = "spacemit,k1-gpio" },
-> > +	{ /* sentinel */ }
-> > +};
-> > +
-> > +static struct platform_driver spacemit_gpio_driver = {
-> > +	.probe		= spacemit_gpio_probe,
-> > +	.driver		= {
-> > +		.name	= "k1-gpio",
-> > +		.of_match_table = spacemit_gpio_dt_ids,
-> > +	},
-> > +};
-> > +module_platform_driver(spacemit_gpio_driver);
-> > +
-> > +MODULE_AUTHOR("Yixun Lan <dlan@gentoo.org>");
-> > +MODULE_DESCRIPTION("GPIO driver for SpacemiT K1 SoC");
-> > +MODULE_LICENSE("GPL");
-> > 
-> 
-
--- 
-Yixun Lan (dlan)
-Gentoo Linux Developer
-GPG Key ID AABEFD55
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+SGkgQ3lyaWwsCgpPbiBGcmksIEZlYiAyMSwgMjAyNSBhdCAxMTowOeKAr0FNIEN5cmlsIEJ1ciA8
+Y3lyaWxidXJAdGVuc3RvcnJlbnQuY29tPiB3cm90ZToKPiBUaGlzIHNlcmllcyB0cmllcyB0byBv
+cHRpbWl6ZSByaXNjdiB1YWNjZXNzIGJ5IGFsbG93aW5nIHRoZSB1c2Ugb2YKPiB1c2VyX2FjY2Vz
+c19iZWdpbigpIGFuZCB1c2VyX2FjY2Vzc19lbmQoKSB3aGljaCBwZXJtaXRzIGdyb3VwaW5nIHVz
+ZXIgYWNjZXNzZXMKPiBhbmQgYXZvaWRpbmcgdGhlIENTUiB3cml0ZSBwZW5hbHR5IGZvciBlYWNo
+IGFjY2Vzcy4KCkkgdGVzdGVkIHRoaXMgb24gdGhlIHVwY29taW5nIFRlbnN0b3JyZW50IEFzY2Fs
+b24gQ1BVIHVzaW5nIGEgc2ltcGxlCm1pY3JvYmVuY2htYXJrIChnZXRkZW50czY0KCkgb24gYSBk
+aXJlY3Rvcnkgd2l0aCAxMCBmaWxlcyBpbiBpdCkgYW5kIGl0IHdhcwpzaWduaWZpY2FudGx5IGZh
+c3RlciAob3ZlciA0MCUpLiBUaGlzIGNhbWUgZnJvbSBib3RoIGEgcmVkdWN0aW9uIGluCmluc3Ry
+dWN0aW9uIGNvdW50IGFzIHdlbGwgYXMgYSByZWR1Y3Rpb24gaW4gc3N0YXR1cyBDU1Igd3JpdGVz
+LgoKSXQgd291bGQgYmUgZ3JlYXQgaWYgd2UgY291bGQgZ2V0IHRoaXMgbWVyZ2VkIGNvbnNpZGVy
+aW5nIHg4NiwgYXJtNjQgYW5kClBPV0VSIGFyZSBleHBsb2l0aW5nIHRoaXMgb3B0aW1pc2F0aW9u
+IGFscmVhZHkuCgpUaGFua3MsCkFudG9uCgo+IFRoZSBlcnJvciBwYXRoIGNhbiBhbHNvIGJlIG9w
+dGltaXNlZCB1c2luZyBhc20gZ290byB3aGljaCBwYXRjaGVzIDMgYW5kIDQKPiBhY2hpZXZlLiBU
+aGlzIHdpbGwgc3BlZWQgdXAganVtcGluZyB0byBsYWJlbHMgYnkgYXZvaWRpbmcgdGhlIG5lZWQg
+b2YgYW4KPiBpbnRlcm1lZGlhcnkgZXJyb3IgdHlwZSB2YXJpYWJsZSB3aXRoaW4gdGhlIHVhY2Nl
+c3MgbWFjcm9zCj4KPiBJIGRpZCByZWFkIHRoZSBkaXNjdXNzaW9uIHRoaXMgc2VyaWVzIGdlbmVy
+YXRlZC4gSXQgaXNuJ3QgY2xlYXIgdG8gbWUKPiB3aGljaCBkaXJlY3Rpb24gdG8gdGFrZSB0aGUg
+cGF0Y2hlcywgaWYgYW55Lgo+Cj4gVjI6Cj4gSSd2ZSB0YWtlbiBvbiB0aGlzIHNlcmllcyBhcyB0
+aGVyZSBpc24ndCBhbnkgcmVzcG9uc2UgZnJvbSBKaXNoZW5nLiBObwo+IHNpZ25pZmljYW50IGNo
+YW5nZXMgb3RoZXIgdGhhbiBidWlsZCBmaXhlcy4KPiAtIEZpeGVzIGJ1aWxkIGJyZWFrYWdlIGlu
+IHBhdGNoIDMgdG8gZG8gd2l0aCBub3QgaGF2aW5nIHVzZWQgJ2dvdG8nIGtleXdvcmQuCj4gLSBG
+aXhlcyBidWlsZCBicmVha2FnZSBpbiBwYXRjaCA0IG9uIDMyYml0IG5vdCBoYXZpbmcgZGVsY2Fy
+ZWQgX19wdHIgaW4gdGhlCj4gICBtYWNyby4KPgo+IFYzOgo+IFNpZ25pZmljYW50IGNvbW1pdCBt
+ZXNzYWdlIHJld3JpdGVzLgo+ICAtIENvcnJlY3RlZCB0aGUganVzdGlmaWNhdGlvbiBmb3IgcGF0
+Y2ggMgo+ICAtIEJldHRlciBleHBsYWluZWQvanVzdGlmaWVkIHBhdGNoZXMgMyBhbmQgNAo+IE1p
+bm9yIGNvZGUgY2hhbmdlcyBmb3IgbGVnaWJpbGl0eSBhbmQgbW9yZSBjb21tZW50cy4KPgo+IEpp
+c2hlbmcgWmhhbmcgKDQpOgo+ICAgcmlzY3Y6IGltcGxlbWVudCB1c2VyX2FjY2Vzc19iZWdpbigp
+IGFuZCBmYW1pbGllcwo+ICAgcmlzY3Y6IHVhY2Nlc3M6IHVzZSBpbnB1dCBjb25zdHJhaW50cyBm
+b3IgcHRyIG9mIF9fcHV0X3VzZXIoKQo+ICAgcmlzY3Y6IHVhY2Nlc3M6IHVzZSAnYXNtIGdvdG8n
+IGZvciBwdXRfdXNlcigpCj4gICByaXNjdjogdWFjY2VzczogdXNlICdhc21fZ290b19vdXRwdXQn
+IGZvciBnZXRfdXNlcigpCj4KPiAgYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS91YWNjZXNzLmggfCAy
+MDUgKysrKysrKysrKysrKysrKysrKysrKystLS0tLS0tLQo+ICAxIGZpbGUgY2hhbmdlZCwgMTUy
+IGluc2VydGlvbnMoKyksIDUzIGRlbGV0aW9ucygtKQo+Cj4gLS0KPiAyLjM0LjEKPgo+CgpfX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBt
+YWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMu
+aW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
