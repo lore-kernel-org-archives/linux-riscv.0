@@ -4,54 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2470AC021B2
-	for <linux-riscv@archiver.kernel.org>; Sun, 23 Feb 2025 12:06:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4BDF5C021B2
+	for <linux-riscv@archiver.kernel.org>; Sun, 23 Feb 2025 14:35:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Date:Cc:To:From:Subject:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=SIF+saetIXCbgzMzZMcBAJf3usjmhlGDfaZbQHKO6CI=; b=wEFFnNiGGu7LQM
-	BUxu4ZXmsbGQlRRJAnuKgO9eulJmO8/vcToLxFzPJHKSP58lUbNHUznSt5cJTPz0Dt1nxfxXV1HOw
-	7cNKo6MBtJZ71LiUcJEiciBmnEbQCoGiZiRX9SjdtbmeMjvjnAMdCVVrnVWbTaKocUHmzjGW9UHHS
-	P8ARxI0541Iua8gOnqiEimJiqThZL6d520BA5irtw1XX71U6f18l0apAHGiC7MlSxBhj5jPLhckkV
-	IW5RYFCeTcOoxNoTWbhLOx8wvq50rQ2vyDXLnIqIhXvpJISnej9xe6lF+o/AYmAUHx0iEq6llowTW
-	Ls1XOEQYEFnAl14ALRaw==;
+	List-Owner; bh=9fOJwVCNd/o8aQ6cjG7XBlmZY/0fwqS1GeUgFJusBl4=; b=GuXLGgn3MciyzN
+	0hYelePRP6ek9FUfuxkeN2c0jazn8qQs6LRVxfL+S+AbGA7At8Vjg3dieX7ZyE5hUqKa74Ue5h8jj
+	vgrfh5V7JUO5C4eihc9EktsVqgpb3ujec63hGTgubYU7uHt1xMol5hN2AVG6hkL8sHoDgQf5/6+B3
+	oo/OFyG3no3MPTlBYrtmoQRKPhbjlD819PddWJc21n/5eb/uVba8bSV+kpmh1yWsniID3b3CDbhsK
+	3x4vHPycgE4YTOBGPSAzm5HmKr86SOAPCMdsYaEybP/gEbN34BDv3v2dv21uNDnbrJW6iPm8J3Tu9
+	cwZgfXWro63NrcdyF0yw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmAkx-0000000B3TA-3qpz;
-	Sun, 23 Feb 2025 12:06:47 +0000
-Received: from smtp.gentoo.org ([2001:470:ea4a:1:5054:ff:fec7:86e4])
+	id 1tmD4q-0000000BHzx-2XUP;
+	Sun, 23 Feb 2025 14:35:28 +0000
+Received: from smtprelay0011.hostedemail.com ([216.40.44.11] helo=relay.hostedemail.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmAkv-0000000B3Sh-1RCR
-	for linux-riscv@lists.infradead.org;
-	Sun, 23 Feb 2025 12:06:46 +0000
-Received: from localhost (unknown [180.172.118.52])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: dlan)
-	by smtp.gentoo.org (Postfix) with ESMTPSA id 987443431E1;
-	Sun, 23 Feb 2025 12:06:43 +0000 (UTC)
-Date: Sun, 23 Feb 2025 12:06:38 +0000
-From: Yixun Lan <dlan@gentoo.org>
-To: Linus Walleij <linus.walleij@linaro.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>
-Cc: Alex Elder <elder@kernel.org>, linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org, linux-gpio@vger.kernel.org,
-	spacemit@lists.linux.dev, Conor Dooley <conor.dooley@microchip.com>,
-	Alex Elder <elder@riscstar.com>
-Subject: Re: [PATCH v3] pinctrl: spacemit: enable config option
-Message-ID: <20250223120638-GYA39613@gentoo>
-References: <20250218-k1-pinctrl-option-v3-1-36e031e0da1b@gentoo.org>
+	id 1tmD3K-0000000BHuX-29sH;
+	Sun, 23 Feb 2025 14:33:56 +0000
+Received: from omf19.hostedemail.com (a10.router.float.18 [10.200.18.1])
+	by unirelay10.hostedemail.com (Postfix) with ESMTP id 3AEDFC2A6D;
+	Sun, 23 Feb 2025 14:33:50 +0000 (UTC)
+Received: from [HIDDEN] (Authenticated sender: joe@perches.com) by omf19.hostedemail.com (Postfix) with ESMTPA id 9D56620027;
+	Sun, 23 Feb 2025 14:33:45 +0000 (UTC)
+Message-ID: <7bf9577f4b6dcb818785be73c175bcd19b3b4f0c.camel@perches.com>
+Subject: Re: [PATCH net-next 0/2] net: stmmac: thead: clean up clock rate
+ setting
+From: Joe Perches <joe@perches.com>
+To: "Russell King (Oracle)" <linux@armlinux.org.uk>, Andrew Lunn
+	 <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>, Jakub Kicinski
+	 <kuba@kernel.org>
+Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>, Andrew Lunn	
+ <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, Drew
+ Fustini	 <drew@pdp7.com>, Eric Dumazet <edumazet@google.com>, Fu Wei
+ <wefu@redhat.com>,  Guo Ren <guoren@kernel.org>,
+ linux-arm-kernel@lists.infradead.org, 	linux-riscv@lists.infradead.org,
+ linux-stm32@st-md-mailman.stormreply.com,  Maxime Coquelin
+ <mcoquelin.stm32@gmail.com>, netdev@vger.kernel.org, Paolo Abeni
+ <pabeni@redhat.com>
+Date: Sun, 23 Feb 2025 06:33:44 -0800
+In-Reply-To: <Z7sJHuiqbr4GU05c@shell.armlinux.org.uk>
+References: <Z7iKdaCp4hLWWgJ2@shell.armlinux.org.uk>
+	 <Z7sJHuiqbr4GU05c@shell.armlinux.org.uk>
+User-Agent: Evolution 3.54.3 (3.54.3-1.fc41) 
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20250218-k1-pinctrl-option-v3-1-36e031e0da1b@gentoo.org>
+X-Stat-Signature: esw3dr8mhka38dy95jmw4hywg8muj68u
+X-Rspamd-Server: rspamout01
+X-Rspamd-Queue-Id: 9D56620027
+X-Session-Marker: 6A6F6540706572636865732E636F6D
+X-Session-ID: U2FsdGVkX1+wRTpTpK3yZctHayRKM8k2m6yVovYm8rE=
+X-HE-Tag: 1740321225-99173
+X-HE-Meta: U2FsdGVkX18tLefx9AGTjZ0jhquEbj97fUAGJuLtZQssX3hWFu5sggBKHI4DwjWn8Zwn0QpW3Qr0HmBXP3ocR/MHKikZ9oAZK2xrnR9ATgzsWS1svxwvKnlT9OoQm5zxwAd/ZvqtW0AzDPqtc7FJP8cp33TVipXmpgupjKGtdNm8SwEeZaEALT3gFjUOydgga8gwmPF+qQG/2CHmqq4HGIIp4ZOJJjRR2ZedoQ80uSlycAsw472d4W8xMshd4NzXp6DYOxPADh0pAXMVHh37IPsPhCUT8YcB6bGYItqwGeOZ3/iGOfn9LRbizQIKBTGHXFkaAqVaWP8zsH3fGG8hmSj4Hv7mOeLeo/OdWEF/C68muP3EJXVkcAgoX9U7poXD
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250223_040645_413773_F107F551 
-X-CRM114-Status: GOOD (  25.21  )
+X-CRM114-CacheID: sfid-20250223_063354_608356_E196CC23 
+X-CRM114-Status: GOOD (  10.03  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,100 +78,28 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Linus Walleij:
+On Sun, 2025-02-23 at 11:40 +0000, Russell King (Oracle) wrote:
+> Adding Joe Perches.
+> 
+> On Fri, Feb 21, 2025 at 02:15:17PM +0000, Russell King (Oracle) wrote:
+[]
+> I've been investigating why the NIPA bot complains about maintainers
+> not being Cc'd, such as for patch 1 of this series:
+> 
+> https://netdev.bots.linux.dev/static/nipa/936447/13985595/cc_maintainers/stdout
 
-On 08:31 Tue 18 Feb     , Yixun Lan wrote:
-> Pinctrl is an essential driver for SpacemiT's SoC,
-> The uart driver requires it, same as sd card driver,
-> so let's enable it by default for this SoC.
-> 
-> The CONFIG_PINCTRL_SPACEMIT_K1 isn't enabled when using
-> 'make defconfig' to select kernel configuration options.
-> This result in a broken uart driver where fail at probe()
-> stage due to no pins found.
-> 
+Additional maintainers added or missing?
 
-Can you take this patch via pinctrl fixes tree? if possible in this cycle
+> So, it seems running get_maintainer.pl on an email received from
+> mailing lists without first stripping many of the email headers can
+> lead to false K: matches.
 
-> Fixes: a83c29e1d145 ("pinctrl: spacemit: add support for SpacemiT K1 SoC")
-> Reported-by: Alex Elder <elder@kernel.org>
-> Acked-by: Conor Dooley <conor.dooley@microchip.com>
-> Tested-by: Alex Elder <elder@riscstar.com>
-> Signed-off-by: Yixun Lan <dlan@gentoo.org>
-> ---
-> This should fix problem that CONFIG_PINCTRL_SPACEMIT_K1 is not enabled
-> when using make defconfig, thus fail to initilize uart driver which requst
-> pins during probe stage.
-> ---
-> Changes in v3:
-> - switch PINCTRL_SPACEMIT_K1 from tristate to bool
-> - Link to v2: https://lore.kernel.org/r/20250212-k1-pinctrl-option-v2-1-bde7da0bc0d9@gentoo.org
-> 
-> Changes in v2:
-> - set default as y
-> - Link to v1: https://lore.kernel.org/r/20250207-k1-pinctrl-option-v1-1-e8a7e4d8404f@gentoo.org
-> ---
->  arch/riscv/Kconfig.socs               | 1 +
->  drivers/pinctrl/spacemit/Kconfig      | 3 ++-
->  drivers/pinctrl/spacemit/pinctrl-k1.c | 2 +-
->  3 files changed, 4 insertions(+), 2 deletions(-)
-> 
-> diff --git a/arch/riscv/Kconfig.socs b/arch/riscv/Kconfig.socs
-> index 1916cf7ba450ec9958265de2ca41dc504d4d2f7c..17606940bb5239d0fdfc6b5aefb50eeb982d14aa 100644
-> --- a/arch/riscv/Kconfig.socs
-> +++ b/arch/riscv/Kconfig.socs
-> @@ -26,6 +26,7 @@ config ARCH_SOPHGO
->  
->  config ARCH_SPACEMIT
->  	bool "SpacemiT SoCs"
-> +	select PINCTRL
->  	help
->  	  This enables support for SpacemiT SoC platform hardware.
->  
-> diff --git a/drivers/pinctrl/spacemit/Kconfig b/drivers/pinctrl/spacemit/Kconfig
-> index 168f8a5ffbb952cbeae3e3401c11149558e0a84b..a2f98b3f8a75580d2d157008997cc48f42a89368 100644
-> --- a/drivers/pinctrl/spacemit/Kconfig
-> +++ b/drivers/pinctrl/spacemit/Kconfig
-> @@ -4,9 +4,10 @@
->  #
->  
->  config PINCTRL_SPACEMIT_K1
-> -	tristate "SpacemiT K1 SoC Pinctrl driver"
-> +	bool "SpacemiT K1 SoC Pinctrl driver"
->  	depends on ARCH_SPACEMIT || COMPILE_TEST
->  	depends on OF
-> +	default y
->  	select GENERIC_PINCTRL_GROUPS
->  	select GENERIC_PINMUX_FUNCTIONS
->  	select GENERIC_PINCONF
-> diff --git a/drivers/pinctrl/spacemit/pinctrl-k1.c b/drivers/pinctrl/spacemit/pinctrl-k1.c
-> index a32579d736130c80bd12f0f9d8b3b2f69c428b3d..59fd555ff38d4453f446263a8fdb4a61faf63cfc 100644
-> --- a/drivers/pinctrl/spacemit/pinctrl-k1.c
-> +++ b/drivers/pinctrl/spacemit/pinctrl-k1.c
-> @@ -1044,7 +1044,7 @@ static struct platform_driver k1_pinctrl_driver = {
->  		.of_match_table		= k1_pinctrl_ids,
->  	},
->  };
-> -module_platform_driver(k1_pinctrl_driver);
-> +builtin_platform_driver(k1_pinctrl_driver);
->  
->  MODULE_AUTHOR("Yixun Lan <dlan@gentoo.org>");
->  MODULE_DESCRIPTION("Pinctrl driver for the SpacemiT K1 SoC");
-> 
-> ---
-> base-commit: 2014c95afecee3e76ca4a56956a936e23283f05b
-> change-id: 20250207-k1-pinctrl-option-de5bdfd6b42e
-> 
-> Best regards,
-> -- 
-> Yixun Lan
-> 
-> 
+My guess is the nipa bot should exec get_maintainer.pl with the
+--nokeywords option on some pass it uses after cc's are added.
 
--- 
-Yixun Lan (dlan)
-Gentoo Linux Developer
-GPG Key ID AABEFD55
+Or are you suggesting that lines that start with "to:" or "cc:"
+should be ignored by the get_maintainer keyword test?
+
 
 _______________________________________________
 linux-riscv mailing list
