@@ -4,60 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9FEC9C021B6
-	for <linux-riscv@archiver.kernel.org>; Mon, 24 Feb 2025 22:41:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 83649C021A4
+	for <linux-riscv@archiver.kernel.org>; Mon, 24 Feb 2025 23:39:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
-	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Qdu28SWbWQipktqXtjjAU15YfBbofLx2VOlM7EmVDHA=; b=H8CoWB0CR1P5Ln
-	scdXAc4O0tpxH1/uJa7HNelAFQC6YiRQXICrbjDxajhc8vBVqK2UsbGql3yIyjB9esbzIgT1mENf7
-	+jQ0vf7QSFYsPJV3avBNrbJTBRhHxsJf/ByM1/2qpvZBLm6LIbMFvGujgZ2GJkH7hGL8LqoBPFoaf
-	s/kkWoX3XhhTsN5eUYiLmkxrPbHX4kvuQ0jlrfpQkzvERLJXROUoXMGHWmRh+MDwsLh28+aEJQc23
-	eD2ULI0eFsIgZL64hPnf3uysI83U7riqnHZCJ4XAi/ZjaNmfGSGav71sVvm0QM+BLV19q3bO4y+r+
-	o3ED2oEGYivH0HUnt2dQ==;
+	List-Owner; bh=AeYNIUyz83E67Eyrg/0cl8nae4l0QNsKymPBOG5JfLI=; b=2tyEQrl8+KtTHx
+	Ex600xlLz/4xxgPFg30mgT9x2U62ftZCDhWQirXLkClhbnHqolMJsi94/gn7uxQX2Ci+7JtutJbGR
+	WPiHEtDY0DHBl72aMldHkmrs9vi0LL/gWdwXXJKbm8n7ggPA/EDeQKqIH0pHZiiRG8ecqmKuqM69H
+	zp3CLvFZ0VbIVcbwhaiQ5lnGEGo7Aya4g93iSEbhYmrfThFnPBLuk+Tw1veaCcC9p3XPDIpo/jv23
+	bd34vN5RTQox6uJXTKtXEW/tedI2i5oTUk5N13L6bqEDmFrX3cCjnIWaP2UBWuWyxTlALMD8oq5oB
+	btQBFrnhmmzCiCk2p4iQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmh8z-0000000FPCY-2v9r;
-	Mon, 24 Feb 2025 22:41:45 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1tmi30-0000000FVYx-0S7e;
+	Mon, 24 Feb 2025 23:39:38 +0000
+Received: from mail-qk1-x734.google.com ([2607:f8b0:4864:20::734])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmh7W-0000000FP4Z-0W6B;
-	Mon, 24 Feb 2025 22:40:14 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 438E3611FA;
-	Mon, 24 Feb 2025 22:40:07 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EDB35C4CEE8;
-	Mon, 24 Feb 2025 22:40:12 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1740436813;
-	bh=7OgwWkTR+dw0Tqyw5er0axNmGjTr5b4RO9FTtda++rA=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=iSC1h7n9mcw5ovxEzPZs4Uit31UD3bCjZoIPvv3lAw64A/6SFv8JGEEORBdklogVy
-	 6YstAptx6WthKu6FTXizx1bXkfqld/MGj39fd4sGptLWkxtgvsP+vkPPje226ePUNt
-	 aM8oBbmuFScQh4LlovzNFE6N7SJGGz8ZK9r2UCr+AT7G5BHxrRu2SIUxG7HK7hqcHq
-	 nBM59H433UDJqN/nRACN4w9shW1pXQ0hV3W3xvPi28wkitpEV9dHZ3SiDWocXFW38P
-	 JHIupu6Eqgeb8X0XMgxsf+cotAcKM02Mse2AyBE80OcM4NcFiNI9ub6waiskAXOzXf
-	 CDnABboVEvZDw==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id AE347380CFD7;
-	Mon, 24 Feb 2025 22:40:45 +0000 (UTC)
+	id 1tmi2w-0000000FVXP-3MUM
+	for linux-riscv@lists.infradead.org;
+	Mon, 24 Feb 2025 23:39:36 +0000
+Received: by mail-qk1-x734.google.com with SMTP id af79cd13be357-7be8f28172dso389903385a.3
+        for <linux-riscv@lists.infradead.org>; Mon, 24 Feb 2025 15:39:34 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1740440373; x=1741045173; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=I28BvW8sYtCIJpp5k7EPbcyeOkG6IabIbB4ctmQvitg=;
+        b=MPtolzbV1cZXI2LlpclxAPMZRQ9ndNr0Pg+CK+NjxqLI4I4O6lWUm6YTUpOW+boIZW
+         9Lz2lka3eFujNXntIOKHVKPHx/9ce7TtH9fNkkWXc2g3a7cXmgZZbMzCLOxfmCv3ip39
+         8blN+2AY60yy2fQ9WMOkrosHSpN/uf0+MWLU37AIQjJJ3Kuxl1zVvMeVMMQY+9KSlfBz
+         3yPWWrx6n9Gfrze0IU95/F0yxszb9iRbqC/FD/y4d7R0PhawJZv3I17d5rBU7N7QGvY4
+         s73bYFbMm6ZuGa14UG+WF4/zOtJR1BwHKiN6I7Muk06IwXktkAf7YC7OepUJV1egApxD
+         P1Jg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1740440373; x=1741045173;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=I28BvW8sYtCIJpp5k7EPbcyeOkG6IabIbB4ctmQvitg=;
+        b=ARpta3JVTvHy8NbUGRHh68Q+QpZs/Q3XuVgnLqN1RUtTv3D7zd/q9pJFk134qxsfX1
+         GqVg7WGNB+W/ERnn+thG0/0JGi6uWRI+PHjTioQwEkAHNZ0xereMsz36IWirxpyUvQJd
+         nbp2ndpG5RoF1ru/kJ/Ls4LLBmFiBQmpKBrAB2kqIxt/EmYeSBHv753zSdJ+ZC35ZaZF
+         Fixnk9sWs/T4rxrCg5eaRWAssSNXFLM5yf9ktgMOuStipCUUwLKieUhpXbBK1+9d78v3
+         XRDirxpO5bdvQJ7KngBPtAXNq+mEg67xngIQD1m5W1rUxgndJL+FhjbbLTF73+ASUJ17
+         aXkg==
+X-Forwarded-Encrypted: i=1; AJvYcCU14O2Jhse9mIPTWczUm34fico9Qcnj+KHKbzEvmshkFBKAa68TTVPn819ARmpX9fKcRBlzBcQ8hOCsVw==@lists.infradead.org
+X-Gm-Message-State: AOJu0YxN/0gvj/1v4qlIASUJ032Tjbyxy66SwnlKy+GqoZZ5QSayp5vO
+	aPoMPjKTT3zPS8lvIvSyMMwz7mOUuTARHjAZxFissCup8H4L57oK
+X-Gm-Gg: ASbGncv1+X+2vIt98HgQ0cAZnZSuRmnOPNMh7NoEzf2BN7glkeGV3lCMA1dI1o6Djlu
+	mgoq03pfOW6i4KyWwKNtEog6NlhNzSF6NfM1D0yVsleMD91XnUKmIekKCnw5x1manPB3IpvWAMc
+	wN7kQ+kt/lhc/r/AUrUjjX6T79VdtvXC2bVit+30L5uLPSBMrThbVk8SshyRy3uWXMzpRFKgpUg
+	WkBtDvt3yCh6Y73/6L1gN/gd5qYQQbyTdAwKw7MCzKj40XN2wvHmE9Js3gtsTbDtq2DSFhnh7xx
+	eQ==
+X-Google-Smtp-Source: AGHT+IFwSiY82sk1UHPy1sh4TaxDRFtt/bKpmiKYsLl62LaJzeIFLc36bW8vjGEj+Z6l8tQnP1hrSg==
+X-Received: by 2002:a05:620a:600b:b0:7c0:b368:5d78 with SMTP id af79cd13be357-7c0ceeea4e1mr2231799485a.9.1740440373095;
+        Mon, 24 Feb 2025 15:39:33 -0800 (PST)
+Received: from localhost ([2001:da8:7001:11::cb])
+        by smtp.gmail.com with UTF8SMTPSA id af79cd13be357-7c23c299259sm35457385a.14.2025.02.24.15.39.32
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 24 Feb 2025 15:39:32 -0800 (PST)
+Date: Tue, 25 Feb 2025 07:39:13 +0800
+From: Inochi Amaoto <inochiama@gmail.com>
+To: Bjorn Helgaas <helgaas@kernel.org>, 
+	Inochi Amaoto <inochiama@gmail.com>
+Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>, 
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>, Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>, 
+	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Chen Wang <unicorn_wang@outlook.com>, Philipp Zabel <p.zabel@pengutronix.de>, 
+	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, Niklas Cassel <cassel@kernel.org>, 
+	Shashank Babu Chinta Venkata <quic_schintav@quicinc.com>, linux-pci@vger.kernel.org, devicetree@vger.kernel.org, 
+	sophgo@lists.linux.dev, linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
+	Yixun Lan <dlan@gentoo.org>, Longbin Li <looong.bin@gmail.com>
+Subject: Re: [PATCH 2/2] PCI: sophgo-dwc: Add Sophgo SG2044 PCIe driver
+Message-ID: <jq55rzcvcp6bxfk3klkomr3gtzqgkwqb2qpjnfndymomaac6ry@5jmzq6vlpu2u>
+References: <fanm6m6fx6cqwalhdvrxmjzsluiyptbvrwbi5ufwbqmxsf62xl@lntprhkjv6tm>
+ <20250224194725.GA473475@bhelgaas>
 MIME-Version: 1.0
-Subject: Re: [PATCH net-next 0/2] net: stmmac: thead: clean up clock rate setting
-From: patchwork-bot+netdevbpf@kernel.org
-Message-Id: <174043684424.3634134.11083697589097973471.git-patchwork-notify@kernel.org>
-Date: Mon, 24 Feb 2025 22:40:44 +0000
-References: <Z7iKdaCp4hLWWgJ2@shell.armlinux.org.uk>
-In-Reply-To: <Z7iKdaCp4hLWWgJ2@shell.armlinux.org.uk>
-To: Russell King (Oracle) <linux@armlinux.org.uk>
-Cc: andrew@lunn.ch, hkallweit1@gmail.com, alexandre.torgue@foss.st.com,
- andrew+netdev@lunn.ch, davem@davemloft.net, drew@pdp7.com,
- edumazet@google.com, wefu@redhat.com, guoren@kernel.org, kuba@kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-riscv@lists.infradead.org,
- linux-stm32@st-md-mailman.stormreply.com, mcoquelin.stm32@gmail.com,
- netdev@vger.kernel.org, pabeni@redhat.com
+Content-Disposition: inline
+In-Reply-To: <20250224194725.GA473475@bhelgaas>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250224_153934_836103_74D4C791 
+X-CRM114-Status: GOOD (  19.14  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,36 +107,38 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hello:
-
-This series was applied to netdev/net-next.git (main)
-by Jakub Kicinski <kuba@kernel.org>:
-
-On Fri, 21 Feb 2025 14:15:17 +0000 you wrote:
-> Hi,
+On Mon, Feb 24, 2025 at 01:47:25PM -0600, Bjorn Helgaas wrote:
+> On Sat, Feb 22, 2025 at 08:43:46AM +0800, Inochi Amaoto wrote:
+> > On Fri, Feb 21, 2025 at 05:49:58PM -0600, Bjorn Helgaas wrote:
+> > > On Fri, Feb 21, 2025 at 09:37:56AM +0800, Inochi Amaoto wrote:
+> > > > Add support for DesignWare-based PCIe controller in SG2044 SoC.
+> > > 
+> > > > @@ -341,6 +341,16 @@ config PCIE_ROCKCHIP_DW_EP
+> > > >  	  Enables support for the DesignWare PCIe controller in the
+> > > >  	  Rockchip SoC (except RK3399) to work in endpoint mode.
+> > > >  
+> > > > +config PCIE_SOPHGO_DW
+> > > > +	bool "SOPHGO DesignWare PCIe controller"
+> > > 
+> > > What's the canonical styling of "SOPHGO"?  I see "Sophgo" in the
+> > > subject line and in Chen Wang's SG2042 series.  Pick the official
+> > > styling and use it consistently.
+> > 
+> > This is my mistake. It should be "Sophgo", I will change it.
+> > 
+> > > Reorder this so the menuconfig menu items remain alphabetically
+> > > sorted.
+> > 
+> > I think this order is applied to the entry title in menuconfig,
+> > and is not the config key? If so, I will change it.
 > 
-> This series cleans up the thead clock rate setting to use the
-> rgmii_clock() helper function added to phylib.
-> 
-> The first patch switches over to using the rgmii_clock() helper,
-> and the second patch cleans up the verification that the desired
-> clock rate is achievable, allowing the private clock rate
-> definitions to be removed.
-> 
-> [...]
+> It's the title shown by menuconfig, i.e., "SOPHGO DesignWare PCIe
+> controller" here.
 
-Here is the summary with links:
-  - [net-next,1/2] net: stmmac: thead: use rgmii_clock() for RGMII clock rate
-    https://git.kernel.org/netdev/net-next/c/171fd7cb153c
-  - [net-next,2/2] net: stmmac: thead: ensure divisor gives proper rate
-    https://git.kernel.org/netdev/net-next/c/8bfff0481d91
+Thanks, I will reorder it.
 
-You are awesome, thank you!
--- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
-
-
+Regards,
+Inochi
 
 _______________________________________________
 linux-riscv mailing list
