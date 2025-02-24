@@ -4,72 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7E07C021A4
-	for <linux-riscv@archiver.kernel.org>; Mon, 24 Feb 2025 19:47:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7FFE8C021A4
+	for <linux-riscv@archiver.kernel.org>; Mon, 24 Feb 2025 20:08:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
-	List-Owner; bh=pj8nKyEbAO1eS4yr78KrlGX+B4RBwykoG7ZZ2nNZA1Q=; b=w8U3DaJ7tXoEI7
-	d8m8gUNMlAtM6vXQy++ng+graF30c7dBkiz8Ta6Bpvt00iIKN94s6VKrPGhxoMEd28tLQDu6TIdDN
-	5eJX/vW5zeNPqIzZFsOUh5oXKkLecUzLcU7Y0D9ASTwAd2Xc4DG8kMxZXtSeY/3YkP10x0+80DI/w
-	UEftbWKYP/3R2wF8gZ2W+wzy1XjlMXdFGDZXNm+Xk92Jxzu/V10hRZMX+LQtVHmWkejo0Jsvpv96J
-	Sel7WQqFbmOpwHYO4Cpu0S0cCyr4K4ronXatMmWhRI9fAs+t5j+v1z7HTrxTrmuFdBr1RkV8Opurw
-	OqnqpsJpCjAxLlujMjig==;
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=QMxNoJ0vlLAw+ej1uc3xtAmsTZYVrXmeJwhOpnnNbVY=; b=W4Ndw4cM5JkDkL
+	jT2lgoXzJ1n/SEMObu8H6F8Lh7lnYyAZWasbAgwgwZ6iK5iOWmxuGLIk51kGAH0+1ILZ6YDiy8gUx
+	XvkaA8k0joii1C+vrH9LagZkpe5b0A/hXX/sIQD+b3iXCeD6qaIHIrvrRv0t4UvSkZeot1Kq475ld
+	pTE9ZVfDO4VrWl9zeJ4zZwjI0cJ/eOIOeY6RQODQmWQGZvkp0+FhICqzUT+vNniZ1KWjKOWvVYcPQ
+	rvSZ7frCekQgVIoSo+sGq9DWhMMUjuCqv72KWDiuQHXeIlRJp1E50yJvWR+FbD7INzrt1pXQq+Nya
+	qQ6yxe/Sj1E66RPwF1SA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmeQN-0000000Ezs7-0YXG;
-	Mon, 24 Feb 2025 19:47:31 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tmekV-0000000F2fy-1b1E;
+	Mon, 24 Feb 2025 20:08:19 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmeQK-0000000EzrG-0NJv
+	id 1tmeiR-0000000F2MX-1fsz
 	for linux-riscv@lists.infradead.org;
-	Mon, 24 Feb 2025 19:47:29 +0000
+	Mon, 24 Feb 2025 20:06:12 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id E71415C630D;
-	Mon, 24 Feb 2025 19:46:47 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 70351C4CED6;
-	Mon, 24 Feb 2025 19:47:26 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 677775C65F8;
+	Mon, 24 Feb 2025 20:05:31 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DF2CAC4CED6;
+	Mon, 24 Feb 2025 20:06:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1740426446;
-	bh=8PPfPNIlrgycO/JJOciWBKiZKIJa1huNNTeyXSWPEkg=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:From;
-	b=rm7y3ZVXJmB2km9yUEhekLivuQWTkR4g+oJXvvtvZc7PfVLuPVtHC8kJemN55U0GY
-	 M48YVPM7boR8Ho2suE++BS9qMY9A0giAcepAvErEaMtIBD7dOnmz7AfRzQMqM8iIcx
-	 Mn1D7a/MC17q7i0q6h5Gwfex9j4YI0Wd1sNwgnpd9H+9aAKhN3OuMbPhf86bbQS9/j
-	 /G2rX6j2PbUDyqzDqMf/R9zeRAaECbYf+dKa5lO8Prjm+tmx4BxJAgGd0Qzu8Sg7T1
-	 i+RaJBFcSHaZxsygIsq7rvgyWnI/owpd0XqwXWQKVEVLh8BpMlpxK+JQmVO9HlGKrs
-	 C/o/PvlwdmYDA==
-Date: Mon, 24 Feb 2025 13:47:25 -0600
-From: Bjorn Helgaas <helgaas@kernel.org>
-To: Inochi Amaoto <inochiama@gmail.com>
-Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>,
-	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
-	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Chen Wang <unicorn_wang@outlook.com>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Niklas Cassel <cassel@kernel.org>,
-	Shashank Babu Chinta Venkata <quic_schintav@quicinc.com>,
-	linux-pci@vger.kernel.org, devicetree@vger.kernel.org,
-	sophgo@lists.linux.dev, linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org, Yixun Lan <dlan@gentoo.org>,
-	Longbin Li <looong.bin@gmail.com>
-Subject: Re: [PATCH 2/2] PCI: sophgo-dwc: Add Sophgo SG2044 PCIe driver
-Message-ID: <20250224194725.GA473475@bhelgaas>
+	s=k20201202; t=1740427570;
+	bh=stM2IVR3b2kvR088SM8/A8kfusx7eVUGjEIOksI9LxM=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=fTxJYGAHV6FCp80DxZ0l0De/AoUhpsBvWAIfLfrdXZ80o3hrfPZJcAVurzbA8BNSE
+	 ASaGSNB347y5MyVhE+qziw0Ce1PMKxGyGf/2RcUzQwZuKkKrPnC1FWrk5kCtXJ4B32
+	 EEmrUZ1DwdjL4ABOXWIy1G8XsVVIHMU7oiLYdBYcfIsJe8OgeR01gjkkyrMYbQMjrQ
+	 1A2EZ8pjVSfvY8vlXok+kOgJGBJTLJ8knBy9aqg7pxs8LY/azao9rfsT7RG9v+VBCw
+	 hcxR6nQ8GJYBFQn8qTxlh5RZ3DeoF4fX86xb4wlOxj3g2MkPC7b40S5aSc2mYAGnLb
+	 1lcWhvij8UAGQ==
+Date: Mon, 24 Feb 2025 14:06:08 -0600
+From: Rob Herring <robh@kernel.org>
+To: Yixun Lan <dlan@gentoo.org>
+Subject: Re: [PATCH v6 1/4] dt-bindings: gpio: spacemit: add support for K1
+ SoC
+Message-ID: <20250224200608.GA4014994-robh@kernel.org>
+References: <20250223-03-k1-gpio-v6-0-db2e4adeef1c@gentoo.org>
+ <20250223-03-k1-gpio-v6-1-db2e4adeef1c@gentoo.org>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <fanm6m6fx6cqwalhdvrxmjzsluiyptbvrwbi5ufwbqmxsf62xl@lntprhkjv6tm>
+In-Reply-To: <20250223-03-k1-gpio-v6-1-db2e4adeef1c@gentoo.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250224_114728_173387_0C134551 
-X-CRM114-Status: GOOD (  15.90  )
+X-CRM114-CacheID: sfid-20250224_120611_550353_FC57D2F5 
+X-CRM114-Status: GOOD (  19.71  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,37 +67,123 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Cc: devicetree@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>, Meng Zhang <zhangmeng.kevin@linux.spacemit.com>, linux-gpio@vger.kernel.org, Linus Walleij <linus.walleij@linaro.org>, linux-kernel@vger.kernel.org, Conor Dooley <conor@kernel.org>, Yangyu Chen <cyy@cyyself.name>, linux-riscv@lists.infradead.org, Palmer Dabbelt <palmer@dabbelt.com>, Jesse Taube <mr.bossman075@gmail.com>, Jisheng Zhang <jszhang@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>, Inochi Amaoto <inochiama@outlook.com>, Krzysztof Kozlowski <krzk+dt@kernel.org>, spacemit@lists.linux.dev, Bartosz Golaszewski <brgl@bgdev.pl>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sat, Feb 22, 2025 at 08:43:46AM +0800, Inochi Amaoto wrote:
-> On Fri, Feb 21, 2025 at 05:49:58PM -0600, Bjorn Helgaas wrote:
-> > On Fri, Feb 21, 2025 at 09:37:56AM +0800, Inochi Amaoto wrote:
-> > > Add support for DesignWare-based PCIe controller in SG2044 SoC.
-> > 
-> > > @@ -341,6 +341,16 @@ config PCIE_ROCKCHIP_DW_EP
-> > >  	  Enables support for the DesignWare PCIe controller in the
-> > >  	  Rockchip SoC (except RK3399) to work in endpoint mode.
-> > >  
-> > > +config PCIE_SOPHGO_DW
-> > > +	bool "SOPHGO DesignWare PCIe controller"
-> > 
-> > What's the canonical styling of "SOPHGO"?  I see "Sophgo" in the
-> > subject line and in Chen Wang's SG2042 series.  Pick the official
-> > styling and use it consistently.
+On Sun, Feb 23, 2025 at 07:49:32PM +0800, Yixun Lan wrote:
+> The GPIO controller of K1 support basic functions as input/output,
+> all pins can be used as interrupt which route to one IRQ line,
+> trigger type can be select between rising edge, falling edge, or both.
+> There are four GPIO banks, each consisting of 32 pins.
 > 
-> This is my mistake. It should be "Sophgo", I will change it.
+> Signed-off-by: Yixun Lan <dlan@gentoo.org>
+> ---
+>  .../devicetree/bindings/gpio/spacemit,k1-gpio.yaml | 81 ++++++++++++++++++++++
+>  1 file changed, 81 insertions(+)
 > 
-> > Reorder this so the menuconfig menu items remain alphabetically
-> > sorted.
-> 
-> I think this order is applied to the entry title in menuconfig,
-> and is not the config key? If so, I will change it.
+> diff --git a/Documentation/devicetree/bindings/gpio/spacemit,k1-gpio.yaml b/Documentation/devicetree/bindings/gpio/spacemit,k1-gpio.yaml
+> new file mode 100644
+> index 0000000000000000000000000000000000000000..017165d325565a6868700a9ac8298b61dffcfef4
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/gpio/spacemit,k1-gpio.yaml
+> @@ -0,0 +1,81 @@
+> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/gpio/spacemit,k1-gpio.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: SpacemiT K1 GPIO controller
+> +
+> +maintainers:
+> +  - Yixun Lan <dlan@gentoo.org>
+> +
+> +description:
+> +  The controller's registers are organized as sets of eight 32-bit
+> +  registers with each set of port controlling 32 pins.  A single
+> +  interrupt line is shared for all of the pins by the controller.
+> +
+> +properties:
+> +  $nodename:
+> +    pattern: "^gpio@[0-9a-f]+$"
+> +
+> +  compatible:
+> +    const: spacemit,k1-gpio
+> +
+> +  reg:
+> +    maxItems: 1
+> +
+> +  gpio-controller: true
+> +
+> +  "#gpio-cells":
+> +    const: 3
+> +    description:
+> +      The first two cells are the GPIO bank index and offset inside the bank,
+> +      the third cell should specify GPIO flag.
+> +
+> +  gpio-ranges: true
+> +
+> +  interrupts:
+> +    maxItems: 1
+> +
+> +  interrupt-controller: true
+> +
+> +  "#interrupt-cells":
+> +    const: 3
+> +    description:
+> +      The first two cells are the GPIO bank index and offset inside the bank,
+> +      the third cell should specify interrupt flag. The controller does not
+> +      support level interrupts, so flags of IRQ_TYPE_LEVEL_HIGH, IRQ_TYPE_LEVEL_LOW
+> +      should not be used. Refer <dt-bindings/interrupt-controller/irq.h> for valid flags.
 
-It's the title shown by menuconfig, i.e., "SOPHGO DesignWare PCIe
-controller" here.
+Wrap lines at 80 chars.
+
+> +
+> +required:
+> +  - compatible
+> +  - reg
+> +  - gpio-controller
+> +  - "#gpio-cells"
+> +  - interrupts
+> +  - interrupt-controller
+> +  - "#interrupt-cells"
+> +  - gpio-ranges
+> +
+> +additionalProperties: false
+> +
+> +dependencies:
+> +  interrupt-controller: [ interrupts ]
+
+You made 'interrupts' always required, so this is redundant.
+
+> +
+> +examples:
+> +  - |
+> +    gpio: gpio@d4019000 {
+
+Drop unused labels.
+
+> +      compatible = "spacemit,k1-gpio";
+> +      reg = <0xd4019000 0x800>;
+> +      gpio-controller;
+> +      #gpio-cells = <3>;
+> +      interrupts = <58>;
+> +      interrupt-controller;
+> +      interrupt-parent = <&plic>;
+> +      #interrupt-cells = <3>;
+> +      gpio-ranges = <&pinctrl 0 0 0 32>,
+> +                    <&pinctrl 1 0 32 32>,
+> +                    <&pinctrl 2 0 64 32>,
+> +                    <&pinctrl 3 0 96 32>;
+> +    };
+> +...
+> 
+> -- 
+> 2.48.1
+> 
 
 _______________________________________________
 linux-riscv mailing list
