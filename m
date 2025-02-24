@@ -4,46 +4,46 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1F51C021A4
-	for <linux-riscv@archiver.kernel.org>; Mon, 24 Feb 2025 18:55:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7E07C021A4
+	for <linux-riscv@archiver.kernel.org>; Mon, 24 Feb 2025 19:47:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=C2Wtaq2qQr1hVd8r7Be9cM8c65u8kjOyD11tKhiYGRc=; b=TZNFt5ijP1trzfnSIR32oTSdiH
-	sKJopUgwo+s9VGehjv8SY42S/J8L9W1lBE040OBHmiQwehEVlNes3TAz6mFezidtIWejMnEZIC16Y
-	31UdRLokDYjqL7/VY7EbcAOeZDYWCnxZ1ukwp+SzCTgOQ7GgOOkQfL5vXs1236hakw49t5DKJyMzs
-	fHhKKi/Cmum2Kyvas7z9okjgIrzwn8YEQMTi3ZGsadgvkxzwKio3fr/QSdA+FxvncxPeDP8d7ogpl
-	2SKEUuBFlq9EwfGV6VQVDwlUuDcA8JO/AGqxGpBipZTeAJpY7KelzmeR9cpNS9djY0RXD6DQm60bJ
-	jGFT3sfg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
+	List-Owner; bh=pj8nKyEbAO1eS4yr78KrlGX+B4RBwykoG7ZZ2nNZA1Q=; b=w8U3DaJ7tXoEI7
+	d8m8gUNMlAtM6vXQy++ng+graF30c7dBkiz8Ta6Bpvt00iIKN94s6VKrPGhxoMEd28tLQDu6TIdDN
+	5eJX/vW5zeNPqIzZFsOUh5oXKkLecUzLcU7Y0D9ASTwAd2Xc4DG8kMxZXtSeY/3YkP10x0+80DI/w
+	UEftbWKYP/3R2wF8gZ2W+wzy1XjlMXdFGDZXNm+Xk92Jxzu/V10hRZMX+LQtVHmWkejo0Jsvpv96J
+	Sel7WQqFbmOpwHYO4Cpu0S0cCyr4K4ronXatMmWhRI9fAs+t5j+v1z7HTrxTrmuFdBr1RkV8Opurw
+	OqnqpsJpCjAxLlujMjig==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmdbg-0000000EtNd-18x9;
-	Mon, 24 Feb 2025 18:55:08 +0000
+	id 1tmeQN-0000000Ezs7-0YXG;
+	Mon, 24 Feb 2025 19:47:31 +0000
 Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmdbY-0000000EtLH-2jUQ
+	id 1tmeQK-0000000EzrG-0NJv
 	for linux-riscv@lists.infradead.org;
-	Mon, 24 Feb 2025 18:55:02 +0000
+	Mon, 24 Feb 2025 19:47:29 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 9705A5C4688;
-	Mon, 24 Feb 2025 18:54:19 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4DF4FC4CED6;
-	Mon, 24 Feb 2025 18:54:54 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id E71415C630D;
+	Mon, 24 Feb 2025 19:46:47 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 70351C4CED6;
+	Mon, 24 Feb 2025 19:47:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1740423298;
-	bh=rVPeC5mli/1j43LuHoG3PNlmHNErM72hIXBxgKKPqkk=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=emIq/Vl3E2OwY+6+v4gj+ccn7N7qHNSVsBl7o3EtRKI899Jx8bZ42IS+pnn7I6bXY
-	 J4U3eVMBb1M3zMyX22+z84AkQRkRg7yVbwyFer/q24CJfkt4LgxGkBVEBtFWROI7LT
-	 VklI4xu4iodLJHllFqkevZnruOhHTwVVcn1iv3LwK6rSPOFBGdXhui6gdzGz8P/b4V
-	 Z0JLN+2sDZHL+ECOddLd+flANvQDrVMQj4sxoCT6+dy6o+zyqVCndYM6yU/nR8u2CY
-	 bmia8xiDiU8QbNA7QnVRKGo/vUT6FelVkNVNk5J+pWqlXat519L3csa4taJkx5cNIp
-	 cjuFHEojP2tzw==
-Date: Mon, 24 Feb 2025 18:54:51 +0000
-From: Conor Dooley <conor@kernel.org>
+	s=k20201202; t=1740426446;
+	bh=8PPfPNIlrgycO/JJOciWBKiZKIJa1huNNTeyXSWPEkg=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:From;
+	b=rm7y3ZVXJmB2km9yUEhekLivuQWTkR4g+oJXvvtvZc7PfVLuPVtHC8kJemN55U0GY
+	 M48YVPM7boR8Ho2suE++BS9qMY9A0giAcepAvErEaMtIBD7dOnmz7AfRzQMqM8iIcx
+	 Mn1D7a/MC17q7i0q6h5Gwfex9j4YI0Wd1sNwgnpd9H+9aAKhN3OuMbPhf86bbQS9/j
+	 /G2rX6j2PbUDyqzDqMf/R9zeRAaECbYf+dKa5lO8Prjm+tmx4BxJAgGd0Qzu8Sg7T1
+	 i+RaJBFcSHaZxsygIsq7rvgyWnI/owpd0XqwXWQKVEVLh8BpMlpxK+JQmVO9HlGKrs
+	 C/o/PvlwdmYDA==
+Date: Mon, 24 Feb 2025 13:47:25 -0600
+From: Bjorn Helgaas <helgaas@kernel.org>
 To: Inochi Amaoto <inochiama@gmail.com>
 Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>,
 	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>,
@@ -62,17 +62,14 @@ Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>,
 	sophgo@lists.linux.dev, linux-kernel@vger.kernel.org,
 	linux-riscv@lists.infradead.org, Yixun Lan <dlan@gentoo.org>,
 	Longbin Li <looong.bin@gmail.com>
-Subject: Re: [PATCH 1/2] dt-bindings: pci: Add Sophgo SG2044 PCIe host
-Message-ID: <20250224-enable-progress-e3a47fdb625c@spud>
-References: <20250221013758.370936-1-inochiama@gmail.com>
- <20250221013758.370936-2-inochiama@gmail.com>
- <20250221-cavalier-cramp-6235d4348013@spud>
- <2egxw3r63cbsygpwqaltp4jjlkuwoh4rkwpgv4haj4sgz5sked@vkotadyk4g6y>
+Subject: Re: [PATCH 2/2] PCI: sophgo-dwc: Add Sophgo SG2044 PCIe driver
+Message-ID: <20250224194725.GA473475@bhelgaas>
 MIME-Version: 1.0
-In-Reply-To: <2egxw3r63cbsygpwqaltp4jjlkuwoh4rkwpgv4haj4sgz5sked@vkotadyk4g6y>
+Content-Disposition: inline
+In-Reply-To: <fanm6m6fx6cqwalhdvrxmjzsluiyptbvrwbi5ufwbqmxsf62xl@lntprhkjv6tm>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250224_105500_782000_70745674 
-X-CRM114-Status: GOOD (  23.44  )
+X-CRM114-CacheID: sfid-20250224_114728_173387_0C134551 
+X-CRM114-Status: GOOD (  15.90  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,132 +81,39 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============2251887180751689686=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On Sat, Feb 22, 2025 at 08:43:46AM +0800, Inochi Amaoto wrote:
+> On Fri, Feb 21, 2025 at 05:49:58PM -0600, Bjorn Helgaas wrote:
+> > On Fri, Feb 21, 2025 at 09:37:56AM +0800, Inochi Amaoto wrote:
+> > > Add support for DesignWare-based PCIe controller in SG2044 SoC.
+> > 
+> > > @@ -341,6 +341,16 @@ config PCIE_ROCKCHIP_DW_EP
+> > >  	  Enables support for the DesignWare PCIe controller in the
+> > >  	  Rockchip SoC (except RK3399) to work in endpoint mode.
+> > >  
+> > > +config PCIE_SOPHGO_DW
+> > > +	bool "SOPHGO DesignWare PCIe controller"
+> > 
+> > What's the canonical styling of "SOPHGO"?  I see "Sophgo" in the
+> > subject line and in Chen Wang's SG2042 series.  Pick the official
+> > styling and use it consistently.
+> 
+> This is my mistake. It should be "Sophgo", I will change it.
+> 
+> > Reorder this so the menuconfig menu items remain alphabetically
+> > sorted.
+> 
+> I think this order is applied to the entry title in menuconfig,
+> and is not the config key? If so, I will change it.
 
---===============2251887180751689686==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="nEmMIcx09OhU3DPI"
-Content-Disposition: inline
-
-
---nEmMIcx09OhU3DPI
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-On Sat, Feb 22, 2025 at 08:34:10AM +0800, Inochi Amaoto wrote:
-> On Fri, Feb 21, 2025 at 05:01:41PM +0000, Conor Dooley wrote:
-> > On Fri, Feb 21, 2025 at 09:37:55AM +0800, Inochi Amaoto wrote:
-> > > The pcie controller on the SG2044 is designware based with
-> > > custom app registers.
-> > >=20
-> > > Add binding document for SG2044 PCIe host controller.
-> > >=20
-> > > Signed-off-by: Inochi Amaoto <inochiama@gmail.com>
-> > > ---
-> > >  .../bindings/pci/sophgo,sg2044-pcie.yaml      | 125 ++++++++++++++++=
-++
-> > >  1 file changed, 125 insertions(+)
-> > >  create mode 100644 Documentation/devicetree/bindings/pci/sophgo,sg20=
-44-pcie.yaml
-> > >=20
-> > > diff --git a/Documentation/devicetree/bindings/pci/sophgo,sg2044-pcie=
-=2Eyaml b/Documentation/devicetree/bindings/pci/sophgo,sg2044-pcie.yaml
-> > > new file mode 100644
-> > > index 000000000000..040dabe905e0
-> > > --- /dev/null
-> > > +++ b/Documentation/devicetree/bindings/pci/sophgo,sg2044-pcie.yaml
-> > > @@ -0,0 +1,125 @@
-> > > +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> > > +%YAML 1.2
-> > > +---
-> > > +$id: http://devicetree.org/schemas/pci/sophgo,sg2044-pcie.yaml#
-> > > +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> > > +
-> > > +title: DesignWare based PCIe Root Complex controller on Sophgo SoCs
-> > > +
-> > > +maintainers:
-> > > +  - Inochi Amaoto <inochiama@gmail.com>
-> > > +
-> > > +description: |+
-> > > +  SG2044 SoC PCIe Root Complex controller is based on the Synopsys D=
-esignWare
-> > > +  PCIe IP and thus inherits all the common properties defined in
-> > > +  snps,dw-pcie.yaml.
-> > > +
-> > > +allOf:
-> > > +  - $ref: /schemas/pci/pci-host-bridge.yaml#
-> > > +  - $ref: /schemas/pci/snps,dw-pcie.yaml#
-> > > +
-> > > +properties:
-> > > +  compatible:
-> > > +    const: sophgo,sg2044-pcie
-> > > +
-> > > +  reg:
-> > > +    items:
-> > > +      - description: Data Bus Interface (DBI) registers
-> > > +      - description: iATU registers
-> > > +      - description: Config registers
-> > > +      - description: Sophgo designed configuration registers
-> > > +
-> > > +  reg-names:
-> > > +    items:
-> > > +      - const: dbi
-> > > +      - const: atu
-> > > +      - const: config
-> > > +      - const: app
-> > > +
-> > > +  clocks:
-> > > +    items:
-> > > +      - description: core clk
-> > > +
-> > > +  clock-names:
-> > > +    items:
-> > > +      - const: core
-> > > +
-> > > +  dma-coherent: true
-> >=20
-> > Why's this here? RISC-V is dma-coherent by default, with dma-noncoherent
-> > used to indicate systems/devices that are not.
->=20
-> The PCIe is dma coherent, but the SoC itself is marked as
-> dma-noncoherent.
-
-By "the SoC itself", do you mean that the bus that this device is on is
-marked as dma-noncoherent? IMO, that should not be done if there are
-devices on it that are coherent.
-
-> So I add dma-coherent to the binding. I
-> wonder whether dma-coherent is necessary even in this case?
-
-
---nEmMIcx09OhU3DPI
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZ7zAewAKCRB4tDGHoIJi
-0tHFAP90UC8I2j/g5PJgPzzQmwCvjacmi9hAbI+pK4XrrteVtAD/c51IWVKh5nvr
-YkNyy6zZ/5H8GwW0TxvOKWhT8Q8jXAo=
-=qPA6
------END PGP SIGNATURE-----
-
---nEmMIcx09OhU3DPI--
-
-
---===============2251887180751689686==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+It's the title shown by menuconfig, i.e., "SOPHGO DesignWare PCIe
+controller" here.
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============2251887180751689686==--
-
