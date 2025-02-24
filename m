@@ -4,97 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E80EDC021A6
-	for <linux-riscv@archiver.kernel.org>; Mon, 24 Feb 2025 10:22:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EAFD8C021A4
+	for <linux-riscv@archiver.kernel.org>; Mon, 24 Feb 2025 10:23:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=YK4uqwi85lRSoJpzUsvQNjpSYynLY4mEbnT8CQFAczE=; b=fpf9PCk9dT8qEr
-	E0LZKtTaKogyof8Y6RN8+UY4lZnEeWBBgGjNMbuXqtOENV2tvsHnT/gyG9FyHSSKqEPuFiMQkCnOc
-	QtFpE8QGOgRQCBSXRA0908G3BAPTrxUO7uhK/eq6Y85/AXBEJVt+6+jByUqx9AWJbPHPMnDqDKJpk
-	2oR50M5j8R7kRyqCgu/cklwou6CEnrS1H/0FrkPL5M2gd90L7qJk1fP/RRE+kno7P8FAeXhRhbDtE
-	JpWyJegTEQKSHzW+e3BO1Q1OwjCIPFOblSB4nHxhmp6MygiGw7Yx0ez3xBWDLLJMrzU3TuFtvTESm
-	vDYYA1NdVWwCxEYUWDOA==;
+	List-Owner; bh=Ov3YUQPH0Rdqb8dtcgirEcKPIOcjA0gCFIHctquAVHs=; b=Cii5hinactMPpa
+	aYz1ySfu9jTHJ+mmhsi3Xt9hi83Iu3YG5l1IkueHDASAFaxHT9QfTgeIxpEnpvPMIciKRkj5gfQAK
+	ThNzF8A1iAvPXquivqWHzMyhRRm7lhnDMz8C9rW/qjjH8rH0BqLRVzWWbHFFzCe1ae2JmEDanr8f7
+	dpmkuD1XGiy0wb+1vL5WF91v3qvbSwQWeXsGVTA2RNfXN56nx1PsYtep3nMqqziG4kyo+WrJfaNt9
+	+GpecSmkVCi+vvI3jO7fFkNqGJm0RxMCyo344DZthim6g3+7IOQDlIk5Mv1hQJnBpBcFhteaeoodi
+	iRGFcALZWdqJA8ozokew==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmVbU-0000000D6US-1CPA;
-	Mon, 24 Feb 2025 10:22:24 +0000
-Received: from mail-pl1-x635.google.com ([2607:f8b0:4864:20::635])
+	id 1tmVcu-0000000D6tG-2cW6;
+	Mon, 24 Feb 2025 10:23:52 +0000
+Received: from bayard.4d2.org ([5.78.89.93])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmVSY-0000000D4Zw-43jl
+	id 1tmVXF-0000000D5c0-32dp
 	for linux-riscv@lists.infradead.org;
-	Mon, 24 Feb 2025 10:13:12 +0000
-Received: by mail-pl1-x635.google.com with SMTP id d9443c01a7336-220c92c857aso70403895ad.0
-        for <linux-riscv@lists.infradead.org>; Mon, 24 Feb 2025 02:13:10 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1740391990; x=1740996790; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=zHH1Bo2ngh238ZBojTHJqWRsImuzKw7MT/RetGGhdDs=;
-        b=KJqV4S2JGfJsEniturIA9APHST3uMcgDne78VfY6rohKANkOWsArvUreW4LyHm3G9K
-         +BI60gO+Ht4pRlWzubRrIbmjdjR8q2mAQx7h+NulQo03+ZpJtaYSGN9gS4rs2RPMoA0g
-         5k/QnT8XDIZlJ8ER7Ped4t45dw0fGvbFpokvPfHZvArA0xtZEZwHf6lzOe5wywPMhX8w
-         bQ7Qh6RQIvV9o59roGCc8zpjK23poL7Ytk6nMY9RlNBNzi+vWsy6m0k1RP5+cIlj5MDM
-         uUKwRimcgNTHk3HSaaEpI6n4lqNgkwKnNvg1gQG3Shldt0oXrp1elWGGWxyYlnkp+NsE
-         PjPw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1740391990; x=1740996790;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=zHH1Bo2ngh238ZBojTHJqWRsImuzKw7MT/RetGGhdDs=;
-        b=XoibucjgxM6q9m7XxRwQMADmjAALHXb8bVVjMsx77P8Y6AA9DGtMre8pfvzrz7Ft5u
-         R2OAkqvMBpktCwZLd4nS9plGmZ7npGbgW8vamL1UltLsJBzT1M7YDJpExJTYCNGInv3s
-         8StMmHvMnc6taNl5n+ypvwO2os/ub2c+rPN3H85Zv/ueZwJxA+bvnmFzAdcqQ+VZf2MO
-         G2PA0MB1o/Pog0aNZO0PSd34jiR5z6sRGa+JSA6b7Xs3x8IPhvFfZpipuvrJS45VBV5j
-         W55V3QKFlu0GmGE2Iwh1QaZ5XZjevbTnSXxKFFWsooOoDKYJn+c+SR6WOXCq9VfmmxUZ
-         4Ztg==
-X-Forwarded-Encrypted: i=1; AJvYcCWRQs+OwLClk3wD20nOCL57UyVNxRUn3QZuTjga9iQBVZlAtxgWchGPJlmJKTjksgTj5Gkkc+z/a9La8A==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy9nc/lMRlZbgXL/NRsX661wX8lzzBnuhouumQaDm6sypvl0coO
-	7bjDNU3WesrMS/xRfxLfPXrPqOhvl+HaK33WBECg0rdhKL08Twu/
-X-Gm-Gg: ASbGncvYd1Fcu7RZFLvqza/TkGgBylR9bvt0JAD2koQ5maOLzSnsI9BxwgxmIMK1gsm
-	qgextNZh7scjZFUJJv6yAMjUuo0bQ5Y+bnZnTUVipGkoJ2hwEiW0GcmqmP4N//A8nYsffJE5h3W
-	FLwCNT08Spew5Svp8Agpi/kZduhGqHFG0xbqMCimy2iGiIrfxshOX+9aAJBSQcwLbGKzf4/ve7I
-	lYTU3yTbZIEbEtxPkEFnQn2dmO6hmRxdTJLbpQjT80usfQ5eQPfTzf7pZcrZ00G5ChfVY2OpgG+
-	SwOzAFbgg7drnrf4DDdF
-X-Google-Smtp-Source: AGHT+IGtCyZFRUi+gbIX4aSNZJGXzCxJh7yxdOzB199I7UFF6fkdtprcsgYmp8oGaKiLKViiu8/0JA==
-X-Received: by 2002:a17:902:f547:b0:215:6c5f:d142 with SMTP id d9443c01a7336-2219fff87c0mr224305655ad.20.1740391990140;
-        Mon, 24 Feb 2025 02:13:10 -0800 (PST)
-Received: from cu.. ([2001:19f0:ac00:4eb8:5400:5ff:fe30:7df3])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-220d7a464f1sm173274365ad.206.2025.02.24.02.13.05
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 24 Feb 2025 02:13:09 -0800 (PST)
-From: Longbin Li <looong.bin@gmail.com>
-To: Mark Brown <broonie@kernel.org>,
-	Rob Herring <robh@kernel.org>,
+	Mon, 24 Feb 2025 10:18:03 +0000
+Received: from bayard.4d2.org (bayard.4d2.org [127.0.0.1])
+	by bayard.4d2.org (Postfix) with ESMTP id 52D4D122FE23;
+	Mon, 24 Feb 2025 02:17:56 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=4d2.org; s=mail;
+	t=1740392276; bh=Lwv+SdLlgCCVTrLfdebdm1ZrgIaYP0UgzwvumboP/Ow=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=niCjXbTievjPfp2HmOums4MrUOg/tOro7gx/TCt7XJ2cPvwaMrZykwcckHHr0zJuG
+	 p9xSjwlq7D713ed9/6aXE4x6EDZ/ym1Z+pP7cVdK/zk1dRqMZjPbxnHAnRGtk3iotm
+	 XAEkIJ0aQ/Qkfref1IT+bVBZZT0QbM7QCjp47jQXdoOvFjhUmqSYNbNEroo9E4MFV1
+	 srPvEaBJ4dmpjRr5NJaaJazeMJREqJSZZILgGxjo/XY6fce5oAfHPdVVjLd08rSADt
+	 cIog1Xr8aUwP6vVrE2pFBkQH1CM0xlFwVbmEDzo2T4PUeDFm3lafA1b9icW3CZr25S
+	 BQ848tOhqzc+Q==
+X-Virus-Scanned: amavisd-new at 4d2.org
+Received: from bayard.4d2.org ([127.0.0.1])
+ by bayard.4d2.org (bayard.4d2.org [127.0.0.1]) (amavisd-new, port 10024)
+ with ESMTP id zq8oGhaoyk3h; Mon, 24 Feb 2025 02:17:54 -0800 (PST)
+Received: from ketchup (unknown [183.217.80.34])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: heylenay@4d2.org)
+	by bayard.4d2.org (Postfix) with ESMTPSA id D9D65122FE21;
+	Mon, 24 Feb 2025 02:17:50 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=4d2.org; s=mail;
+	t=1740392274; bh=Lwv+SdLlgCCVTrLfdebdm1ZrgIaYP0UgzwvumboP/Ow=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=UkjrEQilES+wAWOqAgIE+CWAGiRh2WE8Z77le9pWr5tgNy1pWWbTyvFrFuLig7CnF
+	 dyklHRklhPKiGkBC4LE6uYN+Rl0kydApuUOx4z+Z7LJpzk2udQKSZbeIGhkNZwg0jy
+	 9aDvewbfZHh8T4ZBHNmauBCB//kbGb41vZo9tvBDP8ob6o8J4J7cS/Q/o6GqPIP7Tk
+	 DT5ea06zULyMSIjah2/ojuRxiDYZP9KzU6IgCNnGOpNy5JImavBQtP+Rl042DCMURl
+	 qZyAc5btfGtkVngR4Qcf1rNwimx5rW5utOUyUm+S8G0DjcrYcxmmkpMkFs8No+GFT9
+	 sBeXApdL2iOjQ==
+Date: Mon, 24 Feb 2025 10:17:40 +0000
+From: Haylen Chu <heylenay@4d2.org>
+To: Krzysztof Kozlowski <krzk@kernel.org>, Alex Elder <elder@riscstar.com>
+Cc: Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	Conor Dooley <conor+dt@kernel.org>,
-	Chen Wang <unicorn_wang@outlook.com>,
-	Inochi Amaoto <inochiama@gmail.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>
-Cc: Longbin Li <looong.bin@gmail.com>,
-	linux-spi@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	sophgo@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org
-Subject: [PATCH 3/3] riscv: dts: sophgo: add Sophgo SPI NOR controller driver
-Date: Mon, 24 Feb 2025 18:12:02 +0800
-Message-ID: <20250224101213.26003-4-looong.bin@gmail.com>
-X-Mailer: git-send-email 2.48.1
-In-Reply-To: <20250224101213.26003-1-looong.bin@gmail.com>
-References: <20250224101213.26003-1-looong.bin@gmail.com>
+	Haylen Chu <heylenay@outlook.com>, Yixun Lan <dlan@gentoo.org>,
+	linux-riscv@lists.infradead.org, linux-clk@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	Inochi Amaoto <inochiama@outlook.com>,
+	Chen Wang <unicornxdotw@foxmail.com>,
+	Jisheng Zhang <jszhang@kernel.org>,
+	Meng Zhang <zhangmeng.kevin@linux.spacemit.com>,
+	Guodong Xu <guodong@riscstar.com>
+Subject: Re: [PATCH v4 2/4] dt-bindings: soc: spacemit: Add spacemit,k1-syscon
+Message-ID: <Z7xHRAFE4-QEA6PO@ketchup>
+References: <aw2vqnz5vcccqqvrrhz5tgawj7fnzzg3tds7nnepuorit37a7r@jcj3wrs7d73h>
+ <Z6rdBhQ7s2ReOgBL@ketchup>
+ <19e5129b-8423-4660-8e4f-8b898214d275@kernel.org>
+ <Z63T_EDvXiuRQbvb@ketchup>
+ <2ab715bd-e26c-41bb-ac64-baa864d90414@kernel.org>
+ <Z7BTVu10EKHMqOnJ@ketchup>
+ <7c697e9a-d6d9-4672-9738-93ce3a71beb6@riscstar.com>
+ <4f7bf109-bf18-42be-971c-5d5edd9595b5@kernel.org>
+ <Z7mrdrACFp3m-7sy@ketchup>
+ <6ea8ac17-42c8-46fa-b970-77ba89de66c4@kernel.org>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <6ea8ac17-42c8-46fa-b970-77ba89de66c4@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250224_021311_006431_5FDFC191 
-X-CRM114-Status: UNSURE (   8.80  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250224_021802_097526_69A53A08 
+X-CRM114-Status: GOOD (  40.23  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,80 +108,140 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add SPI NOR device node for Sophgo.
+On Sat, Feb 22, 2025 at 12:50:13PM +0100, Krzysztof Kozlowski wrote:
+> On 22/02/2025 11:48, Haylen Chu wrote:
+> > On Sat, Feb 22, 2025 at 10:59:09AM +0100, Krzysztof Kozlowski wrote:
+> >> On 22/02/2025 00:40, Alex Elder wrote:
+> >>> I have a general proposal on how to represent this, but I'd
+> >>> like to know whether it makes sense.  It might be what Krzysztof
+> >>> is suggesting, but in any case, I hope this representation would
+> >>> work, because it could simplify the code, and compartmentalizes
+> >>> things.
+> >>>
+> >>> Part of what motivates this is that I've been looking at the
+> >>> downstream reset code this week.  It contains a large number of
+> >>> register offset definitions identical to what's used for the
+> >>> clock driver.  The reset driver uses exactly the same registers
+> >>> as the clock driver does.  Downstream they are separate drivers,
+> >>> but the clock driver exports a shared spinlock for both drivers
+> >>> to use.
+> >>>
+> >>> These really need to be incorporated into the same driver for
+> >>> upstream.
+> >>
+> >> Why? First, it is not related to the topic here at all. You can design
+> >> drivers as you wish and still nothing to do with discussion about binding.
+> >> Second, different subsystems justify different drivers and Linux handles
+> >> this well already. No need for custom spinlock - regmap already does it.
+> >>
+> >>
+> >>>
+> >>> The clock code defines four distinct "units" (a term I'll use
+> >>> from here on; there might be a better name):
+> >>>    MPMU  Main Power Management Unit
+> >>>    APMU  Application Power Management Unit
+> >>>    APBC  APB Clock
+> >>>    APBS  APB Spare
+> >>>
+> >>> The reset code defines some of those, but doesn't use APBS.
+> >>> It also defines three more:
+> >>>    APBC2 Another APB Clock
+> >>>    RCPU  Real-time CPU?
+> >>>    RCPU2 Another Real-time CPU
+> >>>
+> >>> Each of these "units" has a distinct I/O memory region that
+> >>> contains registers that manage the clocks and reset signals.
+> >>
+> >> So there are children - mpmu, apmu, apbclock, apbspare, apbclock2, rcpu
+> >> 1+2? But previous statements were saying these are intermixed?
+> >>
+> >> " I'll make APMU/MPMU act as a whole device"
+> > 
+> > My reply seems somehow misleading. The statement means I will merge the
+> > children with the syscon into one devicetree node, which applies for
+> > both APMU and MPMU. I wasn't going to say that APMU and MPMU are
+> > intermixed.
+> > 
+> > As Alex said, all these units have their own distinct and separate MMIO
+> > regions.
+> > 
+> >>>
+> >>> I suggest a single "k1-clocks" device be created, which has
+> >>
+> >> For four devices? Or for one device?
+> > 
+> > By Alex's example, I think he means a device node taking all these
+> > distinct MMIO regions as resource.
+> 
+> 
+> You still do not answer about the hardware: how many devices is there?
 
-Signed-off-by: Longbin Li <looong.bin@gmail.com>
----
- .../boot/dts/sophgo/sg2044-sophgo-sd3-10.dts  | 18 ++++++++++++++
- arch/riscv/boot/dts/sophgo/sg2044.dtsi        | 24 +++++++++++++++++++
- 2 files changed, 42 insertions(+)
+In my understanding, the series covers four devices, APBC, APMU, MPMU
+and APBS, each comes with its separate MMIO region and is clearly
+described in the datasheet. I stated this in the later part of the
+reply,
 
-diff --git a/arch/riscv/boot/dts/sophgo/sg2044-sophgo-sd3-10.dts b/arch/riscv/boot/dts/sophgo/sg2044-sophgo-sd3-10.dts
-index c50e61a50013..9c634920f37e 100644
---- a/arch/riscv/boot/dts/sophgo/sg2044-sophgo-sd3-10.dts
-+++ b/arch/riscv/boot/dts/sophgo/sg2044-sophgo-sd3-10.dts
-@@ -80,6 +80,24 @@ &sd {
- 	status = "okay";
- };
+> > For APBC, MPMU, APBS and APMU, I'm pretty
+> > sure they're standalone blocks with distinct and separate MMIO regions,
+> > this could be confirmed by the address mapping[1].
 
-+&spifmc0 {
-+	status = "okay";
-+
-+	flash@0 {
-+		compatible = "jedec,spi-nor";
-+		reg = <0>;
-+	};
-+};
-+
-+&spifmc1 {
-+	status = "okay";
-+
-+	flash@0 {
-+		compatible = "jedec,spi-nor";
-+		reg = <0>;
-+	};
-+};
-+
- &uart1 {
- 	status = "okay";
- };
-diff --git a/arch/riscv/boot/dts/sophgo/sg2044.dtsi b/arch/riscv/boot/dts/sophgo/sg2044.dtsi
-index 6eaf92dd0a90..e45f7218de04 100644
---- a/arch/riscv/boot/dts/sophgo/sg2044.dtsi
-+++ b/arch/riscv/boot/dts/sophgo/sg2044.dtsi
-@@ -33,6 +33,30 @@ soc {
- 		dma-noncoherent;
- 		ranges;
+Thus I don't agree on Alex's solution, since it creates fake devices not
+mentioned by the datasheet (spacemit,k1-clocks and all its children in
+the example devicetree).
 
-+		spifmc0: spi@7001000000 {
-+			compatible = "sophgo,sg2044-spifmc-nor";
-+			reg = <0x70 0x01000000 0x0 0x4000000>;
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+			clocks = <&clk CLK_GATE_AHB_SPIFMC>;
-+			interrupt-parent = <&intc>;
-+			interrupts = <37 IRQ_TYPE_LEVEL_HIGH>;
-+			resets = <&rst RST_SPIFMC0>;
-+			status = "disabled";
-+		};
-+
-+		spifmc1: spi@7005000000 {
-+			compatible = "sophgo,sg2044-spifmc-nor";
-+			reg = <0x70 0x05000000 0x0 0x4000000>;
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+			clocks = <&clk CLK_GATE_AHB_SPIFMC>;
-+			interrupt-parent = <&intc>;
-+			interrupts = <38 IRQ_TYPE_LEVEL_HIGH>;
-+			resets = <&rst RST_SPIFMC1>;
-+			status = "disabled";
-+		};
-+
- 		dmac0: dma-controller@7020000000 {
- 			compatible = "snps,axi-dma-1.01a";
- 			reg = <0x70 0x20000000 0x0 0x10000>;
---
-2.48.1
+> > 
+> > 	clock {
+> > 		compatible = "spacemit,k1-clocks";
+> > 
+> > 		reg = <0x0 0xc0880000 0x0 0x2050>,
+> > 		      <0x0 0xc0888000 0x0 0x30>,
+> > 		      <0x0 0xd4015000 0x0 0x1000>,
+> > 		      <0x0 0xd4050000 0x0 0x209c>,
+> > 		      <0x0 0xd4090000 0x0 0x1000>,
+> > 		      <0x0 0xd4282800 0x0 0x400>,
+> > 		      <0x0 0xf0610000 0x0 0x20>;
+> > 		reg-names = "rcpu",
+> > 			    "rcpu2",
+> > 			    "apbc",
+> > 			    "mpmu",
+> > 			    "apbs",
+> > 			    "apmu",
+> > 			    "apbc2";
+> > 
+> > 		/* ... */
+> > 	};
+> > 
+> >> No, it's again going to wrong direction. I already said:
+> >>
+> >> "You need to define what is the device here. Don't create fake nodes ust
+> >> for your drivers. If registers are interleaved and manual says "this is
+> >> block APMU/MPMU" then you have one device, so one node with 'reg'."
+> >>
+> >> So what is the device here? Can you people actually answer?
+> >>
+> > 
+> > I'm not sure about the apbc2, rcpu and rcpu2 regions; they aren't
+> > related to the thread, either. For APBC, MPMU, APBS and APMU, I'm pretty
+> > sure they're standalone blocks with distinct and separate MMIO regions,
+> > this could be confirmed by the address mapping[1].
+> 
+> They were brought here to discuss for some reason. Long discussions,
+> long emails, unrelated topics like hardware or different devices - all
+> this is not making it easier for me to understand.
+>
+> Best regards,
+> Krzysztof
+
+By the way, I made a summary on the hardware covered by this series in
+one of my earlier reply[1]. Could you please comment further on my
+proposal[2] according it, or pointing out anything that's unclear or
+missing? It will be helpful for things to improve.
+
+Thanks,
+Haylen Chu
+
+[1]: https://lore.kernel.org/all/Z7m2oNXbwJ06KtLQ@ketchup/
+[2]: https://lore.kernel.org/all/Z7BTVu10EKHMqOnJ@ketchup/
 
 _______________________________________________
 linux-riscv mailing list
