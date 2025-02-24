@@ -4,93 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2CAC4C021A4
-	for <linux-riscv@archiver.kernel.org>; Mon, 24 Feb 2025 20:27:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 719E5C021A4
+	for <linux-riscv@archiver.kernel.org>; Mon, 24 Feb 2025 20:28:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=OkBEL3/A/bf2z4FFQsac2+cieuxk+Eh12i2MLTSARhI=; b=UltIubj3DXQ6IK
-	McL4UuSUT267Iiz4QjaaecGNlipikXjpiiCChk/BHMX6SZImO3BSVzKuZ7bZGeq986n4Sq+kyGg5P
-	aAcznAoNFQTo6V1PpDs9OvmZSVCAITsH3A57B0YYy0EoGMiyi/OVTnszWSS5Qercy9gPDwFEKBcmv
-	v+1Tj7lG8nNJgj2LsbNKZjfCKsy4i0qsPLZH2ro+zpgOu3HP6bxTTz7Ms6PHPlSVwRJiPfd47iHMK
-	YZrxTBKMGuGR9LYDlieWc0HILn4pAuBxReiIqbzgVNS+OY63+F3Lhp4p3oJ4ooHKnwijM15JONJYJ
-	G/BbeQOtNAPVFCCt5eEg==;
+	List-Owner; bh=friQDabYG9qig9B9oIN3G+QurbvMTm+xlxiKsp2Ve8o=; b=q89dysAmmMqzyb
+	b0E9m/z0QhVmcqAcEVlUICrvb/cOAhA1Kmtl5Wq1ZVZ3v/8UGhF7o7jcQYZapVjjV44VKF7MPW+w6
+	Pd1NMmms6i8bvjdkaKes8K3N/0VQ5aBEEYxLe4NNnVsdwkGhVo+m+0TUTohGrf0umVtdKkV3aFWmK
+	cyrRtGCQfrTdbHxCazGr9Z0/B+5HFmExz2LHaG1N8F+aaBb6MgWL6ZaEwsJFzBqhsNGI4i4h1whnh
+	FgMYrwDAiWvauO1g2SEE6I6MU8dbyAXsNnGWfP4Z6CZG85/v1orTkxcE1VDn6IkzxeG2/qkFNY3e9
+	ySHqRIHUJj5nmpB7tnEA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmf3H-0000000F5Vy-3CoR;
-	Mon, 24 Feb 2025 20:27:43 +0000
-Received: from mail-pl1-x62c.google.com ([2607:f8b0:4864:20::62c])
+	id 1tmf3o-0000000F5gK-1OYZ;
+	Mon, 24 Feb 2025 20:28:16 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmf1m-0000000F5EA-1Dje
+	id 1tmf3m-0000000F5fk-3d8x
 	for linux-riscv@lists.infradead.org;
-	Mon, 24 Feb 2025 20:26:12 +0000
-Received: by mail-pl1-x62c.google.com with SMTP id d9443c01a7336-220ecbdb4c2so19241755ad.3
-        for <linux-riscv@lists.infradead.org>; Mon, 24 Feb 2025 12:26:09 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=pdp7-com.20230601.gappssmtp.com; s=20230601; t=1740428769; x=1741033569; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=TgBgqyu4tKatdMND7+/18VtL/05cP3jlzOPJySx+wMI=;
-        b=t/83BnntH4Qnx0mg7Bq32IU3KP2xbJA4LIcvN/ZAt+cXBhuwdoQgcgClAi4dSkYFna
-         KAM944/l1HuBqrisdbJ0OzbX8+BgjhC77lLNQyWtErZhDipTXmTOZSDZMLiWMTQIT1HG
-         ljzU5TTIUZHCs09sOFlYRcPBIUHsuVZAhA3srTj8IGEtiP241YF04jNarECyb5yusokG
-         wzm+NNQBJUFI5fifvI1aXzYRE4Uh/+YFwz7ExtW97ARufkY5f/j/bW6+ZHty2rjOli9R
-         E2VgzZUYMQ+buKQ+9MjvIZBXGI0TGWyOWx3XrDLCKhAi9fL2x95QS5DBHaBixVKPaK7/
-         qKvw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1740428769; x=1741033569;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=TgBgqyu4tKatdMND7+/18VtL/05cP3jlzOPJySx+wMI=;
-        b=YEQLZSa+rlnM+uTJ2uUqajcdxR+GfIUzaFo9EkAqQfymdwISq1ht7QskZEx8Q/PB3F
-         P8tl0r91jIvYbgytEJ7pNJiIVFEg/OK5+5WQbYCCqCI8vSbBdxkwAwShxaheWysHnP/n
-         V0WUoNrWgG+CofIEUzwTWQacFzLuvj3GcR9eWsm0qkjmSRl1ynvrme0cDmDdPUR/p6/t
-         bHpObctttQffqcvq33n3SD45QCzEohvGYUJXQy2kmMBCc+swXv4E6CDTGsSIn4r7p6wY
-         U9DtPkCgZnWifBpQAe/xheHftRgYhbmaRitJkG+nE55Iab57oOm9K4Itg0cREMw3pojn
-         /Lng==
-X-Forwarded-Encrypted: i=1; AJvYcCXoYxH7qh/47FQqTdSLz8s/xLnjNprVLgrOZzHOeLUZDL5BcXfC2xmxFPJNkeJs5vXV7kC13sVnl1B6ZA==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yyvg13ZOPeoRt0w5aZpzlTwvp1k5AdcIL9Nw992LmqDnPAaWZ8k
-	AQQNyTvleowoRAzaj0TNH59CYVqykcP/hdCpMkUlrf2prVmhP3LNvUh/q33ftfA=
-X-Gm-Gg: ASbGncv05NOqMOvzo0RnyglSP1bxx4tqRTxqwu0fDZgYsKi6lWpGOfFx1AaJT4dmUEj
-	y5Qgu09kJ7qQxjW6wBDFL6U2hd4IThB03TPeSpk1OlAH4oEh+MESEV0ny+nbeeGG0XiOh0fIPON
-	GKCJO/JGRp6LzgkcspO01g3yXsB2vxe2yULz6HTpIaewMf25cPuZPjwQt12sFtGbJk5p0dZZJUl
-	AVDm25uwExevoGQrfY4+aHe+hnVtjKsZ3ZsKeHKpdi90+6UOBTIFR2wb3tLrCDKGE5828bW78rO
-	E2vEXD0=
-X-Google-Smtp-Source: AGHT+IGji8X4JW99D82J1gNUv4VGOe8Di1Z0iUYkFrnt5DobfIi0K1SZsszK6YCNFA/kxOX0YVJuVQ==
-X-Received: by 2002:a17:902:e80d:b0:220:f069:eab4 with SMTP id d9443c01a7336-221a0ed87cdmr259370375ad.22.1740428768763;
-        Mon, 24 Feb 2025 12:26:08 -0800 (PST)
-Received: from x1 ([97.115.231.194])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-2fceb12e4casm7009510a91.48.2025.02.24.12.26.07
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 24 Feb 2025 12:26:08 -0800 (PST)
-Date: Mon, 24 Feb 2025 12:26:05 -0800
-From: Drew Fustini <drew@pdp7.com>
-To: "Russell King (Oracle)" <linux@armlinux.org.uk>
-Cc: Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>, Fu Wei <wefu@redhat.com>,
-	Guo Ren <guoren@kernel.org>, Jakub Kicinski <kuba@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-riscv@lists.infradead.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>, netdev@vger.kernel.org,
-	Paolo Abeni <pabeni@redhat.com>
-Subject: Re: [PATCH net-next 0/2] net: stmmac: thead: clean up clock rate
- setting
-Message-ID: <Z7zV3Z8L6PQCLKnC@x1>
-References: <Z7iKdaCp4hLWWgJ2@shell.armlinux.org.uk>
+	Mon, 24 Feb 2025 20:28:14 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 308616112C;
+	Mon, 24 Feb 2025 20:28:08 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B17C9C4CED6;
+	Mon, 24 Feb 2025 20:28:13 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1740428893;
+	bh=0m0T6PyoD7xkTGj6kIv+HfKEEBh/taWnpcicr5ltFaY=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=H4pVeK2SAold59ncUwUm/pyD8iI0WLAIYOKhCWSX+LTScDIKxbZVAfK13ab4tYsk5
+	 xN76WQSCw2MyPUtuJK2U0YkMfc60jTSBPzuprSJqQ0PlDcIk7WBNUYAqdPW46lSww3
+	 QchBWaPqYhjQRSfImW42wQ/emDJahVcxkcKf+Ri9fdKXNp1ID+7H3WEpAGF05TwlAU
+	 1mo7Z4mTO0pdL4LyIq66nL0KrO1BA3YpKnnRLo2kmYQTCvjGueaUxTXeNFO+Zqsoo3
+	 Ai+j4rHfKFzWTB6RSvPTEOiujr4rV0NvRIvQE6uBFeQn1jJSFJswqWEBrgHIzGuDM2
+	 rKQD+BMM0EyOw==
+Date: Mon, 24 Feb 2025 14:28:12 -0600
+From: "Rob Herring (Arm)" <robh@kernel.org>
+To: Longbin Li <looong.bin@gmail.com>
+Cc: Inochi Amaoto <inochiama@gmail.com>, devicetree@vger.kernel.org,
+	sophgo@lists.linux.dev, Chen Wang <unicorn_wang@outlook.com>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	linux-riscv@lists.infradead.org, linux-spi@vger.kernel.org,
+	linux-kernel@vger.kernel.org, Albert Ou <aou@eecs.berkeley.edu>,
+	Mark Brown <broonie@kernel.org>
+Subject: Re: [PATCH 1/3] dt-bindings: spi: add Sophgo SPI NOR controller
+ driver
+Message-ID: <174042889175.4042827.14947254444698691602.robh@kernel.org>
+References: <20250224101213.26003-1-looong.bin@gmail.com>
+ <20250224101213.26003-2-looong.bin@gmail.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <Z7iKdaCp4hLWWgJ2@shell.armlinux.org.uk>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250224_122610_580017_C8F33298 
-X-CRM114-Status: GOOD (  13.01  )
+In-Reply-To: <20250224101213.26003-2-looong.bin@gmail.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,25 +78,19 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Feb 21, 2025 at 02:15:17PM +0000, Russell King (Oracle) wrote:
-> Hi,
-> 
-> This series cleans up the thead clock rate setting to use the
-> rgmii_clock() helper function added to phylib.
-> 
-> The first patch switches over to using the rgmii_clock() helper,
-> and the second patch cleans up the verification that the desired
-> clock rate is achievable, allowing the private clock rate
-> definitions to be removed.
-> 
->  drivers/net/ethernet/stmicro/stmmac/dwmac-thead.c | 28 ++++++++---------------
->  1 file changed, 9 insertions(+), 19 deletions(-)
 
-Thanks for improving the dwmac-thead driver. I've applied it on top of
-next-20250221 and booted on the LPi4a board. Ethernet networking is
-still working correctly.
+On Mon, 24 Feb 2025 18:12:00 +0800, Longbin Li wrote:
+> Add SPI NOR driver for Sophgo, including read, write operations.
+> 
+> Signed-off-by: Longbin Li <looong.bin@gmail.com>
+> ---
+>  .../bindings/spi/spi-sophgo-nor.yaml          | 52 +++++++++++++++++++
+>  1 file changed, 52 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/spi/spi-sophgo-nor.yaml
+> 
 
-Tested-by: Drew Fustini <drew@pdp7.com>
+Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
+
 
 _______________________________________________
 linux-riscv mailing list
