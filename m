@@ -4,69 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 09775C021B5
-	for <linux-riscv@archiver.kernel.org>; Mon, 24 Feb 2025 10:22:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E80EDC021A6
+	for <linux-riscv@archiver.kernel.org>; Mon, 24 Feb 2025 10:22:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=l6nSO9Os8RdDE+e1Gn6Z4o/amEzpjPij+cxDaPAUGPU=; b=bDe5C3rF5Lm43c
-	3NKcvtX9mCty4myZtG5HE5iq2r/PSGnDl/aixjmyd6iXnSN0nf+32bTnOPGjI2giZ9rC8XPI9csb+
-	xmw5tYMnvw3mz3tKb/YMZCqQGuJQmAGy4pt8r2D7eDeE3rtUfjOoOEB1yveXIbEH59+fkrTnWFRJu
-	Dy28ETqZsyh5cpiebhdsKn+U3r/uLaC7vq1whR6jEMWWlAZu7HdIdEdpj9/XT+h7Zk1dvueOZc89c
-	aqKnF+2cXtTeSoRK5uy0O0Tpb847aMR8eGjeHKoy++GxHETJtaD47FPBprB6WohrnCJQEQLbq4DBw
-	Wp7zlywe7iwLXq9Tdyxg==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=YK4uqwi85lRSoJpzUsvQNjpSYynLY4mEbnT8CQFAczE=; b=fpf9PCk9dT8qEr
+	E0LZKtTaKogyof8Y6RN8+UY4lZnEeWBBgGjNMbuXqtOENV2tvsHnT/gyG9FyHSSKqEPuFiMQkCnOc
+	QtFpE8QGOgRQCBSXRA0908G3BAPTrxUO7uhK/eq6Y85/AXBEJVt+6+jByUqx9AWJbPHPMnDqDKJpk
+	2oR50M5j8R7kRyqCgu/cklwou6CEnrS1H/0FrkPL5M2gd90L7qJk1fP/RRE+kno7P8FAeXhRhbDtE
+	JpWyJegTEQKSHzW+e3BO1Q1OwjCIPFOblSB4nHxhmp6MygiGw7Yx0ez3xBWDLLJMrzU3TuFtvTESm
+	vDYYA1NdVWwCxEYUWDOA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmVbS-0000000D6T9-1RzI;
-	Mon, 24 Feb 2025 10:22:22 +0000
-Received: from mail-pl1-x62d.google.com ([2607:f8b0:4864:20::62d])
+	id 1tmVbU-0000000D6US-1CPA;
+	Mon, 24 Feb 2025 10:22:24 +0000
+Received: from mail-pl1-x635.google.com ([2607:f8b0:4864:20::635])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmVS9-0000000D4T4-0aEl
+	id 1tmVSY-0000000D4Zw-43jl
 	for linux-riscv@lists.infradead.org;
-	Mon, 24 Feb 2025 10:12:46 +0000
-Received: by mail-pl1-x62d.google.com with SMTP id d9443c01a7336-222e8d07dc6so10401975ad.1
-        for <linux-riscv@lists.infradead.org>; Mon, 24 Feb 2025 02:12:44 -0800 (PST)
+	Mon, 24 Feb 2025 10:13:12 +0000
+Received: by mail-pl1-x635.google.com with SMTP id d9443c01a7336-220c92c857aso70403895ad.0
+        for <linux-riscv@lists.infradead.org>; Mon, 24 Feb 2025 02:13:10 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1740391964; x=1740996764; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=IPGO+zy6qEo7yGIQSUB6POZKOvKXrvFXwU9PL0lZRak=;
-        b=HRn34lhXlWAoQTnqZ2b+KOGHJCmlIsUbpfUqZVXxXbiWbA2Njl6PCcJIwmgUnxMu6/
-         n2Q6JbEof69UorWEDMKNBBzwZkuw3eBj0uSVp8CcADPU3I1eeAnjz6bF/4cNuxE9+id8
-         nZb93jmrr32wXCyIUPV+6YSrlOPTVoSfiEMrxQPO+KEVXkVvM20WiioFo6QdkiHUfxi7
-         7UDU4IN0Z/dvDRGQSP4Hwmci1fNw71dVR4psLeF7z1WkljtZ/F+ND4bAa7iYXzzCSdGk
-         k9iAsJzYCkSskay+xOI5yOjRR1SIq/B7QVuKrP7Gyeee7l1aPxa9xYnjhDDATAhCf6Qf
-         rmdw==
+        d=gmail.com; s=20230601; t=1740391990; x=1740996790; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=zHH1Bo2ngh238ZBojTHJqWRsImuzKw7MT/RetGGhdDs=;
+        b=KJqV4S2JGfJsEniturIA9APHST3uMcgDne78VfY6rohKANkOWsArvUreW4LyHm3G9K
+         +BI60gO+Ht4pRlWzubRrIbmjdjR8q2mAQx7h+NulQo03+ZpJtaYSGN9gS4rs2RPMoA0g
+         5k/QnT8XDIZlJ8ER7Ped4t45dw0fGvbFpokvPfHZvArA0xtZEZwHf6lzOe5wywPMhX8w
+         bQ7Qh6RQIvV9o59roGCc8zpjK23poL7Ytk6nMY9RlNBNzi+vWsy6m0k1RP5+cIlj5MDM
+         uUKwRimcgNTHk3HSaaEpI6n4lqNgkwKnNvg1gQG3Shldt0oXrp1elWGGWxyYlnkp+NsE
+         PjPw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1740391964; x=1740996764;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=IPGO+zy6qEo7yGIQSUB6POZKOvKXrvFXwU9PL0lZRak=;
-        b=RqD5howiku/Cn8QJZoMyYWuy+2uZeaPyA5JrZYgM4DXzI09nCaTZDjoQPuDwJiUasS
-         De4LznI9GgDmfiAT3XiQ3iPib21MAKMEIwqPhDA0Ut+7w08d/aFqMcMBABHVNuByJ/OL
-         4teHG8mSiZFYj9u1nSEcpEFo3/onMpSsjRrSs2o466JfzqneqOVc1ixhNm0Cx4Nh4tFQ
-         mBe3O3BjIdGMrzaZZH1NjoTDpjHZVGEgjUSOxvgQ4NrkxvlxbuI0bwpb3ywziDQV9p4v
-         JyVcyOUPAvFpDJz0c1BmPk3QF3jy7ccW//Y4e/RquB5hwIbCb36MgSxiZYNwGFi/0/Jg
-         XWig==
-X-Forwarded-Encrypted: i=1; AJvYcCWfx6LnJtiumzBzXnpdGLgQqBXs26BOlaZhsxRNZ08+aYrp5fTgBab9AugHL5rBVooi6YVbKT7Dq+D/HA==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx9f9Ej3gbNuq8EdbozJxLsi7cB5oZBRK2kDUD3BzIVCG04NNgD
-	DyC1deDD4Rygn/MgW6tyisHQDRD3WGJfjFDe9jRFi/ja5TiHnyp5
-X-Gm-Gg: ASbGncuofWKFoba7cS2E1ETLyJU1cFsn5i86rUAJWYpJw+kNjGEvPfXeEGs09YBuHMz
-	uepmdh9FCRAJpGRUlFOsXsM4iizI2ar9J6tMC41kzVfvHegu658wyn2XzfJIVU+fCIWwNGNIlrz
-	igHrSpt7IJbhGw21i0/TzV42FsbygTz32iAt6jBOQf7I5KlVM541KCIlzGuZzbCt7AyitzWmBjV
-	J+grl/zYqTBX2DFLSzHlcpbpR1MIAh3PRgZ0S8lUSFm/N7TFOR7tSrDfALKXIuDD44rOeBN+/lI
-	udRbLl0K2UJicjcRE45H
-X-Google-Smtp-Source: AGHT+IHjrhSY3sFSqcYVrgR3HWHG17PPt8fPA3aXE8o1SDs3Jub8Wamh6wMCeD3ZCxlYYk/Q13AOhA==
-X-Received: by 2002:a17:902:cec1:b0:215:58be:3349 with SMTP id d9443c01a7336-2219ffa04dcmr239987545ad.14.1740391964148;
-        Mon, 24 Feb 2025 02:12:44 -0800 (PST)
+        d=1e100.net; s=20230601; t=1740391990; x=1740996790;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=zHH1Bo2ngh238ZBojTHJqWRsImuzKw7MT/RetGGhdDs=;
+        b=XoibucjgxM6q9m7XxRwQMADmjAALHXb8bVVjMsx77P8Y6AA9DGtMre8pfvzrz7Ft5u
+         R2OAkqvMBpktCwZLd4nS9plGmZ7npGbgW8vamL1UltLsJBzT1M7YDJpExJTYCNGInv3s
+         8StMmHvMnc6taNl5n+ypvwO2os/ub2c+rPN3H85Zv/ueZwJxA+bvnmFzAdcqQ+VZf2MO
+         G2PA0MB1o/Pog0aNZO0PSd34jiR5z6sRGa+JSA6b7Xs3x8IPhvFfZpipuvrJS45VBV5j
+         W55V3QKFlu0GmGE2Iwh1QaZ5XZjevbTnSXxKFFWsooOoDKYJn+c+SR6WOXCq9VfmmxUZ
+         4Ztg==
+X-Forwarded-Encrypted: i=1; AJvYcCWRQs+OwLClk3wD20nOCL57UyVNxRUn3QZuTjga9iQBVZlAtxgWchGPJlmJKTjksgTj5Gkkc+z/a9La8A==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy9nc/lMRlZbgXL/NRsX661wX8lzzBnuhouumQaDm6sypvl0coO
+	7bjDNU3WesrMS/xRfxLfPXrPqOhvl+HaK33WBECg0rdhKL08Twu/
+X-Gm-Gg: ASbGncvYd1Fcu7RZFLvqza/TkGgBylR9bvt0JAD2koQ5maOLzSnsI9BxwgxmIMK1gsm
+	qgextNZh7scjZFUJJv6yAMjUuo0bQ5Y+bnZnTUVipGkoJ2hwEiW0GcmqmP4N//A8nYsffJE5h3W
+	FLwCNT08Spew5Svp8Agpi/kZduhGqHFG0xbqMCimy2iGiIrfxshOX+9aAJBSQcwLbGKzf4/ve7I
+	lYTU3yTbZIEbEtxPkEFnQn2dmO6hmRxdTJLbpQjT80usfQ5eQPfTzf7pZcrZ00G5ChfVY2OpgG+
+	SwOzAFbgg7drnrf4DDdF
+X-Google-Smtp-Source: AGHT+IGtCyZFRUi+gbIX4aSNZJGXzCxJh7yxdOzB199I7UFF6fkdtprcsgYmp8oGaKiLKViiu8/0JA==
+X-Received: by 2002:a17:902:f547:b0:215:6c5f:d142 with SMTP id d9443c01a7336-2219fff87c0mr224305655ad.20.1740391990140;
+        Mon, 24 Feb 2025 02:13:10 -0800 (PST)
 Received: from cu.. ([2001:19f0:ac00:4eb8:5400:5ff:fe30:7df3])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-220d7a464f1sm173274365ad.206.2025.02.24.02.12.39
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-220d7a464f1sm173274365ad.206.2025.02.24.02.13.05
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 24 Feb 2025 02:12:43 -0800 (PST)
+        Mon, 24 Feb 2025 02:13:09 -0800 (PST)
 From: Longbin Li <looong.bin@gmail.com>
 To: Mark Brown <broonie@kernel.org>,
 	Rob Herring <robh@kernel.org>,
@@ -83,14 +84,16 @@ Cc: Longbin Li <looong.bin@gmail.com>,
 	sophgo@lists.linux.dev,
 	linux-kernel@vger.kernel.org,
 	linux-riscv@lists.infradead.org
-Subject: [PATCH 0/3] spi: sophgo: add Sophgo SPI NOR controller driver
-Date: Mon, 24 Feb 2025 18:11:59 +0800
-Message-ID: <20250224101213.26003-1-looong.bin@gmail.com>
+Subject: [PATCH 3/3] riscv: dts: sophgo: add Sophgo SPI NOR controller driver
+Date: Mon, 24 Feb 2025 18:12:02 +0800
+Message-ID: <20250224101213.26003-4-looong.bin@gmail.com>
 X-Mailer: git-send-email 2.48.1
+In-Reply-To: <20250224101213.26003-1-looong.bin@gmail.com>
+References: <20250224101213.26003-1-looong.bin@gmail.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250224_021245_175554_7F246685 
-X-CRM114-Status: UNSURE (   8.25  )
+X-CRM114-CacheID: sfid-20250224_021311_006431_5FDFC191 
+X-CRM114-Status: UNSURE (   8.80  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -108,24 +111,78 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add SPI NOR driver for Sophgo, including read, write operations.
-This driver is only suitable for NOR flash.
+Add SPI NOR device node for Sophgo.
 
-Longbin Li (3):
-  dt-bindings: spi: add Sophgo SPI NOR controller driver
-  spi: sophgo: add Sophgo SPI NOR controller driver
-  riscv: dts: sophgo: add Sophgo SPI NOR controller driver
+Signed-off-by: Longbin Li <looong.bin@gmail.com>
+---
+ .../boot/dts/sophgo/sg2044-sophgo-sd3-10.dts  | 18 ++++++++++++++
+ arch/riscv/boot/dts/sophgo/sg2044.dtsi        | 24 +++++++++++++++++++
+ 2 files changed, 42 insertions(+)
 
- .../bindings/spi/spi-sophgo-nor.yaml          |  52 ++
- .../boot/dts/sophgo/sg2044-sophgo-sd3-10.dts  |  18 +
- arch/riscv/boot/dts/sophgo/sg2044.dtsi        |  24 +
- drivers/spi/Kconfig                           |   9 +
- drivers/spi/Makefile                          |   1 +
- drivers/spi/spi-sophgo-nor.c                  | 501 ++++++++++++++++++
- 6 files changed, 605 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/spi/spi-sophgo-nor.yaml
- create mode 100644 drivers/spi/spi-sophgo-nor.c
+diff --git a/arch/riscv/boot/dts/sophgo/sg2044-sophgo-sd3-10.dts b/arch/riscv/boot/dts/sophgo/sg2044-sophgo-sd3-10.dts
+index c50e61a50013..9c634920f37e 100644
+--- a/arch/riscv/boot/dts/sophgo/sg2044-sophgo-sd3-10.dts
++++ b/arch/riscv/boot/dts/sophgo/sg2044-sophgo-sd3-10.dts
+@@ -80,6 +80,24 @@ &sd {
+ 	status = "okay";
+ };
 
++&spifmc0 {
++	status = "okay";
++
++	flash@0 {
++		compatible = "jedec,spi-nor";
++		reg = <0>;
++	};
++};
++
++&spifmc1 {
++	status = "okay";
++
++	flash@0 {
++		compatible = "jedec,spi-nor";
++		reg = <0>;
++	};
++};
++
+ &uart1 {
+ 	status = "okay";
+ };
+diff --git a/arch/riscv/boot/dts/sophgo/sg2044.dtsi b/arch/riscv/boot/dts/sophgo/sg2044.dtsi
+index 6eaf92dd0a90..e45f7218de04 100644
+--- a/arch/riscv/boot/dts/sophgo/sg2044.dtsi
++++ b/arch/riscv/boot/dts/sophgo/sg2044.dtsi
+@@ -33,6 +33,30 @@ soc {
+ 		dma-noncoherent;
+ 		ranges;
+
++		spifmc0: spi@7001000000 {
++			compatible = "sophgo,sg2044-spifmc-nor";
++			reg = <0x70 0x01000000 0x0 0x4000000>;
++			#address-cells = <1>;
++			#size-cells = <0>;
++			clocks = <&clk CLK_GATE_AHB_SPIFMC>;
++			interrupt-parent = <&intc>;
++			interrupts = <37 IRQ_TYPE_LEVEL_HIGH>;
++			resets = <&rst RST_SPIFMC0>;
++			status = "disabled";
++		};
++
++		spifmc1: spi@7005000000 {
++			compatible = "sophgo,sg2044-spifmc-nor";
++			reg = <0x70 0x05000000 0x0 0x4000000>;
++			#address-cells = <1>;
++			#size-cells = <0>;
++			clocks = <&clk CLK_GATE_AHB_SPIFMC>;
++			interrupt-parent = <&intc>;
++			interrupts = <38 IRQ_TYPE_LEVEL_HIGH>;
++			resets = <&rst RST_SPIFMC1>;
++			status = "disabled";
++		};
++
+ 		dmac0: dma-controller@7020000000 {
+ 			compatible = "snps,axi-dma-1.01a";
+ 			reg = <0x70 0x20000000 0x0 0x10000>;
 --
 2.48.1
 
