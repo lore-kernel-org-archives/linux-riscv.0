@@ -4,93 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5601CC021BF
-	for <linux-riscv@archiver.kernel.org>; Mon, 24 Feb 2025 18:32:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1F51C021A4
+	for <linux-riscv@archiver.kernel.org>; Mon, 24 Feb 2025 18:55:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=iOAHX/MXX0hfut7h77lrQ1AK7Ck+2NPSIL9VEt9STok=; b=VQuyvEWbEzLZJp
-	+2EMl6uA4cHcXflAK+majiDn9ukGtKvKWcvzsqfZoFlVcDLqP7aw7RiqfZtFL4zABBHx0J5yQ+RMe
-	LFeFRO/PeYh5fpyEZz4S6tsCr9znZSJBhvOjiZJeXzECisPi8twCHn8XRP+nLutD9akBAovUGAQZo
-	/6ycUdp0LiACKjOpDS9wLYyF5Ne4YhDTAtIQIC67nWc/6aeVd8vgHdK9dDg3GyJhStWzgwC1kj8cJ
-	W9eI8C1uHv0aA8Ow9B4nv4RtaYugvoEgB54fVHxMzH0oKF0ubru5AxZSBLhB1XhiIR51GEgm5xTMH
-	3X/NkFyW5pp643pMbUmg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=C2Wtaq2qQr1hVd8r7Be9cM8c65u8kjOyD11tKhiYGRc=; b=TZNFt5ijP1trzfnSIR32oTSdiH
+	sKJopUgwo+s9VGehjv8SY42S/J8L9W1lBE040OBHmiQwehEVlNes3TAz6mFezidtIWejMnEZIC16Y
+	31UdRLokDYjqL7/VY7EbcAOeZDYWCnxZ1ukwp+SzCTgOQ7GgOOkQfL5vXs1236hakw49t5DKJyMzs
+	fHhKKi/Cmum2Kyvas7z9okjgIrzwn8YEQMTi3ZGsadgvkxzwKio3fr/QSdA+FxvncxPeDP8d7ogpl
+	2SKEUuBFlq9EwfGV6VQVDwlUuDcA8JO/AGqxGpBipZTeAJpY7KelzmeR9cpNS9djY0RXD6DQm60bJ
+	jGFT3sfg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmdFk-0000000EojK-0TiX;
-	Mon, 24 Feb 2025 18:32:28 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1tmdbg-0000000EtNd-18x9;
+	Mon, 24 Feb 2025 18:55:08 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmd4h-0000000EmWy-0Mok
+	id 1tmdbY-0000000EtLH-2jUQ
 	for linux-riscv@lists.infradead.org;
-	Mon, 24 Feb 2025 18:21:04 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1740421262;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=u7xELZHJie6Fl0P2HGMVjkjGrKUGnwvDBmjOpl74Jkg=;
-	b=Ok9bJu+mxucNk6k62LV80AJ9ShZiLvNN+XBroX0oWVB1IRsf8GLAmzAG+7c8t7sVOiyg7d
-	5vAJ6yIjYDqybs4m/MG46vYVMh6xmTZfnt53iaB4T06BaXGg+SXlnM1zOeIW6D3S+ubbrS
-	YVmfDEmm8kk3C5UjO9d1dTDjaISjaYU=
-Received: from mail-wr1-f70.google.com (mail-wr1-f70.google.com
- [209.85.221.70]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-106-WQ0A8qr-N9mJ0_LdWXctMA-1; Mon, 24 Feb 2025 13:20:59 -0500
-X-MC-Unique: WQ0A8qr-N9mJ0_LdWXctMA-1
-X-Mimecast-MFC-AGG-ID: WQ0A8qr-N9mJ0_LdWXctMA_1740421258
-Received: by mail-wr1-f70.google.com with SMTP id ffacd0b85a97d-38f4e6e004fso3610407f8f.1
-        for <linux-riscv@lists.infradead.org>; Mon, 24 Feb 2025 10:20:59 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1740421258; x=1741026058;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=u7xELZHJie6Fl0P2HGMVjkjGrKUGnwvDBmjOpl74Jkg=;
-        b=IINiCzTJHrNxWrZDlHa0Wwo8wuvR1lq0572DCNLFKoXIWBT9Cqh5z4Zn6WS/1F0hII
-         513aktZGacHm+BrKjo+Ly9nm9T9rhLgNCuk53usRzqqVBZPpPKsQRp8b+lJbqmErbC9T
-         BYCZBlg47yKCHxLZSFDle/zA2wX6KpEM44hhgfyvXe4PmnqkX6R7DX4j6UB/SvbtSPTo
-         zahRk0swV9n0B81rnIfkS/ty3KyltFU1vQThihkHMAFBYZUnKfZcCGnlkAV+viPdlPSx
-         xXkWRvkciDmSmqexpOZS3Tp3XiINbIwq6yyDYq/UfCy+N/WDYDrz4rGqX7yu6dykEJvy
-         XzEg==
-X-Forwarded-Encrypted: i=1; AJvYcCVG5r8SWtkd8ti9pCLCBMyh1XBnxqzGLssvH/ZT6RjN4QrB+v8yCU3HaGjthfPWKU2szVKFvLqmr339dg==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw6FpofeazEbgJA4OYM3tgDqpenySiEffrLTGjje1Zig0ya8735
-	1K2bYUU7YGf/iw51uosmmYxNtsdpKXpo4tU+kkLc7Gn5ESC8+BKlbbt942EBSgS3sucI6dkfGJb
-	H7PQEjFkF/DqxqTaLZO1lef00RhlewtSXUoiTjCHRL47p05N65pk8xg1oFg/73I8n28rsqSkMMT
-	Fdz4M5kq+lfMc4SQWmCKHFmBKrmS3ta6nNcWyZb8tj
-X-Gm-Gg: ASbGnctnELqTviR8YkNT96BxY8C7RH4L51K/J4JddNqaezueYIUOLn9bEySVjU4LL+T
-	1+gKiN9lqVrN6K88yNGLmTlHeP2i1b8YVh5KkUTHFJ0W7tLTws8ocLKPOvYnk6WrsScYEt4NTHQ
-	==
-X-Received: by 2002:a5d:47cb:0:b0:38d:de92:adad with SMTP id ffacd0b85a97d-38f6e95c4aemr9698937f8f.22.1740421258493;
-        Mon, 24 Feb 2025 10:20:58 -0800 (PST)
-X-Google-Smtp-Source: AGHT+IEdoqcjY6M2ITOtK0J4C8ZZqwTjbsEXxZzmRUh3glHKJRit9eR6FaDOe3JruMVtsoM71Am043xhfFfSHW4WvTE=
-X-Received: by 2002:a5d:47cb:0:b0:38d:de92:adad with SMTP id
- ffacd0b85a97d-38f6e95c4aemr9698920f8f.22.1740421258135; Mon, 24 Feb 2025
- 10:20:58 -0800 (PST)
+	Mon, 24 Feb 2025 18:55:02 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 9705A5C4688;
+	Mon, 24 Feb 2025 18:54:19 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4DF4FC4CED6;
+	Mon, 24 Feb 2025 18:54:54 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1740423298;
+	bh=rVPeC5mli/1j43LuHoG3PNlmHNErM72hIXBxgKKPqkk=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=emIq/Vl3E2OwY+6+v4gj+ccn7N7qHNSVsBl7o3EtRKI899Jx8bZ42IS+pnn7I6bXY
+	 J4U3eVMBb1M3zMyX22+z84AkQRkRg7yVbwyFer/q24CJfkt4LgxGkBVEBtFWROI7LT
+	 VklI4xu4iodLJHllFqkevZnruOhHTwVVcn1iv3LwK6rSPOFBGdXhui6gdzGz8P/b4V
+	 Z0JLN+2sDZHL+ECOddLd+flANvQDrVMQj4sxoCT6+dy6o+zyqVCndYM6yU/nR8u2CY
+	 bmia8xiDiU8QbNA7QnVRKGo/vUT6FelVkNVNk5J+pWqlXat519L3csa4taJkx5cNIp
+	 cjuFHEojP2tzw==
+Date: Mon, 24 Feb 2025 18:54:51 +0000
+From: Conor Dooley <conor@kernel.org>
+To: Inochi Amaoto <inochiama@gmail.com>
+Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>,
+	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
+	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Chen Wang <unicorn_wang@outlook.com>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Niklas Cassel <cassel@kernel.org>,
+	Shashank Babu Chinta Venkata <quic_schintav@quicinc.com>,
+	linux-pci@vger.kernel.org, devicetree@vger.kernel.org,
+	sophgo@lists.linux.dev, linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org, Yixun Lan <dlan@gentoo.org>,
+	Longbin Li <looong.bin@gmail.com>
+Subject: Re: [PATCH 1/2] dt-bindings: pci: Add Sophgo SG2044 PCIe host
+Message-ID: <20250224-enable-progress-e3a47fdb625c@spud>
+References: <20250221013758.370936-1-inochiama@gmail.com>
+ <20250221013758.370936-2-inochiama@gmail.com>
+ <20250221-cavalier-cramp-6235d4348013@spud>
+ <2egxw3r63cbsygpwqaltp4jjlkuwoh4rkwpgv4haj4sgz5sked@vkotadyk4g6y>
 MIME-Version: 1.0
-References: <CAAhSdy0Wo4hQ=gnhpJGU-khA4g-0VkfkMECDjnAsq4Fg6xfWjw@mail.gmail.com>
-In-Reply-To: <CAAhSdy0Wo4hQ=gnhpJGU-khA4g-0VkfkMECDjnAsq4Fg6xfWjw@mail.gmail.com>
-From: Paolo Bonzini <pbonzini@redhat.com>
-Date: Mon, 24 Feb 2025 19:20:46 +0100
-X-Gm-Features: AWEUYZmirAbaCLPAASL9k1ey1yRhraHtQYqh2iKwvRPu6z7rtoFlwTs6G6HOStc
-Message-ID: <CABgObfbKPQ807vchetgjdFbzFiBgSCXXHCTu-Qq-XgA2dzuDCg@mail.gmail.com>
-Subject: Re: [GIT PULL] KVM/riscv fixes for 6.14 take #1
-To: Anup Patel <anup@brainfault.org>
-Cc: Palmer Dabbelt <palmer@dabbelt.com>, Palmer Dabbelt <palmer@rivosinc.com>, 
-	Atish Patra <atishp@atishpatra.org>, Atish Patra <atishp@rivosinc.com>, 
-	Andrew Jones <ajones@ventanamicro.com>, KVM General <kvm@vger.kernel.org>, 
-	"open list:KERNEL VIRTUAL MACHINE FOR RISC-V (KVM/riscv)" <kvm-riscv@lists.infradead.org>, 
-	linux-riscv <linux-riscv@lists.infradead.org>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: Z_MUawSG6zjUmKE55wHGizNQND5hSQj1XDglY2fpMSY_1740421258
-X-Mimecast-Originator: redhat.com
+In-Reply-To: <2egxw3r63cbsygpwqaltp4jjlkuwoh4rkwpgv4haj4sgz5sked@vkotadyk4g6y>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250224_102103_190611_0C58B5BF 
-X-CRM114-Status: GOOD (  12.05  )
+X-CRM114-CacheID: sfid-20250224_105500_782000_70745674 
+X-CRM114-Status: GOOD (  23.44  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,42 +84,132 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: multipart/mixed; boundary="===============2251887180751689686=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gRnJpLCBGZWIgMjEsIDIwMjUgYXQgNjowOOKAr1BNIEFudXAgUGF0ZWwgPGFudXBAYnJhaW5m
-YXVsdC5vcmc+IHdyb3RlOgo+Cj4gSGkgUGFvbG8sCj4KPiBXZSBoYXZlIGEgYnVuY2ggb2YgU0JJ
-IHJlbGF0ZWQgZml4ZXMgYW5kIG9uZSBmaXggdG8gcmVtb3ZlCj4gYSByZWR1bmRhbnQgdmNwdSBr
-aWNrIGZvciB0aGUgNi4xNCBrZXJuZWwuCj4KPiBQbGVhc2UgcHVsbC4KPgo+IFJlZ2FyZHMsCj4g
-QW51cAo+Cj4gVGhlIGZvbGxvd2luZyBjaGFuZ2VzIHNpbmNlIGNvbW1pdCAwYWQyNTA3ZDVkOTNm
-Mzk2MTlmYzQyMzcyYzM0N2Q2MDA2YjY0MzE5Ogo+Cj4gICBMaW51eCA2LjE0LXJjMyAoMjAyNS0w
-Mi0xNiAxNDowMjo0NCAtMDgwMCkKPgo+IGFyZSBhdmFpbGFibGUgaW4gdGhlIEdpdCByZXBvc2l0
-b3J5IGF0Ogo+Cj4gICBodHRwczovL2dpdGh1Yi5jb20va3ZtLXJpc2N2L2xpbnV4LmdpdCB0YWdz
-L2t2bS1yaXNjdi1maXhlcy02LjE0LTEKPgo+IGZvciB5b3UgdG8gZmV0Y2ggY2hhbmdlcyB1cCB0
-byBkMjUyNDM1YWNhNDRkNjQ3ZDU3Yjg0ZGU1MTA4NTU2ZjljOTc2MTRhOgo+Cj4gICByaXNjdjog
-S1ZNOiBSZW1vdmUgdW5uZWNlc3NhcnkgdmNwdSBraWNrICgyMDI1LTAyLTIxIDE3OjI3OjMyICsw
-NTMwKQoKUHVsbGVkLCB0aGFua3MuCgpQYW9sbwoKPiAtLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0t
-LS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tCj4gS1ZNL3Jpc2N2IGZpeGVz
-IGZvciA2LjE0LCB0YWtlICMxCj4KPiAtIEZpeCBoYXJ0IHN0YXR1cyBjaGVjayBpbiBTQkkgSFNN
-IGV4dGVuc2lvbgo+IC0gRml4IGhhcnQgc3VzcGVuZF90eXBlIHVzYWdlIGluIFNCSSBIU00gZXh0
-ZW5zaW9uCj4gLSBGaXggZXJyb3IgcmV0dXJuZWQgYnkgU0JJIElQSSBhbmQgVElNRSBleHRlbnNp
-b25zIGZvcgo+ICAgdW5zdXBwb3J0ZWQgZnVuY3Rpb24gSURzCj4gLSBGaXggc3VzcGVuZF90eXBl
-IHVzYWdlIGluIFNCSSBTVVNQIGV4dGVuc2lvbgo+IC0gUmVtb3ZlIHVubmVjZXNzYXJ5IHZjcHUg
-a2ljayBhZnRlciBpbmplY3RpbmcgaW50ZXJydXB0Cj4gICB2aWEgSU1TSUMgZ3Vlc3QgZmlsZQo+
-Cj4gLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0t
-LS0tLS0tLS0tLQo+IEFuZHJldyBKb25lcyAoNSk6Cj4gICAgICAgcmlzY3Y6IEtWTTogRml4IGhh
-cnQgc3VzcGVuZCBzdGF0dXMgY2hlY2sKPiAgICAgICByaXNjdjogS1ZNOiBGaXggaGFydCBzdXNw
-ZW5kX3R5cGUgdXNlCj4gICAgICAgcmlzY3Y6IEtWTTogRml4IFNCSSBJUEkgZXJyb3IgZ2VuZXJh
-dGlvbgo+ICAgICAgIHJpc2N2OiBLVk06IEZpeCBTQkkgVElNRSBlcnJvciBnZW5lcmF0aW9uCj4g
-ICAgICAgcmlzY3Y6IEtWTTogRml4IFNCSSBzbGVlcF90eXBlIHVzZQo+Cj4gQmlsbFhpYW5nICgx
-KToKPiAgICAgICByaXNjdjogS1ZNOiBSZW1vdmUgdW5uZWNlc3NhcnkgdmNwdSBraWNrCj4KPiAg
-YXJjaC9yaXNjdi9rdm0vYWlhX2ltc2ljLmMgICAgICAgIHwgIDEgLQo+ICBhcmNoL3Jpc2N2L2t2
-bS92Y3B1X3NiaV9oc20uYyAgICAgfCAxMSArKysrKystLS0tLQo+ICBhcmNoL3Jpc2N2L2t2bS92
-Y3B1X3NiaV9yZXBsYWNlLmMgfCAxNSArKysrKysrKysrKystLS0KPiAgYXJjaC9yaXNjdi9rdm0v
-dmNwdV9zYmlfc3lzdGVtLmMgIHwgIDMgKystCj4gIDQgZmlsZXMgY2hhbmdlZCwgMjAgaW5zZXJ0
-aW9ucygrKSwgMTAgZGVsZXRpb25zKC0pCj4KCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZA
-bGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xp
-c3RpbmZvL2xpbnV4LXJpc2N2Cg==
+
+--===============2251887180751689686==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="nEmMIcx09OhU3DPI"
+Content-Disposition: inline
+
+
+--nEmMIcx09OhU3DPI
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+On Sat, Feb 22, 2025 at 08:34:10AM +0800, Inochi Amaoto wrote:
+> On Fri, Feb 21, 2025 at 05:01:41PM +0000, Conor Dooley wrote:
+> > On Fri, Feb 21, 2025 at 09:37:55AM +0800, Inochi Amaoto wrote:
+> > > The pcie controller on the SG2044 is designware based with
+> > > custom app registers.
+> > >=20
+> > > Add binding document for SG2044 PCIe host controller.
+> > >=20
+> > > Signed-off-by: Inochi Amaoto <inochiama@gmail.com>
+> > > ---
+> > >  .../bindings/pci/sophgo,sg2044-pcie.yaml      | 125 ++++++++++++++++=
+++
+> > >  1 file changed, 125 insertions(+)
+> > >  create mode 100644 Documentation/devicetree/bindings/pci/sophgo,sg20=
+44-pcie.yaml
+> > >=20
+> > > diff --git a/Documentation/devicetree/bindings/pci/sophgo,sg2044-pcie=
+=2Eyaml b/Documentation/devicetree/bindings/pci/sophgo,sg2044-pcie.yaml
+> > > new file mode 100644
+> > > index 000000000000..040dabe905e0
+> > > --- /dev/null
+> > > +++ b/Documentation/devicetree/bindings/pci/sophgo,sg2044-pcie.yaml
+> > > @@ -0,0 +1,125 @@
+> > > +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> > > +%YAML 1.2
+> > > +---
+> > > +$id: http://devicetree.org/schemas/pci/sophgo,sg2044-pcie.yaml#
+> > > +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> > > +
+> > > +title: DesignWare based PCIe Root Complex controller on Sophgo SoCs
+> > > +
+> > > +maintainers:
+> > > +  - Inochi Amaoto <inochiama@gmail.com>
+> > > +
+> > > +description: |+
+> > > +  SG2044 SoC PCIe Root Complex controller is based on the Synopsys D=
+esignWare
+> > > +  PCIe IP and thus inherits all the common properties defined in
+> > > +  snps,dw-pcie.yaml.
+> > > +
+> > > +allOf:
+> > > +  - $ref: /schemas/pci/pci-host-bridge.yaml#
+> > > +  - $ref: /schemas/pci/snps,dw-pcie.yaml#
+> > > +
+> > > +properties:
+> > > +  compatible:
+> > > +    const: sophgo,sg2044-pcie
+> > > +
+> > > +  reg:
+> > > +    items:
+> > > +      - description: Data Bus Interface (DBI) registers
+> > > +      - description: iATU registers
+> > > +      - description: Config registers
+> > > +      - description: Sophgo designed configuration registers
+> > > +
+> > > +  reg-names:
+> > > +    items:
+> > > +      - const: dbi
+> > > +      - const: atu
+> > > +      - const: config
+> > > +      - const: app
+> > > +
+> > > +  clocks:
+> > > +    items:
+> > > +      - description: core clk
+> > > +
+> > > +  clock-names:
+> > > +    items:
+> > > +      - const: core
+> > > +
+> > > +  dma-coherent: true
+> >=20
+> > Why's this here? RISC-V is dma-coherent by default, with dma-noncoherent
+> > used to indicate systems/devices that are not.
+>=20
+> The PCIe is dma coherent, but the SoC itself is marked as
+> dma-noncoherent.
+
+By "the SoC itself", do you mean that the bus that this device is on is
+marked as dma-noncoherent? IMO, that should not be done if there are
+devices on it that are coherent.
+
+> So I add dma-coherent to the binding. I
+> wonder whether dma-coherent is necessary even in this case?
+
+
+--nEmMIcx09OhU3DPI
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZ7zAewAKCRB4tDGHoIJi
+0tHFAP90UC8I2j/g5PJgPzzQmwCvjacmi9hAbI+pK4XrrteVtAD/c51IWVKh5nvr
+YkNyy6zZ/5H8GwW0TxvOKWhT8Q8jXAo=
+=qPA6
+-----END PGP SIGNATURE-----
+
+--nEmMIcx09OhU3DPI--
+
+
+--===============2251887180751689686==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============2251887180751689686==--
+
