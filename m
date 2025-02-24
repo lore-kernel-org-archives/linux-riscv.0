@@ -4,73 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 83649C021A4
-	for <linux-riscv@archiver.kernel.org>; Mon, 24 Feb 2025 23:39:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 49F5EC021A4
+	for <linux-riscv@archiver.kernel.org>; Mon, 24 Feb 2025 23:49:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=AeYNIUyz83E67Eyrg/0cl8nae4l0QNsKymPBOG5JfLI=; b=2tyEQrl8+KtTHx
-	Ex600xlLz/4xxgPFg30mgT9x2U62ftZCDhWQirXLkClhbnHqolMJsi94/gn7uxQX2Ci+7JtutJbGR
-	WPiHEtDY0DHBl72aMldHkmrs9vi0LL/gWdwXXJKbm8n7ggPA/EDeQKqIH0pHZiiRG8ecqmKuqM69H
-	zp3CLvFZ0VbIVcbwhaiQ5lnGEGo7Aya4g93iSEbhYmrfThFnPBLuk+Tw1veaCcC9p3XPDIpo/jv23
-	bd34vN5RTQox6uJXTKtXEW/tedI2i5oTUk5N13L6bqEDmFrX3cCjnIWaP2UBWuWyxTlALMD8oq5oB
-	btQBFrnhmmzCiCk2p4iQ==;
+	List-Owner; bh=qXWZpT7tzMz3IsIg7otGb+i8mfRpmNpUpv78wjPdQ5g=; b=sy5tf1T5EZIGtg
+	nUZIpJX444n74Gv3cLzukeclDxqRB9nw0fpJKuUmvbVVAGvam6nxB9YD2wTKH8lwPBTuh9AzBahlq
+	OoGPPpNssCAM1aAd09umrLRBFrWaxGGrLDfQpjIXgGHtwsIeybVVunYmUusja1SWZkswbdoxxhZpT
+	fn2zCCC+2rKNJ4ts+TgKEHC58lZK8F5qPEQ+R1urVwkvCXKJyDKBUGBE/59j2Cm3fAkzNXde01tEv
+	uUZb7S4s83RscrF6HS2XFrIMIx0/JQYYUL64o6UH51V2DVY930t4WGI9+keZB663sxMm9t2dJja4V
+	Fz+PEEt8EOctDu1ZtaYw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmi30-0000000FVYx-0S7e;
-	Mon, 24 Feb 2025 23:39:38 +0000
-Received: from mail-qk1-x734.google.com ([2607:f8b0:4864:20::734])
+	id 1tmiCQ-0000000FXMY-1nrz;
+	Mon, 24 Feb 2025 23:49:22 +0000
+Received: from mail-qk1-x72f.google.com ([2607:f8b0:4864:20::72f])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmi2w-0000000FVXP-3MUM
+	id 1tmiCN-0000000FXLd-0iEH
 	for linux-riscv@lists.infradead.org;
-	Mon, 24 Feb 2025 23:39:36 +0000
-Received: by mail-qk1-x734.google.com with SMTP id af79cd13be357-7be8f28172dso389903385a.3
-        for <linux-riscv@lists.infradead.org>; Mon, 24 Feb 2025 15:39:34 -0800 (PST)
+	Mon, 24 Feb 2025 23:49:20 +0000
+Received: by mail-qk1-x72f.google.com with SMTP id af79cd13be357-7c0818add57so517913885a.3
+        for <linux-riscv@lists.infradead.org>; Mon, 24 Feb 2025 15:49:18 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1740440373; x=1741045173; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1740440958; x=1741045758; darn=lists.infradead.org;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=I28BvW8sYtCIJpp5k7EPbcyeOkG6IabIbB4ctmQvitg=;
-        b=MPtolzbV1cZXI2LlpclxAPMZRQ9ndNr0Pg+CK+NjxqLI4I4O6lWUm6YTUpOW+boIZW
-         9Lz2lka3eFujNXntIOKHVKPHx/9ce7TtH9fNkkWXc2g3a7cXmgZZbMzCLOxfmCv3ip39
-         8blN+2AY60yy2fQ9WMOkrosHSpN/uf0+MWLU37AIQjJJ3Kuxl1zVvMeVMMQY+9KSlfBz
-         3yPWWrx6n9Gfrze0IU95/F0yxszb9iRbqC/FD/y4d7R0PhawJZv3I17d5rBU7N7QGvY4
-         s73bYFbMm6ZuGa14UG+WF4/zOtJR1BwHKiN6I7Muk06IwXktkAf7YC7OepUJV1egApxD
-         P1Jg==
+        bh=EpFPdCKOOzYGkmZbz8KYm8xS5nu6X4mus1CxiMy3hoo=;
+        b=CTbZ7zEfu7FYdYCgFFj/T9cX1d7DCifzYIXbLC/RiwZjn2FW05+J/xB2u6/1Gi6rnh
+         Jlo39kxUhVgOHSzMUtPaTdh9CggOcMhgyfXSecBqPlO0cylfumDkQd+/tvKeHZQqOtUf
+         6VVaPqtlZTdm/kfNUOVrXZzdHxMlu9XSZ0irjBxUbhlVBFxbM/hpnXUywpP0TLStKuuh
+         hWaJPWlWWXtiu/l/QwqqT0XXyAfzYpP8xdJPIRJNs491oU6xL1/LM0Zx47h1HFC5hOOW
+         ewfzf2coEl0u7lQ7Nc+aVp2pO/qpXjWaanPp+w5PMDXQssoNwU3D0/UtjPexBvSFnsk6
+         Bhog==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1740440373; x=1741045173;
+        d=1e100.net; s=20230601; t=1740440958; x=1741045758;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=I28BvW8sYtCIJpp5k7EPbcyeOkG6IabIbB4ctmQvitg=;
-        b=ARpta3JVTvHy8NbUGRHh68Q+QpZs/Q3XuVgnLqN1RUtTv3D7zd/q9pJFk134qxsfX1
-         GqVg7WGNB+W/ERnn+thG0/0JGi6uWRI+PHjTioQwEkAHNZ0xereMsz36IWirxpyUvQJd
-         nbp2ndpG5RoF1ru/kJ/Ls4LLBmFiBQmpKBrAB2kqIxt/EmYeSBHv753zSdJ+ZC35ZaZF
-         Fixnk9sWs/T4rxrCg5eaRWAssSNXFLM5yf9ktgMOuStipCUUwLKieUhpXbBK1+9d78v3
-         XRDirxpO5bdvQJ7KngBPtAXNq+mEg67xngIQD1m5W1rUxgndJL+FhjbbLTF73+ASUJ17
-         aXkg==
-X-Forwarded-Encrypted: i=1; AJvYcCU14O2Jhse9mIPTWczUm34fico9Qcnj+KHKbzEvmshkFBKAa68TTVPn819ARmpX9fKcRBlzBcQ8hOCsVw==@lists.infradead.org
-X-Gm-Message-State: AOJu0YxN/0gvj/1v4qlIASUJ032Tjbyxy66SwnlKy+GqoZZ5QSayp5vO
-	aPoMPjKTT3zPS8lvIvSyMMwz7mOUuTARHjAZxFissCup8H4L57oK
-X-Gm-Gg: ASbGncv1+X+2vIt98HgQ0cAZnZSuRmnOPNMh7NoEzf2BN7glkeGV3lCMA1dI1o6Djlu
-	mgoq03pfOW6i4KyWwKNtEog6NlhNzSF6NfM1D0yVsleMD91XnUKmIekKCnw5x1manPB3IpvWAMc
-	wN7kQ+kt/lhc/r/AUrUjjX6T79VdtvXC2bVit+30L5uLPSBMrThbVk8SshyRy3uWXMzpRFKgpUg
-	WkBtDvt3yCh6Y73/6L1gN/gd5qYQQbyTdAwKw7MCzKj40XN2wvHmE9Js3gtsTbDtq2DSFhnh7xx
-	eQ==
-X-Google-Smtp-Source: AGHT+IFwSiY82sk1UHPy1sh4TaxDRFtt/bKpmiKYsLl62LaJzeIFLc36bW8vjGEj+Z6l8tQnP1hrSg==
-X-Received: by 2002:a05:620a:600b:b0:7c0:b368:5d78 with SMTP id af79cd13be357-7c0ceeea4e1mr2231799485a.9.1740440373095;
-        Mon, 24 Feb 2025 15:39:33 -0800 (PST)
+        bh=EpFPdCKOOzYGkmZbz8KYm8xS5nu6X4mus1CxiMy3hoo=;
+        b=e4KjXDhCMX1HjIg31/CfhhkTiZr7qe8lhl2ZE2U1q7FytEyQDvhloOJT5cyGQleG2+
+         Hq2viSTiF7oGt/GITfJU3Gk34DEl/GcklkuC+9Qk1pBESVAMfRiYb2WA+sqLcGlGTy14
+         XVNa4LglDLdzrIRLy6cclwVjjpyDq+I8V1OgoBWNaokzrNxf15SVtdPGdw2qw5GIVlQi
+         MFJa7xIjZZRLPslb1PRIZgPQO+UnsJ9j3ApPI7PyiB9TnT2bAmwv0mif3e86WPUjeFhV
+         JOqiaSS1I3vhTNa+VVtTVdjq4RYAFvNDLRGFFlevZ0b/Mj/XvyPlVprU4LbHBkvFOE8X
+         qJAg==
+X-Forwarded-Encrypted: i=1; AJvYcCXMEyBKJPWIPFYAc+VMBv/FzYNeovqkHQK8nWYVcpNaS+MED8zHJpElqXrWyChe2s1SF0CVcP5Pkaukfg==@lists.infradead.org
+X-Gm-Message-State: AOJu0YxA1zNEg1I3u5L5Q26L6KnHBXvrfKf5NMlo3phdTXHx4KpecwhL
+	RJgP884NV7osQuSHsZJsKZt2u7lyjeYDKYDJ8bfwsPFQUAvMIgXa
+X-Gm-Gg: ASbGncsIs3VQvidfnVswQDwb9+Yz6sAdiuOk71JRePBdBOdZ2GjBhmXywP9McbJHY75
+	qktWtZOWm5n9S39TxOmJh6Aw2riQKszD1Q8LeVD5WCNn5cSMNQKlVb1IoORp2Pf4aA+gATI54bH
+	ZFyWMUcvqBCoGkSx173BN/0yiJA3p10IX4e/GbD+RvH3oTrS0tl2xLktBxhe3CMknNo+KxSzNYc
+	nFtGV5YBq/+sBRN4MtRagqsPezbfTMS8zuOqvGeLKzHUgf9iha3axl3ue8pIJ1GV6R2VI13D+d8
+	xw==
+X-Google-Smtp-Source: AGHT+IEb4O7bqSxdD9PsVnrPdjDODk+0ZRgqEenGZhUD0ccL6Bcsf2l6qeul83BCvsR9I1s84A5TWw==
+X-Received: by 2002:a05:620a:1a1c:b0:7c0:c024:af with SMTP id af79cd13be357-7c0cf8e622cmr1919031285a.26.1740440957990;
+        Mon, 24 Feb 2025 15:49:17 -0800 (PST)
 Received: from localhost ([2001:da8:7001:11::cb])
-        by smtp.gmail.com with UTF8SMTPSA id af79cd13be357-7c23c299259sm35457385a.14.2025.02.24.15.39.32
+        by smtp.gmail.com with UTF8SMTPSA id af79cd13be357-7c23c2c514asm36530985a.64.2025.02.24.15.49.17
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 24 Feb 2025 15:39:32 -0800 (PST)
-Date: Tue, 25 Feb 2025 07:39:13 +0800
+        Mon, 24 Feb 2025 15:49:17 -0800 (PST)
+Date: Tue, 25 Feb 2025 07:48:59 +0800
 From: Inochi Amaoto <inochiama@gmail.com>
-To: Bjorn Helgaas <helgaas@kernel.org>, 
-	Inochi Amaoto <inochiama@gmail.com>
+To: Conor Dooley <conor@kernel.org>, Inochi Amaoto <inochiama@gmail.com>
 Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>, 
 	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>, Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>, 
 	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>, 
@@ -81,16 +80,19 @@ Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>,
 	Shashank Babu Chinta Venkata <quic_schintav@quicinc.com>, linux-pci@vger.kernel.org, devicetree@vger.kernel.org, 
 	sophgo@lists.linux.dev, linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
 	Yixun Lan <dlan@gentoo.org>, Longbin Li <looong.bin@gmail.com>
-Subject: Re: [PATCH 2/2] PCI: sophgo-dwc: Add Sophgo SG2044 PCIe driver
-Message-ID: <jq55rzcvcp6bxfk3klkomr3gtzqgkwqb2qpjnfndymomaac6ry@5jmzq6vlpu2u>
-References: <fanm6m6fx6cqwalhdvrxmjzsluiyptbvrwbi5ufwbqmxsf62xl@lntprhkjv6tm>
- <20250224194725.GA473475@bhelgaas>
+Subject: Re: [PATCH 1/2] dt-bindings: pci: Add Sophgo SG2044 PCIe host
+Message-ID: <7ht3djv7zgrbkcvmdg6tp62nmxytlxzhaprsuvyeshyojhochn@ignvymxb3vfa>
+References: <20250221013758.370936-1-inochiama@gmail.com>
+ <20250221013758.370936-2-inochiama@gmail.com>
+ <20250221-cavalier-cramp-6235d4348013@spud>
+ <2egxw3r63cbsygpwqaltp4jjlkuwoh4rkwpgv4haj4sgz5sked@vkotadyk4g6y>
+ <20250224-enable-progress-e3a47fdb625c@spud>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20250224194725.GA473475@bhelgaas>
+In-Reply-To: <20250224-enable-progress-e3a47fdb625c@spud>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250224_153934_836103_74D4C791 
-X-CRM114-Status: GOOD (  19.14  )
+X-CRM114-CacheID: sfid-20250224_154919_209647_DB8ECCE9 
+X-CRM114-Status: GOOD (  26.48  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,35 +109,93 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Feb 24, 2025 at 01:47:25PM -0600, Bjorn Helgaas wrote:
-> On Sat, Feb 22, 2025 at 08:43:46AM +0800, Inochi Amaoto wrote:
-> > On Fri, Feb 21, 2025 at 05:49:58PM -0600, Bjorn Helgaas wrote:
-> > > On Fri, Feb 21, 2025 at 09:37:56AM +0800, Inochi Amaoto wrote:
-> > > > Add support for DesignWare-based PCIe controller in SG2044 SoC.
+On Mon, Feb 24, 2025 at 06:54:51PM +0000, Conor Dooley wrote:
+> On Sat, Feb 22, 2025 at 08:34:10AM +0800, Inochi Amaoto wrote:
+> > On Fri, Feb 21, 2025 at 05:01:41PM +0000, Conor Dooley wrote:
+> > > On Fri, Feb 21, 2025 at 09:37:55AM +0800, Inochi Amaoto wrote:
+> > > > The pcie controller on the SG2044 is designware based with
+> > > > custom app registers.
+> > > > 
+> > > > Add binding document for SG2044 PCIe host controller.
+> > > > 
+> > > > Signed-off-by: Inochi Amaoto <inochiama@gmail.com>
+> > > > ---
+> > > >  .../bindings/pci/sophgo,sg2044-pcie.yaml      | 125 ++++++++++++++++++
+> > > >  1 file changed, 125 insertions(+)
+> > > >  create mode 100644 Documentation/devicetree/bindings/pci/sophgo,sg2044-pcie.yaml
+> > > > 
+> > > > diff --git a/Documentation/devicetree/bindings/pci/sophgo,sg2044-pcie.yaml b/Documentation/devicetree/bindings/pci/sophgo,sg2044-pcie.yaml
+> > > > new file mode 100644
+> > > > index 000000000000..040dabe905e0
+> > > > --- /dev/null
+> > > > +++ b/Documentation/devicetree/bindings/pci/sophgo,sg2044-pcie.yaml
+> > > > @@ -0,0 +1,125 @@
+> > > > +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> > > > +%YAML 1.2
+> > > > +---
+> > > > +$id: http://devicetree.org/schemas/pci/sophgo,sg2044-pcie.yaml#
+> > > > +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> > > > +
+> > > > +title: DesignWare based PCIe Root Complex controller on Sophgo SoCs
+> > > > +
+> > > > +maintainers:
+> > > > +  - Inochi Amaoto <inochiama@gmail.com>
+> > > > +
+> > > > +description: |+
+> > > > +  SG2044 SoC PCIe Root Complex controller is based on the Synopsys DesignWare
+> > > > +  PCIe IP and thus inherits all the common properties defined in
+> > > > +  snps,dw-pcie.yaml.
+> > > > +
+> > > > +allOf:
+> > > > +  - $ref: /schemas/pci/pci-host-bridge.yaml#
+> > > > +  - $ref: /schemas/pci/snps,dw-pcie.yaml#
+> > > > +
+> > > > +properties:
+> > > > +  compatible:
+> > > > +    const: sophgo,sg2044-pcie
+> > > > +
+> > > > +  reg:
+> > > > +    items:
+> > > > +      - description: Data Bus Interface (DBI) registers
+> > > > +      - description: iATU registers
+> > > > +      - description: Config registers
+> > > > +      - description: Sophgo designed configuration registers
+> > > > +
+> > > > +  reg-names:
+> > > > +    items:
+> > > > +      - const: dbi
+> > > > +      - const: atu
+> > > > +      - const: config
+> > > > +      - const: app
+> > > > +
+> > > > +  clocks:
+> > > > +    items:
+> > > > +      - description: core clk
+> > > > +
+> > > > +  clock-names:
+> > > > +    items:
+> > > > +      - const: core
+> > > > +
+> > > > +  dma-coherent: true
 > > > 
-> > > > @@ -341,6 +341,16 @@ config PCIE_ROCKCHIP_DW_EP
-> > > >  	  Enables support for the DesignWare PCIe controller in the
-> > > >  	  Rockchip SoC (except RK3399) to work in endpoint mode.
-> > > >  
-> > > > +config PCIE_SOPHGO_DW
-> > > > +	bool "SOPHGO DesignWare PCIe controller"
-> > > 
-> > > What's the canonical styling of "SOPHGO"?  I see "Sophgo" in the
-> > > subject line and in Chen Wang's SG2042 series.  Pick the official
-> > > styling and use it consistently.
+> > > Why's this here? RISC-V is dma-coherent by default, with dma-noncoherent
+> > > used to indicate systems/devices that are not.
 > > 
-> > This is my mistake. It should be "Sophgo", I will change it.
-> > 
-> > > Reorder this so the menuconfig menu items remain alphabetically
-> > > sorted.
-> > 
-> > I think this order is applied to the entry title in menuconfig,
-> > and is not the config key? If so, I will change it.
+> > The PCIe is dma coherent, but the SoC itself is marked as
+> > dma-noncoherent.
 > 
-> It's the title shown by menuconfig, i.e., "SOPHGO DesignWare PCIe
-> controller" here.
+> By "the SoC itself", do you mean that the bus that this device is on is
+> marked as dma-noncoherent? 
 
-Thanks, I will reorder it.
+Yeah, I was told only PCIe device on SG2044 is dma coherent.
+The others are not.
+
+> IMO, that should not be done if there are devices on it that are coherent.
+> 
+
+It is OK for me. But I wonder how to handle the non coherent device
+in DT? Just Mark the bus coherent and mark all devices except the
+PCIe device non coherent?
 
 Regards,
 Inochi
