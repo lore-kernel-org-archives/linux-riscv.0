@@ -4,60 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 89FF2C021A6
-	for <linux-riscv@archiver.kernel.org>; Mon, 24 Feb 2025 13:14:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E2B5DC021A6
+	for <linux-riscv@archiver.kernel.org>; Mon, 24 Feb 2025 13:22:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=2jKgjy8PecSYYcqYlCpTnKBSAH+RW5u5rtlLaNaIGIc=; b=gLRbu2X5zlQXOy
-	bJmWMQsBxnQzsNzGXLwfT/k4OZDUIClXkWsnd94YxgNtCFP8jRRA9OAJV+MH2sHUjkKs1xpZNzhsO
-	nDWTb/uva2tnX2OLvit/cF3bv5r737iXrXxLzJhNiLCd/OVlOSkFqyLOSHMPOvfjSNJl8WAPC5S79
-	6A5xw/2uLFxyWC+lCJpEWXqSlGPBYsEKcK2pVYiS4QlYuajim7DzlZf1rG/InlSjT3NhbgPACqbpO
-	nCmoXSNwOar6gKY5L6gsF0udXfO0izkk1bG9dpcbrtCeuYbRg2loWdLliphQOITODKjL323C/rZ4I
-	CjKEaS5slcLqUHX1s7Bg==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=l7UsXjwYCInwL0NkBFxldko7rOazqMJLmsbhxEpbYh0=; b=ojDHZdnUUDQmtI
+	YnA+lw/FwH7KDEve7ghYKCEnqLZZCzFuOPMbK5lRSIXDm2MoEptL7G1gFdeqOPgQIsvGgqI46u6oB
+	puqqv4RksE/c+ItAdS8Kkl6+NXeFqEAd0rYhsFTGw2nhknZuMcGTAcdLpTBSuXTiATylchkR8Afe9
+	ERVmsQf7I+egoL0H6pxgw77UPU8Z/0JBV3QAaqmfaDMVvQpXR3NIEdqa0h1qJzlOnA64ML7st7bag
+	Lp8p8Y21SqCmwikUImXk5GhwjzHiMK25l76pUuIX4BPCpAttwalEOa/hTDVrowXP5dN3wBD14ZjRW
+	/y/w/wwtOMPvGzOK3y+w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmYHo-0000000Dnp9-1wUH;
-	Mon, 24 Feb 2025 13:14:16 +0000
-Received: from xry111.site ([89.208.246.23])
+	id 1tmYPU-0000000DsCy-3bWy;
+	Mon, 24 Feb 2025 13:22:12 +0000
+Received: from woodpecker.gentoo.org ([140.211.166.183] helo=smtp.gentoo.org)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmXX8-0000000DgXn-06Ux
+	id 1tmYOm-0000000Ds3k-157Y
 	for linux-riscv@lists.infradead.org;
-	Mon, 24 Feb 2025 12:26:06 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=xry111.site;
-	s=default; t=1740399959;
-	bh=wxXQCe6JL+XSTorpxPui+XDnMCufwXOgsVimPbzpg/8=;
-	h=From:To:Cc:Subject:Date:From;
-	b=ZKhVqqmBGBJrNiO/eu1ZsyJYxjMtSSW3VtG7nIpGQ3xsbzr5rMo8u6/qjzZReCX7L
-	 F8zeAXB44gjFGLeLhssxVA+SZ15EYACbByPuaMYtKnq6QzTIXlbdj+asQGUm2akAeV
-	 OKGkTJ9JsLvln2H4UuSVOCs3Gho9dh/WrEKqM3eQ=
-Received: from stargazer.. (unknown [IPv6:240e:358:1110:6100:dc73:854d:832e:7])
+	Mon, 24 Feb 2025 13:21:29 +0000
+Received: from localhost (unknown [116.232.55.252])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (secp384r1) server-digest SHA384)
-	(Client did not present a certificate)
-	(Authenticated sender: xry111@xry111.site)
-	by xry111.site (Postfix) with ESMTPSA id C868F1A43F9;
-	Mon, 24 Feb 2025 07:25:55 -0500 (EST)
-From: Xi Ruoyao <xry111@xry111.site>
-To: "Jason A. Donenfeld" <Jason@zx2c4.com>,
-	=?UTF-8?q?Thomas=20Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>,
+	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: dlan)
+	by smtp.gentoo.org (Postfix) with ESMTPSA id 67D90343183;
+	Mon, 24 Feb 2025 13:21:25 +0000 (UTC)
+Date: Mon, 24 Feb 2025 13:21:15 +0000
+From: Yixun Lan <dlan@gentoo.org>
+To: Longbin Li <looong.bin@gmail.com>
+Cc: Mark Brown <broonie@kernel.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Chen Wang <unicorn_wang@outlook.com>,
+	Inochi Amaoto <inochiama@gmail.com>,
 	Paul Walmsley <paul.walmsley@sifive.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
-	Guo Ren <guoren@kernel.org>
-Cc: linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Xi Ruoyao <xry111@xry111.site>
-Subject: [PATCH] RISC-V: vDSO: Wire up getrandom() vDSO implementation
-Date: Mon, 24 Feb 2025 20:25:41 +0800
-Message-ID: <20250224122541.65045-1-xry111@xry111.site>
-X-Mailer: git-send-email 2.48.1
+	Albert Ou <aou@eecs.berkeley.edu>, linux-spi@vger.kernel.org,
+	devicetree@vger.kernel.org, sophgo@lists.linux.dev,
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
+Subject: Re: [PATCH 2/3] spi: sophgo: add Sophgo SPI NOR controller driver
+Message-ID: <20250224132115-GYA41655@gentoo>
+References: <20250224101213.26003-1-looong.bin@gmail.com>
+ <20250224101213.26003-3-looong.bin@gmail.com>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20250224101213.26003-3-looong.bin@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250224_042602_119745_25A1F5A8 
-X-CRM114-Status: GOOD (  17.13  )
+X-CRM114-CacheID: sfid-20250224_052128_344370_8B8B1493 
+X-CRM114-Status: GOOD (  32.29  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,205 +68,585 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-SG9vayB1cCB0aGUgZ2VuZXJpYyB2RFNPIGltcGxlbWVudGF0aW9uIHRvIHRoZSBMb29uZ0FyY2gg
-dkRTTyBkYXRhIHBhZ2UKYnkgcHJvdmlkaW5nIHRoZSByZXF1aXJlZCBfX2FyY2hfY2hhY2hhMjBf
-YmxvY2tzX25vc3RhY2ssCl9fYXJjaF9nZXRfa192ZHNvX3JuZ19kYXRhLCBhbmQgZ2V0cmFuZG9t
-X3N5c2NhbGwgaW1wbGVtZW50YXRpb25zLiBBbHNvCndpcmUgdXAgdGhlIHNlbGZ0ZXN0cy4KClRo
-ZSBiZW5jaG1hcmsgcmVzdWx0OgoKCXZkc286IDI1MDAwMDAwIHRpbWVzIGluIDIuNTYwMDI0OTEz
-IHNlY29uZHMKCWxpYmM6IDI1MDAwMDAwIHRpbWVzIGluIDQwLjk2MDUyNDc2NyBzZWNvbmRzCglz
-eXNjYWxsOiAyNTAwMDAwMCB0aW1lcyBpbiA0MC4zODA2NTE4NjQgc2Vjb25kcwoKCXZkc286IDI1
-MDAwMDAwIHggMjU2IHRpbWVzIGluIDE3MS44MzA2NTUzMjEgc2Vjb25kcwoJbGliYzogMjUwMDAw
-MDAgeCAyNTYgdGltZXMgaW4gMjkxMy4xMDcwODAxMzIgc2Vjb25kcwoJc3lzY2FsbDogMjUwMDAw
-MDAgeCAyNTYgdGltZXMgaW4gMjY5Mi4wODQzMjMzNzcgc2Vjb25kcwoKTm90ZSB0aGF0IGl0IGRl
-cGVuZHMgb24gVGhvbWFzIFdlacOfc2NodWgncyB2RFNPIGdlbmVyaWMgZGF0YSBzdG9yYWdlCmlt
-cGxlbWVudGF0aW9uIChub3cgaW4gdGhlIHRpbWVycy92ZHNvIGJyYW5jaCBvZiB0aXApLgoKU2ln
-bmVkLW9mZi1ieTogWGkgUnVveWFvIDx4cnkxMTFAeHJ5MTExLnNpdGU+Ci0tLQogYXJjaC9yaXNj
-di9LY29uZmlnICAgICAgICAgICAgICAgICAgICAgICAgICAgIHwgICAxICsKIGFyY2gvcmlzY3Yv
-aW5jbHVkZS9hc20vdmRzby9nZXRyYW5kb20uaCAgICAgICB8ICAzMCArKysKIGFyY2gvcmlzY3Yv
-a2VybmVsL3Zkc28vTWFrZWZpbGUgICAgICAgICAgICAgICB8ICAgNyArLQogYXJjaC9yaXNjdi9r
-ZXJuZWwvdmRzby9nZXRyYW5kb20uYyAgICAgICAgICAgIHwgIDEwICsKIGFyY2gvcmlzY3Yva2Vy
-bmVsL3Zkc28vdmRzby5sZHMuUyAgICAgICAgICAgICB8ICAgMSArCiBhcmNoL3Jpc2N2L2tlcm5l
-bC92ZHNvL3ZnZXRyYW5kb20tY2hhY2hhLlMgICAgfCAyNDQgKysrKysrKysrKysrKysrKysrCiAu
-Li4vc2VsZnRlc3RzL3ZEU08vdmdldHJhbmRvbS1jaGFjaGEuUyAgICAgICAgfCAgIDIgKwogNyBm
-aWxlcyBjaGFuZ2VkLCAyOTQgaW5zZXJ0aW9ucygrKSwgMSBkZWxldGlvbigtKQogY3JlYXRlIG1v
-ZGUgMTAwNjQ0IGFyY2gvcmlzY3YvaW5jbHVkZS9hc20vdmRzby9nZXRyYW5kb20uaAogY3JlYXRl
-IG1vZGUgMTAwNjQ0IGFyY2gvcmlzY3Yva2VybmVsL3Zkc28vZ2V0cmFuZG9tLmMKIGNyZWF0ZSBt
-b2RlIDEwMDY0NCBhcmNoL3Jpc2N2L2tlcm5lbC92ZHNvL3ZnZXRyYW5kb20tY2hhY2hhLlMKCmRp
-ZmYgLS1naXQgYS9hcmNoL3Jpc2N2L0tjb25maWcgYi9hcmNoL3Jpc2N2L0tjb25maWcKaW5kZXgg
-YWE4ZWE1MzE4NmMwLi42ZmRkNjNlMTVmYjQgMTAwNjQ0Ci0tLSBhL2FyY2gvcmlzY3YvS2NvbmZp
-ZworKysgYi9hcmNoL3Jpc2N2L0tjb25maWcKQEAgLTIxMyw2ICsyMTMsNyBAQCBjb25maWcgUklT
-Q1YKIAlzZWxlY3QgVEhSRUFEX0lORk9fSU5fVEFTSwogCXNlbGVjdCBUUkFDRV9JUlFGTEFHU19T
-VVBQT1JUCiAJc2VsZWN0IFVBQ0NFU1NfTUVNQ1BZIGlmICFNTVUKKwlzZWxlY3QgVkRTT19HRVRS
-QU5ET00gaWYgSEFWRV9HRU5FUklDX1ZEU08KIAlzZWxlY3QgVVNFUl9TVEFDS1RSQUNFX1NVUFBP
-UlQKIAlzZWxlY3QgWk9ORV9ETUEzMiBpZiA2NEJJVAogCmRpZmYgLS1naXQgYS9hcmNoL3Jpc2N2
-L2luY2x1ZGUvYXNtL3Zkc28vZ2V0cmFuZG9tLmggYi9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL3Zk
-c28vZ2V0cmFuZG9tLmgKbmV3IGZpbGUgbW9kZSAxMDA2NDQKaW5kZXggMDAwMDAwMDAwMDAwLi43
-ZDVlNTNlNjcwYmIKLS0tIC9kZXYvbnVsbAorKysgYi9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL3Zk
-c28vZ2V0cmFuZG9tLmgKQEAgLTAsMCArMSwzMCBAQAorLy8gU1BEWC1MaWNlbnNlLUlkZW50aWZp
-ZXI6IEdQTC0yLjAtb25seQorLyoKKyAqIENvcHlyaWdodCAoQykgMjAyNSBYaSBSdW95YW8gPHhy
-eTExMUB4cnkxMTEuc2l0ZT4uIEFsbCBSaWdodHMgUmVzZXJ2ZWQuCisgKi8KKyNpZm5kZWYgX19B
-U01fVkRTT19HRVRSQU5ET01fSAorI2RlZmluZSBfX0FTTV9WRFNPX0dFVFJBTkRPTV9ICisKKyNp
-Zm5kZWYgX19BU1NFTUJMWV9fCisKKyNpbmNsdWRlIDxhc20vdW5pc3RkLmg+CisKK3N0YXRpYyBf
-X2Fsd2F5c19pbmxpbmUgc3NpemVfdCBnZXRyYW5kb21fc3lzY2FsbCh2b2lkICpfYnVmZmVyLCBz
-aXplX3QgX2xlbiwgdW5zaWduZWQgaW50IF9mbGFncykKK3sKKwlyZWdpc3RlciBsb25nIHJldCBh
-c20oImEwIik7CisJcmVnaXN0ZXIgbG9uZyBuciBhc20oImE3IikgPSBfX05SX2dldHJhbmRvbTsK
-KwlyZWdpc3RlciB2b2lkICpidWZmZXIgYXNtKCJhMCIpID0gX2J1ZmZlcjsKKwlyZWdpc3RlciBz
-aXplX3QgbGVuIGFzbSgiYTEiKSA9IF9sZW47CisJcmVnaXN0ZXIgdW5zaWduZWQgaW50IGZsYWdz
-IGFzbSgiYTIiKSA9IF9mbGFnczsKKworCWFzbSB2b2xhdGlsZSAoImVjYWxsXG4iCisJCSAgICAg
-IDogIityIiAocmV0KQorCQkgICAgICA6ICJyIiAobnIpLCAiciIgKGJ1ZmZlciksICJyIiAobGVu
-KSwgInIiIChmbGFncykKKwkJICAgICAgOiAibWVtb3J5Iik7CisKKwlyZXR1cm4gcmV0OworfQor
-CisjZW5kaWYgLyogIV9fQVNTRU1CTFlfXyAqLworCisjZW5kaWYgLyogX19BU01fVkRTT19HRVRS
-QU5ET01fSCAqLwpkaWZmIC0tZ2l0IGEvYXJjaC9yaXNjdi9rZXJuZWwvdmRzby9NYWtlZmlsZSBi
-L2FyY2gvcmlzY3Yva2VybmVsL3Zkc28vTWFrZWZpbGUKaW5kZXggNGE1ZDEzMTUwNmZjLi5iZTA2
-OGE1MGY2NzEgMTAwNjQ0Ci0tLSBhL2FyY2gvcmlzY3Yva2VybmVsL3Zkc28vTWFrZWZpbGUKKysr
-IGIvYXJjaC9yaXNjdi9rZXJuZWwvdmRzby9NYWtlZmlsZQpAQCAtMTIsOSArMTIsMTAgQEAgdmRz
-by1zeW1zICs9IGdldGNwdQogdmRzby1zeW1zICs9IGZsdXNoX2ljYWNoZQogdmRzby1zeW1zICs9
-IGh3cHJvYmUKIHZkc28tc3ltcyArPSBzeXNfaHdwcm9iZQordmRzby1zeW1zICs9IGdldHJhbmRv
-bQogCiAjIEZpbGVzIHRvIGxpbmsgaW50byB0aGUgdmRzbwotb2JqLXZkc28gPSAkKHBhdHN1YnN0
-ICUsICUubywgJCh2ZHNvLXN5bXMpKSBub3RlLm8KK29iai12ZHNvID0gJChwYXRzdWJzdCAlLCAl
-Lm8sICQodmRzby1zeW1zKSkgbm90ZS5vIHZnZXRyYW5kb20tY2hhY2hhLm8KIAogY2NmbGFncy15
-IDo9IC1mbm8tc3RhY2stcHJvdGVjdG9yCiBjY2ZsYWdzLXkgKz0gLURESVNBQkxFX0JSQU5DSF9Q
-Uk9GSUxJTkcKQEAgLTI0LDYgKzI1LDEwIEBAIGlmbmVxICgkKGMtZ2V0dGltZW9mZGF5LXkpLCkK
-ICAgQ0ZMQUdTX3ZnZXR0aW1lb2ZkYXkubyArPSAtZlBJQyAtaW5jbHVkZSAkKGMtZ2V0dGltZW9m
-ZGF5LXkpCiBlbmRpZgogCitpZm5lcSAoJChjLWdldHJhbmRvbS15KSwpCisgIENGTEFHU19nZXRy
-YW5kb20ubyArPSAtZlBJQyAtaW5jbHVkZSAkKGMtZ2V0cmFuZG9tLXkpCitlbmRpZgorCiBDRkxB
-R1NfaHdwcm9iZS5vICs9IC1mUElDCiAKICMgQnVpbGQgcnVsZXMKZGlmZiAtLWdpdCBhL2FyY2gv
-cmlzY3Yva2VybmVsL3Zkc28vZ2V0cmFuZG9tLmMgYi9hcmNoL3Jpc2N2L2tlcm5lbC92ZHNvL2dl
-dHJhbmRvbS5jCm5ldyBmaWxlIG1vZGUgMTAwNjQ0CmluZGV4IDAwMDAwMDAwMDAwMC4uZjIxOTIy
-ZThjZWJkCi0tLSAvZGV2L251bGwKKysrIGIvYXJjaC9yaXNjdi9rZXJuZWwvdmRzby9nZXRyYW5k
-b20uYwpAQCAtMCwwICsxLDEwIEBACisvLyBTUERYLUxpY2Vuc2UtSWRlbnRpZmllcjogR1BMLTIu
-MC1vbmx5CisvKgorICogQ29weXJpZ2h0IChDKSAyMDI1IFhpIFJ1b3lhbyA8eHJ5MTExQHhyeTEx
-MS5zaXRlPi4gQWxsIFJpZ2h0cyBSZXNlcnZlZC4KKyAqLworI2luY2x1ZGUgPGxpbnV4L3R5cGVz
-Lmg+CisKK3NzaXplX3QgX192ZHNvX2dldHJhbmRvbSh2b2lkICpidWZmZXIsIHNpemVfdCBsZW4s
-IHVuc2lnbmVkIGludCBmbGFncywgdm9pZCAqb3BhcXVlX3N0YXRlLCBzaXplX3Qgb3BhcXVlX2xl
-bikKK3sKKwlyZXR1cm4gX19jdmRzb19nZXRyYW5kb20oYnVmZmVyLCBsZW4sIGZsYWdzLCBvcGFx
-dWVfc3RhdGUsIG9wYXF1ZV9sZW4pOworfQpkaWZmIC0tZ2l0IGEvYXJjaC9yaXNjdi9rZXJuZWwv
-dmRzby92ZHNvLmxkcy5TIGIvYXJjaC9yaXNjdi9rZXJuZWwvdmRzby92ZHNvLmxkcy5TCmluZGV4
-IDhlODY5NjVhOGFhZS4uYWJjNjljZGEwNDQ1IDEwMDY0NAotLS0gYS9hcmNoL3Jpc2N2L2tlcm5l
-bC92ZHNvL3Zkc28ubGRzLlMKKysrIGIvYXJjaC9yaXNjdi9rZXJuZWwvdmRzby92ZHNvLmxkcy5T
-CkBAIC04MCw2ICs4MCw3IEBAIFZFUlNJT04KICNpZm5kZWYgQ09NUEFUX1ZEU08KIAkJX192ZHNv
-X3Jpc2N2X2h3cHJvYmU7CiAjZW5kaWYKKwkJX192ZHNvX2dldHJhbmRvbTsKIAlsb2NhbDogKjsK
-IAl9OwogfQpkaWZmIC0tZ2l0IGEvYXJjaC9yaXNjdi9rZXJuZWwvdmRzby92Z2V0cmFuZG9tLWNo
-YWNoYS5TIGIvYXJjaC9yaXNjdi9rZXJuZWwvdmRzby92Z2V0cmFuZG9tLWNoYWNoYS5TCm5ldyBm
-aWxlIG1vZGUgMTAwNjQ0CmluZGV4IDAwMDAwMDAwMDAwMC4uMjllYzY1MjVhMjU3Ci0tLSAvZGV2
-L251bGwKKysrIGIvYXJjaC9yaXNjdi9rZXJuZWwvdmRzby92Z2V0cmFuZG9tLWNoYWNoYS5TCkBA
-IC0wLDAgKzEsMjQ0IEBACisvLyBTUERYLUxpY2Vuc2UtSWRlbnRpZmllcjogR1BMLTIuMAorLyoK
-KyAqIENvcHlyaWdodCAoQykgMjAyNSBYaSBSdW95YW8gPHhyeTExMUB4cnkxMTEuc2l0ZT4uIEFs
-bCBSaWdodHMgUmVzZXJ2ZWQuCisgKgorICogQmFzZWQgb24gYXJjaC9sb29uZ2FyY2gvdmRzby92
-Z2V0cmFuZG9tLWNoYWNoYS5TLgorICovCisKKyNpbmNsdWRlIDxhc20vYXNtLmg+CisjaW5jbHVk
-ZSA8bGludXgvbGlua2FnZS5oPgorCisudGV4dAorCisubWFjcm8JUk9UUkkJcmQgcnMgaW1tCisJ
-c2xsaXcJdDAsIFxycywgMzIgLSBcaW1tCisJc3JsaXcJXHJkLCBccnMsIFxpbW0KKwlvcglccmQs
-IFxyZCwgdDAKKy5lbmRtCisKKy5tYWNybwlPUF80UkVHCW9wIGQwIGQxIGQyIGQzIHMwIHMxIHMy
-IHMzCisJXG9wCVxkMCwgXGQwLCBcczAKKwlcb3AJXGQxLCBcZDEsIFxzMQorCVxvcAlcZDIsIFxk
-MiwgXHMyCisJXG9wCVxkMywgXGQzLCBcczMKKy5lbmRtCisKKy8qCisgKglhMDogb3V0cHV0IGJ5
-dGVzCisgKiAJYTE6IDMyLWJ5dGUga2V5IGlucHV0CisgKglhMjogOC1ieXRlIGNvdW50ZXIgaW5w
-dXQvb3V0cHV0CisgKglhMzogbnVtYmVyIG9mIDY0LWJ5dGUgYmxvY2tzIHRvIHdyaXRlIHRvIG91
-dHB1dAorICovCitTWU1fRlVOQ19TVEFSVChfX2FyY2hfY2hhY2hhMjBfYmxvY2tzX25vc3RhY2sp
-CisKKyNkZWZpbmUgb3V0cHV0CQlhMAorI2RlZmluZSBrZXkJCWExCisjZGVmaW5lIGNvdW50ZXIJ
-CWEyCisjZGVmaW5lIG5ibG9ja3MJCWEzCisjZGVmaW5lIGkJCWE0CisjZGVmaW5lIHN0YXRlMAkJ
-czAKKyNkZWZpbmUgc3RhdGUxCQlzMQorI2RlZmluZSBzdGF0ZTIJCXMyCisjZGVmaW5lIHN0YXRl
-MwkJczMKKyNkZWZpbmUgc3RhdGU0CQlzNAorI2RlZmluZSBzdGF0ZTUJCXM1CisjZGVmaW5lIHN0
-YXRlNgkJczYKKyNkZWZpbmUgc3RhdGU3CQlzNworI2RlZmluZSBzdGF0ZTgJCXM4CisjZGVmaW5l
-IHN0YXRlOQkJczkKKyNkZWZpbmUgc3RhdGUxMAkJczEwCisjZGVmaW5lIHN0YXRlMTEJCXMxMQor
-I2RlZmluZSBzdGF0ZTEyCQlhNQorI2RlZmluZSBzdGF0ZTEzCQlhNgorI2RlZmluZSBzdGF0ZTE0
-CQlhNworI2RlZmluZSBzdGF0ZTE1CQl0MQorI2RlZmluZSBjbnQJCXQyCisjZGVmaW5lIGNvcHkw
-CQl0MworI2RlZmluZSBjb3B5MQkJdDQKKyNkZWZpbmUgY29weTIJCXQ1CisjZGVmaW5lIGNvcHkz
-CQl0NgorCisvKiBQYWNrcyB0byBiZSB1c2VkIHdpdGggT1BfNFJFRyAqLworI2RlZmluZSBsaW5l
-MAkJc3RhdGUwLCBzdGF0ZTEsIHN0YXRlMiwgc3RhdGUzCisjZGVmaW5lIGxpbmUxCQlzdGF0ZTQs
-IHN0YXRlNSwgc3RhdGU2LCBzdGF0ZTcKKyNkZWZpbmUgbGluZTIJCXN0YXRlOCwgc3RhdGU5LCBz
-dGF0ZTEwLCBzdGF0ZTExCisjZGVmaW5lIGxpbmUzCQlzdGF0ZTEyLCBzdGF0ZTEzLCBzdGF0ZTE0
-LCBzdGF0ZTE1CisKKyNkZWZpbmUgbGluZTFfcGVybQlzdGF0ZTUsIHN0YXRlNiwgc3RhdGU3LCBz
-dGF0ZTQKKyNkZWZpbmUgbGluZTJfcGVybQlzdGF0ZTEwLCBzdGF0ZTExLCBzdGF0ZTgsIHN0YXRl
-OQorI2RlZmluZSBsaW5lM19wZXJtCXN0YXRlMTUsIHN0YXRlMTIsIHN0YXRlMTMsIHN0YXRlMTQK
-KworI2RlZmluZSBjb3B5ICAgICAgICAgICAgY29weTAsIGNvcHkxLCBjb3B5MiwgY29weTMKKwor
-I2RlZmluZSBfMTYJCTE2LCAxNiwgMTYsIDE2CisjZGVmaW5lIF8yMAkJMjAsIDIwLCAyMCwgMjAK
-KyNkZWZpbmUgXzI0CQkyNCwgMjQsIDI0LCAyNAorI2RlZmluZSBfMjUJCTI1LCAyNSwgMjUsIDI1
-CisKKwlhZGRpCQlzcCwgc3AsIC0xMipTWlJFRworCVJFR19TCQlzMCwgICAgICAgICAoc3ApCisJ
-UkVHX1MJCXMxLCAgICBTWlJFRyhzcCkKKwlSRUdfUwkJczIsICAyKlNaUkVHKHNwKQorCVJFR19T
-CQlzMywgIDMqU1pSRUcoc3ApCisJUkVHX1MJCXM0LCAgNCpTWlJFRyhzcCkKKwlSRUdfUwkJczUs
-ICA1KlNaUkVHKHNwKQorCVJFR19TCQlzNiwgIDYqU1pSRUcoc3ApCisJUkVHX1MJCXM3LCAgNypT
-WlJFRyhzcCkKKwlSRUdfUwkJczgsICA4KlNaUkVHKHNwKQorCVJFR19TCQlzOSwgIDkqU1pSRUco
-c3ApCisJUkVHX1MJCXMxMCwgMTAqU1pSRUcoc3ApCisJUkVHX1MJCXMxMSwgMTEqU1pSRUcoc3Ap
-CisKKwlsZAkJY250LCAoY291bnRlcikKKworCWxpCQljb3B5MCwgMHg2MTcwNzg2NQorCWxpCQlj
-b3B5MSwgMHgzMzIwNjQ2ZQorCWxpCQljb3B5MiwgMHg3OTYyMmQzMgorCWxpCQljb3B5MywgMHg2
-YjIwNjU3NAorCisuTGJsb2NrOgorCS8qIHN0YXRlWzAsMSwyLDNdID0gImV4cGFuZCAzMi1ieXRl
-IGsiICovCisJbXYJCXN0YXRlMCwgY29weTAKKwltdgkJc3RhdGUxLCBjb3B5MQorCW12CQlzdGF0
-ZTIsIGNvcHkyCisJbXYJCXN0YXRlMywgY29weTMKKworCS8qIHN0YXRlWzQsNSwuLiwxMV0gPSBr
-ZXkgKi8KKwlsdwkJc3RhdGU0LCAgIChrZXkpCisJbHcJCXN0YXRlNSwgIDQoa2V5KQorCWx3CQlz
-dGF0ZTYsICA4KGtleSkKKwlsdwkJc3RhdGU3LCAgMTIoa2V5KQorCWx3CQlzdGF0ZTgsICAxNihr
-ZXkpCisJbHcJCXN0YXRlOSwgIDIwKGtleSkKKwlsdwkJc3RhdGUxMCwgMjQoa2V5KQorCWx3CQlz
-dGF0ZTExLCAyOChrZXkpCisKKwkvKiBzdGF0ZVsxMiwxM10gPSBjb3VudGVyICovCisJbXYJCXN0
-YXRlMTIsIGNudAorCXNybGkJCXN0YXRlMTMsIGNudCwgMzIKKworCS8qIHN0YXRlWzE0LDE1XSA9
-IDAgKi8KKwltdgkJc3RhdGUxNCwgemVybworCW12CQlzdGF0ZTE1LCB6ZXJvCisKKwlsaQkJaSwg
-MTAKKy5McGVybXV0ZToKKwkvKiBvZGQgcm91bmQgKi8KKwlPUF80UkVHCWFkZHcJbGluZTAsIGxp
-bmUxCisJT1BfNFJFRwl4b3IJbGluZTMsIGxpbmUwCisJT1BfNFJFRwlST1RSSQlsaW5lMywgXzE2
-CisKKwlPUF80UkVHCWFkZHcJbGluZTIsIGxpbmUzCisJT1BfNFJFRwl4b3IJbGluZTEsIGxpbmUy
-CisJT1BfNFJFRwlST1RSSQlsaW5lMSwgXzIwCisKKwlPUF80UkVHCWFkZHcJbGluZTAsIGxpbmUx
-CisJT1BfNFJFRwl4b3IJbGluZTMsIGxpbmUwCisJT1BfNFJFRwlST1RSSQlsaW5lMywgXzI0CisK
-KwlPUF80UkVHCWFkZHcJbGluZTIsIGxpbmUzCisJT1BfNFJFRwl4b3IJbGluZTEsIGxpbmUyCisJ
-T1BfNFJFRwlST1RSSQlsaW5lMSwgXzI1CisKKwkvKiBldmVuIHJvdW5kICovCisJT1BfNFJFRwlh
-ZGR3CWxpbmUwLCBsaW5lMV9wZXJtCisJT1BfNFJFRwl4b3IJbGluZTNfcGVybSwgbGluZTAKKwlP
-UF80UkVHCVJPVFJJCWxpbmUzX3Blcm0sIF8xNgorCisJT1BfNFJFRwlhZGR3CWxpbmUyX3Blcm0s
-IGxpbmUzX3Blcm0KKwlPUF80UkVHCXhvcglsaW5lMV9wZXJtLCBsaW5lMl9wZXJtCisJT1BfNFJF
-RwlST1RSSQlsaW5lMV9wZXJtLCBfMjAKKworCU9QXzRSRUcJYWRkdwlsaW5lMCwgbGluZTFfcGVy
-bQorCU9QXzRSRUcJeG9yCWxpbmUzX3Blcm0sIGxpbmUwCisJT1BfNFJFRwlST1RSSQlsaW5lM19w
-ZXJtLCBfMjQKKworCU9QXzRSRUcJYWRkdwlsaW5lMl9wZXJtLCBsaW5lM19wZXJtCisJT1BfNFJF
-Rwl4b3IJbGluZTFfcGVybSwgbGluZTJfcGVybQorCU9QXzRSRUcJUk9UUkkJbGluZTFfcGVybSwg
-XzI1CisKKwlhZGRpCQlpLCBpLCAtMQorCWJuZXoJCWksIC5McGVybXV0ZQorCisJLyogb3V0cHV0
-WzAsMSwyLDNdID0gY29weVswLDEsMiwzXSArIHN0YXRlWzAsMSwyLDNdICovCisJT1BfNFJFRwlh
-ZGR3CWxpbmUwLCBjb3B5CisJc3cJCXN0YXRlMCwgICAob3V0cHV0KQorCXN3CQlzdGF0ZTEsICA0
-KG91dHB1dCkKKwlzdwkJc3RhdGUyLCAgOChvdXRwdXQpCisJc3cJCXN0YXRlMywgMTIob3V0cHV0
-KQorCisJLyogZnJvbSBub3cgb24gc3RhdGVbMCwxLDIsM10gYXJlIHNjcmF0Y2ggcmVnaXN0ZXJz
-ICAqLworCisJLyogc3RhdGVbMCwxLDIsM10gPSBsbyhrZXkpICovCisJbHcJCXN0YXRlMCwgICAo
-a2V5KQorCWx3CQlzdGF0ZTEsICA0KGtleSkKKwlsdwkJc3RhdGUyLCAgOChrZXkpCisJbHcJCXN0
-YXRlMywgMTIoa2V5KQorCisJLyogb3V0cHV0WzQsNSw2LDddID0gc3RhdGVbMCwxLDIsM10gKyBz
-dGF0ZVs0LDUsNiw3XSAqLworCU9QXzRSRUcJYWRkdwlsaW5lMSwgbGluZTAKKwlzdwkJc3RhdGU0
-LCAxNihvdXRwdXQpCisJc3cJCXN0YXRlNSwgMjAob3V0cHV0KQorCXN3CQlzdGF0ZTYsIDI0KG91
-dHB1dCkKKwlzdwkJc3RhdGU3LCAyOChvdXRwdXQpCisKKwkvKiBzdGF0ZVswLDEsMiwzXSA9IGhp
-KGtleSkgKi8KKwlsdwkJc3RhdGUwLCAxNihrZXkpCisJbHcJCXN0YXRlMSwgMjAoa2V5KQorCWx3
-CQlzdGF0ZTIsIDI0KGtleSkKKwlsdwkJc3RhdGUzLCAyOChrZXkpCisKKwkvKiBvdXRwdXRbOCw5
-LDEwLDExXSA9IHRtcFswLDEsMiwzXSArIHN0YXRlWzgsOSwxMCwxMV0gKi8KKwlPUF80UkVHCWFk
-ZHcJbGluZTIsIGxpbmUwCisJc3cJCXN0YXRlOCwgIDMyKG91dHB1dCkKKwlzdwkJc3RhdGU5LCAg
-MzYob3V0cHV0KQorCXN3CQlzdGF0ZTEwLCA0MChvdXRwdXQpCisJc3cJCXN0YXRlMTEsIDQ0KG91
-dHB1dCkKKworCS8qIG91dHB1dFsxMiwxMywxNCwxNV0gPSBzdGF0ZVsxMiwxMywxNCwxNV0gKyBb
-Y250X2xvLCBjbnRfaGksIDAsIDBdICovCisJYWRkdwkJc3RhdGUxMiwgc3RhdGUxMiwgY250CisJ
-c3JsaQkJc3RhdGUwLCBjbnQsIDMyCisJYWRkdwkJc3RhdGUxMywgc3RhdGUxMywgc3RhdGUwCisJ
-c3cJCXN0YXRlMTIsIDQ4KG91dHB1dCkKKwlzdwkJc3RhdGUxMywgNTIob3V0cHV0KQorCXN3CQlz
-dGF0ZTE0LCA1NihvdXRwdXQpCisJc3cJCXN0YXRlMTUsIDYwKG91dHB1dCkKKworCS8qICsrY291
-bnRlciAqLworCWFkZGkJCWNudCwgY250LCAxCisKKwkvKiBvdXRwdXQgKz0gNjQgKi8KKwlhZGRp
-CQlvdXRwdXQsIG91dHB1dCwgNjQKKwkvKiAtLW5ibG9ja3MgKi8KKwlhZGRpCQluYmxvY2tzLCBu
-YmxvY2tzLCAtMQorCWJuZXoJCW5ibG9ja3MsIC5MYmxvY2sKKworCS8qIGNvdW50ZXIgPSBbY250
-X2xvLCBjbnRfaGldICovCisJc2QJCWNudCwgKGNvdW50ZXIpCisKKwkvKiBaZXJvIG91dCB0aGUg
-cG90ZW50aWFsbHkgc2Vuc2l0aXZlIHJlZ3MsIGluIGNhc2Ugbm90aGluZyB1c2VzIHRoZXNlCisJ
-ICogYWdhaW4uICBBcyBhdCBub3cgY29weVswLDEsMiwzXSBqdXN0IGNvbnRhaW5zICJleHBhbmQg
-MzItYnl0ZSBrIiBhbmQKKwkgKiBzdGF0ZVswLC4uLiwxMV0gYXJlIHMwLXMxMSB0aG9zZSB3ZSds
-bCByZXN0b3JlIGluIHRoZSBlcGlsb2d1ZSwgd2UKKwkgKiBvbmx5IG5lZWQgdG8gemVybyBzdGF0
-ZVsxMiwuLi4sMTVdLgorCSAqLworCW12CQlzdGF0ZTEyLCB6ZXJvCisJbXYJCXN0YXRlMTMsIHpl
-cm8KKwltdgkJc3RhdGUxNCwgemVybworCW12CQlzdGF0ZTE1LCB6ZXJvCisKKwlSRUdfTAkJczAs
-ICAgICAgICAgKHNwKQorCVJFR19MCQlzMSwgICAgU1pSRUcoc3ApCisJUkVHX0wJCXMyLCAgMipT
-WlJFRyhzcCkKKwlSRUdfTAkJczMsICAzKlNaUkVHKHNwKQorCVJFR19MCQlzNCwgIDQqU1pSRUco
-c3ApCisJUkVHX0wJCXM1LCAgNSpTWlJFRyhzcCkKKwlSRUdfTAkJczYsICA2KlNaUkVHKHNwKQor
-CVJFR19MCQlzNywgIDcqU1pSRUcoc3ApCisJUkVHX0wJCXM4LCAgOCpTWlJFRyhzcCkKKwlSRUdf
-TAkJczksICA5KlNaUkVHKHNwKQorCVJFR19MCQlzMTAsIDEwKlNaUkVHKHNwKQorCVJFR19MCQlz
-MTEsIDExKlNaUkVHKHNwKQorCWFkZGkJCXNwLCBzcCwgMTIqU1pSRUcKKworCXJldAorU1lNX0ZV
-TkNfRU5EKF9fYXJjaF9jaGFjaGEyMF9ibG9ja3Nfbm9zdGFjaykKZGlmZiAtLWdpdCBhL3Rvb2xz
-L3Rlc3Rpbmcvc2VsZnRlc3RzL3ZEU08vdmdldHJhbmRvbS1jaGFjaGEuUyBiL3Rvb2xzL3Rlc3Rp
-bmcvc2VsZnRlc3RzL3ZEU08vdmdldHJhbmRvbS1jaGFjaGEuUwppbmRleCBkNmUwOWFmN2MwYTku
-LjM2MzNmMmQzN2ZlOCAxMDA2NDQKLS0tIGEvdG9vbHMvdGVzdGluZy9zZWxmdGVzdHMvdkRTTy92
-Z2V0cmFuZG9tLWNoYWNoYS5TCisrKyBiL3Rvb2xzL3Rlc3Rpbmcvc2VsZnRlc3RzL3ZEU08vdmdl
-dHJhbmRvbS1jaGFjaGEuUwpAQCAtOSw2ICs5LDggQEAKICNpbmNsdWRlICIuLi8uLi8uLi8uLi9h
-cmNoL2FybTY0L2tlcm5lbC92ZHNvL3ZnZXRyYW5kb20tY2hhY2hhLlMiCiAjZWxpZiBkZWZpbmVk
-KF9fbG9vbmdhcmNoX18pCiAjaW5jbHVkZSAiLi4vLi4vLi4vLi4vYXJjaC9sb29uZ2FyY2gvdmRz
-by92Z2V0cmFuZG9tLWNoYWNoYS5TIgorI2VsaWYgZGVmaW5lZChfX3Jpc2N2KQorI2luY2x1ZGUg
-Ii4uLy4uLy4uLy4uL2FyY2gvcmlzY3Yva2VybmVsL3Zkc28vdmdldHJhbmRvbS1jaGFjaGEuUyIK
-ICNlbGlmIGRlZmluZWQoX19wb3dlcnBjX18pIHx8IGRlZmluZWQoX19wb3dlcnBjNjRfXykKICNp
-bmNsdWRlICIuLi8uLi8uLi8uLi9hcmNoL3Bvd2VycGMva2VybmVsL3Zkc28vdmdldHJhbmRvbS1j
-aGFjaGEuUyIKICNlbGlmIGRlZmluZWQoX19zMzkweF9fKQotLSAKMi40OC4xCgoKX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGlu
-ZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJh
-ZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
+Hi Longbin:
+
+On 18:12 Mon 24 Feb     , Longbin Li wrote:
+> Add support for Sophgo SPI NOR controller in Sophgo SoC.
+> 
+> Signed-off-by: Longbin Li <looong.bin@gmail.com>
+> ---
+>  drivers/spi/Kconfig          |   9 +
+>  drivers/spi/Makefile         |   1 +
+>  drivers/spi/spi-sophgo-nor.c | 501 +++++++++++++++++++++++++++++++++++
+>  3 files changed, 511 insertions(+)
+>  create mode 100644 drivers/spi/spi-sophgo-nor.c
+> 
+> diff --git a/drivers/spi/Kconfig b/drivers/spi/Kconfig
+> index ea8a31032927..6b6d7b348485 100644
+> --- a/drivers/spi/Kconfig
+> +++ b/drivers/spi/Kconfig
+> @@ -1021,6 +1021,15 @@ config SPI_SN_F_OSPI
+>  	  for connecting an SPI Flash memory over up to 8-bit wide bus.
+>  	  It supports indirect access mode only.
+> 
+> +config SPI_SOPHGO_NOR
+> +	tristate "Sophgo SPI NOR Controller"
+> +	depends on ARCH_SOPHGO || COMPILE_TEST
+> +	help
+> +	  This enables support for the Sophgo SPI NOR controller,
+> +	  which supports Dual/Qual read and write operations while
+> +	  also supporting 3Byte address devices and 4Byte address
+> +	  devices.
+> +
+>  config SPI_SPRD
+>  	tristate "Spreadtrum SPI controller"
+>  	depends on ARCH_SPRD || COMPILE_TEST
+> diff --git a/drivers/spi/Makefile b/drivers/spi/Makefile
+> index 9db7554c1864..9ded1de4b2fd 100644
+> --- a/drivers/spi/Makefile
+> +++ b/drivers/spi/Makefile
+> @@ -134,6 +134,7 @@ obj-$(CONFIG_SPI_SH_SCI)		+= spi-sh-sci.o
+>  obj-$(CONFIG_SPI_SIFIVE)		+= spi-sifive.o
+>  obj-$(CONFIG_SPI_SLAVE_MT27XX)          += spi-slave-mt27xx.o
+>  obj-$(CONFIG_SPI_SN_F_OSPI)		+= spi-sn-f-ospi.o
+> +obj-$(CONFIG_SPI_SOPHGO_NOR)	+= spi-sophgo-nor.o
+>  obj-$(CONFIG_SPI_SPRD)			+= spi-sprd.o
+>  obj-$(CONFIG_SPI_SPRD_ADI)		+= spi-sprd-adi.o
+>  obj-$(CONFIG_SPI_STM32) 		+= spi-stm32.o
+> diff --git a/drivers/spi/spi-sophgo-nor.c b/drivers/spi/spi-sophgo-nor.c
+> new file mode 100644
+> index 000000000000..1139deeac327
+> --- /dev/null
+> +++ b/drivers/spi/spi-sophgo-nor.c
+> @@ -0,0 +1,501 @@
+> +// SPDX-License-Identifier: GPL-2.0-only
+> +/*
+> + * Sophgo SPI NOR controller driver
+> + *
+> + * Copyright (c) 2025 Longbin Li <looong.bin@gmail.com>
+> + */
+> +
+> +#include <linux/bitfield.h>
+> +#include <linux/clk.h>
+> +#include <linux/iopoll.h>
+> +#include <linux/module.h>
+> +#include <linux/of.h>
+> +#include <linux/platform_device.h>
+> +#include <linux/spi/spi-mem.h>
+> +
+> +/* Hardware register definitions */
+> +#define SPIFMC_CTRL				0x00
+> +#define SPIFMC_CTRL_CPHA			BIT(12)
+> +#define SPIFMC_CTRL_CPOL			BIT(13)
+> +#define SPIFMC_CTRL_HOLD_OL			BIT(14)
+> +#define SPIFMC_CTRL_WP_OL			BIT(15)
+> +#define SPIFMC_CTRL_LSBF			BIT(20)
+> +#define SPIFMC_CTRL_SRST			BIT(21)
+> +#define SPIFMC_CTRL_SCK_DIV_SHIFT		0
+> +#define SPIFMC_CTRL_FRAME_LEN_SHIFT		16
+> +#define SPIFMC_CTRL_SCK_DIV_MASK		0x7FF
+> +
+> +#define SPIFMC_CE_CTRL				0x04
+> +#define SPIFMC_CE_CTRL_CEMANUAL			BIT(0)
+> +#define SPIFMC_CE_CTRL_CEMANUAL_EN		BIT(1)
+> +
+> +#define SPIFMC_DLY_CTRL				0x08
+> +#define SPIFMC_CTRL_FM_INTVL_MASK		0x000f
+> +#define SPIFMC_CTRL_FM_INTVL			BIT(0)
+> +#define SPIFMC_CTRL_CET_MASK			0x0f00
+> +#define SPIFMC_CTRL_CET				BIT(8)
+> +
+> +#define SPIFMC_DMMR				0x0c
+> +
+> +#define SPIFMC_TRAN_CSR				0x10
+> +#define SPIFMC_TRAN_CSR_TRAN_MODE_MASK		GENMASK(1, 0)
+> +#define SPIFMC_TRAN_CSR_TRAN_MODE_RX		BIT(0)
+> +#define SPIFMC_TRAN_CSR_TRAN_MODE_TX		BIT(1)
+> +#define SPIFMC_TRAN_CSR_FAST_MODE		BIT(3)
+> +#define SPIFMC_TRAN_CSR_BUS_WIDTH_1_BIT		(0x00 << 4)
+> +#define SPIFMC_TRAN_CSR_BUS_WIDTH_2_BIT		(0x01 << 4)
+> +#define SPIFMC_TRAN_CSR_BUS_WIDTH_4_BIT		(0x02 << 4)
+> +#define SPIFMC_TRAN_CSR_DMA_EN			BIT(6)
+> +#define SPIFMC_TRAN_CSR_MISO_LEVEL		BIT(7)
+> +#define SPIFMC_TRAN_CSR_ADDR_BYTES_MASK		GENMASK(10, 8)
+> +#define SPIFMC_TRAN_CSR_ADDR_BYTES_SHIFT	8
+> +#define SPIFMC_TRAN_CSR_WITH_CMD		BIT(11)
+> +#define SPIFMC_TRAN_CSR_FIFO_TRG_LVL_MASK	GENMASK(13, 12)
+> +#define SPIFMC_TRAN_CSR_FIFO_TRG_LVL_1_BYTE	(0x00 << 12)
+> +#define SPIFMC_TRAN_CSR_FIFO_TRG_LVL_2_BYTE	(0x01 << 12)
+> +#define SPIFMC_TRAN_CSR_FIFO_TRG_LVL_4_BYTE	(0x02 << 12)
+> +#define SPIFMC_TRAN_CSR_FIFO_TRG_LVL_8_BYTE	(0x03 << 12)
+> +#define SPIFMC_TRAN_CSR_GO_BUSY			BIT(15)
+> +#define SPIFMC_TRAN_CSR_ADDR4B_SHIFT		20
+> +#define SPIFMC_TRAN_CSR_CMD4B_SHIFT		21
+> +
+> +#define SPIFMC_TRAN_NUM				0x14
+> +#define SPIFMC_FIFO_PORT			0x18
+> +#define SPIFMC_FIFO_PT				0x20
+> +
+> +#define SPIFMC_INT_STS				0x28
+> +#define SPIFMC_INT_TRAN_DONE			BIT(0)
+> +#define SPIFMC_INT_RD_FIFO			BIT(2)
+> +#define SPIFMC_INT_WR_FIFO			BIT(3)
+> +#define SPIFMC_INT_RX_FRAME			BIT(4)
+> +#define SPIFMC_INT_TX_FRAME			BIT(5)
+> +
+> +#define SPIFMC_INT_EN				0x2c
+> +#define SPIFMC_INT_TRAN_DONE_EN			BIT(0)
+> +#define SPIFMC_INT_RD_FIFO_EN			BIT(2)
+> +#define SPIFMC_INT_WR_FIFO_EN			BIT(3)
+> +#define SPIFMC_INT_RX_FRAME_EN			BIT(4)
+> +#define SPIFMC_INT_TX_FRAME_EN			BIT(5)
+> +
+> +#define SPIFMC_OPT				0x030
+> +#define SPIFMC_OPT_DISABLE_FIFO_FLUSH		BIT(1)
+> +
+> +#define SPIFMC_MAX_FIFO_DEPTH			8
+> +
+> +#define SPIFMC_MAX_READ_SIZE			0x10000
+> +
+> +struct sophgo_spifmc {
+> +	struct spi_controller *ctrl;
+> +	void __iomem *io_base;
+> +	struct device *dev;
+> +	struct mutex lock;
+it will be great to document the lock
+> +	struct clk *clk;
+> +};
+> +
+> +static int sophgo_spifmc_wait_int(struct sophgo_spifmc *spifmc, u8 int_type)
+> +{
+> +	u32 stat;
+> +
+> +	return readl_poll_timeout(spifmc->io_base + SPIFMC_INT_STS, stat,
+> +				  (stat & int_type), 0, 1000000);
+> +}
+> +
+> +static int sophgo_spifmc_wait_xfer_size(struct sophgo_spifmc *spifmc,
+> +					int xfer_size)
+> +{
+> +	u8 stat;
+> +
+> +	return readl_poll_timeout(spifmc->io_base + SPIFMC_FIFO_PT, stat,
+> +				  ((stat & 0xf) == xfer_size), 1, 1000000);
+> +}
+> +
+> +static u32 sophgo_spifmc_init_reg(struct sophgo_spifmc *spifmc)
+> +{
+> +	u32 reg;
+> +
+> +	reg = readl(spifmc->io_base + SPIFMC_TRAN_CSR);
+> +	reg &= ~(SPIFMC_TRAN_CSR_TRAN_MODE_MASK |
+> +		 SPIFMC_TRAN_CSR_FAST_MODE |
+> +		 SPIFMC_TRAN_CSR_BUS_WIDTH_2_BIT |
+> +		 SPIFMC_TRAN_CSR_BUS_WIDTH_4_BIT |
+> +		 SPIFMC_TRAN_CSR_DMA_EN |
+> +		 SPIFMC_TRAN_CSR_ADDR_BYTES_MASK |
+> +		 SPIFMC_TRAN_CSR_WITH_CMD |
+> +		 SPIFMC_TRAN_CSR_FIFO_TRG_LVL_MASK);
+> +
+> +	writel(reg, spifmc->io_base + SPIFMC_TRAN_CSR);
+> +
+> +	return reg;
+> +}
+> +
+> +static ssize_t sophgo_spifmc_read_64k(struct sophgo_spifmc *spifmc,
+> +				      const struct spi_mem_op *op, loff_t from,
+> +				      size_t len, u_char *buf)
+> +{
+> +	int xfer_size, offset;
+> +	u32 reg;
+> +	int ret;
+> +	int i;
+> +
+> +	reg = sophgo_spifmc_init_reg(spifmc);
+> +	reg |= (op->addr.nbytes + op->dummy.nbytes) << SPIFMC_TRAN_CSR_ADDR_BYTES_SHIFT;
+> +	reg |= SPIFMC_TRAN_CSR_FIFO_TRG_LVL_8_BYTE;
+> +	reg |= SPIFMC_TRAN_CSR_WITH_CMD;
+> +	reg |= SPIFMC_TRAN_CSR_TRAN_MODE_RX;
+> +
+> +	writel(0, spifmc->io_base + SPIFMC_FIFO_PT);
+> +	writeb(op->cmd.opcode, spifmc->io_base + SPIFMC_FIFO_PORT);
+> +
+> +	for (i = op->addr.nbytes - 1; i >= 0; i--)
+> +		writeb((from >> i * 8) & 0xff, spifmc->io_base + SPIFMC_FIFO_PORT);
+> +
+> +	for (i = 0; i < op->dummy.nbytes; i++)
+> +		writeb(0xff, spifmc->io_base + SPIFMC_FIFO_PORT);
+> +
+> +	writel(len, spifmc->io_base + SPIFMC_TRAN_NUM);
+> +	writel(0, spifmc->io_base + SPIFMC_INT_STS);
+> +	reg |= SPIFMC_TRAN_CSR_GO_BUSY;
+> +	writel(reg, spifmc->io_base + SPIFMC_TRAN_CSR);
+> +
+> +	ret = sophgo_spifmc_wait_int(spifmc, SPIFMC_INT_RD_FIFO);
+> +	if (ret < 0)
+> +		return ret;
+> +
+> +	offset = 0;
+> +	while (offset < len) {
+> +		xfer_size = min_t(size_t, SPIFMC_MAX_FIFO_DEPTH, len - offset);
+> +
+> +		ret = sophgo_spifmc_wait_xfer_size(spifmc, xfer_size);
+> +		if (ret < 0)
+> +			return ret;
+> +
+> +		for (i = 0; i < xfer_size; i++)
+> +			buf[i + offset] = readb(spifmc->io_base + SPIFMC_FIFO_PORT);
+> +
+> +		offset += xfer_size;
+> +	}
+> +
+> +	ret = sophgo_spifmc_wait_int(spifmc, SPIFMC_INT_TRAN_DONE);
+> +	if (ret < 0)
+> +		return ret;
+> +
+> +	writel(0, spifmc->io_base + SPIFMC_FIFO_PT);
+> +
+> +	return len;
+> +}
+> +
+> +static ssize_t sophgo_spifmc_read(struct sophgo_spifmc *spifmc,
+> +				  const struct spi_mem_op *op)
+> +{
+> +	size_t xfer_size;
+> +	size_t offset;
+> +	loff_t from = op->addr.val;
+> +	size_t len = op->data.nbytes;
+> +	int ret;
+> +	u8 *din = op->data.buf.in;
+> +
+> +	offset = 0;
+> +	while (offset < len) {
+> +		xfer_size = min_t(size_t, SPIFMC_MAX_READ_SIZE, len - offset);
+> +
+> +		ret = sophgo_spifmc_read_64k(spifmc, op, from, xfer_size, din);
+> +		if (ret < 0)
+> +			return ret;
+> +
+> +		offset += xfer_size;
+> +		din += xfer_size;
+> +		from += xfer_size;
+> +	}
+> +
+> +	return 0;
+> +}
+> +
+> +static ssize_t sophgo_spifmc_write(struct sophgo_spifmc *spifmc,
+> +				   const struct spi_mem_op *op)
+> +{
+> +	size_t xfer_size;
+> +	const u8 *dout = op->data.buf.out;
+> +	int i, offset;
+> +	size_t ret;
+> +	u32 reg;
+> +
+> +	reg = sophgo_spifmc_init_reg(spifmc);
+> +	reg |= (op->addr.nbytes + op->dummy.nbytes) << SPIFMC_TRAN_CSR_ADDR_BYTES_SHIFT;
+> +	reg |= SPIFMC_TRAN_CSR_FIFO_TRG_LVL_8_BYTE;
+> +	reg |= SPIFMC_TRAN_CSR_WITH_CMD;
+> +	reg |= SPIFMC_TRAN_CSR_TRAN_MODE_TX;
+> +
+> +	writel(0, spifmc->io_base + SPIFMC_FIFO_PT);
+> +	writeb(op->cmd.opcode, spifmc->io_base + SPIFMC_FIFO_PORT);
+> +
+> +	for (i = op->addr.nbytes - 1; i >= 0; i--)
+> +		writeb((op->addr.val >> i * 8) & 0xff, spifmc->io_base + SPIFMC_FIFO_PORT);
+> +
+> +	for (i = 0; i < op->dummy.nbytes; i++)
+> +		writeb(0xff, spifmc->io_base + SPIFMC_FIFO_PORT);
+> +
+> +	writel(0, spifmc->io_base + SPIFMC_INT_STS);
+> +	writel(op->data.nbytes, spifmc->io_base + SPIFMC_TRAN_NUM);
+> +	reg |= SPIFMC_TRAN_CSR_GO_BUSY;
+> +	writel(reg, spifmc->io_base + SPIFMC_TRAN_CSR);
+> +
+> +	ret = sophgo_spifmc_wait_xfer_size(spifmc, 0);
+> +	if (ret < 0)
+> +		return ret;
+> +
+> +	writel(0, spifmc->io_base + SPIFMC_FIFO_PT);
+> +
+> +	offset = 0;
+> +	while (offset < op->data.nbytes) {
+> +		xfer_size = min_t(size_t, SPIFMC_MAX_FIFO_DEPTH, op->data.nbytes - offset);
+> +
+> +		ret = sophgo_spifmc_wait_xfer_size(spifmc, 0);
+> +		if (ret < 0)
+> +			return ret;
+> +
+> +		for (i = 0; i < xfer_size; i++)
+> +			writeb(dout[i + offset], spifmc->io_base + SPIFMC_FIFO_PORT);
+> +
+> +		offset += xfer_size;
+> +	}
+> +
+> +	ret = sophgo_spifmc_wait_int(spifmc, SPIFMC_INT_TRAN_DONE);
+> +	if (ret < 0)
+> +		return ret;
+> +
+> +	writel(0, spifmc->io_base + SPIFMC_FIFO_PT);
+> +
+> +	return 0;
+> +}
+> +
+> +static ssize_t sophgo_spifmc_tran_cmd(struct sophgo_spifmc *spifmc,
+> +				      const struct spi_mem_op *op)
+> +{
+> +	int i, ret;
+> +	u32 reg;
+> +
+> +	reg = sophgo_spifmc_init_reg(spifmc);
+> +	reg |= (op->addr.nbytes + op->dummy.nbytes) << SPIFMC_TRAN_CSR_ADDR_BYTES_SHIFT;
+> +	reg |= SPIFMC_TRAN_CSR_FIFO_TRG_LVL_1_BYTE;
+> +	reg |= SPIFMC_TRAN_CSR_WITH_CMD;
+> +
+> +	writel(0, spifmc->io_base + SPIFMC_FIFO_PT);
+> +	writeb(op->cmd.opcode, spifmc->io_base + SPIFMC_FIFO_PORT);
+> +
+> +	for (i = op->addr.nbytes - 1; i >= 0; i--)
+> +		writeb((op->addr.val >> i * 8) & 0xff, spifmc->io_base + SPIFMC_FIFO_PORT);
+> +
+> +	for (i = 0; i < op->dummy.nbytes; i++)
+> +		writeb(0xff, spifmc->io_base + SPIFMC_FIFO_PORT);
+> +
+> +	writel(0, spifmc->io_base + SPIFMC_INT_STS);
+> +	reg |= SPIFMC_TRAN_CSR_GO_BUSY;
+> +	writel(reg, spifmc->io_base + SPIFMC_TRAN_CSR);
+> +
+> +	ret = sophgo_spifmc_wait_int(spifmc, SPIFMC_INT_TRAN_DONE);
+> +	if (ret < 0)
+> +		return ret;
+> +
+> +	writel(0, spifmc->io_base + SPIFMC_FIFO_PT);
+> +
+> +	return 0;
+> +}
+> +
+> +static void sophgo_spifmc_trans(struct sophgo_spifmc *spifmc,
+> +				const struct spi_mem_op *op)
+> +{
+> +	if (op->data.dir == SPI_MEM_DATA_IN)
+> +		sophgo_spifmc_read(spifmc, op);
+> +	else if (op->data.dir == SPI_MEM_DATA_OUT)
+> +		sophgo_spifmc_write(spifmc, op);
+> +	else
+> +		sophgo_spifmc_tran_cmd(spifmc, op);
+> +}
+> +
+> +static ssize_t sophgo_spifmc_trans_reg(struct sophgo_spifmc *spifmc,
+> +				       const struct spi_mem_op *op)
+> +{
+> +	const u8 *dout = NULL;
+> +	u8 *din = NULL;
+> +	size_t len = op->data.nbytes;
+> +	u32 reg;
+> +	int ret;
+> +	int i;
+squash them which save one line:
+	int i, ret;
+
+> +
+> +	if (op->data.dir == SPI_MEM_DATA_IN)
+> +		din = op->data.buf.in;
+> +	else
+> +		dout = op->data.buf.out;
+> +
+> +	reg = sophgo_spifmc_init_reg(spifmc);
+> +	reg |= SPIFMC_TRAN_CSR_FIFO_TRG_LVL_1_BYTE;
+> +	reg |= SPIFMC_TRAN_CSR_WITH_CMD;
+> +
+> +	if (din) {
+> +		reg |= SPIFMC_TRAN_CSR_BUS_WIDTH_1_BIT;
+> +		reg |= SPIFMC_TRAN_CSR_TRAN_MODE_RX;
+> +		reg |= SPIFMC_TRAN_CSR_TRAN_MODE_TX;
+> +
+> +		writel(SPIFMC_OPT_DISABLE_FIFO_FLUSH, spifmc->io_base + SPIFMC_OPT);
+> +	} else {
+> +		/*
+> +		 * If write values to the Status Register,
+> +		 * configure TRAN_CSR register as the same as
+> +		 * sophgo_spifmc_read_reg.
+> +		 */
+> +		if (op->cmd.opcode == 0x01) {
+> +			reg |= SPIFMC_TRAN_CSR_TRAN_MODE_RX;
+> +			reg |= SPIFMC_TRAN_CSR_TRAN_MODE_TX;
+> +			writel(len, spifmc->io_base + SPIFMC_TRAN_NUM);
+> +		}
+> +	}
+> +
+> +	writel(0, spifmc->io_base + SPIFMC_FIFO_PT);
+> +	writeb(op->cmd.opcode, spifmc->io_base + SPIFMC_FIFO_PORT);
+> +
+> +	for (i = 0; i < len; i++) {
+> +		if (din)
+> +			writeb(0xff, spifmc->io_base + SPIFMC_FIFO_PORT);
+> +		else
+> +			writeb(dout[i], spifmc->io_base + SPIFMC_FIFO_PORT);
+> +	}
+> +
+> +	writel(0, spifmc->io_base + SPIFMC_INT_STS);
+> +	writel(len, spifmc->io_base + SPIFMC_TRAN_NUM);
+> +	reg |= SPIFMC_TRAN_CSR_GO_BUSY;
+> +	writel(reg, spifmc->io_base + SPIFMC_TRAN_CSR);
+> +
+> +	ret = sophgo_spifmc_wait_int(spifmc, SPIFMC_INT_TRAN_DONE);
+> +	if (ret < 0)
+> +		return ret;
+> +
+> +	if (din) {
+> +		while (len--)
+> +			*din++ = readb(spifmc->io_base + SPIFMC_FIFO_PORT);
+> +	}
+> +
+> +	writel(0, spifmc->io_base + SPIFMC_FIFO_PT);
+> +
+> +	return 0;
+> +}
+> +
+> +static int sophgo_spifmc_exec_op(struct spi_mem *mem,
+> +				 const struct spi_mem_op *op)
+> +{
+> +	struct sophgo_spifmc *spifmc;
+> +
+> +	spifmc = spi_controller_get_devdata(mem->spi->controller);
+> +
+> +	mutex_lock(&spifmc->lock);
+> +
+> +	if (op->addr.nbytes == 0)
+> +		sophgo_spifmc_trans_reg(spifmc, op);
+> +	else
+> +		sophgo_spifmc_trans(spifmc, op);
+> +
+> +	mutex_unlock(&spifmc->lock);
+> +
+> +	return 0;
+> +}
+> +
+> +static const struct spi_controller_mem_ops sophgo_spifmc_mem_ops = {
+> +	.exec_op = sophgo_spifmc_exec_op,
+> +};
+> +
+> +static void sophgo_spifmc_init(struct sophgo_spifmc *spifmc)
+> +{
+> +	u32 tran_csr;
+> +	u32 reg;
+> +
+> +	writel(0, spifmc->io_base + SPIFMC_DMMR);
+> +
+> +	reg = readl(spifmc->io_base + SPIFMC_CTRL);
+> +	reg |= SPIFMC_CTRL_SRST;
+..
+> +	reg &= ~((1 << 11) - 1);
+so this is a mask? use macro to define, instead of using magic number
+> +	reg |= 1;
+> +	writel(reg, spifmc->io_base + SPIFMC_CTRL);
+> +
+> +	writel(0, spifmc->io_base + SPIFMC_CE_CTRL);
+> +
+> +	tran_csr = readl(spifmc->io_base + SPIFMC_TRAN_CSR);
+> +	tran_csr |= (0 << SPIFMC_TRAN_CSR_ADDR_BYTES_SHIFT);
+> +	tran_csr |= SPIFMC_TRAN_CSR_FIFO_TRG_LVL_4_BYTE;
+> +	tran_csr |= SPIFMC_TRAN_CSR_WITH_CMD;
+> +	writel(tran_csr, spifmc->io_base + SPIFMC_TRAN_CSR);
+> +}
+> +
+> +static int sophgo_spifmc_probe(struct platform_device *pdev)
+> +{
+> +	struct spi_controller *ctrl;
+> +	struct sophgo_spifmc *spifmc;
+> +	void __iomem *base;
+> +	int ret;
+> +
+> +	ctrl = devm_spi_alloc_host(&pdev->dev, sizeof(*spifmc));
+> +	if (!ctrl)
+> +		return -ENOMEM;
+> +
+> +	spifmc = spi_controller_get_devdata(ctrl);
+> +	dev_set_drvdata(&pdev->dev, ctrl);
+> +
+..
+> +	spifmc->clk = devm_clk_get(&pdev->dev, NULL);
+> +	if (IS_ERR(spifmc->clk)) {
+> +		dev_err(&pdev->dev, "AHB clock not found.\n");
+> +		return PTR_ERR(spifmc->clk);
+> +	}
+> +
+> +	ret = clk_prepare_enable(spifmc->clk);
+> +	if (ret) {
+> +		dev_err(&pdev->dev, "Unable to enable AHB clock.\n");
+> +		return ret;
+> +	}
+you can combine above with devm_clk_get_enabled(), and simplify 
+return routine by using "return dev_err_probe(..)"
+
+> +
+> +	spifmc->dev = &pdev->dev;
+> +	spifmc->ctrl = ctrl;
+> +
+> +	spifmc->io_base = devm_platform_ioremap_resource(pdev, 0);
+> +	if (IS_ERR(base))
+> +		return PTR_ERR(base);
+> +
+> +	ctrl->num_chipselect = 1;
+> +	ctrl->dev.of_node = pdev->dev.of_node;
+> +	ctrl->bits_per_word_mask = SPI_BPW_MASK(8);
+> +	ctrl->auto_runtime_pm = false;
+> +	ctrl->mem_ops = &sophgo_spifmc_mem_ops;
+> +	ctrl->mode_bits = SPI_RX_DUAL | SPI_TX_DUAL | SPI_RX_QUAD | SPI_TX_QUAD;
+> +
+> +	mutex_init(&spifmc->lock);
+strictly, you still need to do error handler, e.g, destroy mutex if probe fail
+> +
+> +	sophgo_spifmc_init(spifmc);
+> +	sophgo_spifmc_init_reg(spifmc);
+> +
+> +	return devm_spi_register_controller(&pdev->dev, ctrl);
+> +}
+> +
+> +static void sophgo_spifmc_remove(struct platform_device *pdev)
+> +{
+> +	struct sophgo_spifmc *spifmc = platform_get_drvdata(pdev);
+> +
+> +	mutex_destroy(&spifmc->lock);
+> +}
+> +
+> +static const struct of_device_id sophgo_spifmc_match[] = {
+> +	{ .compatible = "sophgo,sg2044-spifmc-nor" },
+> +	{ /* sentinel */ }
+> +};
+> +MODULE_DEVICE_TABLE(of, sophgo_spifmc_match);
+> +
+> +static struct platform_driver sophgo_nor_driver = {
+> +	.driver = {
+> +		.name = "sophgo,spifmc-nor",
+> +		.of_match_table = sophgo_spifmc_match,
+> +	},
+> +	.probe = sophgo_spifmc_probe,
+> +	.remove = sophgo_spifmc_remove,
+> +};
+..
+> +
+spurious blank line here, drop it
+> +module_platform_driver(sophgo_nor_driver);
+> +
+> +MODULE_DESCRIPTION("Sophgo SPI NOR controller driver");
+> +MODULE_AUTHOR("Longbin Li <looong.bin@gmail.com>");
+> +MODULE_LICENSE("GPL");
+> --
+> 2.48.1
+
+-- 
+Yixun Lan (dlan)
+Gentoo Linux Developer
+GPG Key ID AABEFD55
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
