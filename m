@@ -4,58 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7FFE8C021A4
-	for <linux-riscv@archiver.kernel.org>; Mon, 24 Feb 2025 20:08:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 39D3DC021BB
+	for <linux-riscv@archiver.kernel.org>; Mon, 24 Feb 2025 20:08:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=QMxNoJ0vlLAw+ej1uc3xtAmsTZYVrXmeJwhOpnnNbVY=; b=W4Ndw4cM5JkDkL
-	jT2lgoXzJ1n/SEMObu8H6F8Lh7lnYyAZWasbAgwgwZ6iK5iOWmxuGLIk51kGAH0+1ILZ6YDiy8gUx
-	XvkaA8k0joii1C+vrH9LagZkpe5b0A/hXX/sIQD+b3iXCeD6qaIHIrvrRv0t4UvSkZeot1Kq475ld
-	pTE9ZVfDO4VrWl9zeJ4zZwjI0cJ/eOIOeY6RQODQmWQGZvkp0+FhICqzUT+vNniZ1KWjKOWvVYcPQ
-	rvSZ7frCekQgVIoSo+sGq9DWhMMUjuCqv72KWDiuQHXeIlRJp1E50yJvWR+FbD7INzrt1pXQq+Nya
-	qQ6yxe/Sj1E66RPwF1SA==;
+	List-Owner; bh=PsgEZvbXmQ44/378xKlqtJts/TSwrrcMFiHT7eWIFz8=; b=Fsy66DmfGDGZtB
+	6oy+J2UNgN1LjS5580igMk4hh/e8+1edLCeIgiQif7dzzAPukNtBwj7Lgsbre/DE28gRTDNjQRqeH
+	BdPLsYszoSFtp5caR4wHM33Ce5WOo08dugPYkiK4zj1furM+49DfQihazHms+QP+jaRA0rVsyfpcr
+	DX6Iya0inrL2aIDJTaLDYl69lC9ltoRBmu2jgStg4bxvPsDwpytJd4Wo6CHhYPhN4rM11h8BPFcrS
+	XHHqyca2BBZKaqLiixLTUQggLVPxwCJtQt4YPhn86xF1Ci/Ne6gCsy+lGO06VoBgV47Nq4RmiljO+
+	EFXULg3LoWKONuSDi55Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmekV-0000000F2fy-1b1E;
-	Mon, 24 Feb 2025 20:08:19 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1tmekU-0000000F2fn-3LLu;
+	Mon, 24 Feb 2025 20:08:18 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmeiR-0000000F2MX-1fsz
-	for linux-riscv@lists.infradead.org;
-	Mon, 24 Feb 2025 20:06:12 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 677775C65F8;
-	Mon, 24 Feb 2025 20:05:31 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DF2CAC4CED6;
-	Mon, 24 Feb 2025 20:06:09 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1740427570;
-	bh=stM2IVR3b2kvR088SM8/A8kfusx7eVUGjEIOksI9LxM=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=fTxJYGAHV6FCp80DxZ0l0De/AoUhpsBvWAIfLfrdXZ80o3hrfPZJcAVurzbA8BNSE
-	 ASaGSNB347y5MyVhE+qziw0Ce1PMKxGyGf/2RcUzQwZuKkKrPnC1FWrk5kCtXJ4B32
-	 EEmrUZ1DwdjL4ABOXWIy1G8XsVVIHMU7oiLYdBYcfIsJe8OgeR01gjkkyrMYbQMjrQ
-	 1A2EZ8pjVSfvY8vlXok+kOgJGBJTLJ8knBy9aqg7pxs8LY/azao9rfsT7RG9v+VBCw
-	 hcxR6nQ8GJYBFQn8qTxlh5RZ3DeoF4fX86xb4wlOxj3g2MkPC7b40S5aSc2mYAGnLb
-	 1lcWhvij8UAGQ==
-Date: Mon, 24 Feb 2025 14:06:08 -0600
-From: Rob Herring <robh@kernel.org>
-To: Yixun Lan <dlan@gentoo.org>
-Subject: Re: [PATCH v6 1/4] dt-bindings: gpio: spacemit: add support for K1
- SoC
-Message-ID: <20250224200608.GA4014994-robh@kernel.org>
-References: <20250223-03-k1-gpio-v6-0-db2e4adeef1c@gentoo.org>
- <20250223-03-k1-gpio-v6-1-db2e4adeef1c@gentoo.org>
+	id 1tmeiA-0000000F2KB-18sR;
+	Mon, 24 Feb 2025 20:05:55 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=8v+VH5qHJ9s8s5Z5uS138U4uFYC8T8PcRHjdrcA0cR4=; b=hiJM3wShZ1F6hQpNG6O5e6tdzx
+	liLjE0PO4fhNah/NHBzsmkK7ZvMVvyR41x86x6eyBT9i11DssvhJd+4tln34zkg4VW1lR2zHeufsA
+	pW8KXOqR+Nupxk+pxToKpdFFIXJZhweIaOIJeiQVPn8rblXCaY3DQXskY5QkIqJMCAkY=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1tmei4-00HHMQ-Hw; Mon, 24 Feb 2025 21:05:48 +0100
+Date: Mon, 24 Feb 2025 21:05:48 +0100
+From: Andrew Lunn <andrew@lunn.ch>
+To: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
+Cc: Heiner Kallweit <hkallweit1@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Drew Fustini <drew@pdp7.com>, Eric Dumazet <edumazet@google.com>,
+	Fu Wei <wefu@redhat.com>, Guo Ren <guoren@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-riscv@lists.infradead.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>, netdev@vger.kernel.org,
+	Paolo Abeni <pabeni@redhat.com>
+Subject: Re: [PATCH net-next 1/2] net: stmmac: thead: use rgmii_clock() for
+ RGMII clock rate
+Message-ID: <09e0ee41-f061-4e24-a58d-477758812f74@lunn.ch>
+References: <Z7iKdaCp4hLWWgJ2@shell.armlinux.org.uk>
+ <E1tlTo8-004W3a-CO@rmk-PC.armlinux.org.uk>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20250223-03-k1-gpio-v6-1-db2e4adeef1c@gentoo.org>
+In-Reply-To: <E1tlTo8-004W3a-CO@rmk-PC.armlinux.org.uk>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250224_120611_550353_FC57D2F5 
-X-CRM114-Status: GOOD (  19.71  )
+X-CRM114-CacheID: sfid-20250224_120554_307004_7FE48599 
+X-CRM114-Status: UNSURE (   6.81  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,123 +75,21 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: devicetree@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>, Meng Zhang <zhangmeng.kevin@linux.spacemit.com>, linux-gpio@vger.kernel.org, Linus Walleij <linus.walleij@linaro.org>, linux-kernel@vger.kernel.org, Conor Dooley <conor@kernel.org>, Yangyu Chen <cyy@cyyself.name>, linux-riscv@lists.infradead.org, Palmer Dabbelt <palmer@dabbelt.com>, Jesse Taube <mr.bossman075@gmail.com>, Jisheng Zhang <jszhang@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>, Inochi Amaoto <inochiama@outlook.com>, Krzysztof Kozlowski <krzk+dt@kernel.org>, spacemit@lists.linux.dev, Bartosz Golaszewski <brgl@bgdev.pl>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sun, Feb 23, 2025 at 07:49:32PM +0800, Yixun Lan wrote:
-> The GPIO controller of K1 support basic functions as input/output,
-> all pins can be used as interrupt which route to one IRQ line,
-> trigger type can be select between rising edge, falling edge, or both.
-> There are four GPIO banks, each consisting of 32 pins.
+On Fri, Feb 21, 2025 at 02:15:12PM +0000, Russell King (Oracle) wrote:
+> Switch to using rgmii_clock() to get the RGMII TXC rate, and calculate
+> the divisor from the parent clock rate and the rate indicated by
+> rgmii_clock().
 > 
-> Signed-off-by: Yixun Lan <dlan@gentoo.org>
-> ---
->  .../devicetree/bindings/gpio/spacemit,k1-gpio.yaml | 81 ++++++++++++++++++++++
->  1 file changed, 81 insertions(+)
-> 
-> diff --git a/Documentation/devicetree/bindings/gpio/spacemit,k1-gpio.yaml b/Documentation/devicetree/bindings/gpio/spacemit,k1-gpio.yaml
-> new file mode 100644
-> index 0000000000000000000000000000000000000000..017165d325565a6868700a9ac8298b61dffcfef4
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/gpio/spacemit,k1-gpio.yaml
-> @@ -0,0 +1,81 @@
-> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/gpio/spacemit,k1-gpio.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: SpacemiT K1 GPIO controller
-> +
-> +maintainers:
-> +  - Yixun Lan <dlan@gentoo.org>
-> +
-> +description:
-> +  The controller's registers are organized as sets of eight 32-bit
-> +  registers with each set of port controlling 32 pins.  A single
-> +  interrupt line is shared for all of the pins by the controller.
-> +
-> +properties:
-> +  $nodename:
-> +    pattern: "^gpio@[0-9a-f]+$"
-> +
-> +  compatible:
-> +    const: spacemit,k1-gpio
-> +
-> +  reg:
-> +    maxItems: 1
-> +
-> +  gpio-controller: true
-> +
-> +  "#gpio-cells":
-> +    const: 3
-> +    description:
-> +      The first two cells are the GPIO bank index and offset inside the bank,
-> +      the third cell should specify GPIO flag.
-> +
-> +  gpio-ranges: true
-> +
-> +  interrupts:
-> +    maxItems: 1
-> +
-> +  interrupt-controller: true
-> +
-> +  "#interrupt-cells":
-> +    const: 3
-> +    description:
-> +      The first two cells are the GPIO bank index and offset inside the bank,
-> +      the third cell should specify interrupt flag. The controller does not
-> +      support level interrupts, so flags of IRQ_TYPE_LEVEL_HIGH, IRQ_TYPE_LEVEL_LOW
-> +      should not be used. Refer <dt-bindings/interrupt-controller/irq.h> for valid flags.
+> Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
 
-Wrap lines at 80 chars.
+Reviewed-by: Andrew Lunn <andrew@lunn.ch>
 
-> +
-> +required:
-> +  - compatible
-> +  - reg
-> +  - gpio-controller
-> +  - "#gpio-cells"
-> +  - interrupts
-> +  - interrupt-controller
-> +  - "#interrupt-cells"
-> +  - gpio-ranges
-> +
-> +additionalProperties: false
-> +
-> +dependencies:
-> +  interrupt-controller: [ interrupts ]
-
-You made 'interrupts' always required, so this is redundant.
-
-> +
-> +examples:
-> +  - |
-> +    gpio: gpio@d4019000 {
-
-Drop unused labels.
-
-> +      compatible = "spacemit,k1-gpio";
-> +      reg = <0xd4019000 0x800>;
-> +      gpio-controller;
-> +      #gpio-cells = <3>;
-> +      interrupts = <58>;
-> +      interrupt-controller;
-> +      interrupt-parent = <&plic>;
-> +      #interrupt-cells = <3>;
-> +      gpio-ranges = <&pinctrl 0 0 0 32>,
-> +                    <&pinctrl 1 0 32 32>,
-> +                    <&pinctrl 2 0 64 32>,
-> +                    <&pinctrl 3 0 96 32>;
-> +    };
-> +...
-> 
-> -- 
-> 2.48.1
-> 
+    Andrew
 
 _______________________________________________
 linux-riscv mailing list
