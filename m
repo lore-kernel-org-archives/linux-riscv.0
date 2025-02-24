@@ -4,70 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 77D13C021B8
-	for <linux-riscv@archiver.kernel.org>; Mon, 24 Feb 2025 23:59:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F26B4C021A4
+	for <linux-riscv@archiver.kernel.org>; Tue, 25 Feb 2025 00:00:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
 	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID
 	:References:Mime-Version:In-Reply-To:Date:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=BJLE7ImtiDP2su3xWlakpo6voUynNKNuVvKJPwRjOlw=; b=stfo1DATB19GDR
-	RE3UC7WJAvMDKYaFtWq6ybA9dEvpkzpREzjcqvcswZ8ebIQj8d0AN+tFklkE2/OEbCimp2DrKfPWL
-	Iup9GjxVhK1Dc+6KVI0fiokZs+cYchlJfVDtfufreSo87V+gswBj4Z3ZKXSnMB3qEGNhTX9YRIN11
-	Q60l7wanwynzhFA92xSLyhJPzPjBieghelbZUddzEEuUUN18f/2qXT1TFYJufPRXsBbUOmTBuM9DU
-	fz1/63zUG7P0Ddqbvtd9UQ1jARwYk9d6CXgkMK/A6Jzn8NJTmxul1MJayRXJGYO81bSZrBzwyo+Gc
-	Bvj7k7d8QwvrKwlNoDRQ==;
+	List-Owner; bh=e5pYBZ4IKpqXKoJUowfkMEMrDe1jYQfZCVyMHdTLQvc=; b=MR8Q6kMLuFpAot
+	X3q2R9AiSn6K9nLXPgwEKybNNaDSXCbUPWe+ARGAhZiNLTu5le/U7MmoUboDry8WRLlm4pNjYJoZQ
+	ger+lUncW0o0J08kcmMTBPtNlxuBp/sYV4qnxDsFMHyKve/GFQJPq/Tv7x4iBZGWB+TtB+y7tBQAw
+	OWPgQ0RbHvjS1A1l6J3LtZjlpvJB7MrzsHgAepMp7+luV6X/gU1XhkJFzXE4Y3WjhsewlCL5vf40H
+	MlUQ6EwW5rF3iLyQ2u15TkcW/cGGYqkQezjSF5rHvPFYgh8wOfrYEVlIJNOD3gf7IBEzlQ/EfBf4z
+	d4GfHQ/d7/vQfcKqjB5A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmiLk-0000000FZ2m-0IYE;
-	Mon, 24 Feb 2025 23:59:00 +0000
-Received: from mail-pj1-x1049.google.com ([2607:f8b0:4864:20::1049])
+	id 1tmiNH-0000000FZNe-2EXb;
+	Tue, 25 Feb 2025 00:00:35 +0000
+Received: from mail-pl1-x649.google.com ([2607:f8b0:4864:20::649])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmiIe-0000000FXuG-0zAd
+	id 1tmiIh-0000000FXx7-49rx
 	for linux-riscv@lists.infradead.org;
-	Mon, 24 Feb 2025 23:55:49 +0000
-Received: by mail-pj1-x1049.google.com with SMTP id 98e67ed59e1d1-2fc0bc05b36so16473074a91.3
-        for <linux-riscv@lists.infradead.org>; Mon, 24 Feb 2025 15:55:47 -0800 (PST)
+	Mon, 24 Feb 2025 23:55:53 +0000
+Received: by mail-pl1-x649.google.com with SMTP id d9443c01a7336-220d9d98ea6so43734015ad.3
+        for <linux-riscv@lists.infradead.org>; Mon, 24 Feb 2025 15:55:51 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1740441347; x=1741046147; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1740441350; x=1741046150; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:reply-to:from:to:cc:subject:date:message-id:reply-to;
-        bh=VUFWBiQUtkyxtQjLqO6VHI65Q9aVoo/tjEK11vAPqoc=;
-        b=O/259i2+o40P2BZWY1LN65FqqacPGrB1mk5tiHrf30lVGEZQinEwJbOJGOSYkE5I8m
-         9ucS72Nc0Rr6oFT/i0gqyWEsYeCeZrbQlqyuh4uFJ9JHQ8ESmlsb33HPLOndT5cDWUaM
-         hm+ffjdKbqfoNS67EAM6BxlLFeg0BxBonl/auF9S4WsYJSQVzV+QH8//vuM59/r5qt8O
-         7q71Jaw2W5PbqFRWw1goiy0CYCoWDSeBPjooN90gTneuFGpst35R/YLJAYgg7Ke3Kazo
-         Guqcmv1AUiuEqJHE7hocFKoHNRBtrF62+hlBl+m0xhcSEzjBrQ5CrdM9xwouZ4upafIM
-         JzZw==
+        bh=cX82JgrIVLcCgP8NY5WI6d8YhxJG+M3Mihkk6f4MOJg=;
+        b=3nh84VgVLnx0IeX/0dOOd1PrUaTs9ZeMugaA8ECFuK2BB0AY+JFlSu2f3CXz4+g69C
+         n+FnDOeoluJdpalQLDG/P88ZkawgOWlRW7tN7xaHrvIlkWimsHccRRWdcc80mCZbu1K8
+         2KPVFxobEVV8HbNxT07BgGaUqz8seg0OBq4mncbVCGQZYlKy/LToFfBR33A7E1pN7KZ6
+         /+uLZJnkyAKN7Hre1fW0EZaDmypRwRNLmQtrHtXHz1HUNI3nyhBNHnDVXFPQEb+S7IJN
+         KFrwkuFbsn+Amy7din4sWE7oXVQ5aNmc6LCzljehXc8oRRwQXp0FahhTgDajN8ItpyAL
+         aa/Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1740441347; x=1741046147;
+        d=1e100.net; s=20230601; t=1740441350; x=1741046150;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:reply-to:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=VUFWBiQUtkyxtQjLqO6VHI65Q9aVoo/tjEK11vAPqoc=;
-        b=gNTtiaetIDEqGTeqhGDuQrPwfPWjJJ/lYz9j/lmWRb4QLzC2c/KUy1DFzRos0K+36N
-         xbWwqSQJeLXuxhM9pBt9OC1knYbb9wybDMzZvxIc4B/OZz6YY1ggAtSBgFyeIkxgmw6s
-         OdFYjgJZyHRR5c/pLmgZsL26zLAf/cxJg+X7rHQ6LtI/icuo5bXXqShX1MAFkGnKXr/M
-         WbvRW0Haza8D1VYiLDcszrWl1wUNxBhXsxJT2BaGCl8NmpHwuXpibD3mGhYCa7jNHtRF
-         Wk0ZJtmiIHCbZ2ZltetBrwdkpc326Q9CIEUy3uOw3R+St455gIj4eZvxfirj1XHwe3UA
-         JcRQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWB5/sDomwtmH8ZJv7vmI7biQ0Io7Y/GsGG7LmbERTtYD2Qy9fHcJHLIh0ZXoazOGVg08FPpVsSarPx0g==@lists.infradead.org
-X-Gm-Message-State: AOJu0YxXwPUkr7g8zMDNqfzCdmCRgbSCDQGxT/AXDmpPQuVTf6vKUutT
-	Xmq2g2WC6st8myEaw037G4nQxQyokkwi9qFHfqRcZ3hYCpV3/Agf3PnFE0MrvPSb7jm04xJ06CX
-	gjQ==
-X-Google-Smtp-Source: AGHT+IEskcg8NGcMgI3lzGvHxN+7n9pLx0XcpaLq7IsEpPM2kCgPZOpZWimEzcKRut1Ut1sQ02q7DWsQk2M=
-X-Received: from pjuw11.prod.google.com ([2002:a17:90a:d60b:b0:2fa:1771:e276])
- (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:90a:e18c:b0:2ea:bf1c:1e3a
- with SMTP id 98e67ed59e1d1-2fce86ae2cbmr28015424a91.12.1740441347216; Mon, 24
- Feb 2025 15:55:47 -0800 (PST)
-Date: Mon, 24 Feb 2025 15:55:36 -0800
+        bh=cX82JgrIVLcCgP8NY5WI6d8YhxJG+M3Mihkk6f4MOJg=;
+        b=cjsLnIwi4E394Hz50UzaUYsIe03ZD2GSqkaS/DtXQJ3yl3KEHmBPQaPBZvIzz+2JRF
+         VnY0FbLSoRrR0WjovPFegIShFEYvBQwHEeJk/6cKd9saCRIyofvcy1o83zPJXVw0nBpM
+         tblCNBYz9d+3Zccb2mfJZbahRRIbx5IDxybuPzDtx530obDRwo4KWOLq2OQNpn/E5Z9L
+         2yHYHk/lqCet6XCSasVNaP2cFxk+U5+99G7tAGkIpa/TlNZMOOMr+dkGGs9rM6g+uNMu
+         hzxN8DQ8AKRra5TQnEnieW4l1VLWOrwh5U2h3/S7Yh9DLebNWZZ1gUNLgY78zQFxN4Hd
+         fHTA==
+X-Forwarded-Encrypted: i=1; AJvYcCWUROSZFeMZrqa9PHM6sw9UMR694rmvslEzZJGZ+Af3Sr/gp/e7nvHeQSPWjLC+DHzN6e9LAk+LMa7CSw==@lists.infradead.org
+X-Gm-Message-State: AOJu0YxhgrdM53gdLKIAMVG3AROZYDnGscYnBcSDBXVKBhsDwyXzFXjd
+	poW3sXQqhtnbBd8kU4ZJXAzHMwM3cMEacP6SC14bXHJwVtxvRWNWhZdlyahDJPUkBfAJVxcHJ8b
+	UyQ==
+X-Google-Smtp-Source: AGHT+IGsyGC9C+MeujnUnW2nPba4jsQ7IgXXOkNko0b7VAiFOZ5bP8OY6ummej4/xlJQLwWUr2RcXaF45Ig=
+X-Received: from pjbse14.prod.google.com ([2002:a17:90b:518e:b0:2ef:78ff:bc3b])
+ (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:903:2f8d:b0:220:d81d:f521
+ with SMTP id d9443c01a7336-22307e72198mr15100345ad.51.1740441350608; Mon, 24
+ Feb 2025 15:55:50 -0800 (PST)
+Date: Mon, 24 Feb 2025 15:55:38 -0800
 In-Reply-To: <20250224235542.2562848-1-seanjc@google.com>
 Mime-Version: 1.0
 References: <20250224235542.2562848-1-seanjc@google.com>
 X-Mailer: git-send-email 2.48.1.658.g4767266eb4-goog
-Message-ID: <20250224235542.2562848-2-seanjc@google.com>
-Subject: [PATCH 1/7] KVM: x86: Free vCPUs before freeing VM state
+Message-ID: <20250224235542.2562848-4-seanjc@google.com>
+Subject: [PATCH 3/7] KVM: Assert that a destroyed/freed vCPU is no longer visible
 From: Sean Christopherson <seanjc@google.com>
 To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
 	Tianrui Zhao <zhaotianrui@loongson.cn>, Bibo Mao <maobibo@loongson.cn>, 
@@ -85,8 +85,8 @@ Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
 	Yan Zhao <yan.y.zhao@intel.com>, Rick P Edgecombe <rick.p.edgecombe@intel.com>, 
 	Kai Huang <kai.huang@intel.com>, Isaku Yamahata <isaku.yamahata@intel.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250224_155548_266208_578CED80 
-X-CRM114-Status: GOOD (  11.67  )
+X-CRM114-CacheID: sfid-20250224_155552_035899_21BA9E59 
+X-CRM114-Status: GOOD (  10.37  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,86 +104,43 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Free vCPUs before freeing any VM state, as both SVM and VMX may access
-VM state when "freeing" a vCPU that is currently "in" L2, i.e. that needs
-to be kicked out of nested guest mode.
+After freeing a vCPU, assert that it is no longer reachable, and that
+kvm_get_vcpu() doesn't return garbage or a pointer to some other vCPU.
+While KVM obviously shouldn't be attempting to access a freed vCPU, it's
+all too easy for KVM to make a VM-wide request, e.g. via KVM_BUG_ON() or
+kvm_flush_remote_tlbs().
 
-Commit 6fcee03df6a1 ("KVM: x86: avoid loading a vCPU after .vm_destroy was
-called") partially fixed the issue, but for unknown reasons only moved the
-MMU unloading before VM destruction.  Complete the change, and free all
-vCPU state prior to destroying VM state, as nVMX accesses even more state
-than nSVM.
+Alternatively, KVM could short-circuit problematic paths if the VM's
+refcount has gone to zero, e.g. in kvm_make_all_cpus_request(), or KVM
+could try disallow making global requests during teardown.  But given that
+deleting the vCPU from the array Just Works, adding logic to the requests
+path is unnecessary, and trying to make requests illegal during teardown
+would be a fool's errand.
 
-In addition to the AVIC, KVM can hit a use-after-free on MSR filters:
-
-  kvm_msr_allowed+0x4c/0xd0
-  __kvm_set_msr+0x12d/0x1e0
-  kvm_set_msr+0x19/0x40
-  load_vmcs12_host_state+0x2d8/0x6e0 [kvm_intel]
-  nested_vmx_vmexit+0x715/0xbd0 [kvm_intel]
-  nested_vmx_free_vcpu+0x33/0x50 [kvm_intel]
-  vmx_free_vcpu+0x54/0xc0 [kvm_intel]
-  kvm_arch_vcpu_destroy+0x28/0xf0
-  kvm_vcpu_destroy+0x12/0x50
-  kvm_arch_destroy_vm+0x12c/0x1c0
-  kvm_put_kvm+0x263/0x3c0
-  kvm_vm_release+0x21/0x30
-
-and an upcoming fix to process injectable interrupts on nested VM-Exit
-will access the PIC:
-
-  BUG: kernel NULL pointer dereference, address: 0000000000000090
-  #PF: supervisor read access in kernel mode
-  #PF: error_code(0x0000) - not-present page
-  CPU: 23 UID: 1000 PID: 2658 Comm: kvm-nx-lpage-re
-  RIP: 0010:kvm_cpu_has_extint+0x2f/0x60 [kvm]
-  Call Trace:
-   <TASK>
-   kvm_cpu_has_injectable_intr+0xe/0x60 [kvm]
-   nested_vmx_vmexit+0x2d7/0xdf0 [kvm_intel]
-   nested_vmx_free_vcpu+0x40/0x50 [kvm_intel]
-   vmx_vcpu_free+0x2d/0x80 [kvm_intel]
-   kvm_arch_vcpu_destroy+0x2d/0x130 [kvm]
-   kvm_destroy_vcpus+0x8a/0x100 [kvm]
-   kvm_arch_destroy_vm+0xa7/0x1d0 [kvm]
-   kvm_destroy_vm+0x172/0x300 [kvm]
-   kvm_vcpu_release+0x31/0x50 [kvm]
-
-Inarguably, both nSVM and nVMX need to be fixed, but punt on those
-cleanups for the moment.  Conceptually, vCPUs should be freed before VM
-state.  Assets like the I/O APIC and PIC _must_ be allocated before vCPUs
-are created, so it stands to reason that they must be freed _after_ vCPUs
-are destroyed.
-
-Reported-by: Aaron Lewis <aaronlewis@google.com>
-Closes: https://lore.kernel.org/all/20240703175618.2304869-2-aaronlewis@google.com
-Cc: Jim Mattson <jmattson@google.com>
-Cc: Yan Zhao <yan.y.zhao@intel.com>
-Cc: Rick P Edgecombe <rick.p.edgecombe@intel.com>
-Cc: Kai Huang <kai.huang@intel.com>
-Cc: Isaku Yamahata <isaku.yamahata@intel.com>
 Signed-off-by: Sean Christopherson <seanjc@google.com>
 ---
- arch/x86/kvm/x86.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ virt/kvm/kvm_main.c | 8 ++++++++
+ 1 file changed, 8 insertions(+)
 
-diff --git a/arch/x86/kvm/x86.c b/arch/x86/kvm/x86.c
-index 58b82d6fd77c..045c61cc7e54 100644
---- a/arch/x86/kvm/x86.c
-+++ b/arch/x86/kvm/x86.c
-@@ -12890,11 +12890,11 @@ void kvm_arch_destroy_vm(struct kvm *kvm)
- 		mutex_unlock(&kvm->slots_lock);
+diff --git a/virt/kvm/kvm_main.c b/virt/kvm/kvm_main.c
+index 201c14ff476f..991e8111e88b 100644
+--- a/virt/kvm/kvm_main.c
++++ b/virt/kvm/kvm_main.c
+@@ -489,6 +489,14 @@ void kvm_destroy_vcpus(struct kvm *kvm)
+ 	kvm_for_each_vcpu(i, vcpu, kvm) {
+ 		kvm_vcpu_destroy(vcpu);
+ 		xa_erase(&kvm->vcpu_array, i);
++
++		/*
++		 * Assert that the vCPU isn't visible in any way, to ensure KVM
++		 * doesn't trigger a use-after-free if destroying vCPUs results
++		 * in VM-wide request, e.g. to flush remote TLBs when tearing
++		 * down MMUs, or to mark the VM dead if a KVM_BUG_ON() fires.
++		 */
++		WARN_ON_ONCE(xa_load(&kvm->vcpu_array, i) || kvm_get_vcpu(kvm, i));
  	}
- 	kvm_unload_vcpu_mmus(kvm);
-+	kvm_destroy_vcpus(kvm);
- 	kvm_x86_call(vm_destroy)(kvm);
- 	kvm_free_msr_filter(srcu_dereference_check(kvm->arch.msr_filter, &kvm->srcu, 1));
- 	kvm_pic_destroy(kvm);
- 	kvm_ioapic_destroy(kvm);
--	kvm_destroy_vcpus(kvm);
- 	kvfree(rcu_dereference_check(kvm->arch.apic_map, 1));
- 	kfree(srcu_dereference_check(kvm->arch.pmu_event_filter, &kvm->srcu, 1));
- 	kvm_mmu_uninit_vm(kvm);
+ 
+ 	atomic_set(&kvm->online_vcpus, 0);
 -- 
 2.48.1.658.g4767266eb4-goog
 
