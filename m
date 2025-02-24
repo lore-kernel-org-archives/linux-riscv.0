@@ -4,66 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A9F2C021A4
-	for <linux-riscv@archiver.kernel.org>; Mon, 24 Feb 2025 20:11:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2CAC4C021A4
+	for <linux-riscv@archiver.kernel.org>; Mon, 24 Feb 2025 20:27:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=B57iGiijCYNAQP6PRcuf4YKCwn2u9P15tW6l744rEWI=; b=Qwo9SumkdNpQF9
-	p8C4hTCrAAdE1GkFUpCjrvp16VP6WU20i7Dh7wT+grycNyglXFZwt3kVUwYqUa96Wk0iZ4Hak/1/B
-	GceLECgs0ylIdplVFAwF7Ky/uqa6+1QJtrSXeC8sM5LAJbtoT5eViAoVBP3LikMiFA3Y+/Z8KyS6F
-	ybrrct5ELMn+bGu5Kw28CKI/imbwKyVp0MaOy8Ce7Lauf0hIKGV6QLzhopLXYLL6XnhNsyXlI02sS
-	WL1Ib3Tx8jPNWHZlYw6NqvazXFKge1KO11Y7LqR6Ru9M6sNgOPJBVVyvUfBY5DzQP7A8IQQzWQeS5
-	WUfVqcJGGClpFAAXw7ew==;
+	List-Owner; bh=OkBEL3/A/bf2z4FFQsac2+cieuxk+Eh12i2MLTSARhI=; b=UltIubj3DXQ6IK
+	McL4UuSUT267Iiz4QjaaecGNlipikXjpiiCChk/BHMX6SZImO3BSVzKuZ7bZGeq986n4Sq+kyGg5P
+	aAcznAoNFQTo6V1PpDs9OvmZSVCAITsH3A57B0YYy0EoGMiyi/OVTnszWSS5Qercy9gPDwFEKBcmv
+	v+1Tj7lG8nNJgj2LsbNKZjfCKsy4i0qsPLZH2ro+zpgOu3HP6bxTTz7Ms6PHPlSVwRJiPfd47iHMK
+	YZrxTBKMGuGR9LYDlieWc0HILn4pAuBxReiIqbzgVNS+OY63+F3Lhp4p3oJ4ooHKnwijM15JONJYJ
+	G/BbeQOtNAPVFCCt5eEg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmenQ-0000000F3G0-1eKp;
-	Mon, 24 Feb 2025 20:11:20 +0000
-Received: from vps0.lunn.ch ([156.67.10.101])
+	id 1tmf3H-0000000F5Vy-3CoR;
+	Mon, 24 Feb 2025 20:27:43 +0000
+Received: from mail-pl1-x62c.google.com ([2607:f8b0:4864:20::62c])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmej1-0000000F2Rv-2zsj;
-	Mon, 24 Feb 2025 20:06:48 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=3T0QWPecLBFnadrKf6BCnAp07nURn0bZOEsXJOfVBWw=; b=v29w+S9ch4+ninnLpX1RhMEKjs
-	xLgTRZ6xmzNttYmKiCwJhalnT6ZJpAeN2B2z6HP3JchZ8WbxbjQJaEFZF8OYfW+LWvzAyvpfFs4Ho
-	rHQUTiBgU7GJVOclEWEGMFFIJBNxgo1o+aWn81bbPPJsgwyFO3O579WdX28cFdDnxmRw=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1tmeiw-00HHO7-NE; Mon, 24 Feb 2025 21:06:42 +0100
-Date: Mon, 24 Feb 2025 21:06:42 +0100
-From: Andrew Lunn <andrew@lunn.ch>
-To: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
-Cc: Heiner Kallweit <hkallweit1@gmail.com>,
+	id 1tmf1m-0000000F5EA-1Dje
+	for linux-riscv@lists.infradead.org;
+	Mon, 24 Feb 2025 20:26:12 +0000
+Received: by mail-pl1-x62c.google.com with SMTP id d9443c01a7336-220ecbdb4c2so19241755ad.3
+        for <linux-riscv@lists.infradead.org>; Mon, 24 Feb 2025 12:26:09 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=pdp7-com.20230601.gappssmtp.com; s=20230601; t=1740428769; x=1741033569; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=TgBgqyu4tKatdMND7+/18VtL/05cP3jlzOPJySx+wMI=;
+        b=t/83BnntH4Qnx0mg7Bq32IU3KP2xbJA4LIcvN/ZAt+cXBhuwdoQgcgClAi4dSkYFna
+         KAM944/l1HuBqrisdbJ0OzbX8+BgjhC77lLNQyWtErZhDipTXmTOZSDZMLiWMTQIT1HG
+         ljzU5TTIUZHCs09sOFlYRcPBIUHsuVZAhA3srTj8IGEtiP241YF04jNarECyb5yusokG
+         wzm+NNQBJUFI5fifvI1aXzYRE4Uh/+YFwz7ExtW97ARufkY5f/j/bW6+ZHty2rjOli9R
+         E2VgzZUYMQ+buKQ+9MjvIZBXGI0TGWyOWx3XrDLCKhAi9fL2x95QS5DBHaBixVKPaK7/
+         qKvw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1740428769; x=1741033569;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=TgBgqyu4tKatdMND7+/18VtL/05cP3jlzOPJySx+wMI=;
+        b=YEQLZSa+rlnM+uTJ2uUqajcdxR+GfIUzaFo9EkAqQfymdwISq1ht7QskZEx8Q/PB3F
+         P8tl0r91jIvYbgytEJ7pNJiIVFEg/OK5+5WQbYCCqCI8vSbBdxkwAwShxaheWysHnP/n
+         V0WUoNrWgG+CofIEUzwTWQacFzLuvj3GcR9eWsm0qkjmSRl1ynvrme0cDmDdPUR/p6/t
+         bHpObctttQffqcvq33n3SD45QCzEohvGYUJXQy2kmMBCc+swXv4E6CDTGsSIn4r7p6wY
+         U9DtPkCgZnWifBpQAe/xheHftRgYhbmaRitJkG+nE55Iab57oOm9K4Itg0cREMw3pojn
+         /Lng==
+X-Forwarded-Encrypted: i=1; AJvYcCXoYxH7qh/47FQqTdSLz8s/xLnjNprVLgrOZzHOeLUZDL5BcXfC2xmxFPJNkeJs5vXV7kC13sVnl1B6ZA==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yyvg13ZOPeoRt0w5aZpzlTwvp1k5AdcIL9Nw992LmqDnPAaWZ8k
+	AQQNyTvleowoRAzaj0TNH59CYVqykcP/hdCpMkUlrf2prVmhP3LNvUh/q33ftfA=
+X-Gm-Gg: ASbGncv05NOqMOvzo0RnyglSP1bxx4tqRTxqwu0fDZgYsKi6lWpGOfFx1AaJT4dmUEj
+	y5Qgu09kJ7qQxjW6wBDFL6U2hd4IThB03TPeSpk1OlAH4oEh+MESEV0ny+nbeeGG0XiOh0fIPON
+	GKCJO/JGRp6LzgkcspO01g3yXsB2vxe2yULz6HTpIaewMf25cPuZPjwQt12sFtGbJk5p0dZZJUl
+	AVDm25uwExevoGQrfY4+aHe+hnVtjKsZ3ZsKeHKpdi90+6UOBTIFR2wb3tLrCDKGE5828bW78rO
+	E2vEXD0=
+X-Google-Smtp-Source: AGHT+IGji8X4JW99D82J1gNUv4VGOe8Di1Z0iUYkFrnt5DobfIi0K1SZsszK6YCNFA/kxOX0YVJuVQ==
+X-Received: by 2002:a17:902:e80d:b0:220:f069:eab4 with SMTP id d9443c01a7336-221a0ed87cdmr259370375ad.22.1740428768763;
+        Mon, 24 Feb 2025 12:26:08 -0800 (PST)
+Received: from x1 ([97.115.231.194])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-2fceb12e4casm7009510a91.48.2025.02.24.12.26.07
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 24 Feb 2025 12:26:08 -0800 (PST)
+Date: Mon, 24 Feb 2025 12:26:05 -0800
+From: Drew Fustini <drew@pdp7.com>
+To: "Russell King (Oracle)" <linux@armlinux.org.uk>
+Cc: Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>,
 	Alexandre Torgue <alexandre.torgue@foss.st.com>,
 	Andrew Lunn <andrew+netdev@lunn.ch>,
 	"David S. Miller" <davem@davemloft.net>,
-	Drew Fustini <drew@pdp7.com>, Eric Dumazet <edumazet@google.com>,
-	Fu Wei <wefu@redhat.com>, Guo Ren <guoren@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>,
+	Eric Dumazet <edumazet@google.com>, Fu Wei <wefu@redhat.com>,
+	Guo Ren <guoren@kernel.org>, Jakub Kicinski <kuba@kernel.org>,
 	linux-arm-kernel@lists.infradead.org,
 	linux-riscv@lists.infradead.org,
 	linux-stm32@st-md-mailman.stormreply.com,
 	Maxime Coquelin <mcoquelin.stm32@gmail.com>, netdev@vger.kernel.org,
 	Paolo Abeni <pabeni@redhat.com>
-Subject: Re: [PATCH net-next 2/2] net: stmmac: thead: ensure divisor gives
- proper rate
-Message-ID: <57036dad-d9b8-4f06-8083-af7ed8c42035@lunn.ch>
+Subject: Re: [PATCH net-next 0/2] net: stmmac: thead: clean up clock rate
+ setting
+Message-ID: <Z7zV3Z8L6PQCLKnC@x1>
 References: <Z7iKdaCp4hLWWgJ2@shell.armlinux.org.uk>
- <E1tlToD-004W3g-HB@rmk-PC.armlinux.org.uk>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <E1tlToD-004W3g-HB@rmk-PC.armlinux.org.uk>
+In-Reply-To: <Z7iKdaCp4hLWWgJ2@shell.armlinux.org.uk>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250224_120647_748652_6C5E91CD 
-X-CRM114-Status: UNSURE (   7.40  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250224_122610_580017_C8F33298 
+X-CRM114-Status: GOOD (  13.01  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,17 +108,24 @@ Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 On Fri, Feb 21, 2025 at 02:15:17PM +0000, Russell King (Oracle) wrote:
-> thead was checking that the stmmac_clk rate was a multiple of the
-> RGMII rates for 1G and 100M, but didn't check for 10M. Rather than
-> use this with hard-coded speeds, check that the calculated divisor
-> gives the required rate by multplying the transmit clock rate back
-> up to the stmmac clock rate and checking that it agrees.
+> Hi,
 > 
-> Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
+> This series cleans up the thead clock rate setting to use the
+> rgmii_clock() helper function added to phylib.
+> 
+> The first patch switches over to using the rgmii_clock() helper,
+> and the second patch cleans up the verification that the desired
+> clock rate is achievable, allowing the private clock rate
+> definitions to be removed.
+> 
+>  drivers/net/ethernet/stmicro/stmmac/dwmac-thead.c | 28 ++++++++---------------
+>  1 file changed, 9 insertions(+), 19 deletions(-)
 
-Reviewed-by: Andrew Lunn <andrew@lunn.ch>
+Thanks for improving the dwmac-thead driver. I've applied it on top of
+next-20250221 and booted on the LPi4a board. Ethernet networking is
+still working correctly.
 
-    Andrew
+Tested-by: Drew Fustini <drew@pdp7.com>
 
 _______________________________________________
 linux-riscv mailing list
