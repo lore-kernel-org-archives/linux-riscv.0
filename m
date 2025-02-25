@@ -4,85 +4,147 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 098A7C021B2
-	for <linux-riscv@archiver.kernel.org>; Tue, 25 Feb 2025 23:41:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F42DC021BB
+	for <linux-riscv@archiver.kernel.org>; Tue, 25 Feb 2025 23:47:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:To:Subject:MIME-Version:
-	Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7o/4U6Uu3CBuSjJ+Kl1/QZfKzxrcWrZEQwlYiMClGZs=; b=2/sqI63cmy8oWvMt8pnQg8uLUz
-	+5xzrQi0J3YrBN0No37lj5oYRl82/OzVI7GRYmMY74T00nvk5lHqD3aWPl5g7T5uXiIg7NjECWNf8
-	VTPdJOyivqMmOizUMiNSVuvcCJJUUi2Pd8kWgRg/BlXLD8WUQ734B34VEW4T1N6mf600dFBIdDBMQ
-	T0oYW2iS+wBwp0rTV/kmYKF5lKLHUpex+VMe7BjTlrp8Aeh+/Bks7i+n5GJj4kDcxP65osC68DRH2
-	dN8MVUH5o3jHOVLI9l26AZdsXqD8ZUMSfLqu4aiulEkwNkroc+am6OESZfamAwWVb+e44FmGvrL2t
-	EbDc5FLA==;
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=ikMOMEVlty4TQUTXNwEE4/pf3nsm2+PUZgF9IKqWCD8=; b=YF/x9IRmsY2GlJ
+	f5eNtXxn+uhTZZA1UktL2Erap9zlYq+07MDlqISajuA/b1hbltsIlbAXChzE6rm04YHKJylNoQprq
+	bhKUdTvZdJolmoQQvwTcDCc6C3qPoUBQbEyF7lSJFkVP30h+Zq92iiOlsOvxMNKS28IBsUQ2gHogj
+	uTwXcofqvy2FgNTTWXGiu8UEh5QcTtbsn/u/f9WvCMhz+8U3lv02D2UVWA9pte2ip8MHYJ5Pb9tRv
+	BjVrPM1ikPqHuOwKPtNJTVrbq1SiF2fgxrzoMkJp/o8Gw/+HEPWOzGsSqDjeVksqEU48TL51eiN0k
+	BH0p/tV1djZA2+qIlekA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tn4YN-00000001oVu-0YBW;
-	Tue, 25 Feb 2025 23:41:31 +0000
-Received: from mail-io1-xd2f.google.com ([2607:f8b0:4864:20::d2f])
+	id 1tn4eP-00000001ovu-0jXd;
+	Tue, 25 Feb 2025 23:47:45 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tn4YJ-00000001oVR-0VEM
+	id 1tn4eM-00000001ouy-289Z
 	for linux-riscv@lists.infradead.org;
-	Tue, 25 Feb 2025 23:41:29 +0000
-Received: by mail-io1-xd2f.google.com with SMTP id ca18e2360f4ac-855a095094fso170037339f.1
-        for <linux-riscv@lists.infradead.org>; Tue, 25 Feb 2025 15:41:25 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ieee.org; s=google; t=1740526884; x=1741131684; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=BHaj9gvBk8zG1gGIlEStQCmYqgUrifgWPrJTCoeAM04=;
-        b=ZDfKm7mhsRrbzOkvrO0L61H9ObjPOrkHKcRxXBGxnt4GFY3a4CLw+NesgkpYH3H2HT
-         bu0p2QDblCNZn01p2yNUohB4PN2/CdqMtWiJda1WeX3yjLse7B9HLrHoZ0QyIqbEH5Uk
-         Se40gKLA1UnV2mHqww/3VieBhAEU8TtYE8jbc=
+	Tue, 25 Feb 2025 23:47:43 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1740527260;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
+	bh=I+5VgZvS5RLhaGwFZILFRfiBrL6y7Ik6GC5bOnzJSKo=;
+	b=fWpgf11dF3u6njmTeuoUM+8sZ0DwjiSZ2WkPxl3QnkS8sXS4mAruu8Uby6LZmjGkayaMRe
+	s3hOTLUcybtE13FtfM1dbVZdt+wlaZd9zGegu/RcXM1KQh6suFYI9yLYnUPL+DqTRS90tW
+	ZJmLUnrfYd2D6/m63bo3TbUfjEqvCyE=
+Received: from mail-ed1-f69.google.com (mail-ed1-f69.google.com
+ [209.85.208.69]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-210-VpzrAZrUPOKKLPFZPAzU7A-1; Tue, 25 Feb 2025 18:47:38 -0500
+X-MC-Unique: VpzrAZrUPOKKLPFZPAzU7A-1
+X-Mimecast-MFC-AGG-ID: VpzrAZrUPOKKLPFZPAzU7A_1740527257
+Received: by mail-ed1-f69.google.com with SMTP id 4fb4d7f45d1cf-5dedd3ee338so9349261a12.2
+        for <linux-riscv@lists.infradead.org>; Tue, 25 Feb 2025 15:47:38 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1740526884; x=1741131684;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=BHaj9gvBk8zG1gGIlEStQCmYqgUrifgWPrJTCoeAM04=;
-        b=o1ULqDuuBAnA4RYk9EJCWB+TQetVsv3POW0iJ4pS17oL9Lrn4f7mtlALZKkQHjROXc
-         JEh4kuxtz2e1Ic+yeNGq3gQKaEfJGkM7n+BSZe5bh5bYElFnlZSmyq5OsHJFLcRQAt6G
-         bFm9KmDzOMUznBXHbgcGqhhK20168ADAa1kJX6ezRTRV5ZhJIXhzEfIn17QTr7H2PMGr
-         buKZKE642cc34+rapQqpncwtIyi7kfaIuJYoiSaP4V3QbnfRkkDxMKuH59gUgdIX5wC7
-         GiQbkitt0l0mww5wZMakWvQzOc3YjqdqZh1BjxwH9piPzEEp1DZcSHrgswuuVlcVqL2b
-         8UWA==
-X-Forwarded-Encrypted: i=1; AJvYcCUwOx99D6uxA21hstFaj0jdCFNXexIW6QGcDzLyGjsJQlpIgJEyrDBF5vCpiKPyQlgbJRoWOi83lgOPDQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0YyXILEAfFMp4eFh7r0mmPSQ+KTBt5yTYWUf4FRnDX5uvRxit0HC
-	zJ9ct9Kigo5hxMz3DtxHASobw7RMG8OVl0S6CQrwZ+/YFq5r6P65fDVaVKlppg==
-X-Gm-Gg: ASbGncuDZl4UL0d0yHfjet0/G0Ph1AQbV5tBRcox8fzNEmFV3PWAeZliE0kzdt8yi6+
-	2FFQ+Y1HsOd/Wjme2iWimbw2ardC2EKGJlrfHp0mi2axqM9kXGbJsbuulKFBCkjXeTw8x29P091
-	2Rqq+S07IPZL2ew2P/R+lslOAI0S1ILGjr0KkGWraOxiCfKpZuhyvnnkEUPhopCs92fOSNWQUj0
-	AoKXHvehYaXj7+pwspM9WswuLm5eR1iUNQsld+sqf4J1gc02oRw5ZTZeoucxem8bkpNRh8VUPI4
-	OXJ1aMmjorWclRvwx522ss67l+IrP/Fr5jW+Kx2e04tRMzg3GEnK8nJ4cLpX
-X-Google-Smtp-Source: AGHT+IELLUqvdHtIjF5ex7T70YIAG/gx6Cyym6wtg7dAB0E9NnbIVc9NER59uaYfyzMZJTQ3DMqU6w==
-X-Received: by 2002:a05:6602:6d05:b0:84f:2929:5ec0 with SMTP id ca18e2360f4ac-857c176b95cmr154503239f.4.1740526884172;
-        Tue, 25 Feb 2025 15:41:24 -0800 (PST)
-Received: from [172.22.22.28] (c-73-228-159-35.hsd1.mn.comcast.net. [73.228.159.35])
-        by smtp.googlemail.com with ESMTPSA id 8926c6da1cb9f-4f04747aed8sm643964173.52.2025.02.25.15.41.22
+        d=1e100.net; s=20230601; t=1740527257; x=1741132057;
+        h=content-transfer-encoding:in-reply-to:autocrypt:content-language
+         :from:references:cc:to:subject:user-agent:mime-version:date
+         :message-id:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=I+5VgZvS5RLhaGwFZILFRfiBrL6y7Ik6GC5bOnzJSKo=;
+        b=CpeGS1vkD9HGIWDdLLSMzqlLHAgzSk3KHKE0+nx69Z1bKEDkK0Ax+GMUVjl0KEH5Rb
+         bAzi/BMlfBX11BDStUy/ER8iar8u/78UFMijlCP1QK+vmIktkCOc4tovq9LJFeN/guvX
+         jcUdd1xcEpQMtgJ1tg7SsGAW7paENfUn9BjUvc7XvQZiE9PXJmE11KP7Iw3cLDfDBpOf
+         rKllPK8sAptc9cCL/yIu2TFStflxNfXke1aqscRlaQwbN0oklf7hWKB5uGyXs26yIOan
+         sjpD0TsAgDWvwKv0NVZft4mEfXVJ0lHTPp6DOMZTHOsTGZMhfWTwuotC/d2i3wda4Ato
+         EFCw==
+X-Forwarded-Encrypted: i=1; AJvYcCW2CuNpORF5pi2Gs+K/H82hR++4aK767fPQP4evMkLrDg8rXhr5k1hPLhNxOVOBLQ+n10ODyg6cAk8wgg==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx8j6rORBZa9RHpNyEcEv4Y8yCvPtoz6aM60NpRUBXfu/nY5rYI
+	RQx84GXSeCWa7QDCYmKgVzzX553UP5OyTbL/RRi7Qrxv2/NGsE+st3MS09rz11vgrBqBRhLs4K5
+	5O/LOVe4dLeLZCOdVMH3GDWEmzTp5X5FnLTwdUhQnrfj/BZth0bKInpB6vmD5Hx/SMg==
+X-Gm-Gg: ASbGncvmtEY+TGQHPmn9WkwTfijH3JChPKr/CzAcn/oDlTQ+aNSFGAUbwDyvXoeq2eu
+	1tobG3Ow4tRq87TgUV9kiO4RxSbKFDWhEidVlZQMQOfRzGNUJdR7A6df3NSMP9aNMTBLJFaGI6X
+	pXQcL/hWBy2AFLuBFu29Bc+pDjhHbr5CP0AHLi0Ih3hH/24mNXwyKUlYczd18OLlxhIQhsba6km
+	yH6K8NMgkccfK+STVH14vVvPnw7rF/otUW/9MEjmbBdn5HK595Q0r6LW9rWHUoAgs+iljsF+Nx8
+	wuPtdfwAg4wcOXClFh+0
+X-Received: by 2002:a05:6402:35d1:b0:5e0:750a:5c30 with SMTP id 4fb4d7f45d1cf-5e4a0dfc708mr1644323a12.20.1740527256945;
+        Tue, 25 Feb 2025 15:47:36 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IGIdTNjyooRvOwtF86c7hT5C/AWZUuE2nxzDPKhqPyR/bEqM/yRWSn2G4IdfhjgLnOUUDk8gQ==
+X-Received: by 2002:a05:6402:35d1:b0:5e0:750a:5c30 with SMTP id 4fb4d7f45d1cf-5e4a0dfc708mr1644299a12.20.1740527256453;
+        Tue, 25 Feb 2025 15:47:36 -0800 (PST)
+Received: from [192.168.10.81] ([176.206.102.52])
+        by smtp.googlemail.com with ESMTPSA id 4fb4d7f45d1cf-5e460ff8629sm1891405a12.59.2025.02.25.15.47.34
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 25 Feb 2025 15:41:23 -0800 (PST)
-Message-ID: <e2e65a3a-fa42-4bdf-9e6d-9122d5fc07bf@ieee.org>
-Date: Tue, 25 Feb 2025 17:41:21 -0600
+        Tue, 25 Feb 2025 15:47:35 -0800 (PST)
+Message-ID: <6475f9c7-304a-4e0b-8000-3dc5c8e718e9@redhat.com>
+Date: Wed, 26 Feb 2025 00:47:33 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6 2/4] gpio: spacemit: add support for K1 SoC
-To: Yixun Lan <dlan@gentoo.org>, Linus Walleij <linus.walleij@linaro.org>,
- Bartosz Golaszewski <brgl@bgdev.pl>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Conor Dooley <conor@kernel.org>,
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>
-References: <20250223-03-k1-gpio-v6-0-db2e4adeef1c@gentoo.org>
- <20250223-03-k1-gpio-v6-2-db2e4adeef1c@gentoo.org>
+Subject: Re: [PATCH 1/7] KVM: x86: Free vCPUs before freeing VM state
+To: Sean Christopherson <seanjc@google.com>, Marc Zyngier <maz@kernel.org>,
+ Oliver Upton <oliver.upton@linux.dev>, Tianrui Zhao
+ <zhaotianrui@loongson.cn>, Bibo Mao <maobibo@loongson.cn>,
+ Huacai Chen <chenhuacai@kernel.org>,
+ Madhavan Srinivasan <maddy@linux.ibm.com>, Anup Patel <anup@brainfault.org>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Christian Borntraeger <borntraeger@linux.ibm.com>,
+ Janosch Frank <frankja@linux.ibm.com>,
+ Claudio Imbrenda <imbrenda@linux.ibm.com>
+Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+ kvm@vger.kernel.org, loongarch@lists.linux.dev, linux-mips@vger.kernel.org,
+ linuxppc-dev@lists.ozlabs.org, kvm-riscv@lists.infradead.org,
+ linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+ Aaron Lewis <aaronlewis@google.com>, Jim Mattson <jmattson@google.com>,
+ Yan Zhao <yan.y.zhao@intel.com>,
+ Rick P Edgecombe <rick.p.edgecombe@intel.com>,
+ Kai Huang <kai.huang@intel.com>, Isaku Yamahata <isaku.yamahata@intel.com>
+References: <20250224235542.2562848-1-seanjc@google.com>
+ <20250224235542.2562848-2-seanjc@google.com>
+From: Paolo Bonzini <pbonzini@redhat.com>
+Autocrypt: addr=pbonzini@redhat.com; keydata=
+ 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
+In-Reply-To: <20250224235542.2562848-2-seanjc@google.com>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: 12KIX0HsDTmjgesbZHYDk8lUBlm_dns10FPRtaC4434_1740527257
+X-Mimecast-Originator: redhat.com
 Content-Language: en-US
-From: Alex Elder <elder@ieee.org>
-In-Reply-To: <20250223-03-k1-gpio-v6-2-db2e4adeef1c@gentoo.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250225_154127_310877_AD7CC330 
-X-CRM114-Status: GOOD (  32.66  )
+X-CRM114-CacheID: sfid-20250225_154742_612652_FE161B6C 
+X-CRM114-Status: GOOD (  19.32  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,344 +156,97 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: devicetree@vger.kernel.org, Meng Zhang <zhangmeng.kevin@linux.spacemit.com>, linux-gpio@vger.kernel.org, linux-kernel@vger.kernel.org, Jesse Taube <mr.bossman075@gmail.com>, Yangyu Chen <cyy@cyyself.name>, Inochi Amaoto <inochiama@outlook.com>, Jisheng Zhang <jszhang@kernel.org>, linux-riscv@lists.infradead.org, spacemit@lists.linux.dev
 Content-Transfer-Encoding: 7bit
 Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 2/23/25 5:49 AM, Yixun Lan wrote:
-> Implement GPIO functionality which capable of setting pin as
-> input, output. Also, each pin can be used as interrupt which
-> support rising, falling, or both edge type trigger.
+On 2/25/25 00:55, Sean Christopherson wrote:
+> Free vCPUs before freeing any VM state, as both SVM and VMX may access
+> VM state when "freeing" a vCPU that is currently "in" L2, i.e. that needs
+> to be kicked out of nested guest mode.
 > 
-> Signed-off-by: Yixun Lan <dlan@gentoo.org>
+> Commit 6fcee03df6a1 ("KVM: x86: avoid loading a vCPU after .vm_destroy was
+> called") partially fixed the issue, but for unknown reasons only moved the
+> MMU unloading before VM destruction.  Complete the change, and free all
+> vCPU state prior to destroying VM state, as nVMX accesses even more state
+> than nSVM.
 
-This looks very good.
+I applied this to kvm-coco-queue, I will place it in kvm/master too 
+unless you shout.
 
-Reviewed-by: Alex Elder <elder@riscstar.com>
+Paolo
 
+> In addition to the AVIC, KVM can hit a use-after-free on MSR filters:
+> 
+>    kvm_msr_allowed+0x4c/0xd0
+>    __kvm_set_msr+0x12d/0x1e0
+>    kvm_set_msr+0x19/0x40
+>    load_vmcs12_host_state+0x2d8/0x6e0 [kvm_intel]
+>    nested_vmx_vmexit+0x715/0xbd0 [kvm_intel]
+>    nested_vmx_free_vcpu+0x33/0x50 [kvm_intel]
+>    vmx_free_vcpu+0x54/0xc0 [kvm_intel]
+>    kvm_arch_vcpu_destroy+0x28/0xf0
+>    kvm_vcpu_destroy+0x12/0x50
+>    kvm_arch_destroy_vm+0x12c/0x1c0
+>    kvm_put_kvm+0x263/0x3c0
+>    kvm_vm_release+0x21/0x30
+> 
+> and an upcoming fix to process injectable interrupts on nested VM-Exit
+> will access the PIC:
+> 
+>    BUG: kernel NULL pointer dereference, address: 0000000000000090
+>    #PF: supervisor read access in kernel mode
+>    #PF: error_code(0x0000) - not-present page
+>    CPU: 23 UID: 1000 PID: 2658 Comm: kvm-nx-lpage-re
+>    RIP: 0010:kvm_cpu_has_extint+0x2f/0x60 [kvm]
+>    Call Trace:
+>     <TASK>
+>     kvm_cpu_has_injectable_intr+0xe/0x60 [kvm]
+>     nested_vmx_vmexit+0x2d7/0xdf0 [kvm_intel]
+>     nested_vmx_free_vcpu+0x40/0x50 [kvm_intel]
+>     vmx_vcpu_free+0x2d/0x80 [kvm_intel]
+>     kvm_arch_vcpu_destroy+0x2d/0x130 [kvm]
+>     kvm_destroy_vcpus+0x8a/0x100 [kvm]
+>     kvm_arch_destroy_vm+0xa7/0x1d0 [kvm]
+>     kvm_destroy_vm+0x172/0x300 [kvm]
+>     kvm_vcpu_release+0x31/0x50 [kvm]
+> 
+> Inarguably, both nSVM and nVMX need to be fixed, but punt on those
+> cleanups for the moment.  Conceptually, vCPUs should be freed before VM
+> state.  Assets like the I/O APIC and PIC _must_ be allocated before vCPUs
+> are created, so it stands to reason that they must be freed _after_ vCPUs
+> are destroyed.
+> 
+> Reported-by: Aaron Lewis <aaronlewis@google.com>
+> Closes: https://lore.kernel.org/all/20240703175618.2304869-2-aaronlewis@google.com
+> Cc: Jim Mattson <jmattson@google.com>
+> Cc: Yan Zhao <yan.y.zhao@intel.com>
+> Cc: Rick P Edgecombe <rick.p.edgecombe@intel.com>
+> Cc: Kai Huang <kai.huang@intel.com>
+> Cc: Isaku Yamahata <isaku.yamahata@intel.com>
+> Signed-off-by: Sean Christopherson <seanjc@google.com>
 > ---
->   drivers/gpio/Kconfig            |   8 ++
->   drivers/gpio/Makefile           |   1 +
->   drivers/gpio/gpio-spacemit-k1.c | 277 ++++++++++++++++++++++++++++++++++++++++
->   3 files changed, 286 insertions(+)
+>   arch/x86/kvm/x86.c | 2 +-
+>   1 file changed, 1 insertion(+), 1 deletion(-)
 > 
-> diff --git a/drivers/gpio/Kconfig b/drivers/gpio/Kconfig
-> index add5ad29a673c09082a913cb2404073b2034af48..eaae729eec00a3d6d2b83769aed3e2b0ca9927e5 100644
-> --- a/drivers/gpio/Kconfig
-> +++ b/drivers/gpio/Kconfig
-> @@ -655,6 +655,14 @@ config GPIO_SNPS_CREG
->   	  where only several fields in register belong to GPIO lines and
->   	  each GPIO line owns a field with different length and on/off value.
->   
-> +config GPIO_SPACEMIT_K1
-> +	bool "SPACEMIT K1 GPIO support"
-> +	depends on ARCH_SPACEMIT || COMPILE_TEST
-> +	depends on OF_GPIO
-> +	select GPIOLIB_IRQCHIP
-> +	help
-> +	  Say yes here to support the SpacemiT's K1 GPIO device.
-> +
->   config GPIO_SPEAR_SPICS
->   	bool "ST SPEAr13xx SPI Chip Select as GPIO support"
->   	depends on PLAT_SPEAR
-> diff --git a/drivers/gpio/Makefile b/drivers/gpio/Makefile
-> index af3ba4d81b583842893ea69e677fbe2abf31bc7b..6709ce511a0cf10310a94521c85a2d382dcfa696 100644
-> --- a/drivers/gpio/Makefile
-> +++ b/drivers/gpio/Makefile
-> @@ -156,6 +156,7 @@ obj-$(CONFIG_GPIO_SIOX)			+= gpio-siox.o
->   obj-$(CONFIG_GPIO_SL28CPLD)		+= gpio-sl28cpld.o
->   obj-$(CONFIG_GPIO_SLOPPY_LOGIC_ANALYZER) += gpio-sloppy-logic-analyzer.o
->   obj-$(CONFIG_GPIO_SODAVILLE)		+= gpio-sodaville.o
-> +obj-$(CONFIG_GPIO_SPACEMIT_K1)		+= gpio-spacemit-k1.o
->   obj-$(CONFIG_GPIO_SPEAR_SPICS)		+= gpio-spear-spics.o
->   obj-$(CONFIG_GPIO_SPRD)			+= gpio-sprd.o
->   obj-$(CONFIG_GPIO_STMPE)		+= gpio-stmpe.o
-> diff --git a/drivers/gpio/gpio-spacemit-k1.c b/drivers/gpio/gpio-spacemit-k1.c
-> new file mode 100644
-> index 0000000000000000000000000000000000000000..d9a0a10cf76d9b886970753296ce7f4174246f8c
-> --- /dev/null
-> +++ b/drivers/gpio/gpio-spacemit-k1.c
-> @@ -0,0 +1,277 @@
-> +// SPDX-License-Identifier: GPL-2.0 OR MIT
-> +/*
-> + * Copyright (C) 2023-2025 SpacemiT (Hangzhou) Technology Co. Ltd
-> + * Copyright (C) 2025 Yixun Lan <dlan@gentoo.org>
-> + */
-> +
-> +#include <linux/gpio/driver.h>
-> +#include <linux/init.h>
-> +#include <linux/interrupt.h>
-> +#include <linux/io.h>
-> +#include <linux/irq.h>
-> +#include <linux/module.h>
-> +#include <linux/platform_device.h>
-> +#include <linux/seq_file.h>
-> +
-> +/* register offset */
-> +#define SPACEMIT_GPLR		0x00 /* port level - R */
-> +#define SPACEMIT_GPDR		0x0c /* port direction - R/W */
-> +#define SPACEMIT_GPSR		0x18 /* port set - W */
-> +#define SPACEMIT_GPCR		0x24 /* port clear - W */
-> +#define SPACEMIT_GRER		0x30 /* port rising edge R/W */
-> +#define SPACEMIT_GFER		0x3c /* port falling edge R/W */
-> +#define SPACEMIT_GEDR		0x48 /* edge detect status - R/W1C */
-> +#define SPACEMIT_GSDR		0x54 /* (set) direction - W */
-> +#define SPACEMIT_GCDR		0x60 /* (clear) direction - W */
-> +#define SPACEMIT_GSRER		0x6c /* (set) rising edge detect enable - W */
-> +#define SPACEMIT_GCRER		0x78 /* (clear) rising edge detect enable - W */
-> +#define SPACEMIT_GSFER		0x84 /* (set) falling edge detect enable - W */
-> +#define SPACEMIT_GCFER		0x90 /* (clear) falling edge detect enable - W */
-> +#define SPACEMIT_GAPMASK	0x9c /* interrupt mask , 0 disable, 1 enable - R/W */
-> +
-> +#define SPACEMIT_NR_BANKS		4
-> +#define SPACEMIT_NR_GPIOS_PER_BANK	32
-> +
-> +#define to_spacemit_gpio_bank(x) container_of((x), struct spacemit_gpio_bank, gc)
-> +
-> +struct spacemit_gpio;
-> +
-> +struct spacemit_gpio_bank {
-> +	struct gpio_chip gc;
-> +	struct spacemit_gpio *sg;
-> +	void __iomem *base;
-> +	u32 irq_mask;
-> +	u32 irq_rising_edge;
-> +	u32 irq_falling_edge;
-> +};
-> +
-> +struct spacemit_gpio {
-> +	struct device *dev;
-> +	struct spacemit_gpio_bank sgb[SPACEMIT_NR_BANKS];
-> +};
-> +
-> +static u32 spacemit_gpio_bank_index(struct spacemit_gpio_bank *gb)
-> +{
-> +	return (u32)(gb - gb->sg->sgb);
-> +}
-> +
-> +static irqreturn_t spacemit_gpio_irq_handler(int irq, void *dev_id)
-> +{
-> +	struct spacemit_gpio_bank *gb = dev_id;
-> +	unsigned long pending;
-> +	u32 n, gedr;
-> +
-> +	gedr = readl(gb->base + SPACEMIT_GEDR);
-> +	if (!gedr)
-> +		return IRQ_NONE;
-> +	writel(gedr, gb->base + SPACEMIT_GEDR);
-> +
-> +	pending = gedr & gb->irq_mask;
-> +	if (!pending)
-> +		return IRQ_NONE;
-> +
-> +	for_each_set_bit(n, &pending, BITS_PER_LONG)
-> +		handle_nested_irq(irq_find_mapping(gb->gc.irq.domain, n));
-> +
-> +	return IRQ_HANDLED;
-> +}
-> +
-> +static void spacemit_gpio_irq_ack(struct irq_data *d)
-> +{
-> +	struct spacemit_gpio_bank *gb = irq_data_get_irq_chip_data(d);
-> +
-> +	writel(BIT(irqd_to_hwirq(d)), gb->base + SPACEMIT_GEDR);
-> +}
-> +
-> +static void spacemit_gpio_irq_mask(struct irq_data *d)
-> +{
-> +	struct spacemit_gpio_bank *gb = irq_data_get_irq_chip_data(d);
-> +	u32 bit = BIT(irqd_to_hwirq(d));
-> +
-> +	gb->irq_mask &= ~bit;
-> +	writel(gb->irq_mask, gb->base + SPACEMIT_GAPMASK);
-> +
-> +	if (bit & gb->irq_rising_edge)
-> +		writel(bit, gb->base + SPACEMIT_GCRER);
-> +
-> +	if (bit & gb->irq_falling_edge)
-> +		writel(bit, gb->base + SPACEMIT_GCFER);
-> +}
-> +
-> +static void spacemit_gpio_irq_unmask(struct irq_data *d)
-> +{
-> +	struct spacemit_gpio_bank *gb = irq_data_get_irq_chip_data(d);
-> +	u32 bit = BIT(irqd_to_hwirq(d));
-> +
-> +	gb->irq_mask |= bit;
-> +
-> +	if (bit & gb->irq_rising_edge)
-> +		writel(bit, gb->base + SPACEMIT_GSRER);
-> +
-> +	if (bit & gb->irq_falling_edge)
-> +		writel(bit, gb->base + SPACEMIT_GSFER);
-> +
-> +	writel(gb->irq_mask, gb->base + SPACEMIT_GAPMASK);
-> +}
-> +
-> +static int spacemit_gpio_irq_set_type(struct irq_data *d, unsigned int type)
-> +{
-> +	struct spacemit_gpio_bank *gb = irq_data_get_irq_chip_data(d);
-> +	u32 bit = BIT(irqd_to_hwirq(d));
-> +
-> +	if (type & IRQ_TYPE_EDGE_RISING) {
-> +		gb->irq_rising_edge |= bit;
-> +		writel(bit, gb->base + SPACEMIT_GSRER);
-> +	} else {
-> +		gb->irq_rising_edge &= ~bit;
-> +		writel(bit, gb->base + SPACEMIT_GCRER);
-> +	}
-> +
-> +	if (type & IRQ_TYPE_EDGE_FALLING) {
-> +		gb->irq_falling_edge |= bit;
-> +		writel(bit, gb->base + SPACEMIT_GSFER);
-> +	} else {
-> +		gb->irq_falling_edge &= ~bit;
-> +		writel(bit, gb->base + SPACEMIT_GCFER);
-> +	}
-> +
-> +	return 0;
-> +}
-> +
-> +static void spacemit_gpio_irq_print_chip(struct irq_data *data, struct seq_file *p)
-> +{
-> +	struct spacemit_gpio_bank *gb = irq_data_get_irq_chip_data(data);
-> +
-> +	seq_printf(p, "%s-%d", dev_name(gb->gc.parent), spacemit_gpio_bank_index(gb));
-> +}
-> +
-> +static struct irq_chip spacemit_gpio_chip = {
-> +	.name		= "k1-gpio-irqchip",
-> +	.irq_ack	= spacemit_gpio_irq_ack,
-> +	.irq_mask	= spacemit_gpio_irq_mask,
-> +	.irq_unmask	= spacemit_gpio_irq_unmask,
-> +	.irq_set_type	= spacemit_gpio_irq_set_type,
-> +	.irq_print_chip	= spacemit_gpio_irq_print_chip,
-> +	.flags		= IRQCHIP_IMMUTABLE | IRQCHIP_SKIP_SET_WAKE,
-> +	GPIOCHIP_IRQ_RESOURCE_HELPERS,
-> +};
-> +
-> +static bool spacemit_of_node_instance_match(struct gpio_chip *gc, unsigned int i)
-> +{
-> +	struct spacemit_gpio_bank *gb = gpiochip_get_data(gc);
-> +	struct spacemit_gpio *sg = gb->sg;
-> +
-> +	if (i >= SPACEMIT_NR_BANKS)
-> +		return false;
-> +
-> +	return gc == &sg->sgb[i].gc;
-> +}
-> +
-> +static int spacemit_gpio_add_bank(struct spacemit_gpio *sg,
-> +				  void __iomem *regs,
-> +				  int index, int irq)
-> +{
-> +	struct spacemit_gpio_bank *gb = &sg->sgb[index];
-> +	struct gpio_chip *gc = &gb->gc;
-> +	struct device *dev = sg->dev;
-> +	struct gpio_irq_chip *girq;
-> +	void __iomem *dat, *set, *clr, *dirin, *dirout;
-> +	int ret, bank_base[] = { 0x0, 0x4, 0x8, 0x100 };
-> +
-> +	gb->base = regs + bank_base[index];
-> +
-> +	dat	= gb->base + SPACEMIT_GPLR;
-> +	set	= gb->base + SPACEMIT_GPSR;
-> +	clr	= gb->base + SPACEMIT_GPCR;
-> +	dirin	= gb->base + SPACEMIT_GCDR;
-> +	dirout	= gb->base + SPACEMIT_GSDR;
-> +
-> +	/* This registers 32 GPIO lines per bank */
-> +	ret = bgpio_init(gc, dev, 4, dat, set, clr, dirout, dirin,
-> +			 BGPIOF_UNREADABLE_REG_SET | BGPIOF_UNREADABLE_REG_DIR);
-> +	if (ret)
-> +		return dev_err_probe(dev, ret, "failed to init gpio chip\n");
-> +
-> +	gb->sg = sg;
-> +
-> +	gc->label		= dev_name(dev);
-> +	gc->request		= gpiochip_generic_request;
-> +	gc->free		= gpiochip_generic_free;
-> +	gc->ngpio		= SPACEMIT_NR_GPIOS_PER_BANK;
-> +	gc->base		= -1;
-> +	gc->of_gpio_n_cells	= 3;
-> +	gc->of_node_instance_match = spacemit_of_node_instance_match;
-> +
-> +	girq			= &gc->irq;
-> +	girq->threaded		= true;
-> +	girq->handler		= handle_simple_irq;
-> +
-> +	gpio_irq_chip_set_chip(girq, &spacemit_gpio_chip);
-> +
-> +	/* Disable Interrupt */
-> +	writel(0, gb->base + SPACEMIT_GAPMASK);
-> +	/* Disable Edge Detection Settings */
-> +	writel(0x0, gb->base + SPACEMIT_GRER);
-> +	writel(0x0, gb->base + SPACEMIT_GFER);
-> +	/* Clear Interrupt */
-> +	writel(0xffffffff, gb->base + SPACEMIT_GCRER);
-> +	writel(0xffffffff, gb->base + SPACEMIT_GCFER);
-> +
-> +	ret = devm_request_threaded_irq(dev, irq, NULL,
-> +					spacemit_gpio_irq_handler,
-> +					IRQF_ONESHOT | IRQF_SHARED,
-> +					gb->gc.label, gb);
-> +	if (ret < 0)
-> +		return dev_err_probe(dev, ret, "failed to register IRQ\n");
-> +
-> +	return devm_gpiochip_add_data(dev, gc, gb);
-> +}
-> +
-> +static int spacemit_gpio_probe(struct platform_device *pdev)
-> +{
-> +	struct device *dev = &pdev->dev;
-> +	struct spacemit_gpio *sg;
-> +	struct resource *res;
-> +	void __iomem *regs;
-> +	int i, irq, ret;
-> +
-> +	sg = devm_kzalloc(dev, sizeof(*sg), GFP_KERNEL);
-> +	if (!sg)
-> +		return -ENOMEM;
-> +
-> +	regs = devm_platform_get_and_ioremap_resource(pdev, 0, &res);
-> +	if (IS_ERR(regs))
-> +		return PTR_ERR(regs);
-> +
-> +	irq = platform_get_irq(pdev, 0);
-> +	if (irq < 0)
-> +		return irq;
-> +
-> +	sg->dev	= dev;
-> +
-> +	for (i = 0; i < SPACEMIT_NR_BANKS; i++) {
-> +		ret = spacemit_gpio_add_bank(sg, regs, i, irq);
-> +		if (ret)
-> +			return ret;
-> +	}
-> +
-> +	return 0;
-> +}
-> +
-> +static const struct of_device_id spacemit_gpio_dt_ids[] = {
-> +	{ .compatible = "spacemit,k1-gpio" },
-> +	{ /* sentinel */ }
-> +};
-> +
-> +static struct platform_driver spacemit_gpio_driver = {
-> +	.probe		= spacemit_gpio_probe,
-> +	.driver		= {
-> +		.name	= "k1-gpio",
-> +		.of_match_table = spacemit_gpio_dt_ids,
-> +	},
-> +};
-> +module_platform_driver(spacemit_gpio_driver);
-> +
-> +MODULE_AUTHOR("Yixun Lan <dlan@gentoo.org>");
-> +MODULE_DESCRIPTION("GPIO driver for SpacemiT K1 SoC");
-> +MODULE_LICENSE("GPL");
-> 
+> diff --git a/arch/x86/kvm/x86.c b/arch/x86/kvm/x86.c
+> index 58b82d6fd77c..045c61cc7e54 100644
+> --- a/arch/x86/kvm/x86.c
+> +++ b/arch/x86/kvm/x86.c
+> @@ -12890,11 +12890,11 @@ void kvm_arch_destroy_vm(struct kvm *kvm)
+>   		mutex_unlock(&kvm->slots_lock);
+>   	}
+>   	kvm_unload_vcpu_mmus(kvm);
+> +	kvm_destroy_vcpus(kvm);
+>   	kvm_x86_call(vm_destroy)(kvm);
+>   	kvm_free_msr_filter(srcu_dereference_check(kvm->arch.msr_filter, &kvm->srcu, 1));
+>   	kvm_pic_destroy(kvm);
+>   	kvm_ioapic_destroy(kvm);
+> -	kvm_destroy_vcpus(kvm);
+>   	kvfree(rcu_dereference_check(kvm->arch.apic_map, 1));
+>   	kfree(srcu_dereference_check(kvm->arch.pmu_event_filter, &kvm->srcu, 1));
+>   	kvm_mmu_uninit_vm(kvm);
 
 
 _______________________________________________
