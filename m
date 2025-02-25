@@ -4,98 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 646A0C021A4
-	for <linux-riscv@archiver.kernel.org>; Tue, 25 Feb 2025 02:42:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 55E6CC021A4
+	for <linux-riscv@archiver.kernel.org>; Tue, 25 Feb 2025 02:47:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:MIME-Version:Subject:
-	Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=FgJObG88hC7LCtq6NZMFXjUEVipWbGUxL0mtvsRsO8s=; b=L3grQ8nV0hMhg7
-	th0afp//jtouXUsnyt33NITvcxRtNP22bhDxiPxVuTVAtYL3YUTeQLjAFbchpw/+b4v2C7Gpr0ljs
-	79EsKZVTGNjF/OJks4oQKdhvY/lYGdlntU1BiEA5uA3c1Z7bPmtptJG03nFxh2u3LU+3QN+KFwpRg
-	a0WcpXJ0LS5hWn9LbXwm1GdcHlBGxvAsty/6IVJmZSAF/19cjE3fAvgEzvQZdZsTFgWNt6a9mK5TE
-	qvcPOzpBEj20S4R9qzwaXaCKKPVziKBLQVlmoeRQgaVlL64gfI7pYE9wIiUUlX4BH0rx+nym5veql
-	emVYK/QBFdGnRsTPyThg==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=yJJw/Xv3pBOYbWjo483lVwtSg3MKSEhBxiym3FKwnk4=; b=SWb0W/QIqPPm1y
+	fy2R2FY+rx2cwnNmCA49EDF5xrC+yQyasIRuGpwvjsednPOoIqDSDFsVXFrjHS35YwgAEi/e1F+aK
+	O6uxf4WnSu3Zgut9IjoWVnVYornHPZRAm+uc4t/TMzwJLoRvW/6WNDg3arqMIoNQaS5r6ko2uYN0N
+	VSXyucX1HnUx5q20LwA/Z1Vmrfm+tLIM+Tl7C+wLXw0JwYpDUMrKb/XUtWsHWyYOIi/Az7WszpsOy
+	HySFEcW0LT65loICUJahIivDrKb60XXGyjbhPsI3Ix9+8ICL2E9jcdM66FhH70TmYprc/8k9OdyPi
+	mkTlmpM8IdQSuT7dRRBA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmku7-0000000FoqC-3F8W;
-	Tue, 25 Feb 2025 02:42:39 +0000
-Received: from mail-pj1-x102b.google.com ([2607:f8b0:4864:20::102b])
+	id 1tmkyG-0000000Fp9d-3BU8;
+	Tue, 25 Feb 2025 02:46:56 +0000
+Received: from mail-pl1-x62c.google.com ([2607:f8b0:4864:20::62c])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmku4-0000000Fopq-3drB
+	id 1tmkyE-0000000Fp9F-190a
 	for linux-riscv@lists.infradead.org;
-	Tue, 25 Feb 2025 02:42:38 +0000
-Received: by mail-pj1-x102b.google.com with SMTP id 98e67ed59e1d1-2fcb6c42c47so7941139a91.1
-        for <linux-riscv@lists.infradead.org>; Mon, 24 Feb 2025 18:42:35 -0800 (PST)
+	Tue, 25 Feb 2025 02:46:55 +0000
+Received: by mail-pl1-x62c.google.com with SMTP id d9443c01a7336-220d39a5627so78189505ad.1
+        for <linux-riscv@lists.infradead.org>; Mon, 24 Feb 2025 18:46:53 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1740451355; x=1741056155; darn=lists.infradead.org;
-        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
-         :date:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=aZanNtGerLw/d8sQjxfza/brPslbbPWAc0F+e/+SVZc=;
-        b=sPWdGgbd8SjlGKr7RKCl6ceUYvlZcmNaG+ANs1+mlT+S+yeOG//Ly2tUsxmnY9Ewmx
-         3KriW4ex0pn0TSoNmAL+LqzXzA7gTB6FDsDX4+JHK8NeWRlyxQ93qA6UG13naNuSXq6W
-         Zber/KojkYGFE/rAuT2F8zPB3JHCZ59tGb2Kr+eveXDN68vw6QOJdcP1x6aeDfVD6vWC
-         a09bU1LNQADQ4qDbnjb9C9Zn3nXpKzsLHgWtUcbFxhkgivqCmJcPx/HimknhBSDriJQ6
-         DK0nPe3MbnU7X7+ChVnQw3OMD7NCxT5DfFxmi9s2z2BwgFvRFnZVzzfb+04OcUgurK1/
-         esxA==
+        d=gmail.com; s=20230601; t=1740451613; x=1741056413; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=BmIWyDzbi7XG4PWOrNU7Jp5a97tuft4JsdTFHE1ZFT4=;
+        b=H5qAFJmj/4ub39CA1LXlhjWptxNKPfyfVaocoszjCsY8tzI+4bJ1YETp3tjgTKDSD/
+         oRN/ufA41pTy81K4RfCYXcj9Ml7xnzliFsAT4XSOv6d9lV+FiEhxDC+UxKqI6Z2qHmx0
+         g9sOoGe8oI/xdG1rPj80Jshe/dmogKUhwU+Moc0iNBeweXmxb9L6dpmnLL4CTgl47ayY
+         BI+bkmODLeXa0lXzqWNyOvjkiMGMkHu3ZFCj9Av3rYb3dOfOVeFS9HnlarPwtZusKVZU
+         SR1zFnM1r75YeSIYcDyFXbIjMmdM5AiwKme+e0eO/7OWuMa6ouKMYD3VGKyl/WuWzHTZ
+         pkFg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1740451355; x=1741056155;
-        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
-         :date:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=aZanNtGerLw/d8sQjxfza/brPslbbPWAc0F+e/+SVZc=;
-        b=m1u6a4/zno/ZpK7dI5Ak9iW8Lwz+Xtsr29IB7JFqVe5qorVaTrprucvhYdsfdFkSdH
-         lr3P7bmJQmvYfWPHdFvhRAJCPVdlk6RLXrhVZat1je+MlLpa8flYqpbZWW1tvvuk16mZ
-         aL3iHzYJl4nRTgQRkpjsvU/LRxWYUHjfiAtErGwAKGF7QGtp8OdoxIl/sizj3/iu8AEb
-         CNjtddnqCKmtaDBQXULSVKzXAV/jBb2kM31VYSnE4l6yvkRHByPxAoG0QZ4fF7i+yYoA
-         IV4YQz6RxxtJHDaaQ0yFEINUmlg5/6k1iE/eDrgqfW1FMOq5iQ3pJzTjjvJ6D8bdm9Jd
-         fbqA==
-X-Forwarded-Encrypted: i=1; AJvYcCWVCEdj5bEfAmQw2MAH24bRgclc/FQSmNiRo2KFtQTaPtHJtQPKkp9Y6Z1xG8eTWW4mWDWOsWRec32ixg==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx+ftwWlxExVmtnRFjr/ej7xjngblEatFAbGja+3mJAFhU655f3
-	xi2Trpcm8tK6FmDWAMfmHmILeWPCA/YsNg74BrDaU/D7z6+VySVtBGDSfUMr+2I=
-X-Gm-Gg: ASbGncufSS7jH1DzA/fgNFy4LMVZ+QSVggXXIMQx52gBFday8lE4eWDoltQCCfGEQTd
-	rp9Z/hs7m4Q+z32ucBMp5SF2Uu3ur3xdfUlCxREUeG5aFBnZhVN5pSO/7Khmx73N9YLyvdWZOXl
-	L4C4/DqW87+pnVc4CVXu2KDSTK55MT194omPzUuET+7CipvB5CTWHVufR9dGFPThv3XbMu4N/4U
-	xstEjw4HV74YVpw+fh8CY1HtC2hvK266jp7bynKnUGTU32JRmFZuZJXbhvjqebcOUx+rQuccqLo
-	Go4n7JJRhwabEDX8EAgl0eQd/os7csbCMjO6e42ocw==
-X-Google-Smtp-Source: AGHT+IH9Mpxjv6YP2dwaBxfmSmdJtkTNXmqQrMZT7HWbkyf1jCK+dNT3UgG+ZQDzaPqR9bpDWYMqpQ==
-X-Received: by 2002:a17:90b:56ce:b0:2eb:140d:f6df with SMTP id 98e67ed59e1d1-2fe68ac9543mr2456297a91.1.1740451355356;
-        Mon, 24 Feb 2025 18:42:35 -0800 (PST)
-Received: from charlie.ba.rivosinc.com ([64.71.180.162])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2230a09d819sm3163885ad.163.2025.02.24.18.42.33
+        d=1e100.net; s=20230601; t=1740451613; x=1741056413;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=BmIWyDzbi7XG4PWOrNU7Jp5a97tuft4JsdTFHE1ZFT4=;
+        b=oP0/flXINp47/wmcttfbqjnxAvXA60ybq36u9ZB6gA89CLcxzHRGMICFWudcp5qgsa
+         /TskNTUjsaeH6AUsdVrRT/45SgPM3YmVhvVltUMq13SqUww8PQlfU7+syJGR2UKLbgt3
+         w3CZnstAc8blW7Gd6r0QKds329epaCmtGitEPxFAvbILU54Z26ieeBMtCQPY6kbUXtmS
+         gjJHZCk1PwR826JGZ9FGoXZkxzmOEl7pPqHGe8Few1mbWpN7RaHvxnn5xvUp4jA6IriU
+         cHN5wObyOOznmTgX21cRtwxrY2OMuzrGD9k6Qerq6FKrbi/+yciJ0JdgoNa78V4AEWGm
+         FWpQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWoIXzXmTZWL5UlO9NTGaLtq/D62BaUaGO/YGZUd1GaxhhYVpwYhmBC/Nwb/ExbaKUV3MUxw9r+G1i/CA==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw9K3dG/KjjsfuFGO8WJ1xjR9A7Lu36xVVeyhRgudwWJtN6s7b2
+	biuN2RsG8Mqd6lj7LfdqresjpTNB6Z9qmA/ynEzpTw87omYZ9fRzDhPC5dqkEyD9vA==
+X-Gm-Gg: ASbGncsUfRyg6Tf4zqGuqoyo7ULwiDehqPIHyJf7GLEo//ICWtsIsyVA7Fz6fiXh3Xl
+	jgyQRRsydPGF7tpeLgUybBbDs5ACr++cEPU0bYdtQ8yFHRqw1ejlElba2DnEks9Auxtepoe8hHH
+	gSfgazIN5HzK5Z+Y8rFBcg3LkmBuHtth8fjDGIWlVkPOWYEsHkKdYyfgXgjF9TXXqq4pyZXWnUl
+	BlDFKhQ+MoDNJ/FNj9vEDizLmWil8Q5jcpI5lpkSi1Q3SkOzGzs3diwGH137vHwaMql1l4Vasg9
+	t3/UbptZuOKVdGQlilLbhBQ=
+X-Google-Smtp-Source: AGHT+IG62mV9bUNCTrCikvFZ49tzCfx9NyDU8cgaFnBUFHLGXzqnYJ/ncZN2tiei9ufed4SF/bBPXw==
+X-Received: by 2002:a17:903:41d2:b0:21f:33:ad2 with SMTP id d9443c01a7336-221a003892emr229965215ad.52.1740451613128;
+        Mon, 24 Feb 2025 18:46:53 -0800 (PST)
+Received: from localhost ([111.34.70.129])
+        by smtp.gmail.com with UTF8SMTPSA id d9443c01a7336-2230a00ab6bsm3279565ad.58.2025.02.24.18.46.51
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 24 Feb 2025 18:42:34 -0800 (PST)
-From: Charlie Jenkins <charlie@rivosinc.com>
-Date: Mon, 24 Feb 2025 18:42:21 -0800
-Subject: [PATCH] riscv: tracing: Fix __write_overflow_field in
- ftrace_partial_regs()
+        Mon, 24 Feb 2025 18:46:52 -0800 (PST)
+Date: Tue, 25 Feb 2025 10:46:49 +0800
+From: Longbin Li <looong.bin@gmail.com>
+To: Yixun Lan <dlan@gentoo.org>
+Cc: Mark Brown <broonie@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Chen Wang <unicorn_wang@outlook.com>, Inochi Amaoto <inochiama@gmail.com>, 
+	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, linux-spi@vger.kernel.org, devicetree@vger.kernel.org, 
+	sophgo@lists.linux.dev, linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
+	looong.bin@gmail.com
+Subject: Re: [PATCH 2/3] spi: sophgo: add Sophgo SPI NOR controller driver
+Message-ID: <6sjygqay4kpwupau7gx5uulo4t32c3rn5kiktqxp6t2phi45ly@elsqfqzpnumz>
+References: <20250224101213.26003-1-looong.bin@gmail.com>
+ <20250224101213.26003-3-looong.bin@gmail.com>
+ <20250224132115-GYA41655@gentoo>
 MIME-Version: 1.0
-Message-Id: <20250224-fix_ftrace_partial_regs-v1-1-54b906417e86@rivosinc.com>
-X-B4-Tracking: v=1; b=H4sIAAwuvWcC/x2MUQqAIBAFrxL7nWBSBF0lQpZ81kJUrBFBePekz
- 4GZeSlBBYmG6iXFLUmOvUBTVzSvvC8wEgqTs66zzrUmyuPjpTzDn6yX8OYVSzIIgWPLPToEKvW
- pKOp/HqecP9rKXD9pAAAA
-X-Change-ID: 20250224-fix_ftrace_partial_regs-eddaf4a7e5ed
-To: Steven Rostedt <rostedt@goodmis.org>, 
- Masami Hiramatsu <mhiramat@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
- Paul Walmsley <paul.walmsley@sifive.com>, 
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
- Oleg Nesterov <oleg@redhat.com>
-Cc: linux-kernel@vger.kernel.org, linux-trace-kernel@vger.kernel.org, 
- linux-riscv@lists.infradead.org, Charlie Jenkins <charlie@rivosinc.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2184; i=charlie@rivosinc.com;
- h=from:subject:message-id; bh=W8bVT3KdKXtHJWTSCayGdVWSdCOptjFaSdECSOxAXbo=;
- b=owGbwMvMwCXWx5hUnlvL8Y3xtFoSQ/pePaFXX7s2bp3zKU+I8VTyye6Hcs5ZQW55OV0N6vaia
- hpWz592lLIwiHExyIopsvBca2BuvaNfdlS0bALMHFYmkCEMXJwCMBFnD0aGFYa+ihbXIxac9TD4
- 9vNykqqDfbtqVTSP5KIzEwJEHk4QZ/hnnpNy6V9D9YeoQjaz4m0ray4lp765IDFlloPj0tglt+y
- 5AQ==
-X-Developer-Key: i=charlie@rivosinc.com; a=openpgp;
- fpr=7D834FF11B1D8387E61C776FFB10D1F27D6B1354
+Content-Disposition: inline
+In-Reply-To: <20250224132115-GYA41655@gentoo>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250224_184237_167971_7D2D5D06 
-X-CRM114-Status: GOOD (  10.79  )
+X-CRM114-CacheID: sfid-20250224_184654_322081_0EC675A9 
+X-CRM114-Status: GOOD (  39.02  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,72 +104,231 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The size of &regs->a0 is unknown, causing the error:
+On Mon, Feb 24, 2025 at 01:21:15PM +0000, Yixun Lan wrote:
+> Hi Longbin:
+> 
+> On 18:12 Mon 24 Feb     , Longbin Li wrote:
+> > Add support for Sophgo SPI NOR controller in Sophgo SoC.
+> > 
+> > Signed-off-by: Longbin Li <looong.bin@gmail.com>
+> > ---
+> >  drivers/spi/Kconfig          |   9 +
+> >  drivers/spi/Makefile         |   1 +
+> >  drivers/spi/spi-sophgo-nor.c | 501 +++++++++++++++++++++++++++++++++++
+> >  3 files changed, 511 insertions(+)
+> >  create mode 100644 drivers/spi/spi-sophgo-nor.c
+> > 
+> > diff --git a/drivers/spi/Kconfig b/drivers/spi/Kconfig
+> > index ea8a31032927..6b6d7b348485 100644
+> > --- a/drivers/spi/Kconfig
+> > +++ b/drivers/spi/Kconfig
+> > @@ -1021,6 +1021,15 @@ config SPI_SN_F_OSPI
+> >  	  for connecting an SPI Flash memory over up to 8-bit wide bus.
+> >  	  It supports indirect access mode only.
+> > 
+> > +config SPI_SOPHGO_NOR
+> > +	tristate "Sophgo SPI NOR Controller"
+> > +	depends on ARCH_SOPHGO || COMPILE_TEST
+> > +	help
+> > +	  This enables support for the Sophgo SPI NOR controller,
+> > +	  which supports Dual/Qual read and write operations while
+> > +	  also supporting 3Byte address devices and 4Byte address
+> > +	  devices.
+> > +
+> >  config SPI_SPRD
+> >  	tristate "Spreadtrum SPI controller"
+> >  	depends on ARCH_SPRD || COMPILE_TEST
+> > diff --git a/drivers/spi/Makefile b/drivers/spi/Makefile
+> > index 9db7554c1864..9ded1de4b2fd 100644
+> > --- a/drivers/spi/Makefile
+> > +++ b/drivers/spi/Makefile
+> > @@ -134,6 +134,7 @@ obj-$(CONFIG_SPI_SH_SCI)		+= spi-sh-sci.o
+> >  obj-$(CONFIG_SPI_SIFIVE)		+= spi-sifive.o
+> >  obj-$(CONFIG_SPI_SLAVE_MT27XX)          += spi-slave-mt27xx.o
+> >  obj-$(CONFIG_SPI_SN_F_OSPI)		+= spi-sn-f-ospi.o
+> > +obj-$(CONFIG_SPI_SOPHGO_NOR)	+= spi-sophgo-nor.o
+> >  obj-$(CONFIG_SPI_SPRD)			+= spi-sprd.o
+> >  obj-$(CONFIG_SPI_SPRD_ADI)		+= spi-sprd-adi.o
+> >  obj-$(CONFIG_SPI_STM32) 		+= spi-stm32.o
+> > diff --git a/drivers/spi/spi-sophgo-nor.c b/drivers/spi/spi-sophgo-nor.c
+> > new file mode 100644
+> > index 000000000000..1139deeac327
+> > --- /dev/null
+> > +++ b/drivers/spi/spi-sophgo-nor.c
+> > @@ -0,0 +1,501 @@
+> > +// SPDX-License-Identifier: GPL-2.0-only
+> > +/*
+> > + * Sophgo SPI NOR controller driver
+> > + *
+> > + * Copyright (c) 2025 Longbin Li <looong.bin@gmail.com>
+> > + */
+> > +
+> > [...]
+> > +struct sophgo_spifmc {
+> > +	struct spi_controller *ctrl;
+> > +	void __iomem *io_base;
+> > +	struct device *dev;
+> > +	struct mutex lock;
+> it will be great to document the lock
 
-../include/linux/fortify-string.h:571:25: warning: call to
-'__write_overflow_field' declared with attribute warning: detected write
-beyond size of field (1st parameter); maybe use struct_group()?
-[-Wattribute-warning]
+Thanks, but I don't think the function of this lock is complicated,
+adding comments may be useless.
 
-Fix this by wrapping the required registers in pt_regs with
-struct_group() and reference the group when doing the offending
-memcpy().
+> > +	struct clk *clk;
+> > +};
+> > +
+> > +static int sophgo_spifmc_wait_int(struct sophgo_spifmc *spifmc, u8 int_type)
+> > +{
+> > +	u32 stat;
+> > +
+> > +	return readl_poll_timeout(spifmc->io_base + SPIFMC_INT_STS, stat,
+> > +				  (stat & int_type), 0, 1000000);
+> > +}
+> > +
+> > +
+> > [...]
+> > +static ssize_t sophgo_spifmc_trans_reg(struct sophgo_spifmc *spifmc,
+> > +				       const struct spi_mem_op *op)
+> > +{
+> > +	const u8 *dout = NULL;
+> > +	u8 *din = NULL;
+> > +	size_t len = op->data.nbytes;
+> > +	u32 reg;
+> > +	int ret;
+> > +	int i;
+> squash them which save one line:
+> 	int i, ret;
+> 
 
-Signed-off-by: Charlie Jenkins <charlie@rivosinc.com>
----
- arch/riscv/include/asm/ftrace.h |  2 +-
- arch/riscv/include/asm/ptrace.h | 18 ++++++++++--------
- 2 files changed, 11 insertions(+), 9 deletions(-)
+Thanks, I will modify it.
 
-diff --git a/arch/riscv/include/asm/ftrace.h b/arch/riscv/include/asm/ftrace.h
-index c4721ce44ca474654b37b3d51bc0a63d46bc1eff..ec6db1162021fbf4fa48fc87e7984266040aa7d9 100644
---- a/arch/riscv/include/asm/ftrace.h
-+++ b/arch/riscv/include/asm/ftrace.h
-@@ -207,7 +207,7 @@ ftrace_partial_regs(const struct ftrace_regs *fregs, struct pt_regs *regs)
- {
- 	struct __arch_ftrace_regs *afregs = arch_ftrace_regs(fregs);
- 
--	memcpy(&regs->a0, afregs->args, sizeof(afregs->args));
-+	memcpy(&regs->a_regs, afregs->args, sizeof(afregs->args));
- 	regs->epc = afregs->epc;
- 	regs->ra = afregs->ra;
- 	regs->sp = afregs->sp;
-diff --git a/arch/riscv/include/asm/ptrace.h b/arch/riscv/include/asm/ptrace.h
-index b5b0adcc85c18e15c156de11172a5d7f03ada037..2910231977cb71dac3cc42f2dc32590284204057 100644
---- a/arch/riscv/include/asm/ptrace.h
-+++ b/arch/riscv/include/asm/ptrace.h
-@@ -23,14 +23,16 @@ struct pt_regs {
- 	unsigned long t2;
- 	unsigned long s0;
- 	unsigned long s1;
--	unsigned long a0;
--	unsigned long a1;
--	unsigned long a2;
--	unsigned long a3;
--	unsigned long a4;
--	unsigned long a5;
--	unsigned long a6;
--	unsigned long a7;
-+	struct_group(a_regs,
-+		unsigned long a0;
-+		unsigned long a1;
-+		unsigned long a2;
-+		unsigned long a3;
-+		unsigned long a4;
-+		unsigned long a5;
-+		unsigned long a6;
-+		unsigned long a7;
-+	);
- 	unsigned long s2;
- 	unsigned long s3;
- 	unsigned long s4;
+> > +
+> > +	if (op->data.dir == SPI_MEM_DATA_IN)
+> > +		din = op->data.buf.in;
+> > +	else
+> > +		dout = op->data.buf.out;
+> > +
+> > +	reg = sophgo_spifmc_init_reg(spifmc);
+> > +	reg |= SPIFMC_TRAN_CSR_FIFO_TRG_LVL_1_BYTE;
+> > +	reg |= SPIFMC_TRAN_CSR_WITH_CMD;
+> > +
+> > +	if (din) {
+> > +		reg |= SPIFMC_TRAN_CSR_BUS_WIDTH_1_BIT;
+> > +		reg |= SPIFMC_TRAN_CSR_TRAN_MODE_RX;
+> > +		reg |= SPIFMC_TRAN_CSR_TRAN_MODE_TX;
+> > +
+> > +		writel(SPIFMC_OPT_DISABLE_FIFO_FLUSH, spifmc->io_base + SPIFMC_OPT);
+> > +	} else {
+> > +		/*
+> > +		 * If write values to the Status Register,
+> > +		 * configure TRAN_CSR register as the same as
+> > +		 * sophgo_spifmc_read_reg.
+> > +		 */
+> > +		if (op->cmd.opcode == 0x01) {
+> > +			reg |= SPIFMC_TRAN_CSR_TRAN_MODE_RX;
+> > +			reg |= SPIFMC_TRAN_CSR_TRAN_MODE_TX;
+> > +			writel(len, spifmc->io_base + SPIFMC_TRAN_NUM);
+> > +		}
+> > +	}
+> > +
+> > +
+> > [...]
+> > +static const struct spi_controller_mem_ops sophgo_spifmc_mem_ops = {
+> > +	.exec_op = sophgo_spifmc_exec_op,
+> > +};
+> > +
+> > +static void sophgo_spifmc_init(struct sophgo_spifmc *spifmc)
+> > +{
+> > +	u32 tran_csr;
+> > +	u32 reg;
+> > +
+> > +	writel(0, spifmc->io_base + SPIFMC_DMMR);
+> > +
+> > +	reg = readl(spifmc->io_base + SPIFMC_CTRL);
+> > +	reg |= SPIFMC_CTRL_SRST;
+> ..
+> > +	reg &= ~((1 << 11) - 1);
+> so this is a mask? use macro to define, instead of using magic number
 
----
-base-commit: d082ecbc71e9e0bf49883ee4afd435a77a5101b6
-change-id: 20250224-fix_ftrace_partial_regs-eddaf4a7e5ed
--- 
-- Charlie
+Yes, this is a mask to init SPI Clock Divider, I will add a macro, thanks.
 
+> > +	reg |= 1;
+> > +	writel(reg, spifmc->io_base + SPIFMC_CTRL);
+> > +
+> > +	writel(0, spifmc->io_base + SPIFMC_CE_CTRL);
+> > +
+> > +	tran_csr = readl(spifmc->io_base + SPIFMC_TRAN_CSR);
+> > +	tran_csr |= (0 << SPIFMC_TRAN_CSR_ADDR_BYTES_SHIFT);
+> > +	tran_csr |= SPIFMC_TRAN_CSR_FIFO_TRG_LVL_4_BYTE;
+> > +	tran_csr |= SPIFMC_TRAN_CSR_WITH_CMD;
+> > +	writel(tran_csr, spifmc->io_base + SPIFMC_TRAN_CSR);
+> > +}
+> > +
+> > +static int sophgo_spifmc_probe(struct platform_device *pdev)
+> > +{
+> > +	struct spi_controller *ctrl;
+> > +	struct sophgo_spifmc *spifmc;
+> > +	void __iomem *base;
+> > +	int ret;
+> > +
+> > +	ctrl = devm_spi_alloc_host(&pdev->dev, sizeof(*spifmc));
+> > +	if (!ctrl)
+> > +		return -ENOMEM;
+> > +
+> > +	spifmc = spi_controller_get_devdata(ctrl);
+> > +	dev_set_drvdata(&pdev->dev, ctrl);
+> > +
+> ..
+> > +	spifmc->clk = devm_clk_get(&pdev->dev, NULL);
+> > +	if (IS_ERR(spifmc->clk)) {
+> > +		dev_err(&pdev->dev, "AHB clock not found.\n");
+> > +		return PTR_ERR(spifmc->clk);
+> > +	}
+> > +
+> > +	ret = clk_prepare_enable(spifmc->clk);
+> > +	if (ret) {
+> > +		dev_err(&pdev->dev, "Unable to enable AHB clock.\n");
+> > +		return ret;
+> > +	}
+> you can combine above with devm_clk_get_enabled(), and simplify 
+> return routine by using "return dev_err_probe(..)"
+> 
+
+Thanks, I will modify it.
+
+> > +
+> > +	spifmc->dev = &pdev->dev;
+> > +	spifmc->ctrl = ctrl;
+> > +
+> > +	spifmc->io_base = devm_platform_ioremap_resource(pdev, 0);
+> > +	if (IS_ERR(base))
+> > +		return PTR_ERR(base);
+> > +
+> > +	ctrl->num_chipselect = 1;
+> > +	ctrl->dev.of_node = pdev->dev.of_node;
+> > +	ctrl->bits_per_word_mask = SPI_BPW_MASK(8);
+> > +	ctrl->auto_runtime_pm = false;
+> > +	ctrl->mem_ops = &sophgo_spifmc_mem_ops;
+> > +	ctrl->mode_bits = SPI_RX_DUAL | SPI_TX_DUAL | SPI_RX_QUAD | SPI_TX_QUAD;
+> > +
+> > +	mutex_init(&spifmc->lock);
+> strictly, you still need to do error handler, e.g, destroy mutex if probe fail
+
+Thanks, I will add it.
+
+> > +
+> > +	sophgo_spifmc_init(spifmc);
+> > +	sophgo_spifmc_init_reg(spifmc);
+> > +
+> > +	return devm_spi_register_controller(&pdev->dev, ctrl);
+> > +}
+> > +
+> > [...]
+> 
+> -- 
+> Yixun Lan (dlan)
+> Gentoo Linux Developer
+> GPG Key ID AABEFD55
 
 _______________________________________________
 linux-riscv mailing list
