@@ -4,111 +4,124 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 334AFC021BB
-	for <linux-riscv@archiver.kernel.org>; Tue, 25 Feb 2025 16:45:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 93EE6C021BB
+	for <linux-riscv@archiver.kernel.org>; Tue, 25 Feb 2025 16:45:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=hd6n6BtxOijBLmRKryMgEWwdnkYpp7XOsF76gficpE8=; b=BT0ncGsRnduoF7
-	A5Io4RLaYBjfky63/L2AXDpvNKcsU1rWVkL0V5IMGLtaCx4i5dVCJQB3VB/m5GGvupHBhchNVNAOh
-	ZkQB4KMys/ZPSGcEnnhF6Au6vyv4U+84b8m+otl04JtGxkhJSZeOfCtbwjFOah+McocnwnmzL9j+6
-	/RDnZobDy9IdDIdgoYwfXCr1m8qhoWMCYoTz61baYUY3wrvyhR8sSmAaPQyETnQwqA5bx8hJ973XS
-	a+A7R2X0+r/Ie3xywk1W2rbdbKaSvxtfP7cFJQSYJDOfGhU2px1HRFLVHPIT6RZB9pqUYEveTfU8U
-	aqQriUBqyknaOjIjc1gA==;
+	List-Owner; bh=8DsMj5CHWR9zPSNjfFEz9G+phNPveiBcIWY8iGwAVkw=; b=g/2fypr8uEJlBm
+	SioXfaM8cpq2vYqPhTJH58q6k49ESkECj+n0dYGXOnwojWGjO1MEuOkwxNp4DKKH6dkXoDfdjyOb0
+	ZmfZmGUt2J6mjBm05xL6xdimx6RYQbLxSfabZyaD+oAqq7JUrYtzUgzcZhkZ/WuhbdKVce1M6OoH7
+	nXh7tQV8eQwvUMJaA7avQ2raqFKJEZHUFtud/XeRirvO7pOe2VbjFu+1HRTlo3sYFSc7gmGEqqL6V
+	Ehxyv13GKldEu3q0fACaolckM3poy5x0rlOOijORGw34jDjZZj4vGci6USWXHhbD9jX4KzysL3qDP
+	dPmYX9XLUKy0pq0AkZ+w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmy3c-00000000PcL-0txK;
-	Tue, 25 Feb 2025 16:45:20 +0000
-Received: from mail-ej1-x632.google.com ([2a00:1450:4864:20::632])
+	id 1tmy3i-00000000Pnu-2bcp;
+	Tue, 25 Feb 2025 16:45:26 +0000
+Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmxXZ-00000000AY3-0iIx
-	for linux-riscv@lists.infradead.org;
-	Tue, 25 Feb 2025 16:12:14 +0000
-Received: by mail-ej1-x632.google.com with SMTP id a640c23a62f3a-aaecf50578eso1135928866b.2
-        for <linux-riscv@lists.infradead.org>; Tue, 25 Feb 2025 08:12:12 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1740499931; x=1741104731; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=lwUSC8OCkUHVVAACMeGE7Ik1ANgp9jf6fyVgqusnzdY=;
-        b=NjjNt4MwSEmQa0g/4QZIdj/bMccPcTcvfNARJTvVQvZeFtFKiLvw4HxJXX48L6o6Uu
-         bMNGJ0gZyhdMgYx0yY9vDKZYeNETFHMSiewqEEl5LXzH9vrmQGGEOGj+KnxoJA6PZ18/
-         tlxL00KGdb0CxWYIy5TkGvFw7l56uCpi+wU7o=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1740499931; x=1741104731;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=lwUSC8OCkUHVVAACMeGE7Ik1ANgp9jf6fyVgqusnzdY=;
-        b=wmg0ipca4otdPkqruCXvEIgYNNwaYnj2tfTPp7Gu/1/O9a513cqfrkXT8fQXidMZAc
-         GYoil5zW5qGCL7qmWoR5SE0jMI+niVIgsiESqw1QQdD4xXQiOR/z9QOclEk01O+plI7/
-         kIs/9frLtV/bAto4VKnSUfxPlBOWnVIUn0GOvEXuylErcYgetzyynJQyEa/VM0Rdpvwp
-         Zs6pp7os0h+P/RNlyodjI/bfAaFqEs91eBD6cV+4Kei98IspMrLpHk/GdqfOmDo9lj2f
-         lfRqGCEsTOhySO4X7MZUnjwKH42WkOvsOzFw4b+HnVDlPt2N/+fieG5DzKkBbyFYfOqe
-         vXqA==
-X-Forwarded-Encrypted: i=1; AJvYcCXL42jsbaWmFNbE42Z4EbvR38IqhLqTeGLa/QHboKOR2viCMoKbcmSd9wbMbivxtYDvIeXsEv7Wh14mcA==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx47IBq0qYs4/WBj1nqTpncKCWnPld3qhfMpN+InfA7xyBsz4Gu
-	cJTC9ZUI62XHssb2MtCm+RP+R2rSXu7IvktBG3k6tT4qTelIj1yvdfQWkcLDy7Y13TLWyUDqwor
-	H7eHg
-X-Gm-Gg: ASbGncvXNWqtL0Y5SjeTV4O+Gd9VNyiy18xy319JvD00XR4+UPgdm3YV4d+gebLM/Ho
-	RA7AR5LLTcR2aFOm8aLrsT6urfG/SrDnbY2H+scO/qG7G6/sh1S2QeU+EvsaH3cSyV6ZMXfcxJ/
-	sbSWWhag+1XDMfiERRLYt4H67cWDbL9KIzB4sbi2c1KdAJ6oxa1v71mfpdJPeSyLzOSyt43Sz8J
-	8D1bfDMU824gp4k02gaQLeziu+GMMjPWssDFJ69rTzUXkPYiI/Gyei0l9tGC+Dp+3C8ujzOWK1b
-	M6PCzevFo4NMSdBbU2xCNZ/W53o6c0mBqDMnUC4it8q3u4BkGvDUudNLilL4UfUjHw==
-X-Google-Smtp-Source: AGHT+IFVn03ZVJad2MMoCVs2zvaf1XhcaQ69fkwGTDnyWSU26WntUzrjWBGcTKoOy4G5rbkY+6fG1g==
-X-Received: by 2002:a17:906:cc4a:b0:abe:ea77:5a6 with SMTP id a640c23a62f3a-abeea781ee8mr43150866b.44.1740499931169;
-        Tue, 25 Feb 2025 08:12:11 -0800 (PST)
-Received: from mail-ej1-f47.google.com (mail-ej1-f47.google.com. [209.85.218.47])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-abed20ad9e7sm159245166b.162.2025.02.25.08.12.10
-        for <linux-riscv@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 25 Feb 2025 08:12:10 -0800 (PST)
-Received: by mail-ej1-f47.google.com with SMTP id a640c23a62f3a-aaf3c3c104fso993817066b.1
-        for <linux-riscv@lists.infradead.org>; Tue, 25 Feb 2025 08:12:10 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCWdk2ZB7aLCe9878BqtumTtDWs9LsgZpJ4n6lsyNW+jUIpKr0wbiaY7daksG6U0JG5lp8lAnbTTj4Fw5Q==@lists.infradead.org
-X-Received: by 2002:a05:6512:1241:b0:547:6723:93b6 with SMTP id
- 2adb3069b0e04-5483909d1d1mr6678553e87.0.1740499509419; Tue, 25 Feb 2025
- 08:05:09 -0800 (PST)
+	id 1tmxbN-00000000B4p-2DmU;
+	Tue, 25 Feb 2025 16:16:12 +0000
+Received: from pps.filterd (m0353725.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 51PDjY8u011012;
+	Tue, 25 Feb 2025 16:15:55 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
+	:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=pp1; bh=EB5xjS
+	HoX3r4ods50zGkpSGZkJJvGI3sQjehgnGJBSo=; b=PePPDQuDji4R5cS+e2V1L2
+	z0JCj0LuK/xrDfeO46zmjIF3tGJgtoBeM4FgD5lYzomRRMeymyFRQ1N+COj4+n3z
+	zhEh1DIkK25owLsjddnGuriJp+VNxa6TBp8Rqe92T59nFrOI7ZEJ/STGVfcZT+f4
+	w5Vkh8iT36VQgba/UrWh/IbdwEpnNF1cpE72Ep3nuf6eryElWG6187EYNn2YUBzB
+	/xjn4vT9fw//W5Q2vkK1bLOBHbvGSrYvCT45nvnMlQfN9pA0ot3+nAKgP2j7p90s
+	BhZNP6wxViFEBdCttUtxJVgzsm+4N0qgG/8wgEaR+9yaWQmjIPQfV92dQlq6+8Eg
+	==
+Received: from pps.reinject (localhost [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4514q0brm5-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Tue, 25 Feb 2025 16:15:55 +0000 (GMT)
+Received: from m0353725.ppops.net (m0353725.ppops.net [127.0.0.1])
+	by pps.reinject (8.18.0.8/8.18.0.8) with ESMTP id 51PG36en010783;
+	Tue, 25 Feb 2025 16:15:54 GMT
+Received: from ppma13.dal12v.mail.ibm.com (dd.9e.1632.ip4.static.sl-reverse.com [50.22.158.221])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4514q0brm3-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Tue, 25 Feb 2025 16:15:54 +0000 (GMT)
+Received: from pps.filterd (ppma13.dal12v.mail.ibm.com [127.0.0.1])
+	by ppma13.dal12v.mail.ibm.com (8.18.1.2/8.18.1.2) with ESMTP id 51PF0EdW002578;
+	Tue, 25 Feb 2025 16:15:53 GMT
+Received: from smtprelay04.fra02v.mail.ibm.com ([9.218.2.228])
+	by ppma13.dal12v.mail.ibm.com (PPS) with ESMTPS id 44yu4jnfxu-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Tue, 25 Feb 2025 16:15:53 +0000
+Received: from smtpav05.fra02v.mail.ibm.com (smtpav05.fra02v.mail.ibm.com [10.20.54.104])
+	by smtprelay04.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 51PGFoBR33358422
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Tue, 25 Feb 2025 16:15:50 GMT
+Received: from smtpav05.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id E488120043;
+	Tue, 25 Feb 2025 16:15:49 +0000 (GMT)
+Received: from smtpav05.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 3319720040;
+	Tue, 25 Feb 2025 16:15:48 +0000 (GMT)
+Received: from p-imbrenda (unknown [9.171.32.179])
+	by smtpav05.fra02v.mail.ibm.com (Postfix) with SMTP;
+	Tue, 25 Feb 2025 16:15:48 +0000 (GMT)
+Date: Tue, 25 Feb 2025 17:15:44 +0100
+From: Claudio Imbrenda <imbrenda@linux.ibm.com>
+To: Sean Christopherson <seanjc@google.com>
+Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>,
+        Tianrui Zhao <zhaotianrui@loongson.cn>, Bibo Mao <maobibo@loongson.cn>,
+        Huacai Chen <chenhuacai@kernel.org>,
+        Madhavan Srinivasan
+ <maddy@linux.ibm.com>,
+        Anup Patel <anup@brainfault.org>,
+        Paul Walmsley
+ <paul.walmsley@sifive.com>,
+        Palmer Dabbelt <palmer@dabbelt.com>,
+        Albert Ou
+ <aou@eecs.berkeley.edu>,
+        Christian Borntraeger <borntraeger@linux.ibm.com>,
+        Janosch Frank <frankja@linux.ibm.com>,
+        Paolo Bonzini <pbonzini@redhat.com>,
+        linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+        kvm@vger.kernel.org, loongarch@lists.linux.dev,
+        linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+        kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org,
+        linux-kernel@vger.kernel.org, Aaron Lewis
+ <aaronlewis@google.com>,
+        Jim Mattson <jmattson@google.com>, Yan Zhao
+ <yan.y.zhao@intel.com>,
+        Rick P Edgecombe <rick.p.edgecombe@intel.com>,
+        Kai
+ Huang <kai.huang@intel.com>,
+        Isaku Yamahata <isaku.yamahata@intel.com>
+Subject: Re: [PATCH 7/7] KVM: Drop kvm_arch_sync_events() now that all
+ implementations are nops
+Message-ID: <20250225171544.40477437@p-imbrenda>
+In-Reply-To: <20250224235542.2562848-8-seanjc@google.com>
+References: <20250224235542.2562848-1-seanjc@google.com>
+	<20250224235542.2562848-8-seanjc@google.com>
+Organization: IBM
+X-Mailer: Claws Mail 4.3.0 (GTK 3.24.43; x86_64-redhat-linux-gnu)
 MIME-Version: 1.0
-References: <20250218-aux-device-create-helper-v4-0-c3d7dfdea2e6@baylibre.com> <20250218-aux-device-create-helper-v4-3-c3d7dfdea2e6@baylibre.com>
-In-Reply-To: <20250218-aux-device-create-helper-v4-3-c3d7dfdea2e6@baylibre.com>
-From: Doug Anderson <dianders@chromium.org>
-Date: Tue, 25 Feb 2025 08:04:57 -0800
-X-Gmail-Original-Message-ID: <CAD=FV=Vb+Wb6wJ42jUBxVVNp9P87BiqHZgoY+Tw6W3fO==FF6g@mail.gmail.com>
-X-Gm-Features: AWEUYZm3vRrajChqqVao9eJTA9wadMF2aiVVZGdKkNeW96YTlQauMsPFnVVKvC0
-Message-ID: <CAD=FV=Vb+Wb6wJ42jUBxVVNp9P87BiqHZgoY+Tw6W3fO==FF6g@mail.gmail.com>
-Subject: Re: [PATCH v4 3/8] drm/bridge: ti-sn65dsi86: use the auxiliary device
-To: Jerome Brunet <jbrunet@baylibre.com>
-Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Dave Ertman <david.m.ertman@intel.com>, 
-	Ira Weiny <ira.weiny@intel.com>, "Rafael J. Wysocki" <rafael@kernel.org>, Stephen Boyd <sboyd@kernel.org>, 
-	Arnd Bergmann <arnd@arndb.de>, Danilo Krummrich <dakr@kernel.org>, 
-	Conor Dooley <conor.dooley@microchip.com>, Daire McNamara <daire.mcnamara@microchip.com>, 
-	Philipp Zabel <p.zabel@pengutronix.de>, Andrzej Hajda <andrzej.hajda@intel.com>, 
-	Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
-	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, Jonas Karlman <jonas@kwiboo.se>, 
-	Jernej Skrabec <jernej.skrabec@gmail.com>, 
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, 
-	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
-	Hans de Goede <hdegoede@redhat.com>, =?UTF-8?Q?Ilpo_J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>, 
-	"Bryan O'Donoghue" <bryan.odonoghue@linaro.org>, 
-	Vladimir Kondratiev <vladimir.kondratiev@mobileye.com>, 
-	Gregory CLEMENT <gregory.clement@bootlin.com>, =?UTF-8?B?VGjDqW8gTGVicnVu?= <theo.lebrun@bootlin.com>, 
-	Michael Turquette <mturquette@baylibre.com>, Abel Vesa <abelvesa@kernel.org>, 
-	Peng Fan <peng.fan@nxp.com>, Shawn Guo <shawnguo@kernel.org>, 
-	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
-	Fabio Estevam <festevam@gmail.com>, Kevin Hilman <khilman@baylibre.com>, 
-	Martin Blumenstingl <martin.blumenstingl@googlemail.com>, linux-kernel@vger.kernel.org, 
-	linux-riscv@lists.infradead.org, dri-devel@lists.freedesktop.org, 
-	platform-driver-x86@vger.kernel.org, linux-mips@vger.kernel.org, 
-	linux-clk@vger.kernel.org, imx@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org
+X-TM-AS-GCONF: 00
+X-Proofpoint-ORIG-GUID: 4oNEms2UIOy6dhSLXf3MQHQxp5QC-fsG
+X-Proofpoint-GUID: XwTFU_1fd0Y_Q4qJBAUmVROi_e0umdsT
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1057,Hydra:6.0.680,FMLib:17.12.68.34
+ definitions=2025-02-25_05,2025-02-25_03,2024-11-22_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 lowpriorityscore=0
+ suspectscore=0 mlxscore=0 phishscore=0 bulkscore=0 impostorscore=0
+ spamscore=0 mlxlogscore=999 malwarescore=0 clxscore=1011
+ priorityscore=1501 adultscore=0 classifier=spam adjust=0 reason=mlx
+ scancount=1 engine=8.19.0-2502100000 definitions=main-2502250103
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250225_081213_200921_FB25DE6B 
-X-CRM114-Status: GOOD (  13.16  )
+X-CRM114-CacheID: sfid-20250225_081609_702932_DAF080CF 
+X-CRM114-Status: GOOD (  18.01  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,24 +133,152 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-SGksCgpPbiBUdWUsIEZlYiAxOCwgMjAyNSBhdCAxMTozMOKAr0FNIEplcm9tZSBCcnVuZXQgPGpi
-cnVuZXRAYmF5bGlicmUuY29tPiB3cm90ZToKPgo+IFRoZSBhdXhpbGlhcnkgZGV2aWNlIGNyZWF0
-aW9uIG9mIHRoaXMgZHJpdmVyIGlzIHNpbXBsZSBlbm91Z2ggdG8KPiB1c2UgdGhlIGF2YWlsYWJs
-ZSBhdXhpbGlhcnkgZGV2aWNlIGNyZWF0aW9uIGhlbHBlci4KPgo+IFVzZSBpdCBhbmQgcmVtb3Zl
-IHNvbWUgYm9pbGVycGxhdGUgY29kZS4KPgo+IFNpZ25lZC1vZmYtYnk6IEplcm9tZSBCcnVuZXQg
-PGpicnVuZXRAYmF5bGlicmUuY29tPgo+IC0tLQo+ICBkcml2ZXJzL2dwdS9kcm0vYnJpZGdlL3Rp
-LXNuNjVkc2k4Ni5jIHwgNDkgKysrKystLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0KPiAg
-MSBmaWxlIGNoYW5nZWQsIDcgaW5zZXJ0aW9ucygrKSwgNDIgZGVsZXRpb25zKC0pCgpSZXZpZXdl
-ZC1ieTogRG91Z2xhcyBBbmRlcnNvbiA8ZGlhbmRlcnNAY2hyb21pdW0ub3JnPgoKSSdsbCBzbm9v
-emUgdGhpcyBmb3IgYSBidW5jaCBvZiB3ZWVrcyBhbmQgY2hlY2sgYmFjayB0byBzZWUgaWYgdGhp
-cwpjYW4gYmUgbGFuZGVkIGluIGRybS1taXNjLW5leHQgZXZlcnkgb25jZSBpbiBhIHdoaWxlLiBJ
-ZiB5b3Ugbm90aWNlCnRoYXQgZHJtLW1pc2MtbmV4dCBoYXMgdGhlIG5lY2Vzc2FyeSBwYXRjaGVz
-IGJlZm9yZSBJIGRvIHRoZW4gZmVlbApmcmVlIHRvIHBva2UgbWUgYW5kIEknbGwgY29tbWl0IGl0
-LgoKLURvdWcKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-CmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3Jn
-Cmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+On Mon, 24 Feb 2025 15:55:42 -0800
+Sean Christopherson <seanjc@google.com> wrote:
+
+> Remove kvm_arch_sync_events() now that x86 no longer uses it (no other
+> arch has ever used it).
+> 
+> No functional change intended.
+> 
+> Signed-off-by: Sean Christopherson <seanjc@google.com>
+
+Acked-by: Claudio Imbrenda <imbrenda@linux.ibm.com>
+
+> ---
+>  arch/arm64/include/asm/kvm_host.h     | 2 --
+>  arch/loongarch/include/asm/kvm_host.h | 1 -
+>  arch/mips/include/asm/kvm_host.h      | 1 -
+>  arch/powerpc/include/asm/kvm_host.h   | 1 -
+>  arch/riscv/include/asm/kvm_host.h     | 2 --
+>  arch/s390/include/asm/kvm_host.h      | 1 -
+>  arch/x86/kvm/x86.c                    | 5 -----
+>  include/linux/kvm_host.h              | 1 -
+>  virt/kvm/kvm_main.c                   | 1 -
+>  9 files changed, 15 deletions(-)
+> 
+> diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
+> index 7cfa024de4e3..40897bd2b4a3 100644
+> --- a/arch/arm64/include/asm/kvm_host.h
+> +++ b/arch/arm64/include/asm/kvm_host.h
+> @@ -1346,8 +1346,6 @@ static inline bool kvm_system_needs_idmapped_vectors(void)
+>  	return cpus_have_final_cap(ARM64_SPECTRE_V3A);
+>  }
+>  
+> -static inline void kvm_arch_sync_events(struct kvm *kvm) {}
+> -
+>  void kvm_init_host_debug_data(void);
+>  void kvm_vcpu_load_debug(struct kvm_vcpu *vcpu);
+>  void kvm_vcpu_put_debug(struct kvm_vcpu *vcpu);
+> diff --git a/arch/loongarch/include/asm/kvm_host.h b/arch/loongarch/include/asm/kvm_host.h
+> index 590982cd986e..ab5b7001e2ff 100644
+> --- a/arch/loongarch/include/asm/kvm_host.h
+> +++ b/arch/loongarch/include/asm/kvm_host.h
+> @@ -320,7 +320,6 @@ static inline bool kvm_is_ifetch_fault(struct kvm_vcpu_arch *arch)
+>  
+>  /* Misc */
+>  static inline void kvm_arch_hardware_unsetup(void) {}
+> -static inline void kvm_arch_sync_events(struct kvm *kvm) {}
+>  static inline void kvm_arch_memslots_updated(struct kvm *kvm, u64 gen) {}
+>  static inline void kvm_arch_vcpu_blocking(struct kvm_vcpu *vcpu) {}
+>  static inline void kvm_arch_vcpu_unblocking(struct kvm_vcpu *vcpu) {}
+> diff --git a/arch/mips/include/asm/kvm_host.h b/arch/mips/include/asm/kvm_host.h
+> index f7222eb594ea..c14b10821817 100644
+> --- a/arch/mips/include/asm/kvm_host.h
+> +++ b/arch/mips/include/asm/kvm_host.h
+> @@ -886,7 +886,6 @@ extern unsigned long kvm_mips_get_ramsize(struct kvm *kvm);
+>  extern int kvm_vcpu_ioctl_interrupt(struct kvm_vcpu *vcpu,
+>  			     struct kvm_mips_interrupt *irq);
+>  
+> -static inline void kvm_arch_sync_events(struct kvm *kvm) {}
+>  static inline void kvm_arch_free_memslot(struct kvm *kvm,
+>  					 struct kvm_memory_slot *slot) {}
+>  static inline void kvm_arch_memslots_updated(struct kvm *kvm, u64 gen) {}
+> diff --git a/arch/powerpc/include/asm/kvm_host.h b/arch/powerpc/include/asm/kvm_host.h
+> index 6e1108f8fce6..2d139c807577 100644
+> --- a/arch/powerpc/include/asm/kvm_host.h
+> +++ b/arch/powerpc/include/asm/kvm_host.h
+> @@ -902,7 +902,6 @@ struct kvm_vcpu_arch {
+>  #define __KVM_HAVE_ARCH_WQP
+>  #define __KVM_HAVE_CREATE_DEVICE
+>  
+> -static inline void kvm_arch_sync_events(struct kvm *kvm) {}
+>  static inline void kvm_arch_memslots_updated(struct kvm *kvm, u64 gen) {}
+>  static inline void kvm_arch_flush_shadow_all(struct kvm *kvm) {}
+>  static inline void kvm_arch_vcpu_blocking(struct kvm_vcpu *vcpu) {}
+> diff --git a/arch/riscv/include/asm/kvm_host.h b/arch/riscv/include/asm/kvm_host.h
+> index cc33e35cd628..0e9c2fab6378 100644
+> --- a/arch/riscv/include/asm/kvm_host.h
+> +++ b/arch/riscv/include/asm/kvm_host.h
+> @@ -301,8 +301,6 @@ static inline bool kvm_arch_pmi_in_guest(struct kvm_vcpu *vcpu)
+>  	return IS_ENABLED(CONFIG_GUEST_PERF_EVENTS) && !!vcpu;
+>  }
+>  
+> -static inline void kvm_arch_sync_events(struct kvm *kvm) {}
+> -
+>  #define KVM_RISCV_GSTAGE_TLB_MIN_ORDER		12
+>  
+>  void kvm_riscv_local_hfence_gvma_vmid_gpa(unsigned long vmid,
+> diff --git a/arch/s390/include/asm/kvm_host.h b/arch/s390/include/asm/kvm_host.h
+> index 9a367866cab0..424f899d8163 100644
+> --- a/arch/s390/include/asm/kvm_host.h
+> +++ b/arch/s390/include/asm/kvm_host.h
+> @@ -1056,7 +1056,6 @@ bool kvm_s390_pv_cpu_is_protected(struct kvm_vcpu *vcpu);
+>  extern int kvm_s390_gisc_register(struct kvm *kvm, u32 gisc);
+>  extern int kvm_s390_gisc_unregister(struct kvm *kvm, u32 gisc);
+>  
+> -static inline void kvm_arch_sync_events(struct kvm *kvm) {}
+>  static inline void kvm_arch_free_memslot(struct kvm *kvm,
+>  					 struct kvm_memory_slot *slot) {}
+>  static inline void kvm_arch_memslots_updated(struct kvm *kvm, u64 gen) {}
+> diff --git a/arch/x86/kvm/x86.c b/arch/x86/kvm/x86.c
+> index ea445e6579f1..454fd6b8f3db 100644
+> --- a/arch/x86/kvm/x86.c
+> +++ b/arch/x86/kvm/x86.c
+> @@ -12770,11 +12770,6 @@ int kvm_arch_init_vm(struct kvm *kvm, unsigned long type)
+>  	return ret;
+>  }
+>  
+> -void kvm_arch_sync_events(struct kvm *kvm)
+> -{
+> -
+> -}
+> -
+>  /**
+>   * __x86_set_memory_region: Setup KVM internal memory slot
+>   *
+> diff --git a/include/linux/kvm_host.h b/include/linux/kvm_host.h
+> index c28a6aa1f2ed..5438a1b446a6 100644
+> --- a/include/linux/kvm_host.h
+> +++ b/include/linux/kvm_host.h
+> @@ -1747,7 +1747,6 @@ static inline void kvm_unregister_perf_callbacks(void) {}
+>  
+>  int kvm_arch_init_vm(struct kvm *kvm, unsigned long type);
+>  void kvm_arch_destroy_vm(struct kvm *kvm);
+> -void kvm_arch_sync_events(struct kvm *kvm);
+>  
+>  int kvm_cpu_has_pending_timer(struct kvm_vcpu *vcpu);
+>  
+> diff --git a/virt/kvm/kvm_main.c b/virt/kvm/kvm_main.c
+> index 991e8111e88b..55153494ac70 100644
+> --- a/virt/kvm/kvm_main.c
+> +++ b/virt/kvm/kvm_main.c
+> @@ -1271,7 +1271,6 @@ static void kvm_destroy_vm(struct kvm *kvm)
+>  	kvm_destroy_pm_notifier(kvm);
+>  	kvm_uevent_notify_change(KVM_EVENT_DESTROY_VM, kvm);
+>  	kvm_destroy_vm_debugfs(kvm);
+> -	kvm_arch_sync_events(kvm);
+>  	mutex_lock(&kvm_lock);
+>  	list_del(&kvm->vm_list);
+>  	mutex_unlock(&kvm_lock);
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
