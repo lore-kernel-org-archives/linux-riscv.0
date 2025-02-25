@@ -4,91 +4,146 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61673C021B6
-	for <linux-riscv@archiver.kernel.org>; Tue, 25 Feb 2025 00:08:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7EE30C021B6
+	for <linux-riscv@archiver.kernel.org>; Tue, 25 Feb 2025 00:17:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
-	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID
-	:References:Mime-Version:In-Reply-To:Date:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Rh30BqzWnX+cqVOhdUcRkJCujWZOg8a7PT1R+MQsIh8=; b=Fe9jXy6DyWbcde
-	BuoQvNmIsT0xmls1Fg4DbRtsPgOAV+yHlafL155UfsJYXXYP+1hW67GAvIszuAq6jR0w4Dwd9s8uf
-	CtUwZ56qUqP2SLKuKvTEjXCnfnoh+GrEl1ojOMYm2c8R52GSuY9kEgJawHcU5WmoY+KcvzJcJsYQ8
-	x84L0D/E1RiA2kTnUr+dHyqsQG/uWMRLK4GdllsXel6rj9jXe5YPwLx5ntb5eqJUXsfGZEgb4l4kL
-	4pxlQ4BoAOAgDi0sxGEufTSZMsiC+57Si/tqq5QJh68DKtKmmo20Td2GRTXOEe0LbIzMYRgsImUXX
-	7rv6REGNDYmVcwj8Dzrw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=IAti9jdNr4YRxBMQNBtAHt0x8SfhOQdgfTSO/37ciEU=; b=Y0SG4/dVpZTHO9eaX3olaMta6d
+	mfdrCakaKVvbKjMjn9ndNjRp/oprxvoBMUANNVkr0u7fdj6WeNH5WpdY2m1Y2DytioReEmKda5jyQ
+	OgElxpRjhh9CjzzhRbUQJ0jckwgxVJv1kB+Y9xwWH6mKM7Q6RzXdNc/4/KqolIUNvSkGi90w3R5Ps
+	2DyKHFnOFD5KIGzd2Fj8b/HgZi//f+CfZkN89kT0Y6+fHZ9cATY3jxpk8mXLHP0TITs7TZZ7YYMXS
+	oh91B6wYDKNiAkA43QhlktafDVrhcowT4Ya/HWsSSccnD7TKsOBPDEx7u5Ct5wq9S30hzyVvWZvC7
+	5NAdSUQA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmiUm-0000000Fabi-3gtP;
-	Tue, 25 Feb 2025 00:08:20 +0000
-Received: from mail-pj1-x1049.google.com ([2607:f8b0:4864:20::1049])
+	id 1tmidU-0000000FbUO-0Bfc;
+	Tue, 25 Feb 2025 00:17:20 +0000
+Received: from mail-centralindiaazolkn190110001.outbound.protection.outlook.com ([2a01:111:f403:d409::1] helo=PNZPR01CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmiIo-0000000FY2d-2hpd
+	id 1tmidR-0000000FbTW-0PwY
 	for linux-riscv@lists.infradead.org;
-	Mon, 24 Feb 2025 23:55:59 +0000
-Received: by mail-pj1-x1049.google.com with SMTP id 98e67ed59e1d1-2fc404aaed5so16606707a91.3
-        for <linux-riscv@lists.infradead.org>; Mon, 24 Feb 2025 15:55:58 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1740441357; x=1741046157; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:reply-to:from:to:cc:subject:date:message-id:reply-to;
-        bh=N18ZDDRfnjFxKJiD7qnA09wciuUkX/DOLJoxqyHk2n8=;
-        b=Yy10rKFa/lH3k3losNjKOnBCxwJyn0jOvdyl9CDSTBwqyfDBh+iNMZcuwISp4tX8/B
-         jji1yMl//Y8LZvN749rzhnS482GMtDtT+Dw46/nSjRgEsaaQjgaOSfPo00iMwbXY+i6M
-         k2RJmFwyqr8/vf6MKZz2beMI1dmj2MFZeqVgt8TTxrdAQ6EnLZRLjrQJaFxfOtUQOrBh
-         AJGEFAEYQXzoTVlaViMUHBELOOKWLZvNUQ3bjhgH2+NdGjHYQiWSyzCT/AvlPE7Y2HjB
-         MLXso27ns115tmsIn6414qRye+0ZTj8rdbDu39t88ZToKB/Idu3epfsmx+VMq/812MfK
-         1zeg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1740441357; x=1741046157;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:reply-to:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=N18ZDDRfnjFxKJiD7qnA09wciuUkX/DOLJoxqyHk2n8=;
-        b=KTwv43f+f4oUw3qozdvP0PBVau/jXVu4bfRhB0B3sV9EIcxgjaerykgUiYyXbZ2lpr
-         nw2/+0mAJ/4SRBoc1xrAB72Ykwy9LkAGzuuHqDwu2a5gyg9F0JBZsGXj0A/oCm4LNSNh
-         jZjew/WQweY3WT0qgDkOL6UjzH9KseHYt8BLWjQB3MmBoq6L60b52/Q9FC3XreK3vrL1
-         mhNTCkG8CfwolMPJ5ocybhpz/jfcy65SMB8Yh+2EsJeSDYmN21ZpomwTlWh1hmmcc7ld
-         rShvX8WrwdQrGvOHh8E+BYVKKBrChNi7W7CWb7LZnf235OHjbnRsEI4lRaWiXZeEi6f9
-         +Bzg==
-X-Forwarded-Encrypted: i=1; AJvYcCVQZOVA0AvWWOFB3Wp+e+0tRoA5zfIOWJroQOtTiWT7gvhCpiG8pkV/25UtYfiVT3FIeyPwlji11Y6XtA==@lists.infradead.org
-X-Gm-Message-State: AOJu0YzVMMdPazq+goXooRYhKGQxPTCRfVvq+JREmgKN27yzjqGInhRr
-	ZPMor1Kz7QxXXWvKfwgJtOIYLlz0WmZyFLANaMQAO++Kjx0IzmWgzNOIdGcaeQunT6vGAj7Sxcr
-	Keg==
-X-Google-Smtp-Source: AGHT+IFBRvTh2AoRMsZzInrrN+gn6icsuEOKduQCozj1AYhvRpYSpNqeaxExZSkYlXTQzmgl2LLloh+gErw=
-X-Received: from pjbpb10.prod.google.com ([2002:a17:90b:3c0a:b0:2fc:11a0:c54d])
- (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:90b:4ec6:b0:2ee:70cb:a500
- with SMTP id 98e67ed59e1d1-2fce77a00c5mr23270511a91.1.1740441357604; Mon, 24
- Feb 2025 15:55:57 -0800 (PST)
-Date: Mon, 24 Feb 2025 15:55:42 -0800
-In-Reply-To: <20250224235542.2562848-1-seanjc@google.com>
-Mime-Version: 1.0
-References: <20250224235542.2562848-1-seanjc@google.com>
-X-Mailer: git-send-email 2.48.1.658.g4767266eb4-goog
-Message-ID: <20250224235542.2562848-8-seanjc@google.com>
-Subject: [PATCH 7/7] KVM: Drop kvm_arch_sync_events() now that all
- implementations are nops
-From: Sean Christopherson <seanjc@google.com>
-To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
-	Tianrui Zhao <zhaotianrui@loongson.cn>, Bibo Mao <maobibo@loongson.cn>, 
-	Huacai Chen <chenhuacai@kernel.org>, Madhavan Srinivasan <maddy@linux.ibm.com>, 
-	Anup Patel <anup@brainfault.org>, Paul Walmsley <paul.walmsley@sifive.com>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Christian Borntraeger <borntraeger@linux.ibm.com>, Janosch Frank <frankja@linux.ibm.com>, 
-	Claudio Imbrenda <imbrenda@linux.ibm.com>, Sean Christopherson <seanjc@google.com>, 
-	Paolo Bonzini <pbonzini@redhat.com>
-Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
-	kvm@vger.kernel.org, loongarch@lists.linux.dev, linux-mips@vger.kernel.org, 
-	linuxppc-dev@lists.ozlabs.org, kvm-riscv@lists.infradead.org, 
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	Aaron Lewis <aaronlewis@google.com>, Jim Mattson <jmattson@google.com>, 
-	Yan Zhao <yan.y.zhao@intel.com>, Rick P Edgecombe <rick.p.edgecombe@intel.com>, 
-	Kai Huang <kai.huang@intel.com>, Isaku Yamahata <isaku.yamahata@intel.com>
+	Tue, 25 Feb 2025 00:17:18 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=Xgyxmt/rNAq3ECZnuwXZx0FemYS7BRkS+Z+2rJ8IgtcdJL+XpS7h+rO/3OPC8JZFh4AGx7wJc7OujySsftbI1vQg2Q3w+gO9zW4rAwNY6JK2gPEADLhRuBcQin7T5wE7NY1/xmWAGIwXwC2wz8tVfTKubHb78iMf5QB7cyUBCDVV3EtBQ1RLg33rTQHPryOsyCzVZOtQUC/F42Gzl8qLC6DW8y27kpWNJFfFDfrzmtC40FRSBuxyWxDdfFQjEaw0AqWn/CC7ieHtSozyaA42BK5Pif0/XVnCExRb2gykwg2XZtfLSBRtncInfamwv7otL6iHop1SGr69SwWF65FbAg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=+otcXgyUPJExiUarzJcxDXv87oSwmhrSH9spcVsOzwY=;
+ b=mqDXY7kLoCyqtSq/N7c3V2wnwMs2sEpKXpFMTCcOiT6gfRVuA/XYlSw8RYuYrQTepUin2Rl8N4Hs1YIee/KF0L9UMS+R+W9NOXPGHaOoZBvx3u21Uy6tOx3FQyZnAdgQtEyR8pQlj7eQNeALg2nMuvwmcD8uedwD129/il2kx0xr1BtSQlae4prwyAdh3RSm5AeSqZM8biPHSxVnxw4znlAUoTNskD0Fl9LPLy/r/KbX1N/5YGd5qS93H7dQinst5oIKqHZG04mZanq+sZytCyTKQOQiV8w7+cXW61E9PmEKgxSODnPOx2kd6ava6yr4j4f3rOgvPULTmfMhIDVK/Q==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
+ dkim=none; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=+otcXgyUPJExiUarzJcxDXv87oSwmhrSH9spcVsOzwY=;
+ b=jF3y+FRnhijHsmuznO97yQg8bLfmMzPoFtANwXYMDvAP8I9HVhiEoltRLWCQFRxBKCkThfXpyxOQsS5gGliBF6oo7ohZjLRq8VQeS0Mmo9LVAef9+KIpIG3XjVLaghUMBekCF4nnffZhHFHeQ3AelAKFwtuFLh2UeS1Wqh40QmtUsbIIjntl2UjtDdYT9aFgkoxIvMmMijyiXnL331tObqOMqods69Csxb58W+/wiB2Rv8M8pDiDLKXqZa+C3cusrD01jwxPWB2j+68tzHvJ7jfLADPK0m3JldeowCtzLVvlO6uOQAgyiEJkxz/f0ebf7PiAWQsgdwNS2giZgwOazg==
+Received: from PN0PR01MB9166.INDPRD01.PROD.OUTLOOK.COM (2603:1096:c01:165::9)
+ by MA0PR01MB5725.INDPRD01.PROD.OUTLOOK.COM (2603:1096:a01:6e::7) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8466.22; Tue, 25 Feb
+ 2025 00:17:06 +0000
+Received: from PN0PR01MB9166.INDPRD01.PROD.OUTLOOK.COM
+ ([fe80::42b2:a8b0:90c6:201e]) by PN0PR01MB9166.INDPRD01.PROD.OUTLOOK.COM
+ ([fe80::42b2:a8b0:90c6:201e%5]) with mapi id 15.20.8466.020; Tue, 25 Feb 2025
+ 00:17:05 +0000
+Message-ID: <PN0PR01MB9166E5F6249600B5764B6602FEC32@PN0PR01MB9166.INDPRD01.PROD.OUTLOOK.COM>
+Date: Tue, 25 Feb 2025 08:17:00 +0800
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 0/3] spi: sophgo: add Sophgo SPI NOR controller driver
+To: Longbin Li <looong.bin@gmail.com>, Mark Brown <broonie@kernel.org>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Inochi Amaoto <inochiama@gmail.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>
+Cc: linux-spi@vger.kernel.org, devicetree@vger.kernel.org,
+ sophgo@lists.linux.dev, linux-kernel@vger.kernel.org,
+ linux-riscv@lists.infradead.org
+References: <20250224101213.26003-1-looong.bin@gmail.com>
+From: Chen Wang <unicorn_wang@outlook.com>
+In-Reply-To: <20250224101213.26003-1-looong.bin@gmail.com>
+X-ClientProxiedBy: SI2P153CA0014.APCP153.PROD.OUTLOOK.COM (2603:1096:4:140::6)
+ To PN0PR01MB9166.INDPRD01.PROD.OUTLOOK.COM (2603:1096:c01:165::9)
+X-Microsoft-Original-Message-ID: <2d506703-f941-4ca9-a5f9-16fd6f3e203c@outlook.com>
+MIME-Version: 1.0
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PN0PR01MB9166:EE_|MA0PR01MB5725:EE_
+X-MS-Office365-Filtering-Correlation-Id: acac11a7-4c4b-4da9-e1d8-08dd5531bbe1
+X-Microsoft-Antispam: BCL:0;ARA:14566002|15080799006|7092599003|461199028|5072599009|8060799006|6090799003|19110799003|440099028|3412199025;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?cnZmL3QxVHNmOG1mZU9aY3RxYnkzNWpreXNzZUtjQVBEY0kzZkhYTDA0bjlo?=
+ =?utf-8?B?ejJmMGl6a0laRHQ4Y1duRmFYTmkzMzdJdDI1RGRtZGxOZzkwUFJzVmhHUXhK?=
+ =?utf-8?B?dnJmR1pwZmJYWFBBQ3YzWktFdGd0VEJydTRSL2VhSktGQ1VoblpzSmR1SHQw?=
+ =?utf-8?B?c3JUSU1aVGd1V1pzR2cyeHliQmMyS2VzTmJ1WmNpVThwVER6S05TWFJ5OFRE?=
+ =?utf-8?B?OU1PWWlFczNRQmh2Z2pIclBHMmJBWVFPNWpTYjFMcllYcFh3SkYrSEtmanpR?=
+ =?utf-8?B?czhCU25HTnV0TVR1TjJ5VHJWeCt4MEM1Ly90TmRTbW9uVUlKWk9nM0Q1YnJ4?=
+ =?utf-8?B?Q0VrbnBZOUdzWitFNGlQMlZGQkVla3FkNy9WcTd5eldnVXV5QmpFQjZub2Y1?=
+ =?utf-8?B?aTJ3YzNKeVM1MEpjb3U3ZGdsN3hiekkwVHZsaDRtdmpBc3k0S2hyclRYc3dq?=
+ =?utf-8?B?bi9FKzJja2I0UTZlcHl3WWsraU1jeFNabHh0VUlDTjVuYUFmQXV3bkl4WHV2?=
+ =?utf-8?B?RjEvVEF5dkQrei9LUWRvbWF4NDNrZ2hGMG85dG4zaEJONEJwYTJmckdPM1hQ?=
+ =?utf-8?B?T0ZKOUNWeFBBRXl3Nmg3RWJZUGVCM2JWKzR1S3pGZUtreTFnOW5JWXpUa3hI?=
+ =?utf-8?B?eWZpS0w5NGxaalFmNXNMOCt0WFlkd2VUdU91bEZaNmhZZHVuWWdVc3RaaEtp?=
+ =?utf-8?B?amw4czhrSzlTTDB1ODFsZXhHc0Ezdmw5amwzandZMWUyMElYa3BCVmNOaXpV?=
+ =?utf-8?B?L2lPRVA1U2VLWUwxLzg1N3czQkE5M1RtQ25hRlhWUTBieDhGRk40YkdsYnZi?=
+ =?utf-8?B?LzBMTm1JTXJvS3NUMGFLbXo2OVY4UUROQkZ5dDRZeHorZlBDWXZldCtjOXVF?=
+ =?utf-8?B?ZVh1Z1VFSWl4Z3ZQKzR3eDlkY1JxVEQxYW1TWnI2RmpRWVpuNDZNT0lGZTN3?=
+ =?utf-8?B?OXhFcW8zWWc0emY5ejB3QlpDWTZuR21ZZ08vckUxVk9MVXppWDZJSUs5bFl5?=
+ =?utf-8?B?WDVCeFF3aUdhMGt5S1dQRlZTT0h4RzYveEFQMHZtQUhiWHRVbnlrdWw0c2dY?=
+ =?utf-8?B?UzRKVm5lRjBrb3dhUlIvRkQveWl0WWkxNkpqeXQyaVJzTUR0L1pjL3pYWWwz?=
+ =?utf-8?B?VXJaRFhFcTRZVmkzdHNaeXVuVWUzcVROR1E5bG1iZjg4anlkTnBNMkhDVmhO?=
+ =?utf-8?B?SzA2MzN3L0NCVVMwS2pleFFrZ04vY0pvdUgxYzZMNi9URzkvOG1NbmFBdTF0?=
+ =?utf-8?B?NXNUbVdRbGgzS3lnMmxsQlV4dUJrT0d3N3NzSDYranBROHJsQnB6MzlEbEQz?=
+ =?utf-8?B?NW5haU13cElDcVR1MG9MSXF1SzlkUGpRbit0eWdQN0l5Zmsyamtsd1puV3RE?=
+ =?utf-8?B?T3dxUTEvL1MyVXhveXNaWXlpMS93MVFYWFpRemZtbVpsUkNCdUdBVkQybmJk?=
+ =?utf-8?B?UWZoTGhpSG4vcEp3SGU0OEZaWjdodWdBZ3RkQ0dOV0NMVXAzdlJ0anhRMEpT?=
+ =?utf-8?Q?hxWTxQ=3D?=
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?TWhUV2t0aU1XVE1zQ1BXWWpVYm10VlNuSisvMHI2TWVaanI1VWlYSlg5OGVy?=
+ =?utf-8?B?K2Nub3g2dXF2eUJabm5xU3BBSjZCc2c5REJIQnZRcVlxTVFTbEI0OUFHSFg2?=
+ =?utf-8?B?ODRhZVRob25PRXVzSS8wODJYbVJPL3ExTEsxMEwxejdtM0RZcWRtVnhVUUxX?=
+ =?utf-8?B?VGEzblZFTkx5OWpGSEl5TkY4SDlPVXd0amFaVW95UnVlbUw2SkVxeGx3N3RX?=
+ =?utf-8?B?djM2cTZ0b1Bpb0ltVTdwajJBSlhVb3NNR2FxbUF4Wjl1c1N5Q2ZKZDBCR2N3?=
+ =?utf-8?B?L2dIaXJmdlp1N1MrRlgrWWtpQ1JXcmRpUGJwdW9XbzBYT29EcVhUczM1MU83?=
+ =?utf-8?B?MU42SjRlN01BNW45bHExZDJQTEExdStwWTBEdmJySVF1ZWhueTFEV0Z6TjU5?=
+ =?utf-8?B?b3I0U3FYbVZySm0yaktIcjhMMitxOU03YVBsU3FNOElBTU5hWHh6UU00YTlv?=
+ =?utf-8?B?MmV3QW5yNWpkUkR3VFJXN3hETzlFRHdBM2pQdldPTzVqMkE4KzRWbUNKc2Q3?=
+ =?utf-8?B?dEtkR1NjT3VPT0QxVE5XRnd1RFQvdFA3WTJiaUYxUHZCR2RESktYNFJDeTEr?=
+ =?utf-8?B?TDVaUmoxTDRsUWdzSjNIRUhnRzV5cEp6M3VYRFlVNGU0SkhDb09ySmRjNEth?=
+ =?utf-8?B?L0wwME4vZ3ZIeHh6aVljZ2pVR0dOUmMzTFh6dTdVRHZsN3E4R0hheTUyeWta?=
+ =?utf-8?B?OXhESVRKZkx0dzJIVVdqODVwbWw5c0dYSGdlZWxVYk9XSEFrNC9mVGp5ZEV3?=
+ =?utf-8?B?OXUxNDFDS1BmTUFpR0xuUVRtNmdyNGxQSmhrUnYvMFJMNkFnN0ZxYXpOM093?=
+ =?utf-8?B?a3QvUkRUVnZtOTZuN2ZSODRBUk91RUlTeUttRWUvTHEvMUNkcUZyNVU0dmpP?=
+ =?utf-8?B?bUQraGRSeC80dnpFQmhGeVJKZWdtaWxxdGtFaS9VckdMU3RiWlBZWExFMDBq?=
+ =?utf-8?B?ZDFUQ1JMeWcxOVZWOVZ4bzh2Tk9YdXRiTDBrVG5aZzBtSW1LaFJlTm8zcmwx?=
+ =?utf-8?B?bDRPTU1iejNFdUx3UHAyRkZxOFhzaWJJS3hBSlR5dVo1MkVoVmZkRmc2Nk1R?=
+ =?utf-8?B?MzdlZWZyUTZSUTVQWDZPcTlyTWVxYmlLa1czWTlXd3JDT2E5RDkzRElENU92?=
+ =?utf-8?B?V1IyNjl0MlR0ZXk1eHZsWldtR3IzbGdFOWt4NTFjbmhrY1J0eFJUMTZnOWpu?=
+ =?utf-8?B?c3lYbWNCMjRkL3Rpd3J2ZEJsbXdER1RDL2ZROW84Nkx4OFZZQ1FDeGxDU01j?=
+ =?utf-8?B?REpPZUViakcvbHF5VkNKcUMrVEhyY3FxNTNxRlJpbFB3L1dJMURRTDNabFRX?=
+ =?utf-8?B?ZXJhNG9kUHp2Sk84eFpoYnpYdVVVbit1TDl2anQyU0RGZGtPRzNkVE5XaUpl?=
+ =?utf-8?B?RkFOMmt3SENkZGliWDAzM1prY0Rtc2x2MlZ1dTR0M2UybUNnZVlwTGQ1clRS?=
+ =?utf-8?B?Q2dydjFoOWo2SEdpRDJlbk5UUEtvbGpLc254RUhrTTJyRlp0RVY2NmIwOTB2?=
+ =?utf-8?B?Q0Z3dVRzUkNCeUE4YlFESWo3VXB6a1NvcWR0UmV2N0UrN0ZjYTNla2NhVm1G?=
+ =?utf-8?B?N0FSM0o2ZEk2d2Q0ck5EaWlIRnFXRGxTUm9zakNVajF2cUlxa01hQVhQMk9a?=
+ =?utf-8?B?bHphck5ZbkxZYUpOWGhUZTdOeTk3QXVoZTJicEZqbEVlZDZCQUNvZVRRRFlV?=
+ =?utf-8?B?RVlNR2JpQWt3RVZUby9LdmtOc01iYjljUitQL0w4SGF6Z3loL2thZUdFTVM4?=
+ =?utf-8?Q?Aiu95e8CTeFM9899CyA0p1pv4bttF2+5Mm6acAP?=
+X-OriginatorOrg: outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: acac11a7-4c4b-4da9-e1d8-08dd5531bbe1
+X-MS-Exchange-CrossTenant-AuthSource: PN0PR01MB9166.INDPRD01.PROD.OUTLOOK.COM
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Feb 2025 00:17:05.2624
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
+X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MA0PR01MB5725
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250224_155558_697077_1DF367DE 
-X-CRM114-Status: UNSURE (   9.17  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250224_161717_164333_1C902D07 
+X-CRM114-Status: GOOD (  10.61  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,147 +155,44 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Reply-To: Sean Christopherson <seanjc@google.com>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Remove kvm_arch_sync_events() now that x86 no longer uses it (no other
-arch has ever used it).
+hi, Longbin,
 
-No functional change intended.
+I think this patch is only for SG2044, right? However, the file name you 
+used and the description in the patch all use "sophgo" directly, which 
+makes it seem that it applies to all sophgo products. I suggest you 
+correct this, otherwise there will be conflicts when other sophgo 
+products such as SG2042 submit patches to SPIFMC.
 
-Signed-off-by: Sean Christopherson <seanjc@google.com>
----
- arch/arm64/include/asm/kvm_host.h     | 2 --
- arch/loongarch/include/asm/kvm_host.h | 1 -
- arch/mips/include/asm/kvm_host.h      | 1 -
- arch/powerpc/include/asm/kvm_host.h   | 1 -
- arch/riscv/include/asm/kvm_host.h     | 2 --
- arch/s390/include/asm/kvm_host.h      | 1 -
- arch/x86/kvm/x86.c                    | 5 -----
- include/linux/kvm_host.h              | 1 -
- virt/kvm/kvm_main.c                   | 1 -
- 9 files changed, 15 deletions(-)
+Regards,
 
-diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
-index 7cfa024de4e3..40897bd2b4a3 100644
---- a/arch/arm64/include/asm/kvm_host.h
-+++ b/arch/arm64/include/asm/kvm_host.h
-@@ -1346,8 +1346,6 @@ static inline bool kvm_system_needs_idmapped_vectors(void)
- 	return cpus_have_final_cap(ARM64_SPECTRE_V3A);
- }
- 
--static inline void kvm_arch_sync_events(struct kvm *kvm) {}
--
- void kvm_init_host_debug_data(void);
- void kvm_vcpu_load_debug(struct kvm_vcpu *vcpu);
- void kvm_vcpu_put_debug(struct kvm_vcpu *vcpu);
-diff --git a/arch/loongarch/include/asm/kvm_host.h b/arch/loongarch/include/asm/kvm_host.h
-index 590982cd986e..ab5b7001e2ff 100644
---- a/arch/loongarch/include/asm/kvm_host.h
-+++ b/arch/loongarch/include/asm/kvm_host.h
-@@ -320,7 +320,6 @@ static inline bool kvm_is_ifetch_fault(struct kvm_vcpu_arch *arch)
- 
- /* Misc */
- static inline void kvm_arch_hardware_unsetup(void) {}
--static inline void kvm_arch_sync_events(struct kvm *kvm) {}
- static inline void kvm_arch_memslots_updated(struct kvm *kvm, u64 gen) {}
- static inline void kvm_arch_vcpu_blocking(struct kvm_vcpu *vcpu) {}
- static inline void kvm_arch_vcpu_unblocking(struct kvm_vcpu *vcpu) {}
-diff --git a/arch/mips/include/asm/kvm_host.h b/arch/mips/include/asm/kvm_host.h
-index f7222eb594ea..c14b10821817 100644
---- a/arch/mips/include/asm/kvm_host.h
-+++ b/arch/mips/include/asm/kvm_host.h
-@@ -886,7 +886,6 @@ extern unsigned long kvm_mips_get_ramsize(struct kvm *kvm);
- extern int kvm_vcpu_ioctl_interrupt(struct kvm_vcpu *vcpu,
- 			     struct kvm_mips_interrupt *irq);
- 
--static inline void kvm_arch_sync_events(struct kvm *kvm) {}
- static inline void kvm_arch_free_memslot(struct kvm *kvm,
- 					 struct kvm_memory_slot *slot) {}
- static inline void kvm_arch_memslots_updated(struct kvm *kvm, u64 gen) {}
-diff --git a/arch/powerpc/include/asm/kvm_host.h b/arch/powerpc/include/asm/kvm_host.h
-index 6e1108f8fce6..2d139c807577 100644
---- a/arch/powerpc/include/asm/kvm_host.h
-+++ b/arch/powerpc/include/asm/kvm_host.h
-@@ -902,7 +902,6 @@ struct kvm_vcpu_arch {
- #define __KVM_HAVE_ARCH_WQP
- #define __KVM_HAVE_CREATE_DEVICE
- 
--static inline void kvm_arch_sync_events(struct kvm *kvm) {}
- static inline void kvm_arch_memslots_updated(struct kvm *kvm, u64 gen) {}
- static inline void kvm_arch_flush_shadow_all(struct kvm *kvm) {}
- static inline void kvm_arch_vcpu_blocking(struct kvm_vcpu *vcpu) {}
-diff --git a/arch/riscv/include/asm/kvm_host.h b/arch/riscv/include/asm/kvm_host.h
-index cc33e35cd628..0e9c2fab6378 100644
---- a/arch/riscv/include/asm/kvm_host.h
-+++ b/arch/riscv/include/asm/kvm_host.h
-@@ -301,8 +301,6 @@ static inline bool kvm_arch_pmi_in_guest(struct kvm_vcpu *vcpu)
- 	return IS_ENABLED(CONFIG_GUEST_PERF_EVENTS) && !!vcpu;
- }
- 
--static inline void kvm_arch_sync_events(struct kvm *kvm) {}
--
- #define KVM_RISCV_GSTAGE_TLB_MIN_ORDER		12
- 
- void kvm_riscv_local_hfence_gvma_vmid_gpa(unsigned long vmid,
-diff --git a/arch/s390/include/asm/kvm_host.h b/arch/s390/include/asm/kvm_host.h
-index 9a367866cab0..424f899d8163 100644
---- a/arch/s390/include/asm/kvm_host.h
-+++ b/arch/s390/include/asm/kvm_host.h
-@@ -1056,7 +1056,6 @@ bool kvm_s390_pv_cpu_is_protected(struct kvm_vcpu *vcpu);
- extern int kvm_s390_gisc_register(struct kvm *kvm, u32 gisc);
- extern int kvm_s390_gisc_unregister(struct kvm *kvm, u32 gisc);
- 
--static inline void kvm_arch_sync_events(struct kvm *kvm) {}
- static inline void kvm_arch_free_memslot(struct kvm *kvm,
- 					 struct kvm_memory_slot *slot) {}
- static inline void kvm_arch_memslots_updated(struct kvm *kvm, u64 gen) {}
-diff --git a/arch/x86/kvm/x86.c b/arch/x86/kvm/x86.c
-index ea445e6579f1..454fd6b8f3db 100644
---- a/arch/x86/kvm/x86.c
-+++ b/arch/x86/kvm/x86.c
-@@ -12770,11 +12770,6 @@ int kvm_arch_init_vm(struct kvm *kvm, unsigned long type)
- 	return ret;
- }
- 
--void kvm_arch_sync_events(struct kvm *kvm)
--{
--
--}
--
- /**
-  * __x86_set_memory_region: Setup KVM internal memory slot
-  *
-diff --git a/include/linux/kvm_host.h b/include/linux/kvm_host.h
-index c28a6aa1f2ed..5438a1b446a6 100644
---- a/include/linux/kvm_host.h
-+++ b/include/linux/kvm_host.h
-@@ -1747,7 +1747,6 @@ static inline void kvm_unregister_perf_callbacks(void) {}
- 
- int kvm_arch_init_vm(struct kvm *kvm, unsigned long type);
- void kvm_arch_destroy_vm(struct kvm *kvm);
--void kvm_arch_sync_events(struct kvm *kvm);
- 
- int kvm_cpu_has_pending_timer(struct kvm_vcpu *vcpu);
- 
-diff --git a/virt/kvm/kvm_main.c b/virt/kvm/kvm_main.c
-index 991e8111e88b..55153494ac70 100644
---- a/virt/kvm/kvm_main.c
-+++ b/virt/kvm/kvm_main.c
-@@ -1271,7 +1271,6 @@ static void kvm_destroy_vm(struct kvm *kvm)
- 	kvm_destroy_pm_notifier(kvm);
- 	kvm_uevent_notify_change(KVM_EVENT_DESTROY_VM, kvm);
- 	kvm_destroy_vm_debugfs(kvm);
--	kvm_arch_sync_events(kvm);
- 	mutex_lock(&kvm_lock);
- 	list_del(&kvm->vm_list);
- 	mutex_unlock(&kvm_lock);
--- 
-2.48.1.658.g4767266eb4-goog
+Chen
 
+On 2025/2/24 18:11, Longbin Li wrote:
+> Add SPI NOR driver for Sophgo, including read, write operations.
+> This driver is only suitable for NOR flash.
+>
+> Longbin Li (3):
+>    dt-bindings: spi: add Sophgo SPI NOR controller driver
+>    spi: sophgo: add Sophgo SPI NOR controller driver
+>    riscv: dts: sophgo: add Sophgo SPI NOR controller driver
+>
+>   .../bindings/spi/spi-sophgo-nor.yaml          |  52 ++
+>   .../boot/dts/sophgo/sg2044-sophgo-sd3-10.dts  |  18 +
+>   arch/riscv/boot/dts/sophgo/sg2044.dtsi        |  24 +
+>   drivers/spi/Kconfig                           |   9 +
+>   drivers/spi/Makefile                          |   1 +
+>   drivers/spi/spi-sophgo-nor.c                  | 501 ++++++++++++++++++
+>   6 files changed, 605 insertions(+)
+>   create mode 100644 Documentation/devicetree/bindings/spi/spi-sophgo-nor.yaml
+>   create mode 100644 drivers/spi/spi-sophgo-nor.c
+>
+> --
+> 2.48.1
 
 _______________________________________________
 linux-riscv mailing list
