@@ -4,89 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3B50AC021B2
-	for <linux-riscv@archiver.kernel.org>; Tue, 25 Feb 2025 16:42:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4369CC021BE
+	for <linux-riscv@archiver.kernel.org>; Tue, 25 Feb 2025 16:43:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID:
-	References:Mime-Version:In-Reply-To:Date:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=S4g47zm1yYPssrD73fNMOhvYKNPKAF/XnY8B+Y62jsI=; b=sb2S7lz+KFu0GjImiXU3IsUlPN
-	AXFWuJSD8LVBF08K3F58hRVBhGHqyDB62p8Wve/QALvZ9uQL7QNhmnI5bfqzGdujQVdHFBhRT1EM9
-	86vr0+KJRpZOm/DnyOk69PquGDSECG9BhMUWDGDruvwzmu3oS8R5OkVU+8EsDQmV0CWWa1WqOcPlN
-	i6IrWWTo6P4QxxlRje1RnhOioq/Myx0lumns+G+uz8L5cbJrK8snRu7QdA5WRtR1RgcKNPLMZJUKE
-	xPVFhXC3S6CAR3tZXQPC/5bUQypn5tAfXHaE402Q13wBcNIFNWkRQy7GCmV0LVuetqcLtgCUOj57J
-	CuCBsgzw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=iynM0+iFiJIU50bDYPpoL/zOeSAGjg84W0Upi6jd/zk=; b=w6QoI7KTHhTvv/
+	u6da60jUbiDoRvKg8kDyNwLwScQForUiHvd+YDEPSrITbv8fIRLXEUbWvb5swQwMJu2R7n22pe0qx
+	nCduX7YyBDK2p8xk8aZO8bDFykilO3O2WEpPP0185OIU1Rp37xP9Oka8SgQbIJmQXJKS6ckTTYk5C
+	bQ5mRZGD01lngyQpvUVgF6ycGPc7Fs8u9qqzwq+EKpdQMWYYwJawpxsYPYNFhYpTrZdFYoyx3RT0D
+	muWAdlJuQdVVNNceSCtsePfL4Ya6ffK7y9djH4cSVUM86nfDBzehVMsRwqnwEHqKSn8AB5pWzeq6J
+	IGXjgiAU/gnfo/Lt7/0w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmy10-00000000LaR-28Xs;
-	Tue, 25 Feb 2025 16:42:38 +0000
-Received: from mail-pj1-x1049.google.com ([2607:f8b0:4864:20::1049])
+	id 1tmy1I-00000000Lzh-3ZXe;
+	Tue, 25 Feb 2025 16:42:56 +0000
+Received: from relay6-d.mail.gandi.net ([2001:4b98:dc4:8::226])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmwUU-0000000011j-1ayO
+	id 1tmwZu-000000001oy-3rfo
 	for linux-riscv@lists.infradead.org;
-	Tue, 25 Feb 2025 15:04:59 +0000
-Received: by mail-pj1-x1049.google.com with SMTP id 98e67ed59e1d1-2fc518f0564so12376857a91.2
-        for <linux-riscv@lists.infradead.org>; Tue, 25 Feb 2025 07:04:57 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1740495897; x=1741100697; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=SksBvCkZJsvM7Rmqh0mGEf+0QRJJwMrgdQAdOhKbL9I=;
-        b=EJuZi/Y9WKcejbG4SNkoKZArhM1GrOZIRmYClA7e55+X/nGOg2r9DdRVtTlwn9Exiq
-         wlBI0tFJOrR4i1s1x+kCkBH8Nw7inHcTvtg2jNGrweMgyTV+4sy/d333kY/00hKu2fG7
-         bjQ3VlZHgjixrm/s84mF9ImBHXVbj16hj4t5gHDraGL0Ri0gIl6cWDKJt/bq8QxoEcRK
-         xZSjjOpaVB9PtWIgLrsW4/8mcKphanUzi9ki/m8lq58rQtdm66PbekemrJmnmOGbGV5T
-         pJWGYdhNLafU3G5V/4JmpmUA7eif0M+aZgFZ36J5ukfCV1j1Co9G5IoCoj9R6djvjEVz
-         4Slg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1740495897; x=1741100697;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=SksBvCkZJsvM7Rmqh0mGEf+0QRJJwMrgdQAdOhKbL9I=;
-        b=lXz46p7iYHAsYAaatLO61MyH0OyQTNyusiUUfk3Muj7+9Lb+ToMxIZRZY4WqeQVRCy
-         TiQOARFvmsyg209xQTlNTbNGwdrSEqdxNxCm9++4vuji0QWx9y4udIZcfhd/6Ait98KM
-         2syZ8825/w08XFVTdHU3N4ezTC67reSAjqAeuRbN3I9eovKnSsF+EGDUFkBzuLs3efYk
-         0y/oqIm15EeSN3k4bDk/BTDB20nsRi7ePHgklwzM+7OiS6efW7Nw1RQqqAtamhN08rIa
-         UskOrNMiaLMKNwXqeG7HHNTWtEn1Iv10p+lgUtczryJBQqRWPiGnGAys+zLl2EEWIiUJ
-         tSjg==
-X-Forwarded-Encrypted: i=1; AJvYcCURF3tFUVOufyqqv3FBEyNs/M4h6Uetd9uoCv7/mT/V7mxLMOaUJrHVvekpwPqbvw/xrXI2NpcC/YccXQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0YwodM4ihHQNPTHJOpe3YTahQ6JwRkpbJ9IUgXb8AgUh5e99+SJb
-	BA33JitBgbzTAXggLDYAQB+J6XfSD9mWEMZbfV24nz+UXpp7VEgLFBL+dAJFe+Ek6Bt+mbOmbGy
-	7Cg==
-X-Google-Smtp-Source: AGHT+IGZHL7uZNM7BfQEbB7Kx7BtB5DxGYYXBfSiN251AAOj3wJWNSwzk9hwQvuFf2tqN0hxCASkCwncVrs=
-X-Received: from pgmm27.prod.google.com ([2002:a05:6a02:551b:b0:ad5:4c6b:ab72])
- (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6a20:9d8f:b0:1f0:e430:43f8
- with SMTP id adf61e73a8af0-1f0fbff6f36mr6428815637.1.1740495896725; Tue, 25
- Feb 2025 07:04:56 -0800 (PST)
-Date: Tue, 25 Feb 2025 07:04:55 -0800
-In-Reply-To: <Z71072F7FMz5aq/Q@yzhao56-desk.sh.intel.com>
-Mime-Version: 1.0
-References: <20250224235542.2562848-1-seanjc@google.com> <20250224235542.2562848-2-seanjc@google.com>
- <Z71072F7FMz5aq/Q@yzhao56-desk.sh.intel.com>
-Message-ID: <Z73cF_pWIFMreOf5@google.com>
-Subject: Re: [PATCH 1/7] KVM: x86: Free vCPUs before freeing VM state
-From: Sean Christopherson <seanjc@google.com>
-To: Yan Zhao <yan.y.zhao@intel.com>
-Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
-	Tianrui Zhao <zhaotianrui@loongson.cn>, Bibo Mao <maobibo@loongson.cn>, 
-	Huacai Chen <chenhuacai@kernel.org>, Madhavan Srinivasan <maddy@linux.ibm.com>, 
-	Anup Patel <anup@brainfault.org>, Paul Walmsley <paul.walmsley@sifive.com>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Christian Borntraeger <borntraeger@linux.ibm.com>, Janosch Frank <frankja@linux.ibm.com>, 
-	Claudio Imbrenda <imbrenda@linux.ibm.com>, Paolo Bonzini <pbonzini@redhat.com>, 
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
-	kvm@vger.kernel.org, loongarch@lists.linux.dev, linux-mips@vger.kernel.org, 
-	linuxppc-dev@lists.ozlabs.org, kvm-riscv@lists.infradead.org, 
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	Aaron Lewis <aaronlewis@google.com>, Jim Mattson <jmattson@google.com>, 
-	Rick P Edgecombe <rick.p.edgecombe@intel.com>, Kai Huang <kai.huang@intel.com>, 
-	Isaku Yamahata <isaku.yamahata@intel.com>
+	Tue, 25 Feb 2025 15:10:36 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id 100A244286;
+	Tue, 25 Feb 2025 15:10:27 +0000 (UTC)
+Message-ID: <4c7393a5-ad1a-4740-b454-a9b85682a78f@ghiti.fr>
+Date: Tue, 25 Feb 2025 16:10:26 +0100
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 12/13] riscv/irq: use seq_put_decimal_ull_width() for
+ decimal values
+Content-Language: en-US
+To: David Wang <00107082@163.com>, paul.walmsley@sifive.com,
+ palmer@dabbelt.com, aou@eecs.berkeley.edu
+Cc: linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
+References: <20241108162503.9914-1-00107082@163.com>
+From: Alexandre Ghiti <alex@ghiti.fr>
+In-Reply-To: <20241108162503.9914-1-00107082@163.com>
+X-GND-State: clean
+X-GND-Score: 0
+X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgdekvddtfecutefuodetggdotefrodftvfcurfhrohhfihhlvgemucfitefpfffkpdcuggftfghnshhusghstghrihgsvgenuceurghilhhouhhtmecufedtudenucenucfjughrpefkffggfgfuvfevfhfhjggtgfesthejredttddvjeenucfhrhhomheptehlvgigrghnughrvgcuifhhihhtihcuoegrlhgvgiesghhhihhtihdrfhhrqeenucggtffrrghtthgvrhhnpedthfelfeejgeehveegleejleelgfevhfekieffkeeujeetfedvvefhledvgeegieenucfkphepudelfedrfeefrdehjedrudelleenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepihhnvghtpeduleefrdeffedrheejrdduleelpdhhvghloheplgduledvrdduieekrddvuddrvdehngdpmhgrihhlfhhrohhmpegrlhgvgiesghhhihhtihdrfhhrpdhnsggprhgtphhtthhopeeipdhrtghpthhtoheptddtuddtjedtkedvseduieefrdgtohhmpdhrtghpthhtohepphgruhhlrdifrghlmhhslhgvhiesshhifhhivhgvrdgtohhmpdhrtghpthhtohepphgrlhhmvghrsegurggssggvlhhtrdgtohhmpdhrtghpthhtoheprghouhesvggvtghsrdgsvghrkhgvlhgvhidrvgguuhdprhgtphhtthhopehlihhnuhigqdhkvghrnhgvlhesvhhgvghrrdhkvghrnhgvlhdrohhrghdprhgtphhtthhopehlihhnuhigqdhrihhstghvsehlihhsthhsrdhinhhfrhgruggvrggurdhorhhg
+X-GND-Sasl: alex@ghiti.fr
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250225_070458_413522_B2B80299 
-X-CRM114-Status: GOOD (  17.01  )
+X-CRM114-CacheID: sfid-20250225_071035_122452_F20F8B8F 
+X-CRM114-Status: GOOD (  15.03  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,79 +60,61 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Feb 25, 2025, Yan Zhao wrote:
-> > diff --git a/arch/x86/kvm/x86.c b/arch/x86/kvm/x86.c
-> > index 58b82d6fd77c..045c61cc7e54 100644
-> > --- a/arch/x86/kvm/x86.c
-> > +++ b/arch/x86/kvm/x86.c
-> > @@ -12890,11 +12890,11 @@ void kvm_arch_destroy_vm(struct kvm *kvm)
-> >  		mutex_unlock(&kvm->slots_lock);
-> >  	}
-> >  	kvm_unload_vcpu_mmus(kvm);
-> > +	kvm_destroy_vcpus(kvm);
-> >  	kvm_x86_call(vm_destroy)(kvm);
-> >  	kvm_free_msr_filter(srcu_dereference_check(kvm->arch.msr_filter, &kvm->srcu, 1));
-> >  	kvm_pic_destroy(kvm);
-> >  	kvm_ioapic_destroy(kvm);
-> > -	kvm_destroy_vcpus(kvm);
-> >  	kvfree(rcu_dereference_check(kvm->arch.apic_map, 1));
-> >  	kfree(srcu_dereference_check(kvm->arch.pmu_event_filter, &kvm->srcu, 1));
-> >  	kvm_mmu_uninit_vm(kvm);
-> After this change, now the sequence is that
-> 
-> 1. kvm_arch_pre_destroy_vm()
-> 2. kvm_arch_destroy_vm()
->    2.1 kvm_destroy_vcpus()
->    2.2 .vm_destroy hook
->    2.3 kvm_mmu_uninit_vm() --> mirror root ref is 1 upon here. Zap the mirror
->                                root and reclaim SETP page table pages.
->    2.4 .vm_free hook
-> 
-> Since TDX needs to reclaim the TDR page after reclaiming all other pages, we
-> currently added a vm_free hook at 2.4, after 2.3.
-> 
-> Could we move kvm_mmu_uninit_vm() before the .vm_destroy hook and after
-> kvm_destroy_vcpus()?
-> 
-> Or move the .vm_destroy hook after kvm_mmu_uninit_vm(), e.g. after
-> kvm_page_track_cleanup()?
+Hi David,
 
-I would go for the first option.  I'll tack on a patch since I need to test all
-of these flows anyways, and I would much prefer to change course sooner rather
-than later if it doesn't work for whatever reason.
+On 08/11/2024 17:25, David Wang wrote:
+> Performance improvement for reading /proc/interrupts on arch riscv
+>
+> Signed-off-by: David Wang <00107082@163.com>
+> ---
+>   arch/riscv/kernel/smp.c | 3 ++-
+>   1 file changed, 2 insertions(+), 1 deletion(-)
+>
+> diff --git a/arch/riscv/kernel/smp.c b/arch/riscv/kernel/smp.c
+> index c180a647a30e..f1e9c3db094c 100644
+> --- a/arch/riscv/kernel/smp.c
+> +++ b/arch/riscv/kernel/smp.c
+> @@ -226,7 +226,8 @@ void show_ipi_stats(struct seq_file *p, int prec)
+>   		seq_printf(p, "%*s%u:%s", prec - 1, "IPI", i,
+>   			   prec >= 4 ? " " : "");
+>   		for_each_online_cpu(cpu)
+> -			seq_printf(p, "%10u ", irq_desc_kstat_cpu(ipi_desc[i], cpu));
+> +			seq_put_decimal_ull_width(p, " ",
+> +						  irq_desc_kstat_cpu(ipi_desc[i], cpu), 10);
+>   		seq_printf(p, " %s\n", ipi_names[i]);
+>   	}
+>   }
 
-Is this comment accurate?
 
-diff --git a/arch/x86/kvm/x86.c b/arch/x86/kvm/x86.c
-index 1e5f6f820c0b..f5685f153e08 100644
---- a/arch/x86/kvm/x86.c
-+++ b/arch/x86/kvm/x86.c
-@@ -12874,13 +12874,19 @@ void kvm_arch_destroy_vm(struct kvm *kvm)
-                mutex_unlock(&kvm->slots_lock);
-        }
-        kvm_destroy_vcpus(kvm);
-+
-+       /*
-+        * Do final MMU teardown prior to calling into vendor code.  All pages
-+        * that were donated to the TDX module, e.g. for S-EPT tables, need to
-+        * be reclaimed before the VM metadata page can be freed.
-+        */
-+       kvm_mmu_uninit_vm(kvm);
-        kvm_x86_call(vm_destroy)(kvm);
-        kvm_free_msr_filter(srcu_dereference_check(kvm->arch.msr_filter, &kvm->srcu, 1));
-        kvm_pic_destroy(kvm);
-        kvm_ioapic_destroy(kvm);
-        kvfree(rcu_dereference_check(kvm->arch.apic_map, 1));
-        kfree(srcu_dereference_check(kvm->arch.pmu_event_filter, &kvm->srcu, 1));
--       kvm_mmu_uninit_vm(kvm);
-        kvm_page_track_cleanup(kvm);
-        kvm_xen_destroy_vm(kvm);
-        kvm_hv_destroy_vm(kvm);
+Very late answer sorry!
+
+I don't have the same output before and after your patch because 
+seq_put_decimal_ull_width() second argument is placed *before* the 
+number, not after as it was before.
+
+The following diff fixes the issue:
+
+diff --git a/arch/riscv/kernel/smp.c b/arch/riscv/kernel/smp.c index 
+f1e9c3db094c3..4b80ee4e5b2c0 100644 --- a/arch/riscv/kernel/smp.c +++ 
+b/arch/riscv/kernel/smp.c @@ -225,9 +225,11 @@ void 
+show_ipi_stats(struct seq_file *p, int prec) for (i = 0; i < IPI_MAX; 
+i++) { seq_printf(p, "%*s%u:%s", prec - 1, "IPI", i, prec >= 4 ? " " : 
+""); - for_each_online_cpu(cpu) - seq_put_decimal_ull_width(p, " ", + 
+for_each_online_cpu(cpu) { + seq_put_decimal_ull_width(p, NULL, 
+irq_desc_kstat_cpu(ipi_desc[i], cpu), 10); + seq_putc(p, ' '); + } 
+seq_printf(p, " %s\n", ipi_names[i]); } }
+
+Will you respin a new version?
+
+Thanks,
+
+Alex
+
 
 _______________________________________________
 linux-riscv mailing list
