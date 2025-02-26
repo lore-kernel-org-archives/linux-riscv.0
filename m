@@ -4,43 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1902BC021BE
-	for <linux-riscv@archiver.kernel.org>; Wed, 26 Feb 2025 02:35:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9F12BC021BF
+	for <linux-riscv@archiver.kernel.org>; Wed, 26 Feb 2025 02:41:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Mime-Version:References:In-Reply-To:
-	Message-Id:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=+mmP43AsvdJa3PeqYok60Yh7JzTK4vkICqwHJJwoE88=; b=e90x4vzoJh8g9D
-	r10GB2MSp7YJRbal4JjkLbAks3ptRjoozMTHwT3g/sX0PeQakb9WJc+a9gktKPAdrra1QuJPkRj1L
-	kAEtF3/b0iVebqrpqEK3Y6Rov29x2WxYs1TxBC/yT1M2/fn59Fy6OgjUnzl1VchZbhld7arh0FRsZ
-	rC3ymwbZmZ1ES9oIiYlzayUSrGTzwxFfCdYN34B+LE5V8yNmeM/j/NsGz/3qxWEbwJwgBht3j52vk
-	23a9Y5UbbSnfhx5wmHg404LpwM2DM+bp5Eu5znToguu4PzyH6qaxGA/L8oIAaATouZIr4gAa5K+SH
-	7PcCQjRvhPpIEDI/OhXA==;
+	List-Owner; bh=QvSazbJ0YoUEt4HRXE/11pcrXWlqF3gv/vwb9Af8CyI=; b=kFCsLw5KNvhsES
+	h5UhemEmjXJIyc3ogUwBGVg8LpAKRIiCjj0xXUO9IHD9yoQbCfv6o99YAL99R5wOuCOgiGep266YU
+	40CP9waCqce4lcvcPqJzQ5nPoQJnoL+ra37OpeaOeGu4Y2c++yDSIY45vW0DEGataTDzmEVsJvnA8
+	8Y9cysarc4hC/yo/UP/es2SYF2v1fk4oL5KhYD96A9adod5XKbqGhbyVpjicX4mfLydn5DoMOVH7a
+	5i3eysDLYaGUb9o9BztE5e1z2y+3mlQ5XX3DhTiYqdfpi1HaMxDP1NmNqIW2/m8HiCPfd//3Nt9nl
+	cVekBCOhNhDTy/W/Q1+g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tn7Ge-00000002Bix-0tFl;
-	Wed, 26 Feb 2025 02:35:24 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tn7MA-00000002CB5-307t;
+	Wed, 26 Feb 2025 02:41:07 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tn7Gb-00000002Bi8-2Byp;
-	Wed, 26 Feb 2025 02:35:22 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id E1B905C42C6;
-	Wed, 26 Feb 2025 02:34:41 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9C1C5C4CEDD;
-	Wed, 26 Feb 2025 02:35:19 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linux-foundation.org;
-	s=korg; t=1740537320;
-	bh=D1D8rS483Kvk10lvdoELGqdaSPPJ8+RwRwWrcJv/f3I=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=S1gwcxb1U5NetK3xMsHF5vM6u60LvjvD37R2V7WH6p4gYsrCTXOx/Tm8FgtAbjivR
-	 qz+7qiIisTFHmeHWl5R9WetoFdsZhGC4DSBkZuJtQrrOYkeMmMmZLGVAL4e/QXKk4q
-	 rWdAk6qG/KIo4K2Hgo8x/4gNeZ32aVYhEb8keWT8=
-Date: Tue, 25 Feb 2025 18:35:19 -0800
-From: Andrew Morton <akpm@linux-foundation.org>
-To: Qi Zheng <zhengqi.arch@bytedance.com>
+	id 1tn7M8-00000002CAX-3oju
+	for linux-riscv@bombadil.infradead.org;
+	Wed, 26 Feb 2025 02:41:04 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=faw8k4TIY5A7eHVQZOGgzqUSa20esi5XC3jgrNGM418=; b=HsuZTonoXX+5yrSNnVRt7on46P
+	e9XZF8ABBPURW4bTqOBlJWnFZiT7oS7mvUbBjbtM7KaaJT+4PjKecZblfj1BvhCdKv9IcyEgaKFYx
+	9k5ATL7wc+DfIE8shLE7imsCQFoNqwNzN70r5sBh7b9MD52iaeFoQEgMnxXssOQ0dJNa3gENeTiEs
+	mRnDlP23JrT9yFhAGro3oX39dA/7x9VSn3dDK2xGTDDBjUX6iHVidJIGqJkx4nD3/syNIyQwkPsXh
+	8yctkz75O+C9uCfn4yLUJAcbxxcnak9b4/d35/M7U2ufbht8fJdzFXVwxOqY0nhUFpbuMynK44P33
+	cPCYp3BA==;
+Received: from mail-pj1-x102f.google.com ([2607:f8b0:4864:20::102f])
+	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tn7M2-00000003Utq-1eLJ
+	for linux-riscv@lists.infradead.org;
+	Wed, 26 Feb 2025 02:41:02 +0000
+Received: by mail-pj1-x102f.google.com with SMTP id 98e67ed59e1d1-2fa8ada6662so12422552a91.1
+        for <linux-riscv@lists.infradead.org>; Tue, 25 Feb 2025 18:40:55 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=bytedance.com; s=google; t=1740537654; x=1741142454; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to:subject
+         :user-agent:mime-version:date:message-id:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=faw8k4TIY5A7eHVQZOGgzqUSa20esi5XC3jgrNGM418=;
+        b=adTEbqWQuaMb5KvOhIDE2nDNNYo3I+4WUIyz39VKa2W6OdN/XEp7ycdhG5/hq19U3c
+         UHckt29rq8Q1k4IP8iXxCAHruvyVzkQiVx7EO+tvATzxF0YCzrsimuB7kJEykqxidssR
+         Y9m5DcQKejEqMKxrM2hLf5M4b9+r2zUFkXpgtOxNw/CEy1mk3C84NfFdoIjkXTwNGYN2
+         e9nPOjZKlEyw6vA55adqHo/YA7UWD0zfQ02MKe6TWD3Getbc5u3/xLr9E7dLo0d1Gsn3
+         s4UDaGqbekqi2W9MKaCcTzsY83q2688cxAg51zVl/5b5iNEwpfscJQjekK9xthRuffLa
+         f1tg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1740537654; x=1741142454;
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to:subject
+         :user-agent:mime-version:date:message-id:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=faw8k4TIY5A7eHVQZOGgzqUSa20esi5XC3jgrNGM418=;
+        b=HoxQ9oKMDLXOLk687uxKj2bWrzk4TJ66OyWvKM9qa1bCGvHkIQJr9JcU2xhg1vDI8w
+         fGEko38ZKO7bhH2ehMhO1MN5mBdFAx/wZLFiiS87VvHVmShedgGP1oIixRN/AZycM471
+         7cZWQBWwJDOFNBrhzUW2uKhB0Qe2suT/lKivX8ZRvE/XApHLFTknb/7VcQvifhMBXUtF
+         svZa47qC94Lxdwmn7fnQ9oVzuwj7MieUQs5dONMuTp3LSv544TCHNsLPAjojPb5/TyFr
+         soil47iIOgnxptLKOIn0hnK4sm7EQUDUwgNQ6KaGEAp6NTBEWh0TbC/0gOGnJDh00Mup
+         vIWg==
+X-Forwarded-Encrypted: i=1; AJvYcCUV0Dd87KkWekPv9VzEybjRpVCQxCTV6CUukiol1/DcQgcBiksyP8ynYhgUoUc3vWKDVRTRCvcbExGf/w==@lists.infradead.org
+X-Gm-Message-State: AOJu0YyI2Ay2k1USr+ghbtR6mnJB0AlaVpzXFOxuTX8LosFSVIptJU33
+	3q3unHu5kKbnbp1pAO8Qh1OzGnr1DGh5rlerMv1xRSr7iZ9pFQk3d0s3y4Nh2Yw=
+X-Gm-Gg: ASbGnctndmk1eSd/Hud3docQWEzcaGVxf+Vdhunwtede+HIvGHIRvj5nwkoL2Vs1/7A
+	S5XrFfxplOnHL0k3B2eq2LjUIwo4NrUX+Ed25EtFNdeTkUz0COU8PZbGvJOhNlwLLaj7StOVws+
+	TaWuhTP13wGThUF0KuqPmkuz9d0sDvnOc47biIM8IRBRjHA0PRbMXfT31LARRZ4uYgAjvs6EnsG
+	95UaZCcQCEZ4L8e08zQrRd4XaA/A5q9vKYqANIYwXn+zcTXCLzVJODylyVLn6zUsO+UHc42Rsvg
+	FfOhd7D5rHSDJJ2yHfE39DTDNniy5UcllnYRpOsF6DgLYHoU1w==
+X-Google-Smtp-Source: AGHT+IGBavOro6p44pm0knw7epDm1Ms4/cRCm5nI7A9v1bvB0aFlwIUaa3TK9A89BXdQQHklrRCMwg==
+X-Received: by 2002:a17:90b:2242:b0:2ee:ee77:2263 with SMTP id 98e67ed59e1d1-2fce868c4f9mr34212880a91.7.1740537654049;
+        Tue, 25 Feb 2025 18:40:54 -0800 (PST)
+Received: from [10.68.122.90] ([63.216.146.179])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2230a000a01sm21742845ad.40.2025.02.25.18.40.44
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 25 Feb 2025 18:40:53 -0800 (PST)
+Message-ID: <3e3ab5b0-4669-4d7a-a7bd-6f5963662757@bytedance.com>
+Date: Wed, 26 Feb 2025 10:40:42 +0800
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 5/6] x86: pgtable: convert to use tlb_remove_ptdesc()
+To: Andrew Morton <akpm@linux-foundation.org>
 Cc: peterz@infradead.org, kevin.brodsky@arm.com, riel@surriel.com,
  vishal.moola@gmail.com, david@redhat.com, jannh@google.com,
  hughd@google.com, willy@infradead.org, yuzhao@google.com,
@@ -51,18 +99,15 @@ Cc: peterz@infradead.org, kevin.brodsky@arm.com, riel@surriel.com,
  linux-hexagon@vger.kernel.org, loongarch@lists.linux.dev,
  linux-m68k@lists.linux-m68k.org, linux-mips@vger.kernel.org,
  linux-openrisc@vger.kernel.org, linux-sh@vger.kernel.org,
- linux-um@lists.infradead.org, x86@kernel.org,
- linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v2 5/6] x86: pgtable: convert to use tlb_remove_ptdesc()
-Message-Id: <20250225183519.91a5b75b13c0df6954c68576@linux-foundation.org>
-In-Reply-To: <36ad56b7e06fa4b17fb23c4fc650e8e0d72bb3cd.1740454179.git.zhengqi.arch@bytedance.com>
+ linux-um@lists.infradead.org, x86@kernel.org, linux-riscv@lists.infradead.org
 References: <cover.1740454179.git.zhengqi.arch@bytedance.com>
-	<36ad56b7e06fa4b17fb23c4fc650e8e0d72bb3cd.1740454179.git.zhengqi.arch@bytedance.com>
-X-Mailer: Sylpheed 3.8.0beta1 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
-Mime-Version: 1.0
+ <36ad56b7e06fa4b17fb23c4fc650e8e0d72bb3cd.1740454179.git.zhengqi.arch@bytedance.com>
+ <20250225183519.91a5b75b13c0df6954c68576@linux-foundation.org>
+From: Qi Zheng <zhengqi.arch@bytedance.com>
+In-Reply-To: <20250225183519.91a5b75b13c0df6954c68576@linux-foundation.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250225_183521_607021_B5F7393D 
-X-CRM114-Status: UNSURE (   8.74  )
+X-CRM114-CacheID: sfid-20250226_024100_238886_979182B7 
+X-CRM114-Status: UNSURE (   8.69  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -75,23 +120,20 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="utf-8"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, 25 Feb 2025 11:45:55 +0800 Qi Zheng <zhengqi.arch@bytedance.com> wrote:
-
-> The x86 has already been converted to use struct ptdesc, so convert it to
-> use tlb_remove_ptdesc() instead of tlb_remove_table().
-> 
-
-This is dependent upon Rik's a37259732a7dc ("x86/mm: Make
-MMU_GATHER_RCU_TABLE_FREE unconditional") from the x86 tree.  I'll add
-Rik's patch to mm-unstable also and shall figure it out during the
-merge window.
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+CgpPbiAyLzI2LzI1IOS4iuWNiDEwOjM1LCBBbmRyZXcgTW9ydG9uIHdyb3RlOgo+IE9uIFR1ZSwg
+MjUgRmViIDIwMjUgMTE6NDU6NTUgKzA4MDAgUWkgWmhlbmcgPHpoZW5ncWkuYXJjaEBieXRlZGFu
+Y2UuY29tPiB3cm90ZToKPiAKPj4gVGhlIHg4NiBoYXMgYWxyZWFkeSBiZWVuIGNvbnZlcnRlZCB0
+byB1c2Ugc3RydWN0IHB0ZGVzYywgc28gY29udmVydCBpdCB0bwo+PiB1c2UgdGxiX3JlbW92ZV9w
+dGRlc2MoKSBpbnN0ZWFkIG9mIHRsYl9yZW1vdmVfdGFibGUoKS4KPj4KPiAKPiBUaGlzIGlzIGRl
+cGVuZGVudCB1cG9uIFJpaydzIGEzNzI1OTczMmE3ZGMgKCJ4ODYvbW06IE1ha2UKPiBNTVVfR0FU
+SEVSX1JDVV9UQUJMRV9GUkVFIHVuY29uZGl0aW9uYWwiKSBmcm9tIHRoZSB4ODYgdHJlZS4gIEkn
+bGwgYWRkCgpZZXMuCgo+IFJpaydzIHBhdGNoIHRvIG1tLXVuc3RhYmxlIGFsc28gYW5kIHNoYWxs
+IGZpZ3VyZSBpdCBvdXQgZHVyaW5nIHRoZQo+IG1lcmdlIHdpbmRvdy4KClRoYW5rcyEKCgoKX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3Yg
+bWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3Rz
+LmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
