@@ -4,70 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DA0C1C021B8
-	for <linux-riscv@archiver.kernel.org>; Wed, 26 Feb 2025 23:43:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30A48C19F32
+	for <linux-riscv@archiver.kernel.org>; Wed, 26 Feb 2025 23:43:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=DGGigu7U0ImHcepqqO1pP6s5UumhWg+UxBYKxf3FG4E=; b=DITQEu2Wg/JovU
-	zejuIE0J6FUZHU2mEO4811nFfQWEzaKkbZkVP//UOakieHSJ+c0eNCmGzEBbtkuK6fwYXl/gUY5PW
-	c4cEfsBIymMf8VOMBhRdYsxIYzRyWz66wgNs4VyM4QZKjE679qeFUYffwocWZmtrqkBMmF0VWp5Lx
-	7GbQOR7CCGUZQ7//xkUmZ/XCHE/lysPVaLOZTHPb/XuHMnn89/gBf5fIpBC6bjNIilsPs4d5FGGFe
-	v+76aNGHr1zAg9qKGwGy/pkbJAQFYn5kLSKK3Sg6yVeSSJ0hVOm09NFuvMji2FDbeK4u7G0uWwvoY
-	GKlaWqucfaR0fREhb9IQ==;
+	List-Owner; bh=Rf02fFXdStTcS3sgK1leKOI8091SyxFLmOgII+WGkmY=; b=3lGCplBZuhfULA
+	HfJ5OvVSIEs0IRz+Rheyl0GE7T2L1E2WfpbARyjmj4WecWKnsrsuDduVSU38nC7xRAtYzBiGkHHcp
+	hrqmeABB8/sDvuie6jhS0G4MMUx7CmPSySRQQEkR3bGHF+8S6M5SFH98UUwqmORFPF0JnyO+NIt98
+	ywx+0Xap7HsZ9RRJVB95hmSYyU5TQaaT3QCUIzoj+FuguOMajUfnSEKr8WbJbLdIfI/WMaL+ZHVH2
+	NVtgjABh16OHDHeLaaHUVb5cW0tZiSmkl7szn/E34t9qRAm0/dyOHaPHB4Anp108INz3FwMBPC9Bg
+	LLl8F163je3m5XnqgiCA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnR3V-00000005j2D-1Qlo;
-	Wed, 26 Feb 2025 23:43:09 +0000
-Received: from mail-qv1-xf32.google.com ([2607:f8b0:4864:20::f32])
+	id 1tnR3X-00000005j3g-48U4;
+	Wed, 26 Feb 2025 23:43:11 +0000
+Received: from mail-qk1-x733.google.com ([2607:f8b0:4864:20::733])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnR3R-00000005j00-3f1z
+	id 1tnR3U-00000005j1g-3v0h
 	for linux-riscv@lists.infradead.org;
-	Wed, 26 Feb 2025 23:43:07 +0000
-Received: by mail-qv1-xf32.google.com with SMTP id 6a1803df08f44-6e672a21b9dso4031656d6.1
-        for <linux-riscv@lists.infradead.org>; Wed, 26 Feb 2025 15:43:05 -0800 (PST)
+	Wed, 26 Feb 2025 23:43:10 +0000
+Received: by mail-qk1-x733.google.com with SMTP id af79cd13be357-7c09a30e14dso60399585a.0
+        for <linux-riscv@lists.infradead.org>; Wed, 26 Feb 2025 15:43:08 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1740613384; x=1741218184; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1740613388; x=1741218188; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=lqQoHTg7agUCd14WEWX/oWRFNn9TygqwW0Esl6cK8GI=;
-        b=JMUZ5Axo3qYsrPTXSALrIzmm4RYFlZ/UfvjTfEKxgu6OSlcJrC5DdxJ1Uw/FT6UEYS
-         49TC1br9FXrC3FoWfQ7CdjrsQWKCjyC3lAgASDkMpJ5RLmi8SITqaJKFfBfoTTLyeTjI
-         O9EuNyzdjkK3/mGdUUDrQ2N9SKNSbK+EuKO11vnX9KJaR06XjBJWd5hxH/4QL5YAe8hp
-         631WdOu4l/lsmah3atmF9/6xBk3WY73FY63CNuH5l3YAeRfjZ+SzP15X8QYGVeplpoBR
-         HfUuoBIhPESyJpgY45gfve0XT8ZLQbAGNcX8nWtRmEKMvMh4nxa7Vzo5+uOel6fFJpx0
-         gESw==
+        bh=z3ZZcc6aFlJ+Kl9Jw+kBevA1072SNgIuZeodxvN8Etc=;
+        b=ai/7WAMO7AKHqUOnQUqG0LDwdJmH8mJK6F2NRvBAQUGvsC9cqUv9LTHS8W/jTED0j4
+         0V+9dabUccyCKg2STg4m+i408cQLWVRydY53qsz3w4HL/O+GuE9hXCP9UXnt6J1cyKBW
+         bxF/wqdP7Aea44zoMPT/5qlYx9ShyEsNlZlnIfc8lXCQ1knE9AjNWY2Uc5Q9VXzVlr5W
+         S0LLQqVGWwBvGu+Y5BuMQWGdicH7Ramh3NdLHN03r7Fp0p+1im7FH3QM4na9k1BrworF
+         rZZEunUoYYx1PHRU8Wq28LPsx4hvM0XKF285FqnMFg74sOM4jTK4K65ppW9bNFA9Fr7S
+         HDhg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1740613384; x=1741218184;
+        d=1e100.net; s=20230601; t=1740613388; x=1741218188;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=lqQoHTg7agUCd14WEWX/oWRFNn9TygqwW0Esl6cK8GI=;
-        b=iiU2AiIFQ1h+j10hstBJfYkQ770B9WPj9sA50Xr8TfrhClhq4k3J7KMIWdjizq1SKZ
-         w/Zh0g6eUrYTx3kt6Ri+ysJ/XxjjvhjuZMQ1Sr3PJ/RU4gX7pr4YUgdAByrxsWrTWpi6
-         rhLk0sA1YPAxMGLyfwKLOUT+QFJWaY9Ol9oq2Q3HCvBCfvr4nTkn8P3PazHDbw+bBWqy
-         18PalGPj1CPYqMinRA36oooY6XqEyNi+vVV72A9HBGAuQSAGDMyzRUHxYZwadyNs3UtQ
-         w+QwYJczWWAmEZqL4AJ9t6U7q7vy3iCGX7igcXPvWVafjYd20Ts7ECMsaKl/o5HcfnFt
-         0BRw==
-X-Forwarded-Encrypted: i=1; AJvYcCVGQfJ8QtQ7O18vR0phdbI/Uyf1ayefDVjmA6CaN1ZzcU0MC/pfRWNEfDe9u0vvwzKmgUcaQqAfYH3DqQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw7I5NSrcwMidPTYmDBQWkRn54DQ8Ey+POl0jsyGCf9EeEazq9P
-	l1Uc6bpWqflM4dXyzKHs5UaX8DSsS7u6tthVKZyhU6oo/piF6zQW
-X-Gm-Gg: ASbGncuBjSNlDRHm9TgBBsb9IP2r8qAa9NcQYlS85hs+16cqgfJOwUb5eU71ExJZXYR
-	RwSTL2l4I3EVCDr79eDxrEv0Kar1POCDXx9aRT7AjjHOtDZyJ6C+cdwRUuom/npOq8FA2u3nIME
-	SBgH85XUyQsBV18IdgABhLtkLFayioXflhL9Iz980VO92aYFZw2CbK4hZnLdk8WR/K3Q8sRDW+G
-	A/b53qQJr4OHYngPR62B++W4i/NZ1fr7ekI0rwiTrabbhLSo1/t8cNZHxSRpSK4NLnqw8pU9b4d
-	9g==
-X-Google-Smtp-Source: AGHT+IGamOlB8L5DPR7KmoFMGsjzwDrX/7GZPr5d7+DS9KT5p5K9ctOUhXRuQL0MoiV6ugPJfD161A==
-X-Received: by 2002:ad4:5ccf:0:b0:6d8:8109:a547 with SMTP id 6a1803df08f44-6e88689b91fmr79086796d6.22.1740613384532;
-        Wed, 26 Feb 2025 15:43:04 -0800 (PST)
+        bh=z3ZZcc6aFlJ+Kl9Jw+kBevA1072SNgIuZeodxvN8Etc=;
+        b=R8V4n6wINBkE2YJdZO2Hv60kJ2/KUgmoIp5uPDUmBz0vGS8khUtXWN/L+zMzk1lN9Q
+         egdW6iyMIr5PM0ps0rlwmYo2XocjLThjMaunurp4JN6DAQW26Ok0sAixmwhlIOCFlGpY
+         g7ORPdRX1G9xyMM5GmxSBexTkiLjAotjIW2CHqXGjwAkGrXer7NWoq6LspeFb7Y2sYKQ
+         D4HvicidCXJnHyu475HsooYAntnWA+2HJSLsehdk1kOdKxqa2tfTv66zABnsRmnQVn9j
+         vt1YmMIIkFNnxMxgWFu8/W8F/xhTY9nYe+thMhOftL3pcViDNg7aaUTh/qlPuP784ktJ
+         ktow==
+X-Forwarded-Encrypted: i=1; AJvYcCVT+icqAFvVBD7MjylUNYQKW4q44zvh6bztPapqm/k0tXoHZdlVudYAal3rdHnIGGV2M6WMlnGz10VA0Q==@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywo4WOwWBOcZSZGrM0vKX8TPP3Nwn+q5oPum2GDXvx9XhxVu6GN
+	zzTDyfQvZLhehJ8vpfPfjWeoTtoyWhBQiR25B5Jmjq5vPRRra6iS
+X-Gm-Gg: ASbGncv0X0/3ZACOvFXkwVWk234426pr6RXu5wVgrNSE8J3nw3jYTS/IASHpM8GOs0U
+	MiersJ78jqeI2AWmf9LpZCKu7MF9wyUBgjjNWW0yTy/nJeX/l3p6mWyDbTmiYkfAOng2QmpoVwT
+	limO9Gq68zqe47pwmRSFTduOjIfkxW3Jfw7n+Z0zummb3dwQVeauOy76xS16rkcGuDuezes1jzC
+	lFOrlt9fgLLhL6jY8YYgNvIF26WMQaJzTya0EEtaioSorqcQ2ub1kQq38VlDRw5hawtxwz5nf5r
+	6A==
+X-Google-Smtp-Source: AGHT+IGD3BiOa/Df2rVPvpy/tGOHarw9GjKQY9DsMSLrCoKOy4FTIEiF7wxb91QFop6oTXwxGEZsUA==
+X-Received: by 2002:a05:620a:24c1:b0:7c0:a3bd:a779 with SMTP id af79cd13be357-7c23c04868amr1554444085a.47.1740613387864;
+        Wed, 26 Feb 2025 15:43:07 -0800 (PST)
 Received: from localhost ([2001:da8:7001:11::cb])
-        by smtp.gmail.com with UTF8SMTPSA id 6a1803df08f44-6e8976d9f19sm2383616d6.98.2025.02.26.15.43.02
+        by smtp.gmail.com with UTF8SMTPSA id af79cd13be357-7c36ff0f756sm24200285a.61.2025.02.26.15.43.06
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 26 Feb 2025 15:43:03 -0800 (PST)
+        Wed, 26 Feb 2025 15:43:07 -0800 (PST)
 From: Inochi Amaoto <inochiama@gmail.com>
 To: Philipp Zabel <p.zabel@pengutronix.de>,
 	Rob Herring <robh@kernel.org>,
@@ -86,16 +86,17 @@ Cc: devicetree@vger.kernel.org,
 	linux-riscv@lists.infradead.org,
 	Yixun Lan <dlan@gentoo.org>,
 	Longbin Li <looong.bin@gmail.com>
-Subject: [PATCH v2 2/5] reset: simple: Add active-low property support.
-Date: Thu, 27 Feb 2025 07:42:30 +0800
-Message-ID: <20250226234234.125305-3-inochiama@gmail.com>
+Subject: [PATCH v2 3/5] reset: simple: add support generic reset-simple device
+Date: Thu, 27 Feb 2025 07:42:31 +0800
+Message-ID: <20250226234234.125305-4-inochiama@gmail.com>
 X-Mailer: git-send-email 2.48.1
 In-Reply-To: <20250226234234.125305-1-inochiama@gmail.com>
 References: <20250226234234.125305-1-inochiama@gmail.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250226_154305_912160_EA2F7F9E 
-X-CRM114-Status: GOOD (  12.57  )
+X-CRM114-CacheID: sfid-20250226_154308_974568_4DD6FDB6 
+X-CRM114-Status: UNSURE (   9.52  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,39 +113,25 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Introduce "active-low" property support for the reset-simple driver.
-This property allow users to mark the reset device is active low
-without adding a new device id in the driver.
+Add support for generic bit reset device.
 
 Signed-off-by: Inochi Amaoto <inochiama@gmail.com>
 ---
- drivers/reset/reset-simple.c | 6 ++++++
- 1 file changed, 6 insertions(+)
+ drivers/reset/reset-simple.c | 1 +
+ 1 file changed, 1 insertion(+)
 
 diff --git a/drivers/reset/reset-simple.c b/drivers/reset/reset-simple.c
-index 276067839830..4b08f8d70942 100644
+index 4b08f8d70942..0681f2db7459 100644
 --- a/drivers/reset/reset-simple.c
 +++ b/drivers/reset/reset-simple.c
-@@ -16,6 +16,7 @@
- #include <linux/err.h>
- #include <linux/io.h>
- #include <linux/of.h>
-+#include <linux/property.h>
- #include <linux/platform_device.h>
- #include <linux/reset-controller.h>
- #include <linux/reset/reset-simple.h>
-@@ -190,6 +191,11 @@ static int reset_simple_probe(struct platform_device *pdev)
- 		data->status_active_low = devdata->status_active_low;
- 	}
- 
-+	if (device_property_present(dev, "active-low")) {
-+		data->active_low = true;
-+		data->status_active_low = true;
-+	}
-+
- 	data->membase += reg_offset;
- 
- 	return devm_reset_controller_register(dev, &data->rcdev);
+@@ -149,6 +149,7 @@ static const struct of_device_id reset_simple_dt_ids[] = {
+ 		.data = &reset_simple_active_low },
+ 	{ .compatible = "brcm,bcm4908-misc-pcie-reset",
+ 		.data = &reset_simple_active_low },
++	{ .compatible = "reset-simple" },
+ 	{ .compatible = "snps,dw-high-reset" },
+ 	{ .compatible = "snps,dw-low-reset",
+ 		.data = &reset_simple_active_low },
 -- 
 2.48.1
 
