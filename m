@@ -4,39 +4,40 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 23121C021B8
-	for <linux-riscv@archiver.kernel.org>; Wed, 26 Feb 2025 08:34:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F3F7BC021BC
+	for <linux-riscv@archiver.kernel.org>; Wed, 26 Feb 2025 08:34:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
 	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=wM68l4BJXmc8Ln8rqYpOtIxX9ShG/Tx6En0SpktWB1c=; b=x8ezXicS4fjAYP
-	oEGIdOsEaclRf0A4ZoHcDwGGI6vqfhBCVRWjg93QG8XNIxdTG3LyNyvI1juYPnj8dll43P7YorYlq
-	DhA5S6OTfwOhQ/Nxev7NNyoOPgUdl5p/cbpLomiYXzcrGfnK/3y6DlBJ9kE3Jua82FNlzwv2Tc6yo
-	6aCMoWgdodzwv+CJPqOh1UAt31aHFjNKn/BWVhgokHrZR2aFoObJlLNomoJW6Wc3BhXfIm4b4ILE0
-	bfNN2J7Tx/Kx8suitfLUIOMXfmc4Ymuct9Kkv4kjwpRIq8ouecczl7PKoHGYc5JY3tA1U3cvS9WpD
-	CPmag82aH7tksuETdXLA==;
+	List-Owner; bh=PeUiM2luwwbB4lsllIaXYFnakQk2J7HEYc5Jw9V/eyo=; b=agrH5nTtFHXLRZ
+	EYbylD0bKSd7UmoX9ujC03yC/BFuJ2x6EGdFXpwPcLQsxFEriTtb/4srqcPY4Nv4Q8+2fT2nnPCQm
+	7v9eYmKd54hKs/upMSu0B9RGScLUK4emfDj+LDOzjZcYp8mZzRU/uLI05f7+4tcZXe4RzsUjF6zVo
+	pmKlujKVML5toiaL38O7IKNue+kLnlY5oNsecJ/Gctr0PGtguGB/Twx0xrjLOmXwoS051Oxfw9j4i
+	Pa1UGDD3eiNGIb8bcCKtEVUjfBGC75JTfGs8bMVYJ9FWKhy0up9WGAeUYStQ5PKb6ISiIupTLlTgq
+	RdDhHFgssduzrVVPD7LQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnCrp-00000002uF9-2Qqg;
-	Wed, 26 Feb 2025 08:34:09 +0000
+	id 1tnCro-00000002uE3-2DrT;
+	Wed, 26 Feb 2025 08:34:08 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnCqY-00000002toV-1uhW;
-	Wed, 26 Feb 2025 08:32:51 +0000
+	id 1tnCpt-00000002teG-1TXv;
+	Wed, 26 Feb 2025 08:32:10 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D78141516;
-	Wed, 26 Feb 2025 00:33:05 -0800 (PST)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id EC3A71516;
+	Wed, 26 Feb 2025 00:32:24 -0800 (PST)
 Received: from [10.57.78.248] (unknown [10.57.78.248])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 37E3B3F673;
-	Wed, 26 Feb 2025 00:32:42 -0800 (PST)
-Message-ID: <528335f4-0648-4d49-992b-10c4d1949d0c@arm.com>
-Date: Wed, 26 Feb 2025 09:32:40 +0100
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 4C0533F673;
+	Wed, 26 Feb 2025 00:32:02 -0800 (PST)
+Message-ID: <3f6c1872-cec8-4a7a-ac18-f5a426962a11@arm.com>
+Date: Wed, 26 Feb 2025 09:31:59 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 6/6] mm: pgtable: remove tlb_remove_page_ptdesc()
+Subject: Re: [PATCH v2 3/6] mm: pgtable: convert some architectures to use
+ tlb_remove_ptdesc()
 To: Qi Zheng <zhengqi.arch@bytedance.com>, peterz@infradead.org,
  riel@surriel.com, vishal.moola@gmail.com, david@redhat.com,
  jannh@google.com, hughd@google.com, willy@infradead.org, yuzhao@google.com,
@@ -50,13 +51,13 @@ Cc: linux-mm@kvack.org, linux-kernel@vger.kernel.org,
  linux-sh@vger.kernel.org, linux-um@lists.infradead.org, x86@kernel.org,
  linux-riscv@lists.infradead.org
 References: <cover.1740454179.git.zhengqi.arch@bytedance.com>
- <3df04c8494339073b71be4acb2d92e108ecd1b60.1740454179.git.zhengqi.arch@bytedance.com>
+ <19db3e8673b67bad2f1df1ab37f1c89d99eacfea.1740454179.git.zhengqi.arch@bytedance.com>
 Content-Language: en-GB
 From: Kevin Brodsky <kevin.brodsky@arm.com>
-In-Reply-To: <3df04c8494339073b71be4acb2d92e108ecd1b60.1740454179.git.zhengqi.arch@bytedance.com>
+In-Reply-To: <19db3e8673b67bad2f1df1ab37f1c89d99eacfea.1740454179.git.zhengqi.arch@bytedance.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250226_003250_561286_01E54E6A 
-X-CRM114-Status: UNSURE (   5.39  )
+X-CRM114-CacheID: sfid-20250226_003209_434268_AD5946B1 
+X-CRM114-Status: UNSURE (   6.96  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -75,10 +76,15 @@ Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 On 25/02/2025 04:45, Qi Zheng wrote:
-> The tlb_remove_ptdesc()/tlb_remove_table() is specially designed for page
-> table pages, and now all architectures have been converted to use it to
-> remove page table pages. So let's remove tlb_remove_page_ptdesc(), it
-> currently has no users and should not be used for page table pages.
+> Now, the nine architectures of csky, hexagon, loongarch, m68k, mips,
+> nios2, openrisc, sh and um do not select CONFIG_MMU_GATHER_RCU_TABLE_FREE,
+> and just call pagetable_dtor() + tlb_remove_page_ptdesc() (the wrapper of
+> tlb_remove_page()). This is the same as the implementation of
+> tlb_remove_{ptdesc|table}() under !CONFIG_MMU_GATHER_TABLE_FREE, so
+> convert these architectures to use tlb_remove_ptdesc().
+>
+> The ultimate goal is to make the architecture only use tlb_remove_ptdesc()
+> or tlb_remove_table() for page table pages.
 >
 > Signed-off-by: Qi Zheng <zhengqi.arch@bytedance.com>
 > Suggested-by: Peter Zijlstra (Intel) <peterz@infradead.org>
