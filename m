@@ -4,89 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 79A60C021B8
-	for <linux-riscv@archiver.kernel.org>; Wed, 26 Feb 2025 13:27:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33F08C021B8
+	for <linux-riscv@archiver.kernel.org>; Wed, 26 Feb 2025 13:27:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:To:Subject:Cc:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=3ApFnL7ykNYB7a/TMWc8cADSNr3K/fP6vAtnpDdtAEY=; b=3C4eNUVbALt7Ec
-	5VdoeqE8K/so2PjaP43RI2bMtiQZ4l8CaekK7mHKl16lbF9xUx++FzfO3Gnf/V9c6AfGsx0SrcQ12
-	8f6SwL+nkUWyUPOSWHvXV6bw1q9FS9GcBaHEodWFkQCnH4skNW5vGd/09szRUwSLzbVfZtW5Wg0Sf
-	TtTq+z/tMAQ3dmlYB6E5xyN9NT4QBgWOjWUEK4g6igt+x9vzCyd7QtackBmSCM+tPfWphNZPKIv8U
-	5XKlMmkY/EG/MO1U6fpPH783orph45t2jqD/gAn5U9NvZ29H4+xyHZqPym0DiQN9ptjxUeGA2RRzf
-	R0ZpWnmRIqLh3UKCk57g==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=liXvQMXUSPo65jw70T5pHDfyskBOXmormb+AVzihYbk=; b=lmEM/0m6fiFYQl
+	1tyRGrdJoXcZBR8oAxMDe9d9sTOk5pS8XaxP7FJkjRrEOjpcy+dnUjGhk57joaiQs4QjWjfESS+PH
+	NUyG+Ntmi2XDeIflGUE4GFcHEBLJ3Sg5j+NT9g7RXblMgb9WeN6r2boQLnVbr1pf52HrGXGOE6TtF
+	onhJ5ufoEOya1W7vCk91vd+ubG42cw+rpNK76lecSYSJJeKNcBRktanSJrErZi9ltudVn1J+gNWzl
+	vsNFDRVMKKA4XiRPvDA1WlcqVb+8+QAc+tKKD/6LXKUtzeHD4QPTgYp8yY/5YitPc9iggRpPiSEry
+	7Jkx4GMZQP3PIhCCbsAQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnHRa-00000003swY-27mM;
-	Wed, 26 Feb 2025 13:27:22 +0000
-Received: from mgamail.intel.com ([198.175.65.16])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnGSS-00000003fPv-0yb5;
-	Wed, 26 Feb 2025 12:24:13 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1740572652; x=1772108652;
-  h=message-id:date:mime-version:cc:subject:to:references:
-   from:in-reply-to:content-transfer-encoding;
-  bh=P9888PT4GlbGGm/Br9DmxmDaQSRLXoZLVYOYGsAgjmY=;
-  b=HTNcSLuuCnkjr12kdolK7FvPQ4a6nMG/x28YDZCQYlVv3YWpj55aOEhS
-   sJBpaT2AbUk+gn1bKPB8VCa5psW0bQfBrX4ClVT2O7BHRdZI8U/P13AXO
-   lmM0FVJ0i+Dngt+kySa8yd1IwFCtpAapStyTWEnuvblHyBUtLABsU78RC
-   bujUzrMCkDqC6EnmK79wM7UeO3kvrcbfRwzap5IqJtJmNNe5RUxMXPL3m
-   q2vaWXpJoP80O2TqSMFhR1hhG2epFX1mhwr5ki2tBL4/P/qqWfwesqSyc
-   G34f20iSWM7caqj7rRgwzG++ZfGZjkTowDRaG+4vkOE4s+vWfM/ILf3L/
-   g==;
-X-CSE-ConnectionGUID: nAVSCxvIQaqjQKDS3QujMg==
-X-CSE-MsgGUID: npN/RhPiRd60onzNTlooEQ==
-X-IronPort-AV: E=McAfee;i="6700,10204,11357"; a="41541432"
-X-IronPort-AV: E=Sophos;i="6.13,317,1732608000"; 
-   d="scan'208";a="41541432"
-Received: from fmviesa002.fm.intel.com ([10.60.135.142])
-  by orvoesa108.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 26 Feb 2025 04:24:11 -0800
-X-CSE-ConnectionGUID: wzzbivYHT0KOHQkWAqrFjQ==
-X-CSE-MsgGUID: mecjk28SRGKVrI7hEWbiJw==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.13,317,1732608000"; 
-   d="scan'208";a="139907373"
-Received: from blu2-mobl.ccr.corp.intel.com (HELO [10.124.240.105]) ([10.124.240.105])
-  by fmviesa002-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 26 Feb 2025 04:24:03 -0800
-Message-ID: <e50cf21d-49b1-4c9c-8e85-41d70e6fdb5b@linux.intel.com>
-Date: Wed, 26 Feb 2025 20:24:01 +0800
+	id 1tnHRe-00000003t4Z-3wmq;
+	Wed, 26 Feb 2025 13:27:26 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tnGSe-00000003fU2-3srd;
+	Wed, 26 Feb 2025 12:24:26 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 4B55113D5;
+	Wed, 26 Feb 2025 04:24:40 -0800 (PST)
+Received: from a077893.arm.com (unknown [10.163.40.69])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 646443F5A1;
+	Wed, 26 Feb 2025 04:24:20 -0800 (PST)
+From: Anshuman Khandual <anshuman.khandual@arm.com>
+To: linux-mm@kvack.org
+Cc: Anshuman Khandual <anshuman.khandual@arm.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Christophe Leroy <christophe.leroy@csgroup.eu>,
+	kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-doc@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linuxppc-dev@lists.ozlabs.org,
+	linux-riscv@lists.infradead.org,
+	linux-s390@vger.kernel.org
+Subject: [PATCH V3 0/5] mm: Rework generic PTDUMP configs
+Date: Wed, 26 Feb 2025 17:53:59 +0530
+Message-Id: <20250226122404.1927473-1-anshuman.khandual@arm.com>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Cc: baolu.lu@linux.intel.com, Bagas Sanjaya <bagasdotme@gmail.com>,
- Joerg Roedel <jroedel@suse.de>, Pasha Tatashin <pasha.tatashin@soleen.com>,
- patches@lists.linux.dev, David Rientjes <rientjes@google.com>,
- Matthew Wilcox <willy@infradead.org>
-Subject: Re: [PATCH v3 20/23] iommu: Update various drivers to pass in lg2sz
- instead of order to iommu pages
-To: Jason Gunthorpe <jgg@nvidia.com>, Alim Akhtar <alim.akhtar@samsung.com>,
- Alyssa Rosenzweig <alyssa@rosenzweig.io>, Albert Ou <aou@eecs.berkeley.edu>,
- asahi@lists.linux.dev, David Woodhouse <dwmw2@infradead.org>,
- Heiko Stuebner <heiko@sntech.de>, iommu@lists.linux.dev,
- Jernej Skrabec <jernej.skrabec@gmail.com>,
- Jonathan Hunter <jonathanh@nvidia.com>, Joerg Roedel <joro@8bytes.org>,
- Krzysztof Kozlowski <krzk@kernel.org>, linux-arm-kernel@lists.infradead.org,
- linux-riscv@lists.infradead.org, linux-rockchip@lists.infradead.org,
- linux-samsung-soc@vger.kernel.org, linux-sunxi@lists.linux.dev,
- linux-tegra@vger.kernel.org, Marek Szyprowski <m.szyprowski@samsung.com>,
- Hector Martin <marcan@marcan.st>, Palmer Dabbelt <palmer@dabbelt.com>,
- Paul Walmsley <paul.walmsley@sifive.com>, Robin Murphy
- <robin.murphy@arm.com>, Samuel Holland <samuel@sholland.org>,
- Suravee Suthikulpanit <suravee.suthikulpanit@amd.com>,
- Sven Peter <sven@svenpeter.dev>, Thierry Reding <thierry.reding@gmail.com>,
- Tomasz Jeznach <tjeznach@rivosinc.com>, Krishna Reddy <vdumpa@nvidia.com>,
- Chen-Yu Tsai <wens@csie.org>, Will Deacon <will@kernel.org>
-References: <20-v3-e797f4dc6918+93057-iommu_pages_jgg@nvidia.com>
-Content-Language: en-US
-From: Baolu Lu <baolu.lu@linux.intel.com>
-In-Reply-To: <20-v3-e797f4dc6918+93057-iommu_pages_jgg@nvidia.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250226_042412_301079_FD2BA50D 
-X-CRM114-Status: GOOD (  10.75  )
+X-CRM114-CacheID: sfid-20250226_042425_005127_0EEB171F 
+X-CRM114-Status: GOOD (  10.38  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,29 +64,80 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 2025/2/26 3:39, Jason Gunthorpe wrote:
-> Convert most of the places calling get_order() as an argument to the
-> iommu-pages allocator into order_base_2() or the _sz flavour
-> instead. These places already have an exact size, there is no particular
-> reason to use order here.
-> 
-> Signed-off-by: Jason Gunthorpe<jgg@nvidia.com>
-> ---
->   drivers/iommu/amd/init.c        | 29 +++++++++++++++--------------
->   drivers/iommu/intel/dmar.c      |  6 +++---
->   drivers/iommu/io-pgtable-arm.c  |  3 +--
->   drivers/iommu/io-pgtable-dart.c | 12 +++---------
->   drivers/iommu/sun50i-iommu.c    |  4 ++--
->   5 files changed, 24 insertions(+), 30 deletions(-)
+The series reworks generic PTDUMP configs before eventually renaming them
+after some basic clean ups first. This is derived after splitting changes
+from the following patch.
 
-For changes in intel iommu driver,
+https://lore.kernel.org/all/20250205050039.1506377-1-anshuman.khandual@arm.com/
 
-Reviewed-by: Lu Baolu <baolu.lu@linux.intel.com>
+This series applies on v6.14-rc3 and has been tested on arm64. Although it
+also builds on other platforms as well.
+
+Cc: Andrew Morton <akpm@linux-foundation.org>
+Cc: Mark Rutland <mark.rutland@arm.com>
+Cc: Christophe Leroy <christophe.leroy@csgroup.eu>
+Cc: kvmarm@lists.linux.dev
+Cc: linux-arm-kernel@lists.infradead.org
+Cc: linux-doc@vger.kernel.org
+Cc: linux-kernel@vger.kernel.org
+Cc: linuxppc-dev@lists.ozlabs.org
+Cc: linux-riscv@lists.infradead.org
+Cc: linux-s390@vger.kernel.org
+Cc: linux-mm@kvack.org
+Cc: linux-kernel@vger.kernel.org
+
+Changes in V3:
+
+- Added CONFIG_PTDUMP_DEBUGFS in mpc885_ads_defconfig per Christophe
+- Added back MMU dependency for CONFIG_ARCH_HAS_PTDUMP on riscv platform
+
+Changes in V2:
+
+https://lore.kernel.org/all/20250217042220.32920-1-anshuman.khandual@arm.com/
+
+- Dropped the patch "mm: Make GENERIC_PTDUMP dependent on MMU"
+- Dropped GENERIC_PTDUMP from mpc885_ads_defconfig
+- Dropped PTDUMP config options from ptdump.rst
+
+Changes in V1:
+
+https://lore.kernel.org/all/20250213040934.3245750-1-anshuman.khandual@arm.com/
+
+Anshuman Khandual (5):
+  configs: Drop GENERIC_PTDUMP from debug.config
+  arch/powerpc: Drop GENERIC_PTDUMP from mpc885_ads_defconfig
+  docs: arm64: Drop PTDUMP config options from ptdump.rst
+  mm: Make DEBUG_WX depdendent on GENERIC_PTDUMP
+  mm: Rename GENERIC_PTDUMP and PTDUMP_CORE
+
+ Documentation/arch/arm64/ptdump.rst       |  2 --
+ arch/arm64/Kconfig                        |  2 +-
+ arch/arm64/include/asm/ptdump.h           |  4 ++--
+ arch/arm64/kvm/Kconfig                    |  4 ++--
+ arch/arm64/mm/Makefile                    |  2 +-
+ arch/powerpc/Kconfig                      |  2 +-
+ arch/powerpc/configs/mpc885_ads_defconfig |  2 +-
+ arch/powerpc/mm/Makefile                  |  2 +-
+ arch/riscv/Kconfig                        |  2 +-
+ arch/riscv/mm/Makefile                    |  2 +-
+ arch/s390/Kconfig                         |  2 +-
+ arch/s390/mm/Makefile                     |  2 +-
+ arch/x86/Kconfig                          |  2 +-
+ arch/x86/Kconfig.debug                    |  2 +-
+ arch/x86/mm/Makefile                      |  2 +-
+ kernel/configs/debug.config               |  1 -
+ mm/Kconfig.debug                          | 11 ++++++-----
+ mm/Makefile                               |  2 +-
+ 18 files changed, 23 insertions(+), 25 deletions(-)
+
+-- 
+2.25.1
+
 
 _______________________________________________
 linux-riscv mailing list
