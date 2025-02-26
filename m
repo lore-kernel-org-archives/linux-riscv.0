@@ -4,50 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 43A15C18E7C
-	for <linux-riscv@archiver.kernel.org>; Wed, 26 Feb 2025 13:26:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C923DC021B8
+	for <linux-riscv@archiver.kernel.org>; Wed, 26 Feb 2025 13:27:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:To:Subject:Cc:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ANybEvZjPlMdGRBJLRrPRgiRln3WjBbx3EMfBo/BJ2s=; b=4+04/J4wsMKi+v
-	laQt9qc8iY6E8JvMcrf+3/yGWuBe2QEl1X/GieVmfOsFmJOKOeMy6gYr3XvMDIxL3VuFpwYAR47Lr
-	w38FvmUWTjuNd9xXrcUG1mo8TCnQBEnhGgf7vSwUsLAduXAqYxechfCl7zcShNAzxeY6ZNmWfBxvM
-	4whxraWcpjr/ITWO9+9M8nCUMtYve2ALVdmx9EoMcvjLqUeRkHGJZmkrnZUBWIMXN8mzusE6CV+2m
-	e6m/ud6tHp8p4+r3zd4FHb9KNXCcBT8Z8PfISaMkREigeiNXmwNrGY/Om7bQ4iJ2wQa9ek4ojmq42
-	DOuthWbEUyPtoV/YbEtg==;
+	List-Owner; bh=1q48R/fXD2v1ySBnHORYC0cO7fZkhhfi0dqlJ4WHrAI=; b=D5PZCLCdzAf8/7
+	Hvigs7Y1hWcD4IDsH5zhaV7GSHwU9ZdjVXxCpTboHt8Lr72V+i9BBJEE9WVpi4loJxCC9BCngSh61
+	LE8tU4tzPv8gXLcjMCRk5XfSte2Y8LHplwyFMki2CsR0JzZDilPnMqF0c/AacO0NIgMSgnvolgcMo
+	8nvplGCs2QR/kiLl/BAAx/hB4b536EZt+PQ6+YrtANQ2B2nwOPwDkIDn38UPeJ+lb75aFC1xEEfho
+	W9o2At0nu/emjq94Nb5x0qitj4Kv3bpgKdVJ7yb9XhOI4e+9mQnV9M90LWaAWTjzu9XdlG+utZ+0b
+	uTk4hqLu2UbY5NI3W4Qg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnHQX-00000003ref-3Uhx;
-	Wed, 26 Feb 2025 13:26:17 +0000
-Received: from woodpecker.gentoo.org ([2001:470:ea4a:1:5054:ff:fec7:86e4] helo=smtp.gentoo.org)
+	id 1tnHRX-00000003spy-0Id9;
+	Wed, 26 Feb 2025 13:27:19 +0000
+Received: from [198.175.65.9] (helo=mgamail.intel.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnG57-00000003a92-1K7s
-	for linux-riscv@lists.infradead.org;
-	Wed, 26 Feb 2025 12:00:06 +0000
-Received: from localhost (unknown [116.232.55.252])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: dlan)
-	by smtp.gentoo.org (Postfix) with ESMTPSA id 7197134133B;
-	Wed, 26 Feb 2025 12:00:01 +0000 (UTC)
-Date: Wed, 26 Feb 2025 11:59:57 +0000
-From: Yixun Lan <dlan@gentoo.org>
-To: Linus Walleij <linus.walleij@linaro.org>
-Subject: Re: [PATCH v7 0/4] riscv: spacemit: add gpio support for K1 SoC
-Message-ID: <20250226115957-GYA45508@gentoo>
-References: <20250226-03-k1-gpio-v7-0-be489c4a609b@gentoo.org>
- <20250226010108-GYA44567@gentoo>
- <CACRpkdY7nzzu3-+FwpSYqmX+O559LoXHiqcvP2OxkhX+9f-3wg@mail.gmail.com>
+	id 1tnGQg-00000003f2l-3Ufc;
+	Wed, 26 Feb 2025 12:22:24 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1740572542; x=1772108542;
+  h=message-id:date:mime-version:cc:subject:to:references:
+   from:in-reply-to:content-transfer-encoding;
+  bh=lFhxRXpv6QTFcMfVUvDqKANeqKNOPbO6YgonBgCYQJI=;
+  b=bKxa+tzriX9SBviBJdHIMUH6iCJgBJEvxhkwM1m5hArCp2Sz5MP6G7P3
+   /hy5lb/BLJayYYMINt46SKFzoUdQlIt8ko/mrQ5FOGDn4h36gC1uH6JM+
+   eggHeaGCT0ohkZmGD5tXr4+vI/+2p7Epp9DEVBlks+pio6OI8KzFthkij
+   hf9HMNSJQBQNf/28iWlZijwCKwmGbwwWciUoChVuIaN+IDtZDrBL7HOEQ
+   YOmglOS33jEHb+R8XvCyL0FeEhHwfufZQMuB+9GM0KVKT1tDzOFufQSnm
+   oQf3V6/jwlZdbTuF7pPnpmG7KhmjHr594ORgAfp9zh/6Z0lSR1bYaZxXq
+   Q==;
+X-CSE-ConnectionGUID: rcKKt8jdQeKEp0gAnf1R1g==
+X-CSE-MsgGUID: eznvDZdUTZGGwVVASX3Nvw==
+X-IronPort-AV: E=McAfee;i="6700,10204,11357"; a="63877914"
+X-IronPort-AV: E=Sophos;i="6.13,317,1732608000"; 
+   d="scan'208";a="63877914"
+Received: from fmviesa007.fm.intel.com ([10.60.135.147])
+  by orvoesa101.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 26 Feb 2025 04:22:21 -0800
+X-CSE-ConnectionGUID: hCu3EQHDT2qlP3dV1KuKQw==
+X-CSE-MsgGUID: vpSaOO0DSI+Av8u8OcxQ2A==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.13,317,1732608000"; 
+   d="scan'208";a="116691259"
+Received: from blu2-mobl.ccr.corp.intel.com (HELO [10.124.240.105]) ([10.124.240.105])
+  by fmviesa007-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 26 Feb 2025 04:22:13 -0800
+Message-ID: <caff123f-0910-4949-8512-acb77c6f0a8b@linux.intel.com>
+Date: Wed, 26 Feb 2025 20:22:10 +0800
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <CACRpkdY7nzzu3-+FwpSYqmX+O559LoXHiqcvP2OxkhX+9f-3wg@mail.gmail.com>
+User-Agent: Mozilla Thunderbird
+Cc: baolu.lu@linux.intel.com, Bagas Sanjaya <bagasdotme@gmail.com>,
+ Joerg Roedel <jroedel@suse.de>, Pasha Tatashin <pasha.tatashin@soleen.com>,
+ patches@lists.linux.dev, David Rientjes <rientjes@google.com>,
+ Matthew Wilcox <willy@infradead.org>
+Subject: Re: [PATCH v3 16/23] iommu/pages: Allow sub page sizes to be passed
+ into the allocator
+To: Jason Gunthorpe <jgg@nvidia.com>, Alim Akhtar <alim.akhtar@samsung.com>,
+ Alyssa Rosenzweig <alyssa@rosenzweig.io>, Albert Ou <aou@eecs.berkeley.edu>,
+ asahi@lists.linux.dev, David Woodhouse <dwmw2@infradead.org>,
+ Heiko Stuebner <heiko@sntech.de>, iommu@lists.linux.dev,
+ Jernej Skrabec <jernej.skrabec@gmail.com>,
+ Jonathan Hunter <jonathanh@nvidia.com>, Joerg Roedel <joro@8bytes.org>,
+ Krzysztof Kozlowski <krzk@kernel.org>, linux-arm-kernel@lists.infradead.org,
+ linux-riscv@lists.infradead.org, linux-rockchip@lists.infradead.org,
+ linux-samsung-soc@vger.kernel.org, linux-sunxi@lists.linux.dev,
+ linux-tegra@vger.kernel.org, Marek Szyprowski <m.szyprowski@samsung.com>,
+ Hector Martin <marcan@marcan.st>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Robin Murphy
+ <robin.murphy@arm.com>, Samuel Holland <samuel@sholland.org>,
+ Suravee Suthikulpanit <suravee.suthikulpanit@amd.com>,
+ Sven Peter <sven@svenpeter.dev>, Thierry Reding <thierry.reding@gmail.com>,
+ Tomasz Jeznach <tjeznach@rivosinc.com>, Krishna Reddy <vdumpa@nvidia.com>,
+ Chen-Yu Tsai <wens@csie.org>, Will Deacon <will@kernel.org>
+References: <16-v3-e797f4dc6918+93057-iommu_pages_jgg@nvidia.com>
+Content-Language: en-US
+From: Baolu Lu <baolu.lu@linux.intel.com>
+In-Reply-To: <16-v3-e797f4dc6918+93057-iommu_pages_jgg@nvidia.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250226_040005_390853_9040A7B1 
-X-CRM114-Status: GOOD (  25.68  )
+X-CRM114-CacheID: sfid-20250226_042222_950736_5BE78C4B 
+X-CRM114-Status: GOOD (  12.18  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -59,100 +98,32 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Rob Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Meng Zhang <zhangmeng.kevin@linux.spacemit.com>, Alex Elder <elder@riscstar.com>, linux-gpio@vger.kernel.org, Bartosz Golaszewski <brgl@bgdev.pl>, linux-kernel@vger.kernel.org, Conor Dooley <conor@kernel.org>, Yangyu Chen <cyy@cyyself.name>, devicetree@vger.kernel.org, Palmer Dabbelt <palmer@dabbelt.com>, Jesse Taube <mr.bossman075@gmail.com>, Jisheng Zhang <jszhang@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>, Inochi Amaoto <inochiama@outlook.com>, Krzysztof Kozlowski <krzk+dt@kernel.org>, spacemit@lists.linux.dev, linux-riscv@lists.infradead.org
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-SGkgTGludXMgV2FsbGVpajoKCk9uIDExOjI0IFdlZCAyNiBGZWIgICAgICwgTGludXMgV2FsbGVp
-aiB3cm90ZToKPiBPbiBXZWQsIEZlYiAyNiwgMjAyNSBhdCAyOjAx4oCvQU0gWWl4dW4gTGFuIDxk
-bGFuQGdlbnRvby5vcmc+IHdyb3RlOgo+IAo+ID4gQ3VycmVudCB0aGlzIHY3IHZlcnNpb24gd29y
-ayBncmVhdCB3aXRoIHJlcXVlc3QgaXJxIGZyb20gZ3BpbywgbGlrZToKPiA+ICAgICAgICAgcGlu
-ID0gZGV2bV9ncGlvZF9nZXRfb3B0aW9uYWwoZGV2LCAibXlpcnEiLCBHUElPRF9JTik7Cj4gPiAg
-ICAgICAgIGlycSA9IGdwaW9kX3RvX2lycShwaW4pOwo+ID4gICAgICAgICBkZXZtX3JlcXVlc3Rf
-dGhyZWFkZWRfaXJxKGRldiwgaXJxLCAuLikKPiA+Cj4gPiBidXQgaGF2ZSBwcm9ibGVtIGlmIHJl
-cXVlc3QgaXJxIHZpYSBvZl9pcnFfZ2V0KCksIHNvbWV0aGluZyBsaWtlIHRoaXM6Cj4gPiBEVCBw
-YXJ0Cj4gPiAgICAgICAgIG15dHN0IHsKPiA+ICAgICAgICAgICAgICAgICAuLgo+ID4gICAgICAg
-ICAgICAgICAgIGludGVycnVwdC1wYXJlbnQgPSA8JmdwaW8+Owo+ID4gICAgICAgICAgICAgICAg
-IGludGVycnVwdHMgPSA8MSAyOCBJUlFfVFlQRV9FREdFX1JJU0lORz47Cj4gPiAgICAgICAgICAg
-ICAgICAgaW50ZXJydXB0LW5hbWVzID0gIndha2V1cCI7Cj4gPiAgICAgICAgIH0KPiA+Cj4gPiBJ
-biBzb3VyY2UgY29kZQo+ID4gICAgICAgICBpcnEgPSBvZl9pcnFfZ2V0X2J5bmFtZShkZXYtPm9m
-X25vZGUsICJ3YWtldXAiKTsKPiA+Cj4gPiBJJ3ZlIG1hZGUgYW4gYXR0ZW1wdCB0byBwYXRjaCBn
-cGlvbGliIHRvIHN1cHBvcnQgdGhyZWUgY2VsbHMgImludGVycnVwdHMiCj4gPiBzeW50YXgsIGJ1
-dCBzdGlsbCBmYWlsLCBpdCBhbHdheXMgZ2V0IGxhc3QgZ3BpbyBpcnFjaGlwIG9mIGZvdXIsIHRo
-dXMgdXNpbmcKPiA+IHRoZSB3cm9uZyBwaW4gKGUuZzogd2lsbCBhbHdheXMgZ2V0IDMgZnJvbSBn
-cGlvY2hpcHMgMCwgMSwgMiwgMykKPiAKPiBSaWdodCwgd2UgbmVlZCBhIHByb3BlciBwYXRjaCB0
-byBmaXggdGhpcy4KPiAKPiBDYW4geW91IHBhc3RlIHlvdXIgcGF0Y2ggc28gSSBjYW4gc2VlIGlm
-IEkgY2FuIHNwb3QvZml4Cj4gdGhlIHByb2JsZW0/Cj4gCj4gSSB0aGluayB0aGUgaXJxIGNlbGwg
-cGFyc2VyIG5lZWRzIHRvIGNhbGwgb3V0IHRvCj4gb2Zfbm9kZV9pbnN0YW5jZV9tYXRjaCgpIC0g
-b3Igc2ltaWxhciAtIGFzIHdlbGwuCmRvIHlvdSBoYXZlIGFueSBzdWdnZXN0aW9uIHdoZXJlIHRv
-IGltcGxlbWVudCB0aGlzIHNpbWlsYXIgZnVuY3Rpb24/CgpJIGFjdHVhbGx5IG1pc3MgdGhpcyBs
-b2dpYywgdGhlIHBhdGNoIGhlcmUgb25seSBzdXBwb3J0IHBhcnNpbmcKaW50ZXJydXB0cyB3aXRo
-IDMgY2VsbHMKCmRpZmYgLS1naXQgYS9kcml2ZXJzL2dwaW8vZ3Bpb2xpYi5jIGIvZHJpdmVycy9n
-cGlvL2dwaW9saWIuYwppbmRleCA2NzllZDc2NGNiMTQuLjlhYTg4YzNmYTQ4NSAxMDA2NDQKLS0t
-IGEvZHJpdmVycy9ncGlvL2dwaW9saWIuYworKysgYi9kcml2ZXJzL2dwaW8vZ3Bpb2xpYi5jCkBA
-IC0xNDU0LDYgKzE0NTQsMTAgQEAgc3RhdGljIGludCBncGlvY2hpcF9oaWVyYXJjaHlfaXJxX2Rv
-bWFpbl90cmFuc2xhdGUoc3RydWN0IGlycV9kb21haW4gKmQsCiAJCXJldHVybiBpcnFfZG9tYWlu
-X3RyYW5zbGF0ZV90d29jZWxsKGQsIGZ3c3BlYywgaHdpcnEsIHR5cGUpOwogCX0KIAorCWlmIChp
-c19vZl9ub2RlKGZ3c3BlYy0+Zndub2RlKSAmJiBmd3NwZWMtPnBhcmFtX2NvdW50ID09IDMpIHsK
-KwkJcmV0dXJuIGlycV9kb21haW5fdHJhbnNsYXRlX3RocmVlY2VsbChkLCBmd3NwZWMsIGh3aXJx
-LCB0eXBlKTsKKwl9CisKIAkvKiBUaGlzIGlzIGZvciBib2FyZCBmaWxlcyBhbmQgb3RoZXJzIG5v
-dCB1c2luZyBEVCAqLwogCWlmIChpc19md25vZGVfaXJxY2hpcChmd3NwZWMtPmZ3bm9kZSkpIHsK
-IAkJaW50IHJldDsKQEAgLTE3NTgsNyArMTc2Miw4IEBAIHN0YXRpYyBjb25zdCBzdHJ1Y3QgaXJx
-X2RvbWFpbl9vcHMgZ3Bpb2NoaXBfZG9tYWluX29wcyA9IHsKIAkubWFwCT0gZ3Bpb2NoaXBfaXJx
-X21hcCwKIAkudW5tYXAJPSBncGlvY2hpcF9pcnFfdW5tYXAsCiAJLyogVmlydHVhbGx5IGFsbCBH
-UElPIGlycWNoaXBzIGFyZSB0d29jZWxsOmVkICovCi0JLnhsYXRlCT0gaXJxX2RvbWFpbl94bGF0
-ZV90d29jZWxsLAorCS8qIEZJWE1FOiBmb3JjZSBzd2l0Y2ggdG8gdGhyZWUgY2VsbHMgKi8KKwku
-eGxhdGUJPSBpcnFfZG9tYWluX3hsYXRlX3RocmVlY2VsbCwKIH07CiAKIHN0YXRpYyBzdHJ1Y3Qg
-aXJxX2RvbWFpbiAqZ3Bpb2NoaXBfc2ltcGxlX2NyZWF0ZV9kb21haW4oc3RydWN0IGdwaW9fY2hp
-cCAqZ2MpCmRpZmYgLS1naXQgYS9pbmNsdWRlL2xpbnV4L2lycWRvbWFpbi5oIGIvaW5jbHVkZS9s
-aW51eC9pcnFkb21haW4uaAppbmRleCBlNDMyYjZhMTJhMzIuLjY5YTk1NDBlYzI1MyAxMDA2NDQK
-LS0tIGEvaW5jbHVkZS9saW51eC9pcnFkb21haW4uaAorKysgYi9pbmNsdWRlL2xpbnV4L2lycWRv
-bWFpbi5oCkBAIC01NjgsMTAgKzU2OCwxOCBAQCBpbnQgaXJxX2RvbWFpbl94bGF0ZV9vbmVjZWxs
-KHN0cnVjdCBpcnFfZG9tYWluICpkLCBzdHJ1Y3QgZGV2aWNlX25vZGUgKmN0cmxyLAogaW50IGly
-cV9kb21haW5feGxhdGVfdHdvY2VsbChzdHJ1Y3QgaXJxX2RvbWFpbiAqZCwgc3RydWN0IGRldmlj
-ZV9ub2RlICpjdHJsciwKIAkJCWNvbnN0IHUzMiAqaW50c3BlYywgdW5zaWduZWQgaW50IGludHNp
-emUsCiAJCQlpcnFfaHdfbnVtYmVyX3QgKm91dF9od2lycSwgdW5zaWduZWQgaW50ICpvdXRfdHlw
-ZSk7CitpbnQgaXJxX2RvbWFpbl94bGF0ZV90aHJlZWNlbGwoc3RydWN0IGlycV9kb21haW4gKmQs
-IHN0cnVjdCBkZXZpY2Vfbm9kZSAqY3RybHIsCisJCQljb25zdCB1MzIgKmludHNwZWMsIHVuc2ln
-bmVkIGludCBpbnRzaXplLAorCQkJaXJxX2h3X251bWJlcl90ICpvdXRfaHdpcnEsIHVuc2lnbmVk
-IGludCAqb3V0X3R5cGUpOwogaW50IGlycV9kb21haW5feGxhdGVfb25ldHdvY2VsbChzdHJ1Y3Qg
-aXJxX2RvbWFpbiAqZCwgc3RydWN0IGRldmljZV9ub2RlICpjdHJsciwKIAkJCWNvbnN0IHUzMiAq
-aW50c3BlYywgdW5zaWduZWQgaW50IGludHNpemUsCiAJCQlpcnFfaHdfbnVtYmVyX3QgKm91dF9o
-d2lycSwgdW5zaWduZWQgaW50ICpvdXRfdHlwZSk7CiAKK2ludCBpcnFfZG9tYWluX3RyYW5zbGF0
-ZV90aHJlZWNlbGwoc3RydWN0IGlycV9kb21haW4gKmQsCisJCQkJIHN0cnVjdCBpcnFfZndzcGVj
-ICpmd3NwZWMsCisJCQkJIHVuc2lnbmVkIGxvbmcgKm91dF9od2lycSwKKwkJCQkgdW5zaWduZWQg
-aW50ICpvdXRfdHlwZSk7CisKIGludCBpcnFfZG9tYWluX3RyYW5zbGF0ZV90d29jZWxsKHN0cnVj
-dCBpcnFfZG9tYWluICpkLAogCQkJCSBzdHJ1Y3QgaXJxX2Z3c3BlYyAqZndzcGVjLAogCQkJCSB1
-bnNpZ25lZCBsb25nICpvdXRfaHdpcnEsCmRpZmYgLS1naXQgYS9rZXJuZWwvaXJxL2lycWRvbWFp
-bi5jIGIva2VybmVsL2lycS9pcnFkb21haW4uYwppbmRleCBlYzZkOGU3MmQ5ODAuLjk5NWU1ZTBl
-YzJkYiAxMDA2NDQKLS0tIGEva2VybmVsL2lycS9pcnFkb21haW4uYworKysgYi9rZXJuZWwvaXJx
-L2lycWRvbWFpbi5jCkBAIC0xMTMyLDYgKzExMzIsMTcgQEAgaW50IGlycV9kb21haW5feGxhdGVf
-dHdvY2VsbChzdHJ1Y3QgaXJxX2RvbWFpbiAqZCwgc3RydWN0IGRldmljZV9ub2RlICpjdHJsciwK
-IH0KIEVYUE9SVF9TWU1CT0xfR1BMKGlycV9kb21haW5feGxhdGVfdHdvY2VsbCk7CiAKK2ludCBp
-cnFfZG9tYWluX3hsYXRlX3RocmVlY2VsbChzdHJ1Y3QgaXJxX2RvbWFpbiAqZCwgc3RydWN0IGRl
-dmljZV9ub2RlICpjdHJsciwKKwkJCWNvbnN0IHUzMiAqaW50c3BlYywgdW5zaWduZWQgaW50IGlu
-dHNpemUsCisJCQlpcnFfaHdfbnVtYmVyX3QgKm91dF9od2lycSwgdW5zaWduZWQgaW50ICpvdXRf
-dHlwZSkKK3sKKwlzdHJ1Y3QgaXJxX2Z3c3BlYyBmd3NwZWM7CisKKwlvZl9waGFuZGxlX2FyZ3Nf
-dG9fZndzcGVjKGN0cmxyLCBpbnRzcGVjLCBpbnRzaXplLCAmZndzcGVjKTsKKwlyZXR1cm4gaXJx
-X2RvbWFpbl90cmFuc2xhdGVfdGhyZWVjZWxsKGQsICZmd3NwZWMsIG91dF9od2lycSwgb3V0X3R5
-cGUpOworfQorRVhQT1JUX1NZTUJPTF9HUEwoaXJxX2RvbWFpbl94bGF0ZV90aHJlZWNlbGwpOwor
-CiAvKioKICAqIGlycV9kb21haW5feGxhdGVfb25ldHdvY2VsbCgpIC0gR2VuZXJpYyB4bGF0ZSBm
-b3Igb25lIG9yIHR3byBjZWxsIGJpbmRpbmdzCiAgKiBAZDoJCUludGVycnVwdCBkb21haW4gaW52
-b2x2ZWQgaW4gdGhlIHRyYW5zbGF0aW9uCkBAIC0xMjE2LDYgKzEyMjcsMTkgQEAgaW50IGlycV9k
-b21haW5fdHJhbnNsYXRlX3R3b2NlbGwoc3RydWN0IGlycV9kb21haW4gKmQsCiB9CiBFWFBPUlRf
-U1lNQk9MX0dQTChpcnFfZG9tYWluX3RyYW5zbGF0ZV90d29jZWxsKTsKIAoraW50IGlycV9kb21h
-aW5fdHJhbnNsYXRlX3RocmVlY2VsbChzdHJ1Y3QgaXJxX2RvbWFpbiAqZCwKKwkJCQkgc3RydWN0
-IGlycV9md3NwZWMgKmZ3c3BlYywKKwkJCQkgdW5zaWduZWQgbG9uZyAqb3V0X2h3aXJxLAorCQkJ
-CSB1bnNpZ25lZCBpbnQgKm91dF90eXBlKQoreworCWlmIChXQVJOX09OKGZ3c3BlYy0+cGFyYW1f
-Y291bnQgPCAzKSkKKwkJcmV0dXJuIC1FSU5WQUw7CisJKm91dF9od2lycSA9IGZ3c3BlYy0+cGFy
-YW1bMV07CisJKm91dF90eXBlID0gZndzcGVjLT5wYXJhbVsyXSAmIElSUV9UWVBFX1NFTlNFX01B
-U0s7CisJcmV0dXJuIDA7Cit9CitFWFBPUlRfU1lNQk9MX0dQTChpcnFfZG9tYWluX3RyYW5zbGF0
-ZV90aHJlZWNlbGwpOworCiBpbnQgaXJxX2RvbWFpbl9hbGxvY19kZXNjcyhpbnQgdmlycSwgdW5z
-aWduZWQgaW50IGNudCwgaXJxX2h3X251bWJlcl90IGh3aXJxLAogCQkJICAgaW50IG5vZGUsIGNv
-bnN0IHN0cnVjdCBpcnFfYWZmaW5pdHlfZGVzYyAqYWZmaW5pdHkpCiB7CgotLSAKWWl4dW4gTGFu
-IChkbGFuKQpHZW50b28gTGludXggRGV2ZWxvcGVyCkdQRyBLZXkgSUQgQUFCRUZENTUKCl9fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1h
-aWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5p
-bmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+On 2025/2/26 3:39, Jason Gunthorpe wrote:
+> Generally drivers have a specific idea what their HW structure size should
+> be. In a lot of cases this is related to PAGE_SIZE, but not always. ARM64,
+> for example, allows a 4K IO page table size on a 64K CPU page table
+> system.
+> 
+> Currently we don't have any good support for sub page allocations, but
+> make the API accommodate this by accepting a sub page size from the caller
+> and rounding up internally.
+> 
+> This is done by moving away from order as the size input and using size:
+>    size == 1 << (order + PAGE_SHIFT)
+> 
+> Following patches convert drivers away from using order and try to specify
+> allocation sizes independent of PAGE_SIZE.
+> 
+> Signed-off-by: Jason Gunthorpe<jgg@nvidia.com>
+
+Reviewed-by: Lu Baolu <baolu.lu@linux.intel.com>
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
