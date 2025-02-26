@@ -4,74 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9DE9DC021B8
-	for <linux-riscv@archiver.kernel.org>; Wed, 26 Feb 2025 06:53:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8D6DAC021B8
+	for <linux-riscv@archiver.kernel.org>; Wed, 26 Feb 2025 07:01:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
 	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
 	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=g84dPTBg1AymdiQT1oFNXbt5QUc5NZ0HQp3oUZytDjY=; b=NNIWxb7zbvKFCU
-	umPHaMuesUkJN2SbeIPe49DsFU9cEgeHm/C5Eda0MxlLr3eEHY2ekZmLdrhepMrFrcugPL6ObiWFj
-	UWtCly7y4uwf3BWY+M20EhFyN4RvTxWa3HQCehrdMPg78g+o1KGptjpZq+KYJCpgij5p2xyvIm9HI
-	2/Q54I6y8y+bJnZ8gPbwsorVYRIwMydSiv2XfHkWbx7NvxQy63Sh4Q2g4fSMnW9cwvue/7cPwXEMY
-	lcefTXlM7oBE5cuQHB5xFH7oJpeSDTy6v3I9ncdThttVsOyi9v4/rXHkvzJbIHJVGD5cvnM1fHta3
-	2TLxUMCu9yvBBtqG5ygw==;
+	List-Owner; bh=smqkW3R49k5uoJfmAtbZx2ACR21sDPoyCUfMFTgvYuc=; b=Fskt+0IqMu9XGN
+	bYqBZ1VN/XyC/Zws7iSbrsRIsy/LFcDFLMTqfESM5NdP1bUr6gvJ7YQtHpNGNAmCHF7zzC/EQgIqC
+	NlK40/CCHXuKUI1CS7APBzwwKgCxWqBKSd/o3jmrizVElvA8WmNlBCjnPWH5cJpgwdeiEnmuUagCj
+	l/k0RBhGcLJVta8d0+FXjIZiM6aW9LuQJQFwZKouEp0xQCrpyA374YiEXN1LCfyjoEoY80u0joL+x
+	s0yRzdHvHjeu4piCjSdrG+5RAfZI6u1YFFo6LKskA7zraz2WhdNzoIP3EPaZojJYDCEKWor9Hmxt/
+	GwGWka1yOlbuuGuBu+/A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnBIF-00000002bRf-3nVJ;
-	Wed, 26 Feb 2025 06:53:19 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1tnBQJ-00000002ceH-0MtL;
+	Wed, 26 Feb 2025 07:01:39 +0000
+Received: from mgamail.intel.com ([198.175.65.11])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnBBs-00000002aOb-0LnF;
-	Wed, 26 Feb 2025 06:46:44 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=ZNkgibrjc6bGULe9qB2c51LZHGb5e9pkEqCuLJFkESA=; b=oikfIhZn7yFN7JaVPKhYTIFaWB
-	5rj3SJL0lcc5H4XNSeldjamlkGfwN/lGYM1q5Kw9M8LGckMtFI2FvXD37HZ1GDcz0Aqm7cdhL0TRh
-	r0Ua/jDgoO8TdlP/3zfOm0Us36uQ0uLEzl/XJ53bMO+ynF4Gx8zokpy3ABtZAjQt4pjrFXsaSPWFQ
-	TM/X0kfirhlD9dKFjTkTaHeNpfYWYSCB43V/5Z1R8yyr7iLWB/Y8sfR3oVWi5n8VbA3BRp+puiU9n
-	zjE+9V00mczhOP+fZgMfwPhaPmKqIq3uhPOwL/FZ2kIpnHxSyh+Gotd5gT4XFwngOFkNxm8TZJ+LH
-	km2L8Ddg==;
-Received: from mgamail.intel.com ([198.175.65.21])
-	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnBBo-00000003X5j-2SyE;
-	Wed, 26 Feb 2025 06:46:42 +0000
+	id 1tnBOa-00000002cNC-0AI7;
+	Wed, 26 Feb 2025 06:59:53 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1740552401; x=1772088401;
+  t=1740553192; x=1772089192;
   h=message-id:date:mime-version:subject:to:cc:references:
    from:in-reply-to:content-transfer-encoding;
-  bh=DcJW8rnikbMnBHMjyLqT5C+TmnYl/QP63LXAKlFTjQA=;
-  b=XC1kppoSDlE5KPYgkMYj5H+stdlWO2ZLqK6YiJKwQDU6oW8Hvf/GhRYj
-   ZxbgDPGmbSY6JB8NupQ7vlmJtDk+6tJHz5yHlqM3QQyHGhWS45NahfPr8
-   ZW8dmwfm/tx6fnU22FoOnByXn96UClYkfbG5PSQivvpfuChik047T7I2B
-   WwVjEU/7QOdFgW/a41AROiuTT9aIvIkDGnzgRT38Fv1bZHnuJLXsJ8bBc
-   PGWlfLLXjrAkmA8XZsxwBwHzLPkWcxkVjr5++xFU8rT3F3dqPZGdHuIfp
-   Rp9v/noFQ/f22C374uRhi8V+SGwmCInEA6iibd3oE5QlbAlcoRSixQjzG
-   g==;
-X-CSE-ConnectionGUID: LRMFFNkgReWj18foSyz91A==
-X-CSE-MsgGUID: F5gofWCMQ5KNp6YfKPxtlQ==
-X-IronPort-AV: E=McAfee;i="6700,10204,11356"; a="41300226"
+  bh=qpSxoD9rlSgkQH/htkteQeAZ4TqZJLdpOv+rX9TDkNo=;
+  b=eKrBksxETGmj1EewkXS89AmkxqkegYLPwOPxZLOazAsfjFolAvbxyqGQ
+   S/+kcjbRK1U+qIwacgNfKP+rlG3PitcOQpG1jCXF5F2ClNEfS5cNKDC2v
+   6CyDh25dL5h8cykjvJmOQY49h9Yx/V4mJcPqXleX+3ZEQidaQBN69MIFg
+   pRYNYsDdqRt9HpgigblRIYajaGS/K8FKzLgYCLCYTwp417QMSTe8sm3cO
+   fL2iAOAOAofvUFzcbEcZCtP45pl4ZPXJPPVo+UDvis4LhwiozW7aqEzUs
+   eQ9zhmOUKezMpK0FUKxkJ3u4eS0BHZD1BiVFpZ8D4r+R4NGm1K5qLkrCx
+   A==;
+X-CSE-ConnectionGUID: ftEe/tgKQh6NFVWSL88F6w==
+X-CSE-MsgGUID: huzg653cSRyL8c/GXZFLcw==
+X-IronPort-AV: E=McAfee;i="6700,10204,11356"; a="51596081"
 X-IronPort-AV: E=Sophos;i="6.13,316,1732608000"; 
-   d="scan'208";a="41300226"
-Received: from fmviesa001.fm.intel.com ([10.60.135.141])
-  by orvoesa113.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Feb 2025 22:46:33 -0800
-X-CSE-ConnectionGUID: vhSj9HPxQdixfCU6Udz2DQ==
-X-CSE-MsgGUID: f6KHA8H/TGKMHtiGBJpThQ==
+   d="scan'208";a="51596081"
+Received: from fmviesa007.fm.intel.com ([10.60.135.147])
+  by orvoesa103.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Feb 2025 22:59:52 -0800
+X-CSE-ConnectionGUID: gU9ME5xMS/Sg/5K4xpwzVw==
+X-CSE-MsgGUID: pqpzR+GkRgCwrPW8n3kWtw==
 X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.12,224,1728975600"; 
-   d="scan'208";a="147528550"
+X-IronPort-AV: E=Sophos;i="6.13,316,1732608000"; 
+   d="scan'208";a="116621933"
 Received: from allen-sbox.sh.intel.com (HELO [10.239.159.30]) ([10.239.159.30])
-  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Feb 2025 22:46:24 -0800
-Message-ID: <cdab4b5f-f943-4091-a03c-252769221fcd@linux.intel.com>
-Date: Wed, 26 Feb 2025 14:43:08 +0800
+  by fmviesa007-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Feb 2025 22:59:43 -0800
+Message-ID: <6d9ceeb5-581e-48e8-a5cc-100a9699a9e8@linux.intel.com>
+Date: Wed, 26 Feb 2025 14:56:29 +0800
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 07/23] iommu/pages: De-inline the substantial functions
+Subject: Re: [PATCH v3 09/23] iommu/pages: Formalize the freelist API
 To: Jason Gunthorpe <jgg@nvidia.com>, Alim Akhtar <alim.akhtar@samsung.com>,
  Alyssa Rosenzweig <alyssa@rosenzweig.io>, Albert Ou <aou@eecs.berkeley.edu>,
  asahi@lists.linux.dev, David Woodhouse <dwmw2@infradead.org>,
@@ -92,14 +78,13 @@ To: Jason Gunthorpe <jgg@nvidia.com>, Alim Akhtar <alim.akhtar@samsung.com>,
 Cc: Bagas Sanjaya <bagasdotme@gmail.com>, Joerg Roedel <jroedel@suse.de>,
  Pasha Tatashin <pasha.tatashin@soleen.com>, patches@lists.linux.dev,
  David Rientjes <rientjes@google.com>, Matthew Wilcox <willy@infradead.org>
-References: <7-v3-e797f4dc6918+93057-iommu_pages_jgg@nvidia.com>
+References: <9-v3-e797f4dc6918+93057-iommu_pages_jgg@nvidia.com>
 Content-Language: en-US
 From: Baolu Lu <baolu.lu@linux.intel.com>
-In-Reply-To: <7-v3-e797f4dc6918+93057-iommu_pages_jgg@nvidia.com>
+In-Reply-To: <9-v3-e797f4dc6918+93057-iommu_pages_jgg@nvidia.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250226_064641_277108_EC23D608 
-X-CRM114-Status: UNSURE (   7.65  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250225_225952_124753_8408FA8D 
+X-CRM114-Status: GOOD (  13.03  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,17 +102,34 @@ Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 On 2/26/25 03:39, Jason Gunthorpe wrote:
-> These are called in a lot of places and are not trivial. Move them to the
-> core module.
-> 
-> Tidy some of the comments and function arguments, fold
-> __iommu_alloc_account() into its only caller, change
-> __iommu_free_account() into __iommu_free_page() to remove some
-> duplication.
-> 
-> Signed-off-by: Jason Gunthorpe<jgg@nvidia.com>
+> diff --git a/include/linux/iommu.h b/include/linux/iommu.h
+> index 38c65e92ecd091..e414951c0af83f 100644
+> --- a/include/linux/iommu.h
+> +++ b/include/linux/iommu.h
+> @@ -326,6 +326,18 @@ typedef unsigned int ioasid_t;
+>   /* Read but do not clear any dirty bits */
+>   #define IOMMU_DIRTY_NO_CLEAR (1 << 0)
+>   
+> +/*
+> + * Pages allocated through iommu_alloc_pages_node() can be placed on this list
+> + * using iommu_pages_list_add(). Note: ONLY pages from iommu_alloc_pages_node()
+> + * can be used this way!
+> + */
+> +struct iommu_pages_list {
+> +	struct list_head pages;
+> +};
+> +
+> +#define IOMMU_PAGES_LIST_INIT(name) \
+> +	((struct iommu_pages_list){ .pages = LIST_HEAD_INIT(name.pages) })
+> +
+>   #ifdef CONFIG_IOMMU_API
 
-Reviewed-by: Lu Baolu <baolu.lu@linux.intel.com>
+Any reason why the above cannot be placed in the iommu-pages.h header
+file? My understanding is that iommu-pages is only for the iommu drivers
+and should not be accessible for external subsystems.
+
+Thanks,
+baolu
 
 _______________________________________________
 linux-riscv mailing list
