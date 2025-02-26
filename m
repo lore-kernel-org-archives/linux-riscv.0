@@ -4,62 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 439D7C021A4
-	for <linux-riscv@archiver.kernel.org>; Wed, 26 Feb 2025 03:45:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ECC24C021B8
+	for <linux-riscv@archiver.kernel.org>; Wed, 26 Feb 2025 06:31:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Message-ID:MIME-Version:References:
-	In-Reply-To:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=mZKV96Nzw0+1NpY4YF7FhkFVPXeGihHkOE3U78dWP+0=; b=aWd+l4eh0tUNh+
-	7PpW8wqVpR5FiwYY5BcpliS5OYHh9Sz57yY11bI67IlGp/uljdjRXZP6gA2SMDpY3L1XEFQ7HnFpG
-	V1wHWsuK0FOvrJt4GkGBj/Y2CWB9QTUZJkMxoxRwJsGw1vwdcvbFSF5ZvW4gf06HH8IaAbd6gNy8C
-	Zh+dy6tdKeGa0s6By5T+ch1Y4WIg0KVpomlAc/wXsJo4HuHFZbxLu1HE1honyXQfKRsDw6vkxR0xh
-	elMIYb+46jCYR8gc4Qfci0Jd/rStxz+Q3KgLfxJNyu/Wo8Mxr5T0nKI/6AaURY3QiMRYwodPMXvlm
-	jVNeRuhhuqHGPsUc/TVw==;
+	List-Owner; bh=CeJt/KqLnFwOZfgvxpCSTwI1E87JBOdsUW4uu25AeTQ=; b=sdCcgIe7IyHOnT
+	b40AJheEA7HciHuLmEE6qvW1AxqOow9kZcEaCZ9TZEKRYyVGVN65o82MCjxTO53188HgHJyXuxKSi
+	JxezRaiPfY4CZ3h9vr43LvBJYl79nEU0ljfd0eTRvdcokbmpyW29F221+gfitRuB2ymsFC9UaxqQB
+	mrGrFq+wWf8HsdI60wckacOj7Ff039zKVqH5oGZefhgUz7SCRjq5jTP8YAN/CSfobfUZVbN1A6PSW
+	7xyB2Ur69iF6gP/QpmX720JR43mAgCDqga5KOfFBZaOY1kUl72QO//26xsFzJYGP2dCk3s0NrsgWq
+	7lbSW7G34+OlAx6OYdjg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tn8MY-00000002JQl-2Kd8;
-	Wed, 26 Feb 2025 03:45:34 +0000
-Received: from m16.mail.163.com ([220.197.31.4])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tn8MW-00000002JQA-1hpf
-	for linux-riscv@lists.infradead.org;
-	Wed, 26 Feb 2025 03:45:33 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=Date:From:Subject:Content-Type:MIME-Version:
-	Message-ID; bh=kqrb1Tuv45oCW2s52tTkGEMymHWWUvdmwqaWUOHB7w8=; b=H
-	gX8tasUmKHVA1Lxwkufzo1CRzUWwwHfkJwGvmr2upyq0OHqXkFvJ6K5bT/tRnxhP
-	az78h9LgPlnt4hqyWjJN/fw4MMOBTUGAog8SoDjoMkU3p13rX5SHyx1uhDoErgvw
-	qJkzBcT0nw75bRJvD8VPPNOxix+RaYYC6m0mefN2uU=
-Received: from 00107082$163.com ( [111.35.188.205] ) by
- ajax-webmail-wmsvr-40-114 (Coremail) ; Wed, 26 Feb 2025 11:45:06 +0800
- (CST)
-X-Originating-IP: [111.35.188.205]
-Date: Wed, 26 Feb 2025 11:45:06 +0800 (CST)
-From: "David Wang" <00107082@163.com>
-To: "Alexandre Ghiti" <alex@ghiti.fr>
-Cc: paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
-	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
-Subject: Re: [PATCH 12/13] riscv/irq: use seq_put_decimal_ull_width() for
- decimal values
-X-Priority: 3
-X-Mailer: Coremail Webmail Server Version XT5.0.14 build 20240801(9da12a7b)
- Copyright (c) 2002-2025 www.mailtech.cn 163com
-In-Reply-To: <4c7393a5-ad1a-4740-b454-a9b85682a78f@ghiti.fr>
-References: <20241108162503.9914-1-00107082@163.com>
- <4c7393a5-ad1a-4740-b454-a9b85682a78f@ghiti.fr>
-X-NTES-SC: AL_Qu2fAvmfvk0r4CKeY+kZnEYQheY4XMKyuPkg1YJXOp80oyT14wcab19+GEfU1cmEMjuxkDi4QBVL8OF6frh9bYSLHs3bYr0Aa7jmWCMw5TKj
+	id 1tnAxR-00000002X98-10E5;
+	Wed, 26 Feb 2025 06:31:49 +0000
+Received: from mgamail.intel.com ([198.175.65.21])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tnAul-00000002WsQ-0PbY;
+	Wed, 26 Feb 2025 06:29:04 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1740551343; x=1772087343;
+  h=message-id:date:mime-version:subject:to:cc:references:
+   from:in-reply-to:content-transfer-encoding;
+  bh=lXhU7sd67KpdS+ygAGbHgQMDj+NU0WLx7YcQjO+y+Dw=;
+  b=DFr/5DLeJxygtylYdBlVk/USakt+72UKMkQV6nOF/yrSk9ssVD9MKoVo
+   Rf2OfX9Igy1dfngwjtpcsXco9lA9EK1sMzEKfkn6gaquOcPkrAS921uz4
+   pJj7lFwunCvI352aUtbKIVdXoQvl+9ZW+Xh4fhmVeCcDWJyJeE6Dg3Wtx
+   Mv6ACeG6qO03w+RFJ50RYenwZRDfjsE0i2OKshR3y/Gp0KSyotj9L7BY7
+   Suq59YSb3gy9unMocZ3v//zfqj9s7mK8IiJj9ed4ouNZlTg29x3ddKYzP
+   t8KloUh88DSJ/JveVLxP2BRHUAB7mAEp8ieCq5NNUZ+JQi8XTyZH/2Nr/
+   Q==;
+X-CSE-ConnectionGUID: wHOuJyZfQJK36ws1LaHjhQ==
+X-CSE-MsgGUID: 7O516dalRcijmHUPN+DJAw==
+X-IronPort-AV: E=McAfee;i="6700,10204,11356"; a="41298289"
+X-IronPort-AV: E=Sophos;i="6.13,316,1732608000"; 
+   d="scan'208";a="41298289"
+Received: from fmviesa001.fm.intel.com ([10.60.135.141])
+  by orvoesa113.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Feb 2025 22:29:02 -0800
+X-CSE-ConnectionGUID: 2JLYeRJ8SYy4f0Hre3l56g==
+X-CSE-MsgGUID: UbYTX0nDQsG2v0uK0Z0EBA==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.12,224,1728975600"; 
+   d="scan'208";a="147525482"
+Received: from allen-sbox.sh.intel.com (HELO [10.239.159.30]) ([10.239.159.30])
+  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Feb 2025 22:28:55 -0800
+Message-ID: <a76deb10-314d-4b49-8dc6-8372564266ae@linux.intel.com>
+Date: Wed, 26 Feb 2025 14:25:40 +0800
 MIME-Version: 1.0
-Message-ID: <70e006c0.4333.195405bb2e1.Coremail.00107082@163.com>
-X-Coremail-Locale: zh_CN
-X-CM-TRANSID: cigvCgAHrgpDjr5np6FwAA--.46027W
-X-CM-SenderInfo: qqqrilqqysqiywtou0bp/xtbB0hIAqme+gqCYAQAGsO
-X-Coremail-Antispam: 1U5529EdanIXcx71UUUUU7vcSsGvfC2KfnxnUU==
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 03/23] iommu/pages: Remove
+ __iommu_alloc_pages()/__iommu_free_pages()
+To: Jason Gunthorpe <jgg@nvidia.com>, Alim Akhtar <alim.akhtar@samsung.com>,
+ Alyssa Rosenzweig <alyssa@rosenzweig.io>, Albert Ou <aou@eecs.berkeley.edu>,
+ asahi@lists.linux.dev, David Woodhouse <dwmw2@infradead.org>,
+ Heiko Stuebner <heiko@sntech.de>, iommu@lists.linux.dev,
+ Jernej Skrabec <jernej.skrabec@gmail.com>,
+ Jonathan Hunter <jonathanh@nvidia.com>, Joerg Roedel <joro@8bytes.org>,
+ Krzysztof Kozlowski <krzk@kernel.org>, linux-arm-kernel@lists.infradead.org,
+ linux-riscv@lists.infradead.org, linux-rockchip@lists.infradead.org,
+ linux-samsung-soc@vger.kernel.org, linux-sunxi@lists.linux.dev,
+ linux-tegra@vger.kernel.org, Marek Szyprowski <m.szyprowski@samsung.com>,
+ Hector Martin <marcan@marcan.st>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Robin Murphy
+ <robin.murphy@arm.com>, Samuel Holland <samuel@sholland.org>,
+ Suravee Suthikulpanit <suravee.suthikulpanit@amd.com>,
+ Sven Peter <sven@svenpeter.dev>, Thierry Reding <thierry.reding@gmail.com>,
+ Tomasz Jeznach <tjeznach@rivosinc.com>, Krishna Reddy <vdumpa@nvidia.com>,
+ Chen-Yu Tsai <wens@csie.org>, Will Deacon <will@kernel.org>
+Cc: Bagas Sanjaya <bagasdotme@gmail.com>, Joerg Roedel <jroedel@suse.de>,
+ Pasha Tatashin <pasha.tatashin@soleen.com>, patches@lists.linux.dev,
+ David Rientjes <rientjes@google.com>, Matthew Wilcox <willy@infradead.org>
+References: <3-v3-e797f4dc6918+93057-iommu_pages_jgg@nvidia.com>
+Content-Language: en-US
+From: Baolu Lu <baolu.lu@linux.intel.com>
+In-Reply-To: <3-v3-e797f4dc6918+93057-iommu_pages_jgg@nvidia.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250225_194532_776186_CB370812 
-X-CRM114-Status: GOOD (  16.88  )
+X-CRM114-CacheID: sfid-20250225_222903_178504_B99FF3E3 
+X-CRM114-Status: UNSURE (   8.60  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,79 +98,23 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi, 
+On 2/26/25 03:39, Jason Gunthorpe wrote:
+> These were only used by tegra-smmu and leaked the struct page out of the
+> API. Delete them since tega-smmu has been converted to the other APIs.
+> 
+> In the process flatten the call tree so we have fewer one line functions
+> calling other one line functions.. iommu_alloc_pages_node() is the real
+> allocator and everything else can just call it directly.
+> 
+> Signed-off-by: Jason Gunthorpe<jgg@nvidia.com>
 
-Thanks for the test and  review, and sorry for not giving  more attentions to alignment issues when made the patch.
-But if alignment should not be changed, simply appending a [space] is not enough:  the patch change
-'%10u[space]" to "[space]%10u",   one [space] is moved from tail to the front,  and to restore to its original state
-, one [space] should be removed from front.  and It would make the code  ugly and unpleasant  to remove a [space]
-from this line 
-        seq_printf(p, "%*s%u:%s", prec - 1, "IPI", i, prec >= 4 ? " " : "");
-( or make changes to seq_put_decimal_ull_width)
+Reviewed-by: Lu Baolu <baolu.lu@linux.intel.com>
 
-
-Kind of think that it does not worth the effort if  code changes are way too unpleasant....
-
-
-Thanks
-David
- 
-
-At 2025-02-25 23:10:26, "Alexandre Ghiti" <alex@ghiti.fr> wrote:
->Hi David,
->
->On 08/11/2024 17:25, David Wang wrote:
->> Performance improvement for reading /proc/interrupts on arch riscv
->>
->> Signed-off-by: David Wang <00107082@163.com>
->> ---
->>   arch/riscv/kernel/smp.c | 3 ++-
->>   1 file changed, 2 insertions(+), 1 deletion(-)
->>
->> diff --git a/arch/riscv/kernel/smp.c b/arch/riscv/kernel/smp.c
->> index c180a647a30e..f1e9c3db094c 100644
->> --- a/arch/riscv/kernel/smp.c
->> +++ b/arch/riscv/kernel/smp.c
->> @@ -226,7 +226,8 @@ void show_ipi_stats(struct seq_file *p, int prec)
->>   		seq_printf(p, "%*s%u:%s", prec - 1, "IPI", i,
->>   			   prec >= 4 ? " " : "");
->>   		for_each_online_cpu(cpu)
->> -			seq_printf(p, "%10u ", irq_desc_kstat_cpu(ipi_desc[i], cpu));
->> +			seq_put_decimal_ull_width(p, " ",
->> +						  irq_desc_kstat_cpu(ipi_desc[i], cpu), 10);
->>   		seq_printf(p, " %s\n", ipi_names[i]);
->>   	}
->>   }
->
->
->Very late answer sorry!
->
->I don't have the same output before and after your patch because 
->seq_put_decimal_ull_width() second argument is placed *before* the 
->number, not after as it was before.
->
->The following diff fixes the issue:
->
->diff --git a/arch/riscv/kernel/smp.c b/arch/riscv/kernel/smp.c index 
->f1e9c3db094c3..4b80ee4e5b2c0 100644 --- a/arch/riscv/kernel/smp.c +++ 
->b/arch/riscv/kernel/smp.c @@ -225,9 +225,11 @@ void 
->show_ipi_stats(struct seq_file *p, int prec) for (i = 0; i < IPI_MAX; 
->i++) { seq_printf(p, "%*s%u:%s", prec - 1, "IPI", i, prec >= 4 ? " " : 
->""); - for_each_online_cpu(cpu) - seq_put_decimal_ull_width(p, " ", + 
->for_each_online_cpu(cpu) { + seq_put_decimal_ull_width(p, NULL, 
->irq_desc_kstat_cpu(ipi_desc[i], cpu), 10); + seq_putc(p, ' '); + } 
->seq_printf(p, " %s\n", ipi_names[i]); } }
->
->Will you respin a new version?
->
->Thanks,
->
->Alex
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
