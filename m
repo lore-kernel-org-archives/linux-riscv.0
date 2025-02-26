@@ -4,61 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7917FC021BC
-	for <linux-riscv@archiver.kernel.org>; Wed, 26 Feb 2025 07:14:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 25905C021B8
+	for <linux-riscv@archiver.kernel.org>; Wed, 26 Feb 2025 07:19:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
 	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
 	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ogJzgJqW3onSt/rZnvdjV/vN+dByNSGiqH6adiewzSA=; b=G232DPRQZQpKZG
-	xAjK7ryS7w9YTprgevjxEcWxtGZv/c3elT7M7uN2JoVu0YmlmQoqbo7HCwAY+0z2e6eLLZpzJJaDU
-	ABLpFNer7rK2KvhYKSztyGdhMFjYaIgrine72t4WDDyT4O5bcpUGaH7jz7d3Tu89BGghfYjI4EWh0
-	UGYcuy1VESrRyaptw7z8ALUo9AJSYoY/2Wn1VEZ6XACvgcx4jCMGhIJ2Vk1KeTCLshOF1n0DpznaU
-	f3XChmWabLoUNFHY0zcTHESNA8PvTYLTV6xcJv40hMkDtfmR6yDvm5doMnJBoLejP62/yCAB4kVAO
-	G5FApKSrNkOOw6IH3URA==;
+	List-Owner; bh=Y47rlNjkOTork9jpbml4e308jXIpuI2Jyj7DpNLoRWE=; b=NKuCfugKww6WPR
+	UiP53aNENRKJPxr++dxRQS7/HAuDJNKKJ7G28AxM2lFghXZqJOKwcV6QvWPo7BQtinrJtfUglXIEs
+	QROiLsiHAFCTQ+rLLbsvicwlnCXLjqxQpVq/i0sxGZhbE6jW2yQ3FY8laeIMnfsLYj7975nA5vibz
+	7UCckTpT3e2G5K7Ygrtvti8hIdg0L0o21OLspnwcF+RZ4974cjqGfHx9VtsKD9YaAoIDRvD/sHndI
+	481t+8c5h2FI8Tk7eCdwz85klcCEuvA4yoQichdDXRpeiuVJzNPfWuGkUo0/UDmYFOuMTm5GOegln
+	0MJ8A/Y2TkC6MhWZi5Lg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnBd2-00000002esC-2nrU;
-	Wed, 26 Feb 2025 07:14:48 +0000
+	id 1tnBhX-00000002fbG-3Y7u;
+	Wed, 26 Feb 2025 07:19:27 +0000
 Received: from mgamail.intel.com ([192.198.163.12])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnBUq-00000002dk4-35Dt;
-	Wed, 26 Feb 2025 07:06:21 +0000
+	id 1tnBWk-00000002e2y-2iR3;
+	Wed, 26 Feb 2025 07:08:19 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1740553581; x=1772089581;
+  t=1740553699; x=1772089699;
   h=message-id:date:mime-version:subject:to:cc:references:
    from:in-reply-to:content-transfer-encoding;
-  bh=W5m8VXXaCJzooM7nBsw1fkyJLmefcSUyEyU2R1fyCSM=;
-  b=MThRaYb/MD3R9bSbWTl5MdSSFldXfiLiD298pBpXCX+/NmeQGygdlT/f
-   ZxO6VqfaAF5uYJXuof4nY+RDtSDNhmBDZfd4J/UdwTKb90qpBGxDdw+gk
-   wLJZuLmrdo66ZnCfM13a4TBYB4WGu4myPq2B90zA9qO8asip8KCRM4i4P
-   iyGIPcXE8MwnF7JGZaZPHzA5O4je+43M8uA/R5Lu5eUMC/pjrUfLJFOSn
-   x7p0KABW38suS3S5vV0JEwfyaWuiv8rehg9ZM+HvxVnGs7K53sFwRBBTh
-   8XzwHtEB1b8Sk5X3efiTLpRItgJQZCCDwxNgCj6fGumcS+76NDCXhrpns
-   A==;
-X-CSE-ConnectionGUID: bBo2A1Y1Rx+pOzwcWhSapw==
-X-CSE-MsgGUID: Zq8m+p45Q1ycsCQs0YcslA==
-X-IronPort-AV: E=McAfee;i="6700,10204,11356"; a="45300940"
+  bh=lGuqG7+DEuXe1J2USAdDSTgmWvYFPHZTBIRv2glH2pk=;
+  b=gFU0nEgTFHyqe9+BWhIZPDwlaqLX4P3zCzQaudTZsdlpdaktfa2S0dB/
+   iBJWVmCdt0M5nIRV98kPmcnUg1BK5sITD91W7lWVO2t3ZoCrA+5DDFqXE
+   WbkWr5mKVFX0iIP80rGHjf6QYD1LBskoxwCiETp+qM4cc2FdFSScIeAlr
+   NnL4qDavjSpi0ZgZm81svLM0xNxyzzmHhIXD2JuztZuM97liSLk67oCjg
+   QUzObWYRomDvH0ZNyaBhR0Xzo53r0WlBM+2tSTsyOIpQBQ5afYDLtmdY0
+   hCvdRiFBmPOyjavnzTsmezrlzxtAF4/nSqTWYQaepT2kCsA0WUU0wf9Yv
+   g==;
+X-CSE-ConnectionGUID: xIJrdf8KRcCDtZLAlbWxPg==
+X-CSE-MsgGUID: w2YMOV4zT8m30B3GK6p+og==
+X-IronPort-AV: E=McAfee;i="6700,10204,11356"; a="45301075"
 X-IronPort-AV: E=Sophos;i="6.13,316,1732608000"; 
-   d="scan'208";a="45300940"
+   d="scan'208";a="45301075"
 Received: from fmviesa004.fm.intel.com ([10.60.135.144])
-  by fmvoesa106.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Feb 2025 23:06:20 -0800
-X-CSE-ConnectionGUID: o2XeqybiSAuGJr9XU9Ilgg==
-X-CSE-MsgGUID: 55W0no9QSx2jxxin+p8ALw==
+  by fmvoesa106.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Feb 2025 23:08:18 -0800
+X-CSE-ConnectionGUID: 4yW5/f4YTV6BcwIufl/fnA==
+X-CSE-MsgGUID: ENbmKCDxR/qajyMYQN9NYg==
 X-ExtLoop1: 1
 X-IronPort-AV: E=Sophos;i="6.13,316,1732608000"; 
-   d="scan'208";a="121717131"
+   d="scan'208";a="121717499"
 Received: from allen-sbox.sh.intel.com (HELO [10.239.159.30]) ([10.239.159.30])
-  by fmviesa004-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Feb 2025 23:06:12 -0800
-Message-ID: <7e70dfea-1be1-4699-b238-2d63fbfc2bc5@linux.intel.com>
-Date: Wed, 26 Feb 2025 15:02:57 +0800
+  by fmviesa004-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Feb 2025 23:08:11 -0800
+Message-ID: <3ddae747-fbf4-4cca-a13c-8d6e6b89841d@linux.intel.com>
+Date: Wed, 26 Feb 2025 15:04:56 +0800
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 12/23] iommu: Change iommu_iotlb_gather to use
- iommu_page_list
+Subject: Re: [PATCH v3 13/23] iommu/pages: Remove iommu_put_pages_list_old and
+ the _Generic
 To: Jason Gunthorpe <jgg@nvidia.com>, Alim Akhtar <alim.akhtar@samsung.com>,
  Alyssa Rosenzweig <alyssa@rosenzweig.io>, Albert Ou <aou@eecs.berkeley.edu>,
  asahi@lists.linux.dev, David Woodhouse <dwmw2@infradead.org>,
@@ -79,13 +79,13 @@ To: Jason Gunthorpe <jgg@nvidia.com>, Alim Akhtar <alim.akhtar@samsung.com>,
 Cc: Bagas Sanjaya <bagasdotme@gmail.com>, Joerg Roedel <jroedel@suse.de>,
  Pasha Tatashin <pasha.tatashin@soleen.com>, patches@lists.linux.dev,
  David Rientjes <rientjes@google.com>, Matthew Wilcox <willy@infradead.org>
-References: <12-v3-e797f4dc6918+93057-iommu_pages_jgg@nvidia.com>
+References: <13-v3-e797f4dc6918+93057-iommu_pages_jgg@nvidia.com>
 Content-Language: en-US
 From: Baolu Lu <baolu.lu@linux.intel.com>
-In-Reply-To: <12-v3-e797f4dc6918+93057-iommu_pages_jgg@nvidia.com>
+In-Reply-To: <13-v3-e797f4dc6918+93057-iommu_pages_jgg@nvidia.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250225_230620_820202_7FFB51F4 
-X-CRM114-Status: UNSURE (   8.45  )
+X-CRM114-CacheID: sfid-20250225_230818_717339_64A16DBD 
+X-CRM114-Status: UNSURE (   6.00  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -104,10 +104,7 @@ Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 On 2/26/25 03:39, Jason Gunthorpe wrote:
-> This converts the remaining places using list of pages to the new API.
-> 
-> The Intel free path was shared with its gather path, so it is converted at
-> the same time.
+> Nothing uses the old list_head path now, remove it.
 > 
 > Signed-off-by: Jason Gunthorpe<jgg@nvidia.com>
 
