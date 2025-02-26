@@ -4,100 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1A9DC021BE
-	for <linux-riscv@archiver.kernel.org>; Wed, 26 Feb 2025 02:15:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1902BC021BE
+	for <linux-riscv@archiver.kernel.org>; Wed, 26 Feb 2025 02:35:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Mime-Version:References:In-Reply-To:
+	Message-Id:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=/+Gvo6u3qUo0un/HQ9ABEUuocZ9aAS7KArhaQ0HvQ50=; b=MJBEwcTmRo4KN+
-	G3mnRXZXw41DBs+jASXDs4WirCdIIVwF5GGAzW5GRXLz4mDMMUrBo3cqy27LTJqJc6Bt+FMiheZ9o
-	rCRepI/ac4dzHX622Za9oKhP5qKcPIoBnNVc1UYwD6cC7F4w8O9zNCGcsaeSjJC9ytbg0cHZbwnjK
-	M7C0DBYMGZZBO8Gik7f86HWfQDaLdXe5r778HYjiVWaH42oWUYay4f4pk7FzwX3ba1TODEPEZUOVD
-	Fljgth9rRxCpAbQeILfR7amkUwuzbILqC9CAYth5LV1uULYMth7t7DDIPx6HWF5c2qxjqb31rJzeX
-	qbNscBf0A9SKw9oqueSg==;
+	List-Owner; bh=+mmP43AsvdJa3PeqYok60Yh7JzTK4vkICqwHJJwoE88=; b=e90x4vzoJh8g9D
+	r10GB2MSp7YJRbal4JjkLbAks3ptRjoozMTHwT3g/sX0PeQakb9WJc+a9gktKPAdrra1QuJPkRj1L
+	kAEtF3/b0iVebqrpqEK3Y6Rov29x2WxYs1TxBC/yT1M2/fn59Fy6OgjUnzl1VchZbhld7arh0FRsZ
+	rC3ymwbZmZ1ES9oIiYlzayUSrGTzwxFfCdYN34B+LE5V8yNmeM/j/NsGz/3qxWEbwJwgBht3j52vk
+	23a9Y5UbbSnfhx5wmHg404LpwM2DM+bp5Eu5znToguu4PzyH6qaxGA/L8oIAaATouZIr4gAa5K+SH
+	7PcCQjRvhPpIEDI/OhXA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tn6xQ-000000028ny-41kp;
-	Wed, 26 Feb 2025 02:15:32 +0000
-Received: from mail-ot1-x333.google.com ([2607:f8b0:4864:20::333])
+	id 1tn7Ge-00000002Bix-0tFl;
+	Wed, 26 Feb 2025 02:35:24 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tn6xO-000000028mP-0JkY
-	for linux-riscv@lists.infradead.org;
-	Wed, 26 Feb 2025 02:15:31 +0000
-Received: by mail-ot1-x333.google.com with SMTP id 46e09a7af769-7271239d89fso1844327a34.0
-        for <linux-riscv@lists.infradead.org>; Tue, 25 Feb 2025 18:15:29 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1740536129; x=1741140929; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=IUmZvnb1tRiSqbV2BrYwnOfVYe6ZV5LXNUg2BqKjz48=;
-        b=TAJ1tRIrfvtiIkRRdtlh5OWpWVeUnenMK+hU/mZ5hrQIEQrEKT7FjPnWdm/+eF7gVa
-         V06fMbDAcGzi3BCpBaNRwAWTHX3EwaD5EoeDqBcYrjAEa/4Dt1YWSyZ304X3IJto2xnk
-         UnNrDkCtu+huvZD3cp1bkthiaydMs48H2bpo5iLIEsgBDziyOvBYBQ4hMCucU5VP2um6
-         nyyMdBQKGRVR1GLF2yNCvt9KzJBDOakz1a3ewJF9g/3oQVZR9DSOos0YuskIQcWryzl+
-         0JSJzByuv2igxyRMAiCiNaIhK9AzPaG3n481eGttvjaxusajfRQ8Mk0t4gbaJ3O1EN82
-         26Og==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1740536129; x=1741140929;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=IUmZvnb1tRiSqbV2BrYwnOfVYe6ZV5LXNUg2BqKjz48=;
-        b=kYYromPUSyqtzNVooa3riYBcaO833VyuySmwefo5SKm/LN2kIJ3M+H+8unZzUPa+82
-         PSvZBi3oLHIbx16uoEsk5KEMHrK8IvyELd879ZtpjN1Fbs4bidl54rDvPcUqdJQ5Hyqb
-         UGs1KRWSI3zDKwYrlj5fftd3NPnKyRGIW/NUKrnGJGxreDTQqaMlalD13VqOX1g5bN1U
-         EvA+YzjLJnHX57sSDitjyggS+iwOj1LBHkgZccrSVb2BCBOBNvxruXR6YFp4ES10Hi6Y
-         B3biybUi36qbkSjIzr649KfB0C/iYBF8tEl2A3wtflTIHfB4u36CWsRsMJ8xt1HQv7fN
-         RSQQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXDbqMZTX6Lk0ZdFYqkPBL0bhcV2NS2C/v1iZGOlcy8PF+7pJ2gI3BlSwisZG9UqPyPcPqYYf9Unm0RBQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0YwWS7TkosSzbxD6igADdMRB8zJTCyjjmlvT2Z0DrWyLXaMa6OD2
-	C0UMpsxPCi6Ck0raGt1NTlbvd5+m9uEaSj9Ou60ryuUtXAAiYM/a
-X-Gm-Gg: ASbGncvLxuZLcE9WZo5bs4hjMowlOjRTixf2xi0ZlXmY9xPco3kk3SCvh4+6t+4iPqB
-	EB3F5AnF36PQCjDQ4q7Tq5q7mSD+FsqtPK04IKNyAv6+N6YloLUukFgiQ1aozCRh9i8Zj24se8W
-	WQ3rkJqlBfiBVVAE6W2H3yAUUTP9lmWBglKUmxZzwuXUgwi9x+Ibi3AVEmWeNFngUvqiBeDnr7Q
-	pAB4LxLdLDmzIIfQPF3z9oQaire2dcef9Trr+ZJ36KNk38zI0AsOI7RiRRt/NQVPpaayHOJOOW0
-	VII4q0ePvQRoshg/eSJRMyc818RBQzAMsbQU
-X-Google-Smtp-Source: AGHT+IE+BOCYfr9QO3EfVjOBLzsZKPPxYogSm+kRRkFUHbnyJZsjyeWiwA417ugAXi8l2mp7JA54JQ==
-X-Received: by 2002:a05:6830:3883:b0:727:4144:2bbb with SMTP id 46e09a7af769-7289d0facc8mr4486493a34.8.1740536128887;
-        Tue, 25 Feb 2025 18:15:28 -0800 (PST)
-Received: from localhost.localdomain ([122.8.183.87])
-        by smtp.gmail.com with ESMTPSA id 586e51a60fabf-2c11128723csm661569fac.18.2025.02.25.18.15.25
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 25 Feb 2025 18:15:27 -0800 (PST)
-From: Chen Wang <unicornxw@gmail.com>
-To: u.kleine-koenig@baylibre.com,
-	aou@eecs.berkeley.edu,
-	arnd@arndb.de,
-	unicorn_wang@outlook.com,
-	conor+dt@kernel.org,
-	guoren@kernel.org,
-	inochiama@outlook.com,
-	krzk+dt@kernel.org,
-	palmer@dabbelt.com,
-	paul.walmsley@sifive.com,
-	robh@kernel.org,
-	tglx@linutronix.de,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	chao.wei@sophgo.com,
-	xiaoguang.xing@sophgo.com,
-	fengchun.li@sophgo.com
-Cc: Inochi Amaoto <inochiama@gmail.com>
-Subject: [PATCH v5 2/3] irqchip: Add the Sophgo SG2042 MSI interrupt controller
-Date: Wed, 26 Feb 2025 10:15:19 +0800
-Message-Id: <3104216ca90a5f532bafb676c1c5b1efb19e94d1.1740535748.git.unicorn_wang@outlook.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <cover.1740535748.git.unicorn_wang@outlook.com>
-References: <cover.1740535748.git.unicorn_wang@outlook.com>
-MIME-Version: 1.0
+	id 1tn7Gb-00000002Bi8-2Byp;
+	Wed, 26 Feb 2025 02:35:22 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id E1B905C42C6;
+	Wed, 26 Feb 2025 02:34:41 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9C1C5C4CEDD;
+	Wed, 26 Feb 2025 02:35:19 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linux-foundation.org;
+	s=korg; t=1740537320;
+	bh=D1D8rS483Kvk10lvdoELGqdaSPPJ8+RwRwWrcJv/f3I=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=S1gwcxb1U5NetK3xMsHF5vM6u60LvjvD37R2V7WH6p4gYsrCTXOx/Tm8FgtAbjivR
+	 qz+7qiIisTFHmeHWl5R9WetoFdsZhGC4DSBkZuJtQrrOYkeMmMmZLGVAL4e/QXKk4q
+	 rWdAk6qG/KIo4K2Hgo8x/4gNeZ32aVYhEb8keWT8=
+Date: Tue, 25 Feb 2025 18:35:19 -0800
+From: Andrew Morton <akpm@linux-foundation.org>
+To: Qi Zheng <zhengqi.arch@bytedance.com>
+Cc: peterz@infradead.org, kevin.brodsky@arm.com, riel@surriel.com,
+ vishal.moola@gmail.com, david@redhat.com, jannh@google.com,
+ hughd@google.com, willy@infradead.org, yuzhao@google.com,
+ muchun.song@linux.dev, will@kernel.org, aneesh.kumar@kernel.org,
+ npiggin@gmail.com, arnd@arndb.de, dave.hansen@linux.intel.com,
+ rppt@kernel.org, alexghiti@rivosinc.com, linux-mm@kvack.org,
+ linux-kernel@vger.kernel.org, linux-csky@vger.kernel.org,
+ linux-hexagon@vger.kernel.org, loongarch@lists.linux.dev,
+ linux-m68k@lists.linux-m68k.org, linux-mips@vger.kernel.org,
+ linux-openrisc@vger.kernel.org, linux-sh@vger.kernel.org,
+ linux-um@lists.infradead.org, x86@kernel.org,
+ linux-riscv@lists.infradead.org
+Subject: Re: [PATCH v2 5/6] x86: pgtable: convert to use tlb_remove_ptdesc()
+Message-Id: <20250225183519.91a5b75b13c0df6954c68576@linux-foundation.org>
+In-Reply-To: <36ad56b7e06fa4b17fb23c4fc650e8e0d72bb3cd.1740454179.git.zhengqi.arch@bytedance.com>
+References: <cover.1740454179.git.zhengqi.arch@bytedance.com>
+	<36ad56b7e06fa4b17fb23c4fc650e8e0d72bb3cd.1740454179.git.zhengqi.arch@bytedance.com>
+X-Mailer: Sylpheed 3.8.0beta1 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
+Mime-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250225_181530_116704_49AD4698 
-X-CRM114-Status: GOOD (  25.77  )
+X-CRM114-CacheID: sfid-20250225_183521_607021_B5F7393D 
+X-CRM114-Status: UNSURE (   8.74  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,319 +80,16 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Chen Wang <unicorn_wang@outlook.com>
+On Tue, 25 Feb 2025 11:45:55 +0800 Qi Zheng <zhengqi.arch@bytedance.com> wrote:
 
-Add driver for Sophgo SG2042 MSI interrupt controller.
+> The x86 has already been converted to use struct ptdesc, so convert it to
+> use tlb_remove_ptdesc() instead of tlb_remove_table().
+> 
 
-Reviewed-by: Inochi Amaoto <inochiama@gmail.com>
-Signed-off-by: Chen Wang <unicorn_wang@outlook.com>
----
- drivers/irqchip/Kconfig          |  12 ++
- drivers/irqchip/Makefile         |   1 +
- drivers/irqchip/irq-sg2042-msi.c | 258 +++++++++++++++++++++++++++++++
- 3 files changed, 271 insertions(+)
- create mode 100644 drivers/irqchip/irq-sg2042-msi.c
-
-diff --git a/drivers/irqchip/Kconfig b/drivers/irqchip/Kconfig
-index c11b9965c4ad..078ed8b55b34 100644
---- a/drivers/irqchip/Kconfig
-+++ b/drivers/irqchip/Kconfig
-@@ -752,6 +752,18 @@ config MCHP_EIC
- 	help
- 	  Support for Microchip External Interrupt Controller.
- 
-+config SOPHGO_SG2042_MSI
-+	bool "Sophgo SG2042 MSI Controller"
-+	depends on ARCH_SOPHGO || COMPILE_TEST
-+	depends on PCI
-+	select IRQ_DOMAIN_HIERARCHY
-+	select IRQ_MSI_LIB
-+	select PCI_MSI
-+	help
-+	  Support for the Sophgo SG2042 MSI Controller.
-+	  This on-chip interrupt controller enables MSI sources to be
-+	  routed to the primary PLIC controller on SoC.
-+
- config SUNPLUS_SP7021_INTC
- 	bool "Sunplus SP7021 interrupt controller" if COMPILE_TEST
- 	default SOC_SP7021
-diff --git a/drivers/irqchip/Makefile b/drivers/irqchip/Makefile
-index 25e9ad29b8c4..dd60e597491d 100644
---- a/drivers/irqchip/Makefile
-+++ b/drivers/irqchip/Makefile
-@@ -128,4 +128,5 @@ obj-$(CONFIG_WPCM450_AIC)		+= irq-wpcm450-aic.o
- obj-$(CONFIG_IRQ_IDT3243X)		+= irq-idt3243x.o
- obj-$(CONFIG_APPLE_AIC)			+= irq-apple-aic.o
- obj-$(CONFIG_MCHP_EIC)			+= irq-mchp-eic.o
-+obj-$(CONFIG_SOPHGO_SG2042_MSI)		+= irq-sg2042-msi.o
- obj-$(CONFIG_SUNPLUS_SP7021_INTC)	+= irq-sp7021-intc.o
-diff --git a/drivers/irqchip/irq-sg2042-msi.c b/drivers/irqchip/irq-sg2042-msi.c
-new file mode 100644
-index 000000000000..9c0a5f2777a4
---- /dev/null
-+++ b/drivers/irqchip/irq-sg2042-msi.c
-@@ -0,0 +1,258 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/*
-+ * SG2042 MSI Controller
-+ *
-+ * Copyright (C) 2024 Sophgo Technology Inc.
-+ * Copyright (C) 2024 Chen Wang <unicorn_wang@outlook.com>
-+ */
-+
-+#include <linux/cleanup.h>
-+#include <linux/io.h>
-+#include <linux/irq.h>
-+#include <linux/irqdomain.h>
-+#include <linux/kernel.h>
-+#include <linux/module.h>
-+#include <linux/msi.h>
-+#include <linux/platform_device.h>
-+#include <linux/property.h>
-+#include <linux/slab.h>
-+
-+#include "irq-msi-lib.h"
-+
-+#define SG2042_MAX_MSI_VECTOR	32
-+
-+struct sg2042_msi_chipdata {
-+	void __iomem	*reg_clr;	// clear reg, see TRM, 10.1.33, GP_INTR0_CLR
-+
-+	phys_addr_t	doorbell_addr;	// see TRM, 10.1.32, GP_INTR0_SET
-+
-+	u32		irq_first;	// The vector number that MSIs starts
-+	u32		num_irqs;	// The number of vectors for MSIs
-+
-+	DECLARE_BITMAP(msi_map, SG2042_MAX_MSI_VECTOR);
-+	struct mutex	msi_map_lock;	// lock for msi_map
-+};
-+
-+static int sg2042_msi_allocate_hwirq(struct sg2042_msi_chipdata *data, int num_req)
-+{
-+	int first;
-+
-+	guard(mutex)(&data->msi_map_lock);
-+	first = bitmap_find_free_region(data->msi_map, data->num_irqs,
-+					get_count_order(num_req));
-+	return first >= 0 ? first : -ENOSPC;
-+}
-+
-+static void sg2042_msi_free_hwirq(struct sg2042_msi_chipdata *data,
-+				  int hwirq, int num_req)
-+{
-+	guard(mutex)(&data->msi_map_lock);
-+	bitmap_release_region(data->msi_map, hwirq, get_count_order(num_req));
-+}
-+
-+static void sg2042_msi_irq_ack(struct irq_data *d)
-+{
-+	struct sg2042_msi_chipdata *data  = irq_data_get_irq_chip_data(d);
-+	int bit_off = d->hwirq;
-+
-+	writel(1 << bit_off, data->reg_clr);
-+
-+	irq_chip_ack_parent(d);
-+}
-+
-+static void sg2042_msi_irq_compose_msi_msg(struct irq_data *d,
-+					   struct msi_msg *msg)
-+{
-+	struct sg2042_msi_chipdata *data = irq_data_get_irq_chip_data(d);
-+
-+	msg->address_hi = upper_32_bits(data->doorbell_addr);
-+	msg->address_lo = lower_32_bits(data->doorbell_addr);
-+	msg->data = 1 << d->hwirq;
-+}
-+
-+static const struct irq_chip sg2042_msi_middle_irq_chip = {
-+	.name			= "SG2042 MSI",
-+	.irq_ack		= sg2042_msi_irq_ack,
-+	.irq_mask		= irq_chip_mask_parent,
-+	.irq_unmask		= irq_chip_unmask_parent,
-+#ifdef CONFIG_SMP
-+	.irq_set_affinity	= irq_chip_set_affinity_parent,
-+#endif
-+	.irq_compose_msi_msg	= sg2042_msi_irq_compose_msi_msg,
-+};
-+
-+static int sg2042_msi_parent_domain_alloc(struct irq_domain *domain,
-+					  unsigned int virq, int hwirq)
-+{
-+	struct sg2042_msi_chipdata *data = domain->host_data;
-+	struct irq_fwspec fwspec;
-+	struct irq_data *d;
-+	int ret;
-+
-+	fwspec.fwnode = domain->parent->fwnode;
-+	fwspec.param_count = 2;
-+	fwspec.param[0] = data->irq_first + hwirq;
-+	fwspec.param[1] = IRQ_TYPE_EDGE_RISING;
-+
-+	ret = irq_domain_alloc_irqs_parent(domain, virq, 1, &fwspec);
-+	if (ret)
-+		return ret;
-+
-+	d = irq_domain_get_irq_data(domain->parent, virq);
-+	return d->chip->irq_set_type(d, IRQ_TYPE_EDGE_RISING);
-+}
-+
-+static int sg2042_msi_middle_domain_alloc(struct irq_domain *domain,
-+					  unsigned int virq,
-+					  unsigned int nr_irqs, void *args)
-+{
-+	struct sg2042_msi_chipdata *data = domain->host_data;
-+	int hwirq, err, i;
-+
-+	hwirq = sg2042_msi_allocate_hwirq(data, nr_irqs);
-+	if (hwirq < 0)
-+		return hwirq;
-+
-+	for (i = 0; i < nr_irqs; i++) {
-+		err = sg2042_msi_parent_domain_alloc(domain, virq + i, hwirq + i);
-+		if (err)
-+			goto err_hwirq;
-+
-+		irq_domain_set_hwirq_and_chip(domain, virq + i, hwirq + i,
-+					      &sg2042_msi_middle_irq_chip, data);
-+	}
-+
-+	return 0;
-+
-+err_hwirq:
-+	sg2042_msi_free_hwirq(data, hwirq, nr_irqs);
-+	irq_domain_free_irqs_parent(domain, virq, i);
-+
-+	return err;
-+}
-+
-+static void sg2042_msi_middle_domain_free(struct irq_domain *domain,
-+					  unsigned int virq,
-+					  unsigned int nr_irqs)
-+{
-+	struct irq_data *d = irq_domain_get_irq_data(domain, virq);
-+	struct sg2042_msi_chipdata *data = irq_data_get_irq_chip_data(d);
-+
-+	irq_domain_free_irqs_parent(domain, virq, nr_irqs);
-+	sg2042_msi_free_hwirq(data, d->hwirq, nr_irqs);
-+}
-+
-+static const struct irq_domain_ops sg2042_msi_middle_domain_ops = {
-+	.alloc	= sg2042_msi_middle_domain_alloc,
-+	.free	= sg2042_msi_middle_domain_free,
-+	.select	= msi_lib_irq_domain_select,
-+};
-+
-+#define SG2042_MSI_FLAGS_REQUIRED (MSI_FLAG_USE_DEF_DOM_OPS |	\
-+				   MSI_FLAG_USE_DEF_CHIP_OPS)
-+
-+#define SG2042_MSI_FLAGS_SUPPORTED MSI_GENERIC_FLAGS_MASK
-+
-+static const struct msi_parent_ops sg2042_msi_parent_ops = {
-+	.required_flags		= SG2042_MSI_FLAGS_REQUIRED,
-+	.supported_flags	= SG2042_MSI_FLAGS_SUPPORTED,
-+	.bus_select_mask	= MATCH_PCI_MSI,
-+	.bus_select_token	= DOMAIN_BUS_NEXUS,
-+	.prefix			= "SG2042-",
-+	.init_dev_msi_info	= msi_lib_init_dev_msi_info,
-+};
-+
-+static int sg2042_msi_init_domains(struct sg2042_msi_chipdata *data,
-+				   struct irq_domain *plic_domain,
-+				   struct device *dev)
-+{
-+	struct fwnode_handle *fwnode = dev_fwnode(dev);
-+	struct irq_domain *middle_domain;
-+
-+	middle_domain = irq_domain_create_hierarchy(plic_domain, 0, data->num_irqs,
-+						    fwnode,
-+						    &sg2042_msi_middle_domain_ops,
-+						    data);
-+	if (!middle_domain) {
-+		pr_err("Failed to create the MSI middle domain\n");
-+		return -ENOMEM;
-+	}
-+
-+	irq_domain_update_bus_token(middle_domain, DOMAIN_BUS_NEXUS);
-+
-+	middle_domain->flags |= IRQ_DOMAIN_FLAG_MSI_PARENT;
-+	middle_domain->msi_parent_ops = &sg2042_msi_parent_ops;
-+
-+	return 0;
-+}
-+
-+static int sg2042_msi_probe(struct platform_device *pdev)
-+{
-+	struct fwnode_reference_args args = {};
-+	struct sg2042_msi_chipdata *data;
-+	struct device *dev = &pdev->dev;
-+	struct irq_domain *plic_domain;
-+	struct resource *res;
-+	int ret;
-+
-+	data = devm_kzalloc(dev, sizeof(struct sg2042_msi_chipdata), GFP_KERNEL);
-+	if (!data)
-+		return -ENOMEM;
-+
-+	data->reg_clr = devm_platform_ioremap_resource_byname(pdev, "clr");
-+	if (IS_ERR(data->reg_clr)) {
-+		dev_err(dev, "Failed to map clear register\n");
-+		return PTR_ERR(data->reg_clr);
-+	}
-+
-+	res = platform_get_resource_byname(pdev, IORESOURCE_MEM, "doorbell");
-+	if (!res) {
-+		dev_err(dev, "Failed get resource from set\n");
-+		return -EINVAL;
-+	}
-+	data->doorbell_addr = res->start;
-+
-+	ret = fwnode_property_get_reference_args(dev_fwnode(dev), "msi-ranges",
-+						 "#interrupt-cells", 0, 0, &args);
-+	if (ret) {
-+		dev_err(dev, "Unable to parse MSI vec base\n");
-+		return ret;
-+	}
-+	fwnode_handle_put(args.fwnode);
-+
-+	ret = fwnode_property_get_reference_args(dev_fwnode(dev), "msi-ranges",
-+						 NULL, args.nargs + 1,
-+						 0, &args);
-+	if (ret) {
-+		dev_err(dev, "Unable to parse MSI vec number\n");
-+		return ret;
-+	}
-+
-+	plic_domain = irq_find_matching_fwnode(args.fwnode, DOMAIN_BUS_ANY);
-+	fwnode_handle_put(args.fwnode);
-+	if (!plic_domain) {
-+		pr_err("Failed to find the PLIC domain\n");
-+		return -ENXIO;
-+	}
-+
-+	data->irq_first = (u32)args.args[0];
-+	data->num_irqs = (u32)args.args[args.nargs - 1];
-+
-+	mutex_init(&data->msi_map_lock);
-+
-+	return sg2042_msi_init_domains(data, plic_domain, dev);
-+}
-+
-+static const struct of_device_id sg2042_msi_of_match[] = {
-+	{ .compatible	= "sophgo,sg2042-msi" },
-+	{}
-+};
-+
-+static struct platform_driver sg2042_msi_driver = {
-+	.driver = {
-+		.name		= "sg2042-msi",
-+		.of_match_table	= sg2042_msi_of_match,
-+	},
-+	.probe = sg2042_msi_probe,
-+};
-+builtin_platform_driver(sg2042_msi_driver);
--- 
-2.34.1
-
+This is dependent upon Rik's a37259732a7dc ("x86/mm: Make
+MMU_GATHER_RCU_TABLE_FREE unconditional") from the x86 tree.  I'll add
+Rik's patch to mm-unstable also and shall figure it out during the
+merge window.
 
 _______________________________________________
 linux-riscv mailing list
