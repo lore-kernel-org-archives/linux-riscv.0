@@ -4,152 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E22E9C021BB
-	for <linux-riscv@archiver.kernel.org>; Wed, 26 Feb 2025 01:38:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 68C69C021BE
+	for <linux-riscv@archiver.kernel.org>; Wed, 26 Feb 2025 02:14:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:From:Cc:References:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NzShPDcKbqJshPvMcrp6UYOYIRUW9p0q9KcQMreRMQU=; b=fD9LscobmSMbQrnjL+NyLii0l7
-	r6R7DwC/J7IGL+WPhcCz029i+LtVzMsBf0tctQDBKZzERPhnMlKOhroOo8aeyns2MBgLkKVXCqBdk
-	Z7Jc3wPGqdUT3sDXDYyPTag3wRDpj4Gjb1XedqtJXOXjJh94axFIXj8Bjw2nQA52gyTra4AUo2XoW
-	duN2ZiZGS4NaRs9OpHUoDJIw3S7imPQmAzF6OKaWlXU7rCeDFOiXu1gzH6oqXrNRUpACIrWM+SI6c
-	CuPtJmIeZfHIOqBCH/2uRmrBO6RY26KSx7AliU1Oz3nwzwsLaV6s5IAxg70oZMCxG7+QER/gCp1Ou
-	ZuFA3Wdg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:To
+	:From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=ut+dBEhjWZsEcPK7aZiUyZCqrhki5Tv+tyjNZEv7pTk=; b=c4fcNRk0Ej3+z0
+	HxWRvZ8nRXsPAPzTj5BKsfUzrwiHZ5BM1bJPXTj4kHwB0gJ7Y5EGvAqJpp3fvkVf6bNFEiuS/cAtT
+	wwvcZAnJxCpWAP5Pl9HFUOpI2l9OUjLAyZK7u7zKfHVNuVXi8OVvrubXnqFXv0W5w/ugDxxXy8fJZ
+	EmXu8zQ2jr/oaOBUDUC2zpgenz5B79AIOL08izE43mclvMcGx7eQqiQzlSGbuo/xpOLJC0LSDQfgB
+	bA01SghMwTozZjGybM7qdIltI2nYtjItXa/1nKeQ2RLn+hPAiJr59SpnX5i61UjQcYfn0YM66e3Cz
+	VbPMyEST0QoCmW9VnzMA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tn6N9-000000021tu-1B7k;
-	Wed, 26 Feb 2025 01:38:03 +0000
-Received: from mail-centralindiaazolkn190110001.outbound.protection.outlook.com ([2a01:111:f403:d409::1] helo=PNZPR01CU001.outbound.protection.outlook.com)
+	id 1tn6wa-000000028Ju-2Zge;
+	Wed, 26 Feb 2025 02:14:40 +0000
+Received: from mail-ot1-x330.google.com ([2607:f8b0:4864:20::330])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tn6N6-000000021sc-3ddQ
+	id 1tn6wX-000000028I3-3CwE
 	for linux-riscv@lists.infradead.org;
-	Wed, 26 Feb 2025 01:38:01 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=JSriPkdoFTLqRhF11dTFBexNKUxKE/PqlygJQoOn2OnzS76o2kb9Sd8RhUUGMVrTLN83QNYRLHHSEv7uQXzqY95M+BZTJGbE/geUwvTSo25pACXReM5IGkXM0tuCglpHGXWw3jCZ7/b/oOus7b3JVv0YvA8vR30WRl/dBuTBrpIpZRlKDgtJC/0QjS9bX0vpMTiGIY0nDGHktovdfwy4It7bw2nKFa13vG/L/IgZcB1GJNc7Y9U0f4X5CHpB4NMQerHmnnljCkbkqgxVMz/MUdZ7dJGot8SeUj8PEOLVXO7u6Unmh+WRkv8/pjfMb3Rjy1mWdSRPJlaU6SDpUHTdig==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=uzJbVxPlLpBTcT8McYPh4VK0OyiMypzwPa9D4Jd58gU=;
- b=O6A+EEaE/47DttIEp9s0FS2tJsXUCZBUmV8GzTF1yMk3GkiK9ULqitSJVYJCYROIwYzWPjx7/DR0CFd8p7IDTtMdGy2nUR7JQBSP8wTmmPsS/FF0VXl+GWOeq7afO8mw8rkjn7EYo7eXAjBjquD+VGEavJL1zGCHOi+OaVxHFSW1olLEXlnXb71/Xc+sRWMNJPj9h09EVp5sxpdFJRFIjM6s+HYqYBU3MekkD+sbT7ySp/2+jfFzsPALCsjJlcWZ/h2DgJC4yQ3q/pbRFH2zjtfMW0528VT1aiTccrUIa54AMhnrIfDCcZ1HmAXa07ow8IeZf+JpA5IX4MCDfCeqhQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
- dkim=none; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=uzJbVxPlLpBTcT8McYPh4VK0OyiMypzwPa9D4Jd58gU=;
- b=QPo3Fy8SioP9X+duajz+4vMweN0vx977tY1XuAQhGQWZ9ijyK0czAvHUzzfoEuPQr7pTFmndhAxwtCkbrVRKrTAK5qp1cWpFjmeFy4deq85yOVfdSQkH/bidBH8TQM0RwAcrCuENp9PibNq95hTqF1/w23D8jlsabY77eOOGwEK+/Xjmk3Kigwx2XoP9qqLQi/dUZnv1bM5saTjxpa1RwJA9YKa1C4Xm8Wav2nruODCxpEpxlbTYZPQXR5ERFpOhTJD11GNl5mGpQx+Lw8i3ChuMC4g+kxvJjWzxl2FcThGm7tj7ykeDezl720m+yYyv2pKtJgCSIlvbJU8k+iukRA==
-Received: from PN0PR01MB9166.INDPRD01.PROD.OUTLOOK.COM (2603:1096:c01:165::9)
- by PN3PR01MB7336.INDPRD01.PROD.OUTLOOK.COM (2603:1096:c01:8c::14) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8489.20; Wed, 26 Feb
- 2025 01:37:48 +0000
-Received: from PN0PR01MB9166.INDPRD01.PROD.OUTLOOK.COM
- ([fe80::42b2:a8b0:90c6:201e]) by PN0PR01MB9166.INDPRD01.PROD.OUTLOOK.COM
- ([fe80::42b2:a8b0:90c6:201e%5]) with mapi id 15.20.8489.018; Wed, 26 Feb 2025
- 01:37:48 +0000
-Message-ID: <PN0PR01MB9166295EEDDDD734F00BF4A1FEC22@PN0PR01MB9166.INDPRD01.PROD.OUTLOOK.COM>
-Date: Wed, 26 Feb 2025 09:37:44 +0800
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 2/3] irqchip: Add the Sophgo SG2042 MSI interrupt
- controller
-To: Inochi Amaoto <inochiama@gmail.com>
-References: <cover.1740116190.git.unicorn_wang@outlook.com>
- <f438742bdf7bf3ef8a65e1d88ad57fd1ac66273f.1740116190.git.unicorn_wang@outlook.com>
- <nmr5qzvxxw7psymykjsaivmamt3icj6jqx6qmneofsnp33faf5@p7z6kqumfljn>
-Cc: Chen Wang <unicornxw@gmail.com>, u.kleine-koenig@baylibre.com,
- aou@eecs.berkeley.edu, arnd@arndb.de, conor+dt@kernel.org,
- guoren@kernel.org, inochiama@outlook.com, krzk+dt@kernel.org,
- palmer@dabbelt.com, paul.walmsley@sifive.com, robh@kernel.org,
- tglx@linutronix.de, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
- chao.wei@sophgo.com, xiaoguang.xing@sophgo.com, fengchun.li@sophgo.com
-From: Chen Wang <unicorn_wang@outlook.com>
-In-Reply-To: <nmr5qzvxxw7psymykjsaivmamt3icj6jqx6qmneofsnp33faf5@p7z6kqumfljn>
-X-ClientProxiedBy: SI2PR02CA0003.apcprd02.prod.outlook.com
- (2603:1096:4:194::13) To PN0PR01MB9166.INDPRD01.PROD.OUTLOOK.COM
- (2603:1096:c01:165::9)
-X-Microsoft-Original-Message-ID: <2307e934-5a6f-4a10-bad9-cecd57f16a60@outlook.com>
+	Wed, 26 Feb 2025 02:14:39 +0000
+Received: by mail-ot1-x330.google.com with SMTP id 46e09a7af769-727388e8f6cso3475103a34.0
+        for <linux-riscv@lists.infradead.org>; Tue, 25 Feb 2025 18:14:36 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1740536076; x=1741140876; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:to
+         :from:from:to:cc:subject:date:message-id:reply-to;
+        bh=ce/2iYbpTG5UcLrAgQquEoIlxzVy1ifFMugXMkqkJRo=;
+        b=LPY+xHXn2mB2H42/dTweQnQLmK+Z+xIWHykIovsTYCdIUxvHEw1zcA1pODdeuyuk1z
+         mqC5w0QU8ceR/VYdD+e/t800kcVpGHGVxOHVlzMh6HxXM6838ZP76CcUd+ejPumDeO45
+         dGfo3DIzNM3WvOwcJ29qhNiwd5By+D3ucMaB25xWCU6Ye2GzL8PMoSW3w77WTle10P0p
+         iFz9fHEJsMNRp49TZxNbgNd57VzLVaLEv6iXzr0FHOFP3qVmuG40JwmPhpkYKNtF4gmu
+         EYs2x2slWbswy1TxahUR0DWa9gcfzvrkMz4lqZ9yOvhesfIyj+oNS45EiVYhui6zawOl
+         aOKQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1740536076; x=1741140876;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:to
+         :from:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=ce/2iYbpTG5UcLrAgQquEoIlxzVy1ifFMugXMkqkJRo=;
+        b=ZONlj3RjV16PhDJF3UZQunhynVNiFG6qyGi8n+DIbbHQLw8YzAlUiridTy3tkRlOyh
+         bZt9CLJTUss+dOlmmJMUCg8dZNfYaddXJ8sIFcar8bWQVXj8iDSSeuvdJ8h3BljJk+z8
+         XgB6wtqfwfyQwhXt5NOOMCwccsLf5uPbzp105MjblnIynnrycuzQK+O92b3uKsUwkmXz
+         bfZfSyJaSZG9kVDzojOZyM3kJtCNoy4GFeM64c3d2Lfo8InvehdXg4lt9I/4rGi2eRqj
+         gK/T5PLEnx7As9wgH9GToah026xcqGQoDB1+hgXdQDtrVV5RdIo32/ojIVkXxxgx0U1O
+         RajQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVm332qEfYv1q1u8mJTSMlqVdkdaxG31DWwXIuxCOJLMqF7AhLru5D2SVqG0ZBkeCxk7AVvlufLeIsfPg==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy6wLmy0JnfvR4notNy30RgbXTYsQt2+FGwU35w2QZiRuqJuLsU
+	jTuvCTSd/0i1+x7fXbVNmP73261qDhEZNAqOdX09T0oaz3r/9vCO
+X-Gm-Gg: ASbGncuDj8WoR3tfmD45s7ZBwA9qQeSOw/e8eEmwVcKy0g4bfxmsk61RHX8Q9Nz3GVh
+	7r06vgSfIGtiU8eF0pEf4j0sXy7llzomEralA/j4clys0LriVj1nR/ugTPSEhVyVlUJ8Z+l6WNz
+	vrQuzCATB2xoB9CsFNZz6roSzh7GoxERUoCpqk4ROQhx9rVgKZZY0xb5dXoXWrIfBgdzqE9P6zU
+	JcuQlXR/5XRRHIS/1C364AbfPWyoyFDwmVwjU8Fc1HW8ukwICXPh8dnICqj3k85eOHM2BNBcDnp
+	/AyeD4LWdqnyhEsQaT8/kq74cktY+PQfG5Fq
+X-Google-Smtp-Source: AGHT+IFOiWy5c9aRJlo48U+AxlgoisXf/mCQB2vOucCr0Uu56NK3CF2uZpGGkC+NWk7CxG+H2wQ0hw==
+X-Received: by 2002:a05:6830:628a:b0:727:2740:eecf with SMTP id 46e09a7af769-7289d0e367dmr3920392a34.3.1740536075919;
+        Tue, 25 Feb 2025 18:14:35 -0800 (PST)
+Received: from localhost.localdomain ([122.8.183.87])
+        by smtp.gmail.com with ESMTPSA id 46e09a7af769-7289dee9c6fsm539210a34.32.2025.02.25.18.14.33
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 25 Feb 2025 18:14:35 -0800 (PST)
+From: Chen Wang <unicornxw@gmail.com>
+To: u.kleine-koenig@baylibre.com,
+	aou@eecs.berkeley.edu,
+	arnd@arndb.de,
+	unicorn_wang@outlook.com,
+	conor+dt@kernel.org,
+	guoren@kernel.org,
+	inochiama@outlook.com,
+	krzk+dt@kernel.org,
+	palmer@dabbelt.com,
+	paul.walmsley@sifive.com,
+	robh@kernel.org,
+	tglx@linutronix.de,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	chao.wei@sophgo.com,
+	xiaoguang.xing@sophgo.com,
+	fengchun.li@sophgo.com
+Subject: [PATCH v5 0/3] irqchip: Add Sophgo SG2042 MSI controller
+Date: Wed, 26 Feb 2025 10:14:26 +0800
+Message-Id: <cover.1740535748.git.unicorn_wang@outlook.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PN0PR01MB9166:EE_|PN3PR01MB7336:EE_
-X-MS-Office365-Filtering-Correlation-Id: 87ac348e-5137-4458-e2a9-08dd56062ca9
-X-Microsoft-Antispam: BCL:0;ARA:14566002|15080799006|6090799003|5072599009|7092599003|461199028|19110799003|8060799006|440099028|3412199025|41001999003;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?SHZPSVlzeUpXZFpQRzF2WlJtb1JnR09id0l5TzZOaWxwcVBmQ3BOZlB3bFox?=
- =?utf-8?B?cFVadXc3b2wwaCtRb2c3ZmFPT3IrNmFPRUtaSmZsVTZEUXpPK0hUQ2dOSEdT?=
- =?utf-8?B?SkhQV29LdUZoeTZnTklUWTFMRFREQWV2NXpBenpNenNHYlA5cVZHaFBSdkMr?=
- =?utf-8?B?WGI4Ri90Nkx1MWEzUWo3RmRRU0ptRGVZbXR4UHhBZngzR2pQdXd2ZmZZTm1K?=
- =?utf-8?B?RTZIWmE4RkVMbUptNitwZVN4Tm5LTGU3bTduT2c1Qi9JVngrMllNRlhMd2Ja?=
- =?utf-8?B?aVdUT2UxL2NTWFFCbEJMd2VRQTk0bnR5UENha0R3dnZhUVFBUU9ETjBBeDBW?=
- =?utf-8?B?d2NrQmQ3WDVyaVV4T2R1QWs3U2tiWmpuNXFOWEVRMTV6YjZyQkhRaGdKeXlt?=
- =?utf-8?B?SkFGNUZYb3BaZW1CZWp3ZExuK2NBSWdwcnRzcDRrNjY1NzFhMHg3dWI0Wml6?=
- =?utf-8?B?L0diSy84ejlwSGFYdzRndHVQd09oWC82VVlNSFlMMWdGbjBLUXQrNWJJekJm?=
- =?utf-8?B?aG5Dbm9nSmcvaWZja0N4T1c3eDNzeXUvNVIvZjJmVVd4MTQ1U0xXNjcvK2ZE?=
- =?utf-8?B?L2VFZkd4cFRvSEk3aXo0aUN0eUdyM0kyWHA5N3Y0TjBPQ29QODRoS1pGY1Jq?=
- =?utf-8?B?QjRKT1FLRU9DdUdHbjlyWXhtVmFHUjJWVmVQdVB2RlBOVXExNlVOTGZ1Q3JV?=
- =?utf-8?B?Mjh3ZWhXR2Rma1lJZDNlVXFXSVpsdmREOHNHdWJzUHRQV3FJcFc4UndYanBx?=
- =?utf-8?B?VEZSZXNsazdZNmJYNTY1YXJaYk96RjZBZ3J3SEtsZVI1UDM1UkI2aFhra2tz?=
- =?utf-8?B?V2FVR1BSYWVwSk8yUHdFRzVQKzU3VTJERlp6NzRNTXpZVTMrL2hzKzZxVlJv?=
- =?utf-8?B?eVNVY3Z1aDlCT3lwUTFPN0ZHU2tzZWZuV2NqcE42TENtNGkvME4zTWFDUnA2?=
- =?utf-8?B?ZUZvUVRGbnpJdnpaTjNCTlFZL2Z1akpVTmdobDJvQld6L0JjWE1CNjNCeDJE?=
- =?utf-8?B?ZW1remR6c0lwN2czdWQ3N2RKUXJpaXRZV2h3dHhKNzdFUGxnWGJ3MXNCalk4?=
- =?utf-8?B?dU5GUlcyNWtIZlUwZE9Cc01LUU9yM2xMTEU4d29TWUY5U2FOS1U2YjF6OVA0?=
- =?utf-8?B?KzRyTzhGeXYyeWtGMkZJWGZaMTQ2aXp3WlpNU09BZG4vZlE1MzhHUkNNK3gr?=
- =?utf-8?B?S3lqK3JWYlZxa3U5d0VmK0NGTXcwc2xpbWJMZXE3eStMRWxWVWg3bWR6VFhQ?=
- =?utf-8?B?VWxMS0N1czNTZXlYelVxeHBVNVNoN1VRb1BYcGo4THZDWFBXakpzTlluYkpV?=
- =?utf-8?B?L0RUYzMvY3ZUVDNWNi9KK1pRNGw4SzhZSXRVVk5jWUpsc1E1THRHV2JkVkcr?=
- =?utf-8?B?M285VGlNNlUwTUNrYkxTVzU4R3V6cnhWTGNVWEM2cXdSajJkTy9lUDIwdUdM?=
- =?utf-8?B?TUNKUWEwa3hZTmI0K203OFMzb1hwcXg2RzRRVW5VWDVucUNGZm1hN25MbnZL?=
- =?utf-8?B?TVRmR1Brdkt3NGpVemk0SkIvcGhlZW55MHp5MmZ4TEhaVnRsNXBaV0dQaGQr?=
- =?utf-8?B?ckcxQT09?=
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?NTVldzM1YjZxSXJIVnpvWWZNQUxUekpNWXRaRThyenJBZGUrSmdPY2RjOUVB?=
- =?utf-8?B?RW1sUEFTUUgxUkhVVjBLQkluV05zU2ZrTU5IZTZJam8yb3FIL2tMekRzbjJp?=
- =?utf-8?B?cXlMaVpNMVhlcFk4NmhvSGRWRDQxU0pGdVNpOVk3R3VWZVl1cktZLzVwVGU4?=
- =?utf-8?B?V3JyZlZBVVFSV3o4SjVjT1N0TWN2Ryt1MDk5dUNleXdZeWZxaVdXRHBFeVJy?=
- =?utf-8?B?eDRkbUVDc3YydVNnYkNGNHBGdjJvY25QMnMrVGdCVzJYRTd4Y2ZZbmtiOGp1?=
- =?utf-8?B?Mk0vSmNzT29vL1p1WTNVSjF3NnBOOGFwdjlPdXlIUUorL0ZPWHo3d01aNmtS?=
- =?utf-8?B?OCtoVysvY0F3RmhRMDA2UC83UlZKRmE4b1pZZFQ2dEtvMUl0VU5zL2VoVTlU?=
- =?utf-8?B?MFlmbzRMemMzRTJPcDJjTm0vUXAyM2hhWitYOU9wV1VnSlhBSytQNHpCdFcz?=
- =?utf-8?B?dlBXOGNJOVVXeGRjM3NBY2IrbEFBYzZhL0xVdGFURVloN041YTBKS2RkS2xI?=
- =?utf-8?B?N1YwTkFWUHNkUVRGTzJaLzBTL1Y5RXR3QlVXczJhdE1GU1lpR0YxRDBDakpL?=
- =?utf-8?B?RjdZRituWk5GQi94UWdhZXdLSGw4NGpQbE5ISHBTZ09yUXpMRndMWGU4dnBP?=
- =?utf-8?B?SUtNUnc5TXJkakx1SzJrSW4zYTk2eXprRStkQnpVUjVGL1VwaDZZcjQ2dTVy?=
- =?utf-8?B?L1lrcTBTQlNybEE3VGxBZkhDZGFYK3l3Qmxmbk9BZkh0dFE1WXdiZlgrSElO?=
- =?utf-8?B?TTFmdmZrczVQWk9mQWE1MFQvVWRTSGc1VTdXdXkwcHRmKzlpaTZ3elZ4clRM?=
- =?utf-8?B?dFJ6ZStxeWVQM0ZoTFQ2UEpyaGpTZldrbURGU3RCLzhmTTNzTEdPNWF3QkVC?=
- =?utf-8?B?eWVwRXVieFRmV3dMNnM4WHJ6RStnWjgrcnhFSmFZWE8zb0R6Y2Y3OGVmZmty?=
- =?utf-8?B?RTNqZHB2Vmg5dnhhTTlndkZXYWNmZHNlQjRMdEF4RVRGRTFEaE5DMmZML3dK?=
- =?utf-8?B?c3loeVVJVE9hRi8wSy9DZHpHNWZRN2JnQjZiQ2pBMmowOVhWY2x2aVZOUWFm?=
- =?utf-8?B?MjRtK25jaE90TjJXWHA5TkJDSnY2eHVmWlNoZUMxU1VTV3lzMlRBb3d2eFQw?=
- =?utf-8?B?a05wY2dvYVQyZnRrM2l3UW9RYzJYRE9DMk5PRFgwN1laa2srLzZWbVpmV3Nx?=
- =?utf-8?B?clVsdTRQcVdEemdqSi9EUHArTFNYTE44TG5Day9YVVR0eUJNWHJ1bE1tQ2M4?=
- =?utf-8?B?emtCTyt6aU85TnZrNDNuRlViVUNRRHArNlFKRDAraFU0b2VybXFqMEJQaWdm?=
- =?utf-8?B?S2p3ODE0L1ZYOS8wdjZUcEdhaCtzWmVndFV2bUo1OE5tVHg1QmZCcG01RUJ1?=
- =?utf-8?B?eGJGRnpKUXgvNDZHUVFhZ25UaysydjY5TTByUmEyc1E1TDhQWlBJTHJUaG9h?=
- =?utf-8?B?VmE5YVhXMDhma1dHazV5MU1LWm5mZDErc2xBaDg2MTZCN21vOXZ4RkNNNDRL?=
- =?utf-8?B?Wmk5eTNNZTRxRlJmSTB6KzlEVlZVRllTWVZDU2NDWlpuRzhOSlNvTkVaVFBj?=
- =?utf-8?B?YlorcVdYRTBQejlIR0xTanNsYWkyUVp3VVpaNmdNYVA4NDBpdkVuUVYwUjli?=
- =?utf-8?B?ZEFxMVg4NkdzZVVDbFJscHYzekdYODZZOURvbEVCWWJGZW5OOEJPZTJSREsy?=
- =?utf-8?B?eGR3OGxoT1crNWYrWkxha1cveXpZWkpxb3h2elErUXQzNFdsVDVmQ050eUJW?=
- =?utf-8?Q?87+QwtsMPjT+ZaLauK1mGo1xSFHUwUsrr55O1oY?=
-X-OriginatorOrg: outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 87ac348e-5137-4458-e2a9-08dd56062ca9
-X-MS-Exchange-CrossTenant-AuthSource: PN0PR01MB9166.INDPRD01.PROD.OUTLOOK.COM
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 26 Feb 2025 01:37:48.1376
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
-X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PN3PR01MB7336
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250225_173800_922909_09DB2F93 
-X-CRM114-Status: UNSURE (   8.97  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250225_181437_814437_2F1EFD53 
+X-CRM114-Status: GOOD (  11.02  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -161,41 +104,98 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+From: Chen Wang <unicorn_wang@outlook.com>
 
-On 2025/2/21 14:35, Inochi Amaoto wrote:
-[......]
->> +static int sg2042_msi_init_domains(struct sg2042_msi_chipdata *data,
->> +				   struct device *dev)
->> +{
->> +	struct fwnode_handle *fwnode = dev_fwnode(dev);
->> +	struct irq_domain *plic_domain, *middle_domain;
->> +	struct fwnode_handle *plic_node;
->> +
->> +	plic_node = fwnode_find_reference(fwnode, "msi-ranges", 0);
->> +	if (IS_ERR(plic_node)) {
->> +		pr_err("Failed to find the PLIC node!\n");
->> +		return PTR_ERR(plic_node);
->> +	}
-> I think plic_node is just the args.fwnode in the sg2042_msi_probe.
-> Just reuse it. No need to parse this again.
->
-> Otherwise, It looks good to me. With this fix:
->
-> Reviewed-by: Inochi Amaoto <inochiama@gmail.com>
+This controller is on the Sophgo SG2042 SoC to transform interrupts from
+PCIe MSI to PLIC interrupts.
 
-Thanks, I will fix this.
-
-Regards,
-
+Thanks,
 Chen
 
-[......]
+---
 
+Changes in v5:
+  The patch series is based on v6.14-rc4. 
+
+  Improved driver code to directly get PLIC node from args.fwnode as per
+  comments from Inochi Amaoto, thanks.
+
+Changes in v4:
+  The patch series is based on v6.14-rc1. You can simply review or test the
+  patches at the link [4].
+
+  Fixed following issues as per comments from Inochi Amaoto, Rob Herring, thanks.
+
+  - bindings:
+    - Update sequence of "reg-names".
+    - Remove reference to/schemas/interrupts.yaml
+    - Add "#msi-cells".
+  - Improve driver code:
+    - Use fwnode_* instead of of_*.
+    - Some other coding style improvements.
+
+Changes in v3:
+  The patch series is based on v6.13-rc7. You can simply review or test the
+  patches at the link [3].
+
+  Fixed following issues as per comments from Krzysztof Kozlowski, Samuel Holland,
+  Christophe JAILLET, Inochi Amaoto, thanks.
+
+  - bindings: use reg for doorbell, fixed wrong usage of additionalProperties
+    and misc. 
+  - Improve driver code:
+    - Fixed potentional memory leak issues.
+    - Fixed some build warnings reported by test robot.
+    - Optimize and simplify the code when allocating hwirq.
+    - Use DECLARE_BITMAP instead of kzalloc.
+    - Some other coding style improvements.
+
+Changes in v2:
+  The patch series is based on v6.13-rc2. You can simply review or test the
+  patches at the link [2].
+
+  Fixed following issues as per comments from Rob Herring, Thomas Gleixner, thanks.
+
+  - Improve driver binding description, use msi-ranges instread.
+  - Improve driver code:
+    - Improve coding style.
+    - Fixed bug that possible memory leak of bitmap when sg2042_msi_init_domains returns error.
+    - Use guard(mutex).
+    - Use the MSI parent model.
+
+Changes in v1:
+  The patch series is based on v6.12-rc7. You can simply review or test the
+  patches at the link [1].
+
+Link: https://lore.kernel.org/linux-riscv/cover.1731296803.git.unicorn_wang@outlook.com/ [1]
+Link: https://lore.kernel.org/linux-riscv/cover.1733726057.git.unicorn_wang@outlook.com/ [2]
+Link: https://lore.kernel.org/linux-riscv/cover.1736921549.git.unicorn_wang@outlook.com/ [3]
+Link: https://lore.kernel.org/linux-riscv/cover.1740116190.git.unicorn_wang@outlook.com/ [4]
+---
+
+Chen Wang (3):
+  dt-bindings: interrupt-controller: Add Sophgo SG2042 MSI
+  irqchip: Add the Sophgo SG2042 MSI interrupt controller
+  riscv: sophgo: dts: add msi controller for SG2042
+
+ .../sophgo,sg2042-msi.yaml                    |  61 +++++
+ arch/riscv/boot/dts/sophgo/sg2042.dtsi        |  10 +
+ drivers/irqchip/Kconfig                       |  12 +
+ drivers/irqchip/Makefile                      |   1 +
+ drivers/irqchip/irq-sg2042-msi.c              | 258 ++++++++++++++++++
+ 5 files changed, 342 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/interrupt-controller/sophgo,sg2042-msi.yaml
+ create mode 100644 drivers/irqchip/irq-sg2042-msi.c
+
+
+base-commit: d082ecbc71e9e0bf49883ee4afd435a77a5101b6
+-- 
+2.34.1
 
 
 _______________________________________________
