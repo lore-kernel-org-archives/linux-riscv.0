@@ -4,62 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4C1ACC021B8
-	for <linux-riscv@archiver.kernel.org>; Wed, 26 Feb 2025 15:48:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 83F01C19F38
+	for <linux-riscv@archiver.kernel.org>; Wed, 26 Feb 2025 15:53:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
-	:In-Reply-To:Subject:To:From:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=xB5U4mu9DOdzZWkLm/8qFbMyisHKccDn8LUP/eDB9W4=; b=0+9yVFtx+FFB4i
-	2zKw8Tpcoh6z/T4fO8vYJlspocVargna8PqFsl0aqmb5KS4+Is6mXoPfNFi3jLfC5l0KZJTx/Osy0
-	bPbLa0tn45AkMA+8l629jPYYAJFJrSo4GW1G3BkcOexP7AN5Phtxi3ZSu9z8rsFWyICXEbifnq48n
-	MttsHi+dgrj35axjre0ImkKW68pgCGYJX1tgIyqOSpUejvMis6J9AkqgrkVZr4h4xGVX01qRkovS7
-	Xq1wdlHuR7cBkNPNzZGSZk/fPCvqntv7CM0Sc92G/56hqKYb5ST5gfYsqVSpCd/6ZW/1Q6K8vrW0e
-	aEUs71nyxiCmlT/M4Fag==;
+	List-Owner; bh=We6ZZoHFjdkuXSyDnwHPDZ7CL3qpZrfllrWyXKftN3k=; b=HCpCorcYX9+hlt
+	RxGshng0mMZtYyxLZIRSiAz4YKQwg5bRUYG2BFLSAeC5IVCr69EBNeJJbgK392hG0+oYoygLepENy
+	7h8meCuGd1vU3z0wFeHA2wqvDNkgo+bUk5NxeFmdcT6TVxMUH6BgKZw+o3eHQiCSrvVl7tS/9n/jM
+	6TRmk3fyE+B7mBgRCepiatULNTfnSbKBFOXT6X93DPQT7s18zcocpmh/TWvdDJVS054YT6/EFWio9
+	gJebCrqZHXdVUFqNAR53oa4J3ofkRgxncgU7yyp5uI4iLnQmdqS/iuAIAuQ6Kg966OjstOZvJ0AOd
+	6Xm22h9LcNl4QaUgNBwA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnJeR-00000004OGr-3hKB;
-	Wed, 26 Feb 2025 15:48:47 +0000
-Received: from galois.linutronix.de ([193.142.43.55])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnJav-00000004NV9-1qK2
-	for linux-riscv@lists.infradead.org;
-	Wed, 26 Feb 2025 15:45:10 +0000
-From: Thomas Gleixner <tglx@linutronix.de>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1740584707;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=s9YAfmlQr9Pd5bXVqXHzhDo0hk63Ti5/f8ktIw5AJhI=;
-	b=Kv9/3dWd+GXsGs7cU1xLIlW2zlePQy31R7G6Jy6QJFpJYBbsDogO0A4tPcqH2iqy6FlsJ+
-	YJk/B9nxmFA+MHnOA5EB5BazjUZeXo6ZO2GhQ0a2odsrE0E5pf/JF4UlNInVv+1AS14qV5
-	8SDQwtT8m3Jp50XfzUOOsnhjBuO9ZK7WHUIDQO/queig6lykW1ZfuXsqIi1NE7RNtPwL/c
-	1ubsW8nlIrnKz0QuzMEA1aFYFs2v2rCg2zxSeLSQ1ne86Cq4FQpOeD1L+HwRiy8DIZuPoc
-	uo9TcSrDqf/s5V4bB+NkfCaTvTvtKgOHTjpU0X8aujMZabOz2GZ7wsVL2CLN5g==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1740584707;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=s9YAfmlQr9Pd5bXVqXHzhDo0hk63Ti5/f8ktIw5AJhI=;
-	b=ixIkh3m0apqeFPy9Qpy7CjIrvlJ4/WlAEuk0T/7wkqfv/ktP1pgsZB5HNeC5O7xJsKatxe
-	FnzDFatK/PE7L1DA==
-To: Yixun Lan <dlan@gentoo.org>, Linus Walleij <linus.walleij@linaro.org>
-Subject: Re: [PATCH v7 0/4] riscv: spacemit: add gpio support for K1 SoC
-In-Reply-To: <20250226135635-GYA45740@gentoo>
-References: <20250226-03-k1-gpio-v7-0-be489c4a609b@gentoo.org>
- <20250226010108-GYA44567@gentoo>
- <CACRpkdY7nzzu3-+FwpSYqmX+O559LoXHiqcvP2OxkhX+9f-3wg@mail.gmail.com>
- <20250226115957-GYA45508@gentoo> <20250226135635-GYA45740@gentoo>
-Date: Wed, 26 Feb 2025 16:45:07 +0100
-Message-ID: <87tt8gemm4.ffs@tglx>
+	id 1tnJie-00000004PSs-2iM6;
+	Wed, 26 Feb 2025 15:53:08 +0000
+Received: from pegase2.c-s.fr ([93.17.235.10])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tnGrb-00000003kB2-2JB8;
+	Wed, 26 Feb 2025 12:50:13 +0000
+Received: from localhost (mailhub3.si.c-s.fr [172.26.127.67])
+	by localhost (Postfix) with ESMTP id 4Z2v3D0g7Fz9sSK;
+	Wed, 26 Feb 2025 13:31:20 +0100 (CET)
+X-Virus-Scanned: amavisd-new at c-s.fr
+Received: from pegase2.c-s.fr ([172.26.127.65])
+	by localhost (pegase2.c-s.fr [127.0.0.1]) (amavisd-new, port 10024)
+	with ESMTP id zdl6tAtT0ddh; Wed, 26 Feb 2025 13:31:19 +0100 (CET)
+Received: from messagerie.si.c-s.fr (messagerie.si.c-s.fr [192.168.25.192])
+	by pegase2.c-s.fr (Postfix) with ESMTP id 4Z2v3C6tl5z9sSH;
+	Wed, 26 Feb 2025 13:31:19 +0100 (CET)
+Received: from localhost (localhost [127.0.0.1])
+	by messagerie.si.c-s.fr (Postfix) with ESMTP id D853B8B78B;
+	Wed, 26 Feb 2025 13:31:19 +0100 (CET)
+X-Virus-Scanned: amavisd-new at c-s.fr
+Received: from messagerie.si.c-s.fr ([127.0.0.1])
+	by localhost (messagerie.si.c-s.fr [127.0.0.1]) (amavisd-new, port 10023)
+	with ESMTP id lyR8MYIwt_Lw; Wed, 26 Feb 2025 13:31:19 +0100 (CET)
+Received: from [10.25.207.138] (unknown [10.25.207.138])
+	by messagerie.si.c-s.fr (Postfix) with ESMTP id 96D918B77C;
+	Wed, 26 Feb 2025 13:31:19 +0100 (CET)
+Message-ID: <50339b41-9b4d-4315-a69b-ee32fc86baa6@csgroup.eu>
+Date: Wed, 26 Feb 2025 13:31:19 +0100
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH V3 2/5] arch/powerpc: Drop GENERIC_PTDUMP from
+ mpc885_ads_defconfig
+To: Anshuman Khandual <anshuman.khandual@arm.com>, linux-mm@kvack.org
+Cc: Andrew Morton <akpm@linux-foundation.org>,
+ Mark Rutland <mark.rutland@arm.com>, kvmarm@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+ linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
+ Madhavan Srinivasan <maddy@linux.ibm.com>,
+ Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>
+References: <20250226122404.1927473-1-anshuman.khandual@arm.com>
+ <20250226122404.1927473-3-anshuman.khandual@arm.com>
+Content-Language: fr-FR
+From: Christophe Leroy <christophe.leroy@csgroup.eu>
+In-Reply-To: <20250226122404.1927473-3-anshuman.khandual@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250226_074509_615176_540D477B 
-X-CRM114-Status: GOOD (  10.54  )
+X-CRM114-CacheID: sfid-20250226_045011_754292_B5999D8F 
+X-CRM114-Status: GOOD (  10.08  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,34 +79,34 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Rob Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Meng Zhang <zhangmeng.kevin@linux.spacemit.com>, Alex Elder <elder@riscstar.com>, linux-gpio@vger.kernel.org, Bartosz Golaszewski <brgl@bgdev.pl>, linux-kernel@vger.kernel.org, Conor Dooley <conor@kernel.org>, Yangyu Chen <cyy@cyyself.name>, devicetree@vger.kernel.org, Palmer Dabbelt <palmer@dabbelt.com>, Jesse Taube <mr.bossman075@gmail.com>, Jisheng Zhang <jszhang@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>, Inochi Amaoto <inochiama@outlook.com>, Krzysztof Kozlowski <krzk+dt@kernel.org>, spacemit@lists.linux.dev, linux-riscv@lists.infradead.org
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="utf-8"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Feb 26 2025 at 13:56, Yixun Lan wrote:
-> sounds we need to implement .select() or .match() in irq_domain_ops,
-> then find the irq_domain.. here is a prototype version 
-> diff --git a/kernel/irq/irqdomain.c b/kernel/irq/irqdomain.c
-> index 995e5e0ec2db..c4d18267e86e 100644
-> --- a/kernel/irq/irqdomain.c
-> +++ b/kernel/irq/irqdomain.c
-> @@ -553,7 +553,7 @@ struct irq_domain *irq_find_matching_fwspec(struct irq_fwspec *fwspec,
->  	 */
->  	mutex_lock(&irq_domain_mutex);
->  	list_for_each_entry(h, &irq_domain_list, link) {
-> -		if (h->ops->select && bus_token != DOMAIN_BUS_ANY)
-> +		if (h->ops->select /* && bus_token != DOMAIN_BUS_ANY */)
-
-This breaks existing usage and reintroduces the regression, which was
-fixed with the commit which added the bus token check....
-
-Thanks,
-
-        tglx
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+CgpMZSAyNi8wMi8yMDI1IMOgIDEzOjI0LCBBbnNodW1hbiBLaGFuZHVhbCBhIMOpY3JpdMKgOgo+
+IEdFTkVSSUNfUFREVU1QIGdldHMgc2VsZWN0ZWQgb24gcG93ZXJwYyBleHBsaWNpdGx5IGFuZCBo
+ZW5jZSBjYW4gYmUgZHJvcHBlZAo+IG9mZiBmcm9tIG1wYzg4NV9hZHNfZGVmY29uZmlnLiBSZXBs
+YWNlIHdpdGggQ09ORklHX1BURFVNUF9ERUJVR0ZTIGluc3RlYWQuCj4gCj4gQ2M6IE1hZGhhdmFu
+IFNyaW5pdmFzYW4gPG1hZGR5QGxpbnV4LmlibS5jb20+Cj4gQ2M6IE1pY2hhZWwgRWxsZXJtYW4g
+PG1wZUBlbGxlcm1hbi5pZC5hdT4KPiBDYzogTmljaG9sYXMgUGlnZ2luIDxucGlnZ2luQGdtYWls
+LmNvbT4KPiBDYzogQ2hyaXN0b3BoZSBMZXJveSA8Y2hyaXN0b3BoZS5sZXJveUBjc2dyb3VwLmV1
+Pgo+IENjOiBsaW51eHBwYy1kZXZAbGlzdHMub3psYWJzLm9yZwo+IENjOiBsaW51eC1rZXJuZWxA
+dmdlci5rZXJuZWwub3JnCj4gRml4ZXM6IGUwODQ3MjgzOTNhNSAoInBvd2VycGMvcHRkdW1wOiBD
+b252ZXJ0IHBvd2VycGMgdG8gR0VORVJJQ19QVERVTVAiKQo+IFN1Z2dlc3RlZC1ieTogQ2hyaXN0
+b3BoZSBMZXJveSA8Y2hyaXN0b3BoZS5sZXJveUBjc2dyb3VwLmV1Pgo+IFNpZ25lZC1vZmYtYnk6
+IEFuc2h1bWFuIEtoYW5kdWFsIDxhbnNodW1hbi5raGFuZHVhbEBhcm0uY29tPgoKUmV2aWV3ZWQt
+Ynk6IENocmlzdG9waGUgTGVyb3kgPGNocmlzdG9waGUubGVyb3lAY3Nncm91cC5ldT4KCj4gLS0t
+Cj4gICBhcmNoL3Bvd2VycGMvY29uZmlncy9tcGM4ODVfYWRzX2RlZmNvbmZpZyB8IDIgKy0KPiAg
+IDEgZmlsZSBjaGFuZ2VkLCAxIGluc2VydGlvbigrKSwgMSBkZWxldGlvbigtKQo+IAo+IGRpZmYg
+LS1naXQgYS9hcmNoL3Bvd2VycGMvY29uZmlncy9tcGM4ODVfYWRzX2RlZmNvbmZpZyBiL2FyY2gv
+cG93ZXJwYy9jb25maWdzL21wYzg4NV9hZHNfZGVmY29uZmlnCj4gaW5kZXggNzczMDZiZTYyZTll
+Li4xMjkzNTVmODdmODAgMTAwNjQ0Cj4gLS0tIGEvYXJjaC9wb3dlcnBjL2NvbmZpZ3MvbXBjODg1
+X2Fkc19kZWZjb25maWcKPiArKysgYi9hcmNoL3Bvd2VycGMvY29uZmlncy9tcGM4ODVfYWRzX2Rl
+ZmNvbmZpZwo+IEBAIC03OCw0ICs3OCw0IEBAIENPTkZJR19ERUJVR19WTV9QR1RBQkxFPXkKPiAg
+IENPTkZJR19ERVRFQ1RfSFVOR19UQVNLPXkKPiAgIENPTkZJR19CRElfU1dJVENIPXkKPiAgIENP
+TkZJR19QUENfRUFSTFlfREVCVUc9eQo+IC1DT05GSUdfR0VORVJJQ19QVERVTVA9eQo+ICtDT05G
+SUdfUFREVU1QX0RFQlVHRlM9eQoKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5p
+bmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8v
+bGludXgtcmlzY3YK
