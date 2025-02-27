@@ -4,117 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2CF53C021BE
-	for <linux-riscv@archiver.kernel.org>; Thu, 27 Feb 2025 07:27:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 40A16C021BE
+	for <linux-riscv@archiver.kernel.org>; Thu, 27 Feb 2025 08:10:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=Bxydu+q0nN8zMBt43cn+SzCoh5hfkjJ/zqGS2b2faX0=; b=KUQRoJIeq6rNgt
-	uULOWSRfaAZshPht6vb6okmsSLJIH+DwHhvOcxXuHhtV34sDRrcuzPF+8nno4XFEahHU6vPC6u0fL
-	YjTM1xzgrcwBmWPR3mf2jj0tcbzRGQnh9lIh9GtaRtzRFDVmqi1Twai3KBOuM2f7X3IXOOLWVsaB3
-	tMJsxArxFnvHbOqAW4e88XlGDhltx34t9Rz7vXHEvOHzwlvOH6mkVgS4ck0EsB5U3BAjjGEzSHtgW
-	3/JcPtwtEY+kpsOQ8jr0D22FQ3ZNJXFVB2nSROb6Tv1A5GizDkQGFPB3BIJ1mL22Cg4AFKjWxZkjq
-	/RAZmtOgwXzApAAOvn6g==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=DH5WVh0HjED0v58Idu14UGa0f0+uNBftx+HxziT8hME=; b=kSiHA46lGUB9E3
+	xAkWa7Z5mbem71ZBQjnrMleV5BgGO/cOq1B0Uq3BNFgiwq7ZLGMXGvHwvAFrUyi6BMYoejY3MB40S
+	nwHmVFJn1vpMulKhZwBalYxEazATA8eY80s3Ns5905WZQruQxROafHT+Eo9AzN1Z84ziFe80FsNue
+	hmLWIshtEAwLraM8CIkQS1lF2Kj8XZPpkuGRX7R8e6/FIUPuE1EnRV1M+VrMINrUExjOp7cwfpV6H
+	O7FwICS6F++RGL1wcMbzo/lgFQ/rZNZ4guj6+5rDV7rU9enPY0NafiupnZ6/whUlZARkxhfYQ8VRU
+	RkOCglkX/dfh2rMZ9Q2w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnYJD-00000006YUY-1sh2;
-	Thu, 27 Feb 2025 07:27:51 +0000
-Received: from mail-bjschn02on2072a.outbound.protection.partner.outlook.cn ([2406:e500:4440:2::72a] helo=CHN02-BJS-obe.outbound.protection.partner.outlook.cn)
+	id 1tnYyG-00000006ef5-2Ccv;
+	Thu, 27 Feb 2025 08:10:16 +0000
+Received: from mail-wm1-x331.google.com ([2a00:1450:4864:20::331])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnYJA-00000006YPW-0wK5
+	id 1tnYwd-00000006eNs-2t43
 	for linux-riscv@lists.infradead.org;
-	Thu, 27 Feb 2025 07:27:50 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=cpfOk7LNfeWTdRhGz/GIf/wGdLXeIFwAK3kKw9po/fq4RkK332ARw8lg2OZMDtW/iQYf/JLkJ0um//1/8xDW/OtKuXWA984+A7jV1QIQInBrHbNONs+vFxRobDq9OQuKA5X/35vMqaTt1jiR84/C7gKK7p49Z7ojoVZQrEQVgIE0Eu72ppjg1FOc4WGGOuMigug0f13v8ygHysd9BFPBINVAOVl77c1gRLTq8Ov0s3xOfiq0wUjM/6mMH64AmfZwVeLrtSlcivyREzm4/73VD6ED8FE6eyv6ZQLPgnQbDmFrVMDJI3U1XlFypFX1A8xwd5YPk8J2hB2nEizkknumCw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=SeleWppTseCI34/hGa8azHbDXJPln//jICAz3Vq67oU=;
- b=SKjtEixln6Gqo3FXV/6TlEmSfanY318mI7CGBQPUTLolxYVlIcI98guR7yKlL2A71OHX2L0Qt/QiD+R5fKeu6ONNBI1Id0s1d8JS4LwchSjZjUQ5C5Mf1O8L3XyGFXTM5P7qJhBbUhWC+y9jeOK9QHwRA9FgfEeiQrFFJHptbKTN7K5KV4aewv6CwVu8zVkcCCRZ46Xc7O7AO8jlSC9hbmgJh/sfN2SIert49Vl0VviyRaH4PDy+rG2KSs7QhyB7HNMJHI3rD2k6f2MRq0BVrAE8y2BnsLl9iTts7VLZIXfymHdKKY031KlbWldXeeoMIijVTPo94XwzSrkR4UbTog==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=starfivetech.com; dmarc=pass action=none
- header.from=starfivetech.com; dkim=pass header.d=starfivetech.com; arc=none
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=starfivetech.com;
-Received: from ZQ0PR01MB0983.CHNPR01.prod.partner.outlook.cn
- (2406:e500:c550:e::11) by ZQ0PR01MB1240.CHNPR01.prod.partner.outlook.cn
- (2406:e500:c550:19::8) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8489.15; Thu, 27 Feb
- 2025 07:27:29 +0000
-Received: from ZQ0PR01MB0983.CHNPR01.prod.partner.outlook.cn
- ([fe80::6949:6e77:b17f:c6d0]) by
- ZQ0PR01MB0983.CHNPR01.prod.partner.outlook.cn ([fe80::6949:6e77:b17f:c6d0%4])
- with mapi id 15.20.8489.014; Thu, 27 Feb 2025 07:27:29 +0000
-From: Tingbo Liao <tingbo.liao@starfivetech.com>
-To: Alexandre Ghiti <alex@ghiti.fr>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>
-Cc: linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Tingbo Liao <tingbo.liao@starfivetech.com>
-Subject: [PATCH] Fix the __riscv_copy_vec_words_unaligned implementation
-Date: Wed, 26 Feb 2025 23:27:21 -0800
-Message-Id: <20250227072721.5889-1-tingbo.liao@starfivetech.com>
-X-Mailer: git-send-email 2.17.1
-X-ClientProxiedBy: NT0PR01CA0006.CHNPR01.prod.partner.outlook.cn
- (2406:e500:c510::8) To ZQ0PR01MB0983.CHNPR01.prod.partner.outlook.cn
- (2406:e500:c550:e::11)
+	Thu, 27 Feb 2025 08:08:37 +0000
+Received: by mail-wm1-x331.google.com with SMTP id 5b1f17b1804b1-43984e9cc90so10783055e9.1
+        for <linux-riscv@lists.infradead.org>; Thu, 27 Feb 2025 00:08:34 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ventanamicro.com; s=google; t=1740643713; x=1741248513; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=SXEKvsRH1IHGZjXRKII/sR3OF5jBOeQXuZKp+7GCCWk=;
+        b=caxT5OIJdjNsYvkezZ0bcLCvBz6APIj/kI+ThWNhCPvnEFaEUgSuBcxE1ZDSLYUqAo
+         UNmVApzvIJ9rL3e6ZWVd3c4/KCu7O1Pz8Zi5NYo92If2V/b4DqpS+8gj6IJtvAHEhttp
+         FHfQ7RDiTsJyIGaYddI/rLibo3WaemEtg6ned3rM7PU6gc3WT55Kpg96EaQy7p6XIF0+
+         ComQ4Sy6Vjx7ALuJAjBEYSq3apaWgKRBaFAZq6wBM/W7Vc+orQBnFNdTrMhBN0UArsER
+         S1IL4tgrL+eG8/PC/2uKOEtSXOt6pxbXj19LXS2gMNQtduGf7ujcshCPUziLDeS5NKO1
+         cKhQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1740643713; x=1741248513;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=SXEKvsRH1IHGZjXRKII/sR3OF5jBOeQXuZKp+7GCCWk=;
+        b=ftuQsf0Gyhs2ZVbyuCkX6B7kmfV8qkoA+QOVMiCDXLLVlLiuX645h3sHeekElLNIlk
+         JgOtuGXpqSDJ1127TzGbKMBHiIEGPlISFluTR65FskKWGPj0PmAV7d1DziMj7X1rpu2o
+         Jyx1IeD2cV5l6wLgR+5F4jIEvkDdri6BAaRPWmqHKjRoVEOARiLBDyzQr7Topz8jCVk5
+         jtkNsC5wkunTQiH1NhbCloZAl6XJUoxtztHsJlh7B7d2LxkyRoEPmFuEGD/8XZ5Y1BWH
+         lMN72aof0UAe/dNHfVhDM2+oPXlOv1cUpccKd+ocGL3HWAL/W7w7aeNOmnKtUONpxA8S
+         F/Ug==
+X-Forwarded-Encrypted: i=1; AJvYcCWIuGQrDRK3Uvgg8C6t/9qFS3HdagSiY/Wg25bnCHhWFmV/2W/1FQLy0Sz8iD3buGJrMia5fPgaOrZubQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0YzKpX/gYj2g9L8ResS3rB4cyrU9Qefw5HsEEhXTIyNlPl4KM1wo
+	aGkqLEeyiIyad0jQ3mUBSzp+QE0lo8mOEUQysbiANt4cqe/3cDoZxftMSEseFOc=
+X-Gm-Gg: ASbGnctMMwLO7kG3XTrz+Vph6YVOYl+zTBj38qDNQtZTAao3PPQJcudo7PA8JsPY76a
+	M3GTCU1fpbCTpJP2masAvpXaLFeCorWnY8ydRPjoxNDJfHqwGIXsHddEJ0djXNCkOsogdC/B3lc
+	PLk6CQGOu2stSsxFqpvEtYAAeXbOaTRYNxHFNPSsIyJTquRBCbWrrgt1VFZYopACNpkHr8v16TS
+	l7OTrxU9tZ0lmbK2xg/rlerFk81Bdk8jdwJEioIJCegqWRDQ71XrbedhaKnQLhrQ1ugMcGp8LoX
+	liXpNwgf+i4dRA==
+X-Google-Smtp-Source: AGHT+IFfzFnOGuM3XpELAhnmFcvI3sNcf5fvXpL9iafVg+5GXrJpxNcbrV4SnJPTY8dCnZQ7wtZd1A==
+X-Received: by 2002:a5d:5f93:0:b0:38b:f4e6:21aa with SMTP id ffacd0b85a97d-390e1648bd8mr1563072f8f.5.1740643713445;
+        Thu, 27 Feb 2025 00:08:33 -0800 (PST)
+Received: from localhost ([2a02:8308:a00c:e200::8cf0])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-390e47b6cd8sm1198683f8f.44.2025.02.27.00.08.32
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 27 Feb 2025 00:08:33 -0800 (PST)
+Date: Thu, 27 Feb 2025 09:08:32 +0100
+From: Andrew Jones <ajones@ventanamicro.com>
+To: Atish Patra <atishp@rivosinc.com>
+Cc: Anup Patel <anup@brainfault.org>, Atish Patra <atishp@atishpatra.org>, 
+	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Paolo Bonzini <pbonzini@redhat.com>, Shuah Khan <shuah@kernel.org>, kvm@vger.kernel.org, 
+	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	linux-kselftest@vger.kernel.org
+Subject: Re: [PATCH 3/4] KVM: riscv: selftests: Change command line option
+Message-ID: <20250227-eb9e3d8de1de2ff609ac8f64@orel>
+References: <20250226-kvm_pmu_improve-v1-0-74c058c2bf6d@rivosinc.com>
+ <20250226-kvm_pmu_improve-v1-3-74c058c2bf6d@rivosinc.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: ZQ0PR01MB0983:EE_|ZQ0PR01MB1240:EE_
-X-MS-Office365-Filtering-Correlation-Id: 83fa9780-f9c1-4799-69ba-08dd57003139
-X-MS-Exchange-SenderADCheck: 1
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|41320700013|52116014|366016|38350700014;
-X-Microsoft-Antispam-Message-Info: KmgTYEWCxw/rQrOFTx6dJpSheRjgS7+GlnVvRfqVJ6wBV1fJ1My8a3sVNbD++WHklFIW6VqgSKVGIJAhc1X4+SiNiyHM1YiK2V83fISSfDfUo1ZoB3pFzKebNgNROPLtUdsrcSj8tP/lnbUXS5bIhxamfCU0JI5vMgZ7jaiP7q5FH+zj61phOtpdriCsVZQohM1SBg2C0uVf7H50ArTUvLkPY5h5/kuE9ETWvaXgiE0NBAdh2yAUvFkIdSeYRsjKOctHKuztYy/Qk2T9pBslcHg8E77sU9cwLZR8AeAdLCWjDINYtbrQiBBiuPvi92hRSAvLB2n+RNGuRJyOY18QQQpnum3n/lPh9I3SF5ljmL155wt7rmjkrwxwI+woyF04Esr8S6U22KX3jhu67XOOgd8H0sNdB2biK+Q7YWX2vceIb9SEBxQ4nmjiPvePCtoAijGrhiQexUk0nQMfRvhak7FTg2sNaYJ47yQ/xeMN5cT1qA8JA4V2kvuqLNOTp8xlSx0dx92ZCi1gQyLlFzaHGyKa+zx3ALKMqLdVoFdYjgm9nK6MiygkKAZkST1KUw+ZfUOY5y9rQymGDbLfnr/zCBKfWwd0Mn0FDXol7wtU0JY=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:ZQ0PR01MB0983.CHNPR01.prod.partner.outlook.cn;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(41320700013)(52116014)(366016)(38350700014);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?0F4eSSmHdcqB4iadwYahw1hiJ72TRNwvPUuk7XAVe9SgOIcPo4ijEYwYeF8O?=
- =?us-ascii?Q?vDWUG2aKX5VCURCLIDyV94LHpflFTmIX+uwvRPZqTdZODTfOqfbumxP2EZhG?=
- =?us-ascii?Q?QrDPW8nwfzDc73vkoiOEbLq028rTVrMhK81FKh3CNRf9nFqnU+7RnMfi91LR?=
- =?us-ascii?Q?zIKonsKZenMAOalW+2WV/9xpZsSqT9uD/nacSdnjAWrVeqJT3ofFEfqSAem+?=
- =?us-ascii?Q?yCzP16SOSC6QSIbIUe4D9d2pIiJdW8uQ5iZT24nFtxSA0pFCzar/99F3SFsM?=
- =?us-ascii?Q?N7eFYavDpK9nO3OmRjQi3qyJ0QENt1TO2F6ZcG5clozmbwoOvnUQnQQ1pZRi?=
- =?us-ascii?Q?UbaRH51FbaZunnseEh3XTNwia2b2OS1CH9JXFAUWtsFyPM0O8sw0lSidGr+C?=
- =?us-ascii?Q?AC8gF49tO0+EAs+ueoEuAV7iRD37HfilDrfs5wOSG12BkCqc9EwK2PZ5jldp?=
- =?us-ascii?Q?nCG63TU0VvIB/X2JNUeuvLq5kT4HXgHDROnBO+UVrp2aRccIhmYZxobMZX/V?=
- =?us-ascii?Q?bX5d/m1gpUZeB92UU4QZ9f3IpBQS7nU0TzbYpzpOqZI1vNopZrOOInlFZ5nw?=
- =?us-ascii?Q?RzMBNmIU1hdG3Sqg6kVXBmQWdy0YMwn9WGZObWTcL7sjiBc+Z63Wrt0l3mi1?=
- =?us-ascii?Q?a0InK43re9C3ylR787zVXxciKmeeIdmf6mV5tEVWy0Bvrbk9xVpuMnPJx5aV?=
- =?us-ascii?Q?wmTb8V2PDlHeOSqcCUdSFDi6dNfDhPID7e2AQIX5o2lrfWteaw88zlxjc97j?=
- =?us-ascii?Q?qAcGvwt07HyoJ05OrOR/KSOvtxsEf7JTIw/NIwlIW5toKPkljsjQXQto2Ri7?=
- =?us-ascii?Q?yXYTLy9ZDRRxpFnNYoyrYeXWBKv0u2I1m5z2HX8jMJ5mbKA8breJ4eA7jriI?=
- =?us-ascii?Q?8tCyYx9xeCcLH9YT/akgXOqrl7pYlRItDXl/zEBlIfN9GGQ8gVPeLHtz6+JU?=
- =?us-ascii?Q?5VrMX3n5y8ua1rcohQkmL3GrIfy6o0mq7IUwDnUiGJq6KNGbe5SwEbYlMMze?=
- =?us-ascii?Q?ua0uzg1VhWG2+6WACPXL9iOq3ygmSJljbnTtMVufzqjCB8PvaK3B+kIqnyTU?=
- =?us-ascii?Q?npXvjHaF1145LTrbZv1tC5Z/FleuhkSLLYLwCpaHQ5LPtttxQaPd8UoM5seM?=
- =?us-ascii?Q?zz4ZPXK5MNLkInIkT3dbL1psg5lamk7z6Qlb0EZG7Gmw6Wzvm77P2dxxqLic?=
- =?us-ascii?Q?+DQG+7pnCBciaTQ+JbPrK+vXQoAmVWuRDCoFRB+uQ+ukfkheJNiVGNpkU7J8?=
- =?us-ascii?Q?jJ4woodAWr1ZdaZVuPMGkzCF/gNd+rOKKJNnUoMjUawQzdklsIdsAmoKJqF4?=
- =?us-ascii?Q?diF8XXVl6b23ZisuHzsw9LFfzIKnPuSipX6m3vDFBzEKm8mq/QPj8Ku+Mxig?=
- =?us-ascii?Q?p2n6jeck5ZZar+xY/45s/ekuoy3f1NqDg0AFf3Fp7yxl3LYJS4d7/A0Em2KS?=
- =?us-ascii?Q?kVns4XlJNRK+4CXgIVZ3k5EiiyjmlQwN9tjnLwOUvk+rzOLgCQxWwFP0v+g2?=
- =?us-ascii?Q?90XbFWoAOjFVFVH4+TUj9FzaVeh9y/hiSGeUakUs12Hcf5AGTbfrUNhKY6mh?=
- =?us-ascii?Q?9BkbI6KbW2QxnJX/shNYhij0x9yvWm41nFOrt73AQyLX1dzl0V91Soy1RktT?=
- =?us-ascii?Q?Bw=3D=3D?=
-X-OriginatorOrg: starfivetech.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 83fa9780-f9c1-4799-69ba-08dd57003139
-X-MS-Exchange-CrossTenant-AuthSource: ZQ0PR01MB0983.CHNPR01.prod.partner.outlook.cn
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 27 Feb 2025 07:27:29.5738
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 06fe3fa3-1221-43d3-861b-5a4ee687a85c
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 4SJDxjmt5ub1UefuERxZ6kWkNJU5/4Hskh1BRw/w7vhoE8pAfRltjanrqHGeit9rhoq+BudB4j8DTCpnMe+ToX2VoBwmH00V+Vv/zFYgZeU=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: ZQ0PR01MB1240
+Content-Disposition: inline
+In-Reply-To: <20250226-kvm_pmu_improve-v1-3-74c058c2bf6d@rivosinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250226_232748_262630_AFFD7233 
-X-CRM114-Status: UNSURE (   9.40  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250227_000835_734255_2610CD33 
+X-CRM114-Status: GOOD (  26.26  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -131,30 +101,142 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Correct the VEC_S macro definition to fix the implementation
-of vector words copy in the case of unalignment in RISC-V.
+On Wed, Feb 26, 2025 at 12:25:05PM -0800, Atish Patra wrote:
+> The PMU test commandline option takes an argument to disable a
+> certain test. The initial assumption behind this was a common use case
+> is just to run all the test most of the time. However, running a single
+> test seems more useful instead. Especially, the overflow test has been
+> helpful to validate PMU virtualizaiton interrupt changes.
+> 
+> Switching the command line option to run a single test instead
+> of disabling a single test also allows to provide additional
+> test specific arguments to the test. The default without any options
+> remains unchanged which continues to run all the tests.
+> 
+> Signed-off-by: Atish Patra <atishp@rivosinc.com>
+> ---
+>  tools/testing/selftests/kvm/riscv/sbi_pmu_test.c | 40 +++++++++++++++---------
+>  1 file changed, 26 insertions(+), 14 deletions(-)
+> 
+> diff --git a/tools/testing/selftests/kvm/riscv/sbi_pmu_test.c b/tools/testing/selftests/kvm/riscv/sbi_pmu_test.c
+> index 284bc80193bd..533b76d0de82 100644
+> --- a/tools/testing/selftests/kvm/riscv/sbi_pmu_test.c
+> +++ b/tools/testing/selftests/kvm/riscv/sbi_pmu_test.c
+> @@ -39,7 +39,11 @@ static bool illegal_handler_invoked;
+>  #define SBI_PMU_TEST_SNAPSHOT	BIT(2)
+>  #define SBI_PMU_TEST_OVERFLOW	BIT(3)
+>  
+> -static int disabled_tests;
+> +struct test_args {
+> +	int disabled_tests;
+> +};
+> +
+> +static struct test_args targs;
+>  
+>  unsigned long pmu_csr_read_num(int csr_num)
+>  {
+> @@ -604,7 +608,11 @@ static void test_vm_events_overflow(void *guest_code)
+>  	vcpu_init_vector_tables(vcpu);
+>  	/* Initialize guest timer frequency. */
+>  	timer_freq = vcpu_get_reg(vcpu, RISCV_TIMER_REG(frequency));
+> +
+> +	/* Export the shared variables to the guest */
+>  	sync_global_to_guest(vm, timer_freq);
+> +	sync_global_to_guest(vm, vcpu_shared_irq_count);
+> +	sync_global_to_guest(vm, targs);
+>  
+>  	run_vcpu(vcpu);
+>  
+> @@ -613,28 +621,30 @@ static void test_vm_events_overflow(void *guest_code)
+>  
+>  static void test_print_help(char *name)
+>  {
+> -	pr_info("Usage: %s [-h] [-d <test name>]\n", name);
+> -	pr_info("\t-d: Test to disable. Available tests are 'basic', 'events', 'snapshot', 'overflow'\n");
+> +	pr_info("Usage: %s [-h] [-t <test name>]\n", name);
+> +	pr_info("\t-t: Test to run (default all). Available tests are 'basic', 'events', 'snapshot', 'overflow'\n");
 
-Signed-off-by: Tingbo Liao <tingbo.liao@starfivetech.com>
----
- arch/riscv/kernel/vec-copy-unaligned.S | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+It's probably fine to drop '-d', since we don't make any claims about
+support, but doing so does risk breaking some CI somewhere. If that
+potential breakage is a concern, then we could keep '-d', since nothing
+stops us from having both.
 
-diff --git a/arch/riscv/kernel/vec-copy-unaligned.S b/arch/riscv/kernel/vec-copy-unaligned.S
-index d16f19f1b3b6..7ce4de6f6e69 100644
---- a/arch/riscv/kernel/vec-copy-unaligned.S
-+++ b/arch/riscv/kernel/vec-copy-unaligned.S
-@@ -11,7 +11,7 @@
- 
- #define WORD_SEW CONCATENATE(e, WORD_EEW)
- #define VEC_L CONCATENATE(vle, WORD_EEW).v
--#define VEC_S CONCATENATE(vle, WORD_EEW).v
-+#define VEC_S CONCATENATE(vse, WORD_EEW).v
- 
- /* void __riscv_copy_vec_words_unaligned(void *, const void *, size_t) */
- /* Performs a memcpy without aligning buffers, using word loads and stores. */
--- 
-2.46.0
+>  	pr_info("\t-h: print this help screen\n");
+>  }
+>  
+>  static bool parse_args(int argc, char *argv[])
+>  {
+>  	int opt;
+> -
+> -	while ((opt = getopt(argc, argv, "hd:")) != -1) {
+> +	int temp_disabled_tests = SBI_PMU_TEST_BASIC | SBI_PMU_TEST_EVENTS | SBI_PMU_TEST_SNAPSHOT |
+> +				  SBI_PMU_TEST_OVERFLOW;
+> +	while ((opt = getopt(argc, argv, "h:t:n:")) != -1) {
 
+'-h' doesn't need an argument and '-n' should be introduced with the next
+patch.
+
+>  		switch (opt) {
+> -		case 'd':
+> +		case 't':
+>  			if (!strncmp("basic", optarg, 5))
+> -				disabled_tests |= SBI_PMU_TEST_BASIC;
+> +				temp_disabled_tests &= ~SBI_PMU_TEST_BASIC;
+>  			else if (!strncmp("events", optarg, 6))
+> -				disabled_tests |= SBI_PMU_TEST_EVENTS;
+> +				temp_disabled_tests &= ~SBI_PMU_TEST_EVENTS;
+>  			else if (!strncmp("snapshot", optarg, 8))
+> -				disabled_tests |= SBI_PMU_TEST_SNAPSHOT;
+> +				temp_disabled_tests &= ~SBI_PMU_TEST_SNAPSHOT;
+>  			else if (!strncmp("overflow", optarg, 8))
+> -				disabled_tests |= SBI_PMU_TEST_OVERFLOW;
+> +				temp_disabled_tests &= ~SBI_PMU_TEST_OVERFLOW;
+>  			else
+>  				goto done;
+> +			targs.disabled_tests = temp_disabled_tests;
+>  			break;
+>  		case 'h':
+>  		default:
+> @@ -650,25 +660,27 @@ static bool parse_args(int argc, char *argv[])
+>  
+>  int main(int argc, char *argv[])
+>  {
+> +	targs.disabled_tests = 0;
+> +
+>  	if (!parse_args(argc, argv))
+>  		exit(KSFT_SKIP);
+>  
+> -	if (!(disabled_tests & SBI_PMU_TEST_BASIC)) {
+> +	if (!(targs.disabled_tests & SBI_PMU_TEST_BASIC)) {
+>  		test_vm_basic_test(test_pmu_basic_sanity);
+>  		pr_info("SBI PMU basic test : PASS\n");
+>  	}
+>  
+> -	if (!(disabled_tests & SBI_PMU_TEST_EVENTS)) {
+> +	if (!(targs.disabled_tests & SBI_PMU_TEST_EVENTS)) {
+>  		test_vm_events_test(test_pmu_events);
+>  		pr_info("SBI PMU event verification test : PASS\n");
+>  	}
+>  
+> -	if (!(disabled_tests & SBI_PMU_TEST_SNAPSHOT)) {
+> +	if (!(targs.disabled_tests & SBI_PMU_TEST_SNAPSHOT)) {
+>  		test_vm_events_snapshot_test(test_pmu_events_snaphost);
+>  		pr_info("SBI PMU event verification with snapshot test : PASS\n");
+>  	}
+>  
+> -	if (!(disabled_tests & SBI_PMU_TEST_OVERFLOW)) {
+> +	if (!(targs.disabled_tests & SBI_PMU_TEST_OVERFLOW)) {
+>  		test_vm_events_overflow(test_pmu_events_overflow);
+>  		pr_info("SBI PMU event verification with overflow test : PASS\n");
+>  	}
+> 
+> -- 
+> 2.43.0
+>
+
+Otherwise,
+
+Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
 
 _______________________________________________
 linux-riscv mailing list
