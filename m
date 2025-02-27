@@ -4,87 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 25BABC19F2E
-	for <linux-riscv@archiver.kernel.org>; Thu, 27 Feb 2025 13:33:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C0577C021BE
+	for <linux-riscv@archiver.kernel.org>; Thu, 27 Feb 2025 13:36:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=FVDVCWcxgZSRueXMczyYdxKAkZ0yKq0awHNYI+7fUwc=; b=jZderLYhq+Ut6I
-	jvP5ItGIxL/ORDgiJYQaDLIauUsXOKmvfCztiEduKmEVAdPrin7EEBxx972BnplOXs+vYRfJHEZEx
-	hu34Makr2xoWRHG/NobLGWp3JJj/Ri7aBIz3OmyGc9pEFi0MyUNZCaKLFntZ5yRRbuoe/fg/Oia0s
-	u65EPpGVSvdTNVJSxcVNiq0NHc+/N2k37dKQUJz9ziPBonhiwLRKZxTEKGOqSair2xO0p2aiHoMVF
-	q85ZnA5O3UrZThgN2NvDo1bFhEG/CSD/pwt/Us55Skn9UOEy5tor5W4XxqMGlY39IJzuTAI8m/EL9
-	C/bT509iLLFddXdHGp2w==;
+	List-Owner; bh=q1yWbAYPcrmCC+V2mgbuFq+BgVQ8z9V5Hh1+7zaAojI=; b=nDD6H6Sn9iiG1w
+	CXsLC9ogxDnAu7DNElih1ET3WLotuVrvX6dFJ/GhdDRfWZlrBWEv4AbUWpNqj4aAQhlau35EWu1fZ
+	EDgPEcS/A6fZbi3w7phqwLN5VahtFqgsQoJtab/xmnZqFTWlrjrHBbQChalMrGIeg1E3BSFXMTTai
+	2kHDCGlry2dyiyKVzakgyrkdgdBfcNgJGer65MPlxAs/S6I1WhapFn4MsRq8/U+NTDi+19YRs5iv+
+	GEqOQ+yRf6NwtMHfpv0TW926KrgZQFCGMq8XrvkTzlqXYyUroD9SvXZIoC167WWhIOhnhIOhG1MuN
+	7EFr5izzZC+xs9/KT5MQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tne0n-00000007Y0a-3evU;
-	Thu, 27 Feb 2025 13:33:13 +0000
-Received: from mail-io1-f46.google.com ([209.85.166.46])
+	id 1tne3u-00000007YV2-34U8;
+	Thu, 27 Feb 2025 13:36:26 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tndvi-00000007X1Y-39dl;
-	Thu, 27 Feb 2025 13:27:59 +0000
-Received: by mail-io1-f46.google.com with SMTP id ca18e2360f4ac-851c4ee2a37so71441739f.3;
-        Thu, 27 Feb 2025 05:27:58 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1740662877; x=1741267677;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=VZScFKf+GfAOC+cGkef77m9WTcLt48410fHxRRqxMGc=;
-        b=HKFBXHMxZouykIz6nCU1f5dS/wuY2UnLDNZAUeLtWr6Z7aZ/matUAgUuBVHI8lRjE/
-         eEh9jtp7o2FpRBpEyRiiCwxHV2KE0SzMF/BhhHUAZ2g2UCbqAu87RWrv5YBnp5wXdTAE
-         vo8Ym3urPe0V7dXx8IoPf+ZB6I1UhMs/5M6zjwY3qXf909tqKxewAUBJJBrxiCzuF9FZ
-         BLIAgWICe//57oEWizPZGMpjgovEyRG15/6yy7CkJb8FVKCxbP4UcNnrN4YZhBhc5rjm
-         hRZINFFuRCqe0vsef7V/lLMAy5oSsKv81eB1+S1nAcbYUbCXnc3b73NHITmjcm2ap8xx
-         rWfQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVz/65X9Rax0kb6oa5+yLC7mthQb7NV0zDC2cvlAeCK4rWB6mYxr5X+zwcSFO/73W+UFUPzDWzuJQo=@lists.infradead.org, AJvYcCXJnwlD6QvJ3qWsDEJ72TvQNbok9P5TNUJX5L/hcOlaTkgYO1C9n3IaWDne74/muoTUxpUGqFKe9fRgdQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0YxHhXJ0OlHJMy1ncB3sbWeVkvtCDGZVKdStP6jEDpuon8JlhT+f
-	Lyr2+BGwYUP+Ox//iBR2KSI+G8VbjQCaOTR+aCQrkgvaKnI7elDWtHQAbiEP
-X-Gm-Gg: ASbGncucdduBnPvHBQMtKMOa9oyvBvdxl+jU+7yPllJQJbnUkf8WtPwPR/Rmh572oHQ
-	ESYo66qHlVUbrvdrsm3G46t3cATh45f3jvyfKfS0JALIEyFbj9UnnyFakt4WwVNOvASsbDczEjh
-	KOjRsr+zHwF6VsrI3TpPQjADRAnMpbg5Iv9OgI4TV+a7OEmKlylK9K2zLZgfPmYGSAMn/NegE0c
-	il4h2vQCyC6xZClJLj1KrP9Ka/4UCjRh3ljb7bWas11rtZ3CILBv0weRJtFlwrfS5irspQyZkvq
-	x2ZrnVHNXkRt7eIAThigKYhoevDN/HoZRYkwwhCwBnuksiqrPXp2eLQa3oCtyDM5
-X-Google-Smtp-Source: AGHT+IHamU4LLTk/97jcD648IXqBXLezmB+7kExwuyujnzRkmGz4BMXvwLCtcVWrH7A6+FfeiQ4lSA==
-X-Received: by 2002:a05:6e02:1fc4:b0:3d3:e191:71bd with SMTP id e9e14a558f8ab-3d3e191731emr17287905ab.16.1740662876957;
-        Thu, 27 Feb 2025 05:27:56 -0800 (PST)
-Received: from mail-io1-f49.google.com (mail-io1-f49.google.com. [209.85.166.49])
-        by smtp.gmail.com with ESMTPSA id 8926c6da1cb9f-4f061c07c9bsm347636173.13.2025.02.27.05.27.56
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 27 Feb 2025 05:27:56 -0800 (PST)
-Received: by mail-io1-f49.google.com with SMTP id ca18e2360f4ac-85592116ca4so75341539f.1;
-        Thu, 27 Feb 2025 05:27:56 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCV7AyMzYvqq9fD72lwop5kTwsfPngNS+bCCgfERUk2iUv4hoiQVN+m4+hHjLNX8C4R4niSJ3pX64G+Fvw==@lists.infradead.org, AJvYcCXxO5W8szrrzQwkhD8EZhWHe5Mgq2umt0lhaJi8kps1yLIezkMXKvOIBPftuWzBqha2t1j5S5vadFE=@lists.infradead.org
-X-Received: by 2002:a05:6122:1d53:b0:520:51a4:b81c with SMTP id
- 71dfb90a1353d-5224ccbbe10mr3808700e0c.6.1740662495074; Thu, 27 Feb 2025
- 05:21:35 -0800 (PST)
+	id 1tne2i-00000007YJX-2JPa
+	for linux-riscv@lists.infradead.org;
+	Thu, 27 Feb 2025 13:35:13 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id F35FA5C05BB;
+	Thu, 27 Feb 2025 13:34:32 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 42518C4CEDD;
+	Thu, 27 Feb 2025 13:35:11 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1740663311;
+	bh=Rr/ZAs6GmOH5Zx/oWHv7ST2gf2X9v75nhFcxZDN+WmA=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=ksKRITalBMRrx8PI2TYjkm6vqOT15c6BEkYcq9R7/5hpch/3Nw6p4/kOieKMPaw4J
+	 7GgLzIYzIMOBgD6A/WdxtiUD0jaj+36l+qoiwF7o9rCr7lxIn3NzgJKZJ9j0D1iHPd
+	 HTuST4IABwd0KVMebmBehOzqITu+4rkxfhtZfXTAMs+hD48dp9n85DgtJgIhJlA921
+	 zM5Ta2d5Rd16mLjG5ab3OBw7XqdyINkexNUjcIGdgxTpU+1iULIfNJeNBneD52cXh2
+	 ZSbo62gxrAsG0IrH64z3y41cNX7KDfO22hj4zMDV0REErtAlWEPDCwRNTIJqyVwW7U
+	 gUmGMdpg4PVLw==
+Date: Thu, 27 Feb 2025 07:35:09 -0600
+From: Rob Herring <robh@kernel.org>
+To: Inochi Amaoto <inochiama@gmail.com>
+Cc: Philipp Zabel <p.zabel@pengutronix.de>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Chen Wang <unicorn_wang@outlook.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <u.kleine-koenig@baylibre.com>,
+	Guo Ren <guoren@kernel.org>, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, sophgo@lists.linux.dev,
+	linux-riscv@lists.infradead.org, Yixun Lan <dlan@gentoo.org>,
+	Longbin Li <looong.bin@gmail.com>
+Subject: Re: [PATCH v2 1/5] dt-bindings: reset: add generic bit reset
+ controller
+Message-ID: <20250227133509.GA2021892-robh@kernel.org>
+References: <20250226234234.125305-1-inochiama@gmail.com>
+ <20250226234234.125305-2-inochiama@gmail.com>
 MIME-Version: 1.0
-References: <cover.1740454179.git.zhengqi.arch@bytedance.com> <19db3e8673b67bad2f1df1ab37f1c89d99eacfea.1740454179.git.zhengqi.arch@bytedance.com>
-In-Reply-To: <19db3e8673b67bad2f1df1ab37f1c89d99eacfea.1740454179.git.zhengqi.arch@bytedance.com>
-From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Thu, 27 Feb 2025 14:21:23 +0100
-X-Gmail-Original-Message-ID: <CAMuHMdU8ttibKCiUPxSNBpJyrtBbrt1CqLa++jq6CpJFbFCwAg@mail.gmail.com>
-X-Gm-Features: AQ5f1Jqe6so1GjZXdkUhIIAiYHT08E9WH9vQcbiUEIVlcQBmr8vV6ha0mxzJuRo
-Message-ID: <CAMuHMdU8ttibKCiUPxSNBpJyrtBbrt1CqLa++jq6CpJFbFCwAg@mail.gmail.com>
-Subject: Re: [PATCH v2 3/6] mm: pgtable: convert some architectures to use tlb_remove_ptdesc()
-To: Qi Zheng <zhengqi.arch@bytedance.com>
-Cc: peterz@infradead.org, kevin.brodsky@arm.com, riel@surriel.com, 
-	vishal.moola@gmail.com, david@redhat.com, jannh@google.com, hughd@google.com, 
-	willy@infradead.org, yuzhao@google.com, muchun.song@linux.dev, 
-	akpm@linux-foundation.org, will@kernel.org, aneesh.kumar@kernel.org, 
-	npiggin@gmail.com, arnd@arndb.de, dave.hansen@linux.intel.com, 
-	rppt@kernel.org, alexghiti@rivosinc.com, linux-mm@kvack.org, 
-	linux-kernel@vger.kernel.org, linux-csky@vger.kernel.org, 
-	linux-hexagon@vger.kernel.org, loongarch@lists.linux.dev, 
-	linux-m68k@lists.linux-m68k.org, linux-mips@vger.kernel.org, 
-	linux-openrisc@vger.kernel.org, linux-sh@vger.kernel.org, 
-	linux-um@lists.infradead.org, x86@kernel.org, linux-riscv@lists.infradead.org
+Content-Disposition: inline
+In-Reply-To: <20250226234234.125305-2-inochiama@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250227_052758_782075_5628E69E 
-X-CRM114-Status: GOOD (  20.80  )
+X-CRM114-CacheID: sfid-20250227_053512_674038_39895803 
+X-CRM114-Status: GOOD (  10.39  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,53 +84,25 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Qi,
+On Thu, Feb 27, 2025 at 07:42:29AM +0800, Inochi Amaoto wrote:
+> Some SoCs from Aspeed, Allwinner, Sophgo and Synopsys have
+> a simple reset controller by toggling bit. It is a hard time
+> for each device to add its own compatible to the driver.
 
-On Tue, 25 Feb 2025 at 04:46, Qi Zheng <zhengqi.arch@bytedance.com> wrote:
-> Now, the nine architectures of csky, hexagon, loongarch, m68k, mips,
-> nios2, openrisc, sh and um do not select CONFIG_MMU_GATHER_RCU_TABLE_FREE,
-> and just call pagetable_dtor() + tlb_remove_page_ptdesc() (the wrapper of
-> tlb_remove_page()). This is the same as the implementation of
-> tlb_remove_{ptdesc|table}() under !CONFIG_MMU_GATHER_TABLE_FREE, so
-> convert these architectures to use tlb_remove_ptdesc().
->
-> The ultimate goal is to make the architecture only use tlb_remove_ptdesc()
-> or tlb_remove_table() for page table pages.
->
-> Signed-off-by: Qi Zheng <zhengqi.arch@bytedance.com>
-> Suggested-by: Peter Zijlstra (Intel) <peterz@infradead.org>
+It's a 1 line change. That isn't hard.
 
-Thanks for your patch!
+> Since these devices share a common design, it is possible to
+> add a common device to reduce these unnecessary change for
+> the driver.
+> 
+> Add common binding for these kind generic reset controller.
+> Check the binding description for its requirement and
+> suitable scenarios.
 
->  arch/m68k/include/asm/sun3_pgalloc.h | 3 +--
+We generally don't want 1 register per node type bindings. That level of 
+detail in DT has proven impossible to get right.
 
-Acked-by: Geert Uytterhoeven <geert@linux-m68k.org> # m68k
-
-> --- a/arch/m68k/include/asm/sun3_pgalloc.h
-> +++ b/arch/m68k/include/asm/sun3_pgalloc.h
-> @@ -19,8 +19,7 @@ extern const char bad_pmd_string[];
->
->  #define __pte_free_tlb(tlb, pte, addr)                         \
->  do {                                                           \
-> -       pagetable_dtor(page_ptdesc(pte));                       \
-> -       tlb_remove_page_ptdesc((tlb), page_ptdesc(pte));        \
-> +       tlb_remove_ptdesc((tlb), page_ptdesc(pte));             \
->  } while (0)
->
-
-With only a single statement remaining, you can remove the do { ... }
-while construct, too.
-
-Gr{oetje,eeting}s,
-
-                        Geert
-
--- 
-Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
-
-In personal conversations with technical people, I call myself a hacker. But
-when I'm talking to journalists I just say "programmer" or something like that.
-                                -- Linus Torvalds
+Rob
 
 _______________________________________________
 linux-riscv mailing list
