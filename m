@@ -4,86 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 654C2C021BE
-	for <linux-riscv@archiver.kernel.org>; Thu, 27 Feb 2025 11:28:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7D8D2C021BE
+	for <linux-riscv@archiver.kernel.org>; Thu, 27 Feb 2025 11:59:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
+	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=CPr0b4bPy3NrENIUn3QBJOb0pZJ+ZZoi29vur7MQX1w=; b=Sktw3rlY1G8oQ9
-	xjyGExIwFAQ9VYd4z/5WAR+TepMJ02lJzZalKOPRblOwCHUgv412aNjS4SbIZJX0OW3rgmrPsJmxL
-	BMztyWFwLshifsm2pTnaroXidKIWs1eBJemT8VcwTVoWRq2Lxxff09t9s/KlCk1DmVZ7NiWEpZnhk
-	S0Kye6LvjNzn+niZlIZgIqwUvs/eJkkHSjLcFe0tqmMJniCum1IO09DApxzpIMYhgjoC7mlkvAM4m
-	aQiW0E35efQ2ZbrQAn+Iq6Mcq5Bssz5oH5R1A9tmaB9ghSaXk79yokH/RuCWCqyVF0WAZ8OHVfvwk
-	jAdUT79abSWNtlIMvhaw==;
+	List-Owner; bh=Uhs3f/Ts5QwP1dFvrv1UCNe9u1IOL/9rKaYjB8ty7Sk=; b=Tq47ZRHTzC4FGr
+	BXOPGDgVG/IwzKMmJWlIDXKfvc/mSgBwCG1MNvWSZwJNwJh2U2NeLCrPfla7uzv/CmEX7yWmVJwjj
+	U9tyIe2Q7bj8Y6uGcCsaA5A6YrY9xNLBcZiOpr6SDdkV7XvCy321yyJkuoDjH5Q8AjGkP9oW3oEhz
+	8/7TxDmlw3UBZpIy7zFbPs4wMTqrFLXZySU9PzKdaFwe7SgnhlKix4sYUzHekZAW6QHzKaJhf3jKX
+	JQiMl+I43j/jBoevw1eXbOhXXZFuouy1blVPN6luIKllckh4sdU8DBRnuzrWH9t1uesIQFgFj31YZ
+	u76mmBoIvVaQQOCpmbsQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnc3d-00000007BI4-3vQv;
-	Thu, 27 Feb 2025 11:28:01 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnbpm-000000077ee-1WOO;
-	Thu, 27 Feb 2025 11:13:43 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B356E2C1C;
-	Thu, 27 Feb 2025 03:13:56 -0800 (PST)
-Received: from [10.57.85.134] (unknown [10.57.85.134])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 6FF103F6A8;
-	Thu, 27 Feb 2025 03:13:31 -0800 (PST)
-Message-ID: <16863478-2195-435e-a899-559df097bc59@arm.com>
-Date: Thu, 27 Feb 2025 11:13:29 +0000
+	id 1tncYC-00000007GVy-28NN;
+	Thu, 27 Feb 2025 11:59:36 +0000
+Received: from woodpecker.gentoo.org ([140.211.166.183] helo=smtp.gentoo.org)
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tnc15-00000007AhC-3Heu
+	for linux-riscv@lists.infradead.org;
+	Thu, 27 Feb 2025 11:25:24 +0000
+Received: from [127.0.0.1] (unknown [116.232.55.252])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: dlan)
+	by smtp.gentoo.org (Postfix) with ESMTPSA id 6A629340DE6;
+	Thu, 27 Feb 2025 11:25:20 +0000 (UTC)
+From: Yixun Lan <dlan@gentoo.org>
+Date: Thu, 27 Feb 2025 19:24:59 +0800
+Subject: [PATCH 1/2] irqdomain: support three-cell scheme interrupts
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v7 7/8] execmem: add support for cache of large ROX pages
-Content-Language: en-GB
-To: Mike Rapoport <rppt@kernel.org>, Andrew Morton
- <akpm@linux-foundation.org>, Luis Chamberlain <mcgrof@kernel.org>,
- Dev Jain <dev.jain@arm.com>
-Cc: Andreas Larsson <andreas@gaisler.com>, Andy Lutomirski <luto@kernel.org>,
- Ard Biesheuvel <ardb@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
- Borislav Petkov <bp@alien8.de>, Brian Cain <bcain@quicinc.com>,
- Catalin Marinas <catalin.marinas@arm.com>,
- Christoph Hellwig <hch@infradead.org>,
- Christophe Leroy <christophe.leroy@csgroup.eu>,
- Dave Hansen <dave.hansen@linux.intel.com>, Dinh Nguyen
- <dinguyen@kernel.org>, Geert Uytterhoeven <geert@linux-m68k.org>,
- Guo Ren <guoren@kernel.org>, Helge Deller <deller@gmx.de>,
- Huacai Chen <chenhuacai@kernel.org>, Ingo Molnar <mingo@redhat.com>,
- Johannes Berg <johannes@sipsolutions.net>,
- John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>,
- Kent Overstreet <kent.overstreet@linux.dev>,
- "Liam R. Howlett" <Liam.Howlett@oracle.com>,
- Mark Rutland <mark.rutland@arm.com>, Masami Hiramatsu <mhiramat@kernel.org>,
- Matt Turner <mattst88@gmail.com>, Max Filippov <jcmvbkbc@gmail.com>,
- Michael Ellerman <mpe@ellerman.id.au>, Michal Simek <monstr@monstr.eu>,
- Oleg Nesterov <oleg@redhat.com>, Palmer Dabbelt <palmer@dabbelt.com>,
- Peter Zijlstra <peterz@infradead.org>, Richard Weinberger <richard@nod.at>,
- Russell King <linux@armlinux.org.uk>, Song Liu <song@kernel.org>,
- Stafford Horne <shorne@gmail.com>, Steven Rostedt <rostedt@goodmis.org>,
- Suren Baghdasaryan <surenb@google.com>,
- Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
- Thomas Gleixner <tglx@linutronix.de>, Uladzislau Rezki <urezki@gmail.com>,
- Vineet Gupta <vgupta@kernel.org>, Will Deacon <will@kernel.org>,
- bpf@vger.kernel.org, linux-alpha@vger.kernel.org,
- linux-arch@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-csky@vger.kernel.org, linux-hexagon@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-m68k@lists.linux-m68k.org,
- linux-mips@vger.kernel.org, linux-mm@kvack.org,
- linux-modules@vger.kernel.org, linux-openrisc@vger.kernel.org,
- linux-parisc@vger.kernel.org, linux-riscv@lists.infradead.org,
- linux-sh@vger.kernel.org, linux-snps-arc@lists.infradead.org,
- linux-trace-kernel@vger.kernel.org, linux-um@lists.infradead.org,
- linuxppc-dev@lists.ozlabs.org, loongarch@lists.linux.dev,
- sparclinux@vger.kernel.org, x86@kernel.org
-References: <20241023162711.2579610-1-rppt@kernel.org>
- <20241023162711.2579610-8-rppt@kernel.org>
-From: Ryan Roberts <ryan.roberts@arm.com>
-In-Reply-To: <20241023162711.2579610-8-rppt@kernel.org>
+Message-Id: <20250227-04-gpio-irq-threecell-v1-1-4ae4d91baadc@gentoo.org>
+References: <20250227-04-gpio-irq-threecell-v1-0-4ae4d91baadc@gentoo.org>
+In-Reply-To: <20250227-04-gpio-irq-threecell-v1-0-4ae4d91baadc@gentoo.org>
+To: Linus Walleij <linus.walleij@linaro.org>, 
+ Bartosz Golaszewski <brgl@bgdev.pl>, Thomas Gleixner <tglx@linutronix.de>
+Cc: Alex Elder <elder@riscstar.com>, Inochi Amaoto <inochiama@gmail.com>, 
+ linux-kernel@vger.kernel.org, linux-gpio@vger.kernel.org, 
+ linux-riscv@lists.infradead.org, spacemit@lists.linux.dev, 
+ Yixun Lan <dlan@gentoo.org>
+X-Mailer: b4 0.15-dev
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1139; i=dlan@gentoo.org;
+ h=from:subject:message-id; bh=UZeskF50AAVW4VIGzve81+WsAxXVC9xLTtHgwD9uLs8=;
+ b=owEBzQIy/ZANAwAKATGq6kdZTbvtAcsmYgBnwEuV0jaUFEhkEP6ug87op1aJ2zrrksR0O4/U8
+ RKhyaKWORWJApMEAAEKAH0WIQS1urjJwxtxFWcCI9wxqupHWU277QUCZ8BLlV8UgAAAAAAuAChp
+ c3N1ZXItZnByQG5vdGF0aW9ucy5vcGVucGdwLmZpZnRoaG9yc2VtYW4ubmV0QjVCQUI4QzlDMzF
+ CNzExNTY3MDIyM0RDMzFBQUVBNDc1OTREQkJFRAAKCRAxqupHWU277UX0EACSHmw0dzvqhyKnH9
+ rMgv7118nywDJl0Y6Gk4xDkHfe2vMbGXesc+/1KJydfcUdp0VoWk27zqB1h8PibvL1D67EiztH8
+ lH8sRPHJO+OxcLX2B+xrAmVNIRcpvGrQ/gc5NLrpN1NFiurr/Y3NJXk3egkqaWc4fq0m262vBuH
+ FelcyQvaGmKVxBwa6iiQmbpUht5FtW2dUKGdjVyQ9TxclBag2YTBP1Gju5KvbY9Dv01PD9h0xl2
+ cJF4jSde2/L+7IEzRGVqhk6jLR48EwLl9fFXOfUC8l2CfnfH6XSmYtC4T5UtcB4P3e1EKmYMWzw
+ Ne1shUaasajMhePQOXx2v0xeGAfpDMvF3i3oTiibBHkbufWtlNFzYaGIOPNOL3fNeJvTS0AYz3N
+ wK2fd4517J5RoUfYfXiN42a/hz2fLT/uKku+QwUOwIRWffEAV8NgmQMsAunat661FUMszCiJRfb
+ 9SITGMdlzp8e/QkyAk15Qb/abS2ClSqBvRkEwi3Jt8TjBoeIl2YEfMb8rvMXVdrjDfRXHxDCn/2
+ Xi/qed2jBPi8rnXzaSSozsWctOQH/aRoUXieECzwjq2vb4BtPkK22SNFKkUEQjwFqVHyh58TXE7
+ A6Il0VonnwBEt7ykP0OYKrHobSM485ZWplM/UliXEIlrqYs0ZOYB0IhVCTqFRFqOZT3Q==
+X-Developer-Key: i=dlan@gentoo.org; a=openpgp;
+ fpr=50B03A1A5CBCD33576EF8CD7920C0DBCAABEFD55
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250227_031342_495427_7DEEA47A 
-X-CRM114-Status: GOOD (  21.62  )
+X-CRM114-CacheID: sfid-20250227_032523_849337_9773600F 
+X-CRM114-Status: UNSURE (   9.58  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,104 +85,43 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Mike,
+The is a prerequisite patch to support parsing three-cell
+interrupts which encoded as <instance hwirq irqflag>,
+the translate function will always retrieve irq number and
+flag from last two cells.
 
-Drive by review comments below...
+Signed-off-by: Yixun Lan <dlan@gentoo.org>
+---
+ kernel/irq/irqdomain.c | 11 +++++++++--
+ 1 file changed, 9 insertions(+), 2 deletions(-)
 
+diff --git a/kernel/irq/irqdomain.c b/kernel/irq/irqdomain.c
+index ec6d8e72d980f604ded2bfa2143420e0e0095920..cb874ab5e54a4763d601122becd63b6d759e55d2 100644
+--- a/kernel/irq/irqdomain.c
++++ b/kernel/irq/irqdomain.c
+@@ -1208,10 +1208,17 @@ int irq_domain_translate_twocell(struct irq_domain *d,
+ 				 unsigned long *out_hwirq,
+ 				 unsigned int *out_type)
+ {
++	u32 irq, type;
++
+ 	if (WARN_ON(fwspec->param_count < 2))
+ 		return -EINVAL;
+-	*out_hwirq = fwspec->param[0];
+-	*out_type = fwspec->param[1] & IRQ_TYPE_SENSE_MASK;
++
++	irq = fwspec->param_count - 2;
++	type = fwspec->param_count - 1;
++
++	*out_hwirq = fwspec->param[irq];
++	*out_type = fwspec->param[type] & IRQ_TYPE_SENSE_MASK;
++
+ 	return 0;
+ }
+ EXPORT_SYMBOL_GPL(irq_domain_translate_twocell);
 
-On 23/10/2024 17:27, Mike Rapoport wrote:
-> From: "Mike Rapoport (Microsoft)" <rppt@kernel.org>
-> 
-> Using large pages to map text areas reduces iTLB pressure and improves
-> performance.
-> 
-> Extend execmem_alloc() with an ability to use huge pages with ROX
-> permissions as a cache for smaller allocations.
-> 
-> To populate the cache, a writable large page is allocated from vmalloc with
-> VM_ALLOW_HUGE_VMAP, filled with invalid instructions and then remapped as
-> ROX.
-> 
-> The direct map alias of that large page is exculded from the direct map.
-> 
-> Portions of that large page are handed out to execmem_alloc() callers
-> without any changes to the permissions.
-> 
-> When the memory is freed with execmem_free() it is invalidated again so
-> that it won't contain stale instructions.
-> 
-> An architecture has to implement execmem_fill_trapping_insns() callback
-> and select ARCH_HAS_EXECMEM_ROX configuration option to be able to use
-> the ROX cache.
-> 
-> The cache is enabled on per-range basis when an architecture sets
-> EXECMEM_ROX_CACHE flag in definition of an execmem_range.
-> 
-> Signed-off-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
-> Reviewed-by: Luis Chamberlain <mcgrof@kernel.org>
-> Tested-by: kdevops <kdevops@lists.linux.dev>
-> ---
-
-[...]
-
-> +
-> +static int execmem_cache_populate(struct execmem_range *range, size_t size)
-> +{
-> +	unsigned long vm_flags = VM_ALLOW_HUGE_VMAP;
-> +	unsigned long start, end;
-> +	struct vm_struct *vm;
-> +	size_t alloc_size;
-> +	int err = -ENOMEM;
-> +	void *p;
-> +
-> +	alloc_size = round_up(size, PMD_SIZE);
-> +	p = execmem_vmalloc(range, alloc_size, PAGE_KERNEL, vm_flags);
-
-Shouldn't this be passing PAGE_KERNEL_ROX? Otherwise I don't see how the
-allocated memory is ROX? I don't see any call below where you change the permission.
-
-Given the range has the pgprot in it, you could just drop passing the pgprot
-explicitly here and have execmem_vmalloc() use range->pgprot directly?
-
-Thanks,
-Ryan
-
-> +	if (!p)
-> +		return err;
-> +
-> +	vm = find_vm_area(p);
-> +	if (!vm)
-> +		goto err_free_mem;
-> +
-> +	/* fill memory with instructions that will trap */
-> +	execmem_fill_trapping_insns(p, alloc_size, /* writable = */ true);
-> +
-> +	start = (unsigned long)p;
-> +	end = start + alloc_size;
-> +
-> +	vunmap_range(start, end);
-> +
-> +	err = execmem_set_direct_map_valid(vm, false);
-> +	if (err)
-> +		goto err_free_mem;
-> +
-> +	err = vmap_pages_range_noflush(start, end, range->pgprot, vm->pages,
-> +				       PMD_SHIFT);
-> +	if (err)
-> +		goto err_free_mem;
-> +
-> +	err = execmem_cache_add(p, alloc_size);
-> +	if (err)
-> +		goto err_free_mem;
-> +
-> +	return 0;
-> +
-> +err_free_mem:
-> +	vfree(p);
-> +	return err;
-> +}
-
-[...]
+-- 
+2.48.1
 
 
 _______________________________________________
