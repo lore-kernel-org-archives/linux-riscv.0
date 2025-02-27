@@ -4,88 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C6E84C19F2E
-	for <linux-riscv@archiver.kernel.org>; Thu, 27 Feb 2025 14:38:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F30EC19F32
+	for <linux-riscv@archiver.kernel.org>; Thu, 27 Feb 2025 19:39:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:To:Subject:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
 	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=fUBkx1KVtiDoass8+mNYJ4djVwiOJtW9rz9DH3TRr+s=; b=PRrHGinKLWrnqn
-	D8HuAvpHoczeQ5Rc690Jf+PfB9JtZ0inFSythuMEr5NI9ahgpZGD/+M9TDnvbY+aLGpR5N3n5olPN
-	R8CRwNW6JOOSFqW1Cysc09GvboFX5Gqfm1fZOQFFrZm9Iv80GFcVPS+CvzhVcPYgL2QEohxp9LRDg
-	f6tpcq3L51xgrvbpl7AU1JvIaueu50IbN6DG5brW9juQvBYlHWUFmYDTtmJHd/p4pwkPaVSpNSrsd
-	9+Vonn3Z4I+h3sQ8urs6NXCuFNFvvpFJNmzri1f2LwVJTvU4wmM3tA5lEpldSgZvIukeSdwv7C1IX
-	eIOktAQOVaHv0dIflozw==;
+	List-Owner; bh=RbAuKykk8mSK8k6GOo7HoBSME8Q3Id/ThkL5Hl7jEFc=; b=Osy+pkHUxfQUxn
+	VJCd3JkKuzbRX765CXdduiv07O0N+5I6/7b6uFmVZ27g57ffIn12HbpJ/oeVbdIMCXcMZuNW2ygOz
+	9vsglJXUK5y+xinp7PWvgk5SFyAji+Fupqa47Rf66JSiNGojv2WZyswlUQW0bYdchJUisGZpaiSMt
+	D9wanX3wG6SsD4O3xuthGj6ygGtqUzQTbmigs/yz/kFUBV+I8K3VvtioRlTv6qGGgm0UhKR0qnAn4
+	mBjPP4MaZy6wtsG6ooQ1vQAOu7lbNnVab7sVQ1nT1YvW5nL2Xi2ksKFLZaD3xsXaBgcoyuz1r/FpE
+	zbym8EI1vv0ByPgTqJnA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnf1k-00000007lWf-48m6;
-	Thu, 27 Feb 2025 14:38:16 +0000
-Received: from mail-pl1-x630.google.com ([2607:f8b0:4864:20::630])
+	id 1tnjjD-00000008Xko-3C3d;
+	Thu, 27 Feb 2025 19:39:27 +0000
+Received: from mail-il1-x131.google.com ([2607:f8b0:4864:20::131])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tndSV-00000007RaE-0Oe0
+	id 1tngVL-0000000824V-2vjx
 	for linux-riscv@lists.infradead.org;
-	Thu, 27 Feb 2025 12:57:48 +0000
-Received: by mail-pl1-x630.google.com with SMTP id d9443c01a7336-22337bc9ac3so14873255ad.1
-        for <linux-riscv@lists.infradead.org>; Thu, 27 Feb 2025 04:57:46 -0800 (PST)
+	Thu, 27 Feb 2025 16:12:57 +0000
+Received: by mail-il1-x131.google.com with SMTP id e9e14a558f8ab-3d2a8c2467eso3897515ab.3
+        for <linux-riscv@lists.infradead.org>; Thu, 27 Feb 2025 08:12:54 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1740661066; x=1741265866; darn=lists.infradead.org;
+        d=riscstar-com.20230601.gappssmtp.com; s=20230601; t=1740672774; x=1741277574; darn=lists.infradead.org;
         h=content-transfer-encoding:in-reply-to:from:content-language
          :references:cc:to:subject:user-agent:mime-version:date:message-id
          :from:to:cc:subject:date:message-id:reply-to;
-        bh=Pf96MEttABttkon6JyPzDs9JgVTWCcxQW9KTdzVlvqQ=;
-        b=U5+1bYBPqq8eP1wg+7EmcXHV0BSvdJNTsXnS2wGYNVwsW+NTwXaMn6Qp+M8P2IZ0JD
-         syaW6IeBT0CgFrRz1MFI2MLU/ISmZiccq1RK4LJytv68YRfo4RoOHfP2kuTbr47B503U
-         QRQoDMqSBCHGYdVk7I11CZh0OK5aIDsW5INYFYAEenJ4T/m7KDqVxJ9JY6BZ9TL0+Vjx
-         h3q0BNeaB/l/1hYFawxABTm1UnKP6dfCD0+axYJoUQba6mzt3sqLvmB/KRTD2w/C3tEE
-         jA9/GvMft7KgvXrP9skK9wIcL6WagGo4xoBvpu9MrwgUl0USO/hVaXhDaMAFIbWgKlIz
-         55vw==
+        bh=A4a+PIYpn9cYVWDOKIU06eghAJvUip+lThQ1gAkAfoE=;
+        b=nGXwv2L7wrpqW2okIBHsWRZwFtW6IIL3M598JJAy+uvHH2CbJQI8Tg1s/8C2kw3lJO
+         eRx67vkA89ZtUu0EfTSVHGv/UuuYGmIqPvXhm7wl95WI0sJycD9ViB8Kma/xPRK3pP0s
+         zb7R20UTmPrUJiYVChjxbrMEzBxxfy9u4NUVzk8lKzyoMr/sMIurOp1DVR2aa5k8K6Zz
+         wtykWrt942thY3tAIZLgCPfocRRPPPAcHPqmtF06prCpdGg0JAjW0WbdGBpfR0jbAfmY
+         UDg3dzLujCcLkNDhB1v45wealveYDeUMBKZlsRnfIyXYx0zu6qp9WB7WTAjxaBtyPCPU
+         gdgw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1740661066; x=1741265866;
+        d=1e100.net; s=20230601; t=1740672774; x=1741277574;
         h=content-transfer-encoding:in-reply-to:from:content-language
          :references:cc:to:subject:user-agent:mime-version:date:message-id
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=Pf96MEttABttkon6JyPzDs9JgVTWCcxQW9KTdzVlvqQ=;
-        b=Dv4lELLzpz6zkRGikB2VKOlEn1biUk2K+ommQfVAPX7GCindcutWcIQoLKD/fsK1JF
-         3bMdztmmsYIaPyGCJN+Yr5BVliNaQwGcimy7+YGvvMYPIFviQHn0/bg4piUQIsROT7un
-         TxvMlyY1nfmCILYPUywKHWT68jN0QGAxU2UPK1KKayUN8V7IUuPPxD7DfJ9D7MxRtpb0
-         CsEKr+gxkBn+P0ge47pCIGVLee+rh20Noe6TAQ/vap3edpKxo/whfDxOu0jbQUeo22km
-         9Vw/lr9jm1QJqds2iQ8uJxTUsyWKIEO5stFfn0LICIGajiFfek1kaM8Y++yJw1D65ioL
-         xcYA==
-X-Forwarded-Encrypted: i=1; AJvYcCVVEj90OhIgncPT+Aj7MXj5my/ykeEOhHrLGqYIwo7zkw3odysm1dFBbXghqCdDe4/fB2G9gTzOFyhdbQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0YxPuSO35yJpx2JIK2OXLnI1O84DIBwZMFHTayg1SpBGyVwhKIp0
-	iOdrcYjiKIp/T7i12//o4WjlFQsFlL7eEGdlvtsMIcqHoxYk3Qa9mmwyG/3dV9E=
-X-Gm-Gg: ASbGncsXdPNXF5C9WMwp94ANQ19Arlo15x8iD3uJGmRjB8DeS7ETpSs93PJPSgN9NPm
-	ao/6Mprvtitpiqm/fe8agl+OdzFwdd18+Epz9yJskWrQ0gvkfH4YTIdh18WxmRqwXNiMsh1ghB8
-	tA+VK3eFH9CBJEuxfMbaLIhqxAJtElcecljDE1sWYhUqx6mAjrA/WgijPI2D/xs8CYBRx72oIMg
-	tYSmQNHp17FZ1jgetBd/+bkodmQOm5w4pElWsB7C1L6mOUqyLom+LvSGsrF7wDbTP5qmq7CPlLg
-	qQDU96LSidtDXH/jmGpKq5edmorVwEjInqaopaRKaTNyadnftg3JZRk8/Eo7CgWD5n5UHqE=
-X-Google-Smtp-Source: AGHT+IFx4pIh3JIPBr0kkMiUgEYGJKIIZ775OsAddLWn3ffImcN2wl1+nGQSMf4FINEK1qVgjm20Mw==
-X-Received: by 2002:a05:6a21:6d9a:b0:1ee:d6da:b646 with SMTP id adf61e73a8af0-1eef52d935emr44541622637.11.1740661066261;
-        Thu, 27 Feb 2025 04:57:46 -0800 (PST)
-Received: from ?IPV6:2a01:e0a:e17:9700:16d2:7456:6634:9626? ([2a01:e0a:e17:9700:16d2:7456:6634:9626])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-7349fe48865sm1508632b3a.50.2025.02.27.04.57.37
+        bh=A4a+PIYpn9cYVWDOKIU06eghAJvUip+lThQ1gAkAfoE=;
+        b=Zm2Sicb4fyZa/ztjbpLWDWNCGYnWSCFBu+QVjb/Nfa3hNn227lDpH9os7vgaeytsHK
+         PuniFnxg4hKnjXaHtpb83VOKl6rXAYDxg6ADnmPcioFWvxwDEAQHtRFlRAp6kJhMiIfv
+         3OCFga8xROzoL2FP8+Z6OjUubFPtQFvaCEtDGptmlmxgjRobpaSFjEmg/2xbYK2S9KUw
+         1olBu3z0KIkgsNSw9Exlm1yj85skvj6PCwlLcDoXtXzRMXqBlFfbxUmvL+vGPoDKUSgj
+         qz+HLawOLPqIF2sD8KSOlyTHGKrrJdXkN5BpCyskFk/GP7fwwAVmfJbdJ4bIk/TJCtUk
+         TPkQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUU07RJ12IdXgcJQPDZFuD9AueLnuSY4BtwAAcVQT96a38RpVIQ+11OaylmL1bcL1cXbuFupx7GKJPDOA==@lists.infradead.org
+X-Gm-Message-State: AOJu0YwSta23Zg2dP4Nk268SfLOm94TPeWobEAIsag1YcTueyWYe7JSn
+	jLBClWCebcaFxJxxpMasbQlcBgNRGcmt+9gbNcnLl2M5ymEElPps1bX3urSamWE=
+X-Gm-Gg: ASbGncuZwHomH3xURydlRYiDOsBnbD28YE9k4M0fftbFJZSDRM2CeWVyi+Cez1BWfh+
+	NSPkM5tSDvLlw753AiwKC00LWcEMNA9/en4kkfRG+0E5JtnHXYk90bJ3qELr8R3PmAKMDatOsR9
+	HnWrf0D1YdN56uL/oTaxKbrPqK4EeXGyfVKnmiINRay3NsruwU/rGLtbu2qrpAPiaw6bClTdOgh
+	A29okItWum59GzZd//hSRKFa46fUGq534KaKF3+261UxZvpMZHdhHvmIRc4cd/9vp2vTvxvrLwH
+	4H/FuK+iI/Q43T9j1A/PH/DDw4aTgzbrvf20+JaNJ8QbE8m2+FMkqRPYiCcjvuhIDw==
+X-Google-Smtp-Source: AGHT+IECEOEF/3IgUpjExo3hn+o7d72t1ArCxVXIIzsvV1Vpk9+T4m/ul07rs6wpKxf4ijf45waAXQ==
+X-Received: by 2002:a92:c545:0:b0:3d1:79ec:bef2 with SMTP id e9e14a558f8ab-3d2fecce699mr113973395ab.6.1740672773762;
+        Thu, 27 Feb 2025 08:12:53 -0800 (PST)
+Received: from [172.22.22.28] (c-73-228-159-35.hsd1.mn.comcast.net. [73.228.159.35])
+        by smtp.gmail.com with ESMTPSA id e9e14a558f8ab-3d3deeca7ffsm3742305ab.53.2025.02.27.08.12.52
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 27 Feb 2025 04:57:45 -0800 (PST)
-Message-ID: <cf568ee0-8baf-4701-9e22-0b71792cf329@rivosinc.com>
-Date: Thu, 27 Feb 2025 13:57:31 +0100
+        Thu, 27 Feb 2025 08:12:53 -0800 (PST)
+Message-ID: <8fce8a9c-7946-4e3c-bbf3-25f8b4f4466f@riscstar.com>
+Date: Thu, 27 Feb 2025 10:12:51 -0600
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH v1 02/10] riscv: Define arch_apei_get_mem_attribute
- for RISC-V
-To: Himanshu Chauhan <hchauhan@ventanamicro.com>,
- linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-acpi@vger.kernel.org, linux-efi@vger.kernel.org,
- acpica-devel@lists.linux.dev
-References: <20250227123628.2931490-1-hchauhan@ventanamicro.com>
- <20250227123628.2931490-3-hchauhan@ventanamicro.com>
+Subject: Re: [PATCH 1/2] irqdomain: support three-cell scheme interrupts
+To: Yixun Lan <dlan@gentoo.org>, Linus Walleij <linus.walleij@linaro.org>,
+ Bartosz Golaszewski <brgl@bgdev.pl>, Thomas Gleixner <tglx@linutronix.de>
+Cc: Inochi Amaoto <inochiama@gmail.com>, linux-kernel@vger.kernel.org,
+ linux-gpio@vger.kernel.org, linux-riscv@lists.infradead.org,
+ spacemit@lists.linux.dev
+References: <20250227-04-gpio-irq-threecell-v1-0-4ae4d91baadc@gentoo.org>
+ <20250227-04-gpio-irq-threecell-v1-1-4ae4d91baadc@gentoo.org>
 Content-Language: en-US
-From: =?UTF-8?B?Q2zDqW1lbnQgTMOpZ2Vy?= <cleger@rivosinc.com>
-In-Reply-To: <20250227123628.2931490-3-hchauhan@ventanamicro.com>
+From: Alex Elder <elder@riscstar.com>
+In-Reply-To: <20250227-04-gpio-irq-threecell-v1-1-4ae4d91baadc@gentoo.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250227_045747_385331_B98C47B1 
-X-CRM114-Status: GOOD (  15.93  )
+X-CRM114-CacheID: sfid-20250227_081255_912956_84CD7C86 
+X-CRM114-Status: GOOD (  15.65  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,39 +97,58 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: apatel@ventanamicro.com, tony.luck@intel.com, robert.moore@intel.com, conor@kernel.org, james.morse@arm.com, paul.walmsley@sifive.com, palmer@dabbelt.com, ardb@kernel.org, lenb@kernel.org
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-CgpPbiAyNy8wMi8yMDI1IDEzOjM2LCBIaW1hbnNodSBDaGF1aGFuIHdyb3RlOgo+IGdoZXNfbWFw
-IGZ1bmN0aW9uIHVzZXMgYXJjaF9hcGVpX2dldF9tZW1fYXR0cmlidXRlIHRvIGdldCB0aGUKPiBw
-cm90ZWN0aW9uIGJpdHMgZm9yIGEgZ2l2ZW4gcGh5c2ljYWwgYWRkcmVzcy4gVGhlc2UgcHJvdGVj
-dGlvbgo+IGJpdHMgYXJlIHRoZW4gdXNlZCB0byBtYXAgdGhlIHBoeXNpY2FsIGFkZHJlc3MuCj4g
-Cj4gU2lnbmVkLW9mZi1ieTogSGltYW5zaHUgQ2hhdWhhbiA8aGNoYXVoYW5AdmVudGFuYW1pY3Jv
-LmNvbT4KPiAtLS0KPiAgYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9hY3BpLmggfCAyMCArKysrKysr
-KysrKysrKysrKysrKwo+ICAxIGZpbGUgY2hhbmdlZCwgMjAgaW5zZXJ0aW9ucygrKQo+IAo+IGRp
-ZmYgLS1naXQgYS9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL2FjcGkuaCBiL2FyY2gvcmlzY3YvaW5j
-bHVkZS9hc20vYWNwaS5oCj4gaW5kZXggNmUxMzY5NTEyMGJjLi4wYzU5OTQ1MmVmNDggMTAwNjQ0
-Cj4gLS0tIGEvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9hY3BpLmgKPiArKysgYi9hcmNoL3Jpc2N2
-L2luY2x1ZGUvYXNtL2FjcGkuaAo+IEBAIC0yNyw2ICsyNywyNiBAQCBleHRlcm4gaW50IGFjcGlf
-ZGlzYWJsZWQ7Cj4gIGV4dGVybiBpbnQgYWNwaV9ub2lycTsKPiAgZXh0ZXJuIGludCBhY3BpX3Bj
-aV9kaXNhYmxlZDsKPiAgCj4gKyNpZmRlZglDT05GSUdfQUNQSV9BUEVJCj4gKy8qCj4gKyAqIGFj
-cGlfZGlzYWJsZV9jbWNmZiBpcyB1c2VkIGluIGRyaXZlcnMvYWNwaS9hcGVpL2hlc3QuYyBmb3Ig
-ZGlzYWJsaW5nCj4gKyAqIElBLTMyIEFyY2hpdGVjdHVyZSBDb3JyZWN0ZWQgTWFjaGluZSBDaGVj
-ayAoQ01DKSBGaXJtd2FyZS1GaXJzdCBtb2RlCj4gKyAqIHdpdGggYSBrZXJuZWwgY29tbWFuZCBs
-aW5lIHBhcmFtZXRlciAiYWNwaT1ub2NtY29mZiIuIEJ1dCB3ZSBkb24ndAo+ICsgKiBoYXZlIHRo
-aXMgSUEtMzIgc3BlY2lmaWMgZmVhdHVyZSBvbiBBUk02NCwgdGhpcyBkZWZpbml0aW9uIGlzIG9u
-bHkKCkhpIEhpbWFuc2h1CgpzL0FSTS9SSVNDLVYKClRoYW5rcywKCkNsw6ltZW50Cgo+ICsgKiBm
-b3IgY29tcGF0aWJpbGl0eS4KPiArICovCj4gKyNkZWZpbmUgYWNwaV9kaXNhYmxlX2NtY2ZmIDEK
-PiArc3RhdGljIGlubGluZSBwZ3Byb3RfdCBhcmNoX2FwZWlfZ2V0X21lbV9hdHRyaWJ1dGUocGh5
-c19hZGRyX3QgYWRkcikKPiArewo+ICsJLyoKPiArCSAqIFVudGlsIHdlIGhhdmUgYSB3YXkgdG8g
-bG9vayBmb3IgRUZJIG1lbW9yeSBhdHRyaWJ1dGVzLgo+ICsJICovCj4gKwlyZXR1cm4gUEFHRV9L
-RVJORUw7Cj4gK30KPiArI2Vsc2UgLyogQ09ORklHX0FDUElfQVBFSSAqLwo+ICsjZGVmaW5lIGFj
-cGlfZGlzYWJsZV9jbWNmZiAwCj4gKyNlbmRpZiAvKiAhQ09ORklHX0FDUElfQVBFSSAqLwo+ICsK
-PiAgc3RhdGljIGlubGluZSB2b2lkIGRpc2FibGVfYWNwaSh2b2lkKQo+ICB7Cj4gIAlhY3BpX2Rp
-c2FibGVkID0gMTsKCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFk
-Lm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJp
-c2N2Cg==
+On 2/27/25 5:24 AM, Yixun Lan wrote:
+> The is a prerequisite patch to support parsing three-cell
+> interrupts which encoded as <instance hwirq irqflag>,
+> the translate function will always retrieve irq number and
+> flag from last two cells.
+> 
+> Signed-off-by: Yixun Lan <dlan@gentoo.org>
+> ---
+>   kernel/irq/irqdomain.c | 11 +++++++++--
+>   1 file changed, 9 insertions(+), 2 deletions(-)
+> 
+> diff --git a/kernel/irq/irqdomain.c b/kernel/irq/irqdomain.c
+> index ec6d8e72d980f604ded2bfa2143420e0e0095920..cb874ab5e54a4763d601122becd63b6d759e55d2 100644
+> --- a/kernel/irq/irqdomain.c
+> +++ b/kernel/irq/irqdomain.c
+> @@ -1208,10 +1208,17 @@ int irq_domain_translate_twocell(struct irq_domain *d,
+>   				 unsigned long *out_hwirq,
+>   				 unsigned int *out_type)
+>   {
+
+This function is meant for "twocell".  There is also another function
+irq_domain_translate_onecell().  Why don't you just create
+irq_domain_translate_threecell" instead?
+
+					-Alex
+
+
+> +	u32 irq, type;
+> +
+>   	if (WARN_ON(fwspec->param_count < 2))
+>   		return -EINVAL;
+> -	*out_hwirq = fwspec->param[0];
+> -	*out_type = fwspec->param[1] & IRQ_TYPE_SENSE_MASK;
+> +
+> +	irq = fwspec->param_count - 2;
+> +	type = fwspec->param_count - 1;
+> +
+> +	*out_hwirq = fwspec->param[irq];
+> +	*out_type = fwspec->param[type] & IRQ_TYPE_SENSE_MASK;
+> +
+>   	return 0;
+>   }
+>   EXPORT_SYMBOL_GPL(irq_domain_translate_twocell);
+> 
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
