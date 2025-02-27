@@ -4,63 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 871F0C197BF
-	for <linux-riscv@archiver.kernel.org>; Thu, 27 Feb 2025 22:02:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E69AC197BF
+	for <linux-riscv@archiver.kernel.org>; Thu, 27 Feb 2025 23:00:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=amm3QMHn4e7JJmupO9DV5DcUljm2ccBpvv7rRZ3iN2I=; b=KKSOzWBpPtRvHb
-	uJwFS84WenM6l3/pPz5Gqgf+KEEEiIYsGGgr58boz0UPbVA30v9nq8dokQiTzYUX1ZdFFs3SjXBmN
-	zW9qgOm+UUpxXT2K1IsGW0sLQ/QlmnaspmOEyn3CMAPGXd8pihal1cRwrl4/ZCpA/x+XIsSI7w7fn
-	DTNPgm1tvFVPzPTHBpVqZYSzdGS/iZswRpJB+zc1KVFR3Lp1nPl/JY9lNZsKSWJXmbyd9NxN2N82Z
-	pUcM6zliL4V9/wd16Bm270j/ulgdn+DGo2dGDWlnm6SujCSKM1MepLkxSONBpDbvm2GQlvCItzDdv
-	espIfIWHhQZVmTHUnUvQ==;
+	List-Owner; bh=B/1ZmkJmZBGIJGlRif4jK27uz+Whx3I8aBGqXb5ulKA=; b=4rIwmwLloPCC01
+	uzl4DID4d9XzAMHgZkZvSrmhMRJSrMGKzzgNrhFBz7B82zkCKbbX2qheBSIpkV84SZUK6Pt+iKwQE
+	WcjfnHcRKnexMIQrX/pCMDO9O0LOweDoS1ja4RqE+V9eT0jWx6PKs2qwGshjbNQn2l1QtNKmhPlZX
+	ssw8jzU89CfJx4pL60AdCoGxhJqNXyEc6j8rmJc8VGP8aqYS9MlTFmpQToTxOpcDJkTFqJ3cZRJ1K
+	KwLtmyasTw+lvqm7nc1DKZvy9nfh9AGuCf74Jq3NJLdqAChIVfv18Dg9VoZEqHeY4aHJJhUsydUAU
+	kJtnMNA9VWHsaWsD4M1g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnlxd-00000008xTH-123N;
-	Thu, 27 Feb 2025 22:02:29 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnlvF-00000008x7x-2WWp;
-	Thu, 27 Feb 2025 22:00:03 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 7BD021516;
-	Thu, 27 Feb 2025 14:00:14 -0800 (PST)
-Received: from minigeek.lan (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 9A6013F5A1;
-	Thu, 27 Feb 2025 13:59:55 -0800 (PST)
-Date: Thu, 27 Feb 2025 21:57:32 +0000
-From: Andre Przywara <andre.przywara@arm.com>
-To: Andras Szemzo <szemzo.andras@gmail.com>
-Cc: Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
- <sboyd@kernel.org>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski
- <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai
- <wens@csie.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel Holland
- <samuel@sholland.org>, Linus Walleij <linus.walleij@linaro.org>, Philipp
- Zabel <p.zabel@pengutronix.de>, Maxime Ripard <mripard@kernel.org>, Vinod
- Koul <vkoul@kernel.org>, Kishon Vijay Abraham I <kishon@kernel.org>, Ulf
- Hansson <ulf.hansson@linaro.org>, Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Uwe
- =?UTF-8?B?S2xlaW5lLUvDtm5pZw==?= <u.kleine-koenig@baylibre.com>, Florian
- Fainelli <florian.fainelli@broadcom.com>, linux-clk@vger.kernel.org,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org,
- linux-phy@lists.infradead.org, linux-gpio@vger.kernel.org,
- linux-pm@vger.kernel.org, linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v2 02/10] pinctrl: sunxi: add driver for Allwinner V853
-Message-ID: <20250227215732.5f5753d9@minigeek.lan>
-In-Reply-To: <20250205125225.1152849-3-szemzo.andras@gmail.com>
-References: <20250205125225.1152849-1-szemzo.andras@gmail.com>
-	<20250205125225.1152849-3-szemzo.andras@gmail.com>
-Organization: Arm Ltd.
-X-Mailer: Claws Mail 4.2.0 (GTK 3.24.31; x86_64-slackware-linux-gnu)
+	id 1tnms6-000000096Fm-37s1;
+	Thu, 27 Feb 2025 23:00:50 +0000
+Received: from mail-lj1-x232.google.com ([2a00:1450:4864:20::232])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tnms3-000000096FC-2ib6
+	for linux-riscv@lists.infradead.org;
+	Thu, 27 Feb 2025 23:00:49 +0000
+Received: by mail-lj1-x232.google.com with SMTP id 38308e7fff4ca-30b8f0c514cso4316331fa.2
+        for <linux-riscv@lists.infradead.org>; Thu, 27 Feb 2025 15:00:47 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1740697246; x=1741302046; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=qwFZZezvW0dBKzxzrpQ/61HBuqlXjI5bXEQd5dYgZNo=;
+        b=G4ooF4ZCfWw/N66XlU9EsRCptsd2i9OeZVqTCHLTfOeBNhnG4mlpHw9+vsdndUlhYz
+         Eqn7uRZKmUL483oUC1b50Dur1QS6QLKpXtTYhVtxg2VAOFa6vt1bfnqZHVxByp1dXyv5
+         8IzM/zk5korfiEM/kDhVU/9AF0DIvEFMq1l5IsdRkZBtNaAICHcInHDJ9OLaZec4i8FL
+         OJnD3/Q7DI+PVqfREzc2kYalzhDymv6MgX6eW1YC9ZpVR403V4Gzbt8YsbEsvZcetPyW
+         2H3DhkyHyGwU8omzsfuPwcU+J2mBLliTxj4Uf17bn7oyjWzYIYthBKE1Mg5fGFzxiHJO
+         AM3g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1740697246; x=1741302046;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=qwFZZezvW0dBKzxzrpQ/61HBuqlXjI5bXEQd5dYgZNo=;
+        b=O6w3CqhTbTQtH+r4osuf11IO6oNJzqTWDdvbTnlQzeDF5W9+9cLYwi/de5Zbi2FOGt
+         UxB1QqRXKv3mUULBt/T8MHV5jnn8EEiGVtt+x1Q/0l0Yv+WcBisnOWyumJ7Jlh7lRCXQ
+         +fAAfDEsS0Ys/oKkN/x/tZ0V/vyrzBsZboBBYQ8YIgKAwtnACyV7pE1ZrzGhi8aBkOsp
+         M16kY4FV92lDZWSQAZWjxfMZ+RgzJstb/Hwx4zp25jvlL0fnBT/PxR3tVrlnlEc7iaF1
+         Q2MCHxyDlhLg40PRtxecFhv09FoMAa/nh9NUQxIqyocX3xV73X26+m0RJDsNgQ2ESTDX
+         wLng==
+X-Forwarded-Encrypted: i=1; AJvYcCXzIs1UKyPuMfm7aSFYs8jg1H2zpQZnAKau8XyE5zV3WiPptYfYPxbzm1SksmN9NGB1QmT214flHIM0nw==@lists.infradead.org
+X-Gm-Message-State: AOJu0YyYk3rYKM/u9R7DNV33JUwvICBD+lHZa1MfAh1Q1DlmdS3Yrc+w
+	5MehhjJ4atZHdy0iahJQhvmkuUf2slK8zKoMPh5hPYQWNsGkbDypbVZnC7T0Aim1mKqH8guW6Lc
+	SMozS5OTyPJO8UxVODDwUwlpT9kzJaCJ/wYXLIQ==
+X-Gm-Gg: ASbGncsZBOpP6lPnVfRZUl2FnPqwDTphzTELPO5w6kAlwCskDRlnWQ2iBI9qnCptazV
+	kcAn2IokU8n3sd8iv0sCWVzwD5oJXYTf48DGwyB8jFJOTWh6/qDi60e5x8RRGxpZa1/P5iWvJqf
+	f7GobiCOs=
+X-Google-Smtp-Source: AGHT+IGDB6M3SfRRZWxdUGXX2+vM/pAqOBIuKSaF7zEvkP6CctCeQrrU0dd+T2vFb4hY7/S5th74SYa9xvKPHD/s7+E=
+X-Received: by 2002:a05:651c:b07:b0:308:ed6f:6e71 with SMTP id
+ 38308e7fff4ca-30b9324f3c2mr2703231fa.21.1740697245622; Thu, 27 Feb 2025
+ 15:00:45 -0800 (PST)
 MIME-Version: 1.0
+References: <20250211051801.470800-1-inochiama@gmail.com>
+In-Reply-To: <20250211051801.470800-1-inochiama@gmail.com>
+From: Linus Walleij <linus.walleij@linaro.org>
+Date: Fri, 28 Feb 2025 00:00:34 +0100
+X-Gm-Features: AQ5f1JpBMomU6BGhqr4xdLlZeYdSp5D6LLHZS3EpCT3eseLqQ-fhMILIKxtTpQ4
+Message-ID: <CACRpkdYfZ8izsBJaKUd__jXGHnDBU9Tha=2kozjzHssoppgY5w@mail.gmail.com>
+Subject: Re: [PATCH v2 0/8] riscv: sophgo: Add pinctrl support for SG2042
+To: Inochi Amaoto <inochiama@gmail.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, Chen Wang <unicorn_wang@outlook.com>, 
+	Inochi Amaoto <inochiama@outlook.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Guo Ren <guoren@kernel.org>, 
+	=?UTF-8?Q?Uwe_Kleine=2DK=C3=B6nig?= <u.kleine-koenig@baylibre.com>, 
+	Thomas Bonnefille <thomas.bonnefille@bootlin.com>, 
+	Harshit Mogalapalli <harshit.m.mogalapalli@oracle.com>, linux-gpio@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-riscv@lists.infradead.org, Yixun Lan <dlan@gentoo.org>, 
+	Longbin Li <looong.bin@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250227_140001_733261_D1AD3644 
-X-CRM114-Status: GOOD (  24.41  )
+X-CRM114-CacheID: sfid-20250227_150047_690591_48AD08E8 
+X-CRM114-Status: GOOD (  10.92  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,136 +97,31 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed,  5 Feb 2025 13:52:17 +0100
-Andras Szemzo <szemzo.andras@gmail.com> wrote:
-
-Hi,
-
-> The V853 family has multiple package variants, from BGA to QFN88.
-> The latter has co-packaged DRAM and fewer pins, and less features (pin muxes).
-> All family members can be supported by a single driver, as the available pins
-> with allowed muxes is the same across the devices.
-> 
-> This new pinctrl driver depends on the new sunxi device-tree based mux support
-> patch series [1].
-> 
-> [1]: https://lore.kernel.org/linux-sunxi/20241111005750.13071-1-andre.przywara@arm.com/T/
-> 
-> Signed-off-by: Andras Szemzo <szemzo.andras@gmail.com>
-> ---
->  drivers/pinctrl/sunxi/Kconfig              |  5 ++
->  drivers/pinctrl/sunxi/Makefile             |  1 +
->  drivers/pinctrl/sunxi/pinctrl-sun8i-v853.c | 53 ++++++++++++++++++++++
->  3 files changed, 59 insertions(+)
->  create mode 100644 drivers/pinctrl/sunxi/pinctrl-sun8i-v853.c
-> 
-> diff --git a/drivers/pinctrl/sunxi/Kconfig b/drivers/pinctrl/sunxi/Kconfig
-> index a78fdbbdfc0c..fac9c61039e2 100644
-> --- a/drivers/pinctrl/sunxi/Kconfig
-> +++ b/drivers/pinctrl/sunxi/Kconfig
-> @@ -81,6 +81,11 @@ config PINCTRL_SUN9I_A80_R
->  	default MACH_SUN9I
->  	select PINCTRL_SUNXI
->  
-> +config PINCTRL_SUN8I_V853
-> +	bool "Support for the Allwinner V853/V851S/V851SE PIO"
-> +	default MACH_SUN8I
-> +	select PINCTRL_SUNXI
-> +
->  config PINCTRL_SUN20I_D1
->  	bool "Support for the Allwinner D1 PIO"
->  	default MACH_SUN8I || (RISCV && ARCH_SUNXI)
-> diff --git a/drivers/pinctrl/sunxi/Makefile b/drivers/pinctrl/sunxi/Makefile
-> index 2ff5a55927ad..8937b56b2ef4 100644
-> --- a/drivers/pinctrl/sunxi/Makefile
-> +++ b/drivers/pinctrl/sunxi/Makefile
-> @@ -20,6 +20,7 @@ obj-$(CONFIG_PINCTRL_SUN8I_A83T_R)	+= pinctrl-sun8i-a83t-r.o
->  obj-$(CONFIG_PINCTRL_SUN8I_H3)		+= pinctrl-sun8i-h3.o
->  obj-$(CONFIG_PINCTRL_SUN8I_H3_R)	+= pinctrl-sun8i-h3-r.o
->  obj-$(CONFIG_PINCTRL_SUN8I_V3S)		+= pinctrl-sun8i-v3s.o
-> +obj-$(CONFIG_PINCTRL_SUN8I_V853)	+= pinctrl-sun8i-v853.o
->  obj-$(CONFIG_PINCTRL_SUN20I_D1)		+= pinctrl-sun20i-d1.o
->  obj-$(CONFIG_PINCTRL_SUN50I_H5)		+= pinctrl-sun50i-h5.o
->  obj-$(CONFIG_PINCTRL_SUN50I_H6)		+= pinctrl-sun50i-h6.o
-> diff --git a/drivers/pinctrl/sunxi/pinctrl-sun8i-v853.c b/drivers/pinctrl/sunxi/pinctrl-sun8i-v853.c
-> new file mode 100644
-> index 000000000000..fb2112ee12d0
-> --- /dev/null
-> +++ b/drivers/pinctrl/sunxi/pinctrl-sun8i-v853.c
-> @@ -0,0 +1,53 @@
-> +// SPDX-License-Identifier: GPL-2.0
-> +/*
-> + * Allwinner V853 SoC pinctrl driver.
-> + *
-> + * Copyright (c) 2025 Andras Szemzo <szemzo.andras@gmail.com>
-> + */
-> +
-> +#include <linux/module.h>
-> +#include <linux/platform_device.h>
-> +#include <linux/of.h>
-> +#include <linux/of_device.h>
-> +#include <linux/pinctrl/pinctrl.h>
-> +
-> +#include "pinctrl-sunxi.h"
-> +
-> +static const u8 v853_nr_bank_pins[SUNXI_PINCTRL_MAX_BANKS] =
-> +/*	  PA  PB  PC  PD  PE  PF  PG  PH  PI  */
-> +	{ 22,  0, 12, 23, 18,  7,  8, 16,  5 };
-> +
-> +static const unsigned int v853_irq_bank_map[] = { 0, 2, 3, 4, 5, 6, 7, 8 };
-> +
-> +static const u8 v853_irq_bank_muxes[SUNXI_PINCTRL_MAX_BANKS] =
-> +/*	  PA  PB  PC  PD  PE  PF  PG  PH  PI */
-> +	{ 14,  0, 14, 14, 14, 14, 14, 14, 14 };
-> +
-> +static struct sunxi_pinctrl_desc v853_pinctrl_data = {
-> +	.irq_banks = ARRAY_SIZE(v853_irq_bank_map),
-> +	.irq_bank_map = v853_irq_bank_map,
-> +	.io_bias_cfg_variant = BIAS_VOLTAGE_PIO_POW_MODE_SEL,
-> +};
-> +
-> +static int v853_pinctrl_probe(struct platform_device *pdev)
-> +{
-> +	return sunxi_pinctrl_dt_table_init(pdev, v853_nr_bank_pins,
-> +					   v853_irq_bank_muxes,
-> +					   &v853_pinctrl_data,
-> +					   SUNXI_PINCTRL_NEW_REG_LAYOUT |
-> +					   SUNXI_PINCTRL_ELEVEN_BANKS);
-
-This last flag doesn't apply: it would put the offset for the
-POW_MOD_SEL registers at 0x380, but the manual says it's 0x340, as with
-the previous SoCs.
-I compared the rest against the A523 driver, and the V853 specific bits
-against the manual: they match, so with that line removed:
-
-Reviewed-by: Andre Przywara <andre.przywara@arm.com>
-
-Cheers,
-Andre
-
-> +}
-> +
-> +static const struct of_device_id v853_pinctrl_match[] = {
-> +	{ .compatible = "allwinner,sun8i-v853-pinctrl", },
-> +	{}
-> +};
-> +
-> +static struct platform_driver v853_pinctrl_driver = {
-> +	.probe	= v853_pinctrl_probe,
-> +	.driver	= {
-> +		.name		= "sun8i-v853-pinctrl",
-> +		.of_match_table	= v853_pinctrl_match,
-> +	},
-> +};
-> +builtin_platform_driver(v853_pinctrl_driver);
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gVHVlLCBGZWIgMTEsIDIwMjUgYXQgNjoxOOKAr0FNIElub2NoaSBBbWFvdG8gPGlub2NoaWFt
+YUBnbWFpbC5jb20+IHdyb3RlOgoKPiBTRzIwNDIgaGFzIGEgc2ltcGxlIHBpbmN0cmwgZGV2aWNl
+IGZvciBhbGwgY29uZmlndXJhYmxlIHBpbnMuCj4gSXQgc3VwcG9ydHMgc2V0dGluZyBwdWxsIHVw
+L2Rvd24sIGRyaXZlIHN0cmVuZ3RoIGFuZCBpbnB1dCBzY2htaXR0Cj4gdHJpZ2dlci4KPgo+IEFk
+ZCBzdXBwb3J0IGZvciBTRzIwNDIgYW5kIFNHMjA0NCBwaW5jdHJsIGRldmljZS4KKC4uLikKPiBJ
+bm9jaGkgQW1hb3RvICg4KToKPiAgIHBpbmN0cmw6IHNvcGhnbzogYXZvaWQgdG8gbW9kaWZ5IHVu
+dG91Y2hlZCBiaXQgd2hlbiBzZXR0aW5nIGN2MTgwMAo+ICAgICBwaW5jb25mCj4gICBwaW5jdHJs
+OiBzb3BoZ286IGludHJvZHVjZSBnZW5lcmljIGRhdGEgc3RydWN0dXJlIGZvciBjdjE4eHggcGlu
+Y3RybAo+ICAgICBkcml2ZXIKPiAgIHBpbmN0cmw6IHNvcGhnbzogZ2VuZXJhbGl6ZSBzaGFyZWFi
+bGUgY29kZSBvZiBjdjE4eHggcGluY3RybCBkcml2ZXIKPiAgIHBpbmN0cmw6IHNvcGhnbzogaW50
+cm9kdWNlIGdlbmVyaWMgcHJvYmUgZnVuY3Rpb24KPiAgIGR0LWJpbmRpbmdzOiBwaW5jdHJsOiBB
+ZGQgcGluY3RybCBmb3IgU29waGdvIFNHMjA0MiBzZXJpZXMgU29DCj4gICBwaW5jdHJsOiBzb3Bo
+Z286IGFkZCBzdXBwb3J0IGZvciBTRzIwNDIgU29DCj4gICBwaW5jdHJsOiBzb3BoZ286IGFkZCBz
+dXBwb3J0IGZvciBTRzIwNDQgU29DCgpJIGFwcGxpZWQgdGhlc2UgcGF0Y2hlcyAxLTcgdG8gdGhl
+IHBpbmN0cmwgdHJlZSBhbmQgY3JlYXRlZCBhbiBpbW11dGFibGUKYnJhbmNoOgpodHRwczovL3dl
+Yi5naXQua2VybmVsLm9yZy9wdWIvc2NtL2xpbnV4L2tlcm5lbC9naXQvbGludXN3L2xpbnV4LXBp
+bmN0cmwuZ2l0L2xvZy8/aD1pYi1zb3BoZ28KCj4gICByaXNjdjogZHRzOiBzb3BoZ286IHNnMjA0
+MjogYWRkIHBpbmN0cmwgc3VwcG9ydAoKQXBwbHkgdGhpcyBwYXRjaCB0byB0aGUgcmlzY3YvU29D
+IHRyZWUuCgpJZiBpdCBpcyByZXF1aXJlZCwgdGhhdCB0cmVlIGNhbiBwdWxsIGluIG15IGltbXV0
+YWJsZSBicmFuY2gsIHdoaWNoCmlzIGJhc2VkIG9uIHY2LjE0LXJjMS4KCllvdXJzLApMaW51cyBX
+YWxsZWlqCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwps
+aW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpo
+dHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
