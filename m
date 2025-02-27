@@ -4,86 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DF621C1B0FF
-	for <linux-riscv@archiver.kernel.org>; Thu, 27 Feb 2025 13:20:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 06442C282C5
+	for <linux-riscv@archiver.kernel.org>; Thu, 27 Feb 2025 13:20:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=nmf9uQQkIoLvmTFzyFncsvOCAJPiXCjgmYSlGCzCApo=; b=MZRuVuDd/Lc+IO
-	sSfwdPbqxbmVVHbK218PkPpnMjpsBwE5Ng4PmMq0+5YZCpslwGu9OeB4x0S6UPB/nXkusaESaxRl3
-	mzrOQ4cZ648e2RRXJifOXJfil8zDpHZy+AwxaRgFSUPtKvCCZpRYejVBbK5VqhbgLhb2p1hTTsMrX
-	2lppGaJGcgZKQ9jS8/VtfpMtv61MyHuV3SKEGAU7IpPK4urqQEayLlB2xG2D1UAjMzP773tqzF4D7
-	tXZjq0XvQlvv5Y3eByTEJkkoaXAwMiTqzp4EGl/gDwcZ3dIAhqfjhYw0ChO6dI8qc/ihiGBArIQeJ
-	dJ9XpLlxEeKr9IjKEW5g==;
+	List-Owner; bh=4CmEBBKI0cRJyvKvvYp08Wg6uJ7M83sdwWDc1JjXhBU=; b=LH+KMcPimDjIQu
+	4seZZj7kEAYN4l7ko7ry0J+svSFScK36eFf3cYhL5gsroW6tSXk91mJNEJpxLMpXRrb1YoYuGWnv1
+	uHn9RdkoP7uiJ5FXTxVFdaOIjjumH+iMgAOI+8ZkWL+A8QL9ZC2Q4BdMkIifwPTIB2GA85rK/w/Hw
+	cnWFwRB8t5oLms6jdCi/1P5f7WJh2e69VNs1D0Mx32dsXCQcx9f+0lPqIkZ4BybcorVq8357IF2xf
+	nIeIj1WVFNY13qUlg5q2ct6kqRb+y5oeleLvWOzNy+POB4FvAH2vOCWejlFcB6Kw1UjZ5pHy0pWQ3
+	cZs5vShfeYB5S9981QUg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tndol-00000007VAX-27P0;
-	Thu, 27 Feb 2025 13:20:47 +0000
-Received: from mail-pl1-x62c.google.com ([2607:f8b0:4864:20::62c])
+	id 1tndom-00000007VBH-0tfV;
+	Thu, 27 Feb 2025 13:20:48 +0000
+Received: from mail-pl1-x631.google.com ([2607:f8b0:4864:20::631])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnd8Y-00000007O7j-3on1
+	id 1tnd8d-00000007O9S-3gIU
 	for linux-riscv@lists.infradead.org;
-	Thu, 27 Feb 2025 12:37:12 +0000
-Received: by mail-pl1-x62c.google.com with SMTP id d9443c01a7336-22359001f1aso9667915ad.3
-        for <linux-riscv@lists.infradead.org>; Thu, 27 Feb 2025 04:37:10 -0800 (PST)
+	Thu, 27 Feb 2025 12:37:17 +0000
+Received: by mail-pl1-x631.google.com with SMTP id d9443c01a7336-22349dc31bcso13638655ad.3
+        for <linux-riscv@lists.infradead.org>; Thu, 27 Feb 2025 04:37:15 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1740659830; x=1741264630; darn=lists.infradead.org;
+        d=ventanamicro.com; s=google; t=1740659835; x=1741264635; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=3kGyolrr9eB+rihlUpak7d80WkLbYEDuFsdAvhSOlWk=;
-        b=d2o7mBq1s7ECesEgSw2cqpgiUFsRK2USYRH5c/tdUMwPb1HVV6UjJ0Bn3mSlFuNygQ
-         5vPACp+mAO54nEvkwfKdXPnVC1F53GqYqCVqqe9/UVYMgpAl63GoLqyZPEmgPX6i8PzO
-         mrnMswW7Iw8InyE0Fvt525ekP2RQl4mfeizcP3ueBB3XhCKSe6aV9g6ZIXvdbgnI0zPB
-         yMASGY1gZjmVXRpoKZsYglqH+b6WqP0vqRpM80Lq6fTfebbUAuleCbDt05NnNhUN3w0i
-         rBx1ItE7CsmhSDxtMVzQsvO+DQ5+7Dv+y73uXdDxdee1gHP/RFHk0SWZtyf0IpBj1EXK
-         SKPg==
+        bh=TNRn4grONdQPyJNJQgM7dzqjQjDGa6sfyVxFxG4j7Yo=;
+        b=Zw0T+3oTj1LOyD3gwJFEWT5HxnQdIQVHI2punuSg6GjLuxGjRY8s4aZOp1BRVx28mp
+         sCenFfDZokeW9kJTHnSDOQGbFIRTdysCqOfsotksZ9+d1cRyuX7m6t07U0pCuocAq8zr
+         spG7VsjYHLsbGMUPYZAw4wU/BeA9/k3xDcguNoyYUp992LVWS12X0EUP/JSvOJkY5P5W
+         VZm0LUwNhJKQXdAjih0m9febcIxLKS4ElnEnx8pALcLbth8ozsPqCLldNnwVLx4J5QaK
+         FWNPAjQDiy/Hb1zjcGPv2HQbUg1+/+iNJYRc4jGOg4CBW2vwh8WtkpOHosyghlUvKSPS
+         W1bA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1740659830; x=1741264630;
+        d=1e100.net; s=20230601; t=1740659835; x=1741264635;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=3kGyolrr9eB+rihlUpak7d80WkLbYEDuFsdAvhSOlWk=;
-        b=Pl+QApu1L/0w6DQFEGyLgdv+VcgD3PE00FLyvBQF1ZzmtQTAYgADtWZCvJCFwq2ZAw
-         67HjLYVQUSsFduP2b8KvlMjY6v03JtLYfDv4iTKH2xjuqif0NhzxMQVwRZE3yunBrnYA
-         wrDN06Vv+4u0BoMO1fiUH+Wn4Y12L3L4JhlbW2uo2p3F72UkfKAjKqz4SaQYgKya8hl7
-         S/Ih6ZaBDNieE3csMZn4sAiyBp+uXPHiqu3K9KIANKVHC98VOQPdHa3xJPiVZxsjk1b/
-         ck3mRinftM95rldlFEMcdB129jq4hQbNitFunb30WvHGix25C7wWwaMyqJKWzraLCMqH
-         XgrA==
-X-Gm-Message-State: AOJu0YxGWF7Ts46eoE4bUjmsBvlEV7kHPSDKFkeOgPkqAHnv7mdP2mCJ
-	5fUrHnGC6oNelXQ18lYgi/8bJaa3nLgSukO+heIFLQjmXK/t7WYTvygXG9eRfSM3AgnjfpAXYF2
-	q5+g=
-X-Gm-Gg: ASbGncvogWZCV/s0W+Cf+gK/YF/WaRc2etY2HF7+06X6hUy+dRxZ19Bd0j6yM7f3Xrk
-	CWlGQZ/xjfJZt9cz7sIHa9djAj3V4HCLd3WHjoToQ7y4ipWLzy61WYWninrw9+CXXiin0BSXj6G
-	nCJSs4XtitsOMQig5qMgcDRGmQdahMbGtLLdguIlqmTMiwhqj4aJhAES/dIKHar4fBYVOwtPNjX
-	CioL+HshWweenlY1OoAPsZhtkLmtX9+JZLDymk5+bevts6Ab3wMhlDylfIyMK+yJK6a4dhi16pM
-	wauMHs+OCU/ml8lMH3A5XKvlIzT+C/IoYt8A
-X-Google-Smtp-Source: AGHT+IGCecOAkzBb0oLJqkAuzU2vtPXYUZlAY6MApfNhCwxjDIHSb/IyUg2/UngOj1IqUQZUagR0Tg==
-X-Received: by 2002:a17:902:daca:b0:220:c164:6ee1 with SMTP id d9443c01a7336-221a1148bdcmr409969065ad.32.1740659829813;
-        Thu, 27 Feb 2025 04:37:09 -0800 (PST)
+        bh=TNRn4grONdQPyJNJQgM7dzqjQjDGa6sfyVxFxG4j7Yo=;
+        b=qpJy4ijwQ4UAvjdKG3CSSo2wf1wZczPg1tgEhRJTSB7qR+3AwRZ5UwXM0gQ4n8PbnX
+         UVDiKnkzQu6MR0noe1froPOrWrlfEgI+w0QkXWPPsOMVwUow43NHIqWuOjQTmWNLJ2kU
+         rJnk47DZSipaCpEw9iUD4plAf6X2d7je+G/X8eosoqZSUpY04L7U2I4lpWJ5Ti6iK1N4
+         fx/di+TdnNASko8WFP2m6gwZYBbiPCZdiGdmmGU432ptUMNEOEOabJNzJI6KYxhsQX3P
+         slYNotliLssJfVqwp/KwoStzNbU6mlLMoHkd4TkEpZB8QGkQ1hozsjCmNHDIYgPW2TlZ
+         bcrQ==
+X-Gm-Message-State: AOJu0Yyt10xhxtf+W0rqvaXknZ8wqMauN04aIiJ3vqBJIV/9CZ/k6wcw
+	1Fos5EWFBB1eHfCOOfw8M5DrBjS89f6/kV4C6nQnZDvkM3f/IjV2QDW+r+xFts/ANUh+0vGasm7
+	wHaQ=
+X-Gm-Gg: ASbGncuRpkgqc1APewhudMluQSDR9Z0uOO0m7o265jkSOiHB1EzJA14MzmB9zZ1qfdS
+	d7gxQfXnn6sZoRCzs3X+ILFPfz00NkC51t9Es9Nq1rEOc+lauBP4B9qDo3wr6ehsSuih0A4i/0A
+	u4mMBzBXXL0icOfYuHQUVzwtUZLoohfnb1SCCIQLw8jueRbOAxy/yQTCO9X2Siwc3n4GEbVifmX
+	6v7BKNs+ZV65gE9ptTzy0kmS2kv8Gj/DMHDyLqWlcco0br3V1CNpSyaYh4QQ1QXp5Zupj6RzS1W
+	ORBEnNTYNsv9dKUT+dfmH2reydp/R+0F9USG
+X-Google-Smtp-Source: AGHT+IG53PBDiu6FVTVuBFXKbMl/pH0m+lbJmkXDl+xjPCROuVKlD+c6+Y7yRaOAw5SWzcbapXcaKA==
+X-Received: by 2002:a17:902:e752:b0:223:3bf6:7e6a with SMTP id d9443c01a7336-2233bf6806bmr72051025ad.12.1740659834816;
+        Thu, 27 Feb 2025 04:37:14 -0800 (PST)
 Received: from ventana-bhyve.. ([49.37.249.43])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-223504c5bddsm13219135ad.140.2025.02.27.04.37.04
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-223504c5bddsm13219135ad.140.2025.02.27.04.37.10
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 27 Feb 2025 04:37:09 -0800 (PST)
+        Thu, 27 Feb 2025 04:37:14 -0800 (PST)
 From: Himanshu Chauhan <hchauhan@ventanamicro.com>
 To: linux-riscv@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	linux-acpi@vger.kernel.org,
 	linux-efi@vger.kernel.org,
 	acpica-devel@lists.linux.dev
-Subject: [RFC PATCH v1 06/10] riscv: Add functions to register ghes having SSE notification
-Date: Thu, 27 Feb 2025 18:06:24 +0530
-Message-ID: <20250227123628.2931490-7-hchauhan@ventanamicro.com>
+Subject: [RFC PATCH v1 07/10] riscv: Add RISC-V entries in processor type and ISA strings
+Date: Thu, 27 Feb 2025 18:06:25 +0530
+Message-ID: <20250227123628.2931490-8-hchauhan@ventanamicro.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20250227123628.2931490-1-hchauhan@ventanamicro.com>
 References: <20250227123628.2931490-1-hchauhan@ventanamicro.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250227_043710_952337_43FA7DF1 
-X-CRM114-Status: GOOD (  13.23  )
+X-CRM114-CacheID: sfid-20250227_043715_913347_1332996D 
+X-CRM114-Status: UNSURE (   7.84  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,218 +102,35 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add functions to register the ghes entries which have SSE as
-notification type. The vector inside the ghes is the SSE event
-ID that should be registered.
+- Add RISCV in processor type
+- Add RISCV32/64 in ISA
 
 Signed-off-by: Himanshu Chauhan <hchauhan@ventanamicro.com>
 ---
- drivers/firmware/riscv/riscv_sse.c | 147 +++++++++++++++++++++++++++++
- include/linux/riscv_sse.h          |  15 +++
- 2 files changed, 162 insertions(+)
+ drivers/firmware/efi/cper.c | 3 +++
+ 1 file changed, 3 insertions(+)
 
-diff --git a/drivers/firmware/riscv/riscv_sse.c b/drivers/firmware/riscv/riscv_sse.c
-index c165e32cc9a5..511db9ad7a9e 100644
---- a/drivers/firmware/riscv/riscv_sse.c
-+++ b/drivers/firmware/riscv/riscv_sse.c
-@@ -5,6 +5,8 @@
+diff --git a/drivers/firmware/efi/cper.c b/drivers/firmware/efi/cper.c
+index b69e68ef3f02..f2908296a48f 100644
+--- a/drivers/firmware/efi/cper.c
++++ b/drivers/firmware/efi/cper.c
+@@ -110,6 +110,7 @@ static const char * const proc_type_strs[] = {
+ 	"IA32/X64",
+ 	"IA64",
+ 	"ARM",
++	"RISCV",
+ };
  
- #define pr_fmt(fmt) "sse: " fmt
+ static const char * const proc_isa_strs[] = {
+@@ -118,6 +119,8 @@ static const char * const proc_isa_strs[] = {
+ 	"X64",
+ 	"ARM A32/T32",
+ 	"ARM A64",
++	"RISCV32",
++	"RISCV64",
+ };
  
-+#include <acpi/ghes.h>
-+#include <linux/acpi.h>
- #include <linux/cpu.h>
- #include <linux/cpuhotplug.h>
- #include <linux/cpu_pm.h>
-@@ -689,3 +691,148 @@ static int __init sse_init(void)
- 	return ret;
- }
- arch_initcall(sse_init);
-+
-+struct sse_ghes_callback {
-+	struct list_head head;
-+	struct ghes *ghes;
-+	sse_event_handler *callback;
-+};
-+
-+struct sse_ghes_event_data {
-+	struct list_head head;
-+	u32 event_num;
-+	struct list_head callback_list;
-+	struct sse_event *event;
-+};
-+
-+static DEFINE_SPINLOCK(sse_ghes_event_list_lock);
-+static LIST_HEAD(sse_ghes_event_list);
-+
-+static int sse_ghes_handler(u32 event_num, void *arg, struct pt_regs *regs)
-+{
-+	struct sse_ghes_event_data *ev_data = arg;
-+	struct sse_ghes_callback *cb = NULL;
-+
-+	list_for_each_entry(cb, &ev_data->callback_list, head) {
-+		if (cb && cb->ghes && cb->callback) {
-+			cb->callback(ev_data->event_num, cb->ghes, regs);
-+		}
-+	}
-+
-+	return 0;
-+}
-+
-+int sse_register_ghes(struct ghes *ghes, sse_event_handler *lo_cb,
-+		      sse_event_handler *hi_cb)
-+{
-+	struct sse_ghes_event_data *ev_data, *evd;
-+	struct sse_ghes_callback *cb;
-+	u32 ev_num;
-+	int err;
-+
-+	if (!sse_available)
-+		return -EOPNOTSUPP;
-+	if (!ghes || !lo_cb || !hi_cb)
-+		return -EINVAL;
-+
-+	ev_num = ghes->generic->notify.vector;
-+
-+	ev_data = NULL;
-+	spin_lock(&sse_ghes_event_list_lock);
-+	list_for_each_entry(evd, &sse_ghes_event_list, head) {
-+		if (evd->event_num == ev_num) {
-+			ev_data = evd;
-+			break;
-+		}
-+	}
-+	spin_unlock(&sse_ghes_event_list_lock);
-+
-+	if (!ev_data) {
-+		ev_data = kzalloc(sizeof(*ev_data), GFP_KERNEL);
-+		if (!ev_data)
-+			return -ENOMEM;
-+
-+		INIT_LIST_HEAD(&ev_data->head);
-+		ev_data->event_num = ev_num;
-+
-+		INIT_LIST_HEAD(&ev_data->callback_list);
-+
-+		ev_data->event = sse_event_register(ev_num, ev_num,
-+						    sse_ghes_handler, ev_data);
-+		if (IS_ERR(ev_data->event)) {
-+			pr_err("%s: Couldn't register event 0x%x\n", __func__, ev_num);
-+			kfree(ev_data);
-+			return -ENOMEM;
-+		}
-+
-+		err = sse_event_enable(ev_data->event);
-+		if (err) {
-+			pr_err("%s: Couldn't enable event 0x%x\n", __func__, ev_num);
-+			sse_event_unregister(ev_data->event);
-+			kfree(ev_data);
-+			return err;
-+		}
-+
-+		spin_lock(&sse_ghes_event_list_lock);
-+		list_add_tail(&ev_data->head, &sse_ghes_event_list);
-+		spin_unlock(&sse_ghes_event_list_lock);
-+	}
-+
-+	list_for_each_entry(cb, &ev_data->callback_list, head) {
-+		if (cb->ghes == ghes)
-+			return -EALREADY;
-+	}
-+
-+	cb = kzalloc(sizeof(*cb), GFP_KERNEL);
-+	if (!cb)
-+		return -ENOMEM;
-+	INIT_LIST_HEAD(&cb->head);
-+	cb->ghes = ghes;
-+	cb->callback = lo_cb;
-+	list_add_tail(&cb->head, &ev_data->callback_list);
-+
-+	return 0;
-+}
-+
-+int sse_unregister_ghes(struct ghes *ghes)
-+{
-+	struct sse_ghes_event_data *ev_data, *tmp;
-+	struct sse_ghes_callback *cb;
-+	int free_ev_data = 0;
-+
-+	if (!ghes)
-+		return -EINVAL;
-+
-+	spin_lock(&sse_ghes_event_list_lock);
-+
-+	list_for_each_entry_safe(ev_data, tmp, &sse_ghes_event_list, head) {
-+		list_for_each_entry(cb, &ev_data->callback_list, head) {
-+			if (cb->ghes != ghes)
-+				continue;
-+
-+			list_del(&cb->head);
-+			kfree(cb);
-+			break;
-+		}
-+
-+		if (list_empty(&ev_data->callback_list))
-+			free_ev_data = 1;
-+
-+		if (free_ev_data) {
-+			spin_unlock(&sse_ghes_event_list_lock);
-+
-+			sse_event_disable(ev_data->event);
-+			sse_event_unregister(ev_data->event);
-+			ev_data->event = NULL;
-+
-+			spin_lock(&sse_ghes_event_list_lock);
-+
-+			list_del(&ev_data->head);
-+			kfree(ev_data);
-+		}
-+	}
-+
-+	spin_unlock(&sse_ghes_event_list_lock);
-+
-+	return 0;
-+}
-diff --git a/include/linux/riscv_sse.h b/include/linux/riscv_sse.h
-index c73184074b8c..16700677f1e8 100644
---- a/include/linux/riscv_sse.h
-+++ b/include/linux/riscv_sse.h
-@@ -12,6 +12,8 @@
- struct sse_event;
- struct pt_regs;
- 
-+struct ghes;
-+
- typedef int (sse_event_handler)(u32 event_num, void *arg, struct pt_regs *regs);
- 
- #ifdef CONFIG_RISCV_SSE
-@@ -27,6 +29,9 @@ int sse_event_enable(struct sse_event *sse_evt);
- 
- void sse_event_disable(struct sse_event *sse_evt);
- 
-+int sse_register_ghes(struct ghes *ghes, sse_event_handler *lo_cb,
-+		      sse_event_handler *hi_cb);
-+int sse_unregister_ghes(struct ghes *ghes);
- #else
- static inline struct sse_event *sse_event_register(u32 event_num, u32 priority,
- 						   sse_event_handler *handler,
-@@ -50,6 +55,16 @@ static inline int sse_event_enable(struct sse_event *sse_evt)
- 
- static inline void sse_event_disable(struct sse_event *sse_evt) {}
- 
-+static inline int sse_register_ghes(struct ghes *ghes, sse_event_handler *lo_cb,
-+				    sse_event_handler *hi_cb)
-+{
-+	return -EOPNOTSUPP;
-+}
-+
-+static inline int sse_unregister_ghes(struct ghes *ghes)
-+{
-+	return -EOPNOTSUPP;
-+}
- 
- #endif
- 
+ const char * const cper_proc_error_type_strs[] = {
 -- 
 2.43.0
 
