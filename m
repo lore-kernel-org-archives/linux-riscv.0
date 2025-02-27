@@ -4,60 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 45DEAC021BE
-	for <linux-riscv@archiver.kernel.org>; Thu, 27 Feb 2025 05:17:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5263FC19F32
+	for <linux-riscv@archiver.kernel.org>; Thu, 27 Feb 2025 05:22:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
 	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
 	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=UTTKvTjQimxgsEXyy4HHzgCsUGXmtVwMAT2C4NqU/qc=; b=cB/HRPKi9rRmIA
-	aeCd3CqdGc/oI+6MSPkY8FTbBjDxODbRE/7ZgqDpgh/02Z5DGhCEItqzg/EdQDTAcH1SFFg3DqKjA
-	lrsoT8MTPYLkOpR+uyQU/RXfAm8hAqByGGxxTSyxKOi7PO/4Mib9Aq6H+K1YXIMNGz8hlV5ibJTa8
-	blSV+Zhpme5cJmhddq2m6Xv8g2TA9EzL3/6DfQc+GOpyM/fkWS8rgbqlmnXNZJ2ftCgf+ZsksmPOY
-	sL3dyrsMPqXVnWfD376M3DFUGnYIXUvbEC7W5/1q2Nnb21z7eMjW10F6arRut8g7Kv0hfc5vYCZXM
-	2QUwx7mgnvmNrEcDiteg==;
+	List-Owner; bh=Yt9ArYZxCYim4MUm81Ko1gyjzSkxfSdij3bYzB1UT+4=; b=KnabMw5AKRBpCt
+	vWwF8rL0GXtIg/0n1uqbSsPefEGelC+0CmS6wXeYgPlBL362AsL3rmDnex8RX/e43qdIqVW7LM31s
+	fV/MviuLO6ye9DK8n5ownQBuGuzIjSQ2gvn1F4QgOrEPTMk4IP3YTT7c+VeNwF+1i4C3qj9Fv5jCU
+	bAbxuQdueo/JwM6CHleA1LbuZnSkFyNGw/OKHf4yGRKSX8zGBx+uqPn61YmCTvCWNEDZrC0KUik71
+	5jJTGo9z55NcS08H1CSLPoOtDuTRs3YGWgyXo0ppWwnLmM631urMffevODuVKE1aQPoxhdWNNhQhv
+	cHWokXlfKfRSaBKI3eBw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnWGZ-00000006Lxp-0pWf;
-	Thu, 27 Feb 2025 05:16:59 +0000
-Received: from mgamail.intel.com ([198.175.65.14])
+	id 1tnWLT-00000006MNy-0Vr3;
+	Thu, 27 Feb 2025 05:22:03 +0000
+Received: from mgamail.intel.com ([198.175.65.16])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnWEO-00000006Llv-1sxR;
-	Thu, 27 Feb 2025 05:14:45 +0000
+	id 1tnWJv-00000006MGA-0pTt;
+	Thu, 27 Feb 2025 05:20:28 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1740633284; x=1772169284;
+  t=1740633627; x=1772169627;
   h=message-id:date:mime-version:subject:to:cc:references:
    from:in-reply-to:content-transfer-encoding;
-  bh=I69LPokZTV/4dzSJyY6dG46WwI4tfyw0UdAXPNutbc0=;
-  b=B7uQ2Gftik/Myjsaxw6OGDsnKSLdRr7wmHID1SEgyjRKEi3N6MFLciSb
-   jKgewosvBa9s5NM8geLqITJVhNrXGo+aKfbKgGtc/8dKpGXJicMa2WIDA
-   L04JnXM545u7vopBKV0k4sp/cNPPfAv6xGG7Jc9uL9c0KZAAKipR6MVbN
-   k+EXaCpcpuhwcFtuoDjS+YELfSIfEdq8LxmKbrHkPHsZz0tmJ99GCb1mM
-   qFTNiswVdljmeNKYQsFSxd4qJWQbm8it8Ri1lIMQlae3SqkXio3InBsj9
-   eDNykDtGEz6vTXdeGwf4nWnRj5TVDk65UK134J+DaAq1grAdreKv+Ocni
-   A==;
-X-CSE-ConnectionGUID: ThfU6PZDQkCw61HFjtljiA==
-X-CSE-MsgGUID: cqjntFqrQtW3/QG5t7BeHA==
-X-IronPort-AV: E=McAfee;i="6700,10204,11357"; a="45287684"
+  bh=vGpcN7P16mx836ZMuMkEdKUR6edRJ0QZzGvP196Ce2I=;
+  b=UtkgQnB9NfRGk0o73qXLWkahrfB2ZIdoreCaiCatcf/1d14eeG12hB9J
+   kQCYlJXisFE5oTdzBzAoSAGGIdXILWxWuOCHUN9u4pS48JsukVWiCN3u+
+   9qA85PqXBPfy9ORQ33EzZP+4Rxia1BYU96L4JxgxBMSlBbn7BSwa0k9Wn
+   uKjAO/DxPs83wV3jbEneD380F6LSI8YZQ2D1GDle5Xsnm0pjVpTRm/csJ
+   +9HvxphqEidYSi0ZaHTyef04ysjoe/tCir5bZgYqBfpbeU2+A8UxBmMyl
+   NGRMYiKj5miez+ACLiCzc1SC2q/DRLjYvFUe5XR3EeVH/myWOsViLvj4w
+   w==;
+X-CSE-ConnectionGUID: 7jjpcPaASNm1bqr7swnAYQ==
+X-CSE-MsgGUID: dyqpWko0Ri2NLu/vgd3MJg==
+X-IronPort-AV: E=McAfee;i="6700,10204,11357"; a="41638731"
 X-IronPort-AV: E=Sophos;i="6.13,319,1732608000"; 
-   d="scan'208";a="45287684"
-Received: from fmviesa004.fm.intel.com ([10.60.135.144])
-  by orvoesa106.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 26 Feb 2025 21:14:42 -0800
-X-CSE-ConnectionGUID: 0+XEwoVFSSChkZxOVV0yIg==
-X-CSE-MsgGUID: V/fupo75Q3OaStVprAAz7A==
+   d="scan'208";a="41638731"
+Received: from fmviesa009.fm.intel.com ([10.60.135.149])
+  by orvoesa108.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 26 Feb 2025 21:20:26 -0800
+X-CSE-ConnectionGUID: Lk/GChz9R1GaGsF8Qphm4A==
+X-CSE-MsgGUID: M2gLbS9DTJqV6N7Ph1buOQ==
 X-ExtLoop1: 1
 X-IronPort-AV: E=Sophos;i="6.13,319,1732608000"; 
-   d="scan'208";a="122030732"
+   d="scan'208";a="117561459"
 Received: from allen-sbox.sh.intel.com (HELO [10.239.159.30]) ([10.239.159.30])
-  by fmviesa004-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 26 Feb 2025 21:14:35 -0800
-Message-ID: <5775de69-9a1b-4b75-829e-60ec958a01bc@linux.intel.com>
-Date: Thu, 27 Feb 2025 13:11:19 +0800
+  by fmviesa009-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 26 Feb 2025 21:20:19 -0800
+Message-ID: <35920cb4-05cf-4814-9648-0c7ad39f55aa@linux.intel.com>
+Date: Thu, 27 Feb 2025 13:17:02 +0800
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 09/23] iommu/pages: Formalize the freelist API
+Subject: Re: [PATCH v3 14/23] iommu/pages: Move from struct page to struct
+ ioptdesc and folio
 To: Jason Gunthorpe <jgg@nvidia.com>
 Cc: Alim Akhtar <alim.akhtar@samsung.com>,
  Alyssa Rosenzweig <alyssa@rosenzweig.io>, Albert Ou <aou@eecs.berkeley.edu>,
@@ -79,15 +80,15 @@ Cc: Alim Akhtar <alim.akhtar@samsung.com>,
  Bagas Sanjaya <bagasdotme@gmail.com>, Joerg Roedel <jroedel@suse.de>,
  Pasha Tatashin <pasha.tatashin@soleen.com>, patches@lists.linux.dev,
  David Rientjes <rientjes@google.com>, Matthew Wilcox <willy@infradead.org>
-References: <9-v3-e797f4dc6918+93057-iommu_pages_jgg@nvidia.com>
- <6d9ceeb5-581e-48e8-a5cc-100a9699a9e8@linux.intel.com>
- <20250226173120.GA37280@nvidia.com>
+References: <14-v3-e797f4dc6918+93057-iommu_pages_jgg@nvidia.com>
+ <fafdcc71-b246-4855-a088-24854b124b21@linux.intel.com>
+ <20250226135112.GB28425@nvidia.com>
 Content-Language: en-US
 From: Baolu Lu <baolu.lu@linux.intel.com>
-In-Reply-To: <20250226173120.GA37280@nvidia.com>
+In-Reply-To: <20250226135112.GB28425@nvidia.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250226_211444_528206_576ECE03 
-X-CRM114-Status: GOOD (  17.26  )
+X-CRM114-CacheID: sfid-20250226_212027_283547_8209BC2B 
+X-CRM114-Status: GOOD (  22.54  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,49 +105,59 @@ Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 2/27/25 01:31, Jason Gunthorpe wrote:
-> On Wed, Feb 26, 2025 at 02:56:29PM +0800, Baolu Lu wrote:
->> On 2/26/25 03:39, Jason Gunthorpe wrote:
->>> diff --git a/include/linux/iommu.h b/include/linux/iommu.h
->>> index 38c65e92ecd091..e414951c0af83f 100644
->>> --- a/include/linux/iommu.h
->>> +++ b/include/linux/iommu.h
->>> @@ -326,6 +326,18 @@ typedef unsigned int ioasid_t;
->>>    /* Read but do not clear any dirty bits */
->>>    #define IOMMU_DIRTY_NO_CLEAR (1 << 0)
->>> +/*
->>> + * Pages allocated through iommu_alloc_pages_node() can be placed on this list
->>> + * using iommu_pages_list_add(). Note: ONLY pages from iommu_alloc_pages_node()
->>> + * can be used this way!
->>> + */
->>> +struct iommu_pages_list {
->>> +	struct list_head pages;
->>> +};
->>> +
->>> +#define IOMMU_PAGES_LIST_INIT(name) \
->>> +	((struct iommu_pages_list){ .pages = LIST_HEAD_INIT(name.pages) })
->>> +
->>>    #ifdef CONFIG_IOMMU_API
->> Any reason why the above cannot be placed in the iommu-pages.h header
->> file? My understanding is that iommu-pages is only for the iommu drivers
->> and should not be accessible for external subsystems.
-> I wanted to do that, but the issue is the gather:
+On 2/26/25 21:51, Jason Gunthorpe wrote:
+> On Wed, Feb 26, 2025 at 08:42:23PM +0800, Baolu Lu wrote:
+>> On 2025/2/26 3:39, Jason Gunthorpe wrote:
+>>> This brings the iommu page table allocator into the modern world of having
+>>> its own private page descriptor and not re-using fields from struct page
+>>> for its own purpose. It follows the basic pattern of struct ptdesc which
+>>> did this transformation for the CPU page table allocator.
+>>>
+>>> Currently iommu-pages is pretty basic so this isn't a huge benefit,
+>>> however I see a coming need for features that CPU allocator has, like sub
+>>> PAGE_SIZE allocations, and RCU freeing. This provides the base
+>>> infrastructure to implement those cleanly.
+>> I understand that this is intended as the start point of having private
+>> descriptors for folios allocated to iommu drivers. But I don't believe
+>> this is currently the case after this patch, as the underlying memory
+>> remains a struct folio. This patch merely uses an iommu-pages specific
+>> structure pointer to reference it.
+> Right now the mm provides 64 bytes of per-page memory that is a struct
+> page.
 > 
-> struct iommu_iotlb_gather {
-> 	unsigned long		start;
-> 	unsigned long		end;
-> 	size_t			pgsize;
-> 	struct iommu_pages_list	freelist;
+> You can call that 64 bytes a struct folio sometimes, and we have now
+> been also calling those bytes a struct XXdesc like this patch does.
 > 
-> The struct is inlined so it must be declared. I do not want to include
-> iommu-pages.h in this header.
+> This is all a slow incremental evolution toward giving each user of
+> the per-page memory its own unique type and understanding of what it
+> needs while removing use of of the highly overloaded struct page.
 > 
-> Once the struct itself is there it made sense to include the INIT too.
+> Eventually Matthew wants to drop the 64 bytes down to 8 bytes and
+> allocate the per-page memory directly. This would allow each user to
+> use more/less memory depending on their need.
 > 
-> FWIW I have a longstanding desire to split iommu.h into
-> internal-driver-facing and external-user-facing files..
+> https://kernelnewbies.org/MatthewWilcox/Memdescs
+> 
+> When that happens the
+> 
+> 	folio = __folio_alloc_node(gfp | __GFP_ZERO, order, nid);
+> 
+> Will turn into something maybe more like:
+> 
+>     ioptdesc = memdesc_alloc_node(gfp, order, nid, sizeof(struct ioptdesc));
+> 
+> And then the folio word would disappear from this code.
+> 
+> Right now things are going down Matthew's list:
+> 
+> https://kernelnewbies.org/MatthewWilcox/Memdescs/Path
+> 
+> This series is part of "Remove page->lru uses"
 
-Okay, thanks!
+Cool! Thank you for the explanation.
+
+Thanks,
+baolu
 
 _______________________________________________
 linux-riscv mailing list
