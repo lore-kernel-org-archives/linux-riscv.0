@@ -4,77 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3586AC021BE
-	for <linux-riscv@archiver.kernel.org>; Thu, 27 Feb 2025 09:34:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 654C2C021BE
+	for <linux-riscv@archiver.kernel.org>; Thu, 27 Feb 2025 11:28:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Date:Message-Id:MIME-Version:Subject:Cc
-	:To:From:References:In-Reply-To:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=nLrM6+RASdOlwGH7+2NfIpqo45hhQHZB/VcuTVhIViM=; b=Nr0mmFF1iKlS3d
-	5eLdOETy0KT9OXlN7bkc4CA8lObUNLVFPK8S6nyFQbn6e21Dwlgt6AX8hAJAb8DndVMv1jda/NavE
-	jx6W9zPIbF5HrUkhcJyAqNgZxC6URvdrkIsb20S/yWmM3IjBA/h0bSo46KZ/1Asirq3MACyZOe3ky
-	P+cm9nYK5diffXVdxxccbEEJLqryjsQDLyOCb4kasmik2webZ1oABAoq2h88qSRw9tKhhHub2sGGv
-	bi+ZbkVpccer8gnfv2WJkJZlavfmGAx2596SiFz699o6iM8r7dF+FlzUDI7SYAAFbUpFbMKf/4P+a
-	MCqhKvsDfrSWlS7ohSDQ==;
+	List-Owner; bh=CPr0b4bPy3NrENIUn3QBJOb0pZJ+ZZoi29vur7MQX1w=; b=Sktw3rlY1G8oQ9
+	xjyGExIwFAQ9VYd4z/5WAR+TepMJ02lJzZalKOPRblOwCHUgv412aNjS4SbIZJX0OW3rgmrPsJmxL
+	BMztyWFwLshifsm2pTnaroXidKIWs1eBJemT8VcwTVoWRq2Lxxff09t9s/KlCk1DmVZ7NiWEpZnhk
+	S0Kye6LvjNzn+niZlIZgIqwUvs/eJkkHSjLcFe0tqmMJniCum1IO09DApxzpIMYhgjoC7mlkvAM4m
+	aQiW0E35efQ2ZbrQAn+Iq6Mcq5Bssz5oH5R1A9tmaB9ghSaXk79yokH/RuCWCqyVF0WAZ8OHVfvwk
+	jAdUT79abSWNtlIMvhaw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnaHC-00000006sLq-3xXo;
-	Thu, 27 Feb 2025 09:33:54 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tna1W-00000006prT-25xO;
-	Thu, 27 Feb 2025 09:17:43 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Date:Sender:Message-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
-	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
-	List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=ufZqnl34vm+Pc3lq/GZFpFx8vvNtFX+vITx7KqbOkWc=; b=Cu0S5ynVTtTZxDgbsXX8fgD9Pf
-	iCbv2qYrqpBlzm2jdjz8Lf2cwvZOvlriYf2nXoV65RT4m2GcPFqwxrBWj9tPGMnYLzRb40RTAErcv
-	yrDjd51be6Xot7fWRCTUjhrFULrwoWHYpdCPihoOPmkZDuMyxl3QP7OGELscLIFPPl5fvaTRdSc5B
-	uCZ8H83Kb8xkDCZmPiCJhg0FUQ3SHbVCNj4bqN/cp9iZ2TbUtBl6Xu0NL2OHRiwKMo4mZr6YTpyrU
-	kkVtFRioqKVS55ri5MiPhJmvjEJCtQZJmoHpEPj6OsEjrCpwUpktLQOwOji8mtu52ojl6GcBoLRcD
-	4vFlmDYg==;
-Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:37578 helo=rmk-PC.armlinux.org.uk)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <rmk@armlinux.org.uk>)
-	id 1tna1O-0006eI-36;
-	Thu, 27 Feb 2025 09:17:35 +0000
-Received: from rmk by rmk-PC.armlinux.org.uk with local (Exim 4.94.2)
-	(envelope-from <rmk@rmk-PC.armlinux.org.uk>)
-	id 1tna14-0052tT-S4; Thu, 27 Feb 2025 09:17:14 +0000
-In-Reply-To: <Z8AtX-wyPal1auVO@shell.armlinux.org.uk>
-References: <Z8AtX-wyPal1auVO@shell.armlinux.org.uk>
-From: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
-To: Andrew Lunn <andrew@lunn.ch>,
-	Heiner Kallweit <hkallweit1@gmail.com>
-Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Drew Fustini <drew@pdp7.com>,
-	Eric Dumazet <edumazet@google.com>,
-	Fu Wei <wefu@redhat.com>,
-	Guo Ren <guoren@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-riscv@lists.infradead.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	netdev@vger.kernel.org,
-	Paolo Abeni <pabeni@redhat.com>
-Subject: [PATCH net-next 11/11] net: stmmac: thead: switch to use
- set_clk_tx_rate() hook
+	id 1tnc3d-00000007BI4-3vQv;
+	Thu, 27 Feb 2025 11:28:01 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tnbpm-000000077ee-1WOO;
+	Thu, 27 Feb 2025 11:13:43 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B356E2C1C;
+	Thu, 27 Feb 2025 03:13:56 -0800 (PST)
+Received: from [10.57.85.134] (unknown [10.57.85.134])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 6FF103F6A8;
+	Thu, 27 Feb 2025 03:13:31 -0800 (PST)
+Message-ID: <16863478-2195-435e-a899-559df097bc59@arm.com>
+Date: Thu, 27 Feb 2025 11:13:29 +0000
 MIME-Version: 1.0
-Content-Disposition: inline
-Message-Id: <E1tna14-0052tT-S4@rmk-PC.armlinux.org.uk>
-Date: Thu, 27 Feb 2025 09:17:14 +0000
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v7 7/8] execmem: add support for cache of large ROX pages
+Content-Language: en-GB
+To: Mike Rapoport <rppt@kernel.org>, Andrew Morton
+ <akpm@linux-foundation.org>, Luis Chamberlain <mcgrof@kernel.org>,
+ Dev Jain <dev.jain@arm.com>
+Cc: Andreas Larsson <andreas@gaisler.com>, Andy Lutomirski <luto@kernel.org>,
+ Ard Biesheuvel <ardb@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
+ Borislav Petkov <bp@alien8.de>, Brian Cain <bcain@quicinc.com>,
+ Catalin Marinas <catalin.marinas@arm.com>,
+ Christoph Hellwig <hch@infradead.org>,
+ Christophe Leroy <christophe.leroy@csgroup.eu>,
+ Dave Hansen <dave.hansen@linux.intel.com>, Dinh Nguyen
+ <dinguyen@kernel.org>, Geert Uytterhoeven <geert@linux-m68k.org>,
+ Guo Ren <guoren@kernel.org>, Helge Deller <deller@gmx.de>,
+ Huacai Chen <chenhuacai@kernel.org>, Ingo Molnar <mingo@redhat.com>,
+ Johannes Berg <johannes@sipsolutions.net>,
+ John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>,
+ Kent Overstreet <kent.overstreet@linux.dev>,
+ "Liam R. Howlett" <Liam.Howlett@oracle.com>,
+ Mark Rutland <mark.rutland@arm.com>, Masami Hiramatsu <mhiramat@kernel.org>,
+ Matt Turner <mattst88@gmail.com>, Max Filippov <jcmvbkbc@gmail.com>,
+ Michael Ellerman <mpe@ellerman.id.au>, Michal Simek <monstr@monstr.eu>,
+ Oleg Nesterov <oleg@redhat.com>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Peter Zijlstra <peterz@infradead.org>, Richard Weinberger <richard@nod.at>,
+ Russell King <linux@armlinux.org.uk>, Song Liu <song@kernel.org>,
+ Stafford Horne <shorne@gmail.com>, Steven Rostedt <rostedt@goodmis.org>,
+ Suren Baghdasaryan <surenb@google.com>,
+ Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+ Thomas Gleixner <tglx@linutronix.de>, Uladzislau Rezki <urezki@gmail.com>,
+ Vineet Gupta <vgupta@kernel.org>, Will Deacon <will@kernel.org>,
+ bpf@vger.kernel.org, linux-alpha@vger.kernel.org,
+ linux-arch@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-csky@vger.kernel.org, linux-hexagon@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-m68k@lists.linux-m68k.org,
+ linux-mips@vger.kernel.org, linux-mm@kvack.org,
+ linux-modules@vger.kernel.org, linux-openrisc@vger.kernel.org,
+ linux-parisc@vger.kernel.org, linux-riscv@lists.infradead.org,
+ linux-sh@vger.kernel.org, linux-snps-arc@lists.infradead.org,
+ linux-trace-kernel@vger.kernel.org, linux-um@lists.infradead.org,
+ linuxppc-dev@lists.ozlabs.org, loongarch@lists.linux.dev,
+ sparclinux@vger.kernel.org, x86@kernel.org
+References: <20241023162711.2579610-1-rppt@kernel.org>
+ <20241023162711.2579610-8-rppt@kernel.org>
+From: Ryan Roberts <ryan.roberts@arm.com>
+In-Reply-To: <20241023162711.2579610-8-rppt@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250227_011742_536980_6B753FAD 
-X-CRM114-Status: GOOD (  11.50  )
+X-CRM114-CacheID: sfid-20250227_031342_495427_7DEEA47A 
+X-CRM114-Status: GOOD (  21.62  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,81 +100,104 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Switch from using the fix_mac_speed() hook to set_clk_tx_rate() to
-manage the transmit clock.
+Hi Mike,
 
-Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
----
- .../net/ethernet/stmicro/stmmac/dwmac-thead.c  | 18 ++++++++++--------
- 1 file changed, 10 insertions(+), 8 deletions(-)
+Drive by review comments below...
 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-thead.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-thead.c
-index f9f2bd65959f..c72ee759aae5 100644
---- a/drivers/net/ethernet/stmicro/stmmac/dwmac-thead.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-thead.c
-@@ -101,10 +101,11 @@ static int thead_dwmac_set_txclk_dir(struct plat_stmmacenet_data *plat)
- 	return 0;
- }
- 
--static void thead_dwmac_fix_speed(void *priv, int speed, unsigned int mode)
-+static int thead_set_clk_tx_rate(void *bsp_priv, struct clk *clk_tx_i,
-+				 phy_interface_t interface, int speed)
- {
-+	struct thead_dwmac *dwmac = bsp_priv;
- 	struct plat_stmmacenet_data *plat;
--	struct thead_dwmac *dwmac = priv;
- 	unsigned long rate;
- 	long tx_rate;
- 	u32 div, reg;
-@@ -114,7 +115,7 @@ static void thead_dwmac_fix_speed(void *priv, int speed, unsigned int mode)
- 	switch (plat->mac_interface) {
- 	/* For MII, rxc/txc is provided by phy */
- 	case PHY_INTERFACE_MODE_MII:
--		return;
-+		return 0;
- 
- 	case PHY_INTERFACE_MODE_RGMII:
- 	case PHY_INTERFACE_MODE_RGMII_ID:
-@@ -127,23 +128,24 @@ static void thead_dwmac_fix_speed(void *priv, int speed, unsigned int mode)
- 		tx_rate = rgmii_clock(speed);
- 		if (tx_rate < 0) {
- 			dev_err(dwmac->dev, "invalid speed %d\n", speed);
--			return;
-+			return tx_rate;
- 		}
- 
- 		div = rate / tx_rate;
- 		if (rate != tx_rate * div) {
- 			dev_err(dwmac->dev, "invalid gmac rate %lu\n", rate);
--			return;
-+			return -EINVAL;
- 		}
- 
- 		reg = FIELD_PREP(GMAC_PLLCLK_DIV_EN, 1) |
- 		      FIELD_PREP(GMAC_PLLCLK_DIV_NUM, div);
- 		writel(reg, dwmac->apb_base + GMAC_PLLCLK_DIV);
--		break;
-+		return 0;
-+
- 	default:
- 		dev_err(dwmac->dev, "unsupported phy interface %d\n",
- 			plat->mac_interface);
--		return;
-+		return -EINVAL;
- 	}
- }
- 
-@@ -235,7 +237,7 @@ static int thead_dwmac_probe(struct platform_device *pdev)
- 	dwmac->plat = plat;
- 	dwmac->apb_base = apb;
- 	plat->bsp_priv = dwmac;
--	plat->fix_mac_speed = thead_dwmac_fix_speed;
-+	plat->set_clk_tx_rate = thead_set_clk_tx_rate;
- 	plat->init = thead_dwmac_init;
- 
- 	return devm_stmmac_pltfr_probe(pdev, plat, &stmmac_res);
--- 
-2.30.2
+
+On 23/10/2024 17:27, Mike Rapoport wrote:
+> From: "Mike Rapoport (Microsoft)" <rppt@kernel.org>
+> 
+> Using large pages to map text areas reduces iTLB pressure and improves
+> performance.
+> 
+> Extend execmem_alloc() with an ability to use huge pages with ROX
+> permissions as a cache for smaller allocations.
+> 
+> To populate the cache, a writable large page is allocated from vmalloc with
+> VM_ALLOW_HUGE_VMAP, filled with invalid instructions and then remapped as
+> ROX.
+> 
+> The direct map alias of that large page is exculded from the direct map.
+> 
+> Portions of that large page are handed out to execmem_alloc() callers
+> without any changes to the permissions.
+> 
+> When the memory is freed with execmem_free() it is invalidated again so
+> that it won't contain stale instructions.
+> 
+> An architecture has to implement execmem_fill_trapping_insns() callback
+> and select ARCH_HAS_EXECMEM_ROX configuration option to be able to use
+> the ROX cache.
+> 
+> The cache is enabled on per-range basis when an architecture sets
+> EXECMEM_ROX_CACHE flag in definition of an execmem_range.
+> 
+> Signed-off-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
+> Reviewed-by: Luis Chamberlain <mcgrof@kernel.org>
+> Tested-by: kdevops <kdevops@lists.linux.dev>
+> ---
+
+[...]
+
+> +
+> +static int execmem_cache_populate(struct execmem_range *range, size_t size)
+> +{
+> +	unsigned long vm_flags = VM_ALLOW_HUGE_VMAP;
+> +	unsigned long start, end;
+> +	struct vm_struct *vm;
+> +	size_t alloc_size;
+> +	int err = -ENOMEM;
+> +	void *p;
+> +
+> +	alloc_size = round_up(size, PMD_SIZE);
+> +	p = execmem_vmalloc(range, alloc_size, PAGE_KERNEL, vm_flags);
+
+Shouldn't this be passing PAGE_KERNEL_ROX? Otherwise I don't see how the
+allocated memory is ROX? I don't see any call below where you change the permission.
+
+Given the range has the pgprot in it, you could just drop passing the pgprot
+explicitly here and have execmem_vmalloc() use range->pgprot directly?
+
+Thanks,
+Ryan
+
+> +	if (!p)
+> +		return err;
+> +
+> +	vm = find_vm_area(p);
+> +	if (!vm)
+> +		goto err_free_mem;
+> +
+> +	/* fill memory with instructions that will trap */
+> +	execmem_fill_trapping_insns(p, alloc_size, /* writable = */ true);
+> +
+> +	start = (unsigned long)p;
+> +	end = start + alloc_size;
+> +
+> +	vunmap_range(start, end);
+> +
+> +	err = execmem_set_direct_map_valid(vm, false);
+> +	if (err)
+> +		goto err_free_mem;
+> +
+> +	err = vmap_pages_range_noflush(start, end, range->pgprot, vm->pages,
+> +				       PMD_SHIFT);
+> +	if (err)
+> +		goto err_free_mem;
+> +
+> +	err = execmem_cache_add(p, alloc_size);
+> +	if (err)
+> +		goto err_free_mem;
+> +
+> +	return 0;
+> +
+> +err_free_mem:
+> +	vfree(p);
+> +	return err;
+> +}
+
+[...]
 
 
 _______________________________________________
