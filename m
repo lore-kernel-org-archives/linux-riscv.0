@@ -4,88 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7C38C021BE
-	for <linux-riscv@archiver.kernel.org>; Thu, 27 Feb 2025 08:16:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 09DC3C021BE
+	for <linux-riscv@archiver.kernel.org>; Thu, 27 Feb 2025 08:30:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
+	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=SKD4F6gNwQmsXQgYb/IHyoQCiNDvpY1wqcgZHdUtBHo=; b=4DC/orOcK/YtPD
-	A62Cjewrjxd8olOisuG0DzRgcVPN1GYh1ihwM3z8El4JYgS2V8edbH35twMw+WbZEAoVjhvVzyK8a
-	SDs/kculLWkDCEyqo9CYHPn0TZ9S8/87ku7ACrqXBUi94VlpMizsdaS7s+fd8f+/nQ5y/B0YStEKV
-	kISaOnE/2wfpHS+7zAf4zllXCytuML7NBXgoy21ap4IosL7KPjmxMKGaV2pYT/cORZT157Ogz4vwE
-	RQ/t/3VWbP8edwL9M0F1xa3h+KfMURfTo4KvslZDgM3c/9FtQC5q2MkGout85qxvMydpIrIlQF2h4
-	pkDfxbGsTSGXrblluhhQ==;
+	List-Owner; bh=p4MEvgI6ohts17bSrs5C0LsjOIlOSFnfdQuvy5xUxvE=; b=T0xW//w5egS1Ul
+	11a8xZG+yWtu0SJHAvL5veKE7qWn8JVi/3XnwUt6S9feO8F0isvsbRcbjUAPyVENI3OCY3PV6Joy1
+	saN4qyjOh3pq10o3IS/SnMSUea05kKrXZEkK7SzIjNVE/0q1lofnPgZdZijmjx5Q+D+JEEs8rcBUO
+	8ySQQymtuGFzxtD2TPYGrbmtW102IZoQ3ToJC8N2Vj7eV4iNR4rltJO/GeEpN+8eZchWouAY/fxjM
+	Ick1UMVciNoSrPSSds6gzE4mrIld7kHUiRaiaog0Su3ecTbOmc/o/LILqV16r9V7Piqqf748OZebn
+	uznB46ViY57DqxdgfOuA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnZ4D-00000006fO5-3jCS;
-	Thu, 27 Feb 2025 08:16:25 +0000
-Received: from mail-wm1-x333.google.com ([2a00:1450:4864:20::333])
+	id 1tnZHL-00000006hPf-2Hvw;
+	Thu, 27 Feb 2025 08:29:59 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnZ4A-00000006fMm-2BZ6
-	for linux-riscv@lists.infradead.org;
-	Thu, 27 Feb 2025 08:16:24 +0000
-Received: by mail-wm1-x333.google.com with SMTP id 5b1f17b1804b1-439a331d981so5687025e9.3
-        for <linux-riscv@lists.infradead.org>; Thu, 27 Feb 2025 00:16:21 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1740644181; x=1741248981; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=rNuCHwKGXQWAf4mt8sNekn31y9wTAPf53BsIAPyDFlg=;
-        b=pjzH44y7uDU6RuNg2KtJXspJ/Po+JWzfilS/SgqqyHMBa+k4bD/r8ja/IzHsnN4zSz
-         Ghe3q8bVU0EczKRgkhWJziXFJ6+rR+9NwaV7A6CZ2olHshqNntx/HWWehxZasGw9l/oW
-         6gsdpUJPVZpCZ2tKDrz1EFws5omwMftsaAjEhuGof2RvSstmwaCFMLAnQRuVYoZlHx/q
-         ATHv2Rv3Um3o51eeK6n1UooMY+JqLVqbJymPe1vQoEC996lQGNIW5JjMWDpTlNNzMcqT
-         TF0kBJs2YnZFb4gdwoNoH3/6kkpq9YiYHn6vWlS6NfJNB6fPBi8LfWtg2CibzpwW2QDq
-         FuEw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1740644181; x=1741248981;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=rNuCHwKGXQWAf4mt8sNekn31y9wTAPf53BsIAPyDFlg=;
-        b=Oo7bTlHMNgG/MCD4Kb+NHDSjXQ/n3FyfpuaZEWIvUFPTh/2/GRYOQDyOsjJG3xGLk3
-         LFLNauWgqzuKXxhQzqGRxpvXKGzP3+UilNVND/FDK9/deaNVVYR7QpV6MYn2YSvtMp8c
-         iA/cDgweFZs0evq1jiw/jiXwMw9JUn/WKdzOzVnKQDxwiHwttM5qAsZfJy3B7KP8Et9W
-         ghp2TArDl1wi5MJ9KVmyoAWtw2mWIHNmFZmkscwCQfG6EjaTD7JG6wLlh9kIasDf6zJZ
-         VBY74at61g59tgM7lxgczHw4jpP0V9b4jS4wadDEqg5zIj3aiTHYRefPNsk1flGuPzzy
-         RQSw==
-X-Forwarded-Encrypted: i=1; AJvYcCXa87bVnlJkKoY+NVbjIftgKSyDUK/KyGnVTdXFVov0S2MVsSUQCqeFiDoOOMd6QgnkPC9xwTgr7so4eQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0YzM/v1TMop3niwOCWhV1QdCmWXIxygp6d9i0qX4Pf0qFdj5h9D9
-	XiKtOEDoOIx84MFd26IdQekggU/t31xtTg/qaBhjgMze5uFKx1MPH3DgTVschyI=
-X-Gm-Gg: ASbGncsp1yWt0sVjT3qlPLuEhmWaNOVnVt/khVGaISvAGyNlnAKRNkoyB6tDBa7XEBg
-	WsYV0ysnxan/YKC3CJbL0SVmzCNpUqjZEzP1ioI1heh9yZNnu0dVqVnSzEDMoFWzGZhcrKPW1Zn
-	HtzmRj1qJ8W+OLWAO9lJzShJo/iMXFFuFwJleAkSfwCBCk3BK3aAeiZhHUZSn0cWaEm3B7bQbsi
-	NXC3IOHXOGL+qsfmkh6KycwVBmFh2MuUbOtn/voOKR5gkoIwjQyzaRJow6hjrHtnJo3sVRlZ00G
-	WEdPRS6CVbFN2w==
-X-Google-Smtp-Source: AGHT+IGtkCGpzCQFwmHGo5aZlDGSlBp1jN55CoUYkN1FZsHypqajvqpmjpcHqYvMPO3dlRrienJsOQ==
-X-Received: by 2002:a05:600c:3588:b0:439:6304:e28a with SMTP id 5b1f17b1804b1-43ab8f6fe56mr58126325e9.0.1740644180644;
-        Thu, 27 Feb 2025 00:16:20 -0800 (PST)
-Received: from localhost ([2a02:8308:a00c:e200::8cf0])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-390e4796051sm1260460f8f.12.2025.02.27.00.16.20
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 27 Feb 2025 00:16:20 -0800 (PST)
-Date: Thu, 27 Feb 2025 09:16:19 +0100
-From: Andrew Jones <ajones@ventanamicro.com>
-To: Atish Patra <atishp@rivosinc.com>
-Cc: Anup Patel <anup@brainfault.org>, Atish Patra <atishp@atishpatra.org>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Paolo Bonzini <pbonzini@redhat.com>, Shuah Khan <shuah@kernel.org>, kvm@vger.kernel.org, 
-	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	linux-kselftest@vger.kernel.org
-Subject: Re: [PATCH 4/4] KVM: riscv: selftests: Allow number of interrupts to
- be configurable
-Message-ID: <20250227-f7b303813dab128b5060b0c3@orel>
-References: <20250226-kvm_pmu_improve-v1-0-74c058c2bf6d@rivosinc.com>
- <20250226-kvm_pmu_improve-v1-4-74c058c2bf6d@rivosinc.com>
+	id 1tnZFn-00000006hAe-1Y3L;
+	Thu, 27 Feb 2025 08:28:24 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id E8E285C0767;
+	Thu, 27 Feb 2025 08:27:43 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CB7C8C4CEDD;
+	Thu, 27 Feb 2025 08:28:15 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1740644902;
+	bh=mL+ScEVoosTCLqReMvWvb0hKdFm7SzXMaD7EnmZ5gQU=;
+	h=From:To:Cc:Subject:In-Reply-To:References:Date:From;
+	b=UkCcNxAHNlb8KdOpVGBTAsjYUG5oG1EXqGPyEiclsxzBC4p+LOLBcG4nlsZ/bWo+k
+	 W+AZVnrXuaRNp4mDR5r14XtUQsblr0rPT8GQGXSvmHHye9M6QtKrggxgtlCWPBRshH
+	 VXHHQftNfX5UHocw4EVWQUQmUDQz4GzjrsIKq68nK/GgPYUU36Ou13zR4DA+XXyBwE
+	 VnpTHUvNXXG1VQHUqqmr5E8R4xbVpPoN8BgaUYrbR3al/9qF/BSs/eqYzBZCgu+gBm
+	 aUlhq9JEmKjqnqTOuaNi+lue7T7tGaier67NxH/nVOHEYQbBo2Sn4rUSxSu7KWkMMY
+	 sFWAD4mVSBNWA==
+From: Andreas Hindborg <a.hindborg@kernel.org>
+To: "FUJITA Tomonori" <fujita.tomonori@gmail.com>
+Cc: <linux-kernel@vger.kernel.org>,  <rust-for-linux@vger.kernel.org>,
+  <x86@kernel.org>,  <linux-riscv@lists.infradead.org>,
+  <linux-arm-kernel@lists.infradead.org>,  <loongarch@lists.linux.dev>,
+  <tglx@linutronix.de>,  <mingo@redhat.com>,  <bp@alien8.de>,
+  <dave.hansen@linux.intel.com>,  <peterz@infradead.org>,  <hpa@zytor.com>,
+  <paul.walmsley@sifive.com>,  <palmer@dabbelt.com>,
+  <aou@eecs.berkeley.edu>,  <catalin.marinas@arm.com>,  <will@kernel.org>,
+  <chenhuacai@kernel.org>,  <kernel@xen0n.name>,
+  <tangyouling@loongson.cn>,  <hejinyang@loongson.cn>,
+  <yangtiezhu@loongson.cn>,  <ojeda@kernel.org>,  <alex.gaynor@gmail.com>,
+  <boqun.feng@gmail.com>,  <gary@garyguo.net>,  <bjorn3_gh@protonmail.com>,
+  <benno.lossin@proton.me>,  <aliceryhl@google.com>,  <tmgross@umich.edu>
+Subject: Re: [PATCH v3 0/5] rust: Add bug/warn abstractions
+In-Reply-To: <20250227.155417.1610168537890385926.fujita.tomonori@gmail.com>
+	(FUJITA Tomonori's message of "Thu, 27 Feb 2025 15:54:17 +0900")
+References: <yy_ESUuchCjlaGIJHzCPAcP_d9ucSD0CGXaoZNNkY7BmN5Ch1J8avsA9QpKO5LkTjlGpu99jl8NrFl5NFSQXuw==@protonmail.internalid>
+	<20250213135759.190006-1-fujita.tomonori@gmail.com>
+	<8734g0v6ke.fsf@kernel.org>
+	<aPT3Afc47I_dmAxy1DPVKUobcIJLV0rRUOXJX-ab6IFWqflSxdlOVQdJT0rxYQHjDBeWHDFjWsdXfiCOZ5hPWg==@protonmail.internalid>
+	<20250227.155417.1610168537890385926.fujita.tomonori@gmail.com>
+User-Agent: mu4e 1.12.7; emacs 29.4
+Date: Thu, 27 Feb 2025 09:28:11 +0100
+Message-ID: <87frjzu6zo.fsf@kernel.org>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20250226-kvm_pmu_improve-v1-4-74c058c2bf6d@rivosinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250227_001622_559558_603D7528 
-X-CRM114-Status: GOOD (  27.90  )
+X-CRM114-CacheID: sfid-20250227_002823_482423_4712672F 
+X-CRM114-Status: GOOD (  12.90  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,143 +81,46 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Feb 26, 2025 at 12:25:06PM -0800, Atish Patra wrote:
-> It is helpful to vary the number of the LCOFI interrupts generated
-> by the overflow test. Allow additional argument for overflow test
-> to accommodate that. It can be easily cross-validated with
-> /proc/interrupts output in the host.
-> 
-> Signed-off-by: Atish Patra <atishp@rivosinc.com>
-> ---
->  tools/testing/selftests/kvm/riscv/sbi_pmu_test.c | 36 ++++++++++++++++++++----
->  1 file changed, 30 insertions(+), 6 deletions(-)
-> 
-> diff --git a/tools/testing/selftests/kvm/riscv/sbi_pmu_test.c b/tools/testing/selftests/kvm/riscv/sbi_pmu_test.c
-> index 533b76d0de82..7c273a1adb17 100644
-> --- a/tools/testing/selftests/kvm/riscv/sbi_pmu_test.c
-> +++ b/tools/testing/selftests/kvm/riscv/sbi_pmu_test.c
-> @@ -39,8 +39,10 @@ static bool illegal_handler_invoked;
->  #define SBI_PMU_TEST_SNAPSHOT	BIT(2)
->  #define SBI_PMU_TEST_OVERFLOW	BIT(3)
->  
-> +#define SBI_PMU_OVERFLOW_IRQNUM_DEFAULT 5
->  struct test_args {
->  	int disabled_tests;
-> +	int overflow_irqnum;
->  };
->  
->  static struct test_args targs;
-> @@ -478,7 +480,7 @@ static void test_pmu_events_snaphost(void)
->  
->  static void test_pmu_events_overflow(void)
->  {
-> -	int num_counters = 0;
-> +	int num_counters = 0, i = 0;
->  
->  	/* Verify presence of SBI PMU and minimum requrired SBI version */
->  	verify_sbi_requirement_assert();
-> @@ -495,11 +497,15 @@ static void test_pmu_events_overflow(void)
->  	 * Qemu supports overflow for cycle/instruction.
->  	 * This test may fail on any platform that do not support overflow for these two events.
->  	 */
-> -	test_pmu_event_overflow(SBI_PMU_HW_CPU_CYCLES);
-> -	GUEST_ASSERT_EQ(vcpu_shared_irq_count, 1);
-> +	for (i = 0; i < targs.overflow_irqnum; i++)
-> +		test_pmu_event_overflow(SBI_PMU_HW_CPU_CYCLES);
-> +	GUEST_ASSERT_EQ(vcpu_shared_irq_count, targs.overflow_irqnum);
-> +
-> +	vcpu_shared_irq_count = 0;
->  
-> -	test_pmu_event_overflow(SBI_PMU_HW_INSTRUCTIONS);
-> -	GUEST_ASSERT_EQ(vcpu_shared_irq_count, 2);
-> +	for (i = 0; i < targs.overflow_irqnum; i++)
-> +		test_pmu_event_overflow(SBI_PMU_HW_INSTRUCTIONS);
-> +	GUEST_ASSERT_EQ(vcpu_shared_irq_count, targs.overflow_irqnum);
->  
->  	GUEST_DONE();
->  }
-> @@ -621,8 +627,11 @@ static void test_vm_events_overflow(void *guest_code)
->  
->  static void test_print_help(char *name)
->  {
-> -	pr_info("Usage: %s [-h] [-t <test name>]\n", name);
-> +	pr_info("Usage: %s [-h] [-t <test name>] [-n <number of LCOFI interrupt for overflow test>]\n",
-> +		name);
->  	pr_info("\t-t: Test to run (default all). Available tests are 'basic', 'events', 'snapshot', 'overflow'\n");
-> +	pr_info("\t-n: Number of LCOFI interrupt to trigger for each event in overflow test (default: %d)\n",
-> +		SBI_PMU_OVERFLOW_IRQNUM_DEFAULT);
->  	pr_info("\t-h: print this help screen\n");
->  }
->  
-> @@ -631,6 +640,8 @@ static bool parse_args(int argc, char *argv[])
->  	int opt;
->  	int temp_disabled_tests = SBI_PMU_TEST_BASIC | SBI_PMU_TEST_EVENTS | SBI_PMU_TEST_SNAPSHOT |
->  				  SBI_PMU_TEST_OVERFLOW;
-> +	int overflow_interrupts = -1;
-
-Initializing to -1 made me think that '-n 0' would be valid and a way to
-disable the overflow test, but...
-
-> +
->  	while ((opt = getopt(argc, argv, "h:t:n:")) != -1) {
->  		switch (opt) {
->  		case 't':
-> @@ -646,12 +657,24 @@ static bool parse_args(int argc, char *argv[])
->  				goto done;
->  			targs.disabled_tests = temp_disabled_tests;
->  			break;
-> +		case 'n':
-> +			overflow_interrupts = atoi_positive("Number of LCOFI", optarg);
-
-...here we use atoi_positive() and...
-
-> +			break;
->  		case 'h':
->  		default:
->  			goto done;
->  		}
->  	}
->  
-> +	if (overflow_interrupts > 0) {
-
-...here we only change from the default of 5 for nonzero.
-
-Should we allow '-n 0'? Otherwise overflow_interrupts can be initialized
-to zero (not that it matters).
-
-> +		if (targs.disabled_tests & SBI_PMU_TEST_OVERFLOW) {
-> +			pr_info("-n option is only available for overflow test\n");
-> +			goto done;
-> +		} else {
-> +			targs.overflow_irqnum = overflow_interrupts;
-> +		}
-> +	}
-> +
->  	return true;
->  done:
->  	test_print_help(argv[0]);
-> @@ -661,6 +684,7 @@ static bool parse_args(int argc, char *argv[])
->  int main(int argc, char *argv[])
->  {
->  	targs.disabled_tests = 0;
-> +	targs.overflow_irqnum = SBI_PMU_OVERFLOW_IRQNUM_DEFAULT;
->  
->  	if (!parse_args(argc, argv))
->  		exit(KSFT_SKIP);
-> 
-> -- 
-> 2.43.0
->
-
-Thanks,
-drew
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+IkZVSklUQSBUb21vbm9yaSIgPGZ1aml0YS50b21vbm9yaUBnbWFpbC5jb20+IHdyaXRlczoKCj4g
+T24gV2VkLCAyNiBGZWIgMjAyNSAyMDozOTo0NSArMDEwMAo+IEFuZHJlYXMgSGluZGJvcmcgPGEu
+aGluZGJvcmdAa2VybmVsLm9yZz4gd3JvdGU6Cj4KPj4gSG93IGRvZXMgdGhpcyBzZXJpZXMgY29t
+cGFyZS9vdmVybGFwIHdpdGggWzFdID8KPj4KPj4gWzFdIGh0dHBzOi8vbG9yZS5rZXJuZWwub3Jn
+L2FsbC8yMDI0MTEyNi1wcl9vbmNlX21hY3Jvcy12NC0wLTQxMGI4Y2E5NjQzZUB0dXRhLmlvLwo+
+Cj4gTm8gb3ZlcmxhcC4gRWFjaCBzb2x2ZXMgYSBkaWZmZXJlbnQgcHJvYmxlbS4gQm90aCBhcmUg
+bmVjZXNzYXJ5Lgo+Cj4gVGhpcyBwYXRjaHNldCBlbmFibGVzIFJ1c3QgY29kZSB0byBjYWxsIEMn
+cyBCVUcvV0FSTiBwcm9wZXJseS4KPgo+IEN1cnJlbnRseSwgUnVzdCdzIEJVRygpIGlzIGEgc2lt
+cGxlIHdyYXBwZXIgZm9yIEMncyBCVUcoKQo+IChydXN0L2hlbHBlcnMvYnVnLmMpLiBJIGFkZGVk
+IEJVRygpIHRvIHJudWxsJ3MgaW5pdCgpIGFuZCBnb3QgdGhlCj4gZm9sbG93aW5nOgo+Cj4gIyBp
+bnNtb2QgL3Jvb3Qvcm51bGxfbW9kLmtvCj4gcm51bGxfbW9kOiBSdXN0IG51bGxfYmxrIGxvYWRl
+ZAo+IC0tLS0tLS0tLS0tLVsgY3V0IGhlcmUgXS0tLS0tLS0tLS0tLQo+IGtlcm5lbCBCVUcgYXQg
+cnVzdC9oZWxwZXJzL2J1Zy5jOjchCj4gT29wczogaW52YWxpZCBvcGNvZGU6IDAwMDAgWyMxXSBT
+TVAKPiBDUFU6IDAgVUlEOiAwIFBJRDogMzEgQ29tbTogaW5zbW9kIE5vdCB0YWludGVkIDYuMTQu
+MC1yYzErICMxMDMKPiBSSVA6IDAwMTA6cnVzdF9oZWxwZXJfQlVHKzB4OC8weDEwCj4gKHNuaXAp
+Cj4KPiBUaGlzIGlzIE5PVCBkZWJ1ZyBpbmZvcm1hdGlvbiB0aGF0IHdlIGV4cGVjdC4gVGhlIHBy
+b2JsZW0gaXMgdGhhdAo+IEJVRy9XQVJOIGZlYXR1cmUgKGxpYi9idWcuYykgY2FuIG9ubHkgYmUg
+dXNlZCBmcm9tIGFzc2VtYmx5Lgo+Cj4gVGhpcyBwYXRjaHNldCBpbmNsdWRlcyBvbmx5IHdhcm4o
+KSBidXQgd2l0aCBidWcoKSBpbXBsZW1lbnRhdGlvbiBvbgo+IHRvcCBvZiB0aGlzIHBhdGNoc2V0
+LCBJIGdvdDoKPgo+ICMgaW5zbW9kIC9yb290L3JudWxsX21vZC5rbwo+IHJudWxsX21vZDogUnVz
+dCBudWxsX2JsayBsb2FkZWQKPiAtLS0tLS0tLS0tLS1bIGN1dCBoZXJlIF0tLS0tLS0tLS0tLS0K
+PiBXQVJOSU5HOiBDUFU6IDAgUElEOiAzMSBhdCAvaG9tZS9mdWppdGEvZ2l0L2xpbnV4LXJ1c3Qv
+ZHJpdmVycy9ibG9jay9ybnVsbC5yczo0NiBfUk52WENzYWZVZzNvT1lpeDhfNXJudWxsTnRCMl8x
+M051bGxCbGtNb2R1XQo+IE1vZHVsZXMgbGlua2VkIGluOiBybnVsbF9tb2QoKykKPiBDUFU6IDAg
+VUlEOiAwIFBJRDogMzEgQ29tbTogaW5zbW9kIE5vdCB0YWludGVkIDYuMTQuMC1yYzErICMxMDQK
+PiBSSVA6IDAwMTA6X1JOdlhDc2FmVWczb09ZaXg4XzVybnVsbE50QjJfMTNOdWxsQmxrTW9kdWxl
+TnRDc2FZQmVLTDczOVh6XzZrZXJuZWwxM0luUGxhY2VNb2R1bGU0aW5pdCsweDcxLzB4NGYwIFty
+bnVsbF9tb2RdCj4KPgo+IFRoZSBbMV0gcGF0Y2hzZXQgYWRkcyBhbiBhYnN0cmFjaXRvbiBmb3Ig
+aW5jbHVkZS9saW51eC9vbmNlX2xpdGUuaCwKPiAnY2FsbCBhIGZ1bmN0aW9uIG9uY2UnIGZlYXR1
+cmUsIHdpdGggcHJfKl9vbmNlKCkgaW1wbGVtZW50YXRpb24uCj4KPiBwcl8qX29uY2UoKSBqdXN0
+IGNhbGxzIHByaW50aygpIG9uY2UuIFVubGlrZSBCVUcvV0FSTiwgbm8gZGVidWcKPiBpbmZvcm1h
+dGlvbiAoY2FsbCBwbGFjZSwgcmVnaXN0ZXJzLCBzdGFjayB0cmFjZSwgZXRjKS4KPgo+Cj4gVGhl
+IG9ubHkgY29ubmVjdGlvbiBiZXR3ZWVuIHR3byBwYXRjaHNldCBpcyB0aGF0IFdBUk5fT05DRSgp
+IGNhbiBiZQo+IGJ1aWx0IG9uIHRvcCBvZiBib3RoIGxpa2UgdGhlIEMgc2lkZS4KCkF3ZXNvbWUs
+IHRoYW5rcyBmb3IgZXhwbGFpbmluZyDwn5GNCgoKQmVzdCByZWdhcmRzLApBbmRyZWFzIEhpbmRi
+b3JnCgoKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxp
+bnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0
+dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
