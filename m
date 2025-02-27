@@ -4,72 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 09DC3C021BE
-	for <linux-riscv@archiver.kernel.org>; Thu, 27 Feb 2025 08:30:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1557EC19F2E
+	for <linux-riscv@archiver.kernel.org>; Thu, 27 Feb 2025 08:45:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
-	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=p4MEvgI6ohts17bSrs5C0LsjOIlOSFnfdQuvy5xUxvE=; b=T0xW//w5egS1Ul
-	11a8xZG+yWtu0SJHAvL5veKE7qWn8JVi/3XnwUt6S9feO8F0isvsbRcbjUAPyVENI3OCY3PV6Joy1
-	saN4qyjOh3pq10o3IS/SnMSUea05kKrXZEkK7SzIjNVE/0q1lofnPgZdZijmjx5Q+D+JEEs8rcBUO
-	8ySQQymtuGFzxtD2TPYGrbmtW102IZoQ3ToJC8N2Vj7eV4iNR4rltJO/GeEpN+8eZchWouAY/fxjM
-	Ick1UMVciNoSrPSSds6gzE4mrIld7kHUiRaiaog0Su3ecTbOmc/o/LILqV16r9V7Piqqf748OZebn
-	uznB46ViY57DqxdgfOuA==;
+	List-Owner; bh=4XvV3Iiph1fIoTKk0jUe7El3KyEaWvFnqbWk8u3FUtA=; b=31+HjH6MxWfqrB
+	Z1v/SQUvjcmAPMjeS9u3B+OiPqpHq54OK1WmMMM/nFt0cXuZUT0n9QPU5IfBNkatc5q7LOVS2kiz0
+	iL29qDMH+DkYFZsNwE2DJibRoLTWe2kFriJ4K/T0SMFQWti+9bReuiPULysNbcrpf+RR0GKawdKHg
+	6aex3Ze6DxIMvg1ZxY1NHuaGtLZ+L4LR6RT/QPtRlcTUtll8JPoDQZfdliflA6RjpFDcnM34vR0h+
+	AiLJIGdsp8pg3HkNk/5VX/S69Vg4Xtaa9LvhM7DbmWi72jLkmFGNGl9e9zxTLwcey2z4DXICt5bF6
+	F+7wCWRhp5+bUujJMCYQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnZHL-00000006hPf-2Hvw;
-	Thu, 27 Feb 2025 08:29:59 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1tnZW6-00000006kV8-2uNo;
+	Thu, 27 Feb 2025 08:45:14 +0000
+Received: from mail-wm1-x334.google.com ([2a00:1450:4864:20::334])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnZFn-00000006hAe-1Y3L;
-	Thu, 27 Feb 2025 08:28:24 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id E8E285C0767;
-	Thu, 27 Feb 2025 08:27:43 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CB7C8C4CEDD;
-	Thu, 27 Feb 2025 08:28:15 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1740644902;
-	bh=mL+ScEVoosTCLqReMvWvb0hKdFm7SzXMaD7EnmZ5gQU=;
-	h=From:To:Cc:Subject:In-Reply-To:References:Date:From;
-	b=UkCcNxAHNlb8KdOpVGBTAsjYUG5oG1EXqGPyEiclsxzBC4p+LOLBcG4nlsZ/bWo+k
-	 W+AZVnrXuaRNp4mDR5r14XtUQsblr0rPT8GQGXSvmHHye9M6QtKrggxgtlCWPBRshH
-	 VXHHQftNfX5UHocw4EVWQUQmUDQz4GzjrsIKq68nK/GgPYUU36Ou13zR4DA+XXyBwE
-	 VnpTHUvNXXG1VQHUqqmr5E8R4xbVpPoN8BgaUYrbR3al/9qF/BSs/eqYzBZCgu+gBm
-	 aUlhq9JEmKjqnqTOuaNi+lue7T7tGaier67NxH/nVOHEYQbBo2Sn4rUSxSu7KWkMMY
-	 sFWAD4mVSBNWA==
-From: Andreas Hindborg <a.hindborg@kernel.org>
-To: "FUJITA Tomonori" <fujita.tomonori@gmail.com>
-Cc: <linux-kernel@vger.kernel.org>,  <rust-for-linux@vger.kernel.org>,
-  <x86@kernel.org>,  <linux-riscv@lists.infradead.org>,
-  <linux-arm-kernel@lists.infradead.org>,  <loongarch@lists.linux.dev>,
-  <tglx@linutronix.de>,  <mingo@redhat.com>,  <bp@alien8.de>,
-  <dave.hansen@linux.intel.com>,  <peterz@infradead.org>,  <hpa@zytor.com>,
-  <paul.walmsley@sifive.com>,  <palmer@dabbelt.com>,
-  <aou@eecs.berkeley.edu>,  <catalin.marinas@arm.com>,  <will@kernel.org>,
-  <chenhuacai@kernel.org>,  <kernel@xen0n.name>,
-  <tangyouling@loongson.cn>,  <hejinyang@loongson.cn>,
-  <yangtiezhu@loongson.cn>,  <ojeda@kernel.org>,  <alex.gaynor@gmail.com>,
-  <boqun.feng@gmail.com>,  <gary@garyguo.net>,  <bjorn3_gh@protonmail.com>,
-  <benno.lossin@proton.me>,  <aliceryhl@google.com>,  <tmgross@umich.edu>
-Subject: Re: [PATCH v3 0/5] rust: Add bug/warn abstractions
-In-Reply-To: <20250227.155417.1610168537890385926.fujita.tomonori@gmail.com>
-	(FUJITA Tomonori's message of "Thu, 27 Feb 2025 15:54:17 +0900")
-References: <yy_ESUuchCjlaGIJHzCPAcP_d9ucSD0CGXaoZNNkY7BmN5Ch1J8avsA9QpKO5LkTjlGpu99jl8NrFl5NFSQXuw==@protonmail.internalid>
-	<20250213135759.190006-1-fujita.tomonori@gmail.com>
-	<8734g0v6ke.fsf@kernel.org>
-	<aPT3Afc47I_dmAxy1DPVKUobcIJLV0rRUOXJX-ab6IFWqflSxdlOVQdJT0rxYQHjDBeWHDFjWsdXfiCOZ5hPWg==@protonmail.internalid>
-	<20250227.155417.1610168537890385926.fujita.tomonori@gmail.com>
-User-Agent: mu4e 1.12.7; emacs 29.4
-Date: Thu, 27 Feb 2025 09:28:11 +0100
-Message-ID: <87frjzu6zo.fsf@kernel.org>
+	id 1tnZVD-00000006kED-1OaT
+	for linux-riscv@lists.infradead.org;
+	Thu, 27 Feb 2025 08:44:20 +0000
+Received: by mail-wm1-x334.google.com with SMTP id 5b1f17b1804b1-439846bc7eeso3959955e9.3
+        for <linux-riscv@lists.infradead.org>; Thu, 27 Feb 2025 00:44:18 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ventanamicro.com; s=google; t=1740645858; x=1741250658; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=0eD4WdY2Ar0Qpt9c3iLvWQtqo0+f9AP00jRPqQ8lu4I=;
+        b=OKT6GhxdWfPDuOXDV1TN7i351aXz77WEsvwcWksK2W5k2S2/XppnhiloYuWwPxUk6f
+         Q7se1dHHgP9JajrfEFn9uOLc8SFL80hGUseyk6CFAOTPyEdgHgcSdfAR19REjaLNBmfD
+         WGO8sSXVpkgy2nN6Pu/kSvpxOnscmR7LL5pIAFyaoSXH9gvrfJOOTOrXlotRK5l3PMfr
+         I3xqvWEAGYuTnkhh00IPeMWlAjgry0GkHwHocG+g0MayY2aJVgnkaPTowHSNUa5ZTHjy
+         viZv//gaN0Or8ZWLfzqVybbQsbZaTEFmcbr4rzwBbeKHfkn4f8eR5ikSPR5po1XYmpyw
+         kfXQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1740645858; x=1741250658;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=0eD4WdY2Ar0Qpt9c3iLvWQtqo0+f9AP00jRPqQ8lu4I=;
+        b=YIYUCELCXliUCKptY9AZsYTCOG2cu4YILC0ZTXPCoHeNI8f0iZqnIg0sbzHA0bs+M4
+         zv6E4PwE2vsBQYaBOFEumqgbF2KDnis4WOKda3mTNOoDmvL1gURhFBZFODN84ss0WcVQ
+         TcVj21EX2P9a6JZely6TqVC+VVVOFbLr6YYoMrKAtqetd7+Os2ezsUckH+ddJgHBnwxI
+         gEoD8iBr/YDgWK18Z9JzVC1YhtVGp29WNLItbnPny+0ez1JAaphHXeT2IcsvoxR5xzfQ
+         eNn6J31TfZJMjNqzkcd8BYaauD66x2XJJ5hZVxk754m17sv8pgaVs+7fP9yxYff8D3Br
+         2bpQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXLdd4Ox2BYyLbGDSv37zksDkadwzp6y/lLnNpj80A0o9Zwe/H9Riqntw7rrSfLghPvtV1qCrti5uyxFQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx2fIHTxR9tFcaIogNTfKBpFe3wYO8WyXXwyT8Utp3QVg+8Qe2k
+	jxXST3wK9uFSqrk/vx2k5telhPrxJSBXyecETJrTCdmTO9yk7AEO6siLR95FxRs=
+X-Gm-Gg: ASbGnctw4Ie2u6dp8O7ruWE2U4PV2Ksa4IiJBiw/xHfeyVWs3Jrzf09Q9rGOK3RP7ng
+	49MjAWb7NxooAN6dezSqWtQW+98GzlZimo11gzgbRa73VTuOZdHIpOgl/AMgk7r2pE1wf7+V52n
+	H7tNe/udeSB1aCLLRAXQy8tDkyLoDkp+h6OLkNVX1SmLZItvgkawufVpy5t5Tk3aLKM/hTRqGC1
+	k4EF/jYCGz7v0veGlVH/TOQKimeouEAX7PXZcc7RdcooXrHU9G6p8smzpt+Le3Y8eF8McfsiFMa
+	AibtipSNYjUYIw==
+X-Google-Smtp-Source: AGHT+IG7ml0QUrxxm1q148UuaevZWwyImW/BG/iHf4sSOi4FAdGUGP1loq2o5+xFJijpyPDy5kgSvA==
+X-Received: by 2002:a05:600c:3c86:b0:439:9377:fa29 with SMTP id 5b1f17b1804b1-43ab903fe5bmr54754285e9.31.1740645857622;
+        Thu, 27 Feb 2025 00:44:17 -0800 (PST)
+Received: from localhost ([2a02:8308:a00c:e200::8cf0])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-43b736f990esm15612155e9.5.2025.02.27.00.44.16
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 27 Feb 2025 00:44:16 -0800 (PST)
+Date: Thu, 27 Feb 2025 09:44:15 +0100
+From: Andrew Jones <ajones@ventanamicro.com>
+To: Atish Patra <atishp@rivosinc.com>
+Cc: Anup Patel <anup@brainfault.org>, Atish Patra <atishp@atishpatra.org>, 
+	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Paolo Bonzini <pbonzini@redhat.com>, Shuah Khan <shuah@kernel.org>, kvm@vger.kernel.org, 
+	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	linux-kselftest@vger.kernel.org
+Subject: Re: [PATCH 2/4] KVM: riscv: selftests: Do not start the counter in
+ the overflow handler
+Message-ID: <20250227-3799414d0651c86f6a815046@orel>
+References: <20250226-kvm_pmu_improve-v1-0-74c058c2bf6d@rivosinc.com>
+ <20250226-kvm_pmu_improve-v1-2-74c058c2bf6d@rivosinc.com>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20250226-kvm_pmu_improve-v1-2-74c058c2bf6d@rivosinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250227_002823_482423_4712672F 
-X-CRM114-Status: GOOD (  12.90  )
+X-CRM114-CacheID: sfid-20250227_004419_374526_F3164F3E 
+X-CRM114-Status: GOOD (  19.17  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,46 +97,69 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-IkZVSklUQSBUb21vbm9yaSIgPGZ1aml0YS50b21vbm9yaUBnbWFpbC5jb20+IHdyaXRlczoKCj4g
-T24gV2VkLCAyNiBGZWIgMjAyNSAyMDozOTo0NSArMDEwMAo+IEFuZHJlYXMgSGluZGJvcmcgPGEu
-aGluZGJvcmdAa2VybmVsLm9yZz4gd3JvdGU6Cj4KPj4gSG93IGRvZXMgdGhpcyBzZXJpZXMgY29t
-cGFyZS9vdmVybGFwIHdpdGggWzFdID8KPj4KPj4gWzFdIGh0dHBzOi8vbG9yZS5rZXJuZWwub3Jn
-L2FsbC8yMDI0MTEyNi1wcl9vbmNlX21hY3Jvcy12NC0wLTQxMGI4Y2E5NjQzZUB0dXRhLmlvLwo+
-Cj4gTm8gb3ZlcmxhcC4gRWFjaCBzb2x2ZXMgYSBkaWZmZXJlbnQgcHJvYmxlbS4gQm90aCBhcmUg
-bmVjZXNzYXJ5Lgo+Cj4gVGhpcyBwYXRjaHNldCBlbmFibGVzIFJ1c3QgY29kZSB0byBjYWxsIEMn
-cyBCVUcvV0FSTiBwcm9wZXJseS4KPgo+IEN1cnJlbnRseSwgUnVzdCdzIEJVRygpIGlzIGEgc2lt
-cGxlIHdyYXBwZXIgZm9yIEMncyBCVUcoKQo+IChydXN0L2hlbHBlcnMvYnVnLmMpLiBJIGFkZGVk
-IEJVRygpIHRvIHJudWxsJ3MgaW5pdCgpIGFuZCBnb3QgdGhlCj4gZm9sbG93aW5nOgo+Cj4gIyBp
-bnNtb2QgL3Jvb3Qvcm51bGxfbW9kLmtvCj4gcm51bGxfbW9kOiBSdXN0IG51bGxfYmxrIGxvYWRl
-ZAo+IC0tLS0tLS0tLS0tLVsgY3V0IGhlcmUgXS0tLS0tLS0tLS0tLQo+IGtlcm5lbCBCVUcgYXQg
-cnVzdC9oZWxwZXJzL2J1Zy5jOjchCj4gT29wczogaW52YWxpZCBvcGNvZGU6IDAwMDAgWyMxXSBT
-TVAKPiBDUFU6IDAgVUlEOiAwIFBJRDogMzEgQ29tbTogaW5zbW9kIE5vdCB0YWludGVkIDYuMTQu
-MC1yYzErICMxMDMKPiBSSVA6IDAwMTA6cnVzdF9oZWxwZXJfQlVHKzB4OC8weDEwCj4gKHNuaXAp
-Cj4KPiBUaGlzIGlzIE5PVCBkZWJ1ZyBpbmZvcm1hdGlvbiB0aGF0IHdlIGV4cGVjdC4gVGhlIHBy
-b2JsZW0gaXMgdGhhdAo+IEJVRy9XQVJOIGZlYXR1cmUgKGxpYi9idWcuYykgY2FuIG9ubHkgYmUg
-dXNlZCBmcm9tIGFzc2VtYmx5Lgo+Cj4gVGhpcyBwYXRjaHNldCBpbmNsdWRlcyBvbmx5IHdhcm4o
-KSBidXQgd2l0aCBidWcoKSBpbXBsZW1lbnRhdGlvbiBvbgo+IHRvcCBvZiB0aGlzIHBhdGNoc2V0
-LCBJIGdvdDoKPgo+ICMgaW5zbW9kIC9yb290L3JudWxsX21vZC5rbwo+IHJudWxsX21vZDogUnVz
-dCBudWxsX2JsayBsb2FkZWQKPiAtLS0tLS0tLS0tLS1bIGN1dCBoZXJlIF0tLS0tLS0tLS0tLS0K
-PiBXQVJOSU5HOiBDUFU6IDAgUElEOiAzMSBhdCAvaG9tZS9mdWppdGEvZ2l0L2xpbnV4LXJ1c3Qv
-ZHJpdmVycy9ibG9jay9ybnVsbC5yczo0NiBfUk52WENzYWZVZzNvT1lpeDhfNXJudWxsTnRCMl8x
-M051bGxCbGtNb2R1XQo+IE1vZHVsZXMgbGlua2VkIGluOiBybnVsbF9tb2QoKykKPiBDUFU6IDAg
-VUlEOiAwIFBJRDogMzEgQ29tbTogaW5zbW9kIE5vdCB0YWludGVkIDYuMTQuMC1yYzErICMxMDQK
-PiBSSVA6IDAwMTA6X1JOdlhDc2FmVWczb09ZaXg4XzVybnVsbE50QjJfMTNOdWxsQmxrTW9kdWxl
-TnRDc2FZQmVLTDczOVh6XzZrZXJuZWwxM0luUGxhY2VNb2R1bGU0aW5pdCsweDcxLzB4NGYwIFty
-bnVsbF9tb2RdCj4KPgo+IFRoZSBbMV0gcGF0Y2hzZXQgYWRkcyBhbiBhYnN0cmFjaXRvbiBmb3Ig
-aW5jbHVkZS9saW51eC9vbmNlX2xpdGUuaCwKPiAnY2FsbCBhIGZ1bmN0aW9uIG9uY2UnIGZlYXR1
-cmUsIHdpdGggcHJfKl9vbmNlKCkgaW1wbGVtZW50YXRpb24uCj4KPiBwcl8qX29uY2UoKSBqdXN0
-IGNhbGxzIHByaW50aygpIG9uY2UuIFVubGlrZSBCVUcvV0FSTiwgbm8gZGVidWcKPiBpbmZvcm1h
-dGlvbiAoY2FsbCBwbGFjZSwgcmVnaXN0ZXJzLCBzdGFjayB0cmFjZSwgZXRjKS4KPgo+Cj4gVGhl
-IG9ubHkgY29ubmVjdGlvbiBiZXR3ZWVuIHR3byBwYXRjaHNldCBpcyB0aGF0IFdBUk5fT05DRSgp
-IGNhbiBiZQo+IGJ1aWx0IG9uIHRvcCBvZiBib3RoIGxpa2UgdGhlIEMgc2lkZS4KCkF3ZXNvbWUs
-IHRoYW5rcyBmb3IgZXhwbGFpbmluZyDwn5GNCgoKQmVzdCByZWdhcmRzLApBbmRyZWFzIEhpbmRi
-b3JnCgoKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxp
-bnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0
-dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+On Wed, Feb 26, 2025 at 12:25:04PM -0800, Atish Patra wrote:
+> There is no need to start the counter in the overflow handler as we
+> intend to trigger precise number of LCOFI interrupts through these
+> tests. The overflow irq handler has already stopped the counter. As
+> a result, the stop call from the test function may return already
+> supported error which is fine as well.
+  ^ stopped
+
+> 
+> Signed-off-by: Atish Patra <atishp@rivosinc.com>
+> ---
+>  tools/testing/selftests/kvm/riscv/sbi_pmu_test.c | 9 ++-------
+>  1 file changed, 2 insertions(+), 7 deletions(-)
+> 
+> diff --git a/tools/testing/selftests/kvm/riscv/sbi_pmu_test.c b/tools/testing/selftests/kvm/riscv/sbi_pmu_test.c
+> index f45c0ecc902d..284bc80193bd 100644
+> --- a/tools/testing/selftests/kvm/riscv/sbi_pmu_test.c
+> +++ b/tools/testing/selftests/kvm/riscv/sbi_pmu_test.c
+> @@ -118,8 +118,8 @@ static void stop_counter(unsigned long counter, unsigned long stop_flags)
+>  
+>  	ret = sbi_ecall(SBI_EXT_PMU, SBI_EXT_PMU_COUNTER_STOP, counter, 1, stop_flags,
+>  			0, 0, 0);
+> -	__GUEST_ASSERT(ret.error == 0, "Unable to stop counter %ld error %ld\n",
+> -			       counter, ret.error);
+> +	__GUEST_ASSERT(ret.error == 0 || ret.error == SBI_ERR_ALREADY_STOPPED,
+> +		       "Unable to stop counter %ld error %ld\n", counter, ret.error);
+>  }
+>  
+>  static void guest_illegal_exception_handler(struct ex_regs *regs)
+> @@ -137,7 +137,6 @@ static void guest_irq_handler(struct ex_regs *regs)
+>  	unsigned int irq_num = regs->cause & ~CAUSE_IRQ_FLAG;
+>  	struct riscv_pmu_snapshot_data *snapshot_data = snapshot_gva;
+>  	unsigned long overflown_mask;
+> -	unsigned long counter_val = 0;
+>  
+>  	/* Validate that we are in the correct irq handler */
+>  	GUEST_ASSERT_EQ(irq_num, IRQ_PMU_OVF);
+> @@ -151,10 +150,6 @@ static void guest_irq_handler(struct ex_regs *regs)
+>  	GUEST_ASSERT(overflown_mask & 0x01);
+>  
+>  	WRITE_ONCE(vcpu_shared_irq_count, vcpu_shared_irq_count+1);
+> -
+> -	counter_val = READ_ONCE(snapshot_data->ctr_values[0]);
+> -	/* Now start the counter to mimick the real driver behavior */
+> -	start_counter(counter_in_use, SBI_PMU_START_FLAG_SET_INIT_VALUE, counter_val);
+>  }
+>  
+>  static unsigned long get_counter_index(unsigned long cbase, unsigned long cmask,
+> 
+> -- 
+> 2.43.0
+>
+
+Other than the commit message,
+
+Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
