@@ -4,95 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A110AC021BE
-	for <linux-riscv@archiver.kernel.org>; Thu, 27 Feb 2025 05:24:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D782FC19F38
+	for <linux-riscv@archiver.kernel.org>; Thu, 27 Feb 2025 06:54:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Mime-Version:References:In-Reply-To:
+	From:Subject:Cc:To:Message-Id:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=VS7Nc4f4jLsz0XVMdBVzXvTXKEAuNr82G//qIN1s5Ew=; b=n/pjAyA8kmBsTi
-	PwyM/RwNH90C+Vp/t5uj0PSwsZkVFg4VqDCZIEkxZQ0EnrpIEpbqvHNku/sCIMwTKkeA1IXU7UR2n
-	jcjb729yUmlT1CpFuHeuG27E7sYnfvSgPcuWG5x+YiEfPpzMiL0aM72SIRGXc8HGl7FQpfAOuH8yn
-	uw8qugFnw5iMIKWWbAh8xp148uKsjKbbmxa0eFsoSq5CYKymKLrPZxqnrMYVujptfuQOUPX47YjO2
-	kRUqHv44RyECiOtZWEYTqIaW+TNLkDHBlMvqq6BQMWoe1pxomULEt9EE/wDH8qQtrCMbssLDIz/7C
-	p1MxAL1vM2knvGGDvhbw==;
+	List-Owner; bh=llHah/fVA9hJ583ZTUaONcRbvRRe7vpOhO8PCJ5OGhg=; b=OKFf37EqwtIP0k
+	RxAe7PbNTk+syVM/J79ySDCsnCxawNucnfMHGI66guG+ohDKwkk4QokY9WbC8HtjrKdQmaJiFS6vQ
+	pqvvN2bQDWuv2I9xDDag6xegWX5WbZZ9htz/X8Dwvaoi6dqBFyO5O79xmwssuKgny+Dn5RJ7Qdlmy
+	9LQSF3ECCe00R0JVxmGdgz8c1mOut53k16wGpdV7D96ffii/uFXPJqvJGwLXlhijuBgnhns7cPUN8
+	KaQUCkxGvY9KiHjDYJLLtlCXZxuc7cf67K2twnOtWvMdGX1J40Rbga0xCYnNZY0/3em5tzFjo7vAX
+	3W9YKJjrXjdBbdfKVjmQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnWNp-00000006Mma-3wNe;
-	Thu, 27 Feb 2025 05:24:29 +0000
-Received: from mail-pl1-x62a.google.com ([2607:f8b0:4864:20::62a])
+	id 1tnXmx-00000006V1A-2thR;
+	Thu, 27 Feb 2025 06:54:31 +0000
+Received: from mail-pj1-x102e.google.com ([2607:f8b0:4864:20::102e])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnWNn-00000006MlU-2FKu
-	for linux-riscv@lists.infradead.org;
-	Thu, 27 Feb 2025 05:24:29 +0000
-Received: by mail-pl1-x62a.google.com with SMTP id d9443c01a7336-22342c56242so112605ad.0
-        for <linux-riscv@lists.infradead.org>; Wed, 26 Feb 2025 21:24:27 -0800 (PST)
+	id 1tnXmu-00000006V0U-3YDN;
+	Thu, 27 Feb 2025 06:54:30 +0000
+Received: by mail-pj1-x102e.google.com with SMTP id 98e67ed59e1d1-2fea65dcc3cso738873a91.0;
+        Wed, 26 Feb 2025 22:54:27 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1740633867; x=1741238667; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=bnEz81f237FPFDdRQFlVRCVwc99gvba5x2QOCkc+RR0=;
-        b=a9+VHVnfYPkvnbCntNBNXO3bidVPjQcwkfrIr8w1yJcWnrZQK+fVnTv6VTFHdrnhWX
-         eBTp0LJH5iI57YuH1GiHD8mvP1OCBEAJEF0MLsutMTwat0T6HvVE0Q7eGYmzEU70h31Y
-         ceikQjm8/iPoujj8wE8PmdYAaxUAiiaIV4QMxk62a78LZmFnPhN7ObYZCNJDnHA04Gui
-         1GyVfr6VYIj2VgtaWI+TLf+s++WGaKo/Vfpj+Cojs0y1oEDle2f6Ght+13WWWVZeh7S1
-         8hQwoDmRxjorAESdTJgVtIOHniZGAX64Rq48P4AK505mTcLIAbnY1sJGjDTCoGR3pLxg
-         AMMQ==
+        d=gmail.com; s=20230601; t=1740639267; x=1741244067; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to:from
+         :subject:cc:to:message-id:date:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=JgyTSFeHFjA7K6c7bMlzYp5hJ4ivyZJhPS3wek+zZXw=;
+        b=NXonbuMikzx3TPZM7YNtalzQDNb6WlIT7hWG2LARSiYEUjeZUQylgamvrgTWP04EC+
+         fgAxHXRY7kN/9Xh2YDWgZgPvElsO6M6ambiwYCpRokxtyE/eHYcPGgsQi5yGdXhSXr7i
+         lIEt6hUmtgmBSY2pnMWcBnQHQIYXipXPYha10s8XadSQhS15gGSj6YmDAaoomWZhOZ99
+         uAycEnw60PgyBrpQW+CkWxtO6MRTC7hZIp/NTTYXX9+OYxDjwZZlZYJFzEdQmaZKekoc
+         R0eoxewbt/oWgL50E0a+Jp0ApZYT61LDNQTtCU15cgtz3ZZiFx2F2MzcQ8BxYFCv64Db
+         BE3g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1740633867; x=1741238667;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=bnEz81f237FPFDdRQFlVRCVwc99gvba5x2QOCkc+RR0=;
-        b=rZOuXRWOSbcv/KsMsjzkX9CZAAPitCTSeI5rbFsPfVRsDy1pKrRFrx9S94HyrhxeqL
-         RCoRqQLqgx225z6LF+HfXDBobk2tTxGDHNN1CYJAvwnQwFPnQpdGQDDFva8Abx0DaBdF
-         N+GdeABUP1NIY5SNSJIwDAwhQARIaTrfYRwEHGdY+nSk8o+aGG5ed0wztzwsrCC81R7C
-         Nqwj4GGCJVDh3WCLPGGwULro1CGnpVZSIYeGQTGrAKoduj0e2TrIx/sNh1Cb+SCd+aSr
-         ie4s5FHqn8WDhdypxRE+27ycZyyAbajLjEah6sOLBe4oxYXvixvRdDf1YD8gurGwr0ee
-         79Mg==
-X-Forwarded-Encrypted: i=1; AJvYcCXU1rW8cvw6Ro2E/vGn67K+ONZpTwn2D3jsSuGgxMzB3FYjyHFDepI3fDEtXMnFpeW4lVqZEuY/oY079g==@lists.infradead.org
-X-Gm-Message-State: AOJu0YxiLVj4xRWN3mrWAkYeO5UOEsuOPg5dQgJfgb4wS5r5WeTVCoGq
-	FsVOXnUzKgy81kwKMUI+yFeF99RYGz9Glq1CHwJmmpi2nWGSB1olnlFKy77z9cHcDGBca+BQapl
-	aO6vCiA/INQgmor4ka3CNgo8elMWBNXa1UPv6
-X-Gm-Gg: ASbGncsbbXJR5kyfZazTBYwwnYGBgBX3ixr86DrfiRQT3zQ/nJGRK7/WfpRsutV7kql
-	X7naw69wr34wUyaH+gDCjjCjD6rKa+rkUIN4HU8Xy7f7yYAKhI9Prd0KeeEIo2mJe7K+NdqfxXO
-	MeEfaqA2FL
-X-Google-Smtp-Source: AGHT+IESGHDEUIPVrjNTh39ynN60aQSgX7N+PvnUqhcTHIKp7IZB5bqsgXo3vv32FxrjQl6qmhQtj7bSXHofxTNEMow=
-X-Received: by 2002:a17:902:f7cc:b0:200:97b5:dc2b with SMTP id
- d9443c01a7336-223517240a4mr1111615ad.15.1740633866391; Wed, 26 Feb 2025
- 21:24:26 -0800 (PST)
-MIME-Version: 1.0
-References: <20250219185657.280286-1-irogers@google.com> <Z702_CQ7nMx9fZQn@google.com>
- <CAP-5=fWYiQP84BMjm69xud4vYaRrutRG-RASKbxQaGSisRm7jA@mail.gmail.com> <Z7-rN8iGUpPe6b-1@google.com>
-In-Reply-To: <Z7-rN8iGUpPe6b-1@google.com>
-From: Ian Rogers <irogers@google.com>
-Date: Wed, 26 Feb 2025 21:24:15 -0800
-X-Gm-Features: AQ5f1JpYoEre35TWzYAHXMZBSPsriPeINrD-jPxutBzlTEFdOvLRV6EZPh8_ULw
-Message-ID: <CAP-5=fVAuCF4i8HQEGYx_ApcSuBg82pXCsgk98oU9-2Gm=NOcw@mail.gmail.com>
-Subject: Re: [PATCH v3 0/8] perf: Support multiple system call tables in the build
-To: Namhyung Kim <namhyung@kernel.org>
-Cc: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
-	Arnaldo Carvalho de Melo <acme@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>, Jiri Olsa <jolsa@kernel.org>, 
-	Adrian Hunter <adrian.hunter@intel.com>, Kan Liang <kan.liang@linux.intel.com>, 
-	John Garry <john.g.garry@oracle.com>, Will Deacon <will@kernel.org>, 
-	James Clark <james.clark@linaro.org>, Mike Leach <mike.leach@linaro.org>, 
-	Leo Yan <leo.yan@linux.dev>, guoren <guoren@kernel.org>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Charlie Jenkins <charlie@rivosinc.com>, 
-	Bibo Mao <maobibo@loongson.cn>, Huacai Chen <chenhuacai@kernel.org>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Jiri Slaby <jirislaby@kernel.org>, 
-	=?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@rivosinc.com>, 
-	Howard Chu <howardchu95@gmail.com>, linux-kernel@vger.kernel.org, 
-	linux-perf-users@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	"linux-csky@vger.kernel.org" <linux-csky@vger.kernel.org>, linux-riscv@lists.infradead.org, 
-	linux-mips@vger.kernel.org, Arnd Bergmann <arnd@arndb.de>
+        d=1e100.net; s=20230601; t=1740639267; x=1741244067;
+        h=content-transfer-encoding:mime-version:references:in-reply-to:from
+         :subject:cc:to:message-id:date:x-gm-message-state:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=JgyTSFeHFjA7K6c7bMlzYp5hJ4ivyZJhPS3wek+zZXw=;
+        b=RNpAyFHPzHsuWuPe/DyXQDisFTt3VDuVHUJ1eZwBqWnUVQTyLEeMHr6UeWan/P33FA
+         h1DPr/7pf4hO72/ki1nYQkTA9x5747UqtpAn0h++JXY69NwI3ULpvp0ifMUMFoq9Pfg9
+         FRRl5J27kR76yo3yNNIueBiukwqHGTZbUIHFxRpBjzI+zqjXc34idEc6tdQvqRs+EjoB
+         sRDv5QscC/VeeMl8bIO++85p+vukPP+UyrKpEeJ1YeMoD6VKPcWnbxoEArWxe82uDkxL
+         j2dNmFiEQrzka1kPIYhrtPRLDx7VuUN+IeLpMy7EiiK34pVasAu5Klb/wsFrKuLbUd2F
+         /zqg==
+X-Forwarded-Encrypted: i=1; AJvYcCXadQUgxBdr0Ax2/W9vLg4kM0Hh8c+wEdwYxgeyVIf1S87lBrfAC9BeiuOVs8OaoXYAh/t+dGYEpo2QiLY=@lists.infradead.org, AJvYcCXzd+Hw8uqvdEeAqv4jl2SHrTqLlVhxwK3mGtXROg4kh5OVcM01pF9SW4BJUNZrXOsCN4VR4D3e98qo1gxHORQD@lists.infradead.org
+X-Gm-Message-State: AOJu0YysyCw3sLuG5wi5xST3s28jm7uxcZmdQu5u6wsfwwfyPgwAnet+
+	PaSQEPhKA0TORS2xSiT7uXgIEG+NZqo1t+Qmg6nyG5upiC58/Hhq
+X-Gm-Gg: ASbGncs5PtyC+DoTHLoL1kwJeEadlYGIrVhFaHLis9/pMv0YgpQIWjx9vMf3XrJd9HQ
+	L5cLsuDeyl7beA65iSkFoKD7fyQHL3sIlCCVPsEmYBf4vdrSsn3GvA2OXS3tMXx4/63PesFzTf+
+	UczvRTOr35IqD0psB40PNwM2nvCPDKtVDjvLy22ltR3kBj11SqldYanzENdb0UeLVZ2XKMD4fPJ
+	kCYW2me8BsjPSYEcDhdK6CSQiErKgUsh57XTI6fPustnGebbIqD1LTzORdKvPqBQXj6IGelDFUc
+	CC9H4Yio8OWvnY49LlzLCPLg28MKVaAQuxcpfuym6vMmgoZpSFOcCmqxndDng7kLEaDvF++uaqF
+	9uqH9QK0=
+X-Google-Smtp-Source: AGHT+IGjuaF9lCedEwwvhGXZ/MFEnt3SPMlo5RufsTcV9FkuM7vYd2x/lrwZ+ktjsfsepkbI2prS3A==
+X-Received: by 2002:a17:90a:d802:b0:2fe:8c22:48b0 with SMTP id 98e67ed59e1d1-2fe8c22614fmr7028655a91.15.1740639267130;
+        Wed, 26 Feb 2025 22:54:27 -0800 (PST)
+Received: from localhost (p3882177-ipxg22501hodogaya.kanagawa.ocn.ne.jp. [180.15.148.177])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-223501f972esm7386905ad.58.2025.02.26.22.54.19
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 26 Feb 2025 22:54:26 -0800 (PST)
+Date: Thu, 27 Feb 2025 15:54:17 +0900 (JST)
+Message-Id: <20250227.155417.1610168537890385926.fujita.tomonori@gmail.com>
+To: a.hindborg@kernel.org
+Cc: fujita.tomonori@gmail.com, linux-kernel@vger.kernel.org,
+ rust-for-linux@vger.kernel.org, x86@kernel.org,
+ linux-riscv@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+ loongarch@lists.linux.dev, tglx@linutronix.de, mingo@redhat.com,
+ bp@alien8.de, dave.hansen@linux.intel.com, peterz@infradead.org,
+ hpa@zytor.com, paul.walmsley@sifive.com, palmer@dabbelt.com,
+ aou@eecs.berkeley.edu, catalin.marinas@arm.com, will@kernel.org,
+ chenhuacai@kernel.org, kernel@xen0n.name, tangyouling@loongson.cn,
+ hejinyang@loongson.cn, yangtiezhu@loongson.cn, ojeda@kernel.org,
+ alex.gaynor@gmail.com, boqun.feng@gmail.com, gary@garyguo.net,
+ bjorn3_gh@protonmail.com, benno.lossin@proton.me, aliceryhl@google.com,
+ tmgross@umich.edu
+Subject: Re: [PATCH v3 0/5] rust: Add bug/warn abstractions
+From: FUJITA Tomonori <fujita.tomonori@gmail.com>
+In-Reply-To: <8734g0v6ke.fsf@kernel.org>
+References: <yy_ESUuchCjlaGIJHzCPAcP_d9ucSD0CGXaoZNNkY7BmN5Ch1J8avsA9QpKO5LkTjlGpu99jl8NrFl5NFSQXuw==@protonmail.internalid>
+	<20250213135759.190006-1-fujita.tomonori@gmail.com>
+	<8734g0v6ke.fsf@kernel.org>
+Mime-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250226_212427_618226_9E1B47EC 
-X-CRM114-Status: GOOD (  45.04  )
+X-CRM114-CacheID: sfid-20250226_225428_889387_14DD70FA 
+X-CRM114-Status: GOOD (  10.70  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,81 +104,61 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gV2VkLCBGZWIgMjYsIDIwMjUgYXQgNDowMOKAr1BNIE5hbWh5dW5nIEtpbSA8bmFtaHl1bmdA
-a2VybmVsLm9yZz4gd3JvdGU6Cj4KPiBPbiBNb24sIEZlYiAyNCwgMjAyNSBhdCAwODoyMjo1MFBN
-IC0wODAwLCBJYW4gUm9nZXJzIHdyb3RlOgo+ID4gT24gTW9uLCBGZWIgMjQsIDIwMjUgYXQgNzoy
-MOKAr1BNIE5hbWh5dW5nIEtpbSA8bmFtaHl1bmdAa2VybmVsLm9yZz4gd3JvdGU6Cj4gPiA+Cj4g
-PiA+IE9uIFdlZCwgRmViIDE5LCAyMDI1IGF0IDEwOjU2OjQ5QU0gLTA4MDAsIElhbiBSb2dlcnMg
-d3JvdGU6Cj4gPiA+ID4gVGhpcyB3b3JrIGJ1aWxkcyBvbiB0aGUgY2xlYW4gdXAgb2Ygc3lzdGVt
-IGNhbGwgdGFibGVzIGFuZCByZW1vdmFsIG9mCj4gPiA+ID4gbGliYXVkaXQgYnkgQ2hhcmxpZSBK
-ZW5raW5zIDxjaGFybGllQHJpdm9zaW5jLmNvbT4uCj4gPiA+ID4KPiA+ID4gPiBUaGUgc3lzdGVt
-IGNhbGwgdGFibGUgaW4gcGVyZiB0cmFjZSBpcyB1c2VkIHRvIG1hcCBzeXN0ZW0gY2FsbCBudW1i
-ZXJzCj4gPiA+ID4gdG8gbmFtZXMgYW5kIHZpY2UgdmVyc2EuIFByaW9yIHRvIHRoZXNlIGNoYW5n
-ZXMsIGEgc2luZ2xlIHRhYmxlCj4gPiA+ID4gbWF0Y2hpbmcgdGhlIHBlcmYgYmluYXJ5J3MgYnVp
-bGQgd2FzIHByZXNlbnQuIFRoZSB0YWJsZSB3b3VsZCBiZQo+ID4gPiA+IGluY29ycmVjdCBpZiB0
-cmFjaW5nIHNheSBhIDMyLWJpdCBiaW5hcnkgZnJvbSBhIDY0LWJpdCB2ZXJzaW9uIG9mCj4gPiA+
-ID4gcGVyZiwgdGhlIG5hbWVzIGFuZCBudW1iZXJzIHdvdWxkbid0IG1hdGNoLgo+ID4gPiA+Cj4g
-PiA+ID4gQ2hhbmdlIHRoZSBidWlsZCBzbyB0aGF0IGEgc2luZ2xlIHN5c3RlbSBjYWxsIGZpbGUg
-aXMgYnVpbHQgYW5kIHRoZQo+ID4gPiA+IHBvdGVudGlhbGx5IG11bHRpcGxlIHRhYmxlcyBhcmUg
-aWRlbnRpZmlhYmxlIGZyb20gdGhlIEVMRiBtYWNoaW5lIHR5cGUKPiA+ID4gPiBvZiB0aGUgcHJv
-Y2VzcyBiZWluZyBleGFtaW5lZC4gVG8gZGV0ZXJtaW5lIHRoZSBFTEYgbWFjaGluZSB0eXBlLCB0
-aGUKPiA+ID4gPiBleGVjdXRhYmxlJ3MgaGVhZGVyIGlzIHJlYWQgZnJvbSAvcHJvYy9waWQvZXhl
-IHdpdGggZmFsbGJhY2tzIHRvIHVzaW5nCj4gPiA+ID4gdGhlIHBlcmYncyBiaW5hcnkgdHlwZSB3
-aGVuIHVua25vd24uCj4gPiA+Cj4gPiA+IEhtbS4uIHRoZW4gdGhpcyBpcyBsaW1pdGVkIHRvIGxp
-dmUgbW9kZSBhbmQgcG90ZW50aWFsbHkgZGV0ZWN0IHdyb25nCj4gPiA+IG1hY2hpbmUgdHlwZSBp
-ZiBpdCByZWFkcyBhbiBvbGQgZGF0YSwgcmlnaHQ/Cj4gPiA+Cj4gPiA+IEFsc28gSUlVQyBmYWxs
-YmFjayB0byB0aGUgcGVyZiBiaW5hcnkgbWVhbnMgaXQgY2Fubm90IHVzZSBjcm9zcy1tYWNoaW5l
-Cj4gPiA+IHRhYmxlLiAgRm9yIGV4YW1wbGUsIGl0IGNhbm5vdCBwcm9jZXNzIGRhdGEgZnJvbSBB
-Uk02NCBvbiB4ODYsIG5vPyAgSXQKPiA+ID4gc2VlbXMgaXQgc2hvdWxkIHVzZSBwZXJmX2Vudi5h
-cmNoLgo+ID4KPiA+IFRoZSBwZXJmIGVudiBhcmNoIGlzIGtpbmQgb2YgaG9ycmlkLiBPbiB4ODYg
-aXQgaGFzIHRoZSB2YWx1ZSB4ODYgYW5kCj4gPiB0aGVuIHRoZXJlIGlzIGFuIGV4dHJhIDY0Yml0
-IGZsYWcsIHdobyBrbm93cyBob3cgeDMyIHNob3VsZCBiZSBlbmNvZGVkCj4gPiAtIGJ1dCB3ZSBi
-YXJlbHkgc3VwcG9ydCB4MzIgYXMtaXMuIEknZCByYXRoZXIgd2UgYWRkZWQgYSBuZXcgZmVhdHVy
-ZQo+ID4gZm9yIHRoZSBlX21hY2hpbmUvZV9mbGFncyBvZiB0aGUgZXhlY3V0YWJsZSBhbmQgd29y
-a2VkIHdpdGggdGhvc2UsIGJ1dAo+ID4gaXQgaXMga2luZCBvZiB3ZWlyZCB3aXRoIGRvaW5nIHN5
-c3RlbSB3aWRlIG1vZGUuIEkgZGlkbid0IHdhbnQgdG8gZHJhZwo+ID4gdGhhdCBpbnRvIHRoaXMg
-cGF0Y2ggc2VyaWVzIGFueXdheSBhcyB0aGVyZSBpcyBhbHJlYWR5IGVub3VnaCBoZXJlLgo+Cj4g
-UmlnaHQsIEkgZG9uJ3Qga25vdyBob3cgdG8gaGFuZGxlIHgzMiBwcm9wZXJseS4gIE1heWJlIHdl
-IGNhbiBqdXN0Cj4gaWdub3JlIGl0IGZvciBub3cuCj4KPiBCdXQgYW55d2F5IGxvb2tpbmcgYXQg
-L3Byb2MvUElEIGZvciByZWNvcmRlZCBkYXRhIGRvZXNuJ3Qgc2VlbSBjb3JyZWN0Lgo+IENhbiB5
-b3UgcGxlYXNlIGFkZCBhIGZsYWcgdG8gZG8gdGhhdCBvbmx5IGZyb20gdHJhY2VfX3J1bigpIGFu
-ZCBqdXN0IHVzZQo+IEVNX0hPU1QgZm9yIHRyYWNlX19yZXBsYXkoKT8KClNvIEkgd2FzIGhvcGlu
-ZyBhdCBzb21lIGxhdGVyIHBvaW50IHRoZSBlX21hY2hpbmUgb24gdGhlIHRocmVhZCBjb3VsZApi
-ZSBwb3B1bGF0ZWQgZnJvbSB0aGUgZGF0YSBmaWxlIC0gaGVuY2UgdGhlIGFjY2Vzc29yIGJlaW5n
-IG9uIHRocmVhZAphbmQgbm90IHBhcnQgb2YgdGhlIHRyYWNlIGNvZGUuIFdlIGNvdWxkIGFkZCBh
-IGdsb2JhbCBmbGFnIHRvIHRocmVhZAp0byBkaXNhYmxlIHRoZSByZWFkaW5nIGZyb20gL3Byb2Mg
-YnV0IHdlIGRvIHNpbWlsYXIgcmVhZGluZyBpbgptYWNoaW5lLmMgZm9yIC9wcm9jL3ZlcnNpb24s
-IC9wcm9jL2thbGxzeW1zLCAvcHJvYy9tb2R1bGVzLCBldGMuIEkKdGhpbmsgdGhlIGNoYW5jZSBh
-IHBpZCBpcyByZWN5Y2xlZCBhbmQgdGhlIHByb2Nlc3MgaGFzIGEgZGlmZmVyZW50CmVfbWFjaGlu
-ZSBhcmUgcmVtb3RlIGVub3VnaCB0aGF0IGl0IGlzIHNpbWlsYXIgaW4gbmF0dXJlLiBBZGRpbmcg
-dGhlCmZsYWcgbWVhbnMgd2UgbmVlZCB0byBnbyBhbmQgZml4IHVwIGFsbCB1c2VzLCB3ZSBvbmx5
-IG5lZWQgdG8gc2V0IHRoZQpmbGFnIGluIGJ1aWx0aW4tdHJhY2UuYyBjdXJyZW50bHksIGJ1dCB3
-ZSd2ZSBiZWVuIGhpc3RvcmljYWxseSBiYWQgYXQKc2V0dGluZyB0aGVzZSBnbG9iYWxzIGFuZCBi
-dWdzIGNyZWVwIGluLiBJIGFsc28gZG9uJ3QgdGhpbmsKcmVjb3JkL3JlcGxheSBpcyB3b3JraW5n
-IHdlbGwgYW5kIEkgZGlkbid0IHdhbnQgdGhlIHN5c2NhbGx0YmwgY2xlYW51cAp0byB0dXJuIGlu
-dG8gYSBwZXJmIHRyYWNlIHJlY29yZC9yZXBsYXkgZml4aW5nIGV4ZXJjaXNlLgoKVGhhbmtzLApJ
-YW4KCj4gTGF0ZXIsIHdlIG1heSBuZWVkIHRvIGFkZCBhIG1pc2MgZmxhZyBvciBzbyB0byBQRVJG
-X1JFQ09SRF9GT1JLIChhbmQKPiBQRVJGX1JFQ09SRF9DT01NIHdpdGggTUlTQ19DT01NX0VYRUMp
-IHRvIGluZGljYXRlIG5vbi1zdGFuZGFyZCBBQkkgZm9yIGEKPiBuZXcgdGhyZWFkLiAgQnV0IGl0
-J3Mgbm90IGNsZWFyIGhvdyB0byBtYWtlIGl0IGFyY2gtaW5kZXBlbmRlbnQuCj4KPiA+Cj4gPiA+
-IE9uZSBtb3JlIGNvbmNlcm4gaXMgQlBGLiAgVGhlIEJQRiBzaG91bGQga25vdyBhYm91dCB0aGUg
-QUJJIG9mIHRoZQo+ID4gPiBjdXJyZW50IHByb2Nlc3Mgc28gdGhhdCBpdCBjYW4gYXVnbWVudCB0
-aGUgc3lzY2FsbCBhcmd1bWVudHMgY29ycmVjdGx5Lgo+ID4gPiBDdXJyZW50bHkgaXQgb25seSBj
-aGVja3MgdGhlIHN5c2NhbGwgbnVtYmVyIGJ1dCBpdCBjYW4gYmUgZGlmZmVyZW50IG9uCj4gPiA+
-IDMyLWJpdCBhbmQgNjQtYml0Lgo+ID4KPiA+IFRoYXQncyByaWdodC4gVGhpcyBjaGFuZ2UgaXMg
-dHJ5aW5nIHRvIGNsZWFuIHVwCj4gPiB0b29scy9wZXJmL3V0aWwvc3lzY2FsbHRibC5jIGFuZCB0
-aGUgcGVyZiB0cmFjZSB1c2FnZS4gSSBkaWRuJ3QgZ28gYXMKPiA+IGZhciBhcyBtYWtpbmcgQlBG
-IHByb2dyYW1zIHBhaXIgc3lzdGVtIGNhbGwgbnVtYmVyIHdpdGggZV9tYWNoaW5lIGFuZAo+ID4g
-ZV9mbGFncywgdGhlcmUgaXMgZW5vdWdoIGhlcmUgYW5kIHRoZSBiZWhhdmlvciBhZnRlciB0aGVz
-ZSBwYXRjaGVzCj4gPiBtYXRjaGVzIHRoZSBiZWhhdmlvciBiZWZvcmUgLSB0aGF0IGlzIHRvIGFz
-c3VtZSB0aGUgc3lzdGVtIGNhbGwgQUJJCj4gPiBtYXRjaGVzIHRoYXQgb2YgdGhlIHBlcmYgYmlu
-YXJ5Lgo+Cj4gUmlnaHQsIHRoZSBuZXh0IHN0ZXAgd291bGQgYmUgYWRkaW5nIGEgQlBGIGtmdW5j
-IHRvIGlkZW50aWZ5IHRoZSBjdXJyZW50Cj4gQUJJLgo+Cj4gVGhhbmtzLAo+IE5hbWh5dW5nCj4K
-Cl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJp
-c2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9s
-aXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+On Wed, 26 Feb 2025 20:39:45 +0100
+Andreas Hindborg <a.hindborg@kernel.org> wrote:
+
+> How does this series compare/overlap with [1] ?
+> 
+> [1] https://lore.kernel.org/all/20241126-pr_once_macros-v4-0-410b8ca9643e@tuta.io/
+
+No overlap. Each solves a different problem. Both are necessary.
+
+This patchset enables Rust code to call C's BUG/WARN properly.
+
+Currently, Rust's BUG() is a simple wrapper for C's BUG()
+(rust/helpers/bug.c). I added BUG() to rnull's init() and got the
+following:
+
+# insmod /root/rnull_mod.ko
+rnull_mod: Rust null_blk loaded
+------------[ cut here ]------------
+kernel BUG at rust/helpers/bug.c:7!
+Oops: invalid opcode: 0000 [#1] SMP
+CPU: 0 UID: 0 PID: 31 Comm: insmod Not tainted 6.14.0-rc1+ #103
+RIP: 0010:rust_helper_BUG+0x8/0x10
+(snip)
+
+This is NOT debug information that we expect. The problem is that
+BUG/WARN feature (lib/bug.c) can only be used from assembly.
+
+This patchset includes only warn() but with bug() implementation on
+top of this patchset, I got:
+
+# insmod /root/rnull_mod.ko
+rnull_mod: Rust null_blk loaded
+------------[ cut here ]------------
+WARNING: CPU: 0 PID: 31 at /home/fujita/git/linux-rust/drivers/block/rnull.rs:46 _RNvXCsafUg3oOYix8_5rnullNtB2_13NullBlkModu]
+Modules linked in: rnull_mod(+)
+CPU: 0 UID: 0 PID: 31 Comm: insmod Not tainted 6.14.0-rc1+ #104
+RIP: 0010:_RNvXCsafUg3oOYix8_5rnullNtB2_13NullBlkModuleNtCsaYBeKL739Xz_6kernel13InPlaceModule4init+0x71/0x4f0 [rnull_mod]
+
+
+The [1] patchset adds an abstraciton for include/linux/once_lite.h,
+'call a function once' feature, with pr_*_once() implementation.
+
+pr_*_once() just calls printk() once. Unlike BUG/WARN, no debug
+information (call place, registers, stack trace, etc).
+
+
+The only connection between two patchset is that WARN_ONCE() can be
+built on top of both like the C side.
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
