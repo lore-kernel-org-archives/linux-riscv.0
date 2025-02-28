@@ -4,97 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99E82C19776
-	for <linux-riscv@archiver.kernel.org>; Fri, 28 Feb 2025 06:34:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DA46FC19776
+	for <linux-riscv@archiver.kernel.org>; Fri, 28 Feb 2025 06:53:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=v7Hdkfg77wCs5s+tRD/yJK9P3OZqhy2DZDRk9pHxGgY=; b=sdZjGkxmrMQYzq
-	xb360Kv68+yww77WPU2k6jAWX5Lc1Kz3nWkBmlEsAxf72uwPkHdupil/K6oZ6K8y7O4B+VbgAaN9P
-	5eBqLr+kRVODE9972xiUxtzMo1slvNxcJyFWHf14aN16ZPSSq/6o95zhlW/lgK106wUCjFBCGydBt
-	Y/7DiTcprgal53t7m+0DRDlbYaWOROJZxZoeWKt7UcPS5O3j5e8sIVIlKTaWsoVFrAT1lfvXlKGzB
-	LPlB25eE1KP+IOQmQ8WAPkhveHy4IX2WI0lbJ3e03tDTIjYp1yhiVp0qNl4s0AA9DU8oGWLdW15iJ
-	fwdU/9+2yttBF2cpXUQQ==;
+	List-Owner; bh=71SFH/kxI7dXRzGM75Ukx0djlOv6ACre+e/uDK6e2AI=; b=Pj5tSxgAulVfur
+	PCpacvz/PYq7exfiSJD49bvXZ075saIq9yj6AjUXPK7/QaUDHUMbG9onHNiuL6/oUhG3IYpcX+kXv
+	4Qe+iUPygY2bCDF+TC4d60wEaOMsfNR6ru2GU3QszvKZr/M4QLjP59w7cOF0gJsu/uQvY6/oEa77h
+	Qc0HeNjTctOStYcahqKR86kaG+EesE/4ayUrJMhAjvRhB6SyukeraVvPLE5CQiW608gwh6bWhfV+M
+	EyyNeWvdp20WyyIZOjojbnJPICE4rNJAT8avnpxal13rngdfJuBGJRdRE5CEeMRokwXtTzrHKolMi
+	9btUCkIazOtrp7B6a+rw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tntx5-00000009sdO-0bHh;
-	Fri, 28 Feb 2025 06:34:27 +0000
-Received: from mail-qv1-xf2a.google.com ([2607:f8b0:4864:20::f2a])
+	id 1tnuFK-00000009uYT-34sC;
+	Fri, 28 Feb 2025 06:53:18 +0000
+Received: from mail-oa1-x2a.google.com ([2001:4860:4864:20::2a])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tntx2-00000009sd2-1NEP
+	id 1tnu4A-00000009tFL-21dA
 	for linux-riscv@lists.infradead.org;
-	Fri, 28 Feb 2025 06:34:25 +0000
-Received: by mail-qv1-xf2a.google.com with SMTP id 6a1803df08f44-6e86b92d3b0so13493616d6.2
-        for <linux-riscv@lists.infradead.org>; Thu, 27 Feb 2025 22:34:23 -0800 (PST)
+	Fri, 28 Feb 2025 06:41:48 +0000
+Received: by mail-oa1-x2a.google.com with SMTP id 586e51a60fabf-2b2b6019a74so858864fac.0
+        for <linux-riscv@lists.infradead.org>; Thu, 27 Feb 2025 22:41:46 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1740724463; x=1741329263; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=IyxvtTDvP2i08pzEmArBnEwNU9XeUSRwTgWHm1HVVpw=;
-        b=OL4jlYoxzDRpNDD6R+K+FTFBebu2iEV2ZXhDajXjdeka6VOaQGxUyHjmcOPddENdzt
-         DiknH/99gmFROPwHsYKW2A8eKICqZ48maJ4PCbl1f58AjOCmuSVn1H0D/VnrJyk3Hzfk
-         S3dEoVS7v/EehKSTpXkU0JzeEP9k+OAatbGqUA2D1L1wiCqehiTujR7Ug2XJqEy98nXZ
-         nDHTWhqHNWwQgku6mkjgfHMtQpRq1PEYBea0NEc5zbASe5L/21aEdnoZFN9nhcTAqD7j
-         Pgropj7ECepz03AuEvMJemtifIYdOqtmDgFAKjQZpSXcTNhjWFHo4ryAck5SHggVgBMK
-         c8rQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1740724463; x=1741329263;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+        d=bytedance.com; s=google; t=1740724905; x=1741329705; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=IyxvtTDvP2i08pzEmArBnEwNU9XeUSRwTgWHm1HVVpw=;
-        b=I68xaY1/afhcltXkWEjG2AhD59VxI4GyEjclRwyFfeHw93ZehLI/kKKSlNkYQrfPjb
-         3NzLQzkQu0ihzmi9VQc491kqsNrfzV2NvSIfZpUdfYAQL83lbNcqXZ7yS/YXFSQ5A+I0
-         OLtrce9WjdpoZm1KV/Biry0ngc/U0EHRYfuT/DtZGMT1o0RxpFO1xwj3yeVZ2bqAGDf9
-         v85YcMkIzbcMc0hx0uRzzkRfSuRotV2Z4KRuRgyPQd5B5mUg9QmI12XcvaaZHy71i88b
-         fmzuD3CpUEbFj1SwJ+L76K3QfIBZuEYi9Ta06dKcEj97qACBisktDryzW6eZoR5l9IRb
-         6ybw==
-X-Forwarded-Encrypted: i=1; AJvYcCUv2c85tCcrCXegD6iLJh9mwVPY0VMl+sr0HNKJiAeUrEJHW8xxHkYmSmew36TbgZad+CpUZUI9vRcCLA==@lists.infradead.org
-X-Gm-Message-State: AOJu0YyUAwSsElAfTmJR74MWIQJ1BINw0W/HJ+hG5DKbd0hCsrc9fl5U
-	ShGA2KX3mOriu9IPcWpeJJW1aLUJE6K17xEZopNE6qbjrPjRaPCI
-X-Gm-Gg: ASbGncugbj1SMWulHtbSHDyU4uSuokzLQoqRQwlLzkWOwHw5i2PgluxoHo1uPcOlVav
-	Dc6xT6Br94q6ACCg1c1lkK7MZZvW3liHw9fKlzurMelrBL3XvdNgctoUOwbsXEZFg+2Dsfc2+9k
-	soTK6PDydaEGmIkwANd2+5+9zpWKi1hYnQr3PWeYHx95PclMN8vh2f++AWVDDp+a+RCnQqiGYE9
-	L7OVH1CRsF1AR2Z9y3sf+R0zlNUkWhS9RxSjtqb+4bSOA6dTBUUn61z+bbjWSb8vGprxCp60XQX
-	Dg==
-X-Google-Smtp-Source: AGHT+IGISZX5hCGeBtad2Mh3HcBYPIE/9ril4UARwLS+NFYZNru7HfBxGLbthbXqB8fmJUSStrU7og==
-X-Received: by 2002:a05:6214:2687:b0:6d8:b115:76a6 with SMTP id 6a1803df08f44-6e8a0ad8ff5mr42554456d6.0.1740724462935;
-        Thu, 27 Feb 2025 22:34:22 -0800 (PST)
-Received: from localhost ([2001:da8:7001:11::cb])
-        by smtp.gmail.com with UTF8SMTPSA id d75a77b69052e-47472409ac2sm21028501cf.58.2025.02.27.22.34.21
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 27 Feb 2025 22:34:22 -0800 (PST)
-Date: Fri, 28 Feb 2025 14:34:00 +0800
-From: Inochi Amaoto <inochiama@gmail.com>
-To: Conor Dooley <conor@kernel.org>, Inochi Amaoto <inochiama@gmail.com>
-Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>, 
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>, Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>, 
-	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Chen Wang <unicorn_wang@outlook.com>, Philipp Zabel <p.zabel@pengutronix.de>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Niklas Cassel <cassel@kernel.org>, 
-	Shashank Babu Chinta Venkata <quic_schintav@quicinc.com>, linux-pci@vger.kernel.org, devicetree@vger.kernel.org, 
-	sophgo@lists.linux.dev, linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
-	Yixun Lan <dlan@gentoo.org>, Longbin Li <looong.bin@gmail.com>
-Subject: Re: [PATCH 1/2] dt-bindings: pci: Add Sophgo SG2044 PCIe host
-Message-ID: <ynefy5x672dlhctjzyhkitxoihuucxxki3xqvpimwpcedpfl2u@lmklah5egof4>
-References: <20250221013758.370936-1-inochiama@gmail.com>
- <20250221013758.370936-2-inochiama@gmail.com>
- <20250221-cavalier-cramp-6235d4348013@spud>
- <2egxw3r63cbsygpwqaltp4jjlkuwoh4rkwpgv4haj4sgz5sked@vkotadyk4g6y>
- <20250224-enable-progress-e3a47fdb625c@spud>
- <7ht3djv7zgrbkcvmdg6tp62nmxytlxzhaprsuvyeshyojhochn@ignvymxb3vfa>
- <20250225-lapel-unhappy-9e7978e270e4@spud>
+        bh=kEgij+vFUKJr4iFrcQiCT4KMIk6Vb5FvOpq9/ONScgg=;
+        b=FKFd/3y0dFtD6s7+DyppexMsTAU0OWBzi1Y/gTR+JlG8CyCpwBbexKkr7xyDEkle5d
+         afouaOFRv4Jzu/v+4tXGALS3VJw8SvWIcf2gRc2k3Mk0B2dZB8d46ydbn7wLyzR+nJIA
+         NLu22PVD5FGopKoq1YBUt4uJxoYMadcCCQh2WVdPKUrcNQe8mcii+pykTM2ARoP+FRh+
+         zq1cLrsPPXoivgaqo0xRiEEWW68Q+Po5OE3NoWY9MasnJqx724bCzWLjgkf9Efne5zwm
+         wItrH8he6i1uaymngaBuW31U3DbzaDnBFC1pvKD/+t+8NWMefQTZtJiPZ42Nb6PBM+if
+         givg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1740724905; x=1741329705;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=kEgij+vFUKJr4iFrcQiCT4KMIk6Vb5FvOpq9/ONScgg=;
+        b=DMqm5dfhPfymiEt3u9jkjbBD26hjgpQxQadCIpPkcq5sWf6IsjxiVBg6OExDy6CZDd
+         zVVPfrzsIxHvJa0wQZPN3zbTf6L9srBkfr1HHRgctDdjUlLXBq+Vz3RnPOY6mQvvcKsh
+         uBbB+VIDA6+4t6knMbVZxylWss6Cy0ixORHoFM+glGg7jDmpWT9bHlwbjrZiVe5AYWa7
+         J+RF6m/51GM77jdyt2cBdKqIaTQe3T6TxTHHOy+oMdLXZaUUjyk2curOGI75nQeHptNJ
+         taJ9Ub91wciwXpo/4IRcjhkM8M6ECI0UPMkD8ccJdiYqNW93Hz+pe5sOmwj76rQ9qHpk
+         7L2w==
+X-Forwarded-Encrypted: i=1; AJvYcCVdv5u/a302G45H1bqsm9lr63k/4A9rwHvCan+9nKAGTZ/z8IvW6IX57xnN17cDrHLYa66B+ka2hq7wzw==@lists.infradead.org
+X-Gm-Message-State: AOJu0YyfjRYjac/tgYYMCU7X2mCiYqkimMEnVtkuG8kjTSZfYZuZEyI5
+	Eaza5CqenpL7zOra44RvOn0Adpq5KSnO/9+WlJ2rXVpQuFUojbCKDa/xiDAnoEqYZu+bdQYOSgy
+	btVWOfEB6IvaG0M8ttjvntVpLbgt8/JYGW1yokg==
+X-Gm-Gg: ASbGnct43esfG7F//SWnJFlxCDjmD3xgWuHJfCp1zMnCQUAEpPmv1oChNVW1Aa86plP
+	h5bn7RtYTwD6/iE3G2NDBkYYnk8MmqiZhPLL7yvzdUHBSX30phTcnRVejY7MUHtp3AXqfgS6Dox
+	+zvn5ztbg0i4N7YB84jtzPbViF
+X-Google-Smtp-Source: AGHT+IGpsWGXU4pi9mwh3NHOtEFtRPpdEJclCzQQN3B727Qh8UvZFHsiuMJ2yff1nT/VAt/UJKc28gLWXxaF0LPMHi0=
+X-Received: by 2002:a05:6871:521f:b0:2bc:7d6f:fa85 with SMTP id
+ 586e51a60fabf-2c178381b32mr1335889fac.16.1740724905127; Thu, 27 Feb 2025
+ 22:41:45 -0800 (PST)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20250225-lapel-unhappy-9e7978e270e4@spud>
+References: <20250201110607.34766-1-cuiyunhui@bytedance.com>
+ <CAEEQ3w=uYad7UAedSU4M_L277v=RQGWHpJQwOW-p7W6=hcijsQ@mail.gmail.com> <CAHVXubhW9b6fw8ZvHtn7zmyRSUVt-3JjmFbE-_L42wZ9W6=vKA@mail.gmail.com>
+In-Reply-To: <CAHVXubhW9b6fw8ZvHtn7zmyRSUVt-3JjmFbE-_L42wZ9W6=vKA@mail.gmail.com>
+From: yunhui cui <cuiyunhui@bytedance.com>
+Date: Fri, 28 Feb 2025 14:41:34 +0800
+X-Gm-Features: AQ5f1Joi8eei6BIPpr2-NDt1LLv0lzxhe-reOSOYQ5fHESUpc5vKkKxs7O0Ed-8
+Message-ID: <CAEEQ3wmAxF=PkRt_pKFZE5-r9w1SMY7YQtco2mCyE+vus7vufg@mail.gmail.com>
+Subject: Re: [External] Re: [PATCH] riscv: print hartid on bringup
+To: Alexandre Ghiti <alexghiti@rivosinc.com>
+Cc: apatel@ventanamicro.com, atishp@rivosinc.com, paul.walmsley@sifive.com, 
+	palmer@dabbelt.com, aou@eecs.berkeley.edu, samuel.holland@sifive.com, 
+	jassisinghbrar@gmail.com, takakura@valinux.co.jp, 
+	valentina.fernandezalanis@microchip.com, ruanjinjie@huawei.com, 
+	charlie@rivosinc.com, conor.dooley@microchip.com, haibo1.xu@intel.com, 
+	andybnac@gmail.com, ke.zhao@shingroup.cn, tglx@linutronix.de, 
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250227_223424_369024_03A022E4 
-X-CRM114-Status: GOOD (  31.05  )
+X-CRM114-CacheID: sfid-20250227_224146_531142_218D2E24 
+X-CRM114-Status: GOOD (  18.55  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,120 +95,53 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Feb 25, 2025 at 11:35:23PM +0000, Conor Dooley wrote:
-> On Tue, Feb 25, 2025 at 07:48:59AM +0800, Inochi Amaoto wrote:
-> > On Mon, Feb 24, 2025 at 06:54:51PM +0000, Conor Dooley wrote:
-> > > On Sat, Feb 22, 2025 at 08:34:10AM +0800, Inochi Amaoto wrote:
-> > > > On Fri, Feb 21, 2025 at 05:01:41PM +0000, Conor Dooley wrote:
-> > > > > On Fri, Feb 21, 2025 at 09:37:55AM +0800, Inochi Amaoto wrote:
-> > > > > > The pcie controller on the SG2044 is designware based with
-> > > > > > custom app registers.
-> > > > > > 
-> > > > > > Add binding document for SG2044 PCIe host controller.
-> > > > > > 
-> > > > > > Signed-off-by: Inochi Amaoto <inochiama@gmail.com>
-> > > > > > ---
-> > > > > >  .../bindings/pci/sophgo,sg2044-pcie.yaml      | 125 ++++++++++++++++++
-> > > > > >  1 file changed, 125 insertions(+)
-> > > > > >  create mode 100644 Documentation/devicetree/bindings/pci/sophgo,sg2044-pcie.yaml
-> > > > > > 
-> > > > > > diff --git a/Documentation/devicetree/bindings/pci/sophgo,sg2044-pcie.yaml b/Documentation/devicetree/bindings/pci/sophgo,sg2044-pcie.yaml
-> > > > > > new file mode 100644
-> > > > > > index 000000000000..040dabe905e0
-> > > > > > --- /dev/null
-> > > > > > +++ b/Documentation/devicetree/bindings/pci/sophgo,sg2044-pcie.yaml
-> > > > > > @@ -0,0 +1,125 @@
-> > > > > > +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> > > > > > +%YAML 1.2
-> > > > > > +---
-> > > > > > +$id: http://devicetree.org/schemas/pci/sophgo,sg2044-pcie.yaml#
-> > > > > > +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> > > > > > +
-> > > > > > +title: DesignWare based PCIe Root Complex controller on Sophgo SoCs
-> > > > > > +
-> > > > > > +maintainers:
-> > > > > > +  - Inochi Amaoto <inochiama@gmail.com>
-> > > > > > +
-> > > > > > +description: |+
-> > > > > > +  SG2044 SoC PCIe Root Complex controller is based on the Synopsys DesignWare
-> > > > > > +  PCIe IP and thus inherits all the common properties defined in
-> > > > > > +  snps,dw-pcie.yaml.
-> > > > > > +
-> > > > > > +allOf:
-> > > > > > +  - $ref: /schemas/pci/pci-host-bridge.yaml#
-> > > > > > +  - $ref: /schemas/pci/snps,dw-pcie.yaml#
-> > > > > > +
-> > > > > > +properties:
-> > > > > > +  compatible:
-> > > > > > +    const: sophgo,sg2044-pcie
-> > > > > > +
-> > > > > > +  reg:
-> > > > > > +    items:
-> > > > > > +      - description: Data Bus Interface (DBI) registers
-> > > > > > +      - description: iATU registers
-> > > > > > +      - description: Config registers
-> > > > > > +      - description: Sophgo designed configuration registers
-> > > > > > +
-> > > > > > +  reg-names:
-> > > > > > +    items:
-> > > > > > +      - const: dbi
-> > > > > > +      - const: atu
-> > > > > > +      - const: config
-> > > > > > +      - const: app
-> > > > > > +
-> > > > > > +  clocks:
-> > > > > > +    items:
-> > > > > > +      - description: core clk
-> > > > > > +
-> > > > > > +  clock-names:
-> > > > > > +    items:
-> > > > > > +      - const: core
-> > > > > > +
-> > > > > > +  dma-coherent: true
-> > > > > 
-> > > > > Why's this here? RISC-V is dma-coherent by default, with dma-noncoherent
-> > > > > used to indicate systems/devices that are not.
-> > > > 
-> > > > The PCIe is dma coherent, but the SoC itself is marked as
-> > > > dma-noncoherent.
-> > > 
-> > > By "the SoC itself", do you mean that the bus that this device is on is
-> > > marked as dma-noncoherent? 
-> > 
-> > Yeah, I was told only PCIe device on SG2044 is dma coherent.
-> > The others are not.
-> > 
-> > > IMO, that should not be done if there are devices on it that are coherent.
-> > > 
-> > 
-> > It is OK for me. But I wonder how to handle the non coherent device
-> > in DT? Just Mark the bus coherent and mark all devices except the
-> > PCIe device non coherent?
-> 
-> Don't mark the bus anything (default is coherent) and mark the devices.
-
-I think this is OK for me.
-
-> That said, Is the PCIe controller actually on the same bus as the
-> other devices? (Not talking about the same DT node, the actual bus
-> in the device)
-
-It share the same bus with other device, but on a different
-master interface.
-
-Regards,
-Inochi
-
-
-
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+SGkgQWxleCwKCk9uIFdlZCwgRmViIDI2LCAyMDI1IGF0IDEwOjU44oCvUE0gQWxleGFuZHJlIEdo
+aXRpIDxhbGV4Z2hpdGlAcml2b3NpbmMuY29tPiB3cm90ZToKPgo+IEhpIFl1bmh1aSwKPgo+IE9u
+IFRodSwgRmViIDIwLCAyMDI1IGF0IDE6NTTigK9QTSB5dW5odWkgY3VpIDxjdWl5dW5odWlAYnl0
+ZWRhbmNlLmNvbT4gd3JvdGU6Cj4gPgo+ID4gSGkgQWxsLAo+ID4KPiA+IEdlbnRsZSBwaW5nLiBB
+bnkgY29tbWVudHMgb24gdGhpcyBwYXRjaD8KPiA+Cj4gPiBPbiBTYXQsIEZlYiAxLCAyMDI1IGF0
+IDc6MDbigK9QTSBZdW5odWkgQ3VpIDxjdWl5dW5odWlAYnl0ZWRhbmNlLmNvbT4gd3JvdGU6Cj4g
+PiA+Cj4gPiA+IEZpcm13YXJlIHJhbmRvbWx5IHJlbGVhc2VzIGNvcmVzLCBzbyBDUFUgbnVtYmVy
+cyBkb24ndCBsaW5lYXJseSBtYXAKPiA+ID4gdG8gaGFydGlkcy4gV2hlbiB0aGUgc3lzdGVtIGhh
+cyBhbiBleGNlcHRpb24sIHdlIGNhcmUgbW9yZSBhYm91dCBoYXJ0aWRzLgo+ID4gPgo+ID4gPiBT
+aWduZWQtb2ZmLWJ5OiBZdW5odWkgQ3VpIDxjdWl5dW5odWlAYnl0ZWRhbmNlLmNvbT4KPiA+ID4g
+LS0tCj4gPiA+ICBhcmNoL3Jpc2N2L2tlcm5lbC9zbXAuYyAgICAgfCAyICsrCj4gPiA+ICBhcmNo
+L3Jpc2N2L2tlcm5lbC9zbXBib290LmMgfCA0ICsrKysKPiA+ID4gIDIgZmlsZXMgY2hhbmdlZCwg
+NiBpbnNlcnRpb25zKCspCj4gPiA+Cj4gPiA+IGRpZmYgLS1naXQgYS9hcmNoL3Jpc2N2L2tlcm5l
+bC9zbXAuYyBiL2FyY2gvcmlzY3Yva2VybmVsL3NtcC5jCj4gPiA+IGluZGV4IGQ1OGI1ZTc1MTI4
+Ni4uZTY1MGRlYzQ0ODE3IDEwMDY0NAo+ID4gPiAtLS0gYS9hcmNoL3Jpc2N2L2tlcm5lbC9zbXAu
+Ywo+ID4gPiArKysgYi9hcmNoL3Jpc2N2L2tlcm5lbC9zbXAuYwo+ID4gPiBAQCAtNDgsNiArNDgs
+OCBAQCBFWFBPUlRfU1lNQk9MX0dQTChfX2NwdWlkX3RvX2hhcnRpZF9tYXApOwo+ID4gPiAgdm9p
+ZCBfX2luaXQgc21wX3NldHVwX3Byb2Nlc3Nvcl9pZCh2b2lkKQo+ID4gPiAgewo+ID4gPiAgICAg
+ICAgIGNwdWlkX3RvX2hhcnRpZF9tYXAoMCkgPSBib290X2NwdV9oYXJ0aWQ7Cj4gPiA+ICsKPiA+
+ID4gKyAgICAgICBwcl9pbmZvKCJCb290aW5nIExpbnV4IG9uIGhhcnRpZCAlbHVcbiIsIGJvb3Rf
+Y3B1X2hhcnRpZCk7Cj4gPiA+ICB9Cj4gPiA+Cj4gPiA+ICBzdGF0aWMgREVGSU5FX1BFUl9DUFVf
+UkVBRF9NT1NUTFkoaW50LCBpcGlfZHVtbXlfZGV2KTsKPiA+ID4gZGlmZiAtLWdpdCBhL2FyY2gv
+cmlzY3Yva2VybmVsL3NtcGJvb3QuYyBiL2FyY2gvcmlzY3Yva2VybmVsL3NtcGJvb3QuYwo+ID4g
+PiBpbmRleCBlMzZkMjAyMDViZDcuLmJlYmEwZWZiMDBiOSAxMDA2NDQKPiA+ID4gLS0tIGEvYXJj
+aC9yaXNjdi9rZXJuZWwvc21wYm9vdC5jCj4gPiA+ICsrKyBiL2FyY2gvcmlzY3Yva2VybmVsL3Nt
+cGJvb3QuYwo+ID4gPiBAQCAtMjMxLDYgKzIzMSwxMCBAQCBhc21saW5rYWdlIF9fdmlzaWJsZSB2
+b2lkIHNtcF9jYWxsaW4odm9pZCkKPiA+ID4gICAgICAgICByaXNjdl9pcGlfZW5hYmxlKCk7Cj4g
+PiA+Cj4gPiA+ICAgICAgICAgbnVtYV9hZGRfY3B1KGN1cnJfY3B1aWQpOwo+ID4gPiArCj4gPiA+
+ICsgICAgICAgcHJfaW5mbygiQ1BVJXU6IEJvb3RlZCBzZWNvbmRhcnkgaGFydGlkICVsdVxuIiwg
+Y3Vycl9jcHVpZCwKPiA+ID4gKyAgICAgICAgICAgICAgIGNwdWlkX3RvX2hhcnRpZF9tYXAoY3Vy
+cl9jcHVpZCkpOwo+ID4gPiArCj4gPiA+ICAgICAgICAgc2V0X2NwdV9vbmxpbmUoY3Vycl9jcHVp
+ZCwgdHJ1ZSk7Cj4gPiA+Cj4gPiA+ICAgICAgICAgLyoKPiA+ID4gLS0KPiA+ID4gMi4zOS4yCj4g
+PiA+Cj4gPgo+ID4gVGhhbmtzLAo+ID4gWXVuaHVpCj4KPiBJSVJDIHRoYXQncyBhIGRlYnVnIGZl
+YXR1cmUgd2hlbiB5b3UgY2FuJ3QgcmVhY2ggdXNlcnNwYWNlIGFuZCB1c2UKPiBjcHVpbmZvLCBz
+byB3aGF0IGFib3V0IHVzaW5nIHByX2RlYnVnKCkgaW5zdGVhZD8KClVzaW5nIHByX2RlYnVnIG5l
+ZWRzIGVuYWJsaW5nICNkZWZpbmUgREVCVUcgaW4KYXJjaC9yaXNjdi9rZXJuZWwvc21wYm9vdC5j
+IGFuZCBhZGRpbmcgbG9nbGV2ZWw9OCB0byBjbWRsaW5lLCBub3QKY29udmVuaWVudC4gQ2FuJ3Qg
+YWx3YXlzIGNhdCAvcHJvYy9jcHVpbmZvIGJlZm9yZSBydW5uaW5nIGluIHVzZXIKbW9kZS4KSXQn
+cyB0cnVlIHRoYXQgcHJfaW5mbyBwcmludHMgYSBsYXJnZSBhbW91bnQgb2YgaW5mb3JtYXRpb24g
+aW4gdGhlCnN0YXJ0dXAgbG9ncywgZXNwZWNpYWxseSB3aGVuIHRoZXJlIGFyZSBtYW55IENQVSBj
+b3Jlcy4KCkRvIHlvdSBoYXZlIGEgYmV0dGVyIHNvbHV0aW9uPwoKCj4gVGhhbmtzLAo+Cj4gQWxl
+eAoKVGhhbmtzLApZdW5odWkKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZy
+YWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGlu
+dXgtcmlzY3YK
