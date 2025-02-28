@@ -4,82 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E8673C19776
-	for <linux-riscv@archiver.kernel.org>; Fri, 28 Feb 2025 09:12:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 561DBC19776
+	for <linux-riscv@archiver.kernel.org>; Fri, 28 Feb 2025 09:21:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=fSGH6KAyRVMr7DZIT3l61tVUjHYhOH6q/sNbubmHpqQ=; b=FVHeQ8Iu65p76M
-	ZsJ5Gt+4R+A1FSgeHo9kFoAj51Ot1Sam9t+UiTvE8STo6UFk7WjRiAZM22Jq9zs6fqBbbVUffFgL2
-	egC3g1/vnds2hqslTtdyUkE5Nqv8O3XABaV9h22ecK3sbPHeMtiAS/BuMJvpPwUGdysp/HcwUIl3N
-	OJM3BNPmDuJNyyPxOVvPnw7yVEVERrApmVqNnNjGzJvd9Bhu2Cl1JXrvazSnJ+sxYZTQv/uZy1HtE
-	fgxg5k3VWSK05yMkPsKK6MCy15akbyN/hdmeNJqfoSvkgNKzLtwAqEPtHSwIq8AXXTNc05fUXKPmY
-	bpJiA7LlSav+ssEEGo2Q==;
+	List-Owner; bh=0LtqHZnEs0WCNbqoFfHIDWaB/pkjf4eiG8pcUqZrqiQ=; b=OrdZYxFNh4NLCk
+	/RswoIQwDq64F3fYtRyp7G6tfPEikIruKA8FyzWxg3oF025i9OpTveWKR4rMx71Yt0VOpDhP9G0fc
+	0dvBUhcXZlRt9OzVEGDdNHBxCJ6JejNgc8LDQj+COH1/ev4fJQ/bLtXyC9UFKE0Y7yzpH9eAxpbLw
+	trMBaCBpzq1KKVqY/MBMzK1+sdkM6FFHbXn5BwUA20y812U25vVBzyYQng/UvLq0Fy7kykDSfB9ef
+	Eka/WQj3Cp8Dg142Kx5r2P1xEXK38Kh+OyWj6CvgZO4fGawqbqNbJPd/irzYLe8L6grcDYPmXCv3L
+	bKmqyxV/l+bzefjtHVMw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnwPk-0000000AJBr-0Bqr;
-	Fri, 28 Feb 2025 09:12:12 +0000
-Received: from mail-lj1-x22f.google.com ([2a00:1450:4864:20::22f])
+	id 1tnwYC-0000000AL6d-08gm;
+	Fri, 28 Feb 2025 09:20:56 +0000
+Received: from mail-qk1-x733.google.com ([2607:f8b0:4864:20::733])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnwPh-0000000AJAc-3Ddt
+	id 1tnwY8-0000000AL5Y-2dvv
 	for linux-riscv@lists.infradead.org;
-	Fri, 28 Feb 2025 09:12:10 +0000
-Received: by mail-lj1-x22f.google.com with SMTP id 38308e7fff4ca-30615661f98so18836671fa.2
-        for <linux-riscv@lists.infradead.org>; Fri, 28 Feb 2025 01:12:09 -0800 (PST)
+	Fri, 28 Feb 2025 09:20:53 +0000
+Received: by mail-qk1-x733.google.com with SMTP id af79cd13be357-7c0ba89dda9so195471985a.0
+        for <linux-riscv@lists.infradead.org>; Fri, 28 Feb 2025 01:20:52 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1740733928; x=1741338728; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=b8NBOP2GQ2KlGT1kMn03prIoC3D0wUg1PxgjvTKjfnk=;
-        b=pqcskmpLBnzWJeXDetlble8dnztOekkqBt+4PfcRZ9zK/4M2VpSf11BkhIO8FNKLAf
-         ItJ2b+rlsw+I3zGSE0QwloK6prpe138Q6x5s5ej98uXW32n222u5MlPHcTHBnkefH9So
-         0lwOn/URwLqWldnVpnHVaE1nNlAcVVxC+T22/oYiAtZiiRTRAxhHNiIBT5zFKl7hs8fq
-         KxTyWJtmvvC8a32czjQ9l7qd+7lnL30aYFBR+7+pMqV5HIR436cYZeFZ6c61B6HvJep0
-         JONCUFiLbQjS7eh5IDHTMtLfE5cmmXoSCXL6jcxygiR9NFsfIxgRIPp7axHo74QOgk0X
-         bOpw==
+        d=gmail.com; s=20230601; t=1740734451; x=1741339251; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=dSPWzRvDH6bTdwnRoGnWYj88h3YoRDAMeqRglP+0iQ8=;
+        b=N++HDCezeLcS9XDsmEUfrQNixNwG6d6LOVroshiHDa4kv2J3KG4c6v7mBrhX0dWdaP
+         Fe95gjMwmwt2ZapLwlf02gLoOMQV9JY529IT3mU1/BPQzHi3YCTRtXC86ZLzCXlrtphu
+         XJ2z3JsEYj1Y/H6euxjJR8cbSz/WPnfAASyyR0fuFNC0fBo8ZuUPOAafGYOT6pxnkGZg
+         0c8ZgoBCKsgSmQNBzloRKnuE3lgEee5xTxOaz5bJCG9IgSH5CzekPNFF/VUBTh/wo5G1
+         /1mVX949w8izcyORhswHbaRVhvxQ+/YlA9d32gsT0+bLHeg3GZ4yQ6Cp7uYcFa2fGxtv
+         o89Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1740733928; x=1741338728;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=b8NBOP2GQ2KlGT1kMn03prIoC3D0wUg1PxgjvTKjfnk=;
-        b=rg1vPKGJStEbrEqMat+eRkRo3vNeJWdWpev2bZw9kEvfkQPH3gZI/LZybltug5auPp
-         D56bk378WcAFAwjlQFs6Ow9/PScBbeCO6JoSl1XTiLoCQ/2Db5bXfUZM2A7EXbhVJWn+
-         /n0R4cY0z/ELacTjDiy+pLtPTf9Bs7DlAoTY8PAAs+91BafTpdOyTFZJuoiXxHrIJbcV
-         fPjkQS6nTxhbnB64XGaMuSGjmPuEnBNdHdhFUHrcphWXYrRypuV0z3O2Ez4ZWgJsk6NL
-         EkdPxhe5ludz07OVmsmZx02bcPQlSnhyrRjXTcmfC3LSm7nOBT609h9BsRBf7XLvU7h6
-         2Ezw==
-X-Forwarded-Encrypted: i=1; AJvYcCXinHRrq0y9smxijgzMQFSM5UKfwbvEbUoNYCCiuefZTsMyTyjUY4itqUeJwY/8Kdr6vAglt+/+jZIkhA==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw2ANvdZKSAD4CWAbjcXbZqMuIf2oTSts0rsNHouUnUs0FqjQ0r
-	cx6fE35JIeGM5F1yBwr4fYt4CSti+LHNbueTgU5UmfEo7n8zeHxWwg32PBHablnIz9/3YJgxW13
-	MPR2DDgXCnhxfvbeatP9kancseO6vephjTrFyIg==
-X-Gm-Gg: ASbGncsfH5QC8/DCOBG7unlV5Jww2y/gEut6NqNgKLRvGDlnQQEkUv858rYHrwcZ1Cv
-	vxX3mOI7g8Pt5BBYnpMcGXXLOvE6pXNNgeCZ+hG/HY/mYNSXpIMheKrl/XTACqAjJkkFvm66f4T
-	ZmpmHL6G4=
-X-Google-Smtp-Source: AGHT+IFtHDQUwtIkZEmn26SAZGpaLbJ0ZA70JYYMxkjqCpaxYAkU8WvU0gBdbKbqlduqxgwjid1hfQ77kVQK8Hlzc1Q=
-X-Received: by 2002:a05:6512:108a:b0:545:2b20:5b21 with SMTP id
- 2adb3069b0e04-5494c36869dmr947565e87.50.1740733927813; Fri, 28 Feb 2025
- 01:12:07 -0800 (PST)
+        d=1e100.net; s=20230601; t=1740734451; x=1741339251;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=dSPWzRvDH6bTdwnRoGnWYj88h3YoRDAMeqRglP+0iQ8=;
+        b=GxdCISEqLJTHmCjqgszsGLpH7s29JqoPhXSK3gEa6KTBcIhKY2jVNMJ5LYLE7eGYJu
+         C2NIjU1aay2mE16Hzx2UO/HLulGlx2xzr7CAcDNfB6e4EXNlJeA1OeRdEg4LehiQc4NJ
+         XjbPZzHrGsDXJjUUEHmbGhUb00LWcSPqNEqQjWUcebcvsJvO0jLfFDSMkc8sgVbyiOZC
+         hC9zSWYKBM4tpEkW2qpAhenVyjC9CaTQT/gU8Zu6puwUmTJboHjxDFJEguQ6813MP5Rp
+         ukO/Unpi1oZ/N3ORBFBVOOMvaI5uGaleq1imgvxfxJ75k4cem/rSmumvSC/EGcxAlX8J
+         uOfQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWNmNU2wOsNOG/yHDGF7OSGsAAxyr2B/fa0Ql8Vd5ouCHv9GA6IhEb98dpyUGSL5omKg8Plv1FGAAB26Q==@lists.infradead.org
+X-Gm-Message-State: AOJu0YziTTePP+knFlSd5S21VynIWFLExfi/eHBRIa5M/CX0w5+/5i9e
+	+j4c/FieTwRRAmc0f0+A08TBBkjvAEdFNJ1S6Of3I/Mxl/q5VCX4
+X-Gm-Gg: ASbGncuzNCtUFoze4mqLHvtuFdLlkm9kPERDDebkEipXE64YlH5K+XnqtdtVS6ofnfh
+	pksY3XTpAc2WisVT2bSDAsmrRfhDpuK8xOAWx3l0iPDAySY5GspBUyT02+OU365Q50donVnFFve
+	wAN6/2DAueSIn6hii7F1FYYkakN4e98GATuZVyGP6MyvIOGKjs39tmgXgJuI2NAXHwJ/PLspsxZ
+	hEKReei4URIb+z1wN/V+5UC641moyhyUNELOVQ5Zpk4SKurBXdLyIZuZOModJsai+i4AExvPZND
+	3w==
+X-Google-Smtp-Source: AGHT+IGaqnCcJ7W3QzbD5/MOWmJeyOSJ3VUovHm5pxJ14O5OpxxE+BEJWbEG0JBMkkwTfQFOvIVyFQ==
+X-Received: by 2002:a05:620a:44cd:b0:7c0:b714:7ec6 with SMTP id af79cd13be357-7c39c4cd13fmr388005285a.24.1740734451206;
+        Fri, 28 Feb 2025 01:20:51 -0800 (PST)
+Received: from localhost ([2001:da8:7001:11::cb])
+        by smtp.gmail.com with UTF8SMTPSA id af79cd13be357-7c378d9fec4sm222609485a.67.2025.02.28.01.20.50
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 28 Feb 2025 01:20:50 -0800 (PST)
+Date: Fri, 28 Feb 2025 17:20:28 +0800
+From: Inochi Amaoto <inochiama@gmail.com>
+To: Conor Dooley <conor@kernel.org>, Inochi Amaoto <inochiama@gmail.com>
+Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>, 
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>, Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>, 
+	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Chen Wang <unicorn_wang@outlook.com>, Philipp Zabel <p.zabel@pengutronix.de>, 
+	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, Niklas Cassel <cassel@kernel.org>, 
+	Shashank Babu Chinta Venkata <quic_schintav@quicinc.com>, linux-pci@vger.kernel.org, devicetree@vger.kernel.org, 
+	sophgo@lists.linux.dev, linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
+	Yixun Lan <dlan@gentoo.org>, Longbin Li <looong.bin@gmail.com>
+Subject: Re: [PATCH 1/2] dt-bindings: pci: Add Sophgo SG2044 PCIe host
+Message-ID: <je4falvfemkemlvdfzdmgc7jx2gz6grpbmo6hwtpedjm7xi2gk@jr4frv3tn3l5>
+References: <20250221013758.370936-1-inochiama@gmail.com>
+ <20250221013758.370936-2-inochiama@gmail.com>
+ <20250221-cavalier-cramp-6235d4348013@spud>
+ <2egxw3r63cbsygpwqaltp4jjlkuwoh4rkwpgv4haj4sgz5sked@vkotadyk4g6y>
+ <20250224-enable-progress-e3a47fdb625c@spud>
+ <7ht3djv7zgrbkcvmdg6tp62nmxytlxzhaprsuvyeshyojhochn@ignvymxb3vfa>
+ <20250225-lapel-unhappy-9e7978e270e4@spud>
+ <ynefy5x672dlhctjzyhkitxoihuucxxki3xqvpimwpcedpfl2u@lmklah5egof4>
+ <pbj22qvat76t74nppabekvyncc4ptt6wede4q6wfygbrzcj3ag@ruvt26eqiybu>
 MIME-Version: 1.0
-References: <20250227-04-gpio-irq-threecell-v1-0-4ae4d91baadc@gentoo.org> <20250227-04-gpio-irq-threecell-v1-2-4ae4d91baadc@gentoo.org>
-In-Reply-To: <20250227-04-gpio-irq-threecell-v1-2-4ae4d91baadc@gentoo.org>
-From: Linus Walleij <linus.walleij@linaro.org>
-Date: Fri, 28 Feb 2025 10:11:56 +0100
-X-Gm-Features: AQ5f1JrL-KjS4W2cfXdgdW4fA0i_u-8CysEWcjvk-omutRUMfq6vTHu0adnO6VY
-Message-ID: <CACRpkdZ1X5kF-AyRBg9BYMiJscv0v-SGzcdetS0XDK3oPSu9QQ@mail.gmail.com>
-Subject: Re: [PATCH 2/2] gpiolib: support parsing gpio three-cell interrupts scheme
-To: Yixun Lan <dlan@gentoo.org>
-Cc: Bartosz Golaszewski <brgl@bgdev.pl>, Thomas Gleixner <tglx@linutronix.de>, Alex Elder <elder@riscstar.com>, 
-	Inochi Amaoto <inochiama@gmail.com>, linux-kernel@vger.kernel.org, 
-	linux-gpio@vger.kernel.org, linux-riscv@lists.infradead.org, 
-	spacemit@lists.linux.dev
+Content-Disposition: inline
+In-Reply-To: <pbj22qvat76t74nppabekvyncc4ptt6wede4q6wfygbrzcj3ag@ruvt26eqiybu>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250228_011209_807243_16D48F81 
-X-CRM114-Status: GOOD (  16.16  )
+X-CRM114-CacheID: sfid-20250228_012052_668572_A289CDD8 
+X-CRM114-Status: GOOD (  34.41  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,51 +108,125 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-SGkgWWl4dW4sCgp0aGFua3MgZm9yIHdvcmtpbmcgc28gaGFyZCBvbiB0aGlzIQoKSSdtIHJlYWxs
-eSBoYXBweSB0byBzZWUgdGhlIHRocmVlY2VsbCBzdXBwb3J0IGludGVncmF0ZWQgaW50byBncGlv
-bGliLgoKT24gVGh1LCBGZWIgMjcsIDIwMjUgYXQgMTI6MjXigK9QTSBZaXh1biBMYW4gPGRsYW5A
-Z2VudG9vLm9yZz4gd3JvdGU6Cgo+IGdwaW8gaXJxIHdoaWNoIHVzaW5nIHRocmVlLWNlbGwgc2No
-ZW1lIHNob3VsZCBhbHdheXMgY2FsbAo+IGluc3RhbmNlX21hdGNoKCkgZnVuY3Rpb24gdG8gZmlu
-ZCB0aGUgY29ycmVjdCBpcnFkb21haW4uCj4KPiBTaWduZWQtb2ZmLWJ5OiBZaXh1biBMYW4gPGRs
-YW5AZ2VudG9vLm9yZz4KPiAtLS0KPiBUaGUgc2VsZWN0KCkgZnVuY3Rpb24gd2lsbCBiZSBjYWxs
-ZWQgd2l0aCAhRE9NQUlOX0JVU19BTlksCj4ga2VybmVsL2lycS9pcnFkb21haW4uYzo1NTY6IGlm
-IChoLT5vcHMtPnNlbGVjdCAmJiBidXNfdG9rZW4gIT0gRE9NQUlOX0JVU19BTlkpCj4KPiBzbyB2
-ZW5kb3IgZ3BpbyBkcml2ZXIgbmVlZCB0byBleHBsaWNpdGx5IHNldCBidXNfdG9rZW4sIHNvbWV0
-aGluZyBsaWtlOgo+Cj4gZHJpdmVycy9ncGlvL2dwaW8tc3BhY2VtaXQtazEuYwo+ICAgaXJxX2Rv
-bWFpbl91cGRhdGVfYnVzX3Rva2VuKGdpcnEtPmRvbWFpbiwgRE9NQUlOX0JVU19XSVJFRCk7Cj4K
-PiBJIGhvcGUgdGhpcyBpcyBhIGZlYXNpYmxlIHdheS4uCgpZZXMgdGhpcyBsb29rcyBmYWlyLCBJ
-IHRoaW5rIHlvdSBjYW4gcHV0IHRoZSBkZXNjcmlwdGlvbiBpbnRvIHRoZQpjb21taXQgbWVzc2Fn
-ZS4KCj4gICAgICAgICAvKiBXZSBzdXBwb3J0IHN0YW5kYXJkIERUIHRyYW5zbGF0aW9uICovCj4g
-LSAgICAgICBpZiAoaXNfb2Zfbm9kZShmd3NwZWMtPmZ3bm9kZSkgJiYgZndzcGVjLT5wYXJhbV9j
-b3VudCA9PSAyKSB7Cj4gKyAgICAgICBpZiAoaXNfb2Zfbm9kZShmd3NwZWMtPmZ3bm9kZSkgJiYg
-ZndzcGVjLT5wYXJhbV9jb3VudCA8PSAzKQo+ICAgICAgICAgICAgICAgICByZXR1cm4gaXJxX2Rv
-bWFpbl90cmFuc2xhdGVfdHdvY2VsbChkLCBmd3NwZWMsIGh3aXJxLCB0eXBlKTsKPiAtICAgICAg
-IH0KClRoaXMgbG9va3MgZ29vZC4KCj4gK3N0YXRpYyBpbnQgZ3Bpb2NoaXBfaXJxX3NlbGVjdChz
-dHJ1Y3QgaXJxX2RvbWFpbiAqZCwgc3RydWN0IGlycV9md3NwZWMgKmZ3c3BlYywKPiArICAgICAg
-ICAgICAgICAgICAgICAgICBlbnVtIGlycV9kb21haW5fYnVzX3Rva2VuIGJ1c190b2tlbikKPiAr
-ewo+ICsgICAgICAgc3RydWN0IGZ3bm9kZV9oYW5kbGUgKmZ3bm9kZSA9IGZ3c3BlYy0+Zndub2Rl
-Owo+ICsgICAgICAgc3RydWN0IGdwaW9fY2hpcCAqZ2MgPSBkLT5ob3N0X2RhdGE7Cj4gKyAgICAg
-ICB1bnNpZ25lZCBpbnQgaW5kZXggPSBmd3NwZWMtPnBhcmFtWzBdOwo+ICsKPiArICAgICAgIGlm
-ICgoZ2MtPm9mX2dwaW9fbl9jZWxscyA9PSAzKSAmJiBnYy0+b2Zfbm9kZV9pbnN0YW5jZV9tYXRj
-aCkKPiArICAgICAgICAgICAgICAgcmV0dXJuIGdjLT5vZl9ub2RlX2luc3RhbmNlX21hdGNoKGdj
-LCBpbmRleCk7CgpXZSBuZWVkIHRvIGhpZGUgdGhlIE9GLXNwZWNpZmljIHRoaW5ncyBpbnRvIGdw
-aW9saWItb2YuY3xoIHNvIHN5c3RlbXMKbm90IHVzaW5nIE9GIGRvZXMgbm90IG5lZWQgdG8gc2Vl
-IGl0LgoKU29tZXRoaW5nIGxpa2U6CgppZiAoZndzcGVjLT5wYXJhbV9jb3VudCA9PSAzKSB7CiAg
-ICAgaWYgKGlzX29mX25vZGUoZndub2RlKSkKICAgICAgICAgcmV0dXJuIG9mX2dwaW9jaGlwX2lu
-c3RhbmNlX21hdGNoKGdjLCBpbmRleCk7CiAgICAvKiBBZGQgb3RoZXIgdGhyZWVwYXJhbSBoYW5k
-bGVycyBoZXJlICovCn0KClRoZW4gYWRkIG9mX2dwaW9jaGlwX2luc3RhbmNlX21hdGNoKCkgaW50
-byBncGlvbGliLW9mLmggYXMgYQpzdGF0aWMgaW5saW5lIChubyBuZWVkIHRvIGFuIGVudGlyZSBl
-eHRlcm4gZnVuY3Rpb24uLi4pCgpzdGF0aWMgaW5saW5lIGJvb2wgb2ZfZ3Bpb2NoaXBfaW5zdGFu
-Y2VfbWF0Y2goc3RydWN0IGdwaW9fY2hpcCAqZ2MsIGludCBpbmRleCkKewogICAgaWYgKChnYy0+
-b2ZfZ3Bpb19uX2NlbGxzID09IDMpICYmIGdjLT5vZl9ub2RlX2luc3RhbmNlX21hdGNoKQogICAg
-ICAgICAgICAgIHJldHVybiBnYy0+b2Zfbm9kZV9pbnN0YW5jZV9tYXRjaChnYywgaW5kZXgpOwp9
-CgpBbmQgYWxzbyBhbiBlbXB0eSBzdHViIGZvciAhQ09ORklHX09GX0dQSU8gc28gd2UgZ2V0IHRo
-aXMgY29tcGlsZWQKb3V0IGlmIE9GIGlzIG5vdCBjb25maWd1cmVkIGluLgoKWW91cnMsCkxpbnVz
-IFdhbGxlaWoKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-CmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3Jn
-Cmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+On Fri, Feb 28, 2025 at 04:46:22PM +0800, Inochi Amaoto wrote:
+> On Fri, Feb 28, 2025 at 02:34:00PM +0800, Inochi Amaoto wrote:
+> > On Tue, Feb 25, 2025 at 11:35:23PM +0000, Conor Dooley wrote:
+> > > On Tue, Feb 25, 2025 at 07:48:59AM +0800, Inochi Amaoto wrote:
+> > > > On Mon, Feb 24, 2025 at 06:54:51PM +0000, Conor Dooley wrote:
+> > > > > On Sat, Feb 22, 2025 at 08:34:10AM +0800, Inochi Amaoto wrote:
+> > > > > > On Fri, Feb 21, 2025 at 05:01:41PM +0000, Conor Dooley wrote:
+> > > > > > > On Fri, Feb 21, 2025 at 09:37:55AM +0800, Inochi Amaoto wrote:
+> > > > > > > > The pcie controller on the SG2044 is designware based with
+> > > > > > > > custom app registers.
+> > > > > > > > 
+> > > > > > > > Add binding document for SG2044 PCIe host controller.
+> > > > > > > > 
+> > > > > > > > Signed-off-by: Inochi Amaoto <inochiama@gmail.com>
+> > > > > > > > ---
+> > > > > > > >  .../bindings/pci/sophgo,sg2044-pcie.yaml      | 125 ++++++++++++++++++
+> > > > > > > >  1 file changed, 125 insertions(+)
+> > > > > > > >  create mode 100644 Documentation/devicetree/bindings/pci/sophgo,sg2044-pcie.yaml
+> > > > > > > > 
+> > > > > > > > diff --git a/Documentation/devicetree/bindings/pci/sophgo,sg2044-pcie.yaml b/Documentation/devicetree/bindings/pci/sophgo,sg2044-pcie.yaml
+> > > > > > > > new file mode 100644
+> > > > > > > > index 000000000000..040dabe905e0
+> > > > > > > > --- /dev/null
+> > > > > > > > +++ b/Documentation/devicetree/bindings/pci/sophgo,sg2044-pcie.yaml
+> > > > > > > > @@ -0,0 +1,125 @@
+> > > > > > > > +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> > > > > > > > +%YAML 1.2
+> > > > > > > > +---
+> > > > > > > > +$id: http://devicetree.org/schemas/pci/sophgo,sg2044-pcie.yaml#
+> > > > > > > > +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> > > > > > > > +
+> > > > > > > > +title: DesignWare based PCIe Root Complex controller on Sophgo SoCs
+> > > > > > > > +
+> > > > > > > > +maintainers:
+> > > > > > > > +  - Inochi Amaoto <inochiama@gmail.com>
+> > > > > > > > +
+> > > > > > > > +description: |+
+> > > > > > > > +  SG2044 SoC PCIe Root Complex controller is based on the Synopsys DesignWare
+> > > > > > > > +  PCIe IP and thus inherits all the common properties defined in
+> > > > > > > > +  snps,dw-pcie.yaml.
+> > > > > > > > +
+> > > > > > > > +allOf:
+> > > > > > > > +  - $ref: /schemas/pci/pci-host-bridge.yaml#
+> > > > > > > > +  - $ref: /schemas/pci/snps,dw-pcie.yaml#
+> > > > > > > > +
+> > > > > > > > +properties:
+> > > > > > > > +  compatible:
+> > > > > > > > +    const: sophgo,sg2044-pcie
+> > > > > > > > +
+> > > > > > > > +  reg:
+> > > > > > > > +    items:
+> > > > > > > > +      - description: Data Bus Interface (DBI) registers
+> > > > > > > > +      - description: iATU registers
+> > > > > > > > +      - description: Config registers
+> > > > > > > > +      - description: Sophgo designed configuration registers
+> > > > > > > > +
+> > > > > > > > +  reg-names:
+> > > > > > > > +    items:
+> > > > > > > > +      - const: dbi
+> > > > > > > > +      - const: atu
+> > > > > > > > +      - const: config
+> > > > > > > > +      - const: app
+> > > > > > > > +
+> > > > > > > > +  clocks:
+> > > > > > > > +    items:
+> > > > > > > > +      - description: core clk
+> > > > > > > > +
+> > > > > > > > +  clock-names:
+> > > > > > > > +    items:
+> > > > > > > > +      - const: core
+> > > > > > > > +
+> > > > > > > > +  dma-coherent: true
+> > > > > > > 
+> > > > > > > Why's this here? RISC-V is dma-coherent by default, with dma-noncoherent
+> > > > > > > used to indicate systems/devices that are not.
+> > > > > > 
+> > > > > > The PCIe is dma coherent, but the SoC itself is marked as
+> > > > > > dma-noncoherent.
+> > > > > 
+> > > > > By "the SoC itself", do you mean that the bus that this device is on is
+> > > > > marked as dma-noncoherent? 
+> > > > 
+> > > > Yeah, I was told only PCIe device on SG2044 is dma coherent.
+> > > > The others are not.
+> > > > 
+> > > > > IMO, that should not be done if there are devices on it that are coherent.
+> > > > > 
+> > > > 
+> > > > It is OK for me. But I wonder how to handle the non coherent device
+> > > > in DT? Just Mark the bus coherent and mark all devices except the
+> > > > PCIe device non coherent?
+> > > 
+> > > Don't mark the bus anything (default is coherent) and mark the devices.
+> > 
+> > I think this is OK for me.
+> > 
+> 
+> In technical, I wonder a better way to "handle dma-noncoherent".
+> In the binding check, all devices with this property complains 
+> 
+> "Unevaluated properties are not allowed ('dma-noncoherent' was unexpected)"
+> 
+
+> It is a pain as at least 10 devices' binding need to be modified.
+> So I wonder whether there is a way to simplify this.
+> 
+
+Ignore this, I misunderstood the dma device. it seems like 
+only dmac and eth needs it.
+
+Regards,
+Inochi
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
