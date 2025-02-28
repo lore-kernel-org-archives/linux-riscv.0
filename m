@@ -4,93 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2CE06C197BF
-	for <linux-riscv@archiver.kernel.org>; Fri, 28 Feb 2025 00:28:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BDB97C19F32
+	for <linux-riscv@archiver.kernel.org>; Fri, 28 Feb 2025 00:39:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=q41loBA9PTgPzeqhpoRS9+lD5cDueMvO6zRA71sVlsw=; b=eWUBuprUcraCmZ
-	zT9cmPoFsrLZ4c2U+sV1omN3VQCi43GVn+Eo5Ee7YyXtibCWGskeO5dzhclEfKyM07apML8kUHzPb
-	NB4LY+uSDHNbWCPDdK8Xdoy6JRW35oCzX8TgWArgwfZIK9qraGoeZXkUT0rwo+9tbzMLargBrAVy0
-	mdajJNDdXPlbmbSSXQznmT7bfIbjIIkrJQvTK3etmL6N2Wo80UbtRWjgqSXhUGRy9wW0D1aCSYubf
-	j22mB9M6kaTFJoV6UfYyYB5SVcF/FCPyAfu2VRk9dzHaLEjtQpYwqkLdkJTQBMh0cAZMyhGlHKk2B
-	jBiv1RiNFVmdX5dVbY+g==;
+	List-Owner; bh=op1KxJu3jHjEdq/YK0qtDE1aZO1X0GozEty10LV3i48=; b=rKs8vOzC7N3uWh
+	5TaTuhhr/05ripbsi0AxNndlgtQ/ElhrOcbJo+acIF60jCVHBC3WQIWcDFJPQVU6GBu379UZD4Y1u
+	x0i9m083lI0I97ntZQiZ/fVA4tGeoC7YhNlMRU4ctieJR52dPUAGJ2emLyqinMA0JhYacw9xsqgLn
+	x6jlNr1OqYzs63lNKTTFg5+XQ/H2KfYA3KCRht4TnybieDxVZVqnVYAoe16BjtqmrNph+1LI6wybM
+	kjf/tAUq18IP939XKoDbeEiAciIle4aJDgo95FK8ypqoavjfDZWzxk2MEPkd8GHpGYPaYrnZdVnBd
+	1VGultmUFIYKkZY4jy/g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnoEc-00000009H1Q-0rkq;
-	Fri, 28 Feb 2025 00:28:10 +0000
-Received: from mail-qv1-xf33.google.com ([2607:f8b0:4864:20::f33])
+	id 1tnoPu-00000009IrC-14A9;
+	Fri, 28 Feb 2025 00:39:50 +0000
+Received: from mail-qv1-xf2f.google.com ([2607:f8b0:4864:20::f2f])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnoEZ-00000009Gz9-0l7A
+	id 1tnoPr-00000009IqC-36GC
 	for linux-riscv@lists.infradead.org;
-	Fri, 28 Feb 2025 00:28:08 +0000
-Received: by mail-qv1-xf33.google.com with SMTP id 6a1803df08f44-6e893a8d2c3so7079016d6.3
-        for <linux-riscv@lists.infradead.org>; Thu, 27 Feb 2025 16:28:05 -0800 (PST)
+	Fri, 28 Feb 2025 00:39:49 +0000
+Received: by mail-qv1-xf2f.google.com with SMTP id 6a1803df08f44-6ddcff5a823so13409526d6.0
+        for <linux-riscv@lists.infradead.org>; Thu, 27 Feb 2025 16:39:47 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1740702485; x=1741307285; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=a9MGkH7t3nRTRnc4pXiJCICsI8ph23jIAM1ENCvMIuI=;
-        b=XkN33iQB9UBU3t5yfW2maDzjCvmqml9h6qN7dHh8daDhmB4Z+p/yHHp70NV0ZzxtTg
-         nWRarI4lg9FHbsjqijsc4yuZd3gjI8TE1R77JXCa6ENPgbQKeUEBgbnniRFAwxgTwsG8
-         wApHpcsZ80ZKGwdQyNF+9nCQ66fHpxgwsHM/hnjNIXmQtOYzVDIQSGFCiDWMFQHFMKgA
-         paYuUdUIIYWWWQficgrWjOFqJAqS4U4fwDmTQp7OZyMYynWD1HmKGET0jJOPQoMqscvX
-         S11Rvp3VIJwEvTcZUrR058IShXc17nwbMTDOct1H5mw/nWdaKj96q8g7uiIkDPg0Jukp
-         C+PA==
+        d=gmail.com; s=20230601; t=1740703186; x=1741307986; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=NS+/iUnzQt3rNEJ1NDY4uxNPpsgUI17G/QJLjXrYJFg=;
+        b=DxYxfru1QIfiSPBb6vFiAjTQvzC6QDa/mdHttfQwt/fI7dyh18olednpuqyana9RsU
+         2j3oE77BG5AN4gQKVq3NfDmPWh8TGDZyuCgd0igNyXjXLejM1SMYvUy1GdhvEPNN/dqR
+         HZZpJQoFb+HYY3ZiErmHsdItND30MZcnDTW+Wfd6/i0Twry6WBXuwNsSANZZQKIkvSNC
+         l+7gtf4q5k5aRDWdfPz6FLh/sHfbQxwt4WbsV6HSc9gtrZvpRozlr4B4lH1qkg3Jo+bc
+         HZjfCVnwESkTOf75ySEBhuQmfK5OJ0go7GAek7qGSFRFWG5Dh0RxitrRLEiG2UB7txpZ
+         7MIw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1740702485; x=1741307285;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=a9MGkH7t3nRTRnc4pXiJCICsI8ph23jIAM1ENCvMIuI=;
-        b=ddPfELowerXbDVwnZpXIysV8XJAkkUuMwUQ4jwvtNKDtPhSVLJhyZbtEkPjKzRAtcV
-         4bmeNOta8+hP8lJVCKjrdVtD0hOVr0L6cuDHId7EL7ClyJWLnKwWEA4NoxAAJGzVVOhn
-         3noBSqkIlQ3e2yDiZY89tJgzTXpYJCcChLM3LQNn5zsxgTdqH9Xx7oWvjnMYuBbKhfS2
-         FdVZIyLltT/uDpa7GGMxTk7d0w9BoxAkxJn8Z+nCQHn1DscVnA/QAAQQEy20BK6afYw7
-         cHngxu3GvCoPhDF7BpnuVLpxCr2NgOU7SclPxBq/CkXm3DXhlD8iAzZsqqPRcIYrTLX8
-         1rUQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUAWif/GeYSEaP7nh5bEIU/8sbT6gMBXobLxWcqdml4ykoCthcJ1XimTYtlbcCP17Hl/zBSR30VQTZnhg==@lists.infradead.org
-X-Gm-Message-State: AOJu0YxnXnxhbf8t5JLfmDDm/SYAVY5uK+12rr/5SZK73kWMfKzej5mt
-	DMuEXUHWN6gpwBrt3ZWSMR97CvwHsTrra+4H/17PUXga3K7JVwzg
-X-Gm-Gg: ASbGnctVIJlmVqU4NE6a4HwjO78FB9bosvzPhoVieot9Q31PqiKdY7cHVEEMXqQ+TWT
-	SMfLuetb2B3TUDkCekpM3DBg9B3nPvnTstFl1vg8v2FTs151z21s2vZWdJw9KMr3xElni+JuKRQ
-	PBwgG5yEXE4U7FuCT9GBLhsx/y5ZIWvNXct1n+7hLRjYNQKcMpRNbU+b11Wp5r2TE5RcGPndJuO
-	4Wocu+04yuEN6u7+EELxYzXFWpL7pVO3PlkD1I0pieoqMdvJM5HbSkx98hcNIsmEDzFlbjo8Pt+
-	sA==
-X-Google-Smtp-Source: AGHT+IFUPO2RW2JsYQqQUr6pL0sTdbw5IaL0xieXgH4JRQXakfoILurMP/9rER/IyNOwxRjJIl9ByA==
-X-Received: by 2002:ad4:5c64:0:b0:6e8:9a55:824f with SMTP id 6a1803df08f44-6e8a0ccd0bbmr19941486d6.6.1740702485066;
-        Thu, 27 Feb 2025 16:28:05 -0800 (PST)
+        d=1e100.net; s=20230601; t=1740703186; x=1741307986;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=NS+/iUnzQt3rNEJ1NDY4uxNPpsgUI17G/QJLjXrYJFg=;
+        b=U/SfPawArD9x93eFWfsQNbEezJI2EwCd0fS1wt2WUjHCT8cfF6E3QNGLkoKYiAzrdi
+         5Ayz6aQGVBFqG5oEHFL0SPSgzcMLqk3MZ5m73jR4QAqejHC8ZZlwqTqa9AQND1x5Har+
+         AQMlxHNjvbhF0cvhfhoiVg+fuomnvCug4l54NIPrQWQzix//wUS1bQ/wmdAg/fy9Sx5d
+         vcKhO+/ohasokIwDjZun8jEn3NBcj8hpX3QRe7mLOvoCQXrL9lfiBiGvhFTl7QEmupJ9
+         9jj544woEw/utjgaz8spgDXYrT+5TIdfvJWbBkOG2Jug0LFqu7zeKFL5jsUaTu7CyDIA
+         wR4Q==
+X-Forwarded-Encrypted: i=1; AJvYcCXQLd7lGWEkBZ5LilnXdjcnqAPUUiPV2NhxXWPaNf+WUBVqV1+lpAdPCQPeihVNwCf7JnxuO+wtiSmguw==@lists.infradead.org
+X-Gm-Message-State: AOJu0YzJLz68+99+xBAZM2Ru1q/QCkHiVmiugti0liI+KvYAXyKd1rcB
+	2jSA2JhS7MSpbJbyOh2rem46IGh9jwc8wyGVHck161KbWU7LYlIj
+X-Gm-Gg: ASbGncun/0PFVTUYyms2npWo01+WqXC7VlNhpGjSXI3KrPZYUSS7wclI3n0biOOhl7K
+	rr3NvtAIxt9zuI0TSR7YuEivyeKXcDu77Mb792zj9FngScWNOIvo8Dmab8xXbih8swQnYeIJ8Tg
+	R1Wzm9ZiK1bKwoqzj5SZ693wOPkZCDGK6rOOLjdKmYgYcZpEOq1qPC+1iLD7ehx6w/ga97gLOXx
+	qWV4K4ympDvb3GAwYh2xDmC0yhh8rIrIog0GY4Rru9aivNnGuJJ2iAbX6tyMU+bO6QIYWgFDs1t
+	6w==
+X-Google-Smtp-Source: AGHT+IGW6OtjFhte78/y7mXicDWR0r1px1BSDbRwNbpZXXNdzJwgIrFoEnObj2orAz8Dtj3dyg6Yrw==
+X-Received: by 2002:a05:6214:21e7:b0:6e8:86d3:be78 with SMTP id 6a1803df08f44-6e8a0d94b6cmr23116156d6.37.1740703186527;
+        Thu, 27 Feb 2025 16:39:46 -0800 (PST)
 Received: from localhost ([2001:da8:7001:11::cb])
-        by smtp.gmail.com with UTF8SMTPSA id 6a1803df08f44-6e897634d7fsm15808146d6.3.2025.02.27.16.28.03
+        by smtp.gmail.com with UTF8SMTPSA id 6a1803df08f44-6e89766166esm15959336d6.61.2025.02.27.16.39.45
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 27 Feb 2025 16:28:04 -0800 (PST)
-Date: Fri, 28 Feb 2025 08:27:42 +0800
+        Thu, 27 Feb 2025 16:39:46 -0800 (PST)
+Date: Fri, 28 Feb 2025 08:39:24 +0800
 From: Inochi Amaoto <inochiama@gmail.com>
-To: Linus Walleij <linus.walleij@linaro.org>, 
-	Inochi Amaoto <inochiama@gmail.com>
-Cc: Rob Herring <robh@kernel.org>, 
+To: Rob Herring <robh@kernel.org>, Inochi Amaoto <inochiama@gmail.com>
+Cc: Philipp Zabel <p.zabel@pengutronix.de>, 
 	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Chen Wang <unicorn_wang@outlook.com>, Inochi Amaoto <inochiama@outlook.com>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Guo Ren <guoren@kernel.org>, 
-	Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>, Thomas Bonnefille <thomas.bonnefille@bootlin.com>, 
-	Harshit Mogalapalli <harshit.m.mogalapalli@oracle.com>, linux-gpio@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, Yixun Lan <dlan@gentoo.org>, 
-	Longbin Li <looong.bin@gmail.com>
-Subject: Re: [PATCH v2 0/8] riscv: sophgo: Add pinctrl support for SG2042
-Message-ID: <n2srdxjhpivvzolavm6hj65xybrn3qwmvq6locrgpz65aeiomu@yicfi6qltjir>
-References: <20250211051801.470800-1-inochiama@gmail.com>
- <CACRpkdYfZ8izsBJaKUd__jXGHnDBU9Tha=2kozjzHssoppgY5w@mail.gmail.com>
+	Chen Wang <unicorn_wang@outlook.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>, Guo Ren <guoren@kernel.org>, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, sophgo@lists.linux.dev, linux-riscv@lists.infradead.org, 
+	Yixun Lan <dlan@gentoo.org>, Longbin Li <looong.bin@gmail.com>
+Subject: Re: [PATCH v2 1/5] dt-bindings: reset: add generic bit reset
+ controller
+Message-ID: <57tveujqmthjxdaad67i3qv732zwmjcyymnsluyf65xdpmfvkd@cqrwhuylthmd>
+References: <20250226234234.125305-1-inochiama@gmail.com>
+ <20250226234234.125305-2-inochiama@gmail.com>
+ <20250227133509.GA2021892-robh@kernel.org>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <CACRpkdYfZ8izsBJaKUd__jXGHnDBU9Tha=2kozjzHssoppgY5w@mail.gmail.com>
+In-Reply-To: <20250227133509.GA2021892-robh@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250227_162807_225843_D9A94038 
-X-CRM114-Status: GOOD (  16.60  )
+X-CRM114-CacheID: sfid-20250227_163947_780142_8176725B 
+X-CRM114-Status: GOOD (  18.03  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,35 +100,46 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gRnJpLCBGZWIgMjgsIDIwMjUgYXQgMTI6MDA6MzRBTSArMDEwMCwgTGludXMgV2FsbGVpaiB3
-cm90ZToKPiBPbiBUdWUsIEZlYiAxMSwgMjAyNSBhdCA2OjE44oCvQU0gSW5vY2hpIEFtYW90byA8
-aW5vY2hpYW1hQGdtYWlsLmNvbT4gd3JvdGU6Cj4gCj4gPiBTRzIwNDIgaGFzIGEgc2ltcGxlIHBp
-bmN0cmwgZGV2aWNlIGZvciBhbGwgY29uZmlndXJhYmxlIHBpbnMuCj4gPiBJdCBzdXBwb3J0cyBz
-ZXR0aW5nIHB1bGwgdXAvZG93biwgZHJpdmUgc3RyZW5ndGggYW5kIGlucHV0IHNjaG1pdHQKPiA+
-IHRyaWdnZXIuCj4gPgo+ID4gQWRkIHN1cHBvcnQgZm9yIFNHMjA0MiBhbmQgU0cyMDQ0IHBpbmN0
-cmwgZGV2aWNlLgo+ICguLi4pCj4gPiBJbm9jaGkgQW1hb3RvICg4KToKPiA+ICAgcGluY3RybDog
-c29waGdvOiBhdm9pZCB0byBtb2RpZnkgdW50b3VjaGVkIGJpdCB3aGVuIHNldHRpbmcgY3YxODAw
-Cj4gPiAgICAgcGluY29uZgo+ID4gICBwaW5jdHJsOiBzb3BoZ286IGludHJvZHVjZSBnZW5lcmlj
-IGRhdGEgc3RydWN0dXJlIGZvciBjdjE4eHggcGluY3RybAo+ID4gICAgIGRyaXZlcgo+ID4gICBw
-aW5jdHJsOiBzb3BoZ286IGdlbmVyYWxpemUgc2hhcmVhYmxlIGNvZGUgb2YgY3YxOHh4IHBpbmN0
-cmwgZHJpdmVyCj4gPiAgIHBpbmN0cmw6IHNvcGhnbzogaW50cm9kdWNlIGdlbmVyaWMgcHJvYmUg
-ZnVuY3Rpb24KPiA+ICAgZHQtYmluZGluZ3M6IHBpbmN0cmw6IEFkZCBwaW5jdHJsIGZvciBTb3Bo
-Z28gU0cyMDQyIHNlcmllcyBTb0MKPiA+ICAgcGluY3RybDogc29waGdvOiBhZGQgc3VwcG9ydCBm
-b3IgU0cyMDQyIFNvQwo+ID4gICBwaW5jdHJsOiBzb3BoZ286IGFkZCBzdXBwb3J0IGZvciBTRzIw
-NDQgU29DCj4gCj4gSSBhcHBsaWVkIHRoZXNlIHBhdGNoZXMgMS03IHRvIHRoZSBwaW5jdHJsIHRy
-ZWUgYW5kIGNyZWF0ZWQgYW4gaW1tdXRhYmxlCj4gYnJhbmNoOgo+IGh0dHBzOi8vd2ViLmdpdC5r
-ZXJuZWwub3JnL3B1Yi9zY20vbGludXgva2VybmVsL2dpdC9saW51c3cvbGludXgtcGluY3RybC5n
-aXQvbG9nLz9oPWliLXNvcGhnbwo+IAo+ID4gICByaXNjdjogZHRzOiBzb3BoZ286IHNnMjA0Mjog
-YWRkIHBpbmN0cmwgc3VwcG9ydAo+IAo+IEFwcGx5IHRoaXMgcGF0Y2ggdG8gdGhlIHJpc2N2L1Nv
-QyB0cmVlLgo+IAo+IElmIGl0IGlzIHJlcXVpcmVkLCB0aGF0IHRyZWUgY2FuIHB1bGwgaW4gbXkg
-aW1tdXRhYmxlIGJyYW5jaCwgd2hpY2gKPiBpcyBiYXNlZCBvbiB2Ni4xNC1yYzEuCj4gCj4gWW91
-cnMsCj4gTGludXMgV2FsbGVpagoKVGhhbmtzLCBJIHdpbGwgdGFrZSBjYXJlIG9mIHRoZSBkZXZp
-Y2UgdHJlZS4KClJlZ2FyZHMsCklub2NoaQoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxp
-c3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0
-aW5mby9saW51eC1yaXNjdgo=
+On Thu, Feb 27, 2025 at 07:35:09AM -0600, Rob Herring wrote:
+> On Thu, Feb 27, 2025 at 07:42:29AM +0800, Inochi Amaoto wrote:
+> > Some SoCs from Aspeed, Allwinner, Sophgo and Synopsys have
+> > a simple reset controller by toggling bit. It is a hard time
+> > for each device to add its own compatible to the driver.
+> 
+> It's a 1 line change. That isn't hard.
+> 
+
+Yeah, it is not hard. But it is annoying and sometimes
+I felt it is a waste of time to add a device id to the
+reset-simple driver.
+
+> > Since these devices share a common design, it is possible to
+> > add a common device to reduce these unnecessary change for
+> > the driver.
+> > 
+> > Add common binding for these kind generic reset controller.
+> > Check the binding description for its requirement and
+> > suitable scenarios.
+> 
+> We generally don't want 1 register per node type bindings. That level of 
+> detail in DT has proven impossible to get right.
+> 
+> Rob
+
+It is not 1 register per node, but a contiguous range.
+In most SoC satisfy the requirement, only one reset
+device is added. This is what the reset-simple handle.
+1 register per node is too crazy for everyone....
+
+Regards,
+Inochi
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
