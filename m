@@ -4,91 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BDB97C19F32
-	for <linux-riscv@archiver.kernel.org>; Fri, 28 Feb 2025 00:39:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4FA2DC19F32
+	for <linux-riscv@archiver.kernel.org>; Fri, 28 Feb 2025 00:45:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=op1KxJu3jHjEdq/YK0qtDE1aZO1X0GozEty10LV3i48=; b=rKs8vOzC7N3uWh
-	5TaTuhhr/05ripbsi0AxNndlgtQ/ElhrOcbJo+acIF60jCVHBC3WQIWcDFJPQVU6GBu379UZD4Y1u
-	x0i9m083lI0I97ntZQiZ/fVA4tGeoC7YhNlMRU4ctieJR52dPUAGJ2emLyqinMA0JhYacw9xsqgLn
-	x6jlNr1OqYzs63lNKTTFg5+XQ/H2KfYA3KCRht4TnybieDxVZVqnVYAoe16BjtqmrNph+1LI6wybM
-	kjf/tAUq18IP939XKoDbeEiAciIle4aJDgo95FK8ypqoavjfDZWzxk2MEPkd8GHpGYPaYrnZdVnBd
-	1VGultmUFIYKkZY4jy/g==;
+	List-Owner; bh=kLDr3HqZXyYU2XMRkz+SnFZ3F53WNmuSQk+C8ZCWMuk=; b=cLyIYrJa/VouGC
+	a+LAlrgfLgY9rz6O/yOP9KQZI2XyG1+ynoHaE8MUjnM87zzNkeJUInXjEo9dGGwb/fmRa1eEkvPY3
+	yVfzEIZ/Sjnm68k9sBznYuWAKPtw/7EtdK8ovN4NojsGR1dllER9dx8SWq8ixgm9DYmiwc+CPbtsa
+	cMUzUR81Q2SR2t9D1C8Sw7G3Q8FMf736aMpmS1fbllnLgbM4Zko2iaFUntROYiI20pYb5q+uzaAiG
+	9voDh9gJq0Bvz4tEB/91sduZiAz8gut/mR6kPZU2N7GxbVew01RN9y2N0kZNMRlqN8bwgHiQYHDpw
+	ioVujr1mIk/NgpJX0feQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnoPu-00000009IrC-14A9;
-	Fri, 28 Feb 2025 00:39:50 +0000
-Received: from mail-qv1-xf2f.google.com ([2607:f8b0:4864:20::f2f])
+	id 1tnoVb-00000009JNr-3bGf;
+	Fri, 28 Feb 2025 00:45:43 +0000
+Received: from mail-qv1-xf2d.google.com ([2607:f8b0:4864:20::f2d])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnoPr-00000009IqC-36GC
+	id 1tnoUt-00000009JIY-1Rs0
 	for linux-riscv@lists.infradead.org;
-	Fri, 28 Feb 2025 00:39:49 +0000
-Received: by mail-qv1-xf2f.google.com with SMTP id 6a1803df08f44-6ddcff5a823so13409526d6.0
-        for <linux-riscv@lists.infradead.org>; Thu, 27 Feb 2025 16:39:47 -0800 (PST)
+	Fri, 28 Feb 2025 00:45:00 +0000
+Received: by mail-qv1-xf2d.google.com with SMTP id 6a1803df08f44-6e44fda56e3so15085546d6.1
+        for <linux-riscv@lists.infradead.org>; Thu, 27 Feb 2025 16:44:58 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1740703186; x=1741307986; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=NS+/iUnzQt3rNEJ1NDY4uxNPpsgUI17G/QJLjXrYJFg=;
-        b=DxYxfru1QIfiSPBb6vFiAjTQvzC6QDa/mdHttfQwt/fI7dyh18olednpuqyana9RsU
-         2j3oE77BG5AN4gQKVq3NfDmPWh8TGDZyuCgd0igNyXjXLejM1SMYvUy1GdhvEPNN/dqR
-         HZZpJQoFb+HYY3ZiErmHsdItND30MZcnDTW+Wfd6/i0Twry6WBXuwNsSANZZQKIkvSNC
-         l+7gtf4q5k5aRDWdfPz6FLh/sHfbQxwt4WbsV6HSc9gtrZvpRozlr4B4lH1qkg3Jo+bc
-         HZjfCVnwESkTOf75ySEBhuQmfK5OJ0go7GAek7qGSFRFWG5Dh0RxitrRLEiG2UB7txpZ
-         7MIw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1740703186; x=1741307986;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+        d=gmail.com; s=20230601; t=1740703498; x=1741308298; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=NS+/iUnzQt3rNEJ1NDY4uxNPpsgUI17G/QJLjXrYJFg=;
-        b=U/SfPawArD9x93eFWfsQNbEezJI2EwCd0fS1wt2WUjHCT8cfF6E3QNGLkoKYiAzrdi
-         5Ayz6aQGVBFqG5oEHFL0SPSgzcMLqk3MZ5m73jR4QAqejHC8ZZlwqTqa9AQND1x5Har+
-         AQMlxHNjvbhF0cvhfhoiVg+fuomnvCug4l54NIPrQWQzix//wUS1bQ/wmdAg/fy9Sx5d
-         vcKhO+/ohasokIwDjZun8jEn3NBcj8hpX3QRe7mLOvoCQXrL9lfiBiGvhFTl7QEmupJ9
-         9jj544woEw/utjgaz8spgDXYrT+5TIdfvJWbBkOG2Jug0LFqu7zeKFL5jsUaTu7CyDIA
-         wR4Q==
-X-Forwarded-Encrypted: i=1; AJvYcCXQLd7lGWEkBZ5LilnXdjcnqAPUUiPV2NhxXWPaNf+WUBVqV1+lpAdPCQPeihVNwCf7JnxuO+wtiSmguw==@lists.infradead.org
-X-Gm-Message-State: AOJu0YzJLz68+99+xBAZM2Ru1q/QCkHiVmiugti0liI+KvYAXyKd1rcB
-	2jSA2JhS7MSpbJbyOh2rem46IGh9jwc8wyGVHck161KbWU7LYlIj
-X-Gm-Gg: ASbGncun/0PFVTUYyms2npWo01+WqXC7VlNhpGjSXI3KrPZYUSS7wclI3n0biOOhl7K
-	rr3NvtAIxt9zuI0TSR7YuEivyeKXcDu77Mb792zj9FngScWNOIvo8Dmab8xXbih8swQnYeIJ8Tg
-	R1Wzm9ZiK1bKwoqzj5SZ693wOPkZCDGK6rOOLjdKmYgYcZpEOq1qPC+1iLD7ehx6w/ga97gLOXx
-	qWV4K4ympDvb3GAwYh2xDmC0yhh8rIrIog0GY4Rru9aivNnGuJJ2iAbX6tyMU+bO6QIYWgFDs1t
-	6w==
-X-Google-Smtp-Source: AGHT+IGW6OtjFhte78/y7mXicDWR0r1px1BSDbRwNbpZXXNdzJwgIrFoEnObj2orAz8Dtj3dyg6Yrw==
-X-Received: by 2002:a05:6214:21e7:b0:6e8:86d3:be78 with SMTP id 6a1803df08f44-6e8a0d94b6cmr23116156d6.37.1740703186527;
-        Thu, 27 Feb 2025 16:39:46 -0800 (PST)
+        bh=gLTJSgWRvjc6CoalvvtWWj0Jwj6OQsGx1YUrViRKarI=;
+        b=htekwkn+Qm0ssZ0dFEsxVPLK6HOcU68HoOVqBcAZ7x08w/JbwqCDjyC5GPiJkbpele
+         0DDq/loOap12gnRO9bfroNFyCnvi+KQfFvlhikNtO5/WKck0M2HcW8GJGNvRLCjIrIBp
+         WD/43NfFneFmkuvrvW1TkF618Opo3VZHioWgRQo++WCpnQjf+NEcTnXtnzNAE2sZ5KKK
+         h5Rnyhp2a5igtY/j+a0bvaxa2LFCYYBoUaKevndgaGrShfZYYoFdcw5IwjKe3RLvz0SJ
+         0C8zTSRffkXIb6uE4a0jhyDCs/62V9ZHeE0MAqjeId2hmRh/jWkQa0bEGSpoF1LK2ZxQ
+         243Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1740703498; x=1741308298;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=gLTJSgWRvjc6CoalvvtWWj0Jwj6OQsGx1YUrViRKarI=;
+        b=NJS8wCKR6OKLAbJQ2HQzj/rAAS3YLTvbx/Y1pPEWRY/fAouxNWX2cHDUD9MjpVZ3A5
+         krAijicJQLITXq/oR8Q1F5uxOcrQCk5bS8DRNuleqwRQteMN4bKK9NAuWdnkP2HCDyAX
+         nyy88wQZwWfObp/i/F7BZ9A9SQnmetWAXgEyc07Qn4w+rOgB9zv6XGfev9NESPPvzxeT
+         nZqP+ybkofb7IdNZ9qtlqIhIKruvp6XfjfflGkFSn95er5TKQZwOYmAe544x6U+zOuNM
+         2wdSLwq2q1BbjQZKxU2sE3JRimDgz3EQtQUMTuD60B88eENbfvb0PvrhkNcoUSCK3eOA
+         YPQw==
+X-Forwarded-Encrypted: i=1; AJvYcCXqVK1OmJyHN2QgZ9XNv7PBJGanEMrFHi1NcOAmdCCIObHOBAkj8VB9pHxrlHdEIxAdscueiZ7097pv0A==@lists.infradead.org
+X-Gm-Message-State: AOJu0YwJ6QZyJ74eKO8YciYJ0Kkz0NR5F2jNT/ImReX1VWabfSfPOS9n
+	nUoz7f+UUhxWuYx4ihJKHIsf7rnB+Yyz4G7da1MDa6UxcN6Lzf95
+X-Gm-Gg: ASbGncuF0umT5k2JULdkxOhvPUX407vxDwsu6YOM9Cjx72o8nV6VPHes1XYzsHY/bhI
+	VNiiuDnbsk8Qrp2AtOXspN/lNi5A/5zG0Z+0cFsesLGoHJuqkH4zzWtwNDqfS/uxWResVHgkw4/
+	SvwSb3bEliyvd+KsMjYvG9u1Gr1Teh5VfZaG3Gu39WfrxJdUzu4HmFKoUPxyISKgKDjkK1zclpM
+	3TRtu5un10H8SRBf++pnD7kuYG2QC7Ep93v4UvWdDyTM5LLG+GfTR9/BATAZVryjViJWM4Dw8++
+	fQ==
+X-Google-Smtp-Source: AGHT+IExRXiQaZ4T0Z6y1z1z0/2ROPkgKVD3wTCSJ4mh6iYNzRlAMui0YNy9pihJ29SSMbnFSyJyCA==
+X-Received: by 2002:a05:6214:f2d:b0:6e4:5b6a:9d48 with SMTP id 6a1803df08f44-6e8958a275emr85405086d6.7.1740703498090;
+        Thu, 27 Feb 2025 16:44:58 -0800 (PST)
 Received: from localhost ([2001:da8:7001:11::cb])
-        by smtp.gmail.com with UTF8SMTPSA id 6a1803df08f44-6e89766166esm15959336d6.61.2025.02.27.16.39.45
+        by smtp.gmail.com with UTF8SMTPSA id 6a1803df08f44-6e897651074sm16039276d6.29.2025.02.27.16.44.56
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 27 Feb 2025 16:39:46 -0800 (PST)
-Date: Fri, 28 Feb 2025 08:39:24 +0800
+        Thu, 27 Feb 2025 16:44:57 -0800 (PST)
 From: Inochi Amaoto <inochiama@gmail.com>
-To: Rob Herring <robh@kernel.org>, Inochi Amaoto <inochiama@gmail.com>
-Cc: Philipp Zabel <p.zabel@pengutronix.de>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Chen Wang <unicorn_wang@outlook.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>, Guo Ren <guoren@kernel.org>, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, sophgo@lists.linux.dev, linux-riscv@lists.infradead.org, 
-	Yixun Lan <dlan@gentoo.org>, Longbin Li <looong.bin@gmail.com>
-Subject: Re: [PATCH v2 1/5] dt-bindings: reset: add generic bit reset
- controller
-Message-ID: <57tveujqmthjxdaad67i3qv732zwmjcyymnsluyf65xdpmfvkd@cqrwhuylthmd>
-References: <20250226234234.125305-1-inochiama@gmail.com>
- <20250226234234.125305-2-inochiama@gmail.com>
- <20250227133509.GA2021892-robh@kernel.org>
+To: Linus Walleij <linus.walleij@linaro.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Chen Wang <unicorn_wang@outlook.com>,
+	Inochi Amaoto <inochiama@outlook.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Guo Ren <guoren@kernel.org>,
+	=?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>,
+	Thomas Bonnefille <thomas.bonnefille@bootlin.com>,
+	Harshit Mogalapalli <harshit.m.mogalapalli@oracle.com>,
+	Inochi Amaoto <inochiama@gmail.com>
+Cc: linux-gpio@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	Yixun Lan <dlan@gentoo.org>,
+	Longbin Li <looong.bin@gmail.com>
+Subject: Re: (subset) [PATCH v2 0/8] riscv: sophgo: Add pinctrl support for SG2042
+Date: Fri, 28 Feb 2025 08:44:32 +0800
+Message-ID: <174070346793.192886.6076012325463673162.b4-ty@gmail.com>
+X-Mailer: git-send-email 2.48.1
+In-Reply-To: <20250211051801.470800-1-inochiama@gmail.com>
+References: <20250211051801.470800-1-inochiama@gmail.com>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20250227133509.GA2021892-robh@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250227_163947_780142_8176725B 
-X-CRM114-Status: GOOD (  18.03  )
+X-CRM114-CacheID: sfid-20250227_164459_383353_CBCC33A5 
+X-CRM114-Status: GOOD (  10.45  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,39 +115,29 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Feb 27, 2025 at 07:35:09AM -0600, Rob Herring wrote:
-> On Thu, Feb 27, 2025 at 07:42:29AM +0800, Inochi Amaoto wrote:
-> > Some SoCs from Aspeed, Allwinner, Sophgo and Synopsys have
-> > a simple reset controller by toggling bit. It is a hard time
-> > for each device to add its own compatible to the driver.
+On Tue, 11 Feb 2025 13:17:48 +0800, Inochi Amaoto wrote:
+> SG2042 has a simple pinctrl device for all configurable pins.
+> It supports setting pull up/down, drive strength and input schmitt
+> trigger.
 > 
-> It's a 1 line change. That isn't hard.
+> Add support for SG2042 and SG2044 pinctrl device.
 > 
-
-Yeah, it is not hard. But it is annoying and sometimes
-I felt it is a waste of time to add a device id to the
-reset-simple driver.
-
-> > Since these devices share a common design, it is possible to
-> > add a common device to reduce these unnecessary change for
-> > the driver.
-> > 
-> > Add common binding for these kind generic reset controller.
-> > Check the binding description for its requirement and
-> > suitable scenarios.
+> Changed from v1:
+> - https://lore.kernel.org/all/20241024064356.865055-1-inochiama@gmail.com/
+> 1. Fix the binding documentation error.
+> 2. Refactor the cv18xx code so SG2042 can uses the same code.
+> 3. Add SG2044 pinctrl support as it has the same layout.
 > 
-> We generally don't want 1 register per node type bindings. That level of 
-> detail in DT has proven impossible to get right.
-> 
-> Rob
+> [...]
 
-It is not 1 register per node, but a contiguous range.
-In most SoC satisfy the requirement, only one reset
-device is added. This is what the reset-simple handle.
-1 register per node is too crazy for everyone....
+Applied to for-next, thanks!
 
-Regards,
+[8/8] riscv: dts: sophgo: sg2042: add pinctrl support
+      https://github.com/sophgo/linux/commit/5277657d53834cfbdbb9444088c1448b29bdfe98
+
+Thanks,
 Inochi
+
 
 _______________________________________________
 linux-riscv mailing list
