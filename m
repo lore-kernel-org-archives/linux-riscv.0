@@ -4,92 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4E260C282C6
-	for <linux-riscv@archiver.kernel.org>; Fri, 28 Feb 2025 18:03:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 89B76C282D0
+	for <linux-riscv@archiver.kernel.org>; Fri, 28 Feb 2025 18:22:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Subject:From:Cc:To:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=LDZEU9MaXKxwD5fKr3ZnNzmJK7Qex11FKrj10wCrfU0=; b=llmdRBoAI/3TS3
-	EXA6S+bJo4riwyD7IALI/vWXKC1PMf1aij07oUTY8HjSIw59niMeobx94PCjb4aFzHDsk/P+fs999
-	Ebk1EBEMkF/MKdVcnqoDszuhjel8VhYW2jC0SqLB1nM0WLdaP/c/wNdE0mtuDsaV336EtxcEPZJPk
-	d6RSrrwy+bdLB7ueDHHv83yGLqWWd8AIOLZIg/eZreMEifYNNn0FJwf00ZCusA7F1DKCctNdBEGAj
-	M+mRhOCkKg0z+qIogNUSKw9s2z46+9NH+UV/xrUqgyl64c0JhlhVJ3JXr4AKSkyu3Pjt788c/fUpG
-	qywUQ6HgEAt2kGSc3v2A==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=shFkO6xoRww0U1251apd/rpgz9mZ9rFzX5unh/j1v3k=; b=L9Yb5t78mGjdSFe98C+nYGcECh
+	U8FItGusqob7qa4UcdOJRo8F2ZeYlfXENxNed8DxZY/784q1zpMdsF74fZvjPQr/GGp4hiqWglSpW
+	xVRlphtRN2gxVeUNtkpXHRgdqBXQax0p/kSRNu/nT5PbxbVXZcW2fzX0cBO9hfctXB00aSd2U3RyG
+	/3LDQ6JmBpyz87XzT8NQMoT3spvNlHmcebSqBudFA4FqtqiaYBNzNkaNivaRh+ORNtwXo1LM30PoA
+	C8sUEcIoeU/Ec9kh6Rd5WyPnpRTUl6LIwLO8E9CsfuFFnKgQbKhOqyIN2G23It3ED7DR+9RlSitWS
+	RSXTsrnQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1to4hL-0000000C3rZ-2EDe;
-	Fri, 28 Feb 2025 18:02:55 +0000
-Received: from mout.web.de ([212.227.17.12])
+	id 1to4zx-0000000C717-2pge;
+	Fri, 28 Feb 2025 18:22:09 +0000
+Received: from tor.source.kernel.org ([2600:3c04::f03c:95ff:fe5e:7468])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1to4hJ-0000000C3qZ-1dTE
+	id 1to4zw-0000000C70Z-14xh
 	for linux-riscv@lists.infradead.org;
-	Fri, 28 Feb 2025 18:02:54 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=web.de;
-	s=s29768273; t=1740765768; x=1741370568; i=markus.elfring@web.de;
-	bh=eK4M2CFdXyu5HI4LNXAJHZUld6l0gBUVOZFtbpGEcuM=;
-	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:To:Cc:From:
-	 Subject:Content-Type:Content-Transfer-Encoding:cc:
-	 content-transfer-encoding:content-type:date:from:message-id:
-	 mime-version:reply-to:subject:to;
-	b=w4EP1Dr4nX7i1ypthZxZaqC6R8RKbvjT1tbSR5Sd9XcTggZJ3CoAP0PdZGtijFog
-	 qKBQ93iiZHBzuSendP6hW5q76+n9GTq82pY8GYjCZOq2BXSVAEZlcRDok++N0Xsw1
-	 jHboR3FEhgJqt+OmZJMs/cHOb6X4eiPCsssSi5NlgRWFkkDMZgPKVSQqkr1TEm5DV
-	 VBR4j56vbl3P/0W/MrbjntSs3oNTaTf76kNW821GJOkC9yG+ZWngWnIwaKeT8PRoe
-	 B+YKtAJ05q9X4UWRUzX51IQ5GXUIdqMuQ9ZMa3LO7obSvyrj51R+2S0KjskuBSCCw
-	 Didtat45J3kGDz+ltA==
-X-UI-Sender-Class: 814a7b36-bfc1-4dae-8640-3722d8ec6cd6
-Received: from [192.168.178.29] ([94.31.93.27]) by smtp.web.de (mrweb105
- [213.165.67.124]) with ESMTPSA (Nemesis) id 1Mv3UY-1sx4XI2bgG-00rzh6; Fri, 28
- Feb 2025 19:02:48 +0100
-Message-ID: <d1a384c9-f154-4537-94d6-c3613f4167bc@web.de>
-Date: Fri, 28 Feb 2025 19:02:43 +0100
+	Fri, 28 Feb 2025 18:22:08 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 15FC461166;
+	Fri, 28 Feb 2025 18:21:59 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5DD57C4CED6;
+	Fri, 28 Feb 2025 18:22:04 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1740766927;
+	bh=L7nx2qw0ww3IcjVdyW4mjPxnThBtNa64sCtxvSfHX1Y=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=uHdJm99dr70XTwFpyITFYJXriGp1uxqm7Hh5XDySE+HKhTi5RfIAWdPSJ3SSka/ZG
+	 1GyPH2hIvUrJX9dV0XwHXvSUNRddgbZ6RV6DW/Vqhefm5IZD9HupwFShXEX9GnwfJf
+	 r5mmMVxaCVpa3jNFbjseWAKTBLUxg0XECFMN5aMEWLY8c/nwA3jzfrYc7yUzJyer6j
+	 zzbftPKBIqvWs088hW0tBeLO9pbKyUhaao+UdS8Uk+9TQy0vCDJI1dVHkS+n0ZLua9
+	 b36k0X6FT1mRPnfHc5qlHt/oKwJDEylV6L7btZ9j7y2gm+eXUG7ASefUZ5srCf94us
+	 fUk+BWVLDujRw==
+Date: Fri, 28 Feb 2025 18:22:02 +0000
+From: Conor Dooley <conor@kernel.org>
+To: Zixian Zeng <sycamoremoon376@gmail.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Chen Wang <unicorn_wang@outlook.com>,
+	Inochi Amaoto <inochiama@outlook.com>,
+	Alexandre Ghiti <alex@ghiti.fr>, devicetree@vger.kernel.org,
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+	sophgo@lists.linux.dev, chao.wei@sophgo.com,
+	xiaoguang.xing@sophgo.com
+Subject: Re: [PATCH v2] riscv: sophgo: dts: Add spi controller for SG2042
+Message-ID: <20250228-factual-rage-0e1e1e48b009@spud>
+References: <20250228-sfg-spi-v2-1-8bbf23b85d0e@gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-To: linux-riscv@lists.infradead.org, iommu@lists.linux.dev,
- Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
- =?UTF-8?B?SsO2cmcgUsO2ZGVs?= <joro@8bytes.org>,
- Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley
- <paul.walmsley@sifive.com>, Robin Murphy <robin.murphy@arm.com>,
- Tomasz Jeznach <tjeznach@rivosinc.com>, Will Deacon <will@kernel.org>
-Content-Language: en-GB
-Cc: LKML <linux-kernel@vger.kernel.org>, kernel-janitors@vger.kernel.org,
- Qasim Ijaz <qasdev00@gmail.com>
-From: Markus Elfring <Markus.Elfring@web.de>
-Subject: [PATCH] iommu/riscv: Simplify maximum determination in
- riscv_iommu_init_check()
-X-Provags-ID: V03:K1:JhTdCVQrTH3pRqWkfDnqBWlut2oSUyDj0pt7WEcCMTNueMxWxYg
- JvvkBvFN/0ZMbF4W2dISPA1soxLiP4NNwwKMA/XAAj0qbmlpcKLANJy0EcVwmA+40xn5CP2
- Ad4v/QnlvWdYFNJAieE/IZxdvGE/obOvtYYLKbkwdsVUwewbDqnvqVsoES1Zo4mxIgSgk1Y
- xm0ZqezCcfCzQcgo0/teA==
-UI-OutboundReport: notjunk:1;M01:P0:eSSW5lU399U=;I50OgSrD9TkwusxDqXip34QlRPb
- VRJrx5LDHhRSjIqkw/dYopfM+HANiY0G+c3eLx3BBLrU4nQf1wK6Ptv7B/wPsWy5zdPVSEaX9
- vUYVYZ4+zKZ2Z1gfTMeC7rFSSCxoyFou0DDz9SNV58CgbpSfEz+CKe4KzKAbgiQ6gWn9lfx72
- cJz4a14T07W/ywdQuJzzg16lvIMdEXUqDD20UFkxjbeB4/xNR5++coD0wxX1U57pKGwNdGDRt
- W3ktG+3W1r/HGf0S4eEtGLAxtUdlCveX59LZ71UNmXihu+lQ//h7iJdxykLIrbDYzZtMM4MJs
- tPFOqhSKNGKtA+/1RfOilWLER/eXI/QIlbyajgEc+Zd6vlhNMsl6fHwHFeAZJNTlISnqNRoo3
- alKI1FaOjkJplEb1U0TRzVPRJFYjQvN/SKZdOLfKD+fTDFTNHR64TMvNgy9WUOIH3S9Lh2xsk
- um961lNiFYHwMckYF3IlZIXVeHfDF8q6ilw73XHxgJclefs+Q6FWQZklPg+6TCc2csBCGt/Xm
- +wOFBdzcbWxIeKumkd3Z5StntIryfQFSOgEWtSivspwH9WMOxpobSHU6gEC7nMMbOlJVj205N
- a7xjRMSxNl7GX6YxMv36bt0Pf9LEiYzyhIyk6FxBb2CQglnNhYZd+Zue4WJIpsJ0mhFoxw8DX
- kADH+IRlGlQzGC77mh1IcyXV6PDhiuvnukjb/6oadLVP5tLMFPogFYiZK9T/wB/9pQpoCa5+k
- uOO4LUjDC4i01UB4LLO1Lfp5Gge6TxKg/XorK3U8+VvfDpg0vMHYDa/0wiRu8ykBvVQD4JI9p
- fKCamJC/+mc0rG/pAjcjd+zj+pUQby6FHHfif+p0YVKa2fuSAPk5aZC6u9o/aVeBTUalTL/8G
- usJDKebWf+t7CCa78fWXpnFYMmO9CQMjUL7mZvnC0D2LZArag8gKINplrxUrrkU3P3Bw3XJmp
- G4+qlRUcmolGOx1rcvbdw06ac1J2kFZmb3dhe/ygt4nv4WvKNnPp4TOrElPZuWKOXPzhygvDi
- vDICyLwD6btuw0Bok8dMsjBiCbSSaVVFz8TyVkInur1ZOHsOJC3Huh2OWdYFBNTXvS618/Bnf
- SdoUi5c6NfseHwMEX2RJS3YaLVvj0fFEjXOeElxU3rfLP2Db8ho3epAZOQfZ1g7NAdE0MMfc7
- G7ohwNc9erqsRiugD275jtlTJXJjKCIzcu6UjDsNs7/LaJMOpopJDX8Rc2PIjO/iphLlE2ZgV
- 8uP57d8MaQfkB92jb9sEv2OV41ZHukzpyA4f/2o+0VtxPvvhjwQdppRQ8f64zTZKnCAm+pjGr
- XLYiWWlCOWzrBAW3PXqokkrcktaepxR39XsZJcc+ctjmrwSb8iWYzx18ucRR+Zg2MLdYQ35j/
- p6ZWo825qxiSkH3qyufQVpd35UuSWAzxDbzhp4FFf0dxZQ90Uj2yYmtJikARBYOg8RfiRHVr2
- Mz8SVkw==
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250228_100253_725299_35765E83 
-X-CRM114-Status: UNSURE (   6.55  )
-X-CRM114-Notice: Please train this message.
+In-Reply-To: <20250228-sfg-spi-v2-1-8bbf23b85d0e@gmail.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,48 +72,116 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============8790856232135937853=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Markus Elfring <elfring@users.sourceforge.net>
-Date: Fri, 28 Feb 2025 18:56:00 +0100
 
-Reduce nested max() calls by a single max3() call in this
-function implementation.
+--===============8790856232135937853==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="5HTFhaoNLB+m4rvM"
+Content-Disposition: inline
 
-This issue was detected by using the Coccinelle software.
 
-Signed-off-by: Markus Elfring <elfring@users.sourceforge.net>
----
- drivers/iommu/riscv/iommu.c | 8 ++++----
- 1 file changed, 4 insertions(+), 4 deletions(-)
+--5HTFhaoNLB+m4rvM
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-diff --git a/drivers/iommu/riscv/iommu.c b/drivers/iommu/riscv/iommu.c
-index 8f049d4a0e2c..31d20016a0df 100644
---- a/drivers/iommu/riscv/iommu.c
-+++ b/drivers/iommu/riscv/iommu.c
-@@ -1588,10 +1588,10 @@ static int riscv_iommu_init_check(struct riscv_iommu_device *iommu)
- 		       FIELD_PREP(RISCV_IOMMU_ICVEC_PMIV, 3 % iommu->irqs_count);
- 	riscv_iommu_writeq(iommu, RISCV_IOMMU_REG_ICVEC, iommu->icvec);
- 	iommu->icvec = riscv_iommu_readq(iommu, RISCV_IOMMU_REG_ICVEC);
--	if (max(max(FIELD_GET(RISCV_IOMMU_ICVEC_CIV, iommu->icvec),
--		    FIELD_GET(RISCV_IOMMU_ICVEC_FIV, iommu->icvec)),
--		max(FIELD_GET(RISCV_IOMMU_ICVEC_PIV, iommu->icvec),
--		    FIELD_GET(RISCV_IOMMU_ICVEC_PMIV, iommu->icvec))) >= iommu->irqs_count)
-+	if (max3(FIELD_GET(RISCV_IOMMU_ICVEC_CIV, iommu->icvec),
-+		 FIELD_GET(RISCV_IOMMU_ICVEC_FIV, iommu->icvec),
-+		 max(FIELD_GET(RISCV_IOMMU_ICVEC_PIV, iommu->icvec),
-+		     FIELD_GET(RISCV_IOMMU_ICVEC_PMIV, iommu->icvec))) >= iommu->irqs_count)
- 		return -EINVAL;
+On Fri, Feb 28, 2025 at 08:40:23PM +0800, Zixian Zeng wrote:
+> Add spi controllers for SG2042.
+>=20
+> SG2042 uses the upstreamed Synopsys DW SPI IP.
+>=20
+> Signed-off-by: Zixian Zeng <sycamoremoon376@gmail.com>
+> ---
+> For this spi controller patch, only bindings are included.
 
- 	return 0;
---
-2.48.1
+^^^ you've not actually included any bindings in this patch, copy-paste
+mistake?
 
+> This is tested on milkv-pioneer board. Using driver/spi/spidev.c
+> for creating /dev/spidevX.Y and tools/spi/spidev_test for testing
+> functionality.
+> ---
+> Changes in v2:
+> - rebase v1 to sophgo/master(github.com/sophgo/linux.git).
+> - order properties in device node.
+> - remove unevaluated properties `clock-frequency`.
+> - set default status to disable.
+> - Link to v1: https://lore.kernel.org/r/20250228-sfg-spi-v1-1-b989aed9491=
+1@gmail.com
+> ---
+>  .../riscv/boot/dts/sophgo/sg2042-milkv-pioneer.dts |  8 +++++++
+>  arch/riscv/boot/dts/sophgo/sg2042.dtsi             | 28 ++++++++++++++++=
+++++++
+>  2 files changed, 36 insertions(+)
+>=20
+> diff --git a/arch/riscv/boot/dts/sophgo/sg2042-milkv-pioneer.dts b/arch/r=
+iscv/boot/dts/sophgo/sg2042-milkv-pioneer.dts
+> index be596d01ff8d33bcdbe431d9731a55ee190ad5b3..c43a807af2f827b5267afe5e4=
+fdf6e9e857dfa20 100644
+> --- a/arch/riscv/boot/dts/sophgo/sg2042-milkv-pioneer.dts
+> +++ b/arch/riscv/boot/dts/sophgo/sg2042-milkv-pioneer.dts
+> @@ -72,6 +72,14 @@ &uart0 {
+>  	status =3D "okay";
+>  };
+> =20
+> +&spi0 {
+> +	status =3D "okay";
+> +};
+> +
+> +&spi1 {
+> +	status =3D "okay";
+> +};
+> +
+>  / {
+>  	thermal-zones {
+>  		soc-thermal {
+> diff --git a/arch/riscv/boot/dts/sophgo/sg2042.dtsi b/arch/riscv/boot/dts=
+/sophgo/sg2042.dtsi
+> index e62ac51ac55abd922b5ef796ba8c2196383850c4..500645147b1f8ed0a08ad3caf=
+b38ea79cf57d737 100644
+> --- a/arch/riscv/boot/dts/sophgo/sg2042.dtsi
+> +++ b/arch/riscv/boot/dts/sophgo/sg2042.dtsi
+> @@ -545,5 +545,33 @@ sd: mmc@704002b000 {
+>  				      "timer";
+>  			status =3D "disabled";
+>  		};
+> +
+> +		spi0: spi@7040004000 {
+> +			compatible =3D "snps,dw-apb-ssi";
+
+I thought were were dropping the use of "snps,dw-abp-ssi" in isolation,
+and starting to require soc-specific compatibles now.
+
+Rob, Krzysztof?
+
+
+--5HTFhaoNLB+m4rvM
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZ8H+ygAKCRB4tDGHoIJi
+0n2wAQCLvQ8ZMOWUD0T2/OYl1/lAg6L9QMRCqx+crVNoQ6oyJAEAwoY+HGNeol8+
+sKuPMRdwNeSwauRr9jNk0DoRyGuLVw8=
+=HgAK
+-----END PGP SIGNATURE-----
+
+--5HTFhaoNLB+m4rvM--
+
+
+--===============8790856232135937853==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============8790856232135937853==--
+
