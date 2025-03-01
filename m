@@ -4,85 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE51BC021B8
-	for <linux-riscv@archiver.kernel.org>; Sat,  1 Mar 2025 13:41:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E4854C021B8
+	for <linux-riscv@archiver.kernel.org>; Sat,  1 Mar 2025 19:24:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=8QPx5ez37UspQgCU7UZ0wQm3yP2iEd/GzJnGDZXG658=; b=W7njEN9rZDJpMC
-	cwQxMf+hzs1dmEOFtejEKRCqRFsYZ2ikQKfpsZYDvdbcUo0qNVPuHzw0ps3tmNIuRa/L6Mxp4hF9M
-	xnah+PWHBzXh1ss8zqyQi7uq3YTGFpsFNXcNBE1feR9trfuHg+8K4YaXQRZOWTzih+JH7IGUFYDUv
-	tmnCnh1iNSFvXjJaQjmnME4UzcIldzynlfDGra3DpvVXJZpn9XGHRmun7J/TxGbJrqP63/30Ewqza
-	eAdfUtj1/gymLzFbzACDVXDk7yExKo8BEZE1so1VTT5P9C6wO/e2SrfGI+JZTif3kEFeed3NLBFcF
-	Ze+wmT6jWprd+wAJVNbg==;
+	List-Owner; bh=VO0HfW0YVkKEBbp0R/LNgyXMB4AiskSzDJB5vKNh4Pc=; b=i0d2rV0RdJryG6
+	nPR5reG8gx/DZaemqgnyKNQRCuJhb1PFp4KU1VA63vH28IxbAt3wefcpwNM6GXdicbIKJ0lceN229
+	l8OR99jUKkvqk/KkwcVGW244IzfhJFA1cZth+8YRljTICBM20OH9llOE/s5E6A7cFiSWZ4LGfN/jl
+	oOaiFYOBuW1pTeNrZkUSA1RrhsiFQVtSMIATOJsYCVBUI6uW+hC//eoAetY0mBJbCZzAqa+RyXXy7
+	7y0JAuNTsmYL9AS3f/0oWH2LUe8cH5NArLMQyjUkH1AEF95hWOtNixAMA5DEbwX2+mGBkPdy+hwtu
+	5VSMeN5lZDb0a5SYUHCA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1toN5u-0000000EMVn-1SP4;
-	Sat, 01 Mar 2025 13:41:30 +0000
-Received: from mail-ed1-x52d.google.com ([2a00:1450:4864:20::52d])
+	id 1toSRQ-0000000EpnD-08iG;
+	Sat, 01 Mar 2025 19:24:04 +0000
+Received: from mgamail.intel.com ([192.198.163.11])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1toN5r-0000000EMVJ-2zNo
+	id 1toSRN-0000000EpmX-3kh0
 	for linux-riscv@lists.infradead.org;
-	Sat, 01 Mar 2025 13:41:29 +0000
-Received: by mail-ed1-x52d.google.com with SMTP id 4fb4d7f45d1cf-5dc89df7eccso4963285a12.3
-        for <linux-riscv@lists.infradead.org>; Sat, 01 Mar 2025 05:41:27 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1740836486; x=1741441286; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=78FXd7H9s7OsBCpwurs18e3LRIW9gE8fGHh/i6qsJMY=;
-        b=LxQ79qYdSY9QbRy5QBNULDCZrn3M9jpMpAJxg2S5pSua1xHOvsfNmhHmXwprZ8Mn6k
-         XJVeOU/djvtox2SlI0+1Ue7bYZD6HfDwkdGm5jkcrQ7IsrN9oAyj6RpOl60f1OSw+2gc
-         RPfjmI/fXyhgWOyqpDoq+O5WZLkplYyy74JhBav+vAdttdercEf24xMJ2Dk0XWzWsamh
-         iBedxBmuBa4uk2dpcKJpeReR88S/qX7nnmBEWsCtDtJITiM5Z4rnZCNoAFpfo5gpsgUK
-         vpwQlFmGK4hAIyigKmCflu9hK+NzeWN+MrHLt+RIm7nwT7aqwabsbU7hXBqx4zTkj9tq
-         rpsw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1740836486; x=1741441286;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=78FXd7H9s7OsBCpwurs18e3LRIW9gE8fGHh/i6qsJMY=;
-        b=rXM3LoH87OUMrLC1BWeYMN1jDtoI2ZtoIYPF2Zegs+NhsB/if4XzrBYasFoyjPQafT
-         tafL4QtmJDuq8661mCRtnWwLzXc90gsVbkvmg86/oKSY3CQa3l5tvc6TZJ8GPTNl9wJL
-         mvUlezHzFok277e91OFEw5SaFN5+OW2zV8eEoBvXC0qBZ26VVZxX0C/yHmeQBlCpG9ev
-         T/2i1lGfeMjEb+sZTzEJN+TqFU3IkHZNU1WFSmbif8SN+37rxuEbeV6CFxp5PV3cr7Vy
-         9uzQ9H86xd7e4/sJ81mxnHUuaQiNm+9gKaL2I9r+jHsfkBY7ENWOnlzxpPuUgOxb/mzr
-         Ny1g==
-X-Forwarded-Encrypted: i=1; AJvYcCU7/ac05rJxqniAHZKTkH/xK/+iviOu2+aM5uN3W2mAURPpw6MitCxAmo5e94IsBlo1V2JEj+cXkg6yvg==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yyj6v3Ba2ugOx4dQGLd1JEwjf+uST6wMCvr+L2P1roL1vbeik2t
-	vV5xdzVoQcVu02SVJlkO6XJtH3LIs0BAaBEMnsc5N3jAMDOJ6X3pVkWWP0Z5PYWM5ntpW94BwfA
-	I2DunTdzDkfW1xAIfqH3iMwrzn6k=
-X-Gm-Gg: ASbGncvxgH2YpnFGCGuwDk2LblKQm6821vIyitsydFlSWvO1gymM52tlNJZXTn7OKEi
-	qvhuAW0VgSLUnMy5Dx0Ay98gQ8+jMgT+BUtPTC4Cx2l0ZPFz2FGE+M3CXrE5m0HE5zu9O8qBXEG
-	0jbjg+hUji1/9ELfwGHbwydzHs19UCYBf4sd3+R6Xg13+psqWOklqZTBlQ
-X-Google-Smtp-Source: AGHT+IFLxVwOp5YMLsUkpptEmA0Qd2Flk1VNPL1BruQvXJdV1T6bcBXaIIh31J/l6mfSHIbhS/PJMvsfGdt69/SIBp4=
-X-Received: by 2002:a17:907:2d0b:b0:abb:9d27:290f with SMTP id
- a640c23a62f3a-abf25da236emr881207766b.9.1740836485188; Sat, 01 Mar 2025
- 05:41:25 -0800 (PST)
+	Sat, 01 Mar 2025 19:24:03 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1740857042; x=1772393042;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=luWs7wPzy832WByvbfgN79yEzfBwF4tpzpLI0asBZ8A=;
+  b=fRLh7aSFQRiZfgOvJzIhp6IzzvEc/eDHjs3r3YsUXuZkiWSGCWgTDUiE
+   LcWpDQbbRIyiVLMwdGtSrAGJIE/d6oE08D3IN+pxPjjIRpjSoWFXXmjJz
+   RqYUKSsz99d/AqMhEUkCbv7HCDhssdoyvpiYLdSgPstvvI/PbA2gyQopp
+   8k38tpR7CnTQJMVtgRXTOGm66cEWI0ZKAMS9AOS7YaaNo6zcx9fDjNLnW
+   hdPe5noKwL16diTV+mYDd3sKMSPYH7Us6yvdAOgW4NiED2JySwJ5jXD4c
+   5fliRvcAeWUWr9zTLla6xO63xHeUl6XdATUWnD9eML8NOGasFnjxjCNki
+   Q==;
+X-CSE-ConnectionGUID: weYynzq0To+eedpCgdVWkw==
+X-CSE-MsgGUID: yhT2obcvRxSfphmML0gj8g==
+X-IronPort-AV: E=McAfee;i="6700,10204,11360"; a="52410482"
+X-IronPort-AV: E=Sophos;i="6.13,326,1732608000"; 
+   d="scan'208";a="52410482"
+Received: from orviesa007.jf.intel.com ([10.64.159.147])
+  by fmvoesa105.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 01 Mar 2025 11:24:01 -0800
+X-CSE-ConnectionGUID: 0fC+S3hbQ4iJk0yjnlGMUQ==
+X-CSE-MsgGUID: CEcRVnjtQ3mEEiL12Yhxew==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.12,224,1728975600"; 
+   d="scan'208";a="118157777"
+Received: from lkp-server02.sh.intel.com (HELO 76cde6cc1f07) ([10.239.97.151])
+  by orviesa007.jf.intel.com with ESMTP; 01 Mar 2025 11:23:58 -0800
+Received: from kbuild by 76cde6cc1f07 with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1toSPm-000GbS-03;
+	Sat, 01 Mar 2025 19:22:50 +0000
+Date: Sun, 2 Mar 2025 03:21:49 +0800
+From: kernel test robot <lkp@intel.com>
+To: Xi Ruoyao <xry111@xry111.site>, "Jason A. Donenfeld" <Jason@zx2c4.com>,
+	Thomas =?iso-8859-1?Q?Wei=DFschuh?= <thomas.weissschuh@linutronix.de>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>, Guo Ren <guoren@kernel.org>
+Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Xi Ruoyao <xry111@xry111.site>
+Subject: Re: [PATCH] RISC-V: vDSO: Wire up getrandom() vDSO implementation
+Message-ID: <202503020317.POudjwvT-lkp@intel.com>
+References: <20250224122541.65045-1-xry111@xry111.site>
 MIME-Version: 1.0
-References: <20250228-sfg-spi-v2-1-8bbf23b85d0e@gmail.com> <20250228-factual-rage-0e1e1e48b009@spud>
-In-Reply-To: <20250228-factual-rage-0e1e1e48b009@spud>
-From: damon <sycamoremoon376@gmail.com>
-Date: Sat, 1 Mar 2025 21:41:14 +0800
-X-Gm-Features: AQ5f1JpwJ3BP_PC0W0ktRvkC8fjTUkMCYP9UPIHRuRuOyqb-ZHyNsvBVo66Lwcc
-Message-ID: <CAKyUbwXUPBceR1ArZeLLjs1VNyRW=DngZyLTUCDGPFvT9wKikw@mail.gmail.com>
-Subject: Re: [PATCH v2] riscv: sophgo: dts: Add spi controller for SG2042
-To: Conor Dooley <conor@kernel.org>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Chen Wang <unicorn_wang@outlook.com>, Inochi Amaoto <inochiama@outlook.com>, 
-	Alexandre Ghiti <alex@ghiti.fr>, devicetree@vger.kernel.org, linux-riscv@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, sophgo@lists.linux.dev, chao.wei@sophgo.com, 
-	xiaoguang.xing@sophgo.com
+Content-Disposition: inline
+In-Reply-To: <20250224122541.65045-1-xry111@xry111.site>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250301_054127_755196_14A1BC2C 
-X-CRM114-Status: GOOD (  21.69  )
+X-CRM114-CacheID: sfid-20250301_112401_961592_E5DF7D9B 
+X-CRM114-Status: GOOD (  10.59  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,68 +87,525 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gMjUvMDIvMjggMDY6MjJQTSwgQ29ub3IgRG9vbGV5IHdyb3RlOgo+IE9uIEZyaSwgRmViIDI4
-LCAyMDI1IGF0IDA4OjQwOjIzUE0gKzA4MDAsIFppeGlhbiBaZW5nIHdyb3RlOgo+ID4gQWRkIHNw
-aSBjb250cm9sbGVycyBmb3IgU0cyMDQyLgo+ID4KPiA+IFNHMjA0MiB1c2VzIHRoZSB1cHN0cmVh
-bWVkIFN5bm9wc3lzIERXIFNQSSBJUC4KPiA+Cj4gPiBTaWduZWQtb2ZmLWJ5OiBaaXhpYW4gWmVu
-ZyA8c3ljYW1vcmVtb29uMzc2QGdtYWlsLmNvbT4KPiA+IC0tLQo+ID4gRm9yIHRoaXMgc3BpIGNv
-bnRyb2xsZXIgcGF0Y2gsIG9ubHkgYmluZGluZ3MgYXJlIGluY2x1ZGVkLgo+Cj4gXl5eIHlvdSd2
-ZSBub3QgYWN0dWFsbHkgaW5jbHVkZWQgYW55IGJpbmRpbmdzIGluIHRoaXMgcGF0Y2gsIGNvcHkt
-cGFzdGUKPiBtaXN0YWtlPwo+Ck15IGJhZCwgSSB3YXMgY29uZnVzZWQgYWJvdXQgd2hhdOKAmXMg
-dGhlIOKAnGJpbmRpbmfigJ0gbWVhbmluZy4gSSB3aWxsCnJlbW92ZSB0aGlzIGRlc2NyaXB0aW9u
-IGluIG5leHQgcmV2aXNpb24uCj4gPiBUaGlzIGlzIHRlc3RlZCBvbiBtaWxrdi1waW9uZWVyIGJv
-YXJkLiBVc2luZyBkcml2ZXIvc3BpL3NwaWRldi5jCj4gPiBmb3IgY3JlYXRpbmcgL2Rldi9zcGlk
-ZXZYLlkgYW5kIHRvb2xzL3NwaS9zcGlkZXZfdGVzdCBmb3IgdGVzdGluZwo+ID4gZnVuY3Rpb25h
-bGl0eS4KPiA+IC0tLQo+ID4gQ2hhbmdlcyBpbiB2MjoKPiA+IC0gcmViYXNlIHYxIHRvIHNvcGhn
-by9tYXN0ZXIoZ2l0aHViLmNvbS9zb3BoZ28vbGludXguZ2l0KS4KPiA+IC0gb3JkZXIgcHJvcGVy
-dGllcyBpbiBkZXZpY2Ugbm9kZS4KPiA+IC0gcmVtb3ZlIHVuZXZhbHVhdGVkIHByb3BlcnRpZXMg
-YGNsb2NrLWZyZXF1ZW5jeWAuCj4gPiAtIHNldCBkZWZhdWx0IHN0YXR1cyB0byBkaXNhYmxlLgo+
-ID4gLSBMaW5rIHRvIHYxOiBodHRwczovL2xvcmUua2VybmVsLm9yZy9yLzIwMjUwMjI4LXNmZy1z
-cGktdjEtMS1iOTg5YWVkOTQ5MTFAZ21haWwuY29tCj4gPiAtLS0KPiA+ICAuLi4vcmlzY3YvYm9v
-dC9kdHMvc29waGdvL3NnMjA0Mi1taWxrdi1waW9uZWVyLmR0cyB8ICA4ICsrKysrKysKPiA+ICBh
-cmNoL3Jpc2N2L2Jvb3QvZHRzL3NvcGhnby9zZzIwNDIuZHRzaSAgICAgICAgICAgICB8IDI4ICsr
-KysrKysrKysrKysrKysrKysrKysKPiA+ICAyIGZpbGVzIGNoYW5nZWQsIDM2IGluc2VydGlvbnMo
-KykKPiA+Cj4gPiBkaWZmIC0tZ2l0IGEvYXJjaC9yaXNjdi9ib290L2R0cy9zb3BoZ28vc2cyMDQy
-LW1pbGt2LXBpb25lZXIuZHRzIGIvYXJjaC9yaXNjdi9ib290L2R0cy9zb3BoZ28vc2cyMDQyLW1p
-bGt2LXBpb25lZXIuZHRzCj4gPiBpbmRleCBiZTU5NmQwMWZmOGQzM2JjZGJlNDMxZDk3MzFhNTVl
-ZTE5MGFkNWIzLi5jNDNhODA3YWYyZjgyN2I1MjY3YWZlNWU0ZmRmNmU5ZTg1N2RmYTIwIDEwMDY0
-NAo+ID4gLS0tIGEvYXJjaC9yaXNjdi9ib290L2R0cy9zb3BoZ28vc2cyMDQyLW1pbGt2LXBpb25l
-ZXIuZHRzCj4gPiArKysgYi9hcmNoL3Jpc2N2L2Jvb3QvZHRzL3NvcGhnby9zZzIwNDItbWlsa3Yt
-cGlvbmVlci5kdHMKPiA+IEBAIC03Miw2ICs3MiwxNCBAQCAmdWFydDAgewo+ID4gICAgIHN0YXR1
-cyA9ICJva2F5IjsKPiA+ICB9Owo+ID4KPiA+ICsmc3BpMCB7Cj4gPiArICAgc3RhdHVzID0gIm9r
-YXkiOwo+ID4gK307Cj4gPiArCj4gPiArJnNwaTEgewo+ID4gKyAgIHN0YXR1cyA9ICJva2F5IjsK
-PiA+ICt9Owo+ID4gKwo+ID4gIC8gewo+ID4gICAgIHRoZXJtYWwtem9uZXMgewo+ID4gICAgICAg
-ICAgICAgc29jLXRoZXJtYWwgewo+ID4gZGlmZiAtLWdpdCBhL2FyY2gvcmlzY3YvYm9vdC9kdHMv
-c29waGdvL3NnMjA0Mi5kdHNpIGIvYXJjaC9yaXNjdi9ib290L2R0cy9zb3BoZ28vc2cyMDQyLmR0
-c2kKPiA+IGluZGV4IGU2MmFjNTFhYzU1YWJkOTIyYjVlZjc5NmJhOGMyMTk2MzgzODUwYzQuLjUw
-MDY0NTE0N2IxZjhlZDBhMDhhZDNjYWZiMzhlYTc5Y2Y1N2Q3MzcgMTAwNjQ0Cj4gPiAtLS0gYS9h
-cmNoL3Jpc2N2L2Jvb3QvZHRzL3NvcGhnby9zZzIwNDIuZHRzaQo+ID4gKysrIGIvYXJjaC9yaXNj
-di9ib290L2R0cy9zb3BoZ28vc2cyMDQyLmR0c2kKPiA+IEBAIC01NDUsNSArNTQ1LDMzIEBAIHNk
-OiBtbWNANzA0MDAyYjAwMCB7Cj4gPiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
-InRpbWVyIjsKPiA+ICAgICAgICAgICAgICAgICAgICAgc3RhdHVzID0gImRpc2FibGVkIjsKPiA+
-ICAgICAgICAgICAgIH07Cj4gPiArCj4gPiArICAgICAgICAgICBzcGkwOiBzcGlANzA0MDAwNDAw
-MCB7Cj4gPiArICAgICAgICAgICAgICAgICAgIGNvbXBhdGlibGUgPSAic25wcyxkdy1hcGItc3Np
-IjsKPgo+IEkgdGhvdWdodCB3ZXJlIHdlcmUgZHJvcHBpbmcgdGhlIHVzZSBvZiAic25wcyxkdy1h
-YnAtc3NpIiBpbiBpc29sYXRpb24sCj4gYW5kIHN0YXJ0aW5nIHRvIHJlcXVpcmUgc29jLXNwZWNp
-ZmljIGNvbXBhdGlibGVzIG5vdy4KPgpUaGF04oCZcyBiZXR0ZXIsIEkgd2lsbCBkbyBpdCBpbiBu
-ZXh0IHJldmlzaW9uLgpCVFcsIDxodHRwczovL2xvcmUua2VybmVsLm9yZy9saW51eC1yaXNjdi8y
-MDI0MDcwMy1nYXJiYWdlLWV4cGxpY2l0LWJkOTVmOGRlYjcxNkB3ZW5keT4KaGFzIHNpbWlsYXIg
-c2l0dWF0aW9uLAp0aG9zZSBwYXRjaGVzIG9ubHkgY3JlYXRlIGJpbmRpbmcgYnV0IG5vdCBpbXBs
-ZW1lbnQgdGhlIGNvbXBhdGlibGUKcHJvcGVydHkgb2YgInRoZWFkLHRoMTUyMC1zcGnigJ0gaW4g
-ZHJpdmVyLgpXaGVuIGtlcm5lbCBtYXRjaGluZywgaXQgd2lsbCBmaW5kIG91dCB0aGVyZeKAmXMg
-bm8gY29tcGF0aWJsZSBvZgoidGhlYWQsdGgxNTIwLXNwaeKAnSBzbyBmYWxsYmFjayB0byAic25w
-cyxkdy1hcGItc3Np4oCdCgpNYXkgSSB0YWtlIHlvdSBhIGZldyBtaW51dGVzIGZvciByZWFzb24g
-YmVoaW5kIGl0PyBNeSB1bmRlcnN0YW5kaW5nIGlzCnRoYXQgdXNpbmcgc29jLXNwZWNpZmljIGNv
-bXBhdGlibGUgaXMgYmV0dGVyCmZvciBmdXR1cmUgbWFpbnRhaW5pbmcsIElmIHRoZSBkZXZpY2Ug
-YWN0dWFsbHkgY29tZXMgd2l0aCBzb21lIHVua25vd24KcXVpcmtzIG5vdCBwcmVzZW50IGluIHRo
-ZSBnZW5lcmljIElQLgpBbmQgYWxsIHdlIG5lZWQgdG8gZG8gZm9yIGZpeGluZyBpcyBpbXBsZW1l
-bnRpbmcgdGhlIHNvYy1zcGVjaWZpYwpjb21wYXRpYmxlIHByb3BlcnR5LgoKPiBSb2IsIEtyenlz
-enRvZj8KPgoKQmVzdCByZWdhcmRzLApaaXhpYW4gWmVuZwoKX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4
-LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFp
-bG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
+Hi Xi,
+
+kernel test robot noticed the following build errors:
+
+[auto build test ERROR on crng-random/master]
+[also build test ERROR on shuah-kselftest/next shuah-kselftest/fixes linus/master v6.14-rc4 next-20250228]
+[If your patch is applied to the wrong git tree, kindly drop us a note.
+And when submitting patch, we suggest to use '--base' as documented in
+https://git-scm.com/docs/git-format-patch#_base_tree_information]
+
+url:    https://github.com/intel-lab-lkp/linux/commits/Xi-Ruoyao/RISC-V-vDSO-Wire-up-getrandom-vDSO-implementation/20250224-203232
+base:   https://git.kernel.org/pub/scm/linux/kernel/git/crng/random.git master
+patch link:    https://lore.kernel.org/r/20250224122541.65045-1-xry111%40xry111.site
+patch subject: [PATCH] RISC-V: vDSO: Wire up getrandom() vDSO implementation
+config: riscv-randconfig-001-20250302 (https://download.01.org/0day-ci/archive/20250302/202503020317.POudjwvT-lkp@intel.com/config)
+compiler: clang version 21.0.0git (https://github.com/llvm/llvm-project 14170b16028c087ca154878f5ed93d3089a965c6)
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250302/202503020317.POudjwvT-lkp@intel.com/reproduce)
+
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202503020317.POudjwvT-lkp@intel.com/
+
+All errors (new ones prefixed by >>):
+
+>> arch/riscv/kernel/vdso/vgetrandom-chacha.S:92:2: error: instruction requires the following: RV64I Base Instruction Set
+    ld t2, (a2)
+    ^
+>> arch/riscv/kernel/vdso/vgetrandom-chacha.S:118:15: error: immediate must be an integer in the range [0, 31]
+    srli a6, t2, 32
+                 ^
+>> <instantiation>:1:1: error: instruction requires the following: RV64I Base Instruction Set
+   addw s0, s0, s4
+   ^
+   arch/riscv/kernel/vdso/vgetrandom-chacha.S:127:2: note: while in macro instantiation
+    OP_4REG addw s0, s1, s2, s3, s4, s5, s6, s7
+    ^
+   <instantiation>:2:2: error: instruction requires the following: RV64I Base Instruction Set
+    addw s1, s1, s5
+    ^
+   arch/riscv/kernel/vdso/vgetrandom-chacha.S:127:2: note: while in macro instantiation
+    OP_4REG addw s0, s1, s2, s3, s4, s5, s6, s7
+    ^
+   <instantiation>:3:2: error: instruction requires the following: RV64I Base Instruction Set
+    addw s2, s2, s6
+    ^
+   arch/riscv/kernel/vdso/vgetrandom-chacha.S:127:2: note: while in macro instantiation
+    OP_4REG addw s0, s1, s2, s3, s4, s5, s6, s7
+    ^
+   <instantiation>:4:2: error: instruction requires the following: RV64I Base Instruction Set
+    addw s3, s3, s7
+    ^
+   arch/riscv/kernel/vdso/vgetrandom-chacha.S:127:2: note: while in macro instantiation
+    OP_4REG addw s0, s1, s2, s3, s4, s5, s6, s7
+    ^
+>> <instantiation>:1:1: error: instruction requires the following: RV64I Base Instruction Set
+   slliw t0, a5, 32 - 16
+   ^
+   <instantiation>:1:1: note: while in macro instantiation
+   ROTRI a5, a5, 16
+   ^
+   arch/riscv/kernel/vdso/vgetrandom-chacha.S:129:2: note: while in macro instantiation
+    OP_4REG ROTRI a5, a6, a7, t1, 16, 16, 16, 16
+    ^
+   <instantiation>:2:2: error: instruction requires the following: RV64I Base Instruction Set
+    srliw a5, a5, 16
+    ^
+   <instantiation>:1:1: note: while in macro instantiation
+   ROTRI a5, a5, 16
+   ^
+   arch/riscv/kernel/vdso/vgetrandom-chacha.S:129:2: note: while in macro instantiation
+    OP_4REG ROTRI a5, a6, a7, t1, 16, 16, 16, 16
+    ^
+>> <instantiation>:1:1: error: instruction requires the following: RV64I Base Instruction Set
+   slliw t0, a6, 32 - 16
+   ^
+   <instantiation>:2:2: note: while in macro instantiation
+    ROTRI a6, a6, 16
+    ^
+   arch/riscv/kernel/vdso/vgetrandom-chacha.S:129:2: note: while in macro instantiation
+    OP_4REG ROTRI a5, a6, a7, t1, 16, 16, 16, 16
+    ^
+   <instantiation>:2:2: error: instruction requires the following: RV64I Base Instruction Set
+    srliw a6, a6, 16
+    ^
+   <instantiation>:2:2: note: while in macro instantiation
+    ROTRI a6, a6, 16
+    ^
+   arch/riscv/kernel/vdso/vgetrandom-chacha.S:129:2: note: while in macro instantiation
+    OP_4REG ROTRI a5, a6, a7, t1, 16, 16, 16, 16
+    ^
+>> <instantiation>:1:1: error: instruction requires the following: RV64I Base Instruction Set
+   slliw t0, a7, 32 - 16
+   ^
+   <instantiation>:3:2: note: while in macro instantiation
+    ROTRI a7, a7, 16
+    ^
+   arch/riscv/kernel/vdso/vgetrandom-chacha.S:129:2: note: while in macro instantiation
+    OP_4REG ROTRI a5, a6, a7, t1, 16, 16, 16, 16
+    ^
+   <instantiation>:2:2: error: instruction requires the following: RV64I Base Instruction Set
+    srliw a7, a7, 16
+    ^
+   <instantiation>:3:2: note: while in macro instantiation
+    ROTRI a7, a7, 16
+    ^
+   arch/riscv/kernel/vdso/vgetrandom-chacha.S:129:2: note: while in macro instantiation
+    OP_4REG ROTRI a5, a6, a7, t1, 16, 16, 16, 16
+    ^
+>> <instantiation>:1:1: error: instruction requires the following: RV64I Base Instruction Set
+   slliw t0, t1, 32 - 16
+   ^
+   <instantiation>:4:2: note: while in macro instantiation
+    ROTRI t1, t1, 16
+    ^
+   arch/riscv/kernel/vdso/vgetrandom-chacha.S:129:2: note: while in macro instantiation
+    OP_4REG ROTRI a5, a6, a7, t1, 16, 16, 16, 16
+    ^
+   <instantiation>:2:2: error: instruction requires the following: RV64I Base Instruction Set
+    srliw t1, t1, 16
+    ^
+   <instantiation>:4:2: note: while in macro instantiation
+    ROTRI t1, t1, 16
+    ^
+   arch/riscv/kernel/vdso/vgetrandom-chacha.S:129:2: note: while in macro instantiation
+    OP_4REG ROTRI a5, a6, a7, t1, 16, 16, 16, 16
+    ^
+>> <instantiation>:1:1: error: instruction requires the following: RV64I Base Instruction Set
+   addw s8, s8, a5
+   ^
+   arch/riscv/kernel/vdso/vgetrandom-chacha.S:131:2: note: while in macro instantiation
+    OP_4REG addw s8, s9, s10, s11, a5, a6, a7, t1
+    ^
+   <instantiation>:2:2: error: instruction requires the following: RV64I Base Instruction Set
+    addw s9, s9, a6
+    ^
+   arch/riscv/kernel/vdso/vgetrandom-chacha.S:131:2: note: while in macro instantiation
+    OP_4REG addw s8, s9, s10, s11, a5, a6, a7, t1
+    ^
+   <instantiation>:3:2: error: instruction requires the following: RV64I Base Instruction Set
+    addw s10, s10, a7
+    ^
+   arch/riscv/kernel/vdso/vgetrandom-chacha.S:131:2: note: while in macro instantiation
+    OP_4REG addw s8, s9, s10, s11, a5, a6, a7, t1
+    ^
+   <instantiation>:4:2: error: instruction requires the following: RV64I Base Instruction Set
+    addw s11, s11, t1
+    ^
+   arch/riscv/kernel/vdso/vgetrandom-chacha.S:131:2: note: while in macro instantiation
+    OP_4REG addw s8, s9, s10, s11, a5, a6, a7, t1
+    ^
+>> <instantiation>:1:1: error: instruction requires the following: RV64I Base Instruction Set
+   slliw t0, s4, 32 - 20
+   ^
+   <instantiation>:1:1: note: while in macro instantiation
+   ROTRI s4, s4, 20
+   ^
+   arch/riscv/kernel/vdso/vgetrandom-chacha.S:133:2: note: while in macro instantiation
+    OP_4REG ROTRI s4, s5, s6, s7, 20, 20, 20, 20
+    ^
+   <instantiation>:2:2: error: instruction requires the following: RV64I Base Instruction Set
+    srliw s4, s4, 20
+    ^
+   <instantiation>:1:1: note: while in macro instantiation
+   ROTRI s4, s4, 20
+   ^
+   arch/riscv/kernel/vdso/vgetrandom-chacha.S:133:2: note: while in macro instantiation
+    OP_4REG ROTRI s4, s5, s6, s7, 20, 20, 20, 20
+    ^
+>> <instantiation>:1:1: error: instruction requires the following: RV64I Base Instruction Set
+   slliw t0, s5, 32 - 20
+   ^
+   <instantiation>:2:2: note: while in macro instantiation
+    ROTRI s5, s5, 20
+    ^
+   arch/riscv/kernel/vdso/vgetrandom-chacha.S:133:2: note: while in macro instantiation
+    OP_4REG ROTRI s4, s5, s6, s7, 20, 20, 20, 20
+    ^
+   <instantiation>:2:2: error: instruction requires the following: RV64I Base Instruction Set
+    srliw s5, s5, 20
+    ^
+   <instantiation>:2:2: note: while in macro instantiation
+    ROTRI s5, s5, 20
+    ^
+   arch/riscv/kernel/vdso/vgetrandom-chacha.S:133:2: note: while in macro instantiation
+    OP_4REG ROTRI s4, s5, s6, s7, 20, 20, 20, 20
+    ^
+>> <instantiation>:1:1: error: instruction requires the following: RV64I Base Instruction Set
+   slliw t0, s6, 32 - 20
+   ^
+   <instantiation>:3:2: note: while in macro instantiation
+    ROTRI s6, s6, 20
+    ^
+   arch/riscv/kernel/vdso/vgetrandom-chacha.S:133:2: note: while in macro instantiation
+    OP_4REG ROTRI s4, s5, s6, s7, 20, 20, 20, 20
+    ^
+   <instantiation>:2:2: error: instruction requires the following: RV64I Base Instruction Set
+    srliw s6, s6, 20
+    ^
+   <instantiation>:3:2: note: while in macro instantiation
+    ROTRI s6, s6, 20
+    ^
+   arch/riscv/kernel/vdso/vgetrandom-chacha.S:133:2: note: while in macro instantiation
+    OP_4REG ROTRI s4, s5, s6, s7, 20, 20, 20, 20
+    ^
+>> <instantiation>:1:1: error: instruction requires the following: RV64I Base Instruction Set
+   slliw t0, s7, 32 - 20
+   ^
+   <instantiation>:4:2: note: while in macro instantiation
+    ROTRI s7, s7, 20
+    ^
+   arch/riscv/kernel/vdso/vgetrandom-chacha.S:133:2: note: while in macro instantiation
+    OP_4REG ROTRI s4, s5, s6, s7, 20, 20, 20, 20
+    ^
+   <instantiation>:2:2: error: instruction requires the following: RV64I Base Instruction Set
+    srliw s7, s7, 20
+    ^
+   <instantiation>:4:2: note: while in macro instantiation
+    ROTRI s7, s7, 20
+    ^
+   arch/riscv/kernel/vdso/vgetrandom-chacha.S:133:2: note: while in macro instantiation
+    OP_4REG ROTRI s4, s5, s6, s7, 20, 20, 20, 20
+    ^
+>> <instantiation>:1:1: error: instruction requires the following: RV64I Base Instruction Set
+   addw s0, s0, s4
+   ^
+   arch/riscv/kernel/vdso/vgetrandom-chacha.S:135:2: note: while in macro instantiation
+    OP_4REG addw s0, s1, s2, s3, s4, s5, s6, s7
+    ^
+   <instantiation>:2:2: error: instruction requires the following: RV64I Base Instruction Set
+    addw s1, s1, s5
+    ^
+   arch/riscv/kernel/vdso/vgetrandom-chacha.S:135:2: note: while in macro instantiation
+    OP_4REG addw s0, s1, s2, s3, s4, s5, s6, s7
+    ^
+   <instantiation>:3:2: error: instruction requires the following: RV64I Base Instruction Set
+    addw s2, s2, s6
+    ^
+   arch/riscv/kernel/vdso/vgetrandom-chacha.S:135:2: note: while in macro instantiation
+    OP_4REG addw s0, s1, s2, s3, s4, s5, s6, s7
+    ^
+   <instantiation>:4:2: error: instruction requires the following: RV64I Base Instruction Set
+    addw s3, s3, s7
+    ^
+   arch/riscv/kernel/vdso/vgetrandom-chacha.S:135:2: note: while in macro instantiation
+    OP_4REG addw s0, s1, s2, s3, s4, s5, s6, s7
+    ^
+>> <instantiation>:1:1: error: instruction requires the following: RV64I Base Instruction Set
+   slliw t0, a5, 32 - 24
+   ^
+   <instantiation>:1:1: note: while in macro instantiation
+   ROTRI a5, a5, 24
+   ^
+   arch/riscv/kernel/vdso/vgetrandom-chacha.S:137:2: note: while in macro instantiation
+    OP_4REG ROTRI a5, a6, a7, t1, 24, 24, 24, 24
+    ^
+   <instantiation>:2:2: error: instruction requires the following: RV64I Base Instruction Set
+    srliw a5, a5, 24
+    ^
+   <instantiation>:1:1: note: while in macro instantiation
+   ROTRI a5, a5, 24
+   ^
+   arch/riscv/kernel/vdso/vgetrandom-chacha.S:137:2: note: while in macro instantiation
+    OP_4REG ROTRI a5, a6, a7, t1, 24, 24, 24, 24
+    ^
+>> <instantiation>:1:1: error: instruction requires the following: RV64I Base Instruction Set
+   slliw t0, a6, 32 - 24
+   ^
+   <instantiation>:2:2: note: while in macro instantiation
+    ROTRI a6, a6, 24
+    ^
+   arch/riscv/kernel/vdso/vgetrandom-chacha.S:137:2: note: while in macro instantiation
+    OP_4REG ROTRI a5, a6, a7, t1, 24, 24, 24, 24
+    ^
+   <instantiation>:2:2: error: instruction requires the following: RV64I Base Instruction Set
+    srliw a6, a6, 24
+    ^
+   <instantiation>:2:2: note: while in macro instantiation
+    ROTRI a6, a6, 24
+    ^
+   arch/riscv/kernel/vdso/vgetrandom-chacha.S:137:2: note: while in macro instantiation
+    OP_4REG ROTRI a5, a6, a7, t1, 24, 24, 24, 24
+    ^
+>> <instantiation>:1:1: error: instruction requires the following: RV64I Base Instruction Set
+   slliw t0, a7, 32 - 24
+   ^
+   <instantiation>:3:2: note: while in macro instantiation
+    ROTRI a7, a7, 24
+    ^
+   arch/riscv/kernel/vdso/vgetrandom-chacha.S:137:2: note: while in macro instantiation
+    OP_4REG ROTRI a5, a6, a7, t1, 24, 24, 24, 24
+    ^
+   <instantiation>:2:2: error: instruction requires the following: RV64I Base Instruction Set
+    srliw a7, a7, 24
+    ^
+   <instantiation>:3:2: note: while in macro instantiation
+    ROTRI a7, a7, 24
+    ^
+   arch/riscv/kernel/vdso/vgetrandom-chacha.S:137:2: note: while in macro instantiation
+    OP_4REG ROTRI a5, a6, a7, t1, 24, 24, 24, 24
+    ^
+>> <instantiation>:1:1: error: instruction requires the following: RV64I Base Instruction Set
+   slliw t0, t1, 32 - 24
+   ^
+   <instantiation>:4:2: note: while in macro instantiation
+    ROTRI t1, t1, 24
+    ^
+   arch/riscv/kernel/vdso/vgetrandom-chacha.S:137:2: note: while in macro instantiation
+    OP_4REG ROTRI a5, a6, a7, t1, 24, 24, 24, 24
+    ^
+   <instantiation>:2:2: error: instruction requires the following: RV64I Base Instruction Set
+    srliw t1, t1, 24
+    ^
+   <instantiation>:4:2: note: while in macro instantiation
+    ROTRI t1, t1, 24
+    ^
+   arch/riscv/kernel/vdso/vgetrandom-chacha.S:137:2: note: while in macro instantiation
+    OP_4REG ROTRI a5, a6, a7, t1, 24, 24, 24, 24
+    ^
+>> <instantiation>:1:1: error: instruction requires the following: RV64I Base Instruction Set
+   addw s8, s8, a5
+   ^
+   arch/riscv/kernel/vdso/vgetrandom-chacha.S:139:2: note: while in macro instantiation
+    OP_4REG addw s8, s9, s10, s11, a5, a6, a7, t1
+    ^
+   <instantiation>:2:2: error: instruction requires the following: RV64I Base Instruction Set
+    addw s9, s9, a6
+    ^
+   arch/riscv/kernel/vdso/vgetrandom-chacha.S:139:2: note: while in macro instantiation
+    OP_4REG addw s8, s9, s10, s11, a5, a6, a7, t1
+    ^
+   <instantiation>:3:2: error: instruction requires the following: RV64I Base Instruction Set
+    addw s10, s10, a7
+    ^
+   arch/riscv/kernel/vdso/vgetrandom-chacha.S:139:2: note: while in macro instantiation
+    OP_4REG addw s8, s9, s10, s11, a5, a6, a7, t1
+    ^
+   <instantiation>:4:2: error: instruction requires the following: RV64I Base Instruction Set
+    addw s11, s11, t1
+    ^
+   arch/riscv/kernel/vdso/vgetrandom-chacha.S:139:2: note: while in macro instantiation
+    OP_4REG addw s8, s9, s10, s11, a5, a6, a7, t1
+    ^
+>> <instantiation>:1:1: error: instruction requires the following: RV64I Base Instruction Set
+   slliw t0, s4, 32 - 25
+   ^
+   <instantiation>:1:1: note: while in macro instantiation
+   ROTRI s4, s4, 25
+   ^
+   arch/riscv/kernel/vdso/vgetrandom-chacha.S:141:2: note: while in macro instantiation
+    OP_4REG ROTRI s4, s5, s6, s7, 25, 25, 25, 25
+    ^
+   <instantiation>:2:2: error: instruction requires the following: RV64I Base Instruction Set
+    srliw s4, s4, 25
+    ^
+   <instantiation>:1:1: note: while in macro instantiation
+   ROTRI s4, s4, 25
+   ^
+   arch/riscv/kernel/vdso/vgetrandom-chacha.S:141:2: note: while in macro instantiation
+    OP_4REG ROTRI s4, s5, s6, s7, 25, 25, 25, 25
+    ^
+>> <instantiation>:1:1: error: instruction requires the following: RV64I Base Instruction Set
+   slliw t0, s5, 32 - 25
+   ^
+   <instantiation>:2:2: note: while in macro instantiation
+    ROTRI s5, s5, 25
+    ^
+   arch/riscv/kernel/vdso/vgetrandom-chacha.S:141:2: note: while in macro instantiation
+    OP_4REG ROTRI s4, s5, s6, s7, 25, 25, 25, 25
+    ^
+   <instantiation>:2:2: error: instruction requires the following: RV64I Base Instruction Set
+    srliw s5, s5, 25
+    ^
+   <instantiation>:2:2: note: while in macro instantiation
+    ROTRI s5, s5, 25
+    ^
+   arch/riscv/kernel/vdso/vgetrandom-chacha.S:141:2: note: while in macro instantiation
+    OP_4REG ROTRI s4, s5, s6, s7, 25, 25, 25, 25
+    ^
+   <instantiation>:1:1: error: instruction requires the following: RV64I Base Instruction Set
+   slliw t0, s6, 32 - 25
+   ^
+   <instantiation>:3:2: note: while in macro instantiation
+    ROTRI s6, s6, 25
+    ^
+   arch/riscv/kernel/vdso/vgetrandom-chacha.S:141:2: note: while in macro instantiation
+    OP_4REG ROTRI s4, s5, s6, s7, 25, 25, 25, 25
+    ^
+   <instantiation>:2:2: error: instruction requires the following: RV64I Base Instruction Set
+    srliw s6, s6, 25
+    ^
+   <instantiation>:3:2: note: while in macro instantiation
+    ROTRI s6, s6, 25
+    ^
+   arch/riscv/kernel/vdso/vgetrandom-chacha.S:141:2: note: while in macro instantiation
+    OP_4REG ROTRI s4, s5, s6, s7, 25, 25, 25, 25
+    ^
+   <instantiation>:1:1: error: instruction requires the following: RV64I Base Instruction Set
+   slliw t0, s7, 32 - 25
+   ^
+   <instantiation>:4:2: note: while in macro instantiation
+    ROTRI s7, s7, 25
+    ^
+   arch/riscv/kernel/vdso/vgetrandom-chacha.S:141:2: note: while in macro instantiation
+    OP_4REG ROTRI s4, s5, s6, s7, 25, 25, 25, 25
+    ^
+   <instantiation>:2:2: error: instruction requires the following: RV64I Base Instruction Set
+    srliw s7, s7, 25
+    ^
+   <instantiation>:4:2: note: while in macro instantiation
+    ROTRI s7, s7, 25
+    ^
+   arch/riscv/kernel/vdso/vgetrandom-chacha.S:141:2: note: while in macro instantiation
+    OP_4REG ROTRI s4, s5, s6, s7, 25, 25, 25, 25
+    ^
+   <instantiation>:1:1: error: instruction requires the following: RV64I Base Instruction Set
+   addw s0, s0, s5
+   ^
+   arch/riscv/kernel/vdso/vgetrandom-chacha.S:144:2: note: while in macro instantiation
+    OP_4REG addw s0, s1, s2, s3, s5, s6, s7, s4
+    ^
+   <instantiation>:2:2: error: instruction requires the following: RV64I Base Instruction Set
+    addw s1, s1, s6
+    ^
+   arch/riscv/kernel/vdso/vgetrandom-chacha.S:144:2: note: while in macro instantiation
+    OP_4REG addw s0, s1, s2, s3, s5, s6, s7, s4
+    ^
+   <instantiation>:3:2: error: instruction requires the following: RV64I Base Instruction Set
+    addw s2, s2, s7
+    ^
+   arch/riscv/kernel/vdso/vgetrandom-chacha.S:144:2: note: while in macro instantiation
+    OP_4REG addw s0, s1, s2, s3, s5, s6, s7, s4
+    ^
+   <instantiation>:4:2: error: instruction requires the following: RV64I Base Instruction Set
+    addw s3, s3, s4
+    ^
+   arch/riscv/kernel/vdso/vgetrandom-chacha.S:144:2: note: while in macro instantiation
+    OP_4REG addw s0, s1, s2, s3, s5, s6, s7, s4
+    ^
+   <instantiation>:1:1: error: instruction requires the following: RV64I Base Instruction Set
+   slliw t0, t1, 32 - 16
+   ^
+   <instantiation>:1:1: note: while in macro instantiation
+   ROTRI t1, t1, 16
+   ^
+   arch/riscv/kernel/vdso/vgetrandom-chacha.S:146:2: note: while in macro instantiation
+    OP_4REG ROTRI t1, a5, a6, a7, 16, 16, 16, 16
+    ^
+   <instantiation>:2:2: error: instruction requires the following: RV64I Base Instruction Set
+    srliw t1, t1, 16
+    ^
+   <instantiation>:1:1: note: while in macro instantiation
+   ROTRI t1, t1, 16
+   ^
+   arch/riscv/kernel/vdso/vgetrandom-chacha.S:146:2: note: while in macro instantiation
+    OP_4REG ROTRI t1, a5, a6, a7, 16, 16, 16, 16
+    ^
+   <instantiation>:1:1: error: instruction requires the following: RV64I Base Instruction Set
+   slliw t0, a5, 32 - 16
+   ^
+   <instantiation>:2:2: note: while in macro instantiation
+    ROTRI a5, a5, 16
+
+
+vim +92 arch/riscv/kernel/vdso/vgetrandom-chacha.S
+
+    77	
+    78		addi		sp, sp, -12*SZREG
+    79		REG_S		s0,         (sp)
+    80		REG_S		s1,    SZREG(sp)
+    81		REG_S		s2,  2*SZREG(sp)
+    82		REG_S		s3,  3*SZREG(sp)
+    83		REG_S		s4,  4*SZREG(sp)
+    84		REG_S		s5,  5*SZREG(sp)
+    85		REG_S		s6,  6*SZREG(sp)
+    86		REG_S		s7,  7*SZREG(sp)
+    87		REG_S		s8,  8*SZREG(sp)
+    88		REG_S		s9,  9*SZREG(sp)
+    89		REG_S		s10, 10*SZREG(sp)
+    90		REG_S		s11, 11*SZREG(sp)
+    91	
+  > 92		ld		cnt, (counter)
+    93	
+    94		li		copy0, 0x61707865
+    95		li		copy1, 0x3320646e
+    96		li		copy2, 0x79622d32
+    97		li		copy3, 0x6b206574
+    98	
+    99	.Lblock:
+   100		/* state[0,1,2,3] = "expand 32-byte k" */
+   101		mv		state0, copy0
+   102		mv		state1, copy1
+   103		mv		state2, copy2
+   104		mv		state3, copy3
+   105	
+   106		/* state[4,5,..,11] = key */
+   107		lw		state4,   (key)
+   108		lw		state5,  4(key)
+   109		lw		state6,  8(key)
+   110		lw		state7,  12(key)
+   111		lw		state8,  16(key)
+   112		lw		state9,  20(key)
+   113		lw		state10, 24(key)
+   114		lw		state11, 28(key)
+   115	
+   116		/* state[12,13] = counter */
+   117		mv		state12, cnt
+ > 118		srli		state13, cnt, 32
+
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
