@@ -4,77 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C7D6C021B8
-	for <linux-riscv@archiver.kernel.org>; Sun,  2 Mar 2025 00:18:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 34CC6C021B8
+	for <linux-riscv@archiver.kernel.org>; Sun,  2 Mar 2025 02:19:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=nsN6WK0oenRn5hRDLoccdJw1Mu/h1WZR+Pf9hIu14Hc=; b=h2LB09Nxfr5goL
-	Gj2toUyhdTB9RqaXrdfoGKUJTrsB0P5NZgdeDdwFNelVO9zJZ7eg11pVMP5ky6a1yPkldhtGZi5XE
-	GzSE+jQZap3h5P376swUuAGybkmLqmAs3iHHdwZ8Pzugx01Hr0WvdDn8WKrM30RKcSM/OK1EAl97Y
-	79DkubffMvbOTFB5QmQcCeX4Jx/nptKB80+Ihgvcqr+sI49lSrfB8N64Q4UNlaSocbyNesfDW2RfX
-	xTxa7vN7QvovcHpUhm9sIPK88ZcK9EEoV6sKT+Z6uXirpMiBLP6gkMd+2U9E6VTsMNR4rm1HtPRW3
-	QfuM1bxWuhNqY+QVAKzw==;
+	List-Owner; bh=GGPmXmPaaxzeHAjt1K6EDT4RPcyrPcjJM/gGZRL/17E=; b=mqYG+F50WjX0R7
+	AgX9l2UDgG7cATdnptlrwtIJujkRO2sfobfppcN9N2QuzY2yw1O/xKEnGJXO6AeH4RU1A45w9UUc+
+	T4t8Br8glOG9qI9MvsG/VS9WaLWCzOV/TTJKYQQD+A8RjmTf6kIg8sbFvK43RetPl0Mxs//+IaqDX
+	V3DbFrr6qQgN/6/Vskj7pn2+mXM0E33JD3piQIKFP/LODbimXrKcG/XOTAi2p4AKa8RD9Bz9fnRy5
+	85rKUxibQBUcUMlUFFxtaaSS2I6z4bnZxGKuOs1U37LCp9SifhjSDN/Q5A07t3NoarUUdHVJyg1kh
+	eN0R2Nm11ow2CniFIcvw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1toX20-0000000F871-1dJX;
-	Sun, 02 Mar 2025 00:18:08 +0000
-Received: from mgamail.intel.com ([192.198.163.17])
+	id 1toYv8-0000000FFdM-2K3Z;
+	Sun, 02 Mar 2025 02:19:10 +0000
+Received: from mail-qt1-x82a.google.com ([2607:f8b0:4864:20::82a])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1toX1w-0000000F865-2Xjs
+	id 1toYv6-0000000FFcx-0BOJ
 	for linux-riscv@lists.infradead.org;
-	Sun, 02 Mar 2025 00:18:06 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1740874685; x=1772410685;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=JOWu2kxr2yC6Upjqp5Y3hhprO8dVQdFobiHy8gxpuC0=;
-  b=d/+PtvPcia8uEvE7yfvxpC69lAk9tNjYsAEMQ9iv4/y16JFtxBvDvuOj
-   OsLRBRM1Mto6zxvKeHe03uvPh91HtfOSzc1UTqc2Lh8Pv/k0E7podyWpo
-   hIpSpH+xOAvX2/mDc3rhAeTROnqdq1gH1S40OOugQT5y3++TlbgEaghH9
-   yPIl5w0UJfrUgQoJfFGsU3H+fw/v3LNVbfOxGsnxB+A23lxEJZ4sXnAP7
-   wfdZgaaTPEqYRJmyqVo+fdayUJ6Nt5x5albATrfTke3gPNfFAvD+K6yEV
-   gUqev4eT4Et5laCG5PfRbQ9N7lWi9/dvm7p1R2RIPTj3dptHakeGyslLA
-   A==;
-X-CSE-ConnectionGUID: jj8/FxXiSDaiRTRLeSnyCg==
-X-CSE-MsgGUID: TUpvTQwVTUCyXgmr9jRclw==
-X-IronPort-AV: E=McAfee;i="6700,10204,11360"; a="41660315"
-X-IronPort-AV: E=Sophos;i="6.13,326,1732608000"; 
-   d="scan'208";a="41660315"
-Received: from fmviesa004.fm.intel.com ([10.60.135.144])
-  by fmvoesa111.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 01 Mar 2025 16:17:57 -0800
-X-CSE-ConnectionGUID: U0cjrRFjRMy0oj43XQn2tg==
-X-CSE-MsgGUID: dbnLJVLVSKGV0YhcVx9VbA==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.13,326,1732608000"; 
-   d="scan'208";a="122804153"
-Received: from lkp-server02.sh.intel.com (HELO 76cde6cc1f07) ([10.239.97.151])
-  by fmviesa004.fm.intel.com with ESMTP; 01 Mar 2025 16:17:55 -0800
-Received: from kbuild by 76cde6cc1f07 with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1toX1k-000GsE-3D;
-	Sun, 02 Mar 2025 00:17:52 +0000
-Date: Sun, 2 Mar 2025 08:17:52 +0800
-From: kernel test robot <lkp@intel.com>
-To: Xi Ruoyao <xry111@xry111.site>, "Jason A. Donenfeld" <Jason@zx2c4.com>,
-	Thomas =?iso-8859-1?Q?Wei=DFschuh?= <thomas.weissschuh@linutronix.de>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>, Guo Ren <guoren@kernel.org>
-Cc: oe-kbuild-all@lists.linux.dev, linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org, Xi Ruoyao <xry111@xry111.site>
-Subject: Re: [PATCH] RISC-V: vDSO: Wire up getrandom() vDSO implementation
-Message-ID: <202503020759.lCd4bDgK-lkp@intel.com>
-References: <20250224122541.65045-1-xry111@xry111.site>
+	Sun, 02 Mar 2025 02:19:09 +0000
+Received: by mail-qt1-x82a.google.com with SMTP id d75a77b69052e-474bc1aaf52so25467921cf.1
+        for <linux-riscv@lists.infradead.org>; Sat, 01 Mar 2025 18:19:07 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1740881946; x=1741486746; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=oPjKRzzKrglUg+fYVwz0cgQwVYZBInp7nhcExhwtF6w=;
+        b=MMQ2epp3ZKtBewTAH+kzZ8vz5R4giySgqa3LxVR+bdtvizayvGw1Ug5Ui4Yuw0RnYl
+         /lmJguW0JaaSGpL9Q/28QhRihqobTfUOn/R7YB3vnnLEA0DXp10p5kCs4s1yWH56dmPT
+         uc00wmLo7zPw/r1RgLotGJ2lhYGpwJAsez2840bfc1TyTaGOPeYyLoCKHO25EQ9c1GKF
+         FiDIdwsTMqhtdYMeCCyt38Ig6Tlmfsj9ojEVadkxWIy8+jJoXNGujHzrRpfcFSDXq3K9
+         joa5JSkrYNuwawS/dbxofa+tnbSGXsiad4Cy09CEeSAp5LgjBIIF4pB6R6ETI10xRo2V
+         r7gw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1740881946; x=1741486746;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=oPjKRzzKrglUg+fYVwz0cgQwVYZBInp7nhcExhwtF6w=;
+        b=NE1I3W7xWhIFYZLSKcC/9uafs7FfX/7kQGUmVcyQFr7H0czkKTharkbvhlxcn89CjT
+         dkR9QaelK/ro/WvX7MrIULGFfPNvPo4M2W1q2LIMqP0dngTgcddcBNSc4MvBO8HYfWVI
+         r6dpRaU9qsYti7uuHLI4oyOAzzYKUtTSS/Lgi6/Spql87pcyCXwM+jvh+w6bMYxenX+d
+         rlqRtAiHaaGJCIc2NFUE2UYyesrJpm4tfBbJIPLh9jMCfGxqkFg/9PflyLdkgE4Io6JY
+         LmZ5waL7jwhnZj7Djf+0cUlOg+QuazLDFVKSmaoY3OZmwQIgVTDJK8KYgVN0Rjkq6Xzf
+         2+Dg==
+X-Forwarded-Encrypted: i=1; AJvYcCWNdMb4DZ+c9N3nGOJrvFAJ7t873OJSUBXNSyQyhhJA8jXSP7Byk4tazduXi7u+aW04ibbOselqG7Biaw==@lists.infradead.org
+X-Gm-Message-State: AOJu0YyN4N3WlkIq4hjD7/uXyJ9SI01G2K7M82j70Jzkbo7e7zVuhtA5
+	79hC6//u+Tn5Rc+IVKxr9VeZViYGeGdkI5zNEF6Mlyq/nENfx6L3
+X-Gm-Gg: ASbGncvWiURt0mOkbHpK6d00d+Z+lrlsGCbGpDSSUWWa1SIDFua53ExgJblYAvARDcI
+	RNlEJDoVnSHBXL+1HRhsM+YxvVGfbROy/U33uo8Umxhde1MIM0Gj/Fo8cvXFn3y6LsYjtnkE6RI
+	ajIS1/LwipsmZIgggYT9xAL/bVa7bKuSB+TMFVDbXL0is8AEjJaPvxYV4WjULxZLqKmnbG1F0io
+	VNecdtRGSj2hjYeheNjbEnINpsBb46i0fnZpTX06+PwxA1h8EnLhXbZNArtYQDjlDbzBXHDyc5G
+	9GYmPnp67QGJiR67h3Xf
+X-Google-Smtp-Source: AGHT+IGrdEuBUkRKtS239DYTHqorXLkacSTFcSVvkbaNWolaWYlbaQEuA1xg/Dhtk3D1fi/XT3FAXQ==
+X-Received: by 2002:a05:6214:1bc9:b0:6e6:5d61:4f00 with SMTP id 6a1803df08f44-6e8a0c7da89mr139365716d6.4.1740881946305;
+        Sat, 01 Mar 2025 18:19:06 -0800 (PST)
+Received: from localhost ([2001:da8:7001:11::cb])
+        by smtp.gmail.com with UTF8SMTPSA id af79cd13be357-7c3b67458e0sm5920285a.57.2025.03.01.18.19.05
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sat, 01 Mar 2025 18:19:05 -0800 (PST)
+Date: Sun, 2 Mar 2025 10:18:42 +0800
+From: Inochi Amaoto <inochiama@gmail.com>
+To: Zixian Zeng <sycamoremoon376@gmail.com>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, Chen Wang <unicorn_wang@outlook.com>, 
+	Inochi Amaoto <inochiama@outlook.com>, Alexandre Ghiti <alex@ghiti.fr>
+Cc: devicetree@vger.kernel.org, linux-riscv@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, sophgo@lists.linux.dev, chao.wei@sophgo.com, 
+	xiaoguang.xing@sophgo.com
+Subject: Re: [PATCH v2] riscv: sophgo: dts: Add spi controller for SG2042
+Message-ID: <fllmh65x7ke4sfolxbdod73fx3fm45w7gy7x4pgamxnbhztjvk@wqd56dzxaa37>
+References: <20250228-sfg-spi-v2-1-8bbf23b85d0e@gmail.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20250224122541.65045-1-xry111@xry111.site>
+In-Reply-To: <20250228-sfg-spi-v2-1-8bbf23b85d0e@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250301_161805_651686_F8212D9E 
-X-CRM114-Status: GOOD (  10.22  )
+X-CRM114-CacheID: sfid-20250301_181908_109990_7DCA7325 
+X-CRM114-Status: GOOD (  22.85  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,195 +102,119 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Xi,
+On Fri, Feb 28, 2025 at 08:40:23PM +0800, Zixian Zeng wrote:
+> Add spi controllers for SG2042.
+> 
+> SG2042 uses the upstreamed Synopsys DW SPI IP.
+> 
+> Signed-off-by: Zixian Zeng <sycamoremoon376@gmail.com>
+> ---
+> For this spi controller patch, only bindings are included.
+> This is tested on milkv-pioneer board. Using driver/spi/spidev.c
+> for creating /dev/spidevX.Y and tools/spi/spidev_test for testing
+> functionality.
 
-kernel test robot noticed the following build errors:
+I wonder whether this patch is tested (or at least can be
+tested), as I am not sure there are pins for spi or any
+onboard device on existing SG2042 board.
 
-[auto build test ERROR on crng-random/master]
-[also build test ERROR on shuah-kselftest/next shuah-kselftest/fixes linus/master v6.14-rc4 next-20250228]
-[If your patch is applied to the wrong git tree, kindly drop us a note.
-And when submitting patch, we suggest to use '--base' as documented in
-https://git-scm.com/docs/git-format-patch#_base_tree_information]
+> ---
+> Changes in v2:
+> - rebase v1 to sophgo/master(github.com/sophgo/linux.git).
+> - order properties in device node.
+> - remove unevaluated properties `clock-frequency`.
+> - set default status to disable.
+> - Link to v1: https://lore.kernel.org/r/20250228-sfg-spi-v1-1-b989aed94911@gmail.com
+> ---
+>  .../riscv/boot/dts/sophgo/sg2042-milkv-pioneer.dts |  8 +++++++
+>  arch/riscv/boot/dts/sophgo/sg2042.dtsi             | 28 ++++++++++++++++++++++
+>  2 files changed, 36 insertions(+)
+> 
+> diff --git a/arch/riscv/boot/dts/sophgo/sg2042-milkv-pioneer.dts b/arch/riscv/boot/dts/sophgo/sg2042-milkv-pioneer.dts
+> index be596d01ff8d33bcdbe431d9731a55ee190ad5b3..c43a807af2f827b5267afe5e4fdf6e9e857dfa20 100644
+> --- a/arch/riscv/boot/dts/sophgo/sg2042-milkv-pioneer.dts
+> +++ b/arch/riscv/boot/dts/sophgo/sg2042-milkv-pioneer.dts
+> @@ -72,6 +72,14 @@ &uart0 {
+>  	status = "okay";
+>  };
+>  
+> +&spi0 {
+> +	status = "okay";
+> +};
+> +
+> +&spi1 {
+> +	status = "okay";
+> +};
+> +
+>  / {
+>  	thermal-zones {
+>  		soc-thermal {
+> diff --git a/arch/riscv/boot/dts/sophgo/sg2042.dtsi b/arch/riscv/boot/dts/sophgo/sg2042.dtsi
+> index e62ac51ac55abd922b5ef796ba8c2196383850c4..500645147b1f8ed0a08ad3cafb38ea79cf57d737 100644
+> --- a/arch/riscv/boot/dts/sophgo/sg2042.dtsi
+> +++ b/arch/riscv/boot/dts/sophgo/sg2042.dtsi
+> @@ -545,5 +545,33 @@ sd: mmc@704002b000 {
+>  				      "timer";
+>  			status = "disabled";
+>  		};
+> +
+> +		spi0: spi@7040004000 {
+> +			compatible = "snps,dw-apb-ssi";
+> +			reg = <0x70 0x40004000 0x00 0x1000>;
 
-url:    https://github.com/intel-lab-lkp/linux/commits/Xi-Ruoyao/RISC-V-vDSO-Wire-up-getrandom-vDSO-implementation/20250224-203232
-base:   https://git.kernel.org/pub/scm/linux/kernel/git/crng/random.git master
-patch link:    https://lore.kernel.org/r/20250224122541.65045-1-xry111%40xry111.site
-patch subject: [PATCH] RISC-V: vDSO: Wire up getrandom() vDSO implementation
-config: riscv-randconfig-r122-20250302 (https://download.01.org/0day-ci/archive/20250302/202503020759.lCd4bDgK-lkp@intel.com/config)
-compiler: riscv32-linux-gcc (GCC) 14.2.0
-reproduce: (https://download.01.org/0day-ci/archive/20250302/202503020759.lCd4bDgK-lkp@intel.com/reproduce)
+> +			clocks = <&clkgen GATE_CLK_APB_SPI>,
+> +					<&clkgen GATE_CLK_SYSDMA_AXI>;
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202503020759.lCd4bDgK-lkp@intel.com/
+Is the sysdma axi clock for the this device. IIRC is APB interface.
 
-All errors (new ones prefixed by >>):
+Also, Are these clock aligned? If not, use space to align the two
+clocks. You also need to add the clock-names here.
 
-   arch/riscv/kernel/vdso/getrandom.c:7:9: warning: no previous prototype for '__vdso_getrandom' [-Wmissing-prototypes]
-       7 | ssize_t __vdso_getrandom(void *buffer, size_t len, unsigned int flags, void *opaque_state, size_t opaque_len)
-         |         ^~~~~~~~~~~~~~~~
-   arch/riscv/kernel/vdso/getrandom.c: In function '__vdso_getrandom':
->> arch/riscv/kernel/vdso/getrandom.c:9:16: error: implicit declaration of function '__cvdso_getrandom'; did you mean '__vdso_getrandom'? [-Wimplicit-function-declaration]
-       9 |         return __cvdso_getrandom(buffer, len, flags, opaque_state, opaque_len);
-         |                ^~~~~~~~~~~~~~~~~
-         |                __vdso_getrandom
-   arch/riscv/kernel/vdso/vgetrandom-chacha.S: Assembler messages:
->> arch/riscv/kernel/vdso/vgetrandom-chacha.S:92: Error: unrecognized opcode `ld t2,(a2)'
->> arch/riscv/kernel/vdso/vgetrandom-chacha.S:118: Error: improper shift amount (32)
->> arch/riscv/kernel/vdso/vgetrandom-chacha.S:20: Error: unrecognized opcode `addw s0,s0,s4'
-   arch/riscv/kernel/vdso/vgetrandom-chacha.S:127:  Info: macro invoked from here
->> arch/riscv/kernel/vdso/vgetrandom-chacha.S:21: Error: unrecognized opcode `addw s1,s1,s5'
-   arch/riscv/kernel/vdso/vgetrandom-chacha.S:127:  Info: macro invoked from here
->> arch/riscv/kernel/vdso/vgetrandom-chacha.S:22: Error: unrecognized opcode `addw s2,s2,s6'
-   arch/riscv/kernel/vdso/vgetrandom-chacha.S:127:  Info: macro invoked from here
->> arch/riscv/kernel/vdso/vgetrandom-chacha.S:23: Error: unrecognized opcode `addw s3,s3,s7'
-   arch/riscv/kernel/vdso/vgetrandom-chacha.S:127:  Info: macro invoked from here
->> arch/riscv/kernel/vdso/vgetrandom-chacha.S:14: Error: unrecognized opcode `slliw t0,a5,32-16'
-   arch/riscv/kernel/vdso/vgetrandom-chacha.S:20:  Info: macro invoked from here
-   arch/riscv/kernel/vdso/vgetrandom-chacha.S:129:   Info: macro invoked from here
->> arch/riscv/kernel/vdso/vgetrandom-chacha.S:15: Error: unrecognized opcode `srliw a5,a5,16'
-   arch/riscv/kernel/vdso/vgetrandom-chacha.S:20:  Info: macro invoked from here
-   arch/riscv/kernel/vdso/vgetrandom-chacha.S:129:   Info: macro invoked from here
->> arch/riscv/kernel/vdso/vgetrandom-chacha.S:14: Error: unrecognized opcode `slliw t0,a6,32-16'
-   arch/riscv/kernel/vdso/vgetrandom-chacha.S:21:  Info: macro invoked from here
-   arch/riscv/kernel/vdso/vgetrandom-chacha.S:129:   Info: macro invoked from here
->> arch/riscv/kernel/vdso/vgetrandom-chacha.S:15: Error: unrecognized opcode `srliw a6,a6,16'
-   arch/riscv/kernel/vdso/vgetrandom-chacha.S:21:  Info: macro invoked from here
-   arch/riscv/kernel/vdso/vgetrandom-chacha.S:129:   Info: macro invoked from here
->> arch/riscv/kernel/vdso/vgetrandom-chacha.S:14: Error: unrecognized opcode `slliw t0,a7,32-16'
-   arch/riscv/kernel/vdso/vgetrandom-chacha.S:22:  Info: macro invoked from here
-   arch/riscv/kernel/vdso/vgetrandom-chacha.S:129:   Info: macro invoked from here
->> arch/riscv/kernel/vdso/vgetrandom-chacha.S:15: Error: unrecognized opcode `srliw a7,a7,16'
-   arch/riscv/kernel/vdso/vgetrandom-chacha.S:22:  Info: macro invoked from here
-   arch/riscv/kernel/vdso/vgetrandom-chacha.S:129:   Info: macro invoked from here
->> arch/riscv/kernel/vdso/vgetrandom-chacha.S:14: Error: unrecognized opcode `slliw t0,t1,32-16'
-   arch/riscv/kernel/vdso/vgetrandom-chacha.S:23:  Info: macro invoked from here
-   arch/riscv/kernel/vdso/vgetrandom-chacha.S:129:   Info: macro invoked from here
->> arch/riscv/kernel/vdso/vgetrandom-chacha.S:15: Error: unrecognized opcode `srliw t1,t1,16'
-   arch/riscv/kernel/vdso/vgetrandom-chacha.S:23:  Info: macro invoked from here
-   arch/riscv/kernel/vdso/vgetrandom-chacha.S:129:   Info: macro invoked from here
->> arch/riscv/kernel/vdso/vgetrandom-chacha.S:20: Error: unrecognized opcode `addw s8,s8,a5'
-   arch/riscv/kernel/vdso/vgetrandom-chacha.S:131:  Info: macro invoked from here
->> arch/riscv/kernel/vdso/vgetrandom-chacha.S:21: Error: unrecognized opcode `addw s9,s9,a6'
-   arch/riscv/kernel/vdso/vgetrandom-chacha.S:131:  Info: macro invoked from here
->> arch/riscv/kernel/vdso/vgetrandom-chacha.S:22: Error: unrecognized opcode `addw s10,s10,a7'
-   arch/riscv/kernel/vdso/vgetrandom-chacha.S:131:  Info: macro invoked from here
->> arch/riscv/kernel/vdso/vgetrandom-chacha.S:23: Error: unrecognized opcode `addw s11,s11,t1'
-   arch/riscv/kernel/vdso/vgetrandom-chacha.S:131:  Info: macro invoked from here
->> arch/riscv/kernel/vdso/vgetrandom-chacha.S:14: Error: unrecognized opcode `slliw t0,s4,32-20'
-   arch/riscv/kernel/vdso/vgetrandom-chacha.S:20:  Info: macro invoked from here
-   arch/riscv/kernel/vdso/vgetrandom-chacha.S:133:   Info: macro invoked from here
-   arch/riscv/kernel/vdso/vgetrandom-chacha.S:15: Error: unrecognized opcode `srliw s4,s4,20'
-   arch/riscv/kernel/vdso/vgetrandom-chacha.S:20:  Info: macro invoked from here
-   arch/riscv/kernel/vdso/vgetrandom-chacha.S:133:   Info: macro invoked from here
-   arch/riscv/kernel/vdso/vgetrandom-chacha.S:14: Error: unrecognized opcode `slliw t0,s5,32-20'
-   arch/riscv/kernel/vdso/vgetrandom-chacha.S:21:  Info: macro invoked from here
-   arch/riscv/kernel/vdso/vgetrandom-chacha.S:133:   Info: macro invoked from here
-   arch/riscv/kernel/vdso/vgetrandom-chacha.S:15: Error: unrecognized opcode `srliw s5,s5,20'
-   arch/riscv/kernel/vdso/vgetrandom-chacha.S:21:  Info: macro invoked from here
-   arch/riscv/kernel/vdso/vgetrandom-chacha.S:133:   Info: macro invoked from here
-   arch/riscv/kernel/vdso/vgetrandom-chacha.S:14: Error: unrecognized opcode `slliw t0,s6,32-20'
-   arch/riscv/kernel/vdso/vgetrandom-chacha.S:22:  Info: macro invoked from here
-   arch/riscv/kernel/vdso/vgetrandom-chacha.S:133:   Info: macro invoked from here
-   arch/riscv/kernel/vdso/vgetrandom-chacha.S:15: Error: unrecognized opcode `srliw s6,s6,20'
-   arch/riscv/kernel/vdso/vgetrandom-chacha.S:22:  Info: macro invoked from here
-   arch/riscv/kernel/vdso/vgetrandom-chacha.S:133:   Info: macro invoked from here
-   arch/riscv/kernel/vdso/vgetrandom-chacha.S:14: Error: unrecognized opcode `slliw t0,s7,32-20'
-   arch/riscv/kernel/vdso/vgetrandom-chacha.S:23:  Info: macro invoked from here
-   arch/riscv/kernel/vdso/vgetrandom-chacha.S:133:   Info: macro invoked from here
-   arch/riscv/kernel/vdso/vgetrandom-chacha.S:15: Error: unrecognized opcode `srliw s7,s7,20'
-   arch/riscv/kernel/vdso/vgetrandom-chacha.S:23:  Info: macro invoked from here
-   arch/riscv/kernel/vdso/vgetrandom-chacha.S:133:   Info: macro invoked from here
-   arch/riscv/kernel/vdso/vgetrandom-chacha.S:20: Error: unrecognized opcode `addw s0,s0,s4'
-   arch/riscv/kernel/vdso/vgetrandom-chacha.S:135:  Info: macro invoked from here
-   arch/riscv/kernel/vdso/vgetrandom-chacha.S:21: Error: unrecognized opcode `addw s1,s1,s5'
-   arch/riscv/kernel/vdso/vgetrandom-chacha.S:135:  Info: macro invoked from here
-   arch/riscv/kernel/vdso/vgetrandom-chacha.S:22: Error: unrecognized opcode `addw s2,s2,s6'
-   arch/riscv/kernel/vdso/vgetrandom-chacha.S:135:  Info: macro invoked from here
-   arch/riscv/kernel/vdso/vgetrandom-chacha.S:23: Error: unrecognized opcode `addw s3,s3,s7'
-   arch/riscv/kernel/vdso/vgetrandom-chacha.S:135:  Info: macro invoked from here
-   arch/riscv/kernel/vdso/vgetrandom-chacha.S:14: Error: unrecognized opcode `slliw t0,a5,32-24'
-   arch/riscv/kernel/vdso/vgetrandom-chacha.S:20:  Info: macro invoked from here
-   arch/riscv/kernel/vdso/vgetrandom-chacha.S:137:   Info: macro invoked from here
-   arch/riscv/kernel/vdso/vgetrandom-chacha.S:15: Error: unrecognized opcode `srliw a5,a5,24'
-   arch/riscv/kernel/vdso/vgetrandom-chacha.S:20:  Info: macro invoked from here
-   arch/riscv/kernel/vdso/vgetrandom-chacha.S:137:   Info: macro invoked from here
-   arch/riscv/kernel/vdso/vgetrandom-chacha.S:14: Error: unrecognized opcode `slliw t0,a6,32-24'
-   arch/riscv/kernel/vdso/vgetrandom-chacha.S:21:  Info: macro invoked from here
-   arch/riscv/kernel/vdso/vgetrandom-chacha.S:137:   Info: macro invoked from here
-   arch/riscv/kernel/vdso/vgetrandom-chacha.S:15: Error: unrecognized opcode `srliw a6,a6,24'
-   arch/riscv/kernel/vdso/vgetrandom-chacha.S:21:  Info: macro invoked from here
-   arch/riscv/kernel/vdso/vgetrandom-chacha.S:137:   Info: macro invoked from here
-   arch/riscv/kernel/vdso/vgetrandom-chacha.S:14: Error: unrecognized opcode `slliw t0,a7,32-24'
-   arch/riscv/kernel/vdso/vgetrandom-chacha.S:22:  Info: macro invoked from here
-   arch/riscv/kernel/vdso/vgetrandom-chacha.S:137:   Info: macro invoked from here
-   arch/riscv/kernel/vdso/vgetrandom-chacha.S:15: Error: unrecognized opcode `srliw a7,a7,24'
-   arch/riscv/kernel/vdso/vgetrandom-chacha.S:22:  Info: macro invoked from here
-   arch/riscv/kernel/vdso/vgetrandom-chacha.S:137:   Info: macro invoked from here
-   arch/riscv/kernel/vdso/vgetrandom-chacha.S:14: Error: unrecognized opcode `slliw t0,t1,32-24'
-   arch/riscv/kernel/vdso/vgetrandom-chacha.S:23:  Info: macro invoked from here
-   arch/riscv/kernel/vdso/vgetrandom-chacha.S:137:   Info: macro invoked from here
-   arch/riscv/kernel/vdso/vgetrandom-chacha.S:15: Error: unrecognized opcode `srliw t1,t1,24'
-   arch/riscv/kernel/vdso/vgetrandom-chacha.S:23:  Info: macro invoked from here
-   arch/riscv/kernel/vdso/vgetrandom-chacha.S:137:   Info: macro invoked from here
-   arch/riscv/kernel/vdso/vgetrandom-chacha.S:20: Error: unrecognized opcode `addw s8,s8,a5'
-   arch/riscv/kernel/vdso/vgetrandom-chacha.S:139:  Info: macro invoked from here
-   arch/riscv/kernel/vdso/vgetrandom-chacha.S:21: Error: unrecognized opcode `addw s9,s9,a6'
-   arch/riscv/kernel/vdso/vgetrandom-chacha.S:139:  Info: macro invoked from here
-   arch/riscv/kernel/vdso/vgetrandom-chacha.S:22: Error: unrecognized opcode `addw s10,s10,a7'
-   arch/riscv/kernel/vdso/vgetrandom-chacha.S:139:  Info: macro invoked from here
-   arch/riscv/kernel/vdso/vgetrandom-chacha.S:23: Error: unrecognized opcode `addw s11,s11,t1'
-   arch/riscv/kernel/vdso/vgetrandom-chacha.S:139:  Info: macro invoked from here
-   arch/riscv/kernel/vdso/vgetrandom-chacha.S:14: Error: unrecognized opcode `slliw t0,s4,32-25'
-   arch/riscv/kernel/vdso/vgetrandom-chacha.S:20:  Info: macro invoked from here
-   arch/riscv/kernel/vdso/vgetrandom-chacha.S:141:   Info: macro invoked from here
-   arch/riscv/kernel/vdso/vgetrandom-chacha.S:15: Error: unrecognized opcode `srliw s4,s4,25'
-   arch/riscv/kernel/vdso/vgetrandom-chacha.S:20:  Info: macro invoked from here
-   arch/riscv/kernel/vdso/vgetrandom-chacha.S:141:   Info: macro invoked from here
-   arch/riscv/kernel/vdso/vgetrandom-chacha.S:14: Error: unrecognized opcode `slliw t0,s5,32-25'
-   arch/riscv/kernel/vdso/vgetrandom-chacha.S:21:  Info: macro invoked from here
-   arch/riscv/kernel/vdso/vgetrandom-chacha.S:141:   Info: macro invoked from here
-   arch/riscv/kernel/vdso/vgetrandom-chacha.S:15: Error: unrecognized opcode `srliw s5,s5,25'
-   arch/riscv/kernel/vdso/vgetrandom-chacha.S:21:  Info: macro invoked from here
-   arch/riscv/kernel/vdso/vgetrandom-chacha.S:141:   Info: macro invoked from here
-   arch/riscv/kernel/vdso/vgetrandom-chacha.S:14: Error: unrecognized opcode `slliw t0,s6,32-25'
-   arch/riscv/kernel/vdso/vgetrandom-chacha.S:22:  Info: macro invoked from here
-   arch/riscv/kernel/vdso/vgetrandom-chacha.S:141:   Info: macro invoked from here
-   arch/riscv/kernel/vdso/vgetrandom-chacha.S:15: Error: unrecognized opcode `srliw s6,s6,25'
-   arch/riscv/kernel/vdso/vgetrandom-chacha.S:22:  Info: macro invoked from here
-   arch/riscv/kernel/vdso/vgetrandom-chacha.S:141:   Info: macro invoked from here
-   arch/riscv/kernel/vdso/vgetrandom-chacha.S:14: Error: unrecognized opcode `slliw t0,s7,32-25'
-   arch/riscv/kernel/vdso/vgetrandom-chacha.S:23:  Info: macro invoked from here
-   arch/riscv/kernel/vdso/vgetrandom-chacha.S:141:   Info: macro invoked from here
-   arch/riscv/kernel/vdso/vgetrandom-chacha.S:15: Error: unrecognized opcode `srliw s7,s7,25'
-   arch/riscv/kernel/vdso/vgetrandom-chacha.S:23:  Info: macro invoked from here
-   arch/riscv/kernel/vdso/vgetrandom-chacha.S:141:   Info: macro invoked from here
-   arch/riscv/kernel/vdso/vgetrandom-chacha.S:20: Error: unrecognized opcode `addw s0,s0,s5'
-   arch/riscv/kernel/vdso/vgetrandom-chacha.S:144:  Info: macro invoked from here
-   arch/riscv/kernel/vdso/vgetrandom-chacha.S:21: Error: unrecognized opcode `addw s1,s1,s6'
-   arch/riscv/kernel/vdso/vgetrandom-chacha.S:144:  Info: macro invoked from here
-   arch/riscv/kernel/vdso/vgetrandom-chacha.S:22: Error: unrecognized opcode `addw s2,s2,s7'
-   arch/riscv/kernel/vdso/vgetrandom-chacha.S:144:  Info: macro invoked from here
-   arch/riscv/kernel/vdso/vgetrandom-chacha.S:23: Error: unrecognized opcode `addw s3,s3,s4'
-   arch/riscv/kernel/vdso/vgetrandom-chacha.S:144:  Info: macro invoked from here
-   arch/riscv/kernel/vdso/vgetrandom-chacha.S:14: Error: unrecognized opcode `slliw t0,t1,32-16'
-   arch/riscv/kernel/vdso/vgetrandom-chacha.S:20:  Info: macro invoked from here
-   arch/riscv/kernel/vdso/vgetrandom-chacha.S:146:   Info: macro invoked from here
-   arch/riscv/kernel/vdso/vgetrandom-chacha.S:15: Error: unrecognized opcode `srliw t1,t1,16'
-   arch/riscv/kernel/vdso/vgetrandom-chacha.S:20:  Info: macro invoked from here
+> +			interrupt-parent = <&intc>;
+> +			interrupts = <110 IRQ_TYPE_LEVEL_HIGH>;
 
+> +			#address-cells = <0x01>;
+> +			#size-cells = <0x00>;
+> +			num-cs = <0x02>;
 
-vim +9 arch/riscv/kernel/vdso/getrandom.c
+Just use decimal number, no hex there.
 
-     6	
-     7	ssize_t __vdso_getrandom(void *buffer, size_t len, unsigned int flags, void *opaque_state, size_t opaque_len)
-     8	{
-   > 9		return __cvdso_getrandom(buffer, len, flags, opaque_state, opaque_len);
+> +			resets = <&rstgen RST_SPI0>;
+> +			status = "disabled";
+> +		};
+> +
+> +		spi1: spi@7040005000 {
+> +			compatible = "snps,dw-apb-ssi";
+> +			reg = <0x70 0x40005000 0x00 0x1000>;
 
--- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+> +			clocks = <&clkgen GATE_CLK_APB_SPI>,
+> +					<&clkgen GATE_CLK_SYSDMA_AXI>;
+
+The same as above.
+
+> +			interrupt-parent = <&intc>;
+> +			interrupts = <111 IRQ_TYPE_LEVEL_HIGH>;
+
+> +			#address-cells = <0x01>;
+> +			#size-cells = <0x00>;
+> +			num-cs = <0x02>;
+
+The same as above.
+
+> +			resets = <&rstgen RST_SPI1>;
+> +			status = "disabled";
+> +		};
+>  	};
+>  };
+> 
+> ---
+> base-commit: aa5ee7180ec41bb77c3e327e95d119f2294babea
+> change-id: 20250228-sfg-spi-e3f2aeca09ab
+> 
+> Best regards,
+> -- 
+> Zixian Zeng <sycamoremoon376@gmail.com>
+> 
 
 _______________________________________________
 linux-riscv mailing list
