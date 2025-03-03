@@ -4,63 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CFC8CC282D1
-	for <linux-riscv@archiver.kernel.org>; Mon,  3 Mar 2025 14:36:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 44E1FC282D4
+	for <linux-riscv@archiver.kernel.org>; Mon,  3 Mar 2025 14:36:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:References:MIME-Version:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ISBrkwxu5gp51lnocnaYsxq6nHE0fqEDl50DO4YOrKk=; b=eiXr6RJMeMO7J5
-	fDDtO/hktVWX2xRdAPZBqj0v3IJ9p0C/aEy6QfEqA/zF0TmUnW234Om/CiyfG9BU4ZddJpWk9zDTz
-	8rHHcRICOVYyva8X9sB8yO502BJJkP8ipj/jrPkVwmYxYLH/zOFfKHUzOUFSZrzB7QWvOkKG0rHPf
-	wogBNToQYdhkokqr42/slE9i7dq57OrhXVJa0a+Rrz4rqVrDEkCs8gyXNkkUXTBgB7yCDw4row3cl
-	62n7EP9cMxZsSXQR0jr945+gLamOmjfOGfYrhx20c2PcYsd8xQpuk3CtW6lis/ZN1DrmchIhyLL6/
-	/wfeeyEpHkCb47jquLRA==;
+	List-Owner; bh=1oUYSlTOaT6QdrJJuVj0CG0+yAC+J5wAIHggLkzHO8A=; b=tjgwUqpGuUvbAx
+	iV+hvkEEw+NP861KnzkUGRl+mypPGAFxKW6lXxVkLj/La2/RBplbKhfxObgI6VF1ff/VSu5lRaAaK
+	XS5eGU47/4Do1aYAwGLyUr006Z0VG2CoiWMhAMCg7V7+RqQo0K1jB9xb5sszN+qJHz+JR76yFhq2f
+	mN61GC/acdug29cIXh/jPVO1UOVjPzq01sT7EIAxj+s61rZZsWmhTLhE/1xLHpvZHfN2s+6s6qD8J
+	DNS1YuCVFTswzFsTm1LPKqSMDiunvjllQz13d6HQ2mWEmFvuiOUn2q4CJs4c63MudYcK0EnXBhzv3
+	U5Aw1gbJe1gCw+zHAcwQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tp6uQ-000000017sv-48nD;
+	id 1tp6uQ-000000017sd-1j34;
 	Mon, 03 Mar 2025 14:36:42 +0000
-Received: from mailout2.w1.samsung.com ([210.118.77.12])
+Received: from mailout1.w1.samsung.com ([210.118.77.11])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tp6uM-000000017pz-1x8T
+	id 1tp6uN-000000017qH-0mNZ
 	for linux-riscv@lists.infradead.org;
 	Mon, 03 Mar 2025 14:36:41 +0000
-Received: from eucas1p1.samsung.com (unknown [182.198.249.206])
-	by mailout2.w1.samsung.com (KnoxPortal) with ESMTP id 20250303143635euoutp02ddd77573cc8c37dd7dfc57229a306eac~pUbtUeLfP2794427944euoutp028
-	for <linux-riscv@lists.infradead.org>; Mon,  3 Mar 2025 14:36:35 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.w1.samsung.com 20250303143635euoutp02ddd77573cc8c37dd7dfc57229a306eac~pUbtUeLfP2794427944euoutp028
+Received: from eucas1p2.samsung.com (unknown [182.198.249.207])
+	by mailout1.w1.samsung.com (KnoxPortal) with ESMTP id 20250303143637euoutp01c71a746f5314eb5a00a9c2108159c366~pUbvLiXRq0987609876euoutp01-
+	for <linux-riscv@lists.infradead.org>; Mon,  3 Mar 2025 14:36:37 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout1.w1.samsung.com 20250303143637euoutp01c71a746f5314eb5a00a9c2108159c366~pUbvLiXRq0987609876euoutp01-
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1741012596;
-	bh=FQj8R4vXlWuDHUDhzpkp2tDoipHrvOLRL6Hj2/KxtKQ=;
+	s=mail20170921; t=1741012598;
+	bh=VhIBCc+eKDxBLZw1Fq8aGXRrjbktqWvu0yroBIpoWCg=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=luOrMImIhIGyOuPADVQxovpzItPWAEuPUmQbRrP6vFLq+vSPgLytgVV+mn+iDknLq
-	 7f20Mb5T6PJZ7J1M/GuWgZkTi/YBU2XLy/MzOJ8uxM/MIXL7a2wWeTGAlHZdnu7bZA
-	 FFZ1/AMPlXOmusOyCC15INk8FuTbkwzuVUDsEKvc=
+	b=WiZ2owxQSA1rsQhpbgxgXwFZeL1lEumlj5VzzG2Fdpzy5GA0WRTDMjG5RldlDTrK9
+	 EqnT1qka/LXvfOsoezCITrOC6R82s6Gr4OMC/+Yx2D+1OrIp862J0S1qhH6iB53d5W
+	 cq3ZmBSne72b+2aheVj2IpfKCPgaQqbBJHJsXyZE=
 Received: from eusmges2new.samsung.com (unknown [203.254.199.244]) by
 	eucas1p2.samsung.com (KnoxPortal) with ESMTP id
-	20250303143635eucas1p2afc8d0e3bb655deae193d5d636bb5ef2~pUbs-AULg2682126821eucas1p2u;
-	Mon,  3 Mar 2025 14:36:35 +0000 (GMT)
+	20250303143637eucas1p21703598f0358ec92ef55e2789b87bc78~pUbu2tg0n2665426654eucas1p23;
+	Mon,  3 Mar 2025 14:36:37 +0000 (GMT)
 Received: from eucas1p1.samsung.com ( [182.198.249.206]) by
-	eusmges2new.samsung.com (EUCPMTA) with SMTP id 0C.8D.20409.37EB5C76; Mon,  3
-	Mar 2025 14:36:35 +0000 (GMT)
-Received: from eusmtrp2.samsung.com (unknown [182.198.249.139]) by
+	eusmges2new.samsung.com (EUCPMTA) with SMTP id 1F.8D.20409.57EB5C76; Mon,  3
+	Mar 2025 14:36:37 +0000 (GMT)
+Received: from eusmtrp1.samsung.com (unknown [182.198.249.138]) by
 	eucas1p1.samsung.com (KnoxPortal) with ESMTPA id
-	20250303143635eucas1p1dbcd26d4906b962e07cbde7f5ef704bf~pUbsiDB5v0504205042eucas1p1I;
-	Mon,  3 Mar 2025 14:36:35 +0000 (GMT)
-Received: from eusmgms1.samsung.com (unknown [182.198.249.179]) by
-	eusmtrp2.samsung.com (KnoxPortal) with ESMTP id
-	20250303143635eusmtrp2e1abc780f3982bbe24c4887ec03d920c~pUbshPPtu1887518875eusmtrp2o;
-	Mon,  3 Mar 2025 14:36:35 +0000 (GMT)
-X-AuditID: cbfec7f4-c0df970000004fb9-9f-67c5be738c5d
+	20250303143636eucas1p1c3ca1df44b86efff959c1d5ec016c8ae~pUbuOxDju1621416214eucas1p19;
+	Mon,  3 Mar 2025 14:36:36 +0000 (GMT)
+Received: from eusmgms2.samsung.com (unknown [182.198.249.180]) by
+	eusmtrp1.samsung.com (KnoxPortal) with ESMTP id
+	20250303143636eusmtrp140dd095e5b9115ee1e760911e56b4c0a~pUbuOFROt0893008930eusmtrp1c;
+	Mon,  3 Mar 2025 14:36:36 +0000 (GMT)
+X-AuditID: cbfec7f4-c0df970000004fb9-a7-67c5be75bd0c
 Received: from eusmtip2.samsung.com ( [203.254.199.222]) by
-	eusmgms1.samsung.com (EUCPMTA) with SMTP id 8F.B0.19920.27EB5C76; Mon,  3
-	Mar 2025 14:36:34 +0000 (GMT)
+	eusmgms2.samsung.com (EUCPMTA) with SMTP id 77.89.19654.47EB5C76; Mon,  3
+	Mar 2025 14:36:36 +0000 (GMT)
 Received: from AMDC4942.home (unknown [106.210.136.40]) by
 	eusmtip2.samsung.com (KnoxPortal) with ESMTPA id
-	20250303143634eusmtip26cc4ad15e7f62616c4f3ed35c439d379~pUbrjH7532028620286eusmtip2U;
-	Mon,  3 Mar 2025 14:36:34 +0000 (GMT)
+	20250303143635eusmtip2111d49015de186ff013ab1487cc7515c~pUbtRgu4p2137621376eusmtip2U;
+	Mon,  3 Mar 2025 14:36:35 +0000 (GMT)
 From: Michal Wilczynski <m.wilczynski@samsung.com>
 To: mturquette@baylibre.com, sboyd@kernel.org, robh@kernel.org,
 	krzk+dt@kernel.org, conor+dt@kernel.org, drew@pdp7.com, guoren@kernel.org,
@@ -70,59 +70,59 @@ To: mturquette@baylibre.com, sboyd@kernel.org, robh@kernel.org,
 Cc: linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, Michal
 	Wilczynski <m.wilczynski@samsung.com>
-Subject: [PATCH v1 1/4] dt-bindings: clock: thead: Add TH1520 VO clock
- controller
-Date: Mon,  3 Mar 2025 15:36:26 +0100
-Message-Id: <20250303143629.400583-2-m.wilczynski@samsung.com>
+Subject: [PATCH v1 3/4] clk: thead: Add support for custom ops in
+ CCU_GATE_CLK_OPS macro
+Date: Mon,  3 Mar 2025 15:36:28 +0100
+Message-Id: <20250303143629.400583-4-m.wilczynski@samsung.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20250303143629.400583-1-m.wilczynski@samsung.com>
 MIME-Version: 1.0
-X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFnrPKsWRmVeSWpSXmKPExsWy7djPc7rF+46mGyxZKW/x7M5XVoutv2ex
+X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFvrIKsWRmVeSWpSXmKPExsWy7djPc7ql+46mG/ycJGvx7M5XVoutv2ex
 	W6zZe47JYv6Rc6wW9y5tYbJ4sbeRxaL52Ho2i5ez7rFZfOy5x2pxedccNottn1vYLNYeuctu
 	sf7rfCaLi6dcLe7eO8Fi8fJyD7NF2yx+i/97drBb/Lu2kcWiZf8UFgcRj/c3Wtk93rx8yeJx
 	uOMLu8e9E9NYPTat6mTz2Lyk3qNl7TEmj/6/Bh7v911l8+jbsorR41LzdXaPz5vkAniiuGxS
-	UnMyy1KL9O0SuDJ2dnxlKliqUtG1bgFbA+M3mS5GTg4JAROJ1SdnM3YxcnEICaxglNhz+Qor
-	hPOFUeLy6fXsEM5nRon7v26ywLRM+jcLzBYSWM4o8fSpD0TRG0aJ6R/OMoIk2ASMJB4snw82
-	SkRgD5PE9+8/mUEcZoFVjBJPvn0EmsvBISwQLPGmPQvEZBFQleg9UgzSyytgJ/H39Q5GiGXy
-	EvsPnmUGsTkF7CUOXW9ggagRlDg58wmYzQxU07x1Nth4CYFLnBIXD8xlBZkpIeAi8WpZBcQc
-	YYlXx7ewQ9gyEv93zmeCsPMlHmz9xAxh10js7DkOZVtL3Dn3iw1kDLOApsT6XfoQYUeJvacn
-	MUFM55O48VYQ4gI+iUnbpjNDhHklOtqEIKrVJKb29MItPbdiG9RSD4mpi3YwT2BUnIXkl1lI
-	fpmFsHcBI/MqRvHU0uLc9NRio7zUcr3ixNzi0rx0veT83E2MwDR5+t/xLzsYl7/6qHeIkYmD
-	8RCjBAezkgjvrfaj6UK8KYmVValF+fFFpTmpxYcYpTlYlMR5F+1vTRcSSE8sSc1OTS1ILYLJ
-	MnFwSjUwRTHNEdl/4aKp34PUT1P8jPZeu3H+G5cUn/7vR4c+HIlWO5AvO/mr9MpGCX+HFitG
-	rYKysqQPyj6/7x40m9T/rW5CS/D7TVP4rq3Zefldo1Dm5tvLCp/8NeZUC3/Cee6Ho8u/p+yy
-	Fvyeq93/7ymM+/FmwuPVUyaz1xVVFFfv/ip+K3nrdRZGbosHm01cxVa9eH1Oqp5Nd03c46vR
-	ef6+5Qs/fFs1syS8gmn67MKnH3skPPPUWXIOztma3CuRlj3119uHIcLLFBR2K1fPWeJ0zcAk
-	IHR98u1LhzxrK4Tlzyl0PPibs65BpnzapMajn+Ya7N0aWJXXM23OMXWh6Ukr1Nfc3vNx5hLD
-	5K+N5torw5RYijMSDbWYi4oTAU3733YCBAAA
-X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFnrAIsWRmVeSWpSXmKPExsVy+t/xe7pF+46mGzw4ZGPx7M5XVoutv2ex
+	UnMyy1KL9O0SuDIOnlnNXLBCtGLZtUUsDYzrBbsYOTkkBEwkHr1fzNbFyMUhJLCCUaL9ajuU
+	84VR4kVTBxNIlZDAZ0aJlS+TYDruPf3FAlG0nFFi77M5TBDOG0aJGYfvgnWwCRhJPFg+nxUk
+	ISKwh0ni+/efzCAOs8AqRokn3z6yg1QJC0RJvP9/HcxmEVCVWLTvDFg3r4CdxLLGt4wQ++Ql
+	9h88ywxicwrYSxy63sACUSMocXLmEzCbGaimeetssAUSAuc4JU4s+MEG0ewicXnjbSYIW1ji
+	1fEt7BC2jMTpyT0sEHa+xIOtn5gh7BqJnT3HoWxriTvnfgHN4QBaoCmxfpc+RNhRomnJaVaQ
+	sIQAn8SNt4IQJ/BJTNo2nRkizCvR0SYEUa0mMbWnF27puRXbmCBKPCR2dupMYFScheSXWUh+
+	mYWwdgEj8ypG8dTS4tz01GKjvNRyveLE3OLSvHS95PzcTYzAVHn63/EvOxiXv/qod4iRiYPx
+	EKMEB7OSCO+t9qPpQrwpiZVVqUX58UWlOanFhxilOViUxHkX7W9NFxJITyxJzU5NLUgtgsky
+	cXBKNTDN3cM960P0FskZaWrVjjFbfhy5f+KW4d4Ji8qWZu13r6lJ/xUotOhm9d1Fa/YLbUns
+	7AmIMr23kLU59mYEh+ni15uf6dQ/1Zv3/ufvlZvuGy/dEXOXN+HnMull366uNVsam2Btse/S
+	z9CMHc8n/wptVnfZqaMUc/ZOzLLVJac5L2xTkVqwKsopp/ZDx2Kf4w/OffF2+OjFP0Hl9dkZ
+	05s3r+OY8157/85PTZXrhQ6XGF+4tuuW368VdkFH92SVMVkvWHy0rO6b+1nPLUfLFOzvN69T
+	ZlLMsKi7qNO447TtOftn7VvEH982MmJ/NsVde5PVfbED98RUuj79ZNG0Lb/w9MYibj2JvIfS
+	p5/lLg5KPqXEUpyRaKjFXFScCACvHrjQBAQAAA==
+X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFnrEIsWRmVeSWpSXmKPExsVy+t/xe7ol+46mGxxbY2Lx7M5XVoutv2ex
 	W6zZe47JYv6Rc6wW9y5tYbJ4sbeRxaL52Ho2i5ez7rFZfOy5x2pxedccNottn1vYLNYeuctu
 	sf7rfCaLi6dcLe7eO8Fi8fJyD7NF2yx+i/97drBb/Lu2kcWiZf8UFgcRj/c3Wtk93rx8yeJx
 	uOMLu8e9E9NYPTat6mTz2Lyk3qNl7TEmj/6/Bh7v911l8+jbsorR41LzdXaPz5vkAnii9GyK
-	8ktLUhUy8otLbJWiDS2M9AwtLfSMTCz1DI3NY62MTJX07WxSUnMyy1KL9O0S9DJ2dnxlKliq
-	UtG1bgFbA+M3mS5GTg4JAROJSf9msXQxcnEICSxllLhwfBYbREJG4lr3SxYIW1jiz7UusLiQ
-	wCtGid5XwiA2m4CRxIPl81lBmkUELjBJ7Fq3mgnEYRZYxygxZfsOJpAqYYFAiUt9c9i7GDk4
-	WARUJXqPFIOEeQXsJP6+3sEIsUBeYv/Bs8wgNqeAvcSh6w0sEMvsJPas3ckOUS8ocXLmE7A4
-	M1B989bZzBMYBWYhSc1CklrAyLSKUSS1tDg3PbfYUK84Mbe4NC9dLzk/dxMjMKq3Hfu5eQfj
-	vFcf9Q4xMnEwHmKU4GBWEuG91X40XYg3JbGyKrUoP76oNCe1+BCjKdDZE5mlRJPzgWklryTe
-	0MzA1NDEzNLA1NLMWEmc1+3y+TQhgfTEktTs1NSC1CKYPiYOTqkGJrlJFlVfA7ZK71XpVBRf
-	u32rwkfFSZ4mr2ZfeDlB8t8j8+/6v2N8m+pXM+eu2jM1M7wmTX3G5In3U5c/iQu94vXqXNbV
-	dcpxp9Jt8iXY/pYdefX2d5iw2oc+tW1fnCs+8grUhyh4KC66NzXCbVp0mVj3mmmPN05dpyF4
-	7bMx65o1c1gW2MmLrS8x1D5q7HDdhOs3b2hqcfK/nY0XTi5mzxfvWL/+5uonrBKTrCOyZi9a
-	dUBCXaj58dV41qA9rHqGG71v2+f7VV1b9nKX8zfjiKRJbA7xlSvuN58+vKnnsUncHe+dy07c
-	feZ9c/vluFMHGXIi3/Xtrel6ExO4U+yx2dbdwtvX1vAGNKjabbqm8UCJpTgj0VCLuag4EQDL
-	IBdUcwMAAA==
-X-CMS-MailID: 20250303143635eucas1p1dbcd26d4906b962e07cbde7f5ef704bf
+	8ktLUhUy8otLbJWiDS2M9AwtLfSMTCz1DI3NY62MTJX07WxSUnMyy1KL9O0S9DIOnlnNXLBC
+	tGLZtUUsDYzrBbsYOTkkBEwk7j39xdLFyMUhJLCUUeLEipNMEAkZiWvdL1kgbGGJP9e62CCK
+	XjFKdC5YwAiSYBMwkniwfD4rSEJE4AKTxK51q5lAHGaBdYwSU7bvABslLBAh0Xf8EDOIzSKg
+	KrFo3xmwOK+AncSyxreMECvkJfYfPAtWwylgL3HoegPYaiGgmj1rd7JD1AtKnJz5BCzODFTf
+	vHU28wRGgVlIUrOQpBYwMq1iFEktLc5Nzy020itOzC0uzUvXS87P3cQIjOxtx35u2cG48tVH
+	vUOMTByMhxglOJiVRHhvtR9NF+JNSaysSi3Kjy8qzUktPsRoCnT3RGYp0eR8YGrJK4k3NDMw
+	NTQxszQwtTQzVhLnZbtyPk1IID2xJDU7NbUgtQimj4mDU6qBaeoOhpUbK+88vV/OuUBAcN/f
+	BI9j+xoPC0uEx3vqWZ3nyirumjDt6co2NvbtZUeXZcd3G1t8Dm/da7d0N2+CT6nky0d71y/4
+	HS0pUHn++b3F7tm7HntfXiy99Ma/BI0/L86eCEk+e+vCsa3bojdfsjyZFxOSMXOTyXupIywh
+	Bx9IF/9cum/OzL8bIid/7N0SfPtCqOaZqAqj2MmPPvyU1Du2JdngWOCn/y951UO/BBnecmnm
+	b736TevA1blGsx99UPLS8pn6bcGsg9PCTH/leMwJ2mc36fHLSex5Umd5Nn0Qi2MrvXe4xnvR
+	ycY5E1c9F+KK3ir6KrW712dt2u23t7XbEszjZ0yJbRA99beLLYFbiaU4I9FQi7moOBEAbWgs
+	dnUDAAA=
+X-CMS-MailID: 20250303143636eucas1p1c3ca1df44b86efff959c1d5ec016c8ae
 X-Msg-Generator: CA
-X-RootMTR: 20250303143635eucas1p1dbcd26d4906b962e07cbde7f5ef704bf
+X-RootMTR: 20250303143636eucas1p1c3ca1df44b86efff959c1d5ec016c8ae
 X-EPHeader: CA
 CMS-TYPE: 201P
-X-CMS-RootMailID: 20250303143635eucas1p1dbcd26d4906b962e07cbde7f5ef704bf
+X-CMS-RootMailID: 20250303143636eucas1p1c3ca1df44b86efff959c1d5ec016c8ae
 References: <20250303143629.400583-1-m.wilczynski@samsung.com>
-	<CGME20250303143635eucas1p1dbcd26d4906b962e07cbde7f5ef704bf@eucas1p1.samsung.com>
+	<CGME20250303143636eucas1p1c3ca1df44b86efff959c1d5ec016c8ae@eucas1p1.samsung.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250303_063638_767432_6CEAF930 
-X-CRM114-Status: GOOD (  13.01  )
+X-CRM114-CacheID: sfid-20250303_063639_487017_C6D3773C 
+X-CRM114-Status: GOOD (  15.12  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -139,138 +139,74 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add device tree bindings for the TH1520 Video Output (VO) subsystem
-clock controller. The VO sub-system manages clock gates for multimedia
-components including HDMI, MIPI, and GPU.
+The IMG Rogue GPU requires three clocks: core, sys, and mem [1]. On the
+T-HEAD TH1520 SoC, the mem clock gate is marked as "Reserved" in the
+hardware manual (section 4.4.2.6.1) [2] and cannot be configured.
 
-Document the VIDEO_PLL requirements for the VO clock controller, which
-receives its input from the AP clock controller. The VIDEO_PLL is a
-Silicon Creations Sigma-Delta (integer) PLL typically running at 792 MHz
-with maximum FOUTVCO of 2376 MHz.
+Add a new CCU_GATE_CLK_OPS macro that allows specifying custom clock
+operations. This enables us to use nop operations for the mem clock,
+preventing the driver from attempting to enable/disable this reserved
+clock gate.
 
-Add a mandatory reset property for the TH1520 VO clock controller that
-handles the GPU clocks. This reset line controls the GPU CLKGEN reset,
-which is required for proper GPU clock operation.
-
-The reset property is only required for the "thead,th1520-clk-vo"
-compatible, as it specifically handles the GPU-related clocks.
-
-This binding complements the existing AP sub-system clock controller
-which manages CPU, DPU, GMAC and TEE PLLs.
+Link: https://lore.kernel.org/all/2fe3d93f-62ac-4439-ac17-d81137f6410a@imgtec.com [1]
+Link: https://openbeagle.org/beaglev-ahead/beaglev-ahead/-/blob/main/docs/TH1520%20System%20User%20Manual.pdf [2]
 
 Signed-off-by: Michal Wilczynski <m.wilczynski@samsung.com>
 ---
- .../bindings/clock/thead,th1520-clk-ap.yaml   | 33 ++++++++++++++++--
- .../dt-bindings/clock/thead,th1520-clk-ap.h   | 34 +++++++++++++++++++
- 2 files changed, 64 insertions(+), 3 deletions(-)
+ drivers/clk/thead/clk-th1520-ap.c | 26 ++++++++++++++++++++++++++
+ 1 file changed, 26 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/clock/thead,th1520-clk-ap.yaml b/Documentation/devicetree/bindings/clock/thead,th1520-clk-ap.yaml
-index 0129bd0ba4b3..6ea8202718d0 100644
---- a/Documentation/devicetree/bindings/clock/thead,th1520-clk-ap.yaml
-+++ b/Documentation/devicetree/bindings/clock/thead,th1520-clk-ap.yaml
-@@ -8,7 +8,8 @@ title: T-HEAD TH1520 AP sub-system clock controller
+diff --git a/drivers/clk/thead/clk-th1520-ap.c b/drivers/clk/thead/clk-th1520-ap.c
+index 57972589f120..ea96d007aecd 100644
+--- a/drivers/clk/thead/clk-th1520-ap.c
++++ b/drivers/clk/thead/clk-th1520-ap.c
+@@ -89,6 +89,21 @@ struct ccu_pll {
+ 		}							\
+ 	}
  
- description: |
-   The T-HEAD TH1520 AP sub-system clock controller configures the
--  CPU, DPU, GMAC and TEE PLLs.
-+  CPU, DPU, GMAC and TEE PLLs. Additionally the VO subsystem configures
-+  the clock gates for the HDMI, MIPI and the GPU.
- 
-   SoC reference manual
-   https://openbeagle.org/beaglev-ahead/beaglev-ahead/-/blob/main/docs/TH1520%20System%20User%20Manual.pdf
-@@ -20,14 +21,30 @@ maintainers:
- 
- properties:
-   compatible:
--    const: thead,th1520-clk-ap
-+    enum:
-+      - thead,th1520-clk-ap
-+      - thead,th1520-clk-vo
- 
-   reg:
-     maxItems: 1
- 
-   clocks:
-     items:
--      - description: main oscillator (24MHz)
-+      - description: |
-+          One input clock:
-+          - For "thead,th1520-clk-ap": the clock input must be the 24 MHz
-+            main oscillator.
-+          - For "thead,th1520-clk-vo": the clock input must be the VIDEO_PLL,
-+            which is configured by the AP clock controller. According to the
-+            TH1520 manual, VIDEO_PLL is a Silicon Creations Sigma-Delta PLL
-+            (integer PLL) typically running at 792 MHz (FOUTPOSTDIV), with
-+            a maximum FOUTVCO of 2376 MHz.
++#define CCU_GATE_CLK_OPS(_clkid, _struct, _name, _parent, _reg, _gate, _flags,	\
++			 _clk_ops)						\
++	struct ccu_gate _struct = {						\
++		.enable	= _gate,						\
++		.common	= {							\
++			.clkid		= _clkid,				\
++			.cfg0		= _reg,					\
++			.hw.init	= CLK_HW_INIT_PARENTS_DATA(		\
++						_name,				\
++						_parent,			\
++						&_clk_ops,			\
++						_flags),			\
++		}								\
++	}
 +
-+  resets:
-+    maxItems: 1
-+    description:
-+      Required for "thead,th1520-clk-vo". This reset line controls the
-+      GPU CLKGEN reset which is required for proper GPU clock operation.
+ static inline struct ccu_common *hw_to_ccu_common(struct clk_hw *hw)
+ {
+ 	return container_of(hw, struct ccu_common, hw);
+@@ -847,6 +862,11 @@ static CCU_GATE(CLK_SRAM1, sram1_clk, "sram1", axi_aclk_pd, 0x20c, BIT(3), 0);
+ static CCU_GATE(CLK_SRAM2, sram2_clk, "sram2", axi_aclk_pd, 0x20c, BIT(2), 0);
+ static CCU_GATE(CLK_SRAM3, sram3_clk, "sram3", axi_aclk_pd, 0x20c, BIT(1), 0);
  
-   "#clock-cells":
-     const: 1
-@@ -40,6 +57,16 @@ required:
-   - clocks
-   - "#clock-cells"
++static const struct clk_ops clk_nop_ops = {};
++
++static CCU_GATE_CLK_OPS(CLK_GPU_MEM, gpu_mem_clk, "gpu-mem-clk",
++			video_pll_clk_pd, 0x0, BIT(2), 0, clk_nop_ops);
++
+ static CCU_GATE(CLK_AXI4_VO_ACLK, axi4_vo_aclk, "axi4-vo-aclk",
+ 		video_pll_clk_pd, 0x0, BIT(0), 0);
+ static CCU_GATE(CLK_GPU_CORE, gpu_core_clk, "gpu-core-clk", video_pll_clk_pd,
+@@ -1205,6 +1225,12 @@ static int th1520_clk_probe(struct platform_device *pdev)
+ 		ret = devm_clk_hw_register(dev, &emmc_sdio_ref_clk.hw);
+ 		if (ret)
+ 			return ret;
++	} else if (plat_data == &th1520_vo_platdata) {
++		ret = devm_clk_hw_register(dev, &gpu_mem_clk.common.hw);
++		if (ret)
++			return ret;
++		gpu_mem_clk.common.map = map;
++		priv->hws[CLK_GPU_MEM] = &gpu_mem_clk.common.hw;
+ 	}
  
-+allOf:
-+  - if:
-+      properties:
-+        compatible:
-+          contains:
-+            const: thead,th1520-clk-vo
-+    then:
-+      required:
-+        - resets
-+
- additionalProperties: false
- 
- examples:
-diff --git a/include/dt-bindings/clock/thead,th1520-clk-ap.h b/include/dt-bindings/clock/thead,th1520-clk-ap.h
-index a199784b3512..09a9aa7b3ab1 100644
---- a/include/dt-bindings/clock/thead,th1520-clk-ap.h
-+++ b/include/dt-bindings/clock/thead,th1520-clk-ap.h
-@@ -93,4 +93,38 @@
- #define CLK_SRAM3		83
- #define CLK_PLL_GMAC_100M	84
- #define CLK_UART_SCLK		85
-+
-+/* VO clocks */
-+#define CLK_AXI4_VO_ACLK		0
-+#define CLK_GPU_MEM			1
-+#define CLK_GPU_CORE			2
-+#define CLK_GPU_CFG_ACLK		3
-+#define CLK_DPU_PIXELCLK0		4
-+#define CLK_DPU_PIXELCLK1		5
-+#define CLK_DPU_HCLK			6
-+#define CLK_DPU_ACLK			7
-+#define CLK_DPU_CCLK			8
-+#define CLK_HDMI_SFR			9
-+#define CLK_HDMI_PCLK			10
-+#define CLK_HDMI_CEC			11
-+#define CLK_MIPI_DSI0_PCLK		12
-+#define CLK_MIPI_DSI1_PCLK		13
-+#define CLK_MIPI_DSI0_CFG		14
-+#define CLK_MIPI_DSI1_CFG		15
-+#define CLK_MIPI_DSI0_REFCLK		16
-+#define CLK_MIPI_DSI1_REFCLK		17
-+#define CLK_HDMI_I2S			18
-+#define CLK_X2H_DPU1_ACLK		19
-+#define CLK_X2H_DPU_ACLK		20
-+#define CLK_AXI4_VO_PCLK		21
-+#define CLK_IOPMP_VOSYS_DPU_PCLK	22
-+#define CLK_IOPMP_VOSYS_DPU1_PCLK	23
-+#define CLK_IOPMP_VOSYS_GPU_PCLK	24
-+#define CLK_IOPMP_DPU1_ACLK		25
-+#define CLK_IOPMP_DPU_ACLK		26
-+#define CLK_IOPMP_GPU_ACLK		27
-+#define CLK_MIPIDSI0_PIXCLK		28
-+#define CLK_MIPIDSI1_PIXCLK		29
-+#define CLK_HDMI_PIXCLK			30
-+
- #endif
+ 	ret = devm_of_clk_add_hw_provider(dev, of_clk_hw_onecell_get, priv);
 -- 
 2.34.1
 
