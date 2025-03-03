@@ -4,61 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 39188C282CD
-	for <linux-riscv@archiver.kernel.org>; Mon,  3 Mar 2025 17:42:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 18618C282CD
+	for <linux-riscv@archiver.kernel.org>; Mon,  3 Mar 2025 17:42:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:Cc:To:Subject:
-	From:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=kNslXpzfHP1FmwuyFm9PYpHhObg/skoGve0G6vknyr0=; b=I4n2jvMJfmCjna
-	H75pVoRew3tk4MF7CwaMuEemsV4McO7Z6eMC9Nbbj1qFnlYydY6IV0qmBpqTj4/yFeCMdB7CFOaba
-	/wLut3YsYlgOtrQmqPxdvB7Ig7Vy5ZrfVnsmwiGD61KQxem3vkzcC+M7Yp3moXk9QoXcOqC9U/8nI
-	Cmb7pdctWXdj+X0qqZp/fR7l2eNP4CBObp8pvWq+BDFp9KoAR4U2rdoQxHiokIdvRxCPOO6Cq34LH
-	Cg38z2zeHX4AF/UeT3gxDUP03fN9/FpcOw5MsoDtnUDB/vkHzyOPhpxZTEdkHqj4W1Edvy+66ZJNc
-	GpM36t9EJXI7cQox5EFQ==;
+	List-Owner; bh=dwfGpeb5tPPB2By5urCYtGcrRXp2wXpgtPWcMNR3QSI=; b=aJsYNaL6MZMyUg
+	pt/WKzhfirb2ACLR7Yp/95U+5YmWPK8cTcGEDSrO0mREVrzuoYzv06sL3IUIEgYTVApMk1cdfZtMy
+	Mh3t9iR8ytTjO2xgcpnQZbnqWmIdswAzp4WrnKzo/v+6fRJtyLW1tRjPUrcIPaTqeViD2FVw9y9lH
+	MS5u1hnv3Vitme7NrCvs2jGLv5W6v9VwJxazRiBbzPlQWIQiWtNXUA5hbm06im42j5+3+kgw5VTJI
+	fkz+aeAt7UC3/7EpkbobJuUFvxVjRsrtl9iVYIDn3VvQ2RBm4WdSxFJPcqJrOSjfpyBLN0mcxaQOY
+	3hCSjZ5qrRO9RRUDyONw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tp9nw-00000001o9a-1OSi;
-	Mon, 03 Mar 2025 17:42:12 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1tp9oH-00000001oH7-3smO;
+	Mon, 03 Mar 2025 17:42:33 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tp9na-00000001o3W-0WqR
+	id 1tp9oF-00000001oFt-1fF8
 	for linux-riscv@lists.infradead.org;
-	Mon, 03 Mar 2025 17:41:51 +0000
+	Mon, 03 Mar 2025 17:42:32 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 6A7F2A44E0E;
-	Mon,  3 Mar 2025 17:36:18 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 59AA4C4CEE5;
-	Mon,  3 Mar 2025 17:41:44 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id CA03A5C580A;
+	Mon,  3 Mar 2025 17:40:13 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2F6EFC4CEE6;
+	Mon,  3 Mar 2025 17:42:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1741023709;
-	bh=ehxewKg7M02dW9TT5+F+JOfuCd3oALT9ZxZ79Ry7PK4=;
-	h=Date:From:Subject:To:Cc:References:In-Reply-To:From;
-	b=f0XE7l+479ZDSUgqqiGagMcKdUPamL6+mxbnSM/vA7CFOvvLrmktCVQtzEkoyc/tA
-	 h7pWHLrlRb18t87IrpEZkI9xWUGnPv+L214JuQmx19j4mMB6b/Mh5QShmX/Rz21va/
-	 fN+RM06cKvah9BfsQ/n7A8kBdb/S3k4fHHn3z4hDZBTH8JBWWDUWHbw3NWmMyZ8YrD
-	 DEejTbT/ar69vws0dA/VaPd5DS3yDjqt0FisKeNNj6gVeTehtzHkV+snnJB2/tPUFO
-	 btQNm1/cTOrg0klv3hy34DUdgorgwCb7N0Zv4/J74/oW0XCFeliifYP+tAeEttuGVQ
-	 6m8UNqbbXifxg==
-Message-ID: <cf6aa8bf-d424-49f4-b6a6-b6b10fd8092f@kernel.org>
-Date: Mon, 3 Mar 2025 18:41:42 +0100
+	s=k20201202; t=1741023750;
+	bh=8mE+aUT3dtDJtuEXxzuXmO72+8dbZNJ8I2Ure1jUMPY=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=P5iECH4WRqocD0ssi/9XTdq8brWUMzWugchCX2uGjosbOdX0cYrfAmCKUa05ArGUN
+	 fD9tyx7rlUu5uAaa37fDqyRr/bhccAygKggMyYbTlMqHKAH6RC4hNllFBKztmm/+vA
+	 99JN67bgOxD85mSah4IEWkvydKd735/1BRIA1kkxeAevg/PLabVQyOPMDCAKMGhTHp
+	 +IiC2JajLhZin2S2r9cfFWb/XWGUHSEjCJwMwIAXGVIIn2I4qjCB/cQ0pBkVa21WIJ
+	 58+jvXcCa+qZIJfjI7oQa1CYV7ZcyBnQGFyBE7zH/oWXqfJbyA/LUld+ipjl7ey8b7
+	 Ox5R66DMzCaqw==
+Message-ID: <edb3dd6e-8b56-42b3-8bb2-8ed7ad186b75@kernel.org>
+Date: Mon, 3 Mar 2025 18:42:24 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v1 1/5] dt-bindings: firmware: thead,th1520: Add support
+ for firmware node
+To: Michal Wilczynski <m.wilczynski@samsung.com>, robh@kernel.org,
+ krzk+dt@kernel.org, conor+dt@kernel.org, drew@pdp7.com, guoren@kernel.org,
+ wefu@redhat.com, paul.walmsley@sifive.com, palmer@dabbelt.com,
+ aou@eecs.berkeley.edu, alex@ghiti.fr, jszhang@kernel.org,
+ ulf.hansson@linaro.org, m.szyprowski@samsung.com
+Cc: linux-pm@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+ Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+References: <20250303145901.446791-1-m.wilczynski@samsung.com>
+ <CGME20250303145918eucas1p10f64b2ce75e395ce208439307daa8a8f@eucas1p1.samsung.com>
+ <20250303145901.446791-2-m.wilczynski@samsung.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
-Subject: Re: [PATCH v1 1/4] dt-bindings: clock: thead: Add TH1520 VO clock
- controller
-To: Michal Wilczynski <m.wilczynski@samsung.com>, mturquette@baylibre.com,
- sboyd@kernel.org, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
- drew@pdp7.com, guoren@kernel.org, wefu@redhat.com, paul.walmsley@sifive.com,
- palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr,
- jszhang@kernel.org, p.zabel@pengutronix.de, m.szyprowski@samsung.com
-Cc: linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
-References: <20250303143629.400583-1-m.wilczynski@samsung.com>
- <CGME20250303143635eucas1p1dbcd26d4906b962e07cbde7f5ef704bf@eucas1p1.samsung.com>
- <20250303143629.400583-2-m.wilczynski@samsung.com>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
  xsFNBFVDQq4BEAC6KeLOfFsAvFMBsrCrJ2bCalhPv5+KQF2PS2+iwZI8BpRZoV+Bd5kWvN79
@@ -103,10 +104,11 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  uZwJCLykjad45hsWcOGk3OcaAGQS6NDlfhM6O9aYNwGL6tGt/6BkRikNOs7VDEa4/HlbaSJo
  7FgndGw1kWmkeL6oQh7wBvYll2buKod4qYntmNKEicoHGU+x91Gcan8mCoqhJkbqrL7+nXG2
  5Q/GS5M9RFWS+nYyJh+c3OcfKqVcZQNANItt7+ULzdNJuhvTRRdC3g9hmCEuNSr+CLMdnRBY fv0=
-In-Reply-To: <20250303143629.400583-2-m.wilczynski@samsung.com>
+In-Reply-To: <20250303145901.446791-2-m.wilczynski@samsung.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250303_094150_290588_17074BF8 
-X-CRM114-Status: GOOD (  11.74  )
+X-CRM114-CacheID: sfid-20250303_094231_525832_40A26902 
+X-CRM114-Status: UNSURE (   7.29  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,35 +125,20 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 03/03/2025 15:36, Michal Wilczynski wrote:
-> Add device tree bindings for the TH1520 Video Output (VO) subsystem
-> clock controller. The VO sub-system manages clock gates for multimedia
-> components including HDMI, MIPI, and GPU.
+On 03/03/2025 15:58, Michal Wilczynski wrote:
+> The kernel communicates with the E902 core through the mailbox
+> transport using AON firmware protocol. Add dt-bindings to document it
+> the dt node.
 > 
-> Document the VIDEO_PLL requirements for the VO clock controller, which
-> receives its input from the AP clock controller. The VIDEO_PLL is a
-> Silicon Creations Sigma-Delta (integer) PLL typically running at 792 MHz
-> with maximum FOUTVCO of 2376 MHz.
-> 
-> Add a mandatory reset property for the TH1520 VO clock controller that
-> handles the GPU clocks. This reset line controls the GPU CLKGEN reset,
-> which is required for proper GPU clock operation.
-> 
-> The reset property is only required for the "thead,th1520-clk-vo"
-> compatible, as it specifically handles the GPU-related clocks.
-> 
-> This binding complements the existing AP sub-system clock controller
-> which manages CPU, DPU, GMAC and TEE PLLs.
-> 
+> Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+
+
+How is this possible? That's v1 and I never review outside of mailing list.
+
 > Signed-off-by: Michal Wilczynski <m.wilczynski@samsung.com>
 > ---
->  .../bindings/clock/thead,th1520-clk-ap.yaml   | 33 ++++++++++++++++--
->  .../dt-bindings/clock/thead,th1520-clk-ap.h   | 34 +++++++++++++++++++
->  2 files changed, 64 insertions(+), 3 deletions(-)
-
-
-Where is the changelog? Why is this v1? There was extensive discussion
-for many versions, so does it mean all of it was ignored?
+>  .../bindings/firmware/thead,th1520-aon.yaml   | 53 +++++++++++++++++++
+>  MAINTAINERS                                   |  1 +
 
 Best regards,
 Krzysztof
