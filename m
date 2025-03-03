@@ -4,80 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E29FCC282D1
-	for <linux-riscv@archiver.kernel.org>; Mon,  3 Mar 2025 12:42:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 988F0C282D1
+	for <linux-riscv@archiver.kernel.org>; Mon,  3 Mar 2025 12:47:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:MIME-Version:Message-Id:Date:
-	Subject:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=2ruTVr6jmtDpZAY/TrDCWigS4Qh8dOQZnAVQgM7oGvM=; b=uGhrPqYO9aRJks
-	To5oq5hUtbpbWzueqb6a+U8yQgSvNb2bm8/bE2jAK2TEPU63isukB2+JV/nUOm5XXZfHtuwGVuEIm
-	NeAYOZ9hISf7Fgyv8QgeJCniWnHCIKZ/s5U3lCNQc09pgqithwcGpae8HEa3FLE4sowuAcYn7NXsM
-	msmLRBQ9orm3S2cRUC46Bmqk2ncX9ahfxuM4LW5iYDlLp2JUw/C/pbZWT+h0bH16V/6OgDBAIfgmn
-	0Lm47+EnbVXNdv/G9kiv59mTE5C/3GitzW6uzxYka/PCsfE0Yn7yHwgp7bZapCADFo6wJlwcqrwkc
-	qX2nFDIY9goVippokaOA==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=iJw4Q2Zcnbkv31gnuzRbYZMU8hxwL7THpQfnQgZt62g=; b=kL2bkyPrao3gjv
+	WOxS8MNOYfg/0zxCmnE5KX13Wb6UkLvCdddrdo1QaV1ajRYVyc5g2FoAH6GUs2jXRLuAmdWLYTW2h
+	OtAtvp8I2nrYPEO8g2fifyo7nGAKrc5vtrVGChJXm1Jp/NOs38yyvGpEvlMz6HR2x9lOmY2A4xWJh
+	M9kpOiVVmUxD9NbnjpXB2vSXgXNnI87iC+FL+ee2+qZdlNrQWGTvRMb0KnK8BOKFLo3SZys80fYF8
+	yXNpGNEkD6PZGf7XghQi/uT0Q4mQDV7iyyYUcUSLsQccuPkuZMecAYMhgXrfQl7/40QCf3WRDCaxM
+	Kxc6+wAiIzwIGna5CBbA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tp585-00000000mOx-2C1m;
-	Mon, 03 Mar 2025 12:42:41 +0000
-Received: from sender4-pp-o94.zoho.com ([136.143.188.94])
+	id 1tp5Cl-00000000njs-1F8f;
+	Mon, 03 Mar 2025 12:47:31 +0000
+Received: from woodpecker.gentoo.org ([140.211.166.183] helo=smtp.gentoo.org)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tp4nK-00000000j8P-33SU
+	id 1tp55l-00000000m69-2UNx
 	for linux-riscv@lists.infradead.org;
-	Mon, 03 Mar 2025 12:21:16 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1741004471; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=cNoqCE84Lj/LK0jWFjUNzzlRm+/GkYA81ChiRnkKZJRcGs2VpgP7B/UJIlprEXWsGOjxs9Bhhp6MtEFRQ62XBbnL9glKIx5uhRdjD2zrUERPgK6dq/+bXYwkVW1ulca5kTrTOX5l6wZevyE6woAaPxMm53Ku+72qmE5c9b15P48=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1741004471; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=K/QOC2qh7IZvAZiuNVR0WUquzApIsQsNg8wTJwm843Q=; 
-	b=Fu+wA9fKHI50RYfa6l3yUGb5WkZqt8V3akUPp/uJquSCrS9GB0KwD+dyfwfYD2C1fWAQ3AA0tYVCEINSngC6CW9sZT5alWjoqWi/5zvNFmDKcr9zLlQdQzkTa3T3Mci5YHCESIxGoL5YC6cNnBZeVre603Dh6okumJq0D/FHuNc=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=zohomail.com;
-	spf=pass  smtp.mailfrom=kingxukai@zohomail.com;
-	dmarc=pass header.from=<kingxukai@zohomail.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1741004471;
-	s=zm2022; d=zohomail.com; i=kingxukai@zohomail.com;
-	h=From:From:Subject:Subject:Date:Date:Message-Id:Message-Id:MIME-Version:Content-Type:Content-Transfer-Encoding:To:To:Cc:Cc:Feedback-ID:Reply-To;
-	bh=K/QOC2qh7IZvAZiuNVR0WUquzApIsQsNg8wTJwm843Q=;
-	b=EdBJtbbgDKepHLvkqdgGyBm24c87ivKwfFIEAuMczCre9TiNvGPepi88uOoV3Jul
-	M9TsQEeHOYQ5gPK5GcuU4QdgXG/3H7FFjhUCc+V/gwyv7PsdC3xrR8N/wS+LBQgUcdN
-	y7soF2HIpDDlkmJQnGl1zGOKDZ77I/Oi4cqkFPgY=
-Received: by mx.zohomail.com with SMTPS id 1741004468938559.7940562973238;
-	Mon, 3 Mar 2025 04:21:08 -0800 (PST)
-From: Xukai Wang <kingxukai@zohomail.com>
-Subject: [PATCH v5 0/3] riscv: canaan: Add support for K230-Canmv clock
-Date: Mon, 03 Mar 2025 20:20:36 +0800
-Message-Id: <20250303-b4-k230-clk-v5-0-748d121283e3@zohomail.com>
+	Mon, 03 Mar 2025 12:40:18 +0000
+Received: from localhost (unknown [116.232.55.252])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: dlan)
+	by smtp.gentoo.org (Postfix) with ESMTPSA id 46A66342FEA;
+	Mon, 03 Mar 2025 12:40:15 +0000 (UTC)
+Date: Mon, 3 Mar 2025 12:40:11 +0000
+From: Yixun Lan <dlan@gentoo.org>
+To: Thomas Gleixner <tglx@linutronix.de>
+Cc: Linus Walleij <linus.walleij@linaro.org>,
+	Bartosz Golaszewski <brgl@bgdev.pl>,
+	Alex Elder <elder@riscstar.com>,
+	Inochi Amaoto <inochiama@gmail.com>, linux-kernel@vger.kernel.org,
+	linux-gpio@vger.kernel.org, linux-riscv@lists.infradead.org,
+	spacemit@lists.linux.dev, Rob Herring <robh@kernel.org>
+Subject: Re: [PATCH v2 1/2] irqdomain: support three-cell scheme interrupts
+Message-ID: <20250303124011-GYA59067@gentoo>
+References: <20250302-04-gpio-irq-threecell-v2-0-34f13ad37ea4@gentoo.org>
+ <20250302-04-gpio-irq-threecell-v2-1-34f13ad37ea4@gentoo.org>
+ <87jz97cml1.ffs@tglx>
 MIME-Version: 1.0
-X-B4-Tracking: v=1; b=H4sIAJSexWcC/3XQwU7DMAwG4FepcqYocZI62Yn3QBxSx6HR2Aptq
- YBp7066gbSykVMc6bN/5yBGHjKPYlMdxMBzHnO/L4W9qwR1Yf/MdY6lFiDBKJBN3Zp6C1rW9LK
- tPdikdeLYEIgiXgdO+ePU7fHpXA/89l6aTudH0YaRa+p3uzxtKskcvEPpXACIqKNT7BsXGbVBi
- oRsvUl4bh0m6kqWTRU5Bk0GIclyUopGUowRKTVRt5ZLpxgwklgSdHmc+uHztN6sTxF+NsHVJrO
- uy6VV6K1yjhEfvvqu34X8cl/SLgEKs1IBXLM2JbQ2kKdEtxlIfc10A4RegbEIa7YEn81FWGXW3
- BSuSHoKTauNC/9MVXjNbPA2aGNd49WNqepiKvg1V4UDqOAVspMcb3D45eWrpFtzWDi2WgagYOE
- vPx6P3yDhpuqNAgAA
-X-Change-ID: 20241206-b4-k230-clk-925f33fed6c2
-To: Michael Turquette <mturquette@baylibre.com>, 
- Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Xukai Wang <kingxukai@zohomail.com>, 
- Paul Walmsley <paul.walmsley@sifive.com>, 
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
- Conor Dooley <conor@kernel.org>
-Cc: linux-clk@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
- Samuel Holland <samuel.holland@sifive.com>, 
- Troy Mitchell <TroyMitchell988@gmail.com>, 
- Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-X-Mailer: b4 0.14.2
-Feedback-ID: rr08011227ec6b7bdb78d015905e8a5b7800006b6c3e9f124e09cc2749c9387639307a802e9dac3f53e8f8d7:zu08011227834022bfad283179f557eec2000073ae6186d4c306b7ac224e2623b7a8ddc8d1e60a8ca9a28e03:rf0801122c69cf2ce71ba0d4a64bafba3000007b90b30649d48280376ff6c27451711db85aa7d804be149836bdeef4867b:ZohoMail
-X-ZohoMailClient: External
+Content-Disposition: inline
+In-Reply-To: <87jz97cml1.ffs@tglx>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250303_042114_850626_228D8B50 
-X-CRM114-Status: GOOD (  10.32  )
+X-CRM114-CacheID: sfid-20250303_044017_673240_187CEC03 
+X-CRM114-Status: GOOD (  31.56  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,74 +70,140 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This patch series adds clock controller support for the Canaan Kendryte
-K230 SoC. The K230 SoC includes an external 24MHz OSC and 4 internal
-PLLs, with the controller managing these sources and their derived clocks.
+Hello, Thomas Gleixner:
 
-The clock tree and hardware-specific definition can be found in the
-vendor's DTS [1],
-and this series is based on the K230 initial series [2].
+On 19:30 Sun 02 Mar     , Thomas Gleixner wrote:
+> On Sun, Mar 02 2025 at 07:15, Yixun Lan wrote:
+> > The is a prerequisite patch to support parsing three-cell
+> > interrupts which encoded as <instance hwirq irqflag>,
+> > the translate function will always retrieve irq number and
+> > flag from last two cells.
+> >
+> > In this patch, we introduce a generic interrupt cells translation
+> > function, others functions will be inline version.
+> 
+> Please read:
+> 
+>   https://www.kernel.org/doc/html/latest/process/maintainer-tip.html#changelog
+>   https://www.kernel.org/doc/html/latest/process/submitting-patches.html#describe-changes
+> 
+> > +int irq_domain_translate_cells(struct irq_domain *d,
+> > +			       struct irq_fwspec *fwspec,
+> > +			       unsigned long *out_hwirq,
+> > +			       unsigned int *out_type);
+> 
+> Please get rid of the extra line breaks. You have 100 (99) characters available.
+> 
+> > +static inline int irq_domain_translate_onecell(struct irq_domain *d,
+> > +					       struct irq_fwspec *fwspec,
+> > +					       unsigned long *out_hwirq,
+> > +					       unsigned int *out_type)
+> > +{
+> > +	return irq_domain_translate_cells(d, fwspec, out_hwirq, out_type);
+> > +}
+> > +
+> > +static inline int irq_domain_translate_twocell(struct irq_domain *d,
+> > +					       struct irq_fwspec *fwspec,
+> > +					       unsigned long *out_hwirq,
+> > +					       unsigned int *out_type)
+> > +{
+> > +	return irq_domain_translate_cells(d, fwspec, out_hwirq, out_type);
+> > +}
+> > +
+> > +static inline int irq_domain_translate_threecell(struct irq_domain *d,
+> > +						 struct irq_fwspec *fwspec,
+> > +						 unsigned long *out_hwirq,
+> > +						 unsigned int *out_type)
+> > +{
+> > +	return irq_domain_translate_cells(d, fwspec, out_hwirq, out_type);
+> > +}
+> 
+> What's this for? It's not used. The onecell/twocell wrappers are just
+> there to keep the current code working.
+>   
+> > +int irq_domain_translate_cells(struct irq_domain *d,
+> > +			       struct irq_fwspec *fwspec,
+> > +			       unsigned long *out_hwirq,
+> > +			       unsigned int *out_type)
+> 
+> Please remove the extra line breaks.
+> 
+> int irq_domain_translate_cells(struct irq_domain *d, struct irq_fwspec *fwspec,
+> 			       unsigned long *out_hwirq, unsigned int *out_type)
+> 
+> is perfectly fine.
+> 
+> >  {
+> > -	if (WARN_ON(fwspec->param_count < 1))
+> > -		return -EINVAL;
+> > -	*out_hwirq = fwspec->param[0];
+> > -	*out_type = IRQ_TYPE_NONE;
+> > -	return 0;
+> > -}
+> > -EXPORT_SYMBOL_GPL(irq_domain_translate_onecell);
+> > +	unsigned int cells = fwspec->param_count;
+> >  
+> > -/**
+> > - * irq_domain_translate_twocell() - Generic translate for direct two cell
+> > - * bindings
+> > - * @d:		Interrupt domain involved in the translation
+> > - * @fwspec:	The firmware interrupt specifier to translate
+> > - * @out_hwirq:	Pointer to storage for the hardware interrupt number
+> > - * @out_type:	Pointer to storage for the interrupt type
+> > - *
+> > - * Device Tree IRQ specifier translation function which works with two cell
+> > - * bindings where the cell values map directly to the hwirq number
+> > - * and linux irq flags.
+> > - */
+> > -int irq_domain_translate_twocell(struct irq_domain *d,
+> > -				 struct irq_fwspec *fwspec,
+> > -				 unsigned long *out_hwirq,
+> > -				 unsigned int *out_type)
+> > -{
+> > -	if (WARN_ON(fwspec->param_count < 2))
+> > +	switch (cells) {
+> > +	case 1:
+> > +		*out_hwirq = fwspec->param[0];
+> > +		*out_type = IRQ_TYPE_NONE;
+> > +		return 0;
+> > +	case 2 ... 3:
+> 
+> I have second thoughts about this when looking deeper.
+> 
+> The current one/two cell implementations validate that param_count is at
+> least the number of parameters. Which means that the parameter count
+> could be larger, but only evaluates the first one or the first two.
+> 
+> I have no idea whether this matters or not, but arguably a two cell
+> fwspec could be successfully fed into translate_onecell(), no?
+> 
+> And that triggers a related question.
+> 
+> Why is the three cell translation not following the one/two cell scheme
+> and has the parameters at the same place (index 0,1), i.e. adding the
+> extra information at the end? That makes sense to me as the extra cell
+> is obviously not directly related to the interrupt mapping.
 
-Link: https://github.com/kendryte/k230_sdk/blob/main/src/little/linux/arch/riscv/boot/dts/kendryte/clock_provider.dtsi [1]
-Link: https://lore.kernel.org/linux-clk/tencent_F76EB8D731C521C18D5D7C4F8229DAA58E08@qq.com/ [2]
+this from gpio DT
+ gpios = <&gpio instance offset flags>;
 
-Co-developed-by: Troy Mitchell <TroyMitchell988@gmail.com>
-Signed-off-by: Troy Mitchell <TroyMitchell988@gmail.com>
-Signed-off-by: Xukai Wang <kingxukai@zohomail.com>
+I think we currently just following the scheme with gpio cells order
+scheme, which is (index(instance) offset flag..), the index and offset
+are parameters to locate the irq which can easily derive from global
+gpio pin number, so I thought it's more intuitive to group them 
+orderly together..
 
----
-Changes in v5:
-- Fix incorrect base-commit and add prerequisite-patch-id.
-- Replace dummy apb_clk with real ones for UARTs.
-- Add IDs of UARTs clock and DMA clocks in the binding header.
-- Replace k230_clk_cfgs[] array with corresponding named variables.
-- Remove some redundant checks in clk_ops.
-- Drop the unnecessary parenthesis and type casts.
-- Modify return value handling in probe path to avoid redundant print.
-- Link to v4: https://lore.kernel.org/r/20250217-b4-k230-clk-v4-0-5a95a3458691@zohomail.com
+But you really raise a good suggestion here, if we follow appending extra
+information at the end, then it will make threecell translate scheme
+compatible with twocell, which mean we don't really need extra function
+to prase, and can eventually drop this patch, I personally like this direction.
 
-Changes in v4:
-- Remove redundant onecell_get callback and add_provider function
-for pll_divs.
-- Modify the base-commit in cover letter.
-- Link to v3: https://lore.kernel.org/r/20250203-b4-k230-clk-v3-0-362c79124572@zohomail.com
+hi, Linus Walleij, what do you think on this?
 
-Changes in v3:
-- Reorder the defination and declaration in drivers code.
-- Reorder the properties in dts node.
-- Replace global variable `k230_sysclk` with dynamic memory allocation.
-- Rename the macro K230_NUM_CLKS to K230_CLK_NUM.
-- Use dev_err_probe for error handling.
-- Remove unused includes.
-- Link to v2: https://lore.kernel.org/r/20250108-b4-k230-clk-v2-0-27b30a2ca52d@zohomail.com
-
-Changes in v2:
-- Add items and description.
-- Rename k230-clk.h to canaan,k230-clk.h
-- Link to v1: https://lore.kernel.org/r/20241229-b4-k230-clk-v1-0-221a917e80ed@zohomail.com
-
----
-Xukai Wang (3):
-      dt-bindings: clock: Add bindings for Canaan K230 clock controller
-      clk: canaan: Add clock driver for Canaan K230
-      riscv: dts: canaan: Add clock definition for K230
-
- .../devicetree/bindings/clock/canaan,k230-clk.yaml |   43 +
- arch/riscv/boot/dts/canaan/k230.dtsi               |   25 +-
- drivers/clk/Kconfig                                |    6 +
- drivers/clk/Makefile                               |    1 +
- drivers/clk/clk-k230.c                             | 1717 ++++++++++++++++++++
- include/dt-bindings/clock/canaan,k230-clk.h        |   69 +
- 6 files changed, 1853 insertions(+), 8 deletions(-)
----
-base-commit: 0eea987088a22d73d81e968de7347cdc7e594f72
-change-id: 20241206-b4-k230-clk-925f33fed6c2
-prerequisite-patch-id: deda3c472f0000ffd40cddd7cf6d3b5e2d7da7dc
-
-Best regards,
 -- 
-Xukai Wang <kingxukai@zohomail.com>
-
+Yixun Lan (dlan)
+Gentoo Linux Developer
+GPG Key ID AABEFD55
 
 _______________________________________________
 linux-riscv mailing list
