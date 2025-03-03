@@ -4,62 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1773BC282CD
-	for <linux-riscv@archiver.kernel.org>; Sun,  2 Mar 2025 22:04:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DCEA9C282C6
+	for <linux-riscv@archiver.kernel.org>; Mon,  3 Mar 2025 01:46:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=FCS+BATOT9XLJ9hJA3n2KhWheaQVKa4MytzcFY+kD8c=; b=k1adeyfj4yB56L
-	xcnE9e1QyVotwt1ZraxZUgglAMRuwEDiWagqrdDgM0HSdTcg0BotzOd2oDrj93WRwbefyX561bM7C
-	7I9TKRPrydOIMAm3jK7dtozq5qiQT0tD7i7Q+jU8xfqNr9gOYoAasKrRpGaKw7rLYFSk6WOIH161H
-	a3OZ+3JkzBcW5mp25irc1imyiiVh80eIkruCHLzYRLwRbleLufQCEPHDnVoTxS1bft+wZKdAKwSZ7
-	NTi+izBDF9u9zQL9/IxlOZqXHWuGj/Sv/noMMiCB+JzAgb8vR0ipYsEDAGeiECr1dchMOzCIyLUC2
-	D90ClWoms31Xd5/NKvPA==;
+	List-Owner; bh=HISKkb6M9Vrhi1LA3gs/l1M73c/KIfLZZrFWmuy7goQ=; b=xfCxi4g9fQIqo/
+	EkiMSW5cVuYiRJpgcmFM27IkVuhxwMenz7QAOfypK+EwNa+KebuMUabWFkRtO3JmQcMfZhYKTIloj
+	KqFDhKdHdSbc0xf9wpYl+/0q3UBd1Eaxqi466K8zNf6MQnaAIhYoDTCjBKEgitTmnxnHFhxcPOzOo
+	4eCLgNGugApNUyRlXZayBhNuE2bikxIDao/ZIrOyi7zMQrNTS1H/w9f65dV4D8yjFQZtMXTi73yIa
+	cnwAg7ZvSnXLVxDrpy2ELNHu7Nyi1/+oQjWNqdhyhVe3SUtcmhjDrGg0frV717cBVyDEC0PFlepv9
+	la3hQjhOC80K6ZzeRDtA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1torQL-0000000Gjfv-2LW8;
-	Sun, 02 Mar 2025 22:04:37 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1tousZ-0000000Guy2-1IkS;
+	Mon, 03 Mar 2025 01:45:59 +0000
+Received: from mail-oa1-x35.google.com ([2001:4860:4864:20::35])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1torQK-0000000Gjen-2Ksn
+	id 1tousV-0000000Guvq-1ULi
 	for linux-riscv@lists.infradead.org;
-	Sun, 02 Mar 2025 22:04:36 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 18DC0611C4;
-	Sun,  2 Mar 2025 22:04:25 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E5901C4CED6;
-	Sun,  2 Mar 2025 22:04:34 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1740953075;
-	bh=sNHgqXDivFwdiZ8TXbNDsXGkLUf6pi1RZL5XR7U6cCY=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=tN3Mxiiw13zsYQWWDIEtsEf/0L6ocsJEAmNj1Ny1VIFIzCRYoy4eEuXfZ4sukVgnS
-	 cHg0RxwS06qLApzE6y6ebLvaQsa2tZeX84fsq3o5RY+x4QS2q8+R7QRvI6hh4cNnGs
-	 L3JJLL2loPpv/3k8ZE6X10TWEB5joAyshocfFPU89lWa/Vv2Qk3FNbvpkMLZ2hoqMg
-	 vvF2NyhWKPpD2PS16k1b9U4qdicuBDveuthuDYSCwnSMTmhMYeUBS16OlE/YxI1OPr
-	 rCU+0x1sjLrc0Pq+KpH1odkZ1or1f7CQ2W+QOBwoj7oRJzdmwevG1d3bnc+M1V4G6z
-	 HIpn0NU+UD5xA==
-Date: Sun, 2 Mar 2025 14:04:26 -0800
-From: Eric Biggers <ebiggers@kernel.org>
-To: =?iso-8859-1?Q?Bj=F6rn_T=F6pel?= <bjorn@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>
-Cc: linux-kernel@vger.kernel.org, linux-crypto@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	Zhihang Shao <zhihang.shao.iscas@gmail.com>,
-	Ard Biesheuvel <ardb@kernel.org>, Xiao Wang <xiao.w.wang@intel.com>,
-	Charlie Jenkins <charlie@rivosinc.com>,
-	Alexandre Ghiti <alexghiti@rivosinc.com>
-Subject: Re: [PATCH 0/4] RISC-V CRC optimizations
-Message-ID: <20250302220426.GC2079@quark.localdomain>
-References: <20250216225530.306980-1-ebiggers@kernel.org>
- <20250224180614.GA11336@google.com>
- <87ikorl0r5.fsf@all.your.base.are.belong.to.us>
+	Mon, 03 Mar 2025 01:45:57 +0000
+Received: by mail-oa1-x35.google.com with SMTP id 586e51a60fabf-2b1a9cbfc8dso989604fac.2
+        for <linux-riscv@lists.infradead.org>; Sun, 02 Mar 2025 17:45:50 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=bytedance.com; s=google; t=1740966349; x=1741571149; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=W8SnZDZRbvLSaoNIXAx3tJOrDKr8WC27+4Kk8dOe4BE=;
+        b=cW9wnI8ssPLASxnYCDGNBlVrI4PKG2zvk3v7CZ3SsrrIHYoM3oPdVqrL0cxA23ud4u
+         rNy5xMWTpuycHBY94lSTaYci/CSzn2TTzxy4sdyLpmv/JFx/3/Q9TIxa2Pshg+rv0IaH
+         yVpCQzo/G9eaCqBp/neO32jIR/frrY+riVjFycjut8OePnW4cWq8YQ/1BEMxzVbwE1EC
+         lyDZQPOU+JqXN9z4mXcTJqysFsidg3ABXXrm9R+rGXIbfwa6i0scY0xbgNXtmtBq8zrk
+         AEUBvxfNGKlQ9Yh46C6qHx8Kx3iGIutkGdX9BVaRiKQSWcU75x6+ZZJmMaSAfi3gSlbC
+         /5hw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1740966349; x=1741571149;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=W8SnZDZRbvLSaoNIXAx3tJOrDKr8WC27+4Kk8dOe4BE=;
+        b=Ulk/pFTzAJPKF3txgLkGGYBmLjB7TgVyAzrYUliZNy4TBuK6nzwY55ItvatSsyKyLY
+         1XVRJH+4eB7uK0+AQFl59e8RLLotjbITC18QB8HCrwWCAs+XqQM5H4acMrl4RQl7XY6B
+         wvPvdPUMsPexPdqsMdIgD/PPxdBbXUTj0o2Z7VldcjUAbs2lwsyMhdDOHQW0i2k+/qCB
+         2fZAMejJDiqRvz4Id9aUU2FPyA9RT+naNqe1mcXYlgYCC7nWyN2PTjrbHt3XpsW8XKbr
+         eEn1dA2lEFoHaZFxi7zpnd2TNaRRKmRI97+MA/a0UlEuMlLVpVdksmKyuoCAGuHRWTR7
+         RcUQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVN5LskJ7grh/1PXtnFvUw7E0hSKSwnJYegR5qUAVrX5SS5DjrzsxdSskyt6hgIko2Mv0zQRixZH4TCXQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywp40txPBgEE0SFBZ3kdaFzogNE9A1q21FbdXObvltezZSOPIcY
+	AwXiZsth8PX+c2z+vkhzJItJcmPQW/AhPauJPMw7Fcrw7ulj/kQSy4gHWx5hZZIH/d2vcVdmD47
+	+6wK+TB936dl4QTMzCKGjm3PJpGBJ+OqydNL2hg==
+X-Gm-Gg: ASbGncvXKehLjxm8mTtKskhJ+LpJOGi6rQeNDHgKFegh8/VFaKsemTjGnkcHKxikt50
+	+eOkORRcWGuPkzJk6h56QqaQ7oKlONPGeyyNCHDBlsTf65bWH3T3EmhYD16aKOSwjzQzremBsUB
+	wPEL+EQ+6tIzMr6xjb6B617wYV8Mri
+X-Google-Smtp-Source: AGHT+IGOWIRMroQZxbRNJcNH5tnmnGD/bIDamuPKwa3GDm5B/gWkRsBelrb1kdvpy/ijW+hukYwC4esnzOdnOPSB3MY=
+X-Received: by 2002:a05:6871:aa16:b0:2b8:3d1c:772 with SMTP id
+ 586e51a60fabf-2c178335be6mr6945276fac.5.1740966349475; Sun, 02 Mar 2025
+ 17:45:49 -0800 (PST)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <87ikorl0r5.fsf@all.your.base.are.belong.to.us>
+References: <cover.1740454179.git.zhengqi.arch@bytedance.com> <9025595e895515515c95e48db54b29afa489c41d.1740454179.git.zhengqi.arch@bytedance.com>
+In-Reply-To: <9025595e895515515c95e48db54b29afa489c41d.1740454179.git.zhengqi.arch@bytedance.com>
+From: yunhui cui <cuiyunhui@bytedance.com>
+Date: Mon, 3 Mar 2025 09:45:37 +0800
+X-Gm-Features: AQ5f1Jrb5nkY3jTSkwu3MIgtit28ISDfNBjj4Qwj5SXBUXKwFnVTECUIEIzLwQo
+Message-ID: <CAEEQ3wnvgX=Bq=oAQV6wfg5a7H2jiG7f8P6trbC9agJ8D6t4pA@mail.gmail.com>
+Subject: Re: [External] [PATCH v2 4/6] riscv: pgtable: unconditionally use tlb_remove_ptdesc()
+To: Qi Zheng <zhengqi.arch@bytedance.com>
+Cc: peterz@infradead.org, kevin.brodsky@arm.com, riel@surriel.com, 
+	vishal.moola@gmail.com, david@redhat.com, jannh@google.com, hughd@google.com, 
+	willy@infradead.org, yuzhao@google.com, muchun.song@linux.dev, 
+	akpm@linux-foundation.org, will@kernel.org, aneesh.kumar@kernel.org, 
+	npiggin@gmail.com, arnd@arndb.de, dave.hansen@linux.intel.com, 
+	rppt@kernel.org, alexghiti@rivosinc.com, linux-mm@kvack.org, 
+	linux-kernel@vger.kernel.org, linux-csky@vger.kernel.org, 
+	linux-hexagon@vger.kernel.org, loongarch@lists.linux.dev, 
+	linux-m68k@lists.linux-m68k.org, linux-mips@vger.kernel.org, 
+	linux-openrisc@vger.kernel.org, linux-sh@vger.kernel.org, 
+	linux-um@lists.infradead.org, x86@kernel.org, linux-riscv@lists.infradead.org
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250302_174555_387677_BBBF0302 
+X-CRM114-Status: GOOD (  33.33  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,288 +98,117 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="iso-8859-1"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sun, Mar 02, 2025 at 07:56:46PM +0100, Bj=F6rn T=F6pel wrote:
-> Eric!
-> =
-
-> Eric Biggers <ebiggers@kernel.org> writes:
-> =
-
-> > On Sun, Feb 16, 2025 at 02:55:26PM -0800, Eric Biggers wrote:
-> >> This patchset is a replacement for
-> >> "[PATCH v4] riscv: Optimize crct10dif with Zbc extension"
-> >> (https://lore.kernel.org/r/20250211071101.181652-1-zhihang.shao.iscas@=
-gmail.com/).
-> >> It adopts the approach that I'm taking for x86 where code is shared
-> >> among CRC variants.  It replaces the existing Zbc optimized CRC32
-> >> functions, then adds Zbc optimized CRC-T10DIF and CRC64 functions.
-> >> =
-
-> >> This new code should be significantly faster than the current Zbc
-> >> optimized CRC32 code and the previously proposed CRC-T10DIF code.  It
-> >> uses "folding" instead of just Barrett reduction, and it also implemen=
-ts
-> >> Barrett reduction more efficiently.
-> >> =
-
-> >> This applies to crc-next at
-> >> https://git.kernel.org/pub/scm/linux/kernel/git/ebiggers/linux.git/log=
-/?h=3Dcrc-next.
-> >> It depends on other patches that are queued there for 6.15, so I plan =
-to
-> >> take it through there if there are no objections.
-> >> =
-
-> >> Tested with crc_kunit in QEMU (set CONFIG_CRC_KUNIT_TEST=3Dy and
-> >> CONFIG_CRC_BENCHMARK=3Dy), both 32-bit and 64-bit.  I don't have real =
-Zbc
-> >> capable hardware to benchmark this on, but the new code should work ve=
-ry
-> >> well; similar optimizations work very well on other architectures.
-> >
-> > Any feedback on this series from the RISC-V side?
-> =
-
-> I have not reviewed your series, but I did a testrun the Milk-V Jupiter
-> which sports a Spacemit K1 that has Zbc.
-> =
-
-> I based the run on commit 1973160c90d7 ("Merge tag
-> 'gpio-fixes-for-v6.14-rc5' of
-> git://git.kernel.org/pub/scm/linux/kernel/git/brgl/linux"), plus your
-> crc-next branch (commit a0bd462f3a13 ("x86/crc: add ANNOTATE_NOENDBR to
-> suppress objtool warnings")) merged:
-> =
-
->   | --- base1.txt	2025-03-02 18:31:16.169438876 +0000
->   | +++ eric.txt	2025-03-02 18:35:58.683017223 +0000
->   | @@ -11,7 +11,7 @@
->   |      # crc16_benchmark: len=3D127: 153 MB/s
->   |      # crc16_benchmark: len=3D128: 153 MB/s
->   |      # crc16_benchmark: len=3D200: 153 MB/s
->   | -    # crc16_benchmark: len=3D256: 153 MB/s
->   | +    # crc16_benchmark: len=3D256: 154 MB/s
->   |      # crc16_benchmark: len=3D511: 154 MB/s
->   |      # crc16_benchmark: len=3D512: 154 MB/s
->   |      # crc16_benchmark: len=3D1024: 155 MB/s
->   | @@ -20,94 +20,94 @@
->   |      # crc16_benchmark: len=3D16384: 155 MB/s
->   |      ok 2 crc16_benchmark
->   |      ok 3 crc_t10dif_test
->   | -    # crc_t10dif_benchmark: len=3D1: 48 MB/s
->   | -    # crc_t10dif_benchmark: len=3D16: 125 MB/s
->   | -    # crc_t10dif_benchmark: len=3D64: 136 MB/s
->   | -    # crc_t10dif_benchmark: len=3D127: 138 MB/s
->   | -    # crc_t10dif_benchmark: len=3D128: 138 MB/s
->   | -    # crc_t10dif_benchmark: len=3D200: 138 MB/s
->   | -    # crc_t10dif_benchmark: len=3D256: 138 MB/s
->   | -    # crc_t10dif_benchmark: len=3D511: 139 MB/s
->   | -    # crc_t10dif_benchmark: len=3D512: 139 MB/s
->   | -    # crc_t10dif_benchmark: len=3D1024: 139 MB/s
->   | -    # crc_t10dif_benchmark: len=3D3173: 140 MB/s
->   | -    # crc_t10dif_benchmark: len=3D4096: 140 MB/s
->   | -    # crc_t10dif_benchmark: len=3D16384: 140 MB/s
->   | +    # crc_t10dif_benchmark: len=3D1: 28 MB/s
->   | +    # crc_t10dif_benchmark: len=3D16: 236 MB/s
->   | +    # crc_t10dif_benchmark: len=3D64: 450 MB/s
->   | +    # crc_t10dif_benchmark: len=3D127: 480 MB/s
->   | +    # crc_t10dif_benchmark: len=3D128: 540 MB/s
->   | +    # crc_t10dif_benchmark: len=3D200: 559 MB/s
->   | +    # crc_t10dif_benchmark: len=3D256: 600 MB/s
->   | +    # crc_t10dif_benchmark: len=3D511: 613 MB/s
->   | +    # crc_t10dif_benchmark: len=3D512: 635 MB/s
->   | +    # crc_t10dif_benchmark: len=3D1024: 654 MB/s
->   | +    # crc_t10dif_benchmark: len=3D3173: 665 MB/s
->   | +    # crc_t10dif_benchmark: len=3D4096: 669 MB/s
->   | +    # crc_t10dif_benchmark: len=3D16384: 673 MB/s
->   |      ok 4 crc_t10dif_benchmark
->   |      ok 5 crc32_le_test
->   |      # crc32_le_benchmark: len=3D1: 31 MB/s
->   | -    # crc32_le_benchmark: len=3D16: 456 MB/s
->   | -    # crc32_le_benchmark: len=3D64: 682 MB/s
->   | -    # crc32_le_benchmark: len=3D127: 620 MB/s
->   | -    # crc32_le_benchmark: len=3D128: 744 MB/s
->   | -    # crc32_le_benchmark: len=3D200: 768 MB/s
->   | -    # crc32_le_benchmark: len=3D256: 777 MB/s
->   | -    # crc32_le_benchmark: len=3D511: 758 MB/s
->   | -    # crc32_le_benchmark: len=3D512: 798 MB/s
->   | -    # crc32_le_benchmark: len=3D1024: 807 MB/s
->   | -    # crc32_le_benchmark: len=3D3173: 807 MB/s
->   | -    # crc32_le_benchmark: len=3D4096: 814 MB/s
->   | -    # crc32_le_benchmark: len=3D16384: 816 MB/s
->   | +    # crc32_le_benchmark: len=3D16: 439 MB/s
->   | +    # crc32_le_benchmark: len=3D64: 1209 MB/s
->   | +    # crc32_le_benchmark: len=3D127: 1067 MB/s
->   | +    # crc32_le_benchmark: len=3D128: 1616 MB/s
->   | +    # crc32_le_benchmark: len=3D200: 1739 MB/s
->   | +    # crc32_le_benchmark: len=3D256: 1951 MB/s
->   | +    # crc32_le_benchmark: len=3D511: 1855 MB/s
->   | +    # crc32_le_benchmark: len=3D512: 2174 MB/s
->   | +    # crc32_le_benchmark: len=3D1024: 2301 MB/s
->   | +    # crc32_le_benchmark: len=3D3173: 2347 MB/s
->   | +    # crc32_le_benchmark: len=3D4096: 2407 MB/s
->   | +    # crc32_le_benchmark: len=3D16384: 2440 MB/s
->   |      ok 6 crc32_le_benchmark
->   |      ok 7 crc32_be_test
->   | -    # crc32_be_benchmark: len=3D1: 27 MB/s
->   | -    # crc32_be_benchmark: len=3D16: 258 MB/s
->   | -    # crc32_be_benchmark: len=3D64: 388 MB/s
->   | -    # crc32_be_benchmark: len=3D127: 402 MB/s
->   | -    # crc32_be_benchmark: len=3D128: 424 MB/s
->   | -    # crc32_be_benchmark: len=3D200: 438 MB/s
->   | -    # crc32_be_benchmark: len=3D256: 444 MB/s
->   | -    # crc32_be_benchmark: len=3D511: 449 MB/s
->   | -    # crc32_be_benchmark: len=3D512: 455 MB/s
->   | -    # crc32_be_benchmark: len=3D1024: 461 MB/s
->   | -    # crc32_be_benchmark: len=3D3173: 463 MB/s
->   | -    # crc32_be_benchmark: len=3D4096: 465 MB/s
->   | -    # crc32_be_benchmark: len=3D16384: 466 MB/s
->   | +    # crc32_be_benchmark: len=3D1: 25 MB/s
->   | +    # crc32_be_benchmark: len=3D16: 251 MB/s
->   | +    # crc32_be_benchmark: len=3D64: 458 MB/s
->   | +    # crc32_be_benchmark: len=3D127: 496 MB/s
->   | +    # crc32_be_benchmark: len=3D128: 547 MB/s
->   | +    # crc32_be_benchmark: len=3D200: 569 MB/s
->   | +    # crc32_be_benchmark: len=3D256: 605 MB/s
->   | +    # crc32_be_benchmark: len=3D511: 621 MB/s
->   | +    # crc32_be_benchmark: len=3D512: 637 MB/s
->   | +    # crc32_be_benchmark: len=3D1024: 657 MB/s
->   | +    # crc32_be_benchmark: len=3D3173: 668 MB/s
->   | +    # crc32_be_benchmark: len=3D4096: 671 MB/s
->   | +    # crc32_be_benchmark: len=3D16384: 674 MB/s
->   |      ok 8 crc32_be_benchmark
->   |      ok 9 crc32c_test
->   |      # crc32c_benchmark: len=3D1: 31 MB/s
->   | -    # crc32c_benchmark: len=3D16: 457 MB/s
->   | -    # crc32c_benchmark: len=3D64: 682 MB/s
->   | -    # crc32c_benchmark: len=3D127: 620 MB/s
->   | -    # crc32c_benchmark: len=3D128: 744 MB/s
->   | -    # crc32c_benchmark: len=3D200: 769 MB/s
->   | -    # crc32c_benchmark: len=3D256: 779 MB/s
->   | -    # crc32c_benchmark: len=3D511: 758 MB/s
->   | -    # crc32c_benchmark: len=3D512: 797 MB/s
->   | -    # crc32c_benchmark: len=3D1024: 807 MB/s
->   | -    # crc32c_benchmark: len=3D3173: 806 MB/s
->   | -    # crc32c_benchmark: len=3D4096: 813 MB/s
->   | -    # crc32c_benchmark: len=3D16384: 816 MB/s
->   | +    # crc32c_benchmark: len=3D16: 446 MB/s
->   | +    # crc32c_benchmark: len=3D64: 1188 MB/s
->   | +    # crc32c_benchmark: len=3D127: 1066 MB/s
->   | +    # crc32c_benchmark: len=3D128: 1600 MB/s
->   | +    # crc32c_benchmark: len=3D200: 1727 MB/s
->   | +    # crc32c_benchmark: len=3D256: 1941 MB/s
->   | +    # crc32c_benchmark: len=3D511: 1854 MB/s
->   | +    # crc32c_benchmark: len=3D512: 2164 MB/s
->   | +    # crc32c_benchmark: len=3D1024: 2300 MB/s
->   | +    # crc32c_benchmark: len=3D3173: 2345 MB/s
->   | +    # crc32c_benchmark: len=3D4096: 2402 MB/s
->   | +    # crc32c_benchmark: len=3D16384: 2437 MB/s
->   |      ok 10 crc32c_benchmark
->   |      ok 11 crc64_be_test
->   | -    # crc64_be_benchmark: len=3D1: 64 MB/s
->   | -    # crc64_be_benchmark: len=3D16: 144 MB/s
->   | -    # crc64_be_benchmark: len=3D64: 154 MB/s
->   | -    # crc64_be_benchmark: len=3D127: 156 MB/s
->   | -    # crc64_be_benchmark: len=3D128: 156 MB/s
->   | -    # crc64_be_benchmark: len=3D200: 156 MB/s
->   | -    # crc64_be_benchmark: len=3D256: 156 MB/s
->   | -    # crc64_be_benchmark: len=3D511: 157 MB/s
->   | -    # crc64_be_benchmark: len=3D512: 157 MB/s
->   | -    # crc64_be_benchmark: len=3D1024: 157 MB/s
->   | -    # crc64_be_benchmark: len=3D3173: 158 MB/s
->   | -    # crc64_be_benchmark: len=3D4096: 158 MB/s
->   | -    # crc64_be_benchmark: len=3D16384: 158 MB/s
->   | +    # crc64_be_benchmark: len=3D1: 29 MB/s
->   | +    # crc64_be_benchmark: len=3D16: 264 MB/s
->   | +    # crc64_be_benchmark: len=3D64: 476 MB/s
->   | +    # crc64_be_benchmark: len=3D127: 499 MB/s
->   | +    # crc64_be_benchmark: len=3D128: 558 MB/s
->   | +    # crc64_be_benchmark: len=3D200: 576 MB/s
->   | +    # crc64_be_benchmark: len=3D256: 611 MB/s
->   | +    # crc64_be_benchmark: len=3D511: 621 MB/s
->   | +    # crc64_be_benchmark: len=3D512: 638 MB/s
->   | +    # crc64_be_benchmark: len=3D1024: 659 MB/s
->   | +    # crc64_be_benchmark: len=3D3173: 667 MB/s
->   | +    # crc64_be_benchmark: len=3D4096: 671 MB/s
->   | +    # crc64_be_benchmark: len=3D16384: 674 MB/s
->   |      ok 12 crc64_be_benchmark
->   |      ok 13 crc64_nvme_test
->   | -    # crc64_nvme_benchmark: len=3D1: 64 MB/s
->   | -    # crc64_nvme_benchmark: len=3D16: 144 MB/s
->   | -    # crc64_nvme_benchmark: len=3D64: 154 MB/s
->   | -    # crc64_nvme_benchmark: len=3D127: 156 MB/s
->   | -    # crc64_nvme_benchmark: len=3D128: 156 MB/s
->   | -    # crc64_nvme_benchmark: len=3D200: 156 MB/s
->   | -    # crc64_nvme_benchmark: len=3D256: 156 MB/s
->   | -    # crc64_nvme_benchmark: len=3D511: 157 MB/s
->   | -    # crc64_nvme_benchmark: len=3D512: 157 MB/s
->   | -    # crc64_nvme_benchmark: len=3D1024: 157 MB/s
->   | -    # crc64_nvme_benchmark: len=3D3173: 158 MB/s
->   | -    # crc64_nvme_benchmark: len=3D4096: 158 MB/s
->   | -    # crc64_nvme_benchmark: len=3D16384: 158 MB/s
->   | +    # crc64_nvme_benchmark: len=3D1: 36 MB/s
->   | +    # crc64_nvme_benchmark: len=3D16: 479 MB/s
->   | +    # crc64_nvme_benchmark: len=3D64: 1340 MB/s
->   | +    # crc64_nvme_benchmark: len=3D127: 1179 MB/s
->   | +    # crc64_nvme_benchmark: len=3D128: 1766 MB/s
->   | +    # crc64_nvme_benchmark: len=3D200: 1965 MB/s
->   | +    # crc64_nvme_benchmark: len=3D256: 2201 MB/s
->   | +    # crc64_nvme_benchmark: len=3D511: 2087 MB/s
->   | +    # crc64_nvme_benchmark: len=3D512: 2464 MB/s
->   | +    # crc64_nvme_benchmark: len=3D1024: 2331 MB/s
->   | +    # crc64_nvme_benchmark: len=3D3173: 2673 MB/s
->   | +    # crc64_nvme_benchmark: len=3D4096: 2745 MB/s
->   | +    # crc64_nvme_benchmark: len=3D16384: 2782 MB/s
->   |      ok 14 crc64_nvme_benchmark
->   |  # crc: pass:14 fail:0 skip:0 total:14
->   |  # Totals: pass:14 fail:0 skip:0 total:14
-> =
-
-> That's a significant speed up for this popular SoC, and it would be
-> great to get this series in for the next merge window! Thank you!
-> =
-
-> Tested-by: Bj=F6rn T=F6pel <bjorn@rivosinc.com>
-
-Thanks for testing this patchset!  So to summarize, on long messages the re=
-sults
-were roughly:
-
-    lsb-first CRCs (crc32_le, crc32c, crc64_nvme):
-        Generic table-based code:             158 MB/s
-        Old Zbc-optimized code (crc32* only): 816 MB/s
-        New Zbc-optimized code:               2440 MB/s
-
-    mst-first CRCs (crc_t10dif, crc32_be, crc64_be):
-        Generic table-based code:             158 MB/s
-        Old Zbc-optimized code (crc32* only): 466 MB/s
-        New Zbc-optimized code:               674 MB/s
-
-So, quite positive results.  Though, the fact the msb-first CRCs are (still=
-) so
-much slower than lsb-first ones indicates that be64_to_cpu() is super slow =
-on
-RISC-V.  That seems to be caused by the rev8 instruction from Zbb not being
-used.  I wonder if there are any plans to make the endianness swap macros u=
-se
-rev8, or if I'm going to have to roll my own endianness swap in the CRC cod=
-e.
-(I assume it would be fine for the CRC code to depend on both Zbb and Zbc.)
-
-Anyway, I've applied this series to the crc tree
-(https://web.git.kernel.org/pub/scm/linux/kernel/git/ebiggers/linux.git/log=
-/?h=3Dcrc-next).
-
-Palmer, I'd appreciate your ack though!
-
-- Eric
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+SGkgUWksCgpPbiBUdWUsIEZlYiAyNSwgMjAyNSBhdCAxMTo0OOKAr0FNIFFpIFpoZW5nIDx6aGVu
+Z3FpLmFyY2hAYnl0ZWRhbmNlLmNvbT4gd3JvdGU6Cj4KPiBUbyBzdXBwb3J0IGZhc3QgZ3VwLCB0
+aGUgY29tbWl0IDY5YmUzZmIxMTFlNyAoInJpc2N2OiBlbmFibGUKPiBNTVVfR0FUSEVSX1JDVV9U
+QUJMRV9GUkVFIGZvciBTTVAgJiYgTU1VIikgZGlkIHRoZSBmb2xsb3dpbmc6Cj4KPiAxKSB1c2Ug
+dGxiX3JlbW92ZV9wYWdlX3B0ZGVzYygpIGZvciB0aG9zZSBwbGF0Zm9ybXMgd2hpY2ggdXNlIElQ
+SSB0bwo+ICAgIHBlcmZvcm0gVExCIHNob290ZG93bgo+Cj4gMikgdXNlIHRsYl9yZW1vdmVfcHRk
+ZXNjKCkgZm9yIHRob3NlIHBsYXRmb3JtcyB3aGljaCB1c2UgU0JJIHRvIHBlcmZvcm0KPiAgICBU
+TEIgc2hvb3Rkb3duCj4KPiBUaGUgdGxiX3JlbW92ZV9wYWdlX3B0ZGVzYygpIGlzIHRoZSB3cmFw
+cGVyIG9mIHRoZSB0bGJfcmVtb3ZlX3BhZ2UoKS4gQnkKPiBkZXNpZ24sIHRoZSB0bGJfcmVtb3Zl
+X3BhZ2UoKSBzaG91bGQgYmUgdXNlZCB0byByZW1vdmUgYSBub3JtYWwgcGFnZSBmcm9tCj4gYSBw
+YWdlIHRhYmxlIGVudHJ5LCBhbmQgc2hvdWxkIG5vdCBiZSB1c2VkIGZvciBwYWdlIHRhYmxlIHBh
+Z2VzLgo+Cj4gVGhlIHRsYl9yZW1vdmVfcHRkZXNjKCkgaXMgdGhlIHdyYXBwZXIgb2YgdGhlIHRs
+Yl9yZW1vdmVfdGFibGUoKSwgd2hpY2ggaXMKPiBkZXNpZ25lZCBzcGVjaWZpY2FsbHkgZm9yIGZy
+ZWVpbmcgcGFnZSB0YWJsZSBwYWdlcy4gSWYgdGhlCj4gQ09ORklHX01NVV9HQVRIRVJfVEFCTEVf
+RlJFRSBpcyBlbmFibGVkLCB0aGUgdGxiX3JlbW92ZV90YWJsZSgpIHdpbGwgdXNlCj4gc2VtaSBS
+Q1UgdG8gZnJlZSBwYWdlIHRhYmxlIHBhZ2VzLCB0aGF0IGlzOgo+Cj4gIC0gYmF0Y2ggdGFibGUg
+ZnJlZWluZzogYXN5bmNocm9ub3VzIGZyZWUgYnkgUkNVCj4gIC0gc2luZ2xlIHRhYmxlIGZyZWVp
+bmc6IElQSSArIHN5bmNocm9ub3VzIGZyZWUKPgo+IElmIHRoZSBDT05GSUdfTU1VX0dBVEhFUl9U
+QUJMRV9GUkVFIGlzIGRpc2FibGVkLCB0aGUgdGxiX3JlbW92ZV90YWJsZSgpCj4gd2lsbCBmYWxs
+IGJhY2sgdG8gcGFnZXRhYmxlX2R0b3IoKSArIHRsYl9yZW1vdmVfcGFnZSgpLgo+Cj4gRm9yIGNh
+c2UgMSksIHNpbmNlIHdlIG5lZWQgdG8gcGVyZm9ybSBUTEIgc2hvb3Rkb3duIGJlZm9yZSBmcmVl
+aW5nIHRoZQo+IHBhZ2UgdGFibGUgcGFnZSwgdGhlIGxvY2FsX2lycV9zYXZlKCkgaW4gZmFzdCBn
+dXAgY2FuIGJsb2NrIHRoZSBmcmVlaW5nCj4gYW5kIHByb3RlY3QgdGhlIGZhc3QgZ3VwIHBhZ2Ug
+d2Fsa2VyLiBUaGVyZWZvcmUgd2UgY2FuIGVuc3VyZSBzYWZldHkgYnkKPiBqdXN0IHVzaW5nIHRs
+Yl9yZW1vdmVfcGFnZV9wdGRlc2MoKS4gSW4gYWRkaXRpb24sIHdlIGNhbiBhbHNvIHRoZQo+IHRs
+Yl9yZW1vdmVfcHRkZXNjKCkvdGxiX3JlbW92ZV90YWJsZSgpIHRvIGFjaGlldmUgaXQsIGFuZCBp
+dCBkb2Vzbid0Cj4gbWF0dGVyIHdoZXRoZXIgQ09ORklHX01NVV9HQVRIRVJfUkNVX1RBQkxFX0ZS
+RUUgaXMgc2VsZWN0ZWQuIEFuZCBpbgo+IHRoZW9yeSwgdGhlIHBlcmZvcm1hbmNlIG9mIGZyZWVp
+bmcgcGFnZXMgYXN5bmNocm9ub3VzbHkgdmlhIFJDVSB3aWxsIG5vdAo+IGJlIGxvd2VyIHRoYW4g
+c3luY2hyb25vdXMgZnJlZS4KPgo+IEZvciBjYXNlIDIpLCBzaW5jZSBsb2NhbF9pcnFfc2F2ZSgp
+IG9ubHkgZGlzYWJsZSBTLXByaXZpbGVnZSBJUEkgaXJxIGJ1dAo+IG5vdCBNLXByaXZpbGVnZSdz
+LCB3aGljaCBpcyB1c2VkIGJ5IHRoZSBTQkkgaW1wbGVtZW50YXRpb24gdG8gcGVyZm9ybSBUTEIK
+PiBzaG9vdGRvd24sIHNvIHdlIG11c3Qgc2VsZWN0IENPTkZJR19NTVVfR0FUSEVSX1JDVV9UQUJM
+RV9GUkVFIGFuZCB1c2UKPiB0bGJfcmVtb3ZlX3B0ZGVzYygpIHRvIGVuc3VyZSBzYWZldHkuIFRo
+ZSByaXNjdiBzZWxlY3RzIHRoaXMgY29uZmlnIGZvcgo+IFNNUCAmJiBNTVUsIHRoZSBDT05GSUdf
+UklTQ1ZfU0JJIGlzIGRlcGVuZGVudCBvbiBNTVUuIFRoZXJlZm9yZSwgb25seSB0aGUKPiBVUCBz
+eXN0ZW0gbWF5IGhhdmUgdGhlIHNpdHVhdGlvbiB3aGVyZSBDT05GSUdfTU1VX0dBVEhFUl9SQ1Vf
+VEFCTEVfRlJFRSBpcwo+IGRpc2FibGVkIGJ1dCBDT05GSUdfUklTQ1ZfU0JJIGlzIGVuYWJsZWQu
+IEJ1dCB0aGVyZSBpcyBubyBmcmVlaW5nIHZzIGZhc3QKPiBndXAgcmFjZSBpbiB0aGUgVVAgc3lz
+dGVtLgo+Cj4gU28sIGluIHN1bW1hcnksIHdlIGNhbiB1c2UgdGxiX3JlbW92ZV9wdGRlc2MoKSB0
+byBzdXBwb3J0IGZhc3QgZ3VwIGluIGFsbAo+IGNhc2VzLCBhbmQgdGhpcyBpbnRlcmZhY2UgaXMg
+c3BlY2lmaWNhbGx5IGRlc2lnbmVkIGZvciBwYWdlIHRhYmxlIHBhZ2VzLgo+IFNvIGxldCdzIHVz
+ZSBpdCB1bmNvbmRpdGlvbmFsbHkuCj4KPiBTaWduZWQtb2ZmLWJ5OiBRaSBaaGVuZyA8emhlbmdx
+aS5hcmNoQGJ5dGVkYW5jZS5jb20+Cj4gU3VnZ2VzdGVkLWJ5OiBQZXRlciBaaWpsc3RyYSAoSW50
+ZWwpIDxwZXRlcnpAaW5mcmFkZWFkLm9yZz4KPiAtLS0KPiAgYXJjaC9yaXNjdi9pbmNsdWRlL2Fz
+bS9wZ2FsbG9jLmggfCAyNiArKysrLS0tLS0tLS0tLS0tLS0tLS0tLS0tLQo+ICAxIGZpbGUgY2hh
+bmdlZCwgNCBpbnNlcnRpb25zKCspLCAyMiBkZWxldGlvbnMoLSkKPgo+IGRpZmYgLS1naXQgYS9h
+cmNoL3Jpc2N2L2luY2x1ZGUvYXNtL3BnYWxsb2MuaCBiL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20v
+cGdhbGxvYy5oCj4gaW5kZXggM2UyYWViZWE2MzEyZC4uNzcwY2UxOGE3MzI4YiAxMDA2NDQKPiAt
+LS0gYS9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL3BnYWxsb2MuaAo+ICsrKyBiL2FyY2gvcmlzY3Yv
+aW5jbHVkZS9hc20vcGdhbGxvYy5oCj4gQEAgLTE1LDI0ICsxNSw2IEBACj4gICNkZWZpbmUgX19I
+QVZFX0FSQ0hfUFVEX0ZSRUUKPiAgI2luY2x1ZGUgPGFzbS1nZW5lcmljL3BnYWxsb2MuaD4KPgo+
+IC0vKgo+IC0gKiBXaGlsZSByaXNjdiBwbGF0Zm9ybXMgd2l0aCByaXNjdl9pcGlfZm9yX3JmZW5j
+ZSBhcyB0cnVlIHJlcXVpcmUgYW4gSVBJIHRvCj4gLSAqIHBlcmZvcm0gVExCIHNob290ZG93biwg
+c29tZSBwbGF0Zm9ybXMgd2l0aCByaXNjdl9pcGlfZm9yX3JmZW5jZSBhcyBmYWxzZSB1c2UKPiAt
+ICogU0JJIHRvIHBlcmZvcm0gVExCIHNob290ZG93bi4gVG8ga2VlcCBzb2Z0d2FyZSBwYWdldGFi
+bGUgd2Fsa2VycyBzYWZlIGluIHRoaXMKPiAtICogY2FzZSB3ZSBzd2l0Y2ggdG8gUkNVIGJhc2Vk
+IHRhYmxlIGZyZWUgKE1NVV9HQVRIRVJfUkNVX1RBQkxFX0ZSRUUpLiBTZWUgdGhlCj4gLSAqIGNv
+bW1lbnQgYmVsb3cgJ2lmZGVmIENPTkZJR19NTVVfR0FUSEVSX1JDVV9UQUJMRV9GUkVFJyBpbiBp
+bmNsdWRlL2FzbS1nZW5lcmljL3RsYi5oCj4gLSAqIGZvciBtb3JlIGRldGFpbHMuCj4gLSAqLwo+
+IC1zdGF0aWMgaW5saW5lIHZvaWQgcmlzY3ZfdGxiX3JlbW92ZV9wdGRlc2Moc3RydWN0IG1tdV9n
+YXRoZXIgKnRsYiwgdm9pZCAqcHQpCj4gLXsKPiAtICAgICAgIGlmIChyaXNjdl91c2Vfc2JpX2Zv
+cl9yZmVuY2UoKSkgewo+IC0gICAgICAgICAgICAgICB0bGJfcmVtb3ZlX3B0ZGVzYyh0bGIsIHB0
+KTsKPiAtICAgICAgIH0gZWxzZSB7Cj4gLSAgICAgICAgICAgICAgIHBhZ2V0YWJsZV9kdG9yKHB0
+KTsKPiAtICAgICAgICAgICAgICAgdGxiX3JlbW92ZV9wYWdlX3B0ZGVzYyh0bGIsIHB0KTsKPiAt
+ICAgICAgIH0KPiAtfQo+IC0KPiAgc3RhdGljIGlubGluZSB2b2lkIHBtZF9wb3B1bGF0ZV9rZXJu
+ZWwoc3RydWN0IG1tX3N0cnVjdCAqbW0sCj4gICAgICAgICBwbWRfdCAqcG1kLCBwdGVfdCAqcHRl
+KQo+ICB7Cj4gQEAgLTEwOCwxNCArOTAsMTQgQEAgc3RhdGljIGlubGluZSB2b2lkIF9fcHVkX2Zy
+ZWVfdGxiKHN0cnVjdCBtbXVfZ2F0aGVyICp0bGIsIHB1ZF90ICpwdWQsCj4gICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgIHVuc2lnbmVkIGxvbmcgYWRkcikKPiAgewo+ICAgICAgICAg
+aWYgKHBndGFibGVfbDRfZW5hYmxlZCkKPiAtICAgICAgICAgICAgICAgcmlzY3ZfdGxiX3JlbW92
+ZV9wdGRlc2ModGxiLCB2aXJ0X3RvX3B0ZGVzYyhwdWQpKTsKPiArICAgICAgICAgICAgICAgdGxi
+X3JlbW92ZV9wdGRlc2ModGxiLCB2aXJ0X3RvX3B0ZGVzYyhwdWQpKTsKPiAgfQo+Cj4gIHN0YXRp
+YyBpbmxpbmUgdm9pZCBfX3A0ZF9mcmVlX3RsYihzdHJ1Y3QgbW11X2dhdGhlciAqdGxiLCBwNGRf
+dCAqcDRkLAo+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICB1bnNpZ25lZCBsb25n
+IGFkZHIpCj4gIHsKPiAgICAgICAgIGlmIChwZ3RhYmxlX2w1X2VuYWJsZWQpCj4gLSAgICAgICAg
+ICAgICAgIHJpc2N2X3RsYl9yZW1vdmVfcHRkZXNjKHRsYiwgdmlydF90b19wdGRlc2MocDRkKSk7
+Cj4gKyAgICAgICAgICAgICAgIHRsYl9yZW1vdmVfcHRkZXNjKHRsYiwgdmlydF90b19wdGRlc2Mo
+cDRkKSk7Cj4gIH0KPiAgI2VuZGlmIC8qIF9fUEFHRVRBQkxFX1BNRF9GT0xERUQgKi8KPgo+IEBA
+IC0xNDMsNyArMTI1LDcgQEAgc3RhdGljIGlubGluZSBwZ2RfdCAqcGdkX2FsbG9jKHN0cnVjdCBt
+bV9zdHJ1Y3QgKm1tKQo+ICBzdGF0aWMgaW5saW5lIHZvaWQgX19wbWRfZnJlZV90bGIoc3RydWN0
+IG1tdV9nYXRoZXIgKnRsYiwgcG1kX3QgKnBtZCwKPiAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgdW5zaWduZWQgbG9uZyBhZGRyKQo+ICB7Cj4gLSAgICAgICByaXNjdl90bGJfcmVt
+b3ZlX3B0ZGVzYyh0bGIsIHZpcnRfdG9fcHRkZXNjKHBtZCkpOwo+ICsgICAgICAgdGxiX3JlbW92
+ZV9wdGRlc2ModGxiLCB2aXJ0X3RvX3B0ZGVzYyhwbWQpKTsKPiAgfQo+Cj4gICNlbmRpZiAvKiBf
+X1BBR0VUQUJMRV9QTURfRk9MREVEICovCj4gQEAgLTE1MSw3ICsxMzMsNyBAQCBzdGF0aWMgaW5s
+aW5lIHZvaWQgX19wbWRfZnJlZV90bGIoc3RydWN0IG1tdV9nYXRoZXIgKnRsYiwgcG1kX3QgKnBt
+ZCwKPiAgc3RhdGljIGlubGluZSB2b2lkIF9fcHRlX2ZyZWVfdGxiKHN0cnVjdCBtbXVfZ2F0aGVy
+ICp0bGIsIHBndGFibGVfdCBwdGUsCj4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+IHVuc2lnbmVkIGxvbmcgYWRkcikKPiAgewo+IC0gICAgICAgcmlzY3ZfdGxiX3JlbW92ZV9wdGRl
+c2ModGxiLCBwYWdlX3B0ZGVzYyhwdGUpKTsKPiArICAgICAgIHRsYl9yZW1vdmVfcHRkZXNjKHRs
+YiwgcGFnZV9wdGRlc2MocHRlKSk7Cj4gIH0KPiAgI2VuZGlmIC8qIENPTkZJR19NTVUgKi8KPgo+
+IC0tCj4gMi4yMC4xCj4KPgoKVGhpcyBzZXQgb2YgcGF0Y2hlcyBtYWlubHkgcmVmYWN0b3JzIHRo
+ZSByZW1vdmUgcGFnZSB0YWJsZSBmdW5jdGlvbgppbnRlcmZhY2VzLiBUaGUgY29tbWVudCAicmlz
+Y3ZfaXBpX2Zvcl9yZmVuY2UiIGhhcyBiZWVuIHJlbW92ZWQsIGFzIGl0CndhcyBubyBsb25nZXIg
+bmVlZGVkLCBhbmQgdGhpcyBwYXRjaCBoYW5kbGVzIHRoYXQuCgpBZGRpdGlvbmFsbHksIHdoZXRo
+ZXIgcmlzY3ZfdXNlX3NiaV9mb3JfcmZlbmNlIGlzIHRydWUgb3IgZmFsc2UsIHBhZ2UKdGFibGVz
+IGNhbiBub3cgYmUgcmVsZWFzZWQgdXNpbmcgUkNVLiBUaGlzIHBhdGNoIGNoYW5nZXMgdGhlIHBy
+ZXZpb3VzCnN5bmNocm9ub3VzIHJlbGVhc2UgbG9naWMgKGZvciAhcmlzY3ZfdXNlX3NiaV9mb3Jf
+cmZlbmNlKSB0byBhbgpSQ1UtYmFzZWQgcmVsZWFzZS4KClNvLCBSZXZpZXdlZC1ieTogWXVuaHVp
+IEN1aSA8Y3VpeXVuaHVpQGJ5dGVkYW5jZS5jb20+CgpCYXNlZCBvbiBxZW11LXN5c3RlbS1yaXNj
+djY0LCBJIHRlc3RlZCB0aGlzIHBhdGNoLiBUaGUgbG9nIGlzIGFzIGZvbGxvd3M6Ci4vZ3VwX3Rl
+c3QKVEFQIHZlcnNpb24gMTMKMS4uMQojIEdVUF9GQVNUX0JFTkNITUFSSzogVGltZTogZ2V0OjY2
+MzM2NSBwdXQ6MTE3IHVzCiMgb2sgMSBpb2N0bCBzdGF0dXMgMAojIFRvdGFsczogcGFzczoxIGZh
+aWw6MCB4ZmFpbDowIHhwYXNzOjAgc2tpcDowIGVycm9yOjAKClNvLCBUZXN0ZWQtYnk6IFl1bmh1
+aSBDdWkgPGN1aXl1bmh1aUBieXRlZGFuY2UuY29tPgoKVGhhbmtzLApZdW5odWkKCl9fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxp
+bmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZy
+YWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
