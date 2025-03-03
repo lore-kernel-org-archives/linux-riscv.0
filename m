@@ -4,81 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 44E42C282CD
-	for <linux-riscv@archiver.kernel.org>; Mon,  3 Mar 2025 17:05:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 39188C282CD
+	for <linux-riscv@archiver.kernel.org>; Mon,  3 Mar 2025 17:42:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EdT5u/CBmrlXOPni8XkYBtSW6DAP5ps6DzF0PPwTsYk=; b=ul5XJJOJ0q1hy0I+w/E+/fSzLf
-	XcQGl97Qt3abTpycYjAEGRmocMXuXeNgeGJWxeujaVPh7nIZecxXIrszFTo5JNKbji+nCe9EDfGdo
-	DFeXeEBP8JuHGRbPa0ox0lbwfYtglSUEVXIlMveRZ9V7Sn1HQbBaZcJ7nG/AnlleAJkFxkWvwMA0t
-	a7nXORpU2IS2Tl8RmdTFL9pznTP2E0oHyzuPSOSy1fR3ouBV01TsNxv9UidBo9/JD6Yj38tHSnFZM
-	fTUNflF8VmwV0ZyhZGL4g1DIitdH+cK2hj8JL2Yzi3lzss0RKdTPQGgT8uBrKLz3f/ceVghgXFkjL
-	t48M26/w==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:Cc:To:Subject:
+	From:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=kNslXpzfHP1FmwuyFm9PYpHhObg/skoGve0G6vknyr0=; b=I4n2jvMJfmCjna
+	H75pVoRew3tk4MF7CwaMuEemsV4McO7Z6eMC9Nbbj1qFnlYydY6IV0qmBpqTj4/yFeCMdB7CFOaba
+	/wLut3YsYlgOtrQmqPxdvB7Ig7Vy5ZrfVnsmwiGD61KQxem3vkzcC+M7Yp3moXk9QoXcOqC9U/8nI
+	Cmb7pdctWXdj+X0qqZp/fR7l2eNP4CBObp8pvWq+BDFp9KoAR4U2rdoQxHiokIdvRxCPOO6Cq34LH
+	Cg38z2zeHX4AF/UeT3gxDUP03fN9/FpcOw5MsoDtnUDB/vkHzyOPhpxZTEdkHqj4W1Edvy+66ZJNc
+	GpM36t9EJXI7cQox5EFQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tp9EM-00000001fZD-3mYI;
-	Mon, 03 Mar 2025 17:05:26 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1tp9nw-00000001o9a-1OSi;
+	Mon, 03 Mar 2025 17:42:12 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tp9DX-00000001fPS-3IFp
+	id 1tp9na-00000001o3W-0WqR
 	for linux-riscv@lists.infradead.org;
-	Mon, 03 Mar 2025 17:04:37 +0000
+	Mon, 03 Mar 2025 17:41:51 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id CAA6EA44CA0;
-	Mon,  3 Mar 2025 16:59:03 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 79619C4CED6;
-	Mon,  3 Mar 2025 17:04:30 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 6A7F2A44E0E;
+	Mon,  3 Mar 2025 17:36:18 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 59AA4C4CEE5;
+	Mon,  3 Mar 2025 17:41:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1741021474;
-	bh=1PbP9JweNnhfY323ds2ckVbVYshiUaX4U6QLjLl33Yc=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=sfihcvk/eEVOMebl2S4GJlQP/B1tYig4rr4JHdfBBNkvCXsWL1/OORGhVnAmXLWGV
-	 1UTJPSKDNzhyOOH1eHnKTrvff/ZHNokoDNNyJhBynUiBqeDU6nuRf7c2OQKEGoK2VJ
-	 +HZ9etlplxwbUskdChu0SWU/WqcIoaqSED47Colvr4pQXuWHWXza/7BBXyY2gcl/dk
-	 IBf0gVwkfhlVzvGkeEbhX9AR4YO7eBYZYfttPiTVM2xpTSe9/U6RxbXsw71HaZ2nNx
-	 83RyGxQ5w4JFtwAkrYFQA60bkuXoAIvPMfmctCA49wTh+Qh45gqVoow2JGBnWezY3p
-	 Vp79ivh97R9/g==
-Date: Mon, 3 Mar 2025 17:04:28 +0000
-From: Conor Dooley <conor@kernel.org>
-To: Inochi Amaoto <inochiama@gmail.com>
-Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>,
-	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
-	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Chen Wang <unicorn_wang@outlook.com>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Niklas Cassel <cassel@kernel.org>,
-	Shashank Babu Chinta Venkata <quic_schintav@quicinc.com>,
-	linux-pci@vger.kernel.org, devicetree@vger.kernel.org,
-	sophgo@lists.linux.dev, linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org, Yixun Lan <dlan@gentoo.org>,
-	Longbin Li <looong.bin@gmail.com>
-Subject: Re: [PATCH 1/2] dt-bindings: pci: Add Sophgo SG2044 PCIe host
-Message-ID: <20250303-aground-snitch-40d6dfe95238@spud>
-References: <20250221013758.370936-1-inochiama@gmail.com>
- <20250221013758.370936-2-inochiama@gmail.com>
- <20250221-cavalier-cramp-6235d4348013@spud>
- <2egxw3r63cbsygpwqaltp4jjlkuwoh4rkwpgv4haj4sgz5sked@vkotadyk4g6y>
- <20250224-enable-progress-e3a47fdb625c@spud>
- <7ht3djv7zgrbkcvmdg6tp62nmxytlxzhaprsuvyeshyojhochn@ignvymxb3vfa>
- <20250225-lapel-unhappy-9e7978e270e4@spud>
- <ynefy5x672dlhctjzyhkitxoihuucxxki3xqvpimwpcedpfl2u@lmklah5egof4>
- <pbj22qvat76t74nppabekvyncc4ptt6wede4q6wfygbrzcj3ag@ruvt26eqiybu>
- <je4falvfemkemlvdfzdmgc7jx2gz6grpbmo6hwtpedjm7xi2gk@jr4frv3tn3l5>
+	s=k20201202; t=1741023709;
+	bh=ehxewKg7M02dW9TT5+F+JOfuCd3oALT9ZxZ79Ry7PK4=;
+	h=Date:From:Subject:To:Cc:References:In-Reply-To:From;
+	b=f0XE7l+479ZDSUgqqiGagMcKdUPamL6+mxbnSM/vA7CFOvvLrmktCVQtzEkoyc/tA
+	 h7pWHLrlRb18t87IrpEZkI9xWUGnPv+L214JuQmx19j4mMB6b/Mh5QShmX/Rz21va/
+	 fN+RM06cKvah9BfsQ/n7A8kBdb/S3k4fHHn3z4hDZBTH8JBWWDUWHbw3NWmMyZ8YrD
+	 DEejTbT/ar69vws0dA/VaPd5DS3yDjqt0FisKeNNj6gVeTehtzHkV+snnJB2/tPUFO
+	 btQNm1/cTOrg0klv3hy34DUdgorgwCb7N0Zv4/J74/oW0XCFeliifYP+tAeEttuGVQ
+	 6m8UNqbbXifxg==
+Message-ID: <cf6aa8bf-d424-49f4-b6a6-b6b10fd8092f@kernel.org>
+Date: Mon, 3 Mar 2025 18:41:42 +0100
 MIME-Version: 1.0
-In-Reply-To: <je4falvfemkemlvdfzdmgc7jx2gz6grpbmo6hwtpedjm7xi2gk@jr4frv3tn3l5>
+User-Agent: Mozilla Thunderbird
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Subject: Re: [PATCH v1 1/4] dt-bindings: clock: thead: Add TH1520 VO clock
+ controller
+To: Michal Wilczynski <m.wilczynski@samsung.com>, mturquette@baylibre.com,
+ sboyd@kernel.org, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+ drew@pdp7.com, guoren@kernel.org, wefu@redhat.com, paul.walmsley@sifive.com,
+ palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr,
+ jszhang@kernel.org, p.zabel@pengutronix.de, m.szyprowski@samsung.com
+Cc: linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
+References: <20250303143629.400583-1-m.wilczynski@samsung.com>
+ <CGME20250303143635eucas1p1dbcd26d4906b962e07cbde7f5ef704bf@eucas1p1.samsung.com>
+ <20250303143629.400583-2-m.wilczynski@samsung.com>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ xsFNBFVDQq4BEAC6KeLOfFsAvFMBsrCrJ2bCalhPv5+KQF2PS2+iwZI8BpRZoV+Bd5kWvN79
+ cFgcqTTuNHjAvxtUG8pQgGTHAObYs6xeYJtjUH0ZX6ndJ33FJYf5V3yXqqjcZ30FgHzJCFUu
+ JMp7PSyMPzpUXfU12yfcRYVEMQrmplNZssmYhiTeVicuOOypWugZKVLGNm0IweVCaZ/DJDIH
+ gNbpvVwjcKYrx85m9cBVEBUGaQP6AT7qlVCkrf50v8bofSIyVa2xmubbAwwFA1oxoOusjPIE
+ J3iadrwpFvsZjF5uHAKS+7wHLoW9hVzOnLbX6ajk5Hf8Pb1m+VH/E8bPBNNYKkfTtypTDUCj
+ NYcd27tjnXfG+SDs/EXNUAIRefCyvaRG7oRYF3Ec+2RgQDRnmmjCjoQNbFrJvJkFHlPeHaeS
+ BosGY+XWKydnmsfY7SSnjAzLUGAFhLd/XDVpb1Een2XucPpKvt9ORF+48gy12FA5GduRLhQU
+ vK4tU7ojoem/G23PcowM1CwPurC8sAVsQb9KmwTGh7rVz3ks3w/zfGBy3+WmLg++C2Wct6nM
+ Pd8/6CBVjEWqD06/RjI2AnjIq5fSEH/BIfXXfC68nMp9BZoy3So4ZsbOlBmtAPvMYX6U8VwD
+ TNeBxJu5Ex0Izf1NV9CzC3nNaFUYOY8KfN01X5SExAoVTr09ewARAQABzSVLcnp5c3p0b2Yg
+ S296bG93c2tpIDxrcnprQGtlcm5lbC5vcmc+wsGVBBMBCgA/AhsDBgsJCAcDAgYVCAIJCgsE
+ FgIDAQIeAQIXgBYhBJvQfg4MUfjVlne3VBuTQ307QWKbBQJgPO8PBQkUX63hAAoJEBuTQ307
+ QWKbBn8P+QFxwl7pDsAKR1InemMAmuykCHl+XgC0LDqrsWhAH5TYeTVXGSyDsuZjHvj+FRP+
+ gZaEIYSw2Yf0e91U9HXo3RYhEwSmxUQ4Fjhc9qAwGKVPQf6YuQ5yy6pzI8brcKmHHOGrB3tP
+ /MODPt81M1zpograAC2WTDzkICfHKj8LpXp45PylD99J9q0Y+gb04CG5/wXs+1hJy/dz0tYy
+ iua4nCuSRbxnSHKBS5vvjosWWjWQXsRKd+zzXp6kfRHHpzJkhRwF6ArXi4XnQ+REnoTfM5Fk
+ VmVmSQ3yFKKePEzoIriT1b2sXO0g5QXOAvFqB65LZjXG9jGJoVG6ZJrUV1MVK8vamKoVbUEe
+ 0NlLl/tX96HLowHHoKhxEsbFzGzKiFLh7hyboTpy2whdonkDxpnv/H8wE9M3VW/fPgnL2nPe
+ xaBLqyHxy9hA9JrZvxg3IQ61x7rtBWBUQPmEaK0azW+l3ysiNpBhISkZrsW3ZUdknWu87nh6
+ eTB7mR7xBcVxnomxWwJI4B0wuMwCPdgbV6YDUKCuSgRMUEiVry10xd9KLypR9Vfyn1AhROrq
+ AubRPVeJBf9zR5UW1trJNfwVt3XmbHX50HCcHdEdCKiT9O+FiEcahIaWh9lihvO0ci0TtVGZ
+ MCEtaCE80Q3Ma9RdHYB3uVF930jwquplFLNF+IBCn5JRzsFNBFVDXDQBEADNkrQYSREUL4D3
+ Gws46JEoZ9HEQOKtkrwjrzlw/tCmqVzERRPvz2Xg8n7+HRCrgqnodIYoUh5WsU84N03KlLue
+ MNsWLJBvBaubYN4JuJIdRr4dS4oyF1/fQAQPHh8Thpiz0SAZFx6iWKB7Qrz3OrGCjTPcW6ei
+ OMheesVS5hxietSmlin+SilmIAPZHx7n242u6kdHOh+/SyLImKn/dh9RzatVpUKbv34eP1wA
+ GldWsRxbf3WP9pFNObSzI/Bo3kA89Xx2rO2roC+Gq4LeHvo7ptzcLcrqaHUAcZ3CgFG88CnA
+ 6z6lBZn0WyewEcPOPdcUB2Q7D/NiUY+HDiV99rAYPJztjeTrBSTnHeSBPb+qn5ZZGQwIdUW9
+ YegxWKvXXHTwB5eMzo/RB6vffwqcnHDoe0q7VgzRRZJwpi6aMIXLfeWZ5Wrwaw2zldFuO4Dt
+ 91pFzBSOIpeMtfgb/Pfe/a1WJ/GgaIRIBE+NUqckM+3zJHGmVPqJP/h2Iwv6nw8U+7Yyl6gU
+ BLHFTg2hYnLFJI4Xjg+AX1hHFVKmvl3VBHIsBv0oDcsQWXqY+NaFahT0lRPjYtrTa1v3tem/
+ JoFzZ4B0p27K+qQCF2R96hVvuEyjzBmdq2esyE6zIqftdo4MOJho8uctOiWbwNNq2U9pPWmu
+ 4vXVFBYIGmpyNPYzRm0QPwARAQABwsF8BBgBCgAmAhsMFiEEm9B+DgxR+NWWd7dUG5NDfTtB
+ YpsFAmA872oFCRRflLYACgkQG5NDfTtBYpvScw/9GrqBrVLuJoJ52qBBKUBDo4E+5fU1bjt0
+ Gv0nh/hNJuecuRY6aemU6HOPNc2t8QHMSvwbSF+Vp9ZkOvrM36yUOufctoqON+wXrliEY0J4
+ ksR89ZILRRAold9Mh0YDqEJc1HmuxYLJ7lnbLYH1oui8bLbMBM8S2Uo9RKqV2GROLi44enVt
+ vdrDvo+CxKj2K+d4cleCNiz5qbTxPUW/cgkwG0lJc4I4sso7l4XMDKn95c7JtNsuzqKvhEVS
+ oic5by3fbUnuI0cemeizF4QdtX2uQxrP7RwHFBd+YUia7zCcz0//rv6FZmAxWZGy5arNl6Vm
+ lQqNo7/Poh8WWfRS+xegBxc6hBXahpyUKphAKYkah+m+I0QToCfnGKnPqyYIMDEHCS/RfqA5
+ t8F+O56+oyLBAeWX7XcmyM6TGeVfb+OZVMJnZzK0s2VYAuI0Rl87FBFYgULdgqKV7R7WHzwD
+ uZwJCLykjad45hsWcOGk3OcaAGQS6NDlfhM6O9aYNwGL6tGt/6BkRikNOs7VDEa4/HlbaSJo
+ 7FgndGw1kWmkeL6oQh7wBvYll2buKod4qYntmNKEicoHGU+x91Gcan8mCoqhJkbqrL7+nXG2
+ 5Q/GS5M9RFWS+nYyJh+c3OcfKqVcZQNANItt7+ULzdNJuhvTRRdC3g9hmCEuNSr+CLMdnRBY fv0=
+In-Reply-To: <20250303143629.400583-2-m.wilczynski@samsung.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250303_090435_954262_7F5F2083 
-X-CRM114-Status: GOOD (  37.47  )
+X-CRM114-CacheID: sfid-20250303_094150_290588_17074BF8 
+X-CRM114-Status: GOOD (  11.74  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,180 +118,45 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============5678141631442794746=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
---===============5678141631442794746==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="iy8VECc0OPgXD57M"
-Content-Disposition: inline
-
-
---iy8VECc0OPgXD57M
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-On Fri, Feb 28, 2025 at 05:20:28PM +0800, Inochi Amaoto wrote:
-> On Fri, Feb 28, 2025 at 04:46:22PM +0800, Inochi Amaoto wrote:
-> > On Fri, Feb 28, 2025 at 02:34:00PM +0800, Inochi Amaoto wrote:
-> > > On Tue, Feb 25, 2025 at 11:35:23PM +0000, Conor Dooley wrote:
-> > > > On Tue, Feb 25, 2025 at 07:48:59AM +0800, Inochi Amaoto wrote:
-> > > > > On Mon, Feb 24, 2025 at 06:54:51PM +0000, Conor Dooley wrote:
-> > > > > > On Sat, Feb 22, 2025 at 08:34:10AM +0800, Inochi Amaoto wrote:
-> > > > > > > On Fri, Feb 21, 2025 at 05:01:41PM +0000, Conor Dooley wrote:
-> > > > > > > > On Fri, Feb 21, 2025 at 09:37:55AM +0800, Inochi Amaoto wro=
-te:
-> > > > > > > > > The pcie controller on the SG2044 is designware based with
-> > > > > > > > > custom app registers.
-> > > > > > > > >=20
-> > > > > > > > > Add binding document for SG2044 PCIe host controller.
-> > > > > > > > >=20
-> > > > > > > > > Signed-off-by: Inochi Amaoto <inochiama@gmail.com>
-> > > > > > > > > ---
-> > > > > > > > >  .../bindings/pci/sophgo,sg2044-pcie.yaml      | 125 ++++=
-++++++++++++++
-> > > > > > > > >  1 file changed, 125 insertions(+)
-> > > > > > > > >  create mode 100644 Documentation/devicetree/bindings/pci=
-/sophgo,sg2044-pcie.yaml
-> > > > > > > > >=20
-> > > > > > > > > diff --git a/Documentation/devicetree/bindings/pci/sophgo=
-,sg2044-pcie.yaml b/Documentation/devicetree/bindings/pci/sophgo,sg2044-pci=
-e.yaml
-> > > > > > > > > new file mode 100644
-> > > > > > > > > index 000000000000..040dabe905e0
-> > > > > > > > > --- /dev/null
-> > > > > > > > > +++ b/Documentation/devicetree/bindings/pci/sophgo,sg2044=
--pcie.yaml
-> > > > > > > > > @@ -0,0 +1,125 @@
-> > > > > > > > > +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> > > > > > > > > +%YAML 1.2
-> > > > > > > > > +---
-> > > > > > > > > +$id: http://devicetree.org/schemas/pci/sophgo,sg2044-pci=
-e.yaml#
-> > > > > > > > > +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> > > > > > > > > +
-> > > > > > > > > +title: DesignWare based PCIe Root Complex controller on =
-Sophgo SoCs
-> > > > > > > > > +
-> > > > > > > > > +maintainers:
-> > > > > > > > > +  - Inochi Amaoto <inochiama@gmail.com>
-> > > > > > > > > +
-> > > > > > > > > +description: |+
-> > > > > > > > > +  SG2044 SoC PCIe Root Complex controller is based on th=
-e Synopsys DesignWare
-> > > > > > > > > +  PCIe IP and thus inherits all the common properties de=
-fined in
-> > > > > > > > > +  snps,dw-pcie.yaml.
-> > > > > > > > > +
-> > > > > > > > > +allOf:
-> > > > > > > > > +  - $ref: /schemas/pci/pci-host-bridge.yaml#
-> > > > > > > > > +  - $ref: /schemas/pci/snps,dw-pcie.yaml#
-> > > > > > > > > +
-> > > > > > > > > +properties:
-> > > > > > > > > +  compatible:
-> > > > > > > > > +    const: sophgo,sg2044-pcie
-> > > > > > > > > +
-> > > > > > > > > +  reg:
-> > > > > > > > > +    items:
-> > > > > > > > > +      - description: Data Bus Interface (DBI) registers
-> > > > > > > > > +      - description: iATU registers
-> > > > > > > > > +      - description: Config registers
-> > > > > > > > > +      - description: Sophgo designed configuration regis=
-ters
-> > > > > > > > > +
-> > > > > > > > > +  reg-names:
-> > > > > > > > > +    items:
-> > > > > > > > > +      - const: dbi
-> > > > > > > > > +      - const: atu
-> > > > > > > > > +      - const: config
-> > > > > > > > > +      - const: app
-> > > > > > > > > +
-> > > > > > > > > +  clocks:
-> > > > > > > > > +    items:
-> > > > > > > > > +      - description: core clk
-> > > > > > > > > +
-> > > > > > > > > +  clock-names:
-> > > > > > > > > +    items:
-> > > > > > > > > +      - const: core
-> > > > > > > > > +
-> > > > > > > > > +  dma-coherent: true
-> > > > > > > >=20
-> > > > > > > > Why's this here? RISC-V is dma-coherent by default, with dm=
-a-noncoherent
-> > > > > > > > used to indicate systems/devices that are not.
-> > > > > > >=20
-> > > > > > > The PCIe is dma coherent, but the SoC itself is marked as
-> > > > > > > dma-noncoherent.
-> > > > > >=20
-> > > > > > By "the SoC itself", do you mean that the bus that this device =
-is on is
-> > > > > > marked as dma-noncoherent?=20
-> > > > >=20
-> > > > > Yeah, I was told only PCIe device on SG2044 is dma coherent.
-> > > > > The others are not.
-> > > > >=20
-> > > > > > IMO, that should not be done if there are devices on it that ar=
-e coherent.
-> > > > > >=20
-> > > > >=20
-> > > > > It is OK for me. But I wonder how to handle the non coherent devi=
-ce
-> > > > > in DT? Just Mark the bus coherent and mark all devices except the
-> > > > > PCIe device non coherent?
-> > > >=20
-> > > > Don't mark the bus anything (default is coherent) and mark the devi=
-ces.
-> > >=20
-> > > I think this is OK for me.
-> > >=20
-> >=20
-> > In technical, I wonder a better way to "handle dma-noncoherent".
-> > In the binding check, all devices with this property complains=20
-> >=20
-> > "Unevaluated properties are not allowed ('dma-noncoherent' was unexpect=
-ed)"
-> >=20
->=20
-> > It is a pain as at least 10 devices' binding need to be modified.
-> > So I wonder whether there is a way to simplify this.
-> >=20
->=20
-> Ignore this, I misunderstood the dma device. it seems like=20
-> only dmac and eth needs it.
-
-Nah, not gonna ignore it ;) You do make a valid point about it being
-painful, but given you mention a different master for the pci device,
-having two different soc@<foo> nodes sounds like it might make sense.
-One marked dma-noncoherent w/ the existing devices and one that is
-unmarked (since that's default) to represent the master than pci is on?
-
---iy8VECc0OPgXD57M
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZ8XhHAAKCRB4tDGHoIJi
-0iEOAQDHZ4vcXR1XFxlZa5wZOaYlkyWg7C1a+pAsr9m1gQmy7wD/RXNdGcCfafWf
-/S3g0f02l1q/FIz0KqPemwNYalIihwg=
-=Dt3i
------END PGP SIGNATURE-----
-
---iy8VECc0OPgXD57M--
+On 03/03/2025 15:36, Michal Wilczynski wrote:
+> Add device tree bindings for the TH1520 Video Output (VO) subsystem
+> clock controller. The VO sub-system manages clock gates for multimedia
+> components including HDMI, MIPI, and GPU.
+> 
+> Document the VIDEO_PLL requirements for the VO clock controller, which
+> receives its input from the AP clock controller. The VIDEO_PLL is a
+> Silicon Creations Sigma-Delta (integer) PLL typically running at 792 MHz
+> with maximum FOUTVCO of 2376 MHz.
+> 
+> Add a mandatory reset property for the TH1520 VO clock controller that
+> handles the GPU clocks. This reset line controls the GPU CLKGEN reset,
+> which is required for proper GPU clock operation.
+> 
+> The reset property is only required for the "thead,th1520-clk-vo"
+> compatible, as it specifically handles the GPU-related clocks.
+> 
+> This binding complements the existing AP sub-system clock controller
+> which manages CPU, DPU, GMAC and TEE PLLs.
+> 
+> Signed-off-by: Michal Wilczynski <m.wilczynski@samsung.com>
+> ---
+>  .../bindings/clock/thead,th1520-clk-ap.yaml   | 33 ++++++++++++++++--
+>  .../dt-bindings/clock/thead,th1520-clk-ap.h   | 34 +++++++++++++++++++
+>  2 files changed, 64 insertions(+), 3 deletions(-)
 
 
---===============5678141631442794746==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+Where is the changelog? Why is this v1? There was extensive discussion
+for many versions, so does it mean all of it was ignored?
+
+Best regards,
+Krzysztof
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============5678141631442794746==--
-
