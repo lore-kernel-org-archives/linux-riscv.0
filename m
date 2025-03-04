@@ -4,89 +4,150 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 020F0C021B8
-	for <linux-riscv@archiver.kernel.org>; Tue,  4 Mar 2025 09:02:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EFE1FC021B8
+	for <linux-riscv@archiver.kernel.org>; Tue,  4 Mar 2025 09:14:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=rwdpJIKoHP7sTexsCS9Hi4794R4nDo7TB0+o3GNpIcU=; b=RHs7YiUZSofUfG
-	yPNK1MNAekPq30Hftfn73E2ZPoWPkPaACM9asdOAhEbKMoMJBZEcuVBZyM8dEdMejbgTHx9Ej2Ck2
-	Qm0QHD6IVd8CS6/jrPvuqjQIRJgWPjD6GWSs0hM8k3FOqy46P/tjVlo81gRgsQNxqymWWq0/1TVsM
-	Q48LcX25uAkT+DxdwuwSgrvqyfIiYzt/cKieUs0QaI9h1dDfYXbJjW3n2oFe91GD12E0EV8cTTLzc
-	lo0X/XLL/n2BASqUxE5Ps7NI4cH2YtfbqcX26H+iE2C1/THaUigHwhglC0RUvLu484H4feMfQDESf
-	8+ZWm98tXW8spht+NNdw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:Cc:To:Subject:
+	From:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=23PfqrzNd8Z2KmEIn9+ayv83MbjKCHWUg7AXDtNH2SA=; b=UbpQHm2d/yAii02iQWUyqpXSf+
+	C5//PFy4nt9Md9MDfBE4B0eqaL0XHjLLiGkp52mqeAa+/fRGU/7DVeEff/0RNfhidDQygPkunPfk9
+	YRTwFJLS5XZ0DzGdeaRg0tP7ZDyqKATQ1Sci/vfUHx+iI4Jm+zSpbjEkirNDhHgMFWDJnmoC7cRdY
+	WyCijWbcpVDHc0gZmVOF/cUAN51RCvwuXT9WHzMZ/tAqC82cbsuXGrRMQsU5uv2583gMVZZtHhluQ
+	ONkkuufVSZQ8k3kY4nHaQBJNUIZl+r2gfMU15gZcHhkfL3zrkQ95xGIhULmsesydma5Zo9s7rcqV3
+	/zEd2uFA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpOAW-00000003lHh-476b;
-	Tue, 04 Mar 2025 09:02:28 +0000
-Received: from mail-ua1-x934.google.com ([2607:f8b0:4864:20::934])
+	id 1tpOM5-00000003pA5-2tu0;
+	Tue, 04 Mar 2025 09:14:25 +0000
+Received: from mail-dbaeur03olkn20806.outbound.protection.outlook.com ([2a01:111:f403:2e0d::806] helo=EUR03-DBA-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpOAU-00000003lGd-2TRg
+	id 1tpOM2-00000003p7T-41TZ
 	for linux-riscv@lists.infradead.org;
-	Tue, 04 Mar 2025 09:02:27 +0000
-Received: by mail-ua1-x934.google.com with SMTP id a1e0cc1a2514c-86929964ed3so4841225241.0
-        for <linux-riscv@lists.infradead.org>; Tue, 04 Mar 2025 01:02:25 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sifive.com; s=google; t=1741078945; x=1741683745; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=kHhfxt/F9VYJEMZWHBt7TIGLZbK9Gj/o15ch1mv6/fM=;
-        b=iMoaRzAhSyjGWjhU4obh4wKj348rWS6IJfqvEqOEOmXvVXdHmj5EuTD38CK7vWoHCV
-         fvJ0quRVk8rsOfo0Eh/IijdF+nNautDH3klk2evcqjg8boHVoSCML0yVPLf8Dzmvh5EP
-         70Kox6kawibrIheAkQu62RW2LrQ3uTB/ZCTiDXNWrZ03B09L+RBzRstKc+xWj2TacUsq
-         3H8hKQ2QEevIpJwiuczdZKTjNyKss040pTqDWDzzq6+j9D67xfoW9ZkLuXMJQ5vlqvwN
-         Vt/72GjhI+soXL4MZerJeSMcDPgfq67ulaUyvPSVF9g7ekuG+GZG5jPRXmqSxE3ol9lR
-         rPdQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1741078945; x=1741683745;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=kHhfxt/F9VYJEMZWHBt7TIGLZbK9Gj/o15ch1mv6/fM=;
-        b=AVyEvIc0o00itAhLZLMcruekKnGTCxNrkwsfYXVqCutWBUWIMzMrVVRic6Y79t+fRp
-         dFZWl9ZrbRKGYGFHdp7jOO2WyPvInQ47ykG7stewyNALapngoGiDvNrQlBBBBcefwoKE
-         xr/JZ7qi4DmiVjiqpWTPy4lr2jn1YJRRQujfgnB2IVE8ABd3OXJLvD6npBNDJR1kNBx6
-         TipFpahd9ouOu5fuGlARFPgNlcGIokHbVEUs1PsYohyG5Zk/TUICVY+0UAMObE8MrvKl
-         Y4HAtV/ZXbq8rBtRMJf1qdCmfmD6pUzQFjwPRK1eePgAEy6yvTLpzyOmgbUFAcBesB5k
-         LWfw==
-X-Forwarded-Encrypted: i=1; AJvYcCXfcb6nWL5O2Hd27NB+kLoCRz1Ts8e8V6HzbvXKDnmDS4geqxj6F9/PUC58HJI/5ZjS0r+IIR93oAu0PA==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzpw++Y67Y1OOhe3ApsBY8iD02uS25gTlXkB8W9qfaN+JKHFdmb
-	05KYCAAot8DbUebwB9xwMdw2XbZEvimv/DhYwT4ByFv7llaj1GasEAmXg+K34xZeEgGiYKDmiZc
-	c4Pap9OiFbH4QR23+PXTR+oCNFW2eWSi5H/2NXQ==
-X-Gm-Gg: ASbGncszSgQuy4BIAK3awBGMcILWZ+NSASciaP8tgOQ7SQnbxFXGHArqf7ni6hnnd5N
-	cJwQBVCPGJnbqYe+Kj8fGh84UYcxJYglcMI6gxAz9EAFvFiUkpuae8pKYNsx4fRrGF/K6vExeWy
-	Ycn9UjdnV3Mvyw0+f9OFYs/ZGM+7Ei
-X-Google-Smtp-Source: AGHT+IE+NGonMa9x6tx3hTAC6JJ2acGmU95KDumJyPPEYsvv1984PUWQmP4MK//XiwgrQPqZuV+47KFn1mDTkh4WWnY=
-X-Received: by 2002:a05:6102:3f4a:b0:4c0:3349:cc4 with SMTP id
- ada2fe7eead31-4c0448efd2emr11486700137.3.1741078944773; Tue, 04 Mar 2025
- 01:02:24 -0800 (PST)
+	Tue, 04 Mar 2025 09:14:24 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=gulnPnD8x3x1SYULjxj8ptD8uI6ynVoPoqCmKEq+98w2LBmeQf4HXCR2gq7B7vD2jPua5nddLs/vc4+ifFEwWOR9UFcd0rvVfMVw7t2ltKAr3DDm3OtX21SbmwPi6qIuDyJrXF45TK+ElYQC+PVTB0/inGc9ISHxrtX56Daax3J4dpWARCw5ts8WO4wXoBfTJZyh99Zpf+XnUbxB05RSRoRuc9ScBd4B75PFJw/WHjYHUWePaA6gEXLz0JjgG3XQeNjwvoNVwaFFtu/q9qKXJFuzxf9gSypzy0qpYWeXx/pL462+a+JknPSNT8mlHoPiThfTSlzyAFYk2KxK71gOXg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=8CON3xMIzZ1I73D8GqeQIcQeOC6esXQUwHkXve8c5Bg=;
+ b=LPXXR3xhOUVXVkPZrg4XwYcXpio7f4gAvOTklfTo705E+/aqSiL0iIpHjzuohNqdCSNE7ydJbafltRHKLu/OG/kDWmcAVqPUNMzmiNAl4rdXC+2O4VcZyU7RWYPC+lkzPBHQlg7TTTZBu5v/W3/B5XniX+ll2UoALFbHggfLdc4FWp1d4IH9GLKethv90bqHN34ZKseTYoeWze4zRGrK6asw6nISbWKJLqsCbX5vNxC1zdMYzhf8sZyxMDOJM4B7KssYsMCl+rJAAREqsbYJzd77UCCDXEbsah55DArBhS+IqvGEklZEL3xZ4dOhvH0yImMQnUC/7IY9ALL9szI38A==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
+ dkim=none; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=hotmail.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=8CON3xMIzZ1I73D8GqeQIcQeOC6esXQUwHkXve8c5Bg=;
+ b=YoQAjh6DpNQVHMqPe0Rrg75MZLy+xs24159t97AtBqJJ2uOOLyD8SbSfebpqB8LSWv5AmrLaxCklhzVp4QWh7fcfDgrmYfzVEYz5FGUXKA6jL+WZd9mvVpkRB4CpVU1xL9a8BjuoGrhCwDYuQjcz3ZiNhbJPNuVUIsyP3I1pCz9n/Ojsamr/Nqjc+Nx7vFSEWtOqwJC/gd4r1ynO9+SWIBqGefqBd16S8/kSnjdWAOWJdu+PFM3zfNbU2rLMtVixF/PLHAT5+eIGCBvCf9hRaOTkgL+WQamc7yO7yiQ8D0hkcp7iW8+qIjEAFzlpsFPkX+7uXZNwEUcrEFNagoAsqw==
+Received: from AM7P189MB1009.EURP189.PROD.OUTLOOK.COM (2603:10a6:20b:175::17)
+ by AS8P189MB2095.EURP189.PROD.OUTLOOK.COM (2603:10a6:20b:527::8) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8466.28; Tue, 4 Mar
+ 2025 09:14:16 +0000
+Received: from AM7P189MB1009.EURP189.PROD.OUTLOOK.COM
+ ([fe80::e9f1:a878:e797:ee1a]) by AM7P189MB1009.EURP189.PROD.OUTLOOK.COM
+ ([fe80::e9f1:a878:e797:ee1a%2]) with mapi id 15.20.8511.015; Tue, 4 Mar 2025
+ 09:14:15 +0000
+Message-ID: <AM7P189MB100970D57C974DD7CC5DB156E3C82@AM7P189MB1009.EURP189.PROD.OUTLOOK.COM>
+Date: Tue, 4 Mar 2025 10:14:14 +0100
+User-Agent: Mozilla Thunderbird
+From: Maud Spierings <maud_spierings@hotmail.com>
+Subject: Re: [PATCH v2 2/2] spi: sophgo: add SG2044 SPI NOR controller driver
+To: Longbin Li <looong.bin@gmail.com>, Mark Brown <broonie@kernel.org>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Paul Walmsley
+ <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Albert Ou <aou@eecs.berkeley.edu>, Chen Wang <unicorn_wang@outlook.com>,
+ Inochi Amaoto <inochiama@gmail.com>
+Cc: linux-spi@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+ sophgo@lists.linux.dev
+References: <20250304083548.10101-1-looong.bin@gmail.com>
+ <20250304083548.10101-3-looong.bin@gmail.com>
+Content-Language: en-US
+In-Reply-To: <20250304083548.10101-3-looong.bin@gmail.com>
+X-ClientProxiedBy: AM0PR03CA0030.eurprd03.prod.outlook.com
+ (2603:10a6:208:14::43) To AM7P189MB1009.EURP189.PROD.OUTLOOK.COM
+ (2603:10a6:20b:175::17)
+X-Microsoft-Original-Message-ID: <952fad9d-e138-4a0b-8879-3a70239f9233@hotmail.com>
 MIME-Version: 1.0
-References: <20241224093902.1632627-1-nylon.chen@sifive.com>
- <zqkx7cx5nalslfmxeoxdnsjbvrvzajrjybsmsyeyc65a64sntr@gpc5qp6aoyp7>
- <CAHh=Yk-_0rKB=FG6Voif2MDjtRxzUA5vXDP2J-o5=8ru1ewt0w@mail.gmail.com>
- <CAHh=Yk-TosOmwEughfK9mMx-=DgzWK5H_bf6H641SGh1ue8BrA@mail.gmail.com>
- <zneb3qwgf52zitcbq4wz76shnmhwfkabbsts3sussjpc5s5tsz@uneaxdfp4m2f>
- <CAHh=Yk_oTdURhkna_saF6mrA9gDY=+v_j5NoY_7jTDLuZ=EXtg@mail.gmail.com>
- <7bcnckef23w6g47ll5l3bktygedrcfvr7fk3qjuq2swtoffhec@zs4w4tuh6qvm>
- <5robb7ipl346daf3lqaqnsi3fcgj3wzmch5dqit2dczdyeknmv@dqft77bhwryg> <CAHh=Yk-p69ppWWspEzzznhDnuk3i6dRGKzUaqZCwg_uAxB3FVA@mail.gmail.com>
-In-Reply-To: <CAHh=Yk-p69ppWWspEzzznhDnuk3i6dRGKzUaqZCwg_uAxB3FVA@mail.gmail.com>
-From: Nylon Chen <nylon.chen@sifive.com>
-Date: Tue, 4 Mar 2025 17:02:13 +0800
-X-Gm-Features: AQ5f1Jp7DGsp1Vyy94pQwTGcyJhhurEJDZS278bFkBXavKP5rDxyvxdNjmgaOc0
-Message-ID: <CAHh=Yk8kC1+D4dPQ7iAtn1WSPSk+OU6vwEyGF9VZAS5o5gPHmA@mail.gmail.com>
-Subject: Re: [PATCH v10 0/3] Change PWM-controlled LED pin active mode and algorithm
-To: =?UTF-8?Q?Uwe_Kleine=2DK=C3=B6nig?= <u.kleine-koenig@baylibre.com>
-Cc: linux-kernel@vger.kernel.org, linux-pwm@vger.kernel.org, 
-	devicetree@vger.kernel.org, Paul Walmsley <paul.walmsley@sifive.com>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Samuel Holland <samuel.holland@sifive.com>, linux-riscv@lists.infradead.org
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AM7P189MB1009:EE_|AS8P189MB2095:EE_
+X-MS-Office365-Filtering-Correlation-Id: 9a292060-70b4-42d9-b687-08dd5afcef3f
+X-Microsoft-Antispam: BCL:0;ARA:14566002|5072599009|6090799003|15080799006|19110799003|8060799006|461199028|3412199025|440099028|41001999003;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?bUxJTmhUQ0IrdmVCRXBtMG1rYmlObHZsSmgxUGtJcjdHOUVyZEpCNDJWQ2t1?=
+ =?utf-8?B?NmFDQ0NLQUoxQkFXNEViQVEvYTkxemNvaGVKaXRqUzFEQTc0Z1hDbk9QZytL?=
+ =?utf-8?B?bXFjdS8vN1NYNkhLVzkvdXVlci9qZUE4L0FjRlhCbnM0WU9abmJuVU9TSE9Y?=
+ =?utf-8?B?TGtpVW5Lc05KRW9MVURFeEovNEQrUWt1Vm5BeFJGUzRIQm0xNWVGMStLcGVP?=
+ =?utf-8?B?Q1ZpSXl6T0piR3FwZXlIVlRIMTZqd1Bmcy9wUm04Yk90RFNzNUY4OEU1aUhE?=
+ =?utf-8?B?TlJhNlhGajR5WkZZTWxLL1Z4NzIxV1lsVS9NWHdNSThsR1lGSldIeE1vclJU?=
+ =?utf-8?B?Tld6NkdhUHBCMzloYzVtS3BIWEFORy9wWVlscEdWUEd3SmtDdU5KbjJDNlJ2?=
+ =?utf-8?B?RjFvc3RVQ0xIOEVoNDYwbER6ZERucVJtM25Hd1AzQ0lUdVFKM3hXeVZRTDB6?=
+ =?utf-8?B?eDZyOE9qZ2lWWlpWSXRFVzhqRHZXU0dOclF0eGRNWWc5Q3ZCc2ZaSU5Gb00y?=
+ =?utf-8?B?KzM5OCttYis2Q0JxWlBJTDNxMVNIT3VDamZIZHgvMkxYWlpaVi9rYVg0Uitt?=
+ =?utf-8?B?M2RYY3pMT0NKVm5ySE9HQ3RyRThLVmFLWDFnVHNjejZPQUQxY2UrT3lBa3lD?=
+ =?utf-8?B?WVB2NFpUY2pRd21DTXdCWjcrWVgvYVdEclBMUGhNeXk1R2podXpabmVNMDIy?=
+ =?utf-8?B?UUVaanlPMjQzaDNISnhsd0poaHJsRXJqQlpGb2IyT1o3bC9zRnFRVE04WE85?=
+ =?utf-8?B?ZnNsbWZwR1BQNHMvN2dWTW1ZazAwZXJjK2F0MXAyRFZTMnhTd1R1V0ttdzJz?=
+ =?utf-8?B?VHpyVTQzb3V6WGttcVQyR0xXYjZ5WGNjYjRkbjFBcGdZb1BiKzNvOS94Wmhm?=
+ =?utf-8?B?VkJWTmgxb0JZOGtSV3VGakZSR0hVZmpMK2YrbnJXNlVjZUVSeVZBQVNzN1lY?=
+ =?utf-8?B?OXpJTDRGNkV3ZzdTNjFPS3FER1EwYzZUVFpaMXNlRzF1cUcyaGdzWmF5cDF5?=
+ =?utf-8?B?SGpzZDhWdVRubXRndHI3OGJTUDd5VzAvYnByZEdRVnNrZnFkc0R6WDJXaFZu?=
+ =?utf-8?B?MjFBdUtvWmgwS2FsNVN0VE9VNUlLL29ycXpMbFpwVG1sakFSNnhlcHJPUzlj?=
+ =?utf-8?B?bGQxSFh3Zmc1SjNxZjM3TExyNDduZ21vNFZNYkpnek5YbC8zdEl3bllKSVdY?=
+ =?utf-8?B?eGkzdWN5MHpuUFFlcHIxT3FUZ1BZajFBUm9pTmhRRVYzbGFLWE9SaU5kRGRI?=
+ =?utf-8?B?dTZucHpZenFaeDlrUGQ5dm1hdmU5Tnc2d0lKMmJQaEd1L04rRkJuMG1Qcm1h?=
+ =?utf-8?B?aXRxcVFQbmpmWjNkaDNwV29ZVmZGK1FtWFcxbnFLUVh3SUFYQlVlcFF4bW4y?=
+ =?utf-8?B?VU00M0JOUlVyeHZ1eSt1OG44anltek9jcUVDZ0dKQnZlaERFRzd0djFCdExj?=
+ =?utf-8?B?SjlieEl6Y0hiQnJXZVNmaVFyYWozaSthR1ZJZlpjSVlwUmt0TWRzVXR4MkRB?=
+ =?utf-8?Q?2R7jv4=3D?=
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?UE5xVUs5dk4rM2F6TnQxYVZOR0FzRHZMNGRlVzRlWHB4RktTdU5wdHhhMTJR?=
+ =?utf-8?B?Y05NYmhKUDUxSmNHbk8yWDQ1eTZjSnNzOTAwekpRc3drQU5xL284TDR0V0Z2?=
+ =?utf-8?B?MU1lZk1HVmhxeDl3SzhReDB6azhvK002M2N5MXp2VmJweGV3SGJwMXZwTEU3?=
+ =?utf-8?B?TFpMdmVZZVVvcmpmNkxTVGZjR2pFOGcyc0pmN2ZoK1FDdERyaHdpeklYY1Ji?=
+ =?utf-8?B?WElqUlBBWERBL2hWRlB0N0dVUkdjbFFvNGdjTXB2OE1Rei9mMXc5REhvZ1NF?=
+ =?utf-8?B?dEpPcm1zVXJPc29oQzJOVzhETnFTYWJtU011VGY2b0xwSXNVYmRYUC8wVTVD?=
+ =?utf-8?B?ZzV6TVVKbmFNOTB1eEUzYzlRdHk1MkZFZUtEVm8yMGxKSXZUNzBzQ3d0STAv?=
+ =?utf-8?B?VmlpYWhXOVQwU3RkSWxidzhYYW0vOTNRYXI0dWZ1V0ZyVXV1YXJVUFNLdy82?=
+ =?utf-8?B?MWREeXpBN2gzVGxzTnFaNlVmdFgzZTNNeHpYdFk4SEF6RVlEMCtoYW5VK0hW?=
+ =?utf-8?B?cElJWnQveWdVVy9LaFFSa0RDMWRkTVJyYWptSk1XWDBTTFN4Y29mS1o4TEpO?=
+ =?utf-8?B?anN1VmdaT0I5Y25jQm5aTEFjbDRtVWlwVFRHdk5tQlJlMkZTM1p6UnhqcktE?=
+ =?utf-8?B?aG9CQjkzQm5ZdHQ5M1IzYUdUZ01CaWJlTDY5RmF2bkRhTDMrcGRUUUtaM3NT?=
+ =?utf-8?B?dXBGVFc3cnkvc3A0cmxUNG1OWVNrTjNpM1ZhTWtjQkw4QkFkMVhxV1Frd1Bo?=
+ =?utf-8?B?Tzd1TXFPdnYwYnAyTC9XNEx1RUt2UzBWOWZTSFhocXJ0UmhIdkFDTnJLZVJ6?=
+ =?utf-8?B?Sk5OejA3bGFPempQSkhCLzhJK3pETE9uZEE1WTNXZWZKNE5nRkhoQk5OSmF4?=
+ =?utf-8?B?ZFVza0ZFbk9PVTRITnQ2UGRPTEVRRGtTYW9jbUtpa2dPRDZzclZrckRqYS9Z?=
+ =?utf-8?B?SFhyd1RFOG1paXVhUnUzQkpYVkFId0ZYcUkvcHRXQXBVd2hHaFY5eVR3aEJL?=
+ =?utf-8?B?OXVQd2MxeGRmNXI1NHdxSXF0dmwzdDVQQ01HTVJvRjFJN1orYjQzM0U1a1pm?=
+ =?utf-8?B?Smx2alVQQUMvdU1UUFRkUzBVaUVpd1Y0WEx6VGF5SEZYbll5RFNhcHZRMWhL?=
+ =?utf-8?B?ek5CeTZYb0JYT3VYaHRGNFB4VGhCRFJDU3VVYW01MU1SdU8xQzBwMUlyRVRh?=
+ =?utf-8?B?T3FLMzVINXVVbExTNDRlclFVdktNUC9zb01vRlZGd0ZJb2FkdjMwN1pzWkZI?=
+ =?utf-8?B?d0oyREUxN2cvWWtFdHNqek1MSGlIV0VZdk1qUEJub0c1ZXJWRnBJR2N6RG5W?=
+ =?utf-8?B?UTA0RmJLR2NCcjZsV1dUMys2a3g4L21pSkpZMWJnYUZVbThqeTRqMmUyWVl6?=
+ =?utf-8?B?YkxNT2xqS1VjV2Z2dkJjWS9KWkd0ckhwYmdxSmpMdVBIU3pXRHljdWdKVU1i?=
+ =?utf-8?B?WUd3U2xXMFZtSXJiSTBQNUlNc3kvYUdJRHdsSTl4NnZGQ1QxNXNLQko3VXR1?=
+ =?utf-8?B?cytRWXNGeHNzMURISURYcU9yYklldGY3OEp4aEpYcTArYm90OEhRTEd0L1Vi?=
+ =?utf-8?B?cXoyRXllYnhJRVhYSmZsQXQ1NlNva1JVYmVGTmtMWndJTURKNXU1NTkrTDZX?=
+ =?utf-8?B?MlBSUkhpZmFoR1RLejdjN2tUajh5SlgrRHJmaXZocE5qeDhwcVFPdmhERmVi?=
+ =?utf-8?B?OVFycG5sV2pwMTJPcitCWkdrODk5RUZEZkcxWXQwNzNQbStjODRqVkU0aDcv?=
+ =?utf-8?Q?pjdc02zqYhT7lqXYVS3cU64VyajZapAr6Tl8RiA?=
+X-OriginatorOrg: sct-15-20-7719-19-msonline-outlook-3b3e0.templateTenant
+X-MS-Exchange-CrossTenant-Network-Message-Id: 9a292060-70b4-42d9-b687-08dd5afcef3f
+X-MS-Exchange-CrossTenant-AuthSource: AM7P189MB1009.EURP189.PROD.OUTLOOK.COM
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 04 Mar 2025 09:14:15.8989
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
+X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8P189MB2095
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250304_010226_649613_8CE2E1EE 
-X-CRM114-Status: GOOD (  26.10  )
+X-CRM114-CacheID: sfid-20250304_011423_165260_C46B7D09 
+X-CRM114-Status: GOOD (  22.49  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,95 +159,572 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Tnlsb24gQ2hlbiA8bnlsb24uY2hlbkBzaWZpdmUuY29tPiDmlrwgMjAyNeW5tDHmnIgyM+aXpSDp
-gLHlm5sg5LiK5Y2IODoyMOWvq+mBk++8mgo+Cj4gVXdlIEtsZWluZS1Lw7ZuaWcgPHUua2xlaW5l
-LWtvZW5pZ0BiYXlsaWJyZS5jb20+IOaWvCAyMDI15bm0MeaciDIy5pelIOmAseS4iSDkuIvljYg3
-OjQ05a+r6YGT77yaCj4gPgo+ID4gSGVsbG8gTnlsb24sCj4gPgo+ID4gSSB0b29rIGFub3RoZXIg
-bG9vayBpbiB0aGUgZHJpdmVyIGFuZCBmb3VuZCBhbm90aGVyIHByb2JsZW06Cj4gSGkgVXdlLCBU
-aGFuayB5b3UgZm9yIHRoZSBpbmZvcm1hdGlvbi4KPgo+IEknbGwgbmVlZCBzb21lIHRpbWUgdG8g
-dmVyaWZ5IGFuZCB1bmRlcnN0YW5kIHRoZXNlIGRldGFpbHMsIGFzIHdlbGwgYXMKPiBjb25kdWN0
-IHRoZSByZWxldmFudCB0ZXN0cwo+ID4KPiA+IE9uIFR1ZSwgSmFuIDIxLCAyMDI1IGF0IDA3OjEy
-OjEwUE0gKzAxMDAsIFV3ZSBLbGVpbmUtS8O2bmlnIHdyb3RlOgo+ID4gPiBPbiBUdWUsIEphbiAy
-MSwgMjAyNSBhdCAwNDo0Nzo0NlBNICswODAwLCBOeWxvbiBDaGVuIHdyb3RlOgo+ID4gPiA+IFV3
-ZSBLbGVpbmUtS8O2bmlnIDx1LmtsZWluZS1rb2VuaWdAYmF5bGlicmUuY29tPiDmlrwgMjAyNeW5
-tDHmnIgyMeaXpSDpgLHkuowg5LiL5Y2IMzo0N+Wvq+mBk++8mgo+ID4gPiA+ID4KPiA+ID4gPiA+
-IEhlbGxvLAo+ID4gPiA+ID4KPiA+ID4gPiA+IE9uIFN1biwgSmFuIDE5LCAyMDI1IGF0IDAzOjAz
-OjE2UE0gKzA4MDAsIE55bG9uIENoZW4gd3JvdGU6Cj4gPiA+ID4gPiA+IEkgcmFuIHNvbWUgYmFz
-aWMgdGVzdHMgYnkgY2hhbmdpbmcgdGhlIHBlcmlvZCBhbmQgZHV0eSBjeWNsZSBpbiBib3RoCj4g
-PiA+ID4gPiA+IGRlY3JlYXNpbmcgYW5kIGluY3JlYXNpbmcgc2VxdWVuY2VzIChzZWUgdGhlIHNj
-cmlwdCBiZWxvdykuCj4gPiA+ID4gPgo+ID4gPiA+ID4gV2hhdCBpcyBjbGtfZ2V0X3JhdGUoZGRh
-dGEtPmNsaykgZm9yIHlvdT8KPiA+ID4gPiAxMzAgTUh6Cj4gPiA+Cj4gPiA+IE9LLCBzbyB0aGUg
-cG9zc2libGUgcGVyaW9kIGxlbmd0aHMgYXJlCj4gPiA+Cj4gPiA+ICAgICAgICgxIDw8ICgxNiAr
-IHNjYWxlKSkgLyAoMTMwIE1IeikKPiA+ID4KPiA+ID4gZm9yIHNjYWxlIGluIFswLCAuLiAxNV0s
-IHJpZ2h0PyBUaGF0J3MKPiA+ID4KPiA+ID4gICAgICAgMl5zY2FsZSAqIDUwNDEyMy4wNzY5MjMw
-NzY5NCBucwo+ID4gPgo+ID4gPiBTbyB0ZXN0aW5nIHBlcmlvZCBpbiB0aGUgcmFuZ2UgYmV0d2Vl
-biA1MDAwIG5zIGFuZCAxNTAwMCBucyBpc24ndAo+ID4gPiBzZW5zaWJsZT8gRGlkIEkgZ2V0IHNv
-bWV0aGluZyB3cm9uZz8gSWYgdGhlIGFib3ZlIGlzIHJpZ2h0LCBzd2l0Y2hpbmcKPiA+ID4gYmV0
-d2VlbiBwZXJpb2Q9MTAwODI0NiBucyBhbmQgMTAwODI0NyBucyBpcyBsaWtlbHkgdG8gdHJpZ2dl
-ciBhCj4gPiA+IHdhcm5pbmcuCj4gPgo+ID4gVGhlIHBvc3NpYmxlIHBlcmlvZHMgYXJlIG9mIHRo
-ZSBmb3JtCj4gPgo+ID4gICAgICAgICAyXnNjYWxlICogQQo+ID4KPiA+IHdoZXJlIEEgaXMgY29u
-c3RhbnQgYW5kIG9ubHkgZGVwZW5kcyBvbiB0aGUgaW5wdXQgY2xvY2sgcmF0ZS4gc2NhbGUKPiA+
-IHJhbmdlcyBvdmVyIFswLCAuLi4gMTVdLiAoSWYgSSBnb3QgaXQgcmlnaHQgaW4gbXkgbGFzdCBt
-YWlsLCB3ZSBoYXZlIEEgPQo+ID4gNTA0MTIzLjA3NjkyMzA3Njk0IG5zLikKPiA+Cj4gPiBJZiB5
-b3UgcmVxdWVzdCBzYXk6Cj4gPgo+ID4gICAgICAgICAucGVyaW9kID0gMy45ICogQQo+ID4gICAg
-ICAgICAuZHV0eV9jeWNsZSA9IDEuOSAqIEEKPiA+Cj4gPiB0aGUgcGVyaW9kIGFjdHVhbGx5IGVt
-aXR0ZWQgYnkgdGhlIFBXTSB3aWxsIGJlIDIgKiBBLiBCdXQgdG8gY2FsY3VsYXRlCj4gPiBmcmFj
-IHRoZSBvcmlnaW5hbGx5IHJlcXVlc3RlZCBwZXJpb2QgKGkuZS4gMy45ICogQSkgaXMgdXNlZC4g
-U28gZnJhYwo+ID4gYmVjb21lcyAzMTkyNyByZXN1bHRpbmcgaW4gLmR1dHlfY3ljbGUgYmVpbmcg
-fjAuOTc0IEEuIEEgYmV0dGVyIHZhbHVlCj4gPiB3b3VsZCBiZSBmcmFjID0gNjIyNTkgd2hpY2gg
-cmVzdWx0cyBpbiAuZHV0eV9jeWNsZSDiiYUgMS45ICogQS4KPiA+IChEZXBlbmRpbmcgb24gQSB0
-aGUgdmFsdWVzIGZvciBmcmFjIG1pZ2h0IGJlIG9mZiBieSBvbmUgZHVlIHRvIHJvdW5kaW5nCj4g
-PiBkaWZmZXJlbmNlcy4pCj4gPgo+ID4gU28gSSB3b3VsZCBleHBlY3QgdGhhdCBQV01fREVCVUcg
-aXMgYW5ncnkgd2l0aCB5b3UgaWYgeW91IGdvIGZyb20KPiA+Cj4gPiAgICAgICAgIC5wZXJpb2Qg
-PSAyICogQQo+ID4gICAgICAgICAuZHV0eV9jeWNsZSA9IDEuOSAqIEEKPiA+Cj4gPiB0bwo+ID4K
-PiA+ICAgICAgICAgLnBlcmlvZCA9IDMuOSAqIEEKPiA+ICAgICAgICAgLmR1dHlfY3ljbGUgPSAx
-LjkgKiBBCj4gPgo+ID4gLgo+ID4KPiA+IEJlc3QgcmVnYXJkcwo+ID4gVXdlCgpIaSBVd2UsIEJh
-c2VkIG9uIHlvdXIgc3VnZ2VzdGlvbnMsIEkgY29uZHVjdGVkIHJlbGV2YW50IHRlc3RzIGFuZApj
-b3JyZWN0ZWQgYWxnb3JpdGhtIGVycm9ycy4KCkFjY29yZGluZyB0byB0aGlzIHRlc3QgcHJvZ3Jh
-bSwgSSBjYW4gbWFrZSB0aGUgc3lzdGVtIGdlbmVyYXRlIHJlbGF0ZWQKZXJyb3IgbWVzc2FnZXMg
-b24gdjEwJ3MgcGF0Y2hzZXQuCgplLmcuClsgNzUuMDQzNjUyXSBwd20tc2lmaXZlIDEwMDIxMDAw
-LnB3bTogLmFwcGx5IGlzIHN1cHBvc2VkIHRvIHJvdW5kIGRvd24KZHV0eV9jeWNsZSAocmVxdWVz
-dGVkOiAzNjAvNTA0MDAwLCBhcHBsaWVkOiAzNjEvNTA0MTI0KQpbIDc1LjA1NTA0Ml0gcHdtLXNp
-Zml2ZSAxMDAyMTAwMC5wd206IC5hcHBseSBpcyBzdXBwb3NlZCB0byByb3VuZCBkb3duCnBlcmlv
-ZCAocmVxdWVzdGVkOiA1MDQwMDAsIGFwcGxpZWQ6IDUwNDEyNCkKClBXTUNISVA9MQpQV01DSEFO
-TkVMPTAKUEVSSU9EPTUwNDAwMApTVEVQPTEKTUFYX0RVVFk9NTA0MDAwCgplY2hvIDAgPiAvc3lz
-L2NsYXNzL3B3bS9wd21jaGlwJHtQV01DSElQfS9leHBvcnQKCmVjaG8gJFBFUklPRCA+IC9zeXMv
-Y2xhc3MvcHdtL3B3bWNoaXAke1BXTUNISVB9L3B3bSR7UFdNQ0hBTk5FTH0vcGVyaW9kCmVjaG8g
-IlNldCBwZXJpb2QgdG8gJFBFUklPRCBucyAoc2NhbGU9MCByZWdpb24pIgoKQ09VTlQ9JCgoTUFY
-X0RVVFkgLyBTVEVQKSkKZWNobyAiVGVzdGluZyBkdXR5LWN5Y2xlIGZyb20gMCB0byAkTUFYX0RV
-VFkgaW4gc3RlcCBvZiAkU1RFUC4uLiIKZWNobyAiVG90YWwgc3RlcHMgKGZvcndhcmQpOiAkKChD
-T1VOVCsxKSkiCgoKQ1VSUkVOVD0wCndoaWxlIFsgJENVUlJFTlQgLWxlICRNQVhfRFVUWSBdOyBk
-bwogICAgZWNobyAkQ1VSUkVOVCA+IC9zeXMvY2xhc3MvcHdtL3B3bWNoaXAke1BXTUNISVB9L3B3
-bSR7UFdNQ0hBTk5FTH0vZHV0eV9jeWNsZQogICAgQ1VSUkVOVD0kKChDVVJSRU5UICsgU1RFUCkp
-CmRvbmUKCmVjaG8gIk5vdyBkbyBhIGJhY2t3YXJkIHRlc3QgZnJvbSAkTUFYX0RVVFkgZG93biB0
-byAwIGluIHN0ZXAgb2YgJFNURVAuLi4iCmVjaG8gIlRvdGFsIHN0ZXBzIChiYWNrd2FyZCk6ICQo
-KENPVU5UKzEpKSIKCgpDVVJSRU5UPSRNQVhfRFVUWQp3aGlsZSBbICRDVVJSRU5UIC1nZSAwIF07
-IGRvCiAgICBlY2hvICRDVVJSRU5UID4gL3N5cy9jbGFzcy9wd20vcHdtY2hpcCR7UFdNQ0hJUH0v
-cHdtJHtQV01DSEFOTkVMfS9kdXR5X2N5Y2xlCiAgICBDVVJSRU5UPSQoKENVUlJFTlQgLSBTVEVQ
-KSkKZG9uZQoKCmVjaG8gMCA+IC9zeXMvY2xhc3MvcHdtL3B3bWNoaXAke1BXTUNISVB9L3B3bSR7
-UFdNQ0hBTk5FTH0vZW5hYmxlCmVjaG8gJHtQV01DSEFOTkVMfSA+IC9zeXMvY2xhc3MvcHdtL3B3
-bWNoaXAke1BXTUNISVB9L3VuZXhwb3J0CgplY2hvICJEb25lISIKCkJhc2VkIG9uIHlvdXIgcHJl
-dmlvdXMgc3VnZ2VzdGlvbnMsIEkgaGF2ZSBtYWRlIHRoZSBmb2xsb3dpbmcgcmVsYXRlZAptb2Rp
-ZmljYXRpb25zLCBhbmQgbm93IEknbSBhYmxlIHRvIGZpeCB0aGUgcmVsZXZhbnQgZXJyb3JzLgoK
-QnV0IEkgd2FudCB0byBtYWtlIHN1cmUgbXkgdW5kZXJzdGFuZGluZyBhbGlnbnMgd2l0aCB5b3Vy
-IHN1Z2dlc3Rpb25zLApzbyBJJ2QgbGlrZSB0byBkaXNjdXNzIHdpdGggeW91IGZpcnN0IGJlZm9y
-ZSBzZW5kaW5nIHRoZSBwYXRjaC4KCi0gSW4gLmFwcGx5LCB1c2UgInJvdW5kIGRvd24iIGZvciBj
-YWxjdWxhdGlvbnMgdG8gZW5zdXJlIHRoZSB2YWx1ZQpkb2Vzbid0IGV4Y2VlZCB3aGF0IHRoZSB1
-c2VyIHJlcXVlc3RlZC4gKE5ldmVyIHNldCBhIGR1dHkgY3ljbGUgaGlnaGVyCnRoYW4gd2hhdCB0
-aGUgdXNlciByZXF1ZXN0ZWQuKQpwd21fc2lmaXZlX2FwcGx5KCkgewogICAgLSBmcmFjID0gRElW
-NjRfVTY0X1JPVU5EX0NMT1NFU1QobnVtLCBzdGF0ZS0+cGVyaW9kKTsKICAgICtmcmFjID0gbnVt
-IC8gc3RhdGUtPnBlcmlvZDsKfQotIFdoZW4gY29udmVydGluZyBoYXJkd2FyZSB2YWx1ZXMgYmFj
-ayB0byBkdXR5X2N5Y2xlIGluIC5nZXRfc3RhdGUsCnVzZSAicm91bmQgdXAiIHRvIGNvbXBlbnNh
-dGUgZm9yIHRoZSBlcnJvcnMgaW50cm9kdWNlZCBieSAuYXBwbHkuKCkKcHdtX3NpZml2ZV9nZXRf
-c3RhdGUoKSB7CiAgICAtIHN0YXRlLT5kdXR5X2N5Y2xlID0gKHU2NClkdXR5ICogZGRhdGEtPnJl
-YWxfcGVyaW9kID4+IFBXTV9TSUZJVkVfQ01QV0lEVEg7CiAgICArIHN0YXRlLT5kdXR5X2N5Y2xl
-ID0gRElWX1JPVU5EX1VQX1VMTCgodTY0KWR1dHkgKgpkZGF0YS0+cmVhbF9wZXJpb2QsICgxVSA8
-PCBQV01fU0lGSVZFX0NNUFdJRFRIKSk7Cn0KCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBs
-aXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlz
-dGluZm8vbGludXgtcmlzY3YK
+On 3/4/25 9:35 AM, Longbin Li wrote:
+> Add support for SG2044 SPI NOR controller in Sophgo SoC.
+>
+> Signed-off-by: Longbin Li<looong.bin@gmail.com>
+> ---
+>   drivers/spi/Kconfig          |   9 +
+>   drivers/spi/Makefile         |   1 +
+>   drivers/spi/spi-sg2044-nor.c | 500 +++++++++++++++++++++++++++++++++++
+>   3 files changed, 510 insertions(+)
+>   create mode 100644 drivers/spi/spi-sg2044-nor.c
+>
+> diff --git a/drivers/spi/Kconfig b/drivers/spi/Kconfig
+> index ea8a31032927..281310178734 100644
+> --- a/drivers/spi/Kconfig
+> +++ b/drivers/spi/Kconfig
+> @@ -1021,6 +1021,15 @@ config SPI_SN_F_OSPI
+>   	  for connecting an SPI Flash memory over up to 8-bit wide bus.
+>   	  It supports indirect access mode only.
+>
+> +config SPI_SG2044_NOR
+> +	tristate "SG2044 SPI NOR Controller"
+> +	depends on ARCH_SOPHGO || COMPILE_TEST
+> +	help
+> +	  This enables support for the SG2044 SPI NOR controller,
+> +	  which supports Dual/Qual read and write operations while
+
+Nit: Dual/Quad not Dual/Qual
+
+> +	  also supporting 3Byte address devices and 4Byte address
+> +	  devices.
+> +
+>   config SPI_SPRD
+>   	tristate "Spreadtrum SPI controller"
+>   	depends on ARCH_SPRD || COMPILE_TEST
+> diff --git a/drivers/spi/Makefile b/drivers/spi/Makefile
+> index 9db7554c1864..c7a46fd61903 100644
+> --- a/drivers/spi/Makefile
+> +++ b/drivers/spi/Makefile
+> @@ -134,6 +134,7 @@ obj-$(CONFIG_SPI_SH_SCI)		+= spi-sh-sci.o
+>   obj-$(CONFIG_SPI_SIFIVE)		+= spi-sifive.o
+>   obj-$(CONFIG_SPI_SLAVE_MT27XX)          += spi-slave-mt27xx.o
+>   obj-$(CONFIG_SPI_SN_F_OSPI)		+= spi-sn-f-ospi.o
+> +obj-$(CONFIG_SPI_SG2044_NOR)	+= spi-sg2044-nor.o
+>   obj-$(CONFIG_SPI_SPRD)			+= spi-sprd.o
+>   obj-$(CONFIG_SPI_SPRD_ADI)		+= spi-sprd-adi.o
+>   obj-$(CONFIG_SPI_STM32) 		+= spi-stm32.o
+> diff --git a/drivers/spi/spi-sg2044-nor.c b/drivers/spi/spi-sg2044-nor.c
+> new file mode 100644
+> index 000000000000..454153a63b42
+> --- /dev/null
+> +++ b/drivers/spi/spi-sg2044-nor.c
+> @@ -0,0 +1,500 @@
+> +// SPDX-License-Identifier: GPL-2.0-only
+> +/*
+> + * SG2044 SPI NOR controller driver
+> + *
+> + * Copyright (c) 2025 Longbin Li<looong.bin@gmail.com>
+> + */
+> +
+> +#include <linux/bitfield.h>
+> +#include <linux/clk.h>
+> +#include <linux/iopoll.h>
+> +#include <linux/module.h>
+> +#include <linux/of.h>
+> +#include <linux/platform_device.h>
+> +#include <linux/spi/spi-mem.h>
+> +
+> +/* Hardware register definitions */
+> +#define SPIFMC_CTRL				0x00
+> +#define SPIFMC_CTRL_CPHA			BIT(12)
+> +#define SPIFMC_CTRL_CPOL			BIT(13)
+> +#define SPIFMC_CTRL_HOLD_OL			BIT(14)
+> +#define SPIFMC_CTRL_WP_OL			BIT(15)
+> +#define SPIFMC_CTRL_LSBF			BIT(20)
+> +#define SPIFMC_CTRL_SRST			BIT(21)
+> +#define SPIFMC_CTRL_SCK_DIV_SHIFT		0
+> +#define SPIFMC_CTRL_FRAME_LEN_SHIFT		16
+> +#define SPIFMC_CTRL_SCK_DIV_MASK		0x7FF
+> +
+> +#define SPIFMC_CE_CTRL				0x04
+> +#define SPIFMC_CE_CTRL_CEMANUAL			BIT(0)
+> +#define SPIFMC_CE_CTRL_CEMANUAL_EN		BIT(1)
+> +
+> +#define SPIFMC_DLY_CTRL				0x08
+> +#define SPIFMC_CTRL_FM_INTVL_MASK		0x000f
+> +#define SPIFMC_CTRL_FM_INTVL			BIT(0)
+> +#define SPIFMC_CTRL_CET_MASK			0x0f00
+> +#define SPIFMC_CTRL_CET				BIT(8)
+> +
+> +#define SPIFMC_DMMR				0x0c
+> +
+> +#define SPIFMC_TRAN_CSR				0x10
+> +#define SPIFMC_TRAN_CSR_TRAN_MODE_MASK		GENMASK(1, 0)
+> +#define SPIFMC_TRAN_CSR_TRAN_MODE_RX		BIT(0)
+> +#define SPIFMC_TRAN_CSR_TRAN_MODE_TX		BIT(1)
+> +#define SPIFMC_TRAN_CSR_FAST_MODE		BIT(3)
+> +#define SPIFMC_TRAN_CSR_BUS_WIDTH_1_BIT		(0x00 << 4)
+> +#define SPIFMC_TRAN_CSR_BUS_WIDTH_2_BIT		(0x01 << 4)
+> +#define SPIFMC_TRAN_CSR_BUS_WIDTH_4_BIT		(0x02 << 4)
+> +#define SPIFMC_TRAN_CSR_DMA_EN			BIT(6)
+> +#define SPIFMC_TRAN_CSR_MISO_LEVEL		BIT(7)
+> +#define SPIFMC_TRAN_CSR_ADDR_BYTES_MASK		GENMASK(10, 8)
+> +#define SPIFMC_TRAN_CSR_ADDR_BYTES_SHIFT	8
+> +#define SPIFMC_TRAN_CSR_WITH_CMD		BIT(11)
+> +#define SPIFMC_TRAN_CSR_FIFO_TRG_LVL_MASK	GENMASK(13, 12)
+> +#define SPIFMC_TRAN_CSR_FIFO_TRG_LVL_1_BYTE	(0x00 << 12)
+> +#define SPIFMC_TRAN_CSR_FIFO_TRG_LVL_2_BYTE	(0x01 << 12)
+> +#define SPIFMC_TRAN_CSR_FIFO_TRG_LVL_4_BYTE	(0x02 << 12)
+> +#define SPIFMC_TRAN_CSR_FIFO_TRG_LVL_8_BYTE	(0x03 << 12)
+> +#define SPIFMC_TRAN_CSR_GO_BUSY			BIT(15)
+> +#define SPIFMC_TRAN_CSR_ADDR4B_SHIFT		20
+> +#define SPIFMC_TRAN_CSR_CMD4B_SHIFT		21
+> +
+> +#define SPIFMC_TRAN_NUM				0x14
+> +#define SPIFMC_FIFO_PORT			0x18
+> +#define SPIFMC_FIFO_PT				0x20
+> +
+> +#define SPIFMC_INT_STS				0x28
+> +#define SPIFMC_INT_TRAN_DONE			BIT(0)
+> +#define SPIFMC_INT_RD_FIFO			BIT(2)
+> +#define SPIFMC_INT_WR_FIFO			BIT(3)
+> +#define SPIFMC_INT_RX_FRAME			BIT(4)
+> +#define SPIFMC_INT_TX_FRAME			BIT(5)
+> +
+> +#define SPIFMC_INT_EN				0x2c
+> +#define SPIFMC_INT_TRAN_DONE_EN			BIT(0)
+> +#define SPIFMC_INT_RD_FIFO_EN			BIT(2)
+> +#define SPIFMC_INT_WR_FIFO_EN			BIT(3)
+> +#define SPIFMC_INT_RX_FRAME_EN			BIT(4)
+> +#define SPIFMC_INT_TX_FRAME_EN			BIT(5)
+> +
+> +#define SPIFMC_OPT				0x030
+> +#define SPIFMC_OPT_DISABLE_FIFO_FLUSH		BIT(1)
+> +
+> +#define SPIFMC_MAX_FIFO_DEPTH			8
+> +
+> +#define SPIFMC_MAX_READ_SIZE			0x10000
+> +
+> +struct sg2044_spifmc {
+> +	struct spi_controller *ctrl;
+> +	void __iomem *io_base;
+> +	struct device *dev;
+> +	struct mutex lock;
+> +	struct clk *clk;
+> +};
+> +
+> +static int sg2044_spifmc_wait_int(struct sg2044_spifmc *spifmc, u8 int_type)
+> +{
+> +	u32 stat;
+> +
+> +	return readl_poll_timeout(spifmc->io_base + SPIFMC_INT_STS, stat,
+> +				  (stat & int_type), 0, 1000000);
+> +}
+> +
+> +static int sg2044_spifmc_wait_xfer_size(struct sg2044_spifmc *spifmc,
+> +					int xfer_size)
+> +{
+> +	u8 stat;
+> +
+> +	return readl_poll_timeout(spifmc->io_base + SPIFMC_FIFO_PT, stat,
+> +				  ((stat & 0xf) == xfer_size), 1, 1000000);
+> +}
+> +
+> +static u32 sg2044_spifmc_init_reg(struct sg2044_spifmc *spifmc)
+> +{
+> +	u32 reg;
+> +
+> +	reg = readl(spifmc->io_base + SPIFMC_TRAN_CSR);
+> +	reg &= ~(SPIFMC_TRAN_CSR_TRAN_MODE_MASK |
+> +		 SPIFMC_TRAN_CSR_FAST_MODE |
+> +		 SPIFMC_TRAN_CSR_BUS_WIDTH_2_BIT |
+> +		 SPIFMC_TRAN_CSR_BUS_WIDTH_4_BIT |
+> +		 SPIFMC_TRAN_CSR_DMA_EN |
+> +		 SPIFMC_TRAN_CSR_ADDR_BYTES_MASK |
+> +		 SPIFMC_TRAN_CSR_WITH_CMD |
+> +		 SPIFMC_TRAN_CSR_FIFO_TRG_LVL_MASK);
+> +
+> +	writel(reg, spifmc->io_base + SPIFMC_TRAN_CSR);
+> +
+> +	return reg;
+> +}
+> +
+> +static ssize_t sg2044_spifmc_read_64k(struct sg2044_spifmc *spifmc,
+> +				      const struct spi_mem_op *op, loff_t from,
+> +				      size_t len, u_char *buf)
+> +{
+> +	int xfer_size, offset;
+> +	u32 reg;
+> +	int ret;
+> +	int i;
+> +
+> +	reg = sg2044_spifmc_init_reg(spifmc);
+> +	reg |= (op->addr.nbytes + op->dummy.nbytes) << SPIFMC_TRAN_CSR_ADDR_BYTES_SHIFT;
+> +	reg |= SPIFMC_TRAN_CSR_FIFO_TRG_LVL_8_BYTE;
+> +	reg |= SPIFMC_TRAN_CSR_WITH_CMD;
+> +	reg |= SPIFMC_TRAN_CSR_TRAN_MODE_RX;
+> +
+> +	writel(0, spifmc->io_base + SPIFMC_FIFO_PT);
+> +	writeb(op->cmd.opcode, spifmc->io_base + SPIFMC_FIFO_PORT);
+> +
+> +	for (i = op->addr.nbytes - 1; i >= 0; i--)
+> +		writeb((from >> i * 8) & 0xff, spifmc->io_base + SPIFMC_FIFO_PORT);
+> +
+> +	for (i = 0; i < op->dummy.nbytes; i++)
+> +		writeb(0xff, spifmc->io_base + SPIFMC_FIFO_PORT);
+> +
+> +	writel(len, spifmc->io_base + SPIFMC_TRAN_NUM);
+> +	writel(0, spifmc->io_base + SPIFMC_INT_STS);
+> +	reg |= SPIFMC_TRAN_CSR_GO_BUSY;
+> +	writel(reg, spifmc->io_base + SPIFMC_TRAN_CSR);
+> +
+> +	ret = sg2044_spifmc_wait_int(spifmc, SPIFMC_INT_RD_FIFO);
+> +	if (ret < 0)
+> +		return ret;
+> +
+> +	offset = 0;
+> +	while (offset < len) {
+> +		xfer_size = min_t(size_t, SPIFMC_MAX_FIFO_DEPTH, len - offset);
+> +
+> +		ret = sg2044_spifmc_wait_xfer_size(spifmc, xfer_size);
+> +		if (ret < 0)
+> +			return ret;
+> +
+> +		for (i = 0; i < xfer_size; i++)
+> +			buf[i + offset] = readb(spifmc->io_base + SPIFMC_FIFO_PORT);
+> +
+> +		offset += xfer_size;
+> +	}
+> +
+> +	ret = sg2044_spifmc_wait_int(spifmc, SPIFMC_INT_TRAN_DONE);
+> +	if (ret < 0)
+> +		return ret;
+> +
+> +	writel(0, spifmc->io_base + SPIFMC_FIFO_PT);
+> +
+> +	return len;
+> +}
+> +
+> +static ssize_t sg2044_spifmc_read(struct sg2044_spifmc *spifmc,
+> +				  const struct spi_mem_op *op)
+> +{
+> +	size_t xfer_size;
+> +	size_t offset;
+> +	loff_t from = op->addr.val;
+> +	size_t len = op->data.nbytes;
+> +	int ret;
+> +	u8 *din = op->data.buf.in;
+> +
+> +	offset = 0;
+> +	while (offset < len) {
+> +		xfer_size = min_t(size_t, SPIFMC_MAX_READ_SIZE, len - offset);
+> +
+> +		ret = sg2044_spifmc_read_64k(spifmc, op, from, xfer_size, din);
+> +		if (ret < 0)
+> +			return ret;
+> +
+> +		offset += xfer_size;
+> +		din += xfer_size;
+> +		from += xfer_size;
+> +	}
+> +
+> +	return 0;
+> +}
+> +
+> +static ssize_t sg2044_spifmc_write(struct sg2044_spifmc *spifmc,
+> +				   const struct spi_mem_op *op)
+> +{
+> +	size_t xfer_size;
+> +	const u8 *dout = op->data.buf.out;
+> +	int i, offset;
+> +	size_t ret;
+> +	u32 reg;
+> +
+> +	reg = sg2044_spifmc_init_reg(spifmc);
+> +	reg |= (op->addr.nbytes + op->dummy.nbytes) << SPIFMC_TRAN_CSR_ADDR_BYTES_SHIFT;
+> +	reg |= SPIFMC_TRAN_CSR_FIFO_TRG_LVL_8_BYTE;
+> +	reg |= SPIFMC_TRAN_CSR_WITH_CMD;
+> +	reg |= SPIFMC_TRAN_CSR_TRAN_MODE_TX;
+> +
+> +	writel(0, spifmc->io_base + SPIFMC_FIFO_PT);
+> +	writeb(op->cmd.opcode, spifmc->io_base + SPIFMC_FIFO_PORT);
+> +
+> +	for (i = op->addr.nbytes - 1; i >= 0; i--)
+> +		writeb((op->addr.val >> i * 8) & 0xff, spifmc->io_base + SPIFMC_FIFO_PORT);
+> +
+> +	for (i = 0; i < op->dummy.nbytes; i++)
+> +		writeb(0xff, spifmc->io_base + SPIFMC_FIFO_PORT);
+> +
+> +	writel(0, spifmc->io_base + SPIFMC_INT_STS);
+> +	writel(op->data.nbytes, spifmc->io_base + SPIFMC_TRAN_NUM);
+> +	reg |= SPIFMC_TRAN_CSR_GO_BUSY;
+> +	writel(reg, spifmc->io_base + SPIFMC_TRAN_CSR);
+> +
+> +	ret = sg2044_spifmc_wait_xfer_size(spifmc, 0);
+> +	if (ret < 0)
+> +		return ret;
+> +
+> +	writel(0, spifmc->io_base + SPIFMC_FIFO_PT);
+> +
+> +	offset = 0;
+> +	while (offset < op->data.nbytes) {
+> +		xfer_size = min_t(size_t, SPIFMC_MAX_FIFO_DEPTH, op->data.nbytes - offset);
+> +
+> +		ret = sg2044_spifmc_wait_xfer_size(spifmc, 0);
+> +		if (ret < 0)
+> +			return ret;
+> +
+> +		for (i = 0; i < xfer_size; i++)
+> +			writeb(dout[i + offset], spifmc->io_base + SPIFMC_FIFO_PORT);
+> +
+> +		offset += xfer_size;
+> +	}
+> +
+> +	ret = sg2044_spifmc_wait_int(spifmc, SPIFMC_INT_TRAN_DONE);
+> +	if (ret < 0)
+> +		return ret;
+> +
+> +	writel(0, spifmc->io_base + SPIFMC_FIFO_PT);
+> +
+> +	return 0;
+> +}
+> +
+> +static ssize_t sg2044_spifmc_tran_cmd(struct sg2044_spifmc *spifmc,
+> +				      const struct spi_mem_op *op)
+> +{
+> +	int i, ret;
+> +	u32 reg;
+> +
+> +	reg = sg2044_spifmc_init_reg(spifmc);
+> +	reg |= (op->addr.nbytes + op->dummy.nbytes) << SPIFMC_TRAN_CSR_ADDR_BYTES_SHIFT;
+> +	reg |= SPIFMC_TRAN_CSR_FIFO_TRG_LVL_1_BYTE;
+> +	reg |= SPIFMC_TRAN_CSR_WITH_CMD;
+> +
+> +	writel(0, spifmc->io_base + SPIFMC_FIFO_PT);
+> +	writeb(op->cmd.opcode, spifmc->io_base + SPIFMC_FIFO_PORT);
+> +
+> +	for (i = op->addr.nbytes - 1; i >= 0; i--)
+> +		writeb((op->addr.val >> i * 8) & 0xff, spifmc->io_base + SPIFMC_FIFO_PORT);
+> +
+> +	for (i = 0; i < op->dummy.nbytes; i++)
+> +		writeb(0xff, spifmc->io_base + SPIFMC_FIFO_PORT);
+> +
+> +	writel(0, spifmc->io_base + SPIFMC_INT_STS);
+> +	reg |= SPIFMC_TRAN_CSR_GO_BUSY;
+> +	writel(reg, spifmc->io_base + SPIFMC_TRAN_CSR);
+> +
+> +	ret = sg2044_spifmc_wait_int(spifmc, SPIFMC_INT_TRAN_DONE);
+> +	if (ret < 0)
+> +		return ret;
+> +
+> +	writel(0, spifmc->io_base + SPIFMC_FIFO_PT);
+> +
+> +	return 0;
+> +}
+> +
+> +static void sg2044_spifmc_trans(struct sg2044_spifmc *spifmc,
+> +				const struct spi_mem_op *op)
+> +{
+> +	if (op->data.dir == SPI_MEM_DATA_IN)
+> +		sg2044_spifmc_read(spifmc, op);
+> +	else if (op->data.dir == SPI_MEM_DATA_OUT)
+> +		sg2044_spifmc_write(spifmc, op);
+> +	else
+> +		sg2044_spifmc_tran_cmd(spifmc, op);
+> +}
+> +
+> +static ssize_t sg2044_spifmc_trans_reg(struct sg2044_spifmc *spifmc,
+> +				       const struct spi_mem_op *op)
+> +{
+> +	const u8 *dout = NULL;
+> +	u8 *din = NULL;
+> +	size_t len = op->data.nbytes;
+> +	int ret, i;
+> +	u32 reg;
+> +
+> +	if (op->data.dir == SPI_MEM_DATA_IN)
+> +		din = op->data.buf.in;
+> +	else
+> +		dout = op->data.buf.out;
+> +
+> +	reg = sg2044_spifmc_init_reg(spifmc);
+> +	reg |= SPIFMC_TRAN_CSR_FIFO_TRG_LVL_1_BYTE;
+> +	reg |= SPIFMC_TRAN_CSR_WITH_CMD;
+> +
+> +	if (din) {
+> +		reg |= SPIFMC_TRAN_CSR_BUS_WIDTH_1_BIT;
+> +		reg |= SPIFMC_TRAN_CSR_TRAN_MODE_RX;
+> +		reg |= SPIFMC_TRAN_CSR_TRAN_MODE_TX;
+> +
+> +		writel(SPIFMC_OPT_DISABLE_FIFO_FLUSH, spifmc->io_base + SPIFMC_OPT);
+> +	} else {
+> +		/*
+> +		 * If write values to the Status Register,
+> +		 * configure TRAN_CSR register as the same as
+> +		 * sg2044_spifmc_read_reg.
+> +		 */
+> +		if (op->cmd.opcode == 0x01) {
+> +			reg |= SPIFMC_TRAN_CSR_TRAN_MODE_RX;
+> +			reg |= SPIFMC_TRAN_CSR_TRAN_MODE_TX;
+> +			writel(len, spifmc->io_base + SPIFMC_TRAN_NUM);
+> +		}
+> +	}
+> +
+> +	writel(0, spifmc->io_base + SPIFMC_FIFO_PT);
+> +	writeb(op->cmd.opcode, spifmc->io_base + SPIFMC_FIFO_PORT);
+> +
+> +	for (i = 0; i < len; i++) {
+> +		if (din)
+> +			writeb(0xff, spifmc->io_base + SPIFMC_FIFO_PORT);
+> +		else
+> +			writeb(dout[i], spifmc->io_base + SPIFMC_FIFO_PORT);
+> +	}
+> +
+> +	writel(0, spifmc->io_base + SPIFMC_INT_STS);
+> +	writel(len, spifmc->io_base + SPIFMC_TRAN_NUM);
+> +	reg |= SPIFMC_TRAN_CSR_GO_BUSY;
+> +	writel(reg, spifmc->io_base + SPIFMC_TRAN_CSR);
+> +
+> +	ret = sg2044_spifmc_wait_int(spifmc, SPIFMC_INT_TRAN_DONE);
+> +	if (ret < 0)
+> +		return ret;
+> +
+> +	if (din) {
+> +		while (len--)
+> +			*din++ = readb(spifmc->io_base + SPIFMC_FIFO_PORT);
+> +	}
+> +
+> +	writel(0, spifmc->io_base + SPIFMC_FIFO_PT);
+> +
+> +	return 0;
+> +}
+> +
+> +static int sg2044_spifmc_exec_op(struct spi_mem *mem,
+> +				 const struct spi_mem_op *op)
+> +{
+> +	struct sg2044_spifmc *spifmc;
+> +
+> +	spifmc = spi_controller_get_devdata(mem->spi->controller);
+> +
+> +	mutex_lock(&spifmc->lock);
+> +
+> +	if (op->addr.nbytes == 0)
+> +		sg2044_spifmc_trans_reg(spifmc, op);
+> +	else
+> +		sg2044_spifmc_trans(spifmc, op);
+> +
+> +	mutex_unlock(&spifmc->lock);
+> +
+> +	return 0;
+> +}
+> +
+> +static const struct spi_controller_mem_ops sg2044_spifmc_mem_ops = {
+> +	.exec_op = sg2044_spifmc_exec_op,
+> +};
+> +
+> +static void sg2044_spifmc_init(struct sg2044_spifmc *spifmc)
+> +{
+> +	u32 tran_csr;
+> +	u32 reg;
+> +
+> +	writel(0, spifmc->io_base + SPIFMC_DMMR);
+> +
+> +	reg = readl(spifmc->io_base + SPIFMC_CTRL);
+> +	reg |= SPIFMC_CTRL_SRST;
+> +	reg &= ~(SPIFMC_CTRL_SCK_DIV_MASK);
+> +	reg |= 1;
+> +	writel(reg, spifmc->io_base + SPIFMC_CTRL);
+> +
+> +	writel(0, spifmc->io_base + SPIFMC_CE_CTRL);
+> +
+> +	tran_csr = readl(spifmc->io_base + SPIFMC_TRAN_CSR);
+> +	tran_csr |= (0 << SPIFMC_TRAN_CSR_ADDR_BYTES_SHIFT);
+> +	tran_csr |= SPIFMC_TRAN_CSR_FIFO_TRG_LVL_4_BYTE;
+> +	tran_csr |= SPIFMC_TRAN_CSR_WITH_CMD;
+> +	writel(tran_csr, spifmc->io_base + SPIFMC_TRAN_CSR);
+> +}
+> +
+> +static int sg2044_spifmc_probe(struct platform_device *pdev)
+> +{
+> +	struct spi_controller *ctrl;
+> +	struct sg2044_spifmc *spifmc;
+> +	void __iomem *base;
+> +	int ret;
+> +
+> +	ctrl = devm_spi_alloc_host(&pdev->dev, sizeof(*spifmc));
+> +	if (!ctrl)
+> +		return -ENOMEM;
+> +
+> +	spifmc = spi_controller_get_devdata(ctrl);
+> +	dev_set_drvdata(&pdev->dev, ctrl);
+> +
+> +	spifmc->clk = devm_clk_get_enabled(&pdev->dev, NULL);
+> +	if (IS_ERR(spifmc->clk))
+> +		return dev_err_probe(&pdev->dev, PTR_ERR(spifmc->clk),
+> +				     "%s: Cannot get and enable AHB clock\n",
+> +				     __func__);
+> +
+> +	spifmc->dev = &pdev->dev;
+> +	spifmc->ctrl = ctrl;
+> +
+> +	spifmc->io_base = devm_platform_ioremap_resource(pdev, 0);
+> +	if (IS_ERR(base))
+> +		return PTR_ERR(base);
+> +
+> +	ctrl->num_chipselect = 1;
+> +	ctrl->dev.of_node = pdev->dev.of_node;
+> +	ctrl->bits_per_word_mask = SPI_BPW_MASK(8);
+> +	ctrl->auto_runtime_pm = false;
+> +	ctrl->mem_ops = &sg2044_spifmc_mem_ops;
+> +	ctrl->mode_bits = SPI_RX_DUAL | SPI_TX_DUAL | SPI_RX_QUAD | SPI_TX_QUAD;
+> +
+> +	mutex_init(&spifmc->lock);
+> +
+> +	sg2044_spifmc_init(spifmc);
+> +	sg2044_spifmc_init_reg(spifmc);
+> +
+> +	ret = devm_spi_register_controller(&pdev->dev, ctrl);
+> +	if (ret) {
+> +		mutex_destroy(&spifmc->lock);
+> +		dev_err(&pdev->dev, "spi_register_controller failed\n");
+> +		return ret;
+> +	}
+> +
+> +	return 0;
+> +}
+> +
+> +static void sg2044_spifmc_remove(struct platform_device *pdev)
+> +{
+> +	struct sg2044_spifmc *spifmc = platform_get_drvdata(pdev);
+> +
+> +	mutex_destroy(&spifmc->lock);
+> +}
+> +
+> +static const struct of_device_id sg2044_spifmc_match[] = {
+> +	{ .compatible = "sophgo,sg2044-spifmc-nor" },
+> +	{ /* sentinel */ }
+> +};
+> +MODULE_DEVICE_TABLE(of, sg2044_spifmc_match);
+> +
+> +static struct platform_driver sg2044_nor_driver = {
+> +	.driver = {
+> +		.name = "sg2044,spifmc-nor",
+> +		.of_match_table = sg2044_spifmc_match,
+> +	},
+> +	.probe = sg2044_spifmc_probe,
+> +	.remove = sg2044_spifmc_remove,
+> +};
+> +module_platform_driver(sg2044_nor_driver);
+> +
+> +MODULE_DESCRIPTION("SG2044 SPI NOR controller driver");
+> +MODULE_AUTHOR("Longbin Li<looong.bin@gmail.com>");
+> +MODULE_LICENSE("GPL");
+> --
+> 2.48.1
+
+
+Kind regards,
+Maud
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
