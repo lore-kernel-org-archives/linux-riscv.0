@@ -4,100 +4,150 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DB027C282C6
-	for <linux-riscv@archiver.kernel.org>; Tue,  4 Mar 2025 00:37:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2CEDBC282C6
+	for <linux-riscv@archiver.kernel.org>; Tue,  4 Mar 2025 03:06:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=5M1QFf3M6QMw3vEVmduOD6p1gjZs19jAPpkwZ56c9KU=; b=kAZYtVnPEkTtT6
-	ydqLLD/+BvDP+V2Bd3E8C0ZSFsLDzAhZQoh+5f6FHWa/HR4iXzk2Ae7ffruI7EDKX/ta3A5J1mush
-	UgCqNqYVyClcEENRRhHeaivLnaMOciWt/x/FhckIVud2LT5kZYkPMmYog6X6kx22Dbjpw8e+W9pS7
-	qlF0b2cWI8WkAXyHR6o/fTUJE2jJUlO3asY8wfYHU9pDnXG2GzC/YbSLcv+UKxVhDGB7nk373gWh0
-	AS5tMX3AtTT+vDlKsbjCIuijWmmGTYKgnUnq0DKFm/jkofOcTdRjjzvy4emuB+QC4kQ3NUloKSNIK
-	VBd1NKGtLj3ARcvy4QmQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=QB11yxJNF/uOwICVna4QDZD16qqEs4heW0sczr7Ky3U=; b=L0Uqt44Zl9IsdPnMBys5EGgg35
+	B8NDZ+PjQH5q6s3c4Vy+WExCtGezQNxiFm8sbi+X8LwtzxjpWIDh+Z4IdrFUz7VMGOetgD9tPfv3r
+	5CA8mBz2ExSksn72rBhTLts1dkUJhpqry4/1UUFL8M8o8zK8w7cOoD3evaL7I859FRtEJlsy9QydO
+	y2RGZfJ4RwcxmOzBsgi+YPQHGgc8oBqdun/dK/yfqoJU1rB+PSEpM6hZ5KObfjaqUvVCzw40RWEl6
+	AK3uqxURMl0VyTj7KmfFs9ffDFFESgp/Ph/+Jf5dFdhic+hq5zaDD5sE026np8gCEdcXXzRtfEqkl
+	d+6hlqCA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpGHg-00000002fZn-286I;
-	Tue, 04 Mar 2025 00:37:20 +0000
-Received: from mail-qv1-xf33.google.com ([2607:f8b0:4864:20::f33])
+	id 1tpIcE-00000002wTv-3RVY;
+	Tue, 04 Mar 2025 03:06:42 +0000
+Received: from mail-centralindiaazolkn190100000.outbound.protection.outlook.com ([2a01:111:f403:d409::] helo=PNYPR01CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpGHd-00000002fYm-46f1
+	id 1tpIcC-00000002wSc-0oRf
 	for linux-riscv@lists.infradead.org;
-	Tue, 04 Mar 2025 00:37:19 +0000
-Received: by mail-qv1-xf33.google.com with SMTP id 6a1803df08f44-6dcd4f1aaccso84444566d6.2
-        for <linux-riscv@lists.infradead.org>; Mon, 03 Mar 2025 16:37:17 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1741048636; x=1741653436; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=jkdclXu2BjEaGsp2gaaSDivFgOqo2Ctx5xrHZRDqZfs=;
-        b=SaooJsx9Pzg22KZAY+qHPfBNsjtxc+gqXhfAiTVMttcU8wAYu0LMpP/OcL6Lq6mg9D
-         7xUp0f0eah+l1EeUDOCqpvabY4XPnfz22+9+DLNsalfJVWmNS7QOseItBkrxQlF/0Uep
-         6oo3vjIg69Zee1BzqWXGIrR1mYVDTWXdXvfD2A7eyqy1Jd2SNMbOACVMjgcIM/aJpW6f
-         /fh+8i/3nicm6RtigEeCJbNHwaidQDgw9NuiYY4/MIvjVApES+uWtPzKEMVZzhpLFUEP
-         C5KmU+TgkzSlQht9oF2QwlpLC+1bpzIzkJ3u5WqeDTP7bHOh2V7ObaC/p+ilhJIEhe7f
-         1pZg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1741048636; x=1741653436;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=jkdclXu2BjEaGsp2gaaSDivFgOqo2Ctx5xrHZRDqZfs=;
-        b=vmyD34siwJxdFfi1qd+TGKPFl2IsB6yds5r5IkwZZRHSx3ZSi+oZQfRtLHZcGyD54o
-         9SscSn2YJseZoaU/Uj1s/jAMHjS0A9J7dqK0SK+6HBKEt6qmyv3drQ52ubu8fEq+vx42
-         +D9HqmfM2aL/V9DHBJOgJ8BHlNtiLQuOmOWc64kaw0UcnZTvuNGqYzbPCQ14b0uhCGqF
-         AamzuOwoNqPfl7IDrnDqszQL+/ruJ11l1y7xVC+4pJiV5+h1L9goElUmMDWLi6If5EaH
-         GqXxluzG5AOr/srUYuaXii2PXnrzTK0BmXyqOv9+QkKX89JMKOogTNc4/8LchqKWfyjA
-         keQg==
-X-Forwarded-Encrypted: i=1; AJvYcCV2HKgYT06jI/8tu/o9R0bY4zxK1hxcEQxnvEQSPvQ1WviGr4pYHhRwXEKae7PLUVDxl9a3LPdwukYb+g==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy2BAsJ7KHrIudmPUKJyte3jKN49zRFNkh8ZVgN1Nu+1nBqsFxX
-	5vAt9eHhf8+72ZclMlVdZKsmXQ3Tz9EvteKoxVNzr3herf+CXV+c
-X-Gm-Gg: ASbGncuaphVHjXlsOaKDvX1yPA3rZ/e2/Ibh/GLd7rRBnwEmuqzAzCqL6pypnzqJcW7
-	fy1GKJ2xv9APFbkul7oHzil8x4BrTx0hIBsRjMKsAMixN1n4SGoy/jfuQTScrJfjLB4FvpXAOEW
-	fya4RO6vWcgkwwjnjqkiSOm1gaj0st0YB43irNXP9yxyX/56kL5UVpEbQs4Qc/EZ+j/YiUxKud3
-	OE+LKiO0m43Knt8Liy6cCcNwXxdP8yvMAKklFU8MS/kAkfSECjtC7CPjGMTSMn8T4QNHYkc9p97
-	jXc2nk7BTi+RU1/eSf7A
-X-Google-Smtp-Source: AGHT+IGQbwXba2MFwiNePHYnLnKYFfggC79zX3LMmSKQG33QbOsKtz/15wOdDccKw9clJ6yC4X6TZw==
-X-Received: by 2002:ad4:5f07:0:b0:6e6:5caa:e5d with SMTP id 6a1803df08f44-6e8a0c8038dmr239929856d6.4.1741048636326;
-        Mon, 03 Mar 2025 16:37:16 -0800 (PST)
-Received: from localhost ([2001:da8:7001:11::cb])
-        by smtp.gmail.com with UTF8SMTPSA id 6a1803df08f44-6e8976da321sm59229366d6.99.2025.03.03.16.37.14
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 03 Mar 2025 16:37:15 -0800 (PST)
-Date: Tue, 4 Mar 2025 08:36:47 +0800
-From: Inochi Amaoto <inochiama@gmail.com>
-To: Conor Dooley <conor@kernel.org>, Inochi Amaoto <inochiama@gmail.com>
-Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>, 
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>, Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>, 
-	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Chen Wang <unicorn_wang@outlook.com>, Philipp Zabel <p.zabel@pengutronix.de>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Niklas Cassel <cassel@kernel.org>, 
-	Shashank Babu Chinta Venkata <quic_schintav@quicinc.com>, linux-pci@vger.kernel.org, devicetree@vger.kernel.org, 
-	sophgo@lists.linux.dev, linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
-	Yixun Lan <dlan@gentoo.org>, Longbin Li <looong.bin@gmail.com>
-Subject: Re: [PATCH 1/2] dt-bindings: pci: Add Sophgo SG2044 PCIe host
-Message-ID: <pgyynmrrtxi2jlrgstcbxh4f2wuxhyulw5gmssjw6rs44nix5y@msi25bjahz37>
-References: <20250221013758.370936-2-inochiama@gmail.com>
- <20250221-cavalier-cramp-6235d4348013@spud>
- <2egxw3r63cbsygpwqaltp4jjlkuwoh4rkwpgv4haj4sgz5sked@vkotadyk4g6y>
- <20250224-enable-progress-e3a47fdb625c@spud>
- <7ht3djv7zgrbkcvmdg6tp62nmxytlxzhaprsuvyeshyojhochn@ignvymxb3vfa>
- <20250225-lapel-unhappy-9e7978e270e4@spud>
- <ynefy5x672dlhctjzyhkitxoihuucxxki3xqvpimwpcedpfl2u@lmklah5egof4>
- <pbj22qvat76t74nppabekvyncc4ptt6wede4q6wfygbrzcj3ag@ruvt26eqiybu>
- <je4falvfemkemlvdfzdmgc7jx2gz6grpbmo6hwtpedjm7xi2gk@jr4frv3tn3l5>
- <20250303-aground-snitch-40d6dfe95238@spud>
+	Tue, 04 Mar 2025 03:06:41 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=SWK7WatxR9c3S2YSkK1ybHJuBNfnLsU6IidYciY08HmI1nEucpcAFl3XDNrn6ZEOnzwU+qX59aSLDM3EnZXO4S38IvRmbtZeJ3gj3l4ytaE2rix28ShCv9arjZtuyZ9az9ALslb0uLDHyAA8wyvOkwKgjQh2eM/EpBn8s5TSh793WKiF0QZm2vzMXCPJ7Z6t7BusD1q0CYzkiDGFyrv6GSU2teyWvb/ymeYdvImw0VUb3UnL0k8ANUszZ2dJBtTtpImsxxPoTs+fitpp2Uv0rCysctw5pNqw9d5eYseiO87ds2wfKWboEpMcSoWpk2WPyNDncZKUEuFBuhptfoONiw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=DGi12JGvzOb6N0G9xpktHkewAtxUIteV+ifoJfweIY4=;
+ b=XhowrfiOvGisVXTo7uLHIfUv0/sYXgAG1Qq7fZvCVsOlipt9DbKVy3g9At1Qj75FsD/1z+XpVv/FfnEASAmbdop61fe62oYIeG9Cr7L+xoGSEPeo05MEXyZPJWA9jcCw64ttTq4eztUvKz9OciN/dDSHqaInOXc9Ay7EJpG+BEy5T34BXO6qdu2VBLSPO82eYQvD5JhesIks1UNuGWeJAN5nHoLDVzxiYDPZPWxFn4o5KXNkvxmeHVa1VFmeE9iqwDGc45klYkUzQuCnTRJwWJg/NrQ3pfGBIp07XrfPQlEcezRpaBa95eA4zs/zNjwOdTAkk1ZwqcZaEJLZsbvIYg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
+ dkim=none; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=DGi12JGvzOb6N0G9xpktHkewAtxUIteV+ifoJfweIY4=;
+ b=XzlhFH5Qzl2WBrAsqjAD0C6QJ67H1UJ+aZaP4GrXGhtdGil5cMuxjKFkYafULiKrjqx/AKlDmza1pIBCI/C9UWQzOVmk3Nfs+esoWqSVO6lt0tlif0CDy6Jb2Cyc5dXgx0t60cjo51R7CsjHEtiIq6OzX8WxjBiH39u6X/VkvjAubY71FfLXHhV9TZWgI9hTC/oBmzIkZFrybZ/agJ0zXgI+rIiRF9sIdBNkiCAiCRb0vFOOUOZOk1NSx40vdgevNlsXcix+DiaqC/4rxlrreEl/9Gt2ZHbnuBHxGZpe2XW8oI3MYrBBxjqqsPXsS/r7M4fG8K7HhExWc3KrZZM7Fg==
+Received: from PN0PR01MB10393.INDPRD01.PROD.OUTLOOK.COM
+ (2603:1096:c01:1eb::14) by MAXPR01MB4246.INDPRD01.PROD.OUTLOOK.COM
+ (2603:1096:a01:4::8) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8489.29; Tue, 4 Mar
+ 2025 03:06:21 +0000
+Received: from PN0PR01MB10393.INDPRD01.PROD.OUTLOOK.COM
+ ([fe80::1b4f:5587:7637:c5a5]) by PN0PR01MB10393.INDPRD01.PROD.OUTLOOK.COM
+ ([fe80::1b4f:5587:7637:c5a5%6]) with mapi id 15.20.8489.028; Tue, 4 Mar 2025
+ 03:06:21 +0000
+Message-ID: <PN0PR01MB103931A586C8213740F2496D9FEC82@PN0PR01MB10393.INDPRD01.PROD.OUTLOOK.COM>
+Date: Tue, 4 Mar 2025 11:06:16 +0800
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2] riscv: sophgo: dts: Add spi controller for SG2042
+To: Zixian Zeng <sycamoremoon376@gmail.com>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Inochi Amaoto <inochiama@outlook.com>, Alexandre Ghiti <alex@ghiti.fr>
+Cc: devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
+ linux-kernel@vger.kernel.org, sophgo@lists.linux.dev, chao.wei@sophgo.com,
+ xiaoguang.xing@sophgo.com
+References: <20250228-sfg-spi-v2-1-8bbf23b85d0e@gmail.com>
+From: Chen Wang <unicorn_wang@outlook.com>
+In-Reply-To: <20250228-sfg-spi-v2-1-8bbf23b85d0e@gmail.com>
+X-ClientProxiedBy: TYCP286CA0019.JPNP286.PROD.OUTLOOK.COM
+ (2603:1096:400:263::13) To PN0PR01MB10393.INDPRD01.PROD.OUTLOOK.COM
+ (2603:1096:c01:1eb::14)
+X-Microsoft-Original-Message-ID: <5411715a-1ae2-4495-85e3-10cccaa109a3@outlook.com>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20250303-aground-snitch-40d6dfe95238@spud>
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PN0PR01MB10393:EE_|MAXPR01MB4246:EE_
+X-MS-Office365-Filtering-Correlation-Id: bdd6a081-2c18-43e8-c7aa-08dd5ac98a09
+X-Microsoft-Antispam: BCL:0;ARA:14566002|19110799003|5072599009|6090799003|7092599003|15080799006|8060799006|461199028|41001999003|1602099012|10035399004|4302099013|440099028|3412199025;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?amJhQ3ArWW90dzR0dFJDYy9sLy9CUlo1c3RieGs3Q3hWOEdIaHlxVlVIT3lm?=
+ =?utf-8?B?Nmo2b3ZuazNwUzhnOWxwWEJJR0luN1dlSTgwUUxKM2tRL215TmpXTG9UdHFS?=
+ =?utf-8?B?NTVUWnNRS3JNMWgvZm5kZnRsMnpXbVUrUGprWTR4MDFLUEh5WVVyeUcraTZN?=
+ =?utf-8?B?MzAxMnVQbUw2ZCtCMVRxUVc4OUNjaC9IcEN3aC9UWlFyd3N3WFc2VWFlY2o0?=
+ =?utf-8?B?K1dJSC96TmdBOTF5QXRyRWNtWTFreTh3QXgxd2JOejNxa3JJeTc0MC9CM2Na?=
+ =?utf-8?B?U1c4NW0xSjRlVXA2NWxHbnIzeGVqM1lUK2hCbVRacWFSQzRkeEgvc2VOQm1T?=
+ =?utf-8?B?dUhHbmp4d1UwSEJsZmdzelM4TllEa0pMNjM4MzZORGl2UFJiSzJGOFBJWE9B?=
+ =?utf-8?B?WnlWNXoxZ1FtL0FrektuMFN6bEx6OG5CNEx4VkNkRjBHeGxFSmFTbW1xS1ZM?=
+ =?utf-8?B?T1UvU3kyd3FsemsxRHBEeVAwUWVyd0JEWEJVU3d5Tm9iUlVLbmt2b3o2YU1H?=
+ =?utf-8?B?REtpZm1CMmRqdzhjSFFkS25JMkhzQ1FtV01sZnhlYjR4Uk4yT3Ywb2EwbUpF?=
+ =?utf-8?B?ZDBPdldsVnlzWStlcHdjaGluZ3RRYmwyVmxnVTJ2YmVJeW5TVklSeWo0U3Vp?=
+ =?utf-8?B?b25nQm1jaHFRbGp4ankxTDRBazhhV1dSanFWc3VuekJMclJwbHpMSndJUXIr?=
+ =?utf-8?B?UmNoSXpqb0E0NjV2L3NITThBRGFBUnVjTkRnYlhUc3RwNkRQVy9HZGU5Y1oz?=
+ =?utf-8?B?dnh4MHNCZ0s2UEdtY2pHcUJCdmZCekVqdldpOFFKOFFBTVFNRHg4bXFEV3hO?=
+ =?utf-8?B?OWJ2dW9lN1piVXhhTHNQVGQwZFJNSStZSDlicVNLeDZyM2tzam9Sc0xLWTFw?=
+ =?utf-8?B?WGZYb041cEpJVFdkVThnRStySElwWG51dEYxWTNyT0F2WXBaMGp0RDBxbzdq?=
+ =?utf-8?B?NFNYc2lTMDFzOGt6YTV2aTBFdXd1NVU5bmk1VTIxSWxFeWEzY1gyamJ5RXNk?=
+ =?utf-8?B?a0wxWjM4TEcwTmxxajdrUi9Xc1loU2VyQzJ0VmZsVGduRmZYSmZRM2w4dDdG?=
+ =?utf-8?B?clJXbTNaS2xmTEt2ZHArSmhkTGFEclNVNFI1cCsrZjJLYlBOeStHbCs2V3N5?=
+ =?utf-8?B?dDZUWTBuSlkvMDRQWFV3VUhQZ3VlQU1MWTh0c2RGNkk2VjFZa0Mra21tcVF1?=
+ =?utf-8?B?YlYrcHR1TUtJTU82K2QwMzhxU2J0Y3VKVzhxSDhNYkx1cHh3WWExYnBqc2tu?=
+ =?utf-8?B?c1lXZkJLWS9kV0JWWlF6b2ZpbzNzWmp1SEFwek44Ui8wZk04VWdhcllpVmlZ?=
+ =?utf-8?B?bDNyRFpYNTBCd0VkQ25udVdGZ2NpMFZlbFZCZEY0T29URjRCeFBVdHN2bU5G?=
+ =?utf-8?B?bGp6Z2JHWVMwazRCMFJTTytXeUNBbWhSQXcrTlJhV1Bxa0ZPQWlCTlVDSWZG?=
+ =?utf-8?B?cHdJZWlySDZhMlRyVEtSZXdpMW9ld3N0N2xzdkRyc0ZwWk5rendYaE84dXhI?=
+ =?utf-8?B?bDIxaXREMzFPSnNnbUZMeDIvTTBRMjZqQUZHbEdxNXBtamE1UzZKWms0UEZp?=
+ =?utf-8?B?NWhTL0ZlVDIzVHgzVmhlRENxY2hvUjZxSTU1WUIrb1A1YWVZYitpamhtSFdT?=
+ =?utf-8?B?S2oyQlBveUpxRVg5ck9Sc010T1Q4VVNKRHBEdzQyVmNubjFCUUxVWmpaOFJs?=
+ =?utf-8?Q?8gwweE0IMAijSmBQ6GGp?=
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?cnQ0QWJHZENDYmRzdEY0SjhjbDdNOXphMVJ2RnRVQ09uUmdDOGxYK2lqMytt?=
+ =?utf-8?B?WkVlWEd1Zjh5WlFKanMwSFlCaTBDcEQ4NDIvSmRIY3FxWHEydzN2dDcyMDRs?=
+ =?utf-8?B?bHFoZERPK1gwbHM0emRUb0hyZnhlY2t0N3dWYUE5YlZjemJYdEtoaVdyZDJL?=
+ =?utf-8?B?NkI4VHc2Q1hsMnJ6TmF5a0pDNDIwZC8xcnd0NVpWMW1LaWdpQStNMWdnZXpN?=
+ =?utf-8?B?RFcrS1RMdEZRNFFZTUt3ZjdYaXRkNnJqVzhMWTNYNmxjcnphbzR4M3hBSHNK?=
+ =?utf-8?B?S1YrM1lQSmZnNTRvUWtSdVA0UTAzdUVNTmo5di9Rbm8vTkNWUXh1aFRkcFdm?=
+ =?utf-8?B?bFhic3hSUHhWUXRacEZMWmRSTkpTTjgvNlgyRlRTODVOOCtMS1FnMU9Xc2Vm?=
+ =?utf-8?B?bWRJRFdkR0haS0tqWkM1dGhlZm5uTjVWQldPQmFURVJGTzJ4cVVsbS9kMldw?=
+ =?utf-8?B?MmM3ODJmSkcwZkYwbGovc2U1SGVJQjE1WVFqb2FVR0RZaWxiYWFyRnlIMmJ1?=
+ =?utf-8?B?cysxQlphQjBkM3ZJZyttMDFudjN4WWR5L2JwT3Q4b2NTbUVReG40VWNNdE1w?=
+ =?utf-8?B?SGgvRFdxMHk2SWlxalRWMjIxNWJuaW9JU3MvdXBKUlI3cmFJRGZ2bzdBOUZu?=
+ =?utf-8?B?UHlSVUpza1dMU0EwQktPanBWQzlENkJsY292UzQzT1BrM1NocStTSEp5ajZB?=
+ =?utf-8?B?WWNCdG1rRG1OOGoxZ2ZsU25PaWEwdGZ1ekxxTmVSaTFtcFZTK1JZUFhQSjlL?=
+ =?utf-8?B?UlZOZWw1ME4vcU41cmxORHdzeW9CaTdyMVVUajc3djU3WG85ZnpPWGlMNElI?=
+ =?utf-8?B?ajl1eXFRUUFDNVdxSGtCQU1jdmFxbWVZSWhZbnZGaUx3eWFnSmtQQTZzU3U4?=
+ =?utf-8?B?SXJ2eFNDSHM4Y3AwLzdPNjA4eU5LVlhCaHQxS1cyclZFY3hyc0JibkU0UjNm?=
+ =?utf-8?B?UDN1QjAvandVckNYeExtTkRZZE5Jd0NwY2c4VURRWGJJbWxXMVliSlZBZEx3?=
+ =?utf-8?B?eWdHditDTFVaRWdIdVRLejdacS9kdkplUzdJUXU2MlRGTVVrRHNNalEyM3Zn?=
+ =?utf-8?B?NkY5QllBTTBOcmJ3MVZTYmlCd21KR2F2RDAxZlMrclJWeGxORGpOVWcxclFw?=
+ =?utf-8?B?R09EV01FT0dFWURqUHkrOHBma0hybU83dGVDTTNCeHRUM1BGcENHUHdTZnFO?=
+ =?utf-8?B?c2tjVnBFQ1RZc3ZkNGkycFhpT1BxZ2NWZ081MzlkU0pDdFV3TlZvZVRXL0x1?=
+ =?utf-8?B?Mlc1OU9NTGV3eGx2bjVDZkRVU2xySmZvZHZ2TlFTYXR1QjdvcGUrMzNzRk1r?=
+ =?utf-8?B?dXpJQzJvWXo0WERRZy9ZRHJKK0RxTnBTcy9hTER3bFZrQUhvZkdGQjBBS1dF?=
+ =?utf-8?B?VWk0c2ROeFhsaDVFVkpraVdWVkZDWCtMNWU5OEhWVFQzVUFQcUtjaDhKalV1?=
+ =?utf-8?B?WDloRUVyMVFXQnJkNUUwNm5zMjFsQVAwQ21qWG1aU01ZYW5JSDBMQ3VubFY2?=
+ =?utf-8?B?ZUJ1eG9Sc0dLV2V3N3lNcWJOZ0R5NlJ3UXJKWFgzd1J0TnRXYS9lWXFGVjNO?=
+ =?utf-8?B?NWVSTTBJaG9CSWxyUjVYVW5CbnJTaW8zNlBlUzdnSjVjSWpBS293TXpOcGY3?=
+ =?utf-8?B?dTluL3dYSDlOY2tMWEl4UXBycCtFRXNvQU5oTU5uVXl3dGdURHFzaWYzWDA2?=
+ =?utf-8?B?VVhjdGtGTVJ0TE5vSjlsWFpRUFAzaE1RajdyK09jL0tZN0RhQ1FRUWtwVnlL?=
+ =?utf-8?Q?OOyrVCSW4Hn9FbBKTz83mMX2J0ea1lkXh+capX/?=
+X-OriginatorOrg: outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: bdd6a081-2c18-43e8-c7aa-08dd5ac98a09
+X-MS-Exchange-CrossTenant-AuthSource: PN0PR01MB10393.INDPRD01.PROD.OUTLOOK.COM
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 04 Mar 2025 03:06:21.1394
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
+X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MAXPR01MB4246
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250303_163718_018627_DDE1F32F 
-X-CRM114-Status: GOOD (  39.37  )
+X-CRM114-CacheID: sfid-20250303_190640_234124_DF262C3B 
+X-CRM114-Status: GOOD (  17.10  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,133 +159,106 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Mar 03, 2025 at 05:04:28PM +0000, Conor Dooley wrote:
-> On Fri, Feb 28, 2025 at 05:20:28PM +0800, Inochi Amaoto wrote:
-> > On Fri, Feb 28, 2025 at 04:46:22PM +0800, Inochi Amaoto wrote:
-> > > On Fri, Feb 28, 2025 at 02:34:00PM +0800, Inochi Amaoto wrote:
-> > > > On Tue, Feb 25, 2025 at 11:35:23PM +0000, Conor Dooley wrote:
-> > > > > On Tue, Feb 25, 2025 at 07:48:59AM +0800, Inochi Amaoto wrote:
-> > > > > > On Mon, Feb 24, 2025 at 06:54:51PM +0000, Conor Dooley wrote:
-> > > > > > > On Sat, Feb 22, 2025 at 08:34:10AM +0800, Inochi Amaoto wrote:
-> > > > > > > > On Fri, Feb 21, 2025 at 05:01:41PM +0000, Conor Dooley wrote:
-> > > > > > > > > On Fri, Feb 21, 2025 at 09:37:55AM +0800, Inochi Amaoto wrote:
-> > > > > > > > > > The pcie controller on the SG2044 is designware based with
-> > > > > > > > > > custom app registers.
-> > > > > > > > > > 
-> > > > > > > > > > Add binding document for SG2044 PCIe host controller.
-> > > > > > > > > > 
-> > > > > > > > > > Signed-off-by: Inochi Amaoto <inochiama@gmail.com>
-> > > > > > > > > > ---
-> > > > > > > > > >  .../bindings/pci/sophgo,sg2044-pcie.yaml      | 125 ++++++++++++++++++
-> > > > > > > > > >  1 file changed, 125 insertions(+)
-> > > > > > > > > >  create mode 100644 Documentation/devicetree/bindings/pci/sophgo,sg2044-pcie.yaml
-> > > > > > > > > > 
-> > > > > > > > > > diff --git a/Documentation/devicetree/bindings/pci/sophgo,sg2044-pcie.yaml b/Documentation/devicetree/bindings/pci/sophgo,sg2044-pcie.yaml
-> > > > > > > > > > new file mode 100644
-> > > > > > > > > > index 000000000000..040dabe905e0
-> > > > > > > > > > --- /dev/null
-> > > > > > > > > > +++ b/Documentation/devicetree/bindings/pci/sophgo,sg2044-pcie.yaml
-> > > > > > > > > > @@ -0,0 +1,125 @@
-> > > > > > > > > > +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> > > > > > > > > > +%YAML 1.2
-> > > > > > > > > > +---
-> > > > > > > > > > +$id: http://devicetree.org/schemas/pci/sophgo,sg2044-pcie.yaml#
-> > > > > > > > > > +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> > > > > > > > > > +
-> > > > > > > > > > +title: DesignWare based PCIe Root Complex controller on Sophgo SoCs
-> > > > > > > > > > +
-> > > > > > > > > > +maintainers:
-> > > > > > > > > > +  - Inochi Amaoto <inochiama@gmail.com>
-> > > > > > > > > > +
-> > > > > > > > > > +description: |+
-> > > > > > > > > > +  SG2044 SoC PCIe Root Complex controller is based on the Synopsys DesignWare
-> > > > > > > > > > +  PCIe IP and thus inherits all the common properties defined in
-> > > > > > > > > > +  snps,dw-pcie.yaml.
-> > > > > > > > > > +
-> > > > > > > > > > +allOf:
-> > > > > > > > > > +  - $ref: /schemas/pci/pci-host-bridge.yaml#
-> > > > > > > > > > +  - $ref: /schemas/pci/snps,dw-pcie.yaml#
-> > > > > > > > > > +
-> > > > > > > > > > +properties:
-> > > > > > > > > > +  compatible:
-> > > > > > > > > > +    const: sophgo,sg2044-pcie
-> > > > > > > > > > +
-> > > > > > > > > > +  reg:
-> > > > > > > > > > +    items:
-> > > > > > > > > > +      - description: Data Bus Interface (DBI) registers
-> > > > > > > > > > +      - description: iATU registers
-> > > > > > > > > > +      - description: Config registers
-> > > > > > > > > > +      - description: Sophgo designed configuration registers
-> > > > > > > > > > +
-> > > > > > > > > > +  reg-names:
-> > > > > > > > > > +    items:
-> > > > > > > > > > +      - const: dbi
-> > > > > > > > > > +      - const: atu
-> > > > > > > > > > +      - const: config
-> > > > > > > > > > +      - const: app
-> > > > > > > > > > +
-> > > > > > > > > > +  clocks:
-> > > > > > > > > > +    items:
-> > > > > > > > > > +      - description: core clk
-> > > > > > > > > > +
-> > > > > > > > > > +  clock-names:
-> > > > > > > > > > +    items:
-> > > > > > > > > > +      - const: core
-> > > > > > > > > > +
-> > > > > > > > > > +  dma-coherent: true
-> > > > > > > > > 
-> > > > > > > > > Why's this here? RISC-V is dma-coherent by default, with dma-noncoherent
-> > > > > > > > > used to indicate systems/devices that are not.
-> > > > > > > > 
-> > > > > > > > The PCIe is dma coherent, but the SoC itself is marked as
-> > > > > > > > dma-noncoherent.
-> > > > > > > 
-> > > > > > > By "the SoC itself", do you mean that the bus that this device is on is
-> > > > > > > marked as dma-noncoherent? 
-> > > > > > 
-> > > > > > Yeah, I was told only PCIe device on SG2044 is dma coherent.
-> > > > > > The others are not.
-> > > > > > 
-> > > > > > > IMO, that should not be done if there are devices on it that are coherent.
-> > > > > > > 
-> > > > > > 
-> > > > > > It is OK for me. But I wonder how to handle the non coherent device
-> > > > > > in DT? Just Mark the bus coherent and mark all devices except the
-> > > > > > PCIe device non coherent?
-> > > > > 
-> > > > > Don't mark the bus anything (default is coherent) and mark the devices.
-> > > > 
-> > > > I think this is OK for me.
-> > > > 
-> > > 
-> > > In technical, I wonder a better way to "handle dma-noncoherent".
-> > > In the binding check, all devices with this property complains 
-> > > 
-> > > "Unevaluated properties are not allowed ('dma-noncoherent' was unexpected)"
-> > > 
-> > 
-> > > It is a pain as at least 10 devices' binding need to be modified.
-> > > So I wonder whether there is a way to simplify this.
-> > > 
-> > 
-> > Ignore this, I misunderstood the dma device. it seems like 
-> > only dmac and eth needs it.
-> 
-> Nah, not gonna ignore it ;) You do make a valid point about it being
-> painful, but given you mention a different master for the pci device,
-> having two different soc@<foo> nodes sounds like it might make sense.
-> One marked dma-noncoherent w/ the existing devices and one that is
-> unmarked (since that's default) to represent the master than pci is on?
 
-Yeah, That make sense. I think it serves as a better way for SG2044.
+On 2025/2/28 20:40, Zixian Zeng wrote:
+> Add spi controllers for SG2042.
+>
+> SG2042 uses the upstreamed Synopsys DW SPI IP.
+>
+> Signed-off-by: Zixian Zeng <sycamoremoon376@gmail.com>
+> ---
+> For this spi controller patch, only bindings are included.
+> This is tested on milkv-pioneer board. Using driver/spi/spidev.c
+> for creating /dev/spidevX.Y and tools/spi/spidev_test for testing
+> functionality.
+> ---
+> Changes in v2:
+> - rebase v1 to sophgo/master(github.com/sophgo/linux.git).
+> - order properties in device node.
+> - remove unevaluated properties `clock-frequency`.
+> - set default status to disable.
+> - Link to v1: https://lore.kernel.org/r/20250228-sfg-spi-v1-1-b989aed94911@gmail.com
+> ---
+>   .../riscv/boot/dts/sophgo/sg2042-milkv-pioneer.dts |  8 +++++++
+>   arch/riscv/boot/dts/sophgo/sg2042.dtsi             | 28 ++++++++++++++++++++++
+>   2 files changed, 36 insertions(+)
+>
+> diff --git a/arch/riscv/boot/dts/sophgo/sg2042-milkv-pioneer.dts b/arch/riscv/boot/dts/sophgo/sg2042-milkv-pioneer.dts
+> index be596d01ff8d33bcdbe431d9731a55ee190ad5b3..c43a807af2f827b5267afe5e4fdf6e9e857dfa20 100644
+> --- a/arch/riscv/boot/dts/sophgo/sg2042-milkv-pioneer.dts
+> +++ b/arch/riscv/boot/dts/sophgo/sg2042-milkv-pioneer.dts
+> @@ -72,6 +72,14 @@ &uart0 {
+>   	status = "okay";
+>   };
+>   
+> +&spi0 {
+> +	status = "okay";
+> +};
+> +
+> +&spi1 {
+> +	status = "okay";
+> +};
+> +
 
-Regards,
-Inochi
+Pioneerbox doesn't use these SPI controllers, so just drop this change 
+and keep the change for sg2042.dtsi should be fine.
+
+Thanks,
+
+Chen
+
+>   / {
+>   	thermal-zones {
+>   		soc-thermal {
+> diff --git a/arch/riscv/boot/dts/sophgo/sg2042.dtsi b/arch/riscv/boot/dts/sophgo/sg2042.dtsi
+> index e62ac51ac55abd922b5ef796ba8c2196383850c4..500645147b1f8ed0a08ad3cafb38ea79cf57d737 100644
+> --- a/arch/riscv/boot/dts/sophgo/sg2042.dtsi
+> +++ b/arch/riscv/boot/dts/sophgo/sg2042.dtsi
+> @@ -545,5 +545,33 @@ sd: mmc@704002b000 {
+>   				      "timer";
+>   			status = "disabled";
+>   		};
+> +
+> +		spi0: spi@7040004000 {
+> +			compatible = "snps,dw-apb-ssi";
+> +			reg = <0x70 0x40004000 0x00 0x1000>;
+> +			clocks = <&clkgen GATE_CLK_APB_SPI>,
+> +					<&clkgen GATE_CLK_SYSDMA_AXI>;
+> +			interrupt-parent = <&intc>;
+> +			interrupts = <110 IRQ_TYPE_LEVEL_HIGH>;
+> +			#address-cells = <0x01>;
+> +			#size-cells = <0x00>;
+> +			num-cs = <0x02>;
+> +			resets = <&rstgen RST_SPI0>;
+> +			status = "disabled";
+> +		};
+> +
+> +		spi1: spi@7040005000 {
+> +			compatible = "snps,dw-apb-ssi";
+> +			reg = <0x70 0x40005000 0x00 0x1000>;
+> +			clocks = <&clkgen GATE_CLK_APB_SPI>,
+> +					<&clkgen GATE_CLK_SYSDMA_AXI>;
+> +			interrupt-parent = <&intc>;
+> +			interrupts = <111 IRQ_TYPE_LEVEL_HIGH>;
+> +			#address-cells = <0x01>;
+> +			#size-cells = <0x00>;
+> +			num-cs = <0x02>;
+> +			resets = <&rstgen RST_SPI1>;
+> +			status = "disabled";
+> +		};
+>   	};
+>   };
+>
+> ---
+> base-commit: aa5ee7180ec41bb77c3e327e95d119f2294babea
+> change-id: 20250228-sfg-spi-e3f2aeca09ab
+>
+> Best regards,
 
 _______________________________________________
 linux-riscv mailing list
