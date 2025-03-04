@@ -4,85 +4,171 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 44E66C021B8
-	for <linux-riscv@archiver.kernel.org>; Tue,  4 Mar 2025 20:51:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C0B3FC282D0
+	for <linux-riscv@archiver.kernel.org>; Wed,  5 Mar 2025 00:59:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:To:Subject:MIME-Version:
-	Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iD/VcfwJHNRp9hlMbQs1YqUJqZskN8xPwr+Is3lfr4A=; b=aLWTngAoDvDoV23uIJDZfd7rKx
-	XyM+N8v1DFs6syDqwXG8z5yzyelxv8qnKsTYbSHezKHSGE7JmLv25SQJW01rZxywuOgMpaEKlNO2V
-	H5G2ZENMU3iMm1jov9q9zDF1aWwcxuLHUxAf3i4tnoaPKua3PLMJyz95TuY1F5DblM5RtZbXGSxgK
-	UMm/xFcPVRNn2cGgHdCVzB+q3AzTqVXkDBdJ5coh8fdfkfOHNHYd9rNp9TPoGo5CyAvwxW1Fw96XI
-	rWlqNAaqkWRQ4yOj1H4MOekJqStmA7pQGZrZ7go7PQ09U6s7P+e6dqxOxaf2tbCQv9mB5zDPNzwaD
-	5LrQ45dQ==;
+	bh=YTLljL+o71k7TKUnK1lOmgN2++t2vM6AIQl6BNiaEEI=; b=o+r6XtQQFJmjJjMxMGSKYeX1lz
+	3+GX9WxVKeVUTmZvgL9iBVzSD/ZOM13ScWKQWPMTxGMKymMI0PC3jGCDMQXNOyAsx943AdcQHzHPU
+	cTGDjnmxVpu61A0/xRTsDYzxgQs4hEnNlQI0uPhlWXWkY/u4WqRfgyIiAB48YfAwr9vDr+tcEhl1j
+	SOVewGOL4zxdUYE2+AmEKlhd0BEB2C1E3xOPowfA3qnQpQF+8WLndKGkKfWDi8XYP9wyvU+7ZHrlR
+	5DzNXSDnecIygs+sx88PBNs+v83dh6JoWlb9bftFJToI04HMR9ihwGFmPc/zZt2WWYr1yblUJQ9+B
+	XI+I2xPw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpZEi-00000006EYT-20Br;
-	Tue, 04 Mar 2025 20:51:32 +0000
-Received: from mail-wr1-x42e.google.com ([2a00:1450:4864:20::42e])
+	id 1tpd6y-00000006gJp-31qB;
+	Wed, 05 Mar 2025 00:59:48 +0000
+Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpZEf-00000006EXy-3nhI
+	id 1tpc8w-00000006Zdr-2kyx
+	for linux-riscv@bombadil.infradead.org;
+	Tue, 04 Mar 2025 23:57:46 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=casper.20170209; h=MIME-Version:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:Date:Message-ID:Sender
+	:Reply-To:Content-ID:Content-Description;
+	bh=cwg8qpLfcvyKyBeWSeOkf5dzZnC2G0K4QoN04PagT3w=; b=MAayNAtrCS8rLeY8OUIFqbdouP
+	FLiLOwR7fcTSx/ytWuJtSxUkdIAzFJuAWJjvxsh/CJs6kBkxkY8Nkbf26IpKcxofdiioqPCHy1Ney
+	64q5N4zwrCCfw/yAGBbEH/JJGzoPD8pyVtwOEdbJPIKnbIa5F8+CG+sEJZ3bwwJSrREoHSO1LgR9b
+	TgaHsg+hov7v0VV0irBQzayasevgu7U8JElG1rfR7ScmNVHXq9J7h5jMa/D/qki6Nyj2xnzSv7NLQ
+	UASl4Ddc4lj2PvJbwWAv6Tj2hIsQtBBMpVLjdWIT274mr+0xazf7Nseuq7IbAOYIkq6B0FlZvRvOi
+	Vo7t1CyQ==;
+Received: from mail-centralindiaazolkn190110001.outbound.protection.outlook.com ([2a01:111:f403:d409::1] helo=PNZPR01CU001.outbound.protection.outlook.com)
+	by casper.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tpc8s-00000004KxW-4Bnc
 	for linux-riscv@lists.infradead.org;
-	Tue, 04 Mar 2025 20:51:31 +0000
-Received: by mail-wr1-x42e.google.com with SMTP id ffacd0b85a97d-390dd3403fdso5164274f8f.0
-        for <linux-riscv@lists.infradead.org>; Tue, 04 Mar 2025 12:51:29 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1741121488; x=1741726288; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=dqCiUR+VtYZ1iXicg8DOvKaTFhWRMaeKH7BEMD7Z0kU=;
-        b=nKiz6IK5kc2QOIMuwdPpeC84dmGOUr5AZPQU4kPx8I9NJWazBkD36mwW4URwih68S+
-         qesKSd1pjdwRJAEFuC9YB1cJoMcYfraKXmQlsp6IDPSMFG2lRDt0JvgEpWKSPFy4iVsh
-         KjsbZ5Bj51Gv/ayNE45TFNgkeTVJqmcL3NLYNnw15OCd7P8Xwj3Hy7wkRQFUu4F5ABkj
-         o7I1UcNSNrFL0mXvL9Lq1ZsZ3fBL9U4WjHww8RzsJg3LDfLtC6AbAqKx5140AM/Pbw8t
-         FrpfmtRxAhTtTOhevORcUoK+BT0PyrFuopT5Vkl+VprAfktv3hmvbVRTokEEWPXmaPTP
-         Mmyg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1741121488; x=1741726288;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=dqCiUR+VtYZ1iXicg8DOvKaTFhWRMaeKH7BEMD7Z0kU=;
-        b=avs6qV6RB9GJ6zfzil4DqfNiALXN/+liZHEhkyoZpj+z614msUU2zHzKNucvBwb34l
-         N08PmwGLC/Ig5YkOTIemkyhsblYUIgYVHaI8tL4JmeRomO7z1nesmO9+wOKefrAkOP94
-         xtBJp0cPfZ8pbU8pswBRFJsRffqCR91rOzdVnMoSmZ1sddLbbIIDrGGTRkwPtQBqBLLa
-         YWYHMPeAZOg0/8ZcAaC9oEasPNjavHYdU61QeiaBo/68PsPFRMSnmVdVrG34AXg2lTAz
-         L73KrzVysss5FtwxI3M3seAIOJjPBXXg18EBTXvT5bTOPfcEY5m7WKsSfHa0iSSjJ2q5
-         NQeg==
-X-Forwarded-Encrypted: i=1; AJvYcCUb/U2sM31TtZy+ZSKwa9EIov3OXE8KzxtEWBMVzdDweuOlgVVPn3LHpuA6UP0c7VIXrbWKeCa0d8nvdg==@lists.infradead.org
-X-Gm-Message-State: AOJu0YwkwHSXObaCUqsmoltezAN8akGo8ikRN39E5VNYrGphu7HPdCEU
-	exBNZnDyKe+QolB3lKvDvBDo9193yxb9c8BF9zUsqK/jhmwwjJ2QMIna5NL/j2/l2TBO93ngD8U
-	JwGo=
-X-Gm-Gg: ASbGncvjCYcxP9dILIfYAfUcEv3eQgrE+5+LxYhzG63uiKbYW7xwrJZDWsxAUXRn52M
-	Ja9Pph/8dMfoSAqkzZ5RPRKvRZjr+fGj9Ss5FGWgHcT+nQ6bh+/T6vYxiy5rd1thlAHxTahPjYX
-	qIkFKx4ZnKsoWFLqUAup91pGznNBS374Te+BgiUva7+6Vh1JvbPIuw7TmlCv5VjR5laQYM9cNUR
-	xygs91m3DPijiY2ETZLXMbC9n//RQwzu7iHB9g74Ew5elZYfit61WyvHiUq0ZUw6ocu0VVR4MfR
-	4FUpMsKe5tnd74f1Pl3TfNafM+q6VS72Kw7a/1CAmtj5gxhWa4DPPqrGg4maVBwXOJkLdWZMXze
-	stADy6Q+i
-X-Google-Smtp-Source: AGHT+IFEDfBRhDzGXmuKkh231a6HvLL4kF20x4c7He8dKb/Wku1OOVCCY/1L9jtdUl1lMgHRpDPY7g==
-X-Received: by 2002:a5d:59a5:0:b0:390:f1c1:d399 with SMTP id ffacd0b85a97d-3911f7bb9b8mr200990f8f.41.1741121488037;
-        Tue, 04 Mar 2025 12:51:28 -0800 (PST)
-Received: from [192.168.10.46] (146725694.box.freepro.com. [130.180.211.218])
-        by smtp.googlemail.com with ESMTPSA id ffacd0b85a97d-390e4844a2dsm18831020f8f.72.2025.03.04.12.51.25
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 04 Mar 2025 12:51:26 -0800 (PST)
-Message-ID: <6511298a-4627-4d5a-a8a0-27f33f6cbea9@linaro.org>
-Date: Tue, 4 Mar 2025 21:51:25 +0100
-MIME-Version: 1.0
+	Tue, 04 Mar 2025 23:57:45 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=QCId0I6bIbMlZmoVUIy7e99wbQ8jBBvyiz1cvEbmcPKEFAEtilAcGixFb0LaPZIArJNYOrj4I8wcA9vIHBf1SyqtJbSmG0MDAj5ReiOcBpUV0O/GxzlSmvXE8OqU87KHVxaXx8wcATcJK/xY8uicE5kYOEv6fbSdOcmq9MMS/9ME74m8OJ+q5YqpWZgtdgYgDz+1ocdZkw5MRC9UxMNFuNntkQGv5bjGZLpFKj+wabYdpDtuwsD2jwVeSE1DRcIo0pzqK6OthyNYhghnCBUDc3XWGTCftmWqUwAOyeZzRKRuG/5MsLEhvhWIRAOqzdctYySnMIlP7TiMc5H9W1iUqQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=cwg8qpLfcvyKyBeWSeOkf5dzZnC2G0K4QoN04PagT3w=;
+ b=HLCVbK1cEKrRZrHWwAZb1vNS84zDJa9fwg52lirRT3hmTZJ8ZalzefvMY3sIOvmOFsB1XbbNvLu1NzLhQCtOhkkXRha5Z8a5lQzRK2c/eHzCVeJs6etjewmibyR31hBLyZuvvDJfvk2QipzB3WgjLlcvbd9rl29o+LOI4b4Fi6RFqAJ8iVV2gSLF34YlN9Z5R9CEKGZGErGncLcxCnq/VUWFnOQr04E1C62f80mNuOGjz1McYzXHD2F0QFLxGGms7o/Mfy+SkG0W96fJl3PXykYhTHwnGEIFcFMA3dcKIVLYxlrr/ulECwk1qsjFur775fsC6UbRUzy60+YTAl9RaA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
+ dkim=none; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=cwg8qpLfcvyKyBeWSeOkf5dzZnC2G0K4QoN04PagT3w=;
+ b=rNxM9CJvTgp4Uo0BSKHT4vQ4sLHmLBQ01XrbPlTE4hPhHRGiHTljDxfHQX2GcICh9YAOZoGsbQEaKH2Ovo50roC0E8MjennLbSFILNs2YYxeWX5VqPxzBd/fgD1R7+7RdiotfXGAhOMx0h+B5Qz+hsnyvbNVmcoUR/x+R/LxtJw+LisRwlUbIPK/LwETG0m0+jINL44SoAjDdkODZv9Dh/vloQYmZJWaY+N9qBlzJaeTSVcDz1qyUQi5RfEfQQGRIHelceIFfIAFxbdBb7VoE9bYmu+ns9DA8bWBbqzH5cj18Zvd1YdmgVfhl21Ci/Xs0mWsQy1AdhDGHR5PGER+gg==
+Received: from PN0PR01MB10393.INDPRD01.PROD.OUTLOOK.COM
+ (2603:1096:c01:1eb::14) by PN1PPF0EE0B81A4.INDPRD01.PROD.OUTLOOK.COM
+ (2603:1096:c04:1::306) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8511.17; Tue, 4 Mar
+ 2025 23:57:20 +0000
+Received: from PN0PR01MB10393.INDPRD01.PROD.OUTLOOK.COM
+ ([fe80::1b4f:5587:7637:c5a5]) by PN0PR01MB10393.INDPRD01.PROD.OUTLOOK.COM
+ ([fe80::1b4f:5587:7637:c5a5%6]) with mapi id 15.20.8489.028; Tue, 4 Mar 2025
+ 23:57:20 +0000
+Message-ID: <PN0PR01MB10393134B6BD714C1F070F0BEFEC82@PN0PR01MB10393.INDPRD01.PROD.OUTLOOK.COM>
+Date: Wed, 5 Mar 2025 07:57:14 +0800
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5] clocksource/drivers/timer-clint: Add T-Head C9xx clint
-To: Jesse Taube <mr.bossman075@gmail.com>, linux-riscv@lists.infradead.org
-References: <20250117164536.3918949-1-Mr.Bossman075@gmail.com>
-Content-Language: en-US
-From: Daniel Lezcano <daniel.lezcano@linaro.org>
-In-Reply-To: <20250117164536.3918949-1-Mr.Bossman075@gmail.com>
+Subject: Re: [PATCH 2/2] PCI: sophgo-dwc: Add Sophgo SG2044 PCIe driver
+To: Inochi Amaoto <inochiama@gmail.com>,
+ Lorenzo Pieralisi <lpieralisi@kernel.org>,
+ =?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kw@linux.com>,
+ Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
+ Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Johan Hovold <johan+linaro@kernel.org>,
+ Shashank Babu Chinta Venkata <quic_schintav@quicinc.com>,
+ Niklas Cassel <cassel@kernel.org>
+Cc: linux-pci@vger.kernel.org, devicetree@vger.kernel.org,
+ sophgo@lists.linux.dev, linux-kernel@vger.kernel.org,
+ linux-riscv@lists.infradead.org, Yixun Lan <dlan@gentoo.org>,
+ Longbin Li <looong.bin@gmail.com>
+References: <20250304071239.352486-1-inochiama@gmail.com>
+ <20250304071239.352486-3-inochiama@gmail.com>
+From: Chen Wang <unicorn_wang@outlook.com>
+In-Reply-To: <20250304071239.352486-3-inochiama@gmail.com>
+X-ClientProxiedBy: SI1PR02CA0031.apcprd02.prod.outlook.com
+ (2603:1096:4:1f6::11) To PN0PR01MB10393.INDPRD01.PROD.OUTLOOK.COM
+ (2603:1096:c01:1eb::14)
+X-Microsoft-Original-Message-ID: <48fd9396-e6fc-4f1a-aaed-c626e7bbb8fb@outlook.com>
+MIME-Version: 1.0
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PN0PR01MB10393:EE_|PN1PPF0EE0B81A4:EE_
+X-MS-Office365-Filtering-Correlation-Id: f93279ca-c3f0-4135-0f92-08dd5b784c4b
+X-Microsoft-Antispam: BCL:0;ARA:14566002|461199028|6090799003|15080799006|5072599009|7092599003|8060799006|19110799003|3412199025|440099028|41001999003;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?bk0vbElxVUNTSjdjb3FQWnBDVndYcmdYTTRFa3JRNUw3NzYrTitIMTlXc3c5?=
+ =?utf-8?B?bXE1RFczTWNhM1RDd2pBNWlQdTgvSW55SW1yekYzOE9ocmRzYzZWbXhoRHk4?=
+ =?utf-8?B?c0k1YVFHRU8vZTBSYkRETlVEbWxzUVJJWk1qRGJOWEhOUXRZMWxIdHRYVFl0?=
+ =?utf-8?B?RkJ6Vk80REFXUzVYeXBqL1gwWlVwWHBmQVdtRmhuZVlpZzdESGd1RVBiMVlr?=
+ =?utf-8?B?YzRmbTBTZHRaUTZiYTJEZnpUSUtVUGFTUzl5TkZlbzIvMGhRc2dnWGh6YW5p?=
+ =?utf-8?B?dlgrZjM3MHM2Q2wvQ3N3NW1jWXkxMEF0SVFOcCtJWVlWdUU1dndOejA3aW1z?=
+ =?utf-8?B?T3R0L3FHNGpuam8xdzJYUTkzWmJDbzZTZUdUd3Z1M2dUbUg2bkdKdml3VjhQ?=
+ =?utf-8?B?NHVpZ3lqSHZoYng3c2Q3czgrOFM1Y1p6dHUyVmZ1eDZsMzU4WXhjamNzemhk?=
+ =?utf-8?B?ekRjaG9Md0FySUM3RzZQbnRzTVYrczVUMnZSQjRDcTZzZThlOGQwdFJ0SFdS?=
+ =?utf-8?B?dE5GM2d4NktwZSs4SHdNTmszeXZDbURJbTlOR0VLTU9jLzc2bjlURjFHN1lO?=
+ =?utf-8?B?NCs3bU02eE9NT09QV2J2NUhrVGt5LzBXclBiRzBSd09JWDZkNHRoRm9jdnY3?=
+ =?utf-8?B?eG0zTmF3MnROMk9mbkNxYmN2a21xb2NDendlbWk0YTdtdk5vdFYzRFVSQlJG?=
+ =?utf-8?B?V29wRGx6VmlHVy91SkdNZWdQb09VQ1BKMG05VlF2dWhVWXZpT1BLWkIyUG82?=
+ =?utf-8?B?UmlYOFIybG5Lb1JScnNVS2ViMEtaYmZZV2FmSDBSeTlkL1Z1cityTjg2ZEVE?=
+ =?utf-8?B?YnJHMWdQYkQ5b1F0dmFDMi8ybXhaZ3MvWTIwbE13bGc1ZVhuN0JKNTJFTVI4?=
+ =?utf-8?B?TjBSdm9mZzdYMzhPdHIxQXZPNEFZdmJtSk1lQU9PUXFwWWl0dmNtUHVVUi9O?=
+ =?utf-8?B?VEdnZ2RISDFuRDJTbmN0cWQ2U3g3dlA1U0wrV2JhdEFmM2YxRjZmUFc4T0Jz?=
+ =?utf-8?B?Vi8vNWM4ODZKbytaZHJMd1ZGeU1MUnJWWDN1ZXBLUThIQUJ6em5VYTVsV2la?=
+ =?utf-8?B?N0s3ZEFWWkFrUzhscjBkYXFpbXdlVGlPNHY4cFlXd3RMZUdaSFdqU0FGYUcy?=
+ =?utf-8?B?K0NBd2U5M0hoQVhDRmloTmtpL09hcEU5bFhQZVFvMWdNMGJMUGp3enpyU0cr?=
+ =?utf-8?B?QnFTejZiVkRwZ1BLN0pyN0R6c3N5Zzl4aExYbmgrZFYyeGU4d0hiQ2NHTXBl?=
+ =?utf-8?B?blVoZUJQNWl1Qk5JeWtHeUc2N1JyZHA4eWk4aVpkT0VXbnFVVk14RGttWUVL?=
+ =?utf-8?B?ejFtbFNxd3dhWlFtU2FlL0NPSitYazFTMkR5VHNDU28zSytTNkpwS3V3L2Y3?=
+ =?utf-8?B?WmFkRW44UW1aV3VZdTZwUFA5dXNwc3VmV2lKSjlPLzk5ZHZQY1p6UTFMeWxt?=
+ =?utf-8?B?TEJPYi9YVUE4c05Jb2xaYUJHbTkxNDYwMGdQM2ViMmxtZjFqZDhZNEtkTG5t?=
+ =?utf-8?B?SjN3RmxPbVhzZFo5UzBRT09nUG5NRkhaWFNYeXRPZnZ3WmU4OE1HcklFbFAr?=
+ =?utf-8?B?c01YQT09?=
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?M1VVdnlVT2J5bVo4STNmQU52a0ZITVZ4QUxCS3dRdTkwdEp3cE5OR2ExeVNE?=
+ =?utf-8?B?R0FCUlFyWHB1V0pvSlNHYUFCV01sSC9NUFVzWWNiYTU4cXk2ZVdQTVc5SmYw?=
+ =?utf-8?B?VkRrS0VGTUtzbVZWMXlERmtsQ2gxVSs1WGZFcWFJR3FLYWp4U3g5SE5VcWVt?=
+ =?utf-8?B?MUkvUWR5WGNWQmZoeitOc1BBK1Y5R1Frbm9laWd3bEp4ZnAyb2N0ZFIyR1Na?=
+ =?utf-8?B?dmVScmcvYURyK050d2EwWDdEek8zWkQvRTJ5b0N0M2ltQXc4T2RhdFNDbWZG?=
+ =?utf-8?B?YmpKbUxHVzlHblZudHkzZDZlTlRBQjNPZWZlc2lBVTRjMnZHYXE5MDNtaWlh?=
+ =?utf-8?B?cVI4QjhyMUcyeDQ3NHRsaW9oNjVUVG84cGpnNXNPQWVZd1huZllZSGp6azFI?=
+ =?utf-8?B?QVVxb2xIcjFCR0YvL1FXdWUrMlBEMUtkbkVoQzM0d2J6VEFydTh1SWNrSzdZ?=
+ =?utf-8?B?b0dhNndXZk1jeGxTQXhqN0JxditFbVByTjNjZ0dmYmJFbTJCTU0vRDV5QkV1?=
+ =?utf-8?B?L1BSbDhadEtBWHVBZGUyWVZLLzRZQmFQS3dzWGI1UGlwb0tCamFsQ2ZENDRz?=
+ =?utf-8?B?aXdWVERmTnE5d1dBeDgvalczM0NFMXRud1MzbHJXSkxoeE00REtXT25OZzVK?=
+ =?utf-8?B?QVRxSW9FSXA3RDQ0THZEcHZpVFhOS0NLZThSM1RUZDRXQnFqNUYzUUdETmxn?=
+ =?utf-8?B?MTJDejJVRC83cWMvSW5yVGdiWXdOSkR2U0Jvc29lTWozWDF0d295Uk1Iem40?=
+ =?utf-8?B?MFdEYUdiUXlkYjArVXN5N21JeStwQllSQlQ4NXB6Y3ptSkJ3d1hqUGlIV1Vh?=
+ =?utf-8?B?UFdHa013cUV4UGQ4WjQyeE40azlYQlhhMVVFTmlGLzlFMkh5TUoxNjA5N29F?=
+ =?utf-8?B?cExtYlZYVmZtK1VXNDdUNU9tQ0UrUGU1MEhsZGlGanNITjFLSWRSWnZNSzN4?=
+ =?utf-8?B?YXUrSXZ2d3p3RnphK2JoUGFXSmhwLzcxUmR5NFVnUk5UQkFReXJrSkZkYWY2?=
+ =?utf-8?B?em00NnRmT0JDSU82cHpzaFNCZlJnanVXejYvVGN2MXQvazZwSFlzTTFCSHZE?=
+ =?utf-8?B?MmY1c0hCdW9VbUJ0R1gxRGVMcHNvMmNneG02aVFYUU1nM1lVYWtZMXZVTVZK?=
+ =?utf-8?B?ak5FR3UzRXk0QUd4SnB6MW56OUptZVFkcnZ3bGV1NUFqYjVRaThJTERId2xj?=
+ =?utf-8?B?RVdhMW9hT1AxWkszSW41QXYzK0NaTkFndHQ5YXlNL0Z2V2M0S1NNNzUrQ2Er?=
+ =?utf-8?B?d21XMnFtTzg1YTdBbWhuK3RQYVlkZzVXUFl4MUZMcTJpN2hGWjZpOVQrMk54?=
+ =?utf-8?B?WVFHRlR2Qll5M2FIaU1nOEM0eEFNVGRMMGkybGkzUzQvVXdVSzMxNzBLSy9i?=
+ =?utf-8?B?V3Z1cWMwQk95elIxdksxRTh0TVhFR3BwQTJGWEdqVUYxNVduTTNDR0JsRGEw?=
+ =?utf-8?B?VTl6dVNCbHZHS0pDbzdEQ1BrS2JneWdXS0s1YURWYlVPL0tkT2hUQWN1elA1?=
+ =?utf-8?B?S2F3WVNqUHpMUSswTXYxVyt5SHVwbEZPblJsNEZjeWZqUllIL1R6SDVuVG0r?=
+ =?utf-8?B?ZmVST3lLNjdPNkFJcC9MYVBLdCswcWxJcDFPQWhRLzV0V1M3ZitqdVJGMGZU?=
+ =?utf-8?B?MnZ0VDh1VnF1eHVIazBEc1dDTUN5WFZrWkhBSEsvQTA5NkRoUWZNRTZzZ3hy?=
+ =?utf-8?B?ZklrQnNkWEpyWkRWcno2RUpuRXpkTWJsdC9pRGEwaVU1b21ad2d3TDZMUXd6?=
+ =?utf-8?Q?PiP1PQFI+SYqfP4YBh42bPxE8tXVbNTu3E+cvVC?=
+X-OriginatorOrg: outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: f93279ca-c3f0-4135-0f92-08dd5b784c4b
+X-MS-Exchange-CrossTenant-AuthSource: PN0PR01MB10393.INDPRD01.PROD.OUTLOOK.COM
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 04 Mar 2025 23:57:19.3196
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
+X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PN1PPF0EE0B81A4
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250304_125129_950213_2AC79A74 
-X-CRM114-Status: GOOD (  37.24  )
+X-CRM114-CacheID: sfid-20250304_235743_177385_E930AA40 
+X-CRM114-Status: GOOD (  23.91  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,141 +180,350 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Albert Ou <aou@eecs.berkeley.edu>, linux-kernel@vger.kernel.org, Conor Dooley <conor@kernel.org>, Samuel Holland <samuel.holland@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Jisheng Zhang <jszhang@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>, Thomas Gleixner <tglx@linutronix.de>
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gMTcvMDEvMjAyNSAxNzo0NSwgSmVzc2UgVGF1YmUgd3JvdGU6Cj4gRnJvbTogSmlzaGVuZyBa
-aGFuZyA8anN6aGFuZ0BrZXJuZWwub3JnPgo+IAo+IFRvIHVzZSB0aGUgVC1IRUFEIEM5eHggY2xp
-bnQgaW4gUklTQ1YtTSBOT01NVSBlbnYsIHdlIG5lZWQgdG8gdGFrZQo+IGNhcmUgdHdvIHBvaW50
-czoKPiAKPiAxLlRoZSBtdGltZWNtcCBpbiBULUhlYWQgQzl4eCBjbGludCBvbmx5IHN1cHBvcnRz
-IDMyYml0IHJlYWQvd3JpdGUsCj4gaW1wbGVtZW50IHN1Y2ggc3VwcG9ydC4KPiAKPiAyLiBBcyBw
-b2ludGVkIG91dCBieSBjb21taXQgY2E3ODEwYWVjZGJhICgibGliOiB1dGlscy90aW1lcjogbXRp
-bWVyOgo+IGFkZCBhIHF1aXJrIGZvciBsYWNraW5nIG10aW1lIHJlZ2lzdGVyIikgb2Ygb3BlbnNi
-aToKPiAKPiAiVC1IZWFkIGRldmVsb3BlcnMgc3VyZWx5IGhhdmUgYSBkaWZmZXJlbnQgdW5kZXJz
-dGFuZGluZyBvZiB0aW1lIENTUiBhbmQKPiBDTElOVCdzIG10aW1lIHJlZ2lzdGVyIHdpdGggU2lG
-aXZlIG9uZXMsIHRoYXQgdGhleSBkaWQgbm90IGltcGxlbWVudAo+IHRoZSBtdGltZSByZWdpc3Rl
-ciBhdCBhbGwgLS0gYXMgc2hvd24gaW4gb3BlbkM5MDYgc291cmNlIGNvZGUsIHRoZWlyCj4gdGlt
-ZSBDU1IgdmFsdWUgaXMganVzdCBleHBvc2VkIGF0IHRoZSB0b3Agb2YgdGhlaXIgcHJvY2Vzc29y
-IElQIGJsb2NrCj4gYW5kIGV4cGVjdHMgYW4gZXh0ZXJuYWwgY29udGlub3VzIGNvdW50ZXIsIHdo
-aWNoIG1ha2VzIGl0IG5vdAo+IG92ZXJyaWRlYWJsZSwgYW5kIHRodXMgbXRpbWUgcmVnaXN0ZXIg
-aXMgbm90IGltcGxlbWVudGVkLCBldmVuIG5vdCBmb3IKPiByZWFkaW5nLiBIb3dldmVyLCBpZiBD
-TElOVEVFIGlzIG5vdCBlbmFibGVkIGluIFQtSGVhZCdzIE1YU1RBVFVTCj4gZXh0ZW5kZWQgQ1NS
-LCB0aGVzZSBzeXN0ZW1zIHN0aWxsIHJlbHkgb24gdGhlIG10aW1lY21wIHJlZ2lzdGVycyB0bwo+
-IGdlbmVyYXRlIHRpbWVyIGludGVycnVwdHMuIFRoaXMgbWFrZXMgaXQgbmVjZXNzYXJ5IHRvIGlt
-cGxlbWVudCBULUhlYWQKPiBDOXh4IENMSU5UIHN1cHBvcnQgaW4gT3BlblNCSSBNVElNRVIgZHJp
-dmVyLCB3aGljaCBza2lwcyBpbXBsZW1lbnRpbmcKPiByZWFkaW5nIG10aW1lIHJlZ2lzdGVyIGFu
-ZCBmYWxscyBiYWNrIHRvIGRlZmF1bHQgY29kZSB0aGF0IHJlYWRzIHRpbWUKPiBDU1IuIgo+IAo+
-IFNvLCB3ZSBuZWVkIHRvIGZhbGwgYmFjayB0byByZWFkIHRpbWUgQ1NSIGluc3RlYWQgb2YgbXRp
-bWUgcmVnaXN0ZXIuCj4gQWRkIHJpc2N2X2Nzcl90aW1lX2F2YWlsYWJsZSBzdGF0aWMga2V5IGZv
-ciB0aGlzIHB1cnBvc2UuCj4gCj4gU2lnbmVkLW9mZi1ieTogSmlzaGVuZyBaaGFuZyA8anN6aGFu
-Z0BrZXJuZWwub3JnPgo+IFNpZ25lZC1vZmYtYnk6IEplc3NlIFRhdWJlIDxNci5Cb3NzbWFuMDc1
-QGdtYWlsLmNvbT4KPiAtLS0KPiBUcmVhdCB0aGlzIGFzIGEgY29tcGxldGVseSBuZXcgcGF0Y2gs
-IGFzIGl0IGlzIG1vc3RseSByZXdyaXR0ZW4uCj4gT3JpZ2luYWw6Cj4gaHR0cHM6Ly9sb3JlLmtl
-cm5lbC5vcmcvYWxsLzIwMjQwNDEwMTQyMzQ3Ljk2NC0zLWpzemhhbmdAa2VybmVsLm9yZy8KPiBW
-MyAtPiBWNDoKPiAgIC0gQWRkIHJpc2N2LGNzci1jbGludAo+ICAgLSBBbGxvdyB1c2luZyBvZiBD
-U1JzIGluIFMgbW9kZQo+ICAgLSBDaGFuZ2UgaWYgcmV0dXJuIGVsc2UgcmV0dXJuIHRvIGlmIHJl
-dHVybiByZXR1cm4KPiAgIC0gQ2hhbmdlIHN0YXRpY19icmFuY2hfbGlrZWx5IHRvIHN0YXRpY19i
-cmFuY2hfdW5saWtlbHkKPiAgIC0gRml4IDMyLWJpdCBjbGludF9nZXRfY3ljbGVzNjQgY3NyX2F2
-YWlsYWJsZSBjaGVjayBiZWluZyBpbnZlcnRlZAo+ICAgLSBGaXggaXNfYzkwMF9jbGludCBiZWlu
-ZyB1bmluaXRpYWxpemVkCj4gVjQgLT4gVjU6Cj4gICAtIFJlbW92ZSByaXNjdixjc3ItY2xpbnQK
-PiAgIC0gUmVtb3ZlIHJpc2N2X2Nzcl90aW1lX2F2YWlsYWJsZQo+ICAgLSBSZXBsYWNlIGFsbCBz
-dGF0aWNfYnJhbmNoX3VubGlrZWx5KCZyaXNjdl9jc3JfdGltZV9hdmFpbGFibGUpIHdpdGgKPiAg
-ICAgIHJpc2N2X2hhc19leHRlbnNpb25fbGlrZWx5KFJJU0NWX0lTQV9FWFRfWklDTlRSKQo+IC0t
-LQo+ICAgYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS90aW1leC5oICAgIHwgMTIgKysrKysrKy0KPiAg
-IGRyaXZlcnMvY2xvY2tzb3VyY2UvdGltZXItY2xpbnQuYyB8IDUwICsrKysrKysrKysrKysrKysr
-KysrKysrKysrKy0tLS0KPiAgIDIgZmlsZXMgY2hhbmdlZCwgNTYgaW5zZXJ0aW9ucygrKSwgNiBk
-ZWxldGlvbnMoLSkKPiAKPiBkaWZmIC0tZ2l0IGEvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS90aW1l
-eC5oIGIvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS90aW1leC5oCj4gaW5kZXggYTA2Njk3ODQ2ZTY5
-Li5kNzgwNzUzNTFiZjQgMTAwNjQ0Cj4gLS0tIGEvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS90aW1l
-eC5oCj4gKysrIGIvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS90aW1leC5oCj4gQEAgLTE3LDE3ICsx
-NywyNiBAQCB0eXBlZGVmIHVuc2lnbmVkIGxvbmcgY3ljbGVzX3Q7Cj4gICAjaWZkZWYgQ09ORklH
-XzY0QklUCj4gICBzdGF0aWMgaW5saW5lIGN5Y2xlc190IGdldF9jeWNsZXModm9pZCkKPiAgIHsK
-PiArCWlmIChyaXNjdl9oYXNfZXh0ZW5zaW9uX2xpa2VseShSSVNDVl9JU0FfRVhUX1pJQ05UUikp
-Cj4gKwkJcmV0dXJuIGNzcl9yZWFkKENTUl9USU1FKTsKPiArCj4gICAJcmV0dXJuIHJlYWRxX3Jl
-bGF4ZWQoY2xpbnRfdGltZV92YWwpOwo+ICAgfQo+ICAgI2Vsc2UgLyogIUNPTkZJR182NEJJVCAq
-Lwo+ICAgc3RhdGljIGlubGluZSB1MzIgZ2V0X2N5Y2xlcyh2b2lkKQo+ICAgewo+ICsJaWYgKHJp
-c2N2X2hhc19leHRlbnNpb25fbGlrZWx5KFJJU0NWX0lTQV9FWFRfWklDTlRSKSkKPiArCQlyZXR1
-cm4gY3NyX3JlYWQoQ1NSX1RJTUUpOwo+ICsKPiAgIAlyZXR1cm4gcmVhZGxfcmVsYXhlZCgoKHUz
-MiAqKWNsaW50X3RpbWVfdmFsKSk7Cj4gICB9Cj4gICAjZGVmaW5lIGdldF9jeWNsZXMgZ2V0X2N5
-Y2xlcwo+ICAgCj4gICBzdGF0aWMgaW5saW5lIHUzMiBnZXRfY3ljbGVzX2hpKHZvaWQpCj4gICB7
-Cj4gKwlpZiAocmlzY3ZfaGFzX2V4dGVuc2lvbl9saWtlbHkoUklTQ1ZfSVNBX0VYVF9aSUNOVFIp
-KQo+ICsJCXJldHVybiBjc3JfcmVhZChDU1JfVElNRUgpOwo+ICsKPiAgIAlyZXR1cm4gcmVhZGxf
-cmVsYXhlZCgoKHUzMiAqKWNsaW50X3RpbWVfdmFsKSArIDEpOwo+ICAgfQo+ICAgI2RlZmluZSBn
-ZXRfY3ljbGVzX2hpIGdldF9jeWNsZXNfaGkKPiBAQCAtNDAsNyArNDksOCBAQCBzdGF0aWMgaW5s
-aW5lIHUzMiBnZXRfY3ljbGVzX2hpKHZvaWQpCj4gICAgKi8KPiAgIHN0YXRpYyBpbmxpbmUgdW5z
-aWduZWQgbG9uZyByYW5kb21fZ2V0X2VudHJvcHkodm9pZCkKPiAgIHsKPiAtCWlmICh1bmxpa2Vs
-eShjbGludF90aW1lX3ZhbCA9PSBOVUxMKSkKPiArCWlmICghcmlzY3ZfaGFzX2V4dGVuc2lvbl9s
-aWtlbHkoUklTQ1ZfSVNBX0VYVF9aSUNOVFIpICYmCj4gKwkgICAodW5saWtlbHkoY2xpbnRfdGlt
-ZV92YWwgPT0gTlVMTCkpKQo+ICAgCQlyZXR1cm4gcmFuZG9tX2dldF9lbnRyb3B5X2ZhbGxiYWNr
-KCk7Cj4gICAJcmV0dXJuIGdldF9jeWNsZXMoKTsKPiAgIH0KPiBkaWZmIC0tZ2l0IGEvZHJpdmVy
-cy9jbG9ja3NvdXJjZS90aW1lci1jbGludC5jIGIvZHJpdmVycy9jbG9ja3NvdXJjZS90aW1lci1j
-bGludC5jCj4gaW5kZXggMGJkZDlkN2VjNTQ1Li5jZGY4YjMzZDJkZDIgMTAwNjQ0Cj4gLS0tIGEv
-ZHJpdmVycy9jbG9ja3NvdXJjZS90aW1lci1jbGludC5jCj4gKysrIGIvZHJpdmVycy9jbG9ja3Nv
-dXJjZS90aW1lci1jbGludC5jCj4gQEAgLTM5LDYgKzM5LDcgQEAgc3RhdGljIHU2NCBfX2lvbWVt
-ICpjbGludF90aW1lcl9jbXA7Cj4gICBzdGF0aWMgdTY0IF9faW9tZW0gKmNsaW50X3RpbWVyX3Zh
-bDsKPiAgIHN0YXRpYyB1bnNpZ25lZCBsb25nIGNsaW50X3RpbWVyX2ZyZXE7Cj4gICBzdGF0aWMg
-dW5zaWduZWQgaW50IGNsaW50X3RpbWVyX2lycTsKPiArc3RhdGljIGJvb2wgaXNfYzkwMF9jbGlu
-dDsKPiAgIAo+ICAgI2lmZGVmIENPTkZJR19SSVNDVl9NX01PREUKPiAgIHU2NCBfX2lvbWVtICpj
-bGludF90aW1lX3ZhbDsKPiBAQCAtNzksNiArODAsOSBAQCBzdGF0aWMgdm9pZCBjbGludF9pcGlf
-aW50ZXJydXB0KHN0cnVjdCBpcnFfZGVzYyAqZGVzYykKPiAgICNpZmRlZiBDT05GSUdfNjRCSVQK
-PiAgIHN0YXRpYyB1NjQgbm90cmFjZSBjbGludF9nZXRfY3ljbGVzNjQodm9pZCkKPiAgIHsKPiAr
-CWlmIChyaXNjdl9oYXNfZXh0ZW5zaW9uX2xpa2VseShSSVNDVl9JU0FfRVhUX1pJQ05UUikpCj4g
-KwkJcmV0dXJuIGNzcl9yZWFkKENTUl9USU1FKTsKPiArCgpHaXZlbiB0aGUgY3JpdGljYWwgcGF0
-aCBmcm9tIHdoZXJlIHRoaXMgcm91dGluZSBpcyBjYWxsZWQsIEkgc3VnZ2VzdCB0byAKY3JlYXRl
-IGEgZGlmZmVyZW50IGZ1bmN0aW9uIGFuZCBmaWd1cmUgb3V0IHdoaWNoIG9uZSB0byB1c2Ugd2hl
-biBjYWxsaW5nIApzY2hlZF9jbG9ja19yZWdpc3RlcigpLgoKCj4gICAJcmV0dXJuIGNsaW50X2dl
-dF9jeWNsZXMoKTsKPiAgIH0KPiAgICNlbHNlIC8qIENPTkZJR182NEJJVCAqLwo+IEBAIC04Niwx
-MCArOTAsMTcgQEAgc3RhdGljIHU2NCBub3RyYWNlIGNsaW50X2dldF9jeWNsZXM2NCh2b2lkKQo+
-ICAgewo+ICAgCXUzMiBoaSwgbG87Cj4gICAKPiAtCWRvIHsKPiAtCQloaSA9IGNsaW50X2dldF9j
-eWNsZXNfaGkoKTsKPiAtCQlsbyA9IGNsaW50X2dldF9jeWNsZXMoKTsKPiAtCX0gd2hpbGUgKGhp
-ICE9IGNsaW50X2dldF9jeWNsZXNfaGkoKSk7Cj4gKwlpZiAocmlzY3ZfaGFzX2V4dGVuc2lvbl9s
-aWtlbHkoUklTQ1ZfSVNBX0VYVF9aSUNOVFIpKSB7Cj4gKwkJZG8gewo+ICsJCQloaSA9IGNzcl9y
-ZWFkKENTUl9USU1FSCk7Cj4gKwkJCWxvID0gY3NyX3JlYWQoQ1NSX1RJTUUpOwo+ICsJCX0gd2hp
-bGUgKGhpICE9IGNzcl9yZWFkKENTUl9USU1FSCkpOwo+ICsJfSBlbHNlIHsKPiArCQlkbyB7Cj4g
-KwkJCWhpID0gY2xpbnRfZ2V0X2N5Y2xlc19oaSgpOwo+ICsJCQlsbyA9IGNsaW50X2dldF9jeWNs
-ZXMoKTsKPiArCQl9IHdoaWxlIChoaSAhPSBjbGludF9nZXRfY3ljbGVzX2hpKCkpOwo+ICsJfQoK
-U2FtZSBjb21tZW50IGhlcmUuCgo+ICAgCXJldHVybiAoKHU2NCloaSA8PCAzMikgfCBsbzsKPiAg
-IH0KPiBAQCAtMTE5LDYgKzEzMCwxOSBAQCBzdGF0aWMgaW50IGNsaW50X2Nsb2NrX25leHRfZXZl
-bnQodW5zaWduZWQgbG9uZyBkZWx0YSwKPiAgIAlyZXR1cm4gMDsKPiAgIH0KPiAgIAo+ICtzdGF0
-aWMgaW50IGM5MDBfY2xpbnRfY2xvY2tfbmV4dF9ldmVudCh1bnNpZ25lZCBsb25nIGRlbHRhLAo+
-ICsJCQkJICAgICAgIHN0cnVjdCBjbG9ja19ldmVudF9kZXZpY2UgKmNlKQo+ICt7Cj4gKwl2b2lk
-IF9faW9tZW0gKnIgPSBjbGludF90aW1lcl9jbXAgKwo+ICsJCQkgIGNwdWlkX3RvX2hhcnRpZF9t
-YXAoc21wX3Byb2Nlc3Nvcl9pZCgpKTsKPiArCXU2NCB2YWwgPSBjbGludF9nZXRfY3ljbGVzNjQo
-KSArIGRlbHRhOwo+ICsKPiArCWNzcl9zZXQoQ1NSX0lFLCBJRV9USUUpOwo+ICsJd3JpdGVsX3Jl
-bGF4ZWQodmFsLCByKTsKPiArCXdyaXRlbF9yZWxheGVkKHZhbCA+PiAzMiwgciArIDQpOwo+ICsJ
-cmV0dXJuIDA7Cj4gK30KPiArCj4gICBzdGF0aWMgREVGSU5FX1BFUl9DUFUoc3RydWN0IGNsb2Nr
-X2V2ZW50X2RldmljZSwgY2xpbnRfY2xvY2tfZXZlbnQpID0gewo+ICAgCS5uYW1lCQk9ICJjbGlu
-dF9jbG9ja2V2ZW50IiwKPiAgIAkuZmVhdHVyZXMJPSBDTE9DS19FVlRfRkVBVF9PTkVTSE9ULAo+
-IEBAIC0xMzAsNiArMTU0LDkgQEAgc3RhdGljIGludCBjbGludF90aW1lcl9zdGFydGluZ19jcHUo
-dW5zaWduZWQgaW50IGNwdSkKPiAgIHsKPiAgIAlzdHJ1Y3QgY2xvY2tfZXZlbnRfZGV2aWNlICpj
-ZSA9IHBlcl9jcHVfcHRyKCZjbGludF9jbG9ja19ldmVudCwgY3B1KTsKPiAgIAo+ICsJaWYgKGlz
-X2M5MDBfY2xpbnQpCj4gKwkJY2UtPnNldF9uZXh0X2V2ZW50ID0gYzkwMF9jbGludF9jbG9ja19u
-ZXh0X2V2ZW50Owo+ICsKPiAgIAljZS0+Y3B1bWFzayA9IGNwdW1hc2tfb2YoY3B1KTsKPiAgIAlj
-bG9ja2V2ZW50c19jb25maWdfYW5kX3JlZ2lzdGVyKGNlLCBjbGludF90aW1lcl9mcmVxLCAxMDAs
-IFVMT05HX01BWCk7Cj4gICAKPiBAQCAtMTYxLDcgKzE4OCw3IEBAIHN0YXRpYyBpcnFyZXR1cm5f
-dCBjbGludF90aW1lcl9pbnRlcnJ1cHQoaW50IGlycSwgdm9pZCAqZGV2X2lkKQo+ICAgCXJldHVy
-biBJUlFfSEFORExFRDsKPiAgIH0KPiAgIAo+IC1zdGF0aWMgaW50IF9faW5pdCBjbGludF90aW1l
-cl9pbml0X2R0KHN0cnVjdCBkZXZpY2Vfbm9kZSAqbnApCj4gK3N0YXRpYyBpbnQgX19pbml0IGNs
-aW50X3RpbWVyX2luaXQoc3RydWN0IGRldmljZV9ub2RlICpucCkKPiAgIHsKPiAgIAlpbnQgcmM7
-Cj4gICAJdTMyIGksIG5yX2lycXM7Cj4gQEAgLTI3Myw1ICszMDAsMTggQEAgc3RhdGljIGludCBf
-X2luaXQgY2xpbnRfdGltZXJfaW5pdF9kdChzdHJ1Y3QgZGV2aWNlX25vZGUgKm5wKQo+ICAgCXJl
-dHVybiByYzsKPiAgIH0KPiAgIAo+ICtzdGF0aWMgaW50IF9faW5pdCBjbGludF90aW1lcl9pbml0
-X2R0KHN0cnVjdCBkZXZpY2Vfbm9kZSAqbnApCj4gK3sKPiArCWlzX2M5MDBfY2xpbnQgPSBmYWxz
-ZTsKPiArCXJldHVybiBjbGludF90aW1lcl9pbml0KG5wKTsKPiArfQo+ICsKPiArc3RhdGljIGlu
-dCBfX2luaXQgYzkwMF9jbGludF90aW1lcl9pbml0X2R0KHN0cnVjdCBkZXZpY2Vfbm9kZSAqbnAp
-Cj4gK3sKPiArCWlzX2M5MDBfY2xpbnQgPSB0cnVlOwo+ICsJcmV0dXJuIGNsaW50X3RpbWVyX2lu
-aXQobnApOwo+ICt9Cj4gKwo+ICAgVElNRVJfT0ZfREVDTEFSRShjbGludF90aW1lciwgInJpc2N2
-LGNsaW50MCIsIGNsaW50X3RpbWVyX2luaXRfZHQpOwo+ICAgVElNRVJfT0ZfREVDTEFSRShjbGlu
-dF90aW1lcjEsICJzaWZpdmUsY2xpbnQwIiwgY2xpbnRfdGltZXJfaW5pdF9kdCk7Cj4gK1RJTUVS
-X09GX0RFQ0xBUkUoY2xpbnRfdGltZXIyLCAidGhlYWQsYzkwMC1jbGludCIsIGM5MDBfY2xpbnRf
-dGltZXJfaW5pdF9kdCk7CgoKLS0gCjxodHRwOi8vd3d3LmxpbmFyby5vcmcvPiBMaW5hcm8ub3Jn
-IOKUgiBPcGVuIHNvdXJjZSBzb2Z0d2FyZSBmb3IgQVJNIFNvQ3MKCkZvbGxvdyBMaW5hcm86ICA8
-aHR0cDovL3d3dy5mYWNlYm9vay5jb20vcGFnZXMvTGluYXJvPiBGYWNlYm9vayB8CjxodHRwOi8v
-dHdpdHRlci5jb20vIyEvbGluYXJvb3JnPiBUd2l0dGVyIHwKPGh0dHA6Ly93d3cubGluYXJvLm9y
-Zy9saW5hcm8tYmxvZy8+IEJsb2cKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5p
-bmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8v
-bGludXgtcmlzY3YK
+
+On 2025/3/4 15:12, Inochi Amaoto wrote:
+> Add support for DesignWare-based PCIe controller in SG2044 SoC.
+>
+> Signed-off-by: Inochi Amaoto <inochiama@gmail.com>
+> ---
+>   drivers/pci/controller/dwc/Kconfig          |  10 +
+>   drivers/pci/controller/dwc/Makefile         |   1 +
+>   drivers/pci/controller/dwc/pcie-dw-sophgo.c | 270 ++++++++++++++++++++
+Will this driver work for all sophgo chips using dw's IP? If not, it is 
+recommended to rename it to "pcie-dw-sg2044.c".
+>   3 files changed, 281 insertions(+)
+>   create mode 100644 drivers/pci/controller/dwc/pcie-dw-sophgo.c
+>
+> diff --git a/drivers/pci/controller/dwc/Kconfig b/drivers/pci/controller/dwc/Kconfig
+> index b6d6778b0698..004c384e25ad 100644
+> --- a/drivers/pci/controller/dwc/Kconfig
+> +++ b/drivers/pci/controller/dwc/Kconfig
+> @@ -381,6 +381,16 @@ config PCIE_UNIPHIER_EP
+>   	  Say Y here if you want PCIe endpoint controller support on
+>   	  UniPhier SoCs. This driver supports Pro5 SoC.
+>   
+> +config PCIE_SOPHGO_DW
+Similar to the above question, would it be better to change it to 
+"PCIE_SG2044_DW"?
+> +	bool "Sophgo DesignWare PCIe controller"
+> +	depends on ARCH_SOPHGO || COMPILE_TEST
+> +	depends on PCI_MSI
+> +	depends on OF
+> +	select PCIE_DW_HOST
+> +	help
+> +	  Enables support for the DesignWare PCIe controller in the
+> +	  Sophgo SoC.
+> +
+>   config PCIE_SPEAR13XX
+>   	bool "STMicroelectronics SPEAr PCIe controller"
+>   	depends on ARCH_SPEAR13XX || COMPILE_TEST
+> diff --git a/drivers/pci/controller/dwc/Makefile b/drivers/pci/controller/dwc/Makefile
+> index a8308d9ea986..193150056dd3 100644
+> --- a/drivers/pci/controller/dwc/Makefile
+> +++ b/drivers/pci/controller/dwc/Makefile
+> @@ -18,6 +18,7 @@ obj-$(CONFIG_PCIE_QCOM_EP) += pcie-qcom-ep.o
+>   obj-$(CONFIG_PCIE_ARMADA_8K) += pcie-armada8k.o
+>   obj-$(CONFIG_PCIE_ARTPEC6) += pcie-artpec6.o
+>   obj-$(CONFIG_PCIE_ROCKCHIP_DW) += pcie-dw-rockchip.o
+> +obj-$(CONFIG_PCIE_SOPHGO_DW) += pcie-dw-sophgo.o
+>   obj-$(CONFIG_PCIE_INTEL_GW) += pcie-intel-gw.o
+>   obj-$(CONFIG_PCIE_KEEMBAY) += pcie-keembay.o
+>   obj-$(CONFIG_PCIE_KIRIN) += pcie-kirin.o
+> diff --git a/drivers/pci/controller/dwc/pcie-dw-sophgo.c b/drivers/pci/controller/dwc/pcie-dw-sophgo.c
+> new file mode 100644
+> index 000000000000..3ed7cfe0b361
+> --- /dev/null
+> +++ b/drivers/pci/controller/dwc/pcie-dw-sophgo.c
+> @@ -0,0 +1,270 @@
+> +// SPDX-License-Identifier: GPL-2.0
+> +/*
+> + * Sophgo DesignWare based PCIe host controller driver
+> + */
+> +
+> +#include <linux/bits.h>
+> +#include <linux/clk.h>
+> +#include <linux/irqchip/chained_irq.h>
+> +#include <linux/irqdomain.h>
+> +#include <linux/module.h>
+> +#include <linux/property.h>
+> +#include <linux/platform_device.h>
+> +
+> +#include "pcie-designware.h"
+> +
+> +#define to_sophgo_pcie(x)		dev_get_drvdata((x)->dev)
+> +
+> +#define PCIE_INT_SIGNAL			0xc48
+> +#define PCIE_INT_EN			0xca0
+> +
+> +#define PCIE_INT_SIGNAL_INTX		GENMASK(8, 5)
+> +
+> +#define PCIE_INT_EN_INTX		GENMASK(4, 1)
+> +#define PCIE_INT_EN_INT_MSI		BIT(5)
+> +
+> +struct sophgo_pcie {
+> +	struct dw_pcie		pci;
+> +	void __iomem		*app_base;
+> +	struct clk_bulk_data	*clks;
+> +	unsigned int		clk_cnt;
+> +	struct irq_domain	*irq_domain;
+> +};
+> +
+A similar question is, can structure names and function names use 
+prefixes like "sg2044_"? This also makes it easier for other sophgo 
+products to reuse this driver file in the future.
+> +static int sophgo_pcie_readl_app(struct sophgo_pcie *sophgo, u32 reg)
+> +{
+> +	return readl_relaxed(sophgo->app_base + reg);
+> +}
+> +
+> +static void sophgo_pcie_writel_app(struct sophgo_pcie *sophgo, u32 val, u32 reg)
+> +{
+> +	writel_relaxed(val, sophgo->app_base + reg);
+> +}
+> +
+> +static void sophgo_pcie_intx_handler(struct irq_desc *desc)
+> +{
+> +	struct dw_pcie_rp *pp = irq_desc_get_handler_data(desc);
+> +	struct irq_chip *chip = irq_desc_get_chip(desc);
+> +	struct dw_pcie *pci = to_dw_pcie_from_pp(pp);
+> +	struct sophgo_pcie *sophgo = to_sophgo_pcie(pci);
+> +	unsigned long hwirq, reg;
+> +
+> +	chained_irq_enter(chip, desc);
+> +
+> +	reg = sophgo_pcie_readl_app(sophgo, PCIE_INT_SIGNAL);
+> +	reg = FIELD_GET(PCIE_INT_SIGNAL_INTX, reg);
+> +
+> +	for_each_set_bit(hwirq, &reg, PCI_NUM_INTX)
+> +		generic_handle_domain_irq(sophgo->irq_domain, hwirq);
+> +
+> +	chained_irq_exit(chip, desc);
+> +}
+> +
+> +static void sophgo_intx_irq_mask(struct irq_data *d)
+> +{
+> +	struct dw_pcie_rp *pp = irq_data_get_irq_chip_data(d);
+> +	struct dw_pcie *pci = to_dw_pcie_from_pp(pp);
+> +	struct sophgo_pcie *sophgo = to_sophgo_pcie(pci);
+> +	unsigned long flags;
+> +	u32 val;
+> +
+> +	raw_spin_lock_irqsave(&pp->lock, flags);
+> +
+> +	val = sophgo_pcie_readl_app(sophgo, PCIE_INT_EN);
+> +	val &= ~FIELD_PREP(PCIE_INT_EN_INTX, BIT(d->hwirq));
+> +	sophgo_pcie_writel_app(sophgo, val, PCIE_INT_EN);
+> +
+> +	raw_spin_unlock_irqrestore(&pp->lock, flags);
+> +};
+> +
+> +static void sophgo_intx_irq_unmask(struct irq_data *d)
+> +{
+> +	struct dw_pcie_rp *pp = irq_data_get_irq_chip_data(d);
+> +	struct dw_pcie *pci = to_dw_pcie_from_pp(pp);
+> +	struct sophgo_pcie *sophgo = to_sophgo_pcie(pci);
+> +	unsigned long flags;
+> +	u32 val;
+> +
+> +	raw_spin_lock_irqsave(&pp->lock, flags);
+> +
+> +	val = sophgo_pcie_readl_app(sophgo, PCIE_INT_EN);
+> +	val |= FIELD_PREP(PCIE_INT_EN_INTX, BIT(d->hwirq));
+> +	sophgo_pcie_writel_app(sophgo, val, PCIE_INT_EN);
+> +
+> +	raw_spin_unlock_irqrestore(&pp->lock, flags);
+> +};
+> +
+> +static void sophgo_intx_irq_eoi(struct irq_data *d)
+> +{
+> +}
+Why define this empty callback function? Please add a comment if it is 
+really needed.
+> +
+> +static struct irq_chip sophgo_intx_irq_chip = {
+> +	.name			= "INTx",
+"INTx" --> "SG2044 INTx"
+> +	.irq_mask		= sophgo_intx_irq_mask,
+> +	.irq_unmask		= sophgo_intx_irq_unmask,
+> +	.irq_eoi		= sophgo_intx_irq_eoi,
+> +};
+> +
+> +static int sophgo_pcie_intx_map(struct irq_domain *domain, unsigned int irq,
+> +				irq_hw_number_t hwirq)
+> +{
+> +	irq_set_chip_and_handler(irq, &sophgo_intx_irq_chip, handle_fasteoi_irq);
+> +	irq_set_chip_data(irq, domain->host_data);
+> +
+> +	return 0;
+> +}
+> +
+> +static const struct irq_domain_ops intx_domain_ops = {
+> +	.map = sophgo_pcie_intx_map,
+> +};
+> +
+> +static int sophgo_pcie_init_irq_domain(struct dw_pcie_rp *pp)
+> +{
+> +	struct dw_pcie *pci = to_dw_pcie_from_pp(pp);
+> +	struct sophgo_pcie *sophgo = to_sophgo_pcie(pci);
+
+"sophgo"? This variable name looks a bit strange, why not call it "pcie" 
+directly?
+
+I have seen similar naming in other functions, please change it as well.
+
+> +	struct device *dev = sophgo->pci.dev;
+> +	struct fwnode_handle *intc;
+> +	int irq;
+> +
+> +	intc = device_get_named_child_node(dev, "interrupt-controller");
+> +	if (!intc) {
+> +		dev_err(dev, "missing child interrupt-controller node\n");
+> +		return -ENODEV;
+> +	}
+> +
+> +	irq = fwnode_irq_get(intc, 0);
+> +	if (irq < 0) {
+> +		dev_err(dev, "failed to get INTx irq number\n");
+> +		fwnode_handle_put(intc);
+> +		return irq;
+> +	}
+> +
+> +	sophgo->irq_domain = irq_domain_create_linear(intc, PCI_NUM_INTX,
+> +						      &intx_domain_ops, sophgo);
+> +	fwnode_handle_put(intc);
+> +	if (!sophgo->irq_domain) {
+> +		dev_err(dev, "failed to get a INTx irq domain\n");
+> +		return -EINVAL;
+> +	}
+> +
+> +	return irq;
+> +}
+> +
+> +static void sophgo_pcie_msi_enable(struct dw_pcie_rp *pp)
+> +{
+> +	struct dw_pcie *pci = to_dw_pcie_from_pp(pp);
+> +	struct sophgo_pcie *sophgo = to_sophgo_pcie(pci);
+> +	unsigned long flags;
+> +	u32 val;
+> +
+> +	raw_spin_lock_irqsave(&pp->lock, flags);
+> +
+> +	val = sophgo_pcie_readl_app(sophgo, PCIE_INT_EN);
+> +	val |= PCIE_INT_EN_INT_MSI;
+> +	sophgo_pcie_writel_app(sophgo, val, PCIE_INT_EN);
+> +
+> +	raw_spin_unlock_irqrestore(&pp->lock, flags);
+> +}
+> +
+> +static int sophgo_pcie_host_init(struct dw_pcie_rp *pp)
+> +{
+> +	int irq;
+> +
+> +	irq = sophgo_pcie_init_irq_domain(pp);
+> +	if (irq < 0)
+> +		return irq;
+> +
+> +	irq_set_chained_handler_and_data(irq, sophgo_pcie_intx_handler,
+> +					 pp);
+> +
+> +	sophgo_pcie_msi_enable(pp);
+> +
+> +	return 0;
+> +}
+> +
+> +static const struct dw_pcie_host_ops sophgo_pcie_host_ops = {
+> +	.init = sophgo_pcie_host_init,
+> +};
+> +
+> +static int sophgo_pcie_clk_init(struct sophgo_pcie *sophgo)
+> +{
+> +	struct device *dev = sophgo->pci.dev;
+> +	int ret;
+> +
+> +	ret = devm_clk_bulk_get_all_enabled(dev, &sophgo->clks);
+> +	if (ret < 0)
+> +		return dev_err_probe(dev, ret, "failed to get clocks\n");
+> +
+> +	sophgo->clk_cnt = ret;
+> +
+> +	return 0;
+> +}
+> +
+> +static int sophgo_pcie_resource_get(struct platform_device *pdev,
+> +				    struct sophgo_pcie *sophgo)
+> +{
+> +	sophgo->app_base = devm_platform_ioremap_resource_byname(pdev, "app");
+> +	if (IS_ERR(sophgo->app_base))
+> +		return dev_err_probe(&pdev->dev, PTR_ERR(sophgo->app_base),
+> +				     "failed to map app registers\n");
+> +
+> +	return 0;
+> +}
+> +
+> +static int sophgo_pcie_configure_rc(struct sophgo_pcie *sophgo)
+> +{
+> +	struct dw_pcie_rp *pp;
+> +
+> +	pp = &sophgo->pci.pp;
+> +	pp->ops = &sophgo_pcie_host_ops;
+> +
+> +	return dw_pcie_host_init(pp);
+> +}
+> +
+> +static int sophgo_pcie_probe(struct platform_device *pdev)
+> +{
+> +	struct device *dev = &pdev->dev;
+> +	struct sophgo_pcie *sophgo;
+> +	int ret;
+> +
+> +	sophgo = devm_kzalloc(dev, sizeof(*sophgo), GFP_KERNEL);
+> +	if (!sophgo)
+> +		return -ENOMEM;
+> +
+> +	platform_set_drvdata(pdev, sophgo);
+> +
+> +	sophgo->pci.dev = dev;
+> +
+> +	ret = sophgo_pcie_resource_get(pdev, sophgo);
+> +	if (ret)
+> +		return ret;
+> +
+> +	ret = sophgo_pcie_clk_init(sophgo);
+> +	if (ret)
+> +		return ret;
+> +
+> +	return sophgo_pcie_configure_rc(sophgo);
+> +}
+> +
+> +static const struct of_device_id sophgo_pcie_of_match[] = {
+> +	{ .compatible = "sophgo,sg2044-pcie" },
+> +	{ }
+> +};
+> +MODULE_DEVICE_TABLE(of, sophgo_pcie_acpi_match);
+> +
+> +static const struct acpi_device_id sophgo_pcie_acpi_match[] = {
+> +	{ "SOPHO000", 0 },
+> +	{ }
+> +};
+> +MODULE_DEVICE_TABLE(acpi, sophgo_pcie_acpi_match);
+> +
+> +static struct platform_driver sophgo_pcie_driver = {
+> +	.driver = {
+> +		.name = "sophgo-dw-pcie",
+> +		.of_match_table = sophgo_pcie_of_match,
+> +		.acpi_match_table = sophgo_pcie_acpi_match,
+> +		.suppress_bind_attrs = true,
+> +	},
+> +	.probe = sophgo_pcie_probe,
+> +};
+> +builtin_platform_driver(sophgo_pcie_driver);
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
