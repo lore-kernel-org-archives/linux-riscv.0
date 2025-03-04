@@ -4,150 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 52EB6C28B20
-	for <linux-riscv@archiver.kernel.org>; Tue,  4 Mar 2025 10:35:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 43581C282D3
+	for <linux-riscv@archiver.kernel.org>; Tue,  4 Mar 2025 12:10:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=F1E/OofLH2jU6uXtH0kq1vz0PEl38sXSfP2xw420suU=; b=cceyKvFVoDnTZf5vJbCCwCXFcP
-	RCeZmZtfzlLW7twieP0vlzBrd8Cg3miB0oqV8Vbki9px9OfZCzoMlGWL7H/37WTahL/BzNdwX8d9M
-	AxBiegDwGmhV2/dCKKKN0JiknI45R61joihFs/NSleRr8JG2THKK+OVqgR+2k+Rb5/pNgpfDAyb0h
-	JH0znGbXtVeN3VJ3y1jsm11OREKL0/GbZ+Wvlhp7My8iPq5lpMye+zZmr3UPWjtj4Ntg01zpPrDfs
-	ghf6xzI9G+hG3oS5QeRXvhA5il5Pe7UQdppzmSG+N9kAd437IHp7bD8+gZngLRQcD+1cQPWj1dEbY
-	0oCaIfBQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=C0+VCgio1tUjlLnBhjdP1KU//uFP0aIvLX5Mxj6nLmk=; b=KBwJbPQl1j56xu
+	jrZlQoNyHoBBsyxVLqskeCAYdUmO8o+KhK2FYqZWEX+iOz2ttrou68bc92ETluueFPvw917NTWHcU
+	nhL7W+oo+M/QQ1qa6TFK61ktuChu0qZBg47dHv+65IOn+0qw0yfFXRD7gUR0yRD8MSenHLHA4YYiS
+	bVVtdp6Rc75jh0/eSlo+wuQx89RnE7PnIn3A/tGEq0nlEe8wT6ZuIVD9gRf2epaYS4QjE7wkb18Pc
+	QXPlQfnitPFgqqXymp/eAdTETvabqlNhnoMeNLSUEzFjjm8t9k+8ohKDTONjrRQttcqm5ifAKr/GR
+	j6v/tNDOOZ+kZIX/KJqA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpPcd-00000004Ayp-3l4F;
-	Tue, 04 Mar 2025 10:35:35 +0000
-Received: from mail-centralindiaazolkn190110001.outbound.protection.outlook.com ([2a01:111:f403:d409::1] helo=PNZPR01CU001.outbound.protection.outlook.com)
+	id 1tpR6f-00000004ZbJ-3EHk;
+	Tue, 04 Mar 2025 12:10:41 +0000
+Received: from mail-wr1-x42a.google.com ([2a00:1450:4864:20::42a])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpPIr-000000045Nd-25Yu
+	id 1tpQwc-00000004V6I-2fa5
 	for linux-riscv@lists.infradead.org;
-	Tue, 04 Mar 2025 10:15:10 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=lRXtUUHBsjPyIYCR8wRELv298ouZesZayiHm4bQUUQ7rCYsfHQTk+wMiy2WnOMw0acYda1SlJWP4C0xmOCJ8vnxBth6nYB4Psy1GppaHAm87zIcvviiSlR/AdTnzo9RtdsKOjM+FvDx+KwpN2HKe4ud7uxQmO+XOTrRUBfILK339bTtnL0KUSo6Nyep/1gfkuOVFMbUGpa7VDz00EHg9VWAitgYiAvVxMorAuHJRWohGZJt5WxmZr3AVUy1gJe3mSM34dZNkWlmIMIU7z56VxdnCiKT6dxEtMUfpKwTisCATTrfmEbXdcSFGF0tgNKv8MOfVXjHXjcugZTL1X9qb0w==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=Aw3vWEXcn3AUAJvM3zLxipJhdEL+J2tClBVlcxBuvqs=;
- b=QcptT5B7S55mgaaDbFUeQh3whNSfx7uO8o8Nkq9SikjH6CNT08LCAcY7odbB02CVYny0JDyiXR8nER/Y8yI48Pq5d2LWyjk4tCMJzv380Prj52iy6HjePYuLHaIpYG/1//CA6OGQMCsJn60eG37G32hI27IdDPJu8ZAuK2RgG5hT11DxhY+asaOLtpBQRzuie1oSbo/N5chkUJiF2V6WNEWNhsTfcJ93Yq9sfe1nSADXudOfhSf28ePkRtvqvsJ9qKqL/2QMoUH/K/G6n9PtqR+Eq5a+EleE5iFU92uy6qtdV2l2SLLnVLvZLKHlQyP5I12LHacx6b2CKzWZK6CHUQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
- dkim=none; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=Aw3vWEXcn3AUAJvM3zLxipJhdEL+J2tClBVlcxBuvqs=;
- b=f7bmE2iUccboTQd1lRva4Bd/J34kcwtTy2VqQHMJCPhjT8yqsoKtmp9iNELZ4/prNXxPVA8NlxII73leuYRJb/nsPJ4hMyt4dWs6ZcOpP2kfI2RU5xFaphI0kGWqxvO0Iek1BWD+MNCPqJUF4Aw07p25xka/kuF7eA5ImWrO0/WLy4zCppe0dM0d77L5gCYSQaA+djXEenC6rX0cWHRs3fyuiJxewuwx/1nofsZGoqI5LVtVd1S7Fuhp8rVxmoYJsQQwTaQi6fq+uikFTGKHkZS+4Fx1jl0ETa2U1L1mtLfZEaHA3LSYswdvQUUQcAaGLV/c6Hd1onlesN9spTEW4g==
-Received: from PN0PR01MB10393.INDPRD01.PROD.OUTLOOK.COM
- (2603:1096:c01:1eb::14) by PN0PR01MB9691.INDPRD01.PROD.OUTLOOK.COM
- (2603:1096:c01:13e::8) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8489.28; Tue, 4 Mar
- 2025 10:14:58 +0000
-Received: from PN0PR01MB10393.INDPRD01.PROD.OUTLOOK.COM
- ([fe80::1b4f:5587:7637:c5a5]) by PN0PR01MB10393.INDPRD01.PROD.OUTLOOK.COM
- ([fe80::1b4f:5587:7637:c5a5%6]) with mapi id 15.20.8489.028; Tue, 4 Mar 2025
- 10:14:58 +0000
-Message-ID: <PN0PR01MB10393099D28CF3DF75A0F414CFEC82@PN0PR01MB10393.INDPRD01.PROD.OUTLOOK.COM>
-Date: Tue, 4 Mar 2025 18:14:54 +0800
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 0/2] spi: sophgo: add Sophgo SPI NOR controller driver
-To: Longbin Li <looong.bin@gmail.com>, Mark Brown <broonie@kernel.org>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Paul Walmsley
- <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>,
- Albert Ou <aou@eecs.berkeley.edu>, Inochi Amaoto <inochiama@gmail.com>
-Cc: linux-spi@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
- sophgo@lists.linux.dev
-References: <20250304083548.10101-1-looong.bin@gmail.com>
-From: Chen Wang <unicorn_wang@outlook.com>
-In-Reply-To: <20250304083548.10101-1-looong.bin@gmail.com>
-X-ClientProxiedBy: TYWP286CA0014.JPNP286.PROD.OUTLOOK.COM
- (2603:1096:400:178::20) To PN0PR01MB10393.INDPRD01.PROD.OUTLOOK.COM
- (2603:1096:c01:1eb::14)
-X-Microsoft-Original-Message-ID: <4da53f1c-4e13-49e2-9837-f284cf14a0ff@outlook.com>
+	Tue, 04 Mar 2025 12:00:19 +0000
+Received: by mail-wr1-x42a.google.com with SMTP id ffacd0b85a97d-390dd35c78dso3565634f8f.1
+        for <linux-riscv@lists.infradead.org>; Tue, 04 Mar 2025 04:00:18 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ventanamicro.com; s=google; t=1741089617; x=1741694417; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=dsOXXT+GJOZQxfHaJbyOnCfiUI8BUwrK26GnKW4Oj7U=;
+        b=oL8pxaaUCRitafsnnNsvDLJvjnRvI9fXlAims+FMhe4T6JlX0FeYfuRFy1K7COLTQd
+         iGSL3k/P6E+QLB4T1sbmyLJtszq7HrpB3rNt87Bxu3pmsIgLscPbh98Jk/fuw1ZXQty7
+         rI9Wv+WLPuMmFfcmPvtQG3NwZ/6xg7zhPR/VdNiLflMwluUNGzGgX35g1TOfqJbvo8iE
+         4mZrHhevWqsrPLWzptp9q71lQACTq281YxS43SReVZphRq96aAFCIsRAs0cB9mORK7w5
+         Go6/2wk/Z0uFDaNqBS4JS99YjzQR6VohYKH1YRHVPEb7S0d7raGOzwkLPpxGMC8ZcCBZ
+         0QAw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1741089617; x=1741694417;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=dsOXXT+GJOZQxfHaJbyOnCfiUI8BUwrK26GnKW4Oj7U=;
+        b=JGrMe8oDFy1w1CzDDz95c8u+IcyhSnKHaVo+ZlBUakkaOsY1C8CCVMzJ9Gz5T64DeW
+         26XASx43Q/gHBaNJbOZx0IELRc97SoquocTGFKZiSgSLEkhP6URk1KFuXVhsV7zkPno9
+         jllT8eO/hbgfTEvZ1mICAeNCywNrbefR+tpOq/sUz6p7RMtRHNy9of91aWL2UvfLVo4O
+         uVWmAfFEfQU+9HRP5Dj8K7zKKx5hGrGdKSzSdjVs1JfiGKUhtNE9TjXFriqNmbJ7UgiS
+         FhNt3oyc8euUqFR8KtxFXLMaTTvDNiodjYH+AAGIwL3b3ASUAkLWNE2TnaNf0M89uQ5z
+         uneg==
+X-Gm-Message-State: AOJu0Yz2065hzUxhCY7cfs6+WqiD580mT1WTC6l2LyfOSrUtOF62C7H+
+	YySG1yqAmKSR5E5eF7XntqgS6EnEVUiZseIchYq/u7HHpbpuTikMAj8veKcaSoyfHDjSV17jgO8
+	k
+X-Gm-Gg: ASbGnctgxcUnYYHO3HZlkrSoBmb3fgWlBlFMteyT9azM2lhCF5vmr3BrPVwZPO6c19s
+	9E1MHgsmSYsTI0crZ/CQeKKKp+U+3ARDf3rgMJ/ezjEnFCJZ4dZsxtJsDdY/ytADU/Rvn3gAMu4
+	xF4aR28tZTtaQ3/iHLHG51bAw9z2JCueJxuqv1UKP6M1WQYat4xSa2Hl+Vme6IY9AG/qKGT5/9/
+	Xp0kDVP6+tN9p3gX+NkUgicB4o+kfnbWFWZIj8H0FtxoijrMW39eAEww38d6pSDkHDS3tVXpN3/
+	G1fwTw5nOI1e7a3BPJ90foO3Wxu/6H7h
+X-Google-Smtp-Source: AGHT+IHfvp/euog7c3Gu4POXjA8Lq4HBzrln9LMIjOKJFZe5dI3SCeWKlW6YsuSzufoq3FjOtkj5Fg==
+X-Received: by 2002:a5d:59af:0:b0:388:c61d:4415 with SMTP id ffacd0b85a97d-3911560f325mr2216933f8f.18.1741089617020;
+        Tue, 04 Mar 2025 04:00:17 -0800 (PST)
+Received: from localhost ([2a02:8308:a00c:e200::688c])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-390e4844ac6sm17312025f8f.71.2025.03.04.04.00.16
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 04 Mar 2025 04:00:16 -0800 (PST)
+From: Andrew Jones <ajones@ventanamicro.com>
+To: linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-doc@vger.kernel.org
+Cc: paul.walmsley@sifive.com,
+	palmer@dabbelt.com,
+	charlie@rivosinc.com,
+	cleger@rivosinc.com,
+	alex@ghiti.fr,
+	Anup Patel <apatel@ventanamicro.com>,
+	corbet@lwn.net,
+	Alexandre Ghiti <alexghiti@rivosinc.com>
+Subject: [PATCH v3 1/8] riscv: Annotate unaligned access init functions
+Date: Tue,  4 Mar 2025 13:00:16 +0100
+Message-ID: <20250304120014.143628-11-ajones@ventanamicro.com>
+X-Mailer: git-send-email 2.48.1
+In-Reply-To: <20250304120014.143628-10-ajones@ventanamicro.com>
+References: <20250304120014.143628-10-ajones@ventanamicro.com>
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PN0PR01MB10393:EE_|PN0PR01MB9691:EE_
-X-MS-Office365-Filtering-Correlation-Id: 9efd917f-9511-403f-5162-08dd5b056ad9
-X-Microsoft-Antispam: BCL:0;ARA:14566002|19110799003|461199028|6090799003|15080799006|8060799006|7092599003|5072599009|3412199025|4302099013|10035399004|440099028|1602099012;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?emc1bVBGcnU0UkNmSFJxSzl5cTN3VUZMeUFsdm1heWtOYkxIS0o2N2dmdDU0?=
- =?utf-8?B?TDZ1UHR4dG9YUlZ5SnBWdlNTa3lPUTh3QjJpNHVyeFJ1RU5jZkIvakRqT255?=
- =?utf-8?B?bTNaQ0RpaXVsRDVsd1ZTU0Nhb2NoeHEyOFhUVmtzNmQrNkpTMzZQRUxXTTh3?=
- =?utf-8?B?WU54WTlSYXlsamF6cWxmR3kwb2RaOThObVIwRDBnQjhpaHg3dmEweks4NGN2?=
- =?utf-8?B?NUt5SUgzNmgyTnZadzI0RlM0NWpIbGJUTU9LSnNKZ0dNdmlKcER3QVB3cUFo?=
- =?utf-8?B?SjZvMjM0cnVBTjUxanowZDNYZ1RHcURVKzg5VzlrYk9PMVBlaWNLVXgzRWZl?=
- =?utf-8?B?UkxZbEZLUTM3YUJ1dk9hQmdHbGtpMDV2TkJra0tKOFF3MGc0eXhpVXRtTGoy?=
- =?utf-8?B?cTBZUUpKUlBoN1I4MkFsaE5XWEdiVzlMODF0aUxtazJaSERnZHIzVnhXVDhI?=
- =?utf-8?B?RWQzSUdTVk1JeFU4ZURqSUZNNDlCd2FYODFYNFIrREkrbEpxZXB6N2NpYXdO?=
- =?utf-8?B?Y2llZFpFUjFWK1lXU2F5Q25iTlNIWUJWMXdTVmpISGRudHJsdWkvN0VxMnFS?=
- =?utf-8?B?ZGhaSFEzalMrTXl4K3lhY0VrdWE5dlNzVExFVUVhR1hSc09CR2RDNkRlSlRG?=
- =?utf-8?B?Qk5nWEdIYXBEcSs4MlBKeWxIaFY1VVY4eVUxdVlwNVlLcnZMZlZMbVRsSXh1?=
- =?utf-8?B?VVVhTXd2VWM2R1ZaelBaTFRrYkhpQTFVcVN2Q3lORVY0N2tTMWFLQ3l6a0tx?=
- =?utf-8?B?Yk4veVBFTzRpenZQUDJmd1dkRjFBNGI1R1NldjY5TTc4YUNGOWw2T2RIS0l2?=
- =?utf-8?B?QnY4OGQrYktNbUw2bTAzNFBWMGhadEdkMHpEallqNzlTYlNaUjQzVHhjd0Uw?=
- =?utf-8?B?SXpldGN1VWs0WkNWQkFXbnEwdjhHajlxWHhacmo4cHBPT2oxU1ZOVmZNbXhi?=
- =?utf-8?B?QlFhOVpFcFc3YlZjT0o2YlR4RUdvRG9kcERIQWNkSHlUT0pUcTltQ1RuZmhw?=
- =?utf-8?B?N2gwL25iR255MWRJd0c5dDhJalBqVUNKR25hZFVYS3hlSm1NVUZnbXZPbmg0?=
- =?utf-8?B?SzU4NERzaktxVUt0WEVLdjNkZU95MUQrR29zQzR1UkVnMVlYQVFhb1NHN3Vw?=
- =?utf-8?B?akdoTTdiN0J0QXVwVHZEMmpEcEFqYXFnaDl4dlM0a0RxQWdVdFRweXVmK0U0?=
- =?utf-8?B?S3dLY1FqVUZlRGlpYVFKQ2N1V3FZc3dkenFIdUhQeHJ5TURwV3VXSXhPaXE0?=
- =?utf-8?B?dm41VGVJWlVMS2pQTWUydGQwQlp4THg0ZmlFMVVDeDM1WHdDaEtvd0RxbjZw?=
- =?utf-8?B?OVM3NktHdStleUxHdDByc0QyNWVSd3ZNRlJzZllMc1BLc0pHWXRmR2E5MmZX?=
- =?utf-8?B?UTJQNXFydmJYQXAvVTg2L3FCOGZPaDBKVUVVdFVQZ1N1aWtYRzErSWFPZDFX?=
- =?utf-8?B?OFV3cDlzWng2bWJSS2VKVHExcklpRWloeUxHT24wQk5paU51bUlQTWhFZjI1?=
- =?utf-8?B?M3R0NFVTQ2k4NDk1ZjJKYzN4bTE2blBydjEvVjBnOUY3aTRnMkh3SUhCa0tN?=
- =?utf-8?B?U28xYmFuRnpVVzN1QnZ0QmVqUllOc2Z2dit0Qm04RExqRThsYTFtRTQ4b1JE?=
- =?utf-8?B?THhwNitZeWI1djhoejJpbkxYTUMwTEdlZW03Z2wySDQ2bUc4a2F3MEFkc3Bs?=
- =?utf-8?B?QzJYNzhDQitMa2M1U3BWaStVL1NqdFg0enhna3BQQ3JWYXlnbkZjL3R3PT0=?=
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?OFpzWHRsR1gxY3JkZ2lZbStiaW5wanBUeUFDZkNCMnVjYTlYeWJxc2RpRG9Q?=
- =?utf-8?B?dXI4eGVJV2tHbWcrMnJDQURrOEFYcGNrSnBLMjVYc1R6UTloa0xjeEluRWt2?=
- =?utf-8?B?OWtsZnFqRjVoRlFGMm5LSndlb0ZRT3dlaHRHV2ZsK2NoSWo0Z01NSjlWNWwv?=
- =?utf-8?B?WWhPN2hRdDV6ZHhCNUdlUGxxbnJxT2JQZ3QyQ0FIWkxZanI0RlUwV28wclJL?=
- =?utf-8?B?RnBrOG9pSXM1ejJwaWJvYS9UYTBFV3QrQ204b0lxUHpZYVkzckxpTm9qRWJq?=
- =?utf-8?B?QXdYT0dSSEpRRkxnTDBNb3h3OUpEaFozZHhlRkRVTlJ1aG4xOEl5blpuelJ6?=
- =?utf-8?B?bWhPN0ZOYlVvd2RSNmtsWVRzQndPenpNb1ZYZldQS25rL2IzL1R6T1Ezci9Y?=
- =?utf-8?B?Y0Zoa1g4TnNiVkZtWnNabDdIQ2JMSE1EM3IwdlM5cERJeElvZitkU2V6WmFk?=
- =?utf-8?B?eFFTd0w5YjNnSGF5M2VEWXh5bzR2b0NnaDdLV0h5YzRka25ZdHpmTkhKbEY0?=
- =?utf-8?B?bWZUU1BKZGJBQmZZbjRDRk1PQ0VSdDdVVWE1OHhBbUxVc25ycEUwSFFMQW4x?=
- =?utf-8?B?ckJWbWgvd3NUVERJVy9WdzRUSkNuU3Q0TVhqeG5MODNIUjF2bjU4RGdrWHdC?=
- =?utf-8?B?NG9NVzJKdStMREw5MmRMbHFlSUwya1MxUUEwTzNTVHJNbU5IYlJRUnBDSE03?=
- =?utf-8?B?WmlycGdnR2l3ZC8zZ1oyUm5NbnBYSXFSR3d6S0R2ellJdFV1dTBudDRxV3lv?=
- =?utf-8?B?OEFTWVEvTGVvYStRVEc2N1h1VnJoUHV3OVBPSlBZOG0rQkljT1UvTXk1b2V6?=
- =?utf-8?B?ekwrMlJXcHdNUGVwVU56dEJUSGFOKzUwUkhvN0tFalVxMVFFUzYzZ0l0dkNy?=
- =?utf-8?B?NzNLckk4UDF0SHkvQnNZTFpmdU5HQWloSy83bWZGelZwdXBqL3paTmhiSFIw?=
- =?utf-8?B?MGV3ZGJGSG1ZckhIODMySkdSNWNySzJoNWNEdGtWWk9lS2sxTkhtcmlBTitU?=
- =?utf-8?B?K2dOazlsN0xBa2trRXVMQTkxMlg4K1cxbHpycGRROHkyd0ZQUEVmWGlNdStR?=
- =?utf-8?B?Z1BQdzNWKzQzWVFXNmI2SjRnYVhxTFFhbUVmdmU3Nms0cnFkUk96V1hkcG5V?=
- =?utf-8?B?cjlESnF3OEkwUWg2RmRlak5IRWV0dmRneU9Rdm5UZUx4dDUvNlA3SXF0VkFS?=
- =?utf-8?B?YnhKdk01dG5rZEJheG5zRkwwVjA1T0JuMSsvbWN2VERxOGVxaGh2V0VkY3Rn?=
- =?utf-8?B?bmxyUEZwaVZUMVlQRkY2WGc0clNmOVFYQXVrQnh4L2IrcmRuQUZZcGM5VzZj?=
- =?utf-8?B?UnoxdmVxeFZyMnNrL2VqSzh6cnRGQm8rN1B6UVEzblpkbEVhU2F6Z2VydGIx?=
- =?utf-8?B?MjFBcDhwdnR0YWljQzRJZzRmV1JTUk8ydjlTWm80WnF2WWtDaE5DYWtsL3d4?=
- =?utf-8?B?NG56a3N6bmptSlJKR3dYSkM5TjlITXpjSGhwZG1DQnR0OTdiWWxickJuSk5k?=
- =?utf-8?B?N0RrdkVFY1BjMGdvRXBxRWpwTmcrRDFPM2szUGtYZURsWE1uZnAreEJISmZF?=
- =?utf-8?B?eENhMkNzMW8za21BMmdObGlMMmRxN1RIUUJHN0ZCT2RXVWxvZ2JRTEdTU3ho?=
- =?utf-8?B?NFU0RFNuZEg4WURuQ2ZVc21sbXFTblVWdVd1VnBhOVEyemZSVENvd2pPZEFL?=
- =?utf-8?B?YkpnWVBueFl0ckpQa2ZJNzBIRUJSUEN1ZUhnUEE4djRRTGNJN1NQZlB2OWZQ?=
- =?utf-8?Q?saYnZ7D6pH0WOAVmOfzjQAaBCUn3KIOoLk4rLtY?=
-X-OriginatorOrg: outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 9efd917f-9511-403f-5162-08dd5b056ad9
-X-MS-Exchange-CrossTenant-AuthSource: PN0PR01MB10393.INDPRD01.PROD.OUTLOOK.COM
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 04 Mar 2025 10:14:58.5107
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
-X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PN0PR01MB9691
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250304_021509_554496_587CC424 
-X-CRM114-Status: GOOD (  13.65  )
+X-CRM114-CacheID: sfid-20250304_040018_675493_72BC8693 
+X-CRM114-Status: GOOD (  10.56  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -159,53 +101,153 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+Several functions used in unaligned access probing are only run at
+init time. Annotate them appropriately.
 
-On 2025/3/4 16:35, Longbin Li wrote:
-> Add SPI NOR driver for Sophgo, including read, write operations.
-> This driver is only suitable for NOR flash.
-If there is a next patchset, please also replace "Sopgho" with "SG2044" 
-in the cover letter, including the email title.
-> ---
->
-> Changes in v2:
->
->    Fixed following issues as per comments from Yixun Lan, Chen Wang, Inochi Amaoto, thanks.
+Fixes: f413aae96cda ("riscv: Set unaligned access speed at compile time")
+Reviewed-by: Alexandre Ghiti <alexghiti@rivosinc.com>
+Signed-off-by: Andrew Jones <ajones@ventanamicro.com>
+---
+ arch/riscv/include/asm/cpufeature.h        |  4 ++--
+ arch/riscv/kernel/traps_misaligned.c       |  8 ++++----
+ arch/riscv/kernel/unaligned_access_speed.c | 14 +++++++-------
+ 3 files changed, 13 insertions(+), 13 deletions(-)
 
-I feel like you left out Rob, and you also left out his signature in the 
-first patch ;)
+diff --git a/arch/riscv/include/asm/cpufeature.h b/arch/riscv/include/asm/cpufeature.h
+index 569140d6e639..19defdc2002d 100644
+--- a/arch/riscv/include/asm/cpufeature.h
++++ b/arch/riscv/include/asm/cpufeature.h
+@@ -63,7 +63,7 @@ void __init riscv_user_isa_enable(void);
+ #define __RISCV_ISA_EXT_SUPERSET_VALIDATE(_name, _id, _sub_exts, _validate) \
+ 	_RISCV_ISA_EXT_DATA(_name, _id, _sub_exts, ARRAY_SIZE(_sub_exts), _validate)
+ 
+-bool check_unaligned_access_emulated_all_cpus(void);
++bool __init check_unaligned_access_emulated_all_cpus(void);
+ #if defined(CONFIG_RISCV_SCALAR_MISALIGNED)
+ void check_unaligned_access_emulated(struct work_struct *work __always_unused);
+ void unaligned_emulation_finish(void);
+@@ -76,7 +76,7 @@ static inline bool unaligned_ctl_available(void)
+ }
+ #endif
+ 
+-bool check_vector_unaligned_access_emulated_all_cpus(void);
++bool __init check_vector_unaligned_access_emulated_all_cpus(void);
+ #if defined(CONFIG_RISCV_VECTOR_MISALIGNED)
+ void check_vector_unaligned_access_emulated(struct work_struct *work __always_unused);
+ DECLARE_PER_CPU(long, vector_misaligned_access);
+diff --git a/arch/riscv/kernel/traps_misaligned.c b/arch/riscv/kernel/traps_misaligned.c
+index 7cc108aed74e..aacbd9d7196e 100644
+--- a/arch/riscv/kernel/traps_misaligned.c
++++ b/arch/riscv/kernel/traps_misaligned.c
+@@ -605,7 +605,7 @@ void check_vector_unaligned_access_emulated(struct work_struct *work __always_un
+ 	kernel_vector_end();
+ }
+ 
+-bool check_vector_unaligned_access_emulated_all_cpus(void)
++bool __init check_vector_unaligned_access_emulated_all_cpus(void)
+ {
+ 	int cpu;
+ 
+@@ -625,7 +625,7 @@ bool check_vector_unaligned_access_emulated_all_cpus(void)
+ 	return true;
+ }
+ #else
+-bool check_vector_unaligned_access_emulated_all_cpus(void)
++bool __init check_vector_unaligned_access_emulated_all_cpus(void)
+ {
+ 	return false;
+ }
+@@ -659,7 +659,7 @@ void check_unaligned_access_emulated(struct work_struct *work __always_unused)
+ 	}
+ }
+ 
+-bool check_unaligned_access_emulated_all_cpus(void)
++bool __init check_unaligned_access_emulated_all_cpus(void)
+ {
+ 	int cpu;
+ 
+@@ -684,7 +684,7 @@ bool unaligned_ctl_available(void)
+ 	return unaligned_ctl;
+ }
+ #else
+-bool check_unaligned_access_emulated_all_cpus(void)
++bool __init check_unaligned_access_emulated_all_cpus(void)
+ {
+ 	return false;
+ }
+diff --git a/arch/riscv/kernel/unaligned_access_speed.c b/arch/riscv/kernel/unaligned_access_speed.c
+index 91f189cf1611..b7a8ff7ba6df 100644
+--- a/arch/riscv/kernel/unaligned_access_speed.c
++++ b/arch/riscv/kernel/unaligned_access_speed.c
+@@ -121,7 +121,7 @@ static int check_unaligned_access(void *param)
+ 	return 0;
+ }
+ 
+-static void check_unaligned_access_nonboot_cpu(void *param)
++static void __init check_unaligned_access_nonboot_cpu(void *param)
+ {
+ 	unsigned int cpu = smp_processor_id();
+ 	struct page **pages = param;
+@@ -175,7 +175,7 @@ static void set_unaligned_access_static_branches(void)
+ 	modify_unaligned_access_branches(&fast_and_online, num_online_cpus());
+ }
+ 
+-static int lock_and_set_unaligned_access_static_branch(void)
++static int __init lock_and_set_unaligned_access_static_branch(void)
+ {
+ 	cpus_read_lock();
+ 	set_unaligned_access_static_branches();
+@@ -218,7 +218,7 @@ static int riscv_offline_cpu(unsigned int cpu)
+ }
+ 
+ /* Measure unaligned access speed on all CPUs present at boot in parallel. */
+-static int check_unaligned_access_speed_all_cpus(void)
++static int __init check_unaligned_access_speed_all_cpus(void)
+ {
+ 	unsigned int cpu;
+ 	unsigned int cpu_count = num_possible_cpus();
+@@ -264,7 +264,7 @@ static int check_unaligned_access_speed_all_cpus(void)
+ 	return 0;
+ }
+ #else /* CONFIG_RISCV_PROBE_UNALIGNED_ACCESS */
+-static int check_unaligned_access_speed_all_cpus(void)
++static int __init check_unaligned_access_speed_all_cpus(void)
+ {
+ 	return 0;
+ }
+@@ -379,7 +379,7 @@ static int riscv_online_cpu_vec(unsigned int cpu)
+ }
+ 
+ /* Measure unaligned access speed on all CPUs present at boot in parallel. */
+-static int vec_check_unaligned_access_speed_all_cpus(void *unused __always_unused)
++static int __init vec_check_unaligned_access_speed_all_cpus(void *unused __always_unused)
+ {
+ 	schedule_on_each_cpu(check_vector_unaligned_access);
+ 
+@@ -393,13 +393,13 @@ static int vec_check_unaligned_access_speed_all_cpus(void *unused __always_unuse
+ 	return 0;
+ }
+ #else /* CONFIG_RISCV_PROBE_VECTOR_UNALIGNED_ACCESS */
+-static int vec_check_unaligned_access_speed_all_cpus(void *unused __always_unused)
++static int __init vec_check_unaligned_access_speed_all_cpus(void *unused __always_unused)
+ {
+ 	return 0;
+ }
+ #endif
+ 
+-static int check_unaligned_access_all_cpus(void)
++static int __init check_unaligned_access_all_cpus(void)
+ {
+ 	bool all_cpus_emulated, all_cpus_vec_unsupported;
+ 
+-- 
+2.48.1
 
->
->    - Replaced "sophgo" to "sg2044" to avoid conflicts with other drivers.
->    - Improve driver code:
->      - Improve coding style.
->      - Removed the [PATCH 3/3] in previous submission that based on the baseline not submitted.
->      - Added error handler to destroy mutex if probe fail.
->
-> Changes in v1:
->    You can simply review or test the patches at the link [1].
->
-> Link: https://lore.kernel.org/linux-riscv/20250224101213.26003-1-looong.bin@gmail.com/ [1]
-> ---
->
-> Longbin Li (2):
->    dt-bindings: spi: add SG2044 SPI NOR controller driver
->    spi: sophgo: add SG2044 SPI NOR controller driver
->
->   .../bindings/spi/spi-sg2044-nor.yaml          |  52 ++
->   drivers/spi/Kconfig                           |   9 +
->   drivers/spi/Makefile                          |   1 +
->   drivers/spi/spi-sg2044-nor.c                  | 500 ++++++++++++++++++
->   4 files changed, 562 insertions(+)
->   create mode 100644 Documentation/devicetree/bindings/spi/spi-sg2044-nor.yaml
->   create mode 100644 drivers/spi/spi-sg2044-nor.c
->
-> --
-> 2.48.1
 
 _______________________________________________
 linux-riscv mailing list
