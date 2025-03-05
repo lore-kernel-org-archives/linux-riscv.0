@@ -4,112 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 07411C28B22
-	for <linux-riscv@archiver.kernel.org>; Wed,  5 Mar 2025 13:03:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28FE9C282EC
+	for <linux-riscv@archiver.kernel.org>; Wed,  5 Mar 2025 13:44:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=4L7yH+oSz3zh/yqHuoQx7o2AyOsmmFhtE7jhLVDJj+8=; b=PwguEk7tjgobNO
-	vmM8J7IpPLk+Y4aAnUrSmUMDIuouuGmwHZUZ3GB8aWYm+vNMuLSNosJe7ax6nbhNnrgVI0br8yij7
-	GUiAjQT2ls+F5aQtdGJQlV79xxQypLszAUH91gVaFyNAHAfvkAZZu/b0tlEMNfQwvZ+DrwblBqjlr
-	JKxE6XZ+UO4jR+rtk1JBR1jUK5ZG4yJUPZZ9otXOQc5JeQl8QsWqwlNk+kwWtySRLrHDFtkERAYbx
-	gpqLhsjwcycPr7Qr5QSCZpb/swswN7FBsBhUhwff91FU9Z/uMczMtkHQ37J3OW8KUmvqMnHOXZpFv
-	JOBlQzPzCGPNe/4k+ohA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
+	References:List-Owner; bh=ygN80jSaUqEltFp64rh4Yv0tsy750ecZEKKZbe+PyUY=; b=AO6
+	9p6R4b1GcDWc7fT2DHwTWcyAV/cYAtglricCWdXKCTAdjXCoD39Eao4sjHocpceWN8KYeiwm6sxv0
+	wyg3ShYSMjp3hxklLRbBOu5mwk3RWnNkBvNBxX6ieuy1u1RmWR/v8b96j13rFUwaWji/fBNte1XkL
+	x0+ueHWwNmQGpXkqDAhMwkhWm+cXeGmf2oOogEqJkSfHvLexCrkhPfHeB0GABwX1NpChnSJ+V18sL
+	IIvwumOXLO6DhBh+0kQcxqsFBOQblQPZNwb5jm3Zxj/TNwn9me4a/PkiBQfm+qGpK7xEBec5HMoFd
+	saridiKOu8OLjlbsM1joS8KclRpxixQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpoPX-000000086nY-1lf0;
-	Wed, 05 Mar 2025 13:03:43 +0000
-Received: from mail-pj1-x1034.google.com ([2607:f8b0:4864:20::1034])
+	id 1tpp2h-00000008EFt-1UjG;
+	Wed, 05 Mar 2025 13:44:11 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpmdi-00000007oO7-3ayY;
-	Wed, 05 Mar 2025 11:10:16 +0000
-Received: by mail-pj1-x1034.google.com with SMTP id 98e67ed59e1d1-2fe8c35b6cbso10575633a91.3;
-        Wed, 05 Mar 2025 03:10:14 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1741173014; x=1741777814; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=gg/V+lwtqWQq5Y/Ly9J/s6hUNho4JthxgdaqasfoAcA=;
-        b=k1KU+WNHW3r5m9zw5bMJ0Nc44+AtNAbYdMdsjpgh6MJwsDv40I2qG/EVu5UJka988c
-         yvm8oQwOXyKuwfQHlDWpiNioiC/+L/TeM52diBuXBJaTkiFiLxoDNf9DgJPhTVhNZsBs
-         a3jRfIUt1RdlSG0yYRgb3L/QTftG75cRlfjyuTNTzqzNvZlSmNZY+mzRT5nbiHPN3erT
-         xhHAX7MTY+G2snFg16RbKR4wOXN1wHLv0Ll1KNqy8AXrM7FxNZ6QZBqfTUJyc+ZQr9Hp
-         UmLy9+l3XKZnJZYHRlW/gTDFu78+5qucGNputDQ1ylQTrVvfOSeYG3ukoBcreGL+5Ss9
-         9Scg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1741173014; x=1741777814;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=gg/V+lwtqWQq5Y/Ly9J/s6hUNho4JthxgdaqasfoAcA=;
-        b=jVb6c41xqefj2RK8olcTpIMou1e97YW8lctU0KjAB06HDDygP6cJvNAfA+CoyPMZ36
-         t3hcqXOVZiLThlLqTT0WS5Nd/KNHzsmW6Y/f+n55uh8zz/FMgk05nHQM2FthSPdwN0ve
-         ZckSybyN1U+KYrGWral7i4PqcRzNfcYt8D4vT9ylchz+pUeKXR9jty1efMD7KfHo3CXT
-         rb6B/tdhxoQN9xkf7bFeuRvHyPze6Ot+9RuvMNzuTh9si/AatRd3WClIVQZWyph3AhWe
-         VtwE+yzMnkZXUCvMxXMXLLVV9i/anGbxZbRp0TynDHR9TbeYvcqabiEPiM1dT31Wh3dT
-         jGEA==
-X-Forwarded-Encrypted: i=1; AJvYcCWYrjTMwhcyCL9l25hg1IrV5y1i6tDbQsAekLuCu3MjjBaRmxP6GZxJ9psmQsc7TQlm2TM9eBTT+Waj/tc=@lists.infradead.org, AJvYcCXUGFOyhVPEHtizRKpddsdHy4I8IE4PLWMq3ClbnM9Bkw8jl43JgtyxvU6EOWzhxp5TX5P8S7wRXB1WSCWqB9c/@lists.infradead.org
-X-Gm-Message-State: AOJu0YxObU2u7m0LKltS6ucKnkgbHmsE/t1ChDXaYTQB+HjadfYxDdWq
-	VXxyFGPr7tqxqGWJAyO7ZTyjeWl82ivNH7ECGE8rTC1brrP51poS
-X-Gm-Gg: ASbGnctAFFJAckvSjDeh4B0DPsCCR0WHiijVd/tI4XLSmOHCY4MjxUKlJ62PoDwNrFp
-	YEqYNZljmTR6yJx1z1HVpgpMQ3yBK07CfnCxLlEbKjDyuRTINT0kt7KeyOmF+Qp0zomRiDRFbqI
-	QTIF/f8zrIDQoIVHOzx3WvAzbfBNqjRcMjDksRkxhD/Dp6iikY9r8onAATf+9P4yw0vO67BHQ/C
-	c3QNKdk56T9mSJ9URBwwBwb8+13GIix1VROn1NcOwo0riFgWRLJxvaqmG9Cgr9LZx+IIPe4wV95
-	6qs6UKAJQh4gP4IB/TKecf0bGV/wvZpKmKj9b7B9M+A7sX94LhEZFFxeqT/yhaa9MicNF6rbIJn
-	JTaJyuxCYTQ+UI+YY3TQhGQ==
-X-Google-Smtp-Source: AGHT+IGT4sqxYXWLlVa8YluGkM22xVpQMVO/t8msCjLv92geQSngVV+IoJoiRn7vgEXbNQJrnp5b6w==
-X-Received: by 2002:a17:90b:2405:b0:2ff:58c7:a71f with SMTP id 98e67ed59e1d1-2ff58c7a78emr497795a91.32.1741173013960;
-        Wed, 05 Mar 2025 03:10:13 -0800 (PST)
-Received: from mew.. (p4204131-ipxg22701hodogaya.kanagawa.ocn.ne.jp. [153.160.176.131])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-2ff4e7737a5sm1060925a91.13.2025.03.05.03.10.08
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 05 Mar 2025 03:10:13 -0800 (PST)
-From: FUJITA Tomonori <fujita.tomonori@gmail.com>
-To: linux-kernel@vger.kernel.org,
-	rust-for-linux@vger.kernel.org
-Cc: Peter Zijlstra <peterz@infradead.org>,
-	x86@kernel.org,
-	linux-riscv@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	loongarch@lists.linux.dev,
-	tglx@linutronix.de,
-	mingo@redhat.com,
-	bp@alien8.de,
-	dave.hansen@linux.intel.com,
-	hpa@zytor.com,
-	paul.walmsley@sifive.com,
-	palmer@dabbelt.com,
-	aou@eecs.berkeley.edu,
-	catalin.marinas@arm.com,
-	will@kernel.org,
-	chenhuacai@kernel.org,
-	kernel@xen0n.name,
-	tangyouling@loongson.cn,
-	hejinyang@loongson.cn,
-	yangtiezhu@loongson.cn,
-	ojeda@kernel.org,
-	alex.gaynor@gmail.com,
-	boqun.feng@gmail.com,
-	gary@garyguo.net,
-	bjorn3_gh@protonmail.com,
-	benno.lossin@proton.me,
-	a.hindborg@kernel.org,
-	aliceryhl@google.com,
-	tmgross@umich.edu
-Subject: [PATCH v4 1/4] x86/bug: Add ARCH_WARN_ASM macro for BUG/WARN asm code sharing with Rust
-Date: Wed,  5 Mar 2025 20:08:11 +0900
-Message-ID: <20250305110814.272792-2-fujita.tomonori@gmail.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20250305110814.272792-1-fujita.tomonori@gmail.com>
-References: <20250305110814.272792-1-fujita.tomonori@gmail.com>
+	id 1tpocf-000000089u3-0ZJr
+	for linux-riscv@lists.infradead.org;
+	Wed, 05 Mar 2025 13:17:18 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id A076E5C4485
+	for <linux-riscv@lists.infradead.org>; Wed,  5 Mar 2025 13:14:59 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5DFC3C4CEE9;
+	Wed,  5 Mar 2025 13:17:15 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1741180636;
+	bh=AMygIzE1vjRKH3HQ1Hu0QrxXHQmeaOzjU6mxohILknI=;
+	h=Date:From:To:Cc:Subject:From;
+	b=gPZDmBOQA9TA7DuaY6VMCs6uQ7xmbXopI04ZVr9UiC6R26+fut/uWPmy//2x8pSEy
+	 8GWqRzyETLqG6dYg7VgexsbrO3u/VzGqMwbAIZQjjrEEQIebOlHAU6LNgu9UlID416
+	 CYb2DIOomkAvKabpNuSdYWhU4SM7LAm6gEGQga0EqgAHqfccP1QJfxKaiLCMwC7F+X
+	 gU1EgjkAvSohONkIlQKk2OQ2tBIXZF93II8Ee9kUHgO38O4jbbcu9/lcKd4gqzDBYz
+	 pr4QoR3+dDJdvdXp/wm1j25ajHzSYEzOQhv0LPLDcQOuX5COLoTeTUkmJoZXjlIDoC
+	 t2SUnoVs9Fn3Q==
+Date: Wed, 5 Mar 2025 13:17:12 +0000
+From: Conor Dooley <conor@kernel.org>
+To: soc@kernel.org
+Cc: conor@kernel.org, linux-riscv@lists.infradead.org
+Subject: [GIT PULL] RISC-V Devicetree fixes for v6.14-rc6
+Message-ID: <20250305-sip-unable-d56ef7dbf86b@spud>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250305_031014_888363_AC83562E 
-X-CRM114-Status: GOOD (  10.49  )
+X-CRM114-CacheID: sfid-20250305_051717_223387_91ACB02E 
+X-CRM114-Status: UNSURE (   8.59  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,117 +64,78 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============8331458883962040682=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add new ARCH_WARN_ASM macro for BUG/WARN assembly code sharing with
-Rust to avoid the duplication.
 
-No functional changes.
+--===============8331458883962040682==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="MUTlGABqi+4r+qFP"
+Content-Disposition: inline
 
-Acked-by: Peter Zijlstra (Intel) <peterz@infradead.org>
-Signed-off-by: FUJITA Tomonori <fujita.tomonori@gmail.com>
----
- arch/x86/include/asm/bug.h | 56 +++++++++++++++++++-------------------
- 1 file changed, 28 insertions(+), 28 deletions(-)
 
-diff --git a/arch/x86/include/asm/bug.h b/arch/x86/include/asm/bug.h
-index e85ac0c7c039..61570ec9464c 100644
---- a/arch/x86/include/asm/bug.h
-+++ b/arch/x86/include/asm/bug.h
-@@ -28,45 +28,42 @@
- #ifdef CONFIG_GENERIC_BUG
- 
- #ifdef CONFIG_X86_32
--# define __BUG_REL(val)	".long " __stringify(val)
-+# define __BUG_REL(val)	".long " val
- #else
--# define __BUG_REL(val)	".long " __stringify(val) " - ."
-+# define __BUG_REL(val)	".long " val " - ."
- #endif
- 
- #ifdef CONFIG_DEBUG_BUGVERBOSE
-+#define __BUG_ENTRY(file, line, flags)					\
-+	"2:\t" __BUG_REL("1b") "\t# bug_entry::bug_addr\n"		\
-+	"\t" __BUG_REL(file)   "\t# bug_entry::file\n"			\
-+	"\t.word " line        "\t# bug_entry::line\n"			\
-+	"\t.word " flags       "\t# bug_entry::flags\n"
-+#else
-+#define __BUG_ENTRY(file, ine, flags)					\
-+	"2:\t" __BUG_REL("1b") "\t# bug_entry::bug_addr\n"		\
-+	"\t.word " flags       "\t# bug_entry::flags\n"
-+#endif
-+
-+#define _BUG_FLAGS_ASM(ins, file, line, flags, size, extra)		\
-+	"1:\t" ins "\n"							\
-+	".pushsection __bug_table,\"aw\"\n"				\
-+	__BUG_ENTRY(file, line, flags)					\
-+	"\t.org 2b + " size "\n"					\
-+	".popsection\n"							\
-+	extra
- 
- #define _BUG_FLAGS(ins, flags, extra)					\
- do {									\
--	asm_inline volatile("1:\t" ins "\n"				\
--		     ".pushsection __bug_table,\"aw\"\n"		\
--		     "2:\t" __BUG_REL(1b) "\t# bug_entry::bug_addr\n"	\
--		     "\t"  __BUG_REL(%c0) "\t# bug_entry::file\n"	\
--		     "\t.word %c1"        "\t# bug_entry::line\n"	\
--		     "\t.word %c2"        "\t# bug_entry::flags\n"	\
--		     "\t.org 2b+%c3\n"					\
--		     ".popsection\n"					\
--		     extra						\
-+	asm_inline volatile(_BUG_FLAGS_ASM(ins, "%c0",			\
-+					   "%c1", "%c2", "%c3", extra)	\
- 		     : : "i" (__FILE__), "i" (__LINE__),		\
- 			 "i" (flags),					\
- 			 "i" (sizeof(struct bug_entry)));		\
- } while (0)
- 
--#else /* !CONFIG_DEBUG_BUGVERBOSE */
--
--#define _BUG_FLAGS(ins, flags, extra)					\
--do {									\
--	asm_inline volatile("1:\t" ins "\n"				\
--		     ".pushsection __bug_table,\"aw\"\n"		\
--		     "2:\t" __BUG_REL(1b) "\t# bug_entry::bug_addr\n"	\
--		     "\t.word %c0"        "\t# bug_entry::flags\n"	\
--		     "\t.org 2b+%c1\n"					\
--		     ".popsection\n"					\
--		     extra						\
--		     : : "i" (flags),					\
--			 "i" (sizeof(struct bug_entry)));		\
--} while (0)
--
--#endif /* CONFIG_DEBUG_BUGVERBOSE */
-+#define ARCH_WARN_ASM(file, line, flags, size)				\
-+	_BUG_FLAGS_ASM(ASM_UD2, file, line, flags, size, "")
- 
- #else
- 
-@@ -88,11 +85,14 @@ do {								\
-  * were to trigger, we'd rather wreck the machine in an attempt to get the
-  * message out than not know about it.
-  */
-+
-+#define ARCH_WARN_REACHABLE	ANNOTATE_REACHABLE(1b)
-+
- #define __WARN_FLAGS(flags)					\
- do {								\
- 	__auto_type __flags = BUGFLAG_WARNING|(flags);		\
- 	instrumentation_begin();				\
--	_BUG_FLAGS(ASM_UD2, __flags, ANNOTATE_REACHABLE(1b));	\
-+	_BUG_FLAGS(ASM_UD2, __flags, ARCH_WARN_REACHABLE);	\
- 	instrumentation_end();					\
- } while (0)
- 
--- 
-2.43.0
+--MUTlGABqi+4r+qFP
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 
+Hey Arnd,
+
+Please pull a single fix.
+
+Cheers,
+Conor.
+
+The following changes since commit 2014c95afecee3e76ca4a56956a936e23283f05b:
+
+  Linux 6.14-rc1 (2025-02-02 15:39:26 -0800)
+
+are available in the Git repository at:
+
+  https://git.kernel.org/pub/scm/linux/kernel/git/conor/linux.git/ riscv-dt-fixes-for-v6.14-rc6
+
+for you to fetch changes up to 1b133129ad6b28186214259af3bd5fc651a85509:
+
+  riscv: dts: starfive: Fix a typo in StarFive JH7110 pin function definitions (2025-02-04 20:31:30 +0000)
+
+----------------------------------------------------------------
+RISC-V Devicetree fix for v6.14-rc6
+
+A single fix for an incorrect define in the jh7110 pinctrl header.
+
+Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
+
+----------------------------------------------------------------
+E Shattow (1):
+      riscv: dts: starfive: Fix a typo in StarFive JH7110 pin function definitions
+
+ arch/riscv/boot/dts/starfive/jh7110-pinfunc.h | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+--MUTlGABqi+4r+qFP
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZ8hO2AAKCRB4tDGHoIJi
+0p8MAQDqe9lHDoQy9MPkfxFlf9wZFQikZ4ZvZTub2KZRx8CDRwEAp78AaohE0U5V
+cg61m62REvCJ2Y7PZp8VATqDxOeX+w4=
+=xqAj
+-----END PGP SIGNATURE-----
+
+--MUTlGABqi+4r+qFP--
+
+
+--===============8331458883962040682==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============8331458883962040682==--
+
