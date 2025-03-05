@@ -4,88 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B6C9C282D3
-	for <linux-riscv@archiver.kernel.org>; Wed,  5 Mar 2025 01:29:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA630C282D3
+	for <linux-riscv@archiver.kernel.org>; Wed,  5 Mar 2025 03:06:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=lj/1GuvdWQq02dHdZzhnS+TCZvA3s60zXGvXLrriCuA=; b=F6k6SPKtC0xd5O
-	H+GRZsCxMcQx85i9p7mC9z1CNTdueJa4t25Jb3Q7oOAvw+DvuOBGftd/cvpb3KxkqlyhhFFFCPTeQ
-	K0eDvtEcjS5PgHSrK0uhM1MR5DuzyhBZeqHlI262yAyyOjBCzhqwTKqD1cI35m0T7mImnhh5um7GU
-	h3cS6k4d8dmMMtnzSrtG3l5woCMivh3PLW57tI4Ng29yEh+JA3PhBPRoimPzyfQYvOTCtURiqIx6C
-	OqOTKCeVRN+7C5wt30tHO6p14GDJJCad83pk3EL8alSxqQKEopUn3Rir044UIO87Gusjpp/MzH+Pa
-	BnGLdEdWO+VFS1j0AcoA==;
+	List-Owner; bh=A/ziXNc8u0iuUmQZsGWE/FADUrpGLmBGBS01Pt7gOzo=; b=01nhiXCteNZxqU
+	kSG3CmGYSqIz5fEYZ1A9CRbNXyhJLaetVFJYy4q9TMBzw2H49psnrdEAfsIa3rkkMI9U0+SZzgbd+
+	t94SMCySPZWm0w4CLmpcQ/k3Ql7Sz2BM417rbI1QQpIK7QycnFEVlJ12jUf8N90JTqr7zsREhsIyw
+	SCdDV2MqRFht/qhZ6uyWvKloWy/v/HlJhZ1fRVMEv/1OXeZ7XzBEj5LFT+6VrczS6iQ6vkGT/JBTx
+	j9S5ti4Jn5YL4TyMJ37n6PaoyEM6/KKJG0s9PTMXVXidBvOc7O/qLZjKW4P3/e6d215YWMLAOZOg8
+	3+GWfco1qCnW4OGR4QGQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpdZh-00000006it6-3vpS;
-	Wed, 05 Mar 2025 01:29:29 +0000
-Received: from mail-pl1-x62f.google.com ([2607:f8b0:4864:20::62f])
+	id 1tpf52-00000006rH7-1QJv;
+	Wed, 05 Mar 2025 03:05:56 +0000
+Received: from woodpecker.gentoo.org ([140.211.166.183] helo=smtp.gentoo.org)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpdZf-00000006ish-0YJG
+	id 1tpf4z-00000006rG6-29IT
 	for linux-riscv@lists.infradead.org;
-	Wed, 05 Mar 2025 01:29:28 +0000
-Received: by mail-pl1-x62f.google.com with SMTP id d9443c01a7336-22385253e2bso86038575ad.1
-        for <linux-riscv@lists.infradead.org>; Tue, 04 Mar 2025 17:29:26 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1741138166; x=1741742966; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=lMhzBhCrPjIqQGQg1Wg59vv0ddj0LU+xkyGOMArKoKg=;
-        b=fS/CHZF4pkz+RHvotrWeKJS7PDKsksj91obMB3bu9QmuOXpIYrojcNoSAZOQ3ob4eN
-         ZJZvKMY4HRm88dZRVDMjkeFGxOeWrlY905CQ+AkvbgJsOqxyQrNLMRA2dTRQ1RbKqrNG
-         qRn37Cj39ycNaZ6stwVl5YyChB/NhEUPk5kIsACUU32D6jLc7SSLKk3CELpkyrXoKazu
-         2cd6dQMqwPAeJD+UqgWf0iQ+fg06k4WoCDPZ9Adz3Nuv8MiTCi4W3prShcSNwJ40hq3O
-         JUWb9tG4vaMtd2qaCFd/VfuPWDmjb72XC3aknj16kSV7Bk3iSagZVqK9mc1CTyJDqGcN
-         nuFw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1741138166; x=1741742966;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=lMhzBhCrPjIqQGQg1Wg59vv0ddj0LU+xkyGOMArKoKg=;
-        b=c/N7BBdL6VdFLoB2UMTuHNNAx/LP/aKwriZCrcJOMlDQdDUAGkyaz8fD/gcbXctcr8
-         ZJnhILzOoNB2ZXvk7vH5ukuGBkJKPAW4TpoRZnEV/+hhC32o9R0LceIJmD+GWJhlJsuB
-         RFYmHrzzZbsXZPXWR3Gblg8Bi2ZQHWcsLEz5ne/XEUNGkprVCCYrFpK9vPDojsdPOpKw
-         ixhDEALq/jZsn5lPtiTQrrJR9CCdHzsruApltTiNH/MYxOk48vw+q2RF/CoccVl6ZiS1
-         UwSGh6bNjF2b4gXxTp3yuYuMEpLBzzKf18qIJrAUTYqK8tLl5QIV4OU05eNdTweETfPV
-         i9Fw==
-X-Forwarded-Encrypted: i=1; AJvYcCWXzZXIAWrddXxsY+fCsQBIoGBBjEJs+MIvEGDqT63FdFaNksDMJUSculSN2F5DxLmnG2LVQX+INIkOVQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw2TB7x5KOz5vr/jESqfV1BcRfi16EV4cP6kGpZPmHG/kVMXnu0
-	cY1qbrI2alEbjtZeJOMeNZdQHoEeL3Ej2T51HpA3T59wYAbwmKyE
-X-Gm-Gg: ASbGncv/24i6Nk3VO93J2vDlnL6WpXsXW7hc+0UG245RvYarB8h3cAM7NHJ21Msa1TU
-	n9L+zt5y7CO3S24t14ZJaByPdOVXn4mh4acgsqHcBelLwFNEGJHodqUFO9qk0M3jLaYvXIA6vr0
-	tgKGBU9fBt9FcQArmi3/HfDy3jWi/XqGKPRkeokivyXDKpTBF5TV342a56SUYJfoJw44ayi9yH9
-	BqJEglRZtKCRGxHX2LiuBLLns3WCGQeHZBY/Z7R38zN4NPUQe9oZWx66xUrfref6ezgSDU5frxk
-	npDn38fztBV67A2TeeafmTw=
-X-Google-Smtp-Source: AGHT+IGMYeB1wOukNuf5Z9VnV6HZIq+bca5LXw8M9agga6DcCzRyxOH6Zle9qOflX6ikXDadlX9ecg==
-X-Received: by 2002:a05:6a00:1788:b0:736:533b:f6fa with SMTP id d2e1a72fcca58-73682bef664mr1796095b3a.13.1741138166235;
-        Tue, 04 Mar 2025 17:29:26 -0800 (PST)
-Received: from localhost ([2001:da8:7001:11::460])
-        by smtp.gmail.com with UTF8SMTPSA id d2e1a72fcca58-7362c92271fsm8578986b3a.1.2025.03.04.17.29.25
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 04 Mar 2025 17:29:25 -0800 (PST)
-Date: Wed, 5 Mar 2025 09:29:24 +0800
-From: Longbin Li <looong.bin@gmail.com>
-To: Chen Wang <unicorn_wang@outlook.com>
-Cc: Mark Brown <broonie@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Inochi Amaoto <inochiama@gmail.com>, linux-spi@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
-	sophgo@lists.linux.dev
-Subject: Re: [PATCH v2 0/2] spi: sophgo: add Sophgo SPI NOR controller driver
-Message-ID: <oghkqkoilkg7ny5saa4fi77hcawkdbeih5zg5aaliv6kf42jee@2nmyxje7itse>
-References: <20250304083548.10101-1-looong.bin@gmail.com>
- <PN0PR01MB10393099D28CF3DF75A0F414CFEC82@PN0PR01MB10393.INDPRD01.PROD.OUTLOOK.COM>
+	Wed, 05 Mar 2025 03:05:54 +0000
+Received: from localhost (unknown [116.232.55.252])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: dlan)
+	by smtp.gentoo.org (Postfix) with ESMTPSA id B94D7342FDB;
+	Wed, 05 Mar 2025 03:05:50 +0000 (UTC)
+Date: Wed, 5 Mar 2025 03:05:40 +0000
+From: Yixun Lan <dlan@gentoo.org>
+To: Samuel Holland <samuel.holland@sifive.com>
+Cc: Troy Mitchell <troymitchell988@gmail.com>,
+	Andi Shyti <andi.shyti@kernel.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, linux-riscv@lists.infradead.org,
+	linux-i2c@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, spacemit@lists.linux.dev,
+	Conor Dooley <conor.dooley@microchip.com>
+Subject: Re: [PATCH RESEND v5 1/2] dt-bindings: i2c: spacemit: add support
+ for K1 SoC
+Message-ID: <20250305030540-GYA62563@gentoo>
+References: <20250303-k1-i2c-master-v5-0-21dfc7adfe37@gmail.com>
+ <20250303-k1-i2c-master-v5-1-21dfc7adfe37@gmail.com>
+ <20250303093506-GYA58937@gentoo>
+ <ab10e069-d9e1-4df7-9454-8b0fc910443d@sifive.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <PN0PR01MB10393099D28CF3DF75A0F414CFEC82@PN0PR01MB10393.INDPRD01.PROD.OUTLOOK.COM>
+In-Reply-To: <ab10e069-d9e1-4df7-9454-8b0fc910443d@sifive.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250304_172927_169030_6EEFBE14 
-X-CRM114-Status: GOOD (  20.47  )
+X-CRM114-CacheID: sfid-20250304_190553_577964_11D48DE1 
+X-CRM114-Status: GOOD (  21.98  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,55 +73,132 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Mar 04, 2025 at 06:14:54PM +0800, Chen Wang wrote:
+Hi Samuel Holland:
+
+On 20:11 Tue 04 Mar     , Samuel Holland wrote:
+> Hi Troy,
 > 
-> On 2025/3/4 16:35, Longbin Li wrote:
-> > Add SPI NOR driver for Sophgo, including read, write operations.
-> > This driver is only suitable for NOR flash.
-> If there is a next patchset, please also replace "Sopgho" with "SG2044" in
-> the cover letter, including the email title.
-
-I will correct it, thanks.
-
-> > ---
+> On 2025-03-03 3:35 AM, Yixun Lan wrote:
+> > On 13:30 Mon 03 Mar     , Troy Mitchell wrote:
+> >> The I2C of K1 supports fast-speed-mode and high-speed-mode,
+> >> and supports FIFO transmission.
+> >>
+> >> Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
+> >> Signed-off-by: Troy Mitchell <troymitchell988@gmail.com>
+> >> ---
+> >>  .../devicetree/bindings/i2c/spacemit,k1-i2c.yaml   | 59 ++++++++++++++++++++++
+> >>  1 file changed, 59 insertions(+)
+> >>
+> >> diff --git a/Documentation/devicetree/bindings/i2c/spacemit,k1-i2c.yaml b/Documentation/devicetree/bindings/i2c/spacemit,k1-i2c.yaml
+> >> new file mode 100644
+> >> index 0000000000000000000000000000000000000000..db49f1f473e6f166f534b276c86b3951d86341c3
+> >> --- /dev/null
+> >> +++ b/Documentation/devicetree/bindings/i2c/spacemit,k1-i2c.yaml
+> >> @@ -0,0 +1,59 @@
+> >> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> >> +%YAML 1.2
+> >> +---
+> >> +$id: http://devicetree.org/schemas/i2c/spacemit,k1-i2c.yaml#
+> >> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> >> +
+> >> +title: I2C controller embedded in SpacemiT's K1 SoC
+> >> +
+> >> +maintainers:
+> >> +  - Troy Mitchell <troymitchell988@gmail.com>
+> >> +
+> >> +properties:
+> >> +  compatible:
+> >> +    const: spacemit,k1-i2c
+> >> +
+> >> +  reg:
+> >> +    maxItems: 1
+> >> +
+> >> +  interrupts:
+> >> +    maxItems: 1
+> >> +
+> > ..
+> >> +  clocks:
+> >> +    minItems: 2
+> >> +    maxItems: 2
+> >> +
+> >> +  clock-names:
+> >> +    minItems: 2
+> >> +    maxItems: 2
+> > I'd suggest to give a brief description and explicit clock name here,
+> > you can consult marvell,mv64xxx-i2c.yaml for example
 > > 
-> > Changes in v2:
+> >> +
+> >> +  clock-frequency:
+> >> +    description: |
+> >> +      K1 support three different modes which running different frequencies
+> >> +      standard speed mode: up to 100000 (100Hz)
+> >> +      fast speed mode    : up to 400000 (400Hz)
+> >> +      high speed mode    : up to 3300000 (3.3Mhz)
+> >> +    default: 400000
+> >> +    maximum: 3300000
+> >> +
+> >> +required:
+> >> +  - compatible
+> >> +  - reg
+> >> +  - interrupts
+> >> +  - clocks
+> >> +
+> >> +unevaluatedProperties: false
+> >> +
+> >> +examples:
+> >> +  - |
+> >> +    i2c@d4010800 {
+> >> +        compatible = "spacemit,k1-i2c";
+> >> +        reg = <0xd4010800 0x38>;
+> >> +        interrupt-parent = <&plic>;
+> >> +        interrupts = <36>;
+> >> +        clocks = <&ccu 176>, <&ccu 90>;
+> >> +        clock-names = "apb", "twsi";
+> > 9.1.4.61 TWSI0 CLOCK RESET CONTROL REGISTER(APBC_TWSI0_CLK_RST)
+> > https://developer.spacemit.com/documentation?token=LCrKwWDasiJuROkVNusc2pWTnEb#part594
+> > from above docs, there are two clocks 
+> > bit[1] - FNCLK, TWSI0 Functional Clock Enable/Disable
+> > bit[0] - APBCLK, TWSI0 APB Bus Clock Enable/Disable
 > > 
-> >    Fixed following issues as per comments from Yixun Lan, Chen Wang, Inochi Amaoto, thanks.
+> > I'd suggest to name it according to the functionality, thus 'func', 'bus'
+> > clock, not its source.. which would make it more system wide consistent
 > 
-> I feel like you left out Rob, and you also left out his signature in the
-> first patch ;)
+> Also in that same register is:
+> 
+> 2	RST	RW	0x1	TWSI0 Reset Generation
+> This field resets both the APB and functional domain.
+> - 0: No Reset
+> - 1: Reset
+> 
+> Which means you need a 'resets' property in the binding as well.
+> 
+right, there is reset needed
+
+I'd suggest to add it as an incremental patch later, when we
+implement real reset driver, and also complete the calling reset
+consumer API in i2c driver
+
+but, let me know if this is not the right way to go
+
+> Regards,
+> Samuel
+> 
+> >> +        clock-frequency = <100000>;
+> >> +    };
+> >> +
+> >> +...
+> >>
+> >> -- 
+> >> 2.34.1
+> >>
+> > 
+> 
 > 
 
-My fault! I will add his signature in the next patch, thanks.
-
-> > 
-> >    - Replaced "sophgo" to "sg2044" to avoid conflicts with other drivers.
-> >    - Improve driver code:
-> >      - Improve coding style.
-> >      - Removed the [PATCH 3/3] in previous submission that based on the baseline not submitted.
-> >      - Added error handler to destroy mutex if probe fail.
-> > 
-> > Changes in v1:
-> >    You can simply review or test the patches at the link [1].
-> > 
-> > Link: https://lore.kernel.org/linux-riscv/20250224101213.26003-1-looong.bin@gmail.com/ [1]
-> > ---
-> > 
-> > Longbin Li (2):
-> >    dt-bindings: spi: add SG2044 SPI NOR controller driver
-> >    spi: sophgo: add SG2044 SPI NOR controller driver
-> > 
-> >   .../bindings/spi/spi-sg2044-nor.yaml          |  52 ++
-> >   drivers/spi/Kconfig                           |   9 +
-> >   drivers/spi/Makefile                          |   1 +
-> >   drivers/spi/spi-sg2044-nor.c                  | 500 ++++++++++++++++++
-> >   4 files changed, 562 insertions(+)
-> >   create mode 100644 Documentation/devicetree/bindings/spi/spi-sg2044-nor.yaml
-> >   create mode 100644 drivers/spi/spi-sg2044-nor.c
-> > 
-> > --
-> > 2.48.1
+-- 
+Yixun Lan (dlan)
+Gentoo Linux Developer
+GPG Key ID AABEFD55
 
 _______________________________________________
 linux-riscv mailing list
