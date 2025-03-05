@@ -4,99 +4,124 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6D9CDC282D9
-	for <linux-riscv@archiver.kernel.org>; Wed,  5 Mar 2025 08:00:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C0061C19F32
+	for <linux-riscv@archiver.kernel.org>; Wed,  5 Mar 2025 08:04:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:References:In-Reply-To:From:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=0EZt/KgjOaaYgBXOOZNa0qWmQxu0nwH33h0JiTL444U=; b=Yj7AtaiEBO1lmT
-	KWNaI4x1dEgTPk+R4dvUbWtZD6DhpAkgKUkEz3QltsG+UM1jsYSXJk2zkDPvt/3zXfckaMrEXR50n
-	ayGQLB9f7NHC+21M0YoPaSjoK5o/f61RUmLaNj/irUWHoQQgpiExORqtJ0iSl9yy8Dh5qipRD+Wf7
-	VmUr3VK84g0e8FogGOdunhHYAmgg5uNXpafEnfTLtyw3HvzZkJ77dMfcrm8BN6Q9n09tcoTe5hF6i
-	FsO5kSEioUSp1nBtjdNm6+SxXRcih7YAaOOW0FBujRpzGSGWbZCki4yx2UhflkzidxAvdWN2TdJw8
-	dW0vQBG4ngm/FVgSXtNg==;
+	List-Owner; bh=Md6Jy0p1CL2VIDQAO1sAsmF8QzgS6jacts1adyspTkg=; b=c3PIycanLRuEu+
+	wENNGvgnFzcuYrf3IDAeMxtFoD0snzx9xDABFeASa3GFtB5D+QpBdDZT7bn4SBCJs/rf0BRNGPorx
+	SXHJ+dLV2v+kLCwg/6kFS9uMMwRR+klHG3uBbW2x9P62hD6XRmovt4GgUQz66IJIVzJ6btjofLIxG
+	gTNm7dHbwv1Cv0CCwj8hiN8EnD1tmh9KWJZZshukCjOYYlw29v065jLbanBfntDrtEPpn/Bv1/HJj
+	RwqFRoS4z1PUs0ZW0JtG61mz6l8gV1d+N9wtNXzcoOweoLUP8jMxmSOOlKIVl9w7veeH6L0GX3Cmi
+	cSREdZZ7FkJlr13yiYxw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpjfW-00000007J7B-0z0p;
-	Wed, 05 Mar 2025 07:59:54 +0000
-Received: from mail-qk1-f174.google.com ([209.85.222.174])
+	id 1tpjjk-00000007JWG-2f4b;
+	Wed, 05 Mar 2025 08:04:16 +0000
+Received: from mailout1.w1.samsung.com ([210.118.77.11])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpiWO-00000007ARZ-3HBC;
-	Wed, 05 Mar 2025 06:46:26 +0000
-Received: by mail-qk1-f174.google.com with SMTP id af79cd13be357-7c2303a56d6so702707185a.3;
-        Tue, 04 Mar 2025 22:46:24 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1741157183; x=1741761983; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=Z9bNA98XHBa6A4NtZ0UQAOT1rpXsRwMwVDy3StPnIDc=;
-        b=O3EdCwL+waO//0ZyA0I6gwdRLADakUDVxgY151S70LdPaWzMY9CrtfSRZGzPXOKXIK
-         eQCdEAJvljIMHkT/0puC4/07WtnKFiI19dwkMJ7277rrsNnyilw1altKQq376vN5FNPp
-         mNDMdr5zzxVmoSAkN0xQUfF/ZaE/HRQh4tabl0J3JiRx5H2DSMETPZTn5BOtwVZCLOES
-         8qp/s895QBTvbYI5MZuE4KZZW5arc/teG9VmM3GeziDQgPDoE7Gx8CgdyySr3ztRdpHd
-         CSBjdbL4KQYUUI6+lVqORHjfechnxNMhVnymGOrYCn+vQeFvYAGVyJhwzP59KOQT8foJ
-         lNoQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1741157183; x=1741761983;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=Z9bNA98XHBa6A4NtZ0UQAOT1rpXsRwMwVDy3StPnIDc=;
-        b=ROpuYHs1c7utcvVazXuICVvv5rryx+X/13+/u0+ZZ7xXNAXcqyGGqIgOq7xS4qoavR
-         fKpYNErd89obohdkMn0s4LCdwt98c/qe2a9F8z+hbNRd0pWnJCaALkiyB3QPUsTm4SND
-         HSuOyIZIVJ6Ac1zNQsQvhcwrwrEvEVEt2RzsF5heYAzVIfxVsDJUoDT5eAzQWb/myDUf
-         qZJMAHGpbX/jB4yWJ0Eq2ih+1oZeZsyVgcC0WmL6g+Dbn+UPVO8FuxdWxY9/+I2xXOnG
-         9ml/JAMuVZfe5CyMm2YmB/mYgX3vUOI9bkqDJezCcpMlP0s6/vUwuPcVCTXi1hq2xHv8
-         iJuQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWcHn8+au/WCC5G5+UVKsoxxVnunh3eoQO+veYn+zh900dqhNavD0hrFHn33ZhYLcdKVuerpye8CwrN8Ak=@lists.infradead.org, AJvYcCXH2j/LrwMOsRR1a9yae0yiXXtKyRLBKmWvhuUMnCold9PlHyx7FHKeorVoNm4Fe0XaWhIufMZMGD5zuIdlN/PE@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx3dwq0Qs6dFmrIYMp44ImmWzqevoAFlbzevps2Pf/VwUrZMjj3
-	kV7rLGDpou2DyxoqBPEdk4NR+eiVHrGNNlhY0xwacqjhkBnS4fQy
-X-Gm-Gg: ASbGncvdp8+4SRynuLRlbuao3/JAcEh1OfbQSDEOKLQa9bjdFosIj5KrAU8lshNU4st
-	3KDlvjeDo1N9kQaW7Ot2IUuB4y1SMeA68JgxqcMl6Sj6z9ythz0vw6MAIva38Eb0/5BhVBqQ1Lc
-	TpCmMHAbzFN4417QqQI482+UdIz/NzCHjUeV2gYiPmM/FbolTUJJx1vBihjFOvxxUPrkT0AeAwL
-	QS+Of1ukhUdobAMsyg/0C1RbRbiPUCbUpcryo/7/ET1jOnp8hGRe0EgFUEf2seKH6uuuWyaHM98
-	zaJdOklbal5iAEpZ17Sw
-X-Google-Smtp-Source: AGHT+IELWtfqwszYoCcC2kmAJwyH6o+bHtBOPZmt0BU2jCIoX9fDIaH8na6Ue5jCSeNPLr38nklDeg==
-X-Received: by 2002:a05:620a:63c1:b0:7c3:b7c0:cd79 with SMTP id af79cd13be357-7c3d8ee1cadmr311033785a.38.1741157183364;
-        Tue, 04 Mar 2025 22:46:23 -0800 (PST)
-Received: from localhost ([2001:da8:7001:11::cb])
-        by smtp.gmail.com with UTF8SMTPSA id af79cd13be357-7c36feea6fbsm848972785a.22.2025.03.04.22.46.22
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 04 Mar 2025 22:46:22 -0800 (PST)
-Date: Wed, 5 Mar 2025 14:45:56 +0800
-From: Inochi Amaoto <inochiama@gmail.com>
-To: Krzysztof Kozlowski <krzk+dt@kernel.org>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>, 
-	"David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Rob Herring <robh@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Chen Wang <unicorn_wang@outlook.com>, 
-	Inochi Amaoto <inochiama@gmail.com>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
-	Alexandre Torgue <alexandre.torgue@foss.st.com>, Richard Cochran <richardcochran@gmail.com>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Romain Gantois <romain.gantois@bootlin.com>, 
-	Hariprasad Kelam <hkelam@marvell.com>, Jisheng Zhang <jszhang@kernel.org>, 
-	=?utf-8?B?Q2zDqW1lbnQgTMOpZ2Vy?= <clement.leger@bootlin.com>, "Jan Petrous (OSS)" <jan.petrous@oss.nxp.com>, 
-	Simon Horman <horms@kernel.org>, Furong Xu <0x1207@gmail.com>, 
-	Lothar Rubusch <l.rubusch@gmail.com>, Joe Hattori <joe@pf.is.s.u-tokyo.ac.jp>, 
-	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>, Giuseppe Cavallaro <peppe.cavallaro@st.com>, 
-	Jose Abreu <joabreu@synopsys.com>, netdev@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, sophgo@lists.linux.dev, linux-stm32@st-md-mailman.stormreply.com, 
-	linux-arm-kernel@lists.infradead.org, linux-riscv@lists.infradead.org, Yixun Lan <dlan@gentoo.org>, 
-	Longbin Li <looong.bin@gmail.com>, Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Subject: Re: [PATCH net-next v6 1/4] dt-bindings: net: Add support for Sophgo
- SG2044 dwmac
-Message-ID: <n7jfcncujogjlysfd6v5bbt7tzun2sicx3r3jq3s5ogm5k4ths@y7wwlyijemgx>
-References: <20250305063920.803601-1-inochiama@gmail.com>
- <20250305063920.803601-2-inochiama@gmail.com>
+	id 1tpjjg-00000007JVQ-2EKX
+	for linux-riscv@lists.infradead.org;
+	Wed, 05 Mar 2025 08:04:15 +0000
+Received: from eucas1p2.samsung.com (unknown [182.198.249.207])
+	by mailout1.w1.samsung.com (KnoxPortal) with ESMTP id 20250305080405euoutp011c4a05705269be4a63d05890212763f5~p2XlBGHxz0213002130euoutp01Y
+	for <linux-riscv@lists.infradead.org>; Wed,  5 Mar 2025 08:04:05 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout1.w1.samsung.com 20250305080405euoutp011c4a05705269be4a63d05890212763f5~p2XlBGHxz0213002130euoutp01Y
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1741161845;
+	bh=GnXY0ytHs9JstH2dWkqOUDOxCaeFg6+8UfoPoS8CNm0=;
+	h=Date:Subject:To:Cc:From:In-Reply-To:References:From;
+	b=AVpjaFAGCy7hNPB+HGj8BG9cN9i7qCURzC3pzitan2DFXB5OU087zs7nF7hCKde7p
+	 RfAodIFCh5akwzQ/6w0ON7SkKwNRjNQSEAzNxVW2oL/4lAloG8toqrHLVKIZI2g8ib
+	 2MHRe6Sk8fjGvJKdEcHg86Nr3pcdKomQqgBhuUig=
+Received: from eusmges2new.samsung.com (unknown [203.254.199.244]) by
+	eucas1p2.samsung.com (KnoxPortal) with ESMTP id
+	20250305080405eucas1p269322ff4dff3a7efa7c0217d2d760140~p2Xkksspc1362113621eucas1p2W;
+	Wed,  5 Mar 2025 08:04:05 +0000 (GMT)
+Received: from eucas1p1.samsung.com ( [182.198.249.206]) by
+	eusmges2new.samsung.com (EUCPMTA) with SMTP id F3.C1.20409.57508C76; Wed,  5
+	Mar 2025 08:04:05 +0000 (GMT)
+Received: from eusmtrp1.samsung.com (unknown [182.198.249.138]) by
+	eucas1p2.samsung.com (KnoxPortal) with ESMTPA id
+	20250305080404eucas1p2cff5ea6161b7c6a71cd0ff81aedad061~p2Xj_wj4L1362113621eucas1p2U;
+	Wed,  5 Mar 2025 08:04:04 +0000 (GMT)
+Received: from eusmgms2.samsung.com (unknown [182.198.249.180]) by
+	eusmtrp1.samsung.com (KnoxPortal) with ESMTP id
+	20250305080404eusmtrp188a9d70d20b5fa05c891eba7157342f5~p2Xj99l6u3067730677eusmtrp1q;
+	Wed,  5 Mar 2025 08:04:04 +0000 (GMT)
+X-AuditID: cbfec7f4-c0df970000004fb9-04-67c80575adf4
+Received: from eusmtip2.samsung.com ( [203.254.199.222]) by
+	eusmgms2.samsung.com (EUCPMTA) with SMTP id 7A.09.19654.47508C76; Wed,  5
+	Mar 2025 08:04:04 +0000 (GMT)
+Received: from [192.168.1.44] (unknown [106.210.136.40]) by
+	eusmtip2.samsung.com (KnoxPortal) with ESMTPA id
+	20250305080403eusmtip2e81659e53d59c3b079c327a133bb3e6d~p2XjImQTE2244322443eusmtip2H;
+	Wed,  5 Mar 2025 08:04:03 +0000 (GMT)
+Message-ID: <8f04da41-c868-4ab2-83bc-c06a8f182e81@samsung.com>
+Date: Wed, 5 Mar 2025 09:04:03 +0100
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20250305063920.803601-2-inochiama@gmail.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v1 0/5] TH1520 SoC: Add AON firmware & power-domain
+ support
+To: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, drew@pdp7.com,
+	guoren@kernel.org, wefu@redhat.com, paul.walmsley@sifive.com,
+	palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr,
+	jszhang@kernel.org, ulf.hansson@linaro.org, m.szyprowski@samsung.com
+Cc: linux-pm@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
+Content-Language: en-US
+From: Michal Wilczynski <m.wilczynski@samsung.com>
+In-Reply-To: <20250303145901.446791-1-m.wilczynski@samsung.com>
+X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFnrBKsWRmVeSWpSXmKPExsWy7djPc7qlrCfSDf4/4LF4ducrq8XW37PY
+	LdbsPcdkMf/IOVaLe5e2MFm82NvIYtF8bD2bxctZ99gsLu+aw2bxufcIo8W2zy1sFmuP3GW3
+	eHm5h9mibRa/xf89O9gtjq8Nt2jZP4XFQdDjzcuXLB6HO76we9w7MY3VY9OqTjaPO9f2sHls
+	XlLv0bL2GJPH+31X2Tz6tqxi9LjUfJ3d4/MmuQDuKC6blNSczLLUIn27BK6MzfeXsBSclar4
+	+G01UwPjXZEuRk4OCQETiTm3DzB2MXJxCAmsYJRY8/8tlPOFUeLQyh/MEM5nRon9O9cAORxg
+	LRsuOYN0CwksZ5RYMFkWouYto8Sim9MZQRK8AnYSP279BLNZBFQkNpz7xQ4RF5Q4OfMJC4gt
+	KiAvcf/WDLC4sECgxINnEMtEBPqZJPqO/GcFSTALVEqsuHCUDcIWl7j1ZD4TiM0mYCTxYPl8
+	VpCDOAXsJT41aEKUyEtsfzsHbI6EwDVOiZ77Z1kh/nSROHhuApQtLPHq+BZ2CFtG4vTkHhYI
+	O1/iwdZPzBB2jcTOnuNQtrXEnXO/2EB2MQtoSqzfpQ8RdpRYdO0FKyRM+CRuvBWEOIFPYtK2
+	6dCg4pXoaBOCqFaTmNrTC7f03IptTBMYlWYhBcosJD/OQvLMLIS9CxhZVjGKp5YW56anFhvl
+	pZbrFSfmFpfmpesl5+duYgQmxtP/jn/Zwbj81Ue9Q4xMHIyHGCU4mJVEeF+fOp4uxJuSWFmV
+	WpQfX1Sak1p8iFGag0VJnHfR/tZ0IYH0xJLU7NTUgtQimCwTB6dUA5PDAo9v4m59Ci0sE2P0
+	J4Ro6/yfvsZpeYzRlacn1E+Lh3jfOt5h0SJRLb/2D8MtS8mjm79xVPMITdrwvZRBgfHfotOr
+	E5ayO13X7P0dvHT7RVGv720z1h2UWK5QV2nsU7vX+r+aVbfQ3STHKuGeNa9Mry4x5Lc/qni0
+	+AL3wZjJiaczLEsfKzKL3lPbrvRrRs5sl32Ojls3bDK4lHz8n7s974KAq8Hl7Y+N3DR8z4bn
+	cRt7ce1te/zJzz6/J9DK5fk33XuTX5U0PHytsCzIvuu4e+ptE6bXnzcU3Gu9pVerMb/kSjXT
+	So0DM3crh543tdV4wTfn4K4NyrLatmcCdMsKJvoqCXBwz3a8fc1OXImlOCPRUIu5qDgRAO0/
+	wbr7AwAA
+X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFvrFIsWRmVeSWpSXmKPExsVy+t/xe7olrCfSDU58VLJ4ducrq8XW37PY
+	LdbsPcdkMf/IOVaLe5e2MFm82NvIYtF8bD2bxctZ99gsLu+aw2bxufcIo8W2zy1sFmuP3GW3
+	eHm5h9mibRa/xf89O9gtjq8Nt2jZP4XFQdDjzcuXLB6HO76we9w7MY3VY9OqTjaPO9f2sHls
+	XlLv0bL2GJPH+31X2Tz6tqxi9LjUfJ3d4/MmuQDuKD2bovzSklSFjPziElulaEMLIz1DSws9
+	IxNLPUNj81grI1MlfTublNSczLLUIn27BL2MzfeXsBSclar4+G01UwPjXZEuRg4OCQETiQ2X
+	nLsYuTiEBJYySvzc+Zyxi5ETKC4jca37JQuELSzx51oXG4gtJPCaUaJjuziIzStgJ/Hj1k+w
+	ehYBFYkN536xQ8QFJU7OfALWKyogL3H/1gywuLBAoMSDZz+YQZaJCPQzSTw/sh6smVmgUuLx
+	k9usEFdMYpT4vfoGM0RCXOLWk/lMIDabgJHEg+XzWUGu5hSwl/jUoAliMguoS6yfJwRRLS+x
+	/e0c5gmMQrOQnDELyaBZCB2zkHQsYGRZxSiSWlqcm55bbKRXnJhbXJqXrpecn7uJEZgIth37
+	uWUH48pXH/UOMTJxMB5ilOBgVhLhfX3qeLoQb0piZVVqUX58UWlOavEhRlNgUExklhJNzgem
+	orySeEMzA1NDEzNLA1NLM2MlcV62K+fThATSE0tSs1NTC1KLYPqYODilGpimi506cU2gJcFp
+	Em/dhG7G2ojeGsHnWSppJ3fuXLVPZnXsfgXVnWmP9h73/XcwiXP9vaYrGmEiVWZyDttvOitt
+	45/YPPO0tGn+mYjXz26qbXoyuzLq8077FzfOPwmuWnpGn6203eVhYNeLiS8d13hF/a88b7zw
+	u07A99tPzj2R5Z+Ur2jgz1m1N/HvIt6tHl4T11lNsVXiWRex+77My0uzDnc6vzUInSTPseDH
+	zYcmgvxmyY83vW/7xBetJ73P91ZCweFld3XvTft33fS8vVGRzqp4jXXzVJLrthu9D/kU80aa
+	J6tjwSEu/QN7wm9l/7/oHni5csIst9k8e3arVl2cEHHK+ruExrPIOe5Z0/U9lFiKMxINtZiL
+	ihMBc1pqnI0DAAA=
+X-CMS-MailID: 20250305080404eucas1p2cff5ea6161b7c6a71cd0ff81aedad061
+X-Msg-Generator: CA
+X-RootMTR: 20250303145917eucas1p171f8fcccadddc035f5773f7026a281e3
+X-EPHeader: CA
+CMS-TYPE: 201P
+X-CMS-RootMailID: 20250303145917eucas1p171f8fcccadddc035f5773f7026a281e3
+References: <CGME20250303145917eucas1p171f8fcccadddc035f5773f7026a281e3@eucas1p1.samsung.com>
+	<20250303145901.446791-1-m.wilczynski@samsung.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250304_224624_821771_09D4D52F 
-X-CRM114-Status: GOOD (  19.73  )
+X-CRM114-CacheID: sfid-20250305_000413_981503_B046CFDC 
+X-CRM114-Status: GOOD (  17.39  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,112 +138,79 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Mar 05, 2025 at 02:39:13PM +0800, Inochi Amaoto wrote:
-> The GMAC IP on SG2044 is almost a standard Synopsys DesignWare
-> MAC (version 5.30a) with some extra clock.
+
+
+On 3/3/25 15:58, Michal Wilczynski wrote:
+> This patch series introduces and documents power management (PM) support and
+> the AON firmware driver for the T-Head TH1520 SoC, as used on the LicheePi 4A
+> board. While part of a larger effort to enable the Imagination BXM-4-64 GPU
+> upstream, these patches can merge independently.
 > 
-> Add necessary compatible string for this device.
+> Bigger series cover letter:
+> https://lore.kernel.org/all/20250219140239.1378758-1-m.wilczynski@samsung.com/
+
+This series should be versioned as v6, to maintain continuity with the
+bigger patchset it is a subseries of. Please find below a changelog for
+the AON & power-domain:
+
+v6:
+- split the firmware & power-domain patches into a separate series
+
+v5:
+- changed the AON driver to be a set of library functions rather than a
+  standalone driver
+
+v4:
+- added workaround to disable AUDIO power domain to prevent firmware crashes
+
+v3:
+ - consolidated device tree representation by merging aon and power-domain nodes
+   while maintaining separate drivers internally
+ - power-domain driver is now instantiated from within the aon driver
+ - fixed optional module dependencies in Kconfig
+ - added kernel-doc comments for all exported functions
+ - implemented th1520_aon_remove() to properly clean up mailbox channel
+   resources
+
+v2:
+ - introduced a new firmware driver to manage power-related operations.
+ - rewrote the power-domain driver to function alongside the firmware driver.
+   These nodes in the device tree lack direct address spaces, despite
+   representing HW blocks. Control is achieved via firmware protocol messages
+   transmitted through a mailbox to the E902 core.
+ - added new dt-bindings for power and firmware nodes.
+ - ran dtbs_check and dt_binding_check to ensure compliance.
+
 > 
-> Signed-off-by: Inochi Amaoto <inochiama@gmail.com>
-> Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-> ---
->  .../devicetree/bindings/net/snps,dwmac.yaml   |   4 +
->  .../bindings/net/sophgo,sg2044-dwmac.yaml     | 126 ++++++++++++++++++
->  2 files changed, 130 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/net/sophgo,sg2044-dwmac.yaml
+> Michal Wilczynski (5):
+>   dt-bindings: firmware: thead,th1520: Add support for firmware node
+>   firmware: thead: Add AON firmware protocol driver
+>   dt-bindings: power: Add TH1520 SoC power domains
+>   pmdomain: thead: Add power-domain driver for TH1520
+>   riscv: Enable PM_GENERIC_DOMAINS for T-Head SoCs
 > 
-> diff --git a/Documentation/devicetree/bindings/net/snps,dwmac.yaml b/Documentation/devicetree/bindings/net/snps,dwmac.yaml
-> index 91e75eb3f329..02ab6a9aded2 100644
-> --- a/Documentation/devicetree/bindings/net/snps,dwmac.yaml
-> +++ b/Documentation/devicetree/bindings/net/snps,dwmac.yaml
-> @@ -32,6 +32,7 @@ select:
->            - snps,dwmac-4.20a
->            - snps,dwmac-5.10a
->            - snps,dwmac-5.20
-> +          - snps,dwmac-5.30a
->            - snps,dwxgmac
->            - snps,dwxgmac-2.10
->  
-> @@ -98,8 +99,10 @@ properties:
->          - snps,dwmac-4.20a
->          - snps,dwmac-5.10a
->          - snps,dwmac-5.20
-> +        - snps,dwmac-5.30a
->          - snps,dwxgmac
->          - snps,dwxgmac-2.10
-> +        - sophgo,sg2044-dwmac
->          - starfive,jh7100-dwmac
->          - starfive,jh7110-dwmac
->          - thead,th1520-gmac
-> @@ -631,6 +634,7 @@ allOf:
->                  - snps,dwmac-4.20a
->                  - snps,dwmac-5.10a
->                  - snps,dwmac-5.20
-> +                - snps,dwmac-5.30a
->                  - snps,dwxgmac
->                  - snps,dwxgmac-2.10
->                  - st,spear600-gmac
-> diff --git a/Documentation/devicetree/bindings/net/sophgo,sg2044-dwmac.yaml b/Documentation/devicetree/bindings/net/sophgo,sg2044-dwmac.yaml
-> new file mode 100644
-> index 000000000000..4dd2dc9c678b
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/net/sophgo,sg2044-dwmac.yaml
-> @@ -0,0 +1,126 @@
-> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/net/sophgo,sg2044-dwmac.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: Sophgo SG2044 DWMAC glue layer
-> +
-> +maintainers:
-> +  - Inochi Amaoto <inochiama@gmail.com>
-> +
-> +select:
-> +  properties:
-> +    compatible:
-> +      contains:
-> +        enum:
-> +          - sophgo,sg2044-dwmac
-> +  required:
-> +    - compatible
-> +
-> +properties:
-> +  compatible:
-> +    items:
-> +      - const: sophgo,sg2044-dwmac
-> +      - const: snps,dwmac-5.30a
-> +
-> +  reg:
-> +    maxItems: 1
-> +
-> +  clocks:
-> +    items:
-> +      - description: GMAC main clock
-> +      - description: PTP clock
-> +      - description: TX clock
-> +
-> +  clock-names:
-> +    items:
-> +      - const: stmmaceth
-> +      - const: ptp_ref
-> +      - const: tx
-> +
-> +  dma-noncoherent: true
-
-Hi, Krzysztof,
-
-I add this property due to the discussion on PCIe binding of SG2044, it
-can be found on link [1]. As a similar change (at link [2]) was acked by
-Conor. I preserve your tag on this binding. If you have any further
-requirement, please let me know. I will appreciate it.
-
-[1] https://lore.kernel.org/all/20250221013758.370936-2-inochiama@gmail.com/
-[2] https://lore.kernel.org/all/20250303065649.937233-1-inochiama@gmail.com/
-
-Regards,
-Inochi
+>  .../bindings/firmware/thead,th1520-aon.yaml   |  53 ++++
+>  MAINTAINERS                                   |   5 +
+>  arch/riscv/Kconfig.socs                       |   1 +
+>  drivers/firmware/Kconfig                      |   9 +
+>  drivers/firmware/Makefile                     |   1 +
+>  drivers/firmware/thead,th1520-aon.c           | 247 ++++++++++++++++++
+>  drivers/pmdomain/Kconfig                      |   1 +
+>  drivers/pmdomain/Makefile                     |   1 +
+>  drivers/pmdomain/thead/Kconfig                |  12 +
+>  drivers/pmdomain/thead/Makefile               |   2 +
+>  drivers/pmdomain/thead/th1520-pm-domains.c    | 209 +++++++++++++++
+>  .../dt-bindings/power/thead,th1520-power.h    |  19 ++
+>  .../linux/firmware/thead/thead,th1520-aon.h   | 200 ++++++++++++++
+>  13 files changed, 760 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/firmware/thead,th1520-aon.yaml
+>  create mode 100644 drivers/firmware/thead,th1520-aon.c
+>  create mode 100644 drivers/pmdomain/thead/Kconfig
+>  create mode 100644 drivers/pmdomain/thead/Makefile
+>  create mode 100644 drivers/pmdomain/thead/th1520-pm-domains.c
+>  create mode 100644 include/dt-bindings/power/thead,th1520-power.h
+>  create mode 100644 include/linux/firmware/thead/thead,th1520-aon.h
+> 
 
 _______________________________________________
 linux-riscv mailing list
