@@ -4,93 +4,114 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 60906C282D3
-	for <linux-riscv@archiver.kernel.org>; Wed,  5 Mar 2025 05:18:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0A2A4C282D3
+	for <linux-riscv@archiver.kernel.org>; Wed,  5 Mar 2025 06:42:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=jpTYr+U6qYqiHoMOeeuHVfF0SRaepXuhsO2SNvBpHMY=; b=TzeQyBGogGyFfB
-	pm7LPY7AVhS6DkswPesMJ4WTSot00Y+trodfrYx5CQMEWaxEYr5qGrIiTzZMe3Jjg3mmbc3aMQjFO
-	Mm1NIc3pB6wWDLzVvkHQhBkk9szQhm5dvtgIp/7wy1DO6Z1SA1m+6hx/TDI9AOI7XM7hfDdJaKAw5
-	MrIZiCN6zCLE7HdifA9iJlOm+01H0yQHvDvIPpT5CqjHGM1wlh1ux7AWiMbIoQZRxxt6urfMMLpjV
-	+ADiDM5ZScRQRXUWY2bBKQ271CRq9eeWjWrqHZUumY+D/S1CZs6VYlu3QYQNghHhX8M+tRiykbmKg
-	8DpjsFCZ0CI/JWc9MPxQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=l8s3yzJ9hW6wlZ7eBEWz7CSAjXy/7+H//KlvIyR1X+U=; b=jlRC1aQwSm8r/w
+	QjlhY3LczZYNSEpld+dSonPpDxi3mIZPyL4K9u1mTIj7fioIJaM14t3gl+VuQzf4Fqx+BXvktPuuw
+	PrwS7jS/QzAleuSoHuQ0SXkuquU491O0jT3tVtrYiPr74bsmTZ3xGFt1gKRaVWRSkA7u9si6Z45LG
+	FjtNVwqjmf9DwgA2gsSB5KxyoxkOc9XLNiN2dglZ3M0Bip+kovNWmH+W1ZjaqUQadg/xvV0iRC9DN
+	MJsOrTIiqXlnUISqxE1daLuJDP/8+Xby3rHSyv5fvrJHlq8ux23eqScKedNiW7aUl3NP9bJJx0blT
+	xIQRNm4H+PZ5MuQ/srIw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tph9d-000000071IN-2IvT;
-	Wed, 05 Mar 2025 05:18:49 +0000
-Received: from mail-qt1-x832.google.com ([2607:f8b0:4864:20::832])
+	id 1tpiSN-000000079Cl-3s23;
+	Wed, 05 Mar 2025 06:42:15 +0000
+Received: from mail-qk1-x729.google.com ([2607:f8b0:4864:20::729])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tph9a-000000071Hx-2rOr
-	for linux-riscv@lists.infradead.org;
-	Wed, 05 Mar 2025 05:18:47 +0000
-Received: by mail-qt1-x832.google.com with SMTP id d75a77b69052e-474e0bd966dso28364471cf.0
-        for <linux-riscv@lists.infradead.org>; Tue, 04 Mar 2025 21:18:46 -0800 (PST)
+	id 1tpiQ3-000000078eA-1veO;
+	Wed, 05 Mar 2025 06:39:53 +0000
+Received: by mail-qk1-x729.google.com with SMTP id af79cd13be357-7c3b44dabe0so327516585a.1;
+        Tue, 04 Mar 2025 22:39:50 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1741151925; x=1741756725; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=1P3+iYzJ+YpQ9FI2rKYP4r/ocmp23KFw2lq/RJsTz1Y=;
-        b=j5tTvoerGa0owglSBb6xR/E/kQvgBkt0mREU5KB3RfEfRuiM+bOE1E05OPwHmN7S2b
-         zgI0aE67kjo4YXgegWlysWyEtKgBmtXu2rIcJSuqfzSqSWyPTiF2EInhhoiRRyMFMO5x
-         sh64t48mwk/w1gmHWGcWpIwOZ2uSMy6Cmam+prq/ibTbFy+M32edHycD41iH202n6G6w
-         E+zBXjXuptFMldbzkYlbWVt07ARDK5L0hervOuIt1s9isvhIzB2oQp/aNOypigLRw0og
-         qfJKW9ezUZZPGZFS8hXHwjj7FvM0mORrJoEBBxkLWfS/mYTWI7hk/S0DD4V4xldjEX3/
-         84AQ==
+        d=gmail.com; s=20230601; t=1741156790; x=1741761590; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=SZA5b2x/fScL7d+i7eRMvLOrisXrqpzgaeKI+s5E2mY=;
+        b=ErCYxLFCWp/kLBhe4T0Ga49D4wTQRmo8/SkiOxQhojgqmaC/R59EEhm7E4IYMycxyW
+         FekF53nBIuNvXoxNHIJ3HHllbD6uxTbh3AysPQN61Iaeque/LFxBlDxArT+H3NQzQ8B5
+         Yw/dtxsRTM75fgzljsQHTyLGYMbrT03E2eS5O8Nh+dQLMuTluzKDSAKg93ImB1TYXqM6
+         G4qww8jy34bq49+ktCGkenDoYK7/RuDB1lvwDkjxIqI/qDQP8Rg6rYkeiPzjg++1Uq/E
+         utOVY26J1XfsEjowEZ6ZPH0pFvlYXca/F0olcy80/FD1+jpHhwsOqgrpUKQE6YYnPwYb
+         qT6g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1741151925; x=1741756725;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=1P3+iYzJ+YpQ9FI2rKYP4r/ocmp23KFw2lq/RJsTz1Y=;
-        b=l7GUYJ8ma9lYxk1fgVecTomne3fRiiMROxosb0wCYiSav8FRzQTS1F/leH479NyiZi
-         VwPVzRG5EiR3bV8l+0rYw+eV/WDuP8BPretDu9hv3YEvZF33o6Z/36Z3E9EK77rmroQH
-         0KRBP6f+hptyhz3voMrZR1vD8e7gyhTHHMnIs9Z54yglyrmdhZzUjb45ghtn8Xvq66hp
-         ppBDsmyHx8l/tFAteU9TVQ4XkKg38AazaUchuqlNCLWXdSVeS8htnn+MMFDeBxWlRoVZ
-         kh62G2AlHLKAGZ3qu3JS3EBRWzBsMf/hQ34o1/e6rbRl4IMY6Z1c5tAtsFvUF4R+ugnM
-         XM9w==
-X-Forwarded-Encrypted: i=1; AJvYcCUUiQqLkyEEQvabq/aj74q4QaxHg/97H5bkqK1wqL4CNzkOnmaV9womSWqbdLmCNA3oPdyx0vbCy6G9pA==@lists.infradead.org
-X-Gm-Message-State: AOJu0YyDnHykVAjHhnPxn/+b818P5SdacYS+u3MK6uvxM5GmqVH+sxjX
-	RKJt8qd24ziZ5DHNMo2YfoNIvLJ39oJZX8b104dEV+x6vSrUz4cG
-X-Gm-Gg: ASbGncvWC7LiOK6Lhg17ZNujDWcc84mmWQAwEcCNXOYln8ZbEJ9yQTvqtu6JRUb/zQv
-	P7hlFx8D9kRyKHy9yQDvWXRl8hngiTgEVxCRnFeN71Fu26pz0c7MxR1rqoODO+niXbNMJ5FJCHy
-	+JZRxsEN9hFb7QaIJeGysohIa2uAwoPiqDCJwJf3IN5JoAox8nY3XRZnQOplqoLipadUXKNRTIg
-	qkzjZ7c3NUduH58vFy6B9JYLLAuIikNRYJ/3ZrGMcwhcYHOr93EqNtKko5+ZBk37zAxBpZTHvf4
-	Mwo5B9EZRj1CFz+9a/Cx
-X-Google-Smtp-Source: AGHT+IEL+SRXWaxNqoLf2fRqsU51Nuz6KF+mx2D44cet7M+NDkMLl3pM/VonNiECdPjeLo+ew7jsDA==
-X-Received: by 2002:ac8:5715:0:b0:471:bbd5:aff2 with SMTP id d75a77b69052e-4750b23bd92mr21798421cf.10.1741151924641;
-        Tue, 04 Mar 2025 21:18:44 -0800 (PST)
+        d=1e100.net; s=20230601; t=1741156790; x=1741761590;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=SZA5b2x/fScL7d+i7eRMvLOrisXrqpzgaeKI+s5E2mY=;
+        b=AoclTWuGzvAlFFknEzAvdXL++yyeRfwzx91vhiGRgJsOBchaEK3NjXiShz1tJEYGqv
+         6ZQrlnO/WuatpuLLobniCPEU3h1iZzMjRwwxthLkyJAefSCWuOhS8A0jnwu6KNKGFdqm
+         k6KFZaNnoL2Fb8goVt5i5Ac+dJIBltAP/TeSHXhbtE+fx+Ax2yw1kEmgkTavGPsP0/8t
+         7yeczzbCuvBrQOfwELVj5/sNdIDdjzPUO3eBYyizgkzz9ry2yrDWw0SFSYa2PGGVjV4C
+         SRNCe4Ve259PqaHz9pcXB5B8eLQSTago6mEAsWpIgyLDq4NFpmysPkdpHCLkj/HEoSdW
+         jbuA==
+X-Forwarded-Encrypted: i=1; AJvYcCUtf6fOJCmN2XW0VjGnonVk7W3PUUrkyU7pbLqM65iU4d6H9MvTE5G+3q/sTvYoh60nZEVoBGL/jTJPLC8=@lists.infradead.org, AJvYcCWRAC81IkUsdhjXk2GFZhE/OqE5h4cvMWT4TB8qN4QDVgYr0Cq8A7JOQXE+YSLTEGnTrDDBdkw8lWadUyhruEy6@lists.infradead.org
+X-Gm-Message-State: AOJu0YznF1WMKzZuePyqLstTKSIr9kcKFtgcvA2z1AX/8ParXuDXyiT7
+	v6JjmaBpmO4T9rODClC/B5CVA515yCF2+IPASPzRa4ytM0UpNDGV
+X-Gm-Gg: ASbGncuFth858CNvcOG/HeEENWLs/NBGN4uiXgc4G7czuVJFMwa0F67on0LOZmfkI8N
+	G7OeHwOtxhe+GiUzfOnxnzS6xMfvsOUdtyN1Lj+8PR7+N82drGjBdMbjMaJa1Da7bvYR2UBzzMC
+	DBB4EcWrqbIg6SYi+2+pJwPgFRy35Xbd1VGUhRxk8KbJ2Zyoh/8+IAyp1xkc6qfI7cwsLOMqg2b
+	A/rU1o01Cb8XJgCm7Xnd1LZA21enWVEecj/91p08KsbgdDuSTMls9WxnSHpzKel7bEosgVFp3UQ
+	E5sldLasGMt+/zEA8oqg
+X-Google-Smtp-Source: AGHT+IHQn5rcf/yZwl7qfbDraLVtkQEZKtE6MR9UkwRor+hKRVkXlhUT2tJZmUlvvrfGucfe6+0vEA==
+X-Received: by 2002:a05:620a:4899:b0:7c3:c01e:ad0a with SMTP id af79cd13be357-7c3d8ef2cd2mr402188285a.49.1741156790046;
+        Tue, 04 Mar 2025 22:39:50 -0800 (PST)
 Received: from localhost ([2001:da8:7001:11::cb])
-        by smtp.gmail.com with UTF8SMTPSA id d75a77b69052e-474f73d8145sm27595631cf.55.2025.03.04.21.18.43
+        by smtp.gmail.com with UTF8SMTPSA id af79cd13be357-7c3cc0c20ffsm231314385a.91.2025.03.04.22.39.48
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 04 Mar 2025 21:18:44 -0800 (PST)
-Date: Wed, 5 Mar 2025 13:18:17 +0800
+        Tue, 04 Mar 2025 22:39:49 -0800 (PST)
 From: Inochi Amaoto <inochiama@gmail.com>
-To: Chen Wang <unicorn_wang@outlook.com>, 
-	Inochi Amaoto <inochiama@gmail.com>, Lorenzo Pieralisi <lpieralisi@kernel.org>, 
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>, Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>, 
-	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Johan Hovold <johan+linaro@kernel.org>, 
-	Shashank Babu Chinta Venkata <quic_schintav@quicinc.com>, Niklas Cassel <cassel@kernel.org>
-Cc: linux-pci@vger.kernel.org, devicetree@vger.kernel.org, 
-	sophgo@lists.linux.dev, linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
-	Yixun Lan <dlan@gentoo.org>, Longbin Li <looong.bin@gmail.com>
-Subject: Re: [PATCH 2/2] PCI: sophgo-dwc: Add Sophgo SG2044 PCIe driver
-Message-ID: <borpjzjwtdeigqs4szogy2ozzqsqj3ucvppl3k6cdzfoukgdur@23wwl55dmrfj>
-References: <20250304071239.352486-1-inochiama@gmail.com>
- <20250304071239.352486-3-inochiama@gmail.com>
- <PN0PR01MB10393134B6BD714C1F070F0BEFEC82@PN0PR01MB10393.INDPRD01.PROD.OUTLOOK.COM>
+To: Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Chen Wang <unicorn_wang@outlook.com>,
+	Inochi Amaoto <inochiama@gmail.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Richard Cochran <richardcochran@gmail.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Romain Gantois <romain.gantois@bootlin.com>,
+	Hariprasad Kelam <hkelam@marvell.com>,
+	Jisheng Zhang <jszhang@kernel.org>,
+	=?UTF-8?q?Cl=C3=A9ment=20L=C3=A9ger?= <clement.leger@bootlin.com>,
+	"Jan Petrous (OSS)" <jan.petrous@oss.nxp.com>,
+	Simon Horman <horms@kernel.org>,
+	Furong Xu <0x1207@gmail.com>,
+	Lothar Rubusch <l.rubusch@gmail.com>,
+	Joe Hattori <joe@pf.is.s.u-tokyo.ac.jp>,
+	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>,
+	Giuseppe Cavallaro <peppe.cavallaro@st.com>,
+	Jose Abreu <joabreu@synopsys.com>
+Cc: netdev@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	sophgo@lists.linux.dev,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-riscv@lists.infradead.org,
+	Yixun Lan <dlan@gentoo.org>,
+	Longbin Li <looong.bin@gmail.com>
+Subject: [PATCH net-next v6 0/4] riscv: sophgo: Add ethernet support for SG2044
+Date: Wed,  5 Mar 2025 14:39:12 +0800
+Message-ID: <20250305063920.803601-1-inochiama@gmail.com>
+X-Mailer: git-send-email 2.48.1
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <PN0PR01MB10393134B6BD714C1F070F0BEFEC82@PN0PR01MB10393.INDPRD01.PROD.OUTLOOK.COM>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250304_211846_723898_7BF67C02 
-X-CRM114-Status: GOOD (  16.97  )
+X-CRM114-CacheID: sfid-20250304_223951_522048_51A49D2F 
+X-CRM114-Status: GOOD (  13.95  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,44 +128,69 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Mar 05, 2025 at 07:57:14AM +0800, Chen Wang wrote:
-> 
-> On 2025/3/4 15:12, Inochi Amaoto wrote:
-> > Add support for DesignWare-based PCIe controller in SG2044 SoC.
-> > 
-> > Signed-off-by: Inochi Amaoto <inochiama@gmail.com>
-> > ---
-> >   drivers/pci/controller/dwc/Kconfig          |  10 +
-> >   drivers/pci/controller/dwc/Makefile         |   1 +
-> >   drivers/pci/controller/dwc/pcie-dw-sophgo.c | 270 ++++++++++++++++++++
-> Will this driver work for all sophgo chips using dw's IP? If not, it is
-> recommended to rename it to "pcie-dw-sg2044.c".
+The ethernet controller of SG2044 is Synopsys DesignWare IP with
+custom clock. Add glue layer for it.
 
-It should. As the DesignWare PCIe ip is widely used and I saw
-limit changed across the vendor. And the implement on SG2044
-is almost like the Synopsys one. I think it is possible to 
-represent all DesignWare based PCIe driver for the Sophgo SoCs.
+Changed from v5:
+- https://lore.kernel.org/netdev/20250216123953.1252523-1-inochiama@gmail.com/
+1. apply Andrew's tag for patch 2,3
+3. patch 1: add dma-noncoherent property.
+2. patch 2,3: separate original patch into 2 part
+4. patch 4: adopt new stmmac_set_clk_tx_rate helper function
 
-Also, please think twice before giving some suggestion like
-this. Although it is a good practice to keep the driver
-specifc. keeping everythings specifc make us miss some common
-things. 
+Changed from v4:
+- https://lore.kernel.org/netdev/20250209013054.816580-1-inochiama@gmail.com/
+1. apply Romain's tag
+2. patch 3: use device variable to replace &pdev->dev.
+3. patch 3: remove unused include.
+4. patch 3: make error message more useful.
 
-Regards,
-Inochi
+Changed from v3:
+- https://lore.kernel.org/netdev/20241223005843.483805-1-inochiama@gmail.com/
+1. rebase for 6.14.rc1
+2. remove the dependency requirement as it was already merged
+   into master.
 
-> >   3 files changed, 281 insertions(+)
-> >   create mode 100644 drivers/pci/controller/dwc/pcie-dw-sophgo.c
-> > 
-> > [...]
-> > +
-> > +static void sophgo_intx_irq_eoi(struct irq_data *d)
-> > +{
-> > +}
-> Why define this empty callback function? Please add a comment if it is
-> really needed.
+Changed from RFC:
+- https://lore.kernel.org/netdev/20241101014327.513732-1-inochiama@gmail.com/
+1. patch 1: apply Krzysztof' tag
 
-See https://lore.kernel.org/all/bxwsvluj6amgoelk7r55gqhmhjwpewnfyhvvw6zpxen7kqzvwc@fxcebjzo5axk/
+Changed from v2:
+- https://lore.kernel.org/netdev/20241025011000.244350-1-inochiama@gmail.com/
+1. patch 1: merge the first and the second bindings patch to show the all
+            compatible change.
+2. patch 2: use of_device_compatible_match helper function to perform check.
+2. patch 3: remove unused include and sort the left.
+3. patch 3: fix wrong variable usage in sophgo_dwmac_fix_mac_speed
+4. patch 3: drop unused variable in the patch.
+
+Changed from v1:
+- https://lore.kernel.org/netdev/20241021103617.653386-1-inochiama@gmail.com/
+1. patch 2: remove sophgo,syscon as this mac delay is resolved.
+2. patch 2: apply all the properties unconditionally.
+3. patch 4: remove sophgo,syscon code as this mac delay is resolved.
+4. patch 4: use the helper function to compute rgmii clock.
+5. patch 4: use remove instead of remove_new for the platform driver.
+
+Inochi Amaoto (4):
+  dt-bindings: net: Add support for Sophgo SG2044 dwmac
+  net: stmmac: platform: Group GMAC4 compatible check
+  net: stmmac: platform: Add snps,dwmac-5.30a IP compatible string
+  net: stmmac: Add glue layer for Sophgo SG2044 SoC
+
+ .../devicetree/bindings/net/snps,dwmac.yaml   |   4 +
+ .../bindings/net/sophgo,sg2044-dwmac.yaml     | 126 ++++++++++++++++++
+ drivers/net/ethernet/stmicro/stmmac/Kconfig   |  11 ++
+ drivers/net/ethernet/stmicro/stmmac/Makefile  |   1 +
+ .../ethernet/stmicro/stmmac/dwmac-sophgo.c    |  75 +++++++++++
+ .../ethernet/stmicro/stmmac/stmmac_platform.c |  17 ++-
+ 6 files changed, 229 insertions(+), 5 deletions(-)
+ create mode 100644 Documentation/devicetree/bindings/net/sophgo,sg2044-dwmac.yaml
+ create mode 100644 drivers/net/ethernet/stmicro/stmmac/dwmac-sophgo.c
+
+--
+2.48.1
+
 
 _______________________________________________
 linux-riscv mailing list
