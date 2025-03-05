@@ -4,124 +4,140 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C0061C19F32
-	for <linux-riscv@archiver.kernel.org>; Wed,  5 Mar 2025 08:04:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3B5A0C282D3
+	for <linux-riscv@archiver.kernel.org>; Wed,  5 Mar 2025 08:18:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:References:In-Reply-To:From:Cc:To:
 	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Md6Jy0p1CL2VIDQAO1sAsmF8QzgS6jacts1adyspTkg=; b=c3PIycanLRuEu+
-	wENNGvgnFzcuYrf3IDAeMxtFoD0snzx9xDABFeASa3GFtB5D+QpBdDZT7bn4SBCJs/rf0BRNGPorx
-	SXHJ+dLV2v+kLCwg/6kFS9uMMwRR+klHG3uBbW2x9P62hD6XRmovt4GgUQz66IJIVzJ6btjofLIxG
-	gTNm7dHbwv1Cv0CCwj8hiN8EnD1tmh9KWJZZshukCjOYYlw29v065jLbanBfntDrtEPpn/Bv1/HJj
-	RwqFRoS4z1PUs0ZW0JtG61mz6l8gV1d+N9wtNXzcoOweoLUP8jMxmSOOlKIVl9w7veeH6L0GX3Cmi
-	cSREdZZ7FkJlr13yiYxw==;
+	List-Owner; bh=3kF6GQZC9Iwccpb0Xzs+FZer+O3aZL6m5v3w939WW1I=; b=mGImtVMvnsa3fB
+	bpqr4bWA0ygVLYyfh6ZzGl2yE35yaWGHbrqnINKPueBHR5UwRumZGJ6KGSa5zI9GbZkPMQhSmvL0Q
+	nR9t/q6q+iycMSGutpZ2QJ4ya+gcSxBNWqmwqMVOpkdgZRsbdRd2pvYf18eL/0tFJq093ozf+JAfW
+	pYYdFgbeoeQt5ymoumYzoE9OACZTGOTeg61eNM+rJssyRvwLX32pjfqwofZA+kyoj+nryTVqYdk0L
+	a/d/Q3KmNXX6vAj8PJ4pDco1N7QqocX3qdLixMSfn5vLRp2ovlQSmD0ws08EpXNdr+CSgiwpeYrLE
+	9DACxkP3WQentI7QtRlw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpjjk-00000007JWG-2f4b;
-	Wed, 05 Mar 2025 08:04:16 +0000
-Received: from mailout1.w1.samsung.com ([210.118.77.11])
+	id 1tpjxW-00000007LYi-2bHZ;
+	Wed, 05 Mar 2025 08:18:30 +0000
+Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpjjg-00000007JVQ-2EKX
+	id 1tpjxU-00000007LXY-0usl
+	for linux-riscv@bombadil.infradead.org;
+	Wed, 05 Mar 2025 08:18:28 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=casper.20170209; h=References:Content-Type:
+	Content-Transfer-Encoding:In-Reply-To:From:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Sender:Reply-To:Content-ID:Content-Description;
+	bh=z4bDXZf0zsJpmZ4gA2EzfPRJzWcAnMN3iUbKKNxEAqw=; b=ESwxdV9LH1m2IsSKKb2CKiO/SD
+	UqDN35sVd0B0l1O6EMRIpU2lfb3T6puoH9FtDs8ScafcXlAYLGV/1GkFzidpY2tc2191An0kKJpIj
+	jvdtdYQjthbKVsYyA+KrxKakeR/htHRpgNg9AwGfL+P2/fQFuTnmYkzb6Wkmf5irtAn4LUxcW3QFN
+	NKQY8ckvBgvKMmA3L3Ffio8pnoulZwOYXslhH8FSP/cL4WwpseAlWFRj6o1iwBnl0y/PFTZsRVm51
+	lvDS1yllGn2lss5D9Q6TRgV2Legqc6exySIzkAMxUPWfjuBmoqqMqmZwSqWSCb/bOqssomHfaVVcV
+	izoJnAwA==;
+Received: from mailout1.w1.samsung.com ([210.118.77.11])
+	by casper.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tpjxQ-000000055VK-2nvo
 	for linux-riscv@lists.infradead.org;
-	Wed, 05 Mar 2025 08:04:15 +0000
+	Wed, 05 Mar 2025 08:18:26 +0000
 Received: from eucas1p2.samsung.com (unknown [182.198.249.207])
-	by mailout1.w1.samsung.com (KnoxPortal) with ESMTP id 20250305080405euoutp011c4a05705269be4a63d05890212763f5~p2XlBGHxz0213002130euoutp01Y
-	for <linux-riscv@lists.infradead.org>; Wed,  5 Mar 2025 08:04:05 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout1.w1.samsung.com 20250305080405euoutp011c4a05705269be4a63d05890212763f5~p2XlBGHxz0213002130euoutp01Y
+	by mailout1.w1.samsung.com (KnoxPortal) with ESMTP id 20250305081820euoutp0112f185ea2bdfc89f17a5026e2bd22907~p2kBLO3xs1587715877euoutp01d
+	for <linux-riscv@lists.infradead.org>; Wed,  5 Mar 2025 08:18:20 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout1.w1.samsung.com 20250305081820euoutp0112f185ea2bdfc89f17a5026e2bd22907~p2kBLO3xs1587715877euoutp01d
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1741161845;
-	bh=GnXY0ytHs9JstH2dWkqOUDOxCaeFg6+8UfoPoS8CNm0=;
+	s=mail20170921; t=1741162700;
+	bh=z4bDXZf0zsJpmZ4gA2EzfPRJzWcAnMN3iUbKKNxEAqw=;
 	h=Date:Subject:To:Cc:From:In-Reply-To:References:From;
-	b=AVpjaFAGCy7hNPB+HGj8BG9cN9i7qCURzC3pzitan2DFXB5OU087zs7nF7hCKde7p
-	 RfAodIFCh5akwzQ/6w0ON7SkKwNRjNQSEAzNxVW2oL/4lAloG8toqrHLVKIZI2g8ib
-	 2MHRe6Sk8fjGvJKdEcHg86Nr3pcdKomQqgBhuUig=
-Received: from eusmges2new.samsung.com (unknown [203.254.199.244]) by
-	eucas1p2.samsung.com (KnoxPortal) with ESMTP id
-	20250305080405eucas1p269322ff4dff3a7efa7c0217d2d760140~p2Xkksspc1362113621eucas1p2W;
-	Wed,  5 Mar 2025 08:04:05 +0000 (GMT)
+	b=U4AZgIbJrV0ftB2eAPxu4/Q1MpiU7XHy4CJk37GMm6A3SKoWflD3QOk6rP9NBpXrD
+	 MpOUWrNkmGXu8en1XNJuSblch/tleiU80mgmuBIjMvzQQ0jqBpOpEuRGH+Q9PweUPN
+	 8eSZvmr2zf9XYgaxq9FKfhrPJ2ifKJ/5XZkMggU8=
+Received: from eusmges3new.samsung.com (unknown [203.254.199.245]) by
+	eucas1p1.samsung.com (KnoxPortal) with ESMTP id
+	20250305081820eucas1p18a6b69372f0a694f81bb00b333eef309~p2kA06VGb2579125791eucas1p1Z;
+	Wed,  5 Mar 2025 08:18:20 +0000 (GMT)
 Received: from eucas1p1.samsung.com ( [182.198.249.206]) by
-	eusmges2new.samsung.com (EUCPMTA) with SMTP id F3.C1.20409.57508C76; Wed,  5
-	Mar 2025 08:04:05 +0000 (GMT)
+	eusmges3new.samsung.com (EUCPMTA) with SMTP id 6C.C7.20397.CC808C76; Wed,  5
+	Mar 2025 08:18:20 +0000 (GMT)
 Received: from eusmtrp1.samsung.com (unknown [182.198.249.138]) by
-	eucas1p2.samsung.com (KnoxPortal) with ESMTPA id
-	20250305080404eucas1p2cff5ea6161b7c6a71cd0ff81aedad061~p2Xj_wj4L1362113621eucas1p2U;
-	Wed,  5 Mar 2025 08:04:04 +0000 (GMT)
+	eucas1p1.samsung.com (KnoxPortal) with ESMTPA id
+	20250305081819eucas1p1ad27dd6b7ef53e4ea95adfad46d9dca3~p2kAXXGKD2578725787eucas1p1b;
+	Wed,  5 Mar 2025 08:18:19 +0000 (GMT)
 Received: from eusmgms2.samsung.com (unknown [182.198.249.180]) by
 	eusmtrp1.samsung.com (KnoxPortal) with ESMTP id
-	20250305080404eusmtrp188a9d70d20b5fa05c891eba7157342f5~p2Xj99l6u3067730677eusmtrp1q;
-	Wed,  5 Mar 2025 08:04:04 +0000 (GMT)
-X-AuditID: cbfec7f4-c0df970000004fb9-04-67c80575adf4
+	20250305081819eusmtrp14276678062258e5a01766bbc121cbd9f~p2kAWl2PV0646206462eusmtrp1R;
+	Wed,  5 Mar 2025 08:18:19 +0000 (GMT)
+X-AuditID: cbfec7f5-ed1d670000004fad-c5-67c808cc7540
 Received: from eusmtip2.samsung.com ( [203.254.199.222]) by
-	eusmgms2.samsung.com (EUCPMTA) with SMTP id 7A.09.19654.47508C76; Wed,  5
-	Mar 2025 08:04:04 +0000 (GMT)
+	eusmgms2.samsung.com (EUCPMTA) with SMTP id 2D.4B.19654.BC808C76; Wed,  5
+	Mar 2025 08:18:19 +0000 (GMT)
 Received: from [192.168.1.44] (unknown [106.210.136.40]) by
 	eusmtip2.samsung.com (KnoxPortal) with ESMTPA id
-	20250305080403eusmtip2e81659e53d59c3b079c327a133bb3e6d~p2XjImQTE2244322443eusmtip2H;
-	Wed,  5 Mar 2025 08:04:03 +0000 (GMT)
-Message-ID: <8f04da41-c868-4ab2-83bc-c06a8f182e81@samsung.com>
-Date: Wed, 5 Mar 2025 09:04:03 +0100
+	20250305081818eusmtip26ea063d1e2190b225e572c1a657e70ab~p2j-XBYUu0942709427eusmtip2F;
+	Wed,  5 Mar 2025 08:18:18 +0000 (GMT)
+Message-ID: <8ffa6276-299c-4a95-8c7d-cbe39c1a1457@samsung.com>
+Date: Wed, 5 Mar 2025 09:18:18 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v1 0/5] TH1520 SoC: Add AON firmware & power-domain
- support
-To: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, drew@pdp7.com,
-	guoren@kernel.org, wefu@redhat.com, paul.walmsley@sifive.com,
-	palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr,
-	jszhang@kernel.org, ulf.hansson@linaro.org, m.szyprowski@samsung.com
-Cc: linux-pm@vger.kernel.org, devicetree@vger.kernel.org,
+Subject: Re: [PATCH v1 0/4] Add T-Head TH1520 VO clock support for LicheePi
+ 4A GPU enablement
+To: mturquette@baylibre.com, sboyd@kernel.org, robh@kernel.org,
+	krzk+dt@kernel.org, conor+dt@kernel.org, drew@pdp7.com, guoren@kernel.org,
+	wefu@redhat.com, paul.walmsley@sifive.com, palmer@dabbelt.com,
+	aou@eecs.berkeley.edu, alex@ghiti.fr, jszhang@kernel.org,
+	p.zabel@pengutronix.de, m.szyprowski@samsung.com
+Cc: linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
 Content-Language: en-US
 From: Michal Wilczynski <m.wilczynski@samsung.com>
-In-Reply-To: <20250303145901.446791-1-m.wilczynski@samsung.com>
-X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFnrBKsWRmVeSWpSXmKPExsWy7djPc7qlrCfSDf4/4LF4ducrq8XW37PY
-	LdbsPcdkMf/IOVaLe5e2MFm82NvIYtF8bD2bxctZ99gsLu+aw2bxufcIo8W2zy1sFmuP3GW3
-	eHm5h9mibRa/xf89O9gtjq8Nt2jZP4XFQdDjzcuXLB6HO76we9w7MY3VY9OqTjaPO9f2sHls
-	XlLv0bL2GJPH+31X2Tz6tqxi9LjUfJ3d4/MmuQDuKC6blNSczLLUIn27BK6MzfeXsBSclar4
-	+G01UwPjXZEuRk4OCQETiTm3DzB2MXJxCAmsYJRY8/8tlPOFUeLQyh/MEM5nRon9O9cAORxg
-	LRsuOYN0CwksZ5RYMFkWouYto8Sim9MZQRK8AnYSP279BLNZBFQkNpz7xQ4RF5Q4OfMJC4gt
-	KiAvcf/WDLC4sECgxINnEMtEBPqZJPqO/GcFSTALVEqsuHCUDcIWl7j1ZD4TiM0mYCTxYPl8
-	VpCDOAXsJT41aEKUyEtsfzsHbI6EwDVOiZ77Z1kh/nSROHhuApQtLPHq+BZ2CFtG4vTkHhYI
-	O1/iwdZPzBB2jcTOnuNQtrXEnXO/2EB2MQtoSqzfpQ8RdpRYdO0FKyRM+CRuvBWEOIFPYtK2
-	6dCg4pXoaBOCqFaTmNrTC7f03IptTBMYlWYhBcosJD/OQvLMLIS9CxhZVjGKp5YW56anFhvl
-	pZbrFSfmFpfmpesl5+duYgQmxtP/jn/Zwbj81Ue9Q4xMHIyHGCU4mJVEeF+fOp4uxJuSWFmV
-	WpQfX1Sak1p8iFGag0VJnHfR/tZ0IYH0xJLU7NTUgtQimCwTB6dUA5PDAo9v4m59Ci0sE2P0
-	J4Ro6/yfvsZpeYzRlacn1E+Lh3jfOt5h0SJRLb/2D8MtS8mjm79xVPMITdrwvZRBgfHfotOr
-	E5ayO13X7P0dvHT7RVGv720z1h2UWK5QV2nsU7vX+r+aVbfQ3STHKuGeNa9Mry4x5Lc/qni0
-	+AL3wZjJiaczLEsfKzKL3lPbrvRrRs5sl32Ojls3bDK4lHz8n7s974KAq8Hl7Y+N3DR8z4bn
-	cRt7ce1te/zJzz6/J9DK5fk33XuTX5U0PHytsCzIvuu4e+ptE6bXnzcU3Gu9pVerMb/kSjXT
-	So0DM3crh543tdV4wTfn4K4NyrLatmcCdMsKJvoqCXBwz3a8fc1OXImlOCPRUIu5qDgRAO0/
-	wbr7AwAA
-X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFvrFIsWRmVeSWpSXmKPExsVy+t/xe7olrCfSDU58VLJ4ducrq8XW37PY
-	LdbsPcdkMf/IOVaLe5e2MFm82NvIYtF8bD2bxctZ99gsLu+aw2bxufcIo8W2zy1sFmuP3GW3
-	eHm5h9mibRa/xf89O9gtjq8Nt2jZP4XFQdDjzcuXLB6HO76we9w7MY3VY9OqTjaPO9f2sHls
-	XlLv0bL2GJPH+31X2Tz6tqxi9LjUfJ3d4/MmuQDuKD2bovzSklSFjPziElulaEMLIz1DSws9
-	IxNLPUNj81grI1MlfTublNSczLLUIn27BL2MzfeXsBSclar4+G01UwPjXZEuRg4OCQETiQ2X
-	nLsYuTiEBJYySvzc+Zyxi5ETKC4jca37JQuELSzx51oXG4gtJPCaUaJjuziIzStgJ/Hj1k+w
-	ehYBFYkN536xQ8QFJU7OfALWKyogL3H/1gywuLBAoMSDZz+YQZaJCPQzSTw/sh6smVmgUuLx
-	k9usEFdMYpT4vfoGM0RCXOLWk/lMIDabgJHEg+XzWUGu5hSwl/jUoAliMguoS6yfJwRRLS+x
-	/e0c5gmMQrOQnDELyaBZCB2zkHQsYGRZxSiSWlqcm55bbKRXnJhbXJqXrpecn7uJEZgIth37
-	uWUH48pXH/UOMTJxMB5ilOBgVhLhfX3qeLoQb0piZVVqUX58UWlOavEhRlNgUExklhJNzgem
-	orySeEMzA1NDEzNLA1NLM2MlcV62K+fThATSE0tSs1NTC1KLYPqYODilGpimi506cU2gJcFp
-	Em/dhG7G2ojeGsHnWSppJ3fuXLVPZnXsfgXVnWmP9h73/XcwiXP9vaYrGmEiVWZyDttvOitt
-	45/YPPO0tGn+mYjXz26qbXoyuzLq8077FzfOPwmuWnpGn6203eVhYNeLiS8d13hF/a88b7zw
-	u07A99tPzj2R5Z+Ur2jgz1m1N/HvIt6tHl4T11lNsVXiWRex+77My0uzDnc6vzUInSTPseDH
-	zYcmgvxmyY83vW/7xBetJ73P91ZCweFld3XvTft33fS8vVGRzqp4jXXzVJLrthu9D/kU80aa
-	J6tjwSEu/QN7wm9l/7/oHni5csIst9k8e3arVl2cEHHK+ruExrPIOe5Z0/U9lFiKMxINtZiL
-	ihMBc1pqnI0DAAA=
-X-CMS-MailID: 20250305080404eucas1p2cff5ea6161b7c6a71cd0ff81aedad061
+In-Reply-To: <20250303143629.400583-1-m.wilczynski@samsung.com>
+X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFvrOKsWRmVeSWpSXmKPExsWy7djPc7pnOE6kG1x8ymXx7M5XVoutv2ex
+	W6zZe47JYv6Rc6wW9y5tYbJ4sbeRxaL52Ho2i5ez7rFZfOy5x2pxedccNottn1vYLNYeuctu
+	cfGUq8XdeydYLF5e7mG2aJvFb/F/zw52i3/XNrJYtOyfwuIg7PH+Riu7x5uXL1k8Dnd8Yfe4
+	d2Iaq8emVZ1sHpuX1Hu0rD3G5NH/18Dj/b6rbB59W1Yxelxqvs7u8XmTXABPFJdNSmpOZllq
+	kb5dAlfG875WloJzUhWH795jb2A8KtrFyMkhIWAi8f/YLMYuRi4OIYEVjBKv959jgnC+MErc
+	atjJDOF8ZpT41P+eEabl9e7TYLaQwHJGicVHayCK3jJKbGh6zwKS4BWwk2jf/IoNxGYRUJGY
+	tKeHCSIuKHFy5hOwGlEBeYn7t2awg9jCAvESq+6tZgcZJCKwh0ni+/efzCAJZoEqiR33b7BD
+	2OISt57MBxvEJmAk8WD5fFYQm1PAXuLQ9QYWiBp5ieats8HOlhB4ximxbM5qoAYOIMdF4uZe
+	dogPhCVeHd8CZctInJ7cwwJh50s82PqJGcKukdjZcxzKtpa4c+4XG8gYZgFNifW79CHCjhI/
+	r89hg5jOJ3HjrSDEBXwSk7ZNZ4YI80p0tAlBVKtJTO3phVt6bsU2pgmMSrOQAmUWkh9nIfll
+	FsLeBYwsqxjFU0uLc9NTi43zUsv1ihNzi0vz0vWS83M3MQLT5ul/x7/uYFzx6qPeIUYmDsZD
+	jBIczEoivK9PHU8X4k1JrKxKLcqPLyrNSS0+xCjNwaIkzrtof2u6kEB6YklqdmpqQWoRTJaJ
+	g1OqgSnpG2foPjvGUyUTO033uRqu8zfoi5uusfvR7TsPTM+vtmsN5RKbIvf4tmD3j4sOITrH
+	Lk0SiSksNfkhx35pqQjHm9jwx999lzzKE1PrP7O+2uqc1mEetd+Se0K1PjIeubgioWPT3e0X
+	npuUJLryvn8086Wx3IMZvleePJOdMWnx3okdN068XKioslbIrJjjdtu2jQfVOrOnuxxRsar5
+	tnpvLKPewl8xs+dmilztFf/Tn+H44XJNy/k3r5feP7A4dVnMsydn2oLePxDY9OAV8wnPP5pP
+	J5Qe4xc8/OiJ89IUt79PTWZUvvqms+XPs/Z71e8XndUIP65yepXguuCsO00cLF+W8LQrfbb0
+	/H1Vp7KmXomlOCPRUIu5qDgRACgaknMKBAAA
+X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFupileLIzCtJLcpLzFFi42I5/e/4Pd3THCfSDS63q1g8u/OV1WLr71ns
+	Fmv2nmOymH/kHKvFvUtbmCxe7G1ksWg+tp7N4uWse2wWH3vusVpc3jWHzWLb5xY2i7VH7rJb
+	XDzlanH33gkWi5eXe5gt2mbxW/zfs4Pd4t+1jSwWLfunsDgIe7y/0cru8eblSxaPwx1f2D3u
+	nZjG6rFpVSebx+Yl9R4ta48xefT/NfB4v+8qm0ffllWMHpear7N7fN4kF8ATpWdTlF9akqqQ
+	kV9cYqsUbWhhpGdoaaFnZGKpZ2hsHmtlZKqkb2eTkpqTWZZapG+XoJfxvK+VpeCcVMXhu/fY
+	GxiPinYxcnJICJhIvN59mrGLkYtDSGApo8SOs5fZIRIyEte6X7JA2MISf651sUEUvWaUuP74
+	GhtIglfATqJ98yswm0VARWLSnh4miLigxMmZT8CaRQXkJe7fmgE0lINDWCBeonGqNcgcEYE9
+	TBJ/p8wD62UWqJI4v/cKK8SCSYwSLVeWMUMkxCVuPZkPNpRNwEjiwfL5rCA2p4C9xKHrDSwg
+	Q5kF1CXWzxOCKJeXaN46m3kCo9AsJGfMQjJpFkLHLCQdCxhZVjGKpJYW56bnFhvpFSfmFpfm
+	pesl5+duYgQmim3Hfm7Zwbjy1Ue9Q4xMHIyHGCU4mJVEeF+fOp4uxJuSWFmVWpQfX1Sak1p8
+	iNEUGBQTmaVEk/OBqSqvJN7QzMDU0MTM0sDU0sxYSZyX7cr5NCGB9MSS1OzU1ILUIpg+Jg5O
+	qQYm/8TgDc/Y+kVnKxw0/Ve37wN//vmDD9o/V+5+M637mbvJswmMy1eWlQi8Lbj0f3VR0imj
+	61E5oV9mfJSN+FS0pOb37brWQ8mHGiveOomc/reu4WlZ69HKyGqTQ+t/7QxSi7804Wa3ypki
+	qbash2ZnZ3qUPpHcE2txIuiEut+a5aVfPa6wNocuZOzmCI+KPFoV3vvBxZDleK1o878NCUmP
+	D9lX9L57fvTPkiCp/3dfpMm8uzM3ReG08kurYyliTh4HJCZXljUu36914n//DHm/jf82BO1X
+	4Hybd68muWdniCN7s+im/4p/gsJDKza2d5+bc+eUy7zJdw/xFRiHh55cfIs3QLFULKD2Wlu9
+	sa6ZEktxRqKhFnNRcSIAeuKmp50DAAA=
+X-CMS-MailID: 20250305081819eucas1p1ad27dd6b7ef53e4ea95adfad46d9dca3
 X-Msg-Generator: CA
-X-RootMTR: 20250303145917eucas1p171f8fcccadddc035f5773f7026a281e3
+X-RootMTR: 20250303143634eucas1p269281f72bdc4d764edd54b9427f68787
 X-EPHeader: CA
 CMS-TYPE: 201P
-X-CMS-RootMailID: 20250303145917eucas1p171f8fcccadddc035f5773f7026a281e3
-References: <CGME20250303145917eucas1p171f8fcccadddc035f5773f7026a281e3@eucas1p1.samsung.com>
-	<20250303145901.446791-1-m.wilczynski@samsung.com>
+X-CMS-RootMailID: 20250303143634eucas1p269281f72bdc4d764edd54b9427f68787
+References: <CGME20250303143634eucas1p269281f72bdc4d764edd54b9427f68787@eucas1p2.samsung.com>
+	<20250303143629.400583-1-m.wilczynski@samsung.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250305_000413_981503_B046CFDC 
-X-CRM114-Status: GOOD (  17.39  )
+X-CRM114-CacheID: sfid-20250305_081824_754980_1558F687 
+X-CRM114-Status: GOOD (  20.18  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -133,86 +149,70 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
-
-On 3/3/25 15:58, Michal Wilczynski wrote:
-> This patch series introduces and documents power management (PM) support and
-> the AON firmware driver for the T-Head TH1520 SoC, as used on the LicheePi 4A
-> board. While part of a larger effort to enable the Imagination BXM-4-64 GPU
-> upstream, these patches can merge independently.
-> 
-> Bigger series cover letter:
-> https://lore.kernel.org/all/20250219140239.1378758-1-m.wilczynski@samsung.com/
-
-This series should be versioned as v6, to maintain continuity with the
-bigger patchset it is a subseries of. Please find below a changelog for
-the AON & power-domain:
-
-v6:
-- split the firmware & power-domain patches into a separate series
-
-v5:
-- changed the AON driver to be a set of library functions rather than a
-  standalone driver
-
-v4:
-- added workaround to disable AUDIO power domain to prevent firmware crashes
-
-v3:
- - consolidated device tree representation by merging aon and power-domain nodes
-   while maintaining separate drivers internally
- - power-domain driver is now instantiated from within the aon driver
- - fixed optional module dependencies in Kconfig
- - added kernel-doc comments for all exported functions
- - implemented th1520_aon_remove() to properly clean up mailbox channel
-   resources
-
-v2:
- - introduced a new firmware driver to manage power-related operations.
- - rewrote the power-domain driver to function alongside the firmware driver.
-   These nodes in the device tree lack direct address spaces, despite
-   representing HW blocks. Control is achieved via firmware protocol messages
-   transmitted through a mailbox to the E902 core.
- - added new dt-bindings for power and firmware nodes.
- - ran dtbs_check and dt_binding_check to ensure compliance.
-
-> 
-> Michal Wilczynski (5):
->   dt-bindings: firmware: thead,th1520: Add support for firmware node
->   firmware: thead: Add AON firmware protocol driver
->   dt-bindings: power: Add TH1520 SoC power domains
->   pmdomain: thead: Add power-domain driver for TH1520
->   riscv: Enable PM_GENERIC_DOMAINS for T-Head SoCs
-> 
->  .../bindings/firmware/thead,th1520-aon.yaml   |  53 ++++
->  MAINTAINERS                                   |   5 +
->  arch/riscv/Kconfig.socs                       |   1 +
->  drivers/firmware/Kconfig                      |   9 +
->  drivers/firmware/Makefile                     |   1 +
->  drivers/firmware/thead,th1520-aon.c           | 247 ++++++++++++++++++
->  drivers/pmdomain/Kconfig                      |   1 +
->  drivers/pmdomain/Makefile                     |   1 +
->  drivers/pmdomain/thead/Kconfig                |  12 +
->  drivers/pmdomain/thead/Makefile               |   2 +
->  drivers/pmdomain/thead/th1520-pm-domains.c    | 209 +++++++++++++++
->  .../dt-bindings/power/thead,th1520-power.h    |  19 ++
->  .../linux/firmware/thead/thead,th1520-aon.h   | 200 ++++++++++++++
->  13 files changed, 760 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/firmware/thead,th1520-aon.yaml
->  create mode 100644 drivers/firmware/thead,th1520-aon.c
->  create mode 100644 drivers/pmdomain/thead/Kconfig
->  create mode 100644 drivers/pmdomain/thead/Makefile
->  create mode 100644 drivers/pmdomain/thead/th1520-pm-domains.c
->  create mode 100644 include/dt-bindings/power/thead,th1520-power.h
->  create mode 100644 include/linux/firmware/thead/thead,th1520-aon.h
-> 
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+CgpPbiAzLzMvMjUgMTU6MzYsIE1pY2hhbCBXaWxjenluc2tpIHdyb3RlOgo+IFRoaXMgaXMgYSBz
+dWJzZXQgb2YgYSBsYXJnZXIgcGF0Y2ggc2VyaWVzIGVuYWJsaW5nIHRoZSBJbWFnaW5hdGlvbiBC
+WE0tNC02NCBHUFUKPiBvbiB0aGUgTGljaGVlUGkgNEEgYm9hcmQsIHdoaWNoIGlzIHBvd2VyZWQg
+YnkgdGhlIFQtSEVBRCBUSDE1MjAgU29DLiBXaGlsZSB0aGUKPiBmdWxsIHNlcmllcyBpbmNsdWRl
+cyBwb3dlci1kb21haW4sIHJlc2V0LCBhbmQgZmlybXdhcmUgY2hhbmdlcywgdGhpcyBwYXJ0Cj4g
+Zm9jdXNlcyBzb2xlbHkgb24gdGhlIGNsb2NrIHN1YnN5c3RlbSBuZWVkZWQgZm9yIHRoZSBHUFUg
+YW5kIG90aGVyIFZPICh2aWRlbwo+IG91dHB1dCkgYmxvY2tzLiBCeSBtZXJnaW5nIHRoZXNlIGNs
+b2NrIHBhdGNoZXMgaW5kZXBlbmRlbnRseSwgd2UgcHJlcGFyZSB0aGUKPiBncm91bmR3b3JrIGZv
+ciBmdXR1cmUgR1BVIGludGVncmF0aW9uIHZpYSB0aGUgYGRybS9pbWFnaW5hdGlvbmAgZHJpdmVy
+Lgo+IAo+IFRoZSBULUhFQUQgVEgxNTIwIFNvQyBmZWF0dXJlcyBtdWx0aXBsZSBjbG9jayBjb250
+cm9sbGVycy4gSW5pdGlhbGx5LCBvbmx5IHRoZQo+IEFQIGNsb2NrIGNvbnRyb2xsZXIgd2FzIHN1
+cHBvcnRlZCB1cHN0cmVhbS4gVGhlIHBhdGNoZXMgYmVsb3cgYWRkIHN1cHBvcnQgZm9yCj4gdGhl
+IFZPICh2aWRlbyBvdXRwdXQpIGNsb2NrIGNvbnRyb2xsZXIsIHdoaWNoIG1hbmFnZXMgR1BVLXJl
+bGF0ZWQgZ2F0ZXMsIEhETUksCj4gYW5kIG90aGVyIG11bHRpbWVkaWEgY2xvY2tzLiBBZGRpdGlv
+bmFsbHksIHRoZXkgaW50cm9kdWNlIGEgbWVjaGFuaXNtIHRvCj4gcHJvdmlkZSBuby1vcCBvcGVy
+YXRpb25zIGZvciB0aGUgR1BVJ3MgIm1lbSIgY2xvY2sgZ2F0ZSAoZG9jdW1lbnRlZCBhcwo+IOKA
+nFJlc2VydmVk4oCdIGluIHRoZSBoYXJkd2FyZSBtYW51YWwpIGFuZCBjb29yZGluYXRlIHRoZSBH
+UFUgQ0xLR0VOIHJlc2V0IGluIHRoZQo+IGNsb2NrIGRyaXZlci4KPiAKPiBCaWdnZXIgc2VyaWVz
+IGNvdmVyIGxldHRlcjoKPiAKPiBodHRwczovL2xvcmUua2VybmVsLm9yZy9hbGwvMjAyNTAyMTkx
+NDAyMzkuMTM3ODc1OC0xLW0ud2lsY3p5bnNraUBzYW1zdW5nLmNvbS8KClRoaXMgc2VyaWVzIHNo
+b3VsZCBiZSB2ZXJzaW9uZWQgYXMgdjYsIHRvIG1haW50YWluIGNvbnRpbnVpdHkgd2l0aCB0aGUK
+YmlnZ2VyIHBhdGNoc2V0IGl0IGlzIGEgc3Vic2VyaWVzIG9mLiBQbGVhc2UgZmluZCBiZWxvdyBh
+IGNoYW5nZWxvZyBmb3IKdGhlIGNsb2NrIHN1Yi1zZXJpZXM6Cgp2NjoKLSBzcXVhc2hlZCB0aGUg
+ImR0LWJpbmRpbmdzOiBjbG9jazogdGhlYWQ6IEFkZCBHUFUgY2xrZ2VuIHJlc2V0IHByb3BlcnR5
+IgogIHdpdGggdGhlICJkdC1iaW5kaW5nczogY2xvY2s6IHRoZWFkOiBBZGQgVEgxNTIwIFZPIGNs
+b2NrIGNvbnRyb2xsZXIiLiBBcwogIGEgcmVzdWx0LCBhbHNvIHJlbW92ZWQgdGhlIFJldmlld2Vk
+LWJ5IGZyb20gS3J6eXN6dG9mLCBzaW5jZSB0aGUgbmV3CiAgcmVzZXRzIHByb3BlcnR5IGhhcyBi
+ZWVuIGludHJvZHVjZWQsIHdoaWNoIGlzIG1hbmRhdG9yeSBpbiB0aGUgVk8KICBjYXNlCgp2NToK
+LSBpbnRyb2R1Y2VkIGEgbmV3IG1hY3JvIENDVV9HQVRFX0NMS19PUFMsIHdoaWNoIGFsbG93cyBw
+cm92aWRpbmcgY3VzdG9tIGNsa19vcHMuCiAgSW4gdGhlIGNhc2Ugb2YgdGhlICdNRU0nIGNsb2Nr
+LCBpdCBwcm92aWRlcyBlbXB0eSBjbGtfbm9wcy4gTGF0ZXIsIHRoaXMgY2xvY2sKICBpcyBwcm92
+aWRlZCB0byB0aGUgR1BVIG5vZGUsIHRoZXJlYnkgYXZvaWRpbmcgYW55IEFCSSBicmVha2FnZQot
+IHVzZWQgdGhlIENDVV9HQVRFX0NMS19PUFMgbWFjcm8gdG8gaW1wbGVtZW50IGEgd29ya2Fyb3Vu
+ZCBmb3IgZGUtYXNzZXJ0aW5nCiAgdGhlIGNsa2dlbiByZXNldCBvbmx5IGFmdGVyIGJvdGggY29y
+ZSBhbmQgc3lzIGNsb2NrcyBhcmUgZW5hYmxlZC4gVGhpcwogIHNlcXVlbmNlIGlzIHJlcXVpcmVk
+IHRvIHByb3Blcmx5IGluaXRpYWxpemUgdGhlIEdQVQoKdjQ6CiAtIGVuaGFuY2VkIGRvY3VtZW50
+YXRpb24gZm9yIG5ldyBWaWRlbyBPdXRwdXQgKFZPKSBjbG9jayBpbnB1dHMgaW4gZGV2aWNlIHRy
+ZWUKICAgYmluZGluZ3MKCnYzOgogLSByZXdvcmtlZCBkcml2ZXIgdG8gc3VwcG9ydCBtdWx0aXBs
+ZSBjbG9jayBjb250cm9sbGVycyB0aHJvdWdoIC5jb21wYXRpYmxlCiAgIGFuZCAuZGF0YSBpbnN0
+ZWFkIG9mIHVzaW5nIG11bHRpcGxlIGFkZHJlc3Mgc3BhY2VzIGluIGR0LWJpbmRpbmcuIFRoaXMg
+Y2hhbmdlCiAgIGFsbG93cyB0byByZS11c2UgdGhlIGRyaXZlciBjb2RlIGZvciBtdWx0aXBsZSBj
+bG9jayBjb250cm9sbGVycwoKdjI6CiAtIHJlbW92ZWQgQVBfU1VCU1lTIGNsb2NrIHJlZmFjdG9y
+aW5nIGNvbW1pdHMgKDEtNik6CiAtIGluc3RlYWQgb2YgcmVmYWN0b3JpbmcsIEkgb3B0ZWQgdG8g
+ZXh0ZW5kIHRoZSBjdXJyZW50IGRyaXZlciBhbmQgaXRzCiAgIGFzc29jaWF0ZWQgZGV2aWNlIHRy
+ZWUgbm9kZSB0byBpbmNsdWRlIHN1cHBvcnQgZm9yIGEgc2Vjb25kIGFkZHJlc3Mgc3BhY2UuCiAt
+IHJlc29sdmVkIGFsbCBjaGVja3BhdGNoIGlzc3VlcyB1c2luZyAtLXN0cmljdCwgZXhjZXB0IGZv
+ciB0aGUgY2FsbCB0bwogICBkZXZtX2Nsa19od19yZWdpc3Rlcl9nYXRlX3BhcmVudF9kYXRhKCku
+ICBUaGUgY3VycmVudCBpbXBsZW1lbnRhdGlvbiByZW1haW5zCiAgIHByZWZlcmFibGUgaW4gdGhp
+cyBjb250ZXh0LCBhbmQgY2xhbmctZm9ybWF0IGFsaWducyB3aXRoIHRoaXMgY2hvaWNlCgo+IAo+
+IE1pY2hhbCBXaWxjenluc2tpICg0KToKPiAgIGR0LWJpbmRpbmdzOiBjbG9jazogdGhlYWQ6IEFk
+ZCBUSDE1MjAgVk8gY2xvY2sgY29udHJvbGxlcgo+ICAgY2xrOiB0aGVhZDogQWRkIGNsb2NrIHN1
+cHBvcnQgZm9yIFZPIHN1YnN5c3RlbSBpbiBULUhlYWQgVEgxNTIwIFNvQwo+ICAgY2xrOiB0aGVh
+ZDogQWRkIHN1cHBvcnQgZm9yIGN1c3RvbSBvcHMgaW4gQ0NVX0dBVEVfQ0xLX09QUyBtYWNybwo+
+ICAgY2xrOiB0aGVhZDogQWRkIEdQVSBjbG9jayBnYXRlIGNvbnRyb2wgd2l0aCBDTEtHRU4gcmVz
+ZXQgc3VwcG9ydAo+IAo+ICAuLi4vYmluZGluZ3MvY2xvY2svdGhlYWQsdGgxNTIwLWNsay1hcC55
+YW1sICAgfCAgMzMgKy0KPiAgZHJpdmVycy9jbGsvdGhlYWQvY2xrLXRoMTUyMC1hcC5jICAgICAg
+ICAgICAgIHwgMjk4ICsrKysrKysrKysrKysrKystLQo+ICAuLi4vZHQtYmluZGluZ3MvY2xvY2sv
+dGhlYWQsdGgxNTIwLWNsay1hcC5oICAgfCAgMzQgKysKPiAgMyBmaWxlcyBjaGFuZ2VkLCAzMzQg
+aW5zZXJ0aW9ucygrKSwgMzEgZGVsZXRpb25zKC0pCj4gCgpfX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgt
+cmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWls
+bWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
