@@ -4,89 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3DC95C19F32
-	for <linux-riscv@archiver.kernel.org>; Wed,  5 Mar 2025 20:54:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B018FC19F32
+	for <linux-riscv@archiver.kernel.org>; Wed,  5 Mar 2025 22:10:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=AivHC8QO6xOtzfibmEgUSlfqu1chqisd4sWWV1s8GYI=; b=f/Ea1m4rEAw/P/
-	zfscQd854uChEX26jdMIGTBC2XsP+q51IGT+2oos5pPhopel+XaDAN0nEgcm8aMNXRk6tzrNdTAXd
-	dl8zEYwKvxRv/aWaEmVdHtkf2EEK/HcNZAuviJjBEPu/iDA4hjGakB9KQ4mXF42k9S8wlRAYH7bjt
-	1bKNxnMNxDrhQWS9bxrQSDYx1pm9PtVcFNVc5exrfyrZuwooVV0+aRnSiLqd0td5ya+BXC2JkuSN2
-	RYPT17tRKppvg6Thn0yeg9kx2VDYl2S/7Z4vq4Hni5Q9qYftimb6gWU/maC8heSdxi6UyaLL6l6l+
-	7eyWVJ4XFipdJuSllgNA==;
+	List-Owner; bh=GoOTWy3FM2zxRnfYE5zOmj3FyncIigr/UdH/qyIzYCY=; b=ko2JuvEJrz5cOA
+	TAFssf/g9kqk5BDFJk+suYQc4skfMVqRupS1kb8FLvhe+1VyyduGlvd1E/N4u9wzhdUcXwSRrXD5Z
+	NEEWLUYHmLfrCYpO5Yo06z9G1em/5mLwE/fXdU6tgJR6MSqy0/61G+DpG7LSBTGUXKddQI2ymlpqI
+	Qz7roA5hych/PHVdx/JxjLQs+kvNm6LUl0160B3QW5D+HeZtM8IqLyn07Rqx957tKoQZCSf8HxN7e
+	fK/kvzV2OgXxJFE2BlnQS5JmqEbXVoMdEAGQ9iXMPkapR7yvc5KrOG9WgzuGSZLKHvncVVWxxD6wH
+	pJhh+srtN7eeSWTIGs6g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpvl8-00000009HRj-2EmC;
-	Wed, 05 Mar 2025 20:54:30 +0000
-Received: from mgamail.intel.com ([198.175.65.18])
+	id 1tpwwt-00000009Rpp-3ZXA;
+	Wed, 05 Mar 2025 22:10:43 +0000
+Received: from mail-pl1-x632.google.com ([2607:f8b0:4864:20::632])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpvRM-00000009EVy-3BNR
+	id 1tpwc6-00000009PMH-1NKg
 	for linux-riscv@lists.infradead.org;
-	Wed, 05 Mar 2025 20:34:06 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1741206845; x=1772742845;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=pnPnl0Y7Hh2+wMBdn/c6Xp+d9j2XPjWTAzEbuMwtIyQ=;
-  b=igia4iXSqZGIbtTSOY0NkIClzEnwgQj7JFwUAFNJLheINK3BoJpsOk3e
-   xeUsF1d/UH8I+1fW5GuTZnywDkSkKQj/09Q9Jd57GYSg1CRGzgDkTAiC3
-   l7JovSu5jzFTp7O1Vf9Kt9x35Gn7VFB3i1GUxLEiDeJ6rQ+YxdrWhGllU
-   IWzK6ROOWCJImTuDwLjOVQd0kF1nVq67ClI+Q7SUNfDMFeBb1ncrP1C/g
-   vOdXdOHcpEVkaY4QWWFjdf9Jch6aw7YVOJ73zrdMHaQwceuwrgY7u+Lf0
-   1WJpGurzC4j8ZeAuRDOutfjQxhKwQFtAiaqLCxVQvt/zIhzR17444pgdj
-   w==;
-X-CSE-ConnectionGUID: lh4tAI7XSK2LFJ7WRCjplQ==
-X-CSE-MsgGUID: a7q4U4W7Q76pA6pH8tlwxQ==
-X-IronPort-AV: E=McAfee;i="6700,10204,11363"; a="42390891"
-X-IronPort-AV: E=Sophos;i="6.14,224,1736841600"; 
-   d="scan'208";a="42390891"
-Received: from orviesa010.jf.intel.com ([10.64.159.150])
-  by orvoesa110.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 05 Mar 2025 12:34:04 -0800
-X-CSE-ConnectionGUID: UwSLidiaRdeam5BscguJxg==
-X-CSE-MsgGUID: 6jagxbcLR+29I2UWtemHFw==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.12,224,1728975600"; 
-   d="scan'208";a="118723547"
-Received: from lkp-server02.sh.intel.com (HELO 76cde6cc1f07) ([10.239.97.151])
-  by orviesa010.jf.intel.com with ESMTP; 05 Mar 2025 12:33:59 -0800
-Received: from kbuild by 76cde6cc1f07 with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1tpvRE-000MB4-2T;
-	Wed, 05 Mar 2025 20:33:56 +0000
-Date: Thu, 6 Mar 2025 04:33:36 +0800
-From: kernel test robot <lkp@intel.com>
-To: Alexander Sverdlin <alexander.sverdlin@gmail.com>,
-	devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
-	linux-rtc@vger.kernel.org
-Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
-	Alexander Sverdlin <alexander.sverdlin@gmail.com>,
-	Inochi Amaoto <inochiama@gmail.com>, dlan@gentoo.org,
-	linux-kernel@vger.kernel.org,
-	Jingbao Qiu <qiujingbao.dlmu@gmail.com>, Lee Jones <lee@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Chen Wang <unicorn_wang@outlook.com>,
+	Wed, 05 Mar 2025 21:49:16 +0000
+Received: by mail-pl1-x632.google.com with SMTP id d9443c01a7336-223594b3c6dso129682355ad.2
+        for <linux-riscv@lists.infradead.org>; Wed, 05 Mar 2025 13:49:13 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1741211353; x=1741816153; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=kjoSc6E8cjM2Yo8eK5HFN8pI09NM2S8qt1nM/UlA0TU=;
+        b=MY+mMj9/iMLj9fAOPSYXtdS27t06kCPtYqBOjaf7J+/NThDW6kDPPNbDFC13866sTg
+         C5+ldhIxKnqVcTdMK9Vvd+vTz3/m89KBm+Zdy69/eF6pPAXXJATD8U2lbJY5KKFFckJB
+         6knjXvp3xgf2O+muJ7qHfy8WkibknyQeJAMVJI9Dg7s5q3/JxIZsPnuY2lf/hEy6E53x
+         Wh2LzbcqeWi00zcS8DvghrmANd+nBe1Hn+BxMpIsF82832C5EaCij4Dt3HCozmiY7v+t
+         qZDKDAwlPff6ZFC9isa9AFWwr2xaNkPHnuPIR4Zm8IkALdr8TYJQqzqb+smtW+oukwVh
+         KNTA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1741211353; x=1741816153;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=kjoSc6E8cjM2Yo8eK5HFN8pI09NM2S8qt1nM/UlA0TU=;
+        b=Iiij+liVVPXN+EFPLKGoFKm0yLSqnNv+8JEtQ0EfkjB9lix9jB3Jh35e9A5oRDoZpM
+         dsklnnciJ4C/5XBq5Gzgg6JCEMpwVY0U38/8i3/tme+LI02Pq3Nkjdji8o1o1WqmXpUz
+         YjJpKM8Df/uDxrLd1QbNbTiLOnAqrKlax2x4ofQb76b9cNrDm/ov4xYO5eAbWy2ZJNml
+         NK4TJ5kmzkESuNJWI7zHJWOmW7ClZC3vWlrUL/czy61JGNA6UYplZ4evnX2eW5f8BxFc
+         5LqCdAL6mc7tF7jYqfgdFwgoXxzw8HMXzjw3qngTau3vwyKjqfE1PHw+o8Wcv1KxyXaD
+         /wmg==
+X-Forwarded-Encrypted: i=1; AJvYcCW10bYao4CMgWw+6pL5oB1NZCmtuONC7t5r5NIwmMvc8MyXKAbbehDVH7Y+uYv1wdaW+W1aQLQgc8oo6g==@lists.infradead.org
+X-Gm-Message-State: AOJu0YzgU3yTO7DLpQfPMgs9ScuEf54PQqyIhC6+hdTsUWTtMakrBy6s
+	5wbGlm74vYws4Ks+CIr/37Qz8/Dp1lkGbx/4pkjWykJGu4dslb7ytWxfGK2KqNY=
+X-Gm-Gg: ASbGnctQY13xhrvuCVjEvXUNjmiekpzUDT1uuXbTauoOlRxAk8CSewGcGtuPpfQm9vN
+	daz5xKht1PWlkqnHON+8skZf4qN2nJqf4w40ns7T0sDGLDVpkSCc7uDjBc7QwI3duYFfNf34OtS
+	xT9wf57yQI+ktasxquduCu982muPedeYsQddvnsbygYJsNIzZ2GVQXZpC79oLy4JvoNe0rVW/n2
+	oaMpcSaZSrQZ49/Nz3LttJSAYIoVkgl9XrXENv6uWA0UIrj6U2Bj5XE2UI6VbaDSYcRcfB/VJgZ
+	yJ09GRKeCAXrLp+wOf4Lc2gqa/8omxJ7fHuY/jOZ
+X-Google-Smtp-Source: AGHT+IGiq/MXIy1PesAIjd/q+Uj1GRVM25G7HYgqYDLVTQNdRiqv0JEG2/8H91arLf8HKxgXjRaCBg==
+X-Received: by 2002:a17:902:f693:b0:220:ca08:8986 with SMTP id d9443c01a7336-223f1cdae3dmr83408555ad.22.1741211353117;
+        Wed, 05 Mar 2025 13:49:13 -0800 (PST)
+Received: from ghost ([2601:647:6700:64d0:9b3c:3246:a388:fe44])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-223501fa8fdsm117591535ad.76.2025.03.05.13.49.11
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 05 Mar 2025 13:49:12 -0800 (PST)
+Date: Wed, 5 Mar 2025 13:49:09 -0800
+From: Charlie Jenkins <charlie@rivosinc.com>
+To: Ignacio Encinas <ignacio@iencinas.com>
+Cc: linux-kernel-mentees@lists.linux.dev, skhan@linuxfoundation.org,
 	Paul Walmsley <paul.walmsley@sifive.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Alexandre Belloni <alexandre.belloni@bootlin.com>,
-	sophgo@lists.linux.dev
-Subject: Re: [PATCH v12 2/3] mfd: sophgo: cv1800: rtcsys: New driver
- (handling RTC only)
-Message-ID: <202503060435.1c1akI1Q-lkp@intel.com>
-References: <20250302195205.3183174-3-alexander.sverdlin@gmail.com>
+	Alexandre Ghiti <alex@ghiti.fr>, linux-kselftest@vger.kernel.org,
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] selftests: riscv: fix v_exec_initval_nolibc.c
+Message-ID: <Z8jG1ViOUbw79cEN@ghost>
+References: <20250305-fix-v_exec_initval_nolibc-v1-1-b87b60e43002@iencinas.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20250302195205.3183174-3-alexander.sverdlin@gmail.com>
+In-Reply-To: <20250305-fix-v_exec_initval_nolibc-v1-1-b87b60e43002@iencinas.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250305_123404_840905_734A9112 
-X-CRM114-Status: GOOD (  10.68  )
+X-CRM114-CacheID: sfid-20250305_134914_627990_4E80F5F5 
+X-CRM114-Status: GOOD (  24.92  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,47 +100,69 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Alexander,
+On Wed, Mar 05, 2025 at 05:39:28PM +0100, Ignacio Encinas wrote:
+> Vector registers are zero initialized by the kernel. Stop accepting
+> "all ones" as a clean value.
+> 
+> Note that this was not working as expected given that
+> 	value == 0xff
+> can be assumed to be always false by the compiler as value's range is
+> [-128, 127]. Both GCC (-Wtype-limits) and clang
+> (-Wtautological-constant-out-of-range-compare) warn about this.
 
-kernel test robot noticed the following build warnings:
+This check was included because the "dirty" value is an implementation
+detail that I believe is not strongly defined in the ABI. Since linux
+does always set this value to zero (currently) we can safely remove this
+check. 
 
-[auto build test WARNING on lee-mfd/for-mfd-next]
-[also build test WARNING on abelloni/rtc-next linus/master lee-mfd/for-mfd-fixes v6.14-rc5 next-20250305]
-[If your patch is applied to the wrong git tree, kindly drop us a note.
-And when submitting patch, we suggest to use '--base' as documented in
-https://git-scm.com/docs/git-format-patch#_base_tree_information]
+Reviewed-by: Charlie Jenkins <charlie@rivosinc.com>
+Tested-by: Charlie Jenkins <charlie@rivosinc.com>
 
-url:    https://github.com/intel-lab-lkp/linux/commits/Alexander-Sverdlin/dt-bindings-mfd-sophgo-add-RTC-support-for-Sophgo-CV1800-series-SoC/20250303-035433
-base:   https://git.kernel.org/pub/scm/linux/kernel/git/lee/mfd.git for-mfd-next
-patch link:    https://lore.kernel.org/r/20250302195205.3183174-3-alexander.sverdlin%40gmail.com
-patch subject: [PATCH v12 2/3] mfd: sophgo: cv1800: rtcsys: New driver (handling RTC only)
-config: hexagon-allyesconfig (https://download.01.org/0day-ci/archive/20250306/202503060435.1c1akI1Q-lkp@intel.com/config)
-compiler: clang version 18.1.8 (https://github.com/llvm/llvm-project 3b5b5c1ec4a3095ab096dd780e84d7ab81f3d7ff)
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250306/202503060435.1c1akI1Q-lkp@intel.com/reproduce)
-
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202503060435.1c1akI1Q-lkp@intel.com/
-
-All warnings (new ones prefixed by >>):
-
->> drivers/mfd/cv1800-rtcsys.c:30:30: warning: unused variable 'cv1800_rtcsys_rtc_subdev' [-Wunused-const-variable]
-      30 | static const struct mfd_cell cv1800_rtcsys_rtc_subdev =
-         |                              ^~~~~~~~~~~~~~~~~~~~~~~~
-   1 warning generated.
-
-
-vim +/cv1800_rtcsys_rtc_subdev +30 drivers/mfd/cv1800-rtcsys.c
-
-    29	
-  > 30	static const struct mfd_cell cv1800_rtcsys_rtc_subdev =
-    31		MFD_CELL_NAME("cv1800-rtc");
-    32	
-
--- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+> 
+> Signed-off-by: Ignacio Encinas <ignacio@iencinas.com>
+> ---
+> I tried looking why "all ones" was previously deemed a "clean" value but
+> couldn't find any information. It looks like the kernel always 
+> zero-initializes the vector registers.
+> 
+> If "all ones" is still acceptable for any reason, my intention is to 
+> spin a v2 changing the types of `value` and `prev_value` to unsigned 
+> char.
+> ---
+>  tools/testing/selftests/riscv/vector/v_exec_initval_nolibc.c | 4 ++--
+>  1 file changed, 2 insertions(+), 2 deletions(-)
+> 
+> diff --git a/tools/testing/selftests/riscv/vector/v_exec_initval_nolibc.c b/tools/testing/selftests/riscv/vector/v_exec_initval_nolibc.c
+> index 35c0812e32de0c82a54f84bd52c4272507121e35..b712c4d258a6cb045aa96de4a75299714866f5e6 100644
+> --- a/tools/testing/selftests/riscv/vector/v_exec_initval_nolibc.c
+> +++ b/tools/testing/selftests/riscv/vector/v_exec_initval_nolibc.c
+> @@ -6,7 +6,7 @@
+>   * the values. To further ensure consistency, this file is compiled without
+>   * libc and without auto-vectorization.
+>   *
+> - * To be "clean" all values must be either all ones or all zeroes.
+> + * To be "clean" all values must be all zeroes.
+>   */
+>  
+>  #define __stringify_1(x...)	#x
+> @@ -46,7 +46,7 @@ int main(int argc, char **argv)
+>  			: "=r" (value));					\
+>  		if (first) {							\
+>  			first = 0;						\
+> -		} else if (value != prev_value || !(value == 0x00 || value == 0xff)) { \
+> +		} else if (value != prev_value || value != 0x00) {              \
+>  			printf("Register " __stringify(register)		\
+>  				" values not clean! value: %u\n", value);	\
+>  			exit(-1);						\
+> 
+> ---
+> base-commit: 03d38806a902b36bf364cae8de6f1183c0a35a67
+> change-id: 20250301-fix-v_exec_initval_nolibc-498d976c372d
+> 
+> Best regards,
+> -- 
+> Ignacio Encinas <ignacio@iencinas.com>
+> 
 
 _______________________________________________
 linux-riscv mailing list
